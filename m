@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBGNR5X5QKGQEPN5RNMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBFVT5X5QKGQEVAK6PJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79FDF283D50
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 19:32:10 +0200 (CEST)
-Received: by mail-vs1-xe3d.google.com with SMTP id s201sf3144067vsc.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 10:32:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1601919129; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 323A5283D5D
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Oct 2020 19:36:24 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id n24sf6177222pgl.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Oct 2020 10:36:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1601919383; cv=pass;
         d=google.com; s=arc-20160816;
-        b=d3xbyTrAERKjwbToIZqpuhcWLfK0rGqpsSyLtbwY2dbshVDcpSg6JJ3O9fdVblhi4A
-         IeayTsU0epmLp1F1iqbu8SnrWBIDQShXGcsbkPsRZWPYganUiFaIXyr/C4QxvjrA4CvU
-         kCAzKHJcIHsM99D2ruVRSob8hMbJofY9w/sUf/4tJMem3osEu1/0oMUrjnJZr/rnH3OJ
-         TDI/cgvyRyteeHn2WVnotZubvKH4fUXsXvtA6r7sYQAdRfpa7SklcGUkxgr298/tVZXl
-         +7lbuCPbVR6tLsAZyuZJz1w7YeqUxGvcjwnSF8bdca71MjvcCzLYEwo4Zs5mMTqaTYM+
-         hHkg==
+        b=cBaG2IWQLeQoSmERkRQcQ+JzWOPoTXWm85lxv3oif8wVmN9bM65j6WB7UA5RDoQpK8
+         M/XJh5yP6rurLD3lrGdCrNB2J5Ka/9KN3zi0yC2TPihK7x7Cnbv7pPU4kIe5LBmjMQLF
+         gFNl/CCmf8mdCUCXYqH1ISbbBOkVFre+IMRebkWFpf5jyASsLqYceMzJK9jGNaQiUV5p
+         TxXQoJXhOZ3gM1ZtI1rvfpoSQ6gTUtvpNZmR5dvMH7UkSkNJV2CCFmy2miTDCTgpNPKu
+         z0dmyEmCg3lI5cR5sn0I9N7GjCkJ+PHjqfsGPvhrLbN9siFL8OHKnoWM6O3Ke8iqJuMp
+         lgZg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=RocLul9bu+/k91CMaP7BeWOjbImajMiZp+1fen6Gho0=;
-        b=WJyeTs13ggfRIQinzdsrplbFs3GE2xw2u0yz0T+qq+TGGSzF0B1e9ZN5cEhvtuNs6H
-         wKw4qOZMOSdAgOwBhZcAW/m2CTqLGgRDnHn7WwTa+r4nujeQh1+4KehPLspmzXQP/Etb
-         GPa66A82U594fm/OSy3vkox06fNevNv/0DRZYzcuHtEejBSLXEH/gy4iQaluumeYz28x
-         +NPnp8V+6aewOJfGKYXm3k1OfFAW2RFwf4H2/vA+eFcV9WCfmG3Mot2tBOdvzAotDpOn
-         PsB0JIQGwDD8BsYBb+rIkMhrcYikBJxJALmM/3pSkTPbpvQxzhR8v7cRhXfgeA92IThq
-         o+9w==
+        bh=93b0NVCJMA4vvzLPPiMFwD0RtfU2HNkI0s01vyxiw1M=;
+        b=b8ywigz9niaUPHyBoL6Vb2PWpzFHvwJwDW7peQT5TH9TrReS+VbO1l4Z5TNGLfTVYr
+         zq+XY6rKexshbdC/VMwNKhZR3x7uxZcdHTi6J+QGHkcL6yDeE52Q+3PLTEgS+0jNNgC4
+         H5DIiLjRuzacbqbeKksy5IrSiHwkU63Q7yV+cjsxg57gOo1OC62RVUOYBOr1bbjMJefx
+         8sgW26v2SVBlkPgOTnhdzdo1VByRQXN/r+ql7GzryOKe+9mGToplEMP2VK7tLQVtsoJ/
+         PMJ7rtIrhe2lQ2j2p5HGK+nFlg8JuRzqNruMepaHAFfxP1wd3nQ4klz83wFsZrEHlZam
+         Qnug==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=t3bjIhsR;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=GBwOGDWD;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RocLul9bu+/k91CMaP7BeWOjbImajMiZp+1fen6Gho0=;
-        b=TVjrFX5V2Dr1fmJo161DYHqJRxDaPPDWy3Dcfyx9m08fSB3hHN1ETrtaaFzf7dC+hO
-         XwpWnzG3x3iyDxfhz9Si2jL2z8Eo2e9C3D6JS9pn2BGSe9nyaYVeM7wIRpuBOvOSZvKy
-         zNmnIcwLkei6+LCID/pFDEX5a0V17utOtGz3bEsIXul5aPz9PJUwTbxn7cJ8UogAORDu
-         4eYCpHo9wVeBUU2SPzBZtK415T8GTUahjnp7mdWXbQtCwv9NF7XL5hsmXCEUGDEzCVLO
-         TeyYKQ4yUSkbRzxCBw+/KFiC2cMl65uxcKFoavYCGKrzSqk+8POTHxJ1ykhkGlHS/hlJ
-         DdpQ==
+        bh=93b0NVCJMA4vvzLPPiMFwD0RtfU2HNkI0s01vyxiw1M=;
+        b=isIem4tvQUqD+jOSvCucRIvgzoaUzV7N5K5kbFM0TDZVe60xbFt6h1HZ01E/+Mhvpt
+         sXJoHav78tfFmdc+ivl+yO0Z9cyLuGwi9Jy2T2LSlj2yV94qjnBDIyw3bCERFgDonErQ
+         hZ9bNuEuDeVdJ1WzSHFZRqSoVJRc4nN0sqxEW/HTMOOSxwrPo3bTDwlk8l3RTyGNPJux
+         tvBs5F5mZTVRebYUcwbB5yqJWBom3iiaQhLpooVbvAOF5e3CMgGOP7M1y3OgD5fK1Hc7
+         mtnE2Jang4dC0rkl9B3JRjIvorLABuSVnxhhXHoouA0uHCGpMMsg1dFpHoJqu0Wk3Ang
+         Nkug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,75 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RocLul9bu+/k91CMaP7BeWOjbImajMiZp+1fen6Gho0=;
-        b=ebyK3UnwVzzMAsBoVel1lvuuT2ZgTPM/jCytxLPX0cvOx43cke/4V4IiSV3Mbvq2hp
-         zpBaFPqaSo+mhTcGEqqiYx3AGbqodAcRc+emz3jTClQQPf8tSFuv2juHJRPEIRJuNQwP
-         +eDUJrCfXSdgtp1ozr32pzF1VYJjdq+a0qTTxoIPkSR4TA+r4EG+04bJFqBG/0Ymc+WX
-         2mZgBNP/Y95ZMxj0KWzxRj8NiHg19MBtwUgr6Yjjq21EieQWX3+Lqokti6VJHcsXaz0y
-         zGvy/4+AR43SYcb0MtLWGI0ep4rGm52O2XA9oV8fDqmooU2oFX+vYrmnyZeXNLmOUcdO
-         aNng==
-X-Gm-Message-State: AOAM531dOz/RXoZfwdboOCGIxQ5gj1oD4ZY+9rSGZFcbvZEjb2cVn06x
-	86dtYq8WfbpHtqttMJs4txk=
-X-Google-Smtp-Source: ABdhPJxFPvT8srgHahdm8VG0NWXfkdJNAbyA9aPq9GYsucwuLF+OP5bHdNKFHZ6AMTrnzgmHLyB3OQ==
-X-Received: by 2002:a9f:301e:: with SMTP id h30mr693682uab.114.1601919129426;
-        Mon, 05 Oct 2020 10:32:09 -0700 (PDT)
+        bh=93b0NVCJMA4vvzLPPiMFwD0RtfU2HNkI0s01vyxiw1M=;
+        b=cuoOoleLB8+xnz+1wXxe7vFWkdsJXkoxm1jZYfG05YaCwPxvmmFYUoXiVTQ7GJUPpe
+         lEndVncoMAtnvO8z/zemn9PvncdceSZBhx2Cnvi4tcLR6e+SSvLVSoq9agay2BCaUznB
+         3h/aEvwyEnCXt3mgnI6/2c8qAMQ3WLcPIOMuaF8KZJ8kL4WOA5apj3H1wfatth22bDK/
+         UdFN4ZCVB1H42t1bV6D+Map/OmCTFCPp43cKgeFEFzO2zdJp7LlKEp8w2RTmXq4/TkuM
+         thdcWeD8JnZ5dc1DGA6j/UjRlg5AjKxZ3ICj+7nvWNFuXR4ZqBQVt42Pl7zaPDPmdjZu
+         Hp8A==
+X-Gm-Message-State: AOAM533fVuMTeTAYVjmtbPAFQeMUsrU+mjqjLGky0JzoyeKIJW0HQr7V
+	SQoKdLpcPutjR0CI/iQbCP0=
+X-Google-Smtp-Source: ABdhPJzwsL0NKD67S4NHNGMyqSgzamNX6vTGS8p5SvTrQKeaf14+s9NfcjugpwHkLLtG7AOG2tJrTw==
+X-Received: by 2002:a17:90a:c214:: with SMTP id e20mr517953pjt.3.1601919382885;
+        Mon, 05 Oct 2020 10:36:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:68d8:: with SMTP id d207ls1112259vsc.7.gmail; Mon, 05
- Oct 2020 10:32:08 -0700 (PDT)
-X-Received: by 2002:a67:ba13:: with SMTP id l19mr872131vsn.30.1601919128824;
-        Mon, 05 Oct 2020 10:32:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1601919128; cv=none;
+Received: by 2002:aa7:96cd:: with SMTP id h13ls4703512pfq.0.gmail; Mon, 05 Oct
+ 2020 10:36:22 -0700 (PDT)
+X-Received: by 2002:aa7:83d9:0:b029:138:b217:f347 with SMTP id j25-20020aa783d90000b0290138b217f347mr680738pfn.0.1601919382328;
+        Mon, 05 Oct 2020 10:36:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1601919382; cv=none;
         d=google.com; s=arc-20160816;
-        b=PkbYRJxjERozmoP3A03ADZ2GTxZ1HvyABkgMbPjzfNVKzCG1e0NgVBwVoNloJQ7Mub
-         SjNY3RGXebF4v9cRD/0gbp0mfw/ghWqxPZ+JeggiZmF4WLaQoF4UF/oO5eIID0nUIWQ0
-         vKpR7MokwPLYPwHKUF/Hk+IOlBBvHRhBZDbEhJ/qIai7zmZNJKG1qwpQDoYPUFHmjl7O
-         S78JlRj0fjXIMkMaXsxgkzaKHfqyxRC1eriVkf8t5SwlO68sH3XqMewy8Y7gzsSYDWoI
-         CeN+ueWhlUqI5DmKiuf6dMz27Vo68fLlX2hoW5e1MEObUNbxwV5I6RuilYHGFQiYM5nG
-         7Myw==
+        b=v8648P05Ut5oDH50efz1+q46fC3JruFrjD5LPjNRUGMqcTrn2FTR5/MA2PwefK9xb0
+         PHYoqcy6LJVfAwpohSjHSGKU5llGESB1tdYhNIr9mHTyKWx5/0ngA+xIzNyMbLjmaw5x
+         MsK3jMA72Ncwkr0+uyI1IQTBjRgLhh27u+fJgrtFpK9GUqa4qrH8ao1CYvHHizx8bd7u
+         rV+IeZf8ZAoZ6PVM/cmDZkiMyhG/0RJSbspxph+FNM+//9oySVObKR7+dj1K6bNYe+Bp
+         L6ph0P/YQd6YaxviEX0//8F1uNt3h7/U+hZ0luFLW+zuW75tkiM+grojYhFW8dexQfAN
+         l9eA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Htxoj4DaPCPw1cEp7kynonjuidcBDrm2IFv1RoI9pXE=;
-        b=VeT1BJi/sUETVPkonl9kKllGJyArt1Uz7ZJeUCh8JLusI2+ZsPChLWfi6JLZ3CILfD
-         p9udSccZRSbBdmli8RSu0VIsGCehAjEt0wr5UGcuMkN19WKHJ8U86E3Aqmc3QfVn6iPW
-         8UrJMxLMixPOXjCIDl8SL4gU7aZhCxSb40aeMy4WHuyTPww5ZzioSnbo4fPUl7fXfA3t
-         72xQClZg3u53goZthWVgLFiPtYWnMjqQUCIiD3od28PCrGC/4eMoltKJSufaM2MIibus
-         mMT5h2BnvrqB7hOgk4UG8sorO9YjRk+sX3T6FpvFJicCtq0ZHZ4BLjV2v9XyTMGjLmEq
-         KobA==
+        bh=tGneaUPSfmwmZclVabdMQtlpK5P/Q67PdE+cZq4zgcM=;
+        b=DvapJCZtfPi6UEt6L+QJSrdH+jmrZzLTqoOIbrB4OTckQaXQqDAP7XrS0SF0ERM1r+
+         RwWHvIBvdqfWThYBpKUTCpcUmvlMzsfsZZJF9RHtu8hVuzSrLwWO3lb/CRzOC3SnyM4C
+         E0Nq/XhmO2TFkdDgwcd4bxa5n6sH0JSEYPwueJm51iFoRvwKsJdgl/iWhno5ewcoXlz1
+         zUxH+V2L3htxgdBOVwluxzx+Bpud6cxXhyaLlWinMDjbS0zPxvSwpLwaKBiZv9tRq5IS
+         fZlq1ViSdOFkXzO0WXseL6serFJ+jX1kfay/tcDTvYl28a4D6y7q9RIvVFQ9GAYutgPF
+         tx/g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=t3bjIhsR;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=GBwOGDWD;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1041.google.com (mail-pj1-x1041.google.com. [2607:f8b0:4864:20::1041])
-        by gmr-mx.google.com with ESMTPS id t24si45193vsn.1.2020.10.05.10.32.08
+Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
+        by gmr-mx.google.com with ESMTPS id w15si82514pfu.6.2020.10.05.10.36.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 Oct 2020 10:32:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041 as permitted sender) client-ip=2607:f8b0:4864:20::1041;
-Received: by mail-pj1-x1041.google.com with SMTP id t7so182933pjd.3
-        for <clang-built-linux@googlegroups.com>; Mon, 05 Oct 2020 10:32:08 -0700 (PDT)
-X-Received: by 2002:a17:90a:3b48:: with SMTP id t8mr523485pjf.32.1601919127643;
- Mon, 05 Oct 2020 10:32:07 -0700 (PDT)
+        Mon, 05 Oct 2020 10:36:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
+Received: by mail-pg1-x543.google.com with SMTP id u24so6454316pgi.1
+        for <clang-built-linux@googlegroups.com>; Mon, 05 Oct 2020 10:36:22 -0700 (PDT)
+X-Received: by 2002:a65:6858:: with SMTP id q24mr596445pgt.10.1601919381716;
+ Mon, 05 Oct 2020 10:36:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <20201001011232.4050282-1-andrew@lunn.ch> <20201001011232.4050282-2-andrew@lunn.ch>
- <CAKwvOdnVC8F1=QT03W5Zh9pJdTxxNfRcqXeob5_b4CXycvG1+g@mail.gmail.com> <20201002014411.GG4067422@lunn.ch>
-In-Reply-To: <20201002014411.GG4067422@lunn.ch>
+References: <20201005025720.2599682-1-keescook@chromium.org>
+In-Reply-To: <20201005025720.2599682-1-keescook@chromium.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 5 Oct 2020 10:31:57 -0700
-Message-ID: <CAKwvOdmdfwWsRtJHtJ16B0RMyoxUi1587OKnyunQd5gfwmnGsA@mail.gmail.com>
-Subject: Re: [PATCH net-next v2 1/2] Makefile.extrawarn: Add symbol for W=1
- warnings for today
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev <netdev@vger.kernel.org>, David Miller <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Michal Marek <michal.lkml@markovi.net>, Rohit Maheshwari <rohitm@chelsio.com>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 5 Oct 2020 10:36:11 -0700
+Message-ID: <CAKwvOdnVJW0wDuMvgfKUE248gbDTT1CYmDY=hczaFNQ_39OfjA@mail.gmail.com>
+Subject: Re: [PATCH v2] vmlinux.lds.h: Keep .ctors.* with .ctors
+To: Kees Cook <keescook@chromium.org>
+Cc: Ingo Molnar <mingo@kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
+	Arnd Bergmann <arnd@arndb.de>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	linux-arch <linux-arch@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-toolchains@vger.kernel.org, 
+	Segher Boessenkool <segher@kernel.crashing.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=t3bjIhsR;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1041
+ header.i=@google.com header.s=20161025 header.b=GBwOGDWD;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -134,108 +132,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 1, 2020 at 6:44 PM Andrew Lunn <andrew@lunn.ch> wrote:
+On Sun, Oct 4, 2020 at 7:57 PM Kees Cook <keescook@chromium.org> wrote:
 >
-> On Thu, Oct 01, 2020 at 04:09:43PM -0700, Nick Desaulniers wrote:
-> > On Wed, Sep 30, 2020 at 6:12 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> > >
-> > > There is a movement to try to make more and more of /drivers W=1
-> > > clean. But it will only stay clean if new warnings are quickly
-> > > detected and fixed, ideally by the developer adding the new code.
-> > >
-> > > To allow subdirectories to sign up to being W=1 clean for a given
-> > > definition of W=1, export the current set of additional compile flags
-> > > using the symbol KBUILD_CFLAGS_W1_20200930. Subdirectory Makefiles can
-> > > then use:
-> > >
-> > > subdir-ccflags-y := $(KBUILD_CFLAGS_W1_20200930)
-> > >
-> > > To indicate they want to W=1 warnings as defined on 20200930.
-> > >
-> > > Additional warnings can be added to the W=1 definition. This will not
-> > > affect KBUILD_CFLAGS_W1_20200930 and hence no additional warnings will
-> > > start appearing unless W=1 is actually added to the command
-> > > line. Developers can then take their time to fix any new W=1 warnings,
-> > > and then update to the latest KBUILD_CFLAGS_W1_<DATESTAMP> symbol.
-> >
-> > I'm not a fan of this approach.  Are DATESTAMP configs just going to
-> > keep being added? Is it going to complicate isolating the issue from a
-> > randconfig build?  If we want more things to build warning-free at
-> > W=1, then why don't we start moving warnings from W=1 into the
-> > default, until this is no W=1 left?  That way we're cutting down on
-> > the kernel's configuration combinatorial explosion, rather than adding
-> > to it?
+> Under some circumstances, the compiler generates .ctors.* sections. This
+> is seen doing a cross compile of x86_64 from a powerpc64el host:
 >
-> Hi Nick
+> x86_64-linux-gnu-ld: warning: orphan section `.ctors.65435' from `kernel/trace/trace_clock.o' being
+> placed in section `.ctors.65435'
+> x86_64-linux-gnu-ld: warning: orphan section `.ctors.65435' from `kernel/trace/ftrace.o' being
+> placed in section `.ctors.65435'
+> x86_64-linux-gnu-ld: warning: orphan section `.ctors.65435' from `kernel/trace/ring_buffer.o' being
+> placed in section `.ctors.65435'
 >
-> I don't see randconfig being an issue. driver/net/ethernet would
-> always be build W=1, by some stable definition of W=1. randconfig
-> would not enable or disable additional warnings. It to make it clear,
-> KBUILD_CFLAGS_W1_20200930 is not a Kconfig option you can select. It
-> is a Makefile constant, a list of warnings which define what W=1 means
-> on that specific day. See patch 1/2.
->
-> I see a few issues with moving individual warnings from W=1 to the
-> default:
->
-> One of the comments for v1 of this patchset is that we cannot
-> introduce new warnings in the build. The complete tree needs to clean
-> of a particularly warning, before it can be added to the default list.
-> But that is not how people are cleaning up code, nor how the
-> infrastructure is designed. Those doing the cleanup are not take the
-> first from the list, -Wextra and cleanup up the whole tree for that
-> one warnings. They are rather enabling W=1 on a subdirectory, and
-> cleanup up all warnings on that subdirectory. So using this approach,
-> in order to move a warning from W=1 to the default, we are going to
-> have to get the entire tree W=1 clean, and move them all the warnings
-> are once.
+> Include these orphans along with the regular .ctors section.
 
-Sorry, to be more specific about my concern; I like the idea of
-exporting the W=* flags, then selectively applying them via
-subdir-ccflags-y.  I don't like the idea of supporting W=1 as defined
-at a precise point in time via multiple date specific symbols.  If
-someone adds something to W=1, then they should need to ensure subdirs
-build warning-free, so I don't think you need to "snapshot" W=1 based
-on what it looked like on 20200930.
+It's very curious to see different behavior based on whether one is
+targeting x86_64 via native compilation vs cross compilation.
+
+Acked-by: Nick Desaulniers <ndesaulniers@google.com>
 
 >
-> People generally don't care about the tree as a whole. They care about
-> their own corner. The idea of fixing one warning thought the whole
-> tree is 'slicing and dicing' the kernel the wrong way. As we have seen
-> with the recent work with W=1, the more natural way to slice/dice the
-> kernel is by subdirectories.
-
-I'm not sure I agree with this paragraph. ^  If a warning is not
-enabled by default implicitly, then someone would need to clean the
-tree to turn it on.  It's very messy to apply it on a child directory,
-then try to work up.  We've done multiple tree wide warning cleanups
-and it's not too bad.
-
+> Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
+> Tested-by: Stephen Rothwell <sfr@canb.auug.org.au>
+> Fixes: 83109d5d5fba ("x86/build: Warn on orphan section placement")
+> Signed-off-by: Kees Cook <keescook@chromium.org>
+> ---
+> v2: brown paper bag version: fix whitespace for proper backslash alignment
+> ---
+>  include/asm-generic/vmlinux.lds.h | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> I do however understand the fear that we end up with lots of
-> KBUILD_CFLAGS_W1_<DATESTAMP> constants. So i looked at the git history
-> of script/Makefile.extrawarn. These are historically the symbols we
-> would have, if we started this idea 1/1/2018:
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index 5430febd34be..b83c00c63997 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -684,6 +684,7 @@
+>  #ifdef CONFIG_CONSTRUCTORS
+>  #define KERNEL_CTORS() . = ALIGN(8);                      \
+>                         __ctors_start = .;                 \
+> +                       KEEP(*(SORT(.ctors.*)))            \
+>                         KEEP(*(.ctors))                    \
+>                         KEEP(*(SORT(.init_array.*)))       \
+>                         KEEP(*(.init_array))               \
+> --
+> 2.25.1
 >
-> KBUILD_CFLAGS_W1_20200326    # CLANG only change
-> KBUILD_CFLAGS_W1_20190907
-> KBUILD_CFLAGS_W1_20190617    # CLANG only change
-> KBUILD_CFLAGS_W1_20190614    # CLANG only change
-> KBUILD_CFLAGS_W1_20190509
-> KBUILD_CFLAGS_W1_20180919
-> KBUILD_CFLAGS_W1_20180111
->
-> So not too many.
 
-It's a useful visualization.  I still would prefer W=1 to get enabled
-by default if all of the CI systems have flushed out the existing
-warnings.  That way we have one less combination of things to test;
-not more.
---
+
+-- 
 Thanks,
 ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmdfwWsRtJHtJ16B0RMyoxUi1587OKnyunQd5gfwmnGsA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnVJW0wDuMvgfKUE248gbDTT1CYmDY%3DhczaFNQ_39OfjA%40mail.gmail.com.
