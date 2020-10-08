@@ -1,155 +1,122 @@
-Return-Path: <clang-built-linux+bncBAABB66P7T5QKGQEHXZMHLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCBZLC554ENRBFW67T5QKGQETD5AMJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 900EB28766F
-	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Oct 2020 16:53:48 +0200 (CEST)
-Received: by mail-io1-xd40.google.com with SMTP id y70sf3882211iof.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Oct 2020 07:53:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602168827; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6F9F228770F
+	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Oct 2020 17:24:07 +0200 (CEST)
+Received: by mail-lf1-x139.google.com with SMTP id r6sf1454078lfn.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Oct 2020 08:24:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602170647; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MvBeT4jr0DXksOHpbB5CD+v76aCvt3p1JyG0xD2TjMXzyqg8ETC8QymXqsizWQEKYi
-         QPo77gZPBYkdzwHZEKBRD4NRGXx/os3aSTC7kBctcMjVzoEf5pYbwhIF8uommJH42OCj
-         zSeT/2khtfNX+yBCamepfETgtsw8qidUsIO/+HDXMA8ugc9Z4bQOiYNz4dynJHS0nTZ2
-         tViCXfU67hqFHZcdCqwxl3g40XUXmVDX7Nbi2gmqTarbTHDp+LNFhO0T0N/tDEWP0YFg
-         NjDRTBDTQ9RENEv2QQS04Xl5V2X80t8FDFoFuK2ftRYUC75RNN7rm1UDEY0AzjKgz3F0
-         K4fA==
+        b=AA7x+gb3970ro4uko8YCchYBaQxYTRkZst9w+YDb+ceinLC4nW6M2nuiKM0dB8BEg4
+         hgPYXXMVpvE+PZtKtGEl9hiHoE36VLka14k1tJ+IyeNtM4GqSKsyuG4/yY1y1BJgeRof
+         fREmV5BKAf0e24p4dhTcY+2+4uawdLrObh1LXxOz9+Nj4EzLi4LIchaqSE1rx3dC9y9E
+         As30xNLs6ia90sqXGJODztXPgJeH2vCvyCaaeXN2Vet6trpY7d8WO5OInoWpzUfhqpz6
+         ujm1lj2iWF8+DNrVOXIANRJ8A9FiEYON7NxwWG8UX1MpeAiFB9orTWhLJ9MgICKcK7di
+         UGHA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=eonWvUl86LVU9FA0dmclApECvb6kgVuoGxQ+vnDzeds=;
-        b=lAfMzMTzvasbP3BdFXDILB3+8eWaw1D2pcq3RwQagPwMNq7ESpCQOdNNtDfo6ai8O5
-         TZjPbYox8rT8CReTMxNO2zrYjZc1ZNpbS8eKPczT6YEuqsL12JtDWPGvzIbCu1Z7/HkO
-         yWobn9BgWmkOr1Kvd92Yoh+JSkhJ/nWcKHWQz2Q8hpvF+MgoQ/6HMIThBwu4FIjmtDUD
-         okq0ORF9OuoONbAWt7xiwwUVe/R7/94RuYKCQqmemVXeqcIFd84qN4kjBUKJpOXUG7qx
-         vbiuPG9dGTCKbke/k9RSdNMqq0YSytkloI2d1D4GPwvEYwk9Ua2+EEF5OtX7EqZ4w+eR
-         VqYQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:sender:dkim-signature;
+        bh=Hebm/1gXtqTW2684fyPxQ+1zQIU+yCP77e0aBooT4wo=;
+        b=nS4eBhsWiA5k7GN6TGSOR0jziBPzszN0tku+sQnOtVW1ZU4HPkxOAeXFZkXk9UNLar
+         Rrwhxy5zQDObLzJw0xlfr+SmhdRjaFMKVlH91G/kv68Jb+jv9+OlyJyxcL3o8bewjOP+
+         78/LNG5PkytW9n2/4wuRtOlwJQWZayMzwLvYN4LzwvuG/uUNsNUJzqQHhDyrtqVpJnW2
+         VyfAEyfpuLPt9Skn6qp3oCYCwCrxBj7LutOkWS8Ebg5sJryh+Uj/cwvR0mLdBJm8sjRV
+         3H9t0VVe+IsBoCTJzQD/CxbtFGsppYzTMuKUl0enmdxG7VZ1q75p0v45EqS5E0gwTwr6
+         IJ7Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=SilIOQAh;
-       spf=pass (google.com: domain of himanshu.madhani@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=himanshu.madhani@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+       spf=pass (google.com: domain of jengelh@inai.de designates 2a01:4f8:10b:45d8::f5 as permitted sender) smtp.mailfrom=jengelh@inai.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
+         :mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=eonWvUl86LVU9FA0dmclApECvb6kgVuoGxQ+vnDzeds=;
-        b=HD4aR+mGyuVac6582epqJaYk9RhGO/Y6zrd9opyozHXkZNn9q3l4FALx/StUUT0kaE
-         FO/jmh14qRPvInJFXYeD9dCZnul6YVbi3McZwElYi6lym5xt2tOFYRRjztIm/1yXttfs
-         CBXhjZ5YoWF3JZMALPTBq0UMZGHxjDtVzCA3Ihp8y9O1fJrNh5Nb6zkv1tnI531vv7zk
-         M7V/ko6lKLt1xSRpxTWK618d1mjke4HoJAnh1hy6PtArCd5s3TGg3270SsEq2E5vTxrx
-         wWmUayda0+e1rwUq2NSAZ8NICfyiRhtz1Va4kAiR6xCx5Tam/6FNQhm30tctcFV/INR+
-         heDg==
+        bh=Hebm/1gXtqTW2684fyPxQ+1zQIU+yCP77e0aBooT4wo=;
+        b=supwpq8xbc3UBBdi03BJBv6ThXNoi26ZQVbS9vmNvo0P5bdcGgFMKPvRlKKc37lgaB
+         OLb8L+D7JMFMjlQpaJuFzvrFVFa9ygJ0pTUrPL9XrtRrQGrkzmudAIrbNLCpLZENtjf0
+         zeex+oLPvxy1cuB0yw/ezZudrq6nJ/NhpVxsy3g0SVnTDz8CW7u9Qm0GZ5kitP6S+Ce4
+         +md49E7WSf0q69q2qwuqTFWfXXEoFt67SdQOCJpLnOBFrLs4oS5UYQiObyELN4burGCa
+         9HgI8tNhp7Mv2rIVhr/hfBws00/a2FnP+bQJxwtgZlTYnU5eceJd6sSr6TgiwL+oAQt8
+         jSgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
+         :message-id:references:mime-version:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=eonWvUl86LVU9FA0dmclApECvb6kgVuoGxQ+vnDzeds=;
-        b=fAw2xdFjsiB8JnPyIDmVKgQpWgBAanyGiRFYaJh1ERUE/xJEZMqsoOYMtpKeRD/LBP
-         AG4tlRSmdidC3SzUnQ816B5EHEcqcKvVkN/iAi6Wj8bOXrR5vQSC+JivJmINmIB08TqE
-         9U4L/lLL0mJBISVN+tWpHXClzXVfWuf3+KNUWG13+cVpT6ta5Ohj8x/ckE33DEUh6Dm+
-         ee1TtV3gWyNoqUgywo4vjUeOlr5UUjGfotkCs35rmRPnR/6XSJefXOREPorb05F+K5Ti
-         iDU/+Q/rJiD+NBfy95mG1q97O9AozooN3/PrACr1BTTtcnsV/bOEzHBu5Q2Px7OwngJF
-         onyQ==
+        bh=Hebm/1gXtqTW2684fyPxQ+1zQIU+yCP77e0aBooT4wo=;
+        b=aI8Rw90Rn9WPadGASwIjUEwk78Mr4cZs37wPO/8s1z6YP5AxYQEMQQFboIZUpWwobA
+         tYW0m76vaNpMVnfW0+tFIMLkCp9k5tVpnFLFtA5mdt7z6xYNnymZGGVPgga3OiS52GeI
+         hkocQ6EMKZREzQMjqhMEMBUJS4pvPE2XAPpDTyK8uwq45rwmLhVtMpkeNjv6/c+mlDCH
+         +yTXAwYEmZIjuXR96kP2Ol6BXTBb7yp0GLFDuQCMc2qxnv4TQHdnG6u5vqDQMwvi+dOl
+         NrgJ26iOE2H7zDonCVVqe9g9KXmvct5/chAZISi7C+blI4qeDpOOslyGEarpIX9GA4Bg
+         GOmQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5332pkb8yO+irwaGGMUqaP504qersA7xxT4iysL5yVtwqhSr6mkg
-	OpkMa4SMN3e4g09Gu5qXEoU=
-X-Google-Smtp-Source: ABdhPJz0SOQqkCHD7ujTy5Rt0PnIAgfSFO0a66uX7VSOsNWLg9tOZbCAyPHgwq3pabBvqmy79l95lQ==
-X-Received: by 2002:a92:ad11:: with SMTP id w17mr7414661ilh.77.1602168827412;
-        Thu, 08 Oct 2020 07:53:47 -0700 (PDT)
+X-Gm-Message-State: AOAM531fa15rGX/jC8YGIT2bW3hWI3H1eoXIgSHRdjjvieURrm3JygjG
+	6j17wsC9FLMdCbjrkAs9pkg=
+X-Google-Smtp-Source: ABdhPJw5WA9JBkhcAGAdbWUYi6nidBPrurtt4J9p8jzSj79gxPuH5pRv02ze7QyTtlwteoe7G1i2Ug==
+X-Received: by 2002:a2e:9b51:: with SMTP id o17mr3904505ljj.141.1602170646869;
+        Thu, 08 Oct 2020 08:24:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:2a06:: with SMTP id r6ls1395903ile.0.gmail; Thu, 08 Oct
- 2020 07:53:47 -0700 (PDT)
-X-Received: by 2002:a05:6e02:d83:: with SMTP id i3mr6764151ilj.221.1602168826984;
-        Thu, 08 Oct 2020 07:53:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602168826; cv=none;
+Received: by 2002:a19:ad43:: with SMTP id s3ls3489548lfd.2.gmail; Thu, 08 Oct
+ 2020 08:24:05 -0700 (PDT)
+X-Received: by 2002:a19:8116:: with SMTP id c22mr3162343lfd.101.1602170645796;
+        Thu, 08 Oct 2020 08:24:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602170645; cv=none;
         d=google.com; s=arc-20160816;
-        b=dOei+viogU9q2GN/a3dt7oka9T1BZWhInikhGQ9/0ju5BUz8rCXPSWAAdq49gAJsF4
-         o9o4k6BZAJ6SHKaZGojqUHvfgLgF+qutizDoaTp9k+Tri+JYphpNN00JkgECtUK2oPTJ
-         IxzHtDgE+S3dgoUQcuJhsHi9LEEeq06GMlubJcgKrJaqaT4IBhuRDZ8R830QtUhx79GK
-         Kk1dkXqkR1d9322A6moVw7h3FCjPNmLR+aEV3Ma0T+gjz70n46ZExXsFOZj7Pfu+OSeS
-         GC9rZ69+N37ZkFa9R8/Ez5D4zagE3JpOOEubwHAhPFhjxDXgUFntjp23AMLy/oEktbVO
-         LZlg==
+        b=U9n2bajfqJMgDRptRkH4p02kC3F2bcppzUYO9VszeBv3T0ldex16VR8SWJC7H4d/iM
+         rZvdD7W/UyOFd/1iQIHpwRfB9r745+rVMP+LLxit1kXa+vnHXbeW+6cbfnwCoFtcESOq
+         Ze7snRHFspRyhiJaSnRpfP1biEj2n56zSmWjsvdjnZW3fHs45NJ03+ROG51OqwK2aJ/a
+         vhg2oCh5YKgv9A/EGUkBQeV3GjxBHhy1JFzBlRseUihJE/UxFrI7W8kQkBo0FBfX7qQ0
+         nXlv6WiurqlIWr/TEcP7+/oolEMda2itlhk3gGnADS8Q6V1Ar/R4htgJnPNqWk4LwkQP
+         4MHw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=xll7tkXdFRSBGl3DkCX4DM7/F889gpZp7V2baEBw2Vw=;
-        b=V0278feDMI2nHuHcgrMDWFH3lKWapLXsdoCF28rvcckilTSD0R6raXiD6BIexRS1QW
-         c5NIZjz/2/h68+xOq9h6XTmsmn3Wp8WkHmTn3zU4vbu6IbnGdPwPeNc4+FORBsqDokQ9
-         NYERGNanBAQLI1tu1xCWYCE0RyYAnnEqxjZjeAB/ntEyWxijKGYqGDnbMfXljqLj0/sE
-         osdri0PMiVlY1p8AQDLEVw2jnNj4xCJHtSFPUayphZUhDiA7fwUC4PXlK7LQUpKHVkW6
-         +V4p83jAaYYN3YLHoHppTVYKJWmFgJgTi/IGu8bspOBw733rHO6om+UZax8Thf1ptDc6
-         ZpLw==
+        h=content-transfer-encoding:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:date;
+        bh=Xv0GgH3hIsV199GK6f8sg9VY5w12vjI8U+YUJvD39y4=;
+        b=VkOrHsdTSuFR2J43d9d8BzJX1ui2bdqydDDhMWpgrxxgMcR2v1FEsxfv6t79ELKtiL
+         ev2Ay+QpJF2+BHdhz7XK6Sd9xUWi5Ax6OUB4Vn3BFJaWgi05iLHbAB2ZQVhY/llJbGPY
+         jp07uuFo0q7F7Rq65KgDFEuQyXbeDIdDBuSh/AATb4FfLrfz8sUxP2H9Z66tgqUS3AE/
+         DGaFd9nc4U/PxuDkiDqh//W6q1MVQi8AfjK/ES2F2AsHFtoYQqXy3pGZjCdmYvjENEJ4
+         JbhBTQiw46cBeFYGsAoc6Fxq3377DkKHRSMl6AGmC9ENmdfVZVyRyEui+HfgD7j2PHJM
+         qIog==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=SilIOQAh;
-       spf=pass (google.com: domain of himanshu.madhani@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=himanshu.madhani@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
-Received: from aserp2120.oracle.com (aserp2120.oracle.com. [141.146.126.78])
-        by gmr-mx.google.com with ESMTPS id i8si188540ioo.0.2020.10.08.07.53.46
+       spf=pass (google.com: domain of jengelh@inai.de designates 2a01:4f8:10b:45d8::f5 as permitted sender) smtp.mailfrom=jengelh@inai.de
+Received: from a3.inai.de (a3.inai.de. [2a01:4f8:10b:45d8::f5])
+        by gmr-mx.google.com with ESMTPS id b5si162699lfa.0.2020.10.08.08.24.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 08 Oct 2020 07:53:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of himanshu.madhani@oracle.com designates 141.146.126.78 as permitted sender) client-ip=141.146.126.78;
-Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
-	by aserp2120.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 098Eo0TJ050996;
-	Thu, 8 Oct 2020 14:53:43 GMT
-Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
-	by aserp2120.oracle.com with ESMTP id 33ym34w8q6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 08 Oct 2020 14:53:42 +0000
-Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
-	by userp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 098EoGbp121348;
-	Thu, 8 Oct 2020 14:53:42 GMT
-Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
-	by userp3030.oracle.com with ESMTP id 33y3818x8n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 08 Oct 2020 14:53:41 +0000
-Received: from abhmp0016.oracle.com (abhmp0016.oracle.com [141.146.116.22])
-	by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 098ErZRW018214;
-	Thu, 8 Oct 2020 14:53:35 GMT
-Received: from [10.154.135.77] (/10.154.135.77)
-	by default (Oracle Beehive Gateway v4.0)
-	with ESMTP ; Thu, 08 Oct 2020 07:53:35 -0700
-Subject: Re: [linux-next:master 14210/14342]
- drivers/scsi/qla2xxx/qla_nvme.c:565:10: warning: variable 'rval' is
- uninitialized when used here
-To: "Pavel Machek (CIP)" <pavel@denx.de>
-Cc: martin.petersen@oracle.com, clang-built-linux@googlegroups.com,
-        "Martin K. Petersen" <martin.petersen@oracle.com>
-References: <202010082247.mCFb0pFZ-lkp@intel.com>
-From: Himanshu Madhani <himanshu.madhani@oracle.com>
-Message-ID: <7f00eb36-0963-d953-2e8b-71b1c4f79134@oracle.com>
-Date: Thu, 8 Oct 2020 09:53:34 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Oct 2020 08:24:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jengelh@inai.de designates 2a01:4f8:10b:45d8::f5 as permitted sender) client-ip=2a01:4f8:10b:45d8::f5;
+Received: by a3.inai.de (Postfix, from userid 25121)
+	id E3B3358758003; Thu,  8 Oct 2020 17:24:03 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by a3.inai.de (Postfix) with ESMTP id DFDF360E1940A;
+	Thu,  8 Oct 2020 17:24:03 +0200 (CEST)
+Date: Thu, 8 Oct 2020 17:24:03 +0200 (CEST)
+From: Jan Engelhardt <jengelh@inai.de>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+cc: Nathan Chancellor <natechancellor@gmail.com>, 
+    "Gustavo A. R. Silva" <gustavo@embeddedor.com>, 
+    Linus Torvalds <torvalds@linux-foundation.org>, 
+    Kees Cook <keescook@chromium.org>, Greg KH <gregkh@linuxfoundation.org>, 
+    Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+    linux-rdma@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: remaining flexible-array conversions
+In-Reply-To: <20200424121553.GE26002@ziepe.ca>
+Message-ID: <36r41qn8-87o3-2pr1-856p-040167pq097@vanv.qr>
+References: <6342c465-e34b-3e18-cc31-1d989926aebd@embeddedor.com> <20200424034704.GA12320@ubuntu-s3-xlarge-x86> <20200424121553.GE26002@ziepe.ca>
 MIME-Version: 1.0
-In-Reply-To: <202010082247.mCFb0pFZ-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9767 signatures=668680
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 bulkscore=0 spamscore=0
- mlxscore=0 malwarescore=0 suspectscore=0 adultscore=0 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2006250000
- definitions=main-2010080113
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9767 signatures=668680
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0 priorityscore=1501
- mlxscore=0 mlxlogscore=999 clxscore=1015 bulkscore=0 spamscore=0
- malwarescore=0 phishscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2006250000
- definitions=main-2010080113
-X-Original-Sender: himanshu.madhani@oracle.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@oracle.com header.s=corp-2020-01-29 header.b=SilIOQAh;
-       spf=pass (google.com: domain of himanshu.madhani@oracle.com designates
- 141.146.126.78 as permitted sender) smtp.mailfrom=himanshu.madhani@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: jengelh@inai.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jengelh@inai.de designates 2a01:4f8:10b:45d8::f5 as
+ permitted sender) smtp.mailfrom=jengelh@inai.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -162,137 +129,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 10/8/20 9:14 AM, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   e4fb79c771fbe2e6fcb3cffa87d5823a9bbf3f10
-> commit: b994718760fa6de431ee7504ca4553536c77ee43 [14210/14342] scsi: qla2xxx: Use constant when it is known
-> config: arm64-randconfig-r021-20201008 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 8da0df3d6dcc0dd42740be60b0da4ec201190904)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install arm64 cross compiling tool for clang build
->          # apt-get install binutils-aarch64-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=b994718760fa6de431ee7504ca4553536c77ee43
->          git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->          git fetch --no-tags linux-next master
->          git checkout b994718760fa6de431ee7504ca4553536c77ee43
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
->>> drivers/scsi/qla2xxx/qla_nvme.c:565:10: warning: variable 'rval' is uninitialized when used here [-Wuninitialized]
->                     return rval;
->                            ^~~~
->     drivers/scsi/qla2xxx/qla_nvme.c:545:10: note: initialize the variable 'rval' to silence this warning
->             int rval;
->                     ^
->                      = 0
->     1 warning generated.
-> 
-I overlooked that new code will throw this warning. You want to 
-initialize this as 0 to get rid of this warning.
 
-> vim +/rval +565 drivers/scsi/qla2xxx/qla_nvme.c
-> 
-> e84067d7430107a Duane Grigsby               2017-06-21  536
-> e84067d7430107a Duane Grigsby               2017-06-21  537  /* Post a command */
-> e84067d7430107a Duane Grigsby               2017-06-21  538  static int qla_nvme_post_cmd(struct nvme_fc_local_port *lport,
-> e84067d7430107a Duane Grigsby               2017-06-21  539      struct nvme_fc_remote_port *rport, void *hw_queue_handle,
-> e84067d7430107a Duane Grigsby               2017-06-21  540      struct nvmefc_fcp_req *fd)
-> e84067d7430107a Duane Grigsby               2017-06-21  541  {
-> e84067d7430107a Duane Grigsby               2017-06-21  542  	fc_port_t *fcport;
-> e84067d7430107a Duane Grigsby               2017-06-21  543  	struct srb_iocb *nvme;
-> e84067d7430107a Duane Grigsby               2017-06-21  544  	struct scsi_qla_host *vha;
-> b994718760fa6de Pavel Machek (CIP           2020-09-21  545) 	int rval;
-> e84067d7430107a Duane Grigsby               2017-06-21  546  	srb_t *sp;
-> 6fcd98fd2c731f8 himanshu.madhani@cavium.com 2017-07-21  547  	struct qla_qpair *qpair = hw_queue_handle;
-> 5e6803b409ba3c1 Himanshu Madhani            2018-12-10  548  	struct nvme_private *priv = fd->private;
-> 9dd9686b14199a1 Darren Trapp                2018-03-20  549  	struct qla_nvme_rport *qla_rport = rport->private;
-> e84067d7430107a Duane Grigsby               2017-06-21  550
-> 83949613fac61e8 Quinn Tran                  2020-08-06  551  	if (!priv) {
-> 83949613fac61e8 Quinn Tran                  2020-08-06  552  		/* nvme association has been torn down */
-> b994718760fa6de Pavel Machek (CIP           2020-09-21  553) 		return -ENODEV;
-> 83949613fac61e8 Quinn Tran                  2020-08-06  554  	}
-> 83949613fac61e8 Quinn Tran                  2020-08-06  555
-> 9dd9686b14199a1 Darren Trapp                2018-03-20  556  	fcport = qla_rport->fcport;
-> e84067d7430107a Duane Grigsby               2017-06-21  557
-> 2eb9238affa72a5 Quinn Tran                  2019-06-21  558  	if (!qpair || !fcport || (qpair && !qpair->fw_started) ||
-> 2eb9238affa72a5 Quinn Tran                  2019-06-21  559  	    (fcport && fcport->deleted))
-> b994718760fa6de Pavel Machek (CIP           2020-09-21  560) 		return -ENODEV;
-> 623ee824e579d23 Darren Trapp                2018-03-20  561
-> 2eb9238affa72a5 Quinn Tran                  2019-06-21  562  	vha = fcport->vha;
-> a35f87bdcc0615c Arun Easi                   2020-09-03  563
-> a35f87bdcc0615c Arun Easi                   2020-09-03  564  	if (!(fcport->nvme_flag & NVME_FLAG_REGISTERED))
-> a35f87bdcc0615c Arun Easi                   2020-09-03 @565  		return rval;
-> a35f87bdcc0615c Arun Easi                   2020-09-03  566
-> a35f87bdcc0615c Arun Easi                   2020-09-03  567  	if (test_bit(ABORT_ISP_ACTIVE, &vha->dpc_flags) ||
-> a35f87bdcc0615c Arun Easi                   2020-09-03  568  	    (qpair && !qpair->fw_started) || fcport->deleted)
-> a35f87bdcc0615c Arun Easi                   2020-09-03  569  		return -EBUSY;
-> a35f87bdcc0615c Arun Easi                   2020-09-03  570
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  571  	/*
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  572  	 * If we know the dev is going away while the transport is still sending
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  573  	 * IO's return busy back to stall the IO Q.  This happens when the
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  574  	 * link goes away and fw hasn't notified us yet, but IO's are being
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  575  	 * returned. If the dev comes back quickly we won't exhaust the IO
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  576  	 * retry count at the core.
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  577  	 */
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  578  	if (fcport->nvme_flag & NVME_FLAG_RESETTING)
-> e84067d7430107a Duane Grigsby               2017-06-21  579  		return -EBUSY;
-> e84067d7430107a Duane Grigsby               2017-06-21  580
-> e84067d7430107a Duane Grigsby               2017-06-21  581  	/* Alloc SRB structure */
-> 6a6294689201e6c Quinn Tran                  2018-09-04  582  	sp = qla2xxx_get_qpair_sp(vha, qpair, fcport, GFP_ATOMIC);
-> e84067d7430107a Duane Grigsby               2017-06-21  583  	if (!sp)
-> 870fe24f3c0b2cf Darren Trapp                2018-03-20  584  		return -EBUSY;
-> e84067d7430107a Duane Grigsby               2017-06-21  585
-> 6fcd98fd2c731f8 himanshu.madhani@cavium.com 2017-07-21  586  	init_waitqueue_head(&sp->nvme_ls_waitq);
-> 4c2a2d0178d5d80 Quinn Tran                  2019-06-21  587  	kref_init(&sp->cmd_kref);
-> 4c2a2d0178d5d80 Quinn Tran                  2019-06-21  588  	spin_lock_init(&priv->cmd_lock);
-> ab053c09ee2066a Bart Van Assche             2020-05-18  589  	sp->priv = priv;
-> e84067d7430107a Duane Grigsby               2017-06-21  590  	priv->sp = sp;
-> e84067d7430107a Duane Grigsby               2017-06-21  591  	sp->type = SRB_NVME_CMD;
-> e84067d7430107a Duane Grigsby               2017-06-21  592  	sp->name = "nvme_cmd";
-> e84067d7430107a Duane Grigsby               2017-06-21  593  	sp->done = qla_nvme_sp_done;
-> 4c2a2d0178d5d80 Quinn Tran                  2019-06-21  594  	sp->put_fn = qla_nvme_release_fcp_cmd_kref;
-> e84067d7430107a Duane Grigsby               2017-06-21  595  	sp->qpair = qpair;
-> 5e6803b409ba3c1 Himanshu Madhani            2018-12-10  596  	sp->vha = vha;
-> e84067d7430107a Duane Grigsby               2017-06-21  597  	nvme = &sp->u.iocb_cmd;
-> e84067d7430107a Duane Grigsby               2017-06-21  598  	nvme->u.nvme.desc = fd;
-> e84067d7430107a Duane Grigsby               2017-06-21  599
-> e84067d7430107a Duane Grigsby               2017-06-21  600  	rval = qla2x00_start_nvme_mq(sp);
-> e84067d7430107a Duane Grigsby               2017-06-21  601  	if (rval != QLA_SUCCESS) {
-> e84067d7430107a Duane Grigsby               2017-06-21  602  		ql_log(ql_log_warn, vha, 0x212d,
-> e84067d7430107a Duane Grigsby               2017-06-21  603  		    "qla2x00_start_nvme_mq failed = %d\n", rval);
-> 6fcd98fd2c731f8 himanshu.madhani@cavium.com 2017-07-21  604  		wake_up(&sp->nvme_ls_waitq);
-> 4c2a2d0178d5d80 Quinn Tran                  2019-06-21  605  		sp->priv = NULL;
-> 4c2a2d0178d5d80 Quinn Tran                  2019-06-21  606  		priv->sp = NULL;
-> 4c2a2d0178d5d80 Quinn Tran                  2019-06-21  607  		qla2xxx_rel_qpair_sp(sp->qpair, sp);
-> e84067d7430107a Duane Grigsby               2017-06-21  608  	}
-> e84067d7430107a Duane Grigsby               2017-06-21  609
-> e84067d7430107a Duane Grigsby               2017-06-21  610  	return rval;
-> e84067d7430107a Duane Grigsby               2017-06-21  611  }
-> e84067d7430107a Duane Grigsby               2017-06-21  612
-> 
-> :::::: The code at line 565 was first introduced by commit
-> :::::: a35f87bdcc0615c5a3a695d13dd1ccf827826368 scsi: qla2xxx: Fix I/O errors during LIP reset tests
-> 
-> :::::: TO: Arun Easi <aeasi@marvell.com>
-> :::::: CC: Martin K. Petersen <martin.petersen@oracle.com>
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+On Friday 2020-04-24 14:15, Jason Gunthorpe wrote:
+>> ./usr/include/rdma/ib_user_verbs.h:436:34: warning: field 'base' with
+>> variable sized type 'struct ib_uverbs_create_cq_resp' not at the end of
+>> a struct or class is a GNU extension
+>> [-Wgnu-variable-sized-type-not-at-end]
+>>         struct ib_uverbs_create_cq_resp base;
+>>                                         ^
+>> I presume this is part of the point of the conversion since you mention
+>> a compiler warning when the flexible member is not at the end of a
+>> struct. How should they be fixed? That should probably happen before the
+>> patch gets merged.
+>
+>The flexible member IS at the end of the struct and is often intended
+>to cover the memory in the enclosing struct.
 
+There is no guarantee for the presence of such a struct.
 
--- 
-Himanshu Madhani                         Oracle Linux Engineering
+In the case of the RDMA headers, even if we assume best conditions=C2=A0--
+a block of malloc(sizeof(struct ib_uverbs_create_cq_resp) +
+sizeof(u64)*N) and not some struct=C2=A0-- it smells a lot like undefined
+behavior, because ib_uverbs_create_cq_resp::driver_data accesses data
+as u64 while ib_uverbs_ex_create_cq_resp::comp_mask and friends are
+u32.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7f00eb36-0963-d953-2e8b-71b1c4f79134%40oracle.com.
+There has got to be some aliasing rule in C that causes RDMA's
+purported use-case to be UB.
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/36r41qn8-87o3-2pr1-856p-040167pq097%40vanv.qr.
