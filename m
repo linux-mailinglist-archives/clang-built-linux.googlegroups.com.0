@@ -1,148 +1,144 @@
-Return-Path: <clang-built-linux+bncBC27X66SWQMBBYXZQT6AKGQELD2CJEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCKPFB7SXUERBGFBQX6AKGQE3BUZIWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3CDDF289E60
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Oct 2020 06:47:32 +0200 (CEST)
-Received: by mail-io1-xd38.google.com with SMTP id y70sf7805939iof.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Oct 2020 21:47:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602305251; cv=pass;
+Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0BF38289EAA
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Oct 2020 08:11:38 +0200 (CEST)
+Received: by mail-pg1-x538.google.com with SMTP id x77sf151255pgx.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Oct 2020 23:11:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602310296; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WPMyizuEWFfM7nZmP7zE3EcJ94SHk0Kc3DmKZ05aURWCrH2pEca+xLm9E/lpy/jwSg
-         gdvpIICkPUblbp2xxCou7Bi/Xxzz71Gu+X7ol74uv9lqTNRQZpIXbYJOenVFbO3+TNvv
-         HesBl/WhdswNa+HbVwo98ZfKqjtmuT9fYmIGOE/9Yv9wjT2jJzjRfIkLqpI3sPt36UqK
-         MTpqrfjpkEgK1rTK16btc/eWn/xivl8rOPTcbYIdugFz9fukek6a9vLsiM4H6D4igz+b
-         wRmJYM+wEDzHVangut7lWlPxI5Vz2xIHlccjcO0IWkkD179ByQXWEbzKLCyuFuYW+4Ff
-         Ahjw==
+        b=RyQ5ju2nFmCDI616je3vKfjWsflLK6BXeG3sz8GKghtkWu6L1GQalH2ezY4c0sNJ57
+         UP6mbh2ZZ/7sw5FTkNjQ/lQ7i9//6J5kkQyWGFV9HcguV/Syqos9+WJYb7DO4/GzOB2t
+         xYHzSq9UuPBfHoteIPRySfmb/LEXfyH1yqgZ/yQ+RjXDZDMJ/Xr8tVd7TaBMfM4g2RBl
+         trfp+ckSYW3GcaCW63/48nXFvTUgOLS8OTmgQhHDe6S0PZejAxNtqt2iSregHTqD+hOa
+         8M9jrE2DXIRACOerMmL2oFiSoQFNC4J+SbRTgUwoJj83aYguFPaSkksVqkSG6EYCbRkX
+         estg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language
-         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=aq2L4+ZgwW+0vKOoTI/FNVj+vHJowCP2f3EPfnUMINY=;
-        b=Z38VK+ouzqtUnzl0rs6Wm3Vi3kDNSXh5MqSR/C+xBV+ga9D5BAPgHrDy2pREm4ZfxN
-         FvfaETdxub2tmP1bASv/Zkr1z2gdoupB+EKLX93OVAtigSP66ogu85LAsPBRzfynEEO7
-         v3uRkiGI7YUZ8/4rVTJ+J8yXMzwEJGnPBoNN755abIfLQQljqNMhxJrBYSvMaXHY5liD
-         Eg//bTZkXTR8fCaOnj7qY+0hCMwrpZ+avEfxPAhbmIo6Rz0e7ai3hpKF1G81MEctVnR7
-         hDIswhGXewPjVfAYP8FitrBfX4dEAY9twdzaxbk7Z/5UgCIZAVmCSDIVxTsMrGBhy+Ds
-         g4Pg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=kqusorH2FOydZTsydf6z90L7MJIFK6EKWtSA7Dkq3lk=;
+        b=QDbYqQg0FvEY+vCeoc5XEIGmvqCpsCyYfLj264ZG9dgq2b+ta4mNWndaLgeOLRCzWv
+         QPdRiIjV/Wli07vL5/y4Ur8LJsUQlIzQqnpUfdC/DdhVqQwkuO5iPSOi2m+Y2Tzaosge
+         N0WHga27eRQ0YA8VTlMNQAKIPwk5Ut4RMQTFieVHUlzqZfj02EB3fHhShJznVYKQcJLh
+         Glhc7WhJ7v9Lf5gsneoXyv5/RUxgBdrps18lICInWZ9Fu0Jp2/WefYMbIy96nDKzHDjS
+         HTaCctam8A0N2H/BVisihcTVY4cb2riGZ5Ky+FByy9v93yTfMzGnpeyNsWxMi6DjbXWu
+         lnZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=U+ES4iJF;
-       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Q+xNFPJi;
+       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-transfer-encoding:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aq2L4+ZgwW+0vKOoTI/FNVj+vHJowCP2f3EPfnUMINY=;
-        b=qrNfuaOPLzehoKwXAgmB2WTx9zefD+uPzrRDRbEEVtXy9A6ikl0uyEDj7LlE/jINgu
-         8iBXvX7klycIO3SESzEprQPS9wu7XAGZBOX1jwyFjAmyxVoeWcwRSGcDYmDP/6Mduekl
-         EkrioipZXTwvZzgPBE8CzbWiVBZdAAINeoQRNyKtGMmdUEU4HR8XplfAsQH8XjOZsiK8
-         /q2dhJGF5K1hb36/aB/ERrw3u2x+ms/Ytg6FAPgS1R59aauFMdGALX8nXH2hhWmwYW2l
-         8aHXGp10zlwnZiWggfeXBwfJz3wxIfb/0g4ucKDzRSzpeYiSlt5/nrBrWdKOQhFBmUua
-         lTCA==
+        bh=kqusorH2FOydZTsydf6z90L7MJIFK6EKWtSA7Dkq3lk=;
+        b=NcnQg0w1Kq3xt4KAQ8s898gPyDH1VfnmhE+IFK2IrMmYYan4RzCUwF9TH+S+IQQ4IN
+         BHP+fpDceqLK8U/Zqed3kA6Lpsxd4/58gZo8wkRpNqipSlCLHhRgCFJAZuQUkPIy9evI
+         CB8HBbljWsFv05mDT3NZzEwFhc3oIA6BAlUb/pBCHf1CYSymNNll7Br1Cd4GQkNS4Uup
+         crQ5LX3OGCro/b7ujZeE2tZ0d5Hgh7MTOF4Jb4lBg6yV4+QFbL/Q47iRe8UR63fToK7Q
+         QI1JJ+RB7KwwaTSYsQTJtitvnHdcWiNuoKSsl3Au7EUU+cGG8Wm3wl6+dZYgaRvn7T6i
+         OQVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-transfer-encoding
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aq2L4+ZgwW+0vKOoTI/FNVj+vHJowCP2f3EPfnUMINY=;
-        b=ZdT9aWnqgHnLJmhJJcGv/S7RQBp4m91VGKLV502WlHpNs6945PjO6Xn0YMhEx7YmFh
-         i9ON0fAg++mVOk3olGQp1CvCFg8/nckra+jw/FvVYlnmEGVnkxfktpfjrBSOpI00J93v
-         YMbGCnEND6ZL5zIiePz6Y7Ib6Hh3xCI9gVYeLtbsJi067hXkp2fGefYuBSQFZbE80s1F
-         /Ag3IoYUWWs8PS5ZsZ6VKyvu7tdlL1AGwZoshMjhhi68f8zyBFJSUmvnUEGX2Z7vm5Mh
-         3fxTY8RQ6zb4IEVVzXJuEHhlQfXqq5R4KYY0FF3HiWAdmpaQ4FTfmLLku/9FZqudET88
-         dvXA==
+        bh=kqusorH2FOydZTsydf6z90L7MJIFK6EKWtSA7Dkq3lk=;
+        b=LBAdi1oS3YfhMP4HvtnlTfP060Ijdexa0bonXWlpQgDiOvRr+BTx20vMmQsmjETLKh
+         OHGoLqhF9TgKJKSOckmuyMunnBTsCdnKszLjx9WX4a5KSHnXuUOwsMdJnPw4ymH41EDx
+         uGai9xmIqZSI+XoWsv5oT8HN7Vx6KUqL/oUd/pfA1kecXjgGEaUyO6Fox2kgVNXm9BlX
+         92Jb0u/qcndzxt6EV6bY56L06rg2893GRyXDMY02xXXBKEB1H2RxyDoUfw+URD5+PhR3
+         0++Evwam1/ux3C4RPVey6ldkvmtSdbA3zVorDdQ3OIIikYQok4va7CA2mkBU/yforeef
+         cVQw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532IsSEFYRpMs39Z/JqIC3rQZkU15XlahBZdgtkus/xUAncPk7pN
-	YhBG9ouTIN38amWyFvjWEr8=
-X-Google-Smtp-Source: ABdhPJz3047J5veNh2xUT+qR3jVD7y+BNefa1rOY66rmMvx7v/zqCNDiJHkN+gZgSazgh6PGUfurHQ==
-X-Received: by 2002:a02:712c:: with SMTP id n44mr13642066jac.37.1602305251099;
-        Fri, 09 Oct 2020 21:47:31 -0700 (PDT)
+X-Gm-Message-State: AOAM531Y9JnrVG5VTaCAWBD1nUyOaUPc7DsSW5fh5yzs9Hw95QdMxNNc
+	JPHd6RDM4n8ERQVOkixNiyE=
+X-Google-Smtp-Source: ABdhPJzB/lI789NKMflodpJvHRFfGJZYQaY+n9In/Xf715W9B3/kksl2k2uTcCcq6RGtQEyZQg+Z6Q==
+X-Received: by 2002:aa7:98ce:0:b029:152:5ebd:428 with SMTP id e14-20020aa798ce0000b02901525ebd0428mr14984758pfm.4.1602310296665;
+        Fri, 09 Oct 2020 23:11:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:2a06:: with SMTP id r6ls2629098ile.0.gmail; Fri, 09 Oct
- 2020 21:47:30 -0700 (PDT)
-X-Received: by 2002:a92:ca92:: with SMTP id t18mr12903449ilo.287.1602305250711;
-        Fri, 09 Oct 2020 21:47:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602305250; cv=none;
+Received: by 2002:a17:902:b596:: with SMTP id a22ls5257186pls.7.gmail; Fri, 09
+ Oct 2020 23:11:36 -0700 (PDT)
+X-Received: by 2002:a17:90a:2e01:: with SMTP id q1mr7644189pjd.213.1602310296056;
+        Fri, 09 Oct 2020 23:11:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602310296; cv=none;
         d=google.com; s=arc-20160816;
-        b=0x4Dm7m2KIUVeTCCM1lV6SZZglv++rJmJQ2pBn4O7H2/qan0PEJ/aqMDOUJPuRUDAf
-         7oq6JaPC3CSTtSmZjGgQQafc4xZNBUGCRhUYus6V9Ln1yaVTwdgIampiYYyCz1a0yH8H
-         CwiOOZkTHGG6UUzUuZ2093NIceK4iRZXUUojAnaAgXRAyBQHMsx7zg8RZi6gbedqDjjP
-         H6ocN9lYbA+cVQp1mrtcKhRI7yRuAqi9opPP9fZRGOuWRxLvoeBMtJ5WyJR40FUj5gh1
-         OJkGu2ffihsl0KEgl5zI6mzJQu5ArgVr9cq7Ru1IMwppWtnCPSRIidZRwUHQ0wdU3N7u
-         R+ig==
+        b=ZENJeceSbsaRUgLcTqEF0CUZllLIQmvlThZigTKSi0yndtwCaHGL5ejLnJbjs8yYcB
+         KesdKHaYEUi9AFwZ+rWl2WJvFm1groTQ+JMjgssdElsorfS1GwntNUJ2wCqc5b/NRdxX
+         M3ut5tDrmkYagoMFBOMPkOvdMlQc1zW/4FddqsrZC+PGyAJpHcTR7klXN8+8qYC1pl72
+         RWrYycjyJ3RN2ceTFb7j6tb5LqSmUAbt12QdCAYnL22Z69kX9DhNKlTwhX9Dq692GsQG
+         XwC6Td0CZ9x1YzgK/WbI59WcbRU7JIB9x9tVs8X9r51Yb2dhVomNpAzAgl3tX0Y+gGo3
+         /21A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=EB+fwVWurtnonhqMgKoeMy3U/DNYWiOCWYkVko6a6Ck=;
-        b=c3JCQ6DrHfcdHbAK4tVtjBpWwp9xLBpWuyPKPyFvr2fPjLxiX8NLErQk4d2wfaMeV1
-         2i5xST8vRZq5lIHzAWODImDTbGSGt7qiC+G/kPLJLGVpzgn77GCmf7DfEjvn3V2sf8wy
-         TzqAfb2liPnml2IuMY6aGdGHCaY7TqP12zwuu681KHtzDF0K5PbIzffw2M5NOJdyZDzO
-         S2Tv85f9ZYS5EOWYqo/c/+041iyhXBuPH17LzZyOqcm+HSdsX1GKvGWz4wCC9sx+v2bB
-         4A7UxitRZP73J0+6wLV9F5cW2sy8Wqs5UVoymbfdkOxYLLX8c2Cp80IyaIruS6YI/vOb
-         5kxA==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=IyGrTsuf+XbfRsOlZleQ8COsqo+RgEPBV6+boXBhvfA=;
+        b=A25zKzKcUaJ+IAXpUWcJaH2hSheGSfnB0c6bw5PEb80xsKKV78tOq7IqkVw9s8ywry
+         mBY7s1rOkeEtoRypIS3Qi00XpcNdvUAQkDjK+xvwrFBpU2oaEGNSjZwiegNzRFYjznKM
+         oi6w9beRRilOA2EgiWeNm6zQsYOvVFwAMV2Rxi0nA2fih7JvG2xGi+CxU9tXl+F2M+jH
+         CgrN6sUMD6BEqJQdh7rJX2uS72d/2VsytOuqjCOtrNZIQ55uwJcfSw6u7FEhNbVwCPrw
+         A1+2IawDVur/zbFaCmX2RKtK6ktL9KlJ834FTNOrkflsFTjH1K1n8lcVP7laLB+cE9kh
+         RgfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=U+ES4iJF;
-       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Q+xNFPJi;
+       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id b21si263532iow.3.2020.10.09.21.47.30
+        by gmr-mx.google.com with ESMTPS id q2si913838pfc.0.2020.10.09.23.11.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 09 Oct 2020 21:47:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-331-P7XokA08ONeiH13pdTHAgQ-1; Sat, 10 Oct 2020 00:47:27 -0400
-X-MC-Unique: P7XokA08ONeiH13pdTHAgQ-1
-Received: by mail-qt1-f200.google.com with SMTP id l12so8503472qtu.22
-        for <clang-built-linux@googlegroups.com>; Fri, 09 Oct 2020 21:47:27 -0700 (PDT)
-X-Received: by 2002:ac8:5491:: with SMTP id h17mr1205116qtq.47.1602305246931;
-        Fri, 09 Oct 2020 21:47:26 -0700 (PDT)
-X-Received: by 2002:ac8:5491:: with SMTP id h17mr1205105qtq.47.1602305246606;
-        Fri, 09 Oct 2020 21:47:26 -0700 (PDT)
-Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
-        by smtp.gmail.com with ESMTPSA id b23sm3236942qkh.68.2020.10.09.21.47.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Oct 2020 21:47:26 -0700 (PDT)
-Subject: Re: [PATCH] rcutorture: remove unneeded check
-To: paulmck@kernel.org
-Cc: dave@stgolabs.net, josh@joshtriplett.org, rostedt@goodmis.org,
- mathieu.desnoyers@efficios.com, jiangshanlai@gmail.com,
- joel@joelfernandes.org, natechancellor@gmail.com, ndesaulniers@google.com,
- linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20201009194736.2364-1-trix@redhat.com>
- <20201009201825.GL29330@paulmck-ThinkPad-P72>
- <03e3eeed-6072-ccb8-a9c6-c79a99c701b8@redhat.com>
- <20201009235033.GM29330@paulmck-ThinkPad-P72>
- <92f82632-adbd-ca85-d516-6540a49f01ab@redhat.com>
- <20201010025743.GN29330@paulmck-ThinkPad-P72>
-From: Tom Rix <trix@redhat.com>
-Message-ID: <945d3540-0d22-4e7f-d819-1b5c4e836354@redhat.com>
-Date: Fri, 9 Oct 2020 21:47:20 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+        Fri, 09 Oct 2020 23:11:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-107-pc0cwYiJO-e5uiA-NDu72g-1; Sat, 10 Oct 2020 02:11:30 -0400
+X-MC-Unique: pc0cwYiJO-e5uiA-NDu72g-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 3DEFF186DD23;
+	Sat, 10 Oct 2020 06:11:28 +0000 (UTC)
+Received: from localhost (ovpn-12-89.pek2.redhat.com [10.72.12.89])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 19F4D10013C1;
+	Sat, 10 Oct 2020 06:11:26 +0000 (UTC)
+Date: Sat, 10 Oct 2020 14:11:24 +0800
+From: "bhe@redhat.com" <bhe@redhat.com>
+To: Rahul Gopakumar <gopakumarr@vmware.com>
+Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"natechancellor@gmail.com" <natechancellor@gmail.com>,
+	"ndesaulniers@google.com" <ndesaulniers@google.com>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
+	"rostedt@goodmis.org" <rostedt@goodmis.org>,
+	Rajender M <manir@vmware.com>, Yiu Cho Lau <lauyiuch@vmware.com>,
+	Peter Jonasson <pjonasson@vmware.com>,
+	Venkatesh Rajaram <rajaramv@vmware.com>
+Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
+Message-ID: <20201010061124.GE25604@MiWiFi-R3L-srv>
+References: <DM6PR05MB52921FF90FA01CC337DD23A1A4080@DM6PR05MB5292.namprd05.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20201010025743.GN29330@paulmck-ThinkPad-P72>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Original-Sender: trix@redhat.com
+In-Reply-To: <DM6PR05MB52921FF90FA01CC337DD23A1A4080@DM6PR05MB5292.namprd05.prod.outlook.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Original-Sender: bhe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=U+ES4iJF;
-       spf=pass (google.com: domain of trix@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=Q+xNFPJi;
+       spf=pass (google.com: domain of bhe@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -156,151 +152,78 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On 10/09/20 at 01:15pm, Rahul Gopakumar wrote:
+> As part of VMware's performance regression testing for Linux Kernel
+> upstream releases,=C2=A0we identified boot time increase when comparing
+> Linux 5.8 kernel against Linux 5.7 kernel.=C2=A0Increase in boot time is
+> noticeable on VM with a **large amount of memory**.
+> =C2=A0
+> In our test cases, it's noticeable with memory 1TB and more, whereas
+> there was no major=C2=A0difference noticed in testcases with <1TB.
+> =C2=A0
+> On bisecting between 5.7 and 5.8, we found the following commit from=C2=
+=A0
+> =E2=80=9CBaoquan He=E2=80=9D to be=C2=A0the cause of boot time increase i=
+n big VM test cases.
+> =C2=A0
+> -------------------------------------
+> =C2=A0
+> commit 73a6e474cb376921a311786652782155eac2fdf0
+> Author: Baoquan He <bhe@redhat.com>
+> Date: Wed Jun 3 15:57:55 2020 -0700
+> =C2=A0
+> mm: memmap_init: iterate over memblock regions rather that check each PFN
+> =C2=A0
+> When called during boot the memmap_init_zone() function checks if each PF=
+N
+> is valid and actually belongs to the node being initialized using
+> early_pfn_valid() and early_pfn_in_nid().
+> =C2=A0
+> Each such check may cost up to O(log(n)) where n is the number of memory
+> banks, so for large amount of memory overall time spent in early_pfn*()
+> becomes substantial.
+> =C2=A0
+> -------------------------------------
+> =C2=A0
+> For boot time test, we used RHEL 8.1 as the guest OS.
+> VM config is 84 vcpu and 1TB vRAM.
+> =C2=A0
+> Here are the actual performance numbers.
+> =C2=A0
+> 5.7 GA - 18.17 secs
+> Baoquan's commit - 21.6 secs (-16% increase in time)
+> =C2=A0
+> From dmesg logs, we can see significant time delay around memmap.
+> =C2=A0
+> Refer below logs.
+> =C2=A0
+> Good commit
+> =C2=A0
+> [0.033176] Normal zone: 1445888 pages used for memmap
+> [0.033176] Normal zone: 89391104 pages, LIFO batch:63
+> [0.035851] ACPI: PM-Timer IO Port: 0x448
+> =C2=A0
+> Problem commit
+> =C2=A0
+> [0.026874] Normal zone: 1445888 pages used for memmap
+> [0.026875] Normal zone: 89391104 pages, LIFO batch:63
+> [2.028450] ACPI: PM-Timer IO Port: 0x448
 
-On 10/9/20 7:57 PM, Paul E. McKenney wrote:
-> On Fri, Oct 09, 2020 at 05:24:37PM -0700, Tom Rix wrote:
->> On 10/9/20 4:50 PM, Paul E. McKenney wrote:
->>> On Fri, Oct 09, 2020 at 02:18:41PM -0700, Tom Rix wrote:
->>>> On 10/9/20 1:18 PM, Paul E. McKenney wrote:
->>>>> On Fri, Oct 09, 2020 at 12:47:36PM -0700, trix@redhat.com wrote:
->>>>>> From: Tom Rix <trix@redhat.com>
->>>>>>
->>>>>> clang static analysis reports this problem:
->>>>>>
->>>>>> rcutorture.c:1999:2: warning: Called function pointer
->>>>>>   is null (null dereference)
->>>>>>         cur_ops->sync(); /* Later readers see above write. */
->>>>>>         ^~~~~~~~~~~~~~~
->>>>>>
->>>>>> This is a false positive triggered by an earlier, later ignored
->>>>>> NULL check of sync() op.  By inspection of the rcu_torture_ops,
->>>>>> the sync() op is never uninitialized.  So this earlier check is
->>>>>> not needed.
->>>>> You lost me on this one.  This check is at the very beginning of
->>>>> rcu_torture_fwd_prog_nr().  Or are you saying that clang is seeing an
->>>>> earlier check in one of rcu_torture_fwd_prog_nr()'s callers?  If so,
->>>>> where exactly is this check?
->>>>>
->>>>> In any case, the check is needed because all three functions are invo=
-ked
->>>>> if there is a self-propagating RCU callback that ensures that there i=
-s
->>>>> always an RCU grace period outstanding.
->>>>>
->>>>> Ah.  Is clang doing local analysis and assuming that because there wa=
-s
->>>>> a NULL check earlier, then the pointer might be NULL later?  That doe=
-s
->>>>> not seem to me to be a sound check.
->>>>>
->>>>> So please let me know exactly what is causing clang to emit this
->>>>> diagnostic.  It might or might not be worth fixing this, but either w=
-ay
->>>>> I need to understand the situation so as to be able to understand the
->>>>> set of feasible fixes.
->>>>>
->>>>> 						Thanx, Paul
->>>> In rcu_prog_nr() there is check for for sync.
->>>>
->>>> if ( ... cur_op->sync ...
->>>>
->>>> =C3=83=E2=80=9A=C3=82=C2=A0=C3=83=E2=80=9A=C3=82=C2=A0 do something
->>>>
->>>> This flags in clang's static analyzer as 'could be null'
->>>>
->>>> later in the function, in a reachable block it is used
->>>>
->>>> cur_ops->sync()
->>>>
->>>> I agree this is not a good check that's why i said is was a false posi=
-tive.
->>>>
->>>> However when looking closer at how cur_ops is set, it is never uniniti=
-alized.
->>>>
->>>> So the check is not needed.
->>> OK, got it, and thank you for the explanation.
->>>
->>>> This is not a fix, the code works fine.=C3=83=E2=80=9A=C3=82=C2=A0 It =
-is a small optimization.
->>> Well, there really is a bug.  Yes, right now all ->sync pointers are
->>> non-NULL, but they have not been in the past and might not be in the
->>> future.  So if ->sync is NULL, rcu_torture_fwd_prog_nr() either should
->>> not be called or it should return immediately without doing anything.
->>>
->>> My current thought is something like the (untested) patch below, of
->>> course with your Reported-by.
->>>
->>> Thoughts?
->> Yes that would be fine.
->>
->> In in review these other cases need to be been take care of.
-> I am having a difficult time interpreting this sentence, but will
-> optimistically assume that it means that you are good with this approach.
-> If my optimism is unwarranted, please let me know so I can fix whatever
-> might be broken.
->
->> Reported-by: Tom Rix <trix@redhat.com>
-> How does the commit below look?
+Could you add memblock=3Ddebug to kernel cmdline and paste the boot logs of
+system w and w/o the commit?
 
-Looks fine.
-
-Thanks
-
-Tom
-
->
-> 							Thanx, Paul
->
-> ------------------------------------------------------------------------
->
-> commit 75c79a5dd72c1bb59f6bd6c5ec36f3a6516795cd
-> Author: Paul E. McKenney <paulmck@kernel.org>
-> Date:   Fri Oct 9 19:51:55 2020 -0700
->
->     rcutorture: Don't do need_resched() testing if ->sync is NULL
->    =20
->     If cur_ops->sync is NULL, rcu_torture_fwd_prog_nr() will nevertheless
->     attempt to call through it.  This commit therefore flags cases where
->     neither need_resched() nor call_rcu() forward-progress testing
->     can be performed due to NULL function pointers, and also causes
->     rcu_torture_fwd_prog_nr() to take an early exit if cur_ops->sync()
->     is NULL.
->    =20
->     Reported-by: Tom Rix <trix@redhat.com>
->     Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
->
-> diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
-> index beba9e7..44749be 100644
-> --- a/kernel/rcu/rcutorture.c
-> +++ b/kernel/rcu/rcutorture.c
-> @@ -1989,7 +1989,9 @@ static void rcu_torture_fwd_prog_nr(struct rcu_fwd =
-*rfp,
->  	unsigned long stopat;
->  	static DEFINE_TORTURE_RANDOM(trs);
-> =20
-> -	if  (cur_ops->call && cur_ops->sync && cur_ops->cb_barrier) {
-> +	if (!cur_ops->sync)=20
-> +		return; // Cannot do need_resched() forward progress testing without -=
->sync.
-> +	if (cur_ops->call && cur_ops->cb_barrier) {
->  		init_rcu_head_on_stack(&fcs.rh);
->  		selfpropcb =3D true;
->  	}
-> @@ -2215,8 +2217,8 @@ static int __init rcu_torture_fwd_prog_init(void)
-> =20
->  	if (!fwd_progress)
->  		return 0; /* Not requested, so don't do it. */
-> -	if (!cur_ops->stall_dur || cur_ops->stall_dur() <=3D 0 ||
-> -	    cur_ops =3D=3D &rcu_busted_ops) {
-> +	if ((!cur_ops->sync && !cur_ops->call) ||
-> +	    !cur_ops->stall_dur || cur_ops->stall_dur() <=3D 0 || cur_ops =3D=
-=3D &rcu_busted_ops) {
->  		VERBOSE_TOROUT_STRING("rcu_torture_fwd_prog_init: Disabled, unsupporte=
-d by RCU flavor under test");
->  		return 0;
->  	}
->
+> =C2=A0
+> We did some analysis, and it looks like with the problem commit it's
+> not deferring the memory initialization to a later stage and it's=20
+> initializing the huge chunk of memory in serial - during the boot-up
+> time. =C2=A0Whereas with the good commit, it was able to defer the
+> initialization of the memory when it could be done in parallel.
+>=20
+>=20
+> Rahul Gopakumar
+> Performance=C2=A0Engineering
+> VMware, Inc.
+>=20
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -308,4 +231,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/945d3540-0d22-4e7f-d819-1b5c4e836354%40redhat.com.
+clang-built-linux/20201010061124.GE25604%40MiWiFi-R3L-srv.
