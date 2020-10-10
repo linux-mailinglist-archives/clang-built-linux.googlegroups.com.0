@@ -1,132 +1,147 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBQHTQP6AKGQEXASAKOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBTH6QP6AKGQE5GCLUMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id DFF4B289C8B
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Oct 2020 02:01:04 +0200 (CEST)
-Received: by mail-lj1-x23a.google.com with SMTP id r8sf1858259ljp.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Oct 2020 17:01:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602288064; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id F0E53289CB2
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Oct 2020 02:24:45 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id c21sf8008505pfd.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Oct 2020 17:24:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602289484; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FGGpFeohZzhCkvKxFfaEKOEaqeqPfFLpaXnwOP4mXVYAreOmN/5epFftBH0htaK2Ol
-         pqnlsg9jpIEiBiua0Awf3zpRAvzlxM+0nR+nJBANNPnmk/rIBcHVmbk7DXeUWs7jNq7u
-         MxnbTqrsXE6QHtrzK9doarq31nI9bjoH6Q5GUKzg6odo4XmPMug2N9EZS5ZIzXFQAa32
-         QtwH8LHcTF1AcHy3gxnW0CdD31EepD5dSgqPzHWKwLox39CV/a0GQ5TT498WNgU7iiyz
-         IL3/hxg9Ia3UF/MgrAB2sHDa3k9EFrRKVOYBuHIAPNC+FqLqZJXsNst/g/gOG9l/sDHE
-         xlZQ==
+        b=Sk1YvYSV8qaRUbew7sQzaCy8AfUN8673ZpPUNvkhLeuWFLjKZaR2IY1paxcpOXJpfE
+         zF9Y3R/BEULewm9ZlwVAsJDrd18KqieKHjOU4VMhpeVDCfaEFFqh6xzIfSCi9n0eVZIj
+         e/GJEUrFF/RMu82+x7pp8XM/ozDgx6O10/9qJiKFr49cyBH7GQbzxj9lk3UxBSK9FACR
+         WKj+WWYPKvTJcRCLo6G+wKw8OFOEsLoYC5AqfrlVxCUU6IXnHA2G6KZ7CUFPP2j0qVBz
+         paRWU7mvYHY1/pS5V+u9vA+8Kf6hdAnrHoEwKyT+jjTwv0RwfGsfe1eeJCjzK4DyKzb7
+         LE3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=fedNqAg0gJvjFATvv+1houoZ15z7xlKkFogCOJjoi5A=;
-        b=GFG6zPpDI4gjB+sh+bxQ99cxEzSsEevYbiO5zOzXw8i1bUX4v9JTW3jXzshKQkJKgM
-         G8jsgJOj8LXcJBgWG68uo3Z8VD9YM/ZctmwTA1XIVdQDqQTuny9KfEi+aIoywg7qV4Wx
-         jGxLJvOV9vl3XJVavFzAQSnI0X/zyV7FHawEW+Z1hDj2P3OKeOxQdYjfIzs1U7+/ADwV
-         m65NM0vRqjXQwOyx3RBQ8bi6/kgitcX8cO8dGoZ3ZybdT1tQvhpgaDiPEEv2KMLvy69h
-         ozzIyNDLYdZVqk3TBcu+vblvENrx/OaxWQTxSNjE74R9xFjB0tUocqhcnw3Lzl3h6HrA
-         KFDA==
+         :list-id:mailing-list:precedence:content-language
+         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=qT2UMigRS+UV3bViCFtV4VkvbmeU3pFRIHVhlv/+Fes=;
+        b=NB8DBmrAggTMhBA5BUvzkGNNyZYHitWH9K8QMhGMEGpTaaZbE4td4aSuXV5q8OIMkw
+         lMsAE3C+84DzfPkVoh8Dw+FAyIZocNbraILXbjWScaKCVWY5sEkyYEeVL93DiZPfpT1P
+         hsUnDFJkrKT57lAZkMCfF2hdQ4OwcZSOURpOqV2xK2Olt8CvP0sBdn4BfmoycV1kRIyi
+         mk7uJAuVCR5iOfw/NxAlEZ9HCSwLqHiK29WRaRQVM4nYMzlKLyg/viykWMX0XFDebE4C
+         xQXZAWM9ydBogV/0cjPVVLUW+SdocIn6wLDnmq6Hzzv1Ae2cX9NrGabiVcoUeZxz16mO
+         vNxQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mijmHtCM;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::544 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ivBrvVrf;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-transfer-encoding:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fedNqAg0gJvjFATvv+1houoZ15z7xlKkFogCOJjoi5A=;
-        b=UO0pTs4Mf8otcK0ts8aKAKLKMIuOGAMW7cvcbzQpQMBYs/cbbJC7LuGBD2Qjjm+0gH
-         WNAvK1amDHWCUZKPTBmiUprf9bluKNxlzXMG793Va71QiGBj06EgZB3roGVDXoKqob9Q
-         7xQ1vwsjCSdJhvGYEWx9GCn6jll6E0EcjQ8POvDtOoL/CbowtS1vHD/WE3D8m4QeKhPX
-         bYEVkLh2WTi3+96xQNYsl73X+m+6rJrA9GRCtyOh6xx4iXv7iOtE3/rokUq4Nw6IeIK8
-         PHBF/8xJSt/ynivpYunOkwj5FZZ4H1jyU4/looyKdaWnPQqkks4pri6xFKfAwIFldQ7V
-         LILA==
+        bh=qT2UMigRS+UV3bViCFtV4VkvbmeU3pFRIHVhlv/+Fes=;
+        b=o3n6TKJUNm5znkqNHlO+cBhBkw02SS6B9pTfNn7wb+yMcCyvJQBGq/Eh6iHryaaQXn
+         y/k3eyGgj9GLTXUol4SSG4Xrog9V70KkjJZpH/iUtaMxTo2tiTDFlUK8XcKFzjVQGn84
+         p4Y+/IsuWNlnYZ0wvLznD8F8HYuadYoeu87bUE8yiH3KV4HuHyCG7nrRWw4ZJD5h2hMQ
+         /gXzE5sHubUKbIFBUREP1MK3vFohbdAqCWvf0+FQFLbe+/kBm4EwvhKgu70L3uqErZl3
+         n2jSUs04HLuS2I88vg14whgtSTo8dVuArgK/L88ypP0QlVXWpkJK961XU9tSdB5QZTYL
+         Sqrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-transfer-encoding
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fedNqAg0gJvjFATvv+1houoZ15z7xlKkFogCOJjoi5A=;
-        b=jy4dKyBKqwh4qEJ8FtJWPNTTOuwUSgWXv603NfFnuQHJxGTCNVAnMPc91SypdcRcQ0
-         +enJ26y14KSR+ZSEuDyu4+6W400V/a6H6QyxAy2+T6zD63QLgQllnXGcslb2gw4wm5Ut
-         BNKwJFmRPN9s3r9UevWqJ4xEC6comPOSdd8ybFafmiZPkpGhVBosNAFJOmpZFGXZSYnX
-         JrQP9HQRuNpnRf/9UZEw4cwcvyMCIkq+7riPw8cUM2ZaajL7TYOjmtCf+kuqPPrFImP7
-         YkR+K+cVfUHMWh+KILmDiTf1Bgoc56Vxr8Anz4VzXv8xfyqmzabDtJHtxlc/PzaYKa82
-         yK9w==
-X-Gm-Message-State: AOAM530LSCIlWpMByRotDfya1v2fWr8MRkMjcb6eetHO6O1Jn+x6AQjj
-	KYpAEndFndihf+PQGWZmRPY=
-X-Google-Smtp-Source: ABdhPJw11/TdFEcQ2gQBMrko0mxZvp0B5AFQM12WLw5YFEcDmlfdeh9qa0Jr/1KlLGwcMM778k7yAg==
-X-Received: by 2002:ac2:44bb:: with SMTP id c27mr4578616lfm.223.1602288064329;
-        Fri, 09 Oct 2020 17:01:04 -0700 (PDT)
+        bh=qT2UMigRS+UV3bViCFtV4VkvbmeU3pFRIHVhlv/+Fes=;
+        b=r/c6la07TuNEAWIhq8qZFsaJNMvOI9RRFk1JKLiZB6U9lYxdkurjmtF73xTuNn/KPS
+         JkjN3KFepdzrsrZRW9jFQoMGCU9QwP7VPaax+qIVOxvtA0E+/5wTm8VQzbCBHcBM/R4K
+         ZcVX/DYbxl4f356c1OuhWeKqhAEPO9BOXYWugn3nDlI/fQ+2G0t9KCSep8gQU0LGyQST
+         l957hKoEwhUtQ2BeXrHuYqNNVi5GWL0saFe0r90zI/6bRDErDCSxMtv1ziB15ruPLL0l
+         IvkCvJpLVDaeYiyXG6mWtaVuplJWTNQ2ZUtcKSUbY9PIgtWuGcsOqgyMA8n+/8Wus1fC
+         IcUg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531HEh9NOFnUDlPYOncWx+dZzGKyhlNYl9uJLZ3GBp+9v09V2SM3
+	fW0j8JkTbjjZiHVQAf0mGsE=
+X-Google-Smtp-Source: ABdhPJx+Ny6SqhFoOhpFgd0ER05XWKEuOkxFjPz3HmtnzvrgOSfTfx9AQIeTCaBLCQIoHpfLwPrSDw==
+X-Received: by 2002:a17:90a:174e:: with SMTP id 14mr7466191pjm.124.1602289484340;
+        Fri, 09 Oct 2020 17:24:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:888a:: with SMTP id k10ls1643361lji.10.gmail; Fri, 09
- Oct 2020 17:01:03 -0700 (PDT)
-X-Received: by 2002:a2e:b6d1:: with SMTP id m17mr5705975ljo.451.1602288063080;
-        Fri, 09 Oct 2020 17:01:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602288063; cv=none;
+Received: by 2002:a62:1b4b:: with SMTP id b72ls3743203pfb.2.gmail; Fri, 09 Oct
+ 2020 17:24:43 -0700 (PDT)
+X-Received: by 2002:a65:5881:: with SMTP id d1mr5417943pgu.193.1602289483857;
+        Fri, 09 Oct 2020 17:24:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602289483; cv=none;
         d=google.com; s=arc-20160816;
-        b=c9GhfnqUCX60IvG8aIQyYJYCbvDv49kmgJCviYatYjc5YXXtGrl6vI+6zn+iJeERMg
-         0+h6sLfMkPeQLZ2kpcVUpWhz9fmbVbxuzbqcDVYL2Gif6OKb/FbgFD6fWJVLaa75LWgn
-         veD7XWujlF/0xwNtn3+nKP4RHGJ/28Mrt48+eKlWDNVVcHfmEJVYnlkQlJpDhlZFatso
-         OyKvEH+n+vhIKyVPiKpIwrcSqFPR12GqCbZ2sledgeZuCfrCaixl71TIpMrsyxgtbJrj
-         C2eNAoQMdmlkv3wkmIkX59EX0Md1v9om+cUVbUe8F0SqIn72JW+v7R6xSYprlauHg4Gy
-         1glg==
+        b=UBPbYHbH39hfZ+5iNLU5WPy3+BYQhiPr0O97ON0HjhsKXipTG1pdPg226WgMAPQZoc
+         lX3Cl4y2DQwT9IINTla7mW+BGx87oZsveyTYc88+h/koXXMKOqtdmdenSltIym9+S9mJ
+         J6U7nQ+dtaZ2k8rNIYXQk8SG+DO/SwVFiKNWc69LvYx86DKq7PqPCQ/Uc8SxeyRlF6SD
+         FQVlvdTzKde//yC1/PokOr5AGvt+grNT/YnQqoeyXTEcchpD6b81NVGXlM6DYpsmqxHL
+         1I9A9brbbnOKXkGRc63AumJ5m4ythbmI+FXY7k7S98W9aHJZAIg84qNc3tfuxlyvtPnO
+         EnTQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=NyEG6unrPY9TR7tF+FNQAaLApT1kctBGIfqP3l5IFb4=;
-        b=cJG+Gtlwga7tvEpMxP+q970tB4ITDjNtFUyz6oVwprsTV0pVqiURD5FmQpn7lUkIFZ
-         T2jVtBVWN7a7RaE4+H/TzmRVSFGW0FX5K4QDUO77FqcQHmXJoTsra5BG204gLp/vrbvx
-         siMQ5zzoCMoITbSQ9JNC1xbaiarTILwiVU6peov7q3kNGsCtvuhgygqGvXqGuFch0ymS
-         N0Hdwq7IKndmcnrm1NbbftyriqEFYdsMoq0SzJHNhh+7MN6JPckcBaoL66LbK19nI7le
-         28Z12b4ME0+jLJbY+/vNATDnFLJHgMnSXneReiGSMyHQmi2qkWlqTTIOOADXQMkZAYw4
-         vLkw==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=j1n5KeMHBgg75rXfWx16VkrJqv8CwDfWMRJRvhBV9wg=;
+        b=PD7IDzzuvScIVDNcolII/sly/uEFaXQrFPxrE5FRO32Y/4d03W1U9KqVUbCOKXc6Jk
+         WdK68IU2+XqOHNJStkmngYakJM2hsDsWDoytTfuRcaYCcjLFpF0EdJgUaLOKLk3KCGaT
+         Rxjox98G62jEoYjKg56EhQrt/iO3mmqnJky3QKB0AC9tzYkz8ImrfwlUyA3vADy+gFJ2
+         MiS4qMsDRNdYYZPXdJTMhNEMHrdIaxoIG0+tXjDttYE26qhbtOvtdoFfVusTtmsPZPxG
+         DLEsPvERm556fJoUoijGnQdI7rP2gFTb3CJ8XHRi/RYZXosaXFL5CxBzGPiJgyBxs2uO
+         C8RQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mijmHtCM;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::544 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ed1-x544.google.com (mail-ed1-x544.google.com. [2a00:1450:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id t20si282672lfk.10.2020.10.09.17.01.03
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ivBrvVrf;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id t15si720065pjq.1.2020.10.09.17.24.43
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 09 Oct 2020 17:24:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-432-YiHbx-rAMIOxEzbSlAfS_Q-1; Fri, 09 Oct 2020 20:24:41 -0400
+X-MC-Unique: YiHbx-rAMIOxEzbSlAfS_Q-1
+Received: by mail-qv1-f71.google.com with SMTP id h12so7027453qvk.22
+        for <clang-built-linux@googlegroups.com>; Fri, 09 Oct 2020 17:24:41 -0700 (PDT)
+X-Received: by 2002:a05:620a:809:: with SMTP id s9mr534407qks.57.1602289480546;
+        Fri, 09 Oct 2020 17:24:40 -0700 (PDT)
+X-Received: by 2002:a05:620a:809:: with SMTP id s9mr534381qks.57.1602289480187;
+        Fri, 09 Oct 2020 17:24:40 -0700 (PDT)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id i205sm7478724qke.70.2020.10.09.17.24.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 09 Oct 2020 17:01:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::544 as permitted sender) client-ip=2a00:1450:4864:20::544;
-Received: by mail-ed1-x544.google.com with SMTP id x1so11169646eds.1
-        for <clang-built-linux@googlegroups.com>; Fri, 09 Oct 2020 17:01:03 -0700 (PDT)
-X-Received: by 2002:a50:dec9:: with SMTP id d9mr1852468edl.145.1602288062227;
- Fri, 09 Oct 2020 17:01:02 -0700 (PDT)
+        Fri, 09 Oct 2020 17:24:39 -0700 (PDT)
+Subject: Re: [PATCH] rcutorture: remove unneeded check
+To: paulmck@kernel.org
+Cc: dave@stgolabs.net, josh@joshtriplett.org, rostedt@goodmis.org,
+ mathieu.desnoyers@efficios.com, jiangshanlai@gmail.com,
+ joel@joelfernandes.org, natechancellor@gmail.com, ndesaulniers@google.com,
+ linux-kernel@vger.kernel.org, rcu@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20201009194736.2364-1-trix@redhat.com>
+ <20201009201825.GL29330@paulmck-ThinkPad-P72>
+ <03e3eeed-6072-ccb8-a9c6-c79a99c701b8@redhat.com>
+ <20201009235033.GM29330@paulmck-ThinkPad-P72>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <92f82632-adbd-ca85-d516-6540a49f01ab@redhat.com>
+Date: Fri, 9 Oct 2020 17:24:37 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-References: <20201009161338.657380-1-samitolvanen@google.com>
- <20201009153512.1546446a@gandalf.local.home> <20201009210548.GB1448445@google.com>
- <20201009193759.13043836@oasis.local.home>
-In-Reply-To: <20201009193759.13043836@oasis.local.home>
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 9 Oct 2020 17:00:51 -0700
-Message-ID: <CABCJKueGW5UeH1++ES7ZRDcAnZ6hV-tFVwt6usjcZUnR95YQPQ@mail.gmail.com>
-Subject: Re: [PATCH v5 00/29] Add support for Clang LTO
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Will Deacon <will@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Kees Cook <keescook@chromium.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-kbuild <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-pci@vger.kernel.org, X86 ML <x86@kernel.org>
+In-Reply-To: <20201009235033.GM29330@paulmck-ThinkPad-P72>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
+Content-Transfer-Encoding: quoted-printable
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=mijmHtCM;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::544
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+ header.i=@redhat.com header.s=mimecast20190719 header.b=ivBrvVrf;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,39 +154,125 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Oct 9, 2020 at 4:38 PM Steven Rostedt <rostedt@goodmis.org> wrote:
->
-> On Fri, 9 Oct 2020 14:05:48 -0700
-> Sami Tolvanen <samitolvanen@google.com> wrote:
->
-> > Ah yes, X86_DECODER_SELFTEST seems to be broken in tip/master. If you
-> > prefer, I have these patches on top of mainline here:
-> >
-> >   https://github.com/samitolvanen/linux/tree/clang-lto
-> >
-> > Testing your config with LTO on this tree, it does build and boot for
-> > me, although I saw a couple of new objtool warnings, and with LLVM=1,
-> > one warning from llvm-objdump.
->
-> Thanks, I disabled X86_DECODER_SELFTEST and it now builds.
->
-> I forced the objdump mcount logic with the below patch, which produces:
->
-> CONFIG_FTRACE_MCOUNT_RECORD=y
-> CONFIG_FTRACE_MCOUNT_USE_OBJTOOL=y
->
-> But I don't see the __mcount_loc sections being created.
->
-> I applied patches 1 - 6.
 
-Patch 6 is missing the part where we actually pass --mcount to
-objtool, it's in patch 11 ("kbuild: lto: postpone objtool"). I'll fix
-this in v6. In the meanwhile, please apply patches 1-11 to test the
-objtool change. Do you have any thoughts about the approach otherwise?
+On 10/9/20 4:50 PM, Paul E. McKenney wrote:
+> On Fri, Oct 09, 2020 at 02:18:41PM -0700, Tom Rix wrote:
+>> On 10/9/20 1:18 PM, Paul E. McKenney wrote:
+>>> On Fri, Oct 09, 2020 at 12:47:36PM -0700, trix@redhat.com wrote:
+>>>> From: Tom Rix <trix@redhat.com>
+>>>>
+>>>> clang static analysis reports this problem:
+>>>>
+>>>> rcutorture.c:1999:2: warning: Called function pointer
+>>>>   is null (null dereference)
+>>>>         cur_ops->sync(); /* Later readers see above write. */
+>>>>         ^~~~~~~~~~~~~~~
+>>>>
+>>>> This is a false positive triggered by an earlier, later ignored
+>>>> NULL check of sync() op.  By inspection of the rcu_torture_ops,
+>>>> the sync() op is never uninitialized.  So this earlier check is
+>>>> not needed.
+>>> You lost me on this one.  This check is at the very beginning of
+>>> rcu_torture_fwd_prog_nr().  Or are you saying that clang is seeing an
+>>> earlier check in one of rcu_torture_fwd_prog_nr()'s callers?  If so,
+>>> where exactly is this check?
+>>>
+>>> In any case, the check is needed because all three functions are invoke=
+d
+>>> if there is a self-propagating RCU callback that ensures that there is
+>>> always an RCU grace period outstanding.
+>>>
+>>> Ah.  Is clang doing local analysis and assuming that because there was
+>>> a NULL check earlier, then the pointer might be NULL later?  That does
+>>> not seem to me to be a sound check.
+>>>
+>>> So please let me know exactly what is causing clang to emit this
+>>> diagnostic.  It might or might not be worth fixing this, but either way
+>>> I need to understand the situation so as to be able to understand the
+>>> set of feasible fixes.
+>>>
+>>> 						Thanx, Paul
+>> In rcu_prog_nr() there is check for for sync.
+>>
+>> if ( ... cur_op->sync ...
+>>
+>> =C2=A0=C2=A0 do something
+>>
+>> This flags in clang's static analyzer as 'could be null'
+>>
+>> later in the function, in a reachable block it is used
+>>
+>> cur_ops->sync()
+>>
+>> I agree this is not a good check that's why i said is was a false positi=
+ve.
+>>
+>> However when looking closer at how cur_ops is set, it is never uninitial=
+ized.
+>>
+>> So the check is not needed.
+> OK, got it, and thank you for the explanation.
+>
+>> This is not a fix, the code works fine.=C2=A0 It is a small optimization=
+.
+> Well, there really is a bug.  Yes, right now all ->sync pointers are
+> non-NULL, but they have not been in the past and might not be in the
+> future.  So if ->sync is NULL, rcu_torture_fwd_prog_nr() either should
+> not be called or it should return immediately without doing anything.
+>
+> My current thought is something like the (untested) patch below, of
+> course with your Reported-by.
+>
+> Thoughts?
 
-Sami
+Yes that would be fine.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKueGW5UeH1%2B%2BES7ZRDcAnZ6hV-tFVwt6usjcZUnR95YQPQ%40mail.gmail.com.
+In in review these other cases need to be been take care of.
+
+Thanks,
+
+Reported-by: Tom Rix <trix@redhat.com>
+
+> 							Thanx, Paul
+>
+> ------------------------------------------------------------------------
+>
+> diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
+> index beba9e7..44749be 100644
+> --- a/kernel/rcu/rcutorture.c
+> +++ b/kernel/rcu/rcutorture.c
+> @@ -1989,7 +1989,9 @@ static void rcu_torture_fwd_prog_nr(struct rcu_fwd =
+*rfp,
+>  	unsigned long stopat;
+>  	static DEFINE_TORTURE_RANDOM(trs);
+> =20
+> -	if  (cur_ops->call && cur_ops->sync && cur_ops->cb_barrier) {
+> +	if (!cur_ops->sync)=20
+> +		return; // Cannot do need_resched() forward progress testing without -=
+>sync.
+> +	if (cur_ops->call && cur_ops->cb_barrier) {
+>  		init_rcu_head_on_stack(&fcs.rh);
+>  		selfpropcb =3D true;
+>  	}
+> @@ -2215,8 +2217,8 @@ static int __init rcu_torture_fwd_prog_init(void)
+> =20
+>  	if (!fwd_progress)
+>  		return 0; /* Not requested, so don't do it. */
+> -	if (!cur_ops->stall_dur || cur_ops->stall_dur() <=3D 0 ||
+> -	    cur_ops =3D=3D &rcu_busted_ops) {
+> +	if ((!cur_ops->sync && !cur_ops->call) ||
+> +	    !cur_ops->stall_dur || cur_ops->stall_dur() <=3D 0 || cur_ops =3D=
+=3D &rcu_busted_ops) {
+>  		VERBOSE_TOROUT_STRING("rcu_torture_fwd_prog_init: Disabled, unsupporte=
+d by RCU flavor under test");
+>  		return 0;
+>  	}
+>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/92f82632-adbd-ca85-d516-6540a49f01ab%40redhat.com.
