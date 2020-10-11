@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBKGMRH6AKGQEHGHHQIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMPJRH6AKGQEG2XG2QY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B85A028A4F6
-	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Oct 2020 03:55:53 +0200 (CEST)
-Received: by mail-il1-x13b.google.com with SMTP id 18sf9868182ilt.9
-        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Oct 2020 18:55:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602381352; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5EB3E28A51B
+	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Oct 2020 04:57:55 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id a19sf9754699pff.12
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Oct 2020 19:57:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602385073; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ow4LBgtxrZrzj3T/M+p5YJ0RO/lcgxhhCKhSBjws2cSVBBrcfUZ7mh0/660vWc6npQ
-         eCK3KKW/VrlJzuOxLUREj4ZIDggEVafnP0xNhxandE64QG2LP1nzfISd4joCWANcp6je
-         Ws3c1pzKoBqZyZyBGzMWmDer6mfg3LKKRKfVsRj3QK9u2Cgo/GEoqA1H6D21+KYAjWIk
-         Fq8sCaWVyTS0fwFlHfoZJhPQGcSUEcMApjXnu4j1l/rcmL+I5sY8Abs2OMokuqxWUpwb
-         jlikRwrYdZ9mcm1U9dEIbvHEZst1/SQhVMqUg76EZlj2fJN3wBUwKGTjVQXR2uF4JrVE
-         Bdsg==
+        b=GE7n8phwJ8UqOWKE8d5PjsN7J6VQijNYkmQCQMT3QxhlqwhOgHW43waDsJhqqcWt/v
+         7hDFtGMroIjy6Gl+zDJNiTDK45vxMfTsmJHWk4+Nm1oWVmurg3dPUYXwdIQE/C51Rz6B
+         H7CYDtU2qbxfByx9g+yPlPACBbnWMKZt7t5DVT5spXT7FpKmnkSdBsr2Rd/4V/0gzpJQ
+         nzEIHvEPm//fqghFmtUf3m/UmzjEM8TIj73AlYZVlyL0suNubKK2t5aD3oSArTDq+uv8
+         G31AmgFW5w24xy5uj/8TaqkvIe5GDVk/46ZuKbW/JPSgWknQO0qtWlCRmdrKz2s1T4Fu
+         DFnQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=YnVPu2Re0nieTvPIVyzXhNP3M6FRz4QsB6derHWLXns=;
-        b=bg9hqbC1UTS1mPUOHI+bwm/MR8LtN6AWVL4+W+XRf7b+ejbHaR3rqIFLNc67oygfh7
-         lvV3qhMn07tUYOacMWI4pFo8kEC7ezsje/gr3vQgRI7UC8PyV5tMR3RndQ0XlmQqZEHk
-         VnqmC2O+TNoIOW9iVWbLzsY2Hwm3+6GKIe2YlrkWgMebJ6ORZmgPlI9ylhKe2j04PPOb
-         +MaB1MoZMQngTIx1G9KXl7ontQ1a1zIyKjSkOpL5njO4DSwwUjRh/4TpIT5WnXp+SS0r
-         i66O43qXnnYYMB1jkrVUm7Cx+qCk0X66uWfyljMi+Si69KFJfuQMS4W6D+z15H8uK3S3
-         e19w==
+        bh=4pW4/rdZ/M+mBJHSMP+zbBQ5Zm5BBdbinC6M2DNvoJ4=;
+        b=Ijx8EwcgF8vGmHErpC7ma4KUX7t1UaDQGg+y6/Z/hKabNkzs3nW1T0U3kEbluuy5TR
+         nNJ0QGNE0tW8nPvS84TAFnD+POmkLE7l3Wzps4G2kgrZIOT23mGxH4pE9QCCBzUvrKCo
+         nVdxU4w+vLcDPsiE6tU3Jc22rbImqtof5MpmdfOTI0QnpIOXwsX9FYLUUO7MfmE3A03J
+         gFatGbCRP862h21Lj+HPGEHw9zoF06IgRTRTtEe2wp2xMjeArJHoecOqPU55WrY1/bC2
+         4tH4lHunIbqnJOZLRKT8G/GPJ9sAGFSfFtAPVGrKTSZPf5ncJiHpbMvDL231QaDCV4xb
+         xDqQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YnVPu2Re0nieTvPIVyzXhNP3M6FRz4QsB6derHWLXns=;
-        b=NnDu61rcaQsTzuwiyl87xnLt9sKowHTAEv7MqZkb5shrZa98CqpNVTLwB6byfChh/x
-         RTN9V8Ac8qPTAMKelUNQ5KF2EezufuFR1u1W7fT2/D97uQVdeEWZNm7vQL5fD+YVjm7M
-         xGjbRmfffl5UAZBZTpaW35KceImQk8LsZwUyZqW0ooax9IbPft5+bMLyRukXFrsB4ozS
-         p0zyVRGPCEd2qnGLcZZGb1cbktvcEsbVq1b1rLUr167GeqvBQRFuNDkjOPXi/vZiEv8z
-         G7R0lWozOHV9CV6Ex61ivZ289DlidJQagBhISyjF6eUqIKkLaqvMeeHLFxFWk4ELmUml
-         R56A==
+        bh=4pW4/rdZ/M+mBJHSMP+zbBQ5Zm5BBdbinC6M2DNvoJ4=;
+        b=JGI4YNIaGXGuNbbBVgNru+o1wkqSpdGBiuzXfOcolVsmLDxgaFVzmnFslNxeC/jnWn
+         5dctvY2Be7PDNT7gp5K8TufPE1VlKTkgU+GUFaAmC5uXifsXX8amSyMAeDNhamnYFEcZ
+         0Tg2dleIA2S2Kg7yj2H7gVOMDp3yn6gabZK50ci7RX54fiyCMwLFvWiwVgt2Rci3igt5
+         sxz19HmAsDZlKTm1wHmthVW5bO5IsPgp9TOTzfooO7FDCtIzj0UcbBuotAJxytqowLSu
+         8pWKi0IbA9EwxULAvLY+oobreb8OPdDl92KWs3K03PJpg0Rz3uk4sX9H8xIADrY9E9X9
+         0KPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,87 +51,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YnVPu2Re0nieTvPIVyzXhNP3M6FRz4QsB6derHWLXns=;
-        b=HGSf5/WLRQZdxAN91U3Nm2HZ5iUhQhVO/CHhqgjcbbLxdAsAO4QHFksyuDdvH4EWDs
-         EjhEv8HxV/Cm1QwIgtXIfDOaqidmnns1fqW8Qv5iMXkxq0yMGBb77P6Vlx76tXOmkujC
-         VHp5P6AcJIr9dGaN+DUTWUPI+p4Bg68L0uSUGb+co6Wj+bsgx4dO44phigbux1aQpdbM
-         UC+D0e+10SHk9Bw7gEhvUqkV2/fL67qeOkPRg79H2irc3ISMPzCPH+LWUXtjKSyx8aZD
-         2o5qFz8p5CI6VxhtVR4P2jMzapSEWLddaPR9w8Y4HgcFAo+Rqcxv4uRFPplMBTfTRZMz
-         5mYA==
+        bh=4pW4/rdZ/M+mBJHSMP+zbBQ5Zm5BBdbinC6M2DNvoJ4=;
+        b=B+33YPKzqsdXoj9FyAqPeW/Q6jYquFF/AAqrdh9zlTV/sUi9ObhtrOJINUvqnzVd6Y
+         91kPeRMdZ7pDVflJvadOfpv58xfrOVyWnxpUHEKJ5owURar0Bteif8IWNqSJpCPYOy+2
+         Y7FwYBulqdkNCMkHB3I9e5UQEIwAAzsu+QTv/ztr8Hd4rRRX96PRZT18Z9uBCTF6NkKX
+         mniMpBYgb8vc2jPMZDaXsopjmJ5CUGA7VxHpfby4KbpXgJzSNrGkt03NY9w6bl8mH7r+
+         HCFiF30PpESrBHkRFt4+akFlWZ+7nS4UC87mf6g3U0Gvakr71n0Gqo/GArbMESVaCtuT
+         IPyw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Xkb1uuS+YWIB1I9B1hPgCzbmJUuh8VElYiN8QzNsWFsirOL5w
-	hflZ2LsM95f1XWbo8P9qRSQ=
-X-Google-Smtp-Source: ABdhPJyyI5vKCA4t+otywHx/HnQyGHU8NygPqlFY0bUg2IwZIoNYqq4Z+XdoPujuVOhwuRDw1mmRaA==
-X-Received: by 2002:a05:6602:1610:: with SMTP id x16mr1338865iow.142.1602381352594;
-        Sat, 10 Oct 2020 18:55:52 -0700 (PDT)
+X-Gm-Message-State: AOAM532y5U73IDuEIHcOPxKYETBGP5aUyK+M/VKJtRfU63LJLf/vje0H
+	kBNl8LrUjbkBfzO/WWpVhqU=
+X-Google-Smtp-Source: ABdhPJyzbaIdOt4O0lvla4vbdTU5uIgqO4vuHWctnYppkOy+PxfrA8ZccIKD3Qulfv20EAEsSazrmQ==
+X-Received: by 2002:a63:5043:: with SMTP id q3mr8684695pgl.293.1602385073234;
+        Sat, 10 Oct 2020 19:57:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:130e:: with SMTP id r14ls543554jad.8.gmail; Sat, 10
- Oct 2020 18:55:52 -0700 (PDT)
-X-Received: by 2002:a02:6952:: with SMTP id e79mr15041171jac.24.1602381352131;
-        Sat, 10 Oct 2020 18:55:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602381352; cv=none;
+Received: by 2002:a17:902:8d90:: with SMTP id v16ls6005998plo.3.gmail; Sat, 10
+ Oct 2020 19:57:52 -0700 (PDT)
+X-Received: by 2002:a17:90b:710:: with SMTP id s16mr13510752pjz.138.1602385072583;
+        Sat, 10 Oct 2020 19:57:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602385072; cv=none;
         d=google.com; s=arc-20160816;
-        b=QWER/uJPaNY4g54edJ+lOCIn/uKzl3AlDVVXgiTZgaQ79h3mRQibj2KQNAgVS5AXAN
-         U7qsMMNT9kQClVgtQBqDL8cNPAv5iaDW0iTXbmbyoibxEt6wW9VlPgpsLLTojkXnuL1p
-         SVA0oTEVJHlTGQ20XWDFyiYOoZsx9xzqT+vMhci23FmxB9BSQtw/xdyCTvfiLc4uy1eZ
-         WAXBqVHkYJTe3kwThWBMsmEvGw4YeEMmcratbMk1w3EOLZrOd/Qeqrcb4sdWP9Zl0p7P
-         fCR+JSMsuUajlUYosjd9IYWcCZmaprP/iWnCGgV4ooBQWIlSXQ+Kp2djwKUxRz7i7f2s
-         i1Tg==
+        b=nHE57QbGiZjYrrGiChvkW+kOcv9Jh6S4ABLRNZRhWt0RSbatSKZd8uxtYZg/K0c8mU
+         Vl/Vgn96GY8Kv25UW7nftRyO86nq/7r52qpsQTKMVopQEr8B2ZZdXreTE6MGR8pd9kJ1
+         QY4/GEfj4CQIFgxidnvmAupinJyHJ2fbYQTyXvdTb3tyQDreGYGdLfzY4+G3Ma0RHl6c
+         rnzwoUqT3iqDgOiVlFq2xh65Nvi+ywgXkYxRQFFxAqyUUikTNF9PLBy0Hss7xlMqdCbz
+         qLdiFS6uVhasi6y4QS5OC0htwn/XZGGzZfDEHFuP6wYJtJiWh6AudURNVXNxK2/2/AJJ
+         rlsQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=l0C2Ik95zfhMIsktcP75bx2oQvUhtILONefBseblD10=;
-        b=DdVCZeEhWohaimcSM7y0XIiomb+EpwIS1Tr6G0Hs51YmBaUVpMvy5WQbia8ur8IMBu
-         luFsCWorrUaAZpSRugrCAP1t5dvlG629+IFLxvKczUr/XXb22z5Je68rrGv/Co/rmpJp
-         yplCl8QeIQKreNKkhSPbuQDCLUn1BhzUULdfVHqUqhcl28Eu9kn5Zvd6AuS5GZJhl2qt
-         oDWizIrw16pUfARG6wn+AZtK2gtEkPrb2BAb0MPEt3bkdL0dLzSLVSL30wkOtVUhbgWz
-         TTeZ1YVXXjIcMuu6AKojQUzX6raKBc6IoucoRvpq90law5kiDc8n82lVQZBXIYCwxInc
-         wH0A==
+        bh=fjFvWGkylUNkcNsJWrDQqzd9Omdw/oZFydapjlnxzZQ=;
+        b=OwoFXunvGfsHlMgnqcYPOs7T2D0k3Bf/SyaZDD9XoCZqaio5Pu3eNw1GF1Wyse263w
+         NcE+wbHA7/sy8T/3DLQsUCOSBmM1JsNW+OOcRZYnEkVLRoNPJobmaGYpXvsx8rjQkOKJ
+         IQ+jYRiIhYy/7umEYgib9gAPeyieS++Mdraf6jR08xvcG7vMvpf1ixX3vDxb8gBiZ4wC
+         weTNGUY/Kaqw3izaFhC5xgseRAvf3KFCjcrr9xUobcPjXQgY01ejI3l2jnr0ule+AID8
+         0lnq3c7ZPMvBJHgejpY/UXXRYYFK0WySD1xV6DoyW+a0ezBC9PViFF9+bxU2I8kciHXD
+         G1kA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id e19si556923ill.2.2020.10.10.18.55.51
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id v1si66657pfi.2.2020.10.10.19.57.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 10 Oct 2020 18:55:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: 8ENQwt0cxBBWBYHzYe3SeL8tjlMUWriatqSmIYk5Z5/ruFEWnqMB4cNB184p59LtzAPlh9HrTl
- SRQj430SSQBw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9770"; a="162976072"
+        Sat, 10 Oct 2020 19:57:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: nuJLnIC7l6c30CgsUXpH4UFdyuOiqcma+/FFGc+tWbqzAe7BaDF3ysHn4mycePsNU+6c6Mfc3L
+ BjoLxhNiBRAA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9770"; a="227266691"
 X-IronPort-AV: E=Sophos;i="5.77,361,1596524400"; 
-   d="gz'50?scan'50,208,50";a="162976072"
+   d="gz'50?scan'50,208,50";a="227266691"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
 Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2020 18:55:50 -0700
-IronPort-SDR: /J4Yjdb1DyLwQl5JvxLsyaNiqinEuF7JXyIUDhIFU6WtYO1C7jIkKTLol1cDO8VeBIkjcRBE8U
- BcY2cIKUUfSg==
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2020 19:57:50 -0700
+IronPort-SDR: ZfNK/QwOuhUbivU1v5XEdoAB9xxRpG3Io8gsH6aZsD2+Iqj2Puy1SXnOBlP3Mglr2co8l1mCH6
+ 4l4x/mMOeuTA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.77,361,1596524400"; 
-   d="gz'50?scan'50,208,50";a="462660275"
+   d="gz'50?scan'50,208,50";a="462672593"
 Received: from lkp-server02.sh.intel.com (HELO 92b3fbfaed90) ([10.239.97.151])
-  by orsmga004.jf.intel.com with ESMTP; 10 Oct 2020 18:55:48 -0700
+  by orsmga004.jf.intel.com with ESMTP; 10 Oct 2020 19:57:49 -0700
 Received: from kbuild by 92b3fbfaed90 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kRQaR-0000N0-Sk; Sun, 11 Oct 2020 01:55:47 +0000
-Date: Sun, 11 Oct 2020 09:55:15 +0800
+	id 1kRRYS-0000PN-E3; Sun, 11 Oct 2020 02:57:48 +0000
+Date: Sun, 11 Oct 2020 10:57:42 +0800
 From: kernel test robot <lkp@intel.com>
 To: Chengguang Xu <cgxu519@mykernel.net>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: Re: [RFC PATCH 4/5] ovl: monitor marking dirty activity of
- underlying upper inode
-Message-ID: <202010110946.RUQ2CeZi-lkp@intel.com>
-References: <20201010142355.741645-5-cgxu519@mykernel.net>
+Subject: Re: [RFC PATCH 5/5] ovl: impement containerized syncfs for overlayfs
+Message-ID: <202010111016.xSkqQavr-lkp@intel.com>
+References: <20201010142355.741645-6-cgxu519@mykernel.net>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ReaqsoxgOBHFXBhH"
+Content-Type: multipart/mixed; boundary="FL5UXtIhxfXey3p5"
 Content-Disposition: inline
-In-Reply-To: <20201010142355.741645-5-cgxu519@mykernel.net>
+In-Reply-To: <20201010142355.741645-6-cgxu519@mykernel.net>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -147,7 +146,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---ReaqsoxgOBHFXBhH
+--FL5UXtIhxfXey3p5
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -169,10 +168,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm cross compiling tool for clang build
         # apt-get install binutils-arm-linux-gnueabi
-        # https://github.com/0day-ci/linux/commit/6a0553975f03bb63033f5c246273010a38a66ccf
+        # https://github.com/0day-ci/linux/commit/12d938a37e0a31d43b15e07aef1cd821bf11dc0e
         git remote add linux-review https://github.com/0day-ci/linux
         git fetch --no-tags linux-review Chengguang-Xu/implement-containerized-syncfs-for-overlayfs/20201011-071405
-        git checkout 6a0553975f03bb63033f5c246273010a38a66ccf
+        git checkout 12d938a37e0a31d43b15e07aef1cd821bf11dc0e
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
 
@@ -181,58 +180,230 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> fs/overlayfs/super.c:393:6: warning: no previous prototype for function 'ovl_evict_inode' [-Wmissing-prototypes]
+>> fs/overlayfs/super.c:285:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+           if (upper_sb->s_op->sync_fs) {
+               ^~~~~~~~~~~~~~~~~~~~~~~
+   fs/overlayfs/super.c:293:9: note: uninitialized use occurs here
+           return ret;
+                  ^~~
+   fs/overlayfs/super.c:285:2: note: remove the 'if' if its condition is always true
+           if (upper_sb->s_op->sync_fs) {
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/overlayfs/super.c:265:9: note: initialize the variable 'ret' to silence this warning
+           int ret;
+                  ^
+                   = 0
+   fs/overlayfs/super.c:400:6: warning: no previous prototype for function 'ovl_evict_inode' [-Wmissing-prototypes]
    void ovl_evict_inode(struct inode *inode)
         ^
-   fs/overlayfs/super.c:393:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   fs/overlayfs/super.c:400:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void ovl_evict_inode(struct inode *inode)
    ^
    static 
-   1 warning generated.
---
-   fs/overlayfs/util.c:959:7: warning: unused variable 'flags' [-Wunused-variable]
-           int *flags = (int *)param;
-                ^
-   fs/overlayfs/util.c:958:20: warning: unused variable 'oi' [-Wunused-variable]
-           struct ovl_inode *oi = container_of(nb, struct ovl_inode, mark_dirty_nb);
-                             ^
->> fs/overlayfs/util.c:955:5: warning: no previous prototype for function 'ovl_inode_dirty_notify' [-Wmissing-prototypes]
-   int ovl_inode_dirty_notify(struct notifier_block *nb,
+>> fs/overlayfs/super.c:410:5: warning: no previous prototype for function 'ovl_write_inode' [-Wmissing-prototypes]
+   int ovl_write_inode(struct inode *inode, struct writeback_control *wbc)
        ^
-   fs/overlayfs/util.c:955:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   int ovl_inode_dirty_notify(struct notifier_block *nb,
+   fs/overlayfs/super.c:410:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   int ovl_write_inode(struct inode *inode, struct writeback_control *wbc)
    ^
    static 
-   3 warnings generated.
---
-   fs/overlayfs/util.c:958:20: warning: unused variable 'oi' [-Wunused-variable]
-           struct ovl_inode *oi = container_of(nb, struct ovl_inode, mark_dirty_nb);
-                             ^
-   fs/overlayfs/util.c:959:7: warning: unused variable 'flags' [-Wunused-variable]
-           int *flags = (int *)param;
-                ^
->> fs/overlayfs/util.c:955:5: warning: no previous prototype for function 'ovl_inode_dirty_notify' [-Wmissing-prototypes]
-   int ovl_inode_dirty_notify(struct notifier_block *nb,
+>> fs/overlayfs/super.c:432:5: warning: no previous prototype for function 'ovl_drop_inode' [-Wmissing-prototypes]
+   int ovl_drop_inode(struct inode *inode)
        ^
-   fs/overlayfs/util.c:955:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   int ovl_inode_dirty_notify(struct notifier_block *nb,
+   fs/overlayfs/super.c:432:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   int ovl_drop_inode(struct inode *inode)
    ^
    static 
-   3 warnings generated.
+   4 warnings generated.
 
-vim +/ovl_evict_inode +393 fs/overlayfs/super.c
+vim +285 fs/overlayfs/super.c
 
-   392	
- > 393	void ovl_evict_inode(struct inode *inode)
-   394	{
-   395		struct inode *upper;
+   259	
+   260	/* Sync real dirty inodes in upper filesystem (if it exists) */
+   261	static int ovl_sync_fs(struct super_block *sb, int wait)
+   262	{
+   263		struct ovl_fs *ofs = sb->s_fs_info;
+   264		struct super_block *upper_sb;
+   265		int ret;
+   266	
+   267		if (!ovl_upper_mnt(ofs))
+   268			return 0;
+   269	
+   270		if (!ovl_should_sync(ofs))
+   271			return 0;
+   272		/*
+   273		 * Not called for sync(2) call or an emergency sync (SB_I_SKIP_SYNC).
+   274		 * All the super blocks will be iterated, including upper_sb.
+   275		 *
+   276		 * If this is a syncfs(2) call, then we do need to call
+   277		 * sync_filesystem() on upper_sb, but enough if we do it when being
+   278		 * called with wait == 1.
+   279		 */
+   280		if (!wait)
+   281			return 0;
+   282	
+   283		upper_sb = ovl_upper_mnt(ofs)->mnt_sb;
+   284	
+ > 285		if (upper_sb->s_op->sync_fs) {
+   286			down_read(&upper_sb->s_umount);
+   287			ret = upper_sb->s_op->sync_fs(upper_sb, wait);
+   288			if (!ret)
+   289				ret = sync_blockdev(upper_sb->s_bdev);
+   290			up_read(&upper_sb->s_umount);
+   291		}
+   292	
+   293		return ret;
+   294	}
+   295	
+   296	/**
+   297	 * ovl_statfs
+   298	 * @sb: The overlayfs super block
+   299	 * @buf: The struct kstatfs to fill in with stats
+   300	 *
+   301	 * Get the filesystem statistics.  As writes always target the upper layer
+   302	 * filesystem pass the statfs to the upper filesystem (if it exists)
+   303	 */
+   304	static int ovl_statfs(struct dentry *dentry, struct kstatfs *buf)
+   305	{
+   306		struct ovl_fs *ofs = dentry->d_sb->s_fs_info;
+   307		struct dentry *root_dentry = dentry->d_sb->s_root;
+   308		struct path path;
+   309		int err;
+   310	
+   311		ovl_path_real(root_dentry, &path);
+   312	
+   313		err = vfs_statfs(&path, buf);
+   314		if (!err) {
+   315			buf->f_namelen = ofs->namelen;
+   316			buf->f_type = OVERLAYFS_SUPER_MAGIC;
+   317		}
+   318	
+   319		return err;
+   320	}
+   321	
+   322	/* Will this overlay be forced to mount/remount ro? */
+   323	static bool ovl_force_readonly(struct ovl_fs *ofs)
+   324	{
+   325		return (!ovl_upper_mnt(ofs) || !ofs->workdir);
+   326	}
+   327	
+   328	static const char *ovl_redirect_mode_def(void)
+   329	{
+   330		return ovl_redirect_dir_def ? "on" : "off";
+   331	}
+   332	
+   333	static const char * const ovl_xino_str[] = {
+   334		"off",
+   335		"auto",
+   336		"on",
+   337	};
+   338	
+   339	static inline int ovl_xino_def(void)
+   340	{
+   341		return ovl_xino_auto_def ? OVL_XINO_AUTO : OVL_XINO_OFF;
+   342	}
+   343	
+   344	/**
+   345	 * ovl_show_options
+   346	 *
+   347	 * Prints the mount options for a given superblock.
+   348	 * Returns zero; does not fail.
+   349	 */
+   350	static int ovl_show_options(struct seq_file *m, struct dentry *dentry)
+   351	{
+   352		struct super_block *sb = dentry->d_sb;
+   353		struct ovl_fs *ofs = sb->s_fs_info;
+   354	
+   355		seq_show_option(m, "lowerdir", ofs->config.lowerdir);
+   356		if (ofs->config.upperdir) {
+   357			seq_show_option(m, "upperdir", ofs->config.upperdir);
+   358			seq_show_option(m, "workdir", ofs->config.workdir);
+   359		}
+   360		if (ofs->config.default_permissions)
+   361			seq_puts(m, ",default_permissions");
+   362		if (strcmp(ofs->config.redirect_mode, ovl_redirect_mode_def()) != 0)
+   363			seq_printf(m, ",redirect_dir=%s", ofs->config.redirect_mode);
+   364		if (ofs->config.index != ovl_index_def)
+   365			seq_printf(m, ",index=%s", ofs->config.index ? "on" : "off");
+   366		if (ofs->config.nfs_export != ovl_nfs_export_def)
+   367			seq_printf(m, ",nfs_export=%s", ofs->config.nfs_export ?
+   368							"on" : "off");
+   369		if (ofs->config.xino != ovl_xino_def() && !ovl_same_fs(sb))
+   370			seq_printf(m, ",xino=%s", ovl_xino_str[ofs->config.xino]);
+   371		if (ofs->config.metacopy != ovl_metacopy_def)
+   372			seq_printf(m, ",metacopy=%s",
+   373				   ofs->config.metacopy ? "on" : "off");
+   374		if (ofs->config.ovl_volatile)
+   375			seq_puts(m, ",volatile");
+   376		return 0;
+   377	}
+   378	
+   379	static int ovl_remount(struct super_block *sb, int *flags, char *data)
+   380	{
+   381		struct ovl_fs *ofs = sb->s_fs_info;
+   382		struct super_block *upper_sb;
+   383		int ret = 0;
+   384	
+   385		if (!(*flags & SB_RDONLY) && ovl_force_readonly(ofs))
+   386			return -EROFS;
+   387	
+   388		if (*flags & SB_RDONLY && !sb_rdonly(sb)) {
+   389			upper_sb = ovl_upper_mnt(ofs)->mnt_sb;
+   390			if (ovl_should_sync(ofs)) {
+   391				down_read(&upper_sb->s_umount);
+   392				ret = sync_filesystem(upper_sb);
+   393				up_read(&upper_sb->s_umount);
+   394			}
+   395		}
    396	
-   397		upper = ovl_inode_upper(inode);
-   398		if (upper)
-   399			ovl_unregister_mark_dirty_notify(OVL_I(inode));
-   400		clear_inode(inode);
-   401	}
-   402	
+   397		return ret;
+   398	}
+   399	
+   400	void ovl_evict_inode(struct inode *inode)
+   401	{
+   402		struct inode *upper;
+   403	
+   404		upper = ovl_inode_upper(inode);
+   405		if (upper)
+   406			ovl_unregister_mark_dirty_notify(OVL_I(inode));
+   407		clear_inode(inode);
+   408	}
+   409	
+ > 410	int ovl_write_inode(struct inode *inode, struct writeback_control *wbc)
+   411	{
+   412		struct ovl_fs *ofs = inode->i_sb->s_fs_info;
+   413		struct super_block *upper_sb = ovl_upper_mnt(ofs)->mnt_sb;
+   414		struct inode *upper_inode = ovl_inode_upper(inode);
+   415		struct writeback_control upper_wbc = {
+   416			.nr_to_write		= LONG_MAX,
+   417			.sync_mode              = WB_SYNC_ALL,
+   418			.tagged_writepages	= wbc->tagged_writepages,
+   419			.for_kupdate		= wbc->for_kupdate,
+   420			.for_background		= wbc->for_background,
+   421			.for_sync		= 0,
+   422			.range_cyclic		= wbc->range_cyclic,
+   423			.range_start		= wbc->range_start,
+   424			.range_end		= wbc->range_end,
+   425		};
+   426	
+   427		if (!upper_sb->s_op->write_inode || !upper_inode)
+   428			return 0;
+   429		return upper_sb->s_op->write_inode(upper_inode, &upper_wbc);
+   430	}
+   431	
+ > 432	int ovl_drop_inode(struct inode *inode)
+   433	{
+   434		struct inode *upper_inode;
+   435	
+   436		upper_inode = ovl_inode_upper(inode);
+   437		if (!upper_inode)
+   438			return 1;
+   439		if (!(upper_inode->i_state & I_DIRTY_ALL))
+   440			return 1;
+   441	
+   442		return generic_drop_inode(inode);
+   443	}
+   444	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -241,14 +412,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010110946.RUQ2CeZi-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010111016.xSkqQavr-lkp%40intel.com.
 
---ReaqsoxgOBHFXBhH
+--FL5UXtIhxfXey3p5
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICLRcgl8AAy5jb25maWcAlDxdd9s2su/9FTrpy96HbSQ7dpO9xw8gCUqoSIIGoA/7hUdR
+H4sICJRogl8AAy5jb25maWcAlDxdd9s2su/9FTrpy96HbSQ7dpO9xw8gCUqoSIIGoA/7hUdR
 6KxvbSsry2n773cG/ALIodKb01ObM4MBMBjMFwD//NPPE/Z2OjzvTo/73dPTX5Ov5Ut53J3K
 L5OHx6fyfyeRnGTSTHgkzC9AnDy+vP35fnd8nlz98umX6T+P+8vJsjy+lE+T8PDy8Pj1DRo/
 Hl5++vmnUGaxmBdhWKy50kJmheFbc/Nu/7R7+Tr5Xh5fgW4yu/hl+st08o+vj6d/vX8P/39+
@@ -863,4 +1034,4 @@ FeDrHaOfDb8swoZvnhyMFw4m8PIY9WoBiDFza/R4gsSiczIQCfA9F0VC6muVNcXWyKRNpqfp
 DhTnzcOu0ZEMKXnYzdZ2aLKoFmgDs0VBGVncERRmF+D4UydBBID5W9LOidXPGy9xlv3f/wDF
 qNbi5gkCAA==
 
---ReaqsoxgOBHFXBhH--
+--FL5UXtIhxfXey3p5--
