@@ -1,148 +1,138 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRB4FZSH6AKGQEHSIH4IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBT7OSH6AKGQEXJUNOKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4373628B717
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 15:41:05 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id n133sf2941727lfa.19
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 06:41:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602510064; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C389928BBFC
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 17:33:37 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id r16sf4048356pls.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 08:33:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602516816; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HasjwpNEM016bUPBSoRlMBDrCXkPu2Np80hryLakJuZYbOyCAG26oSjhcY0fug1tnb
-         iJWM5tPYAzAFQxdmU+TVli5WY2RUkwRd+b44YwYVqxeQuAc0Pkx5+Ojwst94naLSEIPl
-         6cvCnSAshiofJ/LTGgOIy/KO3CygN7wnBJIsIdLtjPWFB14m7EWxgp6iE5oMRIXEd2j0
-         sYN/unHnbiU2Px+4TLW2BLXTm13RiG4tEPJkIHn2zdwH9VVwe7wJZOM341p4HW3IuIFJ
-         5u4BoVTM7deWt6yQTZ28fA/mJ5McVt5nu6WrH59xSylX485nPXNvxI34HPLC7JeHICNu
-         L1EA==
+        b=zQeQprdG0CkIuN3fGmjcPd1tYSqWPjodMGzH/VsdjYg+pMfN5FHkKn6t0tMU8Y9qFr
+         I6b5L5pIxN7nFllMCyKu4u6rXH9ihr3wP9KiqeKZLeVwKg/ftXf2X+3tZtqP2IC1G/lC
+         6C9CTFinPM3W6x9rtonTeCTP9YF3+IUjTSP0siwA6HIqwtTbgZ8BdvBYjOztsg3vCKNN
+         X+lJ4ykUQW7tA0RYOM6MPmWLDp7ecBuUZZWOCWLJ3wLU6z9fn2Fs1p4xeDBMrJoyMfVd
+         5+e4RGVcbyFktTQTP1SpJmgAU4BO2Ugcbnobg8+X1LRkG+m9Mga13sN7f8+190zFAy2B
+         wEmg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:date:from:sender
-         :dkim-signature:dkim-signature;
-        bh=5MhaB7EUiwgRuNhR5hhFRcy7Kf45Eh/CHKYMqgS//z4=;
-        b=G7K0xdwPDPSJgIg8T+zcxdzFoxiZByIr0yP34m1TmutagpahsBzA3cfrLhEkaI8c87
-         9IXqnODPuYy57byg4dR62zqGwHX6Kzqsv3rR8zJiK3npIkHmP97EsdGrhZpCPuSOjgkA
-         YeTPnOtNJnxC6LUUWagUfOmOYPO8Q04XAmLfDVqtJRDisaiuZW56IGNvqix4DptzlqOP
-         gbZwuMtg/G8CK/71vSx258SvG2EPPKx6+4Mr03nQoS1s+7Me2vaLkk+WsGi6g1veG3ru
-         D9FioAchKL/5h4J0VDh/n5OoSnEqm5eebt9J7R1OSZTIzRL0zA85swwtNgadA3XGupo5
-         MtVA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=1LQ49iZ6vCYouNM+XcP6XPamUF0nSJQ/pANDXqNqUGo=;
+        b=nswXEpwb1MZhdG8+7dx82BxPZU9ZswDxFnmjVwErV29yQIWVjnfNs3gujIuCJfaN10
+         ze9c94Yl/0a2qdwZwYdIBxa2pkjsfuTCrnLIsXf1ayTl3rH9lA+1EFZpEvyUJnYHhiKn
+         uwPqtA8kNl3ixXFpzKHiOM3JaKiM+DY1QfavIfvC+5VmtP5ZT1Q4IKy5DgT/1e7nH1gz
+         Uf0DGpZVfbmert8STm27LsAHZ9B5a8wXQlrjd2+wIjXD35p/VaJK2/KSprHYcnl110bY
+         jyi1NHmUvEGeQFEOEIw1wcUqR3HZdKZquQJ4VgVOB6d1cBciYTu8GbNeR4Zo63EeNgs8
+         hYJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=myis63Jh;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="S4Z7K/Q4";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5MhaB7EUiwgRuNhR5hhFRcy7Kf45Eh/CHKYMqgS//z4=;
-        b=oazMlYDmFLjNjeaUBS8jBX8Dwtg4W4bp3hCUMYjUbkt1ffEFPQhwyBa38IHpLZ+SlX
-         WD3UqvKo3x5o96CJBuXJgK7ZJXKUKobmH6mWvDhaxb8uNFnoMPI5Pax0+owjAVXPLOfd
-         d0VFvIJJVDSPl5PW7WvEOuffDDX8+9lRNGhtdkVPlsDmM4QLezgaTGXPFlk/RYNq4brJ
-         pI6I+AvrGYIeWgeYSwwYpjwAm8zAQ04tl1UsS4WKzRKDwEOFNiFBgZFqvNnngPmlvszv
-         W+fJmC+Ycn3Ms8R2QB9H35PO9lwnc3AcXVJOppZbO96vH3wnIVSuSfAFUjW89h0v43Rq
-         CG1Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5MhaB7EUiwgRuNhR5hhFRcy7Kf45Eh/CHKYMqgS//z4=;
-        b=qoJa0M5y0S7jUvMWrtFruAXFcgDOe1oQGSZm8LsRSrMocnxoMf9W11XFBQrHmANSpA
-         th4pBV7JN5SPYjfK+KZ7jDv9uK/jIDoY/xiDQjogQzf77Y81Su9q9QMGO9pcz9Zp/rrT
-         1P/BvVo7D2Qz7M1lcF1IOMjDZ1nRpPWfqJX6joD2Qrb/+xVgX6TmL3j5/qKr/M0vdpS4
-         C2qZGsB17HB1jUqASDtf0lxrJb5T+HyJhIpo20nWTLAbIPoIx9X9wXuAIH72P9b4xoXQ
-         RIKV/L46t7daJP/C3sGzQiLz6wZbcCmBl1QYjBCjQ2BtK5iv1ZsSlOnRAgQeVhJrJqGM
-         2KLg==
+        bh=1LQ49iZ6vCYouNM+XcP6XPamUF0nSJQ/pANDXqNqUGo=;
+        b=IysdLDqpUpZ2sZBiRsd7YcgaKf4C+w+rmY6o3qLCugtbv2GBc3E391deV7k2Q7DUwX
+         5xT4Y+7aohUxHI1oPXbPsjtjDZWaUGpLSquGTez5mbK1ykgQ1ip0pEKdqv7KH+gwDWG6
+         gWbPeAKZAaQSTniF5wxsMyY1DKaqw9zwasznpTFfBuT48I1lEZYliCWNK2k+Z9bZe8q4
+         7Ux5gDa6SphEkGQz/9DrahvrC1btZDmWvTiPCuW6F7iNRAX0KeHyKWH8b5+iblccerFI
+         /ogU204fE4VGgy2YkKNfzXWd7wQaw7N6YxfCT86fDdN60xc8eyaOuQ2PFmksjSrg1ic1
+         zarA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5MhaB7EUiwgRuNhR5hhFRcy7Kf45Eh/CHKYMqgS//z4=;
-        b=AN0L/w41tB8lWvw8Pysarbwzfgu/mYX1MlCSpPBIvuWnGnJ/FlQ9xiguo1TXkxq2Ap
-         1+pXgZDrLjR6aGf4VHbNtipd0TB0PKGUCg0fbdVIXBp9NwrcopuIKA7INKT8EUlYthoL
-         YnZ8HOOM1dZ1P7+TrOsmPtEcNxflLl/vKZXWEl8WHk2t2HoEotux4vxFlky7FXJj6z3z
-         WgzsHYCPX06CbSU5hrSKiRFV3JEpC70/IJIaOroDBBcDhb++gtycBkpz6WZRtjdgDylE
-         MCNLLu2KaoDkVb8oq8+RMqOnYFRJfyKlwkzeTdXWI/4UyVpkeCONmBvIBL6/LdqC1T+O
-         xwYQ==
+        bh=1LQ49iZ6vCYouNM+XcP6XPamUF0nSJQ/pANDXqNqUGo=;
+        b=IMldze7otZYeI6H/fbmiZeyfUmYSmd9Kz6Kbe1h78DcBmRQ0HNLWfeA7nAYLOE9QsG
+         rhVfdMmtGqSw7njQ0+OjrPD0s3Rn26Hz5dk/kxfxSZM5vX3BP2m9dDcFUZwy1RK7BO91
+         y5ruR/o/YWVFsGHPoIw5tDwEX01iUoA8tAqkN2+VnFh7l3o1VW/pMk4SruL/o7xjQIVI
+         0bKtQkZPvPMAuXXjt+zifze75VXoXcas3uethHIFBBjuvyoD1wKUfceQz+gXZwTGpd3i
+         p6kjQDRDe5bfqFnEwdJNvVXzljLo5y3fjBB00vWeQdtiLQJJHZ5FaSyM9bpVh/XFvRxr
+         Y7gQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531sUpiXwv5VZ6m2pK7jq9xQquqlV4iHR/OMpIMF65cQl9ZuQLHV
-	rEmqdCicaEKCMN213gtFLAk=
-X-Google-Smtp-Source: ABdhPJxpOiro9lWDSHulQNVpPPpOmAjbYXhG9aqWTIgP/akedZm49Wwp+6KPQuFE8o8a7781FeSu0w==
-X-Received: by 2002:a2e:b0cb:: with SMTP id g11mr11011830ljl.397.1602510064743;
-        Mon, 12 Oct 2020 06:41:04 -0700 (PDT)
+X-Gm-Message-State: AOAM531jRD1xnJbg2+Tr2HhjmglQnA9XNHUkpkqxrUXTg4TObRiz+uB7
+	JAifd0L3yRAssHCzEq5sU9k=
+X-Google-Smtp-Source: ABdhPJyjrzRIboYU3+5TNHvgeSWYJjwoThZzzyjaYsI+AeyvY9VO9Rn1Ru1K/1vpSCFWmUI+kzn86g==
+X-Received: by 2002:a63:e63:: with SMTP id 35mr14082579pgo.264.1602516816060;
+        Mon, 12 Oct 2020 08:33:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:ad43:: with SMTP id s3ls228230lfd.2.gmail; Mon, 12 Oct
- 2020 06:41:03 -0700 (PDT)
-X-Received: by 2002:a19:514:: with SMTP id 20mr7686887lff.512.1602510063525;
-        Mon, 12 Oct 2020 06:41:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602510063; cv=none;
+Received: by 2002:a17:902:7044:: with SMTP id h4ls7816370plt.2.gmail; Mon, 12
+ Oct 2020 08:33:35 -0700 (PDT)
+X-Received: by 2002:a0c:d848:: with SMTP id i8mr26136149qvj.31.1602516814514;
+        Mon, 12 Oct 2020 08:33:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602516814; cv=none;
         d=google.com; s=arc-20160816;
-        b=nlIyaLbbe5qMwaJiRzhfCttv+UW5yM09y41voFeYGqQKYmZdA0dsDZ9lEIbFy00a37
-         39VAI9EJBSm+HcO9MqqQmHfdKwd5ZLXQrcwkGTJfGjSqpXisZaskG6ab4OJt2Pfj6aXd
-         x92z0q/clnNqvK2eHyWy3A8gm3PqPXqpAYzmrw3vyPfgAmgJRbEiP8P8Di0oAV4gScWe
-         F4xSe2+/1aaplX6R6nIDkFe+ftHQW3g3V3gHnVWf35qhd1dPOii+hMAP0XBsNGVIzPV6
-         Dss5uARisvFsHHeKgOJPLYghBr1ivhn/ajhp0/nluI/hJNrC21nbl1deGDBo2CmEV4u+
-         WmEA==
+        b=O59felcsWJMZSONgP6sIYhG1CXPQMLhessGB2W8AXsyt+F0GCrzz469uy/wXCMDX1R
+         27QPKaIOlz1mDjsblsauFSosl7Ses+kI/+wiK9bR36fCTAeML2kqJENlZP8+lIhPFndL
+         x5Td6hbsqBU5gpL+4k76/mO2v1Ec5D5MjYkT/fFK8QvDzvBk3H/RXH9CFISGCF1YdFSM
+         ruZ7doY/iB81W/NJFeM3n3lc0F3M6ALQLGz8WrK8wYSsh/opMWaHa/9q5A1loSJUfBZl
+         ROu/MvIFeoqgpea5QAyNqf3mAlX4GLsChZP29Z/SH6asvXIa/brpKsLquWFomf2eS54W
+         nl6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:date:from:dkim-signature;
-        bh=IJUnRg3mPl7jkNIy9dsIVIo/IklmtiJHaWeguv2Wi6o=;
-        b=mtz7kZWDgTOGhgCRdrDspBNs+m/fz3Q05RMurfprlk13anFhkCOXZeUMYX0ISStAxS
-         Mr9EXUggY3KC+E0AWCMpNFzL1QLt8vinjNIxeKn0iJKuCZGYtw7Zuk0aCX6TiTvO1N0p
-         ZE0BSqZWhoTMZvw/UiHlr+FKp7VISJr2oXCgT7Wsovgl4XC1kWaJaiE+hL1eP+kQqzrM
-         l05mhSo8VyxLyJrY9KLKpu9aGoPtzhrd86Z6G2JLtImd0Agh6bb9M8YzpTpBTkG4aTag
-         yz3ZLIqOv7im6SKZBluv+eO2V+MqHGQ9Kev5+W+hitLbJdnt7tXJtOGCFa2AcoqgSHF9
-         DyeA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=4xfUkRM4tDIXFk/3vrkgZkiCeT2rEb0t423IsRd/G98=;
+        b=nkZLe+rWqL1xOCDXhOMA9wWFT4uOq3Qe8LB1SpogHKrHofnbuwLEeEVvg7x7PV1sYV
+         ubmw89vBDYawyZ4f2xU75o+Vlt5iFBI8QMcPChwt2slhZlFDLEXLR0CafWh1+NsPatf0
+         mvQZ5jNsRe5e9PwRoEKT0nNBpnL1fusAxLgezRjrEpdvXVh3FzxxdK436YEsdXKODvRK
+         JFTk0lOQNZbNM5WtI7dPFB3v2jA7dj5+6T622ubSiSNSlPRFUyU4M3UtAgfRc8K1MtFf
+         7NImpCWnwQ6zze3NiC4NOWGkv2GUHNnXSxpUptIOl9dzPde7A2DHots0bug7VLfS91va
+         6HqA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=myis63Jh;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id f23si506317ljg.8.2020.10.12.06.41.03
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="S4Z7K/Q4";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
+        by gmr-mx.google.com with ESMTPS id z205si756700qkb.1.2020.10.12.08.33.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2020 06:41:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id g12so19233058wrp.10
-        for <clang-built-linux@googlegroups.com>; Mon, 12 Oct 2020 06:41:03 -0700 (PDT)
-X-Received: by 2002:adf:e80f:: with SMTP id o15mr28721128wrm.308.1602510062848;
-        Mon, 12 Oct 2020 06:41:02 -0700 (PDT)
-Received: from felia ([2001:16b8:2d57:fc00:8472:203c:3ecb:c442])
-        by smtp.gmail.com with ESMTPSA id t5sm24754891wrb.21.2020.10.12.06.41.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Oct 2020 06:41:02 -0700 (PDT)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Date: Mon, 12 Oct 2020 15:40:54 +0200 (CEST)
-X-X-Sender: lukas@felia
-To: Ujjwal Kumar <ujjwalkumar0501@gmail.com>
-cc: Masahiro Yamada <masahiroy@kernel.org>, 
-    Michal Marek <michal.lkml@markovi.net>, 
-    Andrew Morton <akpm@linux-foundation.org>, 
-    Kees Cook <keescook@chromium.org>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-    Nathan Chancellor <natechancellor@gmail.com>, 
-    Nick Desaulniers <ndesaulniers@google.com>, linux-kbuild@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-ia64@vger.kernel.org, clang-built-linux@googlegroups.com, 
-    linux-kernel-mentees@lists.linuxfoundation.org
-Subject: Re: [PATCH RFC 0/2] use interpreters to invoke scripts
-In-Reply-To: <2b00e566-112c-5657-c10f-7f210d3eae93@gmail.com>
-Message-ID: <alpine.DEB.2.21.2010121537150.6487@felia>
-References: <2b00e566-112c-5657-c10f-7f210d3eae93@gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 12 Oct 2020 08:33:34 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177]) (authenticated)
+	by conssluserg-03.nifty.com with ESMTP id 09CFXJpL000782
+	for <clang-built-linux@googlegroups.com>; Tue, 13 Oct 2020 00:33:19 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 09CFXJpL000782
+X-Nifty-SrcIP: [209.85.210.177]
+Received: by mail-pf1-f177.google.com with SMTP id 10so4289173pfp.5
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Oct 2020 08:33:19 -0700 (PDT)
+X-Received: by 2002:a17:90a:c285:: with SMTP id f5mr21414855pjt.87.1602516798361;
+ Mon, 12 Oct 2020 08:33:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <979bb7b0-2cae-3cd7-2fbd-7fcece9aafd1@gmail.com>
+In-Reply-To: <979bb7b0-2cae-3cd7-2fbd-7fcece9aafd1@gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 13 Oct 2020 00:32:41 +0900
+X-Gmail-Original-Message-ID: <CAK7LNATQFgzsmUppA=4eF1VrO_Tg=zrM9NSvUxrOp=7qa2_GsQ@mail.gmail.com>
+Message-ID: <CAK7LNATQFgzsmUppA=4eF1VrO_Tg=zrM9NSvUxrOp=7qa2_GsQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 2/2] kbuild: use interpreters to invoke scripts
+To: Ujjwal Kumar <ujjwalkumar0501@gmail.com>
+Cc: Michal Marek <michal.lkml@markovi.net>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Kees Cook <keescook@chromium.org>,
+        Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+        linux-ia64@vger.kernel.org,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        linux-kernel-mentees@lists.linuxfoundation.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: lukas.bulwahn@gmail.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=myis63Jh;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::443
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@nifty.com header.s=dec2015msa header.b="S4Z7K/Q4";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
+ does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,94 +145,165 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-
-On Sat, 3 Oct 2020, Ujjwal Kumar wrote:
-
-> This patch series aims at removing the dependency on execute 
-> bit of the scripts in the kbuild system.
-> 
-> If not working with fresh clone of linux-next, clean the srctree:
-> make distclean
-> make tools/clean
-> 
-> To test the dependency on execute bits, I tried building the 
-> kernel after removing x-bits for all files in the repository.
-> Removing execute bits:
-> for i in $(find -executable -type f); do chmod -x $i; done
-> 
-> Any attempts to configure (or build) the kernel fail because of 
-> 'Permission denied' on scripts with the following error:
-> $ make allmodconfig
-> sh: ./scripts/gcc-version.sh: Permission denied
-> init/Kconfig:34: syntax error
-> init/Kconfig:33: invalid statement
-> init/Kconfig:34: invalid statement
-> sh: ./scripts/ld-version.sh: Permission denied
-> init/Kconfig:39: syntax error
-> init/Kconfig:38: invalid statement
-> sh: ./scripts/clang-version.sh: Permission denied
-> init/Kconfig:49: syntax error
-> init/Kconfig:48: invalid statement
-> make[1]: *** [scripts/kconfig/Makefile:71: allmodconfig] Error 1
-> make: *** [Makefile:606: allmodconfig] Error 2
-> 
-> Changes:
-> 1. Adds specific interpreters (in Kconfig) to invoke 
-> scripts.
-> 
-> After this patch I could successfully do a kernel build 
-> without any errors.
-> 
-> 2. Again, adds specific interpreters to other parts of 
-> kbuild system.
-> 
-> I could successfully perform the following make targets after 
-> applying the PATCH 2/2:
-> make headerdep
-> make kselftest-merge
-> make rpm-pkg
-> make perf-tar-src-pkg
-> make ARCH=ia64 defconfig
-> ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make prepare
-> 
-> Following changes in PATCH 2/2 are not yet tested:
-> arch/arm64/kernel/vdso32/Makefile
-> arch/nds32/kernel/vdso/Makefile
-> scripts/Makefile.build
-> 
-> Ujjwal Kumar (2):
->   kconfig: use interpreters to invoke scripts
->   kbuild: use interpreters to invoke scripts
+On Sun, Oct 4, 2020 at 12:21 AM Ujjwal Kumar <ujjwalkumar0501@gmail.com> wrote:
 >
+> We cannot rely on execute bits to be set on files in the repository.
+> The build script should use the explicit interpreter when invoking any
+> script from the repository.
+>
+> Link: https://lore.kernel.org/lkml/20200830174409.c24c3f67addcce0cea9a9d4c@linux-foundation.org/
+> Link: https://lore.kernel.org/lkml/202008271102.FEB906C88@keescook/
+>
+> Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+> Suggested-by: Kees Cook <keescook@chromium.org>
+> Suggested-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> Signed-off-by: Ujjwal Kumar <ujjwalkumar0501@gmail.com>
+> ---
+>  Makefile                          | 4 ++--
+>  arch/arm64/kernel/vdso/Makefile   | 2 +-
+>  arch/arm64/kernel/vdso32/Makefile | 2 +-
+>  arch/ia64/Makefile                | 4 ++--
+>  arch/nds32/kernel/vdso/Makefile   | 2 +-
+>  scripts/Makefile.build            | 2 +-
+>  scripts/Makefile.package          | 4 ++--
+>  7 files changed, 10 insertions(+), 10 deletions(-)
+>
+> diff --git a/Makefile b/Makefile
+> index f93dbae71248..5f1399a576d4 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -1258,7 +1258,7 @@ include/generated/utsrelease.h: include/config/kernel.release FORCE
+>  PHONY += headerdep
+>  headerdep:
+>         $(Q)find $(srctree)/include/ -name '*.h' | xargs --max-args 1 \
+> -       $(srctree)/scripts/headerdep.pl -I$(srctree)/include
+> +       $(PERL) $(srctree)/scripts/headerdep.pl -I$(srctree)/include
+>
+>  # ---------------------------------------------------------------------------
+>  # Kernel headers
+> @@ -1314,7 +1314,7 @@ PHONY += kselftest-merge
+>  kselftest-merge:
+>         $(if $(wildcard $(objtree)/.config),, $(error No .config exists, config your kernel first!))
+>         $(Q)find $(srctree)/tools/testing/selftests -name config | \
+> -               xargs $(srctree)/scripts/kconfig/merge_config.sh -m $(objtree)/.config
+> +               xargs $(CONFIG_SHELL) $(srctree)/scripts/kconfig/merge_config.sh -m $(objtree)/.config
+>         $(Q)$(MAKE) -f $(srctree)/Makefile olddefconfig
+>
+>  # ---------------------------------------------------------------------------
+> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+> index de981f7b4546..30fe93bb5488 100644
+> --- a/arch/arm64/kernel/vdso/Makefile
+> +++ b/arch/arm64/kernel/vdso/Makefile
+> @@ -65,7 +65,7 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+>  # Generate VDSO offsets using helper script
+>  gen-vdsosym := $(srctree)/$(src)/gen_vdso_offsets.sh
+>  quiet_cmd_vdsosym = VDSOSYM $@
+> -      cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
+> +      cmd_vdsosym = $(NM) $< | $(CONFIG_SHELL) $(gen-vdsosym) | LC_ALL=C sort > $@
+>
+>  include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
+>         $(call if_changed,vdsosym)
+> diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+> index 572475b7b7ed..4f8fe34bc75a 100644
+> --- a/arch/arm64/kernel/vdso32/Makefile
+> +++ b/arch/arm64/kernel/vdso32/Makefile
+> @@ -205,7 +205,7 @@ quiet_cmd_vdsomunge = MUNGE   $@
+>  gen-vdsosym := $(srctree)/$(src)/../vdso/gen_vdso_offsets.sh
+>  quiet_cmd_vdsosym = VDSOSYM $@
+>  # The AArch64 nm should be able to read an AArch32 binary
+> -      cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
+> +      cmd_vdsosym = $(NM) $< | $(CONFIG_SHELL) $(gen-vdsosym) | LC_ALL=C sort > $@
+>
+>  # Install commands for the unstripped file
+>  quiet_cmd_vdso_install = INSTALL32 $@
+> diff --git a/arch/ia64/Makefile b/arch/ia64/Makefile
+> index 2876a7df1b0a..5f6cc3c3da50 100644
+> --- a/arch/ia64/Makefile
+> +++ b/arch/ia64/Makefile
+> @@ -28,8 +28,8 @@ cflags-y      := -pipe $(EXTRA) -ffixed-r13 -mfixed-range=f12-f15,f32-f127 \
+>                    -falign-functions=32 -frename-registers -fno-optimize-sibling-calls
+>  KBUILD_CFLAGS_KERNEL := -mconstant-gp
+>
+> -GAS_STATUS     = $(shell $(srctree)/arch/ia64/scripts/check-gas "$(CC)" "$(OBJDUMP)")
+> -KBUILD_CPPFLAGS += $(shell $(srctree)/arch/ia64/scripts/toolchain-flags "$(CC)" "$(OBJDUMP)" "$(READELF)")
+> +GAS_STATUS     = $($(CONFIG_SHELL) $(srctree)/arch/ia64/scripts/check-gas "$(CC)" "$(OBJDUMP)")
+> +KBUILD_CPPFLAGS += $($(CONFIG_SHELL) $(srctree)/arch/ia64/scripts/toolchain-flags "$(CC)" "$(OBJDUMP)" "$(READELF)")
 
-Ujjwal, I suggest that you continue to wait if you get any feedback from 
-Masahiro-san within the next two weeks (although the merge window) and if
-not, try to rebase to the the next rc1 and resend this patchset with 
-Nathan's feedback tags added.
 
-The merge window is busy time for maintainers; in the meantime, you might
-look into if the build target 'make tools/clean' works on the current 
-release and if there are fixes getting merged that fix that.
 
-Lukas
+These changes look wrong to me.
 
->  Makefile                          |  4 ++--
->  arch/arm64/kernel/vdso/Makefile   |  2 +-
->  arch/arm64/kernel/vdso32/Makefile |  2 +-
->  arch/ia64/Makefile                |  4 ++--
->  arch/nds32/kernel/vdso/Makefile   |  2 +-
->  init/Kconfig                      | 16 ++++++++--------
->  scripts/Makefile.build            |  2 +-
->  scripts/Makefile.package          |  4 ++--
->  8 files changed, 18 insertions(+), 18 deletions(-)
-> 
-> -- 
+$($(CONFIG_SHELL)    ->  $(shell $(CONFIG_SHELL)
+
+
+
+
+
+>  ifeq ($(GAS_STATUS),buggy)
+>  $(error Sorry, you need a newer version of the assember, one that is built from        \
+> diff --git a/arch/nds32/kernel/vdso/Makefile b/arch/nds32/kernel/vdso/Makefile
+> index 55df25ef0057..e77d4bcfa7c1 100644
+> --- a/arch/nds32/kernel/vdso/Makefile
+> +++ b/arch/nds32/kernel/vdso/Makefile
+> @@ -39,7 +39,7 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+>  # Generate VDSO offsets using helper script
+>  gen-vdsosym := $(srctree)/$(src)/gen_vdso_offsets.sh
+>  quiet_cmd_vdsosym = VDSOSYM $@
+> -      cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
+> +      cmd_vdsosym = $(NM) $< | $(CONFIG_SHELL) $(gen-vdsosym) | LC_ALL=C sort > $@
+>
+>  include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
+>         $(call if_changed,vdsosym)
+> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+> index a467b9323442..893217ee4a17 100644
+> --- a/scripts/Makefile.build
+> +++ b/scripts/Makefile.build
+> @@ -104,7 +104,7 @@ else ifeq ($(KBUILD_CHECKSRC),2)
+>  endif
+>
+>  ifneq ($(KBUILD_EXTRA_WARN),)
+> -  cmd_checkdoc = $(srctree)/scripts/kernel-doc -none $<
+> +  cmd_checkdoc = $(PERL) $(srctree)/scripts/kernel-doc -none $<
+>  endif
+>
+>  # Compile C sources (.c)
+> diff --git a/scripts/Makefile.package b/scripts/Makefile.package
+> index f952fb64789d..4fc16c4776cc 100644
+> --- a/scripts/Makefile.package
+> +++ b/scripts/Makefile.package
+> @@ -44,7 +44,7 @@ if test "$(objtree)" != "$(srctree)"; then \
+>         echo >&2; \
+>         false; \
+>  fi ; \
+> -$(srctree)/scripts/setlocalversion --save-scmversion; \
+> +$(CONFIG_SHELL) $(srctree)/scripts/setlocalversion --save-scmversion; \
+>  tar -I $(KGZIP) -c $(RCS_TAR_IGNORE) -f $(2).tar.gz \
+>         --transform 's:^:$(2)/:S' $(TAR_CONTENT) $(3); \
+>  rm -f $(objtree)/.scmversion
+> @@ -123,7 +123,7 @@ git --git-dir=$(srctree)/.git archive --prefix=$(perf-tar)/         \
+>  mkdir -p $(perf-tar);                                               \
+>  git --git-dir=$(srctree)/.git rev-parse HEAD > $(perf-tar)/HEAD;    \
+>  (cd $(srctree)/tools/perf;                                          \
+> -util/PERF-VERSION-GEN $(CURDIR)/$(perf-tar)/);              \
+> +$(CONFIG_SHELL) util/PERF-VERSION-GEN $(CURDIR)/$(perf-tar)/);              \
+>  tar rf $(perf-tar).tar $(perf-tar)/HEAD $(perf-tar)/PERF-VERSION-FILE; \
+>  rm -r $(perf-tar);                                                  \
+>  $(if $(findstring tar-src,$@),,                                     \
+> --
 > 2.26.2
-> 
-> 
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/979bb7b0-2cae-3cd7-2fbd-7fcece9aafd1%40gmail.com.
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2010121537150.6487%40felia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATQFgzsmUppA%3D4eF1VrO_Tg%3DzrM9NSvUxrOp%3D7qa2_GsQ%40mail.gmail.com.
