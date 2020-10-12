@@ -1,124 +1,140 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBK6ZSL6AKGQEC3ITJLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBTEASP6AKGQE6UVY6AQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 03F5828C15F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 21:21:17 +0200 (CEST)
-Received: by mail-oi1-x23e.google.com with SMTP id v196sf8064721oia.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 12:21:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602530475; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 38A6628C2DE
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 22:45:02 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id x24sf13360904pfi.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Oct 2020 13:45:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602535500; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aQiTpDptcHkzf6k9tnb4/fUNNZMjoFyZIDV8G7Wm86VKnHRZEFzZKzYIfTKzlw3oMQ
-         eIaKPmHcg+KYNE2DnDSSpcWDJS2JF2TnMgxDkqf7EKd68V16wAkeAhGMkvWmFrprT/FK
-         44E2lgj1TwxMv4OKPbfqinhYgMCzosmdhMwebgRJkgfVeOBn3EzEipCmAeg0uEXlbT7W
-         BGkGCYi1eXy4NxSHCRn0EMgdheUBt2sv7U3hc8nwY2ebkT/alrbAghi0C8jI2zJMl3qv
-         kepoawHKl4o1TO70GJzsfluuB/vczSaZCnerCM/IDF2Ekfq16VHruQ8kCGHTiW7lM1pR
-         awsQ==
+        b=zJWg7JVvzxlXIu+eLHZtXQAp+fj06a53mwxA+zvm5NXISkS2A3uOJ0nLqx3C25j6dP
+         TUw7BJW85pDOUE5a3qWAlxo867BPIKCZZOKyC02w+x4MxlHXKgDapIQXa7VvTOC7l4mP
+         +1Mfc+hj6YOui1619g7S5Waot8XqilGy14cbWBhAFJDLRCxHLVs6yxsMqe1pA3inMt6t
+         CNDDC/ozAKdm+78yuEMzdqJSf1WJdEx5JjfmZt3RcGvKSj2KtzLkazMRukVQOEU6Q26D
+         Y0B+KgL6KS6A21DKhSpxDQdryNCcYSM3DRA4pt++EyQuKSQDm9enry5MxhaqGKbUIjYq
+         ikjA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=sWN6NfeYVndwTMoPlDaRnNLXGVqhSMw0TG679wBsDFo=;
-        b=ABbm+uRfn3USa99cSnJFdWRPXHSsduMmcyKt2NgIgAknEvUzBW060uuJNKZHztja9/
-         GhOoNZYOPwZJ6GfRM1EUPIzpSGpgslw00JZPNFhNhGJjwbWcr2rx8RKhj3H0gqgM1XAU
-         GOuXoeXu3hjnuneJrf5Iohi2xh1NO0chUFqArD6nXuFXyTx3T129SsX89pteABvWqq1E
-         +VQ+Nr8acwFJybIBOyQ7a3k9rP0LdE/YTTOBZbArjQ1UkylXiGDXOQef/7yqoOUXnR51
-         AwlsXehWKIgdTWMSY87Npq4eUxIYfHGEz12WSJTMQ5JhBAk0TNb9g3Va4394q+cFLSw6
-         o3AA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=njLA252bHAlEoANlhG9g+vYcgeWV9YNRlQi3qu5YFR0=;
+        b=tVpTNMi14SjmR7UHRstcPQoOksuSudg7GyDSyDTfWcSbV6RUCUPYXUAIe5ktZjBL8J
+         WGO7At+I2m+CaK+nsX9wOSIofNKKF2jkQKdTmXApm4RHeUCkoOj19KoL/YwpDV3Sc217
+         7j6lgYP+KbDYydvohL0il2VHH3hJXkE2fQSpUfFhpozkbMF8jI9VPb6tER1LcI75RgIB
+         hk9dbl9YVIImMsH9JPmyM68acvuoq0R6RVe2CiO5F/i/WszuZDkX/WbnYH2i+dy9zSUG
+         umi+f2TAcmbf26BOxUcZNW6HxSJgm0GNkAC0pNmPY/1rpe5tgX+nS8B4/RE8kGAfQGzQ
+         9nXw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Q77HI+zS;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=iBvAVUob;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sWN6NfeYVndwTMoPlDaRnNLXGVqhSMw0TG679wBsDFo=;
-        b=DDQI1/Tw4ea0oqlc3PP9ORGhh3otungmMNiKQeLxmgT4nvQSYMtAa2z1kDOSocF70x
-         selWkcZgnHKXuWOMGCxNHHIM5B6zFFdVwukp8+6jNgx5u7FQoR7yQT9D68FSn0PstvUx
-         eGbVcuKj+JsDOZ3AKa+tIVJTHz+LTZ85/Jh5e+3ZHJKf7Ybf5XQioo/zpL+pCPkSPywi
-         FnmPPzFmH5B/qZ12O/JXNvB6xrX2Woi40fKGieyw/rejElykp4J94QRffdU9Z4ScEnMT
-         uKLajmKlJ6WsV8WhuMfVoKgvbVmlqy+E9KS4NIE22BJXEBz5P/640eek1g1zSRoUlY+Q
-         kj0g==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=njLA252bHAlEoANlhG9g+vYcgeWV9YNRlQi3qu5YFR0=;
+        b=lRLzt6lBqjE+vWlRwW716qAVaBV22aUJohxURkGqE7GvVMLZnLiiMLIoe4HMxCvDOP
+         3Nn7xdanlvfZslYOf+dONaDzPlyfaM+q8D0JUWm9mNyPV+QZnUUOcPuoT1kO4yntMAbB
+         KG0OQOYW6tEtRhZw/xGHgXNpSemWm/VNENeknGIYI7M9md2vJLlXKNtJGpc+avvrYDN4
+         bh97Z8Ty8macmrN+pgryd1oeRDVlt9Dj+CopIIj0+3ELUvdv1rqa/a/z/0hjV12gb47u
+         7KUoOFlsmKBe7KEybBzkSuXnjGTtGbREKVD1LuP9LRUN0/1d4kXcKWs92kIg53SN3K8p
+         rcDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sWN6NfeYVndwTMoPlDaRnNLXGVqhSMw0TG679wBsDFo=;
-        b=XRtPa/WbLcsSlmqSrEi2qoQZtTcztovoqdsLHlfbici3+MaAiKqJse1w5WTH2X/fnr
-         EWUR+ocEBjvwgJ2MWg7UZx7G95157/T3qaiwvnBFw/G1pSTVs+oIZhCcSYCx1rXvQpv7
-         jSk1OK2oB4SgWqZcSoTD80KtSzPdn6rteWcRuYEtJYidk8kEybFhcLSbn3I6Jl32gtGi
-         F6E7C/L4t7oVys2YwITcWWZZdW8t5llPvsT3/xTVIYZuOsiOjvPB+dBzXl8noE1myZJ5
-         do4Nveo50SQOiZsy1zpFY0e7KQdxjZjA/rLspVX0/8Nv1xa4Gdr2auXMczdfVkKJERXr
-         eUWA==
-X-Gm-Message-State: AOAM533XcGEnrA/eSOH6zLivbiU1hchYm1ro7ruCAMeHyQ/TzAZxDVsn
-	BWPnYPVJmp19nBEtGhiK1iU=
-X-Google-Smtp-Source: ABdhPJzDLThqS434CUpapIdBWWl9coy0g3jQ0ZL1Hzst8Vd4zb/rBJEOjFRvoK/9nGgkFF0xE5RTWQ==
-X-Received: by 2002:a9d:7b59:: with SMTP id f25mr19026766oto.306.1602530475728;
-        Mon, 12 Oct 2020 12:21:15 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=njLA252bHAlEoANlhG9g+vYcgeWV9YNRlQi3qu5YFR0=;
+        b=DfkqVcPIFh7BWZI30j7+SS/g+K4pD/98vAa/XTiFR5aUu1dMRmu206NWFGoXYcre71
+         WelFGZwPs0XIlG7dIfclxrXJchaqxu9pIjLWEgiSDHkjniJPKGBE7tY4vHQsxQz2yC7j
+         DmDWyyT+kpztw6S4C4fL8+kPSMTFITmpFrTbcz54u8ofbuB9rPWB44TxTpCQcqmNZ/gM
+         3ccvuMq4kUVe4iTASBF5RybBo4+SnAoOvZDhfU0f4aIiUCFoXI1UyzfRSAGxuh4za6pV
+         OtYs7R6o9iah8mnE435nuSrT5Yog38vP2wGaM/SugehKz2lq+JJtatoLObZYI8N+S9yG
+         hJ+Q==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530MHsMhqKz7YetpYSMxEYe2+10z9vAvtqo3ha8iQpdPeVrguawt
+	wx2c02A2A+58KNTViCXdtWY=
+X-Google-Smtp-Source: ABdhPJyyH1XU000NR6VO+R1NTZ0xjC0ZgVsbbasE/jZZUTLgOG+k+SDFYIo1enAP/PY2DRlSO6fN1g==
+X-Received: by 2002:a17:90b:3314:: with SMTP id kf20mr22129563pjb.19.1602535500713;
+        Mon, 12 Oct 2020 13:45:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:53cc:: with SMTP id i12ls4182697oth.7.gmail; Mon, 12 Oct
- 2020 12:21:15 -0700 (PDT)
-X-Received: by 2002:a05:6830:1347:: with SMTP id r7mr12821502otq.203.1602530475316;
-        Mon, 12 Oct 2020 12:21:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602530475; cv=none;
+Received: by 2002:a17:902:7786:: with SMTP id o6ls2024614pll.0.gmail; Mon, 12
+ Oct 2020 13:45:00 -0700 (PDT)
+X-Received: by 2002:a17:90a:2841:: with SMTP id p1mr21437545pjf.222.1602535500221;
+        Mon, 12 Oct 2020 13:45:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602535500; cv=none;
         d=google.com; s=arc-20160816;
-        b=XQeDZNddwnfDo4Gu/fspSIpuR1VSunWSQVthQQPuuR3/WiS2G8HC3SERcOfYPeybwM
-         dYqarpKGE9Gu6mtSmOYGM0X1sAIMyVNSK+SkwaYEpj7wLcJYc50nyfbo17YI46FfLp6V
-         6/t2KvQw0mlf34vChe2rKXG/BXvB8i9cwrrvQz6O9EAgWujO2rFbkESIV56SFKusrUbd
-         1AioUyUACB13sW4cWT60ztM6rwXb4/mTX/HKfqsjhgXbAHmULStkvVwlnZ6m7c2Zo1ha
-         9DpkCAIgBXm4LA6M0IjqF1Pf6NhfdPKPTt7XJkpWPE0ugmLAvrrMJGZXbBzKGdTGODY5
-         h8zw==
+        b=XuIeW+YW4OtHUuF2SOa3VF008XKjrcDtplGay68lDj+LaIcUs9PLHX/3glQ6FBiAMj
+         MIXfVKwA4kGBP7s0iVf6lCc2cMqKtFq9UXKWyIM4JGFofXs6SwySY9Q8af43+fxI5w0J
+         Ay4AYHgaoFl2gL5m7/fx6Np4j7l+d8SoOsEKtwDB9TBpg62vZtNyTBWgSELdOFyHbnp6
+         YqVHymFt0ly8SQr/55X7v8SNGaKg2YrOuV7iLIJVr0AL7k+I1rNzjhbGwF8Ll/ur4xFj
+         BoFej1jzZlAqggI7SS2dq/07XPpcvkBvSXI6VQ/GSF0kjrJjDeq5xteej9jrvGIMpRsi
+         fikg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0Y0yp2OO1VleYBanGo/syTSROw5WTuT9Zf4T2od4GH8=;
-        b=pn8MWXMB7lB3DMqFjMCIpPST6bbeGo1vHEPNFF14OZ/Sb3eWEQtonMpBNKmUyjhS9N
-         CirMLdB3h1PiNRgw8W04/LqrDa+Cef5wBGoEZou9SeWOQ2vqlamuM46gLvR6eBYKlgk4
-         yCjc0shLhKZTMU+b6d7WsM/3m/LD+OPXPTY/ZTXjIN/dz9YfKorsxXaHgPJEM2ivZ42Y
-         RoTwnAjxeEHGD6bev6DQKhdjKaSWoRBetcpqWm2/VuJ6AFd9idemJ0ldWZAP60V2GNVK
-         7v9UkK95bRLQO2ByLseNWJxyDdEmEglw58sABjD1BaYVaUrYdLiqby2vKackodo4CXKH
-         sNYg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=/je9IGonHzFsuF/SNifo0ZcXgtv4yeAu6zOR0qhli4g=;
+        b=JfWE9OpC3TZOD71OiJhs8cy6RbpeAgfDC9Z9AtSSxJgKvD1fidG3Q4vPqf4a5tefC9
+         oHDHIHkgXFy7iOYeLed6HfLsoNOhoKfxano8L5BXb0OEb4ciYTHFUu2zMycHHkEXVEli
+         L5Xm8dpJaKUYdNJOCcStJQx5eYlpIgUSWLTIsM9O5OReQjHJ066NGpz41d+7DMBQdPnw
+         hByPd3OQjKgurjhvEOJuydW8ly9zsA7i1CLRIqfZmEzdKwTvr9oIi02w7FP6sWafZxEQ
+         vUPZTu+gUMRD6HKPWUC4xSoOtvccdy7PDdlVSGNqfNqFhF4RZ0dqTaU73P2PYuB47DjD
+         Dmvg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Q77HI+zS;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id n7si1299344oij.0.2020.10.12.12.21.15
+       dkim=pass header.i=@chromium.org header.s=google header.b=iBvAVUob;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id m62si1322238pgm.2.2020.10.12.13.45.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Oct 2020 12:21:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id j18so1891228pfa.0
-        for <clang-built-linux@googlegroups.com>; Mon, 12 Oct 2020 12:21:15 -0700 (PDT)
-X-Received: by 2002:a62:cd85:0:b029:152:6881:5e2c with SMTP id
- o127-20020a62cd850000b029015268815e2cmr24293425pfg.36.1602530474178; Mon, 12
- Oct 2020 12:21:14 -0700 (PDT)
+        Mon, 12 Oct 2020 13:45:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
+Received: by mail-pl1-x643.google.com with SMTP id p11so9322977pld.5
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Oct 2020 13:45:00 -0700 (PDT)
+X-Received: by 2002:a17:902:cd07:b029:d3:9be0:2679 with SMTP id g7-20020a170902cd07b02900d39be02679mr25530237ply.68.1602535499967;
+        Mon, 12 Oct 2020 13:44:59 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id v20sm16032300pjh.5.2020.10.12.13.44.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Oct 2020 13:44:58 -0700 (PDT)
+Date: Mon, 12 Oct 2020 13:44:56 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Will Deacon <will@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	kernel-hardening@lists.openwall.com, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v5 25/29] arm64: allow LTO_CLANG and THINLTO to be
+ selected
+Message-ID: <202010121344.53780D8CD2@keescook>
+References: <20201009161338.657380-1-samitolvanen@google.com>
+ <20201009161338.657380-26-samitolvanen@google.com>
+ <20201012083116.GA785@willie-the-truck>
 MIME-Version: 1.0
-References: <202010110430.aoU5Kjsn-lkp@intel.com>
-In-Reply-To: <202010110430.aoU5Kjsn-lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 12 Oct 2020 12:21:03 -0700
-Message-ID: <CAKwvOd=jm7x2+yFtqUmSWXXcuGjqyGR1cbf40tMJPCkunv0Uzg@mail.gmail.com>
-Subject: Re: clang-12: error: assembler command failed with exit code 1 (use
- -v to see invocation)
-To: Ulrich Weigand <Ulrich.Weigand@de.ibm.com>
-Cc: kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kernel test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20201012083116.GA785@willie-the-truck>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Q77HI+zS;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@chromium.org header.s=google header.b=iBvAVUob;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::643
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,260 +147,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-I don't think the bisection was quite right, but possibly an
-interesting case in compatibility between clang and GNU binutils.
-Looks like clang is generating operands that are too large to be
-encoded.
+On Mon, Oct 12, 2020 at 09:31:16AM +0100, Will Deacon wrote:
+> On Fri, Oct 09, 2020 at 09:13:34AM -0700, Sami Tolvanen wrote:
+> > Allow CONFIG_LTO_CLANG and CONFIG_THINLTO to be enabled.
+> > 
+> > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> > Reviewed-by: Kees Cook <keescook@chromium.org>
+> > ---
+> >  arch/arm64/Kconfig | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index ad522b021f35..7016d193864f 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -72,6 +72,8 @@ config ARM64
+> >  	select ARCH_USE_SYM_ANNOTATIONS
+> >  	select ARCH_SUPPORTS_MEMORY_FAILURE
+> >  	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
+> > +	select ARCH_SUPPORTS_LTO_CLANG
+> > +	select ARCH_SUPPORTS_THINLTO
+> 
+> Please don't enable this for arm64 until we have the dependency stuff sorted
+> out. I posted patches [1] for this before, but I think they should be part
+> of this series as they don't make sense on their own.
 
-On Sat, Oct 10, 2020 at 1:49 PM kernel test robot <lkp@intel.com> wrote:
->
-> CC: linux-kernel@vger.kernel.org
-> TO: Marc Zyngier <maz@kernel.org>
-> CC: Benjamin Tissoires <benjamin.tissoires@gmail.com>
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   6f2f486d57c4d562cdf4932320b66fbb878ab1c4
-> commit: 35556bed836f8dc07ac55f69c8d17dce3e7f0e25 HID: core: Sanitize event code and type when mapping input
-> date:   6 weeks ago
-> config: s390-randconfig-r023-20201011 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 9b5b3050237db3642ed7ab1bdb3ffa2202511b99)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install s390 cross compiling tool for clang build
->         # apt-get install binutils-s390x-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=35556bed836f8dc07ac55f69c8d17dce3e7f0e25
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout 35556bed836f8dc07ac55f69c8d17dce3e7f0e25
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
->            ___constant_swab32(x) :                 \
->                               ^
->    include/uapi/linux/swab.h:20:12: note: expanded from macro '___constant_swab32'
->            (((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |            \
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
->            ___constant_swab32(x) :                 \
->                               ^
->    include/uapi/linux/swab.h:21:12: note: expanded from macro '___constant_swab32'
->            (((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |            \
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
->            ___constant_swab32(x) :                 \
->                               ^
->    include/uapi/linux/swab.h:22:12: note: expanded from macro '___constant_swab32'
->            (((__u32)(x) & (__u32)0xff000000UL) >> 24)))
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:120:12: note: expanded from macro '__swab32'
->            __fswab32(x))
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            __raw_writeb(value, PCI_IOBASE + addr);
->                                ~~~~~~~~~~ ^
->    include/asm-generic/io.h:511:46: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            __raw_writew(cpu_to_le16(value), PCI_IOBASE + addr);
->                                             ~~~~~~~~~~ ^
->    include/asm-generic/io.h:521:46: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            __raw_writel(cpu_to_le32(value), PCI_IOBASE + addr);
->                                             ~~~~~~~~~~ ^
->    include/asm-generic/io.h:609:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            readsb(PCI_IOBASE + addr, buffer, count);
->                   ~~~~~~~~~~ ^
->    include/asm-generic/io.h:617:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            readsw(PCI_IOBASE + addr, buffer, count);
->                   ~~~~~~~~~~ ^
->    include/asm-generic/io.h:625:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            readsl(PCI_IOBASE + addr, buffer, count);
->                   ~~~~~~~~~~ ^
->    include/asm-generic/io.h:634:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            writesb(PCI_IOBASE + addr, buffer, count);
->                    ~~~~~~~~~~ ^
->    include/asm-generic/io.h:643:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            writesw(PCI_IOBASE + addr, buffer, count);
->                    ~~~~~~~~~~ ^
->    include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            writesl(PCI_IOBASE + addr, buffer, count);
->                    ~~~~~~~~~~ ^
->    20 warnings generated.
->    /tmp/hid-input-85a7dd.s: Assembler messages:
->    /tmp/hid-input-85a7dd.s:177577: Error: operand out of range (-65572 not between 4294901760 and 65534)
->    /tmp/hid-input-85a7dd.s:177606: Error: operand out of range (-65584 not between 4294901760 and 65534)
->    /tmp/hid-input-85a7dd.s:177635: Error: operand out of range (-65560 not between 4294901760 and 65534)
->    /tmp/hid-input-85a7dd.s:177665: Error: operand out of range (-65576 not between 4294901760 and 65534)
->    /tmp/hid-input-85a7dd.s:177695: Error: operand out of range (-65554 not between 4294901760 and 65534)
->    /tmp/hid-input-85a7dd.s:177725: Error: operand out of range (-65570 not between 4294901760 and 65534)
-> >> clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
-> --
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
->            ___constant_swab32(x) :                 \
->                               ^
->    include/uapi/linux/swab.h:20:12: note: expanded from macro '___constant_swab32'
->            (((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |            \
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
->            ___constant_swab32(x) :                 \
->                               ^
->    include/uapi/linux/swab.h:21:12: note: expanded from macro '___constant_swab32'
->            (((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |            \
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
->            ___constant_swab32(x) :                 \
->                               ^
->    include/uapi/linux/swab.h:22:12: note: expanded from macro '___constant_swab32'
->            (((__u32)(x) & (__u32)0xff000000UL) >> 24)))
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:490:45: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            val = __le32_to_cpu(__raw_readl(PCI_IOBASE + addr));
->                                            ~~~~~~~~~~ ^
->    include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
->    #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
->                                                              ^
->    include/uapi/linux/swab.h:120:12: note: expanded from macro '__swab32'
->            __fswab32(x))
->                      ^
->    In file included from drivers/hid/hid-input.c:21:
->    In file included from include/linux/hid-debug.h:14:
->    In file included from include/linux/kfifo.h:42:
->    In file included from include/linux/scatterlist.h:9:
->    In file included from arch/s390/include/asm/io.h:72:
->    include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            __raw_writeb(value, PCI_IOBASE + addr);
->                                ~~~~~~~~~~ ^
->    include/asm-generic/io.h:511:46: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            __raw_writew(cpu_to_le16(value), PCI_IOBASE + addr);
->                                             ~~~~~~~~~~ ^
->    include/asm-generic/io.h:521:46: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            __raw_writel(cpu_to_le32(value), PCI_IOBASE + addr);
->                                             ~~~~~~~~~~ ^
->    include/asm-generic/io.h:609:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            readsb(PCI_IOBASE + addr, buffer, count);
->                   ~~~~~~~~~~ ^
->    include/asm-generic/io.h:617:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            readsw(PCI_IOBASE + addr, buffer, count);
->                   ~~~~~~~~~~ ^
->    include/asm-generic/io.h:625:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            readsl(PCI_IOBASE + addr, buffer, count);
->                   ~~~~~~~~~~ ^
->    include/asm-generic/io.h:634:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            writesb(PCI_IOBASE + addr, buffer, count);
->                    ~~~~~~~~~~ ^
->    include/asm-generic/io.h:643:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            writesw(PCI_IOBASE + addr, buffer, count);
->                    ~~~~~~~~~~ ^
->    include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->            writesl(PCI_IOBASE + addr, buffer, count);
->                    ~~~~~~~~~~ ^
->    20 warnings generated.
->    /tmp/hid-input-0ec629.s: Assembler messages:
->    /tmp/hid-input-0ec629.s:177577: Error: operand out of range (-65572 not between 4294901760 and 65534)
->    /tmp/hid-input-0ec629.s:177606: Error: operand out of range (-65584 not between 4294901760 and 65534)
->    /tmp/hid-input-0ec629.s:177635: Error: operand out of range (-65560 not between 4294901760 and 65534)
->    /tmp/hid-input-0ec629.s:177665: Error: operand out of range (-65576 not between 4294901760 and 65534)
->    /tmp/hid-input-0ec629.s:177695: Error: operand out of range (-65554 not between 4294901760 and 65534)
->    /tmp/hid-input-0ec629.s:177725: Error: operand out of range (-65570 not between 4294901760 and 65534)
-> >> clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010110430.aoU5Kjsn-lkp%40intel.com.
+Oh, hm. We've been trying to trim down this series, since it's already
+quite large. Why can't [1] land first? It would make this easier to deal
+with, IMO.
 
-
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=rwonce/read-barrier-depends
 
 -- 
-Thanks,
-~Nick Desaulniers
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3Djm7x2%2ByFtqUmSWXXcuGjqyGR1cbf40tMJPCkunv0Uzg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010121344.53780D8CD2%40keescook.
