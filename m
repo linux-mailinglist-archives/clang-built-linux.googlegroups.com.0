@@ -1,125 +1,151 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBLOYTD6AKGQEUERH54Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDVIJONZ3YDRBCW4TD6AKGQE2XQOTCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF9CB28D674
-	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 00:37:34 +0200 (CEST)
-Received: by mail-il1-x138.google.com with SMTP id i14sf1002128ils.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Oct 2020 15:37:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602628653; cv=pass;
+Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B90628D69F
+	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 00:45:31 +0200 (CEST)
+Received: by mail-oi1-x23d.google.com with SMTP id n9sf386643oib.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Oct 2020 15:45:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602629130; cv=pass;
         d=google.com; s=arc-20160816;
-        b=b+309je/GXLSGAQVgtwXmukla2S3Jp9kFeKFMJhtSPQPfG5VPTSPYomMdFu3OWEskv
-         6YmCbQKaTd6ZeIdMrS3SkIn+MQzfZGuXWsivZyapykBc1MAeoWknzkY3DvqdrRJA7qYk
-         B7iUdjl5FWoHDUk2dsG31xeMS54VHtHM7t0tX6fVBze51No4GAk0JAKVhPVd9ASNM8mQ
-         vDMFg6DFf0LQlWnRwcme8eIbb2brxfLQ7uDjjd3gLf/So0EkypTEgZhQg8pxRPdllNEo
-         em4BduC6emfDcbUL/E5LBUpvDFaMqCZrn6K7poDrGksJYP5KL8A8wcsG4CE2qiKXRw6E
-         e1PQ==
+        b=HYunXoxfcKWMZJTm/JVPVHP1lhOE4Uu7aZSgT8SPWZ4Z5WaK9mMMvHytqMUWmCLvHR
+         kfJA3lOPC06Ypwx/dJlzSd7liRP9Sa0MzJLibwGH1UXjM/OhHrsX1QRP07vsX8NOkQ1G
+         Euc4mcE5DXqvPsnrlpbd1sro3coQLt1q7yry3XpwHPBFDlVpDVKnTGB7ED6hz677Li3P
+         lqLejA3f3R73tpdRlwW5cn/qe5AzNjQ2DhWpdLrT7Lr6EGSh91OWfXMarcuOxxETZ8sF
+         9Iia7JOVNWqF507MEOthFrUTKcjl69s+28ZeLbeYxs06UiToJiLUS4RbqOzUI8+9wdes
+         MOrg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=TLnUtDioJhcQKxypD2n/qv46ivMjkquYuSUnl+5Xc8M=;
-        b=gcKHetATsTezd2aUAbGZ/9oQmEi5e3WMp9UnKm1IFFeWrn45E3aZkv5eUjPI2uiEGh
-         KfosOAg8jdXm2DZXjbjO0Of3HXNT2IdwaG7XJP2EbRSX9NQEFZWUMo3me2H1y5S0fTmC
-         W0lo/VRIkyF1cQ5WUZBBsCTX1shlYFUu05p5MD4vFywtnvQEOmKDgDsFui6OobUIss5i
-         Tl+5U8v7bo06W2/8tStY8jknoHyoS02tIaExVDxf3rwMQeMhnE5X5j7BRKu4WurbfmLd
-         84k5E08J+umd7o9kI36QQEmFT2x7MnP9x1wmahLu7GKB8CXGuA27+ruzwZH+Foqn2raY
-         7n2A==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=WD1y5SLqytZ7x+HPE2bVbfhlbLmVNNzRwPGkOvKcAB4=;
+        b=Rnw+NNnykN0b0/x+4pY2Vxcy/wil6qaifyMxwmjhlab92n1RVrL4UDmuNSM9im0a15
+         fYuip5nV6krcY+BsMKz0vdROl7agDZhNIwvGKOEF2WIpIm6/okh3GrN+BeOsoVZjDBEi
+         p+7YVr197QRby4Z9ipygoFxvdl0+5bZXy+Cjr1/AHq9GF6IFXM+f0dMnNtivMhHgwTqi
+         2mFJP/+W528v0iNdOZ2QEnel2qiol9STsk7gnYO8+7rBvPugjtE+qVo7I6zpCRMYHJnn
+         SRxqXMkwTOuegojYh9nHzrgp5NlKwH72BlJM7wf7m4XNeVSz8QdkXrzcdvmR++WZl9UP
+         5/3Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="d6OEbf/+";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=DCrESlm8;
+       spf=pass (google.com: domain of martin.petersen@oracle.com designates 141.146.126.79 as permitted sender) smtp.mailfrom=martin.petersen@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TLnUtDioJhcQKxypD2n/qv46ivMjkquYuSUnl+5Xc8M=;
-        b=P3WToVcA5ZLD+jyYO2Nr6awjx7zmCn51CwCK0oQXKEYhKZvLqAFb8CG8SMVlmnvmHh
-         vflhK+jP7wqb3eFM+Nbas3JFRfzEwcKxE9WOgS10BqzwSD4R6fyk63m6XdgVzrm6yKZN
-         yb2C5X73GHrLuVusH8kmSqlvriWIA2fPrcJjnEHFix9c7L4KKNCtMZAe1SzH88/+rHNb
-         PMZwBTam3uRwTnTXy2c84gRv7/FmvRsTo+tQr1vGXPrEWI3adKqTUwsbOUCr+t1VJjOA
-         pHi5+jjaaWvEGFeh1/fUtVA5yazIAx3JO5VQ3W44xZuzgvAP15QjnzywgOmwjWUgrPyG
-         p+Yg==
+        bh=WD1y5SLqytZ7x+HPE2bVbfhlbLmVNNzRwPGkOvKcAB4=;
+        b=R3mogYa2/5KxbnnSFz5X0vadZ86SYx5Lzzf+3559ppxJvJUGvntKh1xTbq7vue3rjj
+         /YItFt372wwRY0mKIML5pAML1/IiCGTxo1HU7N1pJaGf2WJMXBpiXAY4k+Hp8OVaaKI6
+         yOBet5qtW8W5UJEb9vzkLUpujXuTxU/s6TNyMzcU7OUSjfUO4kv8S3706nluN3EGxnh7
+         0C/3+t/Kf6+pWPTPYuiVsXja3WY9Dw9pfjU1yjbTal9cdn7oOtplN7igErH42y7nMXHM
+         edrThy/ZFQ1KcrHdS5+8VDBDD+8KgzX3e+FOhcv9fJtoBRjFdfJjqOfkIPCfLPN7traG
+         WPHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TLnUtDioJhcQKxypD2n/qv46ivMjkquYuSUnl+5Xc8M=;
-        b=iTJ0boX7htF4vUXwXsmyo/MxoVw8p8wp9HsHnS2GPc70+y2Q/Q1V292JbAALEK8V9s
-         yW8b+z9bepubz3ZvdY7tIT0IHO4aZOIemcGV/Huf+DzuISQK9vU4JgH1WfzGKlfN7w+q
-         HEyJRQGk9JzNj2kce6/mU5uxkWoz3GSQMXcvaILP1RYLEhIgqJ18ZwZHIya+vRkBPMEu
-         NazXdqoqNWWi5VDCfeJyX0V6MsLcUbesfts4uCLPjGZdI4bDnMxjoTHciS6uRC0kBBYw
-         /s846tNdlpdWLctVvi6lqxB9EH0kjYg2pRBBzIhxt/IvQqPcfumAeynSG7o9OPqbZ4UJ
-         i/ig==
-X-Gm-Message-State: AOAM5323bo8QqUCy29xDR/gW/5uzGmvk7xMu7uAojxnyFvUGmYucgqVf
-	lFovyhVMqpVPiCpQENwNAdU=
-X-Google-Smtp-Source: ABdhPJw4VxnIvzlUobSgrS2yszSabpV9tikpb+tHNVeZE4FwP/CANDvTBJVZOuueKHrArK7N5/vJMw==
-X-Received: by 2002:a02:c499:: with SMTP id t25mr834016jam.101.1602628653762;
-        Tue, 13 Oct 2020 15:37:33 -0700 (PDT)
+        bh=WD1y5SLqytZ7x+HPE2bVbfhlbLmVNNzRwPGkOvKcAB4=;
+        b=e29y/1C6PO9q1l5jAYDplusW8s9F7iYtXfSPsOsxel/mAlC1eMl5J0kZrfkZSV2haY
+         uwlVR8Yd+AjrHXunIiMHP6hEWwDRZS3rZZ9VT5G22nJ6IWrvr+nr9qiNAFNcW1zEs64l
+         CeHYCkRkrKR3z0ToLNuzyWU4QRTIY/GQe4GofWTe9EpadwiUOfDQOXFgMnxFNdzwZbhN
+         FoezecJqX5lG7HwNo6zHl0/PfoOztFOjAGnh/Ux6X8WmO2cNPPa7wHs6uxUgiGLDLo/J
+         A2DPxzzrbOis4QxBKPypfzJW5IK27pdk9RUjmZCMvhIu7oJz0bo07fPyuKYPgsMi48VL
+         GvDw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531E+1Ga8a4xUouf5HM8ZF6O/ioo+vJiv3p7SKH4e2ZNJLJrwRP2
+	x8qZUmiI90dppQj1smqLQos=
+X-Google-Smtp-Source: ABdhPJxsshV9ti/WtjvnCxsqdkH3HwyxCCHSLcbGBwl2dwIfuoplJ2At3L+y7EGenZnwExfOsttYtg==
+X-Received: by 2002:aca:d9c2:: with SMTP id q185mr370561oig.28.1602629130096;
+        Tue, 13 Oct 2020 15:45:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5b47:: with SMTP id p68ls374383ilb.5.gmail; Tue, 13 Oct
- 2020 15:37:33 -0700 (PDT)
-X-Received: by 2002:a92:3554:: with SMTP id c81mr1738788ila.265.1602628653443;
-        Tue, 13 Oct 2020 15:37:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602628653; cv=none;
+Received: by 2002:aca:cd96:: with SMTP id d144ls243903oig.5.gmail; Tue, 13 Oct
+ 2020 15:45:29 -0700 (PDT)
+X-Received: by 2002:aca:cfce:: with SMTP id f197mr384827oig.44.1602629129710;
+        Tue, 13 Oct 2020 15:45:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602629129; cv=none;
         d=google.com; s=arc-20160816;
-        b=x6Kb9RvZS6z8fJzBVIvw9LBGxdJ1qfxtyBw5pPh81i7pfgfaSMUjFiXFlCPFH/0skO
-         TAR4YYH7B2k3BnD262rc/fZWhGHldwW2A/b+Ww7MGX08F+AzP+6jiRo0ZVt+uS+//9eW
-         i4E25rjxKHvb3Bhx5Ks1PjANbL8J2whgTLHtjOBkBx1J0yIzEf4bXKnAdtZV9az0CKJm
-         gX1XQ8vIkaaIQKLWSPpPNPz5f3bqNhfgzB9R4JrfNGodMDphupAPLKvDuwyRcjSLG4Tg
-         JgM54D+lXO85yezNn6w03goVEd8nQtX4cYCkHQJxuJKJu2UOCMvgHD3DbKK/PRnkVWta
-         pnSA==
+        b=smJiwFoKI83xaNkbIjUsALcrGAr7396lEp0W6SGp3MeWcN9co19Wa1Wrf03NNzTIry
+         pAMNo+NBH8u88o9ej95rK5OJpxyBWK6nv5qIGs0YM3W0wn4/MITNCqnvNjZGv6bFB4uw
+         4SZ+UYAUVagAyOfusqavAnxCBGwIX1DxA28cx9JaX2xGYrVOHJqv/B0Rb7W5TGzgVf6d
+         DwFs/iERjRzNHaz9dDSkz09Muaqv5NIZoJpRC54i2p8qReTW2McO6pRaxr+uvocxYTdj
+         apLTI/Jw2mU98BmhykJfogLdD9RQCnl2L9pgEevNXA5M/3wEc1dbMjEmHS09BzV5cW/w
+         KM0w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=t+96sOhB1uhq2YjHHSuH7V+uCK/i5ddWXeBGT6qagJA=;
-        b=Aj8cJQHRPt/oFEkWSc2wX1qgDuWV7O8ygfEfe2dhs7qDhI4atbaJMrOpn7D03BNNka
-         iWsE13jTv0kTvz2qpwjGiM/AOhqa/0AUpQiTH+E9lVf6xY+Xluu2SHnrlIiI+su2BcDM
-         0kyM+xQtlcOmRweS9nJG3sDOyVC31Ph/fspqRwI2l/qoUWHEDYx6WVeYeXkQ0c7VolRw
-         ZAV5L7UDcZRibo/1OP1vVOMIJt+7NIl7UZNntp4JI+LFHQGAPc4F6D3LQWJS7+is4oaV
-         ByuNcVPlXWqQqRHgDUI5Dx/kj//hhRJB6qWEp2WK33dOqhg9YcRL0NZbsbiRQB7F2nSW
-         s13g==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=ArcMjQJ2s3MSpWrq6+n/RKwMjg3fQXUIA+bfV4ABt88=;
+        b=yWduqWPGlyT3byxbCv14hiUh/B1pwnTDJp7qyRJup4HIHiSoGPJI6FY2eQVvW0yeQZ
+         isNqMamGQlQk8v1HaKVL757hA0mRJkzE7rLyQMWCG3jCD6j2vN8lwb3stytxnfws7XxM
+         HhDE/2gU8FzRHJf8yC61oXQiiMVHVwdzzdPxxEEJmHsr8OyC8T2h70jh+4Vkb8iWCV++
+         ueNvDLctRFHCbShUY4FKYfAMTrpxrhDX4GPZCq8rUhZlUYb27Yz9ho/yYIrySoNpCFoE
+         X6KqJLQu84iWvSZM6rsAXTVtA9+WH0U4Tw+mD1Sx9t90fKBO1LNikEYNwqy8kyE7FOt+
+         zllQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="d6OEbf/+";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
-        by gmr-mx.google.com with ESMTPS id i8si61006ioo.0.2020.10.13.15.37.33
+       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=DCrESlm8;
+       spf=pass (google.com: domain of martin.petersen@oracle.com designates 141.146.126.79 as permitted sender) smtp.mailfrom=martin.petersen@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+Received: from aserp2130.oracle.com (aserp2130.oracle.com. [141.146.126.79])
+        by gmr-mx.google.com with ESMTPS id p17si118689oot.0.2020.10.13.15.45.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Oct 2020 15:37:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
-Received: by mail-pg1-x541.google.com with SMTP id q21so626522pgi.13
-        for <clang-built-linux@googlegroups.com>; Tue, 13 Oct 2020 15:37:33 -0700 (PDT)
-X-Received: by 2002:a63:1f03:: with SMTP id f3mr1305731pgf.381.1602628652646;
- Tue, 13 Oct 2020 15:37:32 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 13 Oct 2020 15:45:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of martin.petersen@oracle.com designates 141.146.126.79 as permitted sender) client-ip=141.146.126.79;
+Received: from pps.filterd (aserp2130.oracle.com [127.0.0.1])
+	by aserp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 09DMYZUR143659;
+	Tue, 13 Oct 2020 22:45:27 GMT
+Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
+	by aserp2130.oracle.com with ESMTP id 343pajucw2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 13 Oct 2020 22:45:26 +0000
+Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
+	by userp3020.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 09DMZW2w162477;
+	Tue, 13 Oct 2020 22:43:26 GMT
+Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
+	by userp3020.oracle.com with ESMTP id 344by2v0g9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 13 Oct 2020 22:43:26 +0000
+Received: from abhmp0012.oracle.com (abhmp0012.oracle.com [141.146.116.18])
+	by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 09DMhPRf009987;
+	Tue, 13 Oct 2020 22:43:25 GMT
+Received: from ca-mkp.ca.oracle.com (/10.156.108.201)
+	by default (Oracle Beehive Gateway v4.0)
+	with ESMTP ; Tue, 13 Oct 2020 15:43:24 -0700
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: njavali@marvell.com, "trix@redhat.com" <trix@redhat.com>,
+        natechancellor@gmail.com, jejb@linux.ibm.com, ndesaulniers@google.com
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
+        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+        GR-QLogic-Storage-Upstream@marvell.com, linux-scsi@vger.kernel.org
+Subject: Re: [PATCH] scsi: qla2xxx: initialize value
+Date: Tue, 13 Oct 2020 18:43:00 -0400
+Message-Id: <160262862432.3018.2457748538625562502.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20201005144544.25335-1-trix@redhat.com>
+References: <20201005144544.25335-1-trix@redhat.com>
 MIME-Version: 1.0
-References: <20201013033947.2257501-1-natechancellor@gmail.com>
-In-Reply-To: <20201013033947.2257501-1-natechancellor@gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 13 Oct 2020 15:37:21 -0700
-Message-ID: <CAKwvOdm72u3J-3stdxtQhq5LKy=2u9HjV=z0n55pi16nq6VX2w@mail.gmail.com>
-Subject: Re: [PATCH] arm64: vdso32: Allow ld.lld to properly link the VDSO
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9773 signatures=668681
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=771 spamscore=0
+ suspectscore=0 mlxscore=0 malwarescore=0 adultscore=0 bulkscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2010130158
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9773 signatures=668681
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 suspectscore=0
+ impostorscore=0 priorityscore=1501 clxscore=1015 malwarescore=0
+ adultscore=0 lowpriorityscore=0 spamscore=0 phishscore=0 mlxscore=0
+ mlxlogscore=788 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2010130158
+X-Original-Sender: martin.petersen@oracle.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="d6OEbf/+";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@oracle.com header.s=corp-2020-01-29 header.b=DCrESlm8;
+       spf=pass (google.com: domain of martin.petersen@oracle.com designates
+ 141.146.126.79 as permitted sender) smtp.mailfrom=martin.petersen@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,125 +158,26 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 12, 2020 at 8:41 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> As it stands now, the vdso32 Makefile hardcodes the linker to ld.bfd
-> using -fuse-ld=bfd with $(CC). This was taken from the arm vDSO
-> Makefile, as the comment notes, done in commit d2b30cd4b722 ("ARM:
-> 8384/1: VDSO: force use of BFD linker").
->
-> Commit fe00e50b2db8 ("ARM: 8858/1: vdso: use $(LD) instead of $(CC) to
-> link VDSO") changed that Makefile to use $(LD) directly instead of
-> through $(CC), which matches how the rest of the kernel operates. Since
-> then, LD=ld.lld means that the arm vDSO will be linked with ld.lld,
-> which has shown no problems so far.
->
-> Allow ld.lld to link this vDSO as we do the regular arm vDSO. To do
-> this, we need to do a few things:
->
-> * Add a LD_COMPAT variable, which defaults to $(CROSS_COMPILE_COMPAT)ld
->   with gcc and $(LD) if LLVM is 1, which will be ld.lld, or
->   $(CROSS_COMPILE_COMPAT)ld if not, which matches the logic of the main
->   Makefile. It is overrideable for further customization and avoiding
->   breakage.
->
-> * Eliminate cc32-ldoption, which matches commit 055efab3120b ("kbuild:
->   drop support for cc-ldoption").
->
-> With those, we can use $(LD_COMPAT) in cmd_ldvdso and change the flags
-> from compiler linker flags to linker flags directly. We eliminate
-> -mfloat-abi=soft because it is not handled by the linker.
->
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1033
-> Reported-by: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+On Mon, 5 Oct 2020 07:45:44 -0700, trix@redhat.com wrote:
 
-Thanks for the patch and summary of related changes! This is
-immediately useful for Android.
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+> clang static analysis reports this problem:
+> 
+> qla_nx2.c:694:3: warning: 6th function call argument is
+>   an uninitialized value
+>         ql_log(ql_log_fatal, vha, 0xb090,
+>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> 
+> [...]
 
-> ---
->
-> NOTE: This patch is currently based on the kbuild tree due to the
-> --build-id -> --build-id=sha1 change that Bill did. If the arm64
-> maintainers would prefer to take this patch, I can rebase it (althought
-> presumably this won't hit mainline until at least 5.11 so it can
-> probably just stay as is for now).
->
->  arch/arm64/kernel/vdso32/Makefile | 23 ++++++++++++-----------
->  1 file changed, 12 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-> index 7f96a1a9f68c..1cf00c58805d 100644
-> --- a/arch/arm64/kernel/vdso32/Makefile
-> +++ b/arch/arm64/kernel/vdso32/Makefile
-> @@ -22,16 +22,21 @@ endif
->
->  CC_COMPAT ?= $(CC)
->  CC_COMPAT += $(CC_COMPAT_CLANG_FLAGS)
-> +
-> +ifeq ($(LLVM),1)
-> +LD_COMPAT ?= $(LD)
-> +else
-> +LD_COMPAT ?= $(CROSS_COMPILE_COMPAT)ld
-> +endif
->  else
->  CC_COMPAT ?= $(CROSS_COMPILE_COMPAT)gcc
-> +LD_COMPAT ?= $(CROSS_COMPILE_COMPAT)ld
->  endif
->
->  cc32-option = $(call try-run,\
->          $(CC_COMPAT) $(1) -c -x c /dev/null -o "$$TMP",$(1),$(2))
->  cc32-disable-warning = $(call try-run,\
->         $(CC_COMPAT) -W$(strip $(1)) -c -x c /dev/null -o "$$TMP",-Wno-$(strip $(1)))
-> -cc32-ldoption = $(call try-run,\
-> -        $(CC_COMPAT) $(1) -nostdlib -x c /dev/null -o "$$TMP",$(1),$(2))
->  cc32-as-instr = $(call try-run,\
->         printf "%b\n" "$(1)" | $(CC_COMPAT) $(VDSO_AFLAGS) -c -x assembler -o "$$TMP" -,$(2),$(3))
->
-> @@ -122,14 +127,10 @@ dmbinstr := $(call cc32-as-instr,dmb ishld,-DCONFIG_AS_DMB_ISHLD=1)
->  VDSO_CFLAGS += $(dmbinstr)
->  VDSO_AFLAGS += $(dmbinstr)
->
-> -VDSO_LDFLAGS := $(VDSO_CPPFLAGS)
->  # From arm vDSO Makefile
-> -VDSO_LDFLAGS += -Wl,-Bsymbolic -Wl,--no-undefined -Wl,-soname=linux-vdso.so.1
-> -VDSO_LDFLAGS += -Wl,-z,max-page-size=4096 -Wl,-z,common-page-size=4096
-> -VDSO_LDFLAGS += -nostdlib -shared -mfloat-abi=soft
-> -VDSO_LDFLAGS += -Wl,--hash-style=sysv
-> -VDSO_LDFLAGS += -Wl,--build-id=sha1
-> -VDSO_LDFLAGS += $(call cc32-ldoption,-fuse-ld=bfd)
-> +VDSO_LDFLAGS += -Bsymbolic --no-undefined -soname=linux-vdso.so.1
-> +VDSO_LDFLAGS += -z max-page-size=4096 -z common-page-size=4096
-> +VDSO_LDFLAGS += -nostdlib -shared --hash-style=sysv --build-id=sha1
->
->
->  # Borrow vdsomunge.c from the arm vDSO
-> @@ -189,8 +190,8 @@ quiet_cmd_vdsold_and_vdso_check = LD32    $@
->        cmd_vdsold_and_vdso_check = $(cmd_vdsold); $(cmd_vdso_check)
->
->  quiet_cmd_vdsold = LD32    $@
-> -      cmd_vdsold = $(CC_COMPAT) -Wp,-MD,$(depfile) $(VDSO_LDFLAGS) \
-> -                   -Wl,-T $(filter %.lds,$^) $(filter %.o,$^) -o $@
-> +      cmd_vdsold = $(LD_COMPAT) $(VDSO_LDFLAGS) \
-> +                   -T $(filter %.lds,$^) $(filter %.o,$^) -o $@
->  quiet_cmd_vdsocc = CC32    $@
->        cmd_vdsocc = $(CC_COMPAT) -Wp,-MD,$(depfile) $(VDSO_CFLAGS) -c -o $@ $<
->  quiet_cmd_vdsocc_gettimeofday = CC32    $@
->
-> base-commit: 172aad81a882443eefe1bd860c4eddc81b14dd5b
-> --
-> 2.29.0.rc0
->
+Applied to 5.10/scsi-queue, thanks!
 
+[1/1] scsi: qla2xxx: Initialize variable in qla8044_poll_reg()
+      https://git.kernel.org/mkp/scsi/c/21a6cd48bb48
 
 -- 
-Thanks,
-~Nick Desaulniers
+Martin K. Petersen	Oracle Linux Engineering
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm72u3J-3stdxtQhq5LKy%3D2u9HjV%3Dz0n55pi16nq6VX2w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/160262862432.3018.2457748538625562502.b4-ty%40oracle.com.
