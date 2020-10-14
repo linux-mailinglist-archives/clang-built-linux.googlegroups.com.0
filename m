@@ -1,143 +1,144 @@
-Return-Path: <clang-built-linux+bncBAABBZEXTP6AKGQEB37AOYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA5BKNJ6MIBBVE7TP6AKGQEQ2HJASQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1B8E28DE2C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 11:59:01 +0200 (CEST)
-Received: by mail-vk1-xa40.google.com with SMTP id e82sf562265vke.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 02:59:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602669540; cv=pass;
+Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8D29D28DEA8
+	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 12:15:49 +0200 (CEST)
+Received: by mail-qv1-xf37.google.com with SMTP id dd7sf1729881qvb.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 03:15:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602670548; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CrYr6AOsy9LyW/4BGeiscxYgEQKgUVMtiAEhgTo3AEVzNUZfWXURTQWicKHwTdEldI
-         yCPIctS2+ylhoS8HdFp+LMJLlgTx7xydbM5CU5luV5oT3wqImht7A716N+avD/x8vvQC
-         LQArFSpVbo3DItuyjE1LUuMri+K0h7DeUTsiDkAzd1V/45yxGR2g3SVXegnw+duyf53o
-         PlHEoX3ykYv2fhmWFMCHTex1in/EFf3BPSPlONQXTKO0pFU762WUG8UAxhCUnbu1BGS3
-         /qHkk+vmfcz4Bc/SX8N+6SsjXq910HbkkGCoR++4i7v+mb0dTGKGU+DksYSc3CA71dsp
-         U0HA==
+        b=E+IyhbmSGwy0CsktYPZLtGBIRufyZ5iGPGi1uiOLmiIO7DPQPT9z4cm/0mtYSnIGyy
+         WyXQfwTI/gqGT50P78EP5XHoyR/4hVx606UNbERykqYHyBvCxeAlK15njGDhRCtJxxjM
+         JnyehYOtja5NyCDCzZj/ZymwwtrWG8+tQwQO7Rnd3UK9wuvj7trVzz/44TZAdIoNGpa5
+         3jJa2vUoj/UESrTf0nyc4EgAaDgm6Dao1nMQ5lSYYk4zIambY3Q23d4W9H7wQvEAVLUx
+         sxPRNrFuCGFaUEdCIcKgvhVK4oMTPHnVhhOqy5Fr/Rqq00foJvt9xCnLaS9JhOcoW8W4
+         OtEQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=N7TiIlyEBHdtF77EeVeUy6KsiCfKh1eQ8ySHn/F6fYo=;
-        b=03nZP5EBs3roNv/oue3gmJ16euSS8xtnVHsIR8vVrJN2SXVv0sRKAg1tr7rrm2S0tS
-         kjTb55Rpb3B2ZXBKmhvujZRkNO2AkZ0ThQWMHGaThNXVgJO8924XuTLs0X5Sf+A6f9hy
-         PAwdaxf6CeHrsjHWQgW7KnHKt2FFpKbiSvXLNI/KAtUB4vOg5mOuiE4yyrD4Y58p9GXn
-         HZu2KyUayapVmol5TcQ7V31I6P+acpw3Ff0pY5p/UiuqZSM2Lyt7/pcV9gZI2BCKyWJa
-         CtOPcTa8p+VlZlPl0ZZeLkE2aK2KNPwSSTAZB4xJ3OwjmJOXAMxlk+9c0o1SFUI2IBKN
-         yiuA==
+         :list-id:mailing-list:precedence:organization:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=D+/UGcIF2GzdCmdok07fn5jdTxtsW8Mv6/Rc9WCCx2s=;
+        b=q8LGW3hPTZSx0Cr4m7zmGeHsh/jGkMMQCh4ErnK50nFhdwiVRwIooy37wWs32N032c
+         oHkcl9UJYg+JdgtADu8ckbGAuFMWUYAA5fh0ahgpLiSLoEYdma2DglgL8JMdLFFajJCo
+         AC+ZnQc6DYcs8kOsE1RoE2zO3vfyeZfcJkTxD3cAqFGDz/hfs21raFRtsgrGoSAZHEcQ
+         M7uiwUA6EMjWxG3ddWcHQZfjVkFDsvz/l6FzNLyfyfLp025xCylbC2Od3fuuophE2dMK
+         xj3lW3gyarlbVqyc3Guq5yu/m3kLzwv48MYUweJOka1WZCxT28nfFb5LGvVq8+e6N/Nq
+         0lWg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@vivotek.com header.s=dkim header.b=CsPTuZZ4;
-       spf=pass (google.com: domain of michael.wu@vatics.com designates 60.248.39.150 as permitted sender) smtp.mailfrom=Michael.Wu@vatics.com
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :organization:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=N7TiIlyEBHdtF77EeVeUy6KsiCfKh1eQ8ySHn/F6fYo=;
-        b=s4/G40pDn7OvXUxYHkyCn2spuTmP/UezjjYpSsRU4J9OAOUyjO0mSnTnBwbPkyhAIS
-         CBWpx9RoTlBUnvR7xXzoUNmAI/EpJBfuM29Kif2F/0IY/0Y+u+JsbLGTDSnPiQwEW+55
-         kWcRbmkiXTUEH/cv9kPj1EaAlsfz2AMSUxZdzCN6X93BibBN7mhv0aEDI80tgdMaydln
-         VyhBKfWjkX/zIxGM06oRFBnrwZXIIh/LG2rzoQTxM4O/612zpu/yiijqv44reiGYGO0A
-         qWtSHtaBhI2NUBYiHeNQrILuvBi7oFDiD1MS6UN//121eR5zLwmLfYDlPK52lx2XHuyu
-         1mmw==
+        bh=D+/UGcIF2GzdCmdok07fn5jdTxtsW8Mv6/Rc9WCCx2s=;
+        b=Ibl98XFGggyje4gL+CC7uQtiEM2ei4nE9Wfo5MfSuEPeMq94/ltPyvFniB7xYT72v1
+         Vc6Ehw3kzui1eemWFHYZsDiL9vy8t73MlIP0lcxXBuUToDU/wOzpaiMRyWDuw83usUl5
+         m6SqhSDywxKZhQyT5WJyyLxfNdBkx1lzODahtRfHUwnZQvgKAbGGu/h3GL6mLIbjqxGQ
+         4v2FSxffNZ8hgNu0Ef5mmIh9pGXG7bQOSLlAtWpSh45EfMZFRsC+ldtvdY24x+Urinft
+         6mUfjoEC6s/CEZRPP9+Vuk2qRpck+BP24rPj9GVIxPoOlZbRWsX6o/LL/jD2KfkwiPLp
+         Jh4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:organization:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=N7TiIlyEBHdtF77EeVeUy6KsiCfKh1eQ8ySHn/F6fYo=;
-        b=CxmQra7FMIUBLCSKWSeI4Io6x+pyZIC2I+3uczgSo6zeFl3fc8j/bjVKFSbvcf2Nll
-         LrsQ719Hb+vQvUcbdoN/v5WrfdTy5R4fCeIXQvFCYlH3HtOE5/8Tld7cpwTuP1oGSKKp
-         8SOn3OxitRvRDr7XyKnF1FPBIf0p2rZXWdCZGdAehAB0WJ9YzFPitIqiWflOtfrKKcOK
-         c9+PW+oHSg/RYjEDqrx5XT5a1RmZwjV9eqNCObGY+numWXKuw2hQmagBeM2dA0VkhGWF
-         5zMuG8IZZtrbB19/pLtsu3qv2f42Atn4iGu75W3Jk9ZIyMW4SWHLQIrJll4HTqSK+5K9
-         Eb/Q==
+        bh=D+/UGcIF2GzdCmdok07fn5jdTxtsW8Mv6/Rc9WCCx2s=;
+        b=eBT9Id1FznnGKE5xjRpEQBmWv8qSeO8Of2FTEO8MsxZ+tWdE75uZrQ8UH8Wv9EY1OI
+         a/HYHX6Xu4Pc4RR/zW2zA57iiD3o5vGJmZbML4E1G+arD/XxTqTCg6D+YL2em75X+s8h
+         tAt34y8sCZFDeCkaR4d58aIxH6dswLPKk0h0mIUhZiAN8PfgHuJcJvfv8XeNjc7955fD
+         quQpkTmeJgtZg/qh84tELd7P0n3f8h+fJsxl6aN/KnXMxTjqKqwnojD+CHgR5+TvPtG3
+         zFA+a5aLuyvbwzIRiU9asqbIo7sjS+mTLqfE4ok3YcY80Uqo2ca1aOBt5YfmdEblOzTi
+         rIPg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5320Y0Jk7Ba2mAHIyktzPUGsVv7s7ssQlK0PVgZbSHaGqqO7Covb
-	psHSqmKsbyaCQ98AHudnjEs=
-X-Google-Smtp-Source: ABdhPJyjGpq736+rxOPi5ZYddOVbtMf4Q9JoMFloS25TkTnKx5MZy8jeS2g64jrK/h1B73rjMMcB8Q==
-X-Received: by 2002:a67:3108:: with SMTP id x8mr2769973vsx.26.1602669540522;
-        Wed, 14 Oct 2020 02:59:00 -0700 (PDT)
+X-Gm-Message-State: AOAM5333q4Dc4ju2XoXp62qcdkH8dNPNki0s+L+Lnh2oQVcjSzECrhDU
+	PA2hgWvSvo19P9zjFvxrEug=
+X-Google-Smtp-Source: ABdhPJwiXeJ1XrDYw79UsZKDbnUaI5NqQo566Sbxf8EGPWKRRh9rV+4TaRSLGi9UpPiBqh9uJJ44rA==
+X-Received: by 2002:ac8:832:: with SMTP id u47mr4072963qth.376.1602670548313;
+        Wed, 14 Oct 2020 03:15:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:6144:: with SMTP id v65ls139458vkb.5.gmail; Wed, 14 Oct
- 2020 02:58:59 -0700 (PDT)
-X-Received: by 2002:a1f:38cb:: with SMTP id f194mr2584614vka.22.1602669539736;
-        Wed, 14 Oct 2020 02:58:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602669539; cv=none;
+Received: by 2002:a05:620a:1132:: with SMTP id p18ls1339623qkk.9.gmail; Wed,
+ 14 Oct 2020 03:15:47 -0700 (PDT)
+X-Received: by 2002:a37:9cd3:: with SMTP id f202mr4063465qke.479.1602670547835;
+        Wed, 14 Oct 2020 03:15:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602670547; cv=none;
         d=google.com; s=arc-20160816;
-        b=cLUYhXdU9hqwCdAoqITfx3viUOWQr0zrAqS7Zwhh2W9LVB66pWhB7oTiMmtn0CofF0
-         hi3BoWzgMiI64svbz7+sgQFI2EFcn/CxF707+Y8TnMZW6avZ0J8FnWxSHclPjhetWDq/
-         OXvF703rOe+oCim3syu9sA051ZG9V/wUJGVSk6v3avZhZcMiY+e8sqN1I8CyftMYZgx3
-         3tcOjc0e0T1GnJK7CkC/AgQk7NG1VzkrJkIdMcxfdZXx1up2Hqmp9TbnM7dGbCWXN5QY
-         RgV3KF4MMZ3I/WoxhlRZQS9z3MEfJ0Qx1WQdAalD6nWBL72Xk5Eqp3zXug1w3Qy4U8L3
-         I3eg==
+        b=gegoWZze9wR6QeiYV2Xc+LYWw4a8YQo9aLicoI7nDAzg0mmEDobaTzNkY2bwJJ9V5X
+         gCFCh54/oboLohWmKY7Fo4IDlXnjyL40O1L8ECaAcSZ30XABRsL6zBAdXSpN0M+Mc1BN
+         fCyXg2kD2icfmFZhsSugV0mJ7cjOJ0qGs0HSgleRTL9RzCIymsZpp+ZkTLAO9H2/5XZ5
+         ow+F76K94S6hcbl4nqLWV0Oa9p7MhoUHRTnZAWBzQ9diTZ937Vz8hrXyTj23OFEsGAk9
+         aJ90sI0BOF87iJRrvqTHayOEsmwh4VLFB1wcWDk0Yl16mMV26rW8GtVnXR9ySh2IFpFT
+         qYYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature;
-        bh=6t584Djr53EQcXcU6K+QSE638Sh/1JOwCPQkAczbV50=;
-        b=Y0P2Ns8rjaW2Kr0eh8ZrzUBwiUnAv2Ye1g2pPYFkXV/lv1h94zxEYW0ypgnFl4DNKC
-         s8w5gjJy7QHHwDgd61q6sJ8n9BfYQtj3NjowJOO0b/LlHXeBMhyUVIPFO4pudQJNXUMt
-         DQOzpc4STy2uxNazls5mF5hJK//ZBohS3/pfXDDkPdfwIMxRtMYhj1SQGyHB+3oATNxm
-         dkCvAwjE7w0E5H6J9ev03Cb2pZ7EZZ5VJVN2o1aYoLCo4We1rf3xgCky9aZl7nXyUqCF
-         ze1FsJORuvmMLn0dT8dfYFpMQfnHfI25M8Z802bW4zjjkmrj7lgjoA20tETHqggUIfli
-         HzhQ==
+        h=organization:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr;
+        bh=N1fhOcB+5mu1+V7ODklrKZ1VaXPIpzcqw9il/7KVEMs=;
+        b=CuNlnJQGd4o/HFEtpzLlEYt/TY0AFMw/b2PVoiwq2gvU4/wuoXk08jrvxFLoTn08+f
+         piB7nxRe2z3a71kFqen9b1xbIkekFq+0l4WMLl9a2/5Zm70QH75pwWhyw+MbCxNbCulc
+         lL7PaZEwtuWDg0qvvP1zic+MPbHizsfWWSqkcER/ez6d15PgicRP7ct7PM3O3+o2nW0C
+         tlxlNzaXsm6LXZ6RnoViEnRPTt1D1Uj7SIeUco5n8H2kQmjpjPr5cB2EifsopUKXSTOz
+         aA67OMkJaUorBO6weMTDSUCfzDlwl60lzDYfyKGDdiMReHfawkAJUwJj2hvjWeyQ2Xzz
+         +X0Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@vivotek.com header.s=dkim header.b=CsPTuZZ4;
-       spf=pass (google.com: domain of michael.wu@vatics.com designates 60.248.39.150 as permitted sender) smtp.mailfrom=Michael.Wu@vatics.com
-Received: from mail.vivotek.com (mail.vivotek.com. [60.248.39.150])
-        by gmr-mx.google.com with ESMTPS id t24si308591vsn.1.2020.10.14.02.58.58
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
+        by gmr-mx.google.com with ESMTPS id g19si265490qtm.2.2020.10.14.03.15.47
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 14 Oct 2020 02:58:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of michael.wu@vatics.com designates 60.248.39.150 as permitted sender) client-ip=60.248.39.150;
-Received: from pps.filterd (vivotekpps.vivotek.com [127.0.0.1])
-	by vivotekpps.vivotek.com (8.16.0.42/8.16.0.42) with SMTP id 09E9uik1021664;
-	Wed, 14 Oct 2020 17:58:56 +0800
-Received: from cas02.vivotek.tw ([192.168.0.59])
-	by vivotekpps.vivotek.com with ESMTP id 342yd1auhn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-SHA384 bits=256 verify=NOT);
-	Wed, 14 Oct 2020 17:58:56 +0800
-Received: from MBS07.vivotek.tw ([fe80::2027:4d67:6c01:78d8]) by
- CAS02.vivotek.tw ([fe80::157e:3677:ef5b:27a2%11]) with mapi id
- 14.03.0487.000; Wed, 14 Oct 2020 17:58:55 +0800
-From: <Michael.Wu@vatics.com>
-To: <andriy.shevchenko@linux.intel.com>, <lkp@intel.com>
-CC: <jarkko.nikula@linux.intel.com>, <mika.westerberg@linux.intel.com>,
-        <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>,
-        <morgan.chang@vatics.com>, <dean.hsiao@vatics.com>,
-        <paul.chen@vatics.com>
-Subject: RE: [PATCH] i2c: designware: fix slave omitted IC_INTR_STOP_DET
-Thread-Topic: [PATCH] i2c: designware: fix slave omitted IC_INTR_STOP_DET
-Thread-Index: AQHWoeqZ3WHFhjPhe0qk+0HSIl1FPamWMHSAgAAUZoCAAJcqsA==
-Date: Wed, 14 Oct 2020 09:58:54 +0000
-Message-ID: <5DB475451BAA174CB158B5E897FC1525B1294238@MBS07.vivotek.tw>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 14 Oct 2020 03:15:47 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
+IronPort-SDR: dSQ0c8JxaBFXNed/XHqPgMXqaSRBHV4EuTkOamIpxOzCXEux/nLTK2/KtdF/nAVvPmyuI3aKuz
+ /u3YxOKj4eFA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9773"; a="230250295"
+X-IronPort-AV: E=Sophos;i="5.77,374,1596524400"; 
+   d="scan'208";a="230250295"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Oct 2020 03:15:46 -0700
+IronPort-SDR: kgJ9HIADONTfTvAm4vhxgSRsw9L74d8cXhSlnfHbAeGI2HxEpyJrGqsZ2PiQ2GsT+E+339XPrd
+ mLOMt0strWww==
+X-IronPort-AV: E=Sophos;i="5.77,374,1596524400"; 
+   d="scan'208";a="345607092"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+  by fmsmga004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Oct 2020 03:15:43 -0700
+Received: from andy by smile with local (Exim 4.94)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1kSdpu-006XXz-9N; Wed, 14 Oct 2020 13:16:46 +0300
+Date: Wed, 14 Oct 2020 13:16:46 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Michael.Wu@vatics.com
+Cc: lkp@intel.com, jarkko.nikula@linux.intel.com,
+	mika.westerberg@linux.intel.com, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com, morgan.chang@vatics.com,
+	dean.hsiao@vatics.com, paul.chen@vatics.com
+Subject: Re: [PATCH] i2c: designware: fix slave omitted IC_INTR_STOP_DET
+Message-ID: <20201014101646.GV4077@smile.fi.intel.com>
 References: <20201014052532.3298-1-michael.wu@vatics.com>
  <202010141551.Y4x2qiN1-lkp@intel.com>
  <20201014085251.GS4077@smile.fi.intel.com>
-In-Reply-To: <20201014085251.GS4077@smile.fi.intel.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [192.168.17.134]
-Content-Type: text/plain; charset="UTF-8"
+ <5DB475451BAA174CB158B5E897FC1525B1294238@MBS07.vivotek.tw>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235,18.0.687
- definitions=2020-10-14_06:2020-10-14,2020-10-14 signatures=0
-X-Proofpoint-Spam-Reason: safe
-X-Original-Sender: michael.wu@vatics.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@vivotek.com header.s=dkim header.b=CsPTuZZ4;       spf=pass
- (google.com: domain of michael.wu@vatics.com designates 60.248.39.150 as
- permitted sender) smtp.mailfrom=Michael.Wu@vatics.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <5DB475451BAA174CB158B5E897FC1525B1294238@MBS07.vivotek.tw>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Original-Sender: andriy.shevchenko@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com
+ designates 134.134.136.100 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,43 +151,27 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 10/14/20 4:53 PM, andriy.shevchenko@linux.intel.com wrote:
-> 
-> Wondering if you compile this at all...
-
-
-I'm very sorry that I did not compile it because I only have ARM SoC with my
-linux 4.9.170, but I've verified the logic of this patch in my linux.
-
-I'll correct these two syntax errors in next version. The reported
-warnings occurs from drivers/i2c/busses/i2c-designware-slave.c:13 seems
-not made by this modification. Please correct me if I'm wrong....
-
-> >    include/asm-generic/io.h:1017:55: warning: performing pointer
-> arithmetic on a null pointer has undefined behavior
-> [-Wnull-pointer-arithmetic]
-> >            return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE +
-> port;
-> >
-> ~~~~~~~~~~ ^
-> > >> drivers/i2c/busses/i2c-designware-slave.c:181:42: error: expected ';' after
-> expression
-> >                            dev->status =
-> STATUS_WRITE_IN_PROGRESS
-> >
-> ^
-> >
->    ;
-> > >> drivers/i2c/busses/i2c-designware-slave.c:195:22: error: use of
-> undeclared identifier 'STATUS_IDEL'
-> >                    if (dev->status != STATUS_IDEL) {
-> >                                       ^
-> >    7 warnings and 2 errors generated.
+On Wed, Oct 14, 2020 at 09:58:54AM +0000, Michael.Wu@vatics.com wrote:
+> On 10/14/20 4:53 PM, andriy.shevchenko@linux.intel.com wrote:
+> > 
+> > Wondering if you compile this at all...
 > 
 > 
+> I'm very sorry that I did not compile it because I only have ARM SoC with my
+> linux 4.9.170, but I've verified the logic of this patch in my linux.
 > 
+> I'll correct these two syntax errors in next version. The reported
+> warnings occurs from drivers/i2c/busses/i2c-designware-slave.c:13 seems
+> not made by this modification. Please correct me if I'm wrong....
+
+So, you have a chance to create a follow up patch to fix the warnings. :-)
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5DB475451BAA174CB158B5E897FC1525B1294238%40MBS07.vivotek.tw.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201014101646.GV4077%40smile.fi.intel.com.
