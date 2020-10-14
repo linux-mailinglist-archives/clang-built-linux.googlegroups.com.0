@@ -1,123 +1,137 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAECT36AKGQEYAODJEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBCMDT36AKGQEGJ3E64Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id DFBFC28E8E7
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Oct 2020 00:51:45 +0200 (CEST)
-Received: by mail-oi1-x23a.google.com with SMTP id w126sf279093oif.16
-        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 15:51:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602715904; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D42EB28E8EC
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Oct 2020 00:54:02 +0200 (CEST)
+Received: by mail-qt1-x83f.google.com with SMTP id b41sf712236qtk.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Oct 2020 15:54:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602716042; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kcgHw3t1I5te9XqXrklo4MAvRFmHSRrfu05gk5GbnKW3xtoAseLt2doBF/w3Qws9Tx
-         tB1Nqq7YHIf3vzvrsKwlJ6jPVxwCDCf/i09oQBaBvYIL7/lUC31iEFXEibDZWyf5n6wZ
-         ICAYw9g6or67xf5vW1NEHYhYAUE3GEVU5O9GmYRezJEXWpQ30e37OaoYRVV5uJ4DXDd3
-         3OBC3K/XlHMlwI9vkgfeEDPN/2byZWLQ3UBQy+mOyGGCstDgCQR6IWwdvtHq9Zs2dDfs
-         UIdpvK2TgqC7leIeQnjTb+RKXS0y30bkm4x9fGEL19M6jA1ysdxRWaNPEP9GeqUsahAB
-         GHBQ==
+        b=q7jF9dq1Z08Y8WpMImvL6mLczweVF5VKNfzF9c6pj8dyuMNtzoHPC2ZgTpxRLz3v+Q
+         Uvsjqpw/o7+VnWw9u6TpMbbZwCk9KKoHt6W+P7vkPBvmlb8jVV2X8BAODKQoAuwFFDJA
+         TDcX8q+FBFLyFpebzUFKoUr4KDB91k72Fq4psLO4k562HNC1TtbyVC/KluZzes7Kxoeo
+         REwm4LGg74aJthztkD9Qz4M5gdHkUBd4+Y9PwC7DEYqSgevFPZES02UPQKOL52Udo1gK
+         aljNeh98DMANLsmofoQ8OqUdodqyGRITKOj1JCMCec0bMdmf8HN4vWfpllV7Yh+vYSkY
+         DUbg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=rSqos3DzgaGpSaKbURe2pBpyxpMYbJPFyDYPOEfJwXc=;
-        b=bKlHnLgZrI/Mgo+JTifZTCb8E/g3cljr7w7NYAYuD16M+OHsg0ww3FSMG77ELg5QsI
-         XQLhqr0o9Fy+Ks9NFZ9Ut1RTPSBJOF0BYaWwMeYzd04S4UYzQyk/c8AIps6ji2E3aWLd
-         77B6bM43HUHFh53uVgapZhBNyeE7LYgR+EvtsUeIXx9obMoQsFk9RNItnA6Uwq8kOgm1
-         cgiVqWFUVTBD8uMeJawAzoTBgSy3+zls9+vfqVkZiRLIcNeKcYLnMXE1bNTkiHmQ1yX1
-         yysvHLTQp98RhojaC6tCLYE8M/GFqBJmTx1dUG5Qw5M7rLBfJudp34AhLaSRa7qu023c
-         dAdw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=ZtTonLp1SRUonYq3WZRunJsQhRVUO2C7cCVlG833Lbs=;
+        b=ldkNIBuxrO11Irqw1EBMQh51Y1a3WoOIa+kdIBeDK8SspJeOqprhR8vIvtCAkmYl0S
+         6yXLZ1yx3c5wcY3QN1AYEMe3bmOnQAX4VL+HYIK2iXSYW1DV8F/MD+/WKx5f/TD66Msd
+         nBLnSNs1Du//TQFPzxZn5SSOI4KyWGg7kQGsVcGhvdSZI8yRtpx0LfdgrUz3iQrQkysA
+         H3IgdgayBI91luxQxxtmvQL+iGfv38cxvtf8EcwJ33ciJA/bkZg6OPzn9SLz+DxZwnJx
+         cMoe50yFandMSqEahi42YyQdyd46c6Aqv4m2mv/NlMb2Tq0RNJihN/D9boFGu3KBJMb1
+         cJzQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qGuXJ+TK;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=QpUrFNEH;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rSqos3DzgaGpSaKbURe2pBpyxpMYbJPFyDYPOEfJwXc=;
-        b=LV1KvB594jflmQY25bpGDKzbA8eEUgvk764ecdRJaoSg5bVSmptqvtQ53J/BN7Viv7
-         6XDhhsArY4bkuG+eJ0CTdU4XkPiw6yHo4UN48SC96A0DZ7Us8RgedIOxY3pPCM+PMava
-         5/zs503T6Mg8ZGCiNsgr3bb9WuglHprMxwunA1PnmNpQwcTTmZWmlrOhuHxT1qi9k0uI
-         Gkh72VXdrGilAUKdbOgJmCkBc1gc3wcixZ9p+97iMMB27TsyGg2Q9j14bMze4AoZxvJV
-         1GaDM9bGzc5P9/ra/L9bZ+0DNa76TdAJgCE84yc0nhwCYx4A6gBbJuyQ6ZtVxfrj57Cx
-         e2ag==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZtTonLp1SRUonYq3WZRunJsQhRVUO2C7cCVlG833Lbs=;
+        b=bxPtF/anCE1swWyGsKWSHEEsyPYwYFBT4DQ71JS/5KZ+U0NE4IOFDYh3AQ0+lHokmC
+         VcuZ73BIFUMX9LEvgPppVoZWZg5HCel3RxDT/VmhxSst5nC/9eZjKx1b9Ws5cWY/iZsr
+         vI+rGUOBf8m95nRyeFTxz13thILrYQZ+2TOb2mnOLzEihZUpBPgIvyKkY4SO2hYJZZDo
+         hyAKTXb6+NnfAhV6pf3bM2x88hQFKIEQgjD28VRbYn0zYQPCVMZEq7mWRa572b1Hx0N2
+         tPUaqu/A91VCdKkHnfUcbnr6efsO0/daUrliVZ1374EtmvlteHjDLzPPLZTXwMQjwmVP
+         K8lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rSqos3DzgaGpSaKbURe2pBpyxpMYbJPFyDYPOEfJwXc=;
-        b=m2zuJsSR7AY22Jat2RpP4tmLGpPZIJ4vcvis4AAn1sUUhqs4HAawhSpiyl8TctDmqN
-         5mt7BNem7YDafuhzGrWFWyJeksR4sik8EuUQ+Eobi4ID1oDt/NzH3UmU2IBhcCV4Sah0
-         1+lhUkikhpbqGpXrfqnjhfL5ESZt/Lu5abjXyyQDWhC6vqDoP52C1Dr+xIc8Dg99RzUz
-         eBvxStVcOHiJVUUeaM1olMJqR7Qu9bQ5GJF4bFiqe+/zvY5jKiyUMObtNPOhN5nf42Bd
-         jJmcxI/KonzIVjkc03tyEMW3dP4QdRlYiC61coYqbH3sboO8ZjYZF8jQeB+pnzi2Obms
-         ap2A==
-X-Gm-Message-State: AOAM531UwK3rHsVKWODRyg/FO94nHNbyhb7Yn60FFYNitgSMEu6SIpNl
-	O7KWHT+e2dhOcSp0B8SRStE=
-X-Google-Smtp-Source: ABdhPJzwkWK6mGkf0V4hWPqF4fFgZELf8zZtBFBjOSKczO1F80Ov64H1kyPkPu8eKFCOcsxIaj5Fdw==
-X-Received: by 2002:aca:f203:: with SMTP id q3mr275975oih.148.1602715904605;
-        Wed, 14 Oct 2020 15:51:44 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ZtTonLp1SRUonYq3WZRunJsQhRVUO2C7cCVlG833Lbs=;
+        b=GvhNy5e1ZAtAUO3iNZzu0N/iDpRzv2nuKBpFTXcGBnEQzgbO3Arpy8dGlvxuMSedL1
+         depm2joXSY0pJ7ZXatfENnG3relCgOiiwaKoMY8b0XPDVi1uBv1hvBr7oIHQT5IiPWy7
+         5A78vHNJXe+lfMxqJa/NYqIH+0zmKUDd1+ui8+E4BI3eyrcw+XA7xMgfG2ZV58fZZ/to
+         j2uOCYuXL9RNNba5A/xOju0/EHdE0QUlnOLTXvIo9zfpolx2TqRoaf3tqCGkhSKADtUN
+         LPyhnoqBxAlNAnVPajFKPpRLeFaiAdFBGCy2kKer4z2DP4C0nHzt50Iz+RlbsHA+YBsz
+         ghtA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530DnJQDGzSA/7z3molxB+Nn+Vf/iAwMTWl2pMdcCQfX9+z9Sjrt
+	TmnHheeM8K6x+z0MVfpUIkM=
+X-Google-Smtp-Source: ABdhPJyFetSJ7yoWHcpRiECfaHfdb4iaPGpQ0qgFm5q6j32N//n2bHnF+IivTItZBV4DYN6CVr1H6Q==
+X-Received: by 2002:a0c:b21b:: with SMTP id x27mr1676256qvd.12.1602716041792;
+        Wed, 14 Oct 2020 15:54:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:c1:: with SMTP id t1ls152469oic.7.gmail; Wed, 14
- Oct 2020 15:51:44 -0700 (PDT)
-X-Received: by 2002:aca:c654:: with SMTP id w81mr281073oif.83.1602715904191;
-        Wed, 14 Oct 2020 15:51:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602715904; cv=none;
+Received: by 2002:a05:622a:18b:: with SMTP id s11ls318803qtw.11.gmail; Wed, 14
+ Oct 2020 15:54:01 -0700 (PDT)
+X-Received: by 2002:ac8:33d3:: with SMTP id d19mr1526818qtb.302.1602716041373;
+        Wed, 14 Oct 2020 15:54:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602716041; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ga+zzXW7vWkqJ1+Uu+Wv+hZeEDt+iOWWj2q9mHrqJYfLSSfFuGrK7Au6UM2KTqpjqa
-         u/gGPNk7WzHhvalNVPoYTU1X8wiWsgf2AzBx8MGugPEpEhsOO2sil/aHx3V6g14uXX7N
-         OQopfncgvLv6aJuKiZWO7o7lq+mb4X73jUbmQP7rI2nLduPi6g6ym/uZv+TCCKpZZ4nE
-         10FWlzRGkRJlMmC8q/9Rlz7dlDmLwYjMjR7cpAzkMAhgWQiDP7TJDblRT7tutygInrXr
-         /JTMMMEpFgTBt5qjeBzMqNy6EMOG1U1EmlSAUCMXngcTn0jnEgVv3q2IExxukndpA+WX
-         eI8Q==
+        b=U9Fusp6vweTvcvuWKuNYXS/28xmDCCTlfOKYAu+hLHzsWEqNL8mfGl0QeLJ3cesbgi
+         pj0Uldf4/VFxpHHoTNC8XiFqVMnJZc5wpHjbhIF76XFNJbjr06+KZuR/H0w/6LuBqjYe
+         FTHcuPjMMeNhkEhT5RD11CaGeVWS7Z6rqXXOTOYy0HX8ODGqHH/iVQUIeiRkbvFRoIzD
+         GkBaV0ebypTIboRnna8SdpaBcmTYLwcFiS8Yugd5DGNMg0n2mYWqSr/ZPQwfkBMNDJIA
+         XPPTxMn5UilqhXl7e0kcYHCqzgw5o2laPhTDnBPEDsm/InaS0UfRrCEUiNd1bI+YNgPv
+         DqwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=m1RlPQ41pOi2BLMFnH+YdlsJUL1/xTYXwZ0zleFqEx8=;
-        b=HgxtjBYkGBoa70kk4DecbFB0sIu7S4zRBZZ/Ie16NkDnDSS3gxSnQ1NctZF6tWNkBm
-         yZt7xB0VNMQ/hIpEZggGA2eyjyMb3eIAaEpLpr75oSZqzpu6kclLuedZ92C/iMQq3olT
-         +ZICylBfdZzKBYfeZ5Tpo5lce36QggRe8Kh3gK9C6UMcYiX3RyT7xL5OPRIeU6/U/vuR
-         rdaErI7YgjgTH30MvetKdmpcAm7QiuyrwHnGAgpa2CFUyrUnSRK7yCdl4WlWQ1Umjww0
-         m+3NFmuXLeKeaEUo1eVQymjwYB8wB5mWaQD4dxAvuWWroGJ4XVB3pR2M2CeZ/sh5YFH7
-         tP5g==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Q8SxKFJ37keEA3fcjeZ0MUjIlmAhyy2Ds4RMjo12YH0=;
+        b=wgKIF2GDffQ3pt3/jW+UbzHxAfCwcJB766M5LLvdm5ZfwkMgp8rmlDCwINdJsliA83
+         CYwp5qDeutR3QlbZszv2xqlsQaL8w5caMYuyFkdoF/BhZwbMxUe+j2n2HF7J3onTqaun
+         j4hcsYgOVYh1UU7riYzzt/v6BEzKdo+ZEdt1AdSF3l9P3vdtT8+oEkkYKzVStLik3SdM
+         NTqSMzXiQUbZdJzt0Cz9GaIbmMV5C7n0LV0xgyle1+30bBkS8ocQ3z6Nwac1+46qnvk+
+         pqS4wQpC6jJToqrS9PCxEvflUrnbQuroNmNjI20PxR41QL5psfut+UyGzolW9YIB99hw
+         OfJA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qGuXJ+TK;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id r6si155377oth.4.2020.10.14.15.51.44
+       dkim=pass header.i=@chromium.org header.s=google header.b=QpUrFNEH;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id x11si65669qkn.0.2020.10.14.15.54.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Oct 2020 15:51:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id f19so700295pfj.11
-        for <clang-built-linux@googlegroups.com>; Wed, 14 Oct 2020 15:51:44 -0700 (PDT)
-X-Received: by 2002:a63:f74a:: with SMTP id f10mr945665pgk.263.1602715903247;
- Wed, 14 Oct 2020 15:51:43 -0700 (PDT)
+        Wed, 14 Oct 2020 15:54:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id p3so424438pjd.0
+        for <clang-built-linux@googlegroups.com>; Wed, 14 Oct 2020 15:54:01 -0700 (PDT)
+X-Received: by 2002:a17:90a:cb91:: with SMTP id a17mr1300337pju.220.1602716041061;
+        Wed, 14 Oct 2020 15:54:01 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id k11sm643943pjs.18.2020.10.14.15.53.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 14 Oct 2020 15:54:00 -0700 (PDT)
+Date: Wed, 14 Oct 2020 15:53:59 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	kernel-hardening@lists.openwall.com, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v6 16/25] init: lto: fix PREL32 relocations
+Message-ID: <202010141552.9172003F6A@keescook>
+References: <20201013003203.4168817-1-samitolvanen@google.com>
+ <20201013003203.4168817-17-samitolvanen@google.com>
 MIME-Version: 1.0
-References: <20201014212631.207844-1-nivedita@alum.mit.edu>
-In-Reply-To: <20201014212631.207844-1-nivedita@alum.mit.edu>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 14 Oct 2020 15:51:32 -0700
-Message-ID: <CAKwvOdkinv0dSuuTV7xTwqOVChpZM=Mu0GvEoAQYTtiXXtcERg@mail.gmail.com>
-Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
-To: Arvind Sankar <nivedita@alum.mit.edu>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20201013003203.4168817-17-samitolvanen@google.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=qGuXJ+TK;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@chromium.org header.s=google header.b=QpUrFNEH;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,139 +144,91 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Oct 14, 2020 at 2:26 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
->
-> Commit
->   815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
->
-> neglected to copy barrier_data() from compiler-gcc.h into
-> compiler-clang.h. The definition in compiler-gcc.h was really to work
-> around clang's more aggressive optimization, so this broke
-> barrier_data() on clang, and consequently memzero_explicit() as well.
->
-> For example, this results in at least the memzero_explicit() call in
-> lib/crypto/sha256.c:sha256_transform() being optimized away by clang.
->
-> Fix this by moving the definition of barrier_data() into compiler.h.
->
-> Also move the gcc/clang definition of barrier() into compiler.h,
-> __memory_barrier() is icc-specific (and barrier() is already defined
-> using it in compiler-intel.h) and doesn't belong in compiler.h.
->
-> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-> Fixes: 815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
+On Mon, Oct 12, 2020 at 05:31:54PM -0700, Sami Tolvanen wrote:
+> With LTO, the compiler can rename static functions to avoid global
+> naming collisions. As initcall functions are typically static,
+> renaming can break references to them in inline assembly. This
+> change adds a global stub with a stable name for each initcall to
+> fix the issue when PREL32 relocations are used.
+> 
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Reviewed-by: Kees Cook <keescook@chromium.org>
 
-Thanks for the patch! Curious how you spotted this? My mistake for
-missing it.  Definite difference in the disassembly before/after.
+This is another independent improvement... this could land before the
+other portions of the series.
 
-Cc: stable@vger.kernel.org
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-
-akpm@ would you mind picking this up when you have a chance?
-
-See also:
-commit 7829fb09a2b4 ("lib: make memzero_explicit more robust against
-dead store elimination")
-
-I'm pretty sure `man 3 explicit_bzero` was created in libc for this
-exact problem, though the manual page is an interesting read.
+-Kees
 
 > ---
->  include/linux/compiler-clang.h |  6 ------
->  include/linux/compiler-gcc.h   | 19 -------------------
->  include/linux/compiler.h       | 18 ++++++++++++++++--
->  3 files changed, 16 insertions(+), 27 deletions(-)
->
-> diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-> index cee0c728d39a..04c0a5a717f7 100644
-> --- a/include/linux/compiler-clang.h
-> +++ b/include/linux/compiler-clang.h
-> @@ -52,12 +52,6 @@
->  #define COMPILER_HAS_GENERIC_BUILTIN_OVERFLOW 1
->  #endif
->
-> -/* The following are for compatibility with GCC, from compiler-gcc.h,
-> - * and may be redefined here because they should not be shared with other
-> - * compilers, like ICC.
-> - */
-> -#define barrier() __asm__ __volatile__("" : : : "memory")
-> -
->  #if __has_feature(shadow_call_stack)
->  # define __noscs       __attribute__((__no_sanitize__("shadow-call-stack")))
->  #endif
-> diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-> index 7a3769040d7d..fda30ffb037b 100644
-> --- a/include/linux/compiler-gcc.h
-> +++ b/include/linux/compiler-gcc.h
-> @@ -15,25 +15,6 @@
->  # error Sorry, your compiler is too old - please upgrade it.
->  #endif
->
-> -/* Optimization barrier */
-> -
-> -/* The "volatile" is due to gcc bugs */
-> -#define barrier() __asm__ __volatile__("": : :"memory")
-> -/*
-> - * This version is i.e. to prevent dead stores elimination on @ptr
-> - * where gcc and llvm may behave differently when otherwise using
-> - * normal barrier(): while gcc behavior gets along with a normal
-> - * barrier(), llvm needs an explicit input variable to be assumed
-> - * clobbered. The issue is as follows: while the inline asm might
-> - * access any memory it wants, the compiler could have fit all of
-> - * @ptr into memory registers instead, and since @ptr never escaped
-> - * from that, it proved that the inline asm wasn't touching any of
-> - * it. This version works well with both compilers, i.e. we're telling
-> - * the compiler that the inline asm absolutely may see the contents
-> - * of @ptr. See also: https://llvm.org/bugs/show_bug.cgi?id=15495
-> - */
-> -#define barrier_data(ptr) __asm__ __volatile__("": :"r"(ptr) :"memory")
-> -
->  /*
->   * This macro obfuscates arithmetic on a variable address so that gcc
->   * shouldn't recognize the original var, and make assumptions about it.
-> diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-> index 92ef163a7479..dfba70b2644f 100644
-> --- a/include/linux/compiler.h
-> +++ b/include/linux/compiler.h
-> @@ -80,11 +80,25 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
->
->  /* Optimization barrier */
->  #ifndef barrier
-> -# define barrier() __memory_barrier()
-> +/* The "volatile" is due to gcc bugs */
-> +# define barrier() __asm__ __volatile__("": : :"memory")
->  #endif
->
->  #ifndef barrier_data
-> -# define barrier_data(ptr) barrier()
+>  include/linux/init.h | 31 +++++++++++++++++++++++++++----
+>  1 file changed, 27 insertions(+), 4 deletions(-)
+> 
+> diff --git a/include/linux/init.h b/include/linux/init.h
+> index af638cd6dd52..cea63f7e7705 100644
+> --- a/include/linux/init.h
+> +++ b/include/linux/init.h
+> @@ -209,26 +209,49 @@ extern bool initcall_debug;
+>   */
+>  #define __initcall_section(__sec, __iid)			\
+>  	#__sec ".init.." #__iid
+> +
 > +/*
-> + * This version is i.e. to prevent dead stores elimination on @ptr
-> + * where gcc and llvm may behave differently when otherwise using
-> + * normal barrier(): while gcc behavior gets along with a normal
-> + * barrier(), llvm needs an explicit input variable to be assumed
-> + * clobbered. The issue is as follows: while the inline asm might
-> + * access any memory it wants, the compiler could have fit all of
-> + * @ptr into memory registers instead, and since @ptr never escaped
-> + * from that, it proved that the inline asm wasn't touching any of
-> + * it. This version works well with both compilers, i.e. we're telling
-> + * the compiler that the inline asm absolutely may see the contents
-> + * of @ptr. See also: https://llvm.org/bugs/show_bug.cgi?id=15495
+> + * With LTO, the compiler can rename static functions to avoid
+> + * global naming collisions. We use a global stub function for
+> + * initcalls to create a stable symbol name whose address can be
+> + * taken in inline assembly when PREL32 relocations are used.
 > + */
-> +# define barrier_data(ptr) __asm__ __volatile__("": :"r"(ptr) :"memory")
+> +#define __initcall_stub(fn, __iid, id)				\
+> +	__initcall_name(initstub, __iid, id)
+> +
+> +#define __define_initcall_stub(__stub, fn)			\
+> +	int __init __stub(void);				\
+> +	int __init __stub(void)					\
+> +	{ 							\
+> +		return fn();					\
+> +	}							\
+> +	__ADDRESSABLE(__stub)
+>  #else
+>  #define __initcall_section(__sec, __iid)			\
+>  	#__sec ".init"
+> +
+> +#define __initcall_stub(fn, __iid, id)	fn
+> +
+> +#define __define_initcall_stub(__stub, fn)			\
+> +	__ADDRESSABLE(fn)
 >  #endif
->
->  /* workaround for GCC PR82365 if needed */
-> --
-> 2.26.2
->
-
+>  
+>  #ifdef CONFIG_HAVE_ARCH_PREL32_RELOCATIONS
+> -#define ____define_initcall(fn, __name, __sec)			\
+> -	__ADDRESSABLE(fn)					\
+> +#define ____define_initcall(fn, __stub, __name, __sec)		\
+> +	__define_initcall_stub(__stub, fn)			\
+>  	asm(".section	\"" __sec "\", \"a\"		\n"	\
+>  	    __stringify(__name) ":			\n"	\
+> -	    ".long	" #fn " - .			\n"	\
+> +	    ".long	" __stringify(__stub) " - .	\n"	\
+>  	    ".previous					\n");
+>  #else
+> -#define ____define_initcall(fn, __name, __sec)			\
+> +#define ____define_initcall(fn, __unused, __name, __sec)	\
+>  	static initcall_t __name __used 			\
+>  		__attribute__((__section__(__sec))) = fn;
+>  #endif
+>  
+>  #define __unique_initcall(fn, id, __sec, __iid)			\
+>  	____define_initcall(fn,					\
+> +		__initcall_stub(fn, __iid, id),			\
+>  		__initcall_name(initcall, __iid, id),		\
+>  		__initcall_section(__sec, __iid))
+>  
+> -- 
+> 2.28.0.1011.ga647a8990f-goog
+> 
 
 -- 
-Thanks,
-~Nick Desaulniers
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkinv0dSuuTV7xTwqOVChpZM%3DMu0GvEoAQYTtiXXtcERg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010141552.9172003F6A%40keescook.
