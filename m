@@ -1,130 +1,125 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBGG2UH6AKGQEHXBTELI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWESUL6AKGQE4MXTFWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EE0D28F5F8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Oct 2020 17:39:06 +0200 (CEST)
-Received: by mail-pj1-x1040.google.com with SMTP id v10sf2321044pjy.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Oct 2020 08:39:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602776345; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 06C8D28F7B5
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Oct 2020 19:39:38 +0200 (CEST)
+Received: by mail-ot1-x340.google.com with SMTP id a1sf1219255otb.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Oct 2020 10:39:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602783577; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bSnQ2Fq5mggVTnmmqGzQy5hW/myASVevmQP7UE6HhOXunGRlDeYCHnznss0V1XlP6p
-         9jqW8aaHylz9f5Xm/Gba7NhoB3lQz9rBZ/DG+nnxRrnbnUGVclIytrjp2rVSPN7u9LBj
-         GXOyXBhTYlEmovREOhGiUjsD+NM1U+BhGpbjr1x+mYKjTwBXwBKFwe8Dqw4Fd1GOuHZ0
-         fYN1Q9zYskGfwsqCs4LuQaqfprLXG1vPJFMRWT4/IeZD9tlCI0FeIpGJn5H1YB1cEdBI
-         SG1aDd5+OCSBkGacYn8dloErktj0kNotzw0vr3fLnwtG2kgP0gIxG8wPwI1J/M3cyDn0
-         RraA==
+        b=IExcdDLyjiF2s4JXPzX6C4xlslGxlBOFXtnNLXHVx9XAGnB/40wlD8vOUD/8pnF9/e
+         N3sqsIt8158Wad387p746cJd2GSr5UcyAakIJLeeSWg74jTowS15uinr6CjjMTpx3Awy
+         RYTCwQnQjCI7SQrOd1X7ChT64RubTS5XM9EjceOjACM+3eheBsVr+ktXmWpp0GlQwG35
+         Yj6UDUSoVSKlxwtbpvtXqGiVy8P0GMyur1hZYUtBhoGQsoyilhAFOnqpheSm1Vp0DL9y
+         iju5u7uMlH2Whl6OqoUsUzf1VmDfF5VTcWdkuOfpzvSExCCIgfXV49YEm36cHLRwIBUs
+         bDrQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=y+tQbv1qC66IAtU7gCmM+Uo0dW4/xh9aYXya9ATeqIQ=;
-        b=bd0O1drfdmXcbz/3AgMuNVB06mvM1LsEWsSZKlb8EwI4wsKVWWU5FAdBJcJlU4qQLA
-         c/BJfbxyVMnCV5bp6sGAnyaphaB2o8i1/8iKDesnmORp43gxYtg1CJdOu4f3OkgEyRoy
-         /UxdSyRoNu1VtA9q0F+fDSMujU0/ntp0juhkaEpW+YbbCpOs7G1P4FRmHDqxAGWGalVH
-         xNCWWn/jMjFhb+nw71sbQqBYvcEJ5+I7PUt3ry5HkXRSNA9ufJ8xgI/keicsyUDpzL0a
-         TO57eTlNRYfbGwhsZhe8tUT7viXwgaU563Zg2O3GTIdQ/8jMaWYUFWjPJIhXz008Ic/t
-         zVsw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=lqXdmwUgMsvW0QIbtcxY6YU3KnNKtRjJWIBvKz5IQJQ=;
+        b=K8Hv1TTfxUI/14JS3vzx+Zs0Xn07MoN2zGW1nrEYBH1wXXenrqxx9lgoAKMB/Mipi1
+         aJVKLQwwJbz/BfncrKODO4f2Hu5s/TVt6nT1QSKo6CbwRv2pZlVbONrmO/V0DC6GBHqf
+         A+iZVxGkJIY8FFbRccW632T+VthtBlPum6zjjDqnk9CsFfuqSGKWrVUcEFT/uqId1lJS
+         7hx8J+dSTKAyeWIe4Ycymvsxr6qP3G38DGnLLoF8NAdCLcj0+8HWzU9iThFsHRLDcMDZ
+         G4oePcQwguTbTHrVlo+wHC9jdmgHb3YMP1OdruUSYA8gZm6kyxIpXr+tkvOjNupcf2uf
+         QuvA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=L9Jw0LEZ;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::d43 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=aXzsuv9H;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=y+tQbv1qC66IAtU7gCmM+Uo0dW4/xh9aYXya9ATeqIQ=;
-        b=AlCr9yBXEDPNUsBuQlTXFH7C+bunsswgT4hArPO/OmtIYeBfUgoTfPiFfj19q5f4kW
-         2Sm6aI6SxDlC9eYMP9XFgF63wQTODBadMe18nhpQqpF9wiwhAEXeIaYFzktzUymAuFru
-         KQ+hTw7d/1tOGcsbYFpWWJl31cuklAj7CWdlXGwGVmDjsO9Fb+/InyrvbVW0WHFbID3D
-         IYxmssjAv2B5tpJn2vwAU9sfhmnimuwe/Cr58kfUQpaKG/2vLvxkGdveA31Vj2RKXuJw
-         ZE1BkpbeugaGce4eIt+XYj4vu5qWZnRieqT0BoC5AKOweM34N9wzgYmhIc5pQrUsEIMn
-         pHHA==
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lqXdmwUgMsvW0QIbtcxY6YU3KnNKtRjJWIBvKz5IQJQ=;
+        b=sbLUMboUU2i2N4/Y3AMmfYJLL+4webhf9b/iOmlBqccoTl9asala/gWLhPxmODTRWB
+         blFZrWfqtdj5usv+4VnSPccdlGOHzWUkFEu7/ToobvG62L3AkpnqprC2fw4xUiITsftY
+         XdYBUQMLwvXJPyrwYEt7sBPSHgxwoelVBmEHkQXwTds3ucp7H31uX1MOHG0Xz/fpGPWD
+         oQkgO746dV1xmo4rR7yqtt9FT3hgrU/lS25Sg4wLhfrEntQpBW6omcXg8y0UfmuIrFg5
+         M2FiFkZHYfb9whOLq9Z+zv9mU42GZg1tBIfP6+2m7Tf9bXXq+250aRon6kD1BxkbvUdQ
+         GtfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=y+tQbv1qC66IAtU7gCmM+Uo0dW4/xh9aYXya9ATeqIQ=;
-        b=DHwMJ3WlPIKadsyworJO5Qs82jbY4DOLA06J3u6CAidYHND3eVGxJ0l8NaCOuZ86aC
-         pmkMSblaYBMThJwQfAkQx2112e/3mWmgFKvPK7W6jX4LpZ0ACznv3ojgnxa9B7sWRZ/I
-         wdAvIugzMEDzJiwtK9OKaE3Nct5g8RB8tSwlnSuSgQeuOCHCMf2rIsQ4+xppJVRNyVfv
-         WRNoiotUypB4nfkPmSGRUJASTJnZFXEJ8RQvJFvbGKBldKhQHo8mGOqkBaCIj7K9Y4lB
-         WiqWxp9k6c620y0EAxJ1BJf49TZqsdIyeqVk9GuU9tMeolrFFs6ab4lP2dZhpjZaMFwW
-         myJA==
-X-Gm-Message-State: AOAM531BSrjG5v0j4YACykA1taQ2dQZx+wnoTtD+5WrJjkHF4sZBpzmv
-	qqP+v0YUlBEwxaq2e9iiqhs=
-X-Google-Smtp-Source: ABdhPJzLw2cMA+5Y8ub3BnyvL5xBPNXDjLVdWimjDHn0gNyKM7W4bkcVGBXfxANqAc7cBosXDTYDwA==
-X-Received: by 2002:aa7:979b:0:b029:152:4223:1b47 with SMTP id o27-20020aa7979b0000b029015242231b47mr4584497pfp.44.1602776345065;
-        Thu, 15 Oct 2020 08:39:05 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lqXdmwUgMsvW0QIbtcxY6YU3KnNKtRjJWIBvKz5IQJQ=;
+        b=L4RHwwmqfY0T3LqCqbpufYgkNEfGcdihYU0downGqiqcnftHWBS9CzInS08KzEXC94
+         imWur4r2AksIQjMJhzmjscjUkjNNoPJwKzQubir8F8j7Uu50DcC/JxYmPJit1acaiF6Y
+         CqpSZqm4Md0wPjM5Ad7v0B+n/DsvknmxQm9PHNqyU0EeTKRh0p980Y4SUMX/LBzs98It
+         W2Y2syZCEGuCd/U1SdGyu9KpeB4TktVF/7Sf+A0qQYl42/WOXAx5i8t4cLm9P7y8yHZ1
+         EpqBkk3Z7vRbXJ9F6D1WOq5hFhde2A7cIMFSFegyVCTxdGcJ9sG0xui27s4uHIguwvcQ
+         zs9w==
+X-Gm-Message-State: AOAM533sZvzegyrWrDlIq5JpO6fl0Fv83Mq7XsS+FMOYMNOQayILCfwx
+	Fnw9BtLaJq3cI0ObJll0WBU=
+X-Google-Smtp-Source: ABdhPJweEpp272ADO+WpXI54Fif5MY4c418QDRioYjWzjNMSAG6hiAlVw9dIPRTHjDEFNtfVz5m9zw==
+X-Received: by 2002:a4a:ba82:: with SMTP id d2mr3193076oop.43.1602783576814;
+        Thu, 15 Oct 2020 10:39:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:941a:: with SMTP id m26ls1174297pge.10.gmail; Thu, 15
- Oct 2020 08:39:04 -0700 (PDT)
-X-Received: by 2002:a65:4485:: with SMTP id l5mr1576927pgq.121.1602776344435;
-        Thu, 15 Oct 2020 08:39:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602776344; cv=none;
+Received: by 2002:a9d:3e85:: with SMTP id b5ls875672otc.1.gmail; Thu, 15 Oct
+ 2020 10:39:36 -0700 (PDT)
+X-Received: by 2002:a05:6830:1dc3:: with SMTP id a3mr3631383otj.292.1602783576384;
+        Thu, 15 Oct 2020 10:39:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602783576; cv=none;
         d=google.com; s=arc-20160816;
-        b=gkHh3njiKXesQciFMoWVkjpTINTEEjBA7elUgFgGkHbFeTa6VV0r5EmTBa79Ofrpd1
-         SwiGyrOnb7VmAOJTrg8S2z2hCqdFjdPx45J4mY/yvvOKV4alyijKR4WWCrmiOr02L6Kl
-         fyPUUoPo3zdHElKaJkj/ofTZ77n1nj7Q6y7jQW3b8+MnUWf6awvT90LoOGGdW3kXDELj
-         VfgM9zgIf5k1zUVg0C684Oe4lV1Eac1v6BkMIlw4Y2MjGgsTgvnkU4ZsRQ7IZpZsg19d
-         N8fzfRZ5PsAYp9UmTVepLQ3QE0FVHV8baODawLFGh36H+IPm7a6UWb5H+ogbeAR7XdGt
-         wZVw==
+        b=JI3JKDImqY6vilvyzYNk/kkSeUgCOFGg9j+0cz0I1ypEoJ6I2pSjn1O77pxfgfMsJ5
+         4v6J3O8oHYBUJI9gSNmlgeJaittZmxSrADgPDql+peen08rM2iyFLtV8v0aoTeZbGtQU
+         4eyDcelKP3VnSV5yJUZa78dqVLd0QHNgr3PAFz3YVfvUgkiQmuxIus2gLfXutAufkiBi
+         LJUDvRPYqlu/3z/N2Nlx2UZCjnSk9dnsQGZvFi2JdcPDBFDqhEH4FbUnq5S1elP2xcIh
+         rRA3hQvobr9462+0e7Vl2GW/Z4YewN+0FHr9l2Aa4reOlK9NUX5NufyEj59bRjxDzvdy
+         H6HA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=4Slk8cn+BfeWlfZ9E0ny1/5HWw7JqKVPgKKusuTz/J0=;
-        b=W0C0JPQT6rqP29emLkjxauKSVHNM7f7IOyJ1w8IyehMZuSPOnTu2Ed96JzT0oBDf4n
-         j9pyJbHJQKTQdUNYvajLPHyDO+Mv7WIBj57CLMHuZ/6FglPJwJW0hf3mcIrhtZeI7c9H
-         bevIozjgyhGTcW+BAqLvfHIkSnOcxKNx7coOy2qjDBpkIxY/WsRZ8wVGxCdTA6CO7fTI
-         NzxcyIaWU1FsyOcuuz2aGRSAUZFpaETU5PokeOWUmvMFqOrn8daFjEBbFTufd/PgMpvs
-         /cqlcrxJUpK7W2xcv7hkmLp0xdOyL8nlp2tWQ5BDasvT5cb2FLRGbE1Qq+oCGVgu0Rg3
-         JW3A==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=KtfuI7EmqU/w7shjq+GdWDQYgGINxwQeMULph0gZRsc=;
+        b=FMwbWOD8Ukx8YryljeipE2GjODpnU2og6oQtzIetLZpLmSA7+J0C1UfGDANKEPnicY
+         QhBmaGapdHNq005Zc/e9ikia1E5ewpmtP8HQUGS7KMWz6TB5zOADWEcjpb0XhCh0S3Qc
+         ZqX4yw8fBY9QdEHSn3OwmcQPHw4doFWUWr/SiOFK9hsRR/QGGmH0/CRdao4bjXeo2Luz
+         Rh6UB2Oe4PItrGtb5s83TWPnNYKNB57na/orFe669Ku7AZbuE3Z33kmduToFUZLY0/PW
+         G+HD6nHS4b15nCACjsI3ar7faljgAfdbNQb2TfyBbxwjjsU+qRwuiM0qDULDWm4Ukb+P
+         zdBA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=L9Jw0LEZ;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::d43 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-io1-xd43.google.com (mail-io1-xd43.google.com. [2607:f8b0:4864:20::d43])
-        by gmr-mx.google.com with ESMTPS id m62si250539pgm.2.2020.10.15.08.39.04
+       dkim=pass header.i=@google.com header.s=20161025 header.b=aXzsuv9H;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x541.google.com (mail-pg1-x541.google.com. [2607:f8b0:4864:20::541])
+        by gmr-mx.google.com with ESMTPS id q10si247457oov.2.2020.10.15.10.39.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 Oct 2020 08:39:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::d43 as permitted sender) client-ip=2607:f8b0:4864:20::d43;
-Received: by mail-io1-xd43.google.com with SMTP id n6so5026883ioc.12
-        for <clang-built-linux@googlegroups.com>; Thu, 15 Oct 2020 08:39:04 -0700 (PDT)
-X-Received: by 2002:a02:a802:: with SMTP id f2mr4080270jaj.47.1602776343776;
-        Thu, 15 Oct 2020 08:39:03 -0700 (PDT)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id e11sm2886026ioq.48.2020.10.15.08.39.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Oct 2020 08:39:03 -0700 (PDT)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Thu, 15 Oct 2020 11:39:01 -0400
-To: David Laight <David.Laight@ACULAB.COM>
-Cc: 'Arvind Sankar' <nivedita@alum.mit.edu>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
-Message-ID: <20201015153901.GA593731@rani.riverdale.lan>
-References: <20201014212631.207844-1-nivedita@alum.mit.edu>
- <1653ace9164c4a3a8be50b3d2c9ff816@AcuMS.aculab.com>
- <20201015144515.GA572410@rani.riverdale.lan>
- <4a8c47b5eeb44b789abbb617f0a95993@AcuMS.aculab.com>
+        Thu, 15 Oct 2020 10:39:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541 as permitted sender) client-ip=2607:f8b0:4864:20::541;
+Received: by mail-pg1-x541.google.com with SMTP id g29so2365611pgl.2
+        for <clang-built-linux@googlegroups.com>; Thu, 15 Oct 2020 10:39:36 -0700 (PDT)
+X-Received: by 2002:a63:f74a:: with SMTP id f10mr4361736pgk.263.1602783575287;
+ Thu, 15 Oct 2020 10:39:35 -0700 (PDT)
 MIME-Version: 1.0
+References: <20201014212631.207844-1-nivedita@alum.mit.edu>
+ <1653ace9164c4a3a8be50b3d2c9ff816@AcuMS.aculab.com> <20201015144515.GA572410@rani.riverdale.lan>
+ <4a8c47b5eeb44b789abbb617f0a95993@AcuMS.aculab.com> <20201015153901.GA593731@rani.riverdale.lan>
+In-Reply-To: <20201015153901.GA593731@rani.riverdale.lan>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 15 Oct 2020 10:39:23 -0700
+Message-ID: <CAKwvOdkLvxeYeBh7Kx0gw7JPktPH8A4DomJTidUqA0jRQTR0FA@mail.gmail.com>
+Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: David Laight <David.Laight@aculab.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <4a8c47b5eeb44b789abbb617f0a95993@AcuMS.aculab.com>
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=L9Jw0LEZ;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::d43
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@google.com header.s=20161025 header.b=aXzsuv9H;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::541
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,76 +132,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 15, 2020 at 03:24:09PM +0000, David Laight wrote:
-> > I think the comment is unclear now that you bring it up, but the problem
-> > it actually addresses is not that the data is held in registers: in the
-> > sha256_transform() case mentioned in the commit message, for example,
-> > the data is in fact in memory even before this change (it's a 256-byte
-> > array), and that together with the memory clobber is enough for gcc to
-> > assume that the asm might use it. But with clang, if the address of that
-> > data has never escaped -- in this case the data is a local variable
-> > whose address was never passed out of the function -- the compiler
-> > assumes that the asm cannot possibly depend on that memory, because it
-> > has no way of getting its address.
-> 
-> Ok, slightly different from what i thought.
-> But the current comment is just wrong.
+On Thu, Oct 15, 2020 at 8:39 AM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+>
+> On Thu, Oct 15, 2020 at 03:24:09PM +0000, David Laight wrote:
+> > > I think the comment is unclear now that you bring it up, but the problem
+> > > it actually addresses is not that the data is held in registers: in the
+> > > sha256_transform() case mentioned in the commit message, for example,
+> > > the data is in fact in memory even before this change (it's a 256-byte
+> > > array), and that together with the memory clobber is enough for gcc to
+> > > assume that the asm might use it. But with clang, if the address of that
+> > > data has never escaped -- in this case the data is a local variable
+> > > whose address was never passed out of the function -- the compiler
+> > > assumes that the asm cannot possibly depend on that memory, because it
+> > > has no way of getting its address.
+> >
+> > Ok, slightly different from what i thought.
+> > But the current comment is just wrong.
+>
+> Should I fix up the comment in the same commit, or do a second one after
+> moving the macro?
 
-Should I fix up the comment in the same commit, or do a second one after
-moving the macro?
+I would prefer undoing the mistake from 815f0ddb346c and getting that
+backported to stable, then rewriting comments or the trick to retain
+the memset separately.
 
-> > i.e. something like:
-> > 	static inline void barrier_data(void *ptr, size_t size)
-> > 	{
-> > 		asm volatile("" : "+m"(*(char (*)[size])ptr));
-> 
-> I think it has to be a struct with an array member?
+>
+> > > i.e. something like:
+> > >     static inline void barrier_data(void *ptr, size_t size)
+> > >     {
+> > >             asm volatile("" : "+m"(*(char (*)[size])ptr));
+> >
+> > I think it has to be a struct with an array member?
+>
+> I don't think so, this is actually an example in gcc's documentation:
+>
+>   An x86 example where the string memory argument is of unknown length.
+>
+>         asm("repne scasb"
+>         : "=c" (count), "+D" (p)
+>         : "m" (*(const char (*)[]) p), "0" (-1), "a" (0));
+>
+>   If you know the above will only be reading a ten byte array then you
+>   could instead use a memory input like: "m" (*(const char (*)[10]) p).
+>
+> >
+> > >     }
+> > > plus some magic to disable the VLA warning, otherwise it causes a build
+> > > error.
+> >
+> > It shouldn't if the size is a compile time constant.
+> > And given this is an instruction to the compiler it better be.
+>
+> Ah right. I saw the warning when playing with something else where size
+> could be constant or variable depending on the call.
+>
+> > >
+> > > With a memory clobber, the compiler has to keep x and y at different
+> > > addresses, since the first barrier_data() might have saved the address
+> > > of x.
+> >
+> > Maybe "+m"(*ptr) : "r"(ptr) would work.
+>
+> Nothing that can only modify what ptr points to could avoid this, since
+> that storage is dead after the barrier.
+>
+> > OTOH a "memory" clobber at the bottom of a function isn't going to
+> > cause bloat.
+> >
+> > The explicit ranged memory access (without "memory") probably has its
+> > uses - but only if the full "memory" clobber causes grief.
+> >
+> >       David
+> >
+> > -
+> > Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+> > Registration No: 1397386 (Wales)
 
-I don't think so, this is actually an example in gcc's documentation:
 
-  An x86 example where the string memory argument is of unknown length.
 
-	asm("repne scasb"
-	: "=c" (count), "+D" (p)
-        : "m" (*(const char (*)[]) p), "0" (-1), "a" (0));
-
-  If you know the above will only be reading a ten byte array then you
-  could instead use a memory input like: "m" (*(const char (*)[10]) p).
-
-> 
-> > 	}
-> > plus some magic to disable the VLA warning, otherwise it causes a build
-> > error.
-> 
-> It shouldn't if the size is a compile time constant.
-> And given this is an instruction to the compiler it better be.
-
-Ah right. I saw the warning when playing with something else where size
-could be constant or variable depending on the call.
-
-> > 
-> > With a memory clobber, the compiler has to keep x and y at different
-> > addresses, since the first barrier_data() might have saved the address
-> > of x.
-> 
-> Maybe "+m"(*ptr) : "r"(ptr) would work.
-
-Nothing that can only modify what ptr points to could avoid this, since
-that storage is dead after the barrier.
-
-> OTOH a "memory" clobber at the bottom of a function isn't going to
-> cause bloat.
-> 
-> The explicit ranged memory access (without "memory") probably has its
-> uses - but only if the full "memory" clobber causes grief.
-> 
-> 	David
-> 
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201015153901.GA593731%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkLvxeYeBh7Kx0gw7JPktPH8A4DomJTidUqA0jRQTR0FA%40mail.gmail.com.
