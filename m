@@ -1,152 +1,146 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBO76VT6AKGQEV4DOKGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZYPUPHYEJBBLNXVX6AKGQETTLDLSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C73F2913C3
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Oct 2020 21:00:13 +0200 (CEST)
-Received: by mail-pj1-x1039.google.com with SMTP id cm15sf3776989pjb.6
-        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Oct 2020 12:00:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1602961212; cv=pass;
+Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7651F29146F
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Oct 2020 23:01:34 +0200 (CEST)
+Received: by mail-lf1-x13b.google.com with SMTP id q25sf2549583lfn.4
+        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Oct 2020 14:01:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602968494; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hGY1Z2i1LY8DPDrjo27Qr+sTlu7PA2vudZ+hXpHH/xSHIbrqpodxRLYpehnqj8HpWW
-         BegypgihzJqZjCwxelP5oFj7thDxIknrylPC1i6OBrBQR5a7BwF8rnljG5Vt25Yw4bTo
-         AqUcmEoA0iH0pP1Z34yjrKlRF7cVeBNdJ+ypY7jrEgiJeDxUSEOIa102/QJwFfVT5vYY
-         nshAccP69rbg0XXITlz3QY8YzO93hfIh6j3SbaHDlu5Zx6smpzr4hm5pJ9RNel6FiDkF
-         kmd617r/2Nxzc6pFFIBnrkYJ5DMyk99hLbE/N8qoq/QQCrynYkMEBGwBVUvfPUDp0mZw
-         j5aw==
+        b=w5rswmzZ43Coi8366YUW0h0dWwcE8QfRJMJI/ehPyiKUigiFFQgN4zZ+kceKhRcI5v
+         gSaOICQ0jql6JzyPg65667XcjF5rCWj/2EhWQdSh0DRRnuZnlx7pfeM7Q34iXQ9ZdO/G
+         qLJR7fnQsZ9b8VfMJaziYkqsvDqSHsHcnlWylbA3u9bFfo+jLV+eSwt9qVB+swkPz0p7
+         V1E/zc6ofcOQ7cqhr/4oRWUPCM0OVEnHHgdG+GbEhf49hFCoTZbNX/aocY7CzEtUL6QQ
+         XG3o3aUfry34dC9mpi6h2H40O2ugEgWWtMQc72b2Xwr3NuxLcvKHMC7psn8FF5OB2CUP
+         FF4w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=HoYhMD/Bx8qFhA+eKZ5ByB7Xogyi9ncqtPGWsqf0lN8=;
-        b=HUdY7+rafcVXZe9K9E8/eGzr5GgtTjC+e2rrtX9qm+W1reA1+Cck+IA1FX3FnJoeBB
-         b0UhP5kwPsUc5bWPmV6je2uNQ/bxIesoz/N1XodSriuJDCq5qSpgDNt+4+mKvApo/WZ/
-         BulU1/z4k+AV6mq4rL/yN/JLzQTZdIt//rzDfKhKitWoP7F1pI69lt+U3xh+m4tvq3Or
-         1pRSZ+brvrRrEKHXfFSS2byhhQFcpcIwM9CJvlae/WU+uUa9vB1AUop/IRL2k1fy7Pqd
-         Z0g5M+3weuKf6/oKUE264j9vzlzFf1uqOu2krcZi/yLXsj7rVZG01ve2kaNFDQvvRqXb
-         Qoeg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=OSZYsMdRvcZItW8LT5kvS0COYY5k+22P38fpmmMr6W0=;
+        b=pGP4cBpHOT4hHYXTC7EuGcrgTWF3PfZbn25DV73Ac8ZfI/BMqQF/irK/c+J8XI5e6M
+         71JNLv2chZFDqrcOWQpvpiyCZFv2oQvqb1XTMuv+QTXuv0X4o9hbPNSw5lD6GkkQ5A36
+         VYldsawdy83BLbYJUJH7ti3JEUVR+hND9O4szucnXCd3136tci4yNdEQVKwuGtNKH0pU
+         bA+e290qwDKFh4L6eJ+fBc73o3oJ1eYx4j/IjC4cYBoZ0faqbA4vk5lllvf9LTNtVF9v
+         gVgZE6d5fV3JK6tCS76Zl05A3VzOZMokzKvVbBXaLTaV/SmMBwWReaZXGxzRPPDI0I48
+         wAkg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.253 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@intel-com.20150623.gappssmtp.com header.s=20150623 header.b=ntIAxdfj;
+       spf=pass (google.com: domain of dan.j.williams@intel.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=dan.j.williams@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HoYhMD/Bx8qFhA+eKZ5ByB7Xogyi9ncqtPGWsqf0lN8=;
-        b=sWTU9z2Z0vq+R/pIpBGmi9aE0swZCuUE8DCOoE8sjUt9kh9SU9Lf3GK8nYzRnR4B5q
-         W2rzBs3pDo03wX5O5K2psTLvMK63Wzu3hEA1reP64w1DsqqBuYCWIbcA2IhLRiMnWpov
-         TLUYjp3yrN7gpxXPhB3zHizpCq7Rd5IJ7a6tgsiboWEfKqz8ln5EQqZCrFznAQgDPwIE
-         Om1VWHszZKBaMUQyo8MoAwNmDxAE0W6J6J+IViePSUzoaW4TmckA2cdMQXn8iIpVLf+5
-         L1sWH1TX52bNzM8nxmXRjV/RvkMv+3OB/IrACUm+0BN2Clr3VucDwNIl/WmrtgvX/4ZH
-         zFmw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=OSZYsMdRvcZItW8LT5kvS0COYY5k+22P38fpmmMr6W0=;
+        b=qf6glVk4xZRF0ikEaJKr3bPoxRyzK6QQSCyYrkg3/dWhfLWyDCLFBuz59kerb12vFc
+         Gu7wKMoWWPRqb+XfZqo23lU2H26AOX2NKZ9XXGeGl7/zZ8/qaI011ZLJygoLBvZfJVKY
+         7VBPBYfaGreqSnVwcScyKyhO+0o/vmzSoUBl6WbWsA8OyBRfqchRIIzD7g+UjUpSEF1d
+         6iPpyDqv/ZPkMBF7DWNtl1Iaz/Ad9v+oHfVlg7PHp82rHroNeWqXtfIkSkeJ1P0BDMLu
+         0eMK+q8UzTckkBL6bEZxJuAOmIxWVXR7qAK0WNUR86ds6J3ngm5jXVTrFSfMcSXNRrjC
+         ShvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HoYhMD/Bx8qFhA+eKZ5ByB7Xogyi9ncqtPGWsqf0lN8=;
-        b=AFrLxfYjNW+eX2imLMWoLAXfPHikqX9vl4rE4wZi5Q9Vt12ZkgwDqb2DKbxvGy4+Fz
-         0FbCWi9OuMNaEmefmFNPtKQHW7D363KXom6b7kDWbipRIbyelexQafQzXcSZKq2I20Y2
-         7NhRi0h1kS7DItn2b4QQgjajza8OHFura6i1nJb6awvgzafcFynqeoD0cOPT+gvGlSPq
-         jzbmAV3rlNL7Tsa3uAFBea/HB1q4EifJkdGlgzHISx9yPnyf6SgSGXFTSQ8E53A4bOiq
-         XbzSQzfV+ybHhcDLrVhlF2LYia6cH1I1vdlSbsBvbLfUs+wFHPhmV3R8zrsCqci+W4KK
-         oTHQ==
+        bh=OSZYsMdRvcZItW8LT5kvS0COYY5k+22P38fpmmMr6W0=;
+        b=RwlXa4SkxIMKq2Jmkzec2Qf778GwEHLGZZUvdfjS3rQ12Zfx/gi4wi6Szx36yHS2qW
+         PKSq1/NLZqEU4yeixQPoFwUDFpAqiXjMMT01hTpII5pkQAdfuuzlfmnJBMhg9Tz41z6x
+         5vbCUTD6c4Px8q42g5ehUNdodebIRooyi/KESsIvJ6v0CxDPIAA22xuzpUXl2JSO8vlc
+         ECAMtm7mK02OUCIoM3XxuJ8FfkJpTZ4VScxd549dl6AgXTmI3sct8v2l7t4j0LIDWeDg
+         wzadSWHWxvZqPjQwVkq3fbsYn98XD8aG0LpHHUOCn6ubSW3yl2gzh/X5lQ+JeQ4Y1xOB
+         qIIA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530dDyNYbz6Pfrs/obdXKkYR673fID5I1vEhtb9X1V7ECjzd4c9z
-	uyp0L7MIJeMjxg9GGxVGpHY=
-X-Google-Smtp-Source: ABdhPJxeeJuTPWiw6I/CSKzp+bnsjYLXKkrRoIq4/SOlpH5Algu3dVgIiqqD4rvGf+PYxOy+GDJ95g==
-X-Received: by 2002:a62:105:0:b029:155:c7c0:3a81 with SMTP id 5-20020a6201050000b0290155c7c03a81mr9716701pfb.34.1602961211984;
-        Sat, 17 Oct 2020 12:00:11 -0700 (PDT)
+X-Gm-Message-State: AOAM533VNofCBaM6oXUghLcOjpsK8cU707rtkX7AeW3AfF76Hh4Ho4Lh
+	1AoGWdWEFFKHWv/XjteySss=
+X-Google-Smtp-Source: ABdhPJyqzYRipP28snMGWiGlJJpR8mrciPUv2nbDy8Di1NvF3xjOi+wGUj3polm81oBgbQ5hmhsTiQ==
+X-Received: by 2002:a2e:8e72:: with SMTP id t18mr3187710ljk.445.1602968493987;
+        Sat, 17 Oct 2020 14:01:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:930f:: with SMTP id 15ls2028788pfj.5.gmail; Sat, 17 Oct
- 2020 12:00:11 -0700 (PDT)
-X-Received: by 2002:a62:52c3:0:b029:152:880f:1782 with SMTP id g186-20020a6252c30000b0290152880f1782mr9672167pfb.35.1602961211314;
-        Sat, 17 Oct 2020 12:00:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1602961211; cv=none;
+Received: by 2002:a2e:7313:: with SMTP id o19ls919604ljc.11.gmail; Sat, 17 Oct
+ 2020 14:01:32 -0700 (PDT)
+X-Received: by 2002:a2e:9c3:: with SMTP id 186mr4024979ljj.134.1602968492804;
+        Sat, 17 Oct 2020 14:01:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602968492; cv=none;
         d=google.com; s=arc-20160816;
-        b=d03HRzC9NtXe8VwLMxQZZku/0czTc7/fa4rIkVhV/hgQ6zRQlAU5TqeSDUBdofjbtm
-         UnA7Coqgm+G2O3Wb7TPtF6fPeU98jrL27vbPQVZ0d3be8nAI3RUGq72vVkoa37jTielm
-         KU5JsaQG46YTKbHqGdHoyFShgOT7FGs3mqlKvnVXsoC9CZwu1nnA1OkWiSvYkDwXuV60
-         /D/YuZASRw1mJlEYv9NMibHrJDnrR0p3EyAv5XHJLwLKh/+gEnP2Ckm92TqG3kf3+VFT
-         aWH7wfzhmd5ybSnm5Id48YjBtUULCCX0vh74+jyqqLJ0nxDZkBleDbs/Ui5nAmjbEOF/
-         5lbQ==
+        b=EMIskxZemL7w/LYEuQs4OKubBag6R72TFcY0AHuVjaKA3fGW4a0dga5nePqVcg/Aif
+         jgOxiSv4tAn6EfprlngPV6zkYnGNnNxSJ9F8pcA3gWchCXa8qnVkSgmvdIXZ1Cubgytl
+         V2zH/3T/LUPbsWEFFXxPmgzxJLVLqtnigPd+u2K0YsLYKVC5QDhcdb7TXxa6W3VmDJHi
+         JebokSArAteX9cG/DB4ELwOfsafR5nSADjqSA34G+DDM4OtxUqX83S4hyRZr5GmGjjHQ
+         INGp0daUfIqEyIYyrNFQ/FCD0kQDeDo0O/Ogs9s/KN13/T6Ers1y4KHbILdEpneUX3NT
+         SPqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=H/4I6qk6HDVIcsniPlsf0ugIovr/HIjDwzCcKkuA1aw=;
-        b=cV09BM2s/Ugo0SODk7k+0Ei+xPb22DVJBDDdBPd9EP97fbxz1libHDQtoxisub7e6e
-         y0di4//UTJqeKpAL6LPTSEdARXau6ufAveQ4KDJoiWyeKOsRUBxwrpRmBgnUKDlOeUxx
-         wZChiTNrERgOBzWBMzHeSJKZ/JsfMG4Qw+Bvkh2h9ad2UVGTrK11DRi5sacB3DfoVuR8
-         gP+jGSkW0fLHKhbeXy96QDQzu78oSd9Aj3AgEm+o4+JcwcxHVL9IotNSQHZ+ZjkqYaiK
-         70ER7SrWW3ZFaDhDSO1VCz02XRYycB6hpnWkNbN5kbMS8GBa6iypQtrPhy/YZ/AxFtHj
-         e6jA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QU5tUnKrk3cCgEOM6DUuSpHohPcIoidzngrqxPrVqlg=;
+        b=L8q57o3ro9FnyXcVmKXtUzYjXp3mTtjI5dzZ+m9jAJDWOk5bjHy2U59ZDgepADgbow
+         hmGZw08r7Tj/C5ni2zWe4f7889RAO4CPMghxR2GV+4YpLHJZBJ7AIxva1J0+TOhKtqOA
+         4kzft2IexnZ0nnDB7kU/UUhhuHaPd8f2YepjRkecDWFT21TclVI76xfYwbsjkTxmjLrZ
+         bOR08uOwxoczXH+ra6+OAMPasBzWh8+ZxnCGZBDonxHgxExRgEGdKIQK/JhCUqpgcBgE
+         tKDoHieXVFjOVaRDPsrkH/TVXHwONNrXdzyqLNO3Fq8UQyLAhtgAgcxyLPau5ow1I4Yv
+         ltxw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.253 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0253.hostedemail.com. [216.40.44.253])
-        by gmr-mx.google.com with ESMTPS id i9si371874pjh.3.2020.10.17.12.00.11
+       dkim=pass header.i=@intel-com.20150623.gappssmtp.com header.s=20150623 header.b=ntIAxdfj;
+       spf=pass (google.com: domain of dan.j.williams@intel.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=dan.j.williams@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mail-ej1-x642.google.com (mail-ej1-x642.google.com. [2a00:1450:4864:20::642])
+        by gmr-mx.google.com with ESMTPS id 11si147206lfl.4.2020.10.17.14.01.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Oct 2020 12:00:11 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.253 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.253;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay08.hostedemail.com (Postfix) with ESMTP id 15895182CED2A;
-	Sat, 17 Oct 2020 19:00:10 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:967:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1434:1437:1515:1516:1518:1535:1542:1593:1594:1711:1730:1747:1777:1792:2194:2199:2393:2525:2553:2561:2564:2682:2685:2693:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3355:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4470:4823:5007:6117:6742:6743:7576:7903:8660:8792:8957:9010:9025:9108:10004:10400:10450:10455:11232:11658:11914:12043:12050:12295:12296:12297:12438:12555:12663:12740:12760:12895:12986:13138:13148:13230:13231:13439:14096:14097:14181:14659:14721:19904:19999:21080:21324:21451:21627:21939:21990:30029:30034:30054:30070:30090:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: jewel08_4005cbe27228
-X-Filterd-Recvd-Size: 5179
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf01.hostedemail.com (Postfix) with ESMTPA;
-	Sat, 17 Oct 2020 19:00:02 +0000 (UTC)
-Message-ID: <503af4a57ca6daeb3e42a9be136dcd21e6d6e23d.camel@perches.com>
-Subject: Re: [Cocci] [RFC] treewide: cleanup unreachable breaks
-From: Joe Perches <joe@perches.com>
-To: Julia Lawall <julia.lawall@inria.fr>
-Cc: trix@redhat.com, linux-kernel@vger.kernel.org, cocci
- <cocci@systeme.lip6.fr>,  alsa-devel@alsa-project.org,
- clang-built-linux@googlegroups.com,  linux-iio@vger.kernel.org,
- nouveau@lists.freedesktop.org,  storagedev@microchip.com,
- dri-devel@lists.freedesktop.org, 
- virtualization@lists.linux-foundation.org, keyrings@vger.kernel.org, 
- linux-mtd@lists.infradead.org, ath10k@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com,
- usb-storage@lists.one-eyed-alien.net,  linux-watchdog@vger.kernel.org,
- devel@driverdev.osuosl.org,  linux-samsung-soc@vger.kernel.org,
- linux-scsi@vger.kernel.org,  linux-nvdimm@lists.01.org,
- amd-gfx@lists.freedesktop.org,  linux-acpi@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, 
- industrypack-devel@lists.sourceforge.net, linux-pci@vger.kernel.org, 
- spice-devel@lists.freedesktop.org, MPT-FusionLinux.pdl@broadcom.com, 
- linux-media@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-nfc@lists.01.org, linux-pm@vger.kernel.org,
- linux-can@vger.kernel.org,  linux-block@vger.kernel.org,
- linux-gpio@vger.kernel.org,  xen-devel@lists.xenproject.org,
- linux-amlogic@lists.infradead.org, 
- openipmi-developer@lists.sourceforge.net,
- platform-driver-x86@vger.kernel.org,  linux-integrity@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,  linux-edac@vger.kernel.org,
- netdev@vger.kernel.org, linux-usb@vger.kernel.org, 
- linux-wireless@vger.kernel.org, linux-security-module@vger.kernel.org, 
- linux-crypto@vger.kernel.org, patches@opensource.cirrus.com,
- bpf@vger.kernel.org,  ocfs2-devel@oss.oracle.com,
- linux-power@fi.rohmeurope.com
-Date: Sat, 17 Oct 2020 12:00:01 -0700
-In-Reply-To: <alpine.DEB.2.22.394.2010172016370.9440@hadrien>
-References: <20201017160928.12698-1-trix@redhat.com>
-	 <f530b7aeecbbf9654b4540cfa20023a4c2a11889.camel@perches.com>
-	 <alpine.DEB.2.22.394.2010172016370.9440@hadrien>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.36.4-0ubuntu1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 17 Oct 2020 14:01:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dan.j.williams@intel.com designates 2a00:1450:4864:20::642 as permitted sender) client-ip=2a00:1450:4864:20::642;
+Received: by mail-ej1-x642.google.com with SMTP id c22so8494398ejx.0
+        for <clang-built-linux@googlegroups.com>; Sat, 17 Oct 2020 14:01:32 -0700 (PDT)
+X-Received: by 2002:a17:906:1a19:: with SMTP id i25mr9957370ejf.323.1602968492144;
+ Sat, 17 Oct 2020 14:01:32 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.253 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+References: <20201017160928.12698-1-trix@redhat.com>
+In-Reply-To: <20201017160928.12698-1-trix@redhat.com>
+From: Dan Williams <dan.j.williams@intel.com>
+Date: Sat, 17 Oct 2020 14:01:22 -0700
+Message-ID: <CAPcyv4jkSFxMXgMABX7sDbwmq8zJO=rLX2ww3Y9Tc0VAANY8xQ@mail.gmail.com>
+Subject: Re: [RFC] treewide: cleanup unreachable breaks
+To: trix@redhat.com
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-edac@vger.kernel.org, 
+	Linux ACPI <linux-acpi@vger.kernel.org>, 
+	Linux-pm mailing list <linux-pm@vger.kernel.org>, xen-devel <xen-devel@lists.xenproject.org>, 
+	linux-block@vger.kernel.org, openipmi-developer@lists.sourceforge.net, 
+	linux-crypto <linux-crypto@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-power@fi.rohmeurope.com, 
+	linux-gpio@vger.kernel.org, amd-gfx list <amd-gfx@lists.freedesktop.org>, 
+	Maling list - DRI developers <dri-devel@lists.freedesktop.org>, nouveau@lists.freedesktop.org, 
+	virtualization@lists.linux-foundation.org, spice-devel@lists.freedesktop.org, 
+	linux-iio@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	industrypack-devel@lists.sourceforge.net, 
+	"Linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, MPT-FusionLinux.pdl@broadcom.com, 
+	linux-scsi <linux-scsi@vger.kernel.org>, linux-mtd@lists.infradead.org, 
+	linux-can@vger.kernel.org, Netdev <netdev@vger.kernel.org>, 
+	intel-wired-lan@lists.osuosl.org, ath10k@lists.infradead.org, 
+	Linux Wireless List <linux-wireless@vger.kernel.org>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-nfc@lists.01.org, linux-nvdimm <linux-nvdimm@lists.01.org>, 
+	Linux PCI <linux-pci@vger.kernel.org>, 
+	linux-samsung-soc <linux-samsung-soc@vger.kernel.org>, platform-driver-x86@vger.kernel.org, 
+	patches@opensource.cirrus.com, storagedev@microchip.com, 
+	devel@driverdev.osuosl.org, linux-serial@vger.kernel.org, 
+	USB list <linux-usb@vger.kernel.org>, usb-storage@lists.one-eyed-alien.net, 
+	linux-watchdog@vger.kernel.org, ocfs2-devel@oss.oracle.com, 
+	bpf@vger.kernel.org, linux-integrity@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, 
+	"open list:KEYS-TRUSTED" <keyrings@vger.kernel.org>, alsa-devel@alsa-project.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: dan.j.williams@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@intel-com.20150623.gappssmtp.com header.s=20150623
+ header.b=ntIAxdfj;       spf=pass (google.com: domain of dan.j.williams@intel.com
+ designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=dan.j.williams@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,78 +153,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, 2020-10-17 at 20:21 +0200, Julia Lawall wrote:
-> On Sat, 17 Oct 2020, Joe Perches wrote:
-> > On Sat, 2020-10-17 at 09:09 -0700, trix@redhat.com wrote:
-> > > From: Tom Rix <trix@redhat.com>
-> > > 
-> > > This is a upcoming change to clean up a new warning treewide.
-> > > I am wondering if the change could be one mega patch (see below) or
-> > > normal patch per file about 100 patches or somewhere half way by collecting
-> > > early acks.
-> > > 
-> > > clang has a number of useful, new warnings see
-> > > https://clang.llvm.org/docs/DiagnosticsReference.html
-> > > 
-> > > This change cleans up -Wunreachable-code-break
-> > > https://clang.llvm.org/docs/DiagnosticsReference.html#wunreachable-code-break
-> > > for 266 of 485 warnings in this week's linux-next, allyesconfig on x86_64.
-> > 
-> > Early acks/individual patches by subsystem would be good.
-> > Better still would be an automated cocci script.
-> 
-> Coccinelle is not especially good at this, because it is based on control
-> flow, and a return or goto diverts the control flow away from the break.
-> A hack to solve the problem is to put an if around the return or goto, but
-> that gives the break a meaningless file name and line number.  I collected
-> the following list, but it only has 439 results, so fewer than clang.  But
-> maybe there are some files that are not considered by clang in the x86
-> allyesconfig configuration.
-> 
-> Probably checkpatch is the best solution here, since it is not
-> configuration sensitive and doesn't care about control flow.
+On Sat, Oct 17, 2020 at 9:10 AM <trix@redhat.com> wrote:
+>
+> From: Tom Rix <trix@redhat.com>
+>
+> This is a upcoming change to clean up a new warning treewide.
+> I am wondering if the change could be one mega patch (see below) or
+> normal patch per file about 100 patches or somewhere half way by collecting
+> early acks.
+>
+> clang has a number of useful, new warnings see
+> https://clang.llvm.org/docs/DiagnosticsReference.html
+>
+> This change cleans up -Wunreachable-code-break
+> https://clang.llvm.org/docs/DiagnosticsReference.html#wunreachable-code-break
+> for 266 of 485 warnings in this week's linux-next, allyesconfig on x86_64.
+>
+> The method of fixing was to look for warnings where the preceding statement
+> was a simple statement and by inspection made the subsequent break unneeded.
+> In order of frequency these look like
+>
+> return and break
+>
+>         switch (c->x86_vendor) {
+>         case X86_VENDOR_INTEL:
+>                 intel_p5_mcheck_init(c);
+>                 return 1;
+> -               break;
+>
+> goto and break
+>
+>         default:
+>                 operation = 0; /* make gcc happy */
+>                 goto fail_response;
+> -               break;
+>
+> break and break
+>                 case COLOR_SPACE_SRGB:
+>                         /* by pass */
+>                         REG_SET(OUTPUT_CSC_CONTROL, 0,
+>                                 OUTPUT_CSC_GRPH_MODE, 0);
+>                         break;
+> -                       break;
+>
+> The exception to the simple statement, is a switch case with a block
+> and the end of block is a return
+>
+>                         struct obj_buffer *buff = r->ptr;
+>                         return scnprintf(str, PRIV_STR_SIZE,
+>                                         "size=%u\naddr=0x%X\n", buff->size,
+>                                         buff->addr);
+>                 }
+> -               break;
+>
+> Not considered obvious and excluded, breaks after
+> multi level switches
+> complicated if-else if-else blocks
+> panic() or similar calls
+>
+> And there is an odd addition of a 'fallthrough' in drivers/tty/nozomi.c
+[..]
+> diff --git a/drivers/nvdimm/claim.c b/drivers/nvdimm/claim.c
+> index 5a7c80053c62..2f250874b1a4 100644
+> --- a/drivers/nvdimm/claim.c
+> +++ b/drivers/nvdimm/claim.c
+> @@ -200,11 +200,10 @@ ssize_t nd_namespace_store(struct device *dev,
+>                 }
+>                 break;
+>         default:
+>                 len = -EBUSY;
+>                 goto out_attach;
+> -               break;
+>         }
 
-Likely the clang compiler is the best option here.
-
-It might be useful to add -Wunreachable-code-break to W=1
-or just always enable it if it isn't already enabled.
-
-diff --git a/scripts/Makefile.extrawarn b/scripts/Makefile.extrawarn
-index 95e4cdb94fe9..3819787579d5 100644
---- a/scripts/Makefile.extrawarn
-+++ b/scripts/Makefile.extrawarn
-@@ -32,6 +32,7 @@ KBUILD_CFLAGS += $(call cc-option, -Wunused-but-set-variable)
- KBUILD_CFLAGS += $(call cc-option, -Wunused-const-variable)
- KBUILD_CFLAGS += $(call cc-option, -Wpacked-not-aligned)
- KBUILD_CFLAGS += $(call cc-option, -Wstringop-truncation)
-+KBUILD_CFLAGS += $(call cc-option, -Wunreachable-code-break)
- # The following turn off the warnings enabled by -Wextra
- KBUILD_CFLAGS += -Wno-missing-field-initializers
- KBUILD_CFLAGS += -Wno-sign-compare
-
-(and thank you Tom for pushing this forward)
-
-checkpatch can't find instances like:
-
-	case FOO:
-		if (foo)
-			return 1;
-		else
-			return 2;
-		break;
-
-As it doesn't track flow and relies on the number
-of tabs to be the same for any goto/return and break;
-
-checkpatch will warn on:
-
-	case FOO:
-		...
-		goto bar;
-		break;
-
+Acked-by: Dan Williams <dan.j.williams@intel.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/503af4a57ca6daeb3e42a9be136dcd21e6d6e23d.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAPcyv4jkSFxMXgMABX7sDbwmq8zJO%3DrLX2ww3Y9Tc0VAANY8xQ%40mail.gmail.com.
