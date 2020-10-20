@@ -1,149 +1,185 @@
-Return-Path: <clang-built-linux+bncBCKPFB7SXUERBQX7XP6AKGQE4OWXWJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBIUDXT6AKGQE5ENIVCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51041293F66
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Oct 2020 17:18:27 +0200 (CEST)
-Received: by mail-yb1-xb3b.google.com with SMTP id k9sf2361140ybf.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Oct 2020 08:18:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603207106; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FDD9293F88
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Oct 2020 17:26:28 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id bb2sf1576377plb.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Oct 2020 08:26:28 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1603207586; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BhI5AjAi5fegnkGEIoI8m+IegKa3bsStEc5eirWuynJ2M6KpP0uUwbmb1/hy6q1UtP
-         T2cjpo51od0pVQe7BWxiAjEYXDm7y7GaSEpp059L3s9hb9Kd0tur5UDgQYYCrSg+yBXA
-         VAMLXhzPNkxytuxghvrnH04lk9dfFxeK6yCfpKKaRY25g9NEgUeiWYb3EPGWiZaoUtBh
-         F1dlHBpFYJp445jpQ6rpBMsm/JdVYht3skvOMy7F+Pq++hIPJVSAMsi241vqfbsF7bL5
-         zW8duOYyzuTLKA+K6KgWytcvs8IrW0/9wkBEFpuT45Bqh9pqewFnoDKkUj3UX9IGl0gH
-         273A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=FP1l28Xl0WjpcEUCuLbd77UPPGNKJo5Sl3MLw+VAA+dTAbij3CD/O2eG8xvyhQLCpv
+         6Msb0GjW/83BuxLqHlfJE9P3ODIVgxwtzr9ccRMtrbD7jHaaLiP/A7BzGwCLIJOCq56R
+         AaJGUoEAUcevaxixTUg5BuQ8ilT9KlwxOt5YIPdZ8EC4YSsPmGr/j/8GYqyP7HoJhHkm
+         O1bpaos0alW7BIQH04mLFTGYHee2skw6aTRb69yNtuW2hPaFUXml/AoIeF8w3lcUciMa
+         J3nPbE1yLQxkC5Ovh8rp/VS2tmQtyhZ/2DlzmStrP9k6Z63xgJG8rSu57b7mBxq1yNW5
+         01Ag==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=dzABdWfqVPTKDn44FSgPA5rdkducQlqNqQd77M87N44=;
-        b=W07vzgZeQxpWUb609Noax7nKHuZhnA5+unU6n2uqeK0ugqheMnEltiUYK0Tw+FRb95
-         mf8mHejJckOLThp3RybBcWDMJOU0fICiFWWVNoRcmpaIqqtyxFOhi4qD9KzgPfMk2H64
-         fj7JC2KnsQYtLyMDHSd7LqA7CqwpZUErM2DJBVyaAIsloDG2M9yaGouAQr5/L72FKwcg
-         UiF54Lzcmar2SUraud7sSGMlwhm8O9MV7lUeh8ZJbpbb12CArozTumyyLt/ZiPaY5uto
-         UxkHSrKTaA7kbxhcMzpfT2CdpVsLCvrB6hIm2o79J5E38EkfaJgMyIa1D/vC02ACYTz2
-         1rjg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FfFnGZ3e;
-       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+         :list-id:mailing-list:precedence:mime-version
+         :content-transfer-encoding:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=qnCzvwyIvXe2+bIZqAACOWioR1uiDnxn/FhOap42rkA=;
+        b=Gbcd/PO+D7OVu89lgL/J37V3XthBchgW/lMv7krWl2t7AtxNapv9pwxtS0TCZHWG6d
+         XPMsFuoshp2RgLIeJ9N96YOgQGZM5ecn1H7iPq1P6ElXn8u4vfQOIc61ie4yLsrhLXs3
+         U3wWaczm8tT7Z6Fb1bTS1wuGA6hlJqGXMQ8MiEcRFl/H9gXgB77ru7ofGw6iLSqMVJ9x
+         arIo5tOzaHqOCT47MeY6Wx+LUP2++vzgp2EyB7Qj8DHNoKUBDhKhlLjnAhqNWDyltGHO
+         bPFJP+6gjCM/HQWXMVOJZA2w0YozfEUEp26zUQuoMFIZHjnkOMV+vemv34TcO0KcxjBH
+         PI6A==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@vmware.com header.s=selector2 header.b=khFnPQnJ;
+       arc=pass (i=1 spf=pass spfdomain=vmware.com dkim=pass dkdomain=vmware.com dmarc=pass fromdomain=vmware.com);
+       spf=pass (google.com: domain of gopakumarr@vmware.com designates 40.107.243.83 as permitted sender) smtp.mailfrom=gopakumarr@vmware.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vmware.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dzABdWfqVPTKDn44FSgPA5rdkducQlqNqQd77M87N44=;
-        b=H8VoVOOogLlNxmHFtqM8Mb6foaodYsK0TPX3MAWU2z+zlx9PneJI8iwzOlh87Tbj+H
-         UttpwnlyvOcrxVksxwy90hHHEo5fw+rb4ZMgAh1f4H3r+LS0FmmhH+a5Wj3KspOfD37N
-         hu51EtYLfTUZnwtzKEhYBe+wouP5tJeT+Y5CxULtwk6o7boYCwFdLjv/64AFlJAQTP3w
-         tTG9g3FAGGyhgr6a/sJLu1eZymajwVPo/IoDqU4lmdMy3TcSY+UNxZv+usnhx4XkL5m4
-         YzIGfdR6vwZsFOxE8cLx7wjIUOJHjmiYGDi72k+woMpvQfwh1NkSWt86vTIoeuWXrE9s
-         QIxA==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :content-transfer-encoding:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qnCzvwyIvXe2+bIZqAACOWioR1uiDnxn/FhOap42rkA=;
+        b=AdhLV94T08tMok3AMwB2PmlWq64mc6nWt7u/bF40Go8BfGAt6Ho8CgpIHc1P6gRgMM
+         i81LzjIItfxeWsMWu6szhU49kUtDqcqePFJDZdF6WrrGjYhFA5P2P4JuF3xpTeaH030G
+         /rX0pXUBQRGQjXwBZm5CgrzaEp/q2CAq0SEvVmDjxmDWcSqQi+nmaunDbK4YvbOnVxx0
+         mnifDgjko3WhFGQR7yQ9lkqSZhFB3ZlAH8K6ljEQP9hjiPL76Zcqvk19OwpL9d1d/mv3
+         lyg6TAUs9ehkOOqQbEcWBYjdLIqGjR7IntFarWXEPygdi+PO2pc45WHgjVll8UbAOPLf
+         qrrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dzABdWfqVPTKDn44FSgPA5rdkducQlqNqQd77M87N44=;
-        b=ljEnBCXfn2TwAYzNNDVso/Hw4fRBvi9bNaTF2m7yOjr4Fs8JaMsR0glA2zsvGPdZ11
-         X/S87EeMozw0B/fAdz2IAFYIxmTCO3Ucfg1fHyi6ct5YZX9XxdnVs22AK9HjAvkHdsG7
-         3gVF1MzQ4Hb68TekFhnvGHjvifGbSzbLDc3bku/DKdmUATPtbGAsv4MpHj4OGQFJlfRw
-         cLNKQbU0xsSw7ArsBtySn90PI4xFMXvNnPr6v5Als39vZ1fGiKLg+G5Mv22n5+aKdzLc
-         QiVJFnPRUBGrSoebCnnazJVNz1Rz0DTilCSTLOGRmCjY4piZYXGm4Md8J9WhKbT7gQNm
-         XWeg==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:content-transfer-encoding:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=qnCzvwyIvXe2+bIZqAACOWioR1uiDnxn/FhOap42rkA=;
+        b=evuPDPdqvCQbN+ZjYF/lhfwZwVw4qouuE8Rl3ZJexKThgCmkUS7HDxftHDfGfqdsy+
+         ZkkO6vHZiah/Hw/BnXmP2CDDJ4ietHNhQsIDRT4DEvdOZmh8/iSUb8O19x/wcW9qGwNY
+         2AbulYvhgrAw8rJtW2MxHRoeZ8mj0PoUBocRpaZ+JWcA2+4r3of9FTCnZ+6aQYvCYgd6
+         ndpCfX9cnLMaB6KTA92okNpxZanKGCokFWkO5+RNjG98MpB5qSwJWbDiqQAfvMivxNJg
+         FVU8yEMeuzC+wMTg6hXEoXMLdP6OgwxN0UDMeSlAPl62CIAJ+5dMP9QQLjDRDBcdlHIo
+         R2Rw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530JQxktxxtel/VZu8dK77QTRFEDPizqgBKAjZ4dijMXnTVFJd0I
-	abpeu+QAZc2/WzS6zZ/aUbM=
-X-Google-Smtp-Source: ABdhPJwyO2V8UghbPcycpYmDYqGX+Z2kUymnYgaNMYJTAil3aqF62hhoGMqmVhd6ytsWojxvkrp0dQ==
-X-Received: by 2002:a25:b8b:: with SMTP id 133mr4808411ybl.257.1603207106299;
-        Tue, 20 Oct 2020 08:18:26 -0700 (PDT)
+X-Gm-Message-State: AOAM533XwWimFFKq5sGRbFU7qlexvJTdB5Bv4fuYArM2rmjhS9Cvwz9W
+	hxum8kmhYQTYG6XjxUkty74=
+X-Google-Smtp-Source: ABdhPJw86MOiDsSszAgxlcqhyOI8zcqwVVRRn+xifapTAPKuvNUZQ88Byyj1zFDkrPmZpwE2gVxC4g==
+X-Received: by 2002:a62:aa10:0:b029:155:d56e:5196 with SMTP id e16-20020a62aa100000b0290155d56e5196mr3205791pff.44.1603207586410;
+        Tue, 20 Oct 2020 08:26:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:2c04:: with SMTP id s4ls1170979ybs.0.gmail; Tue, 20 Oct
- 2020 08:18:25 -0700 (PDT)
-X-Received: by 2002:a25:8e0f:: with SMTP id p15mr4946415ybl.129.1603207105764;
-        Tue, 20 Oct 2020 08:18:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603207105; cv=none;
+Received: by 2002:a63:6d4d:: with SMTP id i74ls885647pgc.5.gmail; Tue, 20 Oct
+ 2020 08:26:25 -0700 (PDT)
+X-Received: by 2002:a63:1f19:: with SMTP id f25mr3167468pgf.232.1603207585885;
+        Tue, 20 Oct 2020 08:26:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603207585; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fgAl7HRLLbOuvv1QewxFQc/nrvKdQtLhdosvuOjR9Ayx6jmUe2hK+gN9LHpBcaJzeQ
-         fq25tLdME0pjiymeR6+s94VLGizAuH5AWE3I8z424oiJCxt+WcyerbBlF3Omxn+dYSyx
-         h3yCyQdn0HLAFMHicxVnFkK/EoOAPu5dqWs4rLLmr9Dppx7UwWAxx9C+3VmSYA1fV0q7
-         S+FKJ1l4TY8IiFZBYTbOKbXdKK8RuA3PIyCCbYh1TK0wm03K20JFbGXxnKXgUyFINN+v
-         2RSvrLcSF0i64/12MZ07p8rtDqGwbAX37EEdqgxYY9ig+g8X85Yn0DKKPtD9NhzQSYbj
-         WDew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-transfer-encoding
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=+fq27Lrjh4A+WF1/QMsoiHGG+aBtxAgUfHzjn77I/58=;
-        b=BtVS/Je3Cqej9zsC4AWnxfqxUn/tZe/z7EaaLcfrsqagthjtAGaABz7cNbQFaALh5B
-         TySxgMay89e581Ep180Wf6rUpWxvm+9I+iHvs6JDgeuSZdX+RbGjfLyY5GNVc/BB1rXW
-         YXIYYtitQkfxN0CkOC1gcB6n4qCQ1cWuldM9dc9RNRm3+TUKOeSL4+6G7iaU9w2y+tKY
-         5yf53AimRJN8S8oTIRC54YwI42S0ZirKM1hRrNvE6sDicGuoiLnaFLjr3ijhG8i0qD8W
-         Ebw/ZZbi0ufYDxCZ5MUazUjXJCRdKFV667tV0uoSSooKI4mTCgEtWaW01ml9paJ3O0Rd
-         gvYQ==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FfFnGZ3e;
-       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id b16si158146vkn.5.2020.10.20.08.18.25
+        b=g75jBssC4mQOMFwmpEEFhu3u0wm2hQJYPjBE49DhMnSJTQhNUHI3e/Ev1jo1L6b8H+
+         NHiD2OtX2PkXXkp6Kp6zWiLXNOxn6x5GY7tISxgerwM/lf+wqdP0cKvniDuCoy2Yiqwq
+         NOxhQZ9QYFT7KKCK7UmkR98kuH7fEQ6aysJu8oofLi2ERPE2+Zn1t+/kLro9vP2FpGRc
+         iMXeEhvS7+7rmmLuFn0Z6t0+3ygkRXqM8NrnfIpmngPsLNC5G/AXsctZAs/cCBApx71+
+         DRFvkABDsSsJTE52Ha49b/ye39sVwsBhpJOZEHnqWMduCio53p7KvL6VgvEnbzYobTUu
+         QBkg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=7Z7es8hs12hOa/f3g7dEjuNDCHRy2shg3D4WTyvbp6w=;
+        b=Ay8MjijnzGjgSbT2n1lmoibfm9ERq7daezZw9necutHeniUrJ4kftgexV+GkyfSi9l
+         LPHtPTQdtZBhVg0n+DkhKSPbYh4sbvC/UWI4ZoauWBqfA10FNfhqu7Khvvf8EiVJF9JU
+         V44BNvgqGKER5ZLdH310Nq/2WZ3mPQzB3HKYSNwoVk2C9mm5Fcqkz4G+CotkZOfCcKF7
+         +EoCRTV/mcHkZl4zVE6WPBa99eQtZxMrsF3pmwfltrQTYrhO3CZs0fOe5c7sEYjdUR3G
+         Q9d3Ps1Xfq1cv8Q789cm9xUnqS7jBeDk+HbIOtAPZTKIFRWPl1IuIK0LJd+xrMz1Lzy9
+         LGyQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@vmware.com header.s=selector2 header.b=khFnPQnJ;
+       arc=pass (i=1 spf=pass spfdomain=vmware.com dkim=pass dkdomain=vmware.com dmarc=pass fromdomain=vmware.com);
+       spf=pass (google.com: domain of gopakumarr@vmware.com designates 40.107.243.83 as permitted sender) smtp.mailfrom=gopakumarr@vmware.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vmware.com
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (mail-dm6nam12on2083.outbound.protection.outlook.com. [40.107.243.83])
+        by gmr-mx.google.com with ESMTPS id x1si167787pgx.3.2020.10.20.08.26.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Oct 2020 08:18:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-563-5n0XqEwfO1i_tqMwy6QGFg-1; Tue, 20 Oct 2020 11:18:20 -0400
-X-MC-Unique: 5n0XqEwfO1i_tqMwy6QGFg-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E417F64145;
-	Tue, 20 Oct 2020 15:18:17 +0000 (UTC)
-Received: from localhost (ovpn-12-44.pek2.redhat.com [10.72.12.44])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BC9156EF45;
-	Tue, 20 Oct 2020 15:18:16 +0000 (UTC)
-Date: Tue, 20 Oct 2020 23:18:14 +0800
-From: "bhe@redhat.com" <bhe@redhat.com>
-To: Rahul Gopakumar <gopakumarr@vmware.com>
-Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"natechancellor@gmail.com" <natechancellor@gmail.com>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	Rajender M <manir@vmware.com>, Yiu Cho Lau <lauyiuch@vmware.com>,
-	Peter Jonasson <pjonasson@vmware.com>,
-	Venkatesh Rajaram <rajaramv@vmware.com>
+        Tue, 20 Oct 2020 08:26:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gopakumarr@vmware.com designates 40.107.243.83 as permitted sender) client-ip=40.107.243.83;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Z9WhZTZcVqs+6b5gLkHzXRCg/6bSF1fDSGHhTsTkM1vRvMpSbALJbMvJ3HuvDm5G92Z0Tp7z4BbJKp/OTSQC77o6DkafUZW3ATK/Q/icPEr0L1dx6y8sc69J8jgU9jnxxOOvoI7mLdwYixLCe6tko+eaiwnDNnSVEFFnTd3HwhD/72Mm55ulClPuRjoJtdPVHoPj4VfxfYq+GvQH8Iy7Lf2USN2k0dANOsdBdhad/dUiNmilXl0aTJK8xrVppXu/EHyFBBh6WcmNKS64Yakp83Ol/XRi7H/U4K+0glkw7uDhgwecAGla/GiQuXZQJX6/Mww7l6fxWoFXhkZTx0gJNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7Z7es8hs12hOa/f3g7dEjuNDCHRy2shg3D4WTyvbp6w=;
+ b=MWkl7sjkRcQDDuYgVDnwhCCmrywX06l5yD4ZlT0+fcnY6muAWQtw1Ltnu6QzucXrbWIlOhEeOXjXj5qcFRrv6+eFLDD0twlrkGMNLeFshi8hziqmYxvjAPFBTjtwynL2qygmzY/ChwqnyKEQAkXKIHkwANybPMMlVODR3rjb9AcFeDgqBmObUAhOWYhPXQAY/c47ERZBB9tSm7H4P1tZAAM2ypLTgiiRl1tPGXzNHxbO0+puEQ+UK8ZKD5CWMjRJ0JRv2vyOWQFVMn/f9FmSmVLcis7ZEM0+ODH6qdtQpmQe1P8/x/s0MJ5+4K8BIxAiwuqIQA+vxtxfmAgZyH676g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vmware.com; dmarc=pass action=none header.from=vmware.com;
+ dkim=pass header.d=vmware.com; arc=none
+Received: from DM6PR05MB5292.namprd05.prod.outlook.com (2603:10b6:5:5a::30) by
+ DM6PR05MB3994.namprd05.prod.outlook.com (2603:10b6:5:8c::27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3499.7; Tue, 20 Oct 2020 15:26:23 +0000
+Received: from DM6PR05MB5292.namprd05.prod.outlook.com
+ ([fe80::fc60:3dd5:354e:e146]) by DM6PR05MB5292.namprd05.prod.outlook.com
+ ([fe80::fc60:3dd5:354e:e146%7]) with mapi id 15.20.3499.015; Tue, 20 Oct 2020
+ 15:26:23 +0000
+From: Rahul Gopakumar <gopakumarr@vmware.com>
+To: "bhe@redhat.com" <bhe@redhat.com>
+CC: "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "natechancellor@gmail.com"
+	<natechancellor@gmail.com>, "ndesaulniers@google.com"
+	<ndesaulniers@google.com>, "clang-built-linux@googlegroups.com"
+	<clang-built-linux@googlegroups.com>, "rostedt@goodmis.org"
+	<rostedt@goodmis.org>, Rajender M <manir@vmware.com>, Yiu Cho Lau
+	<lauyiuch@vmware.com>, Peter Jonasson <pjonasson@vmware.com>, Venkatesh
+ Rajaram <rajaramv@vmware.com>
 Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
-Message-ID: <20201020151814.GU25604@MiWiFi-R3L-srv>
+Thread-Topic: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
+Thread-Index: AQHWnjk5ihPzOwsVE02I7/jG5KTBz6mQW+kAgAPEkzyAAWl/gIALAETTgAAhwwCAAAD7Tw==
+Date: Tue, 20 Oct 2020 15:26:23 +0000
+Message-ID: <DM6PR05MB529293AC2B077B5170FFE625A41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
 References: <DM6PR05MB52921FF90FA01CC337DD23A1A4080@DM6PR05MB5292.namprd05.prod.outlook.com>
  <20201010061124.GE25604@MiWiFi-R3L-srv>
  <DM6PR05MB529281F914953691E0F52D1CA4070@DM6PR05MB5292.namprd05.prod.outlook.com>
  <20201013131735.GL25604@MiWiFi-R3L-srv>
- <DM6PR05MB52926FDAB0E58F5CFA2E892DA41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
-MIME-Version: 1.0
+ <DM6PR05MB52926FDAB0E58F5CFA2E892DA41F0@DM6PR05MB5292.namprd05.prod.outlook.com>,<20201020151814.GU25604@MiWiFi-R3L-srv>
+In-Reply-To: <20201020151814.GU25604@MiWiFi-R3L-srv>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [103.224.33.65]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 4595ebfd-e8cf-40c2-ea34-08d8750c80f1
+x-ms-traffictypediagnostic: DM6PR05MB3994:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <DM6PR05MB3994578080DE2C62F57629CEA41F0@DM6PR05MB3994.namprd05.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:5797;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: pGaeU3UGbwXcMJpovoEhGJHOGeI/6FuAoNaVa6WtnCCq8aC6fPa7cc9D3BnhRqeRxw4IYtYjdsc7A36cy1y9wNxFf4/Umo8rfEggqr4nDXspEDaWcTCEt8hqokn08eMbUiQRn+a8jxtT0nomy6WaeEli114CfMsAPeyu3fj5tVGF8PU48pG/o91ThovjqfghqjPcs5hEW7mL5LXhewtxpl8I8bEzn54OGS/LI/kp3ZlJkNjD/7Dhi72tLAaZP1nG6lLor0pCD+iDyFc7oCjI7t/Ix7qK5pGOlEfJKA7jGaCd0/CemauFhEmmXoV+P6PxKUxZZD50L329FPUT6pZ/7Q==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR05MB5292.namprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(366004)(39860400002)(376002)(346002)(396003)(136003)(66446008)(316002)(55016002)(86362001)(478600001)(2906002)(66476007)(76116006)(53546011)(186003)(64756008)(8936002)(66556008)(33656002)(4326008)(66946007)(91956017)(6916009)(7696005)(54906003)(71200400001)(5660300002)(26005)(8676002)(83380400001)(6506007)(107886003)(9686003)(52536014);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata: c3Pa+rAEU/kYZ+SooBq7iWWdTnOlClFuAgglvc32JY6jhqCUZxixC/IX7AuMcGhBaYPpYU0pTc5HrM/WGFnsfGnGq+4kSqPE0yHfWlvpa+XcRILwqKN6hjc38ZLbtD1X6AGwJW0a59I7oYRPtxstkM1M6XTGVFWrshtNb8BfSoxXvjF6nIDXXse8v5JqqXJpXDP9IfzlNLV+NluKwctfSgRs7ty9YdYI0DkAo7ggzeGS+4HXGl4XRQFSZXk2oE7nj2iQGChI72HHc74CF6ELAmT98LaXrsZWs1+Ds02J132yczNs14N+PPyLnt/VJ+0xMsw6oG6P5zoh0jdNuLZAmHDywXw9yKl3Q/V/256m5w0Q9nlLqVjsrBnGqd0gUAW7Qz0sCZJNShi+P9gVImj/rW66M44Zvdvl4vVH3KE1qxf+fUYw0LND155n4/fAwkGpLWuohxegtSPiFUCc4FQ4RBQz+n08j8AuI+zi6SudMfREvhhvkilRmqr3+5rt+8c9P+UwLEfWC2Rbdh4jV7I6DzfbXzcVOiR8KZCQh2XC70NyGZOMkQDHxVhXXdoGb9L6RxAFxvQSg80c7Uy0B5WpPKFSEmWEjgsUuyxKGCCSzLzDGtYzOazJymq/EhL41NyokNQz9IMgU9KDzvDo6R3glQ==
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <DM6PR05MB52926FDAB0E58F5CFA2E892DA41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Original-Sender: bhe@redhat.com
+MIME-Version: 1.0
+X-OriginatorOrg: vmware.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR05MB5292.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4595ebfd-e8cf-40c2-ea34-08d8750c80f1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Oct 2020 15:26:23.4201
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b39138ca-3cee-4b4a-a4d6-cd83d9dd62f0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: yoNtWnC/rk9esnXY7nVDSPcI5dJiSjHX7LJ8HJ26/caaQzKDCLUdP0O+wLMT2LeUqGPs0TiexqRCVHQzt3Ry3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR05MB3994
+X-Original-Sender: gopakumarr@vmware.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=FfFnGZ3e;
-       spf=pass (google.com: domain of bhe@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@vmware.com header.s=selector2 header.b=khFnPQnJ;       arc=pass
+ (i=1 spf=pass spfdomain=vmware.com dkim=pass dkdomain=vmware.com dmarc=pass
+ fromdomain=vmware.com);       spf=pass (google.com: domain of
+ gopakumarr@vmware.com designates 40.107.243.83 as permitted sender)
+ smtp.mailfrom=gopakumarr@vmware.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=vmware.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,6 +192,25 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+>> Here, do you mean it even cost more time with the patch applied?
+
+Yes, we ran it multiple times and it looks like there is a=20
+very minor increase with the patch.
+
+
+From: bhe@redhat.com <bhe@redhat.com>
+Sent: 20 October 2020 8:48 PM
+To: Rahul Gopakumar <gopakumarr@vmware.com>
+Cc: linux-mm@kvack.org <linux-mm@kvack.org>; linux-kernel@vger.kernel.org <=
+linux-kernel@vger.kernel.org>; akpm@linux-foundation.org <akpm@linux-founda=
+tion.org>; natechancellor@gmail.com <natechancellor@gmail.com>; ndesaulnier=
+s@google.com <ndesaulniers@google.com>; clang-built-linux@googlegroups.com =
+<clang-built-linux@googlegroups.com>; rostedt@goodmis.org <rostedt@goodmis.=
+org>; Rajender M <manir@vmware.com>; Yiu Cho Lau <lauyiuch@vmware.com>; Pet=
+er Jonasson <pjonasson@vmware.com>; Venkatesh Rajaram <rajaramv@vmware.com>
+Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kern=
+el=20
+=C2=A0
 On 10/20/20 at 01:45pm, Rahul Gopakumar wrote:
 > Hi Baoquan,
 >=20
@@ -519,11 +574,11 @@ ne(size, nid, zone, start_pfn, range_end_pfn,
 
 
 
-
 --=20
 You received this message because you are subscribed to the Google Groups "=
 Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20201020151814.GU25604%40MiWiFi-R3L-srv.
+clang-built-linux/DM6PR05MB529293AC2B077B5170FFE625A41F0%40DM6PR05MB5292.na=
+mprd05.prod.outlook.com.
