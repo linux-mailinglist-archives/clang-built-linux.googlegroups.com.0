@@ -1,48 +1,48 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBTX4YH6AKGQEVCS3DMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBNFAYL6AKGQEHAQEAUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA4E329523C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Oct 2020 20:30:39 +0200 (CEST)
-Received: by mail-vk1-xa40.google.com with SMTP id j129sf888636vkb.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 21 Oct 2020 11:30:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603305038; cv=pass;
+Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 08976295315
+	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Oct 2020 21:47:02 +0200 (CEST)
+Received: by mail-yb1-xb37.google.com with SMTP id x125sf3374229yba.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 21 Oct 2020 12:47:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603309621; cv=pass;
         d=google.com; s=arc-20160816;
-        b=B9pwRjTbB4myLuTUkiil/qF5KS1Omn0HNDCPbwl2kx7RktdFFUfC/u3Hpc4/EVu0IF
-         9lniHxdHJADFsBsfrMEUMlrArOruSS/PC3TLbWPMgQMY3VVavdjB7mTN+WG7986EDd12
-         oG7OdAKS+wQDl0J3xZKtsuRj6dg3nbtjhngXraob05VpKXGuDBzs4YtyeNXF+WvQkgVY
-         TUJviQapu7HgXC7P7P1t6kMQY1FI3ql4PdWKeY5xblzlm5mgoD7foQ0BTU9i7weUZuv8
-         ZfWZK2fmutTOj1KeqeVUZZYxQoXOWYPaHJdBSQSA7BIpcm+nUXQQIBgRGpPyDtNy5ovl
-         K8Jg==
+        b=EtlGAHwRTPks/J1pBRSz4W/FasxXHz7eTTV+ibonkybJfhwDFI7qBgB9PGlqnRO/Pg
+         Io3Ee4YmCrRMSaAYhxi39FN8taJuY+elTN55JOkGJyIxqRlOsHPVndfh+WYIJuKTbZQA
+         YlqSvoUxMlv5ekachQteFajDgdz3E2uor1Sc3MvHDgo+TL7O7rc7JsxTHlihBywnqtz/
+         Km3oFDv+sGpP++3m+F2mwmmTyqlX92nS6JRunA0XfNqAGlUc/K0c2wXYY08m2KzcUc8z
+         nJcda/N5+z2cyQyyMRAo5n1mt+y6b1nb52MMtjZE2SLxeOdS0hVODf0072eqspVnNJD7
+         Vhpw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=00Fo8oVji2TCCTriw75t9HUUEEACxCgskcf9SFhZxrc=;
-        b=okiOTqWlCwJgjIly+oC0RO9AYmgBsDWeF5ilPCcf0vwd0PznMomdHYE7japzTnjH9n
-         8NHjVNzMQ5RHEkPzpVmUHrG+zk+hjYRrZkIKotfOLtHb1MOseKTBCIn2UWby37Vou9wg
-         /AIDZ+yjlo/VRWlRWBVqcDTMX+Oh76uEhRTQtiUCnCcxxqBprkhvJy6r0W8wDSzXZuCs
-         DBeHqx2YtLpJB84YuUUmAEiH7P5IsFr3YKiB9nzVEix6NrgmCRo8FCu+SOL/KqgJ5e8m
-         Ljsf9aA0jhrRhY2tbA6q4l+ZAcKJPT/THUM7aNyXodEEn1aIWKhbFGlnXbBsF/Hh5PUM
-         /e+w==
+        bh=4aMiVYprD+w5FHfNSSfGWpu4CO+cAWtrXgD9UIfUUOA=;
+        b=NL7XJX+ZegHAJYYTcAXVwfNtE1E0HDF0alfuYhmve47ylzJ3YLGDXnl4GBCQWnO2wo
+         AkcSaTopxqPB98efeHPmcNo9yMitziH9Y6VZYP1WbxnQzdEf+Fds43rZAE3AT+TFs/0i
+         1e5uQrE+jFbfYAeZq+lvwPw4fJ39bLDTtUqTSr7Sg9T4HAUMSTi/PJLSGAdp5BrUpI/Z
+         RRjpBH65N0fo6Vm+BUlnPQPWicTG5onOrHumINBf3YNjMnu+iXnEP9ltYP+mQxj5qfci
+         8ATxQy3fvvzpScwk+Vyf1bpr/MTFC8gE52XSHd1KtSFJUdqvlanBUnuU9pzmEWg6v4DS
+         SKQQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=XHIwdzkN;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=NvPfieXt;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=00Fo8oVji2TCCTriw75t9HUUEEACxCgskcf9SFhZxrc=;
-        b=WgYiyhcgi2FKP56HgmGSYBFhpwkB6uYBwzIYJvh9SDtm3CCYph8ojZmCKnNn2fPCf+
-         oVeJ4U5hfXvycdaQUKhC6cAdrttlA3DpLSuuSyd5bst3xkZ22ljxOnOzmffGCTlofPMj
-         6SgWDm4OihXJ35ZAeGOABEvFcrdBSI2LU9sccuMjzbjKSkKwijQ9ARh0g1hEiMEcoVtb
-         MbJ3wd8ueoKy3e2drrejFA9btYsAzzjVp2xoy5ZEWo77X4GYkbdpMpSxGdaSPOW3LPDF
-         yDJOSatAp0OdhcXlnbWuoJNLjK4QCJ0o5TWN8mSSppBjXeGNNx/FPDhUl9LfjxXZcFxJ
-         OGag==
+        bh=4aMiVYprD+w5FHfNSSfGWpu4CO+cAWtrXgD9UIfUUOA=;
+        b=iB9SQCr9s/tCCRqrL04PgZG98vb4ekB6HgLTfY7mdhV4nTCqhQ2L9IXFM3iH0TyByC
+         QYsl4FiEoxjrbS+K47/R0MO3RMxZl8kHhfX9GChmytoRjuS8+cjpKtyan3sP3xwVGuOL
+         iuhy8GHnJgsO1vwXHTXkHIaCi48J9fQC2rWIUC6YnQ3UbgRddmBOM9QzpKWJL25Hg9F6
+         kA2P1ap/zyhGi4EVGrXhQXd2TWjQHytDO0pO+Amue0dfHOjqOtB7B+DAkNV18lAg3sqQ
+         ja70N4DMewzdPSgtl9OyZL8W8SBIUBfrY82CkkuoYFsEcoV+Wml9ltgXAvFOP/G3GvG9
+         Hp6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,103 +50,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=00Fo8oVji2TCCTriw75t9HUUEEACxCgskcf9SFhZxrc=;
-        b=rzbdAi+4IAHOtQ99X50VibqMUfaWrHi6EJh1JyIRXRXH4u59BoloINwWzYO6hjAMa3
-         VWyrr3MDHSFKQFI6nh5IOXD4POz/FcWHtmHKqu5Qw+O5J6etOltEU0Kx26DlYt16MNAM
-         y6m6lEt/HIOb62597yB0585VZ7iXptFKNfPVBxVafKyhrPMMFVEfGjkTMbzybrVUc5rz
-         QuR0/1Oagb/5TGPOKzabVAkrXtWHkCtRZHQWfA4znNQc2ybg8E2Mhf2C1/lAtv+G5mfv
-         gCYwQP1u1Cjt3WmVvwdic3yU0DjfHiqIHWy8R7pedkQ0y2DT7c1ZlBP9I5qYzmIUO/c6
-         NxQQ==
+        bh=4aMiVYprD+w5FHfNSSfGWpu4CO+cAWtrXgD9UIfUUOA=;
+        b=PUt4vec8lBffHs754Pwa6ZlNkd1xdftC0zfcy0CW+uN5GABGkhsQ5sYY/RGLUmN7t4
+         JLZQKIUjgqMj/yMPyChzW8V6Il0lnNapwDRej+jiwzjkgUEw1UyBcJeGU8+yxwpbfabN
+         nsi5vLsX5anWVo7ByvBoDzj3bTyI0i/dVA18mGVOs6kcGz8hTuF8MX0yPha296wMvmjw
+         QOhb60G7OadV6jb5B9uR+vrsBxjM/M4NTFUG6Wd3QAkiklX369DhEEtVt0Lzco3g3+wO
+         5+DI1IVvnMAGn6ol2ut8QJowF2Mxj7TN9w9HNYFZ23AWxxqg2DP9RC42yAojhjlHleYm
+         75Iw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531IB5b1a+0iUZJ/cj8l0G5zKfW0n7Vv3w8/ZtGqgr6Okogsj7TQ
-	GPki45Q2AJw/72w7RF+dewg=
-X-Google-Smtp-Source: ABdhPJxpobpQ700X36Z69TOI+gOhK3TBPydzJWP2bw1oZUukOOAf1cGFHw1gWAJZkZGuigdepL8kIw==
-X-Received: by 2002:a67:f88f:: with SMTP id h15mr3608532vso.26.1603305038393;
-        Wed, 21 Oct 2020 11:30:38 -0700 (PDT)
+X-Gm-Message-State: AOAM5319U5JxIdZO4fxE6kPFQcPuI7zoaqp5+d0PMHRtyFDQ8H4bspmF
+	zJVlmCb/i+lCvIj4ZoLM2hw=
+X-Google-Smtp-Source: ABdhPJyj5uAMOUGMvBtnXlabtNj5TwPcxUkfunVIC0QsB8kKXav1hs+6BUCFYojce1W79nmPcFxprQ==
+X-Received: by 2002:a25:a1a9:: with SMTP id a38mr8534762ybi.330.1603309620841;
+        Wed, 21 Oct 2020 12:47:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:ff04:: with SMTP id v4ls110624vsp.0.gmail; Wed, 21 Oct
- 2020 11:30:32 -0700 (PDT)
-X-Received: by 2002:a67:7d0e:: with SMTP id y14mr3222111vsc.52.1603305032882;
-        Wed, 21 Oct 2020 11:30:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603305032; cv=none;
+Received: by 2002:a25:700b:: with SMTP id l11ls550586ybc.5.gmail; Wed, 21 Oct
+ 2020 12:47:00 -0700 (PDT)
+X-Received: by 2002:a25:2846:: with SMTP id o67mr8150233ybo.164.1603309620352;
+        Wed, 21 Oct 2020 12:47:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603309620; cv=none;
         d=google.com; s=arc-20160816;
-        b=MJ8mlvLrbiZLL3J1I3qoHi+Hk7qbn0zOFDKKScSaIkiRw3i/Fl+XN5TIHez5woi8PQ
-         jY3ePWixljG54333LIHdLi4De99At1P9yxxLmZQEwgAQeD1np9duvru+MECq10xJZH/8
-         +OwdF0wQxu25Z9RGCZ24pprpZ4KHJqgnwgAa6pzikVu5dcXYh/CRfL9l2plE8xVKr7pP
-         XnvOac1rGC5yyVO7rGuepA/rZ0OLgYfHGmucj16VVfWG0sAr+EOui66QArnOM2RmBlow
-         fWxIhISsUNm9eMtStn/8G4iMEjueg6VxvoaI6eJFJ0iRtJPoPfegXUN0J7GTWIWfJVYC
-         LqbQ==
+        b=0IeERHA24mVOnFenWFBQT5tBk2jW5ZEavP4zqG8GIfkT6l4444+88r8udvLihaYVCJ
+         RrnD2xcQGdsiFtbmmbfh9F3kb6TNE3L66njjnA5kxv7OW6HWS3TKCE9hURqIq5Mmrm0k
+         0zNFAGrzcnqdJs2iMkyKwfRJAWv/gX7X7s/mrx0W/aCR99bsbTJNGQsiBxFgAIUZjOXg
+         OnF3BT8nu961hvPkiYOHsQBjjjEWREKr8xBYiM9Y+mZi4NbeqWDu6z2YnRfS2qLp8CvM
+         hUaRfGGggMRpK4k5eE7KANCsPUd7nawZneYpmX/y573izJdxE5BYyAEe0yZzNAc/RN/c
+         s8AQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=SWk1HmGPS11z1lVFpxCdMWGo2d19IWvUVpCVt8eeJUo=;
-        b=hVfg5TtRpFow8Zhmef0JZwchExJjMciJ//w3Lmn7wlVw0oQtPkp4QQ/PCR/bQWFc8K
-         BLf4ByHQYtnR6DXFwGRtGAAMBrB7a2mDjHCvMHf+57AaxBzGRotruKK+XLm+VB5zzSPh
-         /VMijqC9dSMTxYJvCFMssKppgvX+rLEVclkHeeGzZqTnaOYusyInI/NAxNuNpsFk2Lt0
-         73qR+U1HNSh9qKnixEBtFVj/djVowUnk7NpZZ1ph7C5/rwg6KDHb1LMJ3zM3YmX3NxXG
-         906Q+sHrrhhaMdleViFsB1HUgp5MCHUiYjCIWXBQkFGxdoJvwfKe/ZUNpT5uECDDw2Nh
-         7BXA==
+        bh=d/NkYNlV7YyPAwyamSxhvGsJXxfXBxApaHqL2+qSD24=;
+        b=hdC9yIrT5NWI5UHUJHabv5xlyVSfONgVXY7s16XrfoNyjcToVTJpruFj3TFbXLiTOk
+         ueM42JGuy/chuE3CdcmBsi4xF5JaGPzcOIsS87GRdOBsh5lOskDMlqFaVAuwDBdGeoiu
+         1pPuhKVy+KiWOzERCCcAQjiBYPCu3YzPNz95zC5BJ9GF0sij279E+/+4no2rnj1Ofy6V
+         cjjf5WpKI5sw/NYHPlCVxR/u8gDS0syV545QGgGfBPUJ9EB8InKN/7SCINEHIBI+B2qc
+         MdiaTMzgrRcXws7Zn9rB+9UGOnQLdG7U42X5UF0WhXjkdwkI+xnGiC5n77MAOwENfAu0
+         9RLA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=XHIwdzkN;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id v3si118415vkb.2.2020.10.21.11.30.32
+       dkim=pass header.i=@chromium.org header.s=google header.b=NvPfieXt;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id r8si221400ybl.1.2020.10.21.12.47.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 21 Oct 2020 11:30:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-267-ts4ydIjKNra8FmPa6CjVIA-1; Wed, 21 Oct 2020 14:30:26 -0400
-X-MC-Unique: ts4ydIjKNra8FmPa6CjVIA-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 51CD0101962B;
-	Wed, 21 Oct 2020 18:30:24 +0000 (UTC)
-Received: from treble (ovpn-117-195.rdu2.redhat.com [10.10.117.195])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 912706EF42;
-	Wed, 21 Oct 2020 18:30:14 +0000 (UTC)
-Date: Wed, 21 Oct 2020 13:30:09 -0500
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>, Jann Horn <jannh@google.com>,
-	the arch/x86 maintainers <x86@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Oct 2020 12:47:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id t18so1775235plo.1
+        for <clang-built-linux@googlegroups.com>; Wed, 21 Oct 2020 12:47:00 -0700 (PDT)
+X-Received: by 2002:a17:902:b18f:b029:d5:e3d3:9b87 with SMTP id s15-20020a170902b18fb02900d5e3d39b87mr5472545plr.78.1603309619481;
+        Wed, 21 Oct 2020 12:46:59 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id s77sm3029324pfc.164.2020.10.21.12.46.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Oct 2020 12:46:58 -0700 (PDT)
+Date: Wed, 21 Oct 2020 12:46:57 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Kernel Hardening <kernel-hardening@lists.openwall.com>,
-	linux-arch <linux-arch@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-kbuild <linux-kbuild@vger.kernel.org>,
-	kernel list <linux-kernel@vger.kernel.org>,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v6 22/25] x86/asm: annotate indirect jumps
-Message-ID: <20201021183009.qbvhz7hsrm46vksn@treble>
-References: <20201013003203.4168817-1-samitolvanen@google.com>
- <20201013003203.4168817-23-samitolvanen@google.com>
- <CAG48ez2baAvKDA0wfYLKy-KnM_1CdOwjU873VJGDM=CErjsv_A@mail.gmail.com>
- <20201015102216.GB2611@hirez.programming.kicks-ass.net>
- <20201015203942.f3kwcohcwwa6lagd@treble>
- <CABCJKufDLmBCwmgGnfLcBw_B_4U8VY-R-dSNNp86TFfuMobPMw@mail.gmail.com>
- <20201020185217.ilg6w5l7ujau2246@treble>
- <20201021095133.GA2628@hirez.programming.kicks-ass.net>
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
+Message-ID: <202010211239.2A67F44BB@keescook>
+References: <20201014212631.207844-1-nivedita@alum.mit.edu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20201021095133.GA2628@hirez.programming.kicks-ass.net>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Original-Sender: jpoimboe@redhat.com
+In-Reply-To: <20201014212631.207844-1-nivedita@alum.mit.edu>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=XHIwdzkN;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@chromium.org header.s=google header.b=NvPfieXt;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::644
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,42 +137,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Oct 21, 2020 at 11:51:33AM +0200, Peter Zijlstra wrote:
-> On Tue, Oct 20, 2020 at 01:52:17PM -0500, Josh Poimboeuf wrote:
-> > > arch/x86/lib/retpoline.S:
-> > > __x86_retpoline_rdi()+0x10: return with modified stack frame
-> > > __x86_retpoline_rdi()+0x0: stack state mismatch: cfa1=7+32 cfa2=7+8
-> > > __x86_retpoline_rdi()+0x0: stack state mismatch: cfa1=7+32 cfa2=-1+0
-> > 
-> > Is this with upstream?  I thought we fixed that with
-> > UNWIND_HINT_RET_OFFSET.
+On Wed, Oct 14, 2020 at 05:26:31PM -0400, Arvind Sankar wrote:
+> Commit
+>   815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
 > 
-> I can't reproduce this one either; but I do get different warnings:
+> neglected to copy barrier_data() from compiler-gcc.h into
+> compiler-clang.h. The definition in compiler-gcc.h was really to work
+> around clang's more aggressive optimization, so this broke
+> barrier_data() on clang, and consequently memzero_explicit() as well.
 > 
-> gcc (Debian 10.2.0-13) 10.2.0, x86_64-defconfig:
+> For example, this results in at least the memzero_explicit() call in
+> lib/crypto/sha256.c:sha256_transform() being optimized away by clang.
 > 
-> defconfig-build/vmlinux.o: warning: objtool: __x86_indirect_thunk_rax() falls through to next function __x86_retpoline_rax()
-> defconfig-build/vmlinux.o: warning: objtool:   .altinstr_replacement+0x1063: (branch)
-> defconfig-build/vmlinux.o: warning: objtool:   __x86_indirect_thunk_rax()+0x0: (alt)
-> defconfig-build/vmlinux.o: warning: objtool:   __x86_indirect_thunk_rax()+0x0: <=== (sym)
+> Fix this by moving the definition of barrier_data() into compiler.h.
 > 
-> (for every single register, not just rax)
+> Also move the gcc/clang definition of barrier() into compiler.h,
+> __memory_barrier() is icc-specific (and barrier() is already defined
+> using it in compiler-intel.h) and doesn't belong in compiler.h.
 > 
-> Which is daft as well, because the retpoline.o run is clean. It also
-> doesn't make sense because __x86_retpoline_rax isn't in fact STT_FUNC,
-> so WTH ?!
+> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
+> Fixes: 815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
 
-It is STT_FUNC:
+Yeowch.
 
-  SYM_FUNC_START_NOALIGN(__x86_retpoline_\reg)
+Cc: stable@vger.kernel.org
+Reviewed-by: Kees Cook <keescook@chromium.org>
 
-  $ readelf -s vmlinux.o |grep __x86_retpoline_rax
-  129749: 0000000000000005    17 FUNC    GLOBAL DEFAULT   39 __x86_retpoline_rax
+Nick just mentioned this to me; I hadn't had a chance to read it yet. This
+needs to go to Linus ASAP; memzero_explicit() under Clang in v4.19 and
+later isn't so explicit. :(
+
+Andrew, Linus, can one of you pick this up please?
+
+As Nick mentioned, sorting out the specifics of the comments[1] can
+come later.
+
+[1] https://lore.kernel.org/lkml/CAKwvOdkLvxeYeBh7Kx0gw7JPktPH8A4DomJTidUqA0jRQTR0FA@mail.gmail.com/
+
+> ---
+>  include/linux/compiler-clang.h |  6 ------
+>  include/linux/compiler-gcc.h   | 19 -------------------
+>  include/linux/compiler.h       | 18 ++++++++++++++++--
+>  3 files changed, 16 insertions(+), 27 deletions(-)
+> 
+> diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+> index cee0c728d39a..04c0a5a717f7 100644
+> --- a/include/linux/compiler-clang.h
+> +++ b/include/linux/compiler-clang.h
+> @@ -52,12 +52,6 @@
+>  #define COMPILER_HAS_GENERIC_BUILTIN_OVERFLOW 1
+>  #endif
+>  
+> -/* The following are for compatibility with GCC, from compiler-gcc.h,
+> - * and may be redefined here because they should not be shared with other
+> - * compilers, like ICC.
+> - */
+> -#define barrier() __asm__ __volatile__("" : : : "memory")
+> -
+>  #if __has_feature(shadow_call_stack)
+>  # define __noscs	__attribute__((__no_sanitize__("shadow-call-stack")))
+>  #endif
+> diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
+> index 7a3769040d7d..fda30ffb037b 100644
+> --- a/include/linux/compiler-gcc.h
+> +++ b/include/linux/compiler-gcc.h
+> @@ -15,25 +15,6 @@
+>  # error Sorry, your compiler is too old - please upgrade it.
+>  #endif
+>  
+> -/* Optimization barrier */
+> -
+> -/* The "volatile" is due to gcc bugs */
+> -#define barrier() __asm__ __volatile__("": : :"memory")
+> -/*
+> - * This version is i.e. to prevent dead stores elimination on @ptr
+> - * where gcc and llvm may behave differently when otherwise using
+> - * normal barrier(): while gcc behavior gets along with a normal
+> - * barrier(), llvm needs an explicit input variable to be assumed
+> - * clobbered. The issue is as follows: while the inline asm might
+> - * access any memory it wants, the compiler could have fit all of
+> - * @ptr into memory registers instead, and since @ptr never escaped
+> - * from that, it proved that the inline asm wasn't touching any of
+> - * it. This version works well with both compilers, i.e. we're telling
+> - * the compiler that the inline asm absolutely may see the contents
+> - * of @ptr. See also: https://llvm.org/bugs/show_bug.cgi?id=15495
+> - */
+> -#define barrier_data(ptr) __asm__ __volatile__("": :"r"(ptr) :"memory")
+> -
+>  /*
+>   * This macro obfuscates arithmetic on a variable address so that gcc
+>   * shouldn't recognize the original var, and make assumptions about it.
+> diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+> index 92ef163a7479..dfba70b2644f 100644
+> --- a/include/linux/compiler.h
+> +++ b/include/linux/compiler.h
+> @@ -80,11 +80,25 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
+>  
+>  /* Optimization barrier */
+>  #ifndef barrier
+> -# define barrier() __memory_barrier()
+> +/* The "volatile" is due to gcc bugs */
+> +# define barrier() __asm__ __volatile__("": : :"memory")
+>  #endif
+>  
+>  #ifndef barrier_data
+> -# define barrier_data(ptr) barrier()
+> +/*
+> + * This version is i.e. to prevent dead stores elimination on @ptr
+> + * where gcc and llvm may behave differently when otherwise using
+> + * normal barrier(): while gcc behavior gets along with a normal
+> + * barrier(), llvm needs an explicit input variable to be assumed
+> + * clobbered. The issue is as follows: while the inline asm might
+> + * access any memory it wants, the compiler could have fit all of
+> + * @ptr into memory registers instead, and since @ptr never escaped
+> + * from that, it proved that the inline asm wasn't touching any of
+> + * it. This version works well with both compilers, i.e. we're telling
+> + * the compiler that the inline asm absolutely may see the contents
+> + * of @ptr. See also: https://llvm.org/bugs/show_bug.cgi?id=15495
+> + */
+> +# define barrier_data(ptr) __asm__ __volatile__("": :"r"(ptr) :"memory")
+>  #endif
+>  
+>  /* workaround for GCC PR82365 if needed */
+> -- 
+> 2.26.2
+> 
 
 -- 
-Josh
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201021183009.qbvhz7hsrm46vksn%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010211239.2A67F44BB%40keescook.
