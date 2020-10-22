@@ -1,152 +1,136 @@
-Return-Path: <clang-built-linux+bncBCN5HJ6RQMJBBCMXYP6AKGQEQZHCJ3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRB4FBYP6AKGQEXPRESGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0709E295560
-	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Oct 2020 02:00:10 +0200 (CEST)
-Received: by mail-lj1-x23d.google.com with SMTP id r27sf278656ljd.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 21 Oct 2020 17:00:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603324809; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E2D66295571
+	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Oct 2020 02:23:12 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id r19sf2382457ljj.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 21 Oct 2020 17:23:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603326192; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qz+NaFd/vzRvFEePiicgdK8+v3w/d8TCm1RpjA+XKQz9HUir1kc7u0xCmTU3SV2JBF
-         0n0bstJv2GKFlDC9su/ffUXbnnZi39WJ4n3mK7yQ2brtkDAT+y7VcIbw9NQHmiNlh6Aq
-         i/MSLl+qcCzTjKYz3CqP7kOAbP8I+qjQ9kM+KgSt9LGTSBQZhnp0/8W0AmTyBBnRgaE7
-         zyfybU2Ccc9ij1wntsvJwqiYOBVln6mvPR/Ndr/W0ys5W/zrfs/wY4QZp8qbEhnNAhGR
-         t5uoNw9GFaJoZdMSBkDHDj6R5mxGCnliD+vhj4m166ByS2x9682rOJbFzCWJkoskU1C/
-         2GAA==
+        b=oH7rmF9qsWWPk6CBUYwIEGVAdpJgAQ0ZOpxRR6KUb1mYtcGwqt4qJnpH9zG5pbKWvs
+         ZrnGQ2F5f1hUA3SqfFxrR/ydASUiHBy+U5EuZnMixzi5+sycVG+c7T+6yyszDnQ6GtFz
+         tGyPBrijKpq9EdXC4GKVZUYPJFWYPGGEYjBE7RWX8UtjhOQs8wUTIGemjbCmLRd41iZV
+         f1UeB8QZ1k9nD6aVBa5XR0PiwYDyh/Sh5id9n09zhG1vyC0cEdXniE1iZYn/6b8hLO5u
+         IEGjBZthQtkD+IgKekXxjami7ocYZS7yrOqa+nyVYgoSloQ9DngBCzTIPXz0CWC61QGv
+         UwqA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature
-         :dkim-signature;
-        bh=S23DSxkuyoRYG3ID+aypP9QI4mW7rXZo4yU3gNHl3gE=;
-        b=EqAt7QabWcmxOO9TUlQ0/qV+lMzZ2qa6hDaHOhVh5sizD/b6moX/QaZj009eqLwrIG
-         OAay2q744cmqC76dynZ/QZbWBE5arRNKGh7nwEsAlJemRBFcUzJwyEc49RX8c1Z1oKD6
-         Y1A5CB7ZNiO7d8knTfFz22Ur36EMR8esBf7yIlwwd0pNBerjLn34oCHlVvE5wo0Okppx
-         lvRwIRUUxjoXqahRBXreBm6ICW6MhfGd9roioLbMiXafdo/PAl3EUqTIDVPdkrVhGuVO
-         j9hIoiuhxCIfV/EVG6tZFCyfLrvjiKZnD82X5I+t2LxiOQwXFfdLXjRhuxlW3b7JUbA2
-         A1tA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=LWuWGCdO8zGKsoeLbyNIxgbWg4l0CygFtMvN7ny9O1w=;
+        b=WL6JqOEFdbB6H+jrz1JBVIijGgZ2q144MvAss9nXlya9rtaOp+Lz9kZY3/70myS/QB
+         e3LEYmYbkbSZh6v29rzX7IYSsdSiP0lXB9U6dSEswBGnrnkkuydMKAmkRxAZ1n6fEiJd
+         UPOGkk+XjBTtD0jix2m7bDOjME4BJDO60HBIX40ar+LHE7XQVci7VNpMMqKBS3JPQ9x4
+         MpjAsgUHoMoqQ5mEsNzXSFvPm7DYPYWKiZXtZEiiTUhjTbLx8/gWm2KuKwFea6kiQRDb
+         ePWsNCqfGMrNE3SaTsEf/xMgo6pEMRX3f3+LF6fQJ3xNr3eZx3D+vrzVLJLhjoXdAWBw
+         ZjOg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="lT/X0ZYC";
-       spf=pass (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=digetx@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CNB4qwF8;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::641 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S23DSxkuyoRYG3ID+aypP9QI4mW7rXZo4yU3gNHl3gE=;
-        b=qlvgI+f30n2tz6g7u2aH/ym9mV/b7PHGEqV0InxpLxR7WSGAFa1/z3okrSbd6fVgcx
-         Wsn7/u0P2Qf6lXyIDURAFMqXRSlUmoLseO5z1Vi5CbijccH61Xj5+GdnMi/TLleDBR2v
-         deDbUgwGYWXqZPtvtd8J7u0R+SzDWGEOHY+yFaaGWuFWuF+PWxeYFOUSK3ETvmwiJuD7
-         j5qDMdnRzsAvj35xRU4X724Yoit8SJKi9JnhPKSBKDFzaWOVlSjp/kQYinQeHV5D579A
-         809mKyAWfK4M35piGhiwhBhGdQRyRxfANwBFLJ3Clt6UuGmX99Sq77+vhxCXtNS4yb//
-         rGzw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=S23DSxkuyoRYG3ID+aypP9QI4mW7rXZo4yU3gNHl3gE=;
-        b=bnyQf+sYJyvoDd1seHssnbrDfLVkyD0WtUZv6WK0Wd4HGd7UhLD09MziziUJj9ePV7
-         b71dvZLZomNeKrr0vizpfePbNWFmhV50agK5E1Iq4EUdSlT4fRGdgPI5rY4BdHRp1be3
-         H65Fmz2nAGCd/vMSIuou3U53++QSVQ+jT/YtetQfKj4pN9RYL4Po+24rQXA5FJqqUx0g
-         JGagIkSTm4nzOYCMc91toERiU+wgMGC8rg66SFFRo4cM+LW2wwZFILhTuAOI5D2hHSIy
-         AJLd2ER/DWmzUSD9IYJCT78/T9Fripu9BydS7IvtdXO7leP6X9A0I7Ybkhnu6x413OGI
-         La8w==
+        bh=LWuWGCdO8zGKsoeLbyNIxgbWg4l0CygFtMvN7ny9O1w=;
+        b=MXm9YktYKDYCoHGn9ORAL5gtcw5ymAFOFpRWU5yiTF4VfWvisCFmiqPG8sOoYNiS9U
+         peMphEdOmwtmK9RVLjEcSSBuO8P03B5SjBmT7QMPUdsUoIhIc7skS86xy3/OCZgg4YuU
+         gAp5O5MKYEldjs6VSDQHN3muEq6w6OvckW7fjaJTtCFS8nP7smZes1wc4KcDe67FJ+bZ
+         gGfNV+T560DuQ4lQYqez14lSguBWpjbm/3D1iERqfLAbUVFq4SzsPYsCqzLT9v8Mu4/a
+         22dOZqwf1M3n81pCNl3r/JV2C0lMQbdmw8iYPrDpvBcilXIOdiAViJEeA9Y0b2EgfP67
+         mSdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S23DSxkuyoRYG3ID+aypP9QI4mW7rXZo4yU3gNHl3gE=;
-        b=uUYTTRvab0D05HdNuTYmYKailLr+WnwSuxMpsZk/Dh7uTiEmjFoHHhrhIPWvtBJnho
-         cgoW5c0+ZUD9SENXGjxbz3xLPlimB8zjeWulVbltJEwPnHY7yKswCORC7p04cZ5wrtZS
-         u5jkUtUrTVvgRX9+HY9JXBndJxEkUhpXQuPJiFx35pvS5J3DPY+WdJ4zU/+7YQejGCO9
-         unY3MxkrNrspNbT5BmkqXq9jAHfuGObDfKY++3kPTi5ffoAGY1fXYcvL/Os+rXGo06zI
-         utIF+JVP1tenlAi0AAv25xvwHyBO3CaIP/PLNlwrCANJxVnuA+WFTyb/UWlL5vdTlmUj
-         BECQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533BtDFq+I2rEv4JfACEyfhqf/sqLkE9UJLSoRxdpYFOYTl0wd8v
-	8WcBTC4Tia3OYaFwWjBr8wQ=
-X-Google-Smtp-Source: ABdhPJzImdDpXeTt4BcLCVIf3t8jZP7sw5XbhlLAOzZL9Qlhto7wErBLIvL2lV8ixmOUl3knElA9Vw==
-X-Received: by 2002:a19:8654:: with SMTP id i81mr2288070lfd.250.1603324809541;
-        Wed, 21 Oct 2020 17:00:09 -0700 (PDT)
+        bh=LWuWGCdO8zGKsoeLbyNIxgbWg4l0CygFtMvN7ny9O1w=;
+        b=gRAhfIU4X5fd5B9cICs/Zy4pSIqYFWhFeoS/Rle8xgv1cNYkb02hB8SNPkfiMrs/9z
+         VTVy4hlSjq4t2a6b/zINmC8y+WaMtZXPdqpgP8ec4whTMDyoOpXfkYrWuKcSmmWOv3zW
+         Hlqz0c1euW7bgUKXlVx0yt8yAdQ1/dcljHo0I2Ol+eyDEjWEajMdBrBgK4wZX03IkyJK
+         +6n3WC2glhJbzBHOzuBpqfSIVi+LlYyQaiLNH+lG6gj6WmermQGoIWBr5b6zUY0YNHwP
+         E47vBniPhlsHJwI8h/ou+jFdUsJ4S5H3EXXjcz9ZwWVvN6IDYzqJXDFNLf2sM5Ngkz8k
+         Ch5w==
+X-Gm-Message-State: AOAM530D0BsKXHvjkq3M7FXVE/ynBkG5zqdjHHAcHT3kPXXIMZwakJFr
+	IEag42ROT7Elg4hkmvUM/SI=
+X-Google-Smtp-Source: ABdhPJwdWKw/lKSlwAsW4NnzT2pp+KOtt/pyhlVykI2mQIQb/6dFeM1Ew7mASmYMesUmbY4OE0+aog==
+X-Received: by 2002:a19:b4c:: with SMTP id 73mr2202989lfl.469.1603326192402;
+        Wed, 21 Oct 2020 17:23:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5e61:: with SMTP id a1ls14673lfr.2.gmail; Wed, 21 Oct
- 2020 17:00:08 -0700 (PDT)
-X-Received: by 2002:a19:68c:: with SMTP id 134mr2241192lfg.188.1603324808539;
-        Wed, 21 Oct 2020 17:00:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603324808; cv=none;
+Received: by 2002:a2e:890b:: with SMTP id d11ls3247lji.6.gmail; Wed, 21 Oct
+ 2020 17:23:11 -0700 (PDT)
+X-Received: by 2002:a2e:a498:: with SMTP id h24mr21978lji.209.1603326191220;
+        Wed, 21 Oct 2020 17:23:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603326191; cv=none;
         d=google.com; s=arc-20160816;
-        b=OPoGOdof0DuqAbAL0drA6iWM0utDtEsm3bBH/mI/3FJ2yiBnmeRR/er8v1LDUJr4N1
-         25mluiKESPkFotr3/Bu9dH7yAY0X9HsT65G/9eMgSBV3sqNKzgvMHrYauNGYdnZEwg0d
-         dWF8CdkjpbE5KLZTepirIdI9nDtymEosiCanwHMlC6ZUhoeh4dQv5PImsZE3m3iSI/g6
-         z5fyT4hyy2tsnyJ+4p4sS9g+lGPMMzlMiV6AXJ2g8kmNl6d3Pg1WPsl6F+MpvQwL3XSe
-         vJYhOVZJi1gpJo70KixShjOArFUhM/TJIWqstJQRXHiD2cAyGSYhdcT33MCKMnYg95zY
-         ZZUg==
+        b=DA5eruoQdhtNW5RpF6X42bmB/jbQXWgew0gbrw/qYPW31wn4nu6HW86QNLgxM+c7Ll
+         QulNSdIEiu9DplATIGyFRyD79jwQdbTBUANNDqD5ckBDEggW7MsW31ekeys/Nkj6KlE0
+         87CW0pVexmTevLP/21HQwKOZB8C8s4szJ3m+nL9hX2Iom7K0Y1CIyWQaJaOQZWuWeetE
+         yC5kE6vDApSZnxfyvi+A2Vnuf+7I0pg9onZ8L1fZEBwEO+1dX10LvePkvPtTWjTae9YS
+         Pend5IOHDstOEFiXyMjfUFlguSrGtwqxTu+WPUzT4fjGvrZ3HP5ckwAO2cROUvgpYnDE
+         WCSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=VIh3TuwJJ9Jaaqf99SgJSQYuun5wyPpxsSyTdnHSMRY=;
-        b=jPLnChYo47Czd9ECq3FWyAy6kSMgIuVsPjVWc+mnD/+vV9dIG58yafSwPG36GunxC1
-         yvxUaNEt560YAVidEORPOvVac9POK16zcXEPlFQpVJrO+sjS2Z543lCGRpHNdVfUM2F2
-         4JGLFFFxoVvlqqXzGze0XmfPuJC3fp4KSzH9SRxU+CZo7Y3YzM+vVqdnYT2iAkMci/Hw
-         aRG2dQXG4p7G0x/Hl7+jyjaOGK3h8vuFvP0IF2IlPAYAg5T54qdoS3F00ZCxsKnpPRUH
-         5gRp6q1NRrK7U4y8Mf3n3VUNRw+qwJAjMy+YqSnx0Aw6qUZLRzDrtzxDtxytBrOLAygD
-         cCug==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=p8Hwn4AXDi9NRjlCE0oMq1jAIKpEQWx4gCW/kuHDlnE=;
+        b=zKrdq0Fjic+O2fhWP4fYmITHn05xom2ZN2f5x72M04qMolQ8yaU2SeXAQ3S0lhnCt/
+         CPL+LyrkDfLiTHgF73eUiDoy+MTsqS/0TdvD7zkD0LAk0kN2t7TGpQXHOFQ/sDh+2MYc
+         DZYw8Z8aySmiAIWCzPDpHrdn4IWINOs2bPVK3o/eVaqkEFdPIJarNhYk5L4au1AC2JqI
+         Uwx6Su5gzgdOZWb8sd35zVuUXPbRHfsXKmSECv/sXOWo6pErgj7YDuI3itCOFn+CrAkq
+         Uv8gP/qm7o5p4+4mXLOIYrwWIrd44x3NW8kMpCRR5TrQ1zH3+Fui5O9NLF5l2vlQDSU4
+         GSPg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="lT/X0ZYC";
-       spf=pass (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=digetx@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x142.google.com (mail-lf1-x142.google.com. [2a00:1450:4864:20::142])
-        by gmr-mx.google.com with ESMTPS id p1si518ljc.0.2020.10.21.17.00.08
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CNB4qwF8;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::641 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ej1-x641.google.com (mail-ej1-x641.google.com. [2a00:1450:4864:20::641])
+        by gmr-mx.google.com with ESMTPS id t9si62730lfe.13.2020.10.21.17.23.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Oct 2020 17:00:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::142 as permitted sender) client-ip=2a00:1450:4864:20::142;
-Received: by mail-lf1-x142.google.com with SMTP id 77so5384796lfl.2
-        for <clang-built-linux@googlegroups.com>; Wed, 21 Oct 2020 17:00:08 -0700 (PDT)
-X-Received: by 2002:a19:60f:: with SMTP id 15mr2104046lfg.163.1603324808081;
-        Wed, 21 Oct 2020 17:00:08 -0700 (PDT)
-Received: from [192.168.2.145] (109-252-193-186.dynamic.spd-mgts.ru. [109.252.193.186])
-        by smtp.googlemail.com with ESMTPSA id b12sm633663lfo.177.2020.10.21.17.00.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Oct 2020 17:00:07 -0700 (PDT)
-Subject: Re: [PATCH v1] ARM: vfp: Use long jump to fix THUMB2 kernel
- compilation error
-To: Kees Cook <keescook@chromium.org>
-Cc: Russell King <linux@armlinux.org.uk>,
- Nick Desaulniers <ndesaulniers@google.com>, Ingo Molnar <mingo@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20201021225737.739-1-digetx@gmail.com>
- <202010211637.7CFD8435@keescook>
-From: Dmitry Osipenko <digetx@gmail.com>
-Message-ID: <773fbdb0-5fc4-ab39-e72d-89845faa4c6d@gmail.com>
-Date: Thu, 22 Oct 2020 03:00:06 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+        Wed, 21 Oct 2020 17:23:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::641 as permitted sender) client-ip=2a00:1450:4864:20::641;
+Received: by mail-ej1-x641.google.com with SMTP id c15so4702936ejs.0
+        for <clang-built-linux@googlegroups.com>; Wed, 21 Oct 2020 17:23:11 -0700 (PDT)
+X-Received: by 2002:a17:906:490d:: with SMTP id b13mr5925764ejq.122.1603326190426;
+ Wed, 21 Oct 2020 17:23:10 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <202010211637.7CFD8435@keescook>
+References: <20201013003203.4168817-1-samitolvanen@google.com>
+ <20201013003203.4168817-23-samitolvanen@google.com> <CAG48ez2baAvKDA0wfYLKy-KnM_1CdOwjU873VJGDM=CErjsv_A@mail.gmail.com>
+ <20201015102216.GB2611@hirez.programming.kicks-ass.net> <20201015203942.f3kwcohcwwa6lagd@treble>
+ <CABCJKufDLmBCwmgGnfLcBw_B_4U8VY-R-dSNNp86TFfuMobPMw@mail.gmail.com>
+ <20201020185217.ilg6w5l7ujau2246@treble> <CABCJKucVjFtrOsw58kn4OnW5kdkUh8G7Zs4s6QU9s6O7soRiAA@mail.gmail.com>
+ <20201021085606.GZ2628@hirez.programming.kicks-ass.net>
+In-Reply-To: <20201021085606.GZ2628@hirez.programming.kicks-ass.net>
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 21 Oct 2020 17:22:59 -0700
+Message-ID: <CABCJKufL6=FiaeD8T0P+mK4JeR9J80hhjvJ6Z9S-m9UnCESxVA@mail.gmail.com>
+Subject: Re: [PATCH v6 22/25] x86/asm: annotate indirect jumps
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>, Jann Horn <jannh@google.com>, 
+	"the arch/x86 maintainers" <x86@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Kees Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	linux-arch <linux-arch@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	linux-kbuild <linux-kbuild@vger.kernel.org>, kernel list <linux-kernel@vger.kernel.org>, 
+	linux-pci@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: digetx@gmail.com
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="lT/X0ZYC";       spf=pass
- (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::142 as
- permitted sender) smtp.mailfrom=digetx@gmail.com;       dmarc=pass (p=NONE
- sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=CNB4qwF8;       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2a00:1450:4864:20::641
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,57 +143,139 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-22.10.2020 02:40, Kees Cook =D0=BF=D0=B8=D1=88=D0=B5=D1=82:
-> On Thu, Oct 22, 2020 at 01:57:37AM +0300, Dmitry Osipenko wrote:
->> The vfp_kmode_exception() function now is unreachable using relative
->> branching in THUMB2 kernel configuration, resulting in a "relocation
->> truncated to fit: R_ARM_THM_JUMP19 against symbol `vfp_kmode_exception'"
->> linker error. Let's use long jump in order to fix the issue.
->=20
-> Eek. Is this with gcc or clang?
+On Wed, Oct 21, 2020 at 1:56 AM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Tue, Oct 20, 2020 at 12:24:37PM -0700, Sami Tolvanen wrote:
+> > > > Building allyesconfig with this series and LTO enabled, I still see
+> > > > the following objtool warnings for vmlinux.o, grouped by source file:
+> > > >
+> > > > arch/x86/entry/entry_64.S:
+> > > > __switch_to_asm()+0x0: undefined stack state
+> > > > .entry.text+0xffd: sibling call from callable instruction with
+> > > > modified stack frame
+> > > > .entry.text+0x48: stack state mismatch: cfa1=7-8 cfa2=-1+0
+> > >
+> > > Not sure what this one's about, there's no OBJECT_FILES_NON_STANDARD?
+> >
+> > Correct, because with LTO, we won't have an ELF binary to process
+> > until we compile everything into vmlinux.o, and at that point we can
+> > no longer skip individual object files.
+>
+> I think what Josh was trying to say is; this file is subject to objtool
+> on a normal build and does not generate warnings. So why would it
+> generate warnings when subject to objtool as result of a vmlinux run
+> (due to LTO or otherwise).
+>
+> In fact, when I build a x86_64-defconfig and then run:
+>
+>   $ objtool check -barf defconfig-build/vmlinux.o
 
-GCC 9.3.0
+Note that I'm passing also --vmlinux and --duplicate to objtool when
+processing vmlinux.o, and this series has a patch to split noinstr
+validation from --vmlinux, so that's skipped.
 
->> Fixes: eff8728fe698 ("vmlinux.lds.h: Add PGO and AutoFDO input sections"=
-)
->=20
-> Are you sure it wasn't 512dd2eebe55 ("arm/build: Add missing sections") ?
-> That commit may have implicitly moved the location of .vfp11_veneer,
-> though I thought I had chosen the correct position.
+> I do not see these in particular, although I do see a lot of:
+>
+>   "sibling call from callable instruction with modified stack frame"
+>   "falls through to next function"
+>
+> that did not show up in the individual objtool runs during the build.
 
-I re-checked that the fixes tag is correct.
+I'm able to reproduce these warnings with gcc 9.3 + allyesconfig, with
+KASAN and GCOV_KERNEL disabled, as they are not enabled in LTO builds
+either. This is without the LTO series applied, so we also have the
+retpoline warnings:
 
->> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
->> ---
->>  arch/arm/vfp/vfphw.S | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm/vfp/vfphw.S b/arch/arm/vfp/vfphw.S
->> index 4fcff9f59947..6e2b29f0c48d 100644
->> --- a/arch/arm/vfp/vfphw.S
->> +++ b/arch/arm/vfp/vfphw.S
->> @@ -82,7 +82,8 @@ ENTRY(vfp_support_entry)
->>  	ldr	r3, [sp, #S_PSR]	@ Neither lazy restore nor FP exceptions
->>  	and	r3, r3, #MODE_MASK	@ are supported in kernel mode
->>  	teq	r3, #USR_MODE
->> -	bne	vfp_kmode_exception	@ Returns through lr
->> +	ldr	r1, =3Dvfp_kmode_exception
->> +	bxne	r1			@ Returns through lr
->> =20
->>  	VFPFMRX	r1, FPEXC		@ Is the VFP enabled?
->>  	DBGSTR1	"fpexc %08x", r1
->=20
-> This seems like a workaround though? I suspect the vfp11_veneer needs
-> moving?
->=20
+$ ./tools/objtool/objtool check -arfld vmlinux.o 2>&1 | grep -vE
+'(sibling|instr)'
+vmlinux.o: warning: objtool: wakeup_long64()+0x61: indirect jump found
+in RETPOLINE build
+vmlinux.o: warning: objtool: .text+0x826308a: indirect jump found in
+RETPOLINE build
+vmlinux.o: warning: objtool: .text+0x82630c5: indirect jump found in
+RETPOLINE build
+vmlinux.o: warning: objtool: .head.text+0x748: indirect jump found in
+RETPOLINE build
+vmlinux.o: warning: objtool:
+set_bringup_idt_handler.constprop.0()+0x0: undefined stack state
+vmlinux.o: warning: objtool: .entry.text+0x1634: redundant CLD
+vmlinux.o: warning: objtool: camellia_cbc_dec_32way()+0xb3: stack
+state mismatch: cfa1=7+520 cfa2=7+8
+vmlinux.o: warning: objtool: camellia_ctr_32way()+0x1a: stack state
+mismatch: cfa1=7+520 cfa2=7+8
+vmlinux.o: warning: objtool: aesni_gcm_init_avx_gen2()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_enc_update_avx_gen2()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_dec_update_avx_gen2()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_finalize_avx_gen2()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_init_avx_gen4()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_enc_update_avx_gen4()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_dec_update_avx_gen4()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: aesni_gcm_finalize_avx_gen4()+0x12:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: sha1_transform_avx2()+0xc: unsupported
+stack pointer realignment
+vmlinux.o: warning: objtool: sha1_ni_transform()+0x7: unsupported
+stack pointer realignment
+vmlinux.o: warning: objtool: sha256_transform_rorx()+0x13: unsupported
+stack pointer realignment
+vmlinux.o: warning: objtool: sha512_transform_ssse3()+0x14:
+unsupported stack pointer realignment
+vmlinux.o: warning: objtool: sha512_transform_avx()+0x14: unsupported
+stack pointer realignment
+vmlinux.o: warning: objtool: sha512_transform_rorx()+0x7: unsupported
+stack pointer realignment
+vmlinux.o: warning: objtool: __x86_retpoline_rdi()+0x10: return with
+modified stack frame
+vmlinux.o: warning: objtool: __x86_retpoline_rdi()+0x0: stack state
+mismatch: cfa1=7+32 cfa2=7+8
+vmlinux.o: warning: objtool: __x86_retpoline_rdi()+0x0: stack state
+mismatch: cfa1=7+32 cfa2=-1+0
+vmlinux.o: warning: objtool: reset_early_page_tables()+0x0: stack
+state mismatch: cfa1=7+8 cfa2=-1+0
+vmlinux.o: warning: objtool: .entry.text+0x48: stack state mismatch:
+cfa1=7-8 cfa2=-1+0
+vmlinux.o: warning: objtool: .entry.text+0x15fd: stack state mismatch:
+cfa1=7-8 cfa2=-1+0
+vmlinux.o: warning: objtool: .entry.text+0x168c: stack state mismatch:
+cfa1=7-8 cfa2=-1+0
 
-I don't know where it needs to be moved. Please feel free to make a
-patch if you have a better idea, I'll be glad to test it.
+There are a couple of differences, like the first "undefined stack
+state" warning pointing to set_bringup_idt_handler.constprop.0()
+instead of __switch_to_asm(). I tried running this with --backtrace,
+but objtool segfaults at the first .entry.text warning:
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/773fbdb0-5fc4-ab39-e72d-89845faa4c6d%40gmail.com.
+$ ./tools/objtool/objtool check -barfld vmlinux.o
+...
+vmlinux.o: warning: objtool:
+set_bringup_idt_handler.constprop.0()+0x0: undefined stack state
+vmlinux.o: warning: objtool:   xen_hypercall_set_trap_table()+0x0: <=== (sym)
+...
+vmlinux.o: warning: objtool: .entry.text+0xffd: sibling call from
+callable instruction with modified stack frame
+vmlinux.o: warning: objtool:   .entry.text+0xfcb: (branch)
+Segmentation fault
+
+Going back to the allyesconfig+LTO vmlinux.o, the "undefined stack
+state" warning looks quite similar:
+
+$ ./tools/objtool/objtool check -barlfd vmlinux.o
+vmlinux.o: warning: objtool: __switch_to_asm()+0x0: undefined stack state
+vmlinux.o: warning: objtool:   xen_hypercall_set_trap_table()+0x0: <=== (sym)
+vmlinux.o: warning: objtool: .entry.text+0xffd: sibling call from
+callable instruction with modified stack frame
+vmlinux.o: warning: objtool:   .entry.text+0xfcb: (branch)
+Segmentation fault
+
+Sami
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKufL6%3DFiaeD8T0P%2BmK4JeR9J80hhjvJ6Z9S-m9UnCESxVA%40mail.gmail.com.
