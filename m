@@ -1,163 +1,187 @@
-Return-Path: <clang-built-linux+bncBCN5HJ6RQMJBBIHJY36AKGQE6G73F7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBMP7Y36AKGQEMG3WPTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 504FA2962B3
-	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Oct 2020 18:34:41 +0200 (CEST)
-Received: by mail-wm1-x340.google.com with SMTP id z7sf779190wme.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Oct 2020 09:34:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603384481; cv=pass;
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B24A2963A1
+	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Oct 2020 19:21:54 +0200 (CEST)
+Received: by mail-oo1-xc3b.google.com with SMTP id e142sf1063334oob.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Oct 2020 10:21:54 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1603387313; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GoYtHo0/aUgdeeu2ny+mWqMACHFsDck/v8YXRdlFJoLxlsZWh/mmT3iHiJcUvrkbVL
-         bvDxCJlXWWX/BdXZNxmoympsScLPPqdR/QPzZzdd9xYauJWXHPFAlSRG1EPAqQOgfnf4
-         5zYwwgn4kwVqQs6PIgrozxIWOw5wbEuMfnLoJWNQMn4DxTcU8IKsf0PV6y2WHSVBwaJJ
-         XnzoLMnYDu6fm5sA+0q9V8P2m58XDcqI2KXHP/N8wYHEZ5nEAM+Wvi2nb5l0GtVz+8mx
-         SbVBdgz2xRAnyrmRUfyd2vlMAQxtzfZjyO/Ojo4uSJJoFiLTXz+ZS3tcRPSAsXKdBogo
-         o1WQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=DmSrY8D+O0mn1EnrTZ6CJ7trJZ7F5WMmqbWypVZeiJ1laVz6cdex2VoC03/YSijGf3
+         t0PkSC6VxAljo9TPLdvrk9Ajxfkoi2skSMVaIIRn42nSpLnYtZhvgrFvPGLQtjw2SX8C
+         dl37QAsxuZ/tIM3/aEWy/NW6WBF10qZ5CFOKhO2B7ruGGoF2i+tzu6zP6miT3u9gszbr
+         /6OcoxlL2+PV5cW5ZUKPQ39mHSg6rVpBHFcUPG0Gr7289Gg9SNpsJXJBgVTHPySeQNlC
+         r3fhdFAJMW6QXHK1F8WBITpuupLfDaLNeqxWTQEAvBKMJBAAs8gCRqbWWAN5c/TxNU1B
+         tUyA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature
-         :dkim-signature;
-        bh=VgnOgv0AaG4gbs7dUPtvwy+MfJew739SMobyO3CMCEo=;
-        b=wSguDliwzUYXyUBVJanStW/W6SltMJwUeCvuqrYvGZ1S5HVR+3V4TInKxzhdW+oVaq
-         3WhM1uuWNiZ8vz8WTH2nJkk3zU4Yox4Wfvuo5SdTQh5fYN2HI/n0NfQRZNkmbZeP2Lnp
-         +SFS3vq0FDMXkfHYzcpqUUw6oCnVh40c9BMuMm7PlQjnGhYzaJxrAQOjnW7HSyANKdlA
-         ypftz4Cx30kaqgTK7JbdMDM2oItgcZ+lFg81QjEwj/bRoAEZop4WJ2pXZpcaClYH6AHl
-         EuSdRLWzC+I3mt9cY1QBocXdfDd38PKDEulE0knkk5i+WTEDcbAtlqQ3SbsB3kJqdWt9
-         6tUg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qm7k0npE;
-       spf=pass (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=digetx@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+         :list-id:mailing-list:precedence:mime-version
+         :content-transfer-encoding:content-language:accept-language
+         :in-reply-to:references:message-id:date:thread-index:thread-topic
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=PfN4Ha7lc/yD1oxOh5LhzHjN3jQG738ODz+4X7aWnHg=;
+        b=RDWYIwhjAxswnh06j5Pdx0vwg+yqWvxnFQN6O6t7lQxwIggIKw9foo1YY2gIRx3foQ
+         sG4lAZ0vlQUikm7bz7HsQJFYBCOC3j+Rd2Y48SVFnN7Xy3bKL3gBcgiZe3te490d0tbY
+         zqy0szKJpJeO4PIrtg2uMv4E7sNZmGqmRLsGvF/LSbT2Zu8hJmsXqxIBh/rRmbhrGNSb
+         0Sif7Gh0SdphYGFI3y3coqEZLcldpnkh2lEEdqISLWfEjEBCWtsVWxmv2nZPqzJKSCZ8
+         nlJHiEEypWlBNU2BOp+KwEiTkpRp56hg8MJRv132ksNXjonSfpG8YHv+agono5V57m6E
+         7sIQ==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@vmware.com header.s=selector2 header.b=PV+t4PUx;
+       arc=pass (i=1 spf=pass spfdomain=vmware.com dkim=pass dkdomain=vmware.com dmarc=pass fromdomain=vmware.com);
+       spf=pass (google.com: domain of gopakumarr@vmware.com designates 40.107.237.42 as permitted sender) smtp.mailfrom=gopakumarr@vmware.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vmware.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VgnOgv0AaG4gbs7dUPtvwy+MfJew739SMobyO3CMCEo=;
-        b=QV3Yba35pq3qwsjLOChL4v7hjk1TBTLGlg0luH1DbyuzSKEQz6k5STnw61YVN5zB0B
-         JyQU4sYk6IeyUhZXvqVoUrOEu9HcipnjpfeWncUMWn4dn4Ls0FM3zrXvyCWuQz6Bu4yk
-         1nzkAcq3QPpAXcj5Yn8BHDdPXeM/J++dfRV/MWr6+WzVHChWqBQGzT84lub5SALlKqYa
-         J+1NUFCYqNuTFHvmLlsFGi4xdqSWC41PtP6A0yOD175/WIO/oGp1e3pX2jJ586TGxAm3
-         H2YT3E9XrXCPCuQs2Yt2cnJvIuW5uw3nmjUfQ57eBd2pJ/9f0TJ8SywrdQWHuqo5IADU
-         Sl7g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VgnOgv0AaG4gbs7dUPtvwy+MfJew739SMobyO3CMCEo=;
-        b=gpXM5hlgQTyPE/1bsXbog/TUOk/IIFhUe7OMSu8YLKMS7h3JTdc0h8xZ7OpDFfOzXu
-         62FkaOZ1aBAdsC2yPrqbnWq/U5PM/SQJ84phhc+v9Vpvqx7OI987gHtdqM5Yuq3FVVj9
-         sovNrNdHNQ3VfsNkzrqTOc1PrfhyfZmMrT/4N2B8N1jdemwiMdCSgeNiKUDVJA2FF40N
-         l9Zo8mt1a+gSpXLdyVODr98J6Uzag4S/9eJ+fOpTpZ0q+wO8HE5cokgFsWcVqokrcgS/
-         e6+N3KXLgVIN6KSMqrEV3eTZAOkD2HhO0NZJZbZsBqWAVyvK125YrTO5aP34gLGngJGE
-         CmRQ==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :content-transfer-encoding:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=PfN4Ha7lc/yD1oxOh5LhzHjN3jQG738ODz+4X7aWnHg=;
+        b=QKMfH0I+LcBH/TesHmJcObYaBtELcFjlsvhTTwIGRysO/nXEbQsMuUDyQeQzJ1UxaS
+         bCRQu0+/Xyj1iZ4p/qL9oqL02H6XTk8gNVsgfWOzFgR7CA7KTUY33CfpOIZ9PPSWE40E
+         18rQre/CeB16QOC4Y/fy7jRbNiYPvT0uxFVBHSV8LjXQjgDSEb9PIKc5SL2LUMAoSAkB
+         kq2/HQ+zVrHQBcHPucSjMz1e9I7B1QA6xNc22x66C9JGFzNO3IkQdag3BieXEdIlzXnc
+         fWlhO/bmUdJl2r2M9qj1YQa1mqlKHvYvvzFY8NRlLdC5jV3gCEGxMN+d7x7ScWtFyz9W
+         0vjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VgnOgv0AaG4gbs7dUPtvwy+MfJew739SMobyO3CMCEo=;
-        b=QknwKKeWsmZQeldWyCb3fMAItbNK2OpjvteTJFIHeMcKDr/0xx3oUnsWJwEr5Us6Nu
-         qW+zAXPm6FeeuNZd8CIdw6REvG9OPGiq/LHy3Y51hJpwPFa514J0TLJmCnS9fBYzqDam
-         U9SV0egi4YutoXGYyWOmV9i6gprmgaQHI/UY/yy21z6O6m9LVeOHPBAHA227kniu/LCm
-         Vx9V0IFl/BG9Zmt4FzY1nR31cY6+3zVI8Dj3LFneHbDgcsiTx976SAGvPZAVrDey2dcK
-         M5WRXw36+5/r/pcNHy8BEt7FLmoVLYzPH6euYJxBJUAtIONaN6mF09uCECEXC+OtbiLZ
-         S/jg==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:content-transfer-encoding:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=PfN4Ha7lc/yD1oxOh5LhzHjN3jQG738ODz+4X7aWnHg=;
+        b=CYM2hLtVwuDcgX6m4TJm0v08umGAevKoFXRKD1IeNpmCy3GiTdvj6Sj4jvgrlf3N8J
+         H4a9EUafMiGpzTziLjAtf4+iYNlk52b8z1Xu7Ou1raWtNorirdgg/WjabaYgDhB4pUwQ
+         9H1mQlTsKddGxNNyn4rRR5R7P9oz0Yhcucbzb2oGqhxLbxDSZu6TMuSccVN/JqxmTUuL
+         uSF7HrIf5dTm892ETT37j0d3WnKeEKs5TL00qbwgNhgbCpwj0oeMoKp7+xeZg7dAuWOD
+         gp1QFXw8qdRH1ZofrxscVkQmbycT71bmIz4mtfoIvBz+/VWc5dMDvthPh2+a+u9iJSut
+         uV3Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53048RnQ/Ql2YdXEt3424jWDJx1YAlnWFbRDi9Wp9s7pKe8oV5ym
-	3i/MglTHX3U+zJ+cvMBYEIA=
-X-Google-Smtp-Source: ABdhPJwmzE8W2nKCF60Wr3n9jS/r05dwYQPFdeuuzJEjtU7d5zN5a2qevydgN0RL2zMsPcrOXGw2Yg==
-X-Received: by 2002:adf:ed52:: with SMTP id u18mr3830812wro.357.1603384481072;
-        Thu, 22 Oct 2020 09:34:41 -0700 (PDT)
+X-Gm-Message-State: AOAM5338LJsNkf+M9oTyKAijYLgzACblKNYTgW2kiP7lvLngaMQQhRcR
+	L/hxZA3v8JwSXjlJ0pJmHic=
+X-Google-Smtp-Source: ABdhPJwBj4WSWCyCzn1XiZRE0u6wyNKkdU+bm86Un/Ex/efSXY1Gp34PK2so6x2PlR6CqISLlCpu5w==
+X-Received: by 2002:aca:7210:: with SMTP id p16mr2358228oic.77.1603387313092;
+        Thu, 22 Oct 2020 10:21:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:82ab:: with SMTP id 40ls220180wrc.1.gmail; Thu, 22 Oct
- 2020 09:34:40 -0700 (PDT)
-X-Received: by 2002:adf:f3cb:: with SMTP id g11mr3904398wrp.210.1603384480236;
-        Thu, 22 Oct 2020 09:34:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603384480; cv=none;
+Received: by 2002:a05:6830:60a:: with SMTP id w10ls646037oti.0.gmail; Thu, 22
+ Oct 2020 10:21:52 -0700 (PDT)
+X-Received: by 2002:a9d:6419:: with SMTP id h25mr2671566otl.79.1603387312761;
+        Thu, 22 Oct 2020 10:21:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603387312; cv=pass;
         d=google.com; s=arc-20160816;
-        b=md1EDkSQcPzqCvNE3RB4Jl+WT8aI0bvmoheKXstv3H7XvG/NTOwNfJbxzAooSpaElX
-         Jv9J/fCdgM+gJbrINb6kh+Asv9Ax7MhDMaidSNu35fMY1Oph9g9ghJ1tUJsnNkA+9rAe
-         slTuHUvoZTfAK9K8rXfKBcT7+Vq561voHVvHg8EiZIgJO+ii+A+QcpXClMw8WgRTyaWB
-         lQrvnq/YftgTd+kzMDj+IzLw2jZh4/MsrxS3iNSr4/WV/FkCOq/qWrnFtRCd/2qwCNRI
-         843ApziGZMXyKhzdRqFJAAhhrC/jV8ms20dXtf7i5KjPxBzvJmGGQ1M7vWcbg4fxNHJr
-         CmXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=40vMF3ziPu0bTT+J0yUW2LzbplLLn0NsSahmoH7oJZs=;
-        b=DmhVS7vyRozOh7RKi3XXpUA3asjBuUAcMi+LLRNnu/P4onb2qvruqNMut/nXagQsle
-         LWmPdHFvXoG5Sn6MeuaXnwFGV2g811jJnYejO7XP+DosVw8t5QigldbXxI3Sez0eMjtB
-         1krhUe/6cj55GUznxkNbXnNQbFLvxSGJg3zNZRwizQXOp3I7x0fXyriGRq9KvisOC1mD
-         6DeM68UJLbngvzRWXI3pZlQdjgC0RJ+tCV/KE/3EiJAFSlLqd9Ho5ucgb+O8O8xP6Tr5
-         K/I7km14eIiH97J4m9ytP4HWR0s084sSuDLYK1V6sIvVokq/zvcollfw815C/p2k9G32
-         9MoQ==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qm7k0npE;
-       spf=pass (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=digetx@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lj1-x244.google.com (mail-lj1-x244.google.com. [2a00:1450:4864:20::244])
-        by gmr-mx.google.com with ESMTPS id j5si73039wro.2.2020.10.22.09.34.40
+        b=lsK2VoSUlIrO0QiybfVyzR6nUvHz4baPYRL/puVUcU7YBI7weWV4FNd5wtOEW9OAUW
+         j3S5WjtpGcpRHS4qLjFaRilff5z/0QciMUcTbs6HTnGEdUQhQ4QJ/zPiPc8rzKCRY7r0
+         6lytaB7RVWrnBx4UBt5X6oe1IEu2zur/g2FHIWgWpYvOi2jiGXAcJIXBylcU89eC7p+m
+         F8PBbysb77v6E3xzWsa2zH73pLOXw1J0QVpLdKKlqaEQjhfA5zjgYmiYaBAnG/xxIujg
+         oHeKHeMVxzWtMAKBe7/x/8HTJ6804fljJztkAI8Z7SVrzt71XdzUzIIbjlho7TBhXsDK
+         yPcw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=eVUqTGaf82w6wEcBBqM23GXlsujvR6sjurFENlWZVoQ=;
+        b=kJQSx9V/St2l7eljmB0+3ZGZcyyq4mn5NWA3+V6he5N+ENlqnthuARcLMT7hzqJ0tv
+         5trzqSgh3xfBaQ+uYUe/sKix+aOUykESq5lRVfeyFR57hveQw3egBhMxS1jLmI2aHD50
+         be7GuSWD//zAuuBI+29I8OEw8myO81ujnEGjVvmmL6ZGnDN2QFRwySiyiR+1jbZRd02F
+         1F6n6QLXvvkoFfNq1zUnAhCc3u5umzOxn4UuoT5Qy1G43HVs740NCFUcDjCXlguGMa+C
+         vzBq6rE1WVOR6EgWT3axZcPEQUG64NGb9YMLsGid7tvHz1q0sggOouOx+eJ5Syh88Lbq
+         My0g==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@vmware.com header.s=selector2 header.b=PV+t4PUx;
+       arc=pass (i=1 spf=pass spfdomain=vmware.com dkim=pass dkdomain=vmware.com dmarc=pass fromdomain=vmware.com);
+       spf=pass (google.com: domain of gopakumarr@vmware.com designates 40.107.237.42 as permitted sender) smtp.mailfrom=gopakumarr@vmware.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vmware.com
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (mail-bn8nam12on2042.outbound.protection.outlook.com. [40.107.237.42])
+        by gmr-mx.google.com with ESMTPS id r6si359390oth.4.2020.10.22.10.21.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Oct 2020 09:34:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::244 as permitted sender) client-ip=2a00:1450:4864:20::244;
-Received: by mail-lj1-x244.google.com with SMTP id m16so2621991ljo.6
-        for <clang-built-linux@googlegroups.com>; Thu, 22 Oct 2020 09:34:40 -0700 (PDT)
-X-Received: by 2002:a05:651c:20d:: with SMTP id y13mr1328273ljn.425.1603384479618;
-        Thu, 22 Oct 2020 09:34:39 -0700 (PDT)
-Received: from [192.168.2.145] (109-252-193-186.dynamic.spd-mgts.ru. [109.252.193.186])
-        by smtp.googlemail.com with ESMTPSA id g22sm331505lfh.31.2020.10.22.09.34.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Oct 2020 09:34:39 -0700 (PDT)
-Subject: Re: [PATCH v1] ARM: vfp: Use long jump to fix THUMB2 kernel
- compilation error
-To: Russell King - ARM Linux admin <linux@armlinux.org.uk>,
- Ard Biesheuvel <ardb@kernel.org>
-Cc: Kees Cook <keescook@chromium.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Ingo Molnar <mingo@kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
-References: <20201021225737.739-1-digetx@gmail.com>
- <202010211637.7CFD8435@keescook>
- <773fbdb0-5fc4-ab39-e72d-89845faa4c6d@gmail.com>
- <202010212028.32E8A5EF9B@keescook>
- <CAMj1kXHXN56xmuwVG3P93Jjwd+NxXTYHtfibPWg5TUADucOdWg@mail.gmail.com>
- <1d2e2b5d-3035-238c-d2ca-14c0c209a6a1@gmail.com>
- <CAMj1kXERX_Bv1MdfafOVmdmDXPio6Uj897ZZZ7qRERbCXYw_iQ@mail.gmail.com>
- <20201022161118.GP1551@shell.armlinux.org.uk>
- <CAMj1kXGExnUrTuosMpX2NN3=j0HF-8_s1SzLaTyBvq4_LQNT-w@mail.gmail.com>
- <20201022162334.GQ1551@shell.armlinux.org.uk>
-From: Dmitry Osipenko <digetx@gmail.com>
-Message-ID: <53e78602-6370-aeb1-398b-5c065dd562f8@gmail.com>
-Date: Thu, 22 Oct 2020 19:34:38 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
-MIME-Version: 1.0
-In-Reply-To: <20201022162334.GQ1551@shell.armlinux.org.uk>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 22 Oct 2020 10:21:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gopakumarr@vmware.com designates 40.107.237.42 as permitted sender) client-ip=40.107.237.42;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PEnhkwDHvTCOO0gssbNOl2RdsJmQbiP9UhxnqACHQXWqnp+nihAWM1ZTRd6BwAlEVG08UgqybKa9GgLTAr0I1TElIt45VSmdSPYLwDpingPTTocCVw2LPNjWPEdchVHP/aZRN6FlZyDQjxuPfOveyzRTnUfGLhA0ZjndnQhDQrEnQH5kacXxTepXb9NwMghCCMlbceiejuP3TEHaKsJ3MB1NyLNScG1ScvAhoiacPuxyfhsPJ/oBLiLu5/o5NRwJZXuVr5fuv2LSJe2wmL+ca05Uv/rlqFul3yEQFBxsjkBp3TFnIx9N182+K1bxsNpNJdTnYVVi4lB9WnfY2YV2Kw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eVUqTGaf82w6wEcBBqM23GXlsujvR6sjurFENlWZVoQ=;
+ b=dN0RM2kOxL/y2A6suOThxKF+0Fk4NTBV2s+g4Io8SWUbEeqZ3RDi/5OPYMtG9mYhZZf1P/He6TmfGx6XHkw2AeRjQbCiAAEm2e2EJE6R9S46qwyGEKCK9R6PpqUQuu4iAm7D+uamAagSSXYL/uNEC1tTz41JPDm2of2iVwp3EPcubfSucMhWADz6vd2k+86I6IqxR+1STGXV625pCJ0Uw2q6HpMefPK13Z0UONwpulcJNeKLiV7EObytsJTU53Ot80GuuqdPAseM4Zy+QbrpZBcSDrQ7xk0OdMh6Wk7Yi0nmJEuqcQkPyTGRsGCQskr6e6lDYscdEt6gRTZeif8I2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vmware.com; dmarc=pass action=none header.from=vmware.com;
+ dkim=pass header.d=vmware.com; arc=none
+Received: from DM6PR05MB5292.namprd05.prod.outlook.com (2603:10b6:5:5a::30) by
+ DM6PR05MB3993.namprd05.prod.outlook.com (2603:10b6:5:82::25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3499.4; Thu, 22 Oct 2020 17:21:50 +0000
+Received: from DM6PR05MB5292.namprd05.prod.outlook.com
+ ([fe80::fc60:3dd5:354e:e146]) by DM6PR05MB5292.namprd05.prod.outlook.com
+ ([fe80::fc60:3dd5:354e:e146%7]) with mapi id 15.20.3499.018; Thu, 22 Oct 2020
+ 17:21:50 +0000
+From: Rahul Gopakumar <gopakumarr@vmware.com>
+To: "bhe@redhat.com" <bhe@redhat.com>
+CC: "linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "natechancellor@gmail.com"
+	<natechancellor@gmail.com>, "ndesaulniers@google.com"
+	<ndesaulniers@google.com>, "clang-built-linux@googlegroups.com"
+	<clang-built-linux@googlegroups.com>, "rostedt@goodmis.org"
+	<rostedt@goodmis.org>, Rajender M <manir@vmware.com>, Yiu Cho Lau
+	<lauyiuch@vmware.com>, Peter Jonasson <pjonasson@vmware.com>, Venkatesh
+ Rajaram <rajaramv@vmware.com>
+Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
+Thread-Topic: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
+Thread-Index: AQHWnjk5ihPzOwsVE02I7/jG5KTBz6mQW+kAgAPEkzyAAWl/gIALAETTgAAhwwCAAAD7T4ACZ34AgADZzMg=
+Date: Thu, 22 Oct 2020 17:21:50 +0000
+Message-ID: <DM6PR05MB5292D8B85FA9DDE263F6147AA41D0@DM6PR05MB5292.namprd05.prod.outlook.com>
+References: <DM6PR05MB52921FF90FA01CC337DD23A1A4080@DM6PR05MB5292.namprd05.prod.outlook.com>
+ <20201010061124.GE25604@MiWiFi-R3L-srv>
+ <DM6PR05MB529281F914953691E0F52D1CA4070@DM6PR05MB5292.namprd05.prod.outlook.com>
+ <20201013131735.GL25604@MiWiFi-R3L-srv>
+ <DM6PR05MB52926FDAB0E58F5CFA2E892DA41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
+ <20201020151814.GU25604@MiWiFi-R3L-srv>
+ <DM6PR05MB529293AC2B077B5170FFE625A41F0@DM6PR05MB5292.namprd05.prod.outlook.com>,<20201022040440.GX25604@MiWiFi-R3L-srv>
+In-Reply-To: <20201022040440.GX25604@MiWiFi-R3L-srv>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [103.224.33.65]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 9e2cabee-c592-43ec-038a-08d876aef697
+x-ms-traffictypediagnostic: DM6PR05MB3993:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <DM6PR05MB39934650E316FC2549BE393AA41D0@DM6PR05MB3993.namprd05.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:3513;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: KWy9hAPrgWe4Kfl0K5yRqsWPY/qWSxlu1k3UNTTWTwM6XDjM7iulsfrPDc7Hp6HxgoFzDwvrdMhYwK84TSatfZo+TUMVm1pyMiGPv4b9uBjmeZZKyg+MAYRy8e2stOz5dmchCRy94U5OiYWevYabeh/RN2W3t62/H63e295d+BJDy1BmAi2LF/zrTC68nVcxJpcglcpX5WWMnleKWr7gRY9UaoXtCSnBMZaizJHvljha6w/15X1PdvZCfwdPqjktHPt8QqHorzHx3PDA+P7ZNEOPPY82UrLg5sej5nuEsaUuWQYTUF6gRgBkWSOArSxFExTbzg1iDId5IZu+OGgi/Q==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR05MB5292.namprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(376002)(366004)(346002)(136003)(39860400002)(396003)(186003)(76116006)(53546011)(55016002)(2906002)(6506007)(54906003)(26005)(478600001)(33656002)(8676002)(66476007)(66556008)(71200400001)(9686003)(64756008)(66946007)(91956017)(66446008)(316002)(4326008)(83380400001)(86362001)(7696005)(8936002)(5660300002)(6916009)(107886003)(52536014);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata: YmioyMP07Jm/YoBFn4vf4wcUZT2m5ywzCzOXuAepkowZ/oF35q6s85ArtWXe0DW/uNQVTr1uABVLcxM2zaHN9y9JfT/m2LqcErv1atN3j1z0r9h5Ypf+RoKe2MVvpB/Wc23Wva+r5oxyitFFEuVmKCK1W6fEXSZ8iElU7EYdbaZSnjyC4edOdk66qoPdepaOeTKMHHPGetNhh60VR63p6O9v/fc7bk2iaRGKgnd4OtpEaQ3a8dIcfI51+LwCH+7s2JI/QJwxRVIb+fjm6szMsFPdf9ZS2SRQXtP6FBoAPipK+mv0clLiw96h4Zk4IQTQcu3w2kTZ6Zgwnb8lCeKQ03rt/Se7BxkzFtFsg4pwW/o3udJ/0Vwzf8XaDz6muPDM1/mXYl4OsqZ1MEABplYVkHhXN1Uf+IWXv/zZHXTlzI6HotvkaCV++hqjvtp10mGev7ChDiJvIk5oHzeGoyyP9yb5U+ZHEY7VDBDbk6ovGlR1Z7rmwXJkrbj+9NRR/WCn0o02iIuQEwhuWTE1PGHJ0DncMlhgYcZwqyCsAw8WRuMz7cob25K7VctMYJWFKQKfHnnSGNtsPRD8sKt4N5m2FYISZZVvP3CZ2rEX/5kv1+QoLEgONBYEmrfWLskXoztQJojzzsm62bVo7w9mwQP8+g==
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: digetx@gmail.com
+MIME-Version: 1.0
+X-OriginatorOrg: vmware.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR05MB5292.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e2cabee-c592-43ec-038a-08d876aef697
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Oct 2020 17:21:50.3905
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b39138ca-3cee-4b4a-a4d6-cd83d9dd62f0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: c98Jas/cy4TxSlPYLhEC7qjMs4VC93q6/XgipSoQ/atEvqNp/WHB/YEBkjQysmIETEgA65QPISTHGO8Poc0yFA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR05MB3993
+X-Original-Sender: gopakumarr@vmware.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Qm7k0npE;       spf=pass
- (google.com: domain of digetx@gmail.com designates 2a00:1450:4864:20::244 as
- permitted sender) smtp.mailfrom=digetx@gmail.com;       dmarc=pass (p=NONE
- sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@vmware.com header.s=selector2 header.b=PV+t4PUx;       arc=pass
+ (i=1 spf=pass spfdomain=vmware.com dkim=pass dkdomain=vmware.com dmarc=pass
+ fromdomain=vmware.com);       spf=pass (google.com: domain of
+ gopakumarr@vmware.com designates 40.107.237.42 as permitted sender)
+ smtp.mailfrom=gopakumarr@vmware.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=vmware.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -170,119 +194,110 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-22.10.2020 19:23, Russell King - ARM Linux admin =D0=BF=D0=B8=D1=88=D0=B5=
-=D1=82:
-> On Thu, Oct 22, 2020 at 06:20:40PM +0200, Ard Biesheuvel wrote:
->> On Thu, 22 Oct 2020 at 18:11, Russell King - ARM Linux admin
->> <linux@armlinux.org.uk> wrote:
->>>
->>> On Thu, Oct 22, 2020 at 06:06:32PM +0200, Ard Biesheuvel wrote:
->>>> On Thu, 22 Oct 2020 at 17:57, Dmitry Osipenko <digetx@gmail.com> wrote=
-:
->>>>>
->>>>> 22.10.2020 10:06, Ard Biesheuvel =D0=BF=D0=B8=D1=88=D0=B5=D1=82:
->>>>>> On Thu, 22 Oct 2020 at 05:30, Kees Cook <keescook@chromium.org> wrot=
-e:
->>>>>>>
->>>>>>> On Thu, Oct 22, 2020 at 03:00:06AM +0300, Dmitry Osipenko wrote:
->>>>>>>> 22.10.2020 02:40, Kees Cook =D0=BF=D0=B8=D1=88=D0=B5=D1=82:
->>>>>>>>> On Thu, Oct 22, 2020 at 01:57:37AM +0300, Dmitry Osipenko wrote:
->>>>>>>>>> The vfp_kmode_exception() function now is unreachable using rela=
-tive
->>>>>>>>>> branching in THUMB2 kernel configuration, resulting in a "reloca=
-tion
->>>>>>>>>> truncated to fit: R_ARM_THM_JUMP19 against symbol `vfp_kmode_exc=
-eption'"
->>>>>>>>>> linker error. Let's use long jump in order to fix the issue.
->>>>>>>>>
->>>>>>>>> Eek. Is this with gcc or clang?
->>>>>>>>
->>>>>>>> GCC 9.3.0
->>>>>>>>
->>>>>>>>>> Fixes: eff8728fe698 ("vmlinux.lds.h: Add PGO and AutoFDO input s=
-ections")
->>>>>>>>>
->>>>>>>>> Are you sure it wasn't 512dd2eebe55 ("arm/build: Add missing sect=
-ions") ?
->>>>>>>>> That commit may have implicitly moved the location of .vfp11_vene=
-er,
->>>>>>>>> though I thought I had chosen the correct position.
->>>>>>>>
->>>>>>>> I re-checked that the fixes tag is correct.
->>>>>>>>
->>>>>>>>>> Signed-off-by: Dmitry Osipenko <digetx@gmail.com>
->>>>>>>>>> ---
->>>>>>>>>>  arch/arm/vfp/vfphw.S | 3 ++-
->>>>>>>>>>  1 file changed, 2 insertions(+), 1 deletion(-)
->>>>>>>>>>
->>>>>>>>>> diff --git a/arch/arm/vfp/vfphw.S b/arch/arm/vfp/vfphw.S
->>>>>>>>>> index 4fcff9f59947..6e2b29f0c48d 100644
->>>>>>>>>> --- a/arch/arm/vfp/vfphw.S
->>>>>>>>>> +++ b/arch/arm/vfp/vfphw.S
->>>>>>>>>> @@ -82,7 +82,8 @@ ENTRY(vfp_support_entry)
->>>>>>>>>>    ldr     r3, [sp, #S_PSR]        @ Neither lazy restore nor FP=
- exceptions
->>>>>>>>>>    and     r3, r3, #MODE_MASK      @ are supported in kernel mod=
-e
->>>>>>>>>>    teq     r3, #USR_MODE
->>>>>>>>>> -  bne     vfp_kmode_exception     @ Returns through lr
->>>>>>>>>> +  ldr     r1, =3Dvfp_kmode_exception
->>>>>>>>>> +  bxne    r1                      @ Returns through lr
->>>>>>>>>>
->>>>>>>>>>    VFPFMRX r1, FPEXC               @ Is the VFP enabled?
->>>>>>>>>>    DBGSTR1 "fpexc %08x", r1
->>>>>>>>>
->>>>>>>>> This seems like a workaround though? I suspect the vfp11_veneer n=
-eeds
->>>>>>>>> moving?
->>>>>>>>>
->>>>>>>>
->>>>>>>> I don't know where it needs to be moved. Please feel free to make =
-a
->>>>>>>> patch if you have a better idea, I'll be glad to test it.
->>>>>>>
->>>>>>> I might have just been distracted by the common "vfp" prefix. It's
->>>>>>> possible that the text section shuffling just ended up being very l=
-arge,
->>>>>>> so probably this patch is right then!
->>>>>>>
->>>>>>
->>>>>> I already sent a fix for this issue:
->>>>>>
->>>>>> https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=3D901=
-8/1
->>>>>>
->>>>>
->>>>> The offending commit contains stable tag, so I assume that fixes tag =
-is
->>>>> mandatory. Yours patch misses the fixes tag.
->>>>
->>>> Russell, mind adding that? Or would you like me to update the patch in
->>>> the patch system?
->>>
->>> Rather than adding the IT, I'm suggesting that we solve it a different
->>> way - ensuring that the two bits of code are co-located. There's no
->>> reason for them to be separated, and the assembly code entry point is
->>> already called indirectly.
->>>
->>> The problem is the assembly ends up in the .text section which ends up
->>> at the start of the binary, but depending on the compiler, functions
->>> in .c files end up in their own sections. It would be good if, as
->>> Dmitry has shown that it is indeed possible, to have them co-located.
->>
->> Why is that better? I provided a minimal fix which has zero impact on
->> ARM builds, and minimal impact on Thumb2 builds, given that it retains
->> the exact same semantics as before, but using a different opcode.
+Hi=C2=A0Baoquan,
+
+>>=C2=A0Can you tell how you measure the boot time?=C2=A0
+
+Our test is actually boothalt, time reported by this test
+includes both boot-up and shutdown time.
+
+>> At above, you said "Patch on latest commit - 20.161 secs",
+>> could you tell where this 20.161 secs comes from,
+
+So this time is boot-up time + shutdown time.
+
+From the dmesg.log it looks like during the memmap_init
+it's taking less time in the patch. Let me take a closer look to
+confirm this and also to find where the 1-sec delay in the patch
+run is coming from.
+
+
+From: bhe@redhat.com <bhe@redhat.com>
+Sent: 22 October 2020 9:34 AM
+To: Rahul Gopakumar <gopakumarr@vmware.com>
+Cc: linux-mm@kvack.org <linux-mm@kvack.org>; linux-kernel@vger.kernel.org <=
+linux-kernel@vger.kernel.org>; akpm@linux-foundation.org <akpm@linux-founda=
+tion.org>; natechancellor@gmail.com <natechancellor@gmail.com>; ndesaulnier=
+s@google.com <ndesaulniers@google.com>; clang-built-linux@googlegroups.com =
+<clang-built-linux@googlegroups.com>; rostedt@goodmis.org <rostedt@goodmis.=
+org>; Rajender M <manir@vmware.com>; Yiu Cho Lau <lauyiuch@vmware.com>; Pet=
+er Jonasson <pjonasson@vmware.com>; Venkatesh Rajaram <rajaramv@vmware.com>
+Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kern=
+el=20
+=C2=A0
+Hi Rahul,
+
+On 10/20/20 at 03:26pm, Rahul Gopakumar wrote:
+> >> Here, do you mean it even cost more time with the patch applied?
 >=20
-> I think you just described the reason there. Why should we force
-> everything to use a different opcode when a short jump _should_
-> suffice?
+> Yes, we ran it multiple times and it looks like there is a=20
+> very minor increase with the patch.
 >=20
-> Your patch may be a single line, but it has a slightly greater
-> impact than the alternative two line solution.
+......=C2=A0
+> On 10/20/20 at 01:45pm, Rahul Gopakumar wrote:
+> > Hi Baoquan,
+> >=20
+> > We had some trouble applying the patch to problem commit and the latest=
+ upstream commit. Steven (CC'ed) helped us by providing the updated draft p=
+atch. We applied it on the latest commit (3e4fb4346c781068610d03c12b16c0cfb=
+0fd24a3), and it doesn't look like improving the performance numbers.
+>=20
+> Thanks for your feedback. From the code, I am sure what the problem is,
+> but I didn't test it on system with huge memory. Forget mentioning my
+> draft patch is based on akpm/master branch since it's a mm issue, it
+> might be a little different with linus's mainline kernel, sorry for the
+> inconvenience.
+>=20
+> I will test and debug this on a server with 4T memory in our lab, and
+> update if any progress.
+>=20
+> >=20
+> > Patch on latest commit - 20.161 secs
+> > Vanilla latest commit - 19.50 secs
 >=20
 
-But the two line change isn't portable to stable kernels as-is, isn't it?
+Can you tell how you measure the boot time? I checked the boot logs you
+attached, E.g in below two logs, I saw patch_dmesg.log even has less
+time during memmap init. Now I have got a machine with 1T memory for
+testing, but didn't see obvious time cost increase. At above, you said
+"Patch on latest commit - 20.161 secs", could you tell where this 20.161
+secs comes from, so that I can investigate and reproduce on my system?
+
+patch_dmesg.log:
+[=C2=A0=C2=A0=C2=A0 0.023126] Initmem setup node 1 [mem 0x0000005600000000-=
+0x000000aaffffffff]
+[=C2=A0=C2=A0=C2=A0 0.023128] On node 1 totalpages: 89128960
+[=C2=A0=C2=A0=C2=A0 0.023129]=C2=A0=C2=A0 Normal zone: 1392640 pages used f=
+or memmap
+[=C2=A0=C2=A0=C2=A0 0.023130]=C2=A0=C2=A0 Normal zone: 89128960 pages, LIFO=
+ batch:63
+[=C2=A0=C2=A0=C2=A0 0.023893] Initmem setup node 2 [mem 0x000000ab00000000-=
+0x000001033fffffff]
+[=C2=A0=C2=A0=C2=A0 0.023895] On node 2 totalpages: 89391104
+[=C2=A0=C2=A0=C2=A0 0.023896]=C2=A0=C2=A0 Normal zone: 1445888 pages used f=
+or memmap
+[=C2=A0=C2=A0=C2=A0 0.023897]=C2=A0=C2=A0 Normal zone: 89391104 pages, LIFO=
+ batch:63
+[=C2=A0=C2=A0=C2=A0 0.026744] ACPI: PM-Timer IO Port: 0x448
+[=C2=A0=C2=A0=C2=A0 0.026747] ACPI: Local APIC address 0xfee00000
+
+vanilla_dmesg.log:
+[=C2=A0=C2=A0=C2=A0 0.024295] Initmem setup node 1 [mem 0x0000005600000000-=
+0x000000aaffffffff]
+[=C2=A0=C2=A0=C2=A0 0.024298] On node 1 totalpages: 89128960
+[=C2=A0=C2=A0=C2=A0 0.024299]=C2=A0=C2=A0 Normal zone: 1392640 pages used f=
+or memmap
+[=C2=A0=C2=A0=C2=A0 0.024299]=C2=A0=C2=A0 Normal zone: 89128960 pages, LIFO=
+ batch:63
+[=C2=A0=C2=A0=C2=A0 0.025289] Initmem setup node 2 [mem 0x000000ab00000000-=
+0x000001033fffffff]
+[=C2=A0=C2=A0=C2=A0 0.025291] On node 2 totalpages: 89391104
+[=C2=A0=C2=A0=C2=A0 0.025292]=C2=A0=C2=A0 Normal zone: 1445888 pages used f=
+or memmap
+[=C2=A0=C2=A0=C2=A0 0.025293]=C2=A0=C2=A0 Normal zone: 89391104 pages, LIFO=
+ batch:63
+[=C2=A0=C2=A0=C2=A0 2.096982] ACPI: PM-Timer IO Port: 0x448
+[=C2=A0=C2=A0=C2=A0 2.096987] ACPI: Local APIC address 0xfee00000
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -290,4 +305,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/53e78602-6370-aeb1-398b-5c065dd562f8%40gmail.com.
+clang-built-linux/DM6PR05MB5292D8B85FA9DDE263F6147AA41D0%40DM6PR05MB5292.na=
+mprd05.prod.outlook.com.
