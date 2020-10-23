@@ -1,121 +1,123 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQWEZT6AKGQEBB4QJZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKONZT6AKGQEFTKJQNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 972282976F7
-	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Oct 2020 20:34:43 +0200 (CEST)
-Received: by mail-io1-xd37.google.com with SMTP id s10sf1958636iot.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Oct 2020 11:34:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603478082; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 46B2A297753
+	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Oct 2020 20:53:31 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id bb2sf2227250plb.8
+        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Oct 2020 11:53:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603479210; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rtZfKSYj+ws182DSyAY5wLNgg0hYA4Adt5pjSprx8ucO1YPYzv4tyHjZcYWLkHeUGd
-         XSpHGIBnnX54X38/3WHWWRCdxN9gHtG+5Tm6z/WPCxzIV5XomTSvUzjxwGa8i1+wnNBr
-         LiCGkFlkgyl1gwMkzvg0rhz2ielqEq3TBaCL+5K5wTDcHdfSni1KGEY+rxCl8bCwh4m8
-         6geJY3NS9MjIFFw6dIc/Ho0+H0P2O8sa8IcxXRyFH4wBZZxyKeG2X4M0IQTCBPhQC5WB
-         hmQcQEMaoRfw8OK3unu8jQ9dXKMH8XRektawz7SxRna/+i3CEh4duF6WOtW3/oTs0QIS
-         5G+A==
+        b=JN9BMkmThSqpH6q0+U9QrwcZsHKFJH6+PBWEkgs5brYBCU5OS7gmmGNfepOCZq2JQM
+         IAMSkx/0+/slT6k/WRzF9P0hZXaVMElPJkzVEgtjoWhnPoTESx8xVw07Lh0l36mORnCn
+         LuW5zSX7h+0S1wEW4Y8Vs+my5jeU5kidpxRvdlPH7gkNjTvRyDIWfz3NsVmI3pmEiWc/
+         UuQEiOY+TlShzeBB/MvgvqTCiiCotT2+bzSx+XVL+lhlly0EHlCfgCPC71my3IwbEnmW
+         6BKn07ZupZonVz7dqcer73DlRYn0EAzlwJrehVwr1hiowbR7I5EN6QZeRuSs4UqzuwKp
+         ZrJw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=6LsW1zIIoopK46mwO2eg3QvjEwS2naYYpjKk6izHhEw=;
-        b=F5edazpJ1ZaKnR1IuzWn1ErOkj52f16qkHgNRiTfElnYJBEPGCZg9pJ6PS7djj8fLR
-         p8mtfCmTErgG2Rq35Tfk7rEpNQ2s9/CRRjEjKm+J44B0L3OfmgJPfVMrvLhVFkxzc5F2
-         /EYwy/seU1sGUvf01G0p9T42/Ju5h5CIx6Kn5eB1iMAqedCug9lbQL/fIzpgTqXxk17n
-         xN4/y2pjToXQiYGaS/080nzY4Tah2Ewmfku2lSNf3jDH+HLx/36hAyChxe9mg0AsH00p
-         t4cd6PwjeNuwgJ9f5qeR4F0Ihzzs4lyOa9hv+MzWw0vsURR8V7FEB5dWOvt+e3MzYYIQ
-         sQUg==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=rznaBnYMdCpjZck5/ldi3+vYkDuFi7C+EACK4Pzggng=;
+        b=j+qOaTHFnRWtpeOJaUvi3G2H5oZFj0J8sv4b8mpVt52x/jJln25Kf4aBzD7wgNYpyE
+         fL3IOYBLtKfh/ANhKrpTpGIYSv53ciImuJ/iG7RbrhTWUVG8SkOemYP4FqQQl8R6+YA3
+         gcEJZZQbHlBDpjThJA2wpzrKQJdeRsDc2+nkGVfwrQ888BYaPozOzHSkcdbKKQkVWNAW
+         4FRI98CmTyIGYj7hH6iQvQxiVg5PJCkqn1ck997jEADjAX7NwDWzybgNzmOpocF7a/oL
+         hdw0kpuW/YNhBL9a0S3PVqWKDMZuRwlt7p3C/x6Qtq3bpkce1nMC6oMp0QPbytFKJYpp
+         ugmQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="YiZ8fpc/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QS05fCKn;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6LsW1zIIoopK46mwO2eg3QvjEwS2naYYpjKk6izHhEw=;
-        b=kACJIeB0584xHdCTdij39ZUtRPtF6NCkr+uBrGT5Vj5E+PRLXeWZpAto7OWOmF2abE
-         kkW18oFnDwznWgBOnXqZ9BRxlw9mYM/6J0vKpdpxuWnbYCGSDr4hyqB1mTZkD3NPkrp3
-         i6GIO7nlVLXAzGlPgfpJQ01yrvXMeLc1tD+xX6NJy3SdyfEmFEJEe3N2TdYuLxi47ccD
-         TlUtv9/ZQc8bHHhu9faxTnodPzLrhgnlUku5gz3TzvB+saLL75UiS0moZzEL9PXWst75
-         vUo4QVb1fJNyMljbBArtyvOl1mEBcPqhRmxVgRt8MdXOhWcY3Vj6j4YpkDNucqHGajQ5
-         4FAw==
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=rznaBnYMdCpjZck5/ldi3+vYkDuFi7C+EACK4Pzggng=;
+        b=UH+Hs6vN/ffQwwEVeD2AijoEXu9SfRfP1e20H5lwaN7Mp518SeOanqjVfjPKzw9d04
+         8CJ9SoT2MlDmyPMoOJdHCD8NAP/Bx+NIi6ZPMZCT/sWSd0fn3N2Jcv/AOZnF01hohwMJ
+         /88BVKAKHgj/CqACQahDDvRNuWokM7XoOAm7rSUjZ/xSmzfvUyMSjk7vBnGWMj/vv+LR
+         y6JThOmddq64CNp4WNaFE02D8d2yr8SRJH65OdhFO8ZxJD2qsH+eCkVQ+4lPUyLex4Yp
+         SS0qxdkMT72KiAlfC2Fo67Am1qRpIBnfTpV5bvVWOBrtMiA5CqmAkZTm2kP0S1agayyf
+         IJqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6LsW1zIIoopK46mwO2eg3QvjEwS2naYYpjKk6izHhEw=;
-        b=nGrmJDvytynmBBRzHcr2NizBGbw57hHd2FfQ+vB3fF58PgTo27/A9Q4YNnA2RAPswd
-         lbR4Nz6+pMpQbk50vuNcr8hCWH512wcU186QzrZxabEUpBNRmtMFjU/KP5MYXbh8tKDU
-         ecvW/tsEs0Pvd77ggJslkxCSe3mqEpLs6C6R+efk70FZc9V5Faw0ksaNu8ZyElpP0XZ6
-         1P+Iv5cpzR9YNQzaDkO+oOVTEUH0p701Qz9GXMD12D2HeWrpHfIquSC3DBPopUoLhRen
-         c7uFrVwM08ab2eGH/gKnaotSjnJqzm6GL2fkwo8Z4Az/R92MwUmbO2IVpT8CjS1gbOXu
-         Km/Q==
-X-Gm-Message-State: AOAM533nANPkSSi9rez1KofEEf7BuqihUcyB5/UNcO07Wh1dhKAsHKxx
-	HGKHS87ULaiitd5iFaYxIP8=
-X-Google-Smtp-Source: ABdhPJyGR7rjcOVRbI0BcddF6LwPrwucME360SmgmYhZrL1c7ZASNv9PyeNCJX9t9Egh8+9VNkyJlw==
-X-Received: by 2002:a5e:9307:: with SMTP id k7mr2745071iom.129.1603478082535;
-        Fri, 23 Oct 2020 11:34:42 -0700 (PDT)
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=rznaBnYMdCpjZck5/ldi3+vYkDuFi7C+EACK4Pzggng=;
+        b=HqOPlZ9EzO0Vb13akOGzp+XypqeUSIMrb21faS/5r8W4rDAqV0w/m65Y0LCnQU2uiu
+         fbd3NWuWZciVweOHRgy4SPr5VRd0BllNnKQMnyaZrq0XsXYOq6OZAZhLYynZRp2AawR9
+         twUIjmWMWMmGvV7pebRR0xjBR9CdA4jF7JqcsGF0+9EwBtwLEp7/gIegYksYqegzPo5f
+         VPNueXxf6DtOBNuSicfACw8BISzGFSTE+K8V0C4cKlx83rf436ZjIoCd8Er32342dkCD
+         XPdVgHi62BbvdV0SappW5vRZ0aRpkZPtRYtmLUsYFGIoO9VwjtbqRtF3tfqDkeSc7ogy
+         DoZQ==
+X-Gm-Message-State: AOAM533KjfBA5Dafg7zKqUwR/qlapwBD6bh0NKDlL/5lb/B0s/zAN4+y
+	Zagz6dcDOoFxytS7ztZLxQk=
+X-Google-Smtp-Source: ABdhPJwM8KMJra4Z2NOQ7gZyPvZKlhvWDl+O9UT9hg7/bQFElH1bBTTq6k+LCX3wMWJk7/g0D3t46g==
+X-Received: by 2002:a62:79c7:0:b029:152:197b:1b57 with SMTP id u190-20020a6279c70000b0290152197b1b57mr506207pfc.69.1603479209755;
+        Fri, 23 Oct 2020 11:53:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:2394:: with SMTP id q20ls265866jat.1.gmail; Fri, 23
- Oct 2020 11:34:42 -0700 (PDT)
-X-Received: by 2002:a02:234f:: with SMTP id u76mr3087249jau.117.1603478082135;
-        Fri, 23 Oct 2020 11:34:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603478082; cv=none;
+Received: by 2002:a17:90a:8046:: with SMTP id e6ls1395592pjw.3.canary-gmail;
+ Fri, 23 Oct 2020 11:53:29 -0700 (PDT)
+X-Received: by 2002:a17:902:eeca:b029:d3:d8dd:3e4b with SMTP id h10-20020a170902eecab02900d3d8dd3e4bmr328642plb.68.1603479209137;
+        Fri, 23 Oct 2020 11:53:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603479209; cv=none;
         d=google.com; s=arc-20160816;
-        b=fSOA9WWYsGjuUfWQWRtD1vbHJzHzfTXdI6Y8opdLdGgs5a56r1kp79mawCTLQPIhsm
-         tx97mEh6X2ZdB/L3GiauR/0Lew8T2tSmST4tmO9FEJZpyFMdgWRzaqBPvJhLkdcU2jpb
-         eZWD0n6eeCYjqYUjfNkPsHFnenVlIP0R6WAzqS6rCufDb2v1JLHdIPEuSB4BDk9t1biQ
-         Z7hwzPPw/iWZd1Mc+axQD1fn6fuuLrvPDljkRfMY/yDpB/mIBc4IqmaQFvXIsjsdyrLA
-         WEQLALX3D0tSeb8vdonIP0cnXiT4+fnFhi7PnAhaf1fcTY+nd/KoDVVFntXNsngLhQT+
-         +cWQ==
+        b=cc5IhjuVhHR++7MkW+NouVUHoABuPd5D1nYMNx3n3uG7uexUVipITXEZnH/P+fKAH2
+         UHDGplQDogG8wmmAW1qipvvKkpp0DElXJwWNgmb5Kgw2oncsHp+rLqBqZ10rHM0J/W0c
+         sZr+KohQPnfx+lxWgOE3wihLpJupA15/AfmEUvVRkE9zstDUuCWmXcwsypNS7Acce4DN
+         eIJ6gN9QVayHyLqBhAhfGr37UGteq7mxmPWbDpRDlO6Vc6I94CZ3gvoYW7SXk2hFKznS
+         gHvELrkPiDWkxOOLs1s5+E8hi/lZ2iomylvaFSM7/Gxz7JXpGW8R7kg0Z3YoRgBhG/iB
+         jnWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=iFkIdDI8phFoen6e5X/NZgjRcRd7RhXS/seVZ6TaniI=;
-        b=AtzozS1o4lhPoJo3JTxHmkTGNr0q5I79Ja/qxEfE68Lw8MEWWWTrr35w6NMZEXfDCh
-         M6/5NbUH/urhLfUVzm24XdUg+CzHnZktlJH9dbrx0Xvg9ep7bx5dj0f/GUM/ZaxNI0A3
-         EaxVoC42m/x/b5vaE7xSgtgMmVOLBhb6/BH3R+m9+oMRLAVur1XPCWAcc3S8eXctYEHI
-         I1bGLbIlmKmxLcYgi/PtLPidzQReF4DjAkXisz9kfWDBPvvH4t+GiS5em6UqIsF2fNZc
-         PeMz/l3tJI+Gj5FLuxXxcpDwFfuk+HxHK48Vw5WqzdiHBxX9dEBK8f/5jL7zEbOnhr4o
-         hyRg==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YPnpyUHNh3Tjyn3aAorAUbvYq3SVB6F6KvQdeC6IlO0=;
+        b=z1lxDXhmTO+yFD1SrBKQT3iq9Qie6M9FYwr38SThHPjZFcHi+Eq7KsmNwCnfcXtRZT
+         0v1BzbCX2kPzLUv1O+FcG2pY37uFogj9cMHABjO0SOiBNHfOoyTa/eNjnUBHGH2E5sLg
+         HF9E5GbY6vkE2104nIWPVkAXX8+PZUtETdpRDdRTbpjVrPFpx6DbimAuQssp2K0fVQM4
+         k7OONec8ZCKOo8ftEPz0DWkALIaXuupXiRhzALehBqbJGa5F9FNtxsJdnA6hT61n16YP
+         QcF8vx9rJqfLd/pm4OdKz5q+InUuejrT4DdvK7s9oJZcA2wcYv9W4B5gfOrjFRAkOYeQ
+         9cig==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="YiZ8fpc/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QS05fCKn;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x430.google.com (mail-pf1-x430.google.com. [2607:f8b0:4864:20::430])
-        by gmr-mx.google.com with ESMTPS id j68si164216ilg.3.2020.10.23.11.34.42
+Received: from mail-pl1-x632.google.com (mail-pl1-x632.google.com. [2607:f8b0:4864:20::632])
+        by gmr-mx.google.com with ESMTPS id h24si170938plr.0.2020.10.23.11.53.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Oct 2020 11:34:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) client-ip=2607:f8b0:4864:20::430;
-Received: by mail-pf1-x430.google.com with SMTP id h7so2037850pfn.2
-        for <clang-built-linux@googlegroups.com>; Fri, 23 Oct 2020 11:34:42 -0700 (PDT)
-X-Received: by 2002:a17:90a:6b04:: with SMTP id v4mr4159929pjj.101.1603478081319;
- Fri, 23 Oct 2020 11:34:41 -0700 (PDT)
+        Fri, 23 Oct 2020 11:53:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632 as permitted sender) client-ip=2607:f8b0:4864:20::632;
+Received: by mail-pl1-x632.google.com with SMTP id j5so1407657plk.7
+        for <clang-built-linux@googlegroups.com>; Fri, 23 Oct 2020 11:53:29 -0700 (PDT)
+X-Received: by 2002:a17:902:c40b:b029:d3:def2:d90f with SMTP id
+ k11-20020a170902c40bb02900d3def2d90fmr273720plk.29.1603479208450; Fri, 23 Oct
+ 2020 11:53:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <202010240235.eqelQLfG-lkp@intel.com>
-In-Reply-To: <202010240235.eqelQLfG-lkp@intel.com>
+References: <68CFCDD3-E913-4093-A5E8-DAE88E0AF878@fb.com>
+In-Reply-To: <68CFCDD3-E913-4093-A5E8-DAE88E0AF878@fb.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 23 Oct 2020 11:34:30 -0700
-Message-ID: <CAKwvOd=Y+PxTci0ChrH1U_TvaCb+Yfb=DgdkHjacRi9QRmHgrQ@mail.gmail.com>
-Subject: Re: [cifs:for-next 10/32] ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_17)
- is being placed in '.data..L__unnamed_17'
-To: Kees Cook <keescook@chromium.org>
-Cc: Steve French <stfrench@microsoft.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, linux-cifs@vger.kernel.org, 
-	samba-technical@lists.samba.org, Ronnie Sahlberg <lsahlber@redhat.com>, 
-	kernel test robot <lkp@intel.com>
+Date: Fri, 23 Oct 2020 11:53:17 -0700
+Message-ID: <CAKwvOdkOso37i-sYm_M81KU49mzCTNRdF9c4Mae4f-L8GbDyNg@mail.gmail.com>
+Subject: Re: [llvm-dev] [RFC] BOLT: A Framework for Binary Analysis,
+ Transformation, and Optimization
+To: Maksim Panchenko <maks@fb.com>
+Cc: "llvm-dev@lists.llvm.org" <llvm-dev@lists.llvm.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="YiZ8fpc/";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430
+ header.i=@google.com header.s=20161025 header.b=QS05fCKn;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -132,452 +134,389 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-https://github.com/ClangBuiltLinux/linux/issues/1185
+On Tue, Oct 20, 2020 at 11:39 AM Maksim Panchenko via llvm-dev
+<llvm-dev@lists.llvm.org> wrote:
+>
+> Hi All,
+>
+>
+>
+> Please find below an RFC for adding a binary optimization framework to LL=
+VM.
+>
+>
+>
+> Thanks for the feedback,
+>
+> Maksim & BOLT Team
+>
+>
+>
+> [RFC] BOLT: A Framework for Binary Analysis, Transformation, and Optimiza=
+tion
+>
+>
+>
+> 1. Background and Motivation
+>
+>
+>
+> BOLT is a static post-link binary optimizer successfully used inside and =
+outside of Facebook for code optimizations that complement traditional comp=
+iler whole-program and link-time optimizations [1]. Last year Google report=
+ed that BOLT accelerates their key workloads by 2% to 6% [2]. Additionally,=
+ BOLT is used in academia as a framework for program instrumentation, trans=
+formation, and binary analysis [3].
+>
+>
+>
+> We believe that including BOLT in the LLVM project will benefit the commu=
+nity in several ways [4]. First, BOLT is useful as a binary optimizer. It h=
+as been used at Facebook to accelerate the top services, and we would love =
+to see more people benefit from the performance boost that BOLT brings. We =
+would also love to see our partners adopt BOLT's new use-cases, such as opt=
+imizing mobile and embedded applications. Beyond the binary optimizer, BOLT=
+ is an impressive infrastructure that enables research in the following are=
+as:
+>
+> Advanced disassembly
+> Low-level program instrumentation
+> Static analysis
+>
+>
+>
+> 2. Overview
+>
+>
+>
+> While BOLT uses several LLVM libraries [5], it is currently a separate pr=
+oject based on an out-of-tree version of LLVM [6]. Most of the code lives u=
+nder separate tools/llvm-bolt directory, and required changes to LLVM are i=
+ncluded in the supplied patch [7]. The patch mainly consists of backported =
+fixes and minor extensions of the existing interfaces to update debug info,=
+ frame information, and ORC.
+>
+>
+>
+> BOLT has no external build dependencies outside of LLVM. For profile coll=
+ection, we recommend using sampling with a Linux perf tool [8]. LBR (last b=
+ranch records) feature [9] is recommended as it improves profile quality dr=
+amatically. BOLT can be supplied perf.data profile directly, but in general=
+, we advise converting the profile first using the supplied perf2bolt utili=
+ty. In case the sampling profiling is unavailable, e.g., while running unde=
+r a hypervisor locally or in the cloud, BOLT provides a builtin instrumenta=
+tion.
+>
+>
+>
+> BOLT supports x86-64 ELF as the primary platform. We have also implemente=
+d the initial support for Aarch64, and the support for MachO is in the work=
+s.
+>
+>
+>
+> 3. USE CASES
+>
+>
+>
+> 3.1 Link-time and binary transformations and optimizations
+>
+>
+>
+> Static profile-driven post-link optimization of an application was our pr=
+imary goal when creating BOLT. The convenience and expandability that the m=
+odel offers perhaps could only be exceeded by a dynamic binary optimization=
+ approach. E.g., to optimize a binary using a perf-generated profile, the u=
+ser has to execute a single command:
+>
+>
+>
+> $ llvm-bolt a.out -data perf.data -o a.out.bolt <optimization opts>
+>
+>
+>
+> No recompilation of a.out is needed (*), but we ask to link with "--emit-=
+relocs" for maximum performance gains. However, the latter is not a strict =
+requirement, and the command works even on stripped binaries.
+>
+>
+>
+> We have worked on reducing BOLT processing time and memory consumption. O=
+verall, BOLT efficiency has been improved by over 3X during that process. I=
+t takes less than a minute to optimize HHVM [10] production binary with ove=
+r 100 MB of code and less than 3 minutes to optimize another multi-gigabyte=
+ production binary with 500 MB of code. BOLT memory consumption is under 5 =
+GB for HHVM and under 13 GB for the large binary (**).
+>
+>
+>
+> Fast turn-around times for optimizing an application with BOLT without th=
+e need for source code allow us to design a system that automatically manag=
+es binary profiling and optimization. This is one of the most exciting dire=
+ctions in application optimization we are currently pursuing.
+>
+>
+>
+> We thought it would be interesting to perform a fresh comparison of BOLT =
+overhead to Propeller [11]. Sadly, Propeller relies on a custom version of =
+an external create-llvm-prof tool that we could not build in our setup, and=
+ using a GitHub-hosted binary version of that tool in the virtual environme=
+nt produced a profile that caused a performance regression of the optimized=
+ application. Using "-fbasic-block-sections=3Dall" Propeller option without=
+ a profile resulted in fast linking times but also caused a performance reg=
+ression.
+>
+>
+>
+> Although code reordering is the primary optimization in BOLT and the sour=
+ce of most performance gains, it is not the only optimization in BOLT. The =
+full list of optimizations includes late inlining, indirect call promotion,=
+ frame optimizations, and others. The convenience of adding new optimizatio=
+ns in whole-program post-link mode is one of the main advantages that the B=
+OLT framework offers, be it for research or practical purposes.
+>
+>
+>
+> Additionally, BOLT can add new code to a linked ELF binary. We have recen=
+tly used that capability to allocate frequently-executed code on huge pages=
+ automatically. Even legacy applications can now use 2MB pages for code on =
+x86-64 Linux systems to reduce the number of iTLB misses.
+>
+>
+>
+> BOLT's ability to process and optimize binary code without source code, s=
+uch as legacy/distributed binaries, or code from third-party and assembly-w=
+ritten code, provides another advantage over a pure compiler-based approach=
+. This advantage could or could not be important for optimizations dependin=
+g on the user scenario. However, the visibility into the code mentioned abo=
+ve could be critical for other code re-writing cases such as vulnerability =
+mitigations, instrumentation, and static analysis.
+>
+>
+>
+> *) Support for input with split functions is in the works. Before it is c=
+ompleted, we ask not to use "-freorder-blocks-and-partition" compiler optio=
+n during the build. A similar or better result will be achieved by running =
+the BOLT function splitting pass.
+>
+>
+>
+> **) while running BOLT with "-reorder-blocks=3Dcache+ -reorder-functions=
+=3Dhfsort -split-functions=3D1 -split-eh" optimization options. DWARF updat=
+e takes extra time and memory.
+>
+>
+>
+> 3.2 Advanced Disassembly
+>
+>
+>
+> Internally, BOLT identifies code in the binary, breaks it into functions,=
+ disassembles, and uses static analysis to build a control flow graph. This=
+ functionality could complement a traditional disassembler, as it adds the =
+ability to display possible targets for indirect jumps/calls, providing a b=
+etter understanding of the control flow in a function.
+>
+>
+>
+> Additionally, for performance analysis, the disassembly is annotated with=
+ execution counts, including those for indirect branch targets within a fun=
+ction (jump tables) and across functions (indirect and virtual function cal=
+ls). E.g.:
+>
+>
+>
+>   <Basic Block> .LFT35985
+>
+>   Exec Count : 42
+>
+>   Predecessors: .Ltmp935657
+>
+>       00003c8b: leaq "JUMP_TABLE/foo/1.14"(%rip), %rcx
+>
+>       00003c92: movslq (%rcx,%rax,4), %rax
+>
+>       00003c96: addq %rcx, %rax
+>
+>       00003c99: jmpq *%rax # JUMPTABLE @0x6e0f94
+>
+>   Successors: .Ltmp935702 (count: 0, mispreds: 0),
+>
+>               .Ltmp935705 (count: 41, mispreds: 26),
+>
+>               .Ltmp935703 (count: 0, mispreds: 0),
+>
+>               .Ltmp935704 (count: 1, mispreds: 0)
+>
+> ....
+>
+>   <BasicBlock>.LFT43 (9 instructions, align : 1)
+>
+>   Exec Count : 8
+>
+>   Predecessors: .LBB01191
+>
+>       00000028: movq %rdx, %rbx
+>
+>       0000002b: leaq 0x20(%rsp), %rdi
+>
+>       00000030: movl $0x2, %edx
+>
+>       00000035: movq %rbx, %rsi
+>
+>       00000038: callq *%rax # CallProfile: 8 (8 mispreds) :
+>
+>               { f1: 3 (3 mispreds) },
+>
+>               { f2: 1 (1 mispreds) },
+>
+>               { f3: 4 (4 mispreds) }
+>
+>       0000003a: movdqu 0x10(%rbx), %xmm0
+>
+>       0000003f: movdqu %xmm0, 0x30(%rsp)
+>
+>       00000045: movq %xmm0, %rcx
+>
+>       0000004a: jmp .Ltmp26968
+>
+>   Successors: .Ltmp26968 (count: 8, mispreds: 0)
+>
+>
+>
+> With LLVM integration, the advanced disassembler can be added as a new st=
+andalone tool or as an extra feature to existing tools such as llvm-objdump=
+.
+>
+>
+>
+> 3.3 Low-Level Program Instrumentation
+>
+>
+>
+> Tools, such as memory sanitizers, rely on compiler-generated memory instr=
+umentation to detect application errors at runtime. Suppose part of the app=
+lication is written in assembly or comes from a library with no sources. In=
+ that case, such code could become a source of false positives and false ne=
+gatives depending on the memory access types missed by the instrumentation.=
+ Since BOLT can instrument arbitrary code, independent of the source, it ca=
+n complement compiler-based instrumentation and fill in the missing parts l=
+eading to a higher quality signal from the tool.
+>
+>
+>
+> 3.4 Static Analysis
+>
+>
+>
+> BOLT offers an intuitive API to perform compiler-level analyses directly =
+on machine code. Because BOLT reconstructs the control-flow graph of the pr=
+ogram, it allows pass writers to extract arbitrary information beyond the s=
+cope of a single basic block with data-flow analyses. As an example, we can=
+ perform shrink wrapping by checking how stack-accessing instructions are u=
+sing the frame in a given function and validating opportunities to move mem=
+ory accesses in hot basic blocks to colder areas.
+>
+>
+>
+> While this framework provides the optimization writer with greater reach =
+over previously opaque external third-party binary code linked in the binar=
+y, perhaps the greatest value of this is in this code being visible at all.=
+ With static analysis, users can write passes to draw conclusions on safety=
+ concerns as well, such as checking if system or library calls are being us=
+ed in a suspicious way without the need to execute the binary.
+>
+>
+>
+> 4. Plans
+>
+>
+>
+> BOLT is a mature project that has been used in production for years, but =
+we continue to develop BOLT and invest in new use-cases and optimizations. =
+Below is a shortlist of areas that are currently under development:
+>
+> Automatic profile collection and optimization
+> MachO support
+> LLD integration
+> Optimizing Linux kernel
 
-On Fri, Oct 23, 2020 at 11:08 AM kernel test robot <lkp@intel.com> wrote:
+Hi Maksim, you already know I'm a big fan of BOLT.  Specifically for
+the area under development of optimizing the Linux kernel, I think
+BOLT could be a huge competitive advantage for LLVM.  Any way we could
+discuss/collaborate more on that?  I look forward to seeing patches
+upstreamed.
+
 >
-> tree:   git://git.samba.org/sfrench/cifs-2.6.git for-next
-> head:   1bfcaa4b7f0b84d397f0080aec64c4c948fc84c0
-> commit: fbfd0b46afa9a8b50a061b0f28204fc94c7bddcf [10/32] smb3.1.1: add new module load parm require_gcm_256
-> config: powerpc64-randconfig-r004-20201022 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 147b9497e79a98a8614b2b5eb4ba653b44f6b6f0)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc64 cross compiling tool for clang build
->         # apt-get install binutils-powerpc64-linux-gnu
->         git remote add cifs git://git.samba.org/sfrench/cifs-2.6.git
->         git fetch --no-tags cifs for-next
->         git checkout fbfd0b46afa9a8b50a061b0f28204fc94c7bddcf
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
 >
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_23) is being placed in '.data..L__unnamed_23'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_24) is being placed in '.data..L__unnamed_24'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_25) is being placed in '.data..L__unnamed_25'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_26) is being placed in '.data..L__unnamed_26'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_27) is being placed in '.data..L__unnamed_27'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_33) is being placed in '.data..L__unnamed_33'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_29) is being placed in '.data..L__unnamed_29'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_30) is being placed in '.data..L__unnamed_30'
->    ld.lld: warning: fs/built-in.a(cifs/dir.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/dir.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/dir.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_18) is being placed in '.data..L__unnamed_18'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_17) is being placed in '.data..L__unnamed_17'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_22) is being placed in '.data..L__unnamed_22'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/link.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/misc.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/misc.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/misc.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/cifsencrypt.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/cifsencrypt.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/readdir.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
->    ld.lld: warning: fs/built-in.a(cifs/smb1ops.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb1ops.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb1ops.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/smb2transport.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2transport.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb2transport.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2misc.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
-> >> ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_17) is being placed in '.data..L__unnamed_17'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(cifs/smb2file.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/compr.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/write.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/write.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/build.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/build.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/build.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/erase.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/erase.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/background.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/fs.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/fs.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/super.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/debug.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/debug.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_17) is being placed in '.data..L__unnamed_17'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_18) is being placed in '.data..L__unnamed_18'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_23) is being placed in '.data..L__unnamed_23'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_22) is being placed in '.data..L__unnamed_22'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_26) is being placed in '.data..L__unnamed_26'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_25) is being placed in '.data..L__unnamed_25'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_24) is being placed in '.data..L__unnamed_24'
->    ld.lld: warning: fs/built-in.a(ubifs/journal.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/dir.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/dir.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(ubifs/sb.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/sb.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/sb.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
-> --
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_23) is being placed in '.data..L__unnamed_23'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_24) is being placed in '.data..L__unnamed_24'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_25) is being placed in '.data..L__unnamed_25'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_26) is being placed in '.data..L__unnamed_26'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_27) is being placed in '.data..L__unnamed_27'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_33) is being placed in '.data..L__unnamed_33'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_29) is being placed in '.data..L__unnamed_29'
->    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_30) is being placed in '.data..L__unnamed_30'
->    ld.lld: warning: fs/built-in.a(cifs/dir.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/dir.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/dir.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_18) is being placed in '.data..L__unnamed_18'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_17) is being placed in '.data..L__unnamed_17'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_22) is being placed in '.data..L__unnamed_22'
->    ld.lld: warning: fs/built-in.a(cifs/file.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/inode.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/link.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/misc.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/misc.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/misc.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/transport.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/cifsencrypt.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/cifsencrypt.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/readdir.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(cifs/sess.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
->    ld.lld: warning: fs/built-in.a(cifs/smb1ops.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb1ops.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb1ops.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/smb2ops.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/smb2transport.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2transport.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb2transport.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2misc.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
-> >> ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_17) is being placed in '.data..L__unnamed_17'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(cifs/smb2file.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/compr.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/nodelist.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/nodemgmt.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/readinode.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/write.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/write.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/scan.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(jffs2/gc.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/build.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/build.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/build.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/erase.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/erase.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/background.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/fs.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/fs.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/super.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/debug.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/debug.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_10) is being placed in '.data..L__unnamed_10'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_11) is being placed in '.data..L__unnamed_11'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_12) is being placed in '.data..L__unnamed_12'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_13) is being placed in '.data..L__unnamed_13'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_9) is being placed in '.data..L__unnamed_9'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_17) is being placed in '.data..L__unnamed_17'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_18) is being placed in '.data..L__unnamed_18'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_23) is being placed in '.data..L__unnamed_23'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_22) is being placed in '.data..L__unnamed_22'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_26) is being placed in '.data..L__unnamed_26'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_25) is being placed in '.data..L__unnamed_25'
->    ld.lld: warning: fs/built-in.a(jffs2/wbuf.o):(.data..L__unnamed_24) is being placed in '.data..L__unnamed_24'
->    ld.lld: warning: fs/built-in.a(ubifs/journal.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/dir.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/dir.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/super.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(ubifs/sb.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/sb.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/sb.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
->    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
-> ..
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 >
 > --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010240235.eqelQLfG-lkp%40intel.com.
+>
+> BOLT Team
+>
+>
+>
+> References
+>
+> [1] Maksim Panchenko, Rafael Auler, Bill Nell, and Guilherme Ottoni. 2019=
+. BOLT: a practical binary optimizer for data centers and beyond. In "Proce=
+edings of the 2019 IEEE/ACM International Symposium on Code Generation and =
+Optimization" (CGO 2019). IEEE Press, 2=E2=80=9314. https://research.fb.com=
+/publications/bolt-a-practical-binary-optimizer-for-data-centers-and-beyond=
+/
+>
+> [2] https://lists.llvm.org/pipermail/llvm-dev/2019-September/135393.html
+>
+> [3] Joe Savage and Timothy M. Jones. 2020. HALO: post-link heap-layout op=
+timisation. In "Proceedings of the 18th ACM/IEEE International Symposium on=
+ Code Generation and Optimization" (CGO 2020). Association for Computing Ma=
+chinery, New York, NY, USA, 94=E2=80=93106. DOI:https://doi.org/10.1145/336=
+8826.3377914
+>
+> [4] https://github.com/facebookincubator/BOLT/issues/46
+>
+> [5] Maksim Panchenko. 2016. Building Binary Optimizer with LLVM. 2016 Eur=
+opean LLVM Developers' Meeting. https://llvm.org/devmtg/2016-03/#presentati=
+on7
+>
+> [6] https://github.com/facebookincubator/BOLT
+>
+> [7] https://github.com/facebookincubator/BOLT/blob/master/llvm.patch
+>
+> [8] perf: Linux profiling with performance counters. https://perf.wiki.ke=
+rnel.org/index.php/Main_Page.
+>
+> [9] Runtime Performance Optimization Blueprint: Intel=C2=AE Architecture =
+Optimizations with LBR. https://software.intel.com/content/www/us/en/develo=
+p/articles/runtime-optimization-blueprint-IA-optimization-with-last-branch-=
+record.html
+>
+> [10] The HipHop Virtual Machine. https://hhvm.com/
+>
+> [11] Propeller RFC. https://github.com/google/llvm-propeller/blob/plo-dev=
+/Propeller_RFC.pdf. Updated performance results: https://lists.llvm.org/pip=
+ermail/llvm-dev/2019-October/136030.html
+>
+>
+>
+>
+>
+> _______________________________________________
+> LLVM Developers mailing list
+> llvm-dev@lists.llvm.org
+> https://lists.llvm.org/cgi-bin/mailman/listinfo/llvm-dev
 
 
 
--- 
+--=20
 Thanks,
 ~Nick Desaulniers
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DY%2BPxTci0ChrH1U_TvaCb%2BYfb%3DDgdkHjacRi9QRmHgrQ%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAKwvOdkOso37i-sYm_M81KU49mzCTNRdF9c4Mae4f-L8GbDyNg%40mai=
+l.gmail.com.
