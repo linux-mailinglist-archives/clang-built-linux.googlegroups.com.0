@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBKP6Z76AKGQEU5XOFBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBRVB2H6AKGQESCOVJJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7C86D297BCA
-	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Oct 2020 12:17:14 +0200 (CEST)
-Received: by mail-yb1-xb3a.google.com with SMTP id m62sf5275845ybb.6
-        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Oct 2020 03:17:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603534633; cv=pass;
+Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id 335CB297D47
+	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Oct 2020 18:05:28 +0200 (CEST)
+Received: by mail-oi1-x240.google.com with SMTP id w200sf3334114oiw.5
+        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Oct 2020 09:05:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603555527; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mNs+4SD8OtptHLQHVSYp31TwJ2Dj3rDz7UrZ863LNQ8Nk3jUB3gCDKBhXg4HktHqr8
-         SdUmw8c07Vo5ssNzrK6UpSbj0NGtMg0H9Z0x8WRf4oHH03RFNnZ44H2N7ShUYLKD/BkZ
-         8dsNgMzIYHCEWS6GEuX+/XckyJ0KjNCXWGbS02lQZixlj/CThaDbw0W3Q9SVzK9KoaeE
-         a022c6pENk88TIBlvFtCfrKuDES/NwkUI/IgOJndcWYqh7ZJlQlSUOSIzPWfgpvK0Nuk
-         81LG+XltsbtZ5J2i1D0z57npawQgJgpDM23msFh/O4+1UESRZO9eplTWy3b9P26DEE36
-         yJCg==
+        b=kwcQ1kGKJe2HD0lcx78FnWlfA67kqEN+dxPlOs9abEt29RFI8W1zp3aKOPH7E3dq9I
+         e0CSYe2XcCR6DLDxf8+sEGPi4fgR66r5ooPPFNUmi3bfTwOCJ/3cRXpIx02C8gGU1y43
+         IQJy0dQTDZyqhaJ7SC7tJnkEPkK7oId399KaUD8RXLeaaO6K2GcQqUKn28wms6syJfQ0
+         02g8q2EP66qzswYqYSRqszcGvQBuDKeIhGuV9oUJzj+Knml2aRoDECr5Q2V6Jr1bNsEQ
+         FqZM/C4y0q7g4Q/y72sTH6XWNMleqe5T2oSVTrpG3U7ekPAfdK9FcToXtDsHjVLzz1rR
+         fbYg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=1pk2FL1werWLD9etea3K5No94Zr1n7+SBm3q2IafQ7k=;
-        b=RhJ53lleQWz/+K+Zz6qoO/utIo0PCFmKPvaQU9cAXQP4KZMq6ryIe+JbqGGNrVCqx4
-         SM4CQksTRPumNflLC3/Nb/Q6BLgYM2qy9shi8/5G1/m9Dmr1Ac5quiQZlS3DW1U9SNXh
-         ict35n8upeT9dDpd+DJXSHOsiwce2M/BoR7M9FLRfyDXKZCocwzGSbVdCJLhmQqgU679
-         2xd3USwy71PO53xIEn3FTRPCf9x5fP/mQq4kLI9M4hJpJnrToUZSDq/D2KSB0gvO91Oe
-         1M1F+JcFHMYrgC3ecmxZ9nIDGC+D7hsPy4bXcjHpzFm8dopWT08QhlC0UNtU9KhozYP5
-         /Z6w==
+        bh=hP/LhscVggklij56JhNdvLfU9bn/B48G6GjVHnV7VO8=;
+        b=rFEGyQ95PK8Ykyc9dkxrBKP+xe14lNW2VIP/iMKnzvvINkrR03LJUlOZdXQyf1III7
+         HmJs5SGyZYYuGuExld8oSF/WyAQXEGzmEd/8zbhfvOjWKdiHwvpDvTaxksU876zxjkmV
+         Cx5NYN5j3tmnPmnAkGJAgzE5BcMFCG6XseQ9VNKGi9xbCOwPXvsNzIt7glRGamEchP/y
+         Kr19Jw3T1CnA42wcr8jPIgRyWllbsob3lowEKLg+3kNpGbbrh3Xy90fsXylrrhAhNPi/
+         mXZWENsjnHht7jFtkoWg9HSARJxhaGlrLzE2szN+cqL2A7n1+NJ603RlDCzaBAmgbvAV
+         6vtg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1pk2FL1werWLD9etea3K5No94Zr1n7+SBm3q2IafQ7k=;
-        b=peg2sPsbo95tjxmnwjXRSv7rYru1PuA/mzCkPXmRhw95g/pzs+5VrBmIh8gsCizdiz
-         1yWkpDY6V5z8DSvajlua3LjM9+sbutSPEY4iRg1tdNEo62I6d48tgTnlE5eeoJQCS+GI
-         PJM4+67Lvmji7jGTxmX8l33N10BkRLckZtB42ddpIf2wF553HI9qCq7Tx5loha2HJy5U
-         09LkEc0uFn4AhrUbKoehU9Hz7Hipn5Si/NoPeWofvTB58tR4LqAQsuqm08qf9ZMz+ZHV
-         U9xjHO2iKQK4XUTE3hHCxLDy6maHT/J4nFW5BvSVIgpSMfRTtUchm0PEBNw8s2xpaFTR
-         kzhw==
+        bh=hP/LhscVggklij56JhNdvLfU9bn/B48G6GjVHnV7VO8=;
+        b=jn2S3HI9PR+uQvdrmTlKl+d1691qyNje9RohJzKy2CTAg+T1irOa8QPxNeteMVkUlp
+         ONxcb5j9MZcn86Vu/0w0jZXVjmPMV5yy1Mdm6hBeMLTOwRMp6+SjRpbnl5eTEntghBNW
+         jYF1Q1ajs4AOJl31oZ2x3Loqv313r+lmIqnqkC00onX2eq8R7zEI2r4+r0v74+iPa4aI
+         LirOHdDk9LTvzn1eV/3z8Et80JVh3UBKKpFJO4gDop2GZf525dZYMm3YIErpJ6MGPBWX
+         6+QaSOfMRU9rT1Bh88uT9gP8U2+BwJCE5GoYy5E5X6Yolfvqma5KwgN7zfgwjNwJLfSQ
+         DGYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,88 +49,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=1pk2FL1werWLD9etea3K5No94Zr1n7+SBm3q2IafQ7k=;
-        b=isbtEficdxn1seBBMbUMFi14IdH1KHAn30QTzSOuDC9FgOdsVQyKAi6qIbwqEvgZf4
-         yj23hzGMEHLRt/mNfKwatWTQVatG6gwUQ6WS5Zi52QkcCI/ku4f5FaVytCYL1syOdcg7
-         tXPB49KHKu2zWbKH5CxTLZA7TZtdUQjsAFgs9KqL2YFjQ37GM2ix5VGvT0EYk4t3rRfg
-         1YQ9Flumdc4PA7u9vP+GUid5V8W/CbjBT+yhuj8/Vo5iideMwZJxUFYfGe3a6PYlM/fr
-         MEGnzP4Gwi/xsoCKupskANnzMofvj2d60BE8f+vuIqdSOgoueg6y1u+zNoZkiXWcxRoF
-         CBAQ==
+        bh=hP/LhscVggklij56JhNdvLfU9bn/B48G6GjVHnV7VO8=;
+        b=V7pvsBm90FFWKX1B0H+xnUeifWuZWu7Mdhqqe16SmHhwLWi7fW2bIld2x1okIuQsgX
+         riqcnDP0+9MpzuutskoV1kD9GCJ+f/3vfTxcpdglfdqwrnutN+n/+KooDm7F/TY77Qen
+         +xKjfMeSSRHkNkPiX9w7sjGStHR7rLpJ3SFEFUVEs2cSF4bmE09F6BrA06zw0D3zDixS
+         rkltgsMkfh50YWlWQd/trYqqNIDDNd6Vj4BXCuyc0UTbzY+JM7LdiyQ+w4oCsibenBWn
+         9W8d8lZaObsDPwGbLR1pfONbV3SNdeJDuJg7B8SqKLXZDx/Qg0U+4ymSUt/kHVUHoK1r
+         K8xw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5320CRym13wkxiXxZG6E0sU9sfDT8wjbw71zgvNkHET8J1+fcxMx
-	jlvIdbaVo5cPjFl5nrhdaxY=
-X-Google-Smtp-Source: ABdhPJxWDD3znZj08i6h+SkIoVH22hfUl1UU0hW5QbUyYyC/oFmpfx4e5WSPkI1Rw71xxlWhD9Ar5g==
-X-Received: by 2002:a05:6902:6a6:: with SMTP id j6mr9805090ybt.383.1603534633203;
-        Sat, 24 Oct 2020 03:17:13 -0700 (PDT)
+X-Gm-Message-State: AOAM530JhO23o5Ui1DbLlClyYBR2wozbfJksGFMQzAGhQGr/Hwu4tbpy
+	4l1fWsznTsUh59hmKCnC+gQ=
+X-Google-Smtp-Source: ABdhPJxkgra9gud73Gnz08b1LGBjqD1weMQq2Zo7DFySbacnDEchfIL7AGvK37uvmSssvfF1vXhe4g==
+X-Received: by 2002:aca:1e08:: with SMTP id m8mr5297255oic.168.1603555526730;
+        Sat, 24 Oct 2020 09:05:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:21c5:: with SMTP id h188ls1934533ybh.6.gmail; Sat, 24
- Oct 2020 03:17:12 -0700 (PDT)
-X-Received: by 2002:a25:69cb:: with SMTP id e194mr10245627ybc.227.1603534632593;
-        Sat, 24 Oct 2020 03:17:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603534632; cv=none;
+Received: by 2002:a54:4198:: with SMTP id 24ls1090123oiy.10.gmail; Sat, 24 Oct
+ 2020 09:05:26 -0700 (PDT)
+X-Received: by 2002:aca:d5c1:: with SMTP id m184mr6131522oig.19.1603555526268;
+        Sat, 24 Oct 2020 09:05:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603555526; cv=none;
         d=google.com; s=arc-20160816;
-        b=ldN68LyJcpLyZg6XElRBNkr7GGqf0bigZlNcq5lRoFW1Q+gSvD7vLbeOltgqeIERpM
-         AIOpZGEEyZz/evx8RqBFCEKbKMPU14wLtRyYQsi49AyOiFaGhQ7YYS4jFQp8j+Gs4SHd
-         wPrwm9QfKHgYRoSEiRbPg62HVsBHbq0RZZLQzmLa3i5Dzsh5Bm95/oS01IbS4m4C2nhh
-         Ru85vXia3uOzPPWkARxcYhWr1typ5cMdwPfF9n5/bcs/0tJoVHzGvYN2dT8nM4njsGap
-         DOtKIsIOMcsk2PCMwWZFapMU7QD+t2xQb0xP/sTnj3khKEZxMEqtJAiXiIpo6jfibE2Z
-         /uXQ==
+        b=WhBTkOjCMTD6fbAMvEyvgG2uI1zZ9C35lcQ+td07ju6r3Wtx/jhBn8rHi3A3GMF20D
+         hc9i8l5oHdIx/yzetcwUyQnTl9HiySb35cWXsZGpwPBrg+XID+aFMuZeW75pG5NsrACq
+         vM+sHLNLS6bYywmPS01bdKTgUidQXq7HXBtPV4lHjOdLePh/ZAhCeRuISyjgt8eYccBz
+         PWanHDrR4WNoCQdcCVlKPD1anWK4HsSC4FeieuW7IwJMc2EI4a7RSLk6TmaDFzeXOzv9
+         wrOMbwYKrxxSxktSbVtVynihHZnDSKVavQRQMQO06lVVUl4Ls3VnTF41HE2iBWQ2pYYc
+         yr7w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=o1tuWTcEPKuhNKsZOAQ0UKSEsZTIAtZFhi5HmDTyeRs=;
-        b=KLOyNFxd+4vfIUdMG9Z78cM3xWfyNSD3+UUPSDnrdj5o3iwwfkeE0obHlDA+kk3PYZ
-         HEvWr5isf9feoxDwb0hOZpDVsYrAAXWjshSFXBSe+tYpROpQRsiN90bT4m+Hqd6Hhvcw
-         YbVyP3N0N340LxUFQZOcJn/y3KIc4nlqfQrAzlW0UdAp7Ua9g76jEskIlqsA40XmSAH/
-         GEQM+LwH3IpsL/mk4SeF2Pn7egEvXjd2XdclQipf4YbYznXCZekFQ3H+a29CNgyoTX+R
-         YpVYnefxDOWtPA6GdRFi+xJNELVChO3dOpmjaW8IPKFaeDr9VV7pqk1WXL+MRlk9JfRx
-         eUZg==
+        bh=ZYIuNGYP2oY/lEbzJa1aFSWeIL50fMpw8Az+4ANqi5I=;
+        b=YM7CSzsqzckF97cJD98DS53vPgc4xuTlbWcbooukR9/7KBMLo+V/v0596Cka1Y2Alz
+         +60jTjaod73oD1lS3N6NcVxZf+UP6X42+XOEFVt4XSRZeyYzwgX4mJbzfESdAYxIKunh
+         uKQglcprBcXesWVxFCpsy2YnWqHDuzIOfP0mKKwR5l0cfX8p6wEQzARQKwBmAu/re9YP
+         JAjanTzD1k7ryto7841/3vyQkZV38+QpciDB3n8Ce8ksc5Tw2s0nNjpBbUSdRAl0b3N4
+         0EQoTynjihpDljtO4p6V24+HTpQzwztwbt3XjutotAujjHoERFwWGcHIyn+qvALh4Yp0
+         aolQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id r8si268107ybl.1.2020.10.24.03.17.11
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id j78si359527oib.5.2020.10.24.09.05.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 24 Oct 2020 03:17:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: lqgJw8RS2GFMRlUvAkx18Ez2DCxShz/eHducHC6+eY46FI8iMMhM7eFk61Ufee2o7AYZ73AZ/w
- xZEAbl5eEZfw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9783"; a="164273128"
-X-IronPort-AV: E=Sophos;i="5.77,411,1596524400"; 
-   d="gz'50?scan'50,208,50";a="164273128"
+        Sat, 24 Oct 2020 09:05:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+IronPort-SDR: R2BBqMaSSWs9UZKvrETaVfd/70KLq8vFLuID3zWg3SJlufGISx/5Y3VENSIB+BxZc4cdOJjmu/
+ i07eOgzeXsBw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9784"; a="155567180"
+X-IronPort-AV: E=Sophos;i="5.77,412,1596524400"; 
+   d="gz'50?scan'50,208,50";a="155567180"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2020 03:17:10 -0700
-IronPort-SDR: tYC2Dwu/yldyEQUEjmuUl0pdzTQzTA8fiItvGJU8T6Qowb15fogJq5hHkIinPHJpwhIVPIwx/N
- C1o8ulod47Uw==
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2020 09:05:24 -0700
+IronPort-SDR: axa5CqHBynsqcVbMGENoSJLpOa60wU5D9StNxhx5tiEsUW190CDy0vHND9EZ3BmWjP2VyfZQDZ
+ xmOmYXnq6Hbw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,411,1596524400"; 
-   d="gz'50?scan'50,208,50";a="359856422"
+X-IronPort-AV: E=Sophos;i="5.77,412,1596524400"; 
+   d="gz'50?scan'50,208,50";a="333607384"
 Received: from lkp-server01.sh.intel.com (HELO cda15bb6d7bd) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 24 Oct 2020 03:17:08 -0700
+  by orsmga002.jf.intel.com with ESMTP; 24 Oct 2020 09:05:19 -0700
 Received: from kbuild by cda15bb6d7bd with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kWGbk-0000TX-6H; Sat, 24 Oct 2020 10:17:08 +0000
-Date: Sat, 24 Oct 2020 18:16:47 +0800
+	id 1kWM2g-0000Yz-U8; Sat, 24 Oct 2020 16:05:18 +0000
+Date: Sun, 25 Oct 2020 00:04:33 +0800
 From: kernel test robot <lkp@intel.com>
 To: Steve French <stfrench@microsoft.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	Pavel Shilovsky <pshilov@microsoft.com>
-Subject: ld.lld: warning:
- fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_19) is being placed in
- '.data..L__unnamed_19'
-Message-ID: <202010241845.LVfvLUcp-lkp@intel.com>
+	linux-kernel@vger.kernel.org, Aurelien Aptel <aaptel@suse.com>
+Subject: ld.lld: warning: fs/built-in.a(cifs/cifsacl.o):(.data..L__unnamed_1)
+ is being placed in '.data..L__unnamed_1'
+Message-ID: <202010250032.bXyYULF1-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="fUYQa+Pmc3FrFX/N"
+Content-Type: multipart/mixed; boundary="M9NhX3UHpAaciwkO"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -146,14 +144,14 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---fUYQa+Pmc3FrFX/N
+--M9NhX3UHpAaciwkO
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
 head:   f11901ed723d1351843771c3a84b03a253bbf8b2
-commit: 511ac89e591ab9affce17a8be4c45f6c2bb837f0 smb3.1.1: print warning if server does not support requested encryption type
-date:   5 days ago
+commit: 9934430e2178d5164eb1ac91a9b092f9e7e64745 SMB3.1.1: Fix ids returned in POSIX query dir
+date:   4 days ago
 config: powerpc64-randconfig-r004-20201022 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 147b9497e79a98a8614b2b5eb4ba653b44f6b6f0)
 reproduce (this is a W=1 build):
@@ -161,10 +159,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=511ac89e591ab9affce17a8be4c45f6c2bb837f0
+        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9934430e2178d5164eb1ac91a9b092f9e7e64745
         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
         git fetch --no-tags linus master
-        git checkout 511ac89e591ab9affce17a8be4c45f6c2bb837f0
+        git checkout 9934430e2178d5164eb1ac91a9b092f9e7e64745
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
@@ -173,11 +171,6 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_25) is being placed in '.data..L__unnamed_25'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_26) is being placed in '.data..L__unnamed_26'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_27) is being placed in '.data..L__unnamed_27'
    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_33) is being placed in '.data..L__unnamed_33'
    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_29) is being placed in '.data..L__unnamed_29'
    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_30) is being placed in '.data..L__unnamed_30'
@@ -273,11 +266,12 @@ All warnings (new ones prefixed by >>):
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_18) is being placed in '.data..L__unnamed_18'
->> ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
+   ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
    ld.lld: warning: fs/built-in.a(cifs/smb2file.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
+>> ld.lld: warning: fs/built-in.a(cifs/cifsacl.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
    ld.lld: warning: fs/built-in.a(jffs2/compr.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
@@ -374,12 +368,11 @@ All warnings (new ones prefixed by >>):
    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
 --
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_25) is being placed in '.data..L__unnamed_25'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_26) is being placed in '.data..L__unnamed_26'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_20) is being placed in '.data..L__unnamed_20'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_21) is being placed in '.data..L__unnamed_21'
-   ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_27) is being placed in '.data..L__unnamed_27'
    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_33) is being placed in '.data..L__unnamed_33'
    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_29) is being placed in '.data..L__unnamed_29'
    ld.lld: warning: fs/built-in.a(cifs/connect.o):(.data..L__unnamed_30) is being placed in '.data..L__unnamed_30'
@@ -475,11 +468,12 @@ All warnings (new ones prefixed by >>):
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_18) is being placed in '.data..L__unnamed_18'
->> ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
+   ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_19) is being placed in '.data..L__unnamed_19'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_14) is being placed in '.data..L__unnamed_14'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_16) is being placed in '.data..L__unnamed_16'
    ld.lld: warning: fs/built-in.a(cifs/smb2pdu.o):(.data..L__unnamed_15) is being placed in '.data..L__unnamed_15'
    ld.lld: warning: fs/built-in.a(cifs/smb2file.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
+>> ld.lld: warning: fs/built-in.a(cifs/cifsacl.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
    ld.lld: warning: fs/built-in.a(cifs/cifs_spnego.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
    ld.lld: warning: fs/built-in.a(jffs2/compr.o):(.data..L__unnamed_1) is being placed in '.data..L__unnamed_1'
@@ -576,6 +570,10 @@ All warnings (new ones prefixed by >>):
    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_2) is being placed in '.data..L__unnamed_2'
    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_3) is being placed in '.data..L__unnamed_3'
    ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_4) is being placed in '.data..L__unnamed_4'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_5) is being placed in '.data..L__unnamed_5'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_6) is being placed in '.data..L__unnamed_6'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_7) is being placed in '.data..L__unnamed_7'
+   ld.lld: warning: fs/built-in.a(ubifs/io.o):(.data..L__unnamed_8) is being placed in '.data..L__unnamed_8'
 ..
 
 ---
@@ -585,14 +583,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010241845.LVfvLUcp-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202010250032.bXyYULF1-lkp%40intel.com.
 
---fUYQa+Pmc3FrFX/N
+--M9NhX3UHpAaciwkO
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICJ/Lk18AAy5jb25maWcAlDzLdtu4kvv+Cp305s7idlt+JZk5XkAgKCEiCYQAJdkbHFuW
+H4sICAMWlF8AAy5jb25maWcAlDzLdtu4kvv+Cp305s7idlt+JZk5XkAgKCEiCYQAJdkbHFuW
 0552LF9bSaf/fqrAFwCCSk8WjllVeBUK9ULBv/7y64R8O+y/3h4et7dPT39Pvuyed6+3h939
 5OHxafc/k0RMCqEnLOH6NyDOHp+//fj9Zf/X7vVlO7n47eNvJ5Pl7vV59zSh++eHxy/foPHj
 /vmXX3+hokj53FBqVqxUXBRGs42+erd9un3+Mvm+e30Dusn09LcT6ONfXx4P//377/Dz6+Pr
@@ -1140,4 +1138,4 @@ Z/8wsXHIRmbvYmRqw9dbCQRNvNpzGOkcDFcM8mKkB6bFbASJMTFRLnaYbmixE2chtrOdgmUX
 paykdpMEr1lcpuBRcGeMZZI26qhQIEgJL+N0dMQgLvTwGt8agRZXzpOyy0KejM0YdR8Z45dG
 BA5PAwYzfZQN+oOe45yOiWdPCzB9281Lb7RGdW7GyZPC/wHWi7Ynp88BAA==
 
---fUYQa+Pmc3FrFX/N--
+--M9NhX3UHpAaciwkO--
