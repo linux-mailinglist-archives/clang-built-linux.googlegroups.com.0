@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBHOB3X6AKGQETGGUBTQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBLWB3X6AKGQEE3SC5HY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E812299B20
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 00:49:51 +0100 (CET)
-Received: by mail-oi1-x23d.google.com with SMTP id e3sf6397704oig.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 16:49:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603756190; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 306A6299B2A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 00:50:08 +0100 (CET)
+Received: by mail-pl1-x638.google.com with SMTP id c4sf7046137pll.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 16:50:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603756206; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QoID+hD2LUhKW60yLavudpc5BGOcTGqaI2ZBL+Ctr7EMPrrEehqKzEvDVFgRZ063Gt
-         +zTbiPHmwlU07nV9BqtVNz0he5614w2O66vxuSPJP1Kf/BcEAs/jd+0oCp3pgdppearR
-         xzGladB14IYa0tXL3M574oFn5shaWpO3dfarx27Qowx4Vj7rmBz2wpmi7aI+c9Nf3mq0
-         Zj7QgwpjxLzy/xufay8k+aKwWB6Fw542+wWlM00oumVAxhEcvQkxgiZ+mXOL3KsENtKo
-         F3WD+VoXPsp/sO74by5fVwzC++2HAOPU854sXTNBk7W5osaovP3mC4GdhgVRCQaY9jmJ
-         LxJA==
+        b=x1yd0jJyyUYDnZL1ZHTAcGKSAjnRRmqHctrdu1I4E1+XFRMf9ZQwleugC+R3ikBwi2
+         hlt+7cTX1q/RbmjrQp1UAm7V6q+igFffzwACArlFhlVRv+FdJaSNmgLDtaUvlHddRL4N
+         jA6WYXsGBDYDULec5RUqHw95yHz9kGlYCuLzmM7VpWCWIvznlt+kuVk7hhw3/Ah8mxJq
+         HlhinPaoVZRHOcLOnDbDizn9jZ3IwjtCC+qRhxRTvwZV+5n/kSoqTx1pQuGB6cDTYlz8
+         bVmQyUXXQ1J0AIsxEsYTd1y362SlknFfsf0KJSuPXjYBjXYGKZV2IvrlusTVcmJGGPNO
+         9Hkw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=nRUvxF+Xv/KYpwAU+OZIBRs5bWUvmDQlN9RVxBTsflU=;
-        b=hOQJAt9zrmwik7zDn8qqD1bB1tHjFu+yNYD7hUsJKkRBQS2WZzM43s9YzRDduUUN+/
-         22LWlY4ZQ6JUFJxjH/AtcgBqZiXqXLPYjjf2RWNQsPWOhjazk104rQQ4pdgSGwFfUmqm
-         DNW/oTtXkhIIILgvUFWl+MJONYAnn9aGCQXPCbCftP1iJlsl11UNBl0Dos23wfRPh+Qb
-         O3VRM3hIzrgjfYRRmb1aFJ/YIxhKNE3Qrj4aiwq/jVKithZKNTnFy6HaXhXW5S2VJh5y
-         Ffxb4C2kCWrSm7JT88N8+G7CmQeJihabd8rWiwzn7t/pR/V1xg8eVsEAV5CSBTeBYwZZ
-         CeFQ==
+        bh=BU1i7pRLLjOrR+ZlIrF82cJUsvRypAQbmIUf/rpGsw0=;
+        b=qFcEP9krMVrdfLBXL4IDFPqYRqvQ+Jc0UMZGvrBbej984Zcix3mZ4kyrZzZYAToxRR
+         PFV9Q9mfq2fxKo5ivz6CAUDlDEriMmiSENwd4F1X4RnbKI1Psk2J1SrYmTFyu9jf+LnL
+         Fjv4u7CCye/8Rfme0pUdO3iZtrbr8w491H8NGZAR4zek6gD3i83HLYb5t9/etucAATPA
+         sKAZhcVlxSazdxRfy7ziegqSV9TN+A0aEJyBMbIyJu942L7VdQKtJtNhGPrKfKkBDUPF
+         xIwoGaU4GUD5sb8mqCJYQ37OStfP5CzHHgbjmbjLwgCkwW1eM17Tz5ZLxQWyJkUehNbq
+         azvA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=XVxJQetI;
+       dkim=pass header.i=@kernel.org header.s=default header.b=j42e3FcW;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nRUvxF+Xv/KYpwAU+OZIBRs5bWUvmDQlN9RVxBTsflU=;
-        b=VYjv0hOvNCgcqKAMfqPEinXqMaNVGw3CGSQ0ER733E6vW8KvnsqVRE9/QwBmPz0E3x
-         BA7zzjXGc+hDYrnWafsWSB0A6ZRK/GdyCvEC5ieUy8GUOf6MY4QUBunMtBj/MP1WRCkZ
-         coDGpgida3hfG/0aaegon8zzLxrmtQIgOS2nWz7yG/tuYcBito9kjX5S17zzWtJC/BN2
-         5MG4zctyxsweK0kd0781E0E/d9FPKTYvPQZ3v8oh45v5JNkoUwjv89fNBa8fkBmxvP8W
-         inNYqZ+HOWDyB//bPP8X7vyUifg7aIGCh1k6bpI/JX53l4EoWj6YFYn4A0yg9M3UR3W9
-         JfpQ==
+        bh=BU1i7pRLLjOrR+ZlIrF82cJUsvRypAQbmIUf/rpGsw0=;
+        b=FK1hRTecqhP+6pNDLuKTMUNFab2TRcLMU3CMbScnyB4SqrQuoU4m5vflGPSlHoY0sp
+         0CBV6nfOlsENHCWpAKA6TskEQvGpUpr67zq2HWuqFFUdnncQhAEUCmzeLP8QQlaIa4kU
+         FniGKYBXldljcr/OPhQZ8v7cxrxvNteId58ozBlUQ0yf8AghqcjsBA/x3TaYioSW9An+
+         bgm9JYFZVHRND1KuNoejMAScyB/sfBQndUAAn1ZavJPnh6IlfRT2bVaxceEvgfCm/Msl
+         VZsF2hDy+azztrxpQ/25F36fkvzwKQWc8/nfeKqqmHiA/jrg2rsesvehhx/E3eYf4Hpp
+         RiHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nRUvxF+Xv/KYpwAU+OZIBRs5bWUvmDQlN9RVxBTsflU=;
-        b=VrxkXiVABDMYoQYE1Mbu9dtQ8ss0wkzBsY65EG9qLRRVbWamp9YFcgv5e69DNrYUQh
-         9SGDDwd4xDp2i/Lezc3pbYAtKpMErY3E/CPT7ttOpFvyZB3sbQDiZXQ3AXcgzQleQOPI
-         2+mHRK71+9cVUM6sUs5Y8dwdILKameFqfv3xN79qCz8v8fFhmYKNACjyl+fu2iWAPd8l
-         seFh4aowZXyilWpRCf4IUnAuYDL6HYYr+qHDpaV8Dum3cY1yNCrKXOnh8JJmSmkaKuGV
-         VgL1tSGsSBLM9NMGbVvgQCgj4CJG1pDcE3DfuJFIhFjfOahrj9kNjic3XLcFo8acXFDN
-         EgWw==
+        bh=BU1i7pRLLjOrR+ZlIrF82cJUsvRypAQbmIUf/rpGsw0=;
+        b=K8zd8rLjKTkQfXUTygSsZlFIHeCShcvRPHx9jmkHHkrKZP8Ve41JLQn1HVEGtAPOZ/
+         LQVWDXzI0ZBoG3+dG+yGLLhAK8Y46rizZTzerMi22BD4mny6dyWSC18AgGS0p73UW1+e
+         Db1PXDnFlo6gt/z9LAxXbnJTFl16KNcDTN65ZLmB73P4DCe+Df8V2Qte0o1SgpvZXbxX
+         POWtK73DIr6wirnvXh81XJDaHBOQ3gOHEQ0nCendTR53WcMlNcvZoaeR9g5NKVZadXDO
+         cyc3yM2EckTyTZCUuZt6iQpKrNmbNsTdq2IqQujOsrG8YXiACE9U5PvfJPAF66bmWV88
+         ubxA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530jNPKr67wVEmTw9sZ74h46GnTEfBj8knjSzeL2bgmNbUrDYI/I
-	5RBFF4zKyBrjbXJNroqkMuk=
-X-Google-Smtp-Source: ABdhPJyRUMdc4l6jSVGSp4C6xTIbGpqwBDPdQhpVBUJ5f/M8Z42nuyQa6UXRfvaIedye1EcXnXIeIg==
-X-Received: by 2002:a4a:ea81:: with SMTP id r1mr16995035ooh.16.1603756189704;
-        Mon, 26 Oct 2020 16:49:49 -0700 (PDT)
+X-Gm-Message-State: AOAM533thpw02bGL37TF5E7X+xRwYbHM+IcDql+HCZHnJ3ff2zTCeoDK
+	4qgY+YCawfzyQZHl/HoUffU=
+X-Google-Smtp-Source: ABdhPJzLKEqXYi+pKA+PWA57FPOm7WljYbZcJUYXuhCpmDGQjvnvYj4JXNuOBvtaHWbOc4VBAXAO3w==
+X-Received: by 2002:a17:902:724b:b029:d5:a5e2:51c4 with SMTP id c11-20020a170902724bb02900d5a5e251c4mr39524pll.80.1603756206767;
+        Mon, 26 Oct 2020 16:50:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7d0e:: with SMTP id v14ls757015otn.10.gmail; Mon, 26 Oct
- 2020 16:49:49 -0700 (PDT)
-X-Received: by 2002:a9d:1d1:: with SMTP id e75mr17111874ote.266.1603756189350;
-        Mon, 26 Oct 2020 16:49:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603756189; cv=none;
+Received: by 2002:a63:3c5:: with SMTP id 188ls3537997pgd.4.gmail; Mon, 26 Oct
+ 2020 16:50:06 -0700 (PDT)
+X-Received: by 2002:a62:42:0:b029:152:4ed9:1f6d with SMTP id 63-20020a6200420000b02901524ed91f6dmr152130pfa.32.1603756206216;
+        Mon, 26 Oct 2020 16:50:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603756206; cv=none;
         d=google.com; s=arc-20160816;
-        b=r2YAX/eEP2oajua85jYvxok0FyMkImHCqv813zl5gsSKdvlaEmBsNQ1iIxsirUwS6F
-         yvRThNZU4fYCB0L4Z1JppykhAfrKEmVcgVFnGv94rfMBwUoYoleQRC9p023XTeTmNb36
-         DPJ3Vntwgfl7uvZWNk51gCJng+7vAkqr5HGb+uri3Ja3UzalEqOxAaesWTWqQE9uigF0
-         YI55qUnj3Wh68H3hTKJ5rV8+ycOxmDjqvOSw23TFk5sZZokfD8/MPBjYo0vVcUq5TgSB
-         u0FIqwd8YczaeG6i7Ikmhmp9sCVI9fA58GFttJDrJxmp0TXiVn5eWPCldydKJESItB13
-         N3rw==
+        b=ffRmEbNV3bi4lLyKAJKtOk+vwHXKLWuI6nIqZlFbhCs47I9jbhpIYjkkDBy5V4Ps9j
+         d55+Cgv9IGKkh7VDNBvKl9NhqCThYk+kjRbsLAvK47RL8R15mzVSuCMj8tEZo3XQOcZm
+         lpGlBMI8FhUJ9wXjOTk4LmLejumpIX/P3r6F/zl5STKuRPZnA3kAKuC6WZ/RtmIbAUWN
+         0TLB7nVJ9ndKl8FkH6OlhS9vtvBJ+k0b3JD3iQcIWaMlJ0xR79BoZ/fJHnI/VmYjPd6s
+         wy4zoo4QLRvqZ09tI/dspt81F67lG6aVnO6FCKp1dD8LxMMSJP4Hii/coCFg48N13YxU
+         H0eQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=RS7LGBcdhBLAUz7cEDroJEIERTkMNVs6B6EG3/7TrFg=;
-        b=wwg6aHWWwqqeENafipV+vN/Wv9lUAyeGZAv7ntW+YOaj/M1kQPYB2etr+zntlvQAFL
-         R1m02ygMH9kdSvww0YHSNv4LqlKwEkavXhtC3+Vgd4sk+60CkmACIHUwC/WFQdSSJkgc
-         XSMG8HyKRKkPMDEIQI7QPvrYQCEJfVp7vFq01U1qF9lEZ8P1zOl3SyCyBWW6sEaUbzMA
-         6qsgWoPIVGX/E0m7/ycyS3v3tTuyy4BXe9fQGIqcNuJyChTVMdFzZ3g1FNlZ5aQGstrK
-         J+Y8xcpXp3DKhPiluEtIR79P4NBEL4h4Nn/maXnxVJIeuv6gxanyemWo+Tzea3Xr10vk
-         zOrQ==
+        bh=PZIuY3Hcs88dWitGLBS/gfE5DODZ8em7DeSwFn4oOf8=;
+        b=jRXt77YShIqzaazVoqhQ3MZLKejJLvvLo6TuPmp+24tWFz/rQ0rthdjREUUa+ooDhO
+         IKgmnd8dpRK7LZwhF6So/TWhso7SB8an4g1LAMPA/EKAHCUDB0nkQ8CSjsX6b1Q1AHZD
+         vFrFhbepcIjEPzlQQQzpZXZW1fMg5FlO+cxcyPNp79WW8LrmbOFO4ZuN1bpF0a9hFdym
+         BwxLA1XvVmYew8S7ZuMKuTCg9hhyq87YIok8FP1PjyjJKhzcaPfmbnBzHi9Fa9axAMTY
+         MGYJClLuLncD05jPOFjHnhRa/75uWwSBMRAfphmXfL0hMdGSq8k8Y1isUa6MOyQLpoTQ
+         a+IQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=XVxJQetI;
+       dkim=pass header.i=@kernel.org header.s=default header.b=j42e3FcW;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w26si613609oih.1.2020.10.26.16.49.49
+        by gmr-mx.google.com with ESMTPS id l7si647456plt.3.2020.10.26.16.50.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 26 Oct 2020 16:49:49 -0700 (PDT)
+        Mon, 26 Oct 2020 16:50:06 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 87AC9222D9;
-	Mon, 26 Oct 2020 23:49:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 2AA8120872;
+	Mon, 26 Oct 2020 23:50:05 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Tom Rix <trix@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sam Ravnborg <sam@ravnborg.org>,
+	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
+	linux-media@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.9 034/147] video: fbdev: pvr2fb: initialize variables
-Date: Mon, 26 Oct 2020 19:47:12 -0400
-Message-Id: <20201026234905.1022767-34-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.9 048/147] media: tw5864: check status of tw5864_frameinterval_get
+Date: Mon, 26 Oct 2020 19:47:26 -0400
+Message-Id: <20201026234905.1022767-48-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20201026234905.1022767-1-sashal@kernel.org>
 References: <20201026234905.1022767-1-sashal@kernel.org>
@@ -121,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=XVxJQetI;       spf=pass
+ header.i=@kernel.org header.s=default header.b=j42e3FcW;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -140,49 +139,63 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Tom Rix <trix@redhat.com>
 
-[ Upstream commit 8e1ba47c60bcd325fdd097cd76054639155e5d2e ]
+[ Upstream commit 780d815dcc9b34d93ae69385a8465c38d423ff0f ]
 
-clang static analysis reports this repesentative error
+clang static analysis reports this problem
 
-pvr2fb.c:1049:2: warning: 1st function call argument
-  is an uninitialized value [core.CallAndMessage]
-        if (*cable_arg)
-        ^~~~~~~~~~~~~~~
+tw5864-video.c:773:32: warning: The left expression of the compound
+  assignment is an uninitialized value.
+  The computed value will also be garbage
+        fintv->stepwise.max.numerator *= std_max_fps;
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
 
-Problem is that cable_arg depends on the input loop to
-set the cable_arg[0].  If it does not, then some random
-value from the stack is used.
+stepwise.max is set with frameinterval, which comes from
 
-A similar problem exists for output_arg.
+	ret = tw5864_frameinterval_get(input, &frameinterval);
+	fintv->stepwise.step = frameinterval;
+	fintv->stepwise.min = frameinterval;
+	fintv->stepwise.max = frameinterval;
+	fintv->stepwise.max.numerator *= std_max_fps;
 
-So initialize cable_arg and output_arg.
+When tw5864_frameinterval_get() fails, frameinterval is not
+set. So check the status and fix another similar problem.
 
 Signed-off-by: Tom Rix <trix@redhat.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Sam Ravnborg <sam@ravnborg.org>
-Link: https://patchwork.freedesktop.org/patch/msgid/20200720191845.20115-1-trix@redhat.com
+Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/video/fbdev/pvr2fb.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/media/pci/tw5864/tw5864-video.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/video/fbdev/pvr2fb.c b/drivers/video/fbdev/pvr2fb.c
-index 2d9f69b93392a..f4add36cb5f4d 100644
---- a/drivers/video/fbdev/pvr2fb.c
-+++ b/drivers/video/fbdev/pvr2fb.c
-@@ -1028,6 +1028,8 @@ static int __init pvr2fb_setup(char *options)
- 	if (!options || !*options)
- 		return 0;
+diff --git a/drivers/media/pci/tw5864/tw5864-video.c b/drivers/media/pci/tw5864/tw5864-video.c
+index ec1e06da7e4fb..a65114e7ca346 100644
+--- a/drivers/media/pci/tw5864/tw5864-video.c
++++ b/drivers/media/pci/tw5864/tw5864-video.c
+@@ -767,6 +767,9 @@ static int tw5864_enum_frameintervals(struct file *file, void *priv,
+ 	fintv->type = V4L2_FRMIVAL_TYPE_STEPWISE;
  
-+	cable_arg[0] = output_arg[0] = 0;
+ 	ret = tw5864_frameinterval_get(input, &frameinterval);
++	if (ret)
++		return ret;
 +
- 	while ((this_opt = strsep(&options, ","))) {
- 		if (!*this_opt)
- 			continue;
+ 	fintv->stepwise.step = frameinterval;
+ 	fintv->stepwise.min = frameinterval;
+ 	fintv->stepwise.max = frameinterval;
+@@ -785,6 +788,9 @@ static int tw5864_g_parm(struct file *file, void *priv,
+ 	cp->capability = V4L2_CAP_TIMEPERFRAME;
+ 
+ 	ret = tw5864_frameinterval_get(input, &cp->timeperframe);
++	if (ret)
++		return ret;
++
+ 	cp->timeperframe.numerator *= input->frame_interval;
+ 	cp->capturemode = 0;
+ 	cp->readbuffers = 2;
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201026234905.1022767-34-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201026234905.1022767-48-sashal%40kernel.org.
