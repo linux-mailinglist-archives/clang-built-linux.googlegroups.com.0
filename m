@@ -1,123 +1,128 @@
-Return-Path: <clang-built-linux+bncBAABBNOD3T6AKGQEJSQOEWI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB46D3T6AKGQEHACZLKI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A92082996B6
-	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 20:21:26 +0100 (CET)
-Received: by mail-ua1-x93e.google.com with SMTP id s16sf1260616uap.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 12:21:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603740085; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 16DCD2996BE
+	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 20:22:29 +0100 (CET)
+Received: by mail-vk1-xa39.google.com with SMTP id j185sf4140517vkh.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 12:22:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603740148; cv=pass;
         d=google.com; s=arc-20160816;
-        b=K93zpsnopgyPqkbu6apwg90X+2PMZV1wuQQYXrtYvo//LcE/oX+hoH047QqEFxXmkd
-         c5vKm9ek9oNU8OX0XosGeeIirM6denQUw0xKbSkjuYN/ZB5QtnhGtLFwsmtONLB5Nvc8
-         x2zcsn9jDRflxesqLIETRR+b6umnZADoNAIeDpu378c+tpE1v+7yp2dwiBwjGDnUfLI2
-         d5nDLuqSO1w1OSsuLLfgl98yVlbgYeuzHP/iS2nDsaw4uatUaO5/aCgFSFEJXLv8B0tC
-         7h5O0SXMK6l0m9MU0FIY4BwLsz7PsSYLkvXUIton/ZEz5U0EPnX3zYwCdwK0Ki9pmLQo
-         1mjg==
+        b=YRTMYCTayuUbOGzw/dwlmBWEKBATnSrp6Ecdna5CZI6F554rI+z+etStQWIqfc0usT
+         RlX+PT11omlhTNZEaIfMoZ6jEuc24B1A3VQc2mKr2+qQ8HMF9j1c9J7A0N3Zc9CQSYFl
+         o7OcSWNdfOnZizwmDETS/6B+NOU1uFce8dywwu9QCfhDSg8pZRRk4sGzgWN86+ljExky
+         RTvdSlSz7HQn9rwS1Mh3iHNfrw1WPFK4d24ul8VjF7odzq1hyFKFNMcdJZNOobIU93rN
+         jOJIKLxPudh94lekxtLfVo8W3zSz3bzkaoIP6adVMrQkSB14s5WPtRL7jdkz3FOUBAFB
+         yNbg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=m4QqUDC9WHr7YAXOrxl+fpaPaOx2c23x5Nc1NyPar8s=;
-        b=Vkh50yrrEvTErv5Q1ofMhn1NUPfeEnQe1mgZcXMRpv0zVaQ97siZUwguxIkzkhpIRZ
-         ModwJh2nuak41oMIALD6iNhk+1GX+MyK5DEa6fMcG3t1E9WFMQNWAxr3PRza5FdRfVdb
-         onmXaJkxM7sWOkPHOimB9SX0D9xP6bibF23/QpY2IQ5Gfcv4rMLFoUgc1Y6tLiGYNuOC
-         gpnvPJEP59HP9SHvcuqw83PfJTT2c62hMdkiGGJPvGQ5Zv3yJERCVNCe64YA1xUQDEfD
-         NBvR0D7sGbeAAZ0D+VSqbGXj9kxh1Vr0ZV1V8noGIqYfc7ZkI/V65LiNTrm4uy4uIbKC
-         Ru0w==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=ztvqN33JewW2A5ON6LmX2ANJpyhhK7QEQpJQXBg3ND8=;
+        b=IVh9zczYS+2zr5PDVkCdpNFsqtrE8Qu9w6fhgADZQgk5VlqTC+GivzsTLH5P5zZ+1q
+         yWZtcRltmcz4lcXb/O7yhSV9JDMg5zxiQhqinLZHW6qqusoKahJ155UGnQzp6S2uL1HD
+         NlC2DlsSxmf6LRINCrTHd087YoA/qIFNQ5TCQk+ho91iqrsRbwVMSrYlzgZkJ94+lD8L
+         lrF2eu65XDRlUTcTu7eBb7InknSi0H/duOp3Bxa0tXRKJPEm6c299Tkw85MJ4WGBJEA+
+         hK686Yg58XSk47B/oRPsi6ZaA4MWQ9plL6p8gF9tiG1z4Xk9aGrXWE/8nkUXB+OH0d1X
+         DdHg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=omCvoEY6;
+       dkim=pass header.i=@kernel.org header.s=default header.b=aJh9wWLP;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=m4QqUDC9WHr7YAXOrxl+fpaPaOx2c23x5Nc1NyPar8s=;
-        b=eNocRMIOaJZk5pHAyi7I0Uu7GaJ/cXCnTd97misE9O7OL7KixcEK0ifZkSX2vlQmXD
-         SsAMXzSPCjaGNZsGICd1Wamy6gbojAgiYtCuc+lXiEmD3ahHZzPf99MdydeMArdpbKXF
-         NZt6O3+J0IGYoAb9Te+mTG9Euv4ZmsuPkpoeewlqKZ4oCIyjtxq8a+Hbm4AOznHkJ6Qs
-         abr/DR42rTXV8EjXLKxalaaj9fGfAVZXfauPCVePFAz4A0lGwYCq+K1m3S8AyfWx98M+
-         hgk+V9O5CJzUFhOJyzRg0lxF3ZLtd/lm8WupOtyod+dtC8DvfiT09IOvYtgjmqQBiNTg
-         zEiA==
+        bh=ztvqN33JewW2A5ON6LmX2ANJpyhhK7QEQpJQXBg3ND8=;
+        b=Hk5DETcJ8136DfHCrFxBdcSuYB0BvZic8+UvqF5l1NHNHCNWi/6gbuMMQWPH/RmSWq
+         PAZFxeIhFWzrtquvJu0iLxJMfCgXdUJmPwWtC6lsV+i7fBRNgO9YN9zQMOafUdenUsFS
+         /0ktRoON9d5nvTRJ6CzT2o61zz8Ztl2Ct1YsNHG16vJwTYLaR0qAReBPtckA1cyPBbqi
+         4M9y5+rbfechAjkses2t/byIDm2VZGiriAUnUhEwuT60ELsBJFTZB+hccethYGUwXbyN
+         GxB5zHJIIaAdA6zA6e3GUQFhdlTojHE/BtNtGgusxSEH3hz2lODNC94SKm79P8trU2vg
+         Ya9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=m4QqUDC9WHr7YAXOrxl+fpaPaOx2c23x5Nc1NyPar8s=;
-        b=gCKwupuqtN8Dfoo6diGw/CRJJDAL153upmZ5LlFddxn8eaayL5AFSasbv+kV9unLvk
-         hUTcmhgJaseSZYEjbfNMpPg56r5IqvHD+PcNOgvrtccbeqk4VeTF1ns1GvuYard5GMZa
-         rVqBnsNDKTKD+RYqOYjnAprskoTmgTMmPjTEP0y9Nu8XUOhkbbErXC84DCIZyY3PzLB4
-         B9z6QLhCh9uOUVnuzMbAH/buZnuJV39i32aX/PZK3tOqyvcsvFkXVMHAW2YiIXJU/h1F
-         NwixWQWmZgwDcO2sY4tF8B7dhVJAHTXdp4KoKyF0vwrLfolC4kxf2X2FJSERpMB0DDJ1
-         18MA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ztvqN33JewW2A5ON6LmX2ANJpyhhK7QEQpJQXBg3ND8=;
+        b=DuSIdcej+up8zvP4vO4RRF07JfIk3Wwt6u1mCO+VsfsOUSVZrqrWIMnSmpk9b6PW5Z
+         1HTfWI8QfSw9uJp1xm+MjaFWx2P8I7miDCq/gVqQ/jTk+EydR5r2ugtNtTqLVNS7AwpV
+         lS2+kn/1M4JYzNk9WgR8+HQ1WezQ+ZyAxZMBcp+xhdxgO1I3vQ1Yt0/hGFwTpHQ+NOQ+
+         0ZJ2/VQPrSBH8slWBtOiUJ3o0M1rR5vuNatXEfQ0ma6vgorMfbimlbWHdVfn+R6+h99Y
+         T8FzSdPQ1/tQZX1g29bXI9yiEAxd2whnTnUn481D5QkYPLo2j0Y0ryAIrFjRTsOchFbY
+         p13Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532kYxa2zIv+S0JkcJCPOYlz/ZrQOYnm70qEWswpP3pt0LtIek1O
-	zUPd7NMN7rk0YFuKH3tGRs0=
-X-Google-Smtp-Source: ABdhPJy5MrDJDfIYLfqokAdKx2rC2+s6Ndud6BWlnJbG7EG+W+XGVOeFCU72DZodNjgOF1nug88g9w==
-X-Received: by 2002:ab0:4988:: with SMTP id e8mr19935384uad.44.1603740085658;
-        Mon, 26 Oct 2020 12:21:25 -0700 (PDT)
+X-Gm-Message-State: AOAM532Jaky6CtyF9fPGKjSj7ykd6iH883BOvXj4rH2EY0o4WXGoPVw9
+	5TMcrksB8cfHNrt3BdrvsTY=
+X-Google-Smtp-Source: ABdhPJy4sdSdmhUVaj5VUZxB2alcyfRdbpGJqq3FtX2XSefoBtYSYuqB6rwL9k70YWmBk+kdaiL3eA==
+X-Received: by 2002:a67:df97:: with SMTP id x23mr16555058vsk.13.1603740148019;
+        Mon, 26 Oct 2020 12:22:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:874b:: with SMTP id j72ls1106443vsd.9.gmail; Mon, 26 Oct
- 2020 12:21:25 -0700 (PDT)
-X-Received: by 2002:a67:f919:: with SMTP id t25mr16604088vsq.10.1603740085221;
-        Mon, 26 Oct 2020 12:21:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603740085; cv=none;
+Received: by 2002:a1f:4515:: with SMTP id s21ls442953vka.11.gmail; Mon, 26 Oct
+ 2020 12:22:27 -0700 (PDT)
+X-Received: by 2002:a1f:e8c4:: with SMTP id f187mr19648701vkh.11.1603740147589;
+        Mon, 26 Oct 2020 12:22:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603740147; cv=none;
         d=google.com; s=arc-20160816;
-        b=IW6mNH7IfQHxtvdXP03OsCxCDHYaUsPBrKLEJD8fxM56p+J6sNX8D1rG9MPPj0ho8E
-         EYRBIYK5XAAJryOl3t/YskgtRrn4H2ouNGrVhZzBRzsKMKXMjlobcod+tRuyRAmffAmA
-         mMJc/QcJimNn9Uccjsz7zu5LYB+9lGN/86THa1+2Tdm/XspftV0T7QVS9WGWYHsGErsL
-         pUOGBipc1Bxlhy4eVNhD2+U0EliCXlzd7XpqWrgRNf6GBiaZNQr9t+F5StfhbSsY5sYo
-         bIgE/6rFr9xsBHVnNn7VtQamzKxzqpeblYs4xoZMX3HWrow6KVPSigtKLHmZ1r50ivHL
-         hz8A==
+        b=qmpZLFcAIz9ycdkWOsjP8jDK2D6ERPyypWuXRZ7D3Pi1ADbg+H81aei4WjLBvJIaaF
+         cTmJOI04w0JFuCfkXEX/d1DwmpHMbZgSx8aBzCe5Qj5ttBDjJk61yyJqr//wmIrz8k7w
+         8vt7LnnILQzwomJlE615deDOZLjF6Qq4x2AXukqdef5jZE6TsfZCiCbFN5VODWwEkt8n
+         mRgIDt+U2LXR2IQ8Ttp3g2zMYS1bjEYd1lZLeg2tmOI2/bNUswoibhZjdNJQZYQLvWU8
+         VNnAYw9Rxf8FqQkkch+1KdLJI9QsRfRJUUEgOc/oP4SvHIJ08E1kgaD/ZVGDe1VXkquq
+         EIyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=yPqSPuPrneHAfyjVbLmyK0qVlZL8EjlRekKc4D/vKzw=;
-        b=HygCODwAaMtHokJKm1kQI5DvyeWh5BMSonMhXgV84NHLm+bAnFFZushwq/lSSIRWvP
-         auw5Mxjv0nrPrpe4mdgSbLOE2cpqYsEgE3AyTl4p4MjtD10sTzgATyIdr0Yuf3enllYq
-         Lx+jWM+QSDrFwM3HJxhSyJCsU3DfPa2N3LhXNkcU4ugxQCh1IOBHp0jqUkGJ195C573z
-         60t0rIbw6ZbSlVZwF7WlPcT7Bm9pE4/2bBXHt/IXgyWunsKiexziaZ4G/ZGnWg5ejdZt
-         m6g20xjDJb3ljfd8uMqjVt6hhYglxKcgeQkcyn2RPfdaBmizhwJW7+HdDO+r4fQuNpFI
-         vwmQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dpmVgXGBhtmFsFyTrhqOckyNMDSCytkDd6GcBglzkmI=;
+        b=HE3Nm+arPJuYm9o2KknwO1btcYi5cohVgjKeV4/HBxy593Zem274jpYOSOvc1/hdaI
+         NkV/H9Wo3w7kmIcQhnhaHeizSSJDqnh4z7YC8woewfTbfq1TFiQ9HmAjKicDtFgqKmHF
+         G3vAV+1nciwvErBOLk2wKT8F0tghQbKD7tbB4bmwOl2W6pRHrPHVKs0oPP3DDBNfFzFK
+         jrDBexphfZcmz9heqBT6ophSIiHbzNBPHq8klRhomSBNyHC+pGqdQgc+4vALjtPtLZAM
+         IcHwwbfHpgLWxlx3vJCofc/lvxkPKklqqWQtUflY8AAQseEa4YHUDvPEG2HLI4KikbNr
+         +Y4w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=omCvoEY6;
+       dkim=pass header.i=@kernel.org header.s=default header.b=aJh9wWLP;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e7si614575vko.4.2020.10.26.12.21.25
+        by gmr-mx.google.com with ESMTPS id e7si614778vko.4.2020.10.26.12.22.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 26 Oct 2020 12:21:25 -0700 (PDT)
+        Mon, 26 Oct 2020 12:22:27 -0700 (PDT)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost.localdomain (unknown [192.30.34.233])
+Received: from mail-qt1-f176.google.com (mail-qt1-f176.google.com [209.85.160.176])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 4FE132080A;
-	Mon, 26 Oct 2020 19:21:22 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: arnd@arndb.de
-Cc: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v2] ctype.h: remove duplicate isdigit() helper
-Date: Mon, 26 Oct 2020 20:20:58 +0100
-Message-Id: <20201026192117.3811525-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.27.0
+	by mail.kernel.org (Postfix) with ESMTPSA id 379222067B
+	for <clang-built-linux@googlegroups.com>; Mon, 26 Oct 2020 19:22:26 +0000 (UTC)
+Received: by mail-qt1-f176.google.com with SMTP id h12so2530163qtc.9
+        for <clang-built-linux@googlegroups.com>; Mon, 26 Oct 2020 12:22:26 -0700 (PDT)
+X-Received: by 2002:ac8:4808:: with SMTP id g8mr17753337qtq.18.1603740145367;
+ Mon, 26 Oct 2020 12:22:25 -0700 (PDT)
 MIME-Version: 1.0
+References: <20201026162336.3711040-1-arnd@kernel.org> <CAKwvOdmdv6wABToSpJt5b66E1vD3Ec0QC3DnyZm7f2sJkcsNuw@mail.gmail.com>
+In-Reply-To: <CAKwvOdmdv6wABToSpJt5b66E1vD3Ec0QC3DnyZm7f2sJkcsNuw@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Mon, 26 Oct 2020 20:22:09 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a32dWaCQV8Q1g0eoQD2PFb8Jt2pDHEkTJOMAoyJpOhD3w@mail.gmail.com>
+Message-ID: <CAK8P3a32dWaCQV8Q1g0eoQD2PFb8Jt2pDHEkTJOMAoyJpOhD3w@mail.gmail.com>
+Subject: Re: [PATCH] ctype.h: remove duplicate isdigit() helper
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=omCvoEY6;       spf=pass
+ header.i=@kernel.org header.s=default header.b=aJh9wWLP;       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,83 +135,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Oct 26, 2020 at 7:23 PM 'Nick Desaulniers' via Clang Built
+Linux <clang-built-linux@googlegroups.com> wrote:
+>
+> On Mon, Oct 26, 2020 at 9:23 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> >
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > gcc warns a few thousand times about the isdigit() shadow:
+> >
+> > include/linux/ctype.h:26:19: warning: declaration of 'isdigit' shadows a built-in function [-Wshadow]
+>
+> Don't all functions defined here shadow builtins in GCC?  Why is
+> `isdigit` unique?  Is that because it's a `static inline` definition
+> vs a function like macro?  If that's the case, what's the harm in
+> converting it to a function like macro if that silences the warning?
 
-gcc warns a few thousand times about the isdigit() shadow:
+It was originally a macro but got changed to an inline function in
+1204c77f9b6a ("include/linux/ctype.h: make isdigit() table lookupless"),
+apparently in order to avoid evaluating the argument more than once.
 
-include/linux/ctype.h:26:19: warning: declaration of 'isdigit' shadows a built-in function [-Wshadow]
+I suppose we could make it a statement expression with a local
+variable like
 
-As there is already a compiler builtin, just use that, and make
-it clear we do that by defining a macro.  Unfortunately, clang
-does not have the isdigit() builtin, so this has to be conditional.
+#define isdigit(c) ({ __auto_type __c = (c);  '0' <= __c && __c <= '9'; })
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- include/linux/compiler.h |  6 ++++++
- include/linux/ctype.h    | 15 +++++++++++----
- 2 files changed, 17 insertions(+), 4 deletions(-)
+> > @@ -39,6 +35,18 @@ static inline int isdigit(int c)
+> >  #define isascii(c) (((unsigned char)(c))<=0x7f)
+> >  #define toascii(c) (((unsigned char)(c))&0x7f)
+> >
+> > +#if defined __has_builtin
+>
+> #ifdef
+>
+> only use `defined` explicitly when there's more than one condition
+> being checked with logical `&&` or `||`.
+>
+> > +#if __has_builtin(__builtin_isdigit)
+>
+> GCC only recently gained the `__has_builtin` macro (I filed the bug);
+> I would like to see something akin to
+> include/linux/compiler_attributes.h but using `__has_builtin` like
+> compiler_attributes.h uses `__has_attribute`.  That way we avoid
+> spaghetti like this throughout the kernel.
 
-diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-index ac45f6d40d39..b75b49f00ffd 100644
---- a/include/linux/compiler.h
-+++ b/include/linux/compiler.h
-@@ -136,6 +136,12 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
- } while (0)
- #endif
- 
-+#ifdef __has_builtin
-+#define has_builtin(x) __has_builtin(x)
-+#else
-+#define has_builtin(x) (0)
-+#endif
-+
- /*
-  * KENTRY - kernel entry point
-  * This can be used to annotate symbols (functions or data) that are used
-diff --git a/include/linux/ctype.h b/include/linux/ctype.h
-index 363b004426db..df8233c84b67 100644
---- a/include/linux/ctype.h
-+++ b/include/linux/ctype.h
-@@ -2,6 +2,8 @@
- #ifndef _LINUX_CTYPE_H
- #define _LINUX_CTYPE_H
- 
-+#include <linux/compiler.h>
-+
- /*
-  * NOTE! This ctype does not handle EOF like the standard C
-  * library is required to.
-@@ -23,10 +25,6 @@ extern const unsigned char _ctype[];
- #define isalnum(c)	((__ismask(c)&(_U|_L|_D)) != 0)
- #define isalpha(c)	((__ismask(c)&(_U|_L)) != 0)
- #define iscntrl(c)	((__ismask(c)&(_C)) != 0)
--static inline int isdigit(int c)
--{
--	return '0' <= c && c <= '9';
--}
- #define isgraph(c)	((__ismask(c)&(_P|_U|_L|_D)) != 0)
- #define islower(c)	((__ismask(c)&(_L)) != 0)
- #define isprint(c)	((__ismask(c)&(_P|_U|_L|_D|_SP)) != 0)
-@@ -39,6 +37,15 @@ static inline int isdigit(int c)
- #define isascii(c) (((unsigned char)(c))<=0x7f)
- #define toascii(c) (((unsigned char)(c))&0x7f)
- 
-+#if has_builtin(__builtin_isdigit)
-+#define  isdigit(c) __builtin_isdigit(c)
-+#else
-+static inline int isdigit(int c)
-+{
-+	return '0' <= c && c <= '9';
-+}
-+#endif
-+
- static inline unsigned char __tolower(unsigned char c)
- {
- 	if (isupper(c))
--- 
-2.27.0
+Ok. I've added a 'has_builtin()' macro (without underscores)
+in linux/compiler.h in version 2. I don't use it anywhere else
+in my current series, so there should be no dependencies.
+
+     Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201026192117.3811525-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a32dWaCQV8Q1g0eoQD2PFb8Jt2pDHEkTJOMAoyJpOhD3w%40mail.gmail.com.
