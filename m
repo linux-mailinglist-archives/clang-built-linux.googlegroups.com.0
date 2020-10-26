@@ -1,166 +1,122 @@
-Return-Path: <clang-built-linux+bncBCDJBDFM4QPRBKPK3P6AKGQEZ3GDXDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBE7Q3P6AKGQERGVAPDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id D0C192991E7
-	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 17:11:22 +0100 (CET)
-Received: by mail-pf1-x439.google.com with SMTP id j207sf5919995pfd.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 09:11:22 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1603728681; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6377829924A
+	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 17:23:49 +0100 (CET)
+Received: by mail-ot1-x33b.google.com with SMTP id n21sf3773907ota.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 09:23:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603729428; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X74MFFdufVY5hkrDKugpRk/V1o9229P81DhTP/u/Uje626TeSx9Z2XgIUaUjMM+wG1
-         rY/mWn4HwhyBFemmsUwC/aP8kkDnUNgzNPhjeKw0QUZ8EgPPze9LzzdKdbzVU8ClA0Zc
-         GJSI3smQnfpMypGL9BZ0c2wi6uDsqtXgex+mrGlU6ufUE+2cFXiXlLWVNWW39e6IKBVw
-         pp2ya+X96aC491ipswxASXFKuzb5k18tBw0PxpDCT9FOFN8Qw+nBsag3wBnTkFmO30Bz
-         DdxHMxzmXWfgWPRbuMkmzjiNI5IZtFjcqj0nUGlxlFfZkyH3I66n0QVzq5qswx428ANo
-         Pxug==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=fOtNlsu/ZsuJ3speU6DnZYALzbEbMmroE9wmPvsd+8sr9/LdHhNL6x4cHWFP0RnrXu
+         sts1lkJwwSuZmA1YmMfnYNUgWnEB9VJR2WeCoxZmbaaYOLeNd7+Mx+W4MpHCJT2HShQQ
+         lwjfNjx8w1+MFUY0TVbNQqhmB/mhsANvwUrSqFdI3j9xKe9OyQq/6S/AzyI6+jDJpOTe
+         k31KU66/8xG9Y2VFCThdDFQ3hJRfHKvzdzFrqW2saDrGDoa9jjLxhIFl4hsQd38X15Vp
+         m03Sr5QBiNy2/H0SnYPLuwfP1hIIRDd6aOB6nLm2YInmCEpH6c/09ezLo9W40a96m7yK
+         n37Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version
-         :content-transfer-encoding:references:in-reply-to:organization
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=LYB/DhlABRBPIYPVOwPTkm14hw027pAbFejBgUatnx4=;
-        b=CXYzJTM9gMF1cfIiSgCgLqq8FWBiX03ASH4xIXA9peTil+SBMx7cOryZ0Ks/7oCh+n
-         SSiCckoK4dEgD6jKTq5h0URQ5Sc6aqxhXDjtJcnjb5nwkL50nyq5zzJUCwXAOnCSge8y
-         NxnHmpGfpmSRhkKX0vqXOeSKw5Ib5Bac8UI6OzBgHmH1sTp48Ts1MvfK8UvW6QY5XDKt
-         XtaMHtTWtjzYlIqmHjkTGLLdJDcVd9RG7yYXY7aXa9/BYvVSL7ZTMIla8/i4L755fzvI
-         SImRpH2XTmcAyg+HjiC2lBrp1chAJSnciOxAV7D1UIE36IV+GoNDoHTp6CWjHrE0fl40
-         5Jvg==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@silabs.onmicrosoft.com header.s=selector2-silabs-onmicrosoft-com header.b="iextC2/5";
-       arc=pass (i=1 spf=pass spfdomain=silabs.com dkim=pass dkdomain=silabs.com dmarc=pass fromdomain=silabs.com);
-       spf=pass (google.com: domain of jerome.pouiller@silabs.com designates 40.107.243.60 as permitted sender) smtp.mailfrom=Jerome.Pouiller@silabs.com
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=OE0PIOWILivD1s2xi6JbavdoYGOfSIsWoKOvVFvA1V4=;
+        b=tUHt3mnAHc8m+Mslf3m9u2BpE0EbeFatAZ3l+LS9eys7ih5mcKRxzoRB/9K6sNEzDQ
+         PYnO6I1caTbEpZOudpDhaWt1n0NrRTiUjVwWDFTXcFYZSJ15wcDN6MPMYdunL3Pg29j8
+         yapbpJNwfJCcnvPeSBEEo8erh1LeMrTqXDDhA48uGoxE46xq6WfYpFThPz53sC9GG6W0
+         LtVJCOss1OF24BxSUcIqABut4WpYyXmi3YuI/Lr2h2/y9fUnkHvh8fwy4/7xu5oeLQz5
+         S75PJtdyiHViqdrylO0EgWIp+FZS5ENjg4BEa5Se2A8Q6GNwQYLw9jdoloazPEo5dXnT
+         6KEQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@kernel.org header.s=default header.b=esLzZFZJ;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:organization:in-reply-to
-         :references:content-transfer-encoding:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LYB/DhlABRBPIYPVOwPTkm14hw027pAbFejBgUatnx4=;
-        b=IODnku9tUzH6tq/mBrwdNeyZRaZjJADnhUah2odPf/vRhqS6vxTzC/hSX3ytTWkk94
-         Ujqwfc525TdhPjaShVwh5hQQbCobw9CGVcb4mxnPpYaFcGULplrSnmSeW8RG10SMWpqa
-         V6J9GC9SigD57nJpDyzJXW1ACF4YR7K2MFEu1joXn5gE1RizW3TBjq1VTP5+oRttuBd/
-         n13B52ShdA2LjrYCX3jmwIEKG4piwI/4py+b/lJsEn8hlKFVqjZPrGNjiPo20Bxk6Tb6
-         vnPU7hfJU5p5JomuEqdLQ9wSuFbwLcq5D4yfPAsahBpOT07cYqtUhvvx/IIz4MfQVxuw
-         ar4A==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=OE0PIOWILivD1s2xi6JbavdoYGOfSIsWoKOvVFvA1V4=;
+        b=nyPVqFk7d9eEZE66c6xGgE1/pYvkw3s4C0zn3cmfjuKwecUdu8YKYevGHstiOimnWj
+         jeqWIMFFZmzKi+7pyXzFe9h2TG5YLdErQu5sJkU8Ni6esKuP52VqggqQGBoufdHs37je
+         FL1mnvKqcYRpQuH90dOu/hybl5fzEz7Y2E/wp2v05+i+YGcjZm8gMiwv/GDm/SacVVno
+         4aINvdQVKdxidAgC9dFC5wB0djRXZAUirT+OwyNg6HXS8Y0A6LUx1YW+0HYCociKEQ1r
+         SvMyBLOsN2GgfaR8etZEVBA+B1E7Gd8Ab8kuqTplR+rZnqNEHjtSmn12it/QvyjghH3T
+         Ee0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :organization:in-reply-to:references:content-transfer-encoding
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LYB/DhlABRBPIYPVOwPTkm14hw027pAbFejBgUatnx4=;
-        b=SmW8B7CZomS86c8fgzXy3SXhoNs/pGRlsKxKcDGGPOk/9oApFeJdFG+jpV7p4NRDXe
-         WQhLUs2qgtnUnzh2Jw06cu/OOCVbU5UpBscfy76Q74ha9VBmCRc6oVygZBx66Yg+x3zP
-         ssJdm9l1lnYzNJisyDoUT5hHrVlBVDdupGWcCoamX/O9ORyV8KKxeYZKcK2qDyMgJMuA
-         HwucvAtpMHE0CkfI9rXo+1+NfStY8C+v30br8NVcfpA4PjJDnJMtXDlc275PfZv1rANq
-         ma0MTYZCXjvc8bt29bEHWWELz3jhWMvZ1S8SLRz595tA7YmGZ9QHrHsvrbfvhtSurGSG
-         7V/w==
+        bh=OE0PIOWILivD1s2xi6JbavdoYGOfSIsWoKOvVFvA1V4=;
+        b=VC01d61Ps+D6flkTYq0I1/5r3g+7/L54IOYCgATFIOTLlSpvHQ8qGR98aCzrIjBCsR
+         xbFFGljj/P4bho0DWfKBOwbwWMmdeAePCKdHyU8UsXI+IO7tGdMXoAhDi5iMEgwDqhqX
+         thC8bfecK8Y5Rrj4LwiMFWqXk3CDs2t19GSYtHbO+Omt/1s8yo/NzsW2s+bDc4vlBpzX
+         3dakrRk4Gu7PFTPxXd2lBDd9v6JGaQqKjNVdU3m/EH2MSuspP4+LkeU/x/X1Pie7HHPu
+         WHo1GeFrs4y6BomDDz1D/1O2Stdeo+cWdYZSqv6CkjmKGz9Z7ss4vzmaXiCQ5qKO8Lne
+         GlTw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5318nmSxB7IVG3l4ozX/Kc7BoaZ5i0GaGipcMpTVtN4QiQkAwB23
-	G7ToY16DbBPdYi5/zTvLudU=
-X-Google-Smtp-Source: ABdhPJydCmWCVE31zut+lmpSLHU9Mac4z9FWNnFB4Ef5GX38P+dXomFd0joyhotZNExSsn2kc/rbqg==
-X-Received: by 2002:a17:90a:4a12:: with SMTP id e18mr4627398pjh.9.1603728681551;
-        Mon, 26 Oct 2020 09:11:21 -0700 (PDT)
+X-Gm-Message-State: AOAM533KZLc2Ei47VMxWhgrKKIm9uM5Kf6kYQ+63N/WgMPd0s5W+eJ3M
+	qxs0LfeR3n6Cj4/B5oF/jYI=
+X-Google-Smtp-Source: ABdhPJxfAR36CHAhNB1tfc1aSNI4NUAOMm/KOuXUngMTGK+AhcdSjZT+I0ir6vE9o++LYv0iRTorQQ==
+X-Received: by 2002:aca:a893:: with SMTP id r141mr10964121oie.50.1603729428018;
+        Mon, 26 Oct 2020 09:23:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:c70f:: with SMTP id n15ls3189660pgg.3.gmail; Mon, 26 Oct
- 2020 09:11:21 -0700 (PDT)
-X-Received: by 2002:a63:3202:: with SMTP id y2mr16723036pgy.97.1603728681004;
-        Mon, 26 Oct 2020 09:11:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603728681; cv=pass;
+Received: by 2002:a05:6830:20cb:: with SMTP id z11ls2269144otq.9.gmail; Mon,
+ 26 Oct 2020 09:23:46 -0700 (PDT)
+X-Received: by 2002:a9d:4549:: with SMTP id p9mr15811006oti.196.1603729426238;
+        Mon, 26 Oct 2020 09:23:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603729426; cv=none;
         d=google.com; s=arc-20160816;
-        b=YtjPSpG5Wefix8boH4Dhr7ZpHMrpG4VQKfd6XZdZUOLM99R2uF3NzObn9c9PCRyDrt
-         W8cHc8SE+hwcPgAi1pFROZnppGlHA/kw11GuLEO4+teUGrXY0N9spRgTm+fkyAGH4o+3
-         B9STkxY0UtJo5O+3fmBQm+VUgZfrVnb4YS+yxvUUjMtCF2EY9TQYWwOQlkPQPUdhruj1
-         qmv+uQWFu+An6Plhnu+0L9fjf1Jaaz/Eoa+D1rAbmhGCMnRHPAjwIE3V8NB8SGejQAJf
-         IC1iuDJgwxYVaIc4IQptK730Vo6bIVPLEbRX9WfybuS0g6NHbHeC/ucQW/ZL59azNU9t
-         V+JQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :organization:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=vTEyxSMBlHqU0f4P8pI82i5nPb3rh9TdkxZIHFw0aZo=;
-        b=XOHud54qoIzqT2EKv/p7pwhY0mcYuQPHd6Jme4tDpeOTqt8IA59jDaKdY8Ol7YLwfD
-         S/yM9Q/545Iu5OD+Bp94AfuDxRNBieRdB+Dhe1vfrlAN5lzDBAWIOnLZPyKU+Uy+iIcC
-         VJN7BpWp2FhoKdn7cRcIMG423v3EnFwgmsD3fgDERhM1apluXbz+bNUiJBErqFriSv8O
-         lR/WrnrUioFmrN475mM2FAKeasn1hEvxIiq8NWNaCJz3IfdqWIoZiVYXzyWEDo+jTvxc
-         EiP191yEyBn/tVQRxOwe11ERmxtfTy9DtVxa7NM+g+34WlBDociibYzbDAkO9fDbn+Xy
-         hECg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@silabs.onmicrosoft.com header.s=selector2-silabs-onmicrosoft-com header.b="iextC2/5";
-       arc=pass (i=1 spf=pass spfdomain=silabs.com dkim=pass dkdomain=silabs.com dmarc=pass fromdomain=silabs.com);
-       spf=pass (google.com: domain of jerome.pouiller@silabs.com designates 40.107.243.60 as permitted sender) smtp.mailfrom=Jerome.Pouiller@silabs.com
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (mail-dm6nam12on2060.outbound.protection.outlook.com. [40.107.243.60])
-        by gmr-mx.google.com with ESMTPS id v24si569404plo.1.2020.10.26.09.11.20
+        b=kKzHkphNllxYM4ZNCuwzjprPXUmTdU2cfa6vwp1HoU3whAj91FQIqt0WzqyoluMlrU
+         LwTzP12M7OdNNetjvhF5VT0Wng3rDMRU+acyUY3AMw1gqIUCBwLEn6BsXwda/y1JTSJS
+         2i8f402PUyUVLy3jFYlnmZQtS6yIc/nwYwSZxgTISG98okbqwJYFQ9zZ3P/nszFZ35t/
+         0BEh14ncUmMmqUInJueOdqOHOAiVy9FUCvBgPQDCy9cV+2aqA7Dclp1502JWF5oySDBN
+         RfC5XdhkdgZxshzP31peNTb5R7X0tTkImKpvIab361iTuuDutR3lO7NHlsQhJ9hEkUyC
+         wazw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=edx36/+igiNz5335idgKbwDuQnltEIC0obEdbI6IhYo=;
+        b=U8nVgu0PYxe2xJ+nGWfITEbwgLDNbL73/StoU23GpnJlKzXUuTHWlRYtHGtIhNU0xm
+         tczQoGRLQjnV0m/dfYpx8pq0JHfASq9spZg+1im0spO6l3vRtgunRqIihMhR9fAMI1go
+         Hf+E2dy2j0xQVfKpI3KVW3xtoZMbd9H1A52LAD37yFJ1u/xwt3gVmTOQtixBgA7T8Svz
+         AFlQ+zIewqVonOpqF5h5KzLRvj1o2YcPO7QWT4tpBDJ4Di5yZmAFR+UmueIQ03nDD72p
+         K3HPkR76FVqVeVuIlBvxD55hClojOk7M6RtqjJvDB38OmdmhFZ4Z9aAk6nGUsL8HFdqC
+         cAAg==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@kernel.org header.s=default header.b=esLzZFZJ;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id q10si832809oov.2.2020.10.26.09.23.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 26 Oct 2020 09:11:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jerome.pouiller@silabs.com designates 40.107.243.60 as permitted sender) client-ip=40.107.243.60;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XZmc570ish1sGadi4VfRTZfCaxzca6q/sgx1qBpN3qtC3JIL9wTZ75xG9dkwyuaqXKkEeaWIZhewoFQaJ0oOjQDKQ1/Ht3x7vtjNpCeCunu10soSE2G8iWRCIhtP/BAHTMMs7T7tGi40VYQU3kejy1cCsjOtTj/fkCdI6/LQEH1L3hpz6mkHruMCa0H5OOf7VZly0ml/TKBpxKF0CjwQFJIW1QZSQRhWmAujOOFLbuDcj7k+l5ulgl/KU17cpIhQfcYbxmhSEvLkO/FYK77RBuDnbml9+SUkEV/nMOcWMlP5wt7cliHenuKkXUn5SLoTm3kRYvFpVkY4VZ8dFzjoyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vTEyxSMBlHqU0f4P8pI82i5nPb3rh9TdkxZIHFw0aZo=;
- b=RpVma31GmIN5pe4QDGG7Vz2E+EkbbDwnxunLa5toOx9WAi6IwVptwtorTNNCaFgpwbTOba8q0CYQiiBSB+uU2Io1JpZiuK9JXWokv1EdrBYlGvpBtAfXszZFTSEpZgJrm8R5TzqR27VeZ5ehXuJkfezHZ5FAOlYjzjByxQ+zveCgiGGuaYrjzlpeSOoKmk8a0QEEQHppdVH15YH/wuUCSiXNfn7CI0PTPOe0pYhWjB9wBDpsia5K+3Ku448hrhE1MPWcEhTySszPTVcw0u2SP/0e7Mq2D74AURaLjydIdRSNW2L0Kz2d52iFBVsHxXwcu8ohaTDDK4Y12CSSH7JeCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=silabs.com; dmarc=pass action=none header.from=silabs.com;
- dkim=pass header.d=silabs.com; arc=none
-Received: from SN6PR11MB2718.namprd11.prod.outlook.com (2603:10b6:805:63::18)
- by SN6PR11MB2863.namprd11.prod.outlook.com (2603:10b6:805:5c::25) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.18; Mon, 26 Oct
- 2020 16:11:18 +0000
-Received: from SN6PR11MB2718.namprd11.prod.outlook.com
- ([fe80::4f5:fbe5:44a7:cb8a]) by SN6PR11MB2718.namprd11.prod.outlook.com
- ([fe80::4f5:fbe5:44a7:cb8a%5]) with mapi id 15.20.3477.028; Mon, 26 Oct 2020
- 16:11:18 +0000
-From: =?ISO-8859-1?Q?J=E9r=F4me?= Pouiller <jerome.pouiller@silabs.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@oracle.com>, devel@driverdev.osuosl.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] staging: wfx: avoid uninitialized variable use
-Date: Mon, 26 Oct 2020 17:11:11 +0100
-Message-ID: <1716365.mxtkSTacob@pc-42>
-Organization: Silicon Labs
-In-Reply-To: <20201026160243.3705030-1-arnd@kernel.org>
-References: <20201026160243.3705030-1-arnd@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-X-Originating-IP: [37.71.187.125]
-X-ClientProxiedBy: PR3P191CA0019.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:102:54::24) To SN6PR11MB2718.namprd11.prod.outlook.com
- (2603:10b6:805:63::18)
+        Mon, 26 Oct 2020 09:23:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost.localdomain (unknown [192.30.34.233])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 029C722284;
+	Mon, 26 Oct 2020 16:23:42 +0000 (UTC)
+From: Arnd Bergmann <arnd@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] ctype.h: remove duplicate isdigit() helper
+Date: Mon, 26 Oct 2020 17:23:29 +0100
+Message-Id: <20201026162336.3711040-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from pc-42.localnet (37.71.187.125) by PR3P191CA0019.EURP191.PROD.OUTLOOK.COM (2603:10a6:102:54::24) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.18 via Frontend Transport; Mon, 26 Oct 2020 16:11:17 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: e9804015-68df-4536-3db5-08d879c9c59e
-X-MS-TrafficTypeDiagnostic: SN6PR11MB2863:
-X-Microsoft-Antispam-PRVS: <SN6PR11MB2863C55FB28DD4AB48DF098493190@SN6PR11MB2863.namprd11.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: PuSg3m9JVQKSEamt93M94sTObrbukM6uf2z7Rgkj0nLnEMsJ2KH1Pe3v+r7Y73F6ZhJC/MW7tYMsDUOUlcnCtDEiiAHm0Zz95vaUvgZ4euJtwW5H88QM4aHsZtOKysdMwCvAXtIW2UfTw7co8j0JRNx/2VViTgYoHUJ7GPPGUQYfvt4Mpn5zOMXc3nisX483kaWobLxyILx6I4giTx4eSVYTntp8hU8YTL5YqUhtgMcOjgPSVnps72AZeclf0skFWKSHZryv/C4dfUHBnC3hFEAFiQaBt4D9BMb/+1HBPCx7DaxEO0Gv9TZYYS1KrKs5LvWWru8GibEUBvQULP7jdWQyazjOIZe/+ihFuwSMbijbRzI7kV28qzfPAlJX4GjieKw7QjgtMz8ctEbgwAr0xw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR11MB2718.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(136003)(376002)(346002)(366004)(39850400004)(396003)(6506007)(9686003)(478600001)(54906003)(6486002)(186003)(8936002)(2906002)(26005)(966005)(4744005)(8676002)(86362001)(4326008)(316002)(110136005)(52116002)(956004)(16526019)(33716001)(36916002)(66476007)(66556008)(5660300002)(6666004)(6512007)(66946007)(83380400001)(66574015);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: FpyRD3HbuN0CPiWczUqbuDkrCY8Pl2rt9tsC9ehjJa5W0722vQBNFG4QRVq7YUbG6RW+DWrk7OFQYguHqlOSZ3prO8kk4uKUNuLVetHDkfBSlsNr3SvGMt+7YcReGfQMxCIr5PL9YeT3gQYIJ9dDB4O4bed3gCPULVkGU8YKZxfdOj5FbSudTQCNq4oydAoKVQg53gDl7Vdu3y5R7rwx34xCTecqSNhL6/o9OTQUhv8i74DL2JoYvTLJc8Gg57bVdqPNb5CFurQCoxd3qY/w8uXn3Ot/Y5eCkxr/j7apzPK5wLspUS6uuHsqt7ZERqI0ItFOYyMiWYY9HZCma7Yw2Nhrr132EV7FCHLsSYAAqZSx4RODu4cxnXnhjJWPc/5j4RBdC+obBBqebZiqmx1XyEh2PLlyi+SXft1DnKAJIkjgGMTz1alkIADFGebG5J0MjcwF6tuhJrtytXAzGEKqv8jvA4G7LrLVqZaGqYvfZ85VZ2hwM4G2A2YmMMrCg23hE2YnwVkKX2TDPO2wVv2PNe4NHsqZjZHwRLF+d2C92pHezKDK09BzsLdO+uBnGsAqfM5myhcK6ZfWwTP9jg+fPU32+QPMUq4xsDpMpXe+vsRuHnoRqHCgFQ1zNzDfAngVElonPouSt7TS5YDyPZUwnw==
-X-OriginatorOrg: silabs.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9804015-68df-4536-3db5-08d879c9c59e
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB2718.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Oct 2020 16:11:18.5863
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 54dbd822-5231-4b20-944d-6f4abcd541fb
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: va37iIE1OXTh6D5JArV0M8TvEmmX8zK9bDpgPugMK5TZUbcsRJilRXjzdf3yfmAzpwy3v/pzz75CTRQpIIX5dg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR11MB2863
-X-Original-Sender: jerome.pouiller@silabs.com
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@silabs.onmicrosoft.com header.s=selector2-silabs-onmicrosoft-com
- header.b="iextC2/5";       arc=pass (i=1 spf=pass spfdomain=silabs.com
- dkim=pass dkdomain=silabs.com dmarc=pass fromdomain=silabs.com);
-       spf=pass (google.com: domain of jerome.pouiller@silabs.com designates
- 40.107.243.60 as permitted sender) smtp.mailfrom=Jerome.Pouiller@silabs.com
+ header.i=@kernel.org header.s=default header.b=esLzZFZJ;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -173,35 +129,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Monday 26 October 2020 17:02:22 CET Arnd Bergmann wrote:
->=20
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> Move the added check of the 'band' variable after the
-> initialization. Pointed out by clang with
->=20
-> drivers/staging/wfx/data_tx.c:34:19: warning: variable 'band' is uninitia=
-lized when used here [-Wuninitialized]
->         if (rate->idx >=3D band->n_bitrates) {
+From: Arnd Bergmann <arnd@arndb.de>
 
-Hello Arnd,
+gcc warns a few thousand times about the isdigit() shadow:
 
-This patch has already been submitted[1]. I think it is going to be
-applied to staging very soon.
+include/linux/ctype.h:26:19: warning: declaration of 'isdigit' shadows a built-in function [-Wshadow]
 
-Sorry for the disturbing.
+As there is already a compiler builtin, just use that, and make
+it clear we do that by defining a macro.  Unfortunately, clang
+does not have the isdigit() builtin, so this has to be conditional.
 
-[1] https://lore.kernel.org/driverdev-devel/20201019160604.1609180-1-Jerome=
-.Pouiller@silabs.com/
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ include/linux/ctype.h | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
---=20
-J=C3=A9r=C3=B4me Pouiller
+diff --git a/include/linux/ctype.h b/include/linux/ctype.h
+index 363b004426db..c407acb258c2 100644
+--- a/include/linux/ctype.h
++++ b/include/linux/ctype.h
+@@ -23,10 +23,6 @@ extern const unsigned char _ctype[];
+ #define isalnum(c)	((__ismask(c)&(_U|_L|_D)) != 0)
+ #define isalpha(c)	((__ismask(c)&(_U|_L)) != 0)
+ #define iscntrl(c)	((__ismask(c)&(_C)) != 0)
+-static inline int isdigit(int c)
+-{
+-	return '0' <= c && c <= '9';
+-}
+ #define isgraph(c)	((__ismask(c)&(_P|_U|_L|_D)) != 0)
+ #define islower(c)	((__ismask(c)&(_L)) != 0)
+ #define isprint(c)	((__ismask(c)&(_P|_U|_L|_D|_SP)) != 0)
+@@ -39,6 +35,18 @@ static inline int isdigit(int c)
+ #define isascii(c) (((unsigned char)(c))<=0x7f)
+ #define toascii(c) (((unsigned char)(c))&0x7f)
+ 
++#if defined __has_builtin
++#if __has_builtin(__builtin_isdigit)
++#define isdigit(ch) __builtin_isdigit(ch)
++#endif
++#endif
++#ifndef isdigit
++static inline int isdigit(int c)
++{
++	return '0' <= c && c <= '9';
++}
++#endif
++
+ static inline unsigned char __tolower(unsigned char c)
+ {
+ 	if (isupper(c))
+-- 
+2.27.0
 
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/1716365.mxtkSTacob%40pc-42.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201026162336.3711040-1-arnd%40kernel.org.
