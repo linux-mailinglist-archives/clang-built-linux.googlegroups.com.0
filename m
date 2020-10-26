@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBPOB3X6AKGQEEOZFZPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBROB3X6AKGQEVR7BCTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id 906EA299B3A
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 00:50:22 +0100 (CET)
-Received: by mail-pj1-x1038.google.com with SMTP id f20sf4794729pjq.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 16:50:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603756221; cv=pass;
+Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 01DC7299B4C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 00:50:31 +0100 (CET)
+Received: by mail-oo1-xc3a.google.com with SMTP id f12sf3457875oos.23
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Oct 2020 16:50:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603756230; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kS5VN/ZOM9Crxigs9L+OUo5q6UQIbRboWxouetsfTUux3+yM3L5FoNO9t6/c28co/F
-         hHFA9N8qT/PT6i7xaUDu4Gqr01j8BU9kMjlbiYrK1Rpszv6/44Lj0ldHuuR0tSqDt6RJ
-         8nqb+uePOOgQoRPXhKLPsD1nbssh0PdmX83HNXjfH/7ET7VaIPvoBVlMFIVUfYnAtmy+
-         q7CMrrAm2wrvMSav+BCpK/VgmHBPEU13y8af682X7pXWdgXyMpGkxoR0EhkM80dHDOyI
-         TdiCvB1U2CDJdOlDdiZPRj7M8zrgA2zDeojjQjcxe8x0GLCpeID8x1ov2xhDYBa97sBu
-         ZGug==
+        b=s8Ggbk1DOd62VXMLYU/DzmqCyZm9WbMgA+H7RevIv7hnmZXLoQkr2RQYK4l10Gbd8/
+         pCSRIF+DosNn/YSHDrrnBh2y2ek0MNAJ4+MlNCEhQbCKsL+4uf3yl6pQMW+VwGnRim5o
+         zIFJPeXuaTWdlhW5MYRQywR0A3AcyxGa6vw5wfCrBNW6XdXHYNtUx1fevK934FgSyj5x
+         tgbl80L+NEZNsriL3PorM9lKOse3l1bp+ETaWCDP/DacMoDq7T82YeAbfZImSUS9zgHb
+         +x2zjOh+0Eu1EmVLq/CI9y4xqaNKgbOv23N/CuXrwL5K0I0VNnCLKquy/R9mevtVGmKN
+         kuPw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=iQSleOdwDOOnWP7zUDv7EE2ZLYP5T8dtEdV+5WYRm3w=;
-        b=ezEkCbCbfwQrWnBNKN4BE/pF0YIToW0lDEcAh7bz4bakLRQsbiAzhipor3JINj4Rmg
-         XrG0L4N9I1WhDLXpGIjwcpg/oKmyhCMglrnTTOMdXFNrYew4pWn2kVcq0eRQQlJZUQSj
-         PozGwPyDZ9Gin0b2ZRi5sVEsyDFycNAP7fOF7ZxpWaIfLpd+AgjuxLDsQTq/j5TUbJLE
-         T5zQ82F8l343ZmKuGLXFmFsUvZzxzY9fz0Lcxa6sS/MQp0M0OKJS81A7X37xCwyVW839
-         LROAEfPDCsCYVBP14hlojbv7RI7o7VuVu+l8JNOSaxV05L3NC2oMSNan77HVsUf3pfdq
-         GsKw==
+        bh=aY+++7JHtIuQqFdVRlI/eyB7tB6z+CpXL1rhkxnQ2oE=;
+        b=OpZjU/8ts6RsvhU/fepNs8b/Ad38r4scaASXRZibSdwh3vvmvGgTiK47uckPHScook
+         YWJEvD994Ceb+pw8/Q2jB6XrVDnSj4uBpoN8gbQ2vR9dijSPEGK+ZQtentiQqSK3qy/W
+         hr9+0exs4Uj4GkZUs//tnAO3KjRm+EEpx5gdFDu2oO673YtUdDo0rjIFnpZtbMQ70YzI
+         YqGkgzcnQXvw7AO7PuNgvRB8CODb8MXf9zyakDFB6YbWbrmmRSXwxkBvtI8aEw+FXeeb
+         dtJyWC1TBVIDzOTCAULZX61SDnp/+Bdd9b0KpCm4/1xKo1jyjv5mCKMVyQl70SXC3zE/
+         DUow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ANvNvT8r;
+       dkim=pass header.i=@kernel.org header.s=default header.b=cKj0n9NH;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iQSleOdwDOOnWP7zUDv7EE2ZLYP5T8dtEdV+5WYRm3w=;
-        b=BXUgzCTQAG7WbjgSG4ubeeIvWE1q3Ul2rrRORnNKkwrEbskUJ1CRqOLOat5/OBo0vz
-         /TqGfyFLuSSV0lT4fMtE/N6p5yToSaThob3EN2CAjmnNSywa+C+wqdt8+tROca4KLMQv
-         fr2Pv0PjXrkYzXE3Y8HjH4bzYlA6z27mU8CDsDH6MS/JQ3TffD/SdMQUNoeYHXucjWhm
-         U8tjwAKeWFrJNBPFsYRHV1Y3rWFRDVnGswSGKVvbbFbXtbzFaQkzdEGiQPfWd0gI/td1
-         yngw0QYJigpWGQF1El9sdCpf6S8zjIAgiSbUPxGtSnOQzFglc5MVzjntnS0/uJxXQLma
-         VGdA==
+        bh=aY+++7JHtIuQqFdVRlI/eyB7tB6z+CpXL1rhkxnQ2oE=;
+        b=I/qy3geeYNgkPSZjkwUU3lTb0ts4axeI+no7/CsJAJKhGR5H5yt+DLOz0WpwDyEAI2
+         85usMyc7QHYeaagar7kRjTpvDBmEbUDEDFfD+xPypEWUDLzIC6vCYIg9zKccXws0CDBI
+         dYeRCZnmV0KsOO2JQdxQn3LPWo/RLmz1BkgetrVq8tgQora7cksJgBj1htuI0dFO+pei
+         89cXPhhQVk8k6Vx85/gK+DjYvsLNGYH2Vw2g1hEMMPALJQTdbd2Hr2AcCwuJxwb29hcS
+         BbQ3CjTlzC5pSNZE3CcD8A7C1le+iN1ukzOgN0k7mk0Zxyh/tB8jS+gXL5Jj2m/47o35
+         NI0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,57 +49,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iQSleOdwDOOnWP7zUDv7EE2ZLYP5T8dtEdV+5WYRm3w=;
-        b=GTBMV1qzjZAS7MIL80v9sVBW8MWTLZ25DbYpgMjUeydmVQhNfx4eQ71qTWG09RCQc7
-         z86oen9CHaHUgKNxfs6In8u3rZ/kKtyw4G0Y3qde866+LJFvyB7zUXWIJlgCw3QebfKo
-         GSk1ihE5MHQAq0fkArrQ75ckKAnlnUbcCJfhaLkUzCE0g5igMHpRYMvVFHikDVrCxG7U
-         gTsxkM8uLrtS7an6gvDmgy7Jy2lwCaEHu+ozQiw4f2+UpVHTq11G/1KZnxKM6ZDyJBmJ
-         hHtK7cbDiPh+XvC3Myz8K4ZtKHAnXGKOGB1blf2RXP+z5h2gWWtnVNugwlNaw9SOhHvJ
-         hLYQ==
+        bh=aY+++7JHtIuQqFdVRlI/eyB7tB6z+CpXL1rhkxnQ2oE=;
+        b=I+OuH/05pCKVaGiKwKMv1oST4vdvAux8yMet96e+lKZ2PaFnNTKjbJn9jcJIH4EwsU
+         2AwnJvFfdUDBafsent+E6kjiH4b5pqyuujVHHaf82oQOI3IZ4u20VMtUdGpdHqzD8Qw8
+         /xOMavEbbgo/UP8MGjaHnLbwJ24VDqxy9ua9eOhpHWeI6BnbBHkdodphnDHnW6r24ofU
+         EQeGJz7k2cKDeJFk1UfwKnnLGOKym5jjaKk3Oh9tBPKI2X8IQ3j66uVC2x54uSHS/dZ6
+         uENHZsHAYvfbny80UrsXixt6Cl3xxhQ3G2oYYE/AG29QrV9U15XWFEwfYSF5N/vHlMdC
+         vmMg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530XmLTC/GLMeIgBvVKVtD/iExWUb7TJACSQ5sEXwSY+zlGeWmII
-	iMboe6LJ0gdsswyu966JVvg=
-X-Google-Smtp-Source: ABdhPJxwtysfmsM4Ys55RvPh1gwHIYIashTbXmbYom17wNz1vqDevI/ci6ybkxLkhATtPbGe2tnOIQ==
-X-Received: by 2002:a17:902:c152:b029:d6:33a:c46f with SMTP id 18-20020a170902c152b02900d6033ac46fmr164146plj.38.1603756221311;
-        Mon, 26 Oct 2020 16:50:21 -0700 (PDT)
+X-Gm-Message-State: AOAM530BiJF7Pew6UdMrrkcf9RM6tOV4dPT/SENjOaXfYJHueK1MDolh
+	O5FpgBEOjrQYBwYF92Vf1gc=
+X-Google-Smtp-Source: ABdhPJynOjBe0jnCH2JkGqIXyUSCDIxYlrHNVparKNk35hkNV9uuI5T5FMe5WVXkVu+VZnq4L7WfYw==
+X-Received: by 2002:aca:3442:: with SMTP id b63mr12107651oia.15.1603756229956;
+        Mon, 26 Oct 2020 16:50:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:3fc9:: with SMTP id m192ls62275pga.5.gmail; Mon, 26 Oct
- 2020 16:50:20 -0700 (PDT)
-X-Received: by 2002:aa7:8815:0:b029:163:c712:81ad with SMTP id c21-20020aa788150000b0290163c71281admr31475pfo.74.1603756220682;
-        Mon, 26 Oct 2020 16:50:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603756220; cv=none;
+Received: by 2002:a9d:7d0e:: with SMTP id v14ls757310otn.10.gmail; Mon, 26 Oct
+ 2020 16:50:29 -0700 (PDT)
+X-Received: by 2002:a05:6830:2389:: with SMTP id l9mr17159749ots.316.1603756229629;
+        Mon, 26 Oct 2020 16:50:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603756229; cv=none;
         d=google.com; s=arc-20160816;
-        b=tEGqaGVWKdPtNybCtDmqrcxjeY8V7DAsy2jbHGPOoEGLq006//+8SzEiSIsf2cNY0o
-         T8wDHxhtJ1bestn9Fnmvxu0c/Wf610WIwt2GmoLU/Uwlh6qnuCkPrhN11Ot4RFEJJ78q
-         NWf9+A5+X1INcFppuBTvnaiRKJ85fOXCwTI9yOQTdVbmwcq1T2NYbnT/S7hhq0k5/kUu
-         XOiSPZSaLdclHsSn831HR9ADWCVc99hDObizdSP6m1XIgxU1CuUwYdruq/e5x0uc0tzU
-         fvSebaPtPnNNyTB+e8yEMktrF2w0iXJ3oKsW1vxfjKUFV+ynSq064lDbojsvN/knhjwW
-         SQJQ==
+        b=FGqYMgZ3YptCHb44RxsLvZBJ8425jYy3jVVEgSsiml3uKvlOxilT1IpqawUUYouXSl
+         JSTKB/Trf+LD8W43YSapUJPQ28XJQ7kCgPxv2yMv/5+3sPPdi/eO62pv8u9WOS2uF26S
+         LqN+K8hqahD6ly5PUnLXS/Oa6g9ClcRgN9hOf5evVGza/qAPH8omd/6ZvXfSsHi/GfJp
+         J3Ryg2+RT2XBmOgLJk/4HOpOlMroBzehaTbk51aMeSYqkV3U+d4yzZlrkuuCqWjH6Vc0
+         noSVZMqDafqZF7ov5eDpZkLzQx9d1Bpbk4WNA2Kzi8/1BqMoIpBlX+x9Y6Hud1MNw+zi
+         vPQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=DmNXj2gGtARGDiqoKunfyZIRi/dtojJjg2RuB5rEoAg=;
-        b=IGUMHINq+9jpgHjeLD+ZfqjORFkSqoM1YvxA2FHaHXuS/ZyCCopuibQMDhprX0m4jC
-         mnopkcdKMXOEZJRTUQuev+/fUUK3kCEX+vmX2vLdPQKFh2Rh+7GbTWJ4275r29bTpbyR
-         KwnHl8aCHz+mU+pGKORgeuDsGX31wnxKE8UhzzIOM/zZSByl8RppXktoGt5VzD0L7PaM
-         0g+4Vf6NPjVoL2QSu1Z0EzvLAnmxpnfm14TPLawnd6cHxq5qJFiNbFpBhKcvn012KCnW
-         Paol/bxKNe/cHZRqRdehhVS61LvZoexOwQdOjcIT2J0Is4e2SxcUt7Srf39BcixSZwRa
-         7Mbw==
+        bh=vl0DoymQvVQPWVFe0h8eqh/96NNnfFTZA0WaRWbWhXI=;
+        b=fZ4qg996IlloUxA8FMmGDFFKu1eB2MWimBy1vyuaE1I2BIfdASCoCwX8uUGVL31jFX
+         xw4Me+AQHJNFFkDKsA0o2ZnRkpZUsUt4imZxP8JPQ1eUV6gIn/kW67RFlRmC1cdkSV5o
+         Jv1cqIWcUCg6ihNgBA6ZilCRWF77N7TWhHOvPzAgDGLQHz/Cr6mFym3b6OaDQJcX3kYI
+         3LHlYaK0z8ueRcjUo6Ww9xaljETMOLBUD5IulikcrGYyFu5JqmRvdb5YYnEDYLWEWMbl
+         iTEQB4bcnw5eSLPjILrh1RoUR3Q88GqK8YBfb380XMzUSY0SWuBomTXxxH0SF9LjAXJ8
+         Bskw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ANvNvT8r;
+       dkim=pass header.i=@kernel.org header.s=default header.b=cKj0n9NH;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x24si649674pll.5.2020.10.26.16.50.20
+        by gmr-mx.google.com with ESMTPS id w26si613673oih.1.2020.10.26.16.50.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 26 Oct 2020 16:50:20 -0700 (PDT)
+        Mon, 26 Oct 2020 16:50:29 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 8549C217A0;
-	Mon, 26 Oct 2020 23:50:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id DDFF720872;
+	Mon, 26 Oct 2020 23:50:27 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -107,12 +107,13 @@ Cc: Yonghong Song <yhs@fb.com>,
 	Alexei Starovoitov <ast@kernel.org>,
 	Andrii Nakryiko <andriin@fb.com>,
 	Sasha Levin <sashal@kernel.org>,
+	linux-kselftest@vger.kernel.org,
 	netdev@vger.kernel.org,
 	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.9 060/147] bpf: Permit map_ptr arithmetic with opcode add and offset 0
-Date: Mon, 26 Oct 2020 19:47:38 -0400
-Message-Id: <20201026234905.1022767-60-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.9 067/147] selftests/bpf: Define string const as global for test_sysctl_prog.c
+Date: Mon, 26 Oct 2020 19:47:45 -0400
+Message-Id: <20201026234905.1022767-67-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20201026234905.1022767-1-sashal@kernel.org>
 References: <20201026234905.1022767-1-sashal@kernel.org>
@@ -121,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ANvNvT8r;       spf=pass
+ header.i=@kernel.org header.s=default header.b=cKj0n9NH;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -140,119 +141,57 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Yonghong Song <yhs@fb.com>
 
-[ Upstream commit 7c6967326267bd5c0dded0a99541357d70dd11ac ]
+[ Upstream commit 6e057fc15a2da4ee03eb1fa6889cf687e690106e ]
 
-Commit 41c48f3a98231 ("bpf: Support access
-to bpf map fields") added support to access map fields
-with CORE support. For example,
+When tweaking llvm optimizations, I found that selftest build failed
+with the following error:
+  libbpf: elf: skipping unrecognized data section(6) .rodata.str1.1
+  libbpf: prog 'sysctl_tcp_mem': bad map relo against '.L__const.is_tcp_mem.tcp_mem_name'
+          in section '.rodata.str1.1'
+  Error: failed to open BPF object file: Relocation failed
+  make: *** [/work/net-next/tools/testing/selftests/bpf/test_sysctl_prog.skel.h] Error 255
+  make: *** Deleting file `/work/net-next/tools/testing/selftests/bpf/test_sysctl_prog.skel.h'
 
-            struct bpf_map {
-                    __u32 max_entries;
-            } __attribute__((preserve_access_index));
+The local string constant "tcp_mem_name" is put into '.rodata.str1.1' section
+which libbpf cannot handle. Using untweaked upstream llvm, "tcp_mem_name"
+is completely inlined after loop unrolling.
 
-            struct bpf_array {
-                    struct bpf_map map;
-                    __u32 elem_size;
-            } __attribute__((preserve_access_index));
-
-            struct {
-                    __uint(type, BPF_MAP_TYPE_ARRAY);
-                    __uint(max_entries, 4);
-                    __type(key, __u32);
-                    __type(value, __u32);
-            } m_array SEC(".maps");
-
-            SEC("cgroup_skb/egress")
-            int cg_skb(void *ctx)
-            {
-                    struct bpf_array *array = (struct bpf_array *)&m_array;
-
-                    /* .. array->map.max_entries .. */
-            }
-
-In kernel, bpf_htab has similar structure,
-
-	    struct bpf_htab {
-		    struct bpf_map map;
-                    ...
-            }
-
-In the above cg_skb(), to access array->map.max_entries, with CORE, the clang will
-generate two builtin's.
-            base = &m_array;
-            /* access array.map */
-            map_addr = __builtin_preserve_struct_access_info(base, 0, 0);
-            /* access array.map.max_entries */
-            max_entries_addr = __builtin_preserve_struct_access_info(map_addr, 0, 0);
-	    max_entries = *max_entries_addr;
-
-In the current llvm, if two builtin's are in the same function or
-in the same function after inlining, the compiler is smart enough to chain
-them together and generates like below:
-            base = &m_array;
-            max_entries = *(base + reloc_offset); /* reloc_offset = 0 in this case */
-and we are fine.
-
-But if we force no inlining for one of functions in test_map_ptr() selftest, e.g.,
-check_default(), the above two __builtin_preserve_* will be in two different
-functions. In this case, we will have code like:
-   func check_hash():
-            reloc_offset_map = 0;
-            base = &m_array;
-            map_base = base + reloc_offset_map;
-            check_default(map_base, ...)
-   func check_default(map_base, ...):
-            max_entries = *(map_base + reloc_offset_max_entries);
-
-In kernel, map_ptr (CONST_PTR_TO_MAP) does not allow any arithmetic.
-The above "map_base = base + reloc_offset_map" will trigger a verifier failure.
-  ; VERIFY(check_default(&hash->map, map));
-  0: (18) r7 = 0xffffb4fe8018a004
-  2: (b4) w1 = 110
-  3: (63) *(u32 *)(r7 +0) = r1
-   R1_w=invP110 R7_w=map_value(id=0,off=4,ks=4,vs=8,imm=0) R10=fp0
-  ; VERIFY_TYPE(BPF_MAP_TYPE_HASH, check_hash);
-  4: (18) r1 = 0xffffb4fe8018a000
-  6: (b4) w2 = 1
-  7: (63) *(u32 *)(r1 +0) = r2
-   R1_w=map_value(id=0,off=0,ks=4,vs=8,imm=0) R2_w=invP1 R7_w=map_value(id=0,off=4,ks=4,vs=8,imm=0) R10=fp0
-  8: (b7) r2 = 0
-  9: (18) r8 = 0xffff90bcb500c000
-  11: (18) r1 = 0xffff90bcb500c000
-  13: (0f) r1 += r2
-  R1 pointer arithmetic on map_ptr prohibited
-
-To fix the issue, let us permit map_ptr + 0 arithmetic which will
-result in exactly the same map_ptr.
+Commit 7fb5eefd7639 ("selftests/bpf: Fix test_sysctl_loop{1, 2}
+failure due to clang change") solved a similar problem by defining
+the string const as a global. Let us do the same here
+for test_sysctl_prog.c so it can weather future potential llvm changes.
 
 Signed-off-by: Yonghong Song <yhs@fb.com>
 Signed-off-by: Alexei Starovoitov <ast@kernel.org>
 Acked-by: Andrii Nakryiko <andriin@fb.com>
-Link: https://lore.kernel.org/bpf/20200908175702.2463625-1-yhs@fb.com
+Link: https://lore.kernel.org/bpf/20200910202718.956042-1-yhs@fb.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- kernel/bpf/verifier.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ tools/testing/selftests/bpf/progs/test_sysctl_prog.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index fba52d9ec8fc4..8c0f605e5ee94 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -5219,6 +5219,10 @@ static int adjust_ptr_min_max_vals(struct bpf_verifier_env *env,
- 			dst, reg_type_str[ptr_reg->type]);
- 		return -EACCES;
- 	case CONST_PTR_TO_MAP:
-+		/* smin_val represents the known value */
-+		if (known && smin_val == 0 && opcode == BPF_ADD)
-+			break;
-+		/* fall-through */
- 	case PTR_TO_PACKET_END:
- 	case PTR_TO_SOCKET:
- 	case PTR_TO_SOCKET_OR_NULL:
+diff --git a/tools/testing/selftests/bpf/progs/test_sysctl_prog.c b/tools/testing/selftests/bpf/progs/test_sysctl_prog.c
+index 50525235380e8..5489823c83fc2 100644
+--- a/tools/testing/selftests/bpf/progs/test_sysctl_prog.c
++++ b/tools/testing/selftests/bpf/progs/test_sysctl_prog.c
+@@ -19,11 +19,11 @@
+ #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+ #endif
+ 
++const char tcp_mem_name[] = "net/ipv4/tcp_mem";
+ static __always_inline int is_tcp_mem(struct bpf_sysctl *ctx)
+ {
+-	char tcp_mem_name[] = "net/ipv4/tcp_mem";
+ 	unsigned char i;
+-	char name[64];
++	char name[sizeof(tcp_mem_name)];
+ 	int ret;
+ 
+ 	memset(name, 0, sizeof(name));
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201026234905.1022767-60-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201026234905.1022767-67-sashal%40kernel.org.
