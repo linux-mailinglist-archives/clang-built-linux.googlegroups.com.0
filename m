@@ -1,45 +1,61 @@
-Return-Path: <clang-built-linux+bncBCQJP74GSUDRBFN7376AKGQEJZHG5ZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBR6Z376AKGQEHLZGXDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BAE1F29A6F2
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 09:51:34 +0100 (CET)
-Received: by mail-yb1-xb3b.google.com with SMTP id o135sf645712ybc.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 01:51:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603788693; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9666F29A82A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 10:47:53 +0100 (CET)
+Received: by mail-pf1-x43f.google.com with SMTP id 64sf612023pfg.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 02:47:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603792072; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aejLAjQdiRbNA1roIFuCf+cbSrxd+rCMtEkVaFWn7l1AHAS0hIeU8WD8daaYwcCoEa
-         ymAs6N1ksusIUeeowzhtfTK6bDKF67LqI9FgfS7prw80/b3V+C8RIC4ExbWaDY+xkfsU
-         dpc7iBM2u4gnlZpyjZDFuySCNVLnjBlXqg5cGmZhFKzZ582gFcTfXzvzF5TwacbcH+zz
-         q5Nvoj1uoBHqmbBfo6enWetun7DuKqkTKDfDbnVvoL/mr9hddrX9l3oxkyEL8DLNrg2m
-         V9Tukxgp3YxgG1tRyReD+T5Sc5aW+0Z3V81I/qN/S7M+DyjIUx+agGhQd1SQTnT9Ylt4
-         8dZg==
+        b=C2wP13Y3CKc6/wdtCr2hldYguT+/LkbPy9mNVUHNBYCCt2WISLZIACunqZysDZTJ7I
+         JPt4JbiqkVGRRl4ICql/10yMWNivemv3i9jMhomm0N4G55E+tSwx4zwgOpA9uYz08NtB
+         FXub/ZB9V/mGoKi4ECCyX3dyO9Y2ytVbsMPwHkp8p8ji+iT7btNUh5KiwEDT7vLastw+
+         59HDIkaNJRxJ14F0VHSk0pl+N9oVOQaOtogsZNlKXfinaWK9naUjrt5wG2QjhI6QX6ri
+         XkwZVzPE0wvaTUYeRqsp0xOXdbF/ED9AVsHnhU8VJ0e3PFpNf0jmAtaifmN2KNwTnJ99
+         j+/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=TYLzWZ0tEv8NGxGExYnfEN3EZdA2sdPr6db6mPo8E9o=;
-        b=uhjJxVdp40APZpc5h5TDVnwcNmH60IPqVKaIHYhKQhGMoksg1Z6diiGA2hVNDb5ih/
-         f18g+8kQZLWXXkQYs/EqIlkG7GvqfvWVJq0XnEjw+YkiuHRBHi8r5MNpGYCItbCqVg7+
-         BB2v+NZ6I47qC+It6DWl03fPelhOmRjQ5ndPpRuK5Hb0KpI7HgK/WykniTaP9X5YWzx3
-         tyRx8ZInFx0ZlYbx8FTbEZLUmUAP6Zu2pj4nhE1vqoElN11R53dj2tDsKm4WJDBpdMNe
-         +G4xaFxb1co+yoHf7XnoBLcz4cEydYQvBZAqkpY+OgEQUg40GMPq7fptAIFfnpJPU6CW
-         gSjA==
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=1FN92jnkSo5i1Ng+Ecsyf1ui3fRmptEOUqUPpztsjkM=;
+        b=GhNCaH1/7w0ZBMx7QbV21QynSkwX6CI+aJWfmB2+XxX/0ekurYOv3cvD/DnWeEvoOC
+         7AdOrR0GhAbf2cGxhgyS6eYRlwVnYOygUjEWIuzgkaqnQ7J9Ea2HKnFzBASSusXBvKcM
+         2PAX7Z3Hmfp35gWDqLc/K9c+9P2NwYneq4saxzxPQbZHI50iZsFMF4LaHXTfL6Q0OD6z
+         q38Z2FBT/8dTeQYUcyuVg3kYZKhHmBFQgFLPoCScrm4pv3aZFqKfQvAdjvaTQHavig8m
+         VWlfJ/ddJg6zViQ5mIlx8lp9KtgZl/2fPVjMeZCJVKVbxfWZfTdU8/O4TNQnO7bnEKvG
+         JhyA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.193 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=m+imZfaf;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b43 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TYLzWZ0tEv8NGxGExYnfEN3EZdA2sdPr6db6mPo8E9o=;
-        b=RK4KP9aIQu/NjvImROpGByTrXexea7aFYyFFryUNuQMvfu6rU26QOt5Os7npMK9Wvc
-         IabHACP6H/8um7D52jjImIg5aXCyrq8ERxQPLkRHgR+yVm5C3CMIZFa1FP5Q0J+H155Q
-         UhoABw5NT1dhBZpNDGZrRzeIGQ8Z3kP9w7fgat9ypC6rq/swXggZfLy+uX6LZLvXmDmV
-         6CGvy2Fc3WxbZKSXQ1PmwwUpShavVRrYIK/Hkm9nSmdb/O9CCggfVhavRfxRGE0/nhd0
-         V7xhMolFLjaoJn+qGuoIbOzLnL3pKUjR83sH5YuslTYuwWr9Q3stDuLDX7XhhdR0T73U
-         ItVg==
+        bh=1FN92jnkSo5i1Ng+Ecsyf1ui3fRmptEOUqUPpztsjkM=;
+        b=tSIgKrVp8+V6GC02tIbmd3ReH/kiqCQMNEhpl+RJ7J4mpchaSnjigXe0074fHVVE7V
+         yO5LwOzo4Zd+TCVjfe8TepM3EKlVIwUuBxbS74P3v8AyViCzHePxCxQf9lo8QxPmcnDG
+         bUzTlFACI+xbcfAavh99fVz0OPJqRpf35lK5o4G3xi9tdBY0UDiZ0DUl1VTtpE8L4TAy
+         /kdCJxQfYxoNwz/cT8xwE51WHVcE+brtLZJtl2ReYlgkfvLIKdZyz6pDAkjlYjy2dYhm
+         2x74X7NdNN19EqGCy7VXXcIiTn5JrD515WxkJHnAt+lkF0BwYcTis6/XDWI4hIWDvDe6
+         ykUA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1FN92jnkSo5i1Ng+Ecsyf1ui3fRmptEOUqUPpztsjkM=;
+        b=GVvE9joFqi2LnXN+FQOLDyXVhFmLikuqqxnp5xrNJoGtLIvytAEX3p7UQvKwpgB+lL
+         zksWFrCEfvUQVJGRM5fV/Ha56JvqDYz53h0SAtb7InoYdhRJX/fcO1isdDfLebFeresa
+         czKRT2rhYtC1ec0WmOxzDUo8SC0r6vnQDA8eUQPrWBZlXUBHo8vfK8KbsI8mdWgt6D+k
+         pes5UtSXKHVrdUOWeYWsuHTQhH1Zwfit0qsbALaQP0iGH8F34jdo1eKyZyi8eux9R8y2
+         6RBmO+AAXJoFflsQnEXMg8n0W9T083A4UxUxeRzFS/eEhfawFRF1Eae0cZxitWNMFswv
+         bslA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -47,83 +63,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TYLzWZ0tEv8NGxGExYnfEN3EZdA2sdPr6db6mPo8E9o=;
-        b=I3spoRN/GFoLIEf+wdhjhHG2GxffgcabtG5NEqmMVT/s7zjyoDal5R114Ci9fzp50k
-         JBHrQyspWtPjfxIQkcJu79ZLt8zY3kqmdVEjq4jDl4MR4IQfZBaIBWG6w4hmsNOKvjsO
-         Bcl5c1gsOy006KMcoo514ZaPzgAwM5ztSOn74ciGALlGg6u6Gp8FnRcNPIEKUYyy/LkK
-         GptGMwcKWV9uXdjToNpCT0tWJc11v5XTeENudT23ZJcx4tgrWrmW0cn+0noQKwOFVPou
-         CKLXElr/VxBUbPoLKF0Re7bFLQeF1dUDVh4PiLXR/oUxTVzzNsIbiwm3qm5u30vH2nPr
-         cqvg==
+        bh=1FN92jnkSo5i1Ng+Ecsyf1ui3fRmptEOUqUPpztsjkM=;
+        b=Nd/Va9SxuOvcrcKa2iKKOHgKny7/WfqQySBHYcurDvX/JGNw4K7qoduMe29sMW0jNv
+         1Tt9VYTR3oyv0wYYwxo7wI4CVyF4BCn6UvTrjX9S/vmxeeZrCP84/nbtRO81lotwbAsP
+         +RoGpeZLlFUYIX/57WRBmIY/lRpalX7nKKx3Pyn60A5CF0kiL78I+Opu1JDfzdI+rn2Y
+         S+nmmQHpZQb8FagxB/TIcicuS/p7PwcZv7jhUROOrT0A8VLkrposzCpZ9wkiDtICHvUM
+         ulCyHCuSFS2yxiUk68rz8oHg8kCHzSpIt9aKR/QD/aw5+kb5XMINa0IYO4ayAZ+42uo8
+         x0OA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531j9m+j3URO04HRDwdAUycCFJYw+kutiLhyPVY+frBsI1+EEniw
-	HGoLtbcmN0e0S9kuyanu/bk=
-X-Google-Smtp-Source: ABdhPJz76LLi/EPV9VagEQuWbGcOXXmkT199rLA1AG6fyIcpeoZVnukJ/Ww1t8yUIKrtRlAmWK/eZA==
-X-Received: by 2002:a25:244c:: with SMTP id k73mr1707745ybk.96.1603788693560;
-        Tue, 27 Oct 2020 01:51:33 -0700 (PDT)
+X-Gm-Message-State: AOAM532ZVl6dJ5MqeeDnCIcLXpr0AFOwJO6oUyheXTQr9CFVAHKWwSja
+	yAtvJSDQNg5w2QBiGy3cABg=
+X-Google-Smtp-Source: ABdhPJzjfjr3L7ZW4Ba89Ma1rU/BAjiRF43BRzj1xX3R+I5Nzvb5g+441AmOyJrYgeFcxcOQoqdtfA==
+X-Received: by 2002:a17:902:7882:b029:d6:38a2:8dee with SMTP id q2-20020a1709027882b02900d638a28deemr1636297pll.58.1603792071854;
+        Tue, 27 Oct 2020 02:47:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:df0d:: with SMTP id w13ls433927ybg.11.gmail; Tue, 27 Oct
- 2020 01:51:33 -0700 (PDT)
-X-Received: by 2002:a25:24c7:: with SMTP id k190mr1756208ybk.483.1603788693051;
-        Tue, 27 Oct 2020 01:51:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603788693; cv=none;
+Received: by 2002:a63:8f47:: with SMTP id r7ls453423pgn.8.gmail; Tue, 27 Oct
+ 2020 02:47:51 -0700 (PDT)
+X-Received: by 2002:aa7:9f0f:0:b029:155:ef07:6ae0 with SMTP id g15-20020aa79f0f0000b0290155ef076ae0mr1450487pfr.70.1603792071194;
+        Tue, 27 Oct 2020 02:47:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603792071; cv=none;
         d=google.com; s=arc-20160816;
-        b=VJxIVwVv0oNhLxzc8HzI0o+b+0TrHbw2k+FdXEO+GYH/JhSjSNbYTyrFUuMs4C13/6
-         7CSwbMqqbD2G/qGpnxZaqUchNoGG1k7PvSLqI6cqGH5QjksTjUyZi3je50ze4ch/Fxp4
-         eib1sXyaBMdgl0VmXh5yrqoyRrJlEzJBcH7zC/8/GOGd7BewfR1R77xEJLqpFSYVJc9I
-         BLJM7K6fzFUT4zx5blpAajQqb307IZW82APTILYQ1gkajr6f7xA6fPc2PPQ6eYkyZFDT
-         LXtLAfVyOB9AkSxma+R5kjB5XBlUobr2ZZ09Zn/FyAwoimj3pAyJuU1ujuCOIgGchqRh
-         gSPA==
+        b=ZVU/gBUPhg2+dGYRHLA6gCnyCi/rOpQQLFqlVRwojFiMWOHupWYXbuOJdpOHwQ1xTk
+         QD7m7mYspEasKyJmzWY0a0cHF01Kd7exIRBYpy7cnZlNscC0Lv3+WjrZgOj7hDpyajU1
+         4zfIF1Xib01dqqby6IxuoR37lexYqXuP6UTylT8kL6sLydFvXk+9purJ2FstYfo4K26U
+         cTcsjCard+Ld2b8KKERuq3Po7MD5hxf9rBbVxY5P7vdKgS0kbmgOSmxXpFTvQx5brpZe
+         s4u3flFcxXNnUz3ApvUWKC3s8utnSHhtVGHp+h4qjKHEo5C8wTP2PvERdSbwKLNDQ5u3
+         RkOg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=QuQazVJddiiMcHpJSWJ6P15wkN0uJ4Rr3unxje95N5k=;
-        b=oWRUamb7ZWOsgMuFHgmOdWyYf9eGxYvtuFJhU178KKLuRVHT7P1BEWABV5yJJkJI+y
-         QPEX59VCA4Lnks/wYBAGHzz2mL0o7lV4RX0uWCJ5/vx6lGL3IESnjTcv1glWPYpMvgCB
-         vzfYdBb3S42yQuyL3KLHu1PwWM3EX0mjHMNZl0Abo2XNJuv9xvdUOU4b2Em2TJNxV/DO
-         9Mr6qH8QUOfUapcBj0k4s3AK0t+qp1oE1tecnk7RS3/bHbTsAfpMv7XILn/cTXm0kk1/
-         lB7VbzF51hzxInvFCAoZ73noJhAn5LzMiOwkeCB3mYZA9YnAvub8XA+nzXkx3eKxqugr
-         sF2w==
+         :mime-version:dkim-signature;
+        bh=oFwSSyZ6tdGB8SL5Ua5qFlSStYifHOLGWVo06VaDKtE=;
+        b=EZiRjgZvXZE2Z8hOchgFRnCNrgV/Rw4RZUoh8MiScxWeTpWM8D5/zbGmhaa/R+5Amu
+         +EOwx+3g4jPiC/OQdob1qgtHp9KdlUQJeCfEkeCLNdUS9Nh71F8BLOrRMjidjqdsUcVX
+         P+L2CFG43N9AB5q0OfJ2zrqIvmSiM19h4+ltfioVxnY4MQfJGRdWa4NKtnGvqsYYSmZY
+         4gGnp/7VAAbBIXVULb/rDROvR4Q5GAnfkcMtyomDvOYJhd2ysoVw7ZKY7/QiRX+ElJZu
+         VNjdiBqM2eW+5JTuT6U8gRI148IdKJjfs1d0x/mVYRJPzDib2TYP04UbCOWPXeNnXml+
+         khNQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.193 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
-Received: from mail-oi1-f193.google.com (mail-oi1-f193.google.com. [209.85.167.193])
-        by gmr-mx.google.com with ESMTPS id t12si58717ybp.2.2020.10.27.01.51.32
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=m+imZfaf;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b43 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-yb1-xb43.google.com (mail-yb1-xb43.google.com. [2607:f8b0:4864:20::b43])
+        by gmr-mx.google.com with ESMTPS id h24si68485plr.0.2020.10.27.02.47.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Oct 2020 01:51:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.193 as permitted sender) client-ip=209.85.167.193;
-Received: by mail-oi1-f193.google.com with SMTP id x203so513585oia.10
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 01:51:32 -0700 (PDT)
-X-Received: by 2002:aca:f40c:: with SMTP id s12mr663393oih.153.1603788692533;
- Tue, 27 Oct 2020 01:51:32 -0700 (PDT)
+        Tue, 27 Oct 2020 02:47:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b43 as permitted sender) client-ip=2607:f8b0:4864:20::b43;
+Received: by mail-yb1-xb43.google.com with SMTP id s89so678941ybi.12
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 02:47:51 -0700 (PDT)
+X-Received: by 2002:a25:b792:: with SMTP id n18mr2094133ybh.93.1603792070514;
+ Tue, 27 Oct 2020 02:47:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200821194310.3089815-1-keescook@chromium.org>
- <20200821194310.3089815-14-keescook@chromium.org> <CAMuHMdUg0WJHEcq6to0-eODpXPOywLot6UD2=GFHpzoj_hCoBQ@mail.gmail.com>
- <CAMuHMdUw9KwC=EVB60yjg7mA7Fg-efOiKE7577p+uEdGJVS2OQ@mail.gmail.com>
- <CAMuHMdUJFEt3LxWHk73AsLDGhjzBvJGAML76UAxeGzb4zOf96w@mail.gmail.com>
- <CAMj1kXHXk3BX6mz6X_03sj_pSLj9Ck-=1S57tV3__N9JQOcDEw@mail.gmail.com> <CAMuHMdV4jKccjKkoj38EFC-5yN99pBvthFyrX81EG4GpassZwA@mail.gmail.com>
-In-Reply-To: <CAMuHMdV4jKccjKkoj38EFC-5yN99pBvthFyrX81EG4GpassZwA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 27 Oct 2020 09:51:21 +0100
-Message-ID: <CAMuHMdWXB+DB4gZoU6g8a0aw3hEdE_FSv9MEJF0M8X63WThkcA@mail.gmail.com>
-Subject: Re: [PATCH v6 13/29] arm64/build: Assert for unwanted sections
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Kees Cook <keescook@chromium.org>, Ingo Molnar <mingo@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Collingbourne <pcc@google.com>, James Morse <james.morse@arm.com>, Borislav Petkov <bp@suse.de>, 
-	Ingo Molnar <mingo@redhat.com>, Russell King <linux@armlinux.org.uk>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, "the arch/x86 maintainers" <x86@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux-Arch <linux-arch@vger.kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+References: <20201026192117.3811525-1-arnd@kernel.org>
+In-Reply-To: <20201026192117.3811525-1-arnd@kernel.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Tue, 27 Oct 2020 10:47:39 +0100
+Message-ID: <CANiq72n72FMnNnWveSZOj_3_beXKX03CVL8=cQqqa8QyK-PKig@mail.gmail.com>
+Subject: Re: [PATCH v2] ctype.h: remove duplicate isdigit() helper
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: geert@linux-m68k.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.193
- as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=m+imZfaf;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2607:f8b0:4864:20::b43 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,110 +144,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Ard,
-
-On Mon, Oct 26, 2020 at 6:43 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Mon, Oct 26, 2020 at 6:39 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > On Mon, 26 Oct 2020 at 17:01, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > On Mon, Oct 26, 2020 at 2:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > On Mon, Oct 26, 2020 at 1:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > On Fri, Aug 21, 2020 at 9:56 PM Kees Cook <keescook@chromium.org> wrote:
-> > > > > > In preparation for warning on orphan sections, discard
-> > > > > > unwanted non-zero-sized generated sections, and enforce other
-> > > > > > expected-to-be-zero-sized sections (since discarding them might hide
-> > > > > > problems with them suddenly gaining unexpected entries).
-> > > > > >
-> > > > > > Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-> > > > > > Signed-off-by: Kees Cook <keescook@chromium.org>
-> > > > >
-> > > > > This is now commit be2881824ae9eb92 ("arm64/build: Assert for unwanted
-> > > > > sections") in v5.10-rc1, and is causing the following error with
-> > > > > renesas_defconfig[1]:
-> > > > >
-> > > > >     aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
-> > > > > `kernel/bpf/core.o' being placed in section `.eh_frame'
-> > > > >     aarch64-linux-gnu-ld: Unexpected GOT/PLT entries detected!
-> > > > >     aarch64-linux-gnu-ld: Unexpected run-time procedure linkages detected!
-> > > > >
-> > > > > I cannot reproduce this with the standard arm64 defconfig.
-> > > > >
-> > > > > I bisected the error to the aforementioned commit, but understand this
-> > > > > is not the real reason.  If I revert this commit, I still get:
-> > > > >
-> > > > >     aarch64-linux-gnu-ld: warning: orphan section `.got.plt' from
-> > > > > `arch/arm64/kernel/head.o' being placed in section `.got.plt'
-> > > > >     aarch64-linux-gnu-ld: warning: orphan section `.plt' from
-> > > > > `arch/arm64/kernel/head.o' being placed in section `.plt'
-> > > > >     aarch64-linux-gnu-ld: warning: orphan section `.data.rel.ro' from
-> > > > > `arch/arm64/kernel/head.o' being placed in section `.data.rel.ro'
-> > > > >     aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
-> > > > > `kernel/bpf/core.o' being placed in section `.eh_frame'
-> > > > >
-> > > > > I.e. including the ".eh_frame" warning. I have tried bisecting that
-> > > > > warning (i.e. with be2881824ae9eb92 reverted), but that leads me to
-> > > > > commit b3e5d80d0c48c0cc ("arm64/build: Warn on orphan section
-> > > > > placement"), which is another red herring.
-> > > >
-> > > > kernel/bpf/core.o is the only file containing an eh_frame section,
-> > > > causing the warning.
-> > > > If I compile core.c with "-g" added, like arm64 defconfig does, the
-> > > > eh_frame section is no longer emitted.
-> > > >
-> > > > Hence setting CONFIG_DEBUG_INFO=y, cfr. arm64 defconfig, the warning
-> > > > is gone, but I'm back to the the "Unexpected GOT/PLT entries" below...
-> > > >
-> > > > > Note that even on plain be2881824ae9eb92, I get:
-> > > > >
-> > > > >     aarch64-linux-gnu-ld: Unexpected GOT/PLT entries detected!
-> > > > >     aarch64-linux-gnu-ld: Unexpected run-time procedure linkages detected!
-> > > > >
-> > > > > The parent commit obviously doesn't show that (but probably still has
-> > > > > the problem).
-> > >
-> > > Reverting both
-> > > b3e5d80d0c48c0cc ("arm64/build: Warn on orphan section placement")
-> > > be2881824ae9eb92 ("arm64/build: Assert for unwanted sections")
-> > > seems to solve my problems, without any ill effects?
-> > >
-> >
-> > I cannot reproduce the issue here with my distro GCC+binutils (Debian 8.3.0)
-> >
-> > The presence of .data.rel.ro and .got.plt sections suggests that the
-> > toolchain is using -fpie and/or -z relro to build shared objects
-> > rather than a fully linked bare metal binary.
-> >
-> > Which toolchain are you using? Does adding -fno-pie to the compiler
+On Tue, Oct 27, 2020 at 12:57 AM Arnd Bergmann <arnd@kernel.org> wrote:
 >
-> gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)  from Ubuntu 20.04LTS.
->
-> > command line and/or adding -z norelro to the linker command line make
-> > any difference?
->
-> I'll give that a try later...
+> +#ifdef __has_builtin
+> +#define has_builtin(x) __has_builtin(x)
+> +#else
+> +#define has_builtin(x) (0)
+> +#endif
 
-Adding -fno-pie to KBUILD_AFLAGS and KBUILD_CFLAGS doesn't
-make a difference.
+Could this be
 
-Same for adding -z norelno to the final link command:
+    #ifndef __has_builtin
+    # define __has_builtin(x) 0
+    #endif
 
-    aarch64-linux-gnu-ld: warning: -z norelno ignored
-    aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
-`kernel/bpf/core.o' being placed in section `.eh_frame'
-    aarch64-linux-gnu-ld: Unexpected GOT/PLT entries detected!
-    aarch64-linux-gnu-ld: Unexpected run-time procedure linkages detected!
+? i.e. mimicking what we do for `__has_attribute`.
 
-Gr{oetje,eeting}s,
+It would also be a nice idea to put a reminder comment like:
 
-                        Geert
+    /*
+     * __has_builtin is supported on gcc >= 10, clang >= 3 and icc >= 21.
+     * In the meantime, to support gcc < 10, we implement __has_builtin
+     * by hand.
+     */
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdWXB%2BDB4gZoU6g8a0aw3hEdE_FSv9MEJF0M8X63WThkcA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72n72FMnNnWveSZOj_3_beXKX03CVL8%3DcQqqa8QyK-PKig%40mail.gmail.com.
