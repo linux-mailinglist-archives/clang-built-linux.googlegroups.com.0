@@ -1,142 +1,143 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBB6PL4H6AKGQESGCIQXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBL7M4H6AKGQE4UGFGDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 631A829C8FE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 20:33:15 +0100 (CET)
-Received: by mail-pg1-x539.google.com with SMTP id 33sf878421pgt.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 12:33:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603827194; cv=pass;
+Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9181129C902
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 20:34:08 +0100 (CET)
+Received: by mail-qv1-xf3a.google.com with SMTP id d16sf1533642qvy.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 12:34:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603827247; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ut53386fQ8VsXspjuhHpXdOufrIA8Du4TDJ/gqhISk2hZIdVB/SEI7cdFZfCC+n5kH
-         4WnJVELvSt34xAzXOpBH2jhWQQMwv/PGj1W6LxglLOuY7GpUViw7WLwA9H1XahvGatTg
-         oDzVo31H5faiiyySzfvQ06H0hgxE2W2HZj21rrsApdzluLz2SItMrSSxwR3kOG0GaGvk
-         EHCgqqSjvm5YD80k/2qCwVY3lbBOoVd9vwrH7Rj5Dsde6kZK74X5eS/JI4GqP0nZJzD9
-         kmQf+H8pQm6FubijCNQG9WUCv4a1DJAcCRFu8nGt6U8zRAilxIFpDJbA101ZcjpjHjP7
-         EbFA==
+        b=PqJK33MjREhL4gcMOZfrHZFgL7nxUAHakbcb1+x8ZRLkvfj0HDQzr1l3gsfQ1AR2ku
+         ewalI7JN7d4RR1BYeHCImITi9dFFFRqlYFIlmPSVNo4BncRE3MejtkF5ks7MAeWNX9mv
+         bfMzUgRoaBMYon+akbjZ7VNKP7eoRz5dKBqiraWOp9jXsKcCcdx9M2XfgPgIDdnwjC9W
+         sXU38U5qnjt3ugprtocE5B5G3ndvFzR9SeS0UblqCYKn1cmcwAkQP99Yd6RdrN4C0Uno
+         W7SSJ1pWase42REZFvZt/iukaA+YuJxox0ASYT28l5hwcKHggdKIe8s1k996KfLGwZIR
+         OKIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=iMnMIHs9OySnM21tG8AI4Jjfk42Ta86TQBAICUwlK6c=;
-        b=c0XozY7uOMnSB0R18QuFsyJZ4z1Jpst5QOF3l8VVmjsGZD8njPndzMmhndHDH5HT3Y
-         Rhb1ZoP23ntieMViQ0Fbv6SGC5XuUHecMgkm0ZjoduAo3cMUR+9toQBMJGuq+gKNX8GF
-         MefBA5E3KLkNNmStlsntUuOfjIzSker1sIELpRdEqq1vd0gy7uynekHoWvjKZw3wGumh
-         x2068N7Vx79BlPQymUBP21eSd4YvHv9KJEwvRL1D/DmqaHLGsdeyfw+zMROtav6AmlyD
-         yA0tpbCfrBv8piZ+AcosR1Z5sweX27dFcINMa5+F2XqNQcBjNmUsw4tWp1GFXKYFtTk/
-         TqLg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=2EM99HiMgkbSuytdImBq8xCYDGtOPm3qZalu3JuPtzE=;
+        b=rsyM5mpxdiuruK/3V63ZD4gYuD8WysIArEi327gCfMZISHZEGVMQK6gwz2dExttK0Q
+         mZUhhfAqYNUec05IIDEv7f968UZF4IrsZ7el8fenFHvGRzRJWS1DJ2NleCnMOQy0qkQH
+         tZQ3HM3/yzPJWr5fBoF7kWI0rSDjNbLpHwdeOduIy3Znr+yhfO0hHqUDkJXCraGLV6t1
+         w2HhcvMN47qh2FunWlPFfGIqIWdhQeBHzN7FAxrEAi8gasLZ3RbJbPkU3Fp0CO01s7Wc
+         bST8dFBzM8PDu5TgtkJanxxLX1meCg3UwN3DJsRLQCHiWDiHFEoWW3QK1Q0IkKynXMfw
+         +ygw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ZLHgLc3I;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=JgXjvlDd;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iMnMIHs9OySnM21tG8AI4Jjfk42Ta86TQBAICUwlK6c=;
-        b=lphWjeMvE37+0a25hhRKv6b9fHVnqvCBPoHuId1kc/iIeJMwPh8nkA2tb7Ejz9ogcG
-         1KnaCL3j1Rm6K7YJlefHQuZA1H/5gpDUvn+lX+qmpPDbxCPPquIlNpacusXtyzBY5h1N
-         9W01ys6IksLF3MR67HdOKjxfZhXwkypPXExSNnUAVjfX5QARbumMAb7W3JNCDkF7h1Bc
-         gQjbFichIfKV+JvYh0q0pmFTqTgNAfmBfnWjUNdtRM959En4fR6iiMGIw1Wv2vyDs+su
-         g0B5pU+l0iWaZB0irSCC8WE9gUyif7LwJIAZ/0Pz8O97pAtlkw4dI6UcoptvHEQJHitu
-         8rMw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2EM99HiMgkbSuytdImBq8xCYDGtOPm3qZalu3JuPtzE=;
+        b=jKTUJX2b0XCfZepkK7FFNBPK5ORFegdaGN6ICaWIKppZV1yur9fYLGdTuyIMfWr/4A
+         0S8DZHfg89vwFn5YoCuIoiFfH1fiPOaDxorc1iJ9P7qg+6w1isbvc8ylmstC/zZGbJJ4
+         0S1Y8JIfARs+Jy4D8hVTb2rcNg/NCesy59T++AwzTH7uZY7K3aNcvXPsa4tjfqxBujQV
+         HsVqd5O2JHMSfdl1eQyUOV3FWFFkbgOlbp6RLzHMHsVkJMiU5a69NY8423xqeQZwZz/D
+         3nxIq1a9y7gyfR0nG+qarf5zQqc8SU4hJnC9ZR47ladJ0eVcuHRNXwV/kPNq9wsDeJbe
+         kvIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iMnMIHs9OySnM21tG8AI4Jjfk42Ta86TQBAICUwlK6c=;
-        b=Gq7Y29JnhB5Kjuyrs2vmO/sAGEyb8OdNn4sm7GH9uaoljq7xevBLBMg5A/BxFHxjSL
-         7j4nOI64urP/KZ+9VI9Pn0R5duEGMP/PFArER+cwc6P9zL9/9WRGj7LCCh96Y1wxpTFH
-         cdnD5ZTfT9D/6et4wkc1sZT2KRPqB52Slq3ycWmTlXrTU75/GF0jB5hpHpG+SrJXuJdc
-         JEJZom7ACQE35HS+mHfNTNYrxyFr2V0A2txa8qqSrfJmVk8NbDCVCHhHScxVFSI/9F2F
-         yLkVrYtv4DSdulqsA7ciPPa7x2shaGuFTz5TTwhSDrHP27/FAJthh6GuI2SHGWrvcIIM
-         72mw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2EM99HiMgkbSuytdImBq8xCYDGtOPm3qZalu3JuPtzE=;
+        b=I8TGyXS7h1D/H7RX5OalYrHNW28UPXoepWdHmqtukXGQTI7qOAz06SYEvBxq+QTzzd
+         AKVzj+sV0buWNKgNqNFZW6i4BDnsWLyjAvfLBVCBJMgE+sjYYlzA5RB1CV/Rmp8egEx5
+         /cq7Ns3lNuwQ1a6NjXlUKVs8P7cwJlYHpNr4M/yFlRXlhxdC/l0XF+9+2xWg+ymFVYZ2
+         ZA4d7CV4dg/QzLT65JcuRhllxta1fTA7g9JL+iQ9kBw//TonU9dCP0zXyl7aDlKdyPsq
+         K9Evk9vDGjZ/sesg1KB8iF1RLP/rizkDal2sY7KgvV/TGwC7lxRbpRDp0wDmxiNfAau3
+         XxAQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530kmnUcLBx9k/ioM8NKkqt+ZEFpDfcJO8Zvgbs7Xjw4SfCdnQAw
-	AHn6HL+6AXKZ/SadXyydFlM=
-X-Google-Smtp-Source: ABdhPJztlVTssd5AXiz0g9nzFTncs0PvZt6jPRrT70ZNBGSzvjshQRuwLCEgMXoSQtVq/A4IFT1F8A==
-X-Received: by 2002:a65:6a4a:: with SMTP id o10mr3409471pgu.210.1603827194098;
-        Tue, 27 Oct 2020 12:33:14 -0700 (PDT)
+X-Gm-Message-State: AOAM532R6XhHmZ11T5gPq7Qy0p/REAztZZeIyfNZDN0UVq6aA+u8Hj8d
+	BvhtHqKJ/+dG8mdXcvrBEFc=
+X-Google-Smtp-Source: ABdhPJzUJ8Ve0+TCUml5Z8iBC+po8JILJCI2SrmILPle9xS6eEhb2gHzZ6E9hVY0+WRPKWKnjSr6PA==
+X-Received: by 2002:ad4:5843:: with SMTP id de3mr4023912qvb.12.1603827247555;
+        Tue, 27 Oct 2020 12:34:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:8046:: with SMTP id e6ls1271937pjw.3.canary-gmail;
- Tue, 27 Oct 2020 12:33:13 -0700 (PDT)
-X-Received: by 2002:a17:90a:ea8c:: with SMTP id h12mr3520951pjz.31.1603827193491;
-        Tue, 27 Oct 2020 12:33:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603827193; cv=none;
+Received: by 2002:a37:8744:: with SMTP id j65ls1226145qkd.1.gmail; Tue, 27 Oct
+ 2020 12:34:07 -0700 (PDT)
+X-Received: by 2002:a05:620a:103c:: with SMTP id a28mr3645695qkk.21.1603827247047;
+        Tue, 27 Oct 2020 12:34:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603827247; cv=none;
         d=google.com; s=arc-20160816;
-        b=WrcxU+uTFUaE9QL7g89TXhZkNKE5gQYo8Bmy66jUuHhvmq+KLm8/sKnamk28KTOVIT
-         ME1//43mOdJiXjyD4agUYUWhngZtt1n1uby8F/9ByvNGVYlaueKobzyWT+jaEYZ6E1A/
-         kd11n7MmKXGTe3FH04idHboooazI+K3pel+MigydwrxUWHNc4IhNgJ4nOfHG5D8xQ/PH
-         HJwgY2CRN73RBsDN4b/yna5GRRAKukkSYAIj7lgf8UFd5wcxfPxI0jtsu48+/vKvlOl4
-         NyHXdaa9CwDTxyk+gQrVlwUdCsggeMHTcNQp2JDkNMWVN2ho2t4hO/13o2atZ2NXIX/3
-         gs5w==
+        b=RyfSVWOKnycwn7NL1C4cjd7PqCdsx6ATBGMVhH2d78ie5KFYrWR9/W7OVHT0Fdtn1D
+         ocENDJupfzpy1oEBPEOVrajmXVTWp+iYxC7ZL2ZieqSt8WwWxT+FSK/0UDz49YcFDTzl
+         pTH789ApXvYEFGZyMvgmcmHrUtwnSZEXFrpTSgeIgm5U0N/npXn/JqSwvkB6monKxoJe
+         BKzHYDkMQZKDoI1uu4qYZIVJDruDubK+0LR9BFMa1w0ieD9OWYq5XeeGhyn+LKCceDWJ
+         cOsKlRwLtpFZl1pTne4S/LFGd9xuhS505iKJl7gY8hu3IoToASNCpsydcL5P6NVXIhoI
+         pLMA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=fzsbwLvdGSJ+Kgby3r9OLU17GqYc/oKZO3Jxig1YfGc=;
-        b=mDlEb4Ng45zBXcrpy3jxVJNzESYlzW0+MkkQHFGrzbaSLHibIih7FRTTQLUNi85P8y
-         12GqnIWR1Lyrcj3On0dnWtgeQENztVxe2c+bazXAhLf1Wd2WCWZvcACDxFscljgjnk58
-         JWR4Psd2G0RgQQo0J/LRSSCPGt660QhKKP792ZGO9XLnDAwdg84xG7yuy8z/R38mVHEK
-         2UPRs96cTcwaSPBK5Q6U3SZMoDBADmkXPC7Xsk2zBwB/ASyRKaDTsjDgAR3rKJmxB+Or
-         iwX3mFCapndjZePkyxgnI2VevU/N6a+VMKnIMRfbyZn6mXOHsFc8qej/ImjGisGnKQCP
-         Moag==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=J4k50Yu7bOoV/ZgIg7/uNXPd/NZkISAhyo8g0Xv0iog=;
+        b=p0uJKXmCqdPJvjAdqz6+u+tTJzMKrENgl+Bs4bein/WoNWLhS7I/6PtAH2KUDkcf1c
+         9y1MGUdKUSo5XcErwuSkRSZqoy0Vhv8N72Eh+Yz0lzLge0ZMT/zzzupbTGSy8tNQlAFb
+         0rX0YSsgtM8KYm7kg88CGRHGPiq6amO2cFq/J/vw0B6K4nw+0WAVT2A2guhsms4XoEKl
+         DnBCYYgO2uKDuGXK51xc+gy2xJvy9AhpmQOs61zzRwDwn+ivW6kF2myUn7Kw4mgM9LXH
+         JXSuj1MX2wnxU1eb1OTy26ukLzaDCNCxaz+uuNzgSuwadBzaz+BMi/tR18rp+FptCVfB
+         TRIQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ZLHgLc3I;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t15si134130pjq.1.2020.10.27.12.33.13
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=JgXjvlDd;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id o11si135351qtq.5.2020.10.27.12.34.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Oct 2020 12:33:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id D530B221FC
-	for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 19:33:12 +0000 (UTC)
-Received: by mail-ot1-f45.google.com with SMTP id k3so2200983otp.1
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 12:33:12 -0700 (PDT)
-X-Received: by 2002:a9d:2daa:: with SMTP id g39mr2760143otb.77.1603827192042;
- Tue, 27 Oct 2020 12:33:12 -0700 (PDT)
+        Tue, 27 Oct 2020 12:34:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com
+ [209.85.161.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-442-BU9TuMdLOnWloHn_ofrydw-1; Tue, 27 Oct 2020 15:34:02 -0400
+X-MC-Unique: BU9TuMdLOnWloHn_ofrydw-1
+Received: by mail-oo1-f71.google.com with SMTP id r25so1253429oop.0
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 12:34:02 -0700 (PDT)
+X-Received: by 2002:a9d:a0d:: with SMTP id 13mr2459893otg.348.1603827241683;
+        Tue, 27 Oct 2020 12:34:01 -0700 (PDT)
+X-Received: by 2002:a9d:a0d:: with SMTP id 13mr2459868otg.348.1603827241311;
+        Tue, 27 Oct 2020 12:34:01 -0700 (PDT)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id 105sm1398629otf.52.2020.10.27.12.33.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Oct 2020 12:34:00 -0700 (PDT)
+Subject: Re: Subject: [RFC] clang tooling cleanups
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ linux-toolchains@vger.kernel.org, Joe Perches <joe@perches.com>,
+ Julia.Lawall@lip6.fr, Linus Torvalds <torvalds@linux-foundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Huckleberry <nhuck15@gmail.com>
+References: <20201027164255.1573301-1-trix@redhat.com>
+ <CAKwvOd=83v0Sv-NhQ5xgqdNSRm2b=pOJDziX8axZ9t2YyYwz-A@mail.gmail.com>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <8abd1e5a-511a-e4f6-6f2c-a045d33fa2aa@redhat.com>
+Date: Tue, 27 Oct 2020 12:33:59 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-References: <20200821194310.3089815-1-keescook@chromium.org>
- <20200821194310.3089815-14-keescook@chromium.org> <CAMuHMdUg0WJHEcq6to0-eODpXPOywLot6UD2=GFHpzoj_hCoBQ@mail.gmail.com>
- <CAMuHMdUw9KwC=EVB60yjg7mA7Fg-efOiKE7577p+uEdGJVS2OQ@mail.gmail.com>
- <CAMuHMdUJFEt3LxWHk73AsLDGhjzBvJGAML76UAxeGzb4zOf96w@mail.gmail.com>
- <CAMj1kXHXk3BX6mz6X_03sj_pSLj9Ck-=1S57tV3__N9JQOcDEw@mail.gmail.com>
- <CAMuHMdV4jKccjKkoj38EFC-5yN99pBvthFyrX81EG4GpassZwA@mail.gmail.com>
- <CAKwvOdkq3ZwW+FEui1Wtj_dWBevi0Mrt4fHa4oiMZTUZKOMi3g@mail.gmail.com> <CAMuHMdUDOzJbzf=0jom9dnSzkC+dkMdkyY_BOBMAivbJfF+Gmg@mail.gmail.com>
-In-Reply-To: <CAMuHMdUDOzJbzf=0jom9dnSzkC+dkMdkyY_BOBMAivbJfF+Gmg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 27 Oct 2020 20:33:00 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEw+6Srqd5w9oxpik3VUbehapx_TcHLDCbmHZBSdY768Q@mail.gmail.com>
-Message-ID: <CAMj1kXEw+6Srqd5w9oxpik3VUbehapx_TcHLDCbmHZBSdY768Q@mail.gmail.com>
-Subject: Re: [PATCH v6 13/29] arm64/build: Assert for unwanted sections
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Kees Cook <keescook@chromium.org>, 
-	Ingo Molnar <mingo@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <pcc@google.com>, James Morse <james.morse@arm.com>, 
-	Borislav Petkov <bp@suse.de>, Ingo Molnar <mingo@redhat.com>, Russell King <linux@armlinux.org.uk>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	"the arch/x86 maintainers" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux-Arch <linux-arch@vger.kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>
+In-Reply-To: <CAKwvOd=83v0Sv-NhQ5xgqdNSRm2b=pOJDziX8axZ9t2YyYwz-A@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ZLHgLc3I;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=JgXjvlDd;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,77 +150,227 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 27 Oct 2020 at 20:25, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+
+On 10/27/20 11:42 AM, Nick Desaulniers wrote:
+> (cutting down the CC list to something more intimate)
 >
-> Hi Nick,
+> Tom, I'm over the moon to see clang-tidy being used this way.  I
+> totally forgot it could automatically apply fixits.  I'm glad Nathan
+> and Masahiro were able to get the foundation laid for running
+> clang-tidy on the kernel this summer.
 >
-> CC Josh
+> On Tue, Oct 27, 2020 at 9:43 AM <trix@redhat.com> wrote:
+>> This rfc will describe
+>> An upcoming treewide cleanup.
+>> How clang tooling was used to programatically do the clean up.
+>> Solicit opinions on how to generally use clang tooling.
+>>
+>> The clang warning -Wextra-semi-stmt produces about 10k warnings.
+>> Reviewing these, a subset of semicolon after a switch looks safe to
+>> fix all the time.  An example problem
+>>
+>> void foo(int a) {
+>>      switch(a) {
+>>                case 1:
+>>                ...
+>>      }; <--- extra semicolon
+>> }
+>>
+>> Treewide, there are about 100 problems in 50 files for x86_64 allyesconfig.
+>> These fixes will be the upcoming cleanup.
+>>
+>> clang already supports fixing this problem. Add to your command line
+>>
+>>   clang -c -Wextra-semi-stmt -Xclang -fixit foo.c
+>>
+>>   foo.c:8:3: warning: empty expression statement has no effect;
+>>     remove unnecessary ';' to silence this warning [-Wextra-semi-stmt]
+>>         };
+>>          ^
+>>   foo.c:8:3: note: FIX-IT applied suggested code changes
+>>   1 warning generated.
+> Ah, doesn't that rely on clang-tidy to apply the fixit?  (oh, what,
+> maybe not: https://stackoverflow.com/a/49749277)
 >
-> On Mon, Oct 26, 2020 at 6:49 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> > On Mon, Oct 26, 2020 at 10:44 AM Geert Uytterhoeven
-> > <geert@linux-m68k.org> wrote:
-> > > On Mon, Oct 26, 2020 at 6:39 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > > > On Mon, 26 Oct 2020 at 17:01, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > On Mon, Oct 26, 2020 at 2:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > On Mon, Oct 26, 2020 at 1:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > > On Fri, Aug 21, 2020 at 9:56 PM Kees Cook <keescook@chromium.org> wrote:
-> > > > > > > > In preparation for warning on orphan sections, discard
-> > > > > > > > unwanted non-zero-sized generated sections, and enforce other
-> > > > > > > > expected-to-be-zero-sized sections (since discarding them might hide
-> > > > > > > > problems with them suddenly gaining unexpected entries).
-> > > > > > > >
-> > > > > > > > Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-> > > > > > > > Signed-off-by: Kees Cook <keescook@chromium.org>
-> > > > > > >
-> > > > > > > This is now commit be2881824ae9eb92 ("arm64/build: Assert for unwanted
-> > > > > > > sections") in v5.10-rc1, and is causing the following error with
-> > > > > > > renesas_defconfig[1]:
-> > > > > > >
-> > > > > > >     aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
-> > > > > > > `kernel/bpf/core.o' being placed in section `.eh_frame'
-> > > > > > >     aarch64-linux-gnu-ld: Unexpected GOT/PLT entries detected!
-> > > > > > >     aarch64-linux-gnu-ld: Unexpected run-time procedure linkages detected!
-> > > > > > >
-> > > > > > > I cannot reproduce this with the standard arm64 defconfig.
-> > > > > > >
-> > > > > > > I bisected the error to the aforementioned commit, but understand this
-> > > > > > > is not the real reason.  If I revert this commit, I still get:
-> > > > > > >
-> > > > > > >     aarch64-linux-gnu-ld: warning: orphan section `.got.plt' from
-> > > > > > > `arch/arm64/kernel/head.o' being placed in section `.got.plt'
-> > > > > > >     aarch64-linux-gnu-ld: warning: orphan section `.plt' from
-> > > > > > > `arch/arm64/kernel/head.o' being placed in section `.plt'
-> > > > > > >     aarch64-linux-gnu-ld: warning: orphan section `.data.rel.ro' from
-> > > > > > > `arch/arm64/kernel/head.o' being placed in section `.data.rel.ro'
-> > > > > > >     aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
-> > > > > > > `kernel/bpf/core.o' being placed in section `.eh_frame'
-> > > > > > >
-> > > > > > > I.e. including the ".eh_frame" warning. I have tried bisecting that
-> > > > > > > warning (i.e. with be2881824ae9eb92 reverted), but that leads me to
-> > > > > > > commit b3e5d80d0c48c0cc ("arm64/build: Warn on orphan section
-> > > > > > > placement"), which is another red herring.
-> > > > > >
-> > > > > > kernel/bpf/core.o is the only file containing an eh_frame section,
-> > > > > > causing the warning.
-> >
-> > When I see .eh_frame, I think -fno-asynchronous-unwind-tables is
-> > missing from someone's KBUILD_CFLAGS.
-> > But I don't see anything curious in kernel/bpf/Makefile, unless
-> > cc-disable-warning is somehow broken.
+> And doesn't that require your patch to clang-tidy to land?
+> https://reviews.llvm.org/D90180
 >
-> I tracked it down to kernel/bpf/core.c:___bpf_prog_run() being tagged
-> with __no_fgcse aka __attribute__((optimize("-fno-gcse"))).
->
-> Even if the function is trivially empty ("return 0;"), a ".eh_frame" section
-> is generated.  Removing the __no_fgcse tag fixes that.
->
+> Now I'm confused; if clang can apply the fixit for warnings, why do we
+> need another patch to clang-tidy?
+
+No, this shows where the fixer is upstream.
+
+I am in the process of pushing out the patches.
+
+Long term the clang-tidy part of the build will change once it lands.
+
+globbing the checker to -checker=-*,linuxkernel* would be easiest on the kernel
+
+but that may not be where the checker lands.
+
+>> The big problem is using this treewide is it will fix all 10k problems.
+>> 10k changes to analyze and upstream is not practical.
+>>
+>> Another problem is the generic fixer only removes the semicolon.
+>> So empty lines with some tabs need to be manually cleaned.
+>>
+>> What is needed is a more precise fixer.
+>>
+>> Enter clang-tidy.
+>> https://clang.llvm.org/extra/clang-tidy/
+>>
+>> Already part of the static checker infrastructure, invoke on the clang
+>> build with
+>>   make clang-tidy
+>>
+>> It is only a matter of coding up a specific checker for the cleanup.
+>> Upstream this is review is happening here
+>> https://reviews.llvm.org/D90180
+> Sorry, I still don't understand how the clang-tidy checker wont also
+> produce 10k fixes?
+
+I am interested in treewide fixes.
+
+Cleaning them up (maybe me not doing all the patches) and keeping them clean.
+
+The clang -Wextra-semi-stmt -fixit will fix all 10,000 problems
+
+This clang tidy fixer will fix only the 100 problems that are 'switch() {};'
+
+When doing a treewide cleanup, batching a bunch of fixes that are the same problem and fix
+
+is much easier on everyone to review and more likely to be accepted.
 
 
-Given that it was added for issues related to retpolines, ORC and
-objtool, it should be safe to make that annotation x86-only.
+Long term, a c/i system would keep the tree clean by running the switch-semi checker/fixer.
+
+And we can all move onto the next problem.
+
+>
+>> The development of a checker/fixer is
+>> Start with a reproducer
+>>
+>> void foo (int a) {
+>>   switch (a) {};
+>> }
+>>
+>> Generate the abstract syntax tree (AST)
+>>
+>>   clang -Xclang -ast-dump foo.c
+>>
+>> `-FunctionDecl
+>>   |-ParmVarDecl
+>>   `-CompoundStmt
+>>     |-SwitchStmt
+>>     | |-ImplicitCastExpr
+>>     | | `-DeclRefExpr
+>>     | `-CompoundStmt
+>>     `-NullStmt
+>>
+>> Write a matcher to get you most of the way
+>>
+>> void SwitchSemiCheck::registerMatchers(MatchFinder *Finder) {
+>>   Finder->addMatcher(
+>>       compoundStmt(has(switchStmt().bind("switch"))).bind("comp"), this);
+>> }
+>>
+>> The 'bind' method is important, it allows a string to be associated
+>> with a node in the AST.  In this case these are
+>>
+>> `-FunctionDecl
+>>   |-ParmVarDecl
+>>   `-CompoundStmt <-------- comp
+>>     |-SwitchStmt <-------- switch
+>>     | |-ImplicitCastExpr
+>>     | | `-DeclRefExpr
+>>     | `-CompoundStmt
+>>     `-NullStmt
+>>
+>> When a match is made the 'check' method will be called.
+>>
+>>   void SwitchSemiCheck::check(const MatchFinder::MatchResult &Result) {
+>>     auto *C = Result.Nodes.getNodeAs<CompoundStmt>("comp");
+>>     auto *S = Result.Nodes.getNodeAs<SwitchStmt>("switch");
+>>
+>> This is where the string in the bind calls are changed to nodes
+>>
+>> `-FunctionDecl
+>>   |-ParmVarDecl
+>>   `-CompoundStmt <-------- comp, C
+>>     |-SwitchStmt <-------- switch, S
+>>     | |-ImplicitCastExpr
+>>     | | `-DeclRefExpr
+>>     | `-CompoundStmt
+>>     `-NullStmt <---------- looking for N
+>>
+>> And then more logic to find the NullStmt
+>>
+>>   auto Current = C->body_begin();
+>>   auto Next = Current;
+>>   Next++;
+>>   while (Next != C->body_end()) {
+>>     if (*Current == S) {
+>>       if (const auto *N = dyn_cast<NullStmt>(*Next)) {
+>>
+>> When it is found, a warning is printed and a FixItHint is proposed.
+>>
+>>   auto H = FixItHint::CreateReplacement(
+>>     SourceRange(S->getBody()->getEndLoc(), N->getSemiLoc()), "}");
+>>   diag(N->getSemiLoc(), "unneeded semicolon") << H;
+>>
+>> This fixit replaces from the end of switch to the semicolon with a
+>> '}'.  Because the end of the switch is '}' this has the effect of
+>> removing all the whitespace as well as the semicolon.
+>>
+>> Because of the checker's placement in clang-tidy existing linuxkernel
+>> checkers, all that was needed to fix the tree was to add a '-fix'to the
+>> build's clang-tidy call.
+> I wonder if there's a way to differentiate existing checks we'd prefer
+> to run continuously vs newer noisier ones?  Drowning in a sea of 10k
+> -Wextra-semi-stmt doesn't sound like fun.  Maybe a new target for make
+> to differentiate reporting vs auto fixing?
+>
+>> I am looking for opinions on what we want to do specifically with
+>> cleanups and generally about other source-to-source programmatic
+>> changes to the code base.
+>>
+>> For cleanups, I think we need a new toplevel target
+>>
+>> clang-tidy-fix
+> ah, yep, I agree.  Though I'm curious now that I know that clang can
+> be used as the driver to apply fixits rather than clang-tidy, how else
+> we can leverage clang over manually writing clang-tidy checks.  Unless
+> I have something confused there?
+
+Nope.
+
+IMO clang fixits are too coarse and will never work treewide.
+
+Comparing my recent treewide fixing of unneeded breaks and semi's, I would much rather write a tool
+
+than manually look at or fix anything treewide.
+
+Tom
+
+>
+>> And an explicit list of fixers that have a very high (100%?) fix rate.
+>>
+>> Ideally a bot should make the changes, but a bot could also nag folks.
+>> Is there interest in a bot making the changes? Does one already exist?
+> Most recently Joe sent a treewide fix for section attributes that
+> Linux pulled just after the merge window closed, IIUC.  Maybe that
+> would be the best time, since automation makes it trivial for anyone
+> to run the treewide fixit whenever.
+>
+>> The general source-to-source is a bit blue sky.  Ex/ could automagicly
+>> refactor api, outline similar cut-n-pasted functions etc. Anything on
+>> someone's wishlist you want to try out ?
+>>
+>> Signed-off-by: Tom Rix <trix@redhat.com>
+>>
+>> --
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEw%2B6Srqd5w9oxpik3VUbehapx_TcHLDCbmHZBSdY768Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8abd1e5a-511a-e4f6-6f2c-a045d33fa2aa%40redhat.com.
