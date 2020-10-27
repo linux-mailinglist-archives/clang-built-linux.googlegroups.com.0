@@ -1,129 +1,136 @@
-Return-Path: <clang-built-linux+bncBAABBTHI4D6AKGQE7GI3WBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDUKXHHSSIJBBRXK4D6AKGQEBE5NXCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB1E929B309
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 15:53:01 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id f15sf1058714pfj.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 07:53:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603810380; cv=pass;
+Received: from mail-ej1-x63a.google.com (mail-ej1-x63a.google.com [IPv6:2a00:1450:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C3ED729B3F0
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 15:57:10 +0100 (CET)
+Received: by mail-ej1-x63a.google.com with SMTP id ha4sf987891ejb.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 07:57:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603810630; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Rc9TSOdq9H6GJZlBgflAFIuaB4One5lMHFfO1SA7D0tTSY9m26H3cP636phy7MZs5w
-         YD38xKLrWCjgxe5xMsEL7wsDmoGtf11xFcknzjGFoGVNAesifwTjeZRhyil7TI/taam1
-         3UCittV+kZcetluqTHBq8MKqENmqKgSmrSgBhQN7wQcq4wRDG5nTdTKgwcMQbsk72V0V
-         eupajQy4aH2cLkc+Akr/hLG8eNDhJbl5N9Bgds2ANjmMNnnvba4xYll12YlxizAgAwv7
-         wtb+U8tqIdn4rocrfUtDlo3cJdb6deGj8OFF/xKfZ/dS/dqfSbLhi9YuRvrCc85GXKF1
-         x6aw==
+        b=RxfXcjUIVMtgZetNdFpPNPE9pVWaQFJVxMbanwXPSOBfilS4cm4Kqepg8GJoEGxPWx
+         mXrrjbX3akrSRdes7EiO5bWF2bodvAmxuOzs5vbAZThdOG3cZwRPvKpSMW2OrwWPoijl
+         VJix+f7+TC5SlvFlD6Z4/ErE4PJqT0QjT+emkoCp5SRAUdqGSbprDpZaR18qX+qR6FL+
+         IzHAZJXm4vnCZjkU9J7UJwyBn7zKVf9Uf3AsmudlhAJKGiLDNYUgB5FtgkAQ0gh86MdD
+         9Z4DKMHPt2+Sf8nrhJ9Px62uReTCGKtX5SQtvtXrP/jPEG5Q20onGMXbAy4aGrkxUYdO
+         EKcw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=rZFzKlyqd5p6fQC0Vn5ERk/uFDSJ3wQTwb2sNbKt5qM=;
-        b=cuhrM3GWPFlt817vR7ni0uRrZS/EBeIN4ihqmyd70LC74JEr3WE2bJeauFV0MC2ipS
-         kqhEBbCdaD8YG2nSiAzxh+GYg5tyaKhzvg84iENjIfNm3/PMF8Pjm1vQdgwC4askNVZu
-         5DUp4Mjw16NDDk2EzxM1jN8qvuxsRF6/841xXi3wgR7zwJZKKl8xCWxHW35KJMt0wvUH
-         DWLlUHif74nDdddwhpOF3SgzuhnfhLIcCyoOy2OQ7H0MYFSBqMwBzKbDtLv4H7Jbardl
-         cbjbQvLMRBhIHiKpUzgrIQbuFLq8smq+eDJsrxdxyrUPyNQaZgZKttXb/7fqsfkpO81b
-         Aotg==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=cfN3t0+qwx+XJ8t/zhJVxh+m3FFpIso/PONrEpIYNM0=;
+        b=rubjopnrwXZ0PbuUZcVMzESG5EZXl7lI03g0L0773mqejMv1OH/zFCwKnp1JlgfYgq
+         oR7S8WcCBLvIt0266iO61v8MCiRvH4KGh4wLw52YZfA1C7yTgxn6vFz6oZ6QES4GEgJp
+         HdQ47crWLpbtq8SzG/l/+gkI/2MyKfZY/n23m17T/JjQRm4X5sFvhR78B4umsEwtiA8q
+         cvLtQNpfT2FL+V1dLOWYrxiyz9mYckhAF5GaCk0TErJwEHsuloq+2EuGVzpXxaJysgRC
+         Ddrk3o4Qyi8hP/OIxvJdbJWA/atVCHLMYbFzHf0S6kCGd065SdhSdE3s90LaaaFZNlzJ
+         fkqg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=vWHtUIU3;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rZFzKlyqd5p6fQC0Vn5ERk/uFDSJ3wQTwb2sNbKt5qM=;
-        b=kkegcNjsREqTutOchupEvb/C8K3qcCv/B3XvqGUT3huNLg+jlVKIE4/lkZPb2IYzGA
-         suVTf53XtHJiqoN+11N9ePwyAXGs5eQrw0h7DZOyVmH3YsSJCCiNTauNRhGx4xi9hr6r
-         z4Q6/2Xb304e4wiGi5yTTrOghYaBITKaukjR0iGqvYfOuMiEgxmkExdEoaDCAPjHVLwO
-         Fw0ZWOIegINmNTCZ+oN2UIvN/YCseVBUSXlBaaMUx1DlLEUAS6egruKUuLF6gnvMZTux
-         LtK8M0PG3WyEvYoLpUYsm5xPeSdQXlcSQs8MTM/kXWLa+l42UPDORkr/g5aHak9PfNAV
-         zelA==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=cfN3t0+qwx+XJ8t/zhJVxh+m3FFpIso/PONrEpIYNM0=;
+        b=fu0Vl2JSrQlOght6z2N2Qg1l9HNCyPzMRWxxIccOTmsgbKwb6pvqUAWgBj13eYn2Fb
+         z0XFql8+UDEOtCX4hVRN9o3eDZ7mQKESjunnOMULNAcQqd4UmuGeTPYlZ6XgCv8NThDy
+         zTbWoT8fWpX4ojai2cMTssKQ6WtnkkCfVlt9bGh/FxNuBk1oQObASFxJtN/BPn5yhCF+
+         SBHec3LZb21ot0PeVZYnfTF77b6GPX5ZW1Wf4IBsVC/nJSVb7Hx18ey1J7YcHYJXYzHS
+         faml1n02cPTQIk9C5YWHWpxcRCI9sLfU6/J+oKgGoIRoaAe3T+2P57JaW63exX1kriL1
+         cZ0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rZFzKlyqd5p6fQC0Vn5ERk/uFDSJ3wQTwb2sNbKt5qM=;
-        b=EgjtUmlUscNWFpkK5I70z1WmmGEkg6hoDsGzSh3GyP/q6RPamKesphDMu0t5zH9U1O
-         Lw0TvYIAzEVATz8r7E+w+mjZzncS2lOkr1TBa/zi+b91SVqJc8B09xQmWRLVdwmoOpiS
-         OiTus8HyGOcQUQ1Pv0vusT0XGjjTxQI/kQj8U2o8++JBSjgAT8vvhLVKhQiUPvt+kFm5
-         AxfQWD5ZVJudDovzZ1md0UfUstnZ1pmhuUnnS8J8yebXODb5B1reAM57Jxx5/wegqOu0
-         doFmXAoLX6IdMUv6PYtnJ4Hhfs0o5m5cpNsLZkE87xHiZCOw7DyEM/LO00EzChW6cERB
-         XG7Q==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cfN3t0+qwx+XJ8t/zhJVxh+m3FFpIso/PONrEpIYNM0=;
+        b=YbIpCCfnFh7ws3qlSSptWSRsECN7xeFHJguxfJmzWWCdMOXSnOZyD14DzbLy20y2J/
+         P9vA2tXu6POsJZ2gZTryXfJzpIv9jQaT/B+MWiZcyHn7GkTnrkGoIdHGA7mecJHOCy80
+         5zXs4bjFfbDVN+YCM/TVcfE+S0J/P5z7BX9+Ugmxw7iSzf6Fq2Hoa51mMCjXC4+4i2ST
+         UgAPtiSvFsXg2mUcZtLqqW1Tlj1MmCL0r/k5D1s+R6hgW5riiHC5hbJDkiX8APQSnd0T
+         jB6/KLBSHkfKhcOUQDzIqQemQwVgGDjmIVM1HbUrLjkVUNMgpz+wplicUXzUUi8YhRkL
+         qwZg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533wCwsoeBgAlNSNzSbAiAO7RVOlfgxnmTZ5J5waAvQaBnK6/m08
-	sxrTxrqTODSTZTSESD4HKko=
-X-Google-Smtp-Source: ABdhPJxpuuabJA15ewpCQynv6UYGrFyLPrN+3iY6HPA+xQabcGjJOIRcEh5OkquGH1/TCqqiYi0dMQ==
-X-Received: by 2002:a17:902:342:b029:d5:ab9e:19ce with SMTP id 60-20020a1709020342b02900d5ab9e19cemr2749671pld.48.1603810380585;
-        Tue, 27 Oct 2020 07:53:00 -0700 (PDT)
+X-Gm-Message-State: AOAM532JCqnHGPAIKEA2/eLzc+suY1qnwXXhV82czYsi83YMPyicau1u
+	0nx7jZ9a0JzC+BWNPkci0Oc=
+X-Google-Smtp-Source: ABdhPJwdkGz6JeAuLMJWlblFWkcGIlfkXwxtoEd3bymT7Pziwa3yl2XVFHVcMqrLM/0jjJQbPdarNw==
+X-Received: by 2002:a17:906:3641:: with SMTP id r1mr2911344ejb.391.1603810630531;
+        Tue, 27 Oct 2020 07:57:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7d8d:: with SMTP id y135ls698089pfc.3.gmail; Tue, 27 Oct
- 2020 07:53:00 -0700 (PDT)
-X-Received: by 2002:a63:1d0d:: with SMTP id d13mr2282113pgd.269.1603810380005;
-        Tue, 27 Oct 2020 07:53:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603810380; cv=none;
+Received: by 2002:a17:906:e0d0:: with SMTP id gl16ls946116ejb.1.gmail; Tue, 27
+ Oct 2020 07:57:09 -0700 (PDT)
+X-Received: by 2002:a17:906:564d:: with SMTP id v13mr2954612ejr.217.1603810629441;
+        Tue, 27 Oct 2020 07:57:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603810629; cv=none;
         d=google.com; s=arc-20160816;
-        b=sDUI/CKGF0Z801LGcjmwvds+tczKEGgHkDbXi/rxfonMg46xX/WVLG74nfO6ghb232
-         aSjIKIWxtw5KC1S0B5m4dm9LKnGiFybR1pN9CuBMT7a1q3WJyUE5I2zSPquGLZI2qoWe
-         nZd1GjDcEgdlQD1tAftTkZnO3Ov/zC6uTiYZ91++gn9//+G5iDDkwMN3BIlZ1KYqiXjY
-         Hz9hX60LZb+1GI3BpJv4fAX/XQlat5TG9vG40CdwzFKC1oxLvrXRM2g8lRRF2mVsA8kY
-         3EQIsbAn2wEhR/Crh3z33/8++WCYjbRuWzN1/s2R/CR1ujRzZO5RoCncm5Neh+w4r5nf
-         AdIQ==
+        b=sydfb3/NAyla7uwNNoBh6rGLX9DgXu3XhshvORktTFbLs8Ct/BRSC6wgAMvxq9RzUo
+         wwTUtWkUMJj63u3pUkijgAD/3fPitM+I6UF3609r2vCcItJIe39cpXNM2KKYleDMZHjY
+         vFBJMY41IhGb4et/a2EbOH1wkS55UHUpbnWxgWLrxQcJ7sjosEXCJ0sTMAsNmsVypb9c
+         usxRfNl3qIgnhaTIQ9lPmD/DKfW6ziiKzdw/nhfCpsvNkl1yRVSu1ojohzNVKexSszZN
+         kMm5irrC9cg39+42Vf0NTT7KQPzSvPHj8LCWMy69fDRr7g7bZstm0SYkc/7Qb8yF3hMj
+         A1Uw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=wQoyzYGG+4KbPuRo1kXj28jpCTRklDSLL6a9T9NJXE8=;
-        b=bW1oZBjbEW7+CzkLVMk119LSr/pOSy0k3MmRiVjA7uCJCBT4wdlNxRKFegQ7xW7+Fr
-         pt+cd+3qCbZXb+GLv/JiWoZI/705Yx+jaoJt133uabfqRca640Gb1n6ab3I7URMynCxQ
-         5rfOUhCamdSwFnVRh2HVHlOH2iGU0tpbW5o+ffZeXxpu4NezXBdfWBhhlKIPgUaTIkfx
-         /Cdt5WasJYwQ39Pb5M4AGexCXlCXmdm7E9HgA5mojXbz4kjTBXEI8gS6rF1MbQmeTR6B
-         4GFWPTCEuEKdmrdoH19Hi2ME5kMkX04kZPVC/nEEHocrYWny6XaFmpcBas855wokimh5
-         hQUg==
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=WHte6YBM5nyFaxRL+9Ns6wrDWgkMGuZyQCZv/Q5eMd8=;
+        b=0FOmKmOah0wqjgIwZIFjIktZwPGQbTZPCi3QM8N5UsiNbgxI6whawiD035tvFFcAUE
+         f+NInVFXYB/KNuKF21TNyL1fxAcoXv0lyaAK4WuGmTTuuc9Ghfpm1POATEZG2MTUYT5o
+         typvJbu2Uf0VBvu85zDIhJSL34vzoL7g0JjAxfaeQnQUw26LTBOPgBuEPRyQ/A/LMNZr
+         kwjGRAAnv5fwOmBghLvuSt9G8y3zZ34pS4meYyyY+ZXGHAFsBVH+IsYoBLRCxO4R+z9h
+         rMFTmkehKXE65Jz6um4LIeDhwv4TZETpy/QlDNICu1zA5EEaiQ7K0OwkJKyLItMwnNKr
+         iLPA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=vWHtUIU3;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id l7si119643plt.3.2020.10.27.07.52.59
+       spf=pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
+Received: from metis.ext.pengutronix.de (metis.ext.pengutronix.de. [2001:67c:670:201:290:27ff:fe1d:cc33])
+        by gmr-mx.google.com with ESMTPS id lf25si47719ejb.0.2020.10.27.07.57.09
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Oct 2020 07:52:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost.localdomain (unknown [192.30.34.233])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 7D8B322265;
-	Tue, 27 Oct 2020 14:52:56 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Christoph Hellwig <hch@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Tejun Heo <tj@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Jan Kara <jack@suse.cz>,
-	Amir Goldstein <amir73il@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v2] seq_file: fix clang warning for NULL pointer arithmetic
-Date: Tue, 27 Oct 2020 15:52:23 +0100
-Message-Id: <20201027145252.3976138-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.27.0
-MIME-Version: 1.0
-X-Original-Sender: arnd@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=vWHtUIU3;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Oct 2020 07:57:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) client-ip=2001:67c:670:201:290:27ff:fe1d:cc33;
+Received: from lupine.hi.pengutronix.de ([2001:67c:670:100:3ad5:47ff:feaf:1a17] helo=lupine)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1kXQP4-0006mx-IB; Tue, 27 Oct 2020 15:56:50 +0100
+Received: from pza by lupine with local (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1kXQP2-0004zR-6Y; Tue, 27 Oct 2020 15:56:48 +0100
+Message-ID: <646d8a1e39b403803500218b62138cce440950be.camel@pengutronix.de>
+Subject: Re: [PATCH 2/4] drm/imx: tve remove extraneous type qualifier
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Arnd Bergmann <arnd@kernel.org>, David Airlie <airlied@linux.ie>, Daniel
+ Vetter <daniel@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>, NXP Linux
+ Team <linux-imx@nxp.com>, Nathan Chancellor <natechancellor@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,  Marco Felsch
+ <m.felsch@pengutronix.de>, Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>, Markus Elfring
+ <elfring@users.sourceforge.net>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Date: Tue, 27 Oct 2020 15:56:48 +0100
+In-Reply-To: <20201026194110.3817470-2-arnd@kernel.org>
+References: <20201026194110.3817470-1-arnd@kernel.org>
+	 <20201026194110.3817470-2-arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.30.5-1.1
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2001:67c:670:100:3ad5:47ff:feaf:1a17
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: clang-built-linux@googlegroups.com
+X-Original-Sender: p.zabel@pengutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33
+ as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,102 +143,27 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, 2020-10-26 at 20:41 +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> clang warns about functions returning a 'const int' result:
+> 
+> drivers/gpu/drm/imx/imx-tve.c:487:8: warning: type qualifiers ignored on function return type [-Wignored-qualifiers]
+> 
+> Remove the extraneous 'const' qualifier here. I would guess that the
+> function was intended to be marked __attribute__((const)) instead,
+> but that would also be wrong since it call other functions without
+> that attribute.
+> 
+> Fixes: fcbc51e54d2a ("staging: drm/imx: Add support for Television Encoder (TVEv2)")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Clang points out that adding something to NULL is notallowed
-in standard C:
+Thank you, applied to imx-drm/next with Nick's R-b.
 
-fs/kernfs/file.c:127:15: warning: performing pointer arithmetic on a
-null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-                return NULL + !*ppos;
-                       ~~~~ ^
-fs/seq_file.c:529:14: warning: performing pointer arithmetic on a
-null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-        return NULL + (*pos == 0);
-
-Rephrase the code to be extra explicit about the valid, giving
-them named SEQ_OPEN_EOF and SEQ_OPEN_SINGLE definitions.
-The instance in kernfs was copied from single_start, so fix both
-at once.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Fixes: c2b19daf6760 ("sysfs, kernfs: prepare read path for kernfs")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: add the named macros after Christoph Hellwig pointed out
-that my original logic was too ugly.
-Suggestions for better names welcome
----
- fs/kernfs/file.c         | 8 ++++----
- fs/seq_file.c            | 4 ++--
- include/linux/seq_file.h | 3 +++
- 3 files changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/fs/kernfs/file.c b/fs/kernfs/file.c
-index f277d023ebcd..eafeb8bf4fe4 100644
---- a/fs/kernfs/file.c
-+++ b/fs/kernfs/file.c
-@@ -121,10 +121,10 @@ static void *kernfs_seq_start(struct seq_file *sf, loff_t *ppos)
- 		return next;
- 	} else {
- 		/*
--		 * The same behavior and code as single_open().  Returns
--		 * !NULL if pos is at the beginning; otherwise, NULL.
-+		 * The same behavior and code as single_open().  Continues
-+		 * if pos is at the beginning; otherwise, EOF.
- 		 */
--		return NULL + !*ppos;
-+		return *ppos ? SEQ_OPEN_SINGLE : SEQ_OPEN_EOF;
- 	}
- }
- 
-@@ -145,7 +145,7 @@ static void *kernfs_seq_next(struct seq_file *sf, void *v, loff_t *ppos)
- 		 * terminate after the initial read.
- 		 */
- 		++*ppos;
--		return NULL;
-+		return SEQ_OPEN_EOF;
- 	}
- }
- 
-diff --git a/fs/seq_file.c b/fs/seq_file.c
-index 31219c1db17d..203cd86136ad 100644
---- a/fs/seq_file.c
-+++ b/fs/seq_file.c
-@@ -526,13 +526,13 @@ EXPORT_SYMBOL(seq_dentry);
- 
- static void *single_start(struct seq_file *p, loff_t *pos)
- {
--	return NULL + (*pos == 0);
-+	return *pos == 0 ? SEQ_OPEN_SINGLE : SEQ_OPEN_EOF;
- }
- 
- static void *single_next(struct seq_file *p, void *v, loff_t *pos)
- {
- 	++*pos;
--	return NULL;
-+	return SEQ_OPEN_EOF;
- }
- 
- static void single_stop(struct seq_file *p, void *v)
-diff --git a/include/linux/seq_file.h b/include/linux/seq_file.h
-index 813614d4b71f..26f0758b6551 100644
---- a/include/linux/seq_file.h
-+++ b/include/linux/seq_file.h
-@@ -37,6 +37,9 @@ struct seq_operations {
- 
- #define SEQ_SKIP 1
- 
-+#define SEQ_OPEN_EOF	(void *)0
-+#define SEQ_OPEN_SINGLE	(void *)1
-+
- /**
-  * seq_has_overflowed - check if the buffer has overflowed
-  * @m: the seq_file handle
--- 
-2.27.0
+regards
+Philipp
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201027145252.3976138-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/646d8a1e39b403803500218b62138cce440950be.camel%40pengutronix.de.
