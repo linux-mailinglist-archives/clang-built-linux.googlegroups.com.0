@@ -1,109 +1,104 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBBYX74H6AKGQELYPIIBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAEB4L6AKGQEP773RJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id 483D129C9F3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 21:15:32 +0100 (CET)
-Received: by mail-pg1-x540.google.com with SMTP id r4sf1358730pgl.20
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 13:15:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603829731; cv=pass;
+Received: from mail-vs1-xe3f.google.com (mail-vs1-xe3f.google.com [IPv6:2607:f8b0:4864:20::e3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 48EE929CA04
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 21:18:09 +0100 (CET)
+Received: by mail-vs1-xe3f.google.com with SMTP id n21sf612624vsm.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 13:18:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603829888; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MP0/COdUwr+74VEdQUoZ7y+lERxFexB0lSiLJBxXfQ9EqnpQLGdFDATMUQCNeCUPAM
-         CeolTjjdp3vdrznCSDPIFMBruQk5F0jP2O6TrpoliaNF2oMXBzAh645u97gbOpFUnRU/
-         nAESDRv+qoiwbC6t/gNWyacD0QEw74dwP1RkuJgnSg0DTtnplAq4aofCmp35PTz03Mnn
-         fAo6vuCCn7iV3NU7gf5xyqzt/1n+Txy1DzjWTLD2O57Imfqpe/wfbJwFfDkExWOYQ7bw
-         2tr3MiROPa/YrSc2FPSMXLYCCczfX/fmznaIPCN18Sp7ED6AJ8PDnBcTlIqClMtigbj0
-         7yRg==
+        b=vpdKqX5kEGAVZAQ0PiGFfLyhJT3E4GdOGlSB3SkSeSZbBFJupIzmdc53bigR55Z/Su
+         w4IcemwkpZq2ZBmZg/cGU5vALUbPKhhiKaEMiTC9oBRgKAzYOvci+jVbzqIEzK0H+VaA
+         AYKOBXZ63xRF9VHVbAxYiAXoity77buMourv/D1aifM1c5cjybiTNVA/Zs9LcQlfQvey
+         YMQn5CqXWua7V8nAvpZrN3OWqctDeRzAfgcX3X3DAjf6dSoHzKjlsyoCC7vyVVfPqjmM
+         CYBnU0hMh6UvD7Ww+R+Rm6fKdf0JNlqhoH62eva26RxgWCGNg1WA9C2R3QaBKHOOd8O6
+         VR2A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=3s0MPuRilAkRLN22tezeOkNF8hStEC/ZSlJPJY3fAvA=;
-        b=R2NDC10giyVYvWtI5YH6ouDdm7bWdxFipmOjFze+4CqW4uaFYtSpNibLB5EXEqecHB
-         gfAxEQAjx8B/YeorXdwK/xpH/+3zIe4Ni4wuH/SMwz/riHbVQBZ8GECmZ10zeIynfpD7
-         lGyFQlHM2x8kYVh3HwmutE5pW2Pt7yUtN6XaI6Ba8hrr6C8G17LIVUDzUumUHyha92U1
-         RHJ9rjM4WHSoJN3N+P5VE8V8wu3LtD72mt8tLNeM6muoQhQfzVs9avFYpUtCXaP0RJaW
-         j3uX/dreT8B6rSnemX/gPR6ZlEesiemE1qw9YHzXkeOy7HXkQzJJKXFOLcpGqIsZmtyz
-         6ywg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Vw24uzQrlXjIT//tETbp+R3UppimVNdJGtYxyFNPK4U=;
+        b=fWpg3N8Ztjgw246mA3RF9GIFSKo7GxOXPPbw7vQ86EXzrCKyfnqZ21nSUPmwGpGiHP
+         BiMncOSqQC+KaT7iugFjVgiw2b89OsE941NRry83ZKk+QxB04m0vZh3j0hitYhvTV76R
+         fWaA3K3Nk77y4EDbfBVM3Q97sDiXNXNeJ4vN+GkGu5a/RYYedZYeadjbTaHadO2sCHL5
+         3+zz61sG771s4D4wuoJDfRqZmvJhH0c+96A0xDo659J3+7tygEmd7xBwT69Z/CzEtC0k
+         3ZYSWbUlNWzcVsIR1guhQY6elPRkGcfeAMs9srNcWaBQ3V7PSkn0z8YgIMEZDpEpOHSV
+         tFWQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=IWaX040E;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YWQRdPDO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3s0MPuRilAkRLN22tezeOkNF8hStEC/ZSlJPJY3fAvA=;
-        b=jGVkaaJhAAoEKNy+y8mdoLV2GuVFtNHKis37Dy+UIl5ANE+BSIWhLd77IKFG+ZjwPx
-         HptvGnLB2v/hb4pH6x1/QrrIpWZpQ4uGEzcc/wcZ5AyBLkvYr1jhLcwLXw+KOikc9d3t
-         G/tVnzMIxLw9bVq3YBxtUChrvq8d1jlqfC8/3ZfybU1mvNkUqXXXsWfY/0KmQ8lOu+Op
-         9o/bb2/ZFJoMQ0hK0vbQmjk7elYGy1ZWn9G4Z4kU7SJux76JTvBJmvKcuXXvpLzLy6+g
-         5UvmpJ/Sv6z0uK+QujAl9yvPjhkAdNC8DbLKii4kU0dKdur0UJ3ciICFt1IbaC3QqBpI
-         q6Vg==
+        bh=Vw24uzQrlXjIT//tETbp+R3UppimVNdJGtYxyFNPK4U=;
+        b=slw63KYKMBPrhSVvJUAJmRI+po9zh/p2dilQAOXQAwuhHItKmFqTUV32lxSvVFY1/p
+         ITXfq8cZWeKGowxh7taGMe/gmM4B0BJP6YTmF4dwEMdMvQVTxbEVJM+0omdDqkS8t2hI
+         VGHLI09Hm4E73BQsvOKL2JqWrPWpD48/uvA7p0yCKLnUxhVAK4dr7M4twS90TaODdWdi
+         53BVLQYMyQEYkKF/FHfNsxwt7X/ILTq7WUs+pvV0UfZMRKgWNR0/kcQvkmc3qr2mGz9J
+         AAoOG3wCtt8U1ycBkajwt51CI19fZRKaybZwguRfbSAO78YARHM5zYDmgDt1bSN4wICb
+         ITUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3s0MPuRilAkRLN22tezeOkNF8hStEC/ZSlJPJY3fAvA=;
-        b=px8nr9NqOPwyNfrIfRXV1B15VJypSs+61AimKgrhFa2WqPJcqK44m4GoSkUpwEybJx
-         rYW2xYpHJ/CbbutLs+udP27MF84EyKwgfegtbt/cGqTkrnRwSOPJOM46o7l5WhGp9D8/
-         redo1npq4hJo4knG9VENhPtBlVvvspibNJ8y6TaGfd/TVV61Y6ORQCUuzGWfHLLUgxeE
-         lzuayJliVfBzENFVykej8WD1clfJdUcKRGGikg1f3Npr+HkhC19oqa+zT3mq21xK5QTs
-         0AnBs+j3paVnzvls3WQTJVlLAbWrSGBzVwwuANCrFRT2zXebNVZh5MV4hllDSVssd5wT
-         idDg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5316m5Xys5/rmrJTQ5QLflpnOgiBGwgqP4Q+dIdnUm/13gZ+AWLT
-	p93ktBapfgDQ8JkIuoxZ87c=
-X-Google-Smtp-Source: ABdhPJwoZegxlbJKT6O8mjVSZtB9bWDyR0V874/1LQyegeKAnu5KTp/N7hHHuDb6xYhKqLw9wAH6cw==
-X-Received: by 2002:a17:90b:d98:: with SMTP id bg24mr3649343pjb.71.1603829731017;
-        Tue, 27 Oct 2020 13:15:31 -0700 (PDT)
+        bh=Vw24uzQrlXjIT//tETbp+R3UppimVNdJGtYxyFNPK4U=;
+        b=EdowMn1U4eCRt514G1ivum/03q7m0ttT7zXPxt077M9LQXUbEDqjd64mVM6nUZdBui
+         R+xSUZZFqAFTH923eVfMTYVGK1FFvdf7+3e5feMDYgW0we+77QLtpzKl6CRPO1+bYHfa
+         XOQW1ashzacQvW19bj73CVgnjqnMTkv4kLSORzZRXmHHwbkjZk82cLtY7cLqyfrv/a5m
+         gC4YkmsleEPY5CQB+AqvKjaTOLGKmEiMe1JQyRujr9hPbmROwC75qWGAIqE26Bgow4So
+         4W/yd+QQP1+HnuaDOQwS6gGA326uKzAq0ZFGSSAPQLEohCJqWUdWlEpFMgrWkz55Y70g
+         k+ww==
+X-Gm-Message-State: AOAM5334tKY+7pan0GXdrBAyx3764p23SjC+xpCAHBuHrc33/Qm39ODw
+	1Pw+eoldxDmFrj4RoB7aJcA=
+X-Google-Smtp-Source: ABdhPJwUVc/TWPPwuXcDA2EYn8NHnUPn4qReT1OQFeszYITKRDJMl6PmlPKGFvnephYBbGR7URk/2Q==
+X-Received: by 2002:a67:7951:: with SMTP id u78mr3197664vsc.5.1603829888327;
+        Tue, 27 Oct 2020 13:18:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7c43:: with SMTP id x64ls984425pfc.1.gmail; Tue, 27 Oct
- 2020 13:15:30 -0700 (PDT)
-X-Received: by 2002:a62:b50a:0:b029:163:a737:79fc with SMTP id y10-20020a62b50a0000b0290163a73779fcmr4063876pfe.28.1603829730443;
-        Tue, 27 Oct 2020 13:15:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603829730; cv=none;
+Received: by 2002:ab0:45c9:: with SMTP id u67ls191106uau.4.gmail; Tue, 27 Oct
+ 2020 13:18:07 -0700 (PDT)
+X-Received: by 2002:ab0:1c11:: with SMTP id a17mr2770564uaj.91.1603829887810;
+        Tue, 27 Oct 2020 13:18:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603829887; cv=none;
         d=google.com; s=arc-20160816;
-        b=X9/KedPgomMuwAziqabIfA8DoRqujpf3j/PmAx/lOhJ4pLgKUyw48Q98QhYXtFveLF
-         +/e6CZ5n6dG3gWlBWI/2O7Uo3mXYU50L8TVrqHHiDhTci2eW5ms7HJ7+mwSaR+UqbhBb
-         hM2o9l+FEv9Z0a1b+N/ZRL+Yxfg4IWx+hnCWk5ClXB9BA02TJnhqnrsjZd8B7H1jy7MM
-         I2LXUZ5dtMK0Ujs/eSb9FL46IGIU4hNZ+sq44UU2eYKtYnVMhD6PsmPbyb+/lO8IZIEj
-         LApWwsCbxuZPl+fTIQzZTGtJvmV+qgkBT+WpPDoSZ5i0zlzZl4gtcST10gUfM15VOXmH
-         1/Kg==
+        b=WDB9Y0nkpn+pB+PZG9GJcahxtbQKK0hj+WJBnA8YaXH7xsM/yYVEDgrKGsapZiAAj1
+         taG+w1H5zOXveNMCRS6pByGk7G9+TGBO3CEoxqZwqJoAW1BzpdMoyhzPEULBhxuzR+3m
+         gZJ3w4aGCNdo1l0uY3PqAtXxsbuOZlP7zgkr7o1fKpG2RnN6X5zHrAbi4ZaHUmfzLxyd
+         U5sO7FQwGOqe4wfhazdK2/XwdUbKXqhTtvDkib6NuWsA99Z6QxmqQ9Pqe8pW3BnORTIm
+         ExJWu530Qc9rNxIuQzgD/Xx7D63CdtljOOJKKiTqbu/ULV3WoRPEZ6cMHr45XyeO4QiQ
+         Yuig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Di9gaxycAvCzdd+1U70ke+MNBud05H2WT/Fy4axR490=;
-        b=CzmSE1dbBnWuC1WKwrvLXK3ko7qSc3AmA1rwobFoqt+6g9yloK+HiYhRLddtcNG9HV
-         No6e0d5oJVoPWYauG6dIGLFx65HfzmXaZRsq4HirlZYgydhoxZdle5ptEQ0fKkZfNKWR
-         7DNZbpgK/14uSzKZyBaSz+1ykdpbyxJhIUgXnUEgnDuGzrHRAi6xDahog2cnZQr8mTL6
-         sRUCLR/791u85fgPBe57ojQJJaBz4GFOfjolHAjf3iJgEf6PXwbdj1FIMItUCfC1y8p3
-         C7bJBNpQ7kxUsrft1sW/C/P5tZtp0fDqxLHQY57Eec7OAV5EEAtT7wIZoGTXwGepzx+u
-         aLhA==
+        bh=i1Sa4pOklTVSBDn1gBaNdBfK+3lXBzX6RjisxK7EZK0=;
+        b=SYKO11dKIB1MS3PnjUJWYSi0y3kPYKicZipz0i0Jg5w79b3gLyQ31NvAIg9elYj72g
+         Xx1caFl9z2J3mvY5XU3IdIena3VBGuW3d9V56LTD5DBrOSKjwgyuGzBioNIePjNx/5WK
+         NIOqqS4lsHUGQCXqx1f5Qw022B+88HUYvBlLxy/CElPIfCod3uJ9Jr4FzXtjMPWYBA/E
+         k33d8aBBjK573LLVU/NCwH8axXnq1hxtofyB15teH+5ozM5jn1MTuHhkAsMiprUJ8QmF
+         yF+P7texrDj1gzW6fJG1kPzPkairhAMpQ9HybOZognA3fuMoQ3eNOarAN3xNcLrnhIB1
+         cksg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=IWaX040E;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id d2si206539pfr.4.2020.10.27.13.15.30
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YWQRdPDO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id v18si125883uat.1.2020.10.27.13.18.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Oct 2020 13:15:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-ot1-f47.google.com (mail-ot1-f47.google.com [209.85.210.47])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id CC4D722384
-	for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 20:15:29 +0000 (UTC)
-Received: by mail-ot1-f47.google.com with SMTP id 32so2307895otm.3
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 13:15:29 -0700 (PDT)
-X-Received: by 2002:a9d:2daa:: with SMTP id g39mr2896564otb.77.1603829728869;
- Tue, 27 Oct 2020 13:15:28 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Oct 2020 13:18:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
+Received: by mail-pl1-x643.google.com with SMTP id t22so1355856plr.9
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 13:18:07 -0700 (PDT)
+X-Received: by 2002:a17:902:8a8b:b029:d5:f871:92bd with SMTP id
+ p11-20020a1709028a8bb02900d5f87192bdmr4163850plo.10.1603829886728; Tue, 27
+ Oct 2020 13:18:06 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200821194310.3089815-1-keescook@chromium.org>
  <20200821194310.3089815-14-keescook@chromium.org> <CAMuHMdUg0WJHEcq6to0-eODpXPOywLot6UD2=GFHpzoj_hCoBQ@mail.gmail.com>
@@ -112,14 +107,14 @@ References: <20200821194310.3089815-1-keescook@chromium.org>
  <CAMj1kXHXk3BX6mz6X_03sj_pSLj9Ck-=1S57tV3__N9JQOcDEw@mail.gmail.com>
  <CAMuHMdV4jKccjKkoj38EFC-5yN99pBvthFyrX81EG4GpassZwA@mail.gmail.com>
  <CAKwvOdkq3ZwW+FEui1Wtj_dWBevi0Mrt4fHa4oiMZTUZKOMi3g@mail.gmail.com>
- <CAMuHMdUDOzJbzf=0jom9dnSzkC+dkMdkyY_BOBMAivbJfF+Gmg@mail.gmail.com> <CAKwvOdkE=ViGOhvoBRcV=9anjowC_vb4Vtefp9010+sC4c_+Sw@mail.gmail.com>
-In-Reply-To: <CAKwvOdkE=ViGOhvoBRcV=9anjowC_vb4Vtefp9010+sC4c_+Sw@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 27 Oct 2020 21:15:17 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEhcQ_ngNVWddV76NqEz6d0tDhfStYGd5diydefzVLvdQ@mail.gmail.com>
-Message-ID: <CAMj1kXEhcQ_ngNVWddV76NqEz6d0tDhfStYGd5diydefzVLvdQ@mail.gmail.com>
+ <CAMuHMdUDOzJbzf=0jom9dnSzkC+dkMdkyY_BOBMAivbJfF+Gmg@mail.gmail.com>
+ <CAKwvOdkE=ViGOhvoBRcV=9anjowC_vb4Vtefp9010+sC4c_+Sw@mail.gmail.com> <CAMj1kXEhcQ_ngNVWddV76NqEz6d0tDhfStYGd5diydefzVLvdQ@mail.gmail.com>
+In-Reply-To: <CAMj1kXEhcQ_ngNVWddV76NqEz6d0tDhfStYGd5diydefzVLvdQ@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 27 Oct 2020 13:17:55 -0700
+Message-ID: <CAKwvOd=8YO3Vm0DuaWpDigMiwni+fVdrpagZtsROGziinjLvig@mail.gmail.com>
 Subject: Re: [PATCH v6 13/29] arm64/build: Assert for unwanted sections
-To: Nick Desaulniers <ndesaulniers@google.com>
+To: Ard Biesheuvel <ardb@kernel.org>
 Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook <keescook@chromium.org>, 
 	Ingo Molnar <mingo@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <pcc@google.com>, James Morse <james.morse@arm.com>, 
@@ -134,12 +129,14 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook <keescook@chromium.org>
 	kernel-toolchains@vger.kernel.org, 
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=IWaX040E;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=YWQRdPDO;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,81 +149,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 27 Oct 2020 at 21:12, Nick Desaulniers <ndesaulniers@google.com> wrote:
+On Tue, Oct 27, 2020 at 1:15 PM Ard Biesheuvel <ardb@kernel.org> wrote:
 >
-> On Tue, Oct 27, 2020 at 12:25 PM Geert Uytterhoeven
-> <geert@linux-m68k.org> wrote:
+> On Tue, 27 Oct 2020 at 21:12, Nick Desaulniers <ndesaulniers@google.com> wrote:
 > >
-> > Hi Nick,
-> >
-> > CC Josh
-> >
-> > On Mon, Oct 26, 2020 at 6:49 PM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
-> > > On Mon, Oct 26, 2020 at 10:44 AM Geert Uytterhoeven
-> > > <geert@linux-m68k.org> wrote:
-> > > > On Mon, Oct 26, 2020 at 6:39 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > > > > On Mon, 26 Oct 2020 at 17:01, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > On Mon, Oct 26, 2020 at 2:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > > On Mon, Oct 26, 2020 at 1:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > > > I.e. including the ".eh_frame" warning. I have tried bisecting that
-> > > > > > > > warning (i.e. with be2881824ae9eb92 reverted), but that leads me to
-> > > > > > > > commit b3e5d80d0c48c0cc ("arm64/build: Warn on orphan section
-> > > > > > > > placement"), which is another red herring.
-> > > > > > >
-> > > > > > > kernel/bpf/core.o is the only file containing an eh_frame section,
-> > > > > > > causing the warning.
+> > On Tue, Oct 27, 2020 at 12:25 PM Geert Uytterhoeven
+> > <geert@linux-m68k.org> wrote:
 > > >
-> > > When I see .eh_frame, I think -fno-asynchronous-unwind-tables is
-> > > missing from someone's KBUILD_CFLAGS.
-> > > But I don't see anything curious in kernel/bpf/Makefile, unless
-> > > cc-disable-warning is somehow broken.
+> > > Hi Nick,
+> > >
+> > > CC Josh
+> > >
+> > > On Mon, Oct 26, 2020 at 6:49 PM Nick Desaulniers
+> > > <ndesaulniers@google.com> wrote:
+> > > > On Mon, Oct 26, 2020 at 10:44 AM Geert Uytterhoeven
+> > > > <geert@linux-m68k.org> wrote:
+> > > > > On Mon, Oct 26, 2020 at 6:39 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+> > > > > > On Mon, 26 Oct 2020 at 17:01, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > > > > On Mon, Oct 26, 2020 at 2:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > > > > > On Mon, Oct 26, 2020 at 1:29 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > > > > > > I.e. including the ".eh_frame" warning. I have tried bisecting that
+> > > > > > > > > warning (i.e. with be2881824ae9eb92 reverted), but that leads me to
+> > > > > > > > > commit b3e5d80d0c48c0cc ("arm64/build: Warn on orphan section
+> > > > > > > > > placement"), which is another red herring.
+> > > > > > > >
+> > > > > > > > kernel/bpf/core.o is the only file containing an eh_frame section,
+> > > > > > > > causing the warning.
+> > > >
+> > > > When I see .eh_frame, I think -fno-asynchronous-unwind-tables is
+> > > > missing from someone's KBUILD_CFLAGS.
+> > > > But I don't see anything curious in kernel/bpf/Makefile, unless
+> > > > cc-disable-warning is somehow broken.
+> > >
+> > > I tracked it down to kernel/bpf/core.c:___bpf_prog_run() being tagged
+> > > with __no_fgcse aka __attribute__((optimize("-fno-gcse"))).
+> > >
+> > > Even if the function is trivially empty ("return 0;"), a ".eh_frame" section
+> > > is generated.  Removing the __no_fgcse tag fixes that.
 > >
-> > I tracked it down to kernel/bpf/core.c:___bpf_prog_run() being tagged
-> > with __no_fgcse aka __attribute__((optimize("-fno-gcse"))).
+> > That's weird.  I feel pretty strongly that unless we're working around
+> > a well understood compiler bug with a comment that links to a
+> > submitted bug report, turning off rando compiler optimizations is a
+> > terrible hack for which one must proceed straight to jail; do not pass
+> > go; do not collect $200.  But maybe I'd feel differently for this case
+> > given the context of the change that added it.  (Ard mentions
+> > retpolines+orc+objtool; can someone share the relevant SHA if you have
+> > it handy so I don't have to go digging?)
+>
+> commit 3193c0836f203a91bef96d88c64cccf0be090d9c
+> Author: Josh Poimboeuf <jpoimboe@redhat.com>
+> Date:   Wed Jul 17 20:36:45 2019 -0500
+>
+>     bpf: Disable GCC -fgcse optimization for ___bpf_prog_run()
+>
+> has
+>
+> Fixes: e55a73251da3 ("bpf: Fix ORC unwinding in non-JIT BPF code")
+>
+> and mentions objtool and CONFIG_RETPOLINE.
+>
+> >  (I feel the same about there
+> > being an empty asm(); statement in the definition of asm_volatile_goto
+> > for compiler-gcc.h).  Might be time to "fix the compiler."
 > >
-> > Even if the function is trivially empty ("return 0;"), a ".eh_frame" section
-> > is generated.  Removing the __no_fgcse tag fixes that.
+> > (It sounds like Arvind is both in agreement with my sentiment, and has
+> > the root cause).
+> >
 >
-> That's weird.  I feel pretty strongly that unless we're working around
-> a well understood compiler bug with a comment that links to a
-> submitted bug report, turning off rando compiler optimizations is a
-> terrible hack for which one must proceed straight to jail; do not pass
-> go; do not collect $200.  But maybe I'd feel differently for this case
-> given the context of the change that added it.  (Ard mentions
-> retpolines+orc+objtool; can someone share the relevant SHA if you have
-> it handy so I don't have to go digging?)
-
-commit 3193c0836f203a91bef96d88c64cccf0be090d9c
-Author: Josh Poimboeuf <jpoimboe@redhat.com>
-Date:   Wed Jul 17 20:36:45 2019 -0500
-
-    bpf: Disable GCC -fgcse optimization for ___bpf_prog_run()
-
-has
-
-Fixes: e55a73251da3 ("bpf: Fix ORC unwinding in non-JIT BPF code")
-
-and mentions objtool and CONFIG_RETPOLINE.
-
->  (I feel the same about there
-> being an empty asm(); statement in the definition of asm_volatile_goto
-> for compiler-gcc.h).  Might be time to "fix the compiler."
+> I agree that the __no_fgcse hack is terrible. Does Clang support the
+> following pragmas?
 >
-> (It sounds like Arvind is both in agreement with my sentiment, and has
-> the root cause).
+> #pragma GCC push_options
+> #pragma GCC optimize ("-fno-gcse")
+> #pragma GCC pop_options
 >
+> ?
 
-I agree that the __no_fgcse hack is terrible. Does Clang support the
-following pragmas?
+Put it in godbolt.org.  Pretty sure it's `#pragma clang` though.
+`#pragma GCC` might be supported in clang or silently ignored, but
+IIRC pragmas were a bit of a compat nightmare.  I think Arnd wrote
+some macros to set pragmas based on toolchain.  (Uses _Pragma, for
+pragmas in macros, IIRC).
 
-#pragma GCC push_options
-#pragma GCC optimize ("-fno-gcse")
-#pragma GCC pop_options
-
-?
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEhcQ_ngNVWddV76NqEz6d0tDhfStYGd5diydefzVLvdQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3D8YO3Vm0DuaWpDigMiwni%2BfVdrpagZtsROGziinjLvig%40mail.gmail.com.
