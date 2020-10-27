@@ -1,127 +1,129 @@
-Return-Path: <clang-built-linux+bncBAABB3NZ4L6AKGQEBSTM5WY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBOWC4L6AKGQESPMIUJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8A8329CBE6
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 23:19:26 +0100 (CET)
-Received: by mail-ot1-x33e.google.com with SMTP id 65sf679042otv.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 15:19:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603837165; cv=pass;
+Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6719829CC12
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 23:37:48 +0100 (CET)
+Received: by mail-il1-x13b.google.com with SMTP id e87sf2229050ill.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Oct 2020 15:37:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603838267; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cEYL4L0UB0S3PZYcjMRAG6jcMkgSwVEHXEVzePDS2d+c27kMXRj47C43nSuDIyZU9O
-         7LFmAAAwdaAuV1y3zLGMcNbJECSe2uCbcv4JZxMGpvKFvUVmulKNxPlBbW7b1f38MOBH
-         V3bq09497yp4b8C4XFOI95/vQskeR9NERYQg1pbxCiTEkojBX52DC6PNALBZkX1YBA3r
-         +glKtGDsO5SnTB9rTPwNgZNjiTfZtkDqjsbW1d6WClj1xYHVDg020qBQfdbE+d8Rrlrm
-         fRvfyqBN5r5j7Clk5s/EQq6d6A9votWj13n36A9mZGAqdlGfX85OZySKTem6jHrMarE9
-         SAHw==
+        b=s+jKLVTXbqyCsDj9Al7qg0rzgXfugPusphKiPN5W2VIrGDA8kAMw3b923eilWJrnvd
+         AHAF/A7qD0EUqbT6aCu+kWyAB04pa6otNXpvNsXdkh6m8v0fpnb76LbZzwvA5or0a/qm
+         Gwx20ra3bYaTCp6YeGAofcaGy1gFpfVDN+wseHqHNtT+y8IlB56M6i27zxPxQGfo2AnM
+         se4eWtGI777gbd+mk/S+upJ7NQ7ctZ1yEaH+t8VzW6EVKIz1t1UHvu9Gmt73qLIgART4
+         ubsq4+pKv2281TBcmF30UECizrE+0xRv+cBswXSR90b0/Hc/rzXBgSxRYP3PZqnEFt35
+         TdjQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=SNXsbiTyWLR8CoViOSS+Rl9TqN497uzyB8bDKFT77XA=;
-        b=AW77qVIJ3h8W7I7N0u1FgXxiqwEg8vU/2SO4KNqBslSkr/50MEjGDGuc+qXNH0ikXb
-         LtQUlfgmSclYwa62Lis/wCgt64llNw6azxQcS1F5u1nvTcLrg3LGxznRYZflypxJ5Fb1
-         l8b/SqxkXhhGWxMlZ1C/+v9kbYY4aLauPywb2vSXIb6Xho/xIkbv5JZ1F5i1/eV1gt+i
-         SZ3MY4aBQMN/QBu+1IsYS/C4DGRe7eiQHPgFakCANykcYWWa4MappaThz6UlIkV1i93p
-         ypkhphmUiaXTgMVduiT+EfWBbJ7e+FLVtSrEElsu/euyKwQESE6iK+cu6k5jlGyCDmaf
-         Xl4A==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=yH6v3OxOSkXNeD16wwqqE87v1JtGKrdhUhhJO8EHnoY=;
+        b=O6eHe5rLvzHU1GB8UojGZb0m1IwA9AAFeUDDHuiYHMu9EbfJjmWWyMgRAsEgKvzJgu
+         A2yxZm6sn1iF5yCiPu+h1LJoAmyo6UiXyhNw0oCcPrxLHTDlcS70lfHP7vMlhIK3li+L
+         EpkWOqvcclzxonKf1czaFEn6b6bfeqCwE7ILSDg757e5cMYYKsnniaHcd3MkWM4qbZbP
+         8uIb9Fgu4dsfRcyCyxMb/rS+Y2GR5sKq1uL1ZH1MZDT3ZdMtR+f/iI1xbHp8V/3IAYeu
+         IfwVh6LB/6tJ1+NlFYr8+51l8epMhaCy26K3p1n4q+bng1STB6inKCQVqAGmTAsyj6Fn
+         DiEA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=R+yq+59v;
+       dkim=pass header.i=@kernel.org header.s=default header.b=Hy9Spsx7;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=SNXsbiTyWLR8CoViOSS+Rl9TqN497uzyB8bDKFT77XA=;
-        b=Yf8JUtCNv0lNSlaE/OZFr3OByrP9Q/Cm3y8civZ34b3knTU5FM5pKWo6Hk4lh/KTjJ
-         rbA+1Auv2Ii4Sb3gX0w07A9QVXWP9/kWdafRNVf1k7t2Wdeut1nY9Y3edpQBJMgb0T1B
-         C0ozAzLSqCkbx05a0SoWfOqDmrZOgUkEqr0sd9IqK0s4C2eabZ0wjqxJi/D5wPY15rEf
-         aWgl3DwbPmqwCBYAW9dphB2QdlER40+enECTD5JwvzQD3HxLbjo/ZgGbmseMl+KCPQpg
-         tYb65J8IKRRW72+iYMOIz8osv39gnJ4xdYnoYdA5wwedQnuIZn/2I37e3eDpxJObBx5X
-         rXlQ==
+        bh=yH6v3OxOSkXNeD16wwqqE87v1JtGKrdhUhhJO8EHnoY=;
+        b=H922fxsr1x3y6s+mscCr8IEqHoWIVwxhEm5cmBkbbDyKP4IVoiwADMaco/spugGy6m
+         8fjuiNY/7QbnbBS92RecqulE5ekeat3wQJE9ZT7CFShuOFXuvSNL1PVEHGaceRm1vgWs
+         ODcpgEahOvVT6jeHtH+5n7KWPpI1wsmOFp/FtIjGvViQfIPMoqHhkyWU77tWUBvDMMG6
+         7+GodiLOFjrOZoZyTnxYPi723W5Haa7SEBCrOt1FMMrDoIe0/v0NjzAr3iWyVS0CZMoN
+         gPVhKAlVowrXGjC2mdNUx2hmvtOpBYvqdQ35/0cyiX4QLA/MSMfgP7s4Ibx8CgAP8+Pc
+         o/+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SNXsbiTyWLR8CoViOSS+Rl9TqN497uzyB8bDKFT77XA=;
-        b=bS8yuAPSTnXgmsE4KvNfHZMT36+Yzclkc8gvAZZap11cM7ijt03trbNXjPclAGJ+fo
-         88o/acflyTdRvzyrOqUx6+IhjWYLgNLrbBruKCv9Y7lwnjpXdep8RGzJqC11TWXrpI31
-         ibUp/xfRS6bbWmz8KpenUpeaUdW9MErBhwf7CeYvyTJLPTBg60AT6HT8E20uxTfnnLmf
-         eHAtWp6IexcYqHe4NAD0P9qEm4pfZHaDNC8jjOa5h1h99YR2jVgTl8T0tLQ35D7xJIwX
-         ob18q3zIp2jUJBXFjFhd/D4fyfsokOgVhkcILG1pBB0OJQQPN0vW488PqJQG/OCjZZ1H
-         V03A==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=yH6v3OxOSkXNeD16wwqqE87v1JtGKrdhUhhJO8EHnoY=;
+        b=Efo4EAm/qh/hC+rqsWjp0q6t6uETMvusBqs7bniKzVtCKclOycvSuUnTlSC1iGq6N7
+         0dF2ytKl8NilzWbk/TVlB0MuscglUD35/csDBk3z+Sx41P+CviAGGXRRnuEAVICZzFUZ
+         q3MPeUNcny43uI4MsqCnIBL7gIQptbAbeU2ofAbF3uskFp9U2fcJp8M0smcluRJjsBi+
+         Pm8w8GfOM5GqEW4eN5FDWj5HygnIilERxJCo1O3+I0kGCfWgigdgJuaypbb6Tq3HGZeH
+         tvHHV9QK3mYsJp+8Ff7Ee1lCejOGlrQ9ShL7aVbcdOnCbVXXM/F6kOKK+M5gmxtG/DHH
+         8njA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Z5cF+PMoZQnFAA018K94yD2Z+Fv0IxSSVHkvDb3thLZMmB6iY
-	4RpmPAY3akLXOLxxm+ccBPg=
-X-Google-Smtp-Source: ABdhPJw4KMZmaANGWNeKuKNG8ZLnPeUdulto9m9dMcqliZfOYDlch9JVS+mv01TpMdsFk+xbV958Uw==
-X-Received: by 2002:a9d:734f:: with SMTP id l15mr3195174otk.260.1603837165812;
-        Tue, 27 Oct 2020 15:19:25 -0700 (PDT)
+X-Gm-Message-State: AOAM531hyF+jKqW84VEAyEzGZIBXk1N5hwMEKHbPBH64wmATJAeeU9XN
+	3HxLeD1e6fmv35Thvuzt8g4=
+X-Google-Smtp-Source: ABdhPJxZ71paUj4tmCkDLQRL6ByxXMYYfBAun424yXolLPMu0MV2FbF1E6ujzY+3mNBToMEWYnMkBA==
+X-Received: by 2002:a05:6638:525:: with SMTP id j5mr4459279jar.14.1603838266978;
+        Tue, 27 Oct 2020 15:37:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:a843:: with SMTP id r64ls845310oie.2.gmail; Tue, 27 Oct
- 2020 15:19:25 -0700 (PDT)
-X-Received: by 2002:aca:f10b:: with SMTP id p11mr3209997oih.72.1603837165578;
-        Tue, 27 Oct 2020 15:19:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603837165; cv=none;
+Received: by 2002:a05:6638:2605:: with SMTP id m5ls371647jat.0.gmail; Tue, 27
+ Oct 2020 15:37:46 -0700 (PDT)
+X-Received: by 2002:a02:5a47:: with SMTP id v68mr4428244jaa.80.1603838266657;
+        Tue, 27 Oct 2020 15:37:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603838266; cv=none;
         d=google.com; s=arc-20160816;
-        b=b8yiav3L/c0hs1iLsjVOYmpCECILZ4GXHw/3CaCV3z6ZwzaKQN13OppBEo+oI2OXgI
-         9tEu5lHC9s6P2jrst1lhPkYL554BZUtVPNjDwYbQYTmGUeNLozwGannLlQL1E/oxTs5S
-         p+/s/Tx9/9bLnGaD7c+3bbjQ70J9QNWmvakru030kICxpxuoA0JYSP7q+WpSK2rvssBO
-         fTjD38ja4TCh3aPENeDD58IWmy+kdiW58WjZK9Bjp0Fj55QoXbg4Vg494PHpe4ARH3Uw
-         BmQEz2UX7l5qkHNHc4p7uYE2dJYo4+ZNSeGbFByyahodUkGNm6A0R8gZsHugnLm/H9wD
-         /knQ==
+        b=us3IrG+d6x9VqoEfYD4Nc55eYRA9Xu5Rn18GkBquzt1lubYeiKjN+n+oehRgSvRXja
+         H5/BeWTqVVQ07UzXbej3Ge4xXRadNQidIvtM2KRqKoNuNrQpO+JVZFzJ73lte6OTn1LZ
+         7JfBNzTr3L1O9I9DVPfmPM7GRuzLzP3R31xdS0fLCubWLRA6dz6DRgFwRICJWgtado5O
+         8KDzDMuvE3yzLSMcToR/osL+K1RzBxhq/zR6JlNVFOACfMYLxP9mMD3RbhdL36lVzPzS
+         DjIbaQYKKKtc6tc1Df83kl+9y4ivmSNFEnygOIJJk+sdh4RDhe8AGmPqMaYs2p60UeZg
+         BxJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=boriP+oEHmZANv3lT3NC9LiqiLic8XURuq5+XUwUTCA=;
-        b=WOkqIl7lYCaNvvGAR5+DE4lFvzkqyftrGCaLfBYFAakRRyMPmXQ29yUCblcmvMWS6X
-         MuzTTXOGimMoFwL/53Vtky6UI8FMSooyVAuLVuG4cJVRB6CM30x+obOx/7r3sy2SDIuG
-         csdIU6Y/1xd1R/izR3wimRaZbjjEjNVcjNfwdKACvoMWFmbeTBG3hBu75Ol2lDKbY4Xc
-         WTO+w7SFG++FeAadLvWtwPAg3cX+czUb6dZCIqh9yHyLAOaOprAWpTvxLrpvxvsC+zgY
-         KX2RGcz+bovbN4SBT+ecie2k4efPtG0BbFKMqG/If4rWiGaPaT6JcFA/8F/vTRtCO9cw
-         i0/g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Y+ydeVellBhMk+kdvMTojFExMkFfK5CN7vI+R6Wej/8=;
+        b=pUVJLuLh8sml5Sr3AJPG6APi6ybPmx4tzd4aFwMM335Omy+SZU2uGsoE88Zcvu4gGn
+         Dtr765AQ3kZSvjiEV8a8jN0QLO7rY0sy4Du+a7u9gV8+HYKP2+xbCMzXbahmvgZy/iFb
+         uKLEIG9WBleRoajSajPhzJqUR6E4sNLWZfq1L14wD41o7ppbYq9N56uVW/K4Y+yVvmcn
+         yhWL2e4hyRbMPE5/urDdYHhnm0Vnvb4qUyTdS9YY8TC5QGUcwPZhBlQzilOeL/pL7cfg
+         VV+AaXi21jmTyrbN60OKBshGOm9IhtYdo3WfxzqlMWVBHUZGPvotgHSbsPVVbhyzN5Bh
+         XhQg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=R+yq+59v;
+       dkim=pass header.i=@kernel.org header.s=default header.b=Hy9Spsx7;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p17si279532oot.0.2020.10.27.15.19.25
+        by gmr-mx.google.com with ESMTPS id i18si172491ils.5.2020.10.27.15.37.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Oct 2020 15:19:25 -0700 (PDT)
+        Tue, 27 Oct 2020 15:37:46 -0700 (PDT)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost.localdomain (unknown [192.30.34.233])
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 14B4E221FB;
-	Tue, 27 Oct 2020 22:19:21 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Christoph Hellwig <hch@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Tejun Heo <tj@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v3] seq_file: fix clang warning for NULL pointer arithmetic
-Date: Tue, 27 Oct 2020 23:18:24 +0100
-Message-Id: <20201027221916.463235-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.27.0
+	by mail.kernel.org (Postfix) with ESMTPSA id A5D87206F4
+	for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 22:37:45 +0000 (UTC)
+Received: by mail-qt1-f182.google.com with SMTP id h19so2288401qtq.4
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Oct 2020 15:37:45 -0700 (PDT)
+X-Received: by 2002:aed:26c2:: with SMTP id q60mr3953199qtd.7.1603838264856;
+ Tue, 27 Oct 2020 15:37:44 -0700 (PDT)
 MIME-Version: 1.0
+References: <20201026192117.3811525-1-arnd@kernel.org> <CANiq72n72FMnNnWveSZOj_3_beXKX03CVL8=cQqqa8QyK-PKig@mail.gmail.com>
+In-Reply-To: <CANiq72n72FMnNnWveSZOj_3_beXKX03CVL8=cQqqa8QyK-PKig@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Tue, 27 Oct 2020 23:37:28 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a269o2Dqm500MAtp5JZD3-Diaa3iaMecONeyLAuE7r7Rw@mail.gmail.com>
+Message-ID: <CAK8P3a269o2Dqm500MAtp5JZD3-Diaa3iaMecONeyLAuE7r7Rw@mail.gmail.com>
+Subject: Re: [PATCH v2] ctype.h: remove duplicate isdigit() helper
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=R+yq+59v;       spf=pass
+ header.i=@kernel.org header.s=default header.b=Hy9Spsx7;       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,93 +136,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Tue, Oct 27, 2020 at 10:47 AM Miguel Ojeda
+<miguel.ojeda.sandonis@gmail.com> wrote:
+>
+> On Tue, Oct 27, 2020 at 12:57 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> >
+> > +#ifdef __has_builtin
+> > +#define has_builtin(x) __has_builtin(x)
+> > +#else
+> > +#define has_builtin(x) (0)
+> > +#endif
+>
+> Could this be
+>
+>     #ifndef __has_builtin
+>     # define __has_builtin(x) 0
+>     #endif
+>
+> ? i.e. mimicking what we do for `__has_attribute`.
 
-Clang points out that adding something to NULL is notallowed
-in standard C:
+Ah, I didn't know about that
 
-fs/kernfs/file.c:127:15: warning: performing pointer arithmetic on a
-null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-                return NULL + !*ppos;
-                       ~~~~ ^
-fs/seq_file.c:529:14: warning: performing pointer arithmetic on a
-null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-        return NULL + (*pos == 0);
+> It would also be a nice idea to put a reminder comment like:
+>
+>     /*
+>      * __has_builtin is supported on gcc >= 10, clang >= 3 and icc >= 21.
+>      * In the meantime, to support gcc < 10, we implement __has_builtin
+>      * by hand.
+>      */
 
-Rephrase the code to be extra explicit about the valid, giving
-them named SEQ_OPEN_EOF and SEQ_OPEN_SINGLE definitions.
-The instance in kernfs was copied from single_start, so fix both
-at once.
+Sounds good, I'll take that. Are the clang and icc version numbers
+the actual ones we should list here, or is this just an example?
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Fixes: c2b19daf6760 ("sysfs, kernfs: prepare read path for kernfs")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: add the named macros after Christoph Hellwig pointed out
-that my original logic was too ugly.
-Suggestions for better names welcome
-
-v3: don't overload the NULL return, avoid ?: operator
----
- fs/kernfs/file.c         | 9 ++++++---
- fs/seq_file.c            | 5 ++++-
- include/linux/seq_file.h | 2 ++
- 3 files changed, 12 insertions(+), 4 deletions(-)
-
-diff --git a/fs/kernfs/file.c b/fs/kernfs/file.c
-index f277d023ebcd..5a5adb03c6df 100644
---- a/fs/kernfs/file.c
-+++ b/fs/kernfs/file.c
-@@ -121,10 +121,13 @@ static void *kernfs_seq_start(struct seq_file *sf, loff_t *ppos)
- 		return next;
- 	} else {
- 		/*
--		 * The same behavior and code as single_open().  Returns
--		 * !NULL if pos is at the beginning; otherwise, NULL.
-+		 * The same behavior and code as single_open().  Continues
-+		 * if pos is at the beginning; otherwise, NULL.
- 		 */
--		return NULL + !*ppos;
-+		if (*ppos)
-+			return NULL;
-+
-+		return SEQ_OPEN_SINGLE;
- 	}
- }
- 
-diff --git a/fs/seq_file.c b/fs/seq_file.c
-index 31219c1db17d..6b467d769501 100644
---- a/fs/seq_file.c
-+++ b/fs/seq_file.c
-@@ -526,7 +526,10 @@ EXPORT_SYMBOL(seq_dentry);
- 
- static void *single_start(struct seq_file *p, loff_t *pos)
- {
--	return NULL + (*pos == 0);
-+	if (*pos)
-+	       return NULL;
-+
-+	return SEQ_OPEN_SINGLE;
- }
- 
- static void *single_next(struct seq_file *p, void *v, loff_t *pos)
-diff --git a/include/linux/seq_file.h b/include/linux/seq_file.h
-index 813614d4b71f..eb344448d4da 100644
---- a/include/linux/seq_file.h
-+++ b/include/linux/seq_file.h
-@@ -37,6 +37,8 @@ struct seq_operations {
- 
- #define SEQ_SKIP 1
- 
-+#define SEQ_OPEN_SINGLE	(void *)1
-+
- /**
-  * seq_has_overflowed - check if the buffer has overflowed
-  * @m: the seq_file handle
--- 
-2.27.0
+       Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201027221916.463235-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a269o2Dqm500MAtp5JZD3-Diaa3iaMecONeyLAuE7r7Rw%40mail.gmail.com.
