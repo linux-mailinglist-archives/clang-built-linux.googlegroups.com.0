@@ -1,129 +1,131 @@
-Return-Path: <clang-built-linux+bncBAABBS4U436AKGQEGYSSQTI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCAPDLF44QLBBSNE436AKGQESFJ64JQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0CFF29D091
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 16:12:12 +0100 (CET)
-Received: by mail-oi1-x238.google.com with SMTP id w192sf2344001oie.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 08:12:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603897931; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 297D629D0CF
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 16:46:18 +0100 (CET)
+Received: by mail-lj1-x23e.google.com with SMTP id s25sf2494445ljo.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 08:46:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603899977; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AS2BoCpITT3PY2Q9lLKXqPikpnpvyXwyBv0xVvDrgRkrFE+M6eNb0zyvx9SB7PwsaB
-         W3o1Z8KpbS/AB/vdQpdHJORpgQWn6qgXb75DUiRxGI4qtMUhNxfCbV+H9ZVWQ/WbRQ9e
-         RXCWh3hD+EdI2XS2n8FW0y3XC0P7ogvwx+2ea7ivR5uKqDohkBWzvrjIv7zBVOf208XT
-         xFT2H74t7vo0G/TV4x07os0CsD6rUJVEK4d2IWq38a3dVKOCu35shGs5hpr+LGtKhuxX
-         0Je9M4YHnOrrokm+Aw6BjHAQKeNqSFUqqomfx+rR3k/vaIZQveGjvkmiNJjkcNdOLYFT
-         I6uA==
+        b=WfR6NUYWjPa8PdOW9aadpOsykMJjZ5jbWHxHtbkEInEvJ0YD0uCN0uK+GAy+pEqNQ4
+         WS7HlPTlfL5Z30HPrCmnDL7hq/dmp8/EsyfUEAZauGXoy1clILc+AKBLfw35aEYo+DW2
+         AG79iJ8SHDlVFmkqQe/LqXVoMF6hWUCiXprtmgE2nXwAVtU+t65Nkr0tD93iPZN4facO
+         Piz7lPs3YzdkfKdCUzfYf3IMhazQ1iW+UtLCz4ME4Gecoe8YbAuHAAq/75WjKK3BAotd
+         C7TlW6ykKpqf/zURQOfYeHmqEtdS2UJJy+NtRUwkJo3R4+dytH2G/8FiLxdeEnZwMm2q
+         Vtyg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=1vsLBWqJ92wN6f97Hm3p3Erjie+C3TF+nr0Zacer6cU=;
-        b=Mjva4vpxuXYYBHJfw6aKo7TYmW8HnbnpVPyqoFfWM4TGsr97LvokMH/csDzoYnq6C4
-         uT31AVLwPvcTL/u8xETMOV2ukGcLoKcS7faOM7V0jBs/7h/cNkfDXuDIRq59WUtxffsK
-         yXInTJ3KEeuq+yseqIjyBEeFmpvXWWwc7nIV5W5EkInCrdOQKCGA1vkjNebQpSIqurPr
-         YlAXctg+dv5+YM+o+pLVbdKr8MrzBNYECIfiv4zpjFwUSlCfeiN2KbE+UFM8mkgGHEdD
-         Z83E41Pe7595xDY9IxWoNpbpLWX+pOOz/TKFgJevFDL7qEFATXI8RxLCYLWmLyhDTfYV
-         TDGA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=RTM/d5oh1ll/spdJYIxuQgfUKrkLRS8ic1543l2IKkw=;
+        b=tdFGM7RNTTg0+TbX1db/4SGualAKJrFD1821LjBKpnQg1BUrDmNNWsh7DnJM+Ku+Xf
+         V4xD2Hm8x5Xj2hFMgsx3oSVA1KS8wGmy68kux4odsbqMBWZqkM/QICKaiQMqmb8Eyfyy
+         qHIctBPc3esFde/hQ1le+vY7lr+SHFTrQDEWWbjmXM7butNylsvS3dNWtYcxFsvfKTqz
+         IpJmTJvER2VCk8rt0j6xdIVqB6DPmNNQDVTmABmvteQpoAUU4bQghAYhz5NFJoDTTaWN
+         Kr9GypQvXnH7ukvY91QK1b2lxxqjPeaHGgSru/FZKj5sT6yhGRreFE6OtMgx5KPyiJGi
+         xnDQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ym3WEmO2;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=bVgcOJND;
+       spf=pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1vsLBWqJ92wN6f97Hm3p3Erjie+C3TF+nr0Zacer6cU=;
-        b=esmqkLANDErm3vwiGHpak4KjbQNBMJ5rSUrvVq4wkBdZPXTo32pnyhCHYCkrKZuIa4
-         3SKxqTal0tPDxFiblbeoaSY7gZyo3FNfoMEtSC5Sqrh2kDDq3NYbBWVtld+fFuspiddL
-         0F/YmYxKacxT3p4ff4OLtZG6NqcLIjbF66txg8m4uCJvImROs66YHIjqRdyUePT4SbGx
-         VJBbgAn+3B8YLfnNYPH5z4DhIa+rZLChsMi2F3Q2iSvS3AjjqLYkH4GMG5IJHGmDNqMw
-         671ORCr7sMcq1z2rY/b7AI0/Ci2BDD1JshkJzd49mGPGM3B90FWk9VxPADc4S02Qr2GO
-         MP5A==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RTM/d5oh1ll/spdJYIxuQgfUKrkLRS8ic1543l2IKkw=;
+        b=SmtT1j/oEIp2P0NLjqqRbcNULh/HiR12JE1uFUJ9G3MXtGO50qBHPvGG57htrhm9dG
+         PlTDIukIbWYBOMDm17qBBqfDWtjRyVQH8lwKqbQIXMwCnLxS6KFRdYp28T+sXyMstuSH
+         TPsmxN8O5HSE8axItxstOqOP+sd/kTuaBiQK9BxPq2UWNHBFAfEiiR2XYKZHEAtySzzb
+         sXJMJHnS+QJeE9C/93hWunbsn82ThGG23ChJAik7fW8WrJUC4LlYWnM+aB5IUk8kKFdC
+         RjHVQsJHbgaMeshdORIyZhVNb45YXg+iimBhkpuXVGkZoKhztXQdtqNpFMjZCSvPS+Wr
+         ZIKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1vsLBWqJ92wN6f97Hm3p3Erjie+C3TF+nr0Zacer6cU=;
-        b=CH620RHrmvVNBjJ3KP1Xhm5f1IYXkK53l6yqiCfKC/7si97OedkkngELFZVitj0PbN
-         X6eS+kRZ5LSq8mQNCR54sfl8YErPc0bFUdZOjHly80ZmGRHFqgui4athfllSyBO0zaPz
-         1l+o+gI9zGSQIq/9RDcI+owgZV23YF4N/bERA1Zy4XGqgAQF7yqCnIiCJTlklGfDm8qr
-         h/fGhIvH+TqlqtZjp8QaAWX2jWnK1s6ULOFQ/wtkSodSAEiNhM++0Z8V7NLEInm4YFaA
-         YzyuoZkKnoGFaUDI7ra7VDIxY9CeQH16XE+SVgJEuMte4sTRwCILTK63E8jm+SUxcohg
-         d6bQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=RTM/d5oh1ll/spdJYIxuQgfUKrkLRS8ic1543l2IKkw=;
+        b=nF6NyS5xpVYfjM7HbgfN9RUrzbFmiAg8VaNUjOG+zeuD+YYnPArrjLs724F3jz042N
+         4Y4SNFqMVbmbNJIDBcRWDwp7m0v4bDx5jEYJfrRTlSTMrfBHREBrdERQNAoGvj8J8/fB
+         DnIAJQPyQnkqVm+Ao1TCpNzoaBv8cz3IVvoZD0ezebc/aZwHpJuEGf7mpChMaG+tyeeG
+         7Ms5OrN4iZH/D/lLKt0kPWEhPQejpxGSB3zGCGFYNc5ObSrn6a7ClhbcmR4slm/XH0n/
+         c9fkgHzlRGuccoJ19BDgQw7HYTHBnLPGGSytrytc5adnbpzrNJBwYsyskKmr3PB2nDM+
+         1Arg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530c15h+qDq0Cgsv4ToqaSBdPVCPAuZ8akizto/6Fy6RiHKkQE6X
-	9AWpMtCHi3tCSbT68AP77CY=
-X-Google-Smtp-Source: ABdhPJwK5J9x74z6pTxqdn27/dgrzSCOrW3fsll/5v7rdoAwIwOLEogiXBUC0LFADNwyVujwKrWIpw==
-X-Received: by 2002:a9d:1b48:: with SMTP id l66mr5138301otl.349.1603897931542;
-        Wed, 28 Oct 2020 08:12:11 -0700 (PDT)
+X-Gm-Message-State: AOAM530uGGinNfAx5G9h1+1psPaHidjcs7AP80A4Dyhkh1/nHkQeJbXX
+	/V42XvYfhTD2KQRoDfVnw3w=
+X-Google-Smtp-Source: ABdhPJyz8Ll79Qpkfg3YIUnk1nweZ7qv9wcD2AsyKuYgvGDNxShh066/fUUv423S5cTZvnprJIiP6Q==
+X-Received: by 2002:a2e:54f:: with SMTP id 76mr3374861ljf.73.1603899977599;
+        Wed, 28 Oct 2020 08:46:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:13d8:: with SMTP id e24ls1326425otq.11.gmail; Wed,
- 28 Oct 2020 08:12:11 -0700 (PDT)
-X-Received: by 2002:a05:6830:1694:: with SMTP id k20mr5939673otr.100.1603897931116;
-        Wed, 28 Oct 2020 08:12:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603897931; cv=none;
+Received: by 2002:a05:651c:14d:: with SMTP id c13ls1090707ljd.8.gmail; Wed, 28
+ Oct 2020 08:46:16 -0700 (PDT)
+X-Received: by 2002:a2e:868b:: with SMTP id l11mr3411592lji.102.1603899976512;
+        Wed, 28 Oct 2020 08:46:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603899976; cv=none;
         d=google.com; s=arc-20160816;
-        b=knalOh6AZ6b3TVcx+L5LBWcfF6CKqBFywZ4rtVO1BIe4rb245pXSnNu2lHREYpwWMf
-         N5uiJ0q/gpjLVZuLfmrSXOybSi2u4F62novSqis/h57GeOHkpUEQU0nRw/OPbNjw+sbZ
-         e/1d/9INrxoKJ/aHqwyOuKNrtRC2IjBW4UbHO+fofz1X85+ZeNAYmZXB69+BNOXlrfdA
-         x7C53X0AjFmlNnIO/pJlwjOI5QmO2XxTNdyjDPp81qT64mQ1rruTRkJl5RqLUUlQXtg8
-         9nCGlNfSX0hCeaGKOYzB4GAWDcg4Yq+UDyQvKjvC0dCN1I+f8alycOMI7b6rFNTS/LSj
-         j15w==
+        b=eG/5AriEEFJzZgXvtMnZTEdv8Z0HP9A5nBMRwoCCR/H2Sef/z4f0LkqbpwYhamDV+9
+         icGEpUgfwpICpP0HNRdaA/emwP/XUyTgH7zLA6kNwbuFcEmuN3/dfKqloHfqL3ZlPKOC
+         w/5fxZPyTy77xMCVtGAKbAgqDwly6QefWcvk5CJDdXZtHun0JXf/N4XzDiODGWZeShgh
+         l9of4mavG20ms/oxYP4XzKQyEFQjl1gGDW6yjfiKS9ZcMRGmH9XngSrHCNoIwX1r8GHQ
+         IBHEymrnMQlgpf+dUn2dj4lsScyGXsG/jFGQ/X2tl/hYO2sMfxmkDqT/ietNF/tscU9J
+         6Gbw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=RgHxtQ3UzjNGSyxKwFP3bMtOy7fxMY8vk6AAJTgWlsI=;
-        b=CgjvOi6X4M9lgmzQU3/ZmPBtso9SAyAOAgrABTIghlhCg4TM1OgLLVi4KWhURszzdh
-         FzbceUthmsHZMyd0TLZBzDFNwlR/W1LjCL78sR/iPT0rHnyK2LyLfXQAXBOXV4wwpjQV
-         SdHy1NYwbS7FwdRLtSCBbYhh8YjsbB1CEJazkTLVHZv/ITZkhxyOeR+NEKVE8X0jJdPn
-         V5tUupiBBWdtAhDkKKECkd4plZjQqvOipu6FJKZvd9GE9D1QPfqkYrTDcAxgyNro+NKO
-         nkDJPvFKhunmV+2MKic26LRkxEKUDTCXr1Mmun3CYJ2jiBkQiYfq4HyM3dBUoFGEvIJg
-         bV/w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=jxN7dwqApdR1ej5dh2h2T4IB4++cE/G2cOg1rxvC1QU=;
+        b=g/Znz7uXZ+2oSXWRuMeOm7ZaUJPGuZSoyPbvYacgv8dMyjuGk4uGceQzoiiqBC8sNc
+         wV+lcHTXGzLEQFZTLbieQKbwjAni55TSOw/Ypv5IQol+ztM2HNlWUd8Ix4K5NnNEkC8x
+         U9j7vg+ch2jS9sxx+Chc3/9x0S6bepTA7akKFBgc3H4jzG/0h8etQ6ucJUMz9zmFBovp
+         7U+FnmguhJyZFHtWqXivS+V4JWaRGlf/IxkjWWyRmhWLFruqp/gXdiw+YIClbOW0koxV
+         rJyea3fTcX1jnrbOxQdE+jnPQBq9iihtSIt7VQHOQQPIlqu4iOoJ1fiCMAuDSru95iHo
+         Mzpg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ym3WEmO2;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n185si436256oih.3.2020.10.28.08.12.10
+       dkim=pass header.i=@linaro.org header.s=google header.b=bVgcOJND;
+       spf=pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
+        by gmr-mx.google.com with ESMTPS id t13si179661lfr.13.2020.10.28.08.46.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 28 Oct 2020 08:12:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost.localdomain (unknown [192.30.34.233])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 00CDA247B2;
-	Wed, 28 Oct 2020 15:12:06 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Christoph Hellwig <hch@infradead.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Christoph Hellwig <hch@lst.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Tejun Heo <tj@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Amir Goldstein <amir73il@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v4] seq_file: fix clang warning for NULL pointer arithmetic
-Date: Wed, 28 Oct 2020 16:11:36 +0100
-Message-Id: <20201028151202.3074398-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.27.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Oct 2020 08:46:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
+Received: by mail-wm1-x343.google.com with SMTP id c18so23318wme.2
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Oct 2020 08:46:16 -0700 (PDT)
+X-Received: by 2002:a05:600c:2049:: with SMTP id p9mr6483756wmg.147.1603899975882;
+        Wed, 28 Oct 2020 08:46:15 -0700 (PDT)
+Received: from holly.lan (cpc141216-aztw34-2-0-cust174.18-1.cable.virginm.net. [80.7.220.175])
+        by smtp.gmail.com with ESMTPSA id p4sm7367869wrf.67.2020.10.28.08.46.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Oct 2020 08:46:15 -0700 (PDT)
+Date: Wed, 28 Oct 2020 15:46:13 +0000
+From: Daniel Thompson <daniel.thompson@linaro.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: kernel test robot <lkp@intel.com>,
+	Andrey Konovalov <andreyknvl@google.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+	Linux Memory Management List <linux-mm@kvack.org>
+Subject: Re: drivers/video/backlight/ltv350qv.c:192:12: warning: stack frame
+ size of 13472 bytes in function 'ltv350qv_power'
+Message-ID: <20201028154613.fue7ilxdihj2cado@holly.lan>
+References: <202010260230.VivTG0Gb-lkp@intel.com>
+ <20201025121708.04d4070a44e28146baf9a6a7@linux-foundation.org>
 MIME-Version: 1.0
-X-Original-Sender: arnd@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ym3WEmO2;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20201025121708.04d4070a44e28146baf9a6a7@linux-foundation.org>
+X-Original-Sender: daniel.thompson@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b=bVgcOJND;       spf=pass
+ (google.com: domain of daniel.thompson@linaro.org designates
+ 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,100 +138,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Sun, Oct 25, 2020 at 12:17:08PM -0700, Andrew Morton wrote:
+> On Mon, 26 Oct 2020 02:15:37 +0800 kernel test robot <lkp@intel.com> wrote:
+> 
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> > head:   d76913908102044f14381df865bb74df17a538cb
+> > commit: cae9dc35ed9ff82a99754e51d57ff6c332e1f7e4 kasan: allow enabling stack tagging for tag-based mode
+> > date:   3 months ago
+> > config: arm64-randconfig-r005-20201026 (attached as .config)
+> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 1c8371692dfe8245bc6690ff1262dcced4649d21)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install arm64 cross compiling tool for clang build
+> >         # apt-get install binutils-aarch64-linux-gnu
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cae9dc35ed9ff82a99754e51d57ff6c332e1f7e4
+> >         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> >         git fetch --no-tags linus master
+> >         git checkout cae9dc35ed9ff82a99754e51d57ff6c332e1f7e4
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
+> > 
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > 
+> > All warnings (new ones prefixed by >>):
+> > 
+> > >> drivers/video/backlight/ltv350qv.c:192:12: warning: stack frame size of 13472 bytes in function 'ltv350qv_power' [-Wframe-larger-than=]
+> 
+> That's a lot of stack.
+> 
+> >    static int ltv350qv_power(struct ltv350qv *lcd, int power)
+> >               ^
+> >    1 warning generated.
+> > 
+> > vim +/ltv350qv_power +192 drivers/video/backlight/ltv350qv.c
+> 
+> Odd - the code looks pretty normal.  It is possible that your compiler
+> is (crazily) inlining ltv350qv_write_reg()?
 
-Clang points out that adding something to NULL is not allowed in
-standard C:
+Certainly could be.
 
-fs/kernfs/file.c:127:15: warning: performing pointer arithmetic on a
-null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-                return NULL + !*ppos;
-                       ~~~~ ^
-fs/seq_file.c:529:14: warning: performing pointer arithmetic on a
-null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-        return NULL + (*pos == 0);
+Same config compiled with gcc-9 gives ltv350qv_write_reg() a stack usage
+that is large but not crazy: 768 bytes and dropping to 480 bytes with
+the sanitizers disabled. With the sanitizers enabled then even the 
+cumulative stack usage of ltv350qv_power() through to ltv350qv_write_reg() is
+still less than 1k.
 
-Rephrase the code to be extra explicit about the valid, giving them
-named SEQ_OPEN_EOF and SEQ_OPEN_SINGLE definitions.  The instance in
-kernfs was copied from single_start, so fix both at once.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Fixes: c2b19daf6760 ("sysfs, kernfs: prepare read path for kernfs")
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: add the named macros after Christoph Hellwig pointed out
-    that my original logic was too ugly.
-
-v3: don't overload the NULL return, avoid ?: operator
-
-v4: fix changelog text (Nathan Chancellor), add comment (Christoph
-    Hellwig)
----
- fs/kernfs/file.c         | 9 ++++++---
- fs/seq_file.c            | 5 ++++-
- include/linux/seq_file.h | 6 ++++++
- 3 files changed, 16 insertions(+), 4 deletions(-)
-
-diff --git a/fs/kernfs/file.c b/fs/kernfs/file.c
-index f277d023ebcd..5a5adb03c6df 100644
---- a/fs/kernfs/file.c
-+++ b/fs/kernfs/file.c
-@@ -121,10 +121,13 @@ static void *kernfs_seq_start(struct seq_file *sf, loff_t *ppos)
- 		return next;
- 	} else {
- 		/*
--		 * The same behavior and code as single_open().  Returns
--		 * !NULL if pos is at the beginning; otherwise, NULL.
-+		 * The same behavior and code as single_open().  Continues
-+		 * if pos is at the beginning; otherwise, NULL.
- 		 */
--		return NULL + !*ppos;
-+		if (*ppos)
-+			return NULL;
-+
-+		return SEQ_OPEN_SINGLE;
- 	}
- }
- 
-diff --git a/fs/seq_file.c b/fs/seq_file.c
-index 31219c1db17d..6b467d769501 100644
---- a/fs/seq_file.c
-+++ b/fs/seq_file.c
-@@ -526,7 +526,10 @@ EXPORT_SYMBOL(seq_dentry);
- 
- static void *single_start(struct seq_file *p, loff_t *pos)
- {
--	return NULL + (*pos == 0);
-+	if (*pos)
-+	       return NULL;
-+
-+	return SEQ_OPEN_SINGLE;
- }
- 
- static void *single_next(struct seq_file *p, void *v, loff_t *pos)
-diff --git a/include/linux/seq_file.h b/include/linux/seq_file.h
-index 813614d4b71f..bfa34f5578b9 100644
---- a/include/linux/seq_file.h
-+++ b/include/linux/seq_file.h
-@@ -37,6 +37,12 @@ struct seq_operations {
- 
- #define SEQ_SKIP 1
- 
-+/*
-+ * op->start must return a non-NULL pointer for single_open(),
-+ * this is used when we don't care about the specific value.
-+ */
-+#define SEQ_OPEN_SINGLE (void *)1
-+
- /**
-  * seq_has_overflowed - check if the buffer has overflowed
-  * @m: the seq_file handle
--- 
-2.27.0
+Daniel.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201028151202.3074398-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201028154613.fue7ilxdihj2cado%40holly.lan.
