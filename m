@@ -1,131 +1,148 @@
-Return-Path: <clang-built-linux+bncBCAPDLF44QLBBSNE436AKGQESFJ64JQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBYFG436AKGQEGVZ5D4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 297D629D0CF
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 16:46:18 +0100 (CET)
-Received: by mail-lj1-x23e.google.com with SMTP id s25sf2494445ljo.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 08:46:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603899977; cv=pass;
+Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 99E3029D0D9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 16:50:57 +0100 (CET)
+Received: by mail-lj1-x23c.google.com with SMTP id f3sf2481886ljc.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 08:50:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603900257; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WfR6NUYWjPa8PdOW9aadpOsykMJjZ5jbWHxHtbkEInEvJ0YD0uCN0uK+GAy+pEqNQ4
-         WS7HlPTlfL5Z30HPrCmnDL7hq/dmp8/EsyfUEAZauGXoy1clILc+AKBLfw35aEYo+DW2
-         AG79iJ8SHDlVFmkqQe/LqXVoMF6hWUCiXprtmgE2nXwAVtU+t65Nkr0tD93iPZN4facO
-         Piz7lPs3YzdkfKdCUzfYf3IMhazQ1iW+UtLCz4ME4Gecoe8YbAuHAAq/75WjKK3BAotd
-         C7TlW6ykKpqf/zURQOfYeHmqEtdS2UJJy+NtRUwkJo3R4+dytH2G/8FiLxdeEnZwMm2q
-         Vtyg==
+        b=kjhC7KhcEz7qWV7iJRJ0CvZ0uXba90cDRx1uX6WTYcVROMT4uIQ0lWmzwtB8/VO6rv
+         F9yuDX+scQKV8dsKnE0O/N2X/k/5al9R2HYMwQcRS8gLc6UvO0bkvQJBvV3I/iWVkrAT
+         Khbfi7cgDqkwZDyjXxron0KKphijaR9LvdmL1XtpokGVvE9vCO9zqN2jTZDYO+YRs8iz
+         ARRsDhZvYZvzmeOuWltC1YsBAR/gf2Rv9k6nKl4LJv7/7kKbu1s17IxW0z5wROMWmJGM
+         pCAL8OzbJmDSeZLDTCRyc4QWSh/Y2otBD+FPDODuazR330d0KZaJHc6UGuA2EpuFS30S
+         cyAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=RTM/d5oh1ll/spdJYIxuQgfUKrkLRS8ic1543l2IKkw=;
-        b=tdFGM7RNTTg0+TbX1db/4SGualAKJrFD1821LjBKpnQg1BUrDmNNWsh7DnJM+Ku+Xf
-         V4xD2Hm8x5Xj2hFMgsx3oSVA1KS8wGmy68kux4odsbqMBWZqkM/QICKaiQMqmb8Eyfyy
-         qHIctBPc3esFde/hQ1le+vY7lr+SHFTrQDEWWbjmXM7butNylsvS3dNWtYcxFsvfKTqz
-         IpJmTJvER2VCk8rt0j6xdIVqB6DPmNNQDVTmABmvteQpoAUU4bQghAYhz5NFJoDTTaWN
-         Kr9GypQvXnH7ukvY91QK1b2lxxqjPeaHGgSru/FZKj5sT6yhGRreFE6OtMgx5KPyiJGi
-         xnDQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:date:from:sender
+         :dkim-signature:dkim-signature;
+        bh=OWsXvaOM0RSLK3PtM8pNp9CZZB3O40yN8CgRZfxjwGY=;
+        b=yeBDhp4fRNuqM1nyTD5sH3CnxKyjzg55po54ARLghxnDeIR1CGpykDRWoWo2RCJIWP
+         MSZfeIrM0jtvNpoSlE1tOzAuajyxIydxn3yoYcrv7RCyfCxbSu8cVYq2kKYCNZCkXjNo
+         jcr+43G8Gb2Dkficjy0dD6qYO6h4vZJs7/w/0jBolFi3zxAjnJoJLKK5mJOKls0KVyI3
+         +jRdAfXdNAAMdF0Mnv5sGLO8ZenP69DgBX6X0Va6yKCM/aN/ILgzmlUtiTSjWMvzfpff
+         +TXae2n+AQLplv1+kBb5NXbReuERdR2EOofQHr2IEcA5B49D1r6SDpZUAcJYfnU1TL6d
+         iAjA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=bVgcOJND;
-       spf=pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hPhWjar2;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:from:date:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RTM/d5oh1ll/spdJYIxuQgfUKrkLRS8ic1543l2IKkw=;
-        b=SmtT1j/oEIp2P0NLjqqRbcNULh/HiR12JE1uFUJ9G3MXtGO50qBHPvGG57htrhm9dG
-         PlTDIukIbWYBOMDm17qBBqfDWtjRyVQH8lwKqbQIXMwCnLxS6KFRdYp28T+sXyMstuSH
-         TPsmxN8O5HSE8axItxstOqOP+sd/kTuaBiQK9BxPq2UWNHBFAfEiiR2XYKZHEAtySzzb
-         sXJMJHnS+QJeE9C/93hWunbsn82ThGG23ChJAik7fW8WrJUC4LlYWnM+aB5IUk8kKFdC
-         RjHVQsJHbgaMeshdORIyZhVNb45YXg+iimBhkpuXVGkZoKhztXQdtqNpFMjZCSvPS+Wr
-         ZIKg==
+        bh=OWsXvaOM0RSLK3PtM8pNp9CZZB3O40yN8CgRZfxjwGY=;
+        b=PxjHbmchHka2nmu4auQAtRVkZ+raFPjG2IqWJT4SdtQRq9A4v3MKiJbRUCKwsqfJBr
+         5rjzamT/M/+Gm8ZA5aIJoVeY4H7saAkMABdFYaaGbMZg3hXoMEOe2pQnwZDgkEBYoDFM
+         Uhf/DO1ErqAMOEpDYJQovDW4tOWwibsivoCxU5Zmg21e7yRxmnYp/dvgmCr0CMvhk3h5
+         2yZ/jNr8ZQLYNN+FkhK/RrbVVonu1pReA5A9CV6lEeFzEP8yb5tSRfk30d0auWm9n6Kj
+         atYAZDMMizpVxXCZDTfR65qBpAvM6TfJTJ0SO9n+gQOP3pZAWrNHNsCpgM5wn4OUSHrY
+         J0Aw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:date:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=OWsXvaOM0RSLK3PtM8pNp9CZZB3O40yN8CgRZfxjwGY=;
+        b=FDQMLQhkXBuvZDeIsu5om1O+sJaINmBG3KVhbRNvIkzZERWF2yPbtOMuTIgO3DwaLu
+         EFIR63yeVIqtima6UCSHpP3fFEh+HAKtvdvcp6knLHu58aDyx/K0wp+dS2iTaSbKYike
+         KlTj5uVGLZP2iVJlGfG8nK9MYznqTotbN7Ps3xTHzmUHKLrgzqsefGHpPAeUceHMSEWb
+         fIGjybMOovuoLNqHnFvt7k3sz7aSr8W3URPd61n6W1GXrajaO258L/O/O0pSYTNAPRaU
+         mIslFTvUwy4RZFstxvl9vdCScBJPx0AUgrnDoWLdjH2bazMT70C8ZzBjiXbRMOJfLzR4
+         2VCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=RTM/d5oh1ll/spdJYIxuQgfUKrkLRS8ic1543l2IKkw=;
-        b=nF6NyS5xpVYfjM7HbgfN9RUrzbFmiAg8VaNUjOG+zeuD+YYnPArrjLs724F3jz042N
-         4Y4SNFqMVbmbNJIDBcRWDwp7m0v4bDx5jEYJfrRTlSTMrfBHREBrdERQNAoGvj8J8/fB
-         DnIAJQPyQnkqVm+Ao1TCpNzoaBv8cz3IVvoZD0ezebc/aZwHpJuEGf7mpChMaG+tyeeG
-         7Ms5OrN4iZH/D/lLKt0kPWEhPQejpxGSB3zGCGFYNc5ObSrn6a7ClhbcmR4slm/XH0n/
-         c9fkgHzlRGuccoJ19BDgQw7HYTHBnLPGGSytrytc5adnbpzrNJBwYsyskKmr3PB2nDM+
-         1Arg==
+        h=sender:x-gm-message-state:from:date:to:cc:subject:in-reply-to
+         :message-id:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=OWsXvaOM0RSLK3PtM8pNp9CZZB3O40yN8CgRZfxjwGY=;
+        b=Nifid0tFAv1zIfp06X9/xGdQyYz9FUgwC4PvHIBqS5CML8JHzaJxzsgnjn2M3Kz4Wb
+         t8hfkXGKhsQ4pVtQ5ivzHV09uVsTasuiVnphYsPqONvVphAr1R67uN8QKKMlzVMeMBJG
+         qCjDfRzxj/4tC5hvRfgbJI09nTiWjpvjYdQrNjYAJMPbJI0apI1MF58fHxkyhMdfLjDx
+         eXSjGOCIjucgGbcRJEQdNFbkXF+nONjLqG+ri1mKcVMx5uQTUUn+4VrRH1inQvQ2N8a9
+         Usol6r28dI/AJBcBoXBG2ozT55XMwqrlnUp3/q3E+TWs38p6uhXpRTxNdyg9V7RoZAFg
+         vtOA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530uGGinNfAx5G9h1+1psPaHidjcs7AP80A4Dyhkh1/nHkQeJbXX
-	/V42XvYfhTD2KQRoDfVnw3w=
-X-Google-Smtp-Source: ABdhPJyz8Ll79Qpkfg3YIUnk1nweZ7qv9wcD2AsyKuYgvGDNxShh066/fUUv423S5cTZvnprJIiP6Q==
-X-Received: by 2002:a2e:54f:: with SMTP id 76mr3374861ljf.73.1603899977599;
-        Wed, 28 Oct 2020 08:46:17 -0700 (PDT)
+X-Gm-Message-State: AOAM533Pnjkq67rZtOoBAStSPQRKh2KMNjgbKFDcWTeoyRutSdIkcYbk
+	XyEnbq3pAEdG5jBLHjLwcXs=
+X-Google-Smtp-Source: ABdhPJzWxS1mEGMYpcKCHoe7rVw0Cf/UgaE+PAEOfER+rYAhUg+LivE/3q8+CKOezk2ZQPED9yEpvQ==
+X-Received: by 2002:a2e:8706:: with SMTP id m6mr3638740lji.129.1603900257189;
+        Wed, 28 Oct 2020 08:50:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:14d:: with SMTP id c13ls1090707ljd.8.gmail; Wed, 28
- Oct 2020 08:46:16 -0700 (PDT)
-X-Received: by 2002:a2e:868b:: with SMTP id l11mr3411592lji.102.1603899976512;
-        Wed, 28 Oct 2020 08:46:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603899976; cv=none;
+Received: by 2002:a2e:9bc1:: with SMTP id w1ls1098488ljj.4.gmail; Wed, 28 Oct
+ 2020 08:50:56 -0700 (PDT)
+X-Received: by 2002:a2e:8e67:: with SMTP id t7mr3462035ljk.206.1603900256040;
+        Wed, 28 Oct 2020 08:50:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603900256; cv=none;
         d=google.com; s=arc-20160816;
-        b=eG/5AriEEFJzZgXvtMnZTEdv8Z0HP9A5nBMRwoCCR/H2Sef/z4f0LkqbpwYhamDV+9
-         icGEpUgfwpICpP0HNRdaA/emwP/XUyTgH7zLA6kNwbuFcEmuN3/dfKqloHfqL3ZlPKOC
-         w/5fxZPyTy77xMCVtGAKbAgqDwly6QefWcvk5CJDdXZtHun0JXf/N4XzDiODGWZeShgh
-         l9of4mavG20ms/oxYP4XzKQyEFQjl1gGDW6yjfiKS9ZcMRGmH9XngSrHCNoIwX1r8GHQ
-         IBHEymrnMQlgpf+dUn2dj4lsScyGXsG/jFGQ/X2tl/hYO2sMfxmkDqT/ietNF/tscU9J
-         6Gbw==
+        b=ebQXp6EV741Do5TEfyppd1UpzVzCEM5ZR4e+5PZ5TpBFQ1L9FfMwOuzuEgubcrSOSO
+         hD0qCGqMZfNPeLVZg0fUBN+kGieKMRAlzPcqCMdXhm5eYSGXStRHZkItvG32vXAENH1j
+         M6AsCUf0tho7lB4PwssRajWsWrrWlk4QldtHu0CK6HmvaEb2378d4uFYoCUGPgH6AZ9k
+         E63Og+qbPuCvPB1OBpT/mJkLCPcMFGwcgathwh4MPNKxBmjAaJVgZ1+2WuiUPIkTFAoc
+         +DCB3/fMuywDWkb3BlcMXaaYuls74/PdZVmDF+FdoimKd6tfpYIO8mFIVN/ZUC2lDCGc
+         K4xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=jxN7dwqApdR1ej5dh2h2T4IB4++cE/G2cOg1rxvC1QU=;
-        b=g/Znz7uXZ+2oSXWRuMeOm7ZaUJPGuZSoyPbvYacgv8dMyjuGk4uGceQzoiiqBC8sNc
-         wV+lcHTXGzLEQFZTLbieQKbwjAni55TSOw/Ypv5IQol+ztM2HNlWUd8Ix4K5NnNEkC8x
-         U9j7vg+ch2jS9sxx+Chc3/9x0S6bepTA7akKFBgc3H4jzG/0h8etQ6ucJUMz9zmFBovp
-         7U+FnmguhJyZFHtWqXivS+V4JWaRGlf/IxkjWWyRmhWLFruqp/gXdiw+YIClbOW0koxV
-         rJyea3fTcX1jnrbOxQdE+jnPQBq9iihtSIt7VQHOQQPIlqu4iOoJ1fiCMAuDSru95iHo
-         Mzpg==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:date:from:dkim-signature;
+        bh=gSinsdGE53PZSUfpITJI0G/Gp3pGnKuptRZHm83+NWc=;
+        b=cheS4sTxUjXkB+NKgwhtjI/8gVyEZufzIT0FcVQ9Dh294aGEF5yrWvSfQ4Lqvv2GMi
+         u0MJWZAUu+3eErk9+ajyDsBGP6PTX++wU43xptcNhVhdMrgHQngETaFhAv/Rbgryxoop
+         mCFz8ceAh3jUdWhoNmTFwhT0+XGJWxI4ym84GBFHWLwwrsp/Ssf/xkOmDYVxh9sJ+ZqC
+         KxKIXhCkXzYObxLmbN+dN9jnioO0r7EbBZ5hREsRUU0axusyCbquAOGCBrG9GnooeWhZ
+         75/1OKPsi5abZlrBgkuTtTq48ppg4TqmCYfmGkzIJthzEHePBxWNmgz2PWYQ4yZK6Yov
+         wjZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=bVgcOJND;
-       spf=pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id t13si179661lfr.13.2020.10.28.08.46.16
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hPhWjar2;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id l28si153760lfp.11.2020.10.28.08.50.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Oct 2020 08:46:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id c18so23318wme.2
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Oct 2020 08:46:16 -0700 (PDT)
-X-Received: by 2002:a05:600c:2049:: with SMTP id p9mr6483756wmg.147.1603899975882;
-        Wed, 28 Oct 2020 08:46:15 -0700 (PDT)
-Received: from holly.lan (cpc141216-aztw34-2-0-cust174.18-1.cable.virginm.net. [80.7.220.175])
-        by smtp.gmail.com with ESMTPSA id p4sm7367869wrf.67.2020.10.28.08.46.14
+        Wed, 28 Oct 2020 08:50:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
+Received: by mail-wm1-x344.google.com with SMTP id l8so31166wmg.3
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Oct 2020 08:50:56 -0700 (PDT)
+X-Received: by 2002:a7b:ce8f:: with SMTP id q15mr56820wmj.88.1603900255413;
+        Wed, 28 Oct 2020 08:50:55 -0700 (PDT)
+Received: from felia ([2001:16b8:2d7a:200:a915:6596:e9b0:4f60])
+        by smtp.gmail.com with ESMTPSA id f5sm18509wmh.16.2020.10.28.08.50.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2020 08:46:15 -0700 (PDT)
-Date: Wed, 28 Oct 2020 15:46:13 +0000
-From: Daniel Thompson <daniel.thompson@linaro.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: kernel test robot <lkp@intel.com>,
-	Andrey Konovalov <andreyknvl@google.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: drivers/video/backlight/ltv350qv.c:192:12: warning: stack frame
- size of 13472 bytes in function 'ltv350qv_power'
-Message-ID: <20201028154613.fue7ilxdihj2cado@holly.lan>
-References: <202010260230.VivTG0Gb-lkp@intel.com>
- <20201025121708.04d4070a44e28146baf9a6a7@linux-foundation.org>
+        Wed, 28 Oct 2020 08:50:54 -0700 (PDT)
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Wed, 28 Oct 2020 16:50:53 +0100 (CET)
+X-X-Sender: lukas@felia
+To: Tom Rix <trix@redhat.com>
+cc: Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+    Jamal Hadi Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>, 
+    Jiri Pirko <jiri@resnulli.us>, "David S . Miller" <davem@davemloft.net>, 
+    Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org, 
+    Nathan Chancellor <natechancellor@gmail.com>, 
+    Nick Desaulniers <ndesaulniers@google.com>, 
+    clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, 
+    kernel-janitors@vger.kernel.org, linux-safety@lists.elisa.tech
+Subject: Re: [PATCH] net: cls_api: remove unneeded local variable in
+ tc_dump_chain()
+In-Reply-To: <d956a5a5-c064-3fd4-5e78-809638ba14ef@redhat.com>
+Message-ID: <alpine.DEB.2.21.2010281629030.13040@felia>
+References: <20201028113533.26160-1-lukas.bulwahn@gmail.com> <d956a5a5-c064-3fd4-5e78-809638ba14ef@redhat.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20201025121708.04d4070a44e28146baf9a6a7@linux-foundation.org>
-X-Original-Sender: daniel.thompson@linaro.org
+X-Original-Sender: lukas.bulwahn@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=bVgcOJND;       spf=pass
- (google.com: domain of daniel.thompson@linaro.org designates
- 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=hPhWjar2;       spf=pass
+ (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344
+ as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,57 +155,121 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Oct 25, 2020 at 12:17:08PM -0700, Andrew Morton wrote:
-> On Mon, 26 Oct 2020 02:15:37 +0800 kernel test robot <lkp@intel.com> wrote:
-> 
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > head:   d76913908102044f14381df865bb74df17a538cb
-> > commit: cae9dc35ed9ff82a99754e51d57ff6c332e1f7e4 kasan: allow enabling stack tagging for tag-based mode
-> > date:   3 months ago
-> > config: arm64-randconfig-r005-20201026 (attached as .config)
-> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 1c8371692dfe8245bc6690ff1262dcced4649d21)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install arm64 cross compiling tool for clang build
-> >         # apt-get install binutils-aarch64-linux-gnu
-> >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cae9dc35ed9ff82a99754e51d57ff6c332e1f7e4
-> >         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-> >         git fetch --no-tags linus master
-> >         git checkout cae9dc35ed9ff82a99754e51d57ff6c332e1f7e4
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
-> > 
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > 
-> > All warnings (new ones prefixed by >>):
-> > 
-> > >> drivers/video/backlight/ltv350qv.c:192:12: warning: stack frame size of 13472 bytes in function 'ltv350qv_power' [-Wframe-larger-than=]
-> 
-> That's a lot of stack.
-> 
-> >    static int ltv350qv_power(struct ltv350qv *lcd, int power)
-> >               ^
-> >    1 warning generated.
-> > 
-> > vim +/ltv350qv_power +192 drivers/video/backlight/ltv350qv.c
-> 
-> Odd - the code looks pretty normal.  It is possible that your compiler
-> is (crazily) inlining ltv350qv_write_reg()?
-
-Certainly could be.
-
-Same config compiled with gcc-9 gives ltv350qv_write_reg() a stack usage
-that is large but not crazy: 768 bytes and dropping to 480 bytes with
-the sanitizers disabled. With the sanitizers enabled then even the 
-cumulative stack usage of ltv350qv_power() through to ltv350qv_write_reg() is
-still less than 1k.
 
 
-Daniel.
+On Wed, 28 Oct 2020, Tom Rix wrote:
+
+> 
+> On 10/28/20 4:35 AM, Lukas Bulwahn wrote:
+> > make clang-analyzer on x86_64 defconfig caught my attention with:
+> >
+> > net/sched/cls_api.c:2964:3: warning: Value stored to 'parent' is never read
+> >   [clang-analyzer-deadcode.DeadStores]
+> >                 parent = 0;
+> >                 ^
+> >
+> > net/sched/cls_api.c:2977:4: warning: Value stored to 'parent' is never read
+> >   [clang-analyzer-deadcode.DeadStores]
+> >                         parent = q->handle;
+> >                         ^
+> >
+> > Commit 32a4f5ecd738 ("net: sched: introduce chain object to uapi")
+> > introduced tc_dump_chain() and this initial implementation already
+> > contained these unneeded dead stores.
+> >
+> > Simplify the code to make clang-analyzer happy.
+> >
+> > As compilers will detect these unneeded assignments and optimize this
+> > anyway, the resulting binary is identical before and after this change.
+> >
+> > No functional change. No change in object code.
+> >
+> > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> > ---
+> > applies cleanly on current master and next-20201028
+> >
+> > Jamal, Cong, Jiri, please ack.
+> > David, Jakub, please pick this minor non-urgent clean-up patch.
+> >
+> >  net/sched/cls_api.c | 16 +++-------------
+> >  1 file changed, 3 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/net/sched/cls_api.c b/net/sched/cls_api.c
+> > index faeabff283a2..8ce830ca5f92 100644
+> > --- a/net/sched/cls_api.c
+> > +++ b/net/sched/cls_api.c
+> > @@ -2940,7 +2940,6 @@ static int tc_dump_chain(struct sk_buff *skb, struct netlink_callback *cb)
+> >  	struct tcf_chain *chain;
+> >  	long index_start;
+> >  	long index;
+> > -	u32 parent;
+> >  	int err;
+> >  
+> >  	if (nlmsg_len(cb->nlh) < sizeof(*tcm))
+> > @@ -2955,13 +2954,6 @@ static int tc_dump_chain(struct sk_buff *skb, struct netlink_callback *cb)
+> >  		block = tcf_block_refcnt_get(net, tcm->tcm_block_index);
+> >  		if (!block)
+> >  			goto out;
+> > -		/* If we work with block index, q is NULL and parent value
+> > -		 * will never be used in the following code. The check
+> > -		 * in tcf_fill_node prevents it. However, compiler does not
+> > -		 * see that far, so set parent to zero to silence the warning
+> > -		 * about parent being uninitialized.
+> > -		 */
+> > -		parent = 0;
+> >  	} else {
+> >  		const struct Qdisc_class_ops *cops;
+> >  		struct net_device *dev;
+> > @@ -2971,13 +2963,11 @@ static int tc_dump_chain(struct sk_buff *skb, struct netlink_callback *cb)
+> >  		if (!dev)
+> >  			return skb->len;
+> >  
+> > -		parent = tcm->tcm_parent;
+> > -		if (!parent) {
+> > +		if (!tcm->tcm_parent)
+> >  			q = dev->qdisc;
+> > -			parent = q->handle;
+> 
+> This looks like a an unused error handler.
+> 
+> and the later call to
+> 
+> if (TC_H_MIN(tcm->tcm_parent)
+> 
+> maybe should be
+> 
+> if (TC_H_MIN(parent))
+> 
+> so I am skeptical that this change is ok because the code around it looks buggy.
+>
+
+Maybe that is the case.
+
+Certainly the comment above about being uninitialized is outdated as 
+parent is not used in tc_chain_fill_node().
+
+I had another look and I noticed a copy of this same pattern (with the 
+same comment) in tc_dump_tfilter(), but it seems that the two copies have 
+somehow diverged over time. Certainly, something is fishy here.
+
+I guess it needs some more digging in the code...
+
+Lukas
+
+> Tom
+> 
+> > -		} else {
+> > +		else
+> >  			q = qdisc_lookup(dev, TC_H_MAJ(tcm->tcm_parent));
+> > -		}
+> > +
+> >  		if (!q)
+> >  			goto out;
+> >  		cops = q->ops->cl_ops;
+> 
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201028154613.fue7ilxdihj2cado%40holly.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2010281629030.13040%40felia.
