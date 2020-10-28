@@ -1,140 +1,144 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBKHF4X6AKGQEXJ4SRSQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBLPS4X6AKGQE7P4KS4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5806529D00A
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 14:31:22 +0100 (CET)
-Received: by mail-lf1-x13f.google.com with SMTP id t145sf944780lff.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 06:31:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603891882; cv=pass;
+Received: from mail-vs1-xe3b.google.com (mail-vs1-xe3b.google.com [IPv6:2607:f8b0:4864:20::e3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7463A29D02C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 14:59:10 +0100 (CET)
+Received: by mail-vs1-xe3b.google.com with SMTP id s25sf977881vsn.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Oct 2020 06:59:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603893549; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YZugIbEc0yubeablwbQWkvEVVhKNMu+Mo3X1Up+48+9+o9438QG1E1rPlBdPu73t3y
-         t62FBYcyhRbAG/dc2qkUudTb8kvMTL8tWkfRTdHAS9OB8WMS3ltS2WlO9apcMyjGTcWG
-         fO7J4VJn1OMVA8TG6kmtjOpGsbKUjaVnrrvK9JwaZZP/0nC1bPa1H8FpGXSUP6sZ1k/k
-         JRGnyEEeITZJrCf5961Owu/jz0jHfdQzmias3QeV9VOuOFQR7i4wZajA9t1Gp5thNPCo
-         EXHRf5rS6sk9r/5nXtU0P7OV8UwtcAIAFEzoDJchmqAkztY1gyswiip1L2dLYkHQCXAd
-         sbpA==
+        b=lXWqOoeLrToJicowHpCn6pv2uF+T05OugEmFq/nES8qZ2Ljn43vcl2A4nQefd5bd2m
+         sZma0q0g/oCiMK2K6v3mhOwWqGc8l0AUB2PZuYDDlsVx4BzElPaChmg9PdA62P1AMWTc
+         n7N0s0sw551xzVL3HsghPpCLQxSE2sdP2sIKCAwqfOhwbOYcDXV5/XxE3rZ+u7zF21Dj
+         yJ/iZ04VfOcI54zzlR44dMNWV5nhRjPQ0FqPgaktek3oyIqFbqy9YoKTyCn0MGmPc80m
+         9wLkeGpNLYtskwif3iA+RCqeG7c2q/gds3BvJVHsBgcg4O485HmE6CcRdDXvRH2hj0TA
+         Hyug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature:dkim-signature;
-        bh=yi8QnFmfRaWiLF4sRGxdLYvD1Vmz0ilP7g3h6BdSz3o=;
-        b=JwH96S1ceG4+ujENhRzMNUb9DB0BhJPD6D4m7Ne1XseyM+59PdHR5ctMGQOgPDWq6M
-         VBJXS1C/CgwsKYg/ccDPCLtLIM2VZn552GI6Om1OTQZxSXpeUlr7pvvAU8xAhuSxLjba
-         EVtK32YOlW0f8hoM75PGs3061bA6h+T/Fev8jMmtSr5QgFiP1g+9zRGgJYpPLWcBWyVp
-         nHtz6z57MTvyc2a8ys0sBlvRZ07iosgaXi8hpOYBHR+0GRSmZj/38VeuqEz5iItz9/s4
-         v/Ai7iNuifmSiHDvRC0v7GRSAWovQhv34rvmyyBGOg6Dn1yf8jlJjeNuAF+yRmH9TT60
-         9ICA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=7rmaK5ePMRfupOZBLD6+TCBzEnnK0kz7mt5AQj9XBlo=;
+        b=PTzt4iByMSMeaqFRt4x4LQMq9Ih8byX2eglU7sI/NQ82ff9cwaYUZqSMTm+9zVOisI
+         QoUBPMbLHqsJjrQb/0ufOn++3tFIT2DOcNHPxCpjz8Lgh/+Sr0GnccmTqEioXSqkoZJD
+         8e+gKTouCyhBhYoZSe1yDtWpxiKRPdmMUIyiH8x6/cPJTkxvT4/D0nFDmjvwMo5poNtt
+         dcDFyTEjrCUc8o0LGUF4qbUuH+PfbUBQtZteU10FzHWIiB7plv2i1Ydsgr+COElbzn61
+         cQ5t1oUkG3TRVoadh1U/5Q53DlZU60NhYgomHW/Hc0niH7h3dpdX+V1k4L8b7QSnZpnL
+         9LUg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mg0c3Trr;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=bp8BLXdv;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=yi8QnFmfRaWiLF4sRGxdLYvD1Vmz0ilP7g3h6BdSz3o=;
-        b=Gv0aVV4teD8UKJYlCdfu84oP84RvpDCQAwjJLQEJzaOqFmVKqoigvabBENyQXQP0C2
-         qfdFdDfziYSiZcMCNYN8KN/31hDBVe/0VYeEeIjXHsdNmEke/zeQi7Bg5drZ9LMMfHvq
-         ac3PW6qLDOvSP5K2L1Np8+xqZaENcj/4Cof2YPe+U4vnO4L8m+bCcBVOf55BxzTHBF/h
-         gSb2wM2yPrzet3dSuB197XPnlMh9n+cVbsVIJSIcxLn1qL6KNVXzQ5wDktJUrGXCbA/S
-         8CEu6wCJW6x3VMAKbTZ53sfAKKDX99FqqCtRfCGLZp5+hS/20JzONHcsj+1oFsuFdNf+
-         KPCw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yi8QnFmfRaWiLF4sRGxdLYvD1Vmz0ilP7g3h6BdSz3o=;
-        b=AUTcO/2aeR3SDhXGg0+Aq7SBTuQubZu918bO4l1sx0ZgzZxToIo1kWq3uoppdPZdQ5
-         Ys/WGcYCdXe/kxx9gg4lRuHrNJSswSFhXU/Nj/CyZRIAgCxECxwyfQbOm8uXqRkU42mj
-         DaCPqoriYnHm0dj1bhIjxLtzlbapMBufDy0Vi3LNFecBrcsvLIulIlne4zca+wRtCOOS
-         0UfohPtcYlIofpey9JaqtzynOR6IXMa4ACZgT+wC/W3AzqO+kyVjqpA6qKCIeepE3ndB
-         Ws3T3VeozVa/ysmrHZyyToingkp2CaXAE7coBY/MuLlQmnRKW9KtGRzPkuFsCZadOLZe
-         j4IQ==
+        bh=7rmaK5ePMRfupOZBLD6+TCBzEnnK0kz7mt5AQj9XBlo=;
+        b=NRJp1eQOXkTed01Jc3Jjj4e9hPgxiRXW9np+O722inv3Zf2NEbgGOFd/a2Ksduyd03
+         W267qSaH4kS6rNXxWqeF0AmveI6Z9oUv6rdz0rkHsIYRTj3Gbqnxuvbu3NvesDzWQM3I
+         AArG6D6hv1qFK9w4bt5YKundXcEQzrkm9+BkQz/UIF2sc7Bfzu0OIyBJ6+CP3nr9TJWU
+         gVHk4rwg9HGzO2vfSuhWml5uaqcfukIQgd5/ydccbNn6D3agVk/z4MUKTGJKwGZrINIM
+         OEeAVjxbk8Z4ebiBu6afAw1GxMIoEFuxVL7FI9vck3OPU3oIWDHyY6h0nQk/gZhr63j4
+         eICA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yi8QnFmfRaWiLF4sRGxdLYvD1Vmz0ilP7g3h6BdSz3o=;
-        b=dn8zl54qzFVmaUmLOfN7hVJmzWsV5JR1CkANnrY7p3Mnna1qYqz8ZwCPBieV+UI/kR
-         in2lAkDlTy924OXC2JbIY2qjyktWc/EZRkN9B24Ksp6PTzKJ2PzN0db3OVsAYYN1/ltA
-         tERw2Gg6RdNnlh4n95JhTrSzrz/WEsyQewlLSYkHKB1rlgDPXcYBT4TD3nRfLGDxfWSl
-         5yIS6F5w+Ot7ciLEFFggbQHw8kIW1/uShIzqEErLi9WL3b57O51sBvRxbLJMlBGyYkeU
-         hAN1MsmpELk0iQRSz+lX8fn7Y1LUrIf6du1GSalPjHh7tXPHYPvMUckYN1INfKg/9kf8
-         zW8g==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=7rmaK5ePMRfupOZBLD6+TCBzEnnK0kz7mt5AQj9XBlo=;
+        b=PQErArBHYX85QLnECqowByz3Tz477m+DcSr6VX1cI/+9jdvFAg7aIFpiAo2ygbKpDK
+         CfBJJwHty7mdlvb4veR9vMmrlknoE0ZvU7LhRwL8R2rV5XHjpCxv3o4ecklgN3h+pbmW
+         YVFAGQpvxgLl77mlqOGUei/cPV12YI+XGZWn1vmK6rH6QkO7Q/WAcGXPf8JYfLkHHjIt
+         l9LMb5rbq0RRY2UhScFpjH6V5K8mSgW+zA2jtR5bPKPrtuFKq6vnFZKRF5qdx9VdhK3f
+         M7SUIfrS+sGvAQXYR+h5rfPI1SasQ9v+ZAMIdC69vnTYIZH5VcGYedJY0tSDLO+KUDwo
+         5u8Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531f8HiIUtTI0Ec9TOD1tyo2A6EFunHMazrQKeHiwJtCYimv+Nm5
-	GBKk/cb/tA/bNZ88iBphNYg=
-X-Google-Smtp-Source: ABdhPJxGFULOGh/uFuy8wNaZIWxbXtNIDpJcvSXpmmicmkhZ//i5NVHlCEvWDEBk0FCnBoWrORW/PQ==
-X-Received: by 2002:a19:3f55:: with SMTP id m82mr2992246lfa.491.1603891880821;
-        Wed, 28 Oct 2020 06:31:20 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM533Bicoifi9IVrRxJw3cerpAr+Kqc1LafM6YHuTzR70/NPa7fHkO
+	DxyPFWOee5AGqfNqnMVeAks=
+X-Google-Smtp-Source: ABdhPJxXaSM66kjOMd4IzFstyTzMHuTXloOJVtXNmjE6gl6R4LERwz61b8jLW2qP4geKXrOGXP8JZQ==
+X-Received: by 2002:ab0:3254:: with SMTP id r20mr4492660uan.2.1603893549499;
+        Wed, 28 Oct 2020 06:59:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:554:: with SMTP id 81ls584707lff.1.gmail; Wed, 28 Oct
- 2020 06:31:19 -0700 (PDT)
-X-Received: by 2002:a19:e03:: with SMTP id 3mr2918543lfo.335.1603891879610;
-        Wed, 28 Oct 2020 06:31:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603891879; cv=none;
+Received: by 2002:a67:e29a:: with SMTP id g26ls661766vsf.6.gmail; Wed, 28 Oct
+ 2020 06:59:09 -0700 (PDT)
+X-Received: by 2002:a67:d79b:: with SMTP id q27mr5308035vsj.31.1603893548984;
+        Wed, 28 Oct 2020 06:59:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603893548; cv=none;
         d=google.com; s=arc-20160816;
-        b=NG2VJXGaEyBsVYOew+1xjvCbJf/SQJV3X+nHO4ZZ0NckZ+eMSC7RqlRzJpBEHxalrL
-         0+qp0PrgQDd8HuncD4iO1dHPATBCblBBS0Fn3s5cIPY+dDIN5vzSm83xEikBedqbMHDd
-         rPbFZU9JMlvq3ICZR7Vnp1Nc7bEDvL10+mArS6GKWxfEZ8T4V/qY+QxJ/bM94EJqEyj6
-         G/AGmPacrM4FTm4i6NgfZsjvvXE2lFYLSKy3Rhy80ei2QoFol5OjIJRu6FVKk4fR3QXN
-         58wEVMnRJsRvr1P9Srnr3W6dilAswKaKCAa7wMAZ6N0kG1yVhUp9kHupOWGTidib7T2J
-         e3LA==
+        b=H7JRkBOhZQQEnPCGiMjBca+M5sYNHrRxSNHWNRwJ7lMmB4FFpFffIZuRK9dxHHegP+
+         2jYk/00DGnbep9CTFFysaj4kcyH6XcCusU6rrO43ijIjP0vL7QMVf+llL/qs0brkmCpJ
+         5unXWPQ6lrYDJAiq4SLgbEJ214xXXa+JzYKRirOA62XpEhWGhgRAvwnPFN9XHoFkvnqH
+         aagOVeGFZpcrOC6cx3TvNo246UBglVYV8mHaZz2MC4JMznV2C6INyAldbvVozCqVtu/T
+         vUjuIF0sBuoRpCTR6HLqoIU+biMIgIFsNN2GGy7CTVD2U9XSqEC6HXIvsQ83Y8lW4REP
+         z+Uw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=5BWRuAigFz9km9p6yXg2RqfU876ueFRRadA3U73oXM0=;
-        b=hs+Z2kSK4SuOgPIhbYC6I3fmj8wQoKil4Au3KW3twcwAiESQfAn5YognDQkfk9ja1I
-         w2qS7LkfdHXXb9UMw7MAwmhLR3NcO1W/r2rw14+f2DGg8WhLpUdZzN5W5O039DLP2E8d
-         wgzrIqUyk6XVdU9aeePzndkXS6ftfYhrcGFwvqBOWjMEtzMHiOz4xcoLLl8u3lnWt2Dm
-         J5aae7a9mjFjyO1WBxgt3dthxv0/BqKyBxdWJTURVJGPutrVTqBjecsCt7LKhXE7yfgl
-         ssigVaLaECWOg44m+bit70Ey097hRdqEwLiCzRPWSVf3to24XVHypKulVrlfoXM+548V
-         cpbA==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=o9/CLvMtl/VDe8FAQKlYw2/08Jd6hZteFLUw3bqy7TU=;
+        b=iyvj+jCC6KFwVR+v+QO1Od3X728tNAenBstB+epKztrjLw+VNSoUYFRGuE9pkV93EF
+         +zK/Yg8DGJgfTCEkTIziUXumQU7S5nfIFekDHMuZb+sb6Q1+6YRhkh/cBtqP8lVpXGUJ
+         AbiVGihliYLMnllm2UCEWXhDnfUYjhIAkqAEo6a/43Hn7uRj9qQw0otGRmQ3qy1V0h7a
+         KXUHPiaJfgqX4Et2nJOq7tNrNJMjS+KDEvY2ytBDfLCfZoW4oo25lkxuyz+KbiN00WOj
+         SbQ6Q0rIBCHY5FLiGlJ2H7Iw5jjE4vE6f9Xbe0qaOZF0TtK5LgfK26IZz5lMHpXEgPAt
+         Nb5w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mg0c3Trr;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x642.google.com (mail-ej1-x642.google.com. [2a00:1450:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id y17si144241lfh.4.2020.10.28.06.31.19
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=bp8BLXdv;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id e7si369114vsr.2.2020.10.28.06.59.08
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 28 Oct 2020 06:59:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
+ [209.85.210.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-52-FvF44aInPU-K2kkvBPQSFg-1; Wed, 28 Oct 2020 09:59:07 -0400
+X-MC-Unique: FvF44aInPU-K2kkvBPQSFg-1
+Received: by mail-ot1-f71.google.com with SMTP id r4so1651941oti.16
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Oct 2020 06:59:06 -0700 (PDT)
+X-Received: by 2002:a05:6830:1009:: with SMTP id a9mr3705434otp.312.1603893546067;
+        Wed, 28 Oct 2020 06:59:06 -0700 (PDT)
+X-Received: by 2002:a05:6830:1009:: with SMTP id a9mr3705422otp.312.1603893545799;
+        Wed, 28 Oct 2020 06:59:05 -0700 (PDT)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id c20sm2031463otm.49.2020.10.28.06.59.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Oct 2020 06:31:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) client-ip=2a00:1450:4864:20::642;
-Received: by mail-ej1-x642.google.com with SMTP id k3so7184071ejj.10
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Oct 2020 06:31:19 -0700 (PDT)
-X-Received: by 2002:a17:906:3a55:: with SMTP id a21mr7365323ejf.357.1603891879235;
-        Wed, 28 Oct 2020 06:31:19 -0700 (PDT)
-Received: from felia.fritz.box ([2001:16b8:2d7a:200:a915:6596:e9b0:4f60])
-        by smtp.gmail.com with ESMTPSA id ce15sm3186691ejc.39.2020.10.28.06.31.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2020 06:31:18 -0700 (PDT)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-To: David Airlie <airlied@linux.ie>
+        Wed, 28 Oct 2020 06:59:05 -0700 (PDT)
+Subject: Re: [PATCH] net: cls_api: remove unneeded local variable in
+ tc_dump_chain()
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+ Jamal Hadi Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>,
+ Jiri Pirko <jiri@resnulli.us>, "David S . Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>,
-	clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	linux-safety@lists.elisa.tech,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Subject: [PATCH] agp: amd64: remove unneeded initialization
-Date: Wed, 28 Oct 2020 14:31:06 +0100
-Message-Id: <20201028133106.5420-1-lukas.bulwahn@gmail.com>
-X-Mailer: git-send-email 2.17.1
-X-Original-Sender: lukas.bulwahn@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=mg0c3Trr;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org, linux-safety@lists.elisa.tech
+References: <20201028113533.26160-1-lukas.bulwahn@gmail.com>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <d956a5a5-c064-3fd4-5e78-809638ba14ef@redhat.com>
+Date: Wed, 28 Oct 2020 06:59:03 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
+MIME-Version: 1.0
+In-Reply-To: <20201028113533.26160-1-lukas.bulwahn@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=bp8BLXdv;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,49 +151,101 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-make clang-analyzer on x86_64 defconfig caught my attention with:
 
-  drivers/char/agp/amd64-agp.c:336:2: warning: \
-  Value stored to 'i' is never read [clang-analyzer-deadcode.DeadStores]
-          i = 0;
-          ^
+On 10/28/20 4:35 AM, Lukas Bulwahn wrote:
+> make clang-analyzer on x86_64 defconfig caught my attention with:
+>
+> net/sched/cls_api.c:2964:3: warning: Value stored to 'parent' is never read
+>   [clang-analyzer-deadcode.DeadStores]
+>                 parent = 0;
+>                 ^
+>
+> net/sched/cls_api.c:2977:4: warning: Value stored to 'parent' is never read
+>   [clang-analyzer-deadcode.DeadStores]
+>                         parent = q->handle;
+>                         ^
+>
+> Commit 32a4f5ecd738 ("net: sched: introduce chain object to uapi")
+> introduced tc_dump_chain() and this initial implementation already
+> contained these unneeded dead stores.
+>
+> Simplify the code to make clang-analyzer happy.
+>
+> As compilers will detect these unneeded assignments and optimize this
+> anyway, the resulting binary is identical before and after this change.
+>
+> No functional change. No change in object code.
+>
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> ---
+> applies cleanly on current master and next-20201028
+>
+> Jamal, Cong, Jiri, please ack.
+> David, Jakub, please pick this minor non-urgent clean-up patch.
+>
+>  net/sched/cls_api.c | 16 +++-------------
+>  1 file changed, 3 insertions(+), 13 deletions(-)
+>
+> diff --git a/net/sched/cls_api.c b/net/sched/cls_api.c
+> index faeabff283a2..8ce830ca5f92 100644
+> --- a/net/sched/cls_api.c
+> +++ b/net/sched/cls_api.c
+> @@ -2940,7 +2940,6 @@ static int tc_dump_chain(struct sk_buff *skb, struct netlink_callback *cb)
+>  	struct tcf_chain *chain;
+>  	long index_start;
+>  	long index;
+> -	u32 parent;
+>  	int err;
+>  
+>  	if (nlmsg_len(cb->nlh) < sizeof(*tcm))
+> @@ -2955,13 +2954,6 @@ static int tc_dump_chain(struct sk_buff *skb, struct netlink_callback *cb)
+>  		block = tcf_block_refcnt_get(net, tcm->tcm_block_index);
+>  		if (!block)
+>  			goto out;
+> -		/* If we work with block index, q is NULL and parent value
+> -		 * will never be used in the following code. The check
+> -		 * in tcf_fill_node prevents it. However, compiler does not
+> -		 * see that far, so set parent to zero to silence the warning
+> -		 * about parent being uninitialized.
+> -		 */
+> -		parent = 0;
+>  	} else {
+>  		const struct Qdisc_class_ops *cops;
+>  		struct net_device *dev;
+> @@ -2971,13 +2963,11 @@ static int tc_dump_chain(struct sk_buff *skb, struct netlink_callback *cb)
+>  		if (!dev)
+>  			return skb->len;
+>  
+> -		parent = tcm->tcm_parent;
+> -		if (!parent) {
+> +		if (!tcm->tcm_parent)
+>  			q = dev->qdisc;
+> -			parent = q->handle;
 
-Remove this unneeded initialization to make clang-analyzer happy.
+This looks like a an unused error handler.
 
-Commit a32073bffc65 ("x86_64: Clean and enhance up K8 northbridge access
-code") refactored cache_nbs() and introduced this unneeded dead-store
-initialization.
+and the later call to
 
-As compilers will detect this unneeded assignment and optimize this anyway,
-the resulting binary is identical before and after this change.
+if (TC_H_MIN(tcm->tcm_parent)
 
-No functional change. No change in binary code.
+maybe should be
 
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
----
-applies cleanly on current master and next-20201028
+if (TC_H_MIN(parent))
 
-David, please pick this minor non-urgent clean-up patch.
+so I am skeptical that this change is ok because the code around it looks buggy.
 
- drivers/char/agp/amd64-agp.c | 1 -
- 1 file changed, 1 deletion(-)
+Tom
 
-diff --git a/drivers/char/agp/amd64-agp.c b/drivers/char/agp/amd64-agp.c
-index b40edae32817..0413b3136541 100644
---- a/drivers/char/agp/amd64-agp.c
-+++ b/drivers/char/agp/amd64-agp.c
-@@ -333,7 +333,6 @@ static int cache_nbs(struct pci_dev *pdev, u32 cap_ptr)
- 	if (!amd_nb_has_feature(AMD_NB_GART))
- 		return -ENODEV;
- 
--	i = 0;
- 	for (i = 0; i < amd_nb_num(); i++) {
- 		struct pci_dev *dev = node_to_amd_nb(i)->misc;
- 		if (fix_northbridge(dev, pdev, cap_ptr) < 0) {
--- 
-2.17.1
+> -		} else {
+> +		else
+>  			q = qdisc_lookup(dev, TC_H_MAJ(tcm->tcm_parent));
+> -		}
+> +
+>  		if (!q)
+>  			goto out;
+>  		cops = q->ops->cl_ops;
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201028133106.5420-1-lukas.bulwahn%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d956a5a5-c064-3fd4-5e78-809638ba14ef%40redhat.com.
