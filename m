@@ -1,125 +1,124 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWUI5T6AKGQEEACXY2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBB3EI5T6AKGQEEHQ3DMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id ACA1F29F3C1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 19:05:15 +0100 (CET)
-Received: by mail-ot1-x340.google.com with SMTP id 65sf1279752otv.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 11:05:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1603994714; cv=pass;
+Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A75829F3C2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 19:05:34 +0100 (CET)
+Received: by mail-il1-x13b.google.com with SMTP id p17sf2637513ilb.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 11:05:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1603994733; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oDC3MTj///CdFn+QtRs0pHg55zmsAKB3vjclvdMO6qv5sEPxqkbNbfBLF7S9cgXEd0
-         U6FY5BiItfoNpf2Q/uOqODclD1Bn9TjBei0qb5ha3/V5/ulFxzi4vhasBli49rYPdj1D
-         riOxuwL8mbTbFSmnGs8UmVwtklca5OJWZu877/o63VoqyjasQyo0INfyG9et/b7Rq61y
-         WK6O6stKH8Us9alsS70rOs5wVvuYRqK807zry8uZpXXLHQBQD17VmiYxIjDa1UZRbWWu
-         u8GBWxZ41y7TpLf/48ZsvlhlhDb2xr0VGXgT11zaoypUV3zojlZyn+zJWYOtURM6AWYn
-         EDmA==
+        b=vs3UmZh6arpXii4Xc3AKdhMYRhPNVosc1Ps9mUN035bX0rsMKt2HViEdc2SrXOlj63
+         uJjvpOcRo69SLpghB0ALen/+uJMyAAgJlY1G9fTP1rzGMCVxgQDxRqoRVEbtxlReaNxS
+         9P0r9XH2gYxexQpLwTZNak4qKDJPJfcUO7sr1/XbvgafzaU7xEu6tfVGbtr6Pci1zU+D
+         SV7PHw8WeoUXsYOKYqFEqlMHKemWqktOeWeemOFSQK4Lzs2SMkCDSkXLhxh0On2n6dqE
+         hqEGfWd8vkgpVJ4Y+jB2nCt/6m+5LPtVCJQkz/O++a9RN2sefismdZB+hioAUkMw0m6E
+         4gYQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=q3WcCe7SlHVXwdf8OO4dRgr6xzqCZE3mTQrW1k0bUyA=;
-        b=WX7X5u5x/HSHW488oZeF095z5u7afIGSHKZ+JH7nY3QyCZFVSBTsbJNuY3wHesOIMC
-         eVXFlvm4IcJxl8YdqwQ1rqAqHJUo2tEoybRiCW4A4sPibuwU6xzJDPsHg+wrstiEn6aD
-         Ts/v+yUvbrskpbBWTUHNxk5GcwFhG0obZJSP/anQ8DGDU8pkXtT8X8rvd5XtSSmEQKGS
-         5eHfecr20r4Oc/73ScHYCjGtU6AbxjLLDgZr9ip0VrEhPBJb/VSkV5aMWuB5OOUB4xm+
-         FElOgrDbEPoyu6DJxwHZCT+FbqLhAeh3qMteGbI+h2BQ5TjuZkfYPKczRQS1tl/U6Wif
-         Hvng==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:sender:dkim-signature;
+        bh=iCuUH3HDYQwfEOfmLYmpZbgI3mzeqhkzSG/Ofpiz/iQ=;
+        b=M2OaUjTI4oxVm+82FWqYVvHvR7TuPPeB5leS7WeD4d+K3R7jVGUIMd++joBTNOet7A
+         S6v4AK889l4cWGI5wxlrjejP9sfD9nTdxPZEBvHLBR7XATVXmoK2WuvjsIAx1iDRo54h
+         S6lMBdQhLj3rdcoankKQT9UJTE4ut1c7ciaBrNnecMBaQSINkkn193j//Nlv/2Ab9Zsk
+         fU2hbOCtHZYKBIvUC8s6Kmc4Lmfd3ClwSWFdbljsjpFDoL9ihJevbuj6pWeZc7JIFfRr
+         CgcSnZ+BXAuZKjZ+kTB66UG2mqpOJvg2f8rErp2oNlgKbwgC19OZ31/vhaNAwpegkuVf
+         Gsjw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=B2MvEPzx;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Juj++IZc;
+       spf=pass (google.com: domain of 3awsbxwckeeiqewovecksskpi.gsqgperk-fympx-pmrybksskpikvsytw.gsq@flex--maskray.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3awSbXwcKEeIQEWOVEcKSSKPI.GSQGPERK-FYMPX-PMRYbKSSKPIKVSYTW.GSQ@flex--maskray.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=q3WcCe7SlHVXwdf8OO4dRgr6xzqCZE3mTQrW1k0bUyA=;
-        b=o28XJQTgQpofKPZO6RLyaVntUdBmZz+ebnEb+1hrPNwn08ZsrsGcZkRbz3HxHDcad+
-         pLsIbo6syI4l8kJBUnirBuwub41Zp3NbzjC3mdIytQSdrKjmfU0waXI7M7KY3YbO2qjN
-         NocH5Y/wqTr26tFrdZva2DdOXx1008jEZjA31DzT81v1wm19du46vVT7kouEzA+UETuI
-         z8vU6Tqq3o5y4YXmr5YwVFHEHBUbaDrf5mjtD6hf5/40JikXXxJOaPsb1hgi/pqtrLNo
-         cWrq4sFi+SLoG04GjHRAypO6pMjcLBVLsvOyuh+imni8ulm+uMzrFgTCg5mDT9Sq+ipD
-         WuAg==
+        bh=iCuUH3HDYQwfEOfmLYmpZbgI3mzeqhkzSG/Ofpiz/iQ=;
+        b=gLjXTtnOuPvM/tRANoGF2Yvdr5ZUdeniGni8dPFNtM7eR6NvPJrbLe34hR3npMcPmC
+         tihPu//CWS11Ml6Lwcr4ZJSPWNp9d+mPcYhds7zstwGBWsw17I98H7smAr6BYd2mLNfO
+         DBBVw8AGHtgMbECNLRvDBkggMF3LvriueHisvVlhJ9X8w14qhwNbF6R0+EAIaCuPu+tH
+         TK5zduxm3lFsU0aqjpIFUqYan5ER5w4FKZTzYnBAmHIJqkSjMV69bZYACkMg23caF/xC
+         VcdRDY9TWqc9mdM81C/Hz33KSfeogMUTG4ouwHhIoOvM0dy3MHIS+YedDcDNXNIJ2Gz4
+         RHyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=q3WcCe7SlHVXwdf8OO4dRgr6xzqCZE3mTQrW1k0bUyA=;
-        b=cYTP8qAv1ehWkvtGERjJ17QbyQBoHJ9sbuQFkpbHeclQ5c/gL+h4uUFUCe5StSdp/7
-         0TKBAfIEMfzb2IEbe8pP5zdCDmXsJSlCHOmjv5EnPGNtn6EVU9PDXp2+hNK//JyWVMS3
-         +2baw4CfGy1uWUXmkoOwzJ2moGkm9rYDjx/E6vT/8U2LO1w2489RJf666l3bM2f4a6i+
-         HFSEC3gvvKXpma62DiaszK4ALyeR/+mz6aQvYuNhIflkxvdbNYDFDElqtwfn48AMI4uV
-         n0Y6JZBregeeo/rS0aFpt9YLKiH+4wA+RFQd2VfFRj9Xkwq3+D5Vw53WZPLPfbhzf4nT
-         y2BQ==
-X-Gm-Message-State: AOAM531x2rMbod0GHAUvoeRI0l+7SlOl9XtW9KDqlWQHJVI5H0AmBvJx
-	jwFCoy4OVjiRuDQCRWhcPP0=
-X-Google-Smtp-Source: ABdhPJwKVIOq/Pmess9nVGftSGRJWDz20G510jiSv2IdxrLL4y68vlNaVgJ5YXbh9Z/MVO4pVKphYw==
-X-Received: by 2002:a9d:eca:: with SMTP id 68mr3955686otj.141.1603994714302;
-        Thu, 29 Oct 2020 11:05:14 -0700 (PDT)
+        h=x-gm-message-state:sender:date:message-id:mime-version:subject:from
+         :to:cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=iCuUH3HDYQwfEOfmLYmpZbgI3mzeqhkzSG/Ofpiz/iQ=;
+        b=M3bt8qb6dGq6NBkYJuYsFzz2iMlfRDENnYTYutlAbxJyYkDusey4h6WEVemV8M90p3
+         LOnMRKF77Tf3YPS95PIM9VWH9HLkoITcZW9rRhJXYK/Qt2UQWMi5ztA3jT9ltKFSLRAK
+         yqXlFiSV4a4EiKC5bmMH4H2dvp4hTIdkPB0ZKgrmnQ3CLVMySBnjI/DQWUVuvGrHpKp+
+         O18au0C3UlvqOaKcKvUv4BncKaYA4W0VV30YcGSsyOVFYuxzV8puHkxXlE/0R7ViuKfp
+         Nba1xfqQ7mg0uSIBCA5zkf/YXm/6DIxeW5LUpbzT6/s5C/oO5fkUce4HTRHp4LE06smM
+         Fc2w==
+X-Gm-Message-State: AOAM533ydGwDrY9SiXQ9tv9hy7jruMRyeQHVdr5NfUSmhuzRD3iwoZj1
+	sFrxaybNHLovYGd9MbQ55Kg=
+X-Google-Smtp-Source: ABdhPJxblAFs3apx6fJSDuQ6IyVZ0Aihn2g+owt4fAvXlGmatt7rOaOs/pTKA/C3p7X5mjXo7U6e9g==
+X-Received: by 2002:a92:740c:: with SMTP id p12mr3977924ilc.277.1603994733057;
+        Thu, 29 Oct 2020 11:05:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:cf15:: with SMTP id f21ls874511oig.8.gmail; Thu, 29 Oct
- 2020 11:05:14 -0700 (PDT)
-X-Received: by 2002:a05:6808:254:: with SMTP id m20mr619552oie.139.1603994713916;
-        Thu, 29 Oct 2020 11:05:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1603994713; cv=none;
+Received: by 2002:a92:1b42:: with SMTP id b63ls878814ilb.6.gmail; Thu, 29 Oct
+ 2020 11:05:32 -0700 (PDT)
+X-Received: by 2002:a05:6e02:f0e:: with SMTP id x14mr4505246ilj.228.1603994732649;
+        Thu, 29 Oct 2020 11:05:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603994732; cv=none;
         d=google.com; s=arc-20160816;
-        b=vmo7jkz/zTlzSVqiAQwLsawYEXnUr105LQ7J5+avNV0BzGxxyidDhoS0Jn0pUEtZGc
-         wtlGw+kgidD/qTtaXnE0r0eq4xwBq5++IHqP86OMOE3NN2/18OTgeVTNZ9D0yXzWLfI9
-         ErwwaBdR50oRZs005iHlo2x2yN7YO4BtDzpuEfuumpZeCwKBT61Wcn99ysVmztxUKKDt
-         whTaVe48Td9R5UOglYjHGXRAxZRyheDhj2F7y2VaDuV8uKw2ni52Di2bno32gaHHCgDu
-         tsl1/7W5+jb2zi1X8IXjBEIXxne69psVVPt2/svZUlWhhUxXKgGuJkFuKMhX8mIDXDlC
-         3p9w==
+        b=C3N5XNkePJBA77Duh5azNjLY+FeMfSahetl89X0Dgj0eslmWqKt5G63t7S86gUseI/
+         XGYJdvg+OziDOFEDazTyCNtYRpHZ41JArFFF+l3f4tME+9IguINat+ijH2Q8JIR5bT/z
+         QUTstFrt63E3cDJmqnB1N+ZlIYWS8+nrzUg+v/nghz8Y9TJgKYqaoSur4tAQIJGu3PPl
+         ySX9LQBPRi4iyKsdSCMHemGNw5GSCGSGwLSVEcVm7Ve6My3+EK4/U2Sdz95JK4ngiX2a
+         KIn+bzP7Om2SjdQfNJelKvHR+eU1qnlBKdV9ix66s1wC/kSaTFJQLqoZtenrafZjJ+4u
+         PzLA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=5WJeTYznKfcfB3JkvqNmYT6rbBxdKza91BrDnR1e/Mc=;
-        b=wpJRmQFJPyA51fGkFc7P3fcB0kFoRg3APhwJSix4nd1AiLeHzlj3lb5MTtUvq+F6dt
-         5rv1ryRNHe8kBVFev52T0tGtolEVHp8A/x92JX5lBFY6bQrkf2TXVr1JRFst831OPSMr
-         1i+acoLoml/8K784Mwj93xYs6lSscgBSPAkVtLAw0XYAg4Tjrwm3+lQ0MZttbgFxXBYo
-         Enj+b5SS3aKyDguyPrCU/2wyic8jT6p/QztRGMNVgZAm/rsNNK+WqEV20Zn9kpFhi1mF
-         acs9lCL6rWKjvl7M5OMDh62R6yXAiKEPEFhas1BT4LidQp7Y3fG6bSufcUNrdwG3pWqh
-         rglQ==
+        h=cc:to:from:subject:mime-version:message-id:date:sender
+         :dkim-signature;
+        bh=TFVBAa3RYz8IYFna+GiAaNLsKOoOUuSXlq1eujs3Qh8=;
+        b=vJZNxJH1ZPCDutX0kKuuJjtnwTeYVlmPFmMe0n00DK02zhnCydh4VRqhT/WruFc6Ay
+         liZhMwzn/kTPu+ogcL1qDJipcdSf0VN8TIyblZkjrK0PBFr3hSDOL1gzFsrpeakOTf/f
+         ++6OforZjHRBLNxWwHKsmrgc40tk7P2XFEn12PCi6VZNsLzSt3fGUUD71z1ojClECIdn
+         7KR6DPiK1dfE+ADJQWNNI+YNw/f+Nh+Msstw6sCAkntZ0cK0NxOplJYmVOu3mO79f9RW
+         NUaCXzSU29mPIFhKycEKgqio9E96wVVm20AEuxGGarREJLsiao/ejDKuqnhkIiZhEyLj
+         ehoQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=B2MvEPzx;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Juj++IZc;
+       spf=pass (google.com: domain of 3awsbxwckeeiqewovecksskpi.gsqgperk-fympx-pmrybksskpikvsytw.gsq@flex--maskray.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3awSbXwcKEeIQEWOVEcKSSKPI.GSQGPERK-FYMPX-PMRYbKSSKPIKVSYTW.GSQ@flex--maskray.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id p17si333479oot.0.2020.10.29.11.05.13
+Received: from mail-pl1-x64a.google.com (mail-pl1-x64a.google.com. [2607:f8b0:4864:20::64a])
+        by gmr-mx.google.com with ESMTPS id s11si186618iot.1.2020.10.29.11.05.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Oct 2020 11:05:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id 10so3005754pfp.5
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Oct 2020 11:05:13 -0700 (PDT)
-X-Received: by 2002:a62:5e06:0:b029:164:a9ca:b07e with SMTP id
- s6-20020a625e060000b0290164a9cab07emr5280171pfb.36.1603994712971; Thu, 29 Oct
- 2020 11:05:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <CA+SOCLLXnxcf=bTazCT1amY7B4_37HTEXL2OwHowVGCb8SLSQQ@mail.gmail.com>
- <20201029110153.GA3840801@kroah.com>
-In-Reply-To: <20201029110153.GA3840801@kroah.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 29 Oct 2020 11:05:01 -0700
-Message-ID: <CAKwvOdkQ5M+ujYZgg7T80W-uNgsn_mmv8R+-15HJjPoPDpES1Q@mail.gmail.com>
-Subject: Re: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
-To: Jian Cai <jiancai@google.com>
-Cc: Sasha Levin <sashal@kernel.org>, "# 3.4.x" <stable@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Manoj Gupta <manojgupta@google.com>, 
-	Luis Lozano <llozano@google.com>, Arnd Bergmann <arnd@arndb.de>, Greg KH <gregkh@linuxfoundation.org>
+        Thu, 29 Oct 2020 11:05:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3awsbxwckeeiqewovecksskpi.gsqgperk-fympx-pmrybksskpikvsytw.gsq@flex--maskray.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) client-ip=2607:f8b0:4864:20::64a;
+Received: by mail-pl1-x64a.google.com with SMTP id 97so2586853plb.4
+        for <clang-built-linux@googlegroups.com>; Thu, 29 Oct 2020 11:05:32 -0700 (PDT)
+Sender: "maskray via sendgmr" <maskray@maskray1.svl.corp.google.com>
+X-Received: from maskray1.svl.corp.google.com ([2620:15c:2ce:0:a6ae:11ff:fe11:4abb])
+ (user=maskray job=sendgmr) by 2002:a62:4e0f:0:b029:156:13e0:efa7 with SMTP id
+ c15-20020a624e0f0000b029015613e0efa7mr5285238pfb.73.1603994731999; Thu, 29
+ Oct 2020 11:05:31 -0700 (PDT)
+Date: Thu, 29 Oct 2020 11:05:25 -0700
+Message-Id: <20201029180525.1797645-1-maskray@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.29.1.341.ge80a0c044ae-goog
+Subject: [PATCH] x86_64: Change .weak to SYM_FUNC_START_WEAK for arch/x86/lib/mem*_64.S
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: x86@kernel.org, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>
+Cc: clang-built-linux@googlegroups.com, Jian Cai <jiancai@google.com>, 
+	Fangrui Song <maskray@google.com>, Sami Tolvanen <samitolvanen@google.com>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=B2MvEPzx;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@google.com header.s=20161025 header.b=Juj++IZc;       spf=pass
+ (google.com: domain of 3awsbxwckeeiqewovecksskpi.gsqgperk-fympx-pmrybksskpikvsytw.gsq@flex--maskray.bounces.google.com
+ designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3awSbXwcKEeIQEWOVEcKSSKPI.GSQGPERK-FYMPX-PMRYbKSSKPIKVSYTW.GSQ@flex--maskray.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,77 +131,90 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 29, 2020 at 4:01 AM Greg KH <gregkh@linuxfoundation.org> wrote:
->
-> On Mon, Oct 26, 2020 at 06:17:00PM -0700, Jian Cai wrote:
-> > Hello,
-> >
-> > I am working on assembling kernel 5.4 with LLVM's integrated assembler on
-> > ChromeOS, and the following patch is required to make it work. Would you
-> > please consider backporting it to 5.4?
-> >
-> >
-> > commit 44623b2818f4a442726639572f44fd9b6d0ef68c
-> > Author: Arnd Bergmann <arnd@arndb.de>
-> > Date:   Wed May 27 16:17:40 2020 +0200
-> >
-> >     crypto: x86/crc32c - fix building with clang ias
-> >
-> > Link:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=44623b2818f4a442726639572f44fd9b6d0ef68c
-> >
->
-> It does not apply cleanly, can you please provide a properly backported
-> and tested version?
+Commit 393f203f5fd5 ("x86_64: kasan: add interceptors for
+memset/memmove/memcpy functions") added .weak directives to
+arch/x86/lib/mem*_64.S instead of changing the existing SYM_FUNC_START_*
+macros. This can lead to the assembly snippet `.weak memcpy ... .globl
+memcpy` which will produce a STB_WEAK memcpy with GNU as but STB_GLOBAL
+memcpy with LLVM's integrated assembler before LLVM 12. LLVM 12 (since
+https://reviews.llvm.org/D90108) will error on such an overridden symbol
+binding.
 
-Hi Jian,
-Thanks for proactively identifying and requesting a backport of
-44623b2818.  We'll need it for Android as well soon.
+Use the appropriate SYM_FUNC_START_WEAK instead.
 
-One thing I do when requesting backports from stable is I checkout the
-branch of the stable tree and see if the patch cherry picks cleanly.
+Fixes: 393f203f5fd5 ("x86_64: kasan: add interceptors for memset/memmove/memcpy functions")
+Reported-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Fangrui Song <maskray@google.com>
+Cc: <stable@vger.kernel.org>
+---
+ arch/x86/lib/memcpy_64.S  | 4 +---
+ arch/x86/lib/memmove_64.S | 4 +---
+ arch/x86/lib/memset_64.S  | 4 +---
+ 3 files changed, 3 insertions(+), 9 deletions(-)
 
-stable is its own tree; you could add it as a remote or check out a
-copy of it.  If you go to kernel.org, click any stable branch, go to
-summary tab in top left, scroll down for the git url to clone.  Then
-you can `git checkout -b linux-5.4.y origin/linux-5.4.y` to setup the
-branch.  Fetch/pull so it's up to date, then `git cherry-pick -x
-<sha>`. If it applies without conflict, you can simply send an email
-as you've done.
-
-If it does not, then you should fix up the conflict, and test it.
-Then you add your signed off by tag (`git commit --amend -s`) and
-sometime people leave a note like `[<initials>: had to drop a hunk
-because a packport of <upstream sha> doesn't exist in this branch]`.
-If you `git log` in a stable tree's branch, you should be able to see
-examples.
-
-Another thing I like to do is include comments (in the request email,
-not the commit message of the patch) on my risk assessment and what
-the first version of the mainline tree the patch landed in.  In a
-mainline tree (not stable tree), I run this function I've added to my
-shell's rc file:
-first_tag () {
-        tag=$1
-        git describe --match 'v*' --contains "$tag" | sed 's/~.*//'
-}
-
-$ first_tag <sha>
-That information can help the stable maintainers better assess the
-risks in accepting the backport.  Though I'm not always great about
-sticking to my own advice in this regard; the last request I made I
-forgot to include info about the upstream version.  But
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
-doesn't mention that's actually necessary.
-
-Anyways I'm sure you already knew most of the above; I don't mean to
-patronize.  My apologies in that regard.  Having it typed out helps me
-forward a URL to future travelers.
+diff --git a/arch/x86/lib/memcpy_64.S b/arch/x86/lib/memcpy_64.S
+index 037faac46b0c..1e299ac73c86 100644
+--- a/arch/x86/lib/memcpy_64.S
++++ b/arch/x86/lib/memcpy_64.S
+@@ -16,8 +16,6 @@
+  * to a jmp to memcpy_erms which does the REP; MOVSB mem copy.
+  */
+ 
+-.weak memcpy
+-
+ /*
+  * memcpy - Copy a memory block.
+  *
+@@ -30,7 +28,7 @@
+  * rax original destination
+  */
+ SYM_FUNC_START_ALIAS(__memcpy)
+-SYM_FUNC_START_LOCAL(memcpy)
++SYM_FUNC_START_WEAK(memcpy)
+ 	ALTERNATIVE_2 "jmp memcpy_orig", "", X86_FEATURE_REP_GOOD, \
+ 		      "jmp memcpy_erms", X86_FEATURE_ERMS
+ 
+diff --git a/arch/x86/lib/memmove_64.S b/arch/x86/lib/memmove_64.S
+index 7ff00ea64e4f..41902fe8b859 100644
+--- a/arch/x86/lib/memmove_64.S
++++ b/arch/x86/lib/memmove_64.S
+@@ -24,9 +24,7 @@
+  * Output:
+  * rax: dest
+  */
+-.weak memmove
+-
+-SYM_FUNC_START_ALIAS(memmove)
++SYM_FUNC_START_WEAK(memmove)
+ SYM_FUNC_START(__memmove)
+ 
+ 	mov %rdi, %rax
+diff --git a/arch/x86/lib/memset_64.S b/arch/x86/lib/memset_64.S
+index 9ff15ee404a4..0bfd26e4ca9e 100644
+--- a/arch/x86/lib/memset_64.S
++++ b/arch/x86/lib/memset_64.S
+@@ -6,8 +6,6 @@
+ #include <asm/alternative-asm.h>
+ #include <asm/export.h>
+ 
+-.weak memset
+-
+ /*
+  * ISO C memset - set a memory block to a byte value. This function uses fast
+  * string to get better performance than the original function. The code is
+@@ -19,7 +17,7 @@
+  *
+  * rax   original destination
+  */
+-SYM_FUNC_START_ALIAS(memset)
++SYM_FUNC_START_WEAK(memset)
+ SYM_FUNC_START(__memset)
+ 	/*
+ 	 * Some CPUs support enhanced REP MOVSB/STOSB feature. It is recommended
 -- 
-Thanks,
-~Nick Desaulniers
+2.29.1.341.ge80a0c044ae-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkQ5M%2BujYZgg7T80W-uNgsn_mmv8R%2B-15HJjPoPDpES1Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201029180525.1797645-1-maskray%40google.com.
