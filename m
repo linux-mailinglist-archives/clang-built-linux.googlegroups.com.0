@@ -1,131 +1,129 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBOXL5T6AKGQEFSHHJ3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBBVE5X6AKGQE6AJ5SWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id A5C3A29F6FA
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 22:35:55 +0100 (CET)
-Received: by mail-qv1-xf37.google.com with SMTP id z9sf2571319qvo.20
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 14:35:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1604007354; cv=pass;
+Received: from mail-ua1-x939.google.com (mail-ua1-x939.google.com [IPv6:2607:f8b0:4864:20::939])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC77229F928
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 00:36:39 +0100 (CET)
+Received: by mail-ua1-x939.google.com with SMTP id l5sf527499uap.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 16:36:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1604014599; cv=pass;
         d=google.com; s=arc-20160816;
-        b=McxiyL6J24oTmcZOdblay62kb9Hq1QOOXKKE6OyweoQRnPWbjcqmHffa7C6uQlszF6
-         192tp6YRKsO7LFS0imk+RjxxQbJU6ffi4m4iaz0PPy4vrC/EOhRboPb1jjwtrPYR19hq
-         5ILVwonPpYzzEke2TX6y0sTl5Wo2RKwvDQJk+TnWJrOnlJpl5z9nJJynjuJ9MkCZj8+L
-         epb0g+86e9qgbyQVQGKF3L7qSEfRaeKwGheS0UabgmHDoTdkZfKYBFANdR8lBnhyFLBQ
-         /DzXTEvV1QpAQKq7XhvpPp1hj2/lG8XvynqUnHgQB1UfTpqGi3dVnp2VlMKl9rXXq/Af
-         HjQw==
+        b=AlpJXAi7bmcgbNIRqZ+dA4TIKWA8tzwMSv9bTvpFCjFo8Oiwtb292q14P2XJskkc9R
+         2ufCCQJchYnF5l2Djvugwlbmq/Q5xOZKA/I+xMRGO4BVVMlmQOU2E7ZYSXOvuJ0PoXZl
+         i5L0jfgIiZ58M0LNjJBSfrjMlj6VlORfAOgByzcty+jpBmOdT9m50UiDM4xaQSq29i0u
+         e8FtMB4pkkGwAM5rExoFHCJBP1CPlZ8FAAP7O0IuARbK2VbGmxQWVexzvMOtIlTfgF34
+         Wcl+/heC/sJZXlW/sDZYUfC+v3fTHTUeTgoev3MNXDVK07ucJ0j81r+AiCgM+ZgEk38R
+         YSaQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=/1DAlF8Woh4iSzsPf8MnndKO41BAaOSM9eTzxKF6RnU=;
-        b=gyn/BQiQ/TOXQsHcA9xPbVVPcycnS1DjfxTHCbFZCv6EBp8mrTzmzOhr4edNJLOSzB
-         xneJkwFcKzqLEpmz0g6PfTArKmMhPnnZ70xW3xy/uDMDGcI++xkni5bEXQlhVBOQI4Dv
-         wtnCkfqUztDdU07UbUPxWzsMOTFMtPLVIjHc1QLCFNohTW7gZx2cUqKBiOvb8fxTPbun
-         47hmjrnmWzcter4z5mgHQjADOu1cglowHQwjFSiRS3m6eyw+sqz3IlOaNWOHwPjrQBcD
-         uVA2uzznY7uBFHD8ZMi17QyfhwGz+yVY0hgutX+pIQqP0vREiYaIoGJtR/HlLuPP2TBO
-         p49w==
+        bh=xcg9jsyX9+881uQC4wFR5GY4Bv3HHz10WECGtXTn6qU=;
+        b=TB+PbDWsD0yC2CJepitzGBMbGvynY7GoBfMqdDeh0BYIJM9ZMvV77NZPyhqcWSkgfp
+         Es8rHJLXDPOBh+oXmbBtfb164dUa+X9MHqJQC10AlZnF2jD58fSyzdlbVLz3SzEaTojT
+         7E+7Micz/4y4qdVwtgOYolDzYp3T5e0AeUT6TLlnQVvTsQoUTfF2vcS+OQubODd7HvCK
+         3LVvjEM8KUPaJH1c5AWWYIsQY6ZwTsykumjzapjBwOanp3d8TVEjiDtX5aShHrYU4/fi
+         WlRvFLIo9lE/9YvQBeXg0jANFd1wio2Bm4nwZRkirT1FrAaZ4U5Qa2DNthDPpgbUBQCm
+         4oaw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.232 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=kF1I5s4G;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/1DAlF8Woh4iSzsPf8MnndKO41BAaOSM9eTzxKF6RnU=;
-        b=kKLhb7SxI/a5kUFcpvZwNI4AWOEi4+/4O+LcL25Wk1PrzAC2VWkGGBaZRR6GT3o3qP
-         WK+/gXpDPXMB/fnh4GDobiNiT3LTrvZsYCRM6DbA+tnndwIJF+6h4gx7BCpdHmsAKbYV
-         bUYB4wunuv0RtG4EqQ+BQpfkAjbOUBzpqG6eHmcz+1vTz1U09xLJJfDs1qwXcdQ9dTnN
-         BlqZ7YkYxkvabHoNWGBAl+WsgRdwf9QJTju1PDCtWuc9cE4TeCarAmze9U4IFiQLN58y
-         351A+vzhNo9irIrWoxxDVXEqjUtIzZpG5ejBrbGZNUMCL5L0ntysN0MToBAbyhYHG3Mo
-         JNqg==
+        bh=xcg9jsyX9+881uQC4wFR5GY4Bv3HHz10WECGtXTn6qU=;
+        b=Dq8+1GTKp+3UYsCkgdvUOPNvjIClyHYkif1cKgFiU7knFiNdyRbgfUPRR32yDhdDrJ
+         oggY4eG0MAg/6f3q+1FI2/CsC3LIycvVVCXwtrUbWp+3+MElJXzZqAOSmcyW97tAhj4i
+         CZtmoUZE/qCV9CprgJS/Qtq++gZZOilPsHGDsPOkjOqECAfZcDrPRXQIxaTNsOKmLW19
+         r5V2b9TCYjJD7G7/zuqfyHi2HBgBFjCFq18aV90rP+Xl7M52rw53Y2SLocO3lcEGHlBT
+         Iet0naHiSmUTiNm8y8AEVX+s2qtut3y0cxTpp3BInGX5Cro+qsHPHVmCzJobFdHDuG68
+         elUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=/1DAlF8Woh4iSzsPf8MnndKO41BAaOSM9eTzxKF6RnU=;
-        b=HXx63UWXuyRxXFcVV8BNJA4We4sMc+Rm2OeSi6/zkrYDR/IVgUoZfkZVt2nWGWFsOM
-         MCYARLuef5dyOS+XHF1dESD4jTsAP8oTBIAx5Xofx6f6GOeh04cL2ZeMceD3bRk4V/R3
-         LwP9+F0mDPItwr28RtGYlZ1nX40AwrK0NQHcSNwyx5LrJMRouc/Y52OiPCD3mfVjZjYA
-         hm4et2P4j80hcF1OTOOXys0f921ZHD0AAsqdmT4vO4AchZY5c0QOCgwsVzmfslDDuxg8
-         G3d9Di9gGpeXZPkvzAo9F+FGRhuZ3CO36b1xGDC8tl8fCv1HuhTGnKm0zqUbiRfhit83
-         +AOw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=xcg9jsyX9+881uQC4wFR5GY4Bv3HHz10WECGtXTn6qU=;
+        b=px57Ivx6AdSpwGmCLqsIzr+Fl9KnntdCm5VOlxDwL1jrXd4bBxaDrEwszoEBTWL6xc
+         7lBppjhNLanCCXE65PC1G5ZuSiNhEr+23uwPXJj3N4mWaQo2+EFa6RxIQhB6667WHDvW
+         mUYK/PZGHQCA05Y9//CW+dskte0xvuvcEXlailJiojDQXamyq2vrRDWbfA7NC+QStmBB
+         scZuv1FGIISy+NKGz9+i5nTb0Q5+/53EdF05KdQGI8sXKf8UjkWH/XJly3DDG5X7dDc5
+         cKV2oZsFKZeH3j9tyz+/CchPtiCbEWPb1GbtMF9s1uR2u+JOPGXNP3XZVSZJcDyIze45
+         a05A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5318qosRwexLbJNz/li9tD1V7kfiz6KLPc1M3xFcMBAvep2LOZGA
-	KYLLQNdIe7y3P/M+aclkBbw=
-X-Google-Smtp-Source: ABdhPJwpjqcnJN2MF8hdXdTrY21NGfqgeWAa7Q4ugbd4/YoZwqOoOoOOjOqc2XXiHeuJxNfjfELO7Q==
-X-Received: by 2002:ae9:ef56:: with SMTP id d83mr5823032qkg.83.1604007354798;
-        Thu, 29 Oct 2020 14:35:54 -0700 (PDT)
+X-Gm-Message-State: AOAM532L8aRnFN27gJiCi8A56esB3EYI0HEbm7F0n327cqBmNOv393Nt
+	TPvcshn2c6mzwwx8Nq7KRg0=
+X-Google-Smtp-Source: ABdhPJzXjgpKFzpt3frC51//wE1kZ7V/2qaZ3cG8NEBGiGNnE+91Dvc9qU5YwiF/k2bY563NdRsp9Q==
+X-Received: by 2002:a67:5d46:: with SMTP id r67mr5434901vsb.34.1604014599054;
+        Thu, 29 Oct 2020 16:36:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:10:: with SMTP id j16ls2087031qki.3.gmail; Thu, 29
- Oct 2020 14:35:54 -0700 (PDT)
-X-Received: by 2002:a37:5904:: with SMTP id n4mr5703491qkb.364.1604007354342;
-        Thu, 29 Oct 2020 14:35:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1604007354; cv=none;
+Received: by 2002:a67:e29a:: with SMTP id g26ls664598vsf.6.gmail; Thu, 29 Oct
+ 2020 16:36:38 -0700 (PDT)
+X-Received: by 2002:a67:6f06:: with SMTP id k6mr5499665vsc.20.1604014598612;
+        Thu, 29 Oct 2020 16:36:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1604014598; cv=none;
         d=google.com; s=arc-20160816;
-        b=0lCKe6kld5mc5/Zv23lLh7iDAvm/xmFN+BKv6QkAoM3EoQcJZPeUaA/b58Fos6ltxT
-         LtPOSz8HFvn3xwXO8o2ULE+A9fhMupoG4uxIzvWdBFR9J1tXcwO3u+isGbTfS/vEHzdf
-         xqEuHcmkNrK8SL0xdSFTEMCOTiorydU3pLoHNeDfPblbT2Wi+z8okyy1gH468kq7x3p0
-         loqVRaysZM9aGOkJSWFim7KxteNqhPdXmony5NKpCIFG6UYl3xMUrYksj96Fga2kA6dC
-         WvOGv/xXJYEvA1Iz6eNbrerUCpoZGm4lI+sShjiOIQ+dopLwKXMs1F4IFJGwBa2Dr26k
-         r0Fg==
+        b=OLUQ0m+HTy/6KYpn1o4x6bYhksTli9oh5pL4EGygTaowcjvXE1dqINTN389dFfmGkx
+         WSZrsXyUhEzmGivlc3g6ZDk6yHHeK+/mAIX13H3FXI9cTSydLB2rX9hXlpWgGSPdrOmm
+         AZfmnBjJLsv7MZFCp5DhFc/+xSHRIJMbkHPZl3W8W8ZVGZwNUsS+4dTHg/bJZZUuHWdF
+         bHRXii9QbgitI3FyEwBYijtPvLHBKZwNhZFXvB/tbM5eTe+PleQ6HFMuYEEva2aF5LPK
+         j/Ts1flA6xnI2UbetR4Lt+x/wlzofyhDmoM8tcdmClQIQnyQOhmQjYhqOcdQc+NKhX58
+         vA9Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=2de1wluFkbTwSH2V1QPeAyG/fyi23y+A3v1a/lH0IpA=;
-        b=k65xBmcnTgpwEcMglpJh4Xa4HU6H0shgiu6UN1GbRGOpcHWIoNeevhk7CVjYj2ZcsO
-         M6n/Ed8oG4XOz61U5wJUoeiN+QyLDfOwPGMUCY0Udo46d/vK0pdstJ7Zr4e+kQnGDHSn
-         DHNkFk65t13I1c6lQRyepz9ZiGXymHajLbsZmJhhGSw+QrH6Oz2UfdIj8G3X02V51i8N
-         3p+4zrO9Pa+jXe0KBN7lF40ZD4DQ0CS4K6BA3DgkbW2t7kAR6bmEUEssKcNDmY17dvDO
-         1IBN6p3auiCKABJGpuPYA3AWZIulYgpF/D59Cp1upA7awdydJGyuCw246Lyv7xiE2AJe
-         xqrg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=HAqlZaQMG0O+kXAqYdayKdpnkXV61fA3e3zC9uBgldo=;
+        b=cNwekS0vXpe8NEmZEqoTdCgukFaMcbgmJShqkdqbZYlhS/csUms35o4L434SlqcStu
+         rQsjqEsyE/pkk2IhFU8oHBSrgTbVc8gutSzcRmq3MO7CnVuaZDeK1uWSC+EPzf8ApN2v
+         F2Tpxt/0JWeuRib8JdfVkM2+fTQD0F8blI7emI2SL164a9W6HYEuw9qTwVSim22PTtRN
+         +YzkR79zq7C9xKJLPjATLIaeqzkGqECXk4AEhoguiQSpsiLTFM9pUMAxt0K1blC4wMyR
+         cL8vr1FNUzcRKcBLyiDdFEV0iDt6D+62GNGH6wdZpBRyKcckuSbwJDcxRswhmSOjVzm/
+         quEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.232 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0232.hostedemail.com. [216.40.44.232])
-        by gmr-mx.google.com with ESMTPS id m3si320188qkh.5.2020.10.29.14.35.54
+       dkim=pass header.i=@kernel.org header.s=default header.b=kF1I5s4G;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id p4si223120vsn.0.2020.10.29.16.36.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2020 14:35:54 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.232 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.232;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay03.hostedemail.com (Postfix) with ESMTP id 97E28837F24A;
-	Thu, 29 Oct 2020 21:35:53 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:69:355:379:599:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1431:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:2393:2553:2559:2562:2828:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3871:4321:4384:5007:7576:7875:8957:10004:10400:10848:11026:11232:11657:11658:11914:12043:12296:12297:12438:12555:12740:12760:12895:12986:13439:14181:14659:14721:21080:21433:21451:21627:21990:30009:30045:30054:30070:30090:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:2,LUA_SUMMARY:none
-X-HE-Tag: arm95_560f16827290
-X-Filterd-Recvd-Size: 3499
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf11.hostedemail.com (Postfix) with ESMTPA;
-	Thu, 29 Oct 2020 21:35:51 +0000 (UTC)
-Message-ID: <f810a6db9f617208302953c7cf837a8f8dd0e39f.camel@perches.com>
-Subject: Re: [PATCH net-next 03/11] rsxx: remove extraneous 'const' qualifier
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Arnd Bergmann
- <arnd@kernel.org>
-Cc: Joshua Morris <josh.h.morris@us.ibm.com>, Philip Kelleher
- <pjk1939@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, Jens Axboe
- <axboe@kernel.dk>, Nathan Chancellor <natechancellor@gmail.com>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- linux-block@vger.kernel.org,  LKML <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-Date: Thu, 29 Oct 2020 14:35:50 -0700
-In-Reply-To: <CAKwvOdka+UFvwntx-Dcx3oX2nJEkcdo+krm8gu016vPVBF8MBQ@mail.gmail.com>
-References: <20201026213040.3889546-1-arnd@kernel.org>
-	 <20201026213040.3889546-3-arnd@kernel.org>
-	 <CAKwvOdka+UFvwntx-Dcx3oX2nJEkcdo+krm8gu016vPVBF8MBQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.38.1-1
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 29 Oct 2020 16:36:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id EAD6B20739;
+	Thu, 29 Oct 2020 23:36:36 +0000 (UTC)
+Date: Thu, 29 Oct 2020 19:36:35 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jian Cai <jiancai@google.com>, "# 3.4.x" <stable@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Manoj Gupta <manojgupta@google.com>,
+	Luis Lozano <llozano@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Greg KH <gregkh@linuxfoundation.org>
+Subject: Re: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
+Message-ID: <20201029233635.GF87646@sasha-vm>
+References: <CA+SOCLLXnxcf=bTazCT1amY7B4_37HTEXL2OwHowVGCb8SLSQQ@mail.gmail.com>
+ <20201029110153.GA3840801@kroah.com>
+ <CAKwvOdkQ5M+ujYZgg7T80W-uNgsn_mmv8R+-15HJjPoPDpES1Q@mail.gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.232 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdkQ5M+ujYZgg7T80W-uNgsn_mmv8R+-15HJjPoPDpES1Q@mail.gmail.com>
+X-Original-Sender: sashal@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=kF1I5s4G;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,69 +136,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 2020-10-29 at 12:34 -0700, Nick Desaulniers wrote:
-> On Mon, Oct 26, 2020 at 2:31 PM Arnd Bergmann <arnd@kernel.org> wrote:
-> > 
-> > From: Arnd Bergmann <arnd@arndb.de>
-> > 
-> > The returned string from rsxx_card_state_to_str is 'const',
-> > but the other qualifier doesn't change anything here except
-> > causing a warning with 'clang -Wextra':
-> > 
-> > drivers/block/rsxx/core.c:393:21: warning: 'const' type qualifier on return type has no effect [-Wignored-qualifiers]
-> > static const char * const rsxx_card_state_to_str(unsigned int state)
-> > 
-> > Fixes: f37912039eb0 ("block: IBM RamSan 70/80 trivial changes.")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> 
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+On Thu, Oct 29, 2020 at 11:05:01AM -0700, Nick Desaulniers wrote:
+>On Thu, Oct 29, 2020 at 4:01 AM Greg KH <gregkh@linuxfoundation.org> wrote:
+>>
+>> On Mon, Oct 26, 2020 at 06:17:00PM -0700, Jian Cai wrote:
+>> > Hello,
+>> >
+>> > I am working on assembling kernel 5.4 with LLVM's integrated assembler on
+>> > ChromeOS, and the following patch is required to make it work. Would you
+>> > please consider backporting it to 5.4?
+>> >
+>> >
+>> > commit 44623b2818f4a442726639572f44fd9b6d0ef68c
+>> > Author: Arnd Bergmann <arnd@arndb.de>
+>> > Date:   Wed May 27 16:17:40 2020 +0200
+>> >
+>> >     crypto: x86/crc32c - fix building with clang ias
+>> >
+>> > Link:
+>> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=44623b2818f4a442726639572f44fd9b6d0ef68c
+>> >
+>>
+>> It does not apply cleanly, can you please provide a properly backported
+>> and tested version?
+>
+>Hi Jian,
+>Thanks for proactively identifying and requesting a backport of
+>44623b2818.  We'll need it for Android as well soon.
+>
+>One thing I do when requesting backports from stable is I checkout the
+>branch of the stable tree and see if the patch cherry picks cleanly.
 
-Perhaps this should also be converted to avoid any possible
-dereference of strings with an invalid state.
----
- drivers/block/rsxx/core.c | 22 +++++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
+btw, an easy way to get an idea of possible dependencies is to look at
+the dependency repo :) For this commit on 5.4:
 
-diff --git a/drivers/block/rsxx/core.c b/drivers/block/rsxx/core.c
-index 8799e3bab067..f50b00b4887f 100644
---- a/drivers/block/rsxx/core.c
-+++ b/drivers/block/rsxx/core.c
-@@ -390,15 +390,27 @@ static irqreturn_t rsxx_isr(int irq, void *pdata)
- }
- 
- /*----------------- Card Event Handler -------------------*/
--static const char * const rsxx_card_state_to_str(unsigned int state)
-+static const char *rsxx_card_state_to_str(unsigned int state)
- {
- 	static const char * const state_strings[] = {
--		"Unknown", "Shutdown", "Starting", "Formatting",
--		"Uninitialized", "Good", "Shutting Down",
--		"Fault", "Read Only Fault", "dStroying"
-+		"Unknown",		/* no bit set - all zeros */
-+		"Shutdown",		/* BIT(0) */
-+		"Starting",		/* BIT(1) */
-+		"Formatting",		/* BIT(2) */
-+		"Uninitialized",	/* BIT(3) */
-+		"Good",			/* BIT(4) */
-+		"Shutting Down",	/* BIT(5) */
-+		"Fault",		/* BIT(6) */
-+		"Read Only Fault",	/* BIT(7) */
-+		"Destroying"		/* BIT(8) */
- 	};
- 
--	return state_strings[ffs(state)];
-+	int i = ffs(state);
-+
-+	if (i >= ARRAY_SIZE(state_strings))
-+		return "Invalid state";
-+
-+	return state_strings[i];
- }
- 
- static void card_state_change(struct rsxx_cardinfo *card,
- 
+https://git.kernel.org/pub/scm/linux/kernel/git/sashal/deps.git/plain/v5.4/44623b2818f4a442726639572f44fd9b6d0ef68c
+
+-- 
+Thanks,
+Sasha
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f810a6db9f617208302953c7cf837a8f8dd0e39f.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201029233635.GF87646%40sasha-vm.
