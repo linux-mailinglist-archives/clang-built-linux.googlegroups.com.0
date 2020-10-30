@@ -1,154 +1,135 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB64G576AKGQENDX6R4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBY4M576AKGQE43CSRLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id BBD7129FE8D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 08:40:44 +0100 (CET)
-Received: by mail-pf1-x43e.google.com with SMTP id b139sf4242757pfb.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 00:40:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1604043643; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B0D9B29FF1A
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 08:53:08 +0100 (CET)
+Received: by mail-io1-xd3d.google.com with SMTP id z23sf3760279iog.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 00:53:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1604044387; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w0R6doO5PNRSZG7sC2M9eNPPrPk6c2j7jkwpEtf6jtOE0mq7bJTvMknF8F/uZ5lpEW
-         vAg6cj/1NhmI5sQJXerzpsV2YNm3BTZxVHfgGJXOeJOaFi2U3/eShdUG8om1J12k8mb+
-         obj4ijHKYYeyE5i3mV1RPyKdOoTtnKSmkVMcfNTADt9a16ZbnwfGK2JVEWBOZJrMIi4Y
-         Iazz6sjGwm/QjrlVYHxjw8/RPPNA8ZQ/eXsJPfAASCv44kQHEHQGyI/MRagxqFjifmye
-         7B1cypG10aWAaxU3sF2iMCe++AMisAzFnLJ0flDYYpC1oglOcd/5rKoWXxEwgbjvTRXv
-         RWBQ==
+        b=oeyiDK46Q34z7T9SlEYLrkc31i65ZnEGz1hvtDr8jEwJZ0GG/U/SNAetLiMloMmbv+
+         D7tqR7hy0xvpujr905tCu/JZD+pvMWcESQzGY+fk0RngQnCXozUarfg2VSMli7aDNKht
+         vX+tFdbdmiknMTML0ppIixuZ7BGRjh0PnZF4rsQ1t58Kw4SgooeiPqCRfCSJ5yi2VHSM
+         2Ma13LVH7oAuAc2FOZ/l1rJnFo5pMV/+ozvFBuUWcmj7aYrR6E2M+UKb1//3l/mz5Pif
+         iMXuTKCbJ6jC4vn6Yp5vZc1XqgTeioaQHPN3+s2kj+Xu2Zh+4vAccHFJk7eRzK3fwGF2
+         /cIw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=85uqNNGKZ1lvJMlpPC6YqPFcccAXmNcaZAzqA2E+CGc=;
-        b=T+9KWdwTN3iEkYuScSptNddt6Mz5hijKRLGLtmyS4a3fg0DCWjQwEm0WkF4BEbmyd0
-         uH0p5/3ETkghNNKuF7xDh8REydc35LgMaeP8z+9I6PMbZFtNEQ8B8Bvjygp3USGwy7TD
-         z/UZtoOfUho+R8xAI5rqZ6nCzwWKFTXwxSPrYSC1YyOiWuINfIg2qD4bpXZMajnOPxcS
-         jGZwzn7QYgyq02GysI+wJ0OahWuD+kTNi3CapZLjV/3MBcPMQ5bp7FYEOvqk/vaa2ipI
-         B0E8snuaqV10YoDlrk9PH7VlAgqT0jU1UwOnkb9QzY8lbp6wpwoHuEnFn0eRJx+zm4ma
-         FUoQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature;
+        bh=0wm4geZkG1pEyw4MIkXqAGtM2sq7IgnP4jYlU63X0r0=;
+        b=SwykMQgi01Dl51PvlE/M1neu3bLjqtOwzYuubU5PWO91i5JIsqQBxdIqqf2YiVh3JE
+         /PwbTHTiMRMih9HqUdzjNF22lRLqZNLDbT8XalrXluUsNiZfhssC++en2pTL20Me1EMb
+         BZO63oYFP+xEjplQAHZOQKu4kMbhvqioEZi2qP2dmIu/oAsrSJ2tD/zhDBBuwMB1J8MV
+         2XpaOJUwqHIbuBD/jM4EmyAdtuoMxmqT88PrFXMhmQutS/lqhgUjEl61Qtd7H+4ovAhe
+         EjWZtOF/0tbGT8kzSdAPGHaweMq86vkjoUksB75FLdgWCYqBk+TC+delbTHdpWsx1njK
+         bfog==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=vRO2afTP;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::142 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=qziuRuM3;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=85uqNNGKZ1lvJMlpPC6YqPFcccAXmNcaZAzqA2E+CGc=;
-        b=LUOHxSC9T+WsdvQI6L7ndCMzyqLAaAOUuywDE1lc7bCMvqEHRK8AEcBIlnyHdX6SB1
-         pGwSC7ap70MypMW5GGVa3Y+2XIY159eOI4CHJon8v/Y4Ov3lPz5wyp2pO6OwHA9VQC5w
-         A7ylUUqKpnJ/y3dcAe3Wkz1LLoV2Os3NtMRp8kb+gLhUQnVQ54UAq1l/lnxupYPgftj+
-         dap/VFg9KscJCW/Hck78Pr3S0L0DapQlxRzSdjmYvr8wxklHYae4j93yYIFyd9/ad5u9
-         xmHqEELtCPsjhfBiEjqsYuIAIbfpcovT1m0mR0ylGOt8AxVLftmkLgyOTFN/ZjZzc8K6
-         CMfw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=85uqNNGKZ1lvJMlpPC6YqPFcccAXmNcaZAzqA2E+CGc=;
-        b=Vwj/psgasPXGX0BsP+QXvOo1kkxlB7cX5oNprz28aWiLAXJ221p5s2TsUxfSOe+FT/
-         Q7YV3AocksqgS8QfSC1bVrtJT+T5CEmMbX9hcVeE63DIb6pQcW/6j0KAoy+JJvidpTqv
-         mLj0pgpf0q5/3ChAbE8tqAph7HWOK5xFjWtQTYOHl2G7YIQPZqKQ7WD5Fm6C4O6wKBa6
-         3GMduckYNRKe5TApqr4wzoItVMmSELfLpPvYBsGGBYjFNaZoNQsDVuhA+yENE1MqebHy
-         cGr7Uung1d9Xd9iny5LOXOD++A+uRfD1lx6oyNoR3l9kg7+Lpp7L8RZTy3V98JGg8mB2
-         97mw==
+        bh=0wm4geZkG1pEyw4MIkXqAGtM2sq7IgnP4jYlU63X0r0=;
+        b=Q5LsW59ao5JiRY/KMdwhpjm41MAm8RS30DhGP9yZdr79e+yvrLuZGtI38vuuPE21mp
+         wstTq8qBnogWbbUQKlUyGQuyEvy90TZQ/PrgTeeu5a6IJAahya+o62MWKUGev3Oq3TKl
+         BCrbSWcjquR8b+GGh/46FgDgZWxheEC21Ik3KBG3MrEGs0HbNRabPx/CUB4cD1nJOt+r
+         wC7UJ7cG2oKwLXGWurMuoDlRtI6U8jz9Wh0w7ZU0kuYl1HXWvB563FV8BYlv0bgqQtsV
+         lSPgVUjkBrNulC7CofCVoPNoz0FcPKijN2I0DmsJkW41bED3QhHD29SEuUnT3PRyDtws
+         crHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=85uqNNGKZ1lvJMlpPC6YqPFcccAXmNcaZAzqA2E+CGc=;
-        b=ShsYG44CiAax8LYewPVs8sHPHfz3iZ/4KQ2d9TTkjwSb2LPMosOoQ/hFSSIe5VVnRv
-         9rzZYc1h3Z6tBkKE6IcAQ1sJyIQT/Rtb5ccSiWCXteA+JCALrY/ls+mRS/B7QG1q7Gjh
-         /Pog4cJcAT1fFvxW/IA22b7lsgU6tkKfIzExv4XAZVlkWpMHKkTBbEPtVVIDhFJgOlzc
-         AeZ1ngV+/6grAwtTBJ/WtrBc2HlZLviUjP5lbOnlpukcqUcKGcjufCyLNFbNUKMpK50O
-         bpSkgJpxPxWuL3ZyjCF75CEC3HaFmLf11GR9rlsrUGoqZ+2k6LDj/nsO7n8JutNaauMa
-         t6Og==
+        bh=0wm4geZkG1pEyw4MIkXqAGtM2sq7IgnP4jYlU63X0r0=;
+        b=AtShVAiT1PACFq3m/gJnOog+uOp/y2z40JezUF2VxYNV8M+HvzaLGGXY9J7kAZBbFj
+         vm/i8jhijg7UBTBCB5NKG7mNqcsiIw6YZb4oOCjeE/e75R2M+Asby2jSbzfuPRQEl7b4
+         hu9wAkrcUg2wMjrA5OjEWAUZAmDFc2yhKCRXJVzU18FQKEZhTzzhyg7x1zwVKzR7csaR
+         kwopJMtrmIPLN83tTNYqiQ3p9PNtcMfe6VXOgPpT0NLRaC4/L+MDvU0ceB85Y9aRRtab
+         +xS9cnAfThH8ve22TPSXwwUtqXbuASJzObUtyqMo5HdrrC3gZgS/36fNQt9PGEBAYB9p
+         6saw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530wauAnoJK7p60suRPV+9Atz0E4xN4Iz6uq5WNb6YmJDVoVp+HL
-	gphfKHu6Fa7TJBrUtSqnP8w=
-X-Google-Smtp-Source: ABdhPJxQyh2O1osTP9OYAwC1+MbOHLlFQta6s9eNLSv+8mwwxQ7An7j4jZCmV4QadFbcNZLZHcgk1w==
-X-Received: by 2002:a17:90b:3113:: with SMTP id gc19mr1294868pjb.91.1604043643205;
-        Fri, 30 Oct 2020 00:40:43 -0700 (PDT)
+X-Gm-Message-State: AOAM533R9G3OoVygxb/LpkOC8tCMlFmzTBuNZUPgUk8oU8MQ6PFuof6w
+	FroPdKIyg53aRn0oWX/OZgQ=
+X-Google-Smtp-Source: ABdhPJwn4iKFqde+pwq5MkBYaTwWiqrxkaqgOA++vbHgrnpMEKuIT2ZhndCZEBaZwhQ+ps3aq1VfMw==
+X-Received: by 2002:a92:4b07:: with SMTP id m7mr978511ilg.239.1604044387497;
+        Fri, 30 Oct 2020 00:53:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:6815:: with SMTP id l21ls2021754pgt.11.gmail; Fri, 30
- Oct 2020 00:40:42 -0700 (PDT)
-X-Received: by 2002:a62:16ce:0:b029:160:5faa:23d5 with SMTP id 197-20020a6216ce0000b02901605faa23d5mr8112878pfw.26.1604043642599;
-        Fri, 30 Oct 2020 00:40:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1604043642; cv=none;
+Received: by 2002:a05:6638:1308:: with SMTP id r8ls681834jad.7.gmail; Fri, 30
+ Oct 2020 00:53:07 -0700 (PDT)
+X-Received: by 2002:a02:3b2c:: with SMTP id c44mr973008jaa.134.1604044387021;
+        Fri, 30 Oct 2020 00:53:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1604044387; cv=none;
         d=google.com; s=arc-20160816;
-        b=AYr7GF010PkByXQEpvkz2Uy33uydU16yFlQCxG88fb74MuhvpAUYYxyZSpRFfqpe9S
-         o4s6Z0fqgkMxkTLwj6M2FMC5UL/XCUxiVbEgxMRZFclGd56uYih+/kdPuKKqalZ/y0WZ
-         b4O/uaJqYBmy+anqsokVoq5qV2UXqXikgDp8q509dmE6HcbKhre62z94aApPDTaiBQPj
-         +QaLRCQvrTG0o2rcXSb+ppXRm8JPnq1C98TIIlrcegjnW0PYt2btPtCCYtdTzMvt5lnr
-         clNsf6PDMROgzb3Lwl8Bv5cax6EjkV+cciDfqZ5RtqKbh4PZx6SrVqjHkBKMQ5NW7Vhn
-         qu1g==
+        b=jtLW9glSaDz/7iEAEAsLdXsA0hEzsf3wuD0d3j0trXdvYC9DR+mTTe7dPP6Ulw9ZXx
+         m0WHrOt3dtxggfb4p7NDPmc+GD/mXMUoXkLtyZMf/hpDh5NR9VHjlcDWAyVH0o6K2Fbt
+         JrsXP8//wWrp4y6L/1QQbJYgXMhB/2RjI5rwhM7sfTXwIJvH0eZ8ZJNCnT9qj4Pk/L4h
+         ciOZGSn53y0kfe6J8dWjorFrIUe1ZTYSKqhLzJO2rOwmW7M2cLTGlpbal8oHueN7cKrc
+         D0ojoMcTrlK8PdxIat1w1dMBSqG067KIsk3M71U+fnokbLsQWR+on98UKv44OBHBqaqe
+         iI8g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=4ZZqckq9iBzbPT7QTQmdrh5Ofh971dIkKFYUcVvnOi0=;
-        b=D7e3oAe1jCxZkjzhpT4Yf2VKCtbVLjaQ8ThAqWBYfUUSaggYnpLpi6AsPK2PIRisyR
-         gogOR5NVg/YU2wY9Yu6C0FroCfSzOvJ+7GGOl46dQxnuXL5/na3XJ+dANIqIoDuSzS0e
-         6EsAzvAOlSi/5OPXwXCvok1ykUF/szu3iUFcsN/CP5kCMqMKHBo1zZ6K2A9jjmorLgyv
-         QAyv/jQWAl0PXzIn5MNnA4WIMBlAqGQmnxi+bMahDcpfR6tFjod26GgaSCE8/EWU/VYt
-         I0m6hnaimqC8aTXZnhn52mkeLrliLvbHV2qhxxDiBZN0vaQ4VLQquOqjoqB3p2N2kZcc
-         0T2w==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g0qxibgQfyMmAN8DWq24PNtYKEWCSGh3GlWM6PM/tNQ=;
+        b=ZMZ2Gp3ALtwt4yI8BHNKVQshpcYyVKl6zKQx2JVntekQBM2Tja4Lybj+k+a6EMIqXV
+         dWZSZDjLD0feAQBuHtr4O7lQLuEeKhCExrR0tf58SiJJOsIk5z1ni6rpJu8STt9j2tDd
+         74CoKxxVTYfUax40L27U5wCvp9c3IGfnKeqP8NQs3hy4ausR9lUTz0cHdOEXm1dLxl/k
+         ovJW4RiPUwD+HzycuVJn6GUcFSUAybsxfC4I1eeNTwa6BM8t8UeawkchTioHBeWwjFdc
+         bCqwWqEL+Rh2dQaf2mO+PqKAzH/2/+PH+m5CqN9PgDDh169UjLtBEiVFx20QcjOaeWx+
+         +HOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=vRO2afTP;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::142 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x142.google.com (mail-il1-x142.google.com. [2607:f8b0:4864:20::142])
-        by gmr-mx.google.com with ESMTPS id mv6si137276pjb.0.2020.10.30.00.40.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Oct 2020 00:40:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::142 as permitted sender) client-ip=2607:f8b0:4864:20::142;
-Received: by mail-il1-x142.google.com with SMTP id a20so5664081ilk.13;
-        Fri, 30 Oct 2020 00:40:42 -0700 (PDT)
-X-Received: by 2002:a92:da92:: with SMTP id u18mr975106iln.266.1604043641932;
-        Fri, 30 Oct 2020 00:40:41 -0700 (PDT)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id r3sm4188815iog.55.2020.10.30.00.40.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2020 00:40:41 -0700 (PDT)
-Date: Fri, 30 Oct 2020 00:40:38 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Joe Perches <joe@perches.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrey Ryabinin <aryabinin@virtuozzo.com>,
-	Alexander Potapenko <glider@google.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
-	kasan-dev@googlegroups.com, linux-crypto@vger.kernel.org,
-	linux-mm@kvack.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] treewide: Remove stringification from __alias macro
- definition
-Message-ID: <20201030074038.GA1747580@ubuntu-m3-large-x86>
-References: <8451df41359b52f048780d19e07b6fa4445b6392.1604026698.git.joe@perches.com>
+       dkim=pass header.i=@kernel.org header.s=default header.b=qziuRuM3;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id o19si268778ilt.2.2020.10.30.00.53.06
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 30 Oct 2020 00:53:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id C1BC622203
+	for <clang-built-linux@googlegroups.com>; Fri, 30 Oct 2020 07:53:05 +0000 (UTC)
+Received: by mail-oo1-f54.google.com with SMTP id n2so1379514ooo.8
+        for <clang-built-linux@googlegroups.com>; Fri, 30 Oct 2020 00:53:05 -0700 (PDT)
+X-Received: by 2002:a4a:49d1:: with SMTP id z200mr815066ooa.13.1604044384939;
+ Fri, 30 Oct 2020 00:53:04 -0700 (PDT)
 MIME-Version: 1.0
+References: <20201019084140.4532-1-linus.walleij@linaro.org>
+ <20201030002900.GA2248731@ubuntu-m3-large-x86> <CAKwvOdntdKGN+F4r2jYNw3C-vxxZ09aCTaGR1_DtR+5tFzjLOw@mail.gmail.com>
+ <20201030013228.GA2519055@ubuntu-m3-large-x86>
+In-Reply-To: <20201030013228.GA2519055@ubuntu-m3-large-x86>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 30 Oct 2020 08:52:53 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXG4VgyvZtTcCycNTQA+sddi49=Mj7uaEjZnw=Rt5mt4sg@mail.gmail.com>
+Message-ID: <CAMj1kXG4VgyvZtTcCycNTQA+sddi49=Mj7uaEjZnw=Rt5mt4sg@mail.gmail.com>
+Subject: Re: [PATCH 0/5 v16] KASan for Arm
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Abbott Liu <liuwenliang@huawei.com>, 
+	Russell King <linux@armlinux.org.uk>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
+	Mike Rapoport <rppt@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <8451df41359b52f048780d19e07b6fa4445b6392.1604026698.git.joe@perches.com>
-X-Original-Sender: natechancellor@gmail.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=vRO2afTP;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::142 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernel.org header.s=default header.b=qziuRuM3;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,220 +142,200 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 29, 2020 at 08:07:31PM -0700, Joe Perches wrote:
-> Like the old __section macro, the __alias macro uses macro # stringification
-> to create quotes around the symbol name used in the __attribute__.
-> 
-> This can cause differences between gcc and clang when the stringification
-> itself contains a quote character.  So avoid these differences by always
-> using quotes to define the aliased symbol.
-> 
-> Remove the stringification and add quotes and when necessary a stringification
-> when existing uses have a ## concatenation.
-> 
-> Signed-off-by: Joe Perches <joe@perches.com>
+On Fri, 30 Oct 2020 at 02:32, Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> On Thu, Oct 29, 2020 at 05:38:22PM -0700, Nick Desaulniers wrote:
+> > On Thu, Oct 29, 2020 at 5:29 PM Nathan Chancellor
+> > <natechancellor@gmail.com> wrote:
+> > >
+> > > On Mon, Oct 19, 2020 at 10:41:35AM +0200, Linus Walleij wrote:
+> > > > This is the 16th and final (knock on wood) version of
+> > > > KASan for ARM32.
+> > > >
+> > > > Changes since v15:
+> > > >
+> > > > - Things now work on all boards we have tested on including
+> > > >   Broadcom and i.MX6Q.
+> > > >
+> > > > - Folded in a fix from Ard to PAGE_ALIGN() the end of
+> > > >   mappings making everything work on all Broadcom board.
+> > > >
+> > > > - Folded in a fix from Ahmad Fatoum making things work
+> > > >   with fortify on i.MX6Q.
+> > > >
+> > > > - Testing and testing and testing on build servers.
+> > > >
+> > > > - We are good to go.
+> > > >
+> > > > I will now put this in Russell's patch tracker for v5.11.
+> > > >
+> > > > There is a git branch you can pull in:
+> > > > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integr=
+ator.git/log/?h=3Dkasan
+> > > >
+> > > > This branch includes Ard's two patches already in Russell's
+> > > > patch tracker.
+> > > >
+> > > >
+> > > > Abbott Liu (1):
+> > > >   ARM: Define the virtual space of KASan's shadow region
+> > > >
+> > > > Andrey Ryabinin (3):
+> > > >   ARM: Disable KASan instrumentation for some code
+> > > >   ARM: Replace string mem* functions for KASan
+> > > >   ARM: Enable KASan for ARM
+> > > >
+> > > > Linus Walleij (1):
+> > > >   ARM: Initialize the mapping of KASan shadow memory
+> > > >
+> > > >  Documentation/arm/memory.rst                  |   5 +
+> > > >  Documentation/dev-tools/kasan.rst             |   4 +-
+> > > >  .../features/debug/KASAN/arch-support.txt     |   2 +-
+> > > >  arch/arm/Kconfig                              |  10 +
+> > > >  arch/arm/boot/compressed/Makefile             |   1 +
+> > > >  arch/arm/boot/compressed/string.c             |  19 ++
+> > > >  arch/arm/include/asm/kasan.h                  |  33 ++
+> > > >  arch/arm/include/asm/kasan_def.h              |  81 +++++
+> > > >  arch/arm/include/asm/memory.h                 |   5 +
+> > > >  arch/arm/include/asm/pgalloc.h                |   8 +-
+> > > >  arch/arm/include/asm/string.h                 |  26 ++
+> > > >  arch/arm/include/asm/thread_info.h            |   8 +
+> > > >  arch/arm/include/asm/uaccess-asm.h            |   2 +-
+> > > >  arch/arm/kernel/entry-armv.S                  |   3 +-
+> > > >  arch/arm/kernel/entry-common.S                |   9 +-
+> > > >  arch/arm/kernel/head-common.S                 |   7 +-
+> > > >  arch/arm/kernel/setup.c                       |   2 +
+> > > >  arch/arm/kernel/unwind.c                      |   6 +-
+> > > >  arch/arm/lib/memcpy.S                         |   3 +
+> > > >  arch/arm/lib/memmove.S                        |   5 +-
+> > > >  arch/arm/lib/memset.S                         |   3 +
+> > > >  arch/arm/mm/Makefile                          |   5 +
+> > > >  arch/arm/mm/kasan_init.c                      | 292 ++++++++++++++=
+++++
+> > > >  arch/arm/mm/mmu.c                             |  18 ++
+> > > >  arch/arm/mm/pgd.c                             |  16 +-
+> > > >  arch/arm/vdso/Makefile                        |   2 +
+> > > >  26 files changed, 561 insertions(+), 14 deletions(-)
+> > > >  create mode 100644 arch/arm/include/asm/kasan.h
+> > > >  create mode 100644 arch/arm/include/asm/kasan_def.h
+> > > >  create mode 100644 arch/arm/mm/kasan_init.c
+> > > >
+> > > > --
+> > > > 2.26.2
+> > > >
+> > >
+> > > After this series was applied and available in -next, ARCH=3Darm LLVM=
+=3D1
+> > > allyesconfig builds started failing:
+> > >
+> > > $ make -skj"$(nproc)" ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabi- K=
+CONFIG_ALLCONFIG=3D<(echo CONFIG_CPU_BIG_ENDIAN=3Dn) LLVM=3D1 distclean all=
+yesconfig vmlinux
+> > > ...
+> > > ld.lld: error: section: .exit.data is not contiguous with other relro=
+ sections
+> > > ...
+> > >
+> > > $ git bisect ld: [3f267ec60b922eff2a5c90d532357a39f155b730] Add linux=
+-next specific files for 20201029
+> > > # good: [23859ae44402f4d935b9ee548135dd1e65e2cbf4] Merge tag 'trace-v=
+5.10-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-tr=
+ace
+> > > git bisect start '3f267ec60b922eff2a5c90d532357a39f155b730' '23859ae4=
+4402f4d935b9ee548135dd1e65e2cbf4'
+> > > # bad: [bfa70a4ea4bfa6f87b58cf8b90b88297389c92b7] Merge remote-tracki=
+ng branch 'mtd/mtd/next' into master
+> > > git bisect bad bfa70a4ea4bfa6f87b58cf8b90b88297389c92b7
+> > > # bad: [37a292dcf77532547f335ed5063d9169031c9b08] Merge remote-tracki=
+ng branch 'sunxi/sunxi/for-next' into master
+> > > git bisect bad 37a292dcf77532547f335ed5063d9169031c9b08
+> > > # good: [e6d922c77db276a16f0b7933c2a9951dc9c0052c] Merge remote-track=
+ing branch 'drm-misc-fixes/for-linux-next-fixes' into master
+> > > git bisect good e6d922c77db276a16f0b7933c2a9951dc9c0052c
+> > > # bad: [cbe49fbb8f6c8d29bc1d9a5a9a742ef2c2eb6320] Merge remote-tracki=
+ng branch 'mvebu/for-next' into master
+> > > git bisect bad cbe49fbb8f6c8d29bc1d9a5a9a742ef2c2eb6320
+> > > # bad: [d0e12484e7e1ede73c538744cdbe9439f7335d01] Merge remote-tracki=
+ng branch 'arm-soc/for-next' into master
+> > > git bisect bad d0e12484e7e1ede73c538744cdbe9439f7335d01
+> > > # good: [24a23387c15f34bad2485a9e1c3b7ac6f0fb35a6] Merge branch 'asm-=
+generic-cleanup' into asm-generic
+> > > git bisect good 24a23387c15f34bad2485a9e1c3b7ac6f0fb35a6
+> > > # good: [3a8eb4d3421a2ca0f95ac3b1a8f012940d4f0d52] Merge remote-track=
+ing branch 'kbuild/for-next' into master
+> > > git bisect good 3a8eb4d3421a2ca0f95ac3b1a8f012940d4f0d52
+> > > # bad: [20f96e606509ee5084690179afe1810b95617a92] Merge branches 'fix=
+es' and 'misc' into for-next
+> > > git bisect bad 20f96e606509ee5084690179afe1810b95617a92
+> > > # good: [d6d51a96c7d63b7450860a3037f2d62388286a52] ARM: 9014/2: Repla=
+ce string mem* functions for KASan
+> > > git bisect good d6d51a96c7d63b7450860a3037f2d62388286a52
+> > > # good: [5615f69bc2097452ecc954f5264d784e158d6801] ARM: 9016/2: Initi=
+alize the mapping of KASan shadow memory
+> > > git bisect good 5615f69bc2097452ecc954f5264d784e158d6801
+> > > # bad: [fc2933c133744305236793025b00c2f7d258b687] ARM: 9020/1: mm: us=
+e correct section size macro to describe the FDT virtual address
+> > > git bisect bad fc2933c133744305236793025b00c2f7d258b687
+> > > # bad: [421015713b306e47af95d4d61cdfbd96d462e4cb] ARM: 9017/2: Enable=
+ KASan for ARM
+> > > git bisect bad 421015713b306e47af95d4d61cdfbd96d462e4cb
+> > > # first bad commit: [421015713b306e47af95d4d61cdfbd96d462e4cb] ARM: 9=
+017/2: Enable KASan for ARMog
+> > >
+> > > An allyesconfig kernel compiled with clang does not link properly wit=
+h
+> > > ld.bfd without a workaround [1], which I do not have time to apply an=
+d
+> > > test now but can later if it is relevant. I have not done any triage =
+on
+> > > this yet either but I wanted to get the report out in case there is
+> > > anything obvious.
+> > >
+> > > [1]: https://github.com/ClangBuiltLinux/linux/issues/325
+> >
+> > relro? smells like:
+> > https://lore.kernel.org/lkml/20201016175339.2429280-1-ndesaulniers@goog=
+le.com/T/#u
+> >
+>
+> Huh, did not even realize that the error messages were the same, my bad!
+>
+> This issue is simple enough to produce by just adding CONFIG_KASAN=3Dy to
+> multi_v7_defconfig. I tried adding '-z norelro' to LDFLAGS_vmlinux in
+> arch/arm/Makefile and it fixes the build error but the resulting kernel
+> does not boot in QEMU.
+>
+> $ make -skj"$(nproc)" ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabi- LLVM=
+=3D1 distclean defconfig
+>
+> $ scripts/config -e KASAN
+>
+> $ make -skj"$(nproc)" ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabi- LLVM=
+=3D1 olddefconfig zImage
+>
+> $ ~/cbl/github/boot-utils/boot-qemu.sh -a arm32_v7 -k .
+> /home/nathan/cbl/github/boot-utils/images/arm/rootfs.cpio.zst: 3176448 by=
+tes
+> + timeout --foreground 3m unbuffer qemu-system-arm -machine virt -no-rebo=
+ot -append 'console=3DttyAMA0 ' -display none -initrd /home/nathan/cbl/gith=
+ub/boot-utils/images/arm/rootfs.cpio -kernel /home/nathan/src/linux-next/ar=
+ch/arm/boot/zImage -m 512m -nodefaults -serial mon:stdio
+> + RET=3D124
+> + set +x
+>
+> '-z norelro' boots fine without KASAN so I assume there is something up
+> specifically with KASAN and LLVM for ARM.
+>
 
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+How long did you wait for it to boot? Booting a KASAN kernel under
+QEMU emulation is going to be *very* slow.
 
-> ---
-> 
-> Unlike the __section macro conversion in commit 33def8498fdd
-> ("treewide: Convert macro and uses of __section(foo) to __section("foo")")
-> this one was done by hand.
-> 
-> No other use of __alias exists in the kernel.
-> 
-> This patch does _not_ convert any uses of __attribute__((alias("<foo>")))
-> so it should not cause any compilation issues.
-> 
->  arch/x86/boot/compressed/string.c       |  6 +++---
->  arch/x86/include/asm/syscall_wrapper.h  |  2 +-
->  drivers/firmware/efi/runtime-wrappers.c |  2 +-
->  include/linux/compiler_attributes.h     |  2 +-
->  kernel/kcsan/core.c                     | 10 +++++-----
->  lib/crc32.c                             |  4 ++--
->  lib/crypto/aes.c                        |  4 ++--
->  mm/kasan/generic.c                      |  8 ++++----
->  8 files changed, 19 insertions(+), 19 deletions(-)
-> 
-> diff --git a/arch/x86/boot/compressed/string.c b/arch/x86/boot/compressed/string.c
-> index 81fc1eaa3229..d38b122f51ef 100644
-> --- a/arch/x86/boot/compressed/string.c
-> +++ b/arch/x86/boot/compressed/string.c
-> @@ -75,7 +75,7 @@ void *memcpy(void *dest, const void *src, size_t n)
->  }
->  
->  #ifdef CONFIG_KASAN
-> -extern void *__memset(void *s, int c, size_t n) __alias(memset);
-> -extern void *__memmove(void *dest, const void *src, size_t n) __alias(memmove);
-> -extern void *__memcpy(void *dest, const void *src, size_t n) __alias(memcpy);
-> +extern void *__memset(void *s, int c, size_t n) __alias("memset");
-> +extern void *__memmove(void *dest, const void *src, size_t n) __alias("memmove");
-> +extern void *__memcpy(void *dest, const void *src, size_t n) __alias("memcpy");
->  #endif
-> diff --git a/arch/x86/include/asm/syscall_wrapper.h b/arch/x86/include/asm/syscall_wrapper.h
-> index a84333adeef2..f19d1bbbff3d 100644
-> --- a/arch/x86/include/asm/syscall_wrapper.h
-> +++ b/arch/x86/include/asm/syscall_wrapper.h
-> @@ -69,7 +69,7 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
->  	long __##abi##_##name(const struct pt_regs *regs);		\
->  	ALLOW_ERROR_INJECTION(__##abi##_##name, ERRNO);			\
->  	long __##abi##_##name(const struct pt_regs *regs)		\
-> -		__alias(__do_##name);
-> +		__alias("__do_" #name);
->  
->  #define __SYS_STUBx(abi, name, ...)					\
->  	long __##abi##_##name(const struct pt_regs *regs);		\
-> diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
-> index 1410beaef5c3..14e380ac65d4 100644
-> --- a/drivers/firmware/efi/runtime-wrappers.c
-> +++ b/drivers/firmware/efi/runtime-wrappers.c
-> @@ -162,7 +162,7 @@ static DEFINE_SEMAPHORE(efi_runtime_lock);
->   * Expose the EFI runtime lock to the UV platform
->   */
->  #ifdef CONFIG_X86_UV
-> -extern struct semaphore __efi_uv_runtime_lock __alias(efi_runtime_lock);
-> +extern struct semaphore __efi_uv_runtime_lock __alias("efi_runtime_lock");
->  #endif
->  
->  /*
-> diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
-> index ea7b756b1c8f..4819512c9abd 100644
-> --- a/include/linux/compiler_attributes.h
-> +++ b/include/linux/compiler_attributes.h
-> @@ -42,7 +42,7 @@
->  /*
->   *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-alias-function-attribute
->   */
-> -#define __alias(symbol)                 __attribute__((__alias__(#symbol)))
-> +#define __alias(symbol)                 __attribute__((__alias__(symbol)))
->  
->  /*
->   *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-aligned-function-attribute
-> diff --git a/kernel/kcsan/core.c b/kernel/kcsan/core.c
-> index 3994a217bde7..465f6cfc317c 100644
-> --- a/kernel/kcsan/core.c
-> +++ b/kernel/kcsan/core.c
-> @@ -814,7 +814,7 @@ EXPORT_SYMBOL(__kcsan_check_access);
->  	}                                                                      \
->  	EXPORT_SYMBOL(__tsan_read##size);                                      \
->  	void __tsan_unaligned_read##size(void *ptr)                            \
-> -		__alias(__tsan_read##size);                                    \
-> +		__alias("__tsan_read" #size);                                  \
->  	EXPORT_SYMBOL(__tsan_unaligned_read##size);                            \
->  	void __tsan_write##size(void *ptr);                                    \
->  	void __tsan_write##size(void *ptr)                                     \
-> @@ -823,7 +823,7 @@ EXPORT_SYMBOL(__kcsan_check_access);
->  	}                                                                      \
->  	EXPORT_SYMBOL(__tsan_write##size);                                     \
->  	void __tsan_unaligned_write##size(void *ptr)                           \
-> -		__alias(__tsan_write##size);                                   \
-> +		__alias("__tsan_write" #size);                                 \
->  	EXPORT_SYMBOL(__tsan_unaligned_write##size);                           \
->  	void __tsan_read_write##size(void *ptr);                               \
->  	void __tsan_read_write##size(void *ptr)                                \
-> @@ -833,7 +833,7 @@ EXPORT_SYMBOL(__kcsan_check_access);
->  	}                                                                      \
->  	EXPORT_SYMBOL(__tsan_read_write##size);                                \
->  	void __tsan_unaligned_read_write##size(void *ptr)                      \
-> -		__alias(__tsan_read_write##size);                              \
-> +		__alias("__tsan_read_write" #size);                            \
->  	EXPORT_SYMBOL(__tsan_unaligned_read_write##size)
->  
->  DEFINE_TSAN_READ_WRITE(1);
-> @@ -877,7 +877,7 @@ EXPORT_SYMBOL(__tsan_write_range);
->  	}                                                                      \
->  	EXPORT_SYMBOL(__tsan_volatile_read##size);                             \
->  	void __tsan_unaligned_volatile_read##size(void *ptr)                   \
-> -		__alias(__tsan_volatile_read##size);                           \
-> +		__alias("__tsan_volatile_read" #size);                         \
->  	EXPORT_SYMBOL(__tsan_unaligned_volatile_read##size);                   \
->  	void __tsan_volatile_write##size(void *ptr);                           \
->  	void __tsan_volatile_write##size(void *ptr)                            \
-> @@ -892,7 +892,7 @@ EXPORT_SYMBOL(__tsan_write_range);
->  	}                                                                      \
->  	EXPORT_SYMBOL(__tsan_volatile_write##size);                            \
->  	void __tsan_unaligned_volatile_write##size(void *ptr)                  \
-> -		__alias(__tsan_volatile_write##size);                          \
-> +		__alias("__tsan_volatile_write" #size);                        \
->  	EXPORT_SYMBOL(__tsan_unaligned_volatile_write##size)
->  
->  DEFINE_TSAN_VOLATILE_READ_WRITE(1);
-> diff --git a/lib/crc32.c b/lib/crc32.c
-> index 2a68dfd3b96c..373a17aaa432 100644
-> --- a/lib/crc32.c
-> +++ b/lib/crc32.c
-> @@ -206,8 +206,8 @@ u32 __pure __weak __crc32c_le(u32 crc, unsigned char const *p, size_t len)
->  EXPORT_SYMBOL(crc32_le);
->  EXPORT_SYMBOL(__crc32c_le);
->  
-> -u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias(crc32_le);
-> -u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
-> +u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias("crc32_le");
-> +u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias("__crc32c_le");
->  
->  /*
->   * This multiplies the polynomials x and y modulo the given modulus.
-> diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
-> index 827fe89922ff..5b80514595c2 100644
-> --- a/lib/crypto/aes.c
-> +++ b/lib/crypto/aes.c
-> @@ -82,8 +82,8 @@ static volatile const u8 __cacheline_aligned aes_inv_sbox[] = {
->  	0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d,
->  };
->  
-> -extern const u8 crypto_aes_sbox[256] __alias(aes_sbox);
-> -extern const u8 crypto_aes_inv_sbox[256] __alias(aes_inv_sbox);
-> +extern const u8 crypto_aes_sbox[256] __alias("aes_sbox");
-> +extern const u8 crypto_aes_inv_sbox[256] __alias("aes_inv_sbox");
->  
->  EXPORT_SYMBOL(crypto_aes_sbox);
->  EXPORT_SYMBOL(crypto_aes_inv_sbox);
-> diff --git a/mm/kasan/generic.c b/mm/kasan/generic.c
-> index 248264b9cb76..4496f897e4f5 100644
-> --- a/mm/kasan/generic.c
-> +++ b/mm/kasan/generic.c
-> @@ -234,7 +234,7 @@ EXPORT_SYMBOL(__asan_unregister_globals);
->  		check_memory_region_inline(addr, size, false, _RET_IP_);\
->  	}								\
->  	EXPORT_SYMBOL(__asan_load##size);				\
-> -	__alias(__asan_load##size)					\
-> +	__alias("__asan_load" #size)					\
->  	void __asan_load##size##_noabort(unsigned long);		\
->  	EXPORT_SYMBOL(__asan_load##size##_noabort);			\
->  	void __asan_store##size(unsigned long addr)			\
-> @@ -242,7 +242,7 @@ EXPORT_SYMBOL(__asan_unregister_globals);
->  		check_memory_region_inline(addr, size, true, _RET_IP_);	\
->  	}								\
->  	EXPORT_SYMBOL(__asan_store##size);				\
-> -	__alias(__asan_store##size)					\
-> +	__alias("__asan_store" #size)					\
->  	void __asan_store##size##_noabort(unsigned long);		\
->  	EXPORT_SYMBOL(__asan_store##size##_noabort)
->  
-> @@ -258,7 +258,7 @@ void __asan_loadN(unsigned long addr, size_t size)
->  }
->  EXPORT_SYMBOL(__asan_loadN);
->  
-> -__alias(__asan_loadN)
-> +__alias("__asan_loadN")
->  void __asan_loadN_noabort(unsigned long, size_t);
->  EXPORT_SYMBOL(__asan_loadN_noabort);
->  
-> @@ -268,7 +268,7 @@ void __asan_storeN(unsigned long addr, size_t size)
->  }
->  EXPORT_SYMBOL(__asan_storeN);
->  
-> -__alias(__asan_storeN)
-> +__alias("__asan_storeN")
->  void __asan_storeN_noabort(unsigned long, size_t);
->  EXPORT_SYMBOL(__asan_storeN_noabort);
->  
-> -- 
-> 2.26.0
-> 
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201030074038.GA1747580%40ubuntu-m3-large-x86.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAMj1kXG4VgyvZtTcCycNTQA%2Bsddi49%3DMj7uaEjZnw%3DRt5mt4sg=
+%40mail.gmail.com.
