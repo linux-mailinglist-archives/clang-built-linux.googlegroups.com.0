@@ -1,127 +1,131 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBC6B5X6AKGQENKZ2CHA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBN6C5X6AKGQENZZ7I7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33DAF29F9D6
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 01:38:37 +0100 (CET)
-Received: by mail-ot1-x33b.google.com with SMTP id k103sf1300735otk.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 17:38:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1604018316; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 326BB29F9DF
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 01:41:29 +0100 (CET)
+Received: by mail-qt1-x83e.google.com with SMTP id 2sf2989536qtb.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 17:41:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1604018488; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gLx5NVr5ireTHW1Y+7zC9KzKeqHMzSp5FvBDj9rYG52BcV7PYnxQ+RbU0sOmOOtd5p
-         FjL/qeQ0thUycX3eGpC6/D5geumKrtY/ImK0ObHrt9dImyD3XmEWoeXV/WO6BHkXWQ7p
-         UwEB+Zj+d+qq+h1BjzwAilv7dqEawlbLjHlvXbv7/eezqZn4V3Xb27w84+s5CdzTBuU1
-         fUqXS4bdHuJdb4XZDVROkWXwc7+ZfQ7vTe+bPz5rh7L4eiCcYgXITXF3FCHI+iinhv+O
-         ig90qTCnAqQqyOCUd+wNUDJXxyzbpFLNy4kTgyLdrGrMyxvnzTGfo4Jy0bbAt0VqntKm
-         WJDQ==
+        b=kLnUrEJwi8S2xZr5F+1GqHnJwDwEqUPAYJd40BRX+RCOIjC8Zt5lkFJRfh56DNQKn6
+         U+9vkst1j+1Qt9n9OY727DRiGgaK4C5cPGX+M1qllqRq4jDEJhYYv6FU0J7Bf9GR7OjC
+         5EmoO5s0A32hBDS2f6Muj/zuCeMEp06I3vXzhoC1HcCqWETDZ6yOAADK8PNXQ9kndCA5
+         z0VSm+Ov/YGAZgByETkAMHZtcqgzqEDC0jXGE62rSw/eHtosTKm1RWBpT2RXUdiDza4r
+         QIBVuuHju3r0G0ofz7zfYMrKdMeJCqE5LLpLFUlMb4gcUs/OSnx6UrT+afvRGAP07YsZ
+         f2pA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=iLLaFoossi48pGHDo+70ie7AEGKa1N+REsdu6hySRqg=;
-        b=DxtSeWooY1OBXg6/nZtykBCX7vq8aVurpdnzoEqgKAFvYdUI/saqBq3NRfI85yQyEC
-         wojq5tTSQh1/Umb1ZgnFn98vkf/1zIPGNkwKOqlQ5HC7vJnIG9gTmBKkSJFk+Qn2R/C0
-         xF3K/sAhotCub3q78H+iYwGBpgRSG6pnE8StkcI5hLi+SjvRF8h7HpcEDe9oabz3nybr
-         0xdC2c4br+8kAYBo/C0D4ODwUJtXre8QM/JH3Mb6NSMDw1f9pMVjeUkZSdrCSo//nqSe
-         7r1RnZxI5dk2bVW3S1eRF+ecDUxQr82aKqryRFVBtMXGRAINsLuI34qMYWczXAQiwN+y
-         Cvlg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=uiax61n7P7OdNPIqyKAbc1C30fn3JMnVWBgaVrJ6yDk=;
+        b=T3VGAL7zQAZQoBXvjAWF55VtMEhLwis4EyTfkKmQtT22xFAg1IfFfU2rbs9IDKgGyq
+         1awxRVSppff7yG7b5HfxEGm8cqSwF6o2qI5mOLn0Qq1t4jPw+FAWLVwOuaPy83LH4Gq+
+         MG0xic9GYKGt+eVySbBtx/QMRR1NoOhjbUp/FkivrRXQ1nMpgl83KN1o32oZ28KWCOTx
+         MYJvl7KmUGiFOaGPVuyL5Um2xyBhkSmtvuMvNL7+GBnM1ARIbWUe42zVxJpesCGY8q0a
+         jU8BcKkml4Em5ZFtTAk3pyrDxHSegdi7ZxBlDETaW+zPlchFSMDLpb7hRB6yZAPYtbrh
+         8xBw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=UOfOAnx2;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=QtpEEOsi;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iLLaFoossi48pGHDo+70ie7AEGKa1N+REsdu6hySRqg=;
-        b=og0rCB0g/PaTG/tHD4VfNEgCgvnAey+H50Dyev3YZRUMjJU0iRrnnv/twU1S45GffM
-         unOev8tG2Ywpi/Xe0fPjiuDbnur4IaKkmiuQhhiXl9TnRJPzmM8yoML20N2c3jJ39Ztl
-         k9YoIuG/4VCkJ3u5q4GwPHIhsjXStpCBzAXJSfMxax9KWFaqm0u/sGk6YYulNsOWwE2h
-         LZORjUy3OSDLxbd3LO9wiKz2TpYCepFC7QCC0I+9dBQ6QmA8dAsKj5PLPLr4exjdlfHj
-         tLEJXJ6CkM+xdf3X7DJw1nYO2QchGHNmAg2rcjcLkcRyr7Fj0U9EFokTUUyLH5Im5yRS
-         6oAg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=uiax61n7P7OdNPIqyKAbc1C30fn3JMnVWBgaVrJ6yDk=;
+        b=jYqF7rW1a5826FKnGJ3LdFVyS9p29ZDvzXyuuOdL09J1m4VvoKbnmxi+3DshYz/TWM
+         kfwHoWLVv5I/7KRWj50h3C1uRvqH8+aDN7CEaXF0juAEjeX7W1UFenj731bCrm9Ssi2H
+         TvRgns1Js1dwqQ3Iq3FhSHtrlsuCmEIg2j915MmWhSKbDEEGdbhPesjKBvrcjxVMlbZi
+         8apXk0psTkftxUR8ao0V61k7802i2+jf5BUm/xyhYm+hK/KrSikhjEOCoUrvJihLyzHB
+         T9qZ56i0HkSjX4NITfgtbnvF0MHopDdFX74myZAWyCWP/1l3vOet0RGKAg7fwv4Ldgvr
+         cvBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iLLaFoossi48pGHDo+70ie7AEGKa1N+REsdu6hySRqg=;
-        b=OP93gNrzc5W9o9RQGuLqrygXsOmcugjfxtxx27wpsxrrMeKChxlLyYDqwhEGZe0za3
-         tJRHtUCaJR/BdBcJdDTDV01vrMAMxvctxP/EoolkQz2zOiSpGu4bDVpqtFA+1B35N12V
-         Ohlse9ysss15h6lZMUFMGc1d+rDooGZ3YWzx6J2RtnhDP/KYwy8e5BXxS5lSRFPBfx72
-         KW+cyMOSdEhpXJGyORpp+83lMyHzuFVWjuooxKzzC2uPcBasvUBTAoEBvXYK1ZGb8D9E
-         zdVThAjW0gKWAtMoLQ3ffikV5eSYpAOF717kE/E/FPzf99U/ZhP1N5d88FY6E5XaV7S/
-         m6lw==
-X-Gm-Message-State: AOAM533MsDYy+1Hv9ed49JLwpXrciIaLcEe2fObZmBf1y05e/qRQCwOv
-	iEMsOLCG/NtoIbwhplZnASQ=
-X-Google-Smtp-Source: ABdhPJxRc73BTI6a1HTU1MN2L4HOuIUODSLT2wxRWsz6HztPoPpHgT2gmUocMb0b3SAUpXuL6VqM4A==
-X-Received: by 2002:a9d:6317:: with SMTP id q23mr4896415otk.95.1604018315843;
-        Thu, 29 Oct 2020 17:38:35 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=uiax61n7P7OdNPIqyKAbc1C30fn3JMnVWBgaVrJ6yDk=;
+        b=rvw3+q/NNnDnqrKMlrznPMZtWbPoeEPVCVUik5OFsuFjuSCVWmQt6U5L89lKXZnzdj
+         K/yEivwO3K/KyqdtRLGwhFue5rcKX0os/Oe9EvRPF9B2iWiUE8p6O/TQJSim9Xjw/HhL
+         fhP2NzWDxQhrfat/3kQyvgTFXlWqXDD8pXX+BaxWxwGebaj7YcInaSmQ+QALFGS71WyV
+         krpEr6G98WE52P0AsR9BZCyymEr3Pa7wAhTO9DN/oMM3qN0ebFjSNTot2F4VycW4VB3C
+         VParFTfYng8aj/1SfC1YChtiyRWP3HtF4/ZjYFc7/K8a+3DM2dW5Ct+UL2WcQseaMuup
+         TTag==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530ZZQ7QDD45y6IaNLXvoGwL1jjT8TCLXWKgn3zrPUWIwwEZDUJe
+	8K2oeKzx4Hv2RJNqHXKWpoM=
+X-Google-Smtp-Source: ABdhPJxodUPeO63N9JRMoU4hzmbx+A0pH081+CAzRcTbLA6WvD7NPFL77bepUNic5UPnw2PIJDHapQ==
+X-Received: by 2002:ac8:183:: with SMTP id x3mr6294264qtf.218.1604018487944;
+        Thu, 29 Oct 2020 17:41:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:c694:: with SMTP id m20ls308300ooq.8.gmail; Thu, 29 Oct
- 2020 17:38:35 -0700 (PDT)
-X-Received: by 2002:a4a:b04f:: with SMTP id g15mr5332720oon.37.1604018315510;
-        Thu, 29 Oct 2020 17:38:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1604018315; cv=none;
+Received: by 2002:a05:620a:1248:: with SMTP id a8ls2257849qkl.11.gmail; Thu,
+ 29 Oct 2020 17:41:27 -0700 (PDT)
+X-Received: by 2002:a37:9942:: with SMTP id b63mr6852172qke.85.1604018487487;
+        Thu, 29 Oct 2020 17:41:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1604018487; cv=none;
         d=google.com; s=arc-20160816;
-        b=WKmS90MxqllK+MRzT2coSlmO3dOtZmNRE2NsIEST6UDwfhnabIdPucXNXCcmIvHrY6
-         tMepxag4NWImtjZIy7+N4Du777DIR3M2hm4TCeyIiNB4ed4BQpeqy79812oqxIoZ5ieZ
-         ikG5imS1cHKOgzGswiJCykTqd6V53ceIkWwCMcYUsBb0No0d5U3yfDJfmPFnhyNML02F
-         r282QsIMBm9TQS+OU+1XwYpsFzGgepKT3u2AE5N4/3AtDOqviIU9CxuoieREgH30fRtU
-         wK672FWieUY42t3w1XFr0u4giUpfNywbh0MB8uVkVoMZJVa4VwvN9e4g43RNMqUHGey5
-         oJ5Q==
+        b=bnwhkLpYyWXzrM6ZmQ+IANNESjkSV1aItqEJ+en+tb8A+zsxwx7M4XEi01zx1T3f5h
+         OFuj9Oh2uF7cCbpfCcPHweOx5qT+cM0rmXx3W8RlcWDaMJttreR2LMdOQk5DxXpm47jn
+         xpMsW2AaL3naA0iMAQG8PW7fcRdGe6bddGrRxbnRGO5ofymWYxzWS1f8FpZpM4bKxbHD
+         a50sulAvHIS2oeMwzBVfWl5rU2vxg+fLHJIBleLOgzRZ9i99Hw1fLXI2cCZzxTkG6FCZ
+         hvsg+2qRn1FsNiFOY9Qd9ICl935EHw0awwKfA6zP/6tfHB2uJgFB+IHHDHY48EvPSCMy
+         w/Vw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9Ph2s5hmTZM9t4kEGF7Jwdc+t5ui49ALjCmVCEnnqNE=;
-        b=KSgV0lEtHEyeS4iI4EtgCLjRo6wtFJZWZHOUr/27Ea9lek5JHToV5UI4jcu0YfkCS1
-         GoxoIdM1QtR11sLpR3nyX8a/J+ywj+urD+753yaXwt8tQXU5E21262M/GUxzBfr2UY8x
-         aQQZg8AzW5GZipfEn36YcIPoaJ3YZYTIlKnVq2quNTF0dLFDMeJTOm7bAJPCy+LrNeEi
-         /GmZRtI2E+26yoY3WO2xCOEUWgj26ESlKAU3Cmou9ITqlLYDwxq6cXsqW5BDyh574bnV
-         RKtAEzdHcsFepU/0SA9N8L49CzkfZHr+1imSoCR4s3wXLp9j9Ye2pGi6fxv3c244bKlt
-         Tddg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=xwi9v6G+KXdvr9P0rg4SC1RrPK2xGX6F+WnyAdSAtZE=;
+        b=DhK59Umbhxq/CScQwptjNENfggB8nEZp6tOwHDQpw13TGyqCQTszLCjPvFqzuT9uEt
+         STXw9M01e1C9Nl150B4s6xyoGd8Mid8l6PWN9Jak6390yuSFNeHdUiMrCiUhGEHRRoCU
+         auLGMaS2lPCsjJlBILqV6NB/XkhLirS2pMe3xa33WpOK2CUwR0CU7WfYEBHByoRz0Wcq
+         WlLhsMblljZlRLfStvwqlxHRr0N6GckEQwfaOlLAjjNicSnW9g2JulAm32Yfpc7w0j10
+         4yTyKtFUmzXK92CcuBeaAlEWBjCSjaCQjk7nXyMR0XKO4sK9QYEhyGbYacNCf93LAyrh
+         alpw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=UOfOAnx2;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id m127si347854oig.2.2020.10.29.17.38.35
+       dkim=pass header.i=@kernel.org header.s=default header.b=QtpEEOsi;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id i13si216203qko.4.2020.10.29.17.41.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Oct 2020 17:38:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id 15so3715674pgd.12
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Oct 2020 17:38:35 -0700 (PDT)
-X-Received: by 2002:a62:5e06:0:b029:164:a9ca:b07e with SMTP id
- s6-20020a625e060000b0290164a9cab07emr6648381pfb.36.1604018314623; Thu, 29 Oct
- 2020 17:38:34 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 29 Oct 2020 17:41:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 18627206CB;
+	Fri, 30 Oct 2020 00:41:25 +0000 (UTC)
+Date: Thu, 29 Oct 2020 20:41:24 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jian Cai <jiancai@google.com>, "# 3.4.x" <stable@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Manoj Gupta <manojgupta@google.com>,
+	Luis Lozano <llozano@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Greg KH <gregkh@linuxfoundation.org>
+Subject: Re: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
+Message-ID: <20201030004124.GG87646@sasha-vm>
+References: <CA+SOCLLXnxcf=bTazCT1amY7B4_37HTEXL2OwHowVGCb8SLSQQ@mail.gmail.com>
+ <20201029110153.GA3840801@kroah.com>
+ <CAKwvOdkQ5M+ujYZgg7T80W-uNgsn_mmv8R+-15HJjPoPDpES1Q@mail.gmail.com>
+ <20201029233635.GF87646@sasha-vm>
+ <CAKwvOd=MLOKH-JoaiQcahz3bxXiCoH_hkfw2Q_Wu7514vP3zkg@mail.gmail.com>
 MIME-Version: 1.0
-References: <20201019084140.4532-1-linus.walleij@linaro.org> <20201030002900.GA2248731@ubuntu-m3-large-x86>
-In-Reply-To: <20201030002900.GA2248731@ubuntu-m3-large-x86>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 29 Oct 2020 17:38:22 -0700
-Message-ID: <CAKwvOdntdKGN+F4r2jYNw3C-vxxZ09aCTaGR1_DtR+5tFzjLOw@mail.gmail.com>
-Subject: Re: [PATCH 0/5 v16] KASan for Arm
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Florian Fainelli <f.fainelli@gmail.com>, 
-	Abbott Liu <liuwenliang@huawei.com>, Russell King <linux@armlinux.org.uk>, 
-	Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
-	Mike Rapoport <rppt@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=MLOKH-JoaiQcahz3bxXiCoH_hkfw2Q_Wu7514vP3zkg@mail.gmail.com>
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=UOfOAnx2;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=QtpEEOsi;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,136 +138,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 29, 2020 at 5:29 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
+On Thu, Oct 29, 2020 at 04:45:52PM -0700, Nick Desaulniers wrote:
+>On Thu, Oct 29, 2020 at 4:36 PM Sasha Levin <sashal@kernel.org> wrote:
+>>
+>> On Thu, Oct 29, 2020 at 11:05:01AM -0700, Nick Desaulniers wrote:
+>> >Hi Jian,
+>> >Thanks for proactively identifying and requesting a backport of
+>> >44623b2818.  We'll need it for Android as well soon.
+>> >
+>> >One thing I do when requesting backports from stable is I checkout the
+>> >branch of the stable tree and see if the patch cherry picks cleanly.
+>>
+>> btw, an easy way to get an idea of possible dependencies is to look at
+>> the dependency repo :) For this commit on 5.4:
+>>
+>> https://git.kernel.org/pub/scm/linux/kernel/git/sashal/deps.git/plain/v5.4/44623b2818f4a442726639572f44fd9b6d0ef68c
 >
-> On Mon, Oct 19, 2020 at 10:41:35AM +0200, Linus Walleij wrote:
-> > This is the 16th and final (knock on wood) version of
-> > KASan for ARM32.
-> >
-> > Changes since v15:
-> >
-> > - Things now work on all boards we have tested on including
-> >   Broadcom and i.MX6Q.
-> >
-> > - Folded in a fix from Ard to PAGE_ALIGN() the end of
-> >   mappings making everything work on all Broadcom board.
-> >
-> > - Folded in a fix from Ahmad Fatoum making things work
-> >   with fortify on i.MX6Q.
-> >
-> > - Testing and testing and testing on build servers.
-> >
-> > - We are good to go.
-> >
-> > I will now put this in Russell's patch tracker for v5.11.
-> >
-> > There is a git branch you can pull in:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrator.git/log/?h=kasan
-> >
-> > This branch includes Ard's two patches already in Russell's
-> > patch tracker.
-> >
-> >
-> > Abbott Liu (1):
-> >   ARM: Define the virtual space of KASan's shadow region
-> >
-> > Andrey Ryabinin (3):
-> >   ARM: Disable KASan instrumentation for some code
-> >   ARM: Replace string mem* functions for KASan
-> >   ARM: Enable KASan for ARM
-> >
-> > Linus Walleij (1):
-> >   ARM: Initialize the mapping of KASan shadow memory
-> >
-> >  Documentation/arm/memory.rst                  |   5 +
-> >  Documentation/dev-tools/kasan.rst             |   4 +-
-> >  .../features/debug/KASAN/arch-support.txt     |   2 +-
-> >  arch/arm/Kconfig                              |  10 +
-> >  arch/arm/boot/compressed/Makefile             |   1 +
-> >  arch/arm/boot/compressed/string.c             |  19 ++
-> >  arch/arm/include/asm/kasan.h                  |  33 ++
-> >  arch/arm/include/asm/kasan_def.h              |  81 +++++
-> >  arch/arm/include/asm/memory.h                 |   5 +
-> >  arch/arm/include/asm/pgalloc.h                |   8 +-
-> >  arch/arm/include/asm/string.h                 |  26 ++
-> >  arch/arm/include/asm/thread_info.h            |   8 +
-> >  arch/arm/include/asm/uaccess-asm.h            |   2 +-
-> >  arch/arm/kernel/entry-armv.S                  |   3 +-
-> >  arch/arm/kernel/entry-common.S                |   9 +-
-> >  arch/arm/kernel/head-common.S                 |   7 +-
-> >  arch/arm/kernel/setup.c                       |   2 +
-> >  arch/arm/kernel/unwind.c                      |   6 +-
-> >  arch/arm/lib/memcpy.S                         |   3 +
-> >  arch/arm/lib/memmove.S                        |   5 +-
-> >  arch/arm/lib/memset.S                         |   3 +
-> >  arch/arm/mm/Makefile                          |   5 +
-> >  arch/arm/mm/kasan_init.c                      | 292 ++++++++++++++++++
-> >  arch/arm/mm/mmu.c                             |  18 ++
-> >  arch/arm/mm/pgd.c                             |  16 +-
-> >  arch/arm/vdso/Makefile                        |   2 +
-> >  26 files changed, 561 insertions(+), 14 deletions(-)
-> >  create mode 100644 arch/arm/include/asm/kasan.h
-> >  create mode 100644 arch/arm/include/asm/kasan_def.h
-> >  create mode 100644 arch/arm/mm/kasan_init.c
-> >
-> > --
-> > 2.26.2
-> >
->
-> After this series was applied and available in -next, ARCH=arm LLVM=1
-> allyesconfig builds started failing:
->
-> $ make -skj"$(nproc)" ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- KCONFIG_ALLCONFIG=<(echo CONFIG_CPU_BIG_ENDIAN=n) LLVM=1 distclean allyesconfig vmlinux
-> ...
-> ld.lld: error: section: .exit.data is not contiguous with other relro sections
-> ...
->
-> $ git bisect ld: [3f267ec60b922eff2a5c90d532357a39f155b730] Add linux-next specific files for 20201029
-> # good: [23859ae44402f4d935b9ee548135dd1e65e2cbf4] Merge tag 'trace-v5.10-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace
-> git bisect start '3f267ec60b922eff2a5c90d532357a39f155b730' '23859ae44402f4d935b9ee548135dd1e65e2cbf4'
-> # bad: [bfa70a4ea4bfa6f87b58cf8b90b88297389c92b7] Merge remote-tracking branch 'mtd/mtd/next' into master
-> git bisect bad bfa70a4ea4bfa6f87b58cf8b90b88297389c92b7
-> # bad: [37a292dcf77532547f335ed5063d9169031c9b08] Merge remote-tracking branch 'sunxi/sunxi/for-next' into master
-> git bisect bad 37a292dcf77532547f335ed5063d9169031c9b08
-> # good: [e6d922c77db276a16f0b7933c2a9951dc9c0052c] Merge remote-tracking branch 'drm-misc-fixes/for-linux-next-fixes' into master
-> git bisect good e6d922c77db276a16f0b7933c2a9951dc9c0052c
-> # bad: [cbe49fbb8f6c8d29bc1d9a5a9a742ef2c2eb6320] Merge remote-tracking branch 'mvebu/for-next' into master
-> git bisect bad cbe49fbb8f6c8d29bc1d9a5a9a742ef2c2eb6320
-> # bad: [d0e12484e7e1ede73c538744cdbe9439f7335d01] Merge remote-tracking branch 'arm-soc/for-next' into master
-> git bisect bad d0e12484e7e1ede73c538744cdbe9439f7335d01
-> # good: [24a23387c15f34bad2485a9e1c3b7ac6f0fb35a6] Merge branch 'asm-generic-cleanup' into asm-generic
-> git bisect good 24a23387c15f34bad2485a9e1c3b7ac6f0fb35a6
-> # good: [3a8eb4d3421a2ca0f95ac3b1a8f012940d4f0d52] Merge remote-tracking branch 'kbuild/for-next' into master
-> git bisect good 3a8eb4d3421a2ca0f95ac3b1a8f012940d4f0d52
-> # bad: [20f96e606509ee5084690179afe1810b95617a92] Merge branches 'fixes' and 'misc' into for-next
-> git bisect bad 20f96e606509ee5084690179afe1810b95617a92
-> # good: [d6d51a96c7d63b7450860a3037f2d62388286a52] ARM: 9014/2: Replace string mem* functions for KASan
-> git bisect good d6d51a96c7d63b7450860a3037f2d62388286a52
-> # good: [5615f69bc2097452ecc954f5264d784e158d6801] ARM: 9016/2: Initialize the mapping of KASan shadow memory
-> git bisect good 5615f69bc2097452ecc954f5264d784e158d6801
-> # bad: [fc2933c133744305236793025b00c2f7d258b687] ARM: 9020/1: mm: use correct section size macro to describe the FDT virtual address
-> git bisect bad fc2933c133744305236793025b00c2f7d258b687
-> # bad: [421015713b306e47af95d4d61cdfbd96d462e4cb] ARM: 9017/2: Enable KASan for ARM
-> git bisect bad 421015713b306e47af95d4d61cdfbd96d462e4cb
-> # first bad commit: [421015713b306e47af95d4d61cdfbd96d462e4cb] ARM: 9017/2: Enable KASan for ARMog
->
-> An allyesconfig kernel compiled with clang does not link properly with
-> ld.bfd without a workaround [1], which I do not have time to apply and
-> test now but can later if it is relevant. I have not done any triage on
-> this yet either but I wanted to get the report out in case there is
-> anything obvious.
->
-> [1]: https://github.com/ClangBuiltLinux/linux/issues/325
+>Why you guys never tell me this before? :P Very cool, how is the
+>dependency chain built? Is it built for every commit?
 
-relro? smells like:
-https://lore.kernel.org/lkml/20201016175339.2429280-1-ndesaulniers@google.com/T/#u
+git bisect run for each commit on each branch we have. I have a little
+stable-deps tool that looks something like this to make it easy:
+
+ver=$(make SUBLEVEL= kernelversion)
+cmt=$(git rev-parse $1)
+
+for i in $(curl -s https://git.kernel.org/pub/scm/linux/kernel/git/sashal/deps.git/plain/v$ver/$cmt | awk {'print $1'}); do
+         stable commit-in-tree $i
+         if [ $? -eq 1 ]; then
+                 continue
+         fi
+         git ol $i
+done
 
 -- 
 Thanks,
-~Nick Desaulniers
+Sasha
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdntdKGN%2BF4r2jYNw3C-vxxZ09aCTaGR1_DtR%2B5tFzjLOw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201030004124.GG87646%40sasha-vm.
