@@ -1,151 +1,138 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBLPC5X6AKGQES6N3EFQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBB64G536AKGQEUF6ASPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4D30B29FAB6
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 02:49:34 +0100 (CET)
-Received: by mail-ot1-x340.google.com with SMTP id q8sf1721479otk.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 18:49:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1604022573; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 70DF929FC01
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 04:07:40 +0100 (CET)
+Received: by mail-yb1-xb3d.google.com with SMTP id a184sf4865509ybg.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 20:07:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1604027259; cv=pass;
         d=google.com; s=arc-20160816;
-        b=F2uvvQSUNr2ELFCHjkZo4TFBNgK4cwEqFG6f3MJezNADB3JHID42JI9ynGqVaYhi7I
-         BnfXv3WMRcLYEmT9TH5X1XTSdS9cDIseuMsd+2Dd2T+UKXooZ/EXwUHPk4FwSa/zLTWF
-         4lh/BCPvzdNhaRiGZg0xfydd/kg3epahYtp6yWvGhwW2BhQPDyYCdR9HgQ/w0MJW8FcT
-         b+mjFEfKZYgElHZStNyP4TBg+xcPVVd7dW/4XjaWn7UOvnWKhGMoaGqyD+9rGfj2ykI2
-         ULvuQszZ60v9YcxOb3JgdHBbVwG4N9kZyJCO7NLtU2LwLU/AG2BiSLVC0fKg5ly/A6E3
-         9zmg==
+        b=z+t5qC+3JMQ7PZ/l6xdIQPtrT6TuEHGCmOdLDqV9sQxdLEKTTqCKS5uFeeFAGErWOi
+         /L47QKTQXabqvXC4bMZ/YmCfsGbgSjXA2ZN8BOccbTkwfJ3eP6WwX7ykPCZXMi0q7Kh/
+         7LSSNUS6Szhg+864XIVFkLuUOjHt62P+L9xTe1t8k1vRf9AZAjJFnpAUUENrgGq6V4w8
+         3Jgg1a2mEF5SS3wWde75BRQc2jpst3ONpTInX1e8bW9Cj/QAnBydTgkL/2GIL3WKrpvu
+         MtTX5NuNkc9gAd9GLMyNBImCAIywKbKV4EV//oJMZp/2+RA4jiL5sl5BC+GgXV5NGC9z
+         S1fg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
-        b=O3BzWTvKd6FgdjLFfIOihxR0iad1c9PNA5y0lrudn3KsNHrJLWzOl+WYezHs2pZ7e1
-         mwzN3eXAvYnHGEuUAZStcH/fMLoRVUHQSr/YcS5eBBeIYsSf8RGTeZB4yqSrk36o6KEs
-         nSltmIiaJkLp47wC1bGNIOVJ90VlG7otRX//C+ch578Jocv6ychR++3gB3zpFmnUAHhB
-         L/Q/X/0uYUmOHlng6ahZTJDEID7jgzU1AuppW5tj+3jht16RKwzbB1msb0yjt9AusmLq
-         JHi0+tecyviQnN8RUWxpb6GFo5OwXLPTeOfhkK3E7akehCH1ABL5ShLz9uxUcA7ZgRCj
-         MR4Q==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=ZzQ1+idwQaoFX9uCcsYKm68xUF5UKVCYbFCfGu1wYso=;
+        b=OW2wiH+/tNyPpqwtEbmc9SCGK+hbtXO2DnhMMtS/elc08VMx3tl7Je5ve3w+2X8gU0
+         8s1hQShkXh5bWEavP355YSY9eNGOOMbkrgi3UtxlgO3lmil0hTyFEVWUXzzQ4NSB4qMn
+         bq5jZYoLw/+vEz6Ipa0fOVytjporOi8NHu4ZuEaxsqi+55lOrSNS2ftna26WjUw4EIVU
+         JucbYRVP3TfLh1QY0Z1eGjsUvGULHhGYvBriO34RvBMfPOh4a15s1P74RlbV6P+cWrSC
+         bl+jSL89hAPeVdLXUC/rRiK26j+IkqzYJoqOO/0cI+GEjdqEh5q8B6EM0782RunC0xiH
+         bw8A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LK2Grv4v;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=neutral (google.com: 216.40.44.81 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
-        b=O4b2jLF6PtmF5rrgHHVzICZt3sF8NCzyjuIHk1OPtybNSkdt4FbioMBNocg81K/2Nz
-         vb/hX438VTAl5XNQ2G8OlseNN9mUSbGMG3WfXaKazPM6hw93a7z0aYBg1nHHYUCst1HH
-         i+IWettGTmh7GTG/y2qUT7xVjAvC2B6AHt4836OMwrRsbgvOih4tIea5+oV8VoA36F2f
-         2Xdeb3l97P5Kjn0W0vSEPhy8Ewjvk2GthNCdKk230sAnu1UgaL+RBLUjeOU67O9vAgSi
-         nWYBM/QZsICtTtccCTualMrp7r5yAhpTjIF705LJjO2ZB3VZb3vxhMP6z6m+dZuc0gQ/
-         gCdQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
-        b=BgzQtw++CICcPo3Sdbog9/2dvYn5QjmshfAFXdBcnkwZbksWBPEOA/ro3wVikhslod
-         xVo0rLtjjcgTDqNNCI6XMOsnkkvsKK14kxa6XugFoqkqg5SnS6OXpAp4gIlYRnEj84A0
-         7jyxgEHfYl+NnSErglgIIwj8Rtlz3+5vxI4+32KCHkEY+YarooFwYxUmyKv0kcoNb3hz
-         1mGRrfc8303IkWPlf+qegOXTlY3BlLqvyUodvYnemMe2tVoR55zFhqz3BgEwdf+WFGla
-         Qi6UVAMYo4by+HaYweRocJ/b+uZBAv+EBVzbctYhfE+Miiah86xkTr1Z24q/na7jhTfy
-         J0Og==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ZzQ1+idwQaoFX9uCcsYKm68xUF5UKVCYbFCfGu1wYso=;
+        b=c9SOxB/v/616Qcg7x2tjGIfAQAE2TTk5bkgxIKWGiste8gGvBUtRCoDUrjOHXheUVh
+         NsP2SQ/BjNz+mBK6fH4WF0c+ofbisTtixa1PmjIeobrdpDee25fWTuiHoUsnt8VAb8Qv
+         J1FABmssDMVKldaXLxJU6OZ2VWpWW62t93Y6rssjt4I4HCgYGb0Tj3doLnIVBJ9/+x3m
+         dHn5/PORsuMgurreGvaqpKR20wnxGHvWmBWHCJIwonTbRUcw7JJnrv4dwizSn+WLudXO
+         OhLysyH7bB4LdacOXDSoMpZ1wI9p8ZK+Q+BpJPP3Uy+1fxa3Uiof2uao6u4BWHxhQHyA
+         p/nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
-        b=h5PMuZsTEvL7GNkIMVX8m949VNbfkMKQsMiMWtZ5zaYcA8pH4+5q4QBZtN6K+X2p4b
-         WIiq7JvDC48y2wZAPw04zJUn9N2aaRdI4KQykAi4HGGHYjaATF3XGICvMEe2QaG/qzWH
-         tQwBcXrjq7+4bPcaqeZtcdGxTerCXARq5zdttNGxY9UniASe60grab8D1wSFBiSu93SA
-         MDLsJO/mVyLYo7lNkAFjdsETibOG4EB9wS9K7+OX/0qWHISNl0nmX6ODzttwBkSb6/x1
-         7c9iLVWcefGax+3l2hnWNfDhK631rtG4ct3Bn9VqHAW42w5ciCcfI4rb2V7C++z415Ae
-         J4Iw==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZzQ1+idwQaoFX9uCcsYKm68xUF5UKVCYbFCfGu1wYso=;
+        b=mb4V62AHPgYvw/dzhstgQqlhemWwsYEwL42FLFG5BfcpHL+RDAJLLwguCZ49TeDU5S
+         f0rByngxmP18Yr10OMPojOB3WGwIS81KRP4GpES8xSVmgV2gvD0CTNtUVwAvFqJ5Ktvi
+         /VKeZp+SrZPcUnjzpeHq4onaXG8rJpBabiDBG2Qyo/pe7KAYUD38+q9Oiby1nDJIjHyX
+         WeOpCkOxoeQdC3M9ulSAfzgdUieTEkkZQhZVSpAV5s6iQFAkW00pGuqGPofq5E1AHevN
+         LI4ev8LXR8Mj+WwTEad5Z/zvgx23UCt2lv/xzglU9Zy/UKwJXMH3ZW4nm3TADT+0ocZO
+         YxPA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530b8rEbtCVYl3/1LAZSdbYhBziSC9GnVBwvofHdFAwxB6Qm4KZ+
-	BPlSie5A9GleaHVdAY0jo/Q=
-X-Google-Smtp-Source: ABdhPJyu83Evr0g50VVpwSEUW3Usvi9eIRSDhgjU+owHX1lrZCgnVSvsHzJm307FF8nexG2ArOfxZw==
-X-Received: by 2002:a9d:2daa:: with SMTP id g39mr5718917otb.77.1604022573257;
-        Thu, 29 Oct 2020 18:49:33 -0700 (PDT)
+X-Gm-Message-State: AOAM530iss27Vmb0fwI5DE8BKO9Gs9gOBbhUL5yxI2UocyJO/dcRkx0F
+	WSMsbzoBy2guTnvnku4GRn0=
+X-Google-Smtp-Source: ABdhPJwSGACSEiMkinelVGzFDSbbMroSMB20EfhWUaI0O3wUqTkMifSfCey5eo6qi46B/QxmDXseMw==
+X-Received: by 2002:a25:146:: with SMTP id 67mr798736ybb.156.1604027259242;
+        Thu, 29 Oct 2020 20:07:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:5c0b:: with SMTP id o11ls1210899otk.2.gmail; Thu, 29 Oct
- 2020 18:49:33 -0700 (PDT)
-X-Received: by 2002:a9d:6e17:: with SMTP id e23mr5645380otr.296.1604022572947;
-        Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1604022572; cv=none;
+Received: by 2002:a25:2c04:: with SMTP id s4ls2292108ybs.0.gmail; Thu, 29 Oct
+ 2020 20:07:38 -0700 (PDT)
+X-Received: by 2002:a25:2d6e:: with SMTP id s46mr741812ybe.434.1604027258669;
+        Thu, 29 Oct 2020 20:07:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1604027258; cv=none;
         d=google.com; s=arc-20160816;
-        b=AN228tXFgO8ClyBmqnOwjdKYA3UntSPAv6iTWFtrnm/mDzyzygqvDGaRuF9cQiQHRu
-         y6odgPPLHhh6CUMKr0r2wSfVnOF5lTGolepdnSrSr0spwbEsbhM/WS0DGIBLnYfzX4L6
-         0EdaMrLJRUmFtKNaK/mKf80ZYMx8rwl56mPS9u+s8uPX39y6mKSD1HF+A3C/X+MK8y35
-         j4pQR9SHCgDGiGcYqdkXdp/k8egf0l98C6Jyj/qyDwb78EyHwKxzyoaDWN/NuPHC4bT2
-         IDQHXa2kvTF5wby10KHTeJrHJljOQcM3nBadaIiinSAzo723bbmLUloSBhoh0JDVwxJX
-         ufSQ==
+        b=gdIk8EPLwgPQjZZQw88YsuMExLVnCYCVWdb8h96ttRvurFDbGpxfIYAzUeP+rkkjIr
+         yaeYIzyWhFsYhpXSMGemldb3+hBL7Zt1fV+mjBIGw0AW/j4zOjZCs57Bkw29ZsUwrVyu
+         0SugsEZfV38vbCz1hGX48VMusuj6sL8R52JxIML3hrhiBDxnwcL9t3wPXA5Id4Fog2HR
+         N9e78FYbuvBN4ijyscFpVXNcRRFfNWK14ymRiWVYiX+ZZ3ztjFhp4jYPqCuGlJDeaKoB
+         kg9R+iYU1Ch+2QnpsgDs3P8Ks40BPA1ZaPXNeIgsgTY6/chVEpEVoutwmKiuRd2FHwEK
+         VtkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=QOGBGZXS5bceVC+NjRYBtAxKU4B3mv4H3jVxrGPSN/g=;
-        b=K4KS7k602mPWY6p22jWYZwAy8Zdsd7UjaEwezRBme+LvWWaofZqqzT+z37yO51a10p
-         EG93Us4uQ8JcGvpdmDMhChWWE3jHzLN48BklmrvB9eMqD+Cgc/+p/1mBFQhWtFBd8m/U
-         1iLqfWpDaW7ADMzK5WLvMosCQ3kg2ugT62zCIolfRQ6EXCJfHSjSDLls+e3ZSZ04CAQH
-         oOpL64KHv1yegzXanTvz4bzBCoO+lgdi/VJjpFo+N+y7gQETY/fwwu9w7+pg5tR+iCYV
-         Ou/UIU9ACb2qQo86aYyqsLJlW+wUviGjdrEYY9rtz0eCHO00n+EwkTRj/E+x2YmaxTrb
-         Tt/Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=kOW07ruMgtMSoPFEakK/2W+RKBex0/sPv9DhlIel2Ts=;
+        b=bbJC6Qz4+5Z4nEUIC6lAOpi6iUngGdRRbtAtZnTHJIw7aO/MlX6vnDxUZNPdUxWUD1
+         KLSwmhJ1ivOZ4hTpURCBnqYXROx/yy8sLkPmfBMEvTKVKLWfAMEXIA6HHokmSnmhuEwt
+         E029JGIkCvpBYgKkk2AIk/a4ryU6fbMtQSEJe7R7d7OSQnXv7ui10G/Wg1eccbjGzv4o
+         D0FVuhro93xT7mlhHc28Dp5ko7BiG2w4ozrTEB7ctSXCdalQcCcSE2a9TMeEWXBAj8rb
+         INXt9uDZrS4UMMeK1Bw5LiBRw7uItR+yPKssuN6pqIXgp3BFz+Ijc6ix21bhMShSjZNx
+         Oazg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LK2Grv4v;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x144.google.com (mail-il1-x144.google.com. [2607:f8b0:4864:20::144])
-        by gmr-mx.google.com with ESMTPS id f16si323353otc.0.2020.10.29.18.49.32
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) client-ip=2607:f8b0:4864:20::144;
-Received: by mail-il1-x144.google.com with SMTP id v18so5195539ilg.1
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
-X-Received: by 2002:a92:8e51:: with SMTP id k17mr235521ilh.270.1604022572586;
-        Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id v88sm3997811ila.71.2020.10.29.18.49.31
+       spf=neutral (google.com: 216.40.44.81 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0081.hostedemail.com. [216.40.44.81])
+        by gmr-mx.google.com with ESMTPS id e184si224063ybe.0.2020.10.29.20.07.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2020 18:49:31 -0700 (PDT)
-Date: Thu, 29 Oct 2020 18:49:30 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Jian Cai <jiancai@google.com>
-Cc: Sasha Levin <sashal@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	"# 3.4.x" <stable@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Manoj Gupta <manojgupta@google.com>,
-	Luis Lozano <llozano@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Greg KH <gregkh@linuxfoundation.org>
-Subject: Re: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
-Message-ID: <20201030014930.GB2519055@ubuntu-m3-large-x86>
-References: <CA+SOCLLXnxcf=bTazCT1amY7B4_37HTEXL2OwHowVGCb8SLSQQ@mail.gmail.com>
- <20201029110153.GA3840801@kroah.com>
- <CAKwvOdkQ5M+ujYZgg7T80W-uNgsn_mmv8R+-15HJjPoPDpES1Q@mail.gmail.com>
- <20201029233635.GF87646@sasha-vm>
- <CAKwvOd=MLOKH-JoaiQcahz3bxXiCoH_hkfw2Q_Wu7514vP3zkg@mail.gmail.com>
- <20201030004124.GG87646@sasha-vm>
- <CA+SOCLJqVjy9QRssE9AZ1nQBwZB5mAcanpVTVOd4kO3=r5jrfA@mail.gmail.com>
+        Thu, 29 Oct 2020 20:07:38 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.81 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.81;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay02.hostedemail.com (Postfix) with ESMTP id DD427629;
+	Fri, 30 Oct 2020 03:07:37 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:1:2:41:334:355:368:369:379:541:800:960:967:968:973:988:989:1260:1311:1314:1345:1437:1515:1605:1730:1747:1777:1792:1801:1981:2194:2198:2199:2200:2393:2525:2561:2564:2682:2685:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3865:3866:3867:3868:3870:3872:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4052:4250:4321:4419:4605:5007:6119:6261:6691:6737:6742:7903:7904:8603:9025:9149:10004:10848:11026:11232:11473:11657:11658:11914:12043:12048:12296:12297:12438:12555:12895:12986:13894:13972:14394:21080:21433:21451:21627:30029:30054:30089,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: rain79_4f07ec327292
+X-Filterd-Recvd-Size: 11188
+Received: from joe-laptop.perches.com (unknown [47.151.133.149])
+	(Authenticated sender: joe@perches.com)
+	by omf13.hostedemail.com (Postfix) with ESMTPA;
+	Fri, 30 Oct 2020 03:07:34 +0000 (UTC)
+From: Joe Perches <joe@perches.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Marco Elver <elver@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andrey Ryabinin <aryabinin@virtuozzo.com>,
+	Alexander Potapenko <glider@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-crypto@vger.kernel.org,
+	linux-mm@kvack.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] treewide: Remove stringification from __alias macro definition
+Date: Thu, 29 Oct 2020 20:07:31 -0700
+Message-Id: <8451df41359b52f048780d19e07b6fa4445b6392.1604026698.git.joe@perches.com>
+X-Mailer: git-send-email 2.26.0
 MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.81 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CA+SOCLJqVjy9QRssE9AZ1nQBwZB5mAcanpVTVOd4kO3=r5jrfA@mail.gmail.com>
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=LK2Grv4v;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -158,110 +145,215 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Jian,
+Like the old __section macro, the __alias macro uses macro # stringification
+to create quotes around the symbol name used in the __attribute__.
 
-On Thu, Oct 29, 2020 at 06:13:07PM -0700, 'Jian Cai' via Clang Built Linux wrote:
-> Thanks @Nick Desaulniers <ndesaulniers@google.com>  and @Sasha Levin
-> <sashal@kernel.org> for the tips. For this particular change, it seems we
-> do not need to backport all the dependencies (if they have not been merged
-> into 5.4 stable). @Greg KH <gregkh@linuxfoundation.org>, please find the
-> custom backport as below. It has passed all the tests on ChromeOS (
-> http://crrev.com/c/2504570).
-> 
-> Thanks,
-> Jian
+This can cause differences between gcc and clang when the stringification
+itself contains a quote character.  So avoid these differences by always
+using quotes to define the aliased symbol.
 
-The below patch won't apply because it appears to be copy pasted into
-this message:
+Remove the stringification and add quotes and when necessary a stringification
+when existing uses have a ## concatenation.
 
-Applying: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
-error: git diff header lacks filename information when removing 1 leading pathname component (line 6)
-Patch failed at 0001 Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
-hint: Use 'git am --show-current-patch=diff' to see the failed patch
-When you have resolved this problem, run "git am --continue".
-If you prefer to skip this patch, run "git am --skip" instead.
-To restore the original branch and stop patching, run "git am --abort".
+Signed-off-by: Joe Perches <joe@perches.com>
+---
 
-I would recommend resending the patch with git send-email or attaching
-the patch file created by 'git format-patch -1' to a future email for
-proper application.
+Unlike the __section macro conversion in commit 33def8498fdd
+("treewide: Convert macro and uses of __section(foo) to __section("foo")")
+this one was done by hand.
 
-> From 60891062750a39d8bba9710d500e381a26c11f75 Mon Sep 17 00:00:00 2001
-> From: Jian Cai <jiancai@google.com>
-> Date: Thu, 29 Oct 2020 17:49:39 -0700
+No other use of __alias exists in the kernel.
 
-Authorship and date should be fixed to retain the information of the
-original commit.
+This patch does _not_ convert any uses of __attribute__((alias("<foo>")))
+so it should not cause any compilation issues.
 
-It is trivial to just redo the cherry-pick to fix that information in
-this instance but this is the command I usually run for more non-trivial
-backports that I have already done:
+ arch/x86/boot/compressed/string.c       |  6 +++---
+ arch/x86/include/asm/syscall_wrapper.h  |  2 +-
+ drivers/firmware/efi/runtime-wrappers.c |  2 +-
+ include/linux/compiler_attributes.h     |  2 +-
+ kernel/kcsan/core.c                     | 10 +++++-----
+ lib/crc32.c                             |  4 ++--
+ lib/crypto/aes.c                        |  4 ++--
+ mm/kasan/generic.c                      |  8 ++++----
+ 8 files changed, 19 insertions(+), 19 deletions(-)
 
-$ git commit -s --amend -C <sha> --date "$(git show -s --format=%ai <sha>)"
-
-This should allow you to retain the commit message of the original
-message along with the author's date.
-
-> Subject: [PATCH] crypto: x86/crc32c - fix building with clang ias
-> 
-> commit 44623b2818f4a442726639572f44fd9b6d0ef68c upstream
-> 
-> The clang integrated assembler complains about movzxw:
-> 
-> arch/x86/crypto/crc32c-pcl-intel-asm_64.S:173:2: error: invalid instruction
-> mnemonic 'movzxw'
-> 
-> It seems that movzwq is the mnemonic that it expects instead,
-> and this is what objdump prints when disassembling the file.
-> 
-> NOTE: this is a custom backport as the surrounding code has been
-> changed upstream.
-
-A note of this nature is traditionally placed after the signoffs of the
-original patch like my example below:
-
-> Fixes: 6a8ce1ef3940 ("crypto: crc32c - Optimize CRC32C calculation with
-> PCLMULQDQ instruction")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
-[jc: Backport to 5.4]
-> Signed-off-by: Jian Cai <caij2003@gmail.com>
-
-I usually like to notate why the patch did not apply cleanly so that it
-is easier for others to audit, such as:
-
-[jc: Fixed conflicts due to lack of 34fdce6981b969]
-
-That is merely a suggestion, not required by any means.
-
-Otherwise, the backport seems obvious fine to me.
-
-Cheers,
-Nathan
-
-> ---
->  arch/x86/crypto/crc32c-pcl-intel-asm_64.S | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
-> b/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
-> index d9b734d0c8cc..3c6e01520a97 100644
-> --- a/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
-> +++ b/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
-> @@ -170,7 +170,7 @@ continue_block:
-> 
->   ## branch into array
->   lea jump_table(%rip), bufp
-> - movzxw  (bufp, %rax, 2), len
-> + movzwq  (bufp, %rax, 2), len
->   lea crc_array(%rip), bufp
->   lea     (bufp, len, 1), bufp
->   JMP_NOSPEC bufp
-> -- 
-> 2.29.1.341.ge80a0c044ae-goog
+diff --git a/arch/x86/boot/compressed/string.c b/arch/x86/boot/compressed/string.c
+index 81fc1eaa3229..d38b122f51ef 100644
+--- a/arch/x86/boot/compressed/string.c
++++ b/arch/x86/boot/compressed/string.c
+@@ -75,7 +75,7 @@ void *memcpy(void *dest, const void *src, size_t n)
+ }
+ 
+ #ifdef CONFIG_KASAN
+-extern void *__memset(void *s, int c, size_t n) __alias(memset);
+-extern void *__memmove(void *dest, const void *src, size_t n) __alias(memmove);
+-extern void *__memcpy(void *dest, const void *src, size_t n) __alias(memcpy);
++extern void *__memset(void *s, int c, size_t n) __alias("memset");
++extern void *__memmove(void *dest, const void *src, size_t n) __alias("memmove");
++extern void *__memcpy(void *dest, const void *src, size_t n) __alias("memcpy");
+ #endif
+diff --git a/arch/x86/include/asm/syscall_wrapper.h b/arch/x86/include/asm/syscall_wrapper.h
+index a84333adeef2..f19d1bbbff3d 100644
+--- a/arch/x86/include/asm/syscall_wrapper.h
++++ b/arch/x86/include/asm/syscall_wrapper.h
+@@ -69,7 +69,7 @@ extern long __ia32_sys_ni_syscall(const struct pt_regs *regs);
+ 	long __##abi##_##name(const struct pt_regs *regs);		\
+ 	ALLOW_ERROR_INJECTION(__##abi##_##name, ERRNO);			\
+ 	long __##abi##_##name(const struct pt_regs *regs)		\
+-		__alias(__do_##name);
++		__alias("__do_" #name);
+ 
+ #define __SYS_STUBx(abi, name, ...)					\
+ 	long __##abi##_##name(const struct pt_regs *regs);		\
+diff --git a/drivers/firmware/efi/runtime-wrappers.c b/drivers/firmware/efi/runtime-wrappers.c
+index 1410beaef5c3..14e380ac65d4 100644
+--- a/drivers/firmware/efi/runtime-wrappers.c
++++ b/drivers/firmware/efi/runtime-wrappers.c
+@@ -162,7 +162,7 @@ static DEFINE_SEMAPHORE(efi_runtime_lock);
+  * Expose the EFI runtime lock to the UV platform
+  */
+ #ifdef CONFIG_X86_UV
+-extern struct semaphore __efi_uv_runtime_lock __alias(efi_runtime_lock);
++extern struct semaphore __efi_uv_runtime_lock __alias("efi_runtime_lock");
+ #endif
+ 
+ /*
+diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
+index ea7b756b1c8f..4819512c9abd 100644
+--- a/include/linux/compiler_attributes.h
++++ b/include/linux/compiler_attributes.h
+@@ -42,7 +42,7 @@
+ /*
+  *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-alias-function-attribute
+  */
+-#define __alias(symbol)                 __attribute__((__alias__(#symbol)))
++#define __alias(symbol)                 __attribute__((__alias__(symbol)))
+ 
+ /*
+  *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-aligned-function-attribute
+diff --git a/kernel/kcsan/core.c b/kernel/kcsan/core.c
+index 3994a217bde7..465f6cfc317c 100644
+--- a/kernel/kcsan/core.c
++++ b/kernel/kcsan/core.c
+@@ -814,7 +814,7 @@ EXPORT_SYMBOL(__kcsan_check_access);
+ 	}                                                                      \
+ 	EXPORT_SYMBOL(__tsan_read##size);                                      \
+ 	void __tsan_unaligned_read##size(void *ptr)                            \
+-		__alias(__tsan_read##size);                                    \
++		__alias("__tsan_read" #size);                                  \
+ 	EXPORT_SYMBOL(__tsan_unaligned_read##size);                            \
+ 	void __tsan_write##size(void *ptr);                                    \
+ 	void __tsan_write##size(void *ptr)                                     \
+@@ -823,7 +823,7 @@ EXPORT_SYMBOL(__kcsan_check_access);
+ 	}                                                                      \
+ 	EXPORT_SYMBOL(__tsan_write##size);                                     \
+ 	void __tsan_unaligned_write##size(void *ptr)                           \
+-		__alias(__tsan_write##size);                                   \
++		__alias("__tsan_write" #size);                                 \
+ 	EXPORT_SYMBOL(__tsan_unaligned_write##size);                           \
+ 	void __tsan_read_write##size(void *ptr);                               \
+ 	void __tsan_read_write##size(void *ptr)                                \
+@@ -833,7 +833,7 @@ EXPORT_SYMBOL(__kcsan_check_access);
+ 	}                                                                      \
+ 	EXPORT_SYMBOL(__tsan_read_write##size);                                \
+ 	void __tsan_unaligned_read_write##size(void *ptr)                      \
+-		__alias(__tsan_read_write##size);                              \
++		__alias("__tsan_read_write" #size);                            \
+ 	EXPORT_SYMBOL(__tsan_unaligned_read_write##size)
+ 
+ DEFINE_TSAN_READ_WRITE(1);
+@@ -877,7 +877,7 @@ EXPORT_SYMBOL(__tsan_write_range);
+ 	}                                                                      \
+ 	EXPORT_SYMBOL(__tsan_volatile_read##size);                             \
+ 	void __tsan_unaligned_volatile_read##size(void *ptr)                   \
+-		__alias(__tsan_volatile_read##size);                           \
++		__alias("__tsan_volatile_read" #size);                         \
+ 	EXPORT_SYMBOL(__tsan_unaligned_volatile_read##size);                   \
+ 	void __tsan_volatile_write##size(void *ptr);                           \
+ 	void __tsan_volatile_write##size(void *ptr)                            \
+@@ -892,7 +892,7 @@ EXPORT_SYMBOL(__tsan_write_range);
+ 	}                                                                      \
+ 	EXPORT_SYMBOL(__tsan_volatile_write##size);                            \
+ 	void __tsan_unaligned_volatile_write##size(void *ptr)                  \
+-		__alias(__tsan_volatile_write##size);                          \
++		__alias("__tsan_volatile_write" #size);                        \
+ 	EXPORT_SYMBOL(__tsan_unaligned_volatile_write##size)
+ 
+ DEFINE_TSAN_VOLATILE_READ_WRITE(1);
+diff --git a/lib/crc32.c b/lib/crc32.c
+index 2a68dfd3b96c..373a17aaa432 100644
+--- a/lib/crc32.c
++++ b/lib/crc32.c
+@@ -206,8 +206,8 @@ u32 __pure __weak __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ EXPORT_SYMBOL(crc32_le);
+ EXPORT_SYMBOL(__crc32c_le);
+ 
+-u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias(crc32_le);
+-u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
++u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias("crc32_le");
++u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias("__crc32c_le");
+ 
+ /*
+  * This multiplies the polynomials x and y modulo the given modulus.
+diff --git a/lib/crypto/aes.c b/lib/crypto/aes.c
+index 827fe89922ff..5b80514595c2 100644
+--- a/lib/crypto/aes.c
++++ b/lib/crypto/aes.c
+@@ -82,8 +82,8 @@ static volatile const u8 __cacheline_aligned aes_inv_sbox[] = {
+ 	0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d,
+ };
+ 
+-extern const u8 crypto_aes_sbox[256] __alias(aes_sbox);
+-extern const u8 crypto_aes_inv_sbox[256] __alias(aes_inv_sbox);
++extern const u8 crypto_aes_sbox[256] __alias("aes_sbox");
++extern const u8 crypto_aes_inv_sbox[256] __alias("aes_inv_sbox");
+ 
+ EXPORT_SYMBOL(crypto_aes_sbox);
+ EXPORT_SYMBOL(crypto_aes_inv_sbox);
+diff --git a/mm/kasan/generic.c b/mm/kasan/generic.c
+index 248264b9cb76..4496f897e4f5 100644
+--- a/mm/kasan/generic.c
++++ b/mm/kasan/generic.c
+@@ -234,7 +234,7 @@ EXPORT_SYMBOL(__asan_unregister_globals);
+ 		check_memory_region_inline(addr, size, false, _RET_IP_);\
+ 	}								\
+ 	EXPORT_SYMBOL(__asan_load##size);				\
+-	__alias(__asan_load##size)					\
++	__alias("__asan_load" #size)					\
+ 	void __asan_load##size##_noabort(unsigned long);		\
+ 	EXPORT_SYMBOL(__asan_load##size##_noabort);			\
+ 	void __asan_store##size(unsigned long addr)			\
+@@ -242,7 +242,7 @@ EXPORT_SYMBOL(__asan_unregister_globals);
+ 		check_memory_region_inline(addr, size, true, _RET_IP_);	\
+ 	}								\
+ 	EXPORT_SYMBOL(__asan_store##size);				\
+-	__alias(__asan_store##size)					\
++	__alias("__asan_store" #size)					\
+ 	void __asan_store##size##_noabort(unsigned long);		\
+ 	EXPORT_SYMBOL(__asan_store##size##_noabort)
+ 
+@@ -258,7 +258,7 @@ void __asan_loadN(unsigned long addr, size_t size)
+ }
+ EXPORT_SYMBOL(__asan_loadN);
+ 
+-__alias(__asan_loadN)
++__alias("__asan_loadN")
+ void __asan_loadN_noabort(unsigned long, size_t);
+ EXPORT_SYMBOL(__asan_loadN_noabort);
+ 
+@@ -268,7 +268,7 @@ void __asan_storeN(unsigned long addr, size_t size)
+ }
+ EXPORT_SYMBOL(__asan_storeN);
+ 
+-__alias(__asan_storeN)
++__alias("__asan_storeN")
+ void __asan_storeN_noabort(unsigned long, size_t);
+ EXPORT_SYMBOL(__asan_storeN_noabort);
+ 
+-- 
+2.26.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201030014930.GB2519055%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8451df41359b52f048780d19e07b6fa4445b6392.1604026698.git.joe%40perches.com.
