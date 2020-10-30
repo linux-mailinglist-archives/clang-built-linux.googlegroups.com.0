@@ -1,154 +1,151 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBL625X6AKGQEKIAL63Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBLPC5X6AKGQES6N3EFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62FE829FAA1
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 02:32:33 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id q16sf3559957pfj.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 18:32:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1604021552; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4D30B29FAB6
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Oct 2020 02:49:34 +0100 (CET)
+Received: by mail-ot1-x340.google.com with SMTP id q8sf1721479otk.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Oct 2020 18:49:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1604022573; cv=pass;
         d=google.com; s=arc-20160816;
-        b=U3N4wrd0Qci1+/egYBmtm5EQAa/YoIcbVs/ce/7DXUP1w0BxUIuNysKTgFYLoayh4/
-         snSH+jBxITqDLiZdp7oSd7vRDmgK0+5sWCbE/1xCUvAnnnW21pQ5AD0hLC4bfSRzaWzA
-         U/p117gje/TH4HUEigFEJmeQDxwP6QVLr1e8RI1YVDOucdB/gW3OJ9se9QZfyzKLBCDW
-         nHv/WJnFWgJ/76BgN4u1rY1eiizkvTZMJyMRHaXW6iUJka30IuOUpVgUW9ajFLdlWcC1
-         zCFxWAmT+G7QV2SuUDdi4GwE83sZtd0Xx7TgP5hKlHkFsM0vKjZabRwCyi3RToFnVNNo
-         GPVw==
+        b=F2uvvQSUNr2ELFCHjkZo4TFBNgK4cwEqFG6f3MJezNADB3JHID42JI9ynGqVaYhi7I
+         BnfXv3WMRcLYEmT9TH5X1XTSdS9cDIseuMsd+2Dd2T+UKXooZ/EXwUHPk4FwSa/zLTWF
+         4lh/BCPvzdNhaRiGZg0xfydd/kg3epahYtp6yWvGhwW2BhQPDyYCdR9HgQ/w0MJW8FcT
+         b+mjFEfKZYgElHZStNyP4TBg+xcPVVd7dW/4XjaWn7UOvnWKhGMoaGqyD+9rGfj2ykI2
+         ULvuQszZ60v9YcxOb3JgdHBbVwG4N9kZyJCO7NLtU2LwLU/AG2BiSLVC0fKg5ly/A6E3
+         9zmg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:dkim-signature:dkim-signature;
-        bh=nlhgX+u9VAxQ8ih8vrutEZGMXjMwfJOqQsLsA/36Q4Y=;
-        b=CQyynZ3eKIG7BlKpqB++OMdyrK7l7WmpBiesxOMvgQGJhx79+bC5gxfIUbxhQ7EztJ
-         gBnhE/GFQJhIWKwACop7HO/fBOYL0YkH5EptwKuWtY367nZwHG2TBEVVQqeWGghXVqZD
-         X4pgVGWfe54ejivgf5xBT3CZwWLOz/HtBWD66zsc3EhHtEmwud77x5NjOXMHNK8aR73R
-         NWcCZCSsDcV/vFfHaaHGN2B6WWJi9CaVHPGt4pRsV0g2nmLaaySg+KzxHQ2nm/jl8kLc
-         YrXPVow3VXHbDx+dJ5PBsVi1F0+pqBWufWi8Lte632Q+wfXvBYvPsgqgTYnuYrzhFekN
-         XisQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
+        b=O3BzWTvKd6FgdjLFfIOihxR0iad1c9PNA5y0lrudn3KsNHrJLWzOl+WYezHs2pZ7e1
+         mwzN3eXAvYnHGEuUAZStcH/fMLoRVUHQSr/YcS5eBBeIYsSf8RGTeZB4yqSrk36o6KEs
+         nSltmIiaJkLp47wC1bGNIOVJ90VlG7otRX//C+ch578Jocv6ychR++3gB3zpFmnUAHhB
+         L/Q/X/0uYUmOHlng6ahZTJDEID7jgzU1AuppW5tj+3jht16RKwzbB1msb0yjt9AusmLq
+         JHi0+tecyviQnN8RUWxpb6GFo5OwXLPTeOfhkK3E7akehCH1ABL5ShLz9uxUcA7ZgRCj
+         MR4Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=q7YVUywv;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::142 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LK2Grv4v;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nlhgX+u9VAxQ8ih8vrutEZGMXjMwfJOqQsLsA/36Q4Y=;
-        b=QTQEDtAbMKfLpnsy4tWcvSn7aHhIHhvf8365H+5QmY8q1f/a6oOiuZj+9UyzhvwiyS
-         cZV4PkPk2TZcwwx03IoLlo9k0YMwvcNWftIN8aB5bN15CBLsz81jpK9N/JkFtChGL8Px
-         ZtrlFlrHfGee7Liw/zP0JGWlLY67S69ZsjpauPk6wZQz0jIkf+H7eOMt0ikT/fKir7OO
-         5Vg9GVi+boghqoTU8VOBoUhH+3G3zr20et7XM1TTBVz22MmxgvQH2wyI9baAMujoOxfa
-         CaDLWwFLGyxcM+KZqHfXyDQzLab3NRKZiBg/iu0rbqM8GYTi/JOK34Iue3z9wC83Qhuw
-         OKeg==
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
+        b=O4b2jLF6PtmF5rrgHHVzICZt3sF8NCzyjuIHk1OPtybNSkdt4FbioMBNocg81K/2Nz
+         vb/hX438VTAl5XNQ2G8OlseNN9mUSbGMG3WfXaKazPM6hw93a7z0aYBg1nHHYUCst1HH
+         i+IWettGTmh7GTG/y2qUT7xVjAvC2B6AHt4836OMwrRsbgvOih4tIea5+oV8VoA36F2f
+         2Xdeb3l97P5Kjn0W0vSEPhy8Ewjvk2GthNCdKk230sAnu1UgaL+RBLUjeOU67O9vAgSi
+         nWYBM/QZsICtTtccCTualMrp7r5yAhpTjIF705LJjO2ZB3VZb3vxhMP6z6m+dZuc0gQ/
+         gCdQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nlhgX+u9VAxQ8ih8vrutEZGMXjMwfJOqQsLsA/36Q4Y=;
-        b=Dfu56qc0QKM8YRMERkaA7QrZChpudFfQUBWhaDVxZ+2gdZI6Ii1Yun68PdzpF1cUvS
-         I/OnNvB2rT89oafgukN93JOyJ4Zpbf+Sm+HIaYaSLAOG2Ogkyx7W+Y8ts7s5nL48Jn6W
-         2KHv7rCCU0oPt2VxoZ8YcOHVJe3K2fB5cmtQKh5DkVBy/aGomaE38+rK8RpVKcehGpyU
-         iHmjXPpa5kyNkEIYgWEI4C4FJbZ9Ps7n3VdZmi1zk2aSL8dVBg8vyk2yhhXAM2kYQ+WQ
-         sB8/4yKPEagnXWLiHtdCXXlgfyvlsOG1j5F8g9jtCja+TFk8QqwjKsnYaCTx56aFNwQO
-         OZ9A==
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
+        b=BgzQtw++CICcPo3Sdbog9/2dvYn5QjmshfAFXdBcnkwZbksWBPEOA/ro3wVikhslod
+         xVo0rLtjjcgTDqNNCI6XMOsnkkvsKK14kxa6XugFoqkqg5SnS6OXpAp4gIlYRnEj84A0
+         7jyxgEHfYl+NnSErglgIIwj8Rtlz3+5vxI4+32KCHkEY+YarooFwYxUmyKv0kcoNb3hz
+         1mGRrfc8303IkWPlf+qegOXTlY3BlLqvyUodvYnemMe2tVoR55zFhqz3BgEwdf+WFGla
+         Qi6UVAMYo4by+HaYweRocJ/b+uZBAv+EBVzbctYhfE+Miiah86xkTr1Z24q/na7jhTfy
+         J0Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
          :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results
-         :content-transfer-encoding:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nlhgX+u9VAxQ8ih8vrutEZGMXjMwfJOqQsLsA/36Q4Y=;
-        b=YVpHEL7bJIOfg9qSTRAGY+xPpC+NCyIF3TTLwy1stN5710HR4lTlwg5zbJneNZexyT
-         k/dT49wzJz8sCh/xJ5h79vm6phN7a8tIdmYNNz+AivNC1x3+EXecb2XNPsJwYraiq70o
-         HXu6T+fB5pM5fN9/ea4DosGEq5CMtYDT42i6UXRQmG51uuF9aHHSETo2pY7EB7Tbp4l7
-         kSg8KvZXEwDCo/E5I577AdQS9EzNKzTyEAePQAn58nZ+DSg1fmPd7jKjN0tFccI+jTKG
-         10cIh2wM9El8fHEL4ycSMJhbyjQLfxxoHLSRp+IDaHQpKFErEXf3mRZ1K59EHld8zdnH
-         r3hg==
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=bt/kJiq1ZCd7oesNyunGAwCFQY9nMlDYOfIdpwmQh3M=;
+        b=h5PMuZsTEvL7GNkIMVX8m949VNbfkMKQsMiMWtZ5zaYcA8pH4+5q4QBZtN6K+X2p4b
+         WIiq7JvDC48y2wZAPw04zJUn9N2aaRdI4KQykAi4HGGHYjaATF3XGICvMEe2QaG/qzWH
+         tQwBcXrjq7+4bPcaqeZtcdGxTerCXARq5zdttNGxY9UniASe60grab8D1wSFBiSu93SA
+         MDLsJO/mVyLYo7lNkAFjdsETibOG4EB9wS9K7+OX/0qWHISNl0nmX6ODzttwBkSb6/x1
+         7c9iLVWcefGax+3l2hnWNfDhK631rtG4ct3Bn9VqHAW42w5ciCcfI4rb2V7C++z415Ae
+         J4Iw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531KcInyL58XN2AAOUE2hte3XVUUlIDEvBsqyhGfyeYtlZyH7+i+
-	i+ixEJ0BW28ksIf7M36uJqc=
-X-Google-Smtp-Source: ABdhPJwef0KHVmoazK1+kFp+6eABNZXBdxb8BVHUdUrtRZlZ5q2VZDv9xOOSPUK4uzO9U2Eunc2Vtg==
-X-Received: by 2002:a17:902:7249:b029:d6:4d:7d82 with SMTP id c9-20020a1709027249b02900d6004d7d82mr6888933pll.74.1604021551908;
-        Thu, 29 Oct 2020 18:32:31 -0700 (PDT)
+X-Gm-Message-State: AOAM530b8rEbtCVYl3/1LAZSdbYhBziSC9GnVBwvofHdFAwxB6Qm4KZ+
+	BPlSie5A9GleaHVdAY0jo/Q=
+X-Google-Smtp-Source: ABdhPJyu83Evr0g50VVpwSEUW3Usvi9eIRSDhgjU+owHX1lrZCgnVSvsHzJm307FF8nexG2ArOfxZw==
+X-Received: by 2002:a9d:2daa:: with SMTP id g39mr5718917otb.77.1604022573257;
+        Thu, 29 Oct 2020 18:49:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:123:: with SMTP id 32ls2073399plb.1.gmail; Thu, 29
- Oct 2020 18:32:31 -0700 (PDT)
-X-Received: by 2002:a17:902:bd8e:b029:d4:c98b:c315 with SMTP id q14-20020a170902bd8eb02900d4c98bc315mr6936411pls.69.1604021551324;
-        Thu, 29 Oct 2020 18:32:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1604021551; cv=none;
+Received: by 2002:a9d:5c0b:: with SMTP id o11ls1210899otk.2.gmail; Thu, 29 Oct
+ 2020 18:49:33 -0700 (PDT)
+X-Received: by 2002:a9d:6e17:: with SMTP id e23mr5645380otr.296.1604022572947;
+        Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1604022572; cv=none;
         d=google.com; s=arc-20160816;
-        b=S3xOddZgzoSwQaWv7BI2muI9rvRx/GI/r9zCDd0/bA/TnVDHo4+lxf25h8UP+Qy1Uy
-         8jO47QWVmCzBh+6I1P9YeZNeaql2ivkqbXRqqZHqjo8WUrpKkCwfvN7qg+RDotB5x5c7
-         YBUb1LpEaW019zMP8FtCrKvlKRpOR2rB6d2gOiRVF5kvF8pYjVVuYSpNLDRjn7EzySM6
-         v8n0TRtOa6UIh7ToeC7cRAPM2PE6t7JzrEZvhfHzGzm4YTu0LFL1vVbXXVBIGBfPYZ0k
-         xVC34FWcBQHzKr7bqAmNUIifj2qQAEzCLoIzMf+iKWPBJUOVP1BggYHO53a9cP/qBh4y
-         OGqQ==
+        b=AN228tXFgO8ClyBmqnOwjdKYA3UntSPAv6iTWFtrnm/mDzyzygqvDGaRuF9cQiQHRu
+         y6odgPPLHhh6CUMKr0r2wSfVnOF5lTGolepdnSrSr0spwbEsbhM/WS0DGIBLnYfzX4L6
+         0EdaMrLJRUmFtKNaK/mKf80ZYMx8rwl56mPS9u+s8uPX39y6mKSD1HF+A3C/X+MK8y35
+         j4pQR9SHCgDGiGcYqdkXdp/k8egf0l98C6Jyj/qyDwb78EyHwKxzyoaDWN/NuPHC4bT2
+         IDQHXa2kvTF5wby10KHTeJrHJljOQcM3nBadaIiinSAzo723bbmLUloSBhoh0JDVwxJX
+         ufSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=SKn3njU4bPvKkYLygxpCgawvVfvtVn5t194pKZDbdAE=;
-        b=GJsmrffwRbJsN4qNZ0aOGmBVhfMFdc8wV32JUQwu7BOojLuMlK4SoAuUtiLZL3Im94
-         HxsJqVjIZxAH64Ugt7zSx/7sTtOlh3NQFH0ePanTRVsbmejsRn4rk47wpJsf3tAvgYv0
-         909we5UfWssIawbmq+DiTqDXCScMlEswQiJCqFI8z5X/TG1IYSYxSCZq/29JK7/itIP/
-         UkgZ7QexrCNCSyDthp81/9eDSr1l0hLGRL3UTdNPu46Mw8DZv5CNCvhWwpP0S2W5AHOL
-         jth8vinJwBxSPO9fK5qqoVD4AOCsog0a6qG8hL4IZNbnPzTL+qgGodkMCbDIfn8iUH7C
-         NOCg==
+        bh=QOGBGZXS5bceVC+NjRYBtAxKU4B3mv4H3jVxrGPSN/g=;
+        b=K4KS7k602mPWY6p22jWYZwAy8Zdsd7UjaEwezRBme+LvWWaofZqqzT+z37yO51a10p
+         EG93Us4uQ8JcGvpdmDMhChWWE3jHzLN48BklmrvB9eMqD+Cgc/+p/1mBFQhWtFBd8m/U
+         1iLqfWpDaW7ADMzK5WLvMosCQ3kg2ugT62zCIolfRQ6EXCJfHSjSDLls+e3ZSZ04CAQH
+         oOpL64KHv1yegzXanTvz4bzBCoO+lgdi/VJjpFo+N+y7gQETY/fwwu9w7+pg5tR+iCYV
+         Ou/UIU9ACb2qQo86aYyqsLJlW+wUviGjdrEYY9rtz0eCHO00n+EwkTRj/E+x2YmaxTrb
+         Tt/Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=q7YVUywv;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::142 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LK2Grv4v;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x142.google.com (mail-il1-x142.google.com. [2607:f8b0:4864:20::142])
-        by gmr-mx.google.com with ESMTPS id 100si61065pjo.3.2020.10.29.18.32.31
+Received: from mail-il1-x144.google.com (mail-il1-x144.google.com. [2607:f8b0:4864:20::144])
+        by gmr-mx.google.com with ESMTPS id f16si323353otc.0.2020.10.29.18.49.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Oct 2020 18:32:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::142 as permitted sender) client-ip=2607:f8b0:4864:20::142;
-Received: by mail-il1-x142.google.com with SMTP id y17so5150718ilg.4
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Oct 2020 18:32:31 -0700 (PDT)
-X-Received: by 2002:a92:d1c9:: with SMTP id u9mr183432ilg.278.1604021550661;
-        Thu, 29 Oct 2020 18:32:30 -0700 (PDT)
+        Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::144 as permitted sender) client-ip=2607:f8b0:4864:20::144;
+Received: by mail-il1-x144.google.com with SMTP id v18so5195539ilg.1
+        for <clang-built-linux@googlegroups.com>; Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
+X-Received: by 2002:a92:8e51:: with SMTP id k17mr235521ilh.270.1604022572586;
+        Thu, 29 Oct 2020 18:49:32 -0700 (PDT)
 Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id i87sm4565750ill.25.2020.10.29.18.32.29
+        by smtp.gmail.com with ESMTPSA id v88sm3997811ila.71.2020.10.29.18.49.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Oct 2020 18:32:30 -0700 (PDT)
-Date: Thu, 29 Oct 2020 18:32:28 -0700
+        Thu, 29 Oct 2020 18:49:31 -0700 (PDT)
+Date: Thu, 29 Oct 2020 18:49:30 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Abbott Liu <liuwenliang@huawei.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Andrey Ryabinin <aryabinin@virtuozzo.com>,
-	Mike Rapoport <rppt@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+To: Jian Cai <jiancai@google.com>
+Cc: Sasha Levin <sashal@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	"# 3.4.x" <stable@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 0/5 v16] KASan for Arm
-Message-ID: <20201030013228.GA2519055@ubuntu-m3-large-x86>
-References: <20201019084140.4532-1-linus.walleij@linaro.org>
- <20201030002900.GA2248731@ubuntu-m3-large-x86>
- <CAKwvOdntdKGN+F4r2jYNw3C-vxxZ09aCTaGR1_DtR+5tFzjLOw@mail.gmail.com>
+	Manoj Gupta <manojgupta@google.com>,
+	Luis Lozano <llozano@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Greg KH <gregkh@linuxfoundation.org>
+Subject: Re: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
+Message-ID: <20201030014930.GB2519055@ubuntu-m3-large-x86>
+References: <CA+SOCLLXnxcf=bTazCT1amY7B4_37HTEXL2OwHowVGCb8SLSQQ@mail.gmail.com>
+ <20201029110153.GA3840801@kroah.com>
+ <CAKwvOdkQ5M+ujYZgg7T80W-uNgsn_mmv8R+-15HJjPoPDpES1Q@mail.gmail.com>
+ <20201029233635.GF87646@sasha-vm>
+ <CAKwvOd=MLOKH-JoaiQcahz3bxXiCoH_hkfw2Q_Wu7514vP3zkg@mail.gmail.com>
+ <20201030004124.GG87646@sasha-vm>
+ <CA+SOCLJqVjy9QRssE9AZ1nQBwZB5mAcanpVTVOd4kO3=r5jrfA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdntdKGN+F4r2jYNw3C-vxxZ09aCTaGR1_DtR+5tFzjLOw@mail.gmail.com>
+In-Reply-To: <CA+SOCLJqVjy9QRssE9AZ1nQBwZB5mAcanpVTVOd4kO3=r5jrfA@mail.gmail.com>
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=q7YVUywv;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=LK2Grv4v;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::142 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::144 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Transfer-Encoding: quoted-printable
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,192 +158,110 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 29, 2020 at 05:38:22PM -0700, Nick Desaulniers wrote:
-> On Thu, Oct 29, 2020 at 5:29 PM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
-> >
-> > On Mon, Oct 19, 2020 at 10:41:35AM +0200, Linus Walleij wrote:
-> > > This is the 16th and final (knock on wood) version of
-> > > KASan for ARM32.
-> > >
-> > > Changes since v15:
-> > >
-> > > - Things now work on all boards we have tested on including
-> > >   Broadcom and i.MX6Q.
-> > >
-> > > - Folded in a fix from Ard to PAGE_ALIGN() the end of
-> > >   mappings making everything work on all Broadcom board.
-> > >
-> > > - Folded in a fix from Ahmad Fatoum making things work
-> > >   with fortify on i.MX6Q.
-> > >
-> > > - Testing and testing and testing on build servers.
-> > >
-> > > - We are good to go.
-> > >
-> > > I will now put this in Russell's patch tracker for v5.11.
-> > >
-> > > There is a git branch you can pull in:
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrat=
-or.git/log/?h=3Dkasan
-> > >
-> > > This branch includes Ard's two patches already in Russell's
-> > > patch tracker.
-> > >
-> > >
-> > > Abbott Liu (1):
-> > >   ARM: Define the virtual space of KASan's shadow region
-> > >
-> > > Andrey Ryabinin (3):
-> > >   ARM: Disable KASan instrumentation for some code
-> > >   ARM: Replace string mem* functions for KASan
-> > >   ARM: Enable KASan for ARM
-> > >
-> > > Linus Walleij (1):
-> > >   ARM: Initialize the mapping of KASan shadow memory
-> > >
-> > >  Documentation/arm/memory.rst                  |   5 +
-> > >  Documentation/dev-tools/kasan.rst             |   4 +-
-> > >  .../features/debug/KASAN/arch-support.txt     |   2 +-
-> > >  arch/arm/Kconfig                              |  10 +
-> > >  arch/arm/boot/compressed/Makefile             |   1 +
-> > >  arch/arm/boot/compressed/string.c             |  19 ++
-> > >  arch/arm/include/asm/kasan.h                  |  33 ++
-> > >  arch/arm/include/asm/kasan_def.h              |  81 +++++
-> > >  arch/arm/include/asm/memory.h                 |   5 +
-> > >  arch/arm/include/asm/pgalloc.h                |   8 +-
-> > >  arch/arm/include/asm/string.h                 |  26 ++
-> > >  arch/arm/include/asm/thread_info.h            |   8 +
-> > >  arch/arm/include/asm/uaccess-asm.h            |   2 +-
-> > >  arch/arm/kernel/entry-armv.S                  |   3 +-
-> > >  arch/arm/kernel/entry-common.S                |   9 +-
-> > >  arch/arm/kernel/head-common.S                 |   7 +-
-> > >  arch/arm/kernel/setup.c                       |   2 +
-> > >  arch/arm/kernel/unwind.c                      |   6 +-
-> > >  arch/arm/lib/memcpy.S                         |   3 +
-> > >  arch/arm/lib/memmove.S                        |   5 +-
-> > >  arch/arm/lib/memset.S                         |   3 +
-> > >  arch/arm/mm/Makefile                          |   5 +
-> > >  arch/arm/mm/kasan_init.c                      | 292 ++++++++++++++++=
-++
-> > >  arch/arm/mm/mmu.c                             |  18 ++
-> > >  arch/arm/mm/pgd.c                             |  16 +-
-> > >  arch/arm/vdso/Makefile                        |   2 +
-> > >  26 files changed, 561 insertions(+), 14 deletions(-)
-> > >  create mode 100644 arch/arm/include/asm/kasan.h
-> > >  create mode 100644 arch/arm/include/asm/kasan_def.h
-> > >  create mode 100644 arch/arm/mm/kasan_init.c
-> > >
-> > > --
-> > > 2.26.2
-> > >
-> >
-> > After this series was applied and available in -next, ARCH=3Darm LLVM=
-=3D1
-> > allyesconfig builds started failing:
-> >
-> > $ make -skj"$(nproc)" ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabi- KCO=
-NFIG_ALLCONFIG=3D<(echo CONFIG_CPU_BIG_ENDIAN=3Dn) LLVM=3D1 distclean allye=
-sconfig vmlinux
-> > ...
-> > ld.lld: error: section: .exit.data is not contiguous with other relro s=
-ections
-> > ...
-> >
-> > $ git bisect ld: [3f267ec60b922eff2a5c90d532357a39f155b730] Add linux-n=
-ext specific files for 20201029
-> > # good: [23859ae44402f4d935b9ee548135dd1e65e2cbf4] Merge tag 'trace-v5.=
-10-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trac=
-e
-> > git bisect start '3f267ec60b922eff2a5c90d532357a39f155b730' '23859ae444=
-02f4d935b9ee548135dd1e65e2cbf4'
-> > # bad: [bfa70a4ea4bfa6f87b58cf8b90b88297389c92b7] Merge remote-tracking=
- branch 'mtd/mtd/next' into master
-> > git bisect bad bfa70a4ea4bfa6f87b58cf8b90b88297389c92b7
-> > # bad: [37a292dcf77532547f335ed5063d9169031c9b08] Merge remote-tracking=
- branch 'sunxi/sunxi/for-next' into master
-> > git bisect bad 37a292dcf77532547f335ed5063d9169031c9b08
-> > # good: [e6d922c77db276a16f0b7933c2a9951dc9c0052c] Merge remote-trackin=
-g branch 'drm-misc-fixes/for-linux-next-fixes' into master
-> > git bisect good e6d922c77db276a16f0b7933c2a9951dc9c0052c
-> > # bad: [cbe49fbb8f6c8d29bc1d9a5a9a742ef2c2eb6320] Merge remote-tracking=
- branch 'mvebu/for-next' into master
-> > git bisect bad cbe49fbb8f6c8d29bc1d9a5a9a742ef2c2eb6320
-> > # bad: [d0e12484e7e1ede73c538744cdbe9439f7335d01] Merge remote-tracking=
- branch 'arm-soc/for-next' into master
-> > git bisect bad d0e12484e7e1ede73c538744cdbe9439f7335d01
-> > # good: [24a23387c15f34bad2485a9e1c3b7ac6f0fb35a6] Merge branch 'asm-ge=
-neric-cleanup' into asm-generic
-> > git bisect good 24a23387c15f34bad2485a9e1c3b7ac6f0fb35a6
-> > # good: [3a8eb4d3421a2ca0f95ac3b1a8f012940d4f0d52] Merge remote-trackin=
-g branch 'kbuild/for-next' into master
-> > git bisect good 3a8eb4d3421a2ca0f95ac3b1a8f012940d4f0d52
-> > # bad: [20f96e606509ee5084690179afe1810b95617a92] Merge branches 'fixes=
-' and 'misc' into for-next
-> > git bisect bad 20f96e606509ee5084690179afe1810b95617a92
-> > # good: [d6d51a96c7d63b7450860a3037f2d62388286a52] ARM: 9014/2: Replace=
- string mem* functions for KASan
-> > git bisect good d6d51a96c7d63b7450860a3037f2d62388286a52
-> > # good: [5615f69bc2097452ecc954f5264d784e158d6801] ARM: 9016/2: Initial=
-ize the mapping of KASan shadow memory
-> > git bisect good 5615f69bc2097452ecc954f5264d784e158d6801
-> > # bad: [fc2933c133744305236793025b00c2f7d258b687] ARM: 9020/1: mm: use =
-correct section size macro to describe the FDT virtual address
-> > git bisect bad fc2933c133744305236793025b00c2f7d258b687
-> > # bad: [421015713b306e47af95d4d61cdfbd96d462e4cb] ARM: 9017/2: Enable K=
-ASan for ARM
-> > git bisect bad 421015713b306e47af95d4d61cdfbd96d462e4cb
-> > # first bad commit: [421015713b306e47af95d4d61cdfbd96d462e4cb] ARM: 901=
-7/2: Enable KASan for ARMog
-> >
-> > An allyesconfig kernel compiled with clang does not link properly with
-> > ld.bfd without a workaround [1], which I do not have time to apply and
-> > test now but can later if it is relevant. I have not done any triage on
-> > this yet either but I wanted to get the report out in case there is
-> > anything obvious.
-> >
-> > [1]: https://github.com/ClangBuiltLinux/linux/issues/325
->=20
-> relro? smells like:
-> https://lore.kernel.org/lkml/20201016175339.2429280-1-ndesaulniers@google=
-.com/T/#u
->=20
+Hi Jian,
 
-Huh, did not even realize that the error messages were the same, my bad!
+On Thu, Oct 29, 2020 at 06:13:07PM -0700, 'Jian Cai' via Clang Built Linux wrote:
+> Thanks @Nick Desaulniers <ndesaulniers@google.com>  and @Sasha Levin
+> <sashal@kernel.org> for the tips. For this particular change, it seems we
+> do not need to backport all the dependencies (if they have not been merged
+> into 5.4 stable). @Greg KH <gregkh@linuxfoundation.org>, please find the
+> custom backport as below. It has passed all the tests on ChromeOS (
+> http://crrev.com/c/2504570).
+> 
+> Thanks,
+> Jian
 
-This issue is simple enough to produce by just adding CONFIG_KASAN=3Dy to
-multi_v7_defconfig. I tried adding '-z norelro' to LDFLAGS_vmlinux in
-arch/arm/Makefile and it fixes the build error but the resulting kernel
-does not boot in QEMU.
+The below patch won't apply because it appears to be copy pasted into
+this message:
 
-$ make -skj"$(nproc)" ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabi- LLVM=3D=
-1 distclean defconfig
+Applying: Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
+error: git diff header lacks filename information when removing 1 leading pathname component (line 6)
+Patch failed at 0001 Backport 44623b2818f4a442726639572f44fd9b6d0ef68c to kernel 5.4
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+When you have resolved this problem, run "git am --continue".
+If you prefer to skip this patch, run "git am --skip" instead.
+To restore the original branch and stop patching, run "git am --abort".
 
-$ scripts/config -e KASAN
+I would recommend resending the patch with git send-email or attaching
+the patch file created by 'git format-patch -1' to a future email for
+proper application.
 
-$ make -skj"$(nproc)" ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabi- LLVM=3D=
-1 olddefconfig zImage
+> From 60891062750a39d8bba9710d500e381a26c11f75 Mon Sep 17 00:00:00 2001
+> From: Jian Cai <jiancai@google.com>
+> Date: Thu, 29 Oct 2020 17:49:39 -0700
 
-$ ~/cbl/github/boot-utils/boot-qemu.sh -a arm32_v7 -k .
-/home/nathan/cbl/github/boot-utils/images/arm/rootfs.cpio.zst: 3176448 byte=
-s
-+ timeout --foreground 3m unbuffer qemu-system-arm -machine virt -no-reboot=
- -append 'console=3DttyAMA0 ' -display none -initrd /home/nathan/cbl/github=
-/boot-utils/images/arm/rootfs.cpio -kernel /home/nathan/src/linux-next/arch=
-/arm/boot/zImage -m 512m -nodefaults -serial mon:stdio
-+ RET=3D124
-+ set +x
+Authorship and date should be fixed to retain the information of the
+original commit.
 
-'-z norelro' boots fine without KASAN so I assume there is something up
-specifically with KASAN and LLVM for ARM.
+It is trivial to just redo the cherry-pick to fix that information in
+this instance but this is the command I usually run for more non-trivial
+backports that I have already done:
+
+$ git commit -s --amend -C <sha> --date "$(git show -s --format=%ai <sha>)"
+
+This should allow you to retain the commit message of the original
+message along with the author's date.
+
+> Subject: [PATCH] crypto: x86/crc32c - fix building with clang ias
+> 
+> commit 44623b2818f4a442726639572f44fd9b6d0ef68c upstream
+> 
+> The clang integrated assembler complains about movzxw:
+> 
+> arch/x86/crypto/crc32c-pcl-intel-asm_64.S:173:2: error: invalid instruction
+> mnemonic 'movzxw'
+> 
+> It seems that movzwq is the mnemonic that it expects instead,
+> and this is what objdump prints when disassembling the file.
+> 
+> NOTE: this is a custom backport as the surrounding code has been
+> changed upstream.
+
+A note of this nature is traditionally placed after the signoffs of the
+original patch like my example below:
+
+> Fixes: 6a8ce1ef3940 ("crypto: crc32c - Optimize CRC32C calculation with
+> PCLMULQDQ instruction")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+[jc: Backport to 5.4]
+> Signed-off-by: Jian Cai <caij2003@gmail.com>
+
+I usually like to notate why the patch did not apply cleanly so that it
+is easier for others to audit, such as:
+
+[jc: Fixed conflicts due to lack of 34fdce6981b969]
+
+That is merely a suggestion, not required by any means.
+
+Otherwise, the backport seems obvious fine to me.
 
 Cheers,
 Nathan
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20201030013228.GA2519055%40ubuntu-m3-large-x86.
+> ---
+>  arch/x86/crypto/crc32c-pcl-intel-asm_64.S | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
+> b/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
+> index d9b734d0c8cc..3c6e01520a97 100644
+> --- a/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
+> +++ b/arch/x86/crypto/crc32c-pcl-intel-asm_64.S
+> @@ -170,7 +170,7 @@ continue_block:
+> 
+>   ## branch into array
+>   lea jump_table(%rip), bufp
+> - movzxw  (bufp, %rax, 2), len
+> + movzwq  (bufp, %rax, 2), len
+>   lea crc_array(%rip), bufp
+>   lea     (bufp, len, 1), bufp
+>   JMP_NOSPEC bufp
+> -- 
+> 2.29.1.341.ge80a0c044ae-goog
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201030014930.GB2519055%40ubuntu-m3-large-x86.
