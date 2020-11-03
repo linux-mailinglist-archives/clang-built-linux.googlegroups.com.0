@@ -1,35 +1,36 @@
-Return-Path: <clang-built-linux+bncBAABBQOFQP6QKGQEPAB5YJA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBWXVQP6QKGQEB5VRTDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
-	by mail.lfdr.de (Postfix) with ESMTPS id D70892A3B8E
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Nov 2020 05:55:30 +0100 (CET)
-Received: by mail-vs1-xe40.google.com with SMTP id j11sf4646256vsj.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Nov 2020 20:55:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604379329; cv=pass;
+Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E4462A3CDE
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Nov 2020 07:38:20 +0100 (CET)
+Received: by mail-pl1-x640.google.com with SMTP id bc2sf10069740plb.23
+        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Nov 2020 22:38:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604385498; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cH3xm3gi0Fp1F7q94vG1XlLnMvnKCzQ1U8Oe4ctdidkLUSn5X49snBVSuEgx0FCipw
-         iNE0BMkjZU9wQlsog0D57oeBCH5ciyXMJyILfVCSVHTychigedW8wEAbdCw+5/ypXFli
-         rR9nASfobZMxBSIhngere7lyfaX9piWILmEjCjz355OueGqk8CybmnXJvYK2sbzPXtn/
-         bjudWX/VCF8ckO4hafMnsucXIzfVaaaAhiSKOrNKfiSWhmvQEqwQpCm4Drf856B+23Dy
-         QLHb3z7fZ63ULZK1MiyjPEMLlewqePB075EOBS5p4cSSstvJXo110SEy+doFLus++MeP
-         oZyw==
+        b=at/CFXbHst3ZRqUPVZEwxK+bRFe0nCc6HIOXeLIJL+8v9bg3QcQ30yt18DVQ9e1Gvz
+         PoITuuGI5I+OGhsnSCm3FWjx0veL412pMoI6SERRGzPIEHbBqgxXNeqmBA82f7jn6xmj
+         enBAaN06Z0oIpW8wGhTlqF3I0WVyptggbCFZVmbMx9Hl/LsRCLj66VUy7vErNbLkSR50
+         p9BJvFAmm5oO+tzp+mvogQrmMm+KNCIs2q7XK0ZNBNYECYthBlNAUnogOJnObTkY8eto
+         KLnO+sEsSL7D3LovOrbOJQUdEbWIsU9nvjeBfHd4obkgkg2Q994tcPa4MM8BZPaCCf3X
+         IN3g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to
          :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=UsjMMmu39LhtVS/x4toD/5oPzXM7DvUPjt8qtC4oC6Y=;
-        b=YM0AK38kQocq97WW5Zo5LYckB5KvQWiO0qcp2dhaXpFwfQt3caDDO4qGjiMCjDCXy1
-         YmsCIxJjGjsNhiS+kZPe8Z9/mLB73QUvooGH+HAWfZvAGBIpDOcZKamJs9Df9RCU1o9V
-         tlO9uEy+KFMPXYc/KJieaeK72JU3ZD7wnBhB5K4QuanwiroCtDlyRUhcpyzjRjv4EDJS
-         1b0sKlq185UvkauD9261btJdpQovWbAGNEW3Aqmm0S/GdxwT7wv7gDM1TU0u6+ztvE3f
-         3QS9lfXTWOBXiVmnkGyMNtdwA8EXkToEnyXj4EpENxYjCVC7Shgi/RuouhHh3Q3S8awN
-         8p/A==
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=qIFqJPIJHkJnWKoCT39hHk7C4EdEbBhZ1aIQTbGhBwM=;
+        b=mY9vHD1swujxhERxLGcqnhc7rfZZF/NaqzrpYeRl/TbLrITy2fD2PjaOMtHxkxcuk7
+         7Hg+BYFIQ8FUngtSuWz15U6uDPJGkHc4qnE+Hbx6P8A2J3A5TSoOHnuHOVUQnicPPjVx
+         hUnpZY5GIMPsMHcP1IuJXGVUT94/LTaN7QAeclng1tgUCfbLrogsrK/H1T18RpuDpyck
+         y7wH+i1Rbm2g+AP5bmOVth9yQjESy3zLvdIw3lJXDcz7168WGfPxBKCl4C3uUZOH2TmI
+         bed4FjdwCOq8nGw/GYW4MUVI7gbzm54bojAxhYEPkGIEs0Cz0neNLjLpKmft+VN6z/Na
+         7c9Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=gPKVNGX3;
-       spf=pass (google.com: domain of jarkko@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jarkko@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XItdZxU9;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
@@ -37,13 +38,27 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UsjMMmu39LhtVS/x4toD/5oPzXM7DvUPjt8qtC4oC6Y=;
-        b=nNkJma91S+zsS/4xxZkRthzpDSIqy/LdYWvl2Tl7R326fNVp3PCi7ucfHSMtY+UYJ9
-         uJ6vyylrtIEsaTjyAX/m6pG6zKJ3w4k66Lj/uHea61hl8k0o6rGB115pevAn1PicZVhg
-         dxZs6GQDK4fcIvgGZB/rR+XM0gDDPqHGqonShepy/zmKoxu6nFOr0l2jkWWfGz3ydFsK
-         VgdhSCn72i1Lw/jQN70d5Yr9ZSfTtZDKpisx9RQz8DGNAnYaSOJhql63OcWUrqeNMTHf
-         1Hxrm2+4zBjIOqcpS3ZC8XXh6/7OQY4vdt13NI7XFT3iwsoqNfKqHNxxjStK1k9SZ0l7
-         IRhw==
+        bh=qIFqJPIJHkJnWKoCT39hHk7C4EdEbBhZ1aIQTbGhBwM=;
+        b=exdKZm6PZ8R3sSm9ZPfOZCdCl+YB9qiqO1dhx5YjQCvm5Ww9+y9ENoVx/vwNJt4znN
+         Tck3B7xpXkwR7Cwc1GXGhfJrFa2TiYSCsQRqLj6IUyD03YrJVf4a1jblRDzDTC1H7EL8
+         sffV+R+r8C7ClHbfeYh/u4MWnFIVK5f6hsjcb424yq6j63ttb9GlqxHDBjM7J9UygUq7
+         N7m/CeJbfuqIivKTH8YLS3DwwZ0QWXJdYIeXav9/Rz5JRrzvqZrCVpT6mPZO2gi16MGG
+         Y/xvXfUDjlsHsGtAa6hqECFH8T/BeFz2G6VYu+9X2B+LKkukBZV7TyT/ir+ONoslYqi6
+         B6TA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qIFqJPIJHkJnWKoCT39hHk7C4EdEbBhZ1aIQTbGhBwM=;
+        b=R+XqxEuFzqb8il43tBQpYFQn+JnduGagPoubVDKBErBqYrWrQqRGUFmIUv6C+DC3uL
+         UaLY0VYU7vKaipXRFveWTKmuNikH0Cjwer31yPsKQgbwmHWtnBDLO6+4o4b35KZ/ODpZ
+         5WDOPi4kgE/A+E6ySamSVopFgBAgrlpV8/a5QGH/YBhHUcwcicWdnssXSLOiTgSO1t9t
+         cp25e9CoWcvNa4DW7PCnslYTDYzbvA+zQnsIJ+lm+8oN+FibyKdTKosLEoIKd2qihFzF
+         wNo0BbIMVt4Fk8HVoZLmjsLkb5/94eOEPQoHFwypuLmCeOPe9PUVChWcGxAbtP1vhAm6
+         +1/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -52,65 +67,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UsjMMmu39LhtVS/x4toD/5oPzXM7DvUPjt8qtC4oC6Y=;
-        b=R7cqcpUGeAW3lira/H+93rSwb5etYrMxx+M6ej3zgYCkjlNSkLcir7LtpzDE5eqRh7
-         MtZD8pOkKYetPfdvCOfax0QifWMMK0nqOZV8ddYEXIVK/DuJfRTvS0YtM1E56kngrf2D
-         h0fIACKYJR2zSntZ4/m8Ff6ewGby/du68Ngj909DUa6xaK4xuxLYjo3/Q7tt5+ew5sM5
-         rwCXRY6FefTyqlQDMvUV9v+B8LCr7QYYkgyjVGLMDbUTg8UhORdfqRERC90EznucOt9Q
-         NJ5tXSpgNO24yOf2+y7r4cjIR7BM1E7QjJ32+h44sLdNB+1fNByPHGYV/6EHWarWCeeW
-         3F6w==
+        bh=qIFqJPIJHkJnWKoCT39hHk7C4EdEbBhZ1aIQTbGhBwM=;
+        b=TyyfsaAs1XDKguECV4uCgF1esU1H4YW7+i9Z2VvYSrbURFhzo2lYQ9vhvG1DyYhEz3
+         dk411WMujVZ5WIfZPG0Jc2Bw3bpjfyZomecuo1uKF0dIm3oa+Vagk3UP2ky1UhWw72es
+         HQv4Jz+n7PUR2OgUlQcjhAQszxgBGwjIkHBcaMlGLvjN54RNbBu1EjmJt+ISpCrJNT+0
+         fTqEJ0TADAchasZaWTQNIL62KB6sqnPNVsv4dUWsz9v1G8XqZeP4k4OuCcRbmQ7xKi1A
+         vqEDejAyoeRQeUTqpl9R+s0nNuj4PYGpst16qLin+lv95jbNcOKnjij/ZuaB3KAtQh7s
+         DyKg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5318o2In9/k/aqUqv7B21lhOOweeXS4ysHh3I/k7TCeN07R08epu
-	EDn/3BYMqWKdiEbsSB5orIE=
-X-Google-Smtp-Source: ABdhPJw4WmdEhLXLwbaN+53mU5WhlJvbHAMqABXGTf7Z4Vt3EvZn80EfjWSSafUxUu6GUjDukQJWrA==
-X-Received: by 2002:a9f:3dcc:: with SMTP id e12mr9845836uaj.72.1604379329644;
-        Mon, 02 Nov 2020 20:55:29 -0800 (PST)
+X-Gm-Message-State: AOAM530gxDEcE/1KGL0Sf1Tuv+U1e9f4bSz3h12rBelmycBnRegJ1S+h
+	krMR7r77KRQxJ2EGB2LoFo0=
+X-Google-Smtp-Source: ABdhPJwbwH69DiF6K6WywtgezBCp50EQIfcFyifLen3L7NNdlGVtPOvyafRraOG55WE6gckX2eM8Kw==
+X-Received: by 2002:a17:90a:5310:: with SMTP id x16mr2220522pjh.62.1604385498605;
+        Mon, 02 Nov 2020 22:38:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:6102:: with SMTP id v2ls52619vsb.7.gmail; Mon, 02 Nov
- 2020 20:55:29 -0800 (PST)
-X-Received: by 2002:a67:503:: with SMTP id 3mr15082731vsf.21.1604379329185;
-        Mon, 02 Nov 2020 20:55:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604379329; cv=none;
+Received: by 2002:a17:902:7786:: with SMTP id o6ls338956pll.0.gmail; Mon, 02
+ Nov 2020 22:38:18 -0800 (PST)
+X-Received: by 2002:a17:90a:7e0a:: with SMTP id i10mr2271167pjl.89.1604385498020;
+        Mon, 02 Nov 2020 22:38:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604385498; cv=none;
         d=google.com; s=arc-20160816;
-        b=qvw8mez1w9Meux15W7R2mAjdnx+Z7Yto5WySvTnN1oFoztWDuX5hfH4OGVpT2aNu5G
-         VmRnugdzj4Z4QvehXGHrIAfHKlCVeyqQD7J7TsCobwXATYXjIwhsKP6XJnteHA/sha01
-         /+/nQKtOsc4Qe1pMfc+8DX02wqpRNIzm39wGgpaNN53XRX94WJidcbYIHnG+AOyFie45
-         S2yNucS51Xvqp+rx16cOSUYqxaNB7AcpTGTefGF9RI/U2u5pOKbIxmJT7RYSrGPGu4q4
-         o/E26sahtXfGzNYAW3C6X375clFQL0GyXWyObPfL4DzU4c6S/W/lXlglgZQEAprsOZgy
-         s0/w==
+        b=THENbMP/MoJtDAwBUJdU7o/b3YmuMTt33jHunBqnNqq7qByNgenCTSDbfsvKNwcst6
+         ryd34olBSB4afASOzr0YCp0OiwVmjHiG0/SmjzcUN753/5LLIRlGsM+2EHy9vJlQsbYb
+         R6x8rljvdupKHNOwoOaaBdk6GRnP/WzSQLJJpYmLZpUWVQlMvhKgoXMAkt1INUc5eCjI
+         9oAyGQoqd6FVesIMr9jC5knpClDDPdIJV3b5CA66CNTIWk1J4+1CQOLEG33ja5jsUZvE
+         f3OGBGPOgcYY6cYiQctJsL5rZV5yE9OofXWJGfZnMTiR6In+6I7hJwjAFsro3+RikGOm
+         IS4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :dkim-signature;
-        bh=jbo9eRt6GAj1tPEWuLj9BiBAJ0tgqeasBaHuIkPxzjo=;
-        b=En0so4YYGj2uzHbI6T8W/JRYho7eERxkJlJu1MHKiaifnCx3r/X72pEokc7Is+s7VU
-         FhliCK2hRwca7DQnSrwSZDayyuPZNy2xuX+NhClAEc17wY5hc8sHZ0ch99aJIIBpGVVz
-         jPaCh6bMJXcMZRrCi5JP4dKOY/eH2y/rsN9ZzOBBfYTQV2b24Z/2DoTt7xnQiXdhEGmb
-         hKVnwKXEUGVNLHg5lpds1na826XvuklisA+IdHE+q3+4EERuu0i4Ot56St5U33MgE69Z
-         af6BjQDP7R+Eoh78ut02BsjFbDn+WK0xGmqfJrm4rXB4fYZ08MQvQ+QVpwSxCLpKBhB2
-         yQZw==
+        bh=Hqxtx5ajWvQQEKJyoleM3jwGkL8tLKvH6bJZ4hHFfLI=;
+        b=SYqlKb+JGpUE2ejF0Eexbc6OW5hYnQk0JhLL1LbK8DDSA4PubaXhTzYm30pezOi0Ng
+         8cMbu7waDLScoJKx8ydsWOfJQeDwN0UdAgA5kHDZL4MI9IgYm9eVH+4ZlVObDSlm10A9
+         uGsmZu13lWcxbo5zg/yRT7wNiivxMxe0e2xFs/P6O4NkwTV3gdnCijqKj9I1Uj//j9yZ
+         EXe0gTB63ALzn/Fs+zCsKFNNgfB9b9QxrjE+XHu6Awk9hpanacbLuQ0I1iHdzCG4Rz1P
+         JOO3VO2Lgska/1k7IOFJAB2TgTVogZwlMAD1nE8GeQMzTgttJrnCCULBNiw7Vjnwft/7
+         9nOA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=gPKVNGX3;
-       spf=pass (google.com: domain of jarkko@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jarkko@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id s4si651923vsm.1.2020.11.02.20.55.29
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XItdZxU9;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd42.google.com (mail-io1-xd42.google.com. [2607:f8b0:4864:20::d42])
+        by gmr-mx.google.com with ESMTPS id e22si1058879pgv.5.2020.11.02.22.38.18
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 02 Nov 2020 20:55:29 -0800 (PST)
-Received-SPF: pass (google.com: domain of jarkko@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from kernel.org (83-245-197-237.elisa-laajakaista.fi [83.245.197.237])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 08A5222243;
-	Tue,  3 Nov 2020 04:55:24 +0000 (UTC)
-Date: Tue, 3 Nov 2020 06:55:21 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Nov 2020 22:38:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) client-ip=2607:f8b0:4864:20::d42;
+Received: by mail-io1-xd42.google.com with SMTP id u21so6814826iol.12
+        for <clang-built-linux@googlegroups.com>; Mon, 02 Nov 2020 22:38:17 -0800 (PST)
+X-Received: by 2002:a05:6602:2d4e:: with SMTP id d14mr13420142iow.105.1604385497350;
+        Mon, 02 Nov 2020 22:38:17 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id j10sm2095428iop.34.2020.11.02.22.38.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Nov 2020 22:38:16 -0800 (PST)
+Date: Mon, 2 Nov 2020 23:38:14 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	Kees Cook <keescook@chromium.org>,
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
 	Sedat Dilek <sedat.dilek@gmail.com>, Marco Elver <elver@google.com>,
 	Andrey Konovalov <andreyknvl@google.com>,
 	Masahiro Yamada <masahiroy@kernel.org>,
@@ -120,20 +138,21 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v3 1/7] compiler-clang: add build check for clang 10.0.1
-Message-ID: <20201103045521.GA58906@kernel.org>
+Message-ID: <20201103063814.GA647990@ubuntu-m3-large-x86>
 References: <20200902225911.209899-1-ndesaulniers@google.com>
  <20200902225911.209899-2-ndesaulniers@google.com>
+ <20201103045521.GA58906@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20200902225911.209899-2-ndesaulniers@google.com>
-X-Original-Sender: jarkko@kernel.org
+In-Reply-To: <20201103045521.GA58906@kernel.org>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=gPKVNGX3;       spf=pass
- (google.com: domain of jarkko@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=jarkko@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=XItdZxU9;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,72 +165,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 02, 2020 at 03:59:05PM -0700, Nick Desaulniers wrote:
-> During Plumbers 2020, we voted to just support the latest release of
-> Clang for now.  Add a compile time check for this.
+On Tue, Nov 03, 2020 at 06:55:21AM +0200, Jarkko Sakkinen wrote:
+> On Wed, Sep 02, 2020 at 03:59:05PM -0700, Nick Desaulniers wrote:
+> > During Plumbers 2020, we voted to just support the latest release of
+> > Clang for now.  Add a compile time check for this.
+> >=20
+> > We plan to remove workarounds for older versions now, which will break
+> > in subtle and not so subtle ways.
+> >=20
+> > Suggested-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > Suggested-by: Nathan Chancellor <natechancellor@gmail.com>
+> > Suggested-by: Kees Cook <keescook@chromium.org>
+> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > Reviewed-by: Kees Cook <keescook@chromium.org>
+> > Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+> > Reviewed-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > Acked-by: Marco Elver <elver@google.com>
+> > Acked-by: Nathan Chancellor <natechancellor@gmail.com>
+> > Acked-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/9
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/941
+> > ---
+> >  include/linux/compiler-clang.h | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
+> >=20
+> > diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-cl=
+ang.h
+> > index cee0c728d39a..230604e7f057 100644
+> > --- a/include/linux/compiler-clang.h
+> > +++ b/include/linux/compiler-clang.h
+> > @@ -3,6 +3,14 @@
+> >  #error "Please don't include <linux/compiler-clang.h> directly, includ=
+e <linux/compiler.h> instead."
+> >  #endif
+> > =20
+> > +#define CLANG_VERSION (__clang_major__ * 10000	\
+> > +		     + __clang_minor__ * 100	\
+> > +		     + __clang_patchlevel__)
+> > +
+> > +#if CLANG_VERSION < 100001
+> > +# error Sorry, your version of Clang is too old - please use 10.0.1 or=
+ newer.
+> > +#endif
 >=20
-> We plan to remove workarounds for older versions now, which will break
-> in subtle and not so subtle ways.
 >=20
-> Suggested-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Suggested-by: Nathan Chancellor <natechancellor@gmail.com>
-> Suggested-by: Kees Cook <keescook@chromium.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Reviewed-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-> Reviewed-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Acked-by: Marco Elver <elver@google.com>
-> Acked-by: Nathan Chancellor <natechancellor@gmail.com>
-> Acked-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/9
-> Link: https://github.com/ClangBuiltLinux/linux/issues/941
-> ---
->  include/linux/compiler-clang.h | 8 ++++++++
->  1 file changed, 8 insertions(+)
+> I'm trying to compile a BPF enabled test kernel for a live system and I
+> get this error even though I have much newer clang:
 >=20
-> diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clan=
-g.h
-> index cee0c728d39a..230604e7f057 100644
-> --- a/include/linux/compiler-clang.h
-> +++ b/include/linux/compiler-clang.h
-> @@ -3,6 +3,14 @@
->  #error "Please don't include <linux/compiler-clang.h> directly, include =
-<linux/compiler.h> instead."
->  #endif
-> =20
-> +#define CLANG_VERSION (__clang_major__ * 10000	\
-> +		     + __clang_minor__ * 100	\
-> +		     + __clang_patchlevel__)
-> +
-> +#if CLANG_VERSION < 100001
-> +# error Sorry, your version of Clang is too old - please use 10.0.1 or n=
-ewer.
-> +#endif
-
-
-I'm trying to compile a BPF enabled test kernel for a live system and I
-get this error even though I have much newer clang:
-
-=E2=9E=9C  ~ (master) =E2=9C=94 clang --version         =20
-Ubuntu clang version 11.0.0-2
-Target: x86_64-pc-linux-gnu
-Thread model: posix
-InstalledDir: /usr/bin
-
-Tried to Google for troubleshooter tips but this patch is basically the
-only hit I get :-)
-
-
-> +
->  /* Compiler specific definitions for Clang compiler */
-> =20
->  /* same as gcc, this was present in clang-2.6 so we can assume it works
-> --=20
-> 2.28.0.402.g5ffc5be6b7-goog
+> =E2=9E=9C  ~ (master) =E2=9C=94 clang --version         =20
+> Ubuntu clang version 11.0.0-2
+> Target: x86_64-pc-linux-gnu
+> Thread model: posix
+> InstalledDir: /usr/bin
 >=20
+> Tried to Google for troubleshooter tips but this patch is basically the
+> only hit I get :-)
 
-/Jarkko
+Do you have a .config and command to reproduce the error?
+
+Cheers,
+Nathan
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -219,4 +233,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20201103045521.GA58906%40kernel.org.
+clang-built-linux/20201103063814.GA647990%40ubuntu-m3-large-x86.
