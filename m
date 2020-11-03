@@ -1,177 +1,120 @@
-Return-Path: <clang-built-linux+bncBAABB25BQ36QKGQEULWKGCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBCGDQ36QKGQEK7NUVLY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id C46A02A4C8D
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Nov 2020 18:18:36 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id y6sf6234112otg.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Nov 2020 09:18:36 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1604423915; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id F010C2A4ED9
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Nov 2020 19:29:29 +0100 (CET)
+Received: by mail-qk1-x73b.google.com with SMTP id t70sf11186195qka.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Nov 2020 10:29:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604428168; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TnZOc6SZnm1FmfNZDwBiO6kLpqMCkNjaCq7psCQYyyRquxEkUEZa5QfXrUJmB37pIb
-         QX128iqk+dPhdARI7HntAnY3MerHE+11xb6lGIeECuWQYBllsHyJXPV096AYU+FwRTvy
-         E6BdeLqSPGTjMqdtZ/XuwStW+7vVETqOUzSzIL0mBGTbiRk552oIXHso8Ua71e/jqgVy
-         bRVRHCrApVqASYTfrf3eg4x718+Om5alYAtdU3rFUoYTV011bqkHa1l6WYDHSKIeMlxC
-         Yd/qmBkapFxLGvRCDvKIVvfPC0QNgaOb2Uh72k4ERRTpe9oZeq9CYUCsBSUQDj8qGIdM
-         ZTfg==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=Vv1JYbsmR/+kzJydZzrJw/3QaoaowwR2eteELVXpg6SUXzn/9Yiy3aom4Tl92jGCXG
+         zAaryiKd/5IgA+UBKAc3Y9FcioLvW6Kd1fS13kJzvpRdqKhUXwxnmdYGiCn5WNCpsSq+
+         mR6Tro5Oqq7J9XC5Za77sG1nZ1ystWgU3zRXD8mXL5GqCpRMn0FeeU20or5vaWUAoGst
+         CVLc+gJWKNcFmEm81bUkQmYfDnhoX/xBQ2JzhhVnLUsEgdL3YxrvjzKMz3mgHFE6QJoy
+         seYdJcW5zZOENdAehH/V9tlKvahWxTNNkR3PWdEYoNrVHTLZLoL9emBBYZGjQp+QJDLg
+         EG5w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :in-reply-to:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=a2KQKpLdQQnEiCrwVi0AMq5C9FL1PeZfOXcagi0TOoA=;
-        b=SpgNRAsNZkV8c7K6iD8336B1RsjibriKV3UvTcisM7dlpc72W556PIAknDNVtBG6G1
-         chhPktUVR+MSLv5OEeeMehxjlMsLG5e2MMwOh9EVKycLmkDxzqwYRRr7/ZuXU0Jm80Jt
-         Jh/RSXAogeFQ8vgeKoKUFh0Imz1yIJbUOTm40lqvrxBy98mEJObh4WbRiNZMbho0Z1x0
-         x/BaAeqbjesbFnclvpk/LjDlL0F1BuZ4XOaJAOYPAUqSDD5hRDbY0bgaRYYySYcRaFsS
-         WXeCJiA9TAYMK2RXOyOpTjW9xYsAi0zQ2bhgQmUxsk519PXr3aTBsC6MJQ1YtYLWoGFf
-         WvhQ==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@NXP1.onmicrosoft.com header.s=selector2-NXP1-onmicrosoft-com header.b=iSuuNxOW;
-       arc=pass (i=1 spf=pass spfdomain=oss.nxp.com dkim=pass dkdomain=oss.nxp.com dmarc=pass fromdomain=oss.nxp.com);
-       spf=pass (google.com: domain of diana.craciun@oss.nxp.com designates 40.107.22.44 as permitted sender) smtp.mailfrom=diana.craciun@oss.nxp.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nxp.com
+         :list-id:mailing-list:precedence:mime-version:user-agent:date:cc:to
+         :from:subject:message-id:sender:dkim-signature;
+        bh=PiHspvuEJI3hlLI8O7ogpnHm1BJZ5lXFbeaM8fWrQcU=;
+        b=Wi8vohX6jgbh7r43+UXi4mGIIWoMJYz5jMHA9MlVvzToN/5vnPlG+SsUDWxRdbo9Di
+         7ib1j//6c67MntBlIC9p0xNlTWHM7S0xAxAW+RHeYLhIumaW83touo8M6nWHlGImPW7m
+         UH85GqyjhSpQygRQLEAuIKlALLzrP3hQTKtBRQPWN8tsM3cvRu/1qOmTJhFAqHajvDNV
+         yG4t9D9HaKxTAFVWFJv/rc++ZK9BsgRRJ5Soabsv32z44Vd/5qphZQjVuKbQoU5Osa3B
+         dPo2YjTvTTYlFeM8k5DN8Lw2KnxTxYAL67Pdoo1rIwws7sPuU32ea3p5rRgEIqZnOz0z
+         ZiuQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=neutral (google.com: 216.40.44.220 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :in-reply-to:content-language:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=a2KQKpLdQQnEiCrwVi0AMq5C9FL1PeZfOXcagi0TOoA=;
-        b=ToQRUlSyWLesIvCYMpLSSRjk6TbrCPXNrTmENmDzmFYGcy/NXbew1+F5nw8FQVNAwZ
-         YqtkI2NnLFjS6/j7HkyaEj8at7uEm2VAAhB+Iw1XKwDDFe3K80KFd0ZxjV1+HZdqg1RS
-         QWETrVbfsEIxZRQn8UXYY8hjfGUfHtd6SBsOpL+dHGNsFf4JumsdHgKAq/pXbRWXYUeH
-         Dne87zU4Fk9QWcoO45xiiXA0Jl1h4zuZzVTecMBAkOmCix0S+5ejpa6MQqvC8JGlJPhp
-         81VafBmxxnmhXsp2wpGUSTRidwEYsFs62HriXWXsmLD/A0SAdRFPDij/djJ4+elOUPXw
-         Q8sw==
+        h=sender:message-id:subject:from:to:cc:date:user-agent:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PiHspvuEJI3hlLI8O7ogpnHm1BJZ5lXFbeaM8fWrQcU=;
+        b=F/de8DniAWp7PdSDcytX+1VtKVPWvkbk5WLfqk0vYSuUyOnPyRY/S67zYg+gVyyzPN
+         T8KucyCyCUjZrXx9i3F1XtynJWYzHGX5Wmlj0C8mG1TmB+Ig5oRo99lNpgLWkJ+Oqtib
+         hj8GSMuyeQyOHvFcEs79KaEACKLDjlzcL4/4RQyQq09/aoap1yXkbNSJHhQbktc1SYOo
+         N06DgTkasUUdVAB8DqSRAhzKZrUSzOx/EdiK4jVUyuVKNVZXBBzm9X9YpzNE21bLO6Kc
+         9LBsd7Qa2Bl2+RyR0XQa+L0DAj/SnxBKgx5g7YmQ0irKZ326dTQRRbHKMQoaAcYHwIix
+         R/Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:in-reply-to:content-language:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=a2KQKpLdQQnEiCrwVi0AMq5C9FL1PeZfOXcagi0TOoA=;
-        b=QCuEr5B8NpcLLlV2Lsk9JE+3gY6YPhsUlfDmANDFFRrmLhgM3lyG8DrXsjfjBwIpcC
-         QKOybKRSuT3Wjt3dGCS9orq2DXir/rqSrNi6WJ1MLxgGfyDY6U3OtfvNJJJL2vq/u8uk
-         /bQf4EYdWWEpd4ohjXoUPFMFSgXJSM+8npSyrZQYaMTt9BomMoP+EI1Ib/8ocPDJMSfK
-         LzscxdAMePvvBd/RQzQSn/6N+dqIZrtP4rkb2AhAGdl2DjXWBk4K34a1IDxDtHdlRMT5
-         a9TsCMuB2M2fsT4SqXpH5xjnZK501Ys/HgFed4aG5sxy82frrW6HIPqu5u8GNnZ+bT9k
-         1s6w==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PiHspvuEJI3hlLI8O7ogpnHm1BJZ5lXFbeaM8fWrQcU=;
+        b=rqfIrum0jpA0Gm/rM6UalSrRkvs1UfDt34uZPX6iRfr51AbMEKoR3bdeUHkUR7Y21x
+         KcEvCvvaMSxopJxwCSwLGi7VTJbCrKFd8b47mjq7EoGYBMJOdbFTfZRxlGNWEphrx5Tm
+         iUQPOm0L3y8v24pjZOC6Fes6B/lJ53B+C9IlLB3C6ljd+Qjqh/ynrfqo0tvRJUz9AVNv
+         XVhVasyk4dHjrvFsqa6X+N5+87/6h4LqhI80zGi49ww0FwzaXWEekkveRV5P/lNd3g8x
+         I04m0zr5mXqkmL1SZbjOh7xvUrXGSrY+GpZLGkyrmlmECjRAy2wfCpBucHtYkUKSVSCd
+         MKQQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Ji74jKTVLh2nyFh4whRPuloKkih1P/sXfLeG7fsnLc2C4oMO5
-	LEZ0w+qYYADQ0QvFsIIfVmE=
-X-Google-Smtp-Source: ABdhPJz0tpwPrbWE2pV70HJZJA32Fyy+hIcH7QadSFyDBaJibbzyOVz+QJf/OtMt5Pt00xgtGd7Rpg==
-X-Received: by 2002:a05:6830:1e95:: with SMTP id n21mr3322958otr.49.1604423915421;
-        Tue, 03 Nov 2020 09:18:35 -0800 (PST)
+X-Gm-Message-State: AOAM532zo1FcpRqkYs1whYehZ2TEc7jx+Za1chsFRixMWNTSWCTH+Iup
+	UMVvzAn3gHEhgL2coIK3NQY=
+X-Google-Smtp-Source: ABdhPJwYioTfJEEg85z+N4P5fD/jDYryIVfOvxDR3f9kKDxGwOW4y1svYMYz6RVMk2yW68mNcL9uWw==
+X-Received: by 2002:a0c:99e6:: with SMTP id y38mr12445502qve.28.1604428168642;
+        Tue, 03 Nov 2020 10:29:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:b784:: with SMTP id h126ls637712oif.3.gmail; Tue, 03 Nov
- 2020 09:18:35 -0800 (PST)
-X-Received: by 2002:aca:2405:: with SMTP id n5mr118557oic.9.1604423915034;
-        Tue, 03 Nov 2020 09:18:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604423915; cv=pass;
+Received: by 2002:a37:8744:: with SMTP id j65ls1336348qkd.1.gmail; Tue, 03 Nov
+ 2020 10:29:28 -0800 (PST)
+X-Received: by 2002:a05:620a:14b5:: with SMTP id x21mr21895985qkj.300.1604428168124;
+        Tue, 03 Nov 2020 10:29:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604428168; cv=none;
         d=google.com; s=arc-20160816;
-        b=piBDr6CaNzVbsKwWxEPBoNFlC7UDfgHZBByvisTRaAMi4xZCBUkuojzuZ2Tqg9sQ1f
-         RMhm/tya/2A9aM2y0tqpnkQdEXCJQdYBNVuQtuZTK5A2RxYRiDTbBX9wubbW2l5wfsur
-         el71YkIPZlo8Zd6j2fAR1SzAwAPJrvDcoH3LXStAvx5016WH/ZTmH/OcLo1H9I5DsBUU
-         +xOMLL6mp+4SWEVYbyMx+4iSJ2/4oaJl2bPk7CVa+q5cLmkCTIQFBnwvi8MbmKCLqwjs
-         K8umueKekfE0Iu5c/P4sp/2+JTBt44V+IvOHLiCC1vD3yo8cXy6jEWm+6+FRlR/vb2lc
-         uQEw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language:in-reply-to
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=bgspc/+c+wX9GBRT4K1WpkZh3v0MLYlP0wPTb4/jlqU=;
-        b=Uemb7eg4GL9MRQrabJyyE2V+C+QiDG0Ql28Yev8arQ1djLVitvK+j/dD/XQ3PJ6N/d
-         tciItlog8MVBQ+69o32TFIJCrbGpaxY8xVW8cRn7R42QnlqQ/w48TpnCUJ9xN9gAelSw
-         BiOgPH8sc9v8j+TtonMe/SXzCcNmBJ/Re6G7r3B0NhL76rwTTMMTxBU8HM8Q8Vnv0BCq
-         8L/xSTBvlRLiwgOdcphvxj1I5JVydY7djj3dqF2pOm4CmfnLVhyKR4oi1RamghbtxkKT
-         v4UJutnbFjrG6bNzEee54f/1FiDGZ6gq3Y0Num4fGmbiYp5JOgLpdUbA7wHKTPgFR4CE
-         VQFQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@NXP1.onmicrosoft.com header.s=selector2-NXP1-onmicrosoft-com header.b=iSuuNxOW;
-       arc=pass (i=1 spf=pass spfdomain=oss.nxp.com dkim=pass dkdomain=oss.nxp.com dmarc=pass fromdomain=oss.nxp.com);
-       spf=pass (google.com: domain of diana.craciun@oss.nxp.com designates 40.107.22.44 as permitted sender) smtp.mailfrom=diana.craciun@oss.nxp.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nxp.com
-Received: from EUR05-AM6-obe.outbound.protection.outlook.com (mail-am6eur05on2044.outbound.protection.outlook.com. [40.107.22.44])
-        by gmr-mx.google.com with ESMTPS id d20si1709282oti.1.2020.11.03.09.18.34
+        b=Mg4ItXGSU9NoGCySX84LdWFPC4e7kjEL8CfaN/n06B8RX81w3ykYVedpqwHVDLjxMb
+         Tq991FvOxf7rPlzGa0aR1s/u0TSzpRxaP9WJqC/g9kDY+BXEcT7nKckn/4CaquxhI6Z0
+         qd+RP0m2e4L+k6Zjmxz57klQDJLZKnn8d9quZ2XcVNsnhcfY1XFiBYY+b5fKOUIDhOU5
+         ln5rtfwOMPwOAwk3oB10SXwqB2eF/XeTSD/bd/MXtYyPso0ykd3mCEdVbk/RU+/tGf6+
+         Z+nKJLQbpDsuTtC4JliraFBcjNgN/R8GfXv0KgFiZLg/17a+lq4UiIYHSxuu3seGbD2N
+         E3/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:user-agent:date:cc:to:from
+         :subject:message-id;
+        bh=SBP+WpAMLarv6O3qCq62UPCJfEmwbemmQZaYtHZFqME=;
+        b=DyR9ZgJH2eZfDxyux5vYRQAd7STUXOudfqWZ9RUUTwGAviYZYj1t8xJAcPrKUTzmU8
+         BRncxw4SnhwGjD3zNSwMy8fBpJqaApnXPW+SJkT9qsPTktDPOA6dr+hLD752ImAMjpbL
+         Xg8OY51P3sc6ZqWfKrTcJPunQY9aDKnjhNcszS0XcHzk4Wb6hC3toeZCiiVjirIpyU1E
+         Ocoby8KX0rxS9pRQ9k1MZp8BOMVeWFX9anFiQ1xwJsnF1R5PnvYD12gZE6SY3TmNBs3n
+         qFi6Jq16s9idEroIMNRrO923Pj7uCFEJr5jxY2L/ZQZmZ3oekgGw7Q+ad+t54f6Yqvg4
+         X43w==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=neutral (google.com: 216.40.44.220 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0220.hostedemail.com. [216.40.44.220])
+        by gmr-mx.google.com with ESMTPS id m21si186181qkn.6.2020.11.03.10.29.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 03 Nov 2020 09:18:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of diana.craciun@oss.nxp.com designates 40.107.22.44 as permitted sender) client-ip=40.107.22.44;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eiZD7L9imABak4jUzf/lg0fh/Hh6Ijy6okDA0EEnBDHuBlh7J5b7VgvuYva0ofXfbh8k+bpqcmq0dU4GeGboJHOCHLXW2g55PO45lO2NYuZRr5Ag60RK+uFcWGtd7Dlf7Y/TaP9+M9ibHyJD0WomqEksEDvdMlc3ybPaLCwXdhypbByfR/f2RuDLLjd1GmxEVUswYthPUfG6NELuHZrzOwSU5BhvIqrlZHHrXWxJyKUIsnLe9AlDxbDLavvRdSwg2V480/KmpesIzUUFflnPleIybLSJWn2MdOhnCLm030dnPLwCrPfDUexd4Fpq/xbLqf8gfSIhEDfPyz4FeqMorQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bgspc/+c+wX9GBRT4K1WpkZh3v0MLYlP0wPTb4/jlqU=;
- b=hM2WxLvocFYL6WEr6tuV4G7i30eLircoEa4qltv2krKxy9sSDHtWqa9fyaiF92sw20zoJrnxuo3ZGv83cXeiTY+ia4QI54u+RMB1F8nFahPqvZZi4eIMpexNvLZnN35YfGLoQVyRWzxx/wIP9pORcwLUU+X5Spz3Pg5+Ojif5dfhUqzAh2Ku4ydraiDwTA9Yv+hb4l+tX/6zrG9qg4jehMGywyXvlGiq3hrXTh8JZoO9mYX21fDhEhSa+/goFoYYBhMcU4xVjvX5l+r4xlcCDVCUz5fBTkXyeMuQ8dUl+dPBAkJbWej+EgaKQJmO9m+/HUQy5AT5oISv7VsuMjSWzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-Received: from VI1PR0402MB2815.eurprd04.prod.outlook.com
- (2603:10a6:800:ae::16) by VI1PR04MB5040.eurprd04.prod.outlook.com
- (2603:10a6:803:60::24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.29; Tue, 3 Nov
- 2020 17:18:31 +0000
-Received: from VI1PR0402MB2815.eurprd04.prod.outlook.com
- ([fe80::6cf3:a10a:8242:602f]) by VI1PR0402MB2815.eurprd04.prod.outlook.com
- ([fe80::6cf3:a10a:8242:602f%11]) with mapi id 15.20.3499.032; Tue, 3 Nov 2020
- 17:18:31 +0000
-Subject: Re: drivers/vfio/fsl-mc/vfio_fsl_mc_intr.c:16:5: warning: no previous
- prototype for function 'vfio_fsl_mc_irqs_allocate'
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- linux-kernel@vger.kernel.org, Alex Williamson <alex.williamson@redhat.com>,
- Bharat Bhushan <Bharat.Bhushan@nxp.com>, Eric Auger <eric.auger@redhat.com>
-References: <202011031516.4gcgoMmU-lkp@intel.com>
-From: Diana Craciun OSS <diana.craciun@oss.nxp.com>
-Message-ID: <404c152f-f0c8-a5d5-d62f-7b43a47d8614@oss.nxp.com>
-Date: Tue, 3 Nov 2020 19:18:23 +0200
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101
- Thunderbird/83.0
-In-Reply-To: <202011031516.4gcgoMmU-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Originating-IP: [86.121.79.46]
-X-ClientProxiedBy: AM3PR07CA0072.eurprd07.prod.outlook.com
- (2603:10a6:207:4::30) To VI1PR0402MB2815.eurprd04.prod.outlook.com
- (2603:10a6:800:ae::16)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Nov 2020 10:29:28 -0800 (PST)
+Received-SPF: neutral (google.com: 216.40.44.220 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.220;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 35BDC1802913A;
+	Tue,  3 Nov 2020 18:29:27 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:69:355:379:800:960:973:982:988:989:1260:1277:1311:1313:1314:1345:1437:1515:1516:1518:1535:1544:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2828:2892:3138:3139:3140:3141:3142:3355:3865:3867:3870:3871:3872:3874:4321:5007:6120:7875:8957:9163:10004:10848:11026:11232:11658:11914:12043:12297:12438:12555:12679:12683:12760:13439:14096:14097:14110:14180:14181:14659:14721:21080:21394:21451:21627:21990:30054:30070:30075,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: anger96_1d006c4272ba
+X-Filterd-Recvd-Size: 5155
+Received: from XPS-9350.home (unknown [47.151.133.149])
+	(Authenticated sender: joe@perches.com)
+	by omf08.hostedemail.com (Postfix) with ESMTPA;
+	Tue,  3 Nov 2020 18:29:26 +0000 (UTC)
+Message-ID: <363325b4a85f094ba9cf06301dd022912ec79d03.camel@perches.com>
+Subject: [RFC PATCH] .clang-format: Remove conditional comments
+From: Joe Perches <joe@perches.com>
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: clang-built-linux@googlegroups.com, LKML <linux-kernel@vger.kernel.org>
+Date: Tue, 03 Nov 2020 10:29:24 -0800
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.38.1-1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from [192.168.1.122] (86.121.79.46) by AM3PR07CA0072.eurprd07.prod.outlook.com (2603:10a6:207:4::30) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.10 via Frontend Transport; Tue, 3 Nov 2020 17:18:30 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: c92072f8-37d3-4220-74c6-08d8801c7c95
-X-MS-TrafficTypeDiagnostic: VI1PR04MB5040:
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-Microsoft-Antispam-PRVS: <VI1PR04MB5040678EEAA60944167120FABE110@VI1PR04MB5040.eurprd04.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:76;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: gkuMZuds3a9TpYB00kB9IYt7qY65iGQz9uTSGevxAx41eMuLmYjVrOORqB7qBDbEoW3eMWrjZgTtbcWAOCtNO0ZCNNE+hd38oR8tw/VshkANyuKf4zgoP3dMh+762SCjb/2unGeDdHuz/JcyRXOhV2n1NBTdpKL1xOoJJUKj0A6JOE4GnCNJnwSMrTOhCg90Z6qDJqDRZzlpLrG8JH6Cmv+m12YDKBOpu0T2gYS25ud6eP86pwpIFpveGGCNsb1A6DXeBI/aFVZ9evxZUrzmgfQoYhX6qalh8MBQZrYxme6i41m9KsO08JbPcZmqfIlEWAMOIkV9Ovl6OXKkphA6NJeJar8Io9EMiBmrnumLTlkmFO9eq6oEv2QVyYfy/HeLjsPjMnlVsLJmCtsAeHrPWKJtjefECYPjKIJmh9u+ZFk285xTZxGbsnIwkD06xA7mckzFX8oJldPLTzTpF0MEIA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR0402MB2815.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(39850400004)(366004)(136003)(346002)(376002)(396003)(956004)(6916009)(16576012)(316002)(52116002)(54906003)(26005)(186003)(53546011)(16526019)(83380400001)(2616005)(4326008)(966005)(6486002)(66476007)(66946007)(5660300002)(86362001)(31686004)(31696002)(8676002)(6666004)(66556008)(8936002)(478600001)(2906002)(43740500002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: 7EfG+ORFV1hKHaVr9vpAKYCbykQj+Xk8l+O4VfybR3ctdCLdquZfDtsQdT4gE3RshGoIdkNcM0pxLifo8Udoi+nKfso1CEHOFzm9EJ9c0BYU3kJ0h+qYAEb/h15Nk1GntNmbwEnX7cbna8Q3QWH5uUp0lkcpLDeMbOE3R6ax1KJyEYJBgpbP5qzn2rddS8agebHKSbsLwdLAp3TV6Q16zT9KuZG5NqD0yjUnT1U+kn3CKIs0eseRyZH8rBUdzeXOHpDsJkP0TCx435xjPvpvbMxlUWIYhpQCMjju9a8A07l7FW7ufTXvetkEuEalC0YWScyLUDJCKYN1wvzjWmPvTjF/JsiZTy1FqLL3x6oLx56yZuw+h6ydXqUqVRC18TV+1MB+uvyIOPNQVSQ7DoNtDWjlPxImiLd9QPIMQF+iDBeeuA8oLA3M36/vyBFEq6rB+DnhqtLBS0u4PLB7Hn3Sg0bWymb1TNoOU1Yblsx8Td7ZI1j5EHkx2ri1ZyZIs56bGPMy+o9XXyFnaxp3Yd68h7U5kTHpyjH9/eEidT9LsLv2CGFUxsUAVIErvHHXJl59aNpLUGOtHxsgIHtaZe+tBUbs7LOSqo/ess4rbhtaXpxONqvDmXPl53i2zHEvX+H9DR7otWO3E/W2SGnsYKEIhg==
-X-MS-Exchange-Transport-Forked: True
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c92072f8-37d3-4220-74c6-08d8801c7c95
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR0402MB2815.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Nov 2020 17:18:31.8459
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 23p50fyVmwQ/Nd117kwuSpOOK02qInxMpwugMpRAKJnLYkOqVTDtbSr+OlRh9Y9hwd8MTbw3RDufToMUnJkqMw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB5040
-X-Original-Sender: diana.craciun@oss.nxp.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@NXP1.onmicrosoft.com header.s=selector2-NXP1-onmicrosoft-com
- header.b=iSuuNxOW;       arc=pass (i=1 spf=pass spfdomain=oss.nxp.com
- dkim=pass dkdomain=oss.nxp.com dmarc=pass fromdomain=oss.nxp.com);
-       spf=pass (google.com: domain of diana.craciun@oss.nxp.com designates
- 40.107.22.44 as permitted sender) smtp.mailfrom=diana.craciun@oss.nxp.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nxp.com
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.220 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -184,114 +127,135 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
+Now that the clang minimum supported version is > 10.0, enable the
+commented out conditional reformatting key:value lines in the file.
 
-The warning is fixed by this patch: 
-https://www.spinics.net/lists/kvm/msg227575.html
+Signed-off-by: Joe Perches <joe@perches.com>
+---
 
-The errors are caused by the fact that the vfio fsl-mc patches have a 
-dependency on the fsl-mc bus series. For this particular error the 
-missing patch is: bus/fsl-mc: Export IRQ pool handling functions to be 
-used by VFIO. But the entire series should be merged before the 
-vfio-fsl-mc patches.
+Hey Miguel.
 
-I have verified compilation with clang on the master branch and there 
-are no errors.
+I don't use this, but on its face it seems a reasonable change
+if the commented out key:value lines are correct.
 
-Diana
+ .clang-format | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
 
-
-On 11/3/2020 9:54 AM, kernel test robot wrote:
-> Hi Diana,
-> 
-> FYI, the error/warning still remains.
-> 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   b7cbaf59f62f8ab8f157698f9e31642bff525bd0
-> commit: cc0ee20bd96971c10eba9a83ecf1c0733078a083 vfio/fsl-mc: trigger an interrupt via eventfd
-> date:   3 weeks ago
-> config: arm64-randconfig-r026-20201101 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 235dfcf70abca65dba5d80f1a42d1485bab8980c)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install arm64 cross compiling tool for clang build
->          # apt-get install binutils-aarch64-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cc0ee20bd96971c10eba9a83ecf1c0733078a083
->          git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->          git fetch --no-tags linus master
->          git checkout cc0ee20bd96971c10eba9a83ecf1c0733078a083
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
->>> drivers/vfio/fsl-mc/vfio_fsl_mc_intr.c:16:5: warning: no previous prototype for function 'vfio_fsl_mc_irqs_allocate' [-Wmissing-prototypes]
->     int vfio_fsl_mc_irqs_allocate(struct vfio_fsl_mc_device *vdev)
->         ^
->     drivers/vfio/fsl-mc/vfio_fsl_mc_intr.c:16:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->     int vfio_fsl_mc_irqs_allocate(struct vfio_fsl_mc_device *vdev)
->     ^
->     static
->     drivers/vfio/fsl-mc/vfio_fsl_mc_intr.c:121:8: error: implicit declaration of function 'fsl_mc_populate_irq_pool' [-Werror,-Wimplicit-function-declaration]
->             ret = fsl_mc_populate_irq_pool(mc_cont,
->                   ^
->     drivers/vfio/fsl-mc/vfio_fsl_mc_intr.c:122:4: error: use of undeclared identifier 'FSL_MC_IRQ_POOL_MAX_TOTAL_IRQS'
->                             FSL_MC_IRQ_POOL_MAX_TOTAL_IRQS);
->                             ^
->     1 warning and 2 errors generated.
-> 
-> vim +/vfio_fsl_mc_irqs_allocate +16 drivers/vfio/fsl-mc/vfio_fsl_mc_intr.c
-> 
->      15	
->    > 16	int vfio_fsl_mc_irqs_allocate(struct vfio_fsl_mc_device *vdev)
->      17	{
->      18		struct fsl_mc_device *mc_dev = vdev->mc_dev;
->      19		struct vfio_fsl_mc_irq *mc_irq;
->      20		int irq_count;
->      21		int ret, i;
->      22	
->      23		/* Device does not support any interrupt */
->      24		if (mc_dev->obj_desc.irq_count == 0)
->      25			return 0;
->      26	
->      27		/* interrupts were already allocated for this device */
->      28		if (vdev->mc_irqs)
->      29			return 0;
->      30	
->      31		irq_count = mc_dev->obj_desc.irq_count;
->      32	
->      33		mc_irq = kcalloc(irq_count, sizeof(*mc_irq), GFP_KERNEL);
->      34		if (!mc_irq)
->      35			return -ENOMEM;
->      36	
->      37		/* Allocate IRQs */
->      38		ret = fsl_mc_allocate_irqs(mc_dev);
->      39		if (ret) {
->      40			kfree(mc_irq);
->      41			return ret;
->      42		}
->      43	
->      44		for (i = 0; i < irq_count; i++) {
->      45			mc_irq[i].count = 1;
->      46			mc_irq[i].flags = VFIO_IRQ_INFO_EVENTFD;
->      47		}
->      48	
->      49		vdev->mc_irqs = mc_irq;
->      50	
->      51		return 0;
->      52	}
->      53	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+diff --git a/.clang-format b/.clang-format
+index 10dc5a9a61b3..531b97501f14 100644
+--- a/.clang-format
++++ b/.clang-format
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ #
+-# clang-format configuration file. Intended for clang-format >= 4.
++# clang-format configuration file. Intended for clang-format >= 10.
+ #
+ # For more information, see:
+ #
+@@ -13,7 +13,7 @@ AccessModifierOffset: -4
+ AlignAfterOpenBracket: Align
+ AlignConsecutiveAssignments: false
+ AlignConsecutiveDeclarations: false
+-#AlignEscapedNewlines: Left # Unknown to clang-format-4.0
++AlignEscapedNewlines: Left
+ AlignOperands: true
+ AlignTrailingComments: false
+ AllowAllParametersOfDeclarationOnNextLine: false
+@@ -37,24 +37,24 @@ BraceWrapping:
+   AfterObjCDeclaration: false
+   AfterStruct: false
+   AfterUnion: false
+-  #AfterExternBlock: false # Unknown to clang-format-5.0
++  AfterExternBlock: false
+   BeforeCatch: false
+   BeforeElse: false
+   IndentBraces: false
+-  #SplitEmptyFunction: true # Unknown to clang-format-4.0
+-  #SplitEmptyRecord: true # Unknown to clang-format-4.0
+-  #SplitEmptyNamespace: true # Unknown to clang-format-4.0
++  SplitEmptyFunction: true
++  SplitEmptyRecord: true
++  SplitEmptyNamespace: true
+ BreakBeforeBinaryOperators: None
+ BreakBeforeBraces: Custom
+-#BreakBeforeInheritanceComma: false # Unknown to clang-format-4.0
++BreakBeforeInheritanceComma: false
+ BreakBeforeTernaryOperators: false
+ BreakConstructorInitializersBeforeComma: false
+-#BreakConstructorInitializers: BeforeComma # Unknown to clang-format-4.0
++BreakConstructorInitializers: BeforeComma
+ BreakAfterJavaFieldAnnotations: false
+ BreakStringLiterals: false
+ ColumnLimit: 80
+ CommentPragmas: '^ IWYU pragma:'
+-#CompactNamespaces: false # Unknown to clang-format-4.0
++CompactNamespaces: false
+ ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ ConstructorInitializerIndentWidth: 8
+ ContinuationIndentWidth: 8
+@@ -62,7 +62,7 @@ Cpp11BracedListStyle: false
+ DerivePointerAlignment: false
+ DisableFormat: false
+ ExperimentalAutoDetectBinPacking: false
+-#FixNamespaceComments: false # Unknown to clang-format-4.0
++FixNamespaceComments: false
+ 
+ # Taken from:
+ #   git grep -h '^#define [^[:space:]]*for_each[^[:space:]]*(' include/ \
+@@ -494,13 +494,13 @@ ForEachMacros:
+   - 'xbc_node_for_each_key_value'
+   - 'zorro_for_each_dev'
+ 
+-#IncludeBlocks: Preserve # Unknown to clang-format-5.0
++IncludeBlocks: Preserve
+ IncludeCategories:
+   - Regex: '.*'
+     Priority: 1
+ IncludeIsMainRegex: '(Test)?$'
+ IndentCaseLabels: false
+-#IndentPPDirectives: None # Unknown to clang-format-5.0
++IndentPPDirectives: None
+ IndentWidth: 8
+ IndentWrappedFunctionNames: false
+ JavaScriptQuotes: Leave
+@@ -510,13 +510,13 @@ MacroBlockBegin: ''
+ MacroBlockEnd: ''
+ MaxEmptyLinesToKeep: 1
+ NamespaceIndentation: None
+-#ObjCBinPackProtocolList: Auto # Unknown to clang-format-5.0
++ObjCBinPackProtocolList: Auto
+ ObjCBlockIndentWidth: 8
+ ObjCSpaceAfterProperty: true
+ ObjCSpaceBeforeProtocolList: true
+ 
+ # Taken from git's rules
+-#PenaltyBreakAssignment: 10 # Unknown to clang-format-4.0
++PenaltyBreakAssignment: 10
+ PenaltyBreakBeforeFirstCallParameter: 30
+ PenaltyBreakComment: 10
+ PenaltyBreakFirstLessLess: 0
+@@ -527,14 +527,14 @@ PenaltyReturnTypeOnItsOwnLine: 60
+ PointerAlignment: Right
+ ReflowComments: false
+ SortIncludes: false
+-#SortUsingDeclarations: false # Unknown to clang-format-4.0
++SortUsingDeclarations: false
+ SpaceAfterCStyleCast: false
+ SpaceAfterTemplateKeyword: true
+ SpaceBeforeAssignmentOperators: true
+-#SpaceBeforeCtorInitializerColon: true # Unknown to clang-format-5.0
+-#SpaceBeforeInheritanceColon: true # Unknown to clang-format-5.0
++SpaceBeforeCtorInitializerColon: true
++SpaceBeforeInheritanceColon: true
+ SpaceBeforeParens: ControlStatements
+-#SpaceBeforeRangeBasedForLoopColon: true # Unknown to clang-format-5.0
++SpaceBeforeRangeBasedForLoopColon: true
+ SpaceInEmptyParentheses: false
+ SpacesBeforeTrailingComments: 1
+ SpacesInAngles: false
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/404c152f-f0c8-a5d5-d62f-7b43a47d8614%40oss.nxp.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/363325b4a85f094ba9cf06301dd022912ec79d03.camel%40perches.com.
