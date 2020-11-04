@@ -1,129 +1,144 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBD4JRD6QKGQEUKEZHRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC225DNQ34LBBPUKRD6QKGQEQCGT45Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id EB36E2A5BF9
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Nov 2020 02:32:00 +0100 (CET)
-Received: by mail-il1-x13f.google.com with SMTP id k15sf14244837ilh.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Nov 2020 17:32:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604453520; cv=pass;
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 75EE32A5C00
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Nov 2020 02:34:54 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id j13sf8618107wrn.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Nov 2020 17:34:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604453694; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dRXg9dvzX+pvPSLPPolcyq926UnVEc+5Z2zYCKhJreWQegZqKu3upHMa+WeomY7gZd
-         Xy7wjwXLi3HucTiSRRRKmXecvDLyBFNKBDAytv5x4MtNbveCRPw9huiiUQX0Oj+yHhWH
-         NF/1MAmDusKA5lrPkA9f15oigg2EkvVOAkZ8drnQx3H2wFihScWUtzjnizAShSEIY57u
-         PbVndOmm0Tm2QwG3mrrpmlLrurvMhxC8n8DFtjJSaKQe8pBpjHPfcU4d+aSsWdQWIU4o
-         GcGrM4XrzlWlDDaMn8TTPSut8U5x1apShLl0tT6/NIbtVQ7HsttsK+gksxG9YW5vWlQK
-         I4Hw==
+        b=vFaohXr8Vo3MHpPU2zzr6/KzX3aU2tA9LCdkNWIyFiiUNEP9uUAKK9pO419OMlXex3
+         c+X01Hss5SoU3egUL5bf5tFEN+3EIMHRGXjciSJPQFvYozejkFGbCG1wioaYZ+47eytL
+         aJ+11qsYjNy2+0EtcpCEcPdk0wTpmhb47axdXQN8+V8X67/156tpeAZpGzW+tSW8ex4Z
+         9l5SHU6UI5ftEPDVwHJO7HPyEZarIBLn13KyftQWQEM4midQOeVsrDfjHyNVL96b6UG/
+         B9hsZdMm8PgTbr8Marq54t0qY7QhsRmt3vWqQqXN+JM1PNa4eAbZBcc79u/W+Rs6izM8
+         PtoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:sender:dkim-signature;
-        bh=ZRj4Lyjsrl36T3ThfuJBCd9VXJjdqpvwZm5Hoo8J7TQ=;
-        b=A8mGG8fDrUWnub3ZZ8c5KpapCrdSMs/R2XAXStugQaWjZjEuxGqNULcG8YuYOScMli
-         drbRhZyjKT9GnO6aLBY2z2ujxPD3TKSPLhVIWlyhBY/VM5pvvsftWltJFpLes00M4chj
-         v7pYmR0uq53ZbsihCT6UwuN+JWocPiy/w+9lF+x2Yuaw2/J+tXXY7C5HlkZQLbKUmBNr
-         y9LEZoGcEj05IE3kMCP0bm3dEOPQ0V764JrRFZB3yrYxJzmeyCPnqdDymmAwZH8TXe7p
-         vL0aGLczymoEDbB7DktK0W+NeiPZ+l8ZBJiz2OaOBbEZaP1BGyZEG72125oahywU96H/
-         lhkQ==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=NgxtABpom2zfGQ+sdGae2rofPrXkhshvi1FhH09oLL0=;
+        b=CpaPCfAwqHFtEVcLtQD3877me6MK0z5ztyCFPhQ/ZNf2nzEq/mmSNs+LaeuGA4fXak
+         NCwEs79Gjx9biC3XJTkC4Oz5hDbfUDeSNiaZOP3ooGxumPwuj32GmbiPUa4zTRUFZkze
+         fHVn8k4JKyDyTSEg0MbQWtyvHWbrr9Xmw0gZHaZtSjzruOWeEDV8mBef+rSMc1R36R3I
+         rUjG4RefL4za0Hp23lGgl5iym0HZavQtGJuSteZaPMo8eXfSYulJdAsjl3dnZK/RI/Sx
+         5ahM7bHiQJ70blh+VCoZPg0lg9zYvCz9XqcueIJpNhATiSm5H8RhQMFwzGSUcoy/xwKC
+         zRmw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@kapsi.fi header.s=20161220 header.b=nmuMK1K+;
+       spf=pass (google.com: domain of jjs@kapsi.fi designates 2001:67c:1be8::25 as permitted sender) smtp.mailfrom=jjs@kapsi.fi
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZRj4Lyjsrl36T3ThfuJBCd9VXJjdqpvwZm5Hoo8J7TQ=;
-        b=i1E9peKUOAebP7o99atv29jQaEDskzXQ7cpbADYzogxXK+ZIESiMajfkokv6QtlVti
-         IzvPnp2lP+cJMI3sWJyv/2lN+nlaqu/g1gDXjEJyFolqo2wXPXQmdqnIN8dKHSsbkYhw
-         iET4puV2ozq7grXNF2eNbAzwqZVMEZJM/pA8NjMiIt0zS5oIg/t/kE+kznak+o5IKa4H
-         mgO8PHtbQJoVVfO5MqcoeJweDk0iVRAXJWhIt6wm3kKxQF/8/Y3QrsgDoNSQZjMMYFFH
-         XnghYyQF3/3DjkdpMARUvN8ZSIKaRmgV8joT+RIQApml6zk/A07whqPeGPiNtMzcIxXF
-         2HSw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NgxtABpom2zfGQ+sdGae2rofPrXkhshvi1FhH09oLL0=;
+        b=PZEm7e6tpGC4eGQAtTwbOxXIGQM5mVBL4FYksWOXWVJC2eePWnrYtPjDBF/kpVkitI
+         aKVDCCmskvAlODdoWWJnF6tTtOnjWI7FEpSZZuVrIjvezRxyLii3GLI9mV1LLwoAFpju
+         8c8AcDp0nRClNC0AWqOUKGxw7hdzCunoEEr6+NBvDsYhukMdhc77YMYfs5+NE3nZVogL
+         MZCupYFLdA5yv5rKo28kxeuvuRSvQY9mn8og6O5So7BuljjRg3pK4U32KXA60nsA66B1
+         y/hdd1vzZtbp2AwpR1o7HcKoX0bQIVsKo+klkBaKsA8DJq15/GYD5x22dnEyNpZwm4ew
+         NWyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZRj4Lyjsrl36T3ThfuJBCd9VXJjdqpvwZm5Hoo8J7TQ=;
-        b=Wsug7RbNLQ87T3cSjcH8UqnWjITTI6/ecbF5N39PJB6gIqm4+PYoij43f6yb7KpsYM
-         tuCXBtzUr/tmv8OtU06A/Scvz2ipl5goIH6UGSNOZXzP3IISeHTsCRdDz27fO0OiH4pi
-         WnIdvbgmF3EkDr4ewUpQZOXAerUYJBrZRScY2J0Tx5pSjz99RH1Rgn1MvkhNXEFvibTZ
-         WVyY0WFzoCkNELFhFiJ5lRNH3NjOtYFeJxlAy/9e2yM+jIHB+LiDYbL5B8QJAsocBGUE
-         xOlFumX7JcM+HObMxkl4p6Wq4IOznKEIvPRE3eq2vuaRdye8N8a6syETlfMQaOtWRVtK
-         LtZQ==
+        bh=NgxtABpom2zfGQ+sdGae2rofPrXkhshvi1FhH09oLL0=;
+        b=LhUmjxP6ldhGrd74xHjSMD3d6V9dAmNn6BEOCg5UjFpfC5ZKyQySZC53tJPuD3A/rl
+         UjdnkVX498eChUyxbrJwNf5s8kDg6Xndf0g1AB8z6Mkq87LSa+wJ8InwAao8LaRX6Xeg
+         kVXsx200sh5e52EtY92FJuF43En/n8QFOiCRf9WhjbAKkgnh3Od3lJYkdNDloemduXOF
+         Y7CW6SODcmaj4E8Nd+mwqxzzNNYd/pbiVy0er8OJHV6wV+DD+4pn04lMtkV+fzRcrct5
+         u7jeL05a4j1yf4jnCxM11QhIaggNNfcGQnoKdfgTWC0Uf6xkOidgCy1yMZ7fbLFQdgOo
+         5Gxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531UdvmE/BmijPecWD+cs3og8s3HRtieQJ2KfruhYahTzSFSv6KG
-	aIgkj9eMGNK4+H8eRAhXStY=
-X-Google-Smtp-Source: ABdhPJwWUSp6MO/X8TMYwuVimkEoB7R3NvxFN7R3BB2NHJBkErPidciSsQK6zwPsB86Hqzo1L3QD4Q==
-X-Received: by 2002:a05:6e02:ee5:: with SMTP id j5mr16777537ilk.152.1604453519895;
-        Tue, 03 Nov 2020 17:31:59 -0800 (PST)
+X-Gm-Message-State: AOAM5305gePdnAqHI5lE7NQTF92/JgX5Jgk5A3yUW+8pVq+MwMByCtKk
+	E/+ZHDnTUnSB2g9SCbpoDkE=
+X-Google-Smtp-Source: ABdhPJxvGugu8D3v/7OjqnF9JQot8sp+EZQkwF87oX4FKHLpBJt0qdFzrhQxKmZb/D+n0/SM7dDrMQ==
+X-Received: by 2002:a5d:6cc9:: with SMTP id c9mr31509677wrc.276.1604453694242;
+        Tue, 03 Nov 2020 17:34:54 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:ba5d:: with SMTP id o90ls61542ili.11.gmail; Tue, 03 Nov
- 2020 17:31:59 -0800 (PST)
-X-Received: by 2002:a92:1f43:: with SMTP id i64mr16205046ile.281.1604453519474;
-        Tue, 03 Nov 2020 17:31:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604453519; cv=none;
+Received: by 2002:adf:cd8c:: with SMTP id q12ls606295wrj.0.gmail; Tue, 03 Nov
+ 2020 17:34:53 -0800 (PST)
+X-Received: by 2002:a5d:4e8f:: with SMTP id e15mr19390675wru.390.1604453693415;
+        Tue, 03 Nov 2020 17:34:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604453693; cv=none;
         d=google.com; s=arc-20160816;
-        b=o3Xu1Pl9FCBqpmbhmI7h6FqrWI9LOe8gNBbSmtjHEwQ3MRpVfwaaqjs1a6j6iwH6AL
-         174T4j7uhBh0F2GrRPwSDLoK3TW0xk8584u6oUw6aQqLmnxtzh3ZE7NWSBIsSsvsevum
-         jglGGVWkPq/QFZi41dk455y5mn2637rDrI05auqURfExA1WmJTbh612Uqm4H2vBokru1
-         jhtgMoT+uhn5MqIc35rj2dvXKCaB6+DgnAKnT909rG5xcEf1wW/byjQckEJ4W41z6gd2
-         k3LtCXvxQAgLbrXCeUV621VE/9ML743Y+VER+WsSKurPzfH17xo5YfLGiIuCr1QmTQdT
-         wSAQ==
+        b=QMntxXxrWDQgAwCud9hZo97u0y33D9Qte6X2UZbCH87G3VODNRqoDafVTtZDuGasQM
+         hr42RlCY/SNNnEDIdxDtdqi5tolVYJt9BFv38OnuumMwGeAWilm6IVd+QpaPMhBerr3z
+         9rlbZBgD2yTnJj8IOQ3uM08cHm64tRVr3XPzAOXP6kP5sb56QMw+SJ66tXOd28abRj/i
+         xk9/6n3NXmRsiCd/v+Hlg6V8kSLWgInGMe7KM1IYRpbQg8T57CcNRLzYE/PgjhFsrpMj
+         ZqMilKyNpUeulbmy9COClVyEmiHbxKsNZOljklk0x/3+JZNAjK7WJLbhuzK1f7dPlSLm
+         xCog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=aPYFjwMFQTbf5m0vbYchRP3VknnqF6lEi4t87cu0Hc4=;
-        b=sJd24cUhjPrEHDINIPrp/f4kvsXEJ29pizn+LlwPI5XMcqYZJFGsdgO3XLREeuJPZ0
-         l43MAOECb2ZnxSgmr1xIrbVfWEGmZHL5fSP9zUwq3Q5VJLZ8ofT1FoIhCtyA+K1zuERd
-         REXPa/6d1emN/s2T4IzhOKJlp5LTc/ryQVCHC1YEOF0PEVUoWT3+cCmEgnpm4lyhT6fj
-         U5pIYgkBQzMgDlskDwihnmHKzAgPESfHmQV2uqb4EEk9IfE+SmuGUDCKJbFM60DbO1EW
-         SKPzIHgLGBcO7xswBfli+jSil5cYY0B1D2eOKtx2Eh0G/LCcZ/j8w0pPhFVGZkWV5Fin
-         CTIQ==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=QralSrBulzxB8NovVwoWh+i/AbrWlvBFhJysCZOTo1w=;
+        b=xL9Y7vgwYIxctCT9+AAkwplj/3wsOjlkar04ftSDSdwDZJhRzvf3IfnDADFVSKkE33
+         CHQXsL2T9Ixsf5lfNfSWZhuZeAOPrOlMCFNbCwWKB4yuHXqVB6KURkdlTH4R5CnYwPw0
+         npSSGgYSPvDYVAP3FF9RRvtFb4SolLVhOZ5iqW9bqW/XrLaKG4MYnp7vJ2vfiCThlX+O
+         VcX2w1chUVIn9CazzA9Q0tru3yRovHEImcjt0DY+uQ/ofue5Ie3306hutB6oiH8XlJNi
+         AOXvfxQmedf7d4fKaaDyiuKj8YW6FQwGtn/Q4KoXtQnOsskj1mpjjTw9BtXsitTNnYJ+
+         34Aw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0135.hostedemail.com. [216.40.44.135])
-        by gmr-mx.google.com with ESMTPS id b21si36140iow.3.2020.11.03.17.31.59
+       dkim=pass header.i=@kapsi.fi header.s=20161220 header.b=nmuMK1K+;
+       spf=pass (google.com: domain of jjs@kapsi.fi designates 2001:67c:1be8::25 as permitted sender) smtp.mailfrom=jjs@kapsi.fi
+Received: from mail.kapsi.fi (mail.kapsi.fi. [2001:67c:1be8::25])
+        by gmr-mx.google.com with ESMTPS id y14si25828wrq.0.2020.11.03.17.34.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Nov 2020 17:31:59 -0800 (PST)
-Received-SPF: neutral (google.com: 216.40.44.135 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.135;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay06.hostedemail.com (Postfix) with ESMTP id EF1E418225E0A;
-	Wed,  4 Nov 2020 01:31:58 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 30,2,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:967:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1543:1593:1594:1605:1711:1730:1747:1777:1792:1801:1963:2197:2198:2199:2200:2393:2525:2553:2560:2563:2682:2685:2691:2739:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4250:4321:4470:4605:5007:6119:6120:7514:7903:8531:8957:8985:9025:9149:10010:10400:10848:11026:11232:11233:11473:11658:11914:12043:12050:12294:12296:12297:12438:12740:12895:13439:13618:13894:14096:14097:14180:14181:14659:14721:14819:21080:21324:21433:21627:21740:21811:21939:21990:30006:30012:30034:30054:30056:30064:30070:30090:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:1:0,LFtime:390,LUA_SUMMARY:none
-X-HE-Tag: bells46_5806729272bd
-X-Filterd-Recvd-Size: 4539
-Received: from XPS-9350.home (unknown [47.151.133.149])
-	(Authenticated sender: joe@perches.com)
-	by omf18.hostedemail.com (Postfix) with ESMTPA;
-	Wed,  4 Nov 2020 01:31:57 +0000 (UTC)
-Message-ID: <ba3126e1424c578f5040c7a6f04cdd6a334b2db4.camel@perches.com>
-Subject: Re: [RFC PATCH] .clang-format: Remove conditional comments
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Miguel Ojeda
-	 <miguel.ojeda.sandonis@gmail.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>, LKML
-	 <linux-kernel@vger.kernel.org>
-Date: Tue, 03 Nov 2020 17:31:56 -0800
-In-Reply-To: <CAKwvOdmnz-DJ-hG5FKJZYF7W-ujPrgfMkrb2hMLhmzhk8Hx6dA@mail.gmail.com>
-References: <363325b4a85f094ba9cf06301dd022912ec79d03.camel@perches.com>
-	 <CANiq72=r6oieZ-Nj-e6e+HriW8kADB75z2pj6W-gg7Cff3nqGw@mail.gmail.com>
-	 <CAKwvOdmnz-DJ-hG5FKJZYF7W-ujPrgfMkrb2hMLhmzhk8Hx6dA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.38.1-1
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 03 Nov 2020 17:34:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of jjs@kapsi.fi designates 2001:67c:1be8::25 as permitted sender) client-ip=2001:67c:1be8::25;
+Received: from 83-245-197-237.elisa-laajakaista.fi ([83.245.197.237] helo=kapsi.fi)
+	by mail.kapsi.fi with esmtpsa (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.89)
+	(envelope-from <jarkko.sakkinen@iki.fi>)
+	id 1ka7hJ-0006YA-6e; Wed, 04 Nov 2020 03:34:49 +0200
+Date: Wed, 4 Nov 2020 03:34:47 +0200
+From: Jarkko Sakkinen <jarkko.sakkinen@iki.fi>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>, Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>, Will Deacon <will@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/7] compiler-clang: add build check for clang 10.0.1
+Message-ID: <20201104013447.GA21728@kapsi.fi>
+References: <20200902225911.209899-1-ndesaulniers@google.com>
+ <20200902225911.209899-2-ndesaulniers@google.com>
+ <20201103045521.GA58906@kernel.org>
+ <CAKwvOdk-bMx3Jt6=oN=PHqRv_tx5cF=9cVmumazb4vMNHdj5Ag@mail.gmail.com>
+ <20201104003826.GB19460@kernel.org>
+ <CAKwvOdnZSLP_YF3iFDLTHFE=ORxsrCR06s-B2Hk7khSxdC0+5A@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.135 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+In-Reply-To: <CAKwvOdnZSLP_YF3iFDLTHFE=ORxsrCR06s-B2Hk7khSxdC0+5A@mail.gmail.com>
+X-SA-Exim-Connect-IP: 83.245.197.237
+X-SA-Exim-Mail-From: jarkko.sakkinen@iki.fi
+X-SA-Exim-Scanned: No (on mail.kapsi.fi); SAEximRunCond expanded to false
+X-Original-Sender: jarkko.sakkinen@iki.fi
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kapsi.fi header.s=20161220 header.b=nmuMK1K+;       spf=pass
+ (google.com: domain of jjs@kapsi.fi designates 2001:67c:1be8::25 as permitted
+ sender) smtp.mailfrom=jjs@kapsi.fi
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,97 +151,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2020-11-03 at 17:08 -0800, Nick Desaulniers wrote:
-> On Tue, Nov 3, 2020 at 1:33 PM Miguel Ojeda
-> <miguel.ojeda.sandonis@gmail.com> wrote:=20
-> > On Tue, Nov 3, 2020 at 7:29 PM Joe Perches <joe@perches.com> wrote:
-> > >=20
-> > > Now that the clang minimum supported version is > 10.0, enable the
-> > > commented out conditional reformatting key:value lines in the file.
-> > >=20
-> > > Signed-off-by: Joe Perches <joe@perches.com>
-> > > ---
-> > >=20
-> > > Hey Miguel.
-> > >=20
-> > > I don't use this, but on its face it seems a reasonable change
-> > > if the commented out key:value lines are correct.
+On Tue, Nov 03, 2020 at 05:18:38PM -0800, Nick Desaulniers wrote:
+> On Tue, Nov 3, 2020 at 4:38 PM Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> >
+> > On Tue, Nov 03, 2020 at 10:48:27AM -0800, Nick Desaulniers wrote:
+> > > On Mon, Nov 2, 2020 at 8:55 PM Jarkko Sakkinen <jarkko@kernel.org> wr=
+ote:
+> > > >
+> > > > On Wed, Sep 02, 2020 at 03:59:05PM -0700, Nick Desaulniers wrote:
+> > > > > +#define CLANG_VERSION (__clang_major__ * 10000       \
+> > > > > +                  + __clang_minor__ * 100    \
+> > > > > +                  + __clang_patchlevel__)
+> > > > > +
+> > > > > +#if CLANG_VERSION < 100001
+> > > > > +# error Sorry, your version of Clang is too old - please use 10.=
+0.1 or newer.
+> > > > > +#endif
+> > > >
+> > > >
+> > > > I'm trying to compile a BPF enabled test kernel for a live system a=
+nd I
+> > > > get this error even though I have much newer clang:
+> > > >
+> > > > =E2=9E=9C  ~ (master) =E2=9C=94 clang --version
+> > > > Ubuntu clang version 11.0.0-2
+> > > > Target: x86_64-pc-linux-gnu
+> > > > Thread model: posix
+> > > > InstalledDir: /usr/bin
+> > > >
+> > > > Tried to Google for troubleshooter tips but this patch is basically=
+ the
+> > > > only hit I get :-)
+> > >
+> > > To check the values of the above preprocessor defines, please run:
+> > > $ clang -dM -E - < /dev/null | grep -e __clang_m -e __clang_p
+> > >
+> > > If you have multiple versions of clang installed, you might not be
+> > > running the version you think you are.  Particularly, if you're using
+> > > bcc, idk if it includes a copy of clang?  If that's the case, we may
+> > > have to work out how we can support older versions of clang for the
+> > > express purposes of bpf.
+> >
+> > =E2=9E=9C  ~ (master) =E2=9C=94 clang -dM -E - < /dev/null | grep -e __=
+clang_m -e __clang_p
+> > #define __clang_major__ 11
+> > #define __clang_minor__ 0
+> > #define __clang_patchlevel__ 0
+> >
+> > I'm compiling the kernel itself with GCC.
+> >
+> > Here's an example BPF script that fails on me:
+> >
+> > struct sgx_enclave_add_pages {
+> >         unsigned long src;
+> >         unsigned long offset;
+> >         unsigned long length;
+> >         unsigned long secinfo;
+> >         unsigned long flags;
+> >         unsigned long count;
+> > };
+> >
+> > kprobe:sgx_ioctl
+> > {
+> >         if (arg1 =3D=3D 0xc030a401) {
+> >                 printf("sgx_ioctl: %d, %lu\n", pid, ((struct sgx_enclav=
+e_add_pages *)(arg2))->offset);
+> >         }
+> >
+> > }
+> > Note that it relies on code not yet in the mainline.
+> >
+> > If I don't declare structs, things work just fine. E.g. the following
+> > works:
+> >
+> > kprobe:sgx_encl_get_backing
+> > {
+> >         printf("%s\n", func)
+> > }
+> >
+> > BTW, I don't really understand how scripts/clang-version.sh is even
+> > supposed to work, if you compile the kernel itself with GCC. In that
+> > case there would be no output, right? And thus version gets set to
+> > zero...
 >=20
-> Joe,
-> what would it take to get you to use clang-format, or at least try it?
-> =C2=A0Beers?  Bribes? Dirty deeds, done dirt cheap?
+> That script is only used by KBUILD.  include/linux/compiler-clang.h is
+> what's included into include/linux/compiler_types.h and causes the
+> error.  The eBFP tools must be including kernel headers and defining
+> `__clang__`.  Forgive my complete ignorance of eBPF, but how do you
+> build that script?  I assume the tool is using Clang, since eBPF
 
-Hey Nick.
+Thanks a lot for helping with this :-)
 
-Paint my house? ;)
+I'm using bpftrace as the frontend.
 
-I've tried it.  It's OK.  It's not significantly better than
-Lindent in some ways, in other ways it's pretty good.
-
-It can make a real hash though of well formatted, human readable
-code.  I think that's it's biggest drawback.
-
-I posted an example of it a year or so back.
-
-https://lore.kernel.org/lkml/e9cb9bc8bd7fe38a5bb6ff7b7222b512acc7b018.camel=
-@perches.com/
-
-In that thread I wrote:
-
-On Thu, 2019-09-12 at 03:18 -0700, Joe Perches wrote:
-> On Thu, 2019-09-12 at 10:24 +0200, Miguel Ojeda wrote:
-> > On Thu, Sep 12, 2019 at 9:43 AM Dan Williams <dan.j.williams@intel.com>=
- wrote:
-> > > Now I come to find that CodingStyle has settled on clang-format (in
-> > > the last 15 months) as the new standard which is a much better answer
-> > > to me than a manually specified style open to interpretation. I'll
-> > > take a look at getting libnvdimm converted over.
-> >=20
-> > Note that clang-format cannot do everything as we want within the
-> > kernel just yet, but it is a close enough approximation -- it is near
-> > the point where we could simply agree to use it and stop worrying
-> > about styling issues. However, that would mean everyone needs to have
-> > a recent clang-format available, which I think is the biggest obstacle
-> > at the moment.
+> relies on the LLVM backend (not sure if the GCC eBPF backend is good
+> to go quite yet), and that version of clang is older.
 >=20
-> I don't think that's close to true yet for clang-format.
->=20
-> For instance: clang-format does not do anything with
-> missing braces, or coalescing multi-part strings,
-> or any number of other nominal coding style defects
-> like all the for_each macros, aligning or not aligning
-> columnar contents appropriately, etc...
->=20
-> clang-format as yet has no taste.
->=20
-> I believe it'll take a lot of work to improve it to a point
-> where its formatting is acceptable and appropriate.
->=20
-> An AI rather than a table based system like clang-format is
-> more likely to be a real solution, but training that AI
-> isn't a thing that I want to do.
+> I wonder if we should guard the version check with __BPF_TRACING__
+> similar to arch/x86/include/asm/cpufeature.h? Care to test:
 
-and an example very poor conversion from that same thread:
 
-        unsigned int key, newkey;
-        int i;
-=20
--       rc =3D sscanf(buf, "%"__stringify(SEC_CMD_SIZE)"s"
--                   " %"__stringify(KEY_ID_SIZE)"s"
--                   " %"__stringify(KEY_ID_SIZE)"s",
--                   cmd, keystr, nkeystr);
-+       rc =3D sscanf(
-+               buf,
-+               "%" __stringify(
-+                       SEC_CMD_SIZE) "s"
-+                                     " %" __stringify(
-+                                             KEY_ID_SIZE) "s"
-+                                                          " %" __stringify=
-(
-+                                                                  KEY_ID_S=
-IZE) "s",
-+               cmd, keystr, nkeystr);
+Before I received this response, I did git revert for this commit
+and things started working again.
 
+> ```
+> diff --git a/include/linux/compiler-clang.h
+> b/include/linux/compiler-clang.h
+> index dd7233c48bf3..98cff1b4b088 100644
+> --- a/include/linux/compiler-clang.h
+> +++ b/include/linux/compiler-clang.h
+> @@ -8,8 +8,10 @@
+>                      + __clang_patchlevel__)
+>=20
+>  #if CLANG_VERSION < 100001
+> +#ifndef __BPF_TRACING__
+>  # error Sorry, your version of Clang is too old - please use 10.0.1 or n=
+ewer.
+>  #endif
+> +#endif
+>=20
+>  /* Compiler specific definitions for Clang compiler */
+> ```
+> --=20
+
+Shouldn't "#ifndef" be before the whole version check? Otherwise,
+LGTM. Please CC me once there is a properly formed patch to try out.
+
+> Thanks,
+> ~Nick Desaulniers
+
+/Jarkko
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -234,5 +288,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/ba3126e1424c578f5040c7a6f04cdd6a334b2db4.camel%40perches.=
-com.
+clang-built-linux/20201104013447.GA21728%40kapsi.fi.
