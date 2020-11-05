@@ -1,229 +1,133 @@
-Return-Path: <clang-built-linux+bncBCLOB5FNZUMRB4EMRX6QKGQEVDZQ5RA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBMEPRX6QKGQEHR3QWVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 893CC2A73B5
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Nov 2020 01:25:21 +0100 (CET)
-Received: by mail-il1-x138.google.com with SMTP id d9sf100882iln.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Nov 2020 16:25:21 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1604535920; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 514CE2A73C8
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Nov 2020 01:30:41 +0100 (CET)
+Received: by mail-io1-xd3f.google.com with SMTP id q3sf355561iow.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Nov 2020 16:30:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604536240; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nLd7G2/+zmo+GILtsPybhMHSIqxm6mji/OHm09aMVTBK3Yrc/FAQWxNfMZZ4ZVhRw7
-         qF85b16EG4idGy76JUc8aa+MhOO6bw3WZdwPhzZ2i4UyDT5yj1ozuNiUz4nHltYOYVBL
-         6k96xB1Wznlp7X/iUoer1DlVdEy/HujPOGumJnR8n+Mndb4rDU/fyKPnnfIcop0QnQpG
-         Q4NPql0zO/FsuX1tSGZLkQdSWcaxnVoLeVCkRHpmdU1oTEh13aFm/Poqybz+kp0yjTYK
-         wBpfwu6RrCRpk4w9a5d/hHJ03vXmGZ6pRQFAiMLYuctKXwHfW4TcY+igaIeaZUutleue
-         u5rA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=DPAnKkFaF3fF7Lre0QJQC3lStNxDMquXaYWbnHiMZvJyg9Yqjp7g0GzKFP2wMaaOHC
+         HHajYn7Zy2UrbTwARR4mHjUP7CyLIbBWQIjWsK/ZvQgqblX+7xCIBOkxvZ7sA+PEAIAp
+         0O2BaS/cA61suFjYKrgsHDrL9qCLnnOd0ENqW93Hu/e2IghHAbCI65In5oEF15TS2StO
+         FsXze97INF+/iB2ZBqVdaaPUbuV/8ZVrafa9oTokf6xw98EHYLJ6dnguLE/bsY7qVP8J
+         faM886UWKUDVXYUMhh+rysGxc1ybsydiDhbPMjpDbFacxCAXTgBYnmmF9VnxPBzLayMO
+         ijkw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:content-id
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature;
-        bh=QyEoFA9vzlsYd0rPhpIf6mCYgh5tZ/2Zibh+MlPh58M=;
-        b=G2wqXZQnItqSbcIlrrUwGdktybDGmAbJz+47WnMKzLDgWCn8st9DDCXFpuSD1O7mx3
-         OCEzrOPsYBwVFRBS1lY+IPMbh0+gbFWE2j05qNQTGUDrlEIkyUQC5bnVuwuIbuXvQuJw
-         deum05053z2FAgvh+HN09dpJccbiJwMr4TP+6/p62axkWFZUtEbRDi5EylrLHx8fM8Dx
-         tUyOISklQ9PHlM61lv9GjPvxVku6tw5gsFmXaZlA7wP9qbXQ47HcRmx4vinAZmvdslXQ
-         XSvwwVpCZHEYm7XPxs0uPQCYV0ZZj7ylcaRnJflRimlihmI6hBdLprpdxoOyhPFnNqdX
-         FFQw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@fb.com header.s=facebook header.b=KyqyGCZV;
-       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=MKGAM+9Y;
-       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
-       spf=pass (google.com: domain of prvs=8578de0ea6=songliubraving@fb.com designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=8578de0ea6=songliubraving@fb.com";
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=AjymFKTZVSutWK3ggs8/JbWTy3IbvVP9p0jzMZdVN5s=;
+        b=d/MGMxwFQImEwa6adDy047TO+pt7yfHVR92M8RRFrOFDjulEyEYaqOo+St7tyL4M8j
+         v8fOPHrZGnNrD00Es50/S2ZZuHZKhCSx7wil6vD7pXj8g0O76Vk33TYRkRqsgJPoCsQf
+         c6YcZ0fK9M8NBag3W5xQOeE92pUNZPWuKT401gca/4AqOLKF9qbpwsQJ6bzHA55pSGUY
+         f7wtWeucnyRnLIav1c/6I9h0EyRZU/esq9GpIjRioTvlkbtA+c/MKEkA1xN8h/ARMkB1
+         2dw6fp6ZHazV4hPmktCRfLlKRGgExhmbj88ZWqLeYA9ci2GmVYwLr1t7I5rNbtfuOFWp
+         PBrQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=hJ0PMyMC;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:content-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :reply-to:precedence:mailing-list:list-id:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=QyEoFA9vzlsYd0rPhpIf6mCYgh5tZ/2Zibh+MlPh58M=;
-        b=GIpc8oPFMCp4ZKvnJ+aJmtGA/mpeUn3B+i90KCgRh2IJDyFUkA0j5Y7BPQFYTP8e99
-         bd/HGAGIZScXUlyJ6/RbzESH+0zftbhvdQrm1gW7qcQQN80TMKHbt7SLk7fOv73c8R8Z
-         L092JqkB5Y6NpqW8LArxvkpatcLkXaP44+nKJrqSl+v8t1Y4+/kpDoCnGezTSc3SyeaN
-         zsh+DdKGxKBiokkkk7SFB5+75RF9r5GJJcZ+u12L8FCiXHU/MInRRIPHcwSldOGyBaML
-         exOydiR9MU5wZZ9gqlinWOrQQrpPeYJFbDtjVomCK6ccwptiFaDOHuLOXf4A8QN0XiLn
-         rs8w==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=AjymFKTZVSutWK3ggs8/JbWTy3IbvVP9p0jzMZdVN5s=;
+        b=GmBbyQ0jcA6Zw1Zx10d0B2GqYFHyhAUd3W2IuDKI/B6Y42M1lHA/iGBaQUKMSBxw5L
+         B5rv4hHUT9WXofDLMOawtKLbhiNFvaB1zJzO0p8ndc7O+zCaKjvy+PljtVY8uIhGFJ1/
+         ORE1zQvqyfrQiB5ZtvRbN7Vr92az0dod75g1Y0qbjgnQE5S9gwXQmtzXtoPku6Sgx2Ol
+         sL8Xn2p8AnNSX2tfsDAZchFz3APXA4vbog9rUnLCdQh4k4KT+tSYEtxiMNo4jOb1LORM
+         WGdbdOnHgFZ22q6XllrFsarwi35eKaNgf4359jbipe2zV1ZpEGVBbThJxCaMsKrvil1h
+         HQ8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:from:to:cc:subject:thread-topic:thread-index
-         :date:message-id:references:in-reply-to:accept-language
-         :content-language:content-id:mime-version:x-original-sender
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QyEoFA9vzlsYd0rPhpIf6mCYgh5tZ/2Zibh+MlPh58M=;
-        b=PtA4WCRvRPqEm96mri8A7v+3Ax4rrG7czOgZ64g9YzwG0+qjFiTjJBEeOM+zSr16QU
-         TI8H6FKvhMrEnuPSm9ji2883EPsK98spGeZW8SQZUBs6QOCZYxHmlWPtAgan36FQqt2I
-         eNwIdi0S8TsON1gcwkkk9XLj3dRWjUZADUVcRAjFyURCT3XHYCoiDDMZJfoYfhssj8cy
-         q3l4FP7pXKQd8WFzFjeRi5LpyW3jBmRkLdH/kkEh905e+EVpidWwzMJ25bgJZ/nSR3ZY
-         2KzVIO9r+AQoL7afALR6jce/Hrgc10NHXW0Vq5e3ynVz8lLdta+tXWoYuCUe+8JvAkjy
-         1P8g==
-X-Gm-Message-State: AOAM530BjshKsILxTRHLdrXl8Eb3ZACcucqQhsOhRxUE940zdgCdEBOF
-	dkPSEzNWYLnfEwVaJRNAv3s=
-X-Google-Smtp-Source: ABdhPJz27YTn395eY//UIAS8ICAbWAGeiLE6sSvCDePUgk1PLEMstuVlBR9hKzo637Iv4LUKm42+uA==
-X-Received: by 2002:a02:a793:: with SMTP id e19mr63471jaj.45.1604535920373;
-        Wed, 04 Nov 2020 16:25:20 -0800 (PST)
+        bh=AjymFKTZVSutWK3ggs8/JbWTy3IbvVP9p0jzMZdVN5s=;
+        b=MQb4Z5a8zzqXTANS8fMa3K84xNbkrJnrEYAjrO/hqDmozQ/PlT2C/QoYNKJtFxa+TX
+         dOn/R8xHqS5uGm/NEmvV7mD7Q5I227N+oSaKw4umHKNqObnq8BoEjGQV9oY5DzOAY0iQ
+         E9qwS/CrWXspwfE4CZMgf8pNqoz3ejjdjXEZh4I9X+19vT1f0+u68fZAtfrCRui8mRAL
+         mOTMYqNm8IPluoyn2rPkQYwuAG74sAX7VKUEPa5P8BtCHCgfS/cuNXncOF45qO7eIyzJ
+         5Pc3pEvHEJeIDcrp5zlGI7ali8XGFIn01JWir0eaevmAIcsuo6+Z+V4ZjqsHandfGkcv
+         DnfQ==
+X-Gm-Message-State: AOAM532gy6vWgT9JSksqr5by8BsFRBeIoTySstA0NCf9GLgnSSb0pyD8
+	t1bpO7GSzHaVTWXNHVf3WE4=
+X-Google-Smtp-Source: ABdhPJz69TCfyeP/lrLbX8NDnOYGGxpNWhushzi46UogT1m4/xZhMup/3NV/xWzbMWB42ptqFKGpKQ==
+X-Received: by 2002:a02:228c:: with SMTP id o134mr98508jao.56.1604536240374;
+        Wed, 04 Nov 2020 16:30:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:ba5d:: with SMTP id o90ls805251ili.11.gmail; Wed, 04 Nov
- 2020 16:25:19 -0800 (PST)
-X-Received: by 2002:a05:6e02:c:: with SMTP id h12mr27098ilr.177.1604535919844;
-        Wed, 04 Nov 2020 16:25:19 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604535919; cv=pass;
+Received: by 2002:a92:ba5d:: with SMTP id o90ls807888ili.11.gmail; Wed, 04 Nov
+ 2020 16:30:40 -0800 (PST)
+X-Received: by 2002:a92:dccb:: with SMTP id b11mr85595ilr.6.1604536239970;
+        Wed, 04 Nov 2020 16:30:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604536239; cv=none;
         d=google.com; s=arc-20160816;
-        b=KKxqtyWtv72iOsjXBdL9RVuJiD0jJ/0Qg6RMlOVvBuWuTRlru6lB0/KRh7h+Ep63Rp
-         wAAZSs4NjhgPMI20RMsQ6IgXrqQmCzDT0G5+cXNeLjJotSnpDqBKJaiP6SbC4ppeGB3t
-         TYsh9es8CXNJ+aks//Zo00abxf0z3ac9CZ2Dk/pCs8OH8WLJWaz6n7X8FK3gbz29pVnK
-         j5//V19COXXS5NpqkefM9UOEQQQZfwbeTiMPtIntgYQSQ48FFi6WqEqozbmiHOVkL17W
-         +KeaoZDm2QFqwMPMbvB/eadqoHYciNIiu9xkrHoy95b7x7d9lOTHPdTTCOcj0HxuC+FH
-         sa0A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature:dkim-signature;
-        bh=s8B9W7Jf8bbbGlUaBtPSEEkSBBdJ4gRkieu857Y4cfw=;
-        b=keV0d2mhrWiPOtEks5Mt2WmEdA5xS3GEBrYmDoSvFtoWkqxdFj35HNgBOYq3MkiBvC
-         qAs/Wu+qLMACetr6Mb20PQwUD286hSL0c/ZQMAn/xHSxtqiyJp4/DDkO/H3f7RVZk4JL
-         8iisxIS7W9dmO+lTA2iAjgdAlkkx2Sw92kirHOgXpPWB2TAXfYBNpzybOzTUgs3V+i43
-         +ISoMzEvS4630NQH65nr2SJ8b9qPLWZkAQ1jGtXbrsbrqyminp8qxOkax2TaeEErqbJO
-         z5yKz9iVFW8mIlECkHNyRU+8HKFO25Viu3kxsrDNCRASAliG8wld8ZsIPJ4RTewswFFo
-         gi7Q==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@fb.com header.s=facebook header.b=KyqyGCZV;
-       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=MKGAM+9Y;
-       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
-       spf=pass (google.com: domain of prvs=8578de0ea6=songliubraving@fb.com designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=8578de0ea6=songliubraving@fb.com";
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com. [67.231.153.30])
-        by gmr-mx.google.com with ESMTPS id o19si251632ilt.2.2020.11.04.16.25.19
+        b=xYghGRmxJAzuDjtnOPo6jmoYv7cVHJ8zyvE9Q7wHGTKbbjGOH/jxwok3e0ZMZ7GFWt
+         wGztqVir/F5/bXSVRViZjGbptZ4B/XQyS8FtxU5y0lS2wzMyBA5g7GgMfXNzqxgDVoxX
+         qLR7FhzRvgPOxJMoPf6HXgAp/fQ+qSAUqGRbA0TLv0GL4yQKxxrP386A0iJR/lBMSIo8
+         rQqGuM0Dcr6EYVzCnrQE4FIDl7u9iOYn7CUXAqi1XFuh5NYocwZdkEVve2GxUIQ23rVi
+         qstcQpMShA0RacjvZEnw4KQ8PLIu+js+QQMknBbLqqkdvtPU6efoghIqjQ6/x59qrVG2
+         DARw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=iYOTMttlo6f/hNbgw1YDSYSU/RU1+qwEl3iPASOT/Do=;
+        b=rhx2A8Ftz5OzWRjJCxx7UYKQWUx7DTrE0N19mmEjGp3DCfmo+Lv7rmcBNYiNRfAD/Y
+         TVMlJX0L+exSDbjEAS/WWe4fk+nhB7KNx6J+2/0EGL2h5UNe6MvJAZ2YYFKDFG6yk4vc
+         bxeNjWocWn7QcL1RUx9/FTRU2shsXtt9e8ZPbF9jDOsxtsN/gVElzFPCvdJIxmbJT73J
+         bnICjQz0DBMZC6YuGbFukf4QvXzblwZMHhRl66H06kxVHlySVUDhvXc44BP2FE0YvEyI
+         4plKNVxn4Wgj8HUn+udmzIAKW7t6E6S+s1Br+fmQyOTQZR6eKbORjOJYzHmQGQDU/8ls
+         jyXw==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=hJ0PMyMC;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id s11si2277iot.1.2020.11.04.16.30.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 04 Nov 2020 16:25:19 -0800 (PST)
-Received-SPF: pass (google.com: domain of prvs=8578de0ea6=songliubraving@fb.com designates 67.231.153.30 as permitted sender) client-ip=67.231.153.30;
-Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id 0A50JqUj028618;
-	Wed, 4 Nov 2020 16:25:15 -0800
-Received: from mail.thefacebook.com ([163.114.132.120])
-	by mx0a-00082601.pphosted.com with ESMTP id 34kbn7ged7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Wed, 04 Nov 2020 16:25:14 -0800
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (100.104.98.9) by
- o365-in.thefacebook.com (100.104.94.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Wed, 4 Nov 2020 16:25:13 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=l5ciKZDYz3f8LIsPa+ZGNf5A+AJ8RCwF5TscqDtdACaVaGN5XycsN5rIVDmL5tTDGKZipd9aDxM1bi6H4NPKx+H4kcyvUzfzzzOKcd+LfLRwUbDLWy/QxIv8tBFenRm0CBTF857eoYEfBQglZZOo8I6PL3LsZ4uQZn3cVSJBQB8Zd3G1dICvLayAPG7pkvplCPb4TvDRjR6j0+/Sutv5iLTtX8pz3wT/sWJbbb8asvaJ6Z4uNI/KGnrJZi7d4vgQG0bYkn4hexhYcH/QBLLDBsmAvEcxOPj+70+YHZ9G/+ryt+v+GCISkAowkZXPg7qs94uQcsYcbVx1dNNhImJGBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s8B9W7Jf8bbbGlUaBtPSEEkSBBdJ4gRkieu857Y4cfw=;
- b=e9Dbl8YglbGFbuTtQknc5aTnw8Dmyzb/p+uUJL+YKmUbaVBg+svbK2lMUG7ajyPkBf3j6HWHKk3M3GW96WByMSVgB7ZobwmKItLSg3RDqx/kbSez4yq3sr5nYBJjrh+7+lyrMz60lQMJ/bgMhNRzcFwQtPKzRsKoA6yI2Wi1DsYBW7DosKjlbG8Djho+45WwC9exBMXuNPWmCa/RUhz3qitdCSkfNoJQ/wCgIXcx5IataZN1RSidNEbefgdnypLxUx1IgjIgySBBtDtG4WTuCarjQjKGH+daj0RTOdt5kZSPRT/PGNdleknBAkqqfNXmJEaWFi3+JDtaFzbDAbnoJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
- header.d=fb.com; arc=none
-Received: from BYAPR15MB2999.namprd15.prod.outlook.com (2603:10b6:a03:fa::12)
- by BY5PR15MB3714.namprd15.prod.outlook.com (2603:10b6:a03:1f7::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.18; Thu, 5 Nov
- 2020 00:25:12 +0000
-Received: from BYAPR15MB2999.namprd15.prod.outlook.com
- ([fe80::7d77:205b:bbc4:4c70]) by BYAPR15MB2999.namprd15.prod.outlook.com
- ([fe80::7d77:205b:bbc4:4c70%6]) with mapi id 15.20.3499.030; Thu, 5 Nov 2020
- 00:25:12 +0000
-From: "'Song Liu' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-CC: Nick Desaulniers <ndesaulniers@google.com>,
-        Andrew Morton
-	<akpm@linux-foundation.org>,
-        stable <stable@vger.kernel.org>, Chen Yu
-	<yu.chen.surf@gmail.com>,
-        Alexei Starovoitov <ast@kernel.org>,
-        "Daniel
- Borkmann" <daniel@iogearbox.net>, Martin Lau <kafai@fb.com>,
-        Yonghong Song
-	<yhs@fb.com>, Andrii Nakryiko <andrii@kernel.org>,
-        John Fastabend
-	<john.fastabend@gmail.com>,
-        KP Singh <kpsingh@chromium.org>,
-        "Nathan
- Chancellor" <natechancellor@gmail.com>,
-        Miguel Ojeda
-	<miguel.ojeda.sandonis@gmail.com>,
-        Kees Cook <keescook@chromium.org>, "Marco
- Elver" <elver@google.com>,
-        Arvind Sankar <nivedita@alum.mit.edu>,
-        Randy
- Dunlap <rdunlap@infradead.org>,
-        Sami Tolvanen <samitolvanen@google.com>,
-        Ingo
- Molnar <mingo@kernel.org>,
-        open list <linux-kernel@vger.kernel.org>,
-        Networking <netdev@vger.kernel.org>,
-        "bpf@vger.kernel.org"
-	<bpf@vger.kernel.org>,
-        "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] compiler-clang: remove version check for BPF Tracing
-Thread-Topic: [PATCH] compiler-clang: remove version check for BPF Tracing
-Thread-Index: AQHWst5LRYvR+6qVI0WcGVRxibf35am4bdGAgABAsIA=
-Date: Thu, 5 Nov 2020 00:25:12 +0000
-Message-ID: <7A3072CD-AF97-4BD6-AECB-5B71DCC9234C@fb.com>
-References: <20201104191052.390657-1-ndesaulniers@google.com>
- <20201104203339.GA692084@kernel.org>
-In-Reply-To: <20201104203339.GA692084@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: Apple Mail (2.3608.120.23.2.4)
-x-originating-ip: [2620:10d:c090:400::5:ca49]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c4cd7c3a-9a33-4f5e-dbaf-08d881214298
-x-ms-traffictypediagnostic: BY5PR15MB3714:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BY5PR15MB37144A8BA48ACBFA6889C94EB3EE0@BY5PR15MB3714.namprd15.prod.outlook.com>
-x-fb-source: Internal
-x-ms-oob-tlc-oobclassifiers: OLM:597;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: tkepw6wPPDUzs7eeXBY6OKoCXGOYCKhEszCc1BqY8jIueVHTfgf+43inrgPNbHHeAg7nBxKqS0lhAqviSk23DGbS+ZR5Lpralm53RqsLry/WGTS/VPdl3Q4w5Ng2hKvdsoCBrSLL2YjxVBXHBkeA/kNm85+SMMlaYe32dmjYhXeCfz/si3TXSaL9TprBIQcnaX3sMD3HEQ/ABlCvLKt3bil6c0Vh9ukvYYbVIYnIQeKYttjOUjE+DOaiHqlfxxOn0hwzjJDwyHUwwKTL7v6I8crSAszIvS3tc5N4OCab3ZvCXUBN7iinGHNJteoXPkzQYZLNo2ALySdsN6w7AogueQ==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR15MB2999.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(346002)(136003)(39860400002)(396003)(366004)(376002)(6506007)(478600001)(4744005)(66446008)(66556008)(66476007)(186003)(76116006)(64756008)(36756003)(91956017)(66946007)(6486002)(53546011)(33656002)(71200400001)(5660300002)(6512007)(86362001)(2616005)(8676002)(54906003)(6916009)(7416002)(4326008)(8936002)(2906002)(316002);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata: P6ee7psWe9e3nmpdKFmwR8DYg8M5xLf3YYGDAShciLPhlI0tFW+Jso1IyNS+pKql1RDWJGov3fgy6Y+Kn/x+hTCAsvtxayrDNaFnmKb4dJ4kBp9X+lZpF9GJFIyxZHWLyDvFC4PjbIYh5rGpSnMR/SUuxu3zP9wnWu7qsvissFPChFrgd28cgM48nXjuXqdPLZ/a/Tq9hEVsuAqXRcPJ6rKXkHxMbBRw99R5dX9Oorpz2gL9smQgK6hHCRXIFfv7PANxtHDcXhPncjzFar3/7C8/qpCgUroRo5iE6s51tgTn60J7wm+un7UYU44v4Go1GaBTH2plxNWB5V1890sk6FxRmV/XmLDJU5ojXk89JOfBsC/+OrNIgX9YkZ1Ep95C4WKmrBpnGuKbruYVaaq35oIlM3ofA/kLbtVCUNU+B0ObKaQFDvJsGT2/1TX65AnAm0y8CedI6RgZrgNe99d2zgrGgi4FrYedMuXARIFxDe2K2l9qCmM2ErSNfUH99ShJEo7iazFnfBJdWOoJqqkFSqbLgiDpxEww5g6Y+1DUKWVaHlMu6xtr3yYf7Az10F3ENmromqaSZSbp4aLebhAy/XiW1EYkqj4SAK/WHrVfMINN1lFrNcl0hcfNA5VXilRP49i3breH6sEZFlzALp2W4J1WqcHLiYi5Am3xcLbyZQLCBp1WiGWF7/zUmoaI2nVp
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <613D254596E3944CAD2F867DB4AF199A@namprd15.prod.outlook.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Nov 2020 16:30:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id z3so64551pfb.10
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Nov 2020 16:30:39 -0800 (PST)
+X-Received: by 2002:aa7:93bb:0:b029:18a:d5ef:3260 with SMTP id
+ x27-20020aa793bb0000b029018ad5ef3260mr514409pff.53.1604536239212; Wed, 04 Nov
+ 2020 16:30:39 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR15MB2999.namprd15.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4cd7c3a-9a33-4f5e-dbaf-08d881214298
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Nov 2020 00:25:12.3763
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: RsAAilhhy6uwg044hPCEUrTf22htmN5EvFXPpkn6iNFVf28kp7jEs7zdvAUZlE7DycvvwkB7biZZ+RmseEoK7g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR15MB3714
-X-OriginatorOrg: fb.com
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.312,18.0.737
- definitions=2020-11-04_17:2020-11-04,2020-11-04 signatures=0
-X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 lowpriorityscore=0
- malwarescore=0 priorityscore=1501 phishscore=0 suspectscore=0
- clxscore=1011 adultscore=0 mlxscore=0 bulkscore=0 spamscore=0
- mlxlogscore=913 impostorscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2009150000 definitions=main-2011050001
-X-FB-Internal: deliver
-X-Original-Sender: songliubraving@fb.com
+References: <20201030002900.GA2248731@ubuntu-m3-large-x86> <CAKwvOdntdKGN+F4r2jYNw3C-vxxZ09aCTaGR1_DtR+5tFzjLOw@mail.gmail.com>
+ <20201030013228.GA2519055@ubuntu-m3-large-x86> <CAMj1kXG4VgyvZtTcCycNTQA+sddi49=Mj7uaEjZnw=Rt5mt4sg@mail.gmail.com>
+ <20201030075655.GA1848109@ubuntu-m3-large-x86> <CAMj1kXH-ZJQBtPN1_ByRDcfRs16yJ2cKvM8z=Gy_LoKp-m0G8A@mail.gmail.com>
+ <20201030080438.GA1849056@ubuntu-m3-large-x86> <CAMj1kXEMUrJnyTzJQaA0e15h54fAT5_Q6w5OiBFrjGmhZ10eEw@mail.gmail.com>
+ <20201030084519.GA3748061@ubuntu-m3-large-x86> <CAK8P3a1Ckn5E0Ce+0xVFbOKVYdsyzjeRZ0Z03-OsVC8yaYFp2w@mail.gmail.com>
+ <20201030090945.GA3635064@ubuntu-m3-large-x86>
+In-Reply-To: <20201030090945.GA3635064@ubuntu-m3-large-x86>
+From: =?UTF-8?B?J0bEgW5nLXJ1w6wgU8OybmcnIHZpYSBDbGFuZyBCdWlsdCBMaW51eA==?= <clang-built-linux@googlegroups.com>
+Date: Wed, 4 Nov 2020 16:30:27 -0800
+Message-ID: <CAFP8O3KuaYTEvmWK1pnufQuH0X3Eb1G6DK9x7mhjSDy1y7d1TQ@mail.gmail.com>
+Subject: Re: [PATCH 0/5 v16] KASan for Arm
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Abbott Liu <liuwenliang@huawei.com>, 
+	Russell King <linux@armlinux.org.uk>, Andrey Ryabinin <aryabinin@virtuozzo.com>, 
+	Mike Rapoport <rppt@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@fb.com header.s=facebook header.b=KyqyGCZV;       dkim=pass
- header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
- header.b=MKGAM+9Y;       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass
- dkdomain=fb.com dmarc=pass fromdomain=fb.com);       spf=pass (google.com:
- domain of prvs=8578de0ea6=songliubraving@fb.com designates 67.231.153.30 as
- permitted sender) smtp.mailfrom="prvs=8578de0ea6=songliubraving@fb.com";
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
-X-Original-From: Song Liu <songliubraving@fb.com>
-Reply-To: Song Liu <songliubraving@fb.com>
+ header.i=@google.com header.s=20161025 header.b=hJ0PMyMC;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::444
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
+Reply-To: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -236,31 +140,118 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Fri, Oct 30, 2020 at 2:09 AM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> On Fri, Oct 30, 2020 at 09:51:27AM +0100, Arnd Bergmann wrote:
+> > On Fri, Oct 30, 2020 at 9:45 AM Nathan Chancellor
+> > <natechancellor@gmail.com> wrote:
+> > > On Fri, Oct 30, 2020 at 09:10:56AM +0100, Ard Biesheuvel wrote:
+> > > 4043            futex_hashsize = 1UL << futex_shift;
+> > > (gdb)
+> > > 4045            futex_detect_cmpxchg();
+> > > (gdb)
+> >
+> > I can't explain it, but I'd point out that futex_detect_cmpxchg() has caused
+> > problems in the past, with multiple patches for it proposed in the past
+> > and none of them merged. One of the patches I had sent for it was:
+> >
+> > commit 8232a8ffc332fa6a50296a51c4d85200a747256c
+> > Author: Arnd Bergmann <arnd@arndb.de>
+> > Date:   Mon Mar 4 17:33:00 2019 +0100
+> >
+> >     [SUBMITTED 20190307] futex: mark futex_detect_cmpxchg() as 'noinline'
+> >
+> >     On 32-bit ARM, I got a link failure in futex_init() when building
+> >     with clang in some random configurations:
+> >
+> >     kernel/futex.o:(.text.fixup+0x5c): relocation truncated to fit:
+> > R_ARM_JUMP24 against `.init.text'
+> >
+> >     As far as I can tell, the problem is that a branch is over 16MB
+> >     apart in those configurations, but only if it branches back to
+> >     the init text.
+> >
+> >     Marking the futex_detect_cmpxchg() function as noinline and
+> >     not __init avoids the problem for me.
+> >
+> >     Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> >
+> > diff --git a/kernel/futex.c b/kernel/futex.c
+> > index e646661f6282..6fbbed45f51b 100644
+> > --- a/kernel/futex.c
+> > +++ b/kernel/futex.c
+> > @@ -4061,7 +4061,7 @@ SYSCALL_DEFINE6(futex_time32, u32 __user *,
+> > uaddr, int, op, u32, val,
+> >  }
+> >  #endif /* CONFIG_COMPAT_32BIT_TIME */
+> >
+> > -static void __init futex_detect_cmpxchg(void)
+> > +static noinline void futex_detect_cmpxchg(void)
+> >  {
+> >  #ifndef CONFIG_HAVE_FUTEX_CMPXCHG
+> >         u32 curval;
+> >
+> > I forgot what the problem was, but you might try that patch, or find
+> > the previous discussions in the archive.
+> >
+> >        Arnd
+>
+> As it turns out, that is the patch that fixes the ld.bfd issue that I
+> mentioned earlier in this thread and it fixes this issue as well.
+>
+> To summarize, with the below diff, I can successfully boot
+> multi_v7_defconfig + CONFIG_KASAN=y when LLVM=1 is used (and I see KASAN
+> get initialized properly).
+>
+> Cheers,
+> Nathan
+>
+> diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+> index 4d76eab2b22d..3c0a64cefe52 100644
+> --- a/arch/arm/Makefile
+> +++ b/arch/arm/Makefile
+> @@ -10,7 +10,7 @@
+>  #
+>  # Copyright (C) 1995-2001 by Russell King
+>
+> -LDFLAGS_vmlinux        := --no-undefined -X --pic-veneer
+> +LDFLAGS_vmlinux        := --no-undefined -X --pic-veneer -z norelro
+>  ifeq ($(CONFIG_CPU_ENDIAN_BE8),y)
+>  LDFLAGS_vmlinux        += --be8
+>  KBUILD_LDFLAGS_MODULE  += --be8
+> diff --git a/kernel/futex.c b/kernel/futex.c
+> index be68ac0d49ad..226bb20d175f 100644
+> --- a/kernel/futex.c
+> +++ b/kernel/futex.c
+> @@ -4004,7 +4004,7 @@ SYSCALL_DEFINE6(futex_time32, u32 __user *, uaddr, int, op, u32, val,
+>  }
+>  #endif /* CONFIG_COMPAT_32BIT_TIME */
+>
+> -static void __init futex_detect_cmpxchg(void)
+> +static noinline void futex_detect_cmpxchg(void)
+>  {
+>  #ifndef CONFIG_HAVE_FUTEX_CMPXCHG
+>         u32 curval;
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201030090945.GA3635064%40ubuntu-m3-large-x86.
 
+About "ARM: Replace string mem* functions for KASan", it added .weak
+memcpy to arch/arm/lib/memcpy.S
+However, the convention is to change .weak + ENTRY(...) to WEAK(...)
 
-> On Nov 4, 2020, at 12:33 PM, Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> 
-> On Wed, Nov 04, 2020 at 11:10:51AM -0800, Nick Desaulniers wrote:
->> bpftrace parses the kernel headers and uses Clang under the hood. Remove
->> the version check when __BPF_TRACING__ is defined (as bpftrace does) so
->> that this tool can continue to parse kernel headers, even with older
->> clang sources.
->> 
->> Cc: <stable@vger.kernel.org>
->> Fixes: commit 1f7a44f63e6c ("compiler-clang: add build check for clang 10.0.1")
->> Reported-by: Chen Yu <yu.chen.surf@gmail.com>
->> Reported-by: Jarkko Sakkinen <jarkko@kernel.org>
->> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
->> ---
-> 
-> Thank you, resolved my issue.
-> 
-> Acked-by: Jarkko Sakkinen <jarkko@kernel.org>
-> Tested-by: Jarkko Sakkinen <jarkko@kernel.org>
+In particular, clang 12 will reject `.weak memcpy; .global memcpy`
+(they had different semantics in GNU as and LLVM integrated assembler
+for a long time AND binutils maintainer agreed that .weak and .global
+are strange and should not be used - though binutils will not make the
+change to cause disruption)
 
-Acked-by: Song Liu <songliubraving@fb.com>
+Please see https://github.com/ClangBuiltLinux/linux/issues/1190
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7A3072CD-AF97-4BD6-AECB-5B71DCC9234C%40fb.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFP8O3KuaYTEvmWK1pnufQuH0X3Eb1G6DK9x7mhjSDy1y7d1TQ%40mail.gmail.com.
