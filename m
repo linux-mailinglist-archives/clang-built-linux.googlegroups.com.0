@@ -1,144 +1,121 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBOWTST6QKGQEDQL3XSA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4PP5X5UEBRB67QST6QKGQEJZ5PZSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id CBB692A94A0
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 11:47:22 +0100 (CET)
-Received: by mail-wr1-x43c.google.com with SMTP id 67sf337335wra.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Nov 2020 02:47:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604659642; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8EFD62A95C2
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 12:50:20 +0100 (CET)
+Received: by mail-lf1-x13e.google.com with SMTP id y14sf427490lfl.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Nov 2020 03:50:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604663420; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YRXG8E5U3o3JBAPIutD5a/kQXLSoZPfAIrmLLGYpcrQbjcv1OUIIywOSi1Bxf0fkjZ
-         ljYiRyEtDqmf6XgiwRpO52d0OWSrMqecNaPOiE2oOScnk+d8bxtpwYEPSkbCO0VBrQKl
-         YxWCWW/ywQrk/6alpVrCLLk0eEU4q5KdobOwtH1eAbTET4I18zFg6l9wy8Pc3qNs3Ete
-         JG+EmDpvF/nD1S85chAXY7vINNryz6Z2cYAomNq1gAz2efyQzg4CcQoX8Xi+fkbofp+w
-         viVTOzsE0ChBP2oxJWVni/x4vkEo2RQUCRZ+cZ14sgvi05Wy5/aaI269LuH6txT0Vfdx
-         IMJw==
+        b=djPJnk1A4U+Om9ksFm+n8KF+tCqZnj0/mcB4W0AbeH+h4sQ2xchsaI+ugS8CguwjGI
+         iwb9Q1C8tFIaSItvnNNjGRRVTiybYsx3kmpbGqsd6kas/REwGTp5gdRyF66XcMwTWPbC
+         fu4mz45F5YbmZQcpnVIQCKsn/cMjWXeQQ7Jw4TRXmMc2q2qwpl+s2ugZx/k1nQd9tgM0
+         /w3AlX4ArZw7B7CvT7lmtiOm9bBxtIXxD+lHbL5xinjRnmTdLPVJ2a26a5/p7DguLVMC
+         H0fHcABMd64Xr8613IpoqziH+UsyAqMpLH9cNIGkU4iwkvGq05pS/xoB/x49b9k349sR
+         4Zdw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:date:from:sender
-         :dkim-signature:dkim-signature;
-        bh=B/6DI3PoSy7I6GijEoJ8pjySRJqs1jPLrdqvB7rw0zE=;
-        b=PSASgbNPZ46uqtO2BLNRJCpMN15Vusr5i3QLsmjDbDtm9I32j+m0StHVDKtW+E/XH9
-         LBnWBMpmuIHPIK27pJPSRHIUIgALJqrgZ9y15WAuEzNoy5Zf7VwhalyJ6209KRxCgDLO
-         juvhL8wltwxq4HCEXtefdyrmPl5zpLNrqxMTMCrWBmg//+Nms1aHcX4ZvpIf8FzioyDr
-         st5w8VnKBUK21uACnMU0jxcskI8lu5FxohSo8OaePHVBtzdQs72ctc2Xbi5IbcF6U+gJ
-         3ZhE6XwjEATc85xicAtLCdO4aZN0sGzMaecznJ9YL50ArD3JZnBwOzISzAkNYCeiEH9M
-         eBDw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=xC9d9At/QAFpgid1ydDVxFwJ0Gs7b6a6V2+v2aZ6lPM=;
+        b=O3/Qg8x558nUbG/74CcIBhIZnipswkYSKlv686TnkMVNwdEk3wMr4tyWelW5q085cM
+         muMnbds8VU5rm9EmV48COAVG388YCRy/Uzs1JV9YNsKp3Jj/Vt1Rpl6EHPtDscNNdQw3
+         V6M0DGYqZjo4bP5rOc8mdbZHUAgQKN/NSzgVx6w6zSCRtnNOW3g3VWsJ7+vb6NXypaCy
+         1DNCYPBLkO/Xe2750nTU76tLwfPaKqqoXCTOAxnJuMCHOpeN6ERllDYSZYDg+Yt3SFTQ
+         +PevWifIjTGnJGxSfGKX5VGxrYrp1E1PMlHzqWH6HokLYFm/bzTgq2588AeiCJ6JbelO
+         5blg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ZOkhO3Ur;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=B/6DI3PoSy7I6GijEoJ8pjySRJqs1jPLrdqvB7rw0zE=;
-        b=cxie3WOP/fWzdX1mm1f/ycbwMSVCAi729MvTQtBwKgNqcWlovUlpcVhb87bKXYvbhe
-         iIlCHNGX6q5sgzxsPqiJeghl3DtnEz5OL8nC2chTivwllG50fJT+z7oK1EOfkSjh4kMX
-         hcAk9NW5V7HJP2/mUGoQeBOGt8kknLI8AHNPOtJH9bzBDRutM5gSN3LN0Rr703UJsnaH
-         OFmbqAvj7q3EKb9Zge0kHJALi0O5FN1aBqrrNGya/SZhSXVDMb0RtgvSsawMvIqXXa97
-         ruDSIrFBABehWv0qORzk1bYq0FZXQcGW/P0biIbsc0SuOkZU/z10fdBbx9lTwJMVIVUa
-         AFTg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=B/6DI3PoSy7I6GijEoJ8pjySRJqs1jPLrdqvB7rw0zE=;
-        b=oW1C62zOOu+RMLYOR8IRe3y5T4KRykEnZptqiCwlYOKrOoQqLTW2UKcdLD4lwzEsFY
-         N5M4OnmZ6hMqoMAGn0VOYm77W47nFmVIIlgYpIBmBnvVymWJTN5OPUG3+yy4lpXFe0Zu
-         kXakTiGwmh7op0wVAnVopdluVAFi1Cr+HqYFr4HcaaIeOqGUp00SaCU1GYmrpeNEhhhS
-         b1+siACMiG/paO/FOL4LMHOLUZHLXDHGFbIgLtF9gyRBenlI2f3xIe+l+9KlYyVKc4HA
-         YcKrpBEqfRheoiAMQG5xlihAvtHjBk3ohMJlmXp8cRd12AGYdKORPc+X57y2KT506Jes
-         QJCQ==
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xC9d9At/QAFpgid1ydDVxFwJ0Gs7b6a6V2+v2aZ6lPM=;
+        b=Mt0dB3ZoFVNtdKxVuM5uHZeU/fe1LKZ0IGweJ70i/Hg1ROd1/Qi2eR2Rhr3hnEAes3
+         g523AxYETFYjlwrNtkeeOFki7lU0z2+H1fHsL0NFzNZjaP07GM3kN8gwm9x9TV9/l0la
+         B7rzQ0VlAGNfud6bbmXL8aG/aFJKipNfRNwgNeFguwapNi7prEneeYU9PflXRw4FlmcL
+         VwoPO8ISD0a7jrRRaKOcoJJHNBVq+87VzCdTDKjkjmr/d3g1/FecKLkdpvd2phwX6tRm
+         b3WqK5atZpR5gOrOGXAH+I2asuPMxXczE8micGic42udwfIZn4Rugdpn/CV0U1ChTNha
+         EBuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=B/6DI3PoSy7I6GijEoJ8pjySRJqs1jPLrdqvB7rw0zE=;
-        b=PuXOyD61aYoOyqX+QT0KirxuAK87hBcStIUCoc5Ow+W7XdxfERnS0pftgh9hj3R3Xf
-         G1741xaxWRgy/W2gyx+5cSdP2bWhPuSSQ4OKYGneroVFM8jLfnmeU64o7mS5XC6Jn9oe
-         Oh+TGzbK8r4vifmv8XKvG3aOTIp0SmSclQLoF5M7q+DsEEZzz4QX+3IXVyzJ7qPGEUgh
-         Ft5QaxL84p2LTV1sxD3hkgPYLlsIjuHDvaCuK1ob18VCcqG9Y+unXRdgHdOI3EY/Hesa
-         oGeijRwC8P0n6JD8y+KeUrbubMAXxBculWPhWJEry3O2t88K9ymPoGxp1jQAVLetbb56
-         oOCQ==
+        bh=xC9d9At/QAFpgid1ydDVxFwJ0Gs7b6a6V2+v2aZ6lPM=;
+        b=NIFbBeZBYB1FeNUxqcMIcv91/DFtuutYonX5chHpPo20SvshUJ2LCQxhwV/gl+ljYo
+         aWOLCP8nYHkbv9ngUQ6OTQpcdPdFJA9aB9HIiVzuCBw5J2gbhR8QL18k5hQxuz2SRLML
+         fsMm+Klc9VQhPYpmtXnfQ27CEgKOKc+ItXqfEt8HtpYpWhUHR/wveM6/C4ChE1kesIjZ
+         kcg0AbdSI0rhOyXuK0z273rvDLtOTdGzJlzGg984NqaEY15TUFRSkFwP4gIuHDxh78LU
+         fW14p8n9ywHEbe04tQpqWrXTz09TBCapWODO9cANFOeqEdsxAYRugwusO2bgZFAAUOVE
+         /vkg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5310fkemoAnKxjbEy9hX/hFCJHRx6b2UIlQZ03Gh7H9XSxosEPzJ
-	6uQgeAbbfFRPmTNMyDSLoWA=
-X-Google-Smtp-Source: ABdhPJygOodHf7WeM56gE7QCEDmJVDLek8Wz8GYZ8bitaRpzBYv7Xn5OhPeQbeMQlRyhEM4goZ24uA==
-X-Received: by 2002:a5d:5261:: with SMTP id l1mr2110415wrc.105.1604659642581;
-        Fri, 06 Nov 2020 02:47:22 -0800 (PST)
+X-Gm-Message-State: AOAM5323DkMNwCPg9Sg0XcQS6Z6FlaMofi2wkxh40MgnKmlALkKAJH2H
+	1qFAAV/XdMG1YjANelEdHFo=
+X-Google-Smtp-Source: ABdhPJyVdafi/wgrz+bGAgv4I++Mf4wX+Lr/Zsr7mEECSOFq6U83XKj1HsXRpa4dgAR6hWugHV3IBQ==
+X-Received: by 2002:ac2:4183:: with SMTP id z3mr823469lfh.510.1604663420074;
+        Fri, 06 Nov 2020 03:50:20 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f70d:: with SMTP id r13ls833670wrp.1.gmail; Fri, 06 Nov
- 2020 02:47:21 -0800 (PST)
-X-Received: by 2002:adf:e6cf:: with SMTP id y15mr2099894wrm.116.1604659641636;
-        Fri, 06 Nov 2020 02:47:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604659641; cv=none;
+Received: by 2002:a19:d0e:: with SMTP id 14ls828250lfn.0.gmail; Fri, 06 Nov
+ 2020 03:50:19 -0800 (PST)
+X-Received: by 2002:a19:ae13:: with SMTP id f19mr699455lfc.193.1604663419011;
+        Fri, 06 Nov 2020 03:50:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604663419; cv=none;
         d=google.com; s=arc-20160816;
-        b=wVL0XGiaTgf+UPCElzKiZ5Mz8vMZ5po19p3d7QeUm8vDW39APf/Vwfk9GfjKX8S1cH
-         NggcUHz2NLxH/n2e5vhkPjTUR9nIKnDwaYGheM+Pqv81HB61nb8EH3HtkLB2M4fLuigo
-         Heeuf9r73ksTgpU+gSS5lYksX1HKbkl0AD4qEkIRw+SRI+y1dBmPl0SCFu228b/UVJ3O
-         kgi0eE7/JgyvSem/vTX8ppmTeLvLMRSFuI/me/BuJVqVu9i7MW8uI7BJiGbVMsE1Xtcu
-         quXXH8NSuKX9oFqCt9efL0BsBZ1Eo1CYY5Ya7j37rKOKH1lG87whWBWZas/S0m4crJUb
-         QIqA==
+        b=Ho0ZzTB9EpwQ3/SHUj8wPZt9tj+A9uaY120YIZN5s+SPopH8oKqdv7XbfnNcZ/ho9J
+         62iSGT79BcFK4u0Uon1BnPFbX4CoBWAkRJ8aHr6Lheua5DlKm/eL4LtpZkAotFriJbeO
+         TpWyc8eEJmqv7CV8SwKRg23UhBHMLKUx0X86d3er+vxiLvkYgRJPBwjj2UnnjMGK5k3N
+         n6Tr7e1gZyCprO/BvaevBOF3GXkMclc3HffqrEFRXAPQe8GmG5ZtnU36fwK3NW0kXoIr
+         I4TDPulfxtBGrUn52SJ736FZk5+gdGkWVaP5FXhPnRC55b2mlj4wYeW0rOTfDUalU+1A
+         niQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:date:from:dkim-signature;
-        bh=sS6LjFB1Hny842iCOSq0gSFHnnlXSZfE6BxMZzj8mek=;
-        b=RfwTz5LatpxZM69wX75qw1oxKIfEFYZdmVKzUP+dNS4WochqV+hHRwDSBfhL3JdeXv
-         M/kpj6hBj25fdMkNZCPbNic5+sBHdv8s3mvpdWt5QP4tPRHtLMmw4n6OHkIJefzS1hKN
-         vFsmHwQAJf6yiG26aqNmN6w1UXHc0DRHILMYS7+7kPgJ4J917bAuWhhxz08B+YmCVx80
-         eqmmVhfJZCugNSsioq+QWEHiYDOB4C0CINsvZeTRxyCXfIAPuqELuYdnV5aVT1xMKaAj
-         VKuBIdyHQKzjOQSYg315pSi3WvRe7fPI+OSnetpTQa3vK3MBx9dsn5+wurp44RcnYOR+
-         deaQ==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from;
+        bh=C2dEbYl6bPDdzKUR8mS/wIIxzSDtj8ZwtQ7eY103mgg=;
+        b=asDypJtqIZYqAKH/WvI7JLKQXUM3zERH9ShV1VOI9IZD6P0A3DMrB2ByLVf3Z1wpJB
+         zqOkivM9RT6uLEoUsk4ZLTTPE2p81htLOq8/QJ5qEA3TXriVQY38wziCro1jsimsf2CU
+         LMQEHFdng0Ox+nOe1LcGDk+uQu3tcSWoWFUAm8Rl1ojLdftrogtvMjb5cHRqZvdF/zHT
+         RKYng9tqk1znHp51IoxiCOT3r/mhEr3wVoKnSdtyByi2cVvQGNVvKANZgw4G3CRwpcKN
+         cqfCdHTPtu+B2KUXxy9szVHkYHEKq2x77H731GyKXmmEK4x47nxoho/pbyc/wQy2oldN
+         Z/Qg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ZOkhO3Ur;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x642.google.com (mail-ej1-x642.google.com. [2a00:1450:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id h14si39335wrb.3.2020.11.06.02.47.21
+       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
+        by gmr-mx.google.com with ESMTPS id j2si29609lfe.9.2020.11.06.03.50.18
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Nov 2020 02:47:21 -0800 (PST)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642 as permitted sender) client-ip=2a00:1450:4864:20::642;
-Received: by mail-ej1-x642.google.com with SMTP id dk16so1231934ejb.12
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Nov 2020 02:47:21 -0800 (PST)
-X-Received: by 2002:a17:906:748b:: with SMTP id e11mr1306240ejl.513.1604659641272;
-        Fri, 06 Nov 2020 02:47:21 -0800 (PST)
-Received: from felia ([2001:16b8:2d20:9d00:e580:adb5:1ef:950d])
-        by smtp.gmail.com with ESMTPSA id j4sm649195ejs.8.2020.11.06.02.47.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2020 02:47:20 -0800 (PST)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Date: Fri, 6 Nov 2020 11:47:19 +0100 (CET)
-X-X-Sender: lukas@felia
-To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-cc: Nathan Chancellor <natechancellor@gmail.com>, 
-    Balbir Singh <bsingharora@gmail.com>, Tom Rix <trix@redhat.com>, 
-    Nick Desaulniers <ndesaulniers@google.com>, 
-    clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org, 
-    linux-safety@lists.elisa.tech, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] taskstats: remove unneeded dead assignment
-In-Reply-To: <alpine.DEB.2.21.2011061113270.20338@felia>
-Message-ID: <alpine.DEB.2.21.2011061135510.20338@felia>
-References: <20201106062210.27920-1-lukas.bulwahn@gmail.com> <20201106095004.GA3269193@ubuntu-m3-large-x86> <alpine.DEB.2.21.2011061113270.20338@felia>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Fri, 06 Nov 2020 03:50:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(Authenticated sender: aratiu)
+	with ESMTPSA id 952321F40EB1
+From: Adrian Ratiu <adrian.ratiu@collabora.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, Nick Desaulniers
+ <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, Russell
+ King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
+ kernel@collabora.com, Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH 2/2] arm: lib: xor-neon: disable clang vectorization
+In-Reply-To: <20201106101419.GB3811063@ubuntu-m3-large-x86>
+References: <20201106051436.2384842-1-adrian.ratiu@collabora.com>
+ <20201106051436.2384842-3-adrian.ratiu@collabora.com>
+ <20201106101419.GB3811063@ubuntu-m3-large-x86>
+Date: Fri, 06 Nov 2020 13:50:13 +0200
+Message-ID: <87wnyyvh56.fsf@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: lukas.bulwahn@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=ZOkhO3Ur;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::642
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; format=flowed; charset="UTF-8"
+X-Original-Sender: adrian.ratiu@collabora.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of adrian.ratiu@collabora.com designates
+ 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,101 +128,143 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Hi Nathan,
 
+On Fri, 06 Nov 2020, Nathan Chancellor <natechancellor@gmail.com> 
+wrote:
+> + Ard, who wrote this code. 
+> 
+> On Fri, Nov 06, 2020 at 07:14:36AM +0200, Adrian Ratiu wrote: 
+>> Due to a Clang bug [1] neon autoloop vectorization does not 
+>> happen or happens badly with no gains and considering previous 
+>> GCC experiences which generated unoptimized code which was 
+>> worse than the default asm implementation, it is safer to 
+>> default clang builds to the known good generic implementation. 
+>> The kernel currently supports a minimum Clang version of 
+>> v10.0.1, see commit 1f7a44f63e6c ("compiler-clang: add build 
+>> check for clang 10.0.1").   When the bug gets eventually fixed, 
+>> this commit could be reverted or, if the minimum clang version 
+>> bump takes a long time, a warning could be added for users to 
+>> upgrade their compilers like was done for GCC.   [1] 
+>> https://bugs.llvm.org/show_bug.cgi?id=40976  Signed-off-by: 
+>> Adrian Ratiu <adrian.ratiu@collabora.com> 
+> 
+> Thank you for the patch! We are also tracking this here: 
+> 
+> https://github.com/ClangBuiltLinux/linux/issues/496 
+> 
+> It was on my TODO to revist getting the warning eliminated, 
+> which likely would have involved a patch like this as well. 
+> 
+> I am curious if it is worth revisting or dusting off Arnd's 
+> patch in the LLVM bug tracker first. I have not tried it 
+> personally. If that is not a worthwhile option, I am fine with 
+> this for now. It would be nice to try and get a fix pinned down 
+> on the LLVM side at some point but alas, finite amount of 
+> resources and people :( 
 
-On Fri, 6 Nov 2020, Lukas Bulwahn wrote:
+I tested Arnd's kernel patch from the LLVM bugtracker [1], but 
+with the Clang v10.0.1 I still get warnings like the following 
+even though the __restrict workaround seems to affect the 
+generated instructions:
+
+./include/asm-generic/xor.h:15:2: remark: the cost-model indicates 
+that interleaving is not beneficial [-Rpass-missed=loop-vectorize] 
+./include/asm-generic/xor.h:11:1: remark: List vectorization was 
+possible but not beneficial with cost 0 >= 0 
+[-Rpass-missed=slp-vectorizer] xor_8regs_2(unsigned long bytes, 
+unsigned long *__restrict p1, unsigned long *__restrict p2)
+
+[1] https://bugs.llvm.org/show_bug.cgi?id=40976#c6
 
 > 
+> Should no other options come to fruition from further 
+> discussions, you can carry my tag forward: 
 > 
-> On Fri, 6 Nov 2020, Nathan Chancellor wrote:
+> Acked-by: Nathan Chancellor <natechancellor@gmail.com> 
 > 
-> > On Fri, Nov 06, 2020 at 07:22:10AM +0100, Lukas Bulwahn wrote:
-> > > make clang-analyzer on x86_64 defconfig caught my attention with:
-> > > 
-> > >   kernel/taskstats.c:120:2: warning: Value stored to 'rc' is never read \
-> > >   [clang-analyzer-deadcode.DeadStores]
-> > >           rc = 0;
-> > >           ^
-> > > 
-> > > Commit d94a041519f3 ("taskstats: free skb, avoid returns in
-> > > send_cpu_listeners") made send_cpu_listeners() not return a value and
-> > > hence, the rc variable remained only to be used within the loop where
-> > > it is always assigned before read and it does not need any other
-> > > initialisation.
-> > > 
-> > > So, simply remove this unneeded dead initializing assignment.
-> > > 
-> > > As compilers will detect this unneeded assignment and optimize this anyway,
-> > > the resulting object code is identical before and after this change.
-> > > 
-> > > No functional change. No change to object code.
-> > > 
-> > > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-> > 
-> > Question below.
-> > 
-> > Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> > 
-> > > ---
-> > > applies cleanly on current master and next-20201105
-> > > 
-> > > Balbir, please pick this minor non-urgent clean-up patch.
-> > > 
-> > >  kernel/taskstats.c | 1 -
-> > >  1 file changed, 1 deletion(-)
-> > > 
-> > > diff --git a/kernel/taskstats.c b/kernel/taskstats.c
-> > > index a2802b6ff4bb..bd18a7bf5276 100644
-> > > --- a/kernel/taskstats.c
-> > > +++ b/kernel/taskstats.c
-> > > @@ -117,7 +117,6 @@ static void send_cpu_listeners(struct sk_buff *skb,
-> > >  
-> > >  	genlmsg_end(skb, reply);
-> > >  
-> > > -	rc = 0;
-> > >  	down_read(&listeners->sem);
-> > >  	list_for_each_entry(s, &listeners->list, list) {
-> > 
-> > Would it be worth moving the scope of rc into the for loop, now that it
-> > is only used there? Looks like it used to be used in the main function
-> > scope before commit 053c095a82cf ("netlink: make nlmsg_end() and
-> > genlmsg_end() void") but if this is removed, it is only used to check
-> > the return of genlmsg_unicast within the list_for_each_entry loop. Not
-> > sure that buys us anything but I know you have done it in patches
-> > before so I thought it was worth considering.
-> >
-> 
-> I thought about moving it into the local scope, but it is a purely 
-> cosmetic matter. Compilers are smart enough to generate the same code no 
-> matter where it is defined.
-> So, I always look around in the same file to determine if there is some 
-> kind of strong preference for very locally scoped variable definition or 
-> if they are generally just all defined at the function entry.
-> 
-> Depending on my gut feeling in which style the file has mainly been 
-> written, I then go with the one or other option. In this case, I went 
-> with just keeping the definition at the function entry.
-> 
-> There is really no strong rule, though, that I see serving as good 
-> indicator.
-> 
-> Thanks for your review.
+> Hopefully others can comment soon.
+
+In my opinion we have 3 ways to go regarding this:
+
+1. Leave it as is and try to notify the user of the breakage (eg 
+add a new warning). You previously said this is not a good idea 
+because the user can't do anything about it. I agree.
+
+2. Somehow work around the compiler bug in the kernel which is 
+what the LLVM bugtracker patch tries to do. This is a slippery 
+slope even if we somehow get it right, especially since multiple 
+Clang versions might be supported in the future and we don't know 
+when the bug will be properly fixed by the compiler. In addition 
+we're enabling and "hiding" possibly undefined behaviour.
+
+3. Disable the broken feature and once the compiler bug is fixed 
+enable it back warning users of old compilers that there is an 
+action they can take: upgrade. This is exactly how this was 
+handled for GCC previously, so there is a precedent.
+
+This implements the 3'rd scenario which is also the first thing 
+Arnd suggested in the original patch. :)
+
+Adrian
+
 >
-
-More specifically, if I think rc should be only defined locally, I would 
-probably need to apply the same argument to skb_next in this function and 
-put that in local scope as well. That did not happen in the past, so I am 
-not going to change that now neither. Hence, the change stays minimal 
-invasive but and that is important: it makes clang-analyzer happy.
-
-And a happy clang-analyzer will eventually point to real bugs :)
-
-There are a few examples of dead store warnings that in the end really 
-point to missing or wrong paths in some functions...
-
-Lukas
+>> ---
+>>  arch/arm/include/asm/xor.h | 3 ++-
+>>  arch/arm/lib/Makefile      | 3 +++
+>>  arch/arm/lib/xor-neon.c    | 4 ++++
+>>  3 files changed, 9 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/arm/include/asm/xor.h b/arch/arm/include/asm/xor.h
+>> index aefddec79286..49937dafaa71 100644
+>> --- a/arch/arm/include/asm/xor.h
+>> +++ b/arch/arm/include/asm/xor.h
+>> @@ -141,7 +141,8 @@ static struct xor_block_template xor_block_arm4regs = {
+>>  		NEON_TEMPLATES;			\
+>>  	} while (0)
+>>  
+>> -#ifdef CONFIG_KERNEL_MODE_NEON
+>> +/* disabled on clang/arm due to https://bugs.llvm.org/show_bug.cgi?id=40976 */
+>> +#if defined(CONFIG_KERNEL_MODE_NEON) && !defined(CONFIG_CC_IS_CLANG)
+>>  
+>>  extern struct xor_block_template const xor_block_neon_inner;
+>>  
+>> diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
+>> index 6d2ba454f25b..53f9e7dd9714 100644
+>> --- a/arch/arm/lib/Makefile
+>> +++ b/arch/arm/lib/Makefile
+>> @@ -43,8 +43,11 @@ endif
+>>  $(obj)/csumpartialcopy.o:	$(obj)/csumpartialcopygeneric.S
+>>  $(obj)/csumpartialcopyuser.o:	$(obj)/csumpartialcopygeneric.S
+>>  
+>> +# disabled on clang/arm due to https://bugs.llvm.org/show_bug.cgi?id=40976
+>> +ifndef CONFIG_CC_IS_CLANG
+>>  ifeq ($(CONFIG_KERNEL_MODE_NEON),y)
+>>    NEON_FLAGS			:= -march=armv7-a -mfloat-abi=softfp -mfpu=neon
+>>    CFLAGS_xor-neon.o		+= $(NEON_FLAGS)
+>>    obj-$(CONFIG_XOR_BLOCKS)	+= xor-neon.o
+>>  endif
+>> +endif
+>> diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
+>> index e1e76186ec23..84c91c48dfa2 100644
+>> --- a/arch/arm/lib/xor-neon.c
+>> +++ b/arch/arm/lib/xor-neon.c
+>> @@ -18,6 +18,10 @@ MODULE_LICENSE("GPL");
+>>   * Pull in the reference implementations while instructing GCC (through
+>>   * -ftree-vectorize) to attempt to exploit implicit parallelism and emit
+>>   * NEON instructions.
+>> +
+>> + * On Clang the loop vectorizer is enabled by default, but due to a bug
+>> + * (https://bugs.llvm.org/show_bug.cgi?id=40976) vectorization is broke
+>> + * so xor-neon is disabled in favor of the default reg implementations.
+>>   */
+>>  #ifdef CONFIG_CC_IS_GCC
+>>  #pragma GCC optimize "tree-vectorize"
+>> -- 
+>> 2.29.0
+>> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2011061135510.20338%40felia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87wnyyvh56.fsf%40collabora.com.
