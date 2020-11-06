@@ -1,128 +1,129 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBLHPSH6QKGQE6CDU7SY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBUXHSL6QKGQE7FNM3EA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 01BB12A8986
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Nov 2020 23:07:42 +0100 (CET)
-Received: by mail-pg1-x538.google.com with SMTP id z130sf2090019pgz.19
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Nov 2020 14:07:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604614060; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id AD3C72A8CB3
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 03:24:19 +0100 (CET)
+Received: by mail-pf1-x440.google.com with SMTP id q16sf2873598pfj.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Nov 2020 18:24:19 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604629458; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nloz2OUh2gR/P9jow0kkkSIE0nxnV4iwfjhs5CJ1h+lhSggFpb+uavZuPDQ8oaH093
-         zoq4gFRjs2dPZSMgteuaXYhoZa4SQrH8JlNEa/I221fURqNBF6yb59yVfn0gGOfvA5DY
-         31A/Jj7y1rMVtkeGn34HWI/CN+YBYjvzP5zPh383AXg7LZRn4JGsWwiCeqKwjY/PJ47U
-         wKCN0F1kVqrb3RooB6EOMgcLpZxqe/N206VkoFaUG+vNoTGh0ADKqjZlBiuZd5+YJnMR
-         jetg0b3sDEJoNT1eFFFMC+eaQhbsHmeAn6QxScw2srVj4Ks4NlIqeFMU7p7Pal6yVrDe
-         UsOA==
+        b=vcinRkNDCXbyOzwl5iHVvsWHe9Y1ip1Xks/2a26h36cTpbz8LJpbR4t/g0P1PmcVZS
+         GR+x2Tkqur7gVRxQnZwSs/WBIEoSaEIabYhY8WM1wv4RU4AAT15GbBzZU7up6NZqsXpD
+         MQdNx1Ooocum4FgeNyRpF6zKpK1FwtAb8Ov5ElY9zlD4IXkVy/zehs3+urvClm/bks/r
+         MSanVD01+u5X7JTJZMczblUqsRsSdyv7jmdCWq/oWS4CxnGIUUxLvvYaZhPIuHp2uwML
+         xqkr/zzOBzoUxLl87rOdOfeKB7Y+ecH1zJaamzavT80hl51Wx6yv99AbPjN6UpfA5PtG
+         AkKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=hcqVKnEMa0wUjrUwKt6v1kXJQuNws4voy2mFNhs+dNw=;
-        b=t1eV4CkYHgR4OWlkBBsV+CbJhfKllEqjXjo3CduTzQzKdGqpScWBuXbkkhSb1NjRxO
-         NfOfgnml5BQdYZ3plXXaKFo68fUOPsMASjOk88XSOjiF7tTGl9pdiojiE3SusRn60IHC
-         o+7B0yZphMZTIV+H9o/Bn/JmhjJtR0F7DKmLWymsX+4gV66huvHtZgmf9Wj8XxP4UI/e
-         uojCYzwI9Ly87AmDaBRizqIk3l4kV4lfjbFQ34WV6FvrkMSIEKAq3C2oMUY8c35+E5Cp
-         +6aca4i14NpywZeNBlBl2rz00Ng/cj1zOtACqnnMdQ40X0BHabHtd28h+fsCW8njfxQ1
-         j9Ow==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=8nglb1ay6og+E+WiTSkja2VkEyTdour9+E47BwmCxlI=;
+        b=bQMtta+kaVfQRN1OADnTK1qPv5+oRjdn+I7A2QEhKLdItmlLD3LVCzhtf7mp3e5q8k
+         mObvrv+r07+9XzwIsdM1TNLY8q8PgkVk8UWpPWAxhfeJVNo+6ajZnt31ctlGYNDcu+6G
+         i/i8XKx0msD/D3gVVprxSHdR6ZkV35DpgMWW52QzFrFRMz7OY9Qj0Jf0PH6lWkPEDEdX
+         6ltgRaMQqThRnIvMBmyBJwIRXxsbofk5Ng2Y4hI8Qi4d11inwGKfVf10OxfO8V/CAeyN
+         wB3OZ/ROldVcZ42faYD+VfMHyODiw7qaorW9bJS5pjWizA9tcT07weDf4LYYir/meOxt
+         Wfig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=E+zXExFk;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=v10ZtJEa;
+       spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hcqVKnEMa0wUjrUwKt6v1kXJQuNws4voy2mFNhs+dNw=;
-        b=FODmZZzma9XVGzSArxW5tg2ajGAA+L6eqivebXctojQj8aBAyw2KHO2rrEDxS4Vi0p
-         TLt+3psYmH9BGgxmjlxkd00l7axbsD9YKjyKdiDSMQhMSKozkObqzIH7PhCodxgpZDR7
-         x9dTZXUbXYuSGAnF0L+6BqTO3+qlOA0fR6Cu97zzedaAh/WBw3eSpDH/vOhLMSmV7TQw
-         iDMaPKirFhaO7ghdJz08hRrRyIg9Y6m30y/bLn75BLCfmstqSdvuSP7sN3vJfgtTGfuy
-         tXgAjPdcYXSR21KJPyashnnRCR/hPdZcTihvmfXr1ka5M1d1JYcMNNY26diCmoPthSv6
-         ykWw==
+        bh=8nglb1ay6og+E+WiTSkja2VkEyTdour9+E47BwmCxlI=;
+        b=QDTbTnvnwRGQ5e2niMdvxd00879dUaaAjYWtv0I4gW177sfXwBzgqg7eZuGmVawhUC
+         c+COntQCa8uCm8Vf6NgQxFgTHG+xEvsxxhTYIc4IXO7qdwQDFb1HP+Jxn+RNTrYe9V5d
+         UpwSEFLEevk72w+ZG3dJyiMepSW7LD28ROsERLqPXWCcx7iIc00+KIrhPCJXBtw8Bm1Y
+         N0Y3OITkYjkmjvK+VgKHy8l8NAtZ2dWS83wx3KtHxFTNCsRsx58nUfGQxv9aIPoxCYTm
+         Q46vImUv3hj5UHMgOleqHbzfIPRIAsjg49k2l6lsHvKe0cdr6V1hTWmZRYR4CpMnCijX
+         kFJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hcqVKnEMa0wUjrUwKt6v1kXJQuNws4voy2mFNhs+dNw=;
-        b=VmArn6n8vDnbtcWmU3ThpSvHs76xXMZ8ZOmZWAvRvUeXT2NF9FvKGfDhPaWyKEleD3
-         aEk1S42w2Q9mXVG1ES4vczVj3DQTbYsHfBiZT/n/M3xzG1abZqEVFyZb8JEepXGI9j0m
-         +6seKzDj3IdqjlCDOLwVhUudqxW38OqBRaK21P2rvzzWZdBSZs9wGIsQIywowYuirgUM
-         OHSoNLX8qeKkGJUWssKRZh58t8s+CRQbTPkmWxox8fGtSZ6HiD9hQTe75I9rFJLykn1y
-         oPoVChz5Nik/NWSvcQqK8zDzlR1xT0KvEgTz9VmC8ZSrli4mQPjy4b7FtTtiKpw8R/l3
-         cwGg==
-X-Gm-Message-State: AOAM530jjNRpZjjKSrPEMvQFtZVy9IMMZ5eXy5sXHchavEpDZqzmATua
-	+jMQ4WfRCmvggHlu2iSu6Aw=
-X-Google-Smtp-Source: ABdhPJxNgMvI9V+5+kM9mmcf19Df4M3kzC6cSxMq4ixsQ3yz0M7l/Y3lqyK9sXIJuh0Ei01fvOX10Q==
-X-Received: by 2002:a63:6645:: with SMTP id a66mr4446479pgc.207.1604614060596;
-        Thu, 05 Nov 2020 14:07:40 -0800 (PST)
+        bh=8nglb1ay6og+E+WiTSkja2VkEyTdour9+E47BwmCxlI=;
+        b=X9wZ8RxTQ1yh39074X5o711JjME7QyhTixurquSb/yqCPmu9/SGuMNI6NTV8x7p2iO
+         oW1/WTnvRblq5NeGz56CwceiXngmnvOKWifi5Ewi8O48+XR2NSro69pLgI/Gic64PxGh
+         XIN/OjTtWTiA5ue7hqE0qUmAWJfp6IyyL+atAqFVgi8v2hQvLAGb9s6N4tkyKhR5SGE6
+         /pazmpX96dbppFA4nHRUk8IbJuV5g+2oRD6lxONKK+Dr+4eVQ8TInLJ/6eA/9O9PBhmK
+         LdC4JWGoqZmmNhCWm+MXBw8Fn2WFVNb3Jd0MGVJUdOkGsfJ/DlpfwQQaafh7DFJ0DE9O
+         Upmw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532/q/sOydav3MwWWJfNyoVQgDybjXi5ejU5qERdYetM9tCNnXUx
+	WdgWKYMqUghT+dl7PvUJ1v8=
+X-Google-Smtp-Source: ABdhPJxkUVB1G/gL1fDqfspC7ffQxJp71FLcziDFtcPcDCVkXn2kq/lmeisCkIgsuCyK8Iq+b9zSiQ==
+X-Received: by 2002:a62:f94d:0:b029:15c:f1a3:cd47 with SMTP id g13-20020a62f94d0000b029015cf1a3cd47mr5391732pfm.81.1604629458358;
+        Thu, 05 Nov 2020 18:24:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:c395:: with SMTP id h21ls1551138pjt.3.gmail; Thu, 05
- Nov 2020 14:07:40 -0800 (PST)
-X-Received: by 2002:a17:90a:f314:: with SMTP id ca20mr4659828pjb.191.1604614060042;
-        Thu, 05 Nov 2020 14:07:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604614060; cv=none;
+Received: by 2002:aa7:8616:: with SMTP id p22ls1513012pfn.3.gmail; Thu, 05 Nov
+ 2020 18:24:17 -0800 (PST)
+X-Received: by 2002:a05:6a00:1744:b029:18b:a1cc:536a with SMTP id j4-20020a056a001744b029018ba1cc536amr1898475pfc.74.1604629457832;
+        Thu, 05 Nov 2020 18:24:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604629457; cv=none;
         d=google.com; s=arc-20160816;
-        b=cw4gTtQvDMIFwRwIZhlq84S9KlPa6KNQXTMKK+rwZmUzQ3qJ6XmFMNrfqzlT0AD+Tb
-         mOCkElDGqpyWdRCWGG7JWWtQYNV1jzZ871r+NQEpvFPTYCC3C76q+JabBBbZdDO2Mll6
-         Fdd1nCF08LIM88s6yshyHMkhgQLFGiFkbaervtjJODi1/oG5mb6eNMobNkW5btbU0M7a
-         YlV2ca3OsBxJxjQyVqEq9b2U4fR6pi3CU6sA5RC5nglwJHLiEo7qokxpQ2SjDDT9dg7A
-         16NruNCTXzuoyZxsF44LDdABYJVLfkZmsp3gx0qTN53317c3Y//Vsd8uTVzM1Zj6w8AH
-         PbXQ==
+        b=z0p0MQv0eD3rb5VsbTinAFiZ47ITIzZZrQezPjZOwa75lyaQ8EedPasoOKaUcBOj/9
+         LPFyKtzmh0SGbCeEFsZCbR6/eEjk5iGALnLKudID6HECCs4Nui/e0JEBJxIKPGU/7t35
+         aIIWaEh+3LM5Hqgj4fm9uEElnhgXdt5ARWf+Wyyn/9RoKisI2JhIEac0s+I4x7muRHyo
+         exXSQPfg5H1OWOOeeE9lwrtwW5cZiG/vRTObdnp9fakzgJbMDLTEtls08SEcNjCg8RNL
+         BVzmqsleLuPD3Wfvtdsl41z8gwoWZnI6PL2AtHetHUODbkBFBnjssV/D3fm2tCzt5Nkk
+         /BBg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=F1tdU0iwEt5U3ppZ6QF+sxIWHxGyMRLX1KSyIl5H+7c=;
-        b=yjG8LnNjMo4DbA6bZSLD0VU3JYkiNW1N/jqcNRfqIPlWuAcFNrxvkDZvGADexagxWF
-         cy9fRdYLzpO6RVkVyhxnFfmOVw+BE9Y/79xRlm9cZm4iosbkIgZTAwP8deR79TXouMLp
-         g9TbxV+uMxpwZhk+0WMZhOYlsHGNMUiGj/d1q74HLQjrW8wrAcHkE+XmUt4eueqdIlLS
-         La3L5bwlpR3cbzozyBN1K3z9zi/7/ajIXegHK4BFdiNrnH2epdbYtG1WcCxMtDn66KzD
-         w1EIe3d+3qSYFr77T/FsC3xr9EXrTOfySqh7UmqaLtjlauqpQWYAL3IG5fZjKeirohqf
-         C7VQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=nBrBnYxBLVAAPrb/hZQpMKZ8Cpk1V+LYFFc2o3fZuNI=;
+        b=Eu5Mc88335TSXt3ywhkAb+tgFDPHaeRg8Y/xy5l9sD87RVCie74+2Xh0z6ERR1q8Pq
+         LwaABff/TAF+r16SYwHE1GXUSPtnGx5a0sLHrJIp5w22zqZduvPskJzGPO2zi7v/6ajR
+         PjTZgo6OqNfW+oxEuiF20GRID9F9wAxsvUtN3k+1H9RwtdzCpaW/rqFizev0iGRFQMCB
+         0vB+24qpOso80y2egcRVHimS9aKNmFONlwt9UyX/COBaQwp2c194HjNh9Sa8kI9+LN9l
+         +C2GrawBXkohDhxSKKFQukA9UCFdF0G1RxLGb9F0f9swb2faTNC5fVLJ6pXFbpyyS2/J
+         yDKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=E+zXExFk;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id v24si184566plo.1.2020.11.05.14.07.40
+       dkim=pass header.i=@kernel.org header.s=default header.b=v10ZtJEa;
+       spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id m62si325387pgm.2.2020.11.05.18.24.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2020 14:07:40 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id x13so2425144pfa.9
-        for <clang-built-linux@googlegroups.com>; Thu, 05 Nov 2020 14:07:40 -0800 (PST)
-X-Received: by 2002:a17:90b:110b:: with SMTP id gi11mr4335085pjb.25.1604614059556;
- Thu, 05 Nov 2020 14:07:39 -0800 (PST)
-MIME-Version: 1.0
-References: <CA+SOCLJMyUZ8c0e5xkvm+r0pMxBoUxmQRaoasKOS2T28Z10Ziw@mail.gmail.com>
- <20201105215226.GC2123793@kroah.com>
-In-Reply-To: <20201105215226.GC2123793@kroah.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 5 Nov 2020 14:07:28 -0800
-Message-ID: <CAKwvOdkKcKru44CPmPiT9_5ACWiz50Gi12yKTR=pq4MeSPGvGg@mail.gmail.com>
-Subject: Re: Patches for building kernel 5.4 with LLVM's integrated assembler
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Jian Cai <jiancai@google.com>, "# 3.4.x" <stable@vger.kernel.org>, 
-	Sasha Levin <sashal@kernel.org>, Fangrui Song <maskray@google.com>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Dmitry Golovin <dima@golovin.in>, Borislav Petkov <bp@suse.de>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, mbenes@suse.cz, 
-	Manoj Gupta <manojgupta@google.com>, Luis Lozano <llozano@google.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 05 Nov 2020 18:24:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from devnote2 (NE2965lan1.rev.em-net.ne.jp [210.141.244.193])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 588BA20756;
+	Fri,  6 Nov 2020 02:24:15 +0000 (UTC)
+Date: Fri, 6 Nov 2020 11:24:13 +0900
+From: Masami Hiramatsu <mhiramat@kernel.org>
+To: Vasily Gorbik <gor@linux.ibm.com>
+Cc: kernel test robot <lkp@intel.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>, kbuild-all@lists.01.org,
+ clang-built-linux@googlegroups.com, Borislav Petkov <bp@alien8.de>, Peter
+ Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
+ linux-tip-commits@vger.kernel.org, x86 <x86@kernel.org>
+Subject: Re: [PATCH 1/1] x86/tools: Use tools headers for instruction
+ decoder selftests
+Message-Id: <20201106112413.80248e44fef68d9acf932dec@kernel.org>
+In-Reply-To: <your-ad-here.call-01604481523-ext-9352@work.hours>
+References: <patch-1.thread-59328d.git-59328d9dc2b9.your-ad-here.call-01604429777-ext-1374@work.hours>
+	<202011041702.EIrDb4hS-lkp@intel.com>
+	<your-ad-here.call-01604481523-ext-9352@work.hours>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: mhiramat@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=E+zXExFk;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=v10ZtJEa;       spf=pass
+ (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=mhiramat@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,38 +136,278 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Nov 5, 2020 at 1:51 PM Greg KH <gregkh@linuxfoundation.org> wrote:
->
-> On Tue, Nov 03, 2020 at 02:51:32PM -0800, Jian Cai wrote:
-> > Dear Stable kernel maintainers,
-> >
-> > Please consider cherry picking the following commits (ordered by commit
-> > time) ino linux-5.4.y.
-> >
-> > ffedeeb780dc linkage: Introduce new macros for assembler symbols
-> >
-> > 35e61c77ef38 arm64: asm: Add new-style position independent function
-> > annotations
-> >
-> > 3ac0f4526dfb arm64: lib: Use modern annotations for assembly functions
-> >
-> > ec9d78070de9 arm64: Change .weak to SYM_FUNC_START_WEAK_PI for
-> > arch/arm64/lib/mem*.S
-> >
-> > The first three are required to apply the last patch. This would unblock
-> > Chrome OS to build with LLVM's integrated assembler (Please see
-> > http://crbug.com/1143847 for details).
->
-> I've done this, but does this also provide this functionality for x86?
+On Wed, 4 Nov 2020 10:18:43 +0100
+Vasily Gorbik <gor@linux.ibm.com> wrote:
 
-We're in the process of fixing this for x86 and 32b ARM.  The aarch64
-patch made it to mainline the fastest.  Patches have been
-posted+reviewed for the other two, just not merged up yet.
+> On Wed, Nov 04, 2020 at 05:11:28PM +0800, kernel test robot wrote:
+> > Hi Vasily,
+> > 
+> > I love your patch! Yet something to improve:
+> > 
+> > [auto build test ERROR on tip/x86/core]
+> > [also build test ERROR on v5.10-rc2 next-20201103]
+> > [If your patch is applied to the wrong git tree, kindly drop us a note.
+> > And when submitting patch, we suggest to use '--base' as documented in
+> > https://git-scm.com/docs/git-format-patch]
+> > 
+> > url:    https://github.com/0day-ci/linux/commits/Vasily-Gorbik/x86-tools-Use-tools-headers-for-instruction-decoder-selftests/20201104-043600
+> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git 238c91115cd05c71447ea071624a4c9fe661f970
+> > config: x86_64-randconfig-a005-20201104 (attached as .config)
+> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 1fcd5d5655e29f85e12b402e32974f207cfedf32)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install x86_64 cross compiling tool for clang build
+> >         # apt-get install binutils-x86-64-linux-gnu
+> >         # https://github.com/0day-ci/linux/commit/ab4952becdfae8a76a6f0e0fb4ec7d078e80d5d6
+> >         git remote add linux-review https://github.com/0day-ci/linux
+> >         git fetch --no-tags linux-review Vasily-Gorbik/x86-tools-Use-tools-headers-for-instruction-decoder-selftests/20201104-043600
+> >         git checkout ab4952becdfae8a76a6f0e0fb4ec7d078e80d5d6
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> > 
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > 
+> > All error/warnings (new ones prefixed by >>):
+> > 
+> >    In file included from arch/x86/tools/insn_sanity.c:19:
+> > >> tools/arch/x86/lib/insn.c:72:7: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    if (peek_nbyte_next(insn_byte_t, insn, i) != prefix[i])
+> >                        ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:115:6: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >            b = peek_next(insn_byte_t, insn);
+> >                ^
+> >    tools/arch/x86/lib/insn.c:34:28: note: expanded from macro 'peek_next'
+> >    #define peek_next(t, insn)      peek_nbyte_next(t, insn, 0)
+> >                                    ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:140:7: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    b = peek_next(insn_byte_t, insn);
+> >                        ^
+> >    tools/arch/x86/lib/insn.c:34:28: note: expanded from macro 'peek_next'
+> >    #define peek_next(t, insn)      peek_nbyte_next(t, insn, 0)
+> >                                    ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:145:7: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    if (unlikely(insn->prefixes.bytes[3])) {
+> >                        ^
+> >    tools/arch/x86/lib/insn.c:157:7: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    b = peek_next(insn_byte_t, insn);
+> >                        ^
+> >    tools/arch/x86/lib/insn.c:34:28: note: expanded from macro 'peek_next'
+> >    #define peek_next(t, insn)      peek_nbyte_next(t, insn, 0)
+> >                                    ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:171:6: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >            b = peek_next(insn_byte_t, insn);
+> >                ^
+> >    tools/arch/x86/lib/insn.c:34:28: note: expanded from macro 'peek_next'
+> >    #define peek_next(t, insn)      peek_nbyte_next(t, insn, 0)
+> >                                    ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:174:20: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn_byte_t b2 = peek_nbyte_next(insn_byte_t, insn, 1);
+> >                                     ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:187:9: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                            b2 = peek_nbyte_next(insn_byte_t, insn, 2);
+> >                                 ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:189:9: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                            b2 = peek_nbyte_next(insn_byte_t, insn, 3);
+> >                                 ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:197:9: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                            b2 = peek_nbyte_next(insn_byte_t, insn, 2);
+> >                                 ^
+> >    tools/arch/x86/lib/insn.c:32:9: note: expanded from macro 'peek_nbyte_next'
+> >            ({ if (unlikely(!validate_next(t, insn, n))) goto err_out; __peek_nbyte_next(t, insn, n); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:245:7: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >            op = get_next(insn_byte_t, insn);
+> >                 ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:265:8: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    op = get_next(insn_byte_t, insn);
+> >                         ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:297:9: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    mod = get_next(insn_byte_t, insn);
+> >                          ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:359:22: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                            insn->sib.value = get_next(insn_byte_t, insn);
+> >                                              ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:410:31: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                            insn->displacement.value = get_next(signed char, insn);
+> >                                                       ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:415:7: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                                             get_next(short, insn);
+> > --
+> >                                           ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:448:26: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->moffset2.value = get_next(int, insn);
+> >                                           ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:467:27: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate.value = get_next(short, insn);
+> >                                            ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:472:27: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate.value = get_next(int, insn);
+> >                                            ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:490:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate1.value = get_next(short, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:494:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate1.value = get_next(int, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:498:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate1.value = get_next(int, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:500:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate2.value = get_next(int, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:518:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate1.value = get_next(short, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:522:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate1.value = get_next(int, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:531:27: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >            insn->immediate2.value = get_next(unsigned short, insn);
+> >                                     ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:568:27: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate.value = get_next(signed char, insn);
+> >                                            ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:572:27: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate.value = get_next(short, insn);
+> >                                            ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:576:27: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate.value = get_next(int, insn);
+> >                                            ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:580:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate1.value = get_next(int, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:582:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate2.value = get_next(int, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> >    tools/arch/x86/lib/insn.c:602:28: warning: implicit declaration of function 'unlikely' [-Wimplicit-function-declaration]
+> >                    insn->immediate2.value = get_next(signed char, insn);
+> >                                             ^
+> >    tools/arch/x86/lib/insn.c:29:9: note: expanded from macro 'get_next'
+> >            ({ if (unlikely(!validate_next(t, insn, 0))) goto err_out; __get_next(t, insn); })
+> >                   ^
+> > >> arch/x86/tools/insn_sanity.c:128:19: warning: implicit declaration of function 'ARRAY_SIZE' [-Wimplicit-function-declaration]
+> >            tmp = fgets(buf, ARRAY_SIZE(buf), input_file);
+> >                             ^
+> >    37 warnings generated.
+> >    /usr/bin/ld: /tmp/insn_sanity-8655a9.o: in function `insn_get_prefixes':
+> > >> insn_sanity.c:(.text+0x1bd): undefined reference to `unlikely'
+> > >> /usr/bin/ld: insn_sanity.c:(.text+0x203): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x24d): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x30f): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x353): undefined reference to `unlikely'
+> >    /usr/bin/ld: /tmp/insn_sanity-8655a9.o:insn_sanity.c:(.text+0x38e): more undefined references to `unlikely' follow
+> >    /usr/bin/ld: /tmp/insn_sanity-8655a9.o: in function `main':
+> > >> insn_sanity.c:(.text+0x13cf): undefined reference to `ARRAY_SIZE'
+> >    /usr/bin/ld: /tmp/insn_sanity-8655a9.o: in function `__insn_get_emulate_prefix':
+> >    insn_sanity.c:(.text+0x1cc1): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x1cef): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x1d1f): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x1d47): undefined reference to `unlikely'
+> >    /usr/bin/ld: insn_sanity.c:(.text+0x1d6f): undefined reference to `unlikely'
+> >    clang-12: error: linker command failed with exit code 1 (use -v to see invocation)
+> 
+> Right, this is expected. The patch is based on jpoimboe/objtool/core,
+> which has extra commits.
+
+Has that series already submitted to LKML? I need to look at the series too.
+Or, Josh, can you review it and if it is OK, please pick it to your series
+and send it.
+
+Thank you,
+
 -- 
-Thanks,
-~Nick Desaulniers
+Masami Hiramatsu <mhiramat@kernel.org>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkKcKru44CPmPiT9_5ACWiz50Gi12yKTR%3Dpq4MeSPGvGg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201106112413.80248e44fef68d9acf932dec%40kernel.org.
