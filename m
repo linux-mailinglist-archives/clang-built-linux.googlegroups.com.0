@@ -1,142 +1,145 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBI4LSP6QKGQEYRWKLCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBN4PSP6QKGQEANS5HJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53f.google.com (mail-ed1-x53f.google.com [IPv6:2a00:1450:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 512372A8D9F
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 04:40:20 +0100 (CET)
-Received: by mail-ed1-x53f.google.com with SMTP id c24sf14804edx.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Nov 2020 19:40:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604634020; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7BE372A8DBD
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 04:49:13 +0100 (CET)
+Received: by mail-pg1-x53f.google.com with SMTP id 33sf2774505pgt.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Nov 2020 19:49:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604634552; cv=pass;
         d=google.com; s=arc-20160816;
-        b=egEv7xdURX/u1vuPQo7ueLmBbL1Y9XgNDU76o0lK/lMm51ZIrWG42LPPr4dJN2p8aC
-         85zbLwb7xgK/NuGYmK0P+2ruhJ7ptVX9sl06iQmDJnm4jgftvSFQT1PDosyEPM+nygYY
-         1UjJZREH8jEBR3l4e/bUlo6pkXAZqErShpEC3S1lG8YnMispgDmAFOrmDYW0CGzwvVma
-         PTCsoSfxg7+BpU1FdvIVq5q3TYOGK+Ab8beFgyNrS39afjzhtAt88WD9suzuYC4RgUUj
-         dQGS2RsIEvkU6jHBgDsRk5OIhaENl0Zc3jgyzV/o/37CNHpsWOj1THdYw6kuBK8S427O
-         9vUw==
+        b=OSQLZjVGd+VGw3QqFLzt9TgP2HeMTdb28PkxKEDqBneA0vZzeKsjpqi+HjGuXx4W6O
+         F+h1++df8VuNzshedPlmxhDqH9f0jG7d0AeELS/wZ7gpLY03Mbbw9VVlBesh/9fQG5a7
+         0HKwSVk9dbVFkCRS+OQScEEOo/459LMVVbVIdRe4LZL2ca/gojqEFvDDnP1/RHl6OIRw
+         TwYX0/vJVWfo9DmLs1d5k+l4ez4krhc/x+sJx/xTN7AMbopK95OxqpI9WmsIrH6Dwslu
+         2CkchupzaXK7jzbfFvSHy9nfGEr50upSq+tNPpccssD5hkothq+wXLXVzXiHOwN0I6pw
+         v31w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature:dkim-signature;
-        bh=x6N/jSa/nF/eFeXYClrJLeU0vq5VA2lz99JIKkIMz64=;
-        b=P2vQp2EUN/CT12Lxvj48nRNahWjY45mcFJcR90MLZsMVKUH3e7HSgSDE+n2szGOmbJ
-         JfxM1ICc1/eog4z71W/mtfWhqfJ7HsTkBQmMOw/IybYeaNlpAPE7D1e6WCrpb7H984JH
-         ZFGczeTSJRkikOuW5H9dzu5uRO0zgz60usBWx7dPtQLeh8EQa0Ez1lzzmfzewOQtdmkT
-         6cWadjHgXt5lHRULl+5HbdziyGMDYDrevg1uhNVvMJBiPMwy6yIiVeVtXZQ4kwwMfH10
-         MOu9InAtRe6MGOB1aRnum97Jq2Ly7IfiU5CN/0gQLGsSFGX4VOc3H+LJHwtjonEYrOhs
-         g4yg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=V2/L60nwz/pS2wSqhhbbOS5Hs04JfssyGv2qIwc6ZvY=;
+        b=gYPfIzVRnEndVjYmtkJNDP7AtlCa5hBvbbpRaTbshaK4AtNTKbYsXZ5mKAzAcurRim
+         e65NF1B50/54cIUtnBIa4LeszMw7npKVhkhaxmgw/2FBUTg+Y2LkYndY+VHOaCdxrofa
+         jAN4jIyKVxnh8I4x/mCPDXCixT/VoidcFBNI3xRvqss/KD4vQ6B5UyB/xbXc++rXQmw+
+         c1gHLQm+3PiPXPHEdDkC/m0euTwcR8Kea71WdG8/JwD95aBNykHbh4UzbNgLLBitVJOH
+         uBeOHzs8MkvgSBtsUhBDySU/gjnZqu+fMU+NiKa6K9udXIRhFxeGf1dcCyse9z3wdMgh
+         H3Jw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=G2sPbaKV;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::643 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fG4iOMhy;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=x6N/jSa/nF/eFeXYClrJLeU0vq5VA2lz99JIKkIMz64=;
-        b=gjdRv2NLTLyOoY0K2dk4xI2pFqBES+So4Biv+n4ekctlX2DH+48WltByo2Vf1n6bp4
-         rgVHns6HmRIVOADAkjqdZfIDrDOSA1RykvvZ+LC0RgyHx3AwkpFsIes92Gfx2Eq/Xz9r
-         VbKVfUIKXmMhq3U2Wv8QOx178sgZ5boxDOftwXSPkbE0kTMIYaiD1uaUaCdIF/qu7/nm
-         xf5GN+wu+NOkI6Wlb4YzW85HuvKMwfqX3ORN92OEMDlHE5NIbQBmd7mcxaI5jBVIm/z8
-         iEaET8mki6mpWulT+ZBKwPugbrkpHdKSL4uPbsrer3FZXLDKHkOYEWbX/q36Xa7ZytGo
-         J43g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=x6N/jSa/nF/eFeXYClrJLeU0vq5VA2lz99JIKkIMz64=;
-        b=e7NR36Z/WI/EFKUfTdu+MO6Hf1LtbgDN7D7zwNHbfy4QvflaDtifBeQK2oAPiNsKxe
-         iu+CssyjP0VM7fUQjB1KFzBBjv7Typ7x93oihsNFewQc2ZvKPYPItXBKIrbuWjuKJf/S
-         8mZli1iEEWq9g8oFhYjmE0iBfF0ngzLXPEpiML+FD4Wql3WWQ5BVOzWe6oXfchMgiwLD
-         L7DCsMF8DCNwuDl2sGYXDkFpMKHcbLto0KS6aDoYC6pH2caUKhURHFj6/WUX9wFRB3G5
-         ssiDAmBhkY/6jOhONoM29El7M70mz84SP0eCfNGp0UykCXo76ZIuGnyd4TQU9DBmdJfB
-         vkBQ==
+        bh=V2/L60nwz/pS2wSqhhbbOS5Hs04JfssyGv2qIwc6ZvY=;
+        b=Hg8EncT/ehsCnmQYqYhnVLDPdqpPAAYztwIK/iq8/8s8bY+HK4baMggEj12qP4jUv+
+         K7YXYS2YBxzz3E7sKL2hqfdS4MYZnWL6eQfrejILGAFKTeH0mdBMfNt9xB2kNVjuIz/E
+         CWoUkbFe3MQx+Xdq3jJEh6/g3LUyhJbHqCMnqmWJQIunF4x//R8PqEY7bM/w/SCHQIva
+         koIJ2d9bjDGK2o3CZa3+GFDvIvqyZRP/SvbxhdxMdRlp8G4d5cfL7HA3+WAg7yEkoBZg
+         x2bWybnz1TM4KRvV2SPynsGbYl01uYTotclWPrXRo7qj4adZRS60kw2KTsCrtJGvJYdB
+         wWzQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=V2/L60nwz/pS2wSqhhbbOS5Hs04JfssyGv2qIwc6ZvY=;
+        b=sw4mptcJtqly0d6fcLzq8Lev+7CWY6YNnGyNbjUcsTH97G2OwPGLqtTjdnvJFyi+NB
+         PHz78XyaudKdZiI4G2nTYtGpFyhU7oqdRFNUas4iy26N8EHJ/herqPEj5kkavxgcFEco
+         beFSfkBvZtR+oPIO0jLojJO2Grs4EUGyuex72hya3EyfuDZYcMZhv+T/oGtD3vF4cJne
+         +tOtZUff03LECACrCAOdQhuTda5JM9cEVwD78JwwKiLxBTN8Cn1TEBSN15u620dCW9P8
+         edT/exDxN8I1P6DT1dvubHKTgKIczEdHYEJ4ywQTBBQE4ZOnS3x/jsoRLNu8jfkscm3o
+         0vyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=x6N/jSa/nF/eFeXYClrJLeU0vq5VA2lz99JIKkIMz64=;
-        b=bBfz7AOomQGiJFld3CV24YPlFtAc7kt/g7hSSJDSiD58RMWheB3evJ2LH42n+c+ek2
-         lLi8sFBtJhKyejBwTBf8ncYxaXdrmjcXxmzxqrjOaW0b7Xup74f0RhLfrZJtuY6oZS0v
-         x716gEF32yu7FRRwSjX5E0fSjfgC/WVJAeb9788gB3OXYcUbQQgLu/XEB7ig6ZWwzQBP
-         SgmYE8vMI0rJxcS7r6cdLBZX61oNxUI8IEDxlT1bV8xIeXr5mmh1tt0D8NHLFDqB4Vkv
-         iBNAjblxMXrTPQ3TpxDEib8whLzWli0ni4YGipwBzFn06Zxgpr1Y+P4vE9mnKzKhjxih
-         pfmQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=V2/L60nwz/pS2wSqhhbbOS5Hs04JfssyGv2qIwc6ZvY=;
+        b=gAGFQWpZ9nia5UF9hi4mpXz/L262Jf1zVfiTuw9Kvss8hrDdhQleZjfDyQsbvvhTi2
+         0egqYpRLHBWFOtVePO6xiyakWgCL/rnHaY9Hl2ME7t300nNI+JiZbH1LGE2YZ6NHcBOW
+         zFXYTXQ4sMn96NviMxnY3tBQFqHdq64bnI7gAKyqTjzWcV/75mCre/N4+JvzCYEYJz6i
+         ToXurxVxn3Lw92/aF60VMQoyNvQgfGwB5CRVji5u04XT7Tux/p2TW5V1AXdtK+/DDHEF
+         6rFpya7G/Yh3u35NwQfvaR8hhpgFcNFmJLIB9VHCTbfeFcUPpoxw+2pyCvFLoQYv3wbk
+         JrbQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530gXddSsIsWYIQb+2gL4MpSnpT1ozzcFF6XqK/ObqyGb5W5WGEZ
-	7E8PpAxnjy4EPmorJi5UYjw=
-X-Google-Smtp-Source: ABdhPJyTkGFwoHbUGvX3P1s5wRaN2117m2PHsO6djUnAAZdPVkXrIxquLBwkreLo56N6mAUeZOfrgg==
-X-Received: by 2002:a17:906:854b:: with SMTP id h11mr54394ejy.273.1604634020064;
-        Thu, 05 Nov 2020 19:40:20 -0800 (PST)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM532v7W6m/Br50JOPZZ9FyxYNu5dOrlICRFKv6xHqhMZ2SX/CMYCA
+	M6I6MgoKKmt/bA70ZEyGf/8=
+X-Google-Smtp-Source: ABdhPJwH5vU2Z/VK4PzvDdPMhdOokoHOl0pGEXFW4zSWFLkH3HgAWfjwKlRnq/j0gZnLnsnCDyJHGA==
+X-Received: by 2002:a17:90a:f0c7:: with SMTP id fa7mr239780pjb.3.1604634551965;
+        Thu, 05 Nov 2020 19:49:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:5591:: with SMTP id y17ls66101ejp.5.gmail; Thu, 05
- Nov 2020 19:40:19 -0800 (PST)
-X-Received: by 2002:a17:906:2b8b:: with SMTP id m11mr44479ejg.457.1604634019064;
-        Thu, 05 Nov 2020 19:40:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604634019; cv=none;
+Received: by 2002:a17:90a:aa08:: with SMTP id k8ls139420pjq.0.gmail; Thu, 05
+ Nov 2020 19:49:11 -0800 (PST)
+X-Received: by 2002:a17:90a:d70d:: with SMTP id y13mr256931pju.138.1604634551448;
+        Thu, 05 Nov 2020 19:49:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604634551; cv=none;
         d=google.com; s=arc-20160816;
-        b=xu74oGM8VO76cuKWD+pX7K+GOXIBub2QFYz/6bATAHrc4IYo8UHv51r2XGvuP/kMaC
-         6lOpJXy2CziNJGmaJ12V/kwI1JKVRJ0726PB5vGQUpmvFQ8Ob5ltFwSM03jU9MUxBjRm
-         4jB6wzw2aX/lzhmvhpWLtz2fXTb1xgEpQyBhQjfxFurY5DWTrE8fpELIMxbHWXTYjjfF
-         FyZ3cFGY0u5PVHmnHNDG02zePxfYCjyLeZM071x9tSQ4wCKUIPpM5DlAjXJ+dSxMlmYt
-         4gDJL2/SYic7Kw7TfgkyNApbARYhbb2sm/y9Dny+msy8YCSEV9TV1Pm9+TOLFWbOo5TJ
-         yo6g==
+        b=LwhDSnf1ubhrawFNOrTosZp590rXLGlOrMRS8nH+UXBY1AJ0vxhI865gALRPf241ih
+         fVC5y2d5xwi1H6fYq0XpvB2n3RfAXO2BsTOZ/W/RkrtBmMqUTAVn2mDQADZhh9iZNF+6
+         Y1uNHhnnKo+2To/68chA2XWo8k3Jgaf6NViwmtMVo8X6Oyu0JN7YkAMlynY3uazUkDcj
+         ZPyPG9rEkAZKDX/kxKX+HOtBHOYg41a/UNYclmEmIVXmEQECEqdOSbXiXh3SVnOdYWbv
+         WL7gK+K2bEk8MicCB9floC9t+2iEYtWpZpZ5xpjCupN5dIw8WB8TiMVS4vAPZ5Rl5/MV
+         IWCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=v31c+3qUzm/Jl9mhtRELjufMUcxhfj6Qpk0Egg0rkIc=;
-        b=SGorDW2F9k+KVOZwOCXfnwoXKMUiO06lMiC3o/AR2upYukyhnu65nlPjq/IxeNjIra
-         HKTe4bJ5SCpibq7+azGh8z9z6IyTWpMItXPD/Hb4x0o48KPsG1GGVj8qjKmzFrbrH1of
-         joEj4pROAlrGwFhST0IMXqkgw0/LMF4PzdJxpugLGC670Gfmr8IkrAH6sHU+uH6nkcat
-         hojmOKGxnZdre9RmRs/tIo6LFUunQ8U1RPo+1PH6gTihQNMMQg7SrdtqaHJySIImBGHD
-         1MDwOcuwOKBSzB4Hkj6MqtpsH+nXHUW714W0/Hfk622+pUkOvBboPFOXkKN0ck4FfmGG
-         nqIA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=0oV6zTD6LpNnhkp+52mi6F8NkFZ6auhC3pOPfDEuyUc=;
+        b=KaFmOyPqVEQjbHRgVYA02tIcJBsvoLNLlJGtY5k6tMN6FKnsHU+KNU4vBMtMDKaD0X
+         1aGGpd+d3Z6u6tJdEgdRAkwGKO+BdCKqznLAWLzf2Pw+gKkIQW6qgOSRbumjR48XKYPB
+         bYP/+r7K9JNihE7SPbfSzazLiynVgFbm0006Zua7BxdPC3wwhZOQGkM3b9uyHK4zbNz4
+         IoWR8yYyyrYIgJ0CBk9buSr2B+5vM1NphLKfwPEOekv1/9Zy94rLWk6kE2MM/7ybhwv4
+         vYCP7jXPdlVh6WeZHGP4DWnjpjvcQqrgAlGoWh8GmHGJq9yri8+NxXZZ0f/TKqf5BKHA
+         34Pw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=G2sPbaKV;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::643 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fG4iOMhy;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x643.google.com (mail-ej1-x643.google.com. [2a00:1450:4864:20::643])
-        by gmr-mx.google.com with ESMTPS id a11si1364edq.1.2020.11.05.19.40.19
+Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
+        by gmr-mx.google.com with ESMTPS id m62si2074pgm.2.2020.11.05.19.49.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Nov 2020 19:40:19 -0800 (PST)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::643 as permitted sender) client-ip=2a00:1450:4864:20::643;
-Received: by mail-ej1-x643.google.com with SMTP id w13so5687420eju.13
-        for <clang-built-linux@googlegroups.com>; Thu, 05 Nov 2020 19:40:19 -0800 (PST)
-X-Received: by 2002:a17:906:6a57:: with SMTP id n23mr55277ejs.315.1604634018857;
-        Thu, 05 Nov 2020 19:40:18 -0800 (PST)
-Received: from felia.fritz.box ([2001:16b8:2d20:9d00:b87b:b644:61a3:6870])
-        by smtp.gmail.com with ESMTPSA id z23sm2103337ejb.4.2020.11.05.19.40.17
+        Thu, 05 Nov 2020 19:49:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
+Received: by mail-qk1-x743.google.com with SMTP id y197so18843qkb.7
+        for <clang-built-linux@googlegroups.com>; Thu, 05 Nov 2020 19:49:11 -0800 (PST)
+X-Received: by 2002:a37:4796:: with SMTP id u144mr5356208qka.235.1604634550544;
+        Thu, 05 Nov 2020 19:49:10 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id u2sm10411qtw.40.2020.11.05.19.49.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Nov 2020 19:40:18 -0800 (PST)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-To: Petr Mladek <pmladek@suse.com>,
+        Thu, 05 Nov 2020 19:49:09 -0800 (PST)
+Date: Thu, 5 Nov 2020 20:49:08 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Cc: Petr Mladek <pmladek@suse.com>,
 	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	John Ogness <john.ogness@linutronix.de>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	kernel-janitors@vger.kernel.org,
-	linux-safety@lists.elisa.tech,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Subject: [PATCH] printk: remove unneeded dead-store assignment
-Date: Fri,  6 Nov 2020 04:40:05 +0100
-Message-Id: <20201106034005.18822-1-lukas.bulwahn@gmail.com>
-X-Mailer: git-send-email 2.17.1
-X-Original-Sender: lukas.bulwahn@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=G2sPbaKV;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::643
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	kernel-janitors@vger.kernel.org, linux-safety@lists.elisa.tech
+Subject: Re: [PATCH] printk: remove unneeded dead-store assignment
+Message-ID: <20201106034908.GA2143960@ubuntu-m3-large-x86>
+References: <20201106034005.18822-1-lukas.bulwahn@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20201106034005.18822-1-lukas.bulwahn@gmail.com>
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=fG4iOMhy;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,52 +152,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-make clang-analyzer on x86_64 defconfig caught my attention with:
+On Fri, Nov 06, 2020 at 04:40:05AM +0100, Lukas Bulwahn wrote:
+> make clang-analyzer on x86_64 defconfig caught my attention with:
+> 
+>   kernel/printk/printk_ringbuffer.c:885:3: warning:
+>   Value stored to 'desc' is never read [clang-analyzer-deadcode.DeadStores]
+>                 desc = to_desc(desc_ring, head_id);
+>                 ^
+> 
+> Commit b6cf8b3f3312 ("printk: add lockless ringbuffer") introduced
+> desc_reserve() with this unneeded dead-store assignment.
+> 
+> As discussed with John Ogness privately, this is probably just some minor
+> left-over from previous iterations of the ringbuffer implementation. So,
+> simply remove this unneeded dead assignment to make clang-analyzer happy.
+> 
+> As compilers will detect this unneeded assignment and optimize this anyway,
+> the resulting object code is identical before and after this change.
+> 
+> No functional change. No change to object code.
+> 
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 
-  kernel/printk/printk_ringbuffer.c:885:3: warning:
-  Value stored to 'desc' is never read [clang-analyzer-deadcode.DeadStores]
-                desc = to_desc(desc_ring, head_id);
-                ^
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 
-Commit b6cf8b3f3312 ("printk: add lockless ringbuffer") introduced
-desc_reserve() with this unneeded dead-store assignment.
-
-As discussed with John Ogness privately, this is probably just some minor
-left-over from previous iterations of the ringbuffer implementation. So,
-simply remove this unneeded dead assignment to make clang-analyzer happy.
-
-As compilers will detect this unneeded assignment and optimize this anyway,
-the resulting object code is identical before and after this change.
-
-No functional change. No change to object code.
-
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
----
-applies cleanly on current master and next-20201105
-
-John, please ack.
-Petr, please pick this minor non-urgent clean-up patch.
-
- kernel/printk/printk_ringbuffer.c | 2 --
- 1 file changed, 2 deletions(-)
-
-diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_ringbuffer.c
-index 6b1525685277..74e25a1704f2 100644
---- a/kernel/printk/printk_ringbuffer.c
-+++ b/kernel/printk/printk_ringbuffer.c
-@@ -882,8 +882,6 @@ static bool desc_reserve(struct printk_ringbuffer *rb, unsigned long *id_out)
- 	head_id = atomic_long_read(&desc_ring->head_id); /* LMM(desc_reserve:A) */
- 
- 	do {
--		desc = to_desc(desc_ring, head_id);
--
- 		id = DESC_ID(head_id + 1);
- 		id_prev_wrap = DESC_ID_PREV_WRAP(desc_ring, id);
- 
--- 
-2.17.1
+> ---
+> applies cleanly on current master and next-20201105
+> 
+> John, please ack.
+> Petr, please pick this minor non-urgent clean-up patch.
+> 
+>  kernel/printk/printk_ringbuffer.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/kernel/printk/printk_ringbuffer.c b/kernel/printk/printk_ringbuffer.c
+> index 6b1525685277..74e25a1704f2 100644
+> --- a/kernel/printk/printk_ringbuffer.c
+> +++ b/kernel/printk/printk_ringbuffer.c
+> @@ -882,8 +882,6 @@ static bool desc_reserve(struct printk_ringbuffer *rb, unsigned long *id_out)
+>  	head_id = atomic_long_read(&desc_ring->head_id); /* LMM(desc_reserve:A) */
+>  
+>  	do {
+> -		desc = to_desc(desc_ring, head_id);
+> -
+>  		id = DESC_ID(head_id + 1);
+>  		id_prev_wrap = DESC_ID_PREV_WRAP(desc_ring, id);
+>  
+> -- 
+> 2.17.1
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201106034005.18822-1-lukas.bulwahn%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201106034908.GA2143960%40ubuntu-m3-large-x86.
