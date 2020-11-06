@@ -1,121 +1,123 @@
-Return-Path: <clang-built-linux+bncBD4PP5X5UEBRB67QST6QKGQEJZ5PZSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMMDG7N5MHBB27XST6QKGQEUASKKYA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EFD62A95C2
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 12:50:20 +0100 (CET)
-Received: by mail-lf1-x13e.google.com with SMTP id y14sf427490lfl.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Nov 2020 03:50:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604663420; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 08E1B2A95EC
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Nov 2020 13:05:00 +0100 (CET)
+Received: by mail-lf1-x139.google.com with SMTP id a1sf443000lfb.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Nov 2020 04:05:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604664299; cv=pass;
         d=google.com; s=arc-20160816;
-        b=djPJnk1A4U+Om9ksFm+n8KF+tCqZnj0/mcB4W0AbeH+h4sQ2xchsaI+ugS8CguwjGI
-         iwb9Q1C8tFIaSItvnNNjGRRVTiybYsx3kmpbGqsd6kas/REwGTp5gdRyF66XcMwTWPbC
-         fu4mz45F5YbmZQcpnVIQCKsn/cMjWXeQQ7Jw4TRXmMc2q2qwpl+s2ugZx/k1nQd9tgM0
-         /w3AlX4ArZw7B7CvT7lmtiOm9bBxtIXxD+lHbL5xinjRnmTdLPVJ2a26a5/p7DguLVMC
-         H0fHcABMd64Xr8613IpoqziH+UsyAqMpLH9cNIGkU4iwkvGq05pS/xoB/x49b9k349sR
-         4Zdw==
+        b=T/P+9UHbwnMl4oWvIYzsvSqEri0zbuZml0FwghKHTlieHpUpgMKTbV2MFhTOOetuvR
+         BB8lsLa1dv9RYT2mlh/+Z+bsX5/C/Rwz5PPux69cRqzItCuaCJ/BCKS0hBepohcGPl5f
+         apPeNJsA43ekIF57GxWjbWofFuvnlSsoJ4VqVpg8YmVn5qdkGU4zBeB1KF+CyAqG3wgI
+         b8Z6JJlu4I+a0n7uSO7UeyCldBsS2tVzd/KvUn86GDIoxOKC6lz3s3+1Q/LLNxS3Qlci
+         7qR9iDPmeJU+KL8MEcWZCEXqf6Xdq4DvUPJeJZZcWrNlx2CyVPn68bdKJr+V7Fx7gQib
+         zayA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=xC9d9At/QAFpgid1ydDVxFwJ0Gs7b6a6V2+v2aZ6lPM=;
-        b=O3/Qg8x558nUbG/74CcIBhIZnipswkYSKlv686TnkMVNwdEk3wMr4tyWelW5q085cM
-         muMnbds8VU5rm9EmV48COAVG388YCRy/Uzs1JV9YNsKp3Jj/Vt1Rpl6EHPtDscNNdQw3
-         V6M0DGYqZjo4bP5rOc8mdbZHUAgQKN/NSzgVx6w6zSCRtnNOW3g3VWsJ7+vb6NXypaCy
-         1DNCYPBLkO/Xe2750nTU76tLwfPaKqqoXCTOAxnJuMCHOpeN6ERllDYSZYDg+Yt3SFTQ
-         +PevWifIjTGnJGxSfGKX5VGxrYrp1E1PMlHzqWH6HokLYFm/bzTgq2588AeiCJ6JbelO
-         5blg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=wba8J50AusWE6CMzaBLFaKtAeLVzqhz2kMNWJhbbk7c=;
+        b=ZmwNRnx/nkpWnkK7D+rxsYMzO70nlVuVtOlps/YVSaT9stYeXsBiOZZSrUB8QUgYmC
+         Y94sd0U2PB76nhcsk0GRMBx4zzqZ4AkbPOCRuJANnb3PdWBN9ieM11hZ2VBt+O4SQvAm
+         OlM6FLVPhdU2Ho7kdupQ27iQJSeQZzGqrM1cozzN8+MfZAK2CNuED5Cm/NnJokIrNKj8
+         tt3BMCd3jM++qanpMxHTxQU2TLgcptExTJ4Wg2xI6K+bK1m0R/QYGzHG47dnnG3Fg+E7
+         gI0Ve0To5zt59GDyR/VbR18a21/xnA5Cf3bRsnfdfa7wYjLLS1FwUbAvQCnFA8qMD7DC
+         SwOQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+       spf=pass (google.com: best guess record for domain of sudip.mukherjee@codethink.co.uk designates 176.9.8.87 as permitted sender) smtp.mailfrom=sudip.mukherjee@codethink.co.uk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xC9d9At/QAFpgid1ydDVxFwJ0Gs7b6a6V2+v2aZ6lPM=;
-        b=Mt0dB3ZoFVNtdKxVuM5uHZeU/fe1LKZ0IGweJ70i/Hg1ROd1/Qi2eR2Rhr3hnEAes3
-         g523AxYETFYjlwrNtkeeOFki7lU0z2+H1fHsL0NFzNZjaP07GM3kN8gwm9x9TV9/l0la
-         B7rzQ0VlAGNfud6bbmXL8aG/aFJKipNfRNwgNeFguwapNi7prEneeYU9PflXRw4FlmcL
-         VwoPO8ISD0a7jrRRaKOcoJJHNBVq+87VzCdTDKjkjmr/d3g1/FecKLkdpvd2phwX6tRm
-         b3WqK5atZpR5gOrOGXAH+I2asuPMxXczE8micGic42udwfIZn4Rugdpn/CV0U1ChTNha
-         EBuw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wba8J50AusWE6CMzaBLFaKtAeLVzqhz2kMNWJhbbk7c=;
+        b=OX0HSKaa7H5cECC9OjTBEN8fMM/J6FlFsWSYYwqvU1wLHU1HQ3ILN3RZGLGP7LOgm4
+         esbyltGa3tDJUJiKz8X6q9h4xgeoNpuPqOYBZRg79yFJ6o4WKMd8aysfMvXn1Dt3mCPG
+         4qpziJN570xy0k78PXnaJvTSU9BY/BFpz3WckAY4UfGdaEdPvPpVOHwVcft+IjXaTPUk
+         67W2ST143FssQtQL43MdCufO/nJLlMmFLPDcXk8Nz0I9KEKHqN7frGMpGLZRUQRJjHig
+         Uo6n+HI5qlY8pv4hBjqCsp9VkSmKLiVgDCC59JMJjJ2tnSeepbJEnpq1iJy5J7TMxzYq
+         r+Dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xC9d9At/QAFpgid1ydDVxFwJ0Gs7b6a6V2+v2aZ6lPM=;
-        b=NIFbBeZBYB1FeNUxqcMIcv91/DFtuutYonX5chHpPo20SvshUJ2LCQxhwV/gl+ljYo
-         aWOLCP8nYHkbv9ngUQ6OTQpcdPdFJA9aB9HIiVzuCBw5J2gbhR8QL18k5hQxuz2SRLML
-         fsMm+Klc9VQhPYpmtXnfQ27CEgKOKc+ItXqfEt8HtpYpWhUHR/wveM6/C4ChE1kesIjZ
-         kcg0AbdSI0rhOyXuK0z273rvDLtOTdGzJlzGg984NqaEY15TUFRSkFwP4gIuHDxh78LU
-         fW14p8n9ywHEbe04tQpqWrXTz09TBCapWODO9cANFOeqEdsxAYRugwusO2bgZFAAUOVE
-         /vkg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=wba8J50AusWE6CMzaBLFaKtAeLVzqhz2kMNWJhbbk7c=;
+        b=pCPG1YxwaGzoXoN2xfIqPmVOwaqawwSchGprB2dcUs5w413IxY0DoIdigEPgKo4QPX
+         RWnQoM3qphtWhVpnJYWqXYihHyuNTVpG9dWIvy3ieqJOuMs+DoIOx8rl80UPdSQsEMgc
+         7a95QE9NK6vs35tlvoPMu4auyeW5/zETje8yGU8aPxTyWfwXRPTFP5d5hhdrxlpYcZ14
+         HzV4JR2heDdeXkfSd6JSPVPBd/zAFH20dcgE+lVG7zUSxxnwa5/HdpgwJR9joLLjvf8H
+         TqWgoNeM+Hck3i0muP845rtG0chOtLHJhmAyoR5REWaUxqqgK094xf8zeFGpy7+SmN5w
+         AU7g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5323DkMNwCPg9Sg0XcQS6Z6FlaMofi2wkxh40MgnKmlALkKAJH2H
-	1qFAAV/XdMG1YjANelEdHFo=
-X-Google-Smtp-Source: ABdhPJyVdafi/wgrz+bGAgv4I++Mf4wX+Lr/Zsr7mEECSOFq6U83XKj1HsXRpa4dgAR6hWugHV3IBQ==
-X-Received: by 2002:ac2:4183:: with SMTP id z3mr823469lfh.510.1604663420074;
-        Fri, 06 Nov 2020 03:50:20 -0800 (PST)
+X-Gm-Message-State: AOAM530CEFyWQIoyTEGwSNLjTD9BBxMCYjMkX/IiHWe1154asKY47QI2
+	oFuIBfyloCovYTQKLF003rM=
+X-Google-Smtp-Source: ABdhPJzAVt3Vdo2VtQt1noto1WFlGi5/4c6ZhKoZE+1xAKrcWg4PSkmgtYPVcivZ4LbGfYWLGLsUPw==
+X-Received: by 2002:a2e:9c94:: with SMTP id x20mr580112lji.33.1604664299614;
+        Fri, 06 Nov 2020 04:04:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:d0e:: with SMTP id 14ls828250lfn.0.gmail; Fri, 06 Nov
- 2020 03:50:19 -0800 (PST)
-X-Received: by 2002:a19:ae13:: with SMTP id f19mr699455lfc.193.1604663419011;
-        Fri, 06 Nov 2020 03:50:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604663419; cv=none;
+Received: by 2002:a2e:9f48:: with SMTP id v8ls204982ljk.9.gmail; Fri, 06 Nov
+ 2020 04:04:58 -0800 (PST)
+X-Received: by 2002:a2e:2403:: with SMTP id k3mr648501ljk.186.1604664298596;
+        Fri, 06 Nov 2020 04:04:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604664298; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ho0ZzTB9EpwQ3/SHUj8wPZt9tj+A9uaY120YIZN5s+SPopH8oKqdv7XbfnNcZ/ho9J
-         62iSGT79BcFK4u0Uon1BnPFbX4CoBWAkRJ8aHr6Lheua5DlKm/eL4LtpZkAotFriJbeO
-         TpWyc8eEJmqv7CV8SwKRg23UhBHMLKUx0X86d3er+vxiLvkYgRJPBwjj2UnnjMGK5k3N
-         n6Tr7e1gZyCprO/BvaevBOF3GXkMclc3HffqrEFRXAPQe8GmG5ZtnU36fwK3NW0kXoIr
-         I4TDPulfxtBGrUn52SJ736FZk5+gdGkWVaP5FXhPnRC55b2mlj4wYeW0rOTfDUalU+1A
-         niQA==
+        b=0KjlgnFB1AuhSj/BEpZWiGQiRWziXo1HHPv1cIvn+bP+md/UBJctx03F4RXgFmKCys
+         MQxTI3n5duiQUhPoaog9VHt1l0PimjHBURZM1/NXGSt+otFisxcb7rnYWgZfsp+Yv+rb
+         uEYT+OPQQT8pQff+hzqaKMpDHEU3KH4nAvVRDnca1wdzZa/user1db64SNJQvfU81zPb
+         9HaXtI8pjd3Oos+jDQofaoczHsY0krAERNJQOB8UKJ+DDj43XrW0ifdrNEQ7EPM0nXka
+         Sxe/eLUCIJi2nQBqdx9fOn456YB/DjD7PVesziFP3pcfBw+qVLWOjhWfTx+4Qcg1bPYf
+         bsJA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from;
-        bh=C2dEbYl6bPDdzKUR8mS/wIIxzSDtj8ZwtQ7eY103mgg=;
-        b=asDypJtqIZYqAKH/WvI7JLKQXUM3zERH9ShV1VOI9IZD6P0A3DMrB2ByLVf3Z1wpJB
-         zqOkivM9RT6uLEoUsk4ZLTTPE2p81htLOq8/QJ5qEA3TXriVQY38wziCro1jsimsf2CU
-         LMQEHFdng0Ox+nOe1LcGDk+uQu3tcSWoWFUAm8Rl1ojLdftrogtvMjb5cHRqZvdF/zHT
-         RKYng9tqk1znHp51IoxiCOT3r/mhEr3wVoKnSdtyByi2cVvQGNVvKANZgw4G3CRwpcKN
-         cqfCdHTPtu+B2KUXxy9szVHkYHEKq2x77H731GyKXmmEK4x47nxoho/pbyc/wQy2oldN
-         Z/Qg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=AJ1GCxgfPKDxSdytvvaDV47Zh20KnQDD5uaFwZboarM=;
+        b=0pRfWVPwoIwyIJMaV2bb+vMccaO0eZYEh40HEWmsEkUcrOvnhJUwZ6RRk2mUnKzAB0
+         9pKO2xdFVGT6nRUdMgdGQ11RJUk27LdAK4k4WnY42hrz4J7hD/l2IwSjh+WLxnfUoE/H
+         GVO95BMMuQQCgCEsNfy3uUjyE0+LG5jJamuJHwAMJEaMl8WXfOhTiu9795zJI4HfZvEG
+         pxOCqf8pjvHYeNp3AECGgnS17ebM3AclLA8cPBlt2kS6t/quA6MR67Zz5sLHQ2WNJB9d
+         Zel0tkTyAM3JI69PK/lpjowlePv/LhDtxb3F7neFofpxefjQDCwvMtjUjB8267bfIU71
+         JHjA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
-Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
-        by gmr-mx.google.com with ESMTPS id j2si29609lfe.9.2020.11.06.03.50.18
+       spf=pass (google.com: best guess record for domain of sudip.mukherjee@codethink.co.uk designates 176.9.8.87 as permitted sender) smtp.mailfrom=sudip.mukherjee@codethink.co.uk
+Received: from imap3.hz.codethink.co.uk (imap3.hz.codethink.co.uk. [176.9.8.87])
+        by gmr-mx.google.com with ESMTPS id y11si44698lfg.7.2020.11.06.04.04.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 06 Nov 2020 03:50:18 -0800 (PST)
-Received-SPF: pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(Authenticated sender: aratiu)
-	with ESMTPSA id 952321F40EB1
-From: Adrian Ratiu <adrian.ratiu@collabora.com>
-To: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, Nick Desaulniers
- <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, Russell
- King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
- kernel@collabora.com, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 2/2] arm: lib: xor-neon: disable clang vectorization
-In-Reply-To: <20201106101419.GB3811063@ubuntu-m3-large-x86>
-References: <20201106051436.2384842-1-adrian.ratiu@collabora.com>
- <20201106051436.2384842-3-adrian.ratiu@collabora.com>
- <20201106101419.GB3811063@ubuntu-m3-large-x86>
-Date: Fri, 06 Nov 2020 13:50:13 +0200
-Message-ID: <87wnyyvh56.fsf@collabora.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Nov 2020 04:04:58 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of sudip.mukherjee@codethink.co.uk designates 176.9.8.87 as permitted sender) client-ip=176.9.8.87;
+Received: from host-92-5-241-147.as43234.net ([92.5.241.147] helo=[192.168.1.13])
+	by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+	id 1kb0U9-0000Ln-TC; Fri, 06 Nov 2020 12:04:53 +0000
+Subject: Re: [linux-safety] [PATCH] taskstats: remove unneeded dead assignment
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Cc: Balbir Singh <bsingharora@gmail.com>, Tom Rix <trix@redhat.com>,
+ Nathan Chancellor <natechancellor@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org,
+ linux-safety@lists.elisa.tech, linux-kernel@vger.kernel.org
+References: <20201106062210.27920-1-lukas.bulwahn@gmail.com>
+ <6ab2415b-0642-16ee-4be0-c909e07e7565@codethink.co.uk>
+ <alpine.DEB.2.21.2011061126130.20338@felia>
+From: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
+Message-ID: <aea9d12d-88ee-f262-4328-03993521668f@codethink.co.uk>
+Date: Fri, 6 Nov 2020 12:04:53 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.0
 MIME-Version: 1.0
-Content-Type: text/plain; format=flowed; charset="UTF-8"
-X-Original-Sender: adrian.ratiu@collabora.com
+In-Reply-To: <alpine.DEB.2.21.2011061126130.20338@felia>
+Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: sudip.mukherjee@codethink.co.uk
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of adrian.ratiu@collabora.com designates
- 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+ (google.com: best guess record for domain of sudip.mukherjee@codethink.co.uk
+ designates 176.9.8.87 as permitted sender) smtp.mailfrom=sudip.mukherjee@codethink.co.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,143 +130,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nathan,
+Hi Lukas,
 
-On Fri, 06 Nov 2020, Nathan Chancellor <natechancellor@gmail.com> 
-wrote:
-> + Ard, who wrote this code. 
+On 06/11/2020 10:31, Lukas Bulwahn wrote:
 > 
-> On Fri, Nov 06, 2020 at 07:14:36AM +0200, Adrian Ratiu wrote: 
->> Due to a Clang bug [1] neon autoloop vectorization does not 
->> happen or happens badly with no gains and considering previous 
->> GCC experiences which generated unoptimized code which was 
->> worse than the default asm implementation, it is safer to 
->> default clang builds to the known good generic implementation. 
->> The kernel currently supports a minimum Clang version of 
->> v10.0.1, see commit 1f7a44f63e6c ("compiler-clang: add build 
->> check for clang 10.0.1").   When the bug gets eventually fixed, 
->> this commit could be reverted or, if the minimum clang version 
->> bump takes a long time, a warning could be added for users to 
->> upgrade their compilers like was done for GCC.   [1] 
->> https://bugs.llvm.org/show_bug.cgi?id=40976  Signed-off-by: 
->> Adrian Ratiu <adrian.ratiu@collabora.com> 
 > 
-> Thank you for the patch! We are also tracking this here: 
+> On Fri, 6 Nov 2020, Sudip Mukherjee wrote:
 > 
-> https://github.com/ClangBuiltLinux/linux/issues/496 
-> 
-> It was on my TODO to revist getting the warning eliminated, 
-> which likely would have involved a patch like this as well. 
-> 
-> I am curious if it is worth revisting or dusting off Arnd's 
-> patch in the LLVM bug tracker first. I have not tried it 
-> personally. If that is not a worthwhile option, I am fine with 
-> this for now. It would be nice to try and get a fix pinned down 
-> on the LLVM side at some point but alas, finite amount of 
-> resources and people :( 
+>> Hi Lukas,
+>>
 
-I tested Arnd's kernel patch from the LLVM bugtracker [1], but 
-with the Clang v10.0.1 I still get warnings like the following 
-even though the __restrict workaround seems to affect the 
-generated instructions:
-
-./include/asm-generic/xor.h:15:2: remark: the cost-model indicates 
-that interleaving is not beneficial [-Rpass-missed=loop-vectorize] 
-./include/asm-generic/xor.h:11:1: remark: List vectorization was 
-possible but not beneficial with cost 0 >= 0 
-[-Rpass-missed=slp-vectorizer] xor_8regs_2(unsigned long bytes, 
-unsigned long *__restrict p1, unsigned long *__restrict p2)
-
-[1] https://bugs.llvm.org/show_bug.cgi?id=40976#c6
+<snip>
 
 > 
-> Should no other options come to fruition from further 
-> discussions, you can carry my tag forward: 
-> 
-> Acked-by: Nathan Chancellor <natechancellor@gmail.com> 
-> 
-> Hopefully others can comment soon.
+> I did not try but I bet (a beverage of your choice) that the object code
+> remains the same also for your suggested patch. Try to disprove my claim 
+> and possibly earn yourself a beverage when we meet...
 
-In my opinion we have 3 ways to go regarding this:
+Lets decide which beverage.. ;-)
 
-1. Leave it as is and try to notify the user of the breakage (eg 
-add a new warning). You previously said this is not a good idea 
-because the user can't do anything about it. I agree.
+Using gcc-7.2.0 for MIPS:
 
-2. Somehow work around the compiler bug in the kernel which is 
-what the LLVM bugtracker patch tries to do. This is a slippery 
-slope even if we somehow get it right, especially since multiple 
-Clang versions might be supported in the future and we don't know 
-when the bug will be properly fixed by the compiler. In addition 
-we're enabling and "hiding" possibly undefined behaviour.
+original:- ab81d3305d578c2568fbc73aad2f9e61  kernel/taskstats.o
+After your change:- ab81d3305d578c2568fbc73aad2f9e61  kernel/taskstats.o
+After my change:- 0acae2c8d72abd3e15bf805fccdca711  kernel/taskstats.o
 
-3. Disable the broken feature and once the compiler bug is fixed 
-enable it back warning users of old compilers that there is an 
-action they can take: upgrade. This is exactly how this was 
-handled for GCC previously, so there is a precedent.
 
-This implements the 3'rd scenario which is also the first thing 
-Arnd suggested in the original patch. :)
 
-Adrian
-
->
->> ---
->>  arch/arm/include/asm/xor.h | 3 ++-
->>  arch/arm/lib/Makefile      | 3 +++
->>  arch/arm/lib/xor-neon.c    | 4 ++++
->>  3 files changed, 9 insertions(+), 1 deletion(-)
->> 
->> diff --git a/arch/arm/include/asm/xor.h b/arch/arm/include/asm/xor.h
->> index aefddec79286..49937dafaa71 100644
->> --- a/arch/arm/include/asm/xor.h
->> +++ b/arch/arm/include/asm/xor.h
->> @@ -141,7 +141,8 @@ static struct xor_block_template xor_block_arm4regs = {
->>  		NEON_TEMPLATES;			\
->>  	} while (0)
->>  
->> -#ifdef CONFIG_KERNEL_MODE_NEON
->> +/* disabled on clang/arm due to https://bugs.llvm.org/show_bug.cgi?id=40976 */
->> +#if defined(CONFIG_KERNEL_MODE_NEON) && !defined(CONFIG_CC_IS_CLANG)
->>  
->>  extern struct xor_block_template const xor_block_neon_inner;
->>  
->> diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
->> index 6d2ba454f25b..53f9e7dd9714 100644
->> --- a/arch/arm/lib/Makefile
->> +++ b/arch/arm/lib/Makefile
->> @@ -43,8 +43,11 @@ endif
->>  $(obj)/csumpartialcopy.o:	$(obj)/csumpartialcopygeneric.S
->>  $(obj)/csumpartialcopyuser.o:	$(obj)/csumpartialcopygeneric.S
->>  
->> +# disabled on clang/arm due to https://bugs.llvm.org/show_bug.cgi?id=40976
->> +ifndef CONFIG_CC_IS_CLANG
->>  ifeq ($(CONFIG_KERNEL_MODE_NEON),y)
->>    NEON_FLAGS			:= -march=armv7-a -mfloat-abi=softfp -mfpu=neon
->>    CFLAGS_xor-neon.o		+= $(NEON_FLAGS)
->>    obj-$(CONFIG_XOR_BLOCKS)	+= xor-neon.o
->>  endif
->> +endif
->> diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
->> index e1e76186ec23..84c91c48dfa2 100644
->> --- a/arch/arm/lib/xor-neon.c
->> +++ b/arch/arm/lib/xor-neon.c
->> @@ -18,6 +18,10 @@ MODULE_LICENSE("GPL");
->>   * Pull in the reference implementations while instructing GCC (through
->>   * -ftree-vectorize) to attempt to exploit implicit parallelism and emit
->>   * NEON instructions.
->> +
->> + * On Clang the loop vectorizer is enabled by default, but due to a bug
->> + * (https://bugs.llvm.org/show_bug.cgi?id=40976) vectorization is broke
->> + * so xor-neon is disabled in favor of the default reg implementations.
->>   */
->>  #ifdef CONFIG_CC_IS_GCC
->>  #pragma GCC optimize "tree-vectorize"
->> -- 
->> 2.29.0
->> 
+-- 
+Regards
+Sudip
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87wnyyvh56.fsf%40collabora.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/aea9d12d-88ee-f262-4328-03993521668f%40codethink.co.uk.
