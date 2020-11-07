@@ -1,145 +1,127 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBGVVS76QKGQE5HDABDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBFWMS76QKGQE453USSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E16582AA0F4
-	for <lists+clang-built-linux@lfdr.de>; Sat,  7 Nov 2020 00:22:03 +0100 (CET)
-Received: by mail-ot1-x33f.google.com with SMTP id q8sf1160566otk.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Nov 2020 15:22:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604704923; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F4342AA1A8
+	for <lists+clang-built-linux@lfdr.de>; Sat,  7 Nov 2020 01:11:04 +0100 (CET)
+Received: by mail-yb1-xb3d.google.com with SMTP id a184sf3571118ybg.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Nov 2020 16:11:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604707863; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cFsRo9HY32zT1edxmIRtGDdOglkLBsh+wN8aQWJ5bewzsIU8GDh2QmiNmn16ilNgqo
-         H0aCvb83gTyYnNHLedbSsKKpMHq1W4ykFNatwpK3hsgf7qHgUShMoCGeLreMSlFr7JVx
-         jxkJbx820EVTlf+bhS22enq7ueIkr9SoZmxPDDBE06ylz/cXunHdwBh/ZF8HSXicHkWQ
-         fXcr8DZ1UJC1Ds6N+6V/nncZcVDf6K2ulWHD0F+AyzeR1G042KOj1vFfvh/AFT/RzOx8
-         BoRPDUcRzJxOzI1RDWqNsO02jwyK2U5bmn5td9elfldseYLasX8W8c0bI6aOP6j5+Zok
-         DcNA==
+        b=KGMJHIJMqSKadImOcNMgF/no+qpE8xnFB+Wenv2uW2O7Rkzy7yRrWFuYmuukPjUlC6
+         IyKqP9TDVx0bGojbeLN0OdSnUxthOfacmJhP/WptoOwEDxg7sVLdeOPNM3Ct9G5WJCtw
+         vUN42+5qYjZbgG+tU8ilakYI3Ha9gnny+/+n8bpvDI0Rqc51M0pyxTSSuEAvZvC8asIn
+         tK28qCI98KCe849aytg7Briw9uzUaygiYXhsdjWCFKwxaAHU2UNQoHT+QUKOogjAsefu
+         T6Na0rsOjlMo8Zq697VTmkwF6QBlQwgyNucGjsjzISuMF5xbI/lcbD9Xd7YDiLN2UKrE
+         eWVg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=L6D+cCFiGpiipRPzDgFumaM8nAVXnwQxj/lsO0sU0Is=;
-        b=pFlHTMihtfgAOSso6KTrZvscuAXE55IhskIXDo/eeXpWPg5jLvFZUnlVC/sHZxLYer
-         lWLty7O3GgeBjWA2b3chKOk6tJ/PMtFL6xEx7nQEjOSmkKRts95nWKVmnJDp1Wf80NKq
-         jHE1bmQccKiD4ZSgzXHBt/M9spqDU0TbbypO598/fXNx6q5c7Cxs6tcV5F+CP9juh8EA
-         GLFLLjKvwxZYIg46zUSh5XWdMqmuN5/aOwzD6arthq9m3eK+Lrj7vjvK4lKEgoQ1c1Jp
-         K/4xiBs6DcV75n/0jDge4g28aR44lM5ifPtGCDb9cg14DsWYDZPXRA1KGwXg/4tA4jwn
-         HtNQ==
+         :list-id:mailing-list:precedence:reply-to:cc:from:subject:references
+         :mime-version:message-id:in-reply-to:date:sender:dkim-signature;
+        bh=Wc3SeN4bsNkfizWRCSJXX2yyOCeVHDvUEP0HBdRXvvc=;
+        b=BUBJru0hVbwkDY4kF3bA6UrqzSzwuaRDiygau2lGkp/AAY4dp8NLmqRCFDHPf10mrg
+         hvtidunu9TmcOBPyVBuHG0YqpE+tvBCmFs9qSHKcaXVFt6Yt4pb/i1rqP3jemolHyzxm
+         q7k83Mu0PCGcpUk7Y/4xHzpjj38MoAhJ5jBRYHHsgXHB7r6D0+aSAdRTgghv63GmRtaz
+         E6iRIkA0J2gdY1ImA1GuRg3r+grVjqKRGtMY+0NsmLydjvtc7X+9EKPyXAft1Z23//t6
+         9PEJw9FLmSvGuOhfTFUD+fkN9DiRCQEeAElj1IzBxq9i50t94R4k+Ds8lRqF+mmpcupH
+         HdcA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HTj0zMH1;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TMsiT5Ay;
+       spf=pass (google.com: domain of 3fualxwckex0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3FualXwcKEX0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=L6D+cCFiGpiipRPzDgFumaM8nAVXnwQxj/lsO0sU0Is=;
-        b=Z/1DciuOwBfeMSCBHCg5UCC3TJreIdiGLgZ8B5c67K8tNGKYrgt7XCD8HekXZ4XgTH
-         y4xklCXnOaKIg4P4UBknjuTssYXE0cni3EIUZca4bh8d3kUrW03W6xHTiGcs9EGPvlLX
-         Nac06u5ojvbc9Ezf/HuVA+QeimASiQtMn2xsoyPkuyEWNTFGQUu1yPHaPO8+piTycwz7
-         fWxf8bYWBntRiaZAT59m/UnIt3a3ephkwAngpDd13VviC/CnZrQoxJQEEWytQbP3/0yD
-         6Z1zDC+gLeZ3Hf2eT3eK1/6GYmvDaJTLVMxbB7oUSl2eHFeohPEJ40upTfQZ9NJTWkVX
-         jgkg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=L6D+cCFiGpiipRPzDgFumaM8nAVXnwQxj/lsO0sU0Is=;
-        b=PdnRsGBTPCh9ys/d/qiDmv/qOoTBuDJbDDZK9/zsVS3Mq3hAOsZzQ7ZPvS22d3/Pz4
-         iE+8kHnUnSq4UV1qm2+ihmEQd5kfLzMFoxEXi/ceXDFR9p21JOpkdJP73ta/D63H/YM3
-         ZJuBLiNw1AWLQ/4lrGST/MSsWxyh0HiudP2UJxm1wTpFXCxandCVLiz7OCGnHH5T1Sl2
-         PUNyBelphoHblL2D3Uy/J/MJ6kCuAcelAZH3dWCfA1Qvh5w5g9IzMPF46Jo7/9kF+ZSs
-         Bxb65tHR4Xv9NWk8F+cUi4rQxTr3qdJJAWKmFAPOoeyXVd+nhx7SUxKZWlgHwZHwyh8Q
-         nUZg==
+        h=sender:date:in-reply-to:message-id:mime-version:references:subject
+         :from:cc:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Wc3SeN4bsNkfizWRCSJXX2yyOCeVHDvUEP0HBdRXvvc=;
+        b=nADbHHXODfh2JYeQmD0qa43lKMqE0gNOzB2P0vOnXNxBrrtLbmzZtH9fJY/p1smv+K
+         kJkykCGArN3UdYuEGLXyNpjuyxzcOqZ9Z4qOBQxKBO/dKMwoqTlDBD1J6zUmyysj/mjr
+         F2vUSe3S7cTEQ9cAOk0OJq/DPpN499KDRS85RDoGywUhSb2KSwU/l4eru/Zz3KrKgNn9
+         1E26lDJPF/f0+awiMtT4oaaZNqRi+Rf32diLkVALlSqS2sGCKfUVd7mFNk1o3WNaXTNx
+         hthi1g60FQZE3duZdTe2gd1k4JN/gkyn1q/G45CqVSlwEuhcQoex7AS/VIWEEd0Ah+Bt
+         mGFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=L6D+cCFiGpiipRPzDgFumaM8nAVXnwQxj/lsO0sU0Is=;
-        b=YGDs42fRvZFIMZLdX+CYTOmvlK8MVQVhPmGGEvknCCk7jhgUd1QptQEHUfEQdgbvMf
-         I7pwl2TW3T527clq1NFbmoMielGUyMp+NxauesMd9vw6sIqZUZi5Q4PQxsypuGDoKUvZ
-         GuCv9EFeYAG3FRZApmztGdONkfI61w33QJFwQiAkK7bRta3BSB73zNTGqIXZRZL295n9
-         jWyMo5fy1hKoxVDf1NXUa4D2BAlFRsVDkFOCSdBUqp6a0nwF6B/aF3VmcdgPrakgnmVJ
-         EGIk0QUSGGM6Z2Ic4hVAZWs2SJDnqd1vGrSvsvf0pw5TFCz+93nDA2tqZG3nuEqaLppa
-         C5cA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5326LYw8+ew2CeiIpdsMFSWvlDc8oUI65H08y7Ag4m9Ffefr/65z
-	CwYd6C93+Sbw1S4TcghEE0M=
-X-Google-Smtp-Source: ABdhPJy/cox2HyIkxCWXZcDMp9Ge945ILTrTzH2y6HVNPmM/3gazLbXIdesHBkwkVFyXVHUoggaiCg==
-X-Received: by 2002:aca:ab50:: with SMTP id u77mr2416094oie.111.1604704922931;
-        Fri, 06 Nov 2020 15:22:02 -0800 (PST)
+        h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
+         :references:subject:from:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Wc3SeN4bsNkfizWRCSJXX2yyOCeVHDvUEP0HBdRXvvc=;
+        b=daOffdy2/xEjTIWyX86TDpvajkUBOEnUjB4N8/UIaBRLhP4inY0jVJFHWaWif4ktyK
+         7sMLPYCmCbLmTI3j1J4geg/6eKEJNqk3nzfJe2wIa3Ypq/eYlv7zmU68s8AAwdmT+Wf0
+         Si4Ij2G2gBL4fNQ0wKcDqbrg7+1EgpBVSVIh1GbUKGFgu6XilvzbSe7hS2ljac77wRjx
+         Hygy0asDUViymLtMYCvUJnRqloAw8Dj5tfni3wwRb9sCDFABVsBUZwigzL/2kGEiXpOM
+         bZuStguFKUMeowIhIgeQ1X6rsDRmoImXucBjfvM/iqHATmT3RXYftAi90NT9OhUXMACY
+         DULg==
+X-Gm-Message-State: AOAM531ZlIjWONWzn0ckm+BjnqdT/svs59X6a5VtqPjC/ZtGNOonc0oS
+	oouKRdte+rrIPz1aQJjMJxU=
+X-Google-Smtp-Source: ABdhPJxkTH/SLkJ+v9LnmC9bmR7XImaohcGoVd2RS4z4BnBIeK913RKrJGcYWQtDCJQCFEClcJyWUA==
+X-Received: by 2002:a25:3883:: with SMTP id f125mr6548477yba.29.1604707863074;
+        Fri, 06 Nov 2020 16:11:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:130e:: with SMTP id p14ls196396otq.10.gmail; Fri,
- 06 Nov 2020 15:22:02 -0800 (PST)
-X-Received: by 2002:a9d:3a1:: with SMTP id f30mr2783430otf.312.1604704922361;
-        Fri, 06 Nov 2020 15:22:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604704922; cv=none;
+Received: by 2002:a25:c387:: with SMTP id t129ls1565360ybf.7.gmail; Fri, 06
+ Nov 2020 16:11:02 -0800 (PST)
+X-Received: by 2002:a25:d305:: with SMTP id e5mr1444513ybf.358.1604707862591;
+        Fri, 06 Nov 2020 16:11:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604707862; cv=none;
         d=google.com; s=arc-20160816;
-        b=s2cLiSx1KUTy5L40IkWsQFdM/SuyBk9rpfNSe8fQddZUG1KBkYUTM9u07w4d39KQjf
-         1kekas06y8Mz5xx9PjHrj9KMriWP0Wh3Iqcy1obriqoL8OnqyUq171QpUKqhxI5w8Pee
-         Ze0Cl2uCgc0M0JUss126oYgrdCFw7NN1s4ZC7TnXEIW1xLaeBc8YkQBpnXUmb66Kv/wi
-         rnnmG0iPGU3rw4dvEQbq9Am5a1Uk52IIzOduIH5NRPRPUp5Pr0p5rki3vzA9erhZ6TK2
-         I4zB0mgl0cHE6jhd6iDc4B874+tcJrcy0btGeMZusyL9m1GkDCg6NEg0Nx4adG7QtxJF
-         ZLIw==
+        b=zIB4ScJrQS6ABBxFOkOp6Dmx1yxZ0LT+G0Ziaw+gXIWX6dATxRYlCzRf0xnwSw8nBW
+         Vt2n6eJZUgMBHRmLpi6eOEHY+x0tCyMUWa1oJsd+NapRP8QYB8QFLCJF0AlWEGMyaZb/
+         hfLKEM7eEUFTjXLy4yK/+sbaqJEtrtVN7ZDxKfAyd+lbjsb1r4uH3qOMBvxR78bxhRHI
+         prk1WZso4Ro4gK1ohHJNbo/bx+FnPaBNolfA9lZuji5vdmtXWLUoLw/e/UmOWKqopu8h
+         Z7Da8jKXTvBxyh0kiLbW5WoZB/Hu/hKXiDKrvu/kijk/Bih5sioerBZJycmULwdUF0T0
+         IMhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=9kgi0XFLYWD6SBPla2WObtfMjgECeVYCZRoQd1futD0=;
-        b=AHR9CF5amcW3GrsYJEzildfQdsdIJvxDKH3zGWPbyscuzp28VeW0LD9oluD4IlT8ca
-         IfC/VQ+7xwG8RC84hkBsLrkqeIq8FvkO7/qN3vDcefJ0EdeXuCpy07Kf6Esg0aZjoqFx
-         6yv2jF+idVmjzyqZ3mQThWIAq+zc2RxunrZoHB4bcIq262rGl8WlkLbx4xPvR+oKXtAE
-         VmVgOcLj+0Cd+jGh2/bmdvgOUoiEirsjdW6se8qF+09/c7xjv/Yog73J2TEXHz50Fr7L
-         rpXQFB/N0IP7R4cUJ3qTG40wdEghH0PFiovDneejahOOS3pRyU6ZsKdt8YBe8C6Mv3+B
-         ey8w==
+        h=cc:from:subject:references:mime-version:message-id:in-reply-to:date
+         :sender:dkim-signature;
+        bh=O4plfZhOm2PQ9/g1Q0it71FaybRhA0glqyeHSYfkzIQ=;
+        b=BUOOCtpealwfI7QxWjqJ6XbTnBwXqdX/cVkZ1L656Fq9TY6oUX94yTyi0AxBTQEYSp
+         WFMo9sl5Vgf5SYZjzfi7UU3PI2lbEd+LgzfNOquKITSEzAl+mMjZdZgLy1qnUehw/EDO
+         I3gtOeKSpq5vL7HdpYqw/x0R6H/VvvGvadLebZqFwpWHklbuUeof3YucKg5VjEq1VpJW
+         igOc5rXBvSeiO6+vobO7UkIRhVvVg+ZoS1LuGK8dHapJtKHlBQLt15iM1MdH9XC9qHLO
+         qSojd7FLCYcIgUYA46VojujZWSD/Vdq2IrJcLrtgPsa+6HAKstuLRvWTpEzcoOwDPk0h
+         so9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HTj0zMH1;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
-        by gmr-mx.google.com with ESMTPS id d22si253067ooj.1.2020.11.06.15.22.02
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TMsiT5Ay;
+       spf=pass (google.com: domain of 3fualxwckex0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3FualXwcKEX0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id i188si220079yba.4.2020.11.06.16.11.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Nov 2020 15:22:02 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
-Received: by mail-qk1-x741.google.com with SMTP id i21so2693432qka.12
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Nov 2020 15:22:02 -0800 (PST)
-X-Received: by 2002:a37:d0c:: with SMTP id 12mr3931626qkn.418.1604704921837;
-        Fri, 06 Nov 2020 15:22:01 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id m2sm1577647qtu.62.2020.11.06.15.22.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Nov 2020 15:22:00 -0800 (PST)
-Date: Fri, 6 Nov 2020 16:21:59 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Matt Turner <mattst88@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Henrik Rydberg <rydberg@bitmath.org>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Richard Fontana <rfontana@redhat.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] hwmon: applesmc: avoid overlong udelay()
-Message-ID: <20201106232159.GA3586073@ubuntu-m3-large-x86>
-References: <20201106231710.GA29287@macbook>
-MIME-Version: 1.0
+        Fri, 06 Nov 2020 16:11:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3fualxwckex0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id z4so3591670ybk.15
+        for <clang-built-linux@googlegroups.com>; Fri, 06 Nov 2020 16:11:02 -0800 (PST)
+Sender: "jiancai via sendgmr" <jiancai@jiancai.svl.corp.google.com>
+X-Received: from jiancai.svl.corp.google.com ([2620:15c:2ce:0:f693:9fff:fef4:238b])
+ (user=jiancai job=sendgmr) by 2002:a25:e6d0:: with SMTP id
+ d199mr7019427ybh.398.1604707862263; Fri, 06 Nov 2020 16:11:02 -0800 (PST)
+Date: Fri,  6 Nov 2020 16:10:53 -0800
+In-Reply-To: <20200409232728.231527-1-caij2003@gmail.com>
+Message-Id: <20201107001056.225807-1-jiancai@google.com>
+Mime-Version: 1.0
+References: <20200409232728.231527-1-caij2003@gmail.com>
+X-Mailer: git-send-email 2.29.2.222.g5d2a92d10f8-goog
+Subject: [PATCH v2] Make iwmmxt.S support Clang's integrated assembler
+From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: ndesaulniers@google.com, manojgupta@google.com, llozano@google.com, 
+	clang-built-linux@googlegroups.com, Jian Cai <jiancai@google.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Nathan Chancellor <natechancellor@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20201106231710.GA29287@macbook>
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: jiancai@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=HTj0zMH1;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=TMsiT5Ay;       spf=pass
+ (google.com: domain of 3fualxwckex0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3FualXwcKEX0kjbodbjhpphmf.dpndmboh-cvjmu-mjovyhpphmfhspvqt.dpn@flex--jiancai.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Jian Cai <jiancai@google.com>
+Reply-To: Jian Cai <jiancai@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,66 +134,203 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Nov 06, 2020 at 06:17:10PM -0500, Matt Turner wrote:
-> On my late 2013 Macbook Pro, I have a couple of scripts that set the
-> fans to auto or full-speed:
-> 
-> fan-hi:
-> #!/bin/sh
-> sudo sh -c 'echo 1 > /sys/devices/platform/applesmc.768/fan1_manual
->             echo 1 > /sys/devices/platform/applesmc.768/fan2_manual
->             cat /sys/devices/platform/applesmc.768/fan1_max > /sys/devices/platform/applesmc.768/fan1_output
->             cat /sys/devices/platform/applesmc.768/fan2_max > /sys/devices/platform/applesmc.768/fan2_output'
-> 
-> fan-auto:
-> #!/bin/sh
-> sudo sh -c 'echo 0 > /sys/devices/platform/applesmc.768/fan1_manual
->             echo 0 > /sys/devices/platform/applesmc.768/fan2_manual'
-> 
-> Running ./fan-hi and then ./fan-auto on Linux v5.6 works and doesn't
-> cause any problems, but after updating to v5.9 I see this in dmesg:
-> 
-> [Nov 6 17:24] applesmc: send_byte(0x01, 0x0300) fail: 0x40
-> [  +0.000005] applesmc: FS! : write data fail
-> [  +0.191777] applesmc: send_byte(0x30, 0x0300) fail: 0x40
-> [  +0.000009] applesmc: F0Tg: write data fail
-> [  +7.097416] applesmc: send_byte(0x00, 0x0300) fail: 0x40
-> [  +0.000006] applesmc: FS! : write data fail
-> 
-> and the fan controls don't work.
-> 
-> Googling turned up this [1] which looks like the same problem. They said
-> it began occurring between v5.7 and v5.8, so I looked and found this
-> commit.
-> 
-> After reverting commit fff2d0f701e6753591609739f8ab9be1c8e80ebb from
-> v5.9, I no longer see the errors in dmesg and the fan controls work
-> again.
-> 
-> Any ideas what the problem is?
-> 
-> Thanks,
-> Matt
-> 
-> [1] https://stackoverflow.com/questions/63505469/cant-write-data-to-applesmc-error-after-upgrade-to-arch-linux-kernel-5-8-1
-> 
+This patch replaces 6 IWMMXT instructions Clang's integrated assembler
+does not support in iwmmxt.S using macros, while making sure GNU
+assembler still emit the same instructions. This should be easier than
+providing full IWMMXT support in Clang.
 
-There is another thread on this regression:
+"Intel Wireless MMX Technology - Developer Guide - August, 2002" should
+be referenced for the encoding schemes of these extensions.
 
-https://lore.kernel.org/lkml/20200930105442.3f642f6c@aktux/
+Link: https://github.com/ClangBuiltLinux/linux/issues/975
 
-Looks like Brad Campbell has a patch that has some success in fixing the
-regression (although others are saying it breaks their setup...):
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Jian Cai <jiancai@google.com>
+---
+ arch/arm/kernel/iwmmxt.S | 89 ++++++++++++++++++++--------------------
+ arch/arm/kernel/iwmmxt.h | 47 +++++++++++++++++++++
+ 2 files changed, 92 insertions(+), 44 deletions(-)
+ create mode 100644 arch/arm/kernel/iwmmxt.h
 
-https://lore.kernel.org/lkml/3c72ccc3-4de1-b5d0-423d-7b8c80991254@fnarfbargle.com/
-
-Might be worth giving it a shot and jumping in so you get CC'd on
-further revisions.
-
-Cheers,
-Nathan
+diff --git a/arch/arm/kernel/iwmmxt.S b/arch/arm/kernel/iwmmxt.S
+index 0dcae787b004..d2b4ac06e4ed 100644
+--- a/arch/arm/kernel/iwmmxt.S
++++ b/arch/arm/kernel/iwmmxt.S
+@@ -16,6 +16,7 @@
+ #include <asm/thread_info.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/assembler.h>
++#include "iwmmxt.h"
+ 
+ #if defined(CONFIG_CPU_PJ4) || defined(CONFIG_CPU_PJ4B)
+ #define PJ4(code...)		code
+@@ -113,33 +114,33 @@ concan_save:
+ 
+ concan_dump:
+ 
+-	wstrw	wCSSF, [r1, #MMX_WCSSF]
+-	wstrw	wCASF, [r1, #MMX_WCASF]
+-	wstrw	wCGR0, [r1, #MMX_WCGR0]
+-	wstrw	wCGR1, [r1, #MMX_WCGR1]
+-	wstrw	wCGR2, [r1, #MMX_WCGR2]
+-	wstrw	wCGR3, [r1, #MMX_WCGR3]
++	wstrw	wCSSF, r1, MMX_WCSSF
++	wstrw	wCASF, r1, MMX_WCASF
++	wstrw	wCGR0, r1, MMX_WCGR0
++	wstrw	wCGR1, r1, MMX_WCGR1
++	wstrw	wCGR2, r1, MMX_WCGR2
++	wstrw	wCGR3, r1, MMX_WCGR3
+ 
+ 1:	@ MUP? wRn
+ 	tst	r2, #0x2
+ 	beq	2f
+ 
+-	wstrd	wR0,  [r1, #MMX_WR0]
+-	wstrd	wR1,  [r1, #MMX_WR1]
+-	wstrd	wR2,  [r1, #MMX_WR2]
+-	wstrd	wR3,  [r1, #MMX_WR3]
+-	wstrd	wR4,  [r1, #MMX_WR4]
+-	wstrd	wR5,  [r1, #MMX_WR5]
+-	wstrd	wR6,  [r1, #MMX_WR6]
+-	wstrd	wR7,  [r1, #MMX_WR7]
+-	wstrd	wR8,  [r1, #MMX_WR8]
+-	wstrd	wR9,  [r1, #MMX_WR9]
+-	wstrd	wR10, [r1, #MMX_WR10]
+-	wstrd	wR11, [r1, #MMX_WR11]
+-	wstrd	wR12, [r1, #MMX_WR12]
+-	wstrd	wR13, [r1, #MMX_WR13]
+-	wstrd	wR14, [r1, #MMX_WR14]
+-	wstrd	wR15, [r1, #MMX_WR15]
++	wstrd	wR0,  r1, MMX_WR0
++	wstrd	wR1,  r1, MMX_WR1
++	wstrd	wR2,  r1, MMX_WR2
++	wstrd	wR3,  r1, MMX_WR3
++	wstrd	wR4,  r1, MMX_WR4
++	wstrd	wR5,  r1, MMX_WR5
++	wstrd	wR6,  r1, MMX_WR6
++	wstrd	wR7,  r1, MMX_WR7
++	wstrd	wR8,  r1, MMX_WR8
++	wstrd	wR9,  r1, MMX_WR9
++	wstrd	wR10, r1, MMX_WR10
++	wstrd	wR11, r1, MMX_WR11
++	wstrd	wR12, r1, MMX_WR12
++	wstrd	wR13, r1, MMX_WR13
++	wstrd	wR14, r1, MMX_WR14
++	wstrd	wR15, r1, MMX_WR15
+ 
+ 2:	teq	r0, #0				@ anything to load?
+ 	reteq	lr				@ if not, return
+@@ -147,30 +148,30 @@ concan_dump:
+ concan_load:
+ 
+ 	@ Load wRn
+-	wldrd	wR0,  [r0, #MMX_WR0]
+-	wldrd	wR1,  [r0, #MMX_WR1]
+-	wldrd	wR2,  [r0, #MMX_WR2]
+-	wldrd	wR3,  [r0, #MMX_WR3]
+-	wldrd	wR4,  [r0, #MMX_WR4]
+-	wldrd	wR5,  [r0, #MMX_WR5]
+-	wldrd	wR6,  [r0, #MMX_WR6]
+-	wldrd	wR7,  [r0, #MMX_WR7]
+-	wldrd	wR8,  [r0, #MMX_WR8]
+-	wldrd	wR9,  [r0, #MMX_WR9]
+-	wldrd	wR10, [r0, #MMX_WR10]
+-	wldrd	wR11, [r0, #MMX_WR11]
+-	wldrd	wR12, [r0, #MMX_WR12]
+-	wldrd	wR13, [r0, #MMX_WR13]
+-	wldrd	wR14, [r0, #MMX_WR14]
+-	wldrd	wR15, [r0, #MMX_WR15]
++	wldrd	wR0,  r0, MMX_WR0
++	wldrd	wR1,  r0, MMX_WR1
++	wldrd	wR2,  r0, MMX_WR2
++	wldrd	wR3,  r0, MMX_WR3
++	wldrd	wR4,  r0, MMX_WR4
++	wldrd	wR5,  r0, MMX_WR5
++	wldrd	wR6,  r0, MMX_WR6
++	wldrd	wR7,  r0, MMX_WR7
++	wldrd	wR8,  r0, MMX_WR8
++	wldrd	wR9,  r0, MMX_WR9
++	wldrd	wR10, r0, MMX_WR10
++	wldrd	wR11, r0, MMX_WR11
++	wldrd	wR12, r0, MMX_WR12
++	wldrd	wR13, r0, MMX_WR13
++	wldrd	wR14, r0, MMX_WR14
++	wldrd	wR15, r0, MMX_WR15
+ 
+ 	@ Load wCx
+-	wldrw	wCSSF, [r0, #MMX_WCSSF]
+-	wldrw	wCASF, [r0, #MMX_WCASF]
+-	wldrw	wCGR0, [r0, #MMX_WCGR0]
+-	wldrw	wCGR1, [r0, #MMX_WCGR1]
+-	wldrw	wCGR2, [r0, #MMX_WCGR2]
+-	wldrw	wCGR3, [r0, #MMX_WCGR3]
++	wldrw	wCSSF, r0, MMX_WCSSF
++	wldrw	wCASF, r0, MMX_WCASF
++	wldrw	wCGR0, r0, MMX_WCGR0
++	wldrw	wCGR1, r0, MMX_WCGR1
++	wldrw	wCGR2, r0, MMX_WCGR2
++	wldrw	wCGR3, r0, MMX_WCGR3
+ 
+ 	@ clear CUP/MUP (only if r1 != 0)
+ 	teq	r1, #0
+diff --git a/arch/arm/kernel/iwmmxt.h b/arch/arm/kernel/iwmmxt.h
+new file mode 100644
+index 000000000000..fb627286f5bb
+--- /dev/null
++++ b/arch/arm/kernel/iwmmxt.h
+@@ -0,0 +1,47 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __IWMMXT_H__
++#define __IWMMXT_H__
++
++.irp b, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
++.set .LwR\b, \b
++.set .Lr\b, \b
++.endr
++
++.set .LwCSSF, 0x2
++.set .LwCASF, 0x3
++.set .LwCGR0, 0x8
++.set .LwCGR1, 0x9
++.set .LwCGR2, 0xa
++.set .LwCGR3, 0xb
++
++.macro wldrd, reg:req, base:req, offset:req
++.inst 0xedd00100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
++.endm
++
++.macro wldrw, reg:req, base:req, offset:req
++.inst 0xfd900100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
++.endm
++
++.macro wstrd, reg:req, base:req, offset:req
++.inst 0xedc00100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
++.endm
++
++.macro wstrw, reg:req, base:req, offset:req
++.inst 0xfd800100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
++.endm
++
++#ifdef __clang__
++
++#define wCon c1
++
++.macro tmrc, dest:req, control:req
++mrc p1, 0, \dest, \control, c0, 0
++.endm
++
++.macro tmcr, control:req, src:req
++mcr p1, 0, \src, \control, c0, 0
++.endm
++#endif
++
++#endif
+-- 
+2.29.1.341.ge80a0c044ae-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201106232159.GA3586073%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201107001056.225807-1-jiancai%40google.com.
