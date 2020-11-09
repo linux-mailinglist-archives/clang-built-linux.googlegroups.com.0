@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBPFQUT6QKGQEITPBE3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCF2UT6QKGQETALXDJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id A719F2AB4AF
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Nov 2020 11:21:49 +0100 (CET)
-Received: by mail-qv1-xf37.google.com with SMTP id d14sf5159882qvz.16
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Nov 2020 02:21:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1604917308; cv=pass;
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id E47382AB52D
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Nov 2020 11:42:17 +0100 (CET)
+Received: by mail-oi1-x237.google.com with SMTP id d206sf4418362oig.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Nov 2020 02:42:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1604918536; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LoWvcswX+v+VBNa0uRlU/Laa1kfeVHIyrt0FrCOqfsjf3HIWjJzpwytR1Ju8oZHAq6
-         GxyEjA/4mlTa3k2vbs7MHzx6qvfexLWQbEWuLXb3ntxTmlo+y0LfP6fr44fZ97S2tmCP
-         gWSpyHrHFu5hHU6jPkYLtIiMW1eGTQ/F+coamZhZYQQM/y4uASDBeWmzUBT+UKfV1XWi
-         7f3/7fhG61i/pCtzUgjTrKf3jbN1Mnbk9u2ZPms29xocX3SqMB/3rsOpAaK/Rf0RtktT
-         6f3bhda8ip2TQNxBjpfFAslkzUzk0xAOUb++CQ7f3XBxvHyaDEeP0FixWOE0N+5iFF4M
-         Ui7Q==
+        b=v6R0x3+J1taNO7dF/sE1F42WM3nLJBdIkqseDGRxu9xGCawrMDLg78G6qdQTQzZN6d
+         Dm4jRGPTQlW788Rbf2gJSBbWaAYhEGA9Z8JF9SfrD1iEF/x7dDQIZ1ohb3u99xLwVpob
+         krcPNGxobgcPnHNMn64Agq1KiSMgdceTcscmX/HAzQW7u6+5opDVOOhA74H0q98tF18M
+         /YrqQN4wdUWQL18lj1Q5gtlk3kkh8sprKiJRR0lTgPfxcUlKAJA2C32o90LAZt/aG9Z2
+         NDXq74F9vdliu1IwT+6dySfwUorQQD3Ej9QowQk8D9+SGcFV75/gsYl5v1tQS9znFvSP
+         E1pA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=tVi+tuZMGCg+q0cX/FwOIq/InJ1eskTt1i5GgxhUOb8=;
-        b=oTw/y41CoKF/Ta/eIsvG2BIaI8DEU8RDmM1qzEAaVVvZHh+wgoume8S4U7EU6q4UM0
-         cKky4K1A70ZlPpFJsxT2gFWl2QUWjLGCea5mydCzg5B6DlEO2WsLsqrdtF/PljK/6Iif
-         VlHmkJOCSgBRCvim+y5/UQvPkYzd2+a2MUlaFdroxS/lECHNB/1IM8ot6NqgI+ZLmkbK
-         n5IJMgKqWJ2hon1hoX2KtJnAqMq4oIaTuVxV5YUBcm9oGXZkRWk0DNmbKoAJhw02EoSU
-         0tIvH9usTn3i9ha91D2819zjt9MLFHpmYdb8nSkEqbqzx3NBdyOHG++xDZWnmHFo/5y1
-         y3Mg==
+        bh=96DVVfstwjcv7bZ/J+HwLoxJSG3xAPg0gWyrHeFvuqc=;
+        b=qmKrAfHDjLCj3jpdIJIkuDRW3kgvFYnvwwWm/gXgAPApqD13dfOqs7vuFZgA9w1SEK
+         NQVsioOk/P3HykTaFTYT6/P0sxJRoFj5Kfj8YJATR31wmE5l9Jgs+LnNcYdDbGGyLPFD
+         14DHZgw/F95U4OWNIJJ1DKwGtZOvAHrhQ+gVeqHXvzdpAOZLMtChBH97dtEARXTlZJgK
+         TKRzbhSvbXYEAaZuFO6HuYemMpXVJwOk2LO35q+zMNI0NJexTqd1n63ygYA4GKgd8pOT
+         IzGoMHTPyVUg9M9NnEZoPlr9XL11fQmIxdtiiTw14YGGn8myUBc7blVvrr5XSUag+bw0
+         12VQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tVi+tuZMGCg+q0cX/FwOIq/InJ1eskTt1i5GgxhUOb8=;
-        b=Pf3Zaq3QMnncUSkt9wl4hC6+X5PdLyO3zGw/pDRO2ksT51qR6+jLaiUdRq7axJE6YH
-         1oux8MsnKIPGtKEnKM2dnC7YOxuZzgv+g16p0h+ntkaplhRFacDma9KL7MHfW5vzIx3X
-         hd2T+DhCKuTA9zVAjem8xDLLDxhK6AAr0fiUJ2cyEVOR+UD+7etBNbv43kqWshFoWaYv
-         UU+K+JxJkje7KW0jR0zWmllK0rx37JYLSnfRnzD4S0Pqvm8qddEu1wwr3S9k7Tgjmq/W
-         GvYsG87knx3MNUON5Sa4HZ5bQ4HXUmQw31wb3lc0yR50PJCAK3m8eUTRLVK+NPKmQ6RE
-         fFWA==
+        bh=96DVVfstwjcv7bZ/J+HwLoxJSG3xAPg0gWyrHeFvuqc=;
+        b=XIDi279JuAXR0XVvNxBVDcj8mULq3zHdZNm3QnJmvoSL/6/+i961cnF+3oqkJ15VJb
+         /mk50YIhd/B+4pAlaH54QmpoJlnPV0frvkmNAR2gXkiFdT0ZKWIz1rBQylWp3WSrTDFu
+         S0R2TtJm69Hly/LUiyse5gdvtUW3jBbnwgkd5VStX7Xb7CUVMBxjQ6Xb6gv0cRH62WAE
+         fTGpjK8i2FaEtxnAAwzFpgZOwZO1GJZyuvf2Q6BdB+jSa/TQYMZZehms0+VbwQP/dLi9
+         sTmSqhGneQXJlp2mj25KbUSOyqoklHLDezbHMITRV3df9tgn4U7FuHKs9jXzwxRz7icp
+         Pk1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,89 +51,94 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tVi+tuZMGCg+q0cX/FwOIq/InJ1eskTt1i5GgxhUOb8=;
-        b=awGdfZqqSi4Zkh5p7/QN1NMHbYfhFhRiY2syjYFz9U6sLl/a286P0r6oxCaEVeYHnI
-         op8KvY9kq+tPaWHgMezU8bMEB9ym4mn5Ef02RRqG6x57CA6CkcgeyYF76SimR0Fp/RJ7
-         8JCWYE5Zg6nonL9PyEs1o5B+JGOV61ifQrzYzh+9FXiu0k2Q79EskDH2XcuMBkp1N2XY
-         Nk6pCmDRUWDau2fmkxjyHRXElMsHjjN/4RSKqM4RlCH+gz73TGv9dLKfNXOvVQn4Kbdc
-         Vae8fNBQ9hq2SswOiuNiOhp2eyFUdjLv8enElYPRjMaw/452BG81cF9PzCWuq3EE8VLb
-         vgDw==
+        bh=96DVVfstwjcv7bZ/J+HwLoxJSG3xAPg0gWyrHeFvuqc=;
+        b=mJyQt6hN4WTBjmAGyTfVYUxH3y6HU6lFbS6W44coLLmEXs1qRdpwmN20yTz9Mo5Ueu
+         9JHjGVBPwWgbieXlSaf8Fsx6ysLKii5V6KrDR7U+Uzwp+dSCj7CbqF2F3MLcg8aj5ZqE
+         W/gzcRJl3Et+iBl7G1UvduUne2qxEG6yIB3Cz/MPzFmQ2nMGyZnkyGQQMW14M6rVdh3D
+         Hyy4NF0fMsTFhGKPRQzPXP0EHTjltCkKqS9DEfPTn/YpwkZwnRwmqPydjwmmntvMfxfQ
+         MPa0WjMKk3sLvo+WPpDHR/J1AZJAjRQrnYNk4E2gQi4OUpkeRUSafCsMqOVPmEvk6ufJ
+         SUDA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5323GlbxK7oYKV47RWWxHn7ICpQVO8gFTlKPQwmKz8cSMg+9I4hl
-	ghHz7j6uUUHxB72JqP3ne8U=
-X-Google-Smtp-Source: ABdhPJxKsQaOyHXPtnzjkN+a2bSEJ8lgeQm6+vTkf4vzVOo/8peF3L6quUFRq124l8mBpqpO3HaHNg==
-X-Received: by 2002:a37:6195:: with SMTP id v143mr12323088qkb.71.1604917308262;
-        Mon, 09 Nov 2020 02:21:48 -0800 (PST)
+X-Gm-Message-State: AOAM530xKApMwdXLO4tv2ffGAVVOZsrkxn4XP7Ou3sLjZFaAsq/0C/7x
+	7F+IaWfHad+BFD/WWyz5laA=
+X-Google-Smtp-Source: ABdhPJzaNksjdXUiSKBj+g5gZC12riux0nXtMYp+2e/u3ntzng4MGl5iwl1U+V/HYzrJSfDF/GafIw==
+X-Received: by 2002:a05:6830:1411:: with SMTP id v17mr10391145otp.209.1604918536320;
+        Mon, 09 Nov 2020 02:42:16 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6615:: with SMTP id a21ls1447610qkc.10.gmail; Mon, 09
- Nov 2020 02:21:47 -0800 (PST)
-X-Received: by 2002:a37:be83:: with SMTP id o125mr13342248qkf.2.1604917307603;
-        Mon, 09 Nov 2020 02:21:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1604917307; cv=none;
+Received: by 2002:aca:b784:: with SMTP id h126ls2023346oif.3.gmail; Mon, 09
+ Nov 2020 02:42:16 -0800 (PST)
+X-Received: by 2002:aca:750d:: with SMTP id q13mr8826532oic.77.1604918535831;
+        Mon, 09 Nov 2020 02:42:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604918535; cv=none;
         d=google.com; s=arc-20160816;
-        b=RUeu8UOIzx7IbGNrCjbIDeEGBpAy5OFuGCu2uDcuxroYE1a8lOoQwMTOJzUsRJB/ap
-         izVrOuo8IRCcN5mfLivV2i0bIH33dJZQ6xipBWR+biReQHfqfSUFwR4ouCS3crjYyefs
-         aUIOW2limJ+Ys3a7E/YoCnQOLlo9qKdLL1vRtNN9PduFhPFs5ChOpg1okOpAGNk65PSX
-         16UsA6J+8bLWgmyWnkCTJ9woTZwjiP+TlX6UMMEeh+31YbDJigaq3/Ur1JB3EFKxInAc
-         ZXekaQmgkJHWwXNS16+fKYZP+kJz7ybIlg4pZVeOaEt6tTN+4TjNwPsyOPeQQTOTX+Q3
-         vleA==
+        b=FivC7XZ0mmh93OYytr7yC5eJwbrJhmUqKSUARz89YeOLOtBiYGRHzoLehmfQRGvFHN
+         qZUmyOQL/rop/kw3FSKj/TDXVMR1AnEDUBBLiK+inm9T8eFG1IGyH+6Qc5POKv1s0PHh
+         Is+8+SvR0SzJHH8qpt+BgAtG/8AhTWQSsu6DY90hFRtfq/TlUg4J2f29o2GLhxR80HQy
+         Ib6+L0dlJ0rG6tC8xtRlLxJR65deV4bbkUfCqLaE33YD5cWkpBfgPvxfCINW7rHPvGk5
+         v3ZmhrtB5/xq4GnJtdFSZxxQoQOvxoqNVb1rQUhm/7CnUDqKb15U6UZkiejP8c4Kqf4E
+         zk2Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=QDjZ9q2S5rEZUaWGWuaSJKPlkjM5aHrfe4c8V2fJnmI=;
-        b=fsjyTnO4+y3MIraxAs9qnrzF6IwrINyXO86cxsCwBxwAVBNn5xHINAEvRwgTZxmOfh
-         g7C7r8ORWRvnpFwiWiDqISgnfwnxFmQ2jGER8tHVB4qWV+Psy4hyQCgSoKG8kfap+TdX
-         6EU3dZtKesQm1+gzHOWZcE2XqYsq9c3JzJRr+leo0xIocpMC+0uEj+8XtNeN8lTGfuu6
-         n+i2cYvx6tZP/gyObXV/YXDBM6H3tkdVTdeUlOrPi0CjtmprHcGooZC44iO9jtnWPEl2
-         1gB1X0/DeM78W2V5dKheUFlQZNj1AnexEfA3gMQMmQ+wSCXhiFn67itWTUwpnqWfZjze
-         GMKw==
+        bh=irBPZpFWIHfuYb43rjOsgw6ShcNZE70or87fOodZIf0=;
+        b=HZJMiKeMjNnGSyfxK5Tr8WNnO/Ky4y0Ja5QMWN8xXUuRu6cI9kZ5LJHWHcg6iZ5qrS
+         DxlKdpOVbPw+MRbAgC8Q4xpgpzED8FUmppW5/koSU6AimFMrluGCj/bJKphSdfJI1zsX
+         +PiTbMBP0e+vnmURV4Yfd9er4Ce5Cmicf25jskdBF9pnqaNhoPReOqXz+tgASyVWqsbl
+         sRjcQcFXesGnE2Y0F7wX9EIuh4kq43a+PpjeCW0/zKniaGptvZYYoJdWcGUUpOk45rSi
+         ypc1NH/gk0oHGcm1EWu6WQWWLaxhVtPIUraw/RtMcYJJLKOKrAv4li9tFzKLYnExTJH1
+         Y4XQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id s190si609060qkf.4.2020.11.09.02.21.46
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id p17si577216oot.0.2020.11.09.02.42.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 09 Nov 2020 02:21:47 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
-IronPort-SDR: JgxhNSY93d8ejIWTUZprcnFIfV4ZklTGagyxSE6Y59qzNgURJCU8JOI8zqmDyJleML67hPsPnA
- twZbTYoPUIYA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9799"; a="149057455"
+        Mon, 09 Nov 2020 02:42:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+IronPort-SDR: QEo5//wFcij/EodLa9K6kgMDOhhPvNtCs7+EVDkuCeTtruTDakGfyNDLI4jmsf0loA8RffJ4gf
+ sq/PAgXjkyUQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9799"; a="254488298"
 X-IronPort-AV: E=Sophos;i="5.77,463,1596524400"; 
-   d="gz'50?scan'50,208,50";a="149057455"
+   d="gz'50?scan'50,208,50";a="254488298"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2020 02:21:45 -0800
-IronPort-SDR: 61LRVSgw4FeZ/GG8vsba0wYKM4G2HOSovWGPQk0sVYoTKoOU7P14npYYUnWaGD9ktyjRDCjRk2
- PZabNndN6lVg==
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2020 02:42:14 -0800
+IronPort-SDR: ExWurFF8Vy42AjzYUVirFPpjOV5L8/UzfCCkkZ3PQ2ELB0+S+CV5zupZuxIwZ2rR3gZa49U3sJ
+ 0HggGctep66A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.77,463,1596524400"; 
-   d="gz'50?scan'50,208,50";a="307607786"
+   d="gz'50?scan'50,208,50";a="359603107"
 Received: from lkp-server01.sh.intel.com (HELO d0be80f1a028) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 09 Nov 2020 02:21:43 -0800
+  by fmsmga002.fm.intel.com with ESMTP; 09 Nov 2020 02:42:10 -0800
 Received: from kbuild by d0be80f1a028 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kc4Iv-000059-RP; Mon, 09 Nov 2020 10:21:41 +0000
-Date: Mon, 9 Nov 2020 18:21:30 +0800
+	id 1kc4cj-000072-TZ; Mon, 09 Nov 2020 10:42:09 +0000
+Date: Mon, 9 Nov 2020 18:42:04 +0800
 From: kernel test robot <lkp@intel.com>
-To: Olga Kornievskaia <olga.kornievskaia@gmail.com>,
-	trond.myklebust@hammerspace.com, anna.schumaker@netapp.com
+To: Nick Desaulniers <ndesaulniers@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-nfs@vger.kernel.org, omosnace@redhat.com
-Subject: Re: [PATCH v4 1/1] NFSv4.2: condition READDIR's mask for security
- label based on LSM state
-Message-ID: <202011091855.m9TWuoD4-lkp@intel.com>
-References: <20201106175500.4257-1-olga.kornievskaia@gmail.com>
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Joe Perches <joe@perches.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] Revert "kbuild: Do not enable -Wimplicit-fallthrough
+ for clang for now"
+Message-ID: <202011091844.qatCN6pl-lkp@intel.com>
+References: <20201107084525.3417278-1-ndesaulniers@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="fdj2RfSjLxBAspz7"
+Content-Type: multipart/mixed; boundary="UugvWAfsgieZRqgk"
 Content-Disposition: inline
-In-Reply-To: <20201106175500.4257-1-olga.kornievskaia@gmail.com>
+In-Reply-To: <20201107084525.3417278-1-ndesaulniers@google.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -149,22 +154,22 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---fdj2RfSjLxBAspz7
+--UugvWAfsgieZRqgk
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-Hi Olga,
+Hi Nick,
 
-Thank you for the patch! Yet something to improve:
+I love your patch! Perhaps something to improve:
 
-[auto build test ERROR on nfs/linux-next]
-[also build test ERROR on v5.10-rc3 next-20201109]
+[auto build test WARNING on kbuild/for-next]
+[also build test WARNING on v5.10-rc3 next-20201109]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch]
 
-url:    https://github.com/0day-ci/linux/commits/Olga-Kornievskaia/NFSv4-2-condition-READDIR-s-mask-for-security-label-based-on-LSM-state/20201109-095958
-base:   git://git.linux-nfs.org/projects/trondmy/linux-nfs.git linux-next
+url:    https://github.com/0day-ci/linux/commits/Nick-Desaulniers/Revert-kbuild-Do-not-enable-Wimplicit-fallthrough-for-clang-for-now/20201109-093904
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git for-next
 config: powerpc64-randconfig-r016-20201109 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 09ec07827b1128504457a93dee80b2ceee1af600)
 reproduce (this is a W=1 build):
@@ -172,71 +177,308 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://github.com/0day-ci/linux/commit/e0d917660042c74411f25268b6c9c9c1c85425f2
+        # https://github.com/0day-ci/linux/commit/8b3537ff657d0124d47fbe215decbba65c4551ff
         git remote add linux-review https://github.com/0day-ci/linux
-        git fetch --no-tags linux-review Olga-Kornievskaia/NFSv4-2-condition-READDIR-s-mask-for-security-label-based-on-LSM-state/20201109-095958
-        git checkout e0d917660042c74411f25268b6c9c9c1c85425f2
+        git fetch --no-tags linux-review Nick-Desaulniers/Revert-kbuild-Do-not-enable-Wimplicit-fallthrough-for-clang-for-now/20201109-093904
+        git checkout 8b3537ff657d0124d47fbe215decbba65c4551ff
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> fs/nfs/nfs4proc.c:4984:18: error: use of undeclared identifier 'server'
-                   args.bitmask = server->attr_bitmask_nl;
-                                  ^
-   fs/nfs/nfs4proc.c:4986:18: error: use of undeclared identifier 'server'
-                   args.bitmask = server->attr_bitmask;
-                                  ^
-   2 errors generated.
+   In file included from security/integrity/ima/ima_main.c:23:
+   In file included from include/linux/mman.h:5:
+   In file included from include/linux/mm.h:687:
+   In file included from include/linux/huge_mm.h:8:
+   In file included from include/linux/fs.h:33:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:241:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 1: ;
+           ^
+   include/linux/signal.h:241:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 1: ;
+           ^
+           __attribute__((fallthrough)); 
+   include/linux/signal.h:241:2: note: insert 'break;' to avoid fall-through
+           case 1: ;
+           ^
+           break; 
+   include/linux/signal.h:253:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 1: ;
+           ^
+   include/linux/signal.h:253:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 1: ;
+           ^
+           __attribute__((fallthrough)); 
+   include/linux/signal.h:253:2: note: insert 'break;' to avoid fall-through
+           case 1: ;
+           ^
+           break; 
+>> security/integrity/ima/ima_main.c:746:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           default:
+           ^
+   security/integrity/ima/ima_main.c:746:2: note: insert 'break;' to avoid fall-through
+           default:
+           ^
+           break; 
+   3 warnings generated.
+--
+   In file included from security/integrity/ima/ima_policy.c:13:
+   In file included from include/linux/fs.h:33:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:241:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 1: ;
+           ^
+   include/linux/signal.h:241:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 1: ;
+           ^
+           __attribute__((fallthrough)); 
+   include/linux/signal.h:241:2: note: insert 'break;' to avoid fall-through
+           case 1: ;
+           ^
+           break; 
+   include/linux/signal.h:253:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 1: ;
+           ^
+   include/linux/signal.h:253:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 1: ;
+           ^
+           __attribute__((fallthrough)); 
+   include/linux/signal.h:253:2: note: insert 'break;' to avoid fall-through
+           case 1: ;
+           ^
+           break; 
+>> security/integrity/ima/ima_policy.c:569:3: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+                   default:
+                   ^
+   security/integrity/ima/ima_policy.c:569:3: note: insert 'break;' to avoid fall-through
+                   default:
+                   ^
+                   break; 
+   security/integrity/ima/ima_policy.c:805:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           default:
+           ^
+   security/integrity/ima/ima_policy.c:805:2: note: insert 'break;' to avoid fall-through
+           default:
+           ^
+           break; 
+   4 warnings generated.
+--
+   In file included from drivers/mmc/host/sdhci-of-arasan.c:22:
+   In file included from include/linux/phy/phy.h:17:
+   In file included from include/linux/regulator/consumer.h:35:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:17:
+   In file included from include/linux/fs.h:33:
+   In file included from include/linux/percpu-rwsem.h:7:
+   In file included from include/linux/rcuwait.h:6:
+   In file included from include/linux/sched/signal.h:6:
+   include/linux/signal.h:241:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 1: ;
+           ^
+   include/linux/signal.h:241:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 1: ;
+           ^
+           __attribute__((fallthrough)); 
+   include/linux/signal.h:241:2: note: insert 'break;' to avoid fall-through
+           case 1: ;
+           ^
+           break; 
+   include/linux/signal.h:253:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 1: ;
+           ^
+   include/linux/signal.h:253:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 1: ;
+           ^
+           __attribute__((fallthrough)); 
+   include/linux/signal.h:253:2: note: insert 'break;' to avoid fall-through
+           case 1: ;
+           ^
+           break; 
+>> drivers/mmc/host/sdhci-of-arasan.c:630:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           default:
+           ^
+   drivers/mmc/host/sdhci-of-arasan.c:630:2: note: insert 'break;' to avoid fall-through
+           default:
+           ^
+           break; 
+   drivers/mmc/host/sdhci-of-arasan.c:698:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           default:
+           ^
+   drivers/mmc/host/sdhci-of-arasan.c:698:2: note: insert 'break;' to avoid fall-through
+           default:
+           ^
+           break; 
+   drivers/mmc/host/sdhci-of-arasan.c:763:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           default:
+           ^
+   drivers/mmc/host/sdhci-of-arasan.c:763:2: note: insert 'break;' to avoid fall-through
+           default:
+           ^
+           break; 
+   drivers/mmc/host/sdhci-of-arasan.c:834:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           default:
+           ^
+   drivers/mmc/host/sdhci-of-arasan.c:834:2: note: insert 'break;' to avoid fall-through
+           default:
+           ^
+           break; 
+   6 warnings generated.
+--
+>> lib/siphash.c:72:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 6: b |= ((u64)end[5]) << 40; /* fall through */
+           ^
+   lib/siphash.c:72:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 6: b |= ((u64)end[5]) << 40; /* fall through */
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:72:2: note: insert 'break;' to avoid fall-through
+           case 6: b |= ((u64)end[5]) << 40; /* fall through */
+           ^
+           break; 
+   lib/siphash.c:73:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 5: b |= ((u64)end[4]) << 32; /* fall through */
+           ^
+   lib/siphash.c:73:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 5: b |= ((u64)end[4]) << 32; /* fall through */
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:73:2: note: insert 'break;' to avoid fall-through
+           case 5: b |= ((u64)end[4]) << 32; /* fall through */
+           ^
+           break; 
+   lib/siphash.c:74:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 4: b |= le32_to_cpup(data); break;
+           ^
+   lib/siphash.c:74:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 4: b |= le32_to_cpup(data); break;
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:74:2: note: insert 'break;' to avoid fall-through
+           case 4: b |= le32_to_cpup(data); break;
+           ^
+           break; 
+   lib/siphash.c:76:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 2: b |= le16_to_cpup(data); break;
+           ^
+   lib/siphash.c:76:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 2: b |= le16_to_cpup(data); break;
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:76:2: note: insert 'break;' to avoid fall-through
+           case 2: b |= le16_to_cpup(data); break;
+           ^
+           break; 
+   lib/siphash.c:272:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 6: b |= ((u64)end[5]) << 40; /* fall through */
+           ^
+   lib/siphash.c:272:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 6: b |= ((u64)end[5]) << 40; /* fall through */
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:272:2: note: insert 'break;' to avoid fall-through
+           case 6: b |= ((u64)end[5]) << 40; /* fall through */
+           ^
+           break; 
+   lib/siphash.c:273:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 5: b |= ((u64)end[4]) << 32; /* fall through */
+           ^
+   lib/siphash.c:273:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 5: b |= ((u64)end[4]) << 32; /* fall through */
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:273:2: note: insert 'break;' to avoid fall-through
+           case 5: b |= ((u64)end[4]) << 32; /* fall through */
+           ^
+           break; 
+   lib/siphash.c:274:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 4: b |= le32_to_cpup(data); break;
+           ^
+   lib/siphash.c:274:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 4: b |= le32_to_cpup(data); break;
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:274:2: note: insert 'break;' to avoid fall-through
+           case 4: b |= le32_to_cpup(data); break;
+           ^
+           break; 
+   lib/siphash.c:276:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+           case 2: b |= le16_to_cpup(data); break;
+           ^
+   lib/siphash.c:276:2: note: insert '__attribute__((fallthrough));' to silence this warning
+           case 2: b |= le16_to_cpup(data); break;
+           ^
+           __attribute__((fallthrough)); 
+   lib/siphash.c:276:2: note: insert 'break;' to avoid fall-through
+           case 2: b |= le16_to_cpup(data); break;
+           ^
+           break; 
+   8 warnings generated.
 
-vim +/server +4984 fs/nfs/nfs4proc.c
+vim +746 security/integrity/ima/ima_main.c
 
-  4959	
-  4960	static int _nfs4_proc_readdir(struct dentry *dentry, const struct cred *cred,
-  4961			u64 cookie, struct page **pages, unsigned int count, bool plus)
-  4962	{
-  4963		struct inode		*dir = d_inode(dentry);
-  4964		struct nfs4_readdir_arg args = {
-  4965			.fh = NFS_FH(dir),
-  4966			.pages = pages,
-  4967			.pgbase = 0,
-  4968			.count = count,
-  4969			.plus = plus,
-  4970		};
-  4971		struct nfs4_readdir_res res;
-  4972		struct rpc_message msg = {
-  4973			.rpc_proc = &nfs4_procedures[NFSPROC4_CLNT_READDIR],
-  4974			.rpc_argp = &args,
-  4975			.rpc_resp = &res,
-  4976			.rpc_cred = cred,
-  4977		};
-  4978		int			status;
-  4979	
-  4980		dprintk("%s: dentry = %pd2, cookie = %Lu\n", __func__,
-  4981				dentry,
-  4982				(unsigned long long)cookie);
-  4983		if (!(NFS_SERVER(d_inode(dentry))->caps & NFS_CAP_SECURITY_LABEL))
-> 4984			args.bitmask = server->attr_bitmask_nl;
-  4985		else
-  4986			args.bitmask = server->attr_bitmask;
-  4987	
-  4988		nfs4_setup_readdir(cookie, NFS_I(dir)->cookieverf, dentry, &args);
-  4989		res.pgbase = args.pgbase;
-  4990		status = nfs4_call_sync(NFS_SERVER(dir)->client, NFS_SERVER(dir), &msg, &args.seq_args, &res.seq_res, 0);
-  4991		if (status >= 0) {
-  4992			memcpy(NFS_I(dir)->cookieverf, res.verifier.data, NFS4_VERIFIER_SIZE);
-  4993			status += args.pgbase;
-  4994		}
-  4995	
-  4996		nfs_invalidate_atime(dir);
-  4997	
-  4998		dprintk("%s: returns %d\n", __func__, status);
-  4999		return status;
-  5000	}
-  5001	
+5a9196d715607f7 Mimi Zohar 2014-07-22  699  
+16c267aac86b463 Mimi Zohar 2018-07-13  700  /**
+16c267aac86b463 Mimi Zohar 2018-07-13  701   * ima_load_data - appraise decision based on policy
+16c267aac86b463 Mimi Zohar 2018-07-13  702   * @id: kernel load data caller identifier
+b64fcae74b6d694 Kees Cook  2020-10-02  703   * @contents: whether the full contents will be available in a later
+b64fcae74b6d694 Kees Cook  2020-10-02  704   *	      call to ima_post_load_data().
+16c267aac86b463 Mimi Zohar 2018-07-13  705   *
+16c267aac86b463 Mimi Zohar 2018-07-13  706   * Callers of this LSM hook can not measure, appraise, or audit the
+16c267aac86b463 Mimi Zohar 2018-07-13  707   * data provided by userspace.  Enforce policy rules requring a file
+16c267aac86b463 Mimi Zohar 2018-07-13  708   * signature (eg. kexec'ed kernel image).
+16c267aac86b463 Mimi Zohar 2018-07-13  709   *
+16c267aac86b463 Mimi Zohar 2018-07-13  710   * For permission return 0, otherwise return -EACCES.
+16c267aac86b463 Mimi Zohar 2018-07-13  711   */
+b64fcae74b6d694 Kees Cook  2020-10-02  712  int ima_load_data(enum kernel_load_data_id id, bool contents)
+16c267aac86b463 Mimi Zohar 2018-07-13  713  {
+b5ca117365d960f Nayna Jain 2018-10-09  714  	bool ima_enforce, sig_enforce;
+c77b8cdf745d91e Mimi Zohar 2018-07-13  715  
+b5ca117365d960f Nayna Jain 2018-10-09  716  	ima_enforce =
+b5ca117365d960f Nayna Jain 2018-10-09  717  		(ima_appraise & IMA_APPRAISE_ENFORCE) == IMA_APPRAISE_ENFORCE;
+16c267aac86b463 Mimi Zohar 2018-07-13  718  
+16c267aac86b463 Mimi Zohar 2018-07-13  719  	switch (id) {
+16c267aac86b463 Mimi Zohar 2018-07-13  720  	case LOADING_KEXEC_IMAGE:
+99d5cadfde2b1ac Jiri Bohac 2019-08-19  721  		if (IS_ENABLED(CONFIG_KEXEC_SIG)
+b5ca117365d960f Nayna Jain 2018-10-09  722  		    && arch_ima_get_secureboot()) {
+b5ca117365d960f Nayna Jain 2018-10-09  723  			pr_err("impossible to appraise a kernel image without a file descriptor; try using kexec_file_load syscall.\n");
+b5ca117365d960f Nayna Jain 2018-10-09  724  			return -EACCES;
+b5ca117365d960f Nayna Jain 2018-10-09  725  		}
+b5ca117365d960f Nayna Jain 2018-10-09  726  
+b5ca117365d960f Nayna Jain 2018-10-09  727  		if (ima_enforce && (ima_appraise & IMA_APPRAISE_KEXEC)) {
+16c267aac86b463 Mimi Zohar 2018-07-13  728  			pr_err("impossible to appraise a kernel image without a file descriptor; try using kexec_file_load syscall.\n");
+16c267aac86b463 Mimi Zohar 2018-07-13  729  			return -EACCES;	/* INTEGRITY_UNKNOWN */
+16c267aac86b463 Mimi Zohar 2018-07-13  730  		}
+fed2512a7ccc8fc Mimi Zohar 2018-07-13  731  		break;
+fed2512a7ccc8fc Mimi Zohar 2018-07-13  732  	case LOADING_FIRMWARE:
+4f2d99b06b73800 Kees Cook  2020-10-02  733  		if (ima_enforce && (ima_appraise & IMA_APPRAISE_FIRMWARE) && !contents) {
+fed2512a7ccc8fc Mimi Zohar 2018-07-13  734  			pr_err("Prevent firmware sysfs fallback loading.\n");
+fed2512a7ccc8fc Mimi Zohar 2018-07-13  735  			return -EACCES;	/* INTEGRITY_UNKNOWN */
+fed2512a7ccc8fc Mimi Zohar 2018-07-13  736  		}
+c77b8cdf745d91e Mimi Zohar 2018-07-13  737  		break;
+c77b8cdf745d91e Mimi Zohar 2018-07-13  738  	case LOADING_MODULE:
+c77b8cdf745d91e Mimi Zohar 2018-07-13  739  		sig_enforce = is_module_sig_enforced();
+c77b8cdf745d91e Mimi Zohar 2018-07-13  740  
+b5ca117365d960f Nayna Jain 2018-10-09  741  		if (ima_enforce && (!sig_enforce
+b5ca117365d960f Nayna Jain 2018-10-09  742  				    && (ima_appraise & IMA_APPRAISE_MODULES))) {
+c77b8cdf745d91e Mimi Zohar 2018-07-13  743  			pr_err("impossible to appraise a module without a file descriptor. sig_enforce kernel parameter might help\n");
+c77b8cdf745d91e Mimi Zohar 2018-07-13  744  			return -EACCES;	/* INTEGRITY_UNKNOWN */
+c77b8cdf745d91e Mimi Zohar 2018-07-13  745  		}
+16c267aac86b463 Mimi Zohar 2018-07-13 @746  	default:
+16c267aac86b463 Mimi Zohar 2018-07-13  747  		break;
+16c267aac86b463 Mimi Zohar 2018-07-13  748  	}
+16c267aac86b463 Mimi Zohar 2018-07-13  749  	return 0;
+16c267aac86b463 Mimi Zohar 2018-07-13  750  }
+16c267aac86b463 Mimi Zohar 2018-07-13  751  
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -245,14 +487,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202011091855.m9TWuoD4-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202011091844.qatCN6pl-lkp%40intel.com.
 
---fdj2RfSjLxBAspz7
+--UugvWAfsgieZRqgk
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICOMPqV8AAy5jb25maWcAjFxLe9s4r97Pr/DT2cy3mBnbubQ958mCliibtSSqJGUn2ehx
+H4sICGEKqV8AAy5jb25maWcAjFxLe9s4r97Pr/DT2cy3mBnbubQ958mCliibtSSqJGUn2ehx
 HbWTM2ncz3Hm8u8PQOpCUpTbLtIIAO8g8AIk8/NPP0/I6+nwdXd63O+env6dfKmf6+PuVD9M
 Pj8+1f87ifkk52pCY6Z+A+H08fn1n9+/Hf6uj9/2k6vfZtPfpr8e97PJuj4+10+T6PD8+fHL
 K9TweHj+6eefIp4nbFlFUbWhQjKeV4reqps3+6fd85fJX/XxBeQms/lvUM/kly+Pp//5/Xf4
@@ -750,4 +992,4 @@ vgLoYgeQEkD2JSZeS1C0FCSiLS72RRvByECqvMbbNrjIugGhP9ANlGU6Bm8G99OyofkWRUtz
 F5Rdp2N9ntbS+ZcFDxA3oJipzyAdEB32vL6I5tRdpMW1KMaGtWKEi5oq25cYbbrIlaCw4GQl
 1mDc1BVqaTCJuWDnLVA8NIDinsIjjr5egaaAFC1DaJ89DF5QBmt//wOdtJWFs6gBAA==
 
---fdj2RfSjLxBAspz7--
+--UugvWAfsgieZRqgk--
