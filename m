@@ -1,104 +1,109 @@
-Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBCUEVT6QKGQEFRCR7SQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBJEPVT6QKGQEZCGZKVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4CD02AE15E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 22:11:39 +0100 (CET)
-Received: by mail-pl1-x63a.google.com with SMTP id g2sf7507111plg.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 13:11:39 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605042698; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A29E2AE1DD
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 22:35:34 +0100 (CET)
+Received: by mail-pg1-x539.google.com with SMTP id y7sf10261692pgg.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 13:35:34 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605044133; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CFdWEQyW4+KXUxrhuRp6/9bcy2f3UWGtWYE149PkJ3Zr43D2JIr88EeRn1lrAmJ7M6
-         PUj63nAxg4e862dDnSErg+qTZHG+i2PE+dgf6mfUM/O8Qmx4jnymUE/r5IvbhsAUh9Xe
-         OEqz98NIm8SF84XDp8IJZ6YnpXXT8LBMN3bvTBPquEQpa3Qls1e6zxaX+0frnFeP+kRy
-         RxbY5oVaEoWcbLO7PJBeLLmAlajcgDF1krcCPL5APuzQOg9Vzovyit2ukAvphi8EDDR5
-         sdHJzv0+P6iF1jp9Nqolvoaxg1VuK06AMWzjaPqQQ19GsStl8yCvoLIKOOpzcIqS4ggi
-         yN0g==
+        b=y6LqemzJfVCejSpKATSq+56dGqYf7+Sdmcj86ND9qJf/wntI57zGMcKPFgWqW1B4kc
+         aLLQQ/C4I4aSRbeGJtvrzqh+vem7ig3bp3x+/JNtiMMtQ0SVdMZlhIv6eIoUHW9ILdsw
+         WvOmE0KEUVb1tmXspsAnDKT4kbSWPuvZEfPyQx3zL6rL1VcgDTphZqK6xxEOH4zyyfMh
+         VcyU9nkihlRnovVu5ruTYeNHPgp1FCX7mtowly3TiVBaWzeQrBKX7+1dMXRzJdS4u/jD
+         QZV9+QJZ/jNS2jO7xWJ5mo6C9ku6HJuLrr1WiCSOvf5sjBsm8JNzteVkXwf98GCPwXoE
+         qgqg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=9mYiDSbXx5T1Ye1jLoy1c2XILtbxyKD/oCRRVWgjdac=;
-        b=Jx1vCC49ELH5QYelJtnfryHcZGkfQlgIb7RXSDQK5bK46vw7tKe6XM5UMaN51eb0TA
-         1apbaRIBHH8ONvIjox40EWSK2y3bIkUwIhOgBDMLbDib0P2TRdrCcB9ao5hJ1m+SgKBG
-         qoGCas1ZmIyZ0AJqan6jqoF2eXiigpoeCR1yN+ffx9XIlUBrWAqGT09mXLZzG0/oe2tt
-         292trOMx5cRKmF+82ST1jFhGqZAxkenfe0iMkdi2ZjySsj/iyPRDsWO7Cn6ZXIUjAb3R
-         W705GM9WfNJoRAiMe2V5O0/i8lUpxUffAjGI/f6EUPuMSWnJ2w+2nVxDuthtzmK8oWGp
-         YvGg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=6/bXsZRkm8AJ07xLXvnf1laulcHwlBSKrf5V1q2+OQc=;
+        b=UHqRptZRngrQ3KriH8QK7l+U1f4txuyWmXrnCTM+aQ6FY3H4j3UuQQVelhlLm7g9WU
+         yYlG8QiKV8UoQMRP4C6ZcFrvPxtuQMnHzCNW5WgEgv8dIB63xihJ+sOgKWWsV1qE4Wzq
+         tICMlml8mFq0JvkswA6FWqxRrFMqBRS1AIzp26s1t6F/qCW1c63wHN/4BSTog0iX4wD1
+         3Hu/5oLk7IDIW/+OL4b05lh1KNoEzgRqb+W8SUntb8Y2dav7+rLvYBOQk2NcofmHvio+
+         aQnESmIhLvT0gGzFygQLLSR5mkWYCPTzZMm8Ij/+43QC8vRCP8l3XMXmhFDN2wbYJFye
+         DdIA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IqZLTI2K;
-       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=jiancai@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=p0q11j1n;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9mYiDSbXx5T1Ye1jLoy1c2XILtbxyKD/oCRRVWgjdac=;
-        b=oEiTKsye3TI+DRCNNbHKJXrdNcvRs2BTKw6k3qFFr5Oxs5lC5D13W3f9yPOBmtuzcd
-         RHWKAeiJgDjErMACN9py7rRRFM4gkzb/KYXZUZqTnngtXzqDNWMTiUipFEiBobqlYXs1
-         cTIkB5ONmWagy5GA8FqCyI2JHHntchzG88UmJV8zxkeSUSNIQzgIlc1FJkeKU+RkJ5XI
-         lnWRufks9rY8LdhpDIYirozW3OzHmcaID9GerNJfY9eIn76ZRk3c/v3HPpXHkpYBc2bx
-         GuDsfrgPd+4KXw49UE1Iep/TY4aZsVoxnc2JHDHRGi0aN9LTAc1JOizPbfNv7C2HrIDs
-         pjdg==
+        bh=6/bXsZRkm8AJ07xLXvnf1laulcHwlBSKrf5V1q2+OQc=;
+        b=cQDx9ozABE55kZJJ3oQakub61uPI2Syl56OUokFnMgmj2RdWrWrA5dg2Qzrr7bYnrS
+         YymZti8ztlwgtWoJnjxv+OTyGX3EoGsJibebG26FoX6YcBhzZVT81FEuvw2i+8ztocyb
+         TS2MdtR0QO736/SmJwNKy1VzHrMNm5VBtgM8DG+0sVznkwCiFMe5d+HocVd1uHi6ZXQQ
+         WDjivY+M4VajPxjSnPg0q/sutgoix+7bAGMsNqqhl0iP2lPTXy5tKooilu+OplB2YVoU
+         l4uGooAc4Zdn7UVVcI7PA5NrPubB3abiqipHMV/eSAv8bNS1E6m0m/7sFgkWr3uqIvLT
+         66Xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9mYiDSbXx5T1Ye1jLoy1c2XILtbxyKD/oCRRVWgjdac=;
-        b=spclE2CxjdZ9e5iNW/sIRBEMZqiYY7M5VgvW9JhUS3MEYCPtjOEAWpd0Q+F2m9Qi+T
-         1pkEGubdUm9i2DOwjJoSxsUT1CnXVoAu4kWK9RZbgHiul/zNrvGmi0wL9vTjH5s6iCIZ
-         +hn9zWdrU0f6qe4ks89WgyCiJOQaJr+MAhk/fMa9HQ+uIa+sBZ8btf4pChntYAkv1/Tb
-         XZbELT6Vrw/2XQ3d7DWcvElnyEYc9is57SrsPXqhp13pCXSfLmZb+Mq4wIIu3TywCjtS
-         LDSH/bmT+ULYt3kS7L/R0IE4QE8PI2s9LYsyrwA0GWu8OPR2gEy/IAZVmes/5nrIYA04
-         EeaA==
-X-Gm-Message-State: AOAM530xq5/TwGTAFaNm3kD07NVMUAFmw6vKe3kLO4XTrj8upi59SnyF
-	RgpzabtF+d2YMCTTcg7yHK8=
-X-Google-Smtp-Source: ABdhPJxmqlQcsoHffl70YtVKl+c5bqFzKSShJXC5QFacOhId/lqiOhP7eCgwKs0hau7wQAmKOSUKwg==
-X-Received: by 2002:a63:1d15:: with SMTP id d21mr18771735pgd.433.1605042698341;
-        Tue, 10 Nov 2020 13:11:38 -0800 (PST)
+        bh=6/bXsZRkm8AJ07xLXvnf1laulcHwlBSKrf5V1q2+OQc=;
+        b=Wy9xsT0rkEBz0QDoy15xtkXtcwtevjtqPF7Vn+HjnEOB+NuStMd8s7A3Enebz2Kv3X
+         Y9SDK6TQR/pOtNcuqGkuKSf/UZC2LojL9z6j7V9gDN5hTQCB3MTsuIxqlPzxPPyHpRv7
+         dIjeBxVNE0xMC/pz38nuU8pQOPjs/8iqkWwJEva1bs6upmkVTaBbT5bTNEr7QshxBEm2
+         wFv0/yrfJxKJjj5fGXONPq8J8tVTA8iwVRGTbgQZy96xSSPEQvOiH7+LFMkJu4Yc351J
+         HNsC2PmdDqGC84KkiPG46IPldli1Cio4k+TPO3rePgCqgSebCgrdvFRLDRaW6hpMm8/R
+         hTyA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532Pn0WcN/1+/O3M39SqyU9EIj35L8ImijpvTF9NVsKlHyi7bAK3
+	2g1YJ+HdWqr4u8yYPYbTbiQ=
+X-Google-Smtp-Source: ABdhPJzDBRZ1kpIOL2rygCnntWAKOxeKt+alK8C8KueMUG28m5/b9BAR6YAi1uehNLrmTVABksfQHw==
+X-Received: by 2002:aa7:82d8:0:b029:160:947:a852 with SMTP id f24-20020aa782d80000b02901600947a852mr19872919pfn.67.1605044133118;
+        Tue, 10 Nov 2020 13:35:33 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:645:: with SMTP id 66ls2903138pfg.10.gmail; Tue, 10 Nov
- 2020 13:11:37 -0800 (PST)
-X-Received: by 2002:a63:1709:: with SMTP id x9mr19258266pgl.334.1605042697788;
-        Tue, 10 Nov 2020 13:11:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605042697; cv=none;
+Received: by 2002:a17:902:b20f:: with SMTP id t15ls5811750plr.3.gmail; Tue, 10
+ Nov 2020 13:35:32 -0800 (PST)
+X-Received: by 2002:a17:902:b695:b029:d7:d966:1a3b with SMTP id c21-20020a170902b695b02900d7d9661a3bmr12563572pls.5.1605044132602;
+        Tue, 10 Nov 2020 13:35:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605044132; cv=none;
         d=google.com; s=arc-20160816;
-        b=JCFWj86c3gcV3S7gnaAQlHUDDYLsWnLMaDLaoB4fk4pgaWRX607pUBtktAFtyP05g3
-         WzuqWOUZKXWzFnDNt6xkTTQJSLPeietC5P3p+NZa8AomXstFzBQxRk8f6ghY+RxP+AXR
-         mGB/OewaZnjh7xF3zE0LJ+VH0lrlW5P2HV+q+9GAfK6r9DZKAswiXPD7jBVxHGznhAon
-         ibf4YJlJ/k+DL+nSQ9GkyG7WUXUJ6Z8nbUq+juLEccAv6x0kZYXXf6Y1tTNKePIdW81T
-         5v3SLPLYkKYWZYM+rlBZaKFWy+tMhjiP80p06sjkwjO5nL+Pb0hJfNuYcSfRE+LZVXgy
-         Sr7A==
+        b=XWE7Y1r2O8oabKl6dNnXsm6WkDIOGJGt+6jQ4VtFzJVs/j+Q8/1iTALxQEYAWghVwC
+         cJvEc8xgLn8bsRG7KshV6EukMkNPXkRzIS7bfEunimKAJ6U5+SJeDqQMn/vXEbysXlu7
+         +0M1unEYpOaRN7/nZ466ocHjZYOheRK167k5NOILKOtu1MlhIEN2KgoV19LHs9tUEyLa
+         H18q3kvH9dsWeoNy+GBpyG8r8mjzlYxVSqfHEUNXi+sorpzzTZK1R0pFTngso/tymKHL
+         pKTcBmJ71hTumqD2Rm14tR5wmCaDfWLDEClXQ16nbHvNq5OHqagZiHUDc3ZUX7pVKPjp
+         38AA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=klftZ1B6JNkW2AO3Jb+vCDbnc8J1YvYDYU3CsGGo8uQ=;
-        b=ZfrntwKHQJZMPj/hl6Qfr+oQF4voqeCIS6diF5goEnB7dKJxQw0DcvXdXFAIAVtsTg
-         IEts65WlGRU3fVf2Rs+eMEGOGQmgZTgY1rPUVkdOmu8er3hXuc4BFSlFFTJ21dhQdzE6
-         skI4WfguzI/07MECxmdJts/ugGMWIYP8DVab4XdkqimsIrKdSNup6reak3TiZYwwuyP/
-         0/OthHVY3Kv+TtTULt9ot417ol9Zw4s7VK9awvR3a2f6Yw+K0ddKgOuy+huKEkK+t2ZP
-         TU/xKwuR4EfU76q28YIj06La7Ip0xacVWcO+kiukfhRpezkUXVt3oHMPmvIe1o6FTydl
-         7m5g==
+        bh=ttwuWSL7bQX3ZiTCFdG/qTiwhfcSq07Wu6lKeQu2TjU=;
+        b=q1kmYrcerIVHJW5nkBnTiedUqeDETTg2UcCcJvDm5iXkuLS0ejldza0ZmPOPQbcNNt
+         PEFGVNGFKHXgGyIEkvBS7JVF4Qp1zPRpiXnW7SNzZrFULiutBg1OOkex7/3/YQgHVxZQ
+         PFHpYZns1hlOp8RdPkaOHOyNm4hIro2UicCIdjyChB9pSZYJKmZqTSHF1fclHgF50HfQ
+         nqmVEUDXQ9KKCsIRilsLyGCLDCDWtFPqdaqoFwZtWI2KZDA5t2suUXYHdJoHlDWBpx/W
+         J/tcs73BMOqqyz8t9MJ+1CuAzJk12qBoFALb4xx49wxI6ztJddLLHeaL9fto0GtWACB2
+         46pQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IqZLTI2K;
-       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=jiancai@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id cc22si1292pjb.0.2020.11.10.13.11.37
+       dkim=pass header.i=@kernel.org header.s=default header.b=p0q11j1n;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id t126si1321pgc.0.2020.11.10.13.35.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Nov 2020 13:11:37 -0800 (PST)
-Received-SPF: pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id z1so7107825plo.12
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Nov 2020 13:11:37 -0800 (PST)
-X-Received: by 2002:a17:902:d710:b029:d3:7e54:96d8 with SMTP id
- w16-20020a170902d710b02900d37e5496d8mr18563943ply.65.1605042697277; Tue, 10
- Nov 2020 13:11:37 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 10 Nov 2020 13:35:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 08AD620809
+	for <clang-built-linux@googlegroups.com>; Tue, 10 Nov 2020 21:35:32 +0000 (UTC)
+Received: by mail-ot1-f48.google.com with SMTP id i18so191867ots.0
+        for <clang-built-linux@googlegroups.com>; Tue, 10 Nov 2020 13:35:32 -0800 (PST)
+X-Received: by 2002:a9d:62c1:: with SMTP id z1mr14939625otk.108.1605044131223;
+ Tue, 10 Nov 2020 13:35:31 -0800 (PST)
 MIME-Version: 1.0
 References: <20200409232728.231527-1-caij2003@gmail.com> <20201107001056.225807-1-jiancai@google.com>
  <CAMj1kXG+qb267Hig6zoO=y6_BVsKsqHikvbJ83YsBD8SBaZ1xw@mail.gmail.com>
@@ -108,25 +113,24 @@ References: <20200409232728.231527-1-caij2003@gmail.com> <20201107001056.225807-
  <CA+SOCLJSSR62VfWhKx9R1cxT-CHXD7RN08eJBYxUH8zzyWos9Q@mail.gmail.com>
  <CAKwvOdkpHdQF9Ko8FbP_SN=QfDiMq8ra5TSj_KHGRCbJdyYm6w@mail.gmail.com> <CAK8P3a1tU8g4HfsoYH4qa6C4Kv8QE3nv=UPSyH7824GXCYwUDQ@mail.gmail.com>
 In-Reply-To: <CAK8P3a1tU8g4HfsoYH4qa6C4Kv8QE3nv=UPSyH7824GXCYwUDQ@mail.gmail.com>
-From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 10 Nov 2020 13:11:26 -0800
-Message-ID: <CA+SOCL+RZcyAp6xKyWM05e9QQf8v+Ua2QUyf3vbY1=TUD8KK=w@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 10 Nov 2020 22:35:27 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFzECLh2kNWW8Pheu6AvTFqN+t4KO3-iSgxyZKHJNjAjw@mail.gmail.com>
+Message-ID: <CAMj1kXFzECLh2kNWW8Pheu6AvTFqN+t4KO3-iSgxyZKHJNjAjw@mail.gmail.com>
 Subject: Re: [PATCH v2] Make iwmmxt.S support Clang's integrated assembler
 To: Arnd Bergmann <arnd@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Ard Biesheuvel <ardb@kernel.org>, 
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Jian Cai <jiancai@google.com>, 
 	Manoj Gupta <manojgupta@google.com>, Luis Lozano <llozano@google.com>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, Russell King <linux@armlinux.org.uk>, 
 	Nathan Chancellor <natechancellor@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: multipart/alternative; boundary="000000000000d2911405b3c71f6c"
-X-Original-Sender: jiancai@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=IqZLTI2K;       spf=pass
- (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::642
- as permitted sender) smtp.mailfrom=jiancai@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Jian Cai <jiancai@google.com>
-Reply-To: Jian Cai <jiancai@google.com>
+ header.i=@kernel.org header.s=default header.b=p0q11j1n;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,54 +143,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000d2911405b3c71f6c
-Content-Type: text/plain; charset="UTF-8"
-
-Thanks! I tried again with CONFIG_IWMMXT enabled and the disassembly
-remained the same after applying the patch.
-
-linux$ git diff
-diff --git a/arch/arm/configs/ixp4xx_defconfig
-b/arch/arm/configs/ixp4xx_defconfig
-index 27e7c0714b96..44feb73510d0 100644
---- a/arch/arm/configs/ixp4xx_defconfig
-+++ b/arch/arm/configs/ixp4xx_defconfig
-@@ -190,3 +190,4 @@ CONFIG_MAGIC_SYSRQ=y
- CONFIG_DEBUG_KERNEL=y
- CONFIG_DEBUG_LL=y
- CONFIG_DEBUG_LL_UART_8250=y
-+CONFIG_IWMMXT=y
-(build arch/arm/kernel/iwmmxt.o)
-linux$ arm-linux-gnueabihf-objdump -dr arch/arm/kernel/iwmmxt.o >
-gas_before.txt
-linux$ git apply
-v2-0001-Make-iwmmxt.S-support-Clang-s-integrated-assemble.patch
-linux$ echo $?
-0
-(build arch/arm/kernel/iwmmxt.o again)
-$ arm-linux-gnueabihf-objdump -dr arch/arm/kernel/iwmmxt.o > gas_after.txt
-linux$ diff gas_before.txt gas_after.txt
-linux$ echo $?
-0
-
-On Tue, Nov 10, 2020 at 12:38 PM Arnd Bergmann <arnd@kernel.org> wrote:
-
+On Tue, 10 Nov 2020 at 21:38, Arnd Bergmann <arnd@kernel.org> wrote:
+>
 > On Tue, Nov 10, 2020 at 9:11 PM 'Nick Desaulniers' via Clang Built
 > Linux <clang-built-linux@googlegroups.com> wrote:
 > >
 > > On Tue, Nov 10, 2020 at 12:10 PM Jian Cai <jiancai@google.com> wrote:
 > > >
-> > > I tried to verify with ixp4xx_defconfig, and I noticed it also used
-> CONFIG_CPU_BIG_ENDIAN=y to enable big endianness as follows,
+> > > I tried to verify with ixp4xx_defconfig, and I noticed it also used CONFIG_CPU_BIG_ENDIAN=y to enable big endianness as follows,
 > > >
 > > > linux$ grep ENDIAN arch/arm/configs/ixp4xx_defconfig
 > > > CONFIG_CPU_BIG_ENDIAN=y
 > > >
-> > > Also it appeared arch/arm/kernel/iwmmxt.o was not built with
-> ixp4xx_defconfig. The commands I used
+> > > Also it appeared arch/arm/kernel/iwmmxt.o was not built with ixp4xx_defconfig. The commands I used
 > > >
-> > > linux$ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make CC=clang
-> ixp4xx_defconfig
+> > > linux$ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make CC=clang ixp4xx_defconfig
 > > > linux$ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make -j32 CC=clang
 > > > linux$ ls arch/arm/kernel/iwmmxt.o
 > > > ls: cannot access 'arch/arm/kernel/iwmmxt.o': No such file or directory
@@ -209,100 +180,12 @@ On Tue, Nov 10, 2020 at 12:38 PM Arnd Bergmann <arnd@kernel.org> wrote:
 > all working with the integrated assembler in all those combinations, at
 > least in theory!
 >
->       Arnd
->
+
+Thanks for the perspective. I wasn't aware of all these details, but I
+just wanted to confirm that .inst works as expected in all
+configurations.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCL%2BRZcyAp6xKyWM05e9QQf8v%2BUa2QUyf3vbY1%3DTUD8KK%3Dw%40mail.gmail.com.
-
---000000000000d2911405b3c71f6c
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr"><div>Thanks! I tried=C2=A0again with=C2=
-=A0CONFIG_IWMMXT enabled and the disassembly remained the same after applyi=
-ng the patch.</div><div><br></div>linux$ git diff<br>diff --git a/arch/arm/=
-configs/ixp4xx_defconfig b/arch/arm/configs/ixp4xx_defconfig<br>index 27e7c=
-0714b96..44feb73510d0 100644<br>--- a/arch/arm/configs/ixp4xx_defconfig<br>=
-+++ b/arch/arm/configs/ixp4xx_defconfig<br>@@ -190,3 +190,4 @@ CONFIG_MAGIC=
-_SYSRQ=3Dy<br>=C2=A0CONFIG_DEBUG_KERNEL=3Dy<br>=C2=A0CONFIG_DEBUG_LL=3Dy<br=
->=C2=A0CONFIG_DEBUG_LL_UART_8250=3Dy<br>+CONFIG_IWMMXT=3Dy<br>(build arch/a=
-rm/kernel/iwmmxt.o)<br>linux$ arm-linux-gnueabihf-objdump -dr arch/arm/kern=
-el/iwmmxt.o &gt; gas_before.txt<br>linux$ git apply v2-0001-Make-iwmmxt.S-s=
-upport-Clang-s-integrated-assemble.patch<br>linux$ echo $?<br>0<div>(build =
-arch/arm/kernel/iwmmxt.o again)<br>$ arm-linux-gnueabihf-objdump -dr arch/a=
-rm/kernel/iwmmxt.o &gt; gas_after.txt<br>linux$ diff gas_before.txt gas_aft=
-er.txt <br>linux$ echo $?<br>0<br></div></div><br><div class=3D"gmail_quote=
-"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Nov 10, 2020 at 12:38 PM Ar=
-nd Bergmann &lt;<a href=3D"mailto:arnd@kernel.org">arnd@kernel.org</a>&gt; =
-wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
-px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">On Tue, N=
-ov 10, 2020 at 9:11 PM &#39;Nick Desaulniers&#39; via Clang Built<br>
-Linux &lt;<a href=3D"mailto:clang-built-linux@googlegroups.com" target=3D"_=
-blank">clang-built-linux@googlegroups.com</a>&gt; wrote:<br>
-&gt;<br>
-&gt; On Tue, Nov 10, 2020 at 12:10 PM Jian Cai &lt;<a href=3D"mailto:jianca=
-i@google.com" target=3D"_blank">jiancai@google.com</a>&gt; wrote:<br>
-&gt; &gt;<br>
-&gt; &gt; I tried to verify with ixp4xx_defconfig, and I noticed it also us=
-ed CONFIG_CPU_BIG_ENDIAN=3Dy to enable big endianness as follows,<br>
-&gt; &gt;<br>
-&gt; &gt; linux$ grep ENDIAN arch/arm/configs/ixp4xx_defconfig<br>
-&gt; &gt; CONFIG_CPU_BIG_ENDIAN=3Dy<br>
-&gt; &gt;<br>
-&gt; &gt; Also it appeared arch/arm/kernel/iwmmxt.o was not built with ixp4=
-xx_defconfig. The commands I used<br>
-&gt; &gt;<br>
-&gt; &gt; linux$ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabihf- make CC=3Dc=
-lang ixp4xx_defconfig<br>
-&gt; &gt; linux$ARCH=3Darm CROSS_COMPILE=3Darm-linux-gnueabihf- make -j32 C=
-C=3Dclang<br>
-&gt; &gt; linux$ ls arch/arm/kernel/iwmmxt.o<br>
-&gt; &gt; ls: cannot access &#39;arch/arm/kernel/iwmmxt.o&#39;: No such fil=
-e or directory<br>
-&gt; &gt;<br>
-&gt; &gt; Did I miss any steps?<br>
-&gt;<br>
-&gt; Yes, you need to manually enable CONFIG_IWMMXT in menuconfig or via<br=
->
-&gt; `scripts/configs -e`.<br>
-<br>
-To clarify: ixp4xx and pxa3xx were two platforms based on the XScale core.<=
-br>
-ixp4xx was commonly used in big-endian mode but lacked iWMMXt. pxa3xx<br>
-had iWMMXt but doesn&#39;t allow enabling big-endian mode because of a Kcon=
-fig<br>
-dependency, meaning that nobody has ever tried it, and it&#39;s likely brok=
-en.<br>
-<br>
-Later &#39;mvebu&#39; parts (Armada 510) do have iWMMXt and allow big-endia=
-n<br>
-mode, but those are BE8, with non-reversed byteorder for the instructions.<=
-br>
-<br>
-So none of this matters in practice, but it&#39;s very satifiying to know<b=
-r>
-it is finally<br>
-all working with the integrated assembler in all those combinations, at<br>
-least in theory!<br>
-<br>
-=C2=A0 =C2=A0 =C2=A0 Arnd<br>
-</blockquote></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CA%2BSOCL%2BRZcyAp6xKyWM05e9QQf8v%2BUa2QUyf3vb=
-Y1%3DTUD8KK%3Dw%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">ht=
-tps://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCL%2BRZcyAp6xKyWM0=
-5e9QQf8v%2BUa2QUyf3vbY1%3DTUD8KK%3Dw%40mail.gmail.com</a>.<br />
-
---000000000000d2911405b3c71f6c--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXFzECLh2kNWW8Pheu6AvTFqN%2Bt4KO3-iSgxyZKHJNjAjw%40mail.gmail.com.
