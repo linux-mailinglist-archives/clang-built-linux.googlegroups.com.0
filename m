@@ -1,142 +1,130 @@
-Return-Path: <clang-built-linux+bncBCOLRCPDYMPRBWPKV36QKGQESKL67DQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQ6FHMJVICRBSEOV76QKGQE5VVMI6Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 115BD2AEE3D
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 10:56:43 +0100 (CET)
-Received: by mail-oo1-xc39.google.com with SMTP id t8sf718795oor.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 01:56:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605088602; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 865152AEF4C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 12:13:13 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id p3sf1011369plq.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 03:13:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605093192; cv=pass;
         d=google.com; s=arc-20160816;
-        b=u1YaBO7VxW8O+OQJ+CO9EiPm15W1bFRIhpjhTywj7gfxztY1Ih+QMWGqt3Q3NJTrnp
-         YUNF0JDJw85T/RStMa30bE9gQ/8d9fRAzwOXlVvl3uGIvs2ys0Iyou1MT2/eYorvNnW/
-         KnCw29nm3QDuqWjLmi95PVzZEh9mtEKx1YAONKKqDy3DNuzv/C7j5uvEjPrH9pG+upfG
-         33/pWDU69kRebi5VRrvzJQykZ4vRsV2NiaoGevOGt8o9j7lxG7aUXoImycjoru9hs/Qf
-         a+U4r1V99i1eGFhYeJBkZMafkslcsjKm8h6LfOINOMppf24ST/u2Fgpe+ngyPbGeARCW
-         eU7Q==
+        b=WFG9Y/UGzo8isYhALB7Wj9xoFCi8akS5NKWNzh8ON8wnp+P9Lny/55qSomkn/fM05Y
+         yntZFciAhed3KpKzUMcLfAT7F+54n3+TR4d9TzeBKLSDvasUdKfjoN/D9MnvGSvlS7hL
+         Q9DDFGW4cQBQsddv6f22KlYP2LNoI6/PKDb21qgfZWpqPqr+iFFWcwZxxe9F7jbbZApr
+         yUdSD+Bd8whUOctYlqBtZ/oF1Lpp97C9ilW3H155qMVALeExGD6UEk/mCnsOAthQidWC
+         AgR8F9tUpY//qp73aYaTFcsThNNufnwc4F2dyV2W0xLtO4rafKdWL5aVIi9jXYzpgOOc
+         rMTA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=+XA2Ly6G9+uqaj4t90Nv+OVjOkGfko8/whq+z9+8i7E=;
-        b=IS/vbAk0VYW/DxzGVOpc5gRbC/TouvZ3HVtV/a/ilUonIppi77odlvjz3XAURg0yt8
-         DKNnFe7E4LZ0XjpQhtcjrIu1grLPW0Jkc4ZQpMyOoTb/IR2RQAIhMN2CRX0r1VDusTFM
-         wooODGHhrsdUUjpIZE/Hh+mrhJOdfuJ3nxl71xjryk/8+XPDOnlyt9dpIsh92nkOcYxo
-         nuilX1R91KqD5wsOfjY7GxSbt5VB/U0MFTRTk6xTc6hGwCmMxYv+9GIPWVhbMa+2tyL5
-         5xLtqnylQHY6KGRG8K64LFiE4sTh818e24fE7IvyX+0NPILWCktsK9xMZNbw9rSBDY+y
-         AyaA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=rbxhrwCjF5lXQADK7Tgs3Ry9N4wpiBrNsUlv/LKpsnw=;
+        b=c1q0mGh3ecWq0iGNXptTPcnq4OqxjwwWHP2XlMSjdhWNARsw/2U0tMY9opUd2rKqzh
+         mRaRxukCxXuZJNZ+1iYAhWWatNkGQkKte0EwQUGhcnuM+DVjM1bDKvOET4dwgQr83SPK
+         kjuVdhHmvh0Pg1MGGMUqJdaFrb7bqQiWIftIIZdF28C0RatXDl+hTZdrU7HXCtWAnYmQ
+         2qEJP2T7j7GxzBiIbIEXllbBmjvrvUoMAgyfeYH81vx31nj40aqxainm3kjDNh6ynU4v
+         P7QNgXoux2OTd3y45izsAfk47AhCLHFHSK5f4BkTI9uqAG6WDU19aNefWM6yytVBtoF+
+         q61g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=abm4tmw2;
-       spf=pass (google.com: domain of mpatocka@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=mpatocka@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@canb.auug.org.au header.s=201702 header.b=WSivZMUu;
+       spf=pass (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=sfr@canb.auug.org.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+XA2Ly6G9+uqaj4t90Nv+OVjOkGfko8/whq+z9+8i7E=;
-        b=IiT8W1beWnOmMexAbXPYFjJ2MzUpOzZ1Nvjy/J9ObqONgIp1pw5HQAe6fFNOB0UJb4
-         lb1O1pdKpAh1w4bQ7eMUT5BPGPYgzQFg2HYCruwKCgXvCb4tiJLjJEsudMwHsl9X/jbE
-         i95Ou7QuXj+fX2hMpEtLttdUU0kiRx/wIiK2FVnu1b4y+08euDKb+Dq67WDraaZ6nzB5
-         8gxeC//JpvyiLkSebhVJHZl0xxPN9Z+f7HAQIf1GjkK8WLHEAMr4q92n+3FZJ+u4xKHv
-         FRhADocn+EK5uOmxtjnCXWomtSXLBUv/7j2sUT5aaLsGXW99fYbursSCyXCqh9IfuVlD
-         QH3g==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rbxhrwCjF5lXQADK7Tgs3Ry9N4wpiBrNsUlv/LKpsnw=;
+        b=MOxMQXSFrcue63IKJPSfC77NR9HYZZJlLG63uTq8e5bJY3QMWArpjwyOTJT18iYsUp
+         ufeLhcmKwsFcwLnqcC+EQWnpS/GK4Krkmjo79ZXYL7NN3F626YZCEcn45n/0a2jiI6Qc
+         QM7GY1uxoQwgK2AcxBcXskR0MXw8suzPGXquJZ5oukZtPADdzevQfNgvWIjgAsurVdz1
+         l23cuy4ubxCUJiAbezKC/1gP0+/NYoQE8KA7CmQ5+elIp4Je+f04K/Q+9N1fgaUkOMZC
+         Z1dTrdC4PTexG0rZ26AfXuC0e0FTHfpHoaAPZOY6XMA6Qq7iCdmafXyseeDhDY1+6tbW
+         2NiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+XA2Ly6G9+uqaj4t90Nv+OVjOkGfko8/whq+z9+8i7E=;
-        b=gY1fh3wrtj9ocpBkkc/ljHSeeG66TviTZKGLvJRpNLDahpifqxbQ+GqcOI5/U2r1S2
-         ae/Btkckw8zPNU5ptsiHsbdtcsUQYh0fbm5soP2cb76ZbX4Rmk6/4Pd6Mt+iPH5t16/i
-         uzFHqCZrs2A8sQeTItpLB5t1e1A3W1G8LdO5WCXlJyhEAbMfwJBeZRwKXkeMT+dtxvPb
-         VTHvcKrJC8OWLVoBw9prwMtI3kHOGtSxiHzn92YN0mmnjvzG42hmObycJAWm53onwC77
-         O3VGI2I77p1l+qG6G9iKWIwbO8qhmXCJMge0KrMslJvExHyw+xCZ60OvesnKpvQqoe1b
-         ioZA==
+        bh=rbxhrwCjF5lXQADK7Tgs3Ry9N4wpiBrNsUlv/LKpsnw=;
+        b=TY7ec4STjrX5xQRXAwUQZ034kMUg5/LZHYcjGNgFsRRVK7m3bgp+KsQDbYwMIVVeau
+         HChmN+5cVD2Cm6tsOLztrWQP2mar0jYaW0yTqNuYgUnY/199cyIFPeunW6ws6BSWub3m
+         b269Lf8ar30s2nGLvEmJQfYtHJngbMAQMIpZE+S7GZe/DdY9kwatHIs5wv5nN1LszC/Z
+         VQy1dZe4MHPeMJk5zfU7K+zgpmpRpV3LBUg+OX0MFEjT0fTsYkJiSv/LWtsjuHoGM8zI
+         BVwAED3metl+t6rU31G/L9Ov7g3d5SDoqHYSyDdhmxINVwvOm/LgkMHZ0y9ECmYOLsGa
+         7SZg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530lbkBpXtnq3kUuKsodR1kpK+4Gcrd86+r2So98HSLeAr/5VUbs
-	gPSpjuZ8dDRT86YkksDv9D0=
-X-Google-Smtp-Source: ABdhPJzU4VfKBeitSTQWowsxrOVHbytTqhT5AKTmjGkpSmpqpzEK/A9X/5mvgIsVoBwnnkbUslSniw==
-X-Received: by 2002:a4a:e09a:: with SMTP id w26mr16652808oos.18.1605088602020;
-        Wed, 11 Nov 2020 01:56:42 -0800 (PST)
+X-Gm-Message-State: AOAM531MHldXlyc7Tgztp4xBdG+UcyZh9hFqtFOCl1s9CZBhIqtEHcH8
+	UlQPkCkzg1S3Hf0XiHt+Rtw=
+X-Google-Smtp-Source: ABdhPJznEqkBq8gQdQdf6KXjy2ULJvVfNEJRDWbPLlUk3SZpboQRWciraTwLOFc7UvxUIKPASqTalA==
+X-Received: by 2002:a17:902:bf0c:b029:d8:86aa:eb4e with SMTP id bi12-20020a170902bf0cb02900d886aaeb4emr8394157plb.82.1605093192183;
+        Wed, 11 Nov 2020 03:13:12 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:1917:: with SMTP id l23ls2811503oii.1.gmail; Wed, 11 Nov
- 2020 01:56:41 -0800 (PST)
-X-Received: by 2002:aca:aa47:: with SMTP id t68mr1754110oie.40.1605088601649;
-        Wed, 11 Nov 2020 01:56:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605088601; cv=none;
+Received: by 2002:a63:5621:: with SMTP id k33ls1982084pgb.2.gmail; Wed, 11 Nov
+ 2020 03:13:11 -0800 (PST)
+X-Received: by 2002:a62:32c5:0:b029:158:7361:58d3 with SMTP id y188-20020a6232c50000b0290158736158d3mr22930207pfy.75.1605093191496;
+        Wed, 11 Nov 2020 03:13:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605093191; cv=none;
         d=google.com; s=arc-20160816;
-        b=rgOaARxDEzdGVuJ7glZ3JLieVpYEosHQ4ri2MKmXu0237Fd0iPFmiU33Dc3TYMHFAZ
-         DtwSOhkmz+OWHnlYsLRlL3DBmr/vsr9CaRRAUvyGuOrhMgabJGCktSa6cyRajO9mpur1
-         B0IltYLJ9BL8g2wJ3VTjiKshqJl6SxQoXkKmDZhTcduD5rnq+ytcPRokjVhBdXixMHKK
-         IS7PDKOzhyfzrWpbZSvUqzg1Jz1Qk2DGhN/dzcJ84W8rOYMxxXzP1UnRWpt1km4CEgNE
-         bRWHifejdqdoatn/UuB+KT2+a7itzwqdXQPoMs29ZaoU1H8UEt49Kh3KaaGC033v0STq
-         cXsQ==
+        b=zVwWQShSUG5NcDxvpzaR+iy2fIPDvcUBgVzsgFaTu2W2UnEtOEzNf+a0sYyit0NwbA
+         xCDZLm8uH0Prf33/1kio7zbEtwa9EvhLFcPNBytnKBOhiIaCflryIp0fAgBKPu6N2q2i
+         NSjM7KDvLcS4Uf5iJafPL2ZpPbhQWyfNqcmkt9aPDUg2G/OGSLCDANEpT0GbGpG77DTy
+         SE34QnKKrdxbWQB0TiRQCibgF1ehuKQhA13sO7wQGrBnCRrKhuEZINB2B64T5N8PMiBW
+         GXFFQZxQn//2QswsJAhk3MnzNpuBqPF/whuSs2m9ZgYjSmobC0DWIp1+/zlBRMxMXDz0
+         mO3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:from:date:dkim-signature;
-        bh=+XA2Ly6G9+uqaj4t90Nv+OVjOkGfko8/whq+z9+8i7E=;
-        b=OygKWaB6JZnSqV9VsLi9jF76nRFiFDVGvG5n9Wcr9dLl4pv6Xf0fXLgYd3eZsaNCEl
-         M1jX3Gjk8AWN+Y2ri/oMmre3FJ28mwP0BccRAqhPF5JjUMr+S4rS7yy3hGtH/v6mJ99G
-         +maNeB8fMkIZsXuiev7sVn4MuUE0e+dTt6InIBzTkxlPTW0SVbmtT5Voi0QhSdKrmNry
-         r+XtmT66NulCQpxatb8PCCGrrRSO0kZztVtsm8Y57CEEHeCxznpnV8bg+Cy2dg4OfbxZ
-         gbocmne3SLhejKFehz/FMjwEHMfWaQ4o3kvs0tPDl1mo+i5V69BOUJWmk4qfPf+F/FJg
-         tBeQ==
+        h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
+         :date:dkim-signature;
+        bh=7fX0wCRD+z6b4405sfGPd1LyAHgmfBmk9+KaubkLG/Y=;
+        b=UTM+p8Xtnd45WDdRRtraOQfNefwG+54mmo6kS5of8uYEq0wqsSOnXXobZBNSutE8Ig
+         Qt2XDQnkNY36qRADZDlOvloEL/h9PPs3UCV+LU8rzum2XZVbLAyzZ+zvGz7HAAAr2IHG
+         K8ha+b4A+zwkTh3888S91fxmalFKQZ2pmNu56xkdBihWI4mddhVKx4cZ7jnpbwbs3nGR
+         YyyJMUWqULZ/iyrIlRjj/vaau6pywYg4fqX+2KyxSeMnb/CZG/6hK+Gk2NzMvCM1+NYS
+         xHukfodMjLh1fmJJYLYVMhX87xOYDgqoPwgOgaGvCLJWR/SUs2knMai1v9zqPcBdGRWM
+         ct6A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=abm4tmw2;
-       spf=pass (google.com: domain of mpatocka@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=mpatocka@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id e13si139121oth.3.2020.11.11.01.56.41
+       dkim=pass header.i=@canb.auug.org.au header.s=201702 header.b=WSivZMUu;
+       spf=pass (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=sfr@canb.auug.org.au
+Received: from ozlabs.org (ozlabs.org. [203.11.71.1])
+        by gmr-mx.google.com with ESMTPS id f189si103642pgc.4.2020.11.11.03.13.11
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 11 Nov 2020 01:56:41 -0800 (PST)
-Received-SPF: pass (google.com: domain of mpatocka@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-375-kw35YCLhNA-EYDOl6FMLMQ-1; Wed, 11 Nov 2020 04:56:36 -0500
-X-MC-Unique: kw35YCLhNA-EYDOl6FMLMQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Nov 2020 03:13:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D0F3C80476E;
-	Wed, 11 Nov 2020 09:56:28 +0000 (UTC)
-Received: from file01.intranet.prod.int.rdu2.redhat.com (file01.intranet.prod.int.rdu2.redhat.com [10.11.5.7])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id A0B3C6EF5B;
-	Wed, 11 Nov 2020 09:56:28 +0000 (UTC)
-Received: from file01.intranet.prod.int.rdu2.redhat.com (localhost [127.0.0.1])
-	by file01.intranet.prod.int.rdu2.redhat.com (8.14.4/8.14.4) with ESMTP id 0AB9uSqU029365;
-	Wed, 11 Nov 2020 04:56:28 -0500
-Received: from localhost (mpatocka@localhost)
-	by file01.intranet.prod.int.rdu2.redhat.com (8.14.4/8.14.4/Submit) with ESMTP id 0AB9uSYG029361;
-	Wed, 11 Nov 2020 04:56:28 -0500
-X-Authentication-Warning: file01.intranet.prod.int.rdu2.redhat.com: mpatocka owned process doing -bs
-Date: Wed, 11 Nov 2020 04:56:27 -0500 (EST)
-From: Mikulas Patocka <mpatocka@redhat.com>
-X-X-Sender: mpatocka@file01.intranet.prod.int.rdu2.redhat.com
-To: Nick Desaulniers <ndesaulniers@google.com>
-cc: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@redhat.com>,
-        Rob Herring <robherring2@gmail.com>,
-        clang-built-linux@googlegroups.com, dm-devel@redhat.com,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Revert "dm cache: fix arm link errors with inline"
-In-Reply-To: <20201111024140.1483879-1-ndesaulniers@google.com>
-Message-ID: <alpine.LRH.2.02.2011110456030.25804@file01.intranet.prod.int.rdu2.redhat.com>
-References: <20201111024140.1483879-1-ndesaulniers@google.com>
-User-Agent: Alpine 2.02 (LRH 1266 2009-07-14)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4CWMXV5mSTz9sSs;
+	Wed, 11 Nov 2020 22:12:58 +1100 (AEDT)
+Date: Wed, 11 Nov 2020 22:12:54 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Christian Borntraeger <borntraeger@de.ibm.com>, Nick Desaulniers
+ <ndesaulniers@google.com>, akpm@linux-foundation.org,
+ dan.j.williams@intel.com, daniel@ffwll.ch, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-nvdimm@lists.01.org, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ clang-built-linux@googlegroups.com, Linux-Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: Re: [PATCH 2/2] mm: simplify follow_pte{,pmd}
+Message-ID: <20201111221254.7f6a3658@canb.auug.org.au>
+In-Reply-To: <20201111082842.GA23677@lst.de>
+References: <20201029101432.47011-3-hch@lst.de>
+	<20201111022122.1039505-1-ndesaulniers@google.com>
+	<20201111081800.GA23492@lst.de>
+	<673267d5-93f5-7278-7a9d-a7b35ede6d48@de.ibm.com>
+	<20201111082842.GA23677@lst.de>
 MIME-Version: 1.0
-Content-Type: TEXT/PLAIN; charset=US-ASCII
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Original-Sender: mpatocka@redhat.com
+Content-Type: multipart/signed; boundary="Sig_/Mc_NX=GVNozxrVPRgbb7NWp";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
+X-Original-Sender: sfr@canb.auug.org.au
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=abm4tmw2;
-       spf=pass (google.com: domain of mpatocka@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=mpatocka@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@canb.auug.org.au header.s=201702 header.b=WSivZMUu;       spf=pass
+ (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as
+ permitted sender) smtp.mailfrom=sfr@canb.auug.org.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,41 +137,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Acked-by: Mikulas Patocka <mpatocka@redhat.com>
+--Sig_/Mc_NX=GVNozxrVPRgbb7NWp
+Content-Type: text/plain; charset="UTF-8"
 
+Hi Christoph,
 
-
-On Tue, 10 Nov 2020, Nick Desaulniers wrote:
-
-> This reverts commit 43aeaa29573924df76f44eda2bbd94ca36e407b5.
+On Wed, 11 Nov 2020 09:28:42 +0100 Christoph Hellwig <hch@lst.de> wrote:
+>
+> On Wed, Nov 11, 2020 at 09:26:20AM +0100, Christian Borntraeger wrote:
+> > 
+> > On 11.11.20 09:18, Christoph Hellwig wrote:  
+> > > On Tue, Nov 10, 2020 at 06:21:22PM -0800, Nick Desaulniers wrote:  
+> > >> Sorry, I think this patch may be causing a regression for us for s390?
+> > >> https://travis-ci.com/github/ClangBuiltLinux/continuous-integration/jobs/432129279#L768
+> > >>
+> > >> (via https://lore.kernel.org/linux-mm/20201029101432.47011-3-hch@lst.de)  
+> > > 
+> > > Hmm, the call to follow_pte_pmd in the s390 code does not actually exist
+> > > in my tree.  
+> > 
+> > This is a mid-air collision in linux-next between
+> > 
+> > b2ff5796a934 ("mm: simplify follow_pte{,pmd}")
+> > a67a88b0b8de ("s390/pci: remove races against pte updates")  
 > 
-> Since
-> commit 0bddd227f3dc ("Documentation: update for gcc 4.9 requirement")
-> the minimum supported version of GCC is gcc-4.9. It's now safe to remove
-> this code.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/427
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  drivers/md/dm-cache-target.c | 4 ----
->  1 file changed, 4 deletions(-)
-> 
-> diff --git a/drivers/md/dm-cache-target.c b/drivers/md/dm-cache-target.c
-> index 9644424591da..4bc453f5bbaa 100644
-> --- a/drivers/md/dm-cache-target.c
-> +++ b/drivers/md/dm-cache-target.c
-> @@ -712,10 +712,6 @@ static bool block_size_is_power_of_two(struct cache *cache)
->  	return cache->sectors_per_block_shift >= 0;
->  }
->  
-> -/* gcc on ARM generates spurious references to __udivdi3 and __umoddi3 */
-> -#if defined(CONFIG_ARM) && __GNUC__ == 4 && __GNUC_MINOR__ <= 6
-> -__always_inline
-> -#endif
->  static dm_block_t block_div(dm_block_t b, uint32_t n)
->  {
->  	do_div(b, n);
-> -- 
-> 2.29.2.222.g5d2a92d10f8-goog
-> 
+> Ah.  The fixup is trivial: just s/follow_pte_pmd/follow_pte/.
 
+ok, so tomorrow I will add the following to the merge of the
+akpm-current tree:
+
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+Date: Wed, 11 Nov 2020 22:08:32 +1100
+Subject: [PATCH] merge fix for "s390/pci: remove races against pte updates"
+
+Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
+---
+ arch/s390/pci/pci_mmio.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/s390/pci/pci_mmio.c b/arch/s390/pci/pci_mmio.c
+index 1a6adbc68ee8..4a4993837413 100644
+--- a/arch/s390/pci/pci_mmio.c
++++ b/arch/s390/pci/pci_mmio.c
+@@ -173,7 +173,7 @@ SYSCALL_DEFINE3(s390_pci_mmio_write, unsigned long, mmio_addr,
+ 	if (!(vma->vm_flags & VM_WRITE))
+ 		goto out_unlock_mmap;
+ 
+-	ret = follow_pte_pmd(vma->vm_mm, mmio_addr, NULL, &ptep, NULL, &ptl);
++	ret = follow_pte(vma->vm_mm, mmio_addr, NULL, &ptep, NULL, &ptl);
+ 	if (ret)
+ 		goto out_unlock_mmap;
+ 
+@@ -317,7 +317,7 @@ SYSCALL_DEFINE3(s390_pci_mmio_read, unsigned long, mmio_addr,
+ 	if (!(vma->vm_flags & VM_WRITE))
+ 		goto out_unlock_mmap;
+ 
+-	ret = follow_pte_pmd(vma->vm_mm, mmio_addr, NULL, &ptep, NULL, &ptl);
++	ret = follow_pte(vma->vm_mm, mmio_addr, NULL, &ptep, NULL, &ptl);
+ 	if (ret)
+ 		goto out_unlock_mmap;
+ 
+-- 
+2.29.2
+
+-- 
+Cheers,
+Stephen Rothwell
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201111221254.7f6a3658%40canb.auug.org.au.
+
+--Sig_/Mc_NX=GVNozxrVPRgbb7NWp
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl+rxzYACgkQAVBC80lX
+0GzxoggAnTSbP2MvHm/AvrWkgYxvOlLSLXdQ/ImkKzdhpKhThkA1ncXWZFIvTgHc
+46Y9TwSWR1HQOm/f/jyDe0qAIJP0857bxOHXTlFvY/3FSDv+WZc/2pSf1v5zAZnG
+edhdutlXgBgCqwhnux5ooDQUqwjwqiom+evJLaLtWzRAopB3QoLWA4vjk3KQ4HPa
+Z30h1i+dcqrXCDfbELftpAIDBZ7S0OWZakJzDPWKAYHlz4cbV/BhkDRf9rpb0i+I
+c/tpAnopxEVSWx1JCooiR7ZC2y/kXNl18K+Y83xy8bJdAmaR1jCSqlZsHDdBnpU3
+k/JOL0denkdXvrOMB7V3apBHpRJ8iQ==
+=AA7r
+-----END PGP SIGNATURE-----
+
+--Sig_/Mc_NX=GVNozxrVPRgbb7NWp--
