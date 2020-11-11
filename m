@@ -1,140 +1,136 @@
-Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBVNFWH6QKGQED7267IQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCHKDT7IXMKBBVOLWH6QKGQEVKY727Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53b.google.com (mail-ed1-x53b.google.com [IPv6:2a00:1450:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A5EF2AFA2D
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 22:08:38 +0100 (CET)
-Received: by mail-ed1-x53b.google.com with SMTP id g1sf1368197edk.0
-        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 13:08:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605128917; cv=pass;
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5636F2AFB5D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 23:29:42 +0100 (CET)
+Received: by mail-oo1-xc3b.google.com with SMTP id t8sf1595207oor.19
+        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 14:29:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605133781; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HeKD5hOQ+pdKpKmUiQMLvQvZIXzTpyDp8TuxTacfetPSi017ByTlFBWiq/pBQX/obK
-         Fn8P0AEx08ldpj1ICZm0fUQwO2lh6fOKkfK7/VOfap4IaNfLVOXfMMc/Lu8K5jbFvWDS
-         xykZwFuMq6h+yAtIsbCAXehyqtOxykHg8XrsN3YpwAJEMewsOb+mWFmcDOJPrJcyeBid
-         dodfLxBEQWUYfYbG7XD6FEz1BAbziIB/35e42S7sRLi1XV4tEdGdoPiz2C/cu+Y2s/VI
-         4m+Xq2lmIb1gqweEq3hfuJ8Vz9wEZSLQrQ8F0eoPuPHlU8XeNJSsaUQSJaKIJRH9HxO3
-         +KUA==
+        b=UFvHuOzZUGmVW9VOswEo4l5c9IeE113t3e0EnJjNkEIBCN2/EOOWBo1xrBLFPhfKHq
+         1k12zXytxs9s9ChpkRd3x1pfml6jMWd3GyBYDIYya8rTU2aI6D8lZ4Z/+LoE2Y08Okph
+         khTlWT0H2InzZtGrufitiRpRz7wi5XHun48Rr0tcqY3MU9A5QSkVUEOlg+oIAfG5WRWO
+         oiVMppPpClEqno+uZM3oUWINyHfvlxFcp8VSlDY/clwf6STayRJzMONxIZGrpwpNESm2
+         FwdfgPSKDm47iH03g3dLj69RTYXh+2ixVsQ+/Ih70uIp9E9va/S6KyDhXTmAELeDX0J9
+         lmsw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
-         :subject:to:date:from:sender:dkim-signature:dkim-signature;
-        bh=i+Kxm0dwQRWdmsHnS+Hh55srLFJdKpx7QrCG9tWcTHc=;
-        b=z5KeFXwcDcvO7oMkibfhc1bAApZ9CQO5QT4OQXv8WIdofr+nzsofoGLZw0BMaBKjjQ
-         TLhcwJcywTvX8itImwOtBZuHhQs0zP7+PxDC308nU7VAdHMZJGGN2QTSb4AIkJEGzh6n
-         Tm+7q/FJwbiriVYeYg8xRmODmgmNL5jPOC3+zth0cqnXavOy7x8oQnMtpC/nK9DfbUVP
-         a+sObveHMEcCB5+8VuV58uIlNeq4s5LKjmHPjGl/w1+0S6Wc0faG38ptWcVmU/I6Yyvg
-         o7BOT7e2bH5jNA03/bf1STB3SXYe+sDogt2o02+a4AfYefUiClsd972Sf/pI7OE2oUOs
-         bbLA==
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=txXxMIYFg9+6ToMRymW0iHTVUrpuiNdYL0veB3KNO/A=;
+        b=BazpL00UvKPzf34JfwEsrtNkZfwxxccWIa2hLpNT6tQjbELIFupcgPkB0MLUkFIzDs
+         uKFcIQ8CBE6Edd8YNhV4J3zex85wq9ggqWkpFyh4F9lB4yNUn2vYbGtyMPOYRAwYwRMN
+         LwkEFn+vwP2MOAYqck+ApLGatjiwjkNJmkqFrkgpfVqD4dlK62/+Xnd/y3oKcXpUjZw+
+         eqXpHOlcHDHgf2HZNOxxS5vAmf3LeDePagu8KpYGPggVDTnj7KXIlixE6R7uRNnDbiT+
+         ULy5BocObT00gqsnjIA03+UIPnTdBVRjVB82+aZYvaBh9M1cvSysvMFFiPhlHS+CgfSL
+         cFnw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V4Ubwjwv;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="GKkXuP/T";
+       spf=pass (google.com: domain of itaru.kitayama@gmail.com designates 2607:f8b0:4864:20::434 as permitted sender) smtp.mailfrom=itaru.kitayama@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:subject:message-id:user-agent:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=i+Kxm0dwQRWdmsHnS+Hh55srLFJdKpx7QrCG9tWcTHc=;
-        b=B6hRDdymiISGY1gC3hpfMfHLcJBVFUCZnRPU/+V9lRbZ0VcwvAABXgT8Dk1/bwg8E1
-         dpoXdaxgS+Cn74p8ehyl5TUoki2GsKgjl/1F97W53RWYnKtgiOxOuB8eh+o5Ne61ue7W
-         4fYiH4bbHs0piA2HD7vGr/qJrU8+ixd3YWXIUzHlxhhFtbU1JrcjAdbMKbzrJ4rv0t61
-         5EGKtUNp+dy4Tgu5gMirGcVQD9vWz2UJaOrICIQcZED9BePxUhvHtMhjb38M67jVY+i4
-         ptvurf4A5pWKCRt+R7hW1AIh05ZHDk+RUmBRkRXXT+mRQDp8GVG4o5ijF/3+Tgu8R4lq
-         YmIw==
+        bh=txXxMIYFg9+6ToMRymW0iHTVUrpuiNdYL0veB3KNO/A=;
+        b=UPnoAUwvwmuWwzpznPp6Fs706xVTAE7Z5VWB6T5f7fdjyZQdR9Qj7RkrZvySCdLETF
+         8TXxNvotodIOjQeOaaeO5MCTsbIvVQw8ZNbjIORqIJf0Wfrv7QnndVaHFDedpfCETEtR
+         k/5t7xN+AyETCyjLpHDPCoyIHT08aZSKZF00DZcQqo5ljhMMCZPFUstZOWZWTX1VLm65
+         Pux15aWwoEVJtuysCYAYOzs6cwHxoHcjbDDbd+km+WUXyIRzR5QhyAqJWKrcJkdXMwjk
+         g+GYr1ndY5CumQ/lK2yMql/4pnHezToj8YlQOysBzY5LQq1R+ak/RYvitWLIdK7tYJi9
+         tUtw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=from:date:to:subject:message-id:user-agent:mime-version
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=i+Kxm0dwQRWdmsHnS+Hh55srLFJdKpx7QrCG9tWcTHc=;
-        b=m6H4Cw8M1c+AFGdf4iQS9XoFyBOwBwPxtvJVFyHMugOsjSdkqm511YI/B/5x+1QZjz
-         kLXH5qXRCoUAdkETqMfn4FUo0xsPI7HELzGpaCgVLl9Sd8mcNYIwcm0dBM4g2F3qyP1U
-         /Ar2ApAjWl6+pEzWTWznFTme1ELyHcVcbdUqer+5kvJd8jBJfTOOrMgKNRbbtz6Z5Wtn
-         13KWVP5QdxTGPIHopmuyzFmavw2iVfveU7rGik2Mgtk4kY8JVIDl0wWwlq8bycPNE9Mq
-         lvXnF6UtdWNU8d/udWg0y75phXIEdj5Cfd0XycagXiDz0eltr9ZDmB8phZBwQorDLS7o
-         ZifQ==
+        bh=txXxMIYFg9+6ToMRymW0iHTVUrpuiNdYL0veB3KNO/A=;
+        b=SyZoawyEIqbN1pxvNccjK8HwpIUmzPrV4kt7LBs6Syhd2aj1YK+3NZ2TxULyRLUAwr
+         noKMMDhw/otU4VCM3JFrp5PbMk7XJzRx94gg3OtRtK9WxbEMf3LFZUkqzrK2xNyFe4xB
+         8dEDkS9q1POz0OKaUk6sV5/ejHpA4T20utX4ooLBpX30kYAa311TdVSjKyeUghDhSwax
+         9m1CJfOcQE2uCW6QqwMC3OcTXkmoKbc58pqiC1z5a6YZm57pn4vTVYskDIg1uTz0R6jn
+         vQXKFTLK0ylyT84LlPGumctm/idw0lmxLQKsLEo7Z1TSyJsJOzEeE7Z0wW+YqKWATTp8
+         NSUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:subject:message-id
-         :user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=i+Kxm0dwQRWdmsHnS+Hh55srLFJdKpx7QrCG9tWcTHc=;
-        b=h29NAiOiE+LTZC3MkdQjdzY/AV54krB7uw4wlm3HvdZB1ZCfh5W5NteYgEl3lRKAmn
-         AAkFG5p6zuN3Ky/J7qBNv4q/6tY3xclprJRpgPKvmt4fc1MsFO4LT9mQWTc3QKuM6hwh
-         YWZKikchRwcAii1H5JVlVOUlzpAeENr3skLnqrqwOhocrFeuhMRppPWMvnCD42rxVBfY
-         eHcJGXkVE74xxMLBgNsAxThxb1IaIma53W7D+aXFRZsJrHQ2v11C0M61fplA+CMWMZg8
-         VNyU0tmKNtUoT+TpZpeh+DhEITMCVqIapIaLxRdC8ya8a1brE56bCxJHDBH6LVVMdfqk
-         aywA==
+        bh=txXxMIYFg9+6ToMRymW0iHTVUrpuiNdYL0veB3KNO/A=;
+        b=V6PW31UDE5nYJQ0s3a8qKw1XxeGpF4tYst0hqJXlx4PEiDOWWN7KRjclmWn7gYt0ii
+         g9rD2N4qemINFveMaCcav4C73uxIkoI6ItoJo+sHcI2QcFFseapSraqjl6Lg19/kgCh4
+         ul7SToOmTVVin6lEMm/AJQDj3fLjOLYroPUqdcXHwxSL+4EcqbCeIlyVJCvBQpH9T02l
+         Bt9MZnD89CL6qtuyXThaX+uAjLw5y6xFwgvGDkuKQANBGGZLBzJ96hLE8R+UqhYz4+gv
+         666Cjonm9qTGJ7j9gVyF4WNjl4zd8xZmNOWx7seZQxXf0oPwlgGehozzD/jGE7tPQ2Dp
+         J1dQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532sTLfuQ91RIC7IYCZg8PRnisDgPercKW/NzAduFCcsPh1zkMwT
-	O8xLtAM4aahLcc+9kim/AII=
-X-Google-Smtp-Source: ABdhPJxVAVG/u7+XMsBKCelnyCUipWC4aGgNBn648mHowbl1jG0gYZZ/j4p8aUxg///5Q8yAOr12Kw==
-X-Received: by 2002:a17:906:b30a:: with SMTP id n10mr14122581ejz.54.1605128917760;
-        Wed, 11 Nov 2020 13:08:37 -0800 (PST)
+X-Gm-Message-State: AOAM531WGky1VX07B4Tw5H48nUVhtMtFZ3hOPdxasuv1MGcXR2BUN7FU
+	kOQ/b3aE7plqimlS0XuqxK8=
+X-Google-Smtp-Source: ABdhPJyB8UFQ3s1h8xiLc66se/KAxiM5Rv0xR8z2byZEBKOtC29JGxxavGdYjnzhDAX0js4IcVm6xw==
+X-Received: by 2002:a05:6830:441:: with SMTP id d1mr9438628otc.337.1605133781131;
+        Wed, 11 Nov 2020 14:29:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:d4c3:: with SMTP id t3ls1090190edr.0.gmail; Wed, 11 Nov
- 2020 13:08:36 -0800 (PST)
-X-Received: by 2002:a05:6402:154b:: with SMTP id p11mr1556822edx.217.1605128916773;
-        Wed, 11 Nov 2020 13:08:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605128916; cv=none;
+Received: by 2002:a4a:d658:: with SMTP id y24ls49469oos.7.gmail; Wed, 11 Nov
+ 2020 14:29:40 -0800 (PST)
+X-Received: by 2002:a4a:d2dc:: with SMTP id j28mr13032337oos.35.1605133780788;
+        Wed, 11 Nov 2020 14:29:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605133780; cv=none;
         d=google.com; s=arc-20160816;
-        b=EL3O3fko/GejuFXPfF4ffDNmH325qHQW9yoqEtvqFKc+NBG3rVJ2Wk4SI++oKxXUuj
-         Fo0OqP6L5dvFnfyT/pBsXMIwtY/NsRHauRBdxtg4Dr4lbJmWo85UYY5fTYV2R3rHoY7e
-         UckObm5iSsihQGkqQjgvCGIFBF3zPdIvdgZJiKhWqwRyyz21UFPg9y+RrLrx/NsfYMba
-         1IrOq3GLqovesY5LL9FoJKkSkaTEoYEd2H2YD7K4Jo6096ocUyGYtcptxrpmIZkN6vPj
-         KcMIs3v+x/roJ5wNe/evPskYkdtnzyrfUAOlccya5UEoZNeLJHLtL2UjPeH4SX/LnBrR
-         I41w==
+        b=xw99TUWajy4dGz9kFTRhLGlR8P5cCuvTeBCuD6n6SVrYpITPggzIvPUWZ49pdoHdcU
+         JwChrrn4an2MDViijy52xllsoOK5mUVQleBZ8PyGt/DhPwKN7TlBkkMvkBHYkAX5l+vT
+         NDGFX6a+19zicvqGYmMn5asXKcOLmJPODYOMihPUk/K5HIf6OJQhM+wUiw0f8upHom8h
+         EKdIxd5wCLokjrxTuiN6Cq9vG7GjkWHLZ0+MXjgsfi2QcEWN7G2DMh8e9EE4DXK5L8uO
+         kpQA/eojLMvFGFAEkZRGfEvFenwKD5gsG65DZVQslSylbQlyy5Vr4IoYk49sYHRKlYOO
+         xTVg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:message-id:subject:to:date:from
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
          :dkim-signature;
-        bh=lDAKmgu5vfJgWqcyddHDPqIFtgiSrjvsXTxdwMbEk6U=;
-        b=qlpacvQTsx5D3ifwq4rZLvDzDV8iWeGcsofo6i+mnVfBgDx47qsJvf9nec5ycPZOys
-         8p8v6oWENL3vJ9JVq4IYNqIIDjx7DTXsVwB5W+2Z7DzGgWJIMNspDrJCjGJNbPhC+Vun
-         4t6A1DF2b0lkK9hva6UzjQANRDnNpYuhAs3IdbyR8IZJVASkRt2aKPf8Z9NVTavriLJ4
-         3/v9ZPFCDS0UouhAuI/7WochCWeg4TiuUR9yRwkQeE2cbfrRcU5t0oSIc1toSBaBvOlN
-         w2PEeSOLfAoD9JbUTZP73vbqmNId+1tf4VByCjtn+ynmxd5kPWsdffxmzcVkbSguzK47
-         gFNw==
+        bh=UDquKc2qY8nYPwCMJCQRZgLk0RD955mdvxlRkA0qAg4=;
+        b=zrxllZlceWko3MRVex9stZM562V+oK9XuvX9ASZoJTWT8/S/p6u01XAxq4NuPXZgf1
+         C9EC9vZBDL+63dhZFMdsDw2v1RRj39rWjb2MsKPUyVpXR0QZ2rF23NybQS0QT9jGuejT
+         Y6v6Sm5CAKyM0uEIMe93C3EAinJhBo708DxByBm+fxpCl1Nnzv7g1w8bdHc+0YGS/iD2
+         Qp9Uo4p1KHL0BeC6aCe6zmCsENXNE4EhIi52SO0hLPQF+zSirnWNEZoxJAGZekh6/gSi
+         jatYYhQ2BLrzFs7/DeiJ3QemquDwZzSZssRztaW75eceBLEGLi3ODtRIskTSn5N0LtJJ
+         aqlw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V4Ubwjwv;
-       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="GKkXuP/T";
+       spf=pass (google.com: domain of itaru.kitayama@gmail.com designates 2607:f8b0:4864:20::434 as permitted sender) smtp.mailfrom=itaru.kitayama@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ed1-x531.google.com (mail-ed1-x531.google.com. [2a00:1450:4864:20::531])
-        by gmr-mx.google.com with ESMTPS id ck1si138991ejb.0.2020.11.11.13.08.36
+Received: from mail-pf1-x434.google.com (mail-pf1-x434.google.com. [2607:f8b0:4864:20::434])
+        by gmr-mx.google.com with ESMTPS id i23si235156oto.5.2020.11.11.14.29.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Nov 2020 13:08:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::531 as permitted sender) client-ip=2a00:1450:4864:20::531;
-Received: by mail-ed1-x531.google.com with SMTP id l5so3770020edq.11
-        for <clang-built-linux@googlegroups.com>; Wed, 11 Nov 2020 13:08:36 -0800 (PST)
-X-Received: by 2002:a05:6402:16d5:: with SMTP id r21mr1560702edx.149.1605128916550;
-        Wed, 11 Nov 2020 13:08:36 -0800 (PST)
-Received: from felia ([2001:16b8:2d8b:d300:a90c:1cb5:6919:1ee2])
-        by smtp.gmail.com with ESMTPSA id f25sm1398888edr.53.2020.11.11.13.08.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Nov 2020 13:08:35 -0800 (PST)
-From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Date: Wed, 11 Nov 2020 22:08:26 +0100 (CET)
-X-X-Sender: lukas@felia
-To: Alan Stern <stern@rowland.harvard.edu>, 
-    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, 
-    usb-storage@lists.one-eyed-alien.net, clang-built-linux@googlegroups.com, 
-    Tom Rix <trix@redhat.com>, Nathan Chancellor <natechancellor@gmail.com>
-Subject: Use of uninitialized data in special error case of usb storage
- transport
-Message-ID: <alpine.DEB.2.21.2011112146110.13119@felia>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+        Wed, 11 Nov 2020 14:29:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of itaru.kitayama@gmail.com designates 2607:f8b0:4864:20::434 as permitted sender) client-ip=2607:f8b0:4864:20::434;
+Received: by mail-pf1-x434.google.com with SMTP id w14so2616190pfd.7
+        for <clang-built-linux@googlegroups.com>; Wed, 11 Nov 2020 14:29:40 -0800 (PST)
+X-Received: by 2002:a63:da57:: with SMTP id l23mr22766518pgj.390.1605133780074;
+ Wed, 11 Nov 2020 14:29:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: lukas.bulwahn@gmail.com
+References: <abbda77f-633f-4564-93ee-ba33fee8ee47n@googlegroups.com>
+ <4a546ec1-cc54-dc06-165e-ca3d495940ac@redhat.com> <CANW9uyt1f3ugUnuDUgALgVsk-+MAfns-C=JwMTyPcHS6bjJ_CQ@mail.gmail.com>
+ <566666a1-7417-d27b-16f4-c4710abe5621@redhat.com> <CANW9uysSWEs74sfXhPZ0TMdrd5jQ1y7egcYSnz+gWmDYE=Z6JQ@mail.gmail.com>
+ <47b09d1b-2e54-efc3-9604-c5ab8cbd9c36@redhat.com>
+In-Reply-To: <47b09d1b-2e54-efc3-9604-c5ab8cbd9c36@redhat.com>
+From: Itaru Kitayama <itaru.kitayama@gmail.com>
+Date: Thu, 12 Nov 2020 07:29:29 +0900
+Message-ID: <CANW9uyuuSnozuU-ZzD2Y_PPs3ZQ2n+FNA962dR94Zh3Qysp-mQ@mail.gmail.com>
+Subject: Re: userspace
+To: "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, tstellar@redhat.com
+Content-Type: multipart/alternative; boundary="000000000000c7455605b3dc54c2"
+X-Original-Sender: itaru.kitayama@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=V4Ubwjwv;       spf=pass
- (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::531
- as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20161025 header.b="GKkXuP/T";       spf=pass
+ (google.com: domain of itaru.kitayama@gmail.com designates
+ 2607:f8b0:4864:20::434 as permitted sender) smtp.mailfrom=itaru.kitayama@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,56 +143,212 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Dear Alan, dear Greg,
+--000000000000c7455605b3dc54c2
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Tom,
+
+Thanks! I think we=E2=80=99d want then rebuild all the rawhide packages wit=
+h trunk
+Clang; that way
+you and Nick can come up with a fox easliy.
 
 
-here is a quick report from the static analysis tool clang-analyzer on 
-./drivers/usb/storage/transport.c:
 
-When usb_stor_bulk_transfer_sglist() returns with USB_STOR_XFER_ERROR, it 
-returns without writing to its parameter *act_len.
+On Thu, Nov 12, 2020 at 7:02 Tom Stellard <tstellar@redhat.com> wrote:
 
-Further, the two callers of usb_stor_bulk_transfer_sglist():
+> On 11/11/20 4:59 PM, Itaru Kitayama wrote:
+> > SRPMs please?
+> >
+>
+> Rebuilding the SRPMs is going to be difficult, because in a lot of cases
+> there is no way to override the default compiler of gcc.  I am working
+> on improving this in Fedora with changes like this[1] that make it
+> easier to override the compiler choice.
+>
+> -Tom
+>
+> [1] https://fedoraproject.org/wiki/Changes/UseMakeBuildInstallMacro
+>
+> > On Thu, Nov 12, 2020 at 5:35 Tom Stellard <tstellar@redhat.com
+> > <mailto:tstellar@redhat.com>> wrote:
+> >
+> >     On 11/11/20 2:58 AM, Itaru Kitayama wrote:
+> >      > I'd like to see if RHEL 8.2 packages all can be built with Trunk
+> >     Clang.
+> >      >
+> >
+> >     Do you want to rebuild the SRPMs or just the upstream projects?
+> >
+> >     -Tom
+> >
+> >      > On Wed, Nov 11, 2020 at 4:33 PM Tom Stellard <tstellar@redhat.co=
+m
+> >     <mailto:tstellar@redhat.com>> wrote:
+> >      >>
+> >      >> On 11/10/20 11:13 PM, Itaru Kitayama wrote:
+> >      >>> Can someone tell me the selection criteria?
+> >      >>>
+> >      >>
+> >      >> I was thinking of limiting it to projects that are packaged for
+> >     distros,
+> >      >> but that's pretty broad criteria.  Any other suggestions?
+> >      >>
+> >      >> -Tom
+> >      >>
+> >      >>> --
+> >      >>> You received this message because you are subscribed to the
+> Google
+> >      >>> Groups "Clang Built Linux" group.
+> >      >>> To unsubscribe from this group and stop receiving emails from
+> >     it, send
+> >      >>> an email to clang-built-linux+unsubscribe@googlegroups.com
+> >     <mailto:clang-built-linux%2Bunsubscribe@googlegroups.com>
+> >      >>> <mailto:clang-built-linux+unsubscribe@googlegroups.com
+> >     <mailto:clang-built-linux%2Bunsubscribe@googlegroups.com>>.
+> >      >>> To view this discussion on the web visit
+> >      >>>
+> >
+> https://groups.google.com/d/msgid/clang-built-linux/abbda77f-633f-4564-93=
+ee-ba33fee8ee47n%40googlegroups.com
+> >      >>>
+> >     <
+> https://groups.google.com/d/msgid/clang-built-linux/abbda77f-633f-4564-93=
+ee-ba33fee8ee47n%40googlegroups.com?utm_medium=3Demail&utm_source=3Dfooter
+> >.
+> >      >>
+> >      >
+> >
+>
+>
 
-    usb_stor_bulk_srb() and
-    usb_stor_bulk_transfer_sg(),
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CANW9uyuuSnozuU-ZzD2Y_PPs3ZQ2n%2BFNA962dR94Zh3Qysp-mQ%40m=
+ail.gmail.com.
 
-use the passed variable partial without checking the return value. Hence, 
-the uninitialized value of partial is then used in the further execution 
-of those two functions.
+--000000000000c7455605b3dc54c2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Clang-analyzer detects this potential control and data flow and warns:
+<div dir=3D"auto">Hi Tom,</div><div dir=3D"auto"><br></div><div dir=3D"auto=
+">Thanks! I think we=E2=80=99d want then rebuild all the rawhide packages w=
+ith trunk Clang; that way</div><div dir=3D"auto">you and Nick can come up w=
+ith a fox easliy.</div><div dir=3D"auto"><br></div><div dir=3D"auto"><br></=
+div><div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_att=
+r">On Thu, Nov 12, 2020 at 7:02 Tom Stellard &lt;<a href=3D"mailto:tstellar=
+@redhat.com">tstellar@redhat.com</a>&gt; wrote:<br></div><blockquote class=
+=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padd=
+ing-left:1ex">On 11/11/20 4:59 PM, Itaru Kitayama wrote:<br>
+&gt; SRPMs please?<br>
+&gt; <br>
+<br>
+Rebuilding the SRPMs is going to be difficult, because in a lot of cases <b=
+r>
+there is no way to override the default compiler of gcc.=C2=A0 I am working=
+<br>
+on improving this in Fedora with changes like this[1] that make it <br>
+easier to override the compiler choice.<br>
+<br>
+-Tom<br>
+<br>
+[1] <a href=3D"https://fedoraproject.org/wiki/Changes/UseMakeBuildInstallMa=
+cro" rel=3D"noreferrer" target=3D"_blank">https://fedoraproject.org/wiki/Ch=
+anges/UseMakeBuildInstallMacro</a><br>
+<br>
+&gt; On Thu, Nov 12, 2020 at 5:35 Tom Stellard &lt;<a href=3D"mailto:tstell=
+ar@redhat.com" target=3D"_blank">tstellar@redhat.com</a> <br>
+&gt; &lt;mailto:<a href=3D"mailto:tstellar@redhat.com" target=3D"_blank">ts=
+tellar@redhat.com</a>&gt;&gt; wrote:<br>
+&gt; <br>
+&gt;=C2=A0 =C2=A0 =C2=A0On 11/11/20 2:58 AM, Itaru Kitayama wrote:<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt; I&#39;d like to see if RHEL 8.2 packages all =
+can be built with Trunk<br>
+&gt;=C2=A0 =C2=A0 =C2=A0Clang.<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
+&gt; <br>
+&gt;=C2=A0 =C2=A0 =C2=A0Do you want to rebuild the SRPMs or just the upstre=
+am projects?<br>
+&gt; <br>
+&gt;=C2=A0 =C2=A0 =C2=A0-Tom<br>
+&gt; <br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt; On Wed, Nov 11, 2020 at 4:33 PM Tom Stellard =
+&lt;<a href=3D"mailto:tstellar@redhat.com" target=3D"_blank">tstellar@redha=
+t.com</a><br>
+&gt;=C2=A0 =C2=A0 =C2=A0&lt;mailto:<a href=3D"mailto:tstellar@redhat.com" t=
+arget=3D"_blank">tstellar@redhat.com</a>&gt;&gt; wrote:<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt; On 11/10/20 11:13 PM, Itaru Kitayama wrot=
+e:<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; Can someone tell me the selection cri=
+teria?<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt; I was thinking of limiting it to projects=
+ that are packaged for<br>
+&gt;=C2=A0 =C2=A0 =C2=A0distros,<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt; but that&#39;s pretty broad criteria.=C2=
+=A0 Any other suggestions?<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt; -Tom<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; --<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; You received this message because you=
+ are subscribed to the Google<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; Groups &quot;Clang Built Linux&quot; =
+group.<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; To unsubscribe from this group and st=
+op receiving emails from<br>
+&gt;=C2=A0 =C2=A0 =C2=A0it, send<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; an email to <a href=3D"mailto:clang-b=
+uilt-linux%2Bunsubscribe@googlegroups.com" target=3D"_blank">clang-built-li=
+nux+unsubscribe@googlegroups.com</a><br>
+&gt;=C2=A0 =C2=A0 =C2=A0&lt;mailto:<a href=3D"mailto:clang-built-linux%252B=
+unsubscribe@googlegroups.com" target=3D"_blank">clang-built-linux%2Bunsubsc=
+ribe@googlegroups.com</a>&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; &lt;mailto:<a href=3D"mailto:clang-bu=
+ilt-linux%2Bunsubscribe@googlegroups.com" target=3D"_blank">clang-built-lin=
+ux+unsubscribe@googlegroups.com</a><br>
+&gt;=C2=A0 =C2=A0 =C2=A0&lt;mailto:<a href=3D"mailto:clang-built-linux%252B=
+unsubscribe@googlegroups.com" target=3D"_blank">clang-built-linux%2Bunsubsc=
+ribe@googlegroups.com</a>&gt;&gt;.<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt; To view this discussion on the web vi=
+sit<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0<a href=3D"https://groups.google.com/d/msgid/clang-=
+built-linux/abbda77f-633f-4564-93ee-ba33fee8ee47n%40googlegroups.com" rel=
+=3D"noreferrer" target=3D"_blank">https://groups.google.com/d/msgid/clang-b=
+uilt-linux/abbda77f-633f-4564-93ee-ba33fee8ee47n%40googlegroups.com</a><br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0&lt;<a href=3D"https://groups.google.com/d/msgid/cl=
+ang-built-linux/abbda77f-633f-4564-93ee-ba33fee8ee47n%40googlegroups.com?ut=
+m_medium=3Demail&amp;utm_source=3Dfooter" rel=3D"noreferrer" target=3D"_bla=
+nk">https://groups.google.com/d/msgid/clang-built-linux/abbda77f-633f-4564-=
+93ee-ba33fee8ee47n%40googlegroups.com?utm_medium=3Demail&amp;utm_source=3Df=
+ooter</a>&gt;.<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;&gt;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
+&gt; <br>
+<br>
+</blockquote></div></div>
 
-drivers/usb/storage/transport.c:469:40: warning: The right operand of '-' 
-is a garbage value [clang-analyzer-core.UndefinedBinaryOperatorResult]
-        scsi_set_resid(srb, scsi_bufflen(srb) - partial);
-                                              ^
+<p></p>
 
-drivers/usb/storage/transport.c:495:15: warning: Assigned value is garbage 
-or undefined [clang-analyzer-core.uninitialized.Assign]
-                length_left -= partial;
-                            ^
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CANW9uyuuSnozuU-ZzD2Y_PPs3ZQ2n%2BFNA962dR94Zh3=
+Qysp-mQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
+oups.google.com/d/msgid/clang-built-linux/CANW9uyuuSnozuU-ZzD2Y_PPs3ZQ2n%2B=
+FNA962dR94Zh3Qysp-mQ%40mail.gmail.com</a>.<br />
 
-The tool is right; unfortunately, I do not know anything about the   
-intended function here. What is the further operation of those two  
-functions supposed to be when USB_STOR_XFER_ERROR is returned from 
-usb_stor_bulk_transfer_sglist()? Should the passed arguments remain 
-untouched, so setting *act_len to zero for the error paths would be
-a suitable fix to achieve that.
-
-A quick hint on that point and I can prepare a patch for you to pick up...
-
-Given that this code is pretty stable for years and probably in wider  
-use, the overall functionality is probably resilient to having this local 
-data being filled with arbitrary undefined data in the error case... but 
-who knows...
-
-
-Thanks and best regards,
-
-Lukas
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.2011112146110.13119%40felia.
+--000000000000c7455605b3dc54c2--
