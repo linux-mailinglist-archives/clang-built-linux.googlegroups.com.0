@@ -1,126 +1,148 @@
-Return-Path: <clang-built-linux+bncBD4PP5X5UEBRBRWQVT6QKGQEMYZ5DHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCH6BRHDXYLRBFOWVT6QKGQEIBX2D2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0D482AE473
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 00:54:46 +0100 (CET)
-Received: by mail-lf1-x13e.google.com with SMTP id t3sf163851lfk.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 15:54:46 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605052486; cv=pass;
+Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E0F12AE4A1
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 01:06:47 +0100 (CET)
+Received: by mail-qk1-x739.google.com with SMTP id x2sf380331qkd.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 16:06:47 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605053206; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LGbEaoGmgQNfJxCDkSc+K6ig4/5FGdK/HRmIA9njLJTa1gMK2TavR9RvSXgnmnO4mX
-         r4wB1iN3Zx1rXnfgLV/EFqEc/xw1fgIApXlwFfIMSZ1HiPNqw1vFXZd4nzxfy3yhs7gQ
-         JNpRVnmSKCO+i8acm4P3AF6NVphjhkDsxgs7MWkMD1eUmbzaMdnpyO36ZjfqKnlRtkcO
-         /lznzh4qE+8+h9U9FHSbTL5bZ1vbrNtUQg2NlsQ1sv22Yv/G+ijxl7M+tqodDk7KwGoD
-         SBkNH1tBszopzcRJia+fRZ10LRSCGqj++eZad+8UiAFJvb98N+eQOYDYB0jxBaDAcX2Y
-         hYpg==
+        b=fYg0/nw0yOvqoNwRMm/1t8CV+Lhw537M14nwgKC5TgB24tEAIGGJ5/tpjlftLXqAiL
+         SMsOOrq0/sLksKs+/YBgXWAIi7TFmvtdqgNrHnUN2sxUfYJ54ZoT7plEXn9lMHvKYnAd
+         Y+TPjhbba34a4rNJ7uhsAHH/rJq62Kq1yfMM2V7+7CTu5lWwkWhqLW8LgEndGoZI5kb9
+         S10F2lBQ79+WGovwbUTo6RZjcD6AqBXLQbhxvDasV+ebOLLco5F7/Q+UMtpPjFr8p7Pq
+         1BaweBHNj4M/5tzG8/zRp6dY3TuA3UQpW/VLJR9UaQ07HCMY0+l3akbNCKr5mCMYutOz
+         ClHg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=W5C3HXAfRX8Cl9NzNzqpsAcOqH9iqN0ZE+dC8ticdG4=;
-        b=tTBOj8L1wrPwZPkqwMvYKqoAz26nOOGFsEw3HYPjeiIuJeK7KEwvbSHTthAWvq2fqK
-         P4U1lUOAliX3gPeoHWQSYcvRZt4eRTXN3CK/axz/O0hF3rLMI0EzU8fJMJPcapcNreAu
-         ddq66rIh5ospg5hqqsb8TuYzQOhXidyzvlU84UsuitZcPVZQFjNWD4T5LgpcuxbXZXGS
-         liJ5gp90xdG8HtiTysIYc3EtaOQdUmOxHHPkv+u1sS8Ir003Xo0V+AZ2vixLCGG8uFT0
-         XnJlQe0iBC75iwxOwXx6HSJQ0wiHao2HtoCkZuXH9Q3RIjS3SBX4ZzXA2U7aJg3y8DYs
-         6tLA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:organization:from:references:cc:to:subject:reply-to
+         :sender:dkim-signature;
+        bh=FN6HRrjq7HRPYZnjzVyLxJDLJGSU5lJ1+NpGAbXYhvg=;
+        b=szJuM4YsALLiN7ngnAFthO4C6wxh2eW1rA8HilyhAHa4l2xCA/VNzm2ibzwqnRYOLW
+         JbrSwLLtPR7Gly15Mr39zRgqQFdXf4MmajF7mpLthniY7Xt7xmA+U9N1iNlLzkePFqTx
+         LnBR+S87JEdSa5sET6RFSNPULDJ7OiI68oxEBeIk90BqqPthnw6ATmY/7uFIaOso7id/
+         XGuOJS76xAO2bD6jm4wwwLwFUCObBi+sb7R+YzlUX/RN5z/vqhueKSDWExpDuNoxTOgt
+         /0NTvahOlYX7jTA35G6+kxww1nBxOnU2xywXZPgfhK6jCXpMgTdWkDhwMczwlHdD0xg6
+         sMZg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=g2rlr1Hy;
+       spf=pass (google.com: domain of tstellar@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=W5C3HXAfRX8Cl9NzNzqpsAcOqH9iqN0ZE+dC8ticdG4=;
-        b=IIanQ82jcNmPvbLHpmGTG4wANZSQSRe3fX8vc6e5smCrY9K4RMT5S7zrtKfPFQKTyC
-         9EcogrqQ28ciUJOuHKb+nT5yTwKX5/NHIenNDzApbGS0M7I4Soi409VtbW84X5G9r9vs
-         VaatctV3vND8RdWbFFdBXYOa+j0pzaVq44iRhP+paPDqnIyattpppChGp+zjnQUR+iWd
-         nICD6QaLyKOdMZdN7+h7itrtDr5zsOJzXCvXexcf2l6IcaQLNXpFRceG29pU9Ne5nC0g
-         EGrqyz8mfXXjOKuTKU1RO/XyjletpPHjD3KKHnYbRbR1UOhF+nMvy8V7dUbpLAAX5lUt
-         9EIw==
+        h=sender:reply-to:subject:to:cc:references:from:organization
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=FN6HRrjq7HRPYZnjzVyLxJDLJGSU5lJ1+NpGAbXYhvg=;
+        b=Uemca4XzEVV0MF7UvH7tOekQtvjXvF/3k9IP0T9rcClX1MsOWNME/kNE/OhTFFXHfc
+         l4HeRj6CwbpVjJwGiOHDgihVH/WoqHsr/Kh+CsVJ0IpzoHzN+tb2qvGN93pVIP17Z2yJ
+         GczHVCGR8duJxQQwMWe1yQjngJmjKrhIVVQKaq8n8AKmUgJ30UBgZgbKMZyTFURAxzUa
+         ytb9ikl8Ltw9KurjgXqFkqmNgDB0KAHZ0nR969LrXR16DGR9o1AC+4SNX7w+sshJSgHz
+         jONl3EWTnQS7lwaNTh8JNVuetg5mY3abdwIf/QAdQwpCasye5ru7q7AYzrejKLUOvf1u
+         gsfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:reply-to:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=W5C3HXAfRX8Cl9NzNzqpsAcOqH9iqN0ZE+dC8ticdG4=;
-        b=Cn2/OV/Xugw+u3HdDjSLwyK9fh20VAMOw2PeVRUgs6y/DzrXbYZ8WdW1s34rm43rxE
-         I+zhvBOKsyQ+uCsuDA3R62yTqajRrDohC43mW8csrtknjjD0+Lfb12Lb0xOIek2tjuXZ
-         Sw+bZoHkeomCeyRb6DTQxQ9HFGH2zBgkClDpaebF1SQMI88muf/Y3GoZBMvO8Xkr9Alq
-         0gHcN185m24vbYLWoZWmP8yKVx+quXvGIDzQ6XVjHirKxz2HncMMGvCEVyhcGDWlapfj
-         oA/4PAMI/s7QfX6/YjGqX1mLz7bURh9pIwNR+g/ikT27ZphVs1Op4h4r5veCQJ2Qhx0+
-         crOg==
+        bh=FN6HRrjq7HRPYZnjzVyLxJDLJGSU5lJ1+NpGAbXYhvg=;
+        b=gumfAnY8I6Mdsbg773IHNCnVbgz8H664IE6ldfhr0FZaJssWFdt/AH8QRS+97hpAyx
+         24XqsvxooPWgeg3LOq2MPZjI5uiNSgQEXrjOTaL4svEfKOHtzq3Huvm/OStYm2F+DkMJ
+         s53a3PJOtduAgNSMHxJOiy79y9T2ry8cRgJG7zrE6PsDzHWEg+dwAfMAgg4ZQv9Wz8b6
+         OcrgLiB00JHhHqIW53cu7pNfP2LtTBLBhPesn0D3b7TaeXRx1q7dVlELuyQL4zs+isUS
+         92LMePI1n01tFOha3zNbExCNeEzhL5J41BqTgGYJkKSWFJDkY2I2+7jFxbr6+xRn4mHb
+         dp7w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53289Sgz/as9ic2VMc0jc5C/UzltZ1ObByfcrlSGtFho/z/vw9g7
-	O4iaJFcJzQ/o0yjq6Yb1Haw=
-X-Google-Smtp-Source: ABdhPJwRK4+EZRZNtMdLqGK/dX5rfQ7BYadYVYafONuwUNJOtUu6DphjjfUO3MrISkFIEmlloLTCcg==
-X-Received: by 2002:a2e:93cf:: with SMTP id p15mr10098098ljh.141.1605052486527;
-        Tue, 10 Nov 2020 15:54:46 -0800 (PST)
+X-Gm-Message-State: AOAM53189wC7YprWZe6QmE8pbNn9HJVJTKdINVBlUozHMnmy7qqx1VMl
+	3WRv7AwRDYkuxdRYTDAsHjU=
+X-Google-Smtp-Source: ABdhPJz7+yAdi8HXZFmCyCD0V2cMxrcVOAYI55atZVfQekSyxfpWpSA9PdcwkoGaTstzvwvmtejBaQ==
+X-Received: by 2002:aed:26a3:: with SMTP id q32mr20444487qtd.68.1605053206098;
+        Tue, 10 Nov 2020 16:06:46 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b5b7:: with SMTP id f23ls2440211ljn.2.gmail; Tue, 10 Nov
- 2020 15:54:45 -0800 (PST)
-X-Received: by 2002:a2e:88cd:: with SMTP id a13mr10000458ljk.180.1605052485505;
-        Tue, 10 Nov 2020 15:54:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605052485; cv=none;
+Received: by 2002:a0c:baaa:: with SMTP id x42ls3406071qvf.9.gmail; Tue, 10 Nov
+ 2020 16:06:45 -0800 (PST)
+X-Received: by 2002:ad4:5381:: with SMTP id i1mr22120857qvv.21.1605053205622;
+        Tue, 10 Nov 2020 16:06:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605053205; cv=none;
         d=google.com; s=arc-20160816;
-        b=sHuiAhx6xXlgfKaBoAFPnpjCmKgnAVbXOzMUDA2GR/6ZnR1+Gc30YKcb2Nmsu5ANoq
-         XSk8tE/f68fCwJUaz+P1+9mkbOAvzDerzMoi+xMqgSiH1LkM8nv+5bIWSbKun88gAcg4
-         klmRXGXoVWxDLPVpnUhDRA5R0qfgiVVCaqs8aM+7MP2i57+8qcD6tOzVInq7bldiT4qN
-         fUiD94Mu6aJ9KUFXltzerLTAbxLpcw5jQVDEf2uqd491fL5C7kw+X/naiuFp+M0I/Y2H
-         fjZfkN/n21x55uMCxKHtKMawJm0FkzcBLfGNX9yprqVHft9Cn43vadfvuLsC8L3eirRF
-         l0aA==
+        b=05eu46oIn0RV3DhDb6MLd4/1w+b09nUkldPpnPXb5ivFJ1ibJFiga1mIkjpUm5S9e2
+         Ztfa8HAskKfB1ig3/+vg4Bbq+CQqypJfyK903b0+DNhOpfgSLl7gAJYdOdrUhModTxB7
+         olT3K+D6dis1idH8m8vRU9kzaG/h19QtrN8xFsTIurDpO6DSEoq7xkxTN04Ts139ijeo
+         RodGtWEmRCY05RVWjjgHDXNKPLqhEKsMr2pqbd2OBBNUTFL4dDBiyQuNTcd3sYJsIzY6
+         wFnVKzUfWiV+ifgmES61wxEjJFXGJZ+Dqy9qngxsJ/ZntlIxXq1utKtA8k2cwdCJiDws
+         qIsA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from;
-        bh=MxCSh6Ume2fxAiIaiGOUVoq2LqEQN/Z9ENgYntt/q9Q=;
-        b=JiVkfae2wh6dcQ2yWSL6zS3pQ4YJMRspigDOaynvIm2Qin30FIYy6XMdlYvV7i2VNM
-         d3PlV/5RNt4NlMLBLMYtDlBY+trclG6S9RNKEaVfjM8O90DyEWoVpcFk23wm+FEQotQB
-         qqOxwT5ZSw5pjhPa/fu7inLdIjvoXPlu3KeAbq718VF8XYPwVSU2cMGy9VE8JfeJ2yiD
-         R6/SgxXqMbUt1GB2BBW/Hl2Mof5c7wUD6ZJkeSeCQoMW+taCT1mJ4XNAPZv+tIxAZsNx
-         O0AyRDd+bd6R5KYqb6V1HmYNZ3oeJJir3MlCMNubUieGAUyH6hP5sAWmQlXeXjGH+GN/
-         tIrw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:reply-to:dkim-signature;
+        bh=lZRAAo07Qz8FNJaq5Am8MTWR/wlVgEv3kRateRo8ysI=;
+        b=hzRAM2eV7q6NzsxC44jo3HfeCJV17B+ZZ6N6a64wEocKI5GMw/BSw9ZRTlYIS2TwiO
+         eZrFwrpKUYQLlFXhOAIFhH+xosJ4i9141R9GIogCrT4qr4ZoBcapaQwIRfnVfT50qNx4
+         CE/bOqxfU/i5ZSzIsckkfP2F5DxVu1VU01X9764bh0YErLxXDyZnNo0xe8asqv2CU19K
+         xpQA01mAep48OpUbqYjtmiEE4kq0hv3JFfJMA6S8usLQaJbVTIQUS1LaeZxE3yDD949Z
+         YIdTyX4o6xTtn5ZXxLT73Z/E69bQoYIK4TJAvLSm7MGxtxISffUyR60AWQIYwwXeLKlQ
+         FzVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
-Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
-        by gmr-mx.google.com with ESMTPS id f28si10790ljp.3.2020.11.10.15.54.45
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=g2rlr1Hy;
+       spf=pass (google.com: domain of tstellar@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id x11si36982qkn.0.2020.11.10.16.06.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 10 Nov 2020 15:54:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(Authenticated sender: aratiu)
-	with ESMTPSA id 0F4511F4565A
-From: Adrian Ratiu <adrian.ratiu@collabora.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>, Linux ARM <linux-arm-kernel@lists.infradead.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>, Russell King
- <linux@armlinux.org.uk>, LKML <linux-kernel@vger.kernel.org>, Collabora
- Kernel ML <kernel@collabora.com>, Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH 2/2] arm: lib: xor-neon: disable clang vectorization
-In-Reply-To: <CAKwvOdkm3u83TQDBB-fC0TwKZCFXGh5sAfahKXxA+mnzgDid_w@mail.gmail.com>
-References: <20201106051436.2384842-1-adrian.ratiu@collabora.com>
- <20201106051436.2384842-3-adrian.ratiu@collabora.com>
- <20201106101419.GB3811063@ubuntu-m3-large-x86>
- <87wnyyvh56.fsf@collabora.com>
- <CAKwvOdkodob0M0r_AK_4nG3atLGMyNENMd6qVAHSPa92Zh7UZA@mail.gmail.com>
- <871rh2i9xg.fsf@iwork.i-did-not-set--mail-host-address--so-tickle-me>
- <CAKwvOdkm3u83TQDBB-fC0TwKZCFXGh5sAfahKXxA+mnzgDid_w@mail.gmail.com>
-Date: Wed, 11 Nov 2020 01:56:22 +0200
-Message-ID: <87sg9ghil5.fsf@collabora.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 10 Nov 2020 16:06:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of tstellar@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-203-1M87cebYPTO-IiHbjqlXFA-1; Tue, 10 Nov 2020 19:06:40 -0500
+X-MC-Unique: 1M87cebYPTO-IiHbjqlXFA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id BE93D107ACF7;
+	Wed, 11 Nov 2020 00:06:38 +0000 (UTC)
+Received: from tstellar.remote.csb (ovpn-114-68.phx2.redhat.com [10.3.114.68])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 148195DA6A;
+	Wed, 11 Nov 2020 00:06:38 +0000 (UTC)
+Reply-To: tstellar@redhat.com
+Subject: Re: Userspace coordination on ClangBuiltLinux GitHub space
+To: Sylvestre Ledru <sylvestre@mozilla.com>, Behan Webster
+ <behanw@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>
+Cc: Clang Built Linux <clang-built-linux@googlegroups.com>,
+ Bernhard Rosenkraenzer <bero@lindev.ch>, =?UTF-8?Q?Tomasz_Pawe=c5=82_Gajc?=
+ <tpgxyz@gmail.com>
+References: <9263a93d-bbaf-451f-9c2d-369351a3ee76n@googlegroups.com>
+ <CAKwvOd=d=OnY=SH7jowx-79J=ows4D1VDr=YX69fZxnK02nQAA@mail.gmail.com>
+ <E066D685-782B-4266-B334-9F71D4981916@gmail.com>
+ <44b5c961-8a09-0048-3557-a54da0964d4f@mozilla.com>
+From: Tom Stellard <tstellar@redhat.com>
+Organization: Red Hat
+Message-ID: <852218e0-9034-c49f-0a36-bcf9e24672dd@redhat.com>
+Date: Tue, 10 Nov 2020 16:06:37 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-Content-Type: text/plain; format=flowed; charset="UTF-8"
-X-Original-Sender: adrian.ratiu@collabora.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of adrian.ratiu@collabora.com designates
- 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+In-Reply-To: <44b5c961-8a09-0048-3557-a54da0964d4f@mozilla.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: tstellar@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=g2rlr1Hy;
+       spf=pass (google.com: domain of tstellar@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,138 +155,113 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 10 Nov 2020, Nick Desaulniers <ndesaulniers@google.com> 
-wrote:
-> On Mon, Nov 9, 2020 at 11:51 AM Adrian Ratiu 
-> <adrian.ratiu@collabora.com> wrote: 
->> 
->> On Fri, 06 Nov 2020, Nick Desaulniers <ndesaulniers@google.com> 
->> wrote: 
->> > +#pragma clang loop vectorize(enable) 
->> >         do { 
->> >                 p1[0] ^= p2[0] ^ p3[0] ^ p4[0] ^ p5[0]; p1[1] 
->> >                 ^= p2[1] ^ p3[1] ^ p4[1] ^ p5[1]; 
->> > ``` seems to generate the vectorized code. 
->> > 
->> > Why don't we find a way to make those pragma's more toolchain 
->> > portable, rather than open coding them like I have above 
->> > rather than this series? 
->> 
->> Hi again Nick, 
->> 
->> How did you verify the above pragmas generate correct 
->> vectorized code?  Have you tested this specific use case? 
-> 
-> I read the disassembly before and after my suggested use of 
-> pragmas; look for vld/vstr.  You can also add 
-> -Rpass-missed=loop-vectorize to CFLAGS_xor-neon.o in 
-> arch/arm/lib/Makefile and rebuild arch/arm/lib/xor-neon.o with 
-> CONFIG_BTRFS enabled. 
-> 
->> 
->> I'm asking because overrulling the cost model might not be 
->> enough, the only thing I can confirm is that the generated code 
->> is changed, but not that it is correct in any way. The object 
->> disasm also looks weird, but I don't have enough knowledge to 
->> start debugging what's happening within LLVM/Clang itself. 
-> 
-> It doesn't "look weird" to me. The loop is versioned based on a 
-> comparison whether the parameters alias or not. There's a 
-> non-vectorized version if the parameters are equal or close 
-> enough to overlap.  There's another version of the loop that's 
-> vectorized.  If you want just the vectorized version, then you 
-> have to mark the parameters as __restrict qualified, then check 
-> that all callers are ok with that. 
-> 
-
-Thank you for the explanation, that does make sense now. I'm just 
-a compiler optimization noob, sorry. All your help is much 
-appreciated.
-
->> 
->> I also get some new warnings with your code [1], besides the 
->> previously 'vectorization was possible but not beneficial' 
->> which is still present. It is quite funny because these two 
->> warnings seem to contradict themselves. :) 
-> 
-> From which compiler?  ``` $ clang 
-> -Wpass-failed=transform-warning -c -x c /dev/null warning: 
-> unknown warning option '-Wpass-failed=transform-warning'; did 
-> you mean '-Wprofile-instr-missing'? [-Wunknown-warning-option] 
-> ``` 
-
-I'm using Clang 10.0.1-1 from the Arch Linux repo.
-
-In the LLVM sources that transform-warning appears to be 
-documented under 
-llvm-10.0.1.src/docs/Passes.rst:1227:-transform-warning
-
-Here's a build log: http://ix.io/2DIc
-
-I always get those warnings with the pragma change you suggested, 
-even on clean builds on latest linux-next.
-
-I looked at the Arch PKGBUILD and they don't appear to do anything 
-special other than patching to enable SSP and PIE by default (eg 
-llvm bug 13410).
-
-> 
-> The pragma is clang specific, hence my recommendation to wrap it 
-> in an #ifdef __clang__. 
->
-
-Yes, I understand that. :)
- 
->> 
->> At this point I do not trust the compiler and am inclined to do 
-> 
-> Nonsense. 
-> 
->> like was done for GCC when it was broken: disable the 
->> optimization and warn users to upgrade after the compiler is 
->> fixed and confirmed to work. 
->> 
->> If you agree I can send a v2 with this and also drop the GCC 
->> pragma as Arvind and Ard suggested. 
-> 
-> If you resend "this" as in 2/2, I will NACK it.  There's nothing 
-> wrong with the cost model; it's saying there's little point in 
-> generating the vectorized version because you're still going to 
-> need a non-vectorized loop version anyways.  Claiming there is a 
-> compiler bug here is dubious just because the cost models 
-> between two compilers differ slightly.
-
-Ok, so that "remark" from the compiler is safe to ignore.
-
-> 
-> Resend the patch removing the warning, remove the GCC pragma, 
-> but if you want to change anything here for Clang, use `#pragma 
-> clang loop vectorize(enable)` wrapped in an `#ifdef __clang__`. 
->
-
-Thanks for making the NACK clear, so the way forward is to either 
-use the pragma if I can figure out the new 'loop not vectorized' 
-warning (which might also be a red herring) or just leave Clang as 
-is. :)
-
+On 10/21/20 2:03 PM, Sylvestre Ledru wrote:
+> Hello,
+>=20
+> Thanks Behan!
+>=20
+> Le 21/10/2020 =C3=A0 19:27, Behan Webster a =C3=A9crit=C2=A0:
+>> It=E2=80=99s worth talking to Sylvestre Ledru as he=E2=80=99s been build=
+ing the Debian=20
+>> archive with clang and finding and fixing issues there for a very long=
+=20
+>> time.
 >>
->> Kind regards,
->> Adrian
+>> https://clang.debian.net/ <https://clang.debian.net/>
 >>
->> [1]
->> ./include/asm-generic/xor.h:11:1: warning: loop not vectorized:
->> the optimizer was unable to perform the requested transformation;
->> the transformation might be disabled or specified as part of an
->> unsupported transformation ordering
->> [-Wpass-failed=transform-warning] xor_8regs_2(unsigned long bytes,
->> unsigned long *p1, unsigned long *p2)
->
->
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+>> Behan
+>>
+>>> On Oct 21, 2020, at 12:44 AM, 'Nick Desaulniers' via Clang Built=20
+>>> Linux <clang-built-linux@googlegroups.com=20
+>>> <mailto:clang-built-linux@googlegroups.com>> wrote:
+>>>
+>>> On Tue, Oct 20, 2020 at 6:42 PM Tom Stellard <tstellar@redhat.com=20
+>>> <mailto:tstellar@redhat.com>> wrote:
+>>>>
+>>>> Hi,
+>>>>
+>>>> I'm working on doing builds of =C2=A0Fedora packages using clang, and =
+I'm=20
+>>>> trying to find a way to coordinate this work with other=20
+>>>> distributions so that we aren't all fixing the same bugs. =C2=A0I woul=
+d=20
+>>>> like to create a GitHub repo for storing build-fix patches and also=20
+>>>> tracking issues for userspace projects.
+>>>>
+>>>> I could create a new GitHub organization for this, but I wanted to=20
+>>>> see if this community would be interested in hosting something like=20
+>>>> this in the ClangBuiltLinux organization.
+>>>>
+>>>> I don't have a strong preference either way, but it seems like there=
+=20
+>>>> could be some benefits of sharing a space for this with the ongoing=20
+>>>> linux kernel work.
+>=20
+> Thanks!
+>=20
+> We fixed a bunch of packages over the years [1] [2] and I have been=20
+> keeping track of them. Example:=20
+> https://clang.debian.net/status.php?version=3D10&key=3DEXPECTED_DECLARATI=
+ON
+> However, as there isn't a strong incentive to switch to clang (Debian=20
+> and Ubuntu, in general, are happy with gcc),
+> it is hard to get traction.
+>=20
+> So, I am more than happy to see that it is interesting more folks :)
+>=20
+> In general, I found that the best course of action is:
+> * Implement missing features in clang when possible (or push for it)
+>=20
+> * Report bugs on gcc to get some new features. So that packages get=20
+> fixed upstream when the new version gcc
+> is released.
+> Example: https://clang.debian.net/status.php?version=3D10&key=3DSPACE_LIT=
+ERAL
+>=20
+> * Fix bugs in the build blocs libraries or workaround them.
+> Example: https://bugreports.qt.io/browse/QTBUG-68139 (I had to=20
+> workaround it)
+> https://gitlab.freedesktop.org/xorg/util/imake/-/issues/1
+>=20
+> * Fix some differences between gcc/clang like=20
+> https://bugs.llvm.org/show_bug.cgi?id=3D45322
+>=20
+> Distro specific:
+> * Make it available in the CI close to the packagers.
+>=20
+> * As much as possible, merging patches upstream (I know I am stating the=
+=20
+> obvious)
+>=20
+> Anyway, happy to see this initiative and a github repo works for me (we=
+=20
+> will have to take in account
+> different naming of packages but I think we have precedent for this).
+>=20
+> Happy to help on this!
+>=20
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87sg9ghil5.fsf%40collabora.com.
+Hi all,
+
+I have set up the repo[1] now.  I pushed a commit, created an issue,
+and made a pull request to give an example of how I thought the repo
+could be used.  Let me know what you think.
+
+-Tom
+
+[1]https://github.com/ClangBuiltLinux/userspace/
+
+>=20
+> Cheers,
+> Sylvestre
+> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=3D756336
+> https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=3D740019
+>=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/852218e0-9034-c49f-0a36-bcf9e24672dd%40redhat.com.
