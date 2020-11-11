@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBMUFVX6QKGQE7MNKAEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBV4RVX6QKGQEFDPU4BQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id 14F342AE5FF
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 02:47:32 +0100 (CET)
-Received: by mail-pl1-x637.google.com with SMTP id g20sf308015plj.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 17:47:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605059250; cv=pass;
+Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5E2562AE636
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 03:13:45 +0100 (CET)
+Received: by mail-oi1-x240.google.com with SMTP id r83sf305259oia.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Nov 2020 18:13:45 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605060824; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sLOUtuJ+tlUunLB7oR0k8YC4PkDfV7DAuZMmpTBsW/VIP4lSqDF3Ii9dIKdHgcl9hc
-         X+ZbuM/lOuJIU2oGtH56O0RRhOIe+zio/DTrRy5MHs5T9k0WoRLAk/rkXjpwOXFPMVMs
-         sKVSw46LEn0/rjguccbzE8M2CcR5mIMRBA6qYilw8JT8JJMaNWrvv95YYc7e+MwwxdJB
-         dJJwTtZ69IM9ETx5iuY39m3JHC8/ohQwsw4GlUnyUETCA1vkU5v3JXC0mH0CBGc11C9O
-         W9Qer8IkU6eNN6KgU+r9nwHUxwSnhoZSB4me6+k/Ka7mOj8av0G8qcaqEg9TmouWX5PZ
-         LSnw==
+        b=z+Ild7vFAHjhdDFJiQ/56UWCegOPCYu8PR515I7cSYSdp9+M0V59n3zEMZdCH1F9kN
+         IBCK+wqO5MWUa9to5ZcvcFFNn0AAWE2R8bOdkmUxagytZAP6Grg8/PTpLx475d9kvi58
+         AbR1XUgbeQ/u0BGeAa6jw89stRNrB+QZ3Wp0CNUjrW6M2gybXkV0da2xGQNzEo14V/V9
+         UDviCBWkrgKxkILDb3xYkQK207rIpj35lSndYKzzBOppjcFp57BHClbeh4Awk/R3AAzx
+         oCW0cSWt9RVdK+ZZGbi+ia/kIXMnUQDyDERgd7jNWdSRoUfZxtRBKghrSsfmOAB8JHYj
+         DS0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :mime-version:message-id:date:sender:dkim-signature;
-        bh=AQDOajB5AXERkEYFQolwVCHVSunjKkQbcRsQkO4pQKQ=;
-        b=HckyEr45br8lesJaLTFYpcQi0BrEUyW5P0TWuIFkQrsHrFtMWH3n1cDGGiGX1xPFrp
-         7/C1NJZC70V9Abkiq9bpAxDGj0AWFzqNnu3jNklz2kuxRRYO88jKnWnAQ8XmSYi0Tw6s
-         KYlHcb5+xEMqUv/CVD42d3lo2BRioUnKKcyljrH3nlwMib86Ahbczsf5AhSb2kkIFd6g
-         w+t9cPEdCdG4IchHJd/MocxYRbtmunjkN9jh+2wuyoiOOQInHFUvowIhlM+k9Kvm8KSM
-         x7HIn+mkxYC9ZQVqsKafY82VpQR2NzwDakMqmSNDmFOEmeZIFHg7+fHMLoKosz2rdG2p
-         Qiyg==
+        bh=/Y+/i986RdQMLn+g+xomwnEvB+gH1JakQGwyalEXsf0=;
+        b=fcJmbGBp6apD2Xl1JLWixuc5UOb5VBlFVJL0FDjRSOlGm32pUfoFjgtQuB4TElqhOa
+         zSnkScpWmNnXolcLPA/YHfwvbs0lEm7QfO/DK1D5booGN6VaqBQ35IpL9FA7NUsM1X/z
+         jmMpdlufCpxLdWwxMufP5PMtYTC8JsG+rU7S+1Mh/e7eXaB00/hLVrAedAVTIO+8GHFq
+         3daNh5oPNMTrUzL4laBPmxx+jr15uDhd0YlWaLUFYM+/8yDn5aZ5j6IwWaukTmLDCcg4
+         d2/r8/PCMxe4TaZ+UsHCfe9QmJiNumg/m9f/GrRlNH1+XHLGtKMWe8t62qHpuQtuYxC1
+         l3Bw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=XG1NLhaz;
-       spf=pass (google.com: domain of 3sukrxwwkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3sUKrXwwKAOYVLMaIcTVQMZaOWWOTM.KWU@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XzskPPUh;
+       spf=pass (google.com: domain of 310irxwwkabod34i0kbd84hi6ee6b4.2ec@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=310irXwwKABoD34I0KBD84HI6EE6B4.2EC@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,88 +35,88 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AQDOajB5AXERkEYFQolwVCHVSunjKkQbcRsQkO4pQKQ=;
-        b=QW+Mr+AEkZAMnMTDeyea0Yn0s4kejYiaQ8pH5mmJ+hg+83lwNmxdS6CfOsWIct82Hj
-         iaWl0jeX1rhQejnq5QJ+FFERbkUOqU0fcjlTC/UMgGojMJGoIhrQj9rDgEAY63nWWCaG
-         BOpjSzRM33t/qGe+qj9MkoOQxxSp0eOfmbF1n+FV3L3X/lF0HKq0IZdi/vfNdoeVTSVf
-         tg3eiTLWaUWWRHmo5G8UOKMZSyprVlTg1q8PKM8SKZ6xtHw5qh9Hno45DYcPAVoFe0e0
-         hWNM1MvGq+BfwR44ChoYfYb7pQscuRjh+0Kh5r7oUT2ICsQrx51EgVd28ccnDl+T2Jf+
-         2hBQ==
+        bh=/Y+/i986RdQMLn+g+xomwnEvB+gH1JakQGwyalEXsf0=;
+        b=nHsLCEWVC2RzIZW/L7/ORs24RYwWa3xBzTu8eSCouYZ5qRNcvrIiL7mONIjjYmqFSx
+         4Rkk2N5kGgguEiZg8WzgXr4oLf8TsjB8rxiywx9lTsdxUfRmcsuJisWLrQjYjnnGOuSj
+         dyykSvDGEnYadBpgBb3Xxqm2PQwlyRF2PBhP2HbKBmBUp9SydHwN03f4riDUrnYDh/0e
+         rNS5jod4yVcwxq0iZdamTlYjGeUC+NMA5Dv4vZNX4slySbxXQjG3+zxJTGUXV8BFIfTi
+         EVHRQzrRnKCXCAiIiV8G+9bXPUbJSKMsVcklSUgcegKeTusNxV6ZPIhgA3PQA3mPlwA2
+         umTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:message-id:mime-version:subject:from
          :to:cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=AQDOajB5AXERkEYFQolwVCHVSunjKkQbcRsQkO4pQKQ=;
-        b=TglEoWF1biaZklzV7BQNAayuMaKrIpipjtiwFLBKb5gWQ04B4Gr7OicSD+VELN9K9U
-         83oOk7ahez5h7STAOXJnGJJSiemcr8EEccBVNKQsuLSIcbtgnyHDuqBEl7/ojlxVLptS
-         cN1r5W7Qqg4sVthv9gLK5ZhSkiGWNbURkgPnhVysJLu8ZqbSZ4uKm/l0bKwt5pdgevb5
-         eOouJyxtJrp9tiwYkYQeokABZ6i69aWz23VfIkIr3hsitZJYtVspepm+CUNanx9m7b5F
-         l7JwUBKu6N2sH5xhn8SR0Wog3YHk2wRkueZPAje3tqzl9JQVmLQzG/vnB7V2DFsSnXAS
-         O4mg==
-X-Gm-Message-State: AOAM532y8LAxPKqgQwf8rIAZxS3hhfA1WrDQLA2gSsUvRCJUoYydhnTb
-	OqXM315Oo17fN4ODXIwSMvs=
-X-Google-Smtp-Source: ABdhPJywSdL20LPlA5gHMv4o5YzSbONi8c4NI0tN4P+FTEu87vZlf/XzULad6mB59dugABZpXANvQA==
-X-Received: by 2002:a63:7347:: with SMTP id d7mr20209526pgn.63.1605059250754;
-        Tue, 10 Nov 2020 17:47:30 -0800 (PST)
+        bh=/Y+/i986RdQMLn+g+xomwnEvB+gH1JakQGwyalEXsf0=;
+        b=JIoJN7yNqGX4sLXmm4XK/fN+LgzYKW5nab2qW17xTMUiGay2xPBHESY6lR/MKJ2Wgq
+         w01m14iHYUiOys3Wa5jZr/Jbg7cZCvM85EjS6EKjLsqBKiOts547wp/a6/WnNRnwm6SO
+         VFEoe2piNyJfMYnv5rLJFOxbeMnge/77Sak2eQ4tS+ZavnGB7moSTdU3bGA5FJjH48OR
+         mxtYnJUcZyi5uIAbaFf4xRB+z+LQt3Wc/KDx3A6Rkf1ksdWzZXYsVvspfCHPxk0m6EWO
+         Kw9PIhkASOV+44x7Gv1pbHpZ5NOjePXaPpNbhJ84wxeAfL0uK1BZw9mSvGn40aDQuixF
+         gzsQ==
+X-Gm-Message-State: AOAM532T3zMjno+UzyK8zW4lOcOR2H8gbqr1Whv3AmjsUEB3PVRVzlxW
+	ZbvZdm9oVtPiLkeyWlYwHps=
+X-Google-Smtp-Source: ABdhPJwO38XQcmraniWdyxwIXEe5t2+ieCXL89Hi3F+erNSs4sEcoDESTlUHujYfZt7jfdtdSg9cTg==
+X-Received: by 2002:a4a:8f15:: with SMTP id e21mr15848987ool.8.1605060824019;
+        Tue, 10 Nov 2020 18:13:44 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:c395:: with SMTP id h21ls3078424pjt.3.gmail; Tue, 10
- Nov 2020 17:47:30 -0800 (PST)
-X-Received: by 2002:a17:90a:6042:: with SMTP id h2mr1267676pjm.77.1605059250233;
-        Tue, 10 Nov 2020 17:47:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605059250; cv=none;
+Received: by 2002:a9d:6b0f:: with SMTP id g15ls3565527otp.0.gmail; Tue, 10 Nov
+ 2020 18:13:43 -0800 (PST)
+X-Received: by 2002:a9d:67d8:: with SMTP id c24mr9997368otn.356.1605060823683;
+        Tue, 10 Nov 2020 18:13:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605060823; cv=none;
         d=google.com; s=arc-20160816;
-        b=N+jZLDaB7EySzRDd5X062H5FFLF6O5zZqhlht9TrwEahRYOTf/KHalrz3ornDR3uqr
-         m6K5+bSqH2k3upuKxQ/Y9ao5qHqmoTIDViaWncCOowqa2rPD7Ai69eEzbzL3VIlNqkX/
-         SDFHsjfPJonAGQuTU6MP2YQwcNHVlAbsrFv6yS9UlPs+KFALM3uVu4SmVvDV/kOs1hFH
-         x/ky+yywa7wSkKDN4uG6kvy4EnaVPRfLro34bOcyqJ5NO89YZ7br5hjq1WtUmPwL0s1L
-         XVI00XgrsJRETOjD2Bs3SgVlRjPxUEwjGLGXETimy6pbhm6dBNEYe/wGFecte8rczJ+3
-         zP3g==
+        b=cDOgzbkXsZDaDYaJjdeFHIQ8DwRm9o/BLtVPs69M3b9EEXe509hNKG3DCWRDL78KCL
+         ENTgavU7VVJxhQlcdFJLqAi4LQx2BPRDSkQjYzZkd1z0gFTvmoul4uvoyMQYEvyM98HN
+         2+mD4iS6e4ldN5NFFgXbkHTKW36K0YBx+VoUsf5PTj7BQHD4iTXmLSmYhlL3bFl6AVwG
+         e/BrGBHqrJbKBeB76yGjmsOy4z0motWffkn3ETzC7chtZmWmmC7YFoxNkNBDvWJCMVIB
+         ksCGF8jNMwLIjAZobE4Qfuznc1HFz3iDbdX3IacY+7+uBAcbvtDewaVMGW2Fvx73AWT3
+         jNCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:mime-version:message-id:date:sender
          :dkim-signature;
-        bh=FxgG6C8MNarNIrksAc2vZbdhW8ip0bCS/z9vVgyXDNc=;
-        b=Kasx6I5PPPRC+LPaXIGy7uGqKbgoupIB8/Iyje+xpN05EARTzgMIMJ8AU2ff7JDmlM
-         GskeMlTCqx8JD3iCO1rHrhqpanpYNqcduCUhiWPAbdEbo/28DvEy2oSPKFDWnOa+ZgfI
-         hufwxQpUcSah8xJdhor4ffHH5s+iEN8tC5R2zCk77hz8IEY+LIyKNzLwRznh2LwBeYQG
-         MI831PK5nLh5Dp23FEL551V6aQSkTdyvIWdGWsiCr9GlCTGQj68nTaFAzsdL8x+X95Gr
-         A/GAYAGJRFf4cf5u+Dig2noEyasGIyJ5WVX9ON+rTcADtODvBK2WczIipjWpsfZoUJfA
-         g62Q==
+        bh=W+tp6PqByVFyf+7BIq7ovR7ee/HSTPxo+nYyur7x4tk=;
+        b=BctYWvdnW8Oog/Hqtmr9HBXbJGZfUejYA+7c6xzxsYhhq6FeRKZL1h+B1WbrK7OoH0
+         sFgNnMLOq8bbOohuslbGfOE9j6Hg4uj0ysbG/ZSILAaetwnIAqZczWnnsfeH/s/bBw+M
+         ArHLKly95BHtObUBGw9enj0RVYPgf3c1DR3ghOeIafBH0AH4bDNK91rk2rH98nOMPJys
+         QuHfvMJU7qartVBPGGzQPjrT4B9Dgprmleffos91ArdC+46Q3kbf5lZM0kfOc8E7qlHS
+         UXPQnJCi7n01Un77S9BTEufzVvCUT1G18wrOLDQyJ1ssBZjrv9CBWWT7cORXxkOEQY22
+         PAjA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=XG1NLhaz;
-       spf=pass (google.com: domain of 3sukrxwwkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3sUKrXwwKAOYVLMaIcTVQMZaOWWOTM.KWU@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XzskPPUh;
+       spf=pass (google.com: domain of 310irxwwkabod34i0kbd84hi6ee6b4.2ec@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=310irXwwKABoD34I0KBD84HI6EE6B4.2EC@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
-        by gmr-mx.google.com with ESMTPS id l8si42858pjt.1.2020.11.10.17.47.30
+Received: from mail-qk1-x749.google.com (mail-qk1-x749.google.com. [2607:f8b0:4864:20::749])
+        by gmr-mx.google.com with ESMTPS id d20si71374oti.1.2020.11.10.18.13.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Nov 2020 17:47:30 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3sukrxwwkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
-Received: by mail-yb1-xb49.google.com with SMTP id u37so730969ybi.15
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Nov 2020 17:47:30 -0800 (PST)
+        Tue, 10 Nov 2020 18:13:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of 310irxwwkabod34i0kbd84hi6ee6b4.2ec@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::749 as permitted sender) client-ip=2607:f8b0:4864:20::749;
+Received: by mail-qk1-x749.google.com with SMTP id f9so630786qkg.13
+        for <clang-built-linux@googlegroups.com>; Tue, 10 Nov 2020 18:13:43 -0800 (PST)
 Sender: "ndesaulniers via sendgmr" <ndesaulniers@ndesaulniers1.mtv.corp.google.com>
 X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:f693:9fff:fef4:4d25])
- (user=ndesaulniers job=sendgmr) by 2002:a5b:886:: with SMTP id
- e6mr12574836ybq.473.1605059249452; Tue, 10 Nov 2020 17:47:29 -0800 (PST)
-Date: Tue, 10 Nov 2020 17:47:14 -0800
-Message-Id: <20201111014716.260633-1-ndesaulniers@google.com>
+ (user=ndesaulniers job=sendgmr) by 2002:a0c:aedf:: with SMTP id
+ n31mr16891447qvd.31.1605060823101; Tue, 10 Nov 2020 18:13:43 -0800 (PST)
+Date: Tue, 10 Nov 2020 18:11:30 -0800
+Message-Id: <20201111021131.822867-1-ndesaulniers@google.com>
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.29.2.222.g5d2a92d10f8-goog
-Subject: [PATCH] usb: fix a few cases of -Wfallthrough
+Subject: [PATCH] ACPICA: fix -Wfallthrough
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+To: Robert Moore <robert.moore@intel.com>, Erik Kaneda <erik.kaneda@intel.com>, 
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, 
 	"Gustavo A . R . Silva" <gustavoars@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Alan Stern <stern@rowland.harvard.edu>, 
-	Mathias Nyman <mathias.nyman@intel.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Johan Hovold <johan@kernel.org>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	clang-built-linux@googlegroups.com
+Cc: clang-built-linux@googlegroups.com, 
+	Nick Desaulniers <ndesaulniers@google.com>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	devel@acpica.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=XG1NLhaz;       spf=pass
- (google.com: domain of 3sukrxwwkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3sUKrXwwKAOYVLMaIcTVQMZaOWWOTM.KWU@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=XzskPPUh;       spf=pass
+ (google.com: domain of 310irxwwkabod34i0kbd84hi6ee6b4.2ec@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::749 as permitted sender) smtp.mailfrom=310irXwwKABoD34I0KBD84HI6EE6B4.2EC@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,92 +133,188 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 The "fallthrough" pseudo-keyword was added as a portable way to denote
-intentional fallthrough. Clang will still warn on cases where there is a
-fallthrough to an immediate break. Add explicit breaks for those cases.
+intentional fallthrough. This code seemed to be using a mix of
+fallthrough comments that GCC recognizes, and some kind of lint marker.
+I'm guessing that linter hasn't been run in a while from the mixed use
+of the marker vs comments.
 
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- drivers/usb/core/config.c    | 1 +
- drivers/usb/host/ehci-hcd.c  | 2 +-
- drivers/usb/host/ohci-hcd.c  | 2 +-
- drivers/usb/host/ohci-hub.c  | 1 +
- drivers/usb/host/xhci-ring.c | 2 ++
- 5 files changed, 6 insertions(+), 2 deletions(-)
+ drivers/acpi/acpica/dscontrol.c | 3 +--
+ drivers/acpi/acpica/dswexec.c   | 4 +---
+ drivers/acpi/acpica/dswload.c   | 3 +--
+ drivers/acpi/acpica/dswload2.c  | 3 +--
+ drivers/acpi/acpica/exfldio.c   | 3 +--
+ drivers/acpi/acpica/exresop.c   | 5 ++---
+ drivers/acpi/acpica/exstore.c   | 6 ++----
+ drivers/acpi/acpica/hwgpe.c     | 3 +--
+ drivers/acpi/acpica/utdelete.c  | 3 +--
+ drivers/acpi/acpica/utprint.c   | 2 +-
+ 10 files changed, 12 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/usb/core/config.c b/drivers/usb/core/config.c
-index 562a730befda..b199eb65f378 100644
---- a/drivers/usb/core/config.c
-+++ b/drivers/usb/core/config.c
-@@ -1076,6 +1076,7 @@ int usb_get_bos_descriptor(struct usb_device *dev)
- 		case USB_PTM_CAP_TYPE:
- 			dev->bos->ptm_cap =
- 				(struct usb_ptm_cap_descriptor *)buffer;
-+			break;
- 		default:
- 			break;
+diff --git a/drivers/acpi/acpica/dscontrol.c b/drivers/acpi/acpica/dscontrol.c
+index 4b5b6e859f62..1e75e5fbfd19 100644
+--- a/drivers/acpi/acpica/dscontrol.c
++++ b/drivers/acpi/acpica/dscontrol.c
+@@ -61,8 +61,7 @@ acpi_ds_exec_begin_control_op(struct acpi_walk_state *walk_state,
+ 				break;
+ 			}
  		}
-diff --git a/drivers/usb/host/ehci-hcd.c b/drivers/usb/host/ehci-hcd.c
-index 3575b7201881..e358ae17d51e 100644
---- a/drivers/usb/host/ehci-hcd.c
-+++ b/drivers/usb/host/ehci-hcd.c
-@@ -867,7 +867,7 @@ static int ehci_urb_enqueue (
- 		 */
- 		if (urb->transfer_buffer_length > (16 * 1024))
- 			return -EMSGSIZE;
--		/* FALLTHROUGH */
+-
+-		/*lint -fallthrough */
 +		fallthrough;
- 	/* case PIPE_BULK: */
- 	default:
- 		if (!qh_urb_transaction (ehci, urb, &qtd_list, mem_flags))
-diff --git a/drivers/usb/host/ohci-hcd.c b/drivers/usb/host/ohci-hcd.c
-index 73e13e7c2b46..1f5e69314a17 100644
---- a/drivers/usb/host/ohci-hcd.c
-+++ b/drivers/usb/host/ohci-hcd.c
-@@ -171,7 +171,7 @@ static int ohci_urb_enqueue (
  
- 			/* 1 TD for setup, 1 for ACK, plus ... */
- 			size = 2;
+ 	case AML_IF_OP:
+ 		/*
+diff --git a/drivers/acpi/acpica/dswexec.c b/drivers/acpi/acpica/dswexec.c
+index 1d4f8c81028c..e8c32d4fe55f 100644
+--- a/drivers/acpi/acpica/dswexec.c
++++ b/drivers/acpi/acpica/dswexec.c
+@@ -597,9 +597,7 @@ acpi_status acpi_ds_exec_end_op(struct acpi_walk_state *walk_state)
+ 				if (ACPI_FAILURE(status)) {
+ 					break;
+ 				}
+-
+-				/* Fall through */
+-				/*lint -fallthrough */
++				fallthrough;
+ 
+ 			case AML_INT_EVAL_SUBTREE_OP:
+ 
+diff --git a/drivers/acpi/acpica/dswload.c b/drivers/acpi/acpica/dswload.c
+index 27069325b6de..afc663c3742d 100644
+--- a/drivers/acpi/acpica/dswload.c
++++ b/drivers/acpi/acpica/dswload.c
+@@ -223,8 +223,7 @@ acpi_ds_load1_begin_op(struct acpi_walk_state *walk_state,
+ 			     parse_flags & ACPI_PARSE_MODULE_LEVEL)) {
+ 				break;
+ 			}
+-
+-			/*lint -fallthrough */
++			fallthrough;
+ 
+ 		default:
+ 
+diff --git a/drivers/acpi/acpica/dswload2.c b/drivers/acpi/acpica/dswload2.c
+index edadbe146506..1b794b6ba072 100644
+--- a/drivers/acpi/acpica/dswload2.c
++++ b/drivers/acpi/acpica/dswload2.c
+@@ -213,8 +213,7 @@ acpi_ds_load2_begin_op(struct acpi_walk_state *walk_state,
+ 			     parse_flags & ACPI_PARSE_MODULE_LEVEL)) {
+ 				break;
+ 			}
+-
+-			/*lint -fallthrough */
++			fallthrough;
+ 
+ 		default:
+ 
+diff --git a/drivers/acpi/acpica/exfldio.c b/drivers/acpi/acpica/exfldio.c
+index ade35ff1c7ba..9d1cabe0fed9 100644
+--- a/drivers/acpi/acpica/exfldio.c
++++ b/drivers/acpi/acpica/exfldio.c
+@@ -433,8 +433,7 @@ acpi_ex_field_datum_io(union acpi_operand_object *obj_desc,
+ 		 * Now that the Bank has been selected, fall through to the
+ 		 * region_field case and write the datum to the Operation Region
+ 		 */
+-
+-		/*lint -fallthrough */
++		fallthrough;
+ 
+ 	case ACPI_TYPE_LOCAL_REGION_FIELD:
+ 		/*
+diff --git a/drivers/acpi/acpica/exresop.c b/drivers/acpi/acpica/exresop.c
+index 4d1b22971d58..df48faa9a551 100644
+--- a/drivers/acpi/acpica/exresop.c
++++ b/drivers/acpi/acpica/exresop.c
+@@ -197,8 +197,7 @@ acpi_ex_resolve_operands(u16 opcode,
+ 				case ACPI_REFCLASS_DEBUG:
+ 
+ 					target_op = AML_DEBUG_OP;
+-
+-					/*lint -fallthrough */
++					fallthrough;
+ 
+ 				case ACPI_REFCLASS_ARG:
+ 				case ACPI_REFCLASS_LOCAL:
+@@ -264,7 +263,7 @@ acpi_ex_resolve_operands(u16 opcode,
+ 			 * Else not a string - fall through to the normal Reference
+ 			 * case below
+ 			 */
+-			/*lint -fallthrough */
++			fallthrough;
+ 
+ 		case ARGI_REFERENCE:	/* References: */
+ 		case ARGI_INTEGER_REF:
+diff --git a/drivers/acpi/acpica/exstore.c b/drivers/acpi/acpica/exstore.c
+index 3adc0a29d890..2067baa7c120 100644
+--- a/drivers/acpi/acpica/exstore.c
++++ b/drivers/acpi/acpica/exstore.c
+@@ -95,8 +95,7 @@ acpi_ex_store(union acpi_operand_object *source_desc,
+ 		if (dest_desc->common.flags & AOPOBJ_AML_CONSTANT) {
+ 			return_ACPI_STATUS(AE_OK);
+ 		}
+-
+-		/*lint -fallthrough */
++		fallthrough;
+ 
+ 	default:
+ 
+@@ -421,8 +420,7 @@ acpi_ex_store_object_to_node(union acpi_operand_object *source_desc,
+ 				}
+ 				break;
+ 			}
+-
+-			/* Fallthrough */
++			fallthrough;
+ 
+ 		case ACPI_TYPE_DEVICE:
+ 		case ACPI_TYPE_EVENT:
+diff --git a/drivers/acpi/acpica/hwgpe.c b/drivers/acpi/acpica/hwgpe.c
+index b13a4ed5bc63..fbfad80c8a53 100644
+--- a/drivers/acpi/acpica/hwgpe.c
++++ b/drivers/acpi/acpica/hwgpe.c
+@@ -166,8 +166,7 @@ acpi_hw_low_set_gpe(struct acpi_gpe_event_info *gpe_event_info, u32 action)
+ 		if (!(register_bit & gpe_register_info->enable_mask)) {
+ 			return (AE_BAD_PARAMETER);
+ 		}
+-
+-		/*lint -fallthrough */
++		fallthrough;
+ 
+ 	case ACPI_GPE_ENABLE:
+ 
+diff --git a/drivers/acpi/acpica/utdelete.c b/drivers/acpi/acpica/utdelete.c
+index 4c0d4e434196..8076e7947585 100644
+--- a/drivers/acpi/acpica/utdelete.c
++++ b/drivers/acpi/acpica/utdelete.c
+@@ -111,8 +111,7 @@ static void acpi_ut_delete_internal_obj(union acpi_operand_object *object)
+ 			(void)acpi_ev_delete_gpe_block(object->device.
+ 						       gpe_block);
+ 		}
+-
+-		/*lint -fallthrough */
++		fallthrough;
+ 
+ 	case ACPI_TYPE_PROCESSOR:
+ 	case ACPI_TYPE_THERMAL:
+diff --git a/drivers/acpi/acpica/utprint.c b/drivers/acpi/acpica/utprint.c
+index 681c11f4af4e..f7e43baf5ff2 100644
+--- a/drivers/acpi/acpica/utprint.c
++++ b/drivers/acpi/acpica/utprint.c
+@@ -475,7 +475,7 @@ int vsnprintf(char *string, acpi_size size, const char *format, va_list args)
+ 		case 'X':
+ 
+ 			type |= ACPI_FORMAT_UPPER;
 -			/* FALLTHROUGH */
 +			fallthrough;
- 		// case PIPE_INTERRUPT:
- 		// case PIPE_BULK:
- 		default:
-diff --git a/drivers/usb/host/ohci-hub.c b/drivers/usb/host/ohci-hub.c
-index 44504c1751e0..f474f2f9c1e4 100644
---- a/drivers/usb/host/ohci-hub.c
-+++ b/drivers/usb/host/ohci-hub.c
-@@ -692,6 +692,7 @@ int ohci_hub_control(
- 		case C_HUB_OVER_CURRENT:
- 			ohci_writel (ohci, RH_HS_OCIC,
- 					&ohci->regs->roothub.status);
-+			break;
- 		case C_HUB_LOCAL_POWER:
- 			break;
- 		default:
-diff --git a/drivers/usb/host/xhci-ring.c b/drivers/usb/host/xhci-ring.c
-index 167dae117f73..eac43a7b7f23 100644
---- a/drivers/usb/host/xhci-ring.c
-+++ b/drivers/usb/host/xhci-ring.c
-@@ -2418,6 +2418,7 @@ static int handle_tx_event(struct xhci_hcd *xhci,
- 			xhci_warn_ratelimited(xhci,
- 					      "WARN Successful completion on short TX for slot %u ep %u: needs XHCI_TRUST_TX_LENGTH quirk?\n",
- 					      slot_id, ep_index);
-+		break;
- 	case COMP_SHORT_PACKET:
- 		break;
- 	/* Completion codes for endpoint stopped state */
-@@ -2962,6 +2963,7 @@ static int prepare_ring(struct xhci_hcd *xhci, struct xhci_ring *ep_ring,
- 		return -EINVAL;
- 	case EP_STATE_HALTED:
- 		xhci_dbg(xhci, "WARN halted endpoint, queueing URB anyway.\n");
-+		break;
- 	case EP_STATE_STOPPED:
- 	case EP_STATE_RUNNING:
- 		break;
+ 
+ 		case 'x':
+ 
 -- 
 2.29.2.222.g5d2a92d10f8-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201111014716.260633-1-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201111021131.822867-1-ndesaulniers%40google.com.
