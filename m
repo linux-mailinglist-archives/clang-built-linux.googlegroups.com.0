@@ -1,132 +1,144 @@
-Return-Path: <clang-built-linux+bncBAABBLPQWX6QKGQEQJWV7AA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKPQWX6QKGQE2L5JSIQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B8702B0BF1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 19:00:15 +0100 (CET)
-Received: by mail-pf1-x43f.google.com with SMTP id f5sf4498360pfa.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 10:00:15 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605204014; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FFE42B0BF0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 19:00:11 +0100 (CET)
+Received: by mail-pl1-x63e.google.com with SMTP id t13sf4048383plo.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 10:00:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605204010; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yXiv6sMrHpYsa1CbHUmWIx1hYxBaz7TpWFEYJCrX2t2AJNBlAE7VtPgS3chvJIXUH4
-         NqZxle1z44a/TB22XrprlLOEiCY9tgkzjIpSSLEFV2O6u4xwYhMaSfrNGBQmIxB4Bukz
-         4/FwHZVyxKzHHPzVIHUMMSdeIOBXdXShTnq7hfGvF6DqMZqGe6OcgvwtPQFWRA35U91m
-         TYpXgiA+VE8puNpqoCSX9DiO3DxN3rwhXhmCJcnhdsHlsQH/kOBFlcMTP9g3jaBTWXeL
-         ehjL2HJVvnC4Sib+5gk/NcJ2bhmxc0A4zTCpFxDpBJiFk1gF/L8f435fqHFIkwxuu8cJ
-         4sUA==
+        b=el+jNgOzLhuduua519dekbR9JOnMFW+ly6pk7d5AuXxt5q5v3UpV4w4ZY8oc5kMnr1
+         PLxNPcicOp7WP6YVs3z9DTUPZnzeVwvlfPILYnnHMG5xuCzn5We80RkKRdfgCFbmvKJ5
+         +7pXaodT9k9EMFqaPMQjxD8+gWLgKSuywsVr2BfPAgFwT7Cu/QYlWl9FaBIl0Mb3B1Yv
+         A6XrFIv8I6Tm3/JAq7cqUr/J3x7Z4lmfVNU/jFgl8At36UIPHRJzENw3mpcn35rqGbry
+         PFTald4tlBbKDoUmPyOjbKjqKOnfFyaspvj1NWtq3tkMEVxVR0Vx9bugBI+ImATRvbiK
+         l2mw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=3lEjbaY6J9uxDTSyFx4OqfsX4LlrLygbwWkBrhmnNEA=;
-        b=ds9Q6bFSwK+ThosKq1XH7M93IDPxHUbRmWiJHt0jPl1vf5v5sEk3q0mekiGwSUCEN1
-         M9Rh2V9Gjlj6549+N5Iqsl4ZpnkJBM19U21oasmwwtfWIUlnvCBvaKhvM5vwNp+ZwhEH
-         ECxOiyT+eXl1LAMpM9RjMm3fMgkj++VF4kKWqk8Lgy8lKYTe4tGKQEjVJIa5YsoRWNOy
-         N2ACGpbxgk/OcmcG8K/6fRWkMDTw2fIF7xkZbml3nOkxzZyWeGjz5b7rIJrnpp1Aln7G
-         tPCyTJNV/Jc9Hfke3xzeHe4JmCIcn1Sb8rp9qVL7xh9yOydYzkYAujlCXd0YTI2d+3wV
-         dqKw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=Nhy5MrWmnTE8uns3OiRevf+WfNoqsys9NwQPSW/SmBw=;
+        b=E7UaJpS1u8KQGZH2p3CsEO04pG/E16Sd5D+6crqJqmDvgzTMtr+ZWg6LHnCpNy9H6L
+         UT7zxRv9JY8qWbzmVMYHh+cZthkgHkcPqq6hocN9LUv3IA2vj5FsIBBzHvSfxXBLQOLF
+         WWTG5f8MtdCWr0n51Z0eAzf1bEAxVTeljfEdWiVSViTAyUhF07jjaMY2TQKr2jd4qs2d
+         tBebymSXmFaVzvrhv+3EQNZvV3flCTFM1cP0lpNXnU8eiKzawcZ3iWqDw6LbfqbK2VmJ
+         Ls5Ks+W+7RyiRczLDARijLqN69k5UxbiVTVVpK/IbAcpsMBIppilLp4l9OPU9IFzU7SS
+         MoNA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=p5DjSu3n;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="i/YhZTJP";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3lEjbaY6J9uxDTSyFx4OqfsX4LlrLygbwWkBrhmnNEA=;
-        b=paAPsEJotZCXOuASW8Lz95NACEC+2McCjFm8J0sMnjAi6fPsjSMyF/vVa1O45+j9lz
-         5IKeqA046XE6+nIBLT6b3gKikIqHh9MWkK4m9xrAMSm+B2Z73xqEKYehXgduXYmKYEdq
-         h5SMo0326kQ/Vi/PfWsjSLMWeoWVpo/4MFI1XCF+L4Q4sL1td6tKwfoj+8DKwsYTzjGg
-         PaekMh5Y7KjtkPJem7stvtrZnmGOX6lY5q/3Py/gG1/6ESL7bvm/aIgtAwxn6d4xy/AS
-         vUm0QD3DdoFWl4SkeCIjU/4X8wR15bovd2tLL3QRtRY8B96H5rQKPVZDVR+jMX/3oMAE
-         RH0g==
+        bh=Nhy5MrWmnTE8uns3OiRevf+WfNoqsys9NwQPSW/SmBw=;
+        b=AGPFshgSdqqRI3wKt5AWT+8bHES+TnSuSwQPh1afgVrBskK1LXVgldmuOST+Js4c1n
+         /YyzWoBvHgksRFarZlaLA9awT5jbJNxhKa1rf8DzDuV9P3CyeJrsGia7s0bFy9li9f9G
+         pr0kyGg63t/zJ2PUEbYKj+4oNmI43bi86Rjva0KsKHyp7lQG6YPBFuQ0si2+Wta+aaiQ
+         M/f350dyEWsQwt03xZ/S5BqSn9T3GhDvD2CvQ9Hx7eRQULAoJzuwh1fV0zC9TXdi5sz8
+         Lu23lbKHph6w7VZx/LhzN22B2/CpEEp65/h2CbjONsoxPfO10OCpSWFluUNbauGLawb9
+         VBVA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Nhy5MrWmnTE8uns3OiRevf+WfNoqsys9NwQPSW/SmBw=;
+        b=WIqCCCH4NeGHoQlH+idO/U3TbHfSZHsZ9d0/ts8kdHpJNq+UCfNwnUA03B0SmBcMje
+         YHQAxRZHqLuqE4+H1mNL2SoOoorPAFlkEBB7YqgdR2zfcExjxMsRsFpvgkm8swfPHtUe
+         +QW1ddq195rt7Z4hn7qNgP4X8/Afny178g/Y5m+JdA9uIERY5aVOOJgdHfFGNf7eeoAl
+         IQU/0cl/EMiJSHkeBZLbxW4NS1SCjWoqQtcA1H8BJL38sNfH7MT8g2KNGxKlsf6Yfubc
+         plZTs8axvSda0c/J2DuQVtfc7yDTltYbddZXQnfXmIn1Neu/6A46a7d5tFuER10Epk5p
+         iPUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=3lEjbaY6J9uxDTSyFx4OqfsX4LlrLygbwWkBrhmnNEA=;
-        b=SboqBwZDPLirJ+yJKur/dp9U88hzVHVFKMGMos3LqAmSQbK8L9MZeGOSVdJJwGW1wm
-         pi3HtOuMs9mv22TIhDDJfbySSmznHuqf0lzLKaQiiuZEObYZvB9SCVqkj241j07TXYBF
-         fMGUv4W+/J2g3fEC/pARsOST6hahoMgzpPqZ/UfJ9mWGyxkhnbgqDVaBKV2Ru5t9i4c9
-         kh7g7A85iZHlOf77fjoV4mrgt8/rFVUZ1DQFsJSg9BiH2In4G0SuLleDD4fFH6ck9Cp9
-         JNJ9nCNFBHVX575gvEOms31JrtdoXA7zuT+Iq5bSvlatPeDatTJUatlUw8VCAKwF+VtC
-         x3lw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Nhy5MrWmnTE8uns3OiRevf+WfNoqsys9NwQPSW/SmBw=;
+        b=kr6Ma89ItaXks3FY5grlNiHk1duHYfHeBhtP6XR+c/DnhzX8jwbobi/y6Nz/IdUV0q
+         xDKRcKpiDNcZAREU/ouZNeYhFYq1+FrjzINjc01qPrDbRP+wcJBOiDTiQsw2FAHJKJW0
+         i1BDxyN39gxaKpZeOfyTaQOZAd1+orXcazX0zsxlwY+CTXY11pF6txIWk3fV6uv3hiAG
+         +/t4HlQlQZDBeW/fXyXN9cdSI2qkJnUXyeoQS0twuSL7F42/kTB/R+nszki9zUwrhag9
+         zTChfCQnBaRQpm/7R06kMHy7yAy7fCqwIFnABoBsNHHa8eyzFQvJHbTFudqElU/G2VRH
+         SXIQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5332K6NcvAIlV0bMjC/eCGtatSzSQ/LLza1ublqU0+Cy4JzgqXT+
-	pt6tNfju23jVz+cvWXXS83E=
-X-Google-Smtp-Source: ABdhPJwjWfCzbueoflsJH8kjFQFZ+KtWybyaglvw1lx3YEhR3bv2jO9oXubxCyo0p9bsO40xPNDVkA==
-X-Received: by 2002:aa7:950b:0:b029:18a:df47:ef90 with SMTP id b11-20020aa7950b0000b029018adf47ef90mr474854pfp.74.1605204013935;
-        Thu, 12 Nov 2020 10:00:13 -0800 (PST)
+X-Gm-Message-State: AOAM530OD10i2+XrNPg30AqnTwb0xg6Zp025lxHVC1ELBug147BcWIvZ
+	7zp82roGwMSNJqZA6h31tu0=
+X-Google-Smtp-Source: ABdhPJzk48PCPjc6S8bW+njaNYkYqjDz10uF9J4TdK9NOSTTjjiLnDaAQOE9eEJYHdP3xYhSSNxWcQ==
+X-Received: by 2002:a17:90a:fe88:: with SMTP id co8mr350034pjb.137.1605204010084;
+        Thu, 12 Nov 2020 10:00:10 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:223:: with SMTP id 32ls1783125plc.1.gmail; Thu, 12
- Nov 2020 10:00:13 -0800 (PST)
-X-Received: by 2002:a17:90a:5898:: with SMTP id j24mr406033pji.78.1605204013392;
-        Thu, 12 Nov 2020 10:00:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605204013; cv=none;
+Received: by 2002:a17:90a:c395:: with SMTP id h21ls2064538pjt.3.gmail; Thu, 12
+ Nov 2020 10:00:09 -0800 (PST)
+X-Received: by 2002:a17:90a:648b:: with SMTP id h11mr324081pjj.221.1605204009451;
+        Thu, 12 Nov 2020 10:00:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605204009; cv=none;
         d=google.com; s=arc-20160816;
-        b=tDuKmpkaki4hW5ylqC1C1ZRXD5epvdqueJABv9nJOvPVsoI2OTprEaByWQSrY9yQyQ
-         t6wEOfIDFLCIoTR0GxyQKIhqS9zSjCVloFyA2alr1Ox+9WVFkU/4nNzBsJJxNo3U4o/5
-         UQ1JB+A13A7Yj5CCVm4aT6ruKo85RHMFzLrXTY1X4efXDW6KF+hBwmTM5/UY7JcT7Saq
-         3VnjxbFu2xrt+Ao7b8izoiLPDSPzz+jasHGPWqE1LsVGcnSY+FFsEtPvTJSjF4d2HxzD
-         7hLkDF1dvghC9G9DVZmYegaxJ/LBbJxB6lTwBRHiyTKN3uY1YE5NNAzR3IAxt/WbeFcq
-         /MCA==
+        b=Q3Amb+z8xz9PtFh7nYASm9sT5TJPBoPVPsAtHyTpEQiDJPK64OyvD5mASBbYZq5Ibz
+         SLOmrENbGwHfvOA7uiyJOac/2bF42uVClNgdbbbEhVkJ8YD/ipeO+IEU1gFxlUi30aDq
+         w2cmUNxYyp6eLzuw5Ytjetg/puc1ycb52pXqEVBC35QQ+uxUfZ4lhYq0wh9iapnovXl/
+         g09WJDKMH/Vgf3bt+gBb4NoYv1d+ON7TuASm9WVQsQqbbhLZFC05WjxsMIxz0x8PK1nM
+         IfDpCxYF6U5Dzvv/sZI8Tu0JDyH9OUwbBSMjxWpIIwi3//zhcjsSoqM202Avhvjavl3h
+         ALCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=rWOh7GylTqiAkTDgEMzJCdlRF0cb3PsMAOZugOSpS1M=;
-        b=htHyKgCspgEMjJZu5WwBXcl9DwxH7Gny10XbeihIgB1278PnYMaEvHMPx5auGz+rOr
-         IFoXzL35RiWw85WzcwReCjBUjxU/74wlpHX/yDUB5VvbLioMbV+1gpcDlClPTbU3gbbh
-         GL6Ns1/M93A+ALH1eJ/BSaxsanxiKXdYi/IhziLKR5mlRmXagNkIRzp1/rmAh9y7WzzY
-         A8tr8AZT+0tZYXFhwIT95pp2wSQBrxLgd/HS30xaiBDQ40t2aK/MOGHWjDZAeYXqgH5T
-         oZuyYdryXG7HHfw43/78EcBQnOWv0Rupj6on1gZBRvl/G2waFmV5il+dkgfIzWCcMzRv
-         KZOw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=nWQxQxmFLSVrQK0chW1Meim1NDrbshpHTTnicdDWmbA=;
+        b=cnhgj9nUmQJ8japrbN8AmdDCRpmETa7m5NzsAFGcdhP6H/1TtMlqp1SKc3pszhxQFN
+         rPOBAfqFuTr4z09QUKj/E9UX3rCo36G0vt7lpwx36qEjW0ZYJ3nIyusZeOTQNjv8PUHM
+         3tEn0ghZhqoPhX5Im0ksV+wPTEpOTwjGMCCddXZbIyGe0kfJbXdkHNM3FsVPt5c4ZIIu
+         Fs/p/ppVCmP7qMdKIiZk+6k4a9QCQYgYdQCM2stHoJNTp/mAOJP4ZSErAamlwR4Dxsg2
+         qRG8Ot5unCVwFNHJs90cwG3nBrlbNLHPymlj5+v2kD6AX/+hwRaK+D49HMR7G1tSqMmF
+         8ZUg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=p5DjSu3n;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
-Received: from linux.microsoft.com (linux.microsoft.com. [13.77.154.182])
-        by gmr-mx.google.com with ESMTP id l8si483439pjt.1.2020.11.12.10.00.13
-        for <clang-built-linux@googlegroups.com>;
-        Thu, 12 Nov 2020 10:00:13 -0800 (PST)
-Received-SPF: pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) client-ip=13.77.154.182;
-Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
-	by linux.microsoft.com (Postfix) with ESMTPSA id D9F2520C288A
-	for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 10:00:12 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D9F2520C288A
-Received: by mail-qv1-f43.google.com with SMTP id ec16so3216144qvb.0
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 10:00:12 -0800 (PST)
-X-Received: by 2002:a0c:cb04:: with SMTP id o4mr953748qvk.15.1605204011871;
- Thu, 12 Nov 2020 10:00:11 -0800 (PST)
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="i/YhZTJP";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
+        by gmr-mx.google.com with ESMTPS id 38si378112pgq.3.2020.11.12.10.00.09
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Nov 2020 10:00:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::742 as permitted sender) client-ip=2607:f8b0:4864:20::742;
+Received: by mail-qk1-x742.google.com with SMTP id d9so6116034qke.8
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 10:00:09 -0800 (PST)
+X-Received: by 2002:a37:b342:: with SMTP id c63mr1048937qkf.146.1605204008659;
+        Thu, 12 Nov 2020 10:00:08 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id q20sm5369269qtn.80.2020.11.12.10.00.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Nov 2020 10:00:07 -0800 (PST)
+Date: Thu, 12 Nov 2020 11:00:06 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Mathias Nyman <mathias.nyman@intel.com>,
+	Johan Hovold <johan@kernel.org>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] usb: fix a few cases of -Wfallthrough
+Message-ID: <20201112180006.GA934688@ubuntu-m3-large-x86>
+References: <20201111014716.260633-1-ndesaulniers@google.com>
 MIME-Version: 1.0
-References: <20201110202746.9690-1-mcroce@linux.microsoft.com>
- <20201112035023.974748-1-natechancellor@gmail.com> <CAFnufp2eEKW4tencrhUoYkY6C-eGB5xF_Fg5hms52zgJj68hJg@mail.gmail.com>
- <20201112174954.GA934563@ubuntu-m3-large-x86>
-In-Reply-To: <20201112174954.GA934563@ubuntu-m3-large-x86>
-From: Matteo Croce <mcroce@linux.microsoft.com>
-Date: Thu, 12 Nov 2020 18:59:36 +0100
-X-Gmail-Original-Message-ID: <CAFnufp2edm5wkRtLzZf0XwL2xCKzJ7EgpZAKKg70QzZog_ND-Q@mail.gmail.com>
-Message-ID: <CAFnufp2edm5wkRtLzZf0XwL2xCKzJ7EgpZAKKg70QzZog_ND-Q@mail.gmail.com>
-Subject: Re: [PATCH] reboot: Fix variable assignments in type_store
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org, 
-	Guenter Roeck <linux@roeck-us.net>, Pavel Tatashin <pasha.tatashin@soleen.com>, 
-	Petr Mladek <pmladek@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-	Tyler Hicks <tyhicks@linux.microsoft.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mcroce@linux.microsoft.com
+Content-Disposition: inline
+In-Reply-To: <20201111014716.260633-1-ndesaulniers@google.com>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux.microsoft.com header.s=default header.b=p5DjSu3n;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates
- 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+ header.i=@gmail.com header.s=20161025 header.b="i/YhZTJP";       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,129 +151,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Nov 12, 2020 at 6:49 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> Hi Matteo,
->
-> On Thu, Nov 12, 2020 at 12:26:45PM +0100, Matteo Croce wrote:
-> > On Thu, Nov 12, 2020 at 4:50 AM Nathan Chancellor
-> > <natechancellor@gmail.com> wrote:
-> > >
-> > > Clang warns:
-> > >
-> > > kernel/reboot.c:707:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_TRIPLE;
-> > >                             ~ ^~~~~~~~~~~
-> > > kernel/reboot.c:709:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_KBD;
-> > >                             ~ ^~~~~~~~
-> > > kernel/reboot.c:711:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_BIOS;
-> > >                             ~ ^~~~~~~~~
-> > > kernel/reboot.c:713:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_ACPI;
-> > >                             ~ ^~~~~~~~~
-> > > kernel/reboot.c:715:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_EFI;
-> > >                             ~ ^~~~~~~~
-> > > kernel/reboot.c:717:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_CF9_FORCE;
-> > >                             ~ ^~~~~~~~~~~~~~
-> > > kernel/reboot.c:719:17: warning: implicit conversion from enumeration
-> > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > [-Wenum-conversion]
-> > >                 reboot_mode = BOOT_CF9_SAFE;
-> > >                             ~ ^~~~~~~~~~~~~
-> > > 7 warnings generated.
-> > >
-> > > It seems that these assignment should be to reboot_type, not
-> > > reboot_mode. Fix it so there are no more warnings and the code works
-> > > properly.
-> > >
-> > > Fixes: eab8da48579d ("reboot: allow to specify reboot mode via sysfs")
-> > > Link: https://github.com/ClangBuiltLinux/linux/issues/1197
-> > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> > > ---
-> > >  kernel/reboot.c | 14 +++++++-------
-> > >  1 file changed, 7 insertions(+), 7 deletions(-)
-> > >
-> > > diff --git a/kernel/reboot.c b/kernel/reboot.c
-> > > index deba133a071b..8599d0d44aec 100644
-> > > --- a/kernel/reboot.c
-> > > +++ b/kernel/reboot.c
-> > > @@ -704,19 +704,19 @@ static ssize_t type_store(struct kobject *kobj, struct kobj_attribute *attr,
-> > >                 return -EPERM;
-> > >
-> > >         if (!strncmp(buf, BOOT_TRIPLE_STR, strlen(BOOT_TRIPLE_STR)))
-> > > -               reboot_mode = BOOT_TRIPLE;
-> > > +               reboot_type = BOOT_TRIPLE;
-> > >         else if (!strncmp(buf, BOOT_KBD_STR, strlen(BOOT_KBD_STR)))
-> > > -               reboot_mode = BOOT_KBD;
-> > > +               reboot_type = BOOT_KBD;
-> > >         else if (!strncmp(buf, BOOT_BIOS_STR, strlen(BOOT_BIOS_STR)))
-> > > -               reboot_mode = BOOT_BIOS;
-> > > +               reboot_type = BOOT_BIOS;
-> > >         else if (!strncmp(buf, BOOT_ACPI_STR, strlen(BOOT_ACPI_STR)))
-> > > -               reboot_mode = BOOT_ACPI;
-> > > +               reboot_type = BOOT_ACPI;
-> > >         else if (!strncmp(buf, BOOT_EFI_STR, strlen(BOOT_EFI_STR)))
-> > > -               reboot_mode = BOOT_EFI;
-> > > +               reboot_type = BOOT_EFI;
-> > >         else if (!strncmp(buf, BOOT_CF9_FORCE_STR, strlen(BOOT_CF9_FORCE_STR)))
-> > > -               reboot_mode = BOOT_CF9_FORCE;
-> > > +               reboot_type = BOOT_CF9_FORCE;
-> > >         else if (!strncmp(buf, BOOT_CF9_SAFE_STR, strlen(BOOT_CF9_SAFE_STR)))
-> > > -               reboot_mode = BOOT_CF9_SAFE;
-> > > +               reboot_type = BOOT_CF9_SAFE;
-> > >         else
-> > >                 return -EINVAL;
-> > >
-> > >
-> > > base-commit: 3e14f70c05cda4794901ed8f976de3a88deebcc0
-> > > --
-> > > 2.29.2
-> > >
-> >
-> > Hmm, this was introduced in v3 I think.
-> >
-> > I wonder why my compiler doesn't warn about it, the two variables are
-> > defined as different enum type.
-> > I get the same warnings with GCC and -Wenum-conversion.
->
-> What version of GCC do you have? -Wenum-conversion is a fairly new
-> warning in GCC I think. Although if you get it now, maybe it was some
-> configuration error?
->
+On Tue, Nov 10, 2020 at 05:47:14PM -0800, Nick Desaulniers wrote:
+> The "fallthrough" pseudo-keyword was added as a portable way to denote
+> intentional fallthrough. Clang will still warn on cases where there is a
+> fallthrough to an immediate break. Add explicit breaks for those cases.
+> 
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Hi,
+Aside from a minor nit/question below:
 
-the one shipped in Fedora 33:
-gcc version 10.2.1 20201016 (Red Hat 10.2.1-6) (GCC)
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 
-I enabled -Wenum-compare -Wenum-conversion globally in the root
-Makefile and I had only 15 warnings for an 'allyesconfig' x86_64
-build.
+> ---
+>  drivers/usb/core/config.c    | 1 +
+>  drivers/usb/host/ehci-hcd.c  | 2 +-
+>  drivers/usb/host/ohci-hcd.c  | 2 +-
+>  drivers/usb/host/ohci-hub.c  | 1 +
+>  drivers/usb/host/xhci-ring.c | 2 ++
+>  5 files changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/usb/core/config.c b/drivers/usb/core/config.c
+> index 562a730befda..b199eb65f378 100644
+> --- a/drivers/usb/core/config.c
+> +++ b/drivers/usb/core/config.c
+> @@ -1076,6 +1076,7 @@ int usb_get_bos_descriptor(struct usb_device *dev)
+>  		case USB_PTM_CAP_TYPE:
+>  			dev->bos->ptm_cap =
+>  				(struct usb_ptm_cap_descriptor *)buffer;
+> +			break;
+>  		default:
+>  			break;
+>  		}
+> diff --git a/drivers/usb/host/ehci-hcd.c b/drivers/usb/host/ehci-hcd.c
+> index 3575b7201881..e358ae17d51e 100644
+> --- a/drivers/usb/host/ehci-hcd.c
+> +++ b/drivers/usb/host/ehci-hcd.c
+> @@ -867,7 +867,7 @@ static int ehci_urb_enqueue (
+>  		 */
+>  		if (urb->transfer_buffer_length > (16 * 1024))
+>  			return -EMSGSIZE;
+> -		/* FALLTHROUGH */
+> +		fallthrough;
 
-Maybe it's worth fixing them and enable the warning, it's very useful.
+This is fixing the same kind of warnings but it is not called out in the
+commit message. Maybe this hunk and the next hunk should be in a
+separate patch? No strong preference either way.
 
-Thanks,
--- 
-per aspera ad upstream
+>  	/* case PIPE_BULK: */
+>  	default:
+>  		if (!qh_urb_transaction (ehci, urb, &qtd_list, mem_flags))
+> diff --git a/drivers/usb/host/ohci-hcd.c b/drivers/usb/host/ohci-hcd.c
+> index 73e13e7c2b46..1f5e69314a17 100644
+> --- a/drivers/usb/host/ohci-hcd.c
+> +++ b/drivers/usb/host/ohci-hcd.c
+> @@ -171,7 +171,7 @@ static int ohci_urb_enqueue (
+>  
+>  			/* 1 TD for setup, 1 for ACK, plus ... */
+>  			size = 2;
+> -			/* FALLTHROUGH */
+> +			fallthrough;
+>  		// case PIPE_INTERRUPT:
+>  		// case PIPE_BULK:
+>  		default:
+> diff --git a/drivers/usb/host/ohci-hub.c b/drivers/usb/host/ohci-hub.c
+> index 44504c1751e0..f474f2f9c1e4 100644
+> --- a/drivers/usb/host/ohci-hub.c
+> +++ b/drivers/usb/host/ohci-hub.c
+> @@ -692,6 +692,7 @@ int ohci_hub_control(
+>  		case C_HUB_OVER_CURRENT:
+>  			ohci_writel (ohci, RH_HS_OCIC,
+>  					&ohci->regs->roothub.status);
+> +			break;
+>  		case C_HUB_LOCAL_POWER:
+>  			break;
+>  		default:
+> diff --git a/drivers/usb/host/xhci-ring.c b/drivers/usb/host/xhci-ring.c
+> index 167dae117f73..eac43a7b7f23 100644
+> --- a/drivers/usb/host/xhci-ring.c
+> +++ b/drivers/usb/host/xhci-ring.c
+> @@ -2418,6 +2418,7 @@ static int handle_tx_event(struct xhci_hcd *xhci,
+>  			xhci_warn_ratelimited(xhci,
+>  					      "WARN Successful completion on short TX for slot %u ep %u: needs XHCI_TRUST_TX_LENGTH quirk?\n",
+>  					      slot_id, ep_index);
+> +		break;
+>  	case COMP_SHORT_PACKET:
+>  		break;
+>  	/* Completion codes for endpoint stopped state */
+> @@ -2962,6 +2963,7 @@ static int prepare_ring(struct xhci_hcd *xhci, struct xhci_ring *ep_ring,
+>  		return -EINVAL;
+>  	case EP_STATE_HALTED:
+>  		xhci_dbg(xhci, "WARN halted endpoint, queueing URB anyway.\n");
+> +		break;
+>  	case EP_STATE_STOPPED:
+>  	case EP_STATE_RUNNING:
+>  		break;
+> -- 
+> 2.29.2.222.g5d2a92d10f8-goog
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFnufp2edm5wkRtLzZf0XwL2xCKzJ7EgpZAKKg70QzZog_ND-Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112180006.GA934688%40ubuntu-m3-large-x86.
