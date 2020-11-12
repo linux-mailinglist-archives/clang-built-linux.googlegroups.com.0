@@ -1,30 +1,30 @@
 Return-Path: <clang-built-linux+bncBD4PP5X5UEBRBW6PW36QKGQEC2SU2NI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 536F22B1029
+Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0264A2B1027
 	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 22:23:40 +0100 (CET)
-Received: by mail-lj1-x23e.google.com with SMTP id h5sf476900ljb.21
+Received: by mail-wm1-x338.google.com with SMTP id 3sf2729679wms.9
         for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 13:23:40 -0800 (PST)
 ARC-Seal: i=2; a=rsa-sha256; t=1605216219; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CMvNKlHfRhL7a13dkyfvst38Be6xVEQ5Iu7Ar5Q1bXPhR20fEQnQK7ALMwXnlUqGcB
-         bwg1zVZW07RQZlyS5eaWd51A9DbWb7Pot/fGlL2QoFGjLaHfkLloneJQid+4Kwtd2sdo
-         rjYGONIlD41ivNvijCxGyvZpy5vMAc3cEHR+BA9Ym5ne3qEyMW3u+5BzW73zCIwcaQ64
-         egSAWGL8BL+sne35DhgE18cAvN2ZCg1N97SGkTQrKcySh1dWAdog/XHDp0IbeeubbD6Y
-         1CFJXVzutkWpbekUIGka3ojDo9LciBxykpmoUvImKQlwDATD15lZw74vLycMDlfWBTu0
-         K3Sg==
+        b=S3QPhWs8d+qwmP+jjZuBoCJUz5uk+3Ztyn977Di7HvGfGrHMz9GGJZeuZc5G6ye2kp
+         mHvWOdJ2sDiPywNRlnmykRgCgC4BOr8EmoOImtaCCgQFMifUAlHTmoTahyQPCJUXtnVb
+         yZYXNnFQGIRqEx183vsAKuzrz5Gxc80wetmn3wVBpNybp7cPopiVt77mHFn+g4zOrf3X
+         +jgAndzrGGirlyAY8sqeMRRdr5QtKh3dQwR66mSsudrrnMCEsbiT0Y/AcrT1FyWsB6ar
+         Y4K4kvRZKI1Epf2i6y/zuGIAX/8bWGjrtA7yOI7Bezgc1BHjOgAftxZzOnHAlB7OiJvg
+         KAVQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=UwTlfZ7+qMur34e70fOrWNpeSEShNgcamhzorUa9548=;
-        b=jtcBp6MUe0G+9z4/+QEET49P/T2zPtmL5Skfpin1t+xts1cVa6k0Mhf/DYC6/JnRPB
-         d0wu3/15BvHhxEqz/Y4qGv/1BQiqok/gUnsh+AW5md3L0Do79oYxt6FuyhZ5MLSKJeZb
-         6i2b7BS+IRujzosB0xC6QoEV+/827Qa9a8HSBxof8f2qDujG6KrurUHWNvf5aEO7oezc
-         7vdPAtBeJ9IK3aTnquPqgcZV4NcP6tMqZAkFB1c/NwvATZM1rwfHYOhJng5jHozfcfXr
-         NVP21FD5n1PNKCRdbfzzEEhbInMd5H+arGDYL+ZmSY5lIySAD837j9K1q8O1jyFyslsW
-         MvJQ==
+        bh=08lz4dhbFadY/vbUOhICVk/5GUxUkO5vYaFCwcE0My8=;
+        b=o9Q9HnOep+Yjr9oCgyNZ1zAx1YhsXHxtcYDHna3r4oQb9OG+yy9rBG9OI/qzrkAN7z
+         m0zoQaMGtXoDc6Fc4NRmd1LnCnqQAiA5X8d+bnn9zTXYCRKIIbZiauxHat3wnyJqxmK3
+         ni78ZnBqIFGqFI8/V0SgES5SSDLgnBstxkZmi0/icSQ95/tBwYEPrGqVGAegpYJgHX4B
+         AlQ9+15t99DR1FTDWcutC4gM2gKMBHG3kfeO2WhczOsqGX+JLCc55T5vQE4NqZyDxnV8
+         K1YLvTbTLTAAkxE+WqvxiBPbSrb2XCyrEtcoLFg3vQ6YjNvoyUmTFXlBi+UQf9e/utjw
+         5sDg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UwTlfZ7+qMur34e70fOrWNpeSEShNgcamhzorUa9548=;
-        b=AHhQ0DHZMwaTb5feZQUOsn9qsP0DtSOy21qb4xjTo5bbGTKN/RholddHyfk7rsMyWB
-         XiFFVKhRAtccWnLkvm6i2uqo87C4LmN1CvVZLFn02+KGAit8qzOCWWGO2pPDqNHMsvKv
-         pRdmjUQ6YUT/3W0tk7EnwkFlcvyCcIN3HR83shuSsmkiWorbK3eEPknVniDceJKEyjZ7
-         rRnVhK/tXG2+Faf1A+CSep4FtF/aLYurFjMsGmGDKmb6Gu1XMTR0IhxTXlQQwpIBef+N
-         z+Dg5rSx6nC+1ODSN/MPgJP7cfqxw8aqZM+CogNWHFYubwgpOgkhQcnV+CwOsC97qPqg
-         QdWg==
+        bh=08lz4dhbFadY/vbUOhICVk/5GUxUkO5vYaFCwcE0My8=;
+        b=OlIxmdpKmWMJXUEY0ZwW/+O/8tXiokXq+0iwRDJpqYpiQ2Jod52/D0iobfbzGXF+TG
+         V08Sd32hcq56JPPThmtA2bfq7rr1JjDia436dvFQJNKI7H4PmR1oWDrl338JeH+kHGA3
+         WbBK/1GobdzR/cAu1sV8orqk/pRvJhq28NvIEaYbo8sbDbjxvJ4uDzak0KnTTUYF+zoc
+         zSISp8z9GxpXVhJcEK+LTQYvD/WXM3luD7fB33/nS1/oO9+DgnCSiXf5HcsJOXYbMOOI
+         hCAxKnrY0SPfb4Y/UfHtj17oD2+ufjAm1L8XsxWlpII+S0NRs/HQt7ByXfsYUM+KENhz
+         UJyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -48,54 +48,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UwTlfZ7+qMur34e70fOrWNpeSEShNgcamhzorUa9548=;
-        b=fkxoluAyFsx5FpT3o146gJDHjNsUWUm5p4F8WcWoXVTc/znptYyUoaIW2zW0ugGGYs
-         JdVMQ/jgy8/C45yifk1V2P7FsKmVUnTzarRclkr2HvOaF+D66peQGiARgCgMB0Jn92Rt
-         JQvAYfMuMtGYox9RMkTu3hNwDPYI2210draBaYWo2sqmYHtbs7yJOlRn+6duXwp/+BP9
-         8Ds+2HkM/BVBaAoPWPJ7I3itKQakvhnmmcD2dt7Nsy6FYQvlG08b55aBeq0JHKZqx9F8
-         oODII0CWzAnnThQP3th+ql3NGSFA/CbZRpj9wH18EPH3GBCSFod+TXFRTA+8Ju4T08Dn
-         z4Ew==
+        bh=08lz4dhbFadY/vbUOhICVk/5GUxUkO5vYaFCwcE0My8=;
+        b=rlUh1popQG5Fu+MoqYxiuyaSfS0xAYHKwrzj2ARwAYC1wFLQGiEGosRiu4J5Iao9lI
+         4m50kkxqmJAm2Ca2Uhe5BT31inDBsJnRyzgwUy7Ex1YVLvDEsJHBU2zYUpSTFcH5Wx6c
+         jXNFi7tbfmg2gYf0eZPBnxtr032/84lziqKRwyKsFDRTxSJYakVKSLJVrTZVjmJ/w/2z
+         8Gieda3AJ2moedLokz0iLnd89yG1R2aRS6Iufnu8ylcI8zaY1flJmj0PAu/bzfD2Q411
+         acX0J3NloG5seIPGBtYX+vcslMF6LOe4EA3CsNoj9Nr8Gi/xAvN/SXfOPTR3NY3lo4SB
+         hwgg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530f9iG3UpwcIs+E+7jFnS1kOGgrvJu5jfD98AeQ8Qca6VOHzwHP
-	MhlX6pFI9AigQd8Ojpwn+Xo=
-X-Google-Smtp-Source: ABdhPJyiKASfUDkGL7+PxA4VyV1nnoOOJ6saXk0uMcT84MfjlH04qXaG4Gf3Z6X6pEsV0i11wIHqwQ==
-X-Received: by 2002:a19:7411:: with SMTP id v17mr520851lfe.351.1605216219826;
+X-Gm-Message-State: AOAM533kYCjelktpcIR2FfCXpQ6O2kPyzqtBjTx5qu41fPTf3EfKgsAJ
+	Ql5hsF/1SD5iSUeEO63BcKY=
+X-Google-Smtp-Source: ABdhPJwvsrSv4KAbGY0fPqh5lY4StBVGlH6xec8QUBRh0SrOBfX0bPsjHgr6A/beIkuRfZxPK5GleQ==
+X-Received: by 2002:a5d:4104:: with SMTP id l4mr1887026wrp.276.1605216219629;
         Thu, 12 Nov 2020 13:23:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9acf:: with SMTP id p15ls836973ljj.6.gmail; Thu, 12 Nov
+Received: by 2002:adf:c689:: with SMTP id j9ls2570700wrg.0.gmail; Thu, 12 Nov
  2020 13:23:38 -0800 (PST)
-X-Received: by 2002:a2e:6a0d:: with SMTP id f13mr641040ljc.11.1605216218793;
+X-Received: by 2002:a5d:6406:: with SMTP id z6mr1749867wru.241.1605216218769;
         Thu, 12 Nov 2020 13:23:38 -0800 (PST)
 ARC-Seal: i=1; a=rsa-sha256; t=1605216218; cv=none;
         d=google.com; s=arc-20160816;
-        b=sgaQx/rZU/muEQTsPh4E5fF483iUp5Rg95qJUwl0/vi2CH3HUInvfqSR81Xw88SoMo
-         otx55tGOSmJOO6h6+ao3ylFj4v0YCUYYEXbGfPHC8VcBJkf/kNNtR3Hpznhab62s0zJy
-         CkNsZ+dkc12RiZag1TF1pngtNsaV2eTtc2OugMViH8DDIDPq/rXBaVJD4WzDFocUSyFq
-         fgA3AQj7SgFHX4XWunLkFXPdnE4Y6sr4mGb0xgqx7UkmsGEG8zmkOzsSYAvcv2/obGP/
-         Opz3K1UiKrEDHs1Pl0vSUCHdIkF7tCGc8ZkxGJuITvqyjIwhyBwooU73exDuSW+LEV7K
-         IIzQ==
+        b=Db1Vo5+EAIufSCwYtbdNz2zc5EMUzkejwgK85xJJEqNaMIjPpEG6GBh5HNSkOTW4zb
+         fY9r5SA878KqjUoq6G1PUQAIRGviMP8QjATNq9mXkUNeWV/uwhzQ7Fyn+AtHVv9/t+VA
+         VQImY11deMsVrKHRgYjuI5YiTXaG3VzF9u1ApLkpGpdCljpj1QiHynyZNGk5Gsoo6Yti
+         AXOrlSxbapNKcxO3RCeewUK6cIYUDfdM9xIKZ1kmWlaDcKBpz3C0Gy52ddK8sFkEtTxF
+         5kqQNeNKuoQFKz7s7dT/Mni45ra5TsvdT8IHKmWlJQA9eR+vK/aYFWsOjJh6lWH18y2T
+         vbhg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=jeon2YSr2ThkOIopWCdZ2DlKDuF1P8Zl+jKPsUGsA2w=;
-        b=iqwaiN+t8eqX3Dip3/9AXf5fFaZNR7/7dkeIsMd6Zw0EKRzalKzSxhg/ZDqGVPHXNi
-         7QtKeu5O9v0C4f2tm05p73gpVweBUiHeB6vtLuHQBJzggsDmovwv71N8GcYlF3GBaytg
-         BGqly1qPZ2a1mLn4l42JOWuZnM22fFu74bQ62JloxYn0miHhNL1/aoUGrT/xGdLKT2yv
-         T2ScJgpBQn+A/+g17bmhBfyNmxg6AzNyBRxHHhoNv8eJnYBt0e0p328TwnfP0OTqC3VL
-         YZZwGKG3wMmlBZh+gB4x25Nf4BZFucpuFgNcusl8tGZQzkYQGkbWNI/DNJQkbiysHvvZ
-         1IZQ==
+        bh=vMvcgy40GL32s46Dq291Ixh7h0LtTGwZzVEMpamMjqI=;
+        b=UxS0CnzQb1Jfr9ChsLYvjfwqoylIYcUheSkPozMbjYN3YAUnsiCobjD3yWfdLrSn04
+         jCsLrEO+rMpu6wGlInoFA43z3t8JzXdkR8a9RDTdHB1fzFM/xOq0bp+EV4ImbiBhaqbL
+         3+g5pzTaMsZ+OfJC4E2SomKuS0gBuuQBkkT9hUCRNmEMMi2xRUDsOo08f7t80RZ7Pxu/
+         clmdL1/x5+vTfwkoxsR3JIxHQfjy3BywpIazlRsdr29oe3Pj9whcV/4o0d4GW5ze6mtx
+         hzQfKf7QobsC4WNzbIP6YNarCGv0e4d84v90f982TSQIIOiYPgw0RA4MCBycpWHEQO4+
+         1TIg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
-        by gmr-mx.google.com with ESMTPS id m18si235395lfr.11.2020.11.12.13.23.38
+        by gmr-mx.google.com with ESMTPS id z83si596505wmc.3.2020.11.12.13.23.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
         Thu, 12 Nov 2020 13:23:38 -0800 (PST)
 Received-SPF: pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
 Received: from [127.0.0.1] (localhost [127.0.0.1])
 	(Authenticated sender: aratiu)
-	with ESMTPSA id 7DDBA1F466C5
+	with ESMTPSA id 281D11F466C9
 From: Adrian Ratiu <adrian.ratiu@collabora.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
@@ -107,9 +107,9 @@ Cc: Nathan Chancellor <natechancellor@gmail.com>,
 	kernel@collabora.com,
 	clang-built-linux <clang-built-linux@googlegroups.com>,
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 1/2] arm: lib: xor-neon: remove unnecessary GCC < 4.6 warning
-Date: Thu, 12 Nov 2020 23:24:56 +0200
-Message-Id: <20201112212457.2042105-2-adrian.ratiu@collabora.com>
+Subject: [PATCH v2 2/2] arm: lib: xor-neon: move pragma options to makefile
+Date: Thu, 12 Nov 2020 23:24:57 +0200
+Message-Id: <20201112212457.2042105-3-adrian.ratiu@collabora.com>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20201112212457.2042105-1-adrian.ratiu@collabora.com>
 References: <20201112212457.2042105-1-adrian.ratiu@collabora.com>
@@ -132,43 +132,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+Using a pragma like GCC optimize is a bad idea because it tags
+all functions with an __attribute__((optimize)) which replaces
+optimization options rather than appending so could result in
+dropping important flags. Not recommended for production use.
 
-Drop warning because kernel now requires GCC >= v4.9 after
-commit 6ec4476ac825 ("Raise gcc version requirement to 4.9").
+Because these options should always be enabled for this file,
+it's better to set them via command line. tree-vectorize is on
+by default in Clang, but it doesn't hurt to make it explicit.
 
-Reported-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Suggested-by: Arvind Sankar <nivedita@alum.mit.edu>
+Suggested-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Adrian Ratiu <adrian.ratiu@collabora.com>
 ---
- arch/arm/lib/xor-neon.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
+ arch/arm/lib/Makefile   |  2 +-
+ arch/arm/lib/xor-neon.c | 10 ----------
+ 2 files changed, 1 insertion(+), 11 deletions(-)
 
+diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
+index 6d2ba454f25b..12d31d1a7630 100644
+--- a/arch/arm/lib/Makefile
++++ b/arch/arm/lib/Makefile
+@@ -45,6 +45,6 @@ $(obj)/csumpartialcopyuser.o:	$(obj)/csumpartialcopygeneric.S
+ 
+ ifeq ($(CONFIG_KERNEL_MODE_NEON),y)
+   NEON_FLAGS			:= -march=armv7-a -mfloat-abi=softfp -mfpu=neon
+-  CFLAGS_xor-neon.o		+= $(NEON_FLAGS)
++  CFLAGS_xor-neon.o		+= $(NEON_FLAGS) -ftree-vectorize -Wno-unused-variable
+   obj-$(CONFIG_XOR_BLOCKS)	+= xor-neon.o
+ endif
 diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
-index b99dd8e1c93f..e1e76186ec23 100644
+index e1e76186ec23..62b493e386c4 100644
 --- a/arch/arm/lib/xor-neon.c
 +++ b/arch/arm/lib/xor-neon.c
-@@ -19,15 +19,8 @@ MODULE_LICENSE("GPL");
-  * -ftree-vectorize) to attempt to exploit implicit parallelism and emit
-  * NEON instructions.
-  */
--#if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
-+#ifdef CONFIG_CC_IS_GCC
- #pragma GCC optimize "tree-vectorize"
--#else
--/*
-- * While older versions of GCC do not generate incorrect code, they fail to
-- * recognize the parallel nature of these functions, and emit plain ARM code,
-- * which is known to be slower than the optimized ARM code in asm-arm/xor.h.
-- */
--#warning This code requires at least version 4.6 of GCC
+@@ -14,16 +14,6 @@ MODULE_LICENSE("GPL");
+ #error You should compile this file with '-march=armv7-a -mfloat-abi=softfp -mfpu=neon'
  #endif
  
- #pragma GCC diagnostic ignored "-Wunused-variable"
+-/*
+- * Pull in the reference implementations while instructing GCC (through
+- * -ftree-vectorize) to attempt to exploit implicit parallelism and emit
+- * NEON instructions.
+- */
+-#ifdef CONFIG_CC_IS_GCC
+-#pragma GCC optimize "tree-vectorize"
+-#endif
+-
+-#pragma GCC diagnostic ignored "-Wunused-variable"
+ #include <asm-generic/xor.h>
+ 
+ struct xor_block_template const xor_block_neon_inner = {
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112212457.2042105-2-adrian.ratiu%40collabora.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112212457.2042105-3-adrian.ratiu%40collabora.com.
