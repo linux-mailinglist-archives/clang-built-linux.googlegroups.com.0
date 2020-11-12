@@ -1,61 +1,47 @@
-Return-Path: <clang-built-linux+bncBD2IDQGOZYPRBD6QWP6QKGQEDWGYVEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBB77KWP6QKGQEOX4HUKQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7C4E42B007D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 08:45:20 +0100 (CET)
-Received: by mail-qt1-x83e.google.com with SMTP id l67sf2929402qte.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Nov 2020 23:45:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605167119; cv=pass;
+Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C24C2B0150
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 09:42:40 +0100 (CET)
+Received: by mail-oo1-xc3f.google.com with SMTP id j43sf1466520ooa.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 00:42:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605170559; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bumtLoHluIy2bEea6Ts/W0Bw8nejsH68X6ySDLLysA6bZ62V2c7Aye4XasX5esPkNP
-         H/WD3SRg3JzBqhYCVBI2wdnFAoXqGh6Zmu64vnmUnbxVGi2qDS8IdwqNM3HPsaKyaOc0
-         EFcStEpSynhsIVDdhxjJxxFf/B22OB0V0z9TjVpF/LBVLb7cGRCu0E+EgWxRYZt3NSZ8
-         M785qlOcXKzw5t5/n1pBn3wJH949kWqHsRK5K36mHlxIvp/478SohUDbZYHRjtRMLTHi
-         yitBY71pq7q6E1IAr3Q9k7q2qWnTrsQ+fvgkc3TGCUVi5wMc7+uoV5H8hJ0xA+VpoqK5
-         QlQg==
+        b=rXV041P2FosD+2Swc/h6bTXTtT3lyXkRJyb1uSW8eTy35CWFklqZd0RMRFB4S8LJTM
+         +CTfqUJmRCEl7YDf06AxNpmSbzCZqhHb9F17p1GhJ8SzFzL2Jd6o4OmW/rs5x4HfpP8y
+         phpiy2qI1NVp0NYWJvcN2ZHaAgFWks05p/Kx5QMIcb7tubNpnsQgWDo3vLak5d6l6j0f
+         9leu+sKTuApCtXTRfNqhFOmw+f0mwB7/sOHq5hbfU8HXhm84lLnh+6OG7fvGEE4nBaKJ
+         73wc2oDajaZ1v6HnG8+o6N8pTt9xqvyqFKI8AI+3pk7yuyAZQmWj5pkCqDy2hsjJBzT7
+         2Aqw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=h0wyJCXFlYE8tueP12W+/GhmeyI1OpUrghSrMsLoq3o=;
-        b=k5DfMGJD1b0LkJTrwRn4lfQgR1vGU2dNgBR4or+IxbVe0uw2iT2kwbKSojE1NVhy/L
-         lyS8gLYt4UskAzcwhqUO6OUqcB+/3KlWcFgS2fU1hanNjmVWSgSXJH5U85XLopAqK1wg
-         JMlYKY16Bh9vln/9I8P/0AlDXpvHu3LMAksGn8T4W+NSIaR/SkNUsz57FhlgVfcPmiLk
-         KJpDYQ56eNAjxg/6GJ5ML2ULGzqJ/o/RxqRiu7H/DrNNlM2ihv6eCtCsFeEzRXHJm6Vs
-         v2/s6Jm88ZZSJA03ouHA/g0UNzkgFZTnRGeuMRfu5d/EieGSphwIUQHIRE/DuuK9sQkk
-         GQHg==
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=VzkGHpuhOP9yUj80XyN3cJ9gJdzpeZzpdJVVnNeQ3cw=;
+        b=dg2wb4vk+FZoxvA8WIAUOJKLRvagC2R5UaMbiBofKlyJ4O55sDJbgLdC5VQqTNp448
+         oJMC63hZNhhOxPw6WCbUUDcLpgggw08MLiJJFT7SeaXzHG1ZG42XCLV3k2f3HCUYIzkj
+         l4bE+Al5WguGpgRww995v9QNAniZMeTbTkBc2nzVuwaE9Piyv1oPQCduwVI9k+iyn9c6
+         0h27ZJ8y16wmFuchPxqQw1D20ySYIkqUQYhHwSX70Mmu6bjPv/nm8mMVk68XLrQiM4gB
+         Jo14EeUXu4grZJrq7r9AFA9WJnEI3j9MZFyx7Lkl2MY7+IRDpyjWIex+HWu7xRqCR66q
+         BqXQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mikqjdLf;
-       spf=pass (google.com: domain of magnus.karlsson@gmail.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=magnus.karlsson@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=default header.b="wVujH/uo";
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=h0wyJCXFlYE8tueP12W+/GhmeyI1OpUrghSrMsLoq3o=;
-        b=YW3dGqmaazs/qugdLfUfUpe1L0n8GtrRvkCTSMqmYjgQ3Retf0NFHenzhm73Noov5U
-         V4el/+tvaUnbFsdrCX9oOjJu4TI1y6EYYPDdVDrHAbHRlsYtnVRRlJkmgZwD5ZV9GPRJ
-         YoNfGZjFz+EA6PdqzxDK03STw/eX2fp95QeCO9rXzn8ZgJrhhdQcUX/zg+H+odYhotpJ
-         h1NNRNhIIpeEF0wTvvDm2cuVXE2ij5ClJH0PWN1lDupTA0XGWDlp2FGHgnO/seoAcBTp
-         7vgGtuHVLMkxBm5WYHk0g7hBW3Pdew+EvGcm8RZFf2rekEgMpXsHSJDuR2F2r0dLh+BQ
-         aucQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=h0wyJCXFlYE8tueP12W+/GhmeyI1OpUrghSrMsLoq3o=;
-        b=ZIBnJ0C3K+M6dEblxofak7ZIJjRIN23ohcR1+1Jj6hZ/VhspNJYGa9STQ89Er+NU9Z
-         FP1DLvxUKUkVozqWzN5H+2nj+t4WOjgsc4T7p73T9L8KePGOaaYY59bjGklvW2q2KHgR
-         yTqzXpl13hADSa21ZWaWE2gKtgWmVXfXYAXuTgO6zLwlFvnr+z3VB7F4cjDY1sQIehEB
-         LZbfnPOqaDzURLQyY38nK5Hk8D70hr4i4Ljvu8oCKy5tvBDR6AlAKhgXowEprZPZXYAV
-         mXnSVhriCqy6xhGPwBQguJk6l8GMdZPLtrMltjnHK0NK4NBA1TGp5jDlWzEkuGXeYEqf
-         yGHg==
+        bh=VzkGHpuhOP9yUj80XyN3cJ9gJdzpeZzpdJVVnNeQ3cw=;
+        b=FwmOJWFZNEhYglHbdcC6ogNwsjdIDj8L9yYUTTjmZrNhboVFqB9ilRgukZLsPg0ssz
+         GVF5r9sDrrICQg9XmhKZNP9DwcHR0VjREe5QeEV+ZeGhlV8Ji//VbuZq0pPd1+x6HkX8
+         VCH+A64xgRb78aYk31VjTThYba5MLThRjVKKXSOOjO4+lLMW2lii1xlI47DkxFcKEvKA
+         uc74r58Zf8psqy3ivhX6l2MyvvdFW1V4GtHZ87xFb97lfaFz8ii85rBKl4jeA2chjTCF
+         RdoXNP7RLO0W1Vp1vx2GF0FhbWiycCA6PAP9P5fNIuZfiqFnB1hEqUhdRtGV1EcS3TeN
+         ZOtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -63,82 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=h0wyJCXFlYE8tueP12W+/GhmeyI1OpUrghSrMsLoq3o=;
-        b=GZ2pDadsyqTzvsj9jvX1f3KjCSRuliUv0hea4N94FsWONm/kTv20HQipQ+fXIM2TfO
-         K2W0bBtOxX/4Hsepsq0KwC9XDZk/3kYhd9Mv8C+4ggfBtZPbw+mAilR1XPutBxM3f6YC
-         ZDvzoO+UFIVVOCuuZqwi285J5OL01sgcE49INWcgBtVnXLqNvJloKhSlMiyBwxOQGW+t
-         TWVqWKuXzt1wzQTLA/xshsgBTAKP5ewG/1PJjzkbfWLzTihcltp70YIEDazShONLzHtk
-         eUsvcNGXTutwjYZLLh9QSjClrb+Ox6EU8j/AnRngDhLzGYlPXw3jc2QMdckrz5xfahWC
-         OOog==
+        bh=VzkGHpuhOP9yUj80XyN3cJ9gJdzpeZzpdJVVnNeQ3cw=;
+        b=LlEMvdTCHgVLwvTs3qOS76an9eBImsnCVG2sWjF/ENRbcH34xuZShnxAW6Jdfhf/Io
+         26r5Yf6nZ98q82XgWD+16+tFDeR/x1Nk7Jq5vktjQr7sNPBBrnD+yK8NmPolBZZdsgQC
+         qK9Kwq/bEHdygw87JbMJnJaF8YSU6e1lyQA9P/4antAprOgPUvwIxUae25i5Dd/cCtmw
+         U00VY1w9BZBiwzI/DV8VbLKOJoob2bn1/8LiYJWKXVx21pXKHRZoBPJZh8IZn0gdlw5O
+         dviMdu8wnOEHQMKK5cqZzZfUOLDD1mC8e3gUseqA2IPhR80u/OBNbig5TCG4eYdZdEku
+         Opxw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533v4Ztvkj/0gtPfukxJ20kgWTmlutq1VJZyLmvA64iftihGaLhO
-	DS4wLMXrnJ5txb4u3spriv4=
-X-Google-Smtp-Source: ABdhPJz/NNlK3s1VQTU7+5ZmnPEj7l41lXXJcyO7B7U/nmkrn8ASFzym3GZRAFRbymFHoI64eYzcQA==
-X-Received: by 2002:a37:d16:: with SMTP id 22mr19707318qkn.335.1605167119287;
-        Wed, 11 Nov 2020 23:45:19 -0800 (PST)
+X-Gm-Message-State: AOAM533dCKw7y0XDOifzcN5WYXYNHfUZmPUvg01+dq2plV8i9N+u4UhD
+	e858FJ5Hqnus9OukfzwkL6E=
+X-Google-Smtp-Source: ABdhPJzYQLg3KvqHcZodeWYkyQ3EXRVSrIToPqltjZCFUwZ4164uRl4dLWBRphx3WOfNdYEQv7GH1g==
+X-Received: by 2002:a9d:7d06:: with SMTP id v6mr21410245otn.296.1605170559541;
+        Thu, 12 Nov 2020 00:42:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:59c9:: with SMTP id f9ls695548qtf.8.gmail; Wed, 11 Nov
- 2020 23:45:18 -0800 (PST)
-X-Received: by 2002:ac8:934:: with SMTP id t49mr28391681qth.129.1605167118765;
-        Wed, 11 Nov 2020 23:45:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605167118; cv=none;
+Received: by 2002:a4a:9753:: with SMTP id v19ls126172ooi.0.gmail; Thu, 12 Nov
+ 2020 00:42:39 -0800 (PST)
+X-Received: by 2002:a4a:d043:: with SMTP id x3mr1839704oor.19.1605170559229;
+        Thu, 12 Nov 2020 00:42:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605170559; cv=none;
         d=google.com; s=arc-20160816;
-        b=XrZTi9S2m2QMIBTNHz/cXrrYAPG2byqHvfHa4hl1DMKK+QJl3LA99q8+JRt4io+d6n
-         2615X4P1adrumBI+gDTJJka2/VUd4tDdg33HeHkSs3QN4rxvA1vRlV0ikAmzLZIgDf2i
-         2cq2RXUxVsnNpwgErP/ZmBYZOdBjenyYb+q7KDpjVECsVQAiYfTDMW7Whva9xr5rHkR4
-         sNEJ6zExEsgsIRTxDI+3cmPtTIdS66zf9+n+N6vqh8jyIpN2LHqrzoyQnUSyCmkSTXUS
-         C+b1MG2E58Mbv4v6To3u97RDItpH8AuY3GdOXKDnJhrN4YpkZkVibgMqy48oUjQJ7rzD
-         MgIg==
+        b=SbdOheJ8vvtTNVnH6RTz4IKwhBBXOXE7jF5u4VlOrSNPjaM+UhgslCIe2sT9rupmMh
+         KKtyO/sgUd3+wOCl1jDjmJ2ZxzeJGJB6PNi2XDkMzRuf9ALSysJOf/GYbfkUOUdymhgv
+         xd67IkE/wJHdtRFNMVY9DkKPC5Pgxjc8dVq28lfdCzvCNgOuetISmk792fpL9sE+IG9m
+         2530uSWOzXqEVDZt5sg/comblScjVNjwC5sBSccGna3/txdr+sjfZ4FqfEHJYQwkeVuw
+         CcECqR9ZRREbgNjTicA8chZKPj7WW53b9ndpjVP1bUY/VEl2MOVA4xkrquudlHByyNpw
+         wN6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=geTkkLYkNmham7L8WOSL9oUt7IUhwr3Ml72iGwW862I=;
-        b=VtBcvSLdCwz45ZEwyluKXkMi7z+FpRDTq1BrDvp7xzffaUBdDDTFn5yGHcP26pchZj
-         f9ope7WWYU5YXsacXgjZWOblJo1aq4b5yuCNmgQ7Ht/kGTN66N2o0GWyN5ngvp68Orpn
-         wQYVpux3z5ozcURScij8SfgYwlJQhWdOOve11Cd6D+DtiTyRKg237UFwfTQoqfrYlFmJ
-         OJY1JgitV9sbJpiUOoO9A/MOzKF0vdcIdhEuyrWjLYi+zXO7ntItA5/x3Qsx9oSCTOoA
-         jM5wx0ruHp6crYV9VDs8Ntndp4RFqEJlT/QxwxToReQVw4k7pMLZUCO2CWx1Qp8z/U9G
-         QL4A==
+        bh=U3aeQLDiON5Fi0M12Gh+YATinmEwnsLvbluUrj0bibM=;
+        b=zfvD8RZPUZaXqlAeZbwYKSQXhcCfkvjdvjIEgEiXoRf8ZJ+fZ4YLzH2obiLJlMw2zm
+         tGucI38PotfRyJdOlBZTxWaDozsUmuV785SNMhOrNd/NFlSvVD3V2BIi1U3uKmhaUaOf
+         QD8Ui2aYSxYAfDyQPwLBEe7a3/ZwuYUruwdL9deUFOG4JtoS6AZcK4ABJhylD9PPeovA
+         eXh+23YVl2frrCLAb2b0qOz8o/oRi+Zn8gA1d9jrV7Xxc9q3wQoWxnwZOf+RI6WisxgV
+         a8U/HcdXxWEHiU8BTYmeFEodh8Xs0DJo8r6tfppQNQ1elxL0O0o1HSustrcyjt5SC/K8
+         yazQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mikqjdLf;
-       spf=pass (google.com: domain of magnus.karlsson@gmail.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=magnus.karlsson@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
-        by gmr-mx.google.com with ESMTPS id w30si295528qkw.2.2020.11.11.23.45.18
+       dkim=pass header.i=@kernel.org header.s=default header.b="wVujH/uo";
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id o23si335363oic.4.2020.11.12.00.42.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Nov 2020 23:45:18 -0800 (PST)
-Received-SPF: pass (google.com: domain of magnus.karlsson@gmail.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
-Received: by mail-pl1-x643.google.com with SMTP id d3so2361238plo.4
-        for <clang-built-linux@googlegroups.com>; Wed, 11 Nov 2020 23:45:18 -0800 (PST)
-X-Received: by 2002:a17:902:8d97:b029:d8:94dd:43ea with SMTP id
- v23-20020a1709028d97b02900d894dd43eamr12515950plo.43.1605167117901; Wed, 11
- Nov 2020 23:45:17 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Nov 2020 00:42:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-oi1-f172.google.com (mail-oi1-f172.google.com [209.85.167.172])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id E2BB820715
+	for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 08:42:37 +0000 (UTC)
+Received: by mail-oi1-f172.google.com with SMTP id j7so5494383oie.12
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 00:42:37 -0800 (PST)
+X-Received: by 2002:aca:c60c:: with SMTP id w12mr5177268oif.174.1605170557102;
+ Thu, 12 Nov 2020 00:42:37 -0800 (PST)
 MIME-Version: 1.0
-References: <1605006094-31097-6-git-send-email-magnus.karlsson@gmail.com>
- <202011110934.GFwFDfqe-lkp@intel.com> <CAJ8uoz2aDjLPtcTgZ_pO-=S9TgXm3c57rN8TTPXdqT7HOOKrhA@mail.gmail.com>
- <CAKwvOd=Pws8npXdRuOVz+cgUYJ+nnztZCgMnZvP+Jr-dJ4z_Aw@mail.gmail.com>
-In-Reply-To: <CAKwvOd=Pws8npXdRuOVz+cgUYJ+nnztZCgMnZvP+Jr-dJ4z_Aw@mail.gmail.com>
-From: Magnus Karlsson <magnus.karlsson@gmail.com>
-Date: Thu, 12 Nov 2020 08:45:06 +0100
-Message-ID: <CAJ8uoz2PxgZybUKDpe0Y4OJOHmK3gAxU7diTc1raPJoanze4sA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 5/5] i40e: use batched xsk Tx interfaces to
- increase performance
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: kernel test robot <lkp@intel.com>, "Karlsson, Magnus" <magnus.karlsson@intel.com>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@intel.com>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Network Development <netdev@vger.kernel.org>, Jonathan Lemon <jonathan.lemon@gmail.com>, 
-	Jakub Kicinski <kuba@kernel.org>, John Fastabend <john.fastabend@gmail.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, bpf <bpf@vger.kernel.org>, 
-	Jeff Kirsher <jeffrey.t.kirsher@intel.com>
+References: <20200409232728.231527-1-caij2003@gmail.com> <20201107001056.225807-1-jiancai@google.com>
+In-Reply-To: <20201107001056.225807-1-jiancai@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 12 Nov 2020 09:42:24 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEAhyTfFZg4_+wTZ5+obQpAzFknC4vR1bNrRG6GpW4D0Q@mail.gmail.com>
+Message-ID: <CAMj1kXEAhyTfFZg4_+wTZ5+obQpAzFknC4vR1bNrRG6GpW4D0Q@mail.gmail.com>
+Subject: Re: [PATCH v2] Make iwmmxt.S support Clang's integrated assembler
+To: Jian Cai <jiancai@google.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Manoj Gupta <manojgupta@google.com>, 
+	Luis Lozano <llozano@google.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Russell King <linux@armlinux.org.uk>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: magnus.karlsson@gmail.com
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=mikqjdLf;       spf=pass
- (google.com: domain of magnus.karlsson@gmail.com designates
- 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=magnus.karlsson@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernel.org header.s=default header.b="wVujH/uo";       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,131 +137,221 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Nov 11, 2020 at 8:16 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
+On Sat, 7 Nov 2020 at 01:11, Jian Cai <jiancai@google.com> wrote:
 >
-> On Wed, Nov 11, 2020 at 3:57 AM Magnus Karlsson
-> <magnus.karlsson@gmail.com> wrote:
-> >
-> > On Wed, Nov 11, 2020 at 2:38 AM kernel test robot <lkp@intel.com> wrote:
-> > >
-> > > Hi Magnus,
-> > >
-> > > I love your patch! Perhaps something to improve:
-> > >
-> > > [auto build test WARNING on bpf-next/master]
-> > >
-> > > url:    https://github.com/0day-ci/linux/commits/Magnus-Karlsson/xsk-i40e-Tx-performance-improvements/20201110-190310
-> > > base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-> > > config: powerpc64-randconfig-r025-20201110 (attached as .config)
-> > > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 4d81c8adb6ed9840257f6cb6b93f60856d422a15)
+> This patch replaces 6 IWMMXT instructions Clang's integrated assembler
+> does not support in iwmmxt.S using macros, while making sure GNU
+> assembler still emit the same instructions. This should be easier than
+> providing full IWMMXT support in Clang.
 >
-> ^ Note: clang
+> "Intel Wireless MMX Technology - Developer Guide - August, 2002" should
+> be referenced for the encoding schemes of these extensions.
 >
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # install powerpc64 cross compiling tool for clang build
-> > >         # apt-get install binutils-powerpc64-linux-gnu
-> > >         # https://github.com/0day-ci/linux/commit/b016bbeac6692a93e61b28efa430d64645032b5e
-> > >         git remote add linux-review https://github.com/0day-ci/linux
-> > >         git fetch --no-tags linux-review Magnus-Karlsson/xsk-i40e-Tx-performance-improvements/20201110-190310
-> > >         git checkout b016bbeac6692a93e61b28efa430d64645032b5e
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
-> > >
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > > All warnings (new ones prefixed by >>):
-> > >
-> > > >> drivers/net/ethernet/intel/i40e/i40e_xsk.c:417:13: warning: unknown pragma ignored [-Wunknown-pragmas]
-> > >    #pragma GCC unroll 4
-> > >                ^
-> > >    1 warning generated.
-> >
-> > And I was hoping that unknown pragmas would be ignored, but that will
-> > obviously not be the case with -Wunknown-pragmas added. The unrolling
-> > of this inner loop where the code spends most of its time gives me
-> > nearly 1 Mpps extra in performance which is substantial, so I would
-> > like to get this unrolled in some way, but without the warning. Need
-> > some advice please. Here are some options that comes in mind:
-> >
-> > #1: Suppress unknown pragma warnings in this file only by adding
-> > CFLAGS_i40e_xsk.o += -Wno-unknown-pragmas (or whatever that option
-> > might be) in the Makefile
-> >
-> > #2: Force the compiler to loop-unroll the loop with for example a
-> > switch statement with four cases that all fall through. This will make
-> > the code less readable.
-> >
-> > #3: Manually loop-unroll the loop. This will make the code even less
-> > readable than #2.
+> Link: https://github.com/ClangBuiltLinux/linux/issues/975
 >
-> #4 support both compilers.  Note Clang's syntax is slightly different
-> here; it doesn't accept GCC specific pragmas, and uses a slightly
-> different form:
-> https://clang.llvm.org/docs/LanguageExtensions.html#loop-unrolling .
-> If you wrap that in a macro based on `#ifdef __clang__`, that should
-> do the trick.
+> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Jian Cai <jiancai@google.com>
 
-Yes, that did the trick. Tried it out with the compiler explorer at
-https://godbolt.org/ and it compiles nicely even for clang-powerpc64.
-Will spin a v3.
+For the change itself,
 
-Thank you: Magnus
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
-> >
-> > I prefer #1 as I like to keep the code readable, but you might have
-> > other better suggestions on how to tackle this.
-> >
-> > Thanks: Magnus
-> >
-> > > vim +417 drivers/net/ethernet/intel/i40e/i40e_xsk.c
-> > >
-> > >    408
-> > >    409  static void i40e_xmit_pkt_batch(struct i40e_ring *xdp_ring, struct xdp_desc *desc,
-> > >    410                                  unsigned int *total_bytes)
-> > >    411  {
-> > >    412          u16 ntu = xdp_ring->next_to_use;
-> > >    413          struct i40e_tx_desc *tx_desc;
-> > >    414          dma_addr_t dma;
-> > >    415          u32 i;
-> > >    416
-> > >  > 417  #pragma GCC unroll 4
-> > >    418          for (i = 0; i < PKTS_PER_BATCH; i++) {
-> > >    419                  dma = xsk_buff_raw_get_dma(xdp_ring->xsk_pool, desc[i].addr);
-> > >    420                  xsk_buff_raw_dma_sync_for_device(xdp_ring->xsk_pool, dma, desc[i].len);
-> > >    421
-> > >    422                  tx_desc = I40E_TX_DESC(xdp_ring, ntu++);
-> > >    423                  tx_desc->buffer_addr = cpu_to_le64(dma);
-> > >    424                  tx_desc->cmd_type_offset_bsz = build_ctob(I40E_TX_DESC_CMD_ICRC |
-> > >    425                                                            I40E_TX_DESC_CMD_EOP,
-> > >    426                                                            0, desc[i].len, 0);
-> > >    427
-> > >    428                  *total_bytes += desc[i].len;
-> > >    429          }
-> > >    430
-> > >    431          xdp_ring->next_to_use = ntu;
-> > >    432  }
-> > >    433
-> > >
-> > > ---
-> > > 0-DAY CI Kernel Test Service, Intel Corporation
-> > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAJ8uoz2aDjLPtcTgZ_pO-%3DS9TgXm3c57rN8TTPXdqT7HOOKrhA%40mail.gmail.com.
+Although I must admit I am still on the fence when it comes to the
+policy around rewriting perfectly valid code like this to accommodate
+a toolchain that nobody is likely to use to build the code in
+question.
+
+Perhaps we should at least add some rationale to the commit log why
+Clang's integrated assembler is something we should care about? I take
+it this is not about diagnostics or CFI but simply about avoiding the
+need to carry cross-binutils in the first place?
+
+> ---
+>  arch/arm/kernel/iwmmxt.S | 89 ++++++++++++++++++++--------------------
+>  arch/arm/kernel/iwmmxt.h | 47 +++++++++++++++++++++
+>  2 files changed, 92 insertions(+), 44 deletions(-)
+>  create mode 100644 arch/arm/kernel/iwmmxt.h
 >
+> diff --git a/arch/arm/kernel/iwmmxt.S b/arch/arm/kernel/iwmmxt.S
+> index 0dcae787b004..d2b4ac06e4ed 100644
+> --- a/arch/arm/kernel/iwmmxt.S
+> +++ b/arch/arm/kernel/iwmmxt.S
+> @@ -16,6 +16,7 @@
+>  #include <asm/thread_info.h>
+>  #include <asm/asm-offsets.h>
+>  #include <asm/assembler.h>
+> +#include "iwmmxt.h"
 >
+>  #if defined(CONFIG_CPU_PJ4) || defined(CONFIG_CPU_PJ4B)
+>  #define PJ4(code...)           code
+> @@ -113,33 +114,33 @@ concan_save:
 >
+>  concan_dump:
+>
+> -       wstrw   wCSSF, [r1, #MMX_WCSSF]
+> -       wstrw   wCASF, [r1, #MMX_WCASF]
+> -       wstrw   wCGR0, [r1, #MMX_WCGR0]
+> -       wstrw   wCGR1, [r1, #MMX_WCGR1]
+> -       wstrw   wCGR2, [r1, #MMX_WCGR2]
+> -       wstrw   wCGR3, [r1, #MMX_WCGR3]
+> +       wstrw   wCSSF, r1, MMX_WCSSF
+> +       wstrw   wCASF, r1, MMX_WCASF
+> +       wstrw   wCGR0, r1, MMX_WCGR0
+> +       wstrw   wCGR1, r1, MMX_WCGR1
+> +       wstrw   wCGR2, r1, MMX_WCGR2
+> +       wstrw   wCGR3, r1, MMX_WCGR3
+>
+>  1:     @ MUP? wRn
+>         tst     r2, #0x2
+>         beq     2f
+>
+> -       wstrd   wR0,  [r1, #MMX_WR0]
+> -       wstrd   wR1,  [r1, #MMX_WR1]
+> -       wstrd   wR2,  [r1, #MMX_WR2]
+> -       wstrd   wR3,  [r1, #MMX_WR3]
+> -       wstrd   wR4,  [r1, #MMX_WR4]
+> -       wstrd   wR5,  [r1, #MMX_WR5]
+> -       wstrd   wR6,  [r1, #MMX_WR6]
+> -       wstrd   wR7,  [r1, #MMX_WR7]
+> -       wstrd   wR8,  [r1, #MMX_WR8]
+> -       wstrd   wR9,  [r1, #MMX_WR9]
+> -       wstrd   wR10, [r1, #MMX_WR10]
+> -       wstrd   wR11, [r1, #MMX_WR11]
+> -       wstrd   wR12, [r1, #MMX_WR12]
+> -       wstrd   wR13, [r1, #MMX_WR13]
+> -       wstrd   wR14, [r1, #MMX_WR14]
+> -       wstrd   wR15, [r1, #MMX_WR15]
+> +       wstrd   wR0,  r1, MMX_WR0
+> +       wstrd   wR1,  r1, MMX_WR1
+> +       wstrd   wR2,  r1, MMX_WR2
+> +       wstrd   wR3,  r1, MMX_WR3
+> +       wstrd   wR4,  r1, MMX_WR4
+> +       wstrd   wR5,  r1, MMX_WR5
+> +       wstrd   wR6,  r1, MMX_WR6
+> +       wstrd   wR7,  r1, MMX_WR7
+> +       wstrd   wR8,  r1, MMX_WR8
+> +       wstrd   wR9,  r1, MMX_WR9
+> +       wstrd   wR10, r1, MMX_WR10
+> +       wstrd   wR11, r1, MMX_WR11
+> +       wstrd   wR12, r1, MMX_WR12
+> +       wstrd   wR13, r1, MMX_WR13
+> +       wstrd   wR14, r1, MMX_WR14
+> +       wstrd   wR15, r1, MMX_WR15
+>
+>  2:     teq     r0, #0                          @ anything to load?
+>         reteq   lr                              @ if not, return
+> @@ -147,30 +148,30 @@ concan_dump:
+>  concan_load:
+>
+>         @ Load wRn
+> -       wldrd   wR0,  [r0, #MMX_WR0]
+> -       wldrd   wR1,  [r0, #MMX_WR1]
+> -       wldrd   wR2,  [r0, #MMX_WR2]
+> -       wldrd   wR3,  [r0, #MMX_WR3]
+> -       wldrd   wR4,  [r0, #MMX_WR4]
+> -       wldrd   wR5,  [r0, #MMX_WR5]
+> -       wldrd   wR6,  [r0, #MMX_WR6]
+> -       wldrd   wR7,  [r0, #MMX_WR7]
+> -       wldrd   wR8,  [r0, #MMX_WR8]
+> -       wldrd   wR9,  [r0, #MMX_WR9]
+> -       wldrd   wR10, [r0, #MMX_WR10]
+> -       wldrd   wR11, [r0, #MMX_WR11]
+> -       wldrd   wR12, [r0, #MMX_WR12]
+> -       wldrd   wR13, [r0, #MMX_WR13]
+> -       wldrd   wR14, [r0, #MMX_WR14]
+> -       wldrd   wR15, [r0, #MMX_WR15]
+> +       wldrd   wR0,  r0, MMX_WR0
+> +       wldrd   wR1,  r0, MMX_WR1
+> +       wldrd   wR2,  r0, MMX_WR2
+> +       wldrd   wR3,  r0, MMX_WR3
+> +       wldrd   wR4,  r0, MMX_WR4
+> +       wldrd   wR5,  r0, MMX_WR5
+> +       wldrd   wR6,  r0, MMX_WR6
+> +       wldrd   wR7,  r0, MMX_WR7
+> +       wldrd   wR8,  r0, MMX_WR8
+> +       wldrd   wR9,  r0, MMX_WR9
+> +       wldrd   wR10, r0, MMX_WR10
+> +       wldrd   wR11, r0, MMX_WR11
+> +       wldrd   wR12, r0, MMX_WR12
+> +       wldrd   wR13, r0, MMX_WR13
+> +       wldrd   wR14, r0, MMX_WR14
+> +       wldrd   wR15, r0, MMX_WR15
+>
+>         @ Load wCx
+> -       wldrw   wCSSF, [r0, #MMX_WCSSF]
+> -       wldrw   wCASF, [r0, #MMX_WCASF]
+> -       wldrw   wCGR0, [r0, #MMX_WCGR0]
+> -       wldrw   wCGR1, [r0, #MMX_WCGR1]
+> -       wldrw   wCGR2, [r0, #MMX_WCGR2]
+> -       wldrw   wCGR3, [r0, #MMX_WCGR3]
+> +       wldrw   wCSSF, r0, MMX_WCSSF
+> +       wldrw   wCASF, r0, MMX_WCASF
+> +       wldrw   wCGR0, r0, MMX_WCGR0
+> +       wldrw   wCGR1, r0, MMX_WCGR1
+> +       wldrw   wCGR2, r0, MMX_WCGR2
+> +       wldrw   wCGR3, r0, MMX_WCGR3
+>
+>         @ clear CUP/MUP (only if r1 != 0)
+>         teq     r1, #0
+> diff --git a/arch/arm/kernel/iwmmxt.h b/arch/arm/kernel/iwmmxt.h
+> new file mode 100644
+> index 000000000000..fb627286f5bb
+> --- /dev/null
+> +++ b/arch/arm/kernel/iwmmxt.h
+> @@ -0,0 +1,47 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef __IWMMXT_H__
+> +#define __IWMMXT_H__
+> +
+> +.irp b, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+> +.set .LwR\b, \b
+> +.set .Lr\b, \b
+> +.endr
+> +
+> +.set .LwCSSF, 0x2
+> +.set .LwCASF, 0x3
+> +.set .LwCGR0, 0x8
+> +.set .LwCGR1, 0x9
+> +.set .LwCGR2, 0xa
+> +.set .LwCGR3, 0xb
+> +
+> +.macro wldrd, reg:req, base:req, offset:req
+> +.inst 0xedd00100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
+> +.endm
+> +
+> +.macro wldrw, reg:req, base:req, offset:req
+> +.inst 0xfd900100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
+> +.endm
+> +
+> +.macro wstrd, reg:req, base:req, offset:req
+> +.inst 0xedc00100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
+> +.endm
+> +
+> +.macro wstrw, reg:req, base:req, offset:req
+> +.inst 0xfd800100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
+> +.endm
+> +
+> +#ifdef __clang__
+> +
+> +#define wCon c1
+> +
+> +.macro tmrc, dest:req, control:req
+> +mrc p1, 0, \dest, \control, c0, 0
+> +.endm
+> +
+> +.macro tmcr, control:req, src:req
+> +mcr p1, 0, \src, \control, c0, 0
+> +.endm
+> +#endif
+> +
+> +#endif
 > --
-> Thanks,
-> ~Nick Desaulniers
+> 2.29.1.341.ge80a0c044ae-goog
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAJ8uoz2PxgZybUKDpe0Y4OJOHmK3gAxU7diTc1raPJoanze4sA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEAhyTfFZg4_%2BwTZ5%2BobQpAzFknC4vR1bNrRG6GpW4D0Q%40mail.gmail.com.
