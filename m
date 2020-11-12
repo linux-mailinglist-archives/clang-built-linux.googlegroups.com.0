@@ -1,150 +1,137 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQXUWX6QKGQEA33MEHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDIIZZ7A64LRBPUIW36QKGQEAS74QWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F63A2B0C51
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 19:09:07 +0100 (CET)
-Received: by mail-qk1-x73e.google.com with SMTP id h23sf4836636qka.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 10:09:07 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605204546; cv=pass;
+Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6D9A52B0CFE
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 19:51:44 +0100 (CET)
+Received: by mail-oo1-xc3c.google.com with SMTP id t188sf2933432oot.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 10:51:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605207103; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ps1LHCs9RduW1u43QyY9umX1xnje2L8JPrKRchvOGaMdJmcX350Hpyohk8FHjqu0Va
-         TJ0IWA05JsY21bA3Ru+U6hfmGxOwvPZ/+aUY8oy0vx/raeKZFOuHVXCVTOgPc6vdVHFC
-         SEaRKGEwFeA6QTjSlo6kYcL29sykpVt2nFuFlLBXf5kP/BdflShhBhUzgOMyBNo924J7
-         s/AUktfsEvIqqypOwviL0JZ4TORYa/3DLsN73ZWlF2zkz4Pr4tyoPgCabUcouiZRs2tn
-         M7724PF/BEfPFG0kK4nIedrB3V4z/7HeRHJlYSy5/s09cX18lWET8slJs4FZyMLo4jqZ
-         h5DQ==
+        b=m3dZfquFzJSkTXXlv+dePbOXwhXmWlHIxJfAbyO18G8jJ+9XlEKk4zlx/4fxrbcrKD
+         GwJ5WknJkagemGsEAy6hzStUmA52JGWwdR8nMfyBdhsWl7DxJzq9/OwydPO71aT8O/LZ
+         IFEIGyhNnw8QL/JMaAD2KzBXvYG/T4nfAV+CxaibBqnVz2dZVG+VaxDyv3F0e7DMyUZR
+         mF+kEX9zVNWZ6Cvf1f7oo6+sjtzLVCnspD06PO7LIkGD1gubU/oHmHElw4Jb1R1/Cixx
+         NWHPpNrO0nDqPWQHBB0cpgiubIjT3nFLWRwY4nJoTgQnIxfFeO1URJVwSXRgYHyqQslB
+         ChEg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=v4Im9v7hYHfHB3jz/V1oWC9o/tUm8WxXgmxuT67VEpc=;
-        b=KjKJ+08AMgxI96QeYaOMUwi9wErKGCWM03PG37BRA2Z/n6BSVR1p0/gsccYXNbGDfY
-         VKpP5cZMvGzrAtBgFb619TBdnWaD1rv13FqwgW73cPbJpyvOLZ/+KyZtx9rvIIdJHBrg
-         Mqm6hDVNY51LOKa+VQ3dkxnojlcwPBPj1PbWVW0vVIL0k3R7THOmIKmSwrXrMKG85O17
-         XE+TdeYCggTQ4B1nNkYeJ/mKDrbuxS0iijEwCyu+fzlbVs+XT7pF2uZ1dE6AioVVjE8s
-         bg4W2S3ljgl7bGl3/ilO4Nrx/HusiDLwAP/6mUjF5k2gji2E6qTl06wadvL7ekjymESS
-         HzOA==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=c8vudFk0YlY8ZjeT7/XH7w0Eqkk51G0OiFwFdGzxuqQ=;
+        b=Z1D+NQgcmj9KJGs970QzurkcyMIya8plYibnRrKh82JsNS/gtaF9Yi6C0As9yK6kzz
+         zzf4ipXa1H0eaigTsDmRlXzQqY90zZfXmLU6gmELp5Ou1YMq0meuDYn97t0jB6l5T7nF
+         HpXRoHHjsEqbwfayHSPK2AmQjGRNYo2eOHz5hxqngcTDh28YHJzHqk3fclXUuFb0N8ft
+         e5q1+a7ivsBkB/NYYiqG2gGkWgXTzEycufjhXEBVQOTU6OZhfRA7OYy6R+18vAiav/c2
+         bvNillTYZcfeitKMwfKXPKOCHED/zN1zceYfb/r70JMbRw0XUe1SrWGjObeltSNMejdh
+         gOOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=A2xuNt+P;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=k01pYQ5H;
+       spf=pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=willmcvicker@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=v4Im9v7hYHfHB3jz/V1oWC9o/tUm8WxXgmxuT67VEpc=;
-        b=QymEtMntkv1X228Ein2kUX+qbbIRMop52g9+fCGySIFOpfAU6XXqIUROGnV9XFiTf8
-         W3CHqICQ4Z/OYDVQgmphJHyNBpvH33ayIcl90DcDWTu9qBG2U0l7CURXSZsNELoybVH1
-         3jfPynhTqoJ2dkxhWvoMtJtRnBpfl28UydvvDCXxQ5HYqqi8678UpD1vUkXKU1C2HfLD
-         p8ApJ/N3ykQ2HjBfiYozWL64UJ6zt3wq14SA/OJoSsoyaSZBj7HqtWUZ2X6oUzaKeRZw
-         nS7tPaWb6FdkXx2gW9b83YpmQHtWKiILADbaBbTJdu2Y0zE3J6BqPTAarRymiwfuV80n
-         lXLQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=v4Im9v7hYHfHB3jz/V1oWC9o/tUm8WxXgmxuT67VEpc=;
-        b=kQo/7hKb8TVx9V3pvmA4FirKLWGqVr1um3xl2ta4SyUsZC0DfGoMnYc4rYi89lRCBi
-         u6WWGTtre8PT4tnWfvfSpnvhGvGLPSev3SivPQuyRvHgKn27+3LoIxRui2ep+uUsY0fv
-         akfb+KMcQHpRQZV48gXlCkUbDszkzM3y2ixeg4RfAuPkuR7BrovrSoMAjQNHGRxZBlmI
-         iT3bL1i78LZ6ZZI6/Y0YMOoJNCdNhP/c7K9X8yD0XShC9QjnBqLFChvFf9SQnP77sJdv
-         CoruT2jvcdamGKdkI1lYSIH+cWVyx5dC083O1/PF9Pte5uZRSGxwQhWNqr8tdmRmWNqZ
-         l0ww==
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=c8vudFk0YlY8ZjeT7/XH7w0Eqkk51G0OiFwFdGzxuqQ=;
+        b=lAXw+S+9mGlDUmpO+gLcqFU3RQBd7OuEX5obXM9Mp1f61IX03I3AsEYKnAfGryCVzS
+         RF3HrlhHOJExvXsD246JXwMCoL2K0DDmajiuPfLX5m1fdD0IJ1TDWJ3b+XxZLh/4hTNG
+         6tLFTyGHZo3idx8mpTKlX3CE7lkotfCm3V9LX10dPdtD97RtND5J5nNNoGM3rLTMv0w+
+         XUA4WVyTwA0adY2+vVHy1kEm09ysYGx5I+Gw8TDeIkOnJF7IJHHku0WfijhGiiXIIjkN
+         m0P5/ZYj0mWuTIt03DgLq3axookJbwwYba7LhB3dvpfOYcjxoCA2ZgE/whngX8AynzOO
+         PHEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=v4Im9v7hYHfHB3jz/V1oWC9o/tUm8WxXgmxuT67VEpc=;
-        b=TgE5pj83Xs1/r7XtYw/5Rv0veJD4VsYWgY7miUH/Ee4Nzb2lrRFBYRA+BdwzCYDkAA
-         uVH+4h1YTJZBQZ1uyiJc3iZW6zSMlf/5xwUYyKJ2QagdZcoqSTe5k66s0LLqVayahz9j
-         OrswplaQgHfhUTuNyq1Qoucg/P5cRuMHqsOssBZ26hWFoMWbfCIMR11qlheNSM9okKCm
-         paEuM3ZDlTGMhe394oFzrGumwXK0eVwaEvAONtHG072aCMyV5bPP9Pa6v5h/Iduv4OeC
-         Q4n4yReNIJWlGRlaJ3sor/EFhrOttzcdEVMSaRGOw3hAo+VoTaVec8buzQuzfmdpxzdj
-         wJBw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5332R0VyulQiw9aVMH1hymHhpQ43A/pGfqeVlSbvIq+wwMGxYukh
-	P05IuJpLZAq7l8ttcw+UzWM=
-X-Google-Smtp-Source: ABdhPJxhtQ2qNkn8NMBRMbkAXcv1DiYL6d4V5XK92Jmg1ocwtC3x900lO6M+pAwa9WJ85/zlVqOtAg==
-X-Received: by 2002:a0c:fb4a:: with SMTP id b10mr885846qvq.1.1605204546365;
-        Thu, 12 Nov 2020 10:09:06 -0800 (PST)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=c8vudFk0YlY8ZjeT7/XH7w0Eqkk51G0OiFwFdGzxuqQ=;
+        b=SjzXCc2LeWPJA5y46O585sjjplWscrbmjimVACkUadAGc82wEsv5vH+uJCwLXw4m4V
+         c46yEZJerV0ssbd6wYkh3yX8s3IE6vfy6oplKqxn/NgEQU05ghlezQzB2eOhirUsGne7
+         aaZDpYstOJFqEJiz/i1/mC00T7mTg+CwzGv8K/ZTnihalRXZr8TVJhrrBFLYv6CIyCfb
+         BXUR1tu6Q2QLUP8lBGKE8M0BrHlIdVHyIphYc96RE+JjHSy6ifV34mbNRTgjc/nLd7M8
+         pemggiLujm1fRO34odaDjH3Mp2Jzz2XlPmcrI8c2C4m8ZgX+jSHaOy/o5xa4+Z/p1X2x
+         wM+g==
+X-Gm-Message-State: AOAM5331EFQzLF8HaiAI8zTgQC4yCE6YsEgaALzCwnlv5Lh3jfHpRUG9
+	hqAQMBzpHlZZWXszIjQ7iAw=
+X-Google-Smtp-Source: ABdhPJxuocBSYyApvxlrN18QBL8ccVgJxCXKhgq/dBAVMtpQbyUcquehS1S/CTO42h1rlPO+W20AYQ==
+X-Received: by 2002:aca:4306:: with SMTP id q6mr682622oia.169.1605207102979;
+        Thu, 12 Nov 2020 10:51:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:304e:: with SMTP id 72ls1253627qte.9.gmail; Thu, 12 Nov
- 2020 10:09:05 -0800 (PST)
-X-Received: by 2002:ac8:431c:: with SMTP id z28mr421744qtm.118.1605204545888;
-        Thu, 12 Nov 2020 10:09:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605204545; cv=none;
+Received: by 2002:a9d:51cd:: with SMTP id d13ls952543oth.11.gmail; Thu, 12 Nov
+ 2020 10:51:42 -0800 (PST)
+X-Received: by 2002:a05:6830:1556:: with SMTP id l22mr508185otp.102.1605207102625;
+        Thu, 12 Nov 2020 10:51:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605207102; cv=none;
         d=google.com; s=arc-20160816;
-        b=wr2xOLw/xQlL2/nl2abFOUN/FVByNh0P+0vIhzPcujF9pBH96J1Ha1x3huccVvomvb
-         Mb3A+R1dWasaeuYeursrzPwcoX0eRHjd9UG3DRxXG1UXGvBYsVUe+mOmA6WqDTZuWvWZ
-         8V/b88G0QLCjxdGyutL35vhfK589Tf27I1kt7jAAQBcdKAx5qLz0ZVEYAHHl9r+CiInO
-         HbfptTFtH9AOaT3wMaOZpQexvJ5Nx3qFqvWZULjSN5IhIUenSbMsFKmYAOA6kXKmUqAv
-         WkSgen7dvmsmKUiC6rgg+Lt7IuQv7RuoLkKcxEfSXGTzoymeTHvdELiHxEzW7LaFHeUl
-         f/7A==
+        b=lzwodatXkaEjk02ucvF8SVbnd4fDLizGQDngzKTw5hs9d8J6nDREK2vMHKNWc3r/A9
+         XuRNBFwalZZ0bLQhA8mNAkHZ3gLszOm0jlEcSQLjdJ/HogqKMAvZKyG/UpOM0nRX+JUJ
+         +bu3AOzRd0O332hzscjzzmPH/aAydDE4Sq0YEQDRdUj6fhRFN1J6M/K1CI9Nj641C9Hf
+         DJIvOJro2JS2VvjFYlDJ8t0KTJOhI7oup7V4PtHIMIB5NH4p4bEeOqDj9p8AmivNYZRK
+         cR8AQeGCYXqYaFNtNeuu2JwqjSVSnPwCT+nNcHzo5+oPINEUB8ZrBlGTYbWsEeMWTw7A
+         pZ9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=O8w5eL8a+QV57B/jVWr5Nut2fi1R7VtNR2kkAi+fZ/k=;
-        b=iI0LE9Tvyns7YtspogW2SNf2ElZJkQIpoQnKWA8/IdnFkZ00lFEgUv8dc+33R5cPe0
-         zdBiqQdPDcEGneKkBar1+MoYnrXrNoJOuS5XA0bxWmgvgQaUhqLQe2v/yb3AGmte6Uys
-         3sl0N/iNQzhbL8NNqJtTN+/GXxzsnp3QgxplNZ+iKRVRDOwxXmgwDnMpdCsjwfHf5eA5
-         8aui1up3BS0Ksz1nFekK2y/i8x86Ye32VfvVpGGDVFaNJh8njcy1KHPJHDEdqxt92NN2
-         uB6rujtQYw4masMap0NHOM6kVYRgNER8Gv2pdCBH0NO9jBcy6K/Twf494k+TgsRFWqwP
-         mdwQ==
+        bh=RaVZ5jM2Kq305TknFdq232t++qdgFqkARu+DxrhGvhw=;
+        b=Tbjso0933VJFCbLOBpcHB1vUhp2i/KFmQLLu8Eeha4jLGwGZ2ZSoLeITWmkxXyNDT8
+         7INcW9R0FnGqaf32xDnh+x4AMtfgP48iDVbrlRJ61a707cOCL6lZLSz/z84PROij5VGp
+         /5bK+JlyXTCXPp0xPIDHSodk/dByvFZUrn6Mnrq3Gi6GsDUwjy/oH7c3eRKhY0k3tcb5
+         7dhd6qdq5N9Rk6XnhWhIadcoMsEHEvYCJkd1kYHbthkEQqSdioTgUFjnzOLgmNf69sQp
+         bPPZOULgsI5jqshYx/z8Op2lNOphnm+zAQkL366C8NSClRzVk3FoLezJmXfLf3w9ODfs
+         6WGw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=A2xuNt+P;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id o23si401756qtm.3.2020.11.12.10.09.05
+       dkim=pass header.i=@google.com header.s=20161025 header.b=k01pYQ5H;
+       spf=pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=willmcvicker@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id d22si641391ooj.1.2020.11.12.10.51.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Nov 2020 10:09:05 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id h15so6111273qkl.13
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 10:09:05 -0800 (PST)
-X-Received: by 2002:a37:2f43:: with SMTP id v64mr1003475qkh.127.1605204545543;
-        Thu, 12 Nov 2020 10:09:05 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id e186sm5122506qkd.117.2020.11.12.10.09.04
+        Thu, 12 Nov 2020 10:51:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id w14so5376556pfd.7
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 10:51:42 -0800 (PST)
+X-Received: by 2002:a17:90a:8543:: with SMTP id a3mr600513pjw.13.1605207101503;
+        Thu, 12 Nov 2020 10:51:41 -0800 (PST)
+Received: from google.com (15.4.198.104.bc.googleusercontent.com. [104.198.4.15])
+        by smtp.gmail.com with ESMTPSA id k21sm6824459pfu.7.2020.11.12.10.51.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2020 10:09:04 -0800 (PST)
-Date: Thu, 12 Nov 2020 11:09:03 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Matteo Croce <mcroce@linux.microsoft.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>,
-	linux-kernel@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>,
-	Pavel Tatashin <pasha.tatashin@soleen.com>,
-	Petr Mladek <pmladek@suse.com>, Mike Rapoport <rppt@kernel.org>,
-	Tyler Hicks <tyhicks@linux.microsoft.com>,
+        Thu, 12 Nov 2020 10:51:40 -0800 (PST)
+Date: Thu, 12 Nov 2020 18:51:36 +0000
+From: "'William Mcvicker' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] reboot: Fix variable assignments in type_store
-Message-ID: <20201112180903.GA935117@ubuntu-m3-large-x86>
-References: <20201110202746.9690-1-mcroce@linux.microsoft.com>
- <20201112035023.974748-1-natechancellor@gmail.com>
- <CAFnufp2eEKW4tencrhUoYkY6C-eGB5xF_Fg5hms52zgJj68hJg@mail.gmail.com>
- <20201112174954.GA934563@ubuntu-m3-large-x86>
- <CAFnufp2edm5wkRtLzZf0XwL2xCKzJ7EgpZAKKg70QzZog_ND-Q@mail.gmail.com>
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Andrei Vagin <avagin@gmail.com>,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com, kernel-team@android.com
+Subject: Re: [PATCH] arm64: Fix off-by-one vdso trampoline return value
+Message-ID: <20201112185136.GA585063@google.com>
+References: <20201112001422.340449-1-willmcvicker@google.com>
+ <20201112101204.GA19506@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAFnufp2edm5wkRtLzZf0XwL2xCKzJ7EgpZAKKg70QzZog_ND-Q@mail.gmail.com>
-X-Original-Sender: natechancellor@gmail.com
+In-Reply-To: <20201112101204.GA19506@willie-the-truck>
+X-Original-Sender: willmcvicker@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=A2xuNt+P;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=k01pYQ5H;       spf=pass
+ (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=willmcvicker@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: William Mcvicker <willmcvicker@google.com>
+Reply-To: William Mcvicker <willmcvicker@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,135 +144,75 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Nov 12, 2020 at 06:59:36PM +0100, Matteo Croce wrote:
-> On Thu, Nov 12, 2020 at 6:49 PM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
-> >
-> > Hi Matteo,
-> >
-> > On Thu, Nov 12, 2020 at 12:26:45PM +0100, Matteo Croce wrote:
-> > > On Thu, Nov 12, 2020 at 4:50 AM Nathan Chancellor
-> > > <natechancellor@gmail.com> wrote:
-> > > >
-> > > > Clang warns:
-> > > >
-> > > > kernel/reboot.c:707:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_TRIPLE;
-> > > >                             ~ ^~~~~~~~~~~
-> > > > kernel/reboot.c:709:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_KBD;
-> > > >                             ~ ^~~~~~~~
-> > > > kernel/reboot.c:711:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_BIOS;
-> > > >                             ~ ^~~~~~~~~
-> > > > kernel/reboot.c:713:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_ACPI;
-> > > >                             ~ ^~~~~~~~~
-> > > > kernel/reboot.c:715:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_EFI;
-> > > >                             ~ ^~~~~~~~
-> > > > kernel/reboot.c:717:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_CF9_FORCE;
-> > > >                             ~ ^~~~~~~~~~~~~~
-> > > > kernel/reboot.c:719:17: warning: implicit conversion from enumeration
-> > > > type 'enum reboot_type' to different enumeration type 'enum reboot_mode'
-> > > > [-Wenum-conversion]
-> > > >                 reboot_mode = BOOT_CF9_SAFE;
-> > > >                             ~ ^~~~~~~~~~~~~
-> > > > 7 warnings generated.
-> > > >
-> > > > It seems that these assignment should be to reboot_type, not
-> > > > reboot_mode. Fix it so there are no more warnings and the code works
-> > > > properly.
-> > > >
-> > > > Fixes: eab8da48579d ("reboot: allow to specify reboot mode via sysfs")
-> > > > Link: https://github.com/ClangBuiltLinux/linux/issues/1197
-> > > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> > > > ---
-> > > >  kernel/reboot.c | 14 +++++++-------
-> > > >  1 file changed, 7 insertions(+), 7 deletions(-)
-> > > >
-> > > > diff --git a/kernel/reboot.c b/kernel/reboot.c
-> > > > index deba133a071b..8599d0d44aec 100644
-> > > > --- a/kernel/reboot.c
-> > > > +++ b/kernel/reboot.c
-> > > > @@ -704,19 +704,19 @@ static ssize_t type_store(struct kobject *kobj, struct kobj_attribute *attr,
-> > > >                 return -EPERM;
-> > > >
-> > > >         if (!strncmp(buf, BOOT_TRIPLE_STR, strlen(BOOT_TRIPLE_STR)))
-> > > > -               reboot_mode = BOOT_TRIPLE;
-> > > > +               reboot_type = BOOT_TRIPLE;
-> > > >         else if (!strncmp(buf, BOOT_KBD_STR, strlen(BOOT_KBD_STR)))
-> > > > -               reboot_mode = BOOT_KBD;
-> > > > +               reboot_type = BOOT_KBD;
-> > > >         else if (!strncmp(buf, BOOT_BIOS_STR, strlen(BOOT_BIOS_STR)))
-> > > > -               reboot_mode = BOOT_BIOS;
-> > > > +               reboot_type = BOOT_BIOS;
-> > > >         else if (!strncmp(buf, BOOT_ACPI_STR, strlen(BOOT_ACPI_STR)))
-> > > > -               reboot_mode = BOOT_ACPI;
-> > > > +               reboot_type = BOOT_ACPI;
-> > > >         else if (!strncmp(buf, BOOT_EFI_STR, strlen(BOOT_EFI_STR)))
-> > > > -               reboot_mode = BOOT_EFI;
-> > > > +               reboot_type = BOOT_EFI;
-> > > >         else if (!strncmp(buf, BOOT_CF9_FORCE_STR, strlen(BOOT_CF9_FORCE_STR)))
-> > > > -               reboot_mode = BOOT_CF9_FORCE;
-> > > > +               reboot_type = BOOT_CF9_FORCE;
-> > > >         else if (!strncmp(buf, BOOT_CF9_SAFE_STR, strlen(BOOT_CF9_SAFE_STR)))
-> > > > -               reboot_mode = BOOT_CF9_SAFE;
-> > > > +               reboot_type = BOOT_CF9_SAFE;
-> > > >         else
-> > > >                 return -EINVAL;
-> > > >
-> > > >
-> > > > base-commit: 3e14f70c05cda4794901ed8f976de3a88deebcc0
-> > > > --
-> > > > 2.29.2
-> > > >
-> > >
-> > > Hmm, this was introduced in v3 I think.
-> > >
-> > > I wonder why my compiler doesn't warn about it, the two variables are
-> > > defined as different enum type.
-> > > I get the same warnings with GCC and -Wenum-conversion.
-> >
-> > What version of GCC do you have? -Wenum-conversion is a fairly new
-> > warning in GCC I think. Although if you get it now, maybe it was some
-> > configuration error?
-> >
-> 
-> Hi,
-> 
-> the one shipped in Fedora 33:
-> gcc version 10.2.1 20201016 (Red Hat 10.2.1-6) (GCC)
-> 
-> I enabled -Wenum-compare -Wenum-conversion globally in the root
-> Makefile and I had only 15 warnings for an 'allyesconfig' x86_64
-> build.
-> 
-> Maybe it's worth fixing them and enable the warning, it's very useful.
+Hi Nick,
 
-Ahh, I thought that -Wenum-conversion was enabled with -Wall for GCC, it
-appears to be enabled by -Wextra. I believe that Arnd has been tracking
-down these instances with GCC and sending patches, I assume in hopes of
-turning on the warning globally. I agree, the warning is definitely
-helpful and clang has helped catch several bugs with it.
+Regarding llvm-nm, this extra thumb +1 is noticed after porting
+https://lore.kernel.org/linux-arm-kernel/20201013033947.2257501-1-natechancellor@gmail.com/
+to the Android Common Kernel android-4.19-stable. I'm not sure why using ld.lld
+causes this difference, but this proposed patch ensures that we don't rely on
+the nm tool used.
 
-Cheers,
-Nathan
+Will D.,
+Regarding applying this to some stable kernels vs backporting 2d071968a405
+("arm64: compat: Remove 32-bit sigreturn code from the vDSO"), I am hesitant to
+backport commit 2d071968a405 due it's dependencies. For 4.19 at least, I would
+also need to backport these:
+
+8e411be6aad13 will@kernel.org  arm64: compat: Always use sigpage for sigreturn trampoline
+a39060b009ca0 will@kernel.org  arm64: compat: Allow 32-bit vdso and sigpage to co-exist
+1d09094aa6205 mark.rutland@arm.com  arm64: vdso: use consistent 'map' nomenclature
+d3418f3839b66 mark.rutland@arm.com  arm64: vdso: use consistent 'abi' nomenclature
+3ee16ff3437ca mark.rutland@arm.com  arm64: vdso: simplify arch_vdso_type ifdeffery
+74fc72e77dc5c mark.rutland@arm.com  arm64: vdso: remove aarch32_vdso_pages[]
+
+I have done this in my local tree and verified it fixes the SIGBUS error I'm
+seeing; however, it seems a lot cleaner and safer to just patch the VDSO_SYMBOL
+macro.  Please let me know what route you prefer. I'm happy to backport all of
+these if that's the recommended approach.
+
+Thanks,
+Will
+
+On 11/12/2020, Will Deacon wrote:
+> On Thu, Nov 12, 2020 at 12:14:22AM +0000, Will McVicker wrote:
+> > Depending on your host nm version, the generated header
+> > `include/generated/vdso32-offsets.h` may have the bottom bit set for the
+> > thumb vdso offset addresses (as observed when using llvm-nm). This
+> > results in an additional +1 for thumb vdso trampoline return values
+> > since compat_setup_return() already includes `vdso_trampoline + thumb`.
+> > As a result, I see a SIGBUS error when running the LTP test
+> > syscalls.rt_sigaction01. To fix this, let's clear the bottom bit of the
+> > vdso_offset in the VDSO_SYMBOL macro.
+> > 
+> > Test: LTP test syscalls.rt_sigaction01
+> > Fixes: f01703b3d2e6 ("arm64: compat: Get sigreturn trampolines from vDSO")
+> > Signed-off-by: Will McVicker <willmcvicker@google.com>
+> > ---
+> >  arch/arm64/include/asm/vdso.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
+> > index f99dcb94b438..a7384379e8e1 100644
+> > --- a/arch/arm64/include/asm/vdso.h
+> > +++ b/arch/arm64/include/asm/vdso.h
+> > @@ -23,7 +23,7 @@
+> >  
+> >  #define VDSO_SYMBOL(base, name)						   \
+> >  ({									   \
+> > -	(void *)(vdso_offset_##name - VDSO_LBASE + (unsigned long)(base)); \
+> > +	(void *)((vdso_offset_##name & ~1UL) - VDSO_LBASE + (unsigned long)(base)); \
+> 
+> I don't think we need this in mainline, because the sigreturn trampoline
+> is just a bunch of .byte directives and I removed the sigreturn code from
+> the compat vdso in 2d071968a405 ("arm64: compat: Remove 32-bit sigreturn code
+> from the vDSO").
+> 
+> Might be needed in some stable kernels though (or we just backport the
+> patch I mentioned above)
+> 
+> Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112180903.GA935117%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112185136.GA585063%40google.com.
