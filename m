@@ -1,137 +1,143 @@
-Return-Path: <clang-built-linux+bncBDIIZZ7A64LRBPUIW36QKGQEAS74QWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBQUSW36QKGQEVXBTBWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6D9A52B0CFE
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 19:51:44 +0100 (CET)
-Received: by mail-oo1-xc3c.google.com with SMTP id t188sf2933432oot.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 10:51:44 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605207103; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 200262B0D90
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 20:13:07 +0100 (CET)
+Received: by mail-wm1-x337.google.com with SMTP id 8sf2149250wmg.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 11:13:07 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605208386; cv=pass;
         d=google.com; s=arc-20160816;
-        b=m3dZfquFzJSkTXXlv+dePbOXwhXmWlHIxJfAbyO18G8jJ+9XlEKk4zlx/4fxrbcrKD
-         GwJ5WknJkagemGsEAy6hzStUmA52JGWwdR8nMfyBdhsWl7DxJzq9/OwydPO71aT8O/LZ
-         IFEIGyhNnw8QL/JMaAD2KzBXvYG/T4nfAV+CxaibBqnVz2dZVG+VaxDyv3F0e7DMyUZR
-         mF+kEX9zVNWZ6Cvf1f7oo6+sjtzLVCnspD06PO7LIkGD1gubU/oHmHElw4Jb1R1/Cixx
-         NWHPpNrO0nDqPWQHBB0cpgiubIjT3nFLWRwY4nJoTgQnIxfFeO1URJVwSXRgYHyqQslB
-         ChEg==
+        b=EqlDm/swDlTjqOkx15vIwLqqgnJuKHB83NcpUqFUEP5/PXr/hT45ng/0cMp9h1XXoE
+         84DbHG2s299bDSxSAZF5JO1JpuFu0PGGALJR71LXcnzvV77qTbsSXYrN+ZnT486svqn8
+         l3saaghMJMLAoFvC+TiedpA0CSIrYwCxmsSTysEYaxLWOLhEMmd10Y9sonb2nhcwW19S
+         ff/mxDJkrwT/DdYZoR5Vnv/VPY04364Fnxv+A8OdDgOC9c/sc5WgthzTnC6aLPyHSQEw
+         DWV7x05XrSj1PN9jGafG+4VH6emzXET0QkpoNfaOAbAwaghDC5DemA8XzhmDMFLHkTtg
+         fa9w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=c8vudFk0YlY8ZjeT7/XH7w0Eqkk51G0OiFwFdGzxuqQ=;
-        b=Z1D+NQgcmj9KJGs970QzurkcyMIya8plYibnRrKh82JsNS/gtaF9Yi6C0As9yK6kzz
-         zzf4ipXa1H0eaigTsDmRlXzQqY90zZfXmLU6gmELp5Ou1YMq0meuDYn97t0jB6l5T7nF
-         HpXRoHHjsEqbwfayHSPK2AmQjGRNYo2eOHz5hxqngcTDh28YHJzHqk3fclXUuFb0N8ft
-         e5q1+a7ivsBkB/NYYiqG2gGkWgXTzEycufjhXEBVQOTU6OZhfRA7OYy6R+18vAiav/c2
-         bvNillTYZcfeitKMwfKXPKOCHED/zN1zceYfb/r70JMbRw0XUe1SrWGjObeltSNMejdh
-         gOOw==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=ZQpRipnBo0NVNN3sYunRTiKs84LzTydSg+oEKPuVCoQ=;
+        b=Ijqj9AfbwdqEbcuOTpCGlWcq/KQM4CcsUB9M1LhurnBaeg+F69YmXSNaBUlvCXl5tu
+         DYi11TTQghCkwYZG0OnYanoLMb0rrzIuGDWWTX628RmtGT5Lf7TcJ3NR0SVSfVtKjAvy
+         35KNijy2PDQKktlEu2tr6eRxSmYHHRlxrSGilYiBxqQDbGtFEwSCZbq6DBl20f6CL7bL
+         7Fxi4+FvtM0MeaCugE0htZ+tVDxqvQMF7bMJeojJqioxly3Tsft75IkM9P8MMqEAlgly
+         OX9wKG8hw/6Lq8VRboIGkufDlTrC782X+C0VwLB3qh4bQIUk45lV3Zy9KH09VIcLnD7y
+         sBTw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=k01pYQ5H;
-       spf=pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=willmcvicker@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jVBu+ceL;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=c8vudFk0YlY8ZjeT7/XH7w0Eqkk51G0OiFwFdGzxuqQ=;
-        b=lAXw+S+9mGlDUmpO+gLcqFU3RQBd7OuEX5obXM9Mp1f61IX03I3AsEYKnAfGryCVzS
-         RF3HrlhHOJExvXsD246JXwMCoL2K0DDmajiuPfLX5m1fdD0IJ1TDWJ3b+XxZLh/4hTNG
-         6tLFTyGHZo3idx8mpTKlX3CE7lkotfCm3V9LX10dPdtD97RtND5J5nNNoGM3rLTMv0w+
-         XUA4WVyTwA0adY2+vVHy1kEm09ysYGx5I+Gw8TDeIkOnJF7IJHHku0WfijhGiiXIIjkN
-         m0P5/ZYj0mWuTIt03DgLq3axookJbwwYba7LhB3dvpfOYcjxoCA2ZgE/whngX8AynzOO
-         PHEQ==
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ZQpRipnBo0NVNN3sYunRTiKs84LzTydSg+oEKPuVCoQ=;
+        b=MeMV8l4QX0yOtofYPchTPZXpGo/AGlhqjrC+JwU1N0D8g9EZuBdVZ6BPhZvDo2FgFN
+         30tsqmF+l8jfR6Xzq3g4sEiK2A+r8XzDrIIQBIql3NC5kjcoRHFVr21rhSsHTHcIMRr+
+         M6I6nHp8I7FT499CY5gnTFNeV+XKwBYsqAPhflvJZatVHRTK04dvShghtJJB35fAnVJ/
+         81GpcPx7OqIaPenL1/M+u9pxtj2gTAlWgtsq4HOEDMYO+gVlZf7+Q4bvNjHuZxOq2Z7x
+         79P4tua+CDhw/pAepgRe5KLyEBTWq3dbL4FxGFiv4brY8W4IJAXlLEDgWW9fG/gBeIZj
+         YM3Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZQpRipnBo0NVNN3sYunRTiKs84LzTydSg+oEKPuVCoQ=;
+        b=oalS2iPueda0Xk3AmkYxrZ2IeIiOhE4wWHISWSzsNhG2NOYj/5aP549B1VZOccwp+Z
+         Tx0R5SKFLr0UKPm8IW6/CwBDM1b9S8pzTQb+Q8InYuui1bBSwDq3SKjuFI/IgzKNIu4+
+         C7RoRysgblW3tRrdB7uwYOC/92ZB58X1waiZO+Go086GEhSqPzQ/bwd6bKKMJ4IBXAPd
+         8AA/0z2/+yfyaBPSOHP7kYmqIPHsviV0D1qcWZY3c3YbCKFOlUqCYlUXVSRj2gG9fWYE
+         wqR154DVoPhhn5K0LEoO+e7iQhr7By5eFlriDiONMAJBKwYHed2kkHapbs3Gn1Y47bYK
+         0rPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=c8vudFk0YlY8ZjeT7/XH7w0Eqkk51G0OiFwFdGzxuqQ=;
-        b=SjzXCc2LeWPJA5y46O585sjjplWscrbmjimVACkUadAGc82wEsv5vH+uJCwLXw4m4V
-         c46yEZJerV0ssbd6wYkh3yX8s3IE6vfy6oplKqxn/NgEQU05ghlezQzB2eOhirUsGne7
-         aaZDpYstOJFqEJiz/i1/mC00T7mTg+CwzGv8K/ZTnihalRXZr8TVJhrrBFLYv6CIyCfb
-         BXUR1tu6Q2QLUP8lBGKE8M0BrHlIdVHyIphYc96RE+JjHSy6ifV34mbNRTgjc/nLd7M8
-         pemggiLujm1fRO34odaDjH3Mp2Jzz2XlPmcrI8c2C4m8ZgX+jSHaOy/o5xa4+Z/p1X2x
-         wM+g==
-X-Gm-Message-State: AOAM5331EFQzLF8HaiAI8zTgQC4yCE6YsEgaALzCwnlv5Lh3jfHpRUG9
-	hqAQMBzpHlZZWXszIjQ7iAw=
-X-Google-Smtp-Source: ABdhPJxuocBSYyApvxlrN18QBL8ccVgJxCXKhgq/dBAVMtpQbyUcquehS1S/CTO42h1rlPO+W20AYQ==
-X-Received: by 2002:aca:4306:: with SMTP id q6mr682622oia.169.1605207102979;
-        Thu, 12 Nov 2020 10:51:42 -0800 (PST)
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZQpRipnBo0NVNN3sYunRTiKs84LzTydSg+oEKPuVCoQ=;
+        b=koo4ZozVN1qLn4cg/1nP9oxDcfCWhq5fdDlJfevysS8GhuGVCr8N6kYKF2MVkv3mFU
+         xIvQZFo6vF5oVHNQCFvoEfWJ5JUFUIJrkvCUJm76uODrnjFV175NHhc3ur+i2gSo1MGD
+         HLOYdT5TXjSbXKQqff8lVcAN2L9Ln+aoTCW+LOSvJgkJPmDrHwRWz6e4BwdQSFfsF3DG
+         bNwbEpUmBlLEOBA5M1aGW0+Rm21BXvI1lZoCtr5nYnpp9Es4eJiboz6y8ZABVWyP5q4d
+         cM+chQV1Ah5FokF/eomb/rCzXv3nFbDL0hIKhgkA2qvVCaa+RP/FHeVPPtlICYUV1SFY
+         GzGg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5330PtC1nBYFi8Z3dWtygyT1GIRZcODrlTd4wtBbESPAlLvZcSLB
+	ZY2E85gEagUplY61MJ23f84=
+X-Google-Smtp-Source: ABdhPJxXmpCqfhKqAQu2iyiybcz298No+2KA7HDDbt43lXA9OuaH3ji3gkMiAtT14mZXCm7kVl/kew==
+X-Received: by 2002:a1c:ac03:: with SMTP id v3mr1158391wme.9.1605208386774;
+        Thu, 12 Nov 2020 11:13:06 -0800 (PST)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:51cd:: with SMTP id d13ls952543oth.11.gmail; Thu, 12 Nov
- 2020 10:51:42 -0800 (PST)
-X-Received: by 2002:a05:6830:1556:: with SMTP id l22mr508185otp.102.1605207102625;
-        Thu, 12 Nov 2020 10:51:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605207102; cv=none;
+Received: by 2002:adf:e5c2:: with SMTP id a2ls2204932wrn.3.gmail; Thu, 12 Nov
+ 2020 11:13:05 -0800 (PST)
+X-Received: by 2002:adf:f2c7:: with SMTP id d7mr1232186wrp.142.1605208385788;
+        Thu, 12 Nov 2020 11:13:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605208385; cv=none;
         d=google.com; s=arc-20160816;
-        b=lzwodatXkaEjk02ucvF8SVbnd4fDLizGQDngzKTw5hs9d8J6nDREK2vMHKNWc3r/A9
-         XuRNBFwalZZ0bLQhA8mNAkHZ3gLszOm0jlEcSQLjdJ/HogqKMAvZKyG/UpOM0nRX+JUJ
-         +bu3AOzRd0O332hzscjzzmPH/aAydDE4Sq0YEQDRdUj6fhRFN1J6M/K1CI9Nj641C9Hf
-         DJIvOJro2JS2VvjFYlDJ8t0KTJOhI7oup7V4PtHIMIB5NH4p4bEeOqDj9p8AmivNYZRK
-         cR8AQeGCYXqYaFNtNeuu2JwqjSVSnPwCT+nNcHzo5+oPINEUB8ZrBlGTYbWsEeMWTw7A
-         pZ9A==
+        b=d0vTUZNJl1Lel8h2FmqbQJtRpyijIQpHZfZW1pqgLdlmfVwJCj/ga2eLLXap0UQShb
+         HGa6SHYWGWWtI1KI6r1HtHtFwqbqDLlQzCKGzykLOsvWzj1nG+RNX/DYCGYa7jj6gQUG
+         cOOvRc39FMxy8ZEeTHXBnZz0JhkHwSGq1Xkslsu76+1+81v1BOUwnkSSGLaD6lQMRLrU
+         +WDjxpmBWsFWDrNEhjh6R6qjUxhlV+Yh3R6Rg23m1A3klrBLhnNwpPIN0cImET7q9d6v
+         YA4kP1sfvydafNTNXhFB4NnZYHiLpAVjqEib7ZrZKZRGqzWNA33KsOlQ0OfeR1RWnCSB
+         6tug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=RaVZ5jM2Kq305TknFdq232t++qdgFqkARu+DxrhGvhw=;
-        b=Tbjso0933VJFCbLOBpcHB1vUhp2i/KFmQLLu8Eeha4jLGwGZ2ZSoLeITWmkxXyNDT8
-         7INcW9R0FnGqaf32xDnh+x4AMtfgP48iDVbrlRJ61a707cOCL6lZLSz/z84PROij5VGp
-         /5bK+JlyXTCXPp0xPIDHSodk/dByvFZUrn6Mnrq3Gi6GsDUwjy/oH7c3eRKhY0k3tcb5
-         7dhd6qdq5N9Rk6XnhWhIadcoMsEHEvYCJkd1kYHbthkEQqSdioTgUFjnzOLgmNf69sQp
-         bPPZOULgsI5jqshYx/z8Op2lNOphnm+zAQkL366C8NSClRzVk3FoLezJmXfLf3w9ODfs
-         6WGw==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=pdSRw9mlDHitGPfQBRUv6P8lG2F84sSOXhcflYqXKJo=;
+        b=oCRkPvn+RnWN6E+j3nFrLyVwlyNrMClp4lcb1CnsnVZxzAofwnyHTGbA5LETiqJKnT
+         VxzG4+61qyG+FAjaUE3RHEuuRyJ9Y79cEFpVXYhz6ieRILgYs2idRHllrTejzpS92P0F
+         nuynpP1o/EgkoKkAHR0sBrI9wdk9w8VQNOrSIW8Djhgm/b/wSsom4t0xt/D4DQ43mI/q
+         5pnLdJGL21osYfI+2R1+5MPo3vQM3vhIMv+z4L3S4AkHEY8fGyUVeJtnD1yhvU+uR1i7
+         odICGo2aDr03rCfGWRZ5uL5at5R46VT8zDuOhQkADFei9yueKZc00WcDxc8KZncsL7aW
+         8Ztg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=k01pYQ5H;
-       spf=pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=willmcvicker@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id d22si641391ooj.1.2020.11.12.10.51.42
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jVBu+ceL;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id y14si260453wrq.0.2020.11.12.11.13.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Nov 2020 10:51:42 -0800 (PST)
-Received-SPF: pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id w14so5376556pfd.7
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 10:51:42 -0800 (PST)
-X-Received: by 2002:a17:90a:8543:: with SMTP id a3mr600513pjw.13.1605207101503;
-        Thu, 12 Nov 2020 10:51:41 -0800 (PST)
-Received: from google.com (15.4.198.104.bc.googleusercontent.com. [104.198.4.15])
-        by smtp.gmail.com with ESMTPSA id k21sm6824459pfu.7.2020.11.12.10.51.40
+        Thu, 12 Nov 2020 11:13:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
+Received: by mail-wm1-x344.google.com with SMTP id w24so6504012wmi.0
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 11:13:05 -0800 (PST)
+X-Received: by 2002:a1c:b0c4:: with SMTP id z187mr1066051wme.113.1605208385297;
+        Thu, 12 Nov 2020 11:13:05 -0800 (PST)
+Received: from felia.fritz.box ([2001:16b8:2d19:d300:649c:b988:4446:6d44])
+        by smtp.gmail.com with ESMTPSA id 30sm427118wrd.88.2020.11.12.11.13.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2020 10:51:40 -0800 (PST)
-Date: Thu, 12 Nov 2020 18:51:36 +0000
-From: "'William Mcvicker' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
+        Thu, 12 Nov 2020 11:13:04 -0800 (PST)
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+To: Alan Stern <stern@rowland.harvard.edu>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org,
+	usb-storage@lists.one-eyed-alien.net
+Cc: Tom Rix <trix@redhat.com>,
 	Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Andrei Vagin <avagin@gmail.com>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com, kernel-team@android.com
-Subject: Re: [PATCH] arm64: Fix off-by-one vdso trampoline return value
-Message-ID: <20201112185136.GA585063@google.com>
-References: <20201112001422.340449-1-willmcvicker@google.com>
- <20201112101204.GA19506@willie-the-truck>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20201112101204.GA19506@willie-the-truck>
-X-Original-Sender: willmcvicker@google.com
+	clang-built-linux@googlegroups.com,
+	kernel-janitors@vger.kernel.org,
+	linux-safety@lists.elisa.tech,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Subject: [PATCH] USB: storage: avoid use of uninitialized values in error path
+Date: Thu, 12 Nov 2020 20:12:55 +0100
+Message-Id: <20201112191255.13372-1-lukas.bulwahn@gmail.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: lukas.bulwahn@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=k01pYQ5H;       spf=pass
- (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::441
- as permitted sender) smtp.mailfrom=willmcvicker@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: William Mcvicker <willmcvicker@google.com>
-Reply-To: William Mcvicker <willmcvicker@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=jVBu+ceL;       spf=pass
+ (google.com: domain of lukas.bulwahn@gmail.com designates 2a00:1450:4864:20::344
+ as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,75 +150,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nick,
+When usb_stor_bulk_transfer_sglist() returns with USB_STOR_XFER_ERROR, it
+returns without writing to its parameter *act_len.
 
-Regarding llvm-nm, this extra thumb +1 is noticed after porting
-https://lore.kernel.org/linux-arm-kernel/20201013033947.2257501-1-natechancellor@gmail.com/
-to the Android Common Kernel android-4.19-stable. I'm not sure why using ld.lld
-causes this difference, but this proposed patch ensures that we don't rely on
-the nm tool used.
+Further, the two callers of usb_stor_bulk_transfer_sglist():
 
-Will D.,
-Regarding applying this to some stable kernels vs backporting 2d071968a405
-("arm64: compat: Remove 32-bit sigreturn code from the vDSO"), I am hesitant to
-backport commit 2d071968a405 due it's dependencies. For 4.19 at least, I would
-also need to backport these:
+    usb_stor_bulk_srb() and
+    usb_stor_bulk_transfer_sg(),
 
-8e411be6aad13 will@kernel.org  arm64: compat: Always use sigpage for sigreturn trampoline
-a39060b009ca0 will@kernel.org  arm64: compat: Allow 32-bit vdso and sigpage to co-exist
-1d09094aa6205 mark.rutland@arm.com  arm64: vdso: use consistent 'map' nomenclature
-d3418f3839b66 mark.rutland@arm.com  arm64: vdso: use consistent 'abi' nomenclature
-3ee16ff3437ca mark.rutland@arm.com  arm64: vdso: simplify arch_vdso_type ifdeffery
-74fc72e77dc5c mark.rutland@arm.com  arm64: vdso: remove aarch32_vdso_pages[]
+use the passed variable partial without checking the return value. Hence,
+the uninitialized value of partial is then used in the further execution
+of those two functions.
 
-I have done this in my local tree and verified it fixes the SIGBUS error I'm
-seeing; however, it seems a lot cleaner and safer to just patch the VDSO_SYMBOL
-macro.  Please let me know what route you prefer. I'm happy to backport all of
-these if that's the recommended approach.
+Clang-analyzer detects this potential control and data flow and warns:
 
-Thanks,
-Will
+  drivers/usb/storage/transport.c:469:40:
+    warning: The right operand of '-' is a garbage value
+    [clang-analyzer-core.UndefinedBinaryOperatorResult]
+          scsi_set_resid(srb, scsi_bufflen(srb) - partial);
+                                                ^
 
-On 11/12/2020, Will Deacon wrote:
-> On Thu, Nov 12, 2020 at 12:14:22AM +0000, Will McVicker wrote:
-> > Depending on your host nm version, the generated header
-> > `include/generated/vdso32-offsets.h` may have the bottom bit set for the
-> > thumb vdso offset addresses (as observed when using llvm-nm). This
-> > results in an additional +1 for thumb vdso trampoline return values
-> > since compat_setup_return() already includes `vdso_trampoline + thumb`.
-> > As a result, I see a SIGBUS error when running the LTP test
-> > syscalls.rt_sigaction01. To fix this, let's clear the bottom bit of the
-> > vdso_offset in the VDSO_SYMBOL macro.
-> > 
-> > Test: LTP test syscalls.rt_sigaction01
-> > Fixes: f01703b3d2e6 ("arm64: compat: Get sigreturn trampolines from vDSO")
-> > Signed-off-by: Will McVicker <willmcvicker@google.com>
-> > ---
-> >  arch/arm64/include/asm/vdso.h | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
-> > index f99dcb94b438..a7384379e8e1 100644
-> > --- a/arch/arm64/include/asm/vdso.h
-> > +++ b/arch/arm64/include/asm/vdso.h
-> > @@ -23,7 +23,7 @@
-> >  
-> >  #define VDSO_SYMBOL(base, name)						   \
-> >  ({									   \
-> > -	(void *)(vdso_offset_##name - VDSO_LBASE + (unsigned long)(base)); \
-> > +	(void *)((vdso_offset_##name & ~1UL) - VDSO_LBASE + (unsigned long)(base)); \
-> 
-> I don't think we need this in mainline, because the sigreturn trampoline
-> is just a bunch of .byte directives and I removed the sigreturn code from
-> the compat vdso in 2d071968a405 ("arm64: compat: Remove 32-bit sigreturn code
-> from the vDSO").
-> 
-> Might be needed in some stable kernels though (or we just backport the
-> patch I mentioned above)
-> 
-> Will
+  drivers/usb/storage/transport.c:495:15:
+    warning: Assigned value is garbage or undefined
+    [clang-analyzer-core.uninitialized.Assign]
+                  length_left -= partial;
+                              ^
+
+When a transfer error occurs, the *act_len value is probably ignored by the
+higher layers. But it won't hurt to set it to a valid number, just in case.
+
+For the two early-return paths in usb_stor_bulk_transfer_sglist(), the
+amount of data transferred is 0.  So if act_len is not NULL, set *act_len
+to 0 in those paths. That makes clang-analyzer happy.
+
+Proposal was discussed in this mail thread:
+
+Link: https://lore.kernel.org/linux-usb/alpine.DEB.2.21.2011112146110.13119@felia/
+
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+---
+applies cleanly on current master and next-20201112
+
+I did some basic compile testing...
+
+Alan, Greg, please pick this minor non-urgent clean-up patch.
+
+ drivers/usb/storage/transport.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/usb/storage/transport.c b/drivers/usb/storage/transport.c
+index 238a8088e17f..5eb895b19c55 100644
+--- a/drivers/usb/storage/transport.c
++++ b/drivers/usb/storage/transport.c
+@@ -416,7 +416,7 @@ static int usb_stor_bulk_transfer_sglist(struct us_data *us, unsigned int pipe,
+ 
+ 	/* don't submit s-g requests during abort processing */
+ 	if (test_bit(US_FLIDX_ABORTING, &us->dflags))
+-		return USB_STOR_XFER_ERROR;
++		goto usb_stor_xfer_error;
+ 
+ 	/* initialize the scatter-gather request block */
+ 	usb_stor_dbg(us, "xfer %u bytes, %d entries\n", length, num_sg);
+@@ -424,7 +424,7 @@ static int usb_stor_bulk_transfer_sglist(struct us_data *us, unsigned int pipe,
+ 			sg, num_sg, length, GFP_NOIO);
+ 	if (result) {
+ 		usb_stor_dbg(us, "usb_sg_init returned %d\n", result);
+-		return USB_STOR_XFER_ERROR;
++		goto usb_stor_xfer_error;
+ 	}
+ 
+ 	/*
+@@ -452,6 +452,11 @@ static int usb_stor_bulk_transfer_sglist(struct us_data *us, unsigned int pipe,
+ 		*act_len = us->current_sg.bytes;
+ 	return interpret_urb_result(us, pipe, length, result,
+ 			us->current_sg.bytes);
++
++usb_stor_xfer_error:
++	if (act_len)
++		*act_len = 0;
++	return USB_STOR_XFER_ERROR;
+ }
+ 
+ /*
+-- 
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112185136.GA585063%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112191255.13372-1-lukas.bulwahn%40gmail.com.
