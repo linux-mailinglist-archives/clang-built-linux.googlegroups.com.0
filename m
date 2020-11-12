@@ -1,150 +1,122 @@
-Return-Path: <clang-built-linux+bncBCIZ5ENDREFBBYOOW36QKGQET67YDAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4PP5X5UEBRBW6PW36QKGQEC2SU2NI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74D812B0FFE
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 22:21:38 +0100 (CET)
-Received: by mail-wr1-x439.google.com with SMTP id h8sf2571306wrt.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 13:21:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605216098; cv=pass;
+Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1402C2B1028
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 22:23:40 +0100 (CET)
+Received: by mail-lf1-x13f.google.com with SMTP id b185sf2324191lfg.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 13:23:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605216219; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a9fmHRCIY8YqjyBoF8BXp3ZjN6MrSFotI6EQbRAFOSOxrnIzO0PO1sb6l/37lX+lmG
-         kZrR0lirqTT9wPxqr4gi3RMJ10+1PbODySuERraqWv6178tmct6pUSu5KdjtDTRA1nu7
-         H7QeY080zp6RXMfkjluy1bxv6N/6W/0/6S31jvrkwtEoiF9Q796H/gWh3bhEXR6cPmT4
-         0t26t7fJ+qU4WGVtQQsmYLWLJ4mmanr8rW+FFniCIp3oVFFUp8LHVeMAIHVoEn7xbjSV
-         EksAOTQd79nsRCwBk/NZ9zuWTSr5DWk+Z4koeoXm6DZ1kUM1ptikfAsao7y8x0A4Q6wi
-         zN5w==
+        b=mLAAH658ETgT6CCjnRlOJUfgmGjVRcTsxQDLP0xn5V2iOKwv3oukjh1xrUclaEccdT
+         ZGN1CIDlj1+W+ZwCVGbuFwYlSpgZpqNPDaecw+TM5Qsh4Blj5AyicFWO5dCtTsNLxLxl
+         LurmTGwHSURkJGqQjlr9TAETxXfV+qBklzwqx0s3DanjdpdNbfp+z35RWoqXch/EWO1D
+         TlA95rcdzDajjkq4RBiZUXdPxYmUqzjUBkOn3nSHOktS6Cqye91r4P+nJxfRzuJ+HT5t
+         4oRFU1AKkUDuRoilW4QGa+/ca1EYGz0z9GTIaOoz4L4wfCatlHvydE04dwKWEnLCLLvt
+         BRxw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature:dkim-signature;
-        bh=ELhbOeMCNq3dwEXrhgffmKSDrmeWJmh4DYSMP9mX5wM=;
-        b=aiOd0DN2FWKVfhx7iJGeGvrXBhtrpBQrB7o6iIs3DjprZ15pKn1AsEh/H8FSRNU5rJ
-         WMTh/IymIqxyhLi6C+dl27F5m/K0iakMeJzMsHNZx7o3OJ7EKVZWevuDMYRiKxpABP77
-         RdOorLKoSMljYIVhsME+TkYZTw+Fnq7T33vWPVYzpMPYd+Mj9QCW8rWio1ls9qr+tjEw
-         qGm4fCCDSB/2Lrm/jLAp690nCTZdkvtS9D38P7/fxFONkhZrjezOZW0jTAFRbPQJJDjL
-         eB6xOGxqrVmvZYc34XJWdBAnRTfTaMrKNV9RMXkaXTIeGAQ4xNW6v+8S9Kog/X2mLtsu
-         uefg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=wU+kA34UFdn1QzTUuecLSVe7IcohVbMbUJ1txy0qBFg=;
+        b=jrA1MgRRsHRPLLFlphT245Ro+kY8P5gslqcboPaXDBxqOwrwfiHdkOuufDxo7JPRWO
+         nIDYg65OaK5FFGLYm/neyRgy+gbgRXmtKF3Pw8xjjJ3fho4uSrg/Z+aCqCClyE1IRevN
+         9PV62TfOpA5Q+q2AGDF/rbcXUVPEoV/i54JeZoyOZ1ciDW/4YlF2Zv+bysE7H4GsiBlj
+         kME2USiNEZDTXoZT8W/z/ECq2pQPwyimtrdjuKV2yDKzpglS8xxR4Abl0fLJOoR+rK4v
+         Wy3jTNwZnVEpv9ztEodff1JJxHPVjlkXh37vwuRtS27M+lp24Ci4VZGJfwUTL2xPiDTh
+         JrRQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=a9F7OyYR;
-       spf=pass (google.com: domain of chunkeey@gmail.com designates 2a00:1450:4864:20::544 as permitted sender) smtp.mailfrom=chunkeey@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ELhbOeMCNq3dwEXrhgffmKSDrmeWJmh4DYSMP9mX5wM=;
-        b=FHdmQrHDlHlyjEDepAz2jXs2A+iIWNpy+oy6GcYph6vcSh6QzPfDVYzBZK6EF8XtUJ
-         oQqRckNKv2PQLj4Zc0Hhhb+j9ErHfxjZDfFUC1hsQwUZO7uA41fheI8BK9g2s/ieBsxX
-         aP5neUWMF3yZcVmWT2GrrA51y275+AEThA32tDlTEHCHkukCU2l9TLpg12uZ4eB3Oll2
-         B3rrRrLnSqTggQBCyk53m/B56SqdND/Y1tZ5NjcSQQ4b9xBhZ5fI5grNDHFU9aDIqlFp
-         RcWNywXc60Q4bYo7UNjonT1nl/eFhI2CKRSvX+llycKvFaZfm+F+i2XYNtLuuglgsg9w
-         hl9A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ELhbOeMCNq3dwEXrhgffmKSDrmeWJmh4DYSMP9mX5wM=;
-        b=bWkTgR+C+48O2GLhrz+cqD1F6eTWjl+wCpBlPG7wsxPy52guGAz/uso1xvJlKlyxgF
-         kBSrMvFM3QO434Q1hUzLBV80s9VU5TpN/F9erzo5Jbe+Ty+bbVvvGBkAddrG8JusJHKK
-         FoYo4YSkV0lz37zeA0QQzLiVbqvH0KPmnwoviuwmJltsvgjIRxhGzkk1x4ZCdzSht/g/
-         tWWKWGty/xBzwEzQ9VuIqspRc0krvFVAGAAEfAxWAQOAYu9H+O58P9FvLRbudjMWlFVm
-         VgdAcDhSRVWAMzKKRLWnyZhuy6DgkichkdCud0YyLOuX9ne/U0tVUexzzNgx1GAdXOib
-         zQzQ==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=wU+kA34UFdn1QzTUuecLSVe7IcohVbMbUJ1txy0qBFg=;
+        b=EIYtYHho/kvQuIV0qnUgWPWNjRBFhH5nCh5cQt/3lEkdrjwbtu27rpdvlnk2nl+gs5
+         JZ2WWG83moMpXJoHyKMCKpwD6oKah0YNzUfKIlezisC5wuH0iiIa+6gzxzgdFWgI7iwb
+         gFsQhJcwws8hDgEzyjOZSuIY6YLxoCCEQmuN/XcY4H3mtjRAD28cLiqUX0QUCgqsWej7
+         QrFOa4cWfHEG1hWRV/SKZKCJa0dhELTK/WXcuCdiANJ8da8nD1MsYyNk7A6Nwmpppe2R
+         HbD0oKLIi+tlUbFTVK2ct2rCTwVixa1UZyvgUq5j6v3ky3enAATkLXUEVEzexmUsr17P
+         2J4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ELhbOeMCNq3dwEXrhgffmKSDrmeWJmh4DYSMP9mX5wM=;
-        b=Rc2Ku5gA4VYZEjjRHhM4rc66h6nOXROD60WYYCsa5etUYxOjWroicKJQVWZjku9UPx
-         x0zs6RujiKzAek51JhLbCeGet9Cf7jdr9V8H30xtUdj3qICMP0QPdflOe8dqv88sGqwO
-         gQv/+hdzowJeY0fU0Hmp8avA8pKfw1p1flk44qXyUg3Orf3+YA9BG04Cu8WzoTQ46rnt
-         +uYLu0C0t0LIOeNtX9JfBIDl/z0Me45o1d216YwxIvhrGw4dlxJ2PM6+qv6eM4iL1C/5
-         73myS2YAHcPH4LoZj65uFcjJ1VlRDin1AcpnhWndYGgGaYTYTeQJorsnyHuDQQwUZ2L2
-         XF3w==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wU+kA34UFdn1QzTUuecLSVe7IcohVbMbUJ1txy0qBFg=;
+        b=PiCirCq6tlPk9KQ//8Cp9fPdOawNgbo8yDDKodJozAIA9CTYCugh5lzc3ophYsPssN
+         Nud5MiEG2pvY+TLnwPR3FZ0LR2sw2hXuzCcho75ZTp2T4DlVsXD0BnvKnlnplelgc3H3
+         wN8/ukp8gUFey7P4Ruy/QHiUbgvtoj1772Bf1ifvDfp7HlYHfeCd7RBOaiQILLFhYeGj
+         ZFlwAS533WGxeqxXNgbM89sdSb1Z32DQu64Xgep48H/JirMoxSIDduiytCQ4Ze2u1Unq
+         DvLUJgy21bzY0CwhlGOaR7oust4Q3N7qL8/nG3xrKt6YsxPv55jHI58/MXD44pB0GS/B
+         v5Pg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531UFUDPTbDCHKAXZ+dvvtcWiJwRdmTP2PGSeJ8MwneRsrSrhH0Q
-	e/TtwM5NQK+li+cfEhUDJKk=
-X-Google-Smtp-Source: ABdhPJydypeh2wvfIWFCGMT2DSpr90BbBmRpmL9Hx8J4FLfR64NGSlWiBsTgVEjL4h09YkUsEi+gCw==
-X-Received: by 2002:adf:9069:: with SMTP id h96mr1795306wrh.358.1605216098156;
-        Thu, 12 Nov 2020 13:21:38 -0800 (PST)
+X-Gm-Message-State: AOAM531Y3KEr3nlnzWftj/ESfwpIIM8/T3YsgBzB0/YBujPom9Ig1+g9
+	hqxV54IxlMARs7DzL1C7Lc4=
+X-Google-Smtp-Source: ABdhPJwLqZ/6DDPElJsqjUjQbirWnlkaQiadKhMh1HpTLN4Jrqa8yYVwiDciWwPRMN/oafp1bS9xqQ==
+X-Received: by 2002:a19:7e53:: with SMTP id z80mr584411lfc.250.1605216219496;
+        Thu, 12 Nov 2020 13:23:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:e5c2:: with SMTP id a2ls2558763wrn.3.gmail; Thu, 12 Nov
- 2020 13:21:37 -0800 (PST)
-X-Received: by 2002:adf:f546:: with SMTP id j6mr1816967wrp.219.1605216097287;
-        Thu, 12 Nov 2020 13:21:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605216097; cv=none;
+Received: by 2002:a19:480e:: with SMTP id v14ls2247740lfa.2.gmail; Thu, 12 Nov
+ 2020 13:23:38 -0800 (PST)
+X-Received: by 2002:a19:6a07:: with SMTP id u7mr574501lfu.252.1605216218352;
+        Thu, 12 Nov 2020 13:23:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605216218; cv=none;
         d=google.com; s=arc-20160816;
-        b=dJKdHfUqo05oV+IgwQkJKOkvoaovgbLcKW/SU7dT+2jAVw/xdskgqMjJcU3i9Twu8s
-         WEWTJHENjwXFbl9zH7l2B52WW2exw9dg2p7HnkfjtlqDmcL2UUbHQvwraMlNvwiGekHi
-         +YwHLcq9b3jJtvUIAbyBm2OX/N09gpJUB8GVQPDZKmGNpggV8yz3GYrLIpsWcTyvlKJ8
-         YLNN2FvET9EwMiBe9InX99mjykkBJEuL9X16jjeP7zGKw4lMjkVyaKP9SopUSnnhNwW3
-         72h6wLEf356LNh+lg+e+vHPNSvslWLBBbfJCqJI/+nNLgZrBJWSN0Q7lQhRk2YFKAqfx
-         oATQ==
+        b=bCEjSCh0qqOyByxnFIoA8RiDRPnv4yb4+1bdvJqnasc3WIoRbId1KJMoIPC4h+j50T
+         KTL3bfzJRoSucHDXOcj4k++KJczqq2iR72doX4YoD/aRVDvFwQZBoWXvv6ygY/oJSluH
+         /4wqCfVRnIchP9aI66LhicBBm5TuCzZh71a9B4xJ6ngslj6CUksLiiDsxydyGqJFzK8E
+         QeQmy1zdMZT+Ir95O9r2jpkzQfaDKHfPiDpPeVdQq/tP5Z+M6UijJsKD/WkG1Y22EWau
+         tBKRQ10omTn5VPb4VuggGSkUs529y0r4Mi4dGub+lWpVMoxXUwpinoI/hYA3FQtjyRcY
+         /ZPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=F7pOkzR2g826W8yFIgMZddtTn8R1MT7RN19wNn/t72I=;
-        b=Nvv2M8ZdlvR8FBD/nUPLKFHcLY7dsGDf/PFK6z4DXqG4a14NJydBK0oT6+QlNb92yM
-         Zg6ltWCeL/bFFM1wGAF+bdHv//BTp7xXwFN8qrANZMTGD64Pcy+E/T8RBMBpuN+5r0+D
-         qN3AQED6/br2bumyvhuF6G8DmicbLsNe0NxUi3cPaN6AVEtSp9lCVwfeMdvR1Yw36VZb
-         VXsNpQb+kW81li5Wh/Lzk7NEBr3QPA0F95SVo/4na1N94IgjDwaIunoKyqHlOnJQqNo6
-         Bgz96dBh23+wP/Hlg5+noAudCy+zUhBnE5ZJ1pfVJWZIFUxV2AYo//WpzvnxeuX9ueUy
-         NuHQ==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=bSoCHk+UXsRDwWIQludqA+FfG1IC1zBHVbYXnQ+FhvI=;
+        b=uBWROWhxwezIpLR3v/TQBBLY9oxJtYp6EVhfKhrtjfnKve/hHN4MX892VR/fMK6VhN
+         oVGqioMGr6j9zxM7DDBQq/qwswoh58DWgb3G4UeWwegX3hzmh3e889JQNuzdqfOj3YQh
+         3Hdg7lHFcNEWydDM1JbwUaZSiu7S3rebrYHSSPTk7wQ1QrR4Jza6aXSFcIEGa9etWAlj
+         5lRKNx3uvUEgapdYiiCSSkYMBcL4uvgsJJqEtZhqt/ob4X5z0vL2z/tROrS/ucWdWw3W
+         HzkEcx+ZK9UsJtTCxMBMUek2uMgSA2J5ulNdZ+6ZAlMTs7okrKo4/GR/8kfK1DEsZX75
+         yepA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=a9F7OyYR;
-       spf=pass (google.com: domain of chunkeey@gmail.com designates 2a00:1450:4864:20::544 as permitted sender) smtp.mailfrom=chunkeey@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ed1-x544.google.com (mail-ed1-x544.google.com. [2a00:1450:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id t1si195837wmi.0.2020.11.12.13.21.37
+       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
+        by gmr-mx.google.com with ESMTPS id v2si117070ljd.5.2020.11.12.13.23.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Nov 2020 13:21:37 -0800 (PST)
-Received-SPF: pass (google.com: domain of chunkeey@gmail.com designates 2a00:1450:4864:20::544 as permitted sender) client-ip=2a00:1450:4864:20::544;
-Received: by mail-ed1-x544.google.com with SMTP id cq7so8140098edb.4
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 13:21:37 -0800 (PST)
-X-Received: by 2002:aa7:c617:: with SMTP id h23mr1983027edq.154.1605216096661;
-        Thu, 12 Nov 2020 13:21:36 -0800 (PST)
-Received: from debian64.daheim (p5b0d74e1.dip0.t-ipconnect.de. [91.13.116.225])
-        by smtp.gmail.com with ESMTPSA id og19sm2599561ejb.7.2020.11.12.13.21.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2020 13:21:36 -0800 (PST)
-Received: from localhost.daheim ([127.0.0.1])
-	by debian64.daheim with esmtp (Exim 4.94)
-	(envelope-from <chunkeey@gmail.com>)
-	id 1kdK2B-000F3t-92; Thu, 12 Nov 2020 22:21:35 +0100
-Subject: Re: [PATCH] crypto: crypto4xx - Replace bitwise OR with logical OR in
- crypto4xx_build_pd
-To: Nathan Chancellor <natechancellor@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, linux-crypto@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-References: <20201112200702.1664905-1-natechancellor@gmail.com>
-From: Christian Lamparter <chunkeey@gmail.com>
-Message-ID: <1f5e8575-ab7e-59ea-6be7-0340df4d31c5@gmail.com>
-Date: Thu, 12 Nov 2020 22:21:35 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.4.2
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 12 Nov 2020 13:23:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(Authenticated sender: aratiu)
+	with ESMTPSA id C172E1F466C3
+From: Adrian Ratiu <adrian.ratiu@collabora.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	kernel@collabora.com,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 0/2] xor-neon: Remove GCC warn & pragmas
+Date: Thu, 12 Nov 2020 23:24:55 +0200
+Message-Id: <20201112212457.2042105-1-adrian.ratiu@collabora.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-In-Reply-To: <20201112200702.1664905-1-natechancellor@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: de-DE
-X-Original-Sender: chunkeey@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=a9F7OyYR;       spf=pass
- (google.com: domain of chunkeey@gmail.com designates 2a00:1450:4864:20::544
- as permitted sender) smtp.mailfrom=chunkeey@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Original-Sender: adrian.ratiu@collabora.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of adrian.ratiu@collabora.com designates
+ 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,142 +129,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
+Dear all,
 
-On 12/11/2020 21:07, Nathan Chancellor wrote:
-> Clang warns:
-> 
-> drivers/crypto/amcc/crypto4xx_core.c:921:60: warning: operator '?:' has
-> lower precedence than '|'; '|' will be evaluated first
-> [-Wbitwise-conditional-parentheses]
->                   (crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AEAD) ?
->                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
-> drivers/crypto/amcc/crypto4xx_core.c:921:60: note: place parentheses
-> around the '|' expression to silence this warning
->                   (crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AEAD) ?
->                                                                           ^
->                                                                          )
-> drivers/crypto/amcc/crypto4xx_core.c:921:60: note: place parentheses
-> around the '?:' expression to evaluate it first
->                   (crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AEAD) ?
->                                                                           ^
->                   (
-> 1 warning generated.
-> 
-> It looks like this should have been a logical OR so that
-> PD_CTL_HASH_FINAL gets added to the w bitmask if crypto_tfm_alg_type
-> is either CRYPTO_ALG_TYPE_AHASH or CRYPTO_ALG_TYPE_AEAD.
-Yes. This probably wasn't spotted earlier since the driver doesn't make
-use of CRYPTO_ALG_TYPE_AHASH (yet). This is because the hash accelerator
-setup cost was never worth it.
+This is v2 of the patch series at
+id:20201106051436.2384842-1-adrian.ratiu@collabora.com
 
-> Change the operator so that everything works properly.
-I'm curious if this is true. Is there a way to break this somehow on purpose?
+Tested on next-20201112 using GCC 10.2.0 and Clang 10.0.1.
 
-I've extracted the code from line 921 and added the defines
-(the CRYPTO_ALG_... from the current 5.10-rc3 crypto.h and the PD_CTL_
-from crypto4xx_reg_def.h) and replaced the u32 with uint32_t
-so it runs in userspace too:
+Kind regards,
+Adrian
 
---- crypto4xx_test.c ---
-/* test study - is it possible to break the | vs || in crypto4xx's code */
+Changes in v2:
+  - Dropped the patch which disabled Clang vectorization (Nick)
+  - Added new patch to move pragmas to makefile cmdline options
+  (Arvid and Ard)
+  
+Adrian Ratiu (1):
+  arm: lib: xor-neon: move pragma options to makefile
 
-#include <stdio.h>
-#include <stdint.h>
+Nathan Chancellor (1):
+  arm: lib: xor-neon: remove unnecessary GCC < 4.6 warning
 
-#define CRYPTO_ALG_TYPE_AEAD 	0x00000003
-#define CRYPTO_ALG_TYPE_AHASH	0x0000000f
-#define PD_CTL_HASH_FINAL	(1<<4) /* Stand-in for BIT(4) */
-#define PD_CTL_HOST_READY	(1<<0) /* BIT(0) */
+ arch/arm/lib/Makefile   |  2 +-
+ arch/arm/lib/xor-neon.c | 17 -----------------
+ 2 files changed, 1 insertion(+), 18 deletions(-)
 
-uint32_t func_with_bitwise_or(uint32_t alg_type)
-{
-	return PD_CTL_HOST_READY |
-		((alg_type == CRYPTO_ALG_TYPE_AHASH) |
-		 (alg_type == CRYPTO_ALG_TYPE_AEAD) ?
-			PD_CTL_HASH_FINAL : 0);
-}
-
-uint32_t func_with_logical_or(uint32_t alg_type)
-{
-	return PD_CTL_HOST_READY |
-		((alg_type == CRYPTO_ALG_TYPE_AHASH) ||
-		 (alg_type == CRYPTO_ALG_TYPE_AEAD) ?
-			PD_CTL_HASH_FINAL : 0);
-}
-
-int main(int arg, char **args)
-{
-	uint32_t alg;
-
-	for (alg = 0; alg < 0x10; alg++) { /* this is because CRYPTO_ALG_TYPE_MASK is 0xf */
-		if (func_with_bitwise_or(alg) != func_with_logical_or(alg)) {
-			printf("for alg_type:%d, the bitwise result=%d doesn't match the logical result=%d\n",
-				alg, func_with_bitwise_or(alg), func_with_logical_or(alg));
-			return 1;
-		}
-	}
-	printf("logical and bitwise always agreed.\n");
-
-	return 0;
-}
---- EOF ---
-
-Both gcc (gcc version 10.2.0 (Debian 10.2.0-17)) or clang (clang version 9.0.1-15)
-version always gave the "logical and bitwise always agreed.". which means there wasn't
-anything wrong and this patch just makes clang happy? Or can you get it to break?
-
-Also, can you please give this patch a try:
---- extra-bracket.patch
-
---- a/drivers/crypto/amcc/crypto4xx_core.c
-+++ b/drivers/crypto/amcc/crypto4xx_core.c
-@@ -932,8 +932,8 @@ int crypto4xx_build_pd(struct crypto_async_request *req,
-  	}
-
-  	pd->pd_ctl.w = PD_CTL_HOST_READY |
--		((crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AHASH) |
--		 (crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AEAD) ?
-+		(((crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AHASH) |
-+		  (crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AEAD)) ?
-  			PD_CTL_HASH_FINAL : 0);
-  	pd->pd_ctl_len.w = 0x00400000 | (assoclen + datalen);
-  	pd_uinfo->state = PD_ENTRY_INUSE | (is_busy ? PD_ENTRY_BUSY : 0);
-
----
-I'm mostly curious if clang will warn about it too.
-
-That said:
-Reviewed-by: Christian Lamparter <chunkeey@gmail.com>
-
-Cheers,
-Christian
-
-> Fixes: 4b5b79998af6 ("crypto: crypto4xx - fix stalls under heavy load")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1198
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->   drivers/crypto/amcc/crypto4xx_core.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/crypto/amcc/crypto4xx_core.c b/drivers/crypto/amcc/crypto4xx_core.c
-> index 981de43ea5e2..2e3690f65786 100644
-> --- a/drivers/crypto/amcc/crypto4xx_core.c
-> +++ b/drivers/crypto/amcc/crypto4xx_core.c
-> @@ -917,7 +917,7 @@ int crypto4xx_build_pd(struct crypto_async_request *req,
->   	}
->   
->   	pd->pd_ctl.w = PD_CTL_HOST_READY |
-> -		((crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AHASH) |
-> +		((crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AHASH) ||
->   		 (crypto_tfm_alg_type(req->tfm) == CRYPTO_ALG_TYPE_AEAD) ?
->   			 : 0);
->   	pd->pd_ctl_len.w = 0x00400000 | (assoclen + datalen);
-> 
-> base-commit: f8394f232b1eab649ce2df5c5f15b0e528c92091
-> 
+-- 
+2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1f5e8575-ab7e-59ea-6be7-0340df4d31c5%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112212457.2042105-1-adrian.ratiu%40collabora.com.
