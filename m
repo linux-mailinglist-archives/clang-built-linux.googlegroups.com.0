@@ -1,129 +1,131 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBB77KWP6QKGQEOX4HUKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBB64UWT6QKGQEUE4IT4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C24C2B0150
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 09:42:40 +0100 (CET)
-Received: by mail-oo1-xc3f.google.com with SMTP id j43sf1466520ooa.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 00:42:40 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605170559; cv=pass;
+Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B8732B0292
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 11:12:13 +0100 (CET)
+Received: by mail-pf1-x437.google.com with SMTP id x9sf3582976pff.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 02:12:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605175932; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rXV041P2FosD+2Swc/h6bTXTtT3lyXkRJyb1uSW8eTy35CWFklqZd0RMRFB4S8LJTM
-         +CTfqUJmRCEl7YDf06AxNpmSbzCZqhHb9F17p1GhJ8SzFzL2Jd6o4OmW/rs5x4HfpP8y
-         phpiy2qI1NVp0NYWJvcN2ZHaAgFWks05p/Kx5QMIcb7tubNpnsQgWDo3vLak5d6l6j0f
-         9leu+sKTuApCtXTRfNqhFOmw+f0mwB7/sOHq5hbfU8HXhm84lLnh+6OG7fvGEE4nBaKJ
-         73wc2oDajaZ1v6HnG8+o6N8pTt9xqvyqFKI8AI+3pk7yuyAZQmWj5pkCqDy2hsjJBzT7
-         2Aqw==
+        b=Xn/cZeVSQDq2HtOGA+75S+B8YAl+vrBeEag7hNrG4U+6heO/Ru8EYSe1wy4nXbJijF
+         4l+qsCBzY2Jkk1uR4PPMHT33kvhkTotSlaKeFTy2unh9KEjh1e5mL5PRaDQmk22runDW
+         9mvToW15YzYOZ0JEyQiicGlZFBQSeAoYdwGrFc8TYBmez4IgSg2w9hmKmx2eY6GqUXM0
+         V4bYclvcYIF2BmdrDyW16r0t+TilX7LahPQY7c4jiYGHLflpoVskCtMGKEib8N07/f50
+         Q6uXzmtJg1lcllc74rhtzMwS90HuYQ79w/DOBVKgaOwstHEMaN972g3m78ngIqWZrM0a
+         465g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=VzkGHpuhOP9yUj80XyN3cJ9gJdzpeZzpdJVVnNeQ3cw=;
-        b=dg2wb4vk+FZoxvA8WIAUOJKLRvagC2R5UaMbiBofKlyJ4O55sDJbgLdC5VQqTNp448
-         oJMC63hZNhhOxPw6WCbUUDcLpgggw08MLiJJFT7SeaXzHG1ZG42XCLV3k2f3HCUYIzkj
-         l4bE+Al5WguGpgRww995v9QNAniZMeTbTkBc2nzVuwaE9Piyv1oPQCduwVI9k+iyn9c6
-         0h27ZJ8y16wmFuchPxqQw1D20ySYIkqUQYhHwSX70Mmu6bjPv/nm8mMVk68XLrQiM4gB
-         Jo14EeUXu4grZJrq7r9AFA9WJnEI3j9MZFyx7Lkl2MY7+IRDpyjWIex+HWu7xRqCR66q
-         BqXQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=yXGYoZoHQGjUXPeYm87OkG5/RHtSb9FkL93Wn1BlfnQ=;
+        b=fmj2UHFO76P6va8XsdVl0wPBVXhQrTX77pBK5H7r3Ld9j0MWhURaewXxIS4OPldXvi
+         +0eglGzY5yhgJzGEIIuWelCU8gIW1vPDPtiIJPf1YRY9HOyaTREkIiWC2vM/pRHjlalP
+         s4IJRPESRjungXph3PYS22tNTA0E4V569+t8YkO0mn4emazfpP6DeCTr1c66ioV4VCmN
+         gHS0GyiXn3Gz7GgUgypIVZvDTDmsvmw70wyPUzMRzQEADslSgghAIBq2GiYY15EhTZqP
+         7Cc65ba1dghkJKpUGlgejQKTPAKkkMWH0INmM4rFyJNZSuG9FnyAAqZgdixt9QFpzLGg
+         6s2w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="wVujH/uo";
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=default header.b=1mXVRfNZ;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VzkGHpuhOP9yUj80XyN3cJ9gJdzpeZzpdJVVnNeQ3cw=;
-        b=FwmOJWFZNEhYglHbdcC6ogNwsjdIDj8L9yYUTTjmZrNhboVFqB9ilRgukZLsPg0ssz
-         GVF5r9sDrrICQg9XmhKZNP9DwcHR0VjREe5QeEV+ZeGhlV8Ji//VbuZq0pPd1+x6HkX8
-         VCH+A64xgRb78aYk31VjTThYba5MLThRjVKKXSOOjO4+lLMW2lii1xlI47DkxFcKEvKA
-         uc74r58Zf8psqy3ivhX6l2MyvvdFW1V4GtHZ87xFb97lfaFz8ii85rBKl4jeA2chjTCF
-         RdoXNP7RLO0W1Vp1vx2GF0FhbWiycCA6PAP9P5fNIuZfiqFnB1hEqUhdRtGV1EcS3TeN
-         ZOtQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=yXGYoZoHQGjUXPeYm87OkG5/RHtSb9FkL93Wn1BlfnQ=;
+        b=p75obVJS1lY6i59j8F2klmN8KRZQiUtOM3IQzg/ds/cNOdO6zpRR8TkVKrjZY9u5JR
+         uBPaRWWz1UAm+4AaeFzMuj6nE5BQbZ0a5bwBxn5LDTGchDXvb9fNGeCQRChUGPVJ23Sb
+         9cmVXHUKCvlOPn+eLN+7Yei9/+C3rkLDOPekmn1LzR2NvKdPSmG6sj3+PSfyUqM54alr
+         thF8GFhulUiOVCK/4ur2Z3yQhrWJg26/DuZHSpXfi1P2JzNNXdlrQtmbWITYkvYDwU1R
+         2JKSVdrN+k4ia4/hhQYt1fNZwp1nz6g2f0utKPPSj5D1DpoOka2a0p31okTibWNtbQYn
+         XXRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VzkGHpuhOP9yUj80XyN3cJ9gJdzpeZzpdJVVnNeQ3cw=;
-        b=LlEMvdTCHgVLwvTs3qOS76an9eBImsnCVG2sWjF/ENRbcH34xuZShnxAW6Jdfhf/Io
-         26r5Yf6nZ98q82XgWD+16+tFDeR/x1Nk7Jq5vktjQr7sNPBBrnD+yK8NmPolBZZdsgQC
-         qK9Kwq/bEHdygw87JbMJnJaF8YSU6e1lyQA9P/4antAprOgPUvwIxUae25i5Dd/cCtmw
-         U00VY1w9BZBiwzI/DV8VbLKOJoob2bn1/8LiYJWKXVx21pXKHRZoBPJZh8IZn0gdlw5O
-         dviMdu8wnOEHQMKK5cqZzZfUOLDD1mC8e3gUseqA2IPhR80u/OBNbig5TCG4eYdZdEku
-         Opxw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=yXGYoZoHQGjUXPeYm87OkG5/RHtSb9FkL93Wn1BlfnQ=;
+        b=HRYLCngGvMizgqs1wU3og2B/+9MmhYeyrz9gWYdzDO7tCXNhqJxSR46EFiFcrBKhOS
+         U72+Ow+HqxX2vF7GWg9aFMhlvaikWvqUmLBmyc0jrJ9/8KTb9GxW+1ohIOg4UPP+aC7C
+         hWOURpUqiZDcjKX19Y4h4D5IL8w7m0qrGYGV/JB0jQ1UYJ+bBbNYFJTmQCe3iNKCKLjR
+         rt0anW8e0CaqZU2glJHZKQDbcpwIXS4tMXpfNEcWrupxvFgxCl9nqTSlVAY4BdPH9hmu
+         +rfcdNuXiBUVS9w4xanw+gOTpukJ/dvHkc0RD/4wT7jfJ0iPO+A6bpuKv5zuVPfxnaf7
+         OHGQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533dCKw7y0XDOifzcN5WYXYNHfUZmPUvg01+dq2plV8i9N+u4UhD
-	e858FJ5Hqnus9OukfzwkL6E=
-X-Google-Smtp-Source: ABdhPJzYQLg3KvqHcZodeWYkyQ3EXRVSrIToPqltjZCFUwZ4164uRl4dLWBRphx3WOfNdYEQv7GH1g==
-X-Received: by 2002:a9d:7d06:: with SMTP id v6mr21410245otn.296.1605170559541;
-        Thu, 12 Nov 2020 00:42:39 -0800 (PST)
+X-Gm-Message-State: AOAM533CpYkgx3vczixcS5boVfscFySMtFAk2UEWNVcnp3Mu82qIYMxc
+	B26KKlQ6rjMwEXyDnzyFqCM=
+X-Google-Smtp-Source: ABdhPJw1NWvrUMFKbfsJEBwW0aKnn9vxOSUOuHbYCLf3jgBW86bD1OV2rM8oViaSZQwvwGR5tfhI7Q==
+X-Received: by 2002:a63:215f:: with SMTP id s31mr21427339pgm.258.1605175931727;
+        Thu, 12 Nov 2020 02:12:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:9753:: with SMTP id v19ls126172ooi.0.gmail; Thu, 12 Nov
- 2020 00:42:39 -0800 (PST)
-X-Received: by 2002:a4a:d043:: with SMTP id x3mr1839704oor.19.1605170559229;
-        Thu, 12 Nov 2020 00:42:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605170559; cv=none;
+Received: by 2002:a17:902:ec06:: with SMTP id l6ls1270766pld.8.gmail; Thu, 12
+ Nov 2020 02:12:11 -0800 (PST)
+X-Received: by 2002:a17:90a:9504:: with SMTP id t4mr9091740pjo.82.1605175931178;
+        Thu, 12 Nov 2020 02:12:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605175931; cv=none;
         d=google.com; s=arc-20160816;
-        b=SbdOheJ8vvtTNVnH6RTz4IKwhBBXOXE7jF5u4VlOrSNPjaM+UhgslCIe2sT9rupmMh
-         KKtyO/sgUd3+wOCl1jDjmJ2ZxzeJGJB6PNi2XDkMzRuf9ALSysJOf/GYbfkUOUdymhgv
-         xd67IkE/wJHdtRFNMVY9DkKPC5Pgxjc8dVq28lfdCzvCNgOuetISmk792fpL9sE+IG9m
-         2530uSWOzXqEVDZt5sg/comblScjVNjwC5sBSccGna3/txdr+sjfZ4FqfEHJYQwkeVuw
-         CcECqR9ZRREbgNjTicA8chZKPj7WW53b9ndpjVP1bUY/VEl2MOVA4xkrquudlHByyNpw
-         wN6A==
+        b=tg9iAd9W1ZKcFKTCELNcu/TKxEwzzn4NT8sAH5Ptt768eUzjQUaB6SdWOmmFJbZxfs
+         ery2i4t4OTRmf5j03P7fR94gaSFQHyFPh3+9dATSo6WOapxtyA6Of6RSqDfZvFGzX7Ly
+         NM8cPov+RinVH9R8fAMGgMTzHGzvGIBiZQc0nefDfvNB/ZoQGt81lmY3su1zXC2rmVdQ
+         nMHEyH7xGyL2GwRSL0tQqQLDA6w61i5Ia4hNr+S6Mj2TEf93DD0BR7y//xp1qc/KnMO4
+         DD53KYxoN2bvBHxRaIPC1WcG1LdCkWpr904YslWKAisaCZhe75S+TYvR+VUCKkOJIDVe
+         +UEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=U3aeQLDiON5Fi0M12Gh+YATinmEwnsLvbluUrj0bibM=;
-        b=zfvD8RZPUZaXqlAeZbwYKSQXhcCfkvjdvjIEgEiXoRf8ZJ+fZ4YLzH2obiLJlMw2zm
-         tGucI38PotfRyJdOlBZTxWaDozsUmuV785SNMhOrNd/NFlSvVD3V2BIi1U3uKmhaUaOf
-         QD8Ui2aYSxYAfDyQPwLBEe7a3/ZwuYUruwdL9deUFOG4JtoS6AZcK4ABJhylD9PPeovA
-         eXh+23YVl2frrCLAb2b0qOz8o/oRi+Zn8gA1d9jrV7Xxc9q3wQoWxnwZOf+RI6WisxgV
-         a8U/HcdXxWEHiU8BTYmeFEodh8Xs0DJo8r6tfppQNQ1elxL0O0o1HSustrcyjt5SC/K8
-         yazQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=/kBfUGXmJAPFv/o04pfuVn3jKDi1ff4f5uwTh1EXA8o=;
+        b=famG3/0wxyCXtQfJoO7caASCh1vSnx5nbhMXAn2NtJcVbUZuAxUnylYhmBImj1soQs
+         SNFq/bcCizfqM/tvtYM47P9gT+4Zt5gOzcfJ6G7YN2MSi2pkQ3AgbD4gbBJln+CeGaxj
+         bYqLn6kkrmKpDRYW1nSlRxfA3locTDTPr2olNeJcDDClnrtDfHw4ldlC4xrdYtZnPOJE
+         TF6d/H/Jtqk7a3H1Rv7VvT1dCgZhanuGX5DC2XLeqcmVuPaz1xRcf2NgZQ8thxnmHux3
+         VTJ+9WNUNMQ8PoJ6ej7M3khzWsYoYcEBuLgQ1S3tJ+/mRgvlpeLSWgfsVz3s5JDBE32K
+         IyIw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="wVujH/uo";
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=default header.b=1mXVRfNZ;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o23si335363oic.4.2020.11.12.00.42.39
+        by gmr-mx.google.com with ESMTPS id o24si135270pjt.3.2020.11.12.02.12.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 12 Nov 2020 00:42:39 -0800 (PST)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-oi1-f172.google.com (mail-oi1-f172.google.com [209.85.167.172])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+        Thu, 12 Nov 2020 02:12:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id E2BB820715
-	for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 08:42:37 +0000 (UTC)
-Received: by mail-oi1-f172.google.com with SMTP id j7so5494383oie.12
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 00:42:37 -0800 (PST)
-X-Received: by 2002:aca:c60c:: with SMTP id w12mr5177268oif.174.1605170557102;
- Thu, 12 Nov 2020 00:42:37 -0800 (PST)
+	by mail.kernel.org (Postfix) with ESMTPSA id 7263B22201;
+	Thu, 12 Nov 2020 10:12:08 +0000 (UTC)
+Date: Thu, 12 Nov 2020 10:12:05 +0000
+From: Will Deacon <will@kernel.org>
+To: Will McVicker <willmcvicker@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Andrei Vagin <avagin@gmail.com>,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com, kernel-team@android.com
+Subject: Re: [PATCH] arm64: Fix off-by-one vdso trampoline return value
+Message-ID: <20201112101204.GA19506@willie-the-truck>
+References: <20201112001422.340449-1-willmcvicker@google.com>
 MIME-Version: 1.0
-References: <20200409232728.231527-1-caij2003@gmail.com> <20201107001056.225807-1-jiancai@google.com>
-In-Reply-To: <20201107001056.225807-1-jiancai@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 12 Nov 2020 09:42:24 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEAhyTfFZg4_+wTZ5+obQpAzFknC4vR1bNrRG6GpW4D0Q@mail.gmail.com>
-Message-ID: <CAMj1kXEAhyTfFZg4_+wTZ5+obQpAzFknC4vR1bNrRG6GpW4D0Q@mail.gmail.com>
-Subject: Re: [PATCH v2] Make iwmmxt.S support Clang's integrated assembler
-To: Jian Cai <jiancai@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Manoj Gupta <manojgupta@google.com>, 
-	Luis Lozano <llozano@google.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Russell King <linux@armlinux.org.uk>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20201112001422.340449-1-willmcvicker@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="wVujH/uo";       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ header.i=@kernel.org header.s=default header.b=1mXVRfNZ;       spf=pass
+ (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -137,221 +139,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, 7 Nov 2020 at 01:11, Jian Cai <jiancai@google.com> wrote:
->
-> This patch replaces 6 IWMMXT instructions Clang's integrated assembler
-> does not support in iwmmxt.S using macros, while making sure GNU
-> assembler still emit the same instructions. This should be easier than
-> providing full IWMMXT support in Clang.
->
-> "Intel Wireless MMX Technology - Developer Guide - August, 2002" should
-> be referenced for the encoding schemes of these extensions.
->
-> Link: https://github.com/ClangBuiltLinux/linux/issues/975
->
-> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
-> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Jian Cai <jiancai@google.com>
-
-For the change itself,
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-
-Although I must admit I am still on the fence when it comes to the
-policy around rewriting perfectly valid code like this to accommodate
-a toolchain that nobody is likely to use to build the code in
-question.
-
-Perhaps we should at least add some rationale to the commit log why
-Clang's integrated assembler is something we should care about? I take
-it this is not about diagnostics or CFI but simply about avoiding the
-need to carry cross-binutils in the first place?
-
+On Thu, Nov 12, 2020 at 12:14:22AM +0000, Will McVicker wrote:
+> Depending on your host nm version, the generated header
+> `include/generated/vdso32-offsets.h` may have the bottom bit set for the
+> thumb vdso offset addresses (as observed when using llvm-nm). This
+> results in an additional +1 for thumb vdso trampoline return values
+> since compat_setup_return() already includes `vdso_trampoline + thumb`.
+> As a result, I see a SIGBUS error when running the LTP test
+> syscalls.rt_sigaction01. To fix this, let's clear the bottom bit of the
+> vdso_offset in the VDSO_SYMBOL macro.
+> 
+> Test: LTP test syscalls.rt_sigaction01
+> Fixes: f01703b3d2e6 ("arm64: compat: Get sigreturn trampolines from vDSO")
+> Signed-off-by: Will McVicker <willmcvicker@google.com>
 > ---
->  arch/arm/kernel/iwmmxt.S | 89 ++++++++++++++++++++--------------------
->  arch/arm/kernel/iwmmxt.h | 47 +++++++++++++++++++++
->  2 files changed, 92 insertions(+), 44 deletions(-)
->  create mode 100644 arch/arm/kernel/iwmmxt.h
->
-> diff --git a/arch/arm/kernel/iwmmxt.S b/arch/arm/kernel/iwmmxt.S
-> index 0dcae787b004..d2b4ac06e4ed 100644
-> --- a/arch/arm/kernel/iwmmxt.S
-> +++ b/arch/arm/kernel/iwmmxt.S
-> @@ -16,6 +16,7 @@
->  #include <asm/thread_info.h>
->  #include <asm/asm-offsets.h>
->  #include <asm/assembler.h>
-> +#include "iwmmxt.h"
->
->  #if defined(CONFIG_CPU_PJ4) || defined(CONFIG_CPU_PJ4B)
->  #define PJ4(code...)           code
-> @@ -113,33 +114,33 @@ concan_save:
->
->  concan_dump:
->
-> -       wstrw   wCSSF, [r1, #MMX_WCSSF]
-> -       wstrw   wCASF, [r1, #MMX_WCASF]
-> -       wstrw   wCGR0, [r1, #MMX_WCGR0]
-> -       wstrw   wCGR1, [r1, #MMX_WCGR1]
-> -       wstrw   wCGR2, [r1, #MMX_WCGR2]
-> -       wstrw   wCGR3, [r1, #MMX_WCGR3]
-> +       wstrw   wCSSF, r1, MMX_WCSSF
-> +       wstrw   wCASF, r1, MMX_WCASF
-> +       wstrw   wCGR0, r1, MMX_WCGR0
-> +       wstrw   wCGR1, r1, MMX_WCGR1
-> +       wstrw   wCGR2, r1, MMX_WCGR2
-> +       wstrw   wCGR3, r1, MMX_WCGR3
->
->  1:     @ MUP? wRn
->         tst     r2, #0x2
->         beq     2f
->
-> -       wstrd   wR0,  [r1, #MMX_WR0]
-> -       wstrd   wR1,  [r1, #MMX_WR1]
-> -       wstrd   wR2,  [r1, #MMX_WR2]
-> -       wstrd   wR3,  [r1, #MMX_WR3]
-> -       wstrd   wR4,  [r1, #MMX_WR4]
-> -       wstrd   wR5,  [r1, #MMX_WR5]
-> -       wstrd   wR6,  [r1, #MMX_WR6]
-> -       wstrd   wR7,  [r1, #MMX_WR7]
-> -       wstrd   wR8,  [r1, #MMX_WR8]
-> -       wstrd   wR9,  [r1, #MMX_WR9]
-> -       wstrd   wR10, [r1, #MMX_WR10]
-> -       wstrd   wR11, [r1, #MMX_WR11]
-> -       wstrd   wR12, [r1, #MMX_WR12]
-> -       wstrd   wR13, [r1, #MMX_WR13]
-> -       wstrd   wR14, [r1, #MMX_WR14]
-> -       wstrd   wR15, [r1, #MMX_WR15]
-> +       wstrd   wR0,  r1, MMX_WR0
-> +       wstrd   wR1,  r1, MMX_WR1
-> +       wstrd   wR2,  r1, MMX_WR2
-> +       wstrd   wR3,  r1, MMX_WR3
-> +       wstrd   wR4,  r1, MMX_WR4
-> +       wstrd   wR5,  r1, MMX_WR5
-> +       wstrd   wR6,  r1, MMX_WR6
-> +       wstrd   wR7,  r1, MMX_WR7
-> +       wstrd   wR8,  r1, MMX_WR8
-> +       wstrd   wR9,  r1, MMX_WR9
-> +       wstrd   wR10, r1, MMX_WR10
-> +       wstrd   wR11, r1, MMX_WR11
-> +       wstrd   wR12, r1, MMX_WR12
-> +       wstrd   wR13, r1, MMX_WR13
-> +       wstrd   wR14, r1, MMX_WR14
-> +       wstrd   wR15, r1, MMX_WR15
->
->  2:     teq     r0, #0                          @ anything to load?
->         reteq   lr                              @ if not, return
-> @@ -147,30 +148,30 @@ concan_dump:
->  concan_load:
->
->         @ Load wRn
-> -       wldrd   wR0,  [r0, #MMX_WR0]
-> -       wldrd   wR1,  [r0, #MMX_WR1]
-> -       wldrd   wR2,  [r0, #MMX_WR2]
-> -       wldrd   wR3,  [r0, #MMX_WR3]
-> -       wldrd   wR4,  [r0, #MMX_WR4]
-> -       wldrd   wR5,  [r0, #MMX_WR5]
-> -       wldrd   wR6,  [r0, #MMX_WR6]
-> -       wldrd   wR7,  [r0, #MMX_WR7]
-> -       wldrd   wR8,  [r0, #MMX_WR8]
-> -       wldrd   wR9,  [r0, #MMX_WR9]
-> -       wldrd   wR10, [r0, #MMX_WR10]
-> -       wldrd   wR11, [r0, #MMX_WR11]
-> -       wldrd   wR12, [r0, #MMX_WR12]
-> -       wldrd   wR13, [r0, #MMX_WR13]
-> -       wldrd   wR14, [r0, #MMX_WR14]
-> -       wldrd   wR15, [r0, #MMX_WR15]
-> +       wldrd   wR0,  r0, MMX_WR0
-> +       wldrd   wR1,  r0, MMX_WR1
-> +       wldrd   wR2,  r0, MMX_WR2
-> +       wldrd   wR3,  r0, MMX_WR3
-> +       wldrd   wR4,  r0, MMX_WR4
-> +       wldrd   wR5,  r0, MMX_WR5
-> +       wldrd   wR6,  r0, MMX_WR6
-> +       wldrd   wR7,  r0, MMX_WR7
-> +       wldrd   wR8,  r0, MMX_WR8
-> +       wldrd   wR9,  r0, MMX_WR9
-> +       wldrd   wR10, r0, MMX_WR10
-> +       wldrd   wR11, r0, MMX_WR11
-> +       wldrd   wR12, r0, MMX_WR12
-> +       wldrd   wR13, r0, MMX_WR13
-> +       wldrd   wR14, r0, MMX_WR14
-> +       wldrd   wR15, r0, MMX_WR15
->
->         @ Load wCx
-> -       wldrw   wCSSF, [r0, #MMX_WCSSF]
-> -       wldrw   wCASF, [r0, #MMX_WCASF]
-> -       wldrw   wCGR0, [r0, #MMX_WCGR0]
-> -       wldrw   wCGR1, [r0, #MMX_WCGR1]
-> -       wldrw   wCGR2, [r0, #MMX_WCGR2]
-> -       wldrw   wCGR3, [r0, #MMX_WCGR3]
-> +       wldrw   wCSSF, r0, MMX_WCSSF
-> +       wldrw   wCASF, r0, MMX_WCASF
-> +       wldrw   wCGR0, r0, MMX_WCGR0
-> +       wldrw   wCGR1, r0, MMX_WCGR1
-> +       wldrw   wCGR2, r0, MMX_WCGR2
-> +       wldrw   wCGR3, r0, MMX_WCGR3
->
->         @ clear CUP/MUP (only if r1 != 0)
->         teq     r1, #0
-> diff --git a/arch/arm/kernel/iwmmxt.h b/arch/arm/kernel/iwmmxt.h
-> new file mode 100644
-> index 000000000000..fb627286f5bb
-> --- /dev/null
-> +++ b/arch/arm/kernel/iwmmxt.h
-> @@ -0,0 +1,47 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +
-> +#ifndef __IWMMXT_H__
-> +#define __IWMMXT_H__
-> +
-> +.irp b, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-> +.set .LwR\b, \b
-> +.set .Lr\b, \b
-> +.endr
-> +
-> +.set .LwCSSF, 0x2
-> +.set .LwCASF, 0x3
-> +.set .LwCGR0, 0x8
-> +.set .LwCGR1, 0x9
-> +.set .LwCGR2, 0xa
-> +.set .LwCGR3, 0xb
-> +
-> +.macro wldrd, reg:req, base:req, offset:req
-> +.inst 0xedd00100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
-> +.endm
-> +
-> +.macro wldrw, reg:req, base:req, offset:req
-> +.inst 0xfd900100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
-> +.endm
-> +
-> +.macro wstrd, reg:req, base:req, offset:req
-> +.inst 0xedc00100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
-> +.endm
-> +
-> +.macro wstrw, reg:req, base:req, offset:req
-> +.inst 0xfd800100 | (.L\reg << 12) | (.L\base << 16) | (\offset >> 2)
-> +.endm
-> +
-> +#ifdef __clang__
-> +
-> +#define wCon c1
-> +
-> +.macro tmrc, dest:req, control:req
-> +mrc p1, 0, \dest, \control, c0, 0
-> +.endm
-> +
-> +.macro tmcr, control:req, src:req
-> +mcr p1, 0, \src, \control, c0, 0
-> +.endm
-> +#endif
-> +
-> +#endif
-> --
-> 2.29.1.341.ge80a0c044ae-goog
->
+>  arch/arm64/include/asm/vdso.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
+> index f99dcb94b438..a7384379e8e1 100644
+> --- a/arch/arm64/include/asm/vdso.h
+> +++ b/arch/arm64/include/asm/vdso.h
+> @@ -23,7 +23,7 @@
+>  
+>  #define VDSO_SYMBOL(base, name)						   \
+>  ({									   \
+> -	(void *)(vdso_offset_##name - VDSO_LBASE + (unsigned long)(base)); \
+> +	(void *)((vdso_offset_##name & ~1UL) - VDSO_LBASE + (unsigned long)(base)); \
+
+I don't think we need this in mainline, because the sigreturn trampoline
+is just a bunch of .byte directives and I removed the sigreturn code from
+the compat vdso in 2d071968a405 ("arm64: compat: Remove 32-bit sigreturn code
+from the vDSO").
+
+Might be needed in some stable kernels though (or we just backport the
+patch I mentioned above)
+
+Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEAhyTfFZg4_%2BwTZ5%2BobQpAzFknC4vR1bNrRG6GpW4D0Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112101204.GA19506%40willie-the-truck.
