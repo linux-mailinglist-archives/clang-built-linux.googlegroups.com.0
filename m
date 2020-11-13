@@ -1,135 +1,126 @@
-Return-Path: <clang-built-linux+bncBAABBGHVXP6QKGQEIJK7O4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBD7XXP6QKGQEH3IA6DI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43D342B26B8
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 22:28:57 +0100 (CET)
-Received: by mail-vk1-xa37.google.com with SMTP id e202sf3128819vke.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 13:28:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605302936; cv=pass;
+Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D4332B26F2
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 22:33:04 +0100 (CET)
+Received: by mail-ua1-x93f.google.com with SMTP id f6sf996101uao.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 13:33:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605303183; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vz2mGLM0v0B9Ik59N/iINJpgMd4M3rCfWF0AlWJSC+DIpmNlLIhY/ueXqFNmFfS6NI
-         XRJDQkDTH4JiEX1o/XIPTgNRkkhj/ib/84ckVLaEhk56rNYSdbSBaBMjh8ALgJtCopRe
-         a6k+MjsRDy0Ynl46z1gkyA6TUZD1A1LMZpefXoHmEmIS/msFaqfGA5hzIwWx0IAR9tpP
-         6siauzt6NEzohDvGBUxQDVwsqq26nnarwlbhpAADS5jaan3FatBMNzFtTnrFrC2ymtDE
-         0EbW01M8suV+K4mcJNeBzn2Ze6peP0bPhjKNqo2UC6zHYVA6nAJUdrqvn50X2CxoZ74N
-         CGGw==
+        b=NXWcpaOTVByRtGNG0EzEQyBhwiVEaDW9Sv5xBSoVpLoEPd5aEMa0M7923nu18up/P1
+         D6feKv8BVKgU1KeDb1ZBvr66soCfCWTNIpjJKIA/g7j9UG3IG7IY+wFiAvix0AWgQV6I
+         uta5KFvqba15r/kwS0/HZIj1YNPqy2H9A62Upfbzk8nvnlXQeCA+5LuvhJ9JqXFIPOJO
+         n28YnCNEuGkqpQ601YC6nVBaz4MDBZOsXr7X2lct3sKFro/XE+s+eMbQdUOrpObYjeLX
+         D8LiL/kqn7saUKAFoUcINEW2m7TtL+BcpCWvsVRFNkUU1xy2n7Mg+Tt8tr4R9vjUhnWJ
+         mWYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=Fxe0OQqfM1CZbF1Wvv131ZjYUIPYxpIkcm4m5SuCg+Q=;
-        b=lqVH8qRhPfPUbELKghxte9foYkpI+AZ0/q3MXCoXbWUnfkH/OEECF8NBY0Dpq7rqdh
-         aHEC3evzycK77uaYVHMpq/2lFyRlXQP88fLq0er3UUstR+ZaccTVUJ7pWp/eGKY0mUV6
-         PBOX1J4cqSp5f57zO5wO6HpkfZ6N0R2moPvkW+fiqvLDNCVfgE78WXSrytvp6NPhimgn
-         xFbsj9wxG5SO3Km8myQ3FvCFjb5HoJbae0p6q2iP2m4c8+iCjX4XNR4i+DTQCQz58CxF
-         O8+7NGYoNT7XbPQL/m0Chnkb5sbLP8eYn9uXV1xD2X6Cw0Q0frRPxbPiI/1B0Lvaacvo
-         98Nw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=WRPCksRUdo0ILoAP+wnEY04s7gRWeBBmi4ZndcjOFV0=;
+        b=TcNM5XQQBVEFEIfQGWSm9pc2GTMDWdZvFB0tX0AHI7fj+xYgDR1KGQ+nm1hdSKyG8V
+         56uMAM8WWUp5gg/CrSh1hUwLvB/gVtFzmOcmiULPNviVI2CdnYEbNsGF5kXtJJiUqPKX
+         PeNJDTRtpLvZ+14KI7YGzsd5OHWuIha/mmkCkAEVq2R+0XmsFA1CYeytYyfCv8DBQB85
+         PVAySo+N5bkKV2z78ZYjfuhTvFu3kB4WB4yjqaaM37yeozSVRyG/OPJRzM/WWOHolfwx
+         TY/EKQa9Dkm8XyuC0XZ6PVOJKHVcnwzSLKjqgzU0rDN/X6JaAoIKv2jf3FiOXUGuLSJY
+         h//Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=ekV+DQ3e;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=q44b+tCO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Fxe0OQqfM1CZbF1Wvv131ZjYUIPYxpIkcm4m5SuCg+Q=;
-        b=H7TbLn0sAs0mdlp1sZTIlaodODRQICYkoSmYgIE+PLkpvSFI2fizOnvWdGQQFH1mRb
-         qEoJfYjdfGnb0DLmuITC4MQSj6h9bqtF4NXz1NNvo94njpd3ZD5XSN+m9fP/m05I+VNP
-         dWPLuVCC6CJscHHOj3SXRrs7Ig2vHf0S0chxNovZiUubMsC1JwBrjOy+OYhNm8KXOMtf
-         PsToEtBjp/2/o9LYdMUI7cKjGFAxK5RyXhTEe45YhJAXrCkmwwowMIwV3TAH+8WlbJXr
-         H+9cw8eom0VllORVkmjFWOqlDJo0ON4NFyly/KHjmb4LO69FM36Dptkdyt8JdR6dLsPg
-         KAeg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WRPCksRUdo0ILoAP+wnEY04s7gRWeBBmi4ZndcjOFV0=;
+        b=qws8qK0F/vGbWHi8rYS5NUGLypya58yu/pgLoMQNAqmMKsRC4sbqxH/LEdT9SlTpzW
+         m2tSBRQLiI2NDcenaADMliE2it6mRroLJL/dP5Ky2PDwBKXMga0aBK1m7HRHzBA7qeb6
+         EDvyE0FrP8tjaquDHCtIbe5plUBjbjeVcAt4CpwB9YF8AEDV0/kuPPCBRqUNGYqtESQX
+         9H4wgub99Ul3jEGJUzo3Cmp5BChecCY8CCq5MWcz1iZLd62vm+oN85qYys5uvjUuT35c
+         Ef5z9en9c90fQJF3gbTcNnaw871cX3CcPeUY8m7Rk9dk4Uedn8XNjPZKoo7Xh+d+6dZf
+         9imQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Fxe0OQqfM1CZbF1Wvv131ZjYUIPYxpIkcm4m5SuCg+Q=;
-        b=maakKV2HFoWQP12l3NGnH8T5MMYoWJ7xjl46rJhm+8s6ZqXiIxs3sUnvB7v4gdJgOs
-         bt9c6O68yyzGAsktniQqB0/6taQQ1/bY97dVUNAY5Ssyb5CnUyaaOq/JUnM/yoGkoCWm
-         ZxlP0rH4ViBLainiZJvaJ6QtRuKjXHNillenPv+oL3Opb/mCYeZw8iqg1mVpJBVeIXrN
-         c74yBJ8Y9cJLh0RIElC56C14JXaKSRkzBaLy+RZdvclYKxix9w+r4Yl0mTED2RJ0Atx0
-         G+AzA2kwN5Yto1Zsih8CrSBPMDaCxFM5zaqQ2Y/9DdyDnAUx+qGpXygysRrbC+toPEOL
-         TlaA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532dSRRetaQsmx7bc8sImfnRaNvaFQQSUfYRmhot2DlM5R37YdGh
-	i+SnBWOCfEXAhRxB7XEIzsQ=
-X-Google-Smtp-Source: ABdhPJxUG/1x9cgh/XFnOyWmmzyUROaL8NPuc2V1TbeGPNeCVEaOKBe6pdjsAtqq5XiH6aANJrRC4Q==
-X-Received: by 2002:a67:403:: with SMTP id 3mr2843214vse.54.1605302936287;
-        Fri, 13 Nov 2020 13:28:56 -0800 (PST)
+        bh=WRPCksRUdo0ILoAP+wnEY04s7gRWeBBmi4ZndcjOFV0=;
+        b=Ph2WcwM7fngNUCzBatPIxEVN3xR7oxj/YaghyqZMDbt2bSnO2/mw1A0HAg34Mx3v69
+         dPwkdSmJISS1ve7SOCQhFbfV3chaqWhjYW275bKzKryaCg6xlHY4qQ/FVTZadOv1qun4
+         iR38h1BeSwIzRrmp1LZCZ3KSydH+JDqjKD8aPQSCaSUAwpq+CtMiRuM2K1uBCvgRLwO7
+         VZpKQaLSnlgbQJlF14RUXIMGVFW4EvZIHtdxVgZ2HUI1A3O33FRDGHtsuD6vaAyKKFUN
+         FKJ66myINf7L3xWHy+610dSlMRGHpqk4uCBQZF4ANrG9yjpVDQuvZ50SNLalS3kN806s
+         yzRw==
+X-Gm-Message-State: AOAM531vOWYPPOC1+Fn4/CB4gntqIZh0bFf2z0krS7bVwbMc/EzVppso
+	opeL5WRESjYK483S+zHJE8E=
+X-Google-Smtp-Source: ABdhPJzZwCY1y6ubLrDXuse/eDvCO1ZwZxlmAviaMhUtaUQeO545ch7kCtgoxXAS2YIur7QmIi+lAA==
+X-Received: by 2002:a1f:248c:: with SMTP id k134mr2808046vkk.14.1605303183230;
+        Fri, 13 Nov 2020 13:33:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:fe4a:: with SMTP id m10ls1075494vsr.8.gmail; Fri, 13 Nov
- 2020 13:28:55 -0800 (PST)
-X-Received: by 2002:a67:7286:: with SMTP id n128mr2885391vsc.55.1605302935817;
-        Fri, 13 Nov 2020 13:28:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605302935; cv=none;
+Received: by 2002:a05:6122:12b6:: with SMTP id j22ls433428vkp.8.gmail; Fri, 13
+ Nov 2020 13:33:02 -0800 (PST)
+X-Received: by 2002:a1f:1242:: with SMTP id 63mr2894003vks.8.1605303182677;
+        Fri, 13 Nov 2020 13:33:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605303182; cv=none;
         d=google.com; s=arc-20160816;
-        b=bsDtSrYCKg6Qa4lyvaH4EfM5cuKW4ytHY08mVqhxYIjvxlwV8wKCyAJfD8KOtd6wJm
-         SFS0i0vKSBfVFlkU/e5EV3Gh0XuhBqrvhrwWOuyMVecS4GiiXZ7paD+lonnfEOEz+6c4
-         Gwg5YZbQcEV/hw2xmdqTaCIAB+uDGECVRRHTjdWU0P8YLkW8176yWfsfOT0yWdJom/m5
-         y6zTdb36M2M2JOLBw1waDK5PXCde9MG2NngO5Ms0Ei3M0Wink66Qa7pKuJROVlrLTSsT
-         LO2SibmM1k3FKtSJF89Rdf2+MNvTWCu6CSenpETE0y9cbA2tYmJCKBl4KEHtqrRX5l0B
-         tBtw==
+        b=oIQ5uv7XrZ1w0PyH72PsxTCto7pITawm2EdYNlLp6bI/dUvvnTxNtqRHdG7dvR96EQ
+         Jgx+6I0l5rBJEH7cCZcf58eTXdkXpAR0tGwtDGgOylOgt14EAvKPwm+LQOyuzZ/uCaxB
+         OQICb0RnPd9vF+MG8do3P3MbHTF799bDwBo78X3wiFndTKhGM9KjAwNhGRU7khR/1+WS
+         UEtw6gutRHjnwP2IMUwWYQAXM3iaHd0/C4Pzy4azwRpnsbrV2CVWFP/vVHaEHXvLPQbf
+         ThwCZVpR8z83K6GEQLaZ/GXKBhPTwB1E7ZbJAT2idm7NG3NU5BwXdY2jU8vINaBq8pOs
+         +UoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=Q8tBea9wG2ltNWXDqKwNyyqi3spAu6w8nUfb7d6YXPM=;
-        b=VvwaFBbKrWG6t2mfTTw/MNgwxgjEOSzsNywcpaXx31X0cIHqiBw0DSdEPzbB98v+0m
-         aezB1uVD+oP7HNWK4II0nx0piZY5YF1IEmwn2zz7QICez3KecF5yIHnImPhfNbzO8BEV
-         mcrvurlUHHnjE7rKCKAVfSi/e2yMkSbaE++kYVewbMSgrazWWaM1v/9OHY6+qdOrlyTP
-         N5lCD8trNWjGRUC67ZaejCiuI9HkKu6JGLLeGFtjqHRRmp7WM5gqxNCcuc2WTHhzgcKQ
-         u51PdRbg6xt6NBD6Aj6vM7U5WVK0gsjqkPXsboWNoIo9lHZs9wh7N4gd7cxzXwTV3Uve
-         F5Ug==
+         :mime-version:dkim-signature;
+        bh=pQ75ikH05XshXgYTR+1qs3C6oeVcKGNvq/PDg+cf54w=;
+        b=cVviUrdtIq134/xdwhBId+mU/E+MS1/b9v6Xw8+kTYG0Tp/Sl3vSGalS1N7iPZrSbC
+         44drBTd2T4ypUTyGWeVltwXoQvH4lJ4vjMcu1/63XhaVyKg4mM9wykXuBLlT7AHV8yrV
+         5dBVdYX+iZKwD4pRc9YAKx98qB9ODIfXu9GXUvCTcZuUz3yYz/f6LBCzb1eaplF/dKvH
+         KHwuERF5f5iEBnDxpRRHxD+DR0Q3VHcC/0mm1T1X2VF2yF6UywKP3owJ/F5hn7t+XXH3
+         QDtvyojFpOgKQj0SpDgZdawWxpGR3p754fFuMkqPmdkDzfiIAmpDLMauu4YbwkUxj9XA
+         vMrQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=ekV+DQ3e;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
-Received: from linux.microsoft.com (linux.microsoft.com. [13.77.154.182])
-        by gmr-mx.google.com with ESMTP id m17si740559vsk.0.2020.11.13.13.28.55
-        for <clang-built-linux@googlegroups.com>;
-        Fri, 13 Nov 2020 13:28:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) client-ip=13.77.154.182;
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
-	by linux.microsoft.com (Postfix) with ESMTPSA id C5E3F20B71D3
-	for <clang-built-linux@googlegroups.com>; Fri, 13 Nov 2020 13:28:54 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C5E3F20B71D3
-Received: by mail-qk1-f181.google.com with SMTP id r7so10348621qkf.3
-        for <clang-built-linux@googlegroups.com>; Fri, 13 Nov 2020 13:28:54 -0800 (PST)
-X-Received: by 2002:a37:4e0a:: with SMTP id c10mr4012902qkb.492.1605302933880;
- Fri, 13 Nov 2020 13:28:53 -0800 (PST)
+       dkim=pass header.i=@google.com header.s=20161025 header.b=q44b+tCO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
+        by gmr-mx.google.com with ESMTPS id k3si969422vkg.3.2020.11.13.13.33.02
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Nov 2020 13:33:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
+Received: by mail-pl1-x642.google.com with SMTP id y22so5166312plr.6
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Nov 2020 13:33:02 -0800 (PST)
+X-Received: by 2002:a17:902:d309:b029:d7:cc2d:1ee7 with SMTP id
+ b9-20020a170902d309b02900d7cc2d1ee7mr3737792plc.10.1605303181615; Fri, 13 Nov
+ 2020 13:33:01 -0800 (PST)
 MIME-Version: 1.0
-References: <20201110202746.9690-1-mcroce@linux.microsoft.com>
- <20201112035023.974748-1-natechancellor@gmail.com> <20201112151320.e0153ace2f2eb5b59eabbdcb@linux-foundation.org>
- <CAFnufp1j6ZzxLJA2x28BdxbTtnN_KtnXB49ibPcbze=B2ru3aA@mail.gmail.com>
- <20201112171826.0fa3c6158f3c2780f90faafe@linux-foundation.org>
- <CAFnufp1OrGeGgUn9_2V9HMtfb-7GwuEwz4+Co_W8ehcVOQVscw@mail.gmail.com>
- <20201112184637.de44afedf0ce0dcab36dd0ad@linux-foundation.org>
- <CAFnufp31YO9yTXVqgKNZGR9XXRKfGKM4Y4NLk+4_uXdoWa+G4w@mail.gmail.com> <20201113162043.GO1602@alley>
-In-Reply-To: <20201113162043.GO1602@alley>
-From: Matteo Croce <mcroce@linux.microsoft.com>
-Date: Fri, 13 Nov 2020 22:28:18 +0100
-X-Gmail-Original-Message-ID: <CAFnufp3NBHUQ8fT1TEw5BvazGQjP9KmsU3y7ioJScWQ9qGiq1A@mail.gmail.com>
-Message-ID: <CAFnufp3NBHUQ8fT1TEw5BvazGQjP9KmsU3y7ioJScWQ9qGiq1A@mail.gmail.com>
-Subject: Re: [PATCH] reboot: Fix variable assignments in type_store
-To: Petr Mladek <pmladek@suse.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org, 
-	Guenter Roeck <linux@roeck-us.net>, Pavel Tatashin <pasha.tatashin@soleen.com>, 
-	Mike Rapoport <rppt@kernel.org>, Tyler Hicks <tyhicks@linux.microsoft.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com
+References: <20201111021131.822867-1-ndesaulniers@google.com> <BYAPR11MB32568FEEF4CFA1C20296427B87E60@BYAPR11MB3256.namprd11.prod.outlook.com>
+In-Reply-To: <BYAPR11MB32568FEEF4CFA1C20296427B87E60@BYAPR11MB3256.namprd11.prod.outlook.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 13 Nov 2020 13:32:50 -0800
+Message-ID: <CAKwvOd=qDNnOu1oTeEN+chvfJcQSS5dxREo0JQHC=W0zhpYeLw@mail.gmail.com>
+Subject: Re: [PATCH] ACPICA: fix -Wfallthrough
+To: "Moore, Robert" <robert.moore@intel.com>
+Cc: "Kaneda, Erik" <erik.kaneda@intel.com>, "Wysocki, Rafael J" <rafael.j.wysocki@intel.com>, 
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, Len Brown <lenb@kernel.org>, 
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>, "devel@acpica.org" <devel@acpica.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mcroce@linux.microsoft.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux.microsoft.com header.s=default header.b=ekV+DQ3e;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates
- 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+ header.i=@google.com header.s=20161025 header.b=q44b+tCO;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,95 +133,212 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Nov 13, 2020 at 9:06 PM Petr Mladek <pmladek@suse.com> wrote:
+On Fri, Nov 13, 2020 at 1:27 PM Moore, Robert <robert.moore@intel.com> wrote:
 >
-> On Fri 2020-11-13 03:58:49, Matteo Croce wrote:
-> > On Fri, Nov 13, 2020 at 3:46 AM Andrew Morton <akpm@linux-foundation.org> wrote:
-> > >
-> > > On Fri, 13 Nov 2020 02:38:18 +0100 Matteo Croce <mcroce@linux.microsoft.com> wrote:
-> > >
-> > > > At this point, since 'pci' enables BOOT_CF9_FORCE type and
-> > > > BOOT_CF9_SAFE is not user selectable, should I simply leave only
-> > > > 'pci'?
-> > > >
-> > > > This way, we'll have the same set of options for both sysfs and kernel cmdline.
-> > >
-> > > Well, you're the reboot expert ;)
-> > >
-> >
-> > So honored! :)
-> >
-> > > But my $0.02 is yes, let's keep the command-line and sysfs interfaces
-> > > in sync and cover it all in documentation.  It would of course be
-> > > problematic to change the existing reboot= interface.
-> > >
-> > > I assume that means doing this?
-> > >
-> > > - #define BOOT_CF9_FORCE_STR     "cf9_force"
-> > > + #define BOOT_CF9_FORCE_STR     "pci"
-> > > - #define BOOT_CF9_SAFE_STR      "cf9_safe"
-> >
-> > Either BOOT_PCI_STR or BOOT_CF9_FORCE_STR, I have no strong preference.
-> >
-> > The syntax is 'pci' while the enum BOOT_CF9_FORCE, so we can't please both.
 >
-> The question is whether we should modify/allow to set these values at
-> all.
 >
-> Anyway, we must prevent them on non-x86 architectures because
-> the reboot behavior would be undefined there. They could probably
-> make a mess even on many x86-architectures.
+> -----Original Message-----
+> From: ndesaulniers via sendgmr <ndesaulniers@ndesaulniers1.mtv.corp.google.com> On Behalf Of Nick Desaulniers
+> Sent: Tuesday, November 10, 2020 6:12 PM
+> To: Moore, Robert <robert.moore@intel.com>; Kaneda, Erik <erik.kaneda@intel.com>; Wysocki, Rafael J <rafael.j.wysocki@intel.com>; Gustavo A . R . Silva <gustavoars@kernel.org>
+> Cc: clang-built-linux@googlegroups.com; Nick Desaulniers <ndesaulniers@google.com>; Len Brown <lenb@kernel.org>; linux-acpi@vger.kernel.org; devel@acpica.org; linux-kernel@vger.kernel.org
+> Subject: [PATCH] ACPICA: fix -Wfallthrough
+>
+> The "fallthrough" pseudo-keyword was added as a portable way to denote intentional fallthrough. This code seemed to be using a mix of fallthrough comments that GCC recognizes, and some kind of lint marker.
+> I'm guessing that linter hasn't been run in a while from the mixed use of the marker vs comments.
+>
+> /*lint -fallthrough */
+>
+> This is the lint marker
+
+Yes; but from my patch, the hunk modifying
+acpi_ex_store_object_to_node() and vsnprintf() seem to indicate that
+maybe the linter hasn't been run in a while.
+
+Which linter is that?  I'm curious whether I should leave those be,
+and whether we're going to have an issue between compilers and linters
+as to which line/order these would need to appear on.
+
+>
+> BTW, what version of gcc added -Wfallthrough?
+
+GCC 7.1 added -Wimplicit-fallthrough.
+
+>
+>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+>  drivers/acpi/acpica/dscontrol.c | 3 +--
+>  drivers/acpi/acpica/dswexec.c   | 4 +---
+>  drivers/acpi/acpica/dswload.c   | 3 +--
+>  drivers/acpi/acpica/dswload2.c  | 3 +--
+>  drivers/acpi/acpica/exfldio.c   | 3 +--
+>  drivers/acpi/acpica/exresop.c   | 5 ++---
+>  drivers/acpi/acpica/exstore.c   | 6 ++----
+>  drivers/acpi/acpica/hwgpe.c     | 3 +--
+>  drivers/acpi/acpica/utdelete.c  | 3 +--
+>  drivers/acpi/acpica/utprint.c   | 2 +-
+>  10 files changed, 12 insertions(+), 23 deletions(-)
+>
+> diff --git a/drivers/acpi/acpica/dscontrol.c b/drivers/acpi/acpica/dscontrol.c index 4b5b6e859f62..1e75e5fbfd19 100644
+> --- a/drivers/acpi/acpica/dscontrol.c
+> +++ b/drivers/acpi/acpica/dscontrol.c
+> @@ -61,8 +61,7 @@ acpi_ds_exec_begin_control_op(struct acpi_walk_state *walk_state,
+>                                 break;
+>                         }
+>                 }
+> -
+> -               /*lint -fallthrough */
+> +               fallthrough;
+>
+>         case AML_IF_OP:
+>                 /*
+> diff --git a/drivers/acpi/acpica/dswexec.c b/drivers/acpi/acpica/dswexec.c index 1d4f8c81028c..e8c32d4fe55f 100644
+> --- a/drivers/acpi/acpica/dswexec.c
+> +++ b/drivers/acpi/acpica/dswexec.c
+> @@ -597,9 +597,7 @@ acpi_status acpi_ds_exec_end_op(struct acpi_walk_state *walk_state)
+>                                 if (ACPI_FAILURE(status)) {
+>                                         break;
+>                                 }
+> -
+> -                               /* Fall through */
+> -                               /*lint -fallthrough */
+> +                               fallthrough;
+>
+>                         case AML_INT_EVAL_SUBTREE_OP:
+>
+> diff --git a/drivers/acpi/acpica/dswload.c b/drivers/acpi/acpica/dswload.c index 27069325b6de..afc663c3742d 100644
+> --- a/drivers/acpi/acpica/dswload.c
+> +++ b/drivers/acpi/acpica/dswload.c
+> @@ -223,8 +223,7 @@ acpi_ds_load1_begin_op(struct acpi_walk_state *walk_state,
+>                              parse_flags & ACPI_PARSE_MODULE_LEVEL)) {
+>                                 break;
+>                         }
+> -
+> -                       /*lint -fallthrough */
+> +                       fallthrough;
+>
+>                 default:
+>
+> diff --git a/drivers/acpi/acpica/dswload2.c b/drivers/acpi/acpica/dswload2.c index edadbe146506..1b794b6ba072 100644
+> --- a/drivers/acpi/acpica/dswload2.c
+> +++ b/drivers/acpi/acpica/dswload2.c
+> @@ -213,8 +213,7 @@ acpi_ds_load2_begin_op(struct acpi_walk_state *walk_state,
+>                              parse_flags & ACPI_PARSE_MODULE_LEVEL)) {
+>                                 break;
+>                         }
+> -
+> -                       /*lint -fallthrough */
+> +                       fallthrough;
+>
+>                 default:
+>
+> diff --git a/drivers/acpi/acpica/exfldio.c b/drivers/acpi/acpica/exfldio.c index ade35ff1c7ba..9d1cabe0fed9 100644
+> --- a/drivers/acpi/acpica/exfldio.c
+> +++ b/drivers/acpi/acpica/exfldio.c
+> @@ -433,8 +433,7 @@ acpi_ex_field_datum_io(union acpi_operand_object *obj_desc,
+>                  * Now that the Bank has been selected, fall through to the
+>                  * region_field case and write the datum to the Operation Region
+>                  */
+> -
+> -               /*lint -fallthrough */
+> +               fallthrough;
+>
+>         case ACPI_TYPE_LOCAL_REGION_FIELD:
+>                 /*
+> diff --git a/drivers/acpi/acpica/exresop.c b/drivers/acpi/acpica/exresop.c index 4d1b22971d58..df48faa9a551 100644
+> --- a/drivers/acpi/acpica/exresop.c
+> +++ b/drivers/acpi/acpica/exresop.c
+> @@ -197,8 +197,7 @@ acpi_ex_resolve_operands(u16 opcode,
+>                                 case ACPI_REFCLASS_DEBUG:
+>
+>                                         target_op = AML_DEBUG_OP;
+> -
+> -                                       /*lint -fallthrough */
+> +                                       fallthrough;
+>
+>                                 case ACPI_REFCLASS_ARG:
+>                                 case ACPI_REFCLASS_LOCAL:
+> @@ -264,7 +263,7 @@ acpi_ex_resolve_operands(u16 opcode,
+>                          * Else not a string - fall through to the normal Reference
+>                          * case below
+>                          */
+> -                       /*lint -fallthrough */
+> +                       fallthrough;
+>
+>                 case ARGI_REFERENCE:    /* References: */
+>                 case ARGI_INTEGER_REF:
+> diff --git a/drivers/acpi/acpica/exstore.c b/drivers/acpi/acpica/exstore.c index 3adc0a29d890..2067baa7c120 100644
+> --- a/drivers/acpi/acpica/exstore.c
+> +++ b/drivers/acpi/acpica/exstore.c
+> @@ -95,8 +95,7 @@ acpi_ex_store(union acpi_operand_object *source_desc,
+>                 if (dest_desc->common.flags & AOPOBJ_AML_CONSTANT) {
+>                         return_ACPI_STATUS(AE_OK);
+>                 }
+> -
+> -               /*lint -fallthrough */
+> +               fallthrough;
+>
+>         default:
+>
+> @@ -421,8 +420,7 @@ acpi_ex_store_object_to_node(union acpi_operand_object *source_desc,
+>                                 }
+>                                 break;
+>                         }
+> -
+> -                       /* Fallthrough */
+> +                       fallthrough;
+>
+>                 case ACPI_TYPE_DEVICE:
+>                 case ACPI_TYPE_EVENT:
+> diff --git a/drivers/acpi/acpica/hwgpe.c b/drivers/acpi/acpica/hwgpe.c index b13a4ed5bc63..fbfad80c8a53 100644
+> --- a/drivers/acpi/acpica/hwgpe.c
+> +++ b/drivers/acpi/acpica/hwgpe.c
+> @@ -166,8 +166,7 @@ acpi_hw_low_set_gpe(struct acpi_gpe_event_info *gpe_event_info, u32 action)
+>                 if (!(register_bit & gpe_register_info->enable_mask)) {
+>                         return (AE_BAD_PARAMETER);
+>                 }
+> -
+> -               /*lint -fallthrough */
+> +               fallthrough;
+>
+>         case ACPI_GPE_ENABLE:
+>
+> diff --git a/drivers/acpi/acpica/utdelete.c b/drivers/acpi/acpica/utdelete.c index 4c0d4e434196..8076e7947585 100644
+> --- a/drivers/acpi/acpica/utdelete.c
+> +++ b/drivers/acpi/acpica/utdelete.c
+> @@ -111,8 +111,7 @@ static void acpi_ut_delete_internal_obj(union acpi_operand_object *object)
+>                         (void)acpi_ev_delete_gpe_block(object->device.
+>                                                        gpe_block);
+>                 }
+> -
+> -               /*lint -fallthrough */
+> +               fallthrough;
+>
+>         case ACPI_TYPE_PROCESSOR:
+>         case ACPI_TYPE_THERMAL:
+> diff --git a/drivers/acpi/acpica/utprint.c b/drivers/acpi/acpica/utprint.c index 681c11f4af4e..f7e43baf5ff2 100644
+> --- a/drivers/acpi/acpica/utprint.c
+> +++ b/drivers/acpi/acpica/utprint.c
+> @@ -475,7 +475,7 @@ int vsnprintf(char *string, acpi_size size, const char *format, va_list args)
+>                 case 'X':
+>
+>                         type |= ACPI_FORMAT_UPPER;
+> -                       /* FALLTHROUGH */
+> +                       fallthrough;
+>
+>                 case 'x':
+>
+> --
+> 2.29.2.222.g5d2a92d10f8-goog
 >
 
-That's right, but the same can be obtained by passing 'reboot=pci'  on
-non x86 machines: the cmdline parsing is generic and will set
-reboot_type on all arches.
 
-> I have to admit it has become much more complicated than I thought.
-> It brings back Andrew's original question whether this interface is
-> really needed. Are you going to use in the real life?
->
-
-Yes, there are some cases.
-Not to mention complex use cases like let persist some memory regions,
-or change the page size,
-if a network driver fails to rmmod with the infamous
-"unregistered_netdevice: waiting for wlan0 to become free",
-enabling force on the fly allows to reboot the machine.
-
-
-> The interface might do more harm then good when it allows to set
-> reboot_type that is not normally accessible or disable it when
-> it is strictly needed.
->
-
-I looked at the reboot_type usage, there isn't any reference outside
-arch/x86. In fact, the parameter is just ignored:
-
-# uname -m
-aarch64
-# cat /proc/cmdline
-console=ttyS0,115200n8 reboot=pci
-# reboot -ff
-Rebooting.
-[   43.893833] reboot: Restarting system
-
-The same applies for reboot_force, the only flags available on
-different architectures are reboot_mode and reboot_cpu.
-We could hide some handlers for some architectures. We save some
-space, and avoid letting the user set flags which do nothing.
-
-> Anyway, we should get input from some x86-experts about the BOOT_CF9
-> values.
->
-
-Sure, x86@kernel.org ?
-
-Regards,
 -- 
-per aspera ad upstream
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFnufp3NBHUQ8fT1TEw5BvazGQjP9KmsU3y7ioJScWQ9qGiq1A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DqDNnOu1oTeEN%2BchvfJcQSS5dxREo0JQHC%3DW0zhpYeLw%40mail.gmail.com.
