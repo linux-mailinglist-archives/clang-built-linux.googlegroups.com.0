@@ -1,127 +1,152 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHNPXP6QKGQEG2Q7V4Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBYNPXP6QKGQEVLWDEZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
-	by mail.lfdr.de (Postfix) with ESMTPS id E427A2B2427
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 19:59:43 +0100 (CET)
-Received: by mail-qt1-x839.google.com with SMTP id i39sf6337882qtb.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 10:59:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605293983; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C61992B242E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 20:00:50 +0100 (CET)
+Received: by mail-pf1-x43a.google.com with SMTP id 9sf7338453pfn.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 11:00:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605294049; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NN+B2CqkQEG/mZTNgXKcLfyjBuR7ZSBh4XPo1fWg6Tck+n7bcHhNP6syxC4cafNOX5
-         +2K8m41ZcN8L5WWJLeMCUPoh4CnGq4I7tkZJw6PtdU5gQ91EMSYOVrjAz1J4KoxvMHod
-         BBLBng+UlW2d90zxsR5sQ6BfeIGm566K0P+paPwUb4jOE/b6uN0uzBtC9W6G9RSr0nHp
-         lrRWzEeAnrnjR6i6mmaFrSdCbDk06tyhARWDg9ZVT7t2LQzd86nahH1nSbGUHlGSb33N
-         qEWbEwdkqcTKzJk7+qO+K7v1hiFZhbWTsfBcgSVtCE0927+SFsPf6DPE62jy0n6Pw0Pu
-         qB1A==
+        b=r3NxVKfSdmEggmO0Z7QsKkDy+YauWZKiLqw8/M/VafHFbMh6UF8u9OpiBQjUT7GOmz
+         QEVItIYVEYHmjgLaR3Fo7IPyNaMVoQeUr3X92cOd5Ows3UfmT0WqZ3k/pVXyusWQP9Lv
+         KiI1uWur7Lp4f+vHPnZybVZhtfElCFaBPRvQxkA1yKxWNPBwPYm3KZf/BVbugBShn1Oc
+         nM9YG+PwcDUxO4LjK6h0a+8NuZVEiERbT38zzv2dZ2dx5etr73fWcGCOA15AEl0NOmcE
+         iQ1nSf9FQsD80/eqQaQyHUWYMN/+jHz+emHRDqv0wm1Q54QAj0KqHcSClD5A3h9VG++S
+         VCfA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=5qhdkTSnkYif2JAXysMnwNGUjLVlHa3EAqx3R+zRhJc=;
-        b=y3/KPqQUXm3hVapOz1lvx9bVUXHR6MazvDouhliokLU7TcRVl3O1w2NtjEccoxtHlU
-         4DLFZw+iLs/haA7cEpbt1T7bHF4dFkT4bNDb6tI261C/kff9dDNdEqKAQeSzKuIccoWL
-         D8/EqL1cOPHgXQLCR7e5AeEQBH1BLfRe06ZE+MAE8vIiXMIIby8+WNAsNPcU0Qhh6eEa
-         3d+xhscF0TnfDcZaAV3dxC7QKMQvabWPLOXOm774Lz8akyV8Ad6su3Cirr4C7ymYISJp
-         KVMsf1wlVlGL5xTwQnulHF96URCEIrKtnz4xtxmVKl7ZNi7eSm1gnAUjr/OP+/tHOEFV
-         wx3g==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=gCshJfCosULpBrnGxkhUZmxamz3Ec+R50uUqAEaBu2w=;
+        b=n5VG0eArtx7my6LPkMuaFXKKNKC5rLOsokM9pzV+0gUOO2RlZ+ODYoW+SC4EQcPIqs
+         1QgVfm4N/6V2adKnI/co1Vsu/OoxulNnibKmK8ZN5g9sa3ExLh6/SiUlmkNsN2fnyi26
+         wCQivqet9pRBZhGwmHTdKz1LYhwVjMaLtQu7PC3sqZVkQ/sALiTihQlajg3IdHu92jGK
+         rjekzkdwLQCXkSHdBev6KRIxu8YV1UDtiph/grp69wF+fSSgoT8detxiKh+KoLh5tlok
+         RV+dZhqhAhTnBDi2up/KTFgh+OBPvmeAvlvXxiUdMWe/xowa9w1klHcoH4ZwQuwERHUZ
+         NPjA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dxfYDQ6k;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eVH8SOcg;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5qhdkTSnkYif2JAXysMnwNGUjLVlHa3EAqx3R+zRhJc=;
-        b=jp3DUaYnstspZQl7L+7gE0/tjnim0L4a9+TQ9j3+4Zqy2wQgLPw591sRBvepKp5DsN
-         4nNETqBnXhpJpKQayJLQNeD1JELiNzUHqBkLd2uSY/JerM/uQR+5G9XAiqnT5T/mHXtJ
-         V8sRh+eVXAYba3o63c6EdypHEM0lEnmJqdx1gYE8TIn7OAr/DZB5MNqjIlUQwFjbwGvj
-         3y26BhmgWxn2Ei9YWcRVbTjqQxrOuG1bky5KRX3P8sONsaImrnFvQOmMR71ODVjgT+Rr
-         IOzr7aM95qyDVyu7k+Dh2+1rM4FSyzvneFrglUqFkjrWD31LtlpmmA4VP9mn2dgEPCrj
-         U0RQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=gCshJfCosULpBrnGxkhUZmxamz3Ec+R50uUqAEaBu2w=;
+        b=EwrEIzAPJnBpAtaa7BoyIPURKzYa4MQ/q51/mkMdf80RY2yUE1hXIliiegYc5tcxra
+         8aADO+mg2oQU2EHsnI/RXmGM9wIH/lTg8NfK+eI1gZUZEaHUR73WG2kRLoQ7O6lrvyRv
+         g+gHphI+CAsTQ+l3S1v1qKWhQX/L8UREt7YEUKS4beXy7UWjpB8nu5nUJvaeJoQNTmqL
+         SgFF6vZZFSkAVdA8GMHKKmGw0ym87HbhEj0wAQjaRpdBacQdr1HAv4zp9Lb2hrV0sEax
+         bPUFiELSZflhuIEZ5mIegHJLOZQVj0NTtw41iNHOWdjou0W/Q1AjtY3xkunhSId5ldOv
+         4bag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=gCshJfCosULpBrnGxkhUZmxamz3Ec+R50uUqAEaBu2w=;
+        b=nNBOdg985gFcmb46eyjNjG8vb2azim8fvVXNgkJIKbG6nrb2vAvcxsn+ptvALXlQSl
+         XlLiOKra/06I7jtkLBiQU6b8MUzwn7kg4T4y85yPlrboqPLTnPdgSb8ZLG7S7La9VoBM
+         63M1eVfE9dXa0bCr4jm09tt0LCUf2Kubu3ah7bjeT3S9u47FNMrJzKDP2M3Lbv+Y5rVp
+         GXgoXV4I3CtqOSAgQ6ZPnRaZWMF0zk+fufRqXEGw5SkBdKxfh8qZp9D/yXwcZ4iZUh2H
+         erdNZtMm0We8pAOMzDXzcziZlefc1vCbUsgEXyh3spSWcDFJB/mnN3k8dgvIyLfuF0gn
+         y/Cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5qhdkTSnkYif2JAXysMnwNGUjLVlHa3EAqx3R+zRhJc=;
-        b=DgdZVSnlKdVzRd3nUWQpv4Z8KDAQYKQ/7vlHQw1LTbSXGbFNy0LGA+lHlcMk16Bwve
-         Vmv9Rcp+pHmANtyvfpZBH0nhMbkSi606UmeruD1+HFQiG0CH001uusGTEXzQQRrV0MMX
-         TqRfTW7QAK4OLBavEyv8uCQk5yxWJL9bqKLJDpGHscmEZQFCGenU/ctV//+k/H6rplRf
-         t2tN+mzcX5aA+MGMMEUVnrDYAzN2MHk0Kj8dKSPiasoG1K8fZgi9zY/PpWSOzNA3ATKS
-         0snWOlmkvYCkkc3NaOoXaLsTJQLdFr9wxVOnTyDyKpY6nLonLw9LP+LYNmYVaH7/YrLu
-         K/xw==
-X-Gm-Message-State: AOAM5320bUu2lSqvMERE47z1oMTQahEZZK8JtKzPHYMh4fIaNLObFyOi
-	ekFQgKLbUn03B2v71+juArA=
-X-Google-Smtp-Source: ABdhPJxe3rIItzfZzmE1bbXlGxtzq2FmJ9JflWuU/752vMt8qmrFVa+eX64thllxLnbqF17TIMKDew==
-X-Received: by 2002:a37:4552:: with SMTP id s79mr3368944qka.6.1605293981535;
-        Fri, 13 Nov 2020 10:59:41 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=gCshJfCosULpBrnGxkhUZmxamz3Ec+R50uUqAEaBu2w=;
+        b=iNBchaF6aXjS2pHrPliUbAjqhbzH5Xf4x9ZAZg1X8uX8l5J9kWUaMZQsMifGfofS6a
+         9TDEVkBCNOrctYTts0sf1d8XI9cLWrwNRB4vMEH7o1A88txavWsxelYXeGN+5JWWAH41
+         VxJH6ATMEc5PESF7FkKKrlLyJmfpgYvBp6LJGZ+p9E50uT2Qncl1alwUwByoLEHcZJVq
+         Bt3o+xf23TYh+wCKMajqU4bSMl7tpSYCl3IqBK3NPz9hpo6KxYfPm4TGKUcU/MpvOCcq
+         cB0ih63YenWWzKn+kLWBJ3DqvghGvkkvsfAC+ndO8amoYHM9YtvEM4n+N0Z2HCBiz4sd
+         TM3w==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533fEKwEGtCzqQCdHllPq7OJwcJkHTpoiXkoK9AhLIXjOfNgTkun
+	6VgkiUIGhF+U/62ub7QTDcI=
+X-Google-Smtp-Source: ABdhPJyoM7gSpd88cx+PFoDlpS9VGExZaFdbf3oFLI1WQrCT3kEsWPzTz+Mb0Wopgl642RUo5Bn5KQ==
+X-Received: by 2002:aa7:9f4e:0:b029:18b:3585:21e with SMTP id h14-20020aa79f4e0000b029018b3585021emr3183790pfr.23.1605294049490;
+        Fri, 13 Nov 2020 11:00:49 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:36ea:: with SMTP id f97ls2517121qtb.4.gmail; Fri, 13 Nov
- 2020 10:59:39 -0800 (PST)
-X-Received: by 2002:ac8:74c7:: with SMTP id j7mr3385633qtr.179.1605293979574;
-        Fri, 13 Nov 2020 10:59:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605293979; cv=none;
+Received: by 2002:a17:902:7488:: with SMTP id h8ls3446075pll.11.gmail; Fri, 13
+ Nov 2020 11:00:49 -0800 (PST)
+X-Received: by 2002:a17:90a:ee8b:: with SMTP id i11mr4644556pjz.118.1605294048891;
+        Fri, 13 Nov 2020 11:00:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605294048; cv=none;
         d=google.com; s=arc-20160816;
-        b=FWq4xyDCASdZcePtm8QMByWbhzVl1m+b8tIW1RZvtesAKEz4RJOy61Hnme4prEJx0T
-         OKzRRofKjVpIbqUFQpQSVkO1q3TxZWHc+LmxERECaFiVuzbC46hmHk3gDmqn3yy5ykwn
-         4LQUwF70KWPEdqLGV2eeHx2tlkI0SVBNGZt6wzb1z4VkDxV3/i7ET3uUDkLsgJqGG2gU
-         MyaxEMuRUhm1y9dq+ZZT7+f2jwr4BBmipoIzJb0GY794NEB6IaIay4OkmwsRERu1IKiD
-         ZzZ0GYrl9RjyOhC6Hbmo33+UvdG+I2UupSPMgt8vocbRVn9YIkoOCY1nq4fIaseDaYhf
-         biyQ==
+        b=panLHbND16TJfvb3Kzi5FM35dZeSLFnbOCKI2JUKAqF0dItn2h4b3B3yZZg1x1btk/
+         LCSJipZHzadjDevPGDQFIRV2oFxhn+GzlCPX9BuGdcY3oORzTRcnuWPLGvTl7P40uj47
+         sU5s9MLwXTafu5bP2A3zX9tee6pwoDOKmkL04UXZ6gk2a1KaUZxxUf3JGfOST9T5sVUn
+         5tnzCposXjyVC60c0qZERIKaBlY3DsHlRgYpkNRoABCHUva8+fiNwsxIU+0JuCjvpNxu
+         D4Evm/2fB7uIBLbhgIe6BznXkRrZFLP8H92o8oJkEO5NvYMxFQCkjjPqRK4DYwEaRouP
+         9umQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=MniKqKItHpWrCcVH+AMewB90l9vg6n7H90MFqb8jsJY=;
-        b=qVDGsWq0WuWE0a4zCA8qcbWfekKYdC4t9pFsn8nLbhuYHYus0BNOwh8wNvsEuqunFU
-         zpqWfjFbQbScA90QStOeX4ykWxChfpJbcsi1XY/MSxWnRAlD77yATKSygukveIxnAj38
-         BsuUw9xxRnItreVezukyszEyazUvZs09HDy9RicdbC8BsNVvaPM6ylOhvHYk6v9uLbiQ
-         71pD6KFm4BveVdZ4ByrZkguz+tZWMnDGXJ1lTfY4QOJh1GRJ7NNcaJyoGOUOl2toQ9H3
-         GZT+Jqo6iwG/gG8Id5iy1dr7OAPGkpThvt3dTIoATUwJ5yJ1tM/8Z8atCoIgpZNH6HMH
-         mPuw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Q61m3Kag5Q/urXoUxGuvFJyxhAGq2M6Yw4QQ7h8f4/g=;
+        b=kpL0FuZg/BMKBvDJWbIv0W5fYddWBANkgHJqVE1F+PxRKNUDq1AZAzc2ndEgidI7nM
+         qPL2jEaSDjY8DngCk4KYqU02FeVe4joQHpfVrl57GpGZRYnL3gd8SvdSXtrFurEYpsok
+         fIFySvwECCzI5AvZAbDPyiUHDp39NLxBU0eVnSEt7dlQG9Jiv2P16d98NsrQ8uWq5XQw
+         IW3IDHjXZ4zN5z53enZqIkv5qQ5bmUWY7o4GV8rs86rGUNl8EdKMZ5Tn1gEipCXm/jrY
+         M7DNEwIm+hLm4WMceXshvBfQzQiGA0E+7+QIWzH1w1NjPUFoZmzvjfXtYrNk+DNbl9sX
+         vhqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dxfYDQ6k;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id p51si621269qtc.4.2020.11.13.10.59.39
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eVH8SOcg;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
+        by gmr-mx.google.com with ESMTPS id e2si793922pjm.2.2020.11.13.11.00.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Nov 2020 10:59:39 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id e21so7804159pgr.11
-        for <clang-built-linux@googlegroups.com>; Fri, 13 Nov 2020 10:59:39 -0800 (PST)
-X-Received: by 2002:a62:5e06:0:b029:164:a9ca:b07e with SMTP id
- s6-20020a625e060000b0290164a9cab07emr3148377pfb.36.1605293978382; Fri, 13 Nov
- 2020 10:59:38 -0800 (PST)
+        Fri, 13 Nov 2020 11:00:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
+Received: by mail-qt1-x844.google.com with SMTP id 7so7452460qtp.1
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Nov 2020 11:00:48 -0800 (PST)
+X-Received: by 2002:ac8:6898:: with SMTP id m24mr3404486qtq.157.1605294047936;
+        Fri, 13 Nov 2020 11:00:47 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id k4sm3314691qki.2.2020.11.13.11.00.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Nov 2020 11:00:47 -0800 (PST)
+Date: Fri, 13 Nov 2020 12:00:45 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: David Ahern <dsahern@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, kernel test robot <lkp@intel.com>,
+	Andrea Mayer <andrea.mayer@uniroma2.it>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Ahern <dsahern@kernel.org>,
+	Alexey Kuznetsov <kuznet@ms2.inr.ac.ru>,
+	Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Shrijeet Mukherjee <shrijeet@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com, netdev@vger.kernel.org
+Subject: Re: [net-next,v2,4/5] seg6: add support for the SRv6 End.DT4 behavior
+Message-ID: <20201113190045.GA1463790@ubuntu-m3-large-x86>
+References: <20201107153139.3552-5-andrea.mayer@uniroma2.it>
+ <202011131747.puABQV5A-lkp@intel.com>
+ <20201113085730.5f3c850a@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
+ <c7623978-5586-5757-71aa-d12ee046a338@gmail.com>
 MIME-Version: 1.0
-References: <20201109144425.270789-22-alexandre.chartre@oracle.com> <202011131552.4kvOb9Id-lkp@intel.com>
-In-Reply-To: <202011131552.4kvOb9Id-lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 13 Nov 2020 10:59:26 -0800
-Message-ID: <CAKwvOdnvhyNs1arkVO1=pw9GB9NePKUfQYAY+Q0Ur9Qe9HJ37w@mail.gmail.com>
-Subject: Re: [RFC][PATCH 21/24] x86/entry: Disable stack-protector for IST
- entry C handlers
-To: Alexandre Chartre <alexandre.chartre@oracle.com>
-Cc: kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, linux-toolchains@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>, Arvind Sankar <nivedita@alum.mit.edu>, Ard Biesheuvel <ardb@kernel.org>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Segher Boessenkool <segher@kernel.crashing.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <c7623978-5586-5757-71aa-d12ee046a338@gmail.com>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=dxfYDQ6k;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=eVH8SOcg;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,96 +159,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Nov 12, 2020 at 11:59 PM kernel test robot <lkp@intel.com> wrote:
->
-> Hi Alexandre,
->
-> [FYI, it's a private test report for your RFC patch.]
-> [auto build test WARNING on tip/x86/mm]
-> [also build test WARNING on v5.10-rc3]
-> [cannot apply to tip/x86/core tip/x86/asm next-20201112]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/Alexandre-Chartre/x86-pti-Defer-CR3-switch-to-C-code/20201109-225007
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git 1fcd009102ee02e217f2e7635ab65517d785da8e
-> config: x86_64-randconfig-a011-20201109 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 09ec07827b1128504457a93dee80b2ceee1af600)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/1095b6a7acb8dc568c474cd3b3d1c8393fb49728
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Alexandre-Chartre/x86-pti-Defer-CR3-switch-to-C-code/20201109-225007
->         git checkout 1095b6a7acb8dc568c474cd3b3d1c8393fb49728
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> arch/x86/kernel/cpu/mce/core.c:2023:1: warning: unknown attribute 'optimize' ignored [-Wunknown-attributes]
->    DEFINE_IDTENTRY_MCE(exc_machine_check)
->    ^
->    arch/x86/include/asm/idtentry.h:539:30: note: expanded from macro 'DEFINE_IDTENTRY_MCE'
->    #define DEFINE_IDTENTRY_MCE             DEFINE_IDTENTRY_IST
->                                            ^
->    arch/x86/include/asm/idtentry.h:428:2: note: expanded from macro 'DEFINE_IDTENTRY_IST'
->            no_stack_protector DEFINE_IDTENTRY_RAW(func)
->            ^
->    arch/x86/include/asm/idtentry.h:110:18: note: expanded from macro 'no_stack_protector'
->            __attribute__ ((optimize("-O2,-fno-stack-protector,-fno-omit-frame-pointer")))
->                            ^
+On Fri, Nov 13, 2020 at 10:05:56AM -0700, David Ahern wrote:
+> On 11/13/20 9:57 AM, Jakub Kicinski wrote:
+> > Good people of build bot, 
+> > 
+> > would you mind shedding some light on this one? It was also reported on
+> > v1, and Andrea said it's impossible to repro. Strange that build bot
+> > would make the same mistake twice, tho.
+> > 
+> 
+> I kicked off a build this morning using Andrea's patches and the config
+> from the build bot; builds fine as long as the first 3 patches are applied.
+> 
 
-Hi Alexandre,
-The `optimize` attribute is both non-portable across toolchains (hence
-this warning) and a little quirky in GCC.  It's advised that you do
-not use it.  If you can describe the issue you're trying to solve with
-it, we likely have a better way to fix.
+I can confirm this as well with clang; if I applied the first three
+patches then this one, there is no error but if you just apply this one,
+there will be. If you open the GitHub URL, it shows just this patch
+applied, not the first three, which explains it.
 
-If it's removing a stack protector, -fno-stack-protector for the whole
-translation unit is the only portable solution today. (GCC 10 just
-gained the no_stack_protector attribute, but the kernel needs to
-support older versions of GCC).
+For what it's worth, b4 chokes over this series:
 
->    1 warning generated.
->
-> vim +/optimize +2023 arch/x86/kernel/cpu/mce/core.c
->
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25  2020
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25  2021  #ifdef CONFIG_X86_64
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25  2022  /* MCE hit kernel mode */
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25 @2023  DEFINE_IDTENTRY_MCE(exc_machine_check)
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25  2024  {
-> cd840e424f27fc arch/x86/kernel/cpu/mce/core.c   Peter Zijlstra  2020-05-29  2025        unsigned long dr7;
-> cd840e424f27fc arch/x86/kernel/cpu/mce/core.c   Peter Zijlstra  2020-05-29  2026
-> cd840e424f27fc arch/x86/kernel/cpu/mce/core.c   Peter Zijlstra  2020-05-29  2027        dr7 = local_db_save();
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25  2028        exc_machine_check_kernel(regs);
-> cd840e424f27fc arch/x86/kernel/cpu/mce/core.c   Peter Zijlstra  2020-05-29  2029        local_db_restore(dr7);
-> 4c0dcd8350a03c arch/x86/kernel/cpu/mce/core.c   Thomas Gleixner 2020-02-25  2030  }
-> 9eda8cb3ac2352 arch/x86/kernel/cpu/mcheck/mce.c Andi Kleen      2009-07-09  2031
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202011131552.4kvOb9Id-lkp%40intel.com.
+$ b4 am -o - 20201107153139.3552-1-andrea.mayer@uniroma2.it | git am
+Looking up https://lore.kernel.org/r/20201107153139.3552-1-andrea.mayer%40uniroma2.it
+Grabbing thread from lore.kernel.org/linux-kselftest
+Analyzing 18 messages in the thread
+---
+Writing /tmp/tmp8425by7fb4-am-stdout
+  [net-next,v2,3/5] seg6: add callbacks for customizing the creation/destruction of a behavior
+---
+Total patches: 1
+---
+ Link: https://lore.kernel.org/r/20201107153139.3552-1-andrea.mayer@uniroma2.it
+ Base: not found
+---
+Applying: seg6: add callbacks for customizing the creation/destruction of a behavior
+error: patch failed: net/ipv6/seg6_local.c:1015
+error: net/ipv6/seg6_local.c: patch does not apply
+Patch failed at 0001 seg6: add callbacks for customizing the creation/destruction of a behavior
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+When you have resolved this problem, run "git am --continue".
+If you prefer to skip this patch, run "git am --skip" instead.
+To restore the original branch and stop patching, run "git am --abort".
 
+Even if I grab the mbox from lore.kernel.org, it tries to do the same
+thing and apply the 3rd patch first, which might explain why the 0day
+bot got confused.
 
-
--- 
-Thanks,
-~Nick Desaulniers
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnvhyNs1arkVO1%3Dpw9GB9NePKUfQYAY%2BQ0Ur9Qe9HJ37w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201113190045.GA1463790%40ubuntu-m3-large-x86.
