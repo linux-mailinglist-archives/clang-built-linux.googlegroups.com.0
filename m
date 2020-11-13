@@ -1,129 +1,152 @@
-Return-Path: <clang-built-linux+bncBAABB7PVXL6QKGQEG6CAPMQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDH2DCX6QMORB67ZXL6QKGQEWAHMSNY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 110372B2129
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 17:57:35 +0100 (CET)
-Received: by mail-vk1-xa3e.google.com with SMTP id w63sf2875815vka.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 08:57:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605286654; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B45D2B217A
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 18:06:05 +0100 (CET)
+Received: by mail-oi1-x23c.google.com with SMTP id d206sf4186036oig.17
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 09:06:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605287164; cv=pass;
         d=google.com; s=arc-20160816;
-        b=waj6UijkPVlhgonGEm+UlH/c14Br530hal0WYUiLFRlnx9mwP7UK8yeYSj00S3KC+L
-         7QG0ppRQ3ZgYwb4EWmzuva5Phd4NjkZMW5RSiVrfS051caxkwFLMxi9p6xaoB/B28PLE
-         qMFUTFbVUa5TLoWec40Xc+NAwmaU254Ay83XrvPS3j8bVaTknn28srhveQJ7OWIbCBxq
-         t4yhX/uRYXGEBqSFaksMzQ9yrv/9k6in4ylgAgIhwPjWydFRo+wnE4um0MSBNkVIxkPc
-         KwTogw2GtedOrJlQC+cY+bhiQI8eq6yseqw1U2GfCOrz1tDk2xrxavchpIxJufaOYXsw
-         beCg==
+        b=ZhIsKSKJ8ZOXos3mKuTrnA4MAxNRTSyESG6G526FnoNwsdJzc56hLSvR84UhNymNXe
+         3z6iglgMnct9Td0n7sPp7iGl7jyRKr9WyNPrVrjCuxiRWrg+yGVZk0/JaTpy/h84WTAG
+         maN/+Q33lfmrqmDMPeaki2/Y/eQne3oBe7TWfU5B6Hdfrc+jrEJR7I2wKlHzw2SHvXd0
+         M64b1TrCBxO9qq3/cz3nSsFfVghgwrtJDAzHZ/wYorrIUVolRRFwRb4Al5mH1d56v/7g
+         uOU7HOc/h65W+0zYhRo1R+D5cy4qkEfTimd5QOXiyGfj+J7onEQ0FPPNoomMBdoLWPlf
+         /Mpg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=1F9K1yVC3Vq488SwRH5e57pUpPPqF45XpDTEO3wf2Nw=;
-        b=Pc5Bywiuek0osws1JqY6sgyyCfTE28VL3Bt++JbvKIF4ISYagc59hcgtnddV20bu6Q
-         RFV2Qs8ovxaOVub+I5sNX7b2CfS0NGv5jbROuINlGyA8InZplgH8CB/dyUPy893Asphz
-         iltbVNNaYuCgcJWvHMcmNKJ6z3eh2H6Tuzy54UTeWnbU+DhzBogbcduXw8ycVDcy3ThV
-         fnH4bKOHOKpS18uzjO/zq9C8CLXyEYwv2BR16Da4zUTqxal2ASywb97VneAEH7O96pnm
-         cpRg4+6xNEdLclNevG799RnZeUyx+lmJAT7bbv5T9V6yrN5/Me8NO9HaHJgYurETNICt
-         FPew==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature:dkim-signature;
+        bh=0CHMjdmfjHARDTQQm/rYsNslcWExJF4BFapq/T/T2KY=;
+        b=ODZCnmgJKd56WjQuv1EELTX54IPu5fPCYsrUZSBtQZVkN2wVMX/BudRnz2YyB0bRj1
+         qle2IOOgJeDs1b26LQTzcqukVk4iLIKTls9T9XDGiFZ9gtbUNpaOQjEszpn3uio03Hg8
+         +UsU5E2nvFv/hGDWo67tiZv769B7fycf0s7MMtL/895o5eGXRLtj+QK5QuIwTgcC50fX
+         u1bbdxBsKK+hcpC+4K2nqhbrmurkDvx2yD0vLXpYFkXbrQrR+stw4fbjLWe/NKmN0NNH
+         Ny9ykoa5T0gksP8e52POtnMC/eTmDI+TTtApMTbXgESb8QVDLvPyer69Kxe0bofrkWW1
+         haOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kHf7yJxG;
-       spf=pass (google.com: domain of kuba@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=kuba@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="N/rEvcJc";
+       spf=pass (google.com: domain of dsahern@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=dsahern@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1F9K1yVC3Vq488SwRH5e57pUpPPqF45XpDTEO3wf2Nw=;
-        b=HlO/tL8APSXQnS7lX25FnQ06RYttM2Sz+7ZbDa3JZjZ+VJ+yPyzn3aNAlH4RhWvLd+
-         +7/vCbJF+IB5DsuE2jTOI1+uTD7PUbvNUk8c9DJL6UjoXOEskZZci/YnLcPb6d1/orL9
-         AlwyOaIMpdH7H0k6oOw5yiprFPXoHeeGeo2p1BUvreey0WXqwZ/YaCx0xSsW6oKjBbNg
-         8SHjHSOOTzqx3OcmCp3XmAOYS9p+RzCfuH43yb5VPQRoXkBs2XUBrRYHN44PcfxsqEPz
-         +p3VGom4FP6NsFyyFYwwZ3tySRXC66BB2JhO4VIQhZb9h6X9la8YG6oedc2pkPytULap
-         QZgw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=0CHMjdmfjHARDTQQm/rYsNslcWExJF4BFapq/T/T2KY=;
+        b=I6W8SJzBs0+LOPLLph1PEFfiJBCld21NVq5mO/a8m1tr9lF8k8EaRQRWr1SMvynkkl
+         W9vwFnGZqyqC2FJecLVW4m5bUGj3OpQ0FGNVGelyNKJb8Ika9X6AHbIWgafC3cl47fZy
+         cNbxfVmvdzCPNqu6hoyQesXvMq/7HMZAsY87foj6rFuM1rjQj6+gGO8w1jd//dIZlOAg
+         W/nVehkFy3e/eMhGDYlYvSYEggUF5tw0AJ/Uging/a8iiLssUVboaAvOBL0TRO1ZChlG
+         R/H7413gghTAPxIdJACg8FdtOcwOuu2mWjyMMq8/1Ni0Z6Bsj1s+9NHQLq9FfqN1thBu
+         A/FQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=0CHMjdmfjHARDTQQm/rYsNslcWExJF4BFapq/T/T2KY=;
+        b=NFuOCnoyG8/3S2zK8Kv/HJs9vzYOOJBvl14tkdRaNctS0mYcOvpCoItyb3OKLAx7WE
+         YOTdsGeQaTqi9KBh3J6wWCYuq+KqOR8WHElzoJP7LGmu/jXcv6CWG+zNY+1vDxzW5vwV
+         Hv3GBgz+CVodIzfDkAoufqPgkpaY6gLbHp12OuR71WaI+crhWhFasu3Qmx5eqERVVrf+
+         tr4zZtdmp6s4e206ZxGVW9ylQlASnhJ/dQw3lQjAR4RfY2Y7ak9dIoEaXknOlDbX1x5M
+         ZJruWBiTgcLiyuhiGnjbYMdxbsrNzUlWIuO/JUfjcw7UadEfmLx3eRHqXX2RW0Aw5B0E
+         iFbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1F9K1yVC3Vq488SwRH5e57pUpPPqF45XpDTEO3wf2Nw=;
-        b=VRjqZy2GaikVFI7U81z5w+l2Gdkya+GwodtRaRv5PYK0UybsSWG+u0eQj+JtJFcm9u
-         doyZrLfN2OkSVaK/ceMwDKOhfClwIeW52LLzHO5alTtFMD+/xRFYaoBVsXU3kAjHuqG2
-         l7uSTUoz+3WAxiaLfH2UK7d4gKTsbE31nILxvssVu8k8gLdN+8xBoqKuafX6nks2pl1Y
-         Nxi/rG4bpx+aaFy1qgMlOxOvou8Vb4nCDknutf7ZKy741YfRbeers1pZ11x54TmPHOI7
-         aQo+UH4GKyzyYONR0YCqqR81aISauooqwfU4TLmie8OgoaA0wZctab2voEaY4FMC5xUk
-         4MWQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=0CHMjdmfjHARDTQQm/rYsNslcWExJF4BFapq/T/T2KY=;
+        b=dSZy/LoOElA8QxGj8nMbTVh3jvctCcoF7RKFGZ2XTCrdcOLBq8Yw2AmkbW5AZ2AR9J
+         UXJTFoIHQ2dxPk6RQKKRazmvBxLxPa4Q0wy1qdNrFhb4s3O3SjvKhqnqLwEmgbQyF56E
+         mBgt9v/U4TBgxC85npQ6FWKJrhh5LcUdn+wsPL/C9RYywWkleHg0Z354o4m02spYyZSb
+         Llr3AQcUfbv5Wn9AxBNMZC9TTNhtt1JanRBrD23HGUEzvDB9V88fAwJ//3rxvH1YVvpu
+         wOL/skEB3ZCrzjkMR/l6nkFPl+ARfNG+E9gjbRLRT1zTbkhTQeiQ3R/V4F3XtLpDof3q
+         kiAQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533N/IVPXe1IY0ppMnjUx/Zsm7Q9qV1LFuDlUYTu6pHQHyefkCXf
-	HrlUEfPRRdHpGRc7Ea/Y9EI=
-X-Google-Smtp-Source: ABdhPJy0TKf/oWgWsRU1WX8fhZXxnXerMs0DgriTN/B0Y3k4s7fIQb9s17wgPXequD05YyWMfRjOdA==
-X-Received: by 2002:a1f:2c4b:: with SMTP id s72mr1892444vks.16.1605286653944;
-        Fri, 13 Nov 2020 08:57:33 -0800 (PST)
+X-Gm-Message-State: AOAM533ZrzK6R0Rq+uecgO4vagkPBbc1Nq5j92PLxctJJTuOu9+8CSEx
+	Yjc1leAKnIDrE421z0j+epQ=
+X-Google-Smtp-Source: ABdhPJzrqDdh+gBvzCFLZNwWHOJHua7MPiNFWigPFpjQLnN51VE/nwffLkK0YakILpQsFoBSqFtmBw==
+X-Received: by 2002:a54:4614:: with SMTP id p20mr1993710oip.131.1605287163884;
+        Fri, 13 Nov 2020 09:06:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:d098:: with SMTP id s24ls965642vsi.5.gmail; Fri, 13 Nov
- 2020 08:57:33 -0800 (PST)
-X-Received: by 2002:a05:6102:30a7:: with SMTP id y7mr1953872vsd.55.1605286653506;
-        Fri, 13 Nov 2020 08:57:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605286653; cv=none;
+Received: by 2002:a9d:bb2:: with SMTP id 47ls1705598oth.9.gmail; Fri, 13 Nov
+ 2020 09:06:03 -0800 (PST)
+X-Received: by 2002:a9d:590e:: with SMTP id t14mr2416349oth.230.1605287163398;
+        Fri, 13 Nov 2020 09:06:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605287163; cv=none;
         d=google.com; s=arc-20160816;
-        b=N53dxV2lF4BFR7lumaRbM5pBMpKnqsk+r0WNUYorkzE00kAdbvs64K167+lg0+HmD6
-         8Gx+eSh1F0RO4o+jpXPQx4wnY6nq3oMtuy0y7iPjmLmHlJ4p3/nFh3RG2h5ziAkzns7b
-         /QMiyrVkpMcwxziSc2sJ1DX21DrEZtPnH21iqI2v6PvrXZBWs9D/tfSByHUNR7QROzIk
-         /uMTN7E1hR6mjOuyfbQLBpnDnZmOlS6y/qhXblkOIOBvxpLa30RzGvJsCIhUWgPmblWf
-         HykNPInrLD4NtnUgQ2MILkRc4WcDn6+jYAI7fzzropr4UfYN73W8k4kFyAJGxqExfvKg
-         TfUQ==
+        b=sSJ0uwVVPOUjUJeopqhdb7mTqBLvi1k77UkmXLLTiEmluqZnl/4JB2y7LQ1zVoWL2G
+         wbD/0o6Hsyhw0leeWI6DAlVODr09KyA297dE94hqVcnAviInphcx092KaDA6viVoBNna
+         a1nPKKMIS4a8nYKjDS+pE/5nzFW8XZ5ArIPrXOhpFpMuP8EWGGmPpIlFxdIRGNEE+K3r
+         Ry3IWfDPnu4ehk3ygJz+yk6VT278F0sysfC52n3o4dxEmwr7yGq4pTFHhyFY4lcKVB/3
+         N8qU7nm4PB0Y8a/EXPxL/r5FMTh6OT5jL5fk/ZpryDvEw66LdHSpo5Awn0HWO3DW8CVz
+         uMcw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=qTdqzlLGEB3kNGUTPcckxk7gjLRD6KgyWxJH8oNfrP4=;
-        b=y4eEZfXP8LxzS+N1qLEkPvoYVG/3xXyNEz8Yq4Pe2WNwi/WhZqlGs+El+fl7KbxRnn
-         lLkdgXMkKSvqeH8xsnUvdldhWfXsxHuBHutoT1pxXiUlixuvEqRufZOwZkGx1x480q3x
-         AHd7E5lN+85BeufNqLetU9lKc4fXR9xLrJEPKoIVa2uQklsMf8XfbROy89GDC8rKmzIs
-         jj5FIsh6TyijZSJUQpOdI/lADMPoY9NNySWUUu5OppdPjZwd3R6mm+Cs7qPHK5vNI5+K
-         HB374zMkLVkrC+LI3bwdKLxqHH8ULk/h9MKVCfwcm1HdO1DlDZusXgbLyqcyugLBjs52
-         J1EQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=ZzkYhypxoa0I35MEZMu6CatIuch2sLYMY75i1GLDhAk=;
+        b=NJ/nj+Xs2d/3X+5hiNGWkMGgZjHnW3aWezx+8gqax/YvbABBXfk1OOcMh6X3SZ8hHJ
+         aA7K1ssPP+taM13dTJJwMUCsB5SPE5G8AI5CH51JHTts0Ww/Oe5+Kl8qrAXkQIsyBp2e
+         qAY6/Th/FSzO1w5ElX86tu63O7pB12cNo3rFjx5WkxLfwCTr8gwwjK24segEsPLykzH7
+         vEHdB2vLOHS20wRwJHSL4DJiaDRpo33OyYxpQ+KxPpsbbDCKJHpENn2h1czBT8TTk+gK
+         0yTB/RQ1eQdrxm0MqcbidD77/PPGgcl0akWcmUgySxVsuzf/z/y1YpeCjkTpv4xe5BnC
+         D/jw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kHf7yJxG;
-       spf=pass (google.com: domain of kuba@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=kuba@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t26si488688uaq.1.2020.11.13.08.57.33
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="N/rEvcJc";
+       spf=pass (google.com: domain of dsahern@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=dsahern@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd2f.google.com (mail-io1-xd2f.google.com. [2607:f8b0:4864:20::d2f])
+        by gmr-mx.google.com with ESMTPS id d20si934744oti.1.2020.11.13.09.06.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 13 Nov 2020 08:57:33 -0800 (PST)
-Received-SPF: pass (google.com: domain of kuba@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com (unknown [163.114.132.6])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 95742217A0;
-	Fri, 13 Nov 2020 16:57:31 +0000 (UTC)
-Date: Fri, 13 Nov 2020 08:57:30 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Andrea Mayer <andrea.mayer@uniroma2.it>, "David S. Miller"
- <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, Alexey Kuznetsov
- <kuznet@ms2.inr.ac.ru>, Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>, Shuah
- Khan <skhan@linuxfoundation.org>, Shrijeet Mukherjee <shrijeet@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com, netdev@vger.kernel.org
-Subject: Re: [net-next,v2,4/5] seg6: add support for the SRv6 End.DT4
- behavior
-Message-ID: <20201113085730.5f3c850a@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
-In-Reply-To: <202011131747.puABQV5A-lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Nov 2020 09:06:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of dsahern@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) client-ip=2607:f8b0:4864:20::d2f;
+Received: by mail-io1-xd2f.google.com with SMTP id m13so10449546ioq.9
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Nov 2020 09:06:03 -0800 (PST)
+X-Received: by 2002:a5d:91cf:: with SMTP id k15mr529700ior.161.1605287158333;
+        Fri, 13 Nov 2020 09:05:58 -0800 (PST)
+Received: from Davids-MacBook-Pro.local ([2601:282:800:dc80:99e7:10e8:ee93:9a3d])
+        by smtp.googlemail.com with ESMTPSA id y19sm4773095iol.9.2020.11.13.09.05.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Nov 2020 09:05:57 -0800 (PST)
+Subject: Re: [net-next,v2,4/5] seg6: add support for the SRv6 End.DT4 behavior
+To: Jakub Kicinski <kuba@kernel.org>, kernel test robot <lkp@intel.com>
+Cc: Andrea Mayer <andrea.mayer@uniroma2.it>,
+ "David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>,
+ Alexey Kuznetsov <kuznet@ms2.inr.ac.ru>,
+ Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ Shrijeet Mukherjee <shrijeet@gmail.com>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+ netdev@vger.kernel.org
 References: <20201107153139.3552-5-andrea.mayer@uniroma2.it>
-	<202011131747.puABQV5A-lkp@intel.com>
+ <202011131747.puABQV5A-lkp@intel.com>
+ <20201113085730.5f3c850a@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
+From: David Ahern <dsahern@gmail.com>
+Message-ID: <c7623978-5586-5757-71aa-d12ee046a338@gmail.com>
+Date: Fri, 13 Nov 2020 10:05:56 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.4.2
 MIME-Version: 1.0
+In-Reply-To: <20201113085730.5f3c850a@kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: kuba@kernel.org
+Content-Language: en-US
+X-Original-Sender: dsahern@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=kHf7yJxG;       spf=pass
- (google.com: domain of kuba@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=kuba@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b="N/rEvcJc";       spf=pass
+ (google.com: domain of dsahern@gmail.com designates 2607:f8b0:4864:20::d2f as
+ permitted sender) smtp.mailfrom=dsahern@gmail.com;       dmarc=pass (p=NONE
+ sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,144 +159,18 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Good people of build bot, 
+On 11/13/20 9:57 AM, Jakub Kicinski wrote:
+> Good people of build bot, 
+> 
+> would you mind shedding some light on this one? It was also reported on
+> v1, and Andrea said it's impossible to repro. Strange that build bot
+> would make the same mistake twice, tho.
+> 
 
-would you mind shedding some light on this one? It was also reported on
-v1, and Andrea said it's impossible to repro. Strange that build bot
-would make the same mistake twice, tho.
-
-Thanks!
-
-On Fri, 13 Nov 2020 17:23:09 +0800 kernel test robot wrote:
-> Hi Andrea,
-> 
-> Thank you for the patch! Yet something to improve:
-> 
-> [auto build test ERROR on ipvs/master]
-> [also build test ERROR on linus/master sparc-next/master v5.10-rc3 next-20201112]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Andrea-Mayer/seg6-add-support-for-the-SRv6-End-DT4-behavior/20201109-093019
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/horms/ipvs.git master
-> config: x86_64-randconfig-a005-20201111 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 874b0a0b9db93f5d3350ffe6b5efda2d908415d0)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/761138e2f757ac64efe97b03311c976db242dc92
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Andrea-Mayer/seg6-add-support-for-the-SRv6-End-DT4-behavior/20201109-093019
->         git checkout 761138e2f757ac64efe97b03311c976db242dc92
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> net/ipv6/seg6_local.c:793:4: error: field designator 'slwt_ops' does not refer to any field in type 'struct seg6_action_desc'  
->                    .slwt_ops       = {
->                     ^
-> >> net/ipv6/seg6_local.c:826:10: error: invalid application of 'sizeof' to an incomplete type 'struct seg6_action_desc []'  
->            count = ARRAY_SIZE(seg6_action_table);
->                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    include/linux/kernel.h:48:32: note: expanded from macro 'ARRAY_SIZE'
->    #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
->                                   ^~~~~
->    2 errors generated.
-> 
-> vim +793 net/ipv6/seg6_local.c
-> 
->    757	
->    758	static struct seg6_action_desc seg6_action_table[] = {
->    759		{
->    760			.action		= SEG6_LOCAL_ACTION_END,
->    761			.attrs		= 0,
->    762			.input		= input_action_end,
->    763		},
->    764		{
->    765			.action		= SEG6_LOCAL_ACTION_END_X,
->    766			.attrs		= (1 << SEG6_LOCAL_NH6),
->    767			.input		= input_action_end_x,
->    768		},
->    769		{
->    770			.action		= SEG6_LOCAL_ACTION_END_T,
->    771			.attrs		= (1 << SEG6_LOCAL_TABLE),
->    772			.input		= input_action_end_t,
->    773		},
->    774		{
->    775			.action		= SEG6_LOCAL_ACTION_END_DX2,
->    776			.attrs		= (1 << SEG6_LOCAL_OIF),
->    777			.input		= input_action_end_dx2,
->    778		},
->    779		{
->    780			.action		= SEG6_LOCAL_ACTION_END_DX6,
->    781			.attrs		= (1 << SEG6_LOCAL_NH6),
->    782			.input		= input_action_end_dx6,
->    783		},
->    784		{
->    785			.action		= SEG6_LOCAL_ACTION_END_DX4,
->    786			.attrs		= (1 << SEG6_LOCAL_NH4),
->    787			.input		= input_action_end_dx4,
->    788		},
->    789		{
->    790			.action		= SEG6_LOCAL_ACTION_END_DT4,
->    791			.attrs		= (1 << SEG6_LOCAL_TABLE),
->    792			.input		= input_action_end_dt4,
->  > 793			.slwt_ops	= {  
->    794						.build_state = seg6_end_dt4_build,
->    795					  },
->    796		},
->    797		{
->    798			.action		= SEG6_LOCAL_ACTION_END_DT6,
->    799			.attrs		= (1 << SEG6_LOCAL_TABLE),
->    800			.input		= input_action_end_dt6,
->    801		},
->    802		{
->    803			.action		= SEG6_LOCAL_ACTION_END_B6,
->    804			.attrs		= (1 << SEG6_LOCAL_SRH),
->    805			.input		= input_action_end_b6,
->    806		},
->    807		{
->    808			.action		= SEG6_LOCAL_ACTION_END_B6_ENCAP,
->    809			.attrs		= (1 << SEG6_LOCAL_SRH),
->    810			.input		= input_action_end_b6_encap,
->    811			.static_headroom	= sizeof(struct ipv6hdr),
->    812		},
->    813		{
->    814			.action		= SEG6_LOCAL_ACTION_END_BPF,
->    815			.attrs		= (1 << SEG6_LOCAL_BPF),
->    816			.input		= input_action_end_bpf,
->    817		},
->    818	
->    819	};
->    820	
->    821	static struct seg6_action_desc *__get_action_desc(int action)
->    822	{
->    823		struct seg6_action_desc *desc;
->    824		int i, count;
->    825	
->  > 826		count = ARRAY_SIZE(seg6_action_table);  
->    827		for (i = 0; i < count; i++) {
->    828			desc = &seg6_action_table[i];
->    829			if (desc->action == action)
->    830				return desc;
->    831		}
->    832	
->    833		return NULL;
->    834	}
->    835	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+I kicked off a build this morning using Andrea's patches and the config
+from the build bot; builds fine as long as the first 3 patches are applied.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201113085730.5f3c850a%40kicinski-fedora-pc1c0hjn.dhcp.thefacebook.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c7623978-5586-5757-71aa-d12ee046a338%40gmail.com.
