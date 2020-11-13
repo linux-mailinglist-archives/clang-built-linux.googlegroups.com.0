@@ -1,132 +1,129 @@
-Return-Path: <clang-built-linux+bncBAABBL6HW76QKGQED5XL4HA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4XGV33UIBBEHHW76QKGQEHOX5JEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 57E302B13EB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 02:38:57 +0100 (CET)
-Received: by mail-pj1-x103a.google.com with SMTP id v10sf1288853pjg.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 17:38:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605231536; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C8FA2B1467
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Nov 2020 03:46:41 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id l3sf4967465ply.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Nov 2020 18:46:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605235600; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qAFNFtqrcH38i6VaL7seYz2+hAYBrd4gy/Nd+714y+jdBKFC4K+tBGYSStJzlhFnf8
-         zxuDKURiDNKMh99yiYIpcEfLlKB5A6TtwWvElhFRyT5FHzsjv7PNq2VUXy/PE+QFFsQI
-         vU09pAvZqBnN8H6rcENanCyB2eyF8Kbs4zGmzEyKJ8T/NcgDGBvfFrkfSUxIGPofxtPF
-         aXIvfrzJpd8eQAIabF3dryF7UeoFePkE5Po1VSz8Iq52XDeLu1YkViDbXAeigGC7+fZF
-         jcxh+UqAKjXdkA1anniHPbsGXFCX8kFRaUgUVD4Di8P1t2Dxz0eGk4RhNU/H2mAcuIcG
-         xs9w==
+        b=GAKlB/jyyjvWvDKxlZoNvAeZhaGFwqIYJ7VvFXrCYjUeBic2bslIz5H2D9zYVo7j9b
+         JcU6cMAjGpLtlkJsHtuNTp95BCDcBk6Pv1nQW0jze/q8ufTOCxugHdD7sXSniG3b8Hlp
+         t096FeOT7BXiFOxDkGkQVX4i71EZBc0veEG3zq5sRXxhaPvSJxKxDbhTOclNacFgc998
+         ZYxbJokAiEnDe/UYqIOhM6JXJ+12FlQM7ewTtoUtCfZkTcIMOrTz4tmOvMDl9NugAOko
+         CMh+bGdFwaghHNcQWgcokVJk/whHOdvUHKWdVqbPVJoq2pKldlwPS5d0zAUo0fRgO9tk
+         TuBA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=EYXi76qLHAkixohpdKIfxxle24yiDiB5nLHzhXN1zIM=;
-        b=Qlis36p2eqybd8j7JWh9wV9TpWWfIBPo5jCugai4kWHvbLWF/WJJWpqvs03MJ2CcZs
-         PRubn/m5DHaFkiZGFRzcw+UBuKLw4gki6DCVUJP74UN1b3DZHYxAf/wXLdPsTF+1jMaq
-         Q82Y4W0hlEnD3S8SIIh9Y4iWxdKe6DzFaq0JsGPRuxJfh/NJtGkOFFG7NeyEAn8666CE
-         PYwuGhXlv7gF6i1LF/ESBuSIaZrcg9DbhiAmpHekTtYVWuII1Ya8JXaoU/T3ey7EKcAt
-         fI/ECUj0O4wbSG+y8fJtziH9YT8p9eOBtIWyAU2VPHF3TbCulQlgAOd8hivQ7Qtw/Rkp
-         lLGg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=ck3Ux8MyEnXSNC3OFLodd24i4m5Up8AuZWSlz+C5V1g=;
+        b=Vh4xEFD6ufVpjDaGAovVdgXwWpB/J3+KRUJvGAbG6QXXVG4pCGLwdqw3u4Eb+Eywwb
+         WVJKt33D6ob4ZMj90b2UokWmTC2TkR6V74F0wLaf18D6VpXODwbPLxa2zThmrQmO8l+7
+         77L42NTmoj3SmnLqQq7NK6ydBZxQj5Isksy/SoB3acy2EaZ7GMBfTX3Zesu7/hG0CeLM
+         OiAozx7zjGLH8uTsCtxgPJxdykcc/WQMxfFypCvLgCeC/0RVbudRP+oqzkfMqZoMEzf/
+         aPd5nVUWV+HXG/ZIMnLLn0gb6C/2723Q9o4jvcnDbdO1L7jaaJHkI0xLcEPXd4TPv3t7
+         3o5g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=Dr1IhRvv;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@kernel.org header.s=default header.b="U/1UCboz";
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=EYXi76qLHAkixohpdKIfxxle24yiDiB5nLHzhXN1zIM=;
-        b=Cu6Vm8Oext5UOu3wa+wbNbXI5xT1u3xARYvYZjeZdrJo45zIsgu+9lZ/Q3Mh0bSDvM
-         yywv0KdSlDO1D6NvrO7VVhfb3dUgjqy0acIPFvyNW/4wpesFhNsOwfYaR+eQfgsMgIYA
-         KcGg1s2olqgzPV+MFpVLXIuEIjBdLIYIkZkC1cnqZF2GKN09ZEWPCHqFrVYzsdiqFBd3
-         AmS3RML9iq/c59Ax7GsoDNJoV3DA9Ex/wiJAboYUl/MqXHuYasJxDj584rWUySsvGzpK
-         QGOkJJl/MZpFVGM/k3cGlah3+D0JGiALsxipoKKJE2YIoe/Ax3nJxFIaGxc5dbgMmOXQ
-         2M3g==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ck3Ux8MyEnXSNC3OFLodd24i4m5Up8AuZWSlz+C5V1g=;
+        b=V/XNyaA3TpdbiO1rhIxPt3CB/DQ2i8AjDHobXlGpk5Wg4Ed/AXjOEzZQJ598fj7DzQ
+         1ypkN/IZmczv2jdXKZ31H9bRAYXvrDO5ZfoBBmrMauiubABC/X9v4J9yXl5fMTtWQLmc
+         j8E4KqhqIKfZFloqM9YVIvf7kmJZYJXJxzbsW+vm+QecAd57rHZ1cv4q+ooGwcEJDFB9
+         7nN4JnjmLwU8kuY7kl7/ie0m7y8GWWihLw0pJYzNFJB9hlSjZZds4Wq8MALtSMb/cqXl
+         9MJMigrcyx/Q5/oOJS3e6bZ1OC+93DU2WzJ+Kv+yMUg12oxGRtkIMkNJRlIU3yRVi/T0
+         D0mQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EYXi76qLHAkixohpdKIfxxle24yiDiB5nLHzhXN1zIM=;
-        b=Ny6A4LPrHqRrlu27rCM8fUpSC4pLROYnm/Gdp5fVyeHG5HKhUsoyECtIgOyUYuj3mK
-         e0JkPMlsDt/FPbNboqY0j8sW22nSBashzDL051cF+xP26OwE9aVuCWXdIxlZJ26Yu1wL
-         wKFhzOTmE7dXwnnI7MBtoTPxVoLrUeFD6qDl+VJx/NyG1+vnlrZAY7OERC2xksUynVfo
-         AefbEwVXEMsgcL+lSVZu0VaVbbydoBS203Uv/vdQYX4uE6p4a4hlz+QONRfxiqbcy7kw
-         574Gmy6+9wwd7WG6n6j6p9K6QdIQVVTKrxb+pj+lIEL1geeXptQIHyaDSGenxPxUcd06
-         aepA==
+        bh=ck3Ux8MyEnXSNC3OFLodd24i4m5Up8AuZWSlz+C5V1g=;
+        b=sMa0de/V1Hk9YU3EQCimH0V+YNLEYMaUugSyTvsG8lz94+Xt++d4zqoeAdYavreBJC
+         0mnYtDv4dtdbadg3EUXp8lcurDfsnlYuvXuaWvyx8Zs5HPoyUhN+9w1mrJTjAbLE5u9+
+         PQUBULnBQcQF1Cu/ABlxyNr1Kx2S5YiLI0Ovwp5kAX3cnYOWyjWrdQMmswqpGo4LB22E
+         dHfWyBwEE6DnMEsJQjIiGOSTXdsvMf1ngbW0nJ6/Ht5lsUY12mZRstNZXYvtMcTOFgPc
+         /uqYT4YCHMkg/J58p6Elav1f3KhcFrR36VuBeTVEKnykM9bc7CTg/2jpAWsYKPvVlpzf
+         iNsA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532CiBzbdjSNP8sQPdg2IkfjPWLNXCAW11z1dn+e6OPVW0e1KsxL
-	ZGiMiKox2P+Aqq0cgdXwOUo=
-X-Google-Smtp-Source: ABdhPJzPpunkWyo23yT8X/q67djNAwQt21YZa7yByhwaQd+Cpa0CxbtVdpaEZVQaWb7qZllUBlj28A==
-X-Received: by 2002:a62:2c16:0:b029:15d:8d2:2e6d with SMTP id s22-20020a622c160000b029015d08d22e6dmr2078371pfs.52.1605231536098;
-        Thu, 12 Nov 2020 17:38:56 -0800 (PST)
+X-Gm-Message-State: AOAM531b8mvAGA/sWsdrQ5YNwBf8Q/iPWCLhNKNx54QGrq9+mwz8Wpgj
+	RdgAlHR1PcuDCjf3jn6LJtM=
+X-Google-Smtp-Source: ABdhPJxrtBNLtBUkya2G9WVEh/S7EZG+J69A0aoanWZecWeDwU4bNiZuycVz59CvDaEPSZtGXAQJRA==
+X-Received: by 2002:a17:90a:cb05:: with SMTP id z5mr387342pjt.216.1605235600183;
+        Thu, 12 Nov 2020 18:46:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8d98:: with SMTP id v24ls2249275plo.4.gmail; Thu, 12
- Nov 2020 17:38:55 -0800 (PST)
-X-Received: by 2002:a17:90b:3595:: with SMTP id mm21mr108611pjb.204.1605231535618;
-        Thu, 12 Nov 2020 17:38:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605231535; cv=none;
+Received: by 2002:a62:543:: with SMTP id 64ls1708007pff.2.gmail; Thu, 12 Nov
+ 2020 18:46:39 -0800 (PST)
+X-Received: by 2002:a63:4d64:: with SMTP id n36mr324509pgl.203.1605235599493;
+        Thu, 12 Nov 2020 18:46:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605235599; cv=none;
         d=google.com; s=arc-20160816;
-        b=lG7CvjI2wzNZQncbPwhn1xd/T0e2QHec9GTSsuIy0hdzOaw3doOEtJN/H/lJyY1ySB
-         R0LsqCA+KNjaqjukrHVjNQLwFhQ6IjnljUBfBe5mE6TrACFEL05S3PVwpbJl3JlbvX/i
-         Hfm8ePbwmM0UOGEVikS7VgGuH4WFMHyELGQ9edIzZWJ1X6Rhj/GUJp7y5ZcpSxpSGzgz
-         tgSstrheNnhLAB8EFVD4cmAQF6RhWGS1oDGIXPq24FnkxZ5Y/BcNpfDkxU4txxVYQB59
-         ndVB5QLkrxo6L/Dn5rEKkJ4PYz/sDgttkigbLHZ2AzCiQKcdjkXND1HwyQciwqeLXaf2
-         oKtQ==
+        b=JqvVRKD2qu08WJ8VqqIG1iGvuj0KXip0u5jSsmAAUu5x8ombmvpU6K7aoM9vShDnsK
+         I/a7eqS7I5hyvZ8FZKmg05vjp/jhOXrOeop6cxb9v4wEB0qyha5KEgYgBuy4ojpQBYjC
+         0i40T2GSD9ptYxhv1P3nhGitCt+PlubtqfrDFK+iHInxtfEnWyLf4BaAjLEbLuXRsDKh
+         LBr6dxq3PDzrPUsUJrqB0ZlHTtioYEiLhb8VRXZAjukFqSXiisJX0kJnNSWP8GUw2Chq
+         BEgfSrjqSp9m+GhZuDdqxeYsM+lEq/fBXl1tR1nQCbKEBi8Iz8zQdxRU1hshsBBKpChq
+         3LGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=LHDRWxltoY9Yzek2U2YM/IJ9PiLbIoLYK2g+Xufu3xQ=;
-        b=PGZotf6Wix8H7ol4gwbpFbnnr4IncXY3O2+KI/TMbSrDHNRfVM3yG/Q6yQiyOn6qgp
-         YeS+mcfVE8pzXq3Ox6ppjv1tctzcxURba746oS9y/dDA5mrz/Ce9kDb9SFC2Nh8vZ6zA
-         X7eOTG7Wmo9K0oeCxWe3scLhZ2ZzqfvXnFCbSXLR4/amHKLo6HQs8RiwCOEB2wdikgXH
-         hdApfawjlWFBVv85ElpeLg87CVJLVqDSKcd30oycpiScrYaauSGJLSTAYo0ysRWE88Ts
-         /lhTXLudM/RBii5slOFDlR8Kh1vlhrWYEjWTr93iUR3zr4cNfOtRbJS18M6LhAomIfnN
-         rAaA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=xVN4M3CyFKBDcLKo0zurUbZBLyWsTUoKL6br5htOmbk=;
+        b=iioa+dj1ac/AV06jxgFlEzfHBjo0EvQEKFkPRPCCsYNamsjUUyNzayZDlZEln48M0y
+         C88/4OTfy38EQCmiEDdhWqj/rnGPJlYBYA/3czwWiAMqgQCLGwIM/xkkuJaHttWOC+eu
+         9m/v9LuUdGjg6gLH6zqXy6EywvR6/pwP/VAZw5j6cqhFiVZMMjiNsoNuKUZYPc6PseO8
+         uUhiaGEc+2fAGFsCyedKOwrjjZfIBlU9bWMY/L5r2udiTs9eqb1zYTOivxej0Xn3yBGT
+         oGzB9nbKzVAzIi7o+ykm2JNx50j9IFPm+3mYIk+DuW6uXK4AeWeQMpkU+YQTVs6lvn08
+         7E6w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=Dr1IhRvv;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
-Received: from linux.microsoft.com (linux.microsoft.com. [13.77.154.182])
-        by gmr-mx.google.com with ESMTP id i5si1023850pjz.1.2020.11.12.17.38.55
-        for <clang-built-linux@googlegroups.com>;
-        Thu, 12 Nov 2020 17:38:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of mcroce@linux.microsoft.com designates 13.77.154.182 as permitted sender) client-ip=13.77.154.182;
-Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com [209.85.222.180])
-	by linux.microsoft.com (Postfix) with ESMTPSA id EA16020C2887
-	for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 17:38:54 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EA16020C2887
-Received: by mail-qk1-f180.google.com with SMTP id d28so7504355qka.11
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Nov 2020 17:38:54 -0800 (PST)
-X-Received: by 2002:a05:620a:2106:: with SMTP id l6mr2787457qkl.302.1605231533991;
- Thu, 12 Nov 2020 17:38:53 -0800 (PST)
-MIME-Version: 1.0
-References: <20201110202746.9690-1-mcroce@linux.microsoft.com>
- <20201112035023.974748-1-natechancellor@gmail.com> <20201112151320.e0153ace2f2eb5b59eabbdcb@linux-foundation.org>
- <CAFnufp1j6ZzxLJA2x28BdxbTtnN_KtnXB49ibPcbze=B2ru3aA@mail.gmail.com> <20201112171826.0fa3c6158f3c2780f90faafe@linux-foundation.org>
-In-Reply-To: <20201112171826.0fa3c6158f3c2780f90faafe@linux-foundation.org>
-From: Matteo Croce <mcroce@linux.microsoft.com>
-Date: Fri, 13 Nov 2020 02:38:18 +0100
-X-Gmail-Original-Message-ID: <CAFnufp1OrGeGgUn9_2V9HMtfb-7GwuEwz4+Co_W8ehcVOQVscw@mail.gmail.com>
-Message-ID: <CAFnufp1OrGeGgUn9_2V9HMtfb-7GwuEwz4+Co_W8ehcVOQVscw@mail.gmail.com>
+       dkim=pass header.i=@kernel.org header.s=default header.b="U/1UCboz";
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id v8si477763pgj.1.2020.11.12.18.46.39
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Nov 2020 18:46:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost.localdomain (c-73-231-172-41.hsd1.ca.comcast.net [73.231.172.41])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 431DF204EF;
+	Fri, 13 Nov 2020 02:46:38 +0000 (UTC)
+Date: Thu, 12 Nov 2020 18:46:37 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Matteo Croce <mcroce@linux.microsoft.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann
+ <arnd@arndb.de>, Kees Cook <keescook@chromium.org>,
+ linux-kernel@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>, Pavel
+ Tatashin <pasha.tatashin@soleen.com>, Petr Mladek <pmladek@suse.com>, Mike
+ Rapoport <rppt@kernel.org>, Tyler Hicks <tyhicks@linux.microsoft.com>, Nick
+ Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com
 Subject: Re: [PATCH] reboot: Fix variable assignments in type_store
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org, 
-	Guenter Roeck <linux@roeck-us.net>, Pavel Tatashin <pasha.tatashin@soleen.com>, 
-	Petr Mladek <pmladek@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-	Tyler Hicks <tyhicks@linux.microsoft.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux@googlegroups.com
+Message-Id: <20201112184637.de44afedf0ce0dcab36dd0ad@linux-foundation.org>
+In-Reply-To: <CAFnufp1OrGeGgUn9_2V9HMtfb-7GwuEwz4+Co_W8ehcVOQVscw@mail.gmail.com>
+References: <20201110202746.9690-1-mcroce@linux.microsoft.com>
+	<20201112035023.974748-1-natechancellor@gmail.com>
+	<20201112151320.e0153ace2f2eb5b59eabbdcb@linux-foundation.org>
+	<CAFnufp1j6ZzxLJA2x28BdxbTtnN_KtnXB49ibPcbze=B2ru3aA@mail.gmail.com>
+	<20201112171826.0fa3c6158f3c2780f90faafe@linux-foundation.org>
+	<CAFnufp1OrGeGgUn9_2V9HMtfb-7GwuEwz4+Co_W8ehcVOQVscw@mail.gmail.com>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mcroce@linux.microsoft.com
+X-Original-Sender: akpm@linux-foundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux.microsoft.com header.s=default header.b=Dr1IhRvv;
-       spf=pass (google.com: domain of mcroce@linux.microsoft.com designates
- 13.77.154.182 as permitted sender) smtp.mailfrom=mcroce@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+ header.i=@kernel.org header.s=default header.b="U/1UCboz";       spf=pass
+ (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,50 +136,26 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Nov 13, 2020 at 2:18 AM Andrew Morton <akpm@linux-foundation.org> wrote:
->
-> On Fri, 13 Nov 2020 01:20:29 +0100 Matteo Croce <mcroce@linux.microsoft.com> wrote:
->
-> > While writing the script I found that in the documentation I left for
-> > 'type' the values from
-> > Documentation/admin-guide/kernel-parameters.txt, which is 'pci' for
-> > cf9_force reboot.
-> > While at it, should we update the doc with the values 'cf9_force' and
-> > 'cf9_safe', or rename to 'pci' and 'pci_safe' to be coherent with the
-> > kernel cmdline?
->
-> I looked at Documentation/admin-guide/kernel-parameters.txt's "reboot="
-> section and decided that I don't understand your above words :( Can you
-> please expand on all of this?  Simple akpm-compatible words ;)
->
+On Fri, 13 Nov 2020 02:38:18 +0100 Matteo Croce <mcroce@linux.microsoft.com> wrote:
 
-Heh sorry :)
+> At this point, since 'pci' enables BOOT_CF9_FORCE type and
+> BOOT_CF9_SAFE is not user selectable, should I simply leave only
+> 'pci'?
+> This way, we'll have the same set of options for both sysfs and kernel cmdline.
 
-I misread the code, I thought that BOOT_CF9_SAFE was user selectable
-because of the enum value:
+Well, you're the reboot expert ;)
 
-enum reboot_type {
-...
-BOOT_CF9_FORCE = 'p',
-BOOT_CF9_SAFE = 'q',
-};
+But my $0.02 is yes, let's keep the command-line and sysfs interfaces
+in sync and cover it all in documentation.  It would of course be
+problematic to change the existing reboot= interface.
 
-But when parsing the cmdline, 'q' is simply ignored, so it's just an
-internal flag.
-It's used only by arch/x86/kernel/reboot.c in the loop which tries to
-reboot in different modes until it succeeds.
+I assume that means doing this?
 
-The doc is right, never mind.
-
-At this point, since 'pci' enables BOOT_CF9_FORCE type and
-BOOT_CF9_SAFE is not user selectable, should I simply leave only
-'pci'?
-This way, we'll have the same set of options for both sysfs and kernel cmdline.
-
--- 
-per aspera ad upstream
+- #define BOOT_CF9_FORCE_STR     "cf9_force"
++ #define BOOT_CF9_FORCE_STR     "pci"
+- #define BOOT_CF9_SAFE_STR      "cf9_safe"
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFnufp1OrGeGgUn9_2V9HMtfb-7GwuEwz4%2BCo_W8ehcVOQVscw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201112184637.de44afedf0ce0dcab36dd0ad%40linux-foundation.org.
