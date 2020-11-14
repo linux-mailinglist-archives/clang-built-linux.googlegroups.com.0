@@ -1,126 +1,123 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBBLPVYD6QKGQEO4MADEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBZP5YD6QKGQEAS7CTCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F3842B3092
-	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 21:14:38 +0100 (CET)
-Received: by mail-lj1-x23f.google.com with SMTP id e25sf6150682ljg.18
-        for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 12:14:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605384877; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4AA302B3099
+	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 21:32:38 +0100 (CET)
+Received: by mail-yb1-xb3a.google.com with SMTP id z29sf15354844ybi.23
+        for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 12:32:38 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605385957; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nOcdvwrXwl5JTUj3qUBlaptrMH0+JMFjoyGOz6o3WFX9zxp7Ge6X39YGu7Wbh+2hoU
-         DoXoSFkgflXTrEGBV89xq+jk+yXmQDMyG17ZTS9+sj/Os2+5YdcSIaUy3Jb/lMxHeyr1
-         GSIBthA7gDqbrwQyymFU154s4KGUCsvji1sOD0hDsgoi5wljJ9KtBizBh9EAzQiwmeyC
-         kibstox9ytfAIS2oZl0+lizFr6Dib8sNMwUQcuhPdMgFjMViPBvOmH+F7rKFS8xs1obH
-         chvjW4mF4nl0utOPUhgT+95Jc86ht3FR3LewXqPAgaNi8Kqq3rwjE/jw/d5+PMHF9UGQ
-         EQ1A==
+        b=fUcUI4LZFBk39MhXzS8EU/Av7NuJlkjgSS/pAjMsZUkFobY/6IINMEHhD1FXkYKU9r
+         sLCb6pd/65A0xbtJOhSaAyMrlxkfQCUGaTtKSihHpFurdrl7Y0CrSo/DUFk/jDVnZt4S
+         79tCqX9zZNYgJ7ISToK03hPba8fUp0SfkpGzfJnEThZ8XN7tsQLMnemzgiSQMYwypqIF
+         wL5nlAVJKLZ0Qx3PL7N3EPAKUPFNHLABSdvmClq4Lz4EGdaiUXaF8dXi8u+fyidPWKWd
+         y13I5qpWOcG0KWvWSnAoMBWzHYbZE5x+XF6g9vlvBIJEIPcQTotiOveznpzPi4fqWxK1
+         9mKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=zqNjSQQXmFlJDWz7GX1gs0bqB/6KPGOgniKf2dCKx5E=;
-        b=hJJeGLyxcGHwrHCGYpFEDG2rAWue61o5DAyOazNo1Nas3PBScY0UXe2jyx/4AZUIZJ
-         tFcVwEqajMpVbhRuN4PgxRJTkx6RYzBdtW09ongRtCtNZKpK9RjV30B6YFEF56VTI3Yk
-         ZfjVD3zyrtK5kPtarq7XKbwnK5Eof1ADQaazirwmg6Pjx5dmdjKg4bD8RfQaIMcRPBfy
-         isJ0LZoAUL/MXk4gcFbN2SPGNXd/OwWuKShoh1e2ky6G8P6fJEh+IWnDZXuVmXyUIcFy
-         9WHOr83sEvjjrHY/zmaSLR4tcXXffCs8MECeX1SoO7g3m9YNKP7XwavR6In/kRYj2r3S
-         WWFw==
+         :list-id:mailing-list:precedence:user-agent:message-id:date:to:cc
+         :from:subject:references:in-reply-to:mime-version:sender
+         :dkim-signature;
+        bh=PXirEVu7jiZo0/qEEbrsGzqCrNZJYnhrZJDpARnGU44=;
+        b=AJbAz+B52pthg3gX+A/JTfgPYlkwK3Soi33TcRZIgey4hSxQLbtWIUH3YC18Y5K3Ra
+         QdwxvgjmyeyanB8hN5ViPGsBUJ7zb2HTYXkN0XXYox0sorRERdpZMY0f7NrRquSXJVyr
+         AIQULFQEnCrw2Ukxh0Y8hvZ/B6X4Zb4KLh7sUaEozGpUfejKLXgY+2G3/0R1huYWhnOT
+         JP37O5c1CWdsUPAnWvD5KN9WJREl2IjUFYTWDA+84XU+4T0Czbw7+rQaDMMH7JnAHqkL
+         BYZyAzkpLmZ4n1gCckfjCy7sslcXBDPpX0VG84wpOct1juKB5pKz1dTOYzrVZKIVPzRm
+         R7dw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=RQW9wYTt;
-       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=irogers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=k8qAnAzQ;
+       spf=pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sboyd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=zqNjSQQXmFlJDWz7GX1gs0bqB/6KPGOgniKf2dCKx5E=;
-        b=q4OJoqecuFZK30cMMmLft8op35ltp14UeUKcZTtSjlMNT2aRpUka3NVuGP+tAID48O
-         cX1GO9JxYp8k85/cBhLXNGIciCSckkJlS5JiuCRbaoElRjvQmcVOgelEj0LcfK3ollmU
-         NDpUjt0Z5Lr9lVQaITkAy+eNkWbh8/kDalFAfVIbIJ1/8pR5af0sa2wAbWal57AYXEY5
-         q7gI8NQ5rFLhpi3GRyGU4mzKP0pcDbeBo8NEDxRK44fOAuqBFWY0RYexGWdzyL5EwCd6
-         OrCynv6NrkldXRrW8MrQvjRB+jSdxSUmTGiRiiYLyFsgTN3nJobSByGCH3n/V26dQMlZ
-         twUg==
+        h=sender:mime-version:in-reply-to:references:subject:from:cc:to:date
+         :message-id:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=PXirEVu7jiZo0/qEEbrsGzqCrNZJYnhrZJDpARnGU44=;
+        b=J6iQ1UUZp9xZP4/saIqZga6z4UzKFk+4/YMLMKvr9HBVB88AxomL2Qbqmrox0kldMh
+         C+Z3xX7sqeXImrchzZUuRvQKUSe7q9NhGwwIrmmB11pzeoYwAde/PVRNzcVQkOEkNQD9
+         655uSksWehekL4vUiZoOblv8BQM6RJxaG68PFQ9EqDiBmI3k24HyXtYGc+553L2fDGHU
+         o3KX7Ylym9HRzFvq93XbUvC9nxQJuai5vV0XZRrMPyiHvZIYaz5omm4IPj17xiWInctY
+         F0WdH0wh2jT9f95WQ+cmtFMZt5mNWuYRd12SqYB1TI8bbVUliwvbc7M7Mr5eda4gQAUM
+         F/Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:in-reply-to:references
+         :subject:from:cc:to:date:message-id:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=zqNjSQQXmFlJDWz7GX1gs0bqB/6KPGOgniKf2dCKx5E=;
-        b=bYuxvtlxYsrfeoXncU3G+XguRE4sxnCkJ1NnzxRuFmQGZSW5ken3GsTW2k6v/NeT/Y
-         lMFs9wZyZ4W7KGUHkeFdZc0WUL3r/1/cl8qRei1sD5zGn7J6JAXN/hkqzCPWRT9ZDyqN
-         d4jbQftCQjMI4/EPACbDPt0LAa6Y7bNwo9u7TAzvSfa228DsMHuAIr4MA4K3G/5UP5kx
-         sJW3W8Dk3Knt81TOUKu1WaJ7xui8OsYKBwiRdyA3htcqoOFGSy0HSne0Jx71xzYx1Se+
-         FjU+pCmiMu4BHUXdwc2+NuN+vc/mDyHBwaysaTDs3adGNaHODgg+Nv3ZUWTAJLVOsq64
-         s7MQ==
-X-Gm-Message-State: AOAM531ssEwJrqcqF7s1644movGek1avtiOPz1CgQ/Oz8kPL9kJyHR+4
-	c0P2OGqlKcAK/A4T+mGf8p0=
-X-Google-Smtp-Source: ABdhPJws6wMsKKxiXTkkd/p3GSphwpVshijvntYiSp/bu2xxqOazaxlvB/D78NwuVcIDQGKglicvUA==
-X-Received: by 2002:a05:651c:1067:: with SMTP id y7mr3459843ljm.357.1605384877749;
-        Sat, 14 Nov 2020 12:14:37 -0800 (PST)
+        bh=PXirEVu7jiZo0/qEEbrsGzqCrNZJYnhrZJDpARnGU44=;
+        b=Z20ix/5wOiiC0zmDRBMYmnVtESb9PYIwIeCEdwqZaQzoXFN+vZZfB1vBw9MiV7erIs
+         1tMBwUAD69ELMWHcPrLaQSZNiBleMX3xJfgONP5F6op8JXqxDxljfuuglJvPBfpuojtN
+         5YtYOUlNcC6i/QAWNYbl3+bUiqEHyTfLGIh70yztl7zOoCfTc5RR7OO2Qd3xPhhdR2AT
+         cb7jTcyZ+FLno/kNgggSNF6eXaT8Atf996x0j92nnrhczLELegdt0RTDaNd10DUMwcCS
+         hdewXfiAKtt3hMvrErPL0CfJWs/+VzJqqVdHVNStYAPQzwOUtau/pl0uywdJ45NBbwwM
+         yz6A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533YNyLKfF2pjz/sLCOGA+vNcKAOnEK7upToYWWdY2Eyw7KuawZp
+	ScgNOuerEZfBWluCJsDsMg4=
+X-Google-Smtp-Source: ABdhPJy12L2VgSuWNuyZQNIttA+GofAThh91uTZdk8f3ANmx+M6Ibmfgh4sjgkitGb+QzIT4XTIxHg==
+X-Received: by 2002:a5b:64e:: with SMTP id o14mr9656127ybq.298.1605385957153;
+        Sat, 14 Nov 2020 12:32:37 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:d0e:: with SMTP id 14ls6453444lfn.0.gmail; Sat, 14 Nov
- 2020 12:14:36 -0800 (PST)
-X-Received: by 2002:ac2:5cc8:: with SMTP id f8mr3282727lfq.334.1605384876641;
-        Sat, 14 Nov 2020 12:14:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605384876; cv=none;
+Received: by 2002:a5b:4cd:: with SMTP id u13ls4994830ybp.9.gmail; Sat, 14 Nov
+ 2020 12:32:36 -0800 (PST)
+X-Received: by 2002:a5b:c08:: with SMTP id f8mr10201318ybq.398.1605385956716;
+        Sat, 14 Nov 2020 12:32:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605385956; cv=none;
         d=google.com; s=arc-20160816;
-        b=MBOEC0Hq64IXqF9/ebyV5TGCwAAge4CG23Fk8cK6Ia2BlFOGM8LFTKnpEQ7TEhraW4
-         HHJqCkZjo4M0k+rRpi30BpWZX/FUEFJD9eCsrY1PIbeJHZmwGimZ19oSpYihc2Br+Mzh
-         HmXz/bHp4BcoAQd1qirYU4hEyi+N/nK+mkL6nnbwfyYZzI+YYYn0EZKCDIc3lFDRdj8g
-         +qT2NYFWepLW+YyNVl/7XOuc++jnca2o5wud+iMyqTT1boSpFk/RHO/1xIUjzQSlLQGS
-         7UkpM8+h3483Gy7SZjUmS7qqCpiGoajlkVt9SygT4lyP69sjWoDZNT1aiPMvyxp5i7jE
-         0KeQ==
+        b=gES0CQWl6/133HssMAJV5UJOydINkulAULLk0OOQWHgyC6ePqCcwHGk40IapXVbiWw
+         rEadLYKPzqyycIF+1PA6zmnFDFVK2TJUtLRcbvOeSUwkOnOj5Gs9Ru3ntZ40/wSyEATB
+         Ui8TFQNCECSC9M/UZeZPxnCPyCtuw3YAij8lEqbUS5VSdXqU8JnuJwVIn7bXuPDI+QWQ
+         RDGWBz1sH2rCyNAHlFVfLB5PR/Ly+COSEDGEGfk4g5jXxE4njQ25P9jei94HHgSwIvBn
+         TxAi4b7El6R126l6x4wJz9K8hvyOBTx60NEzCJWzjBMRW8CtgFaUY79L06s31oWXJqQj
+         RxaA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=WIGMvMwfwqRVGWqHyrPGyK/RgeCuZe+pZMP4tAPokNQ=;
-        b=KSgO02nL+x5aG9CkaDajxWihMWupN+JgSzzrAnfYgf55/P8lsIUQtvcI99O5Xfh/tR
-         OZ31O7DUuiveL3rInKwjivsUnSURyQdZDMNMP8YC7OL6ob5DRvEBA/R51BYey6U/IK8f
-         zWyKw3JtsiBmFU3WOgOTeIg1tOZSmHBxIoyvRCUjA1za+RAoGBPPdI1NLtQej0udpu0p
-         m5ETds7Ud/GCFt29bw73Zz7+zUaCayJv4OmWt0FQKpaNSVDrSScH+XkfLLBZjR2jNQiC
-         FXgrzBNBWXVdN7jf8aLgUVIoTwWE7lJPX67EF4RIl1XU03O0CgiEXaHz/DTZxBW5GsKG
-         Lp0g==
+        h=user-agent:message-id:date:to:cc:from:subject:references
+         :in-reply-to:content-transfer-encoding:mime-version:dkim-signature;
+        bh=GSpHPUG/BSS/ZauxmUvGhPKonrTo8nIVpj+x2HlJ4AQ=;
+        b=YNNobMWWvnW5iQYZGlM3w98ZzIz/8RyibymCB+HZ+ulmJ7tfgN+i4bP4J3Gyi+4Saa
+         ccmxSb7t23Ygl6nEgnd7DcRyjq0KAUux11TPop1nXHAIMDTK84tBZsdlWqTAKJXhGjby
+         NHCISki/LpaJQYNbgpcrwruDjuOzFwRTv3PwhzqTZ3+0VgwYZSq8P8hj94co5e3fGuXN
+         Bnb7EtE6NoUjFiexiN/knqfYWLbd40IlIaSW5jZQraHSXaTOcP2c4n0ump4P9VM815cd
+         jxKnBNGES5ssAluXldgDjg/fxCUvVLyRjbSPgtLK0AYxoAVpP+BUBHb+BxWrWWjeKT3Z
+         kCtg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=RQW9wYTt;
-       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=irogers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id q189si277495ljb.1.2020.11.14.12.14.36
+       dkim=pass header.i=@kernel.org header.s=default header.b=k8qAnAzQ;
+       spf=pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sboyd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id l5si762480ybb.1.2020.11.14.12.32.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 14 Nov 2020 12:14:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
-Received: by mail-wm1-x344.google.com with SMTP id s13so19784915wmh.4
-        for <clang-built-linux@googlegroups.com>; Sat, 14 Nov 2020 12:14:36 -0800 (PST)
-X-Received: by 2002:a1c:c909:: with SMTP id f9mr7810084wmb.87.1605384875976;
- Sat, 14 Nov 2020 12:14:35 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 14 Nov 2020 12:32:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from kernel.org (unknown [104.132.1.79])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 9EDCA223EA;
+	Sat, 14 Nov 2020 20:32:35 +0000 (UTC)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-References: <20201114000803.909530-1-irogers@google.com> <CANiq72m=OK2bF2Nc-ht=ibNa2m6RcBCjFuhrv9kyoxE6yaMqVA@mail.gmail.com>
-In-Reply-To: <CANiq72m=OK2bF2Nc-ht=ibNa2m6RcBCjFuhrv9kyoxE6yaMqVA@mail.gmail.com>
-From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Sat, 14 Nov 2020 12:14:24 -0800
-Message-ID: <CAP-5=fV0xe-8GEbnrh8Y4C8nWK2E2mGo1iiNpRCs+590VwJVEA@mail.gmail.com>
-Subject: Re: [PATCH] perf test: Fix dwarf unwind for optimized builds.
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Stephane Eranian <eranian@google.com>
-Content-Type: multipart/alternative; boundary="00000000000043180405b416cbca"
-X-Original-Sender: irogers@google.com
+In-Reply-To: <20201106094820.30167-1-lukas.bulwahn@gmail.com>
+References: <20201106094820.30167-1-lukas.bulwahn@gmail.com>
+Subject: Re: [PATCH] clk: remove unneeded dead-store initialization
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Tom Rix <trix@redhat.com>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org, linux-safety@lists.elisa.tech, linux-kernel@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@gmail.com>
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>, Michael Turquette <mturquette@baylibre.com>, linux-clk@vger.kernel.org
+Date: Sat, 14 Nov 2020 12:32:34 -0800
+Message-ID: <160538595432.60232.9813667976586248163@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
+X-Original-Sender: sboyd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=RQW9wYTt;       spf=pass
- (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::344
- as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Ian Rogers <irogers@google.com>
-Reply-To: Ian Rogers <irogers@google.com>
+ header.i=@kernel.org header.s=default header.b=k8qAnAzQ;       spf=pass
+ (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=sboyd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,204 +130,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---00000000000043180405b416cbca
-Content-Type: text/plain; charset="UTF-8"
+Quoting Lukas Bulwahn (2020-11-06 01:48:20)
+> make clang-analyzer on x86_64 defconfig caught my attention with:
+> 
+>   drivers/clk/clk.c:423:19:
+>   warning: Value stored to 'parent' during its initialization is never read
+>   [clang-analyzer-deadcode.DeadStores]
+>           struct clk_core *parent = ERR_PTR(-ENOENT);
+>                            ^
+> 
+> Commit fc0c209c147f ("clk: Allow parents to be specified without string
+> names") introduced clk_core_fill_parent_index() with this unneeded
+> dead-store initialization.
+> 
+> So, simply remove this unneeded dead-store initialization to make
+> clang-analyzer happy.
+> 
+> As compilers will detect this unneeded assignment and optimize this anyway,
+> the resulting object code is identical before and after this change.
+> 
+> No functional change. No change to object code.
+> 
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> ---
 
-On Sat, Nov 14, 2020 at 12:45 AM Miguel Ojeda <
-miguel.ojeda.sandonis@gmail.com> wrote:
-
-> On Sat, Nov 14, 2020 at 1:08 AM 'Ian Rogers' via Clang Built Linux
-> <clang-built-linux@googlegroups.com> wrote:
-> >
-> > To ensure the stack frames are on the stack tail calls optimizations
-> > need to be inhibited. If your compiler supports an attribute use it,
-> > otherwise use an asm volatile barrier.
-> >
-> > The barrier fix was suggested here:
-> >
-> https://lore.kernel.org/lkml/20201028081123.GT2628@hirez.programming.kicks-ass.net/
-> >
-> > Fixes: 9ae1e990f1ab ("perf tools: Remove broken __no_tail_call
-> >        attribute")
-> > ---
-> >  tools/perf/tests/dwarf-unwind.c | 39 +++++++++++++++++++++++++++------
-> >  1 file changed, 32 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/tools/perf/tests/dwarf-unwind.c
-> b/tools/perf/tests/dwarf-unwind.c
-> > index 83638097c3bc..c8ce86bceea8 100644
-> > --- a/tools/perf/tests/dwarf-unwind.c
-> > +++ b/tools/perf/tests/dwarf-unwind.c
-> > @@ -24,6 +24,23 @@
-> >  /* For bsearch. We try to unwind functions in shared object. */
-> >  #include <stdlib.h>
-> >
-> > +/*
-> > + * The test will assert frames are on the stack but tail call
-> optimizations lose
-> > + * the frame of the caller. Clang can disable this optimization on a
-> called
-> > + * function but GCC currently (11/2020) lacks this attribute. The
-> barrier is
-> > + * used to inhibit tail calls in these cases.
-> > + */
->
-> It would be nice to put the GCC version rather than the date.
->
-
-Unfortunately no GCC version actually has this fixed.
-
-
-> > +#ifdef __has_attribute
-> > +#if __has_attribute(disable_tail_calls)
-> > +#define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_calls))
-> > +#define NO_TAIL_CALL_BARRIER
-> > +#endif
-> > +#endif
-> > +#ifndef NO_TAIL_CALL_ATTRIBUTE
-> > +#define NO_TAIL_CALL_ATTRIBUTE
-> > +#define NO_TAIL_CALL_BARRIER __asm__ __volatile__("" : : : "memory");
-> > +#endif
->
-> I would try avoid this nest of conditions and instead do it like in
-> `compiler_attributes.h`, i.e. make use of `__has_attribute`
-> unconditional by making sure it works for all versions/compilers, and
-> then just:
->
->     #if __has_attribute(disable_tail_calls)
->     # define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_calls))
->     # define NO_TAIL_CALL_BARRIER
->     #else
->     # define NO_TAIL_CALL_ATTRIBUTE
->     # define NO_TAIL_CALL_BARRIER __asm__ __volatile__("" : : : "memory");
->     #endif
->
-> In fact, I think it would be best to simply have a mimic of
-> `compiler_attributes.h` suitable for `tools/`
->
-
-This seems overly complex and unnecessary.
-
-Thanks,
-Ian
-
-
-> Cheers,
-> Miguel
->
+Applied to clk-next
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfV0xe-8GEbnrh8Y4C8nWK2E2mGo1iiNpRCs%2B590VwJVEA%40mail.gmail.com.
-
---00000000000043180405b416cbca
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr">On Sat, Nov 14, 2020 at 12:45 AM Miguel O=
-jeda &lt;<a href=3D"mailto:miguel.ojeda.sandonis@gmail.com">miguel.ojeda.sa=
-ndonis@gmail.com</a>&gt; wrote:<br></div><div class=3D"gmail_quote"><blockq=
-uote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1p=
-x solid rgb(204,204,204);padding-left:1ex">On Sat, Nov 14, 2020 at 1:08 AM =
-&#39;Ian Rogers&#39; via Clang Built Linux<br>
-&lt;<a href=3D"mailto:clang-built-linux@googlegroups.com" target=3D"_blank"=
->clang-built-linux@googlegroups.com</a>&gt; wrote:<br>
-&gt;<br>
-&gt; To ensure the stack frames are on the stack tail calls optimizations<b=
-r>
-&gt; need to be inhibited. If your compiler supports an attribute use it,<b=
-r>
-&gt; otherwise use an asm volatile barrier.<br>
-&gt;<br>
-&gt; The barrier fix was suggested here:<br>
-&gt; <a href=3D"https://lore.kernel.org/lkml/20201028081123.GT2628@hirez.pr=
-ogramming.kicks-ass.net/" rel=3D"noreferrer" target=3D"_blank">https://lore=
-.kernel.org/lkml/20201028081123.GT2628@hirez.programming.kicks-ass.net/</a>=
-<br>
-&gt;<br>
-&gt; Fixes: 9ae1e990f1ab (&quot;perf tools: Remove broken __no_tail_call<br=
->
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 attribute&quot;)<br>
-&gt; ---<br>
-&gt;=C2=A0 tools/perf/tests/dwarf-unwind.c | 39 +++++++++++++++++++++++++++=
-------<br>
-&gt;=C2=A0 1 file changed, 32 insertions(+), 7 deletions(-)<br>
-&gt;<br>
-&gt; diff --git a/tools/perf/tests/dwarf-unwind.c b/tools/perf/tests/dwarf-=
-unwind.c<br>
-&gt; index 83638097c3bc..c8ce86bceea8 100644<br>
-&gt; --- a/tools/perf/tests/dwarf-unwind.c<br>
-&gt; +++ b/tools/perf/tests/dwarf-unwind.c<br>
-&gt; @@ -24,6 +24,23 @@<br>
-&gt;=C2=A0 /* For bsearch. We try to unwind functions in shared object. */<=
-br>
-&gt;=C2=A0 #include &lt;stdlib.h&gt;<br>
-&gt;<br>
-&gt; +/*<br>
-&gt; + * The test will assert frames are on the stack but tail call optimiz=
-ations lose<br>
-&gt; + * the frame of the caller. Clang can disable this optimization on a =
-called<br>
-&gt; + * function but GCC currently (11/2020) lacks this attribute. The bar=
-rier is<br>
-&gt; + * used to inhibit tail calls in these cases.<br>
-&gt; + */<br>
-<br>
-It would be nice to put the GCC version rather than the date.<br></blockquo=
-te><div><br></div><div>Unfortunately no GCC version actually has this fixed=
-.</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0=
-px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
-&gt; +#ifdef __has_attribute<br>
-&gt; +#if __has_attribute(disable_tail_calls)<br>
-&gt; +#define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_calls))<br=
->
-&gt; +#define NO_TAIL_CALL_BARRIER<br>
-&gt; +#endif<br>
-&gt; +#endif<br>
-&gt; +#ifndef NO_TAIL_CALL_ATTRIBUTE<br>
-&gt; +#define NO_TAIL_CALL_ATTRIBUTE<br>
-&gt; +#define NO_TAIL_CALL_BARRIER __asm__ __volatile__(&quot;&quot; : : : =
-&quot;memory&quot;);<br>
-&gt; +#endif<br>
-<br>
-I would try avoid this nest of conditions and instead do it like in<br>
-`compiler_attributes.h`, i.e. make use of `__has_attribute`<br>
-unconditional by making sure it works for all versions/compilers, and<br>
-then just:<br>
-<br>
-=C2=A0 =C2=A0 #if __has_attribute(disable_tail_calls)<br>
-=C2=A0 =C2=A0 # define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_c=
-alls))<br>
-=C2=A0 =C2=A0 # define NO_TAIL_CALL_BARRIER<br>
-=C2=A0 =C2=A0 #else<br>
-=C2=A0 =C2=A0 # define NO_TAIL_CALL_ATTRIBUTE<br>
-=C2=A0 =C2=A0 # define NO_TAIL_CALL_BARRIER __asm__ __volatile__(&quot;&quo=
-t; : : : &quot;memory&quot;);<br>
-=C2=A0 =C2=A0 #endif<br>
-<br>
-In fact, I think it would be best to simply have a mimic of<br>
-`compiler_attributes.h` suitable for `tools/`<br></blockquote><div><br></di=
-v><div>This seems overly complex and unnecessary.</div><div><br></div><div>=
-Thanks,</div><div>Ian</div><div>=C2=A0</div><blockquote class=3D"gmail_quot=
-e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
-;padding-left:1ex">
-Cheers,<br>
-Miguel<br>
-</blockquote></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAP-5%3DfV0xe-8GEbnrh8Y4C8nWK2E2mGo1iiNpRCs%2B=
-590VwJVEA%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
-groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfV0xe-8GEbnrh8Y4C8nWK2E=
-2mGo1iiNpRCs%2B590VwJVEA%40mail.gmail.com</a>.<br />
-
---00000000000043180405b416cbca--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/160538595432.60232.9813667976586248163%40swboyd.mtv.corp.google.com.
