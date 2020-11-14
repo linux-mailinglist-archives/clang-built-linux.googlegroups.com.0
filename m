@@ -1,152 +1,133 @@
-Return-Path: <clang-built-linux+bncBAABBMV2X36QKGQETV4LXBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBB366X36QKGQE6ENB6GI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x638.google.com (mail-ej1-x638.google.com [IPv6:2a00:1450:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 762642B2C54
-	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 10:02:43 +0100 (CET)
-Received: by mail-ej1-x638.google.com with SMTP id p18sf5631044ejl.14
-        for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 01:02:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605344563; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 16B912B2CA2
+	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 11:20:33 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id x3sf5221697plr.23
+        for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 02:20:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605349231; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ffTrDpFcV/8Cm6ok1XAzITNlyvZdhWEpYVWdgdyi/vuTIwhIL+uptzFfi0u9Yuvx3r
-         DWkfqPxiH6fv4zs0k603g5G1ahrGvH17p3873nXuP19UADA96LYVpLdTjRMMGnTcqRjq
-         0nOT9MuARE1FEPlBGqwokGIVT+6bGInCHegRz8eokPFIm27y10ZSYgx93Zs+yU+krp1s
-         8YOMV34lrkOrG4/dL7daBKra0XGS6+WlEfPlLy7Bo1zzvbAXXMCV/7y+aMqBSLcpeyW4
-         IOeTpixvFA0qupQbTtuZEisbeGx0MmYFXicUGYIK+4Gc26wvZ6g4vQLwm1LM1WphsgOg
-         gJRw==
+        b=oGzZOuGp1lqsu276StlwAnPzMiudlfuL5OydQF14UirqpeMGtdkaY9b7WlAqQ0S0xF
+         YcHx9c+TyNCwh50+uYNMbtywF45zLNPz0+yeG22/dohM23wzZtMxQ59WBzwvCU9My+pC
+         TiXAq5AcMqh/wfkQ7Dbc0KUoNBo8nt64xC+rhpXDZf940c0CugzbiYTDrYv7RvvebdhY
+         3Aj2qVzPK3/RV5UP/Vg/9whlW5lu2aoqzrGu23YaBjQMcPlXmsV2jxnxiQqz3XG6KYHf
+         UzoFrID11dihhq9db0jaGmoVkR4n0btuyugArsM3W+57sawrLsDM3i10WuybGYgfPoXl
+         VM2Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=5+GH1BXFhptCRBqsbuoJ0E7v3sNRBDqlj1r/U9feaN4=;
-        b=JOfhZ8Ghn3jRa94vA0Z6+JuiaOEPHjGCi7SZox8CRZgoc9Z20sdDDkQQqAOxFGzcfz
-         in53L9ldH/sVBfWLNzaAQQWD5d2tRxI7uBmcT91OhiI4zgy2BLN3BnIpI2WNr1LP8N5m
-         B1S42oA4ZSWNGQ2r44f704N1NHZN8izotWcujvIrXtG/jMDK8mQtXkv6AxFIIgfo9VM1
-         5y8qLeH1dtobDUtUcdNrB2LZFRozKFBhbwI30wjGzA0uCxXiXUC/aXd+Ql7ACWqGop5q
-         GUYT8I3KHreOzunQySGyLj7CAM2chJt97528xEvZnfAdsKzhYWJ1HfT0t2JTe3U03ZDE
-         607A==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=6HHwMNGj0jX80+qoV6cV5lpdyDuJGB28er/EHyuDyLk=;
+        b=DqrR/Rte92iOQ6Kq5jZAwxJU7es5bZzf2Nye9582nNxjBZkhS8SLKsziN5Lg/T6DJZ
+         rG6hedTNFqvnnX64IbYI+qjmpW9EQq68DkgxtgFt0oxJ4KrdrjQOUkOouLI0MfL0dbNK
+         q0MGBvqCylL2Tg3WP0AyFVHfcJqo68wseM1MgiOBHV9GMI0t7yD081vCtzVfcLcEGA6o
+         4OZO+/P5q2lzDsRYrLJEEiRPmhjMiFjG7xMEnw3T0L0bOid9ln9baFIp7qeVYyJKNWIo
+         dgx4lnwISRtd8p8HcBjCQElQw8wOFw6K8EECRwlzeNGaJc2BCYVV8OivnIc/hYcI6RMK
+         idfg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+       dkim=pass header.i=@kernel.org header.s=default header.b=sl0SkJKK;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5+GH1BXFhptCRBqsbuoJ0E7v3sNRBDqlj1r/U9feaN4=;
-        b=tlpcsFP1LZdj3ArlgyDCRByJ/uFj6RUFW7tam7TlsQC5YYDBGlaDOcylp9ZGVKpZlu
-         0UswkNvrmHVow6t9myiu/aNru578aUva35Y4U8jqXVTcknZK9f27ayRUOUhOvRktWKKq
-         D31o8GwdNaFD972RB9dBShJScN2mK/jzqepTOnXkugCopXNa89+DYZgzOGUH6tS2poXJ
-         he0SjU5zVyDj5NzNt62xl+PXl9uqdwy6u0rL5zr3mZ7XNaxZUwhA8icwz4BFHjeBmuQi
-         uCtcqjM1T/zz6tbjhho8MuQoJS9+eQ4jOSOgA3OHBebuU5fxEnUePYItnJM+ArzHVhx5
-         BIRw==
+        bh=6HHwMNGj0jX80+qoV6cV5lpdyDuJGB28er/EHyuDyLk=;
+        b=eYFFYc9gNKzYaqldiRzZxRnWEKP2WrlOnfYOzM2eEzLic+srdpmo5eLu2b8yGIGYOI
+         WyHUkjvapVx0wI2j+iH3dQZtb/Q5ti6C8ngD9y1kgNM5uQYihQ0QTkVFiwtEsZyEQ57Y
+         lFGw/k0+832oPZY0dUae3dYSMu7JF5BC6/f33VJh8ANKAQ2wZ2Ipg4LbwGMAEIRIF2j7
+         usCOJ4dwjJFu5YBC+W3W/yri3PVQp3YC00KiRok/421jexHJxZEy1O48dsfx5JKR3dUz
+         XggTFkDk5pEZAj8d4376zBZ/KXAOFfS0Zckux2nW6mAPPsn3miJIVPm70KgfcFYhIAK5
+         4LHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5+GH1BXFhptCRBqsbuoJ0E7v3sNRBDqlj1r/U9feaN4=;
-        b=KJ+vN0w5x4B9E+/4pX4OETZWSycbpeiA4eGeiH+itO1+NCDouEOejUDfEJu7IbMZMC
-         EW9DUU27tOepy/KLSP5Hl4HsIjuUNRiPEJIIjJMmKopx5/jKd/6Ejlyh+wDQ4rKJHehx
-         Fx6lPrHjhYczvyBL2tOZpLQJnqc2vu6QqdUT/pG1vNa7uCuT7hP37Rw+tMd5v76R4hWQ
-         GDDSVnPUUE4UF2u4UWi34mPYWsrNdKoB+LlYZ6bPCjiflQ7+g45glwvazrvD7qIJVzAU
-         yEAb5EEpLBAPb2srwSUF1MfSDYbZ7TJ0IWBAVCLGl0bzcWRMypgZ669Kn60NGRrNxKZY
-         WUVA==
+        bh=6HHwMNGj0jX80+qoV6cV5lpdyDuJGB28er/EHyuDyLk=;
+        b=UgBBVHAEiQamN+XQtBzwRlc7x77NO/gC6Q3Ri0FraXmIEGUPWvbcGTCEGUsbV/n8ii
+         3se3aRH/EtF1KZf5Yw1W6HVnYKZn0kjqxPP4IjjtnJlXfC1zkMEN72nVu7eOlJnh8VkF
+         qqjBa2nmRnih8n4k3/wxnBf4PdfQdZ2Bkm3tg6Qwx4mRZA32bsC11Sz4q3Zr1DAN3Ilg
+         L7/BLbTu72qy6cyIuXP9grZb/Rjz15dWFgdF2UzQEAzD3wye2aKLvB8U4H4GSZZIWTBI
+         o9Au6590uGg3Ut0j6LNb7U6qlQCJ1t7J1J+VDIWs6SoQD6KpLoN3O4QLt23RX7JyNb+3
+         eifQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530G3UCtO3wRtT3o9jAMcSy4FJ8J2Q1B/Wns2WvbH397B1O6QFAw
-	/rKN6JNg3dVwY/W4ZD2r8PY=
-X-Google-Smtp-Source: ABdhPJxkUZMvjndFx8lHpyse5JuQOeILH9dMR1rmw6Zwh1GRFW2mYV75xARWkh6Tz8eY7/DQ/G0NJQ==
-X-Received: by 2002:a05:6402:1042:: with SMTP id e2mr6717378edu.320.1605344563130;
-        Sat, 14 Nov 2020 01:02:43 -0800 (PST)
+X-Gm-Message-State: AOAM5338D8hp2RcxxbqBggdK7WBBiADM8dGtuLgmHnr+u+pDBG54CMW5
+	eMewz8xC25a8k8/TL6I92sI=
+X-Google-Smtp-Source: ABdhPJw+a9h+9HHcMB89esEhR5Ywbx1VmcZvLaEQ2dbZk34p44TXCR0tOgBcKfjirKhmxFP273qk6w==
+X-Received: by 2002:a05:6a00:782:b029:18b:99e:1a72 with SMTP id g2-20020a056a000782b029018b099e1a72mr5816881pfu.63.1605349231581;
+        Sat, 14 Nov 2020 02:20:31 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:8585:: with SMTP id v5ls931358ejx.1.gmail; Sat, 14
- Nov 2020 01:02:42 -0800 (PST)
-X-Received: by 2002:a17:906:a88:: with SMTP id y8mr6353869ejf.469.1605344562313;
-        Sat, 14 Nov 2020 01:02:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605344562; cv=none;
+Received: by 2002:a17:902:524:: with SMTP id 33ls2733157plf.6.gmail; Sat, 14
+ Nov 2020 02:20:31 -0800 (PST)
+X-Received: by 2002:a17:90a:5b16:: with SMTP id o22mr7681508pji.224.1605349231010;
+        Sat, 14 Nov 2020 02:20:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605349231; cv=none;
         d=google.com; s=arc-20160816;
-        b=NZT3E9G9UFIFp4rT2rjpqf+bWSH7tPha5FNgvywA1TW3t/uAT4U58+lex7juJ549tb
-         ekzfOdA1dOFZMm7EaSiKczkGxCYhFXJ4X6ZARtJTTtuqw1ArI4m8zVtan3viwo9y50Wk
-         SSZwIeQFUQoe16WsPxRJZ3uPqkqKhNdgBBSa5rbuQFTcslO6o5qxslshNldLbWIlePIR
-         SMw+TvxOq8yr4/5lVAfPckNc5NyrLLrY2xAltjcLGF7H3Zs1XZ2yiHctjN3OeP2EhV1A
-         DrqAmdu1Qq/co6EGiXgTFmed+rr6O2ARIXxb6TBBaLi6iUgdxdWefXiONDJq938vWwSH
-         xUCg==
+        b=jLa35C6gOIrMobjCrFPVd+5NAHLtBrUYPyhXx1P0QAG5xW3eflJnwOIaRqPuQqb1wL
+         652xVWQ56Ddo+Q9h5ihm3njj+D5DohTAmz4O8u9R7SLqUoIKSyXEjS5tq2/kERLTaJ8A
+         JV6BQqFC2fUoYILbWJFNBynhHAFvRhwvRvkPclpf0shOYmtnwEcgWoOCMDY+rl7ivOSm
+         gjAbcl0WidY04k/6qTWlD/EaDpJUpopnJ6nMQs9aqkkU2Yqf8vIZzj0K/yc3LO7wnXqa
+         2MIDqSEVA8liZL8ndZBemR3iBhzFqo7WYLigtaSHKKSDTSg5j1CHANYj0TnjJkt16bxW
+         wyoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=19Rv5xN9jW9JPdtRF87MJ3ItOa7GSrL6rjVSWdLzuGk=;
-        b=Q+5p3V22UIFv2+1O9DvXhcRbJCPeTNY5XI+86o/bOjjMUWFiBuB+RmsiFPpvVHIoqX
-         dXw5vREsU/Szsm1dCz0sujt3TavynFQk8uqOsj8P4yD/paaqcHio0s7zsiHUstwOUUNN
-         fASLxdR8kdSXxrxlXp6VxbZsFToj6/T9DK/JdUZjhvdPjyu5l8Uhf7rpCOVqUCGArQ1/
-         lu5M8XGZdkZ/LVF/M32yWHe9plRpl3xX/PuwdFm+4ecbxas0+pfw+nXi5VFtDyGKqhez
-         5Wy6me8PjtBLuDoRFOawwAUfIMt9KKhqqIYAWaDG6tlmuPdKrruUTXCl250LfmujwAS0
-         bPzA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=OHDt0wHQUINwdyuR2kBWlrKwJNuOkKSa4LmDc8c34dk=;
+        b=FnSZHX0PzAl10hrgjcxIQBMh8P20CNer4Y65pJxN8GbjH+oUpD/mfNTBp3ucrbcurd
+         LdWyMxq70Pdl/orPjWaxIdo/FpxiWvpX2BVOXL1Url00oFpSb7hWDlReivm5AK7Qzriu
+         8iW4E4fhYcd9prsLMMhjXEQ32jkTC5kTNG5C5sVKupJuEyCVwEPPMnuIGNIGlPSe88Oh
+         B+FALMD+PIKJBYWIrxz5myEiajcqEPCzaRmetM57rh1i+J8UAzhaW4qz/dG/9sSJsTzG
+         T2UHPlMYIE6Yh7khdPNWVtmIvU2Iy+jpND7BSHw2AWP76LjHZYB780ZfO8w2bdjKQGQZ
+         lm2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
-Received: from pegase1.c-s.fr (pegase1.c-s.fr. [93.17.236.30])
-        by gmr-mx.google.com with ESMTPS id bm8si397054edb.2.2020.11.14.01.02.42
+       dkim=pass header.i=@kernel.org header.s=default header.b=sl0SkJKK;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id 80si776135pga.5.2020.11.14.02.20.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 14 Nov 2020 01:02:42 -0800 (PST)
-Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as permitted sender) client-ip=93.17.236.30;
-Received: from localhost (mailhub1-int [192.168.12.234])
-	by localhost (Postfix) with ESMTP id 4CY8Vm2wftz9vCxX;
-	Sat, 14 Nov 2020 10:02:40 +0100 (CET)
-X-Virus-Scanned: Debian amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
-	by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
-	with ESMTP id MII8N_gqyiSc; Sat, 14 Nov 2020 10:02:40 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4CY8Vm1ls4z9vCjb;
-	Sat, 14 Nov 2020 10:02:40 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4607C8B788;
-	Sat, 14 Nov 2020 10:02:41 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id X5TeAvZWgWaQ; Sat, 14 Nov 2020 10:02:41 +0100 (CET)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6F28F8B782;
-	Sat, 14 Nov 2020 10:02:40 +0100 (CET)
-Subject: Re: Error: invalid switch -me200
-To: Segher Boessenkool <segher@kernel.crashing.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Arnd Bergmann <arnd@kernel.org>, Brian Cain <bcain@codeaurora.org>,
- =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>,
- kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- LKML <linux-kernel@vger.kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-References: <202011131146.g8dPLQDD-lkp@intel.com>
- <CAFP8O3LpSmxVnjHfQAN455k1ZRg3PbgZYhWr030evCq1T10k=Q@mail.gmail.com>
- <20201113190824.GA1477315@ubuntu-m3-large-x86>
- <CAKwvOdkEtTQhDRFRV_d66FyhQBe536vRbOW=fQjesiHz3dfeBA@mail.gmail.com>
- <20201113200444.GA1496675@ubuntu-m3-large-x86>
- <CAKwvOdkBSGPaKmQY1nERVe4_n19Q=MUtuwdond=FJAAF9N9Zhg@mail.gmail.com>
- <20201114002037.GW2672@gate.crashing.org>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <14e9ce2b-1a83-5353-44c7-b0709796c70e@csgroup.eu>
-Date: Sat, 14 Nov 2020 10:02:35 +0100
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.4.3
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 14 Nov 2020 02:20:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-oi1-f180.google.com (mail-oi1-f180.google.com [209.85.167.180])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 580CE22272
+	for <clang-built-linux@googlegroups.com>; Sat, 14 Nov 2020 10:20:30 +0000 (UTC)
+Received: by mail-oi1-f180.google.com with SMTP id w145so13358009oie.9
+        for <clang-built-linux@googlegroups.com>; Sat, 14 Nov 2020 02:20:30 -0800 (PST)
+X-Received: by 2002:aca:c60c:: with SMTP id w12mr4568661oif.174.1605349229544;
+ Sat, 14 Nov 2020 02:20:29 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20201114002037.GW2672@gate.crashing.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: fr
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: christophe.leroy@csgroup.eu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.236.30 as
- permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+References: <20201109144425.270789-22-alexandre.chartre@oracle.com>
+ <202011131552.4kvOb9Id-lkp@intel.com> <CAKwvOdnvhyNs1arkVO1=pw9GB9NePKUfQYAY+Q0Ur9Qe9HJ37w@mail.gmail.com>
+ <20201113234701.GV2672@gate.crashing.org> <CANiq72nKMd_BOOowqowLAn0PZ5tu7X8G=8OrpG34qYHGLDGw6Q@mail.gmail.com>
+ <20201114002624.GX2672@gate.crashing.org> <CANiq72n7R5Pfx4q4F9QpTrLK3Jxm0_hFu5FTvM-JcoZgr4SxRg@mail.gmail.com>
+In-Reply-To: <CANiq72n7R5Pfx4q4F9QpTrLK3Jxm0_hFu5FTvM-JcoZgr4SxRg@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sat, 14 Nov 2020 11:20:17 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGb6LGrDiM-oSxnt6zcCouKyhkNC+vK_PLCCWQWOSPpeQ@mail.gmail.com>
+Message-ID: <CAMj1kXGb6LGrDiM-oSxnt6zcCouKyhkNC+vK_PLCCWQWOSPpeQ@mail.gmail.com>
+Subject: Re: [RFC][PATCH 21/24] x86/entry: Disable stack-protector for IST
+ entry C handlers
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Segher Boessenkool <segher@kernel.crashing.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Alexandre Chartre <alexandre.chartre@oracle.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, linux-toolchains@vger.kernel.org, 
+	kernel test robot <lkp@intel.com>, Arvind Sankar <nivedita@alum.mit.edu>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ardb@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=sl0SkJKK;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,71 +140,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Sat, 14 Nov 2020 at 02:59, Miguel Ojeda
+<miguel.ojeda.sandonis@gmail.com> wrote:
+>
+> On Sat, Nov 14, 2020 at 1:27 AM Segher Boessenkool
+> <segher@kernel.crashing.org> wrote:
+> >
+> > But you cannot limit yourself to the greatest common denominator: the
+> > kernel wants to use many features only available on newer compiler
+> > versions, too; this is no different.
+>
+> What we do is conditionally enable both new and differentiating
+> features. We don't break GCC or LLVM just because the other introduces
+> a new shiny feature, nor we break builds with old compilers (except
+> when raising the minimum supported version).
+>
+> That is why we need a level of indirection in things like attributes
+> nowadays, and why patches like the above are not ideal anymore
+> (regardless of which attribute we are talking about).
+>
 
+In spite of the apparent difference of opinion here, there are two
+irrefutable facts about __attribute__((optimize)) on GCC that can only
+lead to the conclusion that we must never use it in Linux:
+- the GCC developers refuse to rigorously define its behavior, so we
+don't know what it actually does;
+- it has been observed to nullify unrelated command line arguments in
+unexpected and undocumented ways.
 
-Le 14/11/2020 =C3=A0 01:20, Segher Boessenkool a =C3=A9crit=C2=A0:
-> On Fri, Nov 13, 2020 at 12:14:18PM -0800, Nick Desaulniers wrote:
->>>>> Error: invalid switch -me200
->>>>> Error: unrecognized option -me200
->>>>
->>>> 251 cpu-as-$(CONFIG_E200)   +=3D -Wa,-me200
->>>>
->>>> Are those all broken configs, or is Kconfig messed up such that
->>>> randconfig can select these when it should not?
->>>
->>> Hmmm, looks like this flag does not exist in mainline binutils? There i=
-s
->>> a thread in 2010 about this that Segher commented on:
->>>
->>> https://lore.kernel.org/linuxppc-dev/9859E645-954D-4D07-8003-FFCD2391AB=
-6E@kernel.crashing.org/
->>>
->>> Guess this config should be eliminated?
->=20
-> The help text for this config options says that e200 is used in 55xx,
-> and there *is* an -me5500 GAS flag (which probably does this same
-> thing, too).  But is any of this tested, or useful, or wanted?
->=20
-> Maybe Christophe knows, cc:ed.
->=20
+So it does not matter whether you call that quirky or something else,
+there is no way we can make meaningful use of it, and therefore,
+abstracting or parameterizing any of its uses should be avoided as
+well.
 
-I don't have much clue on this.
-
-But I see on wikipedia that e5500 is a 64 bits powerpc (https://en.wikipedi=
-a.org/wiki/PowerPC_e5500)
-
-What I see is that NXP seems to provide a GCC version that includes adition=
-nal cpu (e200z0 e200z2=20
-e200z3 e200z4 e200z6 e200z7):
-
-valid arguments to '-mcpu=3D' are: 401 403 405 405fp 440 440fp 464 464fp 47=
-6 476fp 505 601 602 603=20
-603e 604 604e 620 630 740 7400 7450 750 801 821 823 8540 8548 860 970 G3 G4=
- G5 a2 cell e200z0 e200z2=20
-e200z3 e200z4 e200z6 e200z7 e300c2 e300c3 e500mc e500mc64 e5500 e6500 ec603=
-e native power3 power4=20
-power5 power5+ power6 power6x power7 power8 powerpc powerpc64 powerpc64le r=
-s64 titan "
-
-https://community.nxp.com/t5/MPC5xxx/GCC-generating-not-implemented-instruc=
-tions/m-p/845049
-
-Apparently based on binutils 2.28
-
-https://www.nxp.com/docs/en/release-note/S32DS-POWER-v1-2-RN.pdf
-
-But that's not exactly -me200 though.
-
-Now, I can't see any defconfig that selects CONFIG_E200, so is that worth k=
-eeping it in the kernel=20
-at all ?
-
-Christophe
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/14e9ce2b-1a83-5353-44c7-b0709796c70e%40csgroup.eu.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXGb6LGrDiM-oSxnt6zcCouKyhkNC%2BvK_PLCCWQWOSPpeQ%40mail.gmail.com.
