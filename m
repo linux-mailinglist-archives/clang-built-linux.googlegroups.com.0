@@ -1,126 +1,121 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBBS75YH6QKGQEGB6AXIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDOLNZMBXEEBBBNIYT6QKGQENQ5L7LY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC4AF2B31B9
-	for <lists+clang-built-linux@lfdr.de>; Sun, 15 Nov 2020 02:05:16 +0100 (CET)
-Received: by mail-lj1-x239.google.com with SMTP id z9sf4708265ljh.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 14 Nov 2020 17:05:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605402316; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D1A302B34A9
+	for <lists+clang-built-linux@lfdr.de>; Sun, 15 Nov 2020 12:41:59 +0100 (CET)
+Received: by mail-pg1-x53f.google.com with SMTP id n16sf6132342pgk.12
+        for <lists+clang-built-linux@lfdr.de>; Sun, 15 Nov 2020 03:41:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605440518; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aPpe8FuzqaYOYik7fFx64RkljjRdnpA9VxUO4nS0NqdPT/78F5pb6+Q7b75tB+gbo5
-         tkmRYV7h1WtHUfZWTKyYU/QXOKdBi8oP/gHY0C9WyZzQOYaD1Qxog35FUrEFyPUWrPLk
-         FocewKnfzywTard2GgN0Bu6264rBSgFeT0NU64i6LEa1gY9O2+ga8oJsns/L9AoMx1nl
-         p+IfB40+Jsybb3WhS2qoC0SUEPuQUYrNByUHQmIT8i3gly7IqBMRqpVcebkn2FMVBUiF
-         w+3uj0NyTFpgmOzYxYdSR8ldivjQIdmvZRcFh6uzQE6iOtkheKXWyskSU7mVOQx9LlGl
-         XFdA==
+        b=R81fxJ/OJBXzEg5kKkbo2lo5geaHxD+wy401nq3Gcmt/xyD6/EMezQdkOIBnL5kGxN
+         X5xn3LVpgRnHJMv0f+epAZaWKcDTlPfIiaruORBOdw6VOpCtAl1wZ8McnCm/x8Frz2c5
+         qwZ6xMt8sMjnexKDcegzlgLbOhBXhLMSA3APwqeYXjEeGv1KVOicTdw3POHSHISiynrk
+         bWTuqxdW11J1q60ilq+12J7tABMI0NUsMbg3fM0LJlU1ocLWRO9QUsNH1zfJ5PmHr+69
+         mk27jZXaBMO94MLZrcB3SLD95akhF2UvJqaZS9NG1VTq9OG4nlWkjpNGJhIH/pRZDOKG
+         Bq9A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=ZIW3jS+tPZ6Gv+pOx/MFBdo0DaKWdGU0Z5yGZqpUBtA=;
-        b=ZOz7oC8zLxBeSGDMjP9LnQmBJPK6JHr+kbtsUME8wbFazBXp1rUCQ+7eLeltbvFuw5
-         Lv0K3u6ydDbZbVLp666d1zKXaOiZxxTZy2SccT3pKP/L5lqcgi/E2QUqq7KA+lDziv6l
-         Lhh6HA/rmXyBC60c3iI5dppNLnoEgYz6iUOy3OZcMT9PLxZV6XPqsAyaNog68ILL9Fm4
-         SfeHUvBNUKjQJC3XK9vHBLe7mGx0SCpQXd98hLY/EvWsmqYvKkha3mJhQEsz70Z93Sy5
-         9qshj2So4H+VSoWXOxAt7mzrx3N5w5hEj4MTgfKYPBHxoI9NXddcwMlgWQSU8Ww8Rg4i
-         Tflg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=UoUPtVTRPkuxfkwZwLaPIyFVv2IoGYIBxcwEObh5GrQ=;
+        b=B5nj8d+mtJvG/MRtL7nBk8aaWKh7ALIJMdsLpHW8ql9tgE1stu8z2GRQrkFRQRsWgf
+         9indybct9kvvX42cJGBbnRYwHEBEVrU3R9eJtnZoyKDHrbkPDdNvLZkakhvaJqzeKXo+
+         2d2zXHk8INJZsbJAVscwgQtP0IM8EbAxxx8b2x9maEbtQ/ntdHW1DT7kRH8mcN4jOXtR
+         9MQNG/yvkY2kX4+drPJU0N51aOb6HxKCMFHuEinmxcQFJYyWgezQ2C4kAER0PvSIaRx/
+         BMhfLW9yH78Wibbt38cdehqQnn/7/FeXXw/jrs9UYlwVBHO7oQDYCANVMpOJ1s5UBdfX
+         0biA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hluIQEha;
-       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of vincent.mailhol@gmail.com designates 209.85.219.195 as permitted sender) smtp.mailfrom=vincent.mailhol@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZIW3jS+tPZ6Gv+pOx/MFBdo0DaKWdGU0Z5yGZqpUBtA=;
-        b=pQ4kw0X2P934J7iOG3S2D+K+2pKxOBv3jlcdIBGedYsY6DafFNGI6/W8KLXt+yUiwM
-         qKnmI3oSYNAEZD4YczpNBNOxK7ID07uRGPLupFj/05gx3UDP+qS9sVdMbQJDvrznFwSr
-         HRYC22MfnmshdxGs+KRz3YsRDHTj/SOksDbhO5cA9aLftBdEEpuQW10NfBsuDYcizkQ0
-         ey9L8XLhnBmufkl//AZHhpKdVaAi6FB9oea7URXh2Sx+sHeFC4k060pgZCOC9P4LaklC
-         5XzAcSh4UYv2BqpzcsrMKoCTqE5k6qJMv2KvhV+xXIW8IWQcDvM+k4zov2mghVdzTYYu
-         lX7g==
+        bh=UoUPtVTRPkuxfkwZwLaPIyFVv2IoGYIBxcwEObh5GrQ=;
+        b=jhEYz4peqRPX+cxtRYwqDLZa+w2JyjBX/LPXqYfmm0H6talFqZjHYaFepDQM7Yzkdr
+         YnyGcqMxqKiG8Yx6pxcZ3/ChKnRccOClXcKyrSRSm2NLtXhZbXHazPooOs/vFvU8c2kW
+         G8uyL7mZsevaKw0EZPPJW5e4Hm1REvQqS7/F80DwOViOhvhJVI+u8wBpMsSfjcCXH+iy
+         Kl8Dtd9EFNV9sefQ21Y36B3ioHZG4FYa1B4xLXsDhtZdpHKV3RczOY9o6dTk/D3ArKCq
+         TsWCUXbxRGqZq3vy/TsZJMchm4+25CK/6t9W0yA8CEQ6pfRFvSlx7WTj+PkC8efpZbxW
+         CvvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZIW3jS+tPZ6Gv+pOx/MFBdo0DaKWdGU0Z5yGZqpUBtA=;
-        b=YGQ7QuVfZfrebsdcXhIzu7FUU4pfGRInYIWp8v0yN23zHE8hIzuXv1EtvrG2BCEYU9
-         uyTzbzQWut5RYInrwLgm+A0xaF/PsVSx9uJNYqmwFFAKNA4Uv24uDslhE0tGELt8gWu+
-         qkR++eSP50OTqd9YUPiy3DDiLiXT3HHotBIiN1yAz5v/gf6jVQtbtg+yeJHxjoAf6WOB
-         de5b8DdIOUTbnNmyZVEff5qaLCTPZX9NYlWtg0O+Yrz+5sbf2WvSdnvRyICEj3iG0NXX
-         hCpLnNwBPcOjp8kxgALyEmFo3LQuYSSqdJ/NKC58wSvi5IwLvp08LxgJ3sdnOSOISMCu
-         16/g==
-X-Gm-Message-State: AOAM530oeZnSaJRP1NmFDFvO8eK6dBD0I3fK4SVn7qHcBionSotAKYuY
-	sDPqmNp3MYk/WWl83kedKHg=
-X-Google-Smtp-Source: ABdhPJxn2SLrxnHkCTUCl8VSielnkCE4PKRiJLY4oPl8DKNuu5Vdo2XPCwX0Xg5OToI0hH4G2ou2ww==
-X-Received: by 2002:a05:651c:319:: with SMTP id a25mr3724808ljp.333.1605402316125;
-        Sat, 14 Nov 2020 17:05:16 -0800 (PST)
+        bh=UoUPtVTRPkuxfkwZwLaPIyFVv2IoGYIBxcwEObh5GrQ=;
+        b=evKQR4xNCkTte+F0QWsQ0e4EVKo4EtCcpibqPZm2dG3u5EvwqFWlNagrjxcK+drwu0
+         vFG4TO3X6tomv7ObOiIgfXGCSVA+kk0ATpnrp9XLuLla0Zuv6WjwUgw+b/nvgl1QQJPX
+         1Rdf6H/b11M+dfJ6Gtxt/ou1vI+1uxEwL2HD8TqFzuVMygqrB6KQGSEVzoewCZdr9DCN
+         ATxoa7iwtSbR7wD8L9tliX1q0oXgOEbB1Jz2N5auEg1tSERmn+/2gyDprSWro2Y32Qdo
+         Gw3vZgJLvXAeSTfpYFkFdCAr+Y7ufXlupT+eA8MkY74xZ9kgjmPisrZOjktBvLM/tsrg
+         cPNg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533185SI9VPhFBcTn7+rZR7pYB73txq/8BcLa6FZH7zQcuK+Yj5F
+	stGkNZWIGCSLNOHlYeG+z3Q=
+X-Google-Smtp-Source: ABdhPJwQS+Cvg/7IPbOGMYlYew1PZ3id1cTrGS2QV/pa6RisE0dlGFRDAt73rM8uuiw5f4Fa3jzASw==
+X-Received: by 2002:a17:902:ee04:b029:d7:3d20:876 with SMTP id z4-20020a170902ee04b02900d73d200876mr9060157plb.25.1605440517997;
+        Sun, 15 Nov 2020 03:41:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:480e:: with SMTP id v14ls5628046lfa.2.gmail; Sat, 14 Nov
- 2020 17:05:15 -0800 (PST)
-X-Received: by 2002:a19:5e5e:: with SMTP id z30mr3054632lfi.277.1605402315006;
-        Sat, 14 Nov 2020 17:05:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605402315; cv=none;
+Received: by 2002:a17:90a:c395:: with SMTP id h21ls5914164pjt.3.gmail; Sun, 15
+ Nov 2020 03:41:57 -0800 (PST)
+X-Received: by 2002:a17:90a:9385:: with SMTP id q5mr11237342pjo.20.1605440517271;
+        Sun, 15 Nov 2020 03:41:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605440517; cv=none;
         d=google.com; s=arc-20160816;
-        b=v+Z+94PbabnvcdTQIdB1ez93NQKIvXkViTSGtS5qrrpvNdzs4CUXaVJSxmsLwVqqoC
-         jyCXThMomRVWJ+qCCVFZupeRUH6ege5x0yKY5vPnzesp/HsRezCpOVXodM/NmKiisGsj
-         +14X/heUjy2SI8Kn/UXt1B/yzGAIvSvEwe/q4rISKTJ1ONY5GxQep5bOrW90vd/e/kVB
-         MnH/QZQzMY8ajTQ346PKYWhxqbJcZLrtpFs5L1+/8br3bhWDzPlWYlT7q6rT3YTJ/BrI
-         zLKeh5zPBBHDpRUJpm1VTdK4EbD/dhMe/yZesEJJWKIdpPaaIZk6f/zEqbyWHq4f28sm
-         2uVw==
+        b=MMRFl3IIdZYDUjkJhnkz7c0+ZY1fKEA7Wew3iF173OIl0VspNwU1hF5tBcBAyoyCXU
+         FhdcGNVhnH8NIw5kFm2kox3ewCYq9beT+zqAu3bmIKEpO2AJxmp1aEKAcLcuVCKqj4Ll
+         e4Pxe930Fow4uOJ1tAL/aGPpOejzNRFIrkfspMrQ80zMxzH8Dm3NLOXHUo6kNPN0xurG
+         B5JzdiaQkXD53+vJ+WIHV7kEVWSqxLggXQa3if44jJY5W6UKlGe7rx+h5OSP+C9fX5HK
+         A4V4R0K4TP/GX+9vaqM+7h+pmkBQnHfCIvgxDwBokJRlVqrtuzvwg3MLwP11tkW/Pgr+
+         8Q+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8Afd9K+1bWciQupw03XwDOgzi/CoWy2gfUU3ma4iL5c=;
-        b=YOCSYepwqSvK94e0+LOueP8AUv//NE58K9lV7dc3fHN+mHQ+bbtDn4F41ofqVDTrS8
-         3ZHRipGJm+SY/39vJVPzCazzl4nMPEE3639I2MGFMU0RetjvixGuhDdD82P32bX7ZwXB
-         byc3pv2Or/j3BxcK8fMAtQLb+Y1TtlInTWI5CJWrN4HCFtiBjTJPwKKeyYSz+H7phSLg
-         YnjxDPWEMx3TTvqqMzyaaD84LzwUBYy+tueSzF0FaVTGpTFvWc7j10KrFPvJAiPNJ3IK
-         +gU6Hw/WgOI6QGdcTW16bIjH+zA58Jb1qsyDM2DUxrtfS8TXwaOgTSeEdu2tWhOcJlCJ
-         l1EQ==
+         :mime-version;
+        bh=f9TFXb0r9Tccm0T3gjIoQS3fTTI3ZOZAjprd/SljobU=;
+        b=h+Q8YlPm870z7cjcaOQgFK8z+QQY6qozkj5dxX6mgGDruJE6XzBbVX0TpWCG5jjXXX
+         /fS32/8uaCTLvJ3ix1+u9bLbzfsqrYab7Tfzf3NbCvKzgKddqNFdiaVhDNQCxDb15HEU
+         jwROvG8whKeGkXIuM4c8XmqyH+QsjQ9jl6WgfyxrdJZA3j9w3pDObqkgqj2MPfDMaIBY
+         NxzDHFk43rxLxWhPB+kJB8fC5yA3cIsP/Qg8FCqTCo/HAbKkS0ynILZ52Oqis0bzhj0F
+         z3PIxtuwvWuN6GDpRDWOMIHom9vzkQXOnAvYcExUDfwh2bGCnz6ygYBjH+j5BqApvXE2
+         nNGQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hluIQEha;
-       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id m18si459398lfr.11.2020.11.14.17.05.14
+       spf=pass (google.com: domain of vincent.mailhol@gmail.com designates 209.85.219.195 as permitted sender) smtp.mailfrom=vincent.mailhol@gmail.com
+Received: from mail-yb1-f195.google.com (mail-yb1-f195.google.com. [209.85.219.195])
+        by gmr-mx.google.com with ESMTPS id 80si921151pga.5.2020.11.15.03.41.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 14 Nov 2020 17:05:14 -0800 (PST)
-Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
-Received: by mail-wr1-x441.google.com with SMTP id d12so14447777wrr.13
-        for <clang-built-linux@googlegroups.com>; Sat, 14 Nov 2020 17:05:14 -0800 (PST)
-X-Received: by 2002:adf:e284:: with SMTP id v4mr12489759wri.271.1605402314358;
- Sat, 14 Nov 2020 17:05:14 -0800 (PST)
+        Sun, 15 Nov 2020 03:41:57 -0800 (PST)
+Received-SPF: pass (google.com: domain of vincent.mailhol@gmail.com designates 209.85.219.195 as permitted sender) client-ip=209.85.219.195;
+Received: by mail-yb1-f195.google.com with SMTP id l14so8949746ybq.3
+        for <clang-built-linux@googlegroups.com>; Sun, 15 Nov 2020 03:41:57 -0800 (PST)
+X-Received: by 2002:a25:cfd1:: with SMTP id f200mr5775390ybg.145.1605440516314;
+ Sun, 15 Nov 2020 03:41:56 -0800 (PST)
 MIME-Version: 1.0
-References: <20201114000803.909530-1-irogers@google.com> <20201114210609.GC903902@krava>
-In-Reply-To: <20201114210609.GC903902@krava>
-From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Sat, 14 Nov 2020 17:05:02 -0800
-Message-ID: <CAP-5=fXzqnhDJAeO7Q8jWmg4vQjnxDU8qiMzVeie8dVQeUhfFA@mail.gmail.com>
-Subject: Re: [PATCH] perf test: Fix dwarf unwind for optimized builds.
-To: Jiri Olsa <jolsa@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Namhyung Kim <namhyung@kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Stephane Eranian <eranian@google.com>
-Content-Type: multipart/alternative; boundary="000000000000ab9b8f05b41adab3"
-X-Original-Sender: irogers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=hluIQEha;       spf=pass
- (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441
- as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Ian Rogers <irogers@google.com>
-Reply-To: Ian Rogers <irogers@google.com>
+References: <20201114152325.523630-1-mailhol.vincent@wanadoo.fr> <202011150212.yNjsvCzu-lkp@intel.com>
+In-Reply-To: <202011150212.yNjsvCzu-lkp@intel.com>
+From: Vincent MAILHOL <mailhol.vincent@wanadoo.fr>
+Date: Sun, 15 Nov 2020 20:41:45 +0900
+Message-ID: <CAMZ6RqJFasm658=-6Q4-Dm+gDG-tqj39ujzXbMAdYwmaRE=1ew@mail.gmail.com>
+Subject: Re: [PATCH v6] can: usb: etas_es58X: add support for ETAS ES58X CAN
+ USB interfaces
+To: kernel test robot <lkp@intel.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>, linux-can <linux-can@vger.kernel.org>, 
+	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
+	Oliver Hartkopp <socketcan@hartkopp.net>, 
+	Arunachalam Santhanam <arunachalam.santhanam@in.bosch.com>, 
+	Wolfgang Grandegger <wg@grandegger.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Masahiro Yamada <masahiroy@kernel.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:NETWORKING DRIVERS" <netdev@vger.kernel.org>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: mailhol.vincent@wanadoo.fr
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of vincent.mailhol@gmail.com designates 209.85.219.195 as
+ permitted sender) smtp.mailfrom=vincent.mailhol@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,345 +128,229 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000ab9b8f05b41adab3
-Content-Type: text/plain; charset="UTF-8"
+The report from Intel's test robot is a false positive.
 
-On Sat, Nov 14, 2020 at 1:06 PM Jiri Olsa <jolsa@redhat.com> wrote:
+On Sun. 15 Nov. 2020 at 03:12, kernel test robot wrote:
+> Hi Vincent,
+>
+> Thank you for the patch! Yet something to improve:
+>
+> [auto build test ERROR on linus/master]
+> [also build test ERROR on bff6f1db91e330d7fba56f815cdbc412c75fe163 v5.10-rc3 next-20201113]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
 
-> On Fri, Nov 13, 2020 at 04:08:03PM -0800, Ian Rogers wrote:
-> > To ensure the stack frames are on the stack tail calls optimizations
-> > need to be inhibited. If your compiler supports an attribute use it,
-> > otherwise use an asm volatile barrier.
-> >
-> > The barrier fix was suggested here:
-> >
-> https://lore.kernel.org/lkml/20201028081123.GT2628@hirez.programming.kicks-ass.net/
-> >
-> > Fixes: 9ae1e990f1ab ("perf tools: Remove broken __no_tail_call
-> >        attribute")
->
-> missing SOB
->
-> LGTM and test is passing for me ;-)
->
-> Tested-by: Jiri Olsa <jolsa@redhat.com>
->
+Patch is applied to the wrong git tree. It is based on the testing
+branch of linux-can-next:
+https://git.kernel.org/pub/scm/linux/kernel/git/mkl/linux-can-next.git/log/?h=testing
 
-Sorry about the SOB:
-Signed-of-by: Ian Rogers <irogers@google.com>
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
 
-I'm somewhat agnostic on what the fix looks like here, but not having it
-fixed breaks our continual testing. I filed a bug on GCC here:
-https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97831
+I did so (c.f. the base-commit and prerequisite-patch-id tags at the
+bottom of the patch). While the base-commit was taken into account,
+the prerequisite-patch-id tags seem to have been ignored.
 
-Thanks,
-Ian
+FYI, I used the below command to generate the patch.
+git format-patch --base=bff6f1db91e330d7fba56f815cdbc412c75fe163 -v6
+-o patch/v6 HEAD~1
 
-jirka
+
+Yours sincerely,
+Vincent Mailhol
+
+> url:    https://github.com/0day-ci/linux/commits/Vincent-Mailhol/can-usb-etas_es58X-add-support-for-ETAS-ES58X-CAN-USB-interfaces/20201114-232854
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git f01c30de86f1047e9bae1b1b1417b0ce8dcd15b1
+> config: x86_64-randconfig-a005-20201115 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 9a85643cd357e412cff69067bb5c4840e228c2ab)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # https://github.com/0day-ci/linux/commit/80a9b72580bad04e879752fa5c54d278b486e2bb
+>         git remote add linux-review https://github.com/0day-ci/linux
+>         git fetch --no-tags linux-review Vincent-Mailhol/can-usb-etas_es58X-add-support-for-ETAS-ES58X-CAN-USB-interfaces/20201114-232854
+>         git checkout 80a9b72580bad04e879752fa5c54d278b486e2bb
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
 >
-> > ---
-> >  tools/perf/tests/dwarf-unwind.c | 39 +++++++++++++++++++++++++++------
-> >  1 file changed, 32 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/tools/perf/tests/dwarf-unwind.c
-> b/tools/perf/tests/dwarf-unwind.c
-> > index 83638097c3bc..c8ce86bceea8 100644
-> > --- a/tools/perf/tests/dwarf-unwind.c
-> > +++ b/tools/perf/tests/dwarf-unwind.c
-> > @@ -24,6 +24,23 @@
-> >  /* For bsearch. We try to unwind functions in shared object. */
-> >  #include <stdlib.h>
-> >
-> > +/*
-> > + * The test will assert frames are on the stack but tail call
-> optimizations lose
-> > + * the frame of the caller. Clang can disable this optimization on a
-> called
-> > + * function but GCC currently (11/2020) lacks this attribute. The
-> barrier is
-> > + * used to inhibit tail calls in these cases.
-> > + */
-> > +#ifdef __has_attribute
-> > +#if __has_attribute(disable_tail_calls)
-> > +#define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_calls))
-> > +#define NO_TAIL_CALL_BARRIER
-> > +#endif
-> > +#endif
-> > +#ifndef NO_TAIL_CALL_ATTRIBUTE
-> > +#define NO_TAIL_CALL_ATTRIBUTE
-> > +#define NO_TAIL_CALL_BARRIER __asm__ __volatile__("" : : : "memory");
-> > +#endif
-> > +
-> >  static int mmap_handler(struct perf_tool *tool __maybe_unused,
-> >                       union perf_event *event,
-> >                       struct perf_sample *sample,
-> > @@ -95,7 +112,7 @@ static int unwind_entry(struct unwind_entry *entry,
-> void *arg)
-> >       return strcmp((const char *) symbol, funcs[idx]);
-> >  }
-> >
-> > -noinline int test_dwarf_unwind__thread(struct thread *thread)
-> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__thread(struct
-> thread *thread)
-> >  {
-> >       struct perf_sample sample;
-> >       unsigned long cnt = 0;
-> > @@ -126,7 +143,7 @@ noinline int test_dwarf_unwind__thread(struct thread
-> *thread)
-> >
-> >  static int global_unwind_retval = -INT_MAX;
-> >
-> > -noinline int test_dwarf_unwind__compare(void *p1, void *p2)
-> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__compare(void
-> *p1, void *p2)
-> >  {
-> >       /* Any possible value should be 'thread' */
-> >       struct thread *thread = *(struct thread **)p1;
-> > @@ -145,7 +162,7 @@ noinline int test_dwarf_unwind__compare(void *p1,
-> void *p2)
-> >       return p1 - p2;
-> >  }
-> >
-> > -noinline int test_dwarf_unwind__krava_3(struct thread *thread)
-> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_3(struct
-> thread *thread)
-> >  {
-> >       struct thread *array[2] = {thread, thread};
-> >       void *fp = &bsearch;
-> > @@ -164,14 +181,22 @@ noinline int test_dwarf_unwind__krava_3(struct
-> thread *thread)
-> >       return global_unwind_retval;
-> >  }
-> >
-> > -noinline int test_dwarf_unwind__krava_2(struct thread *thread)
-> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_2(struct
-> thread *thread)
-> >  {
-> > -     return test_dwarf_unwind__krava_3(thread);
-> > +     int ret;
-> > +
-> > +     ret =  test_dwarf_unwind__krava_3(thread);
-> > +     NO_TAIL_CALL_BARRIER;
-> > +     return ret;
-> >  }
-> >
-> > -noinline int test_dwarf_unwind__krava_1(struct thread *thread)
-> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_1(struct
-> thread *thread)
-> >  {
-> > -     return test_dwarf_unwind__krava_2(thread);
-> > +     int ret;
-> > +
-> > +     ret =  test_dwarf_unwind__krava_2(thread);
-> > +     NO_TAIL_CALL_BARRIER;
-> > +     return ret;
-> >  }
-> >
-> >  int test__dwarf_unwind(struct test *test __maybe_unused, int subtest
-> __maybe_unused)
-> > --
-> > 2.29.2.299.gdc1121823c-goog
-> >
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 >
+> All errors (new ones prefixed by >>):
+>
+> >> drivers/net/can/usb/etas_es58x/es58x_core.c:745:12: error: use of undeclared identifier 'CAN_MAX_RAW_DLC'
+>            if (dlc > CAN_MAX_RAW_DLC) {
+>                      ^
+>    drivers/net/can/usb/etas_es58x/es58x_core.c:748:22: error: use of undeclared identifier 'CAN_MAX_RAW_DLC'
+>                               __func__, dlc, CAN_MAX_RAW_DLC);
+>                                              ^
+> >> drivers/net/can/usb/etas_es58x/es58x_core.c:753:9: error: implicit declaration of function 'can_fd_dlc2len' [-Werror,-Wimplicit-function-declaration]
+>                    len = can_fd_dlc2len(dlc);
+>                          ^
+>    drivers/net/can/usb/etas_es58x/es58x_core.c:753:9: note: did you mean 'can_dlc2len'?
+>    include/linux/can/dev.h:190:4: note: 'can_dlc2len' declared here
+>    u8 can_dlc2len(u8 can_dlc);
+>       ^
+> >> drivers/net/can/usb/etas_es58x/es58x_core.c:756:9: error: implicit declaration of function 'can_cc_dlc2len' [-Werror,-Wimplicit-function-declaration]
+>                    len = can_cc_dlc2len(dlc);
+>                          ^
+>    drivers/net/can/usb/etas_es58x/es58x_core.c:756:9: note: did you mean 'can_dlc2len'?
+>    include/linux/can/dev.h:190:4: note: 'can_dlc2len' declared here
+>    u8 can_dlc2len(u8 can_dlc);
+>       ^
+> >> drivers/net/can/usb/etas_es58x/es58x_core.c:775:3: error: implicit declaration of function 'can_frame_set_cc_len' [-Werror,-Wimplicit-function-declaration]
+>                    can_frame_set_cc_len(ccf, dlc, es58x_priv(netdev)->can.ctrlmode);
+>                    ^
+>    5 errors generated.
 > --
-> You received this message because you are subscribed to the Google Groups
-> "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an
-> email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit
-> https://groups.google.com/d/msgid/clang-built-linux/20201114210609.GC903902%40krava
-> .
+> >> drivers/net/can/usb/etas_es58x/es581_4.c:385:20: error: implicit declaration of function 'can_get_cc_dlc' [-Werror,-Wimplicit-function-declaration]
+>            tx_can_msg->dlc = can_get_cc_dlc(cf, priv->can.ctrlmode);
+>                              ^
+> >> drivers/net/can/usb/etas_es58x/es581_4.c:387:41: error: no member named 'len' in 'struct can_frame'
+>            memcpy(tx_can_msg->data, cf->data, cf->len);
+>                                               ~~  ^
+> >> drivers/net/can/usb/etas_es58x/es581_4.c:391:13: error: implicit declaration of function 'can_cc_dlc2len' [-Werror,-Wimplicit-function-declaration]
+>            msg_len += es581_4_sizeof_rx_tx_msg(*tx_can_msg);
+>                       ^
+>    drivers/net/can/usb/etas_es58x/es581_4.c:30:29: note: expanded from macro 'es581_4_sizeof_rx_tx_msg'
+>            offsetof(typeof(msg), data[can_cc_dlc2len((msg).dlc)])
+>                                       ^
+>    drivers/net/can/usb/etas_es58x/es581_4.c:391:13: note: did you mean 'can_dlc2len'?
+>    drivers/net/can/usb/etas_es58x/es581_4.c:30:29: note: expanded from macro 'es581_4_sizeof_rx_tx_msg'
+>            offsetof(typeof(msg), data[can_cc_dlc2len((msg).dlc)])
+>                                       ^
+>    include/linux/can/dev.h:190:4: note: 'can_dlc2len' declared here
+>    u8 can_dlc2len(u8 can_dlc);
+>       ^
+> >> drivers/net/can/usb/etas_es58x/es581_4.c:515:48: error: use of undeclared identifier 'CAN_CTRLMODE_CC_LEN8_DLC'
+>            .ctrlmode_supported = CAN_CTRLMODE_LOOPBACK | CAN_CTRLMODE_CC_LEN8_DLC,
+>                                                          ^
+>    4 errors generated.
+> --
+> >> drivers/net/can/usb/etas_es58x/es58x_fd.c:119:24: error: implicit declaration of function 'can_cc_dlc2len' [-Werror,-Wimplicit-function-declaration]
+>                    u16 rx_can_msg_len = es58x_fd_sizeof_rx_tx_msg(*rx_can_msg);
+>                                         ^
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:36:3: note: expanded from macro 'es58x_fd_sizeof_rx_tx_msg'
+>                    can_cc_dlc2len(__msg.dlc);                              \
+>                    ^
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:119:24: note: did you mean 'can_dlc2len'?
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:36:3: note: expanded from macro 'es58x_fd_sizeof_rx_tx_msg'
+>                    can_cc_dlc2len(__msg.dlc);                              \
+>                    ^
+>    include/linux/can/dev.h:190:4: note: 'can_dlc2len' declared here
+>    u8 can_dlc2len(u8 can_dlc);
+>       ^
+> >> drivers/net/can/usb/etas_es58x/es58x_fd.c:141:11: error: implicit declaration of function 'can_fd_len2dlc' [-Werror,-Wimplicit-function-declaration]
+>                                    dlc = can_fd_len2dlc(rx_can_msg->len);
+>                                          ^
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:141:11: note: did you mean 'can_len2dlc'?
+>    include/linux/can/dev.h:193:4: note: 'can_len2dlc' declared here
+>    u8 can_len2dlc(u8 len);
+>       ^
+> >> drivers/net/can/usb/etas_es58x/es58x_fd.c:371:25: error: no member named 'len' in 'struct can_frame'
+>                    tx_can_msg->len = cf->len;
+>                                      ~~  ^
+> >> drivers/net/can/usb/etas_es58x/es58x_fd.c:373:21: error: implicit declaration of function 'can_get_cc_dlc' [-Werror,-Wimplicit-function-declaration]
+>                    tx_can_msg->dlc = can_get_cc_dlc(cf, priv->can.ctrlmode);
+>                                      ^
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:374:41: error: no member named 'len' in 'struct can_frame'
+>            memcpy(tx_can_msg->data, cf->data, cf->len);
+>                                               ~~  ^
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:377:13: error: implicit declaration of function 'can_cc_dlc2len' [-Werror,-Wimplicit-function-declaration]
+>            msg_len += es58x_fd_sizeof_rx_tx_msg(*tx_can_msg);
+>                       ^
+>    drivers/net/can/usb/etas_es58x/es58x_fd.c:36:3: note: expanded from macro 'es58x_fd_sizeof_rx_tx_msg'
+>                    can_cc_dlc2len(__msg.dlc);                              \
+>                    ^
+> >> drivers/net/can/usb/etas_es58x/es58x_fd.c:617:6: error: use of undeclared identifier 'CAN_CTRLMODE_CC_LEN8_DLC'
+>                CAN_CTRLMODE_CC_LEN8_DLC,
+>                ^
+>    7 errors generated.
 >
+> vim +/CAN_MAX_RAW_DLC +745 drivers/net/can/usb/etas_es58x/es58x_core.c
+>
+>    718
+>    719  /**
+>    720   * es58x_rx_can_msg() - Handle a received a CAN message.
+>    721   * @netdev: CAN network device.
+>    722   * @timestamp: Hardware time stamp (only relevant in rx branches).
+>    723   * @data: CAN payload.
+>    724   * @can_id: CAN ID.
+>    725   * @es58x_flags: Please refer to enum es58x_flag.
+>    726   * @dlc: Data Length Code (raw value).
+>    727   *
+>    728   * Fill up a CAN skb and post it.
+>    729   *
+>    730   * This function handles the case where the DLC of a classical CAN
+>    731   * frame is greater than CAN_MAX_DLEN (c.f. the len8_dlc field of
+>    732   * struct can_frame).
+>    733   *
+>    734   * Return: zero on success.
+>    735   */
+>    736  int es58x_rx_can_msg(struct net_device *netdev, u64 timestamp, const u8 *data,
+>    737                       canid_t can_id, enum es58x_flag es58x_flags, u8 dlc)
+>    738  {
+>    739          struct canfd_frame *cfd;
+>    740          struct can_frame *ccf;
+>    741          struct sk_buff *skb;
+>    742          u8 len;
+>    743          bool is_can_fd = !!(es58x_flags & ES58X_FLAG_FD_DATA);
+>    744
+>  > 745          if (dlc > CAN_MAX_RAW_DLC) {
+>    746                  netdev_err(netdev,
+>    747                             "%s: DLC is %d but maximum should be %d\n",
+>    748                             __func__, dlc, CAN_MAX_RAW_DLC);
+>    749                  return -EMSGSIZE;
+>    750          }
+>    751
+>    752          if (is_can_fd) {
+>  > 753                  len = can_fd_dlc2len(dlc);
+>    754                  skb = alloc_canfd_skb(netdev, &cfd);
+>    755          } else {
+>  > 756                  len = can_cc_dlc2len(dlc);
+>    757                  skb = alloc_can_skb(netdev, &ccf);
+>    758                  cfd = (struct canfd_frame *)ccf;
+>    759          }
+>    760
+>    761          if (!skb) {
+>    762                  netdev->stats.rx_dropped++;
+>    763                  return -ENOMEM;
+>    764          }
+>    765          cfd->can_id = can_id;
+>    766          if (es58x_flags & ES58X_FLAG_EFF)
+>    767                  cfd->can_id |= CAN_EFF_FLAG;
+>    768          if (is_can_fd) {
+>    769                  cfd->len = len;
+>    770                  if (es58x_flags & ES58X_FLAG_FD_BRS)
+>    771                          cfd->flags |= CANFD_BRS;
+>    772                  if (es58x_flags & ES58X_FLAG_FD_ESI)
+>    773                          cfd->flags |= CANFD_ESI;
+>    774          } else {
+>  > 775                  can_frame_set_cc_len(ccf, dlc, es58x_priv(netdev)->can.ctrlmode);
+>    776                  if (es58x_flags & ES58X_FLAG_RTR) {
+>    777                          ccf->can_id |= CAN_RTR_FLAG;
+>    778                          len = 0;
+>    779                  }
+>    780          }
+>    781          memcpy(cfd->data, data, len);
+>    782          netdev->stats.rx_packets++;
+>    783          netdev->stats.rx_bytes += len;
+>    784
+>    785          es58x_set_skb_timestamp(netdev, skb, timestamp);
+>    786          netif_rx(skb);
+>    787
+>    788          es58x_priv(netdev)->err_passive_before_rtx_success = 0;
+>    789
+>    790          return 0;
+>    791  }
+>    792
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfXzqnhDJAeO7Q8jWmg4vQjnxDU8qiMzVeie8dVQeUhfFA%40mail.gmail.com.
-
---000000000000ab9b8f05b41adab3
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr">On Sat, Nov 14, 2020 at 1:06 PM Jiri Olsa=
- &lt;<a href=3D"mailto:jolsa@redhat.com" target=3D"_blank">jolsa@redhat.com=
-</a>&gt; wrote:<br></div><div class=3D"gmail_quote"><blockquote class=3D"gm=
-ail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,=
-204,204);padding-left:1ex">On Fri, Nov 13, 2020 at 04:08:03PM -0800, Ian Ro=
-gers wrote:<br>
-&gt; To ensure the stack frames are on the stack tail calls optimizations<b=
-r>
-&gt; need to be inhibited. If your compiler supports an attribute use it,<b=
-r>
-&gt; otherwise use an asm volatile barrier.<br>
-&gt; <br>
-&gt; The barrier fix was suggested here:<br>
-&gt; <a href=3D"https://lore.kernel.org/lkml/20201028081123.GT2628@hirez.pr=
-ogramming.kicks-ass.net/" rel=3D"noreferrer" target=3D"_blank">https://lore=
-.kernel.org/lkml/20201028081123.GT2628@hirez.programming.kicks-ass.net/</a>=
-<br>
-&gt; <br>
-&gt; Fixes: 9ae1e990f1ab (&quot;perf tools: Remove broken __no_tail_call<br=
->
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 attribute&quot;)<br>
-<br>
-missing SOB<br>
-<br>
-LGTM and test is passing for me ;-)<br>
-<br>
-Tested-by: Jiri Olsa &lt;<a href=3D"mailto:jolsa@redhat.com" target=3D"_bla=
-nk">jolsa@redhat.com</a>&gt;<br></blockquote><div><br></div><div>Sorry abou=
-t the SOB:</div><div>Signed-of-by: Ian Rogers &lt;<a href=3D"mailto:irogers=
-@google.com">irogers@google.com</a>&gt;</div><div><br></div><div>I&#39;m so=
-mewhat agnostic on what the fix looks like here, but not having it fixed br=
-eaks our continual testing. I filed a bug on GCC here:</div><div><a href=3D=
-"https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D97831">https://gcc.gnu.org/=
-bugzilla/show_bug.cgi?id=3D97831</a><br></div><div><br></div><div>Thanks,</=
-div><div>Ian</div><div><br></div><blockquote class=3D"gmail_quote" style=3D=
-"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-le=
-ft:1ex">
-jirka<br>
-<br>
-&gt; ---<br>
-&gt;=C2=A0 tools/perf/tests/dwarf-unwind.c | 39 +++++++++++++++++++++++++++=
-------<br>
-&gt;=C2=A0 1 file changed, 32 insertions(+), 7 deletions(-)<br>
-&gt; <br>
-&gt; diff --git a/tools/perf/tests/dwarf-unwind.c b/tools/perf/tests/dwarf-=
-unwind.c<br>
-&gt; index 83638097c3bc..c8ce86bceea8 100644<br>
-&gt; --- a/tools/perf/tests/dwarf-unwind.c<br>
-&gt; +++ b/tools/perf/tests/dwarf-unwind.c<br>
-&gt; @@ -24,6 +24,23 @@<br>
-&gt;=C2=A0 /* For bsearch. We try to unwind functions in shared object. */<=
-br>
-&gt;=C2=A0 #include &lt;stdlib.h&gt;<br>
-&gt;=C2=A0 <br>
-&gt; +/*<br>
-&gt; + * The test will assert frames are on the stack but tail call optimiz=
-ations lose<br>
-&gt; + * the frame of the caller. Clang can disable this optimization on a =
-called<br>
-&gt; + * function but GCC currently (11/2020) lacks this attribute. The bar=
-rier is<br>
-&gt; + * used to inhibit tail calls in these cases.<br>
-&gt; + */<br>
-&gt; +#ifdef __has_attribute<br>
-&gt; +#if __has_attribute(disable_tail_calls)<br>
-&gt; +#define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_calls))<br=
->
-&gt; +#define NO_TAIL_CALL_BARRIER<br>
-&gt; +#endif<br>
-&gt; +#endif<br>
-&gt; +#ifndef NO_TAIL_CALL_ATTRIBUTE<br>
-&gt; +#define NO_TAIL_CALL_ATTRIBUTE<br>
-&gt; +#define NO_TAIL_CALL_BARRIER __asm__ __volatile__(&quot;&quot; : : : =
-&quot;memory&quot;);<br>
-&gt; +#endif<br>
-&gt; +<br>
-&gt;=C2=A0 static int mmap_handler(struct perf_tool *tool __maybe_unused,<b=
-r>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0union perf_event *event,<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0struct perf_sample *sample,<br>
-&gt; @@ -95,7 +112,7 @@ static int unwind_entry(struct unwind_entry *entry,=
- void *arg)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0return strcmp((const char *) symbol, funcs[i=
-dx]);<br>
-&gt;=C2=A0 }<br>
-&gt;=C2=A0 <br>
-&gt; -noinline int test_dwarf_unwind__thread(struct thread *thread)<br>
-&gt; +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__thread(struct =
-thread *thread)<br>
-&gt;=C2=A0 {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0struct perf_sample sample;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0unsigned long cnt =3D 0;<br>
-&gt; @@ -126,7 +143,7 @@ noinline int test_dwarf_unwind__thread(struct thre=
-ad *thread)<br>
-&gt;=C2=A0 <br>
-&gt;=C2=A0 static int global_unwind_retval =3D -INT_MAX;<br>
-&gt;=C2=A0 <br>
-&gt; -noinline int test_dwarf_unwind__compare(void *p1, void *p2)<br>
-&gt; +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__compare(void *=
-p1, void *p2)<br>
-&gt;=C2=A0 {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0/* Any possible value should be &#39;thread&=
-#39; */<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0struct thread *thread =3D *(struct thread **=
-)p1;<br>
-&gt; @@ -145,7 +162,7 @@ noinline int test_dwarf_unwind__compare(void *p1, =
-void *p2)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0return p1 - p2;<br>
-&gt;=C2=A0 }<br>
-&gt;=C2=A0 <br>
-&gt; -noinline int test_dwarf_unwind__krava_3(struct thread *thread)<br>
-&gt; +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_3(struct=
- thread *thread)<br>
-&gt;=C2=A0 {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0struct thread *array[2] =3D {thread, thread}=
-;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0void *fp =3D &amp;bsearch;<br>
-&gt; @@ -164,14 +181,22 @@ noinline int test_dwarf_unwind__krava_3(struct t=
-hread *thread)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0return global_unwind_retval;<br>
-&gt;=C2=A0 }<br>
-&gt;=C2=A0 <br>
-&gt; -noinline int test_dwarf_unwind__krava_2(struct thread *thread)<br>
-&gt; +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_2(struct=
- thread *thread)<br>
-&gt;=C2=A0 {<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0return test_dwarf_unwind__krava_3(thread);<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0int ret;<br>
-&gt; +<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0ret =3D=C2=A0 test_dwarf_unwind__krava_3(thread);=
-<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0NO_TAIL_CALL_BARRIER;<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0return ret;<br>
-&gt;=C2=A0 }<br>
-&gt;=C2=A0 <br>
-&gt; -noinline int test_dwarf_unwind__krava_1(struct thread *thread)<br>
-&gt; +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_1(struct=
- thread *thread)<br>
-&gt;=C2=A0 {<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0return test_dwarf_unwind__krava_2(thread);<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0int ret;<br>
-&gt; +<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0ret =3D=C2=A0 test_dwarf_unwind__krava_2(thread);=
-<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0NO_TAIL_CALL_BARRIER;<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0return ret;<br>
-&gt;=C2=A0 }<br>
-&gt;=C2=A0 <br>
-&gt;=C2=A0 int test__dwarf_unwind(struct test *test __maybe_unused, int sub=
-test __maybe_unused)<br>
-&gt; -- <br>
-&gt; 2.29.2.299.gdc1121823c-goog<br>
-&gt; <br>
-<br>
--- <br>
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br>
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux%2Bunsubscribe@googlegroups.com"=
- target=3D"_blank">clang-built-linux+unsubscribe@googlegroups.com</a>.<br>
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/20201114210609.GC903902%40krava" rel=3D"norefe=
-rrer" target=3D"_blank">https://groups.google.com/d/msgid/clang-built-linux=
-/20201114210609.GC903902%40krava</a>.<br>
-</blockquote></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAP-5%3DfXzqnhDJAeO7Q8jWmg4vQjnxDU8qiMzVeie8dV=
-QeUhfFA%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
-oups.google.com/d/msgid/clang-built-linux/CAP-5%3DfXzqnhDJAeO7Q8jWmg4vQjnxD=
-U8qiMzVeie8dVQeUhfFA%40mail.gmail.com</a>.<br />
-
---000000000000ab9b8f05b41adab3--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMZ6RqJFasm658%3D-6Q4-Dm%2BgDG-tqj39ujzXbMAdYwmaRE%3D1ew%40mail.gmail.com.
