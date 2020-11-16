@@ -1,124 +1,134 @@
-Return-Path: <clang-built-linux+bncBCT6537ZTEKRBSPVZL6QKGQEEURZ67A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD6MT7EH5AARBLXWZL6QKGQE7ZUBNLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id E2B2F2B4DD8
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 18:45:45 +0100 (CET)
-Received: by mail-wm1-x337.google.com with SMTP id h2sf30930wmm.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 09:45:45 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605548745; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB8F02B4DE2
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 18:47:27 +0100 (CET)
+Received: by mail-lf1-x139.google.com with SMTP id o28sf2507323lfi.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 09:47:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605548847; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IxcpBlNsAqoh2Jy0SAt3/ULSSxL55PwRGFFp0LYsEuDauZncnRUNkrkNXDW44jKNl2
-         7W7S7DgyzutqEjqu/MqzGIXJkxWDgZlLuQvc1M65kkfhP7WwWVRCLjRL8wbhsWvYrcN2
-         4VKR/1QoOwKGaXXMlpIDAnldRRa6xJeXW1/IPT5yjSbAsJo6uCYp9Bl8VSsZAHEa/YqE
-         K2oYNE+IwIoA5DjeE1qEUOWrevLsnTSta0l2NQh1ZEEX5cUA3ENgeZ7f28/sRizkJndS
-         AK2evta0/GpMOHuVC63i32vRfmu5iePpQeijHsjkv6bRYQJFstb8gfwRmij8YgOmpoga
-         XKuA==
+        b=SjaqLwCmfGKNzxFhXIvN6bb1HlgtaXUeV6KPRj+tLFgmdPCv669mJs9fMRWORAE7AD
+         Mm0Y8MBe8IL8m7tkmf14XGp3T0XLb29gMzfaJZV0Aiq9vKOWt5XSVVr0QH0vkfdEOaBf
+         54vr5EpPKNnAIRwinKjJIkv0WDAeEry8tzLDhWiFL7PgcDYKQkVoelzfMz6VHsJ3cIZZ
+         EJJbCM24cSZvfRZmabp9bLEjBFgo2OFtf00KP9tAs4prD+b4rHq9JZ2oo1/iVt1+KKZw
+         yuDvF+Gzog2rZ2IwqzNNjTFxHYwfEYig0VeTWmKc91TwykH4wuj+MOdIPd0JLX6/Pwp8
+         ubjA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=gfeAjIWiFrJuIi3FU8wpHN3C6amaBTE7CLHtCx1SvsE=;
-        b=RR483fdqlNVd7GoiSJZfY+nXK91Y8MYqy7RFCG7LgIJySYNEDS+nIS53qZt0m0nL2/
-         FHitJR7iMg+IqwLvKNJpPqQh9vmKaqyqJgvYNlj6+u7QMVYQDXHWcqULzl9mhAO187n8
-         F0mpeRQh9nQ8/zrE+RsyQNIFJToSALpo9X5vu/5ddX4yducCajCVqTznaNyhmfjwepc7
-         IVzakFaK2gPgbvTvTdJ8BJWO1mFltudU6pPvJLEglUe7kSFtLBwcc0AxYmnH5TShANse
-         JisNu8jb5mJMM6MOkFrrxAwL8yHEvfJ5jA+2AKgUG6DeEMlUuvfB0+sFTnfPsweNI27K
-         837w==
+         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
+         :in-reply-to:date:references:subject:cc:to:from:sender
+         :dkim-signature;
+        bh=s8FQGr0T1uJbDGVzLGfgRuLCJZMSNyYsCBerBB8f4rI=;
+        b=Kpz97/b2srwMzdNMuap2Oio4nUfULybAhKWAq34ZJKhz/Lw69dBAzUYHdD2yzYZJFq
+         oKiT2b+U1eIftOX2s9ADHHehx+kjtqsEKqYieP7+LjHxjDGZodKMtLJxo1LznzhxSV8F
+         P1D/trp7PO7dWSq0pbreREmMTk9LGLuk1ZQ0qSntfwqy4nT2KPfFKnoljlpDwlyeGmI+
+         +4n7pozTFuaDa974ngrE3DDnf5TH8ifJnPmee4cWHUqPcFpZ/KSlaVKhMIqwOe+QBmgh
+         eP54+JDpyGABt8wDAdh9zn8zzmFK7A4ZnhjZzkwIW6AnOPo7/Et5O6j9tMh7rIIUHiyo
+         nBpg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=ThfNdT7T;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::62a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of whitebox@nefkom.net designates 2001:a60:0:28:0:1:25:1 as permitted sender) smtp.mailfrom=whitebox@nefkom.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=gfeAjIWiFrJuIi3FU8wpHN3C6amaBTE7CLHtCx1SvsE=;
-        b=tTcEVtKpYJO38wRfZzvj/Te4V1MYy6zY5kJtk1y5gS1AIacaRfwXIP9vH4yO7uzpy5
-         8Kvy8oW8OCXzFarm52AFfRPICE7zLr48A0wPABq/EsSKDtbuBaA6g5f0GhZvypBvyny5
-         6kx5c1oi941eyBSxdXo6H5XYGyxgkyNZSWv1Bxa2lW8cAPjGFA3Agw8aabM3KgmvLgri
-         crUv5dxL+TYD9FPuKnshESbYMb7xCjE7oDXjwAst2oNRV2yn7+Y/IFkIphBSGSiIUK2G
-         7jmw2QrtjLPZl4GPasrRrxdwHkch3PCTc8Bga/C9iw8PzrRgIAYdwRLIcWXj9y64LTSI
-         n8rg==
+        h=sender:from:to:cc:subject:references:date:in-reply-to:message-id
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=s8FQGr0T1uJbDGVzLGfgRuLCJZMSNyYsCBerBB8f4rI=;
+        b=Ovg7Xy2Y0Rknh6hgLV7In4MrVlKqCUpQhRFAEVBZdMjPjDMOauxSARxUxTS/Hdy3rN
+         d94yCrLaAVfqYZyY91j+ARtEhIjx+JaAJsWtFHJzS+X3OmNXf4bTOqYbMT5BK6clDgBD
+         GZbU1Y6S4fciHEwgySLeaiyQFPvQq6HjricAaZUxcUPj1BYYORBJYH8VvZy36cAODnnL
+         Y5eaKLV7QgiBCnmw5PBfQywiQKtIaaNdobFOKmiVwBTkmIoGxtB7PB24TCSt6CoKrDe2
+         7cRpRpmSbBjjPEv0AIFRWfx3jSZ0VTWOBO9+iIoPxcyaZ7Uk/EFbC7Wgl5p2q1pQKH+e
+         j+Yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:references:date
+         :in-reply-to:message-id:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gfeAjIWiFrJuIi3FU8wpHN3C6amaBTE7CLHtCx1SvsE=;
-        b=gJdrURoxuB0Odp/DUuN/SEzNp7iBgCC/tsHyMU93atJyXu3aXgiZAC2OgtOAnq8w4p
-         hrqCVVTt66IRKZREsZZ/TCxZKmp93QSxFQathg4UcSYf2V8VXxUr++euYyimP5p5sGMR
-         H61ExrgreSNEissPO3vC+bSFmhaGfQmhPAAYy8dOa5xFTvfDqxD4KMeeQiUjGOmuD8ja
-         cr0uyMSNJk1iBHxkHOzYjxrschHqQDV7HcW3qQ/NvAavwJjkdjWAwVB3gajdfMXIQvCA
-         /SPxHIqniTuzrn6h4iGihI8jrb3qkRoKVWP9cfwHIZ4q9R4MLp6AwnpMJL7jcXF5Jxvn
-         wArg==
+        bh=s8FQGr0T1uJbDGVzLGfgRuLCJZMSNyYsCBerBB8f4rI=;
+        b=iTwouD/eDCydMKyGHo37c9ZJwq9yWaBDZoJhGPCz4fKBPTcEg0DQtdXFHs7plkUrNh
+         TFSWf1Te8s9gRy1ARRBIPDhSrh52PUF6F7X3HpGBP5qFlqHDNxvmF6KZWxGoQ/KY9qk4
+         is748gsOuGgD1ZxB7MBHrwrAG8CXnYhB5HCl7i6tIgqJe6tmX8M4Yg0Bq2HqlxZCbLCe
+         XSIDeHCoSRbBLRI6TLi7exxjtJ1y5nVe07DhY3R45dL5xYLnCim5XCeJsW4NjHIKuhtp
+         3M9xVRqDPNky+jte5uuMf0sC/2Ap5rSAW6TFaNN+Ms89ajzYGE3aaFLngiGgSRj5GM52
+         7xNg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532lJepyxPFOLgGT43o2kw1wFdHnHwYzKcqYwGe3pVmBPLNxt1AD
-	bCCqzCw1Usezn8IIpoKM2WQ=
-X-Google-Smtp-Source: ABdhPJx2t/bXjYOTn7SW9M635vJhTNkJP/uQ603RxmRCFXZjR1Wh1xm5BSMgltExp60P8jiC7MRRtA==
-X-Received: by 2002:a7b:c932:: with SMTP id h18mr51454wml.82.1605548745716;
-        Mon, 16 Nov 2020 09:45:45 -0800 (PST)
+X-Gm-Message-State: AOAM532G+T2PuNyeEiabX8fDgD8BV5ICB4woy0NN9ERSJD8h51o/99RG
+	voyGw3A9sOjn7dWAzz/hROM=
+X-Google-Smtp-Source: ABdhPJy43josvwjM237Kl7K7sg2yxklN5AR1fdSnBT0dnKF2MC+sBa43tgt8BZZ1dm42KEKkBwl4DA==
+X-Received: by 2002:a05:651c:1391:: with SMTP id k17mr192244ljb.277.1605548847248;
+        Mon, 16 Nov 2020 09:47:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f70d:: with SMTP id r13ls16411456wrp.1.gmail; Mon, 16
- Nov 2020 09:45:44 -0800 (PST)
-X-Received: by 2002:adf:9d44:: with SMTP id o4mr21864018wre.229.1605548744824;
-        Mon, 16 Nov 2020 09:45:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605548744; cv=none;
+Received: by 2002:a19:d0e:: with SMTP id 14ls9157050lfn.0.gmail; Mon, 16 Nov
+ 2020 09:47:26 -0800 (PST)
+X-Received: by 2002:ac2:5607:: with SMTP id v7mr206198lfd.71.1605548846154;
+        Mon, 16 Nov 2020 09:47:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605548846; cv=none;
         d=google.com; s=arc-20160816;
-        b=TWiQwbxVfdaQHzqg3YFPptyNdM9GGAswAMqiaiW6wYzUstxX2O3KBDnQH1PpzlaF1L
-         R3D+Nne4TSsQqYML3sOa5RmTeIx+IbQN8MtEDWgbzJdO7Iglw9YnY4LtZgk9pQy8orEx
-         rM3hJEzj0NrtiKeBQ1lM2DrbuVouKQjrEOqLdSSrrkzuhjzUlOkZRSUXZ16+Ovhcvl9A
-         3aRTcU3pfysTL03LyjKGiJzd+jB2MGfLg7nT+J5XKTejaOp0GfgNgqwkea/PWHxLiVHq
-         JdlX9diGLYyt/OFmM8k6bAUBd3F8UgZGKPP9CHuhMckk3wPe7BpGKPcCCyZqR+Ny1KN7
-         X+tw==
+        b=AUSbAkxOEzz2phkBpLHnzOrTx2QcWUOTTyAzSHWU3A+bRo/h0aT2HUszk0Inll3JPy
+         +BxXqzsyPVZQ8AatL5iPHlJ9ajD9E53/+n1fKtP74Ci4NPVb+ivFFSjPQgJl4H3UQosc
+         Oxa0M2ApmlQZ0DvarkJw+psxfprKcbSp8RSK3caFNKffnKgG83QRSroOIa9PLduKwkaZ
+         1+alh5jqNbbRdprHZwYwxOVGZEgfXZG02KExmMw4BCc4WvG1235A9roKAP9AOaI17g/6
+         +WgEwSgKIBu0UihbM/fL934D616FPUH368Kec7F7NFvFoSqiWfDAEbHKseGAguOVoNIG
+         yWxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=iOfLPf6q82LQ4o2dX74EOP8Qleq0jBpSdGnIbHUCkxQ=;
-        b=zOFLZE0afxSALmaoULSReeqj9yLQTNBpwS5jN7vBKWN2X9PpUtBmrXm9gKs+czsrvy
-         8yBXwoOvvgTtRaMy4s/gy87PQzhzK2VBn1FgfvUy4J9cSBsNEDGF2zO5zQwrN/eMR8/t
-         z1uHcPtOavtawDQSAOtrjIL54EN8S6OKuDcEJzpyGf4b5fTf6xui2ubnuBHr48wkW5xG
-         uiGUSXpyeuLuxpuHyqmYX0HeKVmXqetLOOvryUi2ujov6sVpqpIYV6OTUyM2Jjgzm0ne
-         aZC6fWtznMTWzyxuekP822pQhdmSdEKed5QcEZEo7GeVbtLNYzshozr15/W9jBYC6lrB
-         45xQ==
+        h=mime-version:user-agent:message-id:in-reply-to:date:references
+         :subject:cc:to:from;
+        bh=OiiUQaM2bYfHqobx2mMOU17o8AjbbiVsNUB/GdzyHa0=;
+        b=YWkpMbVpqhGvy6lw/K7Iw4ddF8/qJrJA4vtmlqfDQ/Vel2RwEiQmru3NSkNdIPmtTu
+         3UgeuQK+jK+VMw0C0O1rL1U3XRxqSUElBgJIi0/+WLzHt8mubeIctgESMjdPSq/9uX7D
+         B0gMoQpVdjFO71qYfDbynKXZa3Jaw/62gw3CUFMWAeFOf5lsSAYWe2V2m8CfLVNss1sf
+         FsRV5/lACieYIJW2xan6kFhwfX3dRSg6jhQqjr6H08k5HtXVkBpTLhSPmoRsUkArgq46
+         rCDJcU9jGMGsn8cGMfuCFsZxlgXupW0XAP3JbWn8h2j3pACLSjlf9hi73e7mpSbPKVld
+         8UyQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=ThfNdT7T;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::62a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-ej1-x62a.google.com (mail-ej1-x62a.google.com. [2a00:1450:4864:20::62a])
-        by gmr-mx.google.com with ESMTPS id j199si16522wmj.0.2020.11.16.09.45.44
+       spf=pass (google.com: domain of whitebox@nefkom.net designates 2001:a60:0:28:0:1:25:1 as permitted sender) smtp.mailfrom=whitebox@nefkom.net
+Received: from mail-out.m-online.net (mail-out.m-online.net. [2001:a60:0:28:0:1:25:1])
+        by gmr-mx.google.com with ESMTPS id i12si465375lfl.0.2020.11.16.09.47.25
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Nov 2020 09:45:44 -0800 (PST)
-Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::62a as permitted sender) client-ip=2a00:1450:4864:20::62a;
-Received: by mail-ej1-x62a.google.com with SMTP id o21so25638323ejb.3
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Nov 2020 09:45:44 -0800 (PST)
-X-Received: by 2002:a17:906:5fd0:: with SMTP id k16mr16102516ejv.133.1605548744401;
- Mon, 16 Nov 2020 09:45:44 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Nov 2020 09:47:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of whitebox@nefkom.net designates 2001:a60:0:28:0:1:25:1 as permitted sender) client-ip=2001:a60:0:28:0:1:25:1;
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+	by mail-out.m-online.net (Postfix) with ESMTP id 4CZc3K30kTz1rx7x;
+	Mon, 16 Nov 2020 18:47:25 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+	by mail.m-online.net (Postfix) with ESMTP id 4CZc3K26fdz1qtZ6;
+	Mon, 16 Nov 2020 18:47:25 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+	by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new, port 10024)
+	with ESMTP id Fcuw266vvLxM; Mon, 16 Nov 2020 18:47:24 +0100 (CET)
+X-Auth-Info: wxbQwUFoWhqFj8s7Vg1V6Cvh2UMn555Uc46N/96aYxMCH5Z0HHAeNhVd/Wcn8Qne
+Received: from igel.home (ppp-46-244-169-244.dynamic.mnet-online.de [46.244.169.244])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.mnet-online.de (Postfix) with ESMTPSA;
+	Mon, 16 Nov 2020 18:47:24 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+	id C6D3B2C3328; Mon, 16 Nov 2020 18:47:23 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,  Nick Desaulniers
+ <ndesaulniers@google.com>,  clang-built-linux@googlegroups.com,
+  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
+References: <20201014212631.207844-1-nivedita@alum.mit.edu>
+X-Yow: It's the land of DONNY AND MARIE as promised in TV GUIDE!
+Date: Mon, 16 Nov 2020 18:47:23 +0100
+In-Reply-To: <20201014212631.207844-1-nivedita@alum.mit.edu> (Arvind Sankar's
+	message of "Wed, 14 Oct 2020 17:26:31 -0400")
+Message-ID: <87sg999ot0.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
 MIME-Version: 1.0
-References: <CA+G9fYssjT9+BBwGrjgVOwqVM923GmEtShQV8pVFnsu3X09-ZQ@mail.gmail.com>
- <CAK8P3a3DAVK2Vy-Hb7AbbFwfRnMCkwtmw1L5EivSRdoZ17hJ9A@mail.gmail.com>
-In-Reply-To: <CAK8P3a3DAVK2Vy-Hb7AbbFwfRnMCkwtmw1L5EivSRdoZ17hJ9A@mail.gmail.com>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Mon, 16 Nov 2020 23:15:33 +0530
-Message-ID: <CA+G9fYushaXDdg7CEU-CTmqpdGFNS_sMGPXXgiHj1RuUwxyK2w@mail.gmail.com>
-Subject: Re: [stable rc 5.4] arch/x86/events/amd/../perf_event.h:838:21:
- error: invalid output size for constraint '=q'
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Anders Roxell <anders.roxell@linaro.org>, =?UTF-8?B?RGFuaWVsIETDrWF6?= <daniel.diaz@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Brian Gerst <brgerst@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: naresh.kamboju@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=ThfNdT7T;       spf=pass
- (google.com: domain of naresh.kamboju@linaro.org designates
- 2a00:1450:4864:20::62a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+X-Original-Sender: schwab@linux-m68k.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of whitebox@nefkom.net designates 2001:a60:0:28:0:1:25:1
+ as permitted sender) smtp.mailfrom=whitebox@nefkom.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,45 +141,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Arnd,
+On Okt 14 2020, Arvind Sankar wrote:
 
-> Adding the clangbuiltlinux list, Brian and Nick.
+> Commit
+>   815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
 >
-> It looks like the problem is that Brian's cleanup series is only
-> applied on mainline kernels (5.9+) but not the stable ones.
+> neglected to copy barrier_data() from compiler-gcc.h into
+> compiler-clang.h. The definition in compiler-gcc.h was really to work
+> around clang's more aggressive optimization, so this broke
+> barrier_data() on clang, and consequently memzero_explicit() as well.
 >
-> Is this the only problem that prevents us from using clang for
-> i386 5.4 kernels?
+> For example, this results in at least the memzero_explicit() call in
+> lib/crypto/sha256.c:sha256_transform() being optimized away by clang.
 >
-> If you apply these patches, do you run into other problems as
-> well?
-
-No.
-The below listed patches are cherry-picked into my local stable rc 5.4 branch
-and i386 clang-10 build is successful.
-
-Build tested i386 + clang-10 - PASS
-Build tested x86_64 + clang-10 - PASS
-
+> Fix this by moving the definition of barrier_data() into compiler.h.
 >
-> c94055fe93c8 x86/percpu: Clean up percpu_stable_op()
-> ebcd580bed4a x86/percpu: Clean up percpu_cmpxchg_op()
-> 73ca542fbabb x86/percpu: Clean up percpu_xchg_op()
-> bbff583b84a1 x86/percpu: Clean up percpu_add_return_op()
-> e4d16defbbde x86/percpu: Remove "e" constraint from XADD
-> 33e5614a435f x86/percpu: Clean up percpu_add_op()
-> bb631e300284 x86/percpu: Clean up percpu_from_op()
-> c175acc14719 x86/percpu: Clean up percpu_to_op()
-> 6865dc3ae93b x86/percpu: Introduce size abstraction macros
+> Also move the gcc/clang definition of barrier() into compiler.h,
+> __memory_barrier() is icc-specific (and barrier() is already defined
+> using it in compiler-intel.h) and doesn't belong in compiler.h.
 >
-> It may be a stretch to have these applied to v5.4.y, but maybe
-> there is some other way.
+> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
+> Fixes: 815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
 
-We need to find a way to apply these patches into stable 5.4 branch.
+This breaks build on riscv:
 
-- Naresh
+  CC [M]  drivers/net/ethernet/emulex/benet/be_main.o
+In file included from ./include/vdso/processor.h:10,
+                 from ./arch/riscv/include/asm/processor.h:11,
+                 from ./include/linux/prefetch.h:15,
+                 from drivers/net/ethernet/emulex/benet/be_main.c:14:
+./arch/riscv/include/asm/vdso/processor.h: In function 'cpu_relax':
+./arch/riscv/include/asm/vdso/processor.h:14:2: error: implicit declaration of function 'barrier' [-Werror=implicit-function-declaration]
+   14 |  barrier();
+      |  ^~~~~~~
+cc1: some warnings being treated as errors
+make[5]: *** [scripts/Makefile.build:283: drivers/net/ethernet/emulex/benet/be_main.o] Error 1
+make[4]: *** [scripts/Makefile.build:500: drivers/net/ethernet/emulex/benet] Error 2
+make[3]: *** [scripts/Makefile.build:500: drivers/net/ethernet/emulex] Error 2
+make[2]: *** [scripts/Makefile.build:500: drivers/net/ethernet] Error 2
+make[1]: *** [scripts/Makefile.build:500: drivers/net] Error 2
+make: *** [Makefile:1799: drivers] Error 2
+
+Andreas.
+
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYushaXDdg7CEU-CTmqpdGFNS_sMGPXXgiHj1RuUwxyK2w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87sg999ot0.fsf%40igel.home.
