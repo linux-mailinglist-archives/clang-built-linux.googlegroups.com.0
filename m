@@ -1,132 +1,138 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRBFHWZP6QKGQE4OAR3DQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDIIZZ7A64LRBAMHZT6QKGQEHLVUMQA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62E002B5430
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 23:20:10 +0100 (CET)
-Received: by mail-lj1-x238.google.com with SMTP id j9sf9133048ljb.3
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 14:20:10 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605565205; cv=pass;
+Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C94632B54A7
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 23:56:02 +0100 (CET)
+Received: by mail-pg1-x53d.google.com with SMTP id 33sf12683473pgt.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 14:56:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605567361; cv=pass;
         d=google.com; s=arc-20160816;
-        b=D6wyWMWl/v8inK4LG1/1Cj4D3rsjQ2fl4bOypjcf1YAgshGkiuzk+EFD4jXlWROLfv
-         QtdP+lSJfely9Uh8Bc2uT2iqtI1bMlnC/ioC7JNH4vEOcZsPFAKY7tpbEbsxLHFv2Cri
-         U4Tiu7hri8QvnWt3bPcNRRult46kstCA7soaMvLuqlkdRTm38wqq8WN4WlO6K9vFRhwm
-         wIL0zpHJWnrbF9jJBiqfU1mxIXWqLIfiqEk1LgXiZObHwnukEh2JQNEwkhgiblk6vWkT
-         dlBVglIQXhldR+4T8LwKAYhSj3L+bU1K+m4I5vXwCd0RrbzKTUgOi98JJ/My6L0fUupr
-         Z1Rg==
+        b=jmjB7zmY8LGSTsRnrlIy8hkro/BgqU8m/vCGLjyinfLAoKcE+DIpgM8KiDJOSNNTQv
+         QkMtOelMtjXuCKdTSJgUSNdocagLIAV/JiIwybGHdyylifmr5lXH96wFTPbRVbNuv4gn
+         p187d49PEveygtPb5/NE8eaIxGUKibNDfmMdGrUjod4QILOuKWiASniVnpD4hXmSvDbI
+         Q1iXfMz8xhXUEQN1jXVLe6LkXDYoQl6K5KWbf2J96jpf9j00vt7WAyzO2CooPwpSCLP/
+         2LM1qwYBoYzamiKp0YU39OdkpMCCf5EZipX+JcRezrvvNAunCkHBbB5N3TKe1FlSdJc4
+         si7Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:references:cc:to:from:subject:sender:dkim-signature;
-        bh=jAvAvVM4aVzP1FdcgfD4tNVA3DZ7ytVF3hrlydEfjRM=;
-        b=SNM56HQEWRoXZCjiSMktXJSHEhrkier2Nfku8BdA5bThGhOKMtU5NNVzsvZnjsWEih
-         WfHKh7o+5BiTkC9ifAr3HC9a4ZqJORV3looxgALTwFrrfMHKH7nsEcyuy7KTmDK+HgDk
-         CgVydQvoZoFUbbZ/Ax80+gvmM8BRXYpj4v93INKDxK0drhwx9OlG0sfTYzltLPQWQk/5
-         NzFswGnll7KOgYYbUuBjDV4JtF6G6VXxC2HXlamuPHtHH4QLacQHoZAZEPQcrjGqpQXl
-         zrjZRkz4HV/l0gwm7XAnKkoz1+B6sd6VUSmqXaI6lYxKLxmWnmFRrK5HKjmge2LlT2mK
-         7kAw==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=85K8NbYCSI93xrq+XuNLCUPcw6jd7nHvNy5ziEpS2po=;
+        b=IRpuex2Zkfmd6K89uVLsmEGrT6l0bxv5v+WWzfUbYKFR7jO03t7PRoJsINmAKqt3ae
+         MJGtU75qgSQxh0Ps0PKlAJPuBHy2pmt8T9Xf1jgLyGatGZtY+IZuM90uLXq/bQ6oE9/B
+         a9KFfgOCx2vXg7aW3Hn9vl5fg3LG+YGrmIrLrf87ki/cbK+goR7+Xa07Y9B78VvVh4oU
+         5qvPBcbKrXK2T5Evw9/MLg+9P6jH2k2gUjxbLb/mCCNA44tmdMJmnnAAICH1Ekqzi3JB
+         la7BaWsuBTdX+FhbpESouAbRabQSsHXCvqmWdVUhBjleLlS3F19IPxtt40NBkZMMQ9cK
+         AYsA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=uMUcuSmE;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=C5BO4byd;
+       spf=pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=willmcvicker@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:from:to:cc:references:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=jAvAvVM4aVzP1FdcgfD4tNVA3DZ7ytVF3hrlydEfjRM=;
-        b=W4gNLDuFgQYXsf5rUvuKG+5Jgg7qG3Mw6bSjaPRxMIWclOaBHg1+IBJZcT+GX6JK/E
-         yk4FK7jYiivQLAiEeqXoPR74nkkpse0NJgdLRVKc1HNIu0f0R+ap6nyeIcMXz1BTTwbv
-         Ztp3Fl8iFxTyZLr475LMQIWgOuwctvz9v/5NIXwnvhiGq7htQe7Y4Wgh0LZejZ2wi89U
-         +W4OKveJv4pVjh7+G/hgUuG9IynsfE6i+6jH7y0mKHyz6kBoUgFBXvwFfvb5O9ytVpuz
-         JK2/Xx7nBcBVSdYKvHpV3cyoZmv+aHqqzgKLHDvOxzNddhP17XTzG0GLo1VmzglcOQlu
-         f0dA==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=85K8NbYCSI93xrq+XuNLCUPcw6jd7nHvNy5ziEpS2po=;
+        b=iRkJJIRuNXTRy80w3xK3uORctgbp8APMA9UKhdYgkBiVYyzQvPG+olo+HS7VKzmLI3
+         IUfd12iNIhnEVGNN/WNMgpqA/8qljOl5VwYW92Um0ZO5Oc+r4EI+HIzQo1+QSWCGoQlm
+         UY0P+E0TKokg85KT83iSUYe5Pr5omnKLbc409GyeSI5d0iHowEaBpUcgUEodrZJPb7ko
+         S7jzF6v7KN4dQmz7lkym5bMTdqm/6qelCCdJ2i0tpboEBKZ0Y5HqCfJLnI2aL7I8mcwn
+         ZJgkyzvlF1HtdlqhMUcJ2CtCpXb9bQP/PzlsQKe6eRimYEkelJkzuLH+ewLoRkFFjR3o
+         MYkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:from:to:cc:references:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jAvAvVM4aVzP1FdcgfD4tNVA3DZ7ytVF3hrlydEfjRM=;
-        b=lFWlnd3iggsuHCIMNbv1uImtgz9DYd8HV/pTr1r0WiByUAtfS+XhKqWooiJaHzwtUB
-         Jw1t50nMXIikGqHJG3oKlJ+/yLkwvAg8pCHtMeQ6VwktCd7s2CiHmQQS6TEN5pgFKtyG
-         gJai2ZV/x/2HaQmFr07p1J+wny26L797mFoB4y2VGIx33uSnjaMozqpltlol8qaFwm22
-         nxVazukbDMueLGaFoFdEW640/L/Jw29wJRLU0C99nQZ98m7dgy3MHmUnUrVsOCnku/U7
-         8tRwQL11ZoT256D9c+zLKLGA2jF0GiU5GmbmpM6PvK3Z3DYo5t9PetCdR7pE1iXfTEFZ
-         CEPw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532u6pUJnU6Q93uDyRocaUGb8fWVGuGds5wk26+OLVVKVs1tDgNH
-	4FLDdqKA/y7PRFpm9P9jJdY=
-X-Google-Smtp-Source: ABdhPJwuTzALbwYDs8A2MIMW/fMQngY+z5dq8fi8eAGgFoEhM0gVtu3REEUODqSY7/22lRxgVjmb+A==
-X-Received: by 2002:a05:651c:1199:: with SMTP id w25mr546760ljo.165.1605565204862;
-        Mon, 16 Nov 2020 14:20:04 -0800 (PST)
+        bh=85K8NbYCSI93xrq+XuNLCUPcw6jd7nHvNy5ziEpS2po=;
+        b=GCR1KCyvpghdRu+Rk6r/8fqrGYTtjcaIltnXPqu0M2e9cr1NJahxfF8R76fDhH4slp
+         wwwmSbQbDjbmU68Zqfs6nJOQU0IqBSLnnflTNARcGugKP3vwZHqVPK6Bh3Z42lB3ysAH
+         0tA5guuq6DM0ruOThyPFuwtaibzNK4tlhdfMRGBwKAXjHI6VkfqlPRLtiTCEuNF7P9Y8
+         mGqpaZf5Rh25JKM70RMI+nSElfEcLuPOuyijaR7LzfOOZYK3i23XGV8Aqm0FtQ/T1Nu8
+         JbkM9nMwQ7tuNA4gh9DpMdJQohqRUkyIMo1ZKGsaGrCHgp/IxW1HWXM118QkxOd/p0Tv
+         ISvw==
+X-Gm-Message-State: AOAM532Ng4ctTnEofe4ICNRshLuicgZ6IY4bFD0M2JEM755MF2KS6NHz
+	k5A0WINlwpSZ5ZmWgN/JVUU=
+X-Google-Smtp-Source: ABdhPJwuIBCQSYzQrs1ZP55HppWEja3c08gMhhmn8/LHbGWsK1CMiZfTd39sPvw0OlkGSjg06smWKA==
+X-Received: by 2002:a17:902:9a4c:b029:d8:e4c4:3075 with SMTP id x12-20020a1709029a4cb02900d8e4c43075mr8720147plv.39.1605567361569;
+        Mon, 16 Nov 2020 14:56:01 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:8705:: with SMTP id m5ls1699244lji.10.gmail; Mon, 16 Nov
- 2020 14:20:03 -0800 (PST)
-X-Received: by 2002:a2e:9615:: with SMTP id v21mr586574ljh.211.1605565203841;
-        Mon, 16 Nov 2020 14:20:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605565203; cv=none;
+Received: by 2002:a17:902:9b82:: with SMTP id y2ls6977663plp.5.gmail; Mon, 16
+ Nov 2020 14:56:01 -0800 (PST)
+X-Received: by 2002:a17:90a:1705:: with SMTP id z5mr1251318pjd.129.1605567361032;
+        Mon, 16 Nov 2020 14:56:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605567361; cv=none;
         d=google.com; s=arc-20160816;
-        b=JOI3gfjPhyTDPHZKClBDWum4m7eClaAJKR9Rx4lvpC7xajQcub0pSvSTHzMbdBSRx4
-         NPT/sSRvdvKxf6fzCQm3fD27gKhpW7NlU0YdD6xY8pn4eBzDDIHYqJ6Mn1/zrmdTe1vg
-         prxo3ME9KTbwISld2qcsPmRqhHnos7TDgCU+wT3cfoDpDDwkhMgpGIFv9tEPP0eMh6hd
-         m6N4LTSb0R3fIkI0lNUjFwPKfa6XR/CfdzI+hdkQL8wrRwu0UfQtZgOvzUvJrw1/6uKm
-         NLJ/8G9YHJgEwvQq1r0u3z1B6ABeAVWA1kpnSVAV+Gsv0yqcYazWjRrD8H8Jl9FGMgUt
-         ZfPA==
+        b=au0T2FUTs1PAz158wa28O7JtF/wgxcJphCDEfrcqxkM+6XdAzPr4solpr7nv/N01AY
+         CMcXQWnY9YrCzCSimCS4g0BrP6DHCjdrBVkGeFr34ByN4i/gLk7nrOFhWUztm7UTy0PK
+         94zM1ddHYoTXzipwMMQ7WPQUQK+sH7IprBN2LQphCHnicSp+7Aj9sGrDHGypjccaHgFM
+         5rb42bQ52eoIuLhYlDbRfq75/1NYtcv0BIA9OYJueJhdpaNacNnFOiPbmWv3iAnx/A4t
+         +os4Ew5V+3eZ58IL8gMayTEsTtfIaIYLKVvxzyxpJfilBNoLDsvC6dgAe08iX/ipF5zr
+         tSMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:references:cc:to:from:subject
-         :dkim-signature;
-        bh=rmbEOUuFUDWT2r+1h2dWrIdCOj079NG2OKQi9QhFvjo=;
-        b=EgufTZ7C4+qidlwU/J2HCJ1emZiujTZF5khwj31DnLIEyUmHc1+5oMmhxJ6+pPuaDL
-         bh0bfyypPM9SH6RuarAdoin8umIc4JF2XNnWdl8RGjAL8txL7g3WQIGcH5mjWFisbSRb
-         Pyl1HaoMWsQf1ldpuv4Y6Q3jOTkHe8Zj1CU0SriC4LI06/lWKJSQs8e7d2RowGoUXhyz
-         gdUzQKbfBmEQ+kEGRtNNKC+n4tbx1rvnsl2ch77MeGHcsCQ5XN9ikXrL4RElKXYo4zVQ
-         eHsbbBicSPqHygUNS6/Duky/9WinzwBDhjOLgTZFK6dyja46m39qvoFot1M0govFLv7C
-         yJFQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=gGQQSbaDVAU1vlvpaceSFbxVHAcyF7FfLo2QxzhNlZQ=;
+        b=GadoiLYznERkgQhDC3wqIhn7n3B35dajL3TGDBU4DgfGrYmu5ibLCGu0yYxYFM8Bzk
+         Ss8hemGk/btNj8S4ZRlKMZMKsjVYceJXDRVp6WAYR+kV1wrE7hchTD9W8Lu7BilDiJM/
+         1qIpTjtOV7o7p+M5npSk/XjqPbPcCML4wUc6cVuFzpjCK8inX+GkEfzXdhXakP5B94dg
+         9TLnNfrwHzfJnqBSC4mH3k9y+SIVG0zULF+TDI7BVsdER1DmGlQMl1QOtyyAeUFh6teD
+         dmNajY8IvWbvdcHFNKaFLvy8ncd9VOCx75QKyjOH4vBUWgB2t6ph76ScTI5ie7VdZu/A
+         7LQg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=uMUcuSmE;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id i67si423000lfi.2.2020.11.16.14.20.03
+       dkim=pass header.i=@google.com header.s=20161025 header.b=C5BO4byd;
+       spf=pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=willmcvicker@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id u133si1122909pfc.0.2020.11.16.14.56.01
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Nov 2020 14:56:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id m9so4955457pgb.4
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Nov 2020 14:56:01 -0800 (PST)
+X-Received: by 2002:a63:581b:: with SMTP id m27mr1242198pgb.204.1605567360502;
+        Mon, 16 Nov 2020 14:56:00 -0800 (PST)
+Received: from google.com (15.4.198.104.bc.googleusercontent.com. [104.198.4.15])
+        by smtp.gmail.com with ESMTPSA id a17sm17007387pga.56.2020.11.16.14.55.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2020 14:20:03 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from [2601:1c0:6280:3f0::f32]
-	by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kemqs-0002AK-0r; Mon, 16 Nov 2020 22:19:58 +0000
-Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
-From: Randy Dunlap <rdunlap@infradead.org>
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>,
- Nathan Chancellor <natechancellor@gmail.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20201014212631.207844-1-nivedita@alum.mit.edu>
- <87sg999ot0.fsf@igel.home>
- <0dbaca2d-9ad0-8c1a-a280-97be01cac2bd@infradead.org>
- <87k0ul9msr.fsf@igel.home>
- <3fff1eb9-83c0-1c29-6f57-fa50f1ec6ee7@infradead.org>
-Message-ID: <3c0a8d26-a95f-a7ca-60ee-203b67d07875@infradead.org>
-Date: Mon, 16 Nov 2020 14:19:55 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+        Mon, 16 Nov 2020 14:55:59 -0800 (PST)
+Date: Mon, 16 Nov 2020 22:55:55 +0000
+From: "'William Mcvicker' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Andrei Vagin <avagin@gmail.com>,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com, kernel-team@android.com
+Subject: Re: [PATCH] arm64: Fix off-by-one vdso trampoline return value
+Message-ID: <20201116225555.GA160862@google.com>
+References: <20201112001422.340449-1-willmcvicker@google.com>
+ <20201112101204.GA19506@willie-the-truck>
+ <20201112185136.GA585063@google.com>
 MIME-Version: 1.0
-In-Reply-To: <3fff1eb9-83c0-1c29-6f57-fa50f1ec6ee7@infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: rdunlap@infradead.org
+Content-Disposition: inline
+In-Reply-To: <20201112185136.GA585063@google.com>
+X-Original-Sender: willmcvicker@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=uMUcuSmE;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@google.com header.s=20161025 header.b=C5BO4byd;       spf=pass
+ (google.com: domain of willmcvicker@google.com designates 2607:f8b0:4864:20::544
+ as permitted sender) smtp.mailfrom=willmcvicker@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: William Mcvicker <willmcvicker@google.com>
+Reply-To: William Mcvicker <willmcvicker@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,55 +145,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 11/16/20 11:28 AM, Randy Dunlap wrote:
-> On 11/16/20 10:30 AM, Andreas Schwab wrote:
->> On Nov 16 2020, Randy Dunlap wrote:
->>
->>> What kernel version are you building?
->>
->> 5.10-rc4
->>
->> Andreas.
->=20
-> OK, thanks.
->=20
-> My build machine is slow, but I have a patch that I am testing:
->=20
-> ---
-> From: Randy Dunlap <rdunlap@infradead.org>
->=20
-> riscv's <vdso/processor.h> uses barrier() so it should
-> #include <asm/barrier.h> to prevent build errors.
->=20
-> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
-> ---
-> =C2=A0arch/riscv/include/asm/vdso/processor.h |=C2=A0=C2=A0=C2=A0 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> --- lnx-510-rc4.orig/arch/riscv/include/asm/vdso/processor.h
-> +++ lnx-510-rc4/arch/riscv/include/asm/vdso/processor.h
-> @@ -4,6 +4,8 @@
->=20
-> =C2=A0#ifndef __ASSEMBLY__
->=20
-> +#include <asm/barrier.h>
-> +
-> =C2=A0static inline void cpu_relax(void)
-> =C2=A0{
-> =C2=A0#ifdef __riscv_muldiv
+Hi All,
 
+After digging into this even deeper with Nick, we found that the underlying
+issue is with ld.lld not carrying over the st_type for the VDSO_compat* symbol
+assignments in `arch/arm64/kernel/vdso32/vdso.lds.S`.
 
-This fixes the emulex/benet/ driver build.
-I'm still building allmodconfig to see if there are any
-other issues.
+From my Android Common Kernel 4.19 build:
+$ llvm-readelf -s arch/arm64/kernel/vdso32/vdso.so.raw | grep thumb | sort
+    26: 0000094d     0 NOTYPE  LOCAL  DEFAULT    11 VDSO_compat_sigreturn_thumb
+    28: 00000955     0 NOTYPE  LOCAL  DEFAULT    11 VDSO_compat_rt_sigreturn_thumb
+    37: 0000094d     4 FUNC    GLOBAL DEFAULT    11 __kernel_sigreturn_thumb
+    38: 00000955     4 FUNC    GLOBAL DEFAULT    11 __kernel_rt_sigreturn_thumb
+     8: 0000094d     4 FUNC    GLOBAL DEFAULT    11 __kernel_sigreturn_thumb@@LINUX_2.6
+     9: 00000955     4 FUNC    GLOBAL DEFAULT    11 __kernel_rt_sigreturn_thumb@@LINUX_2.6
 
---=20
-~Randy
+Fortunately, this has been fixed by llvm here: https://reviews.llvm.org/D86263.
+So for kernels that use ld.lld and the VDSO compat sigreturn trampoline, they
+need to make sure to upgrade their toolchain.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/3c0a8d26-a95f-a7ca-60ee-203b67d07875%40infradead.org.
+I hope this thread helps anyone running into this issue in the future.
+
+Thanks,
+Will
+
+On 11/12/2020, William Mcvicker wrote:
+> Hi Nick,
+> 
+> Regarding llvm-nm, this extra thumb +1 is noticed after porting
+> https://lore.kernel.org/linux-arm-kernel/20201013033947.2257501-1-natechancellor@gmail.com/
+> to the Android Common Kernel android-4.19-stable. I'm not sure why using ld.lld
+> causes this difference, but this proposed patch ensures that we don't rely on
+> the nm tool used.
+> 
+> Will D.,
+> Regarding applying this to some stable kernels vs backporting 2d071968a405
+> ("arm64: compat: Remove 32-bit sigreturn code from the vDSO"), I am hesitant to
+> backport commit 2d071968a405 due it's dependencies. For 4.19 at least, I would
+> also need to backport these:
+> 
+> 8e411be6aad13 will@kernel.org  arm64: compat: Always use sigpage for sigreturn trampoline
+> a39060b009ca0 will@kernel.org  arm64: compat: Allow 32-bit vdso and sigpage to co-exist
+> 1d09094aa6205 mark.rutland@arm.com  arm64: vdso: use consistent 'map' nomenclature
+> d3418f3839b66 mark.rutland@arm.com  arm64: vdso: use consistent 'abi' nomenclature
+> 3ee16ff3437ca mark.rutland@arm.com  arm64: vdso: simplify arch_vdso_type ifdeffery
+> 74fc72e77dc5c mark.rutland@arm.com  arm64: vdso: remove aarch32_vdso_pages[]
+> 
+> I have done this in my local tree and verified it fixes the SIGBUS error I'm
+> seeing; however, it seems a lot cleaner and safer to just patch the VDSO_SYMBOL
+> macro.  Please let me know what route you prefer. I'm happy to backport all of
+> these if that's the recommended approach.
+> 
+> Thanks,
+> Will
+> 
+> On 11/12/2020, Will Deacon wrote:
+> > On Thu, Nov 12, 2020 at 12:14:22AM +0000, Will McVicker wrote:
+> > > Depending on your host nm version, the generated header
+> > > `include/generated/vdso32-offsets.h` may have the bottom bit set for the
+> > > thumb vdso offset addresses (as observed when using llvm-nm). This
+> > > results in an additional +1 for thumb vdso trampoline return values
+> > > since compat_setup_return() already includes `vdso_trampoline + thumb`.
+> > > As a result, I see a SIGBUS error when running the LTP test
+> > > syscalls.rt_sigaction01. To fix this, let's clear the bottom bit of the
+> > > vdso_offset in the VDSO_SYMBOL macro.
+> > > 
+> > > Test: LTP test syscalls.rt_sigaction01
+> > > Fixes: f01703b3d2e6 ("arm64: compat: Get sigreturn trampolines from vDSO")
+> > > Signed-off-by: Will McVicker <willmcvicker@google.com>
+> > > ---
+> > >  arch/arm64/include/asm/vdso.h | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
+> > > index f99dcb94b438..a7384379e8e1 100644
+> > > --- a/arch/arm64/include/asm/vdso.h
+> > > +++ b/arch/arm64/include/asm/vdso.h
+> > > @@ -23,7 +23,7 @@
+> > >  
+> > >  #define VDSO_SYMBOL(base, name)						   \
+> > >  ({									   \
+> > > -	(void *)(vdso_offset_##name - VDSO_LBASE + (unsigned long)(base)); \
+> > > +	(void *)((vdso_offset_##name & ~1UL) - VDSO_LBASE + (unsigned long)(base)); \
+> > 
+> > I don't think we need this in mainline, because the sigreturn trampoline
+> > is just a bunch of .byte directives and I removed the sigreturn code from
+> > the compat vdso in 2d071968a405 ("arm64: compat: Remove 32-bit sigreturn code
+> > from the vDSO").
+> > 
+> > Might be needed in some stable kernels though (or we just backport the
+> > patch I mentioned above)
+> > 
+> > Will
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201116225555.GA160862%40google.com.
