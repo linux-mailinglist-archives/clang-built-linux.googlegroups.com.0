@@ -1,150 +1,133 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQ7RZ76QKGQEUBWTH6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC543RMV4UOBBGMV2D6QKGQEYGLZG3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id 69DED2B69F3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 17:22:28 +0100 (CET)
-Received: by mail-qt1-x837.google.com with SMTP id i20sf12817372qtr.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 08:22:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605630147; cv=pass;
+Received: from mail-ed1-x53b.google.com (mail-ed1-x53b.google.com [IPv6:2a00:1450:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 75CEC2B6BE7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 18:38:33 +0100 (CET)
+Received: by mail-ed1-x53b.google.com with SMTP id i8sf827828edy.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 09:38:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605634713; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z7n0Pj0Q4Pxn7z2vGooMpL4wLONCxazwymatPrbCiy5Az62IQCd/+TcQjgk17878y2
-         APkCp+E/ijgwxTms8jx7ze6PEiEhN8zh/jNjnSpWTx9RkKloQ/VBIS4SXKJNE23yHqcY
-         g1aE71QHt1clmzSJvqnbjmF0+ak8VTEPZjOUjo6cfqsNeTfmrgWNIKm9Ho04pVn5KIzM
-         KeLxBg/ROE43ZYK5ByhOtW5tXwjs5Us53Kmx4x5fKK6xQl+kU/9wr1vQDegUmXrlPLh3
-         pY0J9/8tmlGSJhkbcnUxDRNka+8q+j1PuWyJN1V+rQV+CcQbL91fk6BSBPzLLGlksOap
-         vLRA==
+        b=ip18nydI6emdVzCoQkDAxE+p7S5/8uyhyqkoNrBZ0i9pE8SUS9SmIjXk64giNBZHIO
+         dgLkRVEb75MPagcfWobIH/sJIQ3Fjkxk+ventwJ6+vfjNVNJYA7tj5HuJVJtxLAZ5EeN
+         zbvetJKkaVH1hOwzt/LzddDYe/hLppY/ItMYvx1HLCfQoNA2wdQAViYTfqHTI84CVIrA
+         2JvqHEpvRAWlrkI29f7axtEA1uO7gDUvVGfYaIXnxubCsHAmdfuc7jg/5iqQskyY1LSC
+         TH0cgsTpVl0Hjw2MARQ2OsfaYBON2ik7LD5t0WZFb64E4j0/prFiJdAbWDrFYXn/WAEd
+         8xWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=naE3XuvfMe1OItt1gRRg2uJOTh59969S1UG/tmPYKkA=;
-        b=JfLWLd6w/UIS5lHY7z7RksGRi57nYpGCmYbKW8qqeWZNh4dH2OjVYS5BUd7yZdkBKH
-         buma/zkkeBQKCvdd3zjcpN0JBp7oEHeCc0eA7vxEhbQZKorqTCxw0mMSVkPj9OuApmg7
-         6JwhNSDVR5npe5J7s4U+IUiZs4nsHMBGFTBAr94yUTdl9lMJWEpGNlSIoTHFo8qC4kMr
-         6pcHCGA+Dk+HzTnrWJ36DaYP9Y3bGMYOT+hIViXOWIsOGFeQaPl72lBdOyatVDYMsITL
-         o5daOk+AhkBtW2uabqBELfoVCd3VWdeUsyVKD6TxpmpsTFSWDd9bWnk+oUXHJyWqztlk
-         FDMQ==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=CY4ioy/VAHdJJdcnMGFTc/8De+yr8XGJycvzYvcunmI=;
+        b=NYf1Yhj+vcFrpZC1ygbM7J6QjJBgLXvGwIkx+B5hGKukNd6mO5zmX4datUroK5beG/
+         rQ7/Og3auatPi/PZtzHiDzktrh3zh2FWAPGLwxjxH4MA3XM6qugzIh1wnHdg6BnUVU0g
+         3ywuRNb+5HZA6XteeK6ofY4DzbWyz6zh5hNZEPobbkJmYuDtLeQA6SZBDuW8W4z7AVLF
+         9eitDULT1ZtdxQwdNhG5TB7tDNOyrCQalr3rGz4trgftJDqEYr9g5kwFqjU1t+wO+j2W
+         Pp+d/6x/RXwA2s206nDqM2m3iw4jr7b3LSWjovWW/82zXRk6ZgVzTcu9bKB3NHr8mA/+
+         RCmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=aJlDOBsA;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of info@metux.net) smtp.mailfrom=info@metux.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=naE3XuvfMe1OItt1gRRg2uJOTh59969S1UG/tmPYKkA=;
-        b=j+3GLjOJmYhupkXgBJaFHA6pGvCI2FOKgHOxmBxw0n0oAwOjsTyYgj6M2Ie4QPR2My
-         oJ1pEwh/1/dWYm5UBKp/YGLhHQ+5kiWCqMIPmMA+5Vxk1B6SNhRn3Vb/U5QjT1BCzEhy
-         4a03mghXzDiULYRcR3QDx0ElaTK3tHtDhdIYquP4DjlJ391THKlAGoxMt5Tt7dWyZFaV
-         tMLM1ofRyjagSyVzn1cR0EAKMbqFhdkbjuZ64QN0iwY5tl9aCbjRj0BsRTh4/yNCFu/K
-         t2RRuL8hofYwNt9L7OR14Er3ujib1lbCRQnD6dFm8AJIVj70Xboi3o7lkMsTpVLGbQfT
-         FKMA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=naE3XuvfMe1OItt1gRRg2uJOTh59969S1UG/tmPYKkA=;
-        b=eFJk9zjUxSNdJJrBa9g0+as8PiqM5kUHiFCyDXiauukJm89xGjbABAfnnohbCwU8fJ
-         KP0FBeufoJ711qnBHHIkWEM8G+Dv4NDNGG8Qs7DQZobudtVzhgwAVddPh01+w5IAbfTf
-         Qzb0wwO5ZPsEp1hDvadcebOh3+dm7AlSzOxxXPD/H5/+q3QjHLlLp4OW8flsxpiJqf0C
-         rIxx0k+p/zGF2o8S3ggz+N+7+UepL657mJuMFM+W6wf0i1hO9XmNXht8dQqOZLQFuIUe
-         0NmjJrkXn+Z+5J8rk+ycWsRB6jK+m4afEnIhKvxGRI/3/KCQUVa4EQHBz2ey9gJPWJpg
-         xzyw==
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=CY4ioy/VAHdJJdcnMGFTc/8De+yr8XGJycvzYvcunmI=;
+        b=JsmUHgoIkoPBIQmj3tkEx3sknUXoFAdhMTSY4zaUWXIgvDgExNBK8QtjZZmudFCeof
+         widb1PkM7hjjZ6AWTg39ZpXKv9JLiG+ZWxWIiXJUsOrPpGy9EbNILa2TjitHNlBkNKGr
+         l+IDRVwUCodeg0C15r1rgJ66HqZ61EIJqdAhHfqHArCj2mTc+X5NxS6aUzYJf4j5lxiO
+         3NLL+bkF9TZFE78HIloI/47cj60LMpXPLpKdTjDtEVZFGuusR8RRTdc0wok9Yr+dKXvN
+         Onzkv5iljwsIWkTsumee30Ne/9UBgnnWWibAplXaLsOFo3iKjF8607zkCscMgrLNwRzQ
+         K2Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=naE3XuvfMe1OItt1gRRg2uJOTh59969S1UG/tmPYKkA=;
-        b=iFosP/yRCmcWkICEPDaI2YC/3+6NcPfK3MhorayMdz9TAqjCBq9euI6F365BddQyfp
-         ZkFaHfOhhr2lHlRKA3RYmFv5xsuXUz1a7lk3TbK9P90we2H4YrtJjQr0NqLiuPT/hvR8
-         1zL70mEOroDSGgRYhVUzUx8qwBYZAKWt/ztWd3XLg0SRwhC19fV6BfrLAXWYUGpjWDpW
-         72+fSaWZ42iME6ti83KCZutXkv364SU47UEUP9gmKuezpTxF/k0JKVjunFDjdM2xXAP0
-         nWBt0VvPel6hpHT2MqyPqLCFRIhtuWtTikFLvmcC32VReSWFEh3WB8DdpLXWoEujoUR7
-         yMbQ==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=CY4ioy/VAHdJJdcnMGFTc/8De+yr8XGJycvzYvcunmI=;
+        b=MSeJBCG5heQVrdwrZdpk730cyk9k6abLu5kqjUzaUg/XLMP4Pk/sKWWpQie62Px1e7
+         8UjdcJFe76EsMj0ME/41XDrLC3G6DmDW3VtNStdgr6Jx+1vZwQleg3yQWlD23MxL+JA6
+         1uzo8ShOVdbfXTds0F/MnhnbKm1xKQE/8fsFRiym2wKsorKa/CwRv/4j1zNo0pkCYW0q
+         5TAd62d4glOTN0oTJ0ax/3DKKyU+EMw1S36Dm4cy73u4d1LTghTuMAqAMjSgO9/BZapJ
+         CIB5F6s+A7mG4qRL8ZKzhDjXk+mERP+AKj7haXNp8QDZy+SGp9DBpF5IQ8utNXw7bXgF
+         KAyg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533IL2cX82mcZppUbgdq/16UF43E3ad+OfX76iIrOfk/WKL0dUNE
-	ALOBBL4RxSP5EPeEiPSzKvI=
-X-Google-Smtp-Source: ABdhPJyQP6hyiD7WXvqZ8N/e5KWN0WplxEZHVFGdk05+TFabm2PsvDFFtxJtZ/EGaAfaZrww3nc5mg==
-X-Received: by 2002:ac8:1c11:: with SMTP id a17mr420700qtk.219.1605630147298;
-        Tue, 17 Nov 2020 08:22:27 -0800 (PST)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:f3c5:: with SMTP id f5ls2803894qvm.5.gmail; Tue, 17 Nov
- 2020 08:22:26 -0800 (PST)
-X-Received: by 2002:a05:6214:6a2:: with SMTP id s2mr7255qvz.58.1605630146876;
-        Tue, 17 Nov 2020 08:22:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605630146; cv=none;
-        d=google.com; s=arc-20160816;
-        b=bQFEjHZLnxzf/VAXM/ulote/SCPpO4UqdDmemF9gETVBTXJoliMVPPQAbXU1PMVVby
-         /Th3vMQ6fUxljwmC6CiZlm9SwHQ8pXLMq+PX0m7WQOI7eCCZPGJ3Efta3rfNr7lz/uAY
-         ocpAMS7YJzcwLJBIplP/+xaqHhpCTtTj3KYAL0/zryhOfnpf5OHvMVzhS7zxO/afEOd4
-         GRvAsAwERxZ1AcysLnGS0ardLA8+0OqgFdyRcFGdkM7cWKRwvjQ7QG6RA5EcQY4h1Fzn
-         qSIv+xx6+MwlcVLPufADYojACH7Z1mslvLHyME0ZbNvvkP6WWR+dri8jiMhrqMIcsaby
-         y6Ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=9JS/uYKk8GrJCTbc2FAe05O+XJ9e/pB4+Xwp7tXwPZ0=;
-        b=zzYPMKrxIYYsQUHxqZ1G/3UQIBW5/YS2n660pOm1VoR/pj8F4rbK31UAwtGdOJ0ylL
-         2+vyK2i+QLXfcD5oTeh/Lt0T8etsXOe8qkf02BpqzGWXJZyJg71URJxnZia/CAgtwEYh
-         5p1bZd+XjOxhUHxOQxDqXUcO8uGiugpfsNgb9/dOiDpps8LGZmX8lzc+VRcAu/1K4Bcy
-         dkTVVIwiyuMir88aUDvN0orN8w1elmEUhDeG+Bk1pT9PXa2OINd5mJUXZTTzIJiLyFvQ
-         /RHZxhy8tJZc2s1HqWsxhtbZVbNEJ/q16eLGVyHczJF6RJDczNxEsSEnHU85tePUQwy7
-         OhgQ==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=aJlDOBsA;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id n21si1068032qkh.0.2020.11.17.08.22.26
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2020 08:22:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id d9so20904743qke.8
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Nov 2020 08:22:26 -0800 (PST)
-X-Received: by 2002:a37:8542:: with SMTP id h63mr366329qkd.102.1605630146479;
-        Tue, 17 Nov 2020 08:22:26 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id v16sm15074576qka.72.2020.11.17.08.22.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2020 08:22:25 -0800 (PST)
-Date: Tue, 17 Nov 2020 09:22:23 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Kees Cook <keescook@chromium.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, Nick Desaulniers <ndesaulniers@google.com>,
-	Arvind Sankar <nivedita@alum.mit.edu>, linux-kernel@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 1/2] kbuild: Hoist '--orphan-handling' into Kconfig
-Message-ID: <20201117162223.GA1428250@ubuntu-m3-large-x86>
-References: <20201113195553.1487659-1-natechancellor@gmail.com>
- <87tuto2qke.fsf@mpe.ellerman.id.au>
+X-Gm-Message-State: AOAM531tRYRg282pJYRR186Z2ikNG364eDA73AvB5W3QxuC6bS2lMkiO
+	fKBpPLLj5XmAdAjgaBudgos=
+X-Google-Smtp-Source: ABdhPJwS9z1H+PnX7lpneelvtRrbq+25XRqX9bIcpCZ/UtuoAc9cgJ4QL8Dn5UcopVAphjcTOCP6Kw==
+X-Received: by 2002:a17:906:a00c:: with SMTP id p12mr21289734ejy.249.1605634713234;
+        Tue, 17 Nov 2020 09:38:33 -0800 (PST)
 MIME-Version: 1.0
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a05:6402:1743:: with SMTP id v3ls8819270edx.2.gmail; Tue, 17
+ Nov 2020 09:38:32 -0800 (PST)
+X-Received: by 2002:a05:6402:17b4:: with SMTP id j20mr23186410edy.24.1605634712308;
+        Tue, 17 Nov 2020 09:38:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605634712; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hQmjdxuCg1UKmNBDkIS/1zENIaZ7DuL9RyhEClVEAuqYGRHoBJyhCySECpC80zLExA
+         3oGUO1Ds/Bo6vRuXjgUZYun0SDMSYOVwcpAAA9Wk6PVR6aFwO1/NWB+H49oZ/HhatV/O
+         jc7NZxhAL1hnUAHsk6o+Bw7P2AXniOrCxySBvhtsOUjywg55EkurL6BoFUhIf9V2dHJU
+         005tRa/R9YD5+Zu+p6MeaVSU5R1WPwg/L2ttZgNkmiZqayOiALJ6oK1TMZcakpHT46cm
+         Jntg1CV5cYspGOskJHbaAJSvQn//wDimyJQovBBI0A1vM/zCBBQxzx9UWhZV4RAdTkUA
+         nzhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:subject:cc:to:from;
+        bh=cNO90BxjtBAsN9fixVN9btvLFGOQwzbTzKGRsCNMxUU=;
+        b=GrXdlOqh70Lk0YKbNhWQYKJghTUJH5eUHgWHDgLPTTsWz/W1XsLXSuCGqibf7VtHWe
+         lc+DKwNhZXJnJAkucG+zasKZd9csoTMXW/s1rBpXrCwTejL6XwXJW/BMjEHO5GieQIUQ
+         dXit7CfeP8sh1t+mMhHnugLczOkyPHKo2Tzr9AeRO+afswZUJeOvc+Ec5g9nsSa35Gu6
+         gtnm5jQB1HLRQ8hkFAl0QqaxNr0q58BnBN2N/3z1gC+eDWnnKhspG3JIxR6rXtGHvGPD
+         Oki0/wfQrX2UPazqVE6uKQmtzpO7Lj8dKVfM1H78nAIL4vMTVHyy2L0zTQErD23cFq2l
+         SeyQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of info@metux.net) smtp.mailfrom=info@metux.net
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.13])
+        by gmr-mx.google.com with ESMTPS id c11si595932edn.0.2020.11.17.09.38.32
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2020 09:38:32 -0800 (PST)
+Received-SPF: neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of info@metux.net) client-ip=212.227.17.13;
+Received: from orion.localdomain ([95.118.38.12]) by mrelayeu.kundenserver.de
+ (mreue107 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1MNtny-1kuYU13N4S-00OE50; Tue, 17 Nov 2020 18:38:29 +0100
+From: "Enrico Weigelt, metux IT consult" <info@metux.net>
+To: linux-kernel@vger.kernel.org
+Cc: alexander.shishkin@linux.intel.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@st.com,
+	kafai@fb.com,
+	songliubraving@fb.com,
+	yhs@fb.com,
+	andrii@kernel.org,
+	john.fastabend@gmail.com,
+	kpsingh@chromium.org,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] lib: compile memcat_p only when needed
+Date: Tue, 17 Nov 2020 18:38:28 +0100
+Message-Id: <20201117173828.27292-1-info@metux.net>
+X-Mailer: git-send-email 2.11.0
+X-Provags-ID: V03:K1:WLtI2dhe23NlCGvRD0bQU5TmYycnzy6Pd31ukZBnKNWCoAnPQ7O
+ wObf9KlfjUMJ0j5ttfV0Q74UhV+inNsIH7TvyxkfNy2AIF0ZrdN1cYKC4YfchqlEZAdWjup
+ SvAAIiGZOC79vLc/ecuz96pt1yxUR5+SgeKA5j4A2OWQMQh964LirWKxUy0zuM7ZuvQFdlq
+ 3QnhrViK1QozM6MA8as0g==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Mg8iHrkpY3E=:i3JQ1DnnD2/k2sjtlbn7Fw
+ wvqz2OILSVqTvWZS2Eo93Yti4ukgOmRCXtyyNWc34KOdzHLZU8nVMevyy7TYcIJGT2cPsFgbm
+ MxVWzqd5TNKHTecNbDZ2qhC3H+DeheFHhNzpx7Nmj3TGwM4Cfse2T+piD3dkESbfHFMqkPAMn
+ 0UuAh0lXTiPx5p69puuU0PgD18Hd5zTZ2zadvUmILu4+rX5YVzShY8kuknQ98rGmKFzN6icsq
+ S0BpuwPMFX9E/ah2pEoW4kT68bNbEKlIttyabbNwonekwBRXbckOpc9GEv17DTjLbXAmapxxI
+ WCvk4A67e2tBev/NSgxM5OoDnLUvS5BvZqsX+Q3IdqLMu1PflPSX5eqTWQZeK9MKzZINgbCLP
+ EwYf/wKk7T9TqigL26LNgQ1MRyTqtC2NbyuXI3vOPjdDeMKxye+cdZrtgeJdZ
+X-Original-Sender: info@metux.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.17.13 is neither permitted nor denied by best guess
+ record for domain of info@metux.net) smtp.mailfrom=info@metux.net
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <87tuto2qke.fsf@mpe.ellerman.id.au>
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=aJlDOBsA;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,78 +140,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Nov 17, 2020 at 10:03:29PM +1100, Michael Ellerman wrote:
-> Nathan Chancellor <natechancellor@gmail.com> writes:
-> > Currently, '--orphan-handling=warn' is spread out across four different
-> > architectures in their respective Makefiles, which makes it a little
-> > unruly to deal with in case it needs to be disabled for a specific
-> > linker version (in this case, ld.lld 10.0.1).
-> >
-> > To make it easier to control this, hoist this warning into Kconfig and
-> > the main Makefile so that disabling it is simpler, as the warning will
-> > only be enabled in a couple places (main Makefile and a couple of
-> > compressed boot folders that blow away LDFLAGS_vmlinx) and making it
-> > conditional is easier due to Kconfig syntax. One small additional
-> > benefit of this is saving a call to ld-option on incremental builds
-> > because we will have already evaluated it for CONFIG_LD_ORPHAN_WARN.
-> >
-> > To keep the list of supported architectures the same, introduce
-> > CONFIG_ARCH_WANT_LD_ORPHAN_WARN, which an architecture can select to
-> > gain this automatically after all of the sections are specified and size
-> > asserted. A special thanks to Kees Cook for the help text on this
-> > config.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1187
-> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> > ---
-> >  Makefile                          | 6 ++++++
-> >  arch/Kconfig                      | 9 +++++++++
-> >  arch/arm/Kconfig                  | 1 +
-> >  arch/arm/Makefile                 | 4 ----
-> >  arch/arm/boot/compressed/Makefile | 4 +++-
-> >  arch/arm64/Kconfig                | 1 +
-> >  arch/arm64/Makefile               | 4 ----
-> >  arch/powerpc/Kconfig              | 1 +
-> >  arch/powerpc/Makefile             | 1 -
-> 
-> Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-> 
-> 
-> >  arch/x86/Kconfig                  | 1 +
-> >  arch/x86/Makefile                 | 3 ---
-> >  arch/x86/boot/compressed/Makefile | 4 +++-
-> >  init/Kconfig                      | 3 +++
-> >  13 files changed, 28 insertions(+), 14 deletions(-)
-> >
-> > diff --git a/Makefile b/Makefile
-> > index 008aba5f1a20..c443afd61886 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -984,6 +984,12 @@ ifeq ($(CONFIG_RELR),y)
-> >  LDFLAGS_vmlinux	+= --pack-dyn-relocs=relr
-> >  endif
-> >  
-> > +# We never want expected sections to be placed heuristically by the
-> > +# linker. All sections should be explicitly named in the linker script.
-> > +ifeq ($(CONFIG_LD_ORPHAN_WARN),y)
-> > +LDFLAGS_vmlinux += --orphan-handling=warn
-> > +endif
-> 
-> This is a nit, but you can use ifdef with bool CONFIG symbols in
-> Makefiles, which reads a bit nicer, eg:
-> 
-> ifdef CONFIG_LD_ORPHAN_WARN
-> LDFLAGS_vmlinux += --orphan-handling=warn
-> endif
+The library function memcat_p() is currently used only once.
+(drivers/hwtracing/stm). So, often completely unused.
 
-That is indeed cleaner, I did not realize I could do that as long as the
-config was a boolean. I will use that in v2, which I will send along
-within the next few days to give Masahiro some time to comment.
+Reducing the kernel size by about 4k by compiling it
+conditionally, only when needed.
 
-Cheers,
-Nathan
+Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+---
+ drivers/hwtracing/stm/Kconfig | 1 +
+ lib/Kconfig                   | 3 +++
+ lib/Kconfig.debug             | 1 +
+ lib/Makefile                  | 4 +++-
+ 4 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
+index aad594fe79cc..8ce5cfd759d1 100644
+--- a/drivers/hwtracing/stm/Kconfig
++++ b/drivers/hwtracing/stm/Kconfig
+@@ -3,6 +3,7 @@ config STM
+ 	tristate "System Trace Module devices"
+ 	select CONFIGFS_FS
+ 	select SRCU
++	select GENERIC_LIB_MEMCAT_P
+ 	help
+ 	  A System Trace Module (STM) is a device exporting data in System
+ 	  Trace Protocol (STP) format as defined by MIPI STP standards.
+diff --git a/lib/Kconfig b/lib/Kconfig
+index b46a9fd122c8..b42ed8d68937 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -686,6 +686,9 @@ config GENERIC_LIB_CMPDI2
+ config GENERIC_LIB_UCMPDI2
+ 	bool
+ 
++config GENERIC_LIB_MEMCAT_P
++	tristate
++
+ config PLDMFW
+ 	bool
+ 	default n
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index c789b39ed527..beb5adb2f0b7 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -2334,6 +2334,7 @@ config TEST_DEBUG_VIRTUAL
+ 
+ config TEST_MEMCAT_P
+ 	tristate "Test memcat_p() helper function"
++	select GENERIC_LIB_MEMCAT_P
+ 	help
+ 	  Test the memcat_p() helper for correctly merging two
+ 	  pointer arrays together.
+diff --git a/lib/Makefile b/lib/Makefile
+index ce45af50983a..18fd6630be0b 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -36,7 +36,9 @@ lib-y := ctype.o string.o vsprintf.o cmdline.o \
+ 	 flex_proportions.o ratelimit.o show_mem.o \
+ 	 is_single_threaded.o plist.o decompress.o kobject_uevent.o \
+ 	 earlycpio.o seq_buf.o siphash.o dec_and_lock.o \
+-	 nmi_backtrace.o nodemask.o win_minmax.o memcat_p.o
++	 nmi_backtrace.o nodemask.o win_minmax.o
++
++obj-$(CONFIG_GENERIC_LIB_MEMCAT_P) += memcat_p.o
+ 
+ lib-$(CONFIG_PRINTK) += dump_stack.o
+ lib-$(CONFIG_SMP) += cpumask.o
+-- 
+2.11.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117162223.GA1428250%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117173828.27292-1-info%40metux.net.
