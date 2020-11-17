@@ -1,155 +1,147 @@
-Return-Path: <clang-built-linux+bncBAABBWXBZ76QKGQE3QZCJFY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHXQZ76QKGQEKWRSDJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 758342B6905
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 16:48:43 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id 23sf7982344otv.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 07:48:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605628122; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 799522B69C7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 17:19:43 +0100 (CET)
+Received: by mail-oi1-x239.google.com with SMTP id 25sf10212532oip.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 08:19:43 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605629982; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uZ43hXF7vMffvFCKIqXL9tAJnCkpeGWbLMet1tmrqjJ5VH8Lymnf6U+kNhrd9dgj84
-         4EYVapMqjQdvPzliNXp9G2fYN9Axq9jbzJyGuoZQypWqhB3Ux7XOgDlXqvVpAsrJmFzv
-         CC1/hA453MA9FmU4cC2f0B95obknKWg0nzisNRHRiSAclKdtlIOyaTUEwVxk4PpQrtEE
-         OIGhBM33WxOijXXxjqqrxAgEn590148OQ+lJpTcD4L02IonQjfmixHCQA17nirRrxlcJ
-         iLNCYpsf/DPstein+QN9Tl8uIkA9gSTiAnHvmm2Fyr8JKOydDhpwl2BTfhl6iDdKzBqg
-         7rfA==
+        b=vyWoJ7aPZbWT262GTRseDZljmroYPs9Zvkto1IbRkaBBBxv24eZY2qjI/QQAWY4kXH
+         FZkzEqqxXcC2Ynnq3+APB3qf7xc+C346ycR7NC57KH2LfJb84Mydvj9F0CZOjklfObUe
+         0sA5glDoP7MUXglLQ/3G5N95hbCAUXIGyqq+1apc2LQDvoQDe2eIODbjbG2lbqgqvj2A
+         EEbni7wm3IZTiZbwlI8ASsX5RLN35ULUkZtHXkUMQqo1B03okbhtq0y2tsbVDbrJ5d0B
+         iMLzq9NzIQtRejOzHs5q2kBzhswUZ+Sm9njwjB3/qxWdfQoPBhiTfCIFG1VzZfhX/T2d
+         xuLA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:subject:content-transfer-encoding
-         :mime-version:organization:references:in-reply-to:date:cc:to:from
-         :message-id:sender:dkim-signature;
-        bh=Ql41ASKzVd4HRIB9E7ttsj5x3MuMUGikTiKrFTKFpWE=;
-        b=emr0hcM25+k1mv3wd4fgOP0vg1jgRvTFbjUQjEyZ5cN6NmoOfIcZdXr99YtBrV+2L8
-         p2MrDoqf2l5lnZecgLRwmx3Ctlpf4ttRPSGKoBDxY/0SI4A/Qd3VuoKR9aA88e7uh9hq
-         O/XwlAVXuOqPYEShcS2nIzh3NDPtiyYpxjnKjG2dINYqAxi0Xc88t1Cg3+7nEajfyth+
-         kL8DImTpKtNbGLs9IBLszYTUDNAEmTjOLqhcJ0HDhawMHzVQZbdBWOQrfex+0WpzgnV/
-         PoFU4A885nc4FqyGpK29KJBIVTrM/GYloUYfz9BEe5CIwiy8FOgzDLXdFdH5cVpinfsZ
-         a5RQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=MtWIperRiv8IoYTXLE54vsDExlDshv2YkCUBE1QAfNE=;
+        b=A5TKvhUGDPaWGz8+ImOSHEN/zjy56eXO6g3UjtY38O0sQn5JT5NYnaeF6hmxheZXyt
+         5JOY62f7WgavhoLdSSpZ7FtfDgO/5m/pWJNbXv6li6SKQvX6TU+VEcjH3Aq44h1O8E5e
+         R6ERhryUMuCK79S80XU9wbS/GsCAsZL11SePCNSgninLBFbxY4VLLzMF/HoofT969eXk
+         1TXt7tZKaQNVhDbFmqCsoeqQgK6tksHxbsExqZsMP9SlwOcGe89x0jBo7B8UeCNfQkAJ
+         r/QD6zUJoZyNYCs2iaLB7SW+Js/s+yLmwddhdX379mKPag3MZMophpIw9FmRwaaP6MbC
+         xJfQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of oss@buserror.net designates 165.227.176.147 as permitted sender) smtp.mailfrom=oss@buserror.net
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=quCQWsqM;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:from:to:cc:date:in-reply-to:references
-         :organization:mime-version:content-transfer-encoding:subject
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Ql41ASKzVd4HRIB9E7ttsj5x3MuMUGikTiKrFTKFpWE=;
-        b=WXI1L6aFdNDvISPFF1nYo6twfDW0/WWCXjQEjk4L/gQEKiqW/wpotBbq2SSZymrMlk
-         als6BmFv/N5OT0oSmlIhAKFy7VyDJyiSsg3LbT11xwH2WgZbkbIB7GlGydQzTmSR7E8E
-         agYPlI3J8Kt4myFY9FqsVtBRTq5SWHLxMMpjFa+jakCH/5ohFuzst/Aw9DStNJgavuu5
-         VcOS7mLoUJZ5uTWVErr+BCVUlWifzOoLNpFuNRNDoFoOyynZ3KKRET26jjE7NRMg+QQz
-         AXW07vG7XeJej8vao3Wf+qS/TshYexai2ze3RvbnTma6urqEcw7UIHeAtvUg3euLPE7d
-         2qrg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=MtWIperRiv8IoYTXLE54vsDExlDshv2YkCUBE1QAfNE=;
+        b=nHwXKHNrGRsG7r0+QCDBLjOaeqOVycYkdx7wynYrNnEIZw91Gb0bQEQqsA+CWlm1ni
+         sKNnbx4FZu1NgLxKjb+4ODeEhoEeOy+SG26GYpN0YWwmCFCefba2RfrGDhsY9uDRhAY8
+         O7ui4IdR6nuS5PQtMer0+PTHLZTyB06/t41urevyeSQzPTDyZRN8LNQ0CM5dms35snzi
+         1S2xiwV+5yUqErhXUFHRN2Z1D9W/QifzxXEioF5f3VDK0WeEcaShJ73/fPygBdbKFfnn
+         GAwBKSW+Aw9vx+iE6V2xcLNOyH33WRGZyXjRGGXDjfQTi4BBK81cDJQJKaWK26WnZ2gA
+         8Puw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=MtWIperRiv8IoYTXLE54vsDExlDshv2YkCUBE1QAfNE=;
+        b=EPTcE7ekjONC9vyPv0efqolfXa4FZDmfCCcma4pDYayr3f/irTuPWK0ST2V2pay6l3
+         9NLeYlwSGd6B45u2a22YPbixXrzo0JbeXEsleY0Q9wfJ7PW2SnPxXNBk6tA0ZREdtZgj
+         OTAoccEMb5rgs08cqhUOKf3tY+w6CXcPbdORmxuB097sqpTQF10sdejgDt8VpP3VzEIS
+         WXmwbtPB2mGi2Ia1Ku/hLuGItsidt3LH0ZlIXtzgx6tCk0fAL5/Q0SELXJmN5DuEcqq8
+         0fgaJRwNB3wBYfOEqcXH7IR+22A7gkyGyVstE9NhvWT8H6gp7l6ZxNTFNksPuPjMsjRE
+         b3EA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:from:to:cc:date:in-reply-to
-         :references:organization:mime-version:content-transfer-encoding
-         :subject:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Ql41ASKzVd4HRIB9E7ttsj5x3MuMUGikTiKrFTKFpWE=;
-        b=LEIHHPevUDGWsL03WGyI2OhhjA9k+O5h9oqx7ojTyBto0lPxYiMy6G8x5j6BH7BkH/
-         JnB9sLkSNLJg5GpC/c8UtsaXZN0VrSCewY9ZtDNBjGGmi8dArvmhnEzJufpBXrnH+/SK
-         bI4pbRlZ38mgSAGo4nAsCB/a8HI/9w3Zd41sQ31sMf/C6itprDd77UQebw7wyBhv8t/S
-         XjUrCQlIy0hPv3Y1xiFIpwDmWUrNcYzD/IxIMSKrD4OC3ulpr/999izA0Q5WboKxCrQN
-         6ilzhnY90lO5DPbCkc15D5SVTuumnEwSwgmgu9mfLj2tKLFxBGr9kTzsXwsR+54FhmUR
-         +P8A==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=MtWIperRiv8IoYTXLE54vsDExlDshv2YkCUBE1QAfNE=;
+        b=Ul/ntge4ROXJR1y21SclFfHkclgLSwHfMki+xbLb/jZEtALYaDWgKHjBLf9GX4f369
+         z+knzgYy/ER1/icGvCo1T373zT4yiBJoqtbnTmUcCQEc10N8b7pSsDBgdfAzH2Echn4J
+         DZft21vAYlUlLvB/MehAHpHXQ2R6A0ZQRY/7EFFW7WRR3lCUWfiG9ZQ8A3GAHoF7fxTj
+         doFLKyx52opuoIO5wK5e66e/81p4gkF9CYrs6AAQumPk5eAMT9YVzges3yMEBDxN3Vjw
+         4sz3f1xIZxdfyqwrcN2+xojcMnfWed/9vL/X5zgwlsL5uQyEaaThsHAooT4zDvJroSrz
+         LyzA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Ak/cBH510xqtsL89bWUFpvvG8IdlFYG6+Y5JZ2AFN6XgGK2t3
-	UBvMGdg5mmZrLZaGlKcU+WA=
-X-Google-Smtp-Source: ABdhPJycLeBkG862w69VIaOJBY1HVtlkXLpLKTuzFwrXUuMEaMVK2ChXhElI8lPnlk+MMonLh6gMOQ==
-X-Received: by 2002:a05:6808:3b1:: with SMTP id n17mr2604759oie.139.1605628122225;
-        Tue, 17 Nov 2020 07:48:42 -0800 (PST)
+X-Gm-Message-State: AOAM531E0PpWx0Wf+DFKLw8V+2lD/d8ppSER3VtiLU4w7sPY3tFdRmLJ
+	yHKpF6u0FsI35cw4qR4tUQ0=
+X-Google-Smtp-Source: ABdhPJw+old3iBuLCNjL4SsTps2f3qIeifwPgYnGNf4tKIFmIK93H2mka6t8FP+DSxeMfYrNXICdqw==
+X-Received: by 2002:aca:c554:: with SMTP id v81mr2851646oif.143.1605629982322;
+        Tue, 17 Nov 2020 08:19:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:5214:: with SMTP id g20ls4084232oib.9.gmail; Tue, 17 Nov
- 2020 07:48:42 -0800 (PST)
-X-Received: by 2002:aca:c4c9:: with SMTP id u192mr2716079oif.69.1605628121979;
-        Tue, 17 Nov 2020 07:48:41 -0800 (PST)
-Received: by 2002:aca:1204:0:b029:e3:5820:22eb with SMTP id 4-20020aca12040000b02900e3582022ebmsois;
-        Mon, 16 Nov 2020 12:28:34 -0800 (PST)
-X-Received: by 2002:aca:4a51:: with SMTP id x78mr329468oia.86.1605558514449;
-        Mon, 16 Nov 2020 12:28:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605558514; cv=none;
+Received: by 2002:aca:5c8a:: with SMTP id q132ls4120943oib.0.gmail; Tue, 17
+ Nov 2020 08:19:42 -0800 (PST)
+X-Received: by 2002:aca:1c17:: with SMTP id c23mr2833738oic.117.1605629982029;
+        Tue, 17 Nov 2020 08:19:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605629982; cv=none;
         d=google.com; s=arc-20160816;
-        b=BtQbz42Ue6fW1ktOugm/1u71XsK838M1QS6i08bRiicRsnGZsIY26ky+jq6HEfbfvX
-         Qp5Ksb+JyJvyP0gq+uPbWXB68U9r6Wz2t7U1ySuYNV6/QfxMVcu/we/9Wo7RaiELyJPk
-         pp5tC+3CHeVe1nXQZhgwe4YvEK+NOfVVvumZzxh0a5SDeWlWYG1Wed7BS+L4y+j36gSn
-         lNhGfSkzayCHI6WXn1CtLx4Fei26nqUMA/AGplrR0ZuFO/sDFwvI8Ddp52mk24+58+Cp
-         y2AO8iXkQyEXuIbQ0xH39Y2IlRDxfAUZJRMyovVkvzy2bljFz47vuB7l5K08CeVNrGTL
-         1T/Q==
+        b=mJiOQduW3KWjDeJGl1PVdT7TI+Ua7UpooQ2LNi5GZ9HKWy81tiLEf00KgI9/P1aLNl
+         v/rQC1Q/cf3CfPk+ZqkCJsWQrrNB6UAaom7oTQCgCc2w53xLxLSfgpjvaqNEuNcVgmzR
+         HV0YatJwSDU0pxtYwCHavf8j4zrI521Sw8P9NcAaIxeA4BNOE8USdeIqpIdP3DVQVS+l
+         H4DTaeLtPtTvind4QIk8uJAxNN0rSSxspmHRZktyJ9qcj4Sj0RusYgUD37viP8PmHA+h
+         jynMxqNsWa89N0DEkHPXduk+We4eVXq0BMkOcq4nXECdzlPnUgUa82hAyL9qT20Sf7KC
+         XNQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=subject:content-transfer-encoding:mime-version:organization
-         :references:in-reply-to:date:cc:to:from:message-id;
-        bh=bv9lXcxiK/+MoSEnOes+R76/0Obz03UeO0SJPU7ckRA=;
-        b=P+TicdRepdeZ45R9d+fJOaojT+aDyriggeg2uKXKnH3gKLDPWqQbHKPzjtAqn6VqDG
-         nL2W53cFcn3L4wsU5r65AZIBRRACZ4VTy6jYxxwcNfxMDXSIEmnJ2fu707a6KlJwjHqq
-         49+7HgjLOupKiWaiKKXFo2e3oV7diLhu9KKvDpqeqvi463UP1P/YF3V9Uo/AQfh3cOQZ
-         RX6ibk8IWnL+Mlvy9zOrc9JPhOJi8E7tNqqP0ZSDfjR+CnKzMIXcU7St1Uy6TqzhCYJ5
-         gcaZtWP9SJHsQXkjhZj2ziF8T0p131WJuDv3i0NQ46pJ+FTgg4ZO23QFJvHnLWGzqsIN
-         AHpw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=0bP0N5G3q4990O7UPG9qRselKLApk1bnmbnwIqPu2sM=;
+        b=aRdzjFwM5/3D1Fi+iDrByZOh/HJqGJZyAayhfz6N96RhzRijT+oHia9Ov8R2UNyvE4
+         az8auBtAy+CGanndznP6fMFFp0uc3S1/Lm09tsTg0HGDg4+V5DiqlkaJRV73/1BSSXXj
+         /I+p8ymjmsqkz+FzjRZ2q7WsZNNrG4ADRxT9moHu1QQ+rPAUTtMHufnv7AGEoZgcms7l
+         Suzk8Hy8+FuoSWkZ3A4XVpRMbDOVw20BkzcktheQNReaJVLs8zDbNriSay/SCoOMyz8U
+         8aRGShur1jZS8h4TBFPMi/ZhLN3GbpLJ1feDgC2WCflJM7cRfRxVEsdKy88++74g5V4l
+         dUcw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of oss@buserror.net designates 165.227.176.147 as permitted sender) smtp.mailfrom=oss@buserror.net
-Received: from baldur.buserror.net (baldur.buserror.net. [165.227.176.147])
-        by gmr-mx.google.com with ESMTPS id f16si1765848otc.0.2020.11.16.12.28.34
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=quCQWsqM;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id k134si1162632oib.5.2020.11.17.08.19.42
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2020 08:19:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id 11so20883438qkd.5
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Nov 2020 08:19:42 -0800 (PST)
+X-Received: by 2002:a37:4948:: with SMTP id w69mr299290qka.472.1605629981408;
+        Tue, 17 Nov 2020 08:19:41 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id b64sm2779946qkg.19.2020.11.17.08.19.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2020 12:28:34 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of oss@buserror.net designates 165.227.176.147 as permitted sender) client-ip=165.227.176.147;
-Received: from [2601:449:8480:af0:12bf:48ff:fe84:c9a0]
-	by baldur.buserror.net with esmtpsa (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <oss@buserror.net>)
-	id 1kel5l-0005ry-Lt; Mon, 16 Nov 2020 14:27:13 -0600
-Message-ID: <e19e3a9f47c988b30a19316ee3de2b588e20a641.camel@buserror.net>
-From: Scott Wood <oss@buserror.net>
-To: Segher Boessenkool <segher@kernel.crashing.org>, 
-	=?UTF-8?Q?F=C4=81ng-ru=C3=AC_S=C3=B2ng?=
-	 <maskray@google.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, kbuild-all@lists.01.org, kernel test
- robot <lkp@intel.com>, Brian Cain <bcain@codeaurora.org>, Alan Modra
- <amodra@gmail.com>,  Masahiro Yamada <masahiroy@kernel.org>, linuxppc-dev
- <linuxppc-dev@lists.ozlabs.org>, Nick Desaulniers
- <ndesaulniers@google.com>, LKML <linux-kernel@vger.kernel.org>, 
- clang-built-linux <clang-built-linux@googlegroups.com>, Nathan Chancellor
- <natechancellor@gmail.com>, Linus Torvalds <torvalds@linux-foundation.org>
-Date: Mon, 16 Nov 2020 14:27:12 -0600
-In-Reply-To: <20201114005015.GZ2672@gate.crashing.org>
-References: <202011131146.g8dPLQDD-lkp@intel.com>
-	 <CAFP8O3LpSmxVnjHfQAN455k1ZRg3PbgZYhWr030evCq1T10k=Q@mail.gmail.com>
-	 <20201113190824.GA1477315@ubuntu-m3-large-x86>
-	 <CAKwvOdkEtTQhDRFRV_d66FyhQBe536vRbOW=fQjesiHz3dfeBA@mail.gmail.com>
-	 <20201113200444.GA1496675@ubuntu-m3-large-x86>
-	 <CAKwvOdkBSGPaKmQY1nERVe4_n19Q=MUtuwdond=FJAAF9N9Zhg@mail.gmail.com>
-	 <20201114002037.GW2672@gate.crashing.org>
-	 <CAFP8O3+NowYwhMAywd=R23HgOYnroWV9ZRkdyAejd08qsOF=6w@mail.gmail.com>
-	 <20201114005015.GZ2672@gate.crashing.org>
-Organization: Red Hat
+        Tue, 17 Nov 2020 08:19:40 -0800 (PST)
+Date: Tue, 17 Nov 2020 09:19:38 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>, Tom Rix <trix@redhat.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ring-buffer: remove obsolete rb_event_is_commit()
+Message-ID: <20201117161938.GA1271942@ubuntu-m3-large-x86>
+References: <20201117053703.11275-1-lukas.bulwahn@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Evolution 3.28.5-0ubuntu0.18.04.2
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 2601:449:8480:af0:12bf:48ff:fe84:c9a0
-X-SA-Exim-Rcpt-To: segher@kernel.crashing.org, maskray@google.com, arnd@kernel.org, kbuild-all@lists.01.org, lkp@intel.com, bcain@codeaurora.org, amodra@gmail.com, masahiroy@kernel.org, linuxppc-dev@lists.ozlabs.org, ndesaulniers@google.com, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, natechancellor@gmail.com, torvalds@linux-foundation.org
-X-SA-Exim-Mail-From: oss@buserror.net
-X-Spam-Checker-Version: SpamAssassin 3.4.2 (2018-09-13) on baldur.localdomain
-X-Spam-Level: 
-X-Spam-Status: No, score=-16.0 required=5.0 tests=ALL_TRUSTED,BAYES_00
-	autolearn=ham autolearn_force=no version=3.4.2
-X-Spam-Report: * -1.0 ALL_TRUSTED Passed through trusted hosts only via SMTP
-	*  -15 BAYES_00 BODY: Bayes spam probability is 0 to 1%
-	*      [score: 0.0000]
-Subject: Re: Error: invalid switch -me200
-X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
-X-SA-Exim-Scanned: Yes (on baldur.buserror.net)
-X-Original-Sender: oss@buserror.net
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of oss@buserror.net designates
- 165.227.176.147 as permitted sender) smtp.mailfrom=oss@buserror.net
+Content-Disposition: inline
+In-Reply-To: <20201117053703.11275-1-lukas.bulwahn@gmail.com>
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=quCQWsqM;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
+X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -158,57 +150,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 2020-11-13 at 18:50 -0600, Segher Boessenkool wrote:
-> On Fri, Nov 13, 2020 at 04:37:38PM -0800, F=C4=81ng-ru=C3=AC S=C3=B2ng wr=
-ote:
-> > On Fri, Nov 13, 2020 at 4:23 PM Segher Boessenkool
-> > <segher@kernel.crashing.org> wrote:
-> > > On Fri, Nov 13, 2020 at 12:14:18PM -0800, Nick Desaulniers wrote:
-> > > > > > > Error: invalid switch -me200
-> > > > > > > Error: unrecognized option -me200
-> > > > > >=20
-> > > > > > 251 cpu-as-$(CONFIG_E200)   +=3D -Wa,-me200
-> > > > > >=20
-> > > > > > Are those all broken configs, or is Kconfig messed up such that
-> > > > > > randconfig can select these when it should not?
-> > > > >=20
-> > > > > Hmmm, looks like this flag does not exist in mainline binutils?
-> > > > > There is
-> > > > > a thread in 2010 about this that Segher commented on:
-> > > > >=20
-> > > > >=20
-https://lore.kernel.org/linuxppc-dev/9859E645-954D-4D07-8003-FFCD2391AB6E@k=
-ernel.crashing.org/
-> > > > >=20
-> > > > > Guess this config should be eliminated?
-> > >=20
-> > > The help text for this config options says that e200 is used in 55xx,
-> > > and there *is* an -me5500 GAS flag (which probably does this same
-> > > thing, too).  But is any of this tested, or useful, or wanted?
-> > >=20
-> > > Maybe Christophe knows, cc:ed.
-> >=20
-> > CC Alan Modra, a binutils global maintainer.
-> >=20
-> > Alan, can the few -Wa,-m* options deleted from arch/powerpc/Makefile ?
->=20
-> All the others work fine (and are needed afaics), it is only -me200 that
-> doesn't exist (in mainline binutils).  Perhaps -me5500 will work for it
-> instead.
+On Tue, Nov 17, 2020 at 06:37:03AM +0100, Lukas Bulwahn wrote:
+> Commit a389d86f7fd0 ("ring-buffer: Have nested events still record running
+> time stamp") removed the only uses of rb_event_is_commit() in
+> rb_update_event() and rb_update_write_stamp().
+> 
+> Hence, since then, make CC=clang W=1 warns:
+> 
+>   kernel/trace/ring_buffer.c:2763:1:
+>     warning: unused function 'rb_event_is_commit' [-Wunused-function]
+> 
+> Remove this obsolete function.
+> 
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> ---
 
-According to Wikipedia e200 is from mpc55xx (for which I don't see any
-platform support having ever been added).  e5500 is completely different (6=
-4-
-bit version of e500mc).
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 
--Scott
-
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/e19e3a9f47c988b30a19316ee3de2b588e20a641.camel%40buserror=
-.net.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117161938.GA1271942%40ubuntu-m3-large-x86.
