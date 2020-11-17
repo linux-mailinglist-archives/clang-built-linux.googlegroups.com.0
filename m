@@ -1,146 +1,133 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBTP2ZT6QKGQEXDU43RA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCZLJOMFV4FRBV73ZT6QKGQETMQ4NEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0D8E2B57A0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 04:02:38 +0100 (CET)
-Received: by mail-pl1-x63f.google.com with SMTP id p15sf10622682plr.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 19:02:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605582157; cv=pass;
+Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB8652B57A6
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 04:04:56 +0100 (CET)
+Received: by mail-pf1-x43c.google.com with SMTP id f5sf13656211pfa.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Nov 2020 19:04:56 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605582295; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RoFsSupHPvklCS/MgjdiY7rTmBXceFvlh+qrTniaymzkIvalzrh15P1gK5pQ3xCZpX
-         KGB7hy/YK7vvnwu9xmBe5WlTFZdUps4gcjsCB+gso1R/dx7rBUGbeXCKPY+EpyP1ZZ1K
-         SzRhwVeDwTFfeHiUO89/rZfjiY3jUITlpCcptmWEUath1xUA3ahCKsK8ZMEbAeVbSKGo
-         v2Or8sLo2DT0RhqIpCtZKRUuJMVfldJNlk9P9ybgyukOsNuzf3cQMTFSr3YNMr6zhc3N
-         2+wGckKIfulaIRXuem9w0VvLspO7iRf+bdhkCjaipE7veexCi37s/HZ42n/7YA0ACzYr
-         253Q==
+        b=yn070AzGhA656zrgz3x5yZEseiWAHq4zrt3/2uzG9E4BDQXJ3BXa6eK6987q9F+f5k
+         Kg8Jv5w5WsUibMwk+E05pJKKPfhigx+I0ekRC+j0j8MKTEkPTQNEePbB9eJW7DdzqPO0
+         xAQrb8W2Aau9767Z3H/cFTNQuG2qMsfjzvzCAGNxd0MMOieSNkBjbIarb5PYaG3yJ/m+
+         hLoSTH20EBhXE3s5DfcUY1nargeqG3S+77HbuznrECDJqKUqqy5mnTIDL5HhaQOxFj6j
+         CdX+rZqQU5xc+O6RPgoCBkpd8dpGHRceDsl0bCr747luabtuRhUA+AkI4Y5nBZO3NttX
+         2Fjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=WoZ9AK/QBP/ILXapXw87iWVYuZHsp9lC9irU9EiXJaU=;
-        b=XiVFWyQJT1WeZm70BOqfDYlteaEb9UHZ7a1bmA6fABszRUI1QO2M653njN5py2mOEu
-         silN4BJq99AM9/lF4s+wxt6BgXzGxmimmT9jAt27PrPKjZRF+7a91dwOop47bvOPg3ma
-         19a3bJETDg8jcjOmz/G7pjGvypxOpLSe7OACRKGKpejxbwCjtHQ3jG4TS2JQFDhI4mtg
-         XmjP9uSUHDEzhtX0U7qvykqpxSgHLImxvguHejQfDErBfwSROS82/7LxLc2w2cNTIU7E
-         l7hcdb1IAIszesJ7j8F3AYJqKnhYY3CC0ibTGSILua+ldZ8UV2KbQ8IkkHzmBrmMMDEa
-         SqeA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=aUF+yVh+TW5JSBAFzkuEEsFOnDDXOz3AOEzDLuE/Gos=;
+        b=07VoOcxdXgDbo72lfrp2StnokbwQRu3otzULq5PW0uwiDaWG+6YEAV/54zJfEijimS
+         t14Z70KYx9C2QR+NtxjkpD2bcKnsXa4j/eAQ2VNEfOU+F92X+BaMvSL8UGiCSWk2j+Ru
+         qHii0BjmQ7IEo01eT3nzyeqdjCpsxUTg8agB6tSNYEbsXurRXqFzQ9YBernAMva5/w04
+         yajTOyxP9p+NLo3805lGLX0gPNpn1FPdksUR0MqurBfUExp/9KM2P4p9iDb63a8auxng
+         /+ugiLNKrzpZH27J4et4qFhewBcw2QGrM4ZWvYZgbzHo0AW2DVn088iPIWCApf2UxTmc
+         SAMw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iU3kKuyv;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@nvidia.com header.s=n1 header.b=h6SG+P3f;
+       spf=pass (google.com: domain of jhubbard@nvidia.com designates 216.228.121.65 as permitted sender) smtp.mailfrom=jhubbard@nvidia.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WoZ9AK/QBP/ILXapXw87iWVYuZHsp9lC9irU9EiXJaU=;
-        b=qixTyHqum2BWCWv4PHHDicNMgbdnHCEbGzj6xrhRJ4+pWg1TU84AJDb1YGVX8Eugdr
-         6mc/dqFp86lBsTcp1qKwFrwC9199flNZms1ce2KHqCLWrk2D6/ylDtYYMLxVWiAbIGNK
-         UJ6Tj7OnUl/1OFrW5OCcYLtu9YwqrkmAw5CLtS8GxxEnAGGBGEJmwX/7GJrCfP0rvcwq
-         5gN9q1IQQZj+FtMuRT4yiUgkaZKevOXFftBa7zO3i5fg2JxEFwlzZRUl4M7lBPr9AZ2/
-         zOBrqzD8TyzdTkUjlHHSvZLENS7yHCVfdnTMtHzh+/R0KFuIK15VmuYd06EyDsFv48++
-         Jydg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WoZ9AK/QBP/ILXapXw87iWVYuZHsp9lC9irU9EiXJaU=;
-        b=HC33Ue6YfOk29Tn1EJReHEpphMjlS06FiTxDn06hX1z1MhhZ6Tb15JmejXhwNL/0K1
-         F+NqmBDBQizdQH7z8jBauy01a9GFr38s/pnmqP9AB1U2kcxi6gFFSfCXx+VSZ5RyEVaC
-         Q6T0BezMU+fxDvMt9Ay7WX+myXAYhK2XPJGWqGFbfV4/jDOaHUHthEjzw9gHMnNhyRDo
-         WfM6n+4QkYEZ+Lm/tMjxjEC4wOG01NQcq8lRy9xo5+kjes7hMCFuF25/FM2qyq6aU+jN
-         h/PDSnNZ2EJgizvQoHOhdZIwy65Xdv/IEbF5dmrOvJrjFu/sVggd1GxKW1WoQWl+Qs3v
-         NN6g==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=aUF+yVh+TW5JSBAFzkuEEsFOnDDXOz3AOEzDLuE/Gos=;
+        b=WSkRIA9D7KTFs7fwzsnvxZHUe9W18esUeHH8hED7nqVKVubiH/d8Fk/KR4mNPGUvPS
+         mAMRCfAJVQYdTgWDjvG+XbjprTeruIh7+JOIJ0MJ3rEz4jwkqBmboSS6rA1ZsbpYY6LO
+         TtJihNK1JBPap2FN/lV51nOLCwzmb3Das37fyUoAeTT3oQFCSfNgSsIN3XIaCY3WYkJI
+         qC8kRreiZ3jOOg6aGap0LBRG+ATaLP1QKOznauQjIRFwMIDG8xgzQ+doSK89avfR80Si
+         FaLITL+fuh7jZjVmYSxz6BETIWTe02+co83Zc/mkVaqo1L/uQEvADd+5Ufa6tW66l7Mq
+         6Lsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=WoZ9AK/QBP/ILXapXw87iWVYuZHsp9lC9irU9EiXJaU=;
-        b=AjXrBaRJDokdMbdmDB9MHl+r6afkCp/mPYBTe0JKXtBm5JPDbRKQT/LlJKYzH8qjfC
-         edn4NS9VNm5TsAp8MhGM05drZvo6+wwx2S/PEd1Wd2DozIvrVNKuw/l3j9ILlkdyqZ2D
-         RXSQHWhPolsu2z1u8IQsBtPgptCzu9lQIUWp3VKTj1FUZt1CneouZPliKa4zUEai61Xe
-         tySBC0rEjCXxMpfPRbRDTa5USbWdNyfjjzrwjDMMp8rV6L3HeD+uvCKdIZKjZt+XhilN
-         S/tW4v+MGkXBMTdtrugDLVMu+Mrqd9qtjexwuOx60N6NbSRGwiGK139T3nw9+jalghEF
-         he3g==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=aUF+yVh+TW5JSBAFzkuEEsFOnDDXOz3AOEzDLuE/Gos=;
+        b=EiazDTfNS/VfWy56eWYWDuOmiQbIVyhDhXFlRU5rhcdftB7Wn2zHLBu1dhVeS32/VM
+         bHWKu4vq/NgqUm0j7hk4jpN/9Ad4Rh5JAWQi+IgrfP4KIbvWmXUGDx60FFg7O3hFRMci
+         ESkKgg+jXyCFwzHw18/N8s//umQCRq4dJlGB6OKoank8ftUp35btLbmMP0huBQUSr+qi
+         J5AJKEcZ9djCsMGjwKu4C4xKKxmNL92W2SZP8p8FfRqZQj+zXDheVD/C2i+v/3VnM5Tj
+         37+xg0jTbkGaaxF6foJTB+Lx7tZ+bJF6iSg+hUyTpdLq8aSkKzNDpXhbiGMcRXZd7Z/N
+         hLmw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530/UDkoxfgwydtlJbYgOwsJY2bDD/3KGo0Z1zX5umu7gzIBUsQh
-	t3MYvISLc3iGAqEAmnWS8Sw=
-X-Google-Smtp-Source: ABdhPJykIvWzap4zAPomKOCEplp45GC0VoGEHGs0sua/TSKATGYggBCGJmeAbniHmt3ozBF8gORJNA==
-X-Received: by 2002:a62:d114:0:b029:18a:e114:1eb4 with SMTP id z20-20020a62d1140000b029018ae1141eb4mr16862502pfg.41.1605582157371;
-        Mon, 16 Nov 2020 19:02:37 -0800 (PST)
+X-Gm-Message-State: AOAM530Hg13adfgtacG7ApUUtuBge84rO/56sdwENCfHZPnPiwFFVMV5
+	8ziEzSKxFqYdCkXptXsPekE=
+X-Google-Smtp-Source: ABdhPJzHZe7/fu0x3Qrt5Hhz2H5cZL4Nlpx6yNjy6qN6cMkZsuMMxi4AsEJQYD230kRDIfGkUbRFzw==
+X-Received: by 2002:a62:f94d:0:b029:15c:f1a3:cd47 with SMTP id g13-20020a62f94d0000b029015cf1a3cd47mr16433408pfm.81.1605582295497;
+        Mon, 16 Nov 2020 19:04:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:c395:: with SMTP id h21ls767411pjt.3.gmail; Mon, 16
- Nov 2020 19:02:36 -0800 (PST)
-X-Received: by 2002:a17:90a:4fa6:: with SMTP id q35mr2326850pjh.55.1605582156831;
-        Mon, 16 Nov 2020 19:02:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605582156; cv=none;
+Received: by 2002:a17:902:b187:: with SMTP id s7ls5156820plr.3.gmail; Mon, 16
+ Nov 2020 19:04:55 -0800 (PST)
+X-Received: by 2002:a17:90b:1115:: with SMTP id gi21mr2286055pjb.58.1605582294972;
+        Mon, 16 Nov 2020 19:04:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605582294; cv=none;
         d=google.com; s=arc-20160816;
-        b=gxtapDgU2xxBtaL0wMl4DIvEP8dOBWRWud9ZjwdPifd5X/KblFNTEdn+Zc+ywLwNhA
-         SIXSUFS3LaMsyha2hKCz7A2JO77sG6pJt/9gCmQdRp/Ys0VEvwpFTXgUos2wi5NDbsJZ
-         mvTEMdF0CZ/DmZtPrDRI8eLoy7Xbm1+UEDoD+8/dbWXPTk4SrxByP0Cb0sJ/n54RGrnh
-         9Qa55bsILIlcdsTDC58RC9lSsKzTDVD+LFIILx7lEG3OQ7sYgB+CEY3QQWY+33rZS5ng
-         COddt4EjCJHVJdR5YqnwaUM672Ss5vhfE0MoxxwIUHrBsxm2C1LX9KZWSoKiUnCkJuSz
-         QhBw==
+        b=FeHm3D4Hd2ay4//Y47vonOIe92oo9vX75HVmTQmglVZT5U/SlMkAEVZqOnC+T6N5Dd
+         /reEj8ans2npZ3L+6bf+vOXX6b4mojg0m4ucqbHoNEzD8c2ZhA+P/gROpAFnDDyG63jT
+         6jssKxP9O+MbDgAgF/uCSigCJXh9jcqq02yVvVgqIhASDx5n0wwCUQiB1HxjmOEA8hsU
+         MVGhK4GoYQpwOoYy4c3ca02VKqx2GEiWr3PpnLYfq9BExzkoCm8Ize9r6LOi3wKtoOdA
+         Ylz+pFqhMkHrx80J1XAINRmwnhMPQiM3YImGJsk7vylpkDcf98Hk8MKwidtqZAJGl92h
+         RBHg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=OrFb4zM53elIT7cUSmZjOKhggxTeko72lh8gYsva7hU=;
-        b=UNFm15pFFPB841dkzGTPSLVRK6dvqmekGJiA5FvqKmjnXum6Ep7OJScO1btSuYyyT/
-         g8NZKtc0kLpRAdGTJPRYBx3L3H2aUwHietVZwwYIRZWNxbhAU644luj/mooWPHzxgFG5
-         +MOG/v/RCSo6po3QQR478lqqm3VRi79cDj65Puu1mZ6Z5yofk5pAPF7xmHc7WgpMWjtV
-         FRbatwulZFjIVrTSZRe8n47Hdc6Mj4UBzAgsMLn/ObCWRHpojJH0+aBnw6ZNTYOcS4KX
-         0aMzTuFJtmrh8xJY+NYB1N03wWFDRViwGH6z+A/8XBGU5X73WYGEG+FZdsToff0qRMju
-         xrxg==
+        h=dkim-signature:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from;
+        bh=p723JtS1pJNVabNwPxJOJJ9MW40U8eP5btKJWk1846o=;
+        b=T/3j9iycqoUBq8iRm8UKovkSe3y+XCO2HpkOIQ31By6Pv8ROD/swbJyz2ivzq1USKD
+         g72jHr6z5IgzEaPXTRkE49Ohy72RSGrqPAgeq6u4TVPZsANrtYF2lBzhytDJ6Sruyb4G
+         9/xc4UsIFMYeuQxK2EOE53C6w4f/BhOAoLW2JFg8+bR2BFSiQWjuqImGChi3ZB5yeOld
+         9Mp1ZHRjNmtI+Xc9r5pURsKnPR8KB74tIAtb9kJF42xnHtnlnZQZaebpQ2dBT87Bl/q4
+         BkFfq5noObznsrRzJ4+xKauaa+hsNHZKxZwvnJBqyEdvhksMq2AkeamiI+TV6Y3JS/rz
+         1GWA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iU3kKuyv;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
-        by gmr-mx.google.com with ESMTPS id g4si101188pju.0.2020.11.16.19.02.36
+       dkim=pass header.i=@nvidia.com header.s=n1 header.b=h6SG+P3f;
+       spf=pass (google.com: domain of jhubbard@nvidia.com designates 216.228.121.65 as permitted sender) smtp.mailfrom=jhubbard@nvidia.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+Received: from hqnvemgate26.nvidia.com (hqnvemgate26.nvidia.com. [216.228.121.65])
+        by gmr-mx.google.com with ESMTPS id z12si105841pjf.3.2020.11.16.19.04.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Nov 2020 19:02:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
-Received: by mail-qk1-x743.google.com with SMTP id 199so19187015qkg.9
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Nov 2020 19:02:36 -0800 (PST)
-X-Received: by 2002:a37:6854:: with SMTP id d81mr17624635qkc.230.1605582156017;
-        Mon, 16 Nov 2020 19:02:36 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id v14sm13948831qkb.15.2020.11.16.19.02.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2020 19:02:35 -0800 (PST)
-Date: Mon, 16 Nov 2020 20:02:34 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: "Gustavo A . R . Silva" <gustavoars@kernel.org>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Paul Mackerras <paulus@samba.org>,
-	clang-built-linux@googlegroups.com, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] powerpc: fix -Wimplicit-fallthrough
-Message-ID: <20201117030234.GC1340689@ubuntu-m3-large-x86>
-References: <20201116043532.4032932-1-ndesaulniers@google.com>
- <20201116043532.4032932-4-ndesaulniers@google.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Nov 2020 19:04:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of jhubbard@nvidia.com designates 216.228.121.65 as permitted sender) client-ip=216.228.121.65;
+Received: from hqmail.nvidia.com (Not Verified[216.228.121.13]) by hqnvemgate26.nvidia.com (using TLS: TLSv1.2, AES256-SHA)
+	id <B5fb33dd40000>; Mon, 16 Nov 2020 19:04:52 -0800
+Received: from HQMAIL109.nvidia.com (172.20.187.15) by HQMAIL109.nvidia.com
+ (172.20.187.15) with Microsoft SMTP Server (TLS) id 15.0.1473.3; Tue, 17 Nov
+ 2020 03:04:43 +0000
+Received: from sandstorm.nvidia.com (172.20.13.39) by mail.nvidia.com
+ (172.20.187.15) with Microsoft SMTP Server id 15.0.1473.3 via Frontend
+ Transport; Tue, 17 Nov 2020 03:04:42 +0000
+From: John Hubbard <jhubbard@nvidia.com>
+To: <jarkko.sakkinen@iki.fi>
+CC: <akpm@linux-foundation.org>, <andreyknvl@google.com>, <ast@kernel.org>,
+	<clang-built-linux@googlegroups.com>, <daniel@iogearbox.net>,
+	<elver@google.com>, <jarkko@kernel.org>, <keescook@chromium.org>,
+	<linux-kernel@vger.kernel.org>, <masahiroy@kernel.org>,
+	<miguel.ojeda.sandonis@gmail.com>, <natechancellor@gmail.com>,
+	<ndesaulniers@google.com>, <sedat.dilek@gmail.com>,
+	<vincenzo.frascino@arm.com>, <will@kernel.org>, John Hubbard
+	<jhubbard@nvidia.com>
+Subject: Re: [PATCH v3 1/7] compiler-clang: add build check for clang 10.0.1
+Date: Mon, 16 Nov 2020 19:04:27 -0800
+Message-ID: <20201117030427.61981-1-jhubbard@nvidia.com>
+X-Mailer: git-send-email 2.29.2
+In-Reply-To: <20201104013447.GA21728@kapsi.fi>
+References: <20201104013447.GA21728@kapsi.fi>
 MIME-Version: 1.0
+X-NVConfidentiality: public
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20201116043532.4032932-4-ndesaulniers@google.com>
-X-Original-Sender: natechancellor@gmail.com
+X-Original-Sender: jhubbard@nvidia.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=iU3kKuyv;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@nvidia.com header.s=n1 header.b=h6SG+P3f;       spf=pass
+ (google.com: domain of jhubbard@nvidia.com designates 216.228.121.65 as
+ permitted sender) smtp.mailfrom=jhubbard@nvidia.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=nvidia.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,64 +140,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Nov 15, 2020 at 08:35:32PM -0800, Nick Desaulniers wrote:
-> The "fallthrough" pseudo-keyword was added as a portable way to denote
-> intentional fallthrough. Clang will still warn on cases where there is a
-> fallthrough to an immediate break. Add explicit breaks for those cases.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/236
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+Hi,
 
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+I just ran into this and it's a real pain to figure out, because even
+with the very latest Fedora 33 on my test machine, which provides clang
+version 11.0.0:
 
-> ---
->  arch/powerpc/kernel/prom_init.c | 1 +
->  arch/powerpc/kernel/uprobes.c   | 1 +
->  arch/powerpc/perf/imc-pmu.c     | 1 +
->  3 files changed, 3 insertions(+)
-> 
-> diff --git a/arch/powerpc/kernel/prom_init.c b/arch/powerpc/kernel/prom_init.c
-> index 38ae5933d917..e9d4eb6144e1 100644
-> --- a/arch/powerpc/kernel/prom_init.c
-> +++ b/arch/powerpc/kernel/prom_init.c
-> @@ -355,6 +355,7 @@ static int __init prom_strtobool(const char *s, bool *res)
->  		default:
->  			break;
->  		}
-> +		break;
->  	default:
->  		break;
->  	}
-> diff --git a/arch/powerpc/kernel/uprobes.c b/arch/powerpc/kernel/uprobes.c
-> index d200e7df7167..e8a63713e655 100644
-> --- a/arch/powerpc/kernel/uprobes.c
-> +++ b/arch/powerpc/kernel/uprobes.c
-> @@ -141,6 +141,7 @@ int arch_uprobe_exception_notify(struct notifier_block *self,
->  	case DIE_SSTEP:
->  		if (uprobe_post_sstep_notifier(regs))
->  			return NOTIFY_STOP;
-> +		break;
->  	default:
->  		break;
->  	}
-> diff --git a/arch/powerpc/perf/imc-pmu.c b/arch/powerpc/perf/imc-pmu.c
-> index 7b25548ec42b..e106909ff9c3 100644
-> --- a/arch/powerpc/perf/imc-pmu.c
-> +++ b/arch/powerpc/perf/imc-pmu.c
-> @@ -1500,6 +1500,7 @@ static int update_pmu_ops(struct imc_pmu *pmu)
->  		pmu->pmu.stop = trace_imc_event_stop;
->  		pmu->pmu.read = trace_imc_event_read;
->  		pmu->attr_groups[IMC_FORMAT_ATTR] = &trace_imc_format_group;
-> +		break;
->  	default:
->  		break;
->  	}
-> -- 
-> 2.29.2.299.gdc1121823c-goog
-> 
+$ clang --version
+clang version 11.0.0 (Fedora 11.0.0-2.fc33)
+Target: x86_64-unknown-linux-gnu
+
+...the bpftrace program still chokes on some, but not all commands, in
+ways that invisible to normal debugging. For example:
+
+$ sudo bpftrace -e 'tracepoint:syscalls:sys_enter_vmsplice { @[kstack()]
+= count(); }'
+/lib/modules/5.10.0-rc4-hubbard-github+/source/include/linux/compiler-clang.h:12:3:
+error: Sorry, your version of Clang is too old - please use 10.0.1 or
+newer.
+
+But Jarkko's recommended fix works! In other words, applying the diff
+below fixes it for me. So I'm replying in order to note that the problem
+is real and hoping that the fix is applied soon.
+
+
+diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+index dd7233c48bf3..c2228b957fd7 100644
+--- a/include/linux/compiler-clang.h
++++ b/include/linux/compiler-clang.h
+@@ -7,9 +7,11 @@
+ 		     + __clang_minor__ * 100	\
+ 		     + __clang_patchlevel__)
+ 
++#ifndef __BPF_TRACING__
+ #if CLANG_VERSION < 100001
+ # error Sorry, your version of Clang is too old - please use 10.0.1 or newer.
+ #endif
++#endif
+ 
+ /* Compiler specific definitions for Clang compiler */
+ 
+
+
+thanks,
+--
+John Hubbard
+NVIDIA
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117030234.GC1340689%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117030427.61981-1-jhubbard%40nvidia.com.
