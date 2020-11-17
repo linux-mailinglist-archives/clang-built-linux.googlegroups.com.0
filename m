@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBF5P2D6QKGQEHEGNYBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBO5T2D6QKGQETTDIM6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 84E8A2B6D6F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 19:34:00 +0100 (CET)
-Received: by mail-qt1-x83d.google.com with SMTP id e22sf13015017qte.22
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 10:34:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605638039; cv=pass;
+Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id B32BA2B6D9E
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 19:43:08 +0100 (CET)
+Received: by mail-vk1-xa3f.google.com with SMTP id p7sf4641256vke.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 10:43:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605638587; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XcsWMLRkq3X+liHNe6zRBt6WbuINUQMZwnfDOG9XIgdmGv8vXofnwk1x3rKeso2GHr
-         jUhjhRk/i9S4jS4FI18HoQ34eIA/UIMD4oNs6emMsQjzxg6trqd8ljArhtRoKBuy9dvx
-         ShBSRFx7GP8LEy6rjsFWY7qipfmo1mDUx1dj9fjCPsJgB2WC1EmPhHwUuab4VK5W1WXe
-         85Xm2Zw/iYLRm+6Z69Qvl7+IRERMRKXqgkEF3rX4QlddbTFJj0WI7iohrTDlN6UWgRKG
-         dfBMCJMRVl2oDMvHfgvTi9DeXQbJG72w5LN3ivhC8/O/sbgkQVpMmI/mOFmEi8gU97R6
-         OyEw==
+        b=OeDn4jDocLgp3H39PVzMZuLPfYQTPivMvmAeADyI9cfaM+ee9+UTGlhG08cDOAVQN3
+         /6p/qll/AGAvbolBo0Ehlo+n/SvSDtsGW43Jb5l6KuMEOy5xGkLnzsmO6H9CY/7yRKov
+         wEwq0R0T6N58v1noazkllPxDLHIu4gRGM9cxLKfVWPdK9vch95UyDsWqEJM5IekZzgqC
+         Ttu7424fKOC/Ya6WZgHGZFir84iAIttzP0ZS6VOnClLAOJ6Rpa4spy0TzIO071f5MmD7
+         Efzvb93pjc/3zps1CYltZ6Q0jlLhoCoBF5WtmYsCr1ZryEOkK4dh/+1IeQ3AuLFU96YE
+         7Z/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=EdIfOtKpsYXMjridsRWHqYVtWJ29e/Er8+4mh/ZI64I=;
-        b=sBYcmjQdbKuMOetP3rxT6+964geRV9qmcfkIjWDoJCxUjmmYexcL4K707AZPSDYxy1
-         NjK/78n7p7DEY/sLX4hKIPbH8ex22YAc0zmMPeR9Sf6Zb6mNLRQ7DZ+94KVj5FwBzKtw
-         X2P52S84pzuKIZD7XSWAe59LOdLrJ4MpM8WyOiT2Vqr12hskjy5S2Q5XBtO9f+QWmyGV
-         zncYuYj3RkNZcFkNWi9R+xrz+AAvzXuUZnFmJ+NqpfEPG4Wk9Kzg0wt3gMrCA1mohaGX
-         eDI1pktRyCe3pqzF7U7WxQEMDCz+QwvGtPHz5405hYs1O00baALIvj04/zusk8nxx89w
-         CdvA==
+        bh=oeus90/sCw3HXdPeBAbgdiZ4wctK/xVG+rhkTXI+/S0=;
+        b=BeYYtAGxCBUX4nMUdVoyzHXo3dEkdaSDMFLND6pmGoMjlC+4C6MyIOH4I2DJnAbZdF
+         nKZzW5UpJzGhR4nZIpr9BRLeBPjlhme+CE9qszjyjTnb5nBPK/lNUsanMapAn3fxztMP
+         uW1U+xjKD3JsngyDh/RweZEt/qtOgCy744FQUL/VeYJaSC7oGoECfLK2vERg4An0r5BH
+         AUl1op0Ozz3x6mGOFMFiQqQVUY6dqDJ4eGA1DnQFr4SF9vTxeeEBhJf4D8BG2QGMLlC1
+         D9TDdyv98XS2DhMCeLcVlKWoYH75ayvU7QnM36IEpbadmU3jsuaCx5DWVXXQ4wzRhRSp
+         o1fw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=FOpWOWZ0;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MQZD+K87;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EdIfOtKpsYXMjridsRWHqYVtWJ29e/Er8+4mh/ZI64I=;
-        b=CLpZqH3B/1LDgIUl9MO1OTI5svmNHcCC1+pUHZAFsVL+nAc3WZJfNpdDJCvN5s2LDp
-         bJviExt2Mz28KHMol+h+lSpca8aOsboO0x4i9aaj2euzwjhc4h8iMXVBtuYvYkQPGqCl
-         WI+OgI3tBDz5dl0i1WsGzOVkn55o/IYMywPykwhm3SKvoO2IM71d18oBCHTTFJNXPBNA
-         azwr9q42kqpF6xoUEfAPpPZnJ7wv6vhiTHEX6Q/L0TLyx9tZkuhH4Bo+/DQf5VSB2+EC
-         OX0TttEtmIxCseafWOwkZNb13xrxXpQWIXaAs0aZ9kAUrUo1KjfIhMZckd6ArQgeJj/r
-         MyWQ==
+        bh=oeus90/sCw3HXdPeBAbgdiZ4wctK/xVG+rhkTXI+/S0=;
+        b=csaNtCmWLdYjjqOVeLZqeXzFWSAQXabLK+u3pQ3vWQES45MrBkn1BRDkgetlULl3MB
+         KYxXbEA37Gbs4/TDSS8SnK/MJyCxQu/KUguYr4J3X8M5yaEqmv/N4i8yVbrx4VRoSV2Q
+         mScuQPfisCaZcXIk2m3XROAZIf7/vJG9jmHknJ+DkqLJ+ngvw7v0BfRepfmPl6NotnT0
+         fm/eumByAzfNMZHWKHaz0gqG8ollzUBONW3ZleRtpWQT43Ba+5vKSLCmeFkyxGWS1vG6
+         ZgIwKoQsMue1wvQW+hyNIh8wTj9/dOIpyyzNZ+9/ZbucHeEIfRAl3tgkivJPdo8kESEl
+         7+Xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,77 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EdIfOtKpsYXMjridsRWHqYVtWJ29e/Er8+4mh/ZI64I=;
-        b=hBRqP1mE0Y3FkXosF15y0TKV+Cd3/IstE+p3ibUhnArBb8UqZLaFPw0YwcUWe4tRtF
-         +FtmaNeIMYs9OyY9vBjM7GZzR5MbPj7B6luowNfhpiXgcCGzjdEi8Qt4eH1Tj5vYaBYA
-         7y+QQY3w7FGA/slWCrGjc7uVN47P8mbmzM5JJXAeTZ5wikT47ib/VHvuAnpmIAMuQS7x
-         GijDzmX2Nd/6abm8EkgDQuInrHxJB5w2QULFijYtlim1dvBWIrK2FHrujrPsoRdwnhym
-         +qiho2MrXP4/oYoeNKrruddrdJxWMGLr5PcK1o/eLeslQl3qrKoYNe2dlMBaCn1OQXgk
-         /QjA==
-X-Gm-Message-State: AOAM531bcwEQORhVytE8m90zhElm4r/3KLViipT6IqOs02NWMEvw5xbY
-	ETUxzr0QWIYaypegL97Xp2M=
-X-Google-Smtp-Source: ABdhPJxiMFmW5ue+/Gw4w6gxYr1QA3IUdnx0jwZxHDSxVklL4bc+/r/zn61D43x/VSef0bh7KO0NMw==
-X-Received: by 2002:ac8:44b5:: with SMTP id a21mr1066974qto.104.1605638039592;
-        Tue, 17 Nov 2020 10:33:59 -0800 (PST)
+        bh=oeus90/sCw3HXdPeBAbgdiZ4wctK/xVG+rhkTXI+/S0=;
+        b=RcrMJnuJGINh45Fo8f3SN6t5MDCF4sw+lUk6uaR0cDe36AuAstye3xmytOOt8zRYmH
+         bXES6BhFYejHrrZ1PUBeFRaPxCJ7S5ktTzwztdYSfsiIdD7ChK3Pk4SV6yEWN3izKNal
+         OZnSU3J/ObA7g922MWoFFYURgxrXuitw7848MNMq/sJGuH8DGhz2mt2ydU/F7DPzdN1f
+         zfLb3NSrMFvtqLj2MFlUgViC9XlD/JqKPLaqRB3ZpDCPrTa0KMg4VTlcl/EZBB+0ZKG4
+         +/rzQbUsSoLQzdbq4/Cq+AGnIcz/QfcbQZr/lRofDyDXvlvywBk9alB/9h3wveGyxTtg
+         rMLA==
+X-Gm-Message-State: AOAM531B+4nBpNRZklZmYtHMErjwWz9pdvW5U7ZGT6HsMG8/++PD5Rp2
+	NbIWRyg9j/UoLkpyCZhqNqU=
+X-Google-Smtp-Source: ABdhPJwmDsBdm07Y7NFjflgS94D8kaWaJsz3rDcR7/SsPX+lUuIIo7u/gNvRb4kJWhWvvSK4g7GCZw==
+X-Received: by 2002:a1f:5341:: with SMTP id h62mr715217vkb.24.1605638587573;
+        Tue, 17 Nov 2020 10:43:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:2726:: with SMTP id n35ls6483660qtd.3.gmail; Tue, 17 Nov
- 2020 10:33:59 -0800 (PST)
-X-Received: by 2002:ac8:6601:: with SMTP id c1mr1071040qtp.106.1605638039114;
-        Tue, 17 Nov 2020 10:33:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605638039; cv=none;
+Received: by 2002:a67:e985:: with SMTP id b5ls2250501vso.11.gmail; Tue, 17 Nov
+ 2020 10:43:07 -0800 (PST)
+X-Received: by 2002:a67:fd59:: with SMTP id g25mr778478vsr.29.1605638587059;
+        Tue, 17 Nov 2020 10:43:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605638587; cv=none;
         d=google.com; s=arc-20160816;
-        b=sEA19tXRATJSuLzLjCRJo8eTxCFLE6GiRF6RG7mOnJMdNdueuj6OTSAI4Qk+4URiSl
-         oJKSXq8tiEOTX17ZJpeVh/vBddM2zFZmoUDtl6veSzvUEV2J3s8bM99i5GJ/knApxN0E
-         7b3kg/YWK/XUe9RiiVcjI2KQ2/egFAUGi4paZa+dc035DyZEl1HdAEXL59ugCqUcS7q3
-         rvW/DW4ulSOBiIBVKHMAuddskEvvCt1f26CTQM/DRsT9qOMMq0XwEfWQ4nwAf5N9UVSt
-         TmyaBH26nzY1Y+8rbEmRyFeOGKHIUYNqpY+MURyYMclz2NAeOlL2J5409WeI7Id0CZb9
-         2dtg==
+        b=a7A7m4l4/J8cK7un20NKzX2yM/Zl447G1ijuER8lkXdDA/GX+A3GFn6rr27tFmqk1G
+         ISKVy7JINmpfIheut9mHAKVoB3ZvdBSlIE7Jr2PI3SrfLus4A7MAWuH4UuhUdO2mEeSR
+         0BhuaoXEJdM8J0K3ez2bGWYmemp7d03WlqwtprCmonYU8Y04nWgAgbIpHgQoRCnickoI
+         W1pxD+fvriRP6/pJkh6klgNhvHc111g7N+1TXK8gUvqfZo7tdSvOFoeZQF8HQM34aQqk
+         4bVkK+CkCiJVjx3kGE60d9/+GG/pnRKLEuJQufVfIU/d6N23uOYSURwlS+Rkez2yjJf/
+         yhFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=fQkJ2Lw7TUY5jWjGmBKfeemBsnDuv9nUetOaxVaTDb4=;
-        b=wvgOdlYd0XIW02uTK70PDLzZXhSrlO6xCUlwvDyx13/ySDljrHX91pSfkVz6dt4dBI
-         nnrE4CacBmRetQ3yxWS9fx5Z2UE55Kc5u/2Pgqf/1j+UbEAy1SFF0s2M9ze+OYcrHJSl
-         HTHS3ITiHraEEteusbfh7EhEjTv7MO7ViRg9NciutKjv4gxAiH/ULKant8pBXj321djG
-         eslWbjTtHXfvQWnWKJYuyxP0bc56I1B6FrWkDAbILKRdLvudo0R6IVdozUgYdGjxltPp
-         EaNFNvYZejqMVzi5OGZMA0aTRCNKhcRsVuy6t7GVLynlkNGn0Lmup8u4jqT2nZp6rTVG
-         2aXw==
+        bh=dXmLxFFItS0Ypki58LuP/3Vy2uNJs+/YPXZkSUrG9N0=;
+        b=MqVeizzMeZgBhFPGhZPm7bEyX0h3yu49yNb5gJ4U9rwg5BVCY6eCvN5in+vYdtv687
+         B2ps5FB9LXycEz9I4CaKn3I7B99p32wVD+JY4gGM+0CQ4g8GKImVekhl+KSwyl39as+y
+         oK16bKsbWZiDFzC2D0um9RQKCBA/jHLEPcgqeeJzrgj1kOMI4qssETE/lSi2DAl/MKz6
+         SWpNoAndhEJVSoAsHJFU92zQGtkKFpbp3TLNhTFXbq+/YyZ3NZUmSa5IHU/ZVfeVxffp
+         HwIoMBHUZWpKW1UlgfvkllB3r2cSduoy7deQ92gmau10G/b+fR4f0O2oETRuAgy4mwai
+         p6iA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=FOpWOWZ0;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MQZD+K87;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x632.google.com (mail-pl1-x632.google.com. [2607:f8b0:4864:20::632])
-        by gmr-mx.google.com with ESMTPS id h3si1063769qko.3.2020.11.17.10.33.59
+Received: from mail-pg1-x531.google.com (mail-pg1-x531.google.com. [2607:f8b0:4864:20::531])
+        by gmr-mx.google.com with ESMTPS id c124si1415033vkb.4.2020.11.17.10.43.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2020 10:33:59 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632 as permitted sender) client-ip=2607:f8b0:4864:20::632;
-Received: by mail-pl1-x632.google.com with SMTP id y22so10706752plr.6
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Nov 2020 10:33:59 -0800 (PST)
-X-Received: by 2002:a17:902:e901:b029:d8:e727:2595 with SMTP id
- k1-20020a170902e901b02900d8e7272595mr749648pld.56.1605638038233; Tue, 17 Nov
- 2020 10:33:58 -0800 (PST)
+        Tue, 17 Nov 2020 10:43:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531 as permitted sender) client-ip=2607:f8b0:4864:20::531;
+Received: by mail-pg1-x531.google.com with SMTP id w4so16583818pgg.13
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Nov 2020 10:43:07 -0800 (PST)
+X-Received: by 2002:a65:4b81:: with SMTP id t1mr4821535pgq.263.1605638586521;
+ Tue, 17 Nov 2020 10:43:06 -0800 (PST)
 MIME-Version: 1.0
-References: <20201117173828.27292-1-info@metux.net>
-In-Reply-To: <20201117173828.27292-1-info@metux.net>
+References: <CA+G9fYssjT9+BBwGrjgVOwqVM923GmEtShQV8pVFnsu3X09-ZQ@mail.gmail.com>
+ <CAK8P3a3DAVK2Vy-Hb7AbbFwfRnMCkwtmw1L5EivSRdoZ17hJ9A@mail.gmail.com>
+ <CA+G9fYushaXDdg7CEU-CTmqpdGFNS_sMGPXXgiHj1RuUwxyK2w@mail.gmail.com> <CAKwvOd=gzo1eWADp+y0COoNz77Y51Rj0uWtmcYvJKOpjusJGsA@mail.gmail.com>
+In-Reply-To: <CAKwvOd=gzo1eWADp+y0COoNz77Y51Rj0uWtmcYvJKOpjusJGsA@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 17 Nov 2020 10:33:47 -0800
-Message-ID: <CAKwvOd=OsYyPYDg=CU5cHGNxYj6UKcwUKTmrweeERJLkiVwekw@mail.gmail.com>
-Subject: Re: [PATCH] lib: compile memcat_p only when needed
-To: "Enrico Weigelt, metux IT consult" <info@metux.net>, Andrew Morton <akpm@linux-foundation.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@st.com>, 
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
-	Andrii Nakryiko <andrii@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@chromium.org>, Network Development <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Tue, 17 Nov 2020 10:42:55 -0800
+Message-ID: <CAKwvOdk+bq6CbJKJ0VrXRMvqEPqvV-01k+cB8=o5V7=s8uA4Dg@mail.gmail.com>
+Subject: Re: [stable rc 5.4] arch/x86/events/amd/../perf_event.h:838:21:
+ error: invalid output size for constraint '=q'
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Anders Roxell <anders.roxell@linaro.org>, 
+	=?UTF-8?B?RGFuaWVsIETDrWF6?= <daniel.diaz@linaro.org>, 
+	Arnd Bergmann <arnd@arndb.de>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Brian Gerst <brgerst@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=FOpWOWZ0;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::632
+ header.i=@google.com header.s=20161025 header.b=MQZD+K87;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -136,88 +134,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Nov 17, 2020 at 9:38 AM Enrico Weigelt, metux IT consult
-<info@metux.net> wrote:
+On Mon, Nov 16, 2020 at 3:57 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> The library function memcat_p() is currently used only once.
-> (drivers/hwtracing/stm). So, often completely unused.
+> On Mon, Nov 16, 2020 at 9:45 AM Naresh Kamboju
+> <naresh.kamboju@linaro.org> wrote:
+> > >
+> > > c94055fe93c8 x86/percpu: Clean up percpu_stable_op()
+> > > ebcd580bed4a x86/percpu: Clean up percpu_cmpxchg_op()
 
-Any harm in just moving the definition into drivers/hwtracing/stm?
-Then we don't need any Kconfig additions.  There never were many users
-of this function, and there probably never will be.
+Cherry picking fails for me at ^ on top of linux-5.4.77.
 
+> > > 73ca542fbabb x86/percpu: Clean up percpu_xchg_op()
+> > > bbff583b84a1 x86/percpu: Clean up percpu_add_return_op()
+> > > e4d16defbbde x86/percpu: Remove "e" constraint from XADD
+> > > 33e5614a435f x86/percpu: Clean up percpu_add_op()
+
+^ 99 lines changed in the diffstat; cutting it close to stable wanting
+relatively small patches.
+
+> > > bb631e300284 x86/percpu: Clean up percpu_from_op()
+> > > c175acc14719 x86/percpu: Clean up percpu_to_op()
+> > > 6865dc3ae93b x86/percpu: Introduce size abstraction macros
+> > >
+> > > It may be a stretch to have these applied to v5.4.y, but maybe
+> > > there is some other way.
+> >
+> > We need to find a way to apply these patches into stable 5.4 branch.
 >
-> Reducing the kernel size by about 4k by compiling it
-> conditionally, only when needed.
->
-> Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
-> ---
->  drivers/hwtracing/stm/Kconfig | 1 +
->  lib/Kconfig                   | 3 +++
->  lib/Kconfig.debug             | 1 +
->  lib/Makefile                  | 4 +++-
->  4 files changed, 8 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
-> index aad594fe79cc..8ce5cfd759d1 100644
-> --- a/drivers/hwtracing/stm/Kconfig
-> +++ b/drivers/hwtracing/stm/Kconfig
-> @@ -3,6 +3,7 @@ config STM
->         tristate "System Trace Module devices"
->         select CONFIGFS_FS
->         select SRCU
-> +       select GENERIC_LIB_MEMCAT_P
->         help
->           A System Trace Module (STM) is a device exporting data in System
->           Trace Protocol (STP) format as defined by MIPI STP standards.
-> diff --git a/lib/Kconfig b/lib/Kconfig
-> index b46a9fd122c8..b42ed8d68937 100644
-> --- a/lib/Kconfig
-> +++ b/lib/Kconfig
-> @@ -686,6 +686,9 @@ config GENERIC_LIB_CMPDI2
->  config GENERIC_LIB_UCMPDI2
->         bool
->
-> +config GENERIC_LIB_MEMCAT_P
-> +       tristate
-> +
->  config PLDMFW
->         bool
->         default n
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index c789b39ed527..beb5adb2f0b7 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -2334,6 +2334,7 @@ config TEST_DEBUG_VIRTUAL
->
->  config TEST_MEMCAT_P
->         tristate "Test memcat_p() helper function"
-> +       select GENERIC_LIB_MEMCAT_P
->         help
->           Test the memcat_p() helper for correctly merging two
->           pointer arrays together.
-> diff --git a/lib/Makefile b/lib/Makefile
-> index ce45af50983a..18fd6630be0b 100644
-> --- a/lib/Makefile
-> +++ b/lib/Makefile
-> @@ -36,7 +36,9 @@ lib-y := ctype.o string.o vsprintf.o cmdline.o \
->          flex_proportions.o ratelimit.o show_mem.o \
->          is_single_threaded.o plist.o decompress.o kobject_uevent.o \
->          earlycpio.o seq_buf.o siphash.o dec_and_lock.o \
-> -        nmi_backtrace.o nodemask.o win_minmax.o memcat_p.o
-> +        nmi_backtrace.o nodemask.o win_minmax.o
-> +
-> +obj-$(CONFIG_GENERIC_LIB_MEMCAT_P) += memcat_p.o
->
->  lib-$(CONFIG_PRINTK) += dump_stack.o
->  lib-$(CONFIG_SMP) += cpumask.o
+> If those all cherry pick cleanly; I don't view them as super high risk
+
+Naresh, if you want to identify the full list of patches to cherry
+pick back to get the above to cherry pick cleanly, I'm happy to help
+test and help you send them to stable.  The current list isn't
+sufficient as it stands if `git cherry-pick -x <sha>` fails going in
+order.
+
+> to request stable to pick them up.  As Arnd notes, we only very
+> recently got i386 to build with Clang (thanks to Brian's series, and
+> others' work); I'm personally curious though, what's the use case for
+> 5.4+i386+clang?  If it's anything Android related, I'm curious whether
+> 4.19 might be of interest, too? (That will probably be much more
+> painful to retroactively support).
 > --
-> 2.11.0
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117173828.27292-1-info%40metux.net.
+> Thanks,
+> ~Nick Desaulniers
 
 
 
@@ -228,4 +189,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DOsYyPYDg%3DCU5cHGNxYj6UKcwUKTmrweeERJLkiVwekw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk%2Bbq6CbJKJ0VrXRMvqEPqvV-01k%2BcB8%3Do5V7%3Ds8uA4Dg%40mail.gmail.com.
