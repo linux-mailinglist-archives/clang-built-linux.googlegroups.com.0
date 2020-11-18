@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDVU2T6QKGQEPMC5LUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBUOJ2T6QKGQEJVHMAIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id A66332B7DED
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 13:56:47 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id n186sf2307015ybg.17
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 04:56:47 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605704206; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 600152B7E72
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 14:42:42 +0100 (CET)
+Received: by mail-qt1-x83f.google.com with SMTP id i39sf1377133qtb.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 05:42:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605706961; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sLo73FVYeIpQf242UV57Jge4wOu/5/F0Z0sjrRLjqo6i9XTj1pIOKicatL5sAgLqsH
-         qSDPK9m2UnR8zuRfm8uGOPGWYWjpscUS/d4NXWZRA8MG/Xr+wMsbOkkv1NwgHNpcuUNz
-         vu3NN8v+t91JwLNcJD4zBbg2cRIZfXasbwZUZYe0wHWchnP/9OdLjtEB+KwiUv+UrBjX
-         bxLyafk6tBFvU5RQaJP5aRyvNCuURg0YiDfKXtVd33X6lleJTc0MXmqZ9VQ4i+I06iF7
-         2Z9tUyl7dTeDjP0+sQmFcDxBxBQhKSPHtSnBFKgy68Sv6UEm9Vl4aN23HOmY2fb7kp6u
-         LtgQ==
+        b=Jij6BmD1YmLb6lhuyLjVF3lS4bM+W8f8HWcXr8tw1kqi583QVykKFdMAEY3FW5/OGy
+         gg/6vjVN36a+5UGcXN0mwDyHUwFo1PeWezutz6BQ5BU98sw184ezS4Ozaeukxc9erHMc
+         BmNLCGYk0n/MlahTO5/hMsCBlKepIz+OkB2deLeu8ac1hHdBOV7ixDZNPTZcbntQVKk5
+         +IKv8YW+4hAtaEHqKEnHvuLPPujGHqPdSrMeh8phXmMrIMypCUgE8cNF/tqrQHIoncab
+         3RYRzmttVvXEWQJ8kIrhVhM0HtbOF/IlCUmjMQsz+uoPrkyhVbey4yed0S8Sb84rM66R
+         ABpQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=2DU/1QTb7WkUROTusWWxWTYcslPdiC7EJPD+Oarq5gI=;
-        b=YViEG1avtSCCq0yFHZvBuNVywmD+aWMfuyWjt3t8yKOk7CF5ZdDZDegnkRWWNZfRRf
-         XezbJ2yeJn0QGBcWKL0AZaH5wXymBtYIlnwIX1cXAmg0cObZ36tOxO7eGgktDKk/gTOH
-         eEMrYaRpVekvzQDQ0tWyFDC/ss2ll9zpCqu2ZXAHiEFQBOYTSGpMeV/7/o54bwBp17w4
-         tvaM4n8tXobYE9eIC9BL6u1LV76NnN5XenmlQbaWG9/wcAmJft7cbPAOAm+/5KgLwbWQ
-         g8dlkpEo72x7W0xAb6vw0sEacQx10D/fAUlHs1mNf5/qoV5aK/TrnfPtqnIK0L74qWOO
-         5oFA==
+        bh=Heaop5lryUlG+/SXdkbMjup6JYSd/q5T/bzIHdqZ9pM=;
+        b=Hk1OKVMxezHu4dp4V/V5b7jVJ8GpQm2tr1OVS+vvBqx1kK0Vz+0Yf7CkPjTc2G6cO+
+         jldMCypkeSjLaIiZm3HXwtMiiWUJGJaO42B8l8uRwffDffcKmsPJKWw/oAO5lfTo6ryy
+         8/lWQIGItWyIJQ9fxp58ATG5FG9heC3NBaextrpCt8cM6TpIsPmKxvWuFmAx+l0JPNvt
+         OD6HLh71dMj8rruLyd1HMHwe9sLthDDcBQLznEowRa+gZz4farqYlrN42us3rInCVCiq
+         Jw3k4pFfJf8ID/nI39ry9gZ8fWPjkTjrd4exif21VRawDs9S02M5WVow4PayiiaE8US1
+         mXDA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2DU/1QTb7WkUROTusWWxWTYcslPdiC7EJPD+Oarq5gI=;
-        b=lIU+Rm7QnUrhtqp2xDDIdpqfDUkNcywgFF3P6Y+JofA8wR85BZphKvCSfB5Zg9Zxl/
-         SAKyGtjbjslbDNKMcDvvJBx+y7bJ0gANyDSpA7XKBd6CpMdmzb4qlLSia3psNQWb6BUF
-         bMWX8xkg7A24Lf4iYf/7LBVofZCxWVpZZ+DzAdiX25XUg1LzEHYuZ/0v5GzVDo+420Xi
-         papTG4yPHYNmlu6yekTB3aouQV3okmt06S15yPDREfK6m+XZknHcAfKi7AAZYLYb4YX2
-         VXK4B4rJmFeRlWyH9hn6UBzSpZl3H5/MPJ2gztfenb8vpVl5ONbAyLZu5R9EfW/zi/xn
-         HE2Q==
+        bh=Heaop5lryUlG+/SXdkbMjup6JYSd/q5T/bzIHdqZ9pM=;
+        b=XK9Ij33g704yjo2pSGMSOx+I6W9TT4HdzR/zon1Efa5DgW8t3zKz19goGK5ghrNqcG
+         MacX9LIRzuWwvVorjy01twbtV9tcLRTclwrLiRDvqsZqS8SwgYQpvwdYqnL8CqM1UReu
+         qQtXi8PzvTHUQLEkcA1r+F2JoQfqrMq0QAVs8uqFx2Td2mkv3HBxWr87awjvlD+ZZHPo
+         f0LzmQroBi5SqB+GRKON5W1E5Z/av6IzYDDEQcjxVQarcx+HnbOoPnEGa0h+0MfB5tv9
+         EudFrJSeM1fRjX1hZZOeOU91sIV+/Br9yYjIwa94ibOX7RflcL5U9FjmB1P1sN4iCjQc
+         pObg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,87 +49,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=2DU/1QTb7WkUROTusWWxWTYcslPdiC7EJPD+Oarq5gI=;
-        b=TDkEO6IiRvhE9gIQpL+mzXzU9XnUoN/H09eET6Ht2gB5T73qJcBrvtcaoit5n9RRGf
-         /xZiC5WiT/cZO02EdhpzrixR/L8dlx1GyF5GzUApktXoj5TkrBeAwDGV92TbpfrFGw3o
-         w9gEHk3ntl2w8ULpX1eNdlGmmOXxtHyq15ShR5bvybRF+gwJBQoKWbXXg9TO6CFIeHKD
-         +2D3LPubiUVpk7TR0xNJobmgYth2oGXzjREyyJcF4JGy6hBlzbze5yv+51FLqzCNhebV
-         U+hoG9JxrLkUNT9BIy/txl8s7cJybJKzxO5/BYv2pVAVS3R2sq/EbL28YbNUD06lDeEA
-         ALdg==
+        bh=Heaop5lryUlG+/SXdkbMjup6JYSd/q5T/bzIHdqZ9pM=;
+        b=E6zMfKVzPDV/lh3o/YPiLFTl3/cEcg98DKo0+YkeZzHL8LLA5ty65JahRU9AhPBO0Y
+         cRQg0SHoyorL8kC4IPmF1tRDUlxgsWTb8+PcOWMPS7FT9bmq3ldgmvREzKMG0oRLc4nH
+         9EFoE0B6ePwOf5V4qP64hLsTL1qZ5EHtkRDcjnyaPCYpD+4aOEtRi1SBAanCDmDGT0cI
+         ay7zmoDTPNKpIiEo/xYqbs9WWoseM64dNsFLsmumFrcFcspfupUgqiIIFH1rnsEfAc4+
+         kqKTvaRDHtmONV7nADgIDcqkfMEeOfeGx4mbfLnlQA/gcYkMN9TFKHWEJRiOKVaq/YTt
+         0ULg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531D1FNv9IuQX4+3OQEkws9r3NWLTYz4IK/uUlWO1cFLABUhaXDx
-	oc22TcmyBoVRsRCa9BG6QO8=
-X-Google-Smtp-Source: ABdhPJz0yy3YorGTWNqunMhRpVfDG4pNsxn158gx0E91QOdjYWuaZI7Q///iyVyebGZ/bcZ5jNVMmg==
-X-Received: by 2002:a25:5f0f:: with SMTP id t15mr5202170ybb.26.1605704206464;
-        Wed, 18 Nov 2020 04:56:46 -0800 (PST)
+X-Gm-Message-State: AOAM530PXHMU5noMmd4dRhxxb/iKB8UxcfZqLWDtHSkjj5Piwkx2jkSK
+	yXEXXzr33hbJPut1NezINnQ=
+X-Google-Smtp-Source: ABdhPJwBGe3J5RuGKbvdPchdjVH9vWlMPlkWudX4X9i2Q+BlTK3okgHMtMilNB53bBdBY5cf7b81Vg==
+X-Received: by 2002:a05:620a:f84:: with SMTP id b4mr4764285qkn.22.1605706961318;
+        Wed, 18 Nov 2020 05:42:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:610b:: with SMTP id v11ls464796ybb.3.gmail; Wed, 18 Nov
- 2020 04:56:45 -0800 (PST)
-X-Received: by 2002:a25:76c3:: with SMTP id r186mr5824087ybc.101.1605704205818;
-        Wed, 18 Nov 2020 04:56:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605704205; cv=none;
+Received: by 2002:ac8:776d:: with SMTP id h13ls7452746qtu.7.gmail; Wed, 18 Nov
+ 2020 05:42:40 -0800 (PST)
+X-Received: by 2002:aed:2ee7:: with SMTP id k94mr4925655qtd.264.1605706960615;
+        Wed, 18 Nov 2020 05:42:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605706960; cv=none;
         d=google.com; s=arc-20160816;
-        b=ACmZzVUtMqAjRrg1nxZ2CYGG+wqyE2hl6yAPj8KCBPeGkXEcaddrSurTFP+70m4Jaj
-         gF5U48nBW2VNPrdaMg8KbdLbfVW1MwkF9tSdR+RY84qJE2iuy2e3o7Fc06ru3W5O6jeu
-         2lc0hiG6wlL/f9+jqmvOUNp8vBfVF+gxGW2pB6Fblid9Q6Lc6s2vFoT8nUVTcgLR3vsb
-         P/F+6bO5lscxRJhcdOMyRDWu4hflQTe8YC1D9pC96OhocnnM8eWCpHfd05GggbHYcB2R
-         Csn6QhuhnHzS587w5p4pDMMawv2kO66vokQ3BibmcVWxUCQ/aeSB03gZbas6jv/9xOGR
-         czjA==
+        b=Ng/Bi9TBye6twW645TJgsQKoRb0fyHU3iRYH26IFycHYgdCsHI76rVP5C8PUf5Gjq6
+         2hscFMPb3GBu2gjxFXhC72trVQqpIMm3vS26V3WLms/m4JRcwHBMDyYs7pDpHIprrNZB
+         XNeMGo9dN3xdPh5h/bgxgzzMQ/6g4HFME8+q9LfoxfpKadkFWJQpbsdmfmUl1f6b5diN
+         TcZFijPa+d+OJczQ/YmAbfrj3HARdExoaMtBkohj6zolR2iXk2EvpJ0KIfBMVZEf4NMu
+         8YBQvPiKMA25CVptJlFGMPmiIVlWMp07fNkEY3crKsSyHMd+pISoqXbdAB0OkrBtjtMc
+         YuSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=/IxK/dmkuZr0v5HM3sznIX/VB3m2Nfs2Lw1GYYw+F9Q=;
-        b=NpZvS81mEv3Z7IqenO/kN1shRQcgKg7d1K2hO7zg68eRjDZIckKothKi4Bao3TBvG+
-         7mSJwkWXOEGcnJGDbPlgNjuZKXD9PlEutI4kNVDUErxQxyD72F92IaMW1auWGIxKHorK
-         kgG5nwxKf1o9Y4V6ez+bpjXx46z9uS1jjCe5lwdhl7c0AaYTygcGvGtpdKVZXujxC3XA
-         hkA+LPD8gmXZVlh2mPs8noRRBL5baz7FNdVgCv653D9ZH9IqydjIGBSN8JT1qNNioQTm
-         aXtDi97eVNW9Wjn5KNAu8hHEXx+O8V/mfor+Txw0NDV1klJqbfMZFamHQq0+VQ4mrWTl
-         HrCA==
+        bh=w1Zh4YapasJ/HDT+mCv2Mdbdr/adAXbbbEjB2VYti/g=;
+        b=edJuFkwYytMHkSIGk2NDN4l5GDFVkRajk7wO1AYKHfpg+eHuitu76oZ78A37T3na5s
+         n4XwsT8L67V38jpt78wiZ3grtgudDZyWDVFmPhBPKCesf9m9EbWmDgw+R4/Z69kMqB+i
+         eiheOUSF0Myq/4NglvhvWw61tVcEfcReGH6fAsWIhopnt98ZmCcSPI3Cdq+cpjyyZbCr
+         wWk6YIwUyR/9B3omHKne0ut7HBgjPGDPXrYdRwu9C+9eGVJUAbTOKKhZK2ptJkQVHHjj
+         lfFxC6/uIEuMTGjOIl5Y1RoV5L5Gvjk4cNWaQasaZPQP49XelRoh1TLH/TebjIwQpn/b
+         AyXQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id n185si1506482yba.3.2020.11.18.04.56.45
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id o23si1389770qtm.3.2020.11.18.05.42.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2020 04:56:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-IronPort-SDR: gO3POkQ8mFmLHRovq8CmVLxlQBhQ1GSsrbFUn8CWnsqElhf9MiKLn4nXTwa0G3W5otZQhYiRmc
- xTb+mNcMQxsg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9808"; a="171278520"
+        Wed, 18 Nov 2020 05:42:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+IronPort-SDR: lBjYl4hnG+ZtPZNXFvvDR8cryWhlwf9jv2TU47zjQ+sw0C6ermItmGAq972j/TkKWO8ou5nU/Y
+ rbN0EYkdSz/A==
+X-IronPort-AV: E=McAfee;i="6000,8403,9808"; a="171212738"
 X-IronPort-AV: E=Sophos;i="5.77,486,1596524400"; 
-   d="gz'50?scan'50,208,50";a="171278520"
+   d="gz'50?scan'50,208,50";a="171212738"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2020 04:56:35 -0800
-IronPort-SDR: RI6RIFHxVCY5BihXjBwIDjIFtgtHqHbt51/snlLfx7hCNGPmmxJrNjFqL+Yw2GPT2FGgBslcrq
- IY4uUqBzBUeQ==
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2020 05:42:35 -0800
+IronPort-SDR: ACcBPtV9Bbde4oBF8B/x6honohxLaD4hq3iS97FuF2RNizhaAHn4JUblft/xaEY3lQR5pBc0M6
+ akbtHyPIr2lA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.77,486,1596524400"; 
-   d="gz'50?scan'50,208,50";a="325568236"
+   d="gz'50?scan'50,208,50";a="311214443"
 Received: from lkp-server02.sh.intel.com (HELO 67996b229c47) ([10.239.97.151])
-  by orsmga003.jf.intel.com with ESMTP; 18 Nov 2020 04:56:31 -0800
+  by fmsmga007.fm.intel.com with ESMTP; 18 Nov 2020 05:42:33 -0800
 Received: from kbuild by 67996b229c47 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kfN0g-000059-I6; Wed, 18 Nov 2020 12:56:30 +0000
-Date: Wed, 18 Nov 2020 20:55:39 +0800
+	id 1kfNjE-00006q-W6; Wed, 18 Nov 2020 13:42:33 +0000
+Date: Wed, 18 Nov 2020 21:41:45 +0800
 From: kernel test robot <lkp@intel.com>
-To: Shik Chen <shik@chromium.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Ricardo Ribalda <ribalda@chromium.org>
-Subject: [ribalda:uvc-noncontiguous 4/5]
- drivers/media/usb/uvc/uvc_video.c:909:8: warning: no previous prototype for
- function 'uvc_video_dump_time_stats'
-Message-ID: <202011182034.0zAQVGmR-lkp@intel.com>
+To: Ricardo Ribalda <ribalda@chromium.org>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: [ribalda:uvc-noncontiguous 5/5]
+ drivers/media/usb/uvc/uvc_video.c:1763:17: warning: incompatible integer to
+ pointer conversion assigning to 'struct page from 'int'
+Message-ID: <202011182142.nZeVtX2h-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="vtzGhvizbBRQ85DL"
+Content-Type: multipart/mixed; boundary="KsGdsel6WgEHnImy"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,13 +144,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---vtzGhvizbBRQ85DL
+--KsGdsel6WgEHnImy
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/ribalda/linux uvc-noncontiguous
 head:   08aff4b45dd51b3dfba18af4aa40b0fa5e2b5529
-commit: 817731cae164166428258499e995dfe1ed135ad1 [4/5] TEST-ONLY: media: uvcvideo: Add statistics for measuring performance
+commit: 08aff4b45dd51b3dfba18af4aa40b0fa5e2b5529 [5/5] WIP media: uvc: Use dma_alloc_noncontiguos API
 config: powerpc64-randconfig-r011-20201118 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project b2613fb2f0f53691dd0211895afbb9413457fca7)
 reproduce (this is a W=1 build):
@@ -159,10 +158,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://github.com/ribalda/linux/commit/817731cae164166428258499e995dfe1ed135ad1
+        # https://github.com/ribalda/linux/commit/08aff4b45dd51b3dfba18af4aa40b0fa5e2b5529
         git remote add ribalda https://github.com/ribalda/linux
         git fetch --no-tags ribalda uvc-noncontiguous
-        git checkout 817731cae164166428258499e995dfe1ed135ad1
+        git checkout 08aff4b45dd51b3dfba18af4aa40b0fa5e2b5529
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
@@ -171,68 +170,70 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> drivers/media/usb/uvc/uvc_video.c:909:8: warning: no previous prototype for function 'uvc_video_dump_time_stats' [-Wmissing-prototypes]
+   drivers/media/usb/uvc/uvc_video.c:910:8: warning: no previous prototype for function 'uvc_video_dump_time_stats' [-Wmissing-prototypes]
    size_t uvc_video_dump_time_stats(char *buf, size_t size,
           ^
-   drivers/media/usb/uvc/uvc_video.c:909:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   drivers/media/usb/uvc/uvc_video.c:910:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    size_t uvc_video_dump_time_stats(char *buf, size_t size,
    ^
    static 
->> drivers/media/usb/uvc/uvc_video.c:930:8: warning: no previous prototype for function 'uvc_video_dump_speed' [-Wmissing-prototypes]
+   drivers/media/usb/uvc/uvc_video.c:931:8: warning: no previous prototype for function 'uvc_video_dump_speed' [-Wmissing-prototypes]
    size_t uvc_video_dump_speed(char *buf, size_t size, const char *pfx, u64 bytes,
           ^
-   drivers/media/usb/uvc/uvc_video.c:930:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   drivers/media/usb/uvc/uvc_video.c:931:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    size_t uvc_video_dump_speed(char *buf, size_t size, const char *pfx, u64 bytes,
    ^
    static 
-   2 warnings generated.
+   drivers/media/usb/uvc/uvc_video.c:1738:4: error: implicit declaration of function 'dma_free_noncontiguous' [-Werror,-Wimplicit-function-declaration]
+                           dma_free_noncontiguous(stream_to_dmadev(stream),
+                           ^
+   drivers/media/usb/uvc/uvc_video.c:1757:7: error: implicit declaration of function 'dma_can_alloc_noncontiguous' [-Werror,-Wimplicit-function-declaration]
+           if (!dma_can_alloc_noncontiguous(dma_dev)) {
+                ^
+   drivers/media/usb/uvc/uvc_video.c:1763:19: error: implicit declaration of function 'dma_alloc_noncontiguous' [-Werror,-Wimplicit-function-declaration]
+           uvc_urb->pages = dma_alloc_noncontiguous(dma_dev, stream->urb_size,
+                            ^
+   drivers/media/usb/uvc/uvc_video.c:1763:19: note: did you mean 'dma_can_alloc_noncontiguous'?
+   drivers/media/usb/uvc/uvc_video.c:1757:7: note: 'dma_can_alloc_noncontiguous' declared here
+           if (!dma_can_alloc_noncontiguous(dma_dev)) {
+                ^
+>> drivers/media/usb/uvc/uvc_video.c:1763:17: warning: incompatible integer to pointer conversion assigning to 'struct page **' from 'int' [-Wint-conversion]
+           uvc_urb->pages = dma_alloc_noncontiguous(dma_dev, stream->urb_size,
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/media/usb/uvc/uvc_video.c:1771:3: error: implicit declaration of function 'dma_free_noncontiguous' [-Werror,-Wimplicit-function-declaration]
+                   dma_free_noncontiguous(dma_dev, stream->urb_size, uvc_urb->pages, uvc_urb->dma);
+                   ^
+   3 warnings and 4 errors generated.
 
-vim +/uvc_video_dump_time_stats +909 drivers/media/usb/uvc/uvc_video.c
+vim +1763 drivers/media/usb/uvc/uvc_video.c
 
-   908	
- > 909	size_t uvc_video_dump_time_stats(char *buf, size_t size,
-   910					 struct uvc_stats_time *stat, const char *pfx)
-   911	{
-   912		unsigned int avg = 0;
-   913		unsigned int std = 0;
-   914	
-   915		if (stat->qty) {
-   916			avg = div_u64(stat->duration, stat->qty);
-   917			std = int_sqrt64(div_u64(stat->duration2, stat->qty) -
-   918					 avg * avg);
-   919		}
-   920	
-   921		/* Stat durations are in nanoseconds, we present in micro-seconds */
-   922		return scnprintf(
-   923			buf, size,
-   924			"%s: %llu/%u uS/qty: %u.%03u avg %u.%03u std %u.%03u min %u.%03u max (uS)\n",
-   925			pfx, div_u64(stat->duration, 1000), stat->qty, avg / 1000,
-   926			avg % 1000, std / 1000, std % 1000, stat->min / 1000,
-   927			stat->min % 1000, stat->max / 1000, stat->max % 1000);
-   928	}
-   929	
- > 930	size_t uvc_video_dump_speed(char *buf, size_t size, const char *pfx, u64 bytes,
-   931				    u64 milliseconds)
-   932	{
-   933		unsigned int rate = 0;
-   934		bool gbit = false;
-   935	
-   936		if (milliseconds)
-   937			rate = div_u64(bytes * 8, milliseconds);
-   938	
-   939		if (rate >= 1000000) {
-   940			gbit = true;
-   941			rate /= 1000;
-   942		}
-   943	
-   944		/*
-   945		 * bits/milliseconds == kilobits/seconds,
-   946		 * presented here as Mbits/s (or Gbit/s) with 3 decimal places
-   947		 */
-   948		return scnprintf(buf, size, "%s: %d.%03d %sbits/s\n", pfx, rate / 1000,
-   949				 rate % 1000, gbit ? "G" : "M");
-   950	}
-   951	
+  1751	
+  1752	static bool uvc_alloc_urb_buffer(struct uvc_streaming *stream, struct uvc_urb *uvc_urb,
+  1753					gfp_t gfp_flags)
+  1754	{
+  1755		struct device *dma_dev = stream_to_dmadev(stream);
+  1756	
+  1757		if (!dma_can_alloc_noncontiguous(dma_dev)) {
+  1758			uvc_urb->buffer = usb_alloc_coherent(stream->dev->udev, stream->urb_size,
+  1759							     gfp_flags | __GFP_NOWARN, &uvc_urb->dma);
+  1760			return uvc_urb->buffer != NULL;
+  1761		}
+  1762	
+> 1763		uvc_urb->pages = dma_alloc_noncontiguous(dma_dev, stream->urb_size,
+  1764							 &uvc_urb->dma, gfp_flags | __GFP_NOWARN, 0);
+  1765		if (!uvc_urb->pages)
+  1766			return false;
+  1767	
+  1768		uvc_urb->buffer = vmap(uvc_urb->pages, PAGE_ALIGN(stream->urb_size) >> PAGE_SHIFT,
+  1769				       VM_DMA_COHERENT, PAGE_KERNEL);
+  1770		if (!uvc_urb->buffer) {
+  1771			dma_free_noncontiguous(dma_dev, stream->urb_size, uvc_urb->pages, uvc_urb->dma);
+  1772			return false;
+  1773		}
+  1774	
+  1775		return true;
+  1776	}
+  1777	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -241,14 +242,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202011182034.0zAQVGmR-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202011182142.nZeVtX2h-lkp%40intel.com.
 
---vtzGhvizbBRQ85DL
+--KsGdsel6WgEHnImy
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICFYRtV8AAy5jb25maWcAlDxJe+M2svf8Cn2dy7xDEkle2pn3+QCCoISImwlQXi781Lbc
+H4sICAMdtV8AAy5jb25maWcAlDxJe+M2svf8Cn2dy7xDEkle2pn3+QCCoISImwlQXi781Lbc
 8YuXHlnOdP/7VwVuAFiUnTlkWlWFAlCoHaB//unnCXvbvzxt9g+3m8fHH5Ov2+ftbrPf3k3u
 Hx63/zsJs0ma6YkIpf4ViOOH57fvv317+e929+12cvLrbPrr9Jfd7Wyy2u6et48T/vJ8//D1
 DTg8vDz/9PNPPEsjuag4r9aiUDJLKy2u9Pmn28fN89fJ39vdK9BNZvNfgc/kX18f9v/+7Tf4
@@ -1079,4 +1080,4 @@ gIWjnk+BisCP9jlzzJAbk5KhaRa8GMAUIhV0+swYIk7J7GBou/NI8rTkxT4J5U10e5NuglMw
 mJ4klJAJLKO310i7qupITM1U1yKoycPvky6uS+JQKWqWrgpA786zCxeThuih6jrKKtpkxFex
 5X8AxJqMZvTAAgA=
 
---vtzGhvizbBRQ85DL--
+--KsGdsel6WgEHnImy--
