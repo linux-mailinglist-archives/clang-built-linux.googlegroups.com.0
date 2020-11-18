@@ -1,125 +1,131 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBF6C236QKGQEL6FQNDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDV2D5O34IDRBSOJ236QKGQERPB3WJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 016022B87C6
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 23:32:57 +0100 (CET)
-Received: by mail-pg1-x538.google.com with SMTP id e3sf2281621pgu.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 14:32:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605738775; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 24B432B87EE
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 23:48:44 +0100 (CET)
+Received: by mail-pg1-x53c.google.com with SMTP id g3sf1629492pgj.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 14:48:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605739723; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E6AXGRfbeQ3uTDlqQq3l3jEjuf1xvCe6nouOS9rUwf1VxFfXiL2rNLESb75SISZCqt
-         7JAImf/sooMwDABiRRLzcHr4x3bjtEzQOSgy2IRZz4EaqZOwTAYvoCpC8LkBJcnnIfQb
-         UnlApbcG4ma4oO6d+JrVJbzIyzUJI7r4ahjIhZDtIx0jtZRMsIpAVbuvGNy1v3WgUrYd
-         bjhMNW6AzNSRjK9YxxfjyXqTnOzxUbJ0J6CnXngvkcKnTslVfs+rWVVfZxxL2skwi+3W
-         e1QjdA/LcQcssK5nBeSAdZ5b0IDKc2sViTTZb/OVQKhadiexxQ0MuaI6FF8CClLFpyNg
-         PZ6g==
+        b=U7prMPYulfxvDIDOksQenTwg0ne3rgxqsCza48IQdtjP0+TmmgOxBpdu6thDghZhlz
+         FbzGj5gxc86ILZLpP3XP99Xg1l6eKTyF2DGvK1IlfRNwvGwdDAaBo8GdZSLM+YneB0CH
+         eRTASbJQfUxQAH1EufMU33Agzjhr8h028T351GLjYuUWVtpfOGFGFHkXMdzCohyzbx9u
+         ++73oDARi4LSiqgJNgXATi+R1/7kj2w9pDES3N0mE+uTarSFzPyzSGrqmZJ/Sw6Il9wn
+         Hl8qt4CyGRym9mQuphyceWCWwaULay2vEjgWLzEBnlaTUitMW5hcDT56zdHdbbYrv2tc
+         gomA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=JhFAP7Bnu01lgdDNR7xg8u76VGRN74Mdx51bqGXtwA8=;
-        b=o2V8bas1/wDxgm7JntX0PaC3gPlZdSaCA7Bn3qS2ykhTai6fZiFOI2L1PIKuPX2l4t
-         S4T2ZmO/soVKfFAzKdqTFArh07+2fsVOuYK5JDSv/fKchjIuYxFviNXf6Lc9Q2/kc7oC
-         8H4hL1UGrI0tQZNrYPg7m3UtPMQ9B5saPsf8UGSU4o5Wqv60soAE/XAdTgbsOyNhTi3w
-         RZeblrgWFFfZcVOHk9XWqXm8w8CnZDKmDuShuYfPyhh8FR0CGpXXwxfCVvuIKBjHRciL
-         b7OREMoJQGH6J1B//0+j1mSX7b5JpDhBUi+0a1SbVfNOpj0D0SUYFSzJT3fjCnYP3XCa
-         Gk6w==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=Fv3Q+SZP92NIqU0PoFGNPX7WD86nJsAIHP+5ew+bNew=;
+        b=OeCPipdeIZXWMwg62AH4H74escdM88idBT9YRbqAyR5opI6SMOSUn0+pW+eUrLTJ4i
+         YLKxOAnaUY+jSu6ZzwVWHBLkRthEQo2fuOYaajtQjguBuJZ8iF2AUasyeO+EI1dX1KWe
+         UiCfpeHsL8OJoBm7sTzC/9Ii0LV5bb6PtnvZYtfPxFyxkDj+OTZ3WVhJsgtXROkJOOPz
+         RbKP4FmN2It7SMxuyfhJHumGcPDI9smRFOnGHoOOSl2NAVT9tChx2NfVtHJdbWMv8pPl
+         HEVBwhioCMbdnZ2SEP68AS8B5IEIbeCgym1CPsl1DyBSJGjXPP+Y6jcwxMbjXfHL3XYr
+         bQzQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lU1riYOT;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=jzt1gpsF;
+       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=JhFAP7Bnu01lgdDNR7xg8u76VGRN74Mdx51bqGXtwA8=;
-        b=FgYzfBm254OWnDQkdrfQliyBUkrc/j2gtnj4NimmL8l8n8E04S2yL2EFkcgeSbeyho
-         Xro7w/ldG3hmY9vwqp8aXJM5l22W8oUf+J6dOW6wx2M7cCThS1/Z+esvJkiqRBBRNCfQ
-         jlntVylXJUSwxPNmkqadkJ3/+q+UuPHqdAcRX/xXdFfgvWFUW3ADGEm6nsIckmCha4cG
-         xhv8CDFRTwElG4ttha5ATse21j9oxicfgbjfXqvJ8OOVwOryzA+JafUQ+rIk4UdsUSD9
-         MyTPSYQT8088i/yDROtgDg4L3cZ9QJBiOmtl3aALOVVUh9KWhDlIq+u1NvyloDoOs0d/
-         LAuQ==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Fv3Q+SZP92NIqU0PoFGNPX7WD86nJsAIHP+5ew+bNew=;
+        b=e9uhnkQKfAN0vpngLRCTjQCoKRl3lkEyTcaDtLJO6jQfx5qoxi9mzB/gO+qlqOMFnL
+         4Vq5k+8YZkSKklrQtvrfxTbH1SbXCH1mCGvENQ4kWMgjTXjQCBZwwwVJ/FuzfW8Q9jN5
+         Sc7ymn1U6nyMBSqhw2kYDMDiwrx0+7prKe5QkhhYzOwiWpdD80cnDom3FyYQyeTQP3r/
+         uqbhQiNM8h4yCIPQnMvFmzcOLl/pKuE2YyeKfdLOcn5ckiYCBbDUEFEpXwUlcJ69yuan
+         4J255I/pCB0kUm7pEuNZy9QwCN8B5gu28z3VKpu8OXjhwzIrhjGYYtgZweHprEONygk2
+         iEJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=JhFAP7Bnu01lgdDNR7xg8u76VGRN74Mdx51bqGXtwA8=;
-        b=G9uGQmYcbXScAx2TPBhkA+GKTbS4oym5DFGeWF6v41TZd4CjwIONFIy/9BOtb+R0LE
-         m4h0tpPsqhZc6l3jNb4S0CUktvNIqJodGInpbSAU2HOVh+Q4zH5uZxQSTf9S3d5zf1Uf
-         xg32uWe4Gg6M3nK3JjSvugwsF8ZF8enKys0iE7LFaKkshC5bMnFSZtYgxROTNQmmPLqZ
-         qCFeI0sTLcIGC7AVbzfOGkGFhrM+nTTDzjk/H+tRGFUHT9pYFFnuhm6gsiCKI4Ivs/3L
-         v2B2dKHCtBJxNcaA+DNYvaKDYlOuU1hdLAy9iIRY8hIcCvjkH6Dbt/6Hs8Uq2L+U2hPH
-         hs6A==
-X-Gm-Message-State: AOAM532B0ingP6+oYQMKl7xYG4ioUtc+6TtirE8E24G4yNWiZZbO9Jlv
-	Em8LgVhA30QAfj2g/dL7ovY=
-X-Google-Smtp-Source: ABdhPJw0HEFTVpel17vE9J5IXZXxqhME5zb8qj663HG/eQOGTwTC7FP7nX980r6ioWEpDvLUI9AEDA==
-X-Received: by 2002:a17:902:d711:b029:d9:c89:c1c3 with SMTP id w17-20020a170902d711b02900d90c89c1c3mr6252987ply.32.1605738775729;
-        Wed, 18 Nov 2020 14:32:55 -0800 (PST)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Fv3Q+SZP92NIqU0PoFGNPX7WD86nJsAIHP+5ew+bNew=;
+        b=b4sk0Prg7ABFxI0GcEewz7Y18Ez7R8qA35q3nBzZPgut7L4TOA8UeVQcUFzDvNV2Kd
+         JdNo4J+PLZT4Qxm3DigJbC07cSOAb5eXedsTQXfBOh2dtMlJwsaUZpMydVE9olGsSilb
+         P6q/rw1LbGHxbG/p0E8JCTNJUJtLGIGq+LkecJHUgel9OAv7nOrtYfZAtjMlt8DTGBOC
+         2g2OLUXrxcChiWBw380lbCvp5kyckOFM4rPkik1YunVMSXpBW8dq4B61RKmdwCppVoRA
+         SGPZ+IAqOEEcHTwca34bNOw3hAgTcI539MHusT22o65gYqf+PGNhgpRpqIKSSzzYXKWE
+         r4FQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531A0jsid3uthhK2j4oYZnl9xp8zyhjWN1VV9PZyHIzRX8RW9iVK
+	WDQrmC6KUykDADFeQNKRDW4=
+X-Google-Smtp-Source: ABdhPJxef3F/pZAiJmCjwS70Wkptr2WgDDuH+NpTkxTWImzVrL56QTYNZUUW4/gNjsXMEHiOKiUxtQ==
+X-Received: by 2002:a17:90b:345:: with SMTP id fh5mr1250942pjb.198.1605739722821;
+        Wed, 18 Nov 2020 14:48:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:c113:: with SMTP id 19ls425870pli.11.gmail; Wed, 18
- Nov 2020 14:32:55 -0800 (PST)
-X-Received: by 2002:a17:90b:14c:: with SMTP id em12mr1234489pjb.170.1605738775090;
-        Wed, 18 Nov 2020 14:32:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605738775; cv=none;
+Received: by 2002:a17:90a:a0e:: with SMTP id o14ls305158pjo.1.canary-gmail;
+ Wed, 18 Nov 2020 14:48:41 -0800 (PST)
+X-Received: by 2002:a17:90a:4208:: with SMTP id o8mr1225337pjg.19.1605739721144;
+        Wed, 18 Nov 2020 14:48:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605739721; cv=none;
         d=google.com; s=arc-20160816;
-        b=cs9bIjAqeZqcEUv8roPUZz6N0sgZAWOh9hZy6AJJuWw0YryPIrDYdv1UAEvqQpBjom
-         cD7qjthm8KNXn+LGH2YTW6WkaEWm061CnzEYIOF4kWHQdDQdc+mvlSHgz9ssqfzSpU/g
-         cr8cdCA13lae9E0QSkyPPOzQ1d96z9L/8wBcDwIo8rOsj8dogmQ9P8GBlbvV4EC4UrM+
-         x0QahUaOgjCrN1MCoRIBQblsScowN+UT4hek3ItGoGzbDiWAosrZkR8JLZ5h3svtJmCq
-         5pVdzNiByUs+Yl+bPr+b1TnIRlg0h9ynuGlSWFD7S9BhQjr/pmNZ3ifJPTPZW7saP8Du
-         +XjA==
+        b=PZ0zLUEOIjZF9UVUwlbpdTgPOqs46srUSNXSYRmVdKqELZO+rmwNRv/8c/+m1m1L1/
+         vbfs6eoGTySZMYk4nGszuY0TRFjnTkZu0Lc4HMm1Dpt76kNLmE5q7jq3R8fn5BuLtODN
+         TaswAXWTLr2dWGZBF5F7qmQZGeV00xV92zxmSMxVSOJGNT3OnqN1IijoIAkPDic9UxkG
+         AoSMG9KQuhgeVga0K5oACRgI5FIerdmgkOPRbk3pVrxO8pXWJsDuDngi+KBbHwHp8C4w
+         lspZR7RSZdMU79kYuhQBLkVZDOz5kQc3DkS+rwi/xLsq9r9H+aTnZ7PA6KRuNxKCHHSE
+         2gMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=RkB8RJl1jwL5YaiulwRIS3sc8kr4fz3QbRFMPfoH3OE=;
-        b=vz0du1Fqmo/mBt2/iCs5gosB8MPHq1+zPPItth7Q3PHOQ1nseSF2M8wxSLyzXh7LMZ
-         F+7sAjqE8ECF46Rxuaoo7BuqKyIc4SGKnUCc9A8vLNCXAzA3LzdgNmH5eOjeAR+O6Xei
-         tXNp2M0mf8uI1NKpoGxA9zQH30FPXHABZQ965AF2Yc7HrXfucxzK5yhy9G4tSDnORz7Y
-         rcVAKkb5yFGmxKKjngJ53Q7RfviGcMr4YJjN9qngcwFFxMdcN0X+J2X7GO52RRhMpCPD
-         4ONdqejmB2PgZ4n4Cy8Gv/WvFXqVqN5N1k++CSXppLSxYGjI0Z86Q756G4ZOHnBe3ISz
-         1Bmg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=CDWRDuvnpRLXCbGEiuk+PzWML0tKl/PhZrcSzjoT20E=;
+        b=TCUH6eTmiqOME+742w0b65mbcIh9mdNlzTOMpB1nYxMW2IPjSuCNC/zCY1L+gINfTV
+         grAUiUmkt15HYRZSbX6P+0kJXuEPiNX239tJs7nLr/j29U+UERe9A7+uFKW5IA0FdctP
+         gNWvhMaxVKkuMoweOBn+ijjYq8VTNM4K7S8RNE05mH5eQC/edFeLUdPKLuUj62jt1gLv
+         PjsWbV71xEpMHR8yOkwrxX7KLAaoOb4NIkuDtuJLBb20MW5fkvIWy43z4mLi35VC0TWH
+         rZjXB5wTTfGbx/5d8ND5ZEfyP7x/IJLLqkHCXSMqyjcLn23BteS70IBRsEEyqAuqlbTL
+         GnMA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lU1riYOT;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x52b.google.com (mail-pg1-x52b.google.com. [2607:f8b0:4864:20::52b])
-        by gmr-mx.google.com with ESMTPS id h11si644546plr.1.2020.11.18.14.32.55
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=jzt1gpsF;
+       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id t126si1577999pgc.0.2020.11.18.14.48.40
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2020 14:32:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b as permitted sender) client-ip=2607:f8b0:4864:20::52b;
-Received: by mail-pg1-x52b.google.com with SMTP id v21so2341734pgi.2
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Nov 2020 14:32:55 -0800 (PST)
-X-Received: by 2002:a17:90a:4881:: with SMTP id b1mr1196220pjh.32.1605738774651;
- Wed, 18 Nov 2020 14:32:54 -0800 (PST)
-MIME-Version: 1.0
-References: <202011182008.u7jsMtBl-lkp@intel.com> <CAPcyv4haEaWN9f6eCpnQEcjo4kcGwYp8dcs2PLDnvhG6wj8cDw@mail.gmail.com>
-In-Reply-To: <CAPcyv4haEaWN9f6eCpnQEcjo4kcGwYp8dcs2PLDnvhG6wj8cDw@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 18 Nov 2020 14:32:42 -0800
-Message-ID: <CAKwvOdkLpCL22beGLwVJOYiHkF7zJE2AX2OB_FJmQE36WNgj0g@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2020 14:48:40 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
+Received: from [2601:1c0:6280:3f0::3a21] (helo=dragon.site)
+	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1kfWFd-0005db-Sy; Wed, 18 Nov 2020 22:48:34 +0000
 Subject: Re: [linux-next:master 5868/6773] arch/powerpc/mm/mem.c:91:12:
  warning: no previous prototype for function 'create_section_mapping'
 To: Dan Williams <dan.j.williams@intel.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Thomas Gleixner <tglx@linutronix.de>, Christoph Hellwig <hch@lst.de>, 
-	Andrew Morton <akpm@linux-foundation.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Christoph Hellwig <hch@lst.de>,
+ Andrew Morton <akpm@linux-foundation.org>
+References: <202011182008.u7jsMtBl-lkp@intel.com>
+ <CAPcyv4haEaWN9f6eCpnQEcjo4kcGwYp8dcs2PLDnvhG6wj8cDw@mail.gmail.com>
+ <CAKwvOdnJYhs1vO8QmfPBdd107JRGfBQXTipCOZnaHe0=qSi0dQ@mail.gmail.com>
+ <f67e234f-9ade-fb8e-1677-d2d92fb07f23@infradead.org>
+ <CAPcyv4hrjj45kn9ep1mAAaX6vtA2+5x_67V-Da0kp7bO3HVa=g@mail.gmail.com>
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <24515a61-61a9-0728-5ba1-cb2bf00bc449@infradead.org>
+Date: Wed, 18 Nov 2020 14:48:28 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.0
+MIME-Version: 1.0
+In-Reply-To: <CAPcyv4hrjj45kn9ep1mAAaX6vtA2+5x_67V-Da0kp7bO3HVa=g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rdunlap@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=lU1riYOT;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@infradead.org header.s=merlin.20170209 header.b=jzt1gpsF;
+       spf=pass (google.com: best guess record for domain of
+ rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,23 +138,27 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Nov 18, 2020 at 11:22 AM Dan Williams <dan.j.williams@intel.com> wrote:
->
-> I do not see these errors with gcc.
->
-> I feel like clang errors should be flagged / de-emphasized when the
-> same error does not appear on gcc.
+On 11/18/20 1:38 PM, Dan Williams wrote:
+> On Wed, Nov 18, 2020 at 1:20 PM Randy Dunlap <rdunlap@infradead.org> wrote:
+> [..]
+>> Yes, so with gcc, that gave me something like 109 missing prototype
+>> warnings -- including one for 'create_section_mapping'.
+> 
+> You see those with this [1] applied? I don't see those warnings
+> anymore with gcc-10.2.0 and that patch.
+> 
+> [1]: http://lore.kernel.org/r/160558386174.2948926.2740149041249041764.stgit@dwillia2-desk3.amr.corp.intel.com
+> 
 
-Also, note that Clang has warnings GCC does not, and vice versa (I
-imagine a Venn Diagram).  I give you the benefit of the doubt to mean
-"warnings that both compilers support, but only one is emitting for
-whatever reason" which is fair; though warnings unique to one compiler
-can be a competitive advantage.
--- 
-Thanks,
-~Nick Desaulniers
+No, I was testing today's linux-next (20201118).
+and gcc 7.5.0.
+
+After applying that patch, that 1 out of 111 -Wmissing-prototype warnings
+is gone.  :)
+
+Thanks.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkLpCL22beGLwVJOYiHkF7zJE2AX2OB_FJmQE36WNgj0g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/24515a61-61a9-0728-5ba1-cb2bf00bc449%40infradead.org.
