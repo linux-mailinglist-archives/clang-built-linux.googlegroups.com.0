@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBKNW236QKGQEDXQDQFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBK5W236QKGQEUGQ3AMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45F9D2B8724
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 23:07:39 +0100 (CET)
-Received: by mail-oo1-xc3c.google.com with SMTP id z9sf1433249oop.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 14:07:39 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605737258; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2FFB12B8726
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 23:07:41 +0100 (CET)
+Received: by mail-oi1-x23e.google.com with SMTP id n203sf1608177oif.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 14:07:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605737260; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mvQE2hew/Nn/XxuV44rw54x3j6ZTwO1AY9ydVdrYZFoV2S6x/HmLuPMThL6Xofhh23
-         E+oNWrtpLJi6+RtyQwdBCzf8cZk7x7zKmahvF4TlolAxsHM4wxp5TrHstnVmrj4/PIvs
-         eXmnoeHrJzF34xG9InZeP/WQFCQ28qa4bqaUhK1q0bOGiUv0fVZk301R69OwycjDpOcZ
-         AdtBGKW8mbIh5nTUMZs1XyGJGqYuOpWgnlxAf/mptyNOx/gkcPMQaMSYsXdwVGKl3D/7
-         drcewyRwx+c1BhizoUvcwjcmz4IvYIlIuyaHv8lf/LYZ4+8fPKrTPJDNx53HbtsiSw48
-         D1zg==
+        b=K3JLXvpW5stDNOLQ6Z9NfujHDIE+3Jm3S4ccuM/iELcHwjXjxcm8TUNAxENU+5i5N0
+         SzkdntgpLlE1rRkbjfmiNiX6+TDi5oYZ3gPsBN/v/WwbjYoGKhXU08O7iI3WX6MyWpT/
+         4c4APCmxm5e1kJk/rHsr8EUJhZxysZbsSSWG8SLvdy9IT+c+N5GzdfZ/rJANQI6C2Lko
+         dnB0Z3hG3mKJZmyjnksdoX5cIj/RnmwxTgc1H5m+Pf/X+3oYCXbFjwvylxltVn2YsUA/
+         QiJp8r/F2Cvcsa8l+gcWqOJsnsInmyfxUScv9bir3zt4I1+6OJxQIVQKvqrggaf/RJpC
+         NhAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=5prI02CojMmXssFhL34KxdrjMIOZWRD3zVXad336ulc=;
-        b=twQKH4l/ZHLMTy5W81FGM7Y8WDl37iVwI1w+aUrgmSI/L70bx+3eaU92opQZJ3946c
-         kTY3a8DWbj4LWFoMGkF0zMtbI4eeqIjxCHIDZLqJsCytUHu4NF459squyPmHeMiP96+B
-         rgO0MypWpD5Z6HKelDEfEYVv2oHmBk+eWUAQZ4uMAhCAc+I1XlmEbL5b28kqIOx7qt/A
-         k7rO9i2T3txxa93tkVulZQ7NdIx733AqcZZYuyhykqAMqNMar2B2nhxkfEGb6hViNi8s
-         TQ5P9xhzPfr+2NXC4U7Xi/gn0ABOKgLQuuzKvlcklxDi4DTXjB/tmdxofbHw38GU7JN5
-         2ShQ==
+        bh=jY+nI0AMkPdL2OTCWUXjn8y2XNyMlgcsyQGt4jzVY50=;
+        b=MvfR8dV2HXQkdhlhafX7lfdhIaGhm1UkQU3FmyodyyAYXZm5Hp/L+rgxfgYZbH0CZ/
+         P7BB9THcAJ87DA/r1Da1wuICsGN9koR0CVZGmE2VrDil9Go+X7p7SDgQ7rcU1IE24IQx
+         IhmmZBz+MdVeDAKt3RSaXGeOQYPt1UzVhY4OElmUE9ZDttGlXync7gxiNcv28AYareBl
+         b2j6z2wqUDXCp77mq/adidoGdGW41pVte3qkCLZS3Yckcz0RQ/sApOXGbVo6A+1Qu7Lz
+         W2aKj9XheBW8c5yTSXWykSL3/USdboz0Zu5I+yM40p/S8Ahb8HbZW9Kaj6tXY2L+6+vt
+         0bAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=uCMHBbW2;
-       spf=pass (google.com: domain of 3kju1xwwkadknvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3KJu1XwwKADknVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="RKW/Qoxi";
+       spf=pass (google.com: domain of 3k5u1xwwkadwqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3K5u1XwwKADwqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=5prI02CojMmXssFhL34KxdrjMIOZWRD3zVXad336ulc=;
-        b=B2152ggvy23VrkK74hvSKJRlt5eWRhXVq90CG76Jcs2DJ+kcA8Cubnrv0eDJ57ca7S
-         KTFqJPSqmg6r1BzfpR3SkydqbJpANp4piYyVGU1RIsRerbRTyK2APXzTZ9OeiAqoefU0
-         PX22/07TSmbxtRlboOl+FkcsEeMpFLT12boIkqRRCqtA0HqYsBXFK+qMB54891gHfRN9
-         74chsvPs0eSOdjK2Uh/RxVd0tM5e853N4vEdxSBxrqSecc4pmTMFjEh4BitV511JRsDs
-         EVYJ8u6J9YC8aYlbvVqDGreubPqLhTWKDELXkdIprxiGiuS4hBiI384D7AhU18k9u4Gx
-         5M5A==
+        bh=jY+nI0AMkPdL2OTCWUXjn8y2XNyMlgcsyQGt4jzVY50=;
+        b=UtDkBby3YPPMBByACsYGE0wkvz5TBpvzx1qt4VOSAVnDrewf+1o4FnQIhG9ZjeMeVp
+         GunQdCiIQN/ur+RYGzYizOSeuKj53w/eqd1UIG87gUL3cVgmFNmIghw+dWZyYeHdKHvO
+         taES50Us9kq70UH4tx+oQAh//rac1Dd+IFXdxX5js1aFKRC85zx6ONcegfc8wm4P83d+
+         Z/SSja2k8sSVBDWPaawymjzR3n7f5h1Fzz9iz5JFsfZdVpgnkzgUxNHxuOIM8jysBLHO
+         M67K5L+9gG4JX8tcoKdR2BNt5dz+DVJgT/QcfDnIRkAYupCU5sbo9U+eluDG9OVY3H0B
+         J8FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,64 +50,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5prI02CojMmXssFhL34KxdrjMIOZWRD3zVXad336ulc=;
-        b=RqTJ5yyxobXIaq5S7BntWn9U5LB0HhhRE+qJhnCtMsNAc1luXCRCr2cv78+SN6/OCY
-         rdbym2iIq8ZTZEDAWAGhMy4n1+y5nKUJbhg7xMQkm3fL9TiOevV43zZJqhupuhiSE5UN
-         ng9hDteFJe7sQXB7fCWPKbwvBQq5w4fMIsRS+jMV7sCDJ3nm+VkEQIvaVHoJeWU7eXpZ
-         4D7tA1YRfGgJ764kcQpjxcfesNJPIWSCRIf6W7KXTCqCzeQu5ru4nkjN3N122gkgcI8y
-         HXf2QWfjwRFXyknTF4dHfXY12dN15xl0Zuhyk/B9fo0XCnLasIzSplgm9kVAOXmMF4vN
-         fKwQ==
-X-Gm-Message-State: AOAM533MZuxbxG8l/IzZABq7y5Ne9nnE0ONAIbqaBP0sIiRiaZXVaZNb
-	kf1z95U6sdT7Ll6lRq3sSvE=
-X-Google-Smtp-Source: ABdhPJyy79AJ1/DNkzHlpJxWo7pHyy5pGKGnl92Yz7xL6NU1+9WL5Tej2oWrNLsUZzCU3yzP+oHMbg==
-X-Received: by 2002:a05:6830:1692:: with SMTP id k18mr8503122otr.130.1605737258064;
-        Wed, 18 Nov 2020 14:07:38 -0800 (PST)
+        bh=jY+nI0AMkPdL2OTCWUXjn8y2XNyMlgcsyQGt4jzVY50=;
+        b=gsvWBpBYCKuZ8MRoqs6cQv49DsvNrR9tCJEN3xzvali2ZdC7HdFSGs0cB1Ltc1E/Ap
+         E76RVST8bJ0n4cj/nEqMa0nGT32lnXap4rn4iG2UTdCl3w8b0fbdTcBTJD/jWZH3xGb9
+         gH7qPj6loIZcCjuuwh7hruOe9xqJf+97TjozucmSQKGrHtJPy90XyAgObanORknWMQm8
+         v6WyL0qvqqsMTyvvkz/OV1Chu6oVdLUuHXtkqocFdDxnjISMclIAihshAmOTOr8nROCr
+         +rrkm5u2sQ47zwaUFuQfAuO8dxea7IkCwcyC9JkF6YY/vYOgx+V2smoSxFmOzJb0Shl7
+         Gu0Q==
+X-Gm-Message-State: AOAM533b7eZ4TAHH3FdRvZwCTAkZll3PYA0L9Ksq2BbwpoojbWzQh8bA
+	qBAUJ/ERGkCO7D0t8Vq6Fwo=
+X-Google-Smtp-Source: ABdhPJwq/I9aEXPCOaQepxAcDJpu6XSixomfvNy8BnwiLZdXfK8W6lUEdWPBcBm6TCLCY/IP4f9ruA==
+X-Received: by 2002:a4a:dcd6:: with SMTP id h22mr8129674oou.6.1605737260011;
+        Wed, 18 Nov 2020 14:07:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1f59:: with SMTP id u25ls251752oth.1.gmail; Wed, 18
- Nov 2020 14:07:37 -0800 (PST)
-X-Received: by 2002:a9d:4c92:: with SMTP id m18mr8324980otf.248.1605737257582;
-        Wed, 18 Nov 2020 14:07:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605737257; cv=none;
+Received: by 2002:aca:416:: with SMTP id 22ls210731oie.7.gmail; Wed, 18 Nov
+ 2020 14:07:39 -0800 (PST)
+X-Received: by 2002:a05:6808:563:: with SMTP id j3mr952882oig.107.1605737259508;
+        Wed, 18 Nov 2020 14:07:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605737259; cv=none;
         d=google.com; s=arc-20160816;
-        b=aed7tNSjwEc+030BT3x2wHSNfK/5ivYmZH9vtb8rhOfbJtcgZuvHo/yAdMn2dIMwun
-         NmvPg0H+5oeamABfolXzae1kx3NO/oCTki1ONCd556mrlPnazMQ+1yymAiQfplmi2MXz
-         GFNgA7wSW+O+NNizkSGx8gyKc9iIb9OyF4t5nxOG6HO/PhAqitTn+nI4JBqQwyDwWfMS
-         s/+w9nkYIjcIlXv4qTI/mMDPEj5WUUBrGfIKbSBk74TMB8HH00RhOrvJjGgaI8UIqZSy
-         rFe130ITaH0R/WnVKWFx+KdJjh/9za3XQrsinf+/6RMiRCJ9Wg/bNyksNrp17npk9Nje
-         ydoQ==
+        b=jGZhGgBqALIAnt0spU0xUnGvS8kZPEAP3Uf3CaIhnSzsHtXRU+uJN2IZGUCqiK0KMk
+         WzdHzZCMgB1VatTf+V+IT0U4i6bKP4jQZCYw/Y3BYrixzKbgcBm1glM8SyujrU6jjm7w
+         9APCLMxw8/jUJ3Bzj27Kl8+DMSfN8hbSp0oacRzDXsOknRhNkQiGB0DnSlg2lUmclAhK
+         d+CIO+3j012R9AcuDEgmbB46HUKZ4fyRu4dO2JHqxzSHvWwk7PbB6TiTZj03oV2w+Mal
+         TgAsczuuGygzJDc1c/R+L+Cj7PC+Wg7Pfx9abtPoObGsWUM4ArKH9mjIjJG0smGDUyIC
+         NPZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=gvMc2k2xloEFnp0MdDT7TdZSkW74AB0e8LqiQDHemRY=;
-        b=l14uoga+I0VNCCyZ/0j6McYi5RzTfUfiteZmhp7Jd+/tMRO8qCPHDXRaETPNiP0sPe
-         dkujExLZ9M7KrMytG+6RgEdGJVY2wyRatoDJwMMS47lwO1RrLAbgzmdC4nwBNvMlsQTk
-         OduDULhE56N5iQ9oEQR7Ya/w8jTgRJiP7F3rJP8/gSTB8vmJZbFolVNpqNZJ5b8gUynx
-         lTtqok5jTPKiaTT9mh1ZVWKxecp10Ztz+JRcAlMBr1qYlCQJ1W4johjQ83CVRlqM4w3p
-         EX+ZhHIgopwSwXRQf40GotjUzCg1TaL1e/8X2nsspm9wqkHFaxmOUWvP+wp84LZQiBzK
-         il7g==
+        bh=Xqj2yLM5It7hzlaNzlHpUD+6W5kNJ3ELPBI1nZyyi10=;
+        b=n09LT9VIzbDl4pYa9p86c4XtJxFyWesWQ+cPPjPJF4VMA+n2Yxgj+53SeyUHCJJYn6
+         B9sI/juiVvdXLL3wFiPM3txsNx9j+IAfnIwMnNBJ5nutBTtQ6YtwkFuMgHGunK5AUXad
+         nq5qOIt0dXG5jbZNFsOdEY0zXaIRURh4dFAJP8cckhTHoxnZ4duBRZ4l0vwH2mtGkOJ+
+         YJ3d2lX/mabBw/qbbMKmseDk3ds3XbMbAOpzndMWtHcaRg+KPvGNp+XJrYmGL9kyoW4j
+         grTVLU52jNGh/ez1No6TtErVgYWZfobG75Q87b/MOcgfIKRWCmszfDEaNuNG1qtqVZGc
+         vLzA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=uCMHBbW2;
-       spf=pass (google.com: domain of 3kju1xwwkadknvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3KJu1XwwKADknVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="RKW/Qoxi";
+       spf=pass (google.com: domain of 3k5u1xwwkadwqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3K5u1XwwKADwqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
-        by gmr-mx.google.com with ESMTPS id e206si2459504oob.2.2020.11.18.14.07.37
+        by gmr-mx.google.com with ESMTPS id e206si2459504oob.2.2020.11.18.14.07.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2020 14:07:37 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3kju1xwwkadknvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
+        Wed, 18 Nov 2020 14:07:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3k5u1xwwkadwqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
 Received: by mail-qt1-x849.google.com with SMTP id i20so2676773qtr.0
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Nov 2020 14:07:37 -0800 (PST)
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Nov 2020 14:07:39 -0800 (PST)
 Sender: "samitolvanen via sendgmr" <samitolvanen@samitolvanen1.mtv.corp.google.com>
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:f693:9fff:fef4:1b6d])
- (user=samitolvanen job=sendgmr) by 2002:a0c:eccb:: with SMTP id
- o11mr7376030qvq.0.1605737256947; Wed, 18 Nov 2020 14:07:36 -0800 (PST)
-Date: Wed, 18 Nov 2020 14:07:16 -0800
+ (user=samitolvanen job=sendgmr) by 2002:ad4:4ae4:: with SMTP id
+ cp4mr7001737qvb.21.1605737259081; Wed, 18 Nov 2020 14:07:39 -0800 (PST)
+Date: Wed, 18 Nov 2020 14:07:17 -0800
 In-Reply-To: <20201118220731.925424-1-samitolvanen@google.com>
-Message-Id: <20201118220731.925424-3-samitolvanen@google.com>
+Message-Id: <20201118220731.925424-4-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20201118220731.925424-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.29.2.454.gaff20da3a2-goog
-Subject: [PATCH v7 02/17] kbuild: add support for Clang LTO
+Subject: [PATCH v7 03/17] kbuild: lto: fix module versioning
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
 	Will Deacon <will@kernel.org>
@@ -121,9 +121,9 @@ Cc: Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=uCMHBbW2;       spf=pass
- (google.com: domain of 3kju1xwwkadknvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3KJu1XwwKADknVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b="RKW/Qoxi";       spf=pass
+ (google.com: domain of 3k5u1xwwkadwqykgrmjtylclemmejc.amk@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3K5u1XwwKADwqYkgrmjtYlclemmejc.amk@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,381 +139,224 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This change adds build system support for Clang's Link Time
-Optimization (LTO). With -flto, instead of ELF object files, Clang
-produces LLVM bitcode, which is compiled into native code at link
-time, allowing the final binary to be optimized globally. For more
-details, see:
-
-  https://llvm.org/docs/LinkTimeOptimization.html
-
-The Kconfig option CONFIG_LTO_CLANG is implemented as a choice,
-which defaults to LTO being disabled. To use LTO, the architecture
-must select ARCH_SUPPORTS_LTO_CLANG and support:
-
-  - compiling with Clang,
-  - compiling inline assembly with Clang's integrated assembler,
-  - and linking with LLD.
-
-While using full LTO results in the best runtime performance, the
-compilation is not scalable in time or memory. CONFIG_THINLTO
-enables ThinLTO, which allows parallel optimization and faster
-incremental builds. ThinLTO is used by default if the architecture
-also selects ARCH_SUPPORTS_THINLTO:
-
-  https://clang.llvm.org/docs/ThinLTO.html
-
-To enable LTO, LLVM tools must be used to handle bitcode files. The
-easiest way is to pass the LLVM=1 option to make:
-
-  $ make LLVM=1 defconfig
-  $ scripts/config -e LTO_CLANG
-  $ make LLVM=1
-
-Alternatively, at least the following LLVM tools must be used:
-
-  CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm
-
-To prepare for LTO support with other compilers, common parts are
-gated behind the CONFIG_LTO option, and LTO can be disabled for
-specific files by filtering out CC_FLAGS_LTO.
+With CONFIG_MODVERSIONS, version information is linked into each
+compilation unit that exports symbols. With LTO, we cannot use this
+method as all C code is compiled into LLVM bitcode instead. This
+change collects symbol versions into .symversions files and merges
+them in link-vmlinux.sh where they are all linked into vmlinux.o at
+the same time.
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- Makefile                          | 19 +++++++-
- arch/Kconfig                      | 75 +++++++++++++++++++++++++++++++
- include/asm-generic/vmlinux.lds.h | 11 +++--
- scripts/Makefile.build            |  9 +++-
- scripts/Makefile.modfinal         |  9 +++-
- scripts/Makefile.modpost          | 21 ++++++++-
- scripts/link-vmlinux.sh           | 32 +++++++++----
- 7 files changed, 158 insertions(+), 18 deletions(-)
+ .gitignore               |  1 +
+ Makefile                 |  3 ++-
+ arch/Kconfig             |  1 -
+ scripts/Makefile.build   | 33 +++++++++++++++++++++++++++++++--
+ scripts/Makefile.modpost |  6 +++++-
+ scripts/link-vmlinux.sh  | 23 ++++++++++++++++++++++-
+ 6 files changed, 61 insertions(+), 6 deletions(-)
 
+diff --git a/.gitignore b/.gitignore
+index d01cda8e1177..44e34991875e 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -41,6 +41,7 @@
+ *.so.dbg
+ *.su
+ *.symtypes
++*.symversions
+ *.tab.[ch]
+ *.tar
+ *.xz
 diff --git a/Makefile b/Makefile
-index 8c8feb4245a6..240560e88d69 100644
+index 240560e88d69..f27c0da5d05a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -893,6 +893,21 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
- export CC_FLAGS_SCS
- endif
+@@ -1831,7 +1831,8 @@ clean: $(clean-dirs)
+ 		-o -name '.tmp_*.o.*' \
+ 		-o -name '*.c.[012]*.*' \
+ 		-o -name '*.ll' \
+-		-o -name '*.gcno' \) -type f -print | xargs rm -f
++		-o -name '*.gcno' \
++		-o -name '*.*.symversions' \) -type f -print | xargs rm -f
  
-+ifdef CONFIG_LTO_CLANG
-+ifdef CONFIG_THINLTO
-+CC_FLAGS_LTO	+= -flto=thin -fsplit-lto-unit
-+KBUILD_LDFLAGS	+= --thinlto-cache-dir=$(extmod-prefix).thinlto-cache
-+else
-+CC_FLAGS_LTO	+= -flto
-+endif
-+CC_FLAGS_LTO	+= -fvisibility=default
-+endif
-+
-+ifdef CONFIG_LTO
-+KBUILD_CFLAGS	+= $(CC_FLAGS_LTO)
-+export CC_FLAGS_LTO
-+endif
-+
- ifdef CONFIG_DEBUG_FORCE_FUNCTION_ALIGN_32B
- KBUILD_CFLAGS += -falign-functions=32
- endif
-@@ -1473,7 +1488,7 @@ MRPROPER_FILES += include/config include/generated          \
- 		  *.spec
- 
- # Directories & files removed with 'make distclean'
--DISTCLEAN_FILES += tags TAGS cscope* GPATH GTAGS GRTAGS GSYMS
-+DISTCLEAN_FILES += tags TAGS cscope* GPATH GTAGS GRTAGS GSYMS .thinlto-cache
- 
- # clean - Delete most, but leave enough to build external modules
- #
-@@ -1719,7 +1734,7 @@ PHONY += compile_commands.json
- 
- clean-dirs := $(KBUILD_EXTMOD)
- clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers $(KBUILD_EXTMOD)/modules.nsdeps \
--	$(KBUILD_EXTMOD)/compile_commands.json
-+	$(KBUILD_EXTMOD)/compile_commands.json $(KBUILD_EXTMOD)/.thinlto-cache
- 
- PHONY += help
- help:
+ # Generate tags for editors
+ # ---------------------------------------------------------------------------
 diff --git a/arch/Kconfig b/arch/Kconfig
-index 56b6ccc0e32d..a41fcb3ca7c6 100644
+index a41fcb3ca7c6..736ae228e506 100644
 --- a/arch/Kconfig
 +++ b/arch/Kconfig
-@@ -598,6 +598,81 @@ config SHADOW_CALL_STACK
- 	  reading and writing arbitrary memory may be able to locate them
- 	  and hijack control flow by modifying the stacks.
- 
-+config LTO
-+	bool
-+
-+config ARCH_SUPPORTS_LTO_CLANG
-+	bool
-+	help
-+	  An architecture should select this option if it supports:
-+	  - compiling with Clang,
-+	  - compiling inline assembly with Clang's integrated assembler,
-+	  - and linking with LLD.
-+
-+config ARCH_SUPPORTS_THINLTO
-+	bool
-+	help
-+	  An architecture should select this option if it supports Clang's
-+	  ThinLTO.
-+
-+config THINLTO
-+	bool "Clang ThinLTO"
-+	depends on LTO_CLANG && ARCH_SUPPORTS_THINLTO
-+	default y
-+	help
-+	  This option enables Clang's ThinLTO, which allows for parallel
-+	  optimization and faster incremental compiles. More information
-+	  can be found from Clang's documentation:
-+
-+	    https://clang.llvm.org/docs/ThinLTO.html
-+
-+	  If you say N here, the compiler will use full LTO, which may
-+	  produce faster code, but building the kernel will be significantly
-+	  slower as the linker won't efficiently utilize multiple threads.
-+
-+	  If unsure, say Y.
-+
-+choice
-+	prompt "Link Time Optimization (LTO)"
-+	default LTO_NONE
-+	help
-+	  This option enables Link Time Optimization (LTO), which allows the
-+	  compiler to optimize binaries globally.
-+
-+	  If unsure, select LTO_NONE. Note that LTO is very resource-intensive
-+	  so it's disabled by default.
-+
-+config LTO_NONE
-+	bool "None"
-+
-+config LTO_CLANG
-+	bool "Clang's Link Time Optimization (EXPERIMENTAL)"
-+	# Clang >= 11: https://github.com/ClangBuiltLinux/linux/issues/510
-+	depends on CC_IS_CLANG && CLANG_VERSION >= 110000 && LD_IS_LLD
-+	depends on $(success,$(NM) --help | head -n 1 | grep -qi llvm)
-+	depends on $(success,$(AR) --help | head -n 1 | grep -qi llvm)
-+	depends on ARCH_SUPPORTS_LTO_CLANG
-+	depends on !FTRACE_MCOUNT_USE_RECORDMCOUNT
-+	depends on !KASAN
-+	depends on !GCOV_KERNEL
-+	depends on !MODVERSIONS
-+	select LTO
-+	help
-+          This option enables Clang's Link Time Optimization (LTO), which
-+          allows the compiler to optimize the kernel globally. If you enable
-+          this option, the compiler generates LLVM bitcode instead of ELF
-+          object files, and the actual compilation from bitcode happens at
-+          the LTO link step, which may take several minutes depending on the
-+          kernel configuration. More information can be found from LLVM's
-+          documentation:
-+
-+	    https://llvm.org/docs/LinkTimeOptimization.html
-+
-+	  To select this option, you also need to use LLVM tools to handle
-+	  the bitcode by passing LLVM=1 to make.
-+
-+endchoice
-+
- config HAVE_ARCH_WITHIN_STACK_FRAMES
- 	bool
+@@ -655,7 +655,6 @@ config LTO_CLANG
+ 	depends on !FTRACE_MCOUNT_USE_RECORDMCOUNT
+ 	depends on !KASAN
+ 	depends on !GCOV_KERNEL
+-	depends on !MODVERSIONS
+ 	select LTO
  	help
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index b2b3d81b1535..8988a2e445d8 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -90,15 +90,18 @@
-  * .data. We don't want to pull in .data..other sections, which Linux
-  * has defined. Same for text and bss.
-  *
-+ * With LTO_CLANG, the linker also splits sections by default, so we need
-+ * these macros to combine the sections during the final link.
-+ *
-  * RODATA_MAIN is not used because existing code already defines .rodata.x
-  * sections to be brought in with rodata.
-  */
--#ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
-+#if defined(CONFIG_LD_DEAD_CODE_DATA_ELIMINATION) || defined(CONFIG_LTO_CLANG)
- #define TEXT_MAIN .text .text.[0-9a-zA-Z_]*
--#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..LPBX*
-+#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..L* .data..compoundliteral*
- #define SDATA_MAIN .sdata .sdata.[0-9a-zA-Z_]*
--#define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]*
--#define BSS_MAIN .bss .bss.[0-9a-zA-Z_]*
-+#define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]* .rodata..L*
-+#define BSS_MAIN .bss .bss.[0-9a-zA-Z_]* .bss..compoundliteral*
- #define SBSS_MAIN .sbss .sbss.[0-9a-zA-Z_]*
- #else
- #define TEXT_MAIN .text
+           This option enables Clang's Link Time Optimization (LTO), which
 diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index 2175ddb1ee0c..ed74b2f986f7 100644
+index ed74b2f986f7..eae2f5386a03 100644
 --- a/scripts/Makefile.build
 +++ b/scripts/Makefile.build
-@@ -111,7 +111,7 @@ endif
- # ---------------------------------------------------------------------------
+@@ -166,6 +166,15 @@ ifdef CONFIG_MODVERSIONS
+ #   the actual value of the checksum generated by genksyms
+ # o remove .tmp_<file>.o to <file>.o
  
- quiet_cmd_cc_s_c = CC $(quiet_modtag)  $@
--      cmd_cc_s_c = $(CC) $(filter-out $(DEBUG_CFLAGS), $(c_flags)) -fverbose-asm -S -o $@ $<
-+      cmd_cc_s_c = $(CC) $(filter-out $(DEBUG_CFLAGS) $(CC_FLAGS_LTO), $(c_flags)) -fverbose-asm -S -o $@ $<
- 
- $(obj)/%.s: $(src)/%.c FORCE
- 	$(call if_changed_dep,cc_s_c)
-@@ -425,8 +425,15 @@ $(obj)/lib.a: $(lib-y) FORCE
- # Do not replace $(filter %.o,^) with $(real-prereqs). When a single object
- # module is turned into a multi object module, $^ will contain header file
- # dependencies recorded in the .*.cmd file.
 +ifdef CONFIG_LTO_CLANG
-+quiet_cmd_link_multi-m = AR [M]  $@
-+cmd_link_multi-m =						\
-+	rm -f $@; 						\
-+	$(AR) cDPrsT $@ $(filter %.o,$^)
++# Generate .o.symversions files for each .o with exported symbols, and link these
++# to the kernel and/or modules at the end.
++cmd_modversions_c =								\
++	if $(NM) $@ 2>/dev/null | grep -q __ksymtab; then			\
++		$(call cmd_gensymtypes_c,$(KBUILD_SYMTYPES),$(@:.o=.symtypes))	\
++		    > $@.symversions;						\
++	fi;
 +else
- quiet_cmd_link_multi-m = LD [M]  $@
-       cmd_link_multi-m = $(LD) $(ld_flags) -r -o $@ $(filter %.o,$^)
+ cmd_modversions_c =								\
+ 	if $(OBJDUMP) -h $@ | grep -q __ksymtab; then				\
+ 		$(call cmd_gensymtypes_c,$(KBUILD_SYMTYPES),$(@:.o=.symtypes))	\
+@@ -177,6 +186,7 @@ cmd_modversions_c =								\
+ 		rm -f $(@D)/.tmp_$(@F:.o=.ver);					\
+ 	fi
+ endif
 +endif
  
- $(multi-used-m): FORCE
- 	$(call if_changed,link_multi-m)
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index ae01baf96f4e..2cb9a1d88434 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -6,6 +6,7 @@
- PHONY := __modfinal
- __modfinal:
+ ifdef CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
+ # compiler will not generate __mcount_loc use recordmcount or recordmcount.pl
+@@ -390,6 +400,18 @@ $(obj)/%.asn1.c $(obj)/%.asn1.h: $(src)/%.asn1 $(objtree)/scripts/asn1_compiler
+ $(subdir-builtin): $(obj)/%/built-in.a: $(obj)/% ;
+ $(subdir-modorder): $(obj)/%/modules.order: $(obj)/% ;
  
-+include $(objtree)/include/config/auto.conf
- include $(srctree)/scripts/Kbuild.include
- 
- # for c_flags
-@@ -29,6 +30,12 @@ quiet_cmd_cc_o_c = CC [M]  $@
- 
- ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
- 
-+ifdef CONFIG_LTO_CLANG
-+# With CONFIG_LTO_CLANG, reuse the object file we compiled for modpost to
-+# avoid a second slow LTO link
-+prelink-ext := .lto
++# combine symversions for later processing
++quiet_cmd_update_lto_symversions = SYMVER  $@
++ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
++      cmd_update_lto_symversions =					\
++	rm -f $@.symversions						\
++	$(foreach n, $(filter-out FORCE,$^),				\
++		$(if $(wildcard $(n).symversions),			\
++			; cat $(n).symversions >> $@.symversions))
++else
++      cmd_update_lto_symversions = echo >/dev/null
 +endif
 +
- quiet_cmd_ld_ko_o = LD [M]  $@
-       cmd_ld_ko_o =                                                     \
- 	$(LD) -r $(KBUILD_LDFLAGS)					\
-@@ -36,7 +43,7 @@ quiet_cmd_ld_ko_o = LD [M]  $@
- 		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
- 	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
+ #
+ # Rule to compile a set of .o files into one .a file (without symbol table)
+ #
+@@ -397,8 +419,11 @@ $(subdir-modorder): $(obj)/%/modules.order: $(obj)/% ;
+ quiet_cmd_ar_builtin = AR      $@
+       cmd_ar_builtin = rm -f $@; $(AR) cDPrST $@ $(real-prereqs)
  
--$(modules): %.ko: %.o %.mod.o scripts/module.lds FORCE
-+$(modules): %.ko: %$(prelink-ext).o %.mod.o scripts/module.lds FORCE
- 	+$(call if_changed,ld_ko_o)
++quiet_cmd_ar_and_symver = AR      $@
++      cmd_ar_and_symver = $(cmd_update_lto_symversions); $(cmd_ar_builtin)
++
+ $(obj)/built-in.a: $(real-obj-y) FORCE
+-	$(call if_changed,ar_builtin)
++	$(call if_changed,ar_and_symver)
  
- targets += $(modules) $(modules:.ko=.mod.o)
+ #
+ # Rule to create modules.order file
+@@ -418,8 +443,11 @@ $(obj)/modules.order: $(obj-m) FORCE
+ #
+ # Rule to compile a set of .o files into one .a file (with symbol table)
+ #
++quiet_cmd_ar_lib = AR      $@
++      cmd_ar_lib = $(cmd_update_lto_symversions); $(cmd_ar)
++
+ $(obj)/lib.a: $(lib-y) FORCE
+-	$(call if_changed,ar)
++	$(call if_changed,ar_lib)
+ 
+ # NOTE:
+ # Do not replace $(filter %.o,^) with $(real-prereqs). When a single object
+@@ -428,6 +456,7 @@ $(obj)/lib.a: $(lib-y) FORCE
+ ifdef CONFIG_LTO_CLANG
+ quiet_cmd_link_multi-m = AR [M]  $@
+ cmd_link_multi-m =						\
++	$(cmd_update_lto_symversions);				\
+ 	rm -f $@; 						\
+ 	$(AR) cDPrsT $@ $(filter %.o,$^)
+ else
 diff --git a/scripts/Makefile.modpost b/scripts/Makefile.modpost
-index f54b6ac37ac2..9ff8bfdb574d 100644
+index 9ff8bfdb574d..066beffca09a 100644
 --- a/scripts/Makefile.modpost
 +++ b/scripts/Makefile.modpost
-@@ -43,6 +43,9 @@ __modpost:
- include include/config/auto.conf
- include scripts/Kbuild.include
+@@ -111,7 +111,11 @@ ifdef CONFIG_LTO_CLANG
+ prelink-ext := .lto
  
-+# for ld_flags
-+include scripts/Makefile.lib
-+
- MODPOST = scripts/mod/modpost								\
- 	$(if $(CONFIG_MODVERSIONS),-m)							\
- 	$(if $(CONFIG_MODULE_SRCVERSION_ALL),-a)					\
-@@ -102,12 +105,26 @@ $(input-symdump):
- 	@echo >&2 'WARNING: Symbol version dump "$@" is missing.'
- 	@echo >&2 '         Modules may not have dependencies or modversions.'
+ quiet_cmd_cc_lto_link_modules = LTO [M] $@
+-cmd_cc_lto_link_modules = $(LD) $(ld_flags) -r -o $@ --whole-archive $^
++cmd_cc_lto_link_modules =						\
++	$(LD) $(ld_flags) -r -o $@					\
++		$(shell [ -s $(@:.lto.o=.o.symversions) ] &&		\
++			echo -T $(@:.lto.o=.o.symversions))		\
++		--whole-archive $^
  
-+ifdef CONFIG_LTO_CLANG
-+# With CONFIG_LTO_CLANG, .o files might be LLVM bitcode, so we need to run
-+# LTO to compile them into native code before running modpost
-+prelink-ext := .lto
-+
-+quiet_cmd_cc_lto_link_modules = LTO [M] $@
-+cmd_cc_lto_link_modules = $(LD) $(ld_flags) -r -o $@ --whole-archive $^
-+
-+%.lto.o: %.o
-+	$(call if_changed,cc_lto_link_modules)
-+endif
-+
-+modules := $(sort $(shell cat $(MODORDER)))
-+
- # Read out modules.order to pass in modpost.
- # Otherwise, allmodconfig would fail with "Argument list too long".
- quiet_cmd_modpost = MODPOST $@
--      cmd_modpost = sed 's/ko$$/o/' $< | $(MODPOST) -T -
-+      cmd_modpost = sed 's/\.ko$$/$(prelink-ext)\.o/' $< | $(MODPOST) -T -
- 
--$(output-symdump): $(MODORDER) $(input-symdump) FORCE
-+$(output-symdump): $(MODORDER) $(input-symdump) $(modules:.ko=$(prelink-ext).o) FORCE
- 	$(call if_changed,modpost)
- 
- targets += $(output-symdump)
+ %.lto.o: %.o
+ 	$(call if_changed,cc_lto_link_modules)
 diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 6eded325c837..596507573a48 100755
+index 596507573a48..78e55fe7210b 100755
 --- a/scripts/link-vmlinux.sh
 +++ b/scripts/link-vmlinux.sh
-@@ -56,6 +56,14 @@ modpost_link()
- 		${KBUILD_VMLINUX_LIBS}				\
- 		--end-group"
- 
-+	if [ -n "${CONFIG_LTO_CLANG}" ]; then
-+		# This might take a while, so indicate that we're doing
-+		# an LTO link
-+		info LTO ${1}
-+	else
-+		info LD ${1}
-+	fi
-+
- 	${LD} ${KBUILD_LDFLAGS} -r -o ${1} ${objects}
+@@ -43,11 +43,26 @@ info()
+ 	fi
  }
  
-@@ -103,13 +111,22 @@ vmlinux_link()
++# If CONFIG_LTO_CLANG is selected, collect generated symbol versions into
++# .tmp_symversions.lds
++gen_symversions()
++{
++	info GEN .tmp_symversions.lds
++	rm -f .tmp_symversions.lds
++
++	for o in ${KBUILD_VMLINUX_OBJS} ${KBUILD_VMLINUX_LIBS}; do
++		if [ -f ${o}.symversions ]; then
++			cat ${o}.symversions >> .tmp_symversions.lds
++		fi
++	done
++}
++
+ # Link of vmlinux.o used for section mismatch analysis
+ # ${1} output file
+ modpost_link()
+ {
+ 	local objects
++	local lds=""
+ 
+ 	objects="--whole-archive				\
+ 		${KBUILD_VMLINUX_OBJS}				\
+@@ -57,6 +72,11 @@ modpost_link()
+ 		--end-group"
+ 
+ 	if [ -n "${CONFIG_LTO_CLANG}" ]; then
++		if [ -n "${CONFIG_MODVERSIONS}" ]; then
++			gen_symversions
++			lds="${lds} -T .tmp_symversions.lds"
++		fi
++
+ 		# This might take a while, so indicate that we're doing
+ 		# an LTO link
+ 		info LTO ${1}
+@@ -64,7 +84,7 @@ modpost_link()
+ 		info LD ${1}
  	fi
  
- 	if [ "${SRCARCH}" != "um" ]; then
--		objects="--whole-archive			\
--			${KBUILD_VMLINUX_OBJS}			\
--			--no-whole-archive			\
--			--start-group				\
--			${KBUILD_VMLINUX_LIBS}			\
--			--end-group				\
--			${@}"
-+		if [ -n "${CONFIG_LTO_CLANG}" ]; then
-+			# Use vmlinux.o instead of performing the slow LTO
-+			# link again.
-+			objects="--whole-archive		\
-+				vmlinux.o 			\
-+				--no-whole-archive		\
-+				${@}"
-+		else
-+			objects="--whole-archive		\
-+				${KBUILD_VMLINUX_OBJS}		\
-+				--no-whole-archive		\
-+				--start-group			\
-+				${KBUILD_VMLINUX_LIBS}		\
-+				--end-group			\
-+				${@}"
-+		fi
+-	${LD} ${KBUILD_LDFLAGS} -r -o ${1} ${objects}
++	${LD} ${KBUILD_LDFLAGS} -r -o ${1} ${lds} ${objects}
+ }
  
- 		${LD} ${KBUILD_LDFLAGS} ${LDFLAGS_vmlinux}	\
- 			${strip_debug#-Wl,}			\
-@@ -274,7 +291,6 @@ fi;
- ${MAKE} -f "${srctree}/scripts/Makefile.build" obj=init need-builtin=1
- 
- #link vmlinux.o
--info LD vmlinux.o
- modpost_link vmlinux.o
- objtool_link vmlinux.o
- 
+ objtool_link()
+@@ -242,6 +262,7 @@ cleanup()
+ {
+ 	rm -f .btf.*
+ 	rm -f .tmp_System.map
++	rm -f .tmp_symversions.lds
+ 	rm -f .tmp_vmlinux*
+ 	rm -f System.map
+ 	rm -f vmlinux
 -- 
 2.29.2.299.gdc1121823c-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201118220731.925424-3-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201118220731.925424-4-samitolvanen%40google.com.
