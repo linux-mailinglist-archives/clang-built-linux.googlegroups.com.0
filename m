@@ -1,139 +1,131 @@
-Return-Path: <clang-built-linux+bncBCZNB4MJSMHRB4EQ2L6QKGQE7AKOZHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4XGV33UIBB34R2L6QKGQETJ3SIHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A3D892B7435
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 03:35:29 +0100 (CET)
-Received: by mail-ot1-x33f.google.com with SMTP id u25sf330770otq.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 18:35:29 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605666928; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 627CC2B7438
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 03:37:36 +0100 (CET)
+Received: by mail-ot1-x33e.google.com with SMTP id n18sf328731otf.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Nov 2020 18:37:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605667055; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EZ3co0VEnNG7kd8FqheWQZpmFbzl/kj3o8bJ/jmW0QUSLoVe1KScMhcba1nl9rnm5a
-         k9cIfUvMMoK8eNqVG9hjqrf+dv6b/gcBeSsLDEEAvpWS0oJat5b99A4gkxAuWasgtG7A
-         s0i7MgU1pYyDIIuOT+IPxnjAAK1VfqYdkBXuUncRfebBChPW+3njKoiu6aMVo3+mMX35
-         mhW+Y8bWgjONxpLVoKL97d55/GgQD+PQGDqn7FsU82boaBH6LHUtZ1zFgvRNTvIRZsdS
-         sOnFtuI6FabxX2nRMFTs3AmWe5gsadh9EZNPk67Uz3WQWPbUPtvchMQn0WxVgl39htWS
-         sxAA==
+        b=JoXrYI/yr1fC9CyP8xJDaQ0vFW/4KqduNGF7HpTjxzbX5sKQ05t58qVXcK9wmWnAOP
+         kjf6hrdcJn9lcBN7zdQRK8VbLkxhYOQj9Jq0DapDyY/OXcMIbMaDmcqcG3YnZGGn/ujv
+         RgXzJYrE9ZuHJv3S2r4ATgBg++tmsf9rzuiKMa0Fu4CHTzF3f2T7rVHLxQcw/65iYWVH
+         MEtdz339y4bMs4JlV/XKtpHtbjwm5XzGCpcXesQ8DQ76Hs+wvFRFHXCTyvhJTd8FDBvp
+         tgZY9u1bomitYj3pnZLkU2Re8tz4Ic95IE34J8ra6RdE0I4fyoSVCMAuMcbaO4VB+fS4
+         UCnQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=6p73fgJunzEWuQqNpHUi9kl0+7qntRJFzcMbkcueF04=;
-        b=FSujZrnj6VE0TTf0mGz9Gq+iITogzFpM4kZF6rtQrcJvHJLD6SUCUnCCdeucLzn6sy
-         wOvbvvmvSV63+eBTQVLBUPX5bYfKwAU8ipNpVerObNbaGq27a7ZSX7B6Gk162f2apLIB
-         6FnozSWoJzuheyJAGzIXO/Y4sMU/QbVJ5jLNxh48RDI1tGFg25H5ptR3WIJdkapEauNT
-         u/6UjVQo9ptBcKmkyGWHrscOMDiRjm0J14U53jNKEfMgHxsOv7Df6U01q8TfVxhUCLQI
-         ccik/Ch2++j7LEoUXw6lIIjfAtWYZm8uyF7333fXFnMWsm5wCMbFxt/7mIWgXnaClo+8
-         qB+g==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=8vHpHffMAQu0rB2NDl5PhYemlZMWP2EY+9xRIqx4sKI=;
+        b=H2pLZZOTA9cmtF5DlvQXyFTbybxQWYX7NXEvBBL2RlPibPUtjJMJdk7OFDKa0oeq22
+         ig8XNlrNj4ecbMIQs5OxH9ROEHZWapLqXjQReN2AUKBKFY53lvQ3kqAN37jRI6tgcAUh
+         IDqjMOjefhrm/w+biYdMkE7Bosshmthzf3YqQ+wlKkz5hHAMbhRD4bI4+d68kg+GSzax
+         wZtHPC79jato+C74E+hSsl3HilH6Cywo2LlMtRhHxIkMHnmKt7qclIUiQyOCvbYyxCA4
+         zg9kcbeIie7NIFH7Efj5R/IktszazFzu9RwL27mrTXFBCVVk1/TkXNDA9SxH+SMzoJTW
+         1uNQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=dL2R1+5g;
-       spf=pass (google.com: domain of ming.lei@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=ming.lei@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@linux-foundation.org header.s=korg header.b=baGCU4yW;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6p73fgJunzEWuQqNpHUi9kl0+7qntRJFzcMbkcueF04=;
-        b=j4c5EAZXLyLvLXvv6Kmq1P+0sA8L8B7VfcA6vNP/TeqyuDybKKVhZfTwgOFhbBmN4O
-         N0KaZDgLUJPY9ARJm4b0UWEYrE7OGfjvjRVnr4f6hAXDUkFwGXlv9M0j0L0UYYy3SKDl
-         2RdGkXiMitmkoDCiJNOacmb3L30gcf/sgSUcvpU6XIRy+x7UhaWWCkPgBbDkKhhzqXF6
-         hY9OU8QwpRQJyEhLwJ6YQEehG+SpD3f7MuRAzUbsrbTYvPjGIpQCI9cf5K/vKma2qvMi
-         KrDtOhAbDF+K+u69vzNjiQpANTjM2+2Jg+w6Nrqh4T5MKk03bo+tkJ+Lmu50FHK8rNQw
-         HZkQ==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8vHpHffMAQu0rB2NDl5PhYemlZMWP2EY+9xRIqx4sKI=;
+        b=fp3uiFptBWKvRAynkx2XEFoVVtFy/e1GiWjY+8OoOWV9Jr9gmNbSrmau2BG2D22+3F
+         DGd63en36qJVcZPPNpeAbuDkzRAvEYVb7QO3PLxkWr8WUc/D1o71mfVzjbXr12iwmPWJ
+         kRxuuXM74t6PRKVgBzan1hlo2h2Z9PIBpmHcSFBTJVanogtqqmJJweW3P71URpyx+f/S
+         VoChPXzhQPNkpDfDdSyPJ+ovCOMkQBLIOpkTIGZTbQB/xJSbYHmWaWsgMUWoP25U89j/
+         TYNhoRSAW2k//HAY10Ql2NO0v4yEdsgomVWrQFVWsyx0dQFtDF+hZLFehrQ3JdFuSmKG
+         +Q4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=6p73fgJunzEWuQqNpHUi9kl0+7qntRJFzcMbkcueF04=;
-        b=jmAejjnZm/yVvne9YkmKAaAE0rrnmVNIJrC006nQM84yzxXD6IdMnCeWzD4miJMlIx
-         wtDP7lCNqaaSRNTbEaywrpbjLKp6M9hTIN5u2Al5VyH9ZpgYM3OeyluAcYy3DJ1V0eum
-         7ctazJcrFQdQ5JCRTEMwSALSpMz64KvMpQf+T9PodqJVGeBiT9ZB5lMAOqOsC0vazERT
-         gf6RchcecOCQle8Z5QtdX5Xn4pLmo8+/Q0IARDldKhZZf9DEmHS/e230lnlUVRrO0KpJ
-         HNyBKc26nbk5wd0hxk7G3efp1hgXplnxZgCmajLBX19p9wYpS3/NUxXPZ5LDTdT443+v
-         WelQ==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8vHpHffMAQu0rB2NDl5PhYemlZMWP2EY+9xRIqx4sKI=;
+        b=eRpPLV1SnRlZt2N3c32fIgK6Ii5fPEqyyEhsAD9zLfyNGhXldeuLD8Dc1uKS2ub7Kf
+         VGQ+gipE07YZVcnmdH1I4+uJuSoe8CO1zHeVgnxBf81sFg0UdEwJ2q5grlqnm/gxeT6o
+         j0tGyUYKRmE+35UsT8sCKAO+5vQ6LgVeVZixy+YxQyefCE0yV+jUwqlx2bC3EG8z4RsT
+         p88JlB/XX+TqFDQxmF0DeUZkMcs4CdZpYcB1jDV+OwdGVlIDdV0PbSrIhrOtMrOeXnD4
+         NiovjFG5e8eoVydmjl7ywaYpPttvLxXM4ZyFheeiwch4vs15HSbpcLqvmddiuTpUxdAy
+         j0HQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5328tF4W3lHgipG8nTmZ4oHeQ7GKieNGfAEOdbVoaQh8CYVUNq8l
-	4sGPpbmajkZDtVQZRa0NU2o=
-X-Google-Smtp-Source: ABdhPJy4EqTvjqC1N04k6HGMqd6WUGNX7m4W/rgoXGP+tgIHYC2LCXVAJc88xpeAwf21XS8IemhbwA==
-X-Received: by 2002:a9d:5904:: with SMTP id t4mr3278901oth.109.1605666928596;
-        Tue, 17 Nov 2020 18:35:28 -0800 (PST)
+X-Gm-Message-State: AOAM530NQRDWvZReK7r1nWOoF34bt7eWYDlS2jPN9TRIvRQn7wSqp4km
+	tpQ5EXw3t55xkNf6ah2S/sE=
+X-Google-Smtp-Source: ABdhPJzqt7NrLDSP91ixnKMz/2VjmztZAEuLhpRgWtDv0mzpg4o3ybLEInoIlXquV0Ml5lSLGlqQrw==
+X-Received: by 2002:aca:5015:: with SMTP id e21mr1429591oib.41.1605667055368;
+        Tue, 17 Nov 2020 18:37:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7e9a:: with SMTP id m26ls4664108otp.7.gmail; Tue, 17 Nov
- 2020 18:35:28 -0800 (PST)
-X-Received: by 2002:a9d:4808:: with SMTP id c8mr2882761otf.194.1605666928221;
-        Tue, 17 Nov 2020 18:35:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605666928; cv=none;
+Received: by 2002:a54:4e8d:: with SMTP id c13ls4490421oiy.8.gmail; Tue, 17 Nov
+ 2020 18:37:35 -0800 (PST)
+X-Received: by 2002:aca:d03:: with SMTP id 3mr1448434oin.75.1605667054936;
+        Tue, 17 Nov 2020 18:37:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605667054; cv=none;
         d=google.com; s=arc-20160816;
-        b=L1I5qZy+rF7oW9yrJefN+8snmUMymPk0gE7ItDALYf9qM5kqd8oWcKMxTHFeVFNV6u
-         cKAQSSu6fMJU37z3VaksdJ6eJzs0hFRkx6u62CDmBJw7hxFvIpjj6DqdnWOVMwPx5Xcb
-         uJXCj34RcQ2Vn8rgF79UZgdN08H1nKyGnxhVHJkxNObMBzutBq966Ny5/YeZGXfgZB6w
-         xBkvAG9pvPVXuVHFBvocgPoR2dL4e/6F9WD5+rdQXalbzKBq9VRzdYppXL+0c09goyTj
-         MmUNQ/lzSYsdWitmrTfjJeWGhmTziNNlKGAKhiVdXWfiEdQPwNrQ61jwt0h0GJtUoZ8Y
-         8TOA==
+        b=ZVDf3s38gn8tZNvWDdYhmiaYW3R5/aleT/T9cd/ssyL+6lcEtHEFa9fgUEYXgNyY2d
+         5Go/3znMRWoNLZXLKh8D3QinxJRcFbNb5xMggUex7lgASSo6pEJDtFBveuR2PrurYcyS
+         WAjdv73XXvjITkgeMcOP5m/a3kmM1kiz55UCj4p4ixNxb5ofA3EaHjikb+zmEDoxuEKR
+         pjLBDYxb5GZP0L25Bkm6BBBwavnJzQRBUAv7E1+1t0SXfIUz3BN+vhECmezNIt6Rs69z
+         wAezNxagtLTHUwC8T0kqyFqE/F37VwxOEz3S0jHjSlUaZy5hwDJMMj+y9aiwdx+ujUzE
+         LXRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=JFrTcci2wlaeLdIrVz8jfx8+3B+YgQbI/x5TyyUOtds=;
-        b=b5xbjnFz62K9Ue6tCnVBXO6U5FRea75MgcwL4XzT4Zpiwy7JLuY2CdJK27gk8sSVrB
-         vdtkhuTrpd2TOEUwNH7yK/5NxhKNHxOCP1AidQMrvt9FxDvI95hBQRcNPXoz0NlDGI3I
-         ihZVSVqCjSADIQWHgVUKgYAIyeSTAmLGj+cHzsFliWn9evAuAcNvSF276NtLVKc7io3K
-         LGoNdtGUHxW6eSlzq6EqJ3F63B3gAGyGKBvnNzUrsdFry7q4bgQZF/dDtyH6JIzDkzC1
-         GopZFKq39qA44+hMxBbu0xt6PShWBEY4PojCgNyDdA3weNePAt9CERLgtpuDjhJ0SlP+
-         rK6Q==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=h4q2HeSStsl3/FUkavQ7BwnikAM7b9mAoy7V/pQiafI=;
+        b=CvWcAtX0ClHvYVqBptCliWqjfAs0RXGtoAEaAY71IefLOHJ6YYyndeKOkiW3J+7dK/
+         Aia5V9iGx/2F8Na6tvh3k9He5339cJgM76wMPouzN58CdEiXFEC9EWwerXaNIWgA+xX+
+         MV+bYrLoJZeYLLG9fiOoSRuEyj8kCCYOvLrl2VgGi2G8ygh1jJb+IdmJjJd2HpA5Qcx9
+         vX6y7KU6tCVJSGKDk/F/wqCMRy4uRcIxQkJWOBWt++Q6BpoFmZo1twC1jgKGMRlKc0CE
+         oHjF2IZvrIO43RjQdNgYZSroDTIiIAEHlQxlm+3QAQYpOVWIQSn5V4PDH93vEqAS/9VJ
+         abuw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=dL2R1+5g;
-       spf=pass (google.com: domain of ming.lei@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=ming.lei@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
-        by gmr-mx.google.com with ESMTPS id p17si1728294oot.0.2020.11.17.18.35.28
+       dkim=pass header.i=@linux-foundation.org header.s=korg header.b=baGCU4yW;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id e13si2053382oth.3.2020.11.17.18.37.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2020 18:35:28 -0800 (PST)
-Received-SPF: pass (google.com: domain of ming.lei@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-588-pAusgSNUOHmc7PBXBskx2w-1; Tue, 17 Nov 2020 21:35:23 -0500
-X-MC-Unique: pAusgSNUOHmc7PBXBskx2w-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+        Tue, 17 Nov 2020 18:37:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost.localdomain (c-73-231-172-41.hsd1.ca.comcast.net [73.231.172.41])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9AF5C10074B1;
-	Wed, 18 Nov 2020 02:35:21 +0000 (UTC)
-Received: from T590 (ovpn-13-160.pek2.redhat.com [10.72.13.160])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 12B845B4AB;
-	Wed, 18 Nov 2020 02:35:11 +0000 (UTC)
-Date: Wed, 18 Nov 2020 10:35:07 +0800
-From: Ming Lei <ming.lei@redhat.com>
-To: kernel test robot <lkp@intel.com>,
-	Kashyap Desai <kashyap.desai@broadcom.com>,
-	Sumanesh Samanta <sumanesh.samanta@broadcom.com>
-Cc: Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	linux-scsi@vger.kernel.org, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, Omar Sandoval <osandov@fb.com>,
-	"Ewan D . Milne" <emilne@redhat.com>,
-	Hannes Reinecke <hare@suse.de>
-Subject: Re: [PATCH V4 12/12] scsi: replace sdev->device_busy with sbitmap
-Message-ID: <20201118023507.GA92339@T590>
-References: <20201116090737.50989-13-ming.lei@redhat.com>
- <202011161944.U7XHrbsd-lkp@intel.com>
-MIME-Version: 1.0
+	by mail.kernel.org (Postfix) with ESMTPSA id A1D2620DD4;
+	Wed, 18 Nov 2020 02:37:32 +0000 (UTC)
+Date: Tue, 17 Nov 2020 18:37:31 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, John Hubbard
+ <jhubbard@nvidia.com>, jarkko.sakkinen@iki.fi, Andrey Konovalov
+ <andreyknvl@google.com>, Alexei Starovoitov <ast@kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>, Daniel Borkmann
+ <daniel@iogearbox.net>, Marco Elver <elver@google.com>, Jarkko Sakkinen
+ <jarkko@kernel.org>, Kees Cook <keescook@chromium.org>, LKML
+ <linux-kernel@vger.kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Sedat Dilek
+ <sedat.dilek@gmail.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 1/7] compiler-clang: add build check for clang 10.0.1
+Message-Id: <20201117183731.a3ee0b2d8e4cd81f8825d189@linux-foundation.org>
+In-Reply-To: <20201118023118.GA1069826@ubuntu-m3-large-x86>
+References: <20201104013447.GA21728@kapsi.fi>
+	<20201117030427.61981-1-jhubbard@nvidia.com>
+	<CAKwvOdkEFPYmH+JFC5a0+whb_1H84gS1WU5FVpV071Bc4mhiCQ@mail.gmail.com>
+	<20201118023118.GA1069826@ubuntu-m3-large-x86>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202011161944.U7XHrbsd-lkp@intel.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Original-Sender: ming.lei@redhat.com
+X-Original-Sender: akpm@linux-foundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=dL2R1+5g;
-       spf=pass (google.com: domain of ming.lei@redhat.com designates
- 63.128.21.124 as permitted sender) smtp.mailfrom=ming.lei@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@linux-foundation.org header.s=korg header.b=baGCU4yW;
+       spf=pass (google.com: domain of akpm@linux-foundation.org designates
+ 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,57 +138,27 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello Kashyap & Sumanesh,
+On Tue, 17 Nov 2020 19:31:18 -0700 Nathan Chancellor <natechancellor@gmail.com> wrote:
 
-On Mon, Nov 16, 2020 at 07:49:31PM +0800, kernel test robot wrote:
-> Hi Ming,
+> On Tue, Nov 17, 2020 at 10:46:29AM -0800, Nick Desaulniers wrote:
+> > On Mon, Nov 16, 2020 at 7:04 PM John Hubbard <jhubbard@nvidia.com> wrote:
+> > >
+> > > Hi,
+> > >
+> > > I just ran into this and it's a real pain to figure out, because even
+> > > with the very latest Fedora 33 on my test machine, which provides clang
+> > > version 11.0.0:
+> > 
+> > Hi John,
+> > Thanks for the report.  The patch was picked up by AKPM and is in the -mm tree:
+> > https://ozlabs.org/~akpm/mmots/broken-out/compiler-clang-remove-version-check-for-bpf-tracing.patch
 > 
-> Thank you for the patch! Yet something to improve:
-> 
-> [auto build test ERROR on block/for-next]
-> [also build test ERROR on mkp-scsi/for-next scsi/for-next v5.10-rc4 next-20201116]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Ming-Lei/blk-mq-scsi-tracking-device-queue-depth-via-sbitmap/20201116-171449
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git for-next
-> config: powerpc64-randconfig-r026-20201116 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c044709b8fbea2a9a375e4173a6bd735f6866c0c)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc64 cross compiling tool for clang build
->         # apt-get install binutils-powerpc64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/cc286ae987be50d7b8e152cc80a5ccaa8682e3ff
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Ming-Lei/blk-mq-scsi-tracking-device-queue-depth-via-sbitmap/20201116-171449
->         git checkout cc286ae987be50d7b8e152cc80a5ccaa8682e3ff
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
-> >> drivers/scsi/megaraid/megaraid_sas_fusion.c:365:41: error: no member named 'device_busy' in 'struct scsi_device'
->            sdev_busy = atomic_read(&scmd->device->device_busy);
+> This should probably go to Linus as a regression fix in the next wave,
+> if that is possible.
 
-This new reference to sdev->device_busy is added by recent shared host
-tag patch, and according to the comment, you may have planed to convert into
-one megaraid internal counter.
-
-        /* TBD - if sml remove device_busy in future, driver
-         * should track counter in internal structure.
-         */
-
-So can you post one patch? And I am happy to fold it into this series.
-
-Thanks,
-Ming
+Yes, I'll sent it along later this week.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201118023507.GA92339%40T590.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201117183731.a3ee0b2d8e4cd81f8825d189%40linux-foundation.org.
