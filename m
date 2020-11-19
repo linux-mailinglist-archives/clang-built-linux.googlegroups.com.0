@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCCYRD4S2ALBBO453D6QKGQEUFLEMOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCYRD4S2ALBB2NB3D6QKGQEPAYUAYA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 067002B8B86
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Nov 2020 07:20:48 +0100 (CET)
-Received: by mail-pl1-x640.google.com with SMTP id x17sf2995691pll.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 22:20:47 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605766844; cv=pass;
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 78D4A2B8BA1
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Nov 2020 07:30:03 +0100 (CET)
+Received: by mail-oo1-xc3b.google.com with SMTP id c2sf1949041ooo.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Nov 2020 22:30:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605767402; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uP2CLO2Y6rUBQY1p2zX6VVAB7qfJvkCrfIyRulyPBJNQJPuTiJkC49xxXn6ebJayCo
-         icg5LSl/a1B5tk4PLhstCycVWCnLaLPItIe2uG+lPgQ6N0x7HhqWVxKxS11cZZS6hWXq
-         RJE4ngWtpLITW3us7PjLAF0REsH0wlRAHSEyKXcyjw3XVqZ5+y4Jk3EkDi3LjoFLBkGr
-         1cAY61cSba+cupfYooq0N5XC8J/KRmEaqN1RSnz9VCJxq6/I1O25EuC5qrqFi7ZD6Gm3
-         J+HbxNR112K0IvlazzvpMwcO0X010wAuUaVFY/weQczjpS8sbG7XXBSFnWl4J4AReJ65
-         4N4Q==
+        b=0YSkc+cOEnRQr/VFLGqH60ezOfWmI3ea0cBJmsec5y8UOj9Q87yekkZYGOvVEnJxsp
+         4L/nvxNKT2X2LEYyPvI1gcYCKiOtz/oYMcCf/v/bsbjVPo/Hm0BXOXztQPvRNEOzlHxs
+         KZnhap0KkuF2HQuywSMkK7PnezTY3j1+9X4TGExpZ1DFlKZeBTmkPZNMCfIhLYXz00T4
+         OXsVLY3TX06gzgye/2cZTJ2YATc9QtyXODiqRJ/do4hkXdrTHLtbOSrXrttOm1kduWfF
+         5cTNzFn9kHw0gszlf5/EEsehVdAxEMNUxDTowYCTf1ahlvR0IMdO38sZDO6DSFUBJByo
+         a0Ig==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:thread-index:mime-version:in-reply-to:references:from
          :dkim-signature;
-        bh=S+D/92Mk47kB/iWV0pniVBHXIddQKZOrRwVdMf6JKhU=;
-        b=p86vCIzgvMWbjuESkElQ6N+YyKeMMrQGHcClY6lxdRGnbcSHCoL+j71+0fWTUyVBPy
-         mF2zIkXgTUOF2TrKWB7UIDe6xOzBdjFbpFJq0yNN/LU3mk57f/XZ22gjhs6Y3nrEg7LC
-         BjmzHvteY+v93S/0oeFZ0WB4aupVnSgHXOWRZHBAn2arLRaeD2+sqmZQhH7zcQiBB8lo
-         ElDKykBcKfF8u+U6R6o9uKHa18hntOgze9F1HSV7I1P/KAY68CUoUGVO2ZxTX2QUSuc0
-         HVfM30CPpDpD3st9avZmVQ3emsE6qT2RwNoAwVlvc0fIOvk24FZ4WOUjW7wpAnTRJh+s
-         BOeA==
+        bh=F3sreHJM7wC4wUOwDvj6r8ATRcgfvxFhTCypUej+Ydc=;
+        b=Cv4CZ/oE3lFOw5lGKFRqn9UDDzTPGm5QbFRgiyyL5hZnot/B3Y1yScY2JgV1GL+vEi
+         3nlRl/G6z0vWxaCdCo3aDyskK6+MLFajJojVorHpnFxIpL7kBlXZiCiRGHIgtha+0oQf
+         ot9edebaFN2ez/F16gc5F0oW8bvT2Ao8+W2dLkN9nqU3hs5/t4Oa5zM8A+syThQA9uJq
+         67LhMlYZ+KQiaQHfmAYkwu/L/lvQ9enc2yYBHpXotKTCbrebNYH2axCOYrtysRDBUrJm
+         UBHQrqP/OzwvI5iZgFQnLcwZ1mURLqbX+XocosYWrQIWcXZja6muUpxIKmg5INFLrViY
+         V5TQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@broadcom.com header.s=google header.b=hefFpAZU;
-       spf=pass (google.com: domain of kashyap.desai@broadcom.com designates 2607:f8b0:4864:20::f29 as permitted sender) smtp.mailfrom=kashyap.desai@broadcom.com;
+       dkim=pass header.i=@broadcom.com header.s=google header.b=Ikft2VXJ;
+       spf=pass (google.com: domain of kashyap.desai@broadcom.com designates 2607:f8b0:4864:20::733 as permitted sender) smtp.mailfrom=kashyap.desai@broadcom.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=broadcom.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -37,13 +37,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=S+D/92Mk47kB/iWV0pniVBHXIddQKZOrRwVdMf6JKhU=;
-        b=RrVMI+AFnZbJXoaqDU2tPqETko+w6zSY0xdmaQzZWlB3tOCHurW7ZkwyHUNWimETRv
-         +TYU4qd5ZUWh4k+n0wLmnZE+XVN77jGRoKgIa/oXaq8k7i57H5ATQ2YzEEcYRi5BeeTy
-         ER7xeu1b5JO7RokfJi+P0ddvdDxhce2s/4h3eyJOMCDufHSvtfg8Os0xK3t///RyjNkX
-         9ChL6/j3D95dQIZeOsCFXZF8nFkqtvpwjd8dj2yImjkBP/c95LOE6zcI/+zODreGecOo
-         7tI05xZIm6iC8bzPIRsme5MioXkTBRh60rHROTVGi99JdNtAHhheAJTzYcHoRWuEcpZ1
-         fjwQ==
+        bh=F3sreHJM7wC4wUOwDvj6r8ATRcgfvxFhTCypUej+Ydc=;
+        b=Fl27qvkz15WdgosMY7h74pKZZJd7RZd1s4bY+YMnavWjeaup5+aUHi5jcKoJ4zsxFC
+         UURW/5FtDUxAT39KZWO8ROOsphaWelsJ3Ph1lA2/VcCzsUtFga+w3Fl5errcay3shZwS
+         b0LGsWOsrTFEZvElINyrOF/PrOTXgQXLTEF9KT5HmRWK10q4ftFerpDpfqCA8rrojccN
+         iE6Ns25ZaWFjW+myeYP4hmBVjz/GglKYLe3zvAdGcMu+tvwD7BGemiY59HmpgH2RWKON
+         1fJWwMrzecZlA2MhBwciyduUlVQJBrOu59b3i4DV1fLM4SJ9ur/rbqIb0HBOJQuMc88B
+         4rzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:from:references:in-reply-to:mime-version
@@ -51,78 +51,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S+D/92Mk47kB/iWV0pniVBHXIddQKZOrRwVdMf6JKhU=;
-        b=FUdVW35EKxsD2eOByU6fpoE+HE8E+sSf7SuQRMXzXSuiF0sL2ZYV4JhFRsczW7+OGW
-         ls/NxTsNc6uR3vfrLCztiaw5IWh4SqGCYa9CsiqbNKUvvxIBi4Z2rCzSsmHzRvX7yZfU
-         r5bLbdpVrjxBymVgNiLa+U6Co8/5bk6BXb8dirUjOLEaxfWl8SrFro4l0Vt+aeEBtg2x
-         uqjkW+ss+4N0r0o/PeyRwxYe6Z/9beAZxwh8NGp+UJGBt8H7fcus+SKrCW12KE/uZ3gD
-         KpxBcsPYBMfnunAjewP3kDaZBCOs+yMvDycJ234FG2NSIMUsAU7Vws8c/yD0rynp57gB
-         9tng==
-X-Gm-Message-State: AOAM532hpliYXZypd31m/iOrLTutZ+8ddh8ar/ElB1WGRErM2SMBj6De
-	kcKf5GXyJyUJLKaXztwgSCU=
-X-Google-Smtp-Source: ABdhPJwgUueg64CnOsrcbb9XmgzGixJE1RIlgDBkE8Q27mV9cEeXCF2jcvwQ91yTdrHwwMhvRYPCwQ==
-X-Received: by 2002:a17:902:a503:b029:d8:e685:3e58 with SMTP id s3-20020a170902a503b02900d8e6853e58mr7473891plq.68.1605766843398;
-        Wed, 18 Nov 2020 22:20:43 -0800 (PST)
+        bh=F3sreHJM7wC4wUOwDvj6r8ATRcgfvxFhTCypUej+Ydc=;
+        b=cXalIbmeQe3niBkBUtKH4zDp3M1qEQRtGj5r5t3wITYzFwxrTOCun3DXFZgYEzrypA
+         K1srfmXpN+EDzDHLY6QJGdyy3n+To/j2KFIqgfTEbKb/VRSZ1NiJzLpQ6XdlokUDBfm3
+         LsTTliP8H4kmSSngFcf5uM17BY9Synl7IHwxkiEXmobMNiGR1Bqqx9CsTDowwOz5Vfzx
+         B6bdXqyUliGvajnLnCMeRv5gY9XmQCgkPw43Eg5LrSypGFYfc9I57MmZzaKY7Vt1OEsh
+         mi4R7TOu9SAbeozVRHXWyVM4vDAHcFA2CaUhsaUKhcyshTbi7KWr4w5XQKsOVAAu/Rfb
+         k86g==
+X-Gm-Message-State: AOAM530h435RRmYPIkEAWMRqPaLh8n5FjXLxdzPstoQ+UUB2syYRXcXV
+	8n0q+SraxWDwXRIERDSJ0J0=
+X-Google-Smtp-Source: ABdhPJya9DHAc/jNVtyOAKcTXUimeadVy9ETXn9ngu3qLPigPSDFPKhXhqTXgBjOoXK5Faq6LbGdYg==
+X-Received: by 2002:aca:385:: with SMTP id 127mr1809724oid.20.1605767401901;
+        Wed, 18 Nov 2020 22:30:01 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:8055:: with SMTP id j82ls706665pfd.5.gmail; Wed, 18 Nov
- 2020 22:20:42 -0800 (PST)
-X-Received: by 2002:a63:f944:: with SMTP id q4mr11111678pgk.98.1605766842755;
-        Wed, 18 Nov 2020 22:20:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605766842; cv=none;
+Received: by 2002:a9d:bb2:: with SMTP id 47ls490588oth.9.gmail; Wed, 18 Nov
+ 2020 22:30:01 -0800 (PST)
+X-Received: by 2002:a9d:3b4:: with SMTP id f49mr9598120otf.188.1605767401476;
+        Wed, 18 Nov 2020 22:30:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605767401; cv=none;
         d=google.com; s=arc-20160816;
-        b=JtrzpvzmBEWJPz8qrtjoIbvNbn9dOMhjxkvt6rVkwl5ArZR2ciaxZCmt63cSmbwGd+
-         Db1G7HU5A/DQtA0epJCxKPldfci2tLK1m1JOgrSd6TVOuYsMeqJ2ZSWQ7WMBTJGum7iK
-         3Z0h7xDhEd3MqYl06UPkad65wyAfexXB0B49OdIwzYiGOyAlLlpFinxjQfD8CtJksoB+
-         23ItPQ7lqAwZxRl6FwYKCJ5hPIr1S1z8opErb6CuMmxDAeE6pWIA6q1EyymB7QhJ5ci9
-         QGkhXNqnuM1YXWjZzBNDVeLDU9nOcH+/80V209PbiYjCC3F9517rzbAiiN6yS6ghb15D
-         /jeQ==
+        b=jl4oMLDhM+Bu36nmlJJJ7EMrsUE8pLJl7DTHjsl9cN9cKeb44sJUxuB5zR6KuUlPyc
+         HC6sLpgMObdSXaM23O4DRLdzUB0Q52hgFnLddpHGdJl+1PlnYNg1Jpz3vrXv+QJCSyrp
+         bkUprINpUEZGp3sXc4SuXcP3ksXvA6golgGI9OBO4pegQ40Ob475cPX0R9063nRbPcvI
+         dyfmIFJLbnzaX9bDTzzuPJG0L4lyZ2po6tFg7VC3I1addnGxOty5VNLknw9vSzpx5dtA
+         x4D74aYtws//zoG4v4sZLwg5BQCfRoYBSD87tWSWgozmtJdnwZStYsi3D768GxeF2Kft
+         uEKA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:dkim-signature;
-        bh=b7RCSuYLKNzLjm2nZDn9zbxOdxe/SysXe6ELix/Iedo=;
-        b=xEdUDmT/nbeu0olNW9Lsckfhaxdi7voJ+UdAOVy5a8iIdaeB/m1rS4Fdf4udRH0cow
-         4i1fdm4cqyL0l2PorTk2Xe2NMNq/UlzsNcfDt44MN5T3qgVvPy6Pz4h1izMRHza/HDh8
-         IF7VUukU1urYy2DHsUDy9hmJbKt3OxiL9hFc/696cfKbk5dS0aZrTYQfovwE52/ZJzZ4
-         zFLFkiW12Y2IGe0iINy5XgU5DBKtizRvH0ozB+FJV7PDy850688qujaJisLlC/XLpoRj
-         d6XZ5lHjyr2m4NAn5Y1515MQLDzlFdkATJsyX/++YQX7DFtJUdY57CB/6dPmdcdG0Snt
-         ikGQ==
+        bh=Vos7zHHCXE0sfCJV6XBELetJv470N/6kXLEw6WaDVbE=;
+        b=bassHSzYH5Br2oECS9wUIuvapv9pKUsQYKrgkBIxNaWqO9LzZ3pjv3dCNI707Lu9EH
+         1j/hij6vvrb3FUkzswnOchJ67IMjCLsJzwJqgZuxMBT4243+LlMC4YhTT853Z5CT6iFr
+         q8uWpp3WAP/FGXVZqXruujBlSXKVH8RHXyMrlylex9zz8bK5RsM2CvXkpZguPKN5AGAG
+         el9JINvobgSKTaWxxewOyy3OyzycQ09GC/8+j5Six4msX0sC8YBZFRixMebv70n3hXIr
+         2BLcqM2j03QbV9wSLmfOOOiek7zZv19coXffKuykEhNjn7vzSOzghlJjqy2mtXBwZiBN
+         hihg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@broadcom.com header.s=google header.b=hefFpAZU;
-       spf=pass (google.com: domain of kashyap.desai@broadcom.com designates 2607:f8b0:4864:20::f29 as permitted sender) smtp.mailfrom=kashyap.desai@broadcom.com;
+       dkim=pass header.i=@broadcom.com header.s=google header.b=Ikft2VXJ;
+       spf=pass (google.com: domain of kashyap.desai@broadcom.com designates 2607:f8b0:4864:20::733 as permitted sender) smtp.mailfrom=kashyap.desai@broadcom.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=broadcom.com
-Received: from mail-qv1-xf29.google.com (mail-qv1-xf29.google.com. [2607:f8b0:4864:20::f29])
-        by gmr-mx.google.com with ESMTPS id a8si645256plp.4.2020.11.18.22.20.42
+Received: from mail-qk1-x733.google.com (mail-qk1-x733.google.com. [2607:f8b0:4864:20::733])
+        by gmr-mx.google.com with ESMTPS id e8si522384oiy.3.2020.11.18.22.30.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2020 22:20:42 -0800 (PST)
-Received-SPF: pass (google.com: domain of kashyap.desai@broadcom.com designates 2607:f8b0:4864:20::f29 as permitted sender) client-ip=2607:f8b0:4864:20::f29;
-Received: by mail-qv1-xf29.google.com with SMTP id 63so2337194qva.7
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Nov 2020 22:20:42 -0800 (PST)
-X-Received: by 2002:ad4:5888:: with SMTP id dz8mr9933116qvb.34.1605766841701;
- Wed, 18 Nov 2020 22:20:41 -0800 (PST)
+        Wed, 18 Nov 2020 22:30:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of kashyap.desai@broadcom.com designates 2607:f8b0:4864:20::733 as permitted sender) client-ip=2607:f8b0:4864:20::733;
+Received: by mail-qk1-x733.google.com with SMTP id v143so4445403qkb.2
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Nov 2020 22:30:01 -0800 (PST)
+X-Received: by 2002:a37:7f03:: with SMTP id a3mr9549191qkd.72.1605767400793;
+ Wed, 18 Nov 2020 22:30:00 -0800 (PST)
 From: "'Kashyap Desai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 References: <20201116090737.50989-13-ming.lei@redhat.com> <202011161944.U7XHrbsd-lkp@intel.com>
- <20201118023507.GA92339@T590>
-In-Reply-To: <20201118023507.GA92339@T590>
+ <20201118023507.GA92339@T590> <99089c7f-422b-3a61-a9c5-677a1e629862@suse.de> <20201118074405.GA111852@T590>
+In-Reply-To: <20201118074405.GA111852@T590>
 MIME-Version: 1.0
 X-Mailer: Microsoft Outlook 15.0
-Thread-Index: AQIS9sCgRF18gKjqcruTOMh+o2IV3QHxSRdOAbmfafepOSVGgA==
-Date: Thu, 19 Nov 2020 11:50:39 +0530
-Message-ID: <36b8e652641fefca6e8f95d3bbaaf3ca@mail.gmail.com>
+Thread-Index: AQIS9sCgRF18gKjqcruTOMh+o2IV3QHxSRdOAbmfafcBi0xdtQICciWJqRzGZbA=
+Date: Thu, 19 Nov 2020 11:59:58 +0530
+Message-ID: <4214ad35c463dccb26cc261a7d1fbb9e@mail.gmail.com>
 Subject: RE: [PATCH V4 12/12] scsi: replace sdev->device_busy with sbitmap
-To: Ming Lei <ming.lei@redhat.com>, kernel test robot <lkp@intel.com>, 
-	Sumanesh Samanta <sumanesh.samanta@broadcom.com>
-Cc: Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
+To: Ming Lei <ming.lei@redhat.com>, Hannes Reinecke <hare@suse.de>
+Cc: kernel test robot <lkp@intel.com>, Sumanesh Samanta <sumanesh.samanta@broadcom.com>, 
+	Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
 	"Martin K . Petersen" <martin.petersen@oracle.com>, linux-scsi@vger.kernel.org, 
 	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
-	Omar Sandoval <osandov@fb.com>, "Ewan D . Milne" <emilne@redhat.com>, Hannes Reinecke <hare@suse.de>
+	Omar Sandoval <osandov@fb.com>, "Ewan D . Milne" <emilne@redhat.com>
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="00000000000037ef5b05b46fbaf8"
+	boundary="0000000000008a103e05b46fdb1a"
 X-Original-Sender: kashyap.desai@broadcom.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@broadcom.com header.s=google header.b=hefFpAZU;       spf=pass
+ header.i=@broadcom.com header.s=google header.b=Ikft2VXJ;       spf=pass
  (google.com: domain of kashyap.desai@broadcom.com designates
- 2607:f8b0:4864:20::f29 as permitted sender) smtp.mailfrom=kashyap.desai@broadcom.com;
+ 2607:f8b0:4864:20::733 as permitted sender) smtp.mailfrom=kashyap.desai@broadcom.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=broadcom.com
 X-Original-From: Kashyap Desai <kashyap.desai@broadcom.com>
 Reply-To: Kashyap Desai <kashyap.desai@broadcom.com>
@@ -138,147 +138,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---00000000000037ef5b05b46fbaf8
+--0000000000008a103e05b46fdb1a
 Content-Type: text/plain; charset="UTF-8"
 
+> > From: Hannes Reinecke <hare@suse.de>
+> > Date: Wed, 18 Nov 2020 08:08:41 +0100
+> > Subject: [PATCH] megaraid_sas: use scsi_device_busy() instead of
+> > direct access  to atomic counter
 > >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
+> > It's always a bad style to access structure internals, especially if
+> > there is an accessor for it. So convert to use scsi_device_busy()
+> > intead of accessing the atomic counter directly.
 > >
-> > All errors (new ones prefixed by >>):
+> > Cc: Kashyap Desai <kashyap.desai@broadcom.com>
+> > Cc: Sumanesh Samanta <sumanesh.samanta@broadcom.com>
+> > Signed-off-by: Hannes Reinecke <hare@suse.de>
+> > ---
+> >  drivers/scsi/megaraid/megaraid_sas_fusion.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
 > >
-> > >> drivers/scsi/megaraid/megaraid_sas_fusion.c:365:41: error: no
-member
-> named 'device_busy' in 'struct scsi_device'
-> >            sdev_busy = atomic_read(&scmd->device->device_busy);
+> > diff --git a/drivers/scsi/megaraid/megaraid_sas_fusion.c
+> > b/drivers/scsi/megaraid/megaraid_sas_fusion.c
+> > index fd607287608e..272ff123bc6b 100644
+> > --- a/drivers/scsi/megaraid/megaraid_sas_fusion.c
+> > +++ b/drivers/scsi/megaraid/megaraid_sas_fusion.c
+> > @@ -362,7 +362,7 @@ megasas_get_msix_index(struct megasas_instance
+> *instance,
+> >  	/* TBD - if sml remove device_busy in future, driver
+> >  	 * should track counter in internal structure.
+> >  	 */
+> > -	sdev_busy = atomic_read(&scmd->device->device_busy);
+> > +	sdev_busy = scsi_device_busy(scmd->device);
 >
-> This new reference to sdev->device_busy is added by recent shared host
-tag
-> patch, and according to the comment, you may have planed to convert into
-> one megaraid internal counter.
+> megasas_get_msix_index() is called in .queuecommand() path,
+> scsi_device_busy() might take more cycles since it has to iterate over
+each
+> sbitmap words, especially when the sbitmap depth is high.
 >
->         /* TBD - if sml remove device_busy in future, driver
->          * should track counter in internal structure.
->          */
+> I'd suggest Kashyap/Sumanesh to check if there is better way to deal
+with it. If
+> not, scsi_device_busy() should be fine.
+
+Scsi_device_busy() add significant amount of overhead which will be
+visible in terms of reduced IOPS and high CPU cycle. I tested it earlier
+and noticed regression in performance.
+I posted megaraid_sas driver patch which will use internal per sdev
+outstanding similar to legacy sdev_busy counter.
+
+Kashyap
 >
-> So can you post one patch? And I am happy to fold it into this series.
-
-Ming - Please find the patch for megaraid_sas driver -
-I have used helper inline function just for inter-operability with older
-kernel to support in our out of box driver.
-This way it will be easy for us to replace helper function as per kernel
-version check.
-
-Subject: [PATCH] megaraid_sas: replace sdev_busy with local counter
-
----
- drivers/scsi/megaraid/megaraid_sas.h        |  2 ++
- drivers/scsi/megaraid/megaraid_sas_fusion.c | 34 ++++++++++++++++++---
- 2 files changed, 32 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/scsi/megaraid/megaraid_sas.h
-b/drivers/scsi/megaraid/megaraid_sas.h
-index 0f808d63580e..0c6a56b24c6e 100644
---- a/drivers/scsi/megaraid/megaraid_sas.h
-+++ b/drivers/scsi/megaraid/megaraid_sas.h
-@@ -2019,10 +2019,12 @@ union megasas_frame {
-  * struct MR_PRIV_DEVICE - sdev private hostdata
-  * @is_tm_capable: firmware managed tm_capable flag
-  * @tm_busy: TM request is in progress
-+ * @sdev_priv_busy: pending command per sdev
-  */
- struct MR_PRIV_DEVICE {
-        bool is_tm_capable;
-        bool tm_busy;
-+       atomic_t sdev_priv_busy;
-        atomic_t r1_ldio_hint;
-        u8 interface_type;
-        u8 task_abort_tmo;
-diff --git a/drivers/scsi/megaraid/megaraid_sas_fusion.c
-b/drivers/scsi/megaraid/megaraid_sas_fusion.c
-index fd607287608e..e813ea0ad8b7 100644
---- a/drivers/scsi/megaraid/megaraid_sas_fusion.c
-+++ b/drivers/scsi/megaraid/megaraid_sas_fusion.c
-@@ -220,6 +220,32 @@ megasas_clear_intr_fusion(struct megasas_instance
-*instance)
-        return 1;
- }
-
-+static inline void
-+megasas_sdev_busy_inc(struct scsi_cmnd *scmd)
-+{
-+       struct MR_PRIV_DEVICE *mr_device_priv_data;
-+
-+       mr_device_priv_data = scmd->device->hostdata;
-+       atomic_inc(&mr_device_priv_data->sdev_priv_busy);
-+}
-+static inline void
-+megasas_sdev_busy_dec(struct scsi_cmnd *scmd)
-+{
-+       struct MR_PRIV_DEVICE *mr_device_priv_data;
-+
-+       mr_device_priv_data = scmd->device->hostdata;
-+       atomic_dec(&mr_device_priv_data->sdev_priv_busy);
-+}
-+static inline int
-+megasas_sdev_busy_read(struct scsi_cmnd *scmd)
-+{
-+       struct MR_PRIV_DEVICE *mr_device_priv_data;
-+
-+       mr_device_priv_data = scmd->device->hostdata;
-+       return atomic_read(&mr_device_priv_data->sdev_priv_busy);
-+}
-+
-+
- /**
-  * megasas_get_cmd_fusion -    Get a command from the free pool
-  * @instance:          Adapter soft state
-@@ -359,10 +385,7 @@ megasas_get_msix_index(struct megasas_instance
-*instance,
- {
-        int sdev_busy;
-
--       /* TBD - if sml remove device_busy in future, driver
--        * should track counter in internal structure.
--        */
--       sdev_busy = atomic_read(&scmd->device->device_busy);
-+       sdev_busy = megasas_sdev_busy_read(scmd);
-
-        if (instance->perf_mode == MR_BALANCED_PERF_MODE &&
-            sdev_busy > (data_arms * MR_DEVICE_HIGH_IOPS_DEPTH)) {
-@@ -3390,6 +3413,7 @@ megasas_build_and_issue_cmd_fusion(struct
-megasas_instance *instance,
-         * Issue the command to the FW
-         */
-
-+       megasas_sdev_busy_inc(scmd);
-        megasas_fire_cmd_fusion(instance, req_desc);
-
-        if (r1_cmd)
-@@ -3450,6 +3474,7 @@ megasas_complete_r1_command(struct megasas_instance
-*instance,
-                scmd_local->SCp.ptr = NULL;
-                megasas_return_cmd_fusion(instance, cmd);
-                scsi_dma_unmap(scmd_local);
-+               megasas_sdev_busy_dec(scmd_local);
-                scmd_local->scsi_done(scmd_local);
-        }
- }
-@@ -3550,6 +3575,7 @@ complete_cmd_fusion(struct megasas_instance
-*instance, u32 MSIxIndex,
-                                scmd_local->SCp.ptr = NULL;
-                                megasas_return_cmd_fusion(instance,
-cmd_fusion);
-                                scsi_dma_unmap(scmd_local);
-+                               megasas_sdev_busy_dec(scmd_local);
-                                scmd_local->scsi_done(scmd_local);
-                        } else  /* Optimal VD - R1 FP command completion.
-*/
-                                megasas_complete_r1_command(instance,
-cmd_fusion);
---
-2.18.1
-
 >
 > Thanks,
 > Ming
@@ -286,9 +194,9 @@ cmd_fusion);
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/36b8e652641fefca6e8f95d3bbaaf3ca%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/4214ad35c463dccb26cc261a7d1fbb9e%40mail.gmail.com.
 
---00000000000037ef5b05b46fbaf8
+--0000000000008a103e05b46fdb1a
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -358,14 +266,14 @@ pNj4hlSJMNNqxNSqrKaD1cR4/oZVPFVnJJYlB01cLVjGMzta9x27e6XEtseo2s7aoPS2l82koMr7
 M+LbYxcXFT2gXvoYd2Ms8zsLrhO2M6pMzeNGWk2HWTof9s7EEHDjis/MRlbYSNaohV23IUzNlBw7
 1FmvvW5GKK0xggJvMIICawIBATBtMF0xCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWdu
 IG52LXNhMTMwMQYDVQQDEypHbG9iYWxTaWduIFBlcnNvbmFsU2lnbiAyIENBIC0gU0hBMjU2IC0g
-RzMCDDSdoX7GqonhoE7TszANBglghkgBZQMEAgEFAKCB1DAvBgkqhkiG9w0BCQQxIgQguVAe1QRB
-zOKbnc2lCOBcC5nExtMgWqr97ufyXWFY3IYwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkq
-hkiG9w0BCQUxDxcNMjAxMTE5MDYyMDQyWjBpBgkqhkiG9w0BCQ8xXDBaMAsGCWCGSAFlAwQBKjAL
+RzMCDDSdoX7GqonhoE7TszANBglghkgBZQMEAgEFAKCB1DAvBgkqhkiG9w0BCQQxIgQg5eyFB6ON
+G0ruzKDIcJXGcYPY2Qeo5XmjKJRvTM+8uFUwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkq
+hkiG9w0BCQUxDxcNMjAxMTE5MDYzMDAxWjBpBgkqhkiG9w0BCQ8xXDBaMAsGCWCGSAFlAwQBKjAL
 BglghkgBZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBCjALBgkqhkiG
-9w0BAQcwCwYJYIZIAWUDBAIBMA0GCSqGSIb3DQEBAQUABIIBAHOp9L42Ep7hufQFarmY70WeVU6b
-xjQZvXsGtFOsgZ6xYHJ7JqmUc9AMb6VINSSYowd/jQHFEUwc0KtodrkDn+5qlsKF7TR0HoZ7yTEV
-HCEz9ZUW/Wv48JrYEiO2SuoP0FO6iy8twKd+bIcw9pggRDyZgg3UsKDM+dc8aQlxB7/6EO7Oc1qk
-OVtjHGjJoecS1+jeupxyGn5I4LxHtr4sXmLirBhGcTOdDjQMFvKs1RxR9wCh0JBdQH+sGzK5E35Z
-GLtNoaj5hwn0p+HMk/lPykmrraMHSb8gtBoAfeACPZ8RJG7bPK2Q9AKQiarWnOCKT9VdeuUKoGwa
-Zh2lSiKTwVE=
---00000000000037ef5b05b46fbaf8--
+9w0BAQcwCwYJYIZIAWUDBAIBMA0GCSqGSIb3DQEBAQUABIIBALKttNuNrRDBT4yt8xWXTobYRQvR
+6x4DroY8u1kgJqi4jg1FVu+X02CzLn4axVLiMCNnsPA1oUUOWNtpcG8CN0V20Ow62QCuktAqDiJy
+MpUcj7zZTlTxq0UHx0bVg67hbA1rp+geSEjdcpOsTxaL7V9pAAoU20eZuy8bcryer7B7fu7C1yIu
+BxNMQW+iP6t+BxyN/LbCQcZ4KrM1rT03l4eMV7fYy7BXZiSjTcUSoevB38jAaQ9BDY1PZErUDFsh
+z4wd9K2ZeQPMovpvaNVl9PJnzhOHP4vrEzXh1WRrfBMDaEJBFQMy76hKmkzVzWxE7TjTXf/4B5Rq
+neFyO9R8ImU=
+--0000000000008a103e05b46fdb1a--
