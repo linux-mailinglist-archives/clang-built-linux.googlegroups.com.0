@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBF5O4H6QKGQEN2ZK4KA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBE5Q4H6QKGQE76H527Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 775D02BBA63
-	for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 00:54:00 +0100 (CET)
-Received: by mail-oi1-x237.google.com with SMTP id h19sf5202258oib.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Nov 2020 15:54:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605916439; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E2762BBA6C
+	for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 00:58:12 +0100 (CET)
+Received: by mail-pg1-x539.google.com with SMTP id i6sf7967081pgg.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Nov 2020 15:58:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605916691; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KUplbbIAmBarpeSiOpCBtgQewprN30wcdsk5ixSZcwYdmOaZnV3oY5GqhmpDF0nqJL
-         KnWhSLRERU1N/eKjEaHTRkODPxb2yU/NrrzgSL0GUnqx5H0ZXkWhKwMsPJVGn/4u9sc8
-         uLKR4PlAKXtdA8eOFVN/BveLmWTLyjZ/lUKLzY6ngILvGZQtmQuIhpJnfv+lZpVcTaxA
-         1poEv6EzWxaevnnFqHyVUuQ/aD1re/YgtnzfmZcf74IPpeBqJtt7NSvF3DRMOYqgazdk
-         d2TQ2c1/1BvBoBBRRP9gj8nwa9XzhcWcILmjA+bcgfJNre6GZhY+OMn/Lp5gN2t127NI
-         Xs+Q==
+        b=DAWd8dD3NfA0dPeY6mhPwkJCvkeftL76wxE8unBVnVydhCgYKFDiTgYkyNmzIIRykv
+         ZQDnlomkbV7p4LvEp5tNmVY7rxXWWk4eXfkjM5cCQ+o9Xnt7+1TlHZKnzdooMnRmGvMS
+         l8/x4IrC7xJPZ0hh6qtuBZD7uv2mkmddTkQBZgz71zvUdSXxepu2NT5wi+Ib6ZVunpmX
+         srTMkyvj7xzoubFd8W6uJg+ZAsJmqtdJ7DfUbgt1KZjUmGfu0gkcrpTvZ9NP7/v4S0FB
+         ua78AKXhha2W9A0eiG48AXWbFUhfxtHuFvk3/NDJNRbdQkYR/FQCE2dTav68TogGJVCm
+         fgpw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=YcbTJpH9InhWhs8rjquFTrPsaWqeK0WUDzR++lfYC2Y=;
-        b=GssCXqfo/ntRh3xI0GE0mKX/jWlJ+aKYTR7KShXLpSNj/FjS6VNT3ucUVvUVZWXsGv
-         LVijFdtCz0cCgx5oRPruo1N2i4KeQflxyphTCF/ZZIwwRbz5KyVdMIg/jg7RQM7kev+e
-         LaaUZLfzYGUQp+BDKzzTNSbTBGj0jxu5A6J2O6LkD4+StisyM77ArQZse09Nm7A33qU1
-         rW9d6xI6TUggtCLSUSqsJl9Ca78KZFo0qYZzP3dfWaird+p+GNIgwcbYJFONLdL/sQDt
-         y5zuxv1J0UYIbZOLD0Ldhc+NeoTm2IDLKBsVRzTCuPciJ4AwAFl2yoabTx8AHV/FjhaY
-         HhqA==
+        bh=KdN1bKxaNES/DQ6KDI2nXMOFTbmSxXZDIS8lxUy4HyM=;
+        b=Z7p7/EhGoP4AWSp01hYHcOIQ61qzvq0SOsOA+DN/K+db/w/zZxV3VHvJoZnj8aMrve
+         PPmYjv4mRovi+Uh3SDJ5nQM24bur5MZpbA0V56an0vrqM4HKZ6xfGUdVJPCz2zjWbgLq
+         dH4ekXIOLCr/oh1ZapUgD2My0bYnkrOXrpjgSkTtqX1bUvqkA7WgDoSGuD4HsFd6KYF+
+         vWhw429U4vMriKttyUdaJkylqIu3JwrERNClxBSVKqsjzcczL9xGKdl9BXkmWqO5u5Vo
+         dPM0T7dbxP3e5BaygzV/4eEA4oig4F1WXv6UVocEYRP3NsMNvi5ua5ArIRRJS+msAD/D
+         Qb/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mdmSYKuo;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QG7NcOBY;
+       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=jiancai@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YcbTJpH9InhWhs8rjquFTrPsaWqeK0WUDzR++lfYC2Y=;
-        b=EDi6bx4gHkS8hFF2Rwl2kOp+x0rN/qWmMSiCEth5Xeehlsz6IwnapapsB8rJc1gJj0
-         T2cnfekfiaMOdnTtN1p0wQDlLdXo/4M/+l6vXI/vnjR5eByA6BK3DPMdAgZl0CdiDbnV
-         mJ++hySSwg3scZDEphIU51sYwlNN68MWiS+ir89ighkBr6b3exoW1pyvFBm7IoVYr2v0
-         sAWv1s26ld35n3V6NVlnfn9vezfCbovCsRg7Bi4qjfyXn/ZAYtL5Itf7QI2+adl24lH1
-         UCAig6GQHU6gmin3wEHbl9IfN6KAGBwcB1J3aTBOrXjyqrHQ5MFuIZIn5/fRCM6t6t4u
-         jj7g==
+        bh=KdN1bKxaNES/DQ6KDI2nXMOFTbmSxXZDIS8lxUy4HyM=;
+        b=cAFpwrIM7FznPD0MHeheK3Psin3MKtoB3sMGyzcCy2PFG9FJy5zJqF9ab6J+vZEEk/
+         uBFVJTxnrsUtqVNtf0N1OMHCTXh6955c7/Xnmp/5XoYwgT/9RS10hX9WEcFySEftBtmX
+         0T4MIZ+g87A90iJUElg65Npy8g3IZLz0f8ZuI+eFF79GbXO2pLMI1vPTc4+1bFkoFP/X
+         bus2nhjurAVtwizatwB9HEaWJd7LVIX/3DyMKQIJD0YGDGkrKEXZJmaL6SavfmokuNBk
+         29F/iB7Q+fZrcmUvMz/eqs48pVr0sbvsuJetYfEr7Vr45jvRcpOqiQrp9OQ4swDIisp6
+         a4BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,86 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YcbTJpH9InhWhs8rjquFTrPsaWqeK0WUDzR++lfYC2Y=;
-        b=qB03+7PoLDLiW6DhA5fe00Mq7qkNfhW/ZkloG0fSxJ0KXSjtZg11eVikDaosrhjUN8
-         lMBdSKQECH7o0kYgNKdi6OYXWYM6Jn0EFALk0M9Dgf/UwnVL2s3+MJM8LhphudvYhYTj
-         xpw9RRBEpMvDXyXgnI4KMuKIoxHhfivMFw5k7yjMQmubZ3R6+AXLgn76kKKTWtpySBIr
-         lmDi9HctEaiSgIilHTcjV+KiIBet5dqtxg7K3LkU/5zFEM0Mv/LCS4+ISez0eGaeoGhy
-         /U4433kiI9gmCVhgX80A1FKW66iVpOqVBEs1RA8Kmy6t2B9KcSUlBqofR+4UyD9YZR7o
-         z3og==
-X-Gm-Message-State: AOAM530bwOeYKgXe07t51a1YYZmmXO2cKhThXeHs2a/zZi5R0DHmi+td
-	pbPnJkS+ns7izJPskj2gmLQ=
-X-Google-Smtp-Source: ABdhPJy2dlhp99CZpc1xVnOe1LI94LFDUMFapoQfUqNTUpywoPFgN8iMhfrXQOr/fDmUPDR3wDUfSA==
-X-Received: by 2002:a9d:a0d:: with SMTP id 13mr14523603otg.348.1605916439452;
-        Fri, 20 Nov 2020 15:53:59 -0800 (PST)
+        bh=KdN1bKxaNES/DQ6KDI2nXMOFTbmSxXZDIS8lxUy4HyM=;
+        b=DUu38+6H7b8mh183F3g8K6mrEVv6nO7pqFSecmst+qK7Cn9TOuCSzQ9p6nQs3Nghw7
+         nJu0Ki8AEwGIUsBeV5iuTXsz8Yj0fuLrPM3iI9NwmGhs4VHWyHJRhzPZUAhJwwg+gL0x
+         jetbsGXT+hZqxtSZAUVsPon/yvfxmS4gjPSCJHUQSbtSRFkjIhI8BncCjaSzCRv/gBqb
+         4MT+F/ZwweZsBNzSHO1+Lc9uNeYyhMm1M3K3u5xiJdPNVfO6M9gJD4IBMywELZTkKD9V
+         0aDVkziPVnHVCudyb5dEWTqclRleXUQcnzmZknhkeTdoGo8bvqs7TPDEZ6Eh4uOG8jT4
+         qXDw==
+X-Gm-Message-State: AOAM530+nMhiW4A+WECAghXKTu8AAReElmAJRKyRsJokIGxzaH3/y3Fj
+	53W/Wz3o2Q3+UEtv6+5KAHI=
+X-Google-Smtp-Source: ABdhPJwn8Fr1iGEmGjWX2DIahJKhRGaR0w9n/MZkKQPKMJZm1gvCweDfwQEm9w1+8IiHAD/5dG9upg==
+X-Received: by 2002:a63:cc50:: with SMTP id q16mr19956048pgi.246.1605916691182;
+        Fri, 20 Nov 2020 15:58:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:2238:: with SMTP id o53ls480733ota.9.gmail; Fri, 20 Nov
- 2020 15:53:59 -0800 (PST)
-X-Received: by 2002:a9d:2c68:: with SMTP id f95mr16007846otb.300.1605916438954;
-        Fri, 20 Nov 2020 15:53:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605916438; cv=none;
+Received: by 2002:a17:90a:c253:: with SMTP id d19ls4371109pjx.2.canary-gmail;
+ Fri, 20 Nov 2020 15:58:10 -0800 (PST)
+X-Received: by 2002:a17:90a:5309:: with SMTP id x9mr12754632pjh.98.1605916690535;
+        Fri, 20 Nov 2020 15:58:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605916690; cv=none;
         d=google.com; s=arc-20160816;
-        b=fcyE+MgHw2vsksFzSGMidN4Jzn1sKkgAw6qI/PWdpo4Q6mVeder5/NSw9z4sKjT/pl
-         2dIVGVRKS6ObVl+etdXbex8zz1CDLDP/e9tf32NsmkHvZKQAE3uELmoimg9cChfHoRgQ
-         5vcsgHbzKpDIPqzAdbanEx3mR5gOV8f3pcbHwAtivV1B261Il5vpnzrm+wLj12tJP9om
-         XmoFCUqNJ8gAVtJUCBzl3H19bTXLvFvRG5esduXLWva4BNs0iuuav/SqjfRLPoX/ZqMs
-         DvRtsrRrmKswrnOsFV4i2QjBJjL+vdGDqxuQ4yfuE7K0qRRaSyYVltcRtFmMfp4gKcq9
-         PJdQ==
+        b=BYgY1Wih6DK1h1ew71dewjZRWtFru8fcZLvdos72UoTnTeRWHU+FmqOJkZa33DeX6A
+         1Xff3Lykw65ToCZi7nNYhoXvrmIKw3rhEtV4i1B1E9bc9WLsRfoyfAdSwsfqHKn7sz3w
+         DZ+52U4nVs9/BJA/ZUalEfip0bbIHxOpi189x5TtfrPPg7Lf1hTcyBSxDHCx8y058RaQ
+         Dur+3m59Om4ndLtyZNxTYrtN1r4X90gTnGuTvITSF6bhnVEFxn+jx7marmCp69XAtdiC
+         eGabBWlVTu6K8zNWOlVkkWJTFZ15iiGxGaj9eVHmnyAZoBTEdIuhg3hnDGf1G87Dh0j7
+         5Orw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=/9QmQzu0viMhe1+E2AuJjw4yABAqeWJl/tuV7zSeb+U=;
-        b=wlm0rYKyB9sIiBwj4LE6lVe7wK2SFEK8qSaIzT75S9JFK6aDp1oD3WjDkI6oXSLyfy
-         tju3145CV4+8cO0plWeyLWSA70aljCu6y91z+7bHnfT3+I3Pdt53kOAe9GIVG4T9V3Ag
-         6XYbI0DZoLa62gaiG6ZrCVeIWJeF9JmD1/Fco4zn2SXUnkWftHRW61Y3Z0Ckgz/39UHn
-         jzPIxGe6eawZfCA5dFpYWKrDJPpksddv3sE+49PnEL3X7vVwXo2pK3x7JtzBNfyXr4NY
-         msqEQXhuLGJoThG5INeGJwQuLDS0qfPiMPedhv2BJBLvMuNmjVWSBcGTdmoSN2WmBAUF
-         CXsA==
+        bh=4Dbi+vkbIkEmap+Q/rdwNz/UUSy4EJeRwsiSm1rxFRE=;
+        b=YUorJadTmC9OjVaZoLj9+LzE++vqp0aUNN38OnPlKw7Hho7nSy2g+vySpwEiX+2ILS
+         BaUm735U+9PDZn3nIGVoH70z+xCaRzwtLcZN4GPG9iWAnbDz24r+W5WxIHBXz25nzALs
+         uVk9VEjVCU7U31WGqLBxA1bg/J99VJNtXy4lPsN9HjyPnGFGnW28vGUK6JAhOuA4s/1A
+         3hzgdZ7EHTaJV81wVYnug2aSb2sTUO2idqSf6dTkKRt9QPCNduCEocr5/PZfpdIRrA49
+         jcrcEXncOju0ZrbuBAlck37lfNSRtY0nT3rVXaab28WyStcAjdwADSuv+WE/qbpbPByO
+         69tQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mdmSYKuo;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QG7NcOBY;
+       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=jiancai@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id o26si604164otk.2.2020.11.20.15.53.58
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id v17si244666pjr.2.2020.11.20.15.58.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2020 15:53:58 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id 81so8692388pgf.0
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Nov 2020 15:53:58 -0800 (PST)
-X-Received: by 2002:a17:90a:6b04:: with SMTP id v4mr13286585pjj.101.1605916438104;
- Fri, 20 Nov 2020 15:53:58 -0800 (PST)
+        Fri, 20 Nov 2020 15:58:10 -0800 (PST)
+Received-SPF: pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id b63so9390960pfg.12
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Nov 2020 15:58:10 -0800 (PST)
+X-Received: by 2002:a63:1a1d:: with SMTP id a29mr18731306pga.19.1605916690123;
+ Fri, 20 Nov 2020 15:58:10 -0800 (PST)
 MIME-Version: 1.0
-References: <20201118220731.925424-1-samitolvanen@google.com>
- <CAKwvOd=5PhCTZ-yHr08gPYNEsGEjZa=rDY0-unhkhofjXhqwLQ@mail.gmail.com>
- <CAMj1kXEVzDi5=uteUAzG5E=j+aTCHEbMxwDfor-s=DthpREpyw@mail.gmail.com>
- <CAKwvOdmpBNx9iSguGXivjJ03FaN5rgv2oaXZUQxYPdRccQmdyQ@mail.gmail.com> <CAMj1kXEoPEd6GzjL1XuxTPwitbR03BiBEXpAGtUytMj-h=vCkg@mail.gmail.com>
-In-Reply-To: <CAMj1kXEoPEd6GzjL1XuxTPwitbR03BiBEXpAGtUytMj-h=vCkg@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 20 Nov 2020 15:53:45 -0800
-Message-ID: <CAKwvOdmk1D0dLDOHEWX=jHpUxUT2JbwgnF62Qv3Rv=coNPadHg@mail.gmail.com>
-Subject: Re: [PATCH v7 00/17] Add support for Clang LTO
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	PCI <linux-pci@vger.kernel.org>, Alistair Delva <adelva@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+References: <CAKwvOd=9iqLgdtAWe2h-9n=KUWm_rjCCJJYeop8PS6F+AA0VtA@mail.gmail.com>
+ <20201109183528.1391885-1-ndesaulniers@google.com> <CAKwvOdnxAr7UdjUiuttj=bz1_voK1qUvpOvSY35qOZ60+E8LBA@mail.gmail.com>
+In-Reply-To: <CAKwvOdnxAr7UdjUiuttj=bz1_voK1qUvpOvSY35qOZ60+E8LBA@mail.gmail.com>
+From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 20 Nov 2020 15:57:59 -0800
+Message-ID: <CA+SOCLJTg6U+Ddop_5O-baVR42va3vGAvMQ62o9H6rd+10aKrw@mail.gmail.com>
+Subject: Re: [PATCH v3] Kbuild: do not emit debug info for assembly with LLVM_IAS=1
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-toolchains@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	Dmitry Golovin <dima@golovin.in>, Alistair Delva <adelva@google.com>, "# 3.4.x" <stable@vger.kernel.org>
+Content-Type: multipart/alternative; boundary="000000000000daff0f05b4929d3c"
+X-Original-Sender: jiancai@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=mdmSYKuo;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=QG7NcOBY;       spf=pass
+ (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=jiancai@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+X-Original-From: Jian Cai <jiancai@google.com>
+Reply-To: Jian Cai <jiancai@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,66 +134,201 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Nov 20, 2020 at 3:30 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+--000000000000daff0f05b4929d3c
+Content-Type: text/plain; charset="UTF-8"
+
+I also verified that with this patch Chrome OS devices booted with either
+GNU assembler or LLVM's integrated assembler. With this patch, IAS no
+longer produces extra warnings compared to GNU as on Chrome OS and would
+remove the last blocker of enabling IAS on it.
+
+Tested-by: Jian Cai <jiancai@google.com> # Compile-tested on mainline (with
+defconfig) and boot-tested on ChromeOS (with olddefconfig).
+
+
+On Mon, Nov 16, 2020 at 3:41 PM 'Nick Desaulniers' via Clang Built Linux <
+clang-built-linux@googlegroups.com> wrote:
+
+> Hi Masahiro, have you had time to review v3 of this patch?
 >
-> On Fri, 20 Nov 2020 at 21:19, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> On Mon, Nov 9, 2020 at 10:35 AM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
 > >
-> > On Fri, Nov 20, 2020 at 2:30 AM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > >
-> > > On Thu, 19 Nov 2020 at 00:42, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> > > >
-> > > > Thanks for continuing to drive this series Sami.  For the series,
-> > > >
-> > > > Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> > > >
-> > > > I did virtualized boot tests with the series applied to aarch64
-> > > > defconfig without CONFIG_LTO, with CONFIG_LTO_CLANG, and a third time
-> > > > with CONFIG_THINLTO.  If you make changes to the series in follow ups,
-> > > > please drop my tested by tag from the modified patches and I'll help
-> > > > re-test.  Some minor feedback on the Kconfig change, but I'll post it
-> > > > off of that patch.
-> > > >
-> > >
-> > > When you say 'virtualized" do you mean QEMU on x86? Or actual
-> > > virtualization on an AArch64 KVM host?
+> > Clang's integrated assembler produces the warning for assembly files:
 > >
-> > aarch64 guest on x86_64 host.  If you have additional configurations
-> > that are important to you, additional testing help would be
-> > appreciated.
+> > warning: DWARF2 only supports one section per compilation unit
+> >
+> > If -Wa,-gdwarf-* is unspecified, then debug info is not emitted for
+> > assembly sources (it is still emitted for C sources).  This will be
+> > re-enabled for newer DWARF versions in a follow up patch.
+> >
+> > Enables defconfig+CONFIG_DEBUG_INFO to build cleanly with
+> > LLVM=1 LLVM_IAS=1 for x86_64 and arm64.
+> >
+> > Cc: <stable@vger.kernel.org>
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/716
+> > Reported-by: Dmitry Golovin <dima@golovin.in>
+> > Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+> > Suggested-by: Dmitry Golovin <dima@golovin.in>
+> > Suggested-by: Nathan Chancellor <natechancellor@gmail.com>
+> > Suggested-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > Reviewed-by: Fangrui Song <maskray@google.com>
+> > Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> > ---
+> >  Makefile | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/Makefile b/Makefile
+> > index f353886dbf44..7e899d356902 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -826,7 +826,9 @@ else
+> >  DEBUG_CFLAGS   += -g
+> >  endif
+> >
+> > +ifneq ($(LLVM_IAS),1)
+> >  KBUILD_AFLAGS  += -Wa,-gdwarf-2
+> > +endif
+> >
+> >  ifdef CONFIG_DEBUG_INFO_DWARF4
+> >  DEBUG_CFLAGS   += -gdwarf-4
+> > --
+> > 2.29.2.222.g5d2a92d10f8-goog
 > >
 >
-> Could you run this on an actual phone? Or does Android already ship
-> with this stuff?
-
-By `this`, if you mean "the LTO series", it has been shipping on
-Android phones for years now, I think it's even required in the latest
-release.
-
-If you mean "the LTO series + mainline" on a phone, well there's the
-android-mainline of https://android.googlesource.com/kernel/common/,
-in which this series was recently removed in order to facilitate
-rebasing Android's patches on ToT-mainline until getting the series
-landed upstream.  Bit of a chicken and the egg problem there.
-
-If you mean "the LTO series + mainline + KVM" on a phone; I don't know
-the precise state of aarch64 KVM and Android (Will or Marc would
-know).  We did experiment recently with RockPI's for aach64 KVM, IIRC;
-I think Android is tricky as it still requires A64+A32/T32 chipsets,
-Alistair would know more.  Might be interesting to boot a virtualized
-(or paravirtualized?) guest built with LTO in a host built with LTO
-for sure, but I don't know if we have tried that yet (I think we did
-try LTO guests of android kernels, but I think they were on the stock
-RockPI host BSP image IIRC).
-
-> > > The distinction is important here, given the potential impact of LTO
-> > > on things that QEMU simply does not model when it runs in TCG mode on
-> > > a foreign host architecture.
-
--- 
-Thanks,
-~Nick Desaulniers
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
+>
+> --
+> You received this message because you are subscribed to the Google Groups
+> "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an
+> email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit
+> https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnxAr7UdjUiuttj%3Dbz1_voK1qUvpOvSY35qOZ60%2BE8LBA%40mail.gmail.com
+> .
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmk1D0dLDOHEWX%3DjHpUxUT2JbwgnF62Qv3Rv%3DcoNPadHg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLJTg6U%2BDdop_5O-baVR42va3vGAvMQ62o9H6rd%2B10aKrw%40mail.gmail.com.
+
+--000000000000daff0f05b4929d3c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">I also verified that with this patch Chrome OS devices boo=
+ted with either GNU assembler or LLVM&#39;s integrated assembler. With this=
+ patch, IAS no longer produces extra warnings compared to GNU as on Chrome =
+OS and would remove the last blocker of enabling=C2=A0IAS on it.<br><div><b=
+r></div><div>Tested-by: Jian Cai &lt;<a href=3D"mailto:jiancai@google.com" =
+target=3D"_blank">jiancai@google.com</a>&gt; # Compile-tested on mainline (=
+with defconfig) and boot-tested on ChromeOS (with olddefconfig).<div class=
+=3D"gmail-yj6qo gmail-ajU" style=3D"outline:none;padding:10px 0px;width:22p=
+x;margin:2px 0px 0px"><br class=3D"gmail-Apple-interchange-newline"></div><=
+/div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_a=
+ttr">On Mon, Nov 16, 2020 at 3:41 PM &#39;Nick Desaulniers&#39; via Clang B=
+uilt Linux &lt;<a href=3D"mailto:clang-built-linux@googlegroups.com">clang-=
+built-linux@googlegroups.com</a>&gt; wrote:<br></div><blockquote class=3D"g=
+mail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204=
+,204,204);padding-left:1ex">Hi Masahiro, have you had time to review v3 of =
+this patch?<br>
+<br>
+On Mon, Nov 9, 2020 at 10:35 AM Nick Desaulniers<br>
+&lt;<a href=3D"mailto:ndesaulniers@google.com" target=3D"_blank">ndesaulnie=
+rs@google.com</a>&gt; wrote:<br>
+&gt;<br>
+&gt; Clang&#39;s integrated assembler produces the warning for assembly fil=
+es:<br>
+&gt;<br>
+&gt; warning: DWARF2 only supports one section per compilation unit<br>
+&gt;<br>
+&gt; If -Wa,-gdwarf-* is unspecified, then debug info is not emitted for<br=
+>
+&gt; assembly sources (it is still emitted for C sources).=C2=A0 This will =
+be<br>
+&gt; re-enabled for newer DWARF versions in a follow up patch.<br>
+&gt;<br>
+&gt; Enables defconfig+CONFIG_DEBUG_INFO to build cleanly with<br>
+&gt; LLVM=3D1 LLVM_IAS=3D1 for x86_64 and arm64.<br>
+&gt;<br>
+&gt; Cc: &lt;<a href=3D"mailto:stable@vger.kernel.org" target=3D"_blank">st=
+able@vger.kernel.org</a>&gt;<br>
+&gt; Link: <a href=3D"https://github.com/ClangBuiltLinux/linux/issues/716" =
+rel=3D"noreferrer" target=3D"_blank">https://github.com/ClangBuiltLinux/lin=
+ux/issues/716</a><br>
+&gt; Reported-by: Dmitry Golovin &lt;<a href=3D"mailto:dima@golovin.in" tar=
+get=3D"_blank">dima@golovin.in</a>&gt;<br>
+&gt; Reported-by: Nathan Chancellor &lt;<a href=3D"mailto:natechancellor@gm=
+ail.com" target=3D"_blank">natechancellor@gmail.com</a>&gt;<br>
+&gt; Suggested-by: Dmitry Golovin &lt;<a href=3D"mailto:dima@golovin.in" ta=
+rget=3D"_blank">dima@golovin.in</a>&gt;<br>
+&gt; Suggested-by: Nathan Chancellor &lt;<a href=3D"mailto:natechancellor@g=
+mail.com" target=3D"_blank">natechancellor@gmail.com</a>&gt;<br>
+&gt; Suggested-by: Sedat Dilek &lt;<a href=3D"mailto:sedat.dilek@gmail.com"=
+ target=3D"_blank">sedat.dilek@gmail.com</a>&gt;<br>
+&gt; Reviewed-by: Fangrui Song &lt;<a href=3D"mailto:maskray@google.com" ta=
+rget=3D"_blank">maskray@google.com</a>&gt;<br>
+&gt; Reviewed-by: Nathan Chancellor &lt;<a href=3D"mailto:natechancellor@gm=
+ail.com" target=3D"_blank">natechancellor@gmail.com</a>&gt;<br>
+&gt; Signed-off-by: Nick Desaulniers &lt;<a href=3D"mailto:ndesaulniers@goo=
+gle.com" target=3D"_blank">ndesaulniers@google.com</a>&gt;<br>
+&gt; ---<br>
+&gt;=C2=A0 Makefile | 2 ++<br>
+&gt;=C2=A0 1 file changed, 2 insertions(+)<br>
+&gt;<br>
+&gt; diff --git a/Makefile b/Makefile<br>
+&gt; index f353886dbf44..7e899d356902 100644<br>
+&gt; --- a/Makefile<br>
+&gt; +++ b/Makefile<br>
+&gt; @@ -826,7 +826,9 @@ else<br>
+&gt;=C2=A0 DEBUG_CFLAGS=C2=A0 =C2=A0+=3D -g<br>
+&gt;=C2=A0 endif<br>
+&gt;<br>
+&gt; +ifneq ($(LLVM_IAS),1)<br>
+&gt;=C2=A0 KBUILD_AFLAGS=C2=A0 +=3D -Wa,-gdwarf-2<br>
+&gt; +endif<br>
+&gt;<br>
+&gt;=C2=A0 ifdef CONFIG_DEBUG_INFO_DWARF4<br>
+&gt;=C2=A0 DEBUG_CFLAGS=C2=A0 =C2=A0+=3D -gdwarf-4<br>
+&gt; --<br>
+&gt; 2.29.2.222.g5d2a92d10f8-goog<br>
+&gt;<br>
+<br>
+<br>
+-- <br>
+Thanks,<br>
+~Nick Desaulniers<br>
+<br>
+-- <br>
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br>
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux%2Bunsubscribe@googlegroups.com"=
+ target=3D"_blank">clang-built-linux+unsubscribe@googlegroups.com</a>.<br>
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAKwvOdnxAr7UdjUiuttj%3Dbz1_voK1qUvpOvSY35qOZ6=
+0%2BE8LBA%40mail.gmail.com" rel=3D"noreferrer" target=3D"_blank">https://gr=
+oups.google.com/d/msgid/clang-built-linux/CAKwvOdnxAr7UdjUiuttj%3Dbz1_voK1q=
+UvpOvSY35qOZ60%2BE8LBA%40mail.gmail.com</a>.<br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CA%2BSOCLJTg6U%2BDdop_5O-baVR42va3vGAvMQ62o9H6=
+rd%2B10aKrw%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https:=
+//groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLJTg6U%2BDdop_5O-baVR=
+42va3vGAvMQ62o9H6rd%2B10aKrw%40mail.gmail.com</a>.<br />
+
+--000000000000daff0f05b4929d3c--
