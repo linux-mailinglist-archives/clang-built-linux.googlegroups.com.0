@@ -1,113 +1,119 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBB54T4X6QKGQEEROC3KI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXO746SYYBRBBMY4X6QKGQETGITBPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B7342BC0CA
-	for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 18:10:17 +0100 (CET)
-Received: by mail-qv1-xf3d.google.com with SMTP id r5sf6418614qvr.15
-        for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 09:10:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1605978616; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B44D2BC0F1
+	for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 18:19:03 +0100 (CET)
+Received: by mail-qk1-x73e.google.com with SMTP id x85sf10970732qka.14
+        for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 09:19:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1605979142; cv=pass;
         d=google.com; s=arc-20160816;
-        b=D+6gPD4rVgrtcOxdIJx64X/Xfwpyu7iASOmWGSjRbBQ9LHsM/MgUm6zhFfCOi/iRNS
-         Xwt0FU5lhkQ+gFlivwjC7XhdKZyXwT8CaLzsePFchxlUgTtqGi2Xumf5eda59igkOBuC
-         K9CtVBO6btkwy0Cz2bkRbOXsbcbCIcZ0hWtTl8Ap043+MTXPi5vmfTdajdzTHfvOahDq
-         YJ9yeypxDHI4psvSjUXxZ+G/ODiy0NWMGbTFxrdat95857dQM34ySWn+1QpWnd/RK1CS
-         DVV9LSDITQf454tMU2ryCFEtmBlgcmF4HX+f4pBuvIk06FW1/4iapzRmU9vYrIwbZcqu
-         gPnQ==
+        b=un/QBKTDvpe3wg3FzcNyWQ6q1wBSybFuE67BV1fX6lfB2a6l+GOjLM4pNVaFmVZoLL
+         mw1Dh+FBwKz5+uzOzwnCD/4355d6CB5o1IcgFHxIaz8+5UVvfF81w+tdOGyk8aqI5VAY
+         fEhyo1sV+NYoeP91sjmQrQ+Kc9vcaL8p9uzCpqdwHtkG+3OtJLBJu4VWZrLgeJYh46Zv
+         M8dgbS9daH7Nt2iSGhBSZ7/kJafRaWlnOZGTBMfnMqhamryCIlj5xa/pM1q7SZ3D/F5s
+         9ind+6R/0FpLDmsdHfCBQjV0X1iJtSZcxSS6Uy+pA6Hz3LAwTlX6Rm6nTSW1oVnBc68j
+         EFAA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:sender:dkim-signature;
-        bh=K+0Z775qydDsTDPSmNKu+VOUZHDUOcj1NgF0nW1MOeY=;
-        b=EYj29i5W7EbaoEg2P6dSn3QRVkKE8Yc/J6GUsRJs/q9N05GsffZIiiJAdTqRsQbxTJ
-         G0LRlPxKBSKcTv2NcxtuTaG3+DkmWNRfgAjGF/AXJRlOuYgF4I9ELwW1U6ggz+UBFonu
-         4u//KRGHvAylChtpYHx7x5I/qih1xiUJmlOOjrWQt/CYbnx0r5Y0RKkm47bfgil2yupt
-         73WZQbZI8BAzIaYLXSCiMkgJ/8TCJ18eu6g6tXmzArQMCAWJavwsp2ou8cBbZahI0k+4
-         OzkXHjw3PotnisJkTnGlW+H13eCO5TuMTvoLjUi5Lj4eBb9H5T4JYW/fU1Ucngdcu09i
-         GREA==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=y14WU1GJTPZtLVqucNhM0D8li1ToM9l1JMgkk3kxjDs=;
+        b=MQ4oLCtd5WmZCYItChLVdB5bQyNGwsKfaC4P76HgL/GqAl3C3TotRB2H65hOvmoFN9
+         C2Xx3uEGDiqPsL6VzQLenFFrxSSgJy1jfFa9NgCuXHTdJYs+7UXR8wlCbOLSmEe2Jr8g
+         HOHCoFd2vetvfjfuQVZ5LJDXuwKFnvEZ/oyU96BvWuosPqsCnTabH+No7Zry/80MaBOo
+         lL1sfetiYVfqWxuLwrr5OpMxXQ+I4YVCOBcwrpjMLe8oO6S3k3Obe2M25yqxh+ZQKFbr
+         f02veSIy94qS8f+w+qf+LWgYTgy0HI6IJD+ycU02n+4iR3bBkCdXEle+C1y2VOvwRLki
+         ycMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.100 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=Lvt0xf0A;
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b="qZT/78tS";
+       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:content-transfer-encoding:x-original-sender
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=K+0Z775qydDsTDPSmNKu+VOUZHDUOcj1NgF0nW1MOeY=;
-        b=QLieIaRV5ykh0nezSwXu7c/trNHX2jVMe8j8VYVvPvH618iAlgjOtp5wx4KpgsSYCN
-         ncya5EqpxB/ip3bTh8gVnxqiB+R++oFIvQ/xGdYCTgL47En5DY3ONPTFBzbYZb1E4ixu
-         MpFloA//+jAmD2GVyxHiC4pif0oavqQVW2TdBuzvvMM7oU5KWRFdvD/7FJ+oVWTcTqaQ
-         xy/eowQgh3k94mgKtF7LlCAeUUxzexGV/PfOqzuJ/xkRYWkGjtY3J1k+dNWIdzGT9Oqh
-         jK+DKeGVzNa2wicKYQ98u6TIxssV/VVAtLSt/45uvj0+NOlmnzpzhS6NeGabbMY+uDB+
-         /meg==
+        bh=y14WU1GJTPZtLVqucNhM0D8li1ToM9l1JMgkk3kxjDs=;
+        b=WmODYbHfW4I0Os0iBd61IAzAHR5nbxN4M/CUfdQhYAqujhNpz1c2doEdhYuQa3AKu6
+         cZfOzHz1hhd4UNiZ+vgVAslDialbnokd0lO8TFkDVQZw5CbA+mSzR7bN2aMqZQU6pa1+
+         vHZlOIg0t6V0iddlvh7+taZZFLUxIrTXTRw9Wn5Mw7yDxmjyPg7C2DJwinB12vlZxe7i
+         h3Q8oqZUCt8fGew2whk62IMqeDLRRCUBs34ANXG4QVt47soI2EawDUQLezFzLWIt7uv3
+         cr3pOoERh95XwvHiSEVB1COMvRLUmxZAOPXP0TM2oy8l0CZpf08ogRw/WywBtmfrDY/l
+         cwEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version
-         :content-transfer-encoding:x-original-sender
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=K+0Z775qydDsTDPSmNKu+VOUZHDUOcj1NgF0nW1MOeY=;
-        b=QHdIqHdGMCkY1In0TkdzMKt5RZ/ioN8ljVQUxoiLssZgcxDPQWl8SWae9AX7IlnK1C
-         aoEiqkWlVt5ie+7eeEwe3Lc7ifDjJg7maiLzfWHfzmwUyYMyIZseZNjVn46T8+YEFhL8
-         qwWVKh/T8V09g6jo7RNmgV3YjTTrk+Oat6qo0c1jgm2yH21vqgim7JdVSKReqAwSsiJi
-         4SZjAj2ZcJmR5o6foolPXb7dPR+q9J8omMzcMF5EbHCiPirluHKsiWMjQgm0CggCEpQ1
-         ugNmmG4oNjFg0X+IQlrBB2Sb6FH0Hlp6rSVkFTh42kVF/+KKynxVQwFz92FGU5rEHTR1
-         tLuQ==
+        bh=y14WU1GJTPZtLVqucNhM0D8li1ToM9l1JMgkk3kxjDs=;
+        b=jf+eGY3XciAGLWZ2QEJkdVaU7ZRecVUPTUfN5owAB97t8z7gxowW+2GJNrxw2W8Kli
+         /qO+jbZUSjD0F99QJ1vwgViukS2iPmJ/WZykrCTGGfQSLYpeuKD3ZzB5uox6tr02Funi
+         AKCEj3MK/jxhxcC3Ozn9uPfIigVvFIVaV7m8OyTwBlJRLxRGXX+4K7zBWzdhrCj28H06
+         sMc0wyj+UsdnHQ47nSf+FKwZ65YpuFf5xpv3SNsZkdZsRqAHbZ+ecY1MW85UvvYbrZrE
+         2/ZgkLpHSgiQpHPTjKh5/z/rch9JodgJkczkGaCt46C6eQ6BZZCBVtUHyhAQC1kytLMF
+         PD5A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531HFt9HjZ6dYN/pbJfr1tkIFN7e8vir3BpZ50A8Vb3NSKrZ2mIL
-	wbVIg6xp9vqMC+23s8gABBw=
-X-Google-Smtp-Source: ABdhPJzvTKstFqtOAVcXfEY4zNjrZ1NqOvpqaQgZmoM1sKnEdmFE2HViJc3XHjY1kKt/NUSGTp01Qg==
-X-Received: by 2002:a37:951:: with SMTP id 78mr22060958qkj.47.1605978616018;
-        Sat, 21 Nov 2020 09:10:16 -0800 (PST)
+X-Gm-Message-State: AOAM532R4JGgmL3iYUmwYprjvI2wTPzYclBX5QFWrgeGWeDM6oX4d1F+
+	U26uQ1vtJlZbS3l1oRqTsvc=
+X-Google-Smtp-Source: ABdhPJxCAy7yk/E3Fc5fxm7+5xNdJEecHErZYcGOd6+qdHxwpZxmWXmFv7U7kl28rmocmjttPtrdOA==
+X-Received: by 2002:a05:620a:98a:: with SMTP id x10mr22733758qkx.259.1605979142032;
+        Sat, 21 Nov 2020 09:19:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:f74d:: with SMTP id e13ls2257067qvo.3.gmail; Sat, 21 Nov
- 2020 09:10:15 -0800 (PST)
-X-Received: by 2002:ad4:53c8:: with SMTP id k8mr21909047qvv.40.1605978615640;
-        Sat, 21 Nov 2020 09:10:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1605978615; cv=none;
+Received: by 2002:a0c:d607:: with SMTP id c7ls2258029qvj.4.gmail; Sat, 21 Nov
+ 2020 09:19:01 -0800 (PST)
+X-Received: by 2002:a0c:f7cc:: with SMTP id f12mr911042qvo.0.1605979141702;
+        Sat, 21 Nov 2020 09:19:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605979141; cv=none;
         d=google.com; s=arc-20160816;
-        b=ga+AOPLRx1lcyaSpfSCYdRtsS7ZaYHkQtoj2M8UF4hTeTyl4RWvcOZCyiXanvQe7xw
-         A/6Ae/qOqPylxTsu4NxsDqWNN3NJvYz8pdZby8pbO4yxV8+dU/R1lA+WLocJREz5yUVc
-         LrmzBucHAnPsk3ungRxX3C0TrAYMA4DMlLeYdUt8YbK6M0Kle8LhqRKgU38UZir6CI/e
-         UCUyb2LiI6IgZnzJdSL7fjd5KP3fALNBfooY9BwLpFZZPW09YAoDPgoecLJFob1wQymW
-         /O7tTDg0VbPcLmqjwSvxYXgp4hYWfIYoKk9mzMx4c9Is3BPmAkNrTvKYMYnqkG5qbF23
-         EExg==
+        b=ZREyMjjnXpiflrX8DrB5ghF8RvcmOfvGvtW/a3DEnm/N3POvWueaqxcL3jadfC6Tuu
+         LYW5UD4W48+j4+odLi/npVubp0NDvlUfif4fk+EBV86Yl+AiwhuMh7gIqSAf3F5FysVb
+         KSwvEqO7rPSMHwk4F0BkP/aiXSreS4ZYL2ZHJY3SHS/TmtVf5RpzYXGc9GqrL4PMwx74
+         ADkRoiUnoyVn7HAZIxNAi83nbkuiCv/DlgQ/Xz6l2ea7RcplR1CkztoZDTv9BNP4vCYj
+         UEb28PXUYU+m3522ryQWaLdtIxttLeNSa5Xqmsapsj0Xg4L3DtrIpgxUuq/9p86UkfJl
+         LfqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=j1pFkX66fFsn8IIQc2vdz+yDmIVMLcw8/Oh/TOVKpOw=;
-        b=JgzMbNloa3yPkHaL7ux4fsugLeh147YiRYGHvQqDr3rkhzeVvXr82E0sAU/RimxZiC
-         EGJ0gSD53qg3B7ShZNoky8PwW2tqmJXHTr0YacLoux820mOKELPvfQsUNZTWO40UDD1J
-         7QkTdSkq/7MRxDueue2l4T/8T7ZfvwsJczPDa7Xcjozq220WzJRgYvEd0qY7/i0LVm32
-         7hl3I9p73LRodn9SXXiZgaXyUIBmCRfoGao78SD51LW/Kc8kAJZzhMpruMQjapMk2v5A
-         RxtViGA9BincbplCair27BJGIUOUrTpKpeH/81uoM55vh2OKII4dBpyXMDL2D4a3h4pw
-         +3MA==
+         :in-reply-to:date:cc:to:from:subject:message-id:dkim-signature
+         :dkim-signature;
+        bh=gT5e+xNd7bG60K4DvKMXPz1cXKLgUfMe3H3t5Er79nI=;
+        b=rKl1L7DEh+oLPZs1/RQk+fWIkpykVbpiJdQRVs87yGa+rcmSz4FVTPYk9F2OWFRG7d
+         jAi2WnuJcQz+S85dSNSzvuPlBmSf8ZGB1WD2JfUXtj3S9Hj8+bnWIZhCSAKr8cbGRemO
+         HgootxcGqgOT5Rjp8EeavXam5EHJtYIbm5wqfRlkP7Mi3B9XOTVvDSXmXcysGEpT1eQn
+         DGlXSsiQs3t6lNmw1k0rsbq1deLopZavZgiy6Ry+CtWUv7IIDeMEGhE9Mrr449NwL0lE
+         Lpql/FwhbV3RZAPRu5wH93bP6IyXy1tHrrO17JuTUXGsFCNb9DLBzJbngG8jNBOWyuqh
+         DzVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.100 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0100.hostedemail.com. [216.40.44.100])
-        by gmr-mx.google.com with ESMTPS id n21si425615qkh.0.2020.11.21.09.10.15
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=Lvt0xf0A;
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b="qZT/78tS";
+       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
+Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com. [2607:fcd0:100:8a00::2])
+        by gmr-mx.google.com with ESMTPS id e9si386586qts.0.2020.11.21.09.19.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 21 Nov 2020 09:10:15 -0800 (PST)
-Received-SPF: neutral (google.com: 216.40.44.100 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.100;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay03.hostedemail.com (Postfix) with ESMTP id C09E2837F24A;
-	Sat, 21 Nov 2020 17:10:14 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:967:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:1801:2198:2199:2393:2525:2560:2563:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3354:3622:3865:3866:3867:3868:3870:3871:3872:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4043:4321:4605:5007:6117:6119:6742:6743:7809:7875:8660:9010:9025:10004:10400:10848:11232:11473:11658:11783:11914:12043:12295:12297:12555:12663:12679:12740:12895:12986:13148:13230:13439:13845:13894:14181:14659:14721:21080:21324:21451:21627:21811:21939:21987:30012:30054:30070:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:2,LUA_SUMMARY:none
-X-HE-Tag: crook72_110ffeb27355
-X-Filterd-Recvd-Size: 4090
-Received: from XPS-9350.home (unknown [47.151.128.180])
-	(Authenticated sender: joe@perches.com)
-	by omf05.hostedemail.com (Postfix) with ESMTPA;
-	Sat, 21 Nov 2020 17:10:09 +0000 (UTC)
-Message-ID: <2105f0c05e9eae8bee8e17dcc5314474b3c0bc73.camel@perches.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sat, 21 Nov 2020 09:19:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as permitted sender) client-ip=2607:fcd0:100:8a00::2;
+Received: from localhost (localhost [127.0.0.1])
+	by bedivere.hansenpartnership.com (Postfix) with ESMTP id 2C7E2128048D;
+	Sat, 21 Nov 2020 09:19:00 -0800 (PST)
+Received: from bedivere.hansenpartnership.com ([127.0.0.1])
+	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id dA_Y3gfv-HlR; Sat, 21 Nov 2020 09:19:00 -0800 (PST)
+Received: from jarvis.int.hansenpartnership.com (unknown [IPv6:2601:600:8280:66d1::527])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 584A71280481;
+	Sat, 21 Nov 2020 09:18:58 -0800 (PST)
+Message-ID: <5843ef910b0e86c00d9c0143dec20f93823b016b.camel@HansenPartnership.com>
 Subject: Re: [RFC] MAINTAINERS tag for cleanup robot
-From: Joe Perches <joe@perches.com>
-To: trix@redhat.com, clang-built-linux@googlegroups.com
+From: James Bottomley <James.Bottomley@HansenPartnership.com>
+To: trix@redhat.com, joe@perches.com, clang-built-linux@googlegroups.com
 Cc: linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org, 
  xen-devel@lists.xenproject.org, tboot-devel@lists.sourceforge.net, 
  kvm@vger.kernel.org, linux-crypto@vger.kernel.org,
@@ -125,17 +131,20 @@ Cc: linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
  alsa-devel@alsa-project.org, bpf@vger.kernel.org, 
  linux-bluetooth@vger.kernel.org, linux-nfs@vger.kernel.org, 
  patches@opensource.cirrus.com
-Date: Sat, 21 Nov 2020 09:10:08 -0800
+Date: Sat, 21 Nov 2020 09:18:57 -0800
 In-Reply-To: <20201121165058.1644182-1-trix@redhat.com>
 References: <20201121165058.1644182-1-trix@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.38.1-1
+User-Agent: Evolution 3.34.4
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.100 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+X-Original-Sender: James.Bottomley@hansenpartnership.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@hansenpartnership.com header.s=20151216 header.b=Lvt0xf0A;
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216
+ header.b="qZT/78tS";       spf=pass (google.com: domain of
+ james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as
+ permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,81 +159,37 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Sat, 2020-11-21 at 08:50 -0800, trix@redhat.com wrote:
 > A difficult part of automating commits is composing the subsystem
-> preamble in the commit log.  For the ongoing effort of a fixer producing
-> one or two fixes a release the use of 'treewide:' does not seem appropria=
-te.
->=20
-> It would be better if the normal prefix was used.  Unfortunately normal i=
-s
+> preamble in the commit log.  For the ongoing effort of a fixer
+> producing
+> one or two fixes a release the use of 'treewide:' does not seem
+> appropriate.
+> 
+> It would be better if the normal prefix was used.  Unfortunately
+> normal is
 > not consistent across the tree.
->=20
-> So I am looking for comments for adding a new tag to the MAINTAINERS file
->=20
+> 
+> 
 > 	D: Commit subsystem prefix
->=20
+> 
 > ex/ for FPGA DFL DRIVERS
->=20
+> 
 > 	D: fpga: dfl:
+> 
 
-I'm all for it.  Good luck with the effort.  It's not completely trivial.
+I've got to bet this is going to cause more issues than it solves. 
+SCSI uses scsi: <driver>: for drivers but not every driver has a
+MAINTAINERS entry.  We use either scsi: or scsi: core: for mid layer
+things, but we're not consistent.  Block uses blk-<something>: for all
+of it's stuff but almost no <somtehing>s have a MAINTAINERS entry.  So
+the next thing you're going to cause is an explosion of suggested
+MAINTAINERs entries.
 
-From a decade ago:
+Has anyone actually complained about treewide:?
 
-https://lore.kernel.org/lkml/1289919077.28741.50.camel@Joe-Laptop/
+James
 
-(and that thread started with extra semicolon patches too)
 
-> Continuing with cleaning up clang's -Wextra-semi-stmt
-
-> diff --git a/Makefile b/Makefile
-[]
-> @@ -1567,20 +1567,21 @@ help:
-> =C2=A0	 echo  ''
-> =C2=A0	@echo  'Static analysers:'
-> =C2=A0	@echo  '  checkstack      - Generate a list of stack hogs'
-> =C2=A0	@echo  '  versioncheck    - Sanity check on version.h usage'
-> =C2=A0	@echo  '  includecheck    - Check for duplicate included header fi=
-les'
-> =C2=A0	@echo  '  export_report   - List the usages of all exported symbol=
-s'
-> =C2=A0	@echo  '  headerdep       - Detect inclusion cycles in headers'
-> =C2=A0	@echo  '  coccicheck      - Check with Coccinelle'
-> =C2=A0	@echo  '  clang-analyzer  - Check with clang static analyzer'
-> =C2=A0	@echo  '  clang-tidy      - Check with clang-tidy'
-> +	@echo  '  clang-tidy-fix  - Check and fix with clang-tidy'
-
-A pity the ordering of the code below isn't the same as the above.
-
-> -PHONY +=3D clang-tidy clang-analyzer
-> +PHONY +=3D clang-tidy-fix clang-tidy clang-analyzer
-[]
-> -clang-tidy clang-analyzer: $(extmod-prefix)compile_commands.json
-> +clang-tidy-fix clang-tidy clang-analyzer: $(extmod-prefix)compile_comman=
-ds.json
-> =C2=A0	$(call cmd,clang_tools)
-> =C2=A0else
-> -clang-tidy clang-analyzer:
-> +clang-tidy-fix clang-tidy clang-analyzer:
-
-[]
-
-> diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools=
-/run-clang-tools.py
-[]
-> @@ -22,43 +22,57 @@ def parse_arguments():
-[]
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0parser.add_argument("type",
-> -                        choices=3D["clang-tidy", "clang-analyzer"],
-> +                        choices=3D["clang-tidy-fix", "clang-tidy", "clan=
-g-analyzer"],
-
-etc...
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/2105f0c05e9eae8bee8e17dcc5314474b3c0bc73.camel%40perches.=
-com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5843ef910b0e86c00d9c0143dec20f93823b016b.camel%40HansenPartnership.com.
