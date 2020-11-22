@@ -1,150 +1,134 @@
-Return-Path: <clang-built-linux+bncBCKPFB7SXUERBJPU436QKGQE7BZTF6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCM2HQW3QYHRBNFT476QKGQELQNMNVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
-	by mail.lfdr.de (Postfix) with ESMTPS id EEF1E2BC2EF
-	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Nov 2020 02:08:54 +0100 (CET)
-Received: by mail-qk1-x73b.google.com with SMTP id 198sf11539114qkj.7
-        for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 17:08:54 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606007333; cv=pass;
+Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id CF3D12BC347
+	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Nov 2020 04:23:33 +0100 (CET)
+Received: by mail-lf1-x140.google.com with SMTP id a14sf5296381lfo.5
+        for <lists+clang-built-linux@lfdr.de>; Sat, 21 Nov 2020 19:23:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606015413; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RdXtl2yk+PcHkclImmELq1HSxJWH1ZLDxq/qK1yUEiMEnvqtDWmCPSUdkLQGtHZayU
-         UAByVumABnf0/sBIHEaRjks1LmKZCnPUbs4qftxIW+iazsGLDvpoz4ahH2wr1vZwrzkj
-         HqfNl8+Y/GtDN2NNdyKFF+5PI5NLyTzm4jhWk2u9jDjhx1j9DCVfZW7mYxr+RsHoKtjP
-         QraJ2aHbYwmpZEPf14NYRY6uswfj74XrTacyIuc6V57HmF612sv6S1xGFvS7aGGJQI29
-         Aiv3JyXqWUPYduZkqMTfA42Cp4H1A9AQANzA3wzyqrVegiq8otOc4NxPS8Z99L2ubCkX
-         YNiA==
+        b=CIMaSWaoTrUBDfAnP+l1SYNwmgZmHMyNOzKymg4BFUd+dS54PuoPyA8HbotG6XuMXM
+         vAzN74pmbrOmceZRRZCIHWo0HmCi/jn9352v2t1BWRAqTuO3y++f+DL8g8d8deLGkHix
+         5s5WZHqEOUb+CgtT3sdnAdsysDFKE7CJBTYBVw4Ii97JnCZ4LYb45ImzNIKmitKN4/gg
+         6/9LRnwcork40vN9u9aMvfkEL27B6z476ttZwTSUn+8T+e5gm7jIOfQRw5XvLYyvJuTZ
+         mD5gcqitruZVPapXE3QwJFaTNUxUmCrbp9l6oD9v0vleR7OYBNSZLrzK1MOl/tN21LuS
+         NQ7Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=ttC9MJ42Br0GO8XTZdijS8wwxGSo7nGWaS2rR9BETvk=;
-        b=x+orua4floYyM1vHjO25XBHcAdeGF9RGwsrcRnyrK59lZiD+JWZtt0PTmKX5YR2CY9
-         kKSZmfURcpLUucjpnic6VA+m2ICJdbmX+9ZOTN5UnM8GYPYFNN3gnYotvl+OI9MB4taS
-         MnjECAIGyaxqsAO7wPo1S+DQPIf/sJLd0xpvOwpxNKUAJSF7+EyUPsMy8mUg3xyoUZb/
-         5KxgrpF95VMLaWciJYjvYFH89VXqgnlOuRCv08de7iwyPJBTinf74CIHTTVsYBssmgrh
-         mYIZj8c56CNyEEt/2jRxSmdtKG9GD1CVTjfGVhBMV05Vq7IADo5fXIpxBMW6UslhsQeY
-         r71A==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=vvLDJumc9PaKQXRQpVTcHfQj8+DyYpEzkJhIUREv++w=;
+        b=GA8D+p6vXKc2HKx76pVkNJ6pK3QLiEHROXA/IiOhH4uTYMPpwuv1NILvHlc57Iiapw
+         CO1xWEMmsxWM2q70ftoCjM+S/hZzksqpBA4L2I7hVPW6Jn6pWDNXrxYCGi5nvPwdV7hs
+         AqNpBk7cCN2nYgFTUSU9XyGK0/5ymFAavXqPZubi4hHYleL1LlKE9mH/t2O3ytdMuUyO
+         q8FV9rxdjbSJtKdR/11cisoGwq1WVjRwtycfNTH1bRgGGYoZcynisMmL+Ub2wHpl675y
+         8hEtfRYT+70jkdBygqnfQhrdY14nA7VY7MyMt7UCp2zgavFc5KJa7hYM43UFSKdfebss
+         2fOA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=gYI8iFES;
-       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=BCb+FFzp;
+       spf=pass (google.com: best guess record for domain of willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=willy@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ttC9MJ42Br0GO8XTZdijS8wwxGSo7nGWaS2rR9BETvk=;
-        b=rc4OFLBApop6ghCBhC8e5EUEH26Vgiw0Jvqcp1uc0Jz0QjqBbsCt/Qz4rM5/lP7KRO
-         MZOIy23Ei7rqPV3X/EMMLjMgdr5It9uL8IwCrCZiL4242NJjuQsGadZ7hBzWqu5xiKHc
-         bO5/aY5CJsZFYS2T4j3i9ekKnU4AMnQYUY8rvEOTEukIO9ua8Ei3QtqMwoBISzaXLy90
-         HvEsIC1djcHQK2eOyKOYWZhg/5JoZ+SLf2Af46ePw7/ON0TfmJk8tOVB7zs22AUS4ulE
-         z4mGMBCB0i9qqk3hYtDiHZ2XEWxdjXgRc9nHWCjX9w97JCED8CDJm4dDV8D5hmB8hXTI
-         oNgQ==
+        bh=vvLDJumc9PaKQXRQpVTcHfQj8+DyYpEzkJhIUREv++w=;
+        b=V65g+JKrvMjFe04YRlpqFLqoM6SrPZdwDPFpfKTuld86PpJFgMoerekRev0JAAUXq7
+         Qi2U7sI6jtVeJf0PO/z8G3qc0ujpMEoGEGosMJf2WPj6+4uppRMzz+NVNhqlMe1xJ+jS
+         oqM2lD0e2eNPfM/D8HzcgqipflLCwRnJM0b4qbErU3Y+5iKPfaH24EB2U6/NhdBY0wVr
+         58h3MoVkTLxE5dePpEWbvxWnnEYam85cJQQeOpHfOFAgxEXObTHqsrBtqa9zIw5qJXby
+         XLgEbEPrisXgQXjYpBAzxnuwEVxD4zEFrVS/OhmpsQaZDBVuXFJMCOdtTaOoUxNQICXy
+         dkEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=ttC9MJ42Br0GO8XTZdijS8wwxGSo7nGWaS2rR9BETvk=;
-        b=pvyUS+Cqb3O+NVpoNtWhFalA3mN4ZSFivxFWYXh7ehSbb+62mXveGfzBeJhfdUqWJ4
-         nqM1mhUK+Q9wOFutbYLE4q0UIvVLVuq8vQY8h4KpF/TuB55rTJUiu3CpjOLWUEem+RXF
-         0jMb8FlmyrA1wtqRjznAXm33OeynXuDFYPvopzzqK8fpCfgDaMO1j9yEBRb7ih/zlGEn
-         xWuWlpNFyiQY47NIo8FN/vKfgKO41ztdrqO26MA4YQXkjKPVHCfK3f/FS1NzS0Wsvzq2
-         +tzCptIv/xvJ9B8dK+K92RoNXPN9JPA/PzP3L+txbrgpVSJUa66dGsZ4hufUyAj0qDSB
-         QHyQ==
+        bh=vvLDJumc9PaKQXRQpVTcHfQj8+DyYpEzkJhIUREv++w=;
+        b=Ew+AD1YNKFZwegRo/8taKRrmTMGZ9SgSK0EAWOmM04xMtHsxgma3cb5EQIgR9602Hd
+         3qB/us5FRgVmlXzULXG74thWrrtVopoW2h4eVpnzqhtlZuD+PRlPPjjj/xbYYhpj6fUF
+         tII3Qr3Khl29hIxvt0RsOu+fHLP396niExRgLzb/0hzjgHOL4m5szcKYVpAMuoNOE8Ey
+         qdSeXpShk1xFZOwCFif7NaBOq6hnn7l1Sb4zPjNUf2QXqk39v1X1qQ5cD8fSQNRIerrd
+         wRMJGvrAo1cYxrusNb0ySdlXKJdQgHBy7dkJJP2+czyYQpgpOrOLn7k39LVLn+JjZ/J2
+         +23Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5312c8k7ys5UZUk6uSVQwWzbwM9bCosaOuwjD/2IBwpR1eFYSLl6
-	EHwC09jSaRobGm+efjDX5pI=
-X-Google-Smtp-Source: ABdhPJxLlXOWrUCuDEhVENd8uOp916W4HP8xw8S+wHLJeFIfH2ycKBy+1yEhSwJtj0IQ3fT9HJ0WOw==
-X-Received: by 2002:a0c:a5a2:: with SMTP id z31mr24680028qvz.15.1606007333599;
-        Sat, 21 Nov 2020 17:08:53 -0800 (PST)
+X-Gm-Message-State: AOAM530VKRvwaQ4oPdxzzLCOcvtFpyl/6/KFUW7TFTtg2TGVCsZutwI2
+	nxXRcdSaSVauvu3e/UeUrwk=
+X-Google-Smtp-Source: ABdhPJzbSNiZDNiu+UKD+RrcOeMB34XHmugrGbadr5miW/sN/S8pe50TJB3fECmKI3evTR5J5O3SIw==
+X-Received: by 2002:a2e:884d:: with SMTP id z13mr11269837ljj.88.1606015413295;
+        Sat, 21 Nov 2020 19:23:33 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6615:: with SMTP id a21ls4873486qkc.10.gmail; Sat, 21
- Nov 2020 17:08:53 -0800 (PST)
-X-Received: by 2002:a37:a0c1:: with SMTP id j184mr22907843qke.364.1606007333189;
-        Sat, 21 Nov 2020 17:08:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606007333; cv=none;
+Received: by 2002:a2e:9848:: with SMTP id e8ls1631757ljj.4.gmail; Sat, 21 Nov
+ 2020 19:23:32 -0800 (PST)
+X-Received: by 2002:a05:651c:14d:: with SMTP id c13mr1518493ljd.153.1606015412104;
+        Sat, 21 Nov 2020 19:23:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606015412; cv=none;
         d=google.com; s=arc-20160816;
-        b=RcHnXsmm2LnZZo0Si/3/0Jw/5sn5q1M8d7SxXXJPSux5+zQ3xJz+AJB1md0wQreNfu
-         9pl9EJPPcEURdckV7ahIHvxTzfr7GHcusjeNlZqJ57eQjIEC/h1HLl5NVceatEma/fR3
-         3t+GbK0cKt2Ci6cF+J4vh1onlGZsMge34dt9IIO4FOeeGBNIL8+OAVuY9TvM5MU5UORc
-         2p+i819pp5zWu3GXAg5AlJ15qop8Qk7ZZaKMqekvHUc6aFlPieVs4SWU0yu3mXq2S7Vz
-         jQNcwG9YfVWmrg5woRKky0d1q5IxRSm3y8RlQX732HeGcCkvHRumiWtT8eahN5BuLSgw
-         Ckwg==
+        b=QzCwD4mgqAC6y3soxr2aBx68GS8raPpjcpjZSluk6kDvk+CYDKdyhx1kWMWfabaGTx
+         uFeF0l+8wKAGM2CZ/hHKOAaFeNHS/qAkyN2ZTLtwoNbpyoXEapjl25YSMuoFxTqZ5gsA
+         XAAPFN5AosUN3dQdd/ZhSZfSsoo4B4o3IirykSnklq6aXZP+n1AhpOiG1pLArPIbYUPg
+         EPJAvm9EQrlBaox05iGgIqBLTgW0LoZsgL5ajJvVGP8P0gevRHU6cvf5Rmif3q6/t/Ku
+         cFy4q7SO+5Hj+O2HZ8AXTdyRjswVV9FPe3Rs5UfC+CYjSaZXDtVr+H/847++vCNM7zxO
+         o63Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=H1mJBEAPCS5iulYCKfM/Y6ftQHa8AEMLnYR4YHZozDM=;
-        b=tEVLVpdYQ4eAVa3g++z5PkhMKDvL9UZuKVQT5vRPWYU73Fm2axGk+bCwO2iOE9vzq9
-         ooWiEYp2Rhl5kC8VopwEm7wzRhdrohSHKhVWpzqmsdfN/eE3VUOKBbIBoYjx8MwCfQh+
-         Po0msF1PIlR8PyGe8mCIuQTMLUOktmceryh8/5JifplNN6jj59me85rKUvkFtFwuaBgE
-         Ir9MFUaRipFiNGMHcnG0iqS2o7uQJzFYCcVSyyh6UEJuMdXMWnHcgEUn+CfqfrcXEOtU
-         5rYzYHZ9WRvFHNAQpeMWYRArb50Kv1cd4ULcgYsFJ426wrVxZUe/3TQbQMg+YqHD1T3W
-         Siqg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=t7P1qjxLtvKyLv5lupmc5Zc5j0L3lqaoBXMlGIL9vWk=;
+        b=E2lwfjuS7kC8ymtWY95G3dseNKNdLP/BSb81nCONHMXSeajqRk69VAeYZ92SHZnyE5
+         lzvGV+WVZto6zH49kmsJeiz2qRpCIY0evSN02KgLCHN0b1ekA+PV9GjLHTI2LHgcQSZQ
+         Cp2mNltpKMYrv4UK0w7GzQUaF36mujI55T3B1tFePLIpVibSkLBDy36QaC/THpBFZnST
+         CGX8a7eCS1Tj+tjsXN7KWJvWRlPNXRgUALJBFEXCEoxS9vgHpwzubnheBh8NHHmg8HeL
+         axJQxcabFmmp4Q6ZGDdhmeYDh2TJoPLjCEUvTlUtkgobcAjegONXT0y/Us9mLlx4/73m
+         2uMQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=gYI8iFES;
-       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id g6si455007qtr.5.2020.11.21.17.08.53
+       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=BCb+FFzp;
+       spf=pass (google.com: best guess record for domain of willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=willy@infradead.org
+Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
+        by gmr-mx.google.com with ESMTPS id e16si121918lfs.9.2020.11.21.19.23.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 21 Nov 2020 17:08:53 -0800 (PST)
-Received-SPF: pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-201-9kqLa6NHP_qBOXzGpreZXQ-1; Sat, 21 Nov 2020 20:08:50 -0500
-X-MC-Unique: 9kqLa6NHP_qBOXzGpreZXQ-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CF23E51D5;
-	Sun, 22 Nov 2020 01:08:48 +0000 (UTC)
-Received: from localhost (ovpn-12-55.pek2.redhat.com [10.72.12.55])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 384C510016DB;
-	Sun, 22 Nov 2020 01:08:46 +0000 (UTC)
-Date: Sun, 22 Nov 2020 09:08:44 +0800
-From: "bhe@redhat.com" <bhe@redhat.com>
-To: Rahul Gopakumar <gopakumarr@vmware.com>
-Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"natechancellor@gmail.com" <natechancellor@gmail.com>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	Rajender M <manir@vmware.com>, Yiu Cho Lau <lauyiuch@vmware.com>,
-	Peter Jonasson <pjonasson@vmware.com>,
-	Venkatesh Rajaram <rajaramv@vmware.com>
-Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
-Message-ID: <20201122010844.GR8486@MiWiFi-R3L-srv>
-References: <DM6PR05MB52926FDAB0E58F5CFA2E892DA41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201020151814.GU25604@MiWiFi-R3L-srv>
- <DM6PR05MB529293AC2B077B5170FFE625A41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201022040440.GX25604@MiWiFi-R3L-srv>
- <DM6PR05MB5292D8B85FA9DDE263F6147AA41D0@DM6PR05MB5292.namprd05.prod.outlook.com>
- <DM6PR05MB5292DF14DF1C82FFE001AC24A4100@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201102143035.GA3177@MiWiFi-R3L-srv>
- <DM6PR05MB5292FD196FF6B18DCB47CE25A4110@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201112145149.GN8486@MiWiFi-R3L-srv>
- <DM6PR05MB52920B2D4267AD7D073D3C36A4FF0@DM6PR05MB5292.namprd05.prod.outlook.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 21 Nov 2020 19:23:30 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
+Received: from willy by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1kgfxw-0001fc-2G; Sun, 22 Nov 2020 03:23:04 +0000
+Date: Sun, 22 Nov 2020 03:23:04 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: trix@redhat.com
+Cc: joe@perches.com, clang-built-linux@googlegroups.com,
+	linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+	xen-devel@lists.xenproject.org, tboot-devel@lists.sourceforge.net,
+	kvm@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-acpi@vger.kernel.org, devel@acpica.org,
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, netdev@vger.kernel.org,
+	linux-media@vger.kernel.org, MPT-FusionLinux.pdl@broadcom.com,
+	linux-scsi@vger.kernel.org, linux-wireless@vger.kernel.org,
+	ibm-acpi-devel@lists.sourceforge.net,
+	platform-driver-x86@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	ecryptfs@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	cluster-devel@redhat.com, linux-mtd@lists.infradead.org,
+	keyrings@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, alsa-devel@alsa-project.org,
+	bpf@vger.kernel.org, linux-bluetooth@vger.kernel.org,
+	linux-nfs@vger.kernel.org, patches@opensource.cirrus.com
+Subject: Re: [RFC] MAINTAINERS tag for cleanup robot
+Message-ID: <20201122032304.GE4327@casper.infradead.org>
+References: <20201121165058.1644182-1-trix@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <DM6PR05MB52920B2D4267AD7D073D3C36A4FF0@DM6PR05MB5292.namprd05.prod.outlook.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Original-Sender: bhe@redhat.com
+In-Reply-To: <20201121165058.1644182-1-trix@redhat.com>
+X-Original-Sender: willy@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=gYI8iFES;
-       spf=pass (google.com: domain of bhe@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@infradead.org header.s=casper.20170209 header.b=BCb+FFzp;
+       spf=pass (google.com: best guess record for domain of
+ willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=willy@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,31 +141,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 11/20/20 at 03:11am, Rahul Gopakumar wrote:
-> Hi Baoquan,
+On Sat, Nov 21, 2020 at 08:50:58AM -0800, trix@redhat.com wrote:
+> The fixer review is
+> https://reviews.llvm.org/D91789
 > 
-> To which commit should we apply the draft patch. We tried applying
-> the patch to the commit 3e4fb4346c781068610d03c12b16c0cfb0fd24a3
-> (the one we used for applying the previous patch) but it fails.
+> A run over allyesconfig for x86_64 finds 62 issues, 5 are false positives.
+> The false positives are caused by macros passed to other macros and by
+> some macro expansions that did not have an extra semicolon.
+> 
+> This cleans up about 1,000 of the current 10,000 -Wextra-semi-stmt
+> warnings in linux-next.
 
-I tested on 5.10-rc3+. You can append below change to the old patch in
-your testing kernel.
-
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index fa6076e1a840..5e5b74e88d69 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -448,6 +448,8 @@ defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
- 	if (end_pfn < pgdat_end_pfn(NODE_DATA(nid)))
- 		return false;
- 
-+	if (NODE_DATA(nid)->first_deferred_pfn != ULONG_MAX)
-+		return true;
- 	/*
- 	 * We start only with one section of pages, more pages are added as
- 	 * needed until the rest of deferred pages are initialized.
+Are any of them not false-positives?  It's all very well to enable
+stricter warnings, but if they don't fix any bugs, they're just churn.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201122010844.GR8486%40MiWiFi-R3L-srv.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201122032304.GE4327%40casper.infradead.org.
