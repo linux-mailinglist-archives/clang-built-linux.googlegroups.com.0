@@ -1,49 +1,46 @@
-Return-Path: <clang-built-linux+bncBDXO746SYYBRBLVN5L6QKGQE36KJ2GI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBB46Y5L6QKGQEUR6LZGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 387252BC739
-	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Nov 2020 17:49:52 +0100 (CET)
-Received: by mail-yb1-xb3a.google.com with SMTP id a13sf19462353ybj.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Nov 2020 08:49:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606063791; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4BE742BC7DD
+	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Nov 2020 19:22:45 +0100 (CET)
+Received: by mail-oi1-x239.google.com with SMTP id t185sf4710484oif.20
+        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Nov 2020 10:22:45 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606069364; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dkArDRGhvyHvE1uTptq7LNSY4S1FgkKLcxsDeLby0NAEPPEr188ucRwueQyTWmTIOI
-         qt90R0CfuOgn81jahkleTPOH2MTxXKSeoFubDTx62sEs5DujFLw8pQ7+si+Ak/g4SHPH
-         NKg6zF521ZotvGOvcObVjBgeyT8DeMjTDkNO618JY25x+z97Ewl88qeaqXxsv7P/k5bP
-         fMCXiUlBcrsmVZxmVxgNFWqOQt9G7I9S2W9bjtBSlAZyrILctQo9IVQy8bBfVxHAS9ip
-         kJWVBy1USdtXQIl9eTW4/Idg4K4ovDfUZq43vv/7rs8Es0vfy4neNC5y6QZNTIJ/mDkS
-         US+g==
+        b=XQ/tHZ78e7C5duw4hSREdz4XZq/jfi8iGznzdgSeKnI4WZ8PV2NSGH8dVRSSLy2CCS
+         k7l8kzD/HVc/p7tlu4xzPiH38mIVS7/V8n1hNkRvCGzZMdQXdHlZUmDkqr9qyaLccEpQ
+         W0oyWygLkeue3LsoscZWGV2iicb2mljR5bAYORm0uG1v9shTQ9PDB8uYVh1gVZRr2XHN
+         +vQx1Ts7fu2yxNfwrS1Ik91mFuB9k4COcipykNw5rOvfQDel3E/EsT6E00DubeD4/9wC
+         RZ7HGnxO460wPd7pv9r3KHf5R0Mj0DHqRX2mduwj2DPnQn4N6PAvFPjH0ZF3i5+bJpFc
+         NfwQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:references
          :in-reply-to:date:cc:to:from:subject:message-id:sender
          :dkim-signature;
-        bh=+4Q0xOAlB/RHcw+FLJ7pyX7PcdwW6qOQAaIVDtwxugw=;
-        b=x7jecNWXpPF56SoC4fb6YGtzr+3d+AW0nyRSuQX5stJEb3iRmTAlqckLDwDtbgSwxf
-         TQhcXwXrVSI6z8Dh+rIO0DBiFwlmBfO3MHTUlgjeuhBMVDwrTY9muCnzfDyDNd720aGo
-         zzwVmpu9GBuavH9rcvh85me8I6uv/+UXefjJOaZEBUZzG4Twe/5rJGlShLpsAOXr+oKi
-         nVsUV5i/RDR0opsNNIvuyBkcOZjXaRxeOPTNQbQWmj5iLo3s62cU/LPivi2Ra50Jxikr
-         xGmMBO1RsDg9qJNYDfYoejqgpIWfjAgTWK463QfJiYG9n63LdKcw+sbKerLKJ6fnTjds
-         c9iQ==
+        bh=/kNHSd20J51aAl09kaPL/COhE0Xh+4+bG0fgNgeHslc=;
+        b=e95IelSL55TAbkQVCVGIms/FSqcxXYF+DWGtwsAxs2zj1DZTE6v+ZWglMRV3rptiJf
+         DTeL5341OwU6zj6b5usLgbZYFwjxHCx9NT8vGc94i1mSQ+sdOcpK0F4jzBxjW4K1tAP4
+         m5zodf09vcQSrsyLYfPGpMV06qX7Eboh7M5IOTTmFsd5LQE/F3cNI1XHicGt+m0K66aw
+         253sFpRkLlJmMJJQqnoonSFB7J3mziMarR2l4J8LpMEw2Qds+UTcy/Xm6vQ2iMxIPrgT
+         PcnhIzJhkYYZ6iQv4Xc3Ir2OjhDTe62JGVCUhrj7FXvaKxFb/kuMvcLWC+nvTB78ZcXS
+         qBbQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=DJQ3WuSC;
-       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=DJQ3WuSC;
-       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
+       spf=neutral (google.com: 216.40.44.35 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
          :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+4Q0xOAlB/RHcw+FLJ7pyX7PcdwW6qOQAaIVDtwxugw=;
-        b=enwF5PIlZZTKagvm9okmxWBmOfy4LqLSQUmhKVq1ZIgXcrPQCxLyclCJLLVQSiCSwu
-         1qZiHeu5Z8gvN3R2r0eVDx7LVBaULMZz3mb7xDomplyG3R3lAvfVkf2TdMUofDfC0p9+
-         dyr+AAl/g9RmBSLrGIfPBo4GzAFgAI1VOX8CzkuYGrkCmstzEEJ07gOXU38g0u77jfHl
-         bpYHOiV/Yb/IAPmsos2GU555BPlOI9GSsthn3o47Sq7LEAZXYFtQYWnpPcuJPJwQyL00
-         to21X/9vr7G2ybQ4k6pUGmvrjr8hCMTSz8742OCzXCZTdkX3PLRJmAz9BmbjC6ujM0zD
-         Lj7A==
+        bh=/kNHSd20J51aAl09kaPL/COhE0Xh+4+bG0fgNgeHslc=;
+        b=rIfe+skIuc1Ov71kcgRdDb3i40+/OSsDVw7A7ulvuEnCZ7wbLOyP0Udc6frO/1CKNQ
+         +GbS7lUkGLLaXudyMALROjQvp6dgNqhrPqGNm83gPmbAxIKk0WH391UuSHkjBe3aRj80
+         C8g/AiHNCdh++Xgqf/voI7lxw+L/JjsNquJslQXb9edwWEiJRyDVjet50QwseZSJ6jPG
+         cqWbrMeWpIFa4IJst9/AotlmiHB+lbSRi/JsweOi6knXkwjYo3U8wQqFtQ03m48SGB5O
+         WrxEF/M+j8cDy/3Jp62pQIT8txNc64Uq9tEMfU99MVRTDgNJQwEjkKTdmr9TAUjuseUz
+         BWbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
@@ -51,71 +48,66 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+4Q0xOAlB/RHcw+FLJ7pyX7PcdwW6qOQAaIVDtwxugw=;
-        b=NAHQJmcc6E2mF1RUTjUXb2yqV8tsQf5pnb3IvfFRCL9tKWdQ8zaU56vuTioiWS3AyE
-         Oqu8djWLdHMMLBcmGnK7zaYjcChFsmVcrxVsOjpAkN/h7nQ5xAlWFW7sjnzTJOdaD0w1
-         cQepl4zLyeU0ae+Pt1q1D/ktpJvlxj7DyFiqLe1zPlXxapNXdViWtt7e4o+RAwy2Ujpo
-         bZ3XTf6Me8e7wQXeV2sMG08st4R7Rcu2l4c82GHTAKFfaDCa5nHofO1TuLrZegRxXwCR
-         Erl2kpj5nJ9SZyY/sOv6MGNj+GlYbBntshc5fP9+Ru0ATtBm7rx04kRERMHYQFRTXcmh
-         9zmQ==
+        bh=/kNHSd20J51aAl09kaPL/COhE0Xh+4+bG0fgNgeHslc=;
+        b=YI+CQr/q0Jq7H8lfB6yFUeO0pbHo0tWViEmdrUnwLXnpkk3L9OZgfbOuZOrx30+GZE
+         SJU0PjceYd73LVEz7CmBuMaRQPj9wWBTItnScn5G6Vi0T28hr7BDKm5Uvk9012HwkyaW
+         +AAxDoR0iNybbtRAVAnWhzB96GOkHj+KP15k494gUNldRwPRtsZfilRyRAIU3Y1UWgJk
+         g5nzO4b5Cg7mk7Cqjl4bfGVemv2mjz6Qk045Zi1iKp6T45MPAk0ALr3UMxNeIpdcD+3n
+         XehHHlFUEvxQV0DERID8tWaIS7I/4xto59a+v1KEq72TCIULW8VKEKyQJs19i/ApFHB6
+         QZUA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530ws65qQiikfq6vwa2Xk6YqqSx3AOLOrNxEaO/n6gzafetw189e
-	VxfM9+ueXQWDxgju/d8Z9qY=
-X-Google-Smtp-Source: ABdhPJwe29AgM51AcmiP4kZFJCQV1xcqAPQJO2cJ3b5iWiVW71hpxthdK8Z1dR1E2/W2FkeVPe+m/A==
-X-Received: by 2002:a25:6ec2:: with SMTP id j185mr30155371ybc.80.1606063791088;
-        Sun, 22 Nov 2020 08:49:51 -0800 (PST)
+X-Gm-Message-State: AOAM532QW/cNl4+d22IlmT27snVLvbhgAlAb43GBmJLQvrjrrHPgzQ0T
+	ng2B+ubes3tRPkQCcwLf0E8=
+X-Google-Smtp-Source: ABdhPJz3AApCTlDz695pIx+i4B3mVc0SCweD1Us+yB/GSosIUrtdvR8KO3vXboDemorNSbmWsYIjpQ==
+X-Received: by 2002:a9d:4f0c:: with SMTP id d12mr20583204otl.32.1606069363762;
+        Sun, 22 Nov 2020 10:22:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:b581:: with SMTP id q1ls1104874ybj.6.gmail; Sun, 22 Nov
- 2020 08:49:50 -0800 (PST)
-X-Received: by 2002:a25:d7d8:: with SMTP id o207mr35552239ybg.274.1606063790659;
-        Sun, 22 Nov 2020 08:49:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606063785; cv=none;
+Received: by 2002:a9d:5f11:: with SMTP id f17ls2865337oti.6.gmail; Sun, 22 Nov
+ 2020 10:22:43 -0800 (PST)
+X-Received: by 2002:a9d:4c92:: with SMTP id m18mr21447564otf.248.1606069363192;
+        Sun, 22 Nov 2020 10:22:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606069363; cv=none;
         d=google.com; s=arc-20160816;
-        b=x2gyhq0nvy4lxybMBKQXwCOLG6tKMCfbiOHExia5IUkpoqPcNl15RPnBdy2Tm7fglL
-         p8MfZa0t8aHDjxEvQHRp8U8W1I20TiTjrei0OyGO/J5VmiwrcG6lqCAj8V3KM+rJSU6T
-         xMa3FZi93fy1q+taMcV3cb+cg+pbgBbDuuC5aUKP0/ZqTr4LSM6IhX+3EXBdT/LOLVAF
-         zEP5MUZ/lYfL5YP6nneAXe35sTcTqTGP4eu2DxrwCxpZ1T5egO2LJiQzhZgDEQjiHpIN
-         YhwJNTgMQnVmSxI6pQh3JlR+ZRE4esqjvLJNYtG52fQmRswdjbBG02JyOMwK2fXWorQp
-         XEjg==
+        b=oUUjNEcd46J40XOrN8OfzUOd+qRCiIBt4BywnTIz111rv7IEidiyC+e34H4BG/nZy9
+         HRHKwaw+K6zjYJI+9CNHNekgES9ysX3NghekiCni8PHN10uz1xUrpznW1Sbd42b9tMiV
+         JMkKgt9njXQQva0Kgkxh/pp0wWd+/J4Zzu72FSX22VCvxxtNGBs5W/LdTGcyl2zYpkfj
+         t1+yDMXNrRrzpolIwPQPaNUK6fKvBUQ8XFDtxrOplSNmoaM8+i6dSncNkNZJYs/pRH7O
+         iTxHAl6jfHFjYQ3nmNx2SH4aq8M8yMqmzPnjhX7sTqQmZ8ncOeWGOUFZRjNWztcg4Ycv
+         y0Sw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:dkim-signature
-         :dkim-signature;
-        bh=R/wn9/BrMbhAZzxsAIbnAbxRNy8av/goU11P1aFt7Js=;
-        b=l6gF9DLYnMmkK+EaLqSuGnhD10cwCKF67POSQtm+7ksjSaLnNimjWrNJlM1Jp2NmfM
-         tY3uwiNQeQs+/Fg1WQDUcJMkh9alfGO880XMzUSeytjJN4uRaA1x37PQyhHm6EvhhYJZ
-         KtAuo9tO6kreKLHehlmXy9RRxnwED9iVEqLi2OGBp8EbnAfezKDBM9rJqd7hUujvxalm
-         pdWFM6bz0sUDkNn1oX+4BENIaMf1jn1K504x5zZzR3b9BOR4WA+cGxdh9mmWau2xBtk4
-         R3vzpc9d4iKW9eSKDphAACo5l9Gpm4mO0GmBXgN/IG7ZmbKQdLreOoRxtSP6L+UY8Qe6
-         DRwQ==
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=H8smtQ9rpWtRPIOlz0+unJye6815mA/cx5aap1aisxE=;
+        b=Uv+969sWhMd5/QNdlpUd4eLlxv/pljL8NaawMC/KjsVxdIxn+6FkFyYYvCqYTOw7qD
+         +dhokbzr7jYfPUPRfk1HKbz5K5W7e+vUkCi4QBRZqy0Yj15HPE1A6gP73UCsBSKorM7C
+         qMhwy5Yh42SubPlaHXGvAPk29tYpKnTV5lMzTElpCUXo3O2v3jv7jERJHTOq2TaaIdL2
+         7UHZ3lBY2ENtrWLhXoI9mE/tCFeEu3fLQDl7vNZ/RJEGEcCvrR9prhdsJ+Id+cFs7uXf
+         qnvD0/S82zVilwaSgOHwA4fp+ilMeEfoZPae9rx7qq0VlZwF/01PFxSo8D6leQ/0LZ+0
+         hs5w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=DJQ3WuSC;
-       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=DJQ3WuSC;
-       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
-Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com. [2607:fcd0:100:8a00::2])
-        by gmr-mx.google.com with ESMTPS id m3si883635ybf.1.2020.11.22.08.49.45
+       spf=neutral (google.com: 216.40.44.35 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0035.hostedemail.com. [216.40.44.35])
+        by gmr-mx.google.com with ESMTPS id o26si993583otk.2.2020.11.22.10.22.43
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 22 Nov 2020 08:49:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of james.bottomley@hansenpartnership.com designates 2607:fcd0:100:8a00::2 as permitted sender) client-ip=2607:fcd0:100:8a00::2;
-Received: from localhost (localhost [127.0.0.1])
-	by bedivere.hansenpartnership.com (Postfix) with ESMTP id AB0CF1280302;
-	Sun, 22 Nov 2020 08:49:44 -0800 (PST)
-Received: from bedivere.hansenpartnership.com ([127.0.0.1])
-	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id iwIwMm9lBMHQ; Sun, 22 Nov 2020 08:49:44 -0800 (PST)
-Received: from jarvis.int.hansenpartnership.com (unknown [IPv6:2601:600:8280:66d1::527])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id CCD1012802EA;
-	Sun, 22 Nov 2020 08:49:42 -0800 (PST)
-Message-ID: <751803306cd957d0e7ef6a4fc3dbf12ebceaba92.camel@HansenPartnership.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2020 10:22:43 -0800 (PST)
+Received-SPF: neutral (google.com: 216.40.44.35 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.35;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 5998D18029124;
+	Sun, 22 Nov 2020 18:22:42 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:967:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1535:1543:1593:1594:1605:1711:1730:1747:1777:1792:2393:2525:2560:2563:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3622:3865:3866:3867:3868:3870:3871:3872:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4043:4321:5007:6119:6742:6743:7809:7903:8660:9025:10004:10400:10848:11026:11232:11473:11658:11914:12043:12295:12296:12297:12555:12663:12740:12760:12895:12986:13095:13148:13161:13229:13230:13439:14181:14659:14721:14822:21080:21324:21394:21433:21451:21627:21740:21811:21939:21987:30041:30054:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:2,LUA_SUMMARY:none
+X-HE-Tag: base07_180d0122735e
+X-Filterd-Recvd-Size: 5347
+Received: from XPS-9350.home (unknown [47.151.128.180])
+	(Authenticated sender: joe@perches.com)
+	by omf13.hostedemail.com (Postfix) with ESMTPA;
+	Sun, 22 Nov 2020 18:22:37 +0000 (UTC)
+Message-ID: <859bae8ddae3238116824192f6ddf1c91a381913.camel@perches.com>
 Subject: Re: [RFC] MAINTAINERS tag for cleanup robot
-From: James Bottomley <James.Bottomley@HansenPartnership.com>
-To: Tom Rix <trix@redhat.com>, Matthew Wilcox <willy@infradead.org>
-Cc: joe@perches.com, clang-built-linux@googlegroups.com, 
- linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org, 
+From: Joe Perches <joe@perches.com>
+To: Tom Rix <trix@redhat.com>, clang-built-linux@googlegroups.com
+Cc: linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org, 
  xen-devel@lists.xenproject.org, tboot-devel@lists.sourceforge.net, 
  kvm@vger.kernel.org, linux-crypto@vger.kernel.org,
  linux-acpi@vger.kernel.org,  devel@acpica.org,
@@ -132,23 +124,18 @@ Cc: joe@perches.com, clang-built-linux@googlegroups.com,
  alsa-devel@alsa-project.org, bpf@vger.kernel.org, 
  linux-bluetooth@vger.kernel.org, linux-nfs@vger.kernel.org, 
  patches@opensource.cirrus.com
-Date: Sun, 22 Nov 2020 08:49:41 -0800
-In-Reply-To: <0819ce06-c462-d4df-d3d9-14931dc5aefc@redhat.com>
+Date: Sun, 22 Nov 2020 10:22:36 -0800
+In-Reply-To: <6e8c1926-4209-8f10-d0f9-72c875a85a88@redhat.com>
 References: <20201121165058.1644182-1-trix@redhat.com>
-	 <20201122032304.GE4327@casper.infradead.org>
-	 <ddb08a27-3ca1-fb2e-d51f-4b471f1a56a3@redhat.com>
-	 <20201122145635.GG4327@casper.infradead.org>
-	 <0819ce06-c462-d4df-d3d9-14931dc5aefc@redhat.com>
+	 <2105f0c05e9eae8bee8e17dcc5314474b3c0bc73.camel@perches.com>
+	 <6e8c1926-4209-8f10-d0f9-72c875a85a88@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.34.4
+User-Agent: Evolution 3.38.1-1
 MIME-Version: 1.0
-X-Original-Sender: James.Bottomley@hansenpartnership.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@hansenpartnership.com header.s=20151216 header.b=DJQ3WuSC;
-       dkim=pass header.i=@hansenpartnership.com header.s=20151216
- header.b=DJQ3WuSC;       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com
- designates 2607:fcd0:100:8a00::2 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.35 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,71 +148,109 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, 2020-11-22 at 08:10 -0800, Tom Rix wrote:
-> On 11/22/20 6:56 AM, Matthew Wilcox wrote:
-> > On Sun, Nov 22, 2020 at 06:46:46AM -0800, Tom Rix wrote:
-> > > On 11/21/20 7:23 PM, Matthew Wilcox wrote:
-> > > > On Sat, Nov 21, 2020 at 08:50:58AM -0800, trix@redhat.com
-> > > > wrote:
-> > > > > The fixer review is
-> > > > > https://reviews.llvm.org/D91789
-> > > > > 
-> > > > > A run over allyesconfig for x86_64 finds 62 issues, 5 are
-> > > > > false positives. The false positives are caused by macros
-> > > > > passed to other macros and by some macro expansions that did
-> > > > > not have an extra semicolon.
-> > > > > 
-> > > > > This cleans up about 1,000 of the current 10,000 -Wextra-
-> > > > > semi-stmt warnings in linux-next.
-> > > > Are any of them not false-positives?  It's all very well to
-> > > > enable stricter warnings, but if they don't fix any bugs,
-> > > > they're just churn.
-> > > > 
-> > > While enabling additional warnings may be a side effect of this
-> > > effort
+On Sun, 2020-11-22 at 08:33 -0800, Tom Rix wrote:
+> On 11/21/20 9:10 AM, Joe Perches wrote:
+> > On Sat, 2020-11-21 at 08:50 -0800, trix@redhat.com wrote:
+> > > A difficult part of automating commits is composing the subsystem
+> > > preamble in the commit log.  For the ongoing effort of a fixer producing
+> > > one or two fixes a release the use of 'treewide:' does not seem appropriate.
 > > > 
-> > > the primary goal is to set up a cleaning robot. After that a
-> > > refactoring robot.
-> > Why do we need such a thing?  Again, it sounds like more churn.
-> > It's really annoying when I'm working on something important that
-> > gets derailed by pointless churn.  Churn also makes it harder to
-> > backport patches to earlier kernels.
+> > > It would be better if the normal prefix was used.  Unfortunately normal is
+> > > not consistent across the tree.
+> > > 
+> > > So I am looking for comments for adding a new tag to the MAINTAINERS file
+> > > 
+> > > 	D: Commit subsystem prefix
+> > > 
+> > > ex/ for FPGA DFL DRIVERS
+> > > 
+> > > 	D: fpga: dfl:
+> > I'm all for it.  Good luck with the effort.  It's not completely trivial.
 > > 
-> A refactoring example on moving to treewide, consistent use of a new
-> api may help.
+> > From a decade ago:
+> > 
+> > https://lore.kernel.org/lkml/1289919077.28741.50.camel@Joe-Laptop/
+> > 
+> > (and that thread started with extra semicolon patches too)
 > 
-> Consider
+> Reading the history, how about this.
 > 
-> 2efc459d06f1630001e3984854848a5647086232
+> get_maintainer.pl outputs a single prefix, if multiple files have the
+> same prefix it works, if they don't its an error.
 > 
-> sysfs: Add sysfs_emit and sysfs_emit_at to format sysfs output
-> 
-> A new api for printing in the sysfs.  How do we use it treewide ?
-> 
-> Done manually, it would be a heroic effort requiring high level
-> maintainers pushing and likely only get partially done.
-> 
-> If a refactoring programatic fixit is done and validated on a one
-> subsystem, it can run on all the subsystems.
-> 
-> The effort is a couple of weeks to write and validate the fixer,
-> hours to run over the tree.
-> 
-> It won't be perfect but will be better than doing it manually.
+> Another script 'commit_one_file.sh' does the call to get_mainainter.pl
+> to get the prefix and be called by run-clang-tools.py to get the fixer
+> specific message.
 
-Here's a thought: perhaps we don't.  sysfs_emit isn't a "new api" its a
-minor rewrap of existing best practice.  The damage caused by the churn
-of forcing its use everywhere would far outweigh any actual benefit
-because pretty much every bug in this area has already been caught and
-killed by existing tools.  We can enforce sysfs_emit going forwards
-using tools like checkpatch but there's no benefit and a lot of harm to
-be done by trying to churn the entire tree retrofitting it (both in
-terms of review time wasted as well as patch series derailed).
+It's not whether the script used is get_maintainer or any other script,
+the question is really if the MAINTAINERS file is the appropriate place
+to store per-subsystem patch specific prefixes.
 
-James
+It is.
+
+Then the question should be how are the forms described and what is the
+inheritance priority.  My preference would be to have a default of
+inherit the parent base and add basename(subsystem dirname).
+
+Commit history seems to have standardized on using colons as the separator
+between the commit prefix and the subject.
+
+A good mechanism to explore how various subsystems have uses prefixes in
+the past might be something like:
+
+$ git log --no-merges --pretty='%s' -<commit_count> <subsystem_path> | \
+  perl -n -e 'print substr($_, 0, rindex($_, ":") + 1) . "\n";' | \
+  sort | uniq -c | sort -rn
+
+Using 10000 for commit_count and drivers/scsi for subsystem_path, the
+top 40 entries are below:
+
+About 1% don't have a colon, and there is no real consistency even
+within individual drivers below scsi.  For instance, qla2xxx:
+
+     1	    814 scsi: qla2xxx:
+     2	    691 scsi: lpfc:
+     3	    389 scsi: hisi_sas:
+     4	    354 scsi: ufs:
+     5	    339 scsi:
+     6	    291 qla2xxx:
+     7	    256 scsi: megaraid_sas:
+     8	    249 scsi: mpt3sas:
+     9	    200 hpsa:
+    10	    190 scsi: aacraid:
+    11	    174 lpfc:
+    12	    153 scsi: qedf:
+    13	    144 scsi: smartpqi:
+    14	    139 scsi: cxlflash:
+    15	    122 scsi: core:
+    16	    110 [SCSI] qla2xxx:
+    17	    108 ncr5380:
+    18	     98 scsi: hpsa:
+    19	     97 
+    20	     89 treewide:
+    21	     88 mpt3sas:
+    22	     86 scsi: libfc:
+    23	     85 scsi: qedi:
+    24	     84 scsi: be2iscsi:
+    25	     81 [SCSI] qla4xxx:
+    26	     81 hisi_sas:
+    27	     81 block:
+    28	     75 megaraid_sas:
+    29	     71 scsi: sd:
+    30	     69 [SCSI] hpsa:
+    31	     68 cxlflash:
+    32	     65 scsi: libsas:
+    33	     65 scsi: fnic:
+    34	     61 scsi: scsi_debug:
+    35	     60 scsi: arcmsr:
+    36	     57 be2iscsi:
+    37	     53 atp870u:
+    38	     51 scsi: bfa:
+    39	     50 scsi: storvsc:
+    40	     48 sd:
 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/751803306cd957d0e7ef6a4fc3dbf12ebceaba92.camel%40HansenPartnership.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/859bae8ddae3238116824192f6ddf1c91a381913.camel%40perches.com.
