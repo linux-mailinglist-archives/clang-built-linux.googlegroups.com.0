@@ -1,133 +1,155 @@
-Return-Path: <clang-built-linux+bncBCKIT2MIT4IBBU6X576QKGQEKZQPMDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBBGY576QKGQEP4QAIOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B1962C114E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Nov 2020 18:05:25 +0100 (CET)
-Received: by mail-pg1-x538.google.com with SMTP id c19sf12980036pgj.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Nov 2020 09:05:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606151124; cv=pass;
+Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 535C02C114F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Nov 2020 18:06:13 +0100 (CET)
+Received: by mail-ot1-x33a.google.com with SMTP id q4sf2418968otf.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Nov 2020 09:06:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606151172; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yGp5TYoqk25KXpesXyTqez49M5UXeAdqHD4LcJFZ2ZM6bgPkz3w06mI7WtLa0UPKHd
-         Y/Jd6hMCtw/DieSruzZH2qC9GfRiI0ZUpP1Bw/WGRzQxOz/3beR0QFpuj9MHFS4fStOP
-         usmsEwDFAJcCKWLQPZfUwJx1vAUcqP4vQ4U7P6vyyyXHHrfnaVPPMuC+cv3Xe+QhmDTv
-         B3eUlv//aA8vKoY1bVjbvfGL6G0JaetrkcZY5WcjE9JNu1Z+tUA+pQtI4+J1A0r3OdMf
-         QVS9LgFsy19aNguAm5St6Rno4EXo8eJPX5EEaUqbZsqzVqsGE3xIpBEHdsIWsxB55lQU
-         YHbw==
+        b=M/b8B8CV+Q4rHkYI3K+KL8+YOdFE+r1sCSHrU9VLq9XBeqdim2GjylvzOSja+cPggF
+         Ez6JFIANC3TaN4rSej6/Mxb65C0J0l+D7TPqOOFW2Z93KBGHHYWN0MeXkiADnXgnD4kN
+         T8X7Kyo4E8ohuJGNiyWC3Sh3pq6DLbPhtD+Oo7iW6yvKnnuVu8DgTk+w2aQJVf6yYJXo
+         28JzwIUccflz7mcXKzZ5aTvZ0B/QGUpwnojalFhF17ziCC09LxeAbdzX/h0LhHD4IdU6
+         J/V5UM6qrULBntKll/eHuMWUQRKvosLpXWjvsr/1ctFTY2T+peNYohYVTr5ElJj36bU2
+         OkWg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=WrKI7NmNivbn1pc2rKAeYEEP7kwXtmnlmIT6N5I5KIw=;
-        b=cJTPQ+X+RCk9Ohf9Kpyhk3WzKqgSMIlqbE61euIO8QlknJUQB0+fQz0Mb/iO7dS932
-         YggvFGff1QM6sCGn48mOg5qdFgR3v8JH2r+cjd3M7rIrF+WVa0qQa4WXmy2ud9RyxkH4
-         DObk4zdSvcfr512nI/eNxD9RWt5dr3NqI/nYUUcihl6SKAOG9F8DX4ehT1uQhqNo+GtP
-         DUATkm5q0jdEKwXWbQjm6kEhieGiQ43iNimPZk9ud+dmQnYqDCiXbRCpdpjLNRL0/WU/
-         rW+rWI5Yu3y6EZW93P/Vqxipb9nXdTkwOAzK6WdDppXdJhV10sBaUKe0lKproZlCKBqR
-         iBpA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=b4AG1aF0uS6tKW4Oyfuys8j4vyauM4pFzNwHrL+RxYk=;
+        b=zrQLieXyDtyWQJvxXD4D8T0tdaKy/iM5u4prbXrQtuGzuzTLrwnXvhtcxt3oMFe24J
+         UE7nP79vUzMxg5UMPFU02/tstN5/QDc2vkeEZHNggRrTkxyVTzJPf1sNe6ZSgiQOUpCx
+         u51vyujfdwWcYjicyMADQEs666g7WlIcNWGsM3WlBxGul76k7X1KjY9dN11Vr9/WAFwW
+         B8Bj/yKKF2y021QMTnRaSk+KuiAFrgbI3qCwyEEsi5HnxziTooFtb5CegYX3xG28UK5J
+         65xlz4XRso+KxHXI+Uvxf2obEEdPUdoSG2cYQ1Y8UeL6C4XDTiCZUn7oFxnzjdQ7bkU7
+         fK/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=xz7fmpB9;
-       spf=pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d43 as permitted sender) smtp.mailfrom=dan.rue@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=BtEofZ03;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=WrKI7NmNivbn1pc2rKAeYEEP7kwXtmnlmIT6N5I5KIw=;
-        b=GkbMz2E9pVef19PVaW2NvPohSTBbMM38liUQSYJbSkEb0xxrwbBhhG83thm9B4BJ2S
-         b4h9Fi3YGfUWeaRIgvJm9O6kSIjOD2TrJa8bKvqRA+5wO5sE1FXWjvEhX4KvTBYTK1FE
-         OxgQOzfk3W7KmumIZxpAMp4N6a3SdZIRU0fQfnfSatRlHZ4vYl/Ahly06mWC12Fu6P9z
-         U2HavgEsOGZSXA/Zmu9bxDwOM3Som0/ZDUP9ZymGLw7Dj7vGOQKNkZimQ6UiAAJ8Marq
-         FgQ0/81ZhdZ1tXCGYF1NEaG5XWUcq/ejQDmmzKi/quu/Fk8Hs+xeE0wT2brieHpGy3hN
-         Nugg==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=b4AG1aF0uS6tKW4Oyfuys8j4vyauM4pFzNwHrL+RxYk=;
+        b=hlD89LE3K+FqCzvXbi/kvSON98RXKUtojW25RGmgiZ9UfmdobQjkMdB+jjHwlkLZIv
+         tjjKUQ1+HaDLw66EuWuWwiYsUgL6B7svzFBR4jlNkEsVPfbtd2w7Vqq+3fMhUDDkym+I
+         rv/aqL9uSKD6duHELDlo+M82oQzW7PGHwU4s04gdONF2xNAseKfv3KBmJFCsRmSgVaT+
+         FI+0dlUCq3+NCmMVZGTtKT3sJvbgfKESLvHOXK6NblzSRn90J4QUhVA7aXaAkFlY42Ah
+         Lvux1lZ7XPH8m25Ql6G7x6ew1+GQFpH4YlJhq6vTZNJmF2rsdc3YOSyJQKyEwmxe5LTq
+         btXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=WrKI7NmNivbn1pc2rKAeYEEP7kwXtmnlmIT6N5I5KIw=;
-        b=FkeJGSkyCxKBQ5B3T6VmP/szNFg+BxQJaNgvKxQ6WPNy/rIZarm3VA7rF+ptPaWxQv
-         OHDnj9HmRe68F29RaqTjQgFx2MgYyLwwnL5iJUBC/f8/JFesCkTH8HknTU2WiCWV2WWK
-         DjOmhRJOnnrQNLUcD3izaRroB1SeyDXZ+KSmzTAVJgaz0Kbc+6d4GGmp3F9TSYmI27U3
-         ozL+w/bOBrbMnFagLBexXsmgjsWBB/Lhx25AZ8xCndSUOqJk9bU3I5+OP5Ju7miAMTjT
-         PgGJvSbrbLa33l/A0X1rsOpHAepVXc09nJwnyqho1r1nMqzYYJGuI1/TzRPp1J6Aj4J+
-         L/jQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=b4AG1aF0uS6tKW4Oyfuys8j4vyauM4pFzNwHrL+RxYk=;
+        b=VTdMHOn/7zLNqe9ykhBYRz5wOacgj7+Ad1VBzWRimj4NEO0tyyJyQqLEtvcvrujTJ9
+         +TQgqikuhH2OFDN3DcwNZvOeQsVWvZ9qWlq/8LbH+JfcDJFGjsnLtZxKBWpw9u9KkzRL
+         4bfmmQLlb0pBtplIQhxMfYuTebiPD2JuXr3dI7LVjr4ku5LCPYOR83lUbdbNVStkmJV5
+         1R4Ntpv44dG67RXEiNSZrzWlZ3L65aIBortnsjZTSBI/aLl2XdWBPBXOzHCRAf2ZC1BT
+         72pEsVKfQsfQvgXAfIhf2cS/8A8xrg2zsgKGOToiLuy075lThcZmr5cMxMv98cxO1w1n
+         uWxw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530i8SRhy0vrLqvFHqX/9cP0HZYE9ndmXjPYPBPwSozli+nMl3zN
-	h/JIyTDK0uYUlziqh6w6xbQ=
-X-Google-Smtp-Source: ABdhPJzMz32AoSR6NiyGg65vj57KaZ+l/HdM9MzoeuwqqCHWOkjlquqcTPLvtEjqKEFM6fycZuGUtQ==
-X-Received: by 2002:a17:90a:7409:: with SMTP id a9mr786661pjg.48.1606151123958;
-        Mon, 23 Nov 2020 09:05:23 -0800 (PST)
+X-Gm-Message-State: AOAM532E8+rHHmUBeULfvlgtPvhxwlnVNZ//WspIJ1uhvAu55zZtvhLF
+	QFv85pIWjBRu6khh+F2VAZI=
+X-Google-Smtp-Source: ABdhPJwzlnvFJbadiFxjouC22wErODooDDk2Q2HX8soLZ5bbL9s6bpLO5FCgpLs9ValW7v11T87eZQ==
+X-Received: by 2002:aca:b887:: with SMTP id i129mr91463oif.25.1606151172113;
+        Mon, 23 Nov 2020 09:06:12 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:c113:: with SMTP id 19ls6465604pli.11.gmail; Mon, 23
- Nov 2020 09:05:23 -0800 (PST)
-X-Received: by 2002:a17:90a:5310:: with SMTP id x16mr764120pjh.62.1606151123322;
-        Mon, 23 Nov 2020 09:05:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606151123; cv=none;
+Received: by 2002:aca:5214:: with SMTP id g20ls3526010oib.9.gmail; Mon, 23 Nov
+ 2020 09:06:11 -0800 (PST)
+X-Received: by 2002:a54:4603:: with SMTP id p3mr77469oip.127.1606151171686;
+        Mon, 23 Nov 2020 09:06:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606151171; cv=none;
         d=google.com; s=arc-20160816;
-        b=otlxId8BSkArBakmXTdwoX5XHlxUidI5CW0x+aiQhAS6KbbA7V18GMJu8AnOD9W0uL
-         e8aBhNph1aZ6ChJkVBq2DwgLO2I5fgyVJKvgiB6gUmz2tiUZPOgCT0zUcIRfZGcU/PcD
-         zw4KG/hwBLX8ca9EZNoXHVSOGwMndNm2gmNodof6RdpOp9zIld2L82B79j0KHICdlwRf
-         E9aegI9d/ARVemYTlnJIQkgN+97zEjdT4gsBJ1B+4qC3xaL/LUqqRt0bKJHaEZEPXydE
-         Ud4c3cVm8t3LGRB+p1wCFa4hHl8Nk7Rmh9YG9CuMlNs4NTUYHmWm0n7jOeLdvulaN6q7
-         R8Qw==
+        b=pJu48YOoOVIjceGV4nLaW7Sc8d0tcu+dstIL4orRAbWwpPswcaFZmDH1KRuVJdL+sG
+         5r20qvb7ja6zlMGmgwjcZ2c0uYWKEdUftYJ8iM8ekzCI0dIwX7kVgz0x9/omQ9NUx7c5
+         fm+Y2rYkwrDQOBMEKMb8hc/0TgkTXbluoizbeCFeTdCWsXDrLQuhkmDG1Q5NaXmBpLuU
+         PniuBScP4+y5hsR3shveRutbBy7+TyQ1zv20WL38tXxf7vOyy4rlVmCTUk4m1t8jmfJJ
+         K2cGpBCQ1JcFbz+P+3iLVwZor0XDQuUeD3JoYPjmaFhkE2mrRcKIr93sh+N/xwIqqbby
+         zTCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=3AUOMFLcw6vZd2EWe2qimf2Dfa9bQV3gX6bGXpq+ZrE=;
-        b=H3QHTuDj6M+H6AE+tjvMperb2WJL4PtvbijABfOXVdfFAOkDBtV8NCK9+yuVcixstI
-         7+flFDIembD3tPw2faD+YHHZfByGmCDxb/3K/WJbmqGefFMPqsLWc7JLmRKUYA+PuF+V
-         SFjwxGpyt3+ITr+3ssx6SqVVDzUxtiRzjaZp7ll5Z9/BaVChdFVqnGPnV4hDODaq1xm/
-         VpSif0QW0L3YpaSRtO/dXWGWFRk4qdxUL9pQ+DyhEKF8vjyfEZXlnDaQ6FFf/VymOr4E
-         JeMBsmZxipivUEy8bwu8fUIoYfICgkleTCj+GDYzGSwvsXDmVxQZBr5v9cMGybqi1g4x
-         teag==
+        bh=ETdBmUCF01QVQJOZ+sQu9TUGQeVKu9xOEmE1E5gBvfU=;
+        b=ZPI+Hn4NXlv8Y75gf+hHPGCXB0JQ5HV6nkQUqHlGqoSsy0vc16ksxm7gpRMyohvmjv
+         aQdI74mwZqEu/FnU6327nvma8Pm3CpAKvYiGepeNwZtb1AWjnldtrglFDvNRe1CFZBjI
+         tVHOEpkAzeUOqQrf7w9UmOwYDiTKz4Ho7f+wpBMO5M4DACN+t0Mf68wj4hyAOPXPssWN
+         KU7X0DFlT8Dder+2YhFFrTQOaeEJ0KhhCzZ1GfyU38DPGKt/+S+N+ZNbwu3hd8qsELRH
+         u+W5Qfdubu9s9Q/Zc2C2CWcfS6F0cQ+NFBqulxAWHuvJo3+586MeyLEfJXwR+vOQ14nm
+         9PVw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=xz7fmpB9;
-       spf=pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d43 as permitted sender) smtp.mailfrom=dan.rue@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-io1-xd43.google.com (mail-io1-xd43.google.com. [2607:f8b0:4864:20::d43])
-        by gmr-mx.google.com with ESMTPS id o2si929444pjq.0.2020.11.23.09.05.23
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=BtEofZ03;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id f20si304254oov.1.2020.11.23.09.06.11
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Nov 2020 09:06:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-250-au32vl2RM6uLxUjejArbVg-1; Mon, 23 Nov 2020 12:06:09 -0500
+X-MC-Unique: au32vl2RM6uLxUjejArbVg-1
+Received: by mail-qv1-f71.google.com with SMTP id cu18so13350301qvb.17
+        for <clang-built-linux@googlegroups.com>; Mon, 23 Nov 2020 09:06:09 -0800 (PST)
+X-Received: by 2002:ac8:5d53:: with SMTP id g19mr70870qtx.354.1606151168818;
+        Mon, 23 Nov 2020 09:06:08 -0800 (PST)
+X-Received: by 2002:ac8:5d53:: with SMTP id g19mr70839qtx.354.1606151168572;
+        Mon, 23 Nov 2020 09:06:08 -0800 (PST)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id o187sm10226153qkb.120.2020.11.23.09.06.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2020 09:05:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d43 as permitted sender) client-ip=2607:f8b0:4864:20::d43;
-Received: by mail-io1-xd43.google.com with SMTP id u21so18829503iol.12
-        for <clang-built-linux@googlegroups.com>; Mon, 23 Nov 2020 09:05:23 -0800 (PST)
-X-Received: by 2002:a05:6638:cb3:: with SMTP id x19mr446228jad.100.1606151116267;
-        Mon, 23 Nov 2020 09:05:16 -0800 (PST)
-Received: from localhost ([2601:441:27f:8f73:605:ba2b:f48d:e614])
-        by smtp.gmail.com with ESMTPSA id c2sm8001142iln.70.2020.11.23.09.05.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2020 09:05:14 -0800 (PST)
-Date: Mon, 23 Nov 2020 11:05:13 -0600
-From: Dan Rue <dan.rue@linaro.org>
-To: Guillaume Tucker <guillaume.tucker@collabora.com>
-Cc: tuxbuild <tuxbuild@linaro.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	kernelci@groups.io
-Subject: Re: TuxBuild Now Supports Clang 11 and 5 new architectures
-Message-ID: <20201123170513.mdfs53skfdcux7jm@jug>
-References: <CAGm4vTM-ozY8wSsuZhqCsz8qnrjaCRkmLnLJVkuYB6sVUaqnuQ@mail.gmail.com>
- <b455831c-1205-551f-6bb2-6bb33b750d17@collabora.com>
+        Mon, 23 Nov 2020 09:06:07 -0800 (PST)
+Subject: Re: [RFC] MAINTAINERS tag for cleanup robot
+To: Joe Perches <joe@perches.com>, clang-built-linux@googlegroups.com
+Cc: linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ xen-devel@lists.xenproject.org, tboot-devel@lists.sourceforge.net,
+ kvm@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-acpi@vger.kernel.org, devel@acpica.org, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ netdev@vger.kernel.org, linux-media@vger.kernel.org,
+ MPT-FusionLinux.pdl@broadcom.com, linux-scsi@vger.kernel.org,
+ linux-wireless@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
+ platform-driver-x86@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ ecryptfs@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ cluster-devel@redhat.com, linux-mtd@lists.infradead.org,
+ keyrings@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, alsa-devel@alsa-project.org, bpf@vger.kernel.org,
+ linux-bluetooth@vger.kernel.org, linux-nfs@vger.kernel.org,
+ patches@opensource.cirrus.com
+References: <20201121165058.1644182-1-trix@redhat.com>
+ <2105f0c05e9eae8bee8e17dcc5314474b3c0bc73.camel@perches.com>
+ <6e8c1926-4209-8f10-d0f9-72c875a85a88@redhat.com>
+ <859bae8ddae3238116824192f6ddf1c91a381913.camel@perches.com>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <88eeba27-ee36-df63-8cd9-3cccbe5e0850@redhat.com>
+Date: Mon, 23 Nov 2020 09:06:03 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
+In-Reply-To: <859bae8ddae3238116824192f6ddf1c91a381913.camel@perches.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <b455831c-1205-551f-6bb2-6bb33b750d17@collabora.com>
-X-Original-Sender: dan.rue@linaro.org
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=xz7fmpB9;       spf=pass
- (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d43
- as permitted sender) smtp.mailfrom=dan.rue@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=BtEofZ03;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,203 +162,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Nov 19, 2020 at 09:13:41AM +0000, Guillaume Tucker wrote:
-> Hi Dan,
 
-Hi Guillaume!
+On 11/22/20 10:22 AM, Joe Perches wrote:
+> On Sun, 2020-11-22 at 08:33 -0800, Tom Rix wrote:
+>> On 11/21/20 9:10 AM, Joe Perches wrote:
+>>> On Sat, 2020-11-21 at 08:50 -0800, trix@redhat.com wrote:
+>>>> A difficult part of automating commits is composing the subsystem
+>>>> preamble in the commit log.  For the ongoing effort of a fixer producing
+>>>> one or two fixes a release the use of 'treewide:' does not seem appropriate.
+>>>>
+>>>> It would be better if the normal prefix was used.  Unfortunately normal is
+>>>> not consistent across the tree.
+>>>>
+>>>> So I am looking for comments for adding a new tag to the MAINTAINERS file
+>>>>
+>>>> 	D: Commit subsystem prefix
+>>>>
+>>>> ex/ for FPGA DFL DRIVERS
+>>>>
+>>>> 	D: fpga: dfl:
+>>> I'm all for it.  Good luck with the effort.  It's not completely trivial.
+>>>
+>>> From a decade ago:
+>>>
+>>> https://lore.kernel.org/lkml/1289919077.28741.50.camel@Joe-Laptop/
+>>>
+>>> (and that thread started with extra semicolon patches too)
+>> Reading the history, how about this.
+>>
+>> get_maintainer.pl outputs a single prefix, if multiple files have the
+>> same prefix it works, if they don't its an error.
+>>
+>> Another script 'commit_one_file.sh' does the call to get_mainainter.pl
+>> to get the prefix and be called by run-clang-tools.py to get the fixer
+>> specific message.
+> It's not whether the script used is get_maintainer or any other script,
+> the question is really if the MAINTAINERS file is the appropriate place
+> to store per-subsystem patch specific prefixes.
+>
+> It is.
+>
+> Then the question should be how are the forms described and what is the
+> inheritance priority.  My preference would be to have a default of
+> inherit the parent base and add basename(subsystem dirname).
+>
+> Commit history seems to have standardized on using colons as the separator
+> between the commit prefix and the subject.
+>
+> A good mechanism to explore how various subsystems have uses prefixes in
+> the past might be something like:
+>
+> $ git log --no-merges --pretty='%s' -<commit_count> <subsystem_path> | \
+>   perl -n -e 'print substr($_, 0, rindex($_, ":") + 1) . "\n";' | \
+>   sort | uniq -c | sort -rn
 
->=20
-> On 17/11/2020 21:41, Dan Rue wrote:
-> > Cheers!
-> >=20
-> > Today we've deployed support for clang-11, and we dropped support for c=
-lang 8 and 9 based on user feedback.
-> >=20
-> > In addition, we have added the following architectures with gcc 8, 9, a=
-nd 10:
-> > - s390
-> > - powerpc
-> > - sparc
-> > - hppa
-> > - sh
-> >=20
-> > TuxBuild's full support matrix is as follows:
-> >=20
-> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0arc arm arm64 hppa i386 mips powerpc =
-riscv s390 sh =C2=A0sparc x86_64
-> > clang-10 no =C2=A0yes yes =C2=A0 no =C2=A0 yes =C2=A0yes =C2=A0no =C2=
-=A0 =C2=A0 =C2=A0yes =C2=A0 no =C2=A0 no =C2=A0no =C2=A0 =C2=A0yes
-> > clang-11 no =C2=A0yes yes =C2=A0 no =C2=A0 yes =C2=A0yes =C2=A0no =C2=
-=A0 =C2=A0 =C2=A0yes =C2=A0 no =C2=A0 no =C2=A0no =C2=A0 =C2=A0yes
->=20
-> Out of interest, are there builds produced with tuxbuild for all
-> the supported configurations that can be downloaded with a build
-> log?
+Thanks, I have shamelessly stolen this line and limited the commits to the maintainer.
 
-I don't think there's anything published, but Antonio might have
-something related to the container tests that are done in tuxmake before
-publishing new containers.
+I will post something once the generation of the prefixes is done.
 
->=20
-> I've just been working on building riscv with Clang for KernelCI
-> and there are quite a few issues, we've dropped clang-10 as it's
-> actually broken.  So I wonder if you define "supported" solely by
-> having a Docker image and the ability to start a build, or if
-> it's required to actually complete a kernel build?
->=20
-> See related discussion about riscv here:
->=20
->   https://github.com/kernelci/kernelci-core/pull/534
+Tom
 
-If there is a legitimate problem in the kernel sources or in a toolchain
-implementation, the tuxmake would be expected to fail, and tuxmake
-shouldn't work around things that are broken.
-
-If tuxmake is doing the wrong thing, then it's a bug that we should fix.
-
-If a combination might work but currently doesn't, tuxmake can support
-it. If it will never work, we won't bother.
-
-`tuxmake -r podman -t riscv -t clang-10` works for me on v5.10-rc5.
-Here's the tuxbuild of the same, with logs and such:
-https://builds.tuxbuild.com/1khN9GYmp4AKa1g6m4MwM7yhgnE/
-
->=20
->=20
-> > gcc-10 =C2=A0 no =C2=A0yes yes =C2=A0 yes =C2=A0yes =C2=A0yes =C2=A0yes=
- =C2=A0 =C2=A0 yes =C2=A0 yes =C2=A0yes yes =C2=A0 yes
-> > gcc-8 =C2=A0 =C2=A0yes yes yes =C2=A0 yes =C2=A0yes =C2=A0yes =C2=A0yes=
- =C2=A0 =C2=A0 yes =C2=A0 yes =C2=A0yes yes =C2=A0 yes
-> > gcc-9 =C2=A0 =C2=A0yes yes yes =C2=A0 yes =C2=A0yes =C2=A0yes =C2=A0yes=
- =C2=A0 =C2=A0 yes =C2=A0 yes =C2=A0yes yes =C2=A0 yes
-> >=20
-> > We're still updating the tuxbuild documentation, but the new toolchains=
- and architectures are available immediately without a tuxbuild update (the=
- argument validation is all done server-side).
-> >=20
-> > Now that we have TuxMake integration which is enabling these new featur=
-es, we would like to add tuxmake build reproducers to tuxbuild. A build rep=
-roducer is a simple one-line shell script provided alongside the other tuxb=
-uild artifacts, which contain the tuxmake command-line invocation to perfor=
-m the same build locally. For example:
-> >=20
-> > =C2=A0 =C2=A0 $ cat tuxmake_reproducer.sh
-> > =C2=A0 =C2=A0 tuxmake --runtime docker --image docker.io/tuxmake/arm64_=
-clang-11 <http://docker.io/tuxmake/arm64_clang-11> --target-arch arm64 --kc=
-onfig defconfig --kconfig-add "CONFIG_KASAN=3Dy" --toolchain clang-11
->=20
-> That's nice but I believe it would be easier to adopt if the
-> syntax was simpler.  For example:
->=20
->   tuxmake --runtime docker --target-arch arm64 --kconfig defconfig --kcon=
-fig-add "CONFIG_KASAN=3Dy" --toolchain clang-11
->=20
-> or if you really want to keep the docker image mentioned to
-> ensure reproducibility:
->=20
->   tuxmake --runtime docker --image docker.io/tuxmake/arm64_clang-11 --kco=
-nfig defconfig --kconfig-add "CONFIG_KASAN=3Dy"
->=20
-> I can see why you would want to define all the parameters
-> explicitly, but it seems like there's some repetition there.  If
-> the docker image is already arch-specific, then do you also need
-> to specify the arch as a separate parameter?
-
-You're right, --image in the above example was superfluous. We were
-struggling to decide how granular to be with reproducers because you can
-be as simple as:
-
-    tuxmake --runtime docker --target-arch x86_64 --kconfig defconfig --too=
-lchain gcc
-
-And as "correct" as e.g.:
-
-    tuxmake --image docker.io/tuxmake/x86_64_gcc@sha256:f8218cbfad8ecf6628f=
-c44db864a402070feb87ff43a880e1409649172d4bc8c -r docker --target-arch x86_6=
-4 --kconfig tinyconfig --toolchain gcc -e "KBUILD_BUILD_TIMESTAMP=3D'Tue Ma=
-y 26 16:16:14 2020 -0500'" -e "KBUILD_BUILD_USER=3Dtuxmake" -e "KBUILD_BUIL=
-D_HOST=3Dtuxmake"
-
-The latter provides (at least potentially) an actual reproducible build,
-but the former is simpler and usually sufficient.
-
-We decided to favor simplicity and all tuxbuilds now publish a
-tuxbuild_reproducer.sh and tuxmake_reproducer.sh which consists of the
-simple version of the command.
-
-For example in the risc5/clang-10 build from above, we see the following
-two reproducers now:
-
-tuxbuild_reproducer.sh:
-https://builds.tuxbuild.com/1khN9GYmp4AKa1g6m4MwM7yhgnE/tuxbuild_reproducer=
-.sh
-
-    #!/bin/sh
-
-    tuxbuild build --git-repo https://git.kernel.org/pub/scm/linux/kernel/g=
-it/torvalds/linux.git --git-sha 418baf2c28f3473039f2f7377760bd8f6897ae18 --=
-target-arch riscv --toolchain clang-10 --kconfig defconfig
-
-
-tuxmake_reproducer.sh:
-https://builds.tuxbuild.com/1khN9GYmp4AKa1g6m4MwM7yhgnE/tuxmake_reproducer.=
-sh
-
-    #!/bin/sh
-
-    tuxmake --runtime docker --target-arch riscv --toolchain clang-10 --kco=
-nfig defconfig
-
-
-Hope that helps!
-Dan
-
->=20
-> Best wishes,
-> Guillaume
->=20
-> > As a kernel developer, would you appreciate receiving such a command as=
- a part of a build discussion on a mailing list?
-> >=20
-> > Would you send something like that to your colleagues?
-> >=20
-> > Do you find the concept of a local reproducer helpful?
-> >=20
-> > Thanks again to everyone using and supporting TuxBuild and TuxMake - we=
- see you and we appreciate you,
-> >=20
-> > Dan
-> >=20
-> > p.s. Did you know that it's possible to perform actual reproducible bui=
-lds with tuxmake? It's true. Try it for yourself, and see if your bzImage s=
-ha256sum matches:
-> >=20
-> > =C2=A0 =C2=A0 $ git describe
-> > =C2=A0 =C2=A0 v5.10-rc4
-> > =C2=A0 =C2=A0 $ tuxmake --image docker.io/tuxmake/x86_64_gcc@sha256:f82=
-18cbfad8ecf6628fc44db864a402070feb87ff43a880e1409649172d4bc8c <http://docke=
-r.io/tuxmake/x86_64_gcc@sha256:f8218cbfad8ecf6628fc44db864a402070feb87ff43a=
-880e1409649172d4bc8c> -r docker -k tinyconfig -e "KBUILD_BUILD_TIMESTAMP=3D=
-'Tue May 26 16:16:14 2020 -0500'" -e "KBUILD_BUILD_USER=3Dtuxmake" -e "KBUI=
-LD_BUILD_HOST=3Dtuxmake"
-> > =C2=A0 =C2=A0 ...
-> > =C2=A0 =C2=A0 $ sha256sum /home/drue/.cache/tuxmake/builds/634/bzImage=
-=C2=A0
-> > =C2=A0 =C2=A0 5581ed4583fb4b9d76760ee329e248fe7281d7ea3b6ae0737efc7a6a4=
-462affa =C2=A0/home/drue/.cache/tuxmake/builds/634/bzImage
-> >=20
-> > p.p.s. Did you know that tuxmake also supports podman? Just use -r podm=
-an instead of -r docker.
->=20
-
---=20
-Linaro LKFT
-https://lkft.linaro.org
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20201123170513.mdfs53skfdcux7jm%40jug.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/88eeba27-ee36-df63-8cd9-3cccbe5e0850%40redhat.com.
