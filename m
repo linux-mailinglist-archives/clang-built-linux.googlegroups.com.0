@@ -1,136 +1,133 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBAXJST7AKGQEQUHTZHA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBH7KST7AKGQENDD2QQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 69D842C8C14
-	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 19:05:56 +0100 (CET)
-Received: by mail-pl1-x640.google.com with SMTP id g1sf3851204plt.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 10:05:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606759555; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id AAB9F2C8C2B
+	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 19:08:32 +0100 (CET)
+Received: by mail-oi1-x23e.google.com with SMTP id g19sf7130116oib.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 10:08:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606759711; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eKeO9kKf3jreW7dgwgZbcRcFXmRM/F2zhm+BBSFaSSKWfbl+t2EjKRRjShSYLBtt6c
-         nra37qPP8NyhPPbu7VPujpJHPsraLWJ+aD/Ge1BJ6t96pcyyhtLKO/+Ao4Xb6wJstAc9
-         5eZ/YmaH6Hb75ULPvt8hkp+qX/mgBvIhCb6dY04moCOaWjbbFnUI5IYr9O+rG1OyPjbd
-         An7+F++gNBi1znUwXW5pscluW5p8WMmEthrlsfXOEUPkDcqnJ5PB8lZrPsUQSMkez1Vf
-         5CJAR2BJVfYGRb5lnUgQUQc4rZ+jIoa6F4bJGSGCgVt+pLYRjNup8PhX7919NdpQdZkN
-         ANcg==
+        b=upqmCoySxEv6TvzftAKBm5ouZuaC3RjVDWhbHIl9hestIbfog9hExHYjrqNWsCYokO
+         CtkdHoUl7Va7EaVaJLeHisTQx0WfDb41uxBYFtNGWHzoeqI+MNUHMaN0DaMxYfJ+UtCW
+         f50tpWuqUb50giYifeHFeaQJTZPhZtA1IreLsDW02mIAR1s2SGyqiOBfBHzFpZtpE3kR
+         G11/mw+89Boo2ZDvzWd9lzqysB05L4d9fKiWl3AOdyqJwXhSNGsY38B0gabE4okNR+/K
+         k3ezNa9nLDEwII4O7orOS2oNL1eSC2mtN2/I0g2yIanF7LPVQ38hSTYSTFexzMkLYBBy
+         GFOQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=egm004UZjZlyCHoKtiUpjgMxj3Ri9RCyI3oB95MlQvI=;
-        b=PhCDU9p8OQSmPSHZg/U963u6Om3cVMiHZxZ6uJtuZ6LiZkF40rIvs1HogptV44orpU
-         T1fZF60tmKkEKhfqP2PpWlleLas1zTjOy7LucA3mmYdP+uzVuKVUZ7Lf8PsRGB/AFag0
-         OU7gp29O9n2dy1lyAwqAYI8zTKsht76+YmpTlwuUzOXRNi1bqFwItWnAbffzZT6LzXyW
-         bTzIoAahZkgsTYyxntynZ8ccoYkC/AupqDp78b9Jw/e8qHBHMqAshmauLdhz0m67J0vK
-         FPwcse/Izi3J9iTVJ/AwGd4NQ0Z7aFYOW6IMHV0JHhljWhXlmxOaVy0CSfUmveJEJ919
-         NhTw==
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=8uZLNMZ0QSd00wLzmtT7OI+hA/Q20f1w/9xqZ6Y3QRM=;
+        b=nZELKOzi70jEsF+M80T720fTSxYbPtK+zArC3XCRwaMsXsMFq0KyW1o2tuFNyfQCpd
+         56Wp/LLLEq/9Lfb1p/hQQ2xCjFTJX9L+fLX81UHyMjXBuE5Qx4/Cr+BpPn7E9+iNVAwr
+         uC3DM4Dl4L6gFrjRYxUlp+AxYQA6+oSVgWZQyS7XDyFaUVIiQlM87KSHeVFyBue25otO
+         2kFu3HyZx+8QmOt2N12f27PiCOD3ZT1p1Tj3skTmzWljJK8bUNiSRyE1LLtWrr2rO2un
+         9g0eJWg6heR1a3mhuRLnHg4V/D4GEJkruyyAxluVpVxAi6proqtttGIffCjv7q9n6PBs
+         R5gw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Q435s1Fo;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=qd583t3m;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=egm004UZjZlyCHoKtiUpjgMxj3Ri9RCyI3oB95MlQvI=;
-        b=WfwvEuSrQ0/xKvvUhB2VWcXGvzQ76LS6P1RLBSByNhqHsntO7HDXjKaDZUlh4XXna8
-         oxx1QEV7tHEI1SrAkMcDSWLGvNXk6/IlHe+UCMAghqyNQ9YidBqqBpThQPE+ew99DJbK
-         fqlDkikGDnTgo7BF+OqLQ9a96wBi1Vgfi9VSCFEkcqXPNjXMw/kf5XhP72QNZKHkxxRf
-         LcoFsdPUETo2MwgrRxDzbnTVwplieVJWtLZ26ca/iCe+iaMymrKirZqApQNyXnl15rBa
-         ddx6iH2IZW0KSon2rgWRr+H5je98cLa1Chii2a/zE83KJDTDEM0fwTIq9LTpUXcSfXKu
-         kaeQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8uZLNMZ0QSd00wLzmtT7OI+hA/Q20f1w/9xqZ6Y3QRM=;
+        b=A74yyEGkMyYAWbWxErafl1j48ZFK4JaqMzh8Kv4mRGFWi7+Hof4GC2XZtZXMDBentv
+         4Zy97kCbiWaQNh76RKBgY8+0SHx6dbO84I8tJ74NvEvnBXMrNsyXCHRHVGyxjww+8Kgh
+         VLABweM6Bxs3st+UHlo1n+3LmqSrIH/8rSwUaQjUoRDDraTSugp01zqXY8NzbayaVmNe
+         GXBhsA9Jxxwfh9UZthePiHh7bSRaiwU254uppu7rO5pIA1a/59+hKubqUI5gWCtTQOU9
+         jJCSPBir6wjdDxdd9n26fb4vrigHIRkDVg6buig2nLPwn1pZ/3DEwZh8Um2jRepO1GQ0
+         lQlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=egm004UZjZlyCHoKtiUpjgMxj3Ri9RCyI3oB95MlQvI=;
-        b=ArKvilb48UhO7odmLhv/Gf2uw31GdItC56gygMZ7ssFfjqLmBqPuPJvBEyFwaOg9K0
-         5IYFHzFU92Fej17DVlVsyF+L3yIQoSuuJ9J1fULfqGOgDtHb0i6Z3iUHbMuOscwbOOmm
-         foc2OIISIMmM+io1faAXQIgie2XLwBSAjBLnG8SpxLGlZZu/vd6GGxG70oOis3iONv4+
-         3pBz29yIowBLFcixAJ78+nKJ80KVD7SgilA/fu/RkEiRq4U61eRI5Clt5+loPSbdT+y6
-         ZPBwNkVymL3QbSfT6hTuYeFfhiSP67k5A8LvMwSMhVsWLx9a6CtF2vFCyOX4uxmNpvho
-         +0Gw==
+        bh=8uZLNMZ0QSd00wLzmtT7OI+hA/Q20f1w/9xqZ6Y3QRM=;
+        b=CI7D9hG46te9U4En75iZoyu6ppUZzoY5UtXIMQy/0VEUD8A4RlAsNF/Sv8LgJ94qoy
+         g9LAVI9Vyjp1TqOBjb+71T0ylhj5T+aL8rJsV5YwZbiMThOb5gxj40ZwDyPKRrxuApHJ
+         eGl5JDIzb3SFvX6fseB2j6phdP40tsBVByDODQCz5jLSDHXwuhuJT0kD1UMvbCZTnbcD
+         sDYEq9URQ4/IFDWlhrxuhjIpyyhxXai/xnmr2CsVtxnyi3ivh7x/6JQy8YQalptUJhco
+         /WcEAPBBLSoaxdK2IGVSK8uL+jCtAwG0UL1Puq5Fhw16NsBc50xJb7SvvP0weVXUllH2
+         awoA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530R2sA1DmW8A2YtGgNBPuXIKqGt3eF9Oh1fHyONus7ppRwSfMCT
-	K8QG1yqSI+hVbnD+CMpvqn0=
-X-Google-Smtp-Source: ABdhPJyxs33UFy/k1oxHJVFivmdzlcAFxlyCqo2O+/u8uz2fErPCtIKj7HlzJF+XTEKzahMTlnLu1w==
-X-Received: by 2002:a17:902:868e:b029:d7:eb0d:79e8 with SMTP id g14-20020a170902868eb02900d7eb0d79e8mr20329712plo.12.1606759554626;
-        Mon, 30 Nov 2020 10:05:54 -0800 (PST)
+X-Gm-Message-State: AOAM531sLR4d6fOt9CzaFTHNoJS5OI1xD5Dtbs2SLumTcfzNG7D5BJcF
+	WM9OYq5GCSNNfttovPK/RDM=
+X-Google-Smtp-Source: ABdhPJy1iK7MpiYWsyTZ69FzQuVt8nwHvHJAPjfQIpQ0ATdInzYPHZxXSl3m2hgqG8pkKAxLVWnKBA==
+X-Received: by 2002:a4a:9711:: with SMTP id u17mr16357748ooi.57.1606759711630;
+        Mon, 30 Nov 2020 10:08:31 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:451d:: with SMTP id s29ls4491675pga.5.gmail; Mon, 30 Nov
- 2020 10:05:54 -0800 (PST)
-X-Received: by 2002:a63:c008:: with SMTP id h8mr5424058pgg.335.1606759553785;
-        Mon, 30 Nov 2020 10:05:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606759553; cv=none;
+Received: by 2002:a4a:e5d8:: with SMTP id r24ls775249oov.11.gmail; Mon, 30 Nov
+ 2020 10:08:31 -0800 (PST)
+X-Received: by 2002:a4a:8158:: with SMTP id p24mr16328715oog.75.1606759711200;
+        Mon, 30 Nov 2020 10:08:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606759711; cv=none;
         d=google.com; s=arc-20160816;
-        b=VLQ0Dkg+rjzAdRdYaEgx+3Owgz9BQG6zWXRKAxuVdLzxcWyDyUw36jsvvTkyaTTbgH
-         i3GwWg84Idy7LSBpXcuT3IkibKuXanevrQj+hY+wOcQs8AC4uSEhRAFIx6RNN59VKZIK
-         qhyK9fy7levdbzvyMJPKea3AJjUUFMrQNebygYgMBgXYHJ2JNSWt7+yriWbLo5AWTzF1
-         Pf9fBkoRVzg+oS7ta00HOj9tMDDkbbfrMNWbimVjAF8QAtrIOwqaFxBcdAelO5aJdLSm
-         OssQ0CDb1rFLDYubF2OGFsaiIX17jE8DGL2O7nqj0PX0HTd6q6nH3Xs9yPLPW/Y6Seiw
-         yL1w==
+        b=PgEgW7MydgyWEIcpPhB6nKcshQoKe3rLzqi1Tl1CTftT76Nldn+5zbCaNEdlUmZJ9+
+         wIOpMJO5glmM/tL+GpE/wp3vgPHoJJCq4bVwwIBJbxNwneZOmNMTQ4BtREoifjJ4MF9g
+         kc4Wygj4RC/0rxbGpvaZ9GzaWaEfv4GpHK9mJWi81Y5pt/D2ngFwzg1rYC+9TOu/nncp
+         8OhE6ROP8t+pgf/4nBGtmgmwq2CKgHIcYQFLS9hdBE4/pwA4gLp2yDBUZ+QcvVHqQKZ7
+         33Rcn8JjrygxhJO0HyIPrxvAI35H/ddPAQrxJR4Uabqlac5kgFRQqIMJx7X3CKskpJ1z
+         Et0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=Uh4bIgW4sNgrSBi12OkKecL/ZclO6A0g1hh7lFN2Jko=;
-        b=Z+fEbRA6qpMjarCj2Vwky7Cy1E7qlaCUO2afsLhGgRN78efpra5Z74hM2z52fBD/qw
-         oJe0/vg+KCqwV4GqNdjQxSCA2Z9uR/Rx0HdPehU0hSh8c9cEE7+UXymp7prypO6UFsDT
-         mJqG2UY6/bwEUoMWVp5BCPf/HmqQZrIzVx3JLmDTzlzRV+wyAlXjyTJPIInSC0G9yie6
-         IQawRnR329l7eSnQiOYgHBOaJ0VuDc5x+/4WRwBOpOzmO8CqzxPHpLwbj7113OvFMTzu
-         9lvMaOIS6SqiCwnzlRNwOUNC+r86DUBDJPQxHRH6XVVlIct4p6qgGUnGjqdCjIJsjUzs
-         n2Iw==
+         :mime-version:dkim-signature;
+        bh=lQthpxR6aOUvdrJTW7YGr1RQFGmPRuGoyPUYjvX1emE=;
+        b=HqTOidsjnCAooOWtFgw4EzXDquitIzUidkAvmoRCs2GC6KpWiHbjLokqNf1ieEs7DG
+         VE1qqLA54KtRm/+sqgAfMt5/why+8N2dChQNuSd40pEUCRIuSAKT9L+nJJrjMBYuiFNg
+         WXA24D2wdNHV4buhmPjzknPju2hk2FNPHAkty/uE+JEPYvgAgdU1fCndTU8xC3CN9mBR
+         VsjPall16oWjkvknh6RAC/RyKVrq0xi7QkMnw0sWQQdieN5gr27Dt+AklAdlVaHKj11j
+         Bdgl6jzFEcCvhQuC5Oht3rT8tTK2VqTMjiy5CqD+MxhaDSmWsDcAv/OT8yxTS94P04cy
+         tPFw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Q435s1Fo;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
-        by gmr-mx.google.com with ESMTPS id d2si1211882pfr.4.2020.11.30.10.05.53
+       dkim=pass header.i=@kernel.org header.s=default header.b=qd583t3m;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id m13si1238838otn.1.2020.11.30.10.08.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Nov 2020 10:05:53 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173]) (authenticated)
-	by conssluserg-01.nifty.com with ESMTP id 0AUI5U0M000565
-	for <clang-built-linux@googlegroups.com>; Tue, 1 Dec 2020 03:05:30 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 0AUI5U0M000565
-X-Nifty-SrcIP: [209.85.214.173]
-Received: by mail-pl1-f173.google.com with SMTP id x4so5186058pln.8
-        for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 10:05:30 -0800 (PST)
-X-Received: by 2002:a17:90a:c209:: with SMTP id e9mr27829261pjt.87.1606759529929;
- Mon, 30 Nov 2020 10:05:29 -0800 (PST)
+        Mon, 30 Nov 2020 10:08:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 169352074A
+	for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 18:08:30 +0000 (UTC)
+Received: by mail-oi1-f179.google.com with SMTP id l206so15110535oif.12
+        for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 10:08:30 -0800 (PST)
+X-Received: by 2002:aca:5ec2:: with SMTP id s185mr30062oib.33.1606759709386;
+ Mon, 30 Nov 2020 10:08:29 -0800 (PST)
 MIME-Version: 1.0
-References: <CAK7LNAST0Ma4bGGOA_HATzYAmRhZG=x_X=8p_9dKGX7bYc2FMA@mail.gmail.com>
- <20201104005343.4192504-1-ndesaulniers@google.com> <20201104005343.4192504-4-ndesaulniers@google.com>
-In-Reply-To: <20201104005343.4192504-4-ndesaulniers@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Tue, 1 Dec 2020 03:04:50 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAT5MQqUddv+QbFu5ToLBK3eUPArHSBR=5AOS3ONtMqKaw@mail.gmail.com>
-Message-ID: <CAK7LNAT5MQqUddv+QbFu5ToLBK3eUPArHSBR=5AOS3ONtMqKaw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] Kbuild: make DWARF version a choice
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Jakub Jelinek <jakub@redhat.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        linux-toolchains@vger.kernel.org,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Fangrui Song <maskray@google.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Sedat Dilek <sedat.dilek@gmail.com>, Dmitry Golovin <dima@golovin.in>,
-        Alistair Delva <adelva@google.com>
+References: <20201123073634.6854-1-swpenim@gmail.com> <CAMj1kXGsQ9K57SvZ74pmD+_=338sGXjc_t+hCXMh-9BPanXnhA@mail.gmail.com>
+ <CAMj1kXGs-woGGnM2QkhY5NbRRKP8_N4BY9ScBtga8mcyHoK2+A@mail.gmail.com>
+ <89n4o5sp-4432-7r33-r9s-54po13q25pnp@syhkavp.arg> <CAMj1kXGuHw+p5=YPrVwaHjp5hQ9uxsp7hbA0Vk-ppZ3_qHDVrA@mail.gmail.com>
+ <85p0oop-5pq-p6o-7560-297sn1np3os@syhkavp.arg>
+In-Reply-To: <85p0oop-5pq-p6o-7560-297sn1np3os@syhkavp.arg>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 30 Nov 2020 19:08:18 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFyi9uc1bNuHrmBBqgW34tUU_mxV0BqVbrihsG_HMzMCA@mail.gmail.com>
+Message-ID: <CAMj1kXFyi9uc1bNuHrmBBqgW34tUU_mxV0BqVbrihsG_HMzMCA@mail.gmail.com>
+Subject: Re: [RESEND,PATCH] ARM: fix __div64_32() error when compiling with clang
+To: Nicolas Pitre <nico@fluxnic.net>
+Cc: Antony Yu <swpenim@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Russell King <linux@armlinux.org.uk>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=Q435s1Fo;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=default header.b=qd583t3m;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,117 +140,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Nov 4, 2020 at 9:53 AM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
+On Mon, 30 Nov 2020 at 18:52, Nicolas Pitre <nico@fluxnic.net> wrote:
 >
-> Modifies CONFIG_DEBUG_INFO_DWARF4 to be a member of a choice. Adds an
-> explicit CONFIG_DEBUG_INFO_DWARF2, which is the default. Does so in a
-> way that's forward compatible with existing configs, and makes adding
-> future versions more straightforward.
+> On Mon, 30 Nov 2020, Ard Biesheuvel wrote:
 >
-> Suggested-by: Fangrui Song <maskray@google.com>
-> Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  Makefile          | 14 ++++++++------
->  lib/Kconfig.debug | 19 +++++++++++++++----
->  2 files changed, 23 insertions(+), 10 deletions(-)
+> > On Mon, 30 Nov 2020 at 16:51, Nicolas Pitre <nico@fluxnic.net> wrote:
+> >
+> > > Here's my version of the fix which should be correct. Warning: this
+> > > is completely untested, but should in theory produce the same code on
+> > > modern gcc.
+> > >
+> > > diff --git a/arch/arm/include/asm/div64.h b/arch/arm/include/asm/div64.h
+> > > index 898e9c78a7..595e538f5b 100644
+> > > --- a/arch/arm/include/asm/div64.h
+> > > +++ b/arch/arm/include/asm/div64.h
+> > > @@ -21,29 +21,20 @@
+> > >   * assembly implementation with completely non standard calling convention
+> > >   * for arguments and results (beware).
+> > >   */
+> > > -
+> > > -#ifdef __ARMEB__
+> > > -#define __xh "r0"
+> > > -#define __xl "r1"
+> > > -#else
+> > > -#define __xl "r0"
+> > > -#define __xh "r1"
+> > > -#endif
+> > > -
+> > >  static inline uint32_t __div64_32(uint64_t *n, uint32_t base)
+> > >  {
+> > >         register unsigned int __base      asm("r4") = base;
+> > >         register unsigned long long __n   asm("r0") = *n;
+> > >         register unsigned long long __res asm("r2");
+> > > -       register unsigned int __rem       asm(__xh);
+> > > -       asm(    __asmeq("%0", __xh)
+> > > +       unsigned int __rem;
+> > > +       asm(    __asmeq("%0", "r0")
+> > >                 __asmeq("%1", "r2")
+> > > -               __asmeq("%2", "r0")
+> > > -               __asmeq("%3", "r4")
+> > > +               __asmeq("%2", "r4")
+> > >                 "bl     __do_div64"
+> > > -               : "=r" (__rem), "=r" (__res)
+> > > -               : "r" (__n), "r" (__base)
+> > > +               : "+r" (__n), "=r" (__res)
+> > > +               : "r" (__base)
+> > >                 : "ip", "lr", "cc");
+> > > +       __rem = __n >> 32;
+> >
+> > This treats {r0, r1} as a {low, high} pair, regardless of endianness,
+> > and so it puts the value of r0 into r1. Doesn't that mean the shift
+> > should only be done on little endian?
 >
-> diff --git a/Makefile b/Makefile
-> index 75b1a3dcbf30..e23786a4c1c7 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -826,12 +826,14 @@ else
->  DEBUG_CFLAGS   += -g
->  endif
+> Not quite. r0-r1 = low-high is for little endian. Then "__n >> 32" is
+> actually translated into "mov r0, r1" to move it into __rem and returned
+> through r0.
 >
-> -ifndef LLVM_IAS
-> -KBUILD_AFLAGS  += -Wa,-gdwarf-2
-> -endif
-> -
-> -ifdef CONFIG_DEBUG_INFO_DWARF4
-> -DEBUG_CFLAGS   += -gdwarf-4
-> +dwarf-version-$(CONFIG_DEBUG_INFO_DWARF2) := 2
-> +dwarf-version-$(CONFIG_DEBUG_INFO_DWARF4) := 4
-> +DEBUG_CFLAGS   += -gdwarf-$(dwarf-version-y)
-> +ifneq ($(dwarf-version-y)$(LLVM_IAS),21)
-> +# Binutils 2.35+ required for -gdwarf-4+ support.
-> +dwarf-aflag    := $(call as-option,-Wa$(comma)-gdwarf-$(dwarf-version-y))
-> +DEBUG_CFLAGS   += $(dwarf-aflag)
-
-This changes the behavior.
-
-For the Dwarf-2 case,
-
-Previously, -gdwarf-2 was passed to $(CC),
-so the debug info was generated by gcc.
-
-Now, -Wa,-gdwarf-2 is passed to $(CC).
--gdwarf-2 is handled by GNU as.
-So, the source info points to /tmp/<hash>.s
-instead of the original .c file.
-
-
-
-Handling the Dwarf capability is very complicated.
-
-Are you still working for v3?
-
-
-
-> +KBUILD_AFLAGS  += $(dwarf-aflag)
->  endif
+> On big endial it is r0-r1 = high-low.  Here "__n >> 32" picks r0 and
+> moves it to __rem which is returned through r0 so no extra instruction
+> needed.
 >
->  ifdef CONFIG_DEBUG_INFO_REDUCED
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index 83a860126897..03c494eefabd 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -256,14 +256,25 @@ config DEBUG_INFO_SPLIT
->           to know about the .dwo files and include them.
->           Incompatible with older versions of ccache.
+> Of course the function is inlined so r0 can be anything, or optimized
+> away if__rem is not used.
 >
-> +choice
-> +       prompt "DWARF version"
-> +       help
-> +         Which version of DWARF debug info to emit.
-> +
-> +config DEBUG_INFO_DWARF2
-> +       bool "Generate DWARF v2 debuginfo"
-> +       help
-> +         Generate DWARF v2 debug info.
-> +
->  config DEBUG_INFO_DWARF4
->         bool "Generate dwarf4 debuginfo"
->         depends on $(cc-option,-gdwarf-4)
->         help
-> -         Generate dwarf4 debug info. This requires recent versions
-> -         of gcc and gdb. It makes the debug information larger.
-> -         But it significantly improves the success of resolving
-> -         variables in gdb on optimized code.
-> +         Generate DWARF v4 debug info. This requires gcc 4.5+ and gdb 7.0+.
-> +         It makes the debug information larger, but it significantly
-> +         improves the success of resolving variables in gdb on optimized code.
-> +
-> +endchoice # "DWARF version"
->
->  config DEBUG_INFO_BTF
->         bool "Generate BTF typeinfo"
-> --
-> 2.29.1.341.ge80a0c044ae-goog
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201104005343.4192504-4-ndesaulniers%40google.com.
+
+OK, you're right. I got myself confused there, but a quick test with
+GCC confirms your explanation:
+
+$ arm-linux-gnueabihf-gcc -mbig-endian -O2 -S -o - \
+   -xc - <<<"long f(long long l) { return l >> 32; }"
+
+just produces
+
+bx lr
+
+whereas removing the -mbig-endian gives
+
+mov r0, r1
+bx lr
 
 
+I tested the change and it builds and runs fine (although I am not
+sure how much coverage this code gets on an ordinary boot):
 
--- 
-Best Regards
-Masahiro Yamada
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Tested-by: Ard Biesheuvel <ardb@kernel.org>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT5MQqUddv%2BQbFu5ToLBK3eUPArHSBR%3D5AOS3ONtMqKaw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXFyi9uc1bNuHrmBBqgW34tUU_mxV0BqVbrihsG_HMzMCA%40mail.gmail.com.
