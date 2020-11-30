@@ -1,141 +1,130 @@
-Return-Path: <clang-built-linux+bncBAABBEGIST7AKGQEM3N4Y7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBZOSST7AKGQEA2BMD4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4E652C89F5
-	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 17:55:45 +0100 (CET)
-Received: by mail-ot1-x33e.google.com with SMTP id r13sf7285318oti.19
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 08:55:45 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606755344; cv=pass;
+Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 413F42C8AA3
+	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 18:18:30 +0100 (CET)
+Received: by mail-oo1-xc3a.google.com with SMTP id q80sf4448038ooq.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 09:18:30 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606756709; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TI4g0P0W8lre/NCbVZV/h1XLsS4j5Z9slYiEe4MLq7gDQNJ0HufXEHGh+/usRho9DV
-         j016wY3fi7m0WeiOe66y+Kd2UGw6BHm5ukQABFsJXgp4iKul+GIjFUxDau7mhKWn6RmK
-         xNrS9mvGNnz/q7RMHej8Ig9fvt4hEHSXvYTxrSuylhqFpzSddxRFkZ5Fj03KOtZgpJIq
-         PpR0F2rZSQLPLdZ9ZzpmeNhF0g91mp0XsfDLU6ykNAD2vrYdhUyZ0kKoBpdoxcasKYTZ
-         K4uYxlwOWM/UnNepFzOeFEO0CLsIJGBjFoWokBlCjw4B+jVYRxaFvUfZc7LQRtbtHEIL
-         AG0A==
+        b=k38eFAQkrfqYur9Hyt9Vbl8nwcGBv80lBw0hfWai8VQPm3c7BMRO1WkSw57HGv5Abf
+         WGF9umfsdZGPbp0P1/Gam/F8KFGAjub1aUqxoYpOdzRzg9+QTly83gViBXsFrjt+gXIb
+         fjZjDO+F+vsrJvas6HrrH3/Y0DVoV8JDsSuy3JcDoQK/FTLq1Q8YLgeJkreA5MjKHpW4
+         EGjWrLnm2jTvoIEM5NsRkBBLdyB+mfpyaqOjoRUIFIQPBA1+i6G1vzfoFMKUvqlnPrV0
+         D969gO/9ikW6YfQtayfgl4EC5LmWUWzflaSDznplwalnyrADBZwWZBE9reqragN4GJma
+         KkbQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=GJr8XsQVkx5fwSC+vxnrzNvKF+AI3oPWFQPwLtA9LGo=;
-        b=A4Fi1PXwOzbZVCJ+NzFm4UugB2PpQfR3o/HpIbY8fBhbSnvRNz9T8eQie/dk+88Y4f
-         qoo/r47cZ1+OSFV5TAf0T4YeK6EUkwJvk6FjjkFQKtrQoiwbxMa4T7vICcgyDPtC3mJw
-         Wtqf9DQDlEBDzxr0KQzCv3EF3DpTrw0F+pkTzLpuGj2W1ERuEv4pnY+0SYZtr9qZnf6V
-         6QVD0Bk8U+xbI8hzg5s+jnfvT2sa2PvDGiEzx848RkhpXFTX2haG3NijilTQ0LHkfbMT
-         UM+hm9ZJY3xnbZjnakS58wKZnL1AJzgaowqmgQJ9VNCI5w6TwCmL6YhXTHByuxQPbmfn
-         8Lmg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=lpaxdYWxv+u6otTedpWd2Rxw++A2qqWcG8CXuHLnBnc=;
+        b=htE/qtuvrW30ttd5eKy2R0EGaUuBJdkLOFRnaFm9ZJC/FK22ZqIf1JEnAc1F7H0Ss8
+         O6vK946dMpk0NeBWgrOteb8Z9l7OyweeGbduNltyC3/xIZLWgj8v4Htdk0vyeeMDD84K
+         Fxpywjob26nYX/sGOb91w27Ap2Eu4OlibumuV9y9BO4YfSDtChb/wLvugR8l5w1za3jL
+         gWflr8/vNtfSbs5+uzVo0HD3bhtLsBl79Ku2HlCq5hQ9kNfZtFP51ZEb1NA60pSQjhRe
+         EZ7PD7YZjdwYJH0yhkxjQrhtV7BMqn33yvkAN7xc6uKksc6sXK7NeEgYb13nb5f8/ugf
+         dQDA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=fcnlTPWW;
-       spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=default header.b=Mriswbwe;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GJr8XsQVkx5fwSC+vxnrzNvKF+AI3oPWFQPwLtA9LGo=;
-        b=O5MmJUYfd0dXNCJ9nYiDRisQ5+CQ9w41mQbZMehGbrFDHE73dRoi1E92KsHV+8GlRq
-         Tj8OkR3e5uwB1k6dMqHUiJtCQOVysqTTRvsoBEpCqUK9lTqFTaj6jClWtuhwZ18DcTU6
-         6JyLsHxF+7IJTDj2CvrAJDJAUoVdWJx8iD8WnFjvsGWEkW/zLRrZTiJ6p1W5ov+eaJo9
-         4+dr1M859lyl8ex6kLkb9iPJScjwhTn1Cj2wjMCJmcZ6PHT6enAbB7qfsAVaMOjVpiM1
-         JaLLYY7UG5VD07me8Lq8X6CUcA+SRHDpmNppxF4LHtrLBeGKQLr5uXorUhN2LHNitHVT
-         YGrA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lpaxdYWxv+u6otTedpWd2Rxw++A2qqWcG8CXuHLnBnc=;
+        b=qCMulHVf1Oj1SW+dp5ks6Q3paYawE5GaBqJjlsYExOPv/wCLeEmKppe1LwIfQVQO+u
+         sxVOBKz+YX52wZeypQf0j1u+O1z97nokWEQVCe82v/QtBdGfJmSoGFtdJL6wXihQBye7
+         IMTtduqH72FhI0VzbXZ1tt8HN9cYPibds4XE7/ysN6OV/wG7m71G3NOxzTxK/p6jcxU/
+         QNMccphXT785CG6G5+u1J1TIWeX7GfuqJRFqvy898EZC6qIJhBmFPewg4tHqM3McdEoR
+         4bKSDEIQ5Eq7FtpIxkXxEZzYDeOhf/DDtmp6yW7VbP8Pz00Rc+p6w8XAOYWE9M7N0j5I
+         seyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=GJr8XsQVkx5fwSC+vxnrzNvKF+AI3oPWFQPwLtA9LGo=;
-        b=hzGg3HfF1s+lWag7QdGLBtVt3fQ+MCsWH/tqKvh4kMEc2f5Px5j5bV5F305tYXTwir
-         Acn08SYUovCI/cQxSd6C+4hxTmbyNmTyUQwvmE/a0D/53H7oYb2k1zz0cIAjA4wBJC96
-         jp3sax5lwJprliuoe3vtoj4kU7mZN6Y2QOS0PuvaJRVIbDm9oqWFhqxZgGwGISzdc/Mh
-         gmKGl/hMreP+SIYZKaacoPFKsjBX1A0we+z4LEAwW3LQ2cWBKulEsr3BAF4hc7OSzn/G
-         dq3FRwwv2XeWGkYPQVIPt5dzv9akyTYdS9YMQYzvyAvzNXTVs511vpsL53M2CBpUWJqm
-         o6Eg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lpaxdYWxv+u6otTedpWd2Rxw++A2qqWcG8CXuHLnBnc=;
+        b=VgoAXccGFqiorhAgAs28CRywNteuGjn9d+Vr8ARgftAVAtaQz+Ylpx5dAK8HyL/jQF
+         Sz0c0xdgbAtUJ3cR5K0OIz1Yfxby8lTH4pr5mcqT+mfrRgif5QJUwTu9DlpZWsiqnUVC
+         aqjovDSSIFFXbPKxvxCRm0INCnWOQgwHZf65GP1dyYYS/AeOMqR7RaRUjx8Dfav/Vse1
+         BzCAsmz7RGdkihWBWQfZpSSQk/N0fYDO92c+MH6kXvEpLXPMZ43YPO9vRdrub04jBzdK
+         zCfI0+BXYrAGdenodd89fzihbwtqDFjrj0yeHXa4w4E1zBnJ9Aa1iYGx5PhfbFcwtJTB
+         7moQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533mJ39rSj3GdcKW9A7iBffvP3kO3yfE24yAofb6YhEWDCj7imhi
-	t6zb08SvSzA25w5vtiA1W5k=
-X-Google-Smtp-Source: ABdhPJzyyquAbgFPG1fEqVmgKotLwSPLyIZaPUOqR9eYKjg5si98d9ekBCXFug2DfL8s/m5u2xJncA==
-X-Received: by 2002:a4a:45c3:: with SMTP id y186mr16112222ooa.13.1606755344165;
-        Mon, 30 Nov 2020 08:55:44 -0800 (PST)
+X-Gm-Message-State: AOAM5338xhDU9fmuZPS7XjPAQgvcOj/dDGBxjcXi+ZdzaVWgPRl5LKlB
+	0WlI0gN10gr2oQbzUVsPK84=
+X-Google-Smtp-Source: ABdhPJxKvPceL+9Ah36Y/hx4d4iyDQFw5g8KxDp3NPFmdpJBaUtkY4CtX/i9NpXTpqSmYaXL2aM+vw==
+X-Received: by 2002:a9d:6752:: with SMTP id w18mr13365834otm.256.1606756709210;
+        Mon, 30 Nov 2020 09:18:29 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:4c0e:: with SMTP id l14ls2107642otf.11.gmail; Mon, 30
- Nov 2020 08:55:43 -0800 (PST)
-X-Received: by 2002:a9d:5781:: with SMTP id q1mr17956683oth.325.1606755343770;
-        Mon, 30 Nov 2020 08:55:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606755343; cv=none;
+Received: by 2002:a9d:648d:: with SMTP id g13ls2424609otl.0.gmail; Mon, 30 Nov
+ 2020 09:18:28 -0800 (PST)
+X-Received: by 2002:a9d:7cc1:: with SMTP id r1mr17747444otn.37.1606756708772;
+        Mon, 30 Nov 2020 09:18:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606756708; cv=none;
         d=google.com; s=arc-20160816;
-        b=psIXBUrTXi/KNcVgBQVaBCyIdGB/Vs2nJ+rvfP+jA9BDpsQ37lluiEmaf7tm/7tA0A
-         1FnA9Aecipaww10LaJXTlaglV+61YDVT5SYN/KGssCJFpRkTDL+cl0dkKu4nYGrmBhop
-         NPELt/oX0BGvx8iSwCOE9MgKHPZSPES4FIs8fpthLlUce+CDoIm1qJ039uFoX4ak1lim
-         mJd3pEUk0YGbA8haF7ssUMSA6hxeojbN23hS0BTl8FHNKxK60FM8kp9LIHEyxhEEsilU
-         HjrD7LAFr64/bUri6k+f4DorSW604zYQOgqGtBXDFrfzd8h4XqpFZXxtXFcEHR68U0lO
-         ZDJw==
+        b=q61TMKY+KWWYQQEV4OicI/Gpo2Ip3pgow0i6gj4oaPtuRxiXEIjBiV3LFxyLZaPjbI
+         +OOzRFzJAx+FAJuoih/EfIjZoB08R1FjWPQjqDeXx3TbCdztEbEIYG7R+9DZkHJMzHnY
+         /pWzUPO5s+b2ojNtYR4TG/RjAVHdo8PWPdMDFmyOWfbR7Fb10NIInoeyL9NTfEg2NqDy
+         WZ6iFejI9BOauciJuvGixTD2MZIvqB2tE1Vbu6nu1n3i+6ltTOCLixU3v0GX0c3zoIQu
+         gIdfqAk34+TCiSxZoHAPVHOGO5XaRj2cKH6jpQYkOvyV7sEJSjrGUG5AwlhgG/oCBAHO
+         fpUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=fVgqX/OcJX6JFwP1sX1hr80IRCSO4yicDkTzTwrqyp8=;
-        b=ffy2cREeZzmA/5Pus/xTryzMothfJ6Pefff5i+OCLzQmf2x4cfSA2rtCEeypamXVsf
-         d+mMOTI/qGYWZSYEU8U/SlBcyv5ESwMqUJnS7gETkws4S+214pL9LD5mDrkD9esAovrX
-         /NhazbbIGbjBIkRjxwyHeEZPOJ+Exi040wlUtT6Om9d3WOjhxhbiPbwTvS70jee0PX/y
-         zPfSDsaSZOEmpMK/B5qq1WgZ/wMBXa24zokgWdqK1AX+YlAm1rSC6YPjXndMBV4T+kpo
-         Uc2GYk7Q1Nr83WSnNPG1vByTfNk1weVdHOuZvYnJ0rQZ6g7l9uDLdEhxkSYA9PXKtpRj
-         vVZA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Dilebm5yi5PIJeHIOMLRA358LqjOT9EiK3N+YYjyXwE=;
+        b=MXbPTWZmLmCbFXIf8z80rqh2OKZi58XwNNDoPfl86FH49u6c3zhd0uCfmNWBE/al3n
+         Gukje6Q1Qg4fbtrVg4LLYWjFdFotZddzpqt3tBDnAhFHi5RSi1vRTjNdL6z+cswOmJJi
+         prt3lQ8FHGNmr8oFlvNHNF/c7IZuiK0FqTakOpRQs4yRtH+9iexlCzJ8ZmmcmOen+0HQ
+         dOE/WNwz6JXO6UTl6YN9yITe2qvIUHCQEe3OX5GmYDXQZHQFvVPLzv3fUWGXGSF2L4m9
+         ubQcfMrgwcAPi3GrDfUBQ5vi/D+uRl2t/lGqHKsAHDyIcnLcAirlwNkPN04w91FWbhGW
+         bZVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=fcnlTPWW;
-       spf=pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=rppt@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=default header.b=Mriswbwe;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e1si737156oti.2.2020.11.30.08.55.43
+        by gmr-mx.google.com with ESMTPS id i23si1147825oto.5.2020.11.30.09.18.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Nov 2020 08:55:43 -0800 (PST)
-Received-SPF: pass (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from kernel.org (unknown [87.71.85.130])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+        Mon, 30 Nov 2020 09:18:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 76E982076E;
-	Mon, 30 Nov 2020 16:55:38 +0000 (UTC)
-Date: Mon, 30 Nov 2020 18:55:32 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Rahul Gopakumar <gopakumarr@vmware.com>
-Cc: "bhe@redhat.com" <bhe@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"natechancellor@gmail.com" <natechancellor@gmail.com>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	Rajender M <manir@vmware.com>, Yiu Cho Lau <lauyiuch@vmware.com>,
-	Peter Jonasson <pjonasson@vmware.com>,
-	Venkatesh Rajaram <rajaramv@vmware.com>
-Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
-Message-ID: <20201130165532.GE557259@kernel.org>
-References: <DM6PR05MB529293AC2B077B5170FFE625A41F0@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201022040440.GX25604@MiWiFi-R3L-srv>
- <DM6PR05MB5292D8B85FA9DDE263F6147AA41D0@DM6PR05MB5292.namprd05.prod.outlook.com>
- <DM6PR05MB5292DF14DF1C82FFE001AC24A4100@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201102143035.GA3177@MiWiFi-R3L-srv>
- <DM6PR05MB5292FD196FF6B18DCB47CE25A4110@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201112145149.GN8486@MiWiFi-R3L-srv>
- <DM6PR05MB52920B2D4267AD7D073D3C36A4FF0@DM6PR05MB5292.namprd05.prod.outlook.com>
- <20201122010844.GR8486@MiWiFi-R3L-srv>
- <DM6PR05MB52927C9962D498F1E49BABAAA4FB0@DM6PR05MB5292.namprd05.prod.outlook.com>
+	by mail.kernel.org (Postfix) with ESMTPSA id C24F920789
+	for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 17:18:27 +0000 (UTC)
+Received: by mail-oo1-f43.google.com with SMTP id l10so2848242ooh.1
+        for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 09:18:27 -0800 (PST)
+X-Received: by 2002:a4a:45c3:: with SMTP id y186mr16208144ooa.13.1606756707013;
+ Mon, 30 Nov 2020 09:18:27 -0800 (PST)
 MIME-Version: 1.0
+References: <20201123073634.6854-1-swpenim@gmail.com> <CAMj1kXGsQ9K57SvZ74pmD+_=338sGXjc_t+hCXMh-9BPanXnhA@mail.gmail.com>
+ <CAMj1kXGs-woGGnM2QkhY5NbRRKP8_N4BY9ScBtga8mcyHoK2+A@mail.gmail.com> <89n4o5sp-4432-7r33-r9s-54po13q25pnp@syhkavp.arg>
+In-Reply-To: <89n4o5sp-4432-7r33-r9s-54po13q25pnp@syhkavp.arg>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 30 Nov 2020 18:18:15 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGuHw+p5=YPrVwaHjp5hQ9uxsp7hbA0Vk-ppZ3_qHDVrA@mail.gmail.com>
+Message-ID: <CAMj1kXGuHw+p5=YPrVwaHjp5hQ9uxsp7hbA0Vk-ppZ3_qHDVrA@mail.gmail.com>
+Subject: Re: [RESEND,PATCH] ARM: fix __div64_32() error when compiling with clang
+To: Nicolas Pitre <nico@fluxnic.net>
+Cc: Antony Yu <swpenim@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Russell King <linux@armlinux.org.uk>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <DM6PR05MB52927C9962D498F1E49BABAAA4FB0@DM6PR05MB5292.namprd05.prod.outlook.com>
-X-Original-Sender: rppt@kernel.org
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=fcnlTPWW;       spf=pass
- (google.com: domain of rppt@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=rppt@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ header.i=@kernel.org header.s=default header.b=Mriswbwe;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -149,81 +138,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Rahul,
-
-On Tue, Nov 24, 2020 at 03:03:40PM +0000, Rahul Gopakumar wrote:
-> Hi Baoquan,
-> 
-> We applied the new patch to 5.10 rc3 and tested it. We are still
-> observing the same page corruption issue which we saw with the
-> old patch. This is causing 3 secs delay in boot time.
-> 
-> Attached dmesg log from the new patch and also from vanilla
-> 5.10 rc3 kernel.
-> 
-> There are multiple lines like below in the dmesg log of the
-> new patch.
-> 
-> "BUG: Bad page state in process swapper  pfn:ab08001"
-
-Can you please run your test with the below patch and send output of
-
-	dmesg | grep defer
-
-
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index eaa227a479e4..ce7ec660c777 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -455,6 +455,7 @@ defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
- 	nr_initialised++;
- 	if ((nr_initialised > PAGES_PER_SECTION) &&
- 	    (pfn & (PAGES_PER_SECTION - 1)) == 0) {
-+		pr_info("=> %s: nid: %d pfn: %lx\n", __func__, nid, pfn);
- 		NODE_DATA(nid)->first_deferred_pfn = pfn;
- 		return true;
- 	}
-
-> ________________________________________
-> From: bhe@redhat.com <bhe@redhat.com>
-> Sent: 22 November 2020 6:38 AM
-> To: Rahul Gopakumar
-> Cc: linux-mm@kvack.org; linux-kernel@vger.kernel.org; akpm@linux-foundation.org; natechancellor@gmail.com; ndesaulniers@google.com; clang-built-linux@googlegroups.com; rostedt@goodmis.org; Rajender M; Yiu Cho Lau; Peter Jonasson; Venkatesh Rajaram
-> Subject: Re: Performance regressions in "boot_time" tests in Linux 5.8 Kernel
-> 
-> On 11/20/20 at 03:11am, Rahul Gopakumar wrote:
-> > Hi Baoquan,
+On Mon, 30 Nov 2020 at 16:51, Nicolas Pitre <nico@fluxnic.net> wrote:
+>
+> On Mon, 30 Nov 2020, Ard Biesheuvel wrote:
+>
+> > (+ Nico)
 > >
-> > To which commit should we apply the draft patch. We tried applying
-> > the patch to the commit 3e4fb4346c781068610d03c12b16c0cfb0fd24a3
-> > (the one we used for applying the previous patch) but it fails.
-> 
-> I tested on 5.10-rc3+. You can append below change to the old patch in
-> your testing kernel.
-> 
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index fa6076e1a840..5e5b74e88d69 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -448,6 +448,8 @@ defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
->         if (end_pfn < pgdat_end_pfn(NODE_DATA(nid)))
->                 return false;
-> 
-> +       if (NODE_DATA(nid)->first_deferred_pfn != ULONG_MAX)
-> +               return true;
->         /*
->          * We start only with one section of pages, more pages are added as
->          * needed until the rest of deferred pages are initialized.
-> 
+> > On Mon, 30 Nov 2020 at 11:11, Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > > On Mon, 23 Nov 2020 at 08:39, Antony Yu <swpenim@gmail.com> wrote:
+> > > >
+> > > > __do_div64 clobbers the input register r0 in little endian system.
+> > > > According to the inline assembly document, if an input operand is
+> > > > modified, it should be tied to a output operand. This patch can
+> > > > prevent compilers from reusing r0 register after asm statements.
+> > > >
+> > > > Signed-off-by: Antony Yu <swpenim@gmail.com>
+> > > > ---
+> > > >  arch/arm/include/asm/div64.h | 5 +++--
+> > > >  1 file changed, 3 insertions(+), 2 deletions(-)
+> > > >
+> > > > diff --git a/arch/arm/include/asm/div64.h b/arch/arm/include/asm/div64.h
+> > > > index 898e9c78a7e7..809efc51e90f 100644
+> > > > --- a/arch/arm/include/asm/div64.h
+> > > > +++ b/arch/arm/include/asm/div64.h
+> > > > @@ -39,9 +39,10 @@ static inline uint32_t __div64_32(uint64_t *n, uint32_t base)
+> > > >         asm(    __asmeq("%0", __xh)
+> > > >                 __asmeq("%1", "r2")
+> > > >                 __asmeq("%2", "r0")
+> > > > -               __asmeq("%3", "r4")
+> > > > +               __asmeq("%3", "r0")
+> > > > +               __asmeq("%4", "r4")
+> > > >                 "bl     __do_div64"
+> > > > -               : "=r" (__rem), "=r" (__res)
+> > > > +               : "=r" (__rem), "=r" (__res), "=r" (__n)
+> > > >                 : "r" (__n), "r" (__base)
+> > > >                 : "ip", "lr", "cc");
+> > > >         *n = __res;
+> > > > --
+> > > > 2.23.0
+> > > >
+> > >
+> > > Agree that using r0 as an input operand only is incorrect, and not
+> > > only on Clang. The compiler might assume that r0 will retain its value
+> > > across the asm() block, which is obviously not the case.
+>
+> You're right.
+>
+> This was done like that most likely to work around some stupid code
+> generation with "__n >> 32" while using gcc from about 20 years ago. IOW
+> I don't exactly remember why I did it like that, but it is certainly
+> flawed.
+>
+> Here's my version of the fix which should be correct. Warning: this
+> is completely untested, but should in theory produce the same code on
+> modern gcc.
+>
+> diff --git a/arch/arm/include/asm/div64.h b/arch/arm/include/asm/div64.h
+> index 898e9c78a7..595e538f5b 100644
+> --- a/arch/arm/include/asm/div64.h
+> +++ b/arch/arm/include/asm/div64.h
+> @@ -21,29 +21,20 @@
+>   * assembly implementation with completely non standard calling convention
+>   * for arguments and results (beware).
+>   */
+> -
+> -#ifdef __ARMEB__
+> -#define __xh "r0"
+> -#define __xl "r1"
+> -#else
+> -#define __xl "r0"
+> -#define __xh "r1"
+> -#endif
+> -
+>  static inline uint32_t __div64_32(uint64_t *n, uint32_t base)
+>  {
+>         register unsigned int __base      asm("r4") = base;
+>         register unsigned long long __n   asm("r0") = *n;
+>         register unsigned long long __res asm("r2");
+> -       register unsigned int __rem       asm(__xh);
+> -       asm(    __asmeq("%0", __xh)
+> +       unsigned int __rem;
+> +       asm(    __asmeq("%0", "r0")
+>                 __asmeq("%1", "r2")
+> -               __asmeq("%2", "r0")
+> -               __asmeq("%3", "r4")
+> +               __asmeq("%2", "r4")
+>                 "bl     __do_div64"
+> -               : "=r" (__rem), "=r" (__res)
+> -               : "r" (__n), "r" (__base)
+> +               : "+r" (__n), "=r" (__res)
+> +               : "r" (__base)
+>                 : "ip", "lr", "cc");
+> +       __rem = __n >> 32;
+
+This treats {r0, r1} as a {low, high} pair, regardless of endianness,
+and so it puts the value of r0 into r1. Doesn't that mean the shift
+should only be done on little endian?
 
 
-
-
--- 
-Sincerely yours,
-Mike.
+>         *n = __res;
+>         return __rem;
+>  }
+>
+> I'll submit it if someone confirms it works.
+>
+>
+> Nicolas
+>
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201130165532.GE557259%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXGuHw%2Bp5%3DYPrVwaHjp5hQ9uxsp7hbA0Vk-ppZ3_qHDVrA%40mail.gmail.com.
