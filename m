@@ -1,133 +1,127 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBBH7KST7AKGQENDD2QQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAHOST7AKGQEBO3TZ7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id AAB9F2C8C2B
-	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 19:08:32 +0100 (CET)
-Received: by mail-oi1-x23e.google.com with SMTP id g19sf7130116oib.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 10:08:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606759711; cv=pass;
+Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C1FDC2C8C6C
+	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 19:16:33 +0100 (CET)
+Received: by mail-qv1-xf3a.google.com with SMTP id m45sf8098497qvg.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 10:16:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606760192; cv=pass;
         d=google.com; s=arc-20160816;
-        b=upqmCoySxEv6TvzftAKBm5ouZuaC3RjVDWhbHIl9hestIbfog9hExHYjrqNWsCYokO
-         CtkdHoUl7Va7EaVaJLeHisTQx0WfDb41uxBYFtNGWHzoeqI+MNUHMaN0DaMxYfJ+UtCW
-         f50tpWuqUb50giYifeHFeaQJTZPhZtA1IreLsDW02mIAR1s2SGyqiOBfBHzFpZtpE3kR
-         G11/mw+89Boo2ZDvzWd9lzqysB05L4d9fKiWl3AOdyqJwXhSNGsY38B0gabE4okNR+/K
-         k3ezNa9nLDEwII4O7orOS2oNL1eSC2mtN2/I0g2yIanF7LPVQ38hSTYSTFexzMkLYBBy
-         GFOQ==
+        b=cZ9o7tEavcIQ+dWUdrhv8ZvCJsPVtl1H/Pm94fJ28YAQic2SFXRjbo/2p4bQAM3xL9
+         Qb7rklFZ4Mris1wJfMxWwVFI7x1+L4n8KqwMOn17S3SWoj3fYzozXSPygFnp/SvrWr3R
+         9mxUZi6qkxfn0J/4faGSKZo/X375s0GzanpU3wJ76wwVebbrOh2+rOUSC7na2eBk/4D6
+         CRwZH5xJkBtqYRbRY9jrsoP1hKvbbR53R+H/wPyIsJAQebBSqO7E7jYElvYGyajzNEHb
+         c+ZIMOaxrFQ7xShi9N5nUvLL0gIgvQjcuyhD9UTFF6z+2aiIA/Psd0ERCc1mUjYmWwm5
+         e9ag==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=8uZLNMZ0QSd00wLzmtT7OI+hA/Q20f1w/9xqZ6Y3QRM=;
-        b=nZELKOzi70jEsF+M80T720fTSxYbPtK+zArC3XCRwaMsXsMFq0KyW1o2tuFNyfQCpd
-         56Wp/LLLEq/9Lfb1p/hQQ2xCjFTJX9L+fLX81UHyMjXBuE5Qx4/Cr+BpPn7E9+iNVAwr
-         uC3DM4Dl4L6gFrjRYxUlp+AxYQA6+oSVgWZQyS7XDyFaUVIiQlM87KSHeVFyBue25otO
-         2kFu3HyZx+8QmOt2N12f27PiCOD3ZT1p1Tj3skTmzWljJK8bUNiSRyE1LLtWrr2rO2un
-         9g0eJWg6heR1a3mhuRLnHg4V/D4GEJkruyyAxluVpVxAi6proqtttGIffCjv7q9n6PBs
-         R5gw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=0pu+fBDZSL93fHhoICqo9IP9rM9JtKa/RuM6sJinhQU=;
+        b=soOMcSi5wyGqqg6QPEaYGVRyULNtcJ2zTV/8wHN0BM1OlN+MLf5s7C0bNP7Xf3zula
+         QfIxxivO4VjI9fX+iyIqPD5XGMlacOrCmjuVDxgNdihTHP0riWnV9T6q9efT+RlMClRp
+         7D5oYjp0RIh36WrIDr3Ii/Vn1XCSyTxNpKF54dN4sqfh+ZySDqv8KRuSOE8USJmUsJbt
+         2fw+Kyipm8xZvpIfijsL/5cncIQSS09WmipLl13qKP+I+bEoCz6fQa6UyCRIO1p3O+48
+         NMxuwIM+qdS8pU/nW5KlGXeGNZGg+a9HKjlddrO9ln8g1W43kNd29xh2vSjJqeO71YmY
+         IZiA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=qd583t3m;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=IYOlgdTZ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8uZLNMZ0QSd00wLzmtT7OI+hA/Q20f1w/9xqZ6Y3QRM=;
-        b=A74yyEGkMyYAWbWxErafl1j48ZFK4JaqMzh8Kv4mRGFWi7+Hof4GC2XZtZXMDBentv
-         4Zy97kCbiWaQNh76RKBgY8+0SHx6dbO84I8tJ74NvEvnBXMrNsyXCHRHVGyxjww+8Kgh
-         VLABweM6Bxs3st+UHlo1n+3LmqSrIH/8rSwUaQjUoRDDraTSugp01zqXY8NzbayaVmNe
-         GXBhsA9Jxxwfh9UZthePiHh7bSRaiwU254uppu7rO5pIA1a/59+hKubqUI5gWCtTQOU9
-         jJCSPBir6wjdDxdd9n26fb4vrigHIRkDVg6buig2nLPwn1pZ/3DEwZh8Um2jRepO1GQ0
-         lQlw==
+        bh=0pu+fBDZSL93fHhoICqo9IP9rM9JtKa/RuM6sJinhQU=;
+        b=JbPHnckOwzFYPWQYz+fPY+ffSY+bIZS3gEd1VZccOhnhFTPSXW1+e3MA2QX+XH9mZA
+         t1BSc2H76AYqh2QrBY47orMXIFmRFeXIbILB5UsO8ISJ4Bsg98JfDfFvDNJ9UTEfwsad
+         Klno0GUZ3VL/MA0M85U8u+iYLoHUZLWdxZlbCqiJ3ziD/xS8pEgsYc145fg2TtPy87tb
+         Kix+TpXZn3EZ1t1V9opAqPfiYAAxj+9R1zd73gyjgm+H/rhtCB0Ek24w9H8N+53jrs1U
+         y07MGrSsr7FUduIyBvSV5pB4A5kdxfmnbRwVHwDdC1s6wtRdYyXTBr7JKPjVzeHq5VlI
+         LTDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8uZLNMZ0QSd00wLzmtT7OI+hA/Q20f1w/9xqZ6Y3QRM=;
-        b=CI7D9hG46te9U4En75iZoyu6ppUZzoY5UtXIMQy/0VEUD8A4RlAsNF/Sv8LgJ94qoy
-         g9LAVI9Vyjp1TqOBjb+71T0ylhj5T+aL8rJsV5YwZbiMThOb5gxj40ZwDyPKRrxuApHJ
-         eGl5JDIzb3SFvX6fseB2j6phdP40tsBVByDODQCz5jLSDHXwuhuJT0kD1UMvbCZTnbcD
-         sDYEq9URQ4/IFDWlhrxuhjIpyyhxXai/xnmr2CsVtxnyi3ivh7x/6JQy8YQalptUJhco
-         /WcEAPBBLSoaxdK2IGVSK8uL+jCtAwG0UL1Puq5Fhw16NsBc50xJb7SvvP0weVXUllH2
-         awoA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531sLR4d6fOt9CzaFTHNoJS5OI1xD5Dtbs2SLumTcfzNG7D5BJcF
-	WM9OYq5GCSNNfttovPK/RDM=
-X-Google-Smtp-Source: ABdhPJy1iK7MpiYWsyTZ69FzQuVt8nwHvHJAPjfQIpQ0ATdInzYPHZxXSl3m2hgqG8pkKAxLVWnKBA==
-X-Received: by 2002:a4a:9711:: with SMTP id u17mr16357748ooi.57.1606759711630;
-        Mon, 30 Nov 2020 10:08:31 -0800 (PST)
+        bh=0pu+fBDZSL93fHhoICqo9IP9rM9JtKa/RuM6sJinhQU=;
+        b=QAOnH8/hk1KTK1YymXRh3t664pe9bJAh4DxYQsjcvZRNDzAahWd8p3WM+Ir+LWRgyo
+         r3ErYQ2oB24bnvq2FxB8zUJ8VnuYfrxSH41m2xLV71Awq3xRP6NSDm8YkiwIR4Njes0X
+         Wa7oc9MQHlLfCTjQE9BLSyDRu7oFz0GtOCEwjDfnIvZs1zYwM7YHqv5YRhwiseKcKbUd
+         4+QHUaEfb88Zx9jyOPixX2CsG3n+rG65Umq1eiFHOPZmld8pWgclWQAyZKLUG/E7n7QH
+         d9j2O+NDlRxlf0uWojQvNaTZ3UJMrNkuMxH8Ot9tgcAdjoy6JsFOoKt3QGeaVJFyLM+d
+         jr9g==
+X-Gm-Message-State: AOAM530iyY0nd0e5ZI7R7cn2SK1yxslADbWzdOKQpbdPF7oKZIscSGkl
+	LqWseXlydB2bYNXWXpN5ch0=
+X-Google-Smtp-Source: ABdhPJwpf3/mwxCsSGk0VPu7bJut/pcVihwoY+KBKBMiGg7VIMMoRQL7o0Dz4E6rDAms9oVGwYL0LQ==
+X-Received: by 2002:a0c:d407:: with SMTP id t7mr7935309qvh.21.1606760192659;
+        Mon, 30 Nov 2020 10:16:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:e5d8:: with SMTP id r24ls775249oov.11.gmail; Mon, 30 Nov
- 2020 10:08:31 -0800 (PST)
-X-Received: by 2002:a4a:8158:: with SMTP id p24mr16328715oog.75.1606759711200;
-        Mon, 30 Nov 2020 10:08:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606759711; cv=none;
+Received: by 2002:a05:6214:c2e:: with SMTP id a14ls344828qvd.9.gmail; Mon, 30
+ Nov 2020 10:16:32 -0800 (PST)
+X-Received: by 2002:ad4:4745:: with SMTP id c5mr24172603qvx.2.1606760192230;
+        Mon, 30 Nov 2020 10:16:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606760192; cv=none;
         d=google.com; s=arc-20160816;
-        b=PgEgW7MydgyWEIcpPhB6nKcshQoKe3rLzqi1Tl1CTftT76Nldn+5zbCaNEdlUmZJ9+
-         wIOpMJO5glmM/tL+GpE/wp3vgPHoJJCq4bVwwIBJbxNwneZOmNMTQ4BtREoifjJ4MF9g
-         kc4Wygj4RC/0rxbGpvaZ9GzaWaEfv4GpHK9mJWi81Y5pt/D2ngFwzg1rYC+9TOu/nncp
-         8OhE6ROP8t+pgf/4nBGtmgmwq2CKgHIcYQFLS9hdBE4/pwA4gLp2yDBUZ+QcvVHqQKZ7
-         33Rcn8JjrygxhJO0HyIPrxvAI35H/ddPAQrxJR4Uabqlac5kgFRQqIMJx7X3CKskpJ1z
-         Et0A==
+        b=nTdCt3WpE+zz5PzCGQEfXGHHpBPn+d1MWqvyuF2k7vJ0c2MYZwLXlDbbx6Vmrrqmpd
+         29waYUVzwCnU2PnC4JbkQiSuKDHhjXcM3iwSqz0Qq1BxouiGckNaIzOjGh5HdG4Tvg42
+         L/+DPMjY8RwnaQaet0p7VN4XbVxYN8xrov2goUKJi8rnfvGjv/x7Sju/Eqk32hN+Rezn
+         xwSS7A2OuC24MPc1ZC48oOYtIddj+mJP0xsZFLU+mI+pHABFoHVLzQXTFeLyGuchmEP6
+         clPJP+rMlA84dVC80azkr+k0paoAk/kl4Yn9t1DDfhLy/U5U6/qds5mzRIhSH4EWDGmr
+         7Ppw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=lQthpxR6aOUvdrJTW7YGr1RQFGmPRuGoyPUYjvX1emE=;
-        b=HqTOidsjnCAooOWtFgw4EzXDquitIzUidkAvmoRCs2GC6KpWiHbjLokqNf1ieEs7DG
-         VE1qqLA54KtRm/+sqgAfMt5/why+8N2dChQNuSd40pEUCRIuSAKT9L+nJJrjMBYuiFNg
-         WXA24D2wdNHV4buhmPjzknPju2hk2FNPHAkty/uE+JEPYvgAgdU1fCndTU8xC3CN9mBR
-         VsjPall16oWjkvknh6RAC/RyKVrq0xi7QkMnw0sWQQdieN5gr27Dt+AklAdlVaHKj11j
-         Bdgl6jzFEcCvhQuC5Oht3rT8tTK2VqTMjiy5CqD+MxhaDSmWsDcAv/OT8yxTS94P04cy
-         tPFw==
+        bh=GNY/70CAQC3eXUNKhqPKEV6KDBxfhoyyaZSVMFjGEY8=;
+        b=NRFxsbCpactAq/7l7cwK0EutB5p7tPSOijoRdWKPZiXpHZVvxaPiVTUSZ1PcCR0FWL
+         9YOsVtThMV7vE/pAsfT9pA3iqm3xGf6vkaPdh1+fX2OJ1X0LJDhzaKyArx6RyOelFg1t
+         S+hZyNK8893uIARqrZJi28yTFvA92IyhAuDPuxw8ZEAPeEqsLZhPeORrT/YmNW1Bb1Pu
+         emmqUTG1O58lzf7y4Nrz2JXNxbCg+Tht2YDWQwW0n1sRx/fV2vikQilpi713JoUkQ9RZ
+         chpazsbwsP6qV7LHQ+u471hQoMb6YrozpD5vKr8gQKEvuP1amkEZaBpFV8G+B117yraY
+         GXLw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=qd583t3m;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id m13si1238838otn.1.2020.11.30.10.08.31
+       dkim=pass header.i=@google.com header.s=20161025 header.b=IYOlgdTZ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id j44si996545qtc.2.2020.11.30.10.16.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Nov 2020 10:08:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 169352074A
-	for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 18:08:30 +0000 (UTC)
-Received: by mail-oi1-f179.google.com with SMTP id l206so15110535oif.12
-        for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 10:08:30 -0800 (PST)
-X-Received: by 2002:aca:5ec2:: with SMTP id s185mr30062oib.33.1606759709386;
- Mon, 30 Nov 2020 10:08:29 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Nov 2020 10:16:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id p6so6941202plr.7
+        for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 10:16:32 -0800 (PST)
+X-Received: by 2002:a17:902:e901:b029:d8:e727:2595 with SMTP id
+ k1-20020a170902e901b02900d8e7272595mr19843120pld.56.1606760191169; Mon, 30
+ Nov 2020 10:16:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20201123073634.6854-1-swpenim@gmail.com> <CAMj1kXGsQ9K57SvZ74pmD+_=338sGXjc_t+hCXMh-9BPanXnhA@mail.gmail.com>
- <CAMj1kXGs-woGGnM2QkhY5NbRRKP8_N4BY9ScBtga8mcyHoK2+A@mail.gmail.com>
- <89n4o5sp-4432-7r33-r9s-54po13q25pnp@syhkavp.arg> <CAMj1kXGuHw+p5=YPrVwaHjp5hQ9uxsp7hbA0Vk-ppZ3_qHDVrA@mail.gmail.com>
- <85p0oop-5pq-p6o-7560-297sn1np3os@syhkavp.arg>
-In-Reply-To: <85p0oop-5pq-p6o-7560-297sn1np3os@syhkavp.arg>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 30 Nov 2020 19:08:18 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFyi9uc1bNuHrmBBqgW34tUU_mxV0BqVbrihsG_HMzMCA@mail.gmail.com>
-Message-ID: <CAMj1kXFyi9uc1bNuHrmBBqgW34tUU_mxV0BqVbrihsG_HMzMCA@mail.gmail.com>
-Subject: Re: [RESEND,PATCH] ARM: fix __div64_32() error when compiling with clang
-To: Nicolas Pitre <nico@fluxnic.net>
-Cc: Antony Yu <swpenim@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Russell King <linux@armlinux.org.uk>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>
+References: <20201128193335.219395-1-masahiroy@kernel.org>
+In-Reply-To: <20201128193335.219395-1-masahiroy@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 30 Nov 2020 10:16:20 -0800
+Message-ID: <CAKwvOd=azwa6m84Nyu+EVksmTRnQfd3PRe8gDBmx9vYVs1D_hQ@mail.gmail.com>
+Subject: Re: [PATCH v3] Compiler Attributes: remove CONFIG_ENABLE_MUST_CHECK
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Shuah Khan <shuah@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
+	Network Development <netdev@vger.kernel.org>, wireguard@lists.zx2c4.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=qd583t3m;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=IYOlgdTZ;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,93 +134,119 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 30 Nov 2020 at 18:52, Nicolas Pitre <nico@fluxnic.net> wrote:
+On Sat, Nov 28, 2020 at 11:34 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
 >
-> On Mon, 30 Nov 2020, Ard Biesheuvel wrote:
+> Revert commit cebc04ba9aeb ("add CONFIG_ENABLE_MUST_CHECK").
 >
-> > On Mon, 30 Nov 2020 at 16:51, Nicolas Pitre <nico@fluxnic.net> wrote:
-> >
-> > > Here's my version of the fix which should be correct. Warning: this
-> > > is completely untested, but should in theory produce the same code on
-> > > modern gcc.
-> > >
-> > > diff --git a/arch/arm/include/asm/div64.h b/arch/arm/include/asm/div64.h
-> > > index 898e9c78a7..595e538f5b 100644
-> > > --- a/arch/arm/include/asm/div64.h
-> > > +++ b/arch/arm/include/asm/div64.h
-> > > @@ -21,29 +21,20 @@
-> > >   * assembly implementation with completely non standard calling convention
-> > >   * for arguments and results (beware).
-> > >   */
-> > > -
-> > > -#ifdef __ARMEB__
-> > > -#define __xh "r0"
-> > > -#define __xl "r1"
-> > > -#else
-> > > -#define __xl "r0"
-> > > -#define __xh "r1"
-> > > -#endif
-> > > -
-> > >  static inline uint32_t __div64_32(uint64_t *n, uint32_t base)
-> > >  {
-> > >         register unsigned int __base      asm("r4") = base;
-> > >         register unsigned long long __n   asm("r0") = *n;
-> > >         register unsigned long long __res asm("r2");
-> > > -       register unsigned int __rem       asm(__xh);
-> > > -       asm(    __asmeq("%0", __xh)
-> > > +       unsigned int __rem;
-> > > +       asm(    __asmeq("%0", "r0")
-> > >                 __asmeq("%1", "r2")
-> > > -               __asmeq("%2", "r0")
-> > > -               __asmeq("%3", "r4")
-> > > +               __asmeq("%2", "r4")
-> > >                 "bl     __do_div64"
-> > > -               : "=r" (__rem), "=r" (__res)
-> > > -               : "r" (__n), "r" (__base)
-> > > +               : "+r" (__n), "=r" (__res)
-> > > +               : "r" (__base)
-> > >                 : "ip", "lr", "cc");
-> > > +       __rem = __n >> 32;
-> >
-> > This treats {r0, r1} as a {low, high} pair, regardless of endianness,
-> > and so it puts the value of r0 into r1. Doesn't that mean the shift
-> > should only be done on little endian?
+> A lot of warn_unused_result warnings existed in 2006, but until now
+> they have been fixed thanks to people doing allmodconfig tests.
 >
-> Not quite. r0-r1 = low-high is for little endian. Then "__n >> 32" is
-> actually translated into "mov r0, r1" to move it into __rem and returned
-> through r0.
+> Our goal is to always enable __must_check where appropriate, so this
+> CONFIG option is no longer needed.
 >
-> On big endial it is r0-r1 = high-low.  Here "__n >> 32" picks r0 and
-> moves it to __rem which is returned through r0 so no extra instruction
-> needed.
+> I see a lot of defconfig (arch/*/configs/*_defconfig) files having:
 >
-> Of course the function is inlined so r0 can be anything, or optimized
-> away if__rem is not used.
+>     # CONFIG_ENABLE_MUST_CHECK is not set
+>
+> I did not touch them for now since it would be a big churn. If arch
+> maintainers want to clean them up, please go ahead.
+>
+> While I was here, I also moved __must_check to compiler_attributes.h
+> from compiler_types.h
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
+
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+
+> ---
+>
+> Changes in v3:
+>   - Fix a typo
+>
+> Changes in v2:
+>   - Move __must_check to compiler_attributes.h
+>
+>  include/linux/compiler_attributes.h                 | 7 +++++++
+>  include/linux/compiler_types.h                      | 6 ------
+>  lib/Kconfig.debug                                   | 8 --------
+>  tools/testing/selftests/wireguard/qemu/debug.config | 1 -
+>  4 files changed, 7 insertions(+), 15 deletions(-)
+>
+> diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
+> index b2a3f4f641a7..5f3b7edad1a7 100644
+> --- a/include/linux/compiler_attributes.h
+> +++ b/include/linux/compiler_attributes.h
+> @@ -171,6 +171,13 @@
+>   */
+>  #define __mode(x)                       __attribute__((__mode__(x)))
+>
+> +/*
+> + *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-warn_005funused_005fresult-function-attribute
+> + * clang: https://clang.llvm.org/docs/AttributeReference.html#nodiscard-warn-unused-result
+> + *
+> + */
+> +#define __must_check                    __attribute__((__warn_unused_result__))
+> +
+>  /*
+>   * Optional: only supported since gcc >= 7
+>   *
+> diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+> index ac3fa37a84f9..7ef20d1a6c28 100644
+> --- a/include/linux/compiler_types.h
+> +++ b/include/linux/compiler_types.h
+> @@ -110,12 +110,6 @@ struct ftrace_likely_data {
+>         unsigned long                   constant;
+>  };
+>
+> -#ifdef CONFIG_ENABLE_MUST_CHECK
+> -#define __must_check           __attribute__((__warn_unused_result__))
+> -#else
+> -#define __must_check
+> -#endif
+> -
+>  #if defined(CC_USING_HOTPATCH)
+>  #define notrace                        __attribute__((hotpatch(0, 0)))
+>  #elif defined(CC_USING_PATCHABLE_FUNCTION_ENTRY)
+> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+> index c789b39ed527..cb8ef4fd0d02 100644
+> --- a/lib/Kconfig.debug
+> +++ b/lib/Kconfig.debug
+> @@ -286,14 +286,6 @@ config GDB_SCRIPTS
+>
+>  endif # DEBUG_INFO
+>
+> -config ENABLE_MUST_CHECK
+> -       bool "Enable __must_check logic"
+> -       default y
+> -       help
+> -         Enable the __must_check logic in the kernel build.  Disable this to
+> -         suppress the "warning: ignoring return value of 'foo', declared with
+> -         attribute warn_unused_result" messages.
+> -
+>  config FRAME_WARN
+>         int "Warn for stack frames larger than"
+>         range 0 8192
+> diff --git a/tools/testing/selftests/wireguard/qemu/debug.config b/tools/testing/selftests/wireguard/qemu/debug.config
+> index b50c2085c1ac..fe07d97df9fa 100644
+> --- a/tools/testing/selftests/wireguard/qemu/debug.config
+> +++ b/tools/testing/selftests/wireguard/qemu/debug.config
+> @@ -1,5 +1,4 @@
+>  CONFIG_LOCALVERSION="-debug"
+> -CONFIG_ENABLE_MUST_CHECK=y
+>  CONFIG_FRAME_POINTER=y
+>  CONFIG_STACK_VALIDATION=y
+>  CONFIG_DEBUG_KERNEL=y
+> --
+> 2.27.0
 >
 
-OK, you're right. I got myself confused there, but a quick test with
-GCC confirms your explanation:
 
-$ arm-linux-gnueabihf-gcc -mbig-endian -O2 -S -o - \
-   -xc - <<<"long f(long long l) { return l >> 32; }"
-
-just produces
-
-bx lr
-
-whereas removing the -mbig-endian gives
-
-mov r0, r1
-bx lr
-
-
-I tested the change and it builds and runs fine (although I am not
-sure how much coverage this code gets on an ordinary boot):
-
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Tested-by: Ard Biesheuvel <ardb@kernel.org>
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXFyi9uc1bNuHrmBBqgW34tUU_mxV0BqVbrihsG_HMzMCA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3Dazwa6m84Nyu%2BEVksmTRnQfd3PRe8gDBmx9vYVs1D_hQ%40mail.gmail.com.
