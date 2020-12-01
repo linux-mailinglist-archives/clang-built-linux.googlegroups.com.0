@@ -1,127 +1,128 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKOGTL7AKGQE2CZK3BQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDGNZTVZVAFRBAOITL7AKGQECIYWFNY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 866732CAD06
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Dec 2020 21:10:18 +0100 (CET)
-Received: by mail-oi1-x23b.google.com with SMTP id v5sf1557242oig.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Dec 2020 12:10:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606853417; cv=pass;
+Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5DA412CAD17
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Dec 2020 21:13:54 +0100 (CET)
+Received: by mail-oi1-x23f.google.com with SMTP id a9sf1582629oie.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Dec 2020 12:13:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606853633; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XVEDPms8GNHXZbjkmE73L7gAZGEr8NQzL3yfKQ9ZI0avM2Rz80vWaT6X1WDxtV5poS
-         0MeSnNp7RvPU8ptPcw25VDu+uG3Md73VWWb6dwS+joVPtXOn8XfU1JdPePw19/t7XJlx
-         tKv2ZRzgzX6DCBKNbdjvOUAvoKm+UVhJwXsmsgshL3WoxdlSS4T4hj5LCrr7wqcK90cP
-         n3AjMws8ckSO3N/AJflRKQArr22Pey4z5V1x+73d0OE4058KYyC92WmQXmjBtYDrf8eU
-         6x4QYWNmzbmnbRrAAPuwidG2FrWRD8x+6LLCiLk95DnVsVNnJ+slEGAUydA5RZVwEN3D
-         6IUg==
+        b=EiwIxmuOGjv1xiVsKJ/iSHhBDoBISgTh7+clYUMnCcx8xwrfKnv304r1cIOqoROB33
+         MkX7rbigojnEBwBYKtwvULEUMc+p1dYSWr2J6lEFg/NS9NpEUr0GDek7Wktai3gT2jaK
+         8pG0PGcPXwGbtihBeZvCyFdO4yAbNk126Ajb+j/DyCW5D0+0pIrTFvly+hmL7sSPSWxH
+         kzJqWX/74M+UWQioALjqk2jEjISjSK2onitjFkuiwBNV3Gw4bOA3Ctq6NpNrF8hh8Ff9
+         KGwbqkHBLGs6GuAe7GbgdGvSoK89W90DA0KYCu5a2WzNMyIZz7FKl/+egLZf7ZYVZbi0
+         k2KA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=xCUcviqJwbPnbEwtU5dcxWDi+7iXdRuSaGSkSQ1kJ9k=;
-        b=C7OlnE/fmHaRKa7qnA+yXFD+dVYmr5VFiMaoSBzuqJFX+Mib/JWxO5Yvq96u00IOXG
-         1qyOqM+DHSTGoMPpZHG+AITyeyxXQ4ILrrd6hgep8lVdIc8kl3UBdsgbvLgU5/ppmSKb
-         r9oM3uaTqpbvtSZaob9BGgOmPmjorv7Fls6Dj3yVKk9ERrhL6Dq1dm94KQUNj/fNsBN3
-         wjCxwsGDyoyETaarAAKb6XCADRUiHs9DdAhdgi6t1bucwLGnvRZz1fsl2LaoVgQaCebn
-         KH8LpFKqtK6gPuM8eMAy6U2ZhvLiE6lGleNSvl12owxtMSnf1d5pTWF/QB1pNURAy9Fg
-         Brtg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=HYNiHl2dhzTl+e4HVGvWVZi7B8I6p2TXxMST+hB1k3c=;
+        b=r9xsjaWVpOvvKQ1FGhsvCsse5IYz2iVjldzpxzzpLp6lq2atILfM2xgzxLQNmfaGUT
+         1P/mzlFjMKfnkIYCwx98mmbNl+1GDbRypqpvhw+da1+ZS/610zToVwSW9M7CjqucQBNQ
+         +DvI2QE8vYvUpKr4ho427VBBP7TW2sKOw66kvHs3D02aF2d+Kp7gNtbxgNzrqiVHI1WU
+         LEh2fT8gmi4u0IVNfGByMgQdJ3nTBlrWNeUVnTpoS3MDLo+MsjTXs2qFPRkI/Uy+r+gL
+         0lwXoMsrcYeTB+nQ6jBGHvqZii4urzAWBPh8r4IEdECQhmx/D5JfaIr7tKvcyVtsGRnG
+         2K6g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=MNqqTk+8;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b="L++/HF+O";
+       spf=pass (google.com: domain of robh@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=robh@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xCUcviqJwbPnbEwtU5dcxWDi+7iXdRuSaGSkSQ1kJ9k=;
-        b=V5mx4FuCrH2wwfX2ixgCEBCP9bTGGiC8XFrD/4L8ymSXgdRvphLMEBd50ZUFdSK4uo
-         H8nIjYDt0wUCZsdDaLqNFKPYqd4pEKEnZIFUogkv7254VOxCTA072WVPDZg6zY28ZjO0
-         ai6PMnS1kFUKfFZ5ioayH6bgstdQulkbTYSzquVPtcNZYhxnZDEeeunhV5TSRoTr6s2W
-         0fLg6OoPWIU704XRxdU3/+YVVXEou7NPN3WUpB7IPnMd5Cp4TiAcZ/8ZB7Os9hlwYECx
-         vAIZmuYlItlcIjNgY+KE79nwaIIvrg+FN3DmKkmvhJtpXU6J5AkaS30EuIVPHIuSIH5o
-         GRjw==
+        bh=HYNiHl2dhzTl+e4HVGvWVZi7B8I6p2TXxMST+hB1k3c=;
+        b=SNB+Yo+fLHFYsz34+6rRWGAN3p1IM+jlc3Z3d/X4a3MJxfvuTDHNl1wQWeen1inG5R
+         nROvFxC3xS/TOt/Emb0mQwYJGrLldj0RopY4J9zZLQAa36/Wm3OVt28G7UXr4t/n3SEC
+         1dp0FkDFMcGheiQQp2nA9elIoyvxNslghKmfOzwl9BUpm1kpimzNGgorqZp/udAekPbp
+         ftH0g+RBtleYi7YjfOWf3Nw1nOiuHdN970HKAMrrqJA4k8rLU3BfX5an/K2I9gXAhKOZ
+         3Hc/WDd7H1A7ENsrwo4QqLvkFdDsz/bUzzslT2w8UnB71NBNUkXbZ9xIKNj+jEizksRN
+         0Wjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xCUcviqJwbPnbEwtU5dcxWDi+7iXdRuSaGSkSQ1kJ9k=;
-        b=Qhfp4qtUGQC5ouisoWC7gGcZRsFNnH2d7gapSaGBLkXQu0Mdwp1QljYDQ4BJbwYadN
-         fmymAKlTBiyiJ7dlGHuy00D4iZzKPLs2OkwA4ZmBWyYpXEd21ge0riFj8ADqoWaPtMuk
-         4fxNwVUUyJ9kSL2zuBSRJ09lic+T5LRZxKegF74EkWNVaB1WvT6rjVcZOMRFe7PeSIif
-         WpVTTE/vvvzUTdWTYRGcFEnyOEFOvzxA6msbY3dpsaI/T61uspjySeDnXTB9qaCOVaqy
-         1ehn2G5N3OdGDQlHC2EPDnZJw78bdcs4VmUtAfhzeqKrHXdYNM55M3l5xGGIq1kkz7yA
-         Kcbw==
-X-Gm-Message-State: AOAM530sLJUK017CgiUU4aae4cw2Q3Ha3FSSRSlVtnrOqDZhGIaXx65X
-	HCFQGMtUTZcswdWkmIhZmss=
-X-Google-Smtp-Source: ABdhPJy8Qr9x/6Kjs9+AMQnm6Zz125/gZyldf4S3dIPTWlyi6Y0moF/X8YbjEsS2GhvGRznrIg8Dpw==
-X-Received: by 2002:a9d:6a91:: with SMTP id l17mr3032756otq.187.1606853417372;
-        Tue, 01 Dec 2020 12:10:17 -0800 (PST)
+        bh=HYNiHl2dhzTl+e4HVGvWVZi7B8I6p2TXxMST+hB1k3c=;
+        b=j27RFqgSPcSixWJfE27uBx9g3FXrp6iTJjzlUrhnAiioxR/+HabgUJ7+YHSgYfSCVm
+         X6ZKckMZmfyxmeM/y4iuYzjSXOsfO6svole/Hr2rf4ir5BUfuk0MrkJW70LQfQI0bO/t
+         BKw4Mew9l9+j5dGLv1SgDz1Pkuyi5Cb2CkoYt35x2Ii8PtlnZ+S9MOfg5HR85ZssYH9G
+         MAzntjPeBcV+vKJW3VZiDrXKlkv/I60RkPTC4C6tmiIgM2n51h+XBSamrRm6nB860JBE
+         5poe7Kyo3FZGRFJFNQnvaMnANlGCY6q5EOtCrvb5I+U9MxSHz99HFRonQQSxDnvRHnIK
+         j6rA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532Qfq4aYgL4zIAZcUJmYaKp1HhWvEScCPa3tZS2uZazXxS2X1o8
+	pPJ6+MRPEBLEOjTjb8EV57g=
+X-Google-Smtp-Source: ABdhPJzOkGckVCQSbkmokxxmZwIAAXrBsz7M+FC/P6ArjoqfASNOqWCLkDsF1upyKpBaCAwAOyNvDg==
+X-Received: by 2002:a9d:609e:: with SMTP id m30mr3099754otj.349.1606853633378;
+        Tue, 01 Dec 2020 12:13:53 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:39c9:: with SMTP id y67ls834754otb.7.gmail; Tue, 01 Dec
- 2020 12:10:17 -0800 (PST)
-X-Received: by 2002:a9d:62c5:: with SMTP id z5mr3071026otk.351.1606853416958;
-        Tue, 01 Dec 2020 12:10:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606853416; cv=none;
+Received: by 2002:a9d:4c0e:: with SMTP id l14ls830746otf.11.gmail; Tue, 01 Dec
+ 2020 12:13:53 -0800 (PST)
+X-Received: by 2002:a9d:5381:: with SMTP id w1mr3130212otg.7.1606853632954;
+        Tue, 01 Dec 2020 12:13:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606853632; cv=none;
         d=google.com; s=arc-20160816;
-        b=dSXdnDc8fYjOgUm+iu5shc7F4VupvZw9U9i1lkx47XQth7lZVlza+hTv/ckmDIkgD1
-         /G+JISStc1rTIteR9Q8zPPEqQlh8U5BFVbl+wYegRDDR3mTnbt0D33Z2GxIXMNh6RIxZ
-         tmKEraVJLfuQYn6KwztrP3Oa1F7vj/C+qtvYqroHzqAdnILFBAbJSODxkGYrhenq8+mN
-         zjAgsfIuHcAHlTARL9vxzEjxV4kgZmgxHhBgsqWkARElfpHGiG8SC2GVt1xDG8ymd1Gt
-         qObTJZVdY4A6+qIXIOd7Altjw6UzA76JQhDAqZUkvG9+n+2/3adraFctnDEmALXbrBVz
-         PKNg==
+        b=gCzzz4oaw1rkjNkdIy1Szpj7VlYWbe2wErviI3XFx+R5ZTgEy45Hv35fsjRGsFq/mE
+         FAAp1odRNj2ssZSxf4SEgWp1IwfEQSHOLvH8zek5Md2Z8g9hIesxSj2MGLyWamNC6dhA
+         1VyonB8KOAibWp+DecDrxlMLS+DA8OZ/vlOvh+6IUAkyft5OoF7pvjKZFUlzqWDpee8C
+         2Adj9FuM32MZ0G0s7M34gl8DohfAU+v3sEdqoc/mjzany77ec/43RhSx8f7XsHrJWjFh
+         XBkXbXcXYrKiQh0KEHEC8Qn5e/GemJUANGRZRIWf+3S9JStECaQVPr7X4gtIKlnKeE+F
+         3Z4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Tl7NwbCgPB4FUQziRcqAk5bwi9HxMdhHj333bo2TW/M=;
-        b=jkuOU3B1yCoB427EMvibcAXF3bhKiONHYICYTX9katBBHQaUeWcisHEr6bnkP5XQ06
-         HP9/2kL/DEVY95904UxR9WvaFby2EGJFN+6jceoe1zXHUNbFZZdBxCVPhRV8fI265AA9
-         II+k6Ps/IqjF5km5wpBTh2MQInpLXSHvepT1bJ+YSOyFnRfnTYgEEq+g+OZgCQuQ1j9W
-         AeHMmLTBBv/D3O6QvnOXn4KZhXAhdq8tSum1CabpgaIAJpySlQECu0bItD6rhJUYpNJG
-         mcyHybF4v61T2HtoxdiJ0nnb699eQNMeDEUP59620Al2bpPuXP8J+RUAqRAsMUHB6hk1
-         uzHw==
+        bh=60b66msLi4SKJQnRVqDnKGEVi+NTrnA/4moDiygGOro=;
+        b=fTFd8t6qyhZiI2s01pfskEpedgRD2W5DvJ4leKeDfFBE/FxPtHS6zkUrGJm9yuZWG4
+         fmDK57Xl/LxbC6UJ8sOI3tteLGaGZYh4xf91KNg8FRebmgnftAvueQtKYsnNbwh8Rbl2
+         tBYsggJy+VAw33/okaKgUmHBV22hF39u0B0aVDzrd63yoMiavz3c34StixP+S//ViMBr
+         awscSaZuCMfh3NkFYva2PCuVMUQaLxH8zEa0zmaDhvPISQtVMOJVb6hKEbvgpnbaPSVH
+         9IxEi6Ln7M5uTPFtRJEOsOAdPDZdp3OhW6eLOiordcik4f3xkIZfbAU1Ntkm3LHQ93T3
+         4wgg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=MNqqTk+8;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id w25si117311otl.3.2020.12.01.12.10.16
+       dkim=pass header.i=@kernel.org header.s=default header.b="L++/HF+O";
+       spf=pass (google.com: domain of robh@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=robh@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id l192si111903oih.3.2020.12.01.12.13.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Dec 2020 12:10:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id w4so1839525pgg.13
-        for <clang-built-linux@googlegroups.com>; Tue, 01 Dec 2020 12:10:16 -0800 (PST)
-X-Received: by 2002:a63:a902:: with SMTP id u2mr3776969pge.263.1606853416126;
- Tue, 01 Dec 2020 12:10:16 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 01 Dec 2020 12:13:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of robh@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 974892151B
+	for <clang-built-linux@googlegroups.com>; Tue,  1 Dec 2020 20:13:51 +0000 (UTC)
+Received: by mail-ed1-f49.google.com with SMTP id q16so5244167edv.10
+        for <clang-built-linux@googlegroups.com>; Tue, 01 Dec 2020 12:13:51 -0800 (PST)
+X-Received: by 2002:a05:6402:553:: with SMTP id i19mr4964942edx.194.1606853630068;
+ Tue, 01 Dec 2020 12:13:50 -0800 (PST)
 MIME-Version: 1.0
-References: <CA+G9fYt0qHxUty2qt7_9_YTOZamdtknhddbsi5gc3PDy0PvZ5A@mail.gmail.com>
- <X79NpRIqAHEp2Lym@kroah.com> <CAKwvOdmfEY6fnNFUUzLvN9bKyeTt7OMc-Uvx=YqTuMR2BuD5XA@mail.gmail.com>
- <X8X8y4j9Ip+C5DwS@kroah.com>
-In-Reply-To: <X8X8y4j9Ip+C5DwS@kroah.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 1 Dec 2020 12:10:04 -0800
-Message-ID: <CAKwvOdkYWBsL-QXcfPztsCTzyAHLiSodzDznDxOz1MPkktWS1w@mail.gmail.com>
-Subject: Re: [stable 4.9] PANIC: double fault, error_code: 0x0 - clang boot
- failed on x86_64
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: linux-stable <stable@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	lkft-triage@lists.linaro.org, Sasha Levin <sashal@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, x86@vger.kernel.org, 
-	Matthias Kaehlcke <mka@chromium.org>
+References: <202012011747.PIcmivAO-lkp@intel.com> <20201201122915.GC31404@gaia>
+In-Reply-To: <20201201122915.GC31404@gaia>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 1 Dec 2020 13:13:38 -0700
+X-Gmail-Original-Message-ID: <CAL_Jsq+iRn3YdTi_PBkDoY86mJkSp=1-oKmG+Fsz8HrEwyNNhA@mail.gmail.com>
+Message-ID: <CAL_Jsq+iRn3YdTi_PBkDoY86mJkSp=1-oKmG+Fsz8HrEwyNNhA@mail.gmail.com>
+Subject: Re: [linux-next:master 6272/9613] unittest.c:undefined reference to `of_dma_get_max_cpu_address'
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kernel test robot <lkp@intel.com>, Nicolas Saenz Julienne <nsaenzjulienne@suse.de>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linux Memory Management List <linux-mm@kvack.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: robh@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=MNqqTk+8;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b="L++/HF+O";       spf=pass
+ (google.com: domain of robh@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=robh@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,49 +135,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Dec 1, 2020 at 12:19 AM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
+On Tue, Dec 1, 2020 at 5:29 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
 >
-> On Mon, Nov 30, 2020 at 12:12:39PM -0800, Nick Desaulniers wrote:
-> > On Wed, Nov 25, 2020 at 10:38 PM Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org> wrote:
-> > >
-> > > Is the mainline 4.9 tree supposed to work with clang?  I didn't think
-> > > that upstream effort started until 4.19 or so.
+> On Tue, Dec 01, 2020 at 05:32:51PM +0800, kernel test robot wrote:
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > head:   c6b11acc5f85b6e11d128fad8e0b7b223aa7e33f
+> > commit: 07d13a1d6120d453c3c1f020578693d072deded5 [6272/9613] of: unittest: Add test for of_dma_get_max_cpu_address()
+> > config: s390-randconfig-r034-20201201 (attached as .config)
+> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project ac40a2d8f16b8a8c68fc811d67f647740e965cb8)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install s390 cross compiling tool for clang build
+> >         # apt-get install binutils-s390x-linux-gnu
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=07d13a1d6120d453c3c1f020578693d072deded5
+> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> >         git fetch --no-tags linux-next master
+> >         git checkout 07d13a1d6120d453c3c1f020578693d072deded5
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390
 > >
-> > (For historical records, separate from the initial bug report that
-> > started this thread)
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
 > >
-> > I consider 785f11aa595b ("kbuild: Add better clang cross build
-> > support") to be the starting point of a renewed effort to upstream
-> > clang support. 785f11aa595b landed in v4.12-rc1.  I think most patches
-> > landed between there and 4.15 (would have been my guess).  From there,
-> > support was backported to 4.14, 4.9, and 4.4 for x86_64 and aarch64.
-> > We still have CI coverage of those branches+arches with Clang today.
-> > Pixel 2 shipped with 4.4+clang, Pixel 3 and 3a with 4.9+clang, Pixel 4
-> > and 4a with 4.14+clang.  CrOS has also shipped clang built kernels
-> > since 4.4+.
+> > All errors (new ones prefixed by >>):
+> >
+> >    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_declare_coherent_memory':
+> >    coherent.c:(.text+0xf8): undefined reference to `memunmap'
+> >    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_init_coherent_memory':
+> >    coherent.c:(.text+0x174): undefined reference to `memremap'
+> >    s390x-linux-gnu-ld: coherent.c:(.text+0x344): undefined reference to `memunmap'
+> >    s390x-linux-gnu-ld: drivers/of/unittest.o: in function `of_unittest':
+> > >> unittest.c:(.init.text+0x120): undefined reference to `of_dma_get_max_cpu_address'
 >
-> Thanks for the info.  Naresh, does this help explain why maybe testing
-> these kernel branches with clang might not be the best thing to do?
+> Thanks for the report. I think it needs the diff below. If Rob/Nicolas
+> are ok with it, I'll add it to the arm64 tree (with some commit text):
+>
+> diff --git a/drivers/of/unittest.c b/drivers/of/unittest.c
+> index 98cc0163301b..799125ef66fc 100644
+> --- a/drivers/of/unittest.c
+> +++ b/drivers/of/unittest.c
+> @@ -871,6 +871,7 @@ static void __init of_unittest_changeset(void)
+>
+>  static void __init of_unittest_dma_get_max_cpu_address(void)
+>  {
+> +#ifdef CONFIG_OF_ADDRESS
 
-On the contrary, I think it's very much worthwhile to test these
-branches with Clang.  Particularly since CrOS is shipping x86_64
-devices built with Clang since 4.4.y.  This looks like a problem
-that's potentially been fixed but the fix not yet identified and
-backported.  It would be good for us to identify and fix the issue
-before it becomes a problem for CrOS.
+       if (!IS_ENABLED(CONFIG_OF_ADDRESS))
+               return;
 
-Though, it looks like CrOS just skipped 4.9...? Looking at:
-https://chromium.googlesource.com/chromiumos/third_party/kernel/+refs
-I don't see a chromeos-4.9 branch.
+This once again makes me want to kill off HAS_IOMEM. Or at least
+always have a dummy ioremap() and friends for !HAS_IOMEM.
 
-That said, I still find such reports helpful to track.
--- 
-Thanks,
-~Nick Desaulniers
+>         struct device_node *np;
+>         phys_addr_t cpu_addr;
+>
+> @@ -884,6 +885,7 @@ static void __init of_unittest_dma_get_max_cpu_address(void)
+>         unittest(cpu_addr == 0x4fffffff,
+>                  "of_dma_get_max_cpu_address: wrong CPU addr %pad (expecting %x)\n",
+>                  &cpu_addr, 0x4fffffff);
+> +#endif
+>  }
+>
+>  static void __init of_unittest_dma_ranges_one(const char *path,
+>
+> --
+> Catalin
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkYWBsL-QXcfPztsCTzyAHLiSodzDznDxOz1MPkktWS1w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAL_Jsq%2BiRn3YdTi_PBkDoY86mJkSp%3D1-oKmG%2BFsz8HrEwyNNhA%40mail.gmail.com.
