@@ -1,123 +1,137 @@
-Return-Path: <clang-built-linux+bncBDKMLAXVVQHBBVF7S37AKGQEDGHQHPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB5OFS37AKGQEE3GQD4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
-	by mail.lfdr.de (Postfix) with ESMTPS id EB9902C94CF
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Dec 2020 02:43:49 +0100 (CET)
-Received: by mail-io1-xd37.google.com with SMTP id a1sf263268ioa.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 17:43:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606787028; cv=pass;
+Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 09C152C94E6
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Dec 2020 02:57:11 +0100 (CET)
+Received: by mail-qk1-x73f.google.com with SMTP id s128sf145241qke.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Nov 2020 17:57:10 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606787830; cv=pass;
         d=google.com; s=arc-20160816;
-        b=v4aZ1OF8cnhX1nimcAWIf6wJMTRzLtVhP6mZFkgXdZ8ciCQygUEr/E5dWJMU42vt1o
-         ZJANaVTcRCfpE/chgqQjQeccTLn/10PpDY3kRcLX1ioEgtbq4NeEFVk3mQe97vfNiJ+I
-         aEfWEe1ATMIWOKyH5OjKcvkauhuMwiwyvazVC8B+/pHZ5T4cs467p69FX4OaUqugY0lz
-         iewcgWO0GjZzY2MIPStLDuywsi01cp9f9wufQJQJpVOCZaDqK8dxoeqclHKKvQAg2gjU
-         fxTsaU97RZT0o+O+1zOjYt7SSWthlvz70QuM6vhHeTnMO6FWaklM29ZEzKIuHJkqzH0N
-         kCug==
+        b=AFb8w+Z10aJAzMTFy3gxnw0U8O9DrkZqen9rwXOcZSp43WuMOkHc5IvmulbYsyhacg
+         6hDQSAErpRKrpXVtHfDVbXiyljQtP32zeNrhpWXOrEcSAkRKQ2yAEioNtT8rtfpWuzkv
+         oTh6ql5zj26FxelovX7PRBkYijMZPVQdovufDuu3pqBP8AuXH7s/JMFBjWDOM6pZwqYV
+         xFe2AE4SSie8kXEgIuzc/XB9Q4RLs3qz5E8OREH+FzFuEklHPZn9gSE7SKorZ0wjP+LK
+         ik0QsokDBDNhuYIrur1VZ2HyL3SyDUptOqyB7ZdQaPrKmkdS1skgIBM36sRT8k/onCkZ
+         bhEQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=K66UzULCO18x7SnUZ3N6gZ3mP2xgDEguenieOKv2vvc=;
-        b=rHuODFLH+rQolgwpDPAxoanjfSwhn8nRp5GXWtiWrK8+WVbZSTDTwO2gfgIRsxtg/y
-         LRTVP/R7SMloZeX16WFcQcYXx7WkF33tgjknhflEKKLGwrS7FpeX+3Is0uqrgDvXhOMo
-         QUqopXnnC3j2GangBHvEbXAh9xhK3aTh9sfoMhuXp2ry/VQaL6ZrZkm23XyIDyeuXY9Y
-         P5xbcfgXkjbgBdOVTNG5Oz13gciAk63B0PVIgR0fhsfH8VJWX9vEX7yyrWJC5l1480Lo
-         M9IVIVoJbQ6dz4PgijqCFqXY8ZrpvOfPSlcc5JsXgsPwkwFG8z62/PEFgb/djG5EM7/f
-         v10Q==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=TaoT2MANVdrhBD/ufT6ootq5oUMdSlKtGpkCugqe1hg=;
+        b=kA4n3YUKHsWiJ9j0ZG5OAF9EdqDuiIuq/36KInjZ9opBzt50+sQleWbIK+qD1/S/+e
+         wOQJojJrBfgwmxQ1Mx81cJtUtrYfK3wGJq4bItyXMCuBTYRLbs37eT1qG2TJ2wsC6BVY
+         5WFEUjn0Zj5hJaY29/xJYt7sEL4K1fqFttw5m0K2X8vgFOsmzpZrBSIhY9f47KlIJ/mA
+         k/EjCJAoGGcdntZ4uMGnfLygg95XemmMubNP/3r0VPM7LFLYc2Wvg05PCt3I1aT5hAAk
+         qY93ISy8kWgwLYvMtaNSD3HhJKb6k4UMbwPfXQokFg9mAlFxpb4PaY2LO8/fr4aj6wAi
+         Z5Jg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yuchao0@huawei.com designates 45.249.212.32 as permitted sender) smtp.mailfrom=yuchao0@huawei.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=o59lXxne;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=K66UzULCO18x7SnUZ3N6gZ3mP2xgDEguenieOKv2vvc=;
-        b=DwyF6NCluePtbnxoaPSaOoYSWgIxYq/ut9Y7yX+U3moD6lljGBAKjOkujncyHwa7FC
-         fTYkDafUsSIMfvBZbFxO8VcT3Z8fRTu/jadzEVxQOa3i86jnCeGlZPysqrLXYa+FNeWJ
-         dvbynfNX6HGqbXSGzlFj4XPv1EqKCPtmSTB9/QHRFqIjWgdt7icQt9SS61yprG+T2djC
-         5Tz5yBs4HZeFCWOrEdPdcjoMxuGs4yBLfC3pmL4n+UM6gAcnqSKgaAPZQL7iN1Pf2aNg
-         MLFQfUoDhkYkvCApFVs1J4c6E+tVPw1djgGgYe63M/iXBE6b7Tc3F4w+lYUM9ZoQjUqs
-         +Q0Q==
+        bh=TaoT2MANVdrhBD/ufT6ootq5oUMdSlKtGpkCugqe1hg=;
+        b=Vc6Q42mkMF7GW4Q+6z/k/KGGu4IIJfDFskfYMiO/5Vh/fXZL3f9aWnSP1X6Lkt45Fb
+         KJBQ4pBtbJRMJ2XbTLOz9c5HNpLtBIvPhQMgMzLYtAhQhl7VKgHsmLWTGO+TCuUvWFwD
+         EZP3z6SxNce7gRK01o7NCrgpQGDLz/XS0zZdjsbgppN1mDfX4dE9yeUMzihMTStfJ4PL
+         x+u4jtfhdrCwLTMRFY09jboG7YmS7530qOfP/gV7OLq6pS/leVCn2I0ndTS5uKFMjHsc
+         xUxVNOHwYSqRwvQ815VHUgLQFGfrRcn8lPD0y/ueg3ZU6bJs6Oe5tcEp6UzS0tz7mI6Q
+         yyjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=K66UzULCO18x7SnUZ3N6gZ3mP2xgDEguenieOKv2vvc=;
-        b=pKBrf5770cusskuT1/5wCvMX2FqjpBEiIC9RXL9G+fqgoc+MdgjomH7AAxrNw8Jy6T
-         NAXrzma8pJ783wMRdbfbMVe2FaVL/Ym3dh1l606a+nfmtbzfW6zcERmdcCrVTZZkjgj+
-         UtL6W9SWtsnTCYH1RoA1/fsc9Uecz/PSwcc+QH6iLcLz4OH5d1YumP2WEifeJ727bIhr
-         MQWPyDf6nce0H+xruAB0uNBxv6uAVX+vZelJDieNdtAnVScsB0zx1vyonH8O7NLFyuE6
-         7bPpyccQZpsCLPnJ4Q83p82rSp5Hbj2dmYT2BOEyP8ZeG1szycCLW/SueCLNFEETviP2
-         wZLQ==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TaoT2MANVdrhBD/ufT6ootq5oUMdSlKtGpkCugqe1hg=;
+        b=csNb6IemPdKyQGuNkxBZ4BsGm45aKwSi+VKLtocr8kNLs7IgbW+wsTbnaGDMeXEtyl
+         /S7kLSp91hwISbZLNYSNEJY/rC0dl05IZUoG95Ue5sG1LsOP+Ut1Pwgh2C494Qd+T9xC
+         /DfDTzKb+ptAu653NinK5nbiEYrkr8d8plvmv8DQcqH70K9bt+FtHfLvBFf4NaImfThp
+         b0cKmcq8AoaVPT1sl1AAR80r/B83LfwD14M5UjDhkFpRWvPDkT4H2JXNey9z9g579c5I
+         mDMCpXZNPC30d5dyJnXORKCcydL+ia/T1SnDsr9RK6/08zZNUA9o5l27keAvOr8LE9nj
+         9q4g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531lEwelPMNlJZiSCIDg0bGQ0Qu/APEd7T+9YYRZmbyrr8WIKrsQ
-	ejTDnB4GzWSpQFx8b7qwY2Y=
-X-Google-Smtp-Source: ABdhPJxFddF4OZwpwBZxvxlWaLC6Vir9MOaEYJh8T5HOEsnJQazhLE9WzmsTLK9g4AWObjrVmNwhoQ==
-X-Received: by 2002:a02:4c8:: with SMTP id 191mr628579jab.70.1606787028524;
-        Mon, 30 Nov 2020 17:43:48 -0800 (PST)
+X-Gm-Message-State: AOAM530/n6peGgZASDQoofHvxcdj0J1WlwyF2WJYUBWmbqsbnswOPWv6
+	I6B74PNGurhx1CH7NVlTTYc=
+X-Google-Smtp-Source: ABdhPJwAZhecRNGMe3Akb3hg2/COL4DYlUBRYxe0At6RrHzsJvrYEdvSpVeREHv3IlE79nq8D17nCg==
+X-Received: by 2002:a37:4796:: with SMTP id u144mr598006qka.235.1606787829758;
+        Mon, 30 Nov 2020 17:57:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:99d1:: with SMTP id t78ls94875ilk.7.gmail; Mon, 30 Nov
- 2020 17:43:48 -0800 (PST)
-X-Received: by 2002:a05:6e02:4ae:: with SMTP id e14mr596159ils.132.1606787027978;
-        Mon, 30 Nov 2020 17:43:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606787027; cv=none;
+Received: by 2002:ad4:556e:: with SMTP id w14ls31952qvy.0.gmail; Mon, 30 Nov
+ 2020 17:57:09 -0800 (PST)
+X-Received: by 2002:a0c:bf44:: with SMTP id b4mr454024qvj.30.1606787829313;
+        Mon, 30 Nov 2020 17:57:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606787829; cv=none;
         d=google.com; s=arc-20160816;
-        b=aOA+A161xuJHTKHPGd8oEBgWunHCEqzfBH/pcGr0TnrX2dkDNqMj6BohcH/gYTCg3R
-         2PGjaTuQ8P8pnR6JxILJ7FRHakAatX2X2Hip26jwyF+rB8VkMZqvD4GWqxvh4i/En6OO
-         24SXD7kk1skVrof8C8CvNNKaTKXgjarEuJrQBHlP3C6+JIksB8GUnAGkdZEVXYrlw9qL
-         v3uybKPXE67Nx7dHF5dH5GIai/ZpCOOHc5T2oYxEF0YhLDCdvBy+iHeZOp4GCptGlPwm
-         PyGjjsMMZTSF4Iza0nYuAlVeZ+Sn+flWPurjOx62grGM3VCAEX2I4d4dEC/iNindaiNN
-         2cKQ==
+        b=l75hAzzofYhZn57yE6M3G4q2CUA78CCzCOFtQb+XgkLJzxEZeR+34DvCy7H7l2acVC
+         yVwcwLD0Y1bha1q4dKhMMIQXrt7zF0d6a4mxe6+bhtplWf8A/lke4JeHyIK14wwh0UWx
+         vKLviZhR0+7cQ0I6GVbjY/BPAftoXVs6eXxzzonosUodorIBFHZ8M9Xi7aFQmRWkJAEM
+         4A0Vb1TilHpUQ4sumgJvUkk+TIJCFRO9CKE8jEMDKJJUY2HTOE3MoEQ5LqWGfR1rFis6
+         ktVpAHBcJIQqvJ7nsZGqDm94o/TchB0rf0n1dB54fDLACOk0jlw65AhZfWFar0r75tV/
+         17Lw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=REpCz2O+hjpyO/e4D5hm4TcB2vbYfCr/wiDmpK6Ej10=;
-        b=EXLD5JxVksqfiewzO0mkUqwQYR6Uw7ZTZvq6of6h2nx+T95VqoHbTOSLRLoSdHIC2g
-         /lVlfgEe8QUSRtEQRw08yer9l7SXdfY5CCmfpfI4kEsDtB0fuiK8phkdLR7YdVrAbz8A
-         99eAPKHAqJQE0IzPtK3mNjvb7IG2YGpTNyGO4aOi+kp9Gq/aSiY5jfB2OLHdRg+zatD/
-         FJX0GpnZTxvRrGtj86L6RV3nkxJPBD3jg02i2QL0mYIbLRv4quoAl9h7KwnCqy9Da08Q
-         PfL+4r0LZdsDu0/TU9TdqM6Zt2LUAavHSUrVTRXXKnTzVTz1jfTmbSXY4Ba13iEb5R9d
-         lqfQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=eBmxAR7K2Jbfp4KHt3489WMG4z7PgIgZCJ+eBjBop4A=;
+        b=VTYpHHwXgKVaD9mkDWP6W6pBQMklCg330NgMQGZf1Fy1EF8fQND2o0ZKU4KdXJGB7k
+         5i01iTwfbP2Uw1w52xd8O0L5sbNZgP7ocgrnk7b//Ewys59g6ddgda6xSzcy2MmJe89G
+         FJfJCfhmlW/Ko+NRuY6EbG0chHZYvDLRdJ0meaEqdhpozreHghDXxETKSMhFMfXPIHGK
+         oRwXY1aFfUUVv/3h7j2JkMCwukcWbbQe3kWs6oLL8sTooxftf0Wv5rHuulo9ZYy02CRR
+         ipyIDvo5cvvEi3bsz7bj+Vt+cGyGYDgnNw/ev3rECvbAOwnp3J4cW3Y3MsYLWPdU7GK3
+         WdfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yuchao0@huawei.com designates 45.249.212.32 as permitted sender) smtp.mailfrom=yuchao0@huawei.com
-Received: from szxga06-in.huawei.com (szxga06-in.huawei.com. [45.249.212.32])
-        by gmr-mx.google.com with ESMTPS id q4si24630iog.3.2020.11.30.17.43.47
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=o59lXxne;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id o23si26510qtm.3.2020.11.30.17.57.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Nov 2020 17:43:47 -0800 (PST)
-Received-SPF: pass (google.com: domain of yuchao0@huawei.com designates 45.249.212.32 as permitted sender) client-ip=45.249.212.32;
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.60])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4ClPy53JZczhkjH;
-	Tue,  1 Dec 2020 09:43:25 +0800 (CST)
-Received: from [10.136.114.67] (10.136.114.67) by smtp.huawei.com
- (10.3.19.210) with Microsoft SMTP Server (TLS) id 14.3.487.0; Tue, 1 Dec 2020
- 09:43:39 +0800
-Subject: Re: [chao-linux:dev 6/6] ld.lld: error: undefined symbol:
- LZ4_compress_HC
-To: kernel test robot <lkp@intel.com>, Chao Yu <chao@kernel.org>
-CC: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>
-References: <202012010948.M300DIaS-lkp@intel.com>
-From: Chao Yu <yuchao0@huawei.com>
-Message-ID: <b54d768b-d30f-8b6b-5f5b-0a756c705017@huawei.com>
-Date: Tue, 1 Dec 2020 09:43:39 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+        Mon, 30 Nov 2020 17:57:09 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 0B11us2T001464
+	for <clang-built-linux@googlegroups.com>; Tue, 1 Dec 2020 10:56:55 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 0B11us2T001464
+X-Nifty-SrcIP: [209.85.216.43]
+Received: by mail-pj1-f43.google.com with SMTP id l23so255507pjg.1
+        for <clang-built-linux@googlegroups.com>; Mon, 30 Nov 2020 17:56:54 -0800 (PST)
+X-Received: by 2002:a17:902:6949:b029:da:17d0:d10f with SMTP id
+ k9-20020a1709026949b02900da17d0d10fmr453041plt.71.1606787813943; Mon, 30 Nov
+ 2020 17:56:53 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <202012010948.M300DIaS-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Originating-IP: [10.136.114.67]
-X-CFilter-Loop: Reflected
-X-Original-Sender: yuchao0@huawei.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yuchao0@huawei.com designates 45.249.212.32 as
- permitted sender) smtp.mailfrom=yuchao0@huawei.com
+References: <CAK7LNAST0Ma4bGGOA_HATzYAmRhZG=x_X=8p_9dKGX7bYc2FMA@mail.gmail.com>
+ <20201104005343.4192504-1-ndesaulniers@google.com> <20201104005343.4192504-5-ndesaulniers@google.com>
+In-Reply-To: <20201104005343.4192504-5-ndesaulniers@google.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 1 Dec 2020 10:56:17 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARx36Go6pKsxh__e72RS-U4T0UJiVLXKW-gUfBHRzDzJA@mail.gmail.com>
+Message-ID: <CAK7LNARx36Go6pKsxh__e72RS-U4T0UJiVLXKW-gUfBHRzDzJA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] Kbuild: implement support for DWARF v5
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jakub Jelinek <jakub@redhat.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        linux-toolchains@vger.kernel.org,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Fangrui Song <maskray@google.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Sedat Dilek <sedat.dilek@gmail.com>, Dmitry Golovin <dima@golovin.in>,
+        Alistair Delva <adelva@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=o59lXxne;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,61 +144,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2020/12/1 9:03, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/chao/linux.git dev
-> head:   d379148c04b729eda4ce567f9115b2af5962a9bd
-> commit: d379148c04b729eda4ce567f9115b2af5962a9bd [6/6] f2fs: compress: support lz4hc compression
-> config: riscv-randconfig-r004-20201130 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project dfcf1acf13226be0f599a7ab6b395b66dc9545d6)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install riscv cross compiling tool for clang build
->          # apt-get install binutils-riscv64-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/chao/linux.git/commit/?id=d379148c04b729eda4ce567f9115b2af5962a9bd
->          git remote add chao-linux https://git.kernel.org/pub/scm/linux/kernel/git/chao/linux.git
->          git fetch --no-tags chao-linux dev
->          git checkout d379148c04b729eda4ce567f9115b2af5962a9bd
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
->     ld.lld: error: arch/riscv/kernel/head.o:(.head.text+0x8): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x19AC): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x19C6): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1A60): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1CA6): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1DE0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1E56): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1EA2): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1EDC): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1F66): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1F94): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x1FB2): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.text+0x2036): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.init.text+0xD8): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->     ld.lld: error: debug_core.c:(.init.text+0x176): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax
->>> ld.lld: error: undefined symbol: LZ4_compress_HC
-
-Sorry, I missed to check CONFIG_LZ4HC_COMPRESS config, will fix.
-
-Thanks for the report anyway.
-
-Thanks,
-
->     >>> referenced by compress.c
->     >>>               f2fs/compress.o:(lz4_compress_pages) in archive fs/built-in.a
-> 
+On Wed, Nov 4, 2020 at 9:54 AM Nick Desaulniers <ndesaulniers@google.com> wrote:
+>
+> DWARF v5 is the latest standard of the DWARF debug info format.
+>
+> Feature detection of DWARF5 is onerous, especially given that we've
+> removed $(AS), so we must query $(CC) for DWARF5 assembler directive
+> support.  GNU `as` only recently gained support for specifying
+> -gdwarf-5.
+>
+> The DWARF version of a binary can be validated with:
+> $ llvm-dwarfdump vmlinux | head -n 5 | grep version
+> or
+> $ readelf --debug-dump=info vmlinux 2>/dev/null | grep Version
+>
+> DWARF5 wins significantly in terms of size when mixed with compression
+> (CONFIG_DEBUG_INFO_COMPRESSED).
+>
+> 363M    vmlinux.clang12.dwarf5.compressed
+> 434M    vmlinux.clang12.dwarf4.compressed
+> 439M    vmlinux.clang12.dwarf2.compressed
+> 457M    vmlinux.clang12.dwarf5
+> 536M    vmlinux.clang12.dwarf4
+> 548M    vmlinux.clang12.dwarf2
+>
+> Link: http://www.dwarfstd.org/doc/DWARF5.pdf
+> Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
+> Suggested-by: Jakub Jelinek <jakub@redhat.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 > ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+>  Makefile                          | 1 +
+>  include/asm-generic/vmlinux.lds.h | 6 +++++-
+>  lib/Kconfig.debug                 | 8 ++++++++
+>  scripts/test_dwarf5_support.sh    | 9 +++++++++
+>  4 files changed, 23 insertions(+), 1 deletion(-)
+>  create mode 100755 scripts/test_dwarf5_support.sh
+>
+> diff --git a/Makefile b/Makefile
+> index e23786a4c1c7..9056bac0ff85 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -828,6 +828,7 @@ endif
+>
+>  dwarf-version-$(CONFIG_DEBUG_INFO_DWARF2) := 2
+>  dwarf-version-$(CONFIG_DEBUG_INFO_DWARF4) := 4
+> +dwarf-version-$(CONFIG_DEBUG_INFO_DWARF5) := 5
+>  DEBUG_CFLAGS   += -gdwarf-$(dwarf-version-y)
+>  ifneq ($(dwarf-version-y)$(LLVM_IAS),21)
+>  # Binutils 2.35+ required for -gdwarf-4+ support.
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index b2b3d81b1535..76ce62c77029 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -829,7 +829,11 @@
+>                 .debug_types    0 : { *(.debug_types) }                 \
+>                 /* DWARF 5 */                                           \
+>                 .debug_macro    0 : { *(.debug_macro) }                 \
+> -               .debug_addr     0 : { *(.debug_addr) }
+> +               .debug_addr     0 : { *(.debug_addr) }                  \
+> +               .debug_line_str 0 : { *(.debug_line_str) }              \
+> +               .debug_loclists 0 : { *(.debug_loclists) }              \
+> +               .debug_rnglists 0 : { *(.debug_rnglists) }              \
+> +               .debug_str_offsets      0 : { *(.debug_str_offsets) }
+>
+>  /* Stabs debugging sections. */
+>  #define STABS_DEBUG                                                    \
+> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+> index 03c494eefabd..c5b54ba51060 100644
+> --- a/lib/Kconfig.debug
+> +++ b/lib/Kconfig.debug
+> @@ -274,6 +274,14 @@ config DEBUG_INFO_DWARF4
+>           It makes the debug information larger, but it significantly
+>           improves the success of resolving variables in gdb on optimized code.
+>
+> +config DEBUG_INFO_DWARF5
+> +       bool "Generate DWARF5 debuginfo"
+
+
+The choice menu looks like follows:
+
+(X) Generate DWARF v2 debuginfo
+( ) Generate dwarf4 debuginfo
+( ) Generate DWARF5 debuginfo
+
+
+Upper / Lower case inconsistency.
+
+
+
+
+
+
+
+
+
+
+--
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b54d768b-d30f-8b6b-5f5b-0a756c705017%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARx36Go6pKsxh__e72RS-U4T0UJiVLXKW-gUfBHRzDzJA%40mail.gmail.com.
