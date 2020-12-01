@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZ6KTD7AKGQEMD3VGFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAO6TD7AKGQEHS6BTIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 768DE2CA102
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Dec 2020 12:13:44 +0100 (CET)
-Received: by mail-oi1-x238.google.com with SMTP id k78sf696346oib.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Dec 2020 03:13:44 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606821223; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 529E72CA1D3
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Dec 2020 12:54:42 +0100 (CET)
+Received: by mail-il1-x137.google.com with SMTP id x10sf1219013ilq.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Dec 2020 03:54:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606823681; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Fsto1Eyhqt3cpYxMl4umvucz05+PvU3CkDTzE0whfhg1I1dHH9eSZNs/i43dgZfCsY
-         VlnXtTDLtT+KM58lSluurk7wBxYET2MxpQFqcXHy7fbgn5F9/qAkjVo7XTfS5WAP3Rcg
-         zx71kXktvIyTU9dlEBjsrtvDC0crnWE/ux/WbgDcC+F7AXBu4z4DCwdC8x/+KQWiH29J
-         OU67Ti+gRio9cY8aW3lyaHvMzFpesyXG9ItnicDomSDSLsJdt/Rs3CMMS5l+btzA5+AN
-         hhtUxBttLECto7YIuPXL6F2EvQKZN8/KOAj7TCrcZEgr8PkqIeREuTS5iQx1+gwfWER8
-         PymA==
+        b=En1+Qzxyt9BoROKnLUEMnd18s1kAeoXb3h3GJwTOCA2LDMXzoQUZYwcW7XXLzFrczo
+         m3OcnjVp5tI/3K1b+0iqfhfyembWkN4Lib/2w5n0B33laQVaJUjoP9uxQ50RbwqczlM0
+         htk55vNBCP6UltFXTzRfIpymSu9emEWEVA0sOZJX/L3B1xWy7HFEozXG70ivP5FLeKPQ
+         TMu9+KMP31g0LGqpE29A+igxLWs66IWBbJ1nMDyNreUDvDBhwHpP6WV8EbC2Gla1bBwI
+         foun92lEljTe22LkC/9cfM9OfOmwfEJDdTaeBGtvp2YsFuYP2TpJ/lBbq2M0O9VvGty7
+         /0Yg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=SStMWTi0jIOEBAcQ92/+7gLrc/SnL1hEHf6LiiPXjAk=;
-        b=CwjnrbSa8u4RINy6oe+k/PCgsz5ItdV3v782LwvfnhplFeF24Xl8s0+zaYkU5uze5c
-         1IP8zC20esxT+W0yU0reY5txan0Q5j3OPVUL/SIMmaFS33sLa5EkBH4HXf/nZJECwUDo
-         9fG9kUXZcdePaFXYtXAkuhFSEeO97jtVlrC6KkZL8WLclZOn4dgzWDoNpJgtZDK+ZxOg
-         f/E0Ulu6xuYt7fTweAWZGOd8uWePUc6J101+ubuM7EnAQOI7P3y5LKf0iVkYwhjEyE+f
-         t48vD7iKGjIS+nxt/7E+n3khZeI3roh5XmfhozPm6KHg4gdWKkkGegmdv0Yb93J/ZqpX
-         EDDQ==
+        bh=7ZA1A+8+pfBxAoWLgMfEY73UZCLpPXvV7M+ynXphsrQ=;
+        b=MP31QT6kC2wTtMqjB+qXlRzMoPipbIBSZfy0rnGTPL6h6YBd3mbEtQub/wMd4xu+xZ
+         EWS1m83uigpqc8RZI6YXQTqyUVToDkrXjFXCrylgWIYj6/HJF4qyWFB/+w5pkgDDYvJU
+         JD1dNKecRDqQJnMafznEzNaOJorXYbXqUq7d94CzXDF8WJkDulQ7lwa99aIWbID12bzD
+         O6gPT0/95tsQPriZ218BLNBXp2dCq+FXkDvXEouBiJtNCChShn7nCBt3teE/1He08BZv
+         vgWOI1hAbMTw9cpYHeljOAcQ83fLsgKAkNHEH0ghooGZMQuCotGcBzRNCQm+7kFjpn68
+         VMZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SStMWTi0jIOEBAcQ92/+7gLrc/SnL1hEHf6LiiPXjAk=;
-        b=ame155X9yC9Sj2i5aD59/U0V0uUSlebZRKOwzo9eESgf7myM03BxFA+sqNGLnq7MS1
-         iquI3Ov6FExo68jdlsCTzFaumsFT8O4dsNNWE5/3ANHo4TK/FPK8l+r2JqeDxOtVktim
-         ZBzrPq16c/0Zkl1WiKixGPUbkaSlyWaSZrS+IrDv1yzBLHN0+t2Yf+aQsXXrNQPHx2LY
-         GPe3W90d4O3HtI5SMlYCDVHyniVR+M9fX+HajVmI/PnpTmHQp187Kx48A0sRim5HkOJk
-         P+UZ317h1uCwPT/ax6EeCam9XYXV14MrWXTRsP4fmWCobJdDgt+xhkCT4lqVr/6bJ2ja
-         E7XA==
+        bh=7ZA1A+8+pfBxAoWLgMfEY73UZCLpPXvV7M+ynXphsrQ=;
+        b=UotXFC/dn0imgvhwiiOzwI6pgwDIs1B8tfmJ46kMS/c34D2ElxWZGPnLqy4gsE3738
+         0H8U3qCKsq37sqRiZM5zNVXXGl7FZDp4iklmXG2FRtMwt38ZSQVasIsAC/VTtA+oY16h
+         LurGCEchslwtspTovI7/2GedrtfIi7Aepu8x3yzXWmGo5HPGWQ2qfREcZALuWTUQtwrH
+         SBEC9ccP2n1c80K31wbO1szM09GEWBTt4n53VM64hsui8SI6Hhn6X7vVmIreZazPMyl2
+         pYulqvNM9iJBkqu2ZoabVgBskw6VWRkXn+ogTEJsBxY44yDgsYwDzlwuIEUvUzadMB9E
+         nRhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,86 +49,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=SStMWTi0jIOEBAcQ92/+7gLrc/SnL1hEHf6LiiPXjAk=;
-        b=CqhvGAUg/q7ZyW02++VRTCMHEmlHy6fwzZY1xK6pDnD3mBe48XaGDHo/76w3SyepWt
-         WhHWzl/epfsUu6aaSh/oOOUpVunxVJutWM2fizIsJLi4To1jKKVtaRuj6RrPIfDFiiSp
-         8nuK6nidFSQhNKJ7vY5Wl7vVTQhR4GgdnErSU0gUuZDT4AeHQRQKqX0iVFeuUxWcDgg7
-         lsKpbaKGxOLCXiFMYJmDeh350fYdKdLinu8EUIEm/sRhaAioNpQ5p10LXDnAiG6Evfyz
-         gKgKOnO76/YVWowR+hXAoAVd02K1za2y48AtNkUbfQys6lmzMe297Tc0j/x1JofFZEub
-         etlw==
+        bh=7ZA1A+8+pfBxAoWLgMfEY73UZCLpPXvV7M+ynXphsrQ=;
+        b=gDJO2dWtrS2C+XDr1cmw39lpUyarlOJB7h1tWqWljnbmfOCT/XRQ62CeFlUiIXj5kB
+         OjMPx7F578VPDCyIK+lSM9aVgyXi4xaKOQKwc7KISrnRqSE36wtbmeBJDBz9nbT+s5Gc
+         ZY1/3b5AO01t0VTvcdOVicuBPahihgLySgIvr9FfVs2nwNUcW01V/+nuI6xD6rhLBu2B
+         bns5pIdt+yBCCRfNmxoobwXJikXgn/Xkx0jniEM+bcXtpmH/QTJsT/k45RudcMLeZPji
+         CeepV53izoJGBF+C5PZFNyhAYryozMNSWwjAGjg8h97guitO3cvJwaL4d4CWIGyP+60k
+         4LQQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533SPdw6tHCw+suHuXRWClK0SeeaIC0LpzWx8q202S5Lpx9Wv2hS
-	AR5Cs8GYF6s7rgzO3LBSabY=
-X-Google-Smtp-Source: ABdhPJzi11APwNIleIT4XK5ZVYZAAwkAGDQi0YMRb5m+Ye8ocE4wHIfMyScLt9PkXzz2JdljJ+ThYw==
-X-Received: by 2002:a9d:ece:: with SMTP id 72mr1292232otj.27.1606821223214;
-        Tue, 01 Dec 2020 03:13:43 -0800 (PST)
+X-Gm-Message-State: AOAM531+gfwAoGr3rs1EqV7KqlZ+JFRjSstV8dM3n3E/yyklxBQDDASl
+	j9Fz0SFJwjXCFzd4OsE2PU8=
+X-Google-Smtp-Source: ABdhPJztG3AHfSJXKDv9oRjwmUCRTSHMQBtXM8EliCL/eJ5JSRjAJjni/oRQBiZhLhl/LjHAqCp6Gg==
+X-Received: by 2002:a05:6602:2c48:: with SMTP id x8mr2013260iov.24.1606823681258;
+        Tue, 01 Dec 2020 03:54:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:39c9:: with SMTP id y67ls365366otb.7.gmail; Tue, 01 Dec
- 2020 03:13:42 -0800 (PST)
-X-Received: by 2002:a9d:2ab:: with SMTP id 40mr1473968otl.280.1606821222731;
-        Tue, 01 Dec 2020 03:13:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606821222; cv=none;
+Received: by 2002:a92:d586:: with SMTP id a6ls525383iln.10.gmail; Tue, 01 Dec
+ 2020 03:54:40 -0800 (PST)
+X-Received: by 2002:a92:c941:: with SMTP id i1mr2174886ilq.158.1606823680763;
+        Tue, 01 Dec 2020 03:54:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606823680; cv=none;
         d=google.com; s=arc-20160816;
-        b=PzDeqH6eXOtws4WsfaUm4Q5D90VTVG7SWaezB0GOERngrbKmPrX69xYDt9gNqZJp0A
-         jaXEttBOMZBaOc9ZU+eCdopXd97siGFaBBiN+/w7RSkpleBHGyl/e5zOKZE+psxTUQGm
-         HK2yTRI9uTm1lRZGCoXOuZIsK91qukPoVfBBbrkzP4WGab9R+5QbzTDnClgbDAcyL5HU
-         t1FZTV1FGuDyAtgOYcBBpif1qKyfS0bu6qO8FuI3ktaCSqORqPttwBrc0goAewD6cfpe
-         3YOLBvA7hiscseWeBHhLmWcjzmH0sTg25F/XU2QRZ4EsIBS7v2wfQdXYKF+CcjFkG6VH
-         CzRg==
+        b=n8OcGg3Qw7aA9/Br0djUA3DyhOd01ht4CrihS8qEKKUhYZvSucLQFGeGOKRtP02Jow
+         GscqLp88NdiSQbQJuqxq/sN1UyxUHj2BqEmFP3nUuLGuFrXpB/n7T39w3IAgi3NdR8F3
+         o7nB4G8c10tNRK8XWpNN7fTtikPiYxX31xPlVogz09f35ZM0GLE63L388im6XrNn36gI
+         wqLih6MHZvQloTOed8mMy1YVw1vdfcpFzpa2FFQU+QduCDLud4JUqJk0SyuGJr2Ol5Zr
+         kQP5ZzgNK+vviClz+0OKrSBFQHJzeNefv+SIWCX5kzj6yrYEZSmxIU1dHM3c4QU7V1Gg
+         QOnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=Npsx6w2f6GwdJe2N86wVJzP23hbVgrhgBy//YTpNy6A=;
-        b=PPA72inHlbdR02gyEaQLcRPHozBzqxjSHJlBwYYfrA3QS06UnV4L9dGLth2HE1rBSI
-         RT2krW7DUUjqXCL0JT21sT36bwZOiC9Qoo3GEdeF8rGvvUkTY4lbLbbxh9sKqyuXd61o
-         e7XcS+TWJymBQttCmVWAhGRlYEwBFihd2CZ5JpIkgr5st6ej3jW51PtJcEOkUYcUDUYT
-         vYfKTngLv+yOdcPsfkVfxRSibDteO1oXiQWvox75csy+TM9DHZR4PZxB28nK+XSdm/fN
-         PVKV9XOHVFwdkgP3vPW9YwGP+UgXIvIZqBzvf7BoLH1kv49EK4kIL2ZFjXQr3m3YXwE9
-         ngQQ==
+        bh=j+ejXsggvShz4alvFOXK89wG8WdEvKL4bKLCYP+3pJA=;
+        b=UgdEMdP5wOaonr1/r2hGtWlcGcUZSw8EW2c/zS8pAlt3n7PZFn7u7mzzp/qLOmE1tG
+         cXlQ5vI7FTMosSvxXl7oXNzqRys5LnGZSiJTEw8Gf+4IIbOU5PqwouExt1ipiiXY68p/
+         2JnvOr12Gd5S7N0wdsTgB0Gq2R4KuSx5tYj5s+noz7i+Rk0n3pN6GKGiuvC3I6G0khwc
+         wPwfH49lrOsgyLp3HsMijuwzKd9ZdsK4ibG0cnZnJAVhgdmYQqUVS1FM6RM5xGYpKM8j
+         6qoQ1/BZgQeD6W0PMTkkBsl36LbSYnCRVi1CZ1ekJOJzQ0pGw6wKttGWgRNhECjCOV52
+         33SA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id m13si127674otn.1.2020.12.01.03.13.42
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id a2si107376ild.4.2020.12.01.03.54.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 01 Dec 2020 03:13:42 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
-IronPort-SDR: 23M9a/PbCxc18YjkX3/2+dikcZGCBHm9PnZr8ILguqM6FpgyQrblFVWoZSX+HxAWVoB5y2u7/a
- ah627EtSaN8w==
-X-IronPort-AV: E=McAfee;i="6000,8403,9821"; a="234412499"
+        Tue, 01 Dec 2020 03:54:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+IronPort-SDR: q2ciCIFS1vzMXcIvjGuGx88M7YRwY46cd1Y03crX43VswPMUPv2dEXy9f2q4Ak8Vzmvk3EvAS2
+ D6MPo4yyKtkg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9821"; a="172912428"
 X-IronPort-AV: E=Sophos;i="5.78,384,1599548400"; 
-   d="gz'50?scan'50,208,50";a="234412499"
+   d="gz'50?scan'50,208,50";a="172912428"
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Dec 2020 03:13:37 -0800
-IronPort-SDR: o/l183hbTR3AoA5mS0d54YqtX3pbXGIo6YRzV0XYmkra0uOozo/JHklytwHmqWnJj0n/HkqK9D
- oIUT3wJZHjlQ==
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Dec 2020 03:54:37 -0800
+IronPort-SDR: HT6rw5KRle5kry8bNVhR3vXIDRXm304WSZMP9FDejzeLzMjV2MHFtV6qfuS2jJ9x+BFoU0Tsv6
+ pI0CaXR1ABpA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,384,1599548400"; 
-   d="gz'50?scan'50,208,50";a="335053605"
+   d="gz'50?scan'50,208,50";a="315641283"
 Received: from lkp-server01.sh.intel.com (HELO 70b44b587200) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 01 Dec 2020 03:13:34 -0800
+  by fmsmga007.fm.intel.com with ESMTP; 01 Dec 2020 03:54:35 -0800
 Received: from kbuild by 70b44b587200 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kk3bB-0000EF-Tp; Tue, 01 Dec 2020 11:13:33 +0000
-Date: Tue, 1 Dec 2020 19:12:38 +0800
+	id 1kk4Es-0000Ev-Re; Tue, 01 Dec 2020 11:54:34 +0000
+Date: Tue, 1 Dec 2020 19:54:18 +0800
 From: kernel test robot <lkp@intel.com>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	Linux Memory Management List <linux-mm@kvack.org>
-Subject: [linux-next:master 3404/9613] arch/arm64/kvm/va_layout.c:249:6:
- warning: no previous prototype for function 'kvm_update_kimg_phys_offset'
-Message-ID: <202012011934.k4k1sEEx-lkp@intel.com>
+Subject: [linux-next:master 8291/9562] arch/arm64/kvm/va_layout.c:255:6:
+ warning: no previous prototype for function 'kvm_get_kimage_voffset'
+Message-ID: <202012011915.cxHXa1gI-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="FL5UXtIhxfXey3p5"
+Content-Type: multipart/mixed; boundary="IJpNTDwzlM2Ie8A6"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -144,13 +144,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---FL5UXtIhxfXey3p5
+--IJpNTDwzlM2Ie8A6
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-head:   c6b11acc5f85b6e11d128fad8e0b7b223aa7e33f
-commit: 1db9d9ded771389aae5760d20dd1bac113451b9c [3404/9613] KVM: arm64: Add kimg_hyp_va() helper
+head:   0eedceafd3a63fd082743c914853ef4b9247dbe6
+commit: 68b824e428c5fb5c3dc5ef80b1543e767534b58e [8291/9562] KVM: arm64: Patch kimage_voffset instead of loading the EL1 value
 config: arm64-randconfig-r006-20201201 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project ac40a2d8f16b8a8c68fc811d67f647740e965cb8)
 reproduce (this is a W=1 build):
@@ -158,10 +158,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm64 cross compiling tool for clang build
         # apt-get install binutils-aarch64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=1db9d9ded771389aae5760d20dd1bac113451b9c
+        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=68b824e428c5fb5c3dc5ef80b1543e767534b58e
         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
         git fetch --no-tags linux-next master
-        git checkout 1db9d9ded771389aae5760d20dd1bac113451b9c
+        git checkout 68b824e428c5fb5c3dc5ef80b1543e767534b58e
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 
@@ -177,19 +177,26 @@ All warnings (new ones prefixed by >>):
    void kvm_patch_vector_branch(struct alt_instr *alt,
    ^
    static 
->> arch/arm64/kvm/va_layout.c:249:6: warning: no previous prototype for function 'kvm_update_kimg_phys_offset' [-Wmissing-prototypes]
+   arch/arm64/kvm/va_layout.c:249:6: warning: no previous prototype for function 'kvm_update_kimg_phys_offset' [-Wmissing-prototypes]
    void kvm_update_kimg_phys_offset(struct alt_instr *alt,
         ^
    arch/arm64/kvm/va_layout.c:249:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void kvm_update_kimg_phys_offset(struct alt_instr *alt,
    ^
    static 
-   2 warnings generated.
+>> arch/arm64/kvm/va_layout.c:255:6: warning: no previous prototype for function 'kvm_get_kimage_voffset' [-Wmissing-prototypes]
+   void kvm_get_kimage_voffset(struct alt_instr *alt,
+        ^
+   arch/arm64/kvm/va_layout.c:255:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void kvm_get_kimage_voffset(struct alt_instr *alt,
+   ^
+   static 
+   3 warnings generated.
 
-vim +/kvm_update_kimg_phys_offset +249 arch/arm64/kvm/va_layout.c
+vim +/kvm_get_kimage_voffset +255 arch/arm64/kvm/va_layout.c
 
-   248	
- > 249	void kvm_update_kimg_phys_offset(struct alt_instr *alt,
+   254	
+ > 255	void kvm_get_kimage_voffset(struct alt_instr *alt,
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -198,14 +205,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012011934.k4k1sEEx-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012011915.cxHXa1gI-lkp%40intel.com.
 
---FL5UXtIhxfXey3p5
+--IJpNTDwzlM2Ie8A6
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICCggxl8AAy5jb25maWcAnDxJdyM3j/f8Cr3OJTkk0Wa1e+b5QLFYEqPausjS4ks9xZY7
+H4sICL4sxl8AAy5jb25maWcAnDxJdyM3j/f8Cr3OJTkk0Wa1e+b5QLFYEqPausjS4ks9xZY7
 nnjpT3Z3kn8/AFkLyWKVPZNDxyJAEgQBEADB+vGHH0fk2+vz4/H1/ub48PDv6Mvp6XQ+vp5u
 R3f3D6f/HgXpKEnliAVc/grI0f3Tt39+O54fF/PRxa+T8a/jX843s9HmdH46PYzo89Pd/Zdv
 0P/++emHH3+gaRLyVUlpuWW54GlSSraXVx9uHo5PX0bfT+cXwBtNpr/COKOfvty//tdvv8G/
@@ -837,4 +844,4 @@ mIyjBnCZPkU5wJecU/N1e571A062Pp5QaqDglPv/rA/LJ63uCGXyaR6pEvvQutWjtpp8P21S
 b0HsUdRnLgNLfNqRJajmnpmMbq2dDXYsACsmL2JDx0N6PswSuB2NBvhE5HP0TuDD5OtrB9MH
 mZ8qy1FZHRj/ByCxkTI8DgIA
 
---FL5UXtIhxfXey3p5--
+--IJpNTDwzlM2Ie8A6--
