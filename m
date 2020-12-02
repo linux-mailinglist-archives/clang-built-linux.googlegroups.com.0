@@ -1,127 +1,144 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRB65ITP7AKGQE3UYFD3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBKGSTP7AKGQE3BEIBTQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 654BC2CB0FB
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Dec 2020 00:40:45 +0100 (CET)
-Received: by mail-ot1-x339.google.com with SMTP id y4sf21218ota.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Dec 2020 15:40:45 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1606866044; cv=pass;
+Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id DF1CC2CB215
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Dec 2020 02:08:57 +0100 (CET)
+Received: by mail-io1-xd3b.google.com with SMTP id m9sf57246ioa.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Dec 2020 17:08:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1606871337; cv=pass;
         d=google.com; s=arc-20160816;
-        b=i6Ke9SyrQGUiOjSc6eHk1oAz9BZvOjAGBs54juD7uhwwexw468l9gLr3jF3XuT1qLh
-         6SU4ZqJWx7F6JhSstPgiYFNdCHgYslVMoZ2pKeHZRDR0M5uas7zEAvQ6ojeZIs0mPVOb
-         8HVdHOhjAz4KWrsobWV5ZcABtkVezTs0zdrnS+JbcV5+rZ8ay8N5zOXLFw1om56SF45D
-         ty9W9EIFTdtqb2NonlSpcnEqyLNZxg1PmgPw97g5w8khzNwz/p4EmJL8xQLu5j0c8zBo
-         b0o9/kZ60d7kXri2OhqEbUL8S9zs4gFc/RMS74bGspp/Z5KQ271bDq6y3Bv/EtcYVkOZ
-         efJA==
+        b=K4JPi1jzfzaEyLpHiCqI+STAWBZDHlA4mg34QbgNNTQQouH92IqG5Sb1Pse3jGosky
+         lv9eHtR2gdbm6X92jotOZLBPyLrqx38SeajgLpTE90ZA64BT/rkma4MYJq9od2YRlApU
+         Rm7Qf3jAuT/GCTZb33MM2+PkPVf8w51ouFNsiFsSctNGVZlw7agyVE5iUKlQ7/WOc6Rf
+         ozU7JYYGvhw56sNyKGEUYQrOFPT7pBseHmO6Fl//zcy21zwIvF528oVbZg1XWlaNpJKY
+         jcMfCIKDdVTFcr/t1ZAzseXSfxpxm43QsxKBI35ZPpRmLK1QfnyU+hXWZbvkisprpH0w
+         GMqQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=qOh/cHfbGpVWr0lLat5upztn837HzQKPc7cCDpuESEE=;
-        b=qV8kV1HjYOH+OyWcqkJDORuLKcHmI8v0L0g/9udZGg1Mc8rCo3SMS0HL80h3SG4h16
-         uzPNHmGm1dmQBSJ7MIe7j18pn7yvG5EG3uGgNk7evGWEDHGu46p3uLCMKznWcVncTmvU
-         hEtyO99yl3xOOGW8qsMI7zCDkNQ52+bMDYYoQG8Le7UeEC6iINPHlGRPr24SLDxlaBdY
-         pMIkaV2gsVCmO0RgfwAQ9xDdwbHTo+/zCpwIQsSonBIwPNqDZ1mSoXgcuseLMqUGOk7+
-         J5Wd6EKCbMcFS3OM2Ja/7RVdpzaK5FGtU366pDj6/K/TxZDbqOSGoBpg2HB2PHBqn9wM
-         Xb6g==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=JqbkkOL8W0Hp6z4nEJ8fhrrWCwdxb5RhQAhu3u9955M=;
+        b=uHRABvUYWfza9n+/y6ZiLPgf7nK162sB1aRrA++OCB3lyvtKYNcUyOuh3Cg2PDRxW8
+         5v/HR0P5ZN8UDlfRWT8EvBwtaliOdY04MDb46LGjHyybarYJzqfVOY9fyfJMy6WZYiso
+         h7+SBrsoQxH0lQoNoLE6cbQZIk2aUeWSeMmgVMUASxMBFujHD1Ry7cdzs8EOE9rw5pFf
+         Ab/AnTaCFkBGeu+RMTZIq4H9MH5K9+8GptuP1ANxmtTX1kBu0oJeGUKTVfhY6FdezSrh
+         5emJsRkKXXROEyppv1m1/5BucOF+YpFvbZngNum6A2D2as0T2ZzE1Ve65LxB7k8F1xRz
+         nK9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=QDK8NVkq;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=wApgbcd8;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qOh/cHfbGpVWr0lLat5upztn837HzQKPc7cCDpuESEE=;
-        b=OKPaGC85Y6e2fa+agj9KX4dsP0Ankt7gmE0VIz1KmS53yyYFFzYEi77TTpjDHy4ei6
-         eC41eq2to3Z1fPNge0uiOLF6MyFO3cZyNL7bG8MFS0kuo7cfbUl/z5BZ0bttnFTwvlNA
-         OMVUbaZYK0jOpzRQbTgW14v5h1jQwI8Q1hT6WVHjCOgWk/qbxEBKqHcxAjmdfGZECyZ/
-         De9R9fkqOle9rNwCrbz6nGSR/gQWDSaJ6fgUdnNXf+kP2sUEiK0UbyNgBu8/kZpmtGWl
-         xZ95Eiacg2HUMP5Vq6Cx+bK8MowRHPhwwdi9+IF86G9Uq++8JrNqe7fPi/QHv46stTrp
-         4jCg==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=JqbkkOL8W0Hp6z4nEJ8fhrrWCwdxb5RhQAhu3u9955M=;
+        b=OZLhFyMOLJTodUMt0lbgWYQPRD968SMK4Gvf6XCgSBaTF4yzFBY6iWcXRNkwRGmyYF
+         rIftwPcbNgWaRzB5qztIB7DrsGl+208DMoC9GqLayAC8+e19xsL4oL6ndHRinTIDvfbU
+         O8FbweQ8aPjLePATV/tBxmJ15jG3mdgsWPb+82qjUQX98vWamjLNYgXu6NaQDxZV5VXX
+         watQV3Breoj1SZbiCtH4kZ4iqcSKolqXb3FUyZ4fVNJFleh/mCibS4XTOv4DZpCWeMjf
+         lvQhwnr5B8fjA8kHLJMKqf76BFL4zvMFxwDCN9jhTblxDNFT+/eC+Qt5kZPQQORNk5cz
+         Ieyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=qOh/cHfbGpVWr0lLat5upztn837HzQKPc7cCDpuESEE=;
-        b=icaeWq0NCFpP+8qiIB06aU1bvoM3baRob505VXAMZcBC5icML1GZ7Orgsu2Mkqa/+E
-         8uMRrlG6SgkVsWTSdOm16TvSHM6OzZHH4GfYOapwC5CfzkUTeKZVC6WULiFtrGfxfOcy
-         NMa4XVutoU8BPfjxheynHHqiv3Y+p5gPd2OdzqK1W76d9joUrRwe6wcwltu0YmGA3JQh
-         ezHuLeTYCIfhiAYeFsPMF0hjakap0UuwcMCy+MllwFJOXW2KNGgXOauL0hLolVlw8UKE
-         XUtAg9/rAeZKcFTDkoHFKn3rJpPbqL78IcJUwXRzjndxSJtuBBlxN2RnQ8tHzRglL0ni
-         tMOA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533RvF2GUxoUJaspQE2waP7Imff6SClMqutj8RkkFCiUs5nt6S2/
-	H3jXC21+VY1T3oXooegGfAg=
-X-Google-Smtp-Source: ABdhPJwiV4z9OwgA9wfhOtq+MESZVurl32YtKzQD6O6kNGhNqaM+0qBr2tCBayYhDOAj+BXIDyLYyQ==
-X-Received: by 2002:a54:4f90:: with SMTP id g16mr78422oiy.24.1606866044065;
-        Tue, 01 Dec 2020 15:40:44 -0800 (PST)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=JqbkkOL8W0Hp6z4nEJ8fhrrWCwdxb5RhQAhu3u9955M=;
+        b=RXBnQVt5qirNqmS6NBw39RJurt06ikdIo1zEgQVXnP9Y88Dk9rn7F1dUObgRELKXgV
+         J2M5LYFyj/hu2LaZSUcNb1Xo3OpJSgJus2zVM9ibs+Nv9SX8T7wh49Wh1YoCPZsFNMBA
+         yM3CB8eUQrQaT6WMRML5Gs8OPZ926ohIdEdVriYlroHm+jv0s0fJrTE4Mmo2ebbV5Wdx
+         BzhPl6CZA5Gg5u2XD9QWrNUhb9tlWYYf2wGkg/rnXeMP04ekTDRGtrt2v9wab9zAnLL+
+         sClHw8mkP4W0lV643SPfqNoTx3wDf7udT6R/F1wOlsesqftOkPk/4DDalr1kXVL/bWDt
+         wzSg==
+X-Gm-Message-State: AOAM530rjTUUQR5+ATD49PfMLe6WrpDTiNjIDcxO+0ttejE4oxFa+vB1
+	hF4h/DK2NgXz2OmHnyPjeis=
+X-Google-Smtp-Source: ABdhPJzPys13E8xNpHmb/94M5Od5lWurlqVxNWr73+/NbgYNoD0fyeEE69CaLGCMvhObsUnibeYdyg==
+X-Received: by 2002:a92:d40d:: with SMTP id q13mr311473ilm.253.1606871336918;
+        Tue, 01 Dec 2020 17:08:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7ac3:: with SMTP id m3ls108121otn.2.gmail; Tue, 01 Dec
- 2020 15:40:43 -0800 (PST)
-X-Received: by 2002:a05:6830:1044:: with SMTP id b4mr3772493otp.312.1606866043676;
-        Tue, 01 Dec 2020 15:40:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606866043; cv=none;
+Received: by 2002:a92:d247:: with SMTP id v7ls52767ilg.0.gmail; Tue, 01 Dec
+ 2020 17:08:56 -0800 (PST)
+X-Received: by 2002:a92:d80e:: with SMTP id y14mr345182ilm.68.1606871336418;
+        Tue, 01 Dec 2020 17:08:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606871336; cv=none;
         d=google.com; s=arc-20160816;
-        b=EvAv7QHyqRTt1EffOEA46UkvYCnqwrJ4/wqcUe7u5l0uGzk/5K44/CiuJDgWRUcyqq
-         RLQw1J2IbzLY3DqTLI0IZN89DojP7A99o1E32x5yJHCY3VD2Mnr30AA/0A6g+SZmYiPc
-         myWbz+C0oPWfMUxtRWxFYhzfcDkk0t8trGyoK999v1QKM6oZsjHXXpfhbrSmLfY4F44h
-         C/T0ILZsILqKoWAhKOVnnQVNmpiKsaff/4J4Sht47Lnk3IvWzMvJOyb4BKY8ALLTGmWb
-         n5EJtQ5q2iCIgGOTX772Jx5eQ8l9pLS2lWksUh8JitEygxYZeAlrZ4OBVvHqR9sw3Fyp
-         aAmA==
+        b=xbDWT8iIYKG1c3vTKngUKiK1wVwI4Fd60KXHdh7WoxMg5tc1dqHWPMH372TswgDvne
+         zh8d1OMp65DfeEl639gVaqnyP9bfJiSPCTPvOIssfCefFIkY2rGDsJhDRGgZawuyxy92
+         nhHWyDfjZsZTXB8ZmGmM7UYBkNuLj4N0UDvI31QFuoYNmXwh0E89KwnjuCvASCuzFv4w
+         9Trp9K8Rn7QvAiIqSQQOOFySZk1cMHw1ZNRfCRnBDnwgrwK17PdqBXpM7KfhL/QC1FNC
+         1CNRHMwyPFOwTnrOVyJ3P9N0oH/TzvJ5sbwJCLy4hKcOwLDo/f96c1/b3mWdRJfQrbnk
+         Y9RQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=xSr4Zkri5ll3/mRrUrf4ugiPrrf01YBrysiBxMPJsMQ=;
-        b=xVOTKneSUUGP6LOealzeAzYHAae9WCKRhpvWgsAJtQu/+XcZJrAGHQYNsJfIpt2GJb
-         wKz4ifl/LiUYvyRoDxEG4tDws6YYM4VPh+m5uoVHUTrYgTs1Idhg4j1Q0ZcD6UZy052I
-         iQ1ScLdtZz0TKnjCOmbcCI6zqlhIPxusygy6Jo6Ylufa4AnN6tfcrhWVwOBBZfJU1nDK
-         dGWfe0S4vceP8Uqynq3p23s07b+FqR6wRnHWhukqgXBptC6wA0MIe6Q0EAeDiHL9YDEg
-         bhGAgoe1Uo6/eQIJ4qLpz7MaMgqmRdh2Ofq5J4kNhv+bkv17C0Nps/GNvht76oyUYUKZ
-         RY9Q==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=ltLpeaxsolQPncFM8sGYWmfl/tK1nPLTaUTVm/mA5BE=;
+        b=kFtYa+tTLWAoPDyJQvANU5hMm25iYxmhk+MxVIIvFEqK161MO8UqbRyeqkfCvrZpWd
+         zbU8ezjwE+DNwyZh6PPhLu/gJr8WLZ9kcQ/gtYatMlvdWqsbRXnnWPMDCz5eLweX4PFU
+         40CufYN6MLD4wLYWPji1irXRqSXaPkG5XO/vrXtfxp7AMiy/cay5kKymFNXWKKZfOzS5
+         E/iL5COuMzOZC399t55Ayw5dQbTK2NUP7XVRulGBhahZo71oekWpXa6XEW7m+iCRoYAu
+         hFqDCXiqJrPYpm4TrneP0zRg25Vf9tb0XdiROF9JhBiyMFGKEyZAmpIssL2ypYoLQF9U
+         SYeg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=QDK8NVkq;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
-        by gmr-mx.google.com with ESMTPS id g13si134936ooo.1.2020.12.01.15.40.43
+       dkim=pass header.i=@google.com header.s=20161025 header.b=wApgbcd8;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id j18si9464iow.0.2020.12.01.17.08.56
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Dec 2020 17:08:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id q3so40903pgr.3
+        for <clang-built-linux@googlegroups.com>; Tue, 01 Dec 2020 17:08:56 -0800 (PST)
+X-Received: by 2002:a63:a62:: with SMTP id z34mr302597pgk.193.1606871335639;
+        Tue, 01 Dec 2020 17:08:55 -0800 (PST)
+Received: from google.com ([100.117.212.88])
+        by smtp.gmail.com with ESMTPSA id f17sm137871pfk.70.2020.12.01.17.08.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Dec 2020 15:40:43 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
-Received: from [2601:1c0:6280:3f0::1494]
-	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkFGA-0004rz-Vy; Tue, 01 Dec 2020 23:40:39 +0000
-Subject: Re: [linux-next:master 6272/9613] unittest.c:undefined reference to
- `of_dma_get_max_cpu_address'
-To: Rob Herring <robh@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
-Cc: kernel test robot <lkp@intel.com>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>, kbuild-all@lists.01.org,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Linux Memory Management List <linux-mm@kvack.org>
-References: <202012011747.PIcmivAO-lkp@intel.com>
- <20201201122915.GC31404@gaia>
- <CAL_Jsq+iRn3YdTi_PBkDoY86mJkSp=1-oKmG+Fsz8HrEwyNNhA@mail.gmail.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <98b2ba67-d43b-c285-8ad0-20e52c1d3227@infradead.org>
-Date: Tue, 1 Dec 2020 15:40:34 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.4.0
+        Tue, 01 Dec 2020 17:08:54 -0800 (PST)
+Date: Tue, 1 Dec 2020 17:08:50 -0800
+From: =?UTF-8?B?J0bEgW5nLXJ1w6wgU8OybmcnIHZpYSBDbGFuZyBCdWlsdCBMaW51eA==?= <clang-built-linux@googlegroups.com>
+To: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Jakub Jelinek <jakub@redhat.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	linux-toolchains@vger.kernel.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	Dmitry Golovin <dima@golovin.in>,
+	Alistair Delva <adelva@google.com>
+Subject: Re: [PATCH v2 3/4] Kbuild: make DWARF version a choice
+Message-ID: <20201202010850.jibrjpyu6xgkff5p@google.com>
+References: <CAK7LNAST0Ma4bGGOA_HATzYAmRhZG=x_X=8p_9dKGX7bYc2FMA@mail.gmail.com>
+ <20201104005343.4192504-1-ndesaulniers@google.com>
+ <20201104005343.4192504-4-ndesaulniers@google.com>
+ <CAK7LNAT5MQqUddv+QbFu5ToLBK3eUPArHSBR=5AOS3ONtMqKaw@mail.gmail.com>
+ <CAFP8O3Ki9HoqcV450fn29fBOWAbmuGAdB6USLz8pGsW4Vzf7sg@mail.gmail.com>
+ <CAK7LNAS_hxevOS7hKxepyCBVU-4j87Yf5Y8DB6mFq+4xuaz3AA@mail.gmail.com>
+ <20201201093253.GJ2672@gate.crashing.org>
 MIME-Version: 1.0
-In-Reply-To: <CAL_Jsq+iRn3YdTi_PBkDoY86mJkSp=1-oKmG+Fsz8HrEwyNNhA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20201201093253.GJ2672@gate.crashing.org>
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=merlin.20170209 header.b=QDK8NVkq;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@google.com header.s=20161025 header.b=wApgbcd8;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::544
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: =?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
+Reply-To: =?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,84 +151,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 12/1/20 12:13 PM, Rob Herring wrote:
-> On Tue, Dec 1, 2020 at 5:29 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
+On 2020-12-01, Segher Boessenkool wrote:
+>On Tue, Dec 01, 2020 at 12:38:16PM +0900, Masahiro Yamada wrote:
+>> > We can bump -Wa,-gdwarf-2 to -Wa,-gdwarf-3 since GNU actually emits
+>> > DWARF v3 DW_AT_ranges (see
+>> > https://sourceware.org/bugzilla/show_bug.cgi?id=26850 )
+>> > This can avoid the `warning: DWARF2 only supports one section per
+>> > compilation unit` warning for Clang.
+>
+>That warning should be "there can be only one section with executable
+>code per translation unit", or similar.
+>
+>> I am not a DWARF spec expert.
+>
+>Neither am I.
+>
+>> Please teach me.
 >>
->> On Tue, Dec 01, 2020 at 05:32:51PM +0800, kernel test robot wrote:
->>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
->>> head:   c6b11acc5f85b6e11d128fad8e0b7b223aa7e33f
->>> commit: 07d13a1d6120d453c3c1f020578693d072deded5 [6272/9613] of: unittest: Add test for of_dma_get_max_cpu_address()
->>> config: s390-randconfig-r034-20201201 (attached as .config)
->>> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project ac40a2d8f16b8a8c68fc811d67f647740e965cb8)
->>> reproduce (this is a W=1 build):
->>>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>>         chmod +x ~/bin/make.cross
->>>         # install s390 cross compiling tool for clang build
->>>         # apt-get install binutils-s390x-linux-gnu
->>>         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=07d13a1d6120d453c3c1f020578693d072deded5
->>>         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->>>         git fetch --no-tags linux-next master
->>>         git checkout 07d13a1d6120d453c3c1f020578693d072deded5
->>>         # save the attached .config to linux build tree
->>>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390
->>>
->>> If you fix the issue, kindly add following tag as appropriate
->>> Reported-by: kernel test robot <lkp@intel.com>
->>>
->>> All errors (new ones prefixed by >>):
->>>
->>>    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_declare_coherent_memory':
->>>    coherent.c:(.text+0xf8): undefined reference to `memunmap'
->>>    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_init_coherent_memory':
->>>    coherent.c:(.text+0x174): undefined reference to `memremap'
->>>    s390x-linux-gnu-ld: coherent.c:(.text+0x344): undefined reference to `memunmap'
->>>    s390x-linux-gnu-ld: drivers/of/unittest.o: in function `of_unittest':
->>>>> unittest.c:(.init.text+0x120): undefined reference to `of_dma_get_max_cpu_address'
->>
->> Thanks for the report. I think it needs the diff below. If Rob/Nicolas
->> are ok with it, I'll add it to the arm64 tree (with some commit text):
->>
->> diff --git a/drivers/of/unittest.c b/drivers/of/unittest.c
->> index 98cc0163301b..799125ef66fc 100644
->> --- a/drivers/of/unittest.c
->> +++ b/drivers/of/unittest.c
->> @@ -871,6 +871,7 @@ static void __init of_unittest_changeset(void)
->>
->>  static void __init of_unittest_dma_get_max_cpu_address(void)
->>  {
->> +#ifdef CONFIG_OF_ADDRESS
-> 
->        if (!IS_ENABLED(CONFIG_OF_ADDRESS))
->                return;
-> 
-> This once again makes me want to kill off HAS_IOMEM. Or at least
-> always have a dummy ioremap() and friends for !HAS_IOMEM.
+>> In my understanding, "DWARF2 only supports one section ..."
+>> is warned only when building .S files with LLVM_IAS=1
+>
+>.S files are simply run through the C preprocessor first, and then given
+>to the assembler.  The only difference there should be wrt debug info is
+>you could have some macros that expand to assembler debug statements.
+>
+>> If this is due to the limitation of DWARF v2, why is it OK to
+>> build .c files with LLVM_IAS?
+>
+>The compiler can of course make sure not to use certain constructs in
+>its generated assembler code, while the assembler will have to swallow
+>whatever the user wrote.
+>
 
-That would eliminate dozens of build errors on S390 when
-# CONFIG_HAS_IOMEM is not set
-# CONFIG_OF_ADDRESS is not set
+These are all correct. You can use `llvm-dwarfdump a.o` to dump a .o file.
+It has one DW_TAG_compile_unit. If the translation unit has a single
+contiguous address range, the assembler can emit a pair of
+DW_AT_low_pc/DW_AT_high_pc (available in DWARF v2). In the case of
+multiple executable sections, it is not guaranteed that in the final
+linked image the sections will be contiguous, so the assembler has to
+assume there may be non-contiguous address ranges and use DW_AT_ranges.
 
->>         struct device_node *np;
->>         phys_addr_t cpu_addr;
->>
->> @@ -884,6 +885,7 @@ static void __init of_unittest_dma_get_max_cpu_address(void)
->>         unittest(cpu_addr == 0x4fffffff,
->>                  "of_dma_get_max_cpu_address: wrong CPU addr %pad (expecting %x)\n",
->>                  &cpu_addr, 0x4fffffff);
->> +#endif
->>  }
->>
->>  static void __init of_unittest_dma_ranges_one(const char *path,
->>
->> --
->> Catalin
-> 
+Unfortunately DW_AT_ranges was introduced in DWARF v3 and technically
+not available in DWARF v2. But GNU as ignores this and emits
+DW_AT_ranges anyway (this is probably fine - like using a GNU extension).
 
-
--- 
-~Randy
+If -Wa,-gdwarf-2 -> -Wa,-gdwarf-3 can eliminate the LLVM integrated
+assembler's warning, we should do it. If people think -Wa,-gdwarf-2 is
+not useful and want to delete it, I'll be happier. Whether it is
+necessary to use -Wa,-gdwarf-2/-Wa,-gdwarf-5? Personally I would think
+this is unnecessary, but I won't mind if people don't mind the
+additional complexity in Makefile. (I implemented the -gdwarf-5 address
+range stuff for the integrated assembler).
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/98b2ba67-d43b-c285-8ad0-20e52c1d3227%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201202010850.jibrjpyu6xgkff5p%40google.com.
