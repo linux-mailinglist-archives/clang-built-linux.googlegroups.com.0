@@ -1,125 +1,130 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB2GBUP7AKGQEUDQ6AHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBH6XUP7AKGQETHP2TKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3677F2CD631
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 13:58:17 +0100 (CET)
-Received: by mail-yb1-xb38.google.com with SMTP id v12sf2599346ybi.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 04:58:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607000296; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id C063D2CD7C4
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 14:44:00 +0100 (CET)
+Received: by mail-pl1-x63b.google.com with SMTP id 4sf1197535pla.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 05:44:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607003039; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VqhMdtReMSqrzo4ZqLhzaoMzO1tCYod5fm5LlxsvELLzj7Tr0HQ2ef+K9xEq04rXjw
-         MslEhJ6TEUwtfOHDdCYVDaSXVFNc3fhRYI0nk8HkHl78iqj2n9l4p4MQ7NLO+uylBgHc
-         yIcdaSUHl5sCg7x+aN71AagwC6clgrZox/PkmoTLoHzI9V7UEs4Q/gKkhtQl8F/yZ7uH
-         UC7qQqSNfp3CtPaWNcyoSPHAWcikavFvMNrO+qvEGbRWfIaoJUv2ejboQJkEjGmRYums
-         NTTr3VxEkFk90OGSKGQIG7oHgIwDR5oaDrmCrs907ZZGK0FRZXvu3pPgo+WdHqdTdQk5
-         9Xmg==
+        b=L1MmVw799ce63COBRzMVBuJuEp3kA9eMMyluVNgeMbJPLmJX1BwQgG4VBYLZg0FCXy
+         bpza4GXA+LVmuBAGwGjyx3x2YYSL0jcmSx9qY4aYaUYdZHfOZeP1mVmHhTbWk7L5KWgy
+         yp9/hcfhsBLpj9DVvSKA1aeZ+s1o8TYnEhPRBJCoPNcwtimWzZ1A7oGlvEBMZwDxcwlg
+         5f3Gmhn0zOX0S0pczWsTPPjE8D7FwmCZjSglETX4Bt8veYXuT447dsCW6mg9DBY07DKS
+         cHRbVkNg/9ztz7N5T/mdVArZWjc+UwiQnWFtC/QArPigIILNoufTJrYlVt0VWX1RwD2D
+         EcnQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=rQbwCkLDb6tHTXPziVZasbknhnHxpHkOgjKcpLWKH9I=;
-        b=LCmMzms0fScYiM9rf1JfPQzQ7111rOc9QqaDQR3RCb/FXErae+b30ncd3RXDJqI4UG
-         8UiQb0T4bLpa/Nz9ksNmCFcmzm1qVXwQ1T3BnpjS1rrqHtQWZUOIMcZWSn93levNkuxr
-         ryPY6nc5TtIOsKHO/bsEVk9Lp2uEGw9nsLfpy+dkkMtea27Dvab6F4xbz99lMp5KxldK
-         i0y1/rMEqX5orWuI+0gUmilmOK9eHQ4fm+DVYMQ9PQotw+i761+WhFkrbzCL5o8ZkcVD
-         qflfXM1O07SYvMWxsHavcqvfTkdB82Pas5Bo00v6u5E0fG+fmDAmZhwE0GXfniIR5g/B
-         w//g==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=AU5dhOBTgg/yCu5qK2FLxgOGg6dQwUjRL/qMRJkZY7U=;
+        b=IILYvRkoNhAbDvY5bLd6mxNztLEi+C2ypPF39o9+03gXWgVoQ7z9+7rpG0Lo8o9R9c
+         kDOzcJrX4YhesDe1iI1DSe7HCWq3MXn08XmnsKR9W855nYunyfhfX6PDH7qi+ipiv2MA
+         Nzyg7QljlwWM8/0m/s3+1x5e7u9VfTQIpTeFcQQa/lcV3/E8nE3jFzzDan9Ug77se3Fm
+         t11YOW5BX83aT54lib0wzkrkBsCmyUY++id2z1eUUVIDyIGKa2ufntzg9DTDhhIwNDSM
+         PXqGFfOKLx/hMalKDfXtu1rvGwjxMvo0tS572dPgB3nb+bOAwlifvrfMVdtCoK1q2s86
+         S6Gw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=utJkJDnB;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@nvidia.com header.s=n1 header.b=qYV20rKA;
+       spf=pass (google.com: domain of idosch@nvidia.com designates 216.228.121.65 as permitted sender) smtp.mailfrom=idosch@nvidia.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rQbwCkLDb6tHTXPziVZasbknhnHxpHkOgjKcpLWKH9I=;
-        b=c9SWcfLLM7dcLFuHZ3UAQxr8tkzUJYJAvtAty0WsTHiufYe7Ueakaboa1863zsbX4P
-         idgNN7uecv1W/vOT7lOnFNd0YFaQcv/wyZ4D0bjbZkPePTDl4lYrGxcnPx/O3IyG+Wn6
-         AEPnRYLRQbeQqTxFziKxzCutLsn+7pKkcwPHP/ffgrCcEnYZxL6HPov38IjhubJ5fIe8
-         AgjWoid85nXpEOEymobhJi87cZp1oG4PwCHxeD3WBz8KjrarotJzyuPyOP7DBerOfzPf
-         jygCIg9dYo1CGGtoynCbXuczXGrK6TRsCvJghGqX+1rHcexsSBbX7egwMzVLUTs3kTqc
-         tPxg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=AU5dhOBTgg/yCu5qK2FLxgOGg6dQwUjRL/qMRJkZY7U=;
+        b=h8MxhrOqZrV5E0iTBvHe0YbgUoBASsYtnvlIfsoZeBoominzigRU5TQJdx1sKzUhYz
+         iTO525o7Nrh1LO97ErVPkI4LVvLHMdUIujNu48fT69bePSKAkNvVJza4Cii1Q9NdbNGp
+         zauvQqUwipCGYMLkh+6Ybmg/3b1HSR/M0M+tkH+JYlAsP7mYcgGMx5fOPIRCPEoCR4Tl
+         GrE6MW33kwVd+vSD9vw6J0UPYTsKJ4ZvjYTvV6ajX6oKEEomJ/lYh3xyhupF76rDOweP
+         x8+vmxvjYDZe+bT1OHHRDqkaC4fGPXT9v90mbJZb3NWfszsPEzv0ZQplyAYRNbG5SD2/
+         IMVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rQbwCkLDb6tHTXPziVZasbknhnHxpHkOgjKcpLWKH9I=;
-        b=UCtsRhr2dLTT6QkTKJTfnlTJsXfMUvJbTwI0uxOV4vg1THC0jE0hC0xdGRfPzo0YJ3
-         CW02Ub/rkLxk9otJ9m7eZyklmibvSB9kdHK89VwsUWCETL2zZsTqWBh8hAiChT9t/Zbr
-         2rUKnrCiKJ5vcCANevunKLCAc5y6zIMgtI0WmNgWgPXg3rPYuCmcUSyD8f5b8oIpW2lr
-         t1IYAIwtFiv9PugcB6IpkAY2VJnzhLKgbxR6D7Wfhfai60V6XoHAV3ZVqmBdxOZaPWBC
-         R/LsoO2E2dPulptM3OIKMXtTUzjUlnXz21f9qvdtcY5MKWRr9XQQg4/6P+JQb1dNC1n4
-         tbjA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=AU5dhOBTgg/yCu5qK2FLxgOGg6dQwUjRL/qMRJkZY7U=;
+        b=YjrxYjc81R20ZauqFnJvOixw3ekOubXqr2nmw4OFh18s22HBlrLoGh5T7osA7jWbU0
+         926E0OnYJ564MRzv+UETKUF/hLJ3hzIo164P/ttmzeVJpA73hmm0Viv9q5Oma/dh1mWW
+         RGfZcI9cStpLBkez5IFhu171abht0bFelKc0QIZc1MbJpWfGIAKo4SwwhPbAam6Wt3ua
+         pCka5+1bjWiLxv8aV74n95BiupgROgsaQqDN+zzk6IgMnvmDN3Er98IVdYcH4dLT9pHg
+         5OblmwISs6qUXDEN9qvoXCyKCr9z/ideo+EUz7wQkuS4tptluyn3o1H54QbTK2wJPTMy
+         9QOQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532hztG7cHnPiBqDaYXG1oZ7EYHt0nmeeNuQ4EzcV65WjcHUX9NP
-	hX4z/Rj17vYjCzwwhuJdfXY=
-X-Google-Smtp-Source: ABdhPJzDeZ49eV/LakZgY+oQ28dHQCU+hjMgbi9rupt70f0abtz3q0Vw3ta1SoxqCE0W1+TJ/4WZvA==
-X-Received: by 2002:a25:b11e:: with SMTP id g30mr4533668ybj.71.1607000296268;
-        Thu, 03 Dec 2020 04:58:16 -0800 (PST)
+X-Gm-Message-State: AOAM532w8y7dxFGMDYth12hsqZ4YPLxEREttSncQRkX9Q8SdwU7MUu/x
+	eTTA3YMtfb0TBpFqUqhEKok=
+X-Google-Smtp-Source: ABdhPJzlrMtxZaJDE8XNQublVcEKpi1++y096gqtxLG2fBTL7EAKVQTbs6h3R1IoQTa3K/Sfd1a/5Q==
+X-Received: by 2002:aa7:9f0f:0:b029:19b:c68f:61cd with SMTP id g15-20020aa79f0f0000b029019bc68f61cdmr3003862pfr.45.1607003039277;
+        Thu, 03 Dec 2020 05:43:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:610b:: with SMTP id v11ls2696764ybb.3.gmail; Thu, 03 Dec
- 2020 04:58:15 -0800 (PST)
-X-Received: by 2002:a25:250:: with SMTP id 77mr4268254ybc.316.1607000295886;
-        Thu, 03 Dec 2020 04:58:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607000295; cv=none;
+Received: by 2002:a17:902:c205:: with SMTP id 5ls2669822pll.11.gmail; Thu, 03
+ Dec 2020 05:43:58 -0800 (PST)
+X-Received: by 2002:a17:90b:384c:: with SMTP id nl12mr3117652pjb.72.1607003038645;
+        Thu, 03 Dec 2020 05:43:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607003038; cv=none;
         d=google.com; s=arc-20160816;
-        b=Bh7ayZIy+otQw2LntM3IPY7Ez11ogaCN0w8QymV6vWBdIJOaNVqJeoFXdryxIwMadN
-         8v8NcOfdeyHcF3vACqayfndwJYTmwDaB6kPr1KrsUZA9iMbq1dk+xjUgB6sdpl+FeYYx
-         DGAeOiyBy/mG0/HcWmYuKswQ2e3W6SGDGuPo324/b/xN+7weWcyyjKlSj2J78J7Gn1q8
-         cAABq/DyXNwooXSyIn2qiv9eSuhBYUxwcBpdaQu0XJZIZNvC8p877QYgVfuSFW92Vx/Q
-         5Rehexb2rjQc5JDg9eDv/w6gBcv1KfRlIAs2lf8iqmoALSm8SLLDZQ5TphQ0OdFAQHpW
-         odSw==
+        b=NNASUXyw23OYPE5MA2j6cqLiLe/zGbEqULKsyvNVUshWRtETYZ30NpXVQl+WHj8kOJ
+         FMcWiaKoNTEQgLIlX3mh0HI9xeqpYKyhYev/zZ7mUOz2g+4M6aSuUD3Hxm2Sd0oBr2hr
+         7k4mASDu7/nytGOXg7dvBtUSapu1EMGoHNND4ahwau/g6nQt4uKXAg89/h7kG93LBRsl
+         YcXvZAbtu5GGV18n26+icdp5lHkB+oisU2WtBfwLQKlmn2IeTD8DIGaJGb25vnDc2A3b
+         FSuIuT31P43XYxC++7hJxlszIHjEYPgL+uwW5tMuNVMgbxYNz+dRJC0fNVkxyaEpbB4I
+         TBHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=4LEowQvA7xjRCrLhVDoyfxqY/ZOsWCHa7kvgy3K/tZY=;
-        b=NVlCgrDXRylGiCkkKEUuMUpTp7QQBzkhcxQtwK6g4J4ydfLG1gBReBysqzzezCiP1X
-         t/e9BUqAMX5b3Qewwx8VX2X7k33JR7wF8Pen0KTjR4IyNwrBeasDLWvmyadLfK/2YH6A
-         gF5BD9Y4Dv23hotatoTgRyf6NaRh5GCwDRhcOCncnz5BafbAx0B8SZVh3IgY+ueBN5R6
-         nGCkVzRVHzgTKqSEAC7VW+0kengc2QqQQmxoQNZizRH9G3siYTA6Pu4uir1nPDYRUdHz
-         luJfwPEw7pDeIF0sqRQLnqo3+eXuEL3fHPIdcb15wODtvPyRdyACPgPI0yQ44Pjdb80J
-         tF5A==
+        h=dkim-signature:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date;
+        bh=raBSg/Yhyw8o7U6lMNHjSjCgfioFegRcBcS1dZ7IcV0=;
+        b=ROLxWX4XA6g1juUF57oaVguGareifff5FpWovQgnOPIVba9E1XA0y7nL1WJd6UUB9v
+         bPXbeH6WjYJXrG8qDlrwweohsGJGo8aSznX3ZoUubBov+oeOZZsc/GkQg7VV1ESPqmr1
+         EfYizA2QE3V2P5s2euoZWgYIvuDnhZjCRcbEyCFTOMsvreGWI2g3rFD9i+tFRDIjaQtF
+         oIEz34E8kvRqK7aWCWaqNyqSbCyzLNe3ugD9alVcLy18jJkQ4V6MYuciRqe5/4HGNIoZ
+         i4giqlLh71VNj+EZe/HYlbcU9YfJ0UC75H3q3z8oKtqG/Duw71kDqe/qrZaoi2rNO+Yf
+         LXOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=utJkJDnB;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id u13si71891ybk.0.2020.12.03.04.58.15
+       dkim=pass header.i=@nvidia.com header.s=n1 header.b=qYV20rKA;
+       spf=pass (google.com: domain of idosch@nvidia.com designates 216.228.121.65 as permitted sender) smtp.mailfrom=idosch@nvidia.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+Received: from hqnvemgate26.nvidia.com (hqnvemgate26.nvidia.com. [216.228.121.65])
+        by gmr-mx.google.com with ESMTPS id f14si104418pfe.3.2020.12.03.05.43.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Dec 2020 04:58:15 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
-Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net [126.90.211.135]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 0B3CvCTZ012509;
-	Thu, 3 Dec 2020 21:57:12 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 0B3CvCTZ012509
-X-Nifty-SrcIP: [126.90.211.135]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org, Kees Cook <keescook@chromium.org>,
-        Emese Revfy <re.emese@gmail.com>, linux-hardening@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: [PATCH] gcc-plugins: simplify GCC plugin-dev capability test
-Date: Thu,  3 Dec 2020 21:57:00 +0900
-Message-Id: <20201203125700.161354-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.27.0
+        Thu, 03 Dec 2020 05:43:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of idosch@nvidia.com designates 216.228.121.65 as permitted sender) client-ip=216.228.121.65;
+Received: from hqmail.nvidia.com (Not Verified[216.228.121.13]) by hqnvemgate26.nvidia.com (using TLS: TLSv1.2, AES256-SHA)
+	id <B5fc8eb9d0000>; Thu, 03 Dec 2020 05:43:57 -0800
+Received: from localhost (10.124.1.5) by HQMAIL107.nvidia.com (172.20.187.13)
+ with Microsoft SMTP Server (TLS) id 15.0.1473.3; Thu, 3 Dec 2020 13:43:53
+ +0000
+Date: Thu, 3 Dec 2020 15:43:50 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: kernel test robot <lkp@intel.com>
+CC: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>, "Linux
+ Memory Management List" <linux-mm@kvack.org>, Jakub Kicinski
+	<kuba@kernel.org>, Jiri Pirko <jiri@nvidia.com>
+Subject: Re: [linux-next:master 5737/10502]
+ drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:6360:13: warning:
+ stack frame size of 2064 bytes in function 'mlxsw_sp_router_fib_event_work'
+Message-ID: <20201203134350.GA1613892@shredder.lan>
+References: <202012032039.ypla4NJl-lkp@intel.com>
 MIME-Version: 1.0
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=utJkJDnB;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202012032039.ypla4NJl-lkp@intel.com>
+X-Originating-IP: [10.124.1.5]
+X-ClientProxiedBy: HQMAIL111.nvidia.com (172.20.187.18) To
+ HQMAIL107.nvidia.com (172.20.187.13)
+X-Original-Sender: idosch@nvidia.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nvidia.com header.s=n1 header.b=qYV20rKA;       spf=pass
+ (google.com: domain of idosch@nvidia.com designates 216.228.121.65 as
+ permitted sender) smtp.mailfrom=idosch@nvidia.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=nvidia.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,87 +137,129 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Linus pointed out a third of the time in the Kconfig parse stage comes
-from the single invocation of cc1plus in scripts/gcc-plugin.sh [1],
-and directly testing plugin-version.h for existence cuts down the
-overhead a lot. [2]
+On Thu, Dec 03, 2020 at 08:09:46PM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   bfd521e1af519bb7096efc845f6a64a7de28c472
+> commit: c0351b7c25ffd52408c1297fbe552f185d5aac3f [5737/10502] mlxsw: spectrum_router: Set FIB entry's type based on nexthop group
+> config: powerpc64-randconfig-r032-20201203 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 32c501dd88b62787d3a5ffda7aabcf4650dbe3cd)
 
-This commit takes one step further to kill the build test entirely.
+Is this some known issue with clang maybe? On x86 with gcc 10.2.1 I get:
 
-The small piece of code was probably intended to test the C++ designated
-initializer, which was not supported until C++20.
+0xffffffff8171c5c00 mlxsw_sp_router_fib_event_work [vmlinux]:592
 
-In fact, with -pedantic option given, both GCC and Clang emit a warning.
+Enabling a lot of debug options gets us to 944:
 
-$ echo 'class test { public: int test; } test = { .test = 1 };' | g++ -x c++ -pedantic - -fsyntax-only
-<stdin>:1:43: warning: C++ designated initializers only available with '-std=c++2a' or '-std=gnu++2a' [-Wpedantic]
-$ echo 'class test { public: int test; } test = { .test = 1 };' | clang++ -x c++ -pedantic - -fsyntax-only
-<stdin>:1:43: warning: designated initializers are a C++20 extension [-Wc++20-designator]
-class test { public: int test; } test = { .test = 1 };
-                                          ^
-1 warning generated.
+0xffffffff82d1eca00 mlxsw_sp_router_fib_event_work [vmlinux]:944
 
-Otherwise, modern C++ compilers should be able to build the code, and
-hopefully skipping this test should not make any practical problem.
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install powerpc64 cross compiling tool for clang build
+>         # apt-get install binutils-powerpc64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=c0351b7c25ffd52408c1297fbe552f185d5aac3f
+>         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>         git fetch --no-tags linux-next master
+>         git checkout c0351b7c25ffd52408c1297fbe552f185d5aac3f
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All warnings (new ones prefixed by >>):
+> 
+> >> drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:6360:13: warning: stack frame size of 2064 bytes in function 'mlxsw_sp_router_fib_event_work' [-Wframe-larger-than=]
+>    static void mlxsw_sp_router_fib_event_work(struct work_struct *work)
+>                ^
+>    1 warning generated.
+> 
+> vim +/mlxsw_sp_router_fib_event_work +6360 drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c
+> 
+> d42b0965b1d4fe0 Yotam Gigi 2017-09-27  6359  
+> c1b290d594a12b4 Jiri Pirko 2020-11-10 @6360  static void mlxsw_sp_router_fib_event_work(struct work_struct *work)
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6361  {
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6362  	struct mlxsw_sp_router *router = container_of(work, struct mlxsw_sp_router, fib_event_work);
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6363  	struct mlxsw_sp_fib_entry_op_ctx *op_ctx = router->ll_op_ctx;
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6364  	struct mlxsw_sp *mlxsw_sp = router->mlxsw_sp;
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6365  	struct mlxsw_sp_fib_event *next_fib_event;
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6366  	struct mlxsw_sp_fib_event *fib_event;
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6367  	int last_family = AF_UNSPEC;
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6368  	LIST_HEAD(fib_event_queue);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6369  
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6370  	spin_lock_bh(&router->fib_event_queue_lock);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6371  	list_splice_init(&router->fib_event_queue, &fib_event_queue);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6372  	spin_unlock_bh(&router->fib_event_queue_lock);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6373  
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6374  	/* Router lock is held here to make sure per-instance
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6375  	 * operation context is not used in between FIB4/6 events
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6376  	 * processing.
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6377  	 */
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6378  	mutex_lock(&router->lock);
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6379  	mlxsw_sp_fib_entry_op_ctx_clear(op_ctx);
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6380  	list_for_each_entry_safe(fib_event, next_fib_event,
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6381  				 &fib_event_queue, list) {
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6382  		/* Check if the next entry in the queue exists and it is
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6383  		 * of the same type (family and event) as the currect one.
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6384  		 * In that case it is permitted to do the bulking
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6385  		 * of multiple FIB entries to a single register write.
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6386  		 */
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6387  		op_ctx->bulk_ok = !list_is_last(&fib_event->list, &fib_event_queue) &&
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6388  				  fib_event->family == next_fib_event->family &&
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6389  				  fib_event->event == next_fib_event->event;
+> 505cd65c66e8223 Jiri Pirko 2020-11-10  6390  
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6391  		/* In case family of this and the previous entry are different, context
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6392  		 * reinitialization is going to be needed now, indicate that.
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6393  		 * Note that since last_family is initialized to AF_UNSPEC, this is always
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6394  		 * going to happen for the first entry processed in the work.
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6395  		 */
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6396  		if (fib_event->family != last_family)
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6397  			op_ctx->initialized = false;
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6398  
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6399  		switch (fib_event->family) {
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6400  		case AF_INET:
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6401  			mlxsw_sp_router_fib4_event_process(mlxsw_sp, op_ctx,
+> 2d5bd7a111ca082 Jiri Pirko 2020-11-10  6402  							   fib_event);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6403  			break;
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6404  		case AF_INET6:
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6405  			mlxsw_sp_router_fib6_event_process(mlxsw_sp, op_ctx,
+> 2d5bd7a111ca082 Jiri Pirko 2020-11-10  6406  							   fib_event);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6407  			break;
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6408  		case RTNL_FAMILY_IP6MR:
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6409  		case RTNL_FAMILY_IPMR:
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6410  			/* Unlock here as inside FIBMR the lock is taken again
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6411  			 * under RTNL. The per-instance operation context
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6412  			 * is not used by FIBMR.
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6413  			 */
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6414  			mutex_unlock(&router->lock);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6415  			mlxsw_sp_router_fibmr_event_process(mlxsw_sp,
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6416  							    fib_event);
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6417  			mutex_lock(&router->lock);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6418  			break;
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6419  		default:
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6420  			WARN_ON_ONCE(1);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6421  		}
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6422  		last_family = fib_event->family;
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6423  		kfree(fib_event);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6424  		cond_resched();
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6425  	}
+> ae9ce81aa726efb Jiri Pirko 2020-11-10  6426  	WARN_ON_ONCE(!list_empty(&router->ll_op_ctx->fib_entry_priv_list));
+> 91d20d71b2f0b1e Jiri Pirko 2020-11-10  6427  	mutex_unlock(&router->lock);
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6428  }
+> c1b290d594a12b4 Jiri Pirko 2020-11-10  6429  
+> 
+> :::::: The code at line 6360 was first introduced by commit
+> :::::: c1b290d594a12b4ed3b7386947162d5a061900b2 mlxsw: spectrum_router: Introduce FIB event queue instead of separate works
+> 
+> :::::: TO: Jiri Pirko <jiri@nvidia.com>
+> :::::: CC: Jakub Kicinski <kuba@kernel.org>
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-Checking the existence of plugin-version.h is still needed to ensure
-the plugin-dev package is installed. The test code is now small enough
-to be embedded in scripts/gcc-plugins/Kconfig.
-
-[1] https://lore.kernel.org/lkml/CAHk-=wjU4DCuwQ4pXshRbwDCUQB31ScaeuDo1tjoZ0_PjhLHzQ@mail.gmail.com/
-[2] https://lore.kernel.org/lkml/CAHk-=whK0aQxs6Q5ijJmYF1n2ch8cVFSUzU5yUM_HOjig=+vnw@mail.gmail.com/
-
-Reported-by: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
- scripts/gcc-plugin.sh       | 19 -------------------
- scripts/gcc-plugins/Kconfig |  2 +-
- 2 files changed, 1 insertion(+), 20 deletions(-)
- delete mode 100755 scripts/gcc-plugin.sh
-
-diff --git a/scripts/gcc-plugin.sh b/scripts/gcc-plugin.sh
-deleted file mode 100755
-index b79fd0bea838..000000000000
---- a/scripts/gcc-plugin.sh
-+++ /dev/null
-@@ -1,19 +0,0 @@
--#!/bin/sh
--# SPDX-License-Identifier: GPL-2.0
--
--set -e
--
--srctree=$(dirname "$0")
--
--gccplugins_dir=$($* -print-file-name=plugin)
--
--# we need a c++ compiler that supports the designated initializer GNU extension
--$HOSTCC -c -x c++ -std=gnu++98 - -fsyntax-only -I $srctree/gcc-plugins -I $gccplugins_dir/include 2>/dev/null <<EOF
--#include "gcc-common.h"
--class test {
--public:
--	int test;
--} test = {
--	.test = 1
--};
--EOF
-diff --git a/scripts/gcc-plugins/Kconfig b/scripts/gcc-plugins/Kconfig
-index ae19fb0243b9..ab9eb4cbe33a 100644
---- a/scripts/gcc-plugins/Kconfig
-+++ b/scripts/gcc-plugins/Kconfig
-@@ -9,7 +9,7 @@ menuconfig GCC_PLUGINS
- 	bool "GCC plugins"
- 	depends on HAVE_GCC_PLUGINS
- 	depends on CC_IS_GCC
--	depends on $(success,$(srctree)/scripts/gcc-plugin.sh $(CC))
-+	depends on $(success,test -e $(shell,$(CC) -print-file-name=plugin)/include/plugin-version.h)
- 	default y
- 	help
- 	  GCC plugins are loadable modules that provide extra features to the
--- 
-2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203125700.161354-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203134350.GA1613892%40shredder.lan.
