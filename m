@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBAXKUD7AKGQE2LLUXAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A0BC2CCB14
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id CB5EB2CCB15
 	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 01:44:51 +0100 (CET)
-Received: by mail-qk1-x737.google.com with SMTP id d206sf527281qkc.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Dec 2020 16:44:50 -0800 (PST)
+Received: by mail-oi1-x23e.google.com with SMTP id t185sf115628oif.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Dec 2020 16:44:51 -0800 (PST)
 ARC-Seal: i=2; a=rsa-sha256; t=1606956290; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bQ2SMaENvY0BgaRDh7G/ueLyIsBXE5hvpZNY34OGvMzt1CJZzNBANsbaRyF4UZN7N7
-         7/A4FqaxyipT7dSOkNlV6oTmNXtrtPa4RQ38/MNoGSLZhnzFDRIPg12qMoFHmJRXltTH
-         qtk2NpBs/SnMefkKrX5WnUAw8d0GT3yGs1oFUy+cYdRIcDJvdoudbvRrrDm7nA7bQsgL
-         uNCL6hkTUwI7xCVklF+ORLY5W/4xOT2kqmi1Kx2HqoDFrD6RGvAny4hPOO+8pUo95pcp
-         fAfCd4trYm93bILp3jw2Gu3ekq1DQP+P43gTUUJFp82037ZxkqyOv0mRx9MaCRjlDsPZ
-         Uouw==
+        b=pn6ipaQEV9fiDAaFm/6Xg6uxq5AZSvOXBoUBmMRjVZiP5/+84iemidWhkvwM+wRCHd
+         absNwioxAxP94LS1ZpDKGP1IA3zHmhoTCaFK8Gjqy9XONUDFFtWCQuo1LQ0EwZOKVJmr
+         CLyQbp93oyhnRLodkmcQmzoHH+WY9wUKIgQaY3UlWC8n8cNUiTKRO5TwgUt93ZkTVWlz
+         zVwra++pCdn2MugeW9sxmMOMRZxbX0PC6DOEqf0I6Ox3RghPDFRB+dShukFthMRTiUkS
+         n1hCpGPqDR6CVb7uU/O1ie/Ds40f0Zuwsma/qjVAfIQ2M2ojc/oWQfYlLMizwt9L4gk0
+         Xe0g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=IONC9nsRsap3+pXjgXdW5kyzaT7zOGPeQP06pE6l7XM=;
-        b=zQRTHhL+r++vfvSGUYNz5FzenIFBVHMsHroaZREPlq4Ly8P4Vb+57p35xgQroEQpgp
-         T1cjYgIj6Kqq2a8URT5hW26Qy2CuBr2gbyM7RcKtIAsknGKTQPXI/aSirR7RyLTPadW0
-         fgOpA2FESEEpcsTF8BJKoKAm8tlfwGHb0OKyrzaZ4L1iIWjoforh5u7Dgopy+C7wz0cC
-         AkpQ18LhPggSONTH7GYNzDlRz7e84W/t2BOtRxNwBkbxM5q6CDuU4ihQVwbv6US+7xRw
-         AcEnI4jVLQpxvqRzlcaxsMJRA3eLgvjUG4cKStwkQrhabMNBwMhW5DUFwo3lKS2Gtg6i
-         SKNg==
+        bh=IuKXGeAzCPMGft9s+TFyDsjSsapPUbvmXYpxA8wQB5g=;
+        b=L6sV52j8VrPeGbfM1i/hIQl9Quj/UYX0cOZk/g0Hf8Az82SDOEyBsF6lgjW+FxrHI9
+         Tf8/1/lookhLIRFhJUPQT7PmsqcZo32saIediB2/6wA46R5zbs21S5iBI2Cougtk5c8i
+         voJFe3f7MGDCUAmZvNj0jHiinKrFZdOLD8OqiaBgjfXjxMYdcBcXICvzBxHiezwu6Pjg
+         89ZkV9uJm+kcyYQ1ZHK25sBotR4rfpmXP/3SDIP+JLK5VkUSVycCWNb7YkeY/8Xy179a
+         FUCJc9Os00Xl7HS85nnHrHTDIJD7HD4hKe0wpIITeQkNmxNI7FwexYjpJ6+aN+PtZJEj
+         9Fqg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Tiwu9Kph;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::630 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=J+UiHoEE;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IONC9nsRsap3+pXjgXdW5kyzaT7zOGPeQP06pE6l7XM=;
-        b=gl22JfT+ECMC2vr66SMGhBw+nKTqrbPvsHw9vGIhV/JBwvOVq1hOc5gbomacDYonX6
-         u84XsVPTveaXpMGHngEdYXl/TBclr7AqkeLX1bfFTKJpF+VK7zpu6Um+iJKKAcBggto1
-         Oh2vy2Q1r2YIs1DXQHTurYBExqZA0HiOAG/RSJ0vN8cDg/4WgDUi2LAYD4S1+YCmpPc9
-         zP0qCPWWC7LQ0sW9ZR44Z0Mne1uyKjnewMGGyhvE+OCFp17Q9wXTPpew/x8fTdEF9e76
-         uhjYHQjTdeAidspeO0CUF2neEbi2niV1DzcmTHDmnV4MwA6snhKshirpuga0Y3q2ocnx
-         suDA==
+        bh=IuKXGeAzCPMGft9s+TFyDsjSsapPUbvmXYpxA8wQB5g=;
+        b=m0sFudeZAYqeTkpMuSbCHIQRAg+PB5ZpDnOi9qn+RiJIwHZNjddeu+Hag7Hr58mNt9
+         PzA5skKg1nWsD/Ov4vM5Oh/6Y/LIORz0LWXaixVn1HQqV5jEzTu3abNmOhtG9g6uCpAu
+         +e8nyNutpNh5Qb9UdvcUZoeaSGVE+bZPXYGKiLyA4ZVuJkNqcw0gvNn9KcSHlD077Yzv
+         9pL9XOrZUNbNbqkv8r8HAIBmHwd2Y6MdAPuc9L4m3AZYMA5/rTJCRM4U/GMz4YsSRgej
+         oSdVpADRTQVLOxTFh79s+h+3U02WeJfTjPMIxW55GC94zxH//FZVHhcGZ1SqYi2KajUV
+         qzDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IONC9nsRsap3+pXjgXdW5kyzaT7zOGPeQP06pE6l7XM=;
-        b=FBU10w0AALgxRpYNZZhMlT7TFLHJm5WLb0bCuXRnALCh0Is6Myw7PUN/Cs1E2e/cwd
-         fLBBR7XDhQ3fm9a73cDgE0FK3R0yyZPD0OvX+2m9qZR+Lf/DaSA78wmco9mTF0VrV5YC
-         ArYCcAbvVLmRlRbW2D25meEp+vwPUmmJPJGN10wFBheu8YwgIwJh32lnccX+LjXg8bYC
-         MQmzohjwajXgm7iBj3i+kOaSvrM5EoxRVMdP2dgJr9DWM6oMRk5jeataQLJ64+Cw4DzU
-         4PcIjgjAf6Pz42G4tkl2BRVmG1LM9STecXsnFwdJUzs8p7AIlMid7ynNVthB+B/suixl
-         nSyQ==
+        bh=IuKXGeAzCPMGft9s+TFyDsjSsapPUbvmXYpxA8wQB5g=;
+        b=t9UU9u39Ot3sxyY6iNcJcI88BzfER7bsyA8k18IPsMiP47t/tHY372M9QK/o+Xu4RN
+         xeKPy9+r2suiNTbaYOqs71yVegGtuHB48x2GdGWgbiQCHZgL5c1sU3PMkCpvr333onZJ
+         khRJeLjkbcDHosfR0Ulvy0YL/qDrHccc1Xny00lAWGcuI6xVzR1IA8M56tuEurXYrxSV
+         YBpht937Ry4fYSQ95jhbnmXcupeIprt2KfnnlBlwhAdkzlB/bVSm430uaLLzrGNpwXuO
+         IC6fvsGrJ8BCA3TQYDafQoFmb8IvS9dipm575+QKzvRMKZ22H7HRp63x76lB77twoKH/
+         cHVg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533uDFK+vKU54kluj8W+TD4BN+/fiC/rh6btaE5GhXQh5VYE8vTy
-	tmx1hlK2LYn48wOaxbekJ8g=
-X-Google-Smtp-Source: ABdhPJyzkD+GA26veQS67Op6+CGo0Ug6hlvPhIO89NAFBHrM2kqfUa9xivbXqG/ADLLwCCIf1Dv9cw==
-X-Received: by 2002:ad4:470d:: with SMTP id k13mr626106qvz.40.1606956290161;
+X-Gm-Message-State: AOAM530MKd1vGb6pq0tEbvX9X9/d9AD5MhiC2js5uX0pszGynZoRBgdW
+	V84ZSlCYZJZEXDOVKDe7dW8=
+X-Google-Smtp-Source: ABdhPJyL7Jr0bJCDP49n11f9LSi9egYTrmB8x4JR7kr3+gx0ik1z1lokczEK0/Qrc2va84vW1167WA==
+X-Received: by 2002:aca:4108:: with SMTP id o8mr313112oia.37.1606956290544;
         Wed, 02 Dec 2020 16:44:50 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:f90b:: with SMTP id v11ls811027qvn.8.gmail; Wed, 02 Dec
- 2020 16:44:49 -0800 (PST)
-X-Received: by 2002:a05:6214:a8f:: with SMTP id ev15mr637879qvb.20.1606956289809;
-        Wed, 02 Dec 2020 16:44:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1606956289; cv=none;
+Received: by 2002:a4a:ca91:: with SMTP id x17ls246756ooq.9.gmail; Wed, 02 Dec
+ 2020 16:44:50 -0800 (PST)
+X-Received: by 2002:a4a:a8c8:: with SMTP id r8mr408536oom.9.1606956290119;
+        Wed, 02 Dec 2020 16:44:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606956290; cv=none;
         d=google.com; s=arc-20160816;
-        b=dbXueeGnUlj/DHTuywg01KzyKb0Cn67X5/BkXUJYZlLHiT8jv4V8d8o+LcP9m5NeKY
-         ZIU2CU4xd1voZtNEtZAhPkuwE36jbOP3iGDi/g6rkQQW0eDFPPCV2GuLS9tzGqTCts4W
-         0gfai0MnSsY68s+VIvp8EEnBKD54UdIjP0mAvJNmpDfWepSE8Fz8zYxL2kk0M4Pwf74s
-         VkvWbcTW68OsFUXmhQ0QZ5hSJsxz+nNhQSwgx9Vp+os0R0CBSs+cCKbR3z+SIWS4dIwZ
-         rschM4DLqhlMYSVBHS/98rDoux6VgWJjnHi7aD1jllfQO6apW0NGe6HDCqsHaT/fULIg
-         WxRQ==
+        b=AsY/7x7winSfctqF3mk1z+sQv8ICdaexhxitR4PP0N67l6XwzDRbfCtiKLMBxLCofj
+         +OpEAfQRzWJW45ycyqYfVqMDl2S/osQh5EY29Z+ojsJQLiDqR6R30sPfgF1tAqz4brTo
+         Ij5YcMSWf8OqhLZwrK54ly/ps5TnVaWurg91f+ntMRp3ADWLbiYTwJsKmIEd7np6jO0x
+         /D+VIrmFeOk0qSY2c1BxlK42PGmvpO2ZlnUgR8wfYFPqstq/cHlbUkoj6IxkArSE9RDn
+         QptjQrLA+5KIL67ph6N9q4aMscQqkQlvgHvRgAUgQpFbM+S9/xh+5ZphMqgFZVri8/Et
+         aN8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=4mF58RYpIRG7fPZoiTOvLhS/VFugc/ZHEabEBpUkj84=;
-        b=jWD31Jh1hmdUHHjEXBmgsHJqLz4PyI4hT8amPRXT6fXiMN/d4/dKGDssqWf01IrkHZ
-         pVDYgz7A6rcf8Q0WRVXIyBS/EW/F06QX+UiHlw0c9r8BrOQm82YeLeiUniroX/Cv41Yd
-         ldls9pfygY2AZslXpUO84Rff3S0kt4yByYeFz1i+BMpFezjEi24QYjbB58AALGxb9QyX
-         IsUThzqrPTg9heiMItZ1V9y0/2waOcPEqP0qj7528kEKziBhiaNx+uCnx/C62ViYd8ci
-         LxLqdLptzHXRMLsgwt/RLY0VsgeTJwxxGxL0/H3It3pzB4sn871kEef5HLOycAdogksO
-         dpoQ==
+        bh=momj+ASHgDWNBxEWCpbYT3s2xBxAd5KeNj7yfrmXJ4k=;
+        b=t8IUpcXnOfKW7xiRF3090LyQ+GaFCRZ7Dkc7GuMVdFd3BZ6WZTCxOzr7Z7AXSNXjwf
+         01zmSLq8gFkxOjnHuAAEI6TLpk6kvDLHSs3BK6bJYOYuszRQsp/gFjFGKrWTFMx8Y2kW
+         4V9PNCITYMrNl4tltRvM00G7byfbcLyrmAv6OqxC3cxzZnSq7yasR8h7NRXKxOXUIrbz
+         dfvYMJoOMREINsexJPPcRiWYnszNLpYm92AeYHDEcRA5gHiuOkXCkcJ/Wl/cv+GO7wKQ
+         SBqgYRewKr846KHhn2vrwtAkI3CpFppFoSWzGh/76lNLnR++EgNpkORRcT7AoqmXsbBj
+         ReHw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Tiwu9Kph;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::630 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=J+UiHoEE;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x630.google.com (mail-pl1-x630.google.com. [2607:f8b0:4864:20::630])
-        by gmr-mx.google.com with ESMTPS id f16si36015qkg.3.2020.12.02.16.44.49
+Received: from mail-pj1-x1043.google.com (mail-pj1-x1043.google.com. [2607:f8b0:4864:20::1043])
+        by gmr-mx.google.com with ESMTPS id l23si34279oil.2.2020.12.02.16.44.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Dec 2020 16:44:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043 as permitted sender) client-ip=2607:f8b0:4864:20::1043;
+Received: by mail-pj1-x1043.google.com with SMTP id m5so130372pjv.5
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Dec 2020 16:44:50 -0800 (PST)
+X-Received: by 2002:a17:90b:3355:: with SMTP id lm21mr527519pjb.115.1606956289515;
         Wed, 02 Dec 2020 16:44:49 -0800 (PST)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::630 as permitted sender) client-ip=2607:f8b0:4864:20::630;
-Received: by mail-pl1-x630.google.com with SMTP id j1so185140pld.3
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Dec 2020 16:44:49 -0800 (PST)
-X-Received: by 2002:a17:902:26f:b029:d9:f9dc:e2db with SMTP id 102-20020a170902026fb02900d9f9dce2dbmr719428plc.65.1606956288968;
-        Wed, 02 Dec 2020 16:44:48 -0800 (PST)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id a81sm224989pfd.178.2020.12.02.16.44.46
+        by smtp.gmail.com with ESMTPSA id y25sm231806pfn.44.2020.12.02.16.44.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 02 Dec 2020 16:44:46 -0800 (PST)
 From: Kees Cook <keescook@chromium.org>
@@ -123,19 +123,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	clang-built-linux@googlegroups.com,
 	linux-kbuild@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/7] ubsan: Move cc-option tests into Kconfig
-Date: Wed,  2 Dec 2020 16:44:32 -0800
-Message-Id: <20201203004437.389959-3-keescook@chromium.org>
+Subject: [PATCH v2 3/7] ubsan: Disable object-size sanitizer under GCC
+Date: Wed,  2 Dec 2020 16:44:33 -0800
+Message-Id: <20201203004437.389959-4-keescook@chromium.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20201203004437.389959-1-keescook@chromium.org>
 References: <20201203004437.389959-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Patch-Hashes: v=1; h=sha256; g=23601034a948399652856e383ce3b9baabd734cb; i=1TQY5Z7nukcRSTlMqgOgFhdwdnp7eQleiAAeYfV7E8U=; m=olsT5dGDBAih2Gr5eudSRiOFe9OaxbgoUVU4R/ZLtgM=; p=eVrpb0BFWCi/Oj2Iv4KBoX7jRJwE291OHoHKFNJZ4eY=
-X-Patch-Sig: m=pgp; i=keescook@chromium.org; s=0x0x8972F4DFDC6DC026; b=iQIzBAABCgAdFiEEpcP2jyKd1g9yPm4TiXL039xtwCYFAl/INPMACgkQiXL039xtwCY/bQ/8DV3 0y2AKRc4TPksw0LQDrOqk39XV9Fu94KJk2jOQ3zx8POuqGHo4pKShuPf6VsGAAn5asA3tdNEI2TeX 5qPo/ahYc1HX5WZ5CwZpXiz4ldk3xKXDwaO8BC4MfljKyG6tsNagiKpYAfAafddx+9/n6tM1fTGh9 cPPG4DeOLiHznSlROZpFMaQN/az/Mpixwvih8A554oxEzJE0FM/nkHxruC3bkRhf0GV2UtsYRE5Zs uYnDGHm42c3iuntA9u9W9R16cpwBzkLsxSvMmRFVktF7Tn8o1RGYEiH5QLDplqgR74rFk8gSfxaYn fOnWZaYKvztDBxss/eHcBh9+Jceft2Jfcn/TxNJAGCFdclyXfHC9zxYIy+g0RtqVqr9NVmTe/PBVr YsfeP7Jb5pw/fiN9k/Z/pYIzQJqrnu09ey6pyfvv0ehhFIB0LIzXCr+C4CvzmnZXhdrD8j4HnyJ8S aiDS014u1AWuaqX2DLdbZUka4xsQYqg/kvDC6hYFE2mU0MuByE9MIQh7i/oNSydYTyLP3L3dHj91C 2ZOSWrCpFhubPN4JUQmXP3cJOB4YtEKuhy6SGQPd5k1qinA4bAl9BgKRWj2a3tj3AbA7U/rbhAsvq BS4axf3aYIn4CI+TdG1xgOmM6ELNxTeaN77Ib+WjJW34KYOhMRWtfOP3zoL91gVU=
+X-Patch-Hashes: v=1; h=sha256; g=21c865d368e205cfd26bd9d13e0f9f89f171384b; i=L4GcuPKCev5MNqQc0RCGb8oc+Sj9uj4IyIr1ANDlbWc=; m=PBJG7bVEbrc41Z+BEj2wLGOXm7yrIzzNY1qvha6xoa8=; p=jGS9rva7ilUpon3Qx1DX+0oWwKBNC+al8p6dZtl31EM=
+X-Patch-Sig: m=pgp; i=keescook@chromium.org; s=0x0x8972F4DFDC6DC026; b=iQIzBAABCgAdFiEEpcP2jyKd1g9yPm4TiXL039xtwCYFAl/INPMACgkQiXL039xtwCbIUQ/+OkV vjffTNt2uERV7vMRuPwpM9Ir02sn2AX3wrTDxTrLYtPKqDQ6Nv0c6If7kt/ix1Z9j6iPVez1vmnT7 N3DCeyorgb97zQFmYBlpuyEHsIix9bA2anZmEsjoB1l0ipZbjuPM2TiXeD+MppW23DcZkVyrhwXe5 ztJkUJ4H2yark/GEYoKKRqU99wCbLNkcd+UqpOEKZramY8SmOXaWZOrARgDtd9mEWSvQ5ZU0cFQxV cmki5bWEQ4VjPbJNFbICL19bQ67TR/fhZk8BkUbW0+YNozVxOCgkRA64YO+CZHnw3kUq5fcP0y/Dl VVqQ1VAvlBXwSZxjrbZxfdY7PtVGDkIUwuWqECT0wgn0Uv8KYFVPABjnI379t1+JrPiQ338pGRCIJ yL5xJCYeuZOKTFinRoko5o9qODMwVFpx/3CAmafnoItqQ9mrD9Oo/a3sCliuPaXSD1Dn6+ISruKdm s1Tv5MeTaEMHnAnsCgr7ZPExglNSNE2hhlciEJhqcOsad6qivPuIoeVt1qIQxfHMhZv56BH15ndSZ zvn0HcwnYU87shYo5CmlStdL4qMi+TaX9t8zUmiAt4mgDgWnzcD9h04B5WKo6Uf0+AaaDUjJd+ZmZ BuA2kGzeINXkrbt45W/br+R2YMpnWBFPx8go/Psajs84OaxalYGLC2AGy0MzUeVQ=
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=Tiwu9Kph;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::630
+ header.i=@chromium.org header.s=google header.b=J+UiHoEE;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1043
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -151,180 +151,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Instead of doing if/endif blocks with cc-option calls in the UBSAN
-Makefile, move all the tests into Kconfig and use the Makefile to
-collect the results.
+GCC's -fsanitize=object-size (as part of CONFIG_UBSAN_MISC) greatly
+increases stack utilization. Do not allow this under GCC.
 
 Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
 Link: https://lore.kernel.org/lkml/CAHk-=wjPasyJrDuwDnpHJS2TuQfExwe=px-SzLeN8GFMAQJPmQ@mail.gmail.com/
 Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- lib/Kconfig.ubsan      | 61 +++++++++++++++++++++++++++++++++++++++---
- scripts/Makefile.ubsan | 45 +++++++++++--------------------
- 2 files changed, 73 insertions(+), 33 deletions(-)
+ lib/Kconfig.ubsan | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
-index d8d4d6557b80..05147112b355 100644
+index 05147112b355..4190a99b1eaa 100644
 --- a/lib/Kconfig.ubsan
 +++ b/lib/Kconfig.ubsan
-@@ -36,10 +36,17 @@ config UBSAN_KCOV_BROKEN
- 	  See https://bugs.llvm.org/show_bug.cgi?id=45831 for the status
- 	  in newer releases.
+@@ -113,6 +113,9 @@ config UBSAN_UNSIGNED_OVERFLOW
  
-+config CC_HAS_UBSAN_BOUNDS
-+	def_bool $(cc-option,-fsanitize=bounds)
-+
-+config CC_HAS_UBSAN_ARRAY_BOUNDS
-+	def_bool $(cc-option,-fsanitize=array-bounds)
-+
- config UBSAN_BOUNDS
- 	bool "Perform array index bounds checking"
- 	default UBSAN
- 	depends on !UBSAN_KCOV_BROKEN
-+	depends on CC_HAS_UBSAN_ARRAY_BOUNDS || CC_HAS_UBSAN_BOUNDS
- 	help
- 	  This option enables detection of directly indexed out of bounds
- 	  array accesses, where the array size is known at compile time.
-@@ -47,15 +54,30 @@ config UBSAN_BOUNDS
- 	  to the {str,mem}*cpy() family of functions (that is addressed
- 	  by CONFIG_FORTIFY_SOURCE).
+ config UBSAN_OBJECT_SIZE
+ 	def_bool UBSAN_MISC
++	# gcc hugely expands stack usage with -fsanitize=object-size
++	# https://lore.kernel.org/lkml/CAHk-=wjPasyJrDuwDnpHJS2TuQfExwe=px-SzLeN8GFMAQJPmQ@mail.gmail.com/
++	depends on !CC_IS_GCC
+ 	depends on $(cc-option,-fsanitize=object-size)
  
-+config UBSAN_ONLY_BOUNDS
-+	def_bool CC_HAS_UBSAN_BOUNDS && !CC_HAS_UBSAN_ARRAY_BOUNDS
-+	depends on UBSAN_BOUNDS
-+	help
-+	  This is a weird case: Clang's -fsanitize=bounds includes
-+	  -fsanitize=local-bounds, but it's trapping-only, so for
-+	  Clang, we must use -fsanitize=array-bounds when we want
-+	  traditional array bounds checking enabled. For GCC, we
-+	  want -fsanitize=bounds.
-+
-+config UBSAN_ARRAY_BOUNDS
-+	def_bool CC_HAS_UBSAN_ARRAY_BOUNDS
-+	depends on UBSAN_BOUNDS
-+
- config UBSAN_LOCAL_BOUNDS
- 	bool "Perform array local bounds checking"
- 	depends on UBSAN_TRAP
--	depends on CC_IS_CLANG
- 	depends on !UBSAN_KCOV_BROKEN
-+	depends on $(cc-option,-fsanitize=local-bounds)
- 	help
- 	  This option enables -fsanitize=local-bounds which traps when an
--	  exception/error is detected. Therefore, it should be enabled only
--	  if trapping is expected.
-+	  exception/error is detected. Therefore, it may only be enabled
-+	  with CONFIG_UBSAN_TRAP.
-+
- 	  Enabling this option detects errors due to accesses through a
- 	  pointer that is derived from an object of a statically-known size,
- 	  where an added offset (which may not be known statically) is
-@@ -69,6 +91,38 @@ config UBSAN_MISC
- 	  own Kconfig options. Disable this if you only want to have
- 	  individually selected checks.
- 
-+config UBSAN_SHIFT
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=shift)
-+
-+config UBSAN_DIV_ZERO
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=integer-divide-by-zero)
-+
-+config UBSAN_UNREACHABLE
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=unreachable)
-+
-+config UBSAN_SIGNED_OVERFLOW
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=signed-integer-overflow)
-+
-+config UBSAN_UNSIGNED_OVERFLOW
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=unsigned-integer-overflow)
-+
-+config UBSAN_OBJECT_SIZE
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=object-size)
-+
-+config UBSAN_BOOL
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=bool)
-+
-+config UBSAN_ENUM
-+	def_bool UBSAN_MISC
-+	depends on $(cc-option,-fsanitize=enum)
-+
- config UBSAN_SANITIZE_ALL
- 	bool "Enable instrumentation for the entire kernel"
- 	depends on ARCH_HAS_UBSAN_SANITIZE_ALL
-@@ -85,6 +139,7 @@ config UBSAN_ALIGNMENT
- 	bool "Enable checks for pointers alignment"
- 	default !HAVE_EFFICIENT_UNALIGNED_ACCESS
- 	depends on !UBSAN_TRAP
-+	depends on $(cc-option,-fsanitize=alignment)
- 	help
- 	  This option enables the check of unaligned memory accesses.
- 	  Enabling this option on architectures that support unaligned
-diff --git a/scripts/Makefile.ubsan b/scripts/Makefile.ubsan
-index c18fecc53605..0e53a93e8f15 100644
---- a/scripts/Makefile.ubsan
-+++ b/scripts/Makefile.ubsan
-@@ -1,33 +1,18 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--export CFLAGS_UBSAN :=
-+# Enable available and selected UBSAN features.
-+ubsan-cflags-$(CONFIG_UBSAN_ALIGNMENT)		+= -fsanitize=alignment
-+ubsan-cflags-$(CONFIG_UBSAN_ONLY_BOUNDS)	+= -fsanitize=bounds
-+ubsan-cflags-$(CONFIG_UBSAN_ARRAY_BOUNDS)	+= -fsanitize=array-bounds
-+ubsan-cflags-$(CONFIG_UBSAN_LOCAL_BOUNDS)	+= -fsanitize=local-bounds
-+ubsan-cflags-$(CONFIG_UBSAN_SHIFT)		+= -fsanitize=shift
-+ubsan-cflags-$(CONFIG_UBSAN_DIV_ZERO)		+= -fsanitize=integer-divide-by-zero
-+ubsan-cflags-$(CONFIG_UBSAN_UNREACHABLE)	+= -fsanitize=unreachable
-+ubsan-cflags-$(CONFIG_UBSAN_SIGNED_OVERFLOW)	+= -fsanitize=signed-integer-overflow
-+ubsan-cflags-$(CONFIG_UBSAN_UNSIGNED_OVERFLOW)	+= -fsanitize=unsigned-integer-overflow
-+ubsan-cflags-$(CONFIG_UBSAN_OBJECT_SIZE)	+= -fsanitize=object-size
-+ubsan-cflags-$(CONFIG_UBSAN_BOOL)		+= -fsanitize=bool
-+ubsan-cflags-$(CONFIG_UBSAN_ENUM)		+= -fsanitize=enum
-+ubsan-cflags-$(CONFIG_UBSAN_TRAP)		+= -fsanitize-undefined-trap-on-error
- 
--ifdef CONFIG_UBSAN_ALIGNMENT
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=alignment)
--endif
--
--ifdef CONFIG_UBSAN_BOUNDS
--      ifdef CONFIG_CC_IS_CLANG
--            CFLAGS_UBSAN += -fsanitize=array-bounds
--      else
--            CFLAGS_UBSAN += $(call cc-option, -fsanitize=bounds)
--      endif
--endif
--
--ifdef CONFIG_UBSAN_LOCAL_BOUNDS
--      CFLAGS_UBSAN += -fsanitize=local-bounds
--endif
--
--ifdef CONFIG_UBSAN_MISC
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=shift)
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=integer-divide-by-zero)
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=unreachable)
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=signed-integer-overflow)
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=object-size)
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=bool)
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize=enum)
--endif
--
--ifdef CONFIG_UBSAN_TRAP
--      CFLAGS_UBSAN += $(call cc-option, -fsanitize-undefined-trap-on-error)
--endif
-+export CFLAGS_UBSAN := $(ubsan-cflags-y)
+ config UBSAN_BOOL
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203004437.389959-3-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203004437.389959-4-keescook%40chromium.org.
