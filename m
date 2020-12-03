@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBAABBL6OUX7AKGQEUK6PJIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBUGOUX7AKGQEDCNWOSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9748C2CE1A6
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 23:31:12 +0100 (CET)
-Received: by mail-io1-xd39.google.com with SMTP id s11sf2981559iod.14
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 14:31:12 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607034671; cv=pass;
+Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 915B22CE1A9
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 23:31:45 +0100 (CET)
+Received: by mail-vk1-xa3c.google.com with SMTP id h22sf1250781vkn.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 14:31:45 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607034704; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NG72FGnZIehgLNo3On0OkschSG0xgrbp67UOkPn/2G9iDptBe8M9vbsYevfGKmDw71
-         /4pQ+cbdvpnphg3yg4XYkL6cJzlOq/VUUIpUnzi6duhJlYNUJVAv6MUMFs/b1T9TEq+j
-         E7nJaMi2iinn+0woYxWeD55WHrtYHr5iA1xgIzfT56nfx7MC1WVuoUAFQGopB9AzU4Sk
-         JI13Bnwuf++SoUukSW/WyOsJrVvt5sniQcRCUUV6VWQ71L+UKf4WLY0Ucs+jTxETzaTQ
-         eCqb0RRZsRS4esjwcOiMd3zC4c3fyXhSiUOkAWT7kG3tcPiR5WjSG0CcQKDB2m26DLqJ
-         hZnQ==
+        b=eH9p7/ESuQLZvZyiEdYe9e2eJYgq1XH3O/G4dUZhOUoofS/V67y9UcnAqNrEj5UxUZ
+         L379BMoHmfPN/pOVzTU7M09OnjfUOGj8LA5l1+D2WNlSacONch12Tcue8Q4fZsbnRt1w
+         TPV9EDyg2q6kPwhK5qVC+XXSCxIAtbwH48hlj+M4bJC92wROG4iQXiWgBMSG+7ZTI8Z4
+         0v5prSJK2nq4nfXD5TMgp88Dr18W9jyoxhBH3v8Ig0cDWyp6r2hkvhXxOigi9S4ah+f0
+         l0BsZtU8UASRg8zU7/R/8XDdiQ4JiOjByANi9pdqIeg812pQ9OGIVnDUzqNxna+kujdM
+         MyWg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=JEwS/ydezNNNP8L1G1BdO9ibO5mIv7/QXK7u6lRNEUE=;
-        b=CH4o4O/tJkl6lbRDugXanBbaJSUqfEmkO+JJ+jGZHg2t/SH0U6mAcASbn6ITQ0Y/hp
-         Ae7S3KuZ4vtGDjXPksLpNHFWoOlCw4E6E7FHx8817fXukxRPe5af2+haeuDGjzwW7NeM
-         xSdWT/etjKPPrLAaprdoFs1/Y1CNRs/G7HDkLBSNsaNqj3in00jaZPuZjfdmAYxKKesY
-         xcEiZZMifkEhaFlddyKDBVJv31EffpLso8NpjKz2kYfd0fhM31DKzVVTRRTYN7zJPDC3
-         JCkXuDJanodGCTPsDBjGJOyFSsbJIUWpsYZ8mRFv+a/kKcGi4I+rd54/p7ZoHL7E3SYc
-         Q2Qw==
+        bh=frPIpqpYfKxYwLaddjxpexjSm+YOo2mKfx5Z1Uf9mus=;
+        b=IcfHp1wRHgmoROMnuFSDvPPHwzbHfgxkEFAscMz5Ma5nvlWXI23sPACng9UhweeHsd
+         txB0Cs2Psm5FirAUU5Ndau/Wb+ejrpglbbgO5y2tAC2+z3K8+RSpaA6c+sy2aXbJkcWM
+         dtVnS1aIKW7mbIO1OfqeQfW3Q7uVzKNQqxXNG+cbU5FsrHaXL33T8To80KhyQXi66dxA
+         GcLjoBzR4hONm2mBsUI36SnJ2hcjSONeBLuTg74QM1mJ8vE71EKONXYkSMVYqqOiNIRK
+         PnlhcVhps8ICHCQOS4kVr5lO0SXDUf1Ua4ERgl3l6thZ+OnAOdkkRVPvbbBYSCNDVjEt
+         wfIw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -34,79 +34,84 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JEwS/ydezNNNP8L1G1BdO9ibO5mIv7/QXK7u6lRNEUE=;
-        b=Tn74An+nSECQPObAaymGrxzY6AhVqA9yFSK2DiOsNQ58t/YjK1vN4z4Vm+Z0CPYCIa
-         ytjaBlRJdAwMAmspNOqKPd79GkkF47lYYeBWeLp76U0DDsjtvLeyOVTzlqGY1ugULnxh
-         qM7JJRhSxytz2j9U5mtfDQDN5XOdRQmc3T5J2jDOnzDP/FFWTZrLpfUeQmCoXJmB+68I
-         Kvv9z5TC380kUqvuvm5J5ldbnBMYGoaYkB68tA3FGjX9N73y6ws6FMoaWR+I2LvQc2TF
-         nWxvvKSWT22x99YC7Njfntj6FxQ+85DXCrH6lZbXtLhyGFKM+VemY24JvCSlojq/SHRB
-         AMHA==
+        bh=frPIpqpYfKxYwLaddjxpexjSm+YOo2mKfx5Z1Uf9mus=;
+        b=mjYAfD4+m1iaSqObApLhsb+YD/v/lu0LWmJZxgWeMTTY1rwMAwqbDoO0fR+VWrHEsj
+         mOj88zWwja4tubGv05RyFVmudk10VD7qqEIR30GZgibgZDlBTWZp+wo7ksmZvlQs3UHT
+         M9aOe4kJuh3stu8iMMRtjsbbiaB/gZFvWTm80HUmdyrFRzZOEm4ESVvWZ1brj8C2iPua
+         lkqFGUFD367ezrVfr+vGt3/yv8ioGBM8y0d0tCvu7Rg/IIlPykXSdIYUDQ4QTw9mXN05
+         Q4N6p0gpSPPn0WWOD7ZwKdX67hNC9/9E0XpqiNGb2bD5uEALgf+Uyltu6YfhYNDhnISE
+         77SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JEwS/ydezNNNP8L1G1BdO9ibO5mIv7/QXK7u6lRNEUE=;
-        b=f7yXay5nsexoa7r7o+Q/ZSdwYGLysHq+VJA9vLd00+7CoA0DCNUglHu/exPReagAxW
-         E4xgFn0jURKC9uUpqIN2Y0kxkV+mElCqZEvSsab3wMsaMJEZrWxoYei8TdFFtseBazEQ
-         hJ7Vp4N+j3j1jtEylrCGrX4qGvnqTREUR7MGL5ScHn0iPIEVtoVTZRO0Q3SK/rU+p6vJ
-         ui0dyc/SU8lip0Nj1DTj1Q9bT534GjoZzHFhPi14vm6Bo1A+6NpiNpR2R7t6QPq9OjBT
-         EtSz2cIBU9b8gqbifbRXrIQRKf/HfArNpYcV0h2jvleLrISgHfUAcZal2g88DNdHLr4v
-         kvHw==
+        bh=frPIpqpYfKxYwLaddjxpexjSm+YOo2mKfx5Z1Uf9mus=;
+        b=GRyV8EiqZPAYYyLho0icyE8YLWsbyKmKszVSAOqbO3cI5fGNtqdg1q7Rt1YH6KyA1K
+         NhUZzFHR4c8w6WrnQlBibgTrl7moeN68wLFV5a+52K8b+FxcVJa46wAR0n644U1l2bka
+         t/LxNGO96/Oiu7hoHx+b4QcvJjJXFxwxCnyl6E+Mc8vsA3570cGTAq3agKyjTa4WN5rR
+         BsdWRGoGm95bCBftPQY9wvTf7+yRpd0NCRWZ3zclZNNQE5BMCtLPm6ksgYl/qhG1jE3C
+         Jyqe6jT+CGntD4b0xYJKIjBrb5q6Xet1s+tOU+N53G3Uv0qY5ZQXpGs4hqL9l+6lBeTu
+         C1/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53356L4LtEs5NNfhii/wupG4KkwH32d+5WzdgPRMYioThd29s8pS
-	yXRY+FIDUS/hgNbgGhxNS2U=
-X-Google-Smtp-Source: ABdhPJzKYvJwegGKQtF9aBaQDOARoVjV7ezQpAlpqRUBDQP3h5F/6vIJXED86FG4zwzTnvT5X4BGTw==
-X-Received: by 2002:a05:6e02:1114:: with SMTP id u20mr1845113ilk.226.1607034671381;
-        Thu, 03 Dec 2020 14:31:11 -0800 (PST)
+X-Gm-Message-State: AOAM532JrIrMs+P9WQQ1HdGeHHLO/IyW/cPQVvND2ZXfQ+jOlCYUZAvX
+	6iYP8biPOjl2p4iOmsIoeQs=
+X-Google-Smtp-Source: ABdhPJyofPneQDucFnf7n+P9+3tvPA72FrgtssUVlevXmZgzYROdc6fBeZBKZ+tTuheRaobdh5BwMA==
+X-Received: by 2002:a05:6102:31bb:: with SMTP id d27mr1519472vsh.56.1607034704628;
+        Thu, 03 Dec 2020 14:31:44 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:7404:: with SMTP id s4ls1236196iog.4.gmail; Thu, 03 Dec
- 2020 14:31:11 -0800 (PST)
-X-Received: by 2002:a05:6602:314c:: with SMTP id m12mr1906184ioy.100.1607034671030;
-        Thu, 03 Dec 2020 14:31:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607034671; cv=none;
+Received: by 2002:a9f:3fc6:: with SMTP id m6ls582554uaj.11.gmail; Thu, 03 Dec
+ 2020 14:31:44 -0800 (PST)
+X-Received: by 2002:ab0:14ca:: with SMTP id f10mr1174545uae.142.1607034704312;
+        Thu, 03 Dec 2020 14:31:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607034704; cv=none;
         d=google.com; s=arc-20160816;
-        b=dd8e8J5z2Wk+MYnGnjs1xQHHXjEHwf7w5wQfrJr9i0T949xh0kXhvZoxIbUMR8IwJN
-         s7ZY+18b+N9FVO63qxm49RtDptXFq2Q1Rj0mWnBxIak5QIju9EEBNMrrfvdbX/cNLAdC
-         Y8ts0FTtJmHMHDuYzEpjGq8s0FHcZX7VnWpUsbyYj67U7tR4ogRBOXNrQ0mL7a+Jiir9
-         MnsUCqreEGVSyoQBezYnsdOHN0MgX5EHlCHkN0KORBVMGc5jyrYRs2xckOKXLUS5bowX
-         QdJU/r9FUkO6mAy0tY1ShJrN7htlnNEZKeGT2Qy4vQy/tKK3T55gPINiMxPPXDsTrwwN
-         QmPA==
+        b=lGb7kjS2gL9z5oiYOHTLzIEmla2N5HEsXjdOljMAFIHQ4aohU2fn0VHBxc/2gIiaIu
+         A768jEcx6PHWlcwKtakisYk71gwAdigeDOb3gu94JJGhdJ5NmvwLTxKAvuh/nOivR6Tz
+         of96ZXYxjpGSVl6iMoKfFl3B68C/u60piouQbEOG61L5hRMsZzaZeehlddlM7nxTkLUj
+         /vU0NtQcS7mZSuXD+WVFqzsk5RIhSKw8iMKo13/KGde5F74nL5owIfNRUbytcAOZ1Y16
+         Qc0c0l7vuDvQSGiLLtHZIhBj0qjs452/d8/XMuLz7wDmykQH8Q1zN/H+jdoTU1noYSct
+         5saQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from;
-        bh=ORNFvTGg9HuE94eArJFvOC7OqeHCrGdbbMpKwRrfdFI=;
-        b=0qg6CZbxckpRIlK3zjcxFqi9IFnR+78hfuFAd5iRvawMsgsn7k+Gl3Jk3BVyW5qniK
-         k3H04Q6Ymqw4dia7MeTYo4+gdZdHtt46H5ikDEJ5HljHb7pVmo4zP7oojfX2ig3fzJkz
-         EDb19QIsdxo7i6gsD5TrStRp1PBl2ERREsrp8tNZWH+blP8xDqJZrWBU+K//dobRlnnM
-         4Utzu83Exi23kMz9AAvu23LxCr3lqPLc+mpX2dLRMS0HHkZoViVvLftO2RmIXkjHy12N
-         6HTFblZ5XKIszy3Bq5Nrj5zgELWRTzlS5xh89/P1Jq1++wUPU+h1NeI7zMewB6uSCk0A
-         AcdQ==
+        bh=mgXwATczP/mNTBAJAeCNKgUGxpQOFQCiky7B7MucNWU=;
+        b=mldcRxxb/QSeM33ASy+0h/A163m9ycsnsWbXZ2wQLGtZpP4Dk7oiH6wKvATjgJPG0W
+         Eg4hGWDxLC6tUzR95wjm5/KJlHJwhrnQ3biHB6MixVVJ/ww/jen4bfK+7rG5ma14k4D/
+         zTvRT8RNbXPb9IOBhyxcgWKyFgLBPampzkdmv3nP+3uWlCbwxuB5QzgdVjkhrlrtXsnX
+         ozZ0FGCr/fu9mrWaSAtFoy7C+1X7LHsRCL6MFc7/IvHyRCDTX/h0CpDKuXcgnB3cQav1
+         7Yc0w3zs9GVQzFGwxzdLw3jwTxr4Q3AAvekqlZ+89Wumbef+6EccC1iVFF3X44hefusp
+         8KGQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b14si58013ios.2.2020.12.03.14.31.10
+        by gmr-mx.google.com with ESMTPS id y8si59887vko.4.2020.12.03.14.31.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Dec 2020 14:31:11 -0800 (PST)
+        Thu, 03 Dec 2020 14:31:44 -0800 (PST)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 From: Arnd Bergmann <arnd@kernel.org>
-To: Vadim Pasternak <vadimp@nvidia.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Mark Gross <mgross@linux.intel.com>,
+To: "James E.J. Bottomley" <jejb@linux.ibm.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
 	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Jaegeuk Kim <jaegeuk@kernel.org>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Michael Shych <michaelsh@mellanox.com>,
-	platform-driver-x86@vger.kernel.org,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@wdc.com>,
+	Stanley Chu <stanley.chu@mediatek.com>,
+	Can Guo <cang@codeaurora.org>,
+	Asutosh Das <asutoshd@codeaurora.org>,
+	Bean Huo <beanhuo@micron.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	linux-scsi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] platform/x86: mlx-platform: remove an unused variable
-Date: Thu,  3 Dec 2020 23:30:56 +0100
-Message-Id: <20201203223105.1195709-1-arnd@kernel.org>
+Subject: [PATCH] ufshcd: fix Wsometimes-uninitialized warning
+Date: Thu,  3 Dec 2020 23:31:26 +0100
+Message-Id: <20201203223137.1205933-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
 X-Original-Sender: arnd@kernel.org
@@ -129,63 +134,42 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The only reference to the mlxplat_mlxcpld_psu[] array got removed,
-so there is now a warning from clang:
+clang complains about a possible code path in which a variable is
+used without an initialization:
 
-drivers/platform/x86/mlx-platform.c:322:30: error: variable 'mlxplat_mlxcpld_psu' is not needed and will not be emitted [-Werror,-Wunneeded-internal-declaration]
-static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
+drivers/scsi/ufs/ufshcd.c:7690:3: error: variable 'sdp' is used uninitialized whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
+                BUG_ON(1);
+                ^~~~~~~~~
+include/asm-generic/bug.h:63:36: note: expanded from macro 'BUG_ON'
+ #define BUG_ON(condition) do { if (unlikely(condition)) BUG(); } while (0)
+                                   ^~~~~~~~~~~~~~~~~~~
 
-Remove the array as well and adapt the ARRAY_SIZE() call
-accordingly.
+Turn the BUG_ON(1) into an unconditional BUG() that makes it clear
+to clang that this code path is never hit.
 
-Fixes: 912b341585e3 ("platform/x86: mlx-platform: Remove PSU EEPROM from MSN274x platform configuration")
+Fixes: 4f3e900b6282 ("scsi: ufs: Clear UAC for FFU and RPMB LUNs")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/platform/x86/mlx-platform.c | 13 ++-----------
- 1 file changed, 2 insertions(+), 11 deletions(-)
+ drivers/scsi/ufs/ufshcd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
-index 598f44558764..6a634b72bfc2 100644
---- a/drivers/platform/x86/mlx-platform.c
-+++ b/drivers/platform/x86/mlx-platform.c
-@@ -319,15 +319,6 @@ static struct i2c_mux_reg_platform_data mlxplat_extended_mux_data[] = {
- };
- 
- /* Platform hotplug devices */
--static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
--	{
--		I2C_BOARD_INFO("24c02", 0x51),
--	},
--	{
--		I2C_BOARD_INFO("24c02", 0x50),
--	},
--};
--
- static struct i2c_board_info mlxplat_mlxcpld_pwr[] = {
- 	{
- 		I2C_BOARD_INFO("dps460", 0x59),
-@@ -456,7 +447,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_default_items[] = {
- 		.aggr_mask = MLXPLAT_CPLD_AGGR_PSU_MASK_DEF,
- 		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
- 		.mask = MLXPLAT_CPLD_PSU_MASK,
--		.count = ARRAY_SIZE(mlxplat_mlxcpld_psu),
-+		.count = ARRAY_SIZE(mlxplat_mlxcpld_default_psu_items_data),
- 		.inversed = 1,
- 		.health = false,
- 	},
-@@ -495,7 +486,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_comex_items[] = {
- 		.aggr_mask = MLXPLAT_CPLD_AGGR_MASK_CARRIER,
- 		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
- 		.mask = MLXPLAT_CPLD_PSU_MASK,
--		.count = ARRAY_SIZE(mlxplat_mlxcpld_psu),
-+		.count = ARRAY_SIZE(mlxplat_mlxcpld_default_psu_items_data),
- 		.inversed = 1,
- 		.health = false,
- 	},
+diff --git a/drivers/scsi/ufs/ufshcd.c b/drivers/scsi/ufs/ufshcd.c
+index f165baee937f..b4f7c4263334 100644
+--- a/drivers/scsi/ufs/ufshcd.c
++++ b/drivers/scsi/ufs/ufshcd.c
+@@ -7687,7 +7687,7 @@ static int ufshcd_clear_ua_wlun(struct ufs_hba *hba, u8 wlun)
+ 	else if (wlun == UFS_UPIU_RPMB_WLUN)
+ 		sdp = hba->sdev_rpmb;
+ 	else
+-		BUG_ON(1);
++		BUG();
+ 	if (sdp) {
+ 		ret = scsi_device_get(sdp);
+ 		if (!ret && !scsi_device_online(sdp)) {
 -- 
 2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203223105.1195709-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203223137.1205933-1-arnd%40kernel.org.
