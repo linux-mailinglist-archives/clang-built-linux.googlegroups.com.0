@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBAABB2WNUX7AKGQEZTJD2PY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBL6OUX7AKGQEUK6PJIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADA632CE19A
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 23:30:03 +0100 (CET)
-Received: by mail-pj1-x1038.google.com with SMTP id kb15sf2058538pjb.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 14:30:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607034602; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9748C2CE1A6
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Dec 2020 23:31:12 +0100 (CET)
+Received: by mail-io1-xd39.google.com with SMTP id s11sf2981559iod.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 14:31:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607034671; cv=pass;
         d=google.com; s=arc-20160816;
-        b=u4SGC6pJ0Ch7KamZro+3NhnhZH9nm299TAugijdjhAOnodtzMO9dgjrJf5QxRS6PtD
-         RXB88kQ4/6esOEWURKKOZTyRi2i+Sqh6sxk8AgDvSBVX2N+mkVneZM3DWZOqhEKa5ksn
-         6lTs5/XLY9DHckPi+El04RdFSagmFlbn8hUinERndxgSEQirYGhP4o7sfONyxenBNEJM
-         xc4GXIWzTc9ePljQyUH+lPAZVx0NH7BzwyHbq1pBkCpa2gONjZdBiVjTzyKcC/UgWnV6
-         tJLRFM1vgUK6TTR4++SH3EKIaCHN8SJCQSaG61RQC6bLq6Wv2l2meqVxlCcx5iFAmSeW
-         XKDQ==
+        b=NG72FGnZIehgLNo3On0OkschSG0xgrbp67UOkPn/2G9iDptBe8M9vbsYevfGKmDw71
+         /4pQ+cbdvpnphg3yg4XYkL6cJzlOq/VUUIpUnzi6duhJlYNUJVAv6MUMFs/b1T9TEq+j
+         E7nJaMi2iinn+0woYxWeD55WHrtYHr5iA1xgIzfT56nfx7MC1WVuoUAFQGopB9AzU4Sk
+         JI13Bnwuf++SoUukSW/WyOsJrVvt5sniQcRCUUV6VWQ71L+UKf4WLY0Ucs+jTxETzaTQ
+         eCqb0RRZsRS4esjwcOiMd3zC4c3fyXhSiUOkAWT7kG3tcPiR5WjSG0CcQKDB2m26DLqJ
+         hZnQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=lSFLU1gDASKe3Y5qPMxiJjf4eHR7XBc/6El6M5Y7ORA=;
-        b=NqoawaSp08W6pkGAiUYGItErhjv3hxl2DYJ3QFuJZJVLSc4g7BveBGwABHcloRCc2O
-         7Imv7HV66E0/wBPezszODrCzoF+FK//XbZND3cJDN/tx+MMtEcKCUIIgEO0+lLLrU71J
-         H74qih2nxq0D8QQnl5Yu1tjG9HalOQOV+FGwoXpDeyvqfer6hdMlIqWhrD/h4A8dRLjS
-         V4KxHUDzdkz3sVgh1gN8daHLeqzH6pd6CoK0zpj8Lj+k51JzZ82pl98k7kyJE4drUfP+
-         4y/Hfgo4l665E3q9d//2weUulCNufhNx8QHXURfXcfoAB8k2fQ1OKuyhbiZUnPpOo6P3
-         mXEg==
+        bh=JEwS/ydezNNNP8L1G1BdO9ibO5mIv7/QXK7u6lRNEUE=;
+        b=CH4o4O/tJkl6lbRDugXanBbaJSUqfEmkO+JJ+jGZHg2t/SH0U6mAcASbn6ITQ0Y/hp
+         Ae7S3KuZ4vtGDjXPksLpNHFWoOlCw4E6E7FHx8817fXukxRPe5af2+haeuDGjzwW7NeM
+         xSdWT/etjKPPrLAaprdoFs1/Y1CNRs/G7HDkLBSNsaNqj3in00jaZPuZjfdmAYxKKesY
+         xcEiZZMifkEhaFlddyKDBVJv31EffpLso8NpjKz2kYfd0fhM31DKzVVTRRTYN7zJPDC3
+         JCkXuDJanodGCTPsDBjGJOyFSsbJIUWpsYZ8mRFv+a/kKcGi4I+rd54/p7ZoHL7E3SYc
+         Q2Qw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -34,78 +34,79 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lSFLU1gDASKe3Y5qPMxiJjf4eHR7XBc/6El6M5Y7ORA=;
-        b=kqdRHe+bCJT63J1ZmDtLfh+en6sIbTZ+IvZCtr/23zlMo48wrHS2L8db4bJ+9IqtLP
-         4uFdhbJpTQG/znTSxo9VMeHeM2nuj1LkkjRXfy92HcWRPkEvdHjINODrJnsZRgB2XNvq
-         Fob08z6JyAjXwZM8HOXxQlMdSUvIe5UKGOWbcSuJHDQrNo77pwzVRTsELoGwmNdEdwkg
-         8f+u0jNqzy+K/vru0p1NtZ7MpmhmE8lgBXrofawdbQMOYrlsWAGDxZBEC79ccKDwC4Jj
-         UmI95D4lwYPxzi/Ei4fXbrZzeQXr36GffNmpK0R5yTHKjMs2vi0h6LAOzghnTfZSaCS1
-         SjzA==
+        bh=JEwS/ydezNNNP8L1G1BdO9ibO5mIv7/QXK7u6lRNEUE=;
+        b=Tn74An+nSECQPObAaymGrxzY6AhVqA9yFSK2DiOsNQ58t/YjK1vN4z4Vm+Z0CPYCIa
+         ytjaBlRJdAwMAmspNOqKPd79GkkF47lYYeBWeLp76U0DDsjtvLeyOVTzlqGY1ugULnxh
+         qM7JJRhSxytz2j9U5mtfDQDN5XOdRQmc3T5J2jDOnzDP/FFWTZrLpfUeQmCoXJmB+68I
+         Kvv9z5TC380kUqvuvm5J5ldbnBMYGoaYkB68tA3FGjX9N73y6ws6FMoaWR+I2LvQc2TF
+         nWxvvKSWT22x99YC7Njfntj6FxQ+85DXCrH6lZbXtLhyGFKM+VemY24JvCSlojq/SHRB
+         AMHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lSFLU1gDASKe3Y5qPMxiJjf4eHR7XBc/6El6M5Y7ORA=;
-        b=ZbUeOpG0c+QRbkbbIfYDi44t/l2YPvQp0j25U2P/UhuHimPaa7pg6Q43MZ5b31BROl
-         fhfFI138z2Dx5eiIDobet+6/8Ughd2RBf4vI7OqWasmvlEYhBBExdxgr6KX+03DswAbx
-         g8qxskGid/BaNLLN4iR8A81TgW1u0+0D2v1++zcBi5jKwZw0G2gy+W90G3nQ2IqAkjUZ
-         u8RBal7ZrganFG9AYYugU8IoCjHcDsp7OPmkJ+/JNEPYP2s4ZfaCX535WOIRJ5wM15il
-         lgX/c3jG5ShC/CE3N7zOm2mnd9x4FFgTaIx1Y7n6v1Li7yMfg49/OLLajVHzi09gModZ
-         M+pw==
+        bh=JEwS/ydezNNNP8L1G1BdO9ibO5mIv7/QXK7u6lRNEUE=;
+        b=f7yXay5nsexoa7r7o+Q/ZSdwYGLysHq+VJA9vLd00+7CoA0DCNUglHu/exPReagAxW
+         E4xgFn0jURKC9uUpqIN2Y0kxkV+mElCqZEvSsab3wMsaMJEZrWxoYei8TdFFtseBazEQ
+         hJ7Vp4N+j3j1jtEylrCGrX4qGvnqTREUR7MGL5ScHn0iPIEVtoVTZRO0Q3SK/rU+p6vJ
+         ui0dyc/SU8lip0Nj1DTj1Q9bT534GjoZzHFhPi14vm6Bo1A+6NpiNpR2R7t6QPq9OjBT
+         EtSz2cIBU9b8gqbifbRXrIQRKf/HfArNpYcV0h2jvleLrISgHfUAcZal2g88DNdHLr4v
+         kvHw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532eGBdqRbXm99elsNIELswe4ERP6R5zVIKsM6oYIv8/VfbF0uxX
-	GHfDafC4iOIYs2lN0w4ejv0=
-X-Google-Smtp-Source: ABdhPJwEsU3HbpOFmc51jDpeGL0jA8pMWyZxYlyw4B2aYXt7JjJSQQxGLQDsSQ0jhTQqs8OqsmPBfQ==
-X-Received: by 2002:a17:902:aa84:b029:da:1c29:b965 with SMTP id d4-20020a170902aa84b02900da1c29b965mr1266472plr.36.1607034602273;
-        Thu, 03 Dec 2020 14:30:02 -0800 (PST)
+X-Gm-Message-State: AOAM53356L4LtEs5NNfhii/wupG4KkwH32d+5WzdgPRMYioThd29s8pS
+	yXRY+FIDUS/hgNbgGhxNS2U=
+X-Google-Smtp-Source: ABdhPJzKYvJwegGKQtF9aBaQDOARoVjV7ezQpAlpqRUBDQP3h5F/6vIJXED86FG4zwzTnvT5X4BGTw==
+X-Received: by 2002:a05:6e02:1114:: with SMTP id u20mr1845113ilk.226.1607034671381;
+        Thu, 03 Dec 2020 14:31:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7e93:: with SMTP id z141ls2885435pfc.7.gmail; Thu, 03
- Dec 2020 14:30:01 -0800 (PST)
-X-Received: by 2002:a65:6154:: with SMTP id o20mr4792289pgv.419.1607034601717;
-        Thu, 03 Dec 2020 14:30:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607034601; cv=none;
+Received: by 2002:a6b:7404:: with SMTP id s4ls1236196iog.4.gmail; Thu, 03 Dec
+ 2020 14:31:11 -0800 (PST)
+X-Received: by 2002:a05:6602:314c:: with SMTP id m12mr1906184ioy.100.1607034671030;
+        Thu, 03 Dec 2020 14:31:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607034671; cv=none;
         d=google.com; s=arc-20160816;
-        b=sHLh7ztQ6p7B1vjZE7/LiY/a//9dky2Mc4Sbmsmr6/o951hQzgYz89mL62ullPfMNC
-         RetxqZ0PboYo4UwuSKF21O4yinecV7Kdg3QyvI4NUMd6oJTFgNotWn/WCyewY/d2FgkE
-         ccF9Haf80/vFw/6n+1AiPBUCvtbo2TCw8v2hnt5UbYHGPujpPken4XIua3p4NUZEGS1g
-         5V7V4yDFqhtBGBsR3pwHBMH9mxAKuV+38sOh1dnME5JYKjKcl9b5bPbLTSfCPLtxeF1y
-         ZgXmmdKbFMptRTrXW+KJdMIghgsuEcLSOkpZ7a3Pf5/AH6Imz2AS8NRaZQejuj8lMdrq
-         E4wQ==
+        b=dd8e8J5z2Wk+MYnGnjs1xQHHXjEHwf7w5wQfrJr9i0T949xh0kXhvZoxIbUMR8IwJN
+         s7ZY+18b+N9FVO63qxm49RtDptXFq2Q1Rj0mWnBxIak5QIju9EEBNMrrfvdbX/cNLAdC
+         Y8ts0FTtJmHMHDuYzEpjGq8s0FHcZX7VnWpUsbyYj67U7tR4ogRBOXNrQ0mL7a+Jiir9
+         MnsUCqreEGVSyoQBezYnsdOHN0MgX5EHlCHkN0KORBVMGc5jyrYRs2xckOKXLUS5bowX
+         QdJU/r9FUkO6mAy0tY1ShJrN7htlnNEZKeGT2Qy4vQy/tKK3T55gPINiMxPPXDsTrwwN
+         QmPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from;
-        bh=+Rjn4jXEjXuUE1fPtvBwfTHZcUH/SkAFYUYJZMZnNyY=;
-        b=atAqt+vejyHrGyUNkoK7dSUQZF0jI6CCYx1ASxkybPiudqu+HAgkQhD95AYEPJ4PQ3
-         afK1dz3vq7OQyfXd4a0yn5xl37W+3W/oK4tJ9Qm3Dfm4jlee7hfDLtNVRehQNrN3eXHE
-         3polv3a9PjbM2Rqju3BKmUxPz5dCbWRYAUfLWQZmmGtFQUIYuA8oXvOrRYUs2YSdqATu
-         NYYKx0oKT7Yy6WLVrpzVev5gY6NaoVYjHbH70ibIeB0i1PJrdw1o19M08vP2OBxRHgwK
-         WVqmJvwGR/v0DB9iSZAYtMdklIY0+VudAhIyV2RIZon/QOtr5EXQIkau8D5YXwSgoxaK
-         URZg==
+        bh=ORNFvTGg9HuE94eArJFvOC7OqeHCrGdbbMpKwRrfdFI=;
+        b=0qg6CZbxckpRIlK3zjcxFqi9IFnR+78hfuFAd5iRvawMsgsn7k+Gl3Jk3BVyW5qniK
+         k3H04Q6Ymqw4dia7MeTYo4+gdZdHtt46H5ikDEJ5HljHb7pVmo4zP7oojfX2ig3fzJkz
+         EDb19QIsdxo7i6gsD5TrStRp1PBl2ERREsrp8tNZWH+blP8xDqJZrWBU+K//dobRlnnM
+         4Utzu83Exi23kMz9AAvu23LxCr3lqPLc+mpX2dLRMS0HHkZoViVvLftO2RmIXkjHy12N
+         6HTFblZ5XKIszy3Bq5Nrj5zgELWRTzlS5xh89/P1Jq1++wUPU+h1NeI7zMewB6uSCk0A
+         AcdQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t126si180439pgc.0.2020.12.03.14.30.01
+        by gmr-mx.google.com with ESMTPS id b14si58013ios.2.2020.12.03.14.31.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Dec 2020 14:30:01 -0800 (PST)
+        Thu, 03 Dec 2020 14:31:11 -0800 (PST)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 From: Arnd Bergmann <arnd@kernel.org>
-To: Dongchun Zhu <dongchun.zhu@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+To: Vadim Pasternak <vadimp@nvidia.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Mark Gross <mgross@linux.intel.com>,
 	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
+	Nick Desaulniers <ndesaulniers@google.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	linux-media@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Michael Shych <michaelsh@mellanox.com>,
+	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] media: i2c: fix an uninitialized error code
-Date: Thu,  3 Dec 2020 23:29:43 +0100
-Message-Id: <20201203222956.1091606-1-arnd@kernel.org>
+Subject: [PATCH] platform/x86: mlx-platform: remove an unused variable
+Date: Thu,  3 Dec 2020 23:30:56 +0100
+Message-Id: <20201203223105.1195709-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
 X-Original-Sender: arnd@kernel.org
@@ -128,49 +129,63 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Clang points out that the error handling in ov02a10_s_stream() is
-broken, and just returns a random error code:
+The only reference to the mlxplat_mlxcpld_psu[] array got removed,
+so there is now a warning from clang:
 
-drivers/media/i2c/ov02a10.c:537:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-        if (ov02a10->streaming == on)
-            ^~~~~~~~~~~~~~~~~~~~~~~~
-drivers/media/i2c/ov02a10.c:568:9: note: uninitialized use occurs here
-        return ret;
-               ^~~
-drivers/media/i2c/ov02a10.c:537:2: note: remove the 'if' if its condition is always false
-        if (ov02a10->streaming == on)
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/media/i2c/ov02a10.c:533:9: note: initialize the variable 'ret' to silence this warning
-        int ret;
+drivers/platform/x86/mlx-platform.c:322:30: error: variable 'mlxplat_mlxcpld_psu' is not needed and will not be emitted [-Werror,-Wunneeded-internal-declaration]
+static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
 
-I assume that -EBUSY is the intended error code, so use that.
+Remove the array as well and adapt the ARRAY_SIZE() call
+accordingly.
 
-Fixes: 91807efbe8ec ("media: i2c: add OV02A10 image sensor driver")
+Fixes: 912b341585e3 ("platform/x86: mlx-platform: Remove PSU EEPROM from MSN274x platform configuration")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/media/i2c/ov02a10.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/platform/x86/mlx-platform.c | 13 ++-----------
+ 1 file changed, 2 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/media/i2c/ov02a10.c b/drivers/media/i2c/ov02a10.c
-index 391718136ade..7ee9c904d9b5 100644
---- a/drivers/media/i2c/ov02a10.c
-+++ b/drivers/media/i2c/ov02a10.c
-@@ -534,8 +534,10 @@ static int ov02a10_s_stream(struct v4l2_subdev *sd, int on)
+diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
+index 598f44558764..6a634b72bfc2 100644
+--- a/drivers/platform/x86/mlx-platform.c
++++ b/drivers/platform/x86/mlx-platform.c
+@@ -319,15 +319,6 @@ static struct i2c_mux_reg_platform_data mlxplat_extended_mux_data[] = {
+ };
  
- 	mutex_lock(&ov02a10->mutex);
- 
--	if (ov02a10->streaming == on)
-+	if (ov02a10->streaming == on) {
-+		ret = -EBUSY;
- 		goto unlock_and_return;
-+	}
- 
- 	if (on) {
- 		ret = pm_runtime_get_sync(&client->dev);
+ /* Platform hotplug devices */
+-static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
+-	{
+-		I2C_BOARD_INFO("24c02", 0x51),
+-	},
+-	{
+-		I2C_BOARD_INFO("24c02", 0x50),
+-	},
+-};
+-
+ static struct i2c_board_info mlxplat_mlxcpld_pwr[] = {
+ 	{
+ 		I2C_BOARD_INFO("dps460", 0x59),
+@@ -456,7 +447,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_default_items[] = {
+ 		.aggr_mask = MLXPLAT_CPLD_AGGR_PSU_MASK_DEF,
+ 		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
+ 		.mask = MLXPLAT_CPLD_PSU_MASK,
+-		.count = ARRAY_SIZE(mlxplat_mlxcpld_psu),
++		.count = ARRAY_SIZE(mlxplat_mlxcpld_default_psu_items_data),
+ 		.inversed = 1,
+ 		.health = false,
+ 	},
+@@ -495,7 +486,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_comex_items[] = {
+ 		.aggr_mask = MLXPLAT_CPLD_AGGR_MASK_CARRIER,
+ 		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
+ 		.mask = MLXPLAT_CPLD_PSU_MASK,
+-		.count = ARRAY_SIZE(mlxplat_mlxcpld_psu),
++		.count = ARRAY_SIZE(mlxplat_mlxcpld_default_psu_items_data),
+ 		.inversed = 1,
+ 		.health = false,
+ 	},
 -- 
 2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203222956.1091606-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201203223105.1195709-1-arnd%40kernel.org.
