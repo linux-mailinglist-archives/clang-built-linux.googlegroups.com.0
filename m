@@ -1,156 +1,135 @@
-Return-Path: <clang-built-linux+bncBC7M5BFO7YCRBZFHU37AKGQE5LHENTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJ4FI4LWYDRBHNVU37AKGQEJUGO2OQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 10A742CE538
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Dec 2020 02:41:58 +0100 (CET)
-Received: by mail-qt1-x838.google.com with SMTP id t17sf3222208qtp.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 17:41:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607046116; cv=pass;
+Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 78E462CE58A
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Dec 2020 03:10:38 +0100 (CET)
+Received: by mail-yb1-xb40.google.com with SMTP id i184sf5052099ybg.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Dec 2020 18:10:38 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607047837; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GEtxMaHoAeKpP34d//ksCSoaImlPdl9gx5C6g6svdsW0QMDqGpC4td/Eyo77/Q1j4q
-         XYDCFp1rThF7/dPqt+bTQ1IrvxplZtVjxxQprSOsmNAY0lKDDIJECgZNFKnTlbDEQW/P
-         YzdkfvE2BfUtlG06h9U8OAiMWoJY8cgzOPMcXe/431QbQhe90PVnl9Xd+fakJZK95+An
-         BjKlLsX48l8IhGrES0Sp8KvmKd4YVlxY5PPcbYfWIjyipjLnQwVobMuXaTwrfeHx80B0
-         a7yTzxKvM7MtaevRVHbeg0sJHvHn+kUdu1U4RmMido6cdfEWSsSZmTZJujGSGKN2lfHq
-         SOzA==
+        b=nwU3KMIx86mD0tQFWaUAy9csMBc+t+Jc31UqgfujCr6zvSU+mOLocGhaoP2tP45Ifl
+         V1kd6DCE80/2YNtFQWtIGdExgXAbzwN4bSYbohHB+exCcRGLcXaFl/8H2+K+jd8WLYE7
+         cgWYR1wRW9uo+/sjvcFaZND0Bxjce/iWb1pdLNXftu/qjwk/TXVWcIJ5/q46VAZj4lMD
+         ejXUdU3T9mw6++AhTWQDMpQFLciEVIsN10kHW/mDQEVW65RCnL4d7jkNRodmr84PMhTR
+         cTvAHOedteeRFmAcZ/uLBRjpoN1bBocB66JCcARhgpIm8wo7bEe4eqBZz71mYr6vth59
+         +tnw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=/Cd7w9TCanlVH9NBPwrXJ5oFRfRfthqNLnhEKL1OvFU=;
-        b=CZYvChi8ZhU3BpeDIQCKGC4R5yMaaMKNNrKxjW3/za7RYNK2/CZ+RnGjPOviJFS75h
-         xUoT1fZ6q1LQXiyUlbhX1nW9HOHTU/gGrzHZVSIidkPSyYAls/TZrOZNGFD0N/cQsVsT
-         0JDWKIFkzbU0p7WeQGgmKrbsYjOoT0ZakwGwB5/4t0I3BKBlpfX4zkpXCel16VNEB+kE
-         tgh6QDPN5IQufYta8fIg7gpnpTcsjrNefALAUoSU+ZNz+73+mEE/FK76I6cGq01My70D
-         Sor9uHKFipybynV+q2+Ta2Ur/pl/ImlZHybh8aU5wBceeqslve6sOXmQ8Ud0o3TZBwyA
-         iwuQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :date:cc:to:from:subject:message-id:sender:dkim-signature;
+        bh=zSgG9klTF/5GWbWwXzxqn5t1IbR/6mYMUtXZqHxKMy4=;
+        b=kUxog+xwzjdCanZPxWRt12pttvCF/yJXBAUXzVoJqd99ytS7xicNiNvvGPDhcxPi8t
+         dimTtZXyyGf7Fg5FIdkxHvFUKIGrVrhLdShhU/Ue1Gk1Du5yNVDwqrK5ix16rumJSj+p
+         umZ+mGbwuP27pEUO/+hGqYA9ET1w8mDTksMoDGYibt3JqG2eP+JdlLZbmS41UcyjY4Gg
+         FVKEuCErqBBG4KtoamR5YMkXjVm9n6KFIm2wuR8gfTVtwGepb2h/EKd2Yn579U7Elb6Z
+         4wYT45IR1tvFaEQ37SSBvl6Qfg9gsTlIYdPPvnAxEMWZqcGROtsmpxVYn5bylRA0Zeto
+         /Szg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@roeck-us.net header.s=default header.b="M/TkRbHe";
-       spf=softfail (google.com: domain of transitioning linux@roeck-us.net does not designate 67.222.33.93 as permitted sender) smtp.mailfrom=linux@roeck-us.net
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=OoKsbKyW;
+       spf=pass (google.com: domain of dongchun.zhu@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=dongchun.zhu@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/Cd7w9TCanlVH9NBPwrXJ5oFRfRfthqNLnhEKL1OvFU=;
-        b=lN6Sy+hdZeiwD93F6UO8c016DPj++XoV9pIJK191P767Fe283EEXLMc9Rc9Jm5HwPf
-         YcbJqI22pqLexVm4gCsImkQv3uTZyTIAoTIrCrERQd5eZWCtucCi7QWYTQHikxPuK1xg
-         cOAXeoaOR3Pt+9PvzWaPLzXdiDBr12ZBcAK5y7v435+XqJyxRJlcitGtUT/BoL0OJrgs
-         899SKyHoQcx3joZtzb3NdyXR8e8j1PgZAglso8Cf4Z7oi1qOkqxXAjUtV+5EgMLsBRBG
-         mgS61z8ssz8Gmr72Nd1oHjT8TcY4T2ePv1/iktLUNuTH8DjaV0U4VnzNRMPGnpamgiLu
-         XYPA==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=zSgG9klTF/5GWbWwXzxqn5t1IbR/6mYMUtXZqHxKMy4=;
+        b=Q7u2qx0L92D3vgw9zStu2KQy5VZZFmb8pWfwO/rGIGWDu9WaO7Ajp92kEDQNH3DHy+
+         UXUQBbCrTpNLxD2q8j5a1euxn7KO+EF9OcobHoPszbs3xaQXs/5hOYlK2glE76QWuf5x
+         sdjQrCAj09zQ6aERrgURPDI/9/GZ4oDu8ZqASjCQpLudLBAAjmw1Uc0JjDCoLWaNO1aa
+         zwg/UWgExCF16vdjE8SeNqi7yacFqy4GfuFNdv5TkVILviKdMOLysfBo7lW1AeVjsLM+
+         aHnHxBrsvrmSojBjzTUP54xg2Ugc6z7zHmmpHMGwfi1iO+n2HMgCOWwycOC+vadwe5Mq
+         j0+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=/Cd7w9TCanlVH9NBPwrXJ5oFRfRfthqNLnhEKL1OvFU=;
-        b=PpGgrOxr2g4KyDYuRHLgiMkxIfR4xJm3jq+ajGZDLMrWsioAjOWJjQn4GcOVADxEAg
-         P2WtrUwOoBo+H+mmFlKN9bbQrVUsH8zdTBdlBJAwDQb3/debIbUp07hFNhYjrNuPK/Bl
-         Azc1ADYyK8hOZHlZ1Oudr1r2iboYzR9sAoOjB8Ky5YYFbRAuyMJ9/JW3sOjq4gePSSkf
-         R+KF1eZIfTmthQV4oV1S/NbNZMjUMiT6YWFUSPBosXW4f6/1leWkqD7edKquG4Jdd8C3
-         MMyu37jAw4Xo+m55RxvHhB8UjuQWU7yrkENgpmXw1yOw2PrWvQ0c9hGEhhxjeWnlwIot
-         DCqg==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=zSgG9klTF/5GWbWwXzxqn5t1IbR/6mYMUtXZqHxKMy4=;
+        b=SLlxEoYi9DhK8c4fR/m7xAdyDIDxJCbkkifXmJrdqoIdSeEYneCYBJstGCfyxMG77+
+         a9Wkt+JDWKd+RzsHWaAK818BuLPkr74FFsYORynIM7NnGjeV9A9XcCtQKeJ8WuOQj76p
+         j+MuhuKKunUCiCyBfpBwb0jFNRsyb0+OJcakXsOJ3VNnUvnu0zbBL/RGCexgE7sde/69
+         bM+msCKCHcT12g3iGMNUJwY34rR81wT1hsFA6BkaFw0WOlJQ/RB9JRMT9dlfJtv2mbT9
+         mqqZYfKRAMLRIIvjzrWMwTig7+UWYGnovAsf3fU4o/CYb81klexKblDIYh2f41tawTpd
+         Wy4Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533/lAqI7DycpLD40asjlYLqi9gxp/zO9BMPJK7misB8YIS0FrX6
-	4CZg0R3arN8TkQx1p3a4WpI=
-X-Google-Smtp-Source: ABdhPJwLwZ0WKLY8JUAHtzyfQBIuOvq7hjQg5wSkd/S9ZqBce047FHkWXCVgNHdA2WFSEF9SFNASZg==
-X-Received: by 2002:ad4:4661:: with SMTP id z1mr2383895qvv.19.1607046116703;
-        Thu, 03 Dec 2020 17:41:56 -0800 (PST)
+X-Gm-Message-State: AOAM530fhv7OleiugSgWfabU+3tbHje8DqieZ2WD8f2xLFSfdqfFXL5X
+	UpxGRuKcXcYPYc7n41l75UY=
+X-Google-Smtp-Source: ABdhPJzek+48BXc9GcxjOHnJb4rl3K+ldoqp57naLsXYYVSF2+0hqUXuFPID4kECxjOzgTt9tPSEqw==
+X-Received: by 2002:a25:d049:: with SMTP id h70mr2771416ybg.190.1607047837490;
+        Thu, 03 Dec 2020 18:10:37 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:6790:: with SMTP id b16ls2693190qtp.7.gmail; Thu, 03 Dec
- 2020 17:41:56 -0800 (PST)
-X-Received: by 2002:ac8:668c:: with SMTP id d12mr6618252qtp.352.1607046116355;
-        Thu, 03 Dec 2020 17:41:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607046116; cv=none;
+Received: by 2002:a25:2d56:: with SMTP id s22ls3726094ybe.0.gmail; Thu, 03 Dec
+ 2020 18:10:37 -0800 (PST)
+X-Received: by 2002:a25:59c3:: with SMTP id n186mr2787306ybb.411.1607047837010;
+        Thu, 03 Dec 2020 18:10:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607047837; cv=none;
         d=google.com; s=arc-20160816;
-        b=C37FUsAJqsbELibkodJOPAH05SEl4cdoUxVtwVJUN363ChL9EQfksvkCXQnQQDdzzp
-         bXjeAWB+1LojOuKFxiBab0LB+ku6OhTGGO+rYqv0RqDOwHSsWYi6lqmCaP+WM49igCAT
-         0WHenkPEQm1eSL/mZ3psumO0i8AzCqExZKo2ZTWdfWlr7k4KFtb0xKVTxW1hKYAa3UZ1
-         tNVwGBSm2RhBdydIyQLI+tI5Xa+HDzVke6wqnxfo7929q25JP+9nxvjjJmLIsrvVT9kW
-         6O6wXcRljOhzw1ONzwKq9ihNxR+3vkxFoyW1FS6gefuZArNOmk5ua7c0Qny3NzOe6Vrl
-         vQAg==
+        b=Xo6qaKlgteYO1rFammlQwgrXc+1gyBj8ER4hh8jymAPlCTSRIYkvkPZXm8CoXv0DIR
+         m0K1JIrL2Qetot23fblhJNfVwfsgy9hTGaxMeJziY2yv2zRjI+7/yobpv0Ky5TvNnkbm
+         AWVWZtX+fb8BnDMv2/hfMd0r/QLKR7YXAhDn+QddlaOevp9H0oh0SmWtEwHlbw8/9/SU
+         dKxzJl5aV7hrOKuQuDs8J5LV4401I1upJ0lPxgRy1pa3D0Aqh6K6A7B5wogs76AeMz/G
+         S928Y5p6XuxHm84jyXlS0NmZDlHH6ZSVzykOcmVCJjy1BCCt/lVlI+IUoTi63AvSa0ad
+         xy3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=RKrDXpnvOKnYa9s4QNbszpbo311dk42G28a9T0DPdbM=;
-        b=S5JB36HB3oz73LtoXFTTbUr1l3dobBDpeMmuvRF4kbGrgDkqMvhv9EcczLP7vij0YK
-         kYE/SrkGf4tKBb25ZhjYuojt8ivAKPucvVQJq/cPhNyKb6BbfwcWOXz/qVLTVWzWrRgj
-         vb4GITZ/dpyR/XG0LDNJ+J1rzyuzMlbSZdCjVUhQh4oBuLis4ux0nYWxVAS5N96xocgn
-         NHNxSms94lAxPbzl+DyCrlKe32qfabNvivGW0xCP9QaL5U8WliqqG4DlmwOs4+Yodcc/
-         lV6mPBtGVkBY7qHjLM+dwnmjKWztmuLu6gNeo9QFe+2c3iUt8fzuWypv3MP+AmAI6OzW
-         cs7w==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :cc:to:from:subject:message-id:dkim-signature;
+        bh=3fEAzKsdz//maaMh1QCscTkvSeFpqqfoqta+RxuF5gc=;
+        b=kAArhsttkffEUPd9olLwFEE2hgnhHwLK+/CjzrLZHp4OKTd5otbw0Gc87uZkxmwRt9
+         Thaar94fRfKvCAyBY1i+h5ypBNn1W8dpqte7alfanHuHgNIM+IuU6cq8Kf/2uRh16D35
+         wyQjuSw14QQCxgzoIbgs3aw6dSvXG7/2gImipNRyE0CM+gRbSPNx45Qk7fon3TkyxWBQ
+         jW4PF4OxP1HclN9H9b0SawTKPshYHMtcyABfLrtO7+k7rwL5HE23d9EPwGUnDj3ysLaO
+         PeoivwjKyk6W7agdGcN4uCLQMJdWjQALuAYqZ6nL9+mB3anJD4e6zE2U83e59qlNsAhU
+         Dkug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@roeck-us.net header.s=default header.b="M/TkRbHe";
-       spf=softfail (google.com: domain of transitioning linux@roeck-us.net does not designate 67.222.33.93 as permitted sender) smtp.mailfrom=linux@roeck-us.net
-Received: from gproxy8-pub.mail.unifiedlayer.com (gproxy8-pub.mail.unifiedlayer.com. [67.222.33.93])
-        by gmr-mx.google.com with ESMTPS id n21si256850qkh.0.2020.12.03.17.41.55
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Dec 2020 17:41:56 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning linux@roeck-us.net does not designate 67.222.33.93 as permitted sender) client-ip=67.222.33.93;
-Received: from cmgw14.unifiedlayer.com (unknown [10.9.0.14])
-	by gproxy8.mail.unifiedlayer.com (Postfix) with ESMTP id 6DCFB1AB028
-	for <clang-built-linux@googlegroups.com>; Thu,  3 Dec 2020 18:41:55 -0700 (MST)
-Received: from bh-25.webhostbox.net ([208.91.199.152])
-	by cmsmtp with ESMTP
-	id l06cksozPwNNll06dk4Z3F; Thu, 03 Dec 2020 18:41:55 -0700
-X-Authority-Reason: nr=8
-X-Authority-Analysis: v=2.3 cv=NN/7BXyg c=1 sm=1 tr=0
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=dLZJa+xiwSxG16/P+YVxDGlgEgI=:19 a=kj9zAlcOel0A:10:nop_charset_1
- a=zTNgK-yGK50A:10:nop_rcvd_month_year
- a=evQFzbml-YQA:10:endurance_base64_authed_username_1 a=_jlGtV7tAAAA:8
- a=EO5IJpH2gAH_pC5_PvMA:9 a=CjuIK1q_8ugA:10:nop_charset_2
- a=nlm17XC03S6CtCLSeiRr:22
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:44140 helo=localhost)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.93)
-	(envelope-from <linux@roeck-us.net>)
-	id 1kl06c-003z4m-BG; Fri, 04 Dec 2020 01:41:54 +0000
-Date: Thu, 3 Dec 2020 17:41:53 -0800
-From: Guenter Roeck <linux@roeck-us.net>
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=OoKsbKyW;
+       spf=pass (google.com: domain of dongchun.zhu@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=dongchun.zhu@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+Received: from mailgw02.mediatek.com ([210.61.82.184])
+        by gmr-mx.google.com with ESMTP id e4si146882ybp.4.2020.12.03.18.10.36
+        for <clang-built-linux@googlegroups.com>;
+        Thu, 03 Dec 2020 18:10:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of dongchun.zhu@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
+X-UUID: e49db857a0f243ac81c8110829029f86-20201204
+X-UUID: e49db857a0f243ac81c8110829029f86-20201204
+Received: from mtkcas11.mediatek.inc [(172.21.101.40)] by mailgw02.mediatek.com
+	(envelope-from <dongchun.zhu@mediatek.com>)
+	(Cellopoint E-mail Firewall v4.1.14 Build 0819 with TLSv1.2 ECDHE-RSA-AES256-SHA384 256/256)
+	with ESMTP id 1648836214; Fri, 04 Dec 2020 10:10:30 +0800
+Received: from MTKCAS36.mediatek.inc (172.27.4.186) by mtkmbs05n1.mediatek.inc
+ (172.21.101.15) with Microsoft SMTP Server (TLS) id 15.0.1497.2; Fri, 4 Dec
+ 2020 10:10:28 +0800
+Received: from [10.17.3.153] (10.17.3.153) by MTKCAS36.mediatek.inc
+ (172.27.4.170) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
+ Transport; Fri, 4 Dec 2020 10:10:27 +0800
+Message-ID: <1607047828.4733.172.camel@mhfsdcap03>
+Subject: Re: [PATCH] media: i2c: fix an uninitialized error code
+From: Dongchun Zhu <dongchun.zhu@mediatek.com>
 To: Arnd Bergmann <arnd@kernel.org>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] watchdog: coh901327: add COMMON_CLK dependency
-Message-ID: <20201204014153.GA109274@roeck-us.net>
-References: <20201203223358.1269372-1-arnd@kernel.org>
-MIME-Version: 1.0
+CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Nathan Chancellor
+	<natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Andy
+ Shevchenko <andriy.shevchenko@linux.intel.com>, Sakari Ailus
+	<sakari.ailus@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>,
+	<linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<clang-built-linux@googlegroups.com>, <tfiga@google.com>,
+	<sj.huang@mediatek.com>
+Date: Fri, 4 Dec 2020 10:10:28 +0800
+In-Reply-To: <20201203222956.1091606-1-arnd@kernel.org>
+References: <20201203222956.1091606-1-arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20201203223358.1269372-1-arnd@kernel.org>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - googlegroups.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1kl06c-003z4m-BG
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (localhost) [108.223.40.66]:44140
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 1
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-Original-Sender: linux@roeck-us.net
+X-Mailer: Evolution 3.10.4-0ubuntu2
+MIME-Version: 1.0
+X-MTK: N
+X-Original-Sender: dongchun.zhu@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@roeck-us.net header.s=default header.b="M/TkRbHe";
-       spf=softfail (google.com: domain of transitioning linux@roeck-us.net
- does not designate 67.222.33.93 as permitted sender) smtp.mailfrom=linux@roeck-us.net
+ header.i=@mediatek.com header.s=dk header.b=OoKsbKyW;       spf=pass
+ (google.com: domain of dongchun.zhu@mediatek.com designates 210.61.82.184 as
+ permitted sender) smtp.mailfrom=dongchun.zhu@mediatek.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -163,45 +142,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Dec 03, 2020 at 11:33:42PM +0100, Arnd Bergmann wrote:
+Hi Arnd,
+
+Thanks for the patch.
+
+On Thu, 2020-12-03 at 23:29 +0100, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 > 
-> clang produces a build failure in configurations without COMMON_CLK
-> when a timeout calculation goes wrong:
+> Clang points out that the error handling in ov02a10_s_stream() is
+> broken, and just returns a random error code:
 > 
-> arm-linux-gnueabi-ld: drivers/watchdog/coh901327_wdt.o: in function `coh901327_enable':
-> coh901327_wdt.c:(.text+0x50): undefined reference to `__bad_udelay'
+> drivers/media/i2c/ov02a10.c:537:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+>         if (ov02a10->streaming == on)
+>             ^~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/media/i2c/ov02a10.c:568:9: note: uninitialized use occurs here
+>         return ret;
+>                ^~~
+> drivers/media/i2c/ov02a10.c:537:2: note: remove the 'if' if its condition is always false
+>         if (ov02a10->streaming == on)
+>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/media/i2c/ov02a10.c:533:9: note: initialize the variable 'ret' to silence this warning
+>         int ret;
 > 
-> Add a Kconfig dependency to only do build testing when COMMON_CLK
-> is enabled.
+> I assume that -EBUSY is the intended error code, so use that.
 > 
-> Fixes: da2a68b3eb47 ("watchdog: Enable COMPILE_TEST where possible")
+> Fixes: 91807efbe8ec ("media: i2c: add OV02A10 image sensor driver")
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
-
 > ---
->  drivers/watchdog/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/media/i2c/ov02a10.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-> index 8bdbd125821b..32fa6de7b820 100644
-> --- a/drivers/watchdog/Kconfig
-> +++ b/drivers/watchdog/Kconfig
-> @@ -631,7 +631,7 @@ config SUNXI_WATCHDOG
+> diff --git a/drivers/media/i2c/ov02a10.c b/drivers/media/i2c/ov02a10.c
+> index 391718136ade..7ee9c904d9b5 100644
+> --- a/drivers/media/i2c/ov02a10.c
+> +++ b/drivers/media/i2c/ov02a10.c
+> @@ -534,8 +534,10 @@ static int ov02a10_s_stream(struct v4l2_subdev *sd, int on)
 >  
->  config COH901327_WATCHDOG
->  	bool "ST-Ericsson COH 901 327 watchdog"
-> -	depends on ARCH_U300 || (ARM && COMPILE_TEST)
-> +	depends on ARCH_U300 || (ARM && COMMON_CLK && COMPILE_TEST)
->  	default y if MACH_U300
->  	select WATCHDOG_CORE
->  	help
-> -- 
-> 2.27.0
-> 
+>  	mutex_lock(&ov02a10->mutex);
+>  
+> -	if (ov02a10->streaming == on)
+> +	if (ov02a10->streaming == on) {
+> +		ret = -EBUSY;
+>  		goto unlock_and_return;
+> +	}
+>  
+>  	if (on) {
+>  		ret = pm_runtime_get_sync(&client->dev);
+
+Only if sensor fails to stream on, ret can return a negative error code.
+Thus ret above needs to be initialized to '0'.
+Also you could fix the clang error like this.
+
+static int ov02a10_s_stream(struct v4l2_subdev *sd, int on)
+{
+	struct ov02a10 *ov02a10 = to_ov02a10(sd);
+	...
+	int ret = 0;
+
+	...
+	if (ov02a10->streaming == on)
+		goto unlock_and_return;
+
+	...
+}
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201204014153.GA109274%40roeck-us.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1607047828.4733.172.camel%40mhfsdcap03.
