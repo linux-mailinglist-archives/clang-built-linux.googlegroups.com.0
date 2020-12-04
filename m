@@ -1,125 +1,138 @@
-Return-Path: <clang-built-linux+bncBAABBPPDU77AKGQENQLIQKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBB4EFVD7AKGQERDNUZAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 92DB52CE970
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Dec 2020 09:22:22 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id x26sf3267964pfo.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Dec 2020 00:22:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607070141; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D5BB22CEAF9
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Dec 2020 10:35:45 +0100 (CET)
+Received: by mail-oi1-x23c.google.com with SMTP id i70sf2317417oib.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Dec 2020 01:35:45 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607074544; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NM0yAKRhr25Vb94W21tQwq2fsaEPSjPXtsf4afwvvbnX5qFiHsBPW28tSBj8z+EkFa
-         wldQw1pOEqXGUAJTKYOg6Ek5VPVtTdAUev38qegPifKUflpLnFyp40WL/U+oERurraXZ
-         6RSfdr0nkjxmU+nkL/PpVQyPfly6jvRSKWfhWO0WNIEfGpZsu34NC66v30VNkC/qP4Kg
-         o6NXaJOsfEtBff7HElsvePRaMnqEzT+Fpv26K0uEHGReeW5pHN++l1A/Y2PhMkNskikS
-         8dxaNua3+x7i9Gf0elPWRwMah3ePPRP4kYyhguVBDiA9XKQAmg2X2dZPvbg3EK/0SF02
-         rt+A==
+        b=PbiZ+qjGQ6OTdwKAs6rd01SPtebc9+MphMSySK5X0+JzSkRabH+14d61L3cpm7rcIT
+         75KjhGPUsoNI7EiYOaUNlPB9e02a1wEIyOD4ONb77qvA3G5CwneUTwDAvbyz4xtOPh98
+         R42Ih5WaHHgALgByYpOP3MMYCrG1+ikUygk1EApX6cwPrX+gQzb3kB2HIq/fYOdXCQlc
+         nr38uSVZqamCX7YPPauv3d822bLEeQEGaIZUVt9agSZbN/EhC5q/kgR2iG3gEL4WlPtq
+         LpUMK+Ksvv2UgXlBNZiW9VRCe45zO6NDdT2TaSUrKnkEjgry6mnddYBIsWpbgyPWjh04
+         M56A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=fzwMiwOiZ9wNblSErsKVUHtoxUg7DuPHwxMdsBVlCNY=;
-        b=kS3D9BMjAEnGBN5b4sVLC4hDjzn9jZduG3qPNpizzc7TxkSBq4ujhy0zIoNzkCO8B8
-         /U3CvwZq20+BKFbESvvtEuMv+YQkwpZ1nCypHVrk1GEkQWWDZwNiyEzWqkYCDFbOoOcJ
-         7dL/+gWuYzyZYSeC9q6vb1COch+mIFxeOAD0wykN9lXAqHEJdovL0oOXBX6XAiIQRI7A
-         YbN1bivnF1O47+33eWR4ydoKlEfIcI26VlIVya3YIcMOrHWlAp4WgLVGjvfdD0MrrvYJ
-         kS5W5b4YNNRW5/3pMHw6AjEAazn3t2ycVkmvzVstic3wI7+jLIFXaqElDVGFyt3ZOm7r
-         vrtA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=7cj6SPFj4z5cAtFRXVNMoEeR9zNJk+csXjAxCJdBI+M=;
+        b=jO0SRxlZ+K5+Z8VGahPeXR7X+fey4npwcaBCiripFfK1y+QROAnat0xgmtQVQ+kE2U
+         P1u+1ZCuNXmGDrs0fv6SfwUH13vB11Mp73neGPJbhCB+ORyG1xevvrXwI3d+v4Sythr0
+         N6xU29sIZbzcegdKpqVd72MLu6nDDFaFnCpqsrHyc+UhHl+i9jK1akjfbiaDOIDatilC
+         UERehWP1EbXzs8mOCjIA1u7jj3HsJEEyT7qVpuI3cxHahg7PJlerxdY379BjGS4SaZH5
+         /ZtZUx5Fqe7VwZCNcC//JZOubDNfUkrWBrfSYC3sRLoWY9pGNdVnv0HrHbVIEY5hwZoL
+         rjhw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=h4Q7Sa7D;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=GjN8UC0T;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fzwMiwOiZ9wNblSErsKVUHtoxUg7DuPHwxMdsBVlCNY=;
-        b=l4xsJUZQ51wFLYgOisKMaEqYiZIr9GYFj6xvAWf3ZFEaj8GdcLHl7jOd5tNLQzGw1M
-         3DLirqe3V6ro1srnq2pCEIhFFcJ6UOvV6h1zMvzOH3deHG+Fn8yVBla+FW9xwDqZ2utH
-         dS/DULIoqfgJRU6pkXQhHtKFPX8duRYYgc+u7oGrgY5PK+UQckinPRVP8IhsStSw90mo
-         NO8pp3Ywkxr1ADCc5go0b6qK2KnTbA7e5snzq0QTiTJjHjabYyxGoUojbvIQOgmNeg/B
-         5Z0nvHj4xrOXkvhBXm2/sLhCvsS8wc1zaKWr3pUpwIYyyei5DWnpHuLLUB41jkehkGGV
-         AE3w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=7cj6SPFj4z5cAtFRXVNMoEeR9zNJk+csXjAxCJdBI+M=;
+        b=U8ozNUnm44zUz+aYid9/G21ISZxKpbAA+OvFOyvNFkVpPMKH/4wJ70RZRKVCIitDWx
+         Y4bg2DjS+hIPVjGgCFe7ziX6LrknqkZu+BNXp6mrTZHbCvmfqcUSQHa3R/sY+WS3sTWB
+         HGtjQJKS8AWBCCwXwwE+vnd39P/gmufJEIhZ4gPpLR+YD5dTbEOp0WyBvlma6tZCA1xF
+         XNqrM1cjSVn33JsOQAtuQek0nr37/ijqLPACzhNjdxLsxmai/8KUzkK6LHW942i6klVX
+         dDr7q14WnsKJOTiEm7Z53mjSJ2ztFR6vUILnKX5UYWGvCoLkKWqmRz8LoIQY5AfErhqn
+         OZXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fzwMiwOiZ9wNblSErsKVUHtoxUg7DuPHwxMdsBVlCNY=;
-        b=PD5ckdZoCZPwtZ/X03fCj0Id2JNU8CFhWCnu8H3nXEM9J5dsn9LAF73vWy3GP16KJl
-         9aD517Z7HY8jK5NiG55Pv2xg2OaMUKj1g1NudmYrJtp6zHgAMa0LEMeXJ3T2lVCqQp++
-         7a7Nl2ko0aJ/KCRGWxytwRLsc+NVoxaZBFltg2W9I1XUozdAnraM0z+RSpYUqwrq170Z
-         zmu1MaNPq3xKiiziMfnC6ul+X5J23PzKB0zaUZF7IU+pgOQHTqY1tQ5NHip6kiF+sN9q
-         Of/CrntEuJX2ebBBzLVjM1Y9qOzIZzPnATtcKA8dUHhd9Tb2rdnRPfZoLr1/JRswX8wT
-         3eJg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=7cj6SPFj4z5cAtFRXVNMoEeR9zNJk+csXjAxCJdBI+M=;
+        b=Q2T4CGS4ZbqIMaUSzwD/Si9mydE8EVL00j+IfSf9bzHU3dCt60x7cB6GlS5rMkFHYE
+         rVN49FoOe4gqq0qM65MXnvjeBi5q4lJwnmy09g9dXLrPBxc2yzYijVYo3njaJ8RBBaZa
+         Rx0IndEwV75yPj7zH6WMqTAKGtm1zZvlI9Rgz7GRb8QJYptfCxPzNoMBvADEK2uczNi4
+         I/FfjE8fqH4/vRPd6BN4lNNGSfpT2uUEigNGpfnPY8wrlw+nTDpn5MoxFs+kh2zNUnPs
+         d74r6U9Cw3yD8qhL2PP9uUkm2NKkyAoWbVN8/mFYPEZ8DhdlFkbczuGNEnCl2Az90EBL
+         iYGA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53246Plf1vH8y2Dm7BAQw0nNfq3a0GHSwpNWXh4VQLFHnKGMTKV6
-	5BPDCdeDRfjMlmA0Nq8KSkc=
-X-Google-Smtp-Source: ABdhPJwGVpT+D0UWIzIxd/HuwcB/tva3VZHxkWC2aGSnUhUn7fYK9guJ5JMX60HB3LAxORjoKUFPYQ==
-X-Received: by 2002:a17:902:6b02:b029:da:c6c0:d650 with SMTP id o2-20020a1709026b02b02900dac6c0d650mr3092302plk.74.1607070141235;
-        Fri, 04 Dec 2020 00:22:21 -0800 (PST)
+X-Gm-Message-State: AOAM530A/f6DoCMm8Qhh3xS6bMhAT/YnuONgBOxTdswwB5VavdlrmIDF
+	DZeiX9tX8Pp29eJBrC2NVfk=
+X-Google-Smtp-Source: ABdhPJwII+IE/z7dachMqDA8P1YKpwC5pB5e0MTJ2QNPb58Qb+Y+wDqZ2FsB5gZtYBMIIkDgoTyXlw==
+X-Received: by 2002:a9d:7443:: with SMTP id p3mr2835673otk.10.1607074544498;
+        Fri, 04 Dec 2020 01:35:44 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:7c7:: with SMTP id 190ls3013033pgh.8.gmail; Fri, 04 Dec
- 2020 00:22:20 -0800 (PST)
-X-Received: by 2002:a63:d5b:: with SMTP id 27mr6592980pgn.185.1607070140595;
-        Fri, 04 Dec 2020 00:22:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607070140; cv=none;
+Received: by 2002:a9d:8c3:: with SMTP id 61ls2214011otf.6.gmail; Fri, 04 Dec
+ 2020 01:35:44 -0800 (PST)
+X-Received: by 2002:a9d:7ac8:: with SMTP id m8mr2901204otn.86.1607074544089;
+        Fri, 04 Dec 2020 01:35:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607074544; cv=none;
         d=google.com; s=arc-20160816;
-        b=frT2X9soDGqlQ6KIFPvPltGMhQNIKWPaulu1EoRThPIzU1wirM0KFsSQHYnBaRGEKe
-         1bs2z6RnXjpDzDyObA0zkGwmXKLlwnVGsVSYjvZgEaFnl+07OWlS77YaFO4eamxlZnpe
-         hfrtpts2Vor4qMvLNdIzK71bMlt6zbOdqcj1CtpQwkqNMH2QEA7HuCf8PR/+NT0Ak9YE
-         xvcrYj575JZ/xOdLWJsW/+Bvn7KDZf8t2a4JznLcAqzDNfCMeLiSEhjxSUc0n2TDjtnn
-         y0Rw8bek9FMxTunVdGGsjR3vANk6G7X4K2XhmQ3gUBG7OlHNsDttr09SyeLEJO5qW1uB
-         ryFw==
+        b=u6hBlmDRQjcrTS2LgFOLj1lt8UoV5N0lYmBe/rHy825GqTWMNN4DBHB3AaGo9bkmMm
+         PHM/3HjIZUJXXtsMkLfztqbQ+w74BizT6hSxwEobqgjCtliRz/8hLj70FEBTjPAwOlhO
+         FY1XKmNtPQT+gmgcsnGEeTUr2yQVkCK9WX8NqThFlmpJm+LvWvU05fh8xpnVe0dXEVWB
+         3XNMgfw2nVGCo2eS3AcabGLtj3CLaB5az3FYSXFq6WDcsghw/O6im5CvUwc3Ab/YR10w
+         wYWkfwaREOHCSMbtJjXM7r1SPPVhmFoT1UCvB94pwNh83CmCFiWuZDALxsC1HGIveFax
+         VBYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8PmN+ejN0EQm7ddDTq6YHGVoCQf0zMx389TqURYtSEg=;
-        b=KmUou/L2LnEE/tSvt9qFOaw/JqBNZAmWYDJY2z9Xo3ySk+pO46FmoigGC18l3lYZYw
-         IIYpnJE6juQHu6X7Uwu7BLrFBPJfGnd0wxJWvycGctXVOK/hZa6E8mQ013Iy0KdrWC6K
-         b95evSWNBAt/uXZbeEC0UZtjTjQFEPjMeYHAYBzNj6l9q8NXtaNbB9fGS0YH3famQ38J
-         u6OroJ8J3MzEzRTR+FPFWtAO2SsPOJ+wWaCdaWGzZQpPi+NdnES7Js1rxsMCfzRnYetW
-         4P0x7+ieVyCTJwdXrJfOJP4z+wiy0gmu21NxBJjZNPzQJqC4OpREW2ypGo4w64zjzIRk
-         97eg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:dkim-signature:date;
+        bh=4urIOb7AL6mTGLl8jhxhtNpnj2h6V3SSGkJ/XFctUuE=;
+        b=epINGeV7xHVOof8IhfNXpNIv5Bhg4/Gx6ViIyHFRP0J5M7794Oam2yq9/BIn26mRem
+         KrMJRZw6ZicgWGei24bncOhoElaX/FMWZi2y39cbrEhgs7fHbK3bedL2h26afwkUN/y2
+         1tgSYh9Dq4TbIzuGLk3xxCASci0ZmTrwX5CUG1rbCPP24UawdLSTvvqf4dCTAq5tNLPa
+         ZaJ/G6Ba9QYoUTBPxNUdnkUISv2Nd9Ajyl0Guh6q0t6UaCe3jfQxBBcKmLt3C+XKsXgL
+         BJeHIsRjPcjRhoPs0Kr+7WI+YOsSiC8zDWIn7d7tygGCKyTkwtlYrZ80rtpZMXi6T48A
+         DJYg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=h4Q7Sa7D;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=GjN8UC0T;
+       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id mp23si92708pjb.1.2020.12.04.00.22.20
+        by gmr-mx.google.com with ESMTPS id k134si131692oib.5.2020.12.04.01.35.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 04 Dec 2020 00:22:20 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-X-Received: by 2002:a05:6808:9a9:: with SMTP id e9mr2437405oig.4.1607070138915;
- Fri, 04 Dec 2020 00:22:18 -0800 (PST)
+        Fri, 04 Dec 2020 01:35:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Date: Fri, 4 Dec 2020 09:35:36 +0000
+From: Will Deacon <will@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Kernel Hardening <kernel-hardening@lists.openwall.com>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-kbuild <linux-kbuild@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	PCI <linux-pci@vger.kernel.org>, Jian Cai <jiancai@google.com>,
+	Kristof Beyls <Kristof.Beyls@arm.com>
+Subject: Re: [PATCH v8 00/16] Add support for Clang LTO
+Message-ID: <20201204093535.GB461@willie-the-truck>
+References: <20201201213707.541432-1-samitolvanen@google.com>
+ <20201203112622.GA31188@willie-the-truck>
+ <CABCJKueby8pUoN7f5=6RoyLSt4PgWNx8idUej0sNwAi0F3Xqzw@mail.gmail.com>
+ <20201203182252.GA32011@willie-the-truck>
+ <CAKwvOdnvq=L=gQMv9MHaStmKMOuD5jvffzMedhp3gytYB6R7TQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20201203222956.1091606-1-arnd@kernel.org> <1607047828.4733.172.camel@mhfsdcap03>
-In-Reply-To: <1607047828.4733.172.camel@mhfsdcap03>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Fri, 4 Dec 2020 09:22:02 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a0ZA4cLNL3kVN9qKjHyhWJXOA2LtsEakN0V9rcTBQaVNw@mail.gmail.com>
-Message-ID: <CAK8P3a0ZA4cLNL3kVN9qKjHyhWJXOA2LtsEakN0V9rcTBQaVNw@mail.gmail.com>
-Subject: Re: [PATCH] media: i2c: fix an uninitialized error code
-To: Dongchun Zhu <dongchun.zhu@mediatek.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Linux Media Mailing List <linux-media@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, tfiga@google.com, 
-	sj.huang@mediatek.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@kernel.org
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnvq=L=gQMv9MHaStmKMOuD5jvffzMedhp3gytYB6R7TQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=h4Q7Sa7D;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ header.i=@kernel.org header.s=k20201202 header.b=GjN8UC0T;       spf=pass
+ (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -133,86 +146,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Dec 4, 2020 at 3:10 AM Dongchun Zhu <dongchun.zhu@mediatek.com> wrote:
->
-> Hi Arnd,
->
-> Thanks for the patch.
->
-> On Thu, 2020-12-03 at 23:29 +0100, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
+On Thu, Dec 03, 2020 at 02:32:13PM -0800, Nick Desaulniers wrote:
+> On Thu, Dec 3, 2020 at 10:23 AM Will Deacon <will@kernel.org> wrote:
+> > On Thu, Dec 03, 2020 at 09:07:30AM -0800, Sami Tolvanen wrote:
+> > > Without LLVM_IAS=1, Clang uses two different assemblers when LTO is
+> > > enabled: the external GNU assembler for stand-alone assembly, and
+> > > LLVM's integrated assembler for inline assembly. as-instr tests the
+> > > external assembler and makes an admittedly reasonable assumption that
+> > > the test is also valid for inline assembly.
+> > >
+> > > I agree that it would reduce confusion in future if we just always
+> > > enabled IAS with LTO. Nick, Nathan, any thoughts about this?
 > >
-> > Clang points out that the error handling in ov02a10_s_stream() is
-> > broken, and just returns a random error code:
-> >
-> > drivers/media/i2c/ov02a10.c:537:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-> >         if (ov02a10->streaming == on)
-> >             ^~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/media/i2c/ov02a10.c:568:9: note: uninitialized use occurs here
-> >         return ret;
-> >                ^~~
-> > drivers/media/i2c/ov02a10.c:537:2: note: remove the 'if' if its condition is always false
-> >         if (ov02a10->streaming == on)
-> >         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/media/i2c/ov02a10.c:533:9: note: initialize the variable 'ret' to silence this warning
-> >         int ret;
-> >
-> > I assume that -EBUSY is the intended error code, so use that.
-> >
-> > Fixes: 91807efbe8ec ("media: i2c: add OV02A10 image sensor driver")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> >  drivers/media/i2c/ov02a10.c | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/media/i2c/ov02a10.c b/drivers/media/i2c/ov02a10.c
-> > index 391718136ade..7ee9c904d9b5 100644
-> > --- a/drivers/media/i2c/ov02a10.c
-> > +++ b/drivers/media/i2c/ov02a10.c
-> > @@ -534,8 +534,10 @@ static int ov02a10_s_stream(struct v4l2_subdev *sd, int on)
-> >
-> >       mutex_lock(&ov02a10->mutex);
-> >
-> > -     if (ov02a10->streaming == on)
-> > +     if (ov02a10->streaming == on) {
-> > +             ret = -EBUSY;
-> >               goto unlock_and_return;
-> > +     }
-> >
-> >       if (on) {
-> >               ret = pm_runtime_get_sync(&client->dev);
->
-> Only if sensor fails to stream on, ret can return a negative error code.
-> Thus ret above needs to be initialized to '0'.
+> > That works for me, although I'm happy with anything which means that the
+> > assembler checks via as-instr apply to the assembler which will ultimately
+> > be used.
+> 
+> I agree with Will.
 
-Ok, I sent a version 2.
+[...]
 
-> Also you could fix the clang error like this.
->
-> static int ov02a10_s_stream(struct v4l2_subdev *sd, int on)
-> {
->         struct ov02a10 *ov02a10 = to_ov02a10(sd);
->         ...
->         int ret = 0;
->
->         ...
->         if (ov02a10->streaming == on)
->                 goto unlock_and_return;
->
->         ...
-> }
+> So I'd recommend to Sami to simply make the Kconfig also depend on
+> clang's integrated assembler (not just llvm-nm and llvm-ar).  If
+> someone cares about LTO with Clang as the compiler but GAS as the
+> assembler, then we can revisit supporting that combination (and the
+> changes to KCONFIG), but it shouldn't be something we consider Tier 1
+> supported or a combination that need be supported in a minimum viable
+> product. And at that point we should make it avoid clang's integrated
+> assembler entirely (I suspect LTO won't work at all in that case, so
+> maybe even considering it is a waste of time).
+> 
+> One question I have to Will; if for aarch64 LTO will depend on RCpc,
+> but RCpc is an ARMv8.3 extension, what are the implications for LTO on
+> pre-ARMv8.3 aarch64 processors?
 
-Sorry, I should have removed the last line of the output from
-clang that suggested doing that. Initializing a local variable
-in the declaration is generally a bad idea precisely because it
-prevents the compiler from warning about a case like this where
-the author forgot to set the correct error value.
+It doesn't depend on RCpc -- we just emit a more expensive instruction
+(an RCsc acquire) if the RCpc one is not supported by both the toolchain
+and the CPU. So the implication for those processors is that READ_ONCE()
+may be more expensive.
 
-We should really fix clang to not propagate that nonsense.
-
-        Arnd
+Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a0ZA4cLNL3kVN9qKjHyhWJXOA2LtsEakN0V9rcTBQaVNw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201204093535.GB461%40willie-the-truck.
