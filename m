@@ -1,120 +1,124 @@
-Return-Path: <clang-built-linux+bncBAABBV7JV77AKGQE2AETKSQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBZ5KWD7AKGQE2YMRCGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6DA9D2CFEFE
-	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Dec 2020 22:00:09 +0100 (CET)
-Received: by mail-pl1-x640.google.com with SMTP id 1sf4779765plb.4
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Dec 2020 13:00:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607202008; cv=pass;
+Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
+	by mail.lfdr.de (Postfix) with ESMTPS id A42212CFFB3
+	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Dec 2020 00:19:04 +0100 (CET)
+Received: by mail-qt1-x840.google.com with SMTP id o12sf8040074qtw.14
+        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Dec 2020 15:19:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607210343; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fBrp8AILr5FwmZOter6dQFPyCt0yw4otb2usGCVJWyJRFBdUgJHT+IWu48IfUM7ZMf
-         6M/A3O8qiuibNEmGB63p5hMvp+D75gi5J4V61JASiQijJ35rwOYJ3BIsk03w9Ikn/Zrc
-         GfIaXt4ceBT+TP/dFODz69ycoSzgjw19iWI0lgkk8oYQxKPIFYBHrOukiM6Zb6yF1pXO
-         bReqIIGLdjluqy6hzTgJ5v7LU3iwggcNgKFHlRB5RhWNGkxvPKqg5xBCy+eUnt8D7I1y
-         /chouBAWvkLcDR/IKW432Vn7cfZ44iQJKHc39COya4qrM42YpGv7g8wyD7y2ktTuDvpR
-         3o6g==
+        b=qaHPvu5dV5CoBnZw1b0zHdYH/2HdW2tcDmqVqUFgWl3fYtTC5dLSy4OYToiuLMQh0Y
+         TDtN8ltLUfP1Q8tZGU+ZmF0aVJoYQ6McTAlkaRCUWOoBux8lVleaoA2G5KgJBxUL62ur
+         QMRGbF+BCUvL+halHQ+yPtjEIOIVIiYuyym0kVbYwzvdM48cIZAFtpOVeJFgu8leW/H1
+         PvK7I+s8YxH4WAT7tdznfa+tKTA1hlUPoOIRBrX5zSY0U4z/Vd60tX7eXcdbAOBCL7pB
+         ovSUEY6rXIwW7IzbhyvruTTEJ17W9TGkbRaSrGo4X+s8GcEJ5+NsB661gUD80kqtXqJv
+         CnYQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:in-reply-to:references:date
-         :message-id:from:subject:mime-version:sender:dkim-signature;
-        bh=quLbyn+6dak+RqrBDuj3ZUIw/uLBxOU7DivTAsxKSC0=;
-        b=JMRzi9fePiakySlOnGdLeThi514GBtYnpeC+vjdmmIBPEPJkyIQQrTkmzxze1QSLeO
-         kaU9hNudUcUdqgN5tYoiwbc0WBqKy/t9zIROP37wHsRuOtnGdYo37qMO/BnOtFPMep2k
-         COniFfcP55eRVqe063j1uKQcJ5HIx2QH2QcmYFRg8tzck8cZkd7R8EgnciBqoiLC0cs3
-         ImSrBdY8ceUhWmEr5pLPtW3wnUve1VsB1I1eNZDSQGEhyzromU1+XkNxq3oy+bLoWXFA
-         HaeIUhJm/H+2vIGw9yTXUL1/lLFCskpmzW4m5BQ/gNWWm+yfCqq3Cy7Kyx5sska2o8gw
-         SIkg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=TIQdUGr25UdLbroZtmLyLA5r82tSM34dVsx3rQ7ycrs=;
+        b=jEOk0JsxuUvGzgorClRTMK6bq0xqH3P1ROG9pSQPzHpfxOnHQXh0qH/1jAbJiIRynD
+         caitzrcpTTF5HbvBiWWnSES7zBjb9aw0BYgJBUReMZrxMibkSCVA0zUm3o8xZfbFFz9O
+         +zwOBJBWULpghdmchDKhRvt4LGukNoVD5ZDChf3DEsNb2Rp5/dRRAFF4D9gUve8MjZWD
+         6+6+Qj+sSb9I4myOCP+zc6hg5rTTEDL90MCnrLSetWzbl50GmOU9P1bPpgmBPLooeZx6
+         1yZPgV3dxnkRZsLNMIjB1aT8JkqSVZDkdp0QxqoHg8PTJIY/K+uCYhvrPsOWv5MP4xFC
+         JG1w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tSG+FB2U;
-       spf=pass (google.com: domain of patchwork-bot+netdevbpf@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=patchwork-bot+netdevbpf@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="sbFs3/9L";
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:subject:from:message-id:date:references
-         :in-reply-to:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=quLbyn+6dak+RqrBDuj3ZUIw/uLBxOU7DivTAsxKSC0=;
-        b=R3JA73QG22TfGpcmHPUC8VcoAHwB66KjhdlWj8nAzDbmTaN9/Bw8BbzzRpwZd8HEnG
-         Cnl44PqY2wVR4fQWGa6geE0aiMTjbd4z5Lcb2sOezRNycWSgI1XQ1ZpsYF97MPMFB6Pe
-         nTYWKMtZTM2wxa7DX7PFMSjTJ+nTjwHKul5TAwroY3QqTgAsNXvMsxOLWi9SsrE9Oc49
-         B2+HI3i3LFXuJY4LAb1wq9748G8iO0+KXafCuL3nTTZ4Y3rGDbkkkOM4dALknvklCv/V
-         yegURqlYV2flzJBDppUa42rWrAeeQWsZ7FQr4GX9vDHInyh1IkF7lybwPzisoVskPkhk
-         u91Q==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TIQdUGr25UdLbroZtmLyLA5r82tSM34dVsx3rQ7ycrs=;
+        b=siWY0fQEoZ2AKw8LPSyQUpfUXBzXsXPRXvaRW3NvX8YwZx4b6CY17Xaedv7KaPm/MH
+         N7yZviOtgKxBDCLdR9oZCjNC+JxBKT1QUgCKJ679xDLkEKpjXun5BflpRdPO2evmL2uQ
+         DsgjUzzhN5SVLKscks7JuYACiHvw41B6b8cihNQ01WKJBGYKvwxWM0Nq/9JzUfYYhycd
+         L3V0hMbuFLMfjDPCIuLQj0zehia35bQNw2Xu9N6KLMd7qLW03fcHabYKrqiKX+rDR2kz
+         Kr8bUBxwKn61aferISMFYRUAhVnRC22/L3oVfHMyRfo91JzCiIl6SBVExTKG+i6LQMmC
+         W04g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:subject:from:message-id:date
-         :references:in-reply-to:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=quLbyn+6dak+RqrBDuj3ZUIw/uLBxOU7DivTAsxKSC0=;
-        b=t5kRFI6lRUi/CjLj1PLBj1ktUOrzcRLVsxxqhv0ySLjomzAkfYJyK1leHOp25SnMRy
-         P/dTtVKYcX4xwqnWPQOHWZCIjCOk1/GnxjzmUXMxCWXQaFle07JduPepQhcLS/qLh7y3
-         MOvMfMVvA7Sa7u7Lb2kU6ADbSTNgQnkn9YZbyNMqsOozwFPSjj8kayvqKAwJgmdrv6Iz
-         Y9sWffO4W2zD3g86fhSiNlB4P5sVLEhknrowB89nv30khZyYSrtKLLHWEeCsVoUlFben
-         b1NuLxXcyn5sULHVxOXUv6MUThqjXM9jidX9B7Eoe6grUI8tHBZz8CSop6mT2FR6AUsL
-         veNQ==
+        bh=TIQdUGr25UdLbroZtmLyLA5r82tSM34dVsx3rQ7ycrs=;
+        b=qOAsZipHurFGTS65Ugbn2VVblc0cX6gg2n7sM7Scap39qnBxKErGHUrGYUbm5OvTEx
+         fUG7D8geA6CTpOdodiAVPplpQWcgZvpAtWOyNsMBVKGIC0hV27Kzh/1EooqKdh5HP0kT
+         MLJRgC9Mq7wzV0lggSuuDjieTBw9S5wXtBKx5Z0TQDcY4s5t2ap3g7ESBzi/Ve58Bu07
+         w5CXhkUO0wjO9NfneNpqA8NLmC4icNQXmOA7GY5yifYowUVfDZddDFuVRgRddftuHKGl
+         jgHwimxj6hUFfpqbUdbWNH2KeO8Lo/VhsXSBtZkLhiG9AQ6TzR7gZJvbBfAdGiDtFtq3
+         iz+w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533WM0cljgLc+IfysRHUQnxjMYNbzdR/UMBP7WBo/s/O4rz7oyKa
-	UL0ehz1g7cGhcGwNliUmErk=
-X-Google-Smtp-Source: ABdhPJwC8lidUsaVGAKGkcibPlTL94+XQGsvWxEKi8Q7fl3YaQZmR2PFoYneSP0s9uCNaOMXvGZJkw==
-X-Received: by 2002:aa7:9434:0:b029:18c:1c6a:2e0a with SMTP id y20-20020aa794340000b029018c1c6a2e0amr9687333pfo.8.1607202008124;
-        Sat, 05 Dec 2020 13:00:08 -0800 (PST)
+X-Gm-Message-State: AOAM531IWPmPMDdmwEw1wfT1dACmpPbuykBhA4NNg1gRt8OwTRF0b/c0
+	Ybns9RrytThgW148rRDR6MI=
+X-Google-Smtp-Source: ABdhPJwYu7cDDbJ0cz6zxwwnU+1bWNA0O3OSebBTfCMIo7T/OvmSuzYae8cfA+z4hmmsfP0NH5N8uA==
+X-Received: by 2002:a37:a97:: with SMTP id 145mr16500159qkk.465.1607210343502;
+        Sat, 05 Dec 2020 15:19:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b187:: with SMTP id s7ls5922096plr.3.gmail; Sat, 05
- Dec 2020 13:00:07 -0800 (PST)
-X-Received: by 2002:a17:902:c3d2:b029:da:73c5:c589 with SMTP id j18-20020a170902c3d2b02900da73c5c589mr9204011plj.71.1607202007556;
-        Sat, 05 Dec 2020 13:00:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607202007; cv=none;
+Received: by 2002:a37:2795:: with SMTP id n143ls6154855qkn.9.gmail; Sat, 05
+ Dec 2020 15:19:03 -0800 (PST)
+X-Received: by 2002:a37:e09:: with SMTP id 9mr16669108qko.39.1607210343197;
+        Sat, 05 Dec 2020 15:19:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607210343; cv=none;
         d=google.com; s=arc-20160816;
-        b=g40sdlcVO4tQF1eivR1AY0JCoNm/zJiZl2SdiXoyUU5AJRXiLnhY8iwNICd+N+aex8
-         FQgxolUoC6BYT7fraZS6w/iNUDkZwBgKwpGHo/Ig+sjRbmm+9LED8V+HTgQoM7NQkVHv
-         bJuJzq0qumq+gqwsqexZucp1NKU4JYHo5uO5VCEhwpaIZrHKjawAGGoNe3xM9uK8hHyL
-         nphkVxennySUT3IoyxQrMONYBMi3BpaD/sUkXLgLPxr8Dng5g/15C3s/mXqeWplzuATt
-         vYaZHIO0WEUMY3hi//WJj7uj01yueo3yXOvQ8cvCQXdojHhwJZ8fUpTuagy3MqXs/ltz
-         JAug==
+        b=TD1LkawEB37V4AScuURzxmttByOmxCq5WRW6hW6gAAVNqOsl1sxhwKATkZ29068bRY
+         P7YFi8d+T7C7VzoMhvfFYG+ST9sQAycrLNd1kfxObUFz8PqzJqDAzyxh8zYcV3v+LRmi
+         7B9XjeKKhhHZcyHEFuriD8szeJFE12tmoJnz9rD6fJL3b4xb3Pd/ehclK68WQ8yXBqq+
+         RvQyekTzhWKLpmhxbEHBXlSCkA79uqH2B0LVsIJrZHpU4fCicOqP1wCtHUOk+P//wOV+
+         fwjwk1BV3KPnG+vphFm+Ek0KyYc5WeUgwm37y2l3rnv0DSw0bjbukYQI4qtv2vZTMnXb
+         PSyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:in-reply-to:references:date:message-id:from:subject
-         :content-transfer-encoding:mime-version:dkim-signature;
-        bh=UXqlrqw3w9bL5IxeSRR+kgOHU80yVm16r85Igqn4dIw=;
-        b=IOzUu9hHbV5RWh5r5ymgQVFutdr6pv4tb7ZPwZjvF7F9lyKfYKzrRiCeaazrBchAt0
-         FsT898PbDZ65tYWU+RfAyo1EVOFzdPGsALgL/ZwEuSU/9UdcRaXVQCSvh7rsoXq+7ZiJ
-         QL7TV35edSPxc6d1ly5kHm0DoNeEULYzD2HzxQiLHiOwH9XlKVP8y/ji2QCCkdFkL+ZA
-         d+nYiiPY5mxMtdduvSgTHW8mpSLaHySju7EnAH3+5eYK3eC39gYWXmZZOAmHTBfEMnRw
-         VOx2x7beZpscU1RflewL85KEAeIOHXGsbWpRq4Yr/VWfJ84s2KS+r1Q0sTVqw73lkr7S
-         2e8g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=aqANGMJY+qQUH+c/3I3FS6N0GPm5kqIELNuG0yc/25s=;
+        b=GXrBZD35EiUyVevgKrmAp25EhJP5W55CLb69aivvrpBOFyPEZVJbCQ4DeBmvKNV9xF
+         NJ7DDtztz0dLAmQSsjNz98c2xS1g73UKbKFdR1FAtefLE/2AAAcuUR6eZreQlmuIBJPX
+         xtSvZmSU7Zz5kDBE/UqnQ9V8VywAyQMHhaKqa68nqTjqfp3OWENwFKlZNmEw+ND+Bn++
+         4D003EJvNQbBAP+yMopUzTGvTa4FxsuomCLMrhBynSMwSeXyNL4CpeuuYOW7MLHk1Z4N
+         Il/WoQJDsKlk8rx1yrV/e0brR3X0eGB1VoeZYkyw3ykRlTNDrJkNLEujej8xmYvDBoEL
+         /pfg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tSG+FB2U;
-       spf=pass (google.com: domain of patchwork-bot+netdevbpf@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=patchwork-bot+netdevbpf@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="sbFs3/9L";
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w6si458738pjr.2.2020.12.05.13.00.07
+        by gmr-mx.google.com with ESMTPS id f16si678684qkg.3.2020.12.05.15.19.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Dec 2020 13:00:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of patchwork-bot+netdevbpf@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Content-Type: text/plain; charset="UTF-8"
+        Sat, 05 Dec 2020 15:19:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+X-Received: by 2002:a9d:be1:: with SMTP id 88mr8458633oth.210.1607210341377;
+ Sat, 05 Dec 2020 15:19:01 -0800 (PST)
 MIME-Version: 1.0
+References: <20201203222641.964234-1-arnd@kernel.org> <20201204175745.1cd433f7@kicinski-fedora-pc1c0hjn.DHCP.thefacebook.com>
+In-Reply-To: <20201204175745.1cd433f7@kicinski-fedora-pc1c0hjn.DHCP.thefacebook.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Sun, 6 Dec 2020 00:18:44 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a3TuKAC60HAjiyHwy7ciQp=mCNKjmG5jcaCFWe8ysVCuA@mail.gmail.com>
+Message-ID: <CAK8P3a3TuKAC60HAjiyHwy7ciQp=mCNKjmG5jcaCFWe8ysVCuA@mail.gmail.com>
 Subject: Re: [PATCH] ch_ktls: fix build warning for ipv4-only config
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <160720200717.27606.5148059074958417567.git-patchwork-notify@kernel.org>
-Date: Sat, 05 Dec 2020 21:00:07 +0000
-References: <20201203222641.964234-1-arnd@kernel.org>
-In-Reply-To: <20201203222641.964234-1-arnd@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: ayush.sawal@chelsio.com, vinay.yadav@chelsio.com, rohitm@chelsio.com,
- davem@davemloft.net, kuba@kernel.org, arnd@arndb.de,
- natechancellor@gmail.com, ndesaulniers@google.com, yuehaibing@huawei.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-X-Original-Sender: patchwork-bot+netdevbpf@kernel.org
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Ayush Sawal <ayush.sawal@chelsio.com>, Vinay Kumar Yadav <vinay.yadav@chelsio.com>, 
+	Rohit Maheshwari <rohitm@chelsio.com>, "David S. Miller" <davem@davemloft.net>, Arnd Bergmann <arnd@arndb.de>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	YueHaibing <yuehaibing@huawei.com>, Networking <netdev@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=tSG+FB2U;       spf=pass
- (google.com: domain of patchwork-bot+netdevbpf@kernel.org designates
- 198.145.29.99 as permitted sender) smtp.mailfrom=patchwork-bot+netdevbpf@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b="sbFs3/9L";       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,36 +131,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello:
+On Sat, Dec 5, 2020 at 2:57 AM Jakub Kicinski <kuba@kernel.org> wrote:
+>
+> On Thu,  3 Dec 2020 23:26:16 +0100 Arnd Bergmann wrote:
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > When CONFIG_IPV6 is disabled, clang complains that a variable
+> > is uninitialized for non-IPv4 data:
+> >
+> > drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c:1046:6: error: variable 'cntrl1' is used uninitialized whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
+> >         if (tx_info->ip_family == AF_INET) {
+> >             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c:1059:2: note: uninitialized use occurs here
+> >         cntrl1 |= T6_TXPKT_ETHHDR_LEN_V(maclen - ETH_HLEN) |
+> >         ^~~~~~
+> >
+> > Replace the preprocessor conditional with the corresponding C version,
+> > and make the ipv4 case unconditional in this configuration to improve
+> > readability and avoid the warning.
+> >
+> > Fixes: 86716b51d14f ("ch_ktls: Update cheksum information")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>
+> This is for evrey clang build or just W=1+? Would be annoying if clang
+> produced this on every build with 5.10 (we need to decide fix vs -next).
 
-This patch was applied to netdev/net.git (refs/heads/master):
+The -Wsometimes-uninitialized is enabled unconditionally for clang,
+but this only happens for IPv4-only configurations with IPv6 disabled,
+so most real configurations should not observe it, but the fix should still
+go into v5.10.
 
-On Thu,  3 Dec 2020 23:26:16 +0100 you wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> When CONFIG_IPV6 is disabled, clang complains that a variable
-> is uninitialized for non-IPv4 data:
-> 
-> drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c:1046:6: error: variable 'cntrl1' is used uninitialized whenever 'if' condition is false [-Werror,-Wsometimes-uninitialized]
->         if (tx_info->ip_family == AF_INET) {
->             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> drivers/net/ethernet/chelsio/inline_crypto/ch_ktls/chcr_ktls.c:1059:2: note: uninitialized use occurs here
->         cntrl1 |= T6_TXPKT_ETHHDR_LEN_V(maclen - ETH_HLEN) |
->         ^~~~~~
-> 
-> [...]
-
-Here is the summary with links:
-  - ch_ktls: fix build warning for ipv4-only config
-    https://git.kernel.org/netdev/net/c/a54ba3465d86
-
-You are awesome, thank you!
---
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+      Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/160720200717.27606.5148059074958417567.git-patchwork-notify%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3TuKAC60HAjiyHwy7ciQp%3DmCNKjmG5jcaCFWe8ysVCuA%40mail.gmail.com.
