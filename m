@@ -1,121 +1,143 @@
-Return-Path: <clang-built-linux+bncBCR5PSMFZYORBWN5XD7AKGQEPHVH2QI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZXY4CYYORB2PHXD7AKGQEBPZUY5Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F50A2D1081
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Dec 2020 13:23:55 +0100 (CET)
-Received: by mail-pg1-x53d.google.com with SMTP id 1sf8581170pgq.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Dec 2020 04:23:55 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607343834; cv=pass;
+Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C4C972D1294
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Dec 2020 14:53:46 +0100 (CET)
+Received: by mail-il1-x13d.google.com with SMTP id c76sf2844959ilf.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Dec 2020 05:53:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607349225; cv=pass;
         d=google.com; s=arc-20160816;
-        b=orBYZfl1nuzsdHJM+onEKbXV1sai1RmWyVNanBeX/qhhvmAHFlFzRAdjb4AzAaUgcI
-         PZAOl5TlOnD+raLRpSJgvfH0zjrBLdAL9lmP8ZoykZjBy5A+J8mm+9/SJoQCZ4lvwehM
-         CteVSE1qGtbGJpw3iv2E0Y+w10CdgBi1EJG325TNvoR66/KtWmWnmjH6+TjUDmI/BLAY
-         9n2X1aprs01pIixr9NyY/5Nbwb7RuYXJMl9tU3kUrgGjRp1IgFFDOx/7jOXoJRskk4zV
-         kJu7GslctHNXUHOy5jyJjcP2Bi7yIJ4Wyv0l0GbgejdakYfCwTSjgDCd150Y/c0wg4gE
-         72pg==
+        b=VD9Gs22yCyprlvZJMvBiNgWF/5so5GQq3jR3gyEhnC3osa2t6IU96pqsiCD7kIyrcx
+         8ByWtMdYGshA/RkLYfDy/e4ar/AhShN3M80nJePLQD3beCzN3o/IA+uqx/IbsdqjZeHh
+         4mPf7mEOZURpnbf8eIgcPsQlvSOqtnpx3zUK+f1AlHz+QHzPN203dsm/qXoac7U4x1HM
+         yaGBqAz3L4phCsDEUWrv+zSkaJnsSiuNzrNqAPIH9gPg0T6JwTbTiGElS7Viu+BS3EKT
+         PwNd3vO1aJLOkOcYArcj5yoIxilfV6VXOrcp68s+IuouFQ7vX0GE9vSf2km3BKlBvjfw
+         cg7A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=RiMmaeJF2nOpcDoTPsYvm02z2A/PWDJc3uzT7QNBIHg=;
-        b=RIj3dVvCBa+9w7wCatI1LDkhh/CS2zpX5jXJIgvX2bXUsY/t4Y0oAQbUi3+IjIvxRd
-         Gj/yG0zp75lkJST+f8yUFpqtFskIGg536WeZA2Id9GxrDwmfxKvBRGbE419TxrzZTIlY
-         CC5OK0Dmj443skx4Go3sLYYefrMQAIiv1o9fkxj3x9ItDJiI8Briz2J7CgJ7fZGkVFuu
-         K1IEGQOdy+ePe85d2iSI2Bx+3qu2kXsmInF3NWImasOWeNI8iQf/F9T2wQnQaNgmmaQo
-         /+Hoj6zUpddD+5C28M2MihLz4mMWHzZ2uZ9XSOa2V038cVeWoSitFA/LwK22w4X6m/Ji
-         aLGQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=cYX15UMRpWUekU7xQdSJ1NCmIJfnODcPEQLqJ6feOTY=;
+        b=y4bdapKtRjs8ECM6swzz9H6LpWoHZIsEynxPfgiNeYuxZ1E9ztKX56QIc+bhUH8OlS
+         CuZMLuSpZZKNle9+MW2ORKBTT8SOQLs/FLA0TaEBqHUBdJ9zsfMSk61LAUCoy6YfHGgf
+         hrcuX/1o4Q0jAC/epeWCnF9suEEJ9CfY/JowtfKxBsMwmTQclGh5iLNDzpZ8cBNw4Ym3
+         ncdfxWpaWX5stKXJESB4A2AaRHVdIGqzGFZjxwxs5oNhb0gKHhim409Lai2r69aJgkBG
+         3HBNYrYPIPMGSynxWH7tCvkOLZTwAsigh1GAmPuMZ1exTWVHuOH4DmrpQTApJ7O5kugl
+         kyQQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=Jaz1NyI5;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=PMwQq9aq;
+       spf=pass (google.com: domain of hdegoede@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=hdegoede@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:content-transfer-encoding:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RiMmaeJF2nOpcDoTPsYvm02z2A/PWDJc3uzT7QNBIHg=;
-        b=k1cSpzZ/VYmCLhHZEjV0wol9uZEzB6cuBvC13/Pt1ewMSx16CQ8k3+nk7iZ0jFCdHS
-         YwKMdSnwfAcDSnIG5hr+sFA6AkCzV13zUhCpfU/tdp2OC1vNuRK0G/L5uGEFH9kcQJt6
-         lcZ4DYMBukIo6PMYUOC8DWHwSXGsZs32LGA0dGr22aESSCUp1UJkofcI7bW2ObGSZrS/
-         xf8vfP9sd97+wrkT6/l3kYeEjM/2K8+r0IXHczmEojfwW0JHLzNKXPKLtqTURRutGfEf
-         rxPrlt+6Di4nYSuaDpQltxiULgjjEzn1e8boIYpC91UXyOfiBU84TkXASJrXf5uf5Rw8
-         /Dhw==
+        bh=cYX15UMRpWUekU7xQdSJ1NCmIJfnODcPEQLqJ6feOTY=;
+        b=TbA4ptjyplFZyruFZdbiB2yymhg01V0lGlhJr5sZikcQKUXEAFb86FnCzTn9uvNIaG
+         wY/xFp3sqnJHsHB0/xPZwvNp9t20gnctGBj1bbfa34VmvamfebUy5unYI/kfuq9mcs2U
+         bYkUW4FL2RwlaO3WqMpn4GCy4VmB1fHS8C/OM0yRH2xmSM90GFjtLhLyzHk7BW40Kr6T
+         njK/VSdY8qbTbLg2xUjwgDnRJJkadUg+mewdoMheEZVu/xCJEFYLu01rueiB59d6h7ar
+         v9VbrrSkJ7CAhAgRPhDYDzfGrFdVbcoN/YwaQDAJo4XrOyc25BGM/UKDne0ojU9LHbfU
+         8apQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:content-transfer-encoding
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RiMmaeJF2nOpcDoTPsYvm02z2A/PWDJc3uzT7QNBIHg=;
-        b=Fzw5tQRy9EpOmTlZLoOfPNL32zKNvNRSuKoi6dY5xFuG9+LjmBPv/DaypAE+FO8aao
-         PoXCKcMck4F7WUz/BUHo/fvQ7xz3sjIS3W5d3zFe0jU88qe6W6135wJpG3rhD89upnrf
-         rEfTqm63Kuktza94ViDUlDZxo7U2StkuAWwd4xsxjo1fV5L6GnRKvQvOb9YS97jY5jaJ
-         QVEhGC0GCeRiRi3YzL/DjcsJzbYaypGw+mTmUNSmWUY/MGLJ7ufOfPHnJ5Ka+ifFUtY7
-         HEdY/q6ASYKGCw6Wp4PfNxQPYBPgIK6QoYUlqoUPCa4I9e2KJlw3NX8JeRRPcDep0TQx
-         nBhA==
+        bh=cYX15UMRpWUekU7xQdSJ1NCmIJfnODcPEQLqJ6feOTY=;
+        b=e11qZnaOZycJ/BsO9s+vYWEcrNeCLoyvJ02gLvDvdCRD7pW4dHgEIWb45Ic4RK3CZL
+         rLZuMZwcfczMSNAbPg2Q6zvDR+0tNkdXcWWVtt83rdRwkp5RjaITUER8s5uM3Wzdh9c8
+         g4tkIrCdtuNzJULeI9zdW1v7IpvlNL5BZpJYvt0Daycc0BGD97A4Vyibxphu4cZJs4z9
+         EpauBR7vKqntcr9AoQUjhFY7e9DhxQ0GDjw4IPm/FY4xN8F8VYLQnPdjsYMsDwyrwbaw
+         Odwd11VLkGysC6bMCYNBoK2OYwBjkb9LIZbe6PMcB2d3pOz8Dr5EFOMri8fWQ6j3nf55
+         xHNA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533qHWAFx7JXsqpUj182erfk0G48kCIW9EgRLHM0ZJLWMuv/BJNZ
-	7KPMarxAIaue4wuEYzwpXHg=
-X-Google-Smtp-Source: ABdhPJzes/g32aM6LpBi1Uq3049ek3nrVadzyGwTP6GHmSGOGPyQtRbw/ny71L/n8BAlAfYWWoSzBw==
-X-Received: by 2002:a17:90a:a393:: with SMTP id x19mr16887944pjp.68.1607343834167;
-        Mon, 07 Dec 2020 04:23:54 -0800 (PST)
+X-Gm-Message-State: AOAM531l1q+AYtJ7g7NZpLWUGnCwsckWOwGdLHbmLcc4nivhHKX38HQG
+	jE+TnDmuQHbZS75Up8U0pBw=
+X-Google-Smtp-Source: ABdhPJz6SWhGBX8ozGhkhYqjKCkFMmqXO1MTj/YzWQvh08IKaaRYO7ChxzAnWKTXBkXf6sYGAvkARg==
+X-Received: by 2002:a92:40c6:: with SMTP id d67mr22644406ill.236.1607349225606;
+        Mon, 07 Dec 2020 05:53:45 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7d97:: with SMTP id y145ls6752398pfc.10.gmail; Mon, 07
- Dec 2020 04:23:53 -0800 (PST)
-X-Received: by 2002:a63:e20:: with SMTP id d32mr18476238pgl.94.1607343833415;
-        Mon, 07 Dec 2020 04:23:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607343833; cv=none;
+Received: by 2002:a5d:8c86:: with SMTP id g6ls2664256ion.0.gmail; Mon, 07 Dec
+ 2020 05:53:45 -0800 (PST)
+X-Received: by 2002:a5d:9c91:: with SMTP id p17mr20232579iop.36.1607349225147;
+        Mon, 07 Dec 2020 05:53:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607349225; cv=none;
         d=google.com; s=arc-20160816;
-        b=qG8wEbu2eggESnWrFYiBeW3mym22cPg05GpotFqdXhBHvi+g80mG0oSuw86gZ5n2xy
-         W6trpMCNHPsGkAt9S8TzDuFwt2p3GPe29jQoiPm4vDMCNsDpGuKkmRYI3pRhXZ/QX2NU
-         WWbeXo4dNiflXiOeltN4RvNuP2wLkFrN7R32MPXtVCJ6MV64ujtA3FJVQ7gZjVSkNvjA
-         x+7+rSAUIcdpvq8IMev8BLPh3S36P34kLc4i+oI5WIY4xOEWZQ8G2s6iOBYC2otAh3o1
-         aoEzp6/c0Bg/hgmoGx0Rfppi8BVD61NYe+SlQ1ZgztRxdHQx04Gf+onlSIlwkajP3mC8
-         Dhdg==
+        b=DJx/AXZJWmPW6dRc8auykz2Kkq7fLnx0OVqeKNHmT2/89UWVJB5o76Uym7KpyF0tmm
+         H2TxJhMsm8+Su255BDAC/bPUV9koQi3+6Q822UB5/KMLgPXrAHWGjWtuAP6El3m9eayL
+         I7Ncqxdrr7c+dHmEjR1XuR+fTZc/xxlO9yza9uG4JzYe/ZU9e6y6/uCwkUwtLJzQqD5b
+         gvQM17zz1vvdUSR8wVv4pchNVtY7YdX/D+wOJxWDOd8tx2IBUgf6MasCmCiv3jMbmZkV
+         D3iiDHbuUoNuAKp9O9u3d3st9Kn7zIsNQCDDNvXTpWAygtaL4MPNQ2hrgScOGHOoR3BT
+         mRiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:dkim-signature;
-        bh=0gWplW4j+f9mbE3E3uanOoY2Fq52XxzXsRNwiKaPddA=;
-        b=A4qUtDRtKpQqKhmMu3KjQcoyLMmu3LtjG7JoghPFM/F4UxVCjY6Qsm63OM43yHlu8k
-         TdfgBKY3Y2VtDGZSXae6YYfWtO54kiXJ4ZgSLguRzeLz3dYqso96Nx82o7WYBErDe/RL
-         CxJtMIY4Kh1AJpCDcQ3n4hlBWc+D+Cer9k3/OgCUzb98eDbnvlYVnLeGzN6ZO+u3/CWA
-         /+8EMx8dhSa7T3DEVJGxG0QKkjSxsysuX6PXqfd8dewFZfVx0xIlsoVw8wIdBFWinKwB
-         JjnCqxp12oZ+Z9+i07VRNgX8FClUZGE6tEyW3O8kWJpLrdkje0fDjt7jVFEKhQXLUHaY
-         seVA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=z0LkzQwUfy3VSXbaI0zGos8FMVr/WHmEntut1gHn3+k=;
+        b=wZWnuKI88qALKEsPD7dI1hlpjEphxX7O3TOQAZE0E7SerOYXHxRFBG0NrwPbcJTj22
+         oVTz6TjhQWxCHsBYp2vEGj+wbnKpJC34O+1viaxzuTfWSnPReFygDnRCraE8X++SLOhN
+         z4EoIWis+gRJJXOOohpfj0UuZVCYYri5Q6abSbaAblWjeZC7BjR1q0IdZi42XOjFQB9e
+         3lWZqzjuLYF3dTNvRg/Ge44eUbLV/APgpxnPT/AMHKRAWro93LVSoXdmRRm8oNrtORVd
+         Pino/4/xeSQxYVrhLrYOvuiRv7b2vF39aU19UNsiAdTyYWfayNYVA+TWeSINREEQa5cn
+         GYDw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=Jaz1NyI5;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
-Received: from ozlabs.org (ozlabs.org. [203.11.71.1])
-        by gmr-mx.google.com with ESMTPS id w6si741691pjr.2.2020.12.07.04.23.52
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=PMwQq9aq;
+       spf=pass (google.com: domain of hdegoede@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=hdegoede@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id b8si346403ile.1.2020.12.07.05.53.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Dec 2020 04:23:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4CqMtB4Fy2z9sR4;
-	Mon,  7 Dec 2020 23:23:46 +1100 (AEDT)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: kernel test robot <lkp@intel.com>, Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [powerpc:next-test 54/220] arch/powerpc/kernel/vdso32/vgettimeofday.c:13:5: warning: no previous prototype for function '__c_kernel_clock_gettime64'
-In-Reply-To: <202012042220.zO7hSFT2-lkp@intel.com>
-References: <202012042220.zO7hSFT2-lkp@intel.com>
-Date: Mon, 07 Dec 2020 23:23:43 +1100
-Message-ID: <87czzlu7n4.fsf@mpe.ellerman.id.au>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 07 Dec 2020 05:53:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of hdegoede@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-199-d7LnXJHeM8amhWRxlg9FLg-1; Mon, 07 Dec 2020 08:53:41 -0500
+X-MC-Unique: d7LnXJHeM8amhWRxlg9FLg-1
+Received: by mail-ej1-f71.google.com with SMTP id t17so3890569ejd.12
+        for <clang-built-linux@googlegroups.com>; Mon, 07 Dec 2020 05:53:40 -0800 (PST)
+X-Received: by 2002:a17:906:3949:: with SMTP id g9mr1614670eje.493.1607349219578;
+        Mon, 07 Dec 2020 05:53:39 -0800 (PST)
+X-Received: by 2002:a17:906:3949:: with SMTP id g9mr1614646eje.493.1607349219349;
+        Mon, 07 Dec 2020 05:53:39 -0800 (PST)
+Received: from x1.localdomain (2001-1c00-0c0c-fe00-d2ea-f29d-118b-24dc.cable.dynamic.v6.ziggo.nl. [2001:1c00:c0c:fe00:d2ea:f29d:118b:24dc])
+        by smtp.gmail.com with ESMTPSA id p22sm12230242ejx.59.2020.12.07.05.53.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Dec 2020 05:53:38 -0800 (PST)
+Subject: Re: [PATCH] platform/x86: mlx-platform: remove an unused variable
+To: Arnd Bergmann <arnd@kernel.org>, Vadim Pasternak <vadimp@nvidia.com>,
+ Mark Gross <mgross@linux.intel.com>,
+ Nathan Chancellor <natechancellor@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Michael Shych <michaelsh@mellanox.com>, platform-driver-x86@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20201203223105.1195709-1-arnd@kernel.org>
+From: Hans de Goede <hdegoede@redhat.com>
+Message-ID: <64393b7e-ba81-1545-dfe8-bc3567dd534b@redhat.com>
+Date: Mon, 7 Dec 2020 14:53:37 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.0
 MIME-Version: 1.0
+In-Reply-To: <20201203223105.1195709-1-arnd@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: mpe@ellerman.id.au
+Content-Language: en-US
+X-Original-Sender: hdegoede@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ellerman.id.au header.s=201909 header.b=Jaz1NyI5;       spf=pass
- (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted
- sender) smtp.mailfrom=mpe@ellerman.id.au
+ header.i=@redhat.com header.s=mimecast20190719 header.b=PMwQq9aq;
+       spf=pass (google.com: domain of hdegoede@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=hdegoede@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,125 +150,103 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-kernel test robot <lkp@intel.com> writes:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git=
- next-test
-> head:   4e4ed87981c764498942c52004c620bb8f104eac
-> commit: d0e3fc69d00d1f50d22d6b6acfc555ccda80ad1e [54/220] powerpc/vdso: P=
-rovide __kernel_clock_gettime64() on vdso32
-> config: powerpc64-randconfig-r011-20201204 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 32c5=
-01dd88b62787d3a5ffda7aabcf4650dbe3cd)
-> reproduce (this is a W=3D1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
-n/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc64 cross compiling tool for clang build
->         # apt-get install binutils-powerpc64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.g=
-it/commit/?id=3Dd0e3fc69d00d1f50d22d6b6acfc555ccda80ad1e
->         git remote add powerpc https://git.kernel.org/pub/scm/linux/kerne=
-l/git/powerpc/linux.git
->         git fetch --no-tags powerpc next-test
->         git checkout d0e3fc69d00d1f50d22d6b6acfc555ccda80ad1e
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
-CH=3Dpowerpc64=20
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
->    arch/powerpc/kernel/vdso32/vgettimeofday.c:7:5: error: conflicting typ=
-es for '__c_kernel_clock_gettime'
->    int __c_kernel_clock_gettime(clockid_t clock, struct old_timespec32 *t=
-s,
->        ^
+Hi,
 
-We're building vdso32, which is 32-bit code, we pass -m32:
+On 12/3/20 11:30 PM, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> The only reference to the mlxplat_mlxcpld_psu[] array got removed,
+> so there is now a warning from clang:
+> 
+> drivers/platform/x86/mlx-platform.c:322:30: error: variable 'mlxplat_mlxcpld_psu' is not needed and will not be emitted [-Werror,-Wunneeded-internal-declaration]
+> static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
+> 
+> Remove the array as well and adapt the ARRAY_SIZE() call
+> accordingly.
+> 
+> Fixes: 912b341585e3 ("platform/x86: mlx-platform: Remove PSU EEPROM from MSN274x platform configuration")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-  clang -Wp,-MMD,arch/powerpc/kernel/vdso32/.vgettimeofday.o.d -nostdinc -i=
-system /usr/lib/llvm-11/lib/clang/11.0.0/include -I/linux/arch/powerpc/incl=
-ude -I./arch/powerpc/include/generated -I/linux/include -I./include -I/linu=
-x/arch/powerpc/include/uapi -I./arch/powerpc/include/generated/uapi -I/linu=
-x/include/uapi -I./include/generated/uapi -include /linux/include/linux/kco=
-nfig.h -include /linux/include/linux/compiler_types.h -D__KERNEL__ -I /linu=
-x/arch/powerpc -DHAVE_AS_ATHIGH=3D1 -Qunused-arguments -Wall -Wundef -Werro=
-r=3Dstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fsho=
-rt-wchar -fno-PIE -Werror=3Dimplicit-function-declaration -Werror=3Dimplici=
-t-int -Werror=3Dreturn-type -Wno-format-security -std=3Dgnu89 --target=3Dpo=
-werpc64le-linux-gnu --prefix=3D/usr/bin/powerpc64le-linux-gnu- --gcc-toolch=
-ain=3D/usr -no-integrated-as -Werror=3Dunknown-warning-option -mlittle-endi=
-an -m64 -msoft-float -pipe -mcpu=3Dpower8 -mtune=3Dpower9 -mno-altivec -mno=
--vsx -mno-spe -fno-asynchronous-unwind-tables -Wa,-mpower4 -Wa,-many -mlitt=
-le-endian -fno-delete-null-pointer-checks -Wno-frame-address -Wno-address-o=
-f-packed-member -Os -Wframe-larger-than=3D2048 -fno-stack-protector -Wno-fo=
-rmat-invalid-specifier -Wno-gnu -mno-global-merge -Wno-unused-const-variabl=
-e -fomit-frame-pointer -Wdeclaration-after-statement -Wvla -Wno-pointer-sig=
-n -Wno-array-bounds -fno-strict-overflow -fno-stack-check -Werror=3Ddate-ti=
-me -Werror=3Dincompatible-pointer-types -fmacro-prefix-map=3D/linux/=3D -Wn=
-o-initializer-overrides -Wno-format -Wno-sign-compare -Wno-format-zero-leng=
-th -Wno-pointer-to-enum-cast -Wno-tautological-constant-out-of-range-compar=
-e -D_TASK_CPU=3D304 -shared -fno-common -fno-builtin -nostdlib -Wl,-soname=
-=3Dlinux-vdso32.so.1 -Wl,--hash-style=3Dboth -include /linux/lib/vdso/getti=
-meofday.c -fno-stack-protector -DDISABLE_BRANCH_PROFILING -ffreestanding -f=
-asynchronous-unwind-tables   -I /linux/arch/powerpc/kernel/vdso32 -I ./arch=
-/powerpc/kernel/vdso32    -DKBUILD_MODFILE=3D'"arch/powerpc/kernel/vdso32/v=
-gettimeofday"' -DKBUILD_BASENAME=3D'"vgettimeofday"' -DKBUILD_MODNAME=3D'"v=
-gettimeofday"' -m32 -c -o arch/powerpc/kernel/vdso32/vgettimeofday.o /linux=
-/arch/powerpc/kernel/vdso32/vgettimeofday.c
+Thank you for your patch.
+
+Note that there are 4 more cases where the foo1 and foo2 in:
+.data = foo1 and .count = ARRAY_SIZE(foo2) are not the same.
+
+There are 2 cases where .count is set to ARRAY_SIZE(mlxplat_mlxcpld_pwr)
+instead of to ARRAY_SIZE(mlxplat_mlxcpld_default_pwr_items_data)
+
+and there are 2 cases where .count is set to ARRAY_SIZE(mlxplat_mlxcpld_fan)
+instead of to ARRAY_SIZE(mlxplat_mlxcpld_default_fan_items_data)
+
+If one of the MLX people can provide a patch fixing this then that
+would be great.
+
+###
+
+I've applied this patch to my review-hans  branch:
+https://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git/log/?h=review-hans
+
+Note it will show up in my review-hans branch once I've pushed my
+local branch there, which might take a while.
+
+Once I've run some tests on this branch the patches there will be
+added to the platform-drivers-x86/for-next branch and eventually
+will be included in the pdx86 pull-request to Linus for the next
+merge-window.
+
+Regards,
+
+Hans
 
 
->    arch/powerpc/include/asm/vdso/gettimeofday.h:183:5: note: previous dec=
-laration is here
->    int __c_kernel_clock_gettime(clockid_t clock, struct __kernel_timespec=
- *ts,
->        ^
-
-But this is inside an #ifdef __powerpc64__ block:
-
-182 #ifdef __powerpc64__
-183 int __c_kernel_clock_gettime(clockid_t clock, struct __kernel_timespec =
-*ts,
-184                              const struct vdso_data *vd);
 
 
-So is clang defining __powerpc64__ even for 32-bit code?
 
-And the answer appears to be yes:
+> ---
+>  drivers/platform/x86/mlx-platform.c | 13 ++-----------
+>  1 file changed, 2 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
+> index 598f44558764..6a634b72bfc2 100644
+> --- a/drivers/platform/x86/mlx-platform.c
+> +++ b/drivers/platform/x86/mlx-platform.c
+> @@ -319,15 +319,6 @@ static struct i2c_mux_reg_platform_data mlxplat_extended_mux_data[] = {
+>  };
+>  
+>  /* Platform hotplug devices */
+> -static struct i2c_board_info mlxplat_mlxcpld_psu[] = {
+> -	{
+> -		I2C_BOARD_INFO("24c02", 0x51),
+> -	},
+> -	{
+> -		I2C_BOARD_INFO("24c02", 0x50),
+> -	},
+> -};
+> -
+>  static struct i2c_board_info mlxplat_mlxcpld_pwr[] = {
+>  	{
+>  		I2C_BOARD_INFO("dps460", 0x59),
+> @@ -456,7 +447,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_default_items[] = {
+>  		.aggr_mask = MLXPLAT_CPLD_AGGR_PSU_MASK_DEF,
+>  		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
+>  		.mask = MLXPLAT_CPLD_PSU_MASK,
+> -		.count = ARRAY_SIZE(mlxplat_mlxcpld_psu),
+> +		.count = ARRAY_SIZE(mlxplat_mlxcpld_default_psu_items_data),
+>  		.inversed = 1,
+>  		.health = false,
+>  	},
+> @@ -495,7 +486,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_comex_items[] = {
+>  		.aggr_mask = MLXPLAT_CPLD_AGGR_MASK_CARRIER,
+>  		.reg = MLXPLAT_CPLD_LPC_REG_PSU_OFFSET,
+>  		.mask = MLXPLAT_CPLD_PSU_MASK,
+> -		.count = ARRAY_SIZE(mlxplat_mlxcpld_psu),
+> +		.count = ARRAY_SIZE(mlxplat_mlxcpld_default_psu_items_data),
+>  		.inversed = 1,
+>  		.health = false,
+>  	},
+> 
 
-  $ clang --version
-  Ubuntu clang version 11.0.0-2
-  Target: powerpc64le-unknown-linux-gnu
-
-  $ clang -m32 -dM -E - < /dev/null | grep powerpc
-  #define __powerpc64__ 1
-  #define __powerpc__ 1
-
-Compare to gcc:
-
-  $ gcc --version
-  gcc (Ubuntu 10.2.0-13ubuntu1) 10.2.0
- =20
-  $ gcc -m32 -dM -E - < /dev/null | grep powerpc
-  #define __powerpc__ 1
-  #define powerpc 1
-  #define __powerpc 1
-
-
-Which is fairly problematic, because we use the presence/absence of
-__powerpc64__ to determine if we're building 64-bit/32-bit code in
-several places.
-
-Not sure what the best approach for fixing that is.
-
-cheers
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/87czzlu7n4.fsf%40mpe.ellerman.id.au.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/64393b7e-ba81-1545-dfe8-bc3567dd534b%40redhat.com.
