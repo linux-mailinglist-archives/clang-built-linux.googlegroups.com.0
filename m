@@ -1,131 +1,121 @@
-Return-Path: <clang-built-linux+bncBCU6LCMF3IHBB4ERXD7AKGQE43BINPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCR5PSMFZYORBWN5XD7AKGQEPHVH2QI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id C206E2D0E6A
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Dec 2020 11:50:25 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id t8sf9124146pfl.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Dec 2020 02:50:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607338224; cv=pass;
+Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6F50A2D1081
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Dec 2020 13:23:55 +0100 (CET)
+Received: by mail-pg1-x53d.google.com with SMTP id 1sf8581170pgq.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Dec 2020 04:23:55 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607343834; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DzBwdB042o2k55sWu+MlnVRFcEH6rWuUs1a7rxXbEmp/A47twevMj+ugHTC3hPJXla
-         iz/UPhP0vJP20Ngln89mGj8c5U0bo/fNqxShSY02WwpigMpiodIHvJRBBFKOo4g+bHem
-         MgqkFGDWVS18s7pjk+80UTnXJYSiNgLJBf7Eo+fgEBuALAmGC989g8erJNJU0sVTpB1b
-         L6LdSuD8l3VCG9DdD8uJ8khWJ8hhtq3SrM9W4m7fMsoIuKbKkZ69S3dh1PXJi3a+m5cI
-         jOg+y/afyOh5nOb+h4sWzvrCAqdyNAO0IqDww4t+pSgb1J0N9qKg9MJ+PeJOIJiDKHLC
-         hepQ==
+        b=orBYZfl1nuzsdHJM+onEKbXV1sai1RmWyVNanBeX/qhhvmAHFlFzRAdjb4AzAaUgcI
+         PZAOl5TlOnD+raLRpSJgvfH0zjrBLdAL9lmP8ZoykZjBy5A+J8mm+9/SJoQCZ4lvwehM
+         CteVSE1qGtbGJpw3iv2E0Y+w10CdgBi1EJG325TNvoR66/KtWmWnmjH6+TjUDmI/BLAY
+         9n2X1aprs01pIixr9NyY/5Nbwb7RuYXJMl9tU3kUrgGjRp1IgFFDOx/7jOXoJRskk4zV
+         kJu7GslctHNXUHOy5jyJjcP2Bi7yIJ4Wyv0l0GbgejdakYfCwTSjgDCd150Y/c0wg4gE
+         72pg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:from:subject:date:message-id
-         :reply-to:mime-version:sender:dkim-signature:dkim-signature;
-        bh=Pz5EGdrPpgHDDH9AfAgsI5zkqkRBrT6jOdHH5Uy9xaE=;
-        b=jlqpHN0W80+lhudXf7HRgZpwONTeGF30oFnk4d/unmr+DFakrij/nGYoUkIVlsGYvC
-         XnpEC0tSgEkELwY3ykPmmKsWNZXhvVn4dohT2zNuYAv7vDKVT8r2apl7zeuaESDxXYCD
-         Ux0frKI8cyuDGuKYDXplueWKv6L6aGhsSu+4DdjY742IuFASbqYsBP6QdWneDsOiR84k
-         WazOGNAL6jWOoWvozD1GISPpYcpxwGksNkzT7ylBHDqajHtpmrX03AQCvkpA/JvOSYpd
-         RDcg15BxX8Vh/UlmIQfYzX4EvLUoQiLVMwStmQ0gzzf2I8m14lDlP3pRjaCDvBf7RzcV
-         yKyQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:sender:dkim-signature;
+        bh=RiMmaeJF2nOpcDoTPsYvm02z2A/PWDJc3uzT7QNBIHg=;
+        b=RIj3dVvCBa+9w7wCatI1LDkhh/CS2zpX5jXJIgvX2bXUsY/t4Y0oAQbUi3+IjIvxRd
+         Gj/yG0zp75lkJST+f8yUFpqtFskIGg536WeZA2Id9GxrDwmfxKvBRGbE419TxrzZTIlY
+         CC5OK0Dmj443skx4Go3sLYYefrMQAIiv1o9fkxj3x9ItDJiI8Briz2J7CgJ7fZGkVFuu
+         K1IEGQOdy+ePe85d2iSI2Bx+3qu2kXsmInF3NWImasOWeNI8iQf/F9T2wQnQaNgmmaQo
+         /+Hoj6zUpddD+5C28M2MihLz4mMWHzZ2uZ9XSOa2V038cVeWoSitFA/LwK22w4X6m/Ji
+         aLGQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jCMeN+rm;
-       spf=pass (google.com: domain of 37gjoxwsjad0ztrshmzbg06flzhk.bnl@trix.bounces.google.com designates 2607:f8b0:4864:20::e45 as permitted sender) smtp.mailfrom=37gjOXwsJAD0ZtrshmZbg06flZhk.bnl@trix.bounces.google.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=Jaz1NyI5;
+       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:reply-to:message-id:date:subject:from:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Pz5EGdrPpgHDDH9AfAgsI5zkqkRBrT6jOdHH5Uy9xaE=;
-        b=o4dS68hPhzT3mtBHemG5OUd3eeNAMs0wg6526CTiGn2cK6VVc/RtdUYijM74S4nzCl
-         lp6bD78BfSqZG/BsQf+mwqI3lQxSnpgj2YZwOee9vp2sbTIUXuXb/UOd5L0Q8QdAXiFN
-         Vvm6c90jsMcNguIVcAXn0pkXQq+0xQCEIYJmNJeQEm2AwCXFHpWXVEmlNW72CsSzjhaN
-         R+Nj4MhgTLZf/TpygWN0oMq2TPophc0q7AsXSS2AfPQU0AFX4xiucmxR2oieb7VXWVhV
-         EcFxofz9ssge6VpX1Esm+5rKM8csm89RvYY3xQ5vK7PHeOU6A5QWRGGrNflLQl+8gtP/
-         kaQQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:reply-to:message-id:date:subject:from:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Pz5EGdrPpgHDDH9AfAgsI5zkqkRBrT6jOdHH5Uy9xaE=;
-        b=HLIrPIhNes7KEiELp3iZXTLC+6PvXZmz50LSkKZUfXbbk/Cewi9cinUUdZBmnCd72F
-         fsHR3D6apSCk1vh95xQhz4zMLp2nTCbH75e4vSeRnswx1p45jLty+uYyQkasCFm++imm
-         7tW3OJW2UPHQI/Ou1C3QIfR23uEpnttrclzY+s+FQQPpS1RVy9zZMWL5U2FUe37sGm3f
-         WyjilCwkj2ql66rYlTQ6OqEQuvNAkC7loCF0AujV+2K2oemfrfz+RlRFRFORvAQTA8ky
-         Ef3tucr0XS1S1IBb10nYhRZbyX5/K54h7ZSt98eCFTzj3MKvVVetow7GlNQu92e70pTT
-         SqzA==
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RiMmaeJF2nOpcDoTPsYvm02z2A/PWDJc3uzT7QNBIHg=;
+        b=k1cSpzZ/VYmCLhHZEjV0wol9uZEzB6cuBvC13/Pt1ewMSx16CQ8k3+nk7iZ0jFCdHS
+         YwKMdSnwfAcDSnIG5hr+sFA6AkCzV13zUhCpfU/tdp2OC1vNuRK0G/L5uGEFH9kcQJt6
+         lcZ4DYMBukIo6PMYUOC8DWHwSXGsZs32LGA0dGr22aESSCUp1UJkofcI7bW2ObGSZrS/
+         xf8vfP9sd97+wrkT6/l3kYeEjM/2K8+r0IXHczmEojfwW0JHLzNKXPKLtqTURRutGfEf
+         rxPrlt+6Di4nYSuaDpQltxiULgjjEzn1e8boIYpC91UXyOfiBU84TkXASJrXf5uf5Rw8
+         /Dhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:reply-to:message-id:date
-         :subject:from:to:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Pz5EGdrPpgHDDH9AfAgsI5zkqkRBrT6jOdHH5Uy9xaE=;
-        b=P0p8FlWE+1gYyIWq2x7zgMHAQI+2JSdolfJ+QI5EYo2W8/gVAa+ISKJ9frGqtWOwlU
-         mxggjedgV+rp0lcdrWuhS6meEB7H5r0t0OS8IcX0t+qBq3Twow36rLm774tUuomhk7nS
-         Up9V/AlFud+G++Mi6OCluT4Zibn9tx5LYkmhjEgB702usvuNwg4a2DYQesca3V0XCWh/
-         6MTkL2rZTIxv3cFAG9rMywvkvKL30UshrXU+9vRV8unQGOEkPxs7Sjxuxond8MdQweA7
-         NUtoYtGSNGpVDsLgeZZsVXQhU4oGm/lQEuB9TXA4u9ja4iMhstGVHkSyFzNBJV0MXowG
-         3l+Q==
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=RiMmaeJF2nOpcDoTPsYvm02z2A/PWDJc3uzT7QNBIHg=;
+        b=Fzw5tQRy9EpOmTlZLoOfPNL32zKNvNRSuKoi6dY5xFuG9+LjmBPv/DaypAE+FO8aao
+         PoXCKcMck4F7WUz/BUHo/fvQ7xz3sjIS3W5d3zFe0jU88qe6W6135wJpG3rhD89upnrf
+         rEfTqm63Kuktza94ViDUlDZxo7U2StkuAWwd4xsxjo1fV5L6GnRKvQvOb9YS97jY5jaJ
+         QVEhGC0GCeRiRi3YzL/DjcsJzbYaypGw+mTmUNSmWUY/MGLJ7ufOfPHnJ5Ka+ifFUtY7
+         HEdY/q6ASYKGCw6Wp4PfNxQPYBPgIK6QoYUlqoUPCa4I9e2KJlw3NX8JeRRPcDep0TQx
+         nBhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531dcbsi8VBYVpoi9+lxjcEw8Tyd3V/A/g5o1MNB0uDW8SRi38Kh
-	BtgriYjzkgOa+W3LAkfX0Ak=
-X-Google-Smtp-Source: ABdhPJxli9NgV7rswcNeO/2hyFwGcbJ3+3Rq6KXjnI/AVH0PxHzywXG0K3wskTdHvIzsOl82UBt3Xw==
-X-Received: by 2002:a17:902:ee53:b029:da:4c68:2795 with SMTP id 19-20020a170902ee53b02900da4c682795mr15335861plo.7.1607338224312;
-        Mon, 07 Dec 2020 02:50:24 -0800 (PST)
+X-Gm-Message-State: AOAM533qHWAFx7JXsqpUj182erfk0G48kCIW9EgRLHM0ZJLWMuv/BJNZ
+	7KPMarxAIaue4wuEYzwpXHg=
+X-Google-Smtp-Source: ABdhPJzes/g32aM6LpBi1Uq3049ek3nrVadzyGwTP6GHmSGOGPyQtRbw/ny71L/n8BAlAfYWWoSzBw==
+X-Received: by 2002:a17:90a:a393:: with SMTP id x19mr16887944pjp.68.1607343834167;
+        Mon, 07 Dec 2020 04:23:54 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:c205:: with SMTP id 5ls7878151pll.11.gmail; Mon, 07
- Dec 2020 02:50:23 -0800 (PST)
-X-Received: by 2002:a17:902:b282:b029:da:fd05:7766 with SMTP id u2-20020a170902b282b02900dafd057766mr2557404plr.52.1607338223682;
-        Mon, 07 Dec 2020 02:50:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607338223; cv=none;
+Received: by 2002:a62:7d97:: with SMTP id y145ls6752398pfc.10.gmail; Mon, 07
+ Dec 2020 04:23:53 -0800 (PST)
+X-Received: by 2002:a63:e20:: with SMTP id d32mr18476238pgl.94.1607343833415;
+        Mon, 07 Dec 2020 04:23:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607343833; cv=none;
         d=google.com; s=arc-20160816;
-        b=OEYRAH+nQKs8KQaKZyCkUVkygj+nBBIYOo2oCiz5oH6w19F5PomA3X3qZBXw4XgCt0
-         BYHXw3fzIdbgoQ6ygOD5FXHa3VAP5Bue0+0p1eSTQP1QUCSXRbT8e6Oe3blgpIlwgnVW
-         qTHfCH0SULrSLrBS6mR5TDdQzHUx/0quogexfFpG+3FjaR1lbixOxbeJOiytT+pZYfKl
-         FVkrMyJog9eJnsLCk+U4xRR5LLeypxiqGNX+KEKAcqUjvM+4bl+DNK3XExR846D/BwXh
-         btGE1AhvznPEy1PzZRghbQIwMT6dv7oWY3XfQkNSzN9q9z8Hl8fIaPZIemUfLetr3mpM
-         e/ng==
+        b=qG8wEbu2eggESnWrFYiBeW3mym22cPg05GpotFqdXhBHvi+g80mG0oSuw86gZ5n2xy
+         W6trpMCNHPsGkAt9S8TzDuFwt2p3GPe29jQoiPm4vDMCNsDpGuKkmRYI3pRhXZ/QX2NU
+         WWbeXo4dNiflXiOeltN4RvNuP2wLkFrN7R32MPXtVCJ6MV64ujtA3FJVQ7gZjVSkNvjA
+         x+7+rSAUIcdpvq8IMev8BLPh3S36P34kLc4i+oI5WIY4xOEWZQ8G2s6iOBYC2otAh3o1
+         aoEzp6/c0Bg/hgmoGx0Rfppi8BVD61NYe+SlQ1ZgztRxdHQx04Gf+onlSIlwkajP3mC8
+         Dhdg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:from:subject:date:message-id:reply-to:mime-version
-         :dkim-signature;
-        bh=cRRxtW/pftXja2Ox59sRjZma8YYkR2kObhgNaAkT5Wo=;
-        b=JDStOh5Sc87kCB7CtGFMJOYDjpCUSOC81ZCAZVp6l0eOQuG7VR4bL4XEm2Uysyqemd
-         aT54gsikerFh+YWzUQJOBsfHJcz/7IR5CkKmrawyNGYp4HQo1S5rCbRtwJLVL1+8ewza
-         /+sHQIbYZ7EUC9iDIanoyEUQOMjc3nZPTE02CKKi53KPgraeapJvtMEGQgOX9SPlqCqY
-         BngVdZXGaQBeXd4M8tGPY6kDOBNCTRzjjSVILEqcTBsDTrsyTR38CoGWuMHIpbxAKKtd
-         ZVi6FH1wUCnKRCleRIfQ5v1T6HEvmlklFe4LeGrD20S2ppATwfYC6aw2eAS6wfMjNltD
-         7Xgw==
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:dkim-signature;
+        bh=0gWplW4j+f9mbE3E3uanOoY2Fq52XxzXsRNwiKaPddA=;
+        b=A4qUtDRtKpQqKhmMu3KjQcoyLMmu3LtjG7JoghPFM/F4UxVCjY6Qsm63OM43yHlu8k
+         TdfgBKY3Y2VtDGZSXae6YYfWtO54kiXJ4ZgSLguRzeLz3dYqso96Nx82o7WYBErDe/RL
+         CxJtMIY4Kh1AJpCDcQ3n4hlBWc+D+Cer9k3/OgCUzb98eDbnvlYVnLeGzN6ZO+u3/CWA
+         /+8EMx8dhSa7T3DEVJGxG0QKkjSxsysuX6PXqfd8dewFZfVx0xIlsoVw8wIdBFWinKwB
+         JjnCqxp12oZ+Z9+i07VRNgX8FClUZGE6tEyW3O8kWJpLrdkje0fDjt7jVFEKhQXLUHaY
+         seVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jCMeN+rm;
-       spf=pass (google.com: domain of 37gjoxwsjad0ztrshmzbg06flzhk.bnl@trix.bounces.google.com designates 2607:f8b0:4864:20::e45 as permitted sender) smtp.mailfrom=37gjOXwsJAD0ZtrshmZbg06flZhk.bnl@trix.bounces.google.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-vs1-xe45.google.com (mail-vs1-xe45.google.com. [2607:f8b0:4864:20::e45])
-        by gmr-mx.google.com with ESMTPS id y13si852281pgr.2.2020.12.07.02.50.23
+       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=Jaz1NyI5;
+       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+Received: from ozlabs.org (ozlabs.org. [203.11.71.1])
+        by gmr-mx.google.com with ESMTPS id w6si741691pjr.2.2020.12.07.04.23.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Dec 2020 02:50:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of 37gjoxwsjad0ztrshmzbg06flzhk.bnl@trix.bounces.google.com designates 2607:f8b0:4864:20::e45 as permitted sender) client-ip=2607:f8b0:4864:20::e45;
-Received: by mail-vs1-xe45.google.com with SMTP id h5so2583530vsq.15
-        for <clang-built-linux@googlegroups.com>; Mon, 07 Dec 2020 02:50:23 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Dec 2020 04:23:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4CqMtB4Fy2z9sR4;
+	Mon,  7 Dec 2020 23:23:46 +1100 (AEDT)
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: kernel test robot <lkp@intel.com>, Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [powerpc:next-test 54/220] arch/powerpc/kernel/vdso32/vgettimeofday.c:13:5: warning: no previous prototype for function '__c_kernel_clock_gettime64'
+In-Reply-To: <202012042220.zO7hSFT2-lkp@intel.com>
+References: <202012042220.zO7hSFT2-lkp@intel.com>
+Date: Mon, 07 Dec 2020 23:23:43 +1100
+Message-ID: <87czzlu7n4.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
-X-Received: by 2002:a67:10c2:: with SMTP id 185mt11757715vsq.31.1607338222975;
- Mon, 07 Dec 2020 02:50:22 -0800 (PST)
-Reply-To: austinach17@gmail.com
-X-No-Auto-Attachment: 1
-Message-ID: <000000000000d0829705b5dd976c@google.com>
-Date: Mon, 07 Dec 2020 10:50:23 +0000
-Subject: Hi
-From: austinach17@gmail.com
-To: clang-built-linux@googlegroups.com
-Content-Type: multipart/alternative; boundary="000000000000d14cee05b5dd97ce"
-X-Original-Sender: austinach17@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: mpe@ellerman.id.au
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=jCMeN+rm;       spf=pass
- (google.com: domain of 37gjoxwsjad0ztrshmzbg06flzhk.bnl@trix.bounces.google.com
- designates 2607:f8b0:4864:20::e45 as permitted sender) smtp.mailfrom=37gjOXwsJAD0ZtrshmZbg06flZhk.bnl@trix.bounces.google.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@ellerman.id.au header.s=201909 header.b=Jaz1NyI5;       spf=pass
+ (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted
+ sender) smtp.mailfrom=mpe@ellerman.id.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,196 +128,125 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000d14cee05b5dd97ce
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+kernel test robot <lkp@intel.com> writes:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git=
+ next-test
+> head:   4e4ed87981c764498942c52004c620bb8f104eac
+> commit: d0e3fc69d00d1f50d22d6b6acfc555ccda80ad1e [54/220] powerpc/vdso: P=
+rovide __kernel_clock_gettime64() on vdso32
+> config: powerpc64-randconfig-r011-20201204 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 32c5=
+01dd88b62787d3a5ffda7aabcf4650dbe3cd)
+> reproduce (this is a W=3D1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install powerpc64 cross compiling tool for clang build
+>         # apt-get install binutils-powerpc64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.g=
+it/commit/?id=3Dd0e3fc69d00d1f50d22d6b6acfc555ccda80ad1e
+>         git remote add powerpc https://git.kernel.org/pub/scm/linux/kerne=
+l/git/powerpc/linux.git
+>         git fetch --no-tags powerpc next-test
+>         git checkout d0e3fc69d00d1f50d22d6b6acfc555ccda80ad1e
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
+CH=3Dpowerpc64=20
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+>    arch/powerpc/kernel/vdso32/vgettimeofday.c:7:5: error: conflicting typ=
+es for '__c_kernel_clock_gettime'
+>    int __c_kernel_clock_gettime(clockid_t clock, struct old_timespec32 *t=
+s,
+>        ^
 
-I've invited you to fill out the following form:
-Untitled form
+We're building vdso32, which is 32-bit code, we pass -m32:
 
-To fill it out, visit:
-https://docs.google.com/forms/d/e/1FAIpQLSdT3oPrR6-Hjb4Ed3q-dRbgrISxpzydkiulNR-TtWJA_mEfWA/viewform?vc=0&amp;c=0&amp;w=1&amp;flr=0&amp;usp=mail_form_link
-
-Hello Dear,
-
-Your e-mail address came up in a random draw conducted by  by my law firm,  
-Eric Brown Law Chambers, I am contacting you to assist in repatriating the  
-money left behind by my late client before it gets confiscated or declared  
-unserviceable by the bank where this deposit valued at ( $5.5 Million  
-Dollars  ) was lodged.
-
-My proposition to you is to seek your consent in presenting you as the  
-next-of-kin to my late client because at the point of the death of my late  
-client ,He told me that i should not allow the Bank to eat his fund that i  
-should look for a foreigner whom i trust that we stand as the next of kin  
-to his deposit fund in the Bank  so that the Bank will transfer the fund  
-into your account then If this business proposition offends your moral  
-values,do accept my apology but if not, then contact me at once to indicate  
-your interest for more details.
-
-Awaiting for your immediate response,
-
-Best regards,
-Brr.Eric Brown
-
-Google Forms: Create and analyze surveys.
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/000000000000d0829705b5dd976c%40google.com.
-
---000000000000d14cee05b5dd97ce
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<html><body style=3D"font-family: Roboto,Helvetica,Arial,sans-serif; margin=
-: 0; padding: 0; height: 100%; width: 100%;"><table border=3D"0" cellpaddin=
-g=3D"0" cellspacing=3D"0" style=3D"background-color:rgb(103,58,183);" width=
-=3D"100%" role=3D"presentation"><tbody><tr height=3D"64px"><td style=3D"pad=
-ding: 0 24px;"><img alt=3D"Google Forms" height=3D"26px" style=3D"display: =
-inline-block; margin: 0; vertical-align: middle;" width=3D"143px" src=3D"ht=
-tps://www.gstatic.com/docs/forms/google_forms_logo_lockup_white_2x.png"></t=
-d></tr></tbody></table><div style=3D"padding: 24px; background-color:rgb(23=
-7,231,246)"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
-ing=3D"0" style=3D"max-width: 672px; min-width: 154px;" width=3D"100%" role=
-=3D"presentation"><tbody><tr><td style=3D"font-size: 13px; line-height: 18p=
-x; color: #424242; font-weight: 700">Having trouble viewing or submitting t=
-his form?</td></tr><tr height=3D"8px"><td></td></tr><tr><td><table border=
-=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td><a=
- href=3D"https://docs.google.com/forms/d/e/1FAIpQLSdT3oPrR6-Hjb4Ed3q-dRbgrI=
-SxpzydkiulNR-TtWJA_mEfWA/viewform?vc=3D0&amp;c=3D0&amp;w=3D1&amp;flr=3D0&am=
-p;usp=3Dmail_form_link" style=3D"border-radius: 3px; box-sizing: border-box=
-; display: inline-block; font-size: 13px; font-weight: 700; height: 40px; l=
-ine-height: 40px; padding: 0 24px; text-align: center; text-decoration: non=
-e; text-transform: uppercase; vertical-align: middle; color: #fff; backgrou=
-nd-color: rgb(103,58,183);" target=3D"_blank" rel=3D"noopener">Fill out in =
-Google Forms</a></td></tr></tbody></table></td></tr><tr height=3D"24px"><td=
-></td></tr></tbody></table><div align=3D"center" style=3D"background-color:=
- #fff; border-bottom: 1px solid #e0e0e0;margin: 0 auto; max-width: 624px; m=
-in-width: 154px;padding: 0 24px;"><table align=3D"center" cellpadding=3D"0"=
- cellspacing=3D"0" style=3D"background-color: #fff;" width=3D"100%" role=3D=
-"presentation"><tbody><tr height=3D"24px"><td></td></tr><tr><td><span style=
-=3D"display: table-cell; vertical-align: top; font-size: 13px; line-height:=
- 18px; color: #424242;" dir=3D"auto">Hello Dear,<br><br>Your e-mail address=
- came up in a random draw conducted by  by my law firm, Eric Brown Law Cham=
-bers, I am contacting you to assist in repatriating the money left behind b=
-y my late client before it gets confiscated or declared unserviceable by th=
-e bank where this deposit valued at ( $5.5 Million Dollars  ) was lodged.<b=
-r><br>My proposition to you is to seek your consent in presenting you as th=
-e next-of-kin to my late client because at the point of the death of my lat=
-e client ,He told me that i should not allow the Bank to eat his fund that =
-i should look for a foreigner whom i trust that we stand as the next of kin=
- to his deposit fund in the Bank  so that the Bank will transfer the fund i=
-nto your account then If this business proposition offends your moral value=
-s,do accept my apology but if not, then contact me at once to indicate your=
- interest for more details.<br><br>Awaiting for your immediate response,<br=
-><br>Best regards,<br>Brr.Eric Brown</span></td></tr><tr height=3D"20px"><t=
-d></tr><tr style=3D"font-size: 20px; line-height: 24px;"><td dir=3D"auto"><=
-a href=3D"https://docs.google.com/forms/d/e/1FAIpQLSdT3oPrR6-Hjb4Ed3q-dRbgr=
-ISxpzydkiulNR-TtWJA_mEfWA/viewform?vc=3D0&amp;c=3D0&amp;w=3D1&amp;flr=3D0&a=
-mp;usp=3Dmail_form_link" style=3D"color: rgb(103,58,183); text-decoration: =
-none; vertical-align: middle; font-weight: 500">Untitled form</a><div itemp=
-rop=3D"action" itemscope itemtype=3D"http://schema.org/ViewAction"><meta it=
-emprop=3D"url" content=3D"https://docs.google.com/forms/d/e/1FAIpQLSdT3oPrR=
-6-Hjb4Ed3q-dRbgrISxpzydkiulNR-TtWJA_mEfWA/viewform?vc=3D0&amp;c=3D0&amp;w=
-=3D1&amp;flr=3D0&amp;usp=3Dmail_goto_form"><meta itemprop=3D"name" content=
-=3D"Fill out form"></div></td></tr><tr height=3D"24px"></tr><tr><td><div cl=
-ass=3D"ss-form" style=3D""><form action=3D"https://docs.google.com/forms/u/=
-0/d/e/1FAIpQLSdT3oPrR6-Hjb4Ed3q-dRbgrISxpzydkiulNR-TtWJA_mEfWA/formResponse=
-" method=3D"POST" id=3D"ss-form" target=3D"_self" style=3D""><ol role=3D"li=
-st" class=3D"ss-question-list" style=3D"padding-left: 0;list-style-type:non=
-e;">
-
-<div class=3D"ss-form-question errorbox-good" role=3D"listitem" style=3D"">
-<div dir=3D"auto" class=3D"ss-item  ss-radio" style=3D"margin:12px 0;"><div=
- class=3D"ss-form-entry" style=3D"margin-bottom:1.5em;vertical-align:middle=
-;margin-left:0;margin-top:0;max-width:100%;">
-<label class=3D"ss-q-item-label" for=3D"entry_754013075" style=3D""><div cl=
-ass=3D"ss-q-title" style=3D"display:block;font-weight:bold;margin-top:.83em=
-;margin-bottom:.83em;">Untitled Question
-</div>
-<div class=3D"ss-q-help ss-secondary-text" dir=3D"auto" style=3D"display:bl=
-ock;margin:.1em 0 .25em 0;color:#666;"></div></label>
+  clang -Wp,-MMD,arch/powerpc/kernel/vdso32/.vgettimeofday.o.d -nostdinc -i=
+system /usr/lib/llvm-11/lib/clang/11.0.0/include -I/linux/arch/powerpc/incl=
+ude -I./arch/powerpc/include/generated -I/linux/include -I./include -I/linu=
+x/arch/powerpc/include/uapi -I./arch/powerpc/include/generated/uapi -I/linu=
+x/include/uapi -I./include/generated/uapi -include /linux/include/linux/kco=
+nfig.h -include /linux/include/linux/compiler_types.h -D__KERNEL__ -I /linu=
+x/arch/powerpc -DHAVE_AS_ATHIGH=3D1 -Qunused-arguments -Wall -Wundef -Werro=
+r=3Dstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fsho=
+rt-wchar -fno-PIE -Werror=3Dimplicit-function-declaration -Werror=3Dimplici=
+t-int -Werror=3Dreturn-type -Wno-format-security -std=3Dgnu89 --target=3Dpo=
+werpc64le-linux-gnu --prefix=3D/usr/bin/powerpc64le-linux-gnu- --gcc-toolch=
+ain=3D/usr -no-integrated-as -Werror=3Dunknown-warning-option -mlittle-endi=
+an -m64 -msoft-float -pipe -mcpu=3Dpower8 -mtune=3Dpower9 -mno-altivec -mno=
+-vsx -mno-spe -fno-asynchronous-unwind-tables -Wa,-mpower4 -Wa,-many -mlitt=
+le-endian -fno-delete-null-pointer-checks -Wno-frame-address -Wno-address-o=
+f-packed-member -Os -Wframe-larger-than=3D2048 -fno-stack-protector -Wno-fo=
+rmat-invalid-specifier -Wno-gnu -mno-global-merge -Wno-unused-const-variabl=
+e -fomit-frame-pointer -Wdeclaration-after-statement -Wvla -Wno-pointer-sig=
+n -Wno-array-bounds -fno-strict-overflow -fno-stack-check -Werror=3Ddate-ti=
+me -Werror=3Dincompatible-pointer-types -fmacro-prefix-map=3D/linux/=3D -Wn=
+o-initializer-overrides -Wno-format -Wno-sign-compare -Wno-format-zero-leng=
+th -Wno-pointer-to-enum-cast -Wno-tautological-constant-out-of-range-compar=
+e -D_TASK_CPU=3D304 -shared -fno-common -fno-builtin -nostdlib -Wl,-soname=
+=3Dlinux-vdso32.so.1 -Wl,--hash-style=3Dboth -include /linux/lib/vdso/getti=
+meofday.c -fno-stack-protector -DDISABLE_BRANCH_PROFILING -ffreestanding -f=
+asynchronous-unwind-tables   -I /linux/arch/powerpc/kernel/vdso32 -I ./arch=
+/powerpc/kernel/vdso32    -DKBUILD_MODFILE=3D'"arch/powerpc/kernel/vdso32/v=
+gettimeofday"' -DKBUILD_BASENAME=3D'"vgettimeofday"' -DKBUILD_MODNAME=3D'"v=
+gettimeofday"' -m32 -c -o arch/powerpc/kernel/vdso32/vgettimeofday.o /linux=
+/arch/powerpc/kernel/vdso32/vgettimeofday.c
 
 
-<ul class=3D"ss-choices" role=3D"radiogroup" aria-label=3D"Untitled Questio=
-n  " style=3D"list-style:none;padding:0;margin:.5em 0 0;"><li class=3D"ss-c=
-hoice-item" style=3D"margin:0;line-height:1.3em;padding-bottom:.5em;">
-<label><span class=3D"ss-choice-item-control goog-inline-block" style=3D"po=
-sition:relative;display:inline-block;"><input type=3D"radio" name=3D"entry.=
-1974655140" value=3D"Option 1" id=3D"group_1974655140_1" role=3D"radio" cla=
-ss=3D"ss-q-radio" aria-label=3D"Option 1" style=3D""></span>
-<span class=3D"ss-choice-label" style=3D"">Option 1</span>
-</label></li></ul>
+>    arch/powerpc/include/asm/vdso/gettimeofday.h:183:5: note: previous dec=
+laration is here
+>    int __c_kernel_clock_gettime(clockid_t clock, struct __kernel_timespec=
+ *ts,
+>        ^
 
-</div></div></div>
-<input type=3D"hidden" name=3D"draftResponse" value=3D"[null,null,&quot;-86=
-30908366309733509&quot;]
-" style=3D"">
-<input type=3D"hidden" name=3D"pageHistory" value=3D"0" style=3D"">
+But this is inside an #ifdef __powerpc64__ block:
 
-<input type=3D"hidden" name=3D"usp" value=3D"mail_form_submit" style=3D"">
+182 #ifdef __powerpc64__
+183 int __c_kernel_clock_gettime(clockid_t clock, struct __kernel_timespec =
+*ts,
+184                              const struct vdso_data *vd);
 
 
-<input type=3D"hidden" name=3D"fbzx" value=3D"-8630908366309733509" style=
-=3D"">
-<div class=3D"ss-send-email-receipt" style=3D"margin-bottom: 4px;" dir=3D"l=
-tr"><label for=3D"emailReceipt" style=3D"display:inline;"></label></div>
-<div class=3D"ss-item ss-navigate" style=3D"margin:12px 0;"><table id=3D"na=
-vigation-table" style=3D""><tbody><tr><td class=3D"ss-form-entry goog-inlin=
-e-block" id=3D"navigation-buttons" dir=3D"ltr" style=3D"margin-bottom:1.5em=
-;vertical-align:middle;margin-left:0;margin-top:0;max-width:100%;position:r=
-elative;display:inline-block;">
-<input type=3D"submit" name=3D"submit" value=3D"Submit" id=3D"ss-submit" cl=
-ass=3D"jfk-button jfk-button-action " style=3D"">
-</td>
-</tr></tbody></table></div></ol></form></div>
-<div class=3D"ss-footer" style=3D""><div class=3D"ss-attribution" style=3D"=
-"></div>
-<div class=3D"ss-legal" style=3D""><div class=3D"disclaimer-separator" styl=
-e=3D""></div>
-<div class=3D"disclaimer" dir=3D"ltr" style=3D""><div class=3D"powered-by-l=
-ogo" style=3D"margin-top:2em;"><span class=3D"powered-by-text" style=3D"">P=
-owered by</span>
-<a href=3D"https://www.google.com/forms/about/?utm_source=3Dproduct&amp;utm=
-_medium=3Dforms_logo&amp;utm_campaign=3Dforms" style=3D""><div class=3D"ss-=
-logo-container" style=3D""><img src=3D"https://ssl.gstatic.com/docs/forms/f=
-orms_logo_2_small_dark_2x.png" height=3D"21px" width=3D"108px" alt=3D"Googl=
-e Forms" style=3D""></div></a></div>
-<div class=3D"ss-terms" style=3D"color:#777;font-size:11px;margin-top:1.5em=
-;"><span class=3D"disclaimer-msg" style=3D"">This content is neither create=
-d nor endorsed by Google.</span>
-<br>
-<a href=3D"https://docs.google.com/forms/u/0/d/e/1FAIpQLSdT3oPrR6-Hjb4Ed3q-=
-dRbgrISxpzydkiulNR-TtWJA_mEfWA/reportabuse?source=3Dhttps://docs.google.com=
-/forms/d/e/1FAIpQLSdT3oPrR6-Hjb4Ed3q-dRbgrISxpzydkiulNR-TtWJA_mEfWA/viewfor=
-m?sid%3De8dc9487cd4ab3%26vc%3D0%26c%3D0%26w%3D1%26flr%3D0%26token%3D_6oBPXY=
-BAAA.Yq3Sw31vf1_yALgH8Xi9Zw.s7iZiz6x0tVg4iNkl5WBdg" style=3D"">Report Abuse=
-</a>
--
-<a href=3D"http://www.google.com/accounts/TOS" style=3D"">Terms of Service<=
-/a>
--
-<a href=3D"http://www.google.com/google-d-s/terms.html" style=3D"">Addition=
-al Terms</a></div></div></div></div>
-</td></tr><tr height=3D"24px"></tr></tbody></table></div><table align=3D"ce=
-nter" cellpadding=3D"0" cellspacing=3D"0" style=3D"max-width: 672px; min-wi=
-dth: 154px;" width=3D"100%" role=3D"presentation"><tbody><tr height=3D"24px=
-"><td></td></tr><tr><td><a href=3D"https://docs.google.com/forms?usp=3Dmail=
-_form_link" style=3D"color: #424242; font-size: 13px;">Create your own Goog=
-le Form</a></td></tr></tbody></table></div></body></html>
+So is clang defining __powerpc64__ even for 32-bit code?
 
-<p></p>
+And the answer appears to be yes:
 
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
+  $ clang --version
+  Ubuntu clang version 11.0.0-2
+  Target: powerpc64le-unknown-linux-gnu
+
+  $ clang -m32 -dM -E - < /dev/null | grep powerpc
+  #define __powerpc64__ 1
+  #define __powerpc__ 1
+
+Compare to gcc:
+
+  $ gcc --version
+  gcc (Ubuntu 10.2.0-13ubuntu1) 10.2.0
+ =20
+  $ gcc -m32 -dM -E - < /dev/null | grep powerpc
+  #define __powerpc__ 1
+  #define powerpc 1
+  #define __powerpc 1
+
+
+Which is fairly problematic, because we use the presence/absence of
+__powerpc64__ to determine if we're building 64-bit/32-bit code in
+several places.
+
+Not sure what the best approach for fixing that is.
+
+cheers
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/000000000000d0829705b5dd976c%40google.com?utm_=
-medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid/clang=
--built-linux/000000000000d0829705b5dd976c%40google.com</a>.<br />
-
---000000000000d14cee05b5dd97ce--
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/87czzlu7n4.fsf%40mpe.ellerman.id.au.
