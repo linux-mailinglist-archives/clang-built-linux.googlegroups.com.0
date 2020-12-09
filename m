@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBAABBU4WYP7AKGQESBQ366I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBVEWYP7AKGQEKX2ZSHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id BDF112D4299
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Dec 2020 14:04:19 +0100 (CET)
-Received: by mail-wm1-x338.google.com with SMTP id k128sf536461wme.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Dec 2020 05:04:19 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607519059; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 43EF62D429A
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Dec 2020 14:04:21 +0100 (CET)
+Received: by mail-wr1-x439.google.com with SMTP id i4sf626246wrm.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Dec 2020 05:04:21 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607519061; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EkMmFF0AqeZnn1g7www8ToyPSMayGZD77y9rmeTEXwpMyGC1sWaXyL4fDhgT5Ii90u
-         Hsw3dOxBXLnIjEp65lMyDedDsI6HS3XkjUwYFqnRAbnd5pghijUwebupSA1TEOYddlgx
-         zVuNF4eMfSsUBlIWiv9OSKx+vYpKqeqnTQM0wkm+eCjI4nfA54MFtpY+OD9I1oknqP70
-         eU0VnqC/XWnT0MFrlL2oRAP9EpOCzvkwo1CrB8uIaeFzEEmi+6hCQYVfdy92NcoMHhMO
-         TH6oABQSi/dgZulHRY7ahGlDgMy6PoDn4GpLsRWu9MZ+cxF/jiC1kS/Ri/Mq14YbrV9C
-         e+cA==
+        b=OODDGGFbK7uDp5kjHU33MdMjbs4D7FUmvK0semCWUk/c6roUkFfazdu2xc/DWMRdWV
+         4GbSmBKg2EH8Cf7XUBkupmX12gYGgjbP5na3P4sL9hq/gqOFcMgx1FiIZCjpyeD/BHor
+         qAoRpoFbKb5IWPSQtWFj3z17BGACihsGxbwUJWTTeNDIC1267ityrP8y148CYPiESphb
+         pAd8XzO2LXiNnlE6lV8fEYlMzidC6JKLe8ApYDwhflf9YB3sczvnaFkehItYKp6lwtPU
+         xsWWdonYu8AwhhpDqn976gkNpEVtKNLafygt7RzDJmlpo/FNG9vjC9OwnbRsMh6ycPsI
+         CPtA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:ironport-sdr
          :dkim-signature;
-        bh=5Rc4bfNGVHVlbvsG78nV6yqCqSdOzudI5Hvt2NVmxT4=;
-        b=hTbIucndHMYl282T6TAfy2O96BTjM61mejN7QylzhTwLefMXTQ3G7tPJeQCqBps4rh
-         q79GvdeDXLQEWWA8YvWBDdjmz1OcFb1ULfy03GsI3yOgAgIedm3zsojsUuQJWbSdfxdE
-         Fki3ceM7HyPTFg5wvKuzEwHVvyzn4nEO/1ZAo4bZ9fnwiOkJWhahhQJR3EndqSzJffzj
-         Q0kU9lxi+kAPJBKFklyok6NMvcAe3cppbKOdC+jK8Z2B6n42cM/Y+hV366wuz6BbiHMi
-         N2b860VzaJvprWWVLb/PcKVmFMAth5Dr82eVENm4S1lkBmHuyQLCKp9aKmeoOKt1gv80
-         Ia+w==
+        bh=S/NxKqFikYQ4nJuRHjPxRdwObfqe2l1i9MY+Dgx4wNw=;
+        b=qFW4khRqNeOrBIDD743GGRdLAbptV12oUAoF3KSuZbbYcbT5YtKesKo8d+I0AcO3Z4
+         cURBZYJ2i3DyXlhuIuX1Nn0buWhxoV8sRAji3Q/mYfNNzWMt5dWpelSscYFqD7T8oLxW
+         Lvszh1OHqTCqLhVoI3ED3FpgqhFRSMHK77MZBaS7S8UV9J9xqIa1l5sNCTdjmEUcPf1T
+         cktA9G3oJHmpH5sClPJOjOvlld6RENWDPt1QGB/aP0xLo/5S0IsAowT5GgFfvZQtC03k
+         lc2/cmT7dyu7mGWYulgOc5wmz8GcZzMU/m1ySTfpRPQLcyj26AjJFBetUPhCABeNaulW
+         8fvQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@microchip.com header.s=mchp header.b=o1xeKlX3;
+       dkim=pass header.i=@microchip.com header.s=mchp header.b=WIJR7K1N;
        spf=fail (google.com: domain of claudiu.beznea@microchip.com does not designate 68.232.154.123 as permitted sender) smtp.mailfrom=Claudiu.Beznea@microchip.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -37,13 +37,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=5Rc4bfNGVHVlbvsG78nV6yqCqSdOzudI5Hvt2NVmxT4=;
-        b=ixZhxbeZpSrulNRpdKBsBiLBJjErL3ByYL/EDTcOegEAlU74O8tabMS4b11KNywGtW
-         P386oX71ybCflbXewOTcudlqJiJ0pAq0HFuf3avSrb4cq7hecSW93MJsLbE4L9yeUZxq
-         anu+xM+yhEP+M3hZY6F+D6cNIZJKcRB0GL20qYp0iJRIK501zBNc0vJgkFQSpr0iKtsy
-         W8bW8bsChXk/kWxQIxl5JDgxIfYWlILib6o9QDUWIcdlI1MbROuB8+3UJ1fsT0WR2MvJ
-         lIvw5ss7ho/X09Nn8sZsVXM1/olG0QBcKmZ7GzHmdmxULyEtJvqqlq0Rcwj/ZQvCZw+E
-         AC4A==
+        bh=S/NxKqFikYQ4nJuRHjPxRdwObfqe2l1i9MY+Dgx4wNw=;
+        b=tJe2lWVCond0vaBZEjAgo3DBbOK2KQhoSno24FcLe4TQso4GDRl5BRMHMUlwqZi/R0
+         xd+hAdiPA9KeX6ZoEwbahLf3bcjnVjgo20okIeu4mvzkTcSGUZxo78KX1tnRXGd/hpw6
+         9yq13Tnov7BrCbgPBioHZ9eSNUt3wVxcmElDJnTPUPZ9OZbXJ61V6Iwit5CgeKScYt8U
+         bfsgQA31kqFQjyz/ZH4Lg3ol2Q0WQMdpAw2Gb5IRT8eYcCgaLKhiySc+VAB/0aIhkbOc
+         72WJan0IHq/7DkhMoirR7zk1q6bphNaUoWTYi7RTlwweHQ9v02fPxPgcIpwqJw2mTHAx
+         V4Kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:ironport-sdr:from:to:cc:subject:date:message-id
@@ -51,67 +51,67 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5Rc4bfNGVHVlbvsG78nV6yqCqSdOzudI5Hvt2NVmxT4=;
-        b=Ivj7so6bxz26EdNtgl2IUPvtUDKhV2zyfDSlMeszyerTPZmwdUmvnG12U/ccxxSoUj
-         FVfht34RkpJNeJLalQHM62N5fIEM96ppCoYVe5xROS4eDxDvriEXbq2Nk7bxrevBW5TP
-         WOMcOdM46ICSxWOYHfWy/wzPjqBRiAC1hVv1ofKeC0zHRq212hwfFcLV9Vs5Djoy7rSU
-         2ykZBbb2LD6vIw45Fh96i5Hzs8b3WHFC0bTK4sa6c1QP34Aw8ocJEeCzskfv/avNdGR2
-         sr4UquCuGFerrtmX5YhhvdMRe7NtdzWqpxhQXlyYgfRfRmwaRbrs8IFeynofM1x5JYGy
-         pJBg==
-X-Gm-Message-State: AOAM5314QiuftUNv9V054X8sxFzP2T7CpwA/l/E4Kj7j3dL1cYoMjaUS
-	PuDdfP1oqbMdz0ii3wWw2Q0=
-X-Google-Smtp-Source: ABdhPJy0uq1BiMkTjLFny4XsqDUG2wwnsgxw4j2mzdFoUioZxJ8OcytP5ztoVlVIKOutyGtOYUIsFw==
-X-Received: by 2002:adf:aa83:: with SMTP id h3mr2703368wrc.108.1607519059541;
-        Wed, 09 Dec 2020 05:04:19 -0800 (PST)
+        bh=S/NxKqFikYQ4nJuRHjPxRdwObfqe2l1i9MY+Dgx4wNw=;
+        b=KOjCEGl1MbfRmVLBanXlseJ5/ULJVccQyCMSb2l5J+/q2Hs/cO62fYEToLoH2uiXgs
+         /pEq0TDUmWeVLLJp64o93/xi0H76VBM2GQWkgqlDr+TTt+rTmv4+DZVrh3jv7vQEcwpe
+         GyMVkhcBTH7oC93yFQQQcgJKkMpS6914lPqr8jKcBJC58sNu7C/77glIc/NkGFF5RSdr
+         l7bUFH2wCIPWp7G3674EA7pqV4jH/zfsCoEDhzCTfjrLYu7L5W6PbsNBvI8b5tOJ65Zy
+         Us9QlZmVCOA+tgY77UpcFCYS4N0N3mlNyDiT7NC4YIAAvTR74quIT3BwLWmmsOgmpHCH
+         F71g==
+X-Gm-Message-State: AOAM532ktzGSfMK0GIlOXT7EoNlyQoo5o3Haez+CQFHliRrAs8UvNB//
+	Wm+4pC/li4LR+slgvaR9IV4=
+X-Google-Smtp-Source: ABdhPJxdFYWStyaBeRC8zx8g0ZUtp6cvvlVpwod+rFLAmiupNwer9bM1oGJBr/cNkiBUIHI2W48MNw==
+X-Received: by 2002:a1c:dc87:: with SMTP id t129mr2699329wmg.52.1607519060971;
+        Wed, 09 Dec 2020 05:04:20 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:1fc7:: with SMTP id f190ls1000994wmf.1.gmail; Wed, 09
- Dec 2020 05:04:18 -0800 (PST)
-X-Received: by 2002:a1c:8016:: with SMTP id b22mr2675491wmd.135.1607519058918;
-        Wed, 09 Dec 2020 05:04:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607519058; cv=none;
+Received: by 2002:a7b:c354:: with SMTP id l20ls1002450wmj.0.canary-gmail; Wed,
+ 09 Dec 2020 05:04:20 -0800 (PST)
+X-Received: by 2002:a1c:5402:: with SMTP id i2mr2819169wmb.12.1607519060339;
+        Wed, 09 Dec 2020 05:04:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607519060; cv=none;
         d=google.com; s=arc-20160816;
-        b=vcrl/O7xy+wTl4Get8vJ+DxiBPkRU6SxUFIP4HCKiNGKS0Z+wvTmcRzJ1/FCF/oHyH
-         XPF28QO3sFMej6HVFLxZeGqepVUu8AZkcF5ORWsV3VFidCX3SLy1ybSLZii45rsU3HES
-         dmchFtVueTJxgkHvgCcKOgnkNSsiCRR6ac/oulhtP1W76QAby1Twtp5q84r6f+ZGrWsd
-         GWabp7hBaRmNwtsijhUnu9en66AnqW53zg0vGLmq8Yni4dwvuKvUX7xesM6gkDYmjUtE
-         lAv2gHOuF2NzC0LNeUhbwDyUhFF5FbEoHMfHe2KPRvszSqRuW+qeG0eBq9OBLKmwuwuH
-         j44w==
+        b=pNjhlJoi7mBnIkkOpg/Xqbp5zk7/byx7+7WJv4TzubwXn+Ikf2EvDLVTzMxarUaCSK
+         ISkrf6DZ/McGbQbcBKJB4wGmUI/KqVmT9lSmt14zpfqwl2PzpvWLhR57wX9lnkE+sntJ
+         rK92XA8GdNbw0qbC0mOiwDGzqxVuP8dEr0ttUM5u/AwllMIhDb0xFtDdJbT0ohbvNez4
+         1jxaIqfX/cyNpdXTzHCVl57V7PMensp9L+dmu5GlRJAjZYAj3fsN2riIhc+mHZsicqak
+         9/LMM5/9SVWzfHM3oYBL/E3GDPj23JspDCvgIe6QRA7OPrBx46FUne+jAhxGxRXkM3EA
+         mzqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
          :from:ironport-sdr:dkim-signature;
-        bh=5pnMCaQ10VW4FHqLJb61AUvS50YYipzii0yZZ4qBR6o=;
-        b=Shnge3wTv8tJhpFlZobTYipRCR/0ElJWcurEqjqOMf511Chq0/ycho/SzcXm1puFPg
-         rJBXTdCyYl/M9gKh+A7YcLCuvWrVwuMC5y5PybSqcR6x4jsmoPV52ufRwMbE8MKJskB0
-         l06OurJQ2P1iEQAMu+yuyQPpFz/oV75MInBM8WEacAsPA48iObj26z6PUjARfUn3aOjR
-         pi8fiHa2qL0EWDi4MBHGpe2SozXQ0XB3melExXr57Q3QLQoJV+MzJCCsYp03xaLxprTs
-         STi3K5voXmeiuXFuTi5O1Ge+K+btqa8uqO9TKlpibGmynShru4FMv7rYS5FtBQbzegxr
-         CnSQ==
+        bh=aO7msjL7tXaCIU766RlM1jFVppkZjKPyi+/qvYjWHbI=;
+        b=vBe/AIQh5NZbpoCqvsbo4IeEUq82eBaQRSLfru5Zzn/fKcczRriqs/Cqh927a1ReqF
+         R9o9DhFN9kZ61TAZyYH/gIMVi+gqJ7Yq+roXo5xpEpJGXHl/pQ++cpZlfNKLnYZOgwxi
+         5cj0dkr3aphbvd81XDsBscOlktsWxwA7q0aNUmgwW5/GPebXMEsvdwyO6zY4KzKDxFQX
+         ttX2diuMb68DLh2jMqo7pnC4VO45NCCNYdJfzGfSzaaIF03bTklQy0menONNJ0F0tyRS
+         KZ6tw+pEGlk35BEaGRCVGVLeZavust4yap+ThvkOmxf5h2BKPLXNaMc+HaSv+6O/k6Rd
+         rWKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@microchip.com header.s=mchp header.b=o1xeKlX3;
+       dkim=pass header.i=@microchip.com header.s=mchp header.b=WIJR7K1N;
        spf=fail (google.com: domain of claudiu.beznea@microchip.com does not designate 68.232.154.123 as permitted sender) smtp.mailfrom=Claudiu.Beznea@microchip.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
 Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com. [68.232.154.123])
-        by gmr-mx.google.com with ESMTPS id h18si71935wmb.1.2020.12.09.05.04.18
+        by gmr-mx.google.com with ESMTPS id h18si71935wmb.1.2020.12.09.05.04.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 09 Dec 2020 05:04:18 -0800 (PST)
+        Wed, 09 Dec 2020 05:04:20 -0800 (PST)
 Received-SPF: fail (google.com: domain of claudiu.beznea@microchip.com does not designate 68.232.154.123 as permitted sender) client-ip=68.232.154.123;
-IronPort-SDR: 3s+U0c5+Up6XvoxY8cbrMUJYa30W3vZ9MKVXokWp/6GxZEZP7LPDXynQOZB2916ox4j+dYajQa
- vWpxHlNmiwTGVC1CG395t7HUSXH9Q3/K85BUKI4bsVQbLjd0fVWJoJ5tU48gLCTSQ5AmrX+RvU
- FlvnO2OQkLhcxZI8rXsmKuusHXC9yLd5Q4AZJKuh/Ef8LMRrBlJRDGp602GoNUEjDj5W8QWz6I
- yjXRgYx7zcGl2hPJAt9mA1P3K7vm9D7XGfBST1QZZ8mQtKHlZPl5UY/hrJ1hmQa35XrF6WbP1g
- pNA=
+IronPort-SDR: id3YMpwKvkEftidcEpCGiNrQnezuZwNDGcG/C76YQQXDlPzhGInltryPQ/gAj30ffNqImpqtR+
+ 3RyY2g78NiMjid3BmPMROrdxddgH7X9MrCNpJi6EZobSt17X/5DuRFYBpH2/XA7OxJJuRM4lHx
+ Fay6Sb0nP8riyxrVMxkeGppRn94pNL5zesmXW0YhLRu17106BjjOPO8JyHDMK30I+lFGlfbr5B
+ 7kECiBklenDY5lcdp1UoznIKf9weso56orsW0UEAxqYXMAZ5rikIEWFasuuZFnf9yIFUjUDAv1
+ vqY=
 X-IronPort-AV: E=Sophos;i="5.78,405,1599548400"; 
-   d="scan'208";a="96475108"
+   d="scan'208";a="96475122"
 Received: from smtpout.microchip.com (HELO email.microchip.com) ([198.175.253.82])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Dec 2020 06:04:05 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Dec 2020 06:04:06 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Wed, 9 Dec 2020 06:03:58 -0700
+ 15.1.1979.3; Wed, 9 Dec 2020 06:04:04 -0700
 Received: from m18063-ThinkPad-T460p.microchip.com (10.10.115.15) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.1979.3 via Frontend Transport; Wed, 9 Dec 2020 06:03:53 -0700
+ 15.1.1979.3 via Frontend Transport; Wed, 9 Dec 2020 06:03:59 -0700
 From: "'Claudiu Beznea' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: <davem@davemloft.net>, <kuba@kernel.org>, <robh+dt@kernel.org>,
 	<nicolas.ferre@microchip.com>, <linux@armlinux.org.uk>,
@@ -121,9 +121,9 @@ CC: <yash.shah@sifive.com>, <netdev@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <clang-built-linux@googlegroups.com>,
 	Claudiu Beznea <claudiu.beznea@microchip.com>
-Subject: [PATCH v3 2/8] net: macb: add capability to not set the clock rate
-Date: Wed, 9 Dec 2020 15:03:33 +0200
-Message-ID: <1607519019-19103-3-git-send-email-claudiu.beznea@microchip.com>
+Subject: [PATCH v3 3/8] net: macb: add function to disable all macb clocks
+Date: Wed, 9 Dec 2020 15:03:34 +0200
+Message-ID: <1607519019-19103-4-git-send-email-claudiu.beznea@microchip.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1607519019-19103-1-git-send-email-claudiu.beznea@microchip.com>
 References: <1607519019-19103-1-git-send-email-claudiu.beznea@microchip.com>
@@ -131,7 +131,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: claudiu.beznea@microchip.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@microchip.com header.s=mchp header.b=o1xeKlX3;       spf=fail
+ header.i=@microchip.com header.s=mchp header.b=WIJR7K1N;       spf=fail
  (google.com: domain of claudiu.beznea@microchip.com does not designate
  68.232.154.123 as permitted sender) smtp.mailfrom=Claudiu.Beznea@microchip.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
@@ -149,93 +149,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-SAMA7G5's ethernet IPs TX clock could be provided by its generic clock or
-by the external clock provided by the PHY. The internal IP logic divides
-properly this clock depending on the link speed. The patch adds a new
-capability so that macb_set_tx_clock() to not be called for IPs having
-this capability (the clock rate, in case of generic clock, is set at the
-boot time via device tree and the driver only enables it).
+Add function to disable all macb clocks.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
 ---
- drivers/net/ethernet/cadence/macb.h      |  1 +
- drivers/net/ethernet/cadence/macb_main.c | 18 +++++++++---------
- 2 files changed, 10 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/cadence/macb_main.c | 38 ++++++++++++++++++--------------
+ 1 file changed, 21 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index 7daabffe4318..769694c7f86c 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -699,6 +699,7 @@
- #define MACB_CAPS_GEM_HAS_PTP			0x00000040
- #define MACB_CAPS_BD_RD_PREFETCH		0x00000080
- #define MACB_CAPS_NEEDS_RSTONUBR		0x00000100
-+#define MACB_CAPS_CLK_HW_CHG			0x04000000
- #define MACB_CAPS_MACB_IS_EMAC			0x08000000
- #define MACB_CAPS_FIFO_MODE			0x10000000
- #define MACB_CAPS_GIGABIT_MODE_AVAILABLE	0x20000000
 diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 6d46153a7c4b..b23e986ac6dc 100644
+index b23e986ac6dc..81704985a79b 100644
 --- a/drivers/net/ethernet/cadence/macb_main.c
 +++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -460,15 +460,14 @@ static void macb_init_buffers(struct macb *bp)
- 
- /**
-  * macb_set_tx_clk() - Set a clock to a new frequency
-- * @clk:	Pointer to the clock to change
-+ * @bp:		pointer to struct macb
-  * @speed:	New frequency in Hz
-- * @dev:	Pointer to the struct net_device
-  */
--static void macb_set_tx_clk(struct clk *clk, int speed, struct net_device *dev)
-+static void macb_set_tx_clk(struct macb *bp, int speed)
- {
- 	long ferr, rate, rate_rounded;
- 
--	if (!clk)
-+	if (!bp->tx_clk || !(bp->caps & MACB_CAPS_CLK_HW_CHG))
- 		return;
- 
- 	switch (speed) {
-@@ -485,7 +484,7 @@ static void macb_set_tx_clk(struct clk *clk, int speed, struct net_device *dev)
- 		return;
- 	}
- 
--	rate_rounded = clk_round_rate(clk, rate);
-+	rate_rounded = clk_round_rate(bp->tx_clk, rate);
- 	if (rate_rounded < 0)
- 		return;
- 
-@@ -495,11 +494,12 @@ static void macb_set_tx_clk(struct clk *clk, int speed, struct net_device *dev)
- 	ferr = abs(rate_rounded - rate);
- 	ferr = DIV_ROUND_UP(ferr, rate / 100000);
- 	if (ferr > 5)
--		netdev_warn(dev, "unable to generate target frequency: %ld Hz\n",
-+		netdev_warn(bp->dev,
-+			    "unable to generate target frequency: %ld Hz\n",
- 			    rate);
- 
--	if (clk_set_rate(clk, rate_rounded))
--		netdev_err(dev, "adjusting tx_clk failed.\n");
-+	if (clk_set_rate(bp->tx_clk, rate_rounded))
-+		netdev_err(bp->dev, "adjusting tx_clk failed.\n");
+@@ -3694,6 +3694,20 @@ static void macb_probe_queues(void __iomem *mem,
+ 	*num_queues = hweight32(*queue_mask);
  }
  
- static void macb_validate(struct phylink_config *config,
-@@ -751,7 +751,7 @@ static void macb_mac_link_up(struct phylink_config *config,
- 		if (rx_pause)
- 			ctrl |= MACB_BIT(PAE);
++static void macb_clks_disable(struct clk *pclk, struct clk *hclk, struct clk *tx_clk,
++			      struct clk *rx_clk, struct clk *tsu_clk)
++{
++	struct clk_bulk_data clks[] = {
++		{ .clk = tsu_clk, },
++		{ .clk = rx_clk, },
++		{ .clk = pclk, },
++		{ .clk = hclk, },
++		{ .clk = tx_clk },
++	};
++
++	clk_bulk_disable_unprepare(ARRAY_SIZE(clks), clks);
++}
++
+ static int macb_clk_init(struct platform_device *pdev, struct clk **pclk,
+ 			 struct clk **hclk, struct clk **tx_clk,
+ 			 struct clk **rx_clk, struct clk **tsu_clk)
+@@ -4755,11 +4769,7 @@ static int macb_probe(struct platform_device *pdev)
+ 	free_netdev(dev);
  
--		macb_set_tx_clk(bp->tx_clk, speed, ndev);
-+		macb_set_tx_clk(bp, speed);
+ err_disable_clocks:
+-	clk_disable_unprepare(tx_clk);
+-	clk_disable_unprepare(hclk);
+-	clk_disable_unprepare(pclk);
+-	clk_disable_unprepare(rx_clk);
+-	clk_disable_unprepare(tsu_clk);
++	macb_clks_disable(pclk, hclk, tx_clk, rx_clk, tsu_clk);
+ 	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+@@ -4784,11 +4794,8 @@ static int macb_remove(struct platform_device *pdev)
+ 		pm_runtime_disable(&pdev->dev);
+ 		pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 		if (!pm_runtime_suspended(&pdev->dev)) {
+-			clk_disable_unprepare(bp->tx_clk);
+-			clk_disable_unprepare(bp->hclk);
+-			clk_disable_unprepare(bp->pclk);
+-			clk_disable_unprepare(bp->rx_clk);
+-			clk_disable_unprepare(bp->tsu_clk);
++			macb_clks_disable(bp->pclk, bp->hclk, bp->tx_clk,
++					  bp->rx_clk, bp->tsu_clk);
+ 			pm_runtime_set_suspended(&pdev->dev);
+ 		}
+ 		phylink_destroy(bp->phylink);
+@@ -4967,13 +4974,10 @@ static int __maybe_unused macb_runtime_suspend(struct device *dev)
+ 	struct net_device *netdev = dev_get_drvdata(dev);
+ 	struct macb *bp = netdev_priv(netdev);
  
- 		/* Initialize rings & buffers as clearing MACB_BIT(TE) in link down
- 		 * cleared the pipeline and control registers.
+-	if (!(device_may_wakeup(dev))) {
+-		clk_disable_unprepare(bp->tx_clk);
+-		clk_disable_unprepare(bp->hclk);
+-		clk_disable_unprepare(bp->pclk);
+-		clk_disable_unprepare(bp->rx_clk);
+-	}
+-	clk_disable_unprepare(bp->tsu_clk);
++	if (!(device_may_wakeup(dev)))
++		macb_clks_disable(bp->pclk, bp->hclk, bp->tx_clk, bp->rx_clk, bp->tsu_clk);
++	else
++		macb_clks_disable(NULL, NULL, NULL, NULL, bp->tsu_clk);
+ 
+ 	return 0;
+ }
 -- 
 2.7.4
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1607519019-19103-3-git-send-email-claudiu.beznea%40microchip.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1607519019-19103-4-git-send-email-claudiu.beznea%40microchip.com.
