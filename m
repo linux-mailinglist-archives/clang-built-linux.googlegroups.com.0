@@ -1,123 +1,158 @@
-Return-Path: <clang-built-linux+bncBC3L3HGJUELBB2PRZL7AKGQEPNXDOSA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7M5BFO7YCRB7XUZL7AKGQEOBETGYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 849492D6C0A
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 01:10:18 +0100 (CET)
-Received: by mail-pf1-x438.google.com with SMTP id y2sf5103379pfr.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Dec 2020 16:10:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607645417; cv=pass;
+Received: from mail-ua1-x938.google.com (mail-ua1-x938.google.com [IPv6:2607:f8b0:4864:20::938])
+	by mail.lfdr.de (Postfix) with ESMTPS id BD5422D6C0D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 01:17:03 +0100 (CET)
+Received: by mail-ua1-x938.google.com with SMTP id r17sf1568710uah.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Dec 2020 16:17:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607645822; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OzbCRJe1LDt0imGGF7Sbsn1HpD86rWgxEcCmt9x4GGzIrRnJpBFqJ7lNUkaTA6Xyod
-         AtPd7YbNOxRW8EFOcUW80ZHiN9o0lMPszSsaEQo1jGlYHFkbK2DVEFzoB+Z2i9Zhbcbu
-         jpHJTWtcO9OUvRFgjdIriTLu3ZKLyNJTg1x1y0Up1USESuLHilgkeRiPO1x4sIDrWo9i
-         QuF9q2ZaPs8uyzZUz1PaKXTd5JSaAZ1JHDW5cbtQf8C9llUT6IAum7e+uvq+SqzBwe3I
-         pDzUBwpxRr7WlvldnlApSsjPIhx3+xBANLim0s1HyPLB83GTog9rKAjARL4cAcUoaq5s
-         VJtA==
+        b=OW7ilsl4048ZzaNcp0dmleHjgnmHEktEfoEtrah+PDNRlPsqBdZCvLLaiD5RjXUmEf
+         eebo42BgktTKG5BxMWC426pR2nBKTPzfvaNeBI1mgrBrl8AGrFieX/zPsNyEzTzMVhmC
+         vvgfKaChEiYqU25FKzFMceCCgby7H0YaiKPPjH5wFg208cISUZU/g4zClf6j/2KNtl/3
+         4R7pOd7q3OUGnZkgv8qBvZowLJxB2Tkt7rCvvH21ujv26XijUmR0IKHRNlXz39OMR+/D
+         02n7X4wJF+jfmf4euEicVHOrWH8osPB6RjylJNql8kFOPR6orzyJ25bgvuaaBo6igJQu
+         somQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=8LCIP0uEoxX8dgTfgG/2Rm17kYAGAnvXGUqP9vxJtwc=;
-        b=Khd8DOzwC/dabATC9d7v7Nb6lWxHeCQXZ6iDUM/lpO6unFK2r5mOBsN1UKOHPD8+jA
-         rSU0rrjDp44QV8xhI2pLKiAmtfyzw/hMwdfLrcghYI8NNYad7JkzzObdjNL+0ndAK3CP
-         iWlPZlCTeABjfn+Q3ZHwi6eLks4yqN/NBBcRHTRNrxn4kb+/6vzCwvy1ewu7F5efSVi3
-         sqXDQQ7sGol74XpSnS0oBsHbi5ca0nz9wLq64LRWoBUzMJEPo8wcu1qnDEBwlV+LOvNW
-         Aiu3D3ncFRyAxEe5Cnqf8e4W0cuRZ+s805bLWjNgFkkpoL7AvnXaymRbPzcA+POGrRkS
-         jgLQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=P/L79uWy4HJi0QAMGyoHZhcs4aP2AELtDYXbv080tgY=;
+        b=xe2WSyK96mlX2slIEtT9+o6nSE99lRTs+QPzHGMm5HKnhUIN1spYvJI+h672Qq0+Qz
+         1MduFR1eXYkLAcn2jZwjNxCvTZO13ygVUYixEeGxLem2ZU/NNVFg75bBhbP7eT92XH+V
+         yUu1qTi93TJ5nHyT43nodO4OBIxDS6833OpiUEZzDb+MxcxMIkdieuuEEeF5gbEZt09n
+         y6HLKu3Lvq1HQJWT/SCJPvL2IMcEmFVNjC4ckaD/o2YAgpEchoXacyXNJeH45AJGRa2e
+         qnosOgSc+iD65eLUyWNHUM+TIAQns8/z0pZIx/nvu6xCo14a5+alsfzJ632G/xev0r+O
+         hRjQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GzScmKyY;
-       spf=pass (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=adelg@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@roeck-us.net header.s=default header.b=ZhbO5WDZ;
+       spf=softfail (google.com: domain of transitioning linux@roeck-us.net does not designate 69.89.20.226 as permitted sender) smtp.mailfrom=linux@roeck-us.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8LCIP0uEoxX8dgTfgG/2Rm17kYAGAnvXGUqP9vxJtwc=;
-        b=olkouhxZHNt1qy1/8993qbJs26oMBaKhoWBjS2OX/04QM7Q9KrryBusrdq0rkl0J8G
-         ysd2hTRi1yn0UclT13gz+P79BOhY9oD++Q11FLKGsNREnvfEUDWIVT7ELIa1m9JoRB+s
-         P7bUUywWzgXxc+eKy9+QQ1Lr+WdQwskTjpF3bR0qOYOPIasLeaQt+5DmlG5M0xPuzRdL
-         B277Z4gtax+D7JMHn4C3DdnjOYZzL84K8jvywPW4SGAUn5jb/k45pYSwyDoik5YhoNmd
-         D2sUA/UOSGpejrbIegqD2F0EBSPm5NVZinZMeFs8GTRToC5EZUNtWRFhLE2NHvvwjnTo
-         33kA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=P/L79uWy4HJi0QAMGyoHZhcs4aP2AELtDYXbv080tgY=;
+        b=HQ/28bcaLyAUZxUt/qWIyJU9zCgp5NFVyDLtf+RFxCwR4zaX/PuvMCZfnZ/MEqFMAx
+         VOPce4aXi4FKuDmPNnZR1NI7iFzxE8ZBFCUOeRJ345sNvgyyAtkS55mQuI2e7KSnVpFW
+         MHjk+XKG/pcegY/yb6UnOHjsOmsQnSkymKJ+RqWOTArk3rpJpfiXyKt97mQAbkI3tISz
+         BUoEZEuPJjHjuVJrtEW9OxjW/SqXOIghvZrimx0NBf+O8D0ACFPNZnB9t3pTX6iEcvTq
+         HDZeYgvQ4NsWbFzGk8/Jv3yAC1iY8uE+OY46l55TVdQJxzgbT45WzdCmCZrM54KrNZTN
+         a1qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8LCIP0uEoxX8dgTfgG/2Rm17kYAGAnvXGUqP9vxJtwc=;
-        b=S+UwjNlL0EAxyLaLP9BBssSJmggl/UR18WGJWhL4V6OomWKsmjxXu13ryaOvQ/SLY8
-         Xf4TFK1hTA5hSl1TixkiwdmKfMOsuoYHLJRhlZaK2qeRmzBLGsqovUVSBS+lPFEtLIh5
-         USiewz/Y7eAmU7YqIvjRbLbk6p5Pb5LR+fQNrZv7c9pHEmKz6A5Z0L1I6vx7XP2ac4OC
-         Nnw7rBeXucQp68Z3+Vj++/R6Np1IK91sB5y5tgtt4oFOVVH69kNdK6KDKrAxZMzESQXD
-         3hkf8rOhHIETGt5gHg1W0ARKYXXtgcu6CFIUu78jm2zQdOUtckva3Kn329jch3Hdeb7v
-         wMMQ==
-X-Gm-Message-State: AOAM530iJVPvPrqBn4JgiAtNpO+o1sSjtzR0nHk4INHKGXFtelBMZsm8
-	Qkws35haVukPqqYIwwZD7FI=
-X-Google-Smtp-Source: ABdhPJzdJU05yTrn7DkZrPw2PxLutUMDQ/EmQn93TRa9DWSB1HiwXzry7UDyZAlmQt+NLInAitCYhQ==
-X-Received: by 2002:a62:ce8a:0:b029:19e:3bfe:eac0 with SMTP id y132-20020a62ce8a0000b029019e3bfeeac0mr9009276pfg.69.1607645417255;
-        Thu, 10 Dec 2020 16:10:17 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=P/L79uWy4HJi0QAMGyoHZhcs4aP2AELtDYXbv080tgY=;
+        b=E+mh8NYhoRsDTel0WPYhKidPRh6BNF2uKwJ0HhyXGQRn7aMtPuWEXWzBnRZ/XzhPMo
+         Ul+LqFrqY3QXX/txF2UIgpP0qdwz8y3lqBty87hB/8hDcIlVcGRzilO02oDBJYmaLWi1
+         GKHz+vYC+zXC7XGa6SKm98sFfJy17FWvzM3her8OKkMFPz5TrLxIwsG4/cJpBh+fytZf
+         0yz3nfMOaNmRYjC+Z9yLr4cHBNIeDRWoJIfzjOez3ltw/xjg6Lwv9bMk+ibqVWcXmXPd
+         Q8oMFR/7WiDyzD6F6Kn+loy27eJdjDeZHjDkz8dRnFz7ef+z00OR3PPYTwgz4zXBpZQA
+         KQtw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531ClC1MT4GU0NA5Xy/f0LdJooaxZafNZN/bFG9zatx3jxKmA7ac
+	G0API/JVJpenvpTlMnWiiXU=
+X-Google-Smtp-Source: ABdhPJwXn3M7iSfdxvWy+ADoa8ZF07MoNKHDny4r9BJN8kP/FstEyoCFNh+6J712ZYdmvE+pMQWkCg==
+X-Received: by 2002:a05:6122:12bb:: with SMTP id j27mr12411867vkp.18.1607645822755;
+        Thu, 10 Dec 2020 16:17:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:9286:: with SMTP id j6ls2588156pfa.7.gmail; Thu, 10 Dec
- 2020 16:10:16 -0800 (PST)
-X-Received: by 2002:a63:6e45:: with SMTP id j66mr9107670pgc.238.1607645416569;
-        Thu, 10 Dec 2020 16:10:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607645416; cv=none;
+Received: by 2002:a67:8d45:: with SMTP id p66ls894974vsd.11.gmail; Thu, 10 Dec
+ 2020 16:17:02 -0800 (PST)
+X-Received: by 2002:a67:5c03:: with SMTP id q3mr11031961vsb.47.1607645822155;
+        Thu, 10 Dec 2020 16:17:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607645822; cv=none;
         d=google.com; s=arc-20160816;
-        b=Gxjk26hkW8l6GML62zf4KPsS0bfMVlnQ2WXtN/VrA7LN2Z3VKbJ9bKIqtcD33nIBwl
-         VX/THQ4L0oVVaskP/ECjGn9YQS+vcjHlennxPDjxvX2zb52huOv/JpY7vwR2hI1QxNpy
-         KIuMUBEOjNyxCfalWbeb3wv3exaLmIAINx/6oG0kV+9VJdh67QQLmj2y+sJNXKnDflKR
-         mvwOkGQEnfn4cSCn9pgOi0o2wHo1w7R2Swi5tAC0qeDjWFq1N1Pyq0n+vGAr02KfFlCL
-         AbvFMLyfDPQdPfuTqtkiyIJlAvjyxdAIKnNXxHfv2NfVSZF7l85NmgIoIk9NjtnKJgHz
-         NVzQ==
+        b=JnpfCo/xMR9RPXZIk2rUe47K1fPYemMmjdtQDvsZ28wywDDf+P15PPfouwd6vCbumY
+         OF74c7qTFOwSd6BbRVaXEN70bQqRS+39RmfXJORoCSqC+bwa9MIVfScurHhlxz8YUNcd
+         s023n4xf5JoteuLftfX35mAR3itD5KYPzkBY2uUP3rdJWYeuCU+2xZifU8hMdVFep7v0
+         gEK1e2IiebySTcLB1hIsTdlaC7RaXvJXmGtr1gpNxa4VepQyVTzVRqh/MU7DIsqfZfMV
+         r6PQ+1o6coh5lYFECQ/x3Yu/6MMvrn/oyhXfWicpIMNGiynnIJKHDxb2RHZVVqiHtaXn
+         UEEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=eyaO3qiwDzgknL6h/ChrfPpZ+ZJEw+xlx9cER6qscjU=;
-        b=dt6siTIRYR6ZE8Rzp39OuVdLgdlFVn9oTHE9TQiQqtIc49oV4QKL+YrMLdNTIFOXlS
-         sbi2BMYlmkaLh8kLlD1ZYsUSmblm+uOlH+eiMLeucr+Sk01kPtwVk08PYvlayo18463B
-         o013lObIVMpnFXcn1kLdeZY4GJvEN8xNzErEu9JP68fIZyghySwD2LV8DzSFNMRrzFC4
-         g7wLmrTxpYOMfdSVi4OWgoIVVMXagl+R8J9d/uChaWwp1RfHNaHOnQaN7WJTKY0l/FVF
-         rOJdhqb99e8zpvCKr4ahReD38Z5axBg3ldEh6GpOI2Js0UmvfwtLDtCwOPyycwPgnqM3
-         htRg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=ekvtIws0SfA/x/tSI0N4ti3JHZLquQwZr2WPg4tHLII=;
+        b=nr/Z2sf0nOrkXlyyYPxvkiV1KFXZJd0QEKUo/5+A8IDZFwtuT3XYTtv4n9zXOAtRb0
+         VlYT/pIr66wj2OB5WKu0WJXkF3dfd4yj+nmmRBdejxrIppUk2cGUyOukVqXe36HQicgK
+         ILm3u1LelnhJP7aqJsZpQ1vGDk1r7lSC1MaakGpYKsL2q0Yu/yYS2EPA7Rd/bBVg7NAA
+         Sm6hnYPe0ZqgCiXF9vSSrtNwDwvTXr3LUBDqC77zw71TbREJolAroXmC3eTCNBn3SeKm
+         3PuCI3mPQT7e+kLbvaBQXnrYmekF55Wp/zn0RDrypQIdqNePLz+e4bVGZQOnhTmDn/E0
+         qrqA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=GzScmKyY;
-       spf=pass (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::843 as permitted sender) smtp.mailfrom=adelg@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qt1-x843.google.com (mail-qt1-x843.google.com. [2607:f8b0:4864:20::843])
-        by gmr-mx.google.com with ESMTPS id kr15si548680pjb.2.2020.12.10.16.10.16
+       dkim=pass header.i=@roeck-us.net header.s=default header.b=ZhbO5WDZ;
+       spf=softfail (google.com: domain of transitioning linux@roeck-us.net does not designate 69.89.20.226 as permitted sender) smtp.mailfrom=linux@roeck-us.net
+Received: from gproxy10-pub.mail.unifiedlayer.com (gproxy10-pub.mail.unifiedlayer.com. [69.89.20.226])
+        by gmr-mx.google.com with ESMTPS id y127si439329vsc.0.2020.12.10.16.17.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Dec 2020 16:10:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::843 as permitted sender) client-ip=2607:f8b0:4864:20::843;
-Received: by mail-qt1-x843.google.com with SMTP id u21so5236428qtw.11
-        for <clang-built-linux@googlegroups.com>; Thu, 10 Dec 2020 16:10:16 -0800 (PST)
-X-Received: by 2002:aed:23c8:: with SMTP id k8mr12527987qtc.362.1607645415476;
- Thu, 10 Dec 2020 16:10:15 -0800 (PST)
-MIME-Version: 1.0
-References: <20201203221005.2813159-1-adelg@google.com> <CAKwvOdk6=TgL+f2-WvE7tsK0rN1XQ+NdXmeJfDkLsa8xPmgipA@mail.gmail.com>
-In-Reply-To: <CAKwvOdk6=TgL+f2-WvE7tsK0rN1XQ+NdXmeJfDkLsa8xPmgipA@mail.gmail.com>
-From: "'Andrew Delgadillo' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 10 Dec 2020 16:10:04 -0800
-Message-ID: <CAEHm+vHtMQtMThgE_BwpiBS5v0a61L_TW9vgKLaFTtcgg9HSgA@mail.gmail.com>
-Subject: Re: [PATCH] selftests: propagate CC to selftest submakes
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 10 Dec 2020 16:17:01 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning linux@roeck-us.net does not designate 69.89.20.226 as permitted sender) client-ip=69.89.20.226;
+Received: from cmgw10.unifiedlayer.com (unknown [10.9.0.10])
+	by gproxy10.mail.unifiedlayer.com (Postfix) with ESMTP id 5CE10140471
+	for <clang-built-linux@googlegroups.com>; Thu, 10 Dec 2020 17:17:01 -0700 (MST)
+Received: from bh-25.webhostbox.net ([208.91.199.152])
+	by cmsmtp with ESMTP
+	id nW7Ik5LhjDlydnW7Jkr2Zk; Thu, 10 Dec 2020 17:17:01 -0700
+X-Authority-Reason: nr=8
+X-Authority-Analysis: v=2.3 cv=G4sy7es5 c=1 sm=1 tr=0
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=dLZJa+xiwSxG16/P+YVxDGlgEgI=:19 a=kj9zAlcOel0A:10:nop_charset_1
+ a=zTNgK-yGK50A:10:nop_rcvd_month_year
+ a=evQFzbml-YQA:10:endurance_base64_authed_username_1 a=VwQbUJbxAAAA:8
+ a=n2IuXNhsAAAA:20 a=P60nflJvJZ1DZXJ0TTYA:9 a=CjuIK1q_8ugA:10:nop_charset_2
+ a=AjGcO6oz07-iQ99wixmX:22
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:34752 helo=localhost)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.93)
+	(envelope-from <linux@roeck-us.net>)
+	id 1knW7I-0000Nu-Ex; Fri, 11 Dec 2020 00:17:00 +0000
+Date: Thu, 10 Dec 2020 16:16:59 -0800
+From: Guenter Roeck <linux@roeck-us.net>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Shuah Khan <shuah@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-watchdog@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] watchdog: coh901327: add COMMON_CLK dependency
+Message-ID: <20201211001659.GH259082@roeck-us.net>
+References: <20201203223358.1269372-1-arnd@kernel.org>
+ <CAKwvOd=i6DFLrPAe5KihT+ZK-nFZ+L7troC300q-9Jpa=i4Fqg@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: adelg@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=i6DFLrPAe5KihT+ZK-nFZ+L7troC300q-9Jpa=i4Fqg@mail.gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - googlegroups.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1knW7I-0000Nu-Ex
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (localhost) [108.223.40.66]:34752
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 17
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-Original-Sender: linux@roeck-us.net
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=GzScmKyY;       spf=pass
- (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::843 as
- permitted sender) smtp.mailfrom=adelg@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Andrew Delgadillo <adelg@google.com>
-Reply-To: Andrew Delgadillo <adelg@google.com>
+ header.i=@roeck-us.net header.s=default header.b=ZhbO5WDZ;       spf=softfail
+ (google.com: domain of transitioning linux@roeck-us.net does not designate
+ 69.89.20.226 as permitted sender) smtp.mailfrom=linux@roeck-us.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,122 +165,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Dec 10, 2020 at 3:08 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Thu, Dec 3, 2020 at 2:10 PM Andrew Delgadillo <adelg@google.com> wrote:
+On Thu, Dec 10, 2020 at 03:00:30PM -0800, Nick Desaulniers wrote:
+> On Thu, Dec 3, 2020 at 2:34 PM Arnd Bergmann <arnd@kernel.org> wrote:
 > >
-> > lib.mk defaults to gcc when CC is not set. When building selftests
-> > as part of a kernel compilation, MAKEFLAGS is cleared to allow implicit
-> > build rules to be used. This has the side-effect of clearing the CC
-> > variable, which will cause selftests to be built with gcc regardless of
-> > if we are using gcc or clang. To remedy this, propagate the CC variable
-> > when clearing makeflags to ensure the correct compiler is used.
+> > From: Arnd Bergmann <arnd@arndb.de>
 > >
-> > Signed-off-by: Andrew Delgadillo <adelg@google.com>
->
-> Hi Andrew, thanks for the patch. Can you walk me through how to build
-> the selftests?
->
-> Documentation/dev-tools/kselftest.rst says:
-> $ make -C tools/testing/selftests
->
-> And if I do:
-> $ make CC=clang defconfig
-> $ make CC=clang -C tools/testing/selftests -j
->
-> I observe a spew of errors.  If I apply your patch and rerun the
-> above, I see what looks like the same spew of errors.  Am I "holding
-> it wrong" or could the docs use a refresh?
->
+> > clang produces a build failure in configurations without COMMON_CLK
+> > when a timeout calculation goes wrong:
+> >
+> > arm-linux-gnueabi-ld: drivers/watchdog/coh901327_wdt.o: in function `coh901327_enable':
+> > coh901327_wdt.c:(.text+0x50): undefined reference to `__bad_udelay'
+> 
+> Isn't a linkage failure against __bad_udelay supposed to be
+> interpreted as a value too large being passed to udelay()? IIRC, this
+> was an issue for someone building an Apple touchpad driver with Clang
+> at -O3...you sent a fix for that:
+> https://github.com/ClangBuiltLinux/linux/issues/678,
+> https://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git/commit/?id=fff2d0f701e6753591609739f8ab9be1c8e80ebb.
 
-Hi Nick, sure thing!
+The problem is likely that clk_get_rate() returns a constant 0,
+which in the real world would end up in a divide by 0 crash.
+An alternative might be be to add
 
-I also see a slew of errors when building with make -C
-tools/testing/selftests. However, that is not the problem I am trying
-to solve. I believe we are seeing errors building that way because it
-is missing some make variables that are normally set up when building
-from the kernel's top level makefile.
+	freq = clk_get_rate(clk);
+-->	if (freq == 0)
+-->		return;
 
-From https://www.kernel.org/doc/html/latest/dev-tools/kselftest.html:
-    To build and run tests with a single command, use:
-        $ make kselftest
+but I don't know if that would really be worth the effort.
+I prefer the current fix.
 
-To illustrate what I am to fix, one can follow these steps:
+Guenter
 
-Without patch:
-$ cd kernel_root
-$ make mrproper # Start fresh
-$ make defconfig
-$ make kselftest V=1 |& tee out1
-
-At this point inspecting out1 will show that gcc is being used as the compiler.
-Let's try to set it to clang.
-
-$ make mrproper
-$ make defconfig
-$ make kselftest V=1 CC=clang |& tee out2
-
-Inspecting out2 shows that clang is not used, but rather gcc. You will
-get a similar result if you substitute CC=clang for LLVM=1.
-We can verify that the CC variable is not properly propagated to the
-submakes with the following addition to
-tools/testing/selftests/android/Makefile's all recipe (this is the
-first submake run):
-...
-all:
-        echo "My CC compiler is $(CC)" && false
-...
-
-Following the above steps again will echo "My CC compiler is gcc" both
-times, despite setting CC=clang in the second run. After applying my
-patch, the CC variable will be properly propagated. The reason it was
-not propagated properly in the first place is that we clear MAKEFLAGS
-if implicit build rules are disabled (top level Makefile disables
-them, but selftests need), which has the side effect of unsetting the
-CC variable. Selftest's lib.mk defaults to gcc when CC is not set,
-which is why we see CC=gcc even when we set CC=clang on the
-commandline.
-
-While this is not a problem if building with make -C
-tools/testing/selftests/Makefile, it does present a problem for those
-who build with the top level makefile like "make kselftest" or "make
-vmlinux kselftest". One reason for doing it the second way is that
-using the top level Makefile allows one to use flags like "LLVM=1".
-
+> 
+> >
+> > Add a Kconfig dependency to only do build testing when COMMON_CLK
+> > is enabled.
+> >
+> > Fixes: da2a68b3eb47 ("watchdog: Enable COMPILE_TEST where possible")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > > ---
-> >  tools/testing/selftests/Makefile | 6 ++++--
-> >  1 file changed, 4 insertions(+), 2 deletions(-)
+> >  drivers/watchdog/Kconfig | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
 > >
-> > diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-> > index d9c283503159..a4dd6d7e8276 100644
-> > --- a/tools/testing/selftests/Makefile
-> > +++ b/tools/testing/selftests/Makefile
-> > @@ -90,10 +90,12 @@ FORCE_TARGETS ?=
+> > diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+> > index 8bdbd125821b..32fa6de7b820 100644
+> > --- a/drivers/watchdog/Kconfig
+> > +++ b/drivers/watchdog/Kconfig
+> > @@ -631,7 +631,7 @@ config SUNXI_WATCHDOG
 > >
-> >  # Clear LDFLAGS and MAKEFLAGS when implicit rules are missing.  This provides
-> >  # implicit rules to sub-test Makefiles which avoids build failures in test
-> > -# Makefile that don't have explicit build rules.
-> > +# Makefile that don't have explicit build rules. Since lib.mk defaults to
-> > +# using gcc for compilation when the CC variable is not set, we propagate the
-> > +# CC variable so if clang is being used, selftests will build with clang.
-> >  ifeq (,$(LINK.c))
-> >  override LDFLAGS =
-> > -override MAKEFLAGS =
-> > +override MAKEFLAGS = CC=$(CC)
-> >  endif
-> >
-> >  # Append kselftest to KBUILD_OUTPUT and O to avoid cluttering
+> >  config COH901327_WATCHDOG
+> >         bool "ST-Ericsson COH 901 327 watchdog"
+> > -       depends on ARCH_U300 || (ARM && COMPILE_TEST)
+> > +       depends on ARCH_U300 || (ARM && COMMON_CLK && COMPILE_TEST)
+> >         default y if MACH_U300
+> >         select WATCHDOG_CORE
+> >         help
 > > --
-> > 2.29.2.576.ga3fc446d84-goog
+> > 2.27.0
 > >
->
->
-> --
+> 
+> 
+> -- 
 > Thanks,
 > ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEHm%2BvHtMQtMThgE_BwpiBS5v0a61L_TW9vgKLaFTtcgg9HSgA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201211001659.GH259082%40roeck-us.net.
