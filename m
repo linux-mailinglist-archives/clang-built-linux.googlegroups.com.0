@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC3L3HGJUELBBP5MZ77AKGQENBXT7MA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKV2Z77AKGQEKR3DZPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id E9AED2D7FFA
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 21:27:44 +0100 (CET)
-Received: by mail-io1-xd38.google.com with SMTP id s11sf7415459iod.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 12:27:44 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607718464; cv=pass;
+Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A5C92D803C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 21:57:15 +0100 (CET)
+Received: by mail-vs1-xe40.google.com with SMTP id v8sf2618648vso.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 12:57:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607720234; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tYMItaf+nD9gidZZ6SKMZ1/f6MWGjC60AFKvI5qKRjQWrU6rziluehqkAVOUnJqGDj
-         MLe7l4PLZ3v/n+yNbguC2IxSTAuwhwDtLvGer1hZNQryc4HTskC8CJDMV4JboGnh/WxS
-         5phataqRXuCjMjdIlfd6401FIf7S0SOqEnBvKBn6esYe2g0Sblb5MSYHMpRsXxyKlGct
-         OJjNfw5pG+gTDRigdlZehLjQlhLOEE713FYrlJ4fIVc2oaNgWbbx2eRjcRjCFS/br/ZL
-         ilILTuYpb/x/JfnTaXMUxLNoQzD9UuvBUNmfM3xGR10woYKPByQCxPDAR9fi2IFPVOiG
-         37/Q==
+        b=xG14AQr2uHML80I7twKA2dVR1EyTdNE7Wm788wmJ3Hl0rbj4o37g4vQkiCk9ovir1q
+         Gop1rD6wXz8VrhrVgBtSVn/o3n/gGAfSGELSjTQRHvFWxn05o+vjOpCdXVwFdh2RQ0uM
+         H0weZSaS+31NO2O8AKaAbjTHIm9WP8QjB4yZW1p6rnzZHfwxclJkbfXpYhqP8lH0ua9+
+         HVPYh9nZa4OOMUeFicA2jb5jXYj26zKqvs9QVVeeRmj46Wxr1KBiN7akhScNy0lH8WfC
+         YFTFZbXyDScgP2kRmRDZYo7E1Orb1/hmk7gGarQLtrMcv/ZQBHjbvja1bqkhfmaIkF59
+         K8GQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=3NDPX0cHATCTTSc7wIkUcXJEYksndjEJ1GYr9Fh8Vp4=;
-        b=NtC0auBuKN7gIxdC00YCnxb2Xw86BYH7JE6rwy5o8jHlEUU8ptGzupLlErC/EMh8/W
-         wKEdXAQXiRiJpVbK6sjgQSk206zJZ5VzoEwG1vfURjVLv2YlOoPh19LD5taPj9fJi+MB
-         sgEBn8+1HIBBKH4oyg/IuP7ijRJosW98chgZuo8GihjnqvwxuY+dUhUcmQI1t+xWU7Wu
-         Bx0qlZxZbygIcTeupeep8HrjlFav3SQsSgNN/Je0CXYY/Idq2WAL78bJMzCWpxULITP6
-         JPLyd8vEWptI0M5+CrfT+d64TxbTRmM+kEDpkESx908prWaPkdNIoBaBsA2GCCL0mWer
-         eWJw==
+        bh=YPpTzojN1pVjuHnUbO2GR3JmyZztdL3rHSYLQImc8nQ=;
+        b=qifmWabErZi3kpNYNLFysagIknrcSemTsJIo172C/VhHLXjHgAFJ4luecXsj+0Y+bv
+         NZjyp3mYLT4Fr+G4L/76jKPUK5n1MOwbcM4+8jGkJdo4rvrRRPiD6lahOHpt7rOphJnr
+         Wiu/aZ23otmZhTI2AdJx51zn2Y8wsHie7+zeCmn0r2AoN8o/iHxeh9kI/iH/TDw1CGQd
+         QEqq0an4WdB1AzSM7JtN/n3oieuD6nFVtPpDXoj07TbY4s5vljRCCYnayuJNQim+RRi5
+         JWwEyhzLh9KlNLgPSr5xDWyMLJbSQwg9QAplfWZQSQxGs8H+h9yamVdOH4Yjo6Fj7nO5
+         cbFA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=nrurt71g;
-       spf=pass (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=adelg@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Fqi9Rxvv;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3NDPX0cHATCTTSc7wIkUcXJEYksndjEJ1GYr9Fh8Vp4=;
-        b=Y594iWDhCqN6M4YGKnymzZah1oKZT2o/Mxvc7SfhCN6x6qQlA0q+u91N5bzrGDPG3c
-         70TJ8Cx/ZIKNRQ7T73mACT4C+ebbrtjryJ23TieOPMpdfgTsI/kZGiYq/pv9VGt/ikr+
-         ffThE+177XCO1sLXIadxtANg56lpC9CqL+mRpksUUAxlN+tr57LbPpSMIXBlCCJ5C91N
-         No639Cet7o1y5fvYf0sZ92WuJ9ofHcnbBNfeH5Kzp86tyULkXffXRcYZexdolaCL6YTG
-         xxhq/srxiYHSs5QCPRi95AJHobZPO15XIBAPFJXJ0KJM4vXthkNdAMlcGx+VDZ/5Fjsz
-         6ebQ==
+        bh=YPpTzojN1pVjuHnUbO2GR3JmyZztdL3rHSYLQImc8nQ=;
+        b=S9gSZ4THNu9mxTceXiCl6ThbwGEBdA5Uh4PEPY4KRsCI6a5IxYWeu5F3jdzwSaQoFS
+         laMHJ5wwh/5wVImYOiYdq5tzZRZpZ6Zkcn2SmRWSPOrJJv/p29rCMz/tXpfigRHloPzT
+         pw58CMqBbdVziw9fXnLiZiTKF5zIMwp6wjmDMTPYRAASEAnfub/xa37ObngN3kLA8lN8
+         qFXKRwOSNQg60Fh5oO4DRxvcpP9L+rJPdDWNMnkDROxSKKa57rzRjCiodGwBBlx5QpaM
+         UYvchtWrqVXoVDzHbQYucxhi1XNKv+HspCUCwX1bK8tvL0ZrwB17jomruz/5OaBXoRPf
+         4CjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,76 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3NDPX0cHATCTTSc7wIkUcXJEYksndjEJ1GYr9Fh8Vp4=;
-        b=bn4nZj3573yvOnd8cX3jXSdFRCGasuP1u4nNSgNSxoWx5DWSrDQEZlipdZJogboMNR
-         adnpRzSCMMqU5jmlwHFo46vPNo1hjEvgwhUuasubP7shKhPErJLM0biGmLVn+m63XbVo
-         5jo/EMmLq4KkyzGa0YiodbEBK/TshdZYL96824zKkMpMsfzKDDP+yhjwKmd7SktvVnDn
-         IG/FdoFfrmCrp4wowjxh4o7zKjl/XQI2qs8FZcP9pvjceip2eb+D/mj9gc48w6fAE/f5
-         oig/Yay/h92FwaRBmCk4EpNMpPwg/0u30YcudSBvSpKqDFRnuQdDrFML+oBBPrAI0wQQ
-         Cq5Q==
-X-Gm-Message-State: AOAM532fYBTxxan1BjhO2O739UGCuXnXCcKfsqIc/Leg8O2VlYJStrBE
-	FBUh1RXF5m3dZbJRoIEcEl0=
-X-Google-Smtp-Source: ABdhPJxuU9l210ufj1ME/3z5HpJ7hdbDsV9AJj5QJ5EeJ6jr5sIWoNo25nIet/DpOA//VaXMQ8Yj8g==
-X-Received: by 2002:a5d:8405:: with SMTP id i5mr17364765ion.164.1607718463970;
-        Fri, 11 Dec 2020 12:27:43 -0800 (PST)
+        bh=YPpTzojN1pVjuHnUbO2GR3JmyZztdL3rHSYLQImc8nQ=;
+        b=PxosMdT/l7z+U+B71jqkkgpaysodPPvZySDwOOp5vbjwuGd5W1iH3IrhfRjmGY95//
+         ftdcRuR4OVAAEFjv7oyTPoUu04HhlUMvP+1o4d7HbaTGizzXyYM2vQ2h1w1b9/0ANDXh
+         Cgl/WkttJwFph8o1Zh1AxmgzpEyMt22ExXeo0JpeVfVLVuOWpDdavwbIK4L7dzyj87RK
+         y99LzwjROBryDGN2WVemJbJIGeXIaRHw7c09EnjiLzxVieX7rxIhzbx8osDYDQAK8F/+
+         fMOSjfwgWSC61yhS0ZQZ/9bb8XIeUxQ3Nx7kKgmq5Nr/lK8a0V9vbVo6P/OW0SFPgpS7
+         X3ZA==
+X-Gm-Message-State: AOAM533IQWf7WHztRHXPP79IbQbFhYXeYBqr6A6grl/sAumA5+g9eJBx
+	nZogdnA5Z2djY7jORdXhD3o=
+X-Google-Smtp-Source: ABdhPJxxJpYDDUjfVvMY67n04zJXd/Gtvf+hmmyNmeoruUwp6PNvS/i3uBeLePSF3d6cCOGZ2L7ZxQ==
+X-Received: by 2002:a1f:36d4:: with SMTP id d203mr15969061vka.22.1607720234249;
+        Fri, 11 Dec 2020 12:57:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:845d:: with SMTP id l90ls2520458ild.5.gmail; Fri, 11 Dec
- 2020 12:27:43 -0800 (PST)
-X-Received: by 2002:a92:c0d0:: with SMTP id t16mr17957813ilf.21.1607718463488;
-        Fri, 11 Dec 2020 12:27:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607718463; cv=none;
+Received: by 2002:a9f:3f4e:: with SMTP id i14ls767547uaj.2.gmail; Fri, 11 Dec
+ 2020 12:57:13 -0800 (PST)
+X-Received: by 2002:a9f:2c42:: with SMTP id s2mr14338037uaj.94.1607720233829;
+        Fri, 11 Dec 2020 12:57:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607720233; cv=none;
         d=google.com; s=arc-20160816;
-        b=TiOC9qAzoWZDG/+02hQ7etgqJG3QXlIw2DgaRy0v15+P/ZrRHGhOlsYPKL/00Sdt8v
-         joTu67OWyXFJWy8Q5RfOng8B8B8V6vU3FFJQI+g2U+TYo3nDcvW6xQ4VrZNMrcrbzxfv
-         fg4DfBeNdCScEskYm1XUZmBepeECNMzBoG4ph4hpyiIsAADnNUR7qpcfGpYKJ0TObFPQ
-         tTeQWDHhOH9pjbdxZmz3DSlptNdOXLAJvsIQxot8zfo71VCzv4BMchJSEDecZRR56yN7
-         4JgafYACvjIWwk4gokucF+NcANlde7lljvSOQb6pa7AiC4CcfASg050EoHeThES8wcl5
-         NFIA==
+        b=x8GwDtJizSGNdqKHqv6jpOWhQD67VsO2Higb3tYte6kDsF7BkvS1eAZGARrJu2IxqJ
+         tdETgSa+jBzgXF0nnA42qEvhnlA3BYgLAJ3GS01Ui51Jd16R3BgPtZZExAhVuCTzyGcn
+         hz7eknOLROb9F+o85C56cvmYzvbDn6Ka/rNQl9GzLD9N3ZdkHMiyr2xB+OPRhxuQ+NKP
+         bMReU/EhK5fk7R82t+cJvcldh+Bh8Wk1jf92iLTGH9vQs6C9j9RoYKiBzRqBxc7JAqva
+         7mgYQ/FICelSW4aB7QKrynBGgmOX4OcM7qDd5/TyLAbtEUuynrR0NSi3r4sSAzdfto56
+         Zknw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=qxQRcgZ57qjzJh7BvMLhV37MMlxNs43EUrF1vU/yGZU=;
-        b=HbKfwBHbDpl0DclExQ8j6udBfenuP+lpo1Xcv2eM36DjTqgS0Iuv2Q15gp7GzfjD37
-         QjBOrZVVH66usRlo9i0kf8LIRRO/MXv8NZddIefzvA72V9n6YiJri8iNfWbvIS42WYAt
-         QLWoN/gWdZxx2BZURY+i0wJBHhS4F9fUVQ+kP+ww3YX+jmAcdq2Ef+f9cN4eESgjsfWw
-         WlrxxxBWYwhLfyyUGv1t4W7TW01VhmPrNAs3rZVEjq3BsSd129FhfJ//v5T2YBJpTn2A
-         lMr2N0WR1y0zl72OmPdwhL8KzszPBs5wlxe9njc1jfQ52HTHBdruvxNTrMq1D9yDD0O6
-         YLyA==
+        bh=k3vq2jru/siTbZdWkGfGAc+yfoC9FslKe6Q/L8tWLHg=;
+        b=Qqz9wOrt2vNyLD0/TGoj6cMBSSI/TdFet3UI0rwzx5xP6CUNlHyH0vXPJPiISlRsQx
+         PWbXkyg5QoS0Sov0Ha1s8p0+E0nSV9Wo2M0ZrK37LLLJihLHzHLBy7lUDtFWqdrJVJOr
+         mNnX75C0xAXhLExFdl9nNKTK00APxsi0JblaPs3H5OeyicHor8ZKtfobRe+IGIvXL4pE
+         zCo4LmMT0pHdYHA/wKUBgggIauYpzSHIk91ZZHGgzFrdqa3roeXqJmh6UAZSALpX5dy1
+         kJnHZA4JaCSmV9v6JK0SGKdZDJU5q+C3v2e1L2QMOwNGv7NTDd3qbJAkVEe/a7iBGf2Q
+         UUww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=nrurt71g;
-       spf=pass (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=adelg@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Fqi9Rxvv;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
-        by gmr-mx.google.com with ESMTPS id p8si739445iln.0.2020.12.11.12.27.43
+Received: from mail-pj1-x1029.google.com (mail-pj1-x1029.google.com. [2607:f8b0:4864:20::1029])
+        by gmr-mx.google.com with ESMTPS id r207si610289vkf.2.2020.12.11.12.57.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Dec 2020 12:27:43 -0800 (PST)
-Received-SPF: pass (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
-Received: by mail-qt1-x844.google.com with SMTP id 7so7459250qtp.1
-        for <clang-built-linux@googlegroups.com>; Fri, 11 Dec 2020 12:27:43 -0800 (PST)
-X-Received: by 2002:ac8:5802:: with SMTP id g2mr17284210qtg.383.1607718462773;
- Fri, 11 Dec 2020 12:27:42 -0800 (PST)
+        Fri, 11 Dec 2020 12:57:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029 as permitted sender) client-ip=2607:f8b0:4864:20::1029;
+Received: by mail-pj1-x1029.google.com with SMTP id h7so2317025pjk.1
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Dec 2020 12:57:13 -0800 (PST)
+X-Received: by 2002:a17:902:26a:b029:da:af47:77c7 with SMTP id
+ 97-20020a170902026ab02900daaf4777c7mr12754106plc.10.1607720232471; Fri, 11
+ Dec 2020 12:57:12 -0800 (PST)
 MIME-Version: 1.0
-References: <20201203221005.2813159-1-adelg@google.com> <CAKwvOdk6=TgL+f2-WvE7tsK0rN1XQ+NdXmeJfDkLsa8xPmgipA@mail.gmail.com>
- <CAEHm+vHtMQtMThgE_BwpiBS5v0a61L_TW9vgKLaFTtcgg9HSgA@mail.gmail.com> <e78c3b86-78ab-2b2e-d8be-e9118d7d2392@linuxfoundation.org>
-In-Reply-To: <e78c3b86-78ab-2b2e-d8be-e9118d7d2392@linuxfoundation.org>
-From: "'Andrew Delgadillo' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 11 Dec 2020 12:27:31 -0800
-Message-ID: <CAEHm+vHXeuo6cPKOyCgCqLA1a8O8g9wgKVMi+4ifLN__BPVQbA@mail.gmail.com>
-Subject: Re: [PATCH] selftests: propagate CC to selftest submakes
-To: Shuah Khan <skhan@linuxfoundation.org>, Nick Desaulniers <ndesaulniers@google.com>
-Cc: Shuah Khan <shuah@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+References: <CAK8P3a20LXgEQkYSpbFFrJs1mdg19W72dp3pbebH9Pkpib2g-g@mail.gmail.com>
+ <CAKwvOdn79V-jaTH0mEtKyc-O+=Hj22bGtjKkZ1jriY2YABj-Lw@mail.gmail.com>
+ <20201211093205.GU2414@hirez.programming.kicks-ass.net> <20201211163748.b37gashl6an6misu@treble>
+ <20201211164915.GA2414@hirez.programming.kicks-ass.net> <20201211174610.2bfprpvrrlg66awd@treble>
+In-Reply-To: <20201211174610.2bfprpvrrlg66awd@treble>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 11 Dec 2020 12:57:00 -0800
+Message-ID: <CAKwvOdkWU3qQ_m3v1xn1Mm6+obC202NWEaF8g_gz3oqeeLkMQA@mail.gmail.com>
+Subject: Re: objtool crashes with some clang produced .o files
+To: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: adelg@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=nrurt71g;       spf=pass
- (google.com: domain of adelg@google.com designates 2607:f8b0:4864:20::844 as
- permitted sender) smtp.mailfrom=adelg@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Andrew Delgadillo <adelg@google.com>
-Reply-To: Andrew Delgadillo <adelg@google.com>
+ header.i=@google.com header.s=20161025 header.b=Fqi9Rxvv;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1029
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,90 +134,175 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Dec 10, 2020 at 4:31 PM Shuah Khan <skhan@linuxfoundation.org> wrote:
+On Fri, Dec 11, 2020 at 9:46 AM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
 >
-> On 12/10/20 5:10 PM, Andrew Delgadillo wrote:
-> > On Thu, Dec 10, 2020 at 3:08 PM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
-> >>
-> >> On Thu, Dec 3, 2020 at 2:10 PM Andrew Delgadillo <adelg@google.com> wrote:
-> >>>
-> >>> lib.mk defaults to gcc when CC is not set. When building selftests
-> >>> as part of a kernel compilation, MAKEFLAGS is cleared to allow implicit
-> >>> build rules to be used. This has the side-effect of clearing the CC
-> >>> variable, which will cause selftests to be built with gcc regardless of
-> >>> if we are using gcc or clang. To remedy this, propagate the CC variable
-> >>> when clearing makeflags to ensure the correct compiler is used.
-> >>>
-> >>> Signed-off-by: Andrew Delgadillo <adelg@google.com>
-> >>
-> >> Hi Andrew, thanks for the patch. Can you walk me through how to build
-> >> the selftests?
-> >>
-> >> Documentation/dev-tools/kselftest.rst says:
-> >> $ make -C tools/testing/selftests
-> >>
-> >> And if I do:
-> >> $ make CC=clang defconfig
-> >> $ make CC=clang -C tools/testing/selftests -j
-> >>
-> >> I observe a spew of errors.  If I apply your patch and rerun the
-> >> above, I see what looks like the same spew of errors.  Am I "holding
-> >> it wrong" or could the docs use a refresh?
-> >>
-> >
-> > Hi Nick, sure thing!
-> >
-> > I also see a slew of errors when building with make -C
-> > tools/testing/selftests. However, that is not the problem I am trying
-> > to solve. I believe we are seeing errors building that way because it
-> > is missing some make variables that are normally set up when building
-> > from the kernel's top level makefile.
-> >
+> On Fri, Dec 11, 2020 at 05:49:15PM +0100, Peter Zijlstra wrote:
+> > Do we want to capture all that gunk in something like
+> > elf_reloc_to_insn(reloc, insn) instead of duplicating the magic?
 >
-> Both options are supported and should work.
+> Yup, here's an actual patch
 >
-> make -C tools/testing/selftests
-> make kselftest
+> From: Josh Poimboeuf <jpoimboe@redhat.com>
+> Subject: [PATCH] objtool: Support Clang non-section symbols in static call generation
 >
-> That being said, I use gcc. Can you send the errors you are seeing?
-> It is possible, a few tests aren't building and need to be fixed
-> for clang and gcc.
-Most of the errors I saw, I was able to fix by installing the correct
-packages to get some missing headers, so in those cases nothing is
-broken about the tests. However, after that the errors still remaining
-look like so (I've done my best to deduplicate similar errors):
+> The Clang assembler likes to strip section symbols, which means you
+> can't reference some text code by its section.  This confuses objtool
+> greatly, causing it to seg fault.
+>
+> The fix is similar to what was done before, for ORC reloc generation:
+>
+>   e81e07244325 ("objtool: Support Clang non-section symbols in ORC generation")
+>
+> Factor out that code into a common helper and use it for static call
+> reloc generation as well.
+>
+> Reported-by: Arnd Bergmann <arnd@kernel.org>
+> Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 
-clone3_cap_checkpoint_restore.c: In function 'clone3_cap_checkpoint_restore':
-clone3_cap_checkpoint_restore.c:148:9: error: expected expression
-before 'return'
-   XFAIL(return, "Skipping all tests as non-root\n");
-         ^
-make[3]: *** [../lib.mk:139:
-/usr/local/google/home/adelg/projects/upstream/tools/testing/selftests/clone3/clone3_cap_checkpoint_restore]
-Error 1
+Thanks for the patch!
 
-memfd_test.c: In function 'test_seal_future_write':
-memfd_test.c:783:27: error: 'F_SEAL_FUTURE_WRITE' undeclared (first
-use in this function)
-  mfd_assert_add_seals(fd, F_SEAL_FUTURE_WRITE);
-                           ^
-memfd_test.c:783:27: note: each undeclared identifier is reported only
-once for each function it appears in
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/1207
 
-/usr/local/***/lib/../lib64/librt.so: undefined reference to
-`pthread_attr_setstacksize@GLIBC_2.2.5'
-collect2: error: ld returned 1 exit status
-
-There are also bpf selftest errors, but I know for a fact those are
-just an artifact of me not having llvm-readelf and other binaries in
-my PATH as I've compiled those successfully before.
+> ---
+>  tools/objtool/check.c   | 11 +++++++++--
+>  tools/objtool/elf.c     | 26 ++++++++++++++++++++++++++
+>  tools/objtool/elf.h     |  2 ++
+>  tools/objtool/orc_gen.c | 29 +++++------------------------
+>  4 files changed, 42 insertions(+), 26 deletions(-)
 >
-> thanks,
-> -- Shuah
+> diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+> index c6ab44543c92..5f8d3eed78a1 100644
+> --- a/tools/objtool/check.c
+> +++ b/tools/objtool/check.c
+> @@ -467,13 +467,20 @@ static int create_static_call_sections(struct objtool_file *file)
 >
+>                 /* populate reloc for 'addr' */
+>                 reloc = malloc(sizeof(*reloc));
+> +
+>                 if (!reloc) {
+>                         perror("malloc");
+>                         return -1;
+>                 }
+>                 memset(reloc, 0, sizeof(*reloc));
+> -               reloc->sym = insn->sec->sym;
+> -               reloc->addend = insn->offset;
+> +
+> +               insn_to_reloc_sym_addend(insn->sec, insn->offset, reloc);
+> +               if (!reloc->sym) {
+> +                       WARN_FUNC("static call tramp: missing containing symbol",
+> +                                 insn->sec, insn->offset);
+> +                       return -1;
+> +               }
+> +
+>                 reloc->type = R_X86_64_PC32;
+>                 reloc->offset = idx * sizeof(struct static_call_site);
+>                 reloc->sec = reloc_sec;
+> diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+> index 4e1d7460574b..be89c741ba9a 100644
+> --- a/tools/objtool/elf.c
+> +++ b/tools/objtool/elf.c
+> @@ -262,6 +262,32 @@ struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, uns
+>         return find_reloc_by_dest_range(elf, sec, offset, 1);
+>  }
+>
+> +void insn_to_reloc_sym_addend(struct section *sec, unsigned long offset,
+> +                             struct reloc *reloc)
+> +{
+> +       if (sec->sym) {
+> +               reloc->sym = sec->sym;
+> +               reloc->addend = offset;
+> +               return;
+> +       }
+> +
+> +       /*
+> +        * The Clang assembler strips section symbols, so we have to reference
+> +        * the function symbol instead:
+> +        */
+> +       reloc->sym = find_symbol_containing(sec, offset);
+> +       if (!reloc->sym) {
+> +               /*
+> +                * Hack alert.  This happens when we need to reference the NOP
+> +                * pad insn immediately after the function.
+> +                */
+> +               reloc->sym = find_symbol_containing(sec, offset - 1);
+> +       }
+> +
+> +       if (reloc->sym)
+> +               reloc->addend = offset - reloc->sym->offset;
+> +}
+> +
+>  static int read_sections(struct elf *elf)
+>  {
+>         Elf_Scn *s = NULL;
+> diff --git a/tools/objtool/elf.h b/tools/objtool/elf.h
+> index 807f8c670097..e6890cc70a25 100644
+> --- a/tools/objtool/elf.h
+> +++ b/tools/objtool/elf.h
+> @@ -140,6 +140,8 @@ struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, uns
+>  struct reloc *find_reloc_by_dest_range(const struct elf *elf, struct section *sec,
+>                                      unsigned long offset, unsigned int len);
+>  struct symbol *find_func_containing(struct section *sec, unsigned long offset);
+> +void insn_to_reloc_sym_addend(struct section *sec, unsigned long offset,
+> +                             struct reloc *reloc);
+>  int elf_rebuild_reloc_section(struct elf *elf, struct section *sec);
+>
+>  #define for_each_sec(file, sec)                                                \
+> diff --git a/tools/objtool/orc_gen.c b/tools/objtool/orc_gen.c
+> index 235663b96adc..9ce68b385a1b 100644
+> --- a/tools/objtool/orc_gen.c
+> +++ b/tools/objtool/orc_gen.c
+> @@ -105,30 +105,11 @@ static int create_orc_entry(struct elf *elf, struct section *u_sec, struct secti
+>         }
+>         memset(reloc, 0, sizeof(*reloc));
+>
+> -       if (insn_sec->sym) {
+> -               reloc->sym = insn_sec->sym;
+> -               reloc->addend = insn_off;
+> -       } else {
+> -               /*
+> -                * The Clang assembler doesn't produce section symbols, so we
+> -                * have to reference the function symbol instead:
+> -                */
+> -               reloc->sym = find_symbol_containing(insn_sec, insn_off);
+> -               if (!reloc->sym) {
+> -                       /*
+> -                        * Hack alert.  This happens when we need to reference
+> -                        * the NOP pad insn immediately after the function.
+> -                        */
+> -                       reloc->sym = find_symbol_containing(insn_sec,
+> -                                                          insn_off - 1);
+> -               }
+> -               if (!reloc->sym) {
+> -                       WARN("missing symbol for insn at offset 0x%lx\n",
+> -                            insn_off);
+> -                       return -1;
+> -               }
+> -
+> -               reloc->addend = insn_off - reloc->sym->offset;
+> +       insn_to_reloc_sym_addend(insn_sec, insn_off, reloc);
+> +       if (!reloc->sym) {
+> +               WARN("missing symbol for insn at offset 0x%lx",
+> +                    insn_off);
+> +               return -1;
+>         }
+>
+>         reloc->type = R_X86_64_PC32;
+> --
+> 2.25.4
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201211174610.2bfprpvrrlg66awd%40treble.
+
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEHm%2BvHXeuo6cPKOyCgCqLA1a8O8g9wgKVMi%2B4ifLN__BPVQbA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkWU3qQ_m3v1xn1Mm6%2BobC202NWEaF8g_gz3oqeeLkMQA%40mail.gmail.com.
