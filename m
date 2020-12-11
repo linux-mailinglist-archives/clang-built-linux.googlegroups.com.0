@@ -1,120 +1,136 @@
-Return-Path: <clang-built-linux+bncBDZJXP7F6YLRBJXSZ37AKGQE7TQJIOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDS5JPEL3IIRBKX2Z37AKGQEN4FBD6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 818112D7DF4
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 19:23:34 +0100 (CET)
-Received: by mail-wm1-x33d.google.com with SMTP id l5sf1872492wmi.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 10:23:34 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607711014; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4C1152D7E3B
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 19:40:44 +0100 (CET)
+Received: by mail-pg1-x53e.google.com with SMTP id q4sf7105152pgn.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Dec 2020 10:40:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607712043; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bhHqTK49Nw2UkDXh3LdrMWO/J9KF1eXfVp0ebUf4uSVfzO36689rp7Q2LWPFzeKQXu
-         Wu2UtnSVwm1lL4eQapcnT3qVeEK2fr9wJ2CFTFyirqR/aVNas/VNASHPp/5twvJaeTur
-         A3JOpKPwlQ5g5deXbPezujZ2cq5KAiEObqCSP4XOqtvNXmXyxNJODA2yzoEOzk2uFs1E
-         c5bnWOOy+/DTYYoowkU+zNFPV0BNPTX8VSaSheMg/U65zIi8IngETL9MZPexit0D9JNZ
-         02iNSPeWaAcfsFrSUyIwwgRedSnQul30wH6IbULrZSV/31aEX09nV4WeNBShKOO1BQsS
-         7wUQ==
+        b=xf16Y0MOuSg6pcO0VWxFOfPIBP5zpZLBGawllgDO82Vn9ahmWDludxXMEZ7VtZaB0G
+         uhfu0W58EWXddIU6hIG+j7BPE1rhGrJOukksbGobCfyiLGxnpoYsejvHMTPPFdELp4f+
+         ulXMZTH7956DVpX3hZfX2XJAOen6iObHhbsEZIG4VyiZW4sAz+h/c0sOgsMrqLxZzf95
+         /ZI8xxU7yl3LyrhK9M/XjTUCCNXqiLxDYTqsPojdrminMjtluAJRoi0gbPjjhnkapSf1
+         jutgs52K8iXhrRCJkxGDIrXnxRNk4qmEeCB19v3gnVpZQC2LjJeu6EqC7zpAvN3x2D37
+         nCBA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=x/0Sby/zaDOstsES5EkTeiY5+sLHynpq8lBgsHg/2hc=;
-        b=qRLHkz+LDD8RDAQClpccPXOIprv3UD5OSeASM7ZXo2dd0WQtu654ftP7/EGf8bMCl+
-         uTe5JHC05jeIjOyKIOUYc+TOtzX2S2TXRgANnsAQWoASGORDCAyAWdoY0jzDTu9rpXlZ
-         PPghk24e6lTECbRL5jwVdvNmGYEAakcTXRCo9IKM6X03SQ70UGNWOn9OZ4yrNFH1fYFq
-         xg3REztoNr4nwDgRa0/UYm2eIAM5QgWOyA0Hx7CHb7PEc6+t7NRqUDXYmyNwrqYXekzB
-         Z8ceSWMpuAlI+M1gsnULPhRG+7sLHyB2bnyD6Sb1auniXbqfMHgvN+6F3TsmjBK9LftO
-         MKpA==
+        bh=Bv/JSWb6XJ4WtsqAJ2I37Hf0/VHmP4grVY0Ojh0Jy8E=;
+        b=EQ/ri606Wl44v9SwkgfMkkUZ2GF+ykyKEtfQ74d4g2AngcL3i0gJ0ixOxMYYspSwJM
+         5Uy4LAfQkeBsSx9UPRMR3ur/0UZW+w620osElldlVLcXxs5W8h3maVNpvKIxjKJdpUGK
+         1S75A5Wh+dR1c6S2D2tFw+1fl1YvO18NPg3HXFh4y7bgorrcwPrzuoydsrbbxVxO/jFo
+         fcUindQZjFFnNmEl8VEYt990GP7Vv8x0sAoKwMn0N/vlT1mA4VS+uG770td7h4Eo/xY6
+         c7K+adEUmmSwQAMLuATHHAD9p1jkRXPJYyqReZadfiC7fJpU6qfjjbh+Hk6ju2DSKVWd
+         MylQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of julia.lawall@inria.fr designates 192.134.164.104 as permitted sender) smtp.mailfrom=julia.lawall@inria.fr
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Ir5gHcc7;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=x/0Sby/zaDOstsES5EkTeiY5+sLHynpq8lBgsHg/2hc=;
-        b=SjJvhgfWUTL+/7YKkOaYTKqbOVYrZyq6BEb+mbPRBfqRZuyOPoy3di2L01qvr7n3e6
-         SmhWGTv0Qs5RkSSZipMcyUtF9lfMl4dm28BT1Nn2JJsgCsMgyfD0a98KNycXZUXxK2fD
-         vPwJLcsputgVvAZwaDvK5vReD4/0VftokZcQlLZlvL5UOY0P8LF9oqpbGGv04CIfyW3W
-         NV28QDHLh7ow0Ue62pkcbIebMZGHFSmh0P5P+/DJoT62KqbTZjh5mYWpbmRkhQzclPk2
-         rXL1Rw2x4TlDurdQvjMm/U/2mF8zFl+Bnn66Murff6B1dzAn9VAvbnsUpQLPm4NHwUiq
-         xWhw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Bv/JSWb6XJ4WtsqAJ2I37Hf0/VHmP4grVY0Ojh0Jy8E=;
+        b=r/DxfuXpfKW7qVN9xkYAr7eV0YudNrwqbIRN9HYMuc90e0AO//Gf9TK0G88Bg8pfKI
+         68OM73LNjq5OdDjZU4gsn+lfxYEIG/DGdeyByhfgN9Z2u04gGizdqUVeOCq/vd+95p5M
+         zWcKxFg6mfB6pWCFEIxDFcwyMzOnQidrF6Je8mrS+pNVFplHG4AhqfoCCrfRRCzaKvT8
+         FO2qZibRd9BYhBY6Ob7N27V3dSJ8wbdR1IZTzyWR/ut1pm/VnL/1ME3jr/SnHu3wGrIC
+         f8vzJBTI0Bc7jGXJPg9zM6llOf35I+uauKD5CJWYskUz3aMhdwCijqiRxM6i3SZLa9/5
+         WajQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Bv/JSWb6XJ4WtsqAJ2I37Hf0/VHmP4grVY0Ojh0Jy8E=;
+        b=sHd+YmizYzLXg0B3La8IOTtwvN015BAb8IYDLoRQi6ZSIMLDW5MqOEvuQDk69m95h4
+         9XUXPv74Tu02G5pdxSwgDG5fZhuSk9ZwinP7+cfakPJ6gCkjpCDGZOr87dkWiw0EoOrN
+         tRk977Hg+lEWKG3N3S+EggBFN1uSwTJNEDTkO4eyTF2Y4pma3PT65Z5vKABycBs2Q/qQ
+         mA7E2Mfze4xJXaO1xFF7sHNPAR3BaSFJNGe1MZRpE/3tOoMKxCk9C5IxVBHnK2fl9uSq
+         zzaZEf1buPJ8nNZjdgfv5eCeVF2ZVx6end1WZ5oiq0ze5zyxh3eVUQYYZhvNBDi7OceJ
+         7xSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=x/0Sby/zaDOstsES5EkTeiY5+sLHynpq8lBgsHg/2hc=;
-        b=XEx6pC8KXw2weMmxzYTpFR6s+8MrMiDGtAX90Z4AEBrjmhm8EudFaxEUqdfZIjOcW6
-         GvsbfVK/pTdmLiS3U/dkozqqN7Usq8CGly5JL9uwtzJmftgtfCgVdD1/R+O92Jm6NI7m
-         9Ze/eqplsh9faoOa0zdKs4Lf67P+1mQ/g3D2zlvVzzdB3R8il3HSUuikv5k8Zj+lSCsU
-         +HzyWag+GX9OI4BYYxKFg0Y3OZXnQxDHRCxDBzSGTr2Dmiqx81xbe1ogEPgYnB9uxTQW
-         WODsUDLW6KONKwbay00G+7oRIlYmE8A1KZYCAlTFIKrwqWlQFMMhEXgSzVemofgHtiNv
-         5AHA==
+        bh=Bv/JSWb6XJ4WtsqAJ2I37Hf0/VHmP4grVY0Ojh0Jy8E=;
+        b=dOwk5RlsWYKN8uCn+Q05Fd5bynB8rq1yW9U3wQbnh+MOygCBNiG4jRdPEUdgpxdaqy
+         l1aZTW7IZWpn0NymogtgedrgM0E7MNK86jTD+I6+uLq2TZ3PxIaUQHpFJF2wdj5zEm0K
+         fw5aXgqFzFB3h9Y0u71PuOqo4T09tkjn+JHfdg7vMak6JGwDsIijWF+0OYFW5VP8m3iv
+         Q7BJejU9+V/YXVw8AvLdlHh0gHxHJKMNPX0yR9AVMstBkyiVuLlwMiKz3VTTVz4n4+5Q
+         sZDmAkWPCfOOeU7MV5euJJLapmzzICbWpvMy1RfSkAzVPvT64ByiM45DGfUp0vB02lYz
+         jmmw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533wOPZtOQ+Gr5Szg/yTqG4TE16pA7nm3r8aMdwa4/bQMJ1HGpOJ
-	UUYavhzETykmw3lZ9qC7TW4=
-X-Google-Smtp-Source: ABdhPJwDorLP0DBimSoN384h15hvhWWH6+RelDntPP0PGWRZL1/Hl+doAtb5DYebyyZKnGZ1u2YROQ==
-X-Received: by 2002:a1c:5f8a:: with SMTP id t132mr14844236wmb.121.1607711014208;
-        Fri, 11 Dec 2020 10:23:34 -0800 (PST)
+X-Gm-Message-State: AOAM532ltagUNLJ74PtTf/TALwtQiSrG74IZfcrIGfUBo0V6aSNhP80n
+	jaM8KuI039CxmvJSbqBH04M=
+X-Google-Smtp-Source: ABdhPJwWycqsY0QfjnflBl3zEgNLHOfCmscW0wrklv6f1HA8NoB9Kw3/O3sNgusCgjcMjMjnn2unpw==
+X-Received: by 2002:a63:ec57:: with SMTP id r23mr12733617pgj.315.1607712043073;
+        Fri, 11 Dec 2020 10:40:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:5543:: with SMTP id g3ls4456802wrw.0.gmail; Fri, 11 Dec
- 2020 10:23:33 -0800 (PST)
-X-Received: by 2002:a5d:4ccd:: with SMTP id c13mr15535337wrt.254.1607711013330;
-        Fri, 11 Dec 2020 10:23:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607711013; cv=none;
+Received: by 2002:aa7:96b7:: with SMTP id g23ls3688443pfk.9.gmail; Fri, 11 Dec
+ 2020 10:40:42 -0800 (PST)
+X-Received: by 2002:a62:fc86:0:b029:19d:9943:c843 with SMTP id e128-20020a62fc860000b029019d9943c843mr4689567pfh.71.1607712042361;
+        Fri, 11 Dec 2020 10:40:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607712042; cv=none;
         d=google.com; s=arc-20160816;
-        b=FiZalgUq8XUT3+F2SnU3Cm5QKHhlERR9zvG1pukURO/thpiU4vFx3zNIC2eFyqk7LA
-         uDS9X39KVhvp2FHG0hsYQH+qK5WhGEZ26UTFqQ1csQLHp7QU945pt3KEonjQHOdshqOx
-         2V9PJGNyZGFDlSvlkzcrMx/87tX1nPtR1EXFAMEJuqSAStbKr54jWuJ6lXQ1XSYw2n6f
-         uzbFmIr9c5lBOotJSynTHwreoCKuvHqTFtZIRkxcZNT2srt9dCzaXrpRXRbiDPMhbXKj
-         9UiSAOYdH55XE+DYZKehtNxvFCRXbmPcNEvYyTa3iDnaIAl/wN++Us0WGwWJc00p43Y0
-         9OEQ==
+        b=UKF79kFeB9ctCe/SSiDMiw9FWJ01zxt8UyzMMeuITXwaDXIn9NKjMur6IqyoItU2Qq
+         UUkW4p0yuAxBJEofA9tUE5cvga8cVqjZtgA/xTJcrHLWy8gd5l385vBHrRvqchPa5Pio
+         NhyUqijve/1Zat8VUN3Up9w8MxG1HRVDQOafR1kjs3BadnjJqkdJRjiyBCnJDBq/M2UN
+         3T1bVFQFOEQfrG8EhonrqunAJ41/Sy3WfJBthDbSVLxB0uSl440vxAEkc7ofWoB5Ousy
+         p6TecP6XNDZ9ZY6CBZ0flj9sHa8rlJuC66XOPG2j/noWJtjtJbkJ79NtVaQSYDlBlT8v
+         OPdQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:from:date;
-        bh=g1FN3MwXSJcghkTfGlzpvQ3dd12CUwtdJ2IGiSs0I1w=;
-        b=DQDPqfas4nekv1tB0227QBwyrLf0G6017fnYibE2dEGIuUYsAIc0qKzVBRtABi3T9P
-         pJhINghY6fMw3xb2VyGmQTRAFKKDBiW2dv5lUp2XoRQXumbsYy5pO9hIcIWGr1N++yhW
-         cOkftdQkxJQbq/A3vZ0EmBXKbOZMS3qULu6z7XU81V30JkFSppAc3p+C/Zf1vRekRUCi
-         UL/obeeR6hdDBiy8/aDyqcruo5bIYn0ErAzAfeC1TsZ+uQn9cyQwUi2SlNAx8xq9LcGb
-         gWJ6S5xbpfFtgJT2Q8EjooX3E6alfM4uljqgcjtTkds51btQtVJRiwveWXz63Dc/pYXW
-         T2GA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MRVPUYlxS/fdaO/lelSMT47zpvZj2vTgUngdVgjDGwA=;
+        b=c55ZQPP1LaavTsWX8vd9YHVk8tW6lpsr5NiAJFBcfmfLy1eXcgnsit6wG7OINm42Kj
+         b56K/471njNuI+B+H1vweZstdKV9q+jtyNJ4+GRqxDBlvslzUS7iR782F8wl8MXwk9EY
+         T6HeLkZ+p5x5DgqLwbjYj+zHvW03fCOWBlpNYTW7cRK+j7tppw28osMALXKbPpPiZr6W
+         +4HqVwQrwXSQo3dPhNIxuXGMsCT6aZVr8nKy7kWvzVG3ryojfphheDNe2E/tyLVZ+f0o
+         09fwrBCL99c+6iojfIL9z1miA+XeTh0GEfh1ebF/LDAssavuHAA/Wl7W9iM6+RceolKj
+         nUuA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of julia.lawall@inria.fr designates 192.134.164.104 as permitted sender) smtp.mailfrom=julia.lawall@inria.fr
-Received: from mail3-relais-sop.national.inria.fr (mail3-relais-sop.national.inria.fr. [192.134.164.104])
-        by gmr-mx.google.com with ESMTPS id 6si219278wrg.2.2020.12.11.10.23.33
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Ir5gHcc7;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd42.google.com (mail-io1-xd42.google.com. [2607:f8b0:4864:20::d42])
+        by gmr-mx.google.com with ESMTPS id a8si669282plp.4.2020.12.11.10.40.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 11 Dec 2020 10:23:33 -0800 (PST)
-Received-SPF: pass (google.com: domain of julia.lawall@inria.fr designates 192.134.164.104 as permitted sender) client-ip=192.134.164.104;
-X-IronPort-AV: E=Sophos;i="5.78,412,1599516000"; 
-   d="scan'208";a="367393133"
-Received: from 173.121.68.85.rev.sfr.net (HELO hadrien) ([85.68.121.173])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Dec 2020 19:23:32 +0100
-Date: Fri, 11 Dec 2020 19:23:32 +0100 (CET)
-From: Julia Lawall <julia.lawall@inria.fr>
-X-X-Sender: jll@hadrien
-To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-cc: Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>, 
-    linux-block@vger.kernel.org, Hannes Reinecke <hare@suse.de>, 
-    linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, 
-    kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] block: drop dead assignments in loop_init()
-In-Reply-To: <20201211181236.25755-1-lukas.bulwahn@gmail.com>
-Message-ID: <alpine.DEB.2.22.394.2012111923020.2669@hadrien>
-References: <20201211181236.25755-1-lukas.bulwahn@gmail.com>
-User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Dec 2020 10:40:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) client-ip=2607:f8b0:4864:20::d42;
+Received: by mail-io1-xd42.google.com with SMTP id z5so10451953iob.11
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Dec 2020 10:40:42 -0800 (PST)
+X-Received: by 2002:a05:6638:bc1:: with SMTP id g1mr17132579jad.27.1607712042045;
+ Fri, 11 Dec 2020 10:40:42 -0800 (PST)
 MIME-Version: 1.0
+References: <20201211181236.25755-1-lukas.bulwahn@gmail.com> <alpine.DEB.2.22.394.2012111923020.2669@hadrien>
+In-Reply-To: <alpine.DEB.2.22.394.2012111923020.2669@hadrien>
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Fri, 11 Dec 2020 19:40:31 +0100
+Message-ID: <CAKXUXMxjtv5B4ekC58=Ww8R4Ju2MvT0pXbPi7XH+OU7JuYnP3w@mail.gmail.com>
+Subject: Re: [PATCH] block: drop dead assignments in loop_init()
+To: Julia Lawall <julia.lawall@inria.fr>
+Cc: Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
+	Hannes Reinecke <hare@suse.de>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kernel-janitors@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: Julia.Lawall@inria.fr
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of julia.lawall@inria.fr designates 192.134.164.104 as
- permitted sender) smtp.mailfrom=julia.lawall@inria.fr
+X-Original-Sender: lukas.bulwahn@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=Ir5gHcc7;       spf=pass
+ (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::d42
+ as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,65 +143,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Fri, Dec 11, 2020 at 7:23 PM Julia Lawall <julia.lawall@inria.fr> wrote:
+>
+>
+>
+> On Fri, 11 Dec 2020, Lukas Bulwahn wrote:
+>
+> > Commit 8410d38c2552 ("loop: use __register_blkdev to allocate devices on
+> > demand") simplified loop_init(); so computing the range of the block region
+> > is not required anymore and can be dropped.
+> >
+> > Drop dead assignments in loop_init().
+> >
+> > As compilers will detect these unneeded assignments and optimize this,
+> > the resulting object code is identical before and after this change.
+> >
+> > No functional change. No change in object code.
+>
+> It looks like some braces should be dropped too?
+>
+> julia
+>
 
+Julia, you are right; I just rewrote it to:
 
-On Fri, 11 Dec 2020, Lukas Bulwahn wrote:
+nr = max_loop ? max_loop : CONFIG_BLK_DEV_LOOP_MIN_COUNT;
 
-> Commit 8410d38c2552 ("loop: use __register_blkdev to allocate devices on
-> demand") simplified loop_init(); so computing the range of the block region
-> is not required anymore and can be dropped.
->
-> Drop dead assignments in loop_init().
->
-> As compilers will detect these unneeded assignments and optimize this,
-> the resulting object code is identical before and after this change.
->
-> No functional change. No change in object code.
+v2 will follow in a moment.
 
-It looks like some braces should be dropped too?
+Lukas
 
-julia
-
->
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-> ---
-> Christoph, please ack.
->
-> Jens, please pick this minor non-urgent clean-up patch on your
-> block -next tree on top of Christoph's commit above.
->
->  drivers/block/loop.c | 3 ---
->  1 file changed, 3 deletions(-)
->
-> diff --git a/drivers/block/loop.c b/drivers/block/loop.c
-> index d2ce1ddc192d..eed4bc5ef5c5 100644
-> --- a/drivers/block/loop.c
-> +++ b/drivers/block/loop.c
-> @@ -2304,7 +2304,6 @@ MODULE_ALIAS("devname:loop-control");
->  static int __init loop_init(void)
->  {
->  	int i, nr;
-> -	unsigned long range;
->  	struct loop_device *lo;
->  	int err;
->
-> @@ -2343,10 +2342,8 @@ static int __init loop_init(void)
->  	 */
->  	if (max_loop) {
->  		nr = max_loop;
-> -		range = max_loop << part_shift;
->  	} else {
->  		nr = CONFIG_BLK_DEV_LOOP_MIN_COUNT;
-> -		range = 1UL << MINORBITS;
->  	}
->
->  	err = misc_register(&loop_misc);
-> --
-> 2.17.1
->
->
+> >
+> > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> > ---
+> > Christoph, please ack.
+> >
+> > Jens, please pick this minor non-urgent clean-up patch on your
+> > block -next tree on top of Christoph's commit above.
+> >
+> >  drivers/block/loop.c | 3 ---
+> >  1 file changed, 3 deletions(-)
+> >
+> > diff --git a/drivers/block/loop.c b/drivers/block/loop.c
+> > index d2ce1ddc192d..eed4bc5ef5c5 100644
+> > --- a/drivers/block/loop.c
+> > +++ b/drivers/block/loop.c
+> > @@ -2304,7 +2304,6 @@ MODULE_ALIAS("devname:loop-control");
+> >  static int __init loop_init(void)
+> >  {
+> >       int i, nr;
+> > -     unsigned long range;
+> >       struct loop_device *lo;
+> >       int err;
+> >
+> > @@ -2343,10 +2342,8 @@ static int __init loop_init(void)
+> >        */
+> >       if (max_loop) {
+> >               nr = max_loop;
+> > -             range = max_loop << part_shift;
+> >       } else {
+> >               nr = CONFIG_BLK_DEV_LOOP_MIN_COUNT;
+> > -             range = 1UL << MINORBITS;
+> >       }
+> >
+> >       err = misc_register(&loop_misc);
+> > --
+> > 2.17.1
+> >
+> >
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.22.394.2012111923020.2669%40hadrien.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKXUXMxjtv5B4ekC58%3DWw8R4Ju2MvT0pXbPi7XH%2BOU7JuYnP3w%40mail.gmail.com.
