@@ -1,134 +1,150 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBB5GF3L7AKGQE4TBPSBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBTOH3L7AKGQE6UKFZZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id CB79C2D9124
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Dec 2020 00:25:41 +0100 (CET)
-Received: by mail-io1-xd3d.google.com with SMTP id c7sf9866864iob.10
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Dec 2020 15:25:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607901940; cv=pass;
+Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
+	by mail.lfdr.de (Postfix) with ESMTPS id D908D2D912A
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Dec 2020 00:29:18 +0100 (CET)
+Received: by mail-qk1-x738.google.com with SMTP id g5sf10766968qke.22
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Dec 2020 15:29:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607902158; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ObiQ/os6ut1VhgaMuJYNRn9UiFD1o+kFXIcZpdSvHVt2FVFYAvU3kET/lhdrcS+hU5
-         sNU2Z0nSWdEbijJXWMQuX55LABTmUa2jOWpRbYIbKQUuJk+Hbtl4sibtqkNJpl1kNSKN
-         yCIsZiAPXTg6Nh55NJ4oh5SdYB7E32bQxQ8AWsJMcPG6RzGBPCGg9lqk2HOIPg3g35FX
-         rLoxCzBeGSMIMI0Rc/5fCsJ1ENxrheO85+NJjTHUt0EWgmNlI1Ygb6gr2kPFasuUBf54
-         4ZnSkV9lXRETaGzW+PKGcx9jsEY7af8n7ulWnTxo9l/RibO41v0pVXZ/4UugvwkIoJsC
-         II0w==
+        b=crvvPacjmKsSW0Ots3kHtVf+V2d5DQd6vY0f946wL7i3WW0X5DML+O9Q4HuQGcdXlX
+         PgUl4Lufs+BBfHBNUNL8oWksBHg8JPUGDZnES3TcF5YZOTsmnBPcTjwRVrAABg1l2xJ/
+         3csYR/S6wEG/a4ed89kiHD7OB/NCDA5fyoaPhmwkee+2725L0FwdYZupmH/f2ZJhGleM
+         Q/90p8gZq52oC9r8btOCoaaFpQDh6PaKH2XkZQJkRks2Ck3jVPjYy9YPTpS1nmc9L9MG
+         vcE7v2PcNfPsuKGRHE7q+kKEDvh+yL7P8K3IoIXgPXgBSqOr15vw5QyVJ1UtMxG4eqkC
+         0rqg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=QCu1w6xWh6bh63HaZDxqzCM7dOzaRYy0tLgyPP7pN/8=;
-        b=VCGmIi8DOhqqbSU5pEFX7MFIMREwvpZYfC5HzZ0I8Nqe76HNZphWkoL2QEuq/BKT69
-         /Ft6RGUxLmzVWZUSsVqWouIWl9IO7tk6zpYbF6OOHb9KjYHibCjnO2+qT9HrkeoWfV5H
-         2CILmmG4o3+Fp3Ztcg3hZGRx5KUnG9UBtgZKGZBEM+z1r7Rt5bBMyZQEO039Zn0L+rkA
-         6vsoRw2hwJ/epRJDdMm7qzT3wzVwJhrtXbC6nUku0p0Rrx67lmfcjpXNlz5qY3OW033/
-         Rek5d0wYB7m6ujMUf8udk9/61mspTg3jC+T8/POI2iWJB126ObTilRbW9MfZbgmCwCSy
-         NqBQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=t59JlukWyBDqAlE/H6vGoxWkNvm1SRm4sFk6ysi8LhY=;
+        b=nPF9D4wbSghw0T2J26py2nWcRSCzqbx+HxwKKgwibPtla9euCykyIvuedtyHUC1XRr
+         7qconkcnr9o8hjgSNZdhG/7K40VCJIxr85OTylB0D4sPzpx2K8QL0DVLCwrIRhg6noR/
+         Cy/PUOGcLBxjdhFFl8+V4/5z/nIlCO3F7EGpzYVnW3dxMWIL/mW8sJfHxKoFIxI8wIFG
+         oNj3CrOEnFdQYoPoZn9e87BdJ/uOpGjC8G5I5vFAdz9aJoi5twBXGfhsLWXY4GHOGHSo
+         kTYwnMIT6hQb8z8TjfeO3S9JOxC+NNUnaB8tV3RfOr5/GkezpQtcLL9aWO1y/6m+0Qle
+         hjxQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.29 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KSEcShjc;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QCu1w6xWh6bh63HaZDxqzCM7dOzaRYy0tLgyPP7pN/8=;
-        b=iKvR0FChVJqgmXZA9oCyEGSfxHO3PJg6P+RoKBCPXbOvo9IkfLfD2T3YCwz1D2v2UB
-         rE2d1G75uMinfeCqvhboy1bwVgSntdL3bnNf9RoxqilAsIxiNbykqOwmYilOQk0tfyN1
-         qCvHCy6w9AVNPSWwY4K42ZDnZ53sx7R9xLlkZ2P0AhTywGrC4XAlnpPjlvVekvoRMJip
-         Uhjtax7LhYAhfxPIhiIQkK6l78hVEcAMbAWUVtJ5vug1H5xV5bcf2IwiS9FSgeD+dmmV
-         OFRTbE5edM9QoazXU+Ith67N7D3YjSPwXA8QIqli/dK/Aap/3BAL6lIL+8x3YSAflfqR
-         BYkA==
+        bh=t59JlukWyBDqAlE/H6vGoxWkNvm1SRm4sFk6ysi8LhY=;
+        b=h5zVndV3jdN/0+rrr80QQ8JrQcbdf2CKD35i+dhXbDC8tJhD9L7V2N6XuyC2I1FQL8
+         ++YSYO41TBv4tL4c0LPSmqem5XE/bBmET5wPNcbIbNE7HlJmgbQwmNHFdiTl7+iIZjYh
+         tIU6zMquACKQNe3uBI89pBTK/MytTqW26+IrOEZUgDAapBN4HgDDiK882v0fzJ38cdLr
+         G1wa8eWFk80M+6RyP62q7D6UYoAPHwHvIpeUh/pj5jUsIQO+V23E6aWTH5VC7WGeEsBB
+         rCPryWt/4v9FVdKmReQF2dfVk4GZlBvqH6Jo4vmY5fYdWp+uh3K72C1CZBLcwlLN4e/Q
+         WLgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=QCu1w6xWh6bh63HaZDxqzCM7dOzaRYy0tLgyPP7pN/8=;
-        b=ifb23deyUa6JiGNJPtM6gK0ahZwIqfNJD0Mic9bvlTciQtNlvV2dsrA3QH8F0k+dyZ
-         IDQSHelKgeTnYuLlAVj2ZVEeHNri9ClEa2/BM4HcvtQVw4jC6zLG38vIBoFdzSU6WdS+
-         6b6dU0ZfWtYIdoMA5MT6obBSoviC+yUwF51nYdasSRlhg/AhDxnkxRhiyTvhUkj4J4WQ
-         0fRPhLJbcjJWxpcBbZyP5M049DjrywKleOnAxy6hN8eLkM7EMMGFRpkcTWpSp0yj2iBw
-         bIMDPJ6uiEpsDXB7T9tfMD7d2h79mxIWBFlLDFfbrUMX3/71L7EaYTbkO8/pw1dsyQIE
-         Pumw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=t59JlukWyBDqAlE/H6vGoxWkNvm1SRm4sFk6ysi8LhY=;
+        b=s8SqsGHN3ODArcrSSSXVrrUNLlQ95eV/Z6Xk+PQMjO3iU2TMJAf65HUYbZyHe56VtR
+         Bhhab10DMTCiWPXtGFLKh6FLZMnAxzepOrSKz3hvGY4gQQ0iMRzhv3FJlknJwX0zSW1t
+         g9kunzZl82JqOW9N7HPbgFv+HB2hP5a3SUVAJTWkW7HqjxMvWGsFAJMecq1PoK+viaQU
+         7143i5yRO9MU7tmZDKiXZ8U9A7EmsCom5Knl+wXHZTKOaq3MJOy+boEAqN5bswMdt8qm
+         3svj0A5WRjlT7TlB77uivEUgpYmOCqPiXbQybA6tduLV2RY0fuugM/H5tZ/joEDF2PWc
+         wFNQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533Jv4bXlsPc5qPbfwSROxdM6btgKCkqoyok2GaLoOwBcfDptLZW
-	ppHlzHEUxFC4oDtutrAbPLs=
-X-Google-Smtp-Source: ABdhPJwC+N+qoO3bKGsYG+LKfSbnqCBs9GEL56MQUEX9FJCc3qbqMmKrXU8xmo1F34ZH/sV3tcjw4g==
-X-Received: by 2002:a6b:3bc3:: with SMTP id i186mr6272735ioa.192.1607901940825;
-        Sun, 13 Dec 2020 15:25:40 -0800 (PST)
+X-Gm-Message-State: AOAM530qpqcuIrvTyYILhNxmUFClUZd64QPdMlAD/G9X9gjx2R3Pm8St
+	Ip3ZYa+ZWRNgLw7w6uAbWnI=
+X-Google-Smtp-Source: ABdhPJwUD2ZEgG2lp7fCJtUbv0qlHzwBtxQxs/98yd0PS5Lw1CLz5vVYh+P6FMFcW8cjIt//pbtNKw==
+X-Received: by 2002:a37:9c8:: with SMTP id 191mr28425630qkj.434.1607902157808;
+        Sun, 13 Dec 2020 15:29:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:170c:: with SMTP id u12ls65348ill.9.gmail; Sun, 13
- Dec 2020 15:25:40 -0800 (PST)
-X-Received: by 2002:a92:9f59:: with SMTP id u86mr30797538ili.205.1607901940263;
-        Sun, 13 Dec 2020 15:25:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607901940; cv=none;
+Received: by 2002:aed:26c6:: with SMTP id q64ls3778255qtd.6.gmail; Sun, 13 Dec
+ 2020 15:29:17 -0800 (PST)
+X-Received: by 2002:ac8:3ac2:: with SMTP id x60mr28025622qte.333.1607902157425;
+        Sun, 13 Dec 2020 15:29:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607902157; cv=none;
         d=google.com; s=arc-20160816;
-        b=Jj9ltj5DmvS8UCsNJTwJbntVpbZmZ5m917Ah+zKeFL1eWB/YU1YzFATzJsXbPHDYnZ
-         uyRnJ3+jJaOi8WB7tf4X27+uZooMW399WVpXXNQoSQuiGSrmO6uqgMVN/OVOgHdkwyqM
-         HAcF3FpAA3KfVmJE0t3x94HwiG7Im/UZhBuyoBI5Gx0Xaig4aDT9/18E/di+Nfb6bXtq
-         4x0rmrN3+M4lIDy2o+sEfsCwlPf/a4JmQkCN2M1A4HsyZkGfiopG53zb0PDVHXKxU9IC
-         HVQQSch9qczv7nYmKBQWf5c/qFniKWbjofLGy9S4ZwqOY+s1GiwlQFctjDqKsa0g+LeR
-         Sw1g==
+        b=D0+7BJe4Smx2JoT6bm9vmk/m5RCTCpqLiF8P+FUEOkQU6BVHgQ3hCIxlfSnIUKXlQF
+         ichrjneQ3MorDpmgVaR9BODZlksti0RGX9Cv2HDTToq23Y2nLX/IG1su6GY6YOuw0oK0
+         I1fdFo4s94zT/jGbRifObvxPhmdzZWqPodRQHKUP0ZzyDINXn/zg6GQxfv9LMdz3A4d4
+         FcsOu7LtLYTI1ns7R4fYdpbI739//Uaxnk9+MEmxoPGDkqX2ruJoRC3xf9JpEOv3j9pP
+         gFuhVhdAaBmh7htjuSO5TVSSrTHq3YHbmNW+qeITIOsKOt7XGWTksE2YYyQEj4wQtizf
+         E7OQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=Z0e/Z/fIjIM4QVmFtqwQaaju4tZ+eam5QgjMym8wgj4=;
-        b=Vo3pKa7mMcqqsmSQVKv34vDSpwkzszeRUNJ7yp+U3XRXfL6s/iLy3MwkiV4GiRqxtl
-         /OrcBbMxXXs0hDald2a9PR1G4sVf3Ap7CUexGK7yfNpzwbGBX4BIuTDi0PpRlFm6DZhp
-         MKbCq5NQzIOlT1vkoLSwAOnye0DLwyI/cmLxXTx9bQR7Ut/lmYZHZ+wHvuXF0GtwTtbf
-         wilJGjmp+Hhy8TIDPnsiVDTwSHebyQZnjCB27yh4cvu61a6+BpyKexrR07kPji6iZXfa
-         AlM0hvtaa4hEUIyI8nUhn89haSPROfIsbrovEeS+GN8NYoOaINSRJrAW1MvwNxoRwlIv
-         XtJw==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=FWN/nvGfcwJ4JhylvAKAFoL2tU46r+A52KR+6wvr1TA=;
+        b=ecitciFJU0/noBlyPRKKaKxvW/GmayVKh83CfJYmCGmf/hHF8JSPR3aTzsQobNkKB7
+         nB7p4VArYIOpwvhVoPfzDKo3UvYY9TECLfPgEXu84KzaRcyJ8QmmOHC8Ub89YmoRvQ89
+         ooaXnLuOieDXAEML+pOs1aHgVFiZBYpYk2lA7DgZhsGt6tAamctEaLEMp0m3qbx52PaY
+         /r+w7PyzpmzziubgK/sEwbfRYgY/lkyr1hu9vt8nbEOT6swkSifU7RR04tWB56VR/rLm
+         prXooJApn3IJQZMh8Z0FmFj5GLFsiEQxkNRx2L1ZEkU1xO3MPx8dtMtyE1ksHoUOk1H+
+         xy2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.29 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0029.hostedemail.com. [216.40.44.29])
-        by gmr-mx.google.com with ESMTPS id j4si1214594ilr.2.2020.12.13.15.25.40
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KSEcShjc;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id f21si1068737qtx.5.2020.12.13.15.29.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Dec 2020 15:25:40 -0800 (PST)
-Received-SPF: neutral (google.com: 216.40.44.29 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.29;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay04.hostedemail.com (Postfix) with ESMTP id ABDC1180A7FD3;
-	Sun, 13 Dec 2020 23:25:39 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,,RULES_HIT:41:355:379:599:800:960:967:968:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2198:2199:2393:2525:2553:2565:2682:2685:2693:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3870:3871:3872:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4362:5007:6742:9025:10004:10400:10848:11232:11658:11914:12043:12294:12295:12297:12438:12555:12740:12760:12895:13069:13141:13230:13311:13357:13439:14181:14659:14721:21080:21324:21366:21433:21451:21627:21811:21939:30054:30090:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
-X-HE-Tag: fear65_5806dcd27416
-X-Filterd-Recvd-Size: 2900
-Received: from XPS-9350.home (unknown [47.151.137.21])
-	(Authenticated sender: joe@perches.com)
-	by omf20.hostedemail.com (Postfix) with ESMTPA;
-	Sun, 13 Dec 2020 23:25:37 +0000 (UTC)
-Message-ID: <cf2a184e2264a2b9fd2c8d7f10d524924d417d57.camel@perches.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 13 Dec 2020 15:29:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com
+ [209.85.167.200]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-477-6CMnHf3QPf2knPYcgpWXTA-1; Sun, 13 Dec 2020 18:29:13 -0500
+X-MC-Unique: 6CMnHf3QPf2knPYcgpWXTA-1
+Received: by mail-oi1-f200.google.com with SMTP id g20so2920279oib.18
+        for <clang-built-linux@googlegroups.com>; Sun, 13 Dec 2020 15:29:13 -0800 (PST)
+X-Received: by 2002:a4a:8f95:: with SMTP id c21mr291662ooj.60.1607902152777;
+        Sun, 13 Dec 2020 15:29:12 -0800 (PST)
+X-Received: by 2002:a4a:8f95:: with SMTP id c21mr291645ooj.60.1607902152400;
+        Sun, 13 Dec 2020 15:29:12 -0800 (PST)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id s77sm2998865oos.27.2020.12.13.15.29.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 13 Dec 2020 15:29:11 -0800 (PST)
 Subject: Re: [PATCH] netfilter: conntrack: fix -Wformat
-From: Joe Perches <joe@perches.com>
-To: Tom Rix <trix@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>
-Cc: Pablo Neira Ayuso <pablo@netfilter.org>, Jozsef Kadlecsik
-	 <kadlec@netfilter.org>, Florian Westphal <fw@strlen.de>, "David S. Miller"
-	 <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Nathan Chancellor
-	 <natechancellor@gmail.com>, netfilter-devel@vger.kernel.org, 
-	coreteam@netfilter.org, Network Development <netdev@vger.kernel.org>, LKML
-	 <linux-kernel@vger.kernel.org>, clang-built-linux
-	 <clang-built-linux@googlegroups.com>
-Date: Sun, 13 Dec 2020 15:25:36 -0800
-In-Reply-To: <527928d8-4621-f2f3-a38f-80c60529dde8@redhat.com>
+To: Joe Perches <joe@perches.com>, Nick Desaulniers <ndesaulniers@google.com>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
+ Jozsef Kadlecsik <kadlec@netfilter.org>, Florian Westphal <fw@strlen.de>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Nathan Chancellor <natechancellor@gmail.com>,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ Network Development <netdev@vger.kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>
 References: <20201107075550.2244055-1-ndesaulniers@google.com>
-	 <4910042649a4f3ab22fac93191b8c1fa0a2e17c3.camel@perches.com>
-	 <CAKwvOdn50VP4h7tidMnnFeMA1M-FevykP+Y0ozieisS7Nn4yoQ@mail.gmail.com>
-	 <26052c5a0a098aa7d9c0c8a1d39cc4a8f7915dd2.camel@perches.com>
-	 <CAKwvOdkv6W_dTLVowEBu0uV6oSxwW8F+U__qAsmk7vop6U8tpw@mail.gmail.com>
-	 <527928d8-4621-f2f3-a38f-80c60529dde8@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.38.1-1
+ <4910042649a4f3ab22fac93191b8c1fa0a2e17c3.camel@perches.com>
+ <CAKwvOdn50VP4h7tidMnnFeMA1M-FevykP+Y0ozieisS7Nn4yoQ@mail.gmail.com>
+ <26052c5a0a098aa7d9c0c8a1d39cc4a8f7915dd2.camel@perches.com>
+ <CAKwvOdkv6W_dTLVowEBu0uV6oSxwW8F+U__qAsmk7vop6U8tpw@mail.gmail.com>
+ <527928d8-4621-f2f3-a38f-80c60529dde8@redhat.com>
+ <cf2a184e2264a2b9fd2c8d7f10d524924d417d57.camel@perches.com>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <c9d63f7d-7fa4-4fd6-f897-265315d935ab@redhat.com>
+Date: Sun, 13 Dec 2020 15:29:09 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.0
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.29 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+In-Reply-To: <cf2a184e2264a2b9fd2c8d7f10d524924d417d57.camel@perches.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=KSEcShjc;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,42 +157,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, 2020-12-13 at 11:21 -0800, Tom Rix wrote:
-> On 12/2/20 2:34 PM, Nick Desaulniers wrote:
-> > On Tue, Nov 10, 2020 at 2:04 PM Joe Perches <joe@perches.com> wrote:
-> > > On Tue, 2020-11-10 at 14:00 -0800, Nick Desaulniers wrote:
-> > > 
-> > > > Yeah, we could go through and remove %h and %hh to solve this, too, right?
-> > > Yup.
-> > > 
-> > > I think one of the checkpatch improvement mentees is adding
-> > > some suggestion and I hope an automated fix mechanism for that.
-> > > 
-> > > https://lore.kernel.org/lkml/5e3265c241602bb54286fbaae9222070daa4768e.camel@perches.com/
-> > + Tom, who's been looking at leveraging clang-tidy to automate such
-> > treewide mechanical changes.
-> > ex. https://reviews.llvm.org/D91789
-> > 
-> > See also commit cbacb5ab0aa0 ("docs: printk-formats: Stop encouraging
-> > use of unnecessary %h[xudi] and %hh[xudi]") for a concise summary of
-> > related context.
-> 
-> I have posted the fixer here
-> 
-> https://reviews.llvm.org/D93182
-> 
-> It catches about 200 problems in 100 files, I'll be posting these soon.
 
-Thanks, but see below:
- 
-> clang-tidy-fix's big difference over checkpatch is using the __printf(x,y) attribute to find the log functions.
-> 
-> I will be doing a follow-on to add the missing __printf or __scanf's and rerunning the fixer.
+On 12/13/20 3:25 PM, Joe Perches wrote:
+> On Sun, 2020-12-13 at 11:21 -0800, Tom Rix wrote:
+>> On 12/2/20 2:34 PM, Nick Desaulniers wrote:
+>>> On Tue, Nov 10, 2020 at 2:04 PM Joe Perches <joe@perches.com> wrote:
+>>>> On Tue, 2020-11-10 at 14:00 -0800, Nick Desaulniers wrote:
+>>>>
+>>>>> Yeah, we could go through and remove %h and %hh to solve this, too, right?
+>>>> Yup.
+>>>>
+>>>> I think one of the checkpatch improvement mentees is adding
+>>>> some suggestion and I hope an automated fix mechanism for that.
+>>>>
+>>>> https://lore.kernel.org/lkml/5e3265c241602bb54286fbaae9222070daa4768e.camel@perches.com/
+>>> + Tom, who's been looking at leveraging clang-tidy to automate such
+>>> treewide mechanical changes.
+>>> ex. https://reviews.llvm.org/D91789
+>>>
+>>> See also commit cbacb5ab0aa0 ("docs: printk-formats: Stop encouraging
+>>> use of unnecessary %h[xudi] and %hh[xudi]") for a concise summary of
+>>> related context.
+>> I have posted the fixer here
+>>
+>> https://reviews.llvm.org/D93182
+>>
+>> It catches about 200 problems in 100 files, I'll be posting these soon.
+> Thanks, but see below:
+>  
+>> clang-tidy-fix's big difference over checkpatch is using the __printf(x,y) attribute to find the log functions.
+>>
+>> I will be doing a follow-on to add the missing __printf or __scanf's and rerunning the fixer.
+> scanf should not be tested because the %h use is required there.
 
-scanf should not be tested because the %h use is required there.
+Yes.
 
+I mean the clang-tidy check i am planning on writing will find missing __scanf as well as the __printf.
+
+The %h fixer only works on __printf.
+
+Tom
+
+>
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/cf2a184e2264a2b9fd2c8d7f10d524924d417d57.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c9d63f7d-7fa4-4fd6-f897-265315d935ab%40redhat.com.
