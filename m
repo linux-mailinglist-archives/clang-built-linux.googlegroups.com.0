@@ -1,140 +1,136 @@
-Return-Path: <clang-built-linux+bncBDRZHGH43YJRBGGY3D7AKGQEGPFBTXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCKPFB7SXUERBQW53D7AKGQEC5NVD6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F4362D8E14
-	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Dec 2020 15:58:34 +0100 (CET)
-Received: by mail-pg1-x538.google.com with SMTP id z4sf10053029pgr.22
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Dec 2020 06:58:34 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1607871512; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8708D2D8E25
+	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Dec 2020 16:09:55 +0100 (CET)
+Received: by mail-yb1-xb3f.google.com with SMTP id h75sf17799230ybg.18
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Dec 2020 07:09:55 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1607872194; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yyb6wpJKdFpZLGDgN7+NNbTspilqRBMw7mIDh7bE224Tick2rb2MoxOI3JUdncQ2sl
-         +Cuvx8xxAeR3Hy/gBsqMWa4fVaGUos++tfMxvsMcb5QU9DGKs6BSwRwkPWvf7XODz9QZ
-         RJJos9wURGY96mAsBLEzWh7NBbJPrr1hDYDWT+U0jO08Mv5hy7jXHhKMBVnRaIjCESXG
-         itASvs1c/R/sXRNaD+R3V0olWw3vNXhqJmogwAxPq79dGFcWPhWTdt682rLLrkEy/LA4
-         6JU4hA2/Z02u5mToVkcZHWCgFlk+18i2UqSgnDHZt1rfB3cp1OjUGBKmdcvgsOt/4jXt
-         bx7Q==
+        b=cLFNdxRD4Mb7soecDPJnj09idRl1rxavIiqvgImULspjhDaWDvGFDI0lF+2whJkbl7
+         AT3CGBC/H9R1Et4E1/hN9pv4/WmC5Y6HrIHOInIG/5NHpMk4zu70+p5nZnHz7RnLDuZI
+         WJ5L1UsO0EKEmWB5xXh7WWFuUjnK/QaxXh1Svw5GesLnDIJVRAhQtkgUdxzB6d1PBuRs
+         CleIvalK0gfnyOnwEALT5iBz8PIc0V5pZZUmRqNYc/mX7sISH97bbrSh4R/2rrMNon8G
+         Mo/eRyWRMB+jIod1j3PZVnxga4WEEAk2ybqsB55pdEXVLnV6CCpmGzY6dRcX9ZF1k3Wn
+         +T0w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=e+UxrLULCkk0pN1Rz/moCAGB0YT9Tqsc9OI7bpfkCWc=;
-        b=ziBe3W4aHfKk+DI6pvpOlriOExHko1ck4Wug4oEEobqekthb3Q932gG6uATBJJcVxt
-         Bjd8e3uV7Q1zTcIZ2fGCYarsBXgr8W6juNsurZvtOl5aqt3BM8KcoKOU9YSzrIR2AeTY
-         TB2skPJ14iYSWtuv//ThTaHSvzxO9RwDstVAS2o/ivQMvVxu+4VylXFI9FM0VLAeANXD
-         u1dso8MrfSNPLSATLhmfpA0w1WI8xe8I+ivI3wVAyEOr7AP9X2FJ/QO/85JRXgAbezgc
-         O8MLhZiruVcJpM5W7eMYephIKr6hhAQNg/G5h6MLf1Y4MMO4z3AwyG4AYnwNYdqZw6zt
-         SQdg==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=/3tygUUbwsMz1GGaLmDnso2vImCvP3l3gQYqaBcNEbA=;
+        b=fjK/Kcvi2p2oWcL4Tfeh32C3bE+WTqDA1zDzgSHriRIMnP4jQ3TDFsDDG8E0mX4CVn
+         aUnL9alljennfDEQNHrR4YOo4xgmdu5f6q5gYFv7W5N7ug36UoQU5qgNdAumY9qn3kfP
+         5iH+41jk333svsqCL1NJgeHp1zKFQifM4nDSsnxoJ6h+kpNUXsZAwrzwGmhjxbyD4Xp9
+         4Jx/eyd4yY8ybo8w3RI8awXl+PZ1lXU9B3fbPW9ZN9BwDUYspMvu6+0Vy4kiqYYgkJsU
+         WYFCASzgD16WOTX3GoN93/qeYq/ZM9GRRLAV48dGWbx5Wmvrq7VO1Yyu02tJP2Wjy5jK
+         pi9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LpFXWaQL;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b42 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Ckc/ZdUq";
+       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=e+UxrLULCkk0pN1Rz/moCAGB0YT9Tqsc9OI7bpfkCWc=;
-        b=cP1kvoXL+0GQRejpXMiF7OVXszScR3nmAlRur5lPK4Rr236O8XZMFUHJD3XafAP0Ut
-         ipdDK+VMqap+f456v31ajBn4TmuWKQ0pqHm3cHb0fhzWeTaH2VWAInWxoFM9a1gvcs2Y
-         DZUzhAU/2lQGb6BphmMV/9i0AjWTG0Ib+1XSefJfWlNSZ0WMls7r8zd7afE1yLfdzuTR
-         ipz2t3oJ5vL0pwb1ZLC6ilRy06ITWuYH3KjysZYZ+gASTRZNvH5kajqAp12KvRFGEOGM
-         YnV1LSaDb7vxhFA3mCcxP57altrEPq5S3nF6sohRLByV5kD1alTbya9PVVkKYcXBNd/p
-         cNGw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=e+UxrLULCkk0pN1Rz/moCAGB0YT9Tqsc9OI7bpfkCWc=;
-        b=pUJ1B0fcspe8ynj7iCOnClSywIVYAr12JXGrmRs2y+kS5NTvwMUYKlexGuxl4TjVdP
-         zGbP358W9XcHVbqJE4/TgC4fbpe1eekNxHLVuWI02Tmw+EUlZXRS3YUrdW/vqUx7OSgR
-         /FL4cpf4ok5iLW4sShoU6/3uOmj+RpMrX9oWcyB2VOT1A7tl+cS2sEZOZIClrMGKxYSe
-         a7vX+RiSmkYpxchH4OZ/Y+9sqgAbKPl9UkZCcb+Zs13R3Du1oHW1gxW5oBEfGtxFtvfX
-         w0yBW/QRQVL3agcf/N5ULKgjjiBtDG6S8pe0PJxZpzAZ6uDEKBCiEpr+jq/FvbTqFgR6
-         i9dg==
+        bh=/3tygUUbwsMz1GGaLmDnso2vImCvP3l3gQYqaBcNEbA=;
+        b=NP6pwAsy5ydpQcDQq9Z8gm60TCQJXq1TAyZZRZl8fGVOeRPFqIG6mRCK4ohzJtqQBU
+         +fJWnFBQcFLdfpdmN326450AGu+dxMULGOG491qjAq4zwJpxRccXqytYF3QBoIhuQhyn
+         UCaIbRnG43z9l2wtdvBTwOZ5XvF5VHET8LdUX22b3x366mVKETAXKbjUZl3OoBczGsc2
+         sWHk/OTeh7uIrEGYRJjahsooQB6ue0TSVp5A9H6JlYL1M0imqsHl1hAsbKK6g2qM8ojG
+         +f1ZjOOPpsA7p2LjFg5Wuh9dZKWJtyKZBHPmTPGsNlrqmMt25El62Y9ZMp3dDlWbqhCg
+         3ZRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=e+UxrLULCkk0pN1Rz/moCAGB0YT9Tqsc9OI7bpfkCWc=;
-        b=HtX7wRI7NmHg1Q8GALKCHTl3ey+nTTizUgP31f25i544Fyh3B1reYgg/ivhlU8lsqv
-         TL1x81iMejeh7ewO1wXp/4WF2/N6VnlrAf2jUFssIZ+HzBGHU7MfmJ1iG1jneoQqetSq
-         KlDe3VqT5FYEnFAGCiueP780vrdoPWwxX4gbyj4/qavI3RTfhR9YNyJ7+05sufIe0PWn
-         94DdwFqq4UFt9+u+ko57k/BqFm3d5MRIzXzD+bNH4Rgp/rOzusZOkqTUwK/3p/Ip1Mji
-         z6ws6F5bsxgGC4c9HtSC047hSBOq+07cl/b5yk0JDCjmnFGv2wASlGrA3FIXYhM+vX1P
-         xnTA==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=/3tygUUbwsMz1GGaLmDnso2vImCvP3l3gQYqaBcNEbA=;
+        b=eS8uQ8uTmoRK5FVArD5bCFHE583mOm1ZbKcjd2ohPYVuiXsLeA+9kO/CEsAA6GJjbn
+         mHNyXpAO5p7xCzgo6zJ6qmOdECpuq1DbDZsuodZgYAWgT8eBa5PRz4JZNboJXPwdsqZ/
+         D3zdBbw4bYcAZjL117T/16hvapW8GyudhCPZJ60isRMPN7ckXh1D1jY44QahjyJgK+fJ
+         02A0HcJF+e0MLAUDmW3zbomdAiou00V7YZxCRUC12mpHOlmDnC4AylRYNn51WyccTXI0
+         dAv05FZiQNII8eehhSmnaH3CxuxV4wUcrcMIYVvfcH+EFAx8C+0jtAEcE1+y+LBwpTUK
+         G6pw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530hSIibAODWg9dtULiovIMe5KEiqqsUWdxWlL4poaBe5vbm8vd5
-	nyXwCJjqlImf+gni1B2Najo=
-X-Google-Smtp-Source: ABdhPJzW8+ZbwGZtM9KS8gPCu1lzxKpfkOgPRqRWzShIfR5bqK6dBXi6yZH+AO91apXvQPPU2EyreA==
-X-Received: by 2002:a17:902:7b83:b029:db:d71b:2c4d with SMTP id w3-20020a1709027b83b02900dbd71b2c4dmr9484094pll.81.1607871512453;
-        Sun, 13 Dec 2020 06:58:32 -0800 (PST)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:ac0b:: with SMTP id o11ls7260410pjq.3.gmail; Sun, 13
- Dec 2020 06:58:31 -0800 (PST)
-X-Received: by 2002:a17:902:720a:b029:dc:46:58f5 with SMTP id ba10-20020a170902720ab02900dc004658f5mr361617plb.2.1607871511650;
-        Sun, 13 Dec 2020 06:58:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1607871511; cv=none;
-        d=google.com; s=arc-20160816;
-        b=uXisTwu4FrTLlA5CQzaLRuc2wn2m6MoJ6uCzTiJz1b+1J3Q+jXYoD7pXRvmLxT3z3l
-         +rasUP4hh3PMmVQdzagbTZ7JZ/eCmpGdtb/WPjHTNcyfqEDBvg8Fgr6O3mmqjSgSyG0r
-         ROII1aoeJHf75q/t/hTHzktuFB51tbd27ABJSww/I69LzH0GIph+H6M4dgqEEcwbVOqu
-         L2OQP0D2gqlCaXTxvEdArbaPzL3eqp5mDVHHwgSBJ+n5Ai1sTc8mjlA81VnpQs5GX0x8
-         qGxr0gymrcueOK5XSKSPYI0KoIB+OkLLeR40ocsbj4OrXSXU7QX+vsDBhMSRN1oas92l
-         B7pw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=plNVcmrce8g2J8M3GvZaxtbh0wYjjwJH9EhP4nToGcg=;
-        b=dNBLxDsiPMWFY69YKprUBNawTb0SYTkQJrIn7G08E0f9Y4kgb1fR+8vjKg1hGID1m+
-         2J1K8ObF3J0/d8PPra+JQd+fIbHcvI3OU5EsaXXJzeeMrYp0A+CySgVPKTFUTbK9Uqmt
-         z+V7Uar8kJjrxdZXWFY0f8l9Me3QZIFlQsFaLepGK28Mza8A9se6vhBiDUgGGdxJugSt
-         3kaE0/8M+cChAr34wiJc/U7kuFjcsD7s8/BJXq0PgV9qrU+KGA7eA+LPQm/6yVWm6UMo
-         +eyGmd2NO8Z9SP/w8YNuiqrS/bX3MQSf7te8PxR75kVdTSmgaqJOc6BFL2Z3VsFOqdMV
-         Q2sw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LpFXWaQL;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b42 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb42.google.com (mail-yb1-xb42.google.com. [2607:f8b0:4864:20::b42])
-        by gmr-mx.google.com with ESMTPS id d1si1131702pjo.1.2020.12.13.06.58.31
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 13 Dec 2020 06:58:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b42 as permitted sender) client-ip=2607:f8b0:4864:20::b42;
-Received: by mail-yb1-xb42.google.com with SMTP id a16so13045950ybh.5
-        for <clang-built-linux@googlegroups.com>; Sun, 13 Dec 2020 06:58:31 -0800 (PST)
-X-Received: by 2002:a25:538a:: with SMTP id h132mr11841975ybb.247.1607871511230;
- Sun, 13 Dec 2020 06:58:31 -0800 (PST)
+X-Gm-Message-State: AOAM5324bDr+ezGOifCA+OGcoikEMiT7GpDxnbEWLN/tt+HPz3M1HMfb
+	UAQJgVTQKGC/ecE0MQIXttY=
+X-Google-Smtp-Source: ABdhPJy2GQKa/U6OVBXdzVR3anTb81Rjz/dSGBTv3CG1wzuzFX8hWioWJPiwEihAN6kCAptKgquHmg==
+X-Received: by 2002:a25:4081:: with SMTP id n123mr21638239yba.237.1607872194409;
+        Sun, 13 Dec 2020 07:09:54 -0800 (PST)
 MIME-Version: 1.0
-References: <20201128193335.219395-1-masahiroy@kernel.org> <20201212161831.GA28098@roeck-us.net>
- <CANiq72=e9Csgpcu3MdLGB77dL_QBn6PpqoG215YUHZLNCUGP0w@mail.gmail.com> <8f645b94-80e5-529c-7b6a-d9b8d8c9685e@roeck-us.net>
-In-Reply-To: <8f645b94-80e5-529c-7b6a-d9b8d8c9685e@roeck-us.net>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sun, 13 Dec 2020 15:58:20 +0100
-Message-ID: <CANiq72kML=UmMLyKcorYwOhp2oqjfz7_+JN=EmPp05AapHbFSg@mail.gmail.com>
-Subject: Re: [PATCH v3] Compiler Attributes: remove CONFIG_ENABLE_MUST_CHECK
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Shuah Khan <shuah@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, wireguard@lists.zx2c4.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a25:b581:: with SMTP id q1ls6761695ybj.6.gmail; Sun, 13 Dec
+ 2020 07:09:54 -0800 (PST)
+X-Received: by 2002:a5b:b45:: with SMTP id b5mr31355413ybr.355.1607872194025;
+        Sun, 13 Dec 2020 07:09:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607872194; cv=none;
+        d=google.com; s=arc-20160816;
+        b=svOvhlJqVVQlBNfJc4vWn8LK3lsEAB44EDymOerBJWqfq4ufPpPi23tNJid9k1GBSQ
+         +7joAsy4+M54yC3gP+0pWtapfavGY9u9G00vE1kXkO3mV4dmcj92GYUNfQKxkMihWooE
+         YzC38LfKWukhXmnH5axWEegckT+os5Z1t9EU/6LIh/3AuVr12qfi3b+RhnvjJKT7Hd7h
+         EnySPfR9JIS630Lv7Sj6GHfrU1/Q65TpIsxAApwXerG5Mx6naItaaq5r+RRR65ezbyFx
+         QfoU4lkikTk2Es6TC9p4qv5d1DkAFVQivR2RjKkLFxSzM1/xFNVDEjAxK4dAlduSV82k
+         oSRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=UIPal/iSZ9+R48jbZZ5wjjvQIt/y+OdbRYPpNTUIVyo=;
+        b=jZ5jYaazcTpHUnvd6z3Hy/08WR2GTg/q447TQK/PF96XepmCgrBOtqnwIFmz/6TMPW
+         rIf/MsT9fuEMHgmRRR87lPFbBPXAcrlKNu/VtTmaqVaDCiMzSLNdSXnnT847yhdlUczL
+         a9tJ5+86Z+uNSL2uxuM3YxGLOpmRqeNzXdYuAfvne0e2tGQoIFK3ue4OlvfuSqWJ9qeI
+         mTafImAWt66gm5Q9BXgwbvh3BjlgjsEyU9kSlxVp7+XYZcAeXCGp9OIYlOyES/3mxHhK
+         9bukQM5c9wzezsjVjUpE7QFVq9xJ5KDyTeJGUD7LZyQUZQlkdvoo1Qf0FLfcPDvVp7Kp
+         Lu2Q==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Ckc/ZdUq";
+       spf=pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id s187si688443ybc.2.2020.12.13.07.09.53
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 13 Dec 2020 07:09:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of bhe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-29-WRlB6oiHNnehtBfWXj6Auw-1; Sun, 13 Dec 2020 10:09:51 -0500
+X-MC-Unique: WRlB6oiHNnehtBfWXj6Auw-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7FA2B107ACE3;
+	Sun, 13 Dec 2020 15:09:49 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (ovpn-12-67.pek2.redhat.com [10.72.12.67])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A76BF1F45B;
+	Sun, 13 Dec 2020 15:09:44 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org,
+	gopakumarr@vmware.com,
+	akpm@linux-foundation.org,
+	rppt@kernel.org,
+	natechancellor@gmail.com,
+	ndesaulniers@google.com,
+	clang-built-linux@googlegroups.com,
+	rostedt@goodmis.org,
+	manir@vmware.com,
+	lauyiuch@vmware.com,
+	pjonasson@vmware.com,
+	rajaramv@vmware.com
+Subject: [PATCH 0/2] Fix the incorrect memmap init defer handling
+Date: Sun, 13 Dec 2020 23:09:40 +0800
+Message-Id: <20201213150942.20990-1-bhe@redhat.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Original-Sender: bhe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=LpFXWaQL;       spf=pass
- (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
- 2607:f8b0:4864:20::b42 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b="Ckc/ZdUq";
+       spf=pass (google.com: domain of bhe@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=bhe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,44 +143,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Dec 13, 2020 at 1:55 PM Guenter Roeck <linux@roeck-us.net> wrote:
->
-> Witz komm raus, Du bist umzingelt.
+VMware reported the performance regression during memmap_init() invocation.
+And they bisected to commit 73a6e474cb376 ("mm: memmap_init: iterate over
+memblock regions rather that check each PFN") causing it.
 
-Please, explain this reference. :-)
+After investigation, it's caused by incorrect memmap init defer handling
+in memmap_init_zone() after commit 73a6e474cb376. The current
+memmap_init_zone() only handle one memory region of one zone, while
+memmap_init() iterates over all its memory regions and pass them one by
+one into memmap_init_zone() to handle.
 
-> The key here is "if nobody complains". I would argue that it is _your_
-> responsibility to do those builds, and not the reponsibility of others
-> to do it for you.
+So in this patchset, patch 1/2 fixes the bug observed by VMware. Patch
+2/2 clean up the inappropriate name of memmap_init(), memmap_init_zone()
+accordingly.
 
-Testing allmodconfig for a popular architecture, agreed, it is due
-diligence to avoid messing -next that day.
+VMware helped do the testing on their VMware ESI platform. This patchset
+is based on 5.10.0-rc7+, master branch of Linus's tree.
 
-Testing a matrix of configs * arches * gcc/clang * compiler versions?
-No, sorry, that is what CI/-next/-rcs are for and that is where the
-"if nobody complains" comes from.
+Baoquan He (2):
+  mm: memmap defer init dosn't work as expected
+  mm: rename memmap_init() and memmap_init_zone()
 
-If you think building a set of code for a given arch/config/etc. is
-particularly important, then it is _your_ responsibility to build it
-once in a while in -next (as you have done). If it is not that
-important, somebody will speak up in one -rc. If not, is anyone
-actually building that code at all?
+ arch/ia64/mm/init.c |  8 ++++----
+ include/linux/mm.h  |  5 +++--
+ mm/memory_hotplug.c |  2 +-
+ mm/page_alloc.c     | 22 ++++++++++++----------
+ 4 files changed, 20 insertions(+), 17 deletions(-)
 
-Otherwise, changing core/shared code would be impossible. Please don't
-blame the author for making a sensible change that will improve code
-quality for everyone.
-
-> But, sure, your call. Please feel free to ignore my report.
-
-I'm not ignoring the report, quite the opposite. I am trying to
-understand why you think reverting is needed for something that has
-been more than a week in -next without any major breakage and still
-has a long road to v5.11.
-
-Cheers,
-Miguel
+-- 
+2.17.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72kML%3DUmMLyKcorYwOhp2oqjfz7_%2BJN%3DEmPp05AapHbFSg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201213150942.20990-1-bhe%40redhat.com.
