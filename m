@@ -1,137 +1,134 @@
-Return-Path: <clang-built-linux+bncBDM3FG7YWUNBBUUP4T7AKGQEKZFZ2UI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDFKPCXSSAHBB74R4T7AKGQEQSSODVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 24D512DB425
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Dec 2020 20:00:36 +0100 (CET)
-Received: by mail-il1-x13c.google.com with SMTP id s23sf17300418ilk.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Dec 2020 11:00:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608058834; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 473A52DB438
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Dec 2020 20:05:36 +0100 (CET)
+Received: by mail-lf1-x139.google.com with SMTP id a10sf11340890lfg.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Dec 2020 11:05:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608059135; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a6/U6Cyt3VCWAGLgtUElP0QJtPeWqmb5Z2wcUdm68KSU1LJaxBTQxxvWZVVSh3g9vo
-         HMA6/ystRmVVMyNvTNo62LRlLSLwA7Kk4wbeSj/l2G3GK5khLWXZfxmSVu5DSbdCy54+
-         kPRTwMN7VTH79XZwuUwUM4Tsiy9bCOHsqvz5QgKeIXkgntfLoWFHQPqeHMk5C6vLCj40
-         mp1ZdAfhQWwIVPwkoPFUpV3x3+QmK4HdkA6bF1F+bLU4bfx8gwIEmL1m+nOF1G3T1QjJ
-         QJBAso9HF70T2KmFH9wRUf1N7iks0nlnpn9zwpeDc/orPMEJmHG3KHOQW6ipuOOPezos
-         IKLw==
+        b=E1K1c4sQfJ3MICTdcoq1Ihn/bNDqKdwRXL63elhGxMIpITpHarmNP2DpZwOvs9tqMg
+         r48XIEw8+psu+OsrZr6AAibF/ct+FLnWwM5Omm2dTOntayyH4qECFp46bMj+q0rRMONv
+         8Dxt8qEXAiqVqiPOz00NofuRA6Crn1B6AxPldiMwl8hvTkK+/nvHuqLCYMW/5wAnEZxq
+         dh8DGMtXiXxp3DOTSQJUxSlaq7ercOgOxAFgd0gEAENhnSdJz2bizscC0LektipA8B0V
+         8x1QAQSMN7jJCX6Cz5Q1Nuw6jbrqUWJz4z75a35amMAWo4N++dqIxvAzIHvjrjRzAfdK
+         mC0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=UU8SabuelrQh+y+932rO9QzE/HCtD5J+3P48LSGYqho=;
-        b=RelwI6byF3Gi1Tx2bZ2WrAR+PKrrZZ5o2VZEN2bSOUe54zBWv1tZh8VMdUAgtqXOjc
-         Fe2PMpnAw5Dk6aGjXffL1xteQRlXFCOngfotRjLDGjsze9zK1MxYfDNrGM40KTxbi57C
-         QjzUdfhpk1qaEa6wHhFkEnmaaruiFE72RBXbJsxHyXZCndUtG7PlwxuCgIMfGcCyN4Qs
-         ZhowCUWi3Ha33XPf5d1qDUUkUcqN4owF2LDOHpZkQqr6fINM4oMOmlKoYZkpDz5WVxa1
-         XSwAr3DVpSAAocbHb/kJYy2FsRUCMyYJWps9UuJ38UW/TSYgFf+2qtao6jqkDrveSeyV
-         y3HQ==
+         :list-id:mailing-list:precedence:auto-submitted
+         :content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:cc:reply-to:from:date:sender:dkim-signature;
+        bh=1Vqd85YNpzyIr9622bEwvGqextO1lIKZBG6Pv0VP82w=;
+        b=x8sB2fumJFKsoU7qR7wlEPy2gVIvVvH+nDgu5QXNN2AF5ikaLYLZ0eH1jpBp55jHuO
+         Hu4Bs9rcl64T8MQGTFVtvAq/u0KP1xy8VzigzVu6wmsE+opaechIwuOsIQX3rhMGmSTr
+         7RqmJfzNWm8NOEM/B1VGDFo7MkUSd1DFTnLUiKIbHrwCS7eh44bnDx8q2AcD5If0KAEM
+         x3gpm9P6/eygmIQRG1iclBQ+bCyHIU07sGCR1A2Onp0MhFtmZUYmWcPH75/qQ7t17OXI
+         /aE/zgqpMNe7atXgWLB7Y28yztlHDpHo6IPkM3nqVtsmUpE6y6R319HlxYEGqa5oMpfi
+         eO1w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Zxne49qo;
-       spf=pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a42 as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@zendesk.com header.s=zendesk2 header.b=rrVNOi9V;
+       spf=pass (google.com: domain of support@travis-ci.com designates 188.172.138.6 as permitted sender) smtp.mailfrom=support@travis-ci.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=travis-ci.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UU8SabuelrQh+y+932rO9QzE/HCtD5J+3P48LSGYqho=;
-        b=KaZ9VTsKf750kRsVbWTefj0qnSazJQZTkqbWv05aem75o8nZOCnlzvfI33YbA+Wrue
-         f/95oI7OxlREsfrJPuUsl1JATUEt1vYeKWRvxEKFkxeclJC9LQcOfYo2aUfcY8kxWbbu
-         E7xWCwi8eY/vPDSZyRHZi1GrPWVRKDeNcF/8KPqroXM7qLAIlUf2VbsMwYQVQnPdiZlB
-         PzaNxnO9Z7zEkSwOkARC1o7HzY6exeCN7WZUC4QA/MCsut6Tg9r2ypOMRqoWnzWF4FBx
-         qoXLUltdkRwR5nBOYIHy9EyXDfKvBOBBEV+vobe/3pTCd47OuqLrfI+riKRIQ4Er1SNK
-         tt3g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:date:from:reply-to:cc:message-id:in-reply-to:references
+         :subject:mime-version:content-transfer-encoding:auto-submitted
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UU8SabuelrQh+y+932rO9QzE/HCtD5J+3P48LSGYqho=;
-        b=q4VsbygMJ6Rb+ZloQVLcEFaBSJviNeDm6sI5+L97kua97ZI35o7JKCJgKfXh95lt6y
-         vn44qxgv7onslqW59t7CO4JGqMZaB3sBSGHqExnGMgDjO2w5awZu3nPgHRcI/jogFfng
-         MAPRsLqLmKsbHZxqvsTW9Wouhtg68RHcjs13opuqJce6y6AWawuUeyC+8fqacK0s3z3K
-         OV44I0VUJGa8aUM4xn7Ft+O1MkFjW95Ci4HNMFywW7z4TQVagyuRGFaUNLsW0soz1XZv
-         2mrtsiW3m+ejiC2qIFN9zB7Q6fuqHITC5Uf9Nrpr/uxwS1Ufi6keoV88df2z134L/HEe
-         LJTQ==
+        bh=1Vqd85YNpzyIr9622bEwvGqextO1lIKZBG6Pv0VP82w=;
+        b=WPDmP/LlRxqCJH21sERessjU8rN8zXHkjppLQig0rH8joRBE+tTEo8oWBztiCjA9/1
+         eCj+DMy/NfzNhKwXUUsNtUueVBgZ23QafvoeTHcmHytkDNILZMQkM/brfMdvX8ln5Dp+
+         /aVdzERZyFBx49HcMuPkqZHUVLSadKKijv1C/ZVD8wV6xOlD42Iw6FkMrmLTM745nIFw
+         6SZydLjUDgrBEa3tS3BSjbZ4XMs4nlzdfT1whScDjUHnD9M2LSamMsyudWbs1HDZ8fwT
+         gAf1PwAKK8+omLhOJz6t+i/PHzDJWC4eXrKBsgZX84LWnvhtRF3Y6tFbRgfHVRqz1jRh
+         sPaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:reply-to:cc:message-id
+         :in-reply-to:references:subject:mime-version
+         :content-transfer-encoding:auto-submitted:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UU8SabuelrQh+y+932rO9QzE/HCtD5J+3P48LSGYqho=;
-        b=fAbjom+FY3MJa5kAZwMzq/7+ocs2+IjdZk+darpYyYy7BAx86LLJ706PcZNlTBPtIB
-         5sabu1EeHwDIESERjNfyQfilyImp+5jYhKsmS/lMfb9NL9MVzE9yOFZibcIUGl3FdnZx
-         aVyMJgV4QYloa77YANQ99N2lA+ulX8n707Bo5gWagh/hK/fEQhavc/C4cDZP9j1hT/HB
-         2oW+dYYCLVzq+lrmRCEA/cESfq+Cvo4ZGUwp0HPeQTznaLzEKqgRVprN8MQK69XMheAX
-         nJ/1KklMe6+FFIjWBQgdUCPJpNzHR6ZN/mMmVwMgsxIf88+aPNWPkAuSB+kyjWOYCJb/
-         Ppug==
+        bh=1Vqd85YNpzyIr9622bEwvGqextO1lIKZBG6Pv0VP82w=;
+        b=o0h5+hUN5r0TvirBr0+OWpGPdKBuU9zimhBeoq5iEK/a1BE1ATeI+ODUNlxqraC/2Q
+         U3sKx6pqX2XAbohrhwnk2Kz/FH24PWIegbZslBFdde1AlOnQXTIzdsdE0fvmLKyf9k5l
+         T2kOrN6I7YMi8cZkIawNF0t+QlB3SsL6+D7dw9OQ3xqFJOJFZC6aYyv/a2/PVLZ3V5qg
+         bTi1MhTSTz6tkGB25yWI1ZBvwN6N5QS9Oyqyz7jOjxCRkkj6JqRP+3ubQZsJju1G7fcM
+         kgnfXsEWAF1f9NFRiYvZVJXzit4yldFxYnxxxX0t3e/mec496ZXrmbnWkMUSINv4acME
+         62kQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532CQ/6M+sSrdQYdsTUTVNVPYjrUoDh1xk6wFN66AL3EhrGf09fR
-	a9rof4wZYuavb4yxBnXLccs=
-X-Google-Smtp-Source: ABdhPJxiES/Wqk0G17IdLRQCN4eDQm27AEXEG23m+ysYM6/JhkB4J1Ax17u1tqE3mt/ZDYSBKutowg==
-X-Received: by 2002:a02:dc6:: with SMTP id 189mr40121283jax.3.1608058834618;
-        Tue, 15 Dec 2020 11:00:34 -0800 (PST)
+X-Gm-Message-State: AOAM531BoWyK0pSsDJAVc/W23DKhtvTrIBw0OrPKzLRkjfYhDvS+G7ia
+	QDIlL9dT3mQ1S0MMAwp9kCY=
+X-Google-Smtp-Source: ABdhPJyJoY/QSnWFqX4lct907ASwG6ucC3APzPU47UA9ySCZoCy/VQry/4Aipe4Bsx/j5AeL7DrtXQ==
+X-Received: by 2002:a05:651c:316:: with SMTP id a22mr12861633ljp.473.1608059135691;
+        Tue, 15 Dec 2020 11:05:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:12d0:: with SMTP id v16ls2458797jas.11.gmail; Tue,
- 15 Dec 2020 11:00:34 -0800 (PST)
-X-Received: by 2002:a05:6638:f92:: with SMTP id h18mr39452118jal.118.1608058834056;
-        Tue, 15 Dec 2020 11:00:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608058834; cv=none;
+Received: by 2002:a2e:7d0d:: with SMTP id y13ls2502872ljc.9.gmail; Tue, 15 Dec
+ 2020 11:05:34 -0800 (PST)
+X-Received: by 2002:a2e:8148:: with SMTP id t8mr4269918ljg.203.1608059134521;
+        Tue, 15 Dec 2020 11:05:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608059134; cv=none;
         d=google.com; s=arc-20160816;
-        b=h9YAKl54bUF6AXkCDtFq+5QmJhfm8gfuCZhcjglW7B79JhoeJYJrKpyJL85cCEAllh
-         cx8NBWgnSQN8usupQeEtnL9GIKvsmGYZ8beHNdjUV8evK1Lq/3qWmDXqepWdFq3x50s7
-         xTatjJLiNeZrbsfwRC7EeO4ySrlQsHBAU8Aj6P3fFgYdT5yGfYBExAf8+3V45xIYDlh1
-         lghV8eN0KOJVfuV/iAOHUjXafOpd5p4eCuJEwJ5AIS9W4Go2vbYL0JSNRZaT/LzsNs+h
-         QKizapDaKLmqt3tLDcgUSEWCuJ5PzGTpnbvBABJI3/acuOySKTgy/U1eDz5qeOBeH1oI
-         c8vg==
+        b=mrrmilVCoAcUJzPeDId6XbBTtUKfE4+8BsbAfQCs+Be4lV41hXhend82lajpwTAyzm
+         wHB1cZNKZXttX/osZrGrh8Lahn8qInnCje3DbNVl2Z4IJWP9+fMZ18SpvRGlv75+rKLO
+         OQ2BIWOFtCprpSpF/7R9n+Iy4YkuQW4S+UAQRxi7Wbg0nk128/CzJhMKlh8OFhFb4XJm
+         YdprLlZd9UFNwmKv+Oc3vKZ7U2sV0QEZR8ImLDINi0JOtHlcSng7g2ahvh0hTxz2LfRG
+         K55gDHpeo49NHWkhGjwW1xMJbro72FZ40mKghunkKjJfbQIgiauGah9hxrRThe9D6wXy
+         UkVQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=tqvjG3LHN+UnAhAiqOmxkv4SND0IGGUCBI5vxhhXVhk=;
-        b=byIg13nYhFXNDQvKvYwqWvOqdmzmnvLmuIYIBbQ8nus3Xyo4O0/nraLKfyvTpGHzEh
-         EZeaS+id97sB/N4yv5Cx8E5pT41CeigOy6kvMWxJppTt4pa5d+hGfxPJZw1E9lwarsBr
-         Q2kZFY0ZOOgWY3BMLdpHllOdoO3f03ewruiMP/G7oLllmc0nCpB9mi8KecaSYTz96nGW
-         4OApsD2GgKO1jRDO9B0T0nP5pZtjPGiVIsnPFuXOZ01z7h0I/IV6FID2qUT/d3Ua4yLY
-         wtuIRPCa/tBGiv81oGmZmijW7AOLFh1vMehq5SBBLujTGVahYWie87vLVvMSQrE/Bxt7
-         hsUw==
+        h=dkim-signature:auto-submitted:content-transfer-encoding
+         :mime-version:subject:references:in-reply-to:message-id:cc:reply-to
+         :from:date;
+        bh=y4fl/wEG9W7L6/9LX9TAFtfPXru4qtzWvDO6xvWb1Qs=;
+        b=rSPaClCrOA91A+ML1H9pGajHT07Hy6cdgkv9U9rDR73k7dDC3R7SFvPKfcR8LT0niw
+         M54k4SO5WMoWNIQuWR1CEfhneaVszoSrXZMUEnahfeAZKzqyb+iyoGTtl0Wj8TLbZ1rx
+         gDVWN9XuRIISx5OE0UA/CvapMil/wrGY17w6KomMTiRPaOlu7bZMQ99YaLvQSJZJhcFu
+         V25xzJ/NySAysOl9VbJ9vcUAJLExeVMWaYMM0y5tULyuIDAmPDkseEKpt/hC2Lkv24XY
+         TbWSU8jLmHtc70f8T4hlh7vJuvN8FxRBC7wf8ZI1YCKy6VB36oXwh7B23veEIYvkZIQD
+         T+EQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Zxne49qo;
-       spf=pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a42 as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-vk1-xa42.google.com (mail-vk1-xa42.google.com. [2607:f8b0:4864:20::a42])
-        by gmr-mx.google.com with ESMTPS id j18si1231226iow.0.2020.12.15.11.00.34
+       dkim=pass header.i=@zendesk.com header.s=zendesk2 header.b=rrVNOi9V;
+       spf=pass (google.com: domain of support@travis-ci.com designates 188.172.138.6 as permitted sender) smtp.mailfrom=support@travis-ci.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=travis-ci.com
+Received: from outbyoip6.pod18.euc1.zdsys.com (outbyoip6.pod18.euc1.zdsys.com. [188.172.138.6])
+        by gmr-mx.google.com with ESMTPS id h21si913530ljj.6.2020.12.15.11.05.34
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Dec 2020 11:00:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a42 as permitted sender) client-ip=2607:f8b0:4864:20::a42;
-Received: by mail-vk1-xa42.google.com with SMTP id w66so5053167vka.3
-        for <clang-built-linux@googlegroups.com>; Tue, 15 Dec 2020 11:00:34 -0800 (PST)
-X-Received: by 2002:a1f:4595:: with SMTP id s143mr31025286vka.6.1608058833485;
- Tue, 15 Dec 2020 11:00:33 -0800 (PST)
-MIME-Version: 1.0
-References: <202012150402.NnbPvD05-lkp@intel.com>
-In-Reply-To: <202012150402.NnbPvD05-lkp@intel.com>
-From: Souptick Joarder <jrdr.linux@gmail.com>
-Date: Wed, 16 Dec 2020 00:30:21 +0530
-Message-ID: <CAFqt6zYZLm6o8EHnJahPQM=iuJaBg-t9P-71Rt6Fty7b-XJ3Sg@mail.gmail.com>
-Subject: Re: [linux-next:master 6404/13375] drivers/i3c/master/mipi-i3c-hci/core.c:780:34:
- warning: unused variable 'i3c_hci_of_match'
-To: kernel test robot <lkp@intel.com>
-Cc: Nicolas Pitre <npitre@baylibre.com>, kbuild-all@lists.01.org, 
-	clang-built-linux@googlegroups.com, 
-	Linux Memory Management List <linux-mm@kvack.org>, Boris Brezillon <bbrezillon@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jrdr.linux@gmail.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 15 Dec 2020 11:05:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of support@travis-ci.com designates 188.172.138.6 as permitted sender) client-ip=188.172.138.6;
+Received: from zendesk.com (unknown [10.218.218.38])
+	by outbyoip6.pod18.euc1.zdsys.com (Postfix) with ESMTP id 4CwSQ54nlGz3hhT7;
+	Tue, 15 Dec 2020 19:05:33 +0000 (UTC)
+Date: Tue, 15 Dec 2020 19:05:33 +0000
+From: "Erika Kuntar (Support)" <support@travis-ci.com>
+Reply-To: Support <support@travis-ci.com>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>, 
+ Dan Rue <dan.rue@linaro.org>, 
+ Stephen Hines <srhines@google.com>
+Message-ID: <L7VKGOM25K_5fd908fd5600d_4b5665bc15886c_sprut@zendesk.com>
+In-Reply-To: <CAKwvOdkFqaYrE4gQ7xB8EJZ-sOyizwOQMHy0G7eqjwjx=DLuwg@mail.gmail.com>
+References: <L7VKGOM25K@zendesk.com>
+ <CAKwvOdkFqaYrE4gQ7xB8EJZ-sOyizwOQMHy0G7eqjwjx=DLuwg@mail.gmail.com>
+Subject: Request for OSS only credits
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5fd908fd9df88_4b5665bc158917";
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Delivery-Context: event-id-686236246199
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: All
+X-Mailer: Zendesk Mailer
+X-Zendesk-From-Account-Id: 68b8aed
+X-Original-Sender: support@travis-ci.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Zxne49qo;       spf=pass
- (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a42
- as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@zendesk.com header.s=zendesk2 header.b=rrVNOi9V;       spf=pass
+ (google.com: domain of support@travis-ci.com designates 188.172.138.6 as
+ permitted sender) smtp.mailfrom=support@travis-ci.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=travis-ci.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,64 +141,349 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Dec 15, 2020 at 1:31 AM kernel test robot <lkp@intel.com> wrote:
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   7bba37a1591369e2e506d599b8f5d7d0516b2dbc
-> commit: 9ad9a52cce2828d932ae9495181e3d6414f72c07 [6404/13375] i3c/master: introduce the mipi-i3c-hci driver
-> config: x86_64-randconfig-a013-20201215 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project d38205144febf4dc42c9270c6aa3d978f1ef65e1)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=9ad9a52cce2828d932ae9495181e3d6414f72c07
->         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->         git fetch --no-tags linux-next master
->         git checkout 9ad9a52cce2828d932ae9495181e3d6414f72c07
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> drivers/i3c/master/mipi-i3c-hci/core.c:780:34: warning: unused variable 'i3c_hci_of_match' [-Wunused-const-variable]
->    static const struct of_device_id i3c_hci_of_match[] = {
->                                     ^
->    1 warning generated.
 
-CONFIG_OF not enabled.
+----==_mimepart_5fd908fd9df88_4b5665bc158917
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Does it make sense to remove of_match_ptr() ?
+##- Please type your reply above this line -##
 
-static struct platform_driver i3c_hci_driver = {
-.probe = i3c_hci_probe,
-.remove = i3c_hci_remove,
-.driver = {
-.name = "mipi-i3c-hci",
-.of_match_table = of_match_ptr(i3c_hci_of_match),
-},
+You are registered as a CC on this request (23735). Reply to this email to =
+add a comment to the request.
+
+----------------------------------------------
+
+Erika Kuntar, Dec 15, 2020, 11:05 PST
+
+Hello Nick=E2=80=8B ,
+
+Thanks for contacting Travis-CI Support! We would love to help.
+
+We offer an Open Source Subscription for free to non-commercial open-source=
+ projects. To qualify for an Open Source subscription, the project must mee=
+t the following requirements:
 
 
->
-> vim +/i3c_hci_of_match +780 drivers/i3c/master/mipi-i3c-hci/core.c
->
->    779
->  > 780  static const struct of_device_id i3c_hci_of_match[] = {
->    781          { .compatible = "mipi-i3c-hci", },
->    782          {},
->    783  };
->    784  MODULE_DEVICE_TABLE(of, i3c_hci_of_match);
->    785
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+- You are a project lead or regular committer (latest commit in the last mo=
+nth)
+- Project must be at least 3 months old and is in active development (with =
+regular commits and activity)
+- Project meets the OSD specification
+- Project must not be sponsored by a commercial company or organization (mo=
+netary or with employees paid to work on the project)
+- Project can not provide commercial services or distribute paid versions o=
+f the software
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFqt6zYZLm6o8EHnJahPQM%3DiuJaBg-t9P-71Rt6Fty7b-XJ3Sg%40mail.gmail.com.
+Does this sound like you and your project? We'd be very happy to support yo=
+u!
+
+However, if your project does not match these requirements or you have furt=
+her questions [1], please feel free to ask!
+
+We look forward to your response if you meet these requirements to proceed =
+with the next steps.
+
+Thank you
+
+[1] https://docs.travis-ci.com/user/billing-faq/
+
+--
+Erika
+
+Your Friends @Travis CI
+
+Test and Deploy with Confidence.
+www.travis-ci.com
+
+=E2=80=94
+Travis CI GmbH, Rigaer Str.8, 10247 Berlin, Germany | GF/CEO: Randy Jacops =
+| Contact: contact@travis-ci.org | Amtsgericht Charlottenburg, Berlin, HRB =
+140133 B | Umsatzsteuer-ID gem=C3=A4=C3=9F =C2=A727 a Umsatzsteuergesetz: D=
+E282002648
+
+----------------------------------------------
+
+Nick Desaulniers, Dec 2, 2020, 10:43 PST
+
+To Whom it May Concern,
+Regarding our TravisCI project
+(https://travis-ci.com/github/ClangBuiltLinux/continuous-integration),
+I noticed that our last build stopped on Nov 20, 2020 with a banner
+that reads:
+
+"Builds have been temporarily disabled for public repositories due to
+a negative credit balance. Please go to the Plan page to replenish
+your credit balance or alter your Consume paid credits for OSS
+setting."
+
+I suspect this is in regards to the blog post:
+https://blog.travis-ci.com/oss-announcement
+
+On https://travis-ci.com/organizations/ClangBuiltLinux/plan, I can see
+"You have used 16090 of 10000 credits; -6090 credits available." The
+toggle for "Consume paid credits for OSS" looks enabled. When I click
+on the "OSS only credits" I see we have 0 credits.
+
+If I understand the note on
+https://docs.travis-ci.com/user/billing-overview/#credits-vs-oss-only-credi=
+ts
+correctly, which reads:
+
+"On occassion, an allotment of OSS Only credits may be granted by
+Travis CI. These credits may be used only for builds over public
+repositories and are meant for open source support. The OSS credits
+may be assigned as one time pool or renewable pool, subject to case by
+case assesment of Travis CI staff."
+
+Then it sounds like we need to make a formal request for Travis CI
+staff to review our case?
+
+For more information on our project, it's performing build+boot tests
+of the open source Linux kernel via the open source compiler toolchain
+LLVM, then boot testing the resulting image via the open source
+machine emulator QEMU using the open source Buildroot utility to
+create minimal userspace images.
+
+I am actively working with Linaro to offload the relatively expensive
+builds to their tuxbuild service; I would still like to use Travis CI
+for the github integration and ability to share hyperlinks to build
+reports when Travis CI spots regressions (based on the number of
+branches we're testing, Travis CI helps us spot regressions in the
+Linux kernel daily).
+--=20
+Thanks,
+~Nick Desaulniers
+
+--------------------------------
+This email is a service from Travis CI.
+
+
+
+
+
+
+
+
+
+[L7VKGO-M25K]
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/L7VKGOM25K_5fd908fd5600d_4b5665bc15886c_sprut%40zendesk.c=
+om.
+
+----==_mimepart_5fd908fd9df88_4b5665bc158917
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" =
+/>
+  <style type=3D"text/css">
+    table td {
+      border-collapse: collapse;
+    }
+    body[dir=3Drtl] .directional_text_wrapper { direction: rtl; unicode-bid=
+i: embed; }
+
+  </style>
+</head>
+<body lang=3D"en-us" style=3D"width: 100%!important; margin: 0; padding: 0;=
+" xml:lang=3D"en-us">
+  <div style=3D"padding: 10px ; line-height: 18px; font-family: 'Lucida Gra=
+nde',Verdana,Arial,sans-serif; font-size: 12px; color:#444444;">
+    <div style=3D"color: #b5b5b5;">##- Please type your reply above this li=
+ne -##</div>
+    <p dir=3D"ltr">You are registered as a CC on this request (23735). Repl=
+y to this email to add a comment to the request.</p><p dir=3D"ltr"></p><div=
+ style=3D"margin-top: 25px" data-version=3D"2"><table width=3D"100%" cellpa=
+dding=3D"0" cellspacing=3D"0" border=3D"0" role=3D"presentation">  <tbody><=
+tr>    <td width=3D"100%" style=3D"padding: 15px 0; border-top: 1px dotted =
+#c5c5c5;">      <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0" style=3D"table-layout:fixed;" role=3D"presentation">        <tb=
+ody><tr>                      <td valign=3D"top" style=3D"padding: 0 15px 0=
+ 15px; width: 40px;">              <img width=3D"40" height=3D"40" alt=3D""=
+ style=3D"height: auto; line-height: 100%; outline: none; text-decoration: =
+none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5=
+px;" src=3D"https://travisci.zendesk.com/system/photos/3601/1804/6359/image=
+0__1_.jpeg" />            </td>                    <td width=3D"100%" style=
+=3D"padding: 0; margin: 0;" valign=3D"top">            <p style=3D"font-fam=
+ily:'Lucida Grande','Lucida Sans Unicode','Lucida Sans',Verdana,Tahoma,sans=
+-serif; font-size: 15px; line-height: 18px; margin-bottom: 0; margin-top: 0=
+; padding: 0; color:#1b1d1e;" dir=3D"ltr">                                 =
+                                   <strong>Erika Kuntar</strong> (Travis CI=
+)                                                            </p>          =
+  <p style=3D"font-family:'Lucida Grande','Lucida Sans Unicode','Lucida San=
+s',Verdana,Tahoma,sans-serif; font-size: 13px; line-height: 25px; margin-bo=
+ttom: 15px; margin-top: 0; padding: 0; color:#bbbbbb;" dir=3D"ltr">        =
+      Dec 15, 2020, 11:05 PST            </p>                              =
+      <div class=3D"zd-comment" dir=3D"auto" style=3D"color: #2b2e2f; font-=
+family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-ser=
+if; font-size: 14px; line-height: 22px; margin: 15px 0">Hello Nick=E2=80=8B=
+ ,<br /><br />Thanks for contacting Travis-CI Support! We would love to hel=
+p. <br /><br />We offer an Open Source Subscription for free to non-commerc=
+ial open-source projects. To qualify for an Open Source subscription, the p=
+roject must meet the following requirements:<br /><br /><ul dir=3D"auto" st=
+yle=3D"list-style-type: disc; margin: 10px 0 15px 30px; padding-left: 15px"=
+><li style=3D"font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'tahoma'=
+, Verdana, sans-serif; font-size: 14px; line-height: 22px; margin: 10px 0">=
+You are a project lead or regular committer (latest commit in the last mont=
+h)<br /></li><li style=3D"font-family: 'Lucida Sans Unicode', 'Lucida Grand=
+e', 'tahoma', Verdana, sans-serif; font-size: 14px; line-height: 22px; marg=
+in: 10px 0">Project must be at least 3 months old and is in active developm=
+ent (with regular commits and activity)<br /></li><li style=3D"font-family:=
+ 'Lucida Sans Unicode', 'Lucida Grande', 'tahoma', Verdana, sans-serif; fon=
+t-size: 14px; line-height: 22px; margin: 10px 0">Project meets the <a href=
+=3D"https://opensource.org/docs/osd" rel=3D"noreferrer">OSD</a> specificati=
+on<br /></li><li style=3D"font-family: 'Lucida Sans Unicode', 'Lucida Grand=
+e', 'tahoma', Verdana, sans-serif; font-size: 14px; line-height: 22px; marg=
+in: 10px 0">Project must not be sponsored by a commercial company or organi=
+zation (monetary or with employees paid to work on the project)<br /></li><=
+li style=3D"font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'tahoma', =
+Verdana, sans-serif; font-size: 14px; line-height: 22px; margin: 10px 0">Pr=
+oject can not provide commercial services or distribute paid versions of th=
+e software<br /></li></ul><br />Does this sound like you and your project? =
+We'd be very happy to support you! <br /><br />However, if your project doe=
+s not match these requirements or you have further questions [1], please fe=
+el free to ask!<br /><br />We look forward to your response if you meet the=
+se requirements to proceed with the next steps.<br /><br />Thank you<br /><=
+br />[1] <a href=3D"https://docs.travis-ci.com/user/billing-faq/" rel=3D"no=
+referrer">https://docs.travis-ci.com/user/billing-faq/</a><br /><div class=
+=3D"signature"><p dir=3D"ltr" style=3D"color: #2b2e2f; font-family: 'Lucida=
+ Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: =
+14px; line-height: 22px; margin: 15px 0">--<br />
+Erika</p><p dir=3D"ltr" style=3D"color: #2b2e2f; font-family: 'Lucida Sans =
+Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: 14px; =
+line-height: 22px; margin: 15px 0">Your Friends @Travis CI<br /><br />
+Test and Deploy with Confidence.<br /><a href=3D"http://www.travis-ci.com" =
+rel=3D"noreferrer">www.travis-ci.com</a></p><p dir=3D"ltr" style=3D"color: =
+#2b2e2f; font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Ver=
+dana, sans-serif; font-size: 14px; line-height: 22px; margin: 15px 0">=E2=
+=80=94<br />
+Travis CI GmbH, Rigaer Str.8, 10247 Berlin, Germany | GF/CEO: Randy Jacops =
+| Contact: <a href=3D"mailto:contact@travis-ci.org" rel=3D"noreferrer">cont=
+act@travis-ci.org</a> | Amtsgericht Charlottenburg, Berlin, HRB 140133 B | =
+Umsatzsteuer-ID gem=C3=A4=C3=9F =C2=A727 a Umsatzsteuergesetz: DE282002648<=
+/p></div></div><p dir=3D"ltr">                                  </p></td>  =
+      </tr>      </tbody></table>    </td>  </tr></tbody></table><p dir=3D"=
+ltr"></p><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" role=3D"presentation">  <tbody><tr>    <td width=3D"100%" style=3D"p=
+adding: 15px 0; border-top: 1px dotted #c5c5c5;">      <table width=3D"100%=
+" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"table-layout:fi=
+xed;" role=3D"presentation">        <tbody><tr>                      <td va=
+lign=3D"top" style=3D"padding: 0 15px 0 15px; width: 40px;">              <=
+img width=3D"40" height=3D"40" alt=3D"" style=3D"height: auto; line-height:=
+ 100%; outline: none; text-decoration: none; -webkit-border-radius: 5px; -m=
+oz-border-radius: 5px; border-radius: 5px;" src=3D"https://secure.gravatar.=
+com/avatar/5fc870b8c20eabbd093381ac52df9726?size=3D40&amp;default=3Dhttps%3=
+A%2F%2Fassets.zendesk.com%2Fimages%2F2016%2Fdefault-avatar-80.png&amp;r=3Dg=
+" />            </td>                    <td width=3D"100%" style=3D"paddin=
+g: 0; margin: 0;" valign=3D"top">            <p style=3D"font-family:'Lucid=
+a Grande','Lucida Sans Unicode','Lucida Sans',Verdana,Tahoma,sans-serif; fo=
+nt-size: 15px; line-height: 18px; margin-bottom: 0; margin-top: 0; padding:=
+ 0; color:#1b1d1e;" dir=3D"ltr">                              <strong>Nick =
+Desaulniers</strong>                          </p>            <p style=3D"f=
+ont-family:'Lucida Grande','Lucida Sans Unicode','Lucida Sans',Verdana,Taho=
+ma,sans-serif; font-size: 13px; line-height: 25px; margin-bottom: 15px; mar=
+gin-top: 0; padding: 0; color:#bbbbbb;" dir=3D"ltr">              Dec 2, 20=
+20, 10:43 PST            </p>                                    <div class=
+=3D"zd-comment" dir=3D"auto" style=3D"color: #2b2e2f; font-family: 'Lucida =
+Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: 1=
+4px; line-height: 22px; margin: 15px 0"><p dir=3D"ltr" style=3D"color: #2b2=
+e2f; font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana=
+, sans-serif; font-size: 14px; line-height: 22px; margin: 15px 0">To Whom i=
+t May Concern,<br />Regarding our TravisCI project<br />(<a href=3D"https:/=
+/travis-ci.com/github/ClangBuiltLinux/continuous-integration" target=3D"_bl=
+ank" rel=3D"nofollow noreferrer">https://travis-ci.com/github/ClangBuiltLin=
+ux/continuous-integration</a>),<br />I noticed that our last build stopped =
+on Nov 20, 2020 with a banner<br />that reads:</p><p dir=3D"ltr" style=3D"c=
+olor: #2b2e2f; font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma=
+', Verdana, sans-serif; font-size: 14px; line-height: 22px; margin: 15px 0"=
+>"Builds have been temporarily disabled for public repositories due to<br /=
+>a negative credit balance. Please go to the Plan page to replenish<br />yo=
+ur credit balance or alter your Consume paid credits for OSS<br />setting."=
+</p><p dir=3D"ltr" style=3D"color: #2b2e2f; font-family: 'Lucida Sans Unico=
+de', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: 14px; line-=
+height: 22px; margin: 15px 0">I suspect this is in regards to the blog post=
+:<br /><a href=3D"https://blog.travis-ci.com/oss-announcement" target=3D"_b=
+lank" rel=3D"nofollow noreferrer">https://blog.travis-ci.com/oss-announceme=
+nt</a></p><p dir=3D"ltr" style=3D"color: #2b2e2f; font-family: 'Lucida Sans=
+ Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: 14px;=
+ line-height: 22px; margin: 15px 0">On <a href=3D"https://travis-ci.com/org=
+anizations/ClangBuiltLinux/plan" target=3D"_blank" rel=3D"nofollow noreferr=
+er">https://travis-ci.com/organizations/ClangBuiltLinux/plan</a>, I can see=
+<br />"You have used 16090 of 10000 credits; -6090 credits available." The<=
+br />toggle for "Consume paid credits for OSS" looks enabled. When I click<=
+br />on the "OSS only credits" I see we have 0 credits.</p><p dir=3D"ltr" s=
+tyle=3D"color: #2b2e2f; font-family: 'Lucida Sans Unicode', 'Lucida Grande'=
+, 'Tahoma', Verdana, sans-serif; font-size: 14px; line-height: 22px; margin=
+: 15px 0">If I understand the note on<br /><a href=3D"https://docs.travis-c=
+i.com/user/billing-overview/#credits-vs-oss-only-credits" target=3D"_blank"=
+ rel=3D"nofollow noreferrer">https://docs.travis-ci.com/user/billing-overvi=
+ew/#credits-vs-oss-only-credits</a><br />correctly, which reads:</p><p dir=
+=3D"ltr" style=3D"color: #2b2e2f; font-family: 'Lucida Sans Unicode', 'Luci=
+da Grande', 'Tahoma', Verdana, sans-serif; font-size: 14px; line-height: 22=
+px; margin: 15px 0">"On occassion, an allotment of OSS Only credits may be =
+granted by<br />Travis CI. These credits may be used only for builds over p=
+ublic<br />repositories and are meant for open source support. The OSS cred=
+its<br />may be assigned as one time pool or renewable pool, subject to cas=
+e by<br />case assesment of Travis CI staff."</p><p dir=3D"ltr" style=3D"co=
+lor: #2b2e2f; font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma'=
+, Verdana, sans-serif; font-size: 14px; line-height: 22px; margin: 15px 0">=
+Then it sounds like we need to make a formal request for Travis CI<br />sta=
+ff to review our case?</p><p dir=3D"ltr" style=3D"color: #2b2e2f; font-fami=
+ly: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; =
+font-size: 14px; line-height: 22px; margin: 15px 0">For more information on=
+ our project, it's performing build+boot tests<br />of the open source Linu=
+x kernel via the open source compiler toolchain<br />LLVM, then boot testin=
+g the resulting image via the open source<br />machine emulator QEMU using =
+the open source Buildroot utility to<br />create minimal userspace images.<=
+/p><p dir=3D"ltr" style=3D"color: #2b2e2f; font-family: 'Lucida Sans Unicod=
+e', 'Lucida Grande', 'Tahoma', Verdana, sans-serif; font-size: 14px; line-h=
+eight: 22px; margin: 15px 0">I am actively working with Linaro to offload t=
+he relatively expensive<br />builds to their tuxbuild service; I would stil=
+l like to use Travis CI<br />for the github integration and ability to shar=
+e hyperlinks to build<br />reports when Travis CI spots regressions (based =
+on the number of<br />branches we're testing, Travis CI helps us spot regre=
+ssions in the<br />Linux kernel daily).<br />-- <br />Thanks,<br />~Nick De=
+saulniers</p></div>                                  </td>        </tr>    =
+  </tbody></table>    </td>  </tr></tbody></table></div>
+  </div>
+  <div style=3D"padding: 10px ; line-height: 18px; font-family: 'Lucida Gra=
+nde',Verdana,Arial,sans-serif; font-size: 12px; color: #aaaaaa;&#10;    mar=
+gin: 10px 0 14px 0; padding-top: 10px; border-top: 1px solid #eeeeee;">
+    This email is a service from Travis CI. Delivered by <a href=3D"https:/=
+/www.zendesk.com/support/?utm_campaign=3Dtext&amp;utm_content=3DTravis+CI&a=
+mp;utm_medium=3Dpoweredbyzendesk&amp;utm_source=3Demail-notification" style=
+=3D"color: black;" target=3D"_blank">Zendesk</a>
+  </div>
+<span style=3D"color:#FFFFFF" aria-hidden=3D"true">[L7VKGO-M25K]</span><div=
+ itemscope=3D"" itemtype=3D"http://schema.org/EmailMessage" style=3D"displa=
+y:none">  <div itemprop=3D"action" itemscope=3D"" itemtype=3D"http://schema=
+.org/ViewAction">    <link itemprop=3D"url" href=3D"https://support.travis-=
+ci.com/hc/requests/23735" />    <meta itemprop=3D"name" content=3D"View tic=
+ket" />  </div></div>
+
+</body></html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/L7VKGOM25K_5fd908fd5600d_4b5665bc15886c_sprut%=
+40zendesk.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google=
+.com/d/msgid/clang-built-linux/L7VKGOM25K_5fd908fd5600d_4b5665bc15886c_spru=
+t%40zendesk.com</a>.<br />
+
+----==_mimepart_5fd908fd9df88_4b5665bc158917--
