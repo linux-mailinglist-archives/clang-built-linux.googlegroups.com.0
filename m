@@ -1,128 +1,127 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBF4R5X7AKGQEI25A5UA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCZHPMXYQEBBMXF5X7AKGQEADHRHTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc37.google.com (mail-oo1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
-	by mail.lfdr.de (Postfix) with ESMTPS id A6F2A2DD0FC
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Dec 2020 13:01:28 +0100 (CET)
-Received: by mail-oo1-xc37.google.com with SMTP id o65sf12667295ooo.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Dec 2020 04:01:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608206487; cv=pass;
+Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 115BE2DD37B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Dec 2020 16:01:09 +0100 (CET)
+Received: by mail-lf1-x13a.google.com with SMTP id 140sf10625749lfm.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Dec 2020 07:01:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608217268; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cEuXEYo4hgjvykuix1B0DyPYb3l6tYI9E6TUg08Xz1JNhFUsOps5YFE2H7W3vlIn46
-         dTcsiKdv4K1cZT+Ce09OlxTuSHzvygWfZ3Z74nMco6d2XckSBhrz1/keNfpW8ASgt/KX
-         +AvwDEPzSpX+T/6YAZdF8Ej6RRCgrxSHtmh2qnw7zp530G/LnbF/BbK4LawN1DM5oWcg
-         wr3b7/nG27+Wbb4U605R2LBZTVRM7ulMvQy7Ag/Ib8rYgGlMOo+wsv7rnbSlDlZqbiur
-         KpSsohHBnq3w+Xzq0pYXrb+f9MStAGvRsf5jad91Prjbc3gzu0+RvuWT7t8lC8A7MKHF
-         c3Dw==
+        b=IGYgn54rv712Zug5GdEkg4r6Upd+vkWOCG+R/fSrh/vnXO6t/nKaknknfTmuCxJ5pI
+         391z3mQhfsmnQGDinRyhWvBU4xGw1aT6wz5D8rLEW07zCQ2ecU5q4kHQOQ9Hq+2mfpI6
+         rFXxr0t/YTrYBB7pP/WivbmQx91eGrsdYLlaq15Qv6yN1HTh3AcCGoJ7R0GKsjNb4rIS
+         W/6DKWESVBChQQ9umsbJ146j1VDTm8KrC/3OC6ZKNdOdP06bk6wTLKPOqeQwq3GYUdoA
+         a0WdgkYwCkV9TlH2BzzfVA8hr28rAnKVkVmfkm1o5iPo29wwRbdT/DctrQpfIIrYUJsk
+         V4dQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=ZmVJmqnB141AcZ7hRQExXHw83NfRU5EI+Dc7vNW4uo8=;
-        b=QdAPpL3HtV1/V6vVWZGnaMOOAEYjkE38kR/hCfMxZ4EyscNk+yqRaKWiDpQHNEbm34
-         dTfNoO4KC2cb7q65plj/ixRT8BmbEtfO9nLOXXYlW6PIig6zLtfzox+0wYkxjKDiXBkC
-         xUIJdWL9Kz5n4wVe+sfWs7Z8k69ZHykyHpzEybp3mgbVE55iKWa8elnE6m2PpKTmSrAL
-         K31ZJjppUNdIm+eMRq/AQtMQwhwHILKp2ZHAowBJj5NX0ASOg9kAwuF8eD7BYYY3mlMQ
-         UwSVonn9ltQTbUO7Wc8BYTytLWHeSJ9+wht01X8/RV4m5HvggHILZ8Flm7ZTB9y6jjEC
-         yKLQ==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:to:from:date:sender:dkim-signature;
+        bh=Dok9dUc+DYm334wMpgfYS9urG6hVmZlKcVv+LYe8VVM=;
+        b=EpDbr4WTv8CcEuuWjepMqLP3UbHj7Iw/hTmtjAPSchzS17YMepmlTECSZ4k/rpHpUz
+         0+QzKDq8wa7K0IsE+/ECy/aXvbT2kMQwAODnC7nVg4lAXLUqogcQRzXhslsSYquyiguU
+         thLGp9BUHL7hTvNUl9kDz05DFrffojX748QW/hhV8NoFNGDyK/qwe3I07IUAEk/JwR0a
+         YrMaCnKGq4eLpvTovIyDE5tZGw/egw4/LrLpuu6OOktINl7kUULCwMVu/wRPlsSQq/8a
+         aFUwTKHMdbohrVlcrbOExPeGMFsaVwddzlL0HXvtE+NPdg/8fMIpv7yXARoS/Or3xpY9
+         wFKQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YC253vLN;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@mess.org header.s=2020 header.b=jYx1M5oM;
+       spf=pass (google.com: domain of sean@mess.org designates 88.97.38.141 as permitted sender) smtp.mailfrom=sean@mess.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:date:from:to:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZmVJmqnB141AcZ7hRQExXHw83NfRU5EI+Dc7vNW4uo8=;
-        b=rOpT57SGo2iy98gWmIgYal1l1Q6kGRdn7GH7b3bkmTTv7NT388qUeDyncvwN04C/Ew
-         +QMRaZ+FOIebGO8+rGsAOjrxHOcW1OR0CMeYgWu4YzFNUxJqAr3ugsFfOevrT0sw95qO
-         VHbcFbJQGTlVetJDAooqBHduGRUARBiHWhe+bB57DmUA1id4x5uqf6z3IvSSc3Xuypho
-         hhps6jnnvcKJw/ivzZBYX2s71LWx88sKk3FtFkL7fnYfUIIiUVBSG7S6Lc0TA+tGS9ex
-         A6KQQYtNF58dpUb+REkd84j+WCbC0dX7WdRb2IQEUp1OvjeXAnxHmse2OVE3lGeDWcN6
-         BrNw==
+        bh=Dok9dUc+DYm334wMpgfYS9urG6hVmZlKcVv+LYe8VVM=;
+        b=UsTghKjZUJpjXkpme29KEm8t5eLzXT+/97wkccfLNHO9Ad4LwUp8BKqxyxbfYepYeo
+         ECZG5aV9O7gRD6w1Qkvz39p9FrqB2pVJgu69C0VLdMcbMtcNV1p+yJ/YBiNSKGB8GaJ8
+         4k31tpDNqsWzDVzNOksXKsLD8eMHT4BHGIiFPX23ufiKYwE4NS/He40dUttSVjnLWKhp
+         eY2gVEk0hF7AGS3mYHp3Ny8hhkwhPQ8njhHSy36TzgZjQJJppTfC8bTK89FkghcC6Om9
+         uURVyLMrQCz+Ounxz+tjFgApEt5KxW9i/IbpKfWAMItUzEGl+HvV7Kh9sHtqrd+iq87k
+         s+/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ZmVJmqnB141AcZ7hRQExXHw83NfRU5EI+Dc7vNW4uo8=;
-        b=t/2ISfl1s/QBiy4zzKhU/2KMVoK+7mPq2bapb9DV/SlWWSW+P9Yi60vnrCtYET6Gmv
-         w0GC6u1PG8CrmrzB+gQAiHQHmyF1IUHJa4pJGnfQmxT4t0+iS1TUdsa1cHy8A9P3UM9y
-         j36D7LyXseg0HP3iMv2jvCLV55lKs7Wfmm2qSpB56FMEDt5LwE0rPWUNRjA/zoZjOG6a
-         fs791sLN0DionuD7fL1Q0cHMerTrF8Y5vJXHVrvV2eYnZr2lT0jpm+FJSl3XkCRNH6KG
-         BAUn0YSKSTOfTCxl8fRdkrcwx8zyTrAI9YS0kdWsFTRAkBe4a5D6l3u51yPlFl3HFeij
-         vXzw==
+        h=sender:x-gm-message-state:date:from:to:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Dok9dUc+DYm334wMpgfYS9urG6hVmZlKcVv+LYe8VVM=;
+        b=s2n3P899Bsq5vCTqTXamUaaneK4QGg+BOnDrL0ySqFqSuquyCmIAT8/7yXEPPKSkC7
+         XXgu52pphzGl6h9yoVuyOc8aTZmSR7I8ia+4M8MneqOGvF1UZlAnBu+cI35jC/PB4yfK
+         ece8sT9GnV69X1Ad7+S3m/LEpuyaJR25IFHzmwuBFIO+LE9C07c5HLOn/dRQHmIYwvpn
+         g5FEnrfET/TQX5FrBNRSiHcX+kbIXPNNg82JX1eUW/eYFHTu0BWezV14DrDu60td+LpZ
+         5Nno3uQo8W9VbL+iRxa8ktb0HZStBMIkQaWDnLI2AvFqPlSYhhMfaOB51WZgXW7uWgSw
+         czDA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530ZINA65NIGJNuTB9EXUGSwpvVl8lnwJw34eEcbChu4Y5ts2Rr6
-	5scZG2wkf58oEwWHcU9G0YA=
-X-Google-Smtp-Source: ABdhPJy10U3ydx08XzG/bPgKUmVdRjHUfKnq53MHyM3RDG9wfQglehywm5BsfEkTyOyghOwLtNZoeQ==
-X-Received: by 2002:aca:5253:: with SMTP id g80mr4522869oib.98.1608206487279;
-        Thu, 17 Dec 2020 04:01:27 -0800 (PST)
+X-Gm-Message-State: AOAM533qygTGWQ4ZLiPuIawSOx5trRS3xBoHpZZgaEyiPeMoC1exAJJm
+	9iiUpCZKXxK4GvQDr6cuWKA=
+X-Google-Smtp-Source: ABdhPJwvwv3MRbSwaP13itChhKW5lyBlhvT+6WQzfA5zh7TBmJv4ejcUhidZkMYURVcgw7wpY2z7OQ==
+X-Received: by 2002:a05:651c:10c:: with SMTP id a12mr16510970ljb.414.1608217267010;
+        Thu, 17 Dec 2020 07:01:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:140e:: with SMTP id v14ls7267994otp.4.gmail; Thu,
- 17 Dec 2020 04:01:26 -0800 (PST)
-X-Received: by 2002:a05:6830:1bc6:: with SMTP id v6mr29538618ota.135.1608206486564;
-        Thu, 17 Dec 2020 04:01:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608206486; cv=none;
+Received: by 2002:a2e:3614:: with SMTP id d20ls5910397lja.6.gmail; Thu, 17 Dec
+ 2020 07:01:04 -0800 (PST)
+X-Received: by 2002:a2e:5741:: with SMTP id r1mr16213319ljd.15.1608217264432;
+        Thu, 17 Dec 2020 07:01:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608217264; cv=none;
         d=google.com; s=arc-20160816;
-        b=Lqgj5tXw2bRem6vCQj8faVL6aCQvfKoGKA2MywxJZGEdZ+An2zeePi0jRBtgHcOpmN
-         k5U1c3FWglHg5UkuQ9zGDrzDRTf6UBpeiB5aFnLt7lLN+PtuG/fXFmJnjykcf5Ye/m5H
-         BvUlEQJqA3Ghb8YohDH+1VAfMLu+r7XBPB+dkQr9fAyfdoZT8zqO1m5GA3doWIOk4cAZ
-         oCDbj7CN/yeffqVrV3dUOYDHLcU7dTOy4gUZIm7t2ATjXeOqmARIXcyxgM4VjdVfG7cd
-         4Ru3kEW1DWJhA4bQcC70F6KM1QyFHQKdt9f3CRIXzvGYEOsJIOppGM+bIotVziIGljNg
-         BCIA==
+        b=mmjXTeAGw7cM/2ZoRSHnrujH1pR9l4iDjw5CJNoXYdN2Hfh2ThKdbkkayMy+8EVRpi
+         UfV7f2S4A7d2zwbxau7VYuFAfvop5oMf1p5YuHbRLRvBtbvHSXospDd5S26iGHwpx2vX
+         A5AdwfSSl8Ml2Rl0cAtG8AWq0BPtGnmEgn8TyI3tllIZc3sCCvoEzAwvf/L2Am6+gBS1
+         YfkoasILNsrJYJgvGvuBAOZwGvQxhfICedamfi3xKDRpCwig9ujnuOZcJBRI1Kt3DOvH
+         VV1hZQDYAO9N8LprLd/OdZNptst8CRk8cJlOBv9q6TWrJ18BcE+38XHrNRF3jt2aCpkO
+         i/Vg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:dkim-signature:date;
-        bh=FOPsZyXx4iN8p0/4mxhvAamcUnQWn1EP2C1OkJ+wAcc=;
-        b=zSheUPC9Dgboo9KHcPTPD1pEnaw08r3gLBiic4Fa445D+J7/jHpVeq4J4Dl81YnGmA
-         Us+a8OMjJenAWjdR4c7DMC1PG93kLvbXoTN2e5V90t1PkKk+eiC8Cf5gRJDcXFoWqfCI
-         LQDSvLZ+O4BvwsD5UCFAU2FrIi0Kt66OHQlq/BwRZOyHtCO3X33mjciBELbbJdDd8X+w
-         n52ktLCvwr07NvWm+rRHN4kchjl/eQqL1PuhdhhipY0wUfiEtBPSkPOyQPgWfnM/2cmX
-         iOJ8rAMJ2ibHxk7pJw8FhdlkgcDp8DlfZNb/IvydcVaRffNLAQhqXxB8a7BHIxOJuBiX
-         +s4w==
+        h=user-agent:content-disposition:mime-version:message-id:subject:to
+         :from:date:dkim-signature;
+        bh=v7gmVMuxyk0caV+bQbB8k+ePRlUwKdLSNDiYbiWt5bw=;
+        b=v88+vaAYaTat7Xgozsf8ZRgGjHlWXKeSJR/0BcesY5zn0Fofwy2OAsMUXEwIKcxeAQ
+         EvO7bWNWmaYP8FkdtiDTqXvXVhZL8nQl2W+DaCcbBClIJlTShXrWTXUsD3xZxc6dag8G
+         LegaB4EBMiyMwlA0UJ87ZS1Txz+huoP6ny57dJ6Ravng70JGU1ZszqCtyFUpCi7i7cWs
+         laWWwvdZ9jtUe5zMGSkvac+pdR1fDmlS23AnKoOUF4B5WagzEtp1kSliEqCkXIHlDOTZ
+         IMrXXaVcTdUpjLQS/8ySKzFmCJ3tMsUYW8i4l3Tlh78DRPGm376GCdY5tyAwW4/eOwaf
+         ERcQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YC253vLN;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x20si499602oot.1.2020.12.17.04.01.26
+       dkim=pass header.i=@mess.org header.s=2020 header.b=jYx1M5oM;
+       spf=pass (google.com: domain of sean@mess.org designates 88.97.38.141 as permitted sender) smtp.mailfrom=sean@mess.org
+Received: from gofer.mess.org (gofer.mess.org. [88.97.38.141])
+        by gmr-mx.google.com with ESMTPS id f21si248270lfe.9.2020.12.17.07.01.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 17 Dec 2020 04:01:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Date: Thu, 17 Dec 2020 12:01:19 +0000
-From: Will Deacon <will@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	kernel-team <kernel-team@android.com>,
-	Peter Smith <Peter.Smith@arm.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	stable <stable@vger.kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	=?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>,
-	Quentin Perret <qperret@google.com>, Alan Modra <amodra@gmail.com>,
-	"kernelci . org bot" <bot@kernelci.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: link with -z norelro for LLD or aarch64-elf
-Message-ID: <20201217120118.GC17544@willie-the-truck>
-References: <CAKwvOdkP8vHidFPWczC24XwNHhQaXovQiQ43Yb6Csp_+kPR9XQ@mail.gmail.com>
- <20201217004051.1247544-1-ndesaulniers@google.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Dec 2020 07:01:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of sean@mess.org designates 88.97.38.141 as permitted sender) client-ip=88.97.38.141;
+Received: by gofer.mess.org (Postfix, from userid 1000)
+	id 968C011A001; Thu, 17 Dec 2020 15:01:02 +0000 (GMT)
+Date: Thu, 17 Dec 2020 15:01:02 +0000
+From: Sean Young <sean@mess.org>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Quentin Monnet <quentin@isovalent.com>,
+	Toke =?iso-8859-1?Q?H=F8iland-J=F8rgensen?= <toke@redhat.com>,
+	linux-doc@vger.kernel.org, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] btf: support ints larger than 128 bits
+Message-ID: <20201217150102.GA13532@gofer.mess.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20201217004051.1247544-1-ndesaulniers@google.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+X-Original-Sender: sean@mess.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=YC253vLN;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@mess.org header.s=2020 header.b=jYx1M5oM;       spf=pass
+ (google.com: domain of sean@mess.org designates 88.97.38.141 as permitted
+ sender) smtp.mailfrom=sean@mess.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,34 +134,135 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Dec 16, 2020 at 04:40:51PM -0800, Nick Desaulniers wrote:
-> With newer GNU binutils, linking with BFD produces warnings for vmlinux:
-> aarch64-linux-gnu-ld: warning: -z norelro ignored
-> 
-> BFD can produce this warning when the target emulation mode does not
-> support RELRO relocation types, and -z relro or -z norelro is passed.
-> 
-> Alan Modra clarifies:
->   The default linker emulation for an aarch64-linux ld.bfd is
->   -maarch64linux, the default for an aarch64-elf linker is
->   -maarch64elf.  They are not equivalent.  If you choose -maarch64elf
->   you get an emulation that doesn't support -z relro.
-> 
-> The ARCH=arm64 kernel prefers -maarch64elf, but may fall back to
-> -maarch64linux based on the toolchain configuration.
-> 
-> LLD will always create RELRO relocation types regardless of target
-> emulation.
-> 
-> To avoid the above warning when linking with BFD, pass -z norelro only
-> when linking with LLD or with -maarch64linux.
+clang supports arbitrary length ints using the _ExtInt extension. This
+can be useful to hold very large values, e.g. 256 bit or 512 bit types.
 
-Given that, prior to 3b92fa7485eb, we used to pass '-z norelro' if
-CONFIG_RELOCATABLE then was this already broken with the ELF toolchain?
+Larger types (e.g. 1024 bits) are possible but I am unaware of a use
+case for these.
 
-Will
+This requires the _ExtInt extension to enabled for BPF in clang, which
+is under review.
+
+Link: https://clang.llvm.org/docs/LanguageExtensions.html#extended-integer-types
+Link: https://reviews.llvm.org/D93103
+
+Signed-off-by: Sean Young <sean@mess.org>
+---
+ Documentation/bpf/btf.rst      |  4 ++--
+ include/uapi/linux/btf.h       |  2 +-
+ tools/bpf/bpftool/btf_dumper.c | 39 ++++++++++++++++++++++++++++++++++
+ tools/include/uapi/linux/btf.h |  2 +-
+ 4 files changed, 43 insertions(+), 4 deletions(-)
+
+diff --git a/Documentation/bpf/btf.rst b/Documentation/bpf/btf.rst
+index 44dc789de2b4..784f1743dbc7 100644
+--- a/Documentation/bpf/btf.rst
++++ b/Documentation/bpf/btf.rst
+@@ -132,7 +132,7 @@ The following sections detail encoding of each kind.
+ 
+   #define BTF_INT_ENCODING(VAL)   (((VAL) & 0x0f000000) >> 24)
+   #define BTF_INT_OFFSET(VAL)     (((VAL) & 0x00ff0000) >> 16)
+-  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000000ff)
++  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000003ff)
+ 
+ The ``BTF_INT_ENCODING`` has the following attributes::
+ 
+@@ -147,7 +147,7 @@ pretty print. At most one encoding can be specified for the int type.
+ The ``BTF_INT_BITS()`` specifies the number of actual bits held by this int
+ type. For example, a 4-bit bitfield encodes ``BTF_INT_BITS()`` equals to 4.
+ The ``btf_type.size * 8`` must be equal to or greater than ``BTF_INT_BITS()``
+-for the type. The maximum value of ``BTF_INT_BITS()`` is 128.
++for the type. The maximum value of ``BTF_INT_BITS()`` is 512.
+ 
+ The ``BTF_INT_OFFSET()`` specifies the starting bit offset to calculate values
+ for this int. For example, a bitfield struct member has:
+diff --git a/include/uapi/linux/btf.h b/include/uapi/linux/btf.h
+index 5a667107ad2c..1696fd02b302 100644
+--- a/include/uapi/linux/btf.h
++++ b/include/uapi/linux/btf.h
+@@ -84,7 +84,7 @@ struct btf_type {
+  */
+ #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
+ #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
+-#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
++#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
+ 
+ /* Attributes stored in the BTF_INT_ENCODING */
+ #define BTF_INT_SIGNED	(1 << 0)
+diff --git a/tools/bpf/bpftool/btf_dumper.c b/tools/bpf/bpftool/btf_dumper.c
+index 0e9310727281..45ed45ea9962 100644
+--- a/tools/bpf/bpftool/btf_dumper.c
++++ b/tools/bpf/bpftool/btf_dumper.c
+@@ -271,6 +271,40 @@ static void btf_int128_print(json_writer_t *jw, const void *data,
+ 	}
+ }
+ 
++static void btf_bigint_print(json_writer_t *jw, const void *data, int nr_bits,
++			     bool is_plain_text)
++{
++	char buf[nr_bits / 4 + 1];
++	bool first = true;
++	int i;
++
++#ifdef __BIG_ENDIAN_BITFIELD
++	for (i = 0; i < nr_bits / 64; i++) {
++#else
++	for (i = nr_bits / 64 - 1; i >= 0; i++) {
++#endif
++		__u64 v = ((__u64 *)data)[i];
++
++		if (first) {
++			if (!v)
++				continue;
++
++			snprintf(buf, sizeof(buf), "%llx", v);
++
++			first = false;
++		} else {
++			size_t off = strlen(buf);
++
++			snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
++		}
++	}
++
++	if (is_plain_text)
++		jsonw_printf(jw, "0x%s", buf);
++	else
++		jsonw_printf(jw, "\"0x%s\"", buf);
++}
++
+ static void btf_int128_shift(__u64 *print_num, __u16 left_shift_bits,
+ 			     __u16 right_shift_bits)
+ {
+@@ -373,6 +407,11 @@ static int btf_dumper_int(const struct btf_type *t, __u8 bit_offset,
+ 		return 0;
+ 	}
+ 
++	if (nr_bits > 128) {
++		btf_bigint_print(jw, data, nr_bits, is_plain_text);
++		return 0;
++	}
++
+ 	if (nr_bits == 128) {
+ 		btf_int128_print(jw, data, is_plain_text);
+ 		return 0;
+diff --git a/tools/include/uapi/linux/btf.h b/tools/include/uapi/linux/btf.h
+index 5a667107ad2c..1696fd02b302 100644
+--- a/tools/include/uapi/linux/btf.h
++++ b/tools/include/uapi/linux/btf.h
+@@ -84,7 +84,7 @@ struct btf_type {
+  */
+ #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
+ #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
+-#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
++#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
+ 
+ /* Attributes stored in the BTF_INT_ENCODING */
+ #define BTF_INT_SIGNED	(1 << 0)
+-- 
+2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201217120118.GC17544%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201217150102.GA13532%40gofer.mess.org.
