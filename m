@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVG46T7AKGQEVF3SRVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVXE6T7AKGQE3GQ4ECY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79A152DEBA6
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 23:33:57 +0100 (CET)
-Received: by mail-ua1-x93d.google.com with SMTP id q8sf1388983uaj.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 14:33:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608330836; cv=pass;
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 96A532DEBBF
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 23:51:03 +0100 (CET)
+Received: by mail-oi1-x237.google.com with SMTP id l23sf2050032oii.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 14:51:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608331862; cv=pass;
         d=google.com; s=arc-20160816;
-        b=R1Tm7gGYQ4aLBIEa+7IvB/p9xTQobZXEw8egJIGuHEIq41Q4jeArlUjipEQj7+03+X
-         8/FPf5B65ORyzeROSDYoCMNRtEcRVWhIFA6GP3rxqxN4PCDEJjv5NSn6oK+Vu6H4AmUo
-         iZSSaSVrZFlh3rt6o8J1q+9d4XUR3KEQPyx6clvrlic8Hz/77b5+TQYT/3fMw3IxUe1p
-         7mqFh198A4P6SuXrvB+lTqWl7XR0akuurxsT77WNdxnwN4nqLkJMrQMNoDC8C8zrhJzo
-         1X3yFuwI1aKX71SgMu1+v81OlliAdC29cf5CjuQaeMWxEkCelOiJEF+/mlr+3V9+Vowi
-         Cbdw==
+        b=p7Md9AIu9/q8cZQT0YBl8TY7G2RJjryOmd3+Q2t/y9AZEaXftEZybjaMrWKGIxjdd5
+         dicT0WZGtrZJlCWavoAT6tSWM+fcV6I87s8jJIgrL2HO+ewddPkvPRwJ6w6I0Z7DBJIe
+         Yzc9JX9EgbiZuVXNxjzaCuKJavuE45L55ZTySI0CLuIhJOVgFYliRuDYiRXhd6PCzx4m
+         Xp/9E7ufJcleg8BI/e9awtHSiNm1PhXlRbdn5mgprcq768Zfv5RKc80J+DinR6ODKQKd
+         eZiq0XPo94EV9sxbArTsYfk9cXXrNIF5hBqxEovWo+w58bA07k1nU+hhNcNQsP50wwZP
+         ENhA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=qy5rCTOsSSAbUbvvjPOFbJT7gT/qSxLcTXc2YZ554C4=;
-        b=GlIzJ+LGYI7trNBT2mls9U59GnWBmwRrmZp//pG8wQ/xjVZwhwZ17dBJzooCXYKAPO
-         OFoBzQ2Yang+DueZicYwdj1LxiWPa8BAhsohKqcPjikfxwC+cqAObq/DATnykjxmsJCr
-         GxPdGu2g/afWgJKXst1OEmOo5difY7yUtHhp1jOfpv5/mb4xnHC1NyM4rnrv2e9zsfYM
-         c1ky9qyvA1Yq6rnUfIYtfg0KikGB2lqSWHS3cqifJMFcAEjlBo8e+T5GX+WkI+SMcKHp
-         dKSo4jrhB4vI8S1ORej47cKWjV0enOKU2rUbQati6aLWSjqu8sIikN2ULr4Fv/X4z7WG
-         rLQQ==
+        bh=iBgKs1qr56k4KzBFYPHwsnUbR5sHexTSX6xqMCHUBKY=;
+        b=rTwx8GnUzh0ml9EyoBBcZegFo3vpsWUJKKdl9yLfl6zoPnpQxEMr+tTu0eolzwSFHd
+         Rf97QGP9pme7SV1nCKxzLBr3cvXO+JBgPAWH0QVTLnm6V+NOMPLHRthpMGQODNcTQGEh
+         CPbllkHd9xvAyjDui61P/7zOxNLeaVa5DRVMjFqKL6Jx24hEv2ZFgo2GWuq2EIa1qtiT
+         kDMVswXtpoO6GCvKaUrKuLLUO77c5q8qY7d6mNi2+1zXJkVJ//xa6m/ANMQUIMqfe4l0
+         FZMA4jduZGBdSet+f6nLPuBuIBQOYXvSCBLHDr8e0lDLbfJfZbiDkEURdbg7k7Q7bm7G
+         BGlg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qy5rCTOsSSAbUbvvjPOFbJT7gT/qSxLcTXc2YZ554C4=;
-        b=fqYe4LQXERa/aYIwKsDxMrEZ+9gDSvDRQSLjNCSEQ89+4b03W7w7EICWuy1O7UsJS9
-         FwWKpeHAmBbrAH6E5D222YKLycsAh9hMbch6faMfCD/UeHDtxaHdKj3SeEFzh+JpULmB
-         QxoTRfS/t+4CoS0JDEjOWRg7YT7JmPP8Ns2PZHhGERU44zPB3yDDFvlyJJeUgL0Dq9ku
-         hr9kXvGqXul3msdPlCWdL3TGcpDyuCxFm/+C6nMpm+kpJVdBQ/3kCccCXvHuXohvlErF
-         Jkc0crP1EG1UO+tHyL340S6sZ4Pt7YYDciR0AfByDsps/xP0fm5sSSuIOX79jnb7kHjn
-         6kZQ==
+        bh=iBgKs1qr56k4KzBFYPHwsnUbR5sHexTSX6xqMCHUBKY=;
+        b=NS1TZOJ8wx51YhAtZANVNnyUHs+87aHERxCVPPQ//yE5tCUhllM8RdoQniQIjgKMfB
+         bo51sLrS/39xumCL9Smy4VjL8KBhQd2ql0mk2pXUogmEP6bL17xvTOBsqw/Qe4sV+RsR
+         wb41cRTYjy/r3kRPQOW6Q378//tiUMigNZE7WAFEW8nFEymwqJ0Lu3Wwuek/zUDSAQrE
+         xcro9xcZkUx0P59tT/pdz09F7ouRDsy6C2DBweRsiXd2TTggN5sIoTPrShEG5GSYVY7y
+         o2SamUjccUoJFYT59Dphu1hTqGHDY81iFmKjPlsx7JmINoMX6IrXA3Z8L37laiFJ/UYk
+         QnYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,82 +49,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=qy5rCTOsSSAbUbvvjPOFbJT7gT/qSxLcTXc2YZ554C4=;
-        b=hLUYkqDJM1SVSoXlSTKv+p1K0/Za0JJtjxxxCkH7J1RRuePdwNSSfdocSd9UJ6573l
-         VoCDQ/Mj3bK/JODZ5srZsC+vnYPY3qbjL2qyjX3B794A9YGJitCLGQRyMvcigPPl3cAI
-         IC7h5Ezv13EYNAgpGiMkOKjglqnj4l6uaT4mpHj+OOOylqMJTH9E2gf51OudMOIoqPcl
-         UosXzH4tI3oNn/WF4pBdKpyueaWh9VIposjubxBWL38D5QrNt0l2gqAKEJ+cxM1QT7Fa
-         4hmFVN22P0pH3v43MkKIu3gZaXrA9oubNtYh0WIX8Qr8j9VLCj61RzMIzueMoygWUVxy
-         YvRg==
+        bh=iBgKs1qr56k4KzBFYPHwsnUbR5sHexTSX6xqMCHUBKY=;
+        b=VJRJejHCMyItNBCp+u1zi+r8j5+ZwANnkMwZ5m2byrVccTLSl2SccOoy0vxDLgY47v
+         aH9JE9pMwxrj8pHbwtLEbLBzIhvY5JjgvuSTDyilQbijJaQP0f5AMW6gs0I5G+LbI0Ki
+         X1Mvq/MS36x0qHK4vBcGzS90mFdWf4Q91XrAXM6cmFIVweSsvc847iec33nYl2epkbGe
+         eS88IFt7vF9ykBtnAZnnqTAqVvBJ0auhWleVdo9ZgaEapGGDfcABuIKSD3NDb7agRea9
+         0ZsV+d8DFZ6zWz2ZIH88h3vgheEZcdowhY4ZhFx/TqNyJ+JJg1njcLiqOblAeesvEGrZ
+         OTxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531/R1aCXxrgpqFZVIaq2g87iiZ1+itKlNXN1+b7jerPJHki7Ws+
-	ZyVxG03HcGufb1UXHwr7E3g=
-X-Google-Smtp-Source: ABdhPJyfvTzZ18sbekcyQPCRpayKbSEcNGzStAPVXqDYBNtpUhMZGpEiiSgV8pnnj8o+cvFOzzTkhQ==
-X-Received: by 2002:a67:6686:: with SMTP id a128mr6621992vsc.11.1608330836175;
-        Fri, 18 Dec 2020 14:33:56 -0800 (PST)
+X-Gm-Message-State: AOAM530m7nbXq8fns1FxEJLEMLI6CenwrH9iV6JhLCuxN/NgbGfJDE6k
+	j4wEaK8IUg98A7O9mWfci9Q=
+X-Google-Smtp-Source: ABdhPJz/pYOESI7fY8lzcP/hYPC7TrDGiUv2WsMw2X+KENpa9R7wLVG/QfujAaprkTJQB54O2Iqz6A==
+X-Received: by 2002:a9d:6f02:: with SMTP id n2mr4410285otq.182.1608331862241;
+        Fri, 18 Dec 2020 14:51:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:214e:: with SMTP id h14ls4117426vsg.2.gmail; Fri,
- 18 Dec 2020 14:33:55 -0800 (PST)
-X-Received: by 2002:a67:d60d:: with SMTP id n13mr6558003vsj.20.1608330835635;
-        Fri, 18 Dec 2020 14:33:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608330835; cv=none;
+Received: by 2002:a4a:e88c:: with SMTP id g12ls1890699ooe.1.gmail; Fri, 18 Dec
+ 2020 14:51:01 -0800 (PST)
+X-Received: by 2002:a4a:901a:: with SMTP id i26mr4514567oog.42.1608331861678;
+        Fri, 18 Dec 2020 14:51:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608331861; cv=none;
         d=google.com; s=arc-20160816;
-        b=RbMshePJCNutBY5H0gRmdRvCvFM7SIfiXOrmBTg00YEZx21aaZwlKuuE9NQ82AwIrz
-         rTwjtN1UcJHoySNuWK6nRl//7C4Byo/z4iKj8oZOJS9ezlfAhx+FaPDOXY4OHbSj80JO
-         cXcN+BsyK5wxk560SXJCclKwpCB+CB3MEqWssR/IR1MF21l5xB7Evmrm6ZZrL1FyGxTK
-         fcTjTSmFQYAkepYQH2uOs+g+7+isRdsU19b08xxRe10JS7cBWLaNbysqJYIMD0Cu8EXu
-         c0KvI6tLWJ6h+xbKgK+PrhEjpDO+xeu8Ywp5LpmEc9e4y1TmRWEXSI32+XM0hOiNQqhm
-         2AcQ==
+        b=CLuR3HPN3qTfpSEy6+6lnuqL58FeXiO/JuE74li2Tdl0vQtHxSwvV5d5aSagqaDiI4
+         K/smfs86KPYbVxFjowZYilCzheE+K08dBq5m3CsTvNaw/9+j3yb7dPDGlzu+ktAophsV
+         kRbCKK2aYEe1ZiR6ohz7gXMIdslK5mwtBNqbLojgEjHBkaO6r5/GGO4tHpdVr6CAX7rW
+         teesHpVijC5YJDm/vvLhcz6+HkWvGysK0e+LwITrgLi+VCbN6WhR/2xLgGa//BOcWkHv
+         QtJlOutnUvE7O9IDVwYQSbBWl1gapGmTqFScamRSZjRaskCmlMyqbG32wjDIBELP4yS3
+         4lAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=QuokIebcEgfvTjsydjJJqw7awwrjVfWwGk7aI5rqfB0=;
-        b=EhXGJiYHqpuqa4QWrJ5aS4J2v5tj9PDYQeCf+MZ0DhxpntrQ38mz1keaxkqejx1L3T
-         kR+SNzb6VoxWXtaGWzSsoTJbFVLXwHlFMSDON7h2gW6EszH/oQvlWOa0Q7nUue1poqh7
-         ct9WsfGA7JKTUdjeBzdjZYCx9Fvu7fl9vsB5X5EeAUhpL99JL3H7Krt/FseqxvRzwmyr
-         YMQfxmBYrcZySC7p5AkM4btbUiAbJkeWGutaGPWhzE2u7gWAQXYmIfTbG49Qam15LZhu
-         3gc//uEOLCgTG9bgLvyT18cOFNGME3KpDcwRt8HFwUlhQ/52wtVU2924zi+UcKUnOzg8
-         46Gg==
+        bh=dDQgVDTeRIttxxDLSY4CkZv0IjJbefxrZRzpwtEzaQw=;
+        b=wlJAYv1K9ANUwB1rV53fioB++jffzmAXUnt58CyfEDs/C0fj6igQxjw6XdMEY4AXkp
+         RQjwn3CijpJqg6xB7H8IFZwRhu1Kj5LlrYFH3Yx8u6Gbc7yZ7ogunvbMJeCUGPFZyyLO
+         ELaJLeW2BAZRaMai9Mg8I+IUyZZqSb20QX1rx5En7VBBdhVR0jI+GrV3M8/0r5lA8Pro
+         p4A6oOxzJDI4xPkRzTtyCxUzY11NJM6xOLBEfu50myGvojwjHmV5AStp6waVIIO/SNcw
+         cXHmY02ecKo/ignCmW8UBHSENpQ22kaEUgd9jYHc1qEZ7eMz1ZNvylMsL78j7rEnZZ5h
+         tpug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id g3si781455vkl.1.2020.12.18.14.33.55
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id x20si943191oot.1.2020.12.18.14.51.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 18 Dec 2020 14:33:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: 38P54QOIye70A0vRnxKd1MtMQd8eEegg6JGnk/pZk+LWPYz7s8f8dPljpBSIXPXxEfeDoVaDCx
- 0DmrND78vakQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9839"; a="163249910"
+        Fri, 18 Dec 2020 14:51:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+IronPort-SDR: +Z27xGF2i8pbxc/+9kjFNzq3ln9z9tgMQGkwjB/BIYiXT8Ry9sHQcYOmEcV2XXuM1H/alWhNFv
+ RDDttF4gRGPg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9839"; a="172952251"
 X-IronPort-AV: E=Sophos;i="5.78,431,1599548400"; 
-   d="gz'50?scan'50,208,50";a="163249910"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2020 14:33:53 -0800
-IronPort-SDR: w12uBYqfBnHtzUjgkFjDsxM9sCBuJknMG0Hxel9ZYwIqNbAJwFvihn3WHumBwgmD6ORVQDrZjg
- Tv2U/K4sBQAw==
+   d="gz'50?scan'50,208,50";a="172952251"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2020 14:50:58 -0800
+IronPort-SDR: 1S1yKPAIcK84igRlAuQCfPIgAsbnhYMnigV6Oq45MwA2NUyjbqaXcJhi3ab7xULHR90cTqQU8C
+ 0yitI6VqU9qQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,431,1599548400"; 
-   d="gz'50?scan'50,208,50";a="394004399"
+   d="gz'50?scan'50,208,50";a="489959529"
 Received: from lkp-server02.sh.intel.com (HELO c4fb2a2464e8) ([10.239.97.151])
-  by FMSMGA003.fm.intel.com with ESMTP; 18 Dec 2020 14:33:51 -0800
+  by orsmga004.jf.intel.com with ESMTP; 18 Dec 2020 14:50:56 -0800
 Received: from kbuild by c4fb2a2464e8 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kqOJq-0000W5-UP; Fri, 18 Dec 2020 22:33:50 +0000
-Date: Sat, 19 Dec 2020 06:33:01 +0800
+	id 1kqOaN-0000WN-MV; Fri, 18 Dec 2020 22:50:55 +0000
+Date: Sat, 19 Dec 2020 06:50:23 +0800
 From: kernel test robot <lkp@intel.com>
-To: Sam Ravnborg <sam@ravnborg.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [drm-drm-misc:drm-misc-next 6/8] /tmp/lm95234-009664.s:278: Error:
- unrecognized opcode `zext.b a2,a0'
-Message-ID: <202012190656.0vfUhEqf-lkp@intel.com>
+To: Luben Tuikov <luben.tuikov@amd.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Souptick Joarder <jrdr.linux@gmail.com>
+Subject: [linux-next:master 5576/13785] /tmp/clk-cdce925-041827.s:1150:
+ Error: unrecognized opcode `zext.b a1,s2'
+Message-ID: <202012190608.fJM14huA-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="azLHFNyN32YCQGCU"
+Content-Type: multipart/mixed; boundary="5vNYLRcllDrimb99"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -140,13 +143,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---azLHFNyN32YCQGCU
+--5vNYLRcllDrimb99
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-tree:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
-head:   630a159a0bf35fdc944c8e9633ed5aef0a6834db
-commit: ab2b29e64e05f2d92dc4a584de7818bc9a1eea4c [6/8] video: fbdev: s3c-fb: Fix kernel-doc and set but not used warnings
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+head:   0d52778b8710eb11cb616761a02aee0a7fd60425
+commit: b1246bd4a18b50c0f424a877ab64605ce8ebad86 [5576/13785] drm/amdgpu: Fix missing prototype warning
 config: riscv-randconfig-r022-20201217 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
 reproduce (this is a W=1 build):
@@ -154,34 +157,127 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install riscv cross compiling tool for clang build
         # apt-get install binutils-riscv64-linux-gnu
-        git remote add drm-drm-misc git://anongit.freedesktop.org/drm/drm-misc
-        git fetch --no-tags drm-drm-misc drm-misc-next
-        git checkout ab2b29e64e05f2d92dc4a584de7818bc9a1eea4c
+        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=b1246bd4a18b50c0f424a877ab64605ce8ebad86
+        git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+        git fetch --no-tags linux-next master
+        git checkout b1246bd4a18b50c0f424a877ab64605ce8ebad86
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-Note: the drm-drm-misc/drm-misc-next HEAD a1b766d1b3646b5ef90f0fa7b42fd99bbd166766 builds fine.
-      It only hurts bisectibility.
+Note: the linux-next/master HEAD 0d52778b8710eb11cb616761a02aee0a7fd60425 builds fine.
+      It may have been fixed somewhere.
 
 All errors (new ones prefixed by >>):
 
-   /tmp/lm95234-009664.s: Assembler messages:
->> /tmp/lm95234-009664.s:278: Error: unrecognized opcode `zext.b a2,a0'
->> /tmp/lm95234-009664.s:672: Error: unrecognized opcode `zext.b a1,a0'
-   /tmp/lm95234-009664.s:679: Error: unrecognized opcode `zext.b a1,a0'
-   /tmp/lm95234-009664.s:700: Error: unrecognized opcode `zext.b a1,a0'
-   /tmp/lm95234-009664.s:707: Error: unrecognized opcode `zext.b a1,a0'
-   /tmp/lm95234-009664.s:807: Error: unrecognized opcode `zext.b a1,a0'
-   /tmp/lm95234-009664.s:828: Error: unrecognized opcode `zext.b a1,a0'
-   /tmp/lm95234-009664.s:852: Error: unrecognized opcode `zext.b a1,a0'
->> /tmp/lm95234-009664.s:1243: Error: unrecognized opcode `zext.b a2,a1'
->> /tmp/lm95234-009664.s:1426: Error: unrecognized opcode `zext.b a1,a1'
-   /tmp/lm95234-009664.s:1635: Error: unrecognized opcode `zext.b a1,a1'
-   /tmp/lm95234-009664.s:2110: Error: unrecognized opcode `zext.b a1,a1'
->> /tmp/lm95234-009664.s:2299: Error: unrecognized opcode `zext.b s1,s1'
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:556:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inb(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:55:76: note: expanded from macro 'inb'
+   #define inb(c)          ({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:87:48: note: expanded from macro 'readb_cpu'
+   #define readb_cpu(c)            ({ u8  __r = __raw_readb(c); __r; })
+                                                            ^
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:564:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inw(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:56:76: note: expanded from macro 'inw'
+   #define inw(c)          ({ u16 __v; __io_pbr(); __v = readw_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:88:76: note: expanded from macro 'readw_cpu'
+   #define readw_cpu(c)            ({ u16 __r = le16_to_cpu((__force __le16)__raw_readw(c)); __r; })
+                                                                                        ^
+   include/uapi/linux/byteorder/little_endian.h:36:51: note: expanded from macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
+                                                     ^
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:572:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inl(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:57:76: note: expanded from macro 'inl'
+   #define inl(c)          ({ u32 __v; __io_pbr(); __v = readl_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:89:76: note: expanded from macro 'readl_cpu'
+   #define readl_cpu(c)            ({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
+                                                                                        ^
+   include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+                                                     ^
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:580:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:588:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outw(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:60:68: note: expanded from macro 'outw'
+   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_cpu'
+   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
+                                                                                     ^
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:596:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outl(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:61:68: note: expanded from macro 'outl'
+   #define outl(v,c)       ({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:93:76: note: expanded from macro 'writel_cpu'
+   #define writel_cpu(v, c)        ((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
+                                                                                     ^
+   In file included from drivers/clk/clk-cdce925.c:18:
+   In file included from include/linux/regmap.h:20:
+   In file included from include/linux/iopoll.h:14:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:1005:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+                                                     ~~~~~~~~~~ ^
+   7 warnings generated.
+   /tmp/clk-cdce925-041827.s: Assembler messages:
+>> /tmp/clk-cdce925-041827.s:1150: Error: unrecognized opcode `zext.b a1,s2'
+>> /tmp/clk-cdce925-041827.s:1207: Error: unrecognized opcode `zext.b a5,a6'
+>> /tmp/clk-cdce925-041827.s:1255: Error: unrecognized opcode `zext.b a1,a0'
+>> /tmp/clk-cdce925-041827.s:1333: Error: unrecognized opcode `zext.b s3,s2'
+>> /tmp/clk-cdce925-041827.s:1335: Error: unrecognized opcode `zext.b a2,s5'
+>> /tmp/clk-cdce925-041827.s:2162: Error: unrecognized opcode `zext.b a2,s2'
    clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
 
 ---
@@ -191,14 +287,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012190656.0vfUhEqf-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012190608.fJM14huA-lkp%40intel.com.
 
---azLHFNyN32YCQGCU
+--5vNYLRcllDrimb99
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDob3V8AAy5jb25maWcAlDzbctu4ku/zFaxM1dY5D5no5ttu+QECQQkjgmAIUpb8wlJk
+H4sICID+3F8AAy5jb25maWcAlDzbctu4ku/zFaxM1dY5D5no5ttu+QECQQkjgmAIUpb8wlJk
 JdGOLbkkOSf5++0GSBEgIc9sqhJb3Q2g0eg7oPz+2+8BeTvtX1an7Xr1/Pwr+LbZbQ6r0+Yp
 +Lp93vxPEMogkXnAQp7/AcTxdvf289Nhe1z/CK7+6Pf+6H08rIfBbHPYbZ4Dut993X57g/Hb
 /e6333+jMon4pKS0nLNMcZmUOVvk9x/Wz6vdt+DH5nAEuqA/+APmCf71bXv670+f4N+X7eGw
@@ -616,4 +712,4 @@ FrQTeiRb/7ZrFW426Cg1ho5I8hi/YpLaHQ4psfwg5GrpvB5Ko5TqvkixH4gixPpucMRoSnLX
 ioC5RiUEU1FPsJ7tO4nSgL3oPQ75qfj9w8s00AKk0FT9t2jiJbVXJnwnQOlxCZ5R8kjQOht6
 674kkUV18NzEXrb9P+N3J/c6UQEA
 
---azLHFNyN32YCQGCU--
+--5vNYLRcllDrimb99--
