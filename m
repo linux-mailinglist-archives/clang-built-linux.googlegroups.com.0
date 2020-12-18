@@ -1,145 +1,116 @@
-Return-Path: <clang-built-linux+bncBCZLRWEX3ECRBBFC6P7AKGQEE3DVW6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBM5J6P7AKGQEV2Z4QLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F13C2DE701
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 16:55:50 +0100 (CET)
-Received: by mail-pj1-x1039.google.com with SMTP id kb15sf1842866pjb.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 07:55:50 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608306949; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 65D122DE747
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 17:11:33 +0100 (CET)
+Received: by mail-pf1-x440.google.com with SMTP id y2sf1863259pfr.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Dec 2020 08:11:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608307892; cv=pass;
         d=google.com; s=arc-20160816;
-        b=B8EeLq5jl2eIjTP3m72TkHJOwmJbIqsPZpd2ssbw0+T//ncIQgAHF0xwS4oZGyxk4O
-         1jCoWL7sAbdunAK5xhWPR5mJWI1BMnYHou1Iwz3abZgLEjVtiG+JIZakwEYSAM6OCbUH
-         XqDa8Y1lTb0QogpGTiEVhXKJ7HwiCY4sxRYugmf5H7ih27wy4MJBm/cBUELgZGHaEYVK
-         hjDlED+YmPU8iEJe6HpMlYezuQGUwzxAYcwqtMQiaJjb4wLtym4cvL2dAJyQp+ASfT+m
-         DNPRQcEfsncFU6BLXUe0yTYSS6KetOhm40T9LqxIS3ce1jvA+lN+SZ0XsFDxRmrYvgSn
-         67Gg==
+        b=aXptkWdB+vctZZ3xccLjzaOHI02gi49Upw0sQkacArmEXaB+ZvwovZ09gA0kD5Ux36
+         9J8MHDw1LyHP529ZhKBosw8h7Barcha1z6vlu8eDb52rfatEq8p81PjpmoCTZIbScV39
+         fsCs3GutoDFIvxDjcJE1W593pKZQ5jwugFt61XlNzHisLvM9GOk2ZrzQZ71zIZBGtBiQ
+         xCqUkOHp2xKA6YZT+w1iv8CZjsPkCER3Z7IWLnVoq+49bMfokOPOgiKNBisSL0zCifc1
+         3PLVDqaPlDYRgXd5kI5xFyBWcTni+q38v2Rvfg5vErmLsMJvVhbzYIWvCglzhgBlKXqr
+         8tOQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=ZgYg4OjVRVxGESYs72pG8Zvc+0ddsTYrtQu7+ya/4tE=;
-        b=nQ9MpPwn4aiYGJhW3NjlrqZxbMrWM4P6Iv2hLbHdRul5bVc+ZmbPK251uYvGHO0xJJ
-         at+Xbdx6BWj28cjPpf++gx6wBOzzHAkXxoZbb8yinZB+y7do+G4e3eVqwF3qRykg2eD1
-         A5J5iJHSQH3IRL0PIo5QtkqbdKXUXpjK03j7gaxB2XtPw7raSo7eTdte8sFf1VPpm1Qa
-         0ik0c/lFLRvTqhEcWS18CiwzLg1XwWngtKoXiLhv9icLWYyL5GomR5pQTxcbUBx56lLp
-         VlHKfBt5ZKCHW5AhJCl+TX7+iUv0L6k0S4biBn5JUzN9+G8cWQC9NLSleygW7QmEbhwJ
-         9z8Q==
+         :list-id:mailing-list:precedence:date:message-id:subject:to:from:cc
+         :references:in-reply-to:mime-version:sender:dkim-signature;
+        bh=w6EBvnax9iUwiwjWO1tCKNQzZvmcx7Z/idXWyZC4S4M=;
+        b=JRQkAabTTaOmQiYOrtyTSB/3TcDLxx2LcaQsxnNDsBWW4sCDPVSepdK/UoyngvUnZy
+         U/twhFWm00mD8teG//Gy6+39y5ckBM0+Jw2xBaDp6xOQ1oAYwCx+dd+09LArQZHV27i2
+         nmoI0qRBOzoCnRbUDfErNk2KI89NzNShW8pLY+c2XsDurbFSuMS1o2raPts4d24KMReq
+         ALj59CeLQ3juvdHJll2+UaR/6cm/xd//flcItsa5sHfT3MiXbbQ6jgMGrIu3OquuREFG
+         BdS4jFpr3cgWhLT59IfvoTXGfGaEEC90UG2FRGAoKgjNnFwA22uZHiEstf5wL+abxdgv
+         /IqA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nvidia.com header.s=n1 header.b="gG1/wrOt";
-       spf=pass (google.com: domain of jonathanh@nvidia.com designates 216.228.121.143 as permitted sender) smtp.mailfrom=jonathanh@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HVlymSYl;
+       spf=pass (google.com: domain of atenart@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=atenart@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZgYg4OjVRVxGESYs72pG8Zvc+0ddsTYrtQu7+ya/4tE=;
-        b=M2+xhTxmWZRqsQK60mTtSm5j9R0EcPODhWb5cr0F5DiCaGoIAUr4/3PcHmEjV9i1Bx
-         6OqKG+htfT7neGkxMt2BsfHVTnFesfLnY0c8kjJ9Ip1VuK+YA7N76/Sv9kBk/wqwlwbE
-         RViouajIUdlPoxaZ6lSAV0cj+FqUBFgsmq/tDYCY6RplEVpFeDWnK2tXmdtuYDt+6qtW
-         ttnR5pBRAufQTf7SI/FvGs9nWki/VAdQjHXab+JVime+Nuihv0eLG7VqCWix5uHWJfH6
-         d5eD14bzzS4MhVNvz8uPbHhjsFSby3I58Z5i9FNfgVgIioJ3sSW/H0O3ThEUdScpZnxF
-         bO+Q==
+        h=sender:mime-version:in-reply-to:references:cc:from:to:subject
+         :message-id:date:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=w6EBvnax9iUwiwjWO1tCKNQzZvmcx7Z/idXWyZC4S4M=;
+        b=VKEgeQEBpyTW8X9pW9qclhmijf+blsVoPsO7jU3ggO2+2wCRkcJtUgfsZcZ2ygwu5L
+         6CFvdHdo4CFJGH0up1N+B4J1I6yBW46n/gLbzoQL4NYdnRgNbmNzBzminA+nODLIm61u
+         AyTTdtgIveWfpANxakW/Fg4d8SsVBljwZcP5zZZrEQh2YHA3QFE9XvlT8c266OagdrB4
+         Coa0U0DfAfbdfsXoXGTM85QRqdQdX5OqiPf9KBUNko1XKWZnLAlRacycACfWC4AaB1sc
+         pbleUZnFYEH6DgT/YaDZXL5kgTAkNTCVKFEk3VSfLsE2Py9Hu3IdGGi9fzq/Z+GYzRlp
+         5lmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ZgYg4OjVRVxGESYs72pG8Zvc+0ddsTYrtQu7+ya/4tE=;
-        b=fLrJzBFDTMX6k9FWY1yoWae+qomKiVI0B55sleP62v0BTsYidb3oR5jVSNvGGfMSYb
-         vI7N+G8kyle9oUPksRFATRQcwh5HdcdcWIyGWEQNpss73ezFgdWiB61OPHp+v6fshzVB
-         1F7fGapaA+tRu7LxrHUlWvuPnTQN2F3A9UVHcp4NksKy/oYkLHXyOizXckkiMKP2IYzc
-         FlivGQAFJS4ZEYe7y7sMVEZe23dCTgW8dMHt1wzH3FO4SNMsjgRuLQ0Gd6qPMCvseP4O
-         0G4kXZxkm465T0qaJYtHjulWA7gB9igBj6N4PA0K2q7zDpXUcQcJM2UbeM49dgWEtDhV
-         BPOg==
+        h=sender:x-gm-message-state:mime-version:in-reply-to:references:cc
+         :from:to:subject:message-id:date:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=w6EBvnax9iUwiwjWO1tCKNQzZvmcx7Z/idXWyZC4S4M=;
+        b=jo5+PvIvDgx3CbgBB2lFiKTaTibviZXLHGgnh9doOuzAF4zO7TVwl67G7pXW7iEf2o
+         PD2/CnT3eUVQyysZJJOvGsZmlGoz10EH50RKTxepPuJYEB3DO0Mo34NcjYBz3o6v3yml
+         tlyWzTfUbFfFibxpSZZQq+7V4PuHdTHR9LrpYf3xZ6qh5tpXBHJYL+mbDvJQNy83586A
+         3wZ+3BC3x+CN5Q7tYLIfw2MbkryUwK/JifDbiW3e78Ovn/QnbfuTPwjfMPzmjdCgFaKE
+         Z3fsm0Z8TU+Okk7pefmRHGPu4Yv/6L+pohaoTJVXMWTihhGRgHFaFrZwgRu74EQZZWoo
+         0ubg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5313gI7F+c24EdUlpwoS8GYjCTDohlcjnX/Clms3xKShvuTk8126
-	1aLa3CNEPEExgKfb24/myGg=
-X-Google-Smtp-Source: ABdhPJwkuUTjC/RsOmSUXnX4l7fi2ZlThhPOirgfI8LF/GNclJ4aMxs32Vh2rwDnhjz/SZdXU/Jt3A==
-X-Received: by 2002:a17:90a:de0f:: with SMTP id m15mr4990492pjv.207.1608306949057;
-        Fri, 18 Dec 2020 07:55:49 -0800 (PST)
+X-Gm-Message-State: AOAM532O9f5c8I1y4ooLOEIc/bFu++HzZesO+PUFTpf0gZAPawy+epzA
+	i61aPMprch4RBrbouiy9Qyc=
+X-Google-Smtp-Source: ABdhPJyE3wEptPfOuFhCrEktuyWHfTcwxDrAr4KxsSjwgHrturbTR1PzM5/COsiKcguzERkGnmBcqw==
+X-Received: by 2002:a65:5c47:: with SMTP id v7mr4746450pgr.409.1608307892079;
+        Fri, 18 Dec 2020 08:11:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:a510:: with SMTP id v16ls7360861pfm.11.gmail; Fri, 18
- Dec 2020 07:55:48 -0800 (PST)
-X-Received: by 2002:a63:3d8:: with SMTP id 207mr4562144pgd.215.1608306948484;
-        Fri, 18 Dec 2020 07:55:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608306948; cv=none;
+Received: by 2002:aa7:9155:: with SMTP id 21ls12235123pfi.3.gmail; Fri, 18 Dec
+ 2020 08:11:31 -0800 (PST)
+X-Received: by 2002:a65:4c4b:: with SMTP id l11mr776638pgr.177.1608307891466;
+        Fri, 18 Dec 2020 08:11:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608307891; cv=none;
         d=google.com; s=arc-20160816;
-        b=00CL52CZ+MDFgz/fuiGby+biYUF3dIcNGHae7ouIr+N0+yRi9XFJKIdDRjOjIcQYYz
-         Q8R7PAIxfI5jFwo0qMYtUCULT+Egwo8PgEpqAGpaPzVe40Xx5WLGdXgkfhEnx2dmQCwL
-         3Uf1UQ8eJuPj/yNDxBCeOK37iRvWlxhSpM7iYSKCQJyDVcxj2OQwN1KXausRYZX/k1Cu
-         E+IdxuOUabMLl9Fi6Px1fgAUm6EbWigdrXdbV5arZrNH7Q2ZU6WzngESx7BADCvK4lO/
-         8Vpy41baTtR9s9Zgz92c23DaXQa3VWWjDU+yROexkMNoX0MQvRg9Oyy7YuboA773WuGr
-         NV6A==
+        b=TsZhCmgQiVuIgdFhPsPjD84auDAAgrS/AQVcGZNAWNw8jIrN5n/o64gcU1MgOnaDUN
+         ZYa0rbT2u5zTLOPc6G42poAA2N445prsjUWX8FQvGn/is52Jn8u9dy3LGa4pjYzw5kfS
+         D8G9OkK9+Cc/KPCNRWnzj+XuoQipjQ9mzahUTvn4BdSuZ+0jGoP1HJhmppb2JNekJLjr
+         tqs1cY0QLeAxnarvffjoPb+AGhksZmFbrr+sLy4n/XZC11jcF0jDHhu08oXUR4rq50C4
+         EI2C3pu/DpTk156+SZMxkJ47dVpaU3IGjECbxPyjTeQ2LPopsUYkiNMwDclDWcEYh9pu
+         Wx7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=dkim-signature:content-transfer-encoding:content-language
-         :in-reply-to:mime-version:user-agent:date:message-id:from:references
-         :cc:to:subject;
-        bh=Vf95MzpRH15xDbnzDYz9T/qpYpIZeGHo+3utb3dK3p0=;
-        b=WmMyAvaAfK8jLneTVwkrho965x717ED3ifm5T2aLOQt4fcxElKTSuYfUCwS84n7F5i
-         JrXqmu4mb0qPP7BKujDrKwv4Gbk4cIkXSInUC/UTrCxAzuERim/WKoMns+DdiC6fKSI+
-         ECNXkYVfINcfSY9v9sIElvtiE8iONAgcZrGLpybTRzDdN431BtId4kpK/zcEL4KpfXZJ
-         iVtQt6NgygP18IIhL2+/u3rNot4o/GsqSAv/Il4AGdoJQKhRVnj1H+KNPIk5nu+yW9wr
-         rwcWwTTIPA0qZ/4bgX7pp/vZ8HaEZueErkpPrpXzdYt8pjuiNFya1jXu2RG+AXilhkPt
-         TxRw==
+        h=date:message-id:subject:to:from:cc:references:in-reply-to
+         :content-transfer-encoding:mime-version:dkim-signature;
+        bh=ir/csCbpBcq/E+5hKY7ci8V6CfpkICu3kkUzaJ/rEHg=;
+        b=b+z7rfnB1PeBoV5ly/azgn5yYFBez08x3vqHyf+2QsMpdqt2H+9y+0yCdQaXM2OJL2
+         zygfbPUmLkpCnUsajqxKYn83jfeRS5541rolHeRVq5IxNk0mNrZNaQ0N5HLJcigiMgkM
+         wfg1rHd+GkDj1M5Om6ifY6jeqqwo78dMZQkMlKOguScLf/0JxLixV2Crro64RjwmOJiW
+         cgrtJD/CQqQlHetShkI5Ld1Yi2YlQ5fdBJlRTVk79dVKXoHfSzplQe8PbWUyona1xsXC
+         Iz+giqdtYai0HIj7TggxxcjSgI5a+S8cl5pwYe+3mBWRmGXGxk50dpF+7QYPAtg4KW2u
+         JDcw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nvidia.com header.s=n1 header.b="gG1/wrOt";
-       spf=pass (google.com: domain of jonathanh@nvidia.com designates 216.228.121.143 as permitted sender) smtp.mailfrom=jonathanh@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
-Received: from hqnvemgate24.nvidia.com (hqnvemgate24.nvidia.com. [216.228.121.143])
-        by gmr-mx.google.com with ESMTPS id q18si864838pgv.5.2020.12.18.07.55.48
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HVlymSYl;
+       spf=pass (google.com: domain of atenart@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=atenart@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id q15si661741pfs.1.2020.12.18.08.11.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 18 Dec 2020 07:55:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of jonathanh@nvidia.com designates 216.228.121.143 as permitted sender) client-ip=216.228.121.143;
-Received: from hqmail.nvidia.com (Not Verified[216.228.121.13]) by hqnvemgate24.nvidia.com (using TLS: TLSv1.2, AES256-SHA)
-	id <B5fdcd1030000>; Fri, 18 Dec 2020 07:55:47 -0800
-Received: from [10.26.73.104] (172.20.145.6) by HQMAIL107.nvidia.com
- (172.20.187.13) with Microsoft SMTP Server (TLS) id 15.0.1473.3; Fri, 18 Dec
- 2020 15:55:41 +0000
-Subject: Re: [PATCH] gcc-plugins: simplify GCC plugin-dev capability test
-To: Masahiro Yamada <masahiroy@kernel.org>
-CC: Marek Szyprowski <m.szyprowski@samsung.com>, Linux Kbuild mailing list
-	<linux-kbuild@vger.kernel.org>, Kees Cook <keescook@chromium.org>, "Emese
- Revfy" <re.emese@gmail.com>, <linux-hardening@vger.kernel.org>, "Linus
- Torvalds" <torvalds@linux-foundation.org>, Nathan Chancellor
-	<natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>, "Linux Kernel Mailing
- List" <linux-kernel@vger.kernel.org>, linux-tegra
-	<linux-tegra@vger.kernel.org>
-References: <CGME20201218075758eucas1p1605768803a5c9edce4fbe54b3e3b859a@eucas1p1.samsung.com>
- <20201203125700.161354-1-masahiroy@kernel.org>
- <b9b17126-9af5-2f73-526e-91bb9fd27f71@samsung.com>
- <CAK7LNART2qQBY7Vc8rhMiXS_Fwty7qpWjwwfPrUegTb-gjy6sA@mail.gmail.com>
- <9f959875-1a30-b1a1-b626-3805e24a6df3@samsung.com>
- <e5b06d9a-9b24-2440-e0c2-8bf7095eccd9@nvidia.com>
- <25030057-86b1-5619-25fd-acfa0728b850@samsung.com>
- <4ab4f62f-8b37-01e1-f81c-270155b13a51@nvidia.com>
- <7e691a61-bf4b-0594-8d6d-36d62a5def0b@nvidia.com>
- <CAK7LNAQ6pzMGm=L9389Xtfghjfjr_wDqRntZC2XqP3JDQuhLhQ@mail.gmail.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Message-ID: <c2a968fa-5a98-d9ea-3255-1e3be3e9c704@nvidia.com>
-Date: Fri, 18 Dec 2020 15:55:38 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
-MIME-Version: 1.0
-In-Reply-To: <CAK7LNAQ6pzMGm=L9389Xtfghjfjr_wDqRntZC2XqP3JDQuhLhQ@mail.gmail.com>
+        Fri, 18 Dec 2020 08:11:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of atenart@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Originating-IP: [172.20.145.6]
-X-ClientProxiedBy: HQMAIL107.nvidia.com (172.20.187.13) To
- HQMAIL107.nvidia.com (172.20.187.13)
-X-Original-Sender: jonathanh@nvidia.com
+MIME-Version: 1.0
+In-Reply-To: <202012182344.1bEcUiOJ-lkp@intel.com>
+References: <20201217162521.1134496-2-atenart@kernel.org> <202012182344.1bEcUiOJ-lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, netdev@vger.kernel.org, pabeni@redhat.com
+From: Antoine Tenart <atenart@kernel.org>
+To: davem@davemloft.net, kernel test robot <lkp@intel.com>, kuba@kernel.org
+Subject: Re: [PATCH net 1/4] net-sysfs: take the rtnl lock when storing xps_cpus
+Message-ID: <160830788823.3591.10049543791193131034@kwain.local>
+Date: Fri, 18 Dec 2020 17:11:28 +0100
+X-Original-Sender: atenart@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nvidia.com header.s=n1 header.b="gG1/wrOt";       spf=pass
- (google.com: domain of jonathanh@nvidia.com designates 216.228.121.143 as
- permitted sender) smtp.mailfrom=jonathanh@nvidia.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+ header.i=@kernel.org header.s=k20201202 header.b=HVlymSYl;       spf=pass
+ (google.com: domain of atenart@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=atenart@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,45 +123,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+That build issue seems unrelated to the patch. The series as a whole
+builds fine according to the same report, and this code is not modified
+by later patches.
 
+It looks a lot like this report from yesterday:
+https://www.spinics.net/lists/netdev/msg709132.html
 
-On 18/12/2020 15:42, Masahiro Yamada wrote:
+Which also seemed unrelated to the changes:
+https://www.spinics.net/lists/netdev/msg709264.html
 
-...
+Thanks!
+Antoine
 
->> However, if you are saying that this is a problem/bug with our builders,
->> then of course we will have to get this fixed.
->>
+Quoting kernel test robot (2020-12-18 16:27:46)
+> Hi Antoine,
 > 
+> I love your patch! Yet something to improve:
 > 
-> Yes, please do so.
+> [auto build test ERROR on net/master]
 > 
+> url:    https://github.com/0day-ci/linux/commits/Antoine-Tenart/net-sysfs-fix-race-conditions-in-the-xps-code/20201218-002852
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git 3ae32c07815a24ae12de2e7838d9d429ba31e5e0
+> config: riscv-randconfig-r014-20201217 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install riscv cross compiling tool for clang build
+>         # apt-get install binutils-riscv64-linux-gnu
+>         # https://github.com/0day-ci/linux/commit/f989c3dcbe4d9abd1c6c48b34f08c6c0cd9d44b3
+>         git remote add linux-review https://github.com/0day-ci/linux
+>         git fetch --no-tags linux-review Antoine-Tenart/net-sysfs-fix-race-conditions-in-the-xps-code/20201218-002852
+>         git checkout f989c3dcbe4d9abd1c6c48b34f08c6c0cd9d44b3
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 > 
-> Kconfig evaluates $(CC) capabilities, and
-> hides CONFIG options it cannot support.
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 > 
+> Note: the linux-review/Antoine-Tenart/net-sysfs-fix-race-conditions-in-the-xps-code/20201218-002852 HEAD 563d144b47845dea594b409ecf22914b9797cd1e builds fine.
+>       It only hurts bisectibility.
 > 
-> In contrast, we do not do that for $(HOSTCC)
-> capabilities because it is just a matter of some
-> missing packages.
+> All errors (new ones prefixed by >>):
 > 
+>    /tmp/ics932s401-422897.s: Assembler messages:
+> >> /tmp/ics932s401-422897.s:260: Error: unrecognized opcode `zext.b a1,s11'
+>    /tmp/ics932s401-422897.s:362: Error: unrecognized opcode `zext.b a1,s11'
+>    /tmp/ics932s401-422897.s:518: Error: unrecognized opcode `zext.b a1,s11'
+>    /tmp/ics932s401-422897.s:637: Error: unrecognized opcode `zext.b a1,s11'
+>    /tmp/ics932s401-422897.s:774: Error: unrecognized opcode `zext.b a1,s11'
+>    /tmp/ics932s401-422897.s:893: Error: unrecognized opcode `zext.b a1,s11'
+>    /tmp/ics932s401-422897.s:1021: Error: unrecognized opcode `zext.b a1,s11'
+> >> /tmp/ics932s401-422897.s:1180: Error: unrecognized opcode `zext.b a1,s2'
+>    clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
 > 
-> For example, if you enable CONFIG_SYSTEM_TRUSTED_KEYRING
-> and fail to build scripts/extrace-cert.c
-> due to missing <openssl/bio.h>,
-> you need to install the openssl dev package.
-> 
-> It is the same pattern.
-
-
-OK, thanks for confirming. We will get this fixed.
-
-Cheers Jon
-
--- 
-nvpublic
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c2a968fa-5a98-d9ea-3255-1e3be3e9c704%40nvidia.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/160830788823.3591.10049543791193131034%40kwain.local.
