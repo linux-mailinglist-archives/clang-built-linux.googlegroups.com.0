@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBSXK677AKGQE6B6LSBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBZHK677AKGQESPZO6TI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2371E2DEED1
-	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 13:42:52 +0100 (CET)
-Received: by mail-oi1-x237.google.com with SMTP id h4sf2561335oie.9
-        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 04:42:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608381771; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 545E82DEED5
+	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 13:43:18 +0100 (CET)
+Received: by mail-io1-xd3d.google.com with SMTP id n9sf3759421iog.6
+        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 04:43:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608381797; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jkUv1ut1x7egNIWMZ+T2Akis6wnfjgOJtT7dC/Ld1fZNv2xn4fuc6L1kNBeKfaMGcb
-         FpgQnDHNGdgv+8WdxnJomcZSDgsGN0kyxGokz+8jMHLaJlBfqAZpHRjj0GEVAWmZgntY
-         spB7oB3i+8T9BeYYj3UICObUfoF9AAnxMBv3B9DAI4JRebpiPnRqUNCbsERtX8Y9ta+d
-         l418dCNRDq36ekv0Q2MghqNOoGEIiZA74QxKYWkb+Dzq94WlnCT4LaVbOaQxPgtieL8X
-         V+q0DGf7XpRl2yw5LAvtCcc8PeF0JM0zISX6xnnSgaze3+f+bvnWc8PXuab7AFCLF77o
-         z7ZQ==
+        b=IskvMlatw4Xc6rtNYCtUuz9DYBpa91pp7ai5y1v9fcpW8qa5dw2CTAT7thQyGSQVCR
+         UO50lfaYbh5mR6RQf4Q33LM2GhG6xJ/O2Mn/QTbFgnmzzEh341dsAv1e0vYFn23tUwV0
+         TgwLJ9QgQ1oKLNCcDrG3yhknUKERdOmcn+mOuh8Bv5AblrW0Cqat/wlulwN/1ZoyW0ve
+         IhOByJBBFpq6qQSO8XwZaE+qbjbSl10Ai6mbazCwYKbxvueNEECB2eUAtC5/eckOL04T
+         tzyU1bMUImy6JRer99PWAXQjzpaousdG4tRFEoyuUAhWhJrUhQLynochyO4s6DKmusMA
+         q6yw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=lOTx+NaFML9BTXQLpkJwjtFcKpKF8uPQ57XoobIMp0A=;
-        b=PW8zv0ndlKPl7o4AjlFitbDJYeUKUhL07lp3p6Vha4i8NeqaaQbcJ8WGWQbc6Pcd8v
-         0jvLDb/r8qIbu8ZRj3NJ1tNpttFqLzYqFTJol+xHJ9fFEFyy5yx6RT0hFGiaruy9Tpw2
-         RLDHt0q+M+tA2KR4/ZdFKVEuSAGXj+SJrnzLnGghdkuJtnsQHoi2r2sp62eBl+3fVdP1
-         NsN+m+mO2BKsVDOgaaIEX5jDiMl6cLH0F+/o9XA3ddJCKPNhmPPF3oqQ+Vtq2TzAiGph
-         suuNbkB6RJBANodb7nVjfd4oCB7FAKKqYRDluUMEwx5Xl7s7m1+zJbbc5tht3OIuyac9
-         lwKg==
+        bh=SN2wSDB5v8cxEBUQiPmn43bD36525rCbKcvdDBQVJHs=;
+        b=K8uRWjrC8MBKwt1/rpDKASpieZYfdzAPMXWar0GwCIy/QVU/xwHuX76/orX4EFTFGF
+         LAPooZrXqDQZlrpNU296wyQQmlfpJ1gNbWO2+isNoaTn02to8kAptDikzWFCjkqrIFRh
+         cbNj8RQCqrpK4ptnUHAZehLajgXF9LuznetbGjmrK1D/xtLTs22hRm6P0aAMxMtlgxgN
+         ZNXwQAxEygPUahH5+Wfj0A+dMvpDTj+bMDmrTcR4sn4wfEixHK33YnSr4WPNLG5DOK4m
+         Acj7cJtMBogFWPpPCbKF3u3tzsmU1S26+WhufXrH7ZRThMtIO1pPisq7bSikzWzl3wbB
+         sUVQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=dIEvczRj;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=Ia6Y8RUL;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lOTx+NaFML9BTXQLpkJwjtFcKpKF8uPQ57XoobIMp0A=;
-        b=YrkCVsF5U5d98ERvPb2FxTiX3Mlyb4ByYDObkn5g3p3OZ0xOgUkmCIzvNgYD6dC+I1
-         4A0OYja/lVK0yaooZoz+ih9CbwsIL+eA8mRwhtirWy6ZaZDxt83ivlb4AlxkxUBFZvLF
-         wQp0Nac6WBj927ouQ7OVLtOXpHRWD3mG3q/xBi4+eblIVzcsf9SdZx6RqJxZIDaVgLZI
-         Iq6RqrNbZTqFigc3iRnmf58aaGcZ59cgH5cVHpabu2qtKa19TqTja6HG0yX8lfw8XU8R
-         nTyFmpwJkXHL2ImCnadFJXpYi4exyAJuO5zquYYIdchexx0ktaGEqiKO1tZJzoz3/omQ
-         yrxQ==
+        bh=SN2wSDB5v8cxEBUQiPmn43bD36525rCbKcvdDBQVJHs=;
+        b=U0jvAftkL73TkOJdZuOO8wT5AhLYCaqpU2rLJ/RKB4EcfaOXRQZLcCTLO0CnsfCL47
+         q3qdLDcGVGBm4DsewWSavTJiKvsM4YCBgjeCKITKQOYPhP2Fqh1Ppmb9OGE2RpcKZdFD
+         EKr3jYh8mzCz0qyEjpFwVRF7Ou91TFpY6f55gwLFywSPEmd+OAGUfb41VRvqoEqUAuee
+         ckiCP25BKMlL/4smbd70OQ/kfLQyOlSYHcxtxtHiVCI/HAmckD8buXVwLxZkxpFYx1jV
+         Ua+Fpa2X9hpUTULyvXgCO17+mHcqb0L9xLergiiYfQacJgRGkA34QHRhih2t8eJuYsQQ
+         OLqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,75 +50,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=lOTx+NaFML9BTXQLpkJwjtFcKpKF8uPQ57XoobIMp0A=;
-        b=dE5uXH54f4BtLEtpv2EZ/BouYunLkhw2Q9+j6JOMQ6Ewo4p/k/XFuviL/WKpjStfM2
-         7JLwTbpnSq8dEYM7IhguXu/zNyrP9/qkrlFzlqghHhWFs2HnMALMXbIVBx/bQRieclmp
-         wuB9Ib4v5sVLANxAAItOU980v1UYkQ1uWIft6AAWge8dGSuYQjX9MSHxLbEXae/NREsR
-         ivpVKuXzFgiz9Z9btFf/hUa3SxQDEk/N4PkbP110vSSiGHAi1SMQTRviQGiR1Z1r6VUP
-         vCjAYgGg3Qu0FNLxhLh7jPd3+HyUWo5e24MlTwva7gKoQc3ZI2AWikLToNFc07Tp6AxE
-         dgmw==
+        bh=SN2wSDB5v8cxEBUQiPmn43bD36525rCbKcvdDBQVJHs=;
+        b=Ro1cIoGQYGNCeI0eTydPp3XKZsxHL+zFJqBTBR7jt6uIniuFkx0AExjzV5QhJcv2kH
+         5gr5xVKwQApFOyCtaVk6y3EL1gMgPq3ZUdIkk0LZLJ9XUZKCTbPPNGJz9GUuUdmdFOdj
+         xyWzYoOENTFeFFkt6u871GtbYwR+GoYcbK7YuyX/Xb2qIDRJQ6rgTGm6ffHLGKT1STNJ
+         Yu47X4oaFwvGA9IfFgOmjYnlk+IwUn0lgmfzzX5Y7jYx3eQUdL/KrDkegogAy4k+8vXv
+         J+7DrveXUZDfe25c2R6L+9nsDqlWq2HdjZvOLWg+pLA4ym7zM+SbT5wX6dwVfjxPN5XK
+         F6lw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5327Y8NfzhR68wDa8M4edPK09qSfKoqcEchK6BFrIFimPsriP7f5
-	nLbGITroZ2rjAiCgCvCb07s=
-X-Google-Smtp-Source: ABdhPJykutLv7ri5KlcjoWXnKppwRnf72NdsATKadvwsfOF5ozT0R3/uoAFBm0S+GI4gXjEplcp9PQ==
-X-Received: by 2002:a9d:67c7:: with SMTP id c7mr6124788otn.27.1608381770804;
-        Sat, 19 Dec 2020 04:42:50 -0800 (PST)
+X-Gm-Message-State: AOAM530oGJMCcUejWMBDdEmTgnGh50wiwZYPr+/EdGRxJDvTD3rRqF4F
+	VJw032VJPqa6IMKI9YxbE5o=
+X-Google-Smtp-Source: ABdhPJweJych9EuxACDvq5G3Sya9/8LCw9Rdj34p64HlooQWtvZx5xQakwVIvamBYKYIlgz/RB2pwg==
+X-Received: by 2002:a05:6602:2c41:: with SMTP id x1mr8079764iov.125.1608381797085;
+        Sat, 19 Dec 2020 04:43:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:9c05:: with SMTP id y5ls527428ooj.0.gmail; Sat, 19 Dec
- 2020 04:42:50 -0800 (PST)
-X-Received: by 2002:a4a:4988:: with SMTP id z130mr6059615ooa.34.1608381770399;
-        Sat, 19 Dec 2020 04:42:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608381770; cv=none;
+Received: by 2002:a92:d203:: with SMTP id y3ls8887964ily.6.gmail; Sat, 19 Dec
+ 2020 04:43:16 -0800 (PST)
+X-Received: by 2002:a92:6403:: with SMTP id y3mr8756455ilb.72.1608381796678;
+        Sat, 19 Dec 2020 04:43:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608381796; cv=none;
         d=google.com; s=arc-20160816;
-        b=MQaeUeQk6fnE/kFNq85Lt1jo5O1VpvbmYxRpC5iBxgkEw6lBeOaGIFKyOgVGHvq7dE
-         C9OekpdRBjP/Q9sKqeinYbSm+eDq6Xocu9MTBYM6gcQve+bYTJ7ERcaGQUJ89bnmnOzC
-         1Pz4EqijWAB4/iy+BCLrIwjfEL2qV8xWX65lTHz/6IIbT8gq7tNWjhyRFmyO1x7LXx2l
-         wum7y4nZ9HqyP0hGpgb85a+5jWdWXKESLL1iMwIKfcF86aA/CCnBUkuWraKBvi5mDzFp
-         Jv5wUTT14DONqFVe6Sc4JkV/OpvI20cm9N2t/Fx6YqephtOccgPmOZWfTD7E/C2t3dD1
-         FnGg==
+        b=lYvVt/EoMrZOVHAP+oPhPfYtfU4Se0uOYguIUOWqYXKLKFZg+lCP/ANY/pn9BRCmTp
+         C77MTwpxgD3eWnXzMgOx/N0d41e94XUs7NtU8cK4BpIZG3sIH1+4WIaVU8xwn5yJ/5Fw
+         +LC/8i8Mzee/yAy8ThyERDexqptWXQQaxuuDHqKjcnmeXOMUSNV0LT1kbkVBFKaJq5Ct
+         U2lSUo5XNgJ3IHJ9H3Hlx68RJ11SGpQUH/mplPvuAaCCMpFwEFASy7yHn4vfTZh6oVWY
+         bkTaC1coy69k3SbGAh4ZrpfQ8LqVYM4KpY0Q8EbAM8EKcnMyCBoYRXhZq+AYW+scycNP
+         23VQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:dkim-signature:date;
-        bh=PvyAFdNZcvpXHQUDqsfgW7vDMjhNwrF8Ssn6JNXLclQ=;
-        b=KUBhCSDD/Rac/TufG6K1ILP4tavpP5ZVQY0dn7BX4SumQHNR73qXaXE3gHFSL9G/zg
-         iwUL9tLlDQstW1h8HEmu52ivYpQtth/N0nCiy7lJAYly1oKYy1HDPooDEi/A3d+Ph6DX
-         5U+VlE90swXJ1wpIrxKl06XBIPtf4rJBKtoawg0Hv5Bf+VyTRZNxjCojFwNEu/VUG3RV
-         AZ/1MhhH6yOM2QnTxuB0Tx+C6VCNfATiXB1VBKcztHLYzNoOpnJRS0AzGztyLnsXpTBM
-         QqjzqYVO+t2hhUK10wYtpGdkZxv7jENPTJgmfv+O77SdqaaB2xChtjb1uRNf36G+9T6A
-         Ot6A==
+        bh=06gHNDYQgDgwYx7X9H5NTJcp/JVBQOA4DTDftt48hS0=;
+        b=jZF0jVYchDJSkYynu9jxhOccMuQSh8b1QcqCPQoeKYA7b387JtDtEGpJysCM9Nb6gp
+         GVGtDCh03jnltVW/RGAeS5W6ncV+f0HjS8O0qhBixO4n9fOBoqU9rpkJl7yWZy3Y/xVv
+         YqyJFwSR82K11tjDE6n0oWgt7tdDbkfwPfb7NG8G/lYU/vjPmD2bVro8UAVN+CCiC9IQ
+         CrBRbGVEC+MVwpEFitik28LOA42tGobE/4WzoYX1i6IOe5d1Q7na98QxO46FqJGDK8Xn
+         zN7dD0ZpYtRMJ2LYze/stUebH9kKTA+liAInSp6+5Gis7VNpiWAWLiIVuoGlsdxrsZXy
+         xKNw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=dIEvczRj;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=Ia6Y8RUL;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 7si753361otq.5.2020.12.19.04.42.50
+        by gmr-mx.google.com with ESMTPS id b8si1265662ile.1.2020.12.19.04.43.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 19 Dec 2020 04:42:50 -0800 (PST)
+        Sat, 19 Dec 2020 04:43:16 -0800 (PST)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Date: Sat, 19 Dec 2020 13:44:09 +0100
+Date: Sat, 19 Dec 2020 13:44:36 +0100
 From: Greg KH <gregkh@linuxfoundation.org>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Sasha Levin <sashal@kernel.org>, "# 3.4.x" <stable@vger.kernel.org>,
-	Will Deacon <will@kernel.org>,
+Cc: Sasha Levin <sashal@kernel.org>, Fangrui Song <maskray@google.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
-	Andrew Murray <andrew.murray@arm.com>,
-	Jian Cai <jiancai@google.com>,
+	"# 3.4.x" <stable@vger.kernel.org>, Will Deacon <will@kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Kees Cook <keescook@chromium.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Amit Daniel Kachhap <Amit.Kachhap@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: arm64 v4.19.y LLVM_IAS=y patches
-Message-ID: <X931mZNdiLxCfEUy@kroah.com>
-References: <CAKwvOdmEcjjw78K0Avj-7s5BBXcT7ARhEMMEYqpCP-ZT=2dAJw@mail.gmail.com>
+	Mark Brown <broonie@kernel.org>
+Subject: Re: FAILED: patch "[PATCH] arm64: Change .weak to
+ SYM_FUNC_START_WEAK_PI for" failed to apply to 4.19-stable tree
+Message-ID: <X931tHcHF8iIjo+t@kroah.com>
+References: <1604431094102246@kroah.com>
+ <CAKwvOdkE8_1s4xPYU0Gq9Ld9XhkFn1FowJJt5ZF5ve9zT8uL1w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdmEcjjw78K0Avj-7s5BBXcT7ARhEMMEYqpCP-ZT=2dAJw@mail.gmail.com>
+In-Reply-To: <CAKwvOdkE8_1s4xPYU0Gq9Ld9XhkFn1FowJJt5ZF5ve9zT8uL1w@mail.gmail.com>
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=dIEvczRj;       spf=pass
+ header.i=@linuxfoundation.org header.s=korg header.b=Ia6Y8RUL;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
@@ -134,27 +131,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Dec 14, 2020 at 05:08:38PM -0800, Nick Desaulniers wrote:
-> Dear stable kernel maintainers,
-> Please consider applying the following backports of commit
-> e0d5896bd356 ("arm64: lse: fix LSE atomics with LLVM's integrated
-> assembler") which first landed in v5.6-rc1 and was already picked up
-> into linux-5.4.y as f68668292496 in v5.4.22 (adjusted for a conflict
-> due to commit addfc38672c7 ("arm64: atomics: avoid out-of-line ll/sc
-> atomics") which landed in v5.4-rc1).
+On Mon, Dec 14, 2020 at 03:16:34PM -0800, Nick Desaulniers wrote:
+> On Tue, Nov 3, 2020 at 11:18 AM <gregkh@linuxfoundation.org> wrote:
+> >
+> >
+> > The patch below does not apply to the 4.19-stable tree.
+> > If someone wants it applied there, or to any other stable or longterm
+> > tree, then please email the backport, including the original git commit
+> > id to <stable@vger.kernel.org>.
+> >
+> > thanks,
+> >
+> > greg k-h
+> >
+> > ------------------ original commit in Linus's tree ------------------
+> >
+> > From ec9d78070de986ecf581ea204fd322af4d2477ec Mon Sep 17 00:00:00 2001
+> > From: Fangrui Song <maskray@google.com>
+> > Date: Thu, 29 Oct 2020 11:19:51 -0700
+> > Subject: [PATCH] arm64: Change .weak to SYM_FUNC_START_WEAK_PI for
+> >  arch/arm64/lib/mem*.S
 > 
-> Also contains a fix for that first patch which cherry-picks cleanly,
-> commit dd1f6308b28e ("arm64: lse: Fix LSE atomics with LLVM").
-> 
-> The attached patches allow for Android and CrOS to build with
-> LLVM_IAS=1 for arm64 for v4.19.y (modulo one small patch that I will
-> send tomorrow).
+> Dear stable kernel maintainers, please consider applying the attached
+> patch for 4.19.y.  It is adjusted to avoid conflicts due to:
+>       commit 3ac0f4526dfb ("arm64: lib: Use modern annotations for
+> assembly functions")
+>       commit 35e61c77ef38 ("arm64: asm: Add new-style position
+> independent function annotations")]
+> not being backported to 4.19.y.  It helps us enable LLVM_IAS=1 builds
+> for aarch64 for Android and CrOS.
 
-Now queued up, thanks.
+Now applied, thanks.
 
 greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X931mZNdiLxCfEUy%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X931tHcHF8iIjo%2Bt%40kroah.com.
