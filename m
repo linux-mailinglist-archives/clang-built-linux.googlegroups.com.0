@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBL6Y7H7AKGQELMF45KA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBV7G7H7AKGQEJREP2NY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51A342DF1C4
-	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 22:10:09 +0100 (CET)
-Received: by mail-il1-x13c.google.com with SMTP id x14sf5662914ilg.13
-        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 13:10:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608412208; cv=pass;
+Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
+	by mail.lfdr.de (Postfix) with ESMTPS id C0CA42DF1D6
+	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 22:40:40 +0100 (CET)
+Received: by mail-qt1-x840.google.com with SMTP id c14sf4488024qtn.5
+        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 13:40:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608414040; cv=pass;
         d=google.com; s=arc-20160816;
-        b=J4oklkjxl5jNWKE8nmGaljv/IcIsifiOdUffM/zhhFvsOHdl4x0cQeSJRaBuLq/V3Z
-         kq07XmkF9Qf5uub3pb3SGCqwbe9kaQfRphavnTIUNj6oxbG+g9kWI9GQZKvBhumPbcsO
-         MZhGInXnp/cy+JpSFwF8s1YcfOmwGg6r5773uKFrNi9t/HGnEzLcFm8kJV/Ypa0yuJ9v
-         PxXhEmTNpM+AFz565WgAhF5ECFpN9oVBpr5ZPxWwOv2ptehcWYJH/YE4b/ENeOz7HOtE
-         mO1X53lRi0j2ugn2MNBg0xOq4+A9CWmrfjCL+Ff9EyOfMoPjakXfMSdDm/Bi9qWN+8V5
-         y1DQ==
+        b=wGDC1OUPjYkMsy/LhQtPaXeXkeGoOr8zZJz0iuWK5aiOv6gdeDYcE2hGwMn6kMfQ/C
+         gQB3UYRRFEjbY/ys65C7jgdLEm/47TKqfmJWoI2P+TU/GpsEYlYeTxSsTPXNMNDxNeED
+         VS0OLbumTO48sqr0tIX48jcWHa3+A+ymqPQ2KdMwZpzPSgoWhWVfd9Wvj3CckJ09Mebp
+         pG8xZVIIEd7xP0OEuzp2ae3DtBWxJblfmzW/3yU1PyK+pBn40VBILpbVx6GIsnqjcXrB
+         52d440UJGTgS+V+R3k2Yzy09t6rM7uZiMkF3VECpo7J/ZbwpQOG+yg2cqsaw4q+sbB+F
+         iRJg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=WqBlqyB9tmZ5Q1nqYRwvD/GwDSn9VCp/sUfs1JGnhMY=;
-        b=pdhMbrpwgajMMqFkSk1o21pb4oGKNJtJY/vOagL6Tw8QtZv3kNMglSo9pWl7y7Nhz9
-         uml4a3vx+0Zq0PxatPXOJDM8gib4dAZmwbO5fnUyEgUrTHPfpMRVPaUK2dN7oiq5PQpQ
-         92IjM3fC/NsovTzU3LouOmQfVnEKEjhyOGUbWvNJvbA+Ckl8Qqp5XKgY81tQzLqVnB9C
-         oxAw/gJK/I6OeRNoLcUUNyaRXHC2D9s8ZALC+iL1DTU+rNT8bplGKGCtBKpEHGex7Nyz
-         NPhh7SEUPgf6CjqRnfb1BtqreeSn87flq22DPq0ExFRxnhZN/jGvJAFzeMAzV8AM1Sze
-         KShg==
+        bh=ZUjQ+7jfH9gt56pzowJZBGmv89tGyvC2T6aMsNv0+SI=;
+        b=A39MO8JvI2bRX/+cFhAtBbfBBX2Zh+R2F8hpevujiE8lMoF8L1jMw5klNftwWEVFai
+         BGzI8makqH/rmGSNX/W5zhyCo0zH4vxpYPeuozlOuhDklQo8gzsUpmpq77DHHhd3G0xF
+         TlFO5efNlFOOitkCo1XF+pBar1t/G2imKx7GARNmWV1vYiv5uwBBaLfeJXdXGu2DpqmU
+         8UFFS0fNFCHUhOBQXFgVFYXQAijr/6PgMQy49IZgtxGOlW1pynfIiE3Z1iHSksUZS3nA
+         tn3TecG5o6LaTdb+LXKV7bdVodNbMyRwjLkDVrFxw0HzY74e154x7I6IwCOmMP/OFNrA
+         FWEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WqBlqyB9tmZ5Q1nqYRwvD/GwDSn9VCp/sUfs1JGnhMY=;
-        b=gXnHLpBReVxAMEOI7JErWwmsPE+TzaLJVDyCWU7nVYImxWEuNWMorabsnvfNRizYjr
-         B7k2zSseVvbqSavFoPLkMeoacm+ZUksPpiLE2WhWkzxrGcWMgnwhTtBce0fISF9MX1IJ
-         ZP3g3ro4kU5/5ZVxKafM7sbDZF/ZhsnkUgaGLw8g04HjtYxcwCXbs4AI4jxepM+O8SkW
-         HpkNWgMfAyYjbuAQa8aF/Y+xlpoZk6IsQ5GEqe7uFYzhAPDodZxN66EMZxt0g+aIKz7o
-         TbFR1XjDMZsvNXd3vNmWqwIVorRPiIGqnqFDlocrTybjy+paP0KpjgbK7+kcj774iE75
-         Ioyw==
+        bh=ZUjQ+7jfH9gt56pzowJZBGmv89tGyvC2T6aMsNv0+SI=;
+        b=kganWXGnrtgcghzBtfyBNW/DdzgupF9H7qUNMGcs/nQ+EG+m+bQ9h68D7Ksho2Slay
+         8+OZ46BEslfcKhhnNrVScb0J7900cmPaOYZdcbQ/7JCQFr2JxKoFA6qaH4FLAXGGJSHb
+         onOWF9hAol4FElsSyeCSz8r/oSweuF+zsNXcARSRdQnmph8/zJgtLHsysyJguohI/1vO
+         peINixMhiBuWTBLDc2OppiI0o5H6Ov+vrfMChSqdtf0j/61/RNnj2KEEc65CG0SfYDv+
+         y5gVSDrEcUJ6WhITNltTVvYDdAe87CzTEhBfb7gOiXLqDqP1F/d6M7euRW7kaTItLQhs
+         pMbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:cc
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=WqBlqyB9tmZ5Q1nqYRwvD/GwDSn9VCp/sUfs1JGnhMY=;
-        b=cWwR1nIUh+aqUMSBtNL8T0z/r70BbolTxvxvJB0oTu9jWyZGA8eJ7HgKYMjd0j4ki/
-         lYePThOguWTu82OEov/87+SI1iDaroeZgOoAF+d/DoDkU/XzPsmqE71N2vsF6Y/2/Swb
-         7QvlbleOXbYzxS0Z9dnLBDKU3s0lBubfxOW4BX9G/EXf53mDCEYED/rJ6UdcEHKst81Y
-         bsgxFlaM1wBOcoYxGdfDlCN6pBjxZ9VOCX2OU3G5BxMSGv1WCelPNq4f211XgFxVVU0o
-         i/3VJm+FVytG219t7Q4LlYxzRjVs+sQoxrPWbzElpMmIhJ9e16jVDod/8zN0VCJb0m6L
-         I+xQ==
+        bh=ZUjQ+7jfH9gt56pzowJZBGmv89tGyvC2T6aMsNv0+SI=;
+        b=XF3j1LCEkILhkWACJkOnRkZYkKRM7tJ32icMdCUZGDPoXC6HVmj3DJs04qis6a5RVP
+         6ctsg5lQ36LutJAtvxFaqY5TedaWoho6oq1QwS6MZtfC79W6hKoZIly/YSTmhVgVsZAS
+         peZTWiABEeTFPQAtDmSIbk6qLka4+iytpFxNzpuVE0U23ldInsidJA+Yb1X3wsyzZ20c
+         eODsSduV1KWCCx4wr79RWxVaQof7nTO2nzLZCqLrKNQXS3Z/A88f+nRuyPaJvVD93ikc
+         aQLdFy5dnO5/W9WKhDGkNOgSMF7t6r828K/EEw65a2SaJiNfGVF/6qY48GnEI6frLTcq
+         qRvw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532+Wezvitglps8vtjRhG3OjEBafI9/HnTlaH8vmMZ26FIK33R8S
-	OJSWxAlFQ09ZLAOfCLAHgqU=
-X-Google-Smtp-Source: ABdhPJxMmcTV/RH4llX5nhOzCbu6m5XZdhVmAC5rlNkWgdhzc6qpZkXmBjfq5u7Vs7mdmUMZfOA+vw==
-X-Received: by 2002:a92:9a50:: with SMTP id t77mr10555960ili.268.1608412208041;
-        Sat, 19 Dec 2020 13:10:08 -0800 (PST)
+X-Gm-Message-State: AOAM533MP7oEL8/bUE8mrjVle5DCFjNwbZgKv0ubOFG1f5JzKYau95ma
+	Sg3AykB25/dSS59Husz32ws=
+X-Google-Smtp-Source: ABdhPJzqC89x/ul7MtL9gGIhQj2ZPlVYVdNT3incDVFX6syi1cMRRMK/W1XPIRWEUoWlmob8cNgkGA==
+X-Received: by 2002:a37:8341:: with SMTP id f62mr11696802qkd.93.1608414039760;
+        Sat, 19 Dec 2020 13:40:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:ca92:: with SMTP id t18ls7340008ilo.10.gmail; Sat, 19
- Dec 2020 13:10:07 -0800 (PST)
-X-Received: by 2002:a05:6e02:154c:: with SMTP id j12mr10521261ilu.33.1608412207527;
-        Sat, 19 Dec 2020 13:10:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608412207; cv=none;
+Received: by 2002:ad4:4812:: with SMTP id g18ls8247146qvy.11.gmail; Sat, 19
+ Dec 2020 13:40:39 -0800 (PST)
+X-Received: by 2002:a0c:f107:: with SMTP id i7mr11322270qvl.35.1608414039326;
+        Sat, 19 Dec 2020 13:40:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608414039; cv=none;
         d=google.com; s=arc-20160816;
-        b=NBtkPJkzrQTDczRV7b3X5ViY0VUrzbT0GeZvv3QdCuvR+By7OeJOTK8NvP+G6R2qbD
-         caOUYzNYD1NxkPXbNtw/+0OVIqgQr8gbn1Z37aWciChdTA06+qGaLUfCp8EhqXww/cWY
-         r0gDVFLff5be9lomoxkXr8APVE9y/FSRl3XYDsMnPlSpTuNjlA3wOmAsEXk91Ib4ZbAD
-         xlhsOqP9XCVIs6LV+r8DVmolpBHzSeNyswtizZnFmYawszTCcSsiB0dPA5f++uypqjsM
-         0UdXUcAXxlT8JlBxJtHoz/g1l/e674Qveh9aGcnvFBPT+a80JcFvoeU4vxm4M25W0/tb
-         7zHA==
+        b=wv4LBQ/Zhmig5j3HBxs93aUWybykSarI9pAiELLwF2iTOQXG0fFkR3mC09Fn+enYEi
+         7m+xvtxPzCqINTHvGogMWRSutnQ9sc6QISGP/da11cAHOF/66FBjRlP2mv2jv7BpHQo+
+         Y4rtYzM9rIrdasyxQI3U66dgeRTaJ0WKVpGgU/c5LRt7+x2guaOQia1RZ+m92xHDariK
+         5PZlLYf4pHf8yWzTmh+0sGBUcNUYidIcVNJWTwE8MgJCzkgoTlzp+tgilNkciMqxC04Y
+         CayIhHlkjJG+M/5iDut3mFcpQy0elsGxk04ntew3Wznv8n/n7sYB/sck1drLnANaBVu1
+         dZPg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :from:date:ironport-sdr:ironport-sdr;
-        bh=nhaPacveVLprTU7XJQA6C5HrDKSB1oT4LdFucwm7SlM=;
-        b=xANDX+7hZJfQRy4Vu9GOAz2V5yBSnIywVZ+aLloWU+aQCIrxuot4VIajgGDD5Iin0B
-         fX+Li9lQy9fE3moGBSMdvrWj+22t1QOScF6oLKvLt5+qzZaHBPwyQiVwGKyOx+kElAfd
-         Lv+V4R1TrsZfdMbgAkTQZyO17z/7HGc9LhhnN+lQcrNcjdBKqomwi+BLISezvzOiz+fO
-         7WUAIhQ+s3p6c4LLuFac1gPK904K6xWnBR2UtmvKM4HiOhdcc1tefxo4My+A2jlBBOzL
-         pDYOlkQ8vdCDxsT3n4OEEG9YaMp6oEU/rIAc0bVpnotE23QlstqZRlYs51afq0+mJC3t
-         BRhQ==
+        bh=dLrTsIPwY6ps7qlkCJSYsUllhaxHyxoT9Qsk380nnJs=;
+        b=N2IyTvimqvzvEy327KGD4kbDL+OaqT5A5+n6AkOB5plPVwNYh6CzghprpTq6bNBR/q
+         DtyepvVVNi6RrqMI0SMKFZ2+BRWPSpyec6HAimUvswiDZwF2dzKTTnoj8HX7tpCZslFg
+         wVjwe7hHIuF4357pvXUzXXkx1bJmUTlO/GQvWyjz1vDLSbxUYFduML2GC7hlpEtwuzZO
+         7pqWrzboGO1Emro6gF7Kr0nT0SbnA4nrwVFvZ0sNS2eynHTRUhIKYJeoZJe0+sPYLWRS
+         J9iCHEhuT2Y2VMgXmxVj9IQXYDb1B4fotRgmknQt/s7wi5NPtKaSe/MDmqpYp3jT8vit
+         fy1A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id i5si856748ilu.5.2020.12.19.13.10.06
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id i2si424883qkg.4.2020.12.19.13.40.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 19 Dec 2020 13:10:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-IronPort-SDR: 8LltYCZlpavwpGOknWBNBdvbLqMjDW4ZOcwAMhHp2didTZHFcTY5OH9Im+fscqrhtId9rHv0HQ
- N9hwF/6lbe9g==
-X-IronPort-AV: E=McAfee;i="6000,8403,9839"; a="175696782"
+        Sat, 19 Dec 2020 13:40:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+IronPort-SDR: Dhg9dyiDVmzrXlayalIDVvW2rM69/rFOuD429PLtMIhuu2A3Z/RUPXF0LpdUdspU/EXoazbaeF
+ RWM6Pf791XMg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9839"; a="175739163"
 X-IronPort-AV: E=Sophos;i="5.78,433,1599548400"; 
-   d="gz'50?scan'50,208,50";a="175696782"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Dec 2020 13:10:05 -0800
-IronPort-SDR: CfQBxKnqjdgeW+6DrwwkiE5MDxV/OHDImOmw2/AreLUEZGkyur86Nx5gBdfeV16jDJMV473e9K
- +zArpkJxXLkA==
+   d="gz'50?scan'50,208,50";a="175739163"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Dec 2020 13:40:36 -0800
+IronPort-SDR: 5EF9hHtyy4Se2LjELJFJwKU5TuAzfy2Ttmf6QYxXV6eyh1kTQ4E/wUyAGQotQ4mQi8/yDMVUDk
+ NtQvcdcMETWw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,433,1599548400"; 
-   d="gz'50?scan'50,208,50";a="336063184"
+   d="gz'50?scan'50,208,50";a="354659937"
 Received: from lkp-server02.sh.intel.com (HELO c4fb2a2464e8) ([10.239.97.151])
-  by fmsmga007.fm.intel.com with ESMTP; 19 Dec 2020 13:10:04 -0800
+  by orsmga002.jf.intel.com with ESMTP; 19 Dec 2020 13:40:35 -0800
 Received: from kbuild by c4fb2a2464e8 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kqjUJ-0001VP-LG; Sat, 19 Dec 2020 21:10:03 +0000
-Date: Sun, 20 Dec 2020 05:09:28 +0800
+	id 1kqjxq-0001Xp-Nh; Sat, 19 Dec 2020 21:40:34 +0000
+Date: Sun, 20 Dec 2020 05:39:33 +0800
 From: kernel test robot <lkp@intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [linux-next:master 13536/13785] /tmp/nls_cp852-953711.s:65: Error:
- unrecognized opcode `zext.b a0,a0'
-Message-ID: <202012200523.wGypkC1j-lkp@intel.com>
+Subject: [linux-next:master 13539/13785] /tmp/percpu-282219.s:5174: Error:
+ unrecognized opcode `zext.b a4,t0'
+Message-ID: <202012200532.vUFZex8Y-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ikeVEW9yuYc//A+q"
+Content-Type: multipart/mixed; boundary="mP3DRpeJDSE+ciuQ"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,18 +139,17 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---ikeVEW9yuYc//A+q
+--mP3DRpeJDSE+ciuQ
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: Linux Memory Management List <linux-mm@kvack.org>
-TO: Dwaipayan Ray <dwaipayanray1@gmail.com>
+TO: Zheng Yongjun <zhengyongjun3@huawei.com>
 CC: Pavel Machek <pavel@ucw.cz>
-CC: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
 head:   0d52778b8710eb11cb616761a02aee0a7fd60425
-commit: 2c64516343af352adb52bb56c10ab02b7b6171df [13536/13785] leds: Use DEVICE_ATTR_{RW, RO, WO} macros
+commit: af2686efa5baa8eb00c4f13fd284cb228585d162 [13539/13785] leds: leds-lm3533: convert comma to semicolon
 config: riscv-randconfig-r014-20201217 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
 reproduce (this is a W=1 build):
@@ -158,10 +157,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install riscv cross compiling tool for clang build
         # apt-get install binutils-riscv64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=2c64516343af352adb52bb56c10ab02b7b6171df
+        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=af2686efa5baa8eb00c4f13fd284cb228585d162
         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
         git fetch --no-tags linux-next master
-        git checkout 2c64516343af352adb52bb56c10ab02b7b6171df
+        git checkout af2686efa5baa8eb00c4f13fd284cb228585d162
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 
@@ -173,8 +172,113 @@ Note: the linux-next/master HEAD 0d52778b8710eb11cb616761a02aee0a7fd60425 builds
 
 All errors (new ones prefixed by >>):
 
-   /tmp/nls_cp852-953711.s: Assembler messages:
->> /tmp/nls_cp852-953711.s:65: Error: unrecognized opcode `zext.b a0,a0'
+   In file included from include/linux/kernel_stat.h:9:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:572:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inl(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:57:76: note: expanded from macro 'inl'
+   #define inl(c)          ({ u32 __v; __io_pbr(); __v = readl_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:89:76: note: expanded from macro 'readl_cpu'
+   #define readl_cpu(c)            ({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
+                                                                                        ^
+   include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+                                                     ^
+   In file included from mm/percpu.c:89:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:26:
+   In file included from include/linux/kernel_stat.h:9:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:580:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   In file included from mm/percpu.c:89:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:26:
+   In file included from include/linux/kernel_stat.h:9:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:588:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outw(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:60:68: note: expanded from macro 'outw'
+   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_cpu'
+   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
+                                                                                     ^
+   In file included from mm/percpu.c:89:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:26:
+   In file included from include/linux/kernel_stat.h:9:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:596:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outl(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:61:68: note: expanded from macro 'outl'
+   #define outl(v,c)       ({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:93:76: note: expanded from macro 'writel_cpu'
+   #define writel_cpu(v, c)        ((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
+                                                                                     ^
+   In file included from mm/percpu.c:89:
+   In file included from include/linux/memcontrol.h:13:
+   In file included from include/linux/cgroup.h:26:
+   In file included from include/linux/kernel_stat.h:9:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:1005:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+                                                     ~~~~~~~~~~ ^
+   7 warnings generated.
+   /tmp/percpu-282219.s: Assembler messages:
+   /tmp/percpu-282219.s:4149: Error: unrecognized opcode `zext.b a4,a2'
+   /tmp/percpu-282219.s:4166: Error: unrecognized opcode `zext.b a4,a2'
+   /tmp/percpu-282219.s:4191: Error: unrecognized opcode `zext.b s1,a4'
+   /tmp/percpu-282219.s:4214: Error: unrecognized opcode `zext.b s1,a4'
+>> /tmp/percpu-282219.s:5174: Error: unrecognized opcode `zext.b a4,t0'
+>> /tmp/percpu-282219.s:5200: Error: unrecognized opcode `zext.b a5,a2'
+   /tmp/percpu-282219.s:5252: Error: unrecognized opcode `zext.b a4,t0'
+   clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
+--
+   /tmp/drm_dp_dual_mode_helper-878957.s: Assembler messages:
+>> /tmp/drm_dp_dual_mode_helper-878957.s:367: Error: unrecognized opcode `zext.b a1,a1'
    clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
 
 ---
@@ -184,14 +288,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012200523.wGypkC1j-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012200532.vUFZex8Y-lkp%40intel.com.
 
---ikeVEW9yuYc//A+q
+--mP3DRpeJDSE+ciuQ
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICLk/3l8AAy5jb25maWcAlDtbl9s2j+/fr9BJX9qHNpZ83z3zQEuUzVq3iJLtmRcdZ8ZJ
+H4sICBhT3l8AAy5jb25maWcAlDtbl9s2j+/fr9BJX9qHNpZ83z3zQEuUzVq3iJLtmRcdZ8ZJ
 vfWMZ21Pmvz7BUldSAmadHNO0xgAQRAAARCkfvnPLxZ5u52f97fj4/50+mF9PbwcLvvb4cn6
 cjwd/tvyYiuKM4t6LPsDiIPjy9v3j5fj9fGbNf7DHvwxsNaHy8vhZLnnly/Hr28w9nh++c8v
 /3HjyGfLwnWLDU05i6Mio7vs7sPjaf/y1fp2uFyBzrKdPwSPX78eb//18SP8/Xy8XM6Xj6fT
@@ -549,4 +653,4 @@ mFPaMcwJVkEg4t5fTk//OvxfOpPb4+mMghtVyhXeXPD4fHTS6rsyi+2JSZ6hv5dK/dyyG1Mc
 l9sQd0xjO8dayRace7lkqKEfJDBqwJRBIuHFkuEhF5t8KKPBjHEUVaO3wdl+hILe3LorcDHi
 vkTGgrVUtVZsCS8+sd6WsAlqEBDENmEpkTz8+5qsv1MXyUMQF5cpyKTmwMB/F1yf8vAbAQA=
 
---ikeVEW9yuYc//A+q--
+--mP3DRpeJDSE+ciuQ--
