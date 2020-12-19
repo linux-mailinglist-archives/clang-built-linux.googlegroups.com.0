@@ -1,127 +1,131 @@
-Return-Path: <clang-built-linux+bncBCCZHPMXYQEBBJ6Y7D7AKGQEMGSINRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7OZ7D7AKGQE2PEPFLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3587D2DF07D
-	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 17:36:56 +0100 (CET)
-Received: by mail-lf1-x13f.google.com with SMTP id i7sf3671850lfi.4
-        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 08:36:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608395815; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B34E2DF082
+	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 17:40:31 +0100 (CET)
+Received: by mail-pg1-x53b.google.com with SMTP id z20sf3727354pgh.18
+        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 08:40:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608396030; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YMTOqfDVKpflME+CErO6PYL0G8eeswieLmLH6wZO43HrJY8tDkmZRG1NIuOnQMNQ+6
-         L1Mh7JclflpbdVXumKLpbYm+o6SIVDtFZ3ACp8xPVFjikB72SFCS5uZZ7f8G2P3aTYck
-         JiSWPgrUY5C4nBVfsBZ5sDyFhbv5wbCG8BT9MMZ3XUYp9UJs14y8R8KbR+jPUcInGVwR
-         c5tSxiR0/8gfaskB9qvD0iCZeePQq2mzB0m58aonBVwQDrtvEB1i0exkb+JK183ZN0xV
-         PzgLnotzP8OwyASd16C22OMALfUnsoHXT+TnB3afi4F2ig/RYCiPtBr2JVcfVJ4ATYdz
-         xQaQ==
+        b=VNvrCU8IBr2gsRYz0I93VrkLAvxSvHfFv74MJdBSseDHCbaZQzZO1xmF0CU7O1Ymk7
+         Sy7BpAyp3Jau+y3vpVx5GeIhLDS2KBqa6YYPvd5XAY70LAWqobyZGpcPPV2n9carxQl+
+         y3RrouqNuB+I6nuoMIPAQP/QMjGLQmLmUgIwkiE1MVJWkXqtVVF63c1P0t0x2Q4XnxrG
+         8gHNBN5V+qoBrTS7YvzjQL/blozW3zvqTqJc/OVkA9Yy9YOSOPkLYA7M+L5HbErK3sq/
+         12HhVzLX2j0pLb/hx6nYmRfWSvVNhIdobkxwaWq5iU9/Q7n2hXTaENGKNqcH2tML52ZJ
+         580Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:to:from:date:sender:dkim-signature;
-        bh=GHqUIx8OFJaNy7Q6ZtQOy/uxiiwmclSshEKZwwsn4qk=;
-        b=MdbByPo5dVYhbExbMfoHiJYvYKhgjSTmgDgjpoXoy+weBIcBbDl9IilW1fE43nGPa6
-         Al8kZSEXmzvg3CE521y7KWLdSpAAmjCEqTybaZ/aH/Vuk1k8q4cJyDW1EGAqPEjL7l/O
-         xNAG7tlLeduypHXkZbMBHHeKPYjV6k47qqh7kNosREmFESmBDAh4MXe4wl/GtIU6ZbQS
-         4vVRBjWkNGKdWMbZz1jdGC7islUq09DIwPfZtc62ia3omX9IAL8pxVy6vxX7vUxmHDxT
-         rhe44qQkZdJi+vZuSlSKbPhGtdrr4uGdWoC6Q3UN0KcKR0MOf4Y3ZbaVWXCnNGDUUii3
-         IkAQ==
+         :mime-version:message-id:subject:cc:from:date:ironport-sdr
+         :ironport-sdr:sender:dkim-signature;
+        bh=z7D5MaxX6URbCuIbHEYYIRmmVuqFsf+1RphubKcpV4k=;
+        b=IFBfgB6PAdlabjx+LaeN3kuoq43A7tp36G3euc4KjAODPkrGQbVserkgRye0Y42Q58
+         Vapvcoq25rGhDQ7nUoGh0FnYnuv3zCA1lF9U7hNV9vcmekz9V2lb3TN8Xiezja4auYNc
+         YNKPhw4iYtex2HVQ3JM2iVXuAmWq7Dq91ybyl2s3OUgpzq5uajpm5ud6AU+9JzXq7cw4
+         ne4G8V7CVq0tfJc7LufLnDbQDc71NjFLUtfAfNw3Kie9xMW6urkM8VDks21uXFskorOU
+         MgweB80v+wrkupkObhVdsnvEkF0tLfwe4Opean4yImuccI3Ohe7liLZuRHGCiI32+Qd5
+         VCpA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mess.org header.s=2020 header.b=IUoF2zit;
-       spf=pass (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as permitted sender) smtp.mailfrom=sean@mess.org
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GHqUIx8OFJaNy7Q6ZtQOy/uxiiwmclSshEKZwwsn4qk=;
-        b=ev9LC7wLPs2aqsHTl0olCs/7Cy8oaoX21DhBYxOL/R/s8dg8EPy/HWR0CNZ0MjHnpI
-         l8/pkcocDF9zwE5Ewp/PnAjpBcr6QPX8G+uT8X4kqK9CvLqTGnIBZZdNHK6K2tKveazw
-         aCuLXQnH3qljzz9Cw3K9iZMmev9hrX+Z6JOsJpcsWxSgmO375TvcvhSlQL6wIcXc4Blb
-         udPQjsD+rrsP1HD1+OA279ZtJkXvtm0+9NJMEfQj6nQ55or/WVb77BDPyNixYe0MBvCY
-         Wlsz4owK4E1dYrLgRBIV5U2eBuDo+xHFJQE3IhlfGL6OQebJbVNwirKHf/YUa9ailNcF
-         wZ7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:subject:message-id
+        h=sender:ironport-sdr:ironport-sdr:date:from:cc:subject:message-id
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=GHqUIx8OFJaNy7Q6ZtQOy/uxiiwmclSshEKZwwsn4qk=;
-        b=KaikVGjKiE5Ctpa08QNMyu4v+1LJV7BX5vpqiGtuRoz49bqf+jxYymbovTL9qhjkYC
-         6wdUANWdoJkj4JXnW7dQnOGGD7zTmUngvIL1fTc1f/+QBM46I5B1f/gAriPRYqt4D05L
-         vcyLhPw5m68Kva+GYpzJXfM1ErFAjhdJie8/ZpUdJYULcxFhPNZgwQ8HkbxAXPD+q5wC
-         7FQ2gVT45fpfL2MOhBaUpSyJRCmA0aymiIw6KcZKhB5nJzNxpDuU6bVNiCDImERrLYTv
-         Gn3bLYTaFwtwpTn/BOI41RkLMmLIGMCqNMvjkO5G/iaLVRKcwWpO1aTGEbj6eJdqmapH
-         OpGw==
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=z7D5MaxX6URbCuIbHEYYIRmmVuqFsf+1RphubKcpV4k=;
+        b=Nx77dBxv1jAoJzBQCUAIAE/xyPaoUZDJOEIdm9tQgkvBrjTs1gASCJe1h/WdVeOYjR
+         WVfLGUunELIcuDzWgLPy+FESS/9RFjfOFgywQK+gGN3XaMrphzqiF2z0Tl2oi5gFg369
+         K9Gn63dIZ+RMzdixrK4LRQpIn2wkSMuNeiXioKv0g5zlm5fJZvnc53/00tX0vSIxLAlH
+         lG2zweoQmiQMqeduESOjY/ESV65f/vVOwc9/GMW54sVUGRRDJEY8giL1KmMUN2bFIZZz
+         D/sY5RJxx6EgwAJB0Ttim17miDT6JUB448vlQad1ECPmhbcXEKVneYiYMwbZNIqkk1r5
+         yXUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:cc
+         :subject:message-id:mime-version:content-disposition:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=z7D5MaxX6URbCuIbHEYYIRmmVuqFsf+1RphubKcpV4k=;
+        b=TjX/ncnE3BTHxnCzQfDFb5KWbT3mVFmgW0VCFe4g02eWBWuDwVDDY13HW/fMOKK74B
+         IYyfOlpW9by3S/zVxnkvQWR2r3Mrqey7mGVOKF3Y3TTHjBx3NTC7LYV664HCW7EHsERo
+         B6sJRO1twOgDxcsWBTlLXNDbXSrszMI1/pVixZ+UnazmbzlVObgFxRXiNwVfvS7o6z0P
+         QHKd0OG9HbsR6gTrr7k+9fXbDcrKOkpOg4HGMxAN4pQhzEp63PXXokW+Ypiyvd1WjAro
+         4lnw6TUkAGltj9+klHrqamdT5KaY3ZKWp9YumMv4Lv0e+gjrFSSLXi8cUkAakOP/0crx
+         TxCQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533HSA2rMFNB2rnmb7thRmwPToyClSImLzu6fHr2bzKPMmcRD7ss
-	AyurMi9sJEe6dhH8muVTqcs=
-X-Google-Smtp-Source: ABdhPJxj9JKtjZVqlI1VqnCPET0gkiFmZyrQDqeyHWJOiY/gGF0TXmpbR/btuv0ypm5f9FR2al4g2A==
-X-Received: by 2002:a2e:87cb:: with SMTP id v11mr3954596ljj.218.1608395815390;
-        Sat, 19 Dec 2020 08:36:55 -0800 (PST)
+X-Gm-Message-State: AOAM531pVGt8r9t1Wep/HOouicjE0100wUZvAKq+6kw6aF/tseun7/Ct
+	cPX7REK6S7aT0SYICpdI4Y0=
+X-Google-Smtp-Source: ABdhPJztkyezgOxJpsLWhQV5h7DUGz/RSchN0GiFUcNg7FWW+Efq29z1z8gOmkuEiy03DBmcNeY54Q==
+X-Received: by 2002:a65:5948:: with SMTP id g8mr8830541pgu.51.1608396029828;
+        Sat, 19 Dec 2020 08:40:29 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:3001:: with SMTP id w1ls4186464ljw.3.gmail; Sat, 19 Dec
- 2020 08:36:54 -0800 (PST)
-X-Received: by 2002:a05:651c:546:: with SMTP id q6mr3849072ljp.235.1608395814165;
-        Sat, 19 Dec 2020 08:36:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608395814; cv=none;
+Received: by 2002:a17:902:d692:: with SMTP id v18ls11091663ply.5.gmail; Sat,
+ 19 Dec 2020 08:40:29 -0800 (PST)
+X-Received: by 2002:a17:902:bd85:b029:dc:1875:b7d7 with SMTP id q5-20020a170902bd85b02900dc1875b7d7mr9154261pls.0.1608396029107;
+        Sat, 19 Dec 2020 08:40:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608396029; cv=none;
         d=google.com; s=arc-20160816;
-        b=w84yPm+4Y8eby12bl97kpoeC+bB2798OrWJ+nJOovtT/OOe4Cp0cI/WxkM6sDSCSj6
-         TPCU8dJnhxwCtvNy24AKpFSu8IyQo07Xayp+Jk9W1naOI4SkEu9O26HbChloQWOVcQhm
-         Es0qCavV5gUKEnyEkU0y1WlYwYMUeOzdncO0ffim8ScKh2q6xoUwrdYVaHgBraIcg5RJ
-         T3DEDloPw8M5KtzOmFHq+MdoTc5r4tvbBLsXef2iwvbeCLn5R1GsrThdT8k3LSfbXa2f
-         ojJApYCeumxujTjxcHQU5KKbUDm2yuV9tH35mLA7H1bZUYR5Zkm18e93VBnYAhlaidXV
-         d/uQ==
+        b=U1VfLfbbeOjkPE5vPQrUZoyGs/a9dY/TfW7sZ2IcHsElBcBsBd7FiyLjATr5DbPN5g
+         /hPZViMZxyDN8PX6xJCYnOeTF4gQKQWS/G9t6p5QcuG2JXnfHca/4+qlfReCDUVWaUda
+         W8HlMS+rxQ1+wZDEgaTd/oHyR67m0bb0kBQhP3Bo1u3qrfMr79tz9Rz2W1PErklKYEeb
+         50PGuuxQCa4t5ZOuQWFiVXCmeXt8zKmOGi3CDkC5GMFECeImYvkZ7+mFahf+X7Trvp9H
+         8yAZfxxUKX3RHDiaTAg4O9oWSLMld6Hc41HeK3MHqVpZi8rS0NIC6u3BkRLI2/4TNmwv
+         dxvg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:to
-         :from:date:dkim-signature;
-        bh=uk1cVlHDbgoB1lRoyt2e8kh5GN88l+USZyj3T4BKdhM=;
-        b=XEekjncEdenAbIKsv/xpUA5l4lnemunJZumz2xxa94gT/JCd8ew2i1wHI5DoZWHKWp
-         xEF2/tYIl0F3KOSdVZBAjMsIPDvaQ43zpGmNWeoP8pqO0X9J9qxbuhDOAQ97K59e4lCF
-         AmHbDborrigXRTZeHFIlWxGJzk75bBoajq6cF9yNP1yUxWfHR6Y/0PEzkmVEKv9XeMah
-         hYWdhgSl23HkjwrtZl4mr5VIE7ICvBbaTpdNF3gwAd5iAUITZAjwY4XYiYL5W1sVOUau
-         cCzazyKtFHjAPM/dGfQb0uF7ttL5BzNfXNNAqT0kOCU12sJbyBGrghpARF1aVCBbbAwY
-         i5Gw==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :from:date:ironport-sdr:ironport-sdr;
+        bh=Czb9Pz37+cJr0g2BozF5VmywWxCmJgP+CHkj5qFJtc0=;
+        b=g40Fcco+E9meSWpsoAtE+p4g1yAcssKIqDpyXwuFswz+/cL5bea3nipQe7hYFHv+wG
+         olinqe840yoMxqNuSf5szTLalc61wNleSTzAXEEqkpSv0EUQw2ZrYdl0dfBZQrIqo2iB
+         SZjD7WpUWp1mmPrK8MuEjrmcAWpzGwkQUveTX5dRIOcfDos0X9ohJcEJrYyvTFtYy2lV
+         LEBEOuy4FgGWY8HXhabfjOMd06nyyu9AiK4Opo71SChbKcCkGO4RNx5GSl79L5qql8ha
+         fqy0Xn2eMn95BkBDxdnWcVJ3VDqZH0RwBv2FI5GXfll4SiN0KdJnlhPSqF258065Dqsz
+         0enw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mess.org header.s=2020 header.b=IUoF2zit;
-       spf=pass (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as permitted sender) smtp.mailfrom=sean@mess.org
-Received: from gofer.mess.org (gofer.mess.org. [2a02:8011:d000:212::1])
-        by gmr-mx.google.com with ESMTPS id q28si595899lfb.10.2020.12.19.08.36.53
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id kr15si762000pjb.2.2020.12.19.08.40.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Dec 2020 08:36:53 -0800 (PST)
-Received-SPF: pass (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as permitted sender) client-ip=2a02:8011:d000:212::1;
-Received: by gofer.mess.org (Postfix, from userid 1000)
-	id 661C711A001; Sat, 19 Dec 2020 16:36:52 +0000 (GMT)
-Date: Sat, 19 Dec 2020 16:36:52 +0000
-From: Sean Young <sean@mess.org>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Quentin Monnet <quentin@isovalent.com>,
-	Toke =?iso-8859-1?Q?H=F8iland-J=F8rgensen?= <toke@redhat.com>,
-	linux-doc@vger.kernel.org, netdev@vger.kernel.org,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v2] btf: support ints larger than 128 bits
-Message-ID: <20201219163652.GA22049@gofer.mess.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 19 Dec 2020 08:40:29 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+IronPort-SDR: 4ER5JHZfGQno1c2LtdqF2OIQNd15iaZRE/+A5Z+UshNvSFpc5PyJkNhRWmt3iXikd5mAk4Kemu
+ /kbyqy8ji3rg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9839"; a="175684236"
+X-IronPort-AV: E=Sophos;i="5.78,433,1599548400"; 
+   d="gz'50?scan'50,208,50";a="175684236"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Dec 2020 08:40:28 -0800
+IronPort-SDR: KpzLIpqpg4MbNQwIe3H7yFe1o8atH+SSsSCozMfFvBBF/n4ubz5VcxD3RQHEZYNtLx3Eum7eJU
+ zvmGRp66yKHw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.78,433,1599548400"; 
+   d="gz'50?scan'50,208,50";a="389339590"
+Received: from lkp-server02.sh.intel.com (HELO c4fb2a2464e8) ([10.239.97.151])
+  by fmsmga002.fm.intel.com with ESMTP; 19 Dec 2020 08:40:26 -0800
+Received: from kbuild by c4fb2a2464e8 with local (Exim 4.92)
+	(envelope-from <lkp@intel.com>)
+	id 1kqfHN-00014K-Vi; Sat, 19 Dec 2020 16:40:25 +0000
+Date: Sun, 20 Dec 2020 00:39:46 +0800
+From: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: [linux-next:master 13536/13785] /tmp/pc87427-805080.s:275: Error:
+ unrecognized opcode `zext.b a4,a4'
+Message-ID: <202012200043.rPhoEuJE-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/mixed; boundary="jRHKVT23PllUwdXP"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: sean@mess.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mess.org header.s=2020 header.b=IUoF2zit;       spf=pass
- (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as
- permitted sender) smtp.mailfrom=sean@mess.org
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,902 +138,522 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-clang supports arbitrary length ints using the _ExtInt extension. This
-can be useful to hold very large values, e.g. 256 bit or 512 bit types.
 
-Larger types (e.g. 1024 bits) are possible but I am unaware of a use
-case for these.
+--jRHKVT23PllUwdXP
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-This requires the _ExtInt extension enabled in clang, which is under
-review.
+CC: Linux Memory Management List <linux-mm@kvack.org>
+TO: Dwaipayan Ray <dwaipayanray1@gmail.com>
+CC: Pavel Machek <pavel@ucw.cz>
+CC: Lukas Bulwahn <lukas.bulwahn@gmail.com>
 
-Link: https://clang.llvm.org/docs/LanguageExtensions.html#extended-integer-types
-Link: https://reviews.llvm.org/D93103
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+head:   0d52778b8710eb11cb616761a02aee0a7fd60425
+commit: 2c64516343af352adb52bb56c10ab02b7b6171df [13536/13785] leds: Use DEVICE_ATTR_{RW, RO, WO} macros
+config: riscv-randconfig-r014-20201217 (attached as .config)
+compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv64-linux-gnu
+        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=2c64516343af352adb52bb56c10ab02b7b6171df
+        git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+        git fetch --no-tags linux-next master
+        git checkout 2c64516343af352adb52bb56c10ab02b7b6171df
+        # save the attached .config to linux build tree
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 
-Signed-off-by: Sean Young <sean@mess.org>
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
+
+Note: the linux-next/master HEAD 0d52778b8710eb11cb616761a02aee0a7fd60425 builds fine.
+      It may have been fixed somewhere.
+
+All errors (new ones prefixed by >>):
+
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:55:76: note: expanded from macro 'inb'
+   #define inb(c)          ({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:87:48: note: expanded from macro 'readb_cpu'
+   #define readb_cpu(c)            ({ u8  __r = __raw_readb(c); __r; })
+                                                            ^
+   drivers/hwmon/pc87427.c:311:24: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           data->temp_crit[nr] = inb(iobase + PC87427_REG_TEMP_CRIT);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:55:76: note: expanded from macro 'inb'
+   #define inb(c)          ({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:87:48: note: expanded from macro 'readb_cpu'
+   #define readb_cpu(c)            ({ u8  __r = __raw_readb(c); __r; })
+                                                            ^
+   drivers/hwmon/pc87427.c:312:24: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           data->temp_type[nr] = inb(iobase + PC87427_REG_TEMP_TYPE);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:55:76: note: expanded from macro 'inb'
+   #define inb(c)          ({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:87:48: note: expanded from macro 'readb_cpu'
+   #define readb_cpu(c)            ({ u8  __r = __raw_readb(c); __r; })
+                                                            ^
+   drivers/hwmon/pc87427.c:313:26: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           data->temp_status[nr] = inb(iobase + PC87427_REG_TEMP_STATUS);
+                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:55:76: note: expanded from macro 'inb'
+   #define inb(c)          ({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:87:48: note: expanded from macro 'readb_cpu'
+   #define readb_cpu(c)            ({ u8  __r = __raw_readb(c); __r; })
+                                                            ^
+   drivers/hwmon/pc87427.c:315:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(data->temp_status[nr], iobase + PC87427_REG_TEMP_STATUS);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   drivers/hwmon/pc87427.c:438:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(BANK_FM(nr), iobase + PC87427_REG_BANK);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   drivers/hwmon/pc87427.c:444:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(0, iobase + PC87427_REG_FAN_STATUS);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   drivers/hwmon/pc87427.c:446:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outw(data->fan_min[nr], iobase + PC87427_REG_FAN_MIN);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:60:68: note: expanded from macro 'outw'
+   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_cpu'
+   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
+                                                                                     ^
+   drivers/hwmon/pc87427.c:447:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(FAN_STATUS_MONEN, iobase + PC87427_REG_FAN_STATUS);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   drivers/hwmon/pc87427.c:561:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(data->pwm_enable[nr], iobase + PC87427_REG_PWM_ENABLE);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   drivers/hwmon/pc87427.c:648:3: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+                   outb(val, iobase + PC87427_REG_PWM_DUTY);
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   40 warnings generated.
+   /tmp/pc87427-805080.s: Assembler messages:
+   /tmp/pc87427-805080.s:152: Error: unrecognized opcode `zext.b a0,a0'
+>> /tmp/pc87427-805080.s:275: Error: unrecognized opcode `zext.b a4,a4'
+   /tmp/pc87427-805080.s:315: Error: unrecognized opcode `zext.b a1,a1'
+   /tmp/pc87427-805080.s:375: Error: unrecognized opcode `zext.b a1,a1'
+>> /tmp/pc87427-805080.s:406: Error: unrecognized opcode `zext.b a1,a2'
+   /tmp/pc87427-805080.s:506: Error: unrecognized opcode `zext.b a1,a1'
+>> /tmp/pc87427-805080.s:911: Error: unrecognized opcode `zext.b a4,s1'
+>> /tmp/pc87427-805080.s:2214: Error: unrecognized opcode `zext.b a2,s5'
+>> /tmp/pc87427-805080.s:2374: Error: unrecognized opcode `zext.b a2,s6'
+   /tmp/pc87427-805080.s:2503: Error: unrecognized opcode `zext.b a1,a1'
+   clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
+
 ---
-changes since v2:
- - added tests as suggested by Yonghong Song
- - added kernel pretty-printer
-
- Documentation/bpf/btf.rst                     |   4 +-
- include/uapi/linux/btf.h                      |   2 +-
- kernel/bpf/btf.c                              |  54 +-
- tools/bpf/bpftool/btf_dumper.c                |  40 ++
- tools/include/uapi/linux/btf.h                |   2 +-
- tools/lib/bpf/btf.c                           |   2 +-
- tools/testing/selftests/bpf/Makefile          |   3 +-
- tools/testing/selftests/bpf/prog_tests/btf.c  |   3 +-
- .../selftests/bpf/progs/test_btf_extint.c     |  50 ++
- tools/testing/selftests/bpf/test_extint.py    | 535 ++++++++++++++++++
- 10 files changed, 679 insertions(+), 16 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/progs/test_btf_extint.c
- create mode 100755 tools/testing/selftests/bpf/test_extint.py
-
-diff --git a/Documentation/bpf/btf.rst b/Documentation/bpf/btf.rst
-index 44dc789de2b4..784f1743dbc7 100644
---- a/Documentation/bpf/btf.rst
-+++ b/Documentation/bpf/btf.rst
-@@ -132,7 +132,7 @@ The following sections detail encoding of each kind.
- 
-   #define BTF_INT_ENCODING(VAL)   (((VAL) & 0x0f000000) >> 24)
-   #define BTF_INT_OFFSET(VAL)     (((VAL) & 0x00ff0000) >> 16)
--  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000000ff)
-+  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000003ff)
- 
- The ``BTF_INT_ENCODING`` has the following attributes::
- 
-@@ -147,7 +147,7 @@ pretty print. At most one encoding can be specified for the int type.
- The ``BTF_INT_BITS()`` specifies the number of actual bits held by this int
- type. For example, a 4-bit bitfield encodes ``BTF_INT_BITS()`` equals to 4.
- The ``btf_type.size * 8`` must be equal to or greater than ``BTF_INT_BITS()``
--for the type. The maximum value of ``BTF_INT_BITS()`` is 128.
-+for the type. The maximum value of ``BTF_INT_BITS()`` is 512.
- 
- The ``BTF_INT_OFFSET()`` specifies the starting bit offset to calculate values
- for this int. For example, a bitfield struct member has:
-diff --git a/include/uapi/linux/btf.h b/include/uapi/linux/btf.h
-index 5a667107ad2c..1696fd02b302 100644
---- a/include/uapi/linux/btf.h
-+++ b/include/uapi/linux/btf.h
-@@ -84,7 +84,7 @@ struct btf_type {
-  */
- #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
- #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
--#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
-+#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
- 
- /* Attributes stored in the BTF_INT_ENCODING */
- #define BTF_INT_SIGNED	(1 << 0)
-diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
-index 8d6bdb4f4d61..44bc17207e9b 100644
---- a/kernel/bpf/btf.c
-+++ b/kernel/bpf/btf.c
-@@ -166,7 +166,8 @@
-  *
-  */
- 
--#define BITS_PER_U128 (sizeof(u64) * BITS_PER_BYTE * 2)
-+#define BITS_PER_U128 128
-+#define BITS_PER_U512 512
- #define BITS_PER_BYTE_MASK (BITS_PER_BYTE - 1)
- #define BITS_PER_BYTE_MASKED(bits) ((bits) & BITS_PER_BYTE_MASK)
- #define BITS_ROUNDDOWN_BYTES(bits) ((bits) >> 3)
-@@ -1907,9 +1908,9 @@ static int btf_int_check_member(struct btf_verifier_env *env,
- 	nr_copy_bits = BTF_INT_BITS(int_data) +
- 		BITS_PER_BYTE_MASKED(struct_bits_off);
- 
--	if (nr_copy_bits > BITS_PER_U128) {
-+	if (nr_copy_bits > BITS_PER_U512) {
- 		btf_verifier_log_member(env, struct_type, member,
--					"nr_copy_bits exceeds 128");
-+					"nr_copy_bits exceeds 512");
- 		return -EINVAL;
- 	}
- 
-@@ -1963,9 +1964,9 @@ static int btf_int_check_kflag_member(struct btf_verifier_env *env,
- 
- 	bytes_offset = BITS_ROUNDDOWN_BYTES(struct_bits_off);
- 	nr_copy_bits = nr_bits + BITS_PER_BYTE_MASKED(struct_bits_off);
--	if (nr_copy_bits > BITS_PER_U128) {
-+	if (nr_copy_bits > BITS_PER_U512) {
- 		btf_verifier_log_member(env, struct_type, member,
--					"nr_copy_bits exceeds 128");
-+					"nr_copy_bits exceeds 512");
- 		return -EINVAL;
- 	}
- 
-@@ -2012,9 +2013,9 @@ static s32 btf_int_check_meta(struct btf_verifier_env *env,
- 
- 	nr_bits = BTF_INT_BITS(int_data) + BTF_INT_OFFSET(int_data);
- 
--	if (nr_bits > BITS_PER_U128) {
--		btf_verifier_log_type(env, t, "nr_bits exceeds %zu",
--				      BITS_PER_U128);
-+	if (nr_bits > BITS_PER_U512) {
-+		btf_verifier_log_type(env, t, "nr_bits exceeds %u",
-+				      BITS_PER_U512);
- 		return -EINVAL;
- 	}
- 
-@@ -2080,6 +2081,37 @@ static void btf_int128_print(struct btf_show *show, void *data)
- 				     lower_num);
- }
- 
-+static void btf_bigint_print(struct btf_show *show, void *data, u16 nr_bits)
-+{
-+	/* data points to 256 or 512 bit int type */
-+	char buf[129];
-+	int last_u64 = nr_bits / 64 - 1;
-+	bool seen_nonzero = false;
-+	int i;
-+
-+	for (i = 0; i <= last_u64; i++) {
-+#ifdef __BIG_ENDIAN_BITFIELD
-+		u64 v = ((u64 *)data)[i];
-+#else
-+		u64 v = ((u64 *)data)[last_u64 - i];
-+#endif
-+		if (!seen_nonzero) {
-+			if (!v && i != last_u64)
-+				continue;
-+
-+			snprintf(buf, sizeof(buf), "%llx", v);
-+
-+			seen_nonzero = true;
-+		} else {
-+			size_t off = strlen(buf);
-+
-+			snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
-+		}
-+	}
-+
-+	btf_show_type_value(show, "0x%s", buf);
-+}
-+
- static void btf_int128_shift(u64 *print_num, u16 left_shift_bits,
- 			     u16 right_shift_bits)
- {
-@@ -2172,7 +2204,7 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
- 	u32 int_data = btf_type_int(t);
- 	u8 encoding = BTF_INT_ENCODING(int_data);
- 	bool sign = encoding & BTF_INT_SIGNED;
--	u8 nr_bits = BTF_INT_BITS(int_data);
-+	u16 nr_bits = BTF_INT_BITS(int_data);
- 	void *safe_data;
- 
- 	safe_data = btf_show_start_type(show, t, type_id, data);
-@@ -2186,6 +2218,10 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
- 	}
- 
- 	switch (nr_bits) {
-+	case 512:
-+	case 256:
-+		btf_bigint_print(show, safe_data, nr_bits);
-+		break;
- 	case 128:
- 		btf_int128_print(show, safe_data);
- 		break;
-diff --git a/tools/bpf/bpftool/btf_dumper.c b/tools/bpf/bpftool/btf_dumper.c
-index 0e9310727281..8b5318ec5c26 100644
---- a/tools/bpf/bpftool/btf_dumper.c
-+++ b/tools/bpf/bpftool/btf_dumper.c
-@@ -271,6 +271,41 @@ static void btf_int128_print(json_writer_t *jw, const void *data,
- 	}
- }
- 
-+static void btf_bigint_print(json_writer_t *jw, const void *data, int nr_bits,
-+			     bool is_plain_text)
-+{
-+	char buf[nr_bits / 4 + 1];
-+	int last_u64 = nr_bits / 64 - 1;
-+	bool seen_nonzero = false;
-+	int i;
-+
-+	for (i = 0; i <= last_u64; i++) {
-+#ifdef __BIG_ENDIAN_BITFIELD
-+		__u64 v = ((__u64 *)data)[i];
-+#else
-+		__u64 v = ((__u64 *)data)[last_u64 - i];
-+#endif
-+
-+		if (!seen_nonzero) {
-+			if (!v && i != last_u64)
-+				continue;
-+
-+			snprintf(buf, sizeof(buf), "%llx", v);
-+
-+			seen_nonzero = true;
-+		} else {
-+			size_t off = strlen(buf);
-+
-+			snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
-+		}
-+	}
-+
-+	if (is_plain_text)
-+		jsonw_printf(jw, "0x%s", buf);
-+	else
-+		jsonw_printf(jw, "\"0x%s\"", buf);
-+}
-+
- static void btf_int128_shift(__u64 *print_num, __u16 left_shift_bits,
- 			     __u16 right_shift_bits)
- {
-@@ -373,6 +408,11 @@ static int btf_dumper_int(const struct btf_type *t, __u8 bit_offset,
- 		return 0;
- 	}
- 
-+	if (nr_bits > 128) {
-+		btf_bigint_print(jw, data, nr_bits, is_plain_text);
-+		return 0;
-+	}
-+
- 	if (nr_bits == 128) {
- 		btf_int128_print(jw, data, is_plain_text);
- 		return 0;
-diff --git a/tools/include/uapi/linux/btf.h b/tools/include/uapi/linux/btf.h
-index 5a667107ad2c..1696fd02b302 100644
---- a/tools/include/uapi/linux/btf.h
-+++ b/tools/include/uapi/linux/btf.h
-@@ -84,7 +84,7 @@ struct btf_type {
-  */
- #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
- #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
--#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
-+#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
- 
- /* Attributes stored in the BTF_INT_ENCODING */
- #define BTF_INT_SIGNED	(1 << 0)
-diff --git a/tools/lib/bpf/btf.c b/tools/lib/bpf/btf.c
-index 3c3f2bc6c652..a676373f052b 100644
---- a/tools/lib/bpf/btf.c
-+++ b/tools/lib/bpf/btf.c
-@@ -1722,7 +1722,7 @@ int btf__add_int(struct btf *btf, const char *name, size_t byte_sz, int encoding
- 	if (!name || !name[0])
- 		return -EINVAL;
- 	/* byte_sz must be power of 2 */
--	if (!byte_sz || (byte_sz & (byte_sz - 1)) || byte_sz > 16)
-+	if (!byte_sz || (byte_sz & (byte_sz - 1)) || byte_sz > 64)
- 		return -EINVAL;
- 	if (encoding & ~(BTF_INT_SIGNED | BTF_INT_CHAR | BTF_INT_BOOL))
- 		return -EINVAL;
-diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
-index 8c33e999319a..436ad1aed3d9 100644
---- a/tools/testing/selftests/bpf/Makefile
-+++ b/tools/testing/selftests/bpf/Makefile
-@@ -70,7 +70,8 @@ TEST_PROGS := test_kmod.sh \
- 	test_bpftool_build.sh \
- 	test_bpftool.sh \
- 	test_bpftool_metadata.sh \
--	test_xsk.sh
-+	test_xsk.sh \
-+	test_extint.py
- 
- TEST_PROGS_EXTENDED := with_addr.sh \
- 	with_tunnels.sh \
-diff --git a/tools/testing/selftests/bpf/prog_tests/btf.c b/tools/testing/selftests/bpf/prog_tests/btf.c
-index 8ae97e2a4b9d..96a93502cf27 100644
---- a/tools/testing/selftests/bpf/prog_tests/btf.c
-+++ b/tools/testing/selftests/bpf/prog_tests/btf.c
-@@ -4073,6 +4073,7 @@ struct btf_file_test {
- static struct btf_file_test file_tests[] = {
- 	{ .file = "test_btf_haskv.o", },
- 	{ .file = "test_btf_newkv.o", },
-+	{ .file = "test_btf_extint.o", },
- 	{ .file = "test_btf_nokv.o", .btf_kv_notfound = true, },
- };
- 
-@@ -4414,7 +4415,7 @@ static struct btf_raw_test pprint_test_template[] = {
- 	 * will have both int and enum types.
- 	 */
- 	.raw_types = {
--		/* unsighed char */			/* [1] */
-+		/* unsigned char */			/* [1] */
- 		BTF_TYPE_INT_ENC(NAME_TBD, 0, 0, 8, 1),
- 		/* unsigned short */			/* [2] */
- 		BTF_TYPE_INT_ENC(NAME_TBD, 0, 0, 16, 2),
-diff --git a/tools/testing/selftests/bpf/progs/test_btf_extint.c b/tools/testing/selftests/bpf/progs/test_btf_extint.c
-new file mode 100644
-index 000000000000..b0fa9f130dda
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/test_btf_extint.c
-@@ -0,0 +1,50 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_legacy.h"
-+
-+struct extint {
-+	_ExtInt(256) v256;
-+	_ExtInt(512) v512;
-+};
-+
-+struct bpf_map_def SEC("maps") btf_map = {
-+	.type = BPF_MAP_TYPE_ARRAY,
-+	.key_size = sizeof(int),
-+	.value_size = sizeof(struct extint),
-+	.max_entries = 1,
-+};
-+
-+BPF_ANNOTATE_KV_PAIR(btf_map, int, struct extint);
-+
-+__attribute__((noinline))
-+int test_long_fname_2(void)
-+{
-+	struct extint *bi;
-+	int key = 0;
-+
-+	bi = bpf_map_lookup_elem(&btf_map, &key);
-+	if (!bi)
-+		return 0;
-+
-+	bi->v256 <<= 64;
-+	bi->v256 += (_ExtInt(256))0xcafedead;
-+	bi->v512 <<= 128;
-+	bi->v512 += (_ExtInt(512))0xff00ff00ff00ffull;
-+
-+	return 0;
-+}
-+
-+__attribute__((noinline))
-+int test_long_fname_1(void)
-+{
-+	return test_long_fname_2();
-+}
-+
-+SEC("dummy_tracepoint")
-+int _dummy_tracepoint(void *arg)
-+{
-+	return test_long_fname_1();
-+}
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/test_extint.py b/tools/testing/selftests/bpf/test_extint.py
-new file mode 100755
-index 000000000000..86af815a0cf6
---- /dev/null
-+++ b/tools/testing/selftests/bpf/test_extint.py
-@@ -0,0 +1,535 @@
-+#!/usr/bin/python3
-+# SPDX-License-Identifier: GPL-2.0
-+
-+# Copyright (C) 2020 Sean Young <sean@mess.org>
-+# Copyright (C) 2017 Netronome Systems, Inc.
-+# Copyright (c) 2019 Mellanox Technologies. All rights reserved
-+#
-+# This software is licensed under the GNU General License Version 2,
-+# June 1991 as shown in the file COPYING in the top-level directory of this
-+# source tree.
-+#
-+# THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS"
-+# WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,
-+# BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-+# FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE
-+# OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME
-+# THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
-+
-+from datetime import datetime
-+import argparse
-+import errno
-+import json
-+import os
-+import pprint
-+import random
-+import re
-+import stat
-+import string
-+import struct
-+import subprocess
-+import time
-+import traceback
-+
-+logfile = None
-+log_level = 1
-+skip_extack = False
-+bpf_test_dir = os.path.dirname(os.path.realpath(__file__))
-+pp = pprint.PrettyPrinter()
-+devs = [] # devices we created for clean up
-+files = [] # files to be removed
-+
-+def log_get_sec(level=0):
-+    return "*" * (log_level + level)
-+
-+def log_level_inc(add=1):
-+    global log_level
-+    log_level += add
-+
-+def log_level_dec(sub=1):
-+    global log_level
-+    log_level -= sub
-+
-+def log_level_set(level):
-+    global log_level
-+    log_level = level
-+
-+def log(header, data, level=None):
-+    """
-+    Output to an optional log.
-+    """
-+    if logfile is None:
-+        return
-+    if level is not None:
-+        log_level_set(level)
-+
-+    if not isinstance(data, str):
-+        data = pp.pformat(data)
-+
-+    if len(header):
-+        logfile.write("\n" + log_get_sec() + " ")
-+        logfile.write(header)
-+    if len(header) and len(data.strip()):
-+        logfile.write("\n")
-+    logfile.write(data)
-+
-+def skip(cond, msg):
-+    if not cond:
-+        return
-+    print("SKIP: " + msg)
-+    log("SKIP: " + msg, "", level=1)
-+    os.sys.exit(0)
-+
-+def fail(cond, msg):
-+    if not cond:
-+        return
-+    print("FAIL: " + msg)
-+    tb = "".join(traceback.extract_stack().format())
-+    print(tb)
-+    log("FAIL: " + msg, tb, level=1)
-+    os.sys.exit(1)
-+
-+def start_test(msg):
-+    log(msg, "", level=1)
-+    log_level_inc()
-+    print(msg)
-+
-+def cmd(cmd, shell=True, include_stderr=False, background=False, fail=True):
-+    """
-+    Run a command in subprocess and return tuple of (retval, stdout);
-+    optionally return stderr as well as third value.
-+    """
-+    proc = subprocess.Popen(cmd, shell=shell, stdout=subprocess.PIPE,
-+                            stderr=subprocess.PIPE)
-+    if background:
-+        msg = "%s START: %s" % (log_get_sec(1),
-+                                datetime.now().strftime("%H:%M:%S.%f"))
-+        log("BKG " + proc.args, msg)
-+        return proc
-+
-+    return cmd_result(proc, include_stderr=include_stderr, fail=fail)
-+
-+def cmd_result(proc, include_stderr=False, fail=False):
-+    stdout, stderr = proc.communicate()
-+    stdout = stdout.decode("utf-8")
-+    stderr = stderr.decode("utf-8")
-+    proc.stdout.close()
-+    proc.stderr.close()
-+
-+    stderr = "\n" + stderr
-+    if stderr[-1] == "\n":
-+        stderr = stderr[:-1]
-+
-+    sec = log_get_sec(1)
-+    log("CMD " + proc.args,
-+        "RETCODE: %d\n%s STDOUT:\n%s%s STDERR:%s\n%s END: %s" %
-+        (proc.returncode, sec, stdout, sec, stderr,
-+         sec, datetime.now().strftime("%H:%M:%S.%f")))
-+
-+    if proc.returncode != 0 and fail:
-+        if len(stderr) > 0 and stderr[-1] == "\n":
-+            stderr = stderr[:-1]
-+        raise Exception("Command failed: %s\n%s" % (proc.args, stderr))
-+
-+    if include_stderr:
-+        return proc.returncode, stdout, stderr
-+    else:
-+        return proc.returncode, stdout
-+
-+def rm(f):
-+    cmd("rm -f %s" % (f))
-+    if f in files:
-+        files.remove(f)
-+
-+def tool(name, args, flags, JSON=True, ns="", fail=True, include_stderr=False):
-+    params = ""
-+    if JSON:
-+        params += "%s " % (flags["json"])
-+
-+    if ns != "":
-+        ns = "ip netns exec %s " % (ns)
-+
-+    if include_stderr:
-+        ret, stdout, stderr = cmd(ns + name + " " + params + args,
-+                                  fail=fail, include_stderr=True)
-+    else:
-+        ret, stdout = cmd(ns + name + " " + params + args,
-+                          fail=fail, include_stderr=False)
-+
-+    if JSON and len(stdout.strip()) != 0:
-+        out = json.loads(stdout)
-+    else:
-+        out = stdout
-+
-+    if include_stderr:
-+        return ret, out, stderr
-+    else:
-+        return ret, out
-+
-+def bpftool(args, JSON=True, ns="", fail=True, include_stderr=False):
-+    return tool("bpftool", args, {"json":"-p"}, JSON=JSON, ns=ns,
-+                fail=fail, include_stderr=include_stderr)
-+
-+def bpftool_prog_list(expected=None, ns=""):
-+    _, progs = bpftool("prog show", JSON=True, ns=ns, fail=True)
-+    # Remove the base progs
-+    for p in base_progs:
-+        if p in progs:
-+            progs.remove(p)
-+    if expected is not None:
-+        if len(progs) != expected:
-+            fail(True, "%d BPF programs loaded, expected %d" %
-+                 (len(progs), expected))
-+    return progs
-+
-+def bpftool_map_list(expected=None, ns=""):
-+    _, maps = bpftool("map show", JSON=True, ns=ns, fail=True)
-+    # Remove the base maps
-+    maps = [m for m in maps if m not in base_maps and m.get('name') not in base_map_names]
-+    if expected is not None:
-+        if len(maps) != expected:
-+            fail(True, "%d BPF maps loaded, expected %d" %
-+                 (len(maps), expected))
-+    return maps
-+
-+def bpftool_prog_list_wait(expected=0, n_retry=20):
-+    for i in range(n_retry):
-+        nprogs = len(bpftool_prog_list())
-+        if nprogs == expected:
-+            return
-+        time.sleep(0.05)
-+    raise Exception("Time out waiting for program counts to stabilize want %d, have %d" % (expected, nprogs))
-+
-+def bpftool_map_list_wait(expected=0, n_retry=20):
-+    for i in range(n_retry):
-+        nmaps = len(bpftool_map_list())
-+        if nmaps == expected:
-+            return
-+        time.sleep(0.05)
-+    raise Exception("Time out waiting for map counts to stabilize want %d, have %d" % (expected, nmaps))
-+
-+def bpftool_prog_load(sample, file_name, maps=[], prog_type="xdp", dev=None,
-+                      pinmaps=None, fail=True, include_stderr=False):
-+    args = "prog load %s %s" % (os.path.join(bpf_test_dir, sample), file_name)
-+    if prog_type is not None:
-+        args += " type " + prog_type
-+    if dev is not None:
-+        args += " dev " + dev
-+    if len(maps):
-+        args += " map " + " map ".join(maps)
-+    if pinmaps is not None:
-+        args += " pinmaps " + pinmaps
-+
-+    res = bpftool(args, fail=fail, include_stderr=include_stderr)
-+    if res[0] == 0:
-+        files.append(file_name)
-+    return res
-+
-+def ip(args, force=False, JSON=True, ns="", fail=True, include_stderr=False):
-+    if force:
-+        args = "-force " + args
-+    return tool("ip", args, {"json":"-j"}, JSON=JSON, ns=ns,
-+                fail=fail, include_stderr=include_stderr)
-+
-+def tc(args, JSON=True, ns="", fail=True, include_stderr=False):
-+    return tool("tc", args, {"json":"-p"}, JSON=JSON, ns=ns,
-+                fail=fail, include_stderr=include_stderr)
-+
-+def ethtool(dev, opt, args, fail=True):
-+    return cmd("ethtool %s %s %s" % (opt, dev["ifname"], args), fail=fail)
-+
-+def bpf_obj(name, sec=".text", path=bpf_test_dir,):
-+    return "obj %s sec %s" % (os.path.join(path, name), sec)
-+
-+def bpf_pinned(name):
-+    return "pinned %s" % (name)
-+
-+def bpf_bytecode(bytecode):
-+    return "bytecode \"%s\"" % (bytecode)
-+
-+def int2str(fmt, val):
-+    ret = []
-+    for b in struct.pack(fmt, val):
-+        ret.append(int(b))
-+    return " ".join(map(lambda x: str(x), ret))
-+
-+def str2int(strtab):
-+    inttab = []
-+    for i in strtab:
-+        inttab.append(int(i, 16))
-+    ba = bytearray(inttab)
-+    if len(strtab) == 4:
-+        fmt = "I"
-+    elif len(strtab) == 8:
-+        fmt = "Q"
-+    else:
-+        raise Exception("String array of len %d can't be unpacked to an int" %
-+                        (len(strtab)))
-+    return struct.unpack(fmt, ba)[0]
-+
-+################################################################################
-+def clean_up():
-+    global files, netns, devs
-+    for f in files:
-+        cmd("rm -rf %s" % (f))
-+    files = []
-+    netns = []
-+
-+def pin_prog(file_name, idx=0):
-+    progs = bpftool_prog_list(expected=(idx + 1))
-+    prog = progs[idx]
-+    bpftool("prog pin id %d %s" % (prog["id"], file_name))
-+    files.append(file_name)
-+
-+    return file_name, bpf_pinned(file_name)
-+
-+def pin_map(file_name, idx=0, expected=1):
-+    maps = bpftool_map_list(expected=expected)
-+    m = maps[idx]
-+    bpftool("map pin id %d %s" % (m["id"], file_name))
-+    files.append(file_name)
-+
-+    return file_name, bpf_pinned(file_name)
-+
-+def check_dev_info_removed(prog_file=None, map_file=None):
-+    bpftool_prog_list(expected=0)
-+    ret, err = bpftool("prog show pin %s" % (prog_file), fail=False)
-+    fail(ret == 0, "Showing prog with removed device did not fail")
-+    fail(err["error"].find("No such device") == -1,
-+         "Showing prog with removed device expected ENODEV, error is %s" %
-+         (err["error"]))
-+
-+    bpftool_map_list(expected=0)
-+    ret, err = bpftool("map show pin %s" % (map_file), fail=False)
-+    fail(ret == 0, "Showing map with removed device did not fail")
-+    fail(err["error"].find("No such device") == -1,
-+         "Showing map with removed device expected ENODEV, error is %s" %
-+         (err["error"]))
-+
-+def check_dev_info(other_ns, ns, prog_file=None, map_file=None, removed=False):
-+    progs = bpftool_prog_list(expected=1, ns=ns)
-+    prog = progs[0]
-+
-+    fail("dev" not in prog.keys(), "Device parameters not reported")
-+    dev = prog["dev"]
-+    fail("ifindex" not in dev.keys(), "Device parameters not reported")
-+    fail("ns_dev" not in dev.keys(), "Device parameters not reported")
-+    fail("ns_inode" not in dev.keys(), "Device parameters not reported")
-+
-+    if not other_ns:
-+        fail("ifname" not in dev.keys(), "Ifname not reported")
-+        fail(dev["ifname"] != sim["ifname"],
-+             "Ifname incorrect %s vs %s" % (dev["ifname"], sim["ifname"]))
-+    else:
-+        fail("ifname" in dev.keys(), "Ifname is reported for other ns")
-+
-+    maps = bpftool_map_list(expected=2, ns=ns)
-+    for m in maps:
-+        fail("dev" not in m.keys(), "Device parameters not reported")
-+        fail(dev != m["dev"], "Map's device different than program's")
-+
-+def check_extack(output, reference, args):
-+    if skip_extack:
-+        return
-+    lines = output.split("\n")
-+    comp = len(lines) >= 2 and lines[1] == 'Error: ' + reference
-+    fail(not comp, "Missing or incorrect netlink extack message")
-+
-+def check_extack_nsim(output, reference, args):
-+    check_extack(output, "netdevsim: " + reference, args)
-+
-+def check_no_extack(res, needle):
-+    fail((res[1] + res[2]).count(needle) or (res[1] + res[2]).count("Warning:"),
-+         "Found '%s' in command output, leaky extack?" % (needle))
-+
-+def check_verifier_log(output, reference):
-+    lines = output.split("\n")
-+    for l in reversed(lines):
-+        if l == reference:
-+            return
-+    fail(True, "Missing or incorrect message from netdevsim in verifier log")
-+
-+def check_multi_basic(two_xdps):
-+    fail(two_xdps["mode"] != 4, "Bad mode reported with multiple programs")
-+    fail("prog" in two_xdps, "Base program reported in multi program mode")
-+    fail(len(two_xdps["attached"]) != 2,
-+         "Wrong attached program count with two programs")
-+    fail(two_xdps["attached"][0]["prog"]["id"] ==
-+         two_xdps["attached"][1]["prog"]["id"],
-+         "Offloaded and other programs have the same id")
-+
-+def test_spurios_extack(sim, obj, skip_hw, needle):
-+    res = sim.cls_bpf_add_filter(obj, prio=1, handle=1, skip_hw=skip_hw,
-+                                 include_stderr=True)
-+    check_no_extack(res, needle)
-+    res = sim.cls_bpf_add_filter(obj, op="replace", prio=1, handle=1,
-+                                 skip_hw=skip_hw, include_stderr=True)
-+    check_no_extack(res, needle)
-+    res = sim.cls_filter_op(op="delete", prio=1, handle=1, cls="bpf",
-+                            include_stderr=True)
-+    check_no_extack(res, needle)
-+
-+def test_multi_prog(simdev, sim, obj, modename, modeid):
-+    start_test("Test multi-attachment XDP - %s + offload..." %
-+               (modename or "default", ))
-+    sim.set_xdp(obj, "offload")
-+    xdp = sim.ip_link_show(xdp=True)["xdp"]
-+    offloaded = sim.dfs_read("bpf_offloaded_id")
-+    fail("prog" not in xdp, "Base program not reported in single program mode")
-+    fail(len(xdp["attached"]) != 1,
-+         "Wrong attached program count with one program")
-+
-+    sim.set_xdp(obj, modename)
-+    two_xdps = sim.ip_link_show(xdp=True)["xdp"]
-+
-+    fail(xdp["attached"][0] not in two_xdps["attached"],
-+         "Offload program not reported after other activated")
-+    check_multi_basic(two_xdps)
-+
-+    offloaded2 = sim.dfs_read("bpf_offloaded_id")
-+    fail(offloaded != offloaded2,
-+         "Offload ID changed after loading other program")
-+
-+    start_test("Test multi-attachment XDP - replace...")
-+    ret, _, err = sim.set_xdp(obj, "offload", fail=False, include_stderr=True)
-+    fail(ret == 0, "Replaced one of programs without -force")
-+    check_extack(err, "XDP program already attached.", args)
-+
-+    start_test("Test multi-attachment XDP - remove without mode...")
-+    ret, _, err = sim.unset_xdp("", force=True,
-+                                fail=False, include_stderr=True)
-+    fail(ret == 0, "Removed program without a mode flag")
-+    check_extack(err, "More than one program loaded, unset mode is ambiguous.", args)
-+
-+    sim.unset_xdp("offload")
-+    xdp = sim.ip_link_show(xdp=True)["xdp"]
-+    offloaded = sim.dfs_read("bpf_offloaded_id")
-+
-+    fail(xdp["mode"] != modeid, "Bad mode reported after multiple programs")
-+    fail("prog" not in xdp,
-+         "Base program not reported after multi program mode")
-+    fail(xdp["attached"][0] not in two_xdps["attached"],
-+         "Offload program not reported after other activated")
-+    fail(len(xdp["attached"]) != 1,
-+         "Wrong attached program count with remaining programs")
-+    fail(offloaded != "0", "Offload ID reported with only other program left")
-+
-+    start_test("Test multi-attachment XDP - reattach...")
-+    sim.set_xdp(obj, "offload")
-+    two_xdps = sim.ip_link_show(xdp=True)["xdp"]
-+
-+    fail(xdp["attached"][0] not in two_xdps["attached"],
-+         "Other program not reported after offload activated")
-+    check_multi_basic(two_xdps)
-+
-+    start_test("Test multi-attachment XDP - device remove...")
-+    simdev.remove()
-+
-+    simdev = NetdevSimDev()
-+    sim, = simdev.nsims
-+    sim.set_ethtool_tc_offloads(True)
-+    return [simdev, sim]
-+
-+# Parse command line
-+parser = argparse.ArgumentParser()
-+parser.add_argument("--log", help="output verbose log to given file")
-+args = parser.parse_args()
-+if args.log:
-+    logfile = open(args.log, 'w+')
-+    logfile.write("# -*-Org-*-")
-+
-+log("Prepare...", "", level=1)
-+log_level_inc()
-+
-+# Check permissions
-+skip(os.getuid() != 0, "test must be run as root")
-+
-+# Check tools
-+ret, progs = bpftool("prog", fail=False)
-+skip(ret != 0, "bpftool not installed")
-+base_progs = progs
-+_, base_maps = bpftool("map")
-+base_map_names = [
-+    'pid_iter.rodata' # created on each bpftool invocation
-+]
-+
-+# Check bpffs
-+_, out = cmd("mount")
-+if out.find("/sys/fs/bpf type bpf") == -1:
-+    cmd("mount -t bpf none /sys/fs/bpf")
-+
-+# Check samples are compiled
-+samples = ["test_btf_extint.o"]
-+for s in samples:
-+    ret, out = cmd("ls %s/%s" % (bpf_test_dir, s), fail=False)
-+    skip(ret != 0, "sample %s/%s not found, please compile it" %
-+         (bpf_test_dir, s))
-+
-+try:
-+    start_test("Test extint...")
-+    bpftool_prog_load("test_btf_extint.o", "/sys/fs/bpf/extint", pinmaps='/sys/fs/bpf/extint_map')
-+    files = [ '/sys/fs/bpf/extint', '/sys/fs/bpf/extint_map' ]
-+
-+    maps = bpftool_map_list()
-+    map_id = maps[0]["id"]
-+    def map_get():
-+        _, entries = bpftool("map dump id %d" % (map_id))
-+        return entries[0]['formatted']['value']
-+
-+    def map_get_kernel():
-+        rd = open('/sys/fs/bpf/extint_map/btf_map', 'r')
-+        res = ''
-+        for line in rd.readlines():
-+            if not line.startswith('#'):
-+                res += line.strip()
-+        rd.close()
-+        return res
-+
-+    vals = map_get()
-+
-+    fail(vals['v256'] != '0x0', "expected %s, got %s" % ('0x0', vals['v256']))
-+    fail(vals['v512'] != '0x0', "expected %s, got %s" % ('0x0', vals['v512']))
-+
-+    kvals = map_get_kernel()
-+    fail(kvals != "0: {0x0,0x0,}", "got %s" % (kvals))
-+
-+    key = [0] * 4
-+    value = [0] * 96
-+
-+    def map_update():
-+        key_str = ' '.join(str(x) for x in key)
-+        value_str = ' '.join(str(x) for x in value)
-+        bpftool("map update id %d key %s value %s" % (map_id, key_str, value_str))
-+
-+    value[0] = 1;
-+    value[32] = 2;
-+
-+    map_update()
-+
-+    vals = map_get()
-+
-+    fail(vals['v256'] != '0x1', "expected %s, got %s" % ('0x1', vals['v256']))
-+    fail(vals['v512'] != '0x2', "expected %s, got %s" % ('0x2', vals['v512']))
-+
-+    kvals = map_get_kernel()
-+    fail(kvals != "0: {0x1,0x2,}", "got %s" % (kvals))
-+
-+    value[31] = 0xfc;
-+    value[95] = 0x8;
-+
-+    map_update()
-+
-+    vals = map_get()
-+
-+    fail(vals['v256'] != '0xfc00000000000000000000000000000000000000000000000000000000000001', "got %s" % (vals['v256']))
-+    fail(vals['v512'] != '0x8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002', "got %s" % (vals['v512']))
-+
-+    kvals = map_get_kernel()
-+    fail(kvals != "0: {0xfc00000000000000000000000000000000000000000000000000000000000001,0x8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002,}", "got %s" % (kvals))
-+
-+    print("%s: OK" % (os.path.basename(__file__)))
-+
-+finally:
-+    log("Clean up...", "", level=1)
-+    log_level_inc()
-+    clean_up()
--- 
-2.29.2
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201219163652.GA22049%40gofer.mess.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012200043.rPhoEuJE-lkp%40intel.com.
+
+--jRHKVT23PllUwdXP
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+H4sICKwG3l8AAy5jb25maWcAlDtbl9s2j+/fr9BJX9qHNpZ83z3zQEuUzVq3iJLtmRcdZ8ZJ
+vfWMZ21Pmvz7BUldSAmadHNO0xgAQRAAARCkfvnPLxZ5u52f97fj4/50+mF9PbwcLvvb4cn6
+cjwd/tvyYiuKM4t6LPsDiIPjy9v3j5fj9fGbNf7DHvwxsNaHy8vhZLnnly/Hr28w9nh++c8v
+/3HjyGfLwnWLDU05i6Mio7vs7sPjaf/y1fp2uFyBzrKdPwSPX78eb//18SP8/Xy8XM6Xj6fT
+t+fi9XL+n8PjzXo8HOzD9MkefRlNnNnTxJ6OPg+Hk9HgaTxwPn/5Mvw8Hu0Po/FvH6pZl820
+d4MKGHhdGNAxXrgBiZZ3PzRCAAaB14AkRT3cdgbwpybXGJsY4L4ivCA8LJZxFmvsTEQR51mS
+ZyieRQGLqIaKI56luZvFKW+gLP1UbON03UCyVUoJLCTyY/iryAgXSDDML9ZS2vhkXQ+3t9fG
+VIs0XtOoAEvxMNFYRywraLQpSAprZSHL7oYOcKnlCRMWULAuz6zj1Xo53wTjWjmxS4JKOx8+
+YOCC5LpuFjkDhXISZBq9R32SB5kUBgGvYp5FJKR3H359Ob8cwBFq+fg937DE1UWrcVuSuavi
+U05zioiecxqwRSPYimwoKAFGkBy2AzCGNQSVUsEC1vXt8/XH9XZ4bpS6pBFNmSsNxFfxtmGn
+Y1j0J3UzoSIU7a5YYtrai0PCIhPGWYgRFStGUyH2vb6UyAOblQRA26B4QlJOTZgui0cX+dIX
+rveLdXh5ss5fWkvHBoVgJFbOmjZ8pTJd8IU1j/PUpcq8nWklBd3QKOOVtrPjM0QQTOEZc9fg
+wxSUrbFaPRQJ8Io95krJS3AUCwwDqVD/kGjEM1ZsuSpSymGykKaGLjqCNdySlNIwyYBrhLlb
+hd7EQR5lJL3XBS2R+jCpBzfJP2b769/WDea19iDD9ba/Xa394+P57eV2fPna0gwMKIjrxjAF
+kzGvnmLD0qyFFhZAFbPgHogUu5RzQZ6hRAlnJrxU0b+QWa4tdXOLYwaO7gvA6bLDz4LuwMJY
+COKKWB/eAkFs5JJH6XEIqgPKPYrBs5S4tBavXLG5knqLrtU/9IWw9QqiNvgUso5qO3B3RT21
+KartwB//Ojy9nQ4X68thf3u7HK4SXE6PYFuJhkWZ7cx0QdxlGucJx7cFRFoIE2B9REoQzl0n
+MXAUOwSyFNXZKtlFwJf8UfYQWH0OcQZ83iUZ9VCilAbkHpl+Eaxh6EZGktQzs1hKQmCsQo2W
+RFKvWD7oARYACwA4hod5RfAQElwWr9hhYUKOiQ2+wcPI+P3AM03IRRxnRe0UjYniBAINe6CF
+H6cijsH/QhK5hmbbZBz+gW0GyFpZAJvFpUkmqzLhsJoIid/8UFuq+S3DOKTF1DDpkmYh+H5R
+JsR3bPoeha+yAxYYY852eqitYyI42RqPT/kShdPAB/2m2CwLAlnPz2VCb4TKoWjFOSVx31LZ
+MiKB7yFzyDX4msFlUpOAejhhMcqWxUUOC8bXRbwNA/FL/WLbMqThgqQp09PvWtDeh7wLKVRh
+04ZKHYmdl7GN6TNFUw01RgAw7OEgJpguQB7qeVRThqyvhHcXda5vbO3ag1En+5VHj+Rw+XK+
+PO9fHg8W/XZ4gVxCIPK5IptAMlaJsuTTsEdz07/kWIm8CRWzQmbMln+KyphkUFavsX0YkIWx
+i4J8gbtTEC96xoNR0yWtimCthBM4HyqGgHGIwrCv4tCcS8evSOpBZsHDLF/lvg+VYkJgIrAv
+lO0Q0jH/CkkiCbZFHolgy0gAEcgzN2zss6Dlw9XWEGFIpg2jnDKPKhXxZLTQ68SUcXfTqiql
+PGkEkRwq9SKEWtmevUdAdnfOyGBYhEUYe0aMDcMcEf0B6rnCC8nQaWTYEMn3bjivo1gJGU8a
+COg09n1Os7vB99lA/TGE9GGrwc6F4xdZBLS1xC0Bx5NFAQmKVQ5hONBOKzwj7lpVIzxPkliP
+4woMhTnwX/Iuvi68wYaLFHIw+BikW4SA52EXutpSKJA1fskyE/IXAWyWAJSinQLXkOc1AVQ1
+c3ZBvyc4+hutBB5D7cN8FXoaDwWoKF2xPQIoONF66X3WGVLBi7VjDwovW8hzJxSHaFgwJZJC
+Jqf9TcQI6/bj9aCHGGmbdDN0GCJSiZyMmJbghZsFsJm9QJ4PmwBSI0iE1TqAzkGrXB0dtTAO
+3pys7rnwHGdphpkwwTZfDh7cqX3VLmCcFMaZyU9yVEemQvT4bNSkzYHMHgyws9VD4YwH+oQA
+GZqkLS44mztgU3uCLDtXqTgC6eGlLaCUcHEGVudXYeqr1sgKPdmI+fChGW5QKq84/wNlNiSO
+/dfDM+QNjU8TBkNcf31D5Vj/eHn+Z385WN7l+E0ltcoeLA23JKUixUNM0zW3jOMlOEhF0cmf
+2eHrZW99qVg/Sdb6yaGHoEJ3hDLaS/vL41/HG+wZUO3vT4dXGNSjkT/zMCkgKdEAs2TddpFh
+axXH627IAb+Wx/iy7dWKlOKIA1FWaChO73uQHoPzBtAQ7SSg5uYyE5TdKn6HFCwpXaJwUSur
+SFx4edhhLKZv1v4+Fqm7GjIIAaLaeAcFThBkrcJdYfpULsWGlJ1R0WtsJRYd3jA0MPAzjdFc
+L9nDv0VDWBp1zfT2q0T3dCOwFChSH2wqD4oVkrbVA4Yr9ZBQF5KHFt9U+OTCSPJgIBSsd3xF
+Wl+AcLB1PKywGzqQ0GVN3xfoY3nEguy8pmkkTLjddas1kQT1KrLucS3dePP75/318GT9reLU
+6+X85XgymjqCqGSP+LXEqrKLFq3yvI1Dg9J7Mhh6Fh33JMiXLELrt5/EgjrlwP4TRy6q7SZ5
+6OChkH7QMl3bluLgC4WNOHF0UHlUgptqTh+j0GiS0fb+O0k4det2tqnnioBhW6FECo9KKefI
+uAolexQ/51DsHjpLV2V5yDgXu6ju3hQsFFWXpsU8gr0A++g+XMRBR7uiuUWFduN1bqSZhXBh
+bA/wyL57bpirqwzYiSyS+nbXLZct60A4fmZxCFEd0hbi1GHI4u2i2iX0++Hx7bb/fDrIGytL
+nttuRnpZsMgPMygCUpZgdWLNuSQUVbexvgaMdxsUHhTsItxFv6EM/vW26BNaSh0ens+XH1aI
+FRFVzlfngkY5AlBEUC6KHGfmMJ4EEKaSTMYZiKj8bi7/aAWJOIikVKgeP5yJYrIgnpcWWfvs
+FcVwKCrKAx84CAtlbwlc2a5JKPgUpEMZztehHmIpiVwCtVkDe0jiOGic5mGRe9qvoR8H2u8q
++1OSBvcFA0UbK/dTcPVi08pfIIkQBJKV2WJY5knfJVbtIElGVSIhgW7OfotpTVPa7d57h2/H
+R6SkUwWEy8wOCEOdL3FdyE8d1jLwHh9L3lbcLbpylXNWNACNIIv26CYLE18LAxUE4gHkqVbm
+jzwS9F5syJnqQlXe8FX7t64hT+f9k6w+K+ttZSDXG1ZQL6Sk5qNK8Ta1qrm6q0Ioq5iJZr62
+XLUvyGAqWszaxq4VtMjh7xSqNKMwKuF0k6Itc4UWvleOhc0YxnqlJ3GE30duRQGJe0GbnQAF
+qOH66nfBHLdNU2ztDkhE1O5Y/QbQC4kqrzywnu+3lgdIn0aQUWSFjhcSuD+qA9fb1XqSW0Hb
+A+GKwVRmRlQgpS90Fp1THSQiCEbPGpcMa0d6mVYZxr4+beyL3JX1xAbAiuArUqPOoIxJKGod
+L/40AN49JGVmCCDDraoIGphhklhUrODrG7CJygW6xOA+KX5DkpDU7PaUgILsZrPpfNJF2M5s
+1IVGMWQVt9rG0QbKYP72+nq+3PQTpAFX6e14feyam9OIxykvAsaHwWbgeLrJiDd2xlA6JzFm
+AdiD4b3UTe3XzOXzocNHA83XwUGDmOepaJikGwY5ypgi8fh8NnAI2j1nPHDmg8FQm0FCnEED
+qVaQAWY8RhCLlT2dInA59Xyw08VZhe5kOHbQAOZxezLDURwyHiL+TnRddwX3fGq0cpJNQiKG
+Fi2O3pCjFMJNaF0181ZKlRio15wRwqXEBnRJ3HvNEgockt1kNh3ryy4x86G7m/TzY15WzOar
+hPJdhyml9mAwkjyrWssUvmx8fN9fLfZyvV3enmV7//oXxPon63bZv1wFnQVHnIP1BL56fBX/
+NLsi/+/RmJuX0VlyJqcbnJMsP1kSrd1y/udFZB/r+Syub61fL4f/fTteDjC34/7W7B0iTvZE
+JOFEK52ou4qNIkXfd6rP6nJWQjTbVpICUhT+OgtsgHr88vL6dutlxSL1uKm5yxIAcAsP3WsS
+6fsiqAVGBFQY9UBlLdLds4kJCdSfuxIj5cqvh8tJvDA4inubL3sj5JSDYnHmoZv2NBW8SDjJ
+d71YOFRQGhW7O3vQ3B/gNPd308nMJPkzvkemphsBfG4DIelV61L67isf1YA1vV/EJDWOvBUM
+Iir+IkojSMbj2QyxT4tk3gjaYLL1wkPgnzJ7oEdGAzHFEY49wRCiGbsWPbvJbIygg7WQ4EcH
+vkyg0nlG1isQhbjTpVh1UJNlLpmM7AnKAnCzkT17X6/KR9+bIghnQ2eIrQkQQwwBgXQ6HM9R
+oUIX22MNOkltx0Z4RnSb6c/RakScQCKFypcjgzgJeR4tEcwSzm0+46vqahcTlWfxlmzRmqWh
+ySNl2O5w9olPHPyyvhEeYgOWqBobhk6Rxbm7AgiyjF3p2F3OLklse/eT6Rculp0bY2TrIhF1
+YDuuiUBitoZEzzLhDsJN4aDEUWdUA+rek4Q03BWQBiQqU1Frggoj/uvpjBlkPITqvFekDd/t
+doR0pxFbr38hUBonGdRzbRHrAMrFpQ7+ZEKSyKtHvHFTEgh7qxj9DlVPdycN2UieBLXzkwCZ
+Jy8BAe20ID4UlD/aEGm6WLe2wtg2/vZIIfFyUCGH2P1YiRq1BRiS7tTjcae9sNpfnmSNwj7G
+lsj2RinfWoAEiHMDbB7smlaiA7YAh+4OS8kWL3Ultix98K1Qzsud0HweoUamboFOSJJFi12L
+QKWKHpJc0mCv90goO2xa96qEFBGHPKr7do0JRuYkZR2Gab9+jIuVYqpkhyJ1/wh1kHb6qqfM
+svveJZNA9jvwzS1fYdFUFz9I5Cv1uOdVbZIAN6zwg9hXvxF+NqCJaG96JNPuZxRcHF9UTkEx
+PEtbr1wlEuZn8rUxCO63OhY6HWctOThnfgsk35B78bItcbylaeyb1IvOzMaZb1u+1cFPfRRO
+0r2odR8uc+G/9o1zcywM7ltWbV7pdrylDhRSyCJLc57JJ4t1m07VppAsukcAPRyKXCEznvg4
+wTAOINTlGh6IBVo+V0LdB7BhvqtK5PDtdIPD1+E7rECI5P51fMVOsGIYSRdqVwN3qACjJeoR
+in9VQnagau4WOMjc0XAw6SISl8zHI7sP8d1IdRWKRW6WYnfkFUVKlyZHj2oDMZ5hsHOTwENd
+4F0VmqxUv1U+7O0RTxYH9fkFuJHT1/PlePvr+Wq4CYT0ZSyuGJ7bwMT12ytQYIJK35qjnrcO
+nqJZ2DhE47vylbb1WbQS1cnK+vX5fL2dfliH58+Hpyc46H8sqX4/v/z+CFr5zVyCK7qUXT/x
+qHgbKlvgsmJoLUZD84Bs+nxQIxNhUbwFNqehId04beY9RZZArWmY6LcqAhZXJb7BBFRdz9nD
+LF0Pd+1hnIUZxYongVS9qcox6HeIOC/7k7DER3AZMML+af8qw1DnmCskKpuZ5fD49pfy1XKs
+ZkS9gdPrBobDZvnCVIq0SjteSWDZfeqNWopIdJBFJ7nXsOIawG29mG8wwtl7Z1AkfcFcj8na
+uCFe1vMEv2rikNjwZ1gce+uWJOYT3gTt3JfYKEsERafQFLDH01F12dpZRbB0AyYul9bybbXu
+eRqy9BJcxopI7tcfzazll5DnSydKJFkCMp0f/24j6Iu80k1W91DNyi9bIpqJz/LEDap8KcIz
+EibikvV2BjEOFvgrOPjTUdyGgNdLrtc/dF/tTlbLXkb1zmOoElGoTzi0zj2LQr2VpdGLVODn
+UfshoeAE/8KnMBDK/zoiVaJ4ZD6YOM12quChmzhDPpiZBUIba5i1xIm3DH0FZkWShT5+Iq8o
+0vVsMMbcosTHLg1io3VZi8bcNBbf5RW8HVrVx0vgPdf91Xo9vjzeLicsCvWRdLQgqivS1anL
+R9NgOO5BzLXXyEJC41PGElD4hGdQba3K7zrHtlNRxH61IVpDWPrJ/BxRWb4kbo4wopySX32g
+BlDVFl7ISVznNaqEyk7XoKnx1L378/71FZKytEMnS8hx09Fup245nw24Oj4aRy8pGGg8Qo8F
+Eu1t4YzY4uRn4n8De9CSuN4wVapuoVOzTJDAVbD1WqAgXjJ301HHYjbh012LlpOQjD0H3CFe
+5G1c9X66ZSb42aIs87JJSUKv8N0V8vYBs0FdUkno4fsrRMTW9xiKa7fX3CaI8E/FlA63RauC
+7brMoLU6CXXampO1t1m/6HDh+33TSBLZwm4P9WfjKdbwlegsYa4zswf6hRWiMeXtvtfVpKGm
+lD3EEWktql3eKX9KhvPRsAOcTYdtnQjgeDLuLExFpX6rCA1PJ2Os91SunAN2NukwlgjHxq4e
+GvzcdlpybsPZfG5c/CH6MtW1XMJ5iRiPg5TosSteuNX85YsJaQL793+OZckY7q/tj4u2Nqya
+Q0QpPO6MZlhLSiext6E+R4UwA0ID50umrw4RRReRn/bfDm3pyjJ0RdHyvSYQHw4YEiiwWNRg
+3IcwknQLVYg32eIp7XuzClJ72Md+0oNwekbMeiUdDvoQdu8ShsOfST7sXf94gO1+nWI66xFp
+OrN7VkflHTeKsaeIm5TuoNUxoj8lH5CgZbHEiueYgfkZugbvFvMVkUcUYbdsJJ5bLEgG7qzd
+rsjHTa0Bos2zFA0FSA2DiaaFcnRB3Gw2H42N3F3h3K0zsLGyriIQqp0MsKHKGj8ZOkPkkXCn
+C+cL7aKsWpUBDElEOsBq+OKTM93ttDTcQrRvRdrolYdlrDaVlxU5WA0MUUSbsGsFqN5t/d62
+XnQPHGK/PR2M+jGIoiTGsXddbQFmNtff3lQIkZqcaRduRtCGjdQzwiYbTsa28cC/WjctP2UQ
+wo0m4wma7jQ5OxmvQwQqH9lj/FRi0MwxL9QpnDGydIGYDo1sraHG/2Lm8Wz+0xWM5+geqd07
+XAxH066Jl0R8qRFkrjMf2ZjXVrfE7/BOM9j14+7Cc5fbg4GDaMSbz+djLVqutqFe7MqfxYYZ
+17oKWDZkVua7e/XcbX+DGrd72qjfdHnTkT3SWRoYvNZtSEJ74NiIFkwKTQ0mYoJPLFDzn3E1
+s6COsqfT9wfPnRH2vM37P8aurEluHEf/lYx52OmN2IjWfTzMg1JSZqpLlyVmpsovCo+77K4Y
+Hx12eaO9v34BUgdJgap+8JH4QBKkeIAkALJwsA2AZwYMcgAU0Jd9EgdpZscBn8y1d0OqQ694
+GgaymcQCDAXsoWvuzNTJdutryjbPM7JMNrR7nziFv5ICjea7hko/421P+STPXFkfUDaKaELo
+kA18Cm1QnU67/RN5IudEH+StTL4b+tSN4cxx7lNKgiq13TBydRMlPXHp21FfURkA5Fg9fRi7
+8MD6T29eJI69biY2/Um9bdtLcQls16IkK45VYrink1janFIYFwY8IJimsG1qFoW72f+Weqar
+bcEAelhnOw69BKzWi3WekJdkCwef5IkJSgChEVAPAhUwJttUQHufCu/gbJ8YvQg4NjkjcMh5
+LVfHUEPPCYhBJwBy1KF+4ezNrsgQWAFRHEfs2AAEkam4+JXiXDukOzGa7QYObY2i8Ljx6zze
+XhNzDsqSmgNxaJAOJCeVp3WCaV2Lms1ZGsiKwsKf1yfHPlaprjosDF0IM45L9qMqoLaOKxy6
+REepQqpfVSE1bKowoqgR1QGryCBk5O+P9+qVaaWsDEqjxLA7mKqYbIfYd1zii3DAo0Y0B4jG
+a9ModKlBiYDnEA1bs1SclBQYxIrAUwaji2xPhMKQ2oBKHLDNdMjEbVqFBkPCVehT5Mf0EGwN
+RnhL2ns1rVubbPsjIy/yFvzCbKJtgUzrEgC4f+3nlxIfMatymHvI0Z2DcuBZeyMKOBzbIjoT
+AAGeCxDyV33qhdUOEjsm7OjGRN/pGetDn26TqoI5bVd/TW0nyiKbGNZJ1oeRQ07pCVQv2t0z
+FHXiWMQ6gfRhIOmuQ0+TITEm2aVKqbmaVa1tEe3H6cR34nSyioB41l4NkYEUuGp9mxypN2Y7
+BsPKmeUeuWHo7uu6yBPZtG3jyhHb2VY2DjgmgGgfTid1FoHg4NathCjWMox8tjdRCJ6Am3NT
+GQROeDntpweW/CKZwPH5NFG84ycSd8ct0JSXEmlmynnAqzp9XMzrRGCiser/ZW3zbCjxZvDe
+FSIoEesK+ZJ8xufQsufmBsLl7XgvVCNsivGEOzLuJ0kb4xFJRIiQlrZCnBOoeW+F1YUk4CMG
+MD4qcY5leBVDdVy9nbr8zcy5W6m8umKAkqbeqYd6BSuMApZesd7nSKfFK7gerk8Wl1Tf648Y
+LrAvlGhZQJXGEbD0WdFgyGCad4FV6uR4q96KH9MqkXNZj7RSNVjkapP44ccXHkZqttHdnCFV
+p0yzKEeKdOAtU1mVl+OpzIe0UTbDK3gpU3InjRwgpR9bw6CnPGaxH9rV/UZ+cZ730DrWoHsG
+SAy61cJK2zgbYH3RZIE8s19QbumwTWRQXRec3AqsqKNKqNupLDR3Q1NOvpF2TliOxj7zyYZc
+8dR2B3mRlYhUc1StEzj09gnhSwEbJ5v7ihCVA61qbJO+SDWZhYOMSlsuh5X8o6iFDQSt0a+4
+ueH5cblPHhdOMD8o15qDU9UL4ZUeu3ulRbFlLIwFiuI/02S9jdPmXZ5K7nJ21SUC9duHHmGW
+qGO+RV4ZcvAhUvUbTqx9FhiOhRHvCy8MBlPsUs5R+ZatdmZO0iYsTn94jOD7SN08OQ6+ZRGz
+zmQaotBYAdqm6/rDyPoU5mi1wXTLgilFWSnNiJf4tuVTB13CMEA+FxaUUOu6lAHBQndsU39A
+WTQ7B4nsy0csUm4RQVVsEGQqNaLvpe2E7t4HLCvXd91Nbd5UQ0T5QvNJeDL4+EkQ1YO0ZcJz
+PJX7Xvmonm9otqXPttzAgj4GWGDKaGMBPb1uhH2ebHluWijnjLv8jBqHGoNsIRqvp1eOUzHk
+GcZbZ8lZscZeWTAM2RUUFwD6a0XGSVmZUYcSkZVmdiWoxsQFk+c5Cga6PFzlI3J/qPKomoCE
+Zb4bR3Te82K/m7m+AGqIS2eNy6HhSFBhgq3532F6LSfY4viu7+83E2eK5HOwFVPnxJVe9GXs
+ypYjCgTbGZtsdRi6gWv4ojgfhtSuVWMh25zfcA8mxDUiPlkFwpRLAlnq+hGtc6hcQUjfg69c
+uP775Kyl8GhKgIJFgRfTgnIweK0fcaXAp84cdRGiwCBCOB3RGTCHTjcpdZODB4mHkWEYIRjF
+Bl9Oiau1oeFeqVvrCz91AokiPzYhAdmnqvZNGDv0twJdyrZNiGOqKWA+tVqoLKqRjoqRFxgr
+Cxpker4hfXuKBoN+KzNd3+Z0kFqJ6QZTTEC2DIfo+YdDMQ3dK1rmLunbY951j20huyzDLg+f
+tNgVcqNyShDzIvJQTWapbvS33yqSElaefYzNS2KQzAoSWiIAI8fbX6U4T1jTGYAa5tvQ9XZz
+QF3NMfYvoVs6lAqvM4XkgJGUUxqzXbLVJHXTJFZscvZelRbj+d/KIzQymindqKmr2pZnRTKm
+eTrHaqQUPs4zx/T+TJLXcLQaesy6G3cj7PMyT5cIRNXT78/vZkUQA0wrpq2TVEnFw+BsBdMY
+kzopG9hW3P4Gb1acC4aRDUlmhbVLMjSm14OpTzXLOhM0uwZIuCYEt5AkZV2M8DfNM5dxK7K8
+GZWAMlNzCZuVcvXcvT3//vTV40+8bUNOinxuXin125XGdxs/CTp+0Ry+aKsEMxQMSXYzaumC
+Q2joVVHz+a8+yyFfefZVXjkY8VKpH0dOZdJfMMYQvt3W9zp6x2CZ/5IMZanKS13v/dcvL9++
+fsJHdOQA1kr7Ezxy513O+UTsx8m39MMzhn56+v3w7vtBhJjH/78c/nniwOGznPifcq8X/S3J
+kpbRDwbxNjxeT46mjax04nNyOgbKbnsKwVh/2HOKM5lfxd+IUBp77d/iBLXfdgSzv83UUWYr
+KoWqOFwL0uJMSlBh/1s43aAGA1QYWGvuiRPLjWmVWzrgUjdVxqV/cpf/UnP5x1lBb569AS47
+1gjSuy/vnz99evftJ3GOLCY7xhLusSPijP34/fkrTBTvv6I/xP9gNOf3T9+/o5Mjuit+fv5L
+yUJUgt3wwbtGb1aWJaHnOtvmBCCOPFq9mjhyDKPk0+6nEotDKV9Ty/at68nqxdSVete1oi3V
+d2WzgJVauk6yqVh5cx0rKVLHPerYNUts19vMgbCchqpt4Up3KZvLaYpsnbCv2k2P7Zv6cTyy
+0yiwpRv8vc8nHBCzfmHUP2ifJIEfRXLOCvu6GhizgLkbLQV1wQXZpchetKkmkgPL2zbbBKCi
+YZ4UgCfyiO43AbuJjyyy421SIBuMvBc8oLa1An3oLVs2JZk6ahkFUJtgA8BXCG1704SCPBDD
+CjfoMOKM5bNb69veppU52d+UA+RQsZieyHcnoj4Ju8exRR95Swx7jYcMtnlA39rBdZyNmLDZ
+jh2uSEu9Ejv7O2UsEF08tMNNW6SD40ee4m6n9XOplKcvO3lvPzQnR5tZhg+JkB4pIcntei7d
+q93Y/PGTLHaj+EgkfIgim9pOTV/l0keORbTIUnupRZ4/w4zzvyLENca92DTNtc0Cz3LtzZwq
+gOngQylnm+e6Uv0qWN5/BR6Y5/AwmCwWJ7TQdy79ZrI05iAiYGbd4eXHF1CztGxxYYae59jT
+pD4HwNT4l4C2T7AGf3n6+uP74Y+nT39u81vaOnStzexY+U4YbzqIdokwVRQDkbVFZjm0mmAW
+RdS3LXQB17rpmKpH4BtB3TwK0x/fX75+fv6/pwO7iQbZ6B2cH0N/tKWkesoYqAl25CjXgCoa
+OfEeqFwIbfINbSMaR1FoAPPEDwNTSg4aUlbMsQaDQIipJw0b1HCXqLI5AT29amy2S5+fy2wY
+cJOci2WmIXUsJ6LrNKS+crijYp4Rq4YSEvq9sTU4Hpp32RNb6nl9JA8lBcWRq9zkbbqHbajX
+KbUs29ABOOaYJOcoeem7LdyhC8jN7XZKYeEytWkUdX0ASTenLVOh1yS2LEOlYFNk+4ZOXbDY
+dg2duoNVg+18RdeyO9qNROmHlZ3Z0HCkHfiG8WhpsZ3JeUjdM203SOJ9hG/v/vzj+T0RVCaT
+4ynBDz7hjlmvHGAgPWvH5DrsRCTjTNyHrM/LEx7iqBk/VP0UOGtLPx1nSC9VvCXQwgYIQ1e2
+TdmcH8cuP5EvC0CCEz+AWayzpMAdC4jB4sXG3V4fIFzhMk8exBsgvfLoCHJg7LcRvlO2Psuw
+bSZaE0fwDHtjNKFa6qo1gwnDdP0Fd9YLukSbmBSXw9dv27VOykJEkwMVmJ5UZ5a+KO2APiid
+Weqh5ctKHNFm2xs+3UdUCvxgEl7oRF21jZzPm6rBRwIV5UdilTlv51zr3jdoZ3kcI61Lk27M
+7uMlM0R8WpjKGxnEG/E2EY9SieOu5+9/fnr389CCbvJJk54zjgnKknc99FJZY5AY+ms/voVZ
+bmSV3/pjzVzfjwNddsF8bPLxUuAtIOhW5IMPCiu7wXp4v1ZjXQZU2VhNuiCh4ewWkJdFlowP
+meszW7XwWHlOeTEU9fgAYoxF5RwTXcOjUjyiTefp0Qotx8sKJ0hca7+qRVmw/AH/AR3ITmlR
+irpuSowaaIXxWz243ob7t6wYSwYiVLnl028xrsz40FtW9C3a7D5kVhxmchwDqbnzJENBS/YA
+mV5c2wvur/BB2ZcM1taY4qubW4J8vMvYFl1viQl2606yW5MqqVmB4ROTk+WH91z2L1u5mrKo
+8mEs0wz/W1/hEzd04U1X9OhtfhkbhrZ38X7xTZ/hH+gtDPSCcPRd1lMCwN9J32Ao1NttsK2T
+5Xq1rGKsnIbrRZr1MStgrHRVENoxWXGJZdpdblma+tiM3RG6TuaSHFM48bEPMjvIDF9tZcrd
+S0KpESRv4P5mDZZhMCp8FX2QSXJHUWKN8NPznfxEXqvSyZLktdo1J8hwf3D1efHQjJ57v53s
+M9meoKm0Y/kGek1n94NlG8oUbL3lhrcwu79WjZnbc5ld5hbZHfoC34KE8dKzMPw7LC7Jgqei
+STp4jpc8tLTwLMPzW+hT9/7ivvblWHctH6d1JBzvb4bz/qi7FfjAXzNgt46dOKZFgEHe5vDN
+hra1fD91Qnqvrq2IcmnHrsjOuarxTGvVjCiLajG/bnE4fnv+/aOuHaRZ3XMFVmnT9ALtzSBP
+VIJcrcHnSRpItXg/TatqiXdAMMBLFgcGe60t23Uw6YG4vkJhWZ6qclT4dMylaNGnKmsHtKw5
+5+Mx8q2bO57uulT1vVzUdaNMqIa1rHY9gxGRaO0uyTDEfhSQXsAaj6fNX6A0wp8iEs73Ss5A
+ji3DOwUz7rjUIwUCRW1j7gZKmeyCjyuySxq40Jr4HIleNGv6S3FMpoNk0r2dYNMWaA0Nd9Fo
+D1XvSzgOS8+p9QxGghNHXwc+fF7SvGzOpM1sp7fsTQHi5h8mmaQeAtejDAh1tjCSj3UUNNvM
+QUrCwDHlz0MXZ7fQtzdTsATtbJv4iK4uWRv5XiCr/eYZQalBl7bnqzbShl6dcIBwOqo8+SBs
+N9AUBXazPTVDgSKT14xvNcc316J70PQSjCEpIojPs9jp27vPT4d///jwAXY7mb69gY3w/PT2
+T4lWN6w4PcqktZjloUHclyqpUvhzKsoSX3qW+AWQNu0jpEo2AGwjzvmxLNQkPeyHybwQIPNC
+QM5r+fAoVdPlxbke8zorEsqFai5RuZc/YUT5E2hteTbKFq1Ax3BrZXG+6AXhm/LTppnauAEH
+7r9QQiZC52+/0R9z6GQ5qOmafnkhxlALO9OcYZDIvRdkSnGEXf7APF/WHoE+xwjSqjUZatNF
+VjnqFrBHVssE/dm1lGhpZFcUbxS+e/+fT88f/3g5/NcB1PntW1eLMKjsc5OTKdg/IdLybRTG
+VbgVf2CZ47sUsrgLbBDNgnAF3qRNNd7pF45WriRDM1CLyplDIQlxE2grMUIxicD85Q8UIlkW
+EhUxBDOXMr75jhWWLZ38mAW2RXsySHXt0iGtqZEoFTOF9plfn9zvI3N6fpMjD8N13OJ5y/oL
+lhIlpi7+Hvk2EkZxTbWAxHE7J3ag5jUhaXllDvcDWV/n1E9DJROV5lpvn5e9FNn25PRSSDY6
+8GMNgsc6UIjZRa4M4KanXa6Y+7ZymOMcFni6h+r/fHr//O4TF4eYjDBF4uGu2pBdknZX9d3F
+mTieKOdhDrfiRktNc4XJnpp9eDPk5UNRq02TXnCvrdMK+KUTm+s56VRalaRJWT7qQqT8wNwg
+RPooXhhXMoJPcG5qPHpQ9ZCZam6FHM+oT2puaLHZVBrtrXhJSxH0nFfHoqNfW+f4iQxQyqES
+FIzm2utZ3opbUmZU9ApEQQZ+pqGnenikzVwRuycla+iww6LA/M5PVsy1eOw2/tAKQ4F2bwaJ
+C5arDflbcuwSlcTuRX1JtI71kNcYGp2pAaIQKVPuNW8osFTDlAlS3dyoaYaDoOfiyFJLn6n4
+o5VC6C7000mb0YruWh3LvE0yh+5tyHOOPUsklYj3S56XvUIWg+NcpOLJNK0+FXzRjvRPF+gj
+txlVKwSaFR8Nm7ww/nvfnKiLSo7j3rrLtcGMD1EVc0+U6LBJ1gsARTun4uUiBpo2+sXDUJAm
+XImotTJPkrOkfKzpfSdngLkHFy1DiWVS8/OZdDPy2g6P2Y359kmhVUSD+QGXoVhu94kvParN
+1bM8qTYk6AywNuQbASH/ttQfxpA/selVCxzDeAaa9AV9Cs5zr5KO/dY86kXI47S4NdrIBS1e
+sWjlRNjAnyudhq8siQjQcr1kunmSvuISO7a9q2Z6L4qq0eeXoairRm+6t3nX7Lbd28cMlkvj
+mBKxQMaL/JKKRE+hDqCSil8qR1K2ijEPtdKvT/oo2sgiIH+YqKDfNtokW95Wk4izQNcedjWX
+tBhxV1Tm0yZNHmLIseMfIHuVt/euz9/AAkoQN+YyVTpO98bC1KhKf+2zXzFAxeHy9fvLIV1N
+zrOt/oPJTQb2iPUZVEr+5gsRBjw7UWswclBbMF4Urc4hdIVci6BrStLmBBjSN4Qol56KXoxI
+xR4UZlBH9GcgJ6jO7/ylYWntyPGskTsFEDThOKAsUivG52+YJxtqFeV8xw53BjVoWvieW3pB
+p4Vs3kXj1otQU3nCJGG2Y4iiJhhq13J88l5I4L0bKF7Bgooxr5RrDiFmWgWuQzngrbD6JiGn
+800n9QlX1KETUYYxMxrI9tQLMXYGKqvAsunFhjMIn0NTWeIdh62EE920r+Q8qsuwkAZDHXhb
+IYFMep5OqK8FXJnJPncbrSpyNp2Y1J35Kry8i5aplNgIBe4mwb3S+Fb/epXzmDmKY6wQjbl+
+7G6GzeTuaqoQPqfsW6GWFytTP7YHXcKtx/DSvfy/dN5tNA9Ox/OUINaFL3rXPpWuHetFToCI
+j6YN4cOHr98O//70/OU/v9j/fYAF4NCdj4fpdOUHvjdBLVqHX9alXno1TjQsajqVJsISgUNr
+2HKA72NqV4xEoDcqj8ExdTBquOlfAYmOHOlNiHOuXJtfdyzNwb49f/yoWICKAmEmPCunGzJ5
+FO910VgD8+elYZtBMuOXHHSuY254JlJhXQ5rjF1wYkzbq0GaJAUFrmCPeoNOsBptXoHmOF/8
++/H2ev7zBZ8I+354EY229pX66UW4gqEb2Yfnj4dfsG1f3n37+PSid5SlDbsENnvi8VO6+sIn
+8rW6t/hYqjGPlp/i0NtYtaHQS4hkS9I0xxhZaH9CuSrnoEVu3SM7lo7Ks1VI0BZuJF1S1sAw
+IYnz2eo/vr28t/4hMwDIQKlTU01EcyquTqlp6puwihNuNyw9PM+XL9KQQMaiZifxJpaaAaej
+ByNJHa9Fzs33VBj9ZLlqKFm+YeEbN7CZOTke/bd5rzrkL1jevKXclFaGIbJkT+eJnvXLETqJ
+jCn0zmtHuqdLjPI0I9EDJSrGRL88VpEvx+OaAYwKHCsO5yvw/5RdzXPjOK6/v7/CNafdqukd
+W/4+zIGWZFsdyVJE2XFyUbkTd7drEzvPdmon+9c/gtQHIELueZdOG4AoigRBkAR/aOI8FJzy
+YnyTLIdun3t3IMOe07hKT1jsYXFDhKnHVtGHNlnjvDpsj2lWW9w4Eer/HSEWpZhITLgWH/Sy
+SZernuHkDx5nd0uh2X3fubNLlcpdnOKjhJIxV1NPn+nfVOlmj6cPca4WLO8wze1HysNmlTnd
+KA4LV4EEqGNZcyYTFrG2+lxPjZNJtaOdBO3DWB8Or2BbJMDycBvql8Pfk8oxZlTa0Atoa8vC
+qK53yFUn0iJTlynQcKoCTcbM191VuUtvjSpyRsPhcWNqATg0t+oJ9CE7UMCMTAAVNQrCX5ih
+8cDhSnYGXc48NVABq+7M7nrjTLA2IhpMspufBwJ9RjOBTjBbSrqMRs6A6YTZ/WDSZb4mTYZu
+lxkS0GfMCHp6XN1HSdmLp+MX5SXdVrPiKjeB5CqHb6b+x986qb6niZNYMRqIfdX3jPvdKjsb
+uNlyf7wov/xmHav9CxypDtiUMOfbKWgVa7ae24gI8nHlQgQA+Vj5oOlc3IYuJo/ijV9HL+D3
+A7e8KMDGVBsR5fxivFpM1e6L9kXqgBBa+fIpsd4WIV4021PoooCJpTcYjCfdcs2Ad5QNh6lk
+EC0gXUoQwDk42tLLeqM7Gvus+A73mUWy3ip8vCKbeFaT77nbIKex7ohhXbxhmA0YtRyUkk9Y
+UXy0WnvlMd01xxze+UUSetOIFdL1YF4MAQs5gxqQZgHZhjUUWNByeV42XiIInoKGtW0KF9cU
+n8+ny+n7tbP8fN+fv2w6Pz72lyvZOK2uEd4WLd++SP1HyOqO9T8Ti4Ddz+dGXUnLkyBh04ms
+0zng6ZUYCfioHBLeueEd0t/wTt9WiWPI3mgJKiXxlfqgMCKj141CKhrjNlLmdIAv+yJew6tE
+HBkM+zhvQYNFIeMps8eFBFKRwaCtZByzgTiu5/rjLv+BwJs6w5YKudLpAmBocrtSCU5xiegb
+t63gAvElYjfiQMCE2M2CTOYPaRKqIR6unMkycYkiWIlua1o+Xw8HXaUNLgq1WD4oR2oVxu5d
+Odm5Oue2PH2cOYxmvXuhLAYC09YUZYhm9K0ydQ3sNSKqpV1z/6POJ50E2WgwwzacrUr1oAjC
+WYwyBFZ4ItEShfiZTMd5RESLZ8k6Mt2/na57AJZgHTUfTo7UVzaOvauU1tbDptD3t8sPZkJO
+Ioki1fXPfCWbFB23tKDHgE0OEJpcZEzL+pF6NIJcHgIKemX8a/Wl/5Cfl+v+rRMfO+7Pw/s/
+OxfY1/t+eEZnLuZ+1tvr6Yciy5PLJfzm2Ca47HzavTyf3toeZPkmD902+WN+3u8vz7vXfef+
+dA7u2wr5lajZn/pXtG0rwOJp5v3H7lVVrbXuLB+1vBmTIZsdJnbVMCkVc3t4PRz/sl5TyJb4
+PO6aVUzm4frZO6fX1fusWcg+/Pd0oBp/UQmbX4Xpm5+dxUkJHk94BJQA+xrA38R2xyvPj9Qq
+D7l4SCjxUxjcYoXjBYkAxHhIsWFx/Euk/7Z8A6QgISWY0Df6EV5zENffm/sbsxdZcPxt5tZr
+QP+v6/PpWERV2sUYYY35/1W4aKQXjLkUasLtWnR6wFEQIQtUfzi06Em2olAoBT3NJtNxX1h0
+GQ2H+KijIMNpbzPhfc1SSqv+7bfkUANoLXY/LMDbyJDlTfntczxF1LTcnXGisBZoo/urBYRQ
+c1w4pyzxign/bh7MtRQlF9u9apouaki45r9zyT5DP6Z8qwStrkQcLKKWU1VwbH2ubxjFA3xT
+oloarSzUWDw/71/359Pb/krUT3jbkEBEFQQKo62JeGOwIFCpWSR6dFtMUQYteKMzteYddvUO
+ObdM8ISDld4TBGxVdWzqYQfOEOjFJCCxq24UiaFfn/c92mtqKVEwxDaQLTzYlCr5tUndSo/H
+Er7bul/hliuLlOD2HZp0LorEeDActuWZUNwRAfePxITgkSrCdDjsNQDwCmqTgNEkNIbFkBBG
+zpDm3cnuJv0WME7gzUTLPe+GDhq9PO6Uc9C5njovhx+H6+4VjoGUhWxq6bg77aVETcfOlCwb
+FGXUHeWBWTgJuNjPapaSm0639MlAZzRtZN6s3XQXAF17LZk5TUoMZRdJSgB/tfHDOPGrXMpo
+T2A7xrps8lDl5GlI7jjASC6aMCHdoEltwPRi22vb/4YVXOPqWqWGSX/g2EAfcDnYoBK3NtFK
+rAE1mnNmPD23RbFXHarX0Vy6zbuTHteumil7XZx6rU7BYJqrXv/PR7322hVO0tbil4p5Swmx
+ms7Pp+O14x9fiA8GZiH1pStC/1bx6OHCa35/VZ4UUfRl5A4cAr2EpMw7f+7fDsqVLXb8SEVE
+Fgo1qSwL68Ypv5bwn2Ir+GwW+SNscc3vJhqT68pJy7XHQNy3wudK1+t325JAQE2CFO5NyUWC
+zzlkIvHPzdNkSlABraYwu6GHl3I3VHVMx1U++OlIgvVL42/mYhoX0GCXkzN6K18+niIiWSeT
+c+qYfZmUz1V1ql1ti9mYc2iBPK8w9sUVWaPIVwCN0+pH7CqyfcNuC8wH5FRg9zoVYzAYUQs6
+HE77aVsxo+moOZPV03QSZ8qGtjDlYOBwG0DRyOnjUx1l1Ia9Mf09odkZlXUbjNmricqqqAoM
+h9jgGoOiyLjrbzaqOY1WGvHy8fZWou7Uegd95a2j6FH5ZQuML6A70SyBNL+dYzw6su1oiRjX
+lA/9bNatuOG2/9+P/fH5syM/j9ef+8vhvxCu43nyjyQMyxW+2YpZ7I/78+56Ov/hHS7X8+Hb
+B+yuYz2+KWeOxH7uLvsvoRLbv3TC0+m98w/1nn92vlf1uKB64LL/v0/Wl9tufiEZLj8+z6fL
+8+l9r5quNK+VQVz0yPUw/ZsOyPlWSLWo7vI0KosszeIxjYkTGiXrfpcgxBkCO/zN06ynqlms
+oxpkC7VS4/209sYwBna/e73+RPNPST1fO+nuuu9Ep+Ph2pya5v5g0GWHslqzdntd6v4aGg8g
+wL4JMXHlTNU+3g4vh+un3acicvqN29LLrGV+W3rgBnKAkorjkIN4EgIeBR4JolpmkqQXNb+b
+E+0yW7flmg7G3S6bSVUxHAJoaX24sVFqcF4hPO9tv7t8nA0C5YdqSKLsQUPZg1rZq6rMt7Gc
+qNq0LFPuoi1N+x2sNnngRpAmvO0ZEFHKPtLKTnYGMINWo1D2UEYjT/KJlW58s4nn09cXbf3w
+vqqe7PcaC431VukmOzMC/BvRZEUBTGVONvHktI/jdjRliptdyHHfwYuF2bI3xnYBftMltxup
+Jyacew8cPGeq3yZPSf171B02yhqNhlxZi8QRCUHRNRT1qd0u3jeB3Htq5RQi21S5MjJ0pl2a
+84Hy2NATzerhOBa8ng8lS0/SmCz5vkrRc9oSSiRpd3gzpXDzDnKYpUOKKhNulB4M2KSuyrYN
+CrxDbO+AxkWirWLRI6mZ4iTrd+nbEvUxTheorFnoNdC3gMJiQKjVe7+PDZkaVetNIHFjV6Tm
+KMxc2R/0eFdS85p4MI1GzVS/8vFYmoPjsIAwxttRijAY9tE4Wcthb+KQm30bdxUOeKAuw8IB
+KBs/CkdduidjaGO2gHBEQMGfVCc5TtFJhQmiJsYcTe9+HPdXsx/CGJ+7yRQHCOrfZHyKu+50
+yi7li921SCyQp4mIjSx5YtHvtUxgIO1nceTDjSvio0Ruf+hgBJjCDuvyeX+kfHWTXeoA5NKe
+4CyKDUZT50p2Gim1taaU+lyfa+f/qTLTvr/u/2osi/Qybn0jSV/5TDGjPr8ejm39iJeUKzgE
+ZRoTyZh93zyNDZgIViH2PboGZSx650vnct0dX9Ti5Liniw+diCFdJxla1OLegfhcbr3LF13M
+mkflixlU8uOPj1f1//fT5aCTF1rNoKeCASQNpqPi10UQD/39dFVz94HZyB46Y7J35cnepAW5
+HZaHAzZTEqwSuwQkVxGIacmSsGsyu1sOc6NubL1VG2JHK4ySaa9Lccj5R8zqCcC8lf/CWItZ
+0h11owUe7olDd3TgNx35XrhUNg0popfIPvVgyCzqS/ayZ4KBywI36RUOfbV6CXt4G8/8btig
+JOxTITkcUcfLUNr2xBWzT4JYC5tjVbqelYYDNkJ1mTjdEaraUyKU4zSyCJU1Kheozc6pXcvj
+4fgD9RmdFAiz6ObTX4c38NxhYLwcYOA9M52ufSGCIAOQmync1/TzDd3JnfWcPj8DJ43ApdoT
+mnvj8aAFkVOmc3Y9J7dT6kNsp0Pq7cCTnGcH03C/S6HDNuGwH9oJt1Gb32ypIrTjcnqFm0tt
+pwwojuOmpDG1+7d32N2go7DWOjBzXaGsrB9xUUJoOIEE0vdwO+2OeoMmBbvsWaSc7lHjN1H6
+TNnxLr9w1CyHvxbMfVT5EnJDTv2ornLUCvQQtd63Bd5chvk8Q3EqQCwaiviximzyKLcUpK/w
+4egzXZ0y5MnMxem9hg62YVoUBwKN6m8RqlaBi8OCTJr29B4FEAfS3cDcieSK2I0kLC4PlbNz
+883VixPh3uWzNQ7w8aWf0VRkKNYIeLPUjWQ2Kw4WuNhhLRZoKMPFg10AQMbpO3RWbE+yfOzI
+j28XHdlRt0+BMQOI1/W3ImKBMGjY9TmuCzDMKwERAA6IcV2nHi4CpPMsTlNzLs0wdeEsRwbK
+eaHKgrki3PA3sEAK1C+ItpPoHirZKhYFWz+sP7LlO5KtyJ3JKsqXEusOYUFT0M+IXT+MYac+
+9Xzi/9C+qB6BYBZXJCQlnstXPRV26LY4vpxPhxeyAbfy0rgFFKAUr5wAgYLlymte+GdlAsz+
+2kPnet4961msOehkhp5VP2AlnsX5TMiAevIVCy6vcbdnQKKxQQ4kGa/TIvN0TPGJEJe9OGmL
+zbNU4PgiM7iypU3JFyxVstRIrhlqkgUMtbxnV+/h2Y1bPjRPFgJbMx3pmKhVRtLIaG+xdLAk
+2qJWBVngq8VD89T3nxDyZvNQNYEVixuvk5ANSdFFp/4ioIH08Rxz2p7z5igQvqTkYr4mm5CS
+Qz/SiAWqTts6eQtatzFJ49ZwprwYTx1iZIDccjseWDrAFY1m7hXVmI7yOCEjWgYxf6VfhkE0
+Y2FV9CLONeC0JGg/XgOHq2YsceZNCJN3zZ3Ler1BQ9PMsdDhVXkC2ioR92YjwMNU3qVaLCYi
+lXynS1jmARyoizrQoGjiS6AlJZ9BBHIe4/sdcK8hB7JBY0RLt5UHcQSPRIJtRlWwmh3Sx6QV
+jUpJbNT0xt7NnUvmtooh8effhqfjDLnihF1cSSvuCUM4WBRIwFrmFyz36zhjt5LXWTyXgxxH
+nxkaIc3XgGxGjoFcRWq5pKFWT/hhyJUByMg8DfCiAkAEzdWfuhM5ARE+CA3oGYYxcVuQcLDy
+fO6kBYkApLz+SPZtkZ8JwCKtotp3zz9p7ty5cqvcJR+wUUgbZ+my/3g5QbrSPTMcICI8Z1OQ
+aI7yN0NPuTt1He/8dIWHQONatEgBQ0zIfBEsAGlfOV5iQa5uwB/Tr2gEM5VEI0a5sHqwmFtS
+XGVXIaqD+lHe4P/zt8PlBGnTv/R+w2xArIaK5YM+OnQnnLHifPIcnP2NcCbDbsszk6GDVaXB
+4/ayGyJtlQFckTYO2Xxo8Li9o4ZIv+0rR4MbBf/6W0aj1oKnLd8y7Y/aOPg0qfFMe5NPB3yQ
+I63OmNseAJFAxqBU+aTl1T1HKwJfrGLy61uQ0lfwWrnle7kdc8x3aGOV5D5PtnqzZLR1Zclv
+9GNJHvOvmfLSFOSIcH7V/L0hfdNdHEzylL5G09ZULhJunsaRWDXfDAy10FFmq+XNRkB5Kus0
+tst001hkBmCsyXlMgzDE662SsxB+SFcSFUc5riwwVsEPVE3husGbxVitMeQ1+WK2dtk6vQsw
+gCIw1tkcqfd6FYACY6UuSPkKrjWEwZOBDi8vwrLzEnHKTFDZ/vnjDLtfODl3NdU8crZe+u4a
+XJ7ci3ypNwsytcBHPmIpYFPork9V0MrPHuKUxzqshBKRsWi0cEtRZxJb+Z72nWDaznVWLh0u
+iu4zNoRusJRnFYYAgUMu71pSYE9kInjfUML5i6uFAbTYYBbf/sZHEfGAiZWEFHPYnGmuw5ti
+4NV68cMKYhpanM3MX7Q4riX6Tt3RAg0cVeKfv0GU1svpP8ffP3dvu99fT7uX98Px98vu+16V
+c3j5HZBcfoBe/f7t/ftvRtXu9ufj/lWDoO/1jnWtcmZ5tX87nT87h+MBAi0O/90VsWGl5+Jq
+vwY8NrWIgKOwICshdpB/w0kBGiMJegOi6h61ZFjFK85/RRJKEdBruDJAAl7R0tAB4BgZhUTA
+Rm0vhRs7yvBQCCSUmo9to5Ld3sRVnGhzvFcNB8ucuHJ3z5/vV8j+et7XGdVQX2hh9U0LkaDL
+oITs2HRfIGuJiLaovHODZInvvTQY9iNLgz5oE23RdLXgaKxg5claFW+tScmxHrlLElv6DsP9
+liW4ccSIqvlDLJhGKeitD0BWGjFTi91G8olCajHvOROCk1QwVuswtOoGRPtN+o9nN8U6W6ol
+NFkxGk5zjqLc4tZViYLy8e318Pzl3/vPzrNWzB8Au/5p6WMqBfMmj5s2yve4rvWBvustGWLq
+saXLiD/dKttlnW58ZzjsEX/X7LF+XH/C8ezz7rp/6fhH/WlwbP2fw/VnR1wup+eDZnm76w7P
+y2XRLm/ay151ORjS8tmlWrsKp5vE4SONDqqG5SIATBnui/37gMvaWbXUUihLtil3zWY6ovft
+9IJRvcpqzFxbk+Yz5qVuxk+dFZvzVKoazchWl6GG6UP7IzFOi1LQEqhtk7jF6ePKEe0/PqQi
+sYfTsmpua5wALm62jph6Av7bxlKe5e7ys61RI2HXc8kRt9wXbSI925exB/vL1X5D6vYdpueA
+bL9kuyTg4AV5Foo73+E6xnBu9Kd6T9bresHctmTsJNCq5JE3YGiMXKB0Wh/t2M2VRh4ME2vm
+UGS8M1CTneGII/cxjFA50paixxGhCIY87DET6VL0bWLUt5/PlNcxixcWI1ukvandrQ/JUGdj
+Nobp8P6T7IZXVsSebRQtxycXVa/HDwXKCc+o0XQa2iAiXy3tBMOArerG9RzEG3JmRtE5nKly
+KvHt0T7Xf+32FKEUTJ+WltfuFD9NzLmmPcXwQZFlBz3E0D6WiXBPb+8QUFLesGh+yjwUGYvs
+U9jHp9iq42Rga1j4NOBoS5cZ2k8ys1OipLvjy+mts/p4+7Y/l1c/qOtfaM5KBrmbcN6bl84W
+Gr3Ham/NWUbCNleG08CsxrzGnGNLWC/7GsA6wYdDebR1bHzp18O3M2TTPp8+rocjY7chwZcZ
+MNZUpTi/tIogZJSrSvZidUslYtVcsypfBaWLuSXGsrkxAvTSCisvLXjy/+zdErn1Aa1zaP11
+N/waEGqxoMsHW0X8TS6yyFzWtlWr4ho30h5iJR/e2B1wJy9ItEJdsVmw6t+6ftjyEhcyzt4u
+XESQ+cPNF9uQU3cqYcficA/c+X40ExCaILVRb5gpo/twa+K7dnEvGvf5cvhxNFFCzz/3z/9W
+a1Ry++tviJcfNwtWIn2ELBqrbF6OtbB1kEEiPJFCBr0FHWMQW8MDb80CNScCzBjZdnPj1GP3
+JyGfh6+WR9GMIJOZXDYCra6qkBg3yIM4op6iq3pTWRFC6hFldXPb+3HzIFvnZBZy+8RWq5/V
+3iDVAM0JA9efPU5a+hyJsGhaRkCkD2pGsQtX7dhW7qilODKluBhhO5jZ3qeLNkoLdxNHM+mk
+iejzmVeqiQ1cBZPp6RNTITahSX8CKxKs9ASKNsaeYqYMoHJlqCmSlVYTJ0/na6ImVJaxfcpJ
+TljzO99ORk0ZEyuEYcAKeiBGA4soUrJGqanZUik+07KFhExEar9i5n61aEXajoJYf1u+eMKx
+d4gxUwyH5RAfhtAHLB2aE+8KSxifOHjJkDTMIhm3QAcQmXpr3/c9oICY3gnGgTFwRgs84Xlp
+nuWjgRohqD6Ko+oUihSikpban6DcVbwqGYDAkVCugPgzirZNyLlEHLkIzdYkMk9hTJZl8PvW
+2HHDpzwTCG08SO9hlkYWL0oCwCPHo3juoY+KdcKoRaAWISg6a11ENagecPFuPZw3QGrv0pqR
+2wAN+9+0uUGc+qbF6J50ORVp6vv5cLz+2wQEv+0vP2wIU9dEi0E6rVBNEWG1SzhulbhfB372
+56BqEoOsaZdQScj/q+xYdhu3gb+SYw9t4LRA0cseaJu2FUuiooeVnIQ0awRBu2kQO0U+v/OQ
+xOHLu73ZnBFFkcN5c/hQLA0w3UHXdQlGjvQDJ0c4a/4vfx9/Ob98GwXniVCfuP09Fuxh0gCm
+Fndj65IciEWHNtVOR2+M2dQwyqFXdfkFtJ0/5HJVg2ow6U8Woqy1WlOnAHLCLBrTaDGHA/ZN
+Hq3tw2SsVxTxKrKmUO1KWI4+hMY0mDJ/kLse+9gYStvrSn5A5XiV7G+/Lr3N2ivYafx5laEU
+KploJNvlh8hX9FrtqVoTFgKOpoz86JrRopGV9PI00e/6+OfH8zM6/LPX0/n9A0+nuhca4d1u
+mCtSxy4GGgfaRAbfEHfoh0sLAUjoYCa8AvPILvSTiLdQFI+mer9dLyVfle3D3T3W3ar2gnWM
++DZoiXipSsAE3MsXwJ851MI0/mXxeSOh8LPNyg54sWpVg5bdDiyTuY5ut2xkSJf+4v0SUqnj
+mBSDllgxsUkAVV2DQj2j2FCveDS6PRkBQ555BM1BanbZpg07X2eHdBCLUboStiyYV8s8toRj
+77CBQPJhJtXGS8+aOvFQkl2Z5S2me5G16M3v0pjcbwPj32EjSAMMihHCCh/Zr8xhWNZmr50g
+2w9tLncLYFaWLLrMrZg4NUmaMXI3dybqAKIY0PctVrFxk1y5F4STiI4nnuPTpi+jOYMEBM6E
+9226WZC2a+DDsWvw5kQyxuzv/Y/j5WkSzdLWiMIxyJmCUYnXZM+YKpCC1auO5EcKDhwYGPCU
+7ZrCGoXdJJFvXKwmVz6HGokAFJUc+Lzf7ffaUcGBVTI50/rN74vFIoHpK8cOcA4Zy5s9PRwK
+jDcrFaEzDmZ3fr1vm1wAcn89YulynVQDPMo5wLdtW+Ks3qAORTgIwMYARJhZ6WPVMWNDvBGM
+s21AQqUpim7MGQ+AXGCSovABe94r5BehW4qhSJGokZYGsLIWFpFUezbI/Ni95QAeWe343BAH
+XhDpyvzzdvr5CgvWfLyxNrB7fH2WJUTx/iFMGTBO6rPTjBnXnfC3MRC3mOlEPXjMGOkqW23O
+KlNm04ZAe3zHmBaL5RUSkd4R86gkkcdRLuRK48uGXQcTC4I3nh3U34FuBhre2sQcOCQC+C3S
+SLg8uZwWBRrY1w+6HVIwbJtFEQG7q4nzu9e6YrbLvimMg1ph8tPp7eUVY6Mwim8f5+PnEX4c
+z0/X19fy2irMa6cut2TzzFc9yQziQzSNXfaAFqhP72jDdq2+18FOECW93R0SR+97hgBnND2m
+aYXbuu6beOIwg2mMnhlKKUy68l9mm71XqNYUqOPmMOsXWMc4UWQORy+NmPFpUEDtbVfrVLqC
+/fRA3DWrjfO04BrNmjvvVdaGB3b+D51YGwu4Mh8+EhNDZg9mJ4HSpfUauDf7wi5Mz55l4Pcx
+gIuCQGnCwt+8u/5i3enr4/nxCpWmJ3TiOvWbaTGyUEGoYo1NRHmhow8ZKAoxRoPSHJRaUNnR
+YYtVCzI3k+riMN2Xr2qYOzACVD6fWAM9I6bKxdcblRIq7hhp956wTssVyqmNeC52ghM7GBdd
+NOm7JqQqd8T+XAIfZTu1DizUEa80Fb/Lyag8COP5MnQLJtEugUOtQ0FaGXw1etg9FDyIioRM
+mGRqCy7Ej69cjkUuIr8SNNW/I/zMCSKCiQcK+ND0GXoL/EEG+JMzKYEYXsi38VYJ5SBKCNG1
+PVfizmcqtRR5UxoBVAmQsJuLfZA6FyJM097nqrVfaIfHsz0uSKIuAj01NKWq8DrKmGSmTpbA
+jmC++RIabxocmE75DSawKkssd4Kltek5L8QzYQEFTfDEoIhqbBfuYPz1Xj+UCmXOXFZxmtqH
+st0FrfzNTIJZeesdwLOUPSw1vKxQdUy5FmRt8Zzz++NbVE6uZ/zuSDdbtHynafGpc1riQKRN
+gFYB06o8bmb3VoBhvYgCh5SzGBlFvjT+xgpMyAIYe30HXAzPbbnWkVgF3LHD7Cue4ArLXsYp
+mFPaMcwJVkEg4t5fTk//OvxfOpPb4+mMghtVyhXeXPD4fHTS6rsyi+2JSZ6hv5dK/dyyG1Mc
+l9sQd0xjO8dayRace7lkqKEfJDBqwJRBIuHFkuEhF5t8KKPBjHEUVaO3wdl+hILe3LorcDHi
+vkTGgrVUtVZsCS8+sd6WsAlqEBDENmEpkTz8+5qsv1MXyUMQF5cpyKTmwMB/F1yf8vAbAQA=
+
+--jRHKVT23PllUwdXP--
