@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBC4I7X7AKGQEQ52GJOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBEU57X7AKGQERXVGZCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 223FD2DF568
-	for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 13:31:09 +0100 (CET)
-Received: by mail-yb1-xb3c.google.com with SMTP id w8sf10558618ybj.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 04:31:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608467468; cv=pass;
+Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A50F2DF572
+	for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 14:16:03 +0100 (CET)
+Received: by mail-il1-x13a.google.com with SMTP id h4sf6985906ilq.19
+        for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 05:16:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608470162; cv=pass;
         d=google.com; s=arc-20160816;
-        b=A/nrezR4DWV2V6LYkPWdYQz7OmdGNP8zu3neyvtrFEitiGLOkWuUW+HRrnG5/ekKZV
-         AilNyAjRh1n0qL/CyQ8w4A/eeIYakLYGZhu6A+DI+s97aQhA19VkbS4ubplX6UKGRnSO
-         eO9Jh2J+HpjdC1peiWt0Dds0fCOhA5sbNVDNGf/v6mXnpCpqErarchzf9X+NZmIunn4u
-         NAjDSgoaZ+y185W2oSJSdZwBN5sexCXyX2ISGh0vGkTmuX8GZwf7LnZrpTMEvXCdmrX0
-         oFSJZ14MrGSAq7ELyraP169/oUoVFONKjtbqJQBktB2yQz7Ii0oSfn5YgC2fAw6F+eT3
-         bxTQ==
+        b=g1Ns0DDTU3h5VvVGuJiq8PjTMmAFtmIwGjv+JWgoU9rnQcuETFCj38hTk1iuFfCEA0
+         VcsZy8HX6PrXIZEnNkILhH+jhUmiAirTyZD/c9pNp0aQTN37uz5tLBYZr2vabfnODLMK
+         Fyywh9NaVudzltlyYaLndqw5WDeuFehRQMw3bDfhgcO6OWffjb8bnAc08WRyQIPHpyl6
+         y6HAeNc23cVExkmwUAzGFFCHa1bEdm2JQmY39PO/SvxvEh9lhS+iwgMfPuyZGERoAfgU
+         MpY087Z6H+2BLlJS7bH08Q0mtfvWqPnPeEBFg5d0GtNirrP/YrFo/WyhC6i0UtsB+lUZ
+         /4qQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=BBPVVn9HKcG6A2U1h9hTF2SeZoclxa+pgucWvAZczH8=;
-        b=mbj7n+8DsOSNyGDqRyYFPh91BiDs6pl9wLho0+LesMyr73bvQs04iTeOTJP5mG1xys
-         lGM9UG6WHdQQvdM08JWC6wdSOubKxMVd8HWRwF5mhycjhhCBXYTlNhurGwD2BqxL6ZO2
-         CTr5IeEfwlLGaEBVgx79AuUk7jG8aC2rX81WS+S4S9tpEa69cQ3p+vftZoq5b5MX67Bi
-         Ch4HygIBmspzqrf8q0ySNQoo6wFDRsJxzkBAmk7c0aQQGcmxcrH4sDH3BPJd3KHoxOFQ
-         z0XwhfGeYjoLQr94ErUqWb9D8qbu31PUU/vZAkwVylcu6/jezqCvV1fXQG+lgVRtc2AR
-         6tKw==
+        bh=XHjyKGDjnCwKTbqSGanKF3TAIqdPrV+JvZlzJfU4/4g=;
+        b=snJdmuClPh4kJ5McckMAkiudufe81brtUNRG3ZeO+My77oxpy7rRyFZRXtb11dbY5y
+         HcrKLuIXxCFZynlQdDgQRcIdNZFgJKvqXXrGK5zW2rPypb85Y/A499P9y58daxRYPzkE
+         PrkTk94MNDibznOcakuX/EQvfzRor06uiNEwU+7Cw+xq883RFySEtC8YDbzT5FYptPNv
+         Voz1ERXDA/ee3k35FVj5WSae7PzGVEAd5x5Luu78xz/k90FlPM0hcpaZ8T8xN4E/EMns
+         9qDSq3xN+nkuvb5OJlCcZb7LZFoe0k54r9FSkH2MMTdyOXtk8WyxIuUenPe5K5qxOSs9
+         v0/w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BBPVVn9HKcG6A2U1h9hTF2SeZoclxa+pgucWvAZczH8=;
-        b=XxzkmVh283d+dPl6zK7oO9Y1Sms/u9QN5p1jqJpUSEq05OlTgzeKyqTkmdIcHwV4y2
-         bDnzuvGCGGcy03QZVNEvzCmqmJGvYvfnQm7Dz1yoRB2Q+I52ENGIPu03b4HQIJbu4/+t
-         kwtlmeclL1Nxwbo+IqGmdEBpzV+qWCyaXcq4Qb2lbIeGk6jVstx25NzDnJ/Mf6w+5QMd
-         ZHTud1ymezMrlCR0IdqET+4dy3jQ7WMGuAJ3HLWOzeUVWFWRINw9ULDoTAzVf5yZOphI
-         Ws6h+c8PtgJzFrJoeGhXz3gRbNtsCRoeaZMJx4p0SAqCMUF/oHlrLD+P2JEwxrv7I0tF
-         LCLQ==
+        bh=XHjyKGDjnCwKTbqSGanKF3TAIqdPrV+JvZlzJfU4/4g=;
+        b=DuZpQQoEvwctLUoiyM51pozapijYPS+LjRl/E+GGyGUKZ7VbZmAPs8GwNxxbOtu2jz
+         3gV59oQx09AwJWvOPKFsyHfAX0sRk3j68WC2KcdlOGZR4mzqQzVKLl9MDgRRIz1zdl06
+         fW0a53//1wN9zocxzt3vaThpMCnE9BU2p1Qn0ngPIb17ks/wNfY2P1HUVrbqk07yUskZ
+         exlgeYz6KKFjiAQzcU+uzQFhMkRL1BbjVqVLZkLOnbg3ORNXoXzZCuDsiInbKsPlTKg1
+         XpOhqbmNtmykAhxL40ygsDKLE6Or1ktbhqFs/UmABnCGkBnZf+7F0o1vEb0J5fxoSUsz
+         PYqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:cc
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=BBPVVn9HKcG6A2U1h9hTF2SeZoclxa+pgucWvAZczH8=;
-        b=t5M+GJi8Kvm68YEyG/rvpuJfcC2A+nD/pfhdzFmCbHNAfPnZLs86ugNZ2DvwiFhbLW
-         YRKe6YyA8+DuzJC42gRMZIgmbmOcc4ClvAaJeruGUSPC3VsoxXVwUtMUY7tXAQGGoNFk
-         +f4HXGqBnaEDcebgyyWQxZPoul5Oi1wf9sqAaw758DuQCHcvo3nRH7mNz+QqgLYEvuyS
-         s61qWERBVA6NJ+WOmxvZhUnwb1gD7HW0Db8wZD7FsRuoUJ3zziQIk8v2BKSRO2oBlwzi
-         8YprFEfRN/6YNkn2NDiUEPl0X0K21ajc0MZw/4G4VpOQcYVgh9Ehh17kw0x6GUE/+tHx
-         nd7w==
+        bh=XHjyKGDjnCwKTbqSGanKF3TAIqdPrV+JvZlzJfU4/4g=;
+        b=BXLF375ixU35KF/n/21+G9lY7Ay7/+AW/iYtH1E15XCf8bh4V4c5N4jLADLCvInX6d
+         Gqe98lc0fhhEn61ooThPwemu0hBT2gE6cLb0DQs3Smo7TD1RIuO0ggzFOFFXGWIknMmG
+         nt4JDxKD3a1Xp4Ze20ieYZz1qg1rtaY/aBnm1015Rhcen4CWFMzrvz4JcER8YveBXVvd
+         kKbK4aYl3ix8AqscQ+EMkNJR9MjLESeahAkaiLv4TXUcpAkJ1oxMap63JsX/+ZRpPhq8
+         8E6/8w22C1EtGxQSjcWo2PAcn84eqbCZ1abUhoiElYBjQj0/7yXTWotca/vB4oCCwWYf
+         52Uw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531q+qEdpDVtCkHfcrgGFvVEOJz6yoGy4lcjxv2vq0JdBrxgoWS7
-	w+EI3veEvB70OeWS5L7bvmw=
-X-Google-Smtp-Source: ABdhPJwQ1zMeVxKDIExYN9sgmhdIzhjP6qZCykZxi8TywESUVaJJeaSvKoqqwvvWJ1H7G6+zO9Q2Jw==
-X-Received: by 2002:a25:d452:: with SMTP id m79mr16923851ybf.417.1608467467928;
-        Sun, 20 Dec 2020 04:31:07 -0800 (PST)
+X-Gm-Message-State: AOAM533fYya/vhmrEc/Ex6MZDKKY0Oy/lwerD2WO3EucBUbB5mTFamg4
+	m+QzTOmMd4s7zq4z06q8tqM=
+X-Google-Smtp-Source: ABdhPJzlI9uv0m4YijxgMo2y5Z1Y8Cy43fV6JZv5Ofs/AFZ6a1D92wcXYwLCgRerughUN4ubUX75Xg==
+X-Received: by 2002:a02:3e86:: with SMTP id s128mr11415165jas.131.1608470162233;
+        Sun, 20 Dec 2020 05:16:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:3f41:: with SMTP id m62ls84067yba.1.gmail; Sun, 20 Dec
- 2020 04:31:07 -0800 (PST)
-X-Received: by 2002:a25:e03:: with SMTP id 3mr16722394ybo.414.1608467467438;
-        Sun, 20 Dec 2020 04:31:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608467467; cv=none;
+Received: by 2002:a05:6e02:f48:: with SMTP id y8ls9512948ilj.7.gmail; Sun, 20
+ Dec 2020 05:16:01 -0800 (PST)
+X-Received: by 2002:a05:6e02:43:: with SMTP id i3mr12429936ilr.206.1608470161719;
+        Sun, 20 Dec 2020 05:16:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608470161; cv=none;
         d=google.com; s=arc-20160816;
-        b=vvz5eC7iqHDzCPM9mqx4RKCgtgNMzWR+a348yYujcJ9MenNDQiz68qB/K318Z5BhRX
-         nwS2A6O8nKE8gWT/jesURQE1EKzBb+4ocWjm+bkGZ5sIg7y8EQRJTBz2h4xVSh2IvX4J
-         e8FNDo6Wlgjidrg7bLyAtqmSopRC0/932AzBadwl6f7O3GCA0nAWu8pSJ+bB8wc7Coim
-         /HM/RmCwNKPV+mLAMILINH2G/2FNQUADzmDyJYFtTU342Q8gOhDwnk7XJWMSvqz97YIy
-         jVKPZg3hSY2Lni3goX/rIKA/kewZcrOHczaQ4YuR7bf/gEpjmljGaQLyZ7gZxrX6zyD6
-         4WDg==
+        b=sWQ6Lr9IlmwMmpGxkKjUmQkSdBRDaAwKxWw0FCN48Wfpnr5v066tNlLBdF0sCem+hI
+         ibPwGOTpqZF8ShONyLGn6ru2fb2sItu4PFnIWkNErfelx/4Oac6lIfbOE+X9e+J12Lap
+         vMs7Z4iQGwhNXwLvUdw77BuqEvoLlikXSGYJF11VaWUhYms2QeycTfJ0BBkwG76Zf8p6
+         JKHQLgXdlNbHls+YQGuNZQUjzukdCyZ1P70RAysovOmxQFjwrWzRIReZC5KTg2bviDHX
+         Rm0lUWJDFsScmiFpmIBK0tkWt0hLM84jFP6fMWdpGQ9vd6oMO2UhqSyfC3X6l83ByURE
+         RVpQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :from:date:ironport-sdr:ironport-sdr;
-        bh=wX9mYA512junvjL7gFBEwlFVKoSf5WPy1d2xhqJC7Sw=;
-        b=RJ02Hz9cOOLiQMm5q+YGtfiDyDKSWla79DqDGcSUISxo3kGaYQzk3oVcmw+lg3Q1pt
-         ng7iqMj1K6Ptzm5bzuW6UIbw5gexjZFWibXEINQZuW5PzvI+sZCN2d/q+cdfh/neghw0
-         7h/EpunPgWYm9uWbD6GrPIe0VhpJMHQ3BmeZKvyw8Iyahz8x+MGm59LevKgjFZyUCMDq
-         qOOeoiFk0YHLLeFAup8/SqccDvU666c0/des4lX3VCqPgWj4Vtt9Dnyuhl7Y2IgdUkSx
-         EdMG0qhCEebUDTxpRRsrQWILTLLwB0GAsJM7NsA5Cke2dNG+Z7MKVSt8GBLsw62FKssD
-         M+hQ==
+        bh=rAkkoE5yJX2Cig4e5bhnQ8QtVYHPATR4sbSSbelLvDo=;
+        b=mQ7/2NAYoV0TBanjTjdVtzOTe4BP1shlz8lE/Su11L0QBx20WjqYO5LPjEuzWTE+0F
+         DqJ9iOqK3NpnXFbe3FLfLobGbPL0k+qik2bvMCPHJEAovH+fUJqqegQrCrOltMz9BFZd
+         5GA0bTCs4INwTqW184NwDXz8CxyF+cNz4F1hGk+qGw+Hly6LuaE2FVQ7Xp9m2TM+GlcH
+         48ju52UUNbfWFo4JkCjBXG5uIHrWi0I3DwyFI6MfN8vW6N41s/LQzdbMH7F3U9KnBHpj
+         zOhxsvn4kCtTx/JbdkjPtfSIwakEOH3GmB8BibteiH/vHyes1QBEyMDt2wR71Gb33PBb
+         4WKQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id r12si1349151ybc.3.2020.12.20.04.31.07
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id j18si849055iow.0.2020.12.20.05.16.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 20 Dec 2020 04:31:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: enXQ1YaEUcX3XL8GVeROkQTtHFenl3+JC9mio1OBmBLLSazR+Rvd/PqeS+HaX8bUWmgcK+MX0H
- 6wgxUbH3CGDw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9840"; a="173063095"
+        Sun, 20 Dec 2020 05:16:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: +/SLK0HkF9gpeBg1EI/3FUOEuq1lQlEJF+my/p2zWbqMj3c2yAzyrcjmSMG2dfVZ/dylVDHIdI
+ RpQlWUwct9xA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9840"; a="237199854"
 X-IronPort-AV: E=Sophos;i="5.78,435,1599548400"; 
-   d="gz'50?scan'50,208,50";a="173063095"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2020 04:31:05 -0800
-IronPort-SDR: mDI0TkzyGV54pIfmWQDbhuCDNC6Ah8bmYL8f/avmoipfAQyGIyXfUbEF9uzmyYa4NRBjEjFPbA
- 9BBmXXuTk9Vw==
+   d="gz'50?scan'50,208,50";a="237199854"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2020 05:15:59 -0800
+IronPort-SDR: oedMZ72acmU9xkL7Sjx5pcK2kmHfmgGV2BNOyKR0Y8sodpdSEInYMIG1BXPNwcy8PEbqkjzUQN
+ RgWeQN66c69w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,435,1599548400"; 
-   d="gz'50?scan'50,208,50";a="354991750"
+   d="gz'50?scan'50,208,50";a="371807051"
 Received: from lkp-server02.sh.intel.com (HELO c4fb2a2464e8) ([10.239.97.151])
-  by orsmga002.jf.intel.com with ESMTP; 20 Dec 2020 04:31:04 -0800
+  by orsmga008.jf.intel.com with ESMTP; 20 Dec 2020 05:15:58 -0800
 Received: from kbuild by c4fb2a2464e8 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kqxrb-0002yH-El; Sun, 20 Dec 2020 12:31:03 +0000
-Date: Sun, 20 Dec 2020 20:30:33 +0800
+	id 1kqyZ3-00032j-On; Sun, 20 Dec 2020 13:15:57 +0000
+Date: Sun, 20 Dec 2020 21:15:28 +0800
 From: kernel test robot <lkp@intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [jpirko-mlxsw:jiri_devel_linecards 7/7] /tmp/nls_cp857-877515.s:65:
- Error: unrecognized opcode `zext.b a0,a0'
-Message-ID: <202012202031.eAP6y5Qf-lkp@intel.com>
+Subject: [jpirko-mlxsw:jiri_devel_linecards 4/7]
+ /tmp/gpio-pca953x-252868.s:196: Error: unrecognized opcode `zext.b a1,a0'
+Message-ID: <202012202126.7MIgINAY-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="IJpNTDwzlM2Ie8A6"
+Content-Type: multipart/mixed; boundary="G4iJoqBmSsgzjUCe"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---IJpNTDwzlM2Ie8A6
+--G4iJoqBmSsgzjUCe
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -147,7 +147,7 @@ TO: Jiri Pirko <jiri@nvidia.com>
 
 tree:   https://github.com/jpirko/linux_mlxsw jiri_devel_linecards
 head:   9f31749a2e3b71eb5e1e7fdb194c3cc72861f26d
-commit: 9f31749a2e3b71eb5e1e7fdb194c3cc72861f26d [7/7] x
+commit: 45959eba173ffc9d5e0a820175009fdb99c818a9 [4/7] mlxsw: reg: Add MDDQ
 config: riscv-randconfig-r014-20201217 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
 reproduce (this is a W=1 build):
@@ -155,10 +155,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install riscv cross compiling tool for clang build
         # apt-get install binutils-riscv64-linux-gnu
-        # https://github.com/jpirko/linux_mlxsw/commit/9f31749a2e3b71eb5e1e7fdb194c3cc72861f26d
+        # https://github.com/jpirko/linux_mlxsw/commit/45959eba173ffc9d5e0a820175009fdb99c818a9
         git remote add jpirko-mlxsw https://github.com/jpirko/linux_mlxsw
         git fetch --no-tags jpirko-mlxsw jiri_devel_linecards
-        git checkout 9f31749a2e3b71eb5e1e7fdb194c3cc72861f26d
+        git checkout 45959eba173ffc9d5e0a820175009fdb99c818a9
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 
@@ -167,8 +167,122 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   /tmp/nls_cp857-877515.s: Assembler messages:
->> /tmp/nls_cp857-877515.s:65: Error: unrecognized opcode `zext.b a0,a0'
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:556:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inb(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:55:76: note: expanded from macro 'inb'
+   #define inb(c)          ({ u8  __v; __io_pbr(); __v = readb_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:87:48: note: expanded from macro 'readb_cpu'
+   #define readb_cpu(c)            ({ u8  __r = __raw_readb(c); __r; })
+                                                            ^
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:564:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inw(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:56:76: note: expanded from macro 'inw'
+   #define inw(c)          ({ u16 __v; __io_pbr(); __v = readw_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:88:76: note: expanded from macro 'readw_cpu'
+   #define readw_cpu(c)            ({ u16 __r = le16_to_cpu((__force __le16)__raw_readw(c)); __r; })
+                                                                                        ^
+   include/uapi/linux/byteorder/little_endian.h:36:51: note: expanded from macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
+                                                     ^
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:572:9: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inl(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:57:76: note: expanded from macro 'inl'
+   #define inl(c)          ({ u32 __v; __io_pbr(); __v = readl_cpu((void*)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:89:76: note: expanded from macro 'readl_cpu'
+   #define readl_cpu(c)            ({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
+                                                                                        ^
+   include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+                                                     ^
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:580:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:588:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outw(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:60:68: note: expanded from macro 'outw'
+   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_cpu'
+   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
+                                                                                     ^
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:596:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outl(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:61:68: note: expanded from macro 'outl'
+   #define outl(v,c)       ({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:93:76: note: expanded from macro 'writel_cpu'
+   #define writel_cpu(v, c)        ((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
+                                                                                     ^
+   In file included from drivers/gpio/gpio-pca953x.c:13:
+   In file included from include/linux/gpio/driver.h:7:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:1005:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+                                                     ~~~~~~~~~~ ^
+   7 warnings generated.
+   /tmp/gpio-pca953x-252868.s: Assembler messages:
+>> /tmp/gpio-pca953x-252868.s:196: Error: unrecognized opcode `zext.b a1,a0'
+   /tmp/gpio-pca953x-252868.s:571: Error: unrecognized opcode `zext.b a1,s4'
+>> /tmp/gpio-pca953x-252868.s:572: Error: unrecognized opcode `zext.b a2,s1'
+>> /tmp/gpio-pca953x-252868.s:724: Error: unrecognized opcode `zext.b a1,s5'
+>> /tmp/gpio-pca953x-252868.s:725: Error: unrecognized opcode `zext.b s5,s1'
+   /tmp/gpio-pca953x-252868.s:745: Error: unrecognized opcode `zext.b a1,a1'
+   /tmp/gpio-pca953x-252868.s:875: Error: unrecognized opcode `zext.b a1,s4'
+   /tmp/gpio-pca953x-252868.s:992: Error: unrecognized opcode `zext.b a1,s5'
+   /tmp/gpio-pca953x-252868.s:993: Error: unrecognized opcode `zext.b a2,s3'
+   /tmp/gpio-pca953x-252868.s:1105: Error: unrecognized opcode `zext.b a1,s1'
+   /tmp/gpio-pca953x-252868.s:1288: Error: unrecognized opcode `zext.b a1,s2'
+>> /tmp/gpio-pca953x-252868.s:1367: Error: unrecognized opcode `zext.b s4,s1'
+   /tmp/gpio-pca953x-252868.s:1368: Error: unrecognized opcode `zext.b s6,s6'
+   /tmp/gpio-pca953x-252868.s:1392: Error: unrecognized opcode `zext.b a1,a1'
+>> /tmp/gpio-pca953x-252868.s:1505: Error: unrecognized opcode `zext.b a2,a2'
+   /tmp/gpio-pca953x-252868.s:1653: Error: unrecognized opcode `zext.b a1,a1'
    clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
 
 ---
@@ -178,14 +292,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012202031.eAP6y5Qf-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012202126.7MIgINAY-lkp%40intel.com.
 
---IJpNTDwzlM2Ie8A6
+--G4iJoqBmSsgzjUCe
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICD88318AAy5jb25maWcAlDtLk9s4j/fvV6gyl5lDJpb83q0+0BJla6xXRMl290XldKsT
+H4sICKJI318AAy5jb25maWcAlDtLk9s4j/fvV6gyl5lDJpb83q0+0BJla6xXRMl290XldKsT
 79jtXtudSf79gqQepAR1ZlM1kxgAQRAAARCkfvvPbwZ5u51P+9vhcX88/jS+Fi/FZX8rnozn
 w7H4b8OJjDBKDep46Z9A7B9e3n58uhyuj9+N8Z/m4M/Bx8vjxFgXl5fiaNjnl+fD1zcYfzi/
 /Oe3/9hR6HrL3LbzDU2YF4V5Snfp3YfH4/7lq/G9uFyBzjCtP4GP8fvXw+2/Pn2C/58Ol8v5
@@ -541,4 +655,4 @@ vC2y0J4Y5RmcpVwV50Z8gOrg2Jq5YxzbOuDJtuDUyiVDDR4Vz6ghUwZEIoulYys2NntjBoMZ
 QQhTweVgbT9GgSu0anMsRtgRJ1i0lqZKjVjCiw+UplI2QUUCgtkmLSXIw72TaHYWpnn0OMDF
 ZfJyisWr/h+biE0ORRkBAA==
 
---IJpNTDwzlM2Ie8A6--
+--G4iJoqBmSsgzjUCe--
