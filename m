@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBXUM7P7AKGQEOQHR2QQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBX4M7P7AKGQESLK6IOQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 624992DF2E3
-	for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 04:34:55 +0100 (CET)
-Received: by mail-pj1-x103f.google.com with SMTP id kk4sf4641833pjb.7
-        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 19:34:55 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608435294; cv=pass;
+Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 576682DF2E5
+	for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 04:34:57 +0100 (CET)
+Received: by mail-il1-x13f.google.com with SMTP id x14sf6197112ilg.13
+        for <lists+clang-built-linux@lfdr.de>; Sat, 19 Dec 2020 19:34:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608435296; cv=pass;
         d=google.com; s=arc-20160816;
-        b=S+LE7j+HNopsxqgQhfKnKB/WTfrf/kvOld1n2E1fnOu1I78sF5fGrInxb0hzW0BwNA
-         lPmOXD5CiSJT4WzQg55jXk77JhUEzgfyneJfmW5Pi0sx9VxnUWvW1w1lNhh4J0+n7mWP
-         sgH72p4FOgJAujiyPmd7DIY/JmHeQ1HL+FZdcnOAyAqL2fujDcs2ZeC6CRUs758Fnykt
-         ZJcXytcJW6V+WgsvYDH1eSCmitknxjdznWHR4BRLIFLzpeDhYFyg+tE3wBxC/tW2pHIo
-         XLL/ZO7sTtW/7zLTSABAGkFaEOnyIHPRfMDOc9vh6ECopWGqAL/nV3iJ7tPl+yut/n5G
-         NmmQ==
+        b=lr8eB1Td8ZEARGjB7bKmKX94J7MJOJAoSV0rmt6EFs/g3+cyScA7BzTQibtjJI40GW
+         rdPrQgkwPs2IiyF24b3ZnOhLy2BL4cvnFZibPOAcpMJLyUS46skTEhkyqnbE4aB7anpU
+         Ib7Jj/Q2fSgLwTZq+ucW5qpASoRvFeoj4QrkgaEuCOCkPNoukpnS6i6DN9CCmZJo40gt
+         hG0YO0+I8ejbap6xcghpKgAqlI7yM4R+97VFqbRROcJ7kMGVXuyWoy4IL0boGnymk+aE
+         6cuLlzzfCcU7Na35xD2PsHw5ai1DGnRNqea6a91DjIZTtpA05zp3NJHdGr2tBxLMo5w5
+         tZew==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=UUpaxqJc6Asm+tWWwe8mbGmia/jEkrv6dxmFD1dlOwc=;
-        b=FPJmLR/sp9WO7kKQ8UBMSxKO4v/9pcFOxsIyNvZxhXHrMLo4BrkinuUCSePTG2gTvz
-         adxf71qb+GqRb3WsH3aLUwd0wkjvcr+8dqZ53/OgbZMhDzBxU3lhMdtwIRolVsvT5tOw
-         LcQeF4hKKjWUNf5QNNept0QNRcuGPERuIdWXFWZwhs0FqT5nZLBFxc0kcy/sG8O5kX2k
-         RcBmyhREN4m6FYiKa1h8yPHsMrrFGHWmYHNR96DExZMFo+xmltREpsgIaK44F1DPVXqN
-         c9IwLGWIraCY6733LljqCDVWquhM4POEecj5Uv+Jz1mKxDMDnk4emYsbRB8IRSqg3U4J
-         gQWQ==
+        bh=pGo/O5sJGv0K9tt5y7kmtC3E6G2pZIGR4V0hh5GEkrA=;
+        b=n2xVVHVZlHA9+nFlmro7P2BK1td1zEsIqBK6iNpFMOu7f7O/fhJQVUPxLR9UpjdfEX
+         xuPWFAhwvuHOv1mQPRzgXwdH/Px+2FCwua+/b2vjwdZK9H+bZlgIh/T7EP0tFHMPAVaY
+         wcSYzlJGtwl3m9fw4RHiadK9fCNQaUYF/zCXnYOIU3Q6FMjc2ImaZcMaaZKXfjgFS2pc
+         D372Ra+JFFeRr2kN8HEG+f48gAtXdrtYCVCo+9GRBcQIDJPMQeSnS9pqxqkE6wYNZ3vb
+         jiega4ZHSPT+wlWG22Ob1aJ4if2VFAJz/uAg+OI7kPQLLrgSu5I+Me8f7Ky7xQOdssrT
+         Fd/w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UUpaxqJc6Asm+tWWwe8mbGmia/jEkrv6dxmFD1dlOwc=;
-        b=DUKw+Lgdi9eyD/Q5yUEfrATVphiqV700NYDJFfVAVvP21zVxPiFCeYDXvW7OfZajEH
-         ZCYXXX1N/UICnmi5wBy1+YkVUeCjVzdfOLQHdtoaH05WrmDLbCJ9FN2p7RvRiI3i4SNS
-         dDGaQs8FqtRT4ytEkmgS+MLxjk7bzLtN3MpsdALArtSQUOczt6KPnwFCwJdcR4V9hmFb
-         q73FAjcVvCvPPboCFzdGweVFyqj1Hj6Asn09y328hy4YMXQtOvA12zRAKb5LLxkwkDbs
-         D8JCNdwgKUzkIpzjXO/HHx+C37utWx1QeZWwtuleJ2WAwnPFYPhpaumYHFpvtCxbpxVt
-         pLcA==
+        bh=pGo/O5sJGv0K9tt5y7kmtC3E6G2pZIGR4V0hh5GEkrA=;
+        b=g2ytaDMVO5bl7vsorDRq/QLVCrfbSKuZLHiwpd7OdJAN9JuoXwWJDifEjBxQ3aVy29
+         bghirRZKR6I1LI7prliaRGqHZJQ7SSSIBBjjrAVUr0yGH8noUMfNgeF8X118EFjfEhGx
+         sZQMNwmI9r8wvzDeZjBOhd/vCKTMgCXGCyEN9IlktNE7lm/6jGXXv3iGg+y/oGDkOJ7w
+         Te1DGJgZSQjTGVOzsaLB7T7Zwba6TuevDMdKrPcySDh5ToiKztibrG7RT2eRTOLI+469
+         4w1sSPwHrVp3DoicCGXlOeePtMhhN9J7XqAf/Hs4Sz9AmKXyOfQCZY7AGHoOWb+HU5ZG
+         boTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -48,50 +48,50 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UUpaxqJc6Asm+tWWwe8mbGmia/jEkrv6dxmFD1dlOwc=;
-        b=UV/r5njP2y9madCo5vK1v0fB0XBsKm2FhsvxQFgCQYkUkwsTTAwvoPi7VwTv/x8VmZ
-         Th/6LCBFAiBJbZrXSL1+bdqWd6fn0/80vcrf2RtKD7TEB8f0zAxIiZyRwOn1GvJck2X3
-         gkMzZQs+FN5DwzVS1E2GxMlaLoqih1qWClhHGhQnJTVefwpfl9p9e4OJarUzxdRzLujf
-         pPERnVJaLGYfFomjIaRGrfd4FBPgrFHonG8xVm4YC81PFC6/H9MIehARI12JFIh64wgk
-         cYyIJ+YE6aGVpfhhVfZexQWZtXCehi11kNMqAVFr6Jg6H8ZX3zqBW21GWmp9KR5HXf/Q
-         9dJg==
+        bh=pGo/O5sJGv0K9tt5y7kmtC3E6G2pZIGR4V0hh5GEkrA=;
+        b=gcbv5slGHgYO3la5AYDSs41Uv8xFO50hxa4AY9++FRpnlQ2qpjytzKmIRjNUw85luK
+         903Iv86npRhfFTNPxmkguITyPlaig8Cb7QrhQlOZg6LZyZXc6LeMLmbID01F1BbKCpFX
+         7oU+rSflWub44jlgY7+1H4VaZk1h3KKBjLw/VIfeUGAHC/LKJcf1Pa/l15RNsDiuz84H
+         fXoUS+95enf0l9VxAl090ENJ0q/usMNjkFJCCIWgYRfKn/+sUvfg+9XhQRfEq4l/nAHA
+         FJJlrua0lO2507x9hTLIDkEDf1+0HBeD59M5TpLDGvTZUsHKeTQ7usTvdyYKH/eiZDaP
+         nGHg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531KEMclW1V2TGMZpnCbHt3+vJl9mkk16WUMJwEAbsywQqG/P34Y
-	JfPTutmQ6L98BEt1v4142i8=
-X-Google-Smtp-Source: ABdhPJycFDJmn7gP3o4sS5CARY6/t72IdcJSOWJoPqb2B+68golrQHtPYPZvdu8SvuYMn7uSFZf7zg==
-X-Received: by 2002:a17:90a:df13:: with SMTP id gp19mr11572942pjb.235.1608435294124;
-        Sat, 19 Dec 2020 19:34:54 -0800 (PST)
+X-Gm-Message-State: AOAM531D//O163ds8u2IPADuwHXUCm8YSEfKV4Rg6Jtt2d8ZMuujOT9i
+	JnxFEdPDr/K1/yeNhLefRSY=
+X-Google-Smtp-Source: ABdhPJwFAxyL+vs+dMRYaQHTFbGI4kl5CHPUERvGgbSVzI0OOvetmi5n0Do1hQZB1CQwPSH6igVd5A==
+X-Received: by 2002:a05:6638:3012:: with SMTP id r18mr10258621jak.13.1608435296025;
+        Sat, 19 Dec 2020 19:34:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:d713:: with SMTP id w19ls1221899ply.1.gmail; Sat, 19
- Dec 2020 19:34:53 -0800 (PST)
-X-Received: by 2002:a17:90a:5b18:: with SMTP id o24mr11616553pji.120.1608435293521;
-        Sat, 19 Dec 2020 19:34:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608435293; cv=none;
+Received: by 2002:a92:5e54:: with SMTP id s81ls4376212ilb.8.gmail; Sat, 19 Dec
+ 2020 19:34:55 -0800 (PST)
+X-Received: by 2002:a92:6410:: with SMTP id y16mr11524822ilb.126.1608435295643;
+        Sat, 19 Dec 2020 19:34:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608435295; cv=none;
         d=google.com; s=arc-20160816;
-        b=F8AlWjLjR4gm2nq36X+KgZPCjLjmG0i6oDNWn8TVRSiSXrF0V05eMhUdXfuUFvTa3m
-         9/x3mMGAH2ICczJrOMx6c/qOMAyAOJKXgYV8PaqalqnQ/mG4B1SwilIGbBuGd6EwVvAQ
-         eAqGWsk7fsM3/0KEzuQTP8u4TpRsmvYNJV6ZiDeYUZcpsgH6vbVYCoGEliB8BUDEtT24
-         nIQG+owAm8j5jde9CAlTmtjYDT4DQUNFjR7Kbu1zoIR64+yHqw8eMtYBnpDXnY7gjUhu
-         AXK12wgOo0PC6mfOFES1cI9Fs55IDebex3o/mLWJCyZENZwwxU1MbDG73OTtgCBiCbeo
-         fA3A==
+        b=V6OfkCiyk98jr9hkwKGN2g2lrfoIWBFYaPWWoyfxUU9Cyh2iagTsXwOzOiE+mdqevQ
+         eLqwcsXqOH/Kwp1jCDNN93rNOI5faXlrUsOOJj+H4BnCMI3VybMWUz+h6kd5ExrdRNYP
+         cX/U5xIpmAs2ryU/RTWU/QHxLBL3mm7s5af6keHBrXYXCb6dlzP9ZxGE8zHMmfqDwb6l
+         NYglRCtn1APDM7iobD48Tl8aUaWB7LgpY1BcJRDBPUunZjABYxt76znJwcCPMbKLgeTT
+         i+OUKUukP8/MbDZlXUhW6huCpwrlJ4E2Xjv78jldUGw/qSkBt/AopREMlfuMrpOFrvCc
+         ExvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=DCYo8AT4TtjTOrh8zbeu9NZI12kpW+KCHXDjVMrXB6E=;
-        b=DiN31xFlcv/zu642Vau6sgyJl3lDOhX+tl9j70nG51TlIqvUuPfTE+dQpy5KjGmDA6
-         aAPs5UHsGVFq/dqy/bzrLRRng1vM/ettYfrVdrGnnIAjskoZxXGjFndGIrBQfitc7Tr+
-         IQaLVZO/OWnenCGN3casOw/a22F8OacQyaPBLdpXpCnCd3rHcj7WjiVTmErlf3D8RtJq
-         sO3eJlS5ANIaOSDHl3Oo6/QmdX7VhJXoFwoM8H4B7qKEq9TURJCfmBZfso7ghu4tCSKo
-         bUe+fkrnYV4DzOltAOn3ky7aIsu6XnU2H0zXH/kcEwhzZpzb3HpMI4ZWTuUL0VgGNrsW
-         dWow==
+        bh=Yg/l//oQ+GbhMqrS0QGLD+0IK5IvlW86BgGNfLXzgOY=;
+        b=xmkvYTuDIynDtBl8JyODaw0wgshhQFgL14cZPiSYKG9qXVZ32Y5Xr0fLgYJbMZf2Il
+         Ym5bsHXmkDQ4Gp3UNVrpd8SUVsjvv5THZGc7lk0WBJeYvyeXDYhAWekgmcFOp2gBsqnF
+         92Tr7d2i4ZjZa0UCLxIdE+0uQFJBHQMisMM3HNy54p5vTuoi0JcNQXjjUzgHD5ebkbtL
+         S63GHidxI5ghgbdv9sqx8jdqy9s+mSH96JJcNl6gK6VMIn9Jo6OcY7Zm+3m+vwBMIiEL
+         wwKXPH4Fcnkce79Hgr09wK649yA8liuNqZeU6EdXJIACAneFklE2vPuLe8AjBzwIMzwS
+         ItnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id ce15si1040156pjb.3.2020.12.19.19.34.53
+        by gmr-mx.google.com with ESMTPS id q4si929251iog.3.2020.12.19.19.34.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 19 Dec 2020 19:34:53 -0800 (PST)
+        Sat, 19 Dec 2020 19:34:55 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
@@ -104,9 +104,9 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	Sasha Levin <sashal@kernel.org>,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.9 13/15] initramfs: fix clang build failure
-Date: Sat, 19 Dec 2020 22:34:31 -0500
-Message-Id: <20201220033434.2728348-13-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.9 14/15] elfcore: fix building with clang
+Date: Sat, 19 Dec 2020 22:34:32 -0500
+Message-Id: <20201220033434.2728348-14-sashal@kernel.org>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20201220033434.2728348-1-sashal@kernel.org>
 References: <20201220033434.2728348-1-sashal@kernel.org>
@@ -133,22 +133,19 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 55d5b7dd6451b58489ce384282ca5a4a289eb8d5 ]
+[ Upstream commit 6e7b64b9dd6d96537d816ea07ec26b7dedd397b9 ]
 
-There is only one function in init/initramfs.c that is in the .text
-section, and it is marked __weak.  When building with clang-12 and the
-integrated assembler, this leads to a bug with recordmcount:
+kernel/elfcore.c only contains weak symbols, which triggers a bug with
+clang in combination with recordmcount:
 
-  ./scripts/recordmcount  "init/initramfs.o"
   Cannot find symbol for section 2: .text.
-  init/initramfs.o: failed
+  kernel/elfcore.o: failed
 
-I'm not quite sure what exactly goes wrong, but I notice that this
-function is only ever called from an __init function, and normally
-inlined.  Marking it __init as well is clearly correct and it leads to
-recordmcount no longer complaining.
+Move the empty stubs into linux/elfcore.h as inline functions.  As only
+two architectures use these, just use the architecture specific Kconfig
+symbols to key off the declaration.
 
-Link: https://lkml.kernel.org/r/20201204165742.3815221-1-arnd@kernel.org
+Link: https://lkml.kernel.org/r/20201204165742.3815221-2-arnd@kernel.org
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 Cc: Nathan Chancellor <natechancellor@gmail.com>
 Cc: Nick Desaulniers <ndesaulniers@google.com>
@@ -157,26 +154,99 @@ Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
 Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- init/initramfs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/elfcore.h | 22 ++++++++++++++++++++++
+ kernel/Makefile         |  1 -
+ kernel/elfcore.c        | 26 --------------------------
+ 3 files changed, 22 insertions(+), 27 deletions(-)
+ delete mode 100644 kernel/elfcore.c
 
-diff --git a/init/initramfs.c b/init/initramfs.c
-index 1f97c0328a7ae..55b74d7e52607 100644
---- a/init/initramfs.c
-+++ b/init/initramfs.c
-@@ -535,7 +535,7 @@ extern unsigned long __initramfs_size;
- #include <linux/initrd.h>
- #include <linux/kexec.h>
+diff --git a/include/linux/elfcore.h b/include/linux/elfcore.h
+index 46c3d691f6776..de51c1bef27da 100644
+--- a/include/linux/elfcore.h
++++ b/include/linux/elfcore.h
+@@ -104,6 +104,7 @@ static inline int elf_core_copy_task_fpregs(struct task_struct *t, struct pt_reg
+ #endif
+ }
  
--void __weak free_initrd_mem(unsigned long start, unsigned long end)
-+void __weak __init free_initrd_mem(unsigned long start, unsigned long end)
- {
- #ifdef CONFIG_ARCH_KEEP_MEMBLOCK
- 	unsigned long aligned_start = ALIGN_DOWN(start, PAGE_SIZE);
++#if defined(CONFIG_UM) || defined(CONFIG_IA64)
+ /*
+  * These functions parameterize elf_core_dump in fs/binfmt_elf.c to write out
+  * extra segments containing the gate DSO contents.  Dumping its
+@@ -118,5 +119,26 @@ elf_core_write_extra_phdrs(struct coredump_params *cprm, loff_t offset);
+ extern int
+ elf_core_write_extra_data(struct coredump_params *cprm);
+ extern size_t elf_core_extra_data_size(void);
++#else
++static inline Elf_Half elf_core_extra_phdrs(void)
++{
++	return 0;
++}
++
++static inline int elf_core_write_extra_phdrs(struct coredump_params *cprm, loff_t offset)
++{
++	return 1;
++}
++
++static inline int elf_core_write_extra_data(struct coredump_params *cprm)
++{
++	return 1;
++}
++
++static inline size_t elf_core_extra_data_size(void)
++{
++	return 0;
++}
++#endif
+ 
+ #endif /* _LINUX_ELFCORE_H */
+diff --git a/kernel/Makefile b/kernel/Makefile
+index 9a20016d4900d..55e25e1739a31 100644
+--- a/kernel/Makefile
++++ b/kernel/Makefile
+@@ -100,7 +100,6 @@ obj-$(CONFIG_TASK_DELAY_ACCT) += delayacct.o
+ obj-$(CONFIG_TASKSTATS) += taskstats.o tsacct.o
+ obj-$(CONFIG_TRACEPOINTS) += tracepoint.o
+ obj-$(CONFIG_LATENCYTOP) += latencytop.o
+-obj-$(CONFIG_ELFCORE) += elfcore.o
+ obj-$(CONFIG_FUNCTION_TRACER) += trace/
+ obj-$(CONFIG_TRACING) += trace/
+ obj-$(CONFIG_TRACE_CLOCK) += trace/
+diff --git a/kernel/elfcore.c b/kernel/elfcore.c
+deleted file mode 100644
+index 57fb4dcff4349..0000000000000
+--- a/kernel/elfcore.c
++++ /dev/null
+@@ -1,26 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-#include <linux/elf.h>
+-#include <linux/fs.h>
+-#include <linux/mm.h>
+-#include <linux/binfmts.h>
+-#include <linux/elfcore.h>
+-
+-Elf_Half __weak elf_core_extra_phdrs(void)
+-{
+-	return 0;
+-}
+-
+-int __weak elf_core_write_extra_phdrs(struct coredump_params *cprm, loff_t offset)
+-{
+-	return 1;
+-}
+-
+-int __weak elf_core_write_extra_data(struct coredump_params *cprm)
+-{
+-	return 1;
+-}
+-
+-size_t __weak elf_core_extra_data_size(void)
+-{
+-	return 0;
+-}
 -- 
 2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201220033434.2728348-13-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201220033434.2728348-14-sashal%40kernel.org.
