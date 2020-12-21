@@ -1,125 +1,131 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVMPQD7QKGQEKZPJV4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBLFMQD7QKGQEGDXWW4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B0712DF7A2
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 03:26:31 +0100 (CET)
-Received: by mail-pf1-x438.google.com with SMTP id 137sf4217445pfw.4
-        for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 18:26:31 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608517589; cv=pass;
+Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5F9C12DF802
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 04:27:42 +0100 (CET)
+Received: by mail-ot1-x339.google.com with SMTP id q8sf4427836otk.6
+        for <lists+clang-built-linux@lfdr.de>; Sun, 20 Dec 2020 19:27:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608521261; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YPx5JNAQePnyIcgA/41PpLv22DtNaftltWGOef+MtgJOvUTsLNQcMKpOPV+XD8Tfji
-         r1CmTNTyCCrRHcGRZDiu3GJgpJY7wmxq32d0qo6ts50DNabp5eH5STxASKIYBwRRZZbF
-         Um+v1US8lYTBPjf4OAyUYHM4rCsTE0XOrj0ujNhn/0CdtT6Ds4i5gHxvaUEAsZgYyn2K
-         4hUFYHkRnDiFo4zRQbWm6YqVUdkD5bZNgwMQaHWj6jN/VXTn7zRKKcI5YGqaKdjj9pD7
-         YJzVdY1SMnNYSrOVw9fsXd3PJlYh7a5KUTgwV/Dl7VhcbBUIJT1d9w9eI+0dnQvlSe6C
-         StSQ==
+        b=Qk4EVE2XcQDa/SJpQkGhShPeDlKnxcv0iLJMZl3SnU0jSpOh98nqdPsypsqedXzQ6T
+         qNV3bGTUDViTUkC17vfaN9eEzQFKLPpd2hFwj+5P3xQe56+s2ZkMfM+Eba/cJdSpz6bQ
+         Mn1Wisj0Z21fMKtl994JPG+Nx+j1cKPqKG09nZvCBeUc4x5T0EW9AICbBJTNiTLOg4NM
+         sJqlIQqPIB4hENy35pYYZdlsSbyosMPYU15SSs32ImrBLC04jkyH2uwv8DhCIMccPh1B
+         A2rSLYOcXHQNMF5wUw1OhPiNUO/5igHYVLAt0JnpdUWsWAK+MQrQm+KEnX3PCnRl/6aO
+         CgtQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=YqQUOTT2+mQeDMVZFzlvJzBr+/Rz1w4fBWQ6/QavW3k=;
-        b=kx2k64+b0v/52bRzoLf9NkaYx7yJUTBE6iCMcGAvMWas897L4rl/w+fjJ0kyYBC95m
-         EO71MuQNt/ELNq8yXQb/r1gd3G7VRpw/7KPHKwUkFCWCaRYcMYcVqA5Sy4zoaMgFfbD9
-         9RQPgGPKeMNgvwiUVTWzyGWdS48U3cKIwnhUgzVG7MMaz3ira6qy8vbgWlcCyXGPSqXu
-         5uoTkdO3MQQ7MjdXdnHQgvJDxKRi0KdlhoLxinAX3t4IP4SqtnkF+abtk4RgiDsgJXrk
-         kI8eyCyXkzW64udX6hodmnyp4xkRhOM7r2iQjV3lqWQSc9FiTUzTUYyHuHvjdqP6xWnZ
-         f8kA==
+         :list-id:mailing-list:precedence:user-agent
+         :content-transfer-encoding:content-disposition:mime-version
+         :message-id:subject:cc:from:date:ironport-sdr:ironport-sdr:sender
+         :dkim-signature;
+        bh=FNznyrM3uE8HlZONIi662iCG/cYW/JM/BbuqhXF3uVg=;
+        b=GoO38NHy+UCT8OaQPPJCK+4TzfEooagpzOx1pcuiMnPqSVoSaKMvPtcgRId8IX66f9
+         rqlX5yCYCfUbOktjN6MWYA/3NNvRahqbsUIqjlESLVjUJSdZWASrzuOr5gGHGWkGUb8h
+         ADa9kpBjo5JofdoIA2gj2f+H3sX5tnOh5Q8guLax1sTg9ffvtVE5auisqPiSab2F6P8g
+         HtXV2NtcGhaUA6p6j/azE384GANK1owqU6/rAoGTbdoURACAqOt1iM1uKbvaI1bA2AvX
+         OrQZ6hLSNTHyyaZjVk55PiWYIbjIYW3yHMaNfHS7DRLM30HARCaCSCGuN156KBhwY4F+
+         MFNw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:ironport-sdr:ironport-sdr:date:from:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YqQUOTT2+mQeDMVZFzlvJzBr+/Rz1w4fBWQ6/QavW3k=;
-        b=IXgJseGPHfHQbEXo7GGa2UApuIreKAeNueEtef4pr6WYq1ydoEe7ctORmw5944z6vb
-         fqqNooK249eEkP2vRnmxPLL3kIst0tlN27ClCpyiQiOXAD5tDHGZDxZPWHP74xF40Bv9
-         HXfg8+or/8J4vri3V7a5p7QW62AMPZrrcwqu4QSJD0Om2ptUxKFIk/4XGBQoAmY2eNe4
-         fDPJ5hsPnVRG9U9SJ4vu6YbTFf2N0PvNtOWpoNuz8qYfDGHbS0zwJ49j+QqNAWCiCA90
-         /BFSeffrZYajCX4Jzc2uNwnMnxaebCCVU7akh5mWnQVLgxjo4DvvgBBiVAUxxdv2bYuU
-         OVFw==
+         :mime-version:content-disposition:content-transfer-encoding
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=FNznyrM3uE8HlZONIi662iCG/cYW/JM/BbuqhXF3uVg=;
+        b=bxL7B/imCzjQs/E4ysYM3IusPqCy/29k3jUcZHW7kuiS/44UzGkS8XROa99+g0th4b
+         rQODXa6Yibv/wx1GOYeL2yBGEZs3RUohjrxS5Q1zaHJMass6CxneFYoV5lTNbqqfVeNZ
+         1zlnzuyMkyqSM2FpCZsIKKbysowjvRGZR7GpUsoTsOVMzlf+v99frTnnDXe1YoBuijXC
+         N/veUSIHoQbY7YUMAEdmDtDNmiN4HcErDQQwaBM/boOIy2L2jhWs/1bLqGY6Zvb9+pGG
+         HiZjK80/D4ABlsfkuOkmOScXCdfle3Sxvww4wjFDKaMRW8yaBdX2Xepmh73Ig3DGtsNt
+         vSPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=YqQUOTT2+mQeDMVZFzlvJzBr+/Rz1w4fBWQ6/QavW3k=;
-        b=KHP5X37mDQEy5pZNMVN8XsOA8EGf+iODL6Wlp95v3z3+hLvtrKqga7XDm8/DX2PezV
-         OCo8rYJplOkqZvAk4uwdk7WUsrnkijyScyh1AMBK0s7t2BzzYpYtK1c++JjXarneb0aE
-         x2fBRy7xPnX4KUDiHEhm//Y9WZJQUzq+x0RCwa9J867XAx4ANBdgQ8QCRB6Ooozn4UvN
-         3XeSYceIms2O3RKHcqEdYmSNqMATgixyMx7XAuTk8Qn4a1cmplBz6ONQBP5SMHgY7x/A
-         XRhMH4XuCOl6fy2sE8VO6HeoEB3E7JiFg3zVR9IcFgx2cF0NyYIl6+Hm1YWmjI16EcJQ
-         ct+g==
+         :subject:message-id:mime-version:content-disposition
+         :content-transfer-encoding:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=FNznyrM3uE8HlZONIi662iCG/cYW/JM/BbuqhXF3uVg=;
+        b=iB52AWrwV9TRD0MBzpg6h38VGUAvLjb3IUdiGL7+3gzhgND6LqmT4VdKXsOZD3oow8
+         aCep6LmsRLrfk9vu2IkFcMvnAC1spRbYCXj8/Q6Qbprc7tXjdlBANkDl+oEXjhI8+dWz
+         0yRcZrnPEs3/slbvcbb1vZ8oN9oUnXChAfrXND9ou4+dRimuYYglDO9xld9LNyq5C6Z9
+         qv7HmLPiDQKE6Ibl69crsA4zOqXm2PATfm50ZrNe+Eibzk7Cb6pg9F8EOczyrIhBlDJG
+         oI1Nv1b4dDMcKdHgEuoYJg2NdmmvnBpZLYKHJh7pAZEXdDXIjkpB3YymVIyBoPqB+tUm
+         vPwQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533/0j3BFQJVXArDZUOgLCPxi3jNXyJFS3Cz0Y6OOZe6vHxsyvJO
-	pbL77Cnb5T8t+8096sOEAGw=
-X-Google-Smtp-Source: ABdhPJwUPlJ6Y46+FMoJqZBa3T78kYwpdaY41WfLZ3/A+x5+0Ca8/AEFJbm8pf/CTDVPw8w0rlhFnw==
-X-Received: by 2002:a63:f348:: with SMTP id t8mr13310264pgj.425.1608517589685;
-        Sun, 20 Dec 2020 18:26:29 -0800 (PST)
+X-Gm-Message-State: AOAM53245Y2U0MXzjvcWfsQ0oJ4a700AVwtYRWxeCNS8FSiTp1OiBr9Y
+	Ho8eYvwO2GqMXTRqM8MWKq4=
+X-Google-Smtp-Source: ABdhPJyQrKGzc/AorCCjr0IDkcV3aWYtrU7EY3HYtWDSU1s74+lSxSmFWOuxeuOmFquiv0Io8VsX0A==
+X-Received: by 2002:a54:448f:: with SMTP id v15mr9993424oiv.106.1608521260919;
+        Sun, 20 Dec 2020 19:27:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:c205:: with SMTP id 5ls17573300pll.11.gmail; Sun, 20
- Dec 2020 18:26:29 -0800 (PST)
-X-Received: by 2002:a17:902:6f01:b029:dc:3182:ce69 with SMTP id w1-20020a1709026f01b02900dc3182ce69mr11026116plk.10.1608517588952;
-        Sun, 20 Dec 2020 18:26:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608517588; cv=none;
+Received: by 2002:aca:aad2:: with SMTP id t201ls8757063oie.1.gmail; Sun, 20
+ Dec 2020 19:27:40 -0800 (PST)
+X-Received: by 2002:aca:3094:: with SMTP id w142mr9762575oiw.101.1608521260432;
+        Sun, 20 Dec 2020 19:27:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608521260; cv=none;
         d=google.com; s=arc-20160816;
-        b=AbhouN56HCh7b3zeaDEzBnDJT9RE2XJfRHrTLZkMW49JPkWMwPB1m4zqkriPnpYcSB
-         DdIZ2iJbO+55qXLwSzf2/N5IsPXkbgvApbf3fz3gvP0eXOhh9SeD7sSaAwn8FwmUSXd3
-         GghA/XzHeqMs3jSx25rlR2JkVXnm/JQBRzRIXx3OkOn8koXjEop0Br8ue0nDPRSEIujD
-         UuVhvW5UBp8LX/aCUSmR2wo3MdanhLDgF11Y3SC5/GRWCWLjNDraOli4pEbRlCpFW66W
-         Wyu20hTPP0/0tn6V7VpBDrJGsifmB95+bGjwYx6rdawmAii0c4CHv8f4Ccit030ctqAB
-         5UYA==
+        b=dmkEUAfS8bSuapaLPfFQrXHuLkyZQhKjwArcBDDQ1VP3lVb4R82mPSVGk+PAixU+L8
+         DEAz2T4scIeNrI303SwrHMiLLXuA9rLusDZPytOodIKoKvUwODUAPXATPqrrW6zXIKCH
+         p3/pj+/44N/65FXKJjDlIEwqqGi3JUdeOVrQF5aMLATozdKVJ9/dijsa1643QrgKs62N
+         9HhiRKyxXXH4b7YNitF6f0/CQZjxXkDx6i2+bnBu7k7jRMJtR/prHsmZX1DkUGbrojAL
+         ooqzg7lAEigZwmcVIWaT7oNYglHtbwCGSJ7uxhUFIdC+ihrX7aWvtmQ2Hvz4Qj7lDj0/
+         oCbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :from:date:ironport-sdr:ironport-sdr;
-        bh=IfWF8KFJlG1PS29JeaHCtIZpGNRB9cTeJQ0ffqmLscA=;
-        b=SGBn10SWzGGZIc7yfpECd26xi5jgyRUzUoJ9N79DDEDy8iP8Icu8xlphQ53jpPthPA
-         qRNihMFcbvn9tP/cyYT3alesKaUpi9du4EqJ8EGf9w+OWp1/L/UqcSpbHEobdTthdpGN
-         hBN/cqpJMW0YbRSeYgKDRpcBaMuxd2g/LdXvEH+RV0u/oEVrmHjzNPChcElSczOaZgev
-         UwcXslEVZArqAW2GBtukWIc01CPOnBLKcL7kDTQ8uL1Ol7/9z+FyoeWZXSoovt19NCaq
-         aymZG9CZJFRP9kcBcLmZQOoAazYelvfH5HvmwaIoKaMYe/62wqaZ12p4U3sfkpqso4T3
-         PPZg==
+        h=user-agent:content-transfer-encoding:content-disposition
+         :mime-version:message-id:subject:cc:from:date:ironport-sdr
+         :ironport-sdr;
+        bh=Bcr95tIMZlzZI1QNpdS90sX08hVHNGkqyAH8cyv4za4=;
+        b=pGdWKfg10FdkS0ep5EYh8JaVLiQydU74dr4bDqLT8ZeRPhElXPt0L5CHoy5imgPeeP
+         CFLv7IG6PAU4yuPTgw8Ah4a92el0uBuF/27oJ1DPBTIERCJjck9xF3pXO9BE3BDH/YhK
+         hAHvKQ1oDzbATkb6jNYDfpQqewtNY9edZlyifHhiI0xXLku6jZ7RIT50B/AsRiXNnU9E
+         BQo/jQeNXdm+i9tDbeGWlGoYAD5BPCorVbcWALyg20xhhvyVPCWLzBW3wJ7pXNG8Sppy
+         HFvW/jEqN6TVmAS6b0EvwKEqbCI5X7AL096GH6ySG5RzC1YcQ2g/WqEg12SPk1eJv7yS
+         lr4w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id z18si1026546plo.5.2020.12.20.18.26.28
+        by gmr-mx.google.com with ESMTPS id v23si1755593otn.0.2020.12.20.19.27.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 20 Dec 2020 18:26:28 -0800 (PST)
+        Sun, 20 Dec 2020 19:27:40 -0800 (PST)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
-IronPort-SDR: zlcxWgDAmMTXCZPqtWfvJTll83M08RATDadxOsG5exewoCHE9FekgJHk/nJx5cfJn/O2xrfHq8
- mWHbOZUnY5HQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9841"; a="154886618"
+IronPort-SDR: isyj2c+rghc5htCkaZgeHfSV1/cPW1xgIRHYHIABcPZxFZJBmS90KDVWbojpWa1Fej3bU8DOwB
+ 4oRQrezgS3pA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9841"; a="154890452"
 X-IronPort-AV: E=Sophos;i="5.78,436,1599548400"; 
-   d="gz'50?scan'50,208,50";a="154886618"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2020 18:26:28 -0800
-IronPort-SDR: xvS+5kLVETvehlSpoQpMZYgXUwAta37bKe1lvXByfKaHLojsWOTID9yNP7p4FPIQGeANTZ2Gwp
- 1ynM6ggsWtLQ==
+   d="gz'50?scan'50,208,50";a="154890452"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2020 19:27:39 -0800
+IronPort-SDR: b0FDem3SJJuAFI7jIhAHxTkm0JRsY5iCJJdXjn9bRNYMoLomXXluwdZXGwYORZvdHa8kzrNO5K
+ aMjno+WDrSCw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,436,1599548400"; 
-   d="gz'50?scan'50,208,50";a="395990518"
+   d="gz'50?scan'50,208,50";a="415569692"
 Received: from lkp-server01.sh.intel.com (HELO 65587561063d) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 20 Dec 2020 18:26:26 -0800
+  by orsmga001.jf.intel.com with ESMTP; 20 Dec 2020 19:27:37 -0800
 Received: from kbuild by 65587561063d with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1krAu2-00009f-2s; Mon, 21 Dec 2020 02:26:26 +0000
-Date: Mon, 21 Dec 2020 10:26:06 +0800
+	id 1krBrE-0000BJ-MY; Mon, 21 Dec 2020 03:27:36 +0000
+Date: Mon, 21 Dec 2020 11:27:07 +0800
 From: kernel test robot <lkp@intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [drm-drm-misc:drm-misc-next 7/8] /tmp/lp3971-106698.s:390: Error:
- unrecognized opcode `zext.b a1,a0'
-Message-ID: <202012211004.eYI9Ztsi-lkp@intel.com>
+Subject: [linux-next:master 13201/13785]
+ /tmp/panel-tpo-td043mtea1-423565.s:719: Error: unrecognized opcode `zext.b
+ a2,a0'
+Message-ID: <202012211102.P92DHWOP-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="h31gzZEtNLTqOjlF"
+Content-Type: multipart/mixed; boundary="FCuugMFkClbJLl1L"
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -139,46 +145,69 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---h31gzZEtNLTqOjlF
+--FCuugMFkClbJLl1L
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-TO: Dave Stevenson <dave.stevenson@raspberrypi.com>
-CC: Maxime Ripard <maxime@cerno.tech>
+CC: Linux Memory Management List <linux-mm@kvack.org>
+TO: Arnd Bergmann <arnd@arndb.de>
+CC: "Christian K=C3=B6nig" <christian.koenig@amd.com>
+CC: Martin Peres <martin.peres@mupuf.org>
 
-tree:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
-head:   d0666be8ef9e8e65d4b7fabc1606ec51f61384c0
-commit: 00aedfa4592d93ed7a6d54ffa7f5e22efb9d9147 [7/8] dt-bindings: Add compatible for BCM2711 DSI1
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git=
+ master
+head:   0d52778b8710eb11cb616761a02aee0a7fd60425
+commit: 846f151d03f796bf1b303784edaf3a22e3f51377 [13201/13785] drm/ttm: fix=
+ unused function warning
 config: riscv-randconfig-r022-20201217 (attached as .config)
-compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7=
+d14f4628d6174b33640d502bff3b54ae45)
+reproduce (this is a W=3D1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # install riscv cross compiling tool for clang build
         # apt-get install binutils-riscv64-linux-gnu
-        git remote add drm-drm-misc git://anongit.freedesktop.org/drm/drm-misc
-        git fetch --no-tags drm-drm-misc drm-misc-next
-        git checkout 00aedfa4592d93ed7a6d54ffa7f5e22efb9d9147
+        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.g=
+it/commit/?id=3D846f151d03f796bf1b303784edaf3a22e3f51377
+        git remote add linux-next https://git.kernel.org/pub/scm/linux/kern=
+el/git/next/linux-next.git
+        git fetch --no-tags linux-next master
+        git checkout 846f151d03f796bf1b303784edaf3a22e3f51377
         # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
+        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=
+=3Driscv=20
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-Note: the drm-drm-misc/drm-misc-next HEAD a1b766d1b3646b5ef90f0fa7b42fd99bbd166766 builds fine.
-      It only hurts bisectibility.
+Note: the linux-next/master HEAD 0d52778b8710eb11cb616761a02aee0a7fd60425 b=
+uilds fine.
+      It may have been fixed somewhere.
 
 All errors (new ones prefixed by >>):
 
-                                                                           ~~~~~~~~~~ ^
-   arch/riscv/include/asm/mmio.h:89:76: note: expanded from macro 'readl_cpu'
-   #define readl_cpu(c)            ({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
-                                                                                        ^
-   include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from macro '__le32_to_cpu'
+   include/asm-generic/io.h:572:9: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inl(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:57:76: note: expanded from macro 'inl'
+   #define inl(c)          ({ u32 __v; __io_pbr(); __v =3D readl_cpu((void*=
+)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           =
+~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:89:76: note: expanded from macro 'readl_cp=
+u'
+   #define readl_cpu(c)            ({ u32 __r =3D le32_to_cpu((__force __le=
+32)__raw_readl(c)); __r; })
+                                                                           =
+             ^
+   include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from =
+macro '__le32_to_cpu'
    #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
                                                      ^
-   In file included from drivers/regulator/lp3971.c:16:
-   In file included from include/linux/regulator/driver.h:18:
+   In file included from drivers/gpu/drm/panel/panel-tpo-td043mtea1.c:14:
    In file included from include/linux/regulator/consumer.h:35:
    In file included from include/linux/suspend.h:5:
    In file included from include/linux/swap.h:9:
@@ -192,17 +221,20 @@ All errors (new ones prefixed by >>):
    In file included from include/linux/irq.h:20:
    In file included from include/linux/io.h:13:
    In file included from arch/riscv/include/asm/io.h:149:
-   include/asm-generic/io.h:580:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+   include/asm-generic/io.h:580:2: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            outb(value, addr);
            ^~~~~~~~~~~~~~~~~
    arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
-   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
-                                                                 ~~~~~~~~~~ ^
-   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_cpu'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE=
+ + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~=
+ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_c=
+pu'
    #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
                                                              ^
-   In file included from drivers/regulator/lp3971.c:16:
-   In file included from include/linux/regulator/driver.h:18:
+   In file included from drivers/gpu/drm/panel/panel-tpo-td043mtea1.c:14:
    In file included from include/linux/regulator/consumer.h:35:
    In file included from include/linux/suspend.h:5:
    In file included from include/linux/swap.h:9:
@@ -216,17 +248,22 @@ All errors (new ones prefixed by >>):
    In file included from include/linux/irq.h:20:
    In file included from include/linux/io.h:13:
    In file included from arch/riscv/include/asm/io.h:149:
-   include/asm-generic/io.h:588:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+   include/asm-generic/io.h:588:2: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            outw(value, addr);
            ^~~~~~~~~~~~~~~~~
    arch/riscv/include/asm/io.h:60:68: note: expanded from macro 'outw'
-   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
-                                                                 ~~~~~~~~~~ ^
-   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_cpu'
-   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_le16(v), (c)))
-                                                                                     ^
-   In file included from drivers/regulator/lp3971.c:16:
-   In file included from include/linux/regulator/driver.h:18:
+   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE=
+ + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~=
+ ^
+   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_c=
+pu'
+   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_=
+le16(v), (c)))
+                                                                           =
+          ^
+   In file included from drivers/gpu/drm/panel/panel-tpo-td043mtea1.c:14:
    In file included from include/linux/regulator/consumer.h:35:
    In file included from include/linux/suspend.h:5:
    In file included from include/linux/swap.h:9:
@@ -240,17 +277,22 @@ All errors (new ones prefixed by >>):
    In file included from include/linux/irq.h:20:
    In file included from include/linux/io.h:13:
    In file included from arch/riscv/include/asm/io.h:149:
-   include/asm-generic/io.h:596:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+   include/asm-generic/io.h:596:2: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            outl(value, addr);
            ^~~~~~~~~~~~~~~~~
    arch/riscv/include/asm/io.h:61:68: note: expanded from macro 'outl'
-   #define outl(v,c)       ({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE + (c))); __io_paw(); })
-                                                                 ~~~~~~~~~~ ^
-   arch/riscv/include/asm/mmio.h:93:76: note: expanded from macro 'writel_cpu'
-   #define writel_cpu(v, c)        ((void)__raw_writel((__force u32)cpu_to_le32(v), (c)))
-                                                                                     ^
-   In file included from drivers/regulator/lp3971.c:16:
-   In file included from include/linux/regulator/driver.h:18:
+   #define outl(v,c)       ({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE=
+ + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~=
+ ^
+   arch/riscv/include/asm/mmio.h:93:76: note: expanded from macro 'writel_c=
+pu'
+   #define writel_cpu(v, c)        ((void)__raw_writel((__force u32)cpu_to_=
+le32(v), (c)))
+                                                                           =
+          ^
+   In file included from drivers/gpu/drm/panel/panel-tpo-td043mtea1.c:14:
    In file included from include/linux/regulator/consumer.h:35:
    In file included from include/linux/suspend.h:5:
    In file included from include/linux/swap.h:9:
@@ -264,33 +306,179 @@ All errors (new ones prefixed by >>):
    In file included from include/linux/irq.h:20:
    In file included from include/linux/io.h:13:
    In file included from arch/riscv/include/asm/io.h:149:
-   include/asm-generic/io.h:1005:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+   include/asm-generic/io.h:1005:55: warning: performing pointer arithmetic=
+ on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
                                                      ~~~~~~~~~~ ^
    7 warnings generated.
-   /tmp/lp3971-106698.s: Assembler messages:
-   /tmp/lp3971-106698.s:351: Error: unrecognized opcode `zext.b a1,a1'
->> /tmp/lp3971-106698.s:390: Error: unrecognized opcode `zext.b a1,a0'
->> /tmp/lp3971-106698.s:606: Error: unrecognized opcode `zext.b a2,a3'
->> /tmp/lp3971-106698.s:611: Error: unrecognized opcode `zext.b a4,s3'
->> /tmp/lp3971-106698.s:677: Error: unrecognized opcode `zext.b s1,a0'
-   clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
+   /tmp/panel-tpo-td043mtea1-423565.s: Assembler messages:
+>> /tmp/panel-tpo-td043mtea1-423565.s:719: Error: unrecognized opcode `zext=
+.b a2,a0'
+   /tmp/panel-tpo-td043mtea1-423565.s:962: Error: unrecognized opcode `zext=
+.b a2,a0'
+   /tmp/panel-tpo-td043mtea1-423565.s:983: Error: unrecognized opcode `zext=
+.b a2,a0'
+   /tmp/panel-tpo-td043mtea1-423565.s:1007: Error: unrecognized opcode `zex=
+t.b a2,a0'
+>> /tmp/panel-tpo-td043mtea1-423565.s:1021: Error: unrecognized opcode `zex=
+t.b a1,a0'
+   clang-12: error: assembler command failed with exit code 1 (use -v to se=
+e invocation)
+--
+           return inw(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:56:76: note: expanded from macro 'inw'
+   #define inw(c)          ({ u16 __v; __io_pbr(); __v =3D readw_cpu((void*=
+)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           =
+~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:88:76: note: expanded from macro 'readw_cp=
+u'
+   #define readw_cpu(c)            ({ u16 __r =3D le16_to_cpu((__force __le=
+16)__raw_readw(c)); __r; })
+                                                                           =
+             ^
+   include/uapi/linux/byteorder/little_endian.h:36:51: note: expanded from =
+macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
+                                                     ^
+   In file included from drivers/rtc/rtc-pcf8523.c:9:
+   In file included from include/linux/rtc.h:17:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:13:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:572:9: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return inl(addr);
+                  ^~~~~~~~~
+   arch/riscv/include/asm/io.h:57:76: note: expanded from macro 'inl'
+   #define inl(c)          ({ u32 __v; __io_pbr(); __v =3D readl_cpu((void*=
+)(PCI_IOBASE + (c))); __io_par(__v); __v; })
+                                                                           =
+~~~~~~~~~~ ^
+   arch/riscv/include/asm/mmio.h:89:76: note: expanded from macro 'readl_cp=
+u'
+   #define readl_cpu(c)            ({ u32 __r =3D le32_to_cpu((__force __le=
+32)__raw_readl(c)); __r; })
+                                                                           =
+             ^
+   include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from =
+macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+                                                     ^
+   In file included from drivers/rtc/rtc-pcf8523.c:9:
+   In file included from include/linux/rtc.h:17:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:13:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:580:2: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outb(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:59:68: note: expanded from macro 'outb'
+   #define outb(v,c)       ({ __io_pbw(); writeb_cpu((v),(void*)(PCI_IOBASE=
+ + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~=
+ ^
+   arch/riscv/include/asm/mmio.h:91:52: note: expanded from macro 'writeb_c=
+pu'
+   #define writeb_cpu(v, c)        ((void)__raw_writeb((v), (c)))
+                                                             ^
+   In file included from drivers/rtc/rtc-pcf8523.c:9:
+   In file included from include/linux/rtc.h:17:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:13:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:588:2: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outw(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:60:68: note: expanded from macro 'outw'
+   #define outw(v,c)       ({ __io_pbw(); writew_cpu((v),(void*)(PCI_IOBASE=
+ + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~=
+ ^
+   arch/riscv/include/asm/mmio.h:92:76: note: expanded from macro 'writew_c=
+pu'
+   #define writew_cpu(v, c)        ((void)__raw_writew((__force u16)cpu_to_=
+le16(v), (c)))
+                                                                           =
+          ^
+   In file included from drivers/rtc/rtc-pcf8523.c:9:
+   In file included from include/linux/rtc.h:17:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:13:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:596:2: warning: performing pointer arithmetic o=
+n a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           outl(value, addr);
+           ^~~~~~~~~~~~~~~~~
+   arch/riscv/include/asm/io.h:61:68: note: expanded from macro 'outl'
+   #define outl(v,c)       ({ __io_pbw(); writel_cpu((v),(void*)(PCI_IOBASE=
+ + (c))); __io_paw(); })
+                                                                 ~~~~~~~~~~=
+ ^
+   arch/riscv/include/asm/mmio.h:93:76: note: expanded from macro 'writel_c=
+pu'
+   #define writel_cpu(v, c)        ((void)__raw_writel((__force u32)cpu_to_=
+le32(v), (c)))
+                                                                           =
+          ^
+   In file included from drivers/rtc/rtc-pcf8523.c:9:
+   In file included from include/linux/rtc.h:17:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:10:
+   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
+   In file included from include/asm-generic/hardirq.h:13:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:13:
+   In file included from arch/riscv/include/asm/io.h:149:
+   include/asm-generic/io.h:1005:55: warning: performing pointer arithmetic=
+ on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+                                                     ~~~~~~~~~~ ^
+   7 warnings generated.
+   /tmp/rtc-pcf8523-977704.s: Assembler messages:
+>> /tmp/rtc-pcf8523-977704.s:182: Error: unrecognized opcode `zext.b a2,a0'
+>> /tmp/rtc-pcf8523-977704.s:1111: Error: unrecognized opcode `zext.b a2,a1=
+'
+   clang-12: error: assembler command failed with exit code 1 (use -v to se=
+e invocation)
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
 https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012211004.eYI9Ztsi-lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/202012211102.P92DHWOP-lkp%40intel.com.
 
---h31gzZEtNLTqOjlF
+--FCuugMFkClbJLl1L
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICJz6318AAy5jb25maWcAlDzbctu4ku/zFaxM1dY5D5no5ttu+QECQQkjgmAIUpb8wlJk
+H4sICAzv318AAy5jb25maWcAlDzbctu4ku/zFaxM1dY5D5no5ttu+QECQQkjgmAIUpb8wlJk
 JdGOLbkkOSf5++0GSBEgIc9sqhJb3Q2g0eg7oPz+2+8BeTvtX1an7Xr1/Pwr+LbZbQ6r0+Yp
 +Lp93vxPEMogkXnAQp7/AcTxdvf289Nhe1z/CK7+6Pf+6H08rIfBbHPYbZ4Dut993X57g/Hb
 /e6333+jMon4pKS0nLNMcZmUOVvk9x/Wz6vdt+DH5nAEuqA/+APmCf71bXv670+f4N+X7eGw
@@ -708,4 +896,4 @@ FrQTeiRb/7ZrFW426Cg1ho5I8hi/YpLaHQ4psfwg5GrpvB5Ko5TqvkixH4gixPpucMRoSnLX
 ioC5RiUEU1FPsJ7tO4nSgL3oPQ75qfj9w8s00AKk0FT9t2jiJbVXJnwnQOlxCZ5R8kjQOht6
 674kkUV18NzEXrb9P+N3J/c6UQEA
 
---h31gzZEtNLTqOjlF--
+--FCuugMFkClbJLl1L--
