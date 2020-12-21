@@ -1,144 +1,139 @@
-Return-Path: <clang-built-linux+bncBDRZHGH43YJRBYGQQL7QKGQELWZPZ3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCAIHYNQQ4IRBY57QP7QKGQE4WORQRY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EF412DFC6A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 14:51:30 +0100 (CET)
-Received: by mail-pj1-x103f.google.com with SMTP id z21sf7047588pjq.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 05:51:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608558688; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 099C72DFF0F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 18:48:21 +0100 (CET)
+Received: by mail-yb1-xb3d.google.com with SMTP id g17sf14745201ybh.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 09:48:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608572900; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lDy2sY6jyvbrANSUW48C7uQ599BJHHTvC+rokf+XF663oPF8kb1C6/g23iMlKzL6Nq
-         8CrVOw40rskL9BB2OE+tu5dy2Spau53STKFJRUNSHjDfwkvZ50pkwl41tKGpQZ9YXSgz
-         vFpo32px6dopuW2ngWPmWe2+p1mWhJYbJRXT+58t41/wj9Zeqs3Ik2KUzAZDC47tJ1Lu
-         d5QqNkVVeMgECu16d/J1BQBhBmObWzdLgC9w8snGjdh7RNVnqiq5sufTQVP1bh8K5kry
-         SSMIG7EfO+eKaPGlFoYncNAJQgHXE7uJRqiuTCXri9tb7EhWEi5jvvj7EkTq/kmeygWI
-         1NKw==
+        b=T9cZJmJYTyBB1Dws+wjIeGRMIxRs5iH2vLp6opwjF0W2GFsis4dM5EXXwclLEueUxj
+         X88/LTBe5BXMYSjMst3p91Ebf+UcfSgl9Ry4viSycBkn9xGmEK8hWVLcnczcOk+Paq3F
+         kZZcXifV0Jucg+76hpddCNs9vL9OEdYaq3RWYNFUTPRfSAnSZxRgL5gN8oy9+Hc+FdqI
+         wKs+Np/x7HIGmTX7qV9R5+NNB5jmH65j7f+iEmnJO9qmsdr554ADGG6DuUV9Au66IpUf
+         1Hh99kvbYFnFS7hpI7VvTKE/fb78ozPKJ+pYyyDSk2fnsnh6Gl4F2EqIs9za48vNoBll
+         6h/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=dDXid142NuioQuhtGYl9CZ/OcBxrgyJVXQcO02JEzxk=;
-        b=bcGWwlPwDuo4iIEicL1TnwlWVwX60YPBzt+CMq5smlBQXaND7Zg2uRkXNySsRTVu4R
-         pqtyMqG3WqgtOFY3GZUP8KRSbvuZoGH/VjXOBF65FkdfT+XHVyjkf6RHoyAN43Bvru3a
-         xB9K6N9hJ1ENKK8n1miHodSAFsdp6Xi6nurt6bxZk4+DgjUSacwi7Js3ZW+8uSWY4ExV
-         jWzR9mfEDWSzMLvnJKKUX/fxE8BIJgGTCyiGbZyaTlH4kJnKYAfY6H1mDtkMUJcBHdd/
-         wREu6v5FXyxshy261gZ2VqVGnp404dSeUmpqZBBS5QMzltnltSUNKMV2l4oPmEV4B2hh
-         XWRg==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=OrN3SfcxxrjeyKgeC7FYNHF12kdnyNaiogTVG4WsFGY=;
+        b=gh+mV3vfAZ+JKPPrGHwGAkd4ff8sCXKw3ugFRJ2xdtVTpR8DDxkZPj/E+/l1PKKjH3
+         g486M293mCptoLewMONaZpXbGv5lb8N3WqwvdB3f++/MtlxzW9mqGQbrD4jb8WiR93fZ
+         CjrO5fcfea2baAyUe6AdMoqRv6AvXfF91EN2IAWU0QSaGcPhiJTJiWHa8iPwjd7tQaRj
+         IMaySN4lrJZPbjemrkWcKXvFNxq8tmcnXQfJs2o7yxnbuZpbPS4PU13v3OQ4qd6NhCuz
+         GbZ0vaivaQFaQC8bQQPWwZUsXnV/Xnknsj0v4tHG2ZDQK9PrYaPIreXkTCp4acXWBW9C
+         zWmQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hEivyO3L;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b33 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HFWrQ9mv;
+       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as permitted sender) smtp.mailfrom=seanjc@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dDXid142NuioQuhtGYl9CZ/OcBxrgyJVXQcO02JEzxk=;
-        b=czfVdCp47NkQcEMZrxVwRSnsCc9/rmCMM/lDO5Yk4xlpDdfIbTj/hYoJyM3wyZWfxx
-         3f0TOGaxBqfT8yugC2unIbR9TpCvgdc3QH0XCUck03pVTya5w1rHsoHA0Org1BrICpnu
-         RO8KL/fFAUchF2QqHzOpYmuD3ZeR5YKCmW7r5ivgU7UUatUDPQLcdTrTdTe8q88qCEgs
-         AM/v2yxmCSl73NPd4jo9un+cofAdfI1CWSXMo1ueFfKKD4O+HtUTbopY/EfGaLFjvwa/
-         4Cohk9mSs60ysT9N5oqnMxDbQ6sUXoneTSD0dX9wt6r5USRgQn52jbnVH3KDNqZOVI3A
-         qMhg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dDXid142NuioQuhtGYl9CZ/OcBxrgyJVXQcO02JEzxk=;
-        b=XxkrLeoftDmncx0wfyCTAIndCcnVx5xWcoo73IfXNKJyk+BDDOsomNRIiMD9twskBL
-         rqRL0dLas0r6pyVW5Se3RLEqB6uL942RMAF4pOf+6fej0y2TRj0lf5j9LQngjeYWa+42
-         8c75ZWufKFRC+HN7DjL3+HKEswabeFUQBzCP8HZTLXlocntKjW9gL0JOpgE8qxIXAawZ
-         26cJYcJpYqSJVpF/TqCOXp1g8/he59H686NWdP4qW0uLym4kvC+A+jIscyVZ61RoQQ+L
-         PgUYXSwW/Fn5b0tu8pu3t51WTLOGyGqZ6pm0cGBka2CxMC2m2h8vA+Tzfy3bZXQfYiIC
-         fYxQ==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=OrN3SfcxxrjeyKgeC7FYNHF12kdnyNaiogTVG4WsFGY=;
+        b=UXYejM3z6J5TjCyoUD53Q1nJ1R20h81S68R9uWlpDEmGYeMrBR37sqRNxUzboCekME
+         hhiCdX0FiV4Tsw9QUsz0P3OtmFT5GKwnFkq66mbbVGWoiE9lMvwDP5gU9vkgpLJcDxPx
+         uWOHZOPIp1Q/eu/UAPna9kQuxpLx0Nb4YJamxLbZsgETJgpGbNt44og+fnRk8l99Ed5Q
+         I7Z6FjLA+qcGIdL64Dbxh50iS4gNBvRqmqbFhA5KYaKJtDkHjIhUnqqq5WD6JdZHq/rh
+         1YaV3UunJiu98mbQWDiy5PcNKFn3xswBCar8/BAObWntERSqpvGHMmXvtLl737gNfebK
+         oGzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dDXid142NuioQuhtGYl9CZ/OcBxrgyJVXQcO02JEzxk=;
-        b=WlDzdnsg5Hb9KwBvZCzrR+CfNciXpIbyHys1OL33M1YLzGnX9WW8wElUL6nY5D+XrG
-         7KWMhe4Z8KrJFBr4wuHAzUTKGZn441KH8Ocr5SY4f6SOOj2qSLsulk/NWwXuy7qOPMs5
-         ph41Pu0Bm7jtFrJGs2FuRkFVetuuu9BH5ZDBl/jMdCO9YyPpK5WNFr4//3KgOBeiMLqo
-         foOcSq+zfEjim6rq/GE4PafONyrcy3JQK5jMLs4O4RSq60yDuMRhBbe73ZfeaFhHxNsl
-         y5sKqgwf+wHe5/uHnaEQm+ICdjwvW6joVLVcoOZ2TnKhMzRGuUzfkdoZQm7nQz32Vo7T
-         gU8w==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533Jb3LceBvB64ccIXz2y1aZPKhFAx/rfMoz/KIZN5bfh7SZ0bfB
-	AJs/8zYcNv3j3IIypwYv5hQ=
-X-Google-Smtp-Source: ABdhPJwDjQn+gjWFl82GMHFHzthNUF28nRG0uP4fugCKX0OiDtCrZVNtkwykBG3FQbCj31J83q5YVg==
-X-Received: by 2002:a17:90b:3907:: with SMTP id ob7mr17541617pjb.70.1608558688680;
-        Mon, 21 Dec 2020 05:51:28 -0800 (PST)
+        bh=OrN3SfcxxrjeyKgeC7FYNHF12kdnyNaiogTVG4WsFGY=;
+        b=LYlIGb8Y/0sbsySwXG+SGiRaSJkNBfU8C+UPmKdYYm7WSNUWyyimdAJnpcqZGK5GPj
+         x6eCwRzKay5FvYrYQFruu84Zs+VidRv3DFh4dmSHOJ+OZMD3lEwF0/9n/fz+UIJ/j26f
+         f4qcUA0Hqm6S6nO1xri9xSuvQ2lHLp4WipTaunQerR4VohAbFZUyt1uOmqmiLiC6fegn
+         eCxOU+kNwEP8oBdsZw7aNhsYOEcomAKf9nWCIzouqgZpRl8mSBhVaeMhVYOUhCNWn4w1
+         sHQIJvY7WkpBQQDklyB66xHIPXmNuzSatyysNQeGtXaPcFsUXraxD6LjAyshQQ3HSt2g
+         LV6A==
+X-Gm-Message-State: AOAM531V6bPtN5AplMRRAxN4Qru9/POHf3F3litBXWlBJ6wDCiEGhwrA
+	Rn80jnjswnMo6l/7g5d1Vmk=
+X-Google-Smtp-Source: ABdhPJxOHKKFcIUXj4RdATmEEfenzzV44psAVnehpF4qTXZuhPz5t1x27W2D9a2a1nw2WT6XH507nQ==
+X-Received: by 2002:a25:4081:: with SMTP id n123mr24280922yba.237.1608572899799;
+        Mon, 21 Dec 2020 09:48:19 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b782:: with SMTP id e2ls18403047pls.10.gmail; Mon,
- 21 Dec 2020 05:51:28 -0800 (PST)
-X-Received: by 2002:a17:90b:943:: with SMTP id dw3mr17010209pjb.97.1608558688010;
-        Mon, 21 Dec 2020 05:51:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608558688; cv=none;
+Received: by 2002:a25:e407:: with SMTP id b7ls2781907ybh.6.gmail; Mon, 21 Dec
+ 2020 09:48:19 -0800 (PST)
+X-Received: by 2002:a25:ea0c:: with SMTP id p12mr19853504ybd.256.1608572899412;
+        Mon, 21 Dec 2020 09:48:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608572899; cv=none;
         d=google.com; s=arc-20160816;
-        b=QIyOZ00ANpf3fRuZV03QTgAp9ieG6lQptKw2steB79Y/lup3tguIWK+xuWVessPO7+
-         SOvAVwJDHEPUrS1txH91ya5g9YR+Ue6HX63YiekGuz6+jgkN6moJwLnQwfnt+QzWBOYO
-         LQ362tilfR2IsPcZF8Bhn2tUok6CsKowGU2nVfLx4tZpttTOrydO6QYNVzJAbrqPMn11
-         1kkvB4nS1z2zpq+kyX2/U3QgafurARF/JGk07IHwt55E44nvsACNlZuakypQuk8W9lyN
-         8NIGwgTWsR90XrKxzHdM1KgVa1CFBxWvaAHStMWZVf+6Ul1tm0hBEJhtlXj+C5aby91R
-         npCg==
+        b=iDW5tQr4tUP7gdfTVzpV/U1THz8pv9ImgG9qVkmC+2QuIisPq8D5KQXoABcQWGd0QT
+         Pi/KxII4bCPAKQ7328f2vP2tbA7Qd9spqEHrmqK6m331LoVlEfSkPYcIz+zRAmE7hdUp
+         GDu4zojupDGAopAnOPhQmt0nxTGnjJpXY7C6w+q1/cW+iWyccvD4qzRPMn1+IiOYSnOG
+         iTW+jwtltOg4e8TNKBV6E0iPwrTtjEgz1PNIrIYHedh9wVRLb/UB9PtAtDOJ70ya5iUu
+         JpEX7OfxZ2ccUsOEXh2QSz2n0Ci7HqF0/nV4zNaQ0kSulCYE/cyPFthHR6SmV4hld++d
+         mv+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=22WfrYqwVdHV4R9eUfnFdyTLajoJ14FZuqG4/EZXiBg=;
-        b=FP0COgHYCYfjJbO55gaDS0aA9Lh/NQhBMsuO+5Jkqm0Losvi5hskuJTSpOkXKWmsz3
-         Wp7i15h+roZyDe/GOb2NrA+t7Hfe8Y2Zpuli+qV78hd7AdRma2uAfy6jVI4ZJVxMREFy
-         TyunDY1+3nFYFyqFT5eC450lW+hgw3yuOe4h6c9Vk0fVYDpUyXcOB3kWds4jY0/2CqpH
-         yq+vslWEMvtczYlDO7BAxbTVy1hzi1+AV3CnuozfMwhslyuRBmQetUk2eFiwiZHxuQb1
-         KyLwZwcXNRjJh7DlmgzCh2DkfdE58ZGOpeG4tlrZpELK+wWUQyrNOl8AutusAErj1Md8
-         TlKg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=bOLplW+5pp4JzOv86AiZeqRbE94ulVTnl+pKmMDmJSY=;
+        b=P1XCa6hrKRyE4awwurco5itdRECDCA1joz+qQmAI/88gNy24Mu5sfX/Tcgv8N6L5BY
+         N/0vmwbfAWgZEweY5LL1KJElK0GJyTWkr/iVMyxHbmO5rpcREQJFSndPovxabrixMCTM
+         6/krJFiUaO+i0XxK6ot0cP92xd7G2BShF0scS9hR78duzC7XwDmiO/7x2hgsRNyY8nfl
+         PJHNlBSod3a20qiiTOl3nBydWHFK9ja10GTlNiVS5Hb2t0WJfkTHOEWfrZ1dq+EXX/Qp
+         JXtDh4zMHBnvfgbBFYwP1SF1SnD0LaFMhaL7tq6N5TkxujjIb/s5RGx3JbIbEQy3Q7V4
+         WGXg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hEivyO3L;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b33 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb33.google.com (mail-yb1-xb33.google.com. [2607:f8b0:4864:20::b33])
-        by gmr-mx.google.com with ESMTPS id q15si1224622pfs.1.2020.12.21.05.51.28
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HFWrQ9mv;
+       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as permitted sender) smtp.mailfrom=seanjc@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x431.google.com (mail-pf1-x431.google.com. [2607:f8b0:4864:20::431])
+        by gmr-mx.google.com with ESMTPS id k6si1295694ybd.5.2020.12.21.09.48.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Dec 2020 05:51:28 -0800 (PST)
-Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b33 as permitted sender) client-ip=2607:f8b0:4864:20::b33;
-Received: by mail-yb1-xb33.google.com with SMTP id x2so8821811ybt.11
-        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 05:51:27 -0800 (PST)
-X-Received: by 2002:a5b:949:: with SMTP id x9mr22811402ybq.33.1608558687798;
- Mon, 21 Dec 2020 05:51:27 -0800 (PST)
+        Mon, 21 Dec 2020 09:48:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as permitted sender) client-ip=2607:f8b0:4864:20::431;
+Received: by mail-pf1-x431.google.com with SMTP id q22so6836791pfk.12
+        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 09:48:19 -0800 (PST)
+X-Received: by 2002:a63:2b42:: with SMTP id r63mr15934021pgr.316.1608572898493;
+        Mon, 21 Dec 2020 09:48:18 -0800 (PST)
+Received: from google.com ([2620:15c:f:10:1ea0:b8ff:fe73:50f5])
+        by smtp.gmail.com with ESMTPSA id 82sm17865501pfv.117.2020.12.21.09.48.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Dec 2020 09:48:17 -0800 (PST)
+Date: Mon, 21 Dec 2020 09:48:10 -0800
+From: "'Sean Christopherson' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Wanpeng Li <wanpengli@tencent.com>,
+	Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>
+Subject: Re: [PATCH] KVM: SVM: Add register operand to vmsave call in
+ sev_es_vcpu_load
+Message-ID: <X+Df2oQczVBmwEzi@google.com>
+References: <20201219063711.3526947-1-natechancellor@gmail.com>
 MIME-Version: 1.0
-References: <20201128193335.219395-1-masahiroy@kernel.org> <20201212161831.GA28098@roeck-us.net>
- <CANiq72=e9Csgpcu3MdLGB77dL_QBn6PpqoG215YUHZLNCUGP0w@mail.gmail.com>
- <8f645b94-80e5-529c-7b6a-d9b8d8c9685e@roeck-us.net> <CANiq72kML=UmMLyKcorYwOhp2oqjfz7_+JN=EmPp05AapHbFSg@mail.gmail.com>
- <X9YwXZvjSWANm4wR@kroah.com> <CANiq72=UzRTkh6bcNSjE-kSgBJYX12+zQUYphZ1GcY-7kNxaLA@mail.gmail.com>
- <CAK7LNARXa1CQSFJjcqN7Y_8dZ1CSGqjoeox3oGAS_3=4QrHs9g@mail.gmail.com> <55261f67-deb5-4089-5548-62bc091016ec@roeck-us.net>
-In-Reply-To: <55261f67-deb5-4089-5548-62bc091016ec@roeck-us.net>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Mon, 21 Dec 2020 14:51:17 +0100
-Message-ID: <CANiq72mQ=5JpMh1OZfJo6dypF0KHSUp9Umd_5qwATxEMgO5OmQ@mail.gmail.com>
-Subject: Re: [PATCH v3] Compiler Attributes: remove CONFIG_ENABLE_MUST_CHECK
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Greg KH <gregkh@linuxfoundation.org>, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Shuah Khan <shuah@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, wireguard@lists.zx2c4.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+Content-Disposition: inline
+In-Reply-To: <20201219063711.3526947-1-natechancellor@gmail.com>
+X-Original-Sender: seanjc@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=hEivyO3L;       spf=pass
- (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
- 2607:f8b0:4864:20::b33 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=HFWrQ9mv;       spf=pass
+ (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as
+ permitted sender) smtp.mailfrom=seanjc@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sean Christopherson <seanjc@google.com>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,19 +146,83 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Dec 21, 2020 at 11:02 AM Guenter Roeck <linux@roeck-us.net> wrote:
->
-> On 12/20/20 10:18 PM, Masahiro Yamada wrote:
-> With a change like this, I'd have expected that there is a coccinelle
-> script or similar to ensure that claims made in the commit message
-> are true.
+On Fri, Dec 18, 2020, Nathan Chancellor wrote:
+> When using LLVM's integrated assembler (LLVM_IAS=1) while building
+> x86_64_defconfig + CONFIG_KVM=y + CONFIG_KVM_AMD=y, the following build
+> error occurs:
+> 
+>  $ make LLVM=1 LLVM_IAS=1 arch/x86/kvm/svm/sev.o
+>  arch/x86/kvm/svm/sev.c:2004:15: error: too few operands for instruction
+>          asm volatile(__ex("vmsave") : : "a" (__sme_page_pa(sd->save_area)) : "memory");
+>                       ^
+>  arch/x86/kvm/svm/sev.c:28:17: note: expanded from macro '__ex'
+>  #define __ex(x) __kvm_handle_fault_on_reboot(x)
+>                  ^
+>  ./arch/x86/include/asm/kvm_host.h:1646:10: note: expanded from macro '__kvm_handle_fault_on_reboot'
+>          "666: \n\t"                                                     \
+>                  ^
+>  <inline asm>:2:2: note: instantiated into assembly here
+>          vmsave
+>          ^
+>  1 error generated.
+> 
+> This happens because LLVM currently does not support calling vmsave
+> without the fixed register operand (%rax for 64-bit and %eax for
+> 32-bit). This will be fixed in LLVM 12 but the kernel currently supports
+> LLVM 10.0.1 and newer so this needs to be handled.
+> 
+> Add the proper register using the _ASM_AX macro, which matches the
+> vmsave call in vmenter.S.
 
-It is only a warning -- the compiler already tells us what is wrong.
+There are also two instances in tools/testing/selftests/kvm/lib/x86_64/svm.c
+that likely need to be fixed.
+ 
+> Fixes: 861377730aa9 ("KVM: SVM: Provide support for SEV-ES vCPU loading")
+> Link: https://reviews.llvm.org/D93524
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1216
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  arch/x86/kvm/svm/sev.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+> index e57847ff8bd2..958370758ed0 100644
+> --- a/arch/x86/kvm/svm/sev.c
+> +++ b/arch/x86/kvm/svm/sev.c
+> @@ -2001,7 +2001,7 @@ void sev_es_vcpu_load(struct vcpu_svm *svm, int cpu)
+>  	 * of which one step is to perform a VMLOAD. Since hardware does not
+>  	 * perform a VMSAVE on VMRUN, the host savearea must be updated.
+>  	 */
+> -	asm volatile(__ex("vmsave") : : "a" (__sme_page_pa(sd->save_area)) : "memory");
+> +	asm volatile(__ex("vmsave %%"_ASM_AX) : : "a" (__sme_page_pa(sd->save_area)) : "memory");
 
-Cheers,
-Miguel
+I vote to add a helper in svm.h to encode VMSAVE, even if there is only the one
+user.  Between the rAX behavior (it _must_ be rAX) and taking the HPA of the
+VMCB, the semantics of VMSAVE are just odd enough to cause a bit of head
+scratching when reading the code for the first time.  E.g. something like:
+
+void vmsave(struct page *vmcb)
+{
+	/*
+	 * VMSAVE takes the HPA of a VMCB in rAX (hardcoded by VMSAVE itself).
+	 * The _ASM_AX operand is required to specify the address size, which
+	 * means VMSAVE cannot consume a 64-bit address outside of 64-bit mode.
+	 */
+	hpa_t vmcb_pa = __sme_page_pa(vmcb);
+
+	BUG_ON(!IS_ENABLED(CONFIG_X86_64) && (vmcb_pa >> 32));
+
+	asm volatile(__ex("vmsave %%"_ASM_AX) : : "a" (vmcb_pa) : "memory");
+}
+
+>  
+>  	/*
+>  	 * Certain MSRs are restored on VMEXIT, only save ones that aren't
+> -- 
+> 2.30.0.rc0
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72mQ%3D5JpMh1OZfJo6dypF0KHSUp9Umd_5qwATxEMgO5OmQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X%2BDf2oQczVBmwEzi%40google.com.
