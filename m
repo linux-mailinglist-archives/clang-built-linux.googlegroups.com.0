@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCAIHYNQQ4IRBY57QP7QKGQE4WORQRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCAIHYNQQ4IRBE6KQP7QKGQEM2MK3OQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 099C72DFF0F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 18:48:21 +0100 (CET)
-Received: by mail-yb1-xb3d.google.com with SMTP id g17sf14745201ybh.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 09:48:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608572900; cv=pass;
+Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3062F2DFF58
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 19:10:29 +0100 (CET)
+Received: by mail-pj1-x103f.google.com with SMTP id kb15sf6484660pjb.4
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 10:10:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608574228; cv=pass;
         d=google.com; s=arc-20160816;
-        b=T9cZJmJYTyBB1Dws+wjIeGRMIxRs5iH2vLp6opwjF0W2GFsis4dM5EXXwclLEueUxj
-         X88/LTBe5BXMYSjMst3p91Ebf+UcfSgl9Ry4viSycBkn9xGmEK8hWVLcnczcOk+Paq3F
-         kZZcXifV0Jucg+76hpddCNs9vL9OEdYaq3RWYNFUTPRfSAnSZxRgL5gN8oy9+Hc+FdqI
-         wKs+Np/x7HIGmTX7qV9R5+NNB5jmH65j7f+iEmnJO9qmsdr554ADGG6DuUV9Au66IpUf
-         1Hh99kvbYFnFS7hpI7VvTKE/fb78ozPKJ+pYyyDSk2fnsnh6Gl4F2EqIs9za48vNoBll
-         6h/Q==
+        b=OJrUgBd0bvoJQfs2uZcauq9rb+VMbI/SWAfnkW7q3Ip3Io5+P+LDozkQqQ15uCDTqR
+         IWQp1gyIOYyAmHr+CfdSZQq3qVD/pQzg0g6X8OvlKpn/Iq0lszF2gtoRkRLCq27lBxuU
+         tJisYW9MD8wYZolj/5erUYRGoIrc2OXwMrbKmJAgI0FMzfQjJl8ZUTF3vKn41pQ5iJAW
+         dDBJrRJQD1xVLEHiOgFAf4Sztv23ZMh38Dj53playXzCoJxTTPHAU1CZ/WJPNfzNodAr
+         /iWweZrRHEliuxETZon9S9KYGn659pOUkoTff5YQZmD9ZiY7enUeU+zus3SCyjO7vhmq
+         RcQw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:dkim-signature;
-        bh=OrN3SfcxxrjeyKgeC7FYNHF12kdnyNaiogTVG4WsFGY=;
-        b=gh+mV3vfAZ+JKPPrGHwGAkd4ff8sCXKw3ugFRJ2xdtVTpR8DDxkZPj/E+/l1PKKjH3
-         g486M293mCptoLewMONaZpXbGv5lb8N3WqwvdB3f++/MtlxzW9mqGQbrD4jb8WiR93fZ
-         CjrO5fcfea2baAyUe6AdMoqRv6AvXfF91EN2IAWU0QSaGcPhiJTJiWHa8iPwjd7tQaRj
-         IMaySN4lrJZPbjemrkWcKXvFNxq8tmcnXQfJs2o7yxnbuZpbPS4PU13v3OQ4qd6NhCuz
-         GbZ0vaivaQFaQC8bQQPWwZUsXnV/Xnknsj0v4tHG2ZDQK9PrYaPIreXkTCp4acXWBW9C
-         zWmQ==
+        bh=IKL4mc4TFEM/mmXyfP8M4CGCnD+JcneboQdwD78Zq4E=;
+        b=H3j5AD+2DJQjWVMX2MyBrDrD17Hb/u3oWdnzbqtgKjkmv/+L35JE+ied8V0tjzDXP8
+         h/ea4VEjqBdF0fvZmRPXo+Q0Lo4ZBQ2iO85gOsavG8vphabWrnDwYIuyK1Dhwei/Tx5V
+         SOnXw14UXJAAm0QBwo+Qc5u+64k43llQ3Qxv1ScQGFvieMkng+N1hlWWryQdqwfTL8Al
+         YYnPKkmHkdcJOm4hrEksDCIB120UatG6GClpiVQG9ypPCebrMrDvxDj4cTs0t0HDbxop
+         aU2G3/3OctaujJK2uUwGd8PlJE7SDD07fdqenjzHEfsV2AfJUe3CN6vz+MJsY5rF+4WM
+         afjA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=HFWrQ9mv;
-       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as permitted sender) smtp.mailfrom=seanjc@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=BC4K4mt4;
+       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=seanjc@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -37,13 +37,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=OrN3SfcxxrjeyKgeC7FYNHF12kdnyNaiogTVG4WsFGY=;
-        b=UXYejM3z6J5TjCyoUD53Q1nJ1R20h81S68R9uWlpDEmGYeMrBR37sqRNxUzboCekME
-         hhiCdX0FiV4Tsw9QUsz0P3OtmFT5GKwnFkq66mbbVGWoiE9lMvwDP5gU9vkgpLJcDxPx
-         uWOHZOPIp1Q/eu/UAPna9kQuxpLx0Nb4YJamxLbZsgETJgpGbNt44og+fnRk8l99Ed5Q
-         I7Z6FjLA+qcGIdL64Dbxh50iS4gNBvRqmqbFhA5KYaKJtDkHjIhUnqqq5WD6JdZHq/rh
-         1YaV3UunJiu98mbQWDiy5PcNKFn3xswBCar8/BAObWntERSqpvGHMmXvtLl737gNfebK
-         oGzg==
+        bh=IKL4mc4TFEM/mmXyfP8M4CGCnD+JcneboQdwD78Zq4E=;
+        b=VAwL1cBb96RkX2MAEWjQcHhTKEsxdOxp19236o+/dwrKSe6x0jk/gGlSFbt/KIg/8a
+         8cqugxHkXTvdXGx62CzmutcZLn+olGJBfyswPOVgswxgIDIXj2ImuCDfarveEfZx4l+7
+         9ZzCUPNHsnqg/9r6oEcoxrY73AK9lcvSD6aW2jEoJBCMJ8ONTk6vzkbMt0+NGd+Pmfu+
+         JcY/B7lKAEK5tTlozWd0+T1tjxNbUkqlR1ZYq03ucuJhOLDjpH5omQx/HC3y4QDtMtWb
+         7NX4c2+4SnTVIdn7CtHlddoRf84omlCTCwSbl+GV6AeLJRYhXJnY7x5yGF1ldpclW3m+
+         zmVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
@@ -51,60 +51,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OrN3SfcxxrjeyKgeC7FYNHF12kdnyNaiogTVG4WsFGY=;
-        b=LYlIGb8Y/0sbsySwXG+SGiRaSJkNBfU8C+UPmKdYYm7WSNUWyyimdAJnpcqZGK5GPj
-         x6eCwRzKay5FvYrYQFruu84Zs+VidRv3DFh4dmSHOJ+OZMD3lEwF0/9n/fz+UIJ/j26f
-         f4qcUA0Hqm6S6nO1xri9xSuvQ2lHLp4WipTaunQerR4VohAbFZUyt1uOmqmiLiC6fegn
-         eCxOU+kNwEP8oBdsZw7aNhsYOEcomAKf9nWCIzouqgZpRl8mSBhVaeMhVYOUhCNWn4w1
-         sHQIJvY7WkpBQQDklyB66xHIPXmNuzSatyysNQeGtXaPcFsUXraxD6LjAyshQQ3HSt2g
-         LV6A==
-X-Gm-Message-State: AOAM531V6bPtN5AplMRRAxN4Qru9/POHf3F3litBXWlBJ6wDCiEGhwrA
-	Rn80jnjswnMo6l/7g5d1Vmk=
-X-Google-Smtp-Source: ABdhPJxOHKKFcIUXj4RdATmEEfenzzV44psAVnehpF4qTXZuhPz5t1x27W2D9a2a1nw2WT6XH507nQ==
-X-Received: by 2002:a25:4081:: with SMTP id n123mr24280922yba.237.1608572899799;
-        Mon, 21 Dec 2020 09:48:19 -0800 (PST)
+        bh=IKL4mc4TFEM/mmXyfP8M4CGCnD+JcneboQdwD78Zq4E=;
+        b=hqh8Z2wQikogKzCmJ9QVk1tuIo6CfsI9M9h7LnuSf4ZckhYx8RU2YMwSb/BW0oAN2R
+         qLQh7trvayYY8vQWsYvDtrYFprtL5LbGQ2+jx5U3C4qW2BHsCLPb5FPHYJUAhIg6DtZa
+         UOaSPnxhM7ZYXN1fpqksrSpZfjoPpYb93cMxLNl6R3DlexQL1jBEI1GYwEGHuJijKKkD
+         J3zXyj7/At3RZmHEQ7vLtmDgX+U0DUBve4EMQzXEEomzDLIEbuNl5MORKNJ3520fHecI
+         CZgiokmO7NrYcCHWqizkyp1CsxckpExCtedlMUEebrI8r1up0Htjj04RdcbJ2/stV39Q
+         IF7Q==
+X-Gm-Message-State: AOAM532cNtcgAmqS5xpn3aCxeUL4C0Bz+QDsawgS6zRowyf5WTkyl/gh
+	c2Tu05DgWEbKNlemuhkV788=
+X-Google-Smtp-Source: ABdhPJwFaMWZ1p1nYgF7tDdV9KtPhxf9F3NYLtj5JDQEA/mhzWfKJXnOAWlWBdqEYuEF5Sz5SC2jdQ==
+X-Received: by 2002:a63:4648:: with SMTP id v8mr16631690pgk.248.1608574227654;
+        Mon, 21 Dec 2020 10:10:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:e407:: with SMTP id b7ls2781907ybh.6.gmail; Mon, 21 Dec
- 2020 09:48:19 -0800 (PST)
-X-Received: by 2002:a25:ea0c:: with SMTP id p12mr19853504ybd.256.1608572899412;
-        Mon, 21 Dec 2020 09:48:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608572899; cv=none;
+Received: by 2002:a17:90a:ee90:: with SMTP id i16ls9542630pjz.1.canary-gmail;
+ Mon, 21 Dec 2020 10:10:27 -0800 (PST)
+X-Received: by 2002:a17:902:5581:b029:da:a547:b6a6 with SMTP id g1-20020a1709025581b02900daa547b6a6mr17313849pli.78.1608574226934;
+        Mon, 21 Dec 2020 10:10:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608574226; cv=none;
         d=google.com; s=arc-20160816;
-        b=iDW5tQr4tUP7gdfTVzpV/U1THz8pv9ImgG9qVkmC+2QuIisPq8D5KQXoABcQWGd0QT
-         Pi/KxII4bCPAKQ7328f2vP2tbA7Qd9spqEHrmqK6m331LoVlEfSkPYcIz+zRAmE7hdUp
-         GDu4zojupDGAopAnOPhQmt0nxTGnjJpXY7C6w+q1/cW+iWyccvD4qzRPMn1+IiOYSnOG
-         iTW+jwtltOg4e8TNKBV6E0iPwrTtjEgz1PNIrIYHedh9wVRLb/UB9PtAtDOJ70ya5iUu
-         JpEX7OfxZ2ccUsOEXh2QSz2n0Ci7HqF0/nV4zNaQ0kSulCYE/cyPFthHR6SmV4hld++d
-         mv+g==
+        b=QB3SYgsRWDYNSHLOyTAhcnZxFncXxvs6qCTSeJjaZaJozzGdZv5FbLDHnqeZ1R4L6Y
+         iM/f2pBq5vwMw3uUwETs3JRjqET4FyCb2LjDDlRmBtvBy8yWcV97gyIyTfjqDPJePKUL
+         XO1tP1alBhoEuB1AgJRL9gl1j6c6J3CmHj0VtlTS2vvZ7cJGd9Q9MXsc9cdnJIIVlVhL
+         zPtWn9pihTQRY93IXIX6/qC3bn+cjd8HAPemuCobKHYmbnbdiQJIP9PITmOgWgsaZOYJ
+         byNxivpuotL/pqEGogBOrXwnmC+gzKxFfGEkRPHFKwPOiifQbg8Yny6Gi/l5vKcPJY0B
+         aKnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=bOLplW+5pp4JzOv86AiZeqRbE94ulVTnl+pKmMDmJSY=;
-        b=P1XCa6hrKRyE4awwurco5itdRECDCA1joz+qQmAI/88gNy24Mu5sfX/Tcgv8N6L5BY
-         N/0vmwbfAWgZEweY5LL1KJElK0GJyTWkr/iVMyxHbmO5rpcREQJFSndPovxabrixMCTM
-         6/krJFiUaO+i0XxK6ot0cP92xd7G2BShF0scS9hR78duzC7XwDmiO/7x2hgsRNyY8nfl
-         PJHNlBSod3a20qiiTOl3nBydWHFK9ja10GTlNiVS5Hb2t0WJfkTHOEWfrZ1dq+EXX/Qp
-         JXtDh4zMHBnvfgbBFYwP1SF1SnD0LaFMhaL7tq6N5TkxujjIb/s5RGx3JbIbEQy3Q7V4
-         WGXg==
+        bh=QDw9TIBxEMEN6i9q2u9TMr2zZpLOC0nfMm+mSUVGuU8=;
+        b=rZRe1h1YnUP/4Akj2v6ugJs8D5zxpF4piGiTith2LFCk7yX9Hzn1ZDQP924S+rAivz
+         KMNCW1s29gsZRijwdsz4dJOfsRHNNVxsN/SJvbJijuJ9cUyKC4x4FEEMcMSu3keQ6Ziv
+         FE96+GwPxq/HgQnOGFlQydroJnHZ1uCIWi3Gi6ObZ/Cd1rBfnC8EIaB4VuZ51fBap3JP
+         VPw6wPIo4Z4BT4iwSsAXWk9lUMjsV1l6jQ3olmYgaf0nfG/2YUwXIYACVaztIlpOBnnJ
+         MWJLFVhhAsX7F6xC6XAoDikB2ELr2I70+riSXZgzi2hH3d0Lb1ZdpUgT6Xp+yC9g2FvG
+         fuXg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=HFWrQ9mv;
-       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as permitted sender) smtp.mailfrom=seanjc@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=BC4K4mt4;
+       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=seanjc@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x431.google.com (mail-pf1-x431.google.com. [2607:f8b0:4864:20::431])
-        by gmr-mx.google.com with ESMTPS id k6si1295694ybd.5.2020.12.21.09.48.19
+Received: from mail-pl1-x62d.google.com (mail-pl1-x62d.google.com. [2607:f8b0:4864:20::62d])
+        by gmr-mx.google.com with ESMTPS id k14si991798plk.3.2020.12.21.10.10.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Dec 2020 09:48:19 -0800 (PST)
-Received-SPF: pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as permitted sender) client-ip=2607:f8b0:4864:20::431;
-Received: by mail-pf1-x431.google.com with SMTP id q22so6836791pfk.12
-        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 09:48:19 -0800 (PST)
-X-Received: by 2002:a63:2b42:: with SMTP id r63mr15934021pgr.316.1608572898493;
-        Mon, 21 Dec 2020 09:48:18 -0800 (PST)
+        Mon, 21 Dec 2020 10:10:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::62d as permitted sender) client-ip=2607:f8b0:4864:20::62d;
+Received: by mail-pl1-x62d.google.com with SMTP id 4so6019093plk.5
+        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 10:10:26 -0800 (PST)
+X-Received: by 2002:a17:90a:248:: with SMTP id t8mr18609348pje.193.1608574226474;
+        Mon, 21 Dec 2020 10:10:26 -0800 (PST)
 Received: from google.com ([2620:15c:f:10:1ea0:b8ff:fe73:50f5])
-        by smtp.gmail.com with ESMTPSA id 82sm17865501pfv.117.2020.12.21.09.48.16
+        by smtp.gmail.com with ESMTPSA id d203sm17521810pfd.148.2020.12.21.10.10.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Dec 2020 09:48:17 -0800 (PST)
-Date: Mon, 21 Dec 2020 09:48:10 -0800
+        Mon, 21 Dec 2020 10:10:25 -0800 (PST)
+Date: Mon, 21 Dec 2020 10:10:18 -0800
 From: "'Sean Christopherson' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Nathan Chancellor <natechancellor@gmail.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>,
@@ -117,19 +117,21 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	x86@kernel.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>
+	Sami Tolvanen <samitolvanen@google.com>,
+	Michael Roth <michael.roth@amd.com>
 Subject: Re: [PATCH] KVM: SVM: Add register operand to vmsave call in
  sev_es_vcpu_load
-Message-ID: <X+Df2oQczVBmwEzi@google.com>
+Message-ID: <X+DlCpHSu+opeOge@google.com>
 References: <20201219063711.3526947-1-natechancellor@gmail.com>
+ <X+Df2oQczVBmwEzi@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20201219063711.3526947-1-natechancellor@gmail.com>
+In-Reply-To: <X+Df2oQczVBmwEzi@google.com>
 X-Original-Sender: seanjc@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=HFWrQ9mv;       spf=pass
- (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::431 as
+ header.i=@google.com header.s=20161025 header.b=BC4K4mt4;       spf=pass
+ (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::62d as
  permitted sender) smtp.mailfrom=seanjc@google.com;       dmarc=pass (p=REJECT
  sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sean Christopherson <seanjc@google.com>
@@ -146,83 +148,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Dec 18, 2020, Nathan Chancellor wrote:
-> When using LLVM's integrated assembler (LLVM_IAS=1) while building
-> x86_64_defconfig + CONFIG_KVM=y + CONFIG_KVM_AMD=y, the following build
-> error occurs:
++Michael, as this will conflict with an in-progress series to use VMSAVE in the
+common SVM run path.
+
+https://lkml.kernel.org/r/20201214174127.1398114-1-michael.roth@amd.com
+
+On Mon, Dec 21, 2020, Sean Christopherson wrote:
+> On Fri, Dec 18, 2020, Nathan Chancellor wrote:
+> > When using LLVM's integrated assembler (LLVM_IAS=1) while building
+> > x86_64_defconfig + CONFIG_KVM=y + CONFIG_KVM_AMD=y, the following build
+> > error occurs:
+> > 
+> >  $ make LLVM=1 LLVM_IAS=1 arch/x86/kvm/svm/sev.o
+> >  arch/x86/kvm/svm/sev.c:2004:15: error: too few operands for instruction
+> >          asm volatile(__ex("vmsave") : : "a" (__sme_page_pa(sd->save_area)) : "memory");
+> >                       ^
+> >  arch/x86/kvm/svm/sev.c:28:17: note: expanded from macro '__ex'
+> >  #define __ex(x) __kvm_handle_fault_on_reboot(x)
+> >                  ^
+> >  ./arch/x86/include/asm/kvm_host.h:1646:10: note: expanded from macro '__kvm_handle_fault_on_reboot'
+> >          "666: \n\t"                                                     \
+> >                  ^
+> >  <inline asm>:2:2: note: instantiated into assembly here
+> >          vmsave
+> >          ^
+> >  1 error generated.
+> > 
+> > This happens because LLVM currently does not support calling vmsave
+> > without the fixed register operand (%rax for 64-bit and %eax for
+> > 32-bit). This will be fixed in LLVM 12 but the kernel currently supports
+> > LLVM 10.0.1 and newer so this needs to be handled.
+> > 
+> > Add the proper register using the _ASM_AX macro, which matches the
+> > vmsave call in vmenter.S.
 > 
->  $ make LLVM=1 LLVM_IAS=1 arch/x86/kvm/svm/sev.o
->  arch/x86/kvm/svm/sev.c:2004:15: error: too few operands for instruction
->          asm volatile(__ex("vmsave") : : "a" (__sme_page_pa(sd->save_area)) : "memory");
->                       ^
->  arch/x86/kvm/svm/sev.c:28:17: note: expanded from macro '__ex'
->  #define __ex(x) __kvm_handle_fault_on_reboot(x)
->                  ^
->  ./arch/x86/include/asm/kvm_host.h:1646:10: note: expanded from macro '__kvm_handle_fault_on_reboot'
->          "666: \n\t"                                                     \
->                  ^
->  <inline asm>:2:2: note: instantiated into assembly here
->          vmsave
->          ^
->  1 error generated.
-> 
-> This happens because LLVM currently does not support calling vmsave
-> without the fixed register operand (%rax for 64-bit and %eax for
-> 32-bit). This will be fixed in LLVM 12 but the kernel currently supports
-> LLVM 10.0.1 and newer so this needs to be handled.
-> 
-> Add the proper register using the _ASM_AX macro, which matches the
-> vmsave call in vmenter.S.
-
-There are also two instances in tools/testing/selftests/kvm/lib/x86_64/svm.c
-that likely need to be fixed.
- 
-> Fixes: 861377730aa9 ("KVM: SVM: Provide support for SEV-ES vCPU loading")
-> Link: https://reviews.llvm.org/D93524
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1216
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  arch/x86/kvm/svm/sev.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-> index e57847ff8bd2..958370758ed0 100644
-> --- a/arch/x86/kvm/svm/sev.c
-> +++ b/arch/x86/kvm/svm/sev.c
-> @@ -2001,7 +2001,7 @@ void sev_es_vcpu_load(struct vcpu_svm *svm, int cpu)
->  	 * of which one step is to perform a VMLOAD. Since hardware does not
->  	 * perform a VMSAVE on VMRUN, the host savearea must be updated.
->  	 */
-> -	asm volatile(__ex("vmsave") : : "a" (__sme_page_pa(sd->save_area)) : "memory");
-> +	asm volatile(__ex("vmsave %%"_ASM_AX) : : "a" (__sme_page_pa(sd->save_area)) : "memory");
-
-I vote to add a helper in svm.h to encode VMSAVE, even if there is only the one
-user.  Between the rAX behavior (it _must_ be rAX) and taking the HPA of the
-VMCB, the semantics of VMSAVE are just odd enough to cause a bit of head
-scratching when reading the code for the first time.  E.g. something like:
-
-void vmsave(struct page *vmcb)
-{
-	/*
-	 * VMSAVE takes the HPA of a VMCB in rAX (hardcoded by VMSAVE itself).
-	 * The _ASM_AX operand is required to specify the address size, which
-	 * means VMSAVE cannot consume a 64-bit address outside of 64-bit mode.
-	 */
-	hpa_t vmcb_pa = __sme_page_pa(vmcb);
-
-	BUG_ON(!IS_ENABLED(CONFIG_X86_64) && (vmcb_pa >> 32));
-
-	asm volatile(__ex("vmsave %%"_ASM_AX) : : "a" (vmcb_pa) : "memory");
-}
-
+> There are also two instances in tools/testing/selftests/kvm/lib/x86_64/svm.c
+> that likely need to be fixed.
 >  
->  	/*
->  	 * Certain MSRs are restored on VMEXIT, only save ones that aren't
-> -- 
-> 2.30.0.rc0
+> > Fixes: 861377730aa9 ("KVM: SVM: Provide support for SEV-ES vCPU loading")
+> > Link: https://reviews.llvm.org/D93524
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/1216
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> > ---
+> >  arch/x86/kvm/svm/sev.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+> > index e57847ff8bd2..958370758ed0 100644
+> > --- a/arch/x86/kvm/svm/sev.c
+> > +++ b/arch/x86/kvm/svm/sev.c
+> > @@ -2001,7 +2001,7 @@ void sev_es_vcpu_load(struct vcpu_svm *svm, int cpu)
+> >  	 * of which one step is to perform a VMLOAD. Since hardware does not
+> >  	 * perform a VMSAVE on VMRUN, the host savearea must be updated.
+> >  	 */
+> > -	asm volatile(__ex("vmsave") : : "a" (__sme_page_pa(sd->save_area)) : "memory");
+> > +	asm volatile(__ex("vmsave %%"_ASM_AX) : : "a" (__sme_page_pa(sd->save_area)) : "memory");
 > 
+> I vote to add a helper in svm.h to encode VMSAVE, even if there is only the one
+> user.  Between the rAX behavior (it _must_ be rAX) and taking the HPA of the
+> VMCB, the semantics of VMSAVE are just odd enough to cause a bit of head
+> scratching when reading the code for the first time.  E.g. something like:
+> 
+> void vmsave(struct page *vmcb)
+> {
+> 	/*
+> 	 * VMSAVE takes the HPA of a VMCB in rAX (hardcoded by VMSAVE itself).
+> 	 * The _ASM_AX operand is required to specify the address size, which
+> 	 * means VMSAVE cannot consume a 64-bit address outside of 64-bit mode.
+> 	 */
+> 	hpa_t vmcb_pa = __sme_page_pa(vmcb);
+> 
+> 	BUG_ON(!IS_ENABLED(CONFIG_X86_64) && (vmcb_pa >> 32));
+> 
+> 	asm volatile(__ex("vmsave %%"_ASM_AX) : : "a" (vmcb_pa) : "memory");
+> }
+> 
+> >  
+> >  	/*
+> >  	 * Certain MSRs are restored on VMEXIT, only save ones that aren't
+> > -- 
+> > 2.30.0.rc0
+> > 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X%2BDf2oQczVBmwEzi%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X%2BDlCpHSu%2BopeOge%40google.com.
