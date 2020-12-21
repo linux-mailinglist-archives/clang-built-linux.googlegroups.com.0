@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB3N6QT7QKGQEYV7TIPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBIV7QT7QKGQEYLWEH4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7DFBD2E0265
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 23:19:26 +0100 (CET)
-Received: by mail-yb1-xb3f.google.com with SMTP id a206sf15496564ybg.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 14:19:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608589165; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CBF62E0266
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 23:20:20 +0100 (CET)
+Received: by mail-pj1-x1040.google.com with SMTP id mz17sf194829pjb.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 14:20:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608589219; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kUKwP99ToyE1krJd79UHptTgYIw0yB8M9/ZdV8wP+56UuKhvu235RBCkUVNrLGhRAa
-         z43UVkgHe4Prsll37nqy+6q4cKX4tnmmiHPBsGCctcBEp0lSpmH4+kQh8ASK4cB4hxEY
-         V3D9TMQoTx/ag7XMUnuHZir7BugoX6HotppIdWEfBZFuTAIFD5WOqUnmaWSVcD2VviLU
-         SMNcK4CzJwSUdzbwQ21pqwkI0B6rJ49VvuwYbIa26at+pHRm307ZoQjF1PL6qlA1YGXA
-         Cn7w2kg5yUN2E+NQOOCr6qpKa+DH8HS5U4D52JfhzECWB2It4p5DP3LTfe2Se4UJrMs4
-         GycA==
+        b=lRRJuEji8egMlH9uHfM2E4S0LINoOqh+PNMQJuGRMPcjNaVKN3dmeoY2E7ZQGmWK4X
+         RIC1HT3cbMu255eZt+WTed9KqGr8/ysZgxDapqqJyKQPkOHxmc8pUu3VUUFMGCifIvWQ
+         h5YwxTRCeoeRb7Ak5hOeZyvteG/rmh6SoMTQA9uNKOUSMJPzlwsZPkvu3oxLz8qrJQjN
+         klPQbEp2fD4wI29zhOoRGunD5g+Wnm7CrMTQof12/UDqQn13Pk1ZCI9WUzszXGjyAJ89
+         O0I38nIAti1V/9iH3Xm2IgaQp3O9ygdjy9b8Dq+wI4vwrh75yU5aUM5SQ+RQkfByvC5g
+         chng==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature:dkim-signature;
-        bh=nNgM42p/SxqYHF8Gw3UtRY4m2f3CbyJK5m6/ElIJ3ak=;
-        b=YJdYE5qUTt92XFG7Iz/fHvCxieSX/pEZiQ2N1t8pl5tngmhuB6q6X5vixPg8rVap4r
-         S2xLpb1CWbCdbE0EhIIL3O/GfRSAgOCwiIklhTxDPU6OizZPkvEZg2fImUMN/79rXNJv
-         WpxDX1vCeUIwippRAZCy++0USINvNNitmpt5ndqw8A6KUGHAry+fmJBS2IMJl5ItvPjH
-         /oK+vsGENmFec6oQOp5vLPQtR6nv4ZilueOEeGRSmylddHJrIfE2cZGl/S294CB5kAFc
-         yXhxo/SeVSi/PAKp8z2rcjozSioCtEb+7OC2W5G3bjuxPHkfmiPcO0svn6Vq1ry3HK6L
-         nTKQ==
+        bh=r50/9YfCWLa3WjZ6AwkMiPsot57RcY6KkZl2keO0iVY=;
+        b=s51ZX1qD9aF9/mlBxfad8OStI5BFLMLCDDJNIe1zlIrnem+HpD1SVv/jmPB+3cIVUH
+         ufjUjMTIKx/PPUsFDpXJDcrGLISmDzTkgKO8tWYY7ylyiyLODsY30v14Ga/S7RCB02N4
+         MI36ZCxsRPRxibJuS1qxUAlNIJZd4mcsuIjHLRGauEiAoSDFceEPG1aFnmF/HcAyreOo
+         t0evgXl25nOOBcifL/IreWyo52dAWUnrty2WHSc3lwZUTd3ByFcSBJbZRSlmLRu/OEZ/
+         887gXnkEHz2qQgfpcpoEX13nn8DWaCw8VS66fMmwW3MQ+76rSBCV2JbUrjztPE6VQor8
+         v8pQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WzGrtARC;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gftRiDT3;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72d as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nNgM42p/SxqYHF8Gw3UtRY4m2f3CbyJK5m6/ElIJ3ak=;
-        b=ls4bUI+0xi/KeL1SrbUJXQcNnvJqW51YAKyWm1XMOC8n8+fmylRwB3deDpwS+t/53T
-         2eN4D4O/2AYU9bAyOksHUHaCEPUfkoATL8vDSa6rUoNv5tnWpkm1jaWgN+xc7cPdWmEh
-         MFDlo7JB18V8IQeaNrdpiLw+z5Si0bImQHjOBJVx6U+bt5LSm2+8v3+8puNCbYx/Ea7o
-         jXErl6I+JAhEWvt8f8B38/73U8rCYnF941cM20UTPltyb2qjwgR51Ux7xvbIC0FjYooX
-         Mx/jSKhK3w0qx03AU2liNX3Fj8+ecnJ4mIa+FDZ0R39m+vD726EiRUeGIDc+Oo9uSFn4
-         DGxA==
+        bh=r50/9YfCWLa3WjZ6AwkMiPsot57RcY6KkZl2keO0iVY=;
+        b=GpyGUQmCMY7YWx5Hyamj1i6UJM4OtkArWQYhfoV4XgnFJnRuUHpS5FWRco2G2e0LOM
+         YoFAEwmAv8CevCIUwE+eonmoFGk9AcVbOp+ODm8Fl9H5KP0Zerpgmk6fI/cBW32TqisO
+         cMglIK7/MEe1HaXzvTr4XY+mmBXhf/yv9wJfTSRqTYDZubKpqxG7qj96yX4obAjCps7d
+         Alpb9KaB2Cchr51vyvRg18ulYSkj/CBD+83kEPwIjmXpezQiQkvpGXdwyDEO4thXuNKf
+         nmt4v3u0L9Erg4bSVMLbmXPdDzyY4EbXyQxVdvzYXBt2BjD+Fgc67ehmyIK2/PNwwS+d
+         xxjw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nNgM42p/SxqYHF8Gw3UtRY4m2f3CbyJK5m6/ElIJ3ak=;
-        b=p7l249fk9PITaDygsFTZwUmpoJFbcjzju4v3zv8v6NG6d1AKSYpN4k0YW4EhHFv0AN
-         VGPcXveUrfGLPwmTU7f9OU83nI2DqoAJccIuFyOPW0mcB06XiyN6a0vDv2lETcyk9kLx
-         H5KrxnlnvLuWuk7MAmEwxwnO01lasJzQJ0n7KKHNJksoE7sFDf3n/HtHqdsTir/OuG52
-         XPGcWhu3uHkMoBCIV8VnG0PwQ1qTTkvg0O1XtE3dY6xV9tnqgun7lxZp7s1jTYSL/veA
-         wWgz8XyZbl+odEdmsJUxa+RFxHukiLPR+27or7SwgAsNiFM6Z7WaOBxICsJLhRhEaJhV
-         xXCA==
+        bh=r50/9YfCWLa3WjZ6AwkMiPsot57RcY6KkZl2keO0iVY=;
+        b=raicjGS4LYBNvJVU6/iaDEvNKlxH+eLw5Jfw743V6lvEpTqcDO4QcYD2QFZhbBgnNP
+         LUyUTwO3EVpJfTLRfxd7gMJY+1dqVamPj2+I2Cw8lqnBx3N+o8w9y6BWcqrlB869ZzAP
+         zRob9oHCYoPvqwodwP+DwXDAFKdap2EZlquOBrQDlLfYzq2Zh9NEjr5AqhbsMnsju4bM
+         nEtw8AoveEqvbXzT/z56fiZTO4duzDZ9JZXAGGKBWcvxttz3n+/VRMlJB1gRiciah0oC
+         qul3433ELKOZD5Gn0Npp7PSMjwWMti6Jg0mxxOuHwFJrdzZrDLlmleI3pzLeEssMBZG4
+         cQ3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,78 +63,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=nNgM42p/SxqYHF8Gw3UtRY4m2f3CbyJK5m6/ElIJ3ak=;
-        b=orVmpuNGfT9VWvt8bDt/Bk3MWykTE4UQGIoCy/r8wk/lN2RoHEbvXOkC5IuWtuBo/T
-         Wn9AZHxp75zm2zNuVjac9xnolTo3CxK+d9D9ese/AktdPbsYMoT2o1kOnvBSLil7GCtd
-         5gvO1TFIOlxoQgahVzqnDZUQD9fyf+yEorkr/R6FLfkefwvXJGcfGKXHhCE6/3g4bgrl
-         DMLUpqveOXOVFJBy/weLS8A1URJrtvhYOA0RVX7c9fxGbu1uecuk62FI23S90kgHOxP1
-         betcLEPzIpLw0ZEET13rmw6AUycGsMqTnoZZdYtwQENyCz3Ol38nyVviaa8GP9MYEcOE
-         MaKQ==
+        bh=r50/9YfCWLa3WjZ6AwkMiPsot57RcY6KkZl2keO0iVY=;
+        b=mQwjeHQ/hpRnasTWvbbfVCPJPbuSgGsSSyGSBmnFFLzYq88TX9MMWMjLLSaMSRoWij
+         599qw7uDWPuOZB/fyYNCmiezCYUYnhOttIuzSgeVGK4czhI778meOQtPdyy+lpuPb/3A
+         kSH1cKrS8XYlCwIvvY+/e2+yMDbES/fJiiQSFh8A0AxB65Yav0pS9N8+IiulNtBfzqZo
+         DhEjo9WjkVn/ql1Fg/s5Lw2A16UaFkdpLkGdGyG1Gki8aDTrN8UZX987kBCDNrWWRY1x
+         rUu04FVFu0dl7kib+Xr+DcQu5H2vQ62xiCzhbTWhfOubMYyJWrZYpxE0AEVj92BlirAU
+         zPcw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533669TDWTEC4E8vz1E71llOPu8/NrpOy/gh7NHhfcsdmXZ+HoO9
-	1wL4UxDe3CHEGMX/k5dYQ/g=
-X-Google-Smtp-Source: ABdhPJzygsWVT/GzAzHgTeWCvV51IOoXwlGeZJbATx2Hmz+IovoMxBIglre6+nf7arMFQfQ+LAGumg==
-X-Received: by 2002:a25:bccc:: with SMTP id l12mr25621428ybm.295.1608589165519;
-        Mon, 21 Dec 2020 14:19:25 -0800 (PST)
+X-Gm-Message-State: AOAM533gU8TYi9C3wf7ETi6WeEp7HeK+wX0hX7SILjNZ5kCG+mKIY3Xb
+	KamVyAFU8nfQ4jCaPiBP0Rk=
+X-Google-Smtp-Source: ABdhPJzjjZyizkwqckiWi5hBYsHWO6g8rZn6EgZkTMDccsTF0FZA0kys66V8kAZwhHkvodloztQkSw==
+X-Received: by 2002:a62:3503:0:b029:1aa:6f15:b9fe with SMTP id c3-20020a6235030000b02901aa6f15b9femr16878029pfa.65.1608589218527;
+        Mon, 21 Dec 2020 14:20:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:41d6:: with SMTP id o205ls20095053yba.10.gmail; Mon, 21
- Dec 2020 14:19:25 -0800 (PST)
-X-Received: by 2002:a25:b195:: with SMTP id h21mr26421610ybj.406.1608589165092;
-        Mon, 21 Dec 2020 14:19:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608589165; cv=none;
+Received: by 2002:a17:90a:ac0b:: with SMTP id o11ls9771654pjq.3.gmail; Mon, 21
+ Dec 2020 14:20:17 -0800 (PST)
+X-Received: by 2002:a17:90a:d90e:: with SMTP id c14mr18902346pjv.85.1608589217899;
+        Mon, 21 Dec 2020 14:20:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608589217; cv=none;
         d=google.com; s=arc-20160816;
-        b=V8KMbIlvdQSA9Gpz5iLorJtCh7m34GBPkkBLjx7ThXCPtT+JqvzshPUCh1tFofgf6v
-         zkNqsu3BLfbgnWTE7N+SBAYpUrTREqqxmU3MweFK2itaRSS4M9uwQegUhLBdoJI7GmIX
-         2vNOqMnmK1ieJf9OENFm2ESpKaSNBLnKwc4x9kyYq1fjqjBmLHm+F2V+KGzIcm+E1/ez
-         Ej62Ynlf8CiRKx4LqRXDclW7qvC0Bzag5C4efhqO43i1BFzXBClmBTtYsa3euKkS2/bY
-         atqr0jcTMQJI6uy/seIS1D8xWyv3lEVE8k3vzvU+lqsG4hhkIL6NE4nRPoLq482LLu7j
-         y3dA==
+        b=0NS8RRUPWpJ2FceGtCV8EuztCyiq3hMOQDk/DAViMEezbrsmB0qPSc1sI2U25MnnFm
+         LMGZRkXI/ZNYeiUPilPl+s10QRgN52+ag3VSrjapOiNbjwsrRvn2DlHmulzVIgM+Os9G
+         R7sr+mgWL8UYO2VHxnmYrgw7uCJC0KBRgte6ytGogjAQFEwYzG3lQdUOWscUslAnbOHv
+         H1L6bk4lW7HkkqV5OEXJIJZvqJn3ZwkRdgOzXQcAVr23TlWHt8HoZLXZzCT4ckEZcLbA
+         FLvKJE5cq28DYrZxfNQVTnIDmTns07qy+U1I43K9kTxl1p2ImKdab42Mto5ZKYY+MOqb
+         C3rg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=+fhUzybbi4TInitVml+0A9FUklaZCumV8wPWH1lRv8M=;
-        b=hcs4vSt03AEQ0u84LKYmDJMYkk5XyRf9FbzJEyP6IjFqwJWKLCXeGYBXdKV///RVof
-         r/XX8t4d4KBUftOrB3Vv4ujrsmwx1nU3MQxR4GEnMJUoR7D6dAMkeWiEpch6V1J2AHyj
-         YeIdEXUD20FVK5L7inC/AcmnDoLFfuzay6RJ9/iO7HScTUD9xVup1jWgYKPMS0jdZBnQ
-         BChWUMmq6RCF5eU+G+tIcTUtlLHpASN0nJENxdIAFSO9/Xxg5zI2oLR42xTBexW2FnGi
-         j5JBIMCnubaeoQvDPG/V9l642fgWDwPvtNlGfysmKPwvpFEubxj4f2InnHB8NE8skKOP
-         pBmw==
+        bh=apJ8Ig/EiKTD7cW9gZsBxbwVR+J1NM8sWspkdwWpVME=;
+        b=cVJFbY55DKFMRjD58GuK4ntnwFwpQqNbIUuXKSzGpSLEgtY5bDUBQG0StGrKCNIa+w
+         zPDe7L7pCKH8gG+4q1dRI309kbmZ/94bqxaEV0BSlp3rbQ6qWvRxD8QLVStjiVEGCji7
+         vDwHg9yvfpfzAC36RRf6KDwIl83QH+4yih3h5NNzBuMgEcJ3k/gF6la/tSq5JWAEEN5w
+         lcMBmkWhPd/OMM/4BR8FU8l+daWFWB9Ap1NEcVvddvaFfl3veKo5V1Vfcl1OsHt1q3lb
+         6xc3b5p0C+VbaC3hCDn08b85tGGh9PsqEOwrrM/8n1slX5BZM+TwndtXl2GYDHSZ8ksY
+         r1IA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WzGrtARC;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gftRiDT3;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72d as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qt1-x829.google.com (mail-qt1-x829.google.com. [2607:f8b0:4864:20::829])
-        by gmr-mx.google.com with ESMTPS id r12si1605578ybc.3.2020.12.21.14.19.25
+Received: from mail-qk1-x72d.google.com (mail-qk1-x72d.google.com. [2607:f8b0:4864:20::72d])
+        by gmr-mx.google.com with ESMTPS id j22si232078pgn.5.2020.12.21.14.20.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Dec 2020 14:19:25 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::829 as permitted sender) client-ip=2607:f8b0:4864:20::829;
-Received: by mail-qt1-x829.google.com with SMTP id y15so7760369qtv.5
-        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 14:19:25 -0800 (PST)
-X-Received: by 2002:ac8:742:: with SMTP id k2mr17777072qth.46.1608589164708;
-        Mon, 21 Dec 2020 14:19:24 -0800 (PST)
+        Mon, 21 Dec 2020 14:20:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72d as permitted sender) client-ip=2607:f8b0:4864:20::72d;
+Received: by mail-qk1-x72d.google.com with SMTP id 19so10294006qkm.8
+        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 14:20:17 -0800 (PST)
+X-Received: by 2002:a37:7143:: with SMTP id m64mr19249783qkc.280.1608589217535;
+        Mon, 21 Dec 2020 14:20:17 -0800 (PST)
 Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id x28sm11046342qtv.8.2020.12.21.14.19.22
+        by smtp.gmail.com with ESMTPSA id r127sm12014204qkf.75.2020.12.21.14.20.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Dec 2020 14:19:22 -0800 (PST)
-Date: Mon, 21 Dec 2020 15:19:21 -0700
+        Mon, 21 Dec 2020 14:20:16 -0800 (PST)
+Date: Mon, 21 Dec 2020 15:20:15 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: kernel test robot <lkp@intel.com>
-Cc: "Darrick J. Wong" <darrick.wong@oracle.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [djwong-xfs:realtime-rmap 245/249] fs/xfs/scrub/repair.c:2202:6:
- warning: variable 'is_free' is uninitialized when used here
-Message-ID: <20201221221921.GA3388751@ubuntu-m3-large-x86>
-References: <202012220357.ypoONHum-lkp@intel.com>
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Cc: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	Len Brown <lenb@kernel.org>,
+	"Rafael J . Wysocki" <rjw@rjwysocki.net>,
+	Viresh Kumar <viresh.kumar@linaro.org>, linux-pm@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Tom Rix <trix@redhat.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cpufreq: intel_pstate: remove obsolete functions
+Message-ID: <20201221222015.GA3389117@ubuntu-m3-large-x86>
+References: <20201221051320.18391-1-lukas.bulwahn@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202012220357.ypoONHum-lkp@intel.com>
+In-Reply-To: <20201221051320.18391-1-lukas.bulwahn@gmail.com>
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=WzGrtARC;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=gftRiDT3;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::72d as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -148,125 +153,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Dec 22, 2020 at 03:22:03AM +0800, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git realtime-rmap
-> head:   62eb0024d510607ecb04789e8b4f8c0975efb08b
-> commit: f4188e5ab1984e1b140433a80f223ab4644801af [245/249] xfs: online repair of realtime file bmaps
-> config: x86_64-randconfig-a011-20201217 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git/commit/?id=f4188e5ab1984e1b140433a80f223ab4644801af
->         git remote add djwong-xfs https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git
->         git fetch --no-tags djwong-xfs realtime-rmap
->         git checkout f4188e5ab1984e1b140433a80f223ab4644801af
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+On Mon, Dec 21, 2020 at 06:13:20AM +0100, Lukas Bulwahn wrote:
+> percent_fp() was used in intel_pstate_pid_reset(), which was removed in
+> commit 9d0ef7af1f2d ("cpufreq: intel_pstate: Do not use PID-based P-state
+> selection") and hence, percent_fp() is unused since then.
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
+> percent_ext_fp() was last used in intel_pstate_update_perf_limits(), which
+> was refactored in commit 1a4fe38add8b ("cpufreq: intel_pstate: Remove
+> max/min fractions to limit performance"), and hence, percent_ext_fp() is
+> unused since then.
 > 
-> All warnings (new ones prefixed by >>):
+> make CC=clang W=1 points us those unused functions:
 > 
-> >> fs/xfs/scrub/repair.c:2202:6: warning: variable 'is_free' is uninitialized when used here [-Wuninitialized]
->            if (is_free)
->                ^~~~~~~
->    fs/xfs/scrub/repair.c:2189:16: note: initialize the variable 'is_free' to silence this warning
->            bool                    is_free;
->                                           ^
->                                            = 0
->    1 warning generated.
+> drivers/cpufreq/intel_pstate.c:79:23: warning: unused function 'percent_fp' [-Wunused-function]
+> static inline int32_t percent_fp(int percent)
+>                       ^
 > 
+> drivers/cpufreq/intel_pstate.c:94:23: warning: unused function 'percent_ext_fp' [-Wunused-function]
+> static inline int32_t percent_ext_fp(int percent)
+>                       ^
 > 
-> vim +/is_free +2202 fs/xfs/scrub/repair.c
+> Remove those obsolete functions.
 > 
->   2173	
->   2174	/*
->   2175	 * Check if any part of this range of rt blocks is free, so that we don't
->   2176	 * rebuild things with bad records.  Returns -EFSCORRUPTED if bad.
->   2177	 */
->   2178	int
->   2179	xrep_rtext_is_free(
->   2180		struct xfs_scrub	*sc,
->   2181		xfs_rtblock_t		rtbno,
->   2182		xfs_filblks_t		len)
->   2183	{
->   2184		struct xfs_mount	*mp = sc->mp;
->   2185		xfs_rtblock_t		startext;
->   2186		xfs_rtblock_t		endext;
->   2187		xfs_rtblock_t		extcount;
->   2188		uint32_t		mod;
->   2189		bool			is_free;
->   2190		int			error;
->   2191	
->   2192		/* Convert rt blocks to rt extents. */
->   2193		startext = div_u64_rem(rtbno, mp->m_sb.sb_rextsize, &mod);
->   2194		endext = div_u64_rem(rtbno + len - 1, mp->m_sb.sb_rextsize, &mod);
->   2195	
->   2196		/* Make sure this isn't free space. */
->   2197		extcount = endext - startext + 1;
->   2198		error = xfs_rtalloc_extent_is_free(mp, sc->tp, startext, extcount,
->   2199				&is_free);
->   2200		if (error)
->   2201			return error;
-> > 2202		if (is_free)
->   2203			return -EFSCORRUPTED;
->   2204	
->   2205		return 0;
->   2206	}
->   2207	
-> 
+> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+
 > ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> applies cleanly on current master and next-20201221
 > 
-
-This appears to be a false positive. From the config:
-
-# CONFIG_XFS_RT is not set
-
-which means xfs_rtalloc_extent_is_free evaluates to ENOSYS and we never
-actually make it to that if statement evaluation; however, clang cannot
-see this because it is doing simple static analysis at this stage of the
-pipeline, not seeing that it will never have to use is_free in this
-configuration. A simple reproducer:
-
-$ cat test.c
-#define func(a) 22
-
-int main() {
-    int error;
-    _Bool is_free;
-
-    error = func(&is_free);
-    if (error)
-        return error;
-    if (is_free)
-        return -117;
-
-    return 0;
-}
-
-$ clang -Wuninitialized -fsyntax-only test.c
-test.c:10:9: warning: variable 'is_free' is uninitialized when used here [-Wuninitialized]
-    if (is_free)
-        ^~~~~~~
-test.c:5:18: note: initialize the variable 'is_free' to silence this warning
-    _Bool is_free;
-                 ^
-                  = 0
-1 warning generated.
-
-Obviously initializing is_free to false will avoid this warning, which
-is probably the simplest fix.
-
-Cheers,
-Nathan
+> Srinivas, Len, Rafael, Viresh, please pick this minor non-urgent cleanup patch.
+> 
+>  drivers/cpufreq/intel_pstate.c | 10 ----------
+>  1 file changed, 10 deletions(-)
+> 
+> diff --git a/drivers/cpufreq/intel_pstate.c b/drivers/cpufreq/intel_pstate.c
+> index 2a4db856222f..0e35dd247986 100644
+> --- a/drivers/cpufreq/intel_pstate.c
+> +++ b/drivers/cpufreq/intel_pstate.c
+> @@ -76,11 +76,6 @@ static inline int ceiling_fp(int32_t x)
+>  	return ret;
+>  }
+>  
+> -static inline int32_t percent_fp(int percent)
+> -{
+> -	return div_fp(percent, 100);
+> -}
+> -
+>  static inline u64 mul_ext_fp(u64 x, u64 y)
+>  {
+>  	return (x * y) >> EXT_FRAC_BITS;
+> @@ -91,11 +86,6 @@ static inline u64 div_ext_fp(u64 x, u64 y)
+>  	return div64_u64(x << EXT_FRAC_BITS, y);
+>  }
+>  
+> -static inline int32_t percent_ext_fp(int percent)
+> -{
+> -	return div_ext_fp(percent, 100);
+> -}
+> -
+>  /**
+>   * struct sample -	Store performance sample
+>   * @core_avg_perf:	Ratio of APERF/MPERF which is the actual average
+> -- 
+> 2.17.1
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201221221921.GA3388751%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201221222015.GA3389117%40ubuntu-m3-large-x86.
