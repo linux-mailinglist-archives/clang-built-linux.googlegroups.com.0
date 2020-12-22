@@ -1,124 +1,143 @@
-Return-Path: <clang-built-linux+bncBCDLTY6MVIERBQGIQX7QKGQESOOEDMQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBBVCQ37QKGQEKOSZXCQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A6D92E04A0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Dec 2020 04:13:06 +0100 (CET)
-Received: by mail-qk1-x73e.google.com with SMTP id f27sf8849746qkh.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 19:13:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608606785; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA7CE2E0602
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Dec 2020 07:24:07 +0100 (CET)
+Received: by mail-il1-x137.google.com with SMTP id j20sf11020184ilk.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Dec 2020 22:24:07 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608618246; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FJafQCYWBe5zDV2seiBfCPayK3BPgdmH9yMUxAqBYZALOcobm9lRyosS6BaRNaR69i
-         afKZkfiT11tq/S03UqZq8TcT+p2YBfcNh8RqzU/ED7mNkv536l6XPblK6sNOkbrU9xVc
-         wyxjZLxpczNOV7CJH6kF6d3ZMO4TwR2ocj20vuIMunh4+CvkFTYgr6GtuLjwzsSd+6hs
-         /I4HRF4nzMLrRvWeULQ+GO0hyfOsQaEFP7IDWViBHrPxbalPwGS5mHxvq13DBxlGNNBv
-         aI2Vfe4Fb+6x+KZLwy+FrzH5D2bFYg/LgjFBqfuy7e0E6F0g0yFhh6+iuRBL/D4m/G7X
-         +yHA==
+        b=QiXtXBgvDFDrlv1mqs2uCW2QOAhAGaoBSoNdcSnWdf20e573xxLnUKMv66NaCZQj31
+         4nlZAdlkPsAsb78ctym9swfl57Rb6QYZKWmcN7rT/mBvCKkASufYRsMEJx0kFRaykz+T
+         IvzwAAWZ5obchkG9rzSGph30lCB1CHtsFb2SG7nmy0PkLcwcMuHmifnpl8ZKzb0YU2BQ
+         DAbmpYjgJ8wAyzAswpKaKrO7XBSczlrZp3QZSLCKmx3pIi2nM3dLQpr8/LvM4cGvABMU
+         9Dk9rfJSBCZZCc0AwUg7vzwIgmbpTHEhK4yqjGdU4eKqc48ldk1KUEW/+XbvgpWsgyVl
+         oGIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:date:sender:dkim-signature;
-        bh=YYcrbMZ80yf6FQTfj7yACP8U0mXvTPAUNg24POJVLak=;
-        b=N0/Jmo95zkqTcOjk8dgO4GdSFiLK245xAipqXWVF1kkrgb5jaD6WQH+YaoUX6XyDSj
-         dKfCLO835yze2gKcdEDcZ1XRJ9F+JKCqyNJiIYjgHyBXt7EzNZH7zu1B52zAwoy0P3xX
-         Q5oZcpqFvDtvA/gGaEB55WzrhaWvH0vXFwyRjqmrJb2l6E/JaDRhxHvI1gkzNzboQ2ah
-         12pVSbS/Al20NreYMLI+aFXPiMbCLXq0+UWCsLDADisbN9kmY2xayfZWusAYlHZA2MQP
-         Z6hxKC2/Lv8mk0OsS4uBnP+YU9LgAqJZwsFCsb1rbMDFVJdXzm+bDU3+q+6VPWIR7lXI
-         pWSg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=DewvlRhdbnK7EAv6f2k9J39EyzpEdhP6/ZZFwV785UY=;
+        b=uEzN3rO/BrSOZcWxLk1cw6pi6KxPwGb1Lw91yWwLUvVXRygOegySoP4rlmP57Dc+eT
+         DYKzzChz/MuwbbeGHM579GdqwutnOgJRrBbhidyotKYiFH7hbBZxb71v6SdhbvadIxev
+         vK0YNKmtJeAyIGPDP+HGva0VgvhhviWrPiE9FaxaZ0JlSMF7L6x1AyCzCRGQvm6MeSwL
+         g9xQC4ICTChnw/Ald9+gZQJO7LYnWQgDrXZ+R+9DyvynWeywEbLv6Aiv+62ZaWQufelp
+         32z/vtTjstS+RcUlDyq5wj8qmrA9GDG8G0PdvQAWjI83Am+2J8WgHOH1q4afu4B3Ci83
+         seKQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@baylibre-com.20150623.gappssmtp.com header.s=20150623 header.b=DrCYH2SJ;
-       spf=pass (google.com: domain of npitre@baylibre.com designates 2607:f8b0:4864:20::72f as permitted sender) smtp.mailfrom=npitre@baylibre.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bYLuiH1o;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=YYcrbMZ80yf6FQTfj7yACP8U0mXvTPAUNg24POJVLak=;
-        b=JMDXMP/hcqe2gjRghEnWJ8thHG+g5NK/gq1U7rzjRnBiYq01uTbsguHP8h+jj8vRxO
-         CFgyYrmacSrIKHj6Wft/gN0yAGLM0pHkB6GBx7CEBON2ekKNOB+4Wp2WBD1qEC5Bjfgj
-         VT0GR9rfd+DHCrcikGoyyD/8QLndCfwV21k8rC+wNerHbfBxH7b8U6AIHdJCG7WS2kiA
-         oASyyCjJs8dGAKlOjb7K+/oJ7PshKoEha1ffdoTWOUAs7r/fN/cXe2vadIjTK+pVvbzC
-         B1gpl12NOPvbZZe1Hty3ewHufigOdcDCQtLrbtBSl3sH5K5EhbLa0Gj2DAMt4Zw/fURn
-         NaQA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DewvlRhdbnK7EAv6f2k9J39EyzpEdhP6/ZZFwV785UY=;
+        b=nqX16vUyWJu8Y5PhLLX34IiQjPNS8wt3BTWGas+FdCd+Ppd62jdSTbcSfR7M63XTY9
+         Gcr0RHBCojniDvmEfhQ4KP60nrJu9V8eLEditaS9Q763r3yshTtE1pRyn9nV3ouC3nsl
+         VJHI0mwsf/V4g0p4ZEEP4Gnu1oTJgpukQuMzTk333T5jbEjkVkNAJBlqyFbpy+AuByFk
+         O+tiaq7Ep6Uk2GQ3770sHa/RH6Z8z8d91eaIVyMDE4X8Ab+iIlR7oMtVWVcTUxokWFwW
+         0rFaHLy9rgn1hLX9QXLi3PseKs4Whb8pg4aOTQWxt1caWKxwfxi6eoeEuHagbEBlzoE8
+         Zwqg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DewvlRhdbnK7EAv6f2k9J39EyzpEdhP6/ZZFwV785UY=;
+        b=jFxEmKsHe9BciqZxwfL5cgNesmbE4M9uA/jZwqHiaafQ5ko6OOUH/rR/y++5aZZ4X1
+         mCFvPD/bKAlpsHYu0AP9vCsNjIrS9F2BtYFSX7zG3v50rjJBmiRmwIPdPswk4saL8efn
+         JopLclTHtAe+MFtfSd/SBH/awgZuY/i5ZRvH6O7BLQaLbckbEG5+Ym3zqghKRMfZtyV3
+         dKbaRNLzJdsckgI8CXxDkkY/DvdV3GbQpbVNvXX9WLdEUxaq+wErw2eOG3eq96xqQwHp
+         rrs9B8aPKWfy/RMlnrpWXiA9/VoacU5CTzEdgggblWOQ8kOEN6qklnYLTXhomuFPW7RB
+         n7bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=YYcrbMZ80yf6FQTfj7yACP8U0mXvTPAUNg24POJVLak=;
-        b=GMs/5UCqsINCR1axJCG+UU4u2SWkJ4+xOM/9YdAV5ReNnpUfEiQDUTunPRqBMSxGsx
-         g4ftVrHakIRS2WDcL3/g5GuPli56UDVD+UTfu6sE5wtcAHbBEs8HHLznWfyq926Ybq9h
-         UHQs465m4YfEboz2NlldUXeeE74vzRnLSzTA5hNuUu4Kgz9EjZZIAMQuZWkBQpF51BiB
-         LT3N5SukqubJWrty9/aQnz3drORKZdgDqPIKJDji2mM77YVxzmx9vqIed9WnjzMyfuLC
-         ZjEawBh3IqqPSedddj2a4h6G/qUXSj/0Tw+qzyNY8EdW0ylPMoepKUPJnb0Q7k4YAGYa
-         OVbQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=DewvlRhdbnK7EAv6f2k9J39EyzpEdhP6/ZZFwV785UY=;
+        b=J2qLFOjNcg4fO2e87MeCd8mBZqQs40Poj+Z8BW6N4MN4GEmrhHXgH/0kJGDMKQScUd
+         OLSnM980IupNHVO85Hmllao5Ur1i122PqPRg+gUCVBACX+NZ9OBIjyFd/pHLcS0Tel3R
+         Qb4T62aZeLTuIYbjUw9ZlPCscMVq+jptzQ/9RfdsoNXJfxmv8NjntgGTOKuYj2C9h2Yh
+         SCw/C4QnuJcNoshcD+mn/57BKaFckS9lCKqRQ8VgFBlQ1ZW30uU4nLgI1OYvsg4+kYhg
+         ohrRd82WrYZ2vaThIQbA2a2ckLkeC02ax45HSPG584wzQC1ZGtINQNHjP1D34sgvxerm
+         cGDg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532B6C5fNePYn+ZPZOv5OqhIMJBNRn6M/FqMMh+q6Ov2DQAR+VYD
-	wCjjYcKVzZSBWM1MIx0kZwk=
-X-Google-Smtp-Source: ABdhPJzD5ejgUat9TAb6CTvOPAOTFh7XpRPU8U4oE72pNki5gXWvXaP53BF/uHrwT1QO1K4PgZNS2g==
-X-Received: by 2002:a05:622a:354:: with SMTP id r20mr19258084qtw.317.1608606785111;
-        Mon, 21 Dec 2020 19:13:05 -0800 (PST)
+X-Gm-Message-State: AOAM532k3JwWSSHwTRx8nQeXlKHRhZMp0nz0d+/QMr8wvjLxIzAx/LHS
+	tSi74PkodGoZbSEjm+lYOTo=
+X-Google-Smtp-Source: ABdhPJwwbIxadoAKn+myF+C81BiZqTnttJh8LkfjGUX5/Web3LtM5eUbSoYGc0Tb9gjr2CdcPKflyQ==
+X-Received: by 2002:a5d:8d94:: with SMTP id b20mr16824419ioj.200.1608618246588;
+        Mon, 21 Dec 2020 22:24:06 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:c001:: with SMTP id u1ls20336764qkk.1.gmail; Mon, 21 Dec
- 2020 19:13:04 -0800 (PST)
-X-Received: by 2002:a37:9d0e:: with SMTP id g14mr19805238qke.125.1608606784628;
-        Mon, 21 Dec 2020 19:13:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608606784; cv=none;
+Received: by 2002:a5d:9914:: with SMTP id x20ls6562726iol.7.gmail; Mon, 21 Dec
+ 2020 22:24:06 -0800 (PST)
+X-Received: by 2002:a05:6602:2b81:: with SMTP id r1mr16815074iov.61.1608618246157;
+        Mon, 21 Dec 2020 22:24:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608618246; cv=none;
         d=google.com; s=arc-20160816;
-        b=MBDF9oKO4o9hy1cwCptHrun7LE5fiOo9FT2QtyunMpXq4I0NKx36hiyPU6C4evVsz3
-         y/jm9O+/9TaqVADHy0rkFqxcHAJf3oBviwCxf8fA4y6T0842QeHdRV0yaX/RNzdOF/DC
-         wSpf7OrL3AgZAoIWGzWW+Bms1DqTiE9EqxfLIBQ0HqbQ/LEkIrc6Y8Uj4wkTG64/FhdJ
-         mKn1Y8H4ZsnUcjoWEHG173LHlxPPA7BCzYsVbbgkrx3k5L2ZmbkssSqe8LX1ug0h107U
-         6eXetcyWkMdjz0RY82jiswzS4g1RFNYY/Q/dF+OV8IzkHZ+dVLqKfILSIZDf6+O1qlIn
-         WiVQ==
+        b=f7Pj7kwZxADkKcakroPvGjbenUHv3TgEVKJjB8ZhnyK5W3KrKvtQO0xxOmkHF4fWdG
+         1BMkunRtvaqVv6XHiCZoEfYT79txnB7003VQxLh3ObcfYqh5BvROYrIEyN4bBB8D1C6T
+         aZ5RgBe36+VAqQqoI/de3n6QjrKHnifR5IzEQc9y2n6cGK+okZuO9yZtpKLPLMKiYLwF
+         V9qX3MXcCOIOwSIWViv2BhQNFirBf/wCnufbvdxOraRJIowre2Vi2lqqc5983PD3PzSp
+         RnkILrTyBIfNYYYuT9hBDTzo+bVpFIyF8z938j5mw9Aj+WIgaZWsdNdcHou/gxXA3E04
+         KTQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:dkim-signature;
-        bh=m05zgiVp7vEyQC1XJrHfLcHgUliHm1rlFtZRMu57ZTY=;
-        b=zs/vDvGOKB7CqAunqSLvwKULGeAcS1coF3eXdkj9DQzGkAw4bz4RuK6Jw+jQNdojE2
-         8/5Ca/pCwiahlUngvWTALNm1I5MgYMb24+urXtctvZGq5OiACddVbHCyb/qLZP92IRYH
-         RwWySYTytoAXQ9zRzZUXck0r4S3pefW29auJPGXFfI1403s6ohh4gLbLJJp0kFh8MQGz
-         CXSDgr5Y97A9v1IGIqStjvW0dj5xN23EqQTASXNiOo0NodOlGEQ8pDhPvEgzP08864Wp
-         iCZoOTe8lTi0ciGqeUJ4U/X/TKxzlIsEDv6qj6E4nYl7bDfbG52l7LVOzZUvHA/K2XjK
-         ovyQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=dvYfLYsFfS43bvrF26hnW/hEbzAkRm7Scm+LXEgVfVU=;
+        b=ayJ6ZY3co8PfwIigkVqmvgAeW7sMJK72yHhJpr9JtwFMXJDAI6YfK2sZn8gUXrEYSO
+         Oh29nFVasDxFPvT5/0ubcihGm605gS4pKUgUE/u9kFxaRYuSNEcwkXPAWWljI0mH0TrH
+         8oTLOyicJtdZzxwBqiJbGyfoU8f08NTibp2gEiOKeQcDbzBEOWvtzMvo7Mjy9lpSbTdd
+         DxzrtPBhKbGJOGk3kRuAF19vuNF+CKL56RV6X9MCiB9V6bKAvd9euBOL4GVao0BBD1a7
+         xN4Od8Tmu1oJWkXMtyfMLIr1QoX1ghWlC8I+tnEVb3cJGVsL16LojNnditlBpbE9kHcE
+         pD4g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@baylibre-com.20150623.gappssmtp.com header.s=20150623 header.b=DrCYH2SJ;
-       spf=pass (google.com: domain of npitre@baylibre.com designates 2607:f8b0:4864:20::72f as permitted sender) smtp.mailfrom=npitre@baylibre.com
-Received: from mail-qk1-x72f.google.com (mail-qk1-x72f.google.com. [2607:f8b0:4864:20::72f])
-        by gmr-mx.google.com with ESMTPS id f21si1702203qtx.5.2020.12.21.19.13.04
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bYLuiH1o;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd30.google.com (mail-io1-xd30.google.com. [2607:f8b0:4864:20::d30])
+        by gmr-mx.google.com with ESMTPS id k3si851410ilu.0.2020.12.21.22.24.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Dec 2020 19:13:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of npitre@baylibre.com designates 2607:f8b0:4864:20::72f as permitted sender) client-ip=2607:f8b0:4864:20::72f;
-Received: by mail-qk1-x72f.google.com with SMTP id v126so6323037qkd.11
-        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 19:13:04 -0800 (PST)
-X-Received: by 2002:a37:a950:: with SMTP id s77mr20614114qke.122.1608606784306;
-        Mon, 21 Dec 2020 19:13:04 -0800 (PST)
-Received: from xanadu.home (modemcable076.50-203-24.mc.videotron.ca. [24.203.50.76])
-        by smtp.gmail.com with ESMTPSA id d84sm3976584qke.47.2020.12.21.19.13.03
+        Mon, 21 Dec 2020 22:24:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d30 as permitted sender) client-ip=2607:f8b0:4864:20::d30;
+Received: by mail-io1-xd30.google.com with SMTP id r9so11040885ioo.7
+        for <clang-built-linux@googlegroups.com>; Mon, 21 Dec 2020 22:24:06 -0800 (PST)
+X-Received: by 2002:a6b:3bc3:: with SMTP id i186mr16958974ioa.192.1608618245892;
+        Mon, 21 Dec 2020 22:24:05 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id x5sm14561731ilm.22.2020.12.21.22.24.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Dec 2020 19:13:03 -0800 (PST)
-Date: Mon, 21 Dec 2020 22:13:02 -0500 (EST)
-From: Nicolas Pitre <npitre@baylibre.com>
-To: Nathan Chancellor <natechancellor@gmail.com>
-cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-    Nick Desaulniers <ndesaulniers@google.com>, linux-i3c@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] i3c/master/mipi-i3c-hci: Fix position of __maybe_unused
- in i3c_hci_of_match
-In-Reply-To: <20201222025931.3043480-1-natechancellor@gmail.com>
-Message-ID: <4q7rono-ssrr-r53-2796-o6924496p0qo@onlyvoer.pbz>
-References: <20201222025931.3043480-1-natechancellor@gmail.com>
+        Mon, 21 Dec 2020 22:24:05 -0800 (PST)
+Date: Mon, 21 Dec 2020 23:24:03 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Tyrel Datwyler <tyreld@linux.ibm.com>
+Cc: james.bottomley@hansenpartnership.com, martin.petersen@oracle.com,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, brking@linux.ibm.com,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 3/3] ibmvfc: use correlation token to tag commands
+Message-ID: <20201222062403.GA2190683@ubuntu-m3-large-x86>
+References: <20201117185031.129939-1-tyreld@linux.ibm.com>
+ <20201117185031.129939-3-tyreld@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: npitre@baylibre.com
+Content-Disposition: inline
+In-Reply-To: <20201117185031.129939-3-tyreld@linux.ibm.com>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@baylibre-com.20150623.gappssmtp.com header.s=20150623
- header.b=DrCYH2SJ;       spf=pass (google.com: domain of npitre@baylibre.com
- designates 2607:f8b0:4864:20::72f as permitted sender) smtp.mailfrom=npitre@baylibre.com
+ header.i=@gmail.com header.s=20161025 header.b=bYLuiH1o;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,59 +150,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 21 Dec 2020, Nathan Chancellor wrote:
-
-> Clang warns:
+On Tue, Nov 17, 2020 at 12:50:31PM -0600, Tyrel Datwyler wrote:
+> The vfcFrame correlation field is 64bit handle that is intended to trace
+> I/O operations through both the client stack and VIOS stack when the
+> underlying physical FC adapter supports tagging.
 > 
->  ../drivers/i3c/master/mipi-i3c-hci/core.c:780:21: warning: attribute
->  declaration must precede definition [-Wignored-attributes]
->  static const struct __maybe_unused of_device_id i3c_hci_of_match[] = {
->                      ^
->  ../include/linux/compiler_attributes.h:267:56: note: expanded from macro
->  '__maybe_unused'
->  #define __maybe_unused                  __attribute__((__unused__))
->                                                         ^
->  ../include/linux/mod_devicetable.h:262:8: note: previous definition is
->  here
->  struct of_device_id {
->         ^
-> 1 warning generated.
+> Tag vfcFrames with the associated ibmvfc_event pointer handle.
 > 
-> 'struct of_device_id' should not be split, as it is a type. Move the
-> __maybe_unused attribute after the static and const qualifiers so that
-> there are no warnings about this variable, period.
-> 
-> Fixes: 95393f3e07ab ("i3c/master/mipi-i3c-hci: quiet maybe-unused variable warning")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1221
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-
-Acked-by: Nicolas Pitre <npitre@baylibre.com>
-
+> Signed-off-by: Tyrel Datwyler <tyreld@linux.ibm.com>
 > ---
->  drivers/i3c/master/mipi-i3c-hci/core.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/scsi/ibmvscsi/ibmvfc.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/drivers/i3c/master/mipi-i3c-hci/core.c b/drivers/i3c/master/mipi-i3c-hci/core.c
-> index 500abd27fb22..1b73647cc3b1 100644
-> --- a/drivers/i3c/master/mipi-i3c-hci/core.c
-> +++ b/drivers/i3c/master/mipi-i3c-hci/core.c
-> @@ -777,7 +777,7 @@ static int i3c_hci_remove(struct platform_device *pdev)
->  	return 0;
->  }
+> diff --git a/drivers/scsi/ibmvscsi/ibmvfc.c b/drivers/scsi/ibmvscsi/ibmvfc.c
+> index 0cab4b852b48..3922441a117d 100644
+> --- a/drivers/scsi/ibmvscsi/ibmvfc.c
+> +++ b/drivers/scsi/ibmvscsi/ibmvfc.c
+> @@ -1693,6 +1693,8 @@ static int ibmvfc_queuecommand_lck(struct scsi_cmnd *cmnd,
+>  		vfc_cmd->iu.pri_task_attr = IBMVFC_SIMPLE_TASK;
+>  	}
 >  
-> -static const struct __maybe_unused of_device_id i3c_hci_of_match[] = {
-> +static const __maybe_unused struct of_device_id i3c_hci_of_match[] = {
->  	{ .compatible = "mipi-i3c-hci", },
->  	{},
->  };
-> 
-> base-commit: 95393f3e07ab53855b91881692a4a5b52dcdc03c
+> +	vfc_cmd->correlation = cpu_to_be64(evt);
+> +
+>  	if (likely(!(rc = ibmvfc_map_sg_data(cmnd, evt, vfc_cmd, vhost->dev))))
+>  		return ibmvfc_send_event(evt, vhost, 0);
+>  
+> @@ -2370,6 +2372,8 @@ static int ibmvfc_abort_task_set(struct scsi_device *sdev)
+>  		tmf->iu.tmf_flags = IBMVFC_ABORT_TASK_SET;
+>  		evt->sync_iu = &rsp_iu;
+>  
+> +		tmf->correlation = cpu_to_be64(evt);
+> +
+>  		init_completion(&evt->comp);
+>  		rsp_rc = ibmvfc_send_event(evt, vhost, default_timeout);
+>  	}
 > -- 
-> 2.30.0.rc1
+> 2.27.0
 > 
-> 
+
+This patch introduces a clang warning, is this intentional behavior?
+
+$ make -skj"$(nproc)" ARCH=powerpc CROSS_COMPILE=powerpc64le-linux-gnu- LLVM=1 O=out distclean ppc64le_defconfig drivers/scsi/ibmvscsi/ibmvfc.o
+Using ../arch/powerpc/configs/ppc64_defconfig as base
+Merging ../arch/powerpc/configs/le.config
+#
+# merged configuration written to .config (needs make)
+#
+../drivers/scsi/ibmvscsi/ibmvfc.c:1747:25: warning: incompatible pointer to integer conversion passing 'struct ibmvfc_event *' to parameter of type '__u64' (aka 'unsigned long long') [-Wint-conversion]
+        vfc_cmd->correlation = cpu_to_be64(evt);
+                               ^~~~~~~~~~~~~~~~
+../include/linux/byteorder/generic.h:92:21: note: expanded from macro 'cpu_to_be64'
+#define cpu_to_be64 __cpu_to_be64
+                    ^
+../include/uapi/linux/byteorder/little_endian.h:37:52: note: expanded from macro '__cpu_to_be64'
+#define __cpu_to_be64(x) ((__force __be64)__swab64((x)))
+                                          ~~~~~~~~~^~~~
+../include/uapi/linux/swab.h:133:12: note: expanded from macro '__swab64'
+        __fswab64(x))
+                  ^
+../include/uapi/linux/swab.h:66:57: note: passing argument to parameter 'val' here
+static inline __attribute_const__ __u64 __fswab64(__u64 val)
+                                                        ^
+../drivers/scsi/ibmvscsi/ibmvfc.c:2421:22: warning: incompatible pointer to integer conversion passing 'struct ibmvfc_event *' to parameter of type '__u64' (aka 'unsigned long long') [-Wint-conversion]
+                tmf->correlation = cpu_to_be64(evt);
+                                   ^~~~~~~~~~~~~~~~
+../include/linux/byteorder/generic.h:92:21: note: expanded from macro 'cpu_to_be64'
+#define cpu_to_be64 __cpu_to_be64
+                    ^
+../include/uapi/linux/byteorder/little_endian.h:37:52: note: expanded from macro '__cpu_to_be64'
+#define __cpu_to_be64(x) ((__force __be64)__swab64((x)))
+                                          ~~~~~~~~~^~~~
+../include/uapi/linux/swab.h:133:12: note: expanded from macro '__swab64'
+        __fswab64(x))
+                  ^
+../include/uapi/linux/swab.h:66:57: note: passing argument to parameter 'val' here
+static inline __attribute_const__ __u64 __fswab64(__u64 val)
+                                                        ^
+2 warnings generated.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/4q7rono-ssrr-r53-2796-o6924496p0qo%40onlyvoer.pbz.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201222062403.GA2190683%40ubuntu-m3-large-x86.
