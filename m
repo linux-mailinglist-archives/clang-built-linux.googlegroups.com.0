@@ -1,168 +1,127 @@
-Return-Path: <clang-built-linux+bncBD2MFOHTXMBBBLG6RD7QKGQEARWV6LY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCILLLGERUHBBOPORD7QKGQED7KIJUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F26B2E0DE0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Dec 2020 18:38:54 +0100 (CET)
-Received: by mail-il1-x13a.google.com with SMTP id p6sf12212651ilb.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Dec 2020 09:38:54 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1608658733; cv=pass;
+Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 21BC52E0E1F
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Dec 2020 19:13:15 +0100 (CET)
+Received: by mail-io1-xd3c.google.com with SMTP id w26sf7755809iox.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Dec 2020 10:13:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1608660794; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RzVgD0O3BAWlg1D5JcFFl6kPfyGwN4PEej1nr05c9uSbjEH9DxcIVwMS9XSp8+hw7x
-         e6js9jfG2b8HzwxkgR+m03u06kqXCf2HAuPgApEaYUweo31iSo0Z8iOxV4/EDxT8LzLq
-         7qN4IwUQltwF8H+KmKqKbxi7cY+IpkCeDLnErMm8mgcUFh8UJHr/p/orBxfLTrjkv/cv
-         QiroyCS0KxyPlr1opumkroa3Oc5v7qrYf81nhmJ1V7VzMZ9RFS9TXYFmxNfiXgHyIfJ+
-         4tng3MB4Ne3qUiXvWaNQgWEhAGYrzF+zl82ZbNZcRxnPa9VDdA7iCElHLljrkfQ1L83X
-         UL0Q==
+        b=ch5vQatAhEj5ne1fmxWCKFthXR+mOO9BzSUKLE2W6Ru3u9NpdTJM3CkQHYIoRtZ6Fx
+         VQzDIxjZLHGB5z8M0OC3Ey9RHIRW74Cipf0GU+nkjmenZuRLCx90BvJ8GQzKj+SnciYS
+         OzG/hQ+uOj1/LpfZ9QHnTFaV0XPhPUOhZgTHAXFAaLGIRwV5HV5nKL4W5HGnvOr7zhks
+         M89q4T/pYhC2gMjkFWgR2PjVU1z8+xRn6jN08Xi8QLwkED+L7DgbbrG08QmABw3eEXxo
+         mMHRhDT8XVIyfqZEVlLCtYkTXyYtj1jw4nAOrPD0DGi+STh1mwnzh5E06wgjH96WNub1
+         dOyQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=gmqSsEuge0d0MwesenepwZJoUoVjVWSv+lj08gV71t4=;
-        b=BorJxkM4JM6OSe2MlojKRqINK+PubY0gd0bX8Ong107UMWesToYoI8PPWE4zIIRhaH
-         Q1f7/QKd+dU4FUS94CLVCQDGlcLCluc+8VY+Tntrx57umFduLpS7ozv2UXMJbpCKbN5H
-         aNExV/k8MN4aF19T152Npxns47cyoJYOTC9cdxzKNIIiBzx3vZQ1Bwld93BgdWMTB+nd
-         KtbjzCKY2xmOwrIs4Xo1Q/GnHIyY01zmAuT179p3sP8A0Q2JzKksV8dlKGi9V0CF0ca+
-         Ez3awGgTBOHKo4WLq2abp8RzzVGi40Ja/458lK933Pykx5iVTX5QEpwrPrxU6GR6jZyT
-         y7EQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=nX+bgVLJf6UIqhj4MxlyztOpTNAPdOU4RecZ2OO+kfg=;
+        b=burOdENzu+8LwqY95zd48RM3VpiVyqjbmIk70NNcF2AVpZz9xIABlTAvKKdngPh/35
+         OscEpNUrENchtm19CLZfKyTMKNwtj4rkmDYGGH4EgWQjHUUxg+TN6a4YT6Mb92PM300E
+         iNodHklrzuIdrNvAOopYKERjOPKNxlek/FZ5eqBEKTdfy8gVrOdkFC1gBxWfhzphhKZg
+         Xgskw2guTB3L29SZ657yW4BS32wg07tdXXipmkhgUNdUGSpIDqinng7tj36B8f3o7jTl
+         f5pD27xOOu0ztYmUS9rAZ/1IyGrtSlg76hs/nE706fkR8TcbuGn+i3k+cigiv76kQJIA
+         7yzA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=kaF4LqkX;
-       spf=pass (google.com: domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=tyreld@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       spf=pass (google.com: domain of dennisszhou@gmail.com designates 209.85.166.176 as permitted sender) smtp.mailfrom=dennisszhou@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gmqSsEuge0d0MwesenepwZJoUoVjVWSv+lj08gV71t4=;
-        b=PiHMXdw5BCxIdtqjBeUCRrvNknreso+DMAuEC+TvWrb9VsqoY8H6ZpuGeOW/Vsy1eL
-         HikwSIoIKwoUyKqcycdpbHbtw9RSZsf1dAZOpyXeSgNZGPQNRpM+MM3PTHWka5iLrrQ7
-         ndvRbuxvdP6Z5RZ3m6lChJ35fP2sjSg2pw2+TpYi2MpvlvWOWMY7RoIBPUKC5izRrcMh
-         sssqfCE6+butiB9dMRZYAPtTMuqZC2hDXliKwEYsiO4oXlINqRQqqwUpOTwC6Y1mmeJ9
-         LSx/LRGIk9yLpU8XaWnvwHuyvGZEXH8rfYsNjx2Eznsx3KbE5J3lFTifrM+ORFHH/lME
-         ZT+g==
+        bh=nX+bgVLJf6UIqhj4MxlyztOpTNAPdOU4RecZ2OO+kfg=;
+        b=qKAw+b1lRqdKEJvaqLp2kwFTSgfpDDBqgK3MUfJXRZka0ArrIu6JMnS+oGhnAQqSOb
+         9FjzJtElIEgkAHanTuWrKX/3AKhlrPEvvOpbbC7sylcJEPwgq9560tI1TA43JmiSSgvl
+         2DTyuFc36xv+qXmhupxg2PeTnzbQW9/8Td+sEAjAxChT1prkGdUZcK8S7wkgdrfFW47C
+         79lheKjbZPJ0ivTSXhV/Aq+wXPKeUtJyawEUc7NBh+PdIYzYgg+3ickW1aHvOYryLqOu
+         o804SsG+utrk8ZYUS9C6h+qjexW5hO7x82avPG+UTKUGAQq0qKRCPJ0rtQFS3yScwBBE
+         lQqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=gmqSsEuge0d0MwesenepwZJoUoVjVWSv+lj08gV71t4=;
-        b=E7rZPJ7XRNSjovE8+Qp8hClynzR06HdK8H2IOmP/5BY2iqsB/hMOG5Ta4Il0ZARlGj
-         xVbZ7UqtetaDjMCTBcgWPVp5/qH+oyQwWkX6z8gM8GR3HHwbRFC8udvU0nrddGOlDWb3
-         EZcvQG56yJj3CgkeyEimLhbbdev6GuV2q1bFgBKPUBzdetmboF1Y6lSwRBGy5F9l7A9K
-         NMe4j3IVcOfjEBPWbZf2gaFSKo6NEaLfDL0sITVerzlXxlWwWtPWduLlUFQBdg98S13m
-         waVmUUHrn2ZHpOhH0+htQNpklJQeWWzV+Y303pU6sbQYTLlx3r2BWJ0s8e+0hXmJV8Iq
-         vJJg==
+        bh=nX+bgVLJf6UIqhj4MxlyztOpTNAPdOU4RecZ2OO+kfg=;
+        b=W+RkbE6bczxuGaPWfQV6Bi6/LC4QFL4ROBxlGeKIIf4M7SB5yEqO6Yo7gvKYEW+ENs
+         C2iXVJfEE4ShalbbSzFISJF+OnkdOGxKxBomNPIHtEfLgGNgngB6IFOkVgkXEWXi2GJd
+         eUsC+QaXxyyOBnkIIpyyDKj5frhkmTWZA9X4vPS+LTM4iRDT2h8G8F/N+UR/U0eC+ICS
+         2ddkT8OySlloKjw13KTDCKR09UsiqwYuL2E1xxvQq/S7WXOd1O6ZQu7SOqpuInXS46PS
+         TK/cFcPcK26YcZYQj5bslEnNtZmnmfV/NqvN1w6YwNm1hbkuQB/pzPwPKd3YdM/Qfkcb
+         axAw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530nBIX1YyQPxk9375C39iU5dLPxu2vY30O6dP/hV1XTLlmpd5rg
-	HKU2jF9wi28s7pcm4n9FixM=
-X-Google-Smtp-Source: ABdhPJyinnyzV5XyanqYKSpC/6cZlGM1C4lpcNQrYQ7nc6BOhe+pMLRGSPtP4jHLo2E7N+cELNklCw==
-X-Received: by 2002:a05:6e02:e01:: with SMTP id a1mr20846991ilk.101.1608658732971;
-        Tue, 22 Dec 2020 09:38:52 -0800 (PST)
+X-Gm-Message-State: AOAM530SIhg8yCIgiUFkMBN0n0eZHUSLkX7cHSNP0NKykBKU0Pwi0pe7
+	6AyCQ/fMKM5lTp2j5XIqC04=
+X-Google-Smtp-Source: ABdhPJwwwx+jt+a0iTrgH5SxAi14UKjqNrCSg4accFmyEG58lUkxFdFSmzTo8HwXpAONcG7fz4dh8Q==
+X-Received: by 2002:a92:ce47:: with SMTP id a7mr22524620ilr.261.1608660794029;
+        Tue, 22 Dec 2020 10:13:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:845d:: with SMTP id l90ls11117299ild.5.gmail; Tue, 22
- Dec 2020 09:38:52 -0800 (PST)
-X-Received: by 2002:a92:da87:: with SMTP id u7mr20704887iln.230.1608658732589;
-        Tue, 22 Dec 2020 09:38:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1608658732; cv=none;
+Received: by 2002:a05:6e02:d83:: with SMTP id i3ls11172707ilj.1.gmail; Tue, 22
+ Dec 2020 10:13:13 -0800 (PST)
+X-Received: by 2002:a05:6e02:1a6b:: with SMTP id w11mr22625529ilv.112.1608660793581;
+        Tue, 22 Dec 2020 10:13:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608660793; cv=none;
         d=google.com; s=arc-20160816;
-        b=XdOV9BhIjEFM4AiWC4B6NIttwLfEDxhbyoo1L1U30LgsjvFQYuhI4ngbg2/Pknb6QX
-         njsLwsBC8glFeZ2H4FLP7Rj9i6kii86BoXkrFyykMBksktalOnEFmc4CqIy/S8e+ticM
-         UYKM7telQJcaCVLQYJXdt14hRfb1jcvgzBOkIvxE0Eaz81s0te28ibaPO2wjf0MVy0Ig
-         TBLh7fTmaGTaFWywMKTyTWkhxCdwusQ1rmHAMo9d94slV5b9g+5y8+zdF0sdh5xSBcuu
-         9HRb8ZvXUYx/bjbBFBB/ua6pkAICK1ctLa1FUQGFaRSAHQvBSRwnmTICS7zM1IUhnt2Q
-         aD2w==
+        b=dZE8ypdxXQu8bOFG585Q5v2WplEEi0X77+cMH6VzvRH9jwjNFEBlT5pikzJIU2OeJi
+         EIoEBuLLBz3Wh0q5YEupRRhVwyDSq8xgEMK9UhAbDsoERjgr/Cj3nzaIcKNF4LWeBHl7
+         Tckw+1qaG8Z6xJ0hTYdWAIaBBKafNTEi0/L8YfeLvOWV8S9ENu+JC8A4KbxmpAvMci2B
+         N6J9zo9tAwRVMUrBrgkMyPqxNZnFDxfqAdwf10A8ZWumnjaEprakOTXeT96N66UnKR8f
+         azKJO/mjf5pFNQiLvpvpXdAxocJdP43adMQbT5jPAZDpxxP+HG/4jmBDcJGPhOb4yBb1
+         aLsw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=mzxAJ2qdjDobwjZYtIc9FAiKEaQborbGTrAtKji3Sl4=;
-        b=gnz50a96NP+KmoZ81ZyPwyRTdQiUP0nxXrGK+/K+G52IghOMYFxJ7F4pPIyutYdeRE
-         X6TsBE9GLI/A0DX7FErLQ6GJPc7WDqp3hlRYErf2xn7xGeg5/2YhWfQe/hYy/bGNh1A7
-         rvbYpsBkl1+JinPJbMFucUG7FoX92zVqKQXqaVpckpUpQijgdmJiDXgk0C/NfiXgyc2O
-         85YAdN7Z+qCjrnOu42IrbqUulSDf6ZwZKx0TAPXtMfgfydXm7bh5+p5Li3u245l9K1M2
-         tYJXFB8bbbbLu8knCJN3IJzfsp3rIWeKDSSKRqDhXXKtFtAtTmSQIoI8FfUpV0v1o4Ab
-         1dbQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=WUU6BQd9q6kn2A5WELfD/J1sK1vcnhrde0ijHHBkbXU=;
+        b=vM+yQ4xISkkPRFiaq+NjaSN0HxtKiq+0PgBPhp1BOIt1VjBlXnNrGoIU5cam1K72b8
+         DvlrChhI4yNrtj97MsUS7sf3/fi+y0J/uwSf50OeEwGRl7OQl8UWRVo5F0fxLAJpvm9+
+         FpDWKCWX0IulgFOLKBnFpI/ftX5XdIO1Iykgdi9rFzSUqbyuLwx5XHOsgwc42Zc2R3+q
+         oBPrUayR1n+oZXHP/LhcqKOoV1fqvzebmpa3DJ+1BcGJoCdFnfQrvTCcBZWxk7izfsYA
+         cuefuV7Ot36NHITJiExwCBFK+p0+HZEW4ZheFMhjZqEadz000EEKiB5+F1BDMj/TSYBl
+         0Biw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=kaF4LqkX;
-       spf=pass (google.com: domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=tyreld@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
-        by gmr-mx.google.com with ESMTPS id b76si1945239ill.3.2020.12.22.09.38.52
+       spf=pass (google.com: domain of dennisszhou@gmail.com designates 209.85.166.176 as permitted sender) smtp.mailfrom=dennisszhou@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail-il1-f176.google.com (mail-il1-f176.google.com. [209.85.166.176])
+        by gmr-mx.google.com with ESMTPS id r17si2046835ilg.4.2020.12.22.10.13.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 22 Dec 2020 09:38:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
-Received: from pps.filterd (m0098394.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id 0BMHMY9l144137;
-	Tue, 22 Dec 2020 12:38:51 -0500
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 35kn510aeg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Dec 2020 12:38:51 -0500
-Received: from m0098394.ppops.net (m0098394.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 0BMHOeBK155030;
-	Tue, 22 Dec 2020 12:38:51 -0500
-Received: from ppma03wdc.us.ibm.com (ba.79.3fa9.ip4.static.sl-reverse.com [169.63.121.186])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 35kn510ae9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Dec 2020 12:38:50 -0500
-Received: from pps.filterd (ppma03wdc.us.ibm.com [127.0.0.1])
-	by ppma03wdc.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 0BMHSRDu029108;
-	Tue, 22 Dec 2020 17:38:49 GMT
-Received: from b03cxnp07028.gho.boulder.ibm.com (b03cxnp07028.gho.boulder.ibm.com [9.17.130.15])
-	by ppma03wdc.us.ibm.com with ESMTP id 35kdqy2wym-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 22 Dec 2020 17:38:49 +0000
-Received: from b03ledav003.gho.boulder.ibm.com (b03ledav003.gho.boulder.ibm.com [9.17.130.234])
-	by b03cxnp07028.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 0BMHcmrX28770794
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Dec 2020 17:38:49 GMT
-Received: from b03ledav003.gho.boulder.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D32E96A05A;
-	Tue, 22 Dec 2020 17:38:48 +0000 (GMT)
-Received: from b03ledav003.gho.boulder.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4C13B6A057;
-	Tue, 22 Dec 2020 17:38:47 +0000 (GMT)
-Received: from oc6857751186.ibm.com (unknown [9.160.78.58])
-	by b03ledav003.gho.boulder.ibm.com (Postfix) with ESMTP;
-	Tue, 22 Dec 2020 17:38:47 +0000 (GMT)
-Subject: Re: [PATCH 3/3] ibmvfc: use correlation token to tag commands
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: james.bottomley@hansenpartnership.com, martin.petersen@oracle.com,
-        linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, brking@linux.ibm.com,
-        clang-built-linux@googlegroups.com
-References: <20201117185031.129939-1-tyreld@linux.ibm.com>
- <20201117185031.129939-3-tyreld@linux.ibm.com>
- <20201222062403.GA2190683@ubuntu-m3-large-x86>
-From: Tyrel Datwyler <tyreld@linux.ibm.com>
-Message-ID: <b71fcc6f-bb07-f02d-8e1e-79fe4f5802dc@linux.ibm.com>
-Date: Tue, 22 Dec 2020 09:38:46 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Dec 2020 10:13:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of dennisszhou@gmail.com designates 209.85.166.176 as permitted sender) client-ip=209.85.166.176;
+Received: by mail-il1-f176.google.com with SMTP id x15so12815395ilq.1
+        for <clang-built-linux@googlegroups.com>; Tue, 22 Dec 2020 10:13:13 -0800 (PST)
+X-Received: by 2002:a92:cec3:: with SMTP id z3mr21438359ilq.256.1608660793277;
+        Tue, 22 Dec 2020 10:13:13 -0800 (PST)
+Received: from google.com (110.41.72.34.bc.googleusercontent.com. [34.72.41.110])
+        by smtp.gmail.com with ESMTPSA id x5sm14830112ilp.55.2020.12.22.10.13.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Dec 2020 10:13:12 -0800 (PST)
+Date: Tue, 22 Dec 2020 18:13:11 +0000
+From: Dennis Zhou <dennis@kernel.org>
+To: Wonhyuk Yang <vvghjk1234@gmail.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	Linux Memory Management List <linux-mm@kvack.org>
+Subject: Re: [linux-next:master 1888/14054] WARNING: modpost:
+ vmlinux.o(.text+0x50f236): Section mismatch in reference from the function
+ cpumask_clear_cpu() to the variable .init.data:pcpu_build_alloc_info.mask
+Message-ID: <X+I3N/fSXzwTuyp3@google.com>
+References: <202012220454.9F6Bkz9q-lkp@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <20201222062403.GA2190683@ubuntu-m3-large-x86>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.343,18.0.737
- definitions=2020-12-22_09:2020-12-21,2020-12-22 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
- lowpriorityscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
- spamscore=0 mlxscore=0 suspectscore=0 malwarescore=0 clxscore=1011
- adultscore=0 phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2012220126
-X-Original-Sender: tyreld@linux.ibm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=kaF4LqkX;       spf=pass (google.com:
- domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender)
- smtp.mailfrom=tyreld@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=ibm.com
+Content-Disposition: inline
+In-Reply-To: <202012220454.9F6Bkz9q-lkp@intel.com>
+X-Original-Sender: DennisSZhou@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of dennisszhou@gmail.com designates 209.85.166.176 as
+ permitted sender) smtp.mailfrom=dennisszhou@gmail.com;       dmarc=fail
+ (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -175,53 +134,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 12/21/20 10:24 PM, Nathan Chancellor wrote:
-> On Tue, Nov 17, 2020 at 12:50:31PM -0600, Tyrel Datwyler wrote:
->> The vfcFrame correlation field is 64bit handle that is intended to trace
->> I/O operations through both the client stack and VIOS stack when the
->> underlying physical FC adapter supports tagging.
->>
->> Tag vfcFrames with the associated ibmvfc_event pointer handle.
->>
->> Signed-off-by: Tyrel Datwyler <tyreld@linux.ibm.com>
->> ---
->>  drivers/scsi/ibmvscsi/ibmvfc.c | 4 ++++
->>  1 file changed, 4 insertions(+)
->>
->> diff --git a/drivers/scsi/ibmvscsi/ibmvfc.c b/drivers/scsi/ibmvscsi/ibmvfc.c
->> index 0cab4b852b48..3922441a117d 100644
->> --- a/drivers/scsi/ibmvscsi/ibmvfc.c
->> +++ b/drivers/scsi/ibmvscsi/ibmvfc.c
->> @@ -1693,6 +1693,8 @@ static int ibmvfc_queuecommand_lck(struct scsi_cmnd *cmnd,
->>  		vfc_cmd->iu.pri_task_attr = IBMVFC_SIMPLE_TASK;
->>  	}
->>  
->> +	vfc_cmd->correlation = cpu_to_be64(evt);
->> +
->>  	if (likely(!(rc = ibmvfc_map_sg_data(cmnd, evt, vfc_cmd, vhost->dev))))
->>  		return ibmvfc_send_event(evt, vhost, 0);
->>  
->> @@ -2370,6 +2372,8 @@ static int ibmvfc_abort_task_set(struct scsi_device *sdev)
->>  		tmf->iu.tmf_flags = IBMVFC_ABORT_TASK_SET;
->>  		evt->sync_iu = &rsp_iu;
->>  
->> +		tmf->correlation = cpu_to_be64(evt);
->> +
->>  		init_completion(&evt->comp);
->>  		rsp_rc = ibmvfc_send_event(evt, vhost, default_timeout);
->>  	}
->> -- 
->> 2.27.0
->>
+Hi Wonhyuk,
+
+On Tue, Dec 22, 2020 at 04:07:59AM +0800, kernel test robot wrote:
+> Hi Wonhyuk,
 > 
-> This patch introduces a clang warning, is this intentional behavior?
+> FYI, the error/warning still remains.
+> 
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   4c6ed015c2a57c3b385265895a69a87f87da8e28
+> commit: 6c207504ae7937ac70a1d753c250eb6ab125d70e [1888/14054] percpu: reduce the number of cpu distance comparisons
+> config: x86_64-randconfig-a013-20201221 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=6c207504ae7937ac70a1d753c250eb6ab125d70e
+>         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>         git fetch --no-tags linux-next master
+>         git checkout 6c207504ae7937ac70a1d753c250eb6ab125d70e
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All warnings (new ones prefixed by >>, old ones prefixed by <<):
+> 
+> >> WARNING: modpost: vmlinux.o(.text+0x50f236): Section mismatch in reference from the function cpumask_clear_cpu() to the variable .init.data:pcpu_build_alloc_info.mask
+> The function cpumask_clear_cpu() references
+> the variable __initdata pcpu_build_alloc_info.mask.
+> This is often because cpumask_clear_cpu lacks a __initdata
+> annotation or the annotation of pcpu_build_alloc_info.mask is wrong.
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-Nope, I just missed the required cast. I've got a fixes patch queued up. I just
-haven't sent it yet.
+This is my fault, I didn't have time to look into this until recently.
+The issue is that the second call to cpumask_clear_cpu() is not being
+inlined resulting in the warning above. Because this is purely a qol
+fix, I'm going to move this from for-5.11 to for-5.12 and figure out the
+best way to fix this warning.
 
--Tyrel
+Thanks,
+Dennis
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b71fcc6f-bb07-f02d-8e1e-79fe4f5802dc%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X%2BI3N/fSXzwTuyp3%40google.com.
