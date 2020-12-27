@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFHBUL7QKGQERFTNX5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBW4HUP7QKGQEP53BJOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3652D2E31BF
-	for <lists+clang-built-linux@lfdr.de>; Sun, 27 Dec 2020 17:04:38 +0100 (CET)
-Received: by mail-pg1-x53c.google.com with SMTP id m23sf6243732pgl.6
-        for <lists+clang-built-linux@lfdr.de>; Sun, 27 Dec 2020 08:04:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609085077; cv=pass;
+Received: from mail-qv1-xf39.google.com (mail-qv1-xf39.google.com [IPv6:2607:f8b0:4864:20::f39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 896CC2E3220
+	for <lists+clang-built-linux@lfdr.de>; Sun, 27 Dec 2020 18:26:52 +0100 (CET)
+Received: by mail-qv1-xf39.google.com with SMTP id i13sf7004545qvx.11
+        for <lists+clang-built-linux@lfdr.de>; Sun, 27 Dec 2020 09:26:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609090011; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Kum8XYSXay95RJYpGxNPGr+O/W1PDgISvBavmAABu92IwlSxblinSP58tmTSP4GyqB
-         WoELTVwpN8Eh64pDeasLP4usTvW1daAhBYubca3Fh6ddNJ4EZERfqw7ZNPfNWUW6cbkf
-         xZxsBk6sk6U8mdZ1Ls4u3Dx4PKvHddtc/uSb1mg1Qv26WhlBQGe1cuPxW6+kyp/Xtat/
-         aPT+aGlZl3CsUDRFncqg1Bywf+pk+RjUKuSNXZvngssML9mJu2j1Y/1impax9Pcl4qQI
-         TFjpf7pWAwUE38/1E6YKB/SJ1pJynBzP8zfdqxKYf/WFUT72T8WgVqQf9V0Ky9nCmflp
-         y9EQ==
+        b=u5D4yv0cLfVteu6fE10fbGEfnzozmv9jb/ekG9ldLb5OuPEJovwj7upm572PrRtKt5
+         jGIsqZ0rf3r/wo6POeCK1I+G9pWtU1d9knTqyvQwvIBWZi6fHUw1viabVaswpFIWRWPR
+         GTXYjK12vC07YeuasIC+oLTSnTWgYaIuwzTe11jWCllAGJceyarKTnVtnB33v+vKIvY/
+         PXAJv+S3QUcveAZ//q3nwV1FFi7im+N0UpZ1Lo5mfZPIOPZ6n4GDZUrKEN5/5e/JgMIg
+         RFiqEBBxcYX7FSoDtKuvmzJZVE/w3e1x5YQb2fgS8X6skXk8knP9OrjaY02C7XsgPbk2
+         FKKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=HY0rnodRGER++4me3jEBhe+Ap825TlkK/rrtpuADWoU=;
-        b=YvUPYRY3C17nxXry+QhI8jdH0CPnDgzUd8K5ldSXA+wSwtmaQeed3bonTe9Mkf5YBM
-         c3b1B6JbGNeHYOl2RB50R2fKHbm+cSFd2RdRFPbrrhaqJVCEJA4Eat1Fc6px8nA3sZ5m
-         TAI91XdeboPmyIqOFXU36kHFD+0KUYlK4Nat6PoXwdDSFTNTibcTljmgxlQjXFrEBbSk
-         ht9kjztdySuoWVcnkHVBqex1HdYQIqMcSEphDAAwApLMiG6TV48nenk/FVo1j1ddUsnl
-         7bQTSxQ0+fRYAXGB4csI62JXv8dGWDbZNktGMVem5BnUlP5/hi6S+583fN4kgX4n7d2v
-         IOxg==
+        bh=0aFN5z4JXIx/w+7nUsXOa9Dmxnvolijcb0+r9CzSjGI=;
+        b=WUlc1/FLQZ5IniQVy+ua9BE2GBTK7xjIEn4Yx7vHUomiiZOZDkQnYeIJjuOzYuRTl3
+         5umb2TVqpXFiyHfNIKNTKZAFon83d3C98pwfFg9Vm5KI8rUKc/I3RjI0kcgnhKKGexrQ
+         L7xlq8zXqodVmN2QLT6idpdPw6yv6KchY+ZxMR3QugPrBD/dQPmp+Rvm94emit9fTOVX
+         BTST6hDUyNP62qXGbLzTCsVc/P7iNEkxyiyRzU1n4geSfnzwlKDE2C0VJpQqihXUwVf4
+         5CgD2OiLHo0YqpDXnZpEBKqGdsB5DLvcmFvWPmgtnx92WledCIpw0IuDoKPSp0Pt/eCY
+         Yt+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HY0rnodRGER++4me3jEBhe+Ap825TlkK/rrtpuADWoU=;
-        b=YGcjVGREzoVYeQi6wLadGWWMU+zhBSwPLLrX0vgx/zIkFy7FMLNridgOnF4rWmJbet
-         mnBP+8jNsvl24RuPzxb4KZIJbS1b6qNUi7kA6f2AQPTNTh/5090drKnyI0fSWMMqF7jc
-         QwDhzhPl8pqar4eQid7bHWEuC8bzddeSAvcNSoRNmqqbe6hJ7+3vl+boxs8V06pX4YYy
-         jWtKcaCp31ercsASVdV03v44yMihdEaLjpHDKxkgYHQk06yAGOk/nu62wgklIR8OSbCA
-         kxYR3XTpcDT/we4e6eVOE0LRfDOFOVaB0wl3BAcAs4oySvf3JapTWpFC2iKXjhf0FaKf
-         VzDQ==
+        bh=0aFN5z4JXIx/w+7nUsXOa9Dmxnvolijcb0+r9CzSjGI=;
+        b=Vcy0wb3GZ2jbqbLMX1w4rWoVKvRfaoU/WWJJ7/0yKHwofeQc2ZgRNFCF0p37CNV9g7
+         SadEs6c5aHWajrcUdSRY1XY0J7kJYsxsJlMvVE4HvlPi63xn9tQYftAjsjRxB5gB9d3j
+         Z3KG3qipfQmFdCcNN7TPuucIbYl7SYKwtQSjcMtkQmBWWaBOA51mVi6b6XJmwQfo9MGd
+         hm4Tk8T514F0l7UfF9WodAgaKH1FxyQ2dSaL3CtjRt7HndSXTrv96mlkdfHIGdq0IGf1
+         OtJHc8FtK5RwZvS7rIa9gAlyJMqsLAf3QfXrsDtpRBCNbuJRyBA91OCe5U+8iv+Ar9ZK
+         4/RA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,77 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=HY0rnodRGER++4me3jEBhe+Ap825TlkK/rrtpuADWoU=;
-        b=jg8yXXk4aXi2lc4nxCmt5CWmqa5o67wIqt9qXJ9ujmQuZnpwvoL079S4r/U5Y9Tt2u
-         oRbe8KwkQBLT1po9HGa1rfonJXdqWHmw6l4tjik/8U8+QdR/53Lvu6t4WdDgmwc3PJbS
-         VdSyn5tfnxO38GrFvoUwI1zxi8Q3cp5lXkNhI+0KGziJur55qN65NR4gKS/1e6datcf/
-         8EV5TG4vr6MleEgAqw9KKJ9oeg0mFPPn5OcZt9VPvXB4DLcHDY3W6e87YqK3FdFS8miv
-         4VI5ZHMK3vMIKWHHE+mdp9T2H6KH+Ai9Rt26Byvpsv0jVlCjiX5neDTRKnoVHrteqZTf
-         sKNw==
+        bh=0aFN5z4JXIx/w+7nUsXOa9Dmxnvolijcb0+r9CzSjGI=;
+        b=QyxXwGTDGoi3ha0LTYnXfWvI3UM1nauxwreMcYdJCeRURfj4zBbLzIAs52YKc1UVXb
+         i4I08W0S5KD7M8GEeAYW6vKZXFrkzLG28bQhGhFExlB1pquCCthz3bNbFcArUZG9wEto
+         ywBlj4Bw0S4i9vLS7/MyGF5YEaWGUfV56pSuasBE7hsn6HS6Xa/ys0E2go2wVyM67hqe
+         Lo2puI7iuyxrC2Rx8QhBJ8HMANZllnj2gR+FU4g/4YyCd3ibhZEH2wsMBg1tb2LkLsEQ
+         YrEyyjgQcUV29yusiAHDnEcjA8GdxrX8+j82X4KZLAxcqjOkfRQXPYDnGjWr1PbmywyA
+         etvg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531x+6+PlwkjPdi1Oyl1Q7SzNA5sI2Nm51l6dXXX5nwhCiItg8tI
-	CFRDfB+cIRfvxvzcy/xSWMg=
-X-Google-Smtp-Source: ABdhPJxmGNffBVzUE8mU8EzXzX4vhkCHohEaRtKBdCZfY+nfM2hpGuv+YH5f432Qgq3NLOdeunzjXw==
-X-Received: by 2002:a17:90a:2e84:: with SMTP id r4mr17109540pjd.147.1609085076636;
-        Sun, 27 Dec 2020 08:04:36 -0800 (PST)
+X-Gm-Message-State: AOAM530qTzBtolb+AUdQZdT639xRJiPu4aGAb2gJLTkDuAqZkDXndMIl
+	6Wbmdwf2hdi9OeBYLENe0z0=
+X-Google-Smtp-Source: ABdhPJyCoizpnq8gNnRxJBmxgl4IGmzIbXGBYSRoG5d2KAPk9jAvB1SG8Ci3zIX5/og2IHStMHs/2Q==
+X-Received: by 2002:ac8:7491:: with SMTP id v17mr41429956qtq.38.1609090011129;
+        Sun, 27 Dec 2020 09:26:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8489:: with SMTP id c9ls10358634plo.4.gmail; Sun, 27
- Dec 2020 08:04:36 -0800 (PST)
-X-Received: by 2002:a17:902:8a8a:b029:db:e003:4044 with SMTP id p10-20020a1709028a8ab02900dbe0034044mr41225694plo.19.1609085075859;
-        Sun, 27 Dec 2020 08:04:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609085075; cv=none;
+Received: by 2002:ac8:3824:: with SMTP id q33ls18342911qtb.2.gmail; Sun, 27
+ Dec 2020 09:26:50 -0800 (PST)
+X-Received: by 2002:ac8:58c7:: with SMTP id u7mr41055041qta.54.1609090010595;
+        Sun, 27 Dec 2020 09:26:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609090010; cv=none;
         d=google.com; s=arc-20160816;
-        b=VKnv6b1oBUctYOo6kPQo2GkA9061cZ6CD7va/2bKCsE3+Rbs/2abK0KFIAL+PkEts2
-         tbrbfo68sonzhKE2U4xPYhlkdzSNlx1GHwWIaAw6Cs16q855MBShQSmd51RST7kD25kH
-         pjATsd5arUa1t8L+xcDx7wtRC89HECcNG1m6xfMopqmHi+qChyZEzXpoxUorvrw1rjpG
-         SbEqfsPiqUNGdkqLmq3i+vu5HhDyK2N/OPP7oPLqZ1lt1BZ0Me2PbVdk+3zpWPTpffi4
-         DI3Xv4V9R/xPoJ82/mpP3NurZ7UmzWhxl/5AAKBu0u2stWhWQwp9kzShNjkVy8Mu0BcH
-         7wjg==
+        b=CuJH30HqKa8gCl7tk9+OkFpYc0EjQcVmMqgwU8siNrc+Ao88+ZPz+wfRxMoAhzHcWC
+         aNH53EaDTPjm1YjFRYlBqZBFR26RDItwBjYyVFH8PlDmw3/5Qk5mQNe0eLh6OhZRynL3
+         XhAQOzAh7KIhEGHlNtEH68HK3gc6Wkf269BTLel1VxccGSnquD0cLPIpJo60pIc9VDtX
+         /254igwcyGO4xModwsShJysNwmClCWCrw7/0WseZOW+fcV+RCOrqdvryQ0ey7ot8nL7G
+         EW/X7a5IZpGwY/Vk8o/I5a/CK5fnZ9F2/FaK4e4dRoM+97ydrLyYrtEAWDFRqNIUzDxO
+         kIsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=DgbMITVfj22CAzq48siz1iJYv9ecUblnY2EB2WcL/bM=;
-        b=Q6gNkDKf171Rovhltfh41mY3z+9PZda9ClSMaRD8SULXKiLRBjvJOCd0s1w93Hbyzd
-         HT41D/9Yc3Jc22cDeHvRv0nknzWefBMy6Tgm+dTDtybu87YvnYW0+7J5tcsbv+crkP8F
-         NN6Wtr7HfmpP3gbttHGuQM27a6M5GL4yqlp6t41UUU41nFQXIdHbxT6yJ/Wagn0MEC59
-         nR91CJXw7P1xY+g5KQ8J9zqX9A209KNXrW2uhDa25Z/7bmWJm3BEhftK53ay0ORgJ+J5
-         IqRxsHKzxNengHk1gP4VFqm9184eIVYHehTozM80EAa5pCpL9RaQ0B2SMDq2ACdZc4nY
-         Y2ww==
+        bh=GaLd6hxxhnpHezESEmbY0r0pbWbaTS0zXR/cH9UYoL8=;
+        b=bcgCqpwv9tQSsi7LOlbSNNILWeVDKyqVRGEMnScNKhTxnHA9RKGUnFKqIp9L6hY6ez
+         p1HGIHddhi26sfSlf3FbM8ydWHFpuyTUF2GT+UXe3MLtBE3B5OG6dmtPNyCB3KZjobGD
+         v6p0fVsU0tMaXU9agCvA46Lwj5e+ypU0eL9XpWcePrr+DzGKHpa3MQsRXluqEh1g9GCH
+         4M6LobcIIXV2BvxLBPlYEoGDf73+pMsgbp9tNkJHVj8TsppxWJzlAylc2fXpqxosQG4O
+         NO02hji2GqcfBmgA0zUZMEeVsQUxmOe1g37EpwlwHnFvpFKfTqVLTRIjjTgJw7rA8C8S
+         8bcw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id mp23si822817pjb.1.2020.12.27.08.04.35
+        by gmr-mx.google.com with ESMTPS id p55si2312443qtc.2.2020.12.27.09.26.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 27 Dec 2020 08:04:35 -0800 (PST)
+        Sun, 27 Dec 2020 09:26:49 -0800 (PST)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: NqXBd+w1Bkoal8bAef8KOI7mUyleww8N8w8ClVz1dE75SB9lKkiFSHphTASKfLhuRjmnn2HkFw
- 3qcwKeINXGGQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9847"; a="173737762"
+IronPort-SDR: bpLSi70r1J22OzjCkTjLSjB+dEqYA8ttOKRayxlb982dsVCmARjBs1ROR0xNYJTFx4xNWg9eIF
+ bkntExJuH2fA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9847"; a="173741189"
 X-IronPort-AV: E=Sophos;i="5.78,453,1599548400"; 
-   d="gz'50?scan'50,208,50";a="173737762"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Dec 2020 08:04:34 -0800
-IronPort-SDR: 8UAFHP+hPE48gpjy9WmHfJId3pUvq23gxTiLZq0mlDMKmIvsJBP7srf8UeIetG4V2A+wdNp9TN
- r+5MQZcSoHqw==
+   d="gz'50?scan'50,208,50";a="173741189"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Dec 2020 09:26:47 -0800
+IronPort-SDR: aeyhoPcRLAYrqVQA9GJECaAnYMSqveeb7lkLSc3NGluQ0WaegamQEAFv6CyRV/T6B1RRGd3otv
+ ta+fkn3QWbBw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,453,1599548400"; 
-   d="gz'50?scan'50,208,50";a="392464110"
+   d="gz'50?scan'50,208,50";a="375328034"
 Received: from lkp-server02.sh.intel.com (HELO 4242b19f17ef) ([10.239.97.151])
-  by fmsmga004.fm.intel.com with ESMTP; 27 Dec 2020 08:04:32 -0800
+  by orsmga008.jf.intel.com with ESMTP; 27 Dec 2020 09:26:45 -0800
 Received: from kbuild by 4242b19f17ef with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1ktYX2-0002TV-7Q; Sun, 27 Dec 2020 16:04:32 +0000
-Date: Mon, 28 Dec 2020 00:04:12 +0800
+	id 1ktZob-0002VQ-0o; Sun, 27 Dec 2020 17:26:45 +0000
+Date: Mon, 28 Dec 2020 01:25:58 +0800
 From: kernel test robot <lkp@intel.com>
 To: Ira Weiny <ira.weiny@intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [weiny2:tip-pks-v4-2020-12-17 17/18] include/linux/mm.h:1196:58:
- error: variable has incomplete type 'enum dev_access_mod'
-Message-ID: <202012280006.R9Bi4xU6-lkp@intel.com>
+Subject: [weiny2:tip-pks-v4-2020-12-17 18/18] include/linux/highmem.h:40:20:
+ error: argument type 'enum dev_access_mod' is incomplete
+Message-ID: <202012280152.NBURs3O1-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="UugvWAfsgieZRqgk"
+Content-Type: multipart/mixed; boundary="FL5UXtIhxfXey3p5"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
@@ -140,13 +140,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---UugvWAfsgieZRqgk
+--FL5UXtIhxfXey3p5
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/weiny2/linux-kernel.git tip-pks-v4-2020-12-17
 head:   c4c3d898d21401b51941cd75b3e59c2baec59505
-commit: 1bf1a3d00ba3e2afcbc4dcbf4e8bf870984a6393 [17/18] memremap: Add zone device access protection
+commit: c4c3d898d21401b51941cd75b3e59c2baec59505 [18/18] kmap: Add stray access protection for device pages
 config: x86_64-randconfig-a016-20201217 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
 reproduce (this is a W=1 build):
@@ -154,17 +154,17 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/weiny2/linux-kernel/commit/1bf1a3d00ba3e2afcbc4dcbf4e8bf870984a6393
+        # https://github.com/weiny2/linux-kernel/commit/c4c3d898d21401b51941cd75b3e59c2baec59505
         git remote add weiny2 https://github.com/weiny2/linux-kernel.git
         git fetch --no-tags weiny2 tip-pks-v4-2020-12-17
-        git checkout 1bf1a3d00ba3e2afcbc4dcbf4e8bf870984a6393
+        git checkout c4c3d898d21401b51941cd75b3e59c2baec59505
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
    In file included from arch/x86/kernel/asm-offsets.c:13:
    In file included from include/linux/suspend.h:5:
@@ -175,10 +175,10 @@ All error/warnings (new ones prefixed by >>):
    In file included from include/linux/bpf-cgroup.h:5:
    In file included from include/linux/bpf.h:21:
    In file included from include/linux/kallsyms.h:12:
->> include/linux/mm.h:1196:43: warning: declaration of 'enum dev_access_mod' will not be visible outside of this function [-Wvisibility]
+   include/linux/mm.h:1196:43: warning: declaration of 'enum dev_access_mod' will not be visible outside of this function [-Wvisibility]
    static inline void dev_access_enable(enum dev_access_mod mode) { }
                                              ^
->> include/linux/mm.h:1196:58: error: variable has incomplete type 'enum dev_access_mod'
+   include/linux/mm.h:1196:58: error: variable has incomplete type 'enum dev_access_mod'
    static inline void dev_access_enable(enum dev_access_mod mode) { }
                                                             ^
    include/linux/mm.h:1196:43: note: forward declaration of 'enum dev_access_mod'
@@ -193,7 +193,35 @@ All error/warnings (new ones prefixed by >>):
    include/linux/mm.h:1197:44: note: forward declaration of 'enum dev_access_mod'
    static inline void dev_access_disable(enum dev_access_mod mode) { }
                                               ^
-   2 warnings and 2 errors generated.
+   In file included from arch/x86/kernel/asm-offsets.c:13:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:14:
+   In file included from include/linux/pagemap.h:11:
+>> include/linux/highmem.h:40:20: error: argument type 'enum dev_access_mod' is incomplete
+           dev_access_enable(mode);
+                             ^~~~
+   include/linux/mm.h:1196:43: note: forward declaration of 'enum dev_access_mod'
+   static inline void dev_access_enable(enum dev_access_mod mode) { }
+                                             ^
+   In file included from arch/x86/kernel/asm-offsets.c:13:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:14:
+   In file included from include/linux/pagemap.h:11:
+   include/linux/highmem.h:48:21: error: argument type 'enum dev_access_mod' is incomplete
+           dev_access_disable(mode);
+                              ^~~~
+   include/linux/mm.h:1197:44: note: forward declaration of 'enum dev_access_mod'
+   static inline void dev_access_disable(enum dev_access_mod mode) { }
+                                              ^
+   2 warnings and 4 errors generated.
 --
    In file included from arch/x86/kernel/asm-offsets.c:13:
    In file included from include/linux/suspend.h:5:
@@ -204,10 +232,10 @@ All error/warnings (new ones prefixed by >>):
    In file included from include/linux/bpf-cgroup.h:5:
    In file included from include/linux/bpf.h:21:
    In file included from include/linux/kallsyms.h:12:
->> include/linux/mm.h:1196:43: warning: declaration of 'enum dev_access_mod' will not be visible outside of this function [-Wvisibility]
+   include/linux/mm.h:1196:43: warning: declaration of 'enum dev_access_mod' will not be visible outside of this function [-Wvisibility]
    static inline void dev_access_enable(enum dev_access_mod mode) { }
                                              ^
->> include/linux/mm.h:1196:58: error: variable has incomplete type 'enum dev_access_mod'
+   include/linux/mm.h:1196:58: error: variable has incomplete type 'enum dev_access_mod'
    static inline void dev_access_enable(enum dev_access_mod mode) { }
                                                             ^
    include/linux/mm.h:1196:43: note: forward declaration of 'enum dev_access_mod'
@@ -222,7 +250,35 @@ All error/warnings (new ones prefixed by >>):
    include/linux/mm.h:1197:44: note: forward declaration of 'enum dev_access_mod'
    static inline void dev_access_disable(enum dev_access_mod mode) { }
                                               ^
-   2 warnings and 2 errors generated.
+   In file included from arch/x86/kernel/asm-offsets.c:13:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:14:
+   In file included from include/linux/pagemap.h:11:
+>> include/linux/highmem.h:40:20: error: argument type 'enum dev_access_mod' is incomplete
+           dev_access_enable(mode);
+                             ^~~~
+   include/linux/mm.h:1196:43: note: forward declaration of 'enum dev_access_mod'
+   static inline void dev_access_enable(enum dev_access_mod mode) { }
+                                             ^
+   In file included from arch/x86/kernel/asm-offsets.c:13:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:14:
+   In file included from include/linux/pagemap.h:11:
+   include/linux/highmem.h:48:21: error: argument type 'enum dev_access_mod' is incomplete
+           dev_access_disable(mode);
+                              ^~~~
+   include/linux/mm.h:1197:44: note: forward declaration of 'enum dev_access_mod'
+   static inline void dev_access_disable(enum dev_access_mod mode) { }
+                                              ^
+   2 warnings and 4 errors generated.
    make[2]: *** [scripts/Makefile.build:117: arch/x86/kernel/asm-offsets.s] Error 1
    make[2]: Target '__build' not remade because of errors.
    make[1]: *** [Makefile:1200: prepare0] Error 2
@@ -239,10 +295,10 @@ All error/warnings (new ones prefixed by >>):
    In file included from include/linux/bpf-cgroup.h:5:
    In file included from include/linux/bpf.h:21:
    In file included from include/linux/kallsyms.h:12:
->> include/linux/mm.h:1196:43: warning: declaration of 'enum dev_access_mod' will not be visible outside of this function [-Wvisibility]
+   include/linux/mm.h:1196:43: warning: declaration of 'enum dev_access_mod' will not be visible outside of this function [-Wvisibility]
    static inline void dev_access_enable(enum dev_access_mod mode) { }
                                              ^
->> include/linux/mm.h:1196:58: error: variable has incomplete type 'enum dev_access_mod'
+   include/linux/mm.h:1196:58: error: variable has incomplete type 'enum dev_access_mod'
    static inline void dev_access_enable(enum dev_access_mod mode) { }
                                                             ^
    include/linux/mm.h:1196:43: note: forward declaration of 'enum dev_access_mod'
@@ -257,7 +313,35 @@ All error/warnings (new ones prefixed by >>):
    include/linux/mm.h:1197:44: note: forward declaration of 'enum dev_access_mod'
    static inline void dev_access_disable(enum dev_access_mod mode) { }
                                               ^
-   2 warnings and 2 errors generated.
+   In file included from arch/x86/kernel/asm-offsets.c:13:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:14:
+   In file included from include/linux/pagemap.h:11:
+>> include/linux/highmem.h:40:20: error: argument type 'enum dev_access_mod' is incomplete
+           dev_access_enable(mode);
+                             ^~~~
+   include/linux/mm.h:1196:43: note: forward declaration of 'enum dev_access_mod'
+   static inline void dev_access_enable(enum dev_access_mod mode) { }
+                                             ^
+   In file included from arch/x86/kernel/asm-offsets.c:13:
+   In file included from include/linux/suspend.h:5:
+   In file included from include/linux/swap.h:9:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:14:
+   In file included from include/linux/pagemap.h:11:
+   include/linux/highmem.h:48:21: error: argument type 'enum dev_access_mod' is incomplete
+           dev_access_disable(mode);
+                              ^~~~
+   include/linux/mm.h:1197:44: note: forward declaration of 'enum dev_access_mod'
+   static inline void dev_access_disable(enum dev_access_mod mode) { }
+                                              ^
+   2 warnings and 4 errors generated.
    make[2]: *** [scripts/Makefile.build:117: arch/x86/kernel/asm-offsets.s] Error 1
    make[2]: Target '__build' not remade because of errors.
    make[1]: *** [Makefile:1200: prepare0] Error 2
@@ -266,30 +350,17 @@ All error/warnings (new ones prefixed by >>):
    make: Target 'prepare' not remade because of errors.
 
 
-vim +1196 include/linux/mm.h
+vim +40 include/linux/highmem.h
 
-  1178	
-  1179	void __dev_access_enable(enum dev_access_mode mode);
-  1180	void __dev_access_disable(enum dev_access_mode mode);
-  1181	static __always_inline void dev_access_enable(enum dev_access_mode mode)
-  1182	{
-  1183		if (static_branch_unlikely(&dev_protection_static_key))
-  1184			__dev_access_enable(mode);
-  1185	}
-  1186	static __always_inline void dev_access_disable(enum dev_access_mode mode)
-  1187	{
-  1188		if (static_branch_unlikely(&dev_protection_static_key))
-  1189			__dev_access_disable(mode);
-  1190	}
-  1191	#else
-  1192	static inline bool page_is_access_protected(struct page *page)
-  1193	{
-  1194		return false;
-  1195	}
-> 1196	static inline void dev_access_enable(enum dev_access_mod mode) { }
-  1197	static inline void dev_access_disable(enum dev_access_mod mode) { }
-  1198	#endif /* CONFIG_ZONE_DEVICE_ACCESS_PROTECTION */
-  1199	
+    34	
+    35	static inline void dev_page_enable_access(struct page *page,
+    36						  enum dev_access_mode mode)
+    37	{
+    38		if (!page_is_access_protected(page))
+    39			return;
+  > 40		dev_access_enable(mode);
+    41	}
+    42	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -298,14 +369,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012280006.R9Bi4xU6-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202012280152.NBURs3O1-lkp%40intel.com.
 
---UugvWAfsgieZRqgk
+--FL5UXtIhxfXey3p5
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHKb6F8AAy5jb25maWcAjDxJe9y2kvf3K/pzLnmHJGpZ7nhmPh3QJNhEmpsBsBdd+MlS
+H4sICJSw6F8AAy5jb25maWcAjDxJe9y2kvf3K/pzLnmHJGpZ7nhmPh3QJNhEmpsBsBdd+MlS
 y08TLZ6WlNj/fqoALgBY7NgH20QV9tqr0D/966cZe3t9frx+vb+5fnj4PvtyeDocr18Pt7O7
 +4fD/8ziclaUesZjoX8F5Oz+6e3bb98+LprFxezDr/OzX89+Od6cz9aH49PhYRY9P93df3mD
 Ae6fn/7107+iskjEqomiZsOlEmXRaL7Tl+9uHq6fvsz+OhxfAG82P/8Vxpn9/OX+9b9/+w3+
@@ -994,4 +1065,4 @@ BmnWORy4ieuUFUbwfwQ3jScgBMeKN3w/HkPObuEc91OUaHziKC+t0fI5KXBsHNKhv8UavhxY
 ADz4ijdcjWBSURowWPUDy5S/rPt3GTcAjGtnnqFk++plzQ5yETxYvFt4q1/EoTzz7WR/A9v/
 oBi4oT28rBSYFDWG5ApNH4ZKpTSuKmQ2YR40cER4ojsL/dMmFscrLd9YBgb/F/rsXJ2nVgIA
 
---UugvWAfsgieZRqgk--
+--FL5UXtIhxfXey3p5--
