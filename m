@@ -1,124 +1,138 @@
-Return-Path: <clang-built-linux+bncBCQZJVV3RQNBB5E6VX7QKGQESTCRJ5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBTOTVX7QKGQESZ7HTVA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B6A22E71EE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Dec 2020 16:47:02 +0100 (CET)
-Received: by mail-il1-x137.google.com with SMTP id x13sf6348667ilv.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Dec 2020 07:47:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609256821; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id D0FA42E72C2
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Dec 2020 18:39:26 +0100 (CET)
+Received: by mail-io1-xd39.google.com with SMTP id l20sf6008913ioc.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Dec 2020 09:39:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609263565; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vJflGw56gqmvw3dNLgDD3pkEX58nQ+2Uz0uNNReDcOL3wkZ3ZgYl4QWtMTCpT1YhCp
-         jXLzN8UVGpLv7C2uqnZI6XvIQ/4VqXWY7muH2Uoqs6BDscl1bI4BdQ6qMheIwgLi/1XC
-         tmbDaQ8DVzOHuREq9u81gN2nDFafnPc1tvjr9PAIUQTPVKlWRlESDQ97dC3dv2qO1oqC
-         RE9FU183LY8PASXsWFUbLNEMDVeQXV9+aN0ZpO+cKbzP7v+VjWPMzB3F9KDgm7i/PHXt
-         1yR+jrsUYt3sDtdnVAuCTQaXk0NPSf5pnqbbhxFi3r0MOhxoIRv+E8j7Z7qB0IhtvMwh
-         17xg==
+        b=wLfx7M2yNBCHnUTQ9fYI2Dj0+QBJf1dDWmYZStoejYY9XEwcfx3VHN54vCv4kLK7JR
+         EYVDhQmuEIFRvKxuKfQ8qzd43fT3G7Nw3jHBlf2u0Luf+w/h5KUMtw3sdOGc4DoubdpX
+         Z7DidLfqsLQz/2Tn7nfzLs/lBr6MhU9478AyP2hXFFLvTmgvIdEDx4hBgENRFawxAIbW
+         EFWEKRWhDAdMrjm67N5ErcIPbG5bsBqD6gmjLuQr75wctprEgTcQw7R3TKnTxgF+Xf7l
+         WjwaQStShoeIR9jgV54C16rlBNFBIK7RlvSxE9gRGYykYV6SOj+2LiN48KmJDvmwKh+j
+         /IWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=AOR5sSztdl/uQvKo1bewHJMTlnOEDrndGQfosFKqdXs=;
-        b=aaP/T44drcrXUJ7CNvPBCV3x4xx01aSPM/YOM+Xs86NeyZuya+miWaaAn5ZCvlAlOY
-         0awioxSjB72WfGM3E6GBihtcX62Q1CYM3vmcdmrZiAt1Ir0PEur8RPTpL5MyAy4A7hs6
-         CCBPiwVmU/PtMQ5ppjfKcJmtmVCZFF9JW8RmaIK0y9juxiwu0pqe/k+KDMWv3ooRPImc
-         0VKrE+KJa1oZkCKJHhZ24UfuZ97QZNiAAwnyNeyOsT7mE+0Ie+5rNnhqIOclNLTT/Q9T
-         tozKQWUIGBDBYLcq5cXpGKqpND5Bn6HiICeEPahxoYmcVkIowy6EzniwU6ZpZqNoZIR/
-         JGiA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=2nNEc5FNcE4qTNM2E5oJbBMoB5YQd71KiVlclKHNRYA=;
+        b=k8UIxqQgmmwSHep7Tz5SHvexNmAWEfucoaoScfapl+XrA/r1zY0fgsmNTpAElfj/99
+         wFayZQgXDeOIBPOoza2we1nxvZvF6/+AO8jUw89WCC4JxrD0a+Tmgsq61T2teC8eJvBN
+         uNBGLQQQypAOBOKgHtbn3R/LKwBnlmZmRBuYzDcwEQxWZH8ncuMZgqYzCWGOYfxWjmIG
+         9GM3mrUx3eAU2ZjVsLOEQDK21XmLZdInjTULvn1XXUlN9/xDtnaKhKoHRhkGKwFZHF0p
+         7OvfR4999qmz47y0w7OeCnHV4jJvOXgdRSvCm7dYv3ebLhw2DUjiUNEbFoNnsvd63J1F
+         87Rg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rjwysocki@gmail.com designates 209.85.167.180 as permitted sender) smtp.mailfrom=rjwysocki@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=EMMK7I2x;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AOR5sSztdl/uQvKo1bewHJMTlnOEDrndGQfosFKqdXs=;
-        b=NOrHM3kUZCjSYGbbQ3Pw5EcBgglULR8f+hM/B+j8GLZSxhFArjvaVf+o4Wa9h/DMcT
-         c8upMEg8FQwJWFxKcbAXlFM92zbR/CdPBs3Yky+X03ZqUmqZqv5VAMZ5mRN+VUYleCYQ
-         fa5++6c1imxzYd0hp3oMlqNCquN40JgxxO9E3cRAyFbwXSEpOx1eiwQmmso756RFNzji
-         b752KjtTArqE0Npe6b3HKdGmWu4FuFWz6FnBfRfzOj3kPVWeBoSn36iIiUOJ2JIIBn54
-         Qe1RX4boa8isWqKyLwVP8626dTMrW1Ck/mtC+kPmMyA2+OD4Qq213kXjN4vmUPAp3OZx
-         6NJw==
+        bh=2nNEc5FNcE4qTNM2E5oJbBMoB5YQd71KiVlclKHNRYA=;
+        b=KDC8aD0aUry61S+Rzfla7DgOdpBiTMlKA6iTQFWnxnoNpY/5GuU+Bekh/NgKpUFsOg
+         58z9UNKbbszKIruxOIuaIr3tOjfm0v2kZ1Ea2S3ncAUGKsILy5AMpavngDkmxfVF7XqU
+         PGTM3sUmPunW7F1ST3EoZ5D4SGLjV6TcmMRTUJgJMO6uCP9PgtJDmoNKOPyy93Xv48ty
+         tVrEu9EEszgX2DdKJjv0445JNEWsXJ75Tq8Mf4IFhnhOVZ9FbKjhYbQUTF0a/FkibRmh
+         7fDPEDPrCkw5VqcCWPPHX+JVI5PJ4yVzBUxiqCfIECGqQQOGrhVEGhaTnjFnvXsL1kTS
+         dyrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AOR5sSztdl/uQvKo1bewHJMTlnOEDrndGQfosFKqdXs=;
-        b=HjrXzjgWEdd52stHYuGZ4MEkTEs3IkBYmcBRy14g8n2HhDbfOR3GfqNmgeRPRuTMWL
-         HEHWenEEKvyi5DdaFoQmJAkKcLvOJINagwr5hiQW3No3Ir8SvcaL5xsmE+iSzY+mGYWa
-         oxDX0K7TfUZWlsUfItmDbpqbOjal2ysJ64FAOiDBbvI1HUdVIPnpWtFq1aJxWGkJgK2P
-         1Nqy30LVSb/NHDe6m2NRJK6m6LeA8SR5MFhLmTWGLAdi6m1gLHRuSLBMhRN/OJVMpXXs
-         ZkebE9iIrSWwYBy2jVRf/Z96FAk7D0ugk8rh47nWJMnkyIZnk22HnjH1mhivXJEviVS9
-         cIJg==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2nNEc5FNcE4qTNM2E5oJbBMoB5YQd71KiVlclKHNRYA=;
+        b=HLj8pUPbdo4TMsR0zueJK4lGySWqccLrxDhh/UxV9KEvPUjdHFeAjKorXR6ev6fJoA
+         8cOlZfepFwfxPP8/suXgfmoT++Sek6jNZ4OlpPrcdnSoC+TqJjeZ+lXDzBeza3gB6/3p
+         Y7j3c6viM4UjEIaaEHs3ANT/4yuPZxb6IsKIx1lFtEcfuatcYxjq+H39+N3JItB1dkZU
+         vl7Cu/wB9lnxwxUjzZ602+iMfLTHkmXB49G5OVYYr20XBM5UzVGxdO5+aSY7fZIdykDS
+         XlsX4WipVIHqbzGdDGvKDnHO/dnw0HZc2d/sdMCKrS5+QA/PeTgdmEFPcqdcbsCe+Oek
+         BBSQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5311M8NaSWRmakPFAfyKlerAzZQjXwqh8pyQi32LaNMBUclS9TgX
-	ytAioB3ew3wGHr3LuPZhgik=
-X-Google-Smtp-Source: ABdhPJwMXasOKLEjSGXV50MTEJ6AKWyUxZM1kIMxsbHg/Pv0rN8C2bDnTjNfPW84uMLvgZnBVXdwdg==
-X-Received: by 2002:a92:ca47:: with SMTP id q7mr47126011ilo.239.1609256820968;
-        Tue, 29 Dec 2020 07:47:00 -0800 (PST)
+X-Gm-Message-State: AOAM530nN8r/mlZprFaqas5yifTfukOct+8hsS2Cxfq6JRyDU6w8XwQj
+	/1CtXxdCHPAQwTeoXRJ3j04=
+X-Google-Smtp-Source: ABdhPJwYVSkY7rEFDwznf8GGnhEKFmgG48gOhoHnWXywqKL2FXx/shMBSHAD52oejLza7GTV53AiTw==
+X-Received: by 2002:a6b:784d:: with SMTP id h13mr40498904iop.26.1609263565604;
+        Tue, 29 Dec 2020 09:39:25 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:1a0c:: with SMTP id s12ls2385465ild.8.gmail; Tue,
- 29 Dec 2020 07:47:00 -0800 (PST)
-X-Received: by 2002:a92:845c:: with SMTP id l89mr47893419ild.114.1609256820510;
-        Tue, 29 Dec 2020 07:47:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609256820; cv=none;
+Received: by 2002:a92:ca09:: with SMTP id j9ls1464382ils.11.gmail; Tue, 29 Dec
+ 2020 09:39:25 -0800 (PST)
+X-Received: by 2002:a92:9e1d:: with SMTP id q29mr19502240ili.289.1609263565193;
+        Tue, 29 Dec 2020 09:39:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609263565; cv=none;
         d=google.com; s=arc-20160816;
-        b=EL2AXpSJ2VFm8st1JEu/ZGf7OICOJybrQxKOZpsPAe5Nz0ZBz3i2aSz0ZhsVV8p1JX
-         ulUgzbR2+YfqN0hWA13JXMV4ZEq+b1xeo3QIrquMgzSx3ncz6/KcHwwNWsLM8JM53wNW
-         28ksgjN2Uvy7u8z1UZES5Bn/jg/l3swscMmsQd0er0ArPZnvgCJqMdW7pdYgHlCbRSh6
-         CZ6Ej2zMMrOobkOwkiJ3nwa6/4eIXUb8e4dcvhnDn/aBgVOslbnugLWgMrJW0qnE22se
-         dKC/boVeu06ps4f3ntnj7EKfPw8PkCcMTKP84/nXuZz7DxrcJHklSrfgz6NOMg35rDHQ
-         /oLA==
+        b=Fp8TnNHWAyngvtL6mD3puMwsW4SQi9x4Nk7V+5XVvAe3GXEqhL0DrpEp6YdN8SEoCl
+         q662SBBqZVtqL7uftirwPx3ZZ+MW/68WZfvgNs2CLkl7zEwIGFkTxx2o6/8HxGh29FWQ
+         XG/6hznX9GMop9zOKKmij76NbCQu4nRwvdUEbe8HBgJxLv/yVUCSMeIA3UgowHy3muzW
+         pt85g46k+rjxB7vDBXopSsscGLrkS7zGCvhx7dVvNlFZI8UCjhZ97wmvfLa5mHNa2njy
+         +VmZFrf4cmZMDUXQ5seyOsxy2gu/FyJaBaauyBonjS1/ARKQRkBpPlIXsAHdfglKkeos
+         5CfA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=MEK4Mw7UBxOJIa/S7PzM0wAgV0d+78LiF/JzTK6IpGY=;
-        b=V0DxXfti2CdEvQdo/BblsHEPYKs+ywlFDUd6WByPCWaJ+IJvC3xFWWTsQp8tyLSxjs
-         FKl76Mj9VHcL+uH/5Smp3JP/WCLGGIa7xxSgNx2z5o7aQEeJaGSUP2l4icCGzLNxyMI2
-         nAe+DUA7NJf5rlIa51iNVfefOCZm2fPL6fovI9Ti3pTVqPmT9tFiprcVS/voCXwMxuPW
-         c3W3gjDoYK1ntVxi8WkctVvH2iZw7diZLbu/Uq/HPwF2yvBmNnthpbu+bPzamiAFTVkq
-         8eKXIifpUZ6gcbZAdi7MXbRclt1DHhw98BMdztYeTXqwzgkA0SNyAXX3RQiGLTlVaPgB
-         Nnmw==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=0N2HePoQRmdLA5K1yApdE8rhkgViaY5rXeLPZJah4TQ=;
+        b=p4GCkBrA8CHa29xmbTAANYX4q8h7JaiZBH9hqvW9lpfwUB6Q96tiN+4IJn4gUeY20o
+         eKtNZQ94mdsbVV8eiVT8oxSn9D3Tb0wBitqliHCXs7fk48jgSfVHLzC0+lGCkk+3+wUa
+         2tL6k6vozgfyRfFZ3hVz2rOhKZpMAVeyrXcgTsnh8ZUQneNDejlmUW0QmlOTzS/2Uyhh
+         CLR3MGx0qMWgPiGnkVuL2cJTdbFJOs6YmeXhD7+4aONlNl1+TpZhRRxLfq/Rv/dU0/Mz
+         WSsnmOmAc6vw0lwvYY7Q0ae0TwGGdPje3F4iNqrNCOC1J/Tr2LMDD3pUgbilrXNaRc0L
+         NHcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rjwysocki@gmail.com designates 209.85.167.180 as permitted sender) smtp.mailfrom=rjwysocki@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail-oi1-f180.google.com (mail-oi1-f180.google.com. [209.85.167.180])
-        by gmr-mx.google.com with ESMTPS id b8si3973752ile.1.2020.12.29.07.47.00
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=EMMK7I2x;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id k131si2568072iof.1.2020.12.29.09.39.24
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Dec 2020 07:47:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of rjwysocki@gmail.com designates 209.85.167.180 as permitted sender) client-ip=209.85.167.180;
-Received: by mail-oi1-f180.google.com with SMTP id q205so14929009oig.13
-        for <clang-built-linux@googlegroups.com>; Tue, 29 Dec 2020 07:47:00 -0800 (PST)
-X-Received: by 2002:aca:4c1:: with SMTP id 184mr2791324oie.157.1609256820193;
- Tue, 29 Dec 2020 07:47:00 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 29 Dec 2020 09:39:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com
+ [209.85.167.197]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-81-f8ZYjKKAN5OGlAEkcmOVBQ-1; Tue, 29 Dec 2020 12:39:22 -0500
+X-MC-Unique: f8ZYjKKAN5OGlAEkcmOVBQ-1
+Received: by mail-oi1-f197.google.com with SMTP id j25so8952854oie.12
+        for <clang-built-linux@googlegroups.com>; Tue, 29 Dec 2020 09:39:22 -0800 (PST)
+X-Received: by 2002:a4a:c4c7:: with SMTP id g7mr34109288ooq.50.1609263562111;
+        Tue, 29 Dec 2020 09:39:22 -0800 (PST)
+X-Received: by 2002:a4a:c4c7:: with SMTP id g7mr34109277ooq.50.1609263561902;
+        Tue, 29 Dec 2020 09:39:21 -0800 (PST)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id s26sm9997234otd.8.2020.12.29.09.39.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Dec 2020 09:39:21 -0800 (PST)
+From: trix@redhat.com
+To: dhowells@redhat.com,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	natechancellor@gmail.com,
+	ndesaulniers@google.com
+Cc: linux-afs@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Tom Rix <trix@redhat.com>
+Subject: [PATCH] rxrpc: fix handling of an unsupported token type in rxrpc_read()
+Date: Tue, 29 Dec 2020 09:39:16 -0800
+Message-Id: <20201229173916.1459499-1-trix@redhat.com>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-References: <202012271352.JvNDF17O-lkp@intel.com> <34a43212-ff2b-cbc6-a670-975d39ac9f12@redhat.com>
- <16284400-7c71-ee40-b694-614d6daf21f5@lenovo.com> <CAJZ5v0je=BeU98tkXmE9Mu1aiqc4=o288S=uOuFwh=okWJC2eQ@mail.gmail.com>
- <22e7ec14-faab-bddd-fff2-303ab3bff01e@lenovo.com>
-In-Reply-To: <22e7ec14-faab-bddd-fff2-303ab3bff01e@lenovo.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 29 Dec 2020 16:46:38 +0100
-Message-ID: <CAJZ5v0gyAXmbbjbW=sh9UzZRaJMuc0_Btx4V+4DhrSQOPrt3Mg@mail.gmail.com>
-Subject: Re: [External] Re: [pm:bleeding-edge 8612/8615] drivers/acpi/platform_profile.c:147:24:
- warning: address of array 'pprof->choices' will always evaluate to 'true'
-To: Mark Pearson <markpearson@lenovo.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Hans de Goede <hdegoede@redhat.com>, 
-	kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
-	ACPI Devel Maling List <linux-acpi@vger.kernel.org>, 
-	"open list:ACPI COMPONENT ARCHITECTURE (ACPICA)" <devel@acpica.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	"Rafael J. Wysocki" <rjw@rjwysocki.net>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: rafael@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rjwysocki@gmail.com designates 209.85.167.180 as
- permitted sender) smtp.mailfrom=rjwysocki@gmail.com;       dmarc=fail (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+X-Original-Sender: trix@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=EMMK7I2x;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,84 +145,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Dec 29, 2020 at 4:36 PM Mark Pearson <markpearson@lenovo.com> wrote:
->
-> Hi Rafael
->
-> On 29/12/2020 10:23, Rafael J. Wysocki wrote:
-> > On Tue, Dec 29, 2020 at 12:18 AM Mark Pearson <markpearson@lenovo.com> wrote:
-> >>
-> >> Hi Hans
-> >>
-> >> On 27/12/2020 06:56, Hans de Goede wrote:
-> >>> Hi,
-> >>>
-> >>> On 12/27/20 6:11 AM, kernel test robot wrote:
-> >>>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git bleeding-edge
-> >>>> head:   a33520709645543f108361fe21fa9434a351c4e9
-> >>>> commit: 8c9b909fb1282e43792433e6c1cba125ccfc6201 [8612/8615] ACPI: platform-profile: Add platform profile support
-> >>>> config: x86_64-randconfig-a015-20201221 (attached as .config)
-> >>>> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
-> >>>> reproduce (this is a W=1 build):
-> >>>>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >>>>         chmod +x ~/bin/make.cross
-> >>>>         # install x86_64 cross compiling tool for clang build
-> >>>>         # apt-get install binutils-x86-64-linux-gnu
-> >>>>         # https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git/commit/?id=8c9b909fb1282e43792433e6c1cba125ccfc6201
-> >>>>         git remote add pm https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git
-> >>>>         git fetch --no-tags pm bleeding-edge
-> >>>>         git checkout 8c9b909fb1282e43792433e6c1cba125ccfc6201
-> >>>>         # save the attached .config to linux build tree
-> >>>>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> >>>>
-> >>>> If you fix the issue, kindly add following tag as appropriate
-> >>>> Reported-by: kernel test robot <lkp@intel.com>
-> >>>>
-> >>>> All warnings (new ones prefixed by >>):
-> >>>>
-> >>>>>> drivers/acpi/platform_profile.c:147:24: warning: address of array 'pprof->choices' will always evaluate to 'true' [-Wpointer-bool-conversion]
-> >>>>            if (!pprof || !pprof->choices || !pprof->profile_set ||
-> >>>>                          ~~~~~~~~^~~~~~~
-> >>>>    1 warning generated.
-> >>>
-> >>>
-> >>> Ah, this is caused by changing choices from a single long to:
-> >>>
-> >>>       unsigned long choices[BITS_TO_LONGS(PLATFORM_PROFILE_LAST)];
-> >>>
-> >>> So that we can use for_each_set_bit and are future proof for more then
-> >>> 32 profiles.
-> >>>
-> >>> To fix this the check should be changed into this (untested):
-> >>>
-> >>> #include <linux/bitmap.h>
-> >>>
-> >>>       if (!pprof || bitmap_empty(pprof->choices, PLATFORM_PROFILE_LAST) ||
-> >>>           !pprof->profile_set || !pprof->profile_get) {
-> >>>               mutex_unlock(&profile_lock);
-> >>>               return -EINVAL;
-> >>>       }
-> >>>
-> >>> Mark can you provide a (tested) patch for this?
-> >>>
-> >>> Regards,
-> >>>
-> >>> Hans
-> >>>
-> >> Will do!
-> >
-> > Please note that I'm not going to push the material to Linus with this
-> > warning, so if you want it to go into 5.11, that needs to be addressed
-> > timely.
-> >
-> > Thanks!
-> >
-> Understood :) I tested this last night and it looks good. Do I push this
-> as a v8 patch on the current series or as a new standalone patch?
+From: Tom Rix <trix@redhat.com>
 
-An incremental patch to fix the issue, please.
+clang static analysis reports this problem
+
+net/rxrpc/key.c:657:11: warning: Assigned value is garbage or undefined
+                toksize = toksizes[tok++];
+                        ^ ~~~~~~~~~~~~~~~
+
+rxrpc_read() contains two loops.  The first loop calculates the token
+sizes and stores the results in toksizes[] and the second one uses the
+array.  When there is an error in identifying the token in the first
+loop, the token is skipped, no change is made to the toksizes[] array.
+When the same error happens in the second loop, the token is not
+skipped.  This will cause the toksizes[] array to be out of step and
+will overrun past the calculated sizes.
+
+Change the error handling in the second loop to be consistent with
+the first.  Simplify the error handling to an if check.
+
+Fixes: 9a059cd5ca7d ("rxrpc: Downgrade the BUG() for unsupported token type in rxrpc_read()")
+Signed-off-by: Tom Rix <trix@redhat.com>
+---
+ net/rxrpc/key.c | 48 ++++++++++++++++++++++--------------------------
+ 1 file changed, 22 insertions(+), 26 deletions(-)
+
+diff --git a/net/rxrpc/key.c b/net/rxrpc/key.c
+index 9631aa8543b5..eea877ee6ab3 100644
+--- a/net/rxrpc/key.c
++++ b/net/rxrpc/key.c
+@@ -587,20 +587,19 @@ static long rxrpc_read(const struct key *key,
+ 	for (token = key->payload.data[0]; token; token = token->next) {
+ 		toksize = 4;	/* sec index */
+ 
+-		switch (token->security_index) {
+-		case RXRPC_SECURITY_RXKAD:
+-			toksize += 8 * 4;	/* viceid, kvno, key*2, begin,
+-						 * end, primary, tktlen */
+-			if (!token->no_leak_key)
+-				toksize += RND(token->kad->ticket_len);
+-			break;
+-
+-		default: /* we have a ticket we can't encode */
++		if (token->security_index != RXRPC_SECURITY_RXKAD) {
++			/* we have a ticket we can't encode */
+ 			pr_err("Unsupported key token type (%u)\n",
+ 			       token->security_index);
+ 			continue;
+ 		}
+ 
++		/* viceid, kvno, key*2, begin, end, primary, tktlen */
++		toksize += 8 * 4;
++
++		if (!token->no_leak_key)
++			toksize += RND(token->kad->ticket_len);
++
+ 		_debug("token[%u]: toksize=%u", ntoks, toksize);
+ 		ASSERTCMP(toksize, <=, AFSTOKEN_LENGTH_MAX);
+ 
+@@ -654,28 +653,25 @@ static long rxrpc_read(const struct key *key,
+ 
+ 	tok = 0;
+ 	for (token = key->payload.data[0]; token; token = token->next) {
++		/* error reported above */
++		if (token->security_index != RXRPC_SECURITY_RXKAD)
++			continue;
++
+ 		toksize = toksizes[tok++];
+ 		ENCODE(toksize);
+ 		oldxdr = xdr;
+ 		ENCODE(token->security_index);
+ 
+-		switch (token->security_index) {
+-		case RXRPC_SECURITY_RXKAD:
+-			ENCODE(token->kad->vice_id);
+-			ENCODE(token->kad->kvno);
+-			ENCODE_BYTES(8, token->kad->session_key);
+-			ENCODE(token->kad->start);
+-			ENCODE(token->kad->expiry);
+-			ENCODE(token->kad->primary_flag);
+-			if (token->no_leak_key)
+-				ENCODE(0);
+-			else
+-				ENCODE_DATA(token->kad->ticket_len, token->kad->ticket);
+-			break;
+-
+-		default:
+-			break;
+-		}
++		ENCODE(token->kad->vice_id);
++		ENCODE(token->kad->kvno);
++		ENCODE_BYTES(8, token->kad->session_key);
++		ENCODE(token->kad->start);
++		ENCODE(token->kad->expiry);
++		ENCODE(token->kad->primary_flag);
++		if (token->no_leak_key)
++			ENCODE(0);
++		else
++			ENCODE_DATA(token->kad->ticket_len, token->kad->ticket);
+ 
+ 		ASSERTCMP((unsigned long)xdr - (unsigned long)oldxdr, ==,
+ 			  toksize);
+-- 
+2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAJZ5v0gyAXmbbjbW%3Dsh9UzZRaJMuc0_Btx4V%2B4DhrSQOPrt3Mg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201229173916.1459499-1-trix%40redhat.com.
