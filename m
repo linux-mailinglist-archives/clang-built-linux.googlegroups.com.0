@@ -1,125 +1,184 @@
-Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBG6OWL7QKGQEU3LMLEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBI4KWP7QKGQEHQROHXI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id 046CD2E7AF4
-	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Dec 2020 17:13:17 +0100 (CET)
-Received: by mail-il1-x139.google.com with SMTP id x14sf15700665ilg.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Dec 2020 08:13:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609344796; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=ygr2jX+H8s/CyjNFAcM6C3Dub9e1H3FYS+AHDeJEqntyuB6xc1urgsBwKu1/CcWAr1
-         hAiXMHA61EZGkZi6UahlbTIbEz672Q89dwp6F01zRid9ycUztvLRL2aiMtN9m/Gnon8Z
-         PHthZxmBTuliyvBM3g3DdZ6Zzh11u1qC9FWyqs4MdirSo8gIeGlcmkzh3CKOps47JoIq
-         FETPx3+6hFsnLvKb4M7KmhGfuWWkJB3bCkmhR+FCq6d9faydDiK/9jOoPk8TQKaeICdn
-         S1gJI9h1QtoFDRMFFGIjd7XOMWPfM7h0nPJGdSdhm4xOdFauHQ7vNihaqXmIG7cB3Fa5
-         8ULA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=YeNm+P8VDu4lwCe2+iEARmHxSviQVuLL6QxaAqzwAqw=;
-        b=uny6aB35yED3FeOhqJ0h5B+yY5bjgf3J/R5c1dd+sbrOYOINQBC0pn2eW68WvmcVsW
-         Y/ULifYKXx0BMeyJOMglq8ysBuypXVungOzECoEFuyg2dzsPFpzeeBO4duNopoEHRxot
-         xrsTDO7AiYbrVHzbTjpokmyv/NkWDIc1RohVf4STqjujt6H81RUWvjTOjtyfT6vfuS1l
-         R+kq3QPtK746ZcylbPfN0MM4Ba9P29CuYXY8LXyRwJ3TFJmznq728UYVW472HTHJd3Fj
-         J5QHif99lAfdHXqnkmKiO1frQIsnwsSC7HR77fO88dmbkYP/bxUlQ+IKrXcwZg6rkW4E
-         /eEQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=wJJqpDxk;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::329 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id F1FFA2E7BEA
+	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Dec 2020 19:21:26 +0100 (CET)
+Received: by mail-pg1-x53a.google.com with SMTP id m23sf12635980pgl.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Dec 2020 10:21:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=YeNm+P8VDu4lwCe2+iEARmHxSviQVuLL6QxaAqzwAqw=;
-        b=GXjrXZd1PSXyTUWuMzQQNlSUS6yt5wdL/IC6pfQY0b8jdlBr7QCxZeyHIUiFDURZgC
-         NWpB1GlLM+w/AGurovVx9FyGtIHFnb10vwZCX+6I/AQ4EnqMGtlyDEekrQizUPGYrRE1
-         CyMifQYz6PF5w+5JvYTcD2pHoxszK6EXJYlFmC9xs8e24PUydFkBO95AeYgiUIhi/inz
-         bsBzvFXXSRvSkf7mrolgna3NoRZdLTIYrv0hEeLnNa3jIxrUamMtwvraX7tYFDoALg3/
-         IhikgzyhPfWpNU0VO+rUQQa44VES3Ou7vARPpi6pUKbVmRh2qZDfvgNX+NxEhPRPnJCm
-         6RVA==
+        h=subject:to:references:from:message-id:date:user-agent:in-reply-to
+         :content-language:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=GPWNNKP11A788qoUMN9r9icKB7C8uOJxFOqfBODqanM=;
+        b=frRb5SUs3tzKKk78DynwXF1SAsPMZj06AiSVjBKmUkQtzuhjQjV2ngB1UUjhwgRpDB
+         b11+fwVJBkdKT2Nc+Y4EyeQ/wAJuDM83wnR7ESlU4QAM7Cqb6HNr1ISJK/MhWddTInHT
+         UK6V1cO+eAq4DDrikRWmIvxQx8DDnzDQGOpzGkrx2NnpIRw29Oe5Oltfu5oV1M9bvvKi
+         EvBEp++XChh5TVMXKPxvahzwjG7XFECGDElttJEquyfU9uk+bmqmI94e1LFFaXiWAC+L
+         Lyt48pme6NgtvXhomrnsgTaCZbBELpieKxE7h8MwY74R7CBXAAKbkpKG9rbyq7BoLkFD
+         guWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=YeNm+P8VDu4lwCe2+iEARmHxSviQVuLL6QxaAqzwAqw=;
-        b=V7DxYONxVK6Bs/YiXWcyFSnbItnPh0IYlE5+dma7v5f1G3EgcOg98QEMlsjqL9D7FY
-         QFma72hDn8oJo24irfmDXlcVyO5K5Hj2+ywTDI2AZLAKCVWpR+YQ4wvTYUHc8IqDJgt4
-         QsxoTzcxqo9B8ttAr1DD57xSUJ5JYYTHxWdfxsg5ajtDb4liX017AG1HaSJhqISvn3IH
-         PpOjF8KVlZ/XvLu9xeRpxrTdfHHJiSyFa0JgpAaUhPKkaUU+mIbMcTPeXfb/ZhOirSeX
-         LiqgBR1PgLNgIam11Uoe32EWy97EGQ3q9SMJhkK9PJVCbIQ95tFazooKiaP7WLjPMF4v
-         nPMw==
-X-Gm-Message-State: AOAM532AmysCGYFCnG6/QzwRfZgbaM0QdJRM2NbcJnITjuH3A/XtOv0v
-	W90hNd4wK2GRGAcO/FA0MsE=
-X-Google-Smtp-Source: ABdhPJzV02GIy7dK36bY+xzrqw33KThdp7m3yIoytF5IyMkvIIcJP802S/FboGaI82BiJYD+6I2bCQ==
-X-Received: by 2002:a92:c6c3:: with SMTP id v3mr52307620ilm.281.1609344795992;
-        Wed, 30 Dec 2020 08:13:15 -0800 (PST)
+        h=x-gm-message-state:subject:to:references:from:message-id:date
+         :user-agent:in-reply-to:content-language:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GPWNNKP11A788qoUMN9r9icKB7C8uOJxFOqfBODqanM=;
+        b=E04jxUvxGKGHU5AC79b8Gz9ydKTOzYZssdC4VsbreI5+g4WwUxUk0EKkCxYFoKWRFm
+         3rseQ6GnJcClCDzj7j/zGDBDj0HoLl2SsGW+dRfwxHYMpU0Io45/DdbunMiARb7hN9OZ
+         ibyHJQ6T35CrYKY1ujJ1rt3ebFNi3guHoEgYvLXytBfNHEKI0E4ElC8OfPKuS6M7wcKz
+         uBIGqVDC6O19lGSYB5SaBObnck0/gJNvSQ7NGUascRbI2nh3Q1/dy+WY38UIYW66SXQA
+         IBPAN99DN3JuC3GUhwNLiKv0i+TJu5C9LCIMh6ws7SbjRTKoC5LU0dF2tw2S0Zofi2ak
+         hnMg==
+X-Gm-Message-State: AOAM532RoQ2+sF4k7XW1BhJ4jDJd2Jpj2fj5YKOjI7YluEyirWef0sDc
+	p/GUdRJ1lEIbJt7tO37U5cY=
+X-Google-Smtp-Source: ABdhPJy8Vxhar4YPTHNKC0plAncebTM1EasdLPxJD/SlmQHvzCKcqTVjFmNODjWiDIsTokJNO1f28w==
+X-Received: by 2002:a62:84ca:0:b029:19e:6f95:11b1 with SMTP id k193-20020a6284ca0000b029019e6f9511b1mr49605710pfd.68.1609352483170;
+        Wed, 30 Dec 2020 10:21:23 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:3609:: with SMTP id d9ls16611681ila.4.gmail; Wed, 30 Dec
- 2020 08:13:15 -0800 (PST)
-X-Received: by 2002:a92:d84e:: with SMTP id h14mr53228020ilq.87.1609344795471;
-        Wed, 30 Dec 2020 08:13:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609344795; cv=none;
-        d=google.com; s=arc-20160816;
-        b=Dj1/TMRQZiGljm4+JSy8JpqqrpH/+RZ50EPjPtSQyj8EYjXrjZCW5Dx55BxxPPE0BS
-         3QxayetEJANg3WVlLO+Q9++LQ9jk1aa3O49/BeHUVuPzceingdWIm9dE2wdEP2FeWGtr
-         OhAGbfnhUGn+Vi/d+sLwbnWHCeaPgof8NJ8FCJNz1YuBym9l4KuKD6z6XDzIo0neX4jR
-         JWQ97EpDeYtaHeBTRKYaihaXLIchiN2uShP0ADjAC0lofH88m/3WENTRtfC0izueQE+E
-         DfKMEO1eg5Ur4JUWjFNolo45k5/2IexNUPom6fGiM4suHBpKNHVQ+6jKJGuT/7Idgc9X
-         2aDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=myv7LmSMKbOAYNp52XCR2AQFXn1fM0PNSnfXWuCsuQU=;
-        b=mFoq5BoK5/54ICcx7vNSEqUlfYSK9aARu40xva4E+syCxWcn3Le1MShnvkd58/X/YW
-         6iiE3zZocujOaFPpc1JPUH35WnuGtQSBSund462NUZNT0FPyJVlpCnEhPBGlYyLXnlj9
-         PQ7Xl6PVP5vCVtxnRn1uMiUBzsDpfR/mGCzom3FC4y2d7OK3FdtAWL1B78UVHwTYXG8n
-         PV+fQTEBNxQ2JhUPaBDduVcgu5RiLKfs3jPJKSx5xzFPIhMg+fCFBjO1Q62FwcaOSUHK
-         GOz6gUl9KlpJ5qI9P3tBkq1aBg2rXwwkjcVeAGVvgf+e9aOKxtoXZhCHEMgH5K7VC0Es
-         Bruw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=wJJqpDxk;
-       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::329 as permitted sender) smtp.mailfrom=elver@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ot1-x329.google.com (mail-ot1-x329.google.com. [2607:f8b0:4864:20::329])
-        by gmr-mx.google.com with ESMTPS id r17si3970679ilg.4.2020.12.30.08.13.15
+Received: by 2002:aa7:9550:: with SMTP id w16ls24423705pfq.0.gmail; Wed, 30
+ Dec 2020 10:21:22 -0800 (PST)
+X-Received: by 2002:a63:3247:: with SMTP id y68mr53635197pgy.10.1609352482516;
+        Wed, 30 Dec 2020 10:21:22 -0800 (PST)
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
+        by gmr-mx.google.com with ESMTPS id q32si536971pja.2.2020.12.30.10.21.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Dec 2020 08:13:15 -0800 (PST)
-Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::329 as permitted sender) client-ip=2607:f8b0:4864:20::329;
-Received: by mail-ot1-x329.google.com with SMTP id w3so15730765otp.13
-        for <clang-built-linux@googlegroups.com>; Wed, 30 Dec 2020 08:13:15 -0800 (PST)
-X-Received: by 2002:a05:6830:2413:: with SMTP id j19mr41075229ots.251.1609344795027;
- Wed, 30 Dec 2020 08:13:15 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Dec 2020 10:21:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of prvs=0633ebed7b=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
+Received: from pps.filterd (m0044010.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 0BUIB0SU005254;
+	Wed, 30 Dec 2020 10:21:18 -0800
+Received: from maileast.thefacebook.com ([163.114.130.16])
+	by mx0a-00082601.pphosted.com with ESMTP id 35rr9e1pmd-11
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Wed, 30 Dec 2020 10:21:18 -0800
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.35.175) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Wed, 30 Dec 2020 10:21:15 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=B846dAnA+g2HYn3/TSSs1ucnWMmIOHVlyz10kE4KGXeeF6t/i1vJVWaEpHkAKO5lVsctAB60NrDuycUfyz1mS+2DFsZfMO4qSEy5Tgo13csVSaWjgMau2Vni9lT7TBUFf1aEbe9WaNql0TT7ogTypfMlJsd8+MVaGX039qoTOQnxyMkQMJvWYxPvC/+j0nlWU3ny04nhlHMQFX09XxpXzvrB03P2IvYsikq7ubnhL1RvPkOSYVvt89/fHg1qDr/tOkRkG0ZZCAXLuKZELRkLx36YGHA+Nrba7yLALRQYyspnl9mSjE89+Z6F7/vbOEZWPphqbzhrUc59aBN3TICiQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rr1p/uUWNrvQnWQmcePfalTBjq2BYxUcqtTYQCe/MEY=;
+ b=TSyW/txED8paiYQzbKYZegqtdyv/qQr70e68/UFPInmx8ZAcwPJfNJf2wH4uXhN3NbST6lrRiX6mf3BDzpJte4jtOvxGVqK8LvSpBcngaMrjIco7EvQPok4Pb7VmBcAY/WOhswHmLh6yBbykxESsbZOEfNxdJ7y54fb44nU6W/UWVyjPUcxYnFE1l1y5koxO7o+xm/oKSiXbxZhx4SY7rnNPA4FhLWzZIZu2ZFrEJ8+4kI4V76bPhWU9IsiXQWZ4JksoP9n44ajc2eRzWUlC4RV2t79DsKIhUJwBE8SImf9sLhcK7rxoG8wv3e/8tVRgzzWxcxhWDsRamdn2NdTeuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from BYAPR15MB4088.namprd15.prod.outlook.com (2603:10b6:a02:c3::18)
+ by BYAPR15MB2821.namprd15.prod.outlook.com (2603:10b6:a03:15d::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3700.28; Wed, 30 Dec
+ 2020 18:21:13 +0000
+Received: from BYAPR15MB4088.namprd15.prod.outlook.com
+ ([fe80::9ae:1628:daf9:4b03]) by BYAPR15MB4088.namprd15.prod.outlook.com
+ ([fe80::9ae:1628:daf9:4b03%7]) with mapi id 15.20.3700.031; Wed, 30 Dec 2020
+ 18:21:13 +0000
+Subject: Re: [PATCH v2] btf: support ints larger than 128 bits
+To: Sean Young <sean@mess.org>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel
+ Borkmann <daniel@iogearbox.net>,
+        Andrii Nakryiko <andrii@kernel.org>, Martin
+ KaFai Lau <kafai@fb.com>,
+        Song Liu <songliubraving@fb.com>,
+        John Fastabend
+	<john.fastabend@gmail.com>,
+        KP Singh <kpsingh@kernel.org>,
+        Nathan Chancellor
+	<natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Quentin Monnet <quentin@isovalent.com>,
+        =?UTF-8?Q?Toke_H=c3=b8iland-J=c3=b8rgensen?= <toke@redhat.com>,
+        <linux-doc@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <clang-built-linux@googlegroups.com>
+References: <20201219163652.GA22049@gofer.mess.org>
+From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <bf26fcc9-a2b5-9d6f-a2ac-e39a0b14d838@fb.com>
+Date: Wed, 30 Dec 2020 10:21:09 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.6.0
+In-Reply-To: <20201219163652.GA22049@gofer.mess.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Originating-IP: [2620:10d:c090:400::5:c584]
+X-ClientProxiedBy: MWHPR20CA0005.namprd20.prod.outlook.com
+ (2603:10b6:300:13d::15) To BYAPR15MB4088.namprd15.prod.outlook.com
+ (2603:10b6:a02:c3::18)
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [IPv6:2620:10d:c085:21e1::1231] (2620:10d:c090:400::5:c584) by MWHPR20CA0005.namprd20.prod.outlook.com (2603:10b6:300:13d::15) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3700.27 via Frontend Transport; Wed, 30 Dec 2020 18:21:11 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: fcd5f195-167c-41be-d7a5-08d8acefb09b
+X-MS-TrafficTypeDiagnostic: BYAPR15MB2821:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <BYAPR15MB2821BDB299442CB1E61A2E4BD3D70@BYAPR15MB2821.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:117;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: wOsKvCGoYQMAW9VtcZEsjo3/Xn3/XRZ/NeXC/d1RE/KJ7POelCUTR7gYaYlqXNafHqzH1o9dwzSVWBQxl3eR0lIhHDcEjzChshSNpLF97tbi/gETzvCAGS8Vcl6X8ordujJBavuOwalqZB4BZH8OfbJYWDGXFOBnQilrxbM2PM/k175dM72Nuz+rv3GjT2l9f6wiCJ3BO5Cgkd1Irz08mlQYPTzE4lJSkFOO81s7Oo6ek5lwBzicWAP61tZ7WnPeZ8exxcCmXSx54MEgFB4J0OuTriqd6g4NmFrZxC1Pw/9rEaeZB9XwvR8LFcSUzG/6Xzfw1iUdWLRMv7xvO1vMBPmCR1eZ4i5PVsZZrvvgw9fPlFtGkE5cIIgri/XydPrcckNFFDo+Iros7Ybfkw8hwIttY2KI25us+e+Cpw4SejvMb+/ZqiKMxekgEMWfsgxstC4rE2bBZuE+Lhvea4rUxYf1qyXX+EoJw7FP21CS5c188mKhIlMjF6VsjBvRvtFvFCFJ6LmMeHS2O3YYxBc0yj4PaeQZMprg4QVG75SQMKOzC86KOWRd+NEF86xNX57P
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR15MB4088.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(136003)(396003)(39860400002)(346002)(376002)(366004)(110136005)(7416002)(86362001)(316002)(30864003)(186003)(2616005)(83380400001)(5660300002)(8676002)(2906002)(31686004)(52116002)(31696002)(66946007)(8936002)(66476007)(6486002)(66556008)(53546011)(966005)(478600001)(921005)(16526019)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?MmkrSzNBYnAzNm9zeURZR0NmMW5wT3RPSjJXZVpneVYrZml0S1NpdDZLOURG?=
+ =?utf-8?B?ZnNwTXVOZGQ4TzVHQlQ2Yy80T2R6NnFVWGlsdEtlRlF2a29iYjhRZUNHT1Z3?=
+ =?utf-8?B?TUJFL0FXY3JBUjBXWEVkL0lNM3l4bDhwOVJEY29HM21kbUNwS0NGekQ1Q3Z4?=
+ =?utf-8?B?SVVZRGhWa25POXFTMzFYcmo0T3d0Yk5UNHpBdXFLWGVEVVp4by9mK1Z5WExl?=
+ =?utf-8?B?RHdzT3JPTWQwcTc0TFpUZGExZUJRKzJrL0xyTmhMN0dpOXRDdjhmQlBxYk1i?=
+ =?utf-8?B?dzE3bHZJcHVLMlRHMDhoV094am9uSllqSWFheFBPVWhNU2NwT2VscGhoS2hp?=
+ =?utf-8?B?ano5Zm5FbnkrZzZKMG1TbGxyKzFqdld4MGNUZnhmTHdBb0RqTUdNdkp0RFJy?=
+ =?utf-8?B?M3Ird2JkeXZCM1IxYUN3WEJ3U25WdHppd2ZqVnlEVnVpNTczZnZWZWFZUXR6?=
+ =?utf-8?B?NW5uRjRaU3MrRWU4eTdHWU9GU2l3QnM4RUFBNG4rTGZMemlpQ1JxVk5oVnJq?=
+ =?utf-8?B?em1mRVRQRmZ5VzZudktUbFhmTHBiZUFCNmt3RWswME5EZVhRZWxBOFhVU3dh?=
+ =?utf-8?B?c1lLMTNDeHg1ZjB1WE9SMkI5U0hwSDRNQVdwM2JwbXFZQjFVVm5vS1NzR3FU?=
+ =?utf-8?B?VW1mSk1zaGlhVFpCSy9JUzJCalRqMmN6K05yczZlUkVuSGZRdFI4d2VsUzdJ?=
+ =?utf-8?B?Y0NobHVYTnBES21ZVjh1VndiOFJtcmFLNVVFL2VyZmRPb2VNVHJNcFo3eVlD?=
+ =?utf-8?B?Z2k1VEhrSWJUTW1QUllCVVJQZVJHT1BmL3dHZjJSZlNBSHh0eXZxQmJ0c21T?=
+ =?utf-8?B?aUc5TThsdEVVNjJ1eVI3OUF1VER0cGFhNXdZYXdNMVFhTEpXNmd0c3FpWi9p?=
+ =?utf-8?B?WVBjOEIvYWszNlpVSllkdWtjMU1TQTg0T2Jkd3lmVmJBSG53cHR1Y1lWaUR1?=
+ =?utf-8?B?N0ZNZGczQ2FWRm1JYlVrTlNoaGF3ZDl5MUpsNE5IOGk2N3RSKzl0bzZJbVF3?=
+ =?utf-8?B?b2krMXJ2TUk4Nm1nUnk1MU9rdUJUZnN6dENhNnM3OE1VNW9UdWxKOWpZV1FF?=
+ =?utf-8?B?Vkh6aER4SEttclY4L095SXE5NHVNQ3ZjbnhGNmN0WlpLMFBGVXAzckFhK3N5?=
+ =?utf-8?B?TlRiZGk3T1FVeCtScHA1UFRUUWRqRWIwajEyTTdkbS9TY2J0WjYvMDNEeC82?=
+ =?utf-8?B?M21tYWtmRlRwWjBoc3lUc0FsSTE5T1ZVOStoV3l3NXczbWFubzZzTHJMK0Rz?=
+ =?utf-8?B?cGhodWlYQ1JDZHIvQ0lGcXhKdThtU25vVlpFUzQ1ZC9iZndOWm5XUEFodk5K?=
+ =?utf-8?B?TUp1Ym1hek9KSU5zczBLVHR6MytTOTRFY1NEOW91T1FGaHBYbzhRWlJsZVZw?=
+ =?utf-8?B?L2Q4VDhBUitNbUE9PQ==?=
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR15MB4088.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Dec 2020 18:21:13.2090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-Network-Message-Id: fcd5f195-167c-41be-d7a5-08d8acefb09b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xotvS/7Un1WpTQuWiZTVyNDvZoLJGCN2hjlJSvKghHT3771Bx6PNERGOieEvTLlS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB2821
+X-OriginatorOrg: fb.com
+X-Proofpoint-UnRewURL: 2 URL's were un-rewritten
 MIME-Version: 1.0
-References: <20201230154749.746641-1-arnd@kernel.org>
-In-Reply-To: <20201230154749.746641-1-arnd@kernel.org>
-From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 30 Dec 2020 17:13:03 +0100
-Message-ID: <CANpmjNNGmbgg_pFMC6X_6vZcj53jy7PsNyZAC88rOQC5zrOiFw@mail.gmail.com>
-Subject: Re: [PATCH] ubsan: disable unsigned-integer-overflow sanitizer with clang
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, George Popescu <georgepope@android.com>, 
-	Stephen Rothwell <sfr@canb.auug.org.au>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: elver@google.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.343,18.0.737
+ definitions=2020-12-30_12:2020-12-30,2020-12-30 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 lowpriorityscore=0
+ mlxlogscore=999 spamscore=0 suspectscore=0 phishscore=0 impostorscore=0
+ clxscore=1015 bulkscore=0 adultscore=0 malwarescore=0 priorityscore=1501
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2012300114
+X-FB-Internal: deliver
+X-Original-Sender: yhs@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=wJJqpDxk;       spf=pass
- (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::329 as
- permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Marco Elver <elver@google.com>
-Reply-To: Marco Elver <elver@google.com>
+ header.i=@fb.com header.s=facebook header.b=BgMpq8HZ;       dkim=neutral
+ (body hash did not verify) header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
+ header.b=Yb32P+Yf;       arc=fail (body hash mismatch);       spf=pass
+ (google.com: domain of prvs=0633ebed7b=yhs@fb.com designates 67.231.145.42 as
+ permitted sender) smtp.mailfrom="prvs=0633ebed7b=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Yonghong Song <yhs@fb.com>
+Reply-To: Yonghong Song <yhs@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,56 +191,469 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 30 Dec 2020 at 16:47, Arnd Bergmann <arnd@kernel.org> wrote:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Building ubsan kernels even for compile-testing introduced these
-> warnings in my randconfig environment:
->
-> crypto/blake2b_generic.c:98:13: error: stack frame size of 9636 bytes in function 'blake2b_compress' [-Werror,-Wframe-larger-than=]
-> static void blake2b_compress(struct blake2b_state *S,
-> crypto/sha512_generic.c:151:13: error: stack frame size of 1292 bytes in function 'sha512_generic_block_fn' [-Werror,-Wframe-larger-than=]
-> static void sha512_generic_block_fn(struct sha512_state *sst, u8 const *src,
-> lib/crypto/curve25519-fiat32.c:312:22: error: stack frame size of 2180 bytes in function 'fe_mul_impl' [-Werror,-Wframe-larger-than=]
-> static noinline void fe_mul_impl(u32 out[10], const u32 in1[10], const u32 in2[10])
-> lib/crypto/curve25519-fiat32.c:444:22: error: stack frame size of 1588 bytes in function 'fe_sqr_impl' [-Werror,-Wframe-larger-than=]
-> static noinline void fe_sqr_impl(u32 out[10], const u32 in1[10])
->
-> Further testing showed that this is caused by
-> -fsanitize=unsigned-integer-overflow.
->
-> The one in blake2b immediately overflows the 8KB stack area on 32-bit
-> architectures, so better ensure this never happens by making this
-> option gcc-only.
->
-> Fixes: d0a3ac549f38 ("ubsan: enable for all*config builds")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+
+On 12/19/20 8:36 AM, Sean Young wrote:
+> clang supports arbitrary length ints using the _ExtInt extension. This
+> can be useful to hold very large values, e.g. 256 bit or 512 bit types.
+> 
+> Larger types (e.g. 1024 bits) are possible but I am unaware of a use
+> case for these.
+> 
+> This requires the _ExtInt extension enabled in clang, which is under
+> review.
+> 
+> Link: https://clang.llvm.org/docs/LanguageExtensions.html#extended-integer-types
+> Link: https://reviews.llvm.org/D93103
+> 
+> Signed-off-by: Sean Young <sean@mess.org>
 > ---
->  lib/Kconfig.ubsan | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
-> index 8b635fd75fe4..e23873282ba7 100644
-> --- a/lib/Kconfig.ubsan
-> +++ b/lib/Kconfig.ubsan
-> @@ -122,6 +122,8 @@ config UBSAN_SIGNED_OVERFLOW
->
->  config UBSAN_UNSIGNED_OVERFLOW
->         bool "Perform checking for unsigned arithmetic overflow"
-> +       # clang hugely expands stack usage with -fsanitize=object-size
+> changes since v2:
+>   - added tests as suggested by Yonghong Song
+>   - added kernel pretty-printer
+> 
+>   Documentation/bpf/btf.rst                     |   4 +-
+>   include/uapi/linux/btf.h                      |   2 +-
+>   kernel/bpf/btf.c                              |  54 +-
+>   tools/bpf/bpftool/btf_dumper.c                |  40 ++
+>   tools/include/uapi/linux/btf.h                |   2 +-
+>   tools/lib/bpf/btf.c                           |   2 +-
+>   tools/testing/selftests/bpf/Makefile          |   3 +-
+>   tools/testing/selftests/bpf/prog_tests/btf.c  |   3 +-
+>   .../selftests/bpf/progs/test_btf_extint.c     |  50 ++
+>   tools/testing/selftests/bpf/test_extint.py    | 535 ++++++++++++++++++
 
-This is the first time -fsanitize=object-size is mentioned. Typo?
+For easier review, maybe you can break this patch into a patch series 
+like below?
+   patch 1 (kernel related changes and doc)
+       kernel/bpf/btf.c, include/uapi/linux/btf.h,
+       tools/include/uapi/linux/btf.h
+       Documentation/bpf/btf.rst
+   patch 2 (libbpf support)
+       tools/lib/bpf/btf.c
+   patch 3 (bpftool support)
+       tools/bpf/bpftool/btf_dumper.c
+   patch 4 (testing)
+       rest files
 
-> +       depends on !CC_IS_CLANG
->         depends on $(cc-option,-fsanitize=unsigned-integer-overflow)
->         help
->           This option enables -fsanitize=unsigned-integer-overflow which checks
-> --
-> 2.29.2
->
+>   10 files changed, 679 insertions(+), 16 deletions(-)
+>   create mode 100644 tools/testing/selftests/bpf/progs/test_btf_extint.c
+>   create mode 100755 tools/testing/selftests/bpf/test_extint.py
+> 
+> diff --git a/Documentation/bpf/btf.rst b/Documentation/bpf/btf.rst
+> index 44dc789de2b4..784f1743dbc7 100644
+> --- a/Documentation/bpf/btf.rst
+> +++ b/Documentation/bpf/btf.rst
+> @@ -132,7 +132,7 @@ The following sections detail encoding of each kind.
+>   
+>     #define BTF_INT_ENCODING(VAL)   (((VAL) & 0x0f000000) >> 24)
+>     #define BTF_INT_OFFSET(VAL)     (((VAL) & 0x00ff0000) >> 16)
+> -  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000000ff)
+> +  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000003ff)
+>   
+>   The ``BTF_INT_ENCODING`` has the following attributes::
+>   
+> @@ -147,7 +147,7 @@ pretty print. At most one encoding can be specified for the int type.
+>   The ``BTF_INT_BITS()`` specifies the number of actual bits held by this int
+>   type. For example, a 4-bit bitfield encodes ``BTF_INT_BITS()`` equals to 4.
+>   The ``btf_type.size * 8`` must be equal to or greater than ``BTF_INT_BITS()``
+> -for the type. The maximum value of ``BTF_INT_BITS()`` is 128.
+> +for the type. The maximum value of ``BTF_INT_BITS()`` is 512.
+>   
+>   The ``BTF_INT_OFFSET()`` specifies the starting bit offset to calculate values
+>   for this int. For example, a bitfield struct member has:
+> diff --git a/include/uapi/linux/btf.h b/include/uapi/linux/btf.h
+> index 5a667107ad2c..1696fd02b302 100644
+> --- a/include/uapi/linux/btf.h
+> +++ b/include/uapi/linux/btf.h
+> @@ -84,7 +84,7 @@ struct btf_type {
+>    */
+>   #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
+>   #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
+> -#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
+> +#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
+>   
+>   /* Attributes stored in the BTF_INT_ENCODING */
+>   #define BTF_INT_SIGNED	(1 << 0)
+> diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
+> index 8d6bdb4f4d61..44bc17207e9b 100644
+> --- a/kernel/bpf/btf.c
+> +++ b/kernel/bpf/btf.c
+> @@ -166,7 +166,8 @@
+>    *
+>    */
+>   
+> -#define BITS_PER_U128 (sizeof(u64) * BITS_PER_BYTE * 2)
+> +#define BITS_PER_U128 128
+> +#define BITS_PER_U512 512
+>   #define BITS_PER_BYTE_MASK (BITS_PER_BYTE - 1)
+>   #define BITS_PER_BYTE_MASKED(bits) ((bits) & BITS_PER_BYTE_MASK)
+>   #define BITS_ROUNDDOWN_BYTES(bits) ((bits) >> 3)
+> @@ -1907,9 +1908,9 @@ static int btf_int_check_member(struct btf_verifier_env *env,
+>   	nr_copy_bits = BTF_INT_BITS(int_data) +
+>   		BITS_PER_BYTE_MASKED(struct_bits_off);
+>   
+> -	if (nr_copy_bits > BITS_PER_U128) {
+> +	if (nr_copy_bits > BITS_PER_U512) {
+>   		btf_verifier_log_member(env, struct_type, member,
+> -					"nr_copy_bits exceeds 128");
+> +					"nr_copy_bits exceeds 512");
+>   		return -EINVAL;
+>   	}
+>   
+> @@ -1963,9 +1964,9 @@ static int btf_int_check_kflag_member(struct btf_verifier_env *env,
+>   
+>   	bytes_offset = BITS_ROUNDDOWN_BYTES(struct_bits_off);
+>   	nr_copy_bits = nr_bits + BITS_PER_BYTE_MASKED(struct_bits_off);
+> -	if (nr_copy_bits > BITS_PER_U128) {
+> +	if (nr_copy_bits > BITS_PER_U512) {
+>   		btf_verifier_log_member(env, struct_type, member,
+> -					"nr_copy_bits exceeds 128");
+> +					"nr_copy_bits exceeds 512");
+>   		return -EINVAL;
+>   	}
+>   
+> @@ -2012,9 +2013,9 @@ static s32 btf_int_check_meta(struct btf_verifier_env *env,
+>   
+>   	nr_bits = BTF_INT_BITS(int_data) + BTF_INT_OFFSET(int_data);
+>   
+> -	if (nr_bits > BITS_PER_U128) {
+> -		btf_verifier_log_type(env, t, "nr_bits exceeds %zu",
+> -				      BITS_PER_U128);
+> +	if (nr_bits > BITS_PER_U512) {
+> +		btf_verifier_log_type(env, t, "nr_bits exceeds %u",
+> +				      BITS_PER_U512);
+>   		return -EINVAL;
+>   	}
+>   
+> @@ -2080,6 +2081,37 @@ static void btf_int128_print(struct btf_show *show, void *data)
+>   				     lower_num);
+>   }
+>   
+> +static void btf_bigint_print(struct btf_show *show, void *data, u16 nr_bits)
+> +{
+> +	/* data points to 256 or 512 bit int type */
+> +	char buf[129];
+> +	int last_u64 = nr_bits / 64 - 1;
+> +	bool seen_nonzero = false;
+> +	int i;
+> +
+> +	for (i = 0; i <= last_u64; i++) {
+> +#ifdef __BIG_ENDIAN_BITFIELD
+> +		u64 v = ((u64 *)data)[i];
+> +#else
+> +		u64 v = ((u64 *)data)[last_u64 - i];
+> +#endif
+> +		if (!seen_nonzero) {
+> +			if (!v && i != last_u64)
+> +				continue;
+> +
+> +			snprintf(buf, sizeof(buf), "%llx", v);
+> +
+> +			seen_nonzero = true;
+> +		} else {
+> +			size_t off = strlen(buf);
+> +
+> +			snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
+> +		}
+> +	}
+> +
+> +	btf_show_type_value(show, "0x%s", buf);
+> +}
+> +
+>   static void btf_int128_shift(u64 *print_num, u16 left_shift_bits,
+>   			     u16 right_shift_bits)
+>   {
+> @@ -2172,7 +2204,7 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
+>   	u32 int_data = btf_type_int(t);
+>   	u8 encoding = BTF_INT_ENCODING(int_data);
+>   	bool sign = encoding & BTF_INT_SIGNED;
+> -	u8 nr_bits = BTF_INT_BITS(int_data);
+> +	u16 nr_bits = BTF_INT_BITS(int_data);
+>   	void *safe_data;
+>   
+>   	safe_data = btf_show_start_type(show, t, type_id, data);
+> @@ -2186,6 +2218,10 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
+>   	}
+>   
+>   	switch (nr_bits) {
+> +	case 512:
+> +	case 256:
+> +		btf_bigint_print(show, safe_data, nr_bits);
+> +		break;
+>   	case 128:
+>   		btf_int128_print(show, safe_data);
+>   		break;
+
+You shuold adjust for the following function as well.
+
+/*
+  * Regular int is not a bit field and it must be either
+  * u8/u16/u32/u64 or __int128.
+  */
+static bool btf_type_int_is_regular(const struct btf_type *t)
+{
+         u8 nr_bits, nr_bytes;
+         u32 int_data;
+
+         int_data = btf_type_int(t);
+         nr_bits = BTF_INT_BITS(int_data);
+         nr_bytes = BITS_ROUNDUP_BYTES(nr_bits);
+         if (BITS_PER_BYTE_MASKED(nr_bits) ||
+             BTF_INT_OFFSET(int_data) ||
+             (nr_bytes != sizeof(u8) && nr_bytes != sizeof(u16) &&
+              nr_bytes != sizeof(u32) && nr_bytes != sizeof(u64) &&
+              nr_bytes != (2 * sizeof(u64)))) {
+                 return false;
+         }
+
+         return true;
+}
+
+This function is used to test struct/union int member type, array 
+index/element int type.
+
+> diff --git a/tools/bpf/bpftool/btf_dumper.c b/tools/bpf/bpftool/btf_dumper.c
+> index 0e9310727281..8b5318ec5c26 100644
+> --- a/tools/bpf/bpftool/btf_dumper.c
+> +++ b/tools/bpf/bpftool/btf_dumper.c
+> @@ -271,6 +271,41 @@ static void btf_int128_print(json_writer_t *jw, const void *data,
+>   	}
+>   }
+>   
+> +static void btf_bigint_print(json_writer_t *jw, const void *data, int nr_bits,
+> +			     bool is_plain_text)
+> +{
+> +	char buf[nr_bits / 4 + 1];
+> +	int last_u64 = nr_bits / 64 - 1;
+> +	bool seen_nonzero = false;
+> +	int i;
+> +
+> +	for (i = 0; i <= last_u64; i++) {
+> +#ifdef __BIG_ENDIAN_BITFIELD
+> +		__u64 v = ((__u64 *)data)[i];
+> +#else
+> +		__u64 v = ((__u64 *)data)[last_u64 - i];
+> +#endif
+> +
+> +		if (!seen_nonzero) {
+> +			if (!v && i != last_u64)
+> +				continue;
+> +
+> +			snprintf(buf, sizeof(buf), "%llx", v);
+> +
+> +			seen_nonzero = true;
+> +		} else {
+> +			size_t off = strlen(buf);
+> +
+> +			snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
+> +		}
+> +	}
+> +
+> +	if (is_plain_text)
+> +		jsonw_printf(jw, "0x%s", buf);
+> +	else
+> +		jsonw_printf(jw, "\"0x%s\"", buf);
+> +}
+> +
+>   static void btf_int128_shift(__u64 *print_num, __u16 left_shift_bits,
+>   			     __u16 right_shift_bits)
+>   {
+> @@ -373,6 +408,11 @@ static int btf_dumper_int(const struct btf_type *t, __u8 bit_offset,
+>   		return 0;
+>   	}
+>   
+> +	if (nr_bits > 128) {
+> +		btf_bigint_print(jw, data, nr_bits, is_plain_text);
+> +		return 0;
+> +	}
+> +
+>   	if (nr_bits == 128) {
+>   		btf_int128_print(jw, data, is_plain_text);
+>   		return 0;
+> diff --git a/tools/include/uapi/linux/btf.h b/tools/include/uapi/linux/btf.h
+> index 5a667107ad2c..1696fd02b302 100644
+> --- a/tools/include/uapi/linux/btf.h
+> +++ b/tools/include/uapi/linux/btf.h
+> @@ -84,7 +84,7 @@ struct btf_type {
+>    */
+>   #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
+>   #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
+> -#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
+> +#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
+>   
+>   /* Attributes stored in the BTF_INT_ENCODING */
+>   #define BTF_INT_SIGNED	(1 << 0)
+> diff --git a/tools/lib/bpf/btf.c b/tools/lib/bpf/btf.c
+> index 3c3f2bc6c652..a676373f052b 100644
+> --- a/tools/lib/bpf/btf.c
+> +++ b/tools/lib/bpf/btf.c
+> @@ -1722,7 +1722,7 @@ int btf__add_int(struct btf *btf, const char *name, size_t byte_sz, int encoding
+>   	if (!name || !name[0])
+>   		return -EINVAL;
+>   	/* byte_sz must be power of 2 */
+> -	if (!byte_sz || (byte_sz & (byte_sz - 1)) || byte_sz > 16)
+> +	if (!byte_sz || (byte_sz & (byte_sz - 1)) || byte_sz > 64)
+>   		return -EINVAL;
+>   	if (encoding & ~(BTF_INT_SIGNED | BTF_INT_CHAR | BTF_INT_BOOL))
+>   		return -EINVAL;
+> diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+> index 8c33e999319a..436ad1aed3d9 100644
+> --- a/tools/testing/selftests/bpf/Makefile
+> +++ b/tools/testing/selftests/bpf/Makefile
+> @@ -70,7 +70,8 @@ TEST_PROGS := test_kmod.sh \
+>   	test_bpftool_build.sh \
+>   	test_bpftool.sh \
+>   	test_bpftool_metadata.sh \
+> -	test_xsk.sh
+> +	test_xsk.sh \
+> +	test_extint.py
+
+Can we fold all tests into test_progs instead of test_extint.py?
+People regularly run test_progs, but maybe not other shell scripts.
+test_progs should be able to help test libbpf APIs and kernel APIs.
+The existing prog_tests/btf.c is a good starting point. You can
+add additional raw tests to test kernel btf with Extint. You can
+add additional pretty print tests to test kernel bpffs map printout
+with Extint. Putting tests in btf.c is also good as btf.c is the
+place in selftests/bpf which tests basic btf types.
+
+Also, you need to do a feature detection in btf.c. You can construct
+a simple btf with Extint(256) type to see whether the kernel supports
+it or not. If not, your newer tests should be skipped. There are
+some test/skip examples in btf.c already.
+
+The test_progs won't test bpftool change. in the past, people just
+add some bpftool examples in the commit message to illustrate how
+it is printed out and in general that is good enough.
+
+>   
+>   TEST_PROGS_EXTENDED := with_addr.sh \
+>   	with_tunnels.sh \
+> diff --git a/tools/testing/selftests/bpf/prog_tests/btf.c b/tools/testing/selftests/bpf/prog_tests/btf.c
+> index 8ae97e2a4b9d..96a93502cf27 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/btf.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/btf.c
+> @@ -4073,6 +4073,7 @@ struct btf_file_test {
+>   static struct btf_file_test file_tests[] = {
+>   	{ .file = "test_btf_haskv.o", },
+>   	{ .file = "test_btf_newkv.o", },
+> +	{ .file = "test_btf_extint.o", },
+>   	{ .file = "test_btf_nokv.o", .btf_kv_notfound = true, },
+>   };
+>   
+> @@ -4414,7 +4415,7 @@ static struct btf_raw_test pprint_test_template[] = {
+>   	 * will have both int and enum types.
+>   	 */
+>   	.raw_types = {
+> -		/* unsighed char */			/* [1] */
+> +		/* unsigned char */			/* [1] */
+>   		BTF_TYPE_INT_ENC(NAME_TBD, 0, 0, 8, 1),
+>   		/* unsigned short */			/* [2] */
+>   		BTF_TYPE_INT_ENC(NAME_TBD, 0, 0, 16, 2),
+> diff --git a/tools/testing/selftests/bpf/progs/test_btf_extint.c b/tools/testing/selftests/bpf/progs/test_btf_extint.c
+> new file mode 100644
+> index 000000000000..b0fa9f130dda
+> --- /dev/null
+> +++ b/tools/testing/selftests/bpf/progs/test_btf_extint.c
+> @@ -0,0 +1,50 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <linux/bpf.h>
+> +#include <bpf/bpf_helpers.h>
+> +#include "bpf_legacy.h"
+> +
+> +struct extint {
+> +	_ExtInt(256) v256;
+> +	_ExtInt(512) v512;
+> +};
+> +
+> +struct bpf_map_def SEC("maps") btf_map = {
+> +	.type = BPF_MAP_TYPE_ARRAY,
+> +	.key_size = sizeof(int),
+> +	.value_size = sizeof(struct extint),
+> +	.max_entries = 1,
+> +};
+> +
+> +BPF_ANNOTATE_KV_PAIR(btf_map, int, struct extint);
+
+Please use newer .maps format instead of legacy one (the
+above bpf_legacy.h). There are a lot of examples in
+tools/testing/selftests/bpf/progs/ directory.
+
+> +
+> +__attribute__((noinline))
+> +int test_long_fname_2(void)
+> +{
+> +	struct extint *bi;
+> +	int key = 0;
+> +
+> +	bi = bpf_map_lookup_elem(&btf_map, &key);
+> +	if (!bi)
+> +		return 0;
+> +
+> +	bi->v256 <<= 64;
+> +	bi->v256 += (_ExtInt(256))0xcafedead;
+> +	bi->v512 <<= 128;
+> +	bi->v512 += (_ExtInt(512))0xff00ff00ff00ffull;
+> +
+> +	return 0;
+> +}
+> +
+> +__attribute__((noinline))
+> +int test_long_fname_1(void)
+> +{
+> +	return test_long_fname_2();
+> +}
+> +
+> +SEC("dummy_tracepoint")
+> +int _dummy_tracepoint(void *arg)
+> +{
+> +	return test_long_fname_1();
+> +}
+> +
+> +char _license[] SEC("license") = "GPL";
+> diff --git a/tools/testing/selftests/bpf/test_extint.py b/tools/testing/selftests/bpf/test_extint.py
+> new file mode 100755
+> index 000000000000..86af815a0cf6
+> --- /dev/null
+> +++ b/tools/testing/selftests/bpf/test_extint.py
+> @@ -0,0 +1,535 @@
+> +#!/usr/bin/python3
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +# Copyright (C) 2020 Sean Young <sean@mess.org>
+> +# Copyright (C) 2017 Netronome Systems, Inc.
+> +# Copyright (c) 2019 Mellanox Technologies. All rights reserved
+> +#
+> +# This software is licensed under the GNU General License Version 2,
+> +# June 1991 as shown in the file COPYING in the top-level directory of this
+> +# source tree.
+> +#
+> +# THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS"
+> +# WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,
+> +# BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+> +# FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE
+> +# OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME
+> +# THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+> +
+> +from datetime import datetime
+> +import argparse
+> +import errno
+> +import json
+> +import os
+> +import pprint
+> +import random
+> +import re
+> +import stat
+> +import string
+> +import struct
+> +import subprocess
+> +import time
+> +import traceback
+> +
+[...]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNNGmbgg_pFMC6X_6vZcj53jy7PsNyZAC88rOQC5zrOiFw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/bf26fcc9-a2b5-9d6f-a2ac-e39a0b14d838%40fb.com.
