@@ -1,140 +1,122 @@
-Return-Path: <clang-built-linux+bncBC36XUX3VAGBBTP4WT7QKGQER3J6JUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB4PWWX7QKGQE4UVTABA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4600E2E7DCC
-	for <lists+clang-built-linux@lfdr.de>; Thu, 31 Dec 2020 03:58:22 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id n205sf31704289ybf.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Dec 2020 18:58:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609383501; cv=pass;
+Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 556E52E7E8D
+	for <lists+clang-built-linux@lfdr.de>; Thu, 31 Dec 2020 08:19:14 +0100 (CET)
+Received: by mail-wm1-x33b.google.com with SMTP id b194sf878583wmd.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Dec 2020 23:19:14 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609399154; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y2+V8aRdAqkPtpQdnMyYxmixPUgqulvMn0W55y0j1rcYiZTuCn6rBzHdCO4ngVIveL
-         IRdcFPQKUeqQxtIeasl8T2kSDwSpWIkr2WS7pRYvZ7A50l78+Xxt2ggdmselPng3sn7D
-         tJ/Da0SopU0QLQO5WvqPxDiNqkXT+YmuLJFBDe6KHGmq7J3cu4AhtWws8XRcbTVKS2hS
-         7jiHJpIzWL1wNRf4hrhyjUhBsgcg1txL+nPKk0JSJzHjK0i/QctQwT1GjHFrmJ4He6wU
-         LM3bjSTYCmO6g/OSlkExe4xICtneq030xJXSFkLRWajXHcu4nELp/58vyAhg/iCd6Gtw
-         Y5gA==
+        b=LxgNUmK71iO5Zl/cBTmDYgZrpLzfNJK6JTGLOkMWuwNNTYP54RzkbuATaUV0JsjUaV
+         MNROq9MVMZsjvx6lM4xkYP4GgqFkMX0CqmpPfu1L388du2XO5Dj57Dfz27cobv0LZR/0
+         gxwgq+Qs73VyM0eBjvoJVOSpTZ+tTuRuQNjOeLp1N10Fy3sCU1n2JzdSoZgcMJKSnbqT
+         0PTOYNyNs5bTrCsFSmtIW9sLZEM/3D2C9xF7fJbN1cUUGnlWDtzZi5cOuaDgVN0njeQo
+         425lweUGdSyNIwAYJ5UJQ68QYaHNXH3vSUsw+k4FplDDWLuVqpy6GrKKxC+babWjs26h
+         cR6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-subscribe:list-archive:list-help:list-post:list-id
-         :mailing-list:precedence:content-transfer-encoding:subject:to:from
-         :mime-version:list-unsubscribe:date:message-id:sender:dkim-signature
-         :dkim-signature;
-        bh=5L7BqPNwubUgkhX46oEO0n7EW3yYunfL4ZxboPXeybg=;
-        b=hcFX84iq3GA3qGmGtCbBJz1XnZwenXN+RuU3bZxEe31MMa4RTiwTky/IH1wlpppNeC
-         1w4iC6aqQMKdBi6/Hyfa1TgoINPmHVUSR4fV2CfO0O0OaaA/tIEMI3obhJlMtCkkiePx
-         T5Zkx38oCeGsm6l09lZH2VHpbCU4oYSUtIPPmhoNWiSWBlIhREFdA8QiU1h9IsOy3NBA
-         6q6AliLc0Z6daTz/CG9M7LrOgRKv0bp9Shn/R//7NLJUx4A0IJQMkhNMIA7RxXeJf6bq
-         s7fNgOTSKpXBSfe9c18hayFZ2UDCNBHpnXj3OlUgPWUx8Xc3z7i07bOazjwOuGlJL7GD
-         bCDQ==
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
+        bh=6DKwdxq80ew70/ClqIfVOnjl/IpeMqOmmT1Gk82POVQ=;
+        b=H9KfiDrlD+C5c8UMrMRF8nwez6n8CGPisaqhDrgHAEoyhTGjuao267KcDttrXYuuF5
+         8Bp+cjUJ04UoUyutBr9sdFUQ6lCOysniigzsB0F6EQVvYth47EDJo5M9rNFF4sBoVh83
+         dA+lUZ4EamybeMP+xYKPuwdiQ6jwOBeGz1pCZChcSpN1tkgOwj0ibuqExLexaDaLBWKl
+         5C0UUgcf9A31JMj2NsDHKp0sRapEZxw+Pz0g4g2drNKbYuYzWIH3jO7viNNRrHr368mv
+         Vpz7UdkChhs2oKDva96DsRLd4nf6QUZaOI54FeXu9KmxXkU+RZXqSLGTtcjO4Lv5P7eK
+         yqYA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fw0FVSTe;
-       spf=pass (google.com: domain of thuynguyen3402@gmail.com designates 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=thuynguyen3402@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@protonmail.com header.s=protonmail header.b=JdD0MUs4;
+       spf=pass (google.com: domain of timon.baetz@protonmail.com designates 185.70.40.134 as permitted sender) smtp.mailfrom=timon.baetz@protonmail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=protonmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:list-unsubscribe:mime-version:from:to
-         :subject:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe;
-        bh=5L7BqPNwubUgkhX46oEO0n7EW3yYunfL4ZxboPXeybg=;
-        b=Tf4qP8tDW09Dtcp3qJ+drfpbt+GTLq8Ptesai0FPRDbAVFbEfMLjyQlKUS9/K0X9sF
-         Ma5r0raImBVqXFzVb0XpFzcH65Q42gXPuFmloaJ0tjsUfLmwewo+Hj0qhZSX/7G/AkHn
-         c7WuBqvOLDDIu2Mwl0fBrdPJr1jRA95g5kY9HVM5x9ekZLm/FnFHEs2azvu5oLfQ8pbJ
-         wgFM3QTer+yIj0tqQMjtCsaRohkGFvqaJ054Cw70UrDo1FATJBlrhooHa25pYG12MCbw
-         vPnrAcBm0D0EtH6pS6CNGI5xQc2L+s1LTab/IEn6i0EgL1LjGaaIw/j9487IC00ps896
-         nHGw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=message-id:date:list-unsubscribe:mime-version:from:to:subject
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe;
-        bh=5L7BqPNwubUgkhX46oEO0n7EW3yYunfL4ZxboPXeybg=;
-        b=D8dlp5ZxAnPogZhMpIEbwdelpSj6v4H54nkoxmdS3jI2etznMA4/XG57UgGTI6uEEq
-         A5xtHvQKPfE5z6uA00jfS6vj7VNBzUJuF545207ZCL3onwKa+2DZ4Z85lm02aEpYYbP7
-         uTckYhdTnIUvxynMnStSidNuZncQ69Uaua13f//e6y1CIM3nWXle/B2bKUVhxzCg53gF
-         /ORsjtoQbEa8MUOSQyM7sYUDbu0HRZ6pUYkdHSPuNYZn5w2fXIz2fhs5YuLiAJdliSyR
-         fKkVUftwskPn9pyUXC06wstVK/3BLzTFcOjrMyepo54Z4RH/Rg0GXm/ts4Xm3PO0nEyT
-         E82A==
+        h=date:to:from:cc:reply-to:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6DKwdxq80ew70/ClqIfVOnjl/IpeMqOmmT1Gk82POVQ=;
+        b=T7ER6wEnnhkxw1PdTRVZq2pMaYagvrvYL3jc8ElaD0NYj8nWaEIXsT+vjppzBWOIVN
+         I3PWSHpGNA9iwylg3kgu7fw64yt0HGuKepinNnecebCLpe9Ffvy8mbbH0ob+yKRx0vDH
+         iXXeSaSI/M5gyCFpx4qUbILyCGMVARJXClxbNnYj2Lgs8V6sv4aQOn2W8tWAV3RnZ9OX
+         BFNGy7dOLhD3WgStFg9a313HGBH2knBOxpyzQdNH5RADVj3pTWAbCXv5QedNGaqb7LQF
+         t3oCa19z87mogMeooU2wxfXV1/98fQqUkycp7oV7FsQgnISUybbp9+qH49ZsFo1KT53p
+         vqnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:list-unsubscribe
-         :mime-version:from:to:subject:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe;
-        bh=5L7BqPNwubUgkhX46oEO0n7EW3yYunfL4ZxboPXeybg=;
-        b=X/64uatDcM8jj5YZcXoIeFpKtENfyqQqow8rEnbAq6H4ovq86BiiqQgHB81vGPilwd
-         0efw3pU7HokSaSwHu/eN26AkpqLcsEPT6xrMj2l6yYyn+L7MQI8pE7PVPOnhRHdZCOHU
-         pVQeDJu4d+XbHurmRWYnifo/L+LBMgTsUqsZhQw6DFvJR13XjpHxVFjSLxHLgn1OCb66
-         x+LZehYA3SPTSCqZHUAcuTfRQtC4/262IjdVl2KmUlEpiyt5lSguH5Sq6wXHBcXenSEw
-         TaV3TLLn2eghf+0iyP1mwr9KcbxEfWCMRz/BIEufQg/mEtB0jhiKbz2LvbunNUiufNcn
-         Tb5A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5301UgEMi/nA9o+SBO+nczvy5OF+oZLG+tShFjfhx/g27j7BqCA6
-	C5ZGDRAcbwq5v9Nlgb32QTE=
-X-Google-Smtp-Source: ABdhPJzfK3MUbtxMMDh87Fz9JK/pKNz5ds2Q0TMiPRAAIpVR0UApoJFXP7reFuKE5D+voI5ZV44cpw==
-X-Received: by 2002:a25:a527:: with SMTP id h36mr78798755ybi.400.1609383501153;
-        Wed, 30 Dec 2020 18:58:21 -0800 (PST)
+        h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6DKwdxq80ew70/ClqIfVOnjl/IpeMqOmmT1Gk82POVQ=;
+        b=Y/GoEj3QxfPQu54NcTkRtDp60KaZREcEMkV7pIeu1Kl2Z7MymZyE0ueuZnXmc5Q3wx
+         VHNvwFWp6UHJM+SraxB867sG9fGtDLQAX6DUUh1zVKW3k3SRLEUYKLHMgUiWXAFt34vB
+         USIpnRpBLL0pcskjeoAFnjCCfxT0cMGlWEpimjb7/lCp1dewM8zAlfoUI4xZFcZieXSM
+         IpSfOwtCneZIli2SW8fh3ouUV00NLhM9R8FH/KhLU0wXV8B2ie7B97J7npS377HjVTxw
+         af0EVtpkEZDeRpiHQnUS4GmlgJpQxRWF67NuU6q/z9DtdlvuoywTcKDSjOokuP9STayR
+         KQxw==
+X-Gm-Message-State: AOAM5333F5wwXhZopOXBevA3blLLCz7s+qOmbxIDxXPKk9D5tkdJ+wl3
+	mC8AKBZEUu3qaL9/zfHrYEY=
+X-Google-Smtp-Source: ABdhPJyeXu2axfgkUb7yN7q5D8o3OYS05ncwn1Qu8T68HAWoMUe27rwuYIHVmJsQ1lAzKagJB7qbeQ==
+X-Received: by 2002:a1c:98c7:: with SMTP id a190mr10663198wme.184.1609399154044;
+        Wed, 30 Dec 2020 23:19:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:77cc:: with SMTP id s195ls32059321ybc.2.gmail; Wed, 30
- Dec 2020 18:58:20 -0800 (PST)
-X-Received: by 2002:a25:d60a:: with SMTP id n10mr5018080ybg.457.1609383500736;
-        Wed, 30 Dec 2020 18:58:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609383500; cv=none;
+Received: by 2002:a1c:1d8a:: with SMTP id d132ls3572254wmd.0.gmail; Wed, 30
+ Dec 2020 23:19:13 -0800 (PST)
+X-Received: by 2002:a1c:1fc4:: with SMTP id f187mr10590849wmf.107.1609399153423;
+        Wed, 30 Dec 2020 23:19:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609399153; cv=none;
         d=google.com; s=arc-20160816;
-        b=mDgEDveGn3c4qQ0o5fv3MrxZMdq+Q88uKJXEVsFzjJHPsD+huxoaYEN+Wd7/Mt2NNY
-         ogoq9iCpVhbZvuC3eOhLfAAHou7akGmo7zOBLAh3SCVqT6U5ZB1AbvSi5j6kx87sc3VN
-         XBk9DqrB36lwXFoCMmzLlW+PTdLGMsxnxJy6Fdf9SRqBZUiNQ4aXQ14OH6KyrptY59ce
-         NInxUct5tL80s+2pYQDv8tMbZ/gg9rcSHTbApLMxbEkMNt4ofEQ8X7bdQKMzwdP2+Avb
-         tblNJEf3GKtKAM0J4G/bbCWqLIWkppnqhM/OxF6HgBZYa/54B3dQgadWrtDlVeG+dYBQ
-         qIbw==
+        b=J4fxn5pmCAMLdYgf+kdp5Ojuh4WTgOBTZzWug2LhtByygL85466siHpx+THUExHnbA
+         i8SXvA0gxlXNeF9RzS8MddU0zgD4b1JqufB+CVAh33QkVeVl+llLKIhk/z4k4h03d1+h
+         4nf+V3j4YCXsUGJwm319ziwnykwbEKFuoq/NSKhe/gyqd2IW4mgZwqVIJARj/49iontb
+         myd013Zhb8ZfgjlEIBrAum4gviCGfICfKScrKgpqgBdfgDe7OLbiO2zeOtJa31sCrOGA
+         b+pnB807hpioAr76CXS4drZz3sqZw7AdHq4gwa45g8Z3q+vxo+/EN5qFL/EXqHbRN1P7
+         A22w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:subject:to:from:mime-version
-         :list-unsubscribe:date:message-id:dkim-signature;
-        bh=LnrY4qdyd+AE9WGYjIHSVTl5kOxcPsmks8upSFIRmjU=;
-        b=lPj4NST+PS9gual/yemEtW320u1ARxAAVBeimutz58kdJhg2dlGd75SjgflUxtLezF
-         WyNpRMdUyVm2/PkDqxCN3f+NYwSeuf0f4DKx+lSMPr0EtB7H2aeovEGmwk3e4Nk+JQLh
-         TkIg/BckdD+IXxtnII4djwxj1U/KeTXp7A7R1oXbgdMtKMlN9GXSlP7nOQR2R4kpL6yZ
-         krJjLp840Dla5VkriKPuoUkwEkvoxu0X8STKty27hIYxTQMbUet+uvdKOjg8htn4zxGh
-         7NupkZFmRmtTQZaZ//rnfWnEHcM/sS/DVRTvngeXRZy5qanjnhpNCh9ck6zJa2USnnRX
-         3SWQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
+        bh=YoZwhQ90gbl0VD+Jy67qWsHVGWfPpx7CAqbFb3UqWG0=;
+        b=v/5rUpytveiI5Rqp93v6aNLJpzgJGbPEffWWV9QpdZYfvJdAJg1R1KA+vEUbFxvnrl
+         mxAL0CPC18nQcF/7mWfZ00fLbcqpFt/8hvtbg2up6SxTrjIU5nwzC5/ZO1R56ATV/Oip
+         rIl/PqFo4oL223lRVra94990bUTScfUBTe7sTQDWbUtYM48kDdURFX3fF4j2YKrfBmzA
+         4qyEC0C082/Kw3+4tokOYAbXt4Nt+d6z7C+qbNcGx3h27BO9kkTzqJ5aWL1Ekr2U05rB
+         C0Xk87Dqyzz2yQMcaiPs9COAq1WCI86cAYCtDcAVd1LmFwHC8k8E6+KqdQovXVuj9Pgf
+         3E3Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fw0FVSTe;
-       spf=pass (google.com: domain of thuynguyen3402@gmail.com designates 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=thuynguyen3402@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pj1-x1031.google.com (mail-pj1-x1031.google.com. [2607:f8b0:4864:20::1031])
-        by gmr-mx.google.com with ESMTPS id e10si3961018ybp.4.2020.12.30.18.58.20
+       dkim=pass header.i=@protonmail.com header.s=protonmail header.b=JdD0MUs4;
+       spf=pass (google.com: domain of timon.baetz@protonmail.com designates 185.70.40.134 as permitted sender) smtp.mailfrom=timon.baetz@protonmail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=protonmail.com
+Received: from mail-40134.protonmail.ch (mail-40134.protonmail.ch. [185.70.40.134])
+        by gmr-mx.google.com with ESMTPS id n8si1576984wrr.0.2020.12.30.23.19.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Dec 2020 18:58:20 -0800 (PST)
-Received-SPF: pass (google.com: domain of thuynguyen3402@gmail.com designates 2607:f8b0:4864:20::1031 as permitted sender) client-ip=2607:f8b0:4864:20::1031;
-Received: by mail-pj1-x1031.google.com with SMTP id iq13so4304446pjb.3
-        for <clang-built-linux@googlegroups.com>; Wed, 30 Dec 2020 18:58:20 -0800 (PST)
-X-Received: by 2002:a17:90a:a48c:: with SMTP id z12mr11086420pjp.58.1609383499799;
-        Wed, 30 Dec 2020 18:58:19 -0800 (PST)
-Received: from DESKTOP-DI4367S ([27.3.184.35])
-        by smtp.gmail.com with ESMTPSA id e5sm8173861pjs.0.2020.12.30.18.58.18
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Wed, 30 Dec 2020 18:58:19 -0800 (PST)
-Message-ID: <5fed3e4b.1c69fb81.56424.18dd@mx.google.com>
-Date: Wed, 30 Dec 2020 18:58:19 -0800 (PST)
-List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
- <https://groups.google.com/group/clang-built-linux/subscribe>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Dec 2020 23:19:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of timon.baetz@protonmail.com designates 185.70.40.134 as permitted sender) client-ip=185.70.40.134;
+Date: Thu, 31 Dec 2020 07:19:07 +0000
+To: kernel test robot <lkp@intel.com>
+From: "'Timon Baetz' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, Marek Szyprowski <m.szyprowski@samsung.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh+dt@kernel.org>, MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Lee Jones <lee.jones@linaro.org>, Sebastian Reichel <sre@kernel.org>, linux-kernel@vger.kernel.org
+Reply-To: Timon Baetz <timon.baetz@protonmail.com>
+Subject: Re: [PATCH v6 3/8] power: supply: max8997_charger: Set CHARGER current limit
+Message-ID: <20201231081754.09aad125.timon.baetz@protonmail.com>
+In-Reply-To: <202012310753.axvdsSG1-lkp@intel.com>
+References: <20201230205139.1812366-3-timon.baetz@protonmail.com> <202012310753.axvdsSG1-lkp@intel.com>
 MIME-Version: 1.0
-From: "Latonya" <thuynguyen3402@gmail.com>
-To: clang-built-linux@googlegroups.com
-Subject: =?utf-8?B?Y2xhbmctYnVpbHQtbGludXg/4oCc5bC45L2T5bGV4oCd5oGQ?=
- =?utf-8?B?5oCW5Y+v55aRIOW9k+WPl+WItuatoiFGcm9tIExhdG9ueWEu?=
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: thuynguyen3402@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,FREEMAIL_FROM shortcircuit=no
+	autolearn=disabled version=3.4.4
+X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
+	mailout.protonmail.ch
+X-Original-Sender: timon.baetz@protonmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=fw0FVSTe;       spf=pass
- (google.com: domain of thuynguyen3402@gmail.com designates
- 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=thuynguyen3402@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@protonmail.com header.s=protonmail header.b=JdD0MUs4;
+       spf=pass (google.com: domain of timon.baetz@protonmail.com designates
+ 185.70.40.134 as permitted sender) smtp.mailfrom=timon.baetz@protonmail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=protonmail.com
+X-Original-From: Timon Baetz <timon.baetz@protonmail.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,60 +126,56 @@ List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:cla
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
 List-Archive: <https://groups.google.com/group/clang-built-linux
 List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <mailto:clang-built-linux+subscribe@googlegroups.com>
+List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/group/clang-built-linux/subscribe>
 
-<CENTER>
-<p><div style=3D"font-size: 27px; font-family: verdana, arial, helvetica, s=
-ans-serif; background-color: rgb(255, 255, 255)"><font color=3D"#0000cc"><a=
- href=3D"http://theuocxua.com/getdocuments/YvnbAcz9wqlbiUVpW2AAAAPke4HnhV9b=
-DBdz3NlHJVVx8LUJV16UqhfslCXg5CROM5vUGAAAAJqTqdku4O4c349HpdIA=3D=3D/p5BBBBF1=
-OkdauzORCwklN2ong=3D=3D/clang-built-linux?=E2=80=9C=E5=B0=B8=E4=BD=93=E5=B1=
-=95=E2=80=9D=E6=81=90=E6=80=96=E5=8F=AF=E7=96=91 =E5=BD=93=E5=8F=97=E5=88=
-=B6=E6=AD=A2!From Latonya." target=3D"_blank" rel=3D"noreferrer">The truth.=
-info</a></font></div>
-<div>
-<img src=3D"http://theuocxua.com/getdocuments/YvnbAcz9wqlbiUVpW2AAAAPke4Hnh=
-V9bDBdz3NlHJVVx8L5hiuw6j19Ag4RF8JaqPRkEXAOccctXPbaFAbX22Hdw2UtHDEjSwQpogOPN=
-P74KoQ=3D/2klNdCRm2Tlt7oUCKopYKhyNHBNgfZrAAAACuWobpoBG785SgJvEG1vAqMwRHTIxb=
-tj/clang-built-linux?=E2=80=9C=E5=B0=B8=E4=BD=93=E5=B1=95=E2=80=9D=E6=81=90=
-=E6=80=96=E5=8F=AF=E7=96=91 =E5=BD=93=E5=8F=97=E5=88=B6=E6=AD=A2!From Laton=
-ya.">
-<img src=3D"http://theuocxua.com/getdocuments/YvnbAcz9wqlbiUVpW2AAAAPke4Hnh=
-V9bDBdz3NlHJVVx8LUJV16UqhfslCXg5CROM5vUGAAAAJqTqdku4O4c349HpdIA=3D=3D/oKPxO=
-sYEvP2XWNIIKdwIhimBB5tL0vhu8XhX4ffY0Zfyb5x3GtQQZTnHQreCP9K4/clang-built-lin=
-ux?=E2=80=9C=E5=B0=B8=E4=BD=93=E5=B1=95=E2=80=9D=E6=81=90=E6=80=96=E5=8F=AF=
-=E7=96=91 =E5=BD=93=E5=8F=97=E5=88=B6=E6=AD=A2!From Latonya.">
-<img src=3D"http://theuocxua.com/getdocuments/YvnbAcz9wqlbiUVpW2AAAAPke4Hnh=
-V9bDBdz3NlHJVVx8LUJV16UqhfslCXg5CROM5vUGAAAAJqTqdku4O4c349HpdIA=3D=3D/keB5Z=
-mW9Ml3sZZYeP8F4eXkBx7S4DrFvNuGyFXlV1tBBBBfkftkAAAAegMTU8HVvcuuY2O3AAAAPc5LN=
-meTKkDoY4lEcaiKlHf3TBBBBzrkXfjpxib8kRBBBBc=3D/clang-built-linux?=E2=80=9C=
-=E5=B0=B8=E4=BD=93=E5=B1=95=E2=80=9D=E6=81=90=E6=80=96=E5=8F=AF=E7=96=91 =
-=E5=BD=93=E5=8F=97=E5=88=B6=E6=AD=A2!From Latonya.">
-<img src=3D"http://theuocxua.com/getdocuments/YvnbAcz9wqlbiUVpW2AAAAPke4Hnh=
-V9bDBdz3NlHJVVx8LUJV16UqhfslCXg5CROM5vUGAAAAJqTqdku4O4c349HpdIA=3D=3D/keB5Z=
-mW9Ml3sZZYeP8F4eXkBx7S4DrFvNuGyFXlV1t9yA3uXuAAAAfbHAAAAC97ibza0WDCxMt1BBBBl=
-FmiEO7ODzgaKXx8BBBB9Jgo89vBBBBBBBBNTJWJPx6FFc=3D/clang-built-linux?=E2=80=
-=9C=E5=B0=B8=E4=BD=93=E5=B1=95=E2=80=9D=E6=81=90=E6=80=96=E5=8F=AF=E7=96=91=
- =E5=BD=93=E5=8F=97=E5=88=B6=E6=AD=A2!From Latonya.">
-<img src=3D"http://theuocxua.com/getdocuments/YvnbAcz9wqlbiUVpW2AAAAPke4Hnh=
-V9bDBdz3NlHJVVx8LUJV16UqhfslCXg5CROM5vUGAAAAJqTqdku4O4c349HpdIA=3D=3D/keB5Z=
-mW9Ml3sZZYeP8F4eXkBx7S4DrFvNuGyFXlV1tAAAA4if7SVnilt5UBBBBzUfCXBBBB6BBBBsBmw=
-Suq2gBRfsC1cn0XmgnY0kJMrgYoLbuu3JzmrSnY=3D/clang-built-linux?=E2=80=9C=E5=
-=B0=B8=E4=BD=93=E5=B1=95=E2=80=9D=E6=81=90=E6=80=96=E5=8F=AF=E7=96=91 =E5=
-=BD=93=E5=8F=97=E5=88=B6=E6=AD=A2!From Latonya.">
-<div>
-<em>*=E5=85=B6=E4=BB=96=E6=96=87=E4=BB=B6:</em><br />
-<em>https://www.mediafire.com/folder/inj2vedwe7cj3</em><br />
-<em>http://coduyen.info/mh/00/9&pi_n.g.pdf</em><br />
+On Thu, 31 Dec 2020 07:22:22 +0800, kernel test robot wrote:
+> Hi Timon,
+> 
+> Thank you for the patch! Yet something to improve:
+> 
+> [auto build test ERROR on regulator/for-next]
+> [also build test ERROR on pinctrl-samsung/for-next krzk/for-next v5.11-rc1 next-20201223]
+> [cannot apply to robh/for-next]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
+> 
+> url:    https://github.com/0day-ci/linux/commits/Timon-Baetz/extcon-max8997-Add-CHGINS-and-CHGRM-interrupt-handling/20201231-045812
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
+> config: arm-randconfig-r004-20201230 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 3c0d36f977d9e012b245c796ddc8596ac3af659b)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         # https://github.com/0day-ci/linux/commit/3a597219bbfc1f9a0b65b9662b7b95bbb7cf728f
+>         git remote add linux-review https://github.com/0day-ci/linux
+>         git fetch --no-tags linux-review Timon-Baetz/extcon-max8997-Add-CHGINS-and-CHGRM-interrupt-handling/20201231-045812
+>         git checkout 3a597219bbfc1f9a0b65b9662b7b95bbb7cf728f
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> drivers/power/supply/max8997_charger.c:261:9: error: implicit declaration of function 'devm_extcon_register_notifier_all' [-Werror,-Wimplicit-function-declaration]  
+>                    ret = devm_extcon_register_notifier_all(&pdev->dev, charger->edev,
+>                          ^
+>    drivers/power/supply/max8997_charger.c:261:9: note: did you mean 'devm_extcon_register_notifier'?
+>    include/linux/extcon.h:263:19: note: 'devm_extcon_register_notifier' declared here
+>    static inline int devm_extcon_register_notifier(struct device *dev,
+>                      ^
+>    1 error generated.
 
-<p></p>
+This is failing because CONFIG_EXTCON is not set and *_all() don't have
+stub implementations in extcon.h. Should I add a fix for it in this
+series?
 
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/5fed3e4b.1c69fb81.56424.18dd%40mx.google.com?u=
-tm_medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid/cl=
-ang-built-linux/5fed3e4b.1c69fb81.56424.18dd%40mx.google.com</a>.<br />
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201231081754.09aad125.timon.baetz%40protonmail.com.
