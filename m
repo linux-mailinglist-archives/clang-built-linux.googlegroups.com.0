@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBEPAZX7QKGQEQZGNGEY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB77XZX7QKGQE4U7OCVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 184002E9E49
-	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Jan 2021 20:44:19 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id g25sf21586005ots.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Jan 2021 11:44:19 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609789458; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E6F32E9EEB
+	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Jan 2021 21:35:13 +0100 (CET)
+Received: by mail-il1-x137.google.com with SMTP id p10sf28800938ilo.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Jan 2021 12:35:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609792512; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rA8MD+lk6Ypq++VjU75jo5hEyNsA7gbAHGMDArDo8oLflbbyQPkAIFR07LgCykCBFK
-         eVbo/Wz/PayPQG+wpeYMAUIJlArbD4N1h4/rMXE/Z3fPvrjZxsq0VK2kjEmvSdiuwuoZ
-         dyyK7tolnxnUh8tOAYbMzRAHen6oRfwc/8JrftgLwKBwl+V+3pvpQTfLGn9wbdz23LP4
-         1lc6Eynxs3EPKp+De8Xh3rfXvHUKG5GUOPY4ijKy/QezfD/5riJQcYlceN6ysqYi0Z17
-         nUmERgvmVQDW61Y2/dBT/isjjmLpAQlK+A8YKsAYAMtOP+uU2UehfBK/Sh1oBXtQPOeb
-         YqDA==
+        b=QkFoXGAO1EEzh9aZpyYM42rMb+Lvfze0KmXwKn5CrwL3pIl6J5NwSwVRJNG41xVIus
+         PAofVoyCn1ZRHJncTsGBPbaCQnibBU8NGyLQfsx7j8Jved0EjpWaIH2CyFq6B+04IjQq
+         qVb8OkvlztrKuIVFYz0yHkxLPrOsNYMtge7Jge19i12KO3t2p1f9fzidOMPAe4vgdZ3E
+         iSZm5Bj7LeO6LnrSdHE0L/OiNovClQIF+B873LWXa9RcArMPJfV6m9raVOg08CGqPdPL
+         w7X+yhv3+5aorxYMMPAc0jMvG74UTqVTTuXhTk9zpXXIBghC6MlFv7jueA0/NzHL1eqa
+         XmIw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=IVCpb3ICZI9N8gVPSLVBaKwJ4ei5h7wZb+FcH/f9iqw=;
-        b=XWDI/Mm7wJhLVKe8rZvWFU7IgSypF9QcvlxxfCTVYlofg/Bd/mJgwURLEyGfFMUjAu
-         2Fg9Dwr9q+oSCghrPwBLqjFNwx1bPsLyTZJa5fb7jG4oHfCAIytWmAQ7NPLZWOL6DlZy
-         /VTpF1J1cTQILrHB2qsUp4Ye/CLfhWZA3iKhtB3C8CPN4ezS3mkWFeHN/JCFkqZAhjA7
-         nryQcYUj0A2nqIr1FpbyoAG6yFwEIC/RSvTe4Epqr1CVF4SQ+ePq3Q4uc/c3gdGqSNj/
-         LqzrE2krVvnYJZJne9suOEQWajsnIDYjMUAB64b0wHDCKYpeutfXDilKXO//5MuwmSaJ
-         8teg==
+        bh=nB2W8A2uqNnPQSQvXtmBNKTcnH3xUmluzrMHYo0k5qo=;
+        b=nO+X2NzM1pc01M8VC86YrrspRNoKR6r5OtHmftsgB4G3pPjpjEv/qz8oOCK1bbNxJF
+         mYIOZTkbGHx75U6lSMts32LSEQ5JxcJQCGNPxygmiLlfm0BkIMT2EwO8zehS3kTKF0ix
+         ySjsN5FpYpK0S9cN6uKsf3oGoKtKGqAdbmk1clQhHGP7wDb7qWcAtC21WawJ+RYiK+g1
+         JNc7r/FEBv2SJHFuRe0SV3spM/LTrVLW6we3cyFa67Ra6lRV5XQ/9Iajv42ovFT7CICr
+         sHC+SdGk3tTcc2hEn7Hr7eUJPU7dO24O9yh/O29sadnfubAIMACbRpt7saBvRlbogFpb
+         rW0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IVCpb3ICZI9N8gVPSLVBaKwJ4ei5h7wZb+FcH/f9iqw=;
-        b=XD6VMmEyeMyZx18iCDuCI27ZdRmVmND3ULIrAXnUUUjPuxUNoEfrKxG11pLNEAafZb
-         8qRhRqaKrTk6Y5jz/DrXKE48ENx6w1R8wbkaYadfvJGDeSnmScSfle3SHQ1UKUvaz41o
-         XsQF0o+aG0/bcsWiCsWOaIk1daVsfJ/s8Vf7Yr37Yr2DzUP/iG7505p4pYGDJS0ybhQ2
-         hYxT9kqmn03GzaIlkN/wTkyQAMZUFNv03/w/hknDHCO2w8mKrnpX19lpk4hsFxMg4AYi
-         ln5gXdDZUUhbPkP7jmUmFAUegV2ZJQRZU8QNKqY8GvrvRLW3bAN2rXfzVXcbFairueMU
-         6pJQ==
+        bh=nB2W8A2uqNnPQSQvXtmBNKTcnH3xUmluzrMHYo0k5qo=;
+        b=c1wU88kdecfGMaJKzN/e74ZXd8rpryVMdqAtjMqhcrhaRUbMslwqXCLKfr7dUy0FTa
+         ruLS1KBFAZXtvoAXX1h8aUB9ct/UFZTevD2UohmT/Q4zxgi60QWKMcnz31esBzADHbGI
+         +Fpb0TWbkpPZmbWSdJbQ1KEArtJd7riXVM+Gq0YqBK0z0x0hoWc0INrDWQV/fwZlEef0
+         7Ye34Qp/fjcOLMIUSS6oSjlid0aX2gYxBvYBVTyo7i8nRuCYNtfTn09T6GQbGbXuuYMN
+         wEPCKEaSwzlIsYUd9/ypR1OjvXA7ivBcX3YKHZPQbjoxsSgEDqH+GiAASv7P49sL+vHL
+         WD2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,86 +51,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IVCpb3ICZI9N8gVPSLVBaKwJ4ei5h7wZb+FcH/f9iqw=;
-        b=PGFdl/1f+/0cmRAXS/KH0uNEdqFTs9NFExMjujxEvnw8eGivu9m3jAjsMl3MiFc1Qy
-         rnZHmTcEU8Csnd+nlNUL/AQ/P2LSwrf6iEYJ8LiU70eZN6m+pnoWzZooQzQBit5ZZ7Sy
-         5gPlLKFzp+ac8lPz2Y+5EB5EBC5GCXbVzvv64vcaEzOJTU+s5j7FdgXPQeG0Y40lbynm
-         iSnzGMvhg6ccBJ3cNSnmHUdtnvwfvg0a9n6LpeOuwpJcCjPybhBidDe2NCKchC/e/o6M
-         e9d5qdPgPrMUJyvLzWuWya6r/XuzTMoJFwkVReHVwNFf7TGMjOd+5+fQxpKf5egUEtXw
-         5i9w==
+        bh=nB2W8A2uqNnPQSQvXtmBNKTcnH3xUmluzrMHYo0k5qo=;
+        b=tsaUriSiEAKeYaWlcHK3KoP6YXhYSNjFHmdT6FLCaCmWMu7yXeMv/S4sMU3/FiYiEd
+         aSIUw7Z2YSRM2QRccOStQdsqtmGlt6fYrQs9fRPnq94d57C9ChpdHZRudm96nyIm4CN2
+         2FZ8yzLH3HPs6FILV2MkxdzFCN/Mc63JZL/3EJNh9EgJIsQWK1Zt+InsthKAocR9d6mc
+         NwZI5EMycjUpmOl8IXDo8tSX8A2Q78KMrFcMH66SG/HZWfD7W4+T+XgFrhHHz8avwFM1
+         yuIxG9mESluQH3RGT06DfuTnxQCrcd/0ASOa7QGt1Hg4sLMxX10sevFCut8aw+jzYH8N
+         6k1A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5300YBGSY+PqZ03MgBWXdSX2W4HIAkyj3Tc5Jbtq5dpYmpGI2SRD
-	di2f9/fEfRTbchx4G/jIA78=
-X-Google-Smtp-Source: ABdhPJzubqKzTUGtZLceAoLFhQoMHTrUYO0luvKdp4300OAkiDJHqshASce3UQTOMX8h8iHQnKMYTg==
-X-Received: by 2002:a05:6830:107:: with SMTP id i7mr52500792otp.247.1609789457710;
-        Mon, 04 Jan 2021 11:44:17 -0800 (PST)
+X-Gm-Message-State: AOAM533AiIYyVfxw7rEbBozJ2XxM0ewpCljh/t4pdfg8QXAqamEH31Bm
+	O5Ijil5Iq1eldMuUmVFaQ1g=
+X-Google-Smtp-Source: ABdhPJwu8Kaggul0wQM2pBfXpom/Ew44V4uosPz9BCDPFFBsL8wcpn57MP6SnO93HsvGefQ4eBy1sw==
+X-Received: by 2002:a92:6f12:: with SMTP id k18mr73068484ilc.66.1609792512036;
+        Mon, 04 Jan 2021 12:35:12 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:12f5:: with SMTP id g108ls18990381otg.2.gmail; Mon, 04
- Jan 2021 11:44:17 -0800 (PST)
-X-Received: by 2002:a05:6830:2413:: with SMTP id j19mr55747684ots.251.1609789457028;
-        Mon, 04 Jan 2021 11:44:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609789457; cv=none;
+Received: by 2002:a05:6e02:170c:: with SMTP id u12ls16374657ill.9.gmail; Mon,
+ 04 Jan 2021 12:35:11 -0800 (PST)
+X-Received: by 2002:a92:d152:: with SMTP id t18mr70929918ilg.76.1609792511476;
+        Mon, 04 Jan 2021 12:35:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609792511; cv=none;
         d=google.com; s=arc-20160816;
-        b=PdYkAjEYMmLOdDp1PLoxHsj1riOFH53xLhhu1G8vWn97ET5vb3Y3QzCHo2zK6WVuCo
-         7AD7eghg5vlBiv6t0+PtAMyH8yXLFAVKyzt/Cdu3NXrH7f+/Xb3WuE/0eXBMkq+w+zyN
-         Q3PxF3JHiHVsZcxGgANonyg+KS5YV3CqR26lQ/F6GrO7N+GTpSEtTfYq3PH8uKPBAstz
-         hCwx3GKPuWr4NtWX/hy7j6o5eSDyau8R2AaeD6snQXLdWQrnlXKKbuka57emNdSxXm6a
-         edduu9O73w7oQNjeOhbWKi+UawVuOAOevk94kuVg5lZQUFBe1NAH7LieAkAiGGgZuFwO
-         KEOw==
+        b=Tu5QFDuVoXyYSBw2Yu+90VmtRt2uVAQ8Wex3IUdtLn2xD81NzAYOlGrMhkPdD0tipH
+         w0IRdHbOcB8xFeY0zioIwL6w4UggWIXT6YIlYLRgo2yYddI0o6bhKgaHguTbsuYuCQxV
+         h+TNxL+8AyI+XN6sMaBWE1lk/gqQJPB712yRbt6Izgk7tHZU9nNCVEZlxjr9ndgB+LEH
+         REped7KFWM6b8tCTABiLFJtvVcnPC/JaQOWvibQOzLDhC0Zrlas/OdDwYbCYgVBLu8uU
+         pnCXIXvS3Zr9Y4rlMlsTWdb8+TLHIIkhMsBCJZGISmd27ZPmCCyliQLmpVmpUmfDUQiB
+         vi1A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=tGBloO/qUfXzAI1rvxpqDl1m8ZB/m6jrobywlOnzRxQ=;
-        b=dvs76KWRNtiSGN8VZnXmA5PjQ0kE8IertOrAtY9G7jQPW2raz3+FYfgKq6+Yy34aqa
-         6ARTUbjJLPbdYUz/fa/US2j+S8RJHYRIz1zWWfAT96c+96DKdL/ZtKvh1tTtV5dXJS+3
-         yU/jMQEcFBl7/65c9qHhS8DkHgkXyIw5WPTMWdQN6CuVpdG/f8EA0bR8vSfERKD0C4HY
-         +APET0q1ano8ThWE7HVJ7jo5TwLZOlA6+CosrL+aEHlr222/0ugw5i1Mg9MdjrfKZS6D
-         /EmjZIXn1T0UP4P23ZOKCEj+n7GJ9S7iN51APbbHOcg2SWGSdAXMmj5uVojwpuHGaC3z
-         bp4g==
+        bh=9syzbYo/BmVCCjgXU5+mc1/LF9scrh1Im5r5qixxwQI=;
+        b=i3pBd+T103/wXFrj/8gU3SkVwtxP0SmTVjHBqUa4GB6zoWk/Afo02oO86YmfP+I0c8
+         p+YJP2tHPkXAAfNIBoAsFzq+iCY6N2/VsQ+S9jb0fSR5kou91qSlMlocmR+Jur+iaYrw
+         ZBJ6sIxsybyzcke1djHQXStiwlvtGpm8sf9ypnBEB41lirbnsm6Wnc+oZwaJk2ENYXqc
+         9dwJhQP2OLxGybvR5FhxCAB4q3CefZLuJjJlHorMCcdNhnzVK/Zpv+Al8r00RiKvFs+j
+         aMYxFFhMo9IYkg5ZShmEYOiXNTBIC9Gi72vWjE3/N2UXX3Efov8jU+G1nIK7rrbzJ9GI
+         WoCg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id f20si4301888oig.2.2021.01.04.11.44.16
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id u14si3001006ilv.0.2021.01.04.12.35.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 04 Jan 2021 11:44:17 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-IronPort-SDR: tQ6y+JQ1xx+xA6JIMFr7w9QsUy2LOxK7qfHmb5ydet4OGD1f/0qCaOvvXn16iVtrHygwZcP3T0
- KysNLv4WnebQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9854"; a="195525080"
+        Mon, 04 Jan 2021 12:35:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+IronPort-SDR: xRhKg+LGHKZuPqSLWaJmXxK2Wq0XyD0ixDmVkbD1xRb+wCL4VFUx/SThj/eLidGS3xSUWlK8wL
+ 8PiqQWXKH7sA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9854"; a="156791532"
 X-IronPort-AV: E=Sophos;i="5.78,474,1599548400"; 
-   d="gz'50?scan'50,208,50";a="195525080"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jan 2021 11:44:15 -0800
-IronPort-SDR: kqdY74tHwvQDnSXIU0a4VPGYtjyY4IyExsEroDeHHOGtpoYpvKvM60KUZBj2melDs2lqNLbMDp
- ZP6doXAA8w+Q==
+   d="gz'50?scan'50,208,50";a="156791532"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jan 2021 12:35:09 -0800
+IronPort-SDR: rfwxXA9VAa/bupxR1LT5omz6n8v1gqLl2kcPo+pbfnBLRLcVbgFZ5vzG1COGtN/D/eoTXmaTjE
+ 4xi10Ic/v8Cw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.78,474,1599548400"; 
-   d="gz'50?scan'50,208,50";a="462054351"
+   d="gz'50?scan'50,208,50";a="421495779"
 Received: from lkp-server02.sh.intel.com (HELO 4242b19f17ef) ([10.239.97.151])
-  by fmsmga001.fm.intel.com with ESMTP; 04 Jan 2021 11:44:13 -0800
+  by orsmga001.jf.intel.com with ESMTP; 04 Jan 2021 12:35:07 -0800
 Received: from kbuild by 4242b19f17ef with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1kwVm0-0007jX-F6; Mon, 04 Jan 2021 19:44:12 +0000
-Date: Tue, 5 Jan 2021 03:43:44 +0800
+	id 1kwWZG-0007l2-Rn; Mon, 04 Jan 2021 20:35:06 +0000
+Date: Tue, 5 Jan 2021 04:34:56 +0800
 From: kernel test robot <lkp@intel.com>
 To: Chris Wilson <chris@chris-wilson.co.uk>,
 	intel-gfx@lists.freedesktop.org
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	Chris Wilson <chris@chris-wilson.co.uk>
-Subject: Re: [Intel-gfx] [PATCH 1/2] drm/i915/gem: Almagamate clflushes on
- suspend
-Message-ID: <202101050359.bGAGGB9N-lkp@intel.com>
-References: <20210104140135.26285-1-chris@chris-wilson.co.uk>
+Subject: Re: [Intel-gfx] [PATCH 2/2] drm/i915/gem: Almagamate clflushes on
+ freeze
+Message-ID: <202101050439.J6ElV7zv-lkp@intel.com>
+References: <20210104140135.26285-2-chris@chris-wilson.co.uk>
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="G4iJoqBmSsgzjUCe"
 Content-Disposition: inline
-In-Reply-To: <20210104140135.26285-1-chris@chris-wilson.co.uk>
+In-Reply-To: <20210104140135.26285-2-chris@chris-wilson.co.uk>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -169,10 +169,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/0day-ci/linux/commit/e17680e4b8352355fb03d0aeab4b0f16994fa2bd
+        # https://github.com/0day-ci/linux/commit/54314b2c3991bf37b7a6bf3b35eee4179a5e908a
         git remote add linux-review https://github.com/0day-ci/linux
         git fetch --no-tags linux-review Chris-Wilson/drm-i915-gem-Almagamate-clflushes-on-suspend/20210104-220329
-        git checkout e17680e4b8352355fb03d0aeab4b0f16994fa2bd
+        git checkout 54314b2c3991bf37b7a6bf3b35eee4179a5e908a
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -181,61 +181,46 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu/drm/i915/gem/i915_gem_pm.c:78:3: error: implicit declaration of function 'wbinvd_on_all_cpus' [-Werror,-Wimplicit-function-declaration]
-                   wbinvd_on_all_cpus();
-                   ^
+>> drivers/gpu/drm/i915/i915_gem.c:1286:2: error: implicit declaration of function 'wbinvd_on_all_cpus' [-Werror,-Wimplicit-function-declaration]
+           wbinvd_on_all_cpus();
+           ^
    1 error generated.
 
 
-vim +/wbinvd_on_all_cpus +78 drivers/gpu/drm/i915/gem/i915_gem_pm.c
+vim +/wbinvd_on_all_cpus +1286 drivers/gpu/drm/i915/i915_gem.c
 
-    34	
-    35	void i915_gem_suspend_late(struct drm_i915_private *i915)
-    36	{
-    37		struct drm_i915_gem_object *obj;
-    38		struct list_head *phases[] = {
-    39			&i915->mm.shrink_list,
-    40			&i915->mm.purge_list,
-    41			NULL
-    42		}, **phase;
-    43		unsigned long flags;
-    44		bool flush = false;
-    45	
-    46		/*
-    47		 * Neither the BIOS, ourselves or any other kernel
-    48		 * expects the system to be in execlists mode on startup,
-    49		 * so we need to reset the GPU back to legacy mode. And the only
-    50		 * known way to disable logical contexts is through a GPU reset.
-    51		 *
-    52		 * So in order to leave the system in a known default configuration,
-    53		 * always reset the GPU upon unload and suspend. Afterwards we then
-    54		 * clean up the GEM state tracking, flushing off the requests and
-    55		 * leaving the system in a known idle state.
-    56		 *
-    57		 * Note that is of the upmost importance that the GPU is idle and
-    58		 * all stray writes are flushed *before* we dismantle the backing
-    59		 * storage for the pinned objects.
-    60		 *
-    61		 * However, since we are uncertain that resetting the GPU on older
-    62		 * machines is a good idea, we don't - just in case it leaves the
-    63		 * machine in an unusable condition.
-    64		 */
-    65	
-    66		intel_gt_suspend_late(&i915->gt);
-    67	
-    68		spin_lock_irqsave(&i915->mm.obj_lock, flags);
-    69		for (phase = phases; *phase; phase++) {
-    70			list_for_each_entry(obj, *phase, mm.link) {
-    71				if (!(obj->cache_coherent & I915_BO_CACHE_COHERENT_FOR_READ))
-    72					flush |= (obj->read_domains & I915_GEM_DOMAIN_CPU) == 0;
-    73				__start_cpu_write(obj); /* presume auto-hibernate */
-    74			}
-    75		}
-    76		spin_unlock_irqrestore(&i915->mm.obj_lock, flags);
-    77		if (flush)
-  > 78			wbinvd_on_all_cpus();
-    79	}
-    80	
+  1261	
+  1262	int i915_gem_freeze_late(struct drm_i915_private *i915)
+  1263	{
+  1264		struct drm_i915_gem_object *obj;
+  1265		intel_wakeref_t wakeref;
+  1266	
+  1267		/*
+  1268		 * Called just before we write the hibernation image.
+  1269		 *
+  1270		 * We need to update the domain tracking to reflect that the CPU
+  1271		 * will be accessing all the pages to create and restore from the
+  1272		 * hibernation, and so upon restoration those pages will be in the
+  1273		 * CPU domain.
+  1274		 *
+  1275		 * To make sure the hibernation image contains the latest state,
+  1276		 * we update that state just before writing out the image.
+  1277		 *
+  1278		 * To try and reduce the hibernation image, we manually shrink
+  1279		 * the objects as well, see i915_gem_freeze()
+  1280		 */
+  1281	
+  1282		with_intel_runtime_pm(&i915->runtime_pm, wakeref)
+  1283			i915_gem_shrink(i915, -1UL, NULL, ~0);
+  1284		i915_gem_drain_freed_objects(i915);
+  1285	
+> 1286		wbinvd_on_all_cpus();
+  1287		list_for_each_entry(obj, &i915->mm.shrink_list, mm.link)
+  1288			__start_cpu_write(obj);
+  1289	
+  1290		return 0;
+  1291	}
+  1292	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -244,14 +229,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202101050359.bGAGGB9N-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202101050439.J6ElV7zv-lkp%40intel.com.
 
 --G4iJoqBmSsgzjUCe
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICN9n818AAy5jb25maWcAlFxLd+O2kt7fX6GTbJJFEr/a03fmeAGSoISIJNgAqIc3PIot
+H4sICBVz818AAy5jb25maWcAlFxLd+O2kt7fX6GTbJJFEr/a03fmeAGSoISIJNgAqIc3PIot
 9/VcP3pkObf7308VAJIACCqdLDomqvAuVH1VKOjHf/w4I+/H1+fd8fFu9/T0bfZ5/7I/7I77
 +9nD49P+f2YZn1VczWjG1K/AXDy+vH/97evH6/b6avbh1/OzX89my/3hZf80S19fHh4/v0Pl
 x9eXf/z4j5RXOZu3adquqJCMV62iG3Xzw93T7uXz7M/94Q34ZucXv2IbP31+PP73b7/Bv8+P
