@@ -1,128 +1,142 @@
-Return-Path: <clang-built-linux+bncBC4Z7UNE2EIBB26AZT7QKGQEZOD6CCA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBH65ZT7QKGQEZVXP4WY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id B0DE72E969C
-	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Jan 2021 15:04:27 +0100 (CET)
-Received: by mail-lf1-x13f.google.com with SMTP id m67sf17073965lfd.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Jan 2021 06:04:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609769067; cv=pass;
+Received: from mail-qv1-xf3c.google.com (mail-qv1-xf3c.google.com [IPv6:2607:f8b0:4864:20::f3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0CDCE2E9808
+	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Jan 2021 16:05:04 +0100 (CET)
+Received: by mail-qv1-xf3c.google.com with SMTP id m1sf25438687qvp.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Jan 2021 07:05:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609772703; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GcrRbnYO8rnVZFR/0F2i5vHpfI9887XKOOz86bmd4+2Jhg8yTvVsW0TCKuRV2OrY4z
-         Tw2SzPLKHThLG6JAHVQsT4uzl3QbZK9Ltkv4wb1sMatb/CJzcianBDceDYDUOJu1GrpU
-         g3zTD1ZulDmT4K4zRBEBBfnbomsQTiuy524Pyx1bbpH8YxXJ0sU0CbA4zWDiDzbq0UzH
-         qihTKAh6jeggu+G9U9hUxcSu07RvXXKiJLQmUHLLmjczQmmuYiAJibWyaMRsH34eW8am
-         NkDVpx0TgTw7rrye/971aac8dOFnzaQ9U8CsRenVad1e+qXjT5R5QytRBSzubfqjL39u
-         enHA==
+        b=ipY/l4TBMoTl17EhaFjN2I8qlHH7HnPcubTEIAZwLQM0hpvf/hoOhKeftzsqOV9mFR
+         sP9t8MDPRo5qzJXNi3iXQw21QJ3gXsG56Wz5dtfQKP1VAaz8ln1QQ1+DyvTi3kfpqhl5
+         B1WFnQ5eeHKkpjUW/QV4MR9AEOqt4dq+ucmNb+Ke7Z6O37J9E+weqYbIlLWleAzw6Ha2
+         cKFmZhx9U4ddj/615QLYQgvRcqWOIWtxW75nbgZj4zk2eHocLKAX3+ENBoaAXLUvomoF
+         rreMW8Qf4dQ68qJPf1VhzXDQHJtECZFJFLryVzzjHquWdqSk+uZNJXXlBb6JPuXJSmbs
+         dxGQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:date:message-id
-         :in-reply-to:subject:cc:to:from:user-agent:references:sender
-         :dkim-signature;
-        bh=FYQCItxSGXeOAlJOMN+L6z9IFiytz3DpWZQb4wlxqEE=;
-        b=nY1+bNUI2m8s5NWMd2i2bAdBO3TUVqygrmcTnfeTO8sh/VJjcZihPRA+EqvTW0ktay
-         BPoleg+EtarwlrmrOvNRPEm0GUx9w8RTCuud7KZ1pkQH60EQqCEks8hyrLzUQFFPDpQs
-         QGKvXUuyWN+ekKajZa/zRGpUALWwzW4jIAaArIPV7Rk2UZ9WRcro100FsLXOeXeKyeBU
-         0XWBYsUXzx7eK+F1Ad7vN66TR5TX1E/uhSg//G+nP4Kp7EP2GpRubtscApp/LkRmcvbk
-         iaC1YUfaCbek2UyhJ0lNdqS1WMFJP4/gXN2QuufQ7HvvFSOxWPfRXjfmJRBsX9gM46Y2
-         wHgA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=CB6HHTRoHtzBEzU0o+cqnViNk/N3Hs4caA5x6aSe5NM=;
+        b=dE1scUG44ZdqBJcTeOxtp+Vkh5c4sT+nPQGEiiqcBSh+KoVnAF5IuVoGfmn+8Jlzmr
+         +EJP7D8JtIZFB/hZcCdOfiWFWRNQueAC9RzBoC4+w2lbrUECL4J+XwmATgiLnmqJk9nW
+         Gp5DFSRCLAgh7UOqx16nd09oO5446TTvF/DTdP6NY6bAfNL1mWwW9lqGBi/8IGoiRsWd
+         zw3l8/wfcv1QxlD4tlvk28dF8SznLhEf2L/T6NBoPVZZS8rNJEAUWoLxizAzBGd7Of4K
+         2ZxPeR/C+ERbcVe8S84GzJZ7PmE132xfHNee0uVwXB8flUNXTRus+hBriIrN//P6bB3m
+         9Wpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@baylibre-com.20150623.gappssmtp.com header.s=20150623 header.b=tE3QbhnO;
-       spf=pass (google.com: domain of jbrunet@baylibre.com designates 2a00:1450:4864:20::633 as permitted sender) smtp.mailfrom=jbrunet@baylibre.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=gSubPZC0;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:references:user-agent:from:to:cc:subject:in-reply-to
-         :message-id:date:mime-version:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FYQCItxSGXeOAlJOMN+L6z9IFiytz3DpWZQb4wlxqEE=;
-        b=Rm2CpuHlpStgEVBqKT+o3AkVScDFBtvO5OU+CNQfp6NVENJp3tSDgUEuK0Vq/z5Nu8
-         22MTjgqq+u4n1CB3DqaCrRMxmo7MxmCXz1yRCZibZoyosUvO7bco+GoH+xnqL+yJJyKb
-         eAkN+0FmOm1PWz0DiyIknqECC7yVb//Sa4hZQ5VqRpu7mFHLFznjWo2m8U0Ym6hy7wyX
-         mM6qo3CKuIozH1qA44Z1d2S2quZiWSv2IXu2+Yy/AzT9iQE3FtUhMeSBS44r8m80EjjT
-         k8PjKS3OiGn/RmkPvBkqjkiYq1/E1JF5+bGoL/dtQJ8Vl7hsJD/ot4GewSXxgtLa+hQa
-         AgFA==
+        bh=CB6HHTRoHtzBEzU0o+cqnViNk/N3Hs4caA5x6aSe5NM=;
+        b=mz1WfBC5xJhhvxmc/cNaG84iDFbiZi3SbSyMMIZVmmpjPm5KqVl9B5nkJ1GPcCWfOy
+         pbj+2AnMdH6FCk18otZr+XbaA2lk8kYzh1MnU2MEW2jYRa89ribKTRaxUkOez6qDcmF9
+         iwvV9TVlR8CO4UAKSOedPAAXt6MMwnCxX4aEGBNSBDbKHm/zIfBQHHv4H7GsgENcaU08
+         moiaFADWxpruAziXjxu7hwXWiq4QQaFYxs1AGHrh11y281FKAsfwXO8UusJZUduLTUKg
+         IwTonHoRCv1WKCAfFmb4Bu7h9a2bBC7TA6JEyvc88vmJy2/aqLwlIrooX8hwccOn8eSN
+         dVPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:references:user-agent:from:to:cc:subject
-         :in-reply-to:message-id:date:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=FYQCItxSGXeOAlJOMN+L6z9IFiytz3DpWZQb4wlxqEE=;
-        b=JlZpDRRJSGu4rvnL6lDgRB7/+yxwzNek3LHgrXKwCZ5D6CS4FF5YgQNleuCNmr8OkZ
-         dy9z80MONn9MfvoDmWjBpdLFZib74uN/lb0GyOWZ9aPzT+Awzr6yCcaPe8FCDTEPx+KK
-         9bAk2rNXaZQBhxgMqv9YJg87N17Qhn9VIXevrPvbaykQEcUSJC2BvTBGtg7nBieTXoDi
-         apQBasu0Wzf12No5ee8Q0lWJx89dlKbCCWWDNA5grIThgvssYmkqW5eYpQb0bx4y1jH2
-         RTtrgYBmNRV8Zu4Q5lko3ZZaEIoqO6ah7TfAblDhYm/wmRnIT1Dv3bN973kkZe/IVpOW
-         zcAQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=CB6HHTRoHtzBEzU0o+cqnViNk/N3Hs4caA5x6aSe5NM=;
+        b=Xi3jcw5GSeH4v25rGwqAhlK31B0AzJAjAnsJuldhavg20j6SFWg/2ErCBwXyEt0kcr
+         j2GTz2dSjB+cbxMt5Y21lXDS2LhFt3NEpgo/CO9GfirWMjIAXWta2Q4w28xSIR5eBxkD
+         V6/ynFX/E89DyJCWxQdV5rFFEcrgBAzPqSaUS2wxxPRNAggYi2/xMtgTdhW5D+LSzoFF
+         in176jsvneIcMSnNeoHkGeDIjF8DATUG2Uc59SMC50SbetxoaGPr9kWn5nQR5FBPeXKv
+         ou66lh3JQIOu9ambSWKZs6VViQPICKvRlHhrcrkgFU48kzQQBN9Zu4dNXIad1SbdmhnJ
+         zqTA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531aJThNBAlf+zKG53eFs+EQD8SMS3nk4vl0V8SByAo7MUPHtR73
-	feMcxVBkPwo7DovVxhxPP4k=
-X-Google-Smtp-Source: ABdhPJwYODb+YNr44xIsO2nsNEGwhVx9SgeKvGLT5IMA7J50IuKeOcueDFDxVPM57noJWafdnZ/MEQ==
-X-Received: by 2002:ac2:5981:: with SMTP id w1mr34110092lfn.374.1609769067281;
-        Mon, 04 Jan 2021 06:04:27 -0800 (PST)
+X-Gm-Message-State: AOAM530EzDu8VOiwTGVURcyhkwIsk0A8BCXkxfNu8DaZ/+9zwNfxyXOS
+	LEkik2pWry+709LgD09XCgk=
+X-Google-Smtp-Source: ABdhPJyxadvFyYSmTXOwsaIIcbM9g3Cw3abdw9q0NfwEnIOAlvzlSFN5kbLItZwmobTw/WvdWFUiQQ==
+X-Received: by 2002:a05:620a:1265:: with SMTP id b5mr72807047qkl.27.1609772703140;
+        Mon, 04 Jan 2021 07:05:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:8055:: with SMTP id p21ls14219795ljg.5.gmail; Mon, 04
- Jan 2021 06:04:26 -0800 (PST)
-X-Received: by 2002:a2e:3c01:: with SMTP id j1mr33977266lja.258.1609769066137;
-        Mon, 04 Jan 2021 06:04:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609769066; cv=none;
+Received: by 2002:ad4:434d:: with SMTP id q13ls19265650qvs.8.gmail; Mon, 04
+ Jan 2021 07:05:02 -0800 (PST)
+X-Received: by 2002:ad4:57ab:: with SMTP id g11mr77266840qvx.38.1609772702751;
+        Mon, 04 Jan 2021 07:05:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609772702; cv=none;
         d=google.com; s=arc-20160816;
-        b=XJB0neyWzpbe/mv6nbwYQ9R8cR5pNLtrRWv1gb84LF9S7TU3ezktz8atjP4BiiCf0s
-         EqKl4NFkq0NXGl2v14OINuh+6RE7pYargrtYJrFVbAtbbTkY/zbHbf81nGZc2y/ibF7A
-         SIB2RcaZY9wqbdX813vC9m4f4GPzToDqBrowUf+29dFhzBdNncgsLBAg5ibbbW+2ERoO
-         a8ypBXy8nWJVcz9VezpJPNifbhtFcmRo0Cx5jzi38LD6+BM763OprHvjUjiVFnp0iZ+U
-         q6TPOq+Lbj497CM8zU1NQQgq3so8k73F0MbSe9gbpcnYo90xMf4LXwRvx5fcyxEcIfMr
-         vTvg==
+        b=D5JCMCjOTb11KKF4hk8oB2lXLn36GSSfw85nhmhYrthwp7/sB6l+C8BdDL4zl5send
+         oQ4+mRb2wKT85vPpzpfWHYRavPgqB8SoV/otfoUwJvzKMM7NhhSumbYYcerRFb2mIQuV
+         ddpFfL3Q791wBihp79J54Lv+vj73jrWgxpO9tp7zEZ1Ll4XX7/1WqivNgzFEtHFv6cuV
+         9gu2j0njIFXJTcLSOQFBUxbWG8+/vBf1IOJppZYI3Vgk8cmeCWHvObSHST6oB2aAOHAq
+         C7sJu2gG39TaZbjy89X+QkxM8UNZDGIcLe4qTFJLSSVmBdeNBS7NzzfJ5D7J4WaMNpjp
+         9ukw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:date:message-id:in-reply-to:subject:cc:to:from
-         :user-agent:references:dkim-signature;
-        bh=BcFI2Nw3xVQxOuv9tvr4E6ehVLieVPuxYqFfccqeGX0=;
-        b=McDzv5YUN4oOQeePbBEAnMMyU9n8TkaGpRwDH1VJwa8m8xcRZQpg+hqhZTepA7+uzF
-         AQ9RRPwvJmDl55Z5BtZq8TWRA4B5swdNkaaan8/CcSr40jJYPbP70hivRWxrg086TpRI
-         4b2rVLftdUMGMzKbq8T4G3fPt6l77NlgCzGt3xzrBXa62jFbamh3uNjYdP/gmZdjJmB1
-         h/MM6ukYXE+EQSCMftUBZy6w9V/gGsK4WYwlCxo4/r6vkuzTLHdp9gwX+6wdhm2CS1GZ
-         qVLiCo08PNVVFGPxxooW3rBAyyBdWJ0Sr+YeiYMtRpcHG9fnSWzXkDtxo/sIc9NTQk9h
-         2hZQ==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=HJCXspdx3i7XpaVupbHfC3QV0pRcOT5mdGPwTiDlwdE=;
+        b=0fHeF6Cb2FvnESuPUUZYm3ZNt9c4UkWr+f4TIglNWvoLapIQHVev7ecXtRncCmhFDW
+         z4FfVx5W01LjN9NFEcXnQey35hsqBFmnXOckZDC/DK/vtJNNNW3FOfuRsFAiyowMHKV0
+         9JbovJtAzNRUQtF7q61u/bBMj2l1+4bZ/GOhh3NzGdqwtu4Viztr7SOEnpLKAT+LWYKg
+         Yss9yqnKXlKP2OvI5FIP0CazTvWhlotOqAK6441BJcTIoVfvqsJCcji5mSP66jTXKayB
+         GXm+KnxBZCrtihDywlEP8IaNnEl9UKkAJxOqDzENPndes3DNOPZMDtHYcjRVnbAF4fAl
+         64/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@baylibre-com.20150623.gappssmtp.com header.s=20150623 header.b=tE3QbhnO;
-       spf=pass (google.com: domain of jbrunet@baylibre.com designates 2a00:1450:4864:20::633 as permitted sender) smtp.mailfrom=jbrunet@baylibre.com
-Received: from mail-ej1-x633.google.com (mail-ej1-x633.google.com. [2a00:1450:4864:20::633])
-        by gmr-mx.google.com with ESMTPS id r12si1701609ljm.1.2021.01.04.06.04.25
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=gSubPZC0;
+       spf=pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id c198si2850742qkg.2.2021.01.04.07.05.02
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 04 Jan 2021 07:05:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com
+ [209.85.161.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-16-RBJzAdRHP4-ADCqpL5qpXQ-1; Mon, 04 Jan 2021 10:05:00 -0500
+X-MC-Unique: RBJzAdRHP4-ADCqpL5qpXQ-1
+Received: by mail-oo1-f71.google.com with SMTP id p66so17917427ooa.17
+        for <clang-built-linux@googlegroups.com>; Mon, 04 Jan 2021 07:05:00 -0800 (PST)
+X-Received: by 2002:a9d:64c1:: with SMTP id n1mr51855313otl.60.1609772699904;
+        Mon, 04 Jan 2021 07:04:59 -0800 (PST)
+X-Received: by 2002:a9d:64c1:: with SMTP id n1mr51855294otl.60.1609772699720;
+        Mon, 04 Jan 2021 07:04:59 -0800 (PST)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id t186sm13461368oif.1.2021.01.04.07.04.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Jan 2021 06:04:25 -0800 (PST)
-Received-SPF: pass (google.com: domain of jbrunet@baylibre.com designates 2a00:1450:4864:20::633 as permitted sender) client-ip=2a00:1450:4864:20::633;
-Received: by mail-ej1-x633.google.com with SMTP id lt17so36916392ejb.3
-        for <clang-built-linux@googlegroups.com>; Mon, 04 Jan 2021 06:04:25 -0800 (PST)
-X-Received: by 2002:a17:906:f9da:: with SMTP id lj26mr65324472ejb.467.1609769065595;
-        Mon, 04 Jan 2021 06:04:25 -0800 (PST)
-Received: from localhost (82-65-169-74.subs.proxad.net. [82.65.169.74])
-        by smtp.gmail.com with ESMTPSA id cb14sm23859541ejb.105.2021.01.04.06.04.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Jan 2021 06:04:25 -0800 (PST)
-References: <202012291638.QiDQi3Gs-lkp@intel.com> <X+sHKyfBnrT/8dIG@kroah.com>
-User-agent: mu4e 1.4.10; emacs 27.1
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, kernel test robot
- <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- linux-usb@vger.kernel.org
-Subject: Re: [usb:usb-testing 8/8]
- drivers/usb/gadget/function/u_audio.c:248:9: warning: implicit conversion
- from 'unsigned long long' to 'unsigned long' changes value from 4294967296
- to 0
-In-reply-to: <X+sHKyfBnrT/8dIG@kroah.com>
-Message-ID: <1jturwx0gn.fsf@starbuckisacylon.baylibre.com>
-Date: Mon, 04 Jan 2021 15:04:24 +0100
+        Mon, 04 Jan 2021 07:04:59 -0800 (PST)
+Subject: Re: [PATCH] rxrpc: fix handling of an unsupported token type in
+ rxrpc_read()
+To: David Howells <dhowells@redhat.com>
+Cc: davem@davemloft.net, kuba@kernel.org, natechancellor@gmail.com,
+ ndesaulniers@google.com, linux-afs@lists.infradead.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20201229173916.1459499-1-trix@redhat.com>
+ <259549.1609764646@warthog.procyon.org.uk>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <c2cc898d-171a-25da-c565-48f57d407777@redhat.com>
+Date: Mon, 4 Jan 2021 07:04:57 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.0
 MIME-Version: 1.0
+In-Reply-To: <259549.1609764646@warthog.procyon.org.uk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jbrunet@baylibre.com
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@baylibre-com.20150623.gappssmtp.com header.s=20150623
- header.b=tE3QbhnO;       spf=pass (google.com: domain of jbrunet@baylibre.com
- designates 2a00:1450:4864:20::633 as permitted sender) smtp.mailfrom=jbrunet@baylibre.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=gSubPZC0;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,51 +150,31 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
-On Tue 29 Dec 2020 at 11:38, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
-
-> On Tue, Dec 29, 2020 at 04:38:44PM +0800, kernel test robot wrote:
->> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
->> head:   32510cf5e554e8f2cecafea8b8cc11daa4afb9e6
->> commit: 32510cf5e554e8f2cecafea8b8cc11daa4afb9e6 [8/8] usb: gadget: u_audio: factorize ssize to alsa fmt conversion
->> config: arm-randconfig-r003-20201229 (attached as .config)
->> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
->> reproduce (this is a W=1 build):
->>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>         chmod +x ~/bin/make.cross
->>         # install arm cross compiling tool for clang build
->>         # apt-get install binutils-arm-linux-gnueabi
->>         # https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?id=32510cf5e554e8f2cecafea8b8cc11daa4afb9e6
->>         git remote add usb https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git
->>         git fetch --no-tags usb usb-testing
->>         git checkout 32510cf5e554e8f2cecafea8b8cc11daa4afb9e6
->>         # save the attached .config to linux build tree
->>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
->> 
->> If you fix the issue, kindly add following tag as appropriate
->> Reported-by: kernel test robot <lkp@intel.com>
->> 
->> All warnings (new ones prefixed by >>):
->> 
->> >> drivers/usb/gadget/function/u_audio.c:248:9: warning: implicit conversion from 'unsigned long long' to 'unsigned long' changes value from 4294967296 to 0 [-Wconstant-conversion]
->>                    ret = SNDRV_PCM_FMTBIT_S24_3LE;
->>                        ~ ^~~~~~~~~~~~~~~~~~~~~~~~
->>    include/sound/pcm.h:170:34: note: expanded from macro 'SNDRV_PCM_FMTBIT_S24_3LE'
->>    #define SNDRV_PCM_FMTBIT_S24_3LE        _SNDRV_PCM_FMTBIT(S24_3LE)
->>                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
->>    include/sound/pcm.h:139:39: note: expanded from macro '_SNDRV_PCM_FMTBIT'
->>    #define _SNDRV_PCM_FMTBIT(fmt)          (1ULL << (__force int)SNDRV_PCM_FORMAT_##fmt)
->>                                             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>    1 warning generated.
+On 1/4/21 4:50 AM, David Howells wrote:
+> trix@redhat.com wrote:
 >
-> I'm dropping this patch from my tree now, thanks.
+>> -		switch (token->security_index) {
+>> -		case RXRPC_SECURITY_RXKAD:
+>> ...
+>> -		switch (token->security_index) {
+>> -		case RXRPC_SECURITY_RXKAD:
+> These switches need to be kept.  There's another security type on the way.
+> See:
 >
+> https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git/log/?h=rxrpc-rxgk
+>
+> for example.  I'll have a look later.
 
-Tested on 64bits platform only, sorry about that.
-I'll respin with u64 which is the actual type of "hw.formats" .
+Yes, looks like more stuff is coming.
 
-> greg k-h
+Thanks!
+
+Tom
+
+> David
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1jturwx0gn.fsf%40starbuckisacylon.baylibre.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c2cc898d-171a-25da-c565-48f57d407777%40redhat.com.
