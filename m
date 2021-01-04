@@ -1,48 +1,61 @@
-Return-Path: <clang-built-linux+bncBCALTBOXTMIRBPVOZ37QKGQEG3ST5BI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQ5PZ37QKGQEKATJDNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id E4CF22EA008
-	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Jan 2021 23:31:27 +0100 (CET)
-Received: by mail-ua1-x93d.google.com with SMTP id z24sf14625186uao.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Jan 2021 14:31:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609799487; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 33A032EA00C
+	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Jan 2021 23:33:40 +0100 (CET)
+Received: by mail-ua1-x93a.google.com with SMTP id x4sf14551696uav.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Jan 2021 14:33:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609799619; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eVcNWsWO8sabvYitRUkdpx/4iH5vXRt/XVwqBfmv2Eu6f+87cAF0kGuJMu9cUsOucf
-         CX+lZNv6XLzWUpsGdXNfX/eBK/bOOv7RUTZp4gI9ejxZjjKCe2o0KuF5DWshg3PvBgnr
-         t9ZAfm93yQAJyCqM5ATEiCqzr6qn7zDgTiniq4Ehph6cEyX9rVCPvj5pbkc2hks/5+iV
-         nHUlN2lPUPIxP4Q7HWZtJSB+KljytPbFNx0E++jAmSne0WAsmn/BjVaT6TUedrNlQkMJ
-         MigerH8Ti3rJ7+I0CM124ibAQBpU3emtceUGcO6ikuoZQ/VQXS7tusdPOuv4gYVy8eAR
-         u71w==
+        b=rP1g2SPj2iiCqd5C6ZQs3yhFQiwD4Yx25PzOEj1kg8B0hOvFvMYz6XL7rTC0lRl4O1
+         LEe1j742d8KvpmGhSnev057omLSDJ3CHf/aSm9iSuH+YymPnhGtwKzdV7vf6zozQ4PLI
+         X3yqJSUgPZCnDre5Px50LSeYxffAOB3DsqxyrSqU9eznL5Q+cpuuncv+scOC00wbPEgF
+         i6ab60DQEq/xu8HLZD4nlervccx6AiZ0GHXKBve1LPYk7DSrdgB8ADZeORaVAT3KRpFM
+         B5FtWoa6JS4WC2pUU3GEBx3FpA17kycmFbYFCFNvK1VgpS4S3vaGrQLDHOw8PY+rEQPb
+         v14A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=kiffDSTdn5au5HSBGGA5r0MXbUXZ3T5tOraKPiQ7d2E=;
-        b=nylZctiq8Lsuo5j8Zlqo88PtJKwwFoTv013vyJlCnfRatLHayVUxvg+ns1/CuRxO1j
-         gWw4zHRSMkSSrvqLHhjvcnwrIj46tOAFcjhfNpuLYEIKMJHje8405p/r1ToNnputxrdZ
-         uCT9GrKV8C9im/dT5dE8FCZW45yNcdTTU3jT+RWlEnsX6BCaL62sxekazka64B9Ob6+Q
-         AiksAKx3B6rn19eifxb4IX5AfPbTc/+a7dCXS5kugKm6MazL3WF+man+CzgCxFeqVF84
-         oxPzXIDtsdxEziiUZxpJ0qmC01SOIwow6mkn4iV41do1+FMa/+jT4jzBVzHcjXFimpJo
-         lrlQ==
+         :dkim-signature:dkim-signature;
+        bh=ano+0TbuaZCOI2w9DoH4pZaCcjOT7pb5jfo1lYkp060=;
+        b=PX6xYL0j0T2vrGa+/r9KEIIsMwmxyJdY1q45Me2cLN8bIuYDU9seQpp8yRO9+5H+aQ
+         PB96B0GBBTth7EZMs5L/1BCsrKxB6f4LtxkEPFLpBFYRTvxxML4b/oHzesPBYomEBTQU
+         +ai+EMozI/qv2Z8GW2K5Fi5d3WT3MNoC+vtAl26FqzCJ0bUVHyMs1OtVPsvkuPzIkuSn
+         s5tNSPE3QXmfObnrWWV06N+j6cgKtG4AG3DsdZ/3lt2aZFaj6KETuqQrcShEUX6yr415
+         +A54xMJy2/UR3Fjed7MD5gh2yoDtg3tKXDDS8z8r4smLRF5tu7vuzfnyq/B6UZdAIlV4
+         PaGw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=cBxXgA+S;
-       spf=pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.79 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=P6kivpFJ;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::830 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kiffDSTdn5au5HSBGGA5r0MXbUXZ3T5tOraKPiQ7d2E=;
-        b=s5Z7dELFJcDJxH7PO2FjyOZdaJ/sUrdLSztYUnlo2zQgXKjarlwmfG8O+4qv14qvcW
-         ycWAv/3TKPxUEac33y26bh4OlrwOdqXt9vtFYdevlqQkCuh9KAP+aXT98y5Xn/wJLXYb
-         +KW+LDgeQwqeHpI3XkhxlpXie5G6OQ3Wkly4nIISDSTtEQ3XV3u4csBgdvaXll0pwWKo
-         xq4kt4r8LTaU0n0FklgMkE1AZc6FltmJZ7L5bO/89tYgX/3hhFvVTuk0zkwS6OItWGvk
-         G+gfhgWu5f67RzxBgW8f2BMuuHEeC7ilHWoL3qMDo/z6AqX6mVpPDkmjHCC2fv/C1g6F
-         YUVw==
+        bh=ano+0TbuaZCOI2w9DoH4pZaCcjOT7pb5jfo1lYkp060=;
+        b=Hh2wZTtG687f+OhjyrTDJloPhBDrnzztXUcSGHFwDdfB481NqulA1Fthsf7IfVD81j
+         /GqHetKmavFLnwir3g1KQFJrJlwDd5A6P2ROUKC3Ss0R7dfKeUe4s7XEfzsvf7J9JSCH
+         KdThKF0dggiIXdSokaQoq/uHc6C/OwGPQkBNC6jRBcn3IkA7D4LYcN81OaMphiK+PF6J
+         U3e+L1UYeOs8APC9Q9YKZlkyrhqExxgiaMXmzlToJMOK3jeJFoNZBwyCji9lWVJ6Hb8e
+         OiFoDreK7o2xpYI3a081l0WOjalr4HbL2l3w9H/2neWrj4TZj+ZKgPEk4wU8rvC9BAVH
+         g5jw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ano+0TbuaZCOI2w9DoH4pZaCcjOT7pb5jfo1lYkp060=;
+        b=uBEaU8MQtTZ7PCbZRoAOJHUK4aa7emlx2S8EBYgsd347JgQK+MMNnWe3Day6U8elo4
+         WxqwuCUmj3AGN7vDwr7hmaZ0qRPAvHWJFra4B8JmXCDJtOznc91M4EQkHk5yrlHoDIEB
+         p4irVQtB8ASVJ+8OZFbyyCyTlpag95SlQfdPR77lEA7yutdS4nPdxuuleNR7+tKM5ktT
+         3Kelbhkhw/d15tAKHKUkFuaKs9pkYaS8/apxichuipiCSY9y42M6mGyw3h6aT+vey7mG
+         5Yk5FLm440AZ4L6RnBMdsYAgO8J1o2O373yE0TaFvmrUB3/YZaw/mClnmUlJ4WzWTc3f
+         pUCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,103 +63,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=kiffDSTdn5au5HSBGGA5r0MXbUXZ3T5tOraKPiQ7d2E=;
-        b=rMKwGN3lOZ7wwQfjl3h3jOaZhD5VO1P6LBgY/Kl9ERP6totU2ynj3QR18ZbDI57dc+
-         4TJuH/UvZ3IdpJoLIpUR5nZ1/jYOBYbD5V7zmJiYziemWronnvxHghDy/Xy/PduIcScf
-         QEpZvHZC7LJsnwMlHPwBLv/LMAhXKvMkkbkmJ0byKglFLqbUafAFAB7dJrrNB+GMWOz4
-         olAQTXz+fNAGdVnICXIqgXsC4iHtyEe04/LawLMLPKhkj1Qbk2dSwWe1yNdOenCqy1u9
-         nd5VltJL6+XGaW3p3GCEzJh+mXf/4mGnOcPbbbqBkVnkTPiaS8Fj8q489HUHheORTJnn
-         IK5g==
+        bh=ano+0TbuaZCOI2w9DoH4pZaCcjOT7pb5jfo1lYkp060=;
+        b=F0xBwmAkkD7HEiZiotU7NxTKqmyOvfpxtVafXxcunbat75LaWDIgNM8IXo4gE4fQie
+         Ui2+oP3IaT9R/O/qX60Au7HhjJeHXFb0ty7G4xLa5C42Evnlh9ZGESk57uSRv2JAT/Kb
+         E1uVCrupgjhBeJSb2czzc3igIu5csF0b4IB4VcdVnZo0MiHQv4QVwFITWaRqKeZeCRmU
+         w97AZfo5hU7jPNPjFf0Bd1Y+RZ2sXKzIbISUFdtekw3CkZh/B2x7eXlbNcQQmkF3v1pA
+         gkX/v3OCfmi4RVObAQxOveAOLMzAzynJMMHyDuYrZv0+jjIhSHR6IP4L7WUc3cQeg5rh
+         grhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533bdy0S6wDq7MVALeQkj6Kkwa4h84r58kyxkUrD03RdpbmHWqPt
-	KcygLY6NJ9FtNb59UPWwYBM=
-X-Google-Smtp-Source: ABdhPJwkMyjFirErKzOkC2LLs68CNW8GHmedG6CxOcG8/hYPfva8cgJpSy8LtvmPVidXPCI7x5cAJw==
-X-Received: by 2002:ab0:39c8:: with SMTP id g8mr45675013uaw.120.1609799486857;
-        Mon, 04 Jan 2021 14:31:26 -0800 (PST)
+X-Gm-Message-State: AOAM531KRKHOkojdn4OhSSOEdBLlQYkgz81KQ1U/IJAN3TGMm6GeJDUn
+	yIlijxCn2F7sGVHcom2Geyc=
+X-Google-Smtp-Source: ABdhPJxz/xB0E9u/PT3UkM1nGWjv07UdzESqlpy2H2xcqImwNHRNcsH9CkG7AZq3TncEIL77wG33jw==
+X-Received: by 2002:a67:f991:: with SMTP id b17mr43966445vsq.0.1609799619263;
+        Mon, 04 Jan 2021 14:33:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:c4ed:: with SMTP id b13ls4084092vkl.0.gmail; Mon, 04 Jan
- 2021 14:31:26 -0800 (PST)
-X-Received: by 2002:a1f:48c3:: with SMTP id v186mr46373691vka.23.1609799486303;
-        Mon, 04 Jan 2021 14:31:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609799486; cv=none;
+Received: by 2002:ab0:4823:: with SMTP id b32ls4654349uad.2.gmail; Mon, 04 Jan
+ 2021 14:33:38 -0800 (PST)
+X-Received: by 2002:ab0:3c8f:: with SMTP id a15mr23830391uax.127.1609799618905;
+        Mon, 04 Jan 2021 14:33:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609799618; cv=none;
         d=google.com; s=arc-20160816;
-        b=bApFHCe427+oXzDdIIbN30W75nYfWBGOatj8f7iq68erB3HPkmnt9HJGFuQHbq34eB
-         TYsdZ82NIDas5uOAz6N26onvKwVMYHpD7kY42cJ5ei7abcIbysv5iAp40ebuwMGZus/Y
-         9jE3PDJnv7OOYpaJBALerw0H/TrWSJLXhpCfUjiFBuXlXBXn/+mo7zgSFTkp5xXbMctB
-         PYBcEyeXirVjz3vUrmv6tovcoSnrAMW+xuXPMFkxGHQoh9D4x+JYrMFZgBOzKc72qMnT
-         dxzuJRrFiAxpE+yB/fn62UJB5kZlGe8NjQZdudjDI7pd3OqovdWeGVMvzLC2tQyih91L
-         gVYA==
+        b=yq9MZABfqlIDaho0QEZ/YV3QHcmHaeK9OOKm55Q0PIribUA88j1GZeKWyHUm+Znzoz
+         QKPLYLHmgi+EmI3MxoDxuhUMNY5h99ljH6zl3wLkhvVNsJ/71VBINCunnf/u2dDOpQto
+         H2aihm8pMvTvZq6jGwxhZHxnN21RyJWwgmSpB5bWu6eDJIICZ8DF04xIf67dXwO4aWaS
+         5VmtVAQfh/qZAb27wwEXLBioKKt0OzuvtQGviik+y8HleSgL7c33EPoUIaMocyE0lV4w
+         bc362rVxM/aYmWZ7GAhTrPaNynHdmWf8sOn7PrNLs2yqXNEipHgEEVxaRFX0T/EnVUKC
+         E+Vw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=bsaWlh7XuhjGN71OfXSYux1OZW+haFLwZ6NkXIwMLi8=;
-        b=yFTBAIHVyT8jfe4kQjj/PNElFKFELlWDjJVxjiBdf1EZA+zFxaCwoM2UzzsYdAnMb/
-         3+msrycFHW34VO4hSWeoNhR4a5XOXVx33IEhlOEDLfOSIs+/q2CyMJlgjdsoRJVjSVGm
-         CbYWMlY9xLcIEh5BKTdsYx5YhJGujhQKW0z5GYe+DH/WDWG9pIdOOI0GCx24lENuH8O1
-         hlxN78M2Jjvs0ru0/y4UN5UA0b/ihq6Ibno58arrsnJLV1uz5FfcXfPOmoiiEzgXSASc
-         SR9c248+g/HrQBABTLmclRi12fP3Da8fEyTpAumKCaaHzPsQjRQvv78Uhl+ijybz5eEZ
-         b3RA==
+        bh=Uxg7zL2o2W1pUcEzcScyKfNn1LjA1ShXjqEgvTJLC0E=;
+        b=xcz75JwO9f4+NjCzvye9EhaEs8nIoPLotaWmZFLg4EKeBz/jypiaV0t3BENvCjCRA+
+         S663lTb0wbPGo8oqw1AzfzKjALqwcwx+ff/7/eQggY6qpFy9qWcQZfCcUY4fGJU1W3cd
+         uj/DCdwdag+P9SasJbAX1e1qSeBKjqf6vzOWSP/JQeKIWou4TTp6WLLBbpwubDsGGhWL
+         XdqUHE90p7tgNCYaQOSG4eNoAQAsTmilHaVTT2lrIUs+trSQPNwgH4bCtd/l+ATTtsTx
+         d/a24V+3+6y16q3GkN3xQ1NiAVZmCBwMzUra8l4CsyBLAD/IraNNX5pa2ZPbrFiL2tH1
+         8Z7A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=cBxXgA+S;
-       spf=pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.79 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
-Received: from aserp2130.oracle.com (aserp2130.oracle.com. [141.146.126.79])
-        by gmr-mx.google.com with ESMTPS id h123si2975037vkg.0.2021.01.04.14.31.26
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=P6kivpFJ;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::830 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qt1-x830.google.com (mail-qt1-x830.google.com. [2607:f8b0:4864:20::830])
+        by gmr-mx.google.com with ESMTPS id v23si3317479uap.1.2021.01.04.14.33.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 04 Jan 2021 14:31:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.79 as permitted sender) client-ip=141.146.126.79;
-Received: from pps.filterd (aserp2130.oracle.com [127.0.0.1])
-	by aserp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 104MTJs9074199;
-	Mon, 4 Jan 2021 22:31:24 GMT
-Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
-	by aserp2130.oracle.com with ESMTP id 35tebapj1w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 04 Jan 2021 22:31:24 +0000
-Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
-	by userp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 104MLJ4D109830;
-	Mon, 4 Jan 2021 22:29:24 GMT
-Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
-	by userp3030.oracle.com with ESMTP id 35v2axuksq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 04 Jan 2021 22:29:23 +0000
-Received: from abhmp0005.oracle.com (abhmp0005.oracle.com [141.146.116.11])
-	by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 104MTMdO001226;
-	Mon, 4 Jan 2021 22:29:22 GMT
-Received: from localhost (/10.159.152.204)
-	by default (Oracle Beehive Gateway v4.0)
-	with ESMTP ; Mon, 04 Jan 2021 14:29:22 -0800
-Date: Mon, 4 Jan 2021 14:29:13 -0800
-From: "Darrick J. Wong" <darrick.wong@oracle.com>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-        clang-built-linux@googlegroups.com
-Subject: Re: [djwong-xfs:realtime-rmap 245/249] fs/xfs/scrub/repair.c:2202:6:
- warning: variable 'is_free' is uninitialized when used here
-Message-ID: <20210104222913.GK38809@magnolia>
-References: <202012220357.ypoONHum-lkp@intel.com>
- <20201221221921.GA3388751@ubuntu-m3-large-x86>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 Jan 2021 14:33:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::830 as permitted sender) client-ip=2607:f8b0:4864:20::830;
+Received: by mail-qt1-x830.google.com with SMTP id z20so19657573qtq.3
+        for <clang-built-linux@googlegroups.com>; Mon, 04 Jan 2021 14:33:38 -0800 (PST)
+X-Received: by 2002:ac8:5159:: with SMTP id h25mr41268979qtn.199.1609799618534;
+        Mon, 04 Jan 2021 14:33:38 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id 74sm37192516qko.59.2021.01.04.14.33.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Jan 2021 14:33:37 -0800 (PST)
+Date: Mon, 4 Jan 2021 15:33:36 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Marco Elver <elver@google.com>
+Cc: Arnd Bergmann <arnd@kernel.org>, Kees Cook <keescook@chromium.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	George Popescu <georgepope@android.com>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] ubsan: disable unsigned-integer-overflow sanitizer with
+ clang
+Message-ID: <20210104223336.GA2562866@ubuntu-m3-large-x86>
+References: <20201230154749.746641-1-arnd@kernel.org>
+ <CANpmjNNGmbgg_pFMC6X_6vZcj53jy7PsNyZAC88rOQC5zrOiFw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20201221221921.GA3388751@ubuntu-m3-large-x86>
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9854 signatures=668683
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 phishscore=0
- suspectscore=0 spamscore=0 malwarescore=0 adultscore=0 bulkscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2101040133
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9854 signatures=668683
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 phishscore=0
- priorityscore=1501 spamscore=0 mlxscore=0 clxscore=1011 bulkscore=0
- lowpriorityscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2101040134
-X-Original-Sender: darrick.wong@oracle.com
+In-Reply-To: <CANpmjNNGmbgg_pFMC6X_6vZcj53jy7PsNyZAC88rOQC5zrOiFw@mail.gmail.com>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@oracle.com header.s=corp-2020-01-29 header.b=cBxXgA+S;
-       spf=pass (google.com: domain of darrick.wong@oracle.com designates
- 141.146.126.79 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+ header.i=@gmail.com header.s=20161025 header.b=P6kivpFJ;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::830 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,135 +155,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Dec 21, 2020 at 03:19:21PM -0700, Nathan Chancellor wrote:
-> On Tue, Dec 22, 2020 at 03:22:03AM +0800, kernel test robot wrote:
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git realtime-rmap
-> > head:   62eb0024d510607ecb04789e8b4f8c0975efb08b
-> > commit: f4188e5ab1984e1b140433a80f223ab4644801af [245/249] xfs: online repair of realtime file bmaps
-> > config: x86_64-randconfig-a011-20201217 (attached as .config)
-> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         # https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git/commit/?id=f4188e5ab1984e1b140433a80f223ab4644801af
-> >         git remote add djwong-xfs https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git
-> >         git fetch --no-tags djwong-xfs realtime-rmap
-> >         git checkout f4188e5ab1984e1b140433a80f223ab4644801af
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> > 
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > 
-> > All warnings (new ones prefixed by >>):
-> > 
-> > >> fs/xfs/scrub/repair.c:2202:6: warning: variable 'is_free' is uninitialized when used here [-Wuninitialized]
-> >            if (is_free)
-> >                ^~~~~~~
-> >    fs/xfs/scrub/repair.c:2189:16: note: initialize the variable 'is_free' to silence this warning
-> >            bool                    is_free;
-> >                                           ^
-> >                                            = 0
-> >    1 warning generated.
-> > 
-> > 
-> > vim +/is_free +2202 fs/xfs/scrub/repair.c
-> > 
-> >   2173	
-> >   2174	/*
-> >   2175	 * Check if any part of this range of rt blocks is free, so that we don't
-> >   2176	 * rebuild things with bad records.  Returns -EFSCORRUPTED if bad.
-> >   2177	 */
-> >   2178	int
-> >   2179	xrep_rtext_is_free(
-> >   2180		struct xfs_scrub	*sc,
-> >   2181		xfs_rtblock_t		rtbno,
-> >   2182		xfs_filblks_t		len)
-> >   2183	{
-> >   2184		struct xfs_mount	*mp = sc->mp;
-> >   2185		xfs_rtblock_t		startext;
-> >   2186		xfs_rtblock_t		endext;
-> >   2187		xfs_rtblock_t		extcount;
-> >   2188		uint32_t		mod;
-> >   2189		bool			is_free;
-> >   2190		int			error;
-> >   2191	
-> >   2192		/* Convert rt blocks to rt extents. */
-> >   2193		startext = div_u64_rem(rtbno, mp->m_sb.sb_rextsize, &mod);
-> >   2194		endext = div_u64_rem(rtbno + len - 1, mp->m_sb.sb_rextsize, &mod);
-> >   2195	
-> >   2196		/* Make sure this isn't free space. */
-> >   2197		extcount = endext - startext + 1;
-> >   2198		error = xfs_rtalloc_extent_is_free(mp, sc->tp, startext, extcount,
-> >   2199				&is_free);
-> >   2200		if (error)
-> >   2201			return error;
-> > > 2202		if (is_free)
-> >   2203			return -EFSCORRUPTED;
-> >   2204	
-> >   2205		return 0;
-> >   2206	}
-> >   2207	
-> > 
+On Wed, Dec 30, 2020 at 05:13:03PM +0100, Marco Elver wrote:
+> On Wed, 30 Dec 2020 at 16:47, Arnd Bergmann <arnd@kernel.org> wrote:
+> >
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > Building ubsan kernels even for compile-testing introduced these
+> > warnings in my randconfig environment:
+> >
+> > crypto/blake2b_generic.c:98:13: error: stack frame size of 9636 bytes in function 'blake2b_compress' [-Werror,-Wframe-larger-than=]
+> > static void blake2b_compress(struct blake2b_state *S,
+> > crypto/sha512_generic.c:151:13: error: stack frame size of 1292 bytes in function 'sha512_generic_block_fn' [-Werror,-Wframe-larger-than=]
+> > static void sha512_generic_block_fn(struct sha512_state *sst, u8 const *src,
+> > lib/crypto/curve25519-fiat32.c:312:22: error: stack frame size of 2180 bytes in function 'fe_mul_impl' [-Werror,-Wframe-larger-than=]
+> > static noinline void fe_mul_impl(u32 out[10], const u32 in1[10], const u32 in2[10])
+> > lib/crypto/curve25519-fiat32.c:444:22: error: stack frame size of 1588 bytes in function 'fe_sqr_impl' [-Werror,-Wframe-larger-than=]
+> > static noinline void fe_sqr_impl(u32 out[10], const u32 in1[10])
+> >
+> > Further testing showed that this is caused by
+> > -fsanitize=unsigned-integer-overflow.
+> >
+> > The one in blake2b immediately overflows the 8KB stack area on 32-bit
+> > architectures, so better ensure this never happens by making this
+> > option gcc-only.
+
+This patch also fixes the failed BUILD_BUG issue in mm/mremap.c that you
+sent a patch for [1], along with a couple of other issues I see such as:
+
+ld.lld: error: undefined symbol: __bad_mask
+>>> referenced by gpi.c
+>>>               dma/qcom/gpi.o:(gpi_update_reg) in archive
+>>>               drivers/built-in.a
+>>> referenced by gpi.c
+>>>               dma/qcom/gpi.o:(gpi_update_reg) in archive
+>>>               drivers/built-in.a
+
+[1]: https://lore.kernel.org/lkml/20201230154104.522605-1-arnd@kernel.org/
+
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+
+> > Fixes: d0a3ac549f38 ("ubsan: enable for all*config builds")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> > 
+> >  lib/Kconfig.ubsan | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
+> > index 8b635fd75fe4..e23873282ba7 100644
+> > --- a/lib/Kconfig.ubsan
+> > +++ b/lib/Kconfig.ubsan
+> > @@ -122,6 +122,8 @@ config UBSAN_SIGNED_OVERFLOW
+> >
+> >  config UBSAN_UNSIGNED_OVERFLOW
+> >         bool "Perform checking for unsigned arithmetic overflow"
+> > +       # clang hugely expands stack usage with -fsanitize=object-size
 > 
-> This appears to be a false positive. From the config:
-> 
-> # CONFIG_XFS_RT is not set
-> 
-> which means xfs_rtalloc_extent_is_free evaluates to ENOSYS and we never
-> actually make it to that if statement evaluation; however, clang cannot
-> see this because it is doing simple static analysis at this stage of the
-> pipeline, not seeing that it will never have to use is_free in this
-> configuration. A simple reproducer:
-> 
-> $ cat test.c
-> #define func(a) 22
-> 
-> int main() {
->     int error;
->     _Bool is_free;
-> 
->     error = func(&is_free);
->     if (error)
->         return error;
->     if (is_free)
->         return -117;
-> 
->     return 0;
-> }
-> 
-> $ clang -Wuninitialized -fsyntax-only test.c
-> test.c:10:9: warning: variable 'is_free' is uninitialized when used here [-Wuninitialized]
->     if (is_free)
->         ^~~~~~~
-> test.c:5:18: note: initialize the variable 'is_free' to silence this warning
->     _Bool is_free;
->                  ^
->                   = 0
-> 1 warning generated.
-> 
-> Obviously initializing is_free to false will avoid this warning, which
-> is probably the simplest fix.
+> This is the first time -fsanitize=object-size is mentioned. Typo?
 
-I don't mind making that change (and in fact already did), but uh...
-shouldn't clang be analyzing the C source code /after/ the preprocessing
-step?  I bet there's a fair amount of #define soup in the kernel that
-clang would /love/ to sink its teeth into. ;)
+Copy and paste issue from CONFIG_UBSAN_OBJECT_SIZE
 
-Insofar as one doesn't need teeth for soup.
-
---D
-
-> Cheers,
-> Nathan
+> > +       depends on !CC_IS_CLANG
+> >         depends on $(cc-option,-fsanitize=unsigned-integer-overflow)
+> >         help
+> >           This option enables -fsanitize=unsigned-integer-overflow which checks
+> > --
+> > 2.29.2
+> >
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210104222913.GK38809%40magnolia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210104223336.GA2562866%40ubuntu-m3-large-x86.
