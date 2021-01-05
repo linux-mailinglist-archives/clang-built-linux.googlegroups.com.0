@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCCZHPMXYQEBBEPX2H7QKGQEB4IFRXQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCZHPMXYQEBBEXX2H7QKGQEYQD76NI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x63e.google.com (mail-ej1-x63e.google.com [IPv6:2a00:1450:4864:20::63e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0C342EAD8E
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Jan 2021 15:45:37 +0100 (CET)
-Received: by mail-ej1-x63e.google.com with SMTP id u15sf8064582ejg.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Jan 2021 06:45:37 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609857937; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id B20352EAD91
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Jan 2021 15:45:40 +0100 (CET)
+Received: by mail-lf1-x139.google.com with SMTP id m67sf27306113lfd.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Jan 2021 06:45:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609857938; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y6hjOi1IwVdnH5maJaB2LNk2HNMAaL/j7n9Gnw4VnYQb4KwAC4buv6uWWnTIjXQsrH
-         tvts/SxpdnueaZafrW5Jhxj8XmnS82KdV4T1BqEhffDF0rhjAVke4ire+m4zjvzp5nrH
-         RShxbQncpTI/72CQ6827WwAaYShcq+SBuzH/RB+CEnUZmp9VoY9V0efL5u84tYHs4vS7
-         PaNnoJJBjkB+LoZyR4HS/SJ170GuCXIYqmYRJGMGrmuw6u1j4mJ3O3nunIimFmRGnf60
-         c1yBpETLZTKvkevFTQt42pZP/VGePvdaJZieDmnLsxyPfHWaCcSGdwLdR+6uFJ7asmka
-         0DtA==
+        b=VR0Zuc9AdQ8Fan4p1ntySLzbRhkngN9YCZPoS4W2oSVsjjncBP5WjnZjh0rMTKn12q
+         yn33plFeZ/3o1nZM8OwWAzT/XdPwJvqgXys9NVjekhirSJvkAHAQSaz8WFDiPuXcqN+/
+         ZPKwl2rOTongI9CkPXY1JENLYD19i5ocG98IUFiIRExKNKbDNGwpnSYnAa0kU9Goeot5
+         PcvGvssV1sf7IhijsAcWpEQh0AH429DatuZkxdn71D9y3BZTT052OI5berhCK7W+wliz
+         gfrq2gImu0DYnN1Uv08QpgQESzZ2Lklosfy1ExNoKOmj2p8villlJQh2/LmI/6fa3YlO
+         8SVA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:sender:dkim-signature;
-        bh=im2DDR59gg8Df/kX90G5bzEVV+Dr35yGOE29N3/Q3KI=;
-        b=IkewBhb59UEvnst6RF9Gon/r9RDy+K9X7+jfwabizbOHN+XhHsVd7s/k6mymIWGf92
-         NfMuErUBXiqD4whz6RK/YoAZzYB2R8Nqx6LnEFmqvj3cR9sk3oKFOEVjIktvjhXqki87
-         1YStEohqfosTCpRKvvSZRRZ3OekmiCvF+ZMOVYozvoh7w1E48u+QZQujhiW23XpLewYu
-         UI7/0s0rPoRy9p6iZPBZE8dbkMhia3soDbWEGaIo/g7MaQuN6g3753TAav0ydnE/S+x8
-         f4VzzoZSe5e31tz2Fhn9AnO/6WosjJQyJOAOdzjTNvnHqGSTGounafDWPh7oXtC/9IKT
-         57JQ==
+        bh=ZITkXgLv1D29Vimrk4TtfaRCpuQf8hRrafIHOnIS12k=;
+        b=bp9I0BFPacgIWhylDYVxVHcZrwiJ99g3v0Wo1qSyNO6xNV9r3LhCzjWoWmdGWLPuRo
+         ZDKj7cG3NuV4NQ9gXDA4yMfqHDWnMN58hXBT245XzNgsFNz7L3CpbMSzcW8iyIIhy/Rl
+         +we5do3rOkwzsloL+lbPWz5O38JNiWjtxr38nChRzDcC6O8Tlkjx7NuudQ1FaPMh6Ah7
+         w8epftr+i67Wq778gFwLP/gLlpSKKxbhTOBsxFBJ58yylGcxQ7Oh+UQdgKR6JoxVAJ2p
+         UXYsepeBlTuCWYo72dRsRrH7HmpIeDk89JAC5VoZdDbQkeGgfTslJsmWu5/+znBYOEf+
+         LiSQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mess.org header.s=2020 header.b=ErXM3l7Z;
+       dkim=pass header.i=@mess.org header.s=2020 header.b=QNy4B2Y1;
        spf=pass (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as permitted sender) smtp.mailfrom=sean@mess.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=im2DDR59gg8Df/kX90G5bzEVV+Dr35yGOE29N3/Q3KI=;
-        b=pBtjG8LryB3Z2Zwy1GiBZYvd35t59wjV2blZvdA31Ee0wEtb/+GBbMK4hIbmWqZLDG
-         Gyi07PUApNOiUyROPxgaesv4FXcm7HGRYJK2pjcyXd4IWYi7pbYMOFINDHvZqzhlQNkB
-         JtDzyjNEt8OhJFkbJU72x/Tp/93RjXbHO7CTpJUzsLXi4sM4s/URboV16kvBCLj6R/SO
-         olkQSkKHzmxlJpdZ9NsAlxJhbuWXQ7bstcUPYRZQt3hzi+Nv0YlMWhjJMscSQvuP536f
-         eY6BhcKcE+XNclXuVhJB3RXC2uTQmyDcoWeZZPSGf7XKkaua6sPyIDqvkNc63/7JDPiB
-         dKVA==
+        bh=ZITkXgLv1D29Vimrk4TtfaRCpuQf8hRrafIHOnIS12k=;
+        b=Y6B6EuShlr75JDkm5f3BPgIVN4u49grUjeVvPyP8lxIcovrkwIFy93D0Mp9DSHJ9Zl
+         8I1RBg9cFxt26f/AePL8/p7e7pRfwz4RljFJLMVyBegsDvLJfUIf5r4KCi/yJeAY/o5Y
+         JEkWcFy5E7vGFyZYQP6VyZbqyAcRHIAX+YGvjBljymTwwPqdCDW0i5CCSiONMw5zv2nE
+         YSld+d4bFDfR0AEprJmx2X0fO4tyudCdrfDsjjj4/eoedC8NLiGPuPMRgU/PKdTZcbmJ
+         1hc3O2hUfxf5q/SoLC8ALyiZ2g3Pl0Bn0UEA6ox6LIZbGhHs3sWalGJGWJObs9iIT1Gd
+         A1Ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:subject:date:message-id
@@ -48,53 +48,53 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=im2DDR59gg8Df/kX90G5bzEVV+Dr35yGOE29N3/Q3KI=;
-        b=nxLO6HmbNeEYdXzyARP3LY3ckKL8oPhvL5GB0lLqLAoLhLn5gzfPZylB60YpIMmw/c
-         TbFZU7SIBINjiX9nzCKEfldwg97Geu+g7rPoVtTbSdL3J4HwNSBCJdebx1j1vsGQ6GyM
-         ymoLxvmpXgaf9hqVJMG1j8G8XpuIXZEwBqqeLz49SxXg5XR+ie5pYbWlXhdFsX2GEl/W
-         ErOi0qDF523fUz9kZHkuZzECOm2LaW3Cn5vH+a7luc9SvXuf5qsSZxtN3zPYBgwVHD2d
-         MWxiOrSkHcowpJ8ZZSys6e+HjYzJsD7+v77A3Xavp3FKvcFbWLB/GoWNJ1+wJXRCQF3f
-         /ksA==
+        bh=ZITkXgLv1D29Vimrk4TtfaRCpuQf8hRrafIHOnIS12k=;
+        b=lDXtBADELZ3vhPj1LTuATgbZfXdBLKuaK2BXf+voYYoav8srdyd3est9rJVvp1x9E9
+         W+/luIrQi7IDVmFL+57UnUAQ0XxzIdsiA1yqFzZHGDS+nYTDqxbQHsx2LBXx1VR5Kl62
+         8jfXQEuunNqD2dnrikDxeCuh7ivBQt1Wt4UdpbztzskuLHrOmfour7Jg0JAtl7RYiH3r
+         SdFa10fhBew/EVV79Qaz5Yc7f13zPeNM8M3ldO2tm7rpcedU99ro3+2t0P2Gd/LyXG+O
+         VqXLvgtX0WHEtgGI9gb5PAHWc9EL7zQUqcQf6X4Ih+v4cCrx+Q2S8GUEjjy9/qMSns8O
+         ancA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Tz3CZIvZLKV8udA/Kl2poAxcg714RgCeqIzuh2VDb94r9dKpJ
-	IYsMkPEKzuEsIZ9lKd5coO4=
-X-Google-Smtp-Source: ABdhPJyvI5wnMZgpaay3N0vl5dprl1xhzu34GITzAeEsbBmLxEHI2DnsSy5KUxRDuuKIUoupRqhKwQ==
-X-Received: by 2002:a17:906:4d59:: with SMTP id b25mr61358252ejv.8.1609857937419;
-        Tue, 05 Jan 2021 06:45:37 -0800 (PST)
+X-Gm-Message-State: AOAM531F4S0fQDNBpBHTcYsCpc2s/jCFY/aCHrpN5ocKrAvv+g4tKJSx
+	4uJLryqmJtbuEggw7zTWf+8=
+X-Google-Smtp-Source: ABdhPJzqZu9KVIn/8pDpGYEyGAFMTbwBuRtNQ+m35ICHKTaNeRywO3MjB5EBV5ZjKuwN2MKUtNHV1g==
+X-Received: by 2002:a19:ad4b:: with SMTP id s11mr33018430lfd.427.1609857938494;
+        Tue, 05 Jan 2021 06:45:38 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:1432:: with SMTP id c18ls1741987edx.0.gmail; Tue,
- 05 Jan 2021 06:45:36 -0800 (PST)
-X-Received: by 2002:a50:f304:: with SMTP id p4mr86293edm.118.1609857936626;
-        Tue, 05 Jan 2021 06:45:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609857936; cv=none;
+Received: by 2002:a2e:bc2a:: with SMTP id b42ls15088829ljf.2.gmail; Tue, 05
+ Jan 2021 06:45:37 -0800 (PST)
+X-Received: by 2002:a05:651c:509:: with SMTP id o9mr36990614ljp.212.1609857937553;
+        Tue, 05 Jan 2021 06:45:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609857937; cv=none;
         d=google.com; s=arc-20160816;
-        b=I18Z0rTTQQFOKLoeeWZalz2QbWfii/hPBSZ0DF714+2K7WiDZuAIBpRJF4F55mmzDV
-         tW8nY4e7hvJrCW2seiC/bvhYncQ/phNvoIS4bjmqmz88ePPMi/2iSZr8EZXB2vbmrw4T
-         lWoU3cwk/u9qvqiJ6lrO7lRxCz0DR4tr+ttht/cCBo/x2VvtdkkFUdhA7uHUwr53uQAe
-         hjAHd4coTGNPSiLBGR0kAwDPw82l+/dejTj+J55np2ddT+LLV5BvpR+yj2WjrashDKiE
-         yPb5dBkvT/lojpoRlGWF7KscAvS2IKRCd8fi5reCQcc24HYuzaMoHD2kwr4bLiaSilgS
-         vwUA==
+        b=zKMkYCdyXdMwevMFS/NUnTURW5HzVJ01tGyOgJvDOfDNCsBJIYd3Y9uYVEDSYAFnvK
+         euRJQwgNrEyLtbmJ69kxFtWMD0ByIVTLBsu7J2YJS3TynbUnEqGSlvl2VfqtZrf1iNTj
+         XuA8ovrqYrrwNUdGcWh59iliucSrCMC5lVptjLlaFQdzQPzcJnlNQYJwfRRGuW+EtRpi
+         jBw8gd8x1QYZoLtwtmwYUqzYqeNraLWrLAD/Di/kt1jPF/7I66bAPpOsygIoXNUghocr
+         1QjocR1Tk49HS1nzx6S+Di72COAIUWc/dIwpLf7JZ8jrm8v87cyMmM2a5yHONQnQcae+
+         8Bhg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:dkim-signature;
-        bh=KkF144HMg/oDe/YOIPMhph5AgHI1u/CX0bfRmjtLCPY=;
-        b=inKvo6Wa5VhIveK5JkzlaTqYRq3Rfg91wr0S4v66zPZmubgj90Ej7WIrU863JcfGI/
-         dmWaoldPr+e6JSYUKibqkiFk8SbMh5m8hZ+sHU8izsA3g17T2pN5PE26oG0ogG/7KtXh
-         C0CxDNt5blCzsMRhG8MJxw2uJC2xyN8ExCn7PidwY1PhrQ0gePRtt0RO0tkjRrZtwTpy
-         DpQAA1JOG5/YP183shb/y9hMs1gnDXtfrErpN53K2rq7DphlWPC3TzbhxZJAfVV3ozuF
-         25b14Pa0Mrnyj1kc4hwUWM5oeybiyeL3WOGNNMM4YkoqmFW0cZ8h6NWJdpuczVoigiWF
-         adAg==
+        bh=zCpGRcCytiwDmu7xuUzzI6C7J/MRk83a3WkBh9PC9ss=;
+        b=SrwxFyZeqUyNeo7+tZo85ki8Sd9fXugvalWW+G7PNe6cZo/yWJLp1xSum9VvIRwVh6
+         5LYF1z7vANyyAce9hTElQQVF2N6BKNh93HxHv7IjCizY3m7nbXrnYq+OEDKlzemVdd3K
+         vstput9+xD9u2MZRScjtn++Uuqa7I2Xs0/CwTARBUs5Ps193jVilkVM6KQBn5fwew492
+         7rHPileWqYKllwHJyTFK4/vfXz42nQYXa/f6GKvDKJaaBjkAMI1US7qXj/BIIj3qqE3A
+         PoO2KkE1z79kKz34LZDcFaNyxeTSGjiUUE4LMIxXULvf4v8aEaHYvOwcPfzhmr0LJMZR
+         6Kkw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mess.org header.s=2020 header.b=ErXM3l7Z;
+       dkim=pass header.i=@mess.org header.s=2020 header.b=QNy4B2Y1;
        spf=pass (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as permitted sender) smtp.mailfrom=sean@mess.org
 Received: from gofer.mess.org (gofer.mess.org. [2a02:8011:d000:212::1])
-        by gmr-mx.google.com with ESMTPS id d9si2863edr.1.2021.01.05.06.45.36
+        by gmr-mx.google.com with ESMTPS id h21si2406068ljj.6.2021.01.05.06.45.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Jan 2021 06:45:36 -0800 (PST)
+        Tue, 05 Jan 2021 06:45:37 -0800 (PST)
 Received-SPF: pass (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as permitted sender) client-ip=2a02:8011:d000:212::1;
 Received: by gofer.mess.org (Postfix, from userid 1000)
-	id A116CC6380; Tue,  5 Jan 2021 14:45:34 +0000 (GMT)
+	id CA9C5C639B; Tue,  5 Jan 2021 14:45:34 +0000 (GMT)
 From: Sean Young <sean@mess.org>
 To: Yonghong Song <yhs@fb.com>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -113,16 +113,16 @@ To: Yonghong Song <yhs@fb.com>,
 	bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH v3 1/4] btf: add support for ints larger than 128 bits
-Date: Tue,  5 Jan 2021 14:45:31 +0000
-Message-Id: <13cfab3593e0ea960ca732c259bfa60bf3c16b3b.1609855479.git.sean@mess.org>
+Subject: [PATCH v3 2/4] libbpf: add support for ints larger than 128 bits
+Date: Tue,  5 Jan 2021 14:45:32 +0000
+Message-Id: <3d3f8d4cc59b61d42e05d5f66d7b29fc7eb20cfa.1609855479.git.sean@mess.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <cover.1609855479.git.sean@mess.org>
 References: <cover.1609855479.git.sean@mess.org>
 MIME-Version: 1.0
 X-Original-Sender: sean@mess.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mess.org header.s=2020 header.b=ErXM3l7Z;       spf=pass
+ header.i=@mess.org header.s=2020 header.b=QNy4B2Y1;       spf=pass
  (google.com: domain of sean@mess.org designates 2a02:8011:d000:212::1 as
  permitted sender) smtp.mailfrom=sean@mess.org
 Content-Type: text/plain; charset="UTF-8"
@@ -141,9 +141,6 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 clang supports arbitrary length ints using the _ExtInt extension. This
 can be useful to hold very large values, e.g. 256 bit or 512 bit types.
 
-Larger types (e.g. 1024 bits) are possible but I am unaware of a use
-case for these.
-
 This requires the _ExtInt extension enabled in clang, which is under
 review.
 
@@ -152,173 +149,26 @@ Link: https://reviews.llvm.org/D93103
 
 Signed-off-by: Sean Young <sean@mess.org>
 ---
- Documentation/bpf/btf.rst      |  4 +--
- include/uapi/linux/btf.h       |  2 +-
- kernel/bpf/btf.c               | 54 ++++++++++++++++++++++++++++------
- tools/include/uapi/linux/btf.h |  2 +-
- 4 files changed, 49 insertions(+), 13 deletions(-)
+ tools/lib/bpf/btf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/bpf/btf.rst b/Documentation/bpf/btf.rst
-index 44dc789de2b4..784f1743dbc7 100644
---- a/Documentation/bpf/btf.rst
-+++ b/Documentation/bpf/btf.rst
-@@ -132,7 +132,7 @@ The following sections detail encoding of each kind.
- 
-   #define BTF_INT_ENCODING(VAL)   (((VAL) & 0x0f000000) >> 24)
-   #define BTF_INT_OFFSET(VAL)     (((VAL) & 0x00ff0000) >> 16)
--  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000000ff)
-+  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000003ff)
- 
- The ``BTF_INT_ENCODING`` has the following attributes::
- 
-@@ -147,7 +147,7 @@ pretty print. At most one encoding can be specified for the int type.
- The ``BTF_INT_BITS()`` specifies the number of actual bits held by this int
- type. For example, a 4-bit bitfield encodes ``BTF_INT_BITS()`` equals to 4.
- The ``btf_type.size * 8`` must be equal to or greater than ``BTF_INT_BITS()``
--for the type. The maximum value of ``BTF_INT_BITS()`` is 128.
-+for the type. The maximum value of ``BTF_INT_BITS()`` is 512.
- 
- The ``BTF_INT_OFFSET()`` specifies the starting bit offset to calculate values
- for this int. For example, a bitfield struct member has:
-diff --git a/include/uapi/linux/btf.h b/include/uapi/linux/btf.h
-index 5a667107ad2c..1696fd02b302 100644
---- a/include/uapi/linux/btf.h
-+++ b/include/uapi/linux/btf.h
-@@ -84,7 +84,7 @@ struct btf_type {
-  */
- #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
- #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
--#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
-+#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
- 
- /* Attributes stored in the BTF_INT_ENCODING */
- #define BTF_INT_SIGNED	(1 << 0)
-diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
-index 8d6bdb4f4d61..44bc17207e9b 100644
---- a/kernel/bpf/btf.c
-+++ b/kernel/bpf/btf.c
-@@ -166,7 +166,8 @@
-  *
-  */
- 
--#define BITS_PER_U128 (sizeof(u64) * BITS_PER_BYTE * 2)
-+#define BITS_PER_U128 128
-+#define BITS_PER_U512 512
- #define BITS_PER_BYTE_MASK (BITS_PER_BYTE - 1)
- #define BITS_PER_BYTE_MASKED(bits) ((bits) & BITS_PER_BYTE_MASK)
- #define BITS_ROUNDDOWN_BYTES(bits) ((bits) >> 3)
-@@ -1907,9 +1908,9 @@ static int btf_int_check_member(struct btf_verifier_env *env,
- 	nr_copy_bits = BTF_INT_BITS(int_data) +
- 		BITS_PER_BYTE_MASKED(struct_bits_off);
- 
--	if (nr_copy_bits > BITS_PER_U128) {
-+	if (nr_copy_bits > BITS_PER_U512) {
- 		btf_verifier_log_member(env, struct_type, member,
--					"nr_copy_bits exceeds 128");
-+					"nr_copy_bits exceeds 512");
+diff --git a/tools/lib/bpf/btf.c b/tools/lib/bpf/btf.c
+index 3c3f2bc6c652..a676373f052b 100644
+--- a/tools/lib/bpf/btf.c
++++ b/tools/lib/bpf/btf.c
+@@ -1722,7 +1722,7 @@ int btf__add_int(struct btf *btf, const char *name, size_t byte_sz, int encoding
+ 	if (!name || !name[0])
  		return -EINVAL;
- 	}
- 
-@@ -1963,9 +1964,9 @@ static int btf_int_check_kflag_member(struct btf_verifier_env *env,
- 
- 	bytes_offset = BITS_ROUNDDOWN_BYTES(struct_bits_off);
- 	nr_copy_bits = nr_bits + BITS_PER_BYTE_MASKED(struct_bits_off);
--	if (nr_copy_bits > BITS_PER_U128) {
-+	if (nr_copy_bits > BITS_PER_U512) {
- 		btf_verifier_log_member(env, struct_type, member,
--					"nr_copy_bits exceeds 128");
-+					"nr_copy_bits exceeds 512");
+ 	/* byte_sz must be power of 2 */
+-	if (!byte_sz || (byte_sz & (byte_sz - 1)) || byte_sz > 16)
++	if (!byte_sz || (byte_sz & (byte_sz - 1)) || byte_sz > 64)
  		return -EINVAL;
- 	}
- 
-@@ -2012,9 +2013,9 @@ static s32 btf_int_check_meta(struct btf_verifier_env *env,
- 
- 	nr_bits = BTF_INT_BITS(int_data) + BTF_INT_OFFSET(int_data);
- 
--	if (nr_bits > BITS_PER_U128) {
--		btf_verifier_log_type(env, t, "nr_bits exceeds %zu",
--				      BITS_PER_U128);
-+	if (nr_bits > BITS_PER_U512) {
-+		btf_verifier_log_type(env, t, "nr_bits exceeds %u",
-+				      BITS_PER_U512);
+ 	if (encoding & ~(BTF_INT_SIGNED | BTF_INT_CHAR | BTF_INT_BOOL))
  		return -EINVAL;
- 	}
- 
-@@ -2080,6 +2081,37 @@ static void btf_int128_print(struct btf_show *show, void *data)
- 				     lower_num);
- }
- 
-+static void btf_bigint_print(struct btf_show *show, void *data, u16 nr_bits)
-+{
-+	/* data points to 256 or 512 bit int type */
-+	char buf[129];
-+	int last_u64 = nr_bits / 64 - 1;
-+	bool seen_nonzero = false;
-+	int i;
-+
-+	for (i = 0; i <= last_u64; i++) {
-+#ifdef __BIG_ENDIAN_BITFIELD
-+		u64 v = ((u64 *)data)[i];
-+#else
-+		u64 v = ((u64 *)data)[last_u64 - i];
-+#endif
-+		if (!seen_nonzero) {
-+			if (!v && i != last_u64)
-+				continue;
-+
-+			snprintf(buf, sizeof(buf), "%llx", v);
-+
-+			seen_nonzero = true;
-+		} else {
-+			size_t off = strlen(buf);
-+
-+			snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
-+		}
-+	}
-+
-+	btf_show_type_value(show, "0x%s", buf);
-+}
-+
- static void btf_int128_shift(u64 *print_num, u16 left_shift_bits,
- 			     u16 right_shift_bits)
- {
-@@ -2172,7 +2204,7 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
- 	u32 int_data = btf_type_int(t);
- 	u8 encoding = BTF_INT_ENCODING(int_data);
- 	bool sign = encoding & BTF_INT_SIGNED;
--	u8 nr_bits = BTF_INT_BITS(int_data);
-+	u16 nr_bits = BTF_INT_BITS(int_data);
- 	void *safe_data;
- 
- 	safe_data = btf_show_start_type(show, t, type_id, data);
-@@ -2186,6 +2218,10 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
- 	}
- 
- 	switch (nr_bits) {
-+	case 512:
-+	case 256:
-+		btf_bigint_print(show, safe_data, nr_bits);
-+		break;
- 	case 128:
- 		btf_int128_print(show, safe_data);
- 		break;
-diff --git a/tools/include/uapi/linux/btf.h b/tools/include/uapi/linux/btf.h
-index 5a667107ad2c..1696fd02b302 100644
---- a/tools/include/uapi/linux/btf.h
-+++ b/tools/include/uapi/linux/btf.h
-@@ -84,7 +84,7 @@ struct btf_type {
-  */
- #define BTF_INT_ENCODING(VAL)	(((VAL) & 0x0f000000) >> 24)
- #define BTF_INT_OFFSET(VAL)	(((VAL) & 0x00ff0000) >> 16)
--#define BTF_INT_BITS(VAL)	((VAL)  & 0x000000ff)
-+#define BTF_INT_BITS(VAL)	((VAL)  & 0x000003ff)
- 
- /* Attributes stored in the BTF_INT_ENCODING */
- #define BTF_INT_SIGNED	(1 << 0)
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/13cfab3593e0ea960ca732c259bfa60bf3c16b3b.1609855479.git.sean%40mess.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3d3f8d4cc59b61d42e05d5f66d7b29fc7eb20cfa.1609855479.git.sean%40mess.org.
