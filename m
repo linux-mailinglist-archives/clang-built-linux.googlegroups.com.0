@@ -1,126 +1,227 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3UB2P7QKGQEJPYGQHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJPLKN2S4CRBQEG2P7QKGQEJTOTPDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 05E6D2EB392
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Jan 2021 20:41:37 +0100 (CET)
-Received: by mail-vk1-xa40.google.com with SMTP id s127sf410720vka.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Jan 2021 11:41:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609875694; cv=pass;
+Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 73A312EB3A8
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Jan 2021 20:51:29 +0100 (CET)
+Received: by mail-vk1-xa3c.google.com with SMTP id f139sf406369vke.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Jan 2021 11:51:29 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1609876288; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JBz+AM+qz2MZGq5YtgR4+zwVy1d4YZ599W0m3TJP9+NV+omQvsCc01SDa16+naxEJ4
-         qbIQSPoIfAOox/VHuAwU5jZZw+5PnFcx+lcu22JlE3172YQC7qEbl0yKAtgQeKAToVx8
-         uxpOLY2ffT2qB3PPMi449gV9kG+wMFFCuZk0vRrGy7OByJ/rjtKvnsoNFslKgYw3ML1s
-         +7RnYlz1aBiBpfBLcUIrca66DT7fd32XRXG9di6MQ5Gcs6C2WC4GBjAVtEUNdqVlIZZH
-         bSD0ADfhSQQOciuIw181Hvbj5W0gtKhmbL8QzlnvIsWUvLmLg7Q31jHoUunDG+8MReek
-         Y56g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=iMozykxZyD0DXbLctmVVX6OPYbKwws2Elq5FY5WYkZQrnzV3WiAlv488w4GhuVT+eD
+         QkyM4p/F0fCD6WtWPCUmv8jTueVrv9eG5UKU9sQP9kFSKkt2XoPsbqiOYyp3VpZDrVNB
+         +OL7QCQMiRVAfNZD76O1IgOrgqG6doP+wXxrJQTqvXZIdyXXpT7/JQIIgD4mTWMwZjVV
+         ouPO+afQjlU8Oa+fbjtfQb8Fg7jEVfpKTVEdEYSFNNJ6AT5wNqdd3JxTzF1UyjSX+BAa
+         +SybdI6mwc48xSV8DlVT6nXrbtXPndpH0QN9cMFx+wZMLqqvxPlcRdWogN4TJvON/PYy
+         rW3g==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=G2dD3UBQFC9h8sJBMeOqXHiAn3mOYjFXsojRmhmTsm0=;
-        b=r7TdaCIUrHq01qe+0/CuT0H8TCtB4J/W3NkGkCOjb8JUTbwuSS7g5+udZN+beZdwsI
-         mv3uOs8VKvRDj/qoetVDoE+tzyMQ+3RPqMnkxs+aDLP7pygBSy4AYRPncI2D2rQhSpwp
-         GGT/7PvLGA3xSWX+ciYMbwfqHQtL4Ubnm4z8GBCcdoGmERs7VD7OOOmwvSIKKTnXUqPV
-         EVETLpfh38RWmeBaAbvkVJgNSPilJtVRJD6q4FM7zhV+7S+pwx9KDsrrzsr29manfYxJ
-         lKqLrqNpG7AilSvS9WpHoI8LOsqvtKO2SO8DbHWHyq0uFgh7hPKT9Z0FYqKv2oQKT9vT
-         h7hg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PYhRu3fo;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+         :list-id:mailing-list:precedence:reply-to:mime-version:in-reply-to
+         :content-disposition:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=/gO+RFBpHyrn+iHwjEyrQ5VHPWQjmcGW5xnP4H6fxus=;
+        b=rTkIuweM8Xl2zOkLE0UV8ub2iBbBxaFEmrUeaScblQghMqIW0iFvj12GFrwgfreUIk
+         ILOPdyLR6I+TWGEO2A4beoDb/hHeqyvhDrPwL7Rk9NaB7+0/463rD41366IivvyYRWrI
+         35egE5mKQ8P9lE0UhE1SLGenEnBd5U2COnIR9O5Fe7nqh2Z83wqy2nhb3JDpqqwaNHsj
+         XPmoM38m0x3RDSi17vf6Do3/T2f4d5MURHqrzNRKFB/meFFNMu+cbR0jHzrJBW5CvxC5
+         Gt39h6uzjG/9orKu2Ue2C37hIRjQgqdBcPgou3lLqqqbu40uVT4TuEKGHebls4KyBYU3
+         WYAg==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@fb.com header.s=facebook header.b=b+mUAIgi;
+       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=UWzDo5tZ;
+       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
+       spf=pass (google.com: domain of prvs=0639b3512d=kafai@fb.com designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=0639b3512d=kafai@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=G2dD3UBQFC9h8sJBMeOqXHiAn3mOYjFXsojRmhmTsm0=;
-        b=E+BXFnl60q6wqyBjKspuZmRXL2OsVyyHfyWtjPwbebaY7kBpV9SFaRzmK9Aj0r3epZ
-         acqmjmWy6923PFqFmHmpprgl00mMZugSoqNhuj8B4LuwT+QYjSXuGcGeYHpukArGg3MB
-         i5sZkJdi/chlHP5EJRnOmUDM/hnjz6ylQo/MKRbGLEbuQ2pFK5MNE9NPmUpv92P4u4jY
-         SU+98uAjelCiJzepAHFY5cR4+3EKVjie2xyTvVVarf8kilvecYT7BSMWMwLGzqBPzWx9
-         G72TpgWIo7nnsnUAYH8KxURHDUe96YlAMF0m/e/9TpwlTfjhX0iX+kuSMVPQC9r23YpP
-         DvPg==
+        h=date:from:to:cc:subject:message-id:references:content-disposition
+         :in-reply-to:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=/gO+RFBpHyrn+iHwjEyrQ5VHPWQjmcGW5xnP4H6fxus=;
+        b=OQxY2lcZ07U2ruGkLUwYzvWiWDaIZrMgj8OIcIkzELdzdN1x1Uk/mCBd43Ggef+JHc
+         F27vvHnuW/UADfylUmBb2+eU3umT6lwYZ1c6T3M9HsR0aMVqCpkOFzvrLaKXyIz/no1X
+         LgPbUj8gmy1y/Brl8dt+dbpCa81of976rvXGXUcGBTjfWAuyUWN+MnQJqTDKq+8IGKot
+         9BcPUOcsWCo3MoQFqz3a24RTbccqDfVOqk5ZEwOkKCwL1JY8Cv2+vClPVOC/3fGZHG9Q
+         x5n/Jgkzv4Q0CGDgu3Y7uYCFCDsjACvfWGccIytTxCEsTGYSh+RbToKUZF0HDnPpmi3w
+         OEHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :content-disposition:in-reply-to:mime-version:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=G2dD3UBQFC9h8sJBMeOqXHiAn3mOYjFXsojRmhmTsm0=;
-        b=DxWwo+42+oyfbj2eGI8pcy7GSmRAv/xwi+jD/epRbzGOnNNhGjlQZ/9qZK6cJU5kHv
-         ehrMnGnRkpgz1lW02rVt7itX1TntWv4XU/7ZfFWNs7bp7GrSeJDL0MfJxZLIRq63t1Uy
-         Pc1oU7p2e8H34Z6o2rBhNbFdSoUFVTwP+vbTI/81L6gA6REpaO3OBhdc8IKIJ9OMQBX3
-         NgZPqcePZYlDAX6TxdQSpLAVT7UGY9jWXZHMW5ySBE/s7vjyWxZcXPp90FGGktZcyKyD
-         oPgsk4cIZO6PL58FL1NT7ma4NIMJBmKdh9upXcC0dUtfYpAISI6IDh2XAohIRuyj9geK
-         qnRQ==
-X-Gm-Message-State: AOAM531NlIjOwP6oPIWfV+NKMXRu7/CCKm/Ym9+5EqPdhcRyMGKZBe5k
-	dH0Zc3PZp81D5p8mNrREV8A=
-X-Google-Smtp-Source: ABdhPJz+P4JBk4IDJ8qKpmPgOFPluTIlKiUNOmMXuAiwdBfzJwnq1JlivDDR5aFFVxOSwEMH1AIfTA==
-X-Received: by 2002:a05:6102:2f6:: with SMTP id j22mr708793vsj.43.1609875694782;
-        Tue, 05 Jan 2021 11:41:34 -0800 (PST)
+        bh=/gO+RFBpHyrn+iHwjEyrQ5VHPWQjmcGW5xnP4H6fxus=;
+        b=G7Ok3QtOcWlrU6BELe0ruiClPqGHLIagrWdOjhvdq0ZF9R2+KIVDquiUM50/jGG1Df
+         Do9mRHZmRnsotIjnTOCe2fRj/HZ/2HNReL/ra75t80k/TzG3ZaVy4lD2eOJ8QO6kEDAu
+         u//MmTmraSEPscHOkpXq1NKcZ8i10wRV599twWnEcouQi4bsPDu37IUvrkugAyPqm+4y
+         kWWQxM1Pkw9rx3HMUEQ6ycXJQ2RlgvdABO0xUpVOqu403dP2FIVnLuvMFpdep6xq/QoV
+         gdGsWfsAQRHo135NiWSpKKAt/QJXMgH1iJWBdJkxQv/pxsxXoiGGH18k/gLDafIvCEOD
+         1++A==
+X-Gm-Message-State: AOAM533aU+zoikhWJVYV5WoQ1h2N8ALLXahcxNNwrf4+q7InNbM8hq5n
+	PQBw3Xqbr5sHr4fUzHvqlw4=
+X-Google-Smtp-Source: ABdhPJypt5x/NY3OPdvyDrrlnf04MVsH6J+6uDyAxoIzt+ntPETcdKbT4aW5UrgtbSc9in4q9WI73A==
+X-Received: by 2002:ab0:238e:: with SMTP id b14mr1159401uan.105.1609876288536;
+        Tue, 05 Jan 2021 11:51:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:8d06:: with SMTP id p6ls33403vkd.7.gmail; Tue, 05 Jan
- 2021 11:41:34 -0800 (PST)
-X-Received: by 2002:a1f:6743:: with SMTP id m3mr1220939vki.10.1609875694377;
-        Tue, 05 Jan 2021 11:41:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609875694; cv=none;
+Received: by 2002:ab0:760f:: with SMTP id o15ls84269uap.7.gmail; Tue, 05 Jan
+ 2021 11:51:28 -0800 (PST)
+X-Received: by 2002:ab0:725:: with SMTP id h34mr1091042uah.91.1609876288123;
+        Tue, 05 Jan 2021 11:51:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609876288; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BJ96SLtqriVSBQ6lT3nYuOETS+tZeVanKUoYrfP6oGxjJre4o/nJQcX7EfDPsv8HT+
-         dFp7GGWhFzplcB8bxeO5plGsWtJMWjPiuazjdqCLUJcmFNMX5S6Fwn6Z3wF+Kmg1bs8q
-         nZFsu85DQYiHxmlDyiQKVokUzI0hescXN95joQHgsJ7MJkh5AEY/3Ctg8bPWOo2a1+OW
-         4oPkwa8V8B8Dd1uSsSjE2m00dFJc/PbbsJ4qCKJFs5JymLIJFlF0CPdsUglkdojrivjg
-         G0IbJKZ2ELEHW1kJienUEOlVlMQCO/S4kYyvkDQp+zvLjVN5NieUbDfmcxYWK3Gls7MK
-         2C7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=TMFOAFZFlYW+eUre2PkHe1D8HJjsKx5wuGAw4VigT/k=;
-        b=wLNC1MJ1BimvcNkKzlLBHR272/viHAHUWVGbnhwY46spbV5/M9IlDGzdJaf6CI6G7X
-         YbGzQ/CJcmFo71Mz9HsWRJQXyVk/1DIu/BTN7Fja2j1kXw+J1O9+urildj/wc7OXKntb
-         H8mm4lTzCuYtPZArhs+pPd0ihHxLdvsQgSH4totSG73sZjCM1whAtfY6uyNsNtjFPDZP
-         nT8i79vkdXS7W9qrNsDaufIE551IvAID0NXCYNv6Rk6V0Z2plxu7xc4F+ItQiURX/U6K
-         lQ37vu2YzspS5MGjUAcjecMHYGMWn5U7FNBCBPI8P7UljJeWJs/3vVDEWIYDfzBfBXVA
-         0oWA==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PYhRu3fo;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x433.google.com (mail-pf1-x433.google.com. [2607:f8b0:4864:20::433])
-        by gmr-mx.google.com with ESMTPS id m19si28235vkm.5.2021.01.05.11.41.34
+        b=1G2WULEYI9FhvadPVJzrOQBV61O6kGyS/i3vn+8K9EgWYtplfdwvWuofcVJ0tUZ4MW
+         34TlNoePzaXKK/M7WTYfb9ugou5zP/bGr9nETYZ9G8x9vbfCjTxhLL924hLqrA0MAvwm
+         8J6mGTVA9kNi+cG2GoxYqO/AFpJH76+lHlUlAFfmnBpCbfXHxmonqkw0UWZy+LnQGyOp
+         8UlVpG5nDfqkLLYPFewp7nrufYpV2Aj6mcMyCTr9k7VFWgud7D0f3p6GhL/prZFqOdna
+         jEv9Ypi97Y7g5Ok+6Fm2gQBGTvNY4XxT9PHtTTRCA4mGMooP9KTBew77+UL6GH4YTvtN
+         4oeA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:in-reply-to:content-disposition:references:message-id
+         :subject:cc:to:from:date:dkim-signature:dkim-signature;
+        bh=z51xaWa67o+04YiVXH7Hd7iRkePzGilKXzEdFDkjZr8=;
+        b=el4qd0Fu2RpKlr7mcv0JOqbx1GDBjbIHwiZtqSbXxnVyhtpBRd+ksFmUEX8KNkOHEg
+         5MYWRtnwhjf9YpdKl/X8Ra7dJo0noWjmGjpIO2s9HSI2hN6xWFHHHDsrtIf3LFQUxQNs
+         coCsa7rj92DPgqm7vMTq+U1/3yq4wi2necfNZchmfeuePt1+dVJH45lzgbnDutQRKYeN
+         UyMNJeXyeLIHjZd8yBgzY6rPy3aw8fyF9hKkMpbbVv7cczt/cZ72hpSfVYcBxbbcxHfJ
+         e7werFpa3gGAbyAo0LD0WSxT3jnFwjXY++MWx/VC5GhB9q/0T8PcnY1U1uHQ4zwDTp4v
+         EH+g==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@fb.com header.s=facebook header.b=b+mUAIgi;
+       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=UWzDo5tZ;
+       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
+       spf=pass (google.com: domain of prvs=0639b3512d=kafai@fb.com designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=0639b3512d=kafai@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
+        by gmr-mx.google.com with ESMTPS id g17si22590vso.1.2021.01.05.11.51.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Jan 2021 11:41:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433 as permitted sender) client-ip=2607:f8b0:4864:20::433;
-Received: by mail-pf1-x433.google.com with SMTP id q22so319606pfk.12
-        for <clang-built-linux@googlegroups.com>; Tue, 05 Jan 2021 11:41:34 -0800 (PST)
-X-Received: by 2002:a62:7c4a:0:b029:19d:b7bc:2c51 with SMTP id
- x71-20020a627c4a0000b029019db7bc2c51mr631636pfc.30.1609875693171; Tue, 05 Jan
- 2021 11:41:33 -0800 (PST)
-MIME-Version: 1.0
-References: <20201222184425.7028-7-p.yadav@ti.com> <202012291151.fApnPO6i-lkp@intel.com>
- <20201229091806.eyrakehdxo6762sg@ti.com>
-In-Reply-To: <20201229091806.eyrakehdxo6762sg@ti.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 5 Jan 2021 11:41:25 -0800
-Message-ID: <CAKwvOdnNeAXUsNQnSmVmODT9C4_J9cX7prRaYTs+R588=JW7LA@mail.gmail.com>
-Subject: Re: [PATCH 6/7] spi: cadence-quadspi: Wait at least 500 ms for direct reads
-To: Pratyush Yadav <p.yadav@ti.com>
-Cc: kernel test robot <lkp@intel.com>, Mark Brown <broonie@kernel.org>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, linux-spi@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 05 Jan 2021 11:51:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of prvs=0639b3512d=kafai@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
+Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 105JiqMH031307;
+	Tue, 5 Jan 2021 11:51:23 -0800
+Received: from maileast.thefacebook.com ([163.114.130.16])
+	by mx0a-00082601.pphosted.com with ESMTP id 35u9cpb3ny-7
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 05 Jan 2021 11:51:23 -0800
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.35.173) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Tue, 5 Jan 2021 11:51:22 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PNdBhxWpgj+vbeHbjTuhBf2E5+RULAMhhE2usBVN8c8axvMATGaMMnZ728/5T0l0UO/1FJMlgMBSOXH8ID8E1yA5XU0gOqRAb8jvVnT9UsEHlXgCTQ7+f/V1CEK9kPx0wxu4Bvqj7LGrVNiyCakHpNvXgt02/qRBh7d49Ox3ABGE/8ICPFvW3ZtHYjIs+yuiFb0hU9w9Oy607SftTK4Kop1WZn6w0h9sAGfoVtAFjHI99nRYKfZsbgloRkr0SzsV4/MxVCfXE2tAuah2Pu+I5/ZyrnsbBeB3pEy/VA8cGJyTz5KLGm4pPDBF01aSyyMszwBTF7dvCSaIjf/9FGTX/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z51xaWa67o+04YiVXH7Hd7iRkePzGilKXzEdFDkjZr8=;
+ b=OD4GYExpPCkejf2mYe9fVjZks/JA9OOQLh+B2NXJxL363w7dnyhrY+TJtXcTE2wa4QuDU1lHJsiXLVK3oMznNgoGnsgnVK3VQ01S0IId1JZGfUOzMXfXm4BWXKWjOQN4vY1vnwvtNpSn3Bl8JJ3D6gEVh0YR+Zq7dJVk8XCk3fvW+SxegnVPb7F8P4a8AF8PON1bSXWyYGwmawTnX+4AFcr2a8FDYJ+Ffbf0Iab6W7ssMwXPUsEiE1MnXFkFCX/xMpS2bRX3pjyWP7Bxb3iJlbo4I7IKXLNiXCBBDi4ky5p2xCD+W5XhBKwbthfCP45+dChkH7FLSkTa3/Dj5f9usQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from BY5PR15MB3571.namprd15.prod.outlook.com (2603:10b6:a03:1f6::32)
+ by BYAPR15MB2373.namprd15.prod.outlook.com (2603:10b6:a02:92::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3721.22; Tue, 5 Jan
+ 2021 19:51:21 +0000
+Received: from BY5PR15MB3571.namprd15.prod.outlook.com
+ ([fe80::217e:885b:1cef:e1f7]) by BY5PR15MB3571.namprd15.prod.outlook.com
+ ([fe80::217e:885b:1cef:e1f7%7]) with mapi id 15.20.3721.024; Tue, 5 Jan 2021
+ 19:51:20 +0000
+Date: Tue, 5 Jan 2021 11:51:13 -0800
+From: "'Martin KaFai Lau' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Sean Young <sean@mess.org>
+CC: Yonghong Song <yhs@fb.com>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel
+ Borkmann <daniel@iogearbox.net>,
+        Andrii Nakryiko <andrii@kernel.org>, Song
+ Liu <songliubraving@fb.com>,
+        John Fastabend <john.fastabend@gmail.com>,
+        KP
+ Singh <kpsingh@kernel.org>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Quentin Monnet
+	<quentin@isovalent.com>,
+        Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?=
+	<toke@redhat.com>,
+        <linux-doc@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH v3 0/4] btf: support ints larger than 128 bits
+Message-ID: <20210105195113.lr3mc5ma2rvej4r6@kafai-mbp>
+References: <cover.1609855479.git.sean@mess.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <cover.1609855479.git.sean@mess.org>
+X-Originating-IP: [2620:10d:c090:400::5:66db]
+X-ClientProxiedBy: MWHPR03CA0021.namprd03.prod.outlook.com
+ (2603:10b6:300:117::31) To BY5PR15MB3571.namprd15.prod.outlook.com
+ (2603:10b6:a03:1f6::32)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from kafai-mbp (2620:10d:c090:400::5:66db) by MWHPR03CA0021.namprd03.prod.outlook.com (2603:10b6:300:117::31) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3721.20 via Frontend Transport; Tue, 5 Jan 2021 19:51:19 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: d8c5befb-b06b-4f15-62ba-08d8b1b34646
+X-MS-TrafficTypeDiagnostic: BYAPR15MB2373:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <BYAPR15MB2373952EBF06EA6B29D173A5D5D10@BYAPR15MB2373.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:3044;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: kNTO2rizg3HHeKXulrHl+5ZfzNXVmkjDpv3ufTyBV0+4d6SQBSD+3ZnszPs5dV8xdIEydJztTI1QY+OrdJONq1f5FMg2mZq1IX7x9t2lptz7gPXXTXve2Eypdxdt+Tgx1kKRbZkXexlECc8BqbOpvdT0CBdkYNNZOD7torvLud9hQGm5wpvsJE8UmAyB93+UnTnW4qlq6pn0+hjdTAi2ogGHwKw6xN9ewdoXiwYlCkm402KfdgXYxzDjdddLisB2JOyhXcNFI3IBGNjBhdtJWY/F9DEu0/rRQjBmJuYhpucIXydQ5F7GEg0prrIvx15iVCoA96fN7QXhAhRBSKgwBlHNJ0MKn4EvH/w06If5TgVZgQ0Du4B563Jvw4wqd9izegXY541dCCsg43thpBgceg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR15MB3571.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(376002)(39860400002)(396003)(136003)(346002)(366004)(83380400001)(8676002)(55016002)(5660300002)(6916009)(4326008)(478600001)(7416002)(86362001)(4744005)(8936002)(316002)(6666004)(1076003)(54906003)(66556008)(6496006)(9686003)(52116002)(186003)(16526019)(2906002)(33716001)(66476007)(66946007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?nyfcAHzN4apikCppiyPSgKRUqFEbIy14uErZwH4fdnq6nugDZJ/X1S/FQ4Io?=
+ =?us-ascii?Q?a+CSrzd2V1InLgZ7f2cgOsTtPcQGU3FHrHO7ZWYxVaCQnDlJxV/w9jUPoZ9z?=
+ =?us-ascii?Q?eq7P2ikOj9M/oBzscmPC9qkpnVkQg/Uq+CWcsQlSc0/l91tEbaB0aZbqxXKe?=
+ =?us-ascii?Q?hQdR1zyHshslO/havXEwtD0LDc+9CoxzP1HijbQOBXS0goeVZY+ylR7ukNh0?=
+ =?us-ascii?Q?t6RRZF/eOkidQ0A9uzUYix6aUv9N86oxODLaogXm4R9nKPHJaFXS8Y0vV8JS?=
+ =?us-ascii?Q?v68h24AHoexS6amMWt+IQBxgKmNoRUYYTqIkDtcGrP2sqRM0sA3rvPVI0shz?=
+ =?us-ascii?Q?YgCCkK2hiuGvDjm/qAgt3g+W0Jez9pjF8ZDqnLegtmEEtfEoYg76qyT0FkjS?=
+ =?us-ascii?Q?Xqe1CvIbujcYcuT6855Q932vk967grXrBd0KqGsZFTOjqcI6XmjnMO8GA8CT?=
+ =?us-ascii?Q?NU0AchA2gmSyg/lfJ5XdO40RI4/RTjp/SAneukRgxocaeignD49Sy4XefCje?=
+ =?us-ascii?Q?YcH59kpJMJ+Cmd1jqmvoeyn+Lbbwevq4RaGK527jsHI3bxQASl7vQLoTRMdE?=
+ =?us-ascii?Q?yoH5+QhMA84xhgvtE+a/8IfDwFuSSp2lVwougWr+95A0joXCkbH0MLj6ogHN?=
+ =?us-ascii?Q?BQ9gO7eRdgGPBIETYqmNVcXFY1abKxvzro1b1JegvVsKjJ6g3k5/AfJ+JE8I?=
+ =?us-ascii?Q?9Jc5cNXD6YbqopcI7OEkVc/0/KZVmqfhnRjNGIzs32yTmPD3/dHUclb5cTbj?=
+ =?us-ascii?Q?oDyICTPgolFMhZqCP+lpCQC/A0/DBXqleSH9rKphnSHzGiF4pimstTIZbyXj?=
+ =?us-ascii?Q?rTVbWNQFZ7ZU14k5DdndU0nxUc8S0jZGWPm/NJkDTgDUnnrhuwIE6RJo4Prr?=
+ =?us-ascii?Q?YIpPNLlJ07Yjg01BKFpdY9+UKJ7YC/0qi6CXwQG95QAwKsjfgNB1jOVRYTkd?=
+ =?us-ascii?Q?Gu+mY0XEX4SixB9prXpsCb8yEPHl05oTqGs0/fv7cCcBsf6DDqwDGy2OJ7MW?=
+ =?us-ascii?Q?p5QADfODudIv0ug8GBUhjQlpxw=3D=3D?=
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR15MB3571.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2021 19:51:20.8375
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8c5befb-b06b-4f15-62ba-08d8b1b34646
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2xeWM0Rk8fMcSnBeuIrh5XhFva4dGOMcSHgVk7fmpYBQ20XZAExRJlpRp0sjfeqx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB2373
+X-OriginatorOrg: fb.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.343,18.0.737
+ definitions=2021-01-05_06:2021-01-05,2021-01-05 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 adultscore=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 mlxlogscore=832 mlxscore=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1011 spamscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2101050114
+X-FB-Internal: deliver
+X-Original-Sender: kafai@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=PYhRu3fo;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::433
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@fb.com header.s=facebook header.b=b+mUAIgi;       dkim=pass
+ header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
+ header.b=UWzDo5tZ;       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass
+ dkdomain=fb.com dmarc=pass fromdomain=fb.com);       spf=pass (google.com:
+ domain of prvs=0639b3512d=kafai@fb.com designates 67.231.145.42 as permitted
+ sender) smtp.mailfrom="prvs=0639b3512d=kafai@fb.com";       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Martin KaFai Lau <kafai@fb.com>
+Reply-To: Martin KaFai Lau <kafai@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,70 +234,25 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Dec 29, 2020 at 1:18 AM 'Pratyush Yadav' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
->
-> On 29/12/20 11:29AM, kernel test robot wrote:
-> > Hi Pratyush,
-> >
-> > Thank you for the patch! Perhaps something to improve:
-> >
-> > [auto build test WARNING on spi/for-next]
-> > [also build test WARNING on v5.11-rc1 next-20201223]
-> > [If your patch is applied to the wrong git tree, kindly drop us a note.
-> > And when submitting patch, we suggest to use '--base' as documented in
-> > https://git-scm.com/docs/git-format-patch]
-> >
-> > url:    https://github.com/0day-ci/linux/commits/Pratyush-Yadav/spi-cadence-quadspi-Add-Octal-DTR-support/20201223-025328
-> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-> > config: arm-randconfig-r006-20201221 (attached as .config)
-> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project cee1e7d14f4628d6174b33640d502bff3b54ae45)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install arm cross compiling tool for clang build
-> >         # apt-get install binutils-arm-linux-gnueabi
-> >         # https://github.com/0day-ci/linux/commit/04a7bcbc449363e5d6f498376c69116567b49d7d
-> >         git remote add linux-review https://github.com/0day-ci/linux
-> >         git fetch --no-tags linux-review Pratyush-Yadav/spi-cadence-quadspi-Add-Octal-DTR-support/20201223-025328
-> >         git checkout 04a7bcbc449363e5d6f498376c69116567b49d7d
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> > >> drivers/spi/spi-cadence-quadspi.c:966:24: warning: comparison of distinct pointer types ('typeof (len) *' (aka 'unsigned int *') and 'typeof (500UL) *' (aka 'unsigned long *')) [-Wcompare-distinct-pointer-types]
-> >                                             msecs_to_jiffies(max(len, 500UL)))) {
-> >                                                              ^~~~~~~~~~~~~~~
-> >    include/linux/minmax.h:58:19: note: expanded from macro 'max'
-> >    #define max(x, y)       __careful_cmp(x, y, >)
-> >                            ^~~~~~~~~~~~~~~~~~~~~~
-> >    include/linux/minmax.h:42:24: note: expanded from macro '__careful_cmp'
-> >            __builtin_choose_expr(__safe_cmp(x, y), \
-> >                                  ^~~~~~~~~~~~~~~~
-> >    include/linux/minmax.h:32:4: note: expanded from macro '__safe_cmp'
-> >                    (__typecheck(x, y) && __no_side_effects(x, y))
-> >                     ^~~~~~~~~~~~~~~~~
-> >    include/linux/minmax.h:18:28: note: expanded from macro '__typecheck'
-> >            (!!(sizeof((typeof(x) *)1 == (typeof(y) *)1)))
-> >                       ~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~
-> >    1 warning generated.
->
-> On arm64 size_t is defined as unsigned long and on arm is it defined as
-> unsigned int. So using 500U would generate the same warning on 64-bit
-> platforms. Maybe the fix is to do something like: max(len, (size_t)500).
-> Any better ideas?
-
-SGTM
-
--- 
-Thanks,
-~Nick Desaulniers
+On Tue, Jan 05, 2021 at 02:45:30PM +0000, Sean Young wrote:
+> clang supports arbitrary length ints using the _ExtInt extension. This
+> can be useful to hold very large values, e.g. 256 bit or 512 bit types.
+> 
+> Larger types (e.g. 1024 bits) are possible but I am unaware of a use
+> case for these.
+> 
+> This requires the _ExtInt extension enabled in clang, which is under
+> review.
+1. Please explain the use case.
+2. All patches have the same commit message which is not useful.
+   Please spend some time in the commit message to explain what each
+   individual patch does.
+3. The test_extint.py is mostly a copy-and-paste from the existing
+   test_offload.py?  Does it need most of the test_offload.py
+   to test the BTF 256/512 bit int?  Please create a minimal
+   test and use the test_progs.c infra-structure.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnNeAXUsNQnSmVmODT9C4_J9cX7prRaYTs%2BR588%3DJW7LA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210105195113.lr3mc5ma2rvej4r6%40kafai-mbp.
