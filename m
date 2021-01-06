@@ -1,137 +1,129 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBD4K3H7QKGQE7RTWWXQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB6MU3H7QKGQEWMQIYCQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0993B2EC6AB
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Jan 2021 00:17:37 +0100 (CET)
-Received: by mail-yb1-xb3a.google.com with SMTP id k7sf6705743ybm.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Jan 2021 15:17:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609975056; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 995372EC6F7
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Jan 2021 00:40:42 +0100 (CET)
+Received: by mail-qk1-x73c.google.com with SMTP id a17sf4120607qko.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Jan 2021 15:40:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609976441; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pu2Txgni1w9rgLkPxNEL5ruThtMQXJqdMjQGkPPLqdZFYpFgfQWWWGSTvnAo/ssh6O
-         FIcmr1K5Qr0+kNRmvEnJMxXNLNDUUS8YpCX664xzyjODzW1xoAgPi85OwylxJuZezozE
-         Nr9X3cGou9TJdrL9kZNqEz9PMBNAyDfsnpHDSG9DM6Wv1Pevg1x6P/gs1JPM31MILQmj
-         uwzMdlNq8LKy/wIOXWx94uWpxN1fwFp98HUtWjRsP4mrIqm2vufmSh5fZpGMv0FudAsl
-         vg7JdeqCIQ4mSOZnAJQRvPpjJblMZMqp2/nFug61huDQPyUJxq55KTl18aD2oafuRc3Q
-         zHRQ==
+        b=0JXv1210zUITQcGjRe/DzmWCNSjo8sheks1WpXNPLwHWsQ4I0xx8JXlwLfayQYyL8E
+         NEGuLpzVjsZ8fhVmtM9Zge9HGm2OBCccGS/28WhPzojxuywAR+Di6/wpRQ5iIPJDgOWU
+         mAup2vZgjC6k1K0Y/qFoFm44vY0vQKJEki1clBZyA68hG5v0BYTiQ6UGhvZs2eWWXTSt
+         nxgDPwyTGjwsYBkjAW2J+z2ZP80lSbiIIKMx6b9+5KZDUzK92XGT8eJFfbPEZGOpLrd1
+         k1UoTvxCLxD7zWfcUgcLYMwCtpVbnKijrZCGnea3xtCn2IVsOVMjVsOCJQluW9bxPv1f
+         qUpA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=K63Ob2GXCsSAzqT3vCmNvowtQ+DWVqa2okSDDDhlrB0=;
-        b=seDNVvN9UYzHTQ9IBHncKMu2dXcdoaHzPiigPykM/qyCGQ/REs/OIDlZSjCpg54UIZ
-         qwiJqakrhhjnnpxIE8QVBtVrhGFkdn1dR5gd/vr300yda3T/wM0TbYZoDu1Rb/B7AGIK
-         ACDHZhWeMwPt+JmN5023r9uQCKIm1rqWOzvL487xM5dIRbnChPHo8nG5ernqAL9dvn2Z
-         cxNGTc+YMhv9+pqE2TZGXeLRF4avLF2gzDJgOkTNFKoLIQia7zelBK8d10arW2lXxwjz
-         eN3wfOdLGJXK4G2FYqmZ3zgTW6XF4ASR7JyFeL6GwU4q6blW4PH8BAAzDPYkWjAliNRY
-         WVTQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=rhw4yu8F3t9qDHSa8EXHMZPyIMzLHIH4VmtQmELxugE=;
+        b=MrbCQYbpKcpMnvo8AFiHtbiZM26jU84SyVMv19PEEnEuACK82KI0kWlhPpZMZUV1z6
+         6R2LioEL+v1hdCMivSQTc/zeBaN5oNsHS0/shgXzTeKjXhNBUDV69/WNrFEdhqzr7D91
+         m2mrzZFh9g4q0jJ0ByBX8qxUfWNX9DYqIAVQscw8baLEBtqigSGK5mkMGKx2vCOfbvJD
+         ackC434/QrLPsw9KayNmibaFL3TY/lTZOcyqkHXuCKSK/wQwEdqZjmSyji0V3jK/RQpu
+         LPgeF7Oa1iDdHTruuE1S+sRhHmiWJ2AKo9AOX2ndJme/Ruw6/80koIIjX2sUh0tOLznk
+         x1tg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=j8pUIx85;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UAMnwaB6;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=K63Ob2GXCsSAzqT3vCmNvowtQ+DWVqa2okSDDDhlrB0=;
-        b=ZTFXTQ6PialaN28UZ25mT/Woa9G6bp48A3/2dZ2DVZvXB+w94482Sk2kruNFVuDzmw
-         2MKNZVtyiCCwu9qdBxMCzCTCfYpdTeFKcKelhd5TqbBh/om5HIRRrzLbMWtQlfnWyEPT
-         +6Pukbs0yCfBuJtLwuKeaxTVQ1hUnDPs+OzjTK6fUVJ7Ewxnq/MGQwCoGnSKdUZ0Awyy
-         TMUWFNE5LsFvoClbyAacxigW8FaU5LUlR+G2Rxoj8lVhvNfEbm4j9YvXzIwSQC7vFPPl
-         RPkgpzBUVtevsKwhXOp5H5FfgfUjSjR9V4gfEyv/pkzt7FUOxAW1laMoe4VVELKEQNeq
-         Wj9g==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rhw4yu8F3t9qDHSa8EXHMZPyIMzLHIH4VmtQmELxugE=;
+        b=Q8f0I3ZcJZe70OrkN/XXNboW3o8nom/GT9vS9mZP4erqWJ+h+jA+a87k/l75KwyXiu
+         X3KAaIEWD6abOfRiNpSF5wk59gk9iDPvajqIac2XHth9svHFf8F+7bp09Ju5QCiAgd6M
+         +W4Kz/FdbdDxnst0Ac/GkJoL23cX+i0Z9nIhpvRTbC9+36UW2DAaHdR4uX9pl5kPcdJw
+         E8bXkGpm7mP4yLNJGYl9k8Om10cHMgirmJdciag+59PWAIiiRCqx8sh2SzqLYmKzbMYe
+         Y7FzZPIdHOdLca432P9mTspbBAEbMCwfYPTar6fRT/0MNy1zryBlWCHC/76u12DiZhBH
+         dBMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=K63Ob2GXCsSAzqT3vCmNvowtQ+DWVqa2okSDDDhlrB0=;
-        b=RuZj42JDUb+rMisAgu2Tq0dULF5q2ABijdq1jYwaXR/vb/sMySPe5NcZmpbL14fJuo
-         WFiJ9L3CIpnfHB09+ti0F3dwF0GagTdQdZus5Iba83Sg/k333OJznnaHW5r40CzWqrB5
-         EMCD/i8pN8Ipgg8XIpqONg2TXxDD+z2oqxOwQvhM4O+ZCefUzj7vujLHaz80ssNgBEwP
-         IXl2w137MU7loy69GjhyIaSLwhYvuNs4c7xIj2/mu6c6zUM1r72rORkgudKUQI8+UwWV
-         cMmBzE3Ke2YvzBQ2YU9XEvpaJeINbxe2uBrxJFcuvGYyIDGqpbUmV55eewsKg3CNf4+M
-         Y/jg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rhw4yu8F3t9qDHSa8EXHMZPyIMzLHIH4VmtQmELxugE=;
+        b=eClpN/6NLD3pZ4HFSHy01p4W7f6J0eKrsyOyNu+NvFkIiBqJ9d7974W5sZZBJc3yaA
+         vCSPYsqzs4c2cH8f3DvHfV+5Jqbch1z0V/r3QNVtOGGwMwHRceW+S1CJW1Ke1eDQ6P60
+         GtN/iwrzdUDmsQmyO9s0YsgssrdywkxF2YpL5Bm5pjU4zzoviCgK0uM/dgcE+v06iAQ9
+         Y9nPGfeaJXfKcmG6LVxq5OxoX9kRq56PJC07wrt2CC+lFyBqiW3AHFhXSP8BruY13Spl
+         l5qIqr7Kj1Nk9iSJ90589hQNPf/P4isP6Lvkx94H/c9hntvs0ZmU+1Q1IvwNxvKzbFr7
+         7sHQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530lzZidv0suJux3FxJiGAWRFG1s5vwk7YFMMYX7GngaReWz11lB
-	aLKZIu4P3ZQ2bPyWbq+5Wg4=
-X-Google-Smtp-Source: ABdhPJy0bgrfnnjxi+WdymZk9+v6mrKDH9iJWTv4Z/5cNFnmyl8QXx1Ti092saP7NDH6aqG/yPHufw==
-X-Received: by 2002:a5b:54a:: with SMTP id r10mr9551239ybp.250.1609975055975;
-        Wed, 06 Jan 2021 15:17:35 -0800 (PST)
+X-Gm-Message-State: AOAM531HuTGpJQAYApBMHlZueOnUYHbQQJk5w0AYtG3T5SB6CAorOtmm
+	VLu1wHD7Ow5gv43/OmeRLPI=
+X-Google-Smtp-Source: ABdhPJyVZzj58Vv1EMG4bxWrfJSXJQtlHfvtEdTgVQerQ6/Qfk/exwiFzgIwTnfWjzfOuZ9j7k8gog==
+X-Received: by 2002:a37:b442:: with SMTP id d63mr6843392qkf.430.1609976441618;
+        Wed, 06 Jan 2021 15:40:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:946:: with SMTP id u6ls2648948ybm.1.gmail; Wed, 06 Jan
- 2021 15:17:35 -0800 (PST)
-X-Received: by 2002:a25:4049:: with SMTP id n70mr9496356yba.472.1609975055553;
-        Wed, 06 Jan 2021 15:17:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609975055; cv=none;
+Received: by 2002:a05:6214:20ea:: with SMTP id 10ls1180367qvk.2.gmail; Wed, 06
+ Jan 2021 15:40:41 -0800 (PST)
+X-Received: by 2002:a05:6214:1485:: with SMTP id bn5mr6483583qvb.17.1609976441252;
+        Wed, 06 Jan 2021 15:40:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609976441; cv=none;
         d=google.com; s=arc-20160816;
-        b=U+REGZPye2exB4AVgWvypQ6q27GRFZyjsgbw36Jk3ylBb8yA3IEyk4Ip8Jnb/Qyfz3
-         K+WWIBsHzofE8vKWACPZru/w8/rVVZNHbtiQ2xB+BoSZt6ewMdkd8vipP6z4DQZqiMme
-         VxEJWer9tPvxH+RBf6Si8Lh7a3jigqJNGmNy56h6/74GDXaplS7I10hz6h6JVkaNPC/U
-         emVUHj7+KxzoG2Pe/99QodHpwXFYhAWUIX4yjvGwUKrRxV+7V71zi0dGIuOWy7SfxfjO
-         EeqeNS0/LJdsAxD8eFIxgsz2cMBSRU+2LfX17rfqXurf/0yZwxM1E32TIprO3d2R6rjD
-         toHQ==
+        b=OoVrwpG1al0GQNg8rIsFZegvQ+j6uQiqXND4md2zjBqbCt5DhE1cCwvZrTEW/kopuO
+         V69fEdFflU31bCuP4e4aM0ZgUJlmfk9/DAiXts3FPDeSLPrS3lsxZgNBVSY9OsQrnsv9
+         VKBrhUKkaEMZUX+xqapVIUPBnJW2/17IPdcm4aQdoIt5FIBgfpIukvhDiEq/FMR9UGM5
+         Znl15paE8eLYw6zmEXFKSp3sPmqGgOoCvTCp8HCf+L5vrv60aVnEWhNCDGPcSTrQkIoa
+         +2J4guXJ5J9uOm5ORtMheqi6t2vpgoaWN3dIzy+nzQsxqT/z8mQbQJ9OvsgkVn/qNji6
+         lMbA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=J3lGr4YZbk3BlMgDSCib4VSawc9GYX81ZHhsXt4/HtQ=;
-        b=u1hnnIcFpOBiu7oHCGX4AitfwuKjzcxEBh/rMT9u/k1wEcjRYxz4hkegFCysTgampe
-         fuDMHjnEZ0N3Lh2O30h9jFRnRoes5vY78cMWgP9U3SHaFOADLYu1nrZhFr57TJ/n9wav
-         v7HCgFEXrC9+/oYEyGFnc44tdoTXGQiXGrNFfX6RCFGgKKV7tpCV4UFevRIcVKzevLSR
-         8ZUYCvua1rFcHXic31cw+w3xnithG/xk7MwMeMMbW0llOefoPgHQ7TkXJndMDHodjCeT
-         mmbTFDQym7+YzrHMMc8NUsUQv4yrCPmT2eB+aU+rskKAoFK0+S3swKBFwExQpKzviy2P
-         9mWw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=nsOv/x1xN18a//dBn2Ouyy2QaSImAvu3oD/rp9xzaQU=;
+        b=Jp2OkPRZp9rbPGMAScWq62tVfIIwm8UDAFkAriYnwRARGtq22V90A26lnYXpBBOYg3
+         c5YIO4dU6o+ton1AFSfTHU5XhyowEgaNat8In80Gz9nTxg6BHyAa8Xhv1OornyW8iPiX
+         boRtzRK1DuMrCUvxzyBoRmWvS5NFNMwkl9CZUQcQp0RbVN937cDexRzwOWdjGc0KyoZZ
+         2laAYPDUuRPnd0PeJimg/0kNHDtVGKLbe7y53TI3YP4h8cW5ePunuE1oCwrGjXhzkxwX
+         cEps74fKVduWGtKxC5Acu6mn5j2i72USk7PcsXOPcq5/TlBW6ktbOlEFsebDIn0KuDLb
+         gZSA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=j8pUIx85;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com. [2607:f8b0:4864:20::429])
-        by gmr-mx.google.com with ESMTPS id 23si367199ybc.0.2021.01.06.15.17.35
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UAMnwaB6;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id l32si430722qta.3.2021.01.06.15.40.41
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Jan 2021 15:17:35 -0800 (PST)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) client-ip=2607:f8b0:4864:20::429;
-Received: by mail-pf1-x429.google.com with SMTP id c12so2589467pfo.10
-        for <clang-built-linux@googlegroups.com>; Wed, 06 Jan 2021 15:17:35 -0800 (PST)
-X-Received: by 2002:a05:6a00:a91:b029:19d:9421:847 with SMTP id b17-20020a056a000a91b029019d94210847mr6307899pfl.72.1609975054844;
-        Wed, 06 Jan 2021 15:17:34 -0800 (PST)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id q9sm3807528pgb.82.2021.01.06.15.17.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Jan 2021 15:17:34 -0800 (PST)
-Date: Wed, 6 Jan 2021 15:17:33 -0800
-From: Kees Cook <keescook@chromium.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marco Elver <elver@google.com>,
-	George Popescu <georgepope@android.com>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] ubsan: disable unsigned-integer-overflow sanitizer with
- clang
-Message-ID: <202101061516.F0EA5F0@keescook>
-References: <20201230154749.746641-1-arnd@kernel.org>
- <202101061350.913E1FDF6@keescook>
- <CAK8P3a1tSaUE2uzb2JbQ1f7LWmkiHQtSxzJHmfa=fqT3fNXOPA@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 06 Jan 2021 15:40:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1800723332
+	for <clang-built-linux@googlegroups.com>; Wed,  6 Jan 2021 23:40:40 +0000 (UTC)
+Received: by mail-oo1-f49.google.com with SMTP id s19so1175851oos.2
+        for <clang-built-linux@googlegroups.com>; Wed, 06 Jan 2021 15:40:40 -0800 (PST)
+X-Received: by 2002:a4a:9c01:: with SMTP id y1mr4394668ooj.15.1609976439445;
+ Wed, 06 Jan 2021 15:40:39 -0800 (PST)
 MIME-Version: 1.0
+References: <20201230154749.746641-1-arnd@kernel.org> <202101061350.913E1FDF6@keescook>
+ <CAK8P3a1tSaUE2uzb2JbQ1f7LWmkiHQtSxzJHmfa=fqT3fNXOPA@mail.gmail.com> <202101061516.F0EA5F0@keescook>
+In-Reply-To: <202101061516.F0EA5F0@keescook>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Thu, 7 Jan 2021 00:40:23 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a1KUr-zOvxc0hN0yDC7r+HTM_FGrr5GkuSTTNchgQ0PzA@mail.gmail.com>
+Message-ID: <CAK8P3a1KUr-zOvxc0hN0yDC7r+HTM_FGrr5GkuSTTNchgQ0PzA@mail.gmail.com>
+Subject: Re: [PATCH] ubsan: disable unsigned-integer-overflow sanitizer with clang
+To: Kees Cook <keescook@chromium.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Marco Elver <elver@google.com>, George Popescu <georgepope@android.com>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a1tSaUE2uzb2JbQ1f7LWmkiHQtSxzJHmfa=fqT3fNXOPA@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=j8pUIx85;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@kernel.org header.s=k20201202 header.b=UAMnwaB6;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,47 +136,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 06, 2021 at 11:12:18PM +0100, Arnd Bergmann wrote:
-> On Wed, Jan 6, 2021 at 10:57 PM Kees Cook <keescook@chromium.org> wrote:
-> > On Wed, Dec 30, 2020 at 04:47:35PM +0100, Arnd Bergmann wrote:
-> > > diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
-> > > index 8b635fd75fe4..e23873282ba7 100644
-> > > --- a/lib/Kconfig.ubsan
-> > > +++ b/lib/Kconfig.ubsan
-> > > @@ -122,6 +122,8 @@ config UBSAN_SIGNED_OVERFLOW
+On Thu, Jan 7, 2021 at 12:17 AM Kees Cook <keescook@chromium.org> wrote:
+>
+> On Wed, Jan 06, 2021 at 11:12:18PM +0100, Arnd Bergmann wrote:
+> > On Wed, Jan 6, 2021 at 10:57 PM Kees Cook <keescook@chromium.org> wrote:
+> > > On Wed, Dec 30, 2020 at 04:47:35PM +0100, Arnd Bergmann wrote:
+> > > > diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
+> > > > index 8b635fd75fe4..e23873282ba7 100644
+> > > > --- a/lib/Kconfig.ubsan
+> > > > +++ b/lib/Kconfig.ubsan
+> > > > @@ -122,6 +122,8 @@ config UBSAN_SIGNED_OVERFLOW
+> > > >
+> > > >  config UBSAN_UNSIGNED_OVERFLOW
+> > > >       bool "Perform checking for unsigned arithmetic overflow"
+> > > > +     # clang hugely expands stack usage with -fsanitize=object-size
+> > > > +     depends on !CC_IS_CLANG
+> > > >       depends on $(cc-option,-fsanitize=unsigned-integer-overflow)
 > > >
-> > >  config UBSAN_UNSIGNED_OVERFLOW
-> > >       bool "Perform checking for unsigned arithmetic overflow"
-> > > +     # clang hugely expands stack usage with -fsanitize=object-size
-> > > +     depends on !CC_IS_CLANG
-> > >       depends on $(cc-option,-fsanitize=unsigned-integer-overflow)
+> > > Because of Clang implementation issues (see commit c637693b20da), this is
+> > > already "default n" (and not supported under GCC at all). IIUC, setting
+> > > this to "depends on !COMPILE_TEST" won't work for randconfigs, yes?
 > >
-> > Because of Clang implementation issues (see commit c637693b20da), this is
-> > already "default n" (and not supported under GCC at all). IIUC, setting
-> > this to "depends on !COMPILE_TEST" won't work for randconfigs, yes?
-> 
-> Ah, I had not realized this is clang specific. Adding the !COMPILE_TEST
-> dependency would hide it for me, which may be good enough for me.
+> > Ah, I had not realized this is clang specific. Adding the !COMPILE_TEST
+> > dependency would hide it for me, which may be good enough for me.
+>
+> I thought COMPILE_TEST does not get set for randconfig?
 
-I thought COMPILE_TEST does not get set for randconfig?
+It does on my kernel, though I never submitted that patch ;-)
 
-> > Is there some better way to mark this as "known to have issues, please
-> > don't include in randconfig?"
-> >
-> > I'd like to keep it around so people can continue to work out the
-> > problems with it, but not have unexpecting folks trip over it. ;)
-> 
-> I've reverted that patch locally now and default-enabled for randconfigs.
-> Now that I have an otherwise clean build, this should provide me
-> with a full set of files that produce the warning. If the number is
-> small enough, I could try opening individual github issues.
-
-Okay, let me know if something needs changing. :)
-
--- 
-Kees Cook
+        Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202101061516.F0EA5F0%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1KUr-zOvxc0hN0yDC7r%2BHTM_FGrr5GkuSTTNchgQ0PzA%40mail.gmail.com.
