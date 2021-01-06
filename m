@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBXUM2X7QKGQEA32KYUQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBB4EN2X7QKGQEA2CL5VI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id E87422EB935
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Jan 2021 06:10:55 +0100 (CET)
-Received: by mail-io1-xd40.google.com with SMTP id m9sf1037836ioa.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Jan 2021 21:10:55 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609909854; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id BD1512EB93B
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Jan 2021 06:13:22 +0100 (CET)
+Received: by mail-pj1-x103b.google.com with SMTP id m9sf64061pji.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Jan 2021 21:13:22 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609910001; cv=pass;
         d=google.com; s=arc-20160816;
-        b=n+tZAZBl4l2JrSTIk6sOmFMlP+DzLYU53TF5cFWATkFMSS3L5C4kI7A4kQOj8+jEaX
-         mBr33KL/cQgs9Fa/8k7gB31XozwrYxgVsbWn81WHe91XhmtXqKHdr1/xX2/waFKrrj6+
-         nCFmGYZ+HnPA5BHjIiTV9oiLT4N1UAD4emAuu+r19nyzvsu7nrSE+Iwk5gAjQ1dmqbqi
-         MJlK4JKOjWRQBipHM1t8XIjcMO4BVQrnqU+7O0d8wuT25X4awLhPtU1xKg5bsKQ9SsrY
-         BP6k4vszesU8OP9QikFDBD0SVUqTyQnIktOzF+8Oe3tozuy4w4uLHT5mDBtNlKcPwazY
-         OqMw==
+        b=KLjxCOKdM/erlhs745Pg7tqztQh5tycO7rbzmGPddGDTFVZeKiWA9Y4UDxknlMAsPQ
+         0Giv+ZaIA2BvV5E1djuYSh5k6vu4eX007FNCHxGhAvVJ84pNFX0GV/S07Z7axssUD6b2
+         6GR2zFDYjNtXVG60kUf/u1tjN73XfGu6Jvfo3XtH5NtagncyYq2Vot7udgexp4mBoCG0
+         WiCozYsaicSdS8VcnJQE81QilgepAjlGW9zg62i8EMuHdoWhtVkKsMwYxHPmtWMpVU4Y
+         DNrkZ51smDy0ieI4uwdWqa+oK9ZpDhoXKKdN8nG3LCWakFHIyJXwG+9+NfbPx1qjjTIC
+         IeIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=I8MMjcTr4RdLXFbc+CheudG/vdaiF9QRCThrpiqkzsY=;
-        b=vMrUo1IiC+LJxllDCjknCALzGwz9xL8NgmDlDav8FLVvpWLbR2xi/3EQOI7pN7qC1g
-         xH0sNhq+SSRq2ST+Ii4iT11NQEh0yfefKhFQ9OaHM7VWp8BFWGRzrsqzT88DBtTX7zDr
-         e2bnb8XRCYrDErFctT7XlSLsTrMle4f1sBsZMANwNsYDvQBXP8nIr+cbdrPTbNzyAsEv
-         RdbdTfS8/IAcmFkviB6+oJFkmaCd5DMCYpDVZ9zp9fv/giV8rl9cHW7Sz1qChooK/ZE9
-         9ItXWDu1WnHaNL+ARP4B9I0U3DCT2N6FV3cBq6kYRBgJ7STmqMhTz/UqQ9zdsY7jIqwF
-         8axQ==
+        bh=hF9YzUX1jRySmM+H6Rs2XP+fAPnz/HP6cc0468GghxE=;
+        b=wMXdBvrburJjoofVAeFQ9T8c6Bybek1Nr7XW0RZnvXBTMGVenUcRcfAzhh+J2Xsd5t
+         Uj9GUHilhpiT4q0vZb8zl7eYiRHUiTvOIh5PIrn44AndSKZqq8oxU1VBDcVqYM5mixbv
+         WFOlw59qbX7pxFpOOhMhCfopXKeO7ABnnG5JG7M0kY5XsaBRmSR2FYYJhkI6v5sv96nj
+         3oZt8LXgOK6z0Z7xqhHQl1WT2EvSyA0mXTP2G0jE/2RWZsFWNYXmJNhzNymseXVjHXEh
+         UrNRgY7NwpbRBrsMTOLHBmmSOeWjastbjLXRcQbt4c+2eFX5TW5XCz/O8GUpB3hOvdwP
+         TWJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ScquwSv3;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b35 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kbCCrZh5;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b2b as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=I8MMjcTr4RdLXFbc+CheudG/vdaiF9QRCThrpiqkzsY=;
-        b=Yw2YzFBJviQGZjz+d3K2aHjsOc/GHFTfb9gKbxvJMIsr4kjO3Dpcnjp7m9Wyg7ldwT
-         AOz5s5P2MCEPdel2XKfuVcYto6r3P+NkEPj7MgCnzoF/bpynSvCmhVvELcnmBQni+OeZ
-         E3VByYltr76ImbKuddgUPMXNqm9LZ2R4alp1avdA3Mb+BsihaGLGhrKACO7yGnzSki76
-         UGFsqpe1dH1l4MMNxV9Ufj445Xeb8DYHx+mnqFTlz1qoNmJ85CM1FnaOE6AJ5jfWl0L/
-         NFLVRsjt4h1yWrxekIxaKk+EYwKcDA8HvZpaSQO+1jghNQjppfaUWbIP0U8UCzpmM2tq
-         4hnQ==
+        bh=hF9YzUX1jRySmM+H6Rs2XP+fAPnz/HP6cc0468GghxE=;
+        b=th7ECZIY5IPXc2oUB+IRk5qIdV2EtLeDxTV9ZQXLWqP1/ReXDnOvCvTKg9w2qsDOOB
+         GbvKJCULYC3+0ZgKyzS5puR5AF1QtbC67RizCyQ4c3x1s6+tybKvlfEfs6Ehy7B61djH
+         tCUhEzbCNZMclU72reZcvNuJnPp2PfgT7NuFh6mqGXfgWsXH7NyOg5vyJ5Vw1FO4Vu9r
+         Jv5/3iVhyhvYXmYYYzw6DR1BMjbzW8Isc6EkkHBDELxP0SGmae1zD+9MgfmQGXdI3CuK
+         koSTz4VPqH1qp7APzXTF9PrZF/jxsfwS6Y8cySTsvPlHgD4K+VksdFIqe3E/92maTav6
+         O4nA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=I8MMjcTr4RdLXFbc+CheudG/vdaiF9QRCThrpiqkzsY=;
-        b=Nb48IG++zUx8OHsYFJo/aoqtwERSH68hEw1PalJCpVSc5jakbsKtpPJTKEFWUIMf6i
-         zY5NceKQEkY/aAYY68kh+HOcD+ihz3jkWEvvd0mZQJTjssEe48p94O+CY6a7GdFf+RTw
-         3IlIGtUsQ9A0TwemukHVsbGLTV1n5v2Izo4JBJokwY9nzg7EJjhfM79m3BPRijuKlMme
-         h/FfJdFAJfH48rj+ihe57SMFdtBIwpkDOd9gQv+X9a2ZB+IOP/wvttHmJEw0TqlnhCMp
-         x/ThKP4bFymZqtssx2Nt9xPXmr46zaxtua5a9AEcdz9hSeL4q2LQSBIKDE63eB3Oqbvp
-         Lk6A==
+        bh=hF9YzUX1jRySmM+H6Rs2XP+fAPnz/HP6cc0468GghxE=;
+        b=YwGUGrAH1vl6FpvodLZoF/L3/ywv8UtYHwKGngWrrBmdt6IbFO1o0dZGbkGOaAjHQG
+         43+azGJ3AJxHmgi97JcdNPaQpHoXhWtl+iUIOfhom9bDR9lv+87ZQtNmd/ItRbtgx3fb
+         /bNeQtjHIr6yeSYXJ2yKQHDTzeR4tnvWRdV0OEEJEPPfyPx8qgbku/Xd1zDEdc0FCWpu
+         /RTfXulykQldWvqQ7aha3ru0e/q5sKBhNNWoSQOSx46+O/Juxq1rUm0LAkeVwq2W2qwi
+         N2N+qrMVV60GThcX1UHrnWy/2BCtkRG7usCM+9nNJr+E7AfCvvcrcE0yuzWot3lNgltE
+         q0lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -63,63 +63,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=I8MMjcTr4RdLXFbc+CheudG/vdaiF9QRCThrpiqkzsY=;
-        b=N+A81cmgDsowDZ00IotUs5xGd8Ge/0kW1mzkf0gcN8pVj8Fq0tHX5I2WyIs2b5knxr
-         bz5frHMMA9Suv9PtfjZgwlQzvdlrFmqmW7Ve1vx5jvakRmPor9SKjMK6RlhhcagpHreu
-         Uja6Rr0LJjDFOzHFNh47etkFf9fATJ6SuPoUlNhNqoQwkOaN25DEyq1kqx188wkO+Kgc
-         QsOECLU3jENISW5aBly6ypWy0dJceXpyWehKdfJzwo3rvRQq0TwZRuKuqTF+BQXPhowG
-         IEaJfAUjedwVyT0P3M2gFHtKpzQX96PtGfTFPH8GYcA1586xsN7OA5mYrdjXBj3VYK0I
-         mw+g==
+        bh=hF9YzUX1jRySmM+H6Rs2XP+fAPnz/HP6cc0468GghxE=;
+        b=mOZBgWr5U13hCWwMmRw+Zve6qq012xgaHZDCRNjfYKPSfdhXmjAf+z22P8j4PamX8U
+         j2K3aJD/LKU93E4MFtwurNywxcyD/XyHYBdXVPSc4xBGlzTyIXl+6uJQmirlfekTYzZa
+         U+WotkQwC2nRq02KsMwTy5IHvZTs95ITq52WjE73p63C+2p+fDf7hX+rd249KMttRn/I
+         RQsp2016dYAEr3Oc6XUrXYfhDKHtcOC/18tI4Qn55KaJI5Mh5W7Vyi1+dyzJabSxgVQS
+         TKFcUL8bxI1li6A5gQE4QQYpW5+I5EZuldBaNxgUDgGxoM5OD3jcTBE6JWJk0IFYzbi/
+         IOxA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530WWj2EfQRsfiEdz7jb3ePkael+WMqUlyQ+2MZzADYq6YqAOBmk
-	C+ys5maz7yQFEaLjdoQIGHc=
-X-Google-Smtp-Source: ABdhPJzgGTukTqDWisce5jRzQiuK6YudVjf7xuqRDnbBS2lEuSXZ2myug6MJVb92je2rO0rOQrDNDg==
-X-Received: by 2002:a92:d68f:: with SMTP id p15mr2655115iln.29.1609909854702;
-        Tue, 05 Jan 2021 21:10:54 -0800 (PST)
+X-Gm-Message-State: AOAM530FWcDoeJ7mjYtSdcnBPQNISGfJu7fkHcoq+8FTSHIKV2C3oum6
+	9P26Qk6DU7+CZX0QRaFOfOw=
+X-Google-Smtp-Source: ABdhPJzHW/a8p9zuoxQ6GCqmfHi0S4PnDl+2ulmmP9ht4CkkFJHINqfUqHqCa9fQu4gVilFGCamNHA==
+X-Received: by 2002:a63:c04b:: with SMTP id z11mr2679482pgi.74.1609910001010;
+        Tue, 05 Jan 2021 21:13:21 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:97d8:: with SMTP id k24ls261141ios.6.gmail; Tue, 05 Jan
- 2021 21:10:54 -0800 (PST)
-X-Received: by 2002:a5d:8b98:: with SMTP id p24mr1846489iol.7.1609909854182;
-        Tue, 05 Jan 2021 21:10:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609909854; cv=none;
+Received: by 2002:a63:6d0e:: with SMTP id i14ls737519pgc.8.gmail; Tue, 05 Jan
+ 2021 21:13:20 -0800 (PST)
+X-Received: by 2002:a63:ec4d:: with SMTP id r13mr2661609pgj.53.1609910000387;
+        Tue, 05 Jan 2021 21:13:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609910000; cv=none;
         d=google.com; s=arc-20160816;
-        b=kqlxniYna8GyGOtxlgoP4mA4dqcu7/SoYfVN4Vp7ESnnbhdwR2751+IMHNbGM5LV3x
-         KUodvZfXNMJ02PeRj2dNGRg5JdeBGKzTkEnO1MPmsujEQvrWV7nuuKUfeIVW9Wh/geod
-         kWnEWg6Yc4sl6D+CpWikZn8F3ymROoGGEfddlO8dpOCZsn/cFqorRQfC8LGfnmo2CylV
-         hzCOPECgolx2UadxXPOl7+99Y83Ze04ZkhwgL8IO/r/u1dMRZ8UQwE0l1f8B/k6Vtw9a
-         NXwSDUpkE/jSiUuyltJOWgFoGNO5r09eKLZC/8CtPmVHCcbItA241HZHHZFsBHzcvH1S
-         t9sw==
+        b=XJTC77GtTkSPK0JE7UceR5VjUrGtcp2fksd7EkxIeaW8+y18dW6NAc5raJky0upEce
+         aUXnw3JHAGoZ99zrGRloHESsqi5S8aOy/1eA5FK2dwURQtJVWpEl6O9Hhc+qWIBhTSGw
+         PK/pDuHbPiZSGxVZCfa2HpbMGHLo553yRVXr50nz2OB7yIvebqMoIggOnV1+PzpqHAqe
+         pFe6sElM51aKavHgAuuG4FndfmF5dtyLklHvH8OcOY/4CArspVdUzT/iVBAIbRubWI+o
+         8su6ehfOsA3RuF7V0Px0v3HNKoJFW7NVOQB+7embw+uJ7GgTmK8xsYrlYvnf9V3unDS/
+         LMqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=zXdX42ua40xKPxCS3alHiWCo/OZpqmT3ZMbLUhJVIoQ=;
-        b=Jd5S7HvMNBUelKG9HLpy0zb1xDhjhEFrk0A5fnZ+bPzWYZ976h8v5TWQENZ9Rvco4U
-         XjszUJft296TNLaRPhne2Eg9hMig/PqUtase424128j170qJI253beu2pzA6bz7q5F1a
-         cO9//7z5H86c1e1UJD1VOgKUOO3Obp0c6vtp4BNRz/ZJaTezuWDaVPI6Ju4aV8eKypdL
-         ivZTyaQiH8PbELjU1kB3DO6asRl3Wx3ZL+DJIeMY34rmvI5O729AkZUpBxvr9rxSqMe7
-         qAcgAgdiDqfcMzfIFsLL9vCaGnzVZj8XgxH5gxMQKqyuThDTsMr3DfLawvZYq3qY9W9l
-         xHsg==
+        bh=JQUlyOnlBcqYVUIlvxW8hwy4E/pavn1J3HXdQXV8Lvk=;
+        b=tg8Vxkj021H/w/mzGxuZrhpGH1QNwtPSMXnTPWcohq+ukys6LfZ19Y991vsw5nXcDC
+         5OkrNN9x7Yu0bE9U2wWOHFmxbwdLoaad3nLsYzcchG+52NE08dfr9YiGLt6DrbWpTaT2
+         22cDbXdSlYAJpqUo4BLEPlzBMvMXMBud140JPHQG/eAy8WFJxUUkKOYOSeUQSi+x5/4x
+         Q6SHsLyBwwXrR3K0tI3GO2OF71HT+2P/XnAmkw6BSdrekP2DkHMQgjPauz/PIPPuS3N6
+         Ms2T1aQg613ZgnnYF0/iTvM8BnT2X/xOdu5TLinNAKNl7jL4QO9gHRdCFKfyDnsfNPD9
+         44Hg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ScquwSv3;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b35 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=kbCCrZh5;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b2b as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb35.google.com (mail-yb1-xb35.google.com. [2607:f8b0:4864:20::b35])
-        by gmr-mx.google.com with ESMTPS id q4si86801iog.3.2021.01.05.21.10.54
+Received: from mail-yb1-xb2b.google.com (mail-yb1-xb2b.google.com. [2607:f8b0:4864:20::b2b])
+        by gmr-mx.google.com with ESMTPS id m13si126582pjg.3.2021.01.05.21.13.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Jan 2021 21:10:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b35 as permitted sender) client-ip=2607:f8b0:4864:20::b35;
-Received: by mail-yb1-xb35.google.com with SMTP id f6so1702238ybq.13
-        for <clang-built-linux@googlegroups.com>; Tue, 05 Jan 2021 21:10:54 -0800 (PST)
-X-Received: by 2002:a25:d44:: with SMTP id 65mr3853240ybn.260.1609909853620;
- Tue, 05 Jan 2021 21:10:53 -0800 (PST)
+        Tue, 05 Jan 2021 21:13:20 -0800 (PST)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b2b as permitted sender) client-ip=2607:f8b0:4864:20::b2b;
+Received: by mail-yb1-xb2b.google.com with SMTP id b64so1742880ybg.7
+        for <clang-built-linux@googlegroups.com>; Tue, 05 Jan 2021 21:13:20 -0800 (PST)
+X-Received: by 2002:a25:818e:: with SMTP id p14mr3703964ybk.425.1609909999694;
+ Tue, 05 Jan 2021 21:13:19 -0800 (PST)
 MIME-Version: 1.0
-References: <cover.1609855479.git.sean@mess.org> <13cfab3593e0ea960ca732c259bfa60bf3c16b3b.1609855479.git.sean@mess.org>
-In-Reply-To: <13cfab3593e0ea960ca732c259bfa60bf3c16b3b.1609855479.git.sean@mess.org>
+References: <cover.1609855479.git.sean@mess.org> <67ffe6998af5cf88bdda6eaa1e6b085db1e093ed.1609855479.git.sean@mess.org>
+In-Reply-To: <67ffe6998af5cf88bdda6eaa1e6b085db1e093ed.1609855479.git.sean@mess.org>
 From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Tue, 5 Jan 2021 21:10:42 -0800
-Message-ID: <CAEf4BzZgPx7YZ_S6a142gu+0XqxOq5-0=iMnAr1-DDJqyNOQrg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] btf: add support for ints larger than 128 bits
+Date: Tue, 5 Jan 2021 21:13:09 -0800
+Message-ID: <CAEf4BzZ_KLOiqR1jdcekui5uWTFjO9mt8+7UG8DKbUEdq0SHVQ@mail.gmail.com>
+Subject: Re: [PATCH v3 3/4] bpftool: add support for ints larger than 128 bits
 To: Sean Young <sean@mess.org>
 Cc: Yonghong Song <yhs@fb.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
 	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, 
@@ -132,9 +132,9 @@ Cc: Yonghong Song <yhs@fb.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Bork
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: andrii.nakryiko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=ScquwSv3;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=kbCCrZh5;       spf=pass
  (google.com: domain of andrii.nakryiko@gmail.com designates
- 2607:f8b0:4864:20::b35 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+ 2607:f8b0:4864:20::b2b as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -153,9 +153,6 @@ On Tue, Jan 5, 2021 at 6:45 AM Sean Young <sean@mess.org> wrote:
 > clang supports arbitrary length ints using the _ExtInt extension. This
 > can be useful to hold very large values, e.g. 256 bit or 512 bit types.
 >
-> Larger types (e.g. 1024 bits) are possible but I am unaware of a use
-> case for these.
->
 > This requires the _ExtInt extension enabled in clang, which is under
 > review.
 >
@@ -164,202 +161,23 @@ On Tue, Jan 5, 2021 at 6:45 AM Sean Young <sean@mess.org> wrote:
 >
 > Signed-off-by: Sean Young <sean@mess.org>
 > ---
->  Documentation/bpf/btf.rst      |  4 +--
->  include/uapi/linux/btf.h       |  2 +-
->  kernel/bpf/btf.c               | 54 ++++++++++++++++++++++++++++------
->  tools/include/uapi/linux/btf.h |  2 +-
->  4 files changed, 49 insertions(+), 13 deletions(-)
+
+all the same comments as in patch #1
+
+>  tools/bpf/bpftool/btf_dumper.c | 40 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 40 insertions(+)
 >
-> diff --git a/Documentation/bpf/btf.rst b/Documentation/bpf/btf.rst
-> index 44dc789de2b4..784f1743dbc7 100644
-> --- a/Documentation/bpf/btf.rst
-> +++ b/Documentation/bpf/btf.rst
-> @@ -132,7 +132,7 @@ The following sections detail encoding of each kind.
->
->    #define BTF_INT_ENCODING(VAL)   (((VAL) & 0x0f000000) >> 24)
->    #define BTF_INT_OFFSET(VAL)     (((VAL) & 0x00ff0000) >> 16)
-> -  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000000ff)
-> +  #define BTF_INT_BITS(VAL)       ((VAL)  & 0x000003ff)
->
->  The ``BTF_INT_ENCODING`` has the following attributes::
->
-> @@ -147,7 +147,7 @@ pretty print. At most one encoding can be specified for the int type.
->  The ``BTF_INT_BITS()`` specifies the number of actual bits held by this int
->  type. For example, a 4-bit bitfield encodes ``BTF_INT_BITS()`` equals to 4.
->  The ``btf_type.size * 8`` must be equal to or greater than ``BTF_INT_BITS()``
-> -for the type. The maximum value of ``BTF_INT_BITS()`` is 128.
-> +for the type. The maximum value of ``BTF_INT_BITS()`` is 512.
->
->  The ``BTF_INT_OFFSET()`` specifies the starting bit offset to calculate values
->  for this int. For example, a bitfield struct member has:
-> diff --git a/include/uapi/linux/btf.h b/include/uapi/linux/btf.h
-> index 5a667107ad2c..1696fd02b302 100644
-> --- a/include/uapi/linux/btf.h
-> +++ b/include/uapi/linux/btf.h
-> @@ -84,7 +84,7 @@ struct btf_type {
->   */
->  #define BTF_INT_ENCODING(VAL)  (((VAL) & 0x0f000000) >> 24)
->  #define BTF_INT_OFFSET(VAL)    (((VAL) & 0x00ff0000) >> 16)
-> -#define BTF_INT_BITS(VAL)      ((VAL)  & 0x000000ff)
-> +#define BTF_INT_BITS(VAL)      ((VAL)  & 0x000003ff)
->
->  /* Attributes stored in the BTF_INT_ENCODING */
->  #define BTF_INT_SIGNED (1 << 0)
-> diff --git a/kernel/bpf/btf.c b/kernel/bpf/btf.c
-> index 8d6bdb4f4d61..44bc17207e9b 100644
-> --- a/kernel/bpf/btf.c
-> +++ b/kernel/bpf/btf.c
-> @@ -166,7 +166,8 @@
->   *
->   */
->
-> -#define BITS_PER_U128 (sizeof(u64) * BITS_PER_BYTE * 2)
-> +#define BITS_PER_U128 128
-> +#define BITS_PER_U512 512
->  #define BITS_PER_BYTE_MASK (BITS_PER_BYTE - 1)
->  #define BITS_PER_BYTE_MASKED(bits) ((bits) & BITS_PER_BYTE_MASK)
->  #define BITS_ROUNDDOWN_BYTES(bits) ((bits) >> 3)
-> @@ -1907,9 +1908,9 @@ static int btf_int_check_member(struct btf_verifier_env *env,
->         nr_copy_bits = BTF_INT_BITS(int_data) +
->                 BITS_PER_BYTE_MASKED(struct_bits_off);
->
-> -       if (nr_copy_bits > BITS_PER_U128) {
-> +       if (nr_copy_bits > BITS_PER_U512) {
->                 btf_verifier_log_member(env, struct_type, member,
-> -                                       "nr_copy_bits exceeds 128");
-> +                                       "nr_copy_bits exceeds 512");
->                 return -EINVAL;
+> diff --git a/tools/bpf/bpftool/btf_dumper.c b/tools/bpf/bpftool/btf_dumper.c
+> index 0e9310727281..8b5318ec5c26 100644
+> --- a/tools/bpf/bpftool/btf_dumper.c
+> +++ b/tools/bpf/bpftool/btf_dumper.c
+> @@ -271,6 +271,41 @@ static void btf_int128_print(json_writer_t *jw, const void *data,
 >         }
->
-> @@ -1963,9 +1964,9 @@ static int btf_int_check_kflag_member(struct btf_verifier_env *env,
->
->         bytes_offset = BITS_ROUNDDOWN_BYTES(struct_bits_off);
->         nr_copy_bits = nr_bits + BITS_PER_BYTE_MASKED(struct_bits_off);
-> -       if (nr_copy_bits > BITS_PER_U128) {
-> +       if (nr_copy_bits > BITS_PER_U512) {
->                 btf_verifier_log_member(env, struct_type, member,
-> -                                       "nr_copy_bits exceeds 128");
-> +                                       "nr_copy_bits exceeds 512");
->                 return -EINVAL;
->         }
->
-> @@ -2012,9 +2013,9 @@ static s32 btf_int_check_meta(struct btf_verifier_env *env,
->
->         nr_bits = BTF_INT_BITS(int_data) + BTF_INT_OFFSET(int_data);
->
-> -       if (nr_bits > BITS_PER_U128) {
-> -               btf_verifier_log_type(env, t, "nr_bits exceeds %zu",
-> -                                     BITS_PER_U128);
-> +       if (nr_bits > BITS_PER_U512) {
-> +               btf_verifier_log_type(env, t, "nr_bits exceeds %u",
-> +                                     BITS_PER_U512);
->                 return -EINVAL;
->         }
->
-> @@ -2080,6 +2081,37 @@ static void btf_int128_print(struct btf_show *show, void *data)
->                                      lower_num);
 >  }
->
-> +static void btf_bigint_print(struct btf_show *show, void *data, u16 nr_bits)
-> +{
-> +       /* data points to 256 or 512 bit int type */
-> +       char buf[129];
-> +       int last_u64 = nr_bits / 64 - 1;
-> +       bool seen_nonzero = false;
-> +       int i;
-> +
-> +       for (i = 0; i <= last_u64; i++) {
-> +#ifdef __BIG_ENDIAN_BITFIELD
-> +               u64 v = ((u64 *)data)[i];
-> +#else
-> +               u64 v = ((u64 *)data)[last_u64 - i];
-> +#endif
-> +               if (!seen_nonzero) {
-> +                       if (!v && i != last_u64)
-> +                               continue;
-> +
-> +                       snprintf(buf, sizeof(buf), "%llx", v);
-> +
-> +                       seen_nonzero = true;
-> +               } else {
-> +                       size_t off = strlen(buf);
 
-this is wasteful, snprintf() returns number of characters printed, so
-you can maintain offset properly
-
-> +
-> +                       snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
-> +               }
-> +       }
-> +
-> +       btf_show_type_value(show, "0x%s", buf);
-> +}
-
-seen_nonzero is a bit convoluted, two simple loops might be more
-straightforward:
-
-u64 v;
-int off;
-
-/* find first non-zero u64 (or stop on the last one regardless) */
-for (i = 0; i < last_u64; i++) {
-  v = ...;
-  if (!v)
-    continue;
-}
-/* print non-zero or zero, but last u64 */
-off = snprintf(buf, sizeof(buf), "%llx", v);
-/* print the rest with zero padding */
-for (i++; i <= last_u64; i++) {
-  v = ...;
-  off += snprintf(buf + off, sizeof(buf) - off, "%016llx", v);
-}
-
-> +
->  static void btf_int128_shift(u64 *print_num, u16 left_shift_bits,
->                              u16 right_shift_bits)
->  {
-> @@ -2172,7 +2204,7 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
->         u32 int_data = btf_type_int(t);
->         u8 encoding = BTF_INT_ENCODING(int_data);
->         bool sign = encoding & BTF_INT_SIGNED;
-> -       u8 nr_bits = BTF_INT_BITS(int_data);
-> +       u16 nr_bits = BTF_INT_BITS(int_data);
->         void *safe_data;
->
->         safe_data = btf_show_start_type(show, t, type_id, data);
-> @@ -2186,6 +2218,10 @@ static void btf_int_show(const struct btf *btf, const struct btf_type *t,
->         }
->
->         switch (nr_bits) {
-> +       case 512:
-> +       case 256:
-> +               btf_bigint_print(show, safe_data, nr_bits);
-> +               break;
->         case 128:
->                 btf_int128_print(show, safe_data);
-
-btf_bigint_print() supersedes btf_int128_print(), why maintain both?
-
->                 break;
-> diff --git a/tools/include/uapi/linux/btf.h b/tools/include/uapi/linux/btf.h
-> index 5a667107ad2c..1696fd02b302 100644
-> --- a/tools/include/uapi/linux/btf.h
-> +++ b/tools/include/uapi/linux/btf.h
-> @@ -84,7 +84,7 @@ struct btf_type {
->   */
->  #define BTF_INT_ENCODING(VAL)  (((VAL) & 0x0f000000) >> 24)
->  #define BTF_INT_OFFSET(VAL)    (((VAL) & 0x00ff0000) >> 16)
-> -#define BTF_INT_BITS(VAL)      ((VAL)  & 0x000000ff)
-> +#define BTF_INT_BITS(VAL)      ((VAL)  & 0x000003ff)
->
->  /* Attributes stored in the BTF_INT_ENCODING */
->  #define BTF_INT_SIGNED (1 << 0)
-> --
-> 2.29.2
->
+[...]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzZgPx7YZ_S6a142gu%2B0XqxOq5-0%3DiMnAr1-DDJqyNOQrg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzZ_KLOiqR1jdcekui5uWTFjO9mt8%2B7UG8DKbUEdq0SHVQ%40mail.gmail.com.
