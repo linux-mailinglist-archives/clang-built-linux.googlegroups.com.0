@@ -1,127 +1,125 @@
-Return-Path: <clang-built-linux+bncBAABBJP62X7QKGQEGHF62UY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBQGW237QKGQEG4V2BHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id E74A12EBB93
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Jan 2021 10:13:10 +0100 (CET)
-Received: by mail-pl1-x63d.google.com with SMTP id x12sf1357282plr.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Jan 2021 01:13:10 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609924389; cv=pass;
+Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E7F12EBD96
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Jan 2021 13:21:22 +0100 (CET)
+Received: by mail-ot1-x337.google.com with SMTP id x15sf1296964otp.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Jan 2021 04:21:22 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609935681; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DtY/8yGcPzEu70twCSCP7kpvTVkfPZi+2QEoW+OnZlgUJcKEwLXhObpLbGEV0BF+Vf
-         OQo4wtaZQI2PY7xil4QOBrafeICgMRbyBSAmqJcLX8tfm2MQq96IaiFKulFAkiXzjs41
-         loWQVGZujuKo0sgc66QfKdyYiR7+v8qJhYKzjFNvS1WZWxgzzP1MpgVqjs6rQZte4IKK
-         1TCu6g5IEXFdD5MJkPw1UvFWgEBFt8FA8P7hzvZyhoxbwu5ZU1Mbr9/uCYquPfRKU8Du
-         Qy3nB+iq+0ak7bcbppPWS/5Y6/b1qK1wmrHiVNJG5Cwt0YCkcIvWd/EHG+61HShDTJIy
-         6A9w==
+        b=dIFsIWF+TikfZRu9Y8J1S4BBlDN7lgdU/r5TnmABqouKLokFpGL3CLuYlmiIuZPM3p
+         dO5H8iHQD3yvPL6OunxhOV8GbKaSTrmU9RcCgUlfjVf4aAyqm0+hLzo4Qt7ed2ZHgL3U
+         Vtg75IStf1xmNH4QJaTO7p4HxqK8Pav1qi/Qfjek5NdqSBY8EAjjvymMoUpBJz1AnkvC
+         uQb9zZLdEc8TVEVmojNh9X42/ie48DdjCBBh28vcONFofasDr8BZsOM+gB7wDr2/dk3D
+         iJJcCh78uCZ4LcYlQo9I0AkYVyE+SE1BIO60GVqtp3drtDVJtDow9xrmCyt5yuu5iIQG
+         tmdg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=eEz5PNyKd6tnlf98lv1wGYmDYO4UdR2hkfue8Lsctgk=;
-        b=rt/JGAknJNVm5edbB3ZP/UY0eBQ2njNT2rZbGyRdBKzxp3stxPiSE23MpfTtUjBDdM
-         tYD6A1++VUrCzfZd66fApKGfs0ULmnIlW1VTVhegeL2dyZCPOTbOH2zRQOcwSkFZN5nY
-         7S6eATPu9l0whO4v8i6pG4cdz3DEWji2odQYSVrs4CPmH1LfwhdPTNM+lqKG+cfxAgzj
-         6S6OOnj5KKOv0YxUAg/XYGPfZyXtaBkmukVyfYA7Tk+WvOY1DAaeunS3hJq/f3SB1iJC
-         WZsjnkemnCBmP4WNYIFQ1mLSGvm8+3o5YkMt0xOU9OUgz+RObf3cv5OzumDf42lkTETd
-         Fgrg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=4M8WE+Ccfyt0qKyPYFNC4gvuQAdACDvGPqO+7dMusw0=;
+        b=c/KYgSj7cm5pJwd9IxRiY85g6RhXuvodU24Q2KVO8mfT5W1qmAM7yE4rlf/w4y6m1k
+         K5jfblITqWGwPpI6kbWRSoUueaLSEJYSezBncF1DZUeGfxLEAwqdLQ49MBRLCoxan5JY
+         Q7WaFZBdQxPDDyV7AXtqyaAp5h/efSyUmtsQs0aeUXsCIVcUXkcl6XDyJpPv/e/Hts9Z
+         BQS3PL/OgYb9dFcTKkcV/WL8k/1yMgtIkCH7vYkkfQVY7d3Br5UYJvF56chGKGiN6ssp
+         VlcjBpGJONUD5xpydHXK6aqR1uuD0Yr7oAojibIp6V11P1XR7Eg1j/+uQBwU2pLA6l+y
+         xA9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qAVGSrCc;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="EFqt/4YE";
+       spf=pass (google.com: domain of kabel@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=kabel@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=eEz5PNyKd6tnlf98lv1wGYmDYO4UdR2hkfue8Lsctgk=;
-        b=cJICz38nJX9lCON9IeluL24mVnztH7lDR2RpaCecztiRr65W0xAQmgCqD6MEH6nYda
-         07mGc5XGNyW4FihxvNT9EGLG8IlbequkBk2lf5I+LEXhVU00tK5HKssz81BqCl+P242l
-         jMpy/nPHytk2lWikwCqYauiwNFiBQ/pBGXdO/B7luDVlSN+ksvsvDhXafKrVPqMRG+gR
-         G0+pjGGnmiyrF3oGgWb4KzCr6N5bCBl86t/Mj5UDvUpXhkcwtPq+X/whlGuAnqZIVNOH
-         ttYIcdhqT0d0extBTARMCs1Pi8MZoPzOYAB6RRE4KTPchqqc/gO1SHFgh70UDh7oRxuK
-         EGyA==
+        bh=4M8WE+Ccfyt0qKyPYFNC4gvuQAdACDvGPqO+7dMusw0=;
+        b=GZzJu8JSS9kafx9f4J+x9ZUqFmTgHm7RyU1N/s20zBq8N0obV9682r+RjbZQPRRyWm
+         Y4wPykfxVi+E+mPr3u9mkKr1QVZK25cwH629HhzhFsG1ZYES9zO93PtGUyH3ggotIYjN
+         e1nofPG8gPMS1gfaQ1XMfQb44IjIp+fbNYWxU7TozpnL/ATeeHVrPkHkeKHtbzsJXWxX
+         Q/7/eCxMMPaa41dRsN4IAtYJhrK13erv8/em+b8uta6Kzi+qeqMBxec+YwlWkNa9L42Y
+         nKfXviQvKquc2OssWF25dvlceKAUcSRJKcfEPCiR6HrSRp9O/JF57aGpJvkdeenLnDBw
+         1Wvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=eEz5PNyKd6tnlf98lv1wGYmDYO4UdR2hkfue8Lsctgk=;
-        b=g4nBA4ms8eTYi99PqENIhnVYLcP5e+ibh9s7lTPxzDsRZiI88DLRD91nxYEV58RDKG
-         Z1gntBDeVZSSyeqIrBvEQBrx34Z1Uqrilgl28nqG6fRlgK6qWeivvQserodWK5ENCNs1
-         cDebbKi0S1ZTqPNdFCej71MkjCGwiWneG0Q1HANyDE/gl+VCmp021o52zg3gWkScyBlF
-         EoPOnz8ZUfDSJHsdgGXJQDQ2IbQBz0sNnllHRp2gDV1uWrfcVIPel3OHpzoct5WMDIjU
-         5Zb8dkUnsQez/aTs5L7ytkHcGyQoGTjMK0vslHjyiKi0VxNDxPkhinKz3PXCGO13BMDw
-         l9JA==
+        bh=4M8WE+Ccfyt0qKyPYFNC4gvuQAdACDvGPqO+7dMusw0=;
+        b=oGVVw5o7l68+GiIfolk+q/PG7ZUrxIkc+ZqwR+8QYnko6lz5cI/jZLlcNTRbw1eVoB
+         B5cE2a9bKciHveIcLIftbOm8HcwucQgVQZAbOsbC3aVDisMhp788oWKQXVDA/B1hgVGF
+         ndln74juIFBpVioqkILR1eDvldNe9qoFPpAJOLE41U90g6xuaSHcHUUiVjwkVWSCTY1T
+         vsQF0mq4uaa15yszIuDFdMzRVpz0B2c9BrLSxzBF9ToggsJAig6QC3NEFGeiIwHD5bQh
+         evU9R/3IwaqEkooyO3FQbX859+YShjLzsJO0f2BINVvqVjGSjK7ZuVtctZ7gYHMKl8Sg
+         V00w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5308VVNWBsPxN4ENCuX4xr80Xyjw0vAHPAiHs11Bt6KgcwEO+aQO
-	8QSzCdwB625FNl4LX9Lr4+4=
-X-Google-Smtp-Source: ABdhPJy0zENNKOAG1FLcnjvaoR0T3jzjgv1QtXvp7GTTNtqcNZ6ZW5UtDVB2ko0lAgUhLXpBE+J3iA==
-X-Received: by 2002:a17:902:9a90:b029:da:ba07:efdc with SMTP id w16-20020a1709029a90b02900daba07efdcmr3702138plp.1.1609924389687;
-        Wed, 06 Jan 2021 01:13:09 -0800 (PST)
+X-Gm-Message-State: AOAM530jt2j14LgFyjKlwhg5eewb/pm4Bd24vONlMdEq7iYktic9vf4z
+	osK4thNvq0+4rb+0n/h+0O8=
+X-Google-Smtp-Source: ABdhPJy9h45lLlNulq4FzwQrOjqaSSZydQOlu1OaEmfOooogN77M5xihUlEhzOvxH1CWhADiHddMkA==
+X-Received: by 2002:a9d:2663:: with SMTP id a90mr2938093otb.218.1609935680906;
+        Wed, 06 Jan 2021 04:21:20 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:6d0e:: with SMTP id i14ls1015824pgc.8.gmail; Wed, 06 Jan
- 2021 01:13:09 -0800 (PST)
-X-Received: by 2002:a63:c04b:: with SMTP id z11mr3571006pgi.74.1609924389195;
-        Wed, 06 Jan 2021 01:13:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609924389; cv=none;
+Received: by 2002:a9d:60cc:: with SMTP id b12ls745809otk.0.gmail; Wed, 06 Jan
+ 2021 04:21:20 -0800 (PST)
+X-Received: by 2002:a9d:3e2:: with SMTP id f89mr2947710otf.278.1609935680510;
+        Wed, 06 Jan 2021 04:21:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609935680; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ka3l8X4J7/3A1T/DAl9qlUpEFRH3z08MpNP9CybfAvk52K/vRoACAWOGm7/hzoJYWB
-         +U82t3T1/4dWupAU8iGhQ9wmRAINZnRAQGajYCkv4TRTsunyd37phHYkCswje/F4UzGD
-         vru6SZNeGbHNbiVWC3wiGspbkpqSbfIzR0su1dDdIRGt2xaqDgVP49Xa2i1ozq5L9Wm+
-         qMYcfhPW3NsrVAc7T8UrJyOqB+GNuRjFX6VuZD3LFJ2TIZAEkbEA2p9O7spV4q2lKHvU
-         I16KmtZgbC8cs3y2H/sFUDEUm8zz+PQ4X+xOhRrO4OvkOo8nQRUSTraUvBudV2iZYHKk
-         +c3A==
+        b=OKVaYb67AVq9VDvqt/1AQgO2J3Dq+Pp5b3cvFZuQJfcsf8YKqi16v/qFnk4vG61RHT
+         8frmbOUhufQWIOnP1CPntYDVUv3CYl3qw6MN+hxq8BBjy/i61F+mvFnjtOQmTY40HXWq
+         2cucsVOfQPSZFur96cxoVrm6e6OImxNMQzLqvGMWrQOk57cdZjEJX/2KBgHkiWaqv1M2
+         6ZFQrBVGSE+qh5OhNYlVev+BkjLd6HeY1BnuoyqzUCE3419iCl30C0oSJbwPxwsTTPqE
+         VNEljvXNlSs9wl3QfdssagiDXAfYnVX9UvUKZUsMLgpKEepub1+jDtwjZIqL8Sfrb6WE
+         puNA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ICMP2u3WRFc/tixGCdtSPzQuRGVhVQSpv0A6xqD2xqY=;
-        b=iMn6LrIvS/uR5PHac4LK6tBIjkd8rS0xGWtJyv2fNC39rIUkMxGwczl1lDZMO85dTJ
-         Hd1bkuW8BvN6D3qn16ot99xHpil3MBQ5k4odxu8VVx0pa/BynIXTfMel99AmZZGBzhSQ
-         djVqBqtpkW8mc9u4kU+ltzISa2j97w/Ml1QUwFWKwXIu6Z8a/oeLUWam4PV9wvFPKYwE
-         WxuQX9Ta1OKRDASqUsDTn+6eXy9mMi2ioNc7/j2yODZRDuQ02ZPRWdNAaNL17jbRF8GI
-         RnCf89jO1hZR4AoWH9c5Ulu/EX8KYa1SQGAROsLLK9z6paIxnMsC6v9kg4cwjzlSC2K/
-         6xBw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=5fqd+F8GGf2pDjoRDjeyDwnS15GP/qEkex7sHyXxmbc=;
+        b=nbdJ5Az+kfW7MfiqAESqf5i9VpXBL9TaO++4F4iTlwcc+/D3/lZxhAIzqMG6Kp9Rx1
+         CTa0Rmq31mJhhMPEJ9VV3qBoA1DFFPNkmIH3cOqcu/BeHnjhAwZiGaIPeRTRcYMSq/uN
+         VW8u+fbKgEKxs9JVRjTMcNbN3Z7Yr3mqpUPkpGjFjxU6ZEIG1fmNfQI2u5uqpoTEQ+xU
+         ICXWncBjOKG+lsGm3LpZSmAj8MBraogM1Lgq6hB9B7PiYoY9wrAQuKicA9zev9BHfVO4
+         EMDxetShDWUQUBy4BWTD9H0WBBFYeLbDB/ZJVh3werNJf28DONTVQKMpF+bh3JOvQqAu
+         EmgA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qAVGSrCc;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="EFqt/4YE";
+       spf=pass (google.com: domain of kabel@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=kabel@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 13si159670pgf.0.2021.01.06.01.13.09
+        by gmr-mx.google.com with ESMTPS id f7si118298otf.3.2021.01.06.04.21.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 06 Jan 2021 01:13:09 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9DB9F2310B
-	for <clang-built-linux@googlegroups.com>; Wed,  6 Jan 2021 09:13:08 +0000 (UTC)
-Received: by mail-oi1-f179.google.com with SMTP id 9so2788341oiq.3
-        for <clang-built-linux@googlegroups.com>; Wed, 06 Jan 2021 01:13:08 -0800 (PST)
-X-Received: by 2002:aca:44d:: with SMTP id 74mr2623761oie.4.1609924387851;
- Wed, 06 Jan 2021 01:13:07 -0800 (PST)
+        Wed, 06 Jan 2021 04:21:20 -0800 (PST)
+Received-SPF: pass (google.com: domain of kabel@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B13ED2311D;
+	Wed,  6 Jan 2021 12:21:16 +0000 (UTC)
+Date: Wed, 6 Jan 2021 13:20:50 +0100
+From: Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>
+To: Pavana Sharma <pavana.sharma@digi.com>
+Cc: andrew@lunn.ch, ashkan.boldaji@digi.com,
+ clang-built-linux@googlegroups.com, davem@davemloft.net,
+ devicetree@vger.kernel.org, f.fainelli@gmail.com,
+ gregkh@linuxfoundation.org, kbuild-all@lists.01.org, kuba@kernel.org,
+ linux-kernel@vger.kernel.org, lkp@intel.com, netdev@vger.kernel.org,
+ robh+dt@kernel.org, vivien.didelot@gmail.com
+Subject: Re: [net-next PATCH v12 4/4] net: dsa: mv88e6xxx: Add support for
+ mv88e6393x  family of Marvell
+Message-ID: <20210106132050.4f0875c7@kernel.org>
+In-Reply-To: <20210106004530.22197-1-pavana.sharma@digi.com>
+References: <20210105131343.4d0fff05@nic.cz>
+	<20210106004530.22197-1-pavana.sharma@digi.com>
+X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20201230154749.746641-1-arnd@kernel.org> <CANpmjNNGmbgg_pFMC6X_6vZcj53jy7PsNyZAC88rOQC5zrOiFw@mail.gmail.com>
- <20210104223336.GA2562866@ubuntu-m3-large-x86> <CAK8P3a3J1HGia3cPy+ArFQGzQWj1gy8bx7DdjnRFE=1+JmsrKw@mail.gmail.com>
-In-Reply-To: <CAK8P3a3J1HGia3cPy+ArFQGzQWj1gy8bx7DdjnRFE=1+JmsrKw@mail.gmail.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Wed, 6 Jan 2021 10:12:51 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a01iSXxc+05sTtSWvxSYX=g4J1vK-nfnn5oNkR8FO_OTQ@mail.gmail.com>
-Message-ID: <CAK8P3a01iSXxc+05sTtSWvxSYX=g4J1vK-nfnn5oNkR8FO_OTQ@mail.gmail.com>
-Subject: Re: [PATCH] ubsan: disable unsigned-integer-overflow sanitizer with clang
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Marco Elver <elver@google.com>, Kees Cook <keescook@chromium.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, George Popescu <georgepope@android.com>, 
-	Stephen Rothwell <sfr@canb.auug.org.au>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@kernel.org
+X-Original-Sender: kabel@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=qAVGSrCc;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ header.i=@kernel.org header.s=k20201202 header.b="EFqt/4YE";       spf=pass
+ (google.com: domain of kabel@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=kabel@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -135,67 +133,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 5, 2021 at 10:25 AM Arnd Bergmann <arnd@kernel.org> wrote:
->
-> On Mon, Jan 4, 2021 at 11:33 PM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
-> > On Wed, Dec 30, 2020 at 05:13:03PM +0100, Marco Elver wrote:
-> > > On Wed, 30 Dec 2020 at 16:47, Arnd Bergmann <arnd@kernel.org> wrote:
-> > > >
-> > > > From: Arnd Bergmann <arnd@arndb.de>
-> > > >
-> > > > Building ubsan kernels even for compile-testing introduced these
-> > > > warnings in my randconfig environment:
-> > > >
-> > > > crypto/blake2b_generic.c:98:13: error: stack frame size of 9636 bytes in function 'blake2b_compress' [-Werror,-Wframe-larger-than=]
-> > > > static void blake2b_compress(struct blake2b_state *S,
-> > > > crypto/sha512_generic.c:151:13: error: stack frame size of 1292 bytes in function 'sha512_generic_block_fn' [-Werror,-Wframe-larger-than=]
-> > > > static void sha512_generic_block_fn(struct sha512_state *sst, u8 const *src,
-> > > > lib/crypto/curve25519-fiat32.c:312:22: error: stack frame size of 2180 bytes in function 'fe_mul_impl' [-Werror,-Wframe-larger-than=]
-> > > > static noinline void fe_mul_impl(u32 out[10], const u32 in1[10], const u32 in2[10])
-> > > > lib/crypto/curve25519-fiat32.c:444:22: error: stack frame size of 1588 bytes in function 'fe_sqr_impl' [-Werror,-Wframe-larger-than=]
-> > > > static noinline void fe_sqr_impl(u32 out[10], const u32 in1[10])
-> > > >
-> > > > Further testing showed that this is caused by
-> > > > -fsanitize=unsigned-integer-overflow.
-> > > >
-> > > > The one in blake2b immediately overflows the 8KB stack area on 32-bit
-> > > > architectures, so better ensure this never happens by making this
-> > > > option gcc-only.
-> >
-> > This patch also fixes the failed BUILD_BUG issue in mm/mremap.c that you
-> > sent a patch for [1], along with a couple of other issues I see such as:
->
-> I'm fairly sure I still saw that BUILD_BUG() even after I had applied this
-> patch, I would guess that one just depends on inlining decisions that
-> are influenced by all kinds of compiler options including
-> -fsanitize=unsigned-integer-overflow, so it becomes less likely.
->
-> I'll revert my other patch in the randconfig tree to see if it comes back.
+On Wed,  6 Jan 2021 10:45:30 +1000
+Pavana Sharma <pavana.sharma@digi.com> wrote:
 
-The qcom/gpi.c failure still happens with this patch applied:
+> Thanks Marek for catching this.
+> 
+> I will have a closer look and update the patchset.
 
-In file included from /git/arm-soc/drivers/dma/qcom/gpi.c:8:
-In function 'field_multiplier',
-    inlined from 'gpi_update_reg' at
-/git/arm-soc/include/linux/bitfield.h:124:17:
-/git/arm-soc/include/linux/bitfield.h:119:3: error: call to
-'__bad_mask' declared with attribute error: bad bitfield mask
-  119 |   __bad_mask();
-      |   ^~~~~~~~~~~~
-In function 'field_multiplier',
-    inlined from 'gpi_update_reg' at
-/git/arm-soc/include/linux/bitfield.h:154:1:
-/git/arm-soc/include/linux/bitfield.h:119:3: error: call to
-'__bad_mask' declared with attribute error: bad bitfield mask
-  119 |   __bad_mask();
-      |   ^~~~~~~~~~~~
+I also sent a reply patch with subject
+  "patch fixing mv88e6393x SERDES IRQ for Pavana's series"
 
-See https://pastebin.com/8UH6x4A2 for the .config
+it contains the changes necessary to your series. Please look at that.
+You can apply it to your commit via
+  patch -p1 <patch_from_marek.patch
+  git commit --amend drivers/net/dsa/mv88e6xxx/{chip.c,serdes.c,serdes.h}
 
-       Arnd
+Marek
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a01iSXxc%2B05sTtSWvxSYX%3Dg4J1vK-nfnn5oNkR8FO_OTQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210106132050.4f0875c7%40kernel.org.
