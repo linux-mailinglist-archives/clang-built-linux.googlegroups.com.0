@@ -1,149 +1,139 @@
-Return-Path: <clang-built-linux+bncBCU77JVZ7MCBBCG5277QKGQEYXWW47I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDLIXLMFVAERBA7M277QKGQEMRCMXHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id EECF12EC1C1
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Jan 2021 18:08:24 +0100 (CET)
-Received: by mail-wm1-x340.google.com with SMTP id s185sf368006wme.0
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Jan 2021 09:08:24 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1609952904; cv=pass;
+Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
+	by mail.lfdr.de (Postfix) with ESMTPS id ABB662EC27D
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Jan 2021 18:40:20 +0100 (CET)
+Received: by mail-vk1-xa40.google.com with SMTP id x134sf1906917vkd.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Jan 2021 09:40:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1609954819; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BBoI/AQ4i5oXSE38z1Jf57ZXIwTvGRA4irQnJA/tUkutF1/q6dpDoRrjfUuK3lzoEY
-         h7To0w3K3N2Wk8NO866+E5Ue8cEaWVoMJyxdcdzEHtegHZLZQa/Qrn+oLPbXne/RBGhy
-         bn+WSPBUqhCHhYbQuFohbqW6ti3+e2Ip3srBBIOiRuN6edxIU3W2Her7LRkS5rfF6toI
-         bMkH6VBPepcQYVpomkWL1b/wBNYsDuviuUjcN3TLBxwB7pVJoFxo8tkGal2p59e7XB8a
-         jJ+7d1RFqd7ZdpaAB3e1/dyC3A/WTMyc6OgWzn4MAzRovDDNjCnIWp5Lc9Akw6BK0X7B
-         xhQQ==
+        b=AGY/ff7p+nxKKHSZfu0oYwrkBNfcU4dc1ma4pEMtBGCkXX5iLSKXNSpjaAdmWiPWzK
+         MElrI2H5X7b4IGIxrffoAslHWsgdMplYm4N+YouYs7G6duGm2yV0SsJIEeRb05h/57eb
+         9JVw6MV9oa2WP9X5D2P9kcrYVqRLRNeBjkRqzgcVluWiJWHBtFRRbbaKK0lD5JDXJKpW
+         KefAUYqwZ7cJRH/TP9h6X0CCMnidi7Mm85zjs5SGVt2H2PxudTdOlzLESwLqJnivXc6j
+         oWnTTZRPAJHeuLbkfJXYSpRNLKYqlZx0rswQA3DSTkCCK+0ANR1jQNKWf45Yx9OlfgfR
+         1cDQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=5N13uGdt2zm/u4+7VL26HwKlpfiSVbRvnw/bYiupvbs=;
-        b=GEqBLd09LoUp2r4xWfSTrRujWd9fw15/SV/Z/A7yy2AsIx9OoBKMbOD+2ILo5TcFKF
-         U7fPIegrmwd9IwtXyANYy3vEXQT1fP4J3oz+zyGkxoq0WaBw8ZjUGEXt3g+71SaYGA5z
-         aIGZo86dc7bLKBeBzK7v5nSoPTYQb8ZlVu/mJAbsonld4Ajid7VMzlR/8O/h163JjGhT
-         kkaamGWBuvY18XShA8Z2bHKRQZdnVq+43EgKEOl0K2WmX8nXDYe7d5VJbchrNUvDmW5o
-         sDkNS2LBvwDgvVUDZPrwXd2rkRRFhMCupE/71WmfOo5b+Gvw6V33KjfaSxTMbs957hxU
-         x9gg==
+         :list-id:mailing-list:precedence:message-id:date:content-id
+         :mime-version:subject:cc:to:references:in-reply-to:from:organization
+         :sender:dkim-signature;
+        bh=mIZqOARvhz0rEQ38HkxvJWACiHBFihf7qUZF0NMh3W8=;
+        b=V5GX1XNCesB2m2NsG6s1y7DNQGSQ8cnVPAbzxbhMOxX5dggmPiAL6KWnBoL8zHIonA
+         BZhrEj7AGPk/ghUos8fwlo19+ejLlmaawSVwIXEbccCPVPb30WDNr3wQ1ZogygGdJngn
+         IAvYL+F13I+QqEvn/Lj3QV9pUiGvQanZeug7B4V/p8IMQrfVTiYgdlcOZgXH0OBlp84S
+         MMpdacQwhar+qQZEnoiml8m1cqf05DS+DZyzRttApu8c7z1BhCSzWAk8NLMf5/FKEAp/
+         Y7s0uGPRVM14yJSr2sNSwg5Aui9yo6Z6b8IPfbDYjfj1syh8Z3VoqAsciSmGEwvq5yYV
+         aIHQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SIVLZEBO;
-       spf=pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::629 as permitted sender) smtp.mailfrom=olteanv@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=VwQhzur4;
+       spf=pass (google.com: domain of dhowells@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:organization:from:in-reply-to:references:to:cc:subject
+         :mime-version:content-id:date:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5N13uGdt2zm/u4+7VL26HwKlpfiSVbRvnw/bYiupvbs=;
-        b=U7ouomef/LpelXj074EGxAI/8s+M5Sm2MHuvbX/KAcL65AuKOw3nDs2ee3TWDgv3HF
-         /7/FFdS6WlEwu5gpp/JPG27R6rAf8wzckQBkKUVWrhq5nFLnHFVKHGnJlbrBNnxT2jSZ
-         TMQtsrm5I3yfU9+Ir7w/aIWsk4saZtb+IAg23IEN2P0qphg+MLjA+TtlSbLQgTAcCYpa
-         VXav6VbDwQHr/05onfYAIs5v+OZ5E9ty8rNCNV3QcwkWeDSkqvZIxfZ3gTr2owsrkZf/
-         iF9dygH+nSmwphYXZhdwogAPjV/gjfPzlPGeWClOoq/ysMQPuDGt/oovT5gNpVmOzEbA
-         Orrw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5N13uGdt2zm/u4+7VL26HwKlpfiSVbRvnw/bYiupvbs=;
-        b=df0HklkjxR/71OApB9bHULcDeJsF/pKZq8L3KLzV79xoPD0hRk9iaY2lDlL4X2MSUq
-         PvO8KBFC8LS6yweVJQoBx3whxndG0aSzQdMtfWdYNiZWhuo15kxlhbR3nmC53G7xeVds
-         tY2Mp0bN4rXrKu4RQs69+sJlTiqCX1qMKSQ5FSB3ljZCcSS6f9KE1T5YfpRZ+JmcpG5R
-         BIjj7yRcD+DElfWl0hyIvvUFBlmEOz48cmwifPnYUv2NTcDBcKAH8yifubDg4EUyqfrQ
-         eWu0xfd7pPU/pvBaXCyikadKTNo5o9hfjNPq5irgt766dxB+K+C5yaYi2XwCoQP8gtwU
-         XwwQ==
+        bh=mIZqOARvhz0rEQ38HkxvJWACiHBFihf7qUZF0NMh3W8=;
+        b=VLxDNHBQjez+VloIMZKkqhH/mR8HhXiQkCUWykUvgKvuJwNM0RHw7lKilRg83d6Dog
+         jdHBtk0jE24cxGlFnHpNAbk5p8oWVTacCn4kHY1+gEZVpCRxX2QndX55tFMUIAYjDSUb
+         QWs9dFa8LiwBpEesVR+gm6LedPwcCYGEZS88lreKZpCdCJfpoUFuZtuAT0TGrkTnr3He
+         KijhtTpVKoS592z3RiM+8nIQd/zHx0PDjrwYpXiJeq7KJ4aem9bPwKWrGsNBUg/lF/wd
+         pP34VZDY08aXNlE6J/llH7OoWYSIvKZyWgq4V7uQptNq5VGWIP7e6c0mEN58l3kjnzP1
+         qdUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:organization:from:in-reply-to:references
+         :to:cc:subject:mime-version:content-id:date:message-id
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=5N13uGdt2zm/u4+7VL26HwKlpfiSVbRvnw/bYiupvbs=;
-        b=EeSOLeLMQ+un09fFlfUhP6Zrx1Z3AX5JzxnVKCGpYPP+6Wn1NPQSbgFaU/PGzIw0GI
-         QLxzBJCaYzvtFet4a7Ol4zzMFT4b48r/0Ti0LhAYEfUTjOscGWeArycLX5LpJvcb7Ria
-         SkJKjFInDTwpQJPZ4qgNiasR732h8vNVOjBkaBhSkCWkrHl2ypmlC1OhiaWZluBXy+4q
-         0F+w5mxhEZ+7q/9K7pR1rdONEtg/LJarV6Xvzcpf8PtlO5Bd6ctNjFWNtkqxcoizVjEj
-         ZghKo3vSZxIGkfFdNgvAhQJ79kXoR5C9LV5RkpQ79MhvIHwgSBWF11wXY612EyG4MeUJ
-         yH0A==
+        bh=mIZqOARvhz0rEQ38HkxvJWACiHBFihf7qUZF0NMh3W8=;
+        b=QGg49PL2niWaMt7zNGpsAw6lhK5m5QDuhpDknHUCK5vGopoYfq/BQr5HcQixjFAvyT
+         tCwNj00l3kryQ0oyqZIdgLJVfdMMb8PfDbRwZPwI9ud/hiNr9/PDvjl1MjxGt26Rk53S
+         zH4nOJQzBIYOALLuv1R4HZ83eAGbzqokaWrGAySS62YuzE/Qhz+DA+LWszIW2qN4DwSy
+         B3RYY9YT30WhMiMajds5oDJxEoLgjFM/iEa4r4hCoTnidQUJ75QKfKsuQUifraRZedN+
+         jKSXTvPyOwh5Qs8XS33dEu4wDTtSdktYik129AfNQ/MCBhf5AmxZPWvvqUqTF65xSiSW
+         hFnw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531y4hTlV6b/YTKofT8TPA7lyW/jfuQvAfyzpY8ErNybWX8B5nff
-	pL46ekqBBbIdg1AytmZ4pWk=
-X-Google-Smtp-Source: ABdhPJwJ74O9/QFsdjil+IZTn+b3SkB/dIuEA3kZ71J5LYZ0ZSNyA4hzwAgcOaedbxCyW7tbvMoQpA==
-X-Received: by 2002:adf:e98b:: with SMTP id h11mr5119872wrm.21.1609952904656;
-        Wed, 06 Jan 2021 09:08:24 -0800 (PST)
+X-Gm-Message-State: AOAM533lDjsA7X3fb5F1wYag2I+vbGEPVpMWvinN2sn80nxdXYf7JFD2
+	hVDwmwKtsDabji1lOhCzzWw=
+X-Google-Smtp-Source: ABdhPJy9B6670cr/iGvOdaS6XZxWHbkNme4yuvvjixdd3d2stIZy65pSQz1BzZgOsQOJnFQTIO9OjQ==
+X-Received: by 2002:a1f:aa4b:: with SMTP id t72mr4431917vke.4.1609954819752;
+        Wed, 06 Jan 2021 09:40:19 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:2094:: with SMTP id g142ls1744120wmg.2.gmail; Wed, 06
- Jan 2021 09:08:23 -0800 (PST)
-X-Received: by 2002:a1c:2091:: with SMTP id g139mr4573542wmg.133.1609952903481;
-        Wed, 06 Jan 2021 09:08:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1609952903; cv=none;
+Received: by 2002:a67:320c:: with SMTP id y12ls516079vsy.4.gmail; Wed, 06 Jan
+ 2021 09:40:19 -0800 (PST)
+X-Received: by 2002:a67:dd95:: with SMTP id i21mr4067833vsk.33.1609954819359;
+        Wed, 06 Jan 2021 09:40:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609954819; cv=none;
         d=google.com; s=arc-20160816;
-        b=OMgVJpOhF06AQe3l6DQLF6Q+q3W9SY19NnKdMqqI3F7flO/Jk1A330+971n/fP+T2F
-         BhImw82OWdrX7QfSNMCUi8RzT408OJ4cpYdXsTTjS8hjJHntJh89aWoPkaQ19bM6XRDf
-         FXCrAsaoaPpq4eZV/RcoQj5SKXnuOSPudK+wxSJTOicgezMhtMRyPGly73xXJDOvbgb0
-         +Fh1ReKv3yIQp3KoNWPt/fN840OMszHPBQqwIRa4gS/r/dv7Yzn9aU6yCDKltLwaYgb4
-         /B8VZ+batzmFW09CMBC20sb15CNwc8/n76tBzuqKfRVdc7dVCXrOtWF4pa9Jay54nJuB
-         9JrA==
+        b=DBXlWgfjvUzQcoufr3jTFmku/g55w3AtGQD+1Cj5UADEkWzoD/l1tvDF0Sc1djseTf
+         TRfWUB78OO7X0CtPdyDyYqP6V1ty7DuTT/vg2VJAQWTxuiCADis8IKr9V+32xYNixG/v
+         lyVlUx2vxwjgALb2U7Tn/BcHXH1oN7FOOnt6+pDrSb6ID+4WrN2uY8JXdJmio6ZyQz0S
+         MKf+7L3RuaTFAt7BXgGweyUi1LBzqOIh35KPImfEczGIy+L+k9sJzehGCg+D2kK9NyMc
+         fUCSQkLP9Z7N4SbKUt25FDyl3Bhs4jOngWg9E3KtD/uRdGBBdLlyDqj9nfvvQEsrrzXa
+         4IMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=JHTEjbraBDE/80VUF13QA3u17M0QYo3wbwfpnN3R5QE=;
-        b=rrQ2JpVX4s3czfKm9XbXp+sBXQyMG+wWY89Vx97KlMDARlLljETk3U+rgBhBX1b6yN
-         s89GoCYXWnkqdSPQrKtYdf+C5osmYGsddDMEBJ1mK/DPgAFyE5nxjROGLjbkZamcyTr7
-         e7VHugMHpUQSy5QlQszU4GRwjv07KcM6LrwX+T3Mdf7ahE6ZDWRU7t+AlRvk7+0FJuSX
-         cScuw/M7E5rQyA6Muuf/2hE+xgC3b/qdr7uErK2z5t5Iak6ZoPbm/ZQCO6WLlgkGD0MM
-         grlJn0eGqsLEBKKnqW3A28d/KQ5jaiiU09zwAc8B6S2cTsS8QOR5JhCgKrGMg55PNiqv
-         7KhA==
+        h=message-id:date:content-transfer-encoding:content-id:mime-version
+         :subject:cc:to:references:in-reply-to:from:organization
+         :dkim-signature;
+        bh=Q1MVJV23rzhHmpdk2zEeUSOCj3KMipI7dPGLT5s4mXo=;
+        b=MGKtiSGR6vGmxRt4tAZt2Eq7BtnAoXfgNsmFO3edAjx69ezG58Y3+pyrQRGxR6xbhO
+         29v9uUlDr3beYv2CvinKGgzokW5CZ0Kp0wAVbslfrq2iXBkr56GMyv6IreDz5kpv6CdA
+         nyewBBLrFv1mCkS/vMgPsikxzAMcQgirLfEiCvIzusnTRwLDdzuzOv5RaOZ211EYo4xq
+         oJ4m2HUJTu0JH4qhGWsQnSXGqn7ogrVaA+6E64JqsekFkJEnhCpZp27BDSdtb5iBvtVv
+         6OlTSSMl3EEeiTvTf/Ed1965q5Gq7JgQrRHhT/wAectNyDrYQlHf4LPd/Yga3hJSXv9B
+         jveA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SIVLZEBO;
-       spf=pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::629 as permitted sender) smtp.mailfrom=olteanv@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x629.google.com (mail-ej1-x629.google.com. [2a00:1450:4864:20::629])
-        by gmr-mx.google.com with ESMTPS id z188si212064wmc.1.2021.01.06.09.08.23
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=VwQhzur4;
+       spf=pass (google.com: domain of dhowells@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id h123si258570vkg.0.2021.01.06.09.40.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Jan 2021 09:08:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::629 as permitted sender) client-ip=2a00:1450:4864:20::629;
-Received: by mail-ej1-x629.google.com with SMTP id b9so6094243ejy.0
-        for <clang-built-linux@googlegroups.com>; Wed, 06 Jan 2021 09:08:23 -0800 (PST)
-X-Received: by 2002:a17:906:1cd4:: with SMTP id i20mr3568790ejh.415.1609952903260;
-        Wed, 06 Jan 2021 09:08:23 -0800 (PST)
-Received: from skbuf (5-12-227-87.residential.rdsnet.ro. [5.12.227.87])
-        by smtp.gmail.com with ESMTPSA id by30sm1686897edb.15.2021.01.06.09.08.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Jan 2021 09:08:22 -0800 (PST)
-Date: Wed, 6 Jan 2021 19:08:21 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: kernel test robot <lkp@intel.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, netdev@vger.kernel.org,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vivien Didelot <vivien.didelot@gmail.com>,
-	Kurt Kanzenbach <kurt@linutronix.de>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	Woojung Huh <woojung.huh@microchip.com>
-Subject: Re: [PATCH v2 net-next 01/10] net: switchdev: remove vid_begin ->
- vid_end range from VLAN objects
-Message-ID: <20210106170821.z7m6ouapcij25y7w@skbuf>
-References: <20210106131006.577312-2-olteanv@gmail.com>
- <202101062240.KXBT8Rcf-lkp@intel.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 06 Jan 2021 09:40:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of dhowells@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-593-b_I-VHIKMvyWMuReIdF9gg-1; Wed, 06 Jan 2021 12:40:17 -0500
+X-MC-Unique: b_I-VHIKMvyWMuReIdF9gg-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5E2BD18C8C00;
+	Wed,  6 Jan 2021 17:40:15 +0000 (UTC)
+Received: from warthog.procyon.org.uk (ovpn-112-8.rdu2.redhat.com [10.10.112.8])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 8FE5A5B6A2;
+	Wed,  6 Jan 2021 17:40:13 +0000 (UTC)
+Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
+	Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
+	Kingdom.
+	Registered in England and Wales under Company Registration No. 3798903
+From: David Howells <dhowells@redhat.com>
+In-Reply-To: <548097.1609952225@warthog.procyon.org.uk>
+References: <548097.1609952225@warthog.procyon.org.uk> <c2cc898d-171a-25da-c565-48f57d407777@redhat.com> <20201229173916.1459499-1-trix@redhat.com> <259549.1609764646@warthog.procyon.org.uk>
+To: Tom Rix <trix@redhat.com>
+Cc: dhowells@redhat.com, davem@davemloft.net, kuba@kernel.org,
+    natechancellor@gmail.com, ndesaulniers@google.com,
+    linux-afs@lists.infradead.org, netdev@vger.kernel.org,
+    linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] rxrpc: fix handling of an unsupported token type in rxrpc_read()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202101062240.KXBT8Rcf-lkp@intel.com>
-X-Original-Sender: OlteanV@gmail.com
+Content-ID: <675149.1609954812.1@warthog.procyon.org.uk>
+Date: Wed, 06 Jan 2021 17:40:12 +0000
+Message-ID: <675150.1609954812@warthog.procyon.org.uk>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Original-Sender: dhowells@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=SIVLZEBO;       spf=pass
- (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::629 as
- permitted sender) smtp.mailfrom=olteanv@gmail.com;       dmarc=pass (p=NONE
- sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=VwQhzur4;
+       spf=pass (google.com: domain of dhowells@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,43 +146,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 06, 2021 at 10:12:39PM +0800, kernel test robot wrote:
-> static void mv88e6xxx_port_vlan_add(struct dsa_switch *ds, int port,
-> 				    const struct switchdev_obj_port_vlan *vlan)
-> {
-> 	struct mv88e6xxx_chip *chip = ds->priv;
-> 	bool untagged = vlan->flags & BRIDGE_VLAN_INFO_UNTAGGED;
-> 	bool pvid = vlan->flags & BRIDGE_VLAN_INFO_PVID;
-> 	bool warn;
-> 	u8 member;
-> 	u16 vid;
-> 
-> 	if (!mv88e6xxx_max_vid(chip))
-> 		return;
-> 
-> 	if (dsa_is_dsa_port(ds, port) || dsa_is_cpu_port(ds, port))
-> 		member = MV88E6XXX_G1_VTU_DATA_MEMBER_TAG_UNMODIFIED;
-> 	else if (untagged)
-> 		member = MV88E6XXX_G1_VTU_DATA_MEMBER_TAG_UNTAGGED;
-> 	else
-> 		member = MV88E6XXX_G1_VTU_DATA_MEMBER_TAG_TAGGED;
-> 
-> 	/* net/dsa/slave.c will call dsa_port_vlan_add() for the affected port
-> 	 * and then the CPU port. Do not warn for duplicates for the CPU port.
-> 	 */
-> 	warn = !dsa_is_cpu_port(ds, port) && !dsa_is_dsa_port(ds, port);
-> 
-> 	mv88e6xxx_reg_lock(chip);
-> 
-> 	if (mv88e6xxx_port_vlan_join(chip, port, vlan->vid, member, warn))
-> 		dev_err(ds->dev, "p%d: failed to add VLAN %d%c\n", port,
-> 			vid, untagged ? 'u' : 't');
+David Howells <dhowells@redhat.com> wrote:
 
-s/vid/vlan->vid/
+> How about this?
+> ...
+>     Fix the second loop so that it doesn't encode the size and type of an
+>     unsupported token, but rather just ignore it as does the first loop.
 
-Sorry about this. I'm superseding it with a v3.
+Actually, a better way is probably just to error out in this case.  This
+should only happen if a new token type is incompletely implemented.
+
+David
+---
+commit e68ef16f59aa57564761b21e5ecb2ebbd72d1c57
+Author: David Howells <dhowells@redhat.com>
+Date:   Wed Jan 6 16:21:40 2021 +0000
+
+    rxrpc: Fix handling of an unsupported token type in rxrpc_read()
+    
+    Clang static analysis reports the following:
+    
+    net/rxrpc/key.c:657:11: warning: Assigned value is garbage or undefined
+                    toksize = toksizes[tok++];
+                            ^ ~~~~~~~~~~~~~~~
+    
+    rxrpc_read() contains two consecutive loops.  The first loop calculates the
+    token sizes and stores the results in toksizes[] and the second one uses
+    the array.  When there is an error in identifying the token in the first
+    loop, the token is skipped, no change is made to the toksizes[] array.
+    When the same error happens in the second loop, the token is not skipped.
+    This will cause the toksizes[] array to be out of step and will overrun
+    past the calculated sizes.
+    
+    Fix this by making both loops log a message and return an error in this
+    case.  This should only happen if a new token type is incompletely
+    implemented, so it should normally be impossible to trigger this.
+    
+    Fixes: 9a059cd5ca7d ("rxrpc: Downgrade the BUG() for unsupported token type in rxrpc_read()")
+    Reported-by: Tom Rix <trix@redhat.com>
+    Signed-off-by: David Howells <dhowells@redhat.com>
+
+diff --git a/net/rxrpc/key.c b/net/rxrpc/key.c
+index 9631aa8543b5..8d2073e0e3da 100644
+--- a/net/rxrpc/key.c
++++ b/net/rxrpc/key.c
+@@ -598,7 +598,7 @@ static long rxrpc_read(const struct key *key,
+ 		default: /* we have a ticket we can't encode */
+ 			pr_err("Unsupported key token type (%u)\n",
+ 			       token->security_index);
+-			continue;
++			return -ENOPKG;
+ 		}
+ 
+ 		_debug("token[%u]: toksize=%u", ntoks, toksize);
+@@ -674,7 +674,9 @@ static long rxrpc_read(const struct key *key,
+ 			break;
+ 
+ 		default:
+-			break;
++			pr_err("Unsupported key token type (%u)\n",
++			       token->security_index);
++			return -ENOPKG;
+ 		}
+ 
+ 		ASSERTCMP((unsigned long)xdr - (unsigned long)oldxdr, ==,
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210106170821.z7m6ouapcij25y7w%40skbuf.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/675150.1609954812%40warthog.procyon.org.uk.
