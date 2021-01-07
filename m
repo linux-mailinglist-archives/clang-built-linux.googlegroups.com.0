@@ -1,105 +1,108 @@
-Return-Path: <clang-built-linux+bncBAABBVXL3P7QKGQEFBAB5EA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBSHM3P7QKGQEKCTIR6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 57BC62ECF16
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Jan 2021 12:51:51 +0100 (CET)
-Received: by mail-lf1-x137.google.com with SMTP id a19sf5971369lfd.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Jan 2021 03:51:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610020311; cv=pass;
+Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C4D6E2ECF20
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Jan 2021 12:53:44 +0100 (CET)
+Received: by mail-lf1-x13a.google.com with SMTP id a10sf6294286lfg.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Jan 2021 03:53:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610020424; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0rfRun2XW068ndl9JzzF3nrKxiCYIMWhAdjLwSVm+VnT2sMHWbk/a4V+ug5QU+H09L
-         w2EiiMxWuIqN7soA7U0tF8Gyieezwodai2jakiPxepozEGG7+doo58RIFWw6yasQvHj5
-         8RODhy42XqctV7TLlL6eRer/04wp0IakBMS780+Uf+pfRZnua0Ia82Hs62RRNCScXl1z
-         Imm/y51NU1+eUt1hjIOGsmpYFjoPhNc96mDXw/xIwcV2fZmFcHAWOx5yIP4gYwrXdl2J
-         59Q9RwLU6GvzJgT8DxKDU4jE/olpgoMnk1TpMrHbTMQaCGzb+zgVbb9WRtHYYJ8NkYYW
-         FE1A==
+        b=QwvyuYt7n0yHfIfzfqreAc90sPcaXO729Dw2o3Fm/eQcPxpZHb2osiy+gnX+w9po9b
+         fP18N3URmE0Nnswq5osCPCbEQZkm5RzCY40y5+HpmgEyQnJF+2ApX3M6xWTEce6NDBTv
+         MXrXa1NWQLd3tlgXMcKYQawOjvVJxHgjWPfAcJgaXcDbA12GZ1QJle9fgiuyY0LXICR4
+         oRed4UbKTbf9QUUsKDdb8vkylwmyJk/zNoXBwM1iRUtEN8FNc1ldsw31XxYXsaX+0XrH
+         TV/Ba4R6c7CYQ1iV1AUP0GPP7Lb4M6fJsiM0Y3+PDh7xGgwNplsczdeqHNDMrzGmON14
+         Tqsg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:subject
-         :reply-to:cc:from:to:date:dkim-signature;
-        bh=3h9eE8PihFqFKy4iRJnFh9fLfWhGlPHIxIF7YXqykxk=;
-        b=enu/5s0gFs75fQlYTxCzCs258pzrvF3R3rvjjRmWh6rd/sOfDy1Pzdd54zejKBqNkp
-         eOmofFXJ+ez0KpNp86MYdQXnpK/9VyvpYwH9Ssyw+rv9Maz9MrPnVgMQy88togdTFWvk
-         dWDUU9EIZeNxVgs3QTSRtVzCwxTJ6IOkMOdEOfSf1Q8W/UNxYeoKXDX1IU5q58BNFMIL
-         DQj1PYb7/jKIOMEvBGAJJ8U+c+MUiBSDbFpNC3ACoU+h2xDQCZn3R5faBk/S8ki7BHre
-         fKyyGq4Ld2+MfmVOzV2ZNgiukDfs7577g6jsqk3TfHalc6nNodf1wY/stRSdRyjKIHA0
-         pShA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
+        bh=D9enZ5Bgb2dMWDfwA0zwOoifbsIP7oWaIlJdWnOOfTc=;
+        b=NJds4exJAWnHMoqdurdYdg6CRP7KZdO4wBaNfrN1cZuq7eiIFAWqFVnTxI8yvEX2tF
+         BOKjTLVZSYQQ33O+81r6PHSEXv0z6ek2JqnAXUZtCvy99o8GKR3kuL82KGJNR/9A0hIl
+         LmMiqJ+mad8QrexP/rR/3hqpfKgKppDim6abWph384oE5KTBqpb6EchQwVX9dkYY0IBw
+         7KF2SOe89y6bE5lEpU4SeBB0574vjdv0F0UVpRosg04F+AeKvTs2hNdz0y75WL8B5yGH
+         9bMa3VsG8hBCEmmYBim1H7ZkDqld3zvcpjm1sCsOyMFtGkuNGFa6aidXTwaD3/q8CEDa
+         UDUA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b=JhDu74Cy;
-       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.134 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=fNwtMedX;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:to:from:cc:reply-to:subject:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=date:to:from:cc:reply-to:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3h9eE8PihFqFKy4iRJnFh9fLfWhGlPHIxIF7YXqykxk=;
-        b=Ce9549oVUey9+BYR7fT1lBkW3f+9JiVNxsQlA+6+oq5yBXCIgMVjEoKn+WKx34i4zk
-         y6224IoeUQam3sOhujdB7i8j8xBQ1+srTCC79JpT20fW8dySawHUAqcD5oATf/tuoxUb
-         qL+rXyNnd6pyTYaiKklGHrNKk7FTxRzzOhQoXdF2b2+z6lalLNWTkSvcfK+yxfSAVSCk
-         Z5I9SswOhMNCiSJRFaiCX6GfU/wpXRkSQdT7WpRY0dOnYsjOutM0cLiiDMGtzkDakR6B
-         lZcYc/qTSQec7vOzo/UqUASy04TYawcuYGhGLOg+Sb/Yh85xPCUOyozKKK/sRKibFThB
-         X9Og==
+        bh=D9enZ5Bgb2dMWDfwA0zwOoifbsIP7oWaIlJdWnOOfTc=;
+        b=G6q82ANzTDOomfNUvA7pn5KqE33GmottHEOjSh6J3Gte4R5DFKosR6Smew/Xr+DOiU
+         LfdTT6/0c6IFB/Xw/DPgEOnT+SDAvIdFro3h6yORmO3lKZh96akQBBZ16Pdu/PanRXqh
+         wFjzTNfLisWdaLf4y8fcjL9Jc4nXKJio4XgCjz+oP9LrQrot0zMsbulQ6i54Q8SiQcMF
+         yNem2jIaxtKdFoDVhU5lKOB4iNXhyVeHP8oCaK9vDZ7j1+ngs+v0NtClKoHXfQbpzfnV
+         CluRgkPihhBAQIX4pYUJPAwIkBjzE6WeQFsuy6FRBrt0x5e75CyuCkrTx3c/1T2dARW6
+         Oxqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3h9eE8PihFqFKy4iRJnFh9fLfWhGlPHIxIF7YXqykxk=;
-        b=dKMdVBAFR8PPIDYjxvWfXZuDRCtoptHTuKxk3Kl3KAedu1/DKVXlerkE6lrYWnvcKF
-         vQPR5rBCYPvoHFxFIwq91bAnAWC6kSKWZpvzTpOZWL74XWkQOt4KX33rJ6kctezagkbu
-         /nb0hUfwaS8/vb39+K2gSABF0tFJJbF/0GLZOYts/fdC0KVLNFMCfhi7A1OYILCAtHLD
-         KkdBILXvSJZQOiaA03B6T1URZmdEd9/Tebr59pG+OHkQccR6tS3g/UA7hA/c4P+kNbCz
-         pJmKjhGUeU7vPHCHfKkUyrkvMEz1nN6XSoRrfK7QWWHQ8BBnEAsb874ExkyhN5Nh1nD/
-         F8Cw==
-X-Gm-Message-State: AOAM531vb/nLfcGkn/7C9d0yReVo1QHsYCfnpzsBnp5TdJfEAJv3kWdk
-	+5qjZ869YizvQ8cmiEm4TO8=
-X-Google-Smtp-Source: ABdhPJzoVd+6BLuKLg/VI+rARtSmnXcPPKftEdJwqKu6sCH/+wK8MHUoEfVMsF8jEQcxQL4NMACz7g==
-X-Received: by 2002:a05:6512:3319:: with SMTP id k25mr4170117lfe.128.1610020310918;
-        Thu, 07 Jan 2021 03:51:50 -0800 (PST)
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=D9enZ5Bgb2dMWDfwA0zwOoifbsIP7oWaIlJdWnOOfTc=;
+        b=KpjqIh+ZNtOAUUA+mHrGIqKzKLhpS08Hm3oHmTE5tWnhzF2L+W/Bw1JB9YnVDCcoDi
+         QkIQlZrZXRMOz+5SwhYhHTo5hc9pNV8jxYrgdymXik0oSVML1+8WYH5JMgwZkb6+Muu2
+         hcxkFW9OhYlJSV8xM9A+m8rBKqE6mg1YK9w093Merec7ngA8lU7CYn83B87P8m7cveYs
+         TpmztnZATzipXFsFwMoMUF1ZR3wLHvoS4yzghLj0z8OgS6hXTtSaEBNklgduaGKNlaEI
+         YU9/yJ+xfNR/E2lb+cR9r4VIWP5/eFomEfrSr4Y1uvSNjLgGRRzQMv49bT3Gd2XSrFqb
+         6NaA==
+X-Gm-Message-State: AOAM531v1+oXoAwdu84LqgPf5sVNoLP8LjuoUrHuWEZdJDnluoyE12DE
+	RijSuKISgufNdclmbEZ69M8=
+X-Google-Smtp-Source: ABdhPJxX8DuMabbnLsMOcMBu45A3mcvJGHGF+xzhQueHEKbAg0HJkJC4jXZFjUDS7DYh0msC/PVTxw==
+X-Received: by 2002:a2e:988b:: with SMTP id b11mr3880940ljj.167.1610020424406;
+        Thu, 07 Jan 2021 03:53:44 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:7d0d:: with SMTP id y13ls1121079ljc.9.gmail; Thu, 07 Jan
- 2021 03:51:50 -0800 (PST)
-X-Received: by 2002:a2e:8059:: with SMTP id p25mr4209884ljg.155.1610020310107;
-        Thu, 07 Jan 2021 03:51:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610020310; cv=none;
+Received: by 2002:a2e:3614:: with SMTP id d20ls1135715lja.6.gmail; Thu, 07 Jan
+ 2021 03:53:43 -0800 (PST)
+X-Received: by 2002:a2e:b525:: with SMTP id z5mr4249476ljm.344.1610020423656;
+        Thu, 07 Jan 2021 03:53:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610020423; cv=none;
         d=google.com; s=arc-20160816;
-        b=AamcSz6vzJcfxTxcL7O7Z4ZXv6t+1VQpw6ui8XS6GG6lDJfXMME4UZGm1b/fTqx9mj
-         qs6cCQQElPCi7TNF6s7X8DyQONAKJtFaZOnB8R2Qj0+KzHfB6Lcavh+LoKMhHb3QDDlR
-         HBz0N2i2ZV9uCtoJrdofqqcC7x+4ER9p6XIrMYZ/T4rXxmRab3hZg5rDfF5BAnKt5cN8
-         lEYX17XiUlYQDndOKW2qKCONIaURKTCltQ9TBXlz58Uk7yIQ2+f3u91mPV+nE/bNFeCD
-         i1XtO2k95sw70dzng+PDSPGstDZao0lzNKeciulmgRvlDwwIshPLY2Ux+HlJoPbPQ5Jt
-         8y0w==
+        b=am2KfqjdMXU156oLxWeeE7tMOELigaaT7rq8JXDuNFUSvjL3ZW9f+Z5/U9P8WNzmUF
+         pbXcxkR260lQgOSbDcsTqLBpHadGUyFL6AApD+hkL4HbX+1c6kjAc0MaHKOK1okYt3FG
+         hsZtUa/SMBT6+s1YweG1AP1ij07jRHV2O7STwA6TmjCKLQZE404yzSixZ1PRkzW2+X5P
+         Xu1lWvAZ6GrjdPPIQeB2yNQnFm3UxpEg8amM/lhA6OJk9OOcp2KlTVN3E6/NwNGe/ONc
+         WKb43lzyCGLPd/U8g3lUy6VMwjpuVIZk7UqtmLB71jp/u7REx9/euRjYwYQVvLHy7a0n
+         dUSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:subject:reply-to
-         :cc:from:to:dkim-signature:date;
-        bh=DrNPDCI5aGCF7b5CZJNTzFjDzr4fV3uFR8hbRikrekQ=;
-        b=bDLYD47udLkPn5KuNr0sgG0OlXQTYbIAITr67J8KGoYHV0tmdqkTPXNgy4xFfzoSPl
-         rZxJn6XF2BF9QDcegEc8qVThgksQcDJ9K1UKlxdSHA4O3IWiUSUVupwwW6zYHkji/wwX
-         3DlPG6MG0gxNt3Ga1pkcno0H9OpRpW++Z4GAvTwJ0VF828MTaP+UkLSIOppLXw6P2wsH
-         GQNMibSbPvfv9dfNlOnaUMe0vqT8zaWJb0Yhv8jPFvgE+A3CbzQ/H85JHzCr0RcNOgg8
-         HK263eXA87PFQw7PojVAdmXa4EEPXX6t7NpY0TOtfs2obSFgoMyGHoST7bFTDdKR73pO
-         E64A==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
+        bh=Hhk9OJTluJ5KWBmdxz+W1q3+eakKWb3hNy44poTwuNA=;
+        b=fHmtRtttX6m86avOjTr+ksAm+aaxm58n/hPDg0XFDiVn+Mg3oQtMxhd7Y/cl9tkD+E
+         nHYz44fyzTcZ+3CCShAgnuiNPJJNb5Sf/4LCRSZg8G7nWJayUB8TfvTqC8hq/OO1bfd0
+         bDQZSnZTFqIt0hxBkfUbEQim60a/Es9ptoaD18k3OxxkADAcxdFe3rw0guX03iEbM5Ss
+         pvH6WoixjaqMmKDEoAbPsdT5PgGTPH/cLHFrma1hXVEba1fZPRQIgw42bw40cI6zgCH0
+         w+90884UKE2l0wBBK3cvy5vLplQpkeaH3LUJxFeNuWEPjhRkfbneT+CvVIvM30HJ7UHE
+         wZSg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b=JhDu74Cy;
-       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.134 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=fNwtMedX;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
-Received: from mail-40134.protonmail.ch (mail-40134.protonmail.ch. [185.70.40.134])
-        by gmr-mx.google.com with ESMTPS id d3si263258ljj.4.2021.01.07.03.51.50
+Received: from mail2.protonmail.ch (mail2.protonmail.ch. [185.70.40.22])
+        by gmr-mx.google.com with ESMTPS id q22si138372ljh.3.2021.01.07.03.53.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Jan 2021 03:51:50 -0800 (PST)
-Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.134 as permitted sender) client-ip=185.70.40.134;
-Date: Thu, 07 Jan 2021 11:51:44 +0000
+        Thu, 07 Jan 2021 03:53:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) client-ip=185.70.40.22;
+Date: Thu, 07 Jan 2021 11:53:39 +0000
 To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Fangrui Song <maskray@google.com>, Huacai Chen <chenhuacai@kernel.org>, Pei Huang <huangpei@loongson.cn>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Alexander Lobakin <alobakin@pm.me>, Sami Tolvanen <samitolvanen@google.com>, Ingo Molnar <mingo@kernel.org>, Ralf Baechle <ralf@linux-mips.org>, Corey Minyard <cminyard@mvista.com>, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, stable@vger.kernel.org, clang-built-linux@googlegroups.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Fangrui Song <maskray@google.com>, Huacai Chen <chenhuacai@kernel.org>, Pei Huang <huangpei@loongson.cn>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Alexander Lobakin <alobakin@pm.me>, Sami Tolvanen <samitolvanen@google.com>, Ingo Molnar <mingo@kernel.org>, Ralf Baechle <ralf@linux-mips.org>, Corey Minyard <cminyard@mvista.com>, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, stable@vger.kernel.org, clang-built-linux@googlegroups.com
 Reply-To: Alexander Lobakin <alobakin@pm.me>
-Subject: [PATCH v3 mips-next 0/7] MIPS: vmlinux.lds.S sections fixes & cleanup
-Message-ID: <20210107115120.281008-1-alobakin@pm.me>
+Subject: [PATCH v3 mips-next 1/7] MIPS: vmlinux.lds.S: add missing PAGE_ALIGNED_DATA() section
+Message-ID: <20210107115329.281266-1-alobakin@pm.me>
+In-Reply-To: <20210107115120.281008-1-alobakin@pm.me>
+References: <20210107115120.281008-1-alobakin@pm.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
@@ -109,8 +112,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
 	mailout.protonmail.ch
 X-Original-Sender: alobakin@pm.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@pm.me header.s=protonmail header.b=JhDu74Cy;       spf=pass
- (google.com: domain of alobakin@pm.me designates 185.70.40.134 as permitted
+ header.i=@pm.me header.s=protonmail header.b=fNwtMedX;       spf=pass
+ (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted
  sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
  sp=QUARANTINE dis=NONE) header.from=pm.me
 X-Original-From: Alexander Lobakin <alobakin@pm.me>
@@ -126,50 +129,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This series hunts the problems discovered after manual enabling of
-ARCH_WANT_LD_ORPHAN_WARN. Notably:
- - adds the missing PAGE_ALIGNED_DATA() section affecting VDSO
-   placement (marked for stable);
- - properly stops .eh_frame section generation.
+MIPS uses its own declaration of rwdata, and thus it should be kept
+in sync with the asm-generic one. Currently PAGE_ALIGNED_DATA() is
+missing from the linker script, which emits the following ld
+warnings:
 
-Compile and runtime tested on MIPS32R2 CPS board with no issues
-using two different toolkits:
- - Binutils 2.35.1, GCC 10.2.0;
- - LLVM stack 11.0.0.
+mips-alpine-linux-musl-ld: warning: orphan section
+`.data..page_aligned' from `arch/mips/kernel/vdso.o' being placed
+in section `.data..page_aligned'
+mips-alpine-linux-musl-ld: warning: orphan section
+`.data..page_aligned' from `arch/mips/vdso/vdso-image.o' being placed
+in section `.data..page_aligned'
 
-Since v2 [1]:
- - stop discarding .eh_frame and just prevent it from generating
-   (Kees);
- - drop redundant sections assertions (Fangrui);
- - place GOT table in .text instead of asserting as it's not empty
-   when building with LLVM (Nathan);
- - catch compound literals in generic definitions when building with
-   LD_DEAD_CODE_DATA_ELIMINATION (Kees);
- - collect two Reviewed-bys (Kees).
+Add the necessary declaration, so the mentioned structures will be
+placed in vmlinux as intended:
 
-Since v1 [0]:
- - catch .got entries too as LLD may produce it (Nathan);
- - check for unwanted sections to be zero-sized instead of
-   discarding (Fangrui).
+ffffffff80630580 D __end_once
+ffffffff80630580 D __start___dyndbg
+ffffffff80630580 D __start_once
+ffffffff80630580 D __stop___dyndbg
+ffffffff80634000 d mips_vdso_data
+ffffffff80638000 d vdso_data
+ffffffff80638580 D _gp
+ffffffff8063c000 T __init_begin
+ffffffff8063c000 D _edata
+ffffffff8063c000 T _sinittext
 
-[0] https://lore.kernel.org/linux-mips/20210104121729.46981-1-alobakin@pm.me
-[1] https://lore.kernel.org/linux-mips/20210106200713.31840-1-alobakin@pm.me
+->
 
-Alexander Lobakin (7):
-  MIPS: vmlinux.lds.S: add missing PAGE_ALIGNED_DATA() section
-  MIPS: vmlinux.lds.S: add ".gnu.attributes" to DISCARDS
-  MIPS: properly stop .eh_frame generation
-  MIPS: vmlinux.lds.S: catch bad .rel.dyn at link time
-  MIPS: vmlinux.lds.S: explicitly declare .got table
-  vmlinux.lds.h: catch compound literals into data and BSS
-  MIPS: select ARCH_WANT_LD_ORPHAN_WARN
+ffffffff805a4000 D __end_init_task
+ffffffff805a4000 D __nosave_begin
+ffffffff805a4000 D __nosave_end
+ffffffff805a4000 d mips_vdso_data
+ffffffff805a8000 d vdso_data
+ffffffff805ac000 D mmlist_lock
+ffffffff805ac080 D tasklist_lock
 
- arch/mips/Kconfig                 |  1 +
- arch/mips/include/asm/asm.h       | 18 ++++++++++++++++++
- arch/mips/kernel/vmlinux.lds.S    | 15 ++++++++++++++-
- include/asm-generic/vmlinux.lds.h |  6 +++---
- 4 files changed, 36 insertions(+), 4 deletions(-)
+Fixes: ebb5e78cc634 ("MIPS: Initial implementation of a VDSO")
+Cc: stable@vger.kernel.org # 4.4+
+Signed-off-by: Alexander Lobakin <alobakin@pm.me>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+---
+ arch/mips/kernel/vmlinux.lds.S | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
+index 5e97e9d02f98..83e27a181206 100644
+--- a/arch/mips/kernel/vmlinux.lds.S
++++ b/arch/mips/kernel/vmlinux.lds.S
+@@ -90,6 +90,7 @@ SECTIONS
+ 
+ 		INIT_TASK_DATA(THREAD_SIZE)
+ 		NOSAVE_DATA
++		PAGE_ALIGNED_DATA(PAGE_SIZE)
+ 		CACHELINE_ALIGNED_DATA(1 << CONFIG_MIPS_L1_CACHE_SHIFT)
+ 		READ_MOSTLY_DATA(1 << CONFIG_MIPS_L1_CACHE_SHIFT)
+ 		DATA_DATA
 -- 
 2.30.0
 
@@ -177,4 +192,4 @@ Alexander Lobakin (7):
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210107115120.281008-1-alobakin%40pm.me.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210107115329.281266-1-alobakin%40pm.me.
