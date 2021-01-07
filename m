@@ -1,138 +1,122 @@
-Return-Path: <clang-built-linux+bncBD3PNDEXYYLBBUXM3P7QKGQEKLMOLEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBW7M3P7QKGQE4PERDTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00F682ECF21
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Jan 2021 12:53:55 +0100 (CET)
-Received: by mail-wm1-x33e.google.com with SMTP id l5sf751172wmi.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Jan 2021 03:53:54 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610020434; cv=pass;
+Received: from mail-ej1-x638.google.com (mail-ej1-x638.google.com [IPv6:2a00:1450:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E56B2ECF23
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Jan 2021 12:54:03 +0100 (CET)
+Received: by mail-ej1-x638.google.com with SMTP id k3sf2292403ejr.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Jan 2021 03:54:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610020443; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zoyHSMSZtjAdkEhQqh5aWK0rcoYBmMzT3rwWPjUv5JKwFkOYgxkGV1jsnE3SzNzFBq
-         jYCQj/Qmv5kvNulHFDN1uE1VzJakmJXxQxhuyf7zJg56xnWXFhrMZdrIZjhDpHNV98Gk
-         QpARB8RVpdB4269aEF5lY0zMYfp7zTwD2uWOQqvPCoe8YV7XUixPpnKpe0avQqrnit6I
-         D4E3+Hh9qE6lcbYVpitP/W1l10lfLy9jlo28pFQc5KdSR6TWqfrq9zXFpRmt9nPgL+pc
-         6y2epDEEH0/xxvj0DPQTIJh0DRTnLHbC2XSBqxvsYCAuvS8GCN+EvtbPK2YNWvZPfxRs
-         fe8w==
+        b=QxFafaKeBZvwWw5dXk3VCnDFIkcxiMj2fO7qpwlsOdmI2hHfBbBcgACs+28COWJCNw
+         5/ie4DybYD9bjkI+43kw+RTllNLqdvx4wy3uHc9tIOQ9J9s3zSd4rSI9l9haFkUUEOCX
+         O01gsdUlWdPv3Xv2GiphQxWRK2RAR0IMtoAFeLi0fZ7YP+WJDisCjHeyOoXa34wu+vi1
+         cMv/o+P0C+bSduOuAwER4AQq7GTs0DPr2l1McoMSh4TZf999ZgWks5I5CYdKK2HZL0eM
+         m/uOguMkdzmdpQxKjGLtoQBj01W2RV1DCULwre4Wscxcm48Dkavo+lFJNFWJK7v11SiG
+         i8Sw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :references:in-reply-to:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=/u/zHj8o4GALTFDIoLdq3ubVagg8+CNmu8oda+9Wt9w=;
-        b=KGJihbHbTeHjF3VMN7H2UNgchKy9IyNo9dZWELOSm2AeaiX1hGIFoMW9pAQHoqkzQA
-         Y9sNYb9whbGS9W18rES1dBlAf+e8RXG2pIR9sIlCJAgas0A5RFWzQucRefDaKWc6ApfZ
-         Z2ZZOtto2Z56lAFPTO+rcgS6fwbaFuf9/naXM4nFkgrL5nWUY2oHFhN/H/XADKgL08/R
-         Er2ZnIVV4NJMdoms3jSFsC1A3lDlEet0Q1i0T4DiS3kqFRESylu33NXZpbTt7nmzxZd4
-         Be5oZq1KVAUpREor32XgxGFohD9tftCNn8ZBn08pA6YGwr1/92BjRtJRPtaujSPjhLGc
-         QpQg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
+        bh=AsvQNCaeqV/DmU+kicaKj3hqSu38K3stKyXtiWIEZ5k=;
+        b=dV5jg4j/QZOaJuSy9lrEmWZaXW5goBNMcLqBOBAAPNPU4SUBjAyQ8zIHAd6DHh9jxm
+         ASmbWJG74Jkk8oSTWcoeElCXwOOleaCDIxmRmpkwwnIWrVCTjw7VZAaDpajxYk1MohLL
+         UvyYtuw8CVgGI5gQeYe95fvU3DxE/TaLGpwLcCQ7P9lb3fbeI2GwMOf3lBGaqiIQXnWk
+         CyDpJfRd2uSG+t26470HvldQ010ifFBbaQKql+J0ooiJu/UG7o5I2UO40Em4doyS1s5O
+         kfBEaPtuPKyGskR0fjZAckRunU7emOtxv/QD3HuAS/eF1cc5/BAAh9VZ1tuUQ1Sc5AN1
+         igXg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bk5+OqxV;
-       spf=pass (google.com: domain of yaohaidong369@gmail.com designates 2a00:1450:4864:20::632 as permitted sender) smtp.mailfrom=yaohaidong369@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=olch6uOd;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=date:to:from:cc:reply-to:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/u/zHj8o4GALTFDIoLdq3ubVagg8+CNmu8oda+9Wt9w=;
-        b=hS7DldlBgm9t2z+znSjG2dG0FPGFL5ijqTCYHHzGGVXydQ7GGuJj2sdYiIaeLnZBxT
-         b/pktbaHUpt21anbdMgqWGrD+YmHsJ91NBI0XTCEkK300FqvDIMdCzBTfGQ17HvtV9pn
-         EdDjN718H134kHBsQn7M+eQYRnGL4L+9GqWZwgD3KlayH3B2+a5O+QZ8Qv9iGZOG+SDa
-         LhuIFPYtINruhnw6WlAwpiJ6uncQuWwBGCXW5w0ZLEa8Hf9njbfXzoD7JgxaydG6IZIi
-         dyJ7jzL1bm7k6Q4aLEihZtghabuzNj7ZjG5aVOpY5GIFNLxl6C1GYiWf7WkGuhl4ANfy
-         Cxig==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:in-reply-to:references:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=/u/zHj8o4GALTFDIoLdq3ubVagg8+CNmu8oda+9Wt9w=;
-        b=Bc4SktCzd1SpeB10o4W6dwsOgjPFA9GN9wPsQqsujZBInOIoTyYb3XYS6TmOXQXOVg
-         odfd/YOWD9g0s7wNUBME+21Vkt1w5dUqQ4Q8xWwvHDovISFaCWsOhkyCeFKIo4WAUxA9
-         GeRykZ7E9WGjj+SvukWesTj40UMohYZiCc6KWvtzD56J4FUPMShcy8O1B8JPDgRl1T+i
-         gKp+Mwl4cmFJPgpWTlltMcrHchsYtztwmobp4gV2aD8Vnj4sx/etiqdgEIFm5mj9rN9x
-         /3konixWcb87H34+O+/1+Jad3uUw7iZG6N2NsuxKNLds+QUHmwbvGyOePbW0Yf6KJhMg
-         p9Ug==
+        bh=AsvQNCaeqV/DmU+kicaKj3hqSu38K3stKyXtiWIEZ5k=;
+        b=C8uS2giCTaO3Z8B3Trhab2Wm2OmNxEXR/gjF+YxFddIpfyrUNZj5GTX9NrU2Z/gEhS
+         2DuYKAJqMObuDCEAaiYII9CBDAtUv0/43UaKA5lYC1Rc87oc9Po+ZOsJcsl20J22XJY5
+         2Jvl48boGh14Wee7HeLA1F7uLbClYyKoj2S+xg7DL9MT+Zu06BPQ2/l+srLsy/Tj0M09
+         C/wgFsqtXYcWiXQdQNz2uMp+GEGu9FTbqqXbOLfTy94LhxeZt/DKBWqMr8IvSqnOB7Xc
+         xYk4PbT+Jck18UurfLSUFK2zVVtVrizcvfhv8jiarPx83mfAHLXrtvcBVLZFvBRZB0zr
+         k0Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/u/zHj8o4GALTFDIoLdq3ubVagg8+CNmu8oda+9Wt9w=;
-        b=uUMSikNUIdJ5PowHCn62+hhVZjU+8+SIcn6vfVYE8LNtwjgjFJoyvFs7pEvacg14ib
-         /cKsLa9jyh6Sxoc+92H7I21/1I4KIm+IKMfgq4JteA194Crae1ZRwdcgPjX2A82V+Ds2
-         9yjr3Ac4xzW1sOuXHMr4s6KWeu3dXMQELvxhsVT5W2zYd6kIBEDL6YkHwkM20Pj3ViJV
-         8w9UgQd305L8/kSojaJwe6U9lVC1kYIY17ycVbG6rr0r8MRTqNn+kZuSrw0A5eJubs7o
-         mOWordwlJkNlty7CTL4CYFFRGseBTOUhFgvnMs+2sywS93msafRXwtKUGPWhZ6Y0lm7I
-         Rymg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5302EqjNq/FwwqjUUfp9QgvSqthy8d3yPFwgPsRLbo5oBrABCD9M
-	X5uDsnCskrg1ysdk66YgBqk=
-X-Google-Smtp-Source: ABdhPJyET26YAhazgqn6soCvSd0L6wMnYfkzejKPshgozfftYF4vVXukD3EFESbDwA0E6Py7LvdJmg==
-X-Received: by 2002:a1c:2155:: with SMTP id h82mr7606719wmh.132.1610020434784;
-        Thu, 07 Jan 2021 03:53:54 -0800 (PST)
+        bh=AsvQNCaeqV/DmU+kicaKj3hqSu38K3stKyXtiWIEZ5k=;
+        b=OFO+eo7wmVrCRp9WF7HdMQ6dGoxhD+IP9vLvo3NdRW/kKKjREGk0PPQOtMbk04u/IP
+         dFmFJc1hCXGYYFucl7MVgqdlKQgoPtLBwvt1jJXmL5JgIBJ7v7Du1Ji9ZHFovdG00fCa
+         uD4ldMyO3pVaeaGSOQX5eDoRTdcZOSO9g101z+ElmSDKN0JJUn3NapJ3WPrYBP2IpIeS
+         Mqq8Wjm0HS0flimnbMKuR+cZGVQRAkWoWyxdV3qYNgSUGvE9ONZvYDQQG6j89TCAU3Ql
+         iwizUhfqTihuzzDdzhnh23+sVsktrQ+Tlu4FIBchReHPevu6SCRlcHzKptdbilG8Z1Ei
+         Uo2w==
+X-Gm-Message-State: AOAM5313JKymzr0LY3gGeRxtIYax450yX+qyWAaAd7QmgPGttxmd24i7
+	soSaTxITAuKzdCmQCzU1iVk=
+X-Google-Smtp-Source: ABdhPJyfAV/yFoEF+izCNrXFIQIu5fjwm3yVlAO4XrLY1pQMVVnCnRH/ob72o52ATV/sqFAMSQjUow==
+X-Received: by 2002:a05:6402:8d5:: with SMTP id d21mr1466075edz.57.1610020443349;
+        Thu, 07 Jan 2021 03:54:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:b688:: with SMTP id g130ls2932759wmf.3.canary-gmail;
- Thu, 07 Jan 2021 03:53:54 -0800 (PST)
-X-Received: by 2002:a1c:1d85:: with SMTP id d127mr7934635wmd.49.1610020434024;
-        Thu, 07 Jan 2021 03:53:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610020434; cv=none;
+Received: by 2002:a17:906:4890:: with SMTP id v16ls2717221ejq.9.gmail; Thu, 07
+ Jan 2021 03:54:02 -0800 (PST)
+X-Received: by 2002:a17:906:4e46:: with SMTP id g6mr5757025ejw.243.1610020442544;
+        Thu, 07 Jan 2021 03:54:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610020442; cv=none;
         d=google.com; s=arc-20160816;
-        b=uvWxWCBIYAbXRr+G83sm5Yj/6kXS9cnik7fda8qRy5DR+G6FEF9+0YxCWIi7Vuv/Yc
-         QJYngMPNs1eDtS89fbZxzeD6aKkdTJfTs4Z6cBlYmOcPfqD4EalzEOTecqtnFBm5NE8r
-         UHb2e+kELjyHLaZq2wu/VbQ7iOwdQlw9Y50RKzA4SoHDLm7FvOTjl7J5MgHbFerpXAB4
-         gieJtQk+vuucKCn+TbtERqGf+zKcJOh0DTX+cWJJ8e1ujDwsyb6gcpjWth91QqtmKsev
-         4uSL5nnozykfWETAz82Ad3Czf9Lj7ejOBS5ZS8ShkwfM+nWw/NzMeHPXS54BPN2NOe+j
-         jfOA==
+        b=kfIUK3xPnliEsQohiVgdem+OXBgs8T+8G7XCzpgFsPjHtuOuIW8zOiGGTaCHy9CAPw
+         tYwiQ64MW4o8fQC6mA9if2bwQhr0F1o99PoFwW2PRxN1hNjRgWptRJrgmxcjo1SJaogN
+         2RsOdwX2VhQqs1n/rWA2bEPA+LK6Cjx9mz3K4F62scJ6HFomb/AjaRmtLW3G2pmGcquz
+         UoRxl3e7vI8FQPjRK3gx3FWhHTxuTRblIzi9lW6YyjSji5883tO4euCMxuoIjaSxcz8/
+         VjKdiMat6fZ9pFOre3uU3/l3Syg5FhzNDz++ykd86AhFnCmQz3mKQzTloJP4PJnDDuNI
+         G22g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:dkim-signature;
-        bh=rsynHIghsKQJZD4h8BVfrHuvAqsY9Wy0HaJluKpfM9g=;
-        b=XgKmd2t3mcSt+WSWgcH7NpWld/0YVIDAeYLL0onQZDWmM1tuxIQbCALw1WBmK4eYPe
-         ZidmjXgj1DLp8r9de2g0XeWDExUp2OIG30xFlQ4avfDvj06Y+RGpgEcTkTHmVN4GTRz2
-         CwzHOaP93lk4kqqqTI4R2u06It6Ve/sQOto3meSpxvgKGFK89sImLPaGZDQSEutui7hA
-         xvqr8ddRJqbtxnDoxkuQ3sQsmVvQNcWZ9HHeKrmmK5OohJzGu+5LNDPhhmrdY/MS6o0z
-         QHQsDajBcKY71rClTUrJzpWiZY7V8mOE81yQbkk/aQrG5CrDyOV65Bd/uTMTi8aMCsAg
-         u/CQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
+        bh=Yi9X+eUEsj/PoAs0Ktl/IbvqOd3Iq8nO46nm6Q1y7o8=;
+        b=YipLNwdeYRgeTa9loAvK8c+O/pbSUc/FXqcgcsD/7f9NXqIrBRsawFdMiKAQfbrZOH
+         LqnmN45FyxNZ/wlCY1VEHuucEoLLTmFCZx9mvgXYnkTT3KfuhD3SCC/eHMjHXuTQvnh8
+         tCojyKeGlMJrUQSh+yQwtgNozKTirFO1iKhJZR/9ZeWOIkQicdZfBoOXnJlRwmxODujI
+         Z1+atnRPxlfe1K/x2hzSrd1p06t7YUYg4MGv8/JXKuckpuhq5eayIEUo9nhGa2G4Acg5
+         j+Y99XHgeaYB6susvDPU94mvSZXFVTBgYLqPwnMdBbDCJGlqnssN0LI+/yiBUturtiTo
+         Q4pg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bk5+OqxV;
-       spf=pass (google.com: domain of yaohaidong369@gmail.com designates 2a00:1450:4864:20::632 as permitted sender) smtp.mailfrom=yaohaidong369@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x632.google.com (mail-ej1-x632.google.com. [2a00:1450:4864:20::632])
-        by gmr-mx.google.com with ESMTPS id x12si367274wmk.1.2021.01.07.03.53.54
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=olch6uOd;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
+Received: from mail2.protonmail.ch (mail2.protonmail.ch. [185.70.40.22])
+        by gmr-mx.google.com with ESMTPS id d9si368963edr.1.2021.01.07.03.54.02
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 Jan 2021 03:53:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of yaohaidong369@gmail.com designates 2a00:1450:4864:20::632 as permitted sender) client-ip=2a00:1450:4864:20::632;
-Received: by mail-ej1-x632.google.com with SMTP id t16so9198418ejf.13
-        for <clang-built-linux@googlegroups.com>; Thu, 07 Jan 2021 03:53:54 -0800 (PST)
-X-Received: by 2002:a17:906:52d9:: with SMTP id w25mr5874188ejn.504.1610020433833;
- Thu, 07 Jan 2021 03:53:53 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Jan 2021 03:54:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) client-ip=185.70.40.22;
+Date: Thu, 07 Jan 2021 11:53:55 +0000
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Fangrui Song <maskray@google.com>, Huacai Chen <chenhuacai@kernel.org>, Pei Huang <huangpei@loongson.cn>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Alexander Lobakin <alobakin@pm.me>, Sami Tolvanen <samitolvanen@google.com>, Ingo Molnar <mingo@kernel.org>, Ralf Baechle <ralf@linux-mips.org>, Corey Minyard <cminyard@mvista.com>, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, stable@vger.kernel.org, clang-built-linux@googlegroups.com
+Reply-To: Alexander Lobakin <alobakin@pm.me>
+Subject: [PATCH v3 mips-next 3/7] MIPS: properly stop .eh_frame generation
+Message-ID: <20210107115329.281266-3-alobakin@pm.me>
+In-Reply-To: <20210107115329.281266-1-alobakin@pm.me>
+References: <20210107115120.281008-1-alobakin@pm.me> <20210107115329.281266-1-alobakin@pm.me>
 MIME-Version: 1.0
-Received: by 2002:a17:906:f858:0:0:0:0 with HTTP; Thu, 7 Jan 2021 03:53:52
- -0800 (PST)
-In-Reply-To: <1608022118-29993-1-git-send-email-yaohaidong369@gmail.com>
-References: <1608022118-29993-1-git-send-email-yaohaidong369@gmail.com>
-From: haidong yao <yaohaidong369@gmail.com>
-Date: Thu, 7 Jan 2021 19:53:52 +0800
-Message-ID: <CA+kUaCeebDNXi12-nNpw4i_auZbM+JQUC5uNhEzXxqa7=W4LnQ@mail.gmail.com>
-Subject: Re: [PATCH] add chan->cl check in mbox_chan_received_data()
-To: jassisinghbrar@gmail.com, natechancellor@gmail.com, 
-	ndesaulniers@google.com, linux-kernel@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, orsonzhai@gmail.com
-Cc: zhang.lyra@gmail.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: yaohaidong369@gmail.com
+X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF shortcircuit=no
+	autolearn=disabled version=3.4.4
+X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
+	mailout.protonmail.ch
+X-Original-Sender: alobakin@pm.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=bk5+OqxV;       spf=pass
- (google.com: domain of yaohaidong369@gmail.com designates 2a00:1450:4864:20::632
- as permitted sender) smtp.mailfrom=yaohaidong369@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@pm.me header.s=protonmail header.b=olch6uOd;       spf=pass
+ (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted
+ sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
+ sp=QUARANTINE dis=NONE) header.from=pm.me
+X-Original-From: Alexander Lobakin <alobakin@pm.me>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,148 +129,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Jassi Brar
+Commit 866b6a89c6d1 ("MIPS: Add DWARF unwinding to assembly") added
+-fno-asynchronous-unwind-tables to KBUILD_CFLAGS to prevent compiler
+from emitting .eh_frame symbols.
+However, as MIPS heavily uses CFI, that's not enough. Use the
+approach taken for x86 (as it also uses CFI) and explicitly put CFI
+symbols into the .debug_frame section (except for VDSO).
+This allows us to drop .eh_frame from DISCARDS as it's no longer
+being generated.
 
-Thank you very much for your reply.
+Fixes: 866b6a89c6d1 ("MIPS: Add DWARF unwinding to assembly")
+Suggested-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Alexander Lobakin <alobakin@pm.me>
+---
+ arch/mips/include/asm/asm.h    | 18 ++++++++++++++++++
+ arch/mips/kernel/vmlinux.lds.S |  1 -
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
-Look at the function sprd_mbox_outbox_isr .
+diff --git a/arch/mips/include/asm/asm.h b/arch/mips/include/asm/asm.h
+index 3682d1a0bb80..908f6d6ae24b 100644
+--- a/arch/mips/include/asm/asm.h
++++ b/arch/mips/include/asm/asm.h
+@@ -20,10 +20,27 @@
+ #include <asm/sgidefs.h>
+ #include <asm/asm-eva.h>
+ 
++#ifndef __VDSO__
++/*
++ * Emit CFI data in .debug_frame sections, not .eh_frame sections.
++ * We don't do DWARF unwinding at runtime, so only the offline DWARF
++ * information is useful to anyone. Note we should change this if we
++ * ever decide to enable DWARF unwinding at runtime.
++ */
++#define CFI_SECTIONS	.cfi_sections .debug_frame
++#else
++ /*
++  * For the vDSO, emit both runtime unwind information and debug
++  * symbols for the .dbg file.
++  */
++#define CFI_SECTIONS	.cfi_sections .debug_frame, .eh_frame
++#endif
++
+ /*
+  * LEAF - declare leaf routine
+  */
+ #define LEAF(symbol)					\
++		CFI_SECTIONS;				\
+ 		.globl	symbol;				\
+ 		.align	2;				\
+ 		.type	symbol, @function;		\
+@@ -36,6 +53,7 @@ symbol:		.frame	sp, 0, ra;			\
+  * NESTED - declare nested routine entry point
+  */
+ #define NESTED(symbol, framesize, rpc)			\
++		CFI_SECTIONS;				\
+ 		.globl	symbol;				\
+ 		.align	2;				\
+ 		.type	symbol, @function;		\
+diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
+index 16468957cba2..0f4e46ea4458 100644
+--- a/arch/mips/kernel/vmlinux.lds.S
++++ b/arch/mips/kernel/vmlinux.lds.S
+@@ -225,6 +225,5 @@ SECTIONS
+ 		*(.options)
+ 		*(.pdr)
+ 		*(.reginfo)
+-		*(.eh_frame)
+ 	}
+ }
+-- 
+2.30.0
 
-Chan is !NULL.
-
-chan->cl is NULL when the client driver not loaded, the controller
-driver don't know the client driver loaded successfully, so, I do not
-use mbox_free_channel.
-
-Here,How do you know chan->cl is ok?
-
-chan = &priv->chan[id];
-mbox_chan_received_data(chan, (void *)msg);
-
-static irqreturn_t sprd_mbox_outbox_isr(int irq, void *data)
-{
-        struct sprd_mbox_priv *priv = data;
-        struct mbox_chan *chan;
-        u32 fifo_sts, fifo_len, msg[2];
-        int i, id;
-
-        fifo_sts = readl(priv->outbox_base + SPRD_MBOX_FIFO_STS);
-
-        fifo_len = sprd_mbox_get_fifo_len(priv, fifo_sts);
-        if (!fifo_len) {
-                dev_warn_ratelimited(priv->dev, "spurious outbox interrupt\n");
-                return IRQ_NONE;
-        }
-
-        for (i = 0; i < fifo_len; i++) {
-                msg[0] = readl(priv->outbox_base + SPRD_MBOX_MSG_LOW);
-                msg[1] = readl(priv->outbox_base + SPRD_MBOX_MSG_HIGH);
-                id = readl(priv->outbox_base + SPRD_MBOX_ID);
-
-                chan = &priv->chan[id];
-                mbox_chan_received_data(chan, (void *)msg);
-
-                /* Trigger to update outbox FIFO pointer */
-                writel(0x1, priv->outbox_base + SPRD_MBOX_TRIGGER);
-        }
-
-        /* Clear irq status after reading all message. */
-        writel(SPRD_MBOX_IRQ_CLR, priv->outbox_base + SPRD_MBOX_IRQ_STS);
-
-        return IRQ_HANDLED;
-}
-
-
-On Tue, Dec 15, 2020 at 2:48 AM Haidong Yao <yaohaidong369@gmail.com> wrote:
-
-> --- a/drivers/mailbox/mailbox.c
-> +++ b/drivers/mailbox/mailbox.c
-> @@ -152,7 +152,7 @@ static enum hrtimer_restart txdone_hrtimer(struct hrtimer *hrtimer)
->  void mbox_chan_received_data(struct mbox_chan *chan, void *mssg)
->  {
->         /* No buffering the received data */
-> -       if (chan->cl->rx_callback)
-> +       if (chan->cl && chan->cl->rx_callback)
->                 chan->cl->rx_callback(chan->cl, mssg);
->  }
-The proper fix is in the controller driver. Which should stop tx/rx
-when the channel is freed.
-
-thnx.
-
-
-
-2020-12-15 16:48 GMT+08:00, Haidong Yao <yaohaidong369@gmail.com>:
-> From: Haidong Yao <haidong.yao@unisoc.com>
->
-> mailbox outbox irq is coming, but mbox_request_channel
-> is not be registered, so cl->rx_callback is NULL.
->
-> panic log:
-> [    9.852090]c0  Unable to handle kernel NULL pointer dereference at
-> virtual address 0000000000000020
-> [    9.954634]c0  pstate: 60400089 (nZCv daIf +PAN -UAO)
-> [    9.954651]c0  pc : mbox_chan_received_data+0x1c/0x88
-> [    9.954666]c0  lr : sprd_mbox_outbox_isr+0x1d0/0x204 [sprd_mailbox]
-> [    9.967439]c0  sp : ffffffc010003e10
-> [    9.967443]c0  x29: ffffffc010003e20 x28: ffffffc011c2f6c0-
-> [    9.984918]c0  x27: ffffffc010e92e08 x26: 0000000000000001-
-> [   10.140344]c0  x25: 0000000000000378 x24: ffffff80f4064130-
-> [   10.145880]c0  x23: 0000000000000001 x22: ffffffc0091072c7-
-> [   10.151418]c0  x21: ffffffc009107212 x20: 0000000000000005-
-> [   10.156957]c0  x19: ffffff80f4064080 x18: ffffffc010005038-
-> [   10.162494]c0  x17: 0000000000000000 x16: ffffffc010e6f844-
-> [   10.168033]c0  x15: ffffffc0117abac7 x14: 000000000000003f-
-> [   10.173571]c0  x13: ffff0000ffffff00 x12: ffff0a01ffffff10-
-> [   10.179110]c0  x11: 0000000000000001 x10: 00000000ffffffff-
-> [   10.184649]c0  x9 : ffffff80f40644a8 x8 : c366877097809900-
-> [   10.190187]c0  x7 : 207273695f786f62 x6 : ffffffc011d62231-
-> [   10.195726]c0  x5 : 0000000000000034 x4 : 000000000000000c-
-> [   10.201265]c0  x3 : ffffffc010e9842c x2 : 0000000000000001-
-> [   10.206803]c0  x1 : ffffffc010003e40 x0 : 0000000000000000-
-> [   10.212343]c0  Call trace:
-> [   10.215029]c0   mbox_chan_received_data+0x1c/0x88
-> [   10.219705]c0   sprd_mbox_outbox_isr+0x1d0/0x204 [sprd_mailbox]
-> [   10.225590]c0   __handle_irq_event_percpu+0x164/0x358
-> [   10.230604]c0   handle_irq_event+0x60/0xd8
-> [   10.234675]c0   handle_fasteoi_irq+0x128/0x32c
-> [   10.239086]c0   __handle_domain_irq+0xa0/0x100
-> [   10.243502]c0   efi_header_end+0xb8/0x15c
-> [   10.247478]c0   el1_irq+0x104/0x200
-> [   10.250945]c0   cpuidle_enter_state+0x158/0x2d8
-> [   10.255440]c0   cpuidle_enter+0x38/0x50
-> [   10.259253]c0   do_idle.llvm.10091284334483161164+0x1a4/0x294
-> [   10.264963]c0   cpu_startup_entry+0x24/0x28
-> [   10.269120]c0   kernel_init+0x0/0x29c
-> [   10.272752]c0   start_kernel+0x0/0x418
-> [   10.276468]c0   start_kernel+0x3a0/0x418
-> [   10.280371]c0  Code: f90013f3 910043fd aa0003e9 f9400800 (f9401008)-
-> [   10.286684]c0  ---[ end trace b868997a960c667a ]---
->
-> Signed-off-by: Haidong Yao <haidong.yao@unisoc.com>
-> ---
->  drivers/mailbox/mailbox.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-> index 3e7d4b20ab34..58697298a95f 100644
-> --- a/drivers/mailbox/mailbox.c
-> +++ b/drivers/mailbox/mailbox.c
-> @@ -152,7 +152,7 @@ static enum hrtimer_restart txdone_hrtimer(struct
-> hrtimer *hrtimer)
->  void mbox_chan_received_data(struct mbox_chan *chan, void *mssg)
->  {
->  	/* No buffering the received data */
-> -	if (chan->cl->rx_callback)
-> +	if (chan->cl && chan->cl->rx_callback)
->  		chan->cl->rx_callback(chan->cl, mssg);
->  }
->  EXPORT_SYMBOL_GPL(mbox_chan_received_data);
-> --
-> 2.28.0
->
->
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BkUaCeebDNXi12-nNpw4i_auZbM%2BJQUC5uNhEzXxqa7%3DW4LnQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210107115329.281266-3-alobakin%40pm.me.
