@@ -1,148 +1,142 @@
-Return-Path: <clang-built-linux+bncBC32535MUICBBTFR337QKGQEQIGB3VY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBHWZ337QKGQEB4IGHBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 159CE2EE9BA
-	for <lists+clang-built-linux@lfdr.de>; Fri,  8 Jan 2021 00:27:10 +0100 (CET)
-Received: by mail-qv1-xf40.google.com with SMTP id x19sf6758330qvv.16
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Jan 2021 15:27:10 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610062028; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 31EF22EEA90
+	for <lists+clang-built-linux@lfdr.de>; Fri,  8 Jan 2021 01:51:44 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id t14sf5131987plr.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Jan 2021 16:51:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610067102; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wg0GC00yOVjnzNM1MPpLxSbBQsuktglycACqZbBrDUb6DMTbX9p7Aaat2sLUeoXLRD
-         IifS6TNWRxUyBSI9nu5rFpIStugK71ukvwvJwDbt57MP/9q8cV6KBCr0VXg6XOfAVYgA
-         gB89wWRKbU9OvtABfJ9Io/uNRZhKo8XIuvXnYlc/fxZaAODd5Ft1DQ03ZM/Ya1wu6i22
-         Jp6gy9b96HVSCc1mIWC5DnzU79QbQ43H58qDmWjjViZbTieGTIhpO65v+Yhb51wYpr3q
-         805v9LKjZs/bhzPVpBE0TVF9ZlEBVhAPIgF4DZO7SO+W+ic3xJL4lK383eNqnVsIPIWj
-         vqSA==
+        b=K5BO2WI9vloKCuQQ/ULD9cw6ignGN4EKKjgEEWgIEQU3ijXdKXUUGwLrhKCUc2TXK6
+         FmTmQfy211Q/raR1uDXKogw0pAVGKiSQ5aWwxayA4ZCsq4t47jS08LOZzxmOcWkwd0Ws
+         KcVYAwzSY7zkh1H4D7kiriTnlE8Nt2dS+47Y5SPO8660NolZOUxhEtsTjNi4hVvXYyS2
+         enQOYO/lPoaiTyhadiiWZPJCvGTDU0+PfpykGuKQPbrkE5Cn4QD2pq30HImhmoRujtea
+         tHL5vdME60ZXO3LnDpP/k2fKjvp/W6+I8UBvdadaa66ZXO4zJr5DEwczca3ftuKOrRDn
+         YsYg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :thread-index:thread-topic:to:in-reply-to:cc:references:message-id
-         :date:subject:mime-version:from:sender:dkim-signature;
-        bh=hVaPdsFb/fJ4gDvbuMHgAm8MobgCOT6C8LQsQK+6v8c=;
-        b=VaFby6HL9szcWd54PfktRzwHLvuUQ9Nmu3uq16MHYETCWiYgSwtO8hUIQ6YbK9XJ9B
-         4xt54naeF0NczYCKhFM2lhsEpKCUN3XGap3nBEYn8beisMIAcZrpCUwg24DIxaHyNuKM
-         nSPCNY7uYDj3Gw3r3zyHd1w3Z1cn0+loUJiDY2iwaOYpRBTPMfYOR/vB56U3gNuyBM+1
-         Czfr8BaeF5c92+BFDyIe5oeZ30MP1j3iJjDZCA3YkKpbBUfVf5isM4x7K7FncPtNU0Cp
-         KPq7BHHQONmGNYVfxkoUMkrIGBVLdgTojKtPrNk62dmWseYRbP7p/R7TyO6FwxDc0GwL
-         8bDQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=XWtEAHPwEzt+bxi3bbqrwGuGeRQWkkBnYKp99BVHNSQ=;
+        b=zdE3J1kpzWHYI1nrlCyyimRqUENPmZcOsHqVunXs2LSeIPCt3yxl/FFDZ8S99CTwdq
+         zBTqf+klsrfq/2uey91nLL4wmSUTy5oys82NRygYQ7gKHLNdLsG67fveK0rf5IedbbNY
+         aOGPNXnns2/KQWOq6usv9Xs6irg5+vO6bqCD7V2xOoXogcIdE1ExQV6cWDOHR6JXTv8a
+         9u5kgKXAXenf9BHLnjRO95OeIdkFU7JuICr6J3CRZUiK9wcJnId5ok8pxjppREv95jfH
+         d+zT/EywyPwJ00oxWnI64w4cdCWxRGQ0SKqbCr2A/cnw+K2CBWGY+rOpNqJjhYJqLWpq
+         oZ/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ghfb8pHz;
-       spf=pass (google.com: domain of dhildenb@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=dhildenb@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:mime-version:subject:date:message-id:references:cc
-         :in-reply-to:to:thread-topic:thread-index:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hVaPdsFb/fJ4gDvbuMHgAm8MobgCOT6C8LQsQK+6v8c=;
-        b=Sgfs/6t5HQ+KpF9tBDg/F7aHeNW7VOXuCYlk/8FRaSdXLDzzOgp/hdH3l+dURQpzJy
-         GRTE+qsyK41/ZASeYxQ1XRHSxxmta7KKpZDpr1WVP7m0Ymd/JBQ2G+vsJhqDKwBpiM3c
-         ruzhmr7zxxWNlWMJ0EoV8jQdBm78bGp82gsl0rMCFAx/LciIFv8FWhu+t5WoTyRGnlkf
-         riKm8OMrAMpLx4Fm/QA/zIt0uJ65PPbR1wlJWwXedk2uPqn1pzJNncGGcV1rsycRoK0W
-         4rR4QkHoUMRPbI4h5kuvkPaHN0PbGPG0FvXY/Blf0weM2jC2ElWj4pAEiTVAwRKgDawx
-         gDAA==
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=XWtEAHPwEzt+bxi3bbqrwGuGeRQWkkBnYKp99BVHNSQ=;
+        b=eip6S3wAyUREByiDhWQivU/urvuzH8wVP9zkdSrsZ5dIhCVRenMzsIUhelDggeTUTx
+         70/OKBbWRtpgXCd6eSmF5anj8lWv68ZWi0CQRoDOl/dwM2iV4iLU1XKTKFWR1nCGhkja
+         qb2e9+889VLeLV0yZXTMrgscGFP+S9Y5QWevozkNK5jX2dWDx1RR7ph3riGoBLn4YK3R
+         9SGX18pCYI5xlwh/L9NNKvSpYOMEBdV6M9wwWWg9O6kl2BsU7p8E8NV36YI/10+3cIyO
+         ouLlzW5J2JYqtcBtVImlFk2vdAG/m3+BdIRG6jhRenlZK+Lf98Aqy7DS1szZYZz0cVxi
+         uXZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:mime-version:subject:date:message-id
-         :references:cc:in-reply-to:to:thread-topic:thread-index
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hVaPdsFb/fJ4gDvbuMHgAm8MobgCOT6C8LQsQK+6v8c=;
-        b=QuVR14mVw9OeCyz74im9E4voEzA3mnEWmchTwg24Xy91lW6kdqZHwgpVGvdkmCcPDW
-         vR0d1VMPuVVkqa6hKvLOCR2Uu+yDiMYm6moNZ+kRGoLOjOvG7zA5VPQGRXMMKbfocKxU
-         EUFKDqPjIVtSYnuMOmOiKf3OyFclGOL4Hl+x+ZGv69dn0zYwR+V8dZ6k4uOIcOM2+oEW
-         D20G4J2ocH5UwlbG6dZvfN0xYAfy+3YqmGoqgjJXLDeHrGpi/NbMlFZlB49oAaV88FAU
-         r9HOnGKdTsxJJay6lyz7+Xd0fV0HeVSKDnS0psQve+lIzJf6+mfzRHRfa0tjklc/Uxpj
-         p/rQ==
+        bh=XWtEAHPwEzt+bxi3bbqrwGuGeRQWkkBnYKp99BVHNSQ=;
+        b=oRuvFQclgF7PUXtf77rkcjA28wXBZfTKXOdCQarbngfS5h77RKUBrM9Poy0F/SOysR
+         njESjnCdfOGSZlys4Amzy/1cfYUgb9HRPKJgtyRqKWfQP2zaUdHZFvNsDShoqtnn4Okf
+         KABNtIddEGxhA7i8r74aSd5XO4RdQYXXY7YpjWlUzezLvzpMpUK1JkjGybF/fXD8MDmp
+         QLSmf/jm2n+xiEK45HY5lo4HHx9rOX2QST+a6g4c1Qd+B3D2BfV8ILSLx+RZDYw54Uyu
+         JKqmNMCHvQuXcFEKMOcvDUNUBNgecXRRGgOQWQNpn6A5N+VIR7tqfArlBsdQcUWc5MRy
+         72vA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530IJZTiY8EsfZD5bFmtqkfeUD2cFYU/lHCJwZlNcqJboR5u5ptC
-	/b9QHdBLzkJnz3XFr4qC40o=
-X-Google-Smtp-Source: ABdhPJxfr0wIkgo0lYUUO5CY7Cg1OjbiBsoKBxZJvdee+9jJ97UHQtKDD9kTaeraCmSog6u2XOKd0g==
-X-Received: by 2002:ac8:6b86:: with SMTP id z6mr1038784qts.26.1610062028725;
-        Thu, 07 Jan 2021 15:27:08 -0800 (PST)
+X-Gm-Message-State: AOAM532Fgh+EFG36r6STuEvte0ybNMddZSrEa6ZLyJHdPoodD/qcDfLr
+	8Sdkzr5uUQcfHjyYWopbec8=
+X-Google-Smtp-Source: ABdhPJxacjHhZJPGvz3NreFdcufqcK5uoQ+HtcQ6LkpjbpisC0b2psxuWFr6xlj4rBD1Q0ljDl8hlw==
+X-Received: by 2002:a17:902:521:b029:dc:2836:ec17 with SMTP id 30-20020a1709020521b02900dc2836ec17mr4470473plf.47.1610067102535;
+        Thu, 07 Jan 2021 16:51:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:e193:: with SMTP id p19ls2101747qvl.10.gmail; Thu, 07
- Jan 2021 15:27:08 -0800 (PST)
-X-Received: by 2002:a0c:a366:: with SMTP id u93mr937379qvu.53.1610062028344;
-        Thu, 07 Jan 2021 15:27:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610062028; cv=none;
+Received: by 2002:a17:90a:2a8c:: with SMTP id j12ls76667pjd.1.experimental-gmail;
+ Thu, 07 Jan 2021 16:51:41 -0800 (PST)
+X-Received: by 2002:a17:90a:c592:: with SMTP id l18mr1093667pjt.212.1610067101491;
+        Thu, 07 Jan 2021 16:51:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610067101; cv=none;
         d=google.com; s=arc-20160816;
-        b=SBV0YpG0SKH5BOgUqhPLPV+QVBUK+2QDsX4sWJ/hjY8htVrZTHYCNux3XopBcFMbk9
-         bzs6nlsQps5AnEN0rTW99sJsIlMrVxJvEyRtyssPIM4c5cWnx/bY6Iyued7/zvo1msc9
-         WvVavg7Px7B62/aSNaSnoT/8jqEPbEd3sEmU27Nw4EwrQD/WVbAdrysz/ZlJPHn7VQcX
-         834syjTcf4KXSd/aO6veI6jn41Kp3bWTGAbd3A7aV5r3uAw5B2LKh82P4lIdw1p2voQV
-         Iyb4xTEzjsSt4ljkEZosNfQfo3bAXWTFevEm4eky+8GBn9IXv1ikFa3cpfNNcy/jdf1X
-         BuBg==
+        b=E7uzuL7Jo1T5Z4+HW+KQbZE471YFLXHUimifgznMENQluzYtyQ5sbliq7kzC7aE4ss
+         wNrnfR0a7w7STQvTQjKcwmhZymEOSQDJeX/2uLs5UEcWdIfz9N1BqEr2vBGWbAYxfacD
+         vK4UC+pAn/r388dN9vC/hzFf9C8SkRWETbwxNRgIQZ4JH1mj9OJErL6x89BJoG70M1lZ
+         6kYEmAG3pegtNC+6nuG3QkJAB0tCK5KVdqWyHqjd4C2SQ4IUh9ZBsi2sn+OVG2+KeMKX
+         DqLKXRPTUveYnChvE9I4VzTJTsQyFzEvFvj9BEyCjoazvKAgEHcBRXuv1NfeUJ6/Ifnl
+         F7lw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:thread-index:thread-topic:to:in-reply-to
-         :cc:references:message-id:date:subject:mime-version:from
-         :dkim-signature;
-        bh=nFf/sTw+WhqYSSvncC0EG/Vl47KepAu4FDPOmxpXM8A=;
-        b=hknzTkXLL0rv5semVF8wy07EKsbbuK6loPmzQovDTGa/Ns/avo/dv+qddFV/1T5USw
-         BIyeadbKyVEze4XLUpp5EhROehyzUC2C5LFmNpWnqX5NH4/qhJRfStMi1L1CHfmPy7//
-         SmBeNRauHn4KrdGfE/y/IexPc/97ugKYWruH6xqsx4JyVM2WfvoY3EKvCl5B0b4YKK3Y
-         MI6f9awCnEfYjqMEopWs2PmJIqM0I7NtyjiB9eAU959milWlPiibbG3UyEDdeGuneoWf
-         jpBzuJmsddZVis9aGZOTqfuZxKeEJ/jVY9g876WGyr5d4QCgIjepUHhpklKHtwEK9Rfr
-         Znjg==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=Dmp9JKTFNF7E1tsknkfomHG5UxVz+OU5gkGJVUgzvwk=;
+        b=Ne35D16nldvad6cJaAbTRlk8Rv6RPA5IhGNPdGkwJ/59VeQAGBXLgF5y6a2/9PNYRk
+         1wqlstWvDD2FWufxrj3VAeUmw23AbnNo7cWae0zAHZsp9503aJ4mELR196BVGbpNiA7p
+         WV/80lKIIeMO5SQVktApQRlv6nsaTBhpP1twdf/gnMjdnLcUCUIh+lY/6KqjHf5hDx5z
+         pz8q6SGgED1+a1GZJ9RrhqVvjstwgNYUKCJ6lsY1VM9/YgxQgpbCRP5SyeA8aKMH3VOx
+         kdhXT2tV5bdeJq3MG3qvtyex1cZDm9Fq9hG2uE57ZFeuFucJihme3uYX17Wjgrm6l9ca
+         aNEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ghfb8pHz;
-       spf=pass (google.com: domain of dhildenb@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=dhildenb@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id z94si1134881qtc.0.2021.01.07.15.27.08
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id f204si517763pfa.5.2021.01.07.16.51.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 07 Jan 2021 15:27:08 -0800 (PST)
-Received-SPF: pass (google.com: domain of dhildenb@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-489-9kDoTAi3Nk2VSp-VIureBw-1; Thu, 07 Jan 2021 18:27:04 -0500
-X-MC-Unique: 9kDoTAi3Nk2VSp-VIureBw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9221210054FF;
-	Thu,  7 Jan 2021 23:27:02 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.20])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 8782160BF1;
-	Thu,  7 Jan 2021 23:27:02 +0000 (UTC)
-Received: from zmail19.collab.prod.int.phx2.redhat.com (zmail19.collab.prod.int.phx2.redhat.com [10.5.83.22])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 306E518095FF;
-	Thu,  7 Jan 2021 23:27:02 +0000 (UTC)
-From: David Hildenbrand <dhildenb@redhat.com>
+        Thu, 07 Jan 2021 16:51:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+IronPort-SDR: VpkkafwZCyFNMnA4/swrdGeFFvlWgyvYi1SR+qcSNUXPz3Zx4HFuJzcI4uoej8X675ZZO46xor
+ poHEAkXqSHMQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9857"; a="156703208"
+X-IronPort-AV: E=Sophos;i="5.79,330,1602572400"; 
+   d="scan'208";a="156703208"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jan 2021 16:51:40 -0800
+IronPort-SDR: tT3u3vw48Msccji5GBwP1LuGc5GcfVfkkRKxhxl8/xzfRxf1C5gr5iElFBe0QMd0o9tb1ikYuO
+ PPCtyLGPBQAQ==
+X-IronPort-AV: E=Sophos;i="5.79,330,1602572400"; 
+   d="scan'208";a="379924893"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.117]) ([10.239.13.117])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jan 2021 16:51:37 -0800
+Subject: Re: [PATCH v3 net-next 08/12] net: make dev_get_stats return void
+To: Vladimir Oltean <olteanv@gmail.com>, kernel test robot <lkp@intel.com>
+Cc: "David S . Miller" <davem@davemloft.net>, Jakub Kicinski
+ <kuba@kernel.org>, kbuild-all@lists.01.org,
+ clang-built-linux@googlegroups.com, netdev@vger.kernel.org,
+ Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>,
+ Cong Wang <xiyou.wangcong@gmail.com>,
+ Stephen Hemminger <stephen@networkplumber.org>,
+ Eric Dumazet <edumazet@google.com>,
+ George McCollister <george.mccollister@gmail.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>
+References: <20210107094951.1772183-9-olteanv@gmail.com>
+ <202101072035.p3B0IIfz-lkp@intel.com> <20210107131558.lcmuhqymqvtos2d6@skbuf>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <771f44df-5da8-9e85-7854-bf69d3d335ba@intel.com>
+Date: Fri, 8 Jan 2021 08:50:46 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-Subject: Re: [PATCH v1] s390x/tcg: Fix RISBHG
-Date: Thu, 7 Jan 2021 18:27:01 -0500 (EST)
-Message-Id: <B6050D16-4BD3-4355-878F-33E3E7C3A75D@redhat.com>
-References: <CAKwvOdmE=Z9pV4txRw-kpcv5FOSr6eEXfmGnc++R_Vzv8MnRDQ@mail.gmail.com>
-Cc: David Hildenbrand <david@redhat.com>, qemu-devel@nongnu.org,
- qemu-s390x@nongnu.org, Thomas Huth <thuth@redhat.com>,
- Cornelia Huck <cohuck@redhat.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- Guenter Roeck <linux@roeck-us.net>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>
-In-Reply-To: <CAKwvOdmE=Z9pV4txRw-kpcv5FOSr6eEXfmGnc++R_Vzv8MnRDQ@mail.gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Thread-Topic: s390x/tcg: Fix RISBHG
-Thread-Index: NcBNapSGPJMT1dP5vMuuN3FE2lAuOw==
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: dhildenb@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=ghfb8pHz;
-       spf=pass (google.com: domain of dhildenb@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=dhildenb@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+In-Reply-To: <20210107131558.lcmuhqymqvtos2d6@skbuf>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,115 +150,31 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
-> Am 08.01.2021 um 00:21 schrieb Nick Desaulniers <ndesaulniers@google.com>=
-:
->=20
-> =EF=BB=BFOn Thu, Jan 7, 2021 at 3:13 PM David Hildenbrand <david@redhat.c=
-om> wrote:
->>=20
->> RISBHG is broken and currently hinders clang builds of upstream kernels
->> from booting: the kernel crashes early, while decompressing the image.
->>=20
->>  [...]
->>   Kernel fault: interruption code 0005 ilc:2
->>   Kernel random base: 0000000000000000
->>   PSW : 0000200180000000 0000000000017a1e
->>         R:0 T:0 IO:0 EX:0 Key:0 M:0 W:0 P:0 AS:0 CC:2 PM:0 RI:0 EA:3
->>   GPRS: 0000000000000001 0000000c00000000 00000003fffffff4 00000000fffff=
-ff0
->>         0000000000000000 00000000fffffff4 000000000000000c 00000000fffff=
-ff0
->>         00000000fffffffc 0000000000000000 00000000fffffff8 00000000008e2=
-5a8
->>         0000000000000009 0000000000000002 0000000000000008 000000000000b=
-ce0
->>=20
->> One example of a buggy instruction is:
->>=20
->>    17dde:       ec 1e 00 9f 20 5d       risbhg  %r1,%r14,0,159,32
->>=20
->> With %r14 =3D 0x9 and %r1 =3D 0x7 should result in %r1 =3D 0x900000007, =
-however,
->> results in %r1 =3D 0.
->>=20
->> Let's interpret values of i3/i4 as documented in the PoP and make
->> computation of "mask" only based on i3 and i4 and use "pmask" only at th=
-e
->> very end to make sure wrapping is only applied to the high/low doublewor=
-d.
->>=20
->> With this patch, I can successfully boot a v5.10 kernel built with
->> clang, and gcc builds keep on working.
->>=20
->> Fixes: 2d6a869833d9 ("target-s390: Implement RISBG")
->> Reported-by: Nick Desaulniers <ndesaulniers@google.com>
->> Cc: Guenter Roeck <linux@roeck-us.net>
->> Cc: Christian Borntraeger <borntraeger@de.ibm.com>
->> Signed-off-by: David Hildenbrand <david@redhat.com>
->> ---
->>=20
->> This BUG was a nightmare to debug and the code a nightmare to understand=
-.
->>=20
->> To make clang/gcc builds boot, the following fix is required as well on
->> top of current master: "[PATCH] target/s390x: Fix ALGSI"
->> https://lkml.kernel.org/r/20210107202135.52379-1-david@redhat.com
->=20
-> In that case, a huge thank you!!! for this work! ++beers_owed.
->=20
 
-:) a kernel build for z13 should work with the (default) =E2=80=9E-cpu qemu=
-=E2=80=9C cpu type.
+On 1/7/21 9:15 PM, Vladimir Oltean wrote:
+> On Thu, Jan 07, 2021 at 09:01:03PM +0800, kernel test robot wrote:
+>> Hi Vladimir,
+>>
+>> I love your patch! Yet something to improve:
+> These are not scheduled to run on RFC series, are they?
+> This report came within 3 hours of me posting an identical version to
+> the RFC series from two days ago:
+> https://patchwork.kernel.org/project/netdevbpf/patch/20210105185902.3922928-9-olteanv@gmail.com/
+>
 
->>=20
->> ---
->> target/s390x/translate.c | 18 ++++++++----------
->> 1 file changed, 8 insertions(+), 10 deletions(-)
->>=20
->> diff --git a/target/s390x/translate.c b/target/s390x/translate.c
->> index 3d5c0d6106..39e33eeb67 100644
->> --- a/target/s390x/translate.c
->> +++ b/target/s390x/translate.c
->> @@ -3815,22 +3815,23 @@ static DisasJumpType op_risbg(DisasContext *s, D=
-isasOps *o)
->>         pmask =3D 0xffffffff00000000ull;
->>         break;
->>     case 0x51: /* risblg */
->> -        i3 &=3D 31;
->> -        i4 &=3D 31;
->> +        i3 =3D (i3 & 31) + 32;
->> +        i4 =3D (i4 & 31) + 32;
->>         pmask =3D 0x00000000ffffffffull;
->>         break;
->>     default:
->>         g_assert_not_reached();
->>     }
->>=20
->> -    /* MASK is the set of bits to be inserted from R2.
->> -       Take care for I3/I4 wraparound.  */
->> -    mask =3D pmask >> i3;
->> +    /* MASK is the set of bits to be inserted from R2. */
->>     if (i3 <=3D i4) {
->> -        mask ^=3D pmask >> i4 >> 1;
->> +        /* [0...i3---i4...63] */
->> +        mask =3D (-1ull >> i3) & (-1ull << (63 - i4));
->>     } else {
->> -        mask |=3D ~(pmask >> i4 >> 1);
->> +        /* [0---i4...i3---63] */
->> +        mask =3D (-1ull >> i3) | (-1ull << (63 - i4));
->>     }
->=20
-> The expression evaluated looks the same to me for both sides of the
-> conditional, but the comments differ. Intentional?
+Hi Vladimir,
 
-& vs |, so the result differs.
+The issue was found with a rand config which was generated in Jan 7,
+the bot didn't notice the issue in the RFC series:
 
-Cheers!
+url:https://github.com/0day-ci/linux/commits/Vladimir-Oltean/Make-ndo_get_stats64-sleepable/20210107-175746
+base:https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git  3db1a3fa98808aa90f95ec3e0fa2fc7abf28f5c9
+config: x86_64-randconfig-a005-20210107 (attached as .config)
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/B6050D16-4BD3-4355-878F-33E3E7C3A75D%40redhat.com.
+Best Regards,
+Rong Chen
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/771f44df-5da8-9e85-7854-bf69d3d335ba%40intel.com.
