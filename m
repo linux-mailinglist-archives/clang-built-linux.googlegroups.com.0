@@ -1,108 +1,105 @@
-Return-Path: <clang-built-linux+bncBAABBDVH5H7QKGQEOCNRZGQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBVOV5P7QKGQEM2KQSLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id D61DE2F04A8
-	for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 02:08:30 +0100 (CET)
-Received: by mail-wr1-x43e.google.com with SMTP id r11sf5810914wrs.23
-        for <lists+clang-built-linux@lfdr.de>; Sat, 09 Jan 2021 17:08:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610240910; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 358D02F06B9
+	for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 12:53:58 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id r11sf6356842wrs.23
+        for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 03:53:58 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610279638; cv=pass;
         d=google.com; s=arc-20160816;
-        b=1IfAZlENVcuJaQxf2fF7nO9cMsg9z2W6LCc0qKKLX5N2gaZWC4UoSwZlPbjfjdWOoW
-         JH6JnVrl5Fb5VUSPxNzrxTFrgJxVKptkcEybbMIAhbc8cSkZbNMZHS1Dnnd4FO1Zoo4A
-         W9MdXd8ptEHFdUuDySv97jKlSsqSpt++fI1dize3vik42ZmdvReZTpY7VxX75PanhINO
-         Vg6GahnbmebDEoz9xlRWY1w41wqDOgt3GFjjYFp9PnUgYHyb9qp1gZcxD1Tua17T+BxO
-         Zcadrijo1T4q/hjjUqZT7t2gIvQ7JtvCzBgrUD598Yv9jFRoAaXfzK1JxE4ZjHrrDwNl
-         yupw==
+        b=joWZ/7mSkrsXOCb2X/SPqwDew+lhbehweeDI7VwasYMa9yOpNTSnJII076FY5bRTuf
+         27MCDRoSnSjVWwJBZyvosloQLOw4gsEY85K3mneL8M7RLQNh0ZyHUduOeFAIj0T+3sWr
+         /spVwHs4CCWkbjp5iaSAjsuyeT/i6PPm98VfdbBSXZcDdC5PIaXqCzpLouDcQsXkMtq6
+         TWsY/AruFdqdUU5q5KLi46Mef1vMtCqKZlBkSphMIqEPJrWxu9Tcp52niBoxb3P8Yro9
+         uSRm0uJMc/Vdi3V7ZQ0BMWhBH124fBQqDCkpwMW9WMy+W/oNfr61nvy0lz2JcaQop0Bw
+         OIYQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
-        bh=YWfNg50op9Eyp2f8gJPZodQcTo1oostZC3mFYNlC1eg=;
-        b=J8qZjyH/VA+rpNnrvL7q+H4waZMhiZq9SWd4vM59NZuLc+xndiiRNVlPVx4CDppJyj
-         Zfyj0W/trpJ4Fq8+6I3kjYI++lWIVHEr5UWZkPcN/AKaaT0KF5Pqo6tQ2GedJIPqVUHT
-         qhmx1rsaKe5SnAfHMMIjtvCMMWp47G9bbt3tO96yeaCrvl5Fhdn5ocWUNSoofCHOuPOO
-         0BbNQpshtLQUgnlBOrEsXvIIU7PO2/iwEeNTxlei6PzV9zL36NWhMISMRv+O9JXSRU9V
-         GCVEjZw4OC6HdLrk/qqTXYqSdYfT/aQopl94/CCq0D/7tz/yOgM8uvfGfhUpQyLmcpaU
-         Y+Zg==
+         :list-id:mailing-list:precedence:mime-version:message-id:subject
+         :reply-to:cc:from:to:date:dkim-signature;
+        bh=etZSIYeezMJ6ZyAXbVm/U1AnqF4MAe+loeGB+AOPNq0=;
+        b=ViLJfnMeq3iAle6mpMdcXF2oqLoD2JLLMOtPtew1Y/X80XjkABEFyLp0XQPnwg8PrR
+         HylQnEIQ//poUsZLUCAkOc9riBEwfSrEJs1qb5oXuZ0V5VU4mlksCKrkYqtIMoJM7f1h
+         Y4zOUDUYNWP3Xsn1RjqRAQQQwDlUQr+ZcahK27nX+ojiw4xpJqWeZZXkaJw3xfipmc5p
+         XtWbMSl1962PL4wenIwJRNjFFlUWB71CyWSMOQqitGgHykA9Ro5FkqR27QHXsNwF1bL6
+         mRBGww9GBePy9zaPx6ogzVJMbC4Q+jlxHFB/50fjFoP69ZBUQbBRr5lDTbVh+uOzvE/I
+         KrRA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b="fi2Mc/EU";
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=FBoH46m0;
        spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:to:from:cc:reply-to:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=date:to:from:cc:reply-to:subject:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YWfNg50op9Eyp2f8gJPZodQcTo1oostZC3mFYNlC1eg=;
-        b=CJ+x5zSsyL5kOpAOcgyu9ggp4RWbiZAVgmaJ7L6Kzwth1vjU81oqA4Z8vadzUiJKnY
-         vr8u8qR+WdXQKt8AxJWLN4cs+VzFLQewvSBpzYIYGhWSvT8fu9FDPY6hgbR2n9nVidWA
-         2ODa4zyHLSkKWilImQR0CE/CNBMP7nidCewXHKqc+Ij47LmEGGn7NM9TbOYj8IAoBaKa
-         9O02ys/cHUe3+FkdJCvSAqKCmb4b++3WnDpLiBeH7Xn51U3xPK/aBtAFd7zOdxsb+e6e
-         wF77k061nBsjNVV6DTeF7o8S9we11PyuN1mcp4+sTUcjtwZjFhH//JArfs/Wl4rDjXOu
-         VPoA==
+        bh=etZSIYeezMJ6ZyAXbVm/U1AnqF4MAe+loeGB+AOPNq0=;
+        b=l+yUsJXFGJ3HrK6z0xE7qeJ6sjJY/7omc72yRXCkMC9HFyoSAJekD6J7KslxHYLNtP
+         cCAQP1QfJh8l1af0Si3gnrpvCkeekHTGhMhabast3PdPkpI2mmHwn3rP9NaXoX19BVmm
+         Xx9uvOkBMQgJtL98aU2S5mJUQwtmWoaGNKtCa52LKeQAT8nBW1/4cn+UwNOILG9O3Iby
+         cD+s03+NfVGS63Ko4XhFYExon+omezEBJYgD+8Ndu4lfLxPpIArOjEMt3h8yRe76cY5g
+         MFkmJ0423fLspyHdBN5TH4sz26IDjQqxRCrvgfVl6Vnu+aAwEwX+tjQ38RdhLteXr40e
+         bDDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=YWfNg50op9Eyp2f8gJPZodQcTo1oostZC3mFYNlC1eg=;
-        b=Rxa5VA7rtEDoN3K0S6wPypqjiLKHt2rasl7ewxzpM9UulJKH0NL7ROACN3TXZCO+QP
-         nB682zzkWgh4UBG5QcL1WGGkeWoG95rnQ1k5U/u2xZgPbc1ZhX5kWH1yblQDG4lNIka3
-         ajF1N8yehX1G6f6akfp1le0KvrwoNOPmlVwoP6cxid9DDwr3gbfl4bz5XQSAUggwxAhp
-         wHEbPH6dLwde/TAgia3ry2vUwqkOUjvMrTZDWnr7WS+er8JJTKeNO+8SDGp/7vKun5gj
-         dvZKbakqKA4XGoKlEcS6nYB9tPcA9rbGRBY0ZgywS6RG+jJ2427nPDymLxjnkSfplV1x
-         3Xaw==
-X-Gm-Message-State: AOAM530tTi8lNq72QZSCQwldtfdlMmT0AOFoitq4dO9+J6fMSy464fpR
-	y4ROMZLFp0RNY1ImdCZnbCk=
-X-Google-Smtp-Source: ABdhPJx2e0lKpIt/NSPObplXLF0Yi5wku21RHrY8+jZf0V7ZJ4MzchGpYgxQF7GKNtH6uC/ToEtCuQ==
-X-Received: by 2002:a5d:63c8:: with SMTP id c8mr10028114wrw.5.1610240910651;
-        Sat, 09 Jan 2021 17:08:30 -0800 (PST)
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=etZSIYeezMJ6ZyAXbVm/U1AnqF4MAe+loeGB+AOPNq0=;
+        b=TjpMy/VG7nV+5qDGnMxntQXRNEb3OQqUIylIeFKyF3RzzKBjVhw901oXAnCcao4uSn
+         +4Y8pn84df54yKp6BE1i0aQRt/CmyiG8XY7iLXNCg2cacEUfZ6XfNzJx0utd2Ep+aUrf
+         5vAopXYDYLCo6fQtqKHIV/ie6YNwMNUSBInnBsKc2A0I2PMCSAJuceFAn15vEUh3KGNS
+         odxjYVER2Zgt82Jv8WjRb9qhOskF4M2/3/vicYo//5P7Xn/TDX4CcdGczhDz25ggx1If
+         z0mwVI4GRKVHOJ4lIBsOQ/P8mTRxC+bRlV/y2viXju0DaNPIiPZe3AKarY9XXwqPeIT2
+         WftQ==
+X-Gm-Message-State: AOAM533M+H9PfmISTtkTRdRWNyVtKMUBEJuPpPBaKCXQTYR45iCKJGQT
+	pkOq2v6ZjFjI7JmTBx3OVmE=
+X-Google-Smtp-Source: ABdhPJyj4CcYf6vQgUoNOlxMwgUC0ooVzMydu08JBsQLzcN1IIjTYh4zkOB+vdo/uiNxl21Wbji8QQ==
+X-Received: by 2002:a1c:e445:: with SMTP id b66mr10830854wmh.187.1610279637928;
+        Sun, 10 Jan 2021 03:53:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:5543:: with SMTP id g3ls1800076wrw.0.gmail; Sat, 09 Jan
- 2021 17:08:30 -0800 (PST)
-X-Received: by 2002:a5d:400c:: with SMTP id n12mr10149278wrp.218.1610240909985;
-        Sat, 09 Jan 2021 17:08:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610240909; cv=none;
+Received: by 2002:a7b:cbd5:: with SMTP id n21ls6880670wmi.3.gmail; Sun, 10 Jan
+ 2021 03:53:57 -0800 (PST)
+X-Received: by 2002:a1c:7dd8:: with SMTP id y207mr10730850wmc.181.1610279637320;
+        Sun, 10 Jan 2021 03:53:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610279637; cv=none;
         d=google.com; s=arc-20160816;
-        b=yb3eYssQTY/eVSInF/7ICAozjyYp9UKu7keWcZS9x+3EIiDcfxWsucyDb+WlHAJkB1
-         PogeqiXFOQPPr6tKFNhvl2VlVFaDHXT0frTapsj0yjlGOCA8TiTW644+3A2yK3vBFGou
-         5Z1PBWEkt78g/3M67r5335n/VHQxt8xRbDGh1+/sftWi0pJ2RXCdE3z46hyEmkCWAtsq
-         0FrHqNEzzBoMEBLREmb3YRvUUAXUzBs0zOdx26uA8X32QYoKzfDSok4QQ4xurrKwRyMk
-         T17djzwcgSHJgpmd/bj7oiHl3Vbft4Qqs5AynEqOW3/z3htWFpuz9Ha/h3Kg8PVNmPk1
-         qYsw==
+        b=wiNyuuTPVDOZCVJu+cYCcyysDVhIFYsUYCpM5rsQO6VhIcAFSVoFYxlY4Tfz+B1JjI
+         1GAh7YibgjM0m/QSkk4dnwkUqX4o9tO+jG6EWI7y4TWvYOjHeCYrVNKtRfZRYO0nOR8e
+         /avaLg1zOVuRdBLEReYvwcvlt3mRF7ZIn5v2rLexDlWTayHE8BeYPqH3n3mpDbTkJMvj
+         CZS0qP0Evt2VPh7m9ZXyv0DNSZ9Cp9EecnVHFFHBrVI/+art+/LFngLzVs7rbdxs+kEE
+         QTvaQKF3vz5JHp3eR8T6tw6R7tWhN8yE7jr/n8k5elpSrB7eG1HIQbRnpvwxzMnlS2ad
+         Wpuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
-        bh=9sBxWmzjqipIQOnoNEK/AoPt0kN5IhdKUZVARrJ77Yc=;
-        b=SDil0MSFHJgvF0SMytfkRN2CAlyqLC3+NQjA4r1np4/iZW6cvy2EjccnpdWuEWQz+x
-         bgaRPq3ta/jHbIt6ORTjFy0vumNaCEjfsyTP/UYT1p/Jh/LOZMSOIGJ48DKzbmPM89jl
-         Aqn2+8R+7fg0ob8838Fs8T2lOY45kxA9RuQ/ia+eW1t7mHg3KiOF2Scxu/kYTFmD0FoW
-         PxpRlpVel2dpy1xNhidm1PFCuLrJ/bL3M2o49gQmhYBebuiQm8V4zm+rkbB7SyO5Ct5d
-         nw40ZWZe7g2SgC6horXMQpc5qYddI8xGycMzzm/ASqSRxlQl237pqOOkzGQMt9C3Ns/c
-         OyXw==
+        h=content-transfer-encoding:mime-version:message-id:subject:reply-to
+         :cc:from:to:dkim-signature:date;
+        bh=e+CceW4cTSMaSiEXVZcdatIqUeP8AJi4B5rdzKiTWXc=;
+        b=h+uuk2ua8DarVkHXrDuhYwchCUMQA5hpmBTJ4ZhNSbOGYzKhBHfRq6y2I18UJr3uHj
+         p0VT5OFvdlpujxvS0G/WAhIYqyJuW7Y5QbBKw5iXAamC1mSR/UFt42aC06CJ/yshFjck
+         PkJr/TTF43OVjh16JP0HQk0fPbmQmQp2Z1qq84GPju2ewNU4RlYWS3k0/G4hPEemuON6
+         RPdv31USbsqJaR4tXSe5Wcc6guU66wLH5m1cd3UWhHkMAGnuh5uP6xnea/2F5tqoD50b
+         Ro0I2dtlXGbmQ+L7B1y/gm1KqeXmTOXy0X96PTKrUlHYxcOlBj6mkFKSsYiijSlT+msh
+         +5Vg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b="fi2Mc/EU";
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=FBoH46m0;
        spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 Received: from mail-40131.protonmail.ch (mail-40131.protonmail.ch. [185.70.40.131])
-        by gmr-mx.google.com with ESMTPS id v16si776923wmh.1.2021.01.09.17.08.29
+        by gmr-mx.google.com with ESMTPS id q142si530258wme.2.2021.01.10.03.53.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Jan 2021 17:08:29 -0800 (PST)
+        Sun, 10 Jan 2021 03:53:57 -0800 (PST)
 Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) client-ip=185.70.40.131;
-Date: Sun, 10 Jan 2021 01:08:26 +0000
-To: Nick Desaulniers <ndesaulniers@google.com>
+Date: Sun, 10 Jan 2021 11:53:50 +0000
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Cc: Alexander Lobakin <alobakin@pm.me>, clang-built-linux <clang-built-linux@googlegroups.com>, linux-mips@vger.kernel.org, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Kees Cook <keescook@chromium.org>, Nathan Chancellor <natechancellor@gmail.com>, Fangrui Song <maskray@google.com>, Sami Tolvanen <samitolvanen@google.com>, Ralf Baechle <ralf@linux-mips.org>, LKML <linux-kernel@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Huacai Chen <chenhuacai@kernel.org>, Pei Huang <huangpei@loongson.cn>, Kees Cook <keescook@chromium.org>, Alexander Lobakin <alobakin@pm.me>, Fangrui Song <maskray@google.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Ralf Baechle <ralf@linux-mips.org>, Corey Minyard <cminyard@mvista.com>, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, stable@vger.kernel.org, clang-built-linux@googlegroups.com
 Reply-To: Alexander Lobakin <alobakin@pm.me>
-Subject: Re: [BUG mips llvm] MIPS: malformed R_MIPS_{HI16,LO16} with LLVM
-Message-ID: <20210110010811.1007005-1-alobakin@pm.me>
-In-Reply-To: <20210109232854.954832-1-alobakin@pm.me>
-References: <20210109171058.497636-1-alobakin@pm.me> <CAKwvOdmV2tj4Uyz1iDkqCj+snWPpnnAmxJyN+puL33EpMRPzUw@mail.gmail.com> <20210109191457.786517-1-alobakin@pm.me> <20210109232854.954832-1-alobakin@pm.me>
+Subject: [PATCH v5 mips-next 0/9] MIPS: vmlinux.lds.S sections fixes & cleanup
+Message-ID: <20210110115245.30762-1-alobakin@pm.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
@@ -112,7 +109,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
 	mailout.protonmail.ch
 X-Original-Sender: alobakin@pm.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@pm.me header.s=protonmail header.b="fi2Mc/EU";       spf=pass
+ header.i=@pm.me header.s=protonmail header.b=FBoH46m0;       spf=pass
  (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted
  sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
  sp=QUARANTINE dis=NONE) header.from=pm.me
@@ -129,220 +126,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Alexander Lobakin <alobakin@pm.me>
-Date: Sat, 09 Jan 2021 23:29:26 +0000
+This series hunts the problems discovered after manual enabling of
+ARCH_WANT_LD_ORPHAN_WARN. Notably:
+ - adds the missing PAGE_ALIGNED_DATA() section affecting VDSO
+   placement (marked for stable);
+ - stops blind catching of orphan text sections with .text.*
+   directive;
+ - properly stops .eh_frame section generation.
 
-> From: Alexander Lobakin <alobakin@pm.me>
-> Date: Sat, 09 Jan 2021 19:15:31 +0000
->
->> From: Nick Desaulniers <ndesaulniers@google.com>
->> Date: Sat, 9 Jan 2021 09:50:44 -0800
->>
->>> On Sat, Jan 9, 2021 at 9:11 AM Alexander Lobakin <alobakin@pm.me> wrote:
->>>>
->>>> Machine: MIPS32 R2 Big Endian (interAptiv (multi))
->>>>
->>>> While testing MIPS with LLVM, I found a weird and very rare bug with
->>>> MIPS relocs that LLVM emits into kernel modules. It happens on both
->>>> 11.0.0 and latest git snapshot and applies, as I can see, only to
->>>> references to static symbols.
->>>>
->>>> When the kernel loads the module, it allocates a space for every
->>>> section and then manually apply the relocations relative to the
->>>> new address.
->>>>
->>>> Let's say we have a function phy_probe() in drivers/net/phy/libphy.ko.
->>>> It's static and referenced only in phy_register_driver(), where it's
->>>> used to fill callback pointer in a structure.
->>>>
->>>> The real function address after module loading is 0xc06c1444, that
->>>> is observed in its ELF st_value field.
->>>> There are two relocs related to this usage in phy_register_driver():
->>>>
->>>> R_MIPS_HI16 refers to 0x3c010000
->>>> R_MIPS_LO16 refers to 0x24339444
->>>>
->>>> The address of .text is 0xc06b8000. So the destination is calculated
->>>> as follows:
->>>>
->>>> 0x00000000 from hi16;
->>>> 0xffff9444 from lo16 (sign extend as it's always treated as signed);
->>>> 0xc06b8000 from base.
->>>>
->>>> = 0xc06b1444. The value is lower than the real phy_probe() address
->>>> (0xc06c1444) by 0x10000 and is lower than the base address of
->>>> module's .text, so it's 100% incorrect.
->>>>
->>>> This results in:
->>>>
->>>> [    2.204022] CPU 3 Unable to handle kernel paging request at virtual
->>>> address c06b1444, epc == c06b1444, ra == 803f1090
->>>>
->>>> The correct instructions should be:
->>>>
->>>> R_MIPS_HI16 0x3c010001
->>>> R_MIPS_LO16 0x24339444
->>>>
->>>> so there'll be 0x00010000 from hi16.
->>>>
->>>> I tried to catch those bugs in arch/mips/kernel/module.c (by checking
->>>> if the destination is lower than the base address, which should never
->>>> happen), and seems like I have only 3 such places in libphy.ko (and
->>>> one in nf_tables.ko).
->>>> I don't think it should be handled somehow in mentioned source code
->>>> as it would look rather ugly and may break kernels build with GNU
->>>> stack, which seems to not produce such bad codes.
->>>>
->>>> If I should report this to any other resources, please let me know.
->>>> I chose clang-built-linux and LKML as it may not happen with userland
->>>> (didn't tried to catch).
->>>
->>> Thanks for the report.  Sounds like we may indeed be producing an
->>> incorrect relocation.  This is only seen for big endian triples?
->>
->> Unfortunately I don't have a LE board to play with, so can confirm
->> only Big Endian.
->>
->> (BTW, if someone can say if it's possible for MIPS (and how if it is)
->> to launch a LE kernel from BE-booted preloader and U-Boot, that would
->> be super cool)
->>
->>> Getting a way for us to deterministically reproduce would be a good
->>> first step.  Which config or configs beyond defconfig, and which
->>> relocations specifically are you observing this with?
->>
->> I use `make 32r2_defconfig` which combines several configs from
->> arch/mips/configs:
->>  - generic_defconfig;
->>  - generic/32r2.config;
->>  - generic/eb.config.
->>
->> Aside from that, I enable a bunch of my WIP drivers and the
->> Netfilter. On my setup, this bug is always present in libphy.ko,
->> so CONFIG_PHYLIB=m (with all deps) should be enough.
->>
->> The three failed relocs belongs to this part of code: [0]
->>
->> llvm-readelf on them:
->>
->> Relocation section '.rel.text' at offset 0xbf60 contains 2281 entries:
->> [...]
->> 00005740  00029305 R_MIPS_HI16            00000000   .text
->> 00005744  00029306 R_MIPS_LO16            00000000   .text
->> 00005720  00029305 R_MIPS_HI16            00000000   .text
->> 00005748  00029306 R_MIPS_LO16            00000000   .text
->> 0000573c  00029305 R_MIPS_HI16            00000000   .text
->> 0000574c  00029306 R_MIPS_LO16            00000000   .text
->>
->> The first pair is the one from my first mail:
->> 0x3c010000 <-- should be 0x3c010001 to work properly
->> 0x24339444
->>
->> I'm planning to hunt for more now, will let you know.
->
-> Unfortunately, R_MIPS_32 also suffers from that. And unlikely
-> R_MIPS_{HI,LO}16, they can't be handled runtime as the values
-> are pure random.
-> I expanded arch/mips/kernel/module.c a bit, so it tries to find
-> the actual symbol in .symtab after each applied relocation and
-> print the detailed info. Here's an example from nf_defrag_ipv6
-> loading:
->
-> [  429.789793] nf_defrag_ipv6: final section addresses:
-> [  429.795409] =090xc07214fc __ksymtab_gpl
-> [  429.799574] =090xc0720000 .text
-> [  429.802902] =090xc07216b0 .data
-> [  429.806249] =090xc0721790 .bss
-> [  429.809474] =090xc0721508 __ksymtab_strings
-> [  429.813977] =090xc0728000 .init.text
-> [  429.817781] =090xc07214c0 .exit.text
-> [  429.821606] =090xc0721520 .rodata
-> [  429.825120] =090xc0721578 .rodata.str1.1
-> [  429.829322] =090xc0721638 .note.Linux
-> [  429.833226] =090xc0721800 .gnu.linkonce.this_module
-> [  429.838503] =090xc0721650 .MIPS.abiflags
-> [  429.842702] =090xc0721668 .reginfo
-> [  429.846326] =090xc0721680 .note.gnu.build-id
-> [  429.851129] nf_defrag_ipv6: R_MIPS_32 [0x00000008]: 0xc07216b0 -> 0xc07216b8 is broken
-> [  429.860017] nf_defrag_ipv6: R_MIPS_32 [0x00000008]: 0xc07216b0 -> 0xc07216b8 is broken
-> [  429.868875] nf_defrag_ipv6: R_MIPS_32 [0x00000138]: 0xc0720000 -> 0xc0720138 is defrag6_net_exit
-> [  429.878706] nf_defrag_ipv6: R_MIPS_32 [0x000012c8]: 0xc0720000 -> 0xc07212c8 is nf_ct_net_init
-> [  429.888335] nf_defrag_ipv6: R_MIPS_32 [0x0000142c]: 0xc0720000 -> 0xc072142c is nf_ct_net_pre_exit
-> [  429.898367] nf_defrag_ipv6: R_MIPS_32 [0x00001440]: 0xc0720000 -> 0xc0721440 is nf_ct_net_exit
-> [  429.907994] nf_defrag_ipv6: R_MIPS_32 [0x00000057]: 0xc0721578 -> 0xc07215cf is broken
-> [  429.916872] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0x80f297f0 -> 0x80f297f0 is proc_dointvec_jiffies
-> [  429.927177] nf_defrag_ipv6: R_MIPS_32 [0x00000039]: 0xc0721578 -> 0xc07215b1 is broken
-> [  429.936044] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0x80f29374 -> 0x80f29374 is proc_doulongvec_minmax
-> [  429.946453] nf_defrag_ipv6: R_MIPS_32 [0x00000072]: 0xc0721578 -> 0xc07215ea is broken
-> [  429.955320] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0x80f29374 -> 0x80f29374 is proc_doulongvec_minmax
-> [  429.965737] nf_defrag_ipv6: R_MIPS_32 [0x000000a4]: 0xc0720000 -> 0xc07200a4 is ipv6_defrag
-> [  429.975094] nf_defrag_ipv6: R_MIPS_32 [0x000000a4]: 0xc0720000 -> 0xc07200a4 is ipv6_defrag
-> [  429.984431] nf_defrag_ipv6: R_MIPS_32 [0x0000106c]: 0xc0720000 -> 0xc072106c is ip6frag_key_hashfn
-> [  429.994470] nf_defrag_ipv6: R_MIPS_32 [0x00001090]: 0xc0720000 -> 0xc0721090 is ip6frag_obj_hashfn
-> [  430.004486] nf_defrag_ipv6: R_MIPS_32 [0x000010b8]: 0xc0720000 -> 0xc07210b8 is ip6frag_obj_cmpfn
-> [  430.014425] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0xc0720000 -> 0xc0720000 is nf_defrag_ipv6_enable
-> [  430.024742] nf_defrag_ipv6: R_MIPS_32 [0x00000001]: 0xc0721508 -> 0xc0721509 is __kstrtab_nf_defrag_ipv6_enable
-> [  430.036074] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0xc0721508 -> 0xc0721508 is __kstrtabns_nf_defrag_ipv6_enable
-> [  430.047561] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0xc0728000 -> 0xc0728000 is init_module
-> [  430.056930] nf_defrag_ipv6: R_MIPS_32 [0x00000000]: 0xc07214c0 -> 0xc07214c0 is cleanup_module
->
-> At least five symbols are broken and lead to nowhere: two from .data
-> and three from .rodata. Values in square braces are initial references
-> that can be observed via `nm -n` -- and for broken ones they really
-> don't correspond to any symbols, mismatching the neighbours' addresses
-> by 0x40-0x50.
+Compile and runtime tested on MIPS32R2 CPS board with no issues
+using two different toolkits:
+ - Binutils 2.35.1, GCC 10.2.1 (with Alpine patches);
+ - LLVM stack: 11.0.0 and from latest Git snapshot.
 
-Oops, my bad. I forgot that they can point to the middle of the struct
-or array or what else. Nevermind, only the problem with R_MIPS_HI16 is
-actual.
+Since v4 [3]:
+ - new: drop redundant .text.cps-vec creation and blind inclusion
+   of orphan text sections via .text.* directive in vmlinux.lds.S;
+ - don't assert SIZEOF(.rel.dyn) as it's reported that it may be not
+   empty on certain machines and compilers (Thomas);
+ - align GOT table like it's done for ARM64;
+ - new: catch UBSAN's "unnamed data" sections in generic definitions
+   when building with LD_DEAD_CODE_DATA_ELIMINATION;
+ - collect Reviewed-bys (Kees, Nathan).
 
-With the "add 0x10000 if can't find the symbol" workaround I'm now
-able to run kernel and modules without any visible defects or issues.
-Full list of detected and fixed relocs on my setup:
+Since v3 [2]:
+ - fix the third patch as GNU stack emits .rel.dyn into VDSO for
+   some reason if .cfi_sections is specified.
 
-libphy: R_MIPS_HI16 [0x3c030000, 0x24639444]: .text -> 0xc06b1444 is broken
-libphy: R_MIPS_HI16 [0x3c030000, 0x24639444]: .text -> 0xc06c1444 is phy_probe
-libphy: R_MIPS_HI16 [0x3c020000, 0x2442970c]: .text -> 0xc06b170c is broken
-libphy: R_MIPS_HI16 [0x3c020000, 0x2442970c]: .text -> 0xc06c170c is phy_remove
-libphy: R_MIPS_HI16 [0x3c010000, 0x242197ac]: .text -> 0xc06b17ac is broken
-libphy: R_MIPS_HI16 [0x3c010000, 0x242197ac]: .text -> 0xc06c17ac is phy_shutdown
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x24218164]: .text -> 0xc07bc164 is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x24218164]: .text -> 0xc07cc164 is nf_tables_dump_obj_done
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x243981bc]: .text -> 0xc07bc1bc is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x243981bc]: .text -> 0xc07cc1bc is nft_flowtable_parse_hook
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x24398390]: .text -> 0xc07bc390 is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x24398390]: .text -> 0xc07cc390 is nft_register_flowtable_net_hooks
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x243981bc]: .text -> 0xc07bc1bc is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x243981bc]: .text -> 0xc07cc1bc is nft_flowtable_parse_hook
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x24398390]: .text -> 0xc07bc390 is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x24398390]: .text -> 0xc07cc390 is nft_register_flowtable_net_hooks
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x2421866c]: .text -> 0xc07bc66c is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x2421866c]: .text -> 0xc07cc66c is nf_tables_dump_flowtable
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x242185b4]: .text -> 0xc07bc5b4 is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x242185b4]: .text -> 0xc07cc5b4 is nf_tables_dump_flowtable_start
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x243981bc]: .text -> 0xc07bc1bc is broken
-nf_tables: R_MIPS_HI16 [0x3c010001, 0x243981bc]: .text -> 0xc07cc1bc is nft_flowtable_parse_hook
-nf_tables: R_MIPS_HI16 [0x3c020002, 0x24428080]: .text -> 0xc07cc080 is broken
-nf_tables: R_MIPS_HI16 [0x3c020002, 0x24428080]: .text -> 0xc07dc080 is nft_rbtree_gc
-nf_conntrack: R_MIPS_HI16 [0x3c010000, 0x24258538]: .text -> 0xc077c538 is broken
-nf_conntrack: R_MIPS_HI16 [0x3c010000, 0x24258538]: .text -> 0xc078c538 is nf_ct_expectation_timed_out
+Since v2 [1]:
+ - stop discarding .eh_frame and just prevent it from generating
+   (Kees);
+ - drop redundant sections assertions (Fangrui);
+ - place GOT table in .text instead of asserting as it's not empty
+   when building with LLVM (Nathan);
+ - catch compound literals in generic definitions when building with
+   LD_DEAD_CODE_DATA_ELIMINATION (Kees);
+ - collect two Reviewed-bys (Kees).
 
-> So for now seems like it's really an LLVM problem and there can't be
-> any simple workaround for it in the kernel.
->
->> [0] https://elixir.bootlin.com/linux/v5.11-rc2/source/drivers/net/phy/phy_device.c#L2989
->>
->>> Thanks,
->>> ~Nick Desaulniers
->>
->> Thanks,
->> Al
->
-> Al
+Since v1 [0]:
+ - catch .got entries too as LLD may produce it (Nathan);
+ - check for unwanted sections to be zero-sized instead of
+   discarding (Fangrui).
 
-Al
+[0] https://lore.kernel.org/linux-mips/20210104121729.46981-1-alobakin@pm.me
+[1] https://lore.kernel.org/linux-mips/20210106200713.31840-1-alobakin@pm.me
+[2] https://lore.kernel.org/linux-mips/20210107115120.281008-1-alobakin@pm.me
+[3] https://lore.kernel.org/linux-mips/20210107123331.354075-1-alobakin@pm.me
+
+Alexander Lobakin (9):
+  MIPS: vmlinux.lds.S: add missing PAGE_ALIGNED_DATA() section
+  MIPS: CPS: don't create redundant .text.cps-vec section
+  MIPS: vmlinux.lds.S: add ".gnu.attributes" to DISCARDS
+  MIPS: properly stop .eh_frame generation
+  MIPS: vmlinux.lds.S: explicitly catch .rel.dyn symbols
+  MIPS: vmlinux.lds.S: explicitly declare .got table
+  vmlinux.lds.h: catch compound literals into data and BSS
+  vmlinux.lds.h: catch UBSAN's "unnamed data" into data
+  MIPS: select ARCH_WANT_LD_ORPHAN_WARN
+
+ arch/mips/Kconfig                 |  1 +
+ arch/mips/include/asm/asm.h       | 18 ++++++++++++++++++
+ arch/mips/kernel/cps-vec.S        |  1 -
+ arch/mips/kernel/vmlinux.lds.S    | 11 +++++++++--
+ include/asm-generic/vmlinux.lds.h |  6 +++---
+ 5 files changed, 31 insertions(+), 6 deletions(-)
+
+-- 
+2.30.0
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210110010811.1007005-1-alobakin%40pm.me.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210110115245.30762-1-alobakin%40pm.me.
