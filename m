@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBAABBZOW5P7QKGQECJCCK3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB3OW5P7QKGQE2QIUUEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 818582F06C6
-	for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 12:56:21 +0100 (CET)
-Received: by mail-ed1-x537.google.com with SMTP id k5sf7029237edk.15
-        for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 03:56:21 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610279781; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id F28262F06C8
+	for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 12:56:29 +0100 (CET)
+Received: by mail-lj1-x238.google.com with SMTP id g15sf147209ljl.14
+        for <lists+clang-built-linux@lfdr.de>; Sun, 10 Jan 2021 03:56:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610279789; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UBhJ4POcD/BApB6J+or/4IIhDer/FhNfh+/3M3ex9nvvKZjCFZA9jKonWMUb1tbP/D
-         7SUdSn2odk7QFB5K71096ScqUZUm89yvZex/Sg3Otz/3mYvJKFninFc8v3uTydfd/Fgd
-         sywTkSCQ0HNiqA+ffQtW0BRB3BYyZc71eVucR2owAa93hvgLAcZLhGcANYYdgWmDwN1L
-         bhCNkBbnAH5RsK92cgvW92KnJwvMsoa9I8TKxA1JmhCmRC7wprzSMiaToWY2mfzxORST
-         Nm6DkRxoVuf0AfBwOBxRpzA9jmqWz9YqvidCCY57fp7DGkxV6x+r6RKt41Xur1MEnISs
-         BuDg==
+        b=0xCjOdnkxYuCqDdhpVqTl9QwUsYpq807D+dcdrR8gj+tUNiobIiV2vU/ema5xsWViu
+         PsWAXfDPiUlIGA2FRdAC/wmLIZ54jEEwdR3ixygxtfNxtWRh0g3udtPCdP3h2gHOQUja
+         b/f0/XJ54qvsJ52426BgQ+lx/FSPHddLfkCNM069xDVvkysrZdPZ1ncSubSKZTGs+lel
+         NLxgbJI+JDOEFAzhEF+XaIpoi9dneE7aiUU8D7JKmWYA43yOKf5F6qm7PYVT4RKCiLq5
+         moiJU7CCm431htmYFWfB8rS0CcUeaOTOrZPUTR+4qNZRdGspV+6jAzmwK2zEG1pRTV8M
+         qAzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
-        bh=WdI3OYjXyruRfcy1d8uBITSLoV9u0p/Tz6kB7+Gr7c4=;
-        b=vGULXp46gArKDs+LtUdtUmWPzfmyE9gCRIG5Kv8Ee4x/Pu7II5eSl7O+FzCwKgwZ4R
-         lKZjO8invwoGcsahnPUrj6mTMF+bFPfkFqjrVvJt1MsVOLQlEofpMmQTc9e72uNBBMKU
-         m1BlBJIeG7fT3rsnrjXsQ9di6WyVI1FeEaWKaCcMsPhsaeO8F2yiTf/onUG8a7kNithk
-         pE941IBp0QJZr9Mj4t0/YgoypDzVEU+HaafEDzF5z6MnhXDLQfpThwF1scIDLJiB/9rg
-         TGda/jrsd5XOLOS7BZyb2IrhM0lNXwRX6QriJB9s1zlnvEj906/b7WMWleT1rm+jouSY
-         4W2Q==
+        bh=Wnk2L9DkcOQb6IC6da4BiOmyVVQkKcbzvi/FmDkD6Ps=;
+        b=hsDHuRMQEMJ2lFwaM2wLxkXzJSW9628hXXNGtsC+bSHsAjpV4zXT/Cx+UnWbR/GELQ
+         lDir69genUkviBFeqoOhGh5U3e/JvBe1BtMihuHLLBC3/gU+nA/IRn3m+E62eRuNq15E
+         jYHN2/aBXXIdOAcfdcaXMxVzQxnP/T29+GovXfBiwtVjCUx70Q3vr2V1FkiKrSa87Xnr
+         bFDufkezqveIxqGoP1HpdfQ5wuIwJf7wZuvO3IlUnylXSQX9GPapyEGR8+X5It4rYQPy
+         qkRKGqIdAj8nc5EjVkgQo7HHhgZKDpTAhMEIGRKiHIDSiWPandRTSHzVMDsFSPoLAboK
+         4qDQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b=jaBr7GOj;
-       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=kXksgyJ2;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.133 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WdI3OYjXyruRfcy1d8uBITSLoV9u0p/Tz6kB7+Gr7c4=;
-        b=dtjIheRRu0fLSIdRIGt++xeiTl1JNONbidnCIzvRXCx/dpsISc0xzv63jyxLlkDOWZ
-         8RCWrjg8Ns8qcaI0N2FVRwjWDgzWh5r4XiE62BASidevv2q7mNFSWp2XO6TjePUVF4fk
-         Bixv3FLdRrtZYYDC2dhojAlbMQjBuxASM8+aLwq1gGJ91HGnm+UyZzKKqX0xPg1Zsc51
-         qzy1F/Aclq9G5nAXUOcUUANFeHEhQfXT1c76e/d97gWuyQa2aoLwwN/3eNv+atlmUIUl
-         FW1mc91GKah9oSkkhH77UuHYAe3QhGiYFnfqf4XxZPpHgauy7T5j3DCeCTbyZnM4jhK6
-         TMxw==
+        bh=Wnk2L9DkcOQb6IC6da4BiOmyVVQkKcbzvi/FmDkD6Ps=;
+        b=iNpIaV7Vzoqj3o8cWmB6vBtZKFdM4ptWEO3GdTOY2mOe8K4lsme1+3dYKx8KJO9kUg
+         KG/eUd/NUKkF0plbwme4COdobQZ/pBVeN4XedR6cPClF4D2CcnlNH9OkrHC9yeYseacU
+         i3Dmlyc+hd4Sylrn3LW9qlMk3x+lH3jY74qXNyiCWlx0/37Em5VIYNwN5HGwvdX/E7VJ
+         PP/VZmBdWUG+30Hi6hMaS2aS/6J1EyKW6qgOhOejc5kJPMECRcTDY6HSdFLkaI68L85j
+         F+3cNfINH3Uyg16zcC2UnVD2abfmXcZ9mgWAURr26AEer+g2E56NJxVkrNGNJzvgWcCc
+         S9MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WdI3OYjXyruRfcy1d8uBITSLoV9u0p/Tz6kB7+Gr7c4=;
-        b=Is56rjhGbq30yTfguD3JkYRNrmlRt20N7U6tJHuZcS14GBCL0AhHtJdkIQF/0tH1Qm
-         a5B8Fv/L/D74Nii4JSkfoRilLPyFGdFAKttqooeoNvFOVuIxzZstXqQRIX7GXY5977f4
-         jK0N8AFslJuOsJJW3ouMwlgpCO4liYnT7p39DyNgRL9Mrh5WNCbnGEMBRGHHzLWGL3Fe
-         jBCS7bMbTTnAfwg3aN8cp4p1KFCJ3ahSlNkPt5BH+3TUT/P8RIQqQ/l2dLKLnARWv446
-         AlEXt6Sn985fcJCFGXM62F46YNntkRMFt7iRLd3d2L/iW0sHRcKtGjpHERzXSpcjF6It
-         9qFg==
-X-Gm-Message-State: AOAM531bZYh9fhns2lhcQYMMP8XDF5gHUI1sKPzKCMzjqMakgDr2n+7h
-	2Y1bK/ex8OjiBS60ZfbACNQ=
-X-Google-Smtp-Source: ABdhPJwBsitRoYibrYIgJm7Q9rx6DYE7U5ZsX79amZc+WaCHZwiz4OV9NbQnBLcQxYr3lSACn/WKoQ==
-X-Received: by 2002:a50:abc6:: with SMTP id u64mr11161629edc.21.1610279781312;
-        Sun, 10 Jan 2021 03:56:21 -0800 (PST)
+        bh=Wnk2L9DkcOQb6IC6da4BiOmyVVQkKcbzvi/FmDkD6Ps=;
+        b=ulZAuzuH1hFSSowNb5Iwdh4oxfYKq6ddeRzVagF3E9niLGVdGP0P2my3Uol/KmXppR
+         BHmtBa0QSynqGu4DG90yG2eARaUnrs6qL1AVIFv2f4vrtUYZr2+GRZdl/irMLeCxb1BN
+         JEHHQ3nQgweSyC5XNiT5lt1sYY1E6s6y6Tv3P/srfLb6+WI4qAUuP7iMmwBmx/IRXLco
+         YYZixXYow1Jy1nmsC+4AF+3dfioZ+cZPADdaH2MpGK4LyhW0kzs8TDaIEojCAgWqmYg0
+         qgQ9EkQxWqgiybeVPCu2/iS6W5tqyfKmLZZkS9AHK7n+HXzbrFq/tSCS9HRTrCarG69F
+         flGw==
+X-Gm-Message-State: AOAM532obMHeY3ttBt2C5Y1ssbS+FwTzH+t41Jxw429v2iF13fANxgG9
+	X9dLpjbco2KyuCik+6lPTC8=
+X-Google-Smtp-Source: ABdhPJwTJ08RFXGFykEnTScmE5x43ekO9Z3faCuTAQwsnZzylNgCrmrH5iQQQrdcuBL1jU6AxyBsbA==
+X-Received: by 2002:a05:6512:63:: with SMTP id i3mr5045856lfo.170.1610279789444;
+        Sun, 10 Jan 2021 03:56:29 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:8a9b:: with SMTP id j27ls4226530edj.3.gmail; Sun, 10 Jan
- 2021 03:56:20 -0800 (PST)
-X-Received: by 2002:a50:cd9c:: with SMTP id p28mr10686128edi.83.1610279780655;
-        Sun, 10 Jan 2021 03:56:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610279780; cv=none;
+Received: by 2002:a05:6512:3993:: with SMTP id j19ls3477867lfu.3.gmail; Sun,
+ 10 Jan 2021 03:56:28 -0800 (PST)
+X-Received: by 2002:a19:2d10:: with SMTP id k16mr4916483lfj.161.1610279788583;
+        Sun, 10 Jan 2021 03:56:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610279788; cv=none;
         d=google.com; s=arc-20160816;
-        b=JvgnEd1rnbAcH7tc3fOI2t71EQRLWqSyJsay/9TG4GYTdTZdGZqdyOBYLs6TQs/s5+
-         tk5gqm9LOemoiQOG3ZHaasMCQJ8IIsVoyBny3IV7XBiQzB30jSVfQj5a/CYY38tDJwYH
-         aMbTbBDuE90ekDDDtMeeLBNyiL5MX5XqmU/8ICluPZsOg8NP73oqO3AwBxUhCqrQpSw+
-         jl7j7BDqoCv2DpyT+S5sihELlblNt5qoZvHk+ZZqG1nuHe4d9twycGITnCY+TAWlRD4C
-         SaFY3Q3UJS79IMmXYaaiaTbuzYNxitowdxU9bA3EqlLhChSbpsBdnOhSI7H1tgImgdmw
-         kIpw==
+        b=E+gMwEhdfX9h1bRMVodxAyO2/m4bI8R/K4EcyFxyPCgocYM7F6IwnGYsXIHdtv+4T5
+         XbSvqcG3pMVnIEWL9wLgKyV37PZzpjeZHMAyN0jSTUeDgs9oJsq5bymDlbmL9cBV5twV
+         sfz4NXGieLhsjdS+EJXJ2+E8weYEaIv+9kzhZ93JFd2SuR+idvq2cUPkUN9XlrFeu8dD
+         Qsb0ofXGrP3N+XVowdq9dNsAibHO8jMkmUmkitnCnhKSkPhXL127sLC5PbzRN/IfJvss
+         jNytXV/kL8Iu1ulUIbtgs+WuQotU8e+gPRLstngb5Gi6EyZNPJNa3iR4PQdy6lSlbSIv
+         xUJA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
-        bh=e3Fx1xMuOcodd9nkft6VXE99Jq/7Rxy9CCIA9/ZKpTI=;
-        b=CZ7VN+XH5VYqpd9AuiLC0RyHNyG0jh1E3DSOiMJx7TETvYzLh6d023Q5lNq9Ch+eKO
-         Lzkt7WxXgbbhHtwsJaoAdLmBbIOgvBGmVk8HKGBl1h1WdoirY5lXBejWo7chNunGGDpg
-         zTFLLi5BB6BUIhTw7+ngZaQ7yI6feOeOGtov9bTBrWJXPTBbmTls7mqW7vDG9jRlgmNr
-         1AtIh350BQgyB8CMH8n0ClX2L0KgzBC3IJl1AJCihecr/N5PyEkKiN0vz8px9ARxHatl
-         B5WRZTtytf7RT96ZcklBNFzPfLJpfsCETMZXn9X+wX6RvpSnbHd+DWTOikiGAwoYz2Xp
-         9ugQ==
+        bh=z4p3GtI1grxbS9iYRUU8FxMU4I/9YCWsZkDii++EkHY=;
+        b=LCnav12JZFkm/4fpY3yAlM3WaZBiFUAXJTWofPSUl+Z+V4q6+vLzNPoIW2aCSIaLxo
+         alaS9PCpoS36+C24Z9lx9KK1fGzh5u/2zLPJtcpAVWT0hkHkkVd0BOXTe0vmo2RaEA/2
+         zZT+OVFtZSWt+aWQBnwstoL2qUUaHcoYrwGFDLc/ybZkVHVfDDBlmX5mK4jWaWtDuh0K
+         OkD4t/Z9w+kjk/BzSF1xbfuEX5m+0u0iGxyJBVDX94UNRfDMFmBrKyYQDPLJ1nm8V/qm
+         GGPzb+DX7JA5tJpzAq31hsBOeLekPoJ4JuZa1Z1qMwQ+tkBAZ7SjYY3S8ylNPnUIMW5R
+         hzpw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b=jaBr7GOj;
-       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=kXksgyJ2;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.133 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
-Received: from mail-40131.protonmail.ch (mail-40131.protonmail.ch. [185.70.40.131])
-        by gmr-mx.google.com with ESMTPS id i3si641514edy.3.2021.01.10.03.56.20
+Received: from mail-40133.protonmail.ch (mail-40133.protonmail.ch. [185.70.40.133])
+        by gmr-mx.google.com with ESMTPS id z4si860065lfr.7.2021.01.10.03.56.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Jan 2021 03:56:20 -0800 (PST)
-Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) client-ip=185.70.40.131;
-Date: Sun, 10 Jan 2021 11:56:14 +0000
+        Sun, 10 Jan 2021 03:56:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.133 as permitted sender) client-ip=185.70.40.133;
+Date: Sun, 10 Jan 2021 11:56:22 +0000
 To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Huacai Chen <chenhuacai@kernel.org>, Pei Huang <huangpei@loongson.cn>, Kees Cook <keescook@chromium.org>, Alexander Lobakin <alobakin@pm.me>, Fangrui Song <maskray@google.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Ralf Baechle <ralf@linux-mips.org>, Corey Minyard <cminyard@mvista.com>, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, stable@vger.kernel.org, clang-built-linux@googlegroups.com
 Reply-To: Alexander Lobakin <alobakin@pm.me>
-Subject: [PATCH v5 mips-next 2/9] MIPS: CPS: don't create redundant .text.cps-vec section
-Message-ID: <20210110115546.30970-2-alobakin@pm.me>
+Subject: [PATCH v5 mips-next 3/9] MIPS: vmlinux.lds.S: add ".gnu.attributes" to DISCARDS
+Message-ID: <20210110115546.30970-3-alobakin@pm.me>
 In-Reply-To: <20210110115546.30970-1-alobakin@pm.me>
 References: <20210110115245.30762-1-alobakin@pm.me> <20210110115546.30970-1-alobakin@pm.me>
 MIME-Version: 1.0
@@ -112,8 +112,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
 	mailout.protonmail.ch
 X-Original-Sender: alobakin@pm.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@pm.me header.s=protonmail header.b=jaBr7GOj;       spf=pass
- (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted
+ header.i=@pm.me header.s=protonmail header.b=kXksgyJ2;       spf=pass
+ (google.com: domain of alobakin@pm.me designates 185.70.40.133 as permitted
  sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
  sp=QUARANTINE dis=NONE) header.from=pm.me
 X-Original-From: Alexander Lobakin <alobakin@pm.me>
@@ -129,64 +129,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-A number of symbols from arch/mips/kernel/cps-vec.S is explicitly
-placed into '.text.cps-vec' section.
-There are no direct references to this section, so there's no need
-to form it. '.balign 0x1000' directive will work anyway.
+Discard GNU attributes (MIPS FP type, GNU Hash etc.) at link time
+as kernel doesn't use it at all.
+Solves a dozen of the following ld warnings (one per every file):
 
-Moreover, this section was being placed in vmlinux differently
-depending on CONFIG_LD_DEAD_CODE_DATA_ELIMINATION:
- - with this option enabled, '.text.cps-vec' was being caught
-   by '.text.[0-9a-zA-Z_]*' from include/asm-generic/vmlinux.lds.h;
- - without this option, '.text.cps-vec' was being caught
-   by discouraging '.text.*' from arch/mips/kernel/vmlinux.lds.S.
-
-'.text.*' should not be used in vmlinux linker scripts at all as it
-silently catches any orphan text sections.
-So, remove both '.section .text.cps-vec' and '.text.*' from cps-vec.S
-and vmlinux.lds.S respectively. As said, this does not affect related
-functions alignment:
-
-80116000 T mips_cps_core_entry
-80116028 t not_nmi
-80116200 T excep_tlbfill
-80116280 T excep_xtlbfill
-80116300 T excep_cache
-80116380 T excep_genex
-80116400 T excep_intex
-80116480 T excep_ejtag
-80116490 T mips_cps_core_init
+mips-alpine-linux-musl-ld: warning: orphan section `.gnu.attributes'
+from `arch/mips/kernel/head.o' being placed in section
+`.gnu.attributes'
+mips-alpine-linux-musl-ld: warning: orphan section `.gnu.attributes'
+from `init/main.o' being placed in section `.gnu.attributes'
 
 Signed-off-by: Alexander Lobakin <alobakin@pm.me>
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 ---
- arch/mips/kernel/cps-vec.S     | 1 -
- arch/mips/kernel/vmlinux.lds.S | 1 -
- 2 files changed, 2 deletions(-)
+ arch/mips/kernel/vmlinux.lds.S | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/mips/kernel/cps-vec.S b/arch/mips/kernel/cps-vec.S
-index 4db7ff055c9f..975343240148 100644
---- a/arch/mips/kernel/cps-vec.S
-+++ b/arch/mips/kernel/cps-vec.S
-@@ -91,7 +91,6 @@
- 	.set	pop
- 	.endm
- 
--.section .text.cps-vec
- .balign 0x1000
- 
- LEAF(mips_cps_core_entry)
 diff --git a/arch/mips/kernel/vmlinux.lds.S b/arch/mips/kernel/vmlinux.lds.S
-index 83e27a181206..ae1d0b4bdd60 100644
+index ae1d0b4bdd60..09669a8fddec 100644
 --- a/arch/mips/kernel/vmlinux.lds.S
 +++ b/arch/mips/kernel/vmlinux.lds.S
-@@ -66,7 +66,6 @@ SECTIONS
- 		KPROBES_TEXT
- 		IRQENTRY_TEXT
- 		SOFTIRQENTRY_TEXT
--		*(.text.*)
- 		*(.fixup)
- 		*(.gnu.warning)
- 	} :text = 0
+@@ -220,6 +220,7 @@ SECTIONS
+ 		/* ABI crap starts here */
+ 		*(.MIPS.abiflags)
+ 		*(.MIPS.options)
++		*(.gnu.attributes)
+ 		*(.options)
+ 		*(.pdr)
+ 		*(.reginfo)
 -- 
 2.30.0
 
@@ -194,4 +164,4 @@ index 83e27a181206..ae1d0b4bdd60 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210110115546.30970-2-alobakin%40pm.me.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210110115546.30970-3-alobakin%40pm.me.
