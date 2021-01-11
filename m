@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBC7U6L7QKGQETFW5MNQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBQ7X6L7QKGQEDZNXSWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id 20B452F211F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 21:50:20 +0100 (CET)
-Received: by mail-lj1-x239.google.com with SMTP id z26sf161015ljm.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 12:50:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610398219; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id 574F92F2133
+	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 21:57:40 +0100 (CET)
+Received: by mail-lj1-x238.google.com with SMTP id n10sf190214ljj.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 12:57:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610398660; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0h/TZYGLk68NPflwAB2tWrAK0DXZasgB253piDHpqlVtasoGE5qFETDH1mKHWOM42W
-         h5fMFgo4Pmm2pHQVwG1XNUQ2QEowpk3jkNc60/DLPeYsvQ/S0aGO1Dq5MkVzu6lTvKkq
-         Hj4FlXZ2NJ4Sdj7wQhCb/Q1Srqtc+2JHkk+/sJ3TMG6GGFTPhtUDKydPIC31IwcYu1sh
-         4lKwMLlprrFhrYbLnl2fofaAPHGNPrtEPuQ6GGhsENfkjfOL/UjIol4g7LYykZlrm5Fi
-         WZYu/JpxSmhKpzvPysw5vjcWf7po7rohklD9NMDcLpy6KtkCBTFSmX5aIdecf4lKsgHq
-         bGPw==
+        b=c827FNv5gQyNakZkoxayC1QT7Dohw8Li2ZEr5T+/kMW8h3q66oMOUAL+kdm5IejlSZ
+         leZNxTP9HZBzMHDbXE+JOGhypYF+G8iUt1Ti+BN4Ana1jo4C32oMDa4VT9hRPMPUmVCQ
+         TeVTf7k7wZUKnshIVzQWk63GGk7yPCtjlzLjReUGUZ9Kk9TdN2GMtdeWJ+PyXn9/WUd+
+         ToxPVAvOWz84WRTf3OgkEMqYZFB+qAWqcks/N8dy6W6eCOxVsS1y3rmX3oOG+gQEI+5t
+         FnWPPguHZxMT6xlsuHHVo3FBQiKL+8lZyKAim957vMa7GJVIhSzMyhswEp3aYiCdeWO1
+         +g7A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
-        bh=2qULm9ATWPhAMJc4M7lwioNjdttizVs3QaMj2Nu+8kA=;
-        b=rtqzgsjQDgDxlikOrINXOHljNQ6+RJGm2fcbfJQprAnXEnsISwigBeQDPW1I22im/J
-         PEg8S2YUZIyMWTcrGHUkm2/sXf0UMucXHplmGDpuDetTuyMUvLYvZfbPr4zdceJfOZFl
-         hv2y9xEat8BPmJRDwu8HK1pxhoTJpUILGaHXXXi8daWajwlfx9bF+GK11ds79WUxN0G1
-         czsOXWOY9K9uGjQhhEzYBMKLF29c1hWDPc+J07/p9/ugtTPy7QKago1Mj0w/VMTSj6eE
-         nMQ/42nzv/ePporoWm0vhcrSl61RTPo7gizX+rmLtKL8Vp+g4jRS2v1jT5FEQHqa8o11
-         ZgyA==
+        bh=vqn7baC8Jr8pacgL7kOWYi9sjDbTENSs/mc0oUY22xQ=;
+        b=UoRV7HlHIgL2Wa4mH9/GXjwrFtKPqP71J1s228cvysVz5BE0axX/Hih5jj1zw3B/ky
+         JIcqrwk36az8JXWObSitkFfHbOpuSYeyxLbJS2wcSnzLBCya3OfLza0an0SWnslKz7pl
+         t3YgMyj8aLd6dKHHlYfM7id0Jpiv98af7Q/B7Ye8ZBE3o8jTKpxyvHdkcALlj0HvhV1M
+         1O+2JwqAOrumdVDH4AtYg0R2sbUWp9pNGf4/2/bkf8zGu5oKXNA6sBJjjcjP/lVJzfF/
+         D0qghVURV8RwIc2bOk0oTKNlMXx21VOboCQooWvSjMpqvPkuja/2CC23+7D6H7UAjm5l
+         x8yQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b=c8P8tAhK;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=dKDO7F+t;
        spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2qULm9ATWPhAMJc4M7lwioNjdttizVs3QaMj2Nu+8kA=;
-        b=GDl8X1eqM2f8HaAmI7h1jaQmgcYniZZ/lOmKV911eOzZnFRFiXq+n923FFoVjb9TAy
-         FlmM3ZnwxYYS6YU8P4VGbPdBhnbzF3z5jY1qo3dEKqeZqbFlDvhuVpwmJ7tQz1BDsBTj
-         2hN1Y70lI6HHX8BzUJjaFjfyEstIkXq18tsZHUkhprgHI6pNA3FBFigCUUtbGfaBW+Kc
-         FG7HTbk5jB+jPbTRCAbAVtpTfoI/IPstuURIhUyn1mlAKNug+tlZuFJuJhZjF9/2NBNu
-         xFiIcYh//eICgAmwdytiBZQoHleEkz8XddeTgUOEeSYT638dTnR1znFM3TnvxA5NRbee
-         IDwQ==
+        bh=vqn7baC8Jr8pacgL7kOWYi9sjDbTENSs/mc0oUY22xQ=;
+        b=flFf43D/Of8dvEGipVtg1ZWAyJcVqy9Q7q7hrzGHZZfuoRjOEDBRQBZYWsQEWpYr4N
+         btqVAJ0x5SGImLXri4fvfStHHx2agq1ZNqrKF8YcboWzvFLk5rEC+m03XQ2pSPPKWJF5
+         rPlKO1ZQWGPABShbPJVarEXHtoNsZDzkSB7Mx9Fanmrk6EAL8dlkF6Q4HHjOAUURDHHG
+         j9I2s292km6K8t0IdmJ+16LvIoeljNOPurkom8oHTf9OPiAHB9WLS683N+OLNR2sX1p0
+         bhaKyYejXAoUANlRncrBFk7HIjtO4YfuqM3jtFLjLFU9+RMAS4g5ZM7EJvYREQ844OjB
+         JY2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
@@ -49,70 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2qULm9ATWPhAMJc4M7lwioNjdttizVs3QaMj2Nu+8kA=;
-        b=NOWntr/UZyrvcwhlN0vyhPgvvZD+ZB9cDhvuIUo62Jg3EKi/ztz8oum9S2OdEm5GAw
-         JpmGX4fT6ikbHtdAjNHdt04IzFo/N0eMi9714R/uzqkoworOYHGdAY/vbB5I+CSqn5x0
-         DwIRU/5UgZDv68T/zOYKeISABTUUyVkYjuGUXr8/gbVWRj2AyNp61H3tvEpHatCpLut0
-         YOy2JWs9zXaLm8d5i72a+hcfiwlgy7lNEq5mRy1WhHG8FSQOj234iRsBWcztUAtXtt/0
-         oQsz7p6OFqqQGbwjggQ4/o7LKw1o/R2mh9sDnE4lHSfJPlkXqr7crSegZcVsDBLxZIH5
-         uz+Q==
-X-Gm-Message-State: AOAM533MPUd7L8crLG0kZN/LWbjQMIKrve09vyllHJ2zKQvpVGL09QEt
-	7Vsaro0tFMcHMo9KIrfx7NQ=
-X-Google-Smtp-Source: ABdhPJwhPSl7jAVgMGNBlrEPtEL4PYvM55ydYOHVE7QDpZ6AJ/bw7xEqsApSB/Smg9gJy1vaSwSxqg==
-X-Received: by 2002:a2e:3201:: with SMTP id y1mr559796ljy.12.1610398219580;
-        Mon, 11 Jan 2021 12:50:19 -0800 (PST)
+        bh=vqn7baC8Jr8pacgL7kOWYi9sjDbTENSs/mc0oUY22xQ=;
+        b=HXiypfrppbhtFVtwLTrkbELMtWdHFBdpbi2Bue0PXnp7GF8aGm6doLlffW7/BbQLzz
+         QY/eEGbhjxX5H34LjhUWbcWpUW9V8/NZtXxGxj1L1BFaI1D0V2qRJEZzkLiejEGxKNto
+         QP2e4mYPr9J3e+16fybNrejSCe8iFBHnfTSMborgmFBiXtnnIoEXDMEMV3dDWEJ5JJp6
+         S9DBcw+xmOfa3POjhHe15d5ojSrTIsWrowgLRlM1n/+dhfRrYeLFHu3bkAVdHMOORg/a
+         X1iW7mGtqdO3sD3dBGx67Gl4mQQsw0Smjr1OIdD4AWLpOYDfA9vncEchmtF2WXSsx6t0
+         CiDQ==
+X-Gm-Message-State: AOAM530AOnYOyPCSeQL/8mxjB1zb8670YqCN13hRgS79O7f7n9eXTCns
+	p+zn53QoWscnWlKG7JPUCNs=
+X-Google-Smtp-Source: ABdhPJyayOtseMj9h1T4cDeqD2aIVZ/VHKVCQ+bnZybsGfwS061eTXVwi3OS7bJPBGd6Bo31VTos4g==
+X-Received: by 2002:a05:6512:3253:: with SMTP id c19mr569886lfr.631.1610398659908;
+        Mon, 11 Jan 2021 12:57:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:89d3:: with SMTP id c19ls161194ljk.0.gmail; Mon, 11 Jan
- 2021 12:50:18 -0800 (PST)
-X-Received: by 2002:a05:651c:20b:: with SMTP id y11mr526029ljn.176.1610398218762;
-        Mon, 11 Jan 2021 12:50:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610398218; cv=none;
+Received: by 2002:a2e:810b:: with SMTP id d11ls156661ljg.11.gmail; Mon, 11 Jan
+ 2021 12:57:39 -0800 (PST)
+X-Received: by 2002:a05:651c:1356:: with SMTP id j22mr557985ljb.237.1610398659105;
+        Mon, 11 Jan 2021 12:57:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610398659; cv=none;
         d=google.com; s=arc-20160816;
-        b=icN1jUOx1vvzO9IaXQMdAWdatJVa2SRodfxg7SRX8SC5+nsad37fIqJH2S8u8XF9hT
-         UWf73dCjnZkCoDu+FO964SaFXmdYDofINN6GRTZ3XQ9BzBWAJCzbbK/gCAcp9kdJany0
-         bjdOVH1/twB/tfmS81BqTWuQ2ZEGoFlKC93p7Cnh5OFWqlAbB1SBb2F/7/rsu3pQ/GvK
-         ir39l/uDwSwn5wnJfsKaPpsP8Mqd7N5BCcbVHLSrACr8dbKGsyXrDkHZIIAoMxzfiumg
-         nOY6cUuOgTpPumJhFGcQWSrOpwJS7fiKiHBf5ZQTHFtJG1FATnwGz55lVAuOybjzliCp
-         1xfg==
+        b=EO7V+M4ybVAfeSsKRW9dqyA4TGxV7gYH1fkueURYEpP5rD4JaEtKclK2/SrnYPCedD
+         FrNEdfB5P9u1BC/sioGM/yKnLNcWS7vdLD3pN4Os9pRls/aPx68Jp5pCasfHN41c6FBh
+         Hf5SSHSvkTONxoNxYzlWcEVgf9QhQ8riPcv0tTjbdTpXJ3WuP3MWazZg9nUT8sCtV/6g
+         LvMKcjNuXx5zaFzTzOr2usYB3MHeJyH88zzv5687QFEQGuObCOu9ziw66+Y8fNMtPIsC
+         EZ9kPA10k9Ots9oK0wJKjmvW2NAOvqrve3CN7r00QIuYgz5aahLZT36mp9GQD7S1d38C
+         AkuQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
-        bh=kKnWxxrWxwgfI6kxECg1SUIMdZPoLoXXPPWbaq8BfMM=;
-        b=ZcB1kNlkTBhNGTUTvDlO7F+bq2FLogiaqRhFCymKo2Pmo4nu0AKETP+d1KNru/buqo
-         UL6H9NP9pnRAgHIqEEbVEwHFAOojSYWUf0ePfI+HYEc7TxplKmvrc2L69rj18TjOWOzL
-         q/19PxkhoWTnePcMoqj2MSwhNIMXOBi31I6GuUe3XFfnLJY2xirP6+tDOjz2BtJ34bNg
-         X6Q/d7wdYy+S/yt9sOl3kC26RcVL3t5iZC1c/BRn9T6wQZZzelAwx7UFygG5gKorwyeq
-         JGBsPqSEgS1fkEOOOpPlDF0W0Tzs64kPqpiW44ez8g23j3wiiBtjHK5bCkoagk/0tI/D
-         RC2Q==
+        bh=423czqlXYO6cyt2pvAdEvcmUk4C4FxO/GExpCv7aBhM=;
+        b=FnUU/LTLXKzn5P2baLrLnie3OL1Dqsty+mpIS3b9sjIgZ5kIH9scMt+4ewUYefJZj5
+         S8TcmwwJ8Sg2vBsA72UZ2DD8lOpDgZ1dtYiquwy2aTRw5B+9kq//35RAAkGcc2zSFBi4
+         91DtAJSdGNV5mtasE2YOGLq2OyTSYz/3KPRErM1hQJg8tAHpH2KWjmVw+ggA/MeS3Fpo
+         +mXsvN+QK5QOMbl82mEkcohj2ShBhvh8GKaYcG6LfDcxrFYbZzsU3imTVEd9QNZlHJjR
+         gDq+fl/D4Q2w1bkD7ealKmOj/aXsekgOPUw1cwdXgoAoUP//JjfKOeTRRq0ACkUbh0JZ
+         IZjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@pm.me header.s=protonmail header.b=c8P8tAhK;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=dKDO7F+t;
        spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) smtp.mailfrom=alobakin@pm.me;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 Received: from mail-40131.protonmail.ch (mail-40131.protonmail.ch. [185.70.40.131])
-        by gmr-mx.google.com with ESMTPS id i22si40029ljj.8.2021.01.11.12.50.18
+        by gmr-mx.google.com with ESMTPS id 70si28788lfo.4.2021.01.11.12.57.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Jan 2021 12:50:18 -0800 (PST)
+        Mon, 11 Jan 2021 12:57:39 -0800 (PST)
 Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted sender) client-ip=185.70.40.131;
-Date: Mon, 11 Jan 2021 20:50:08 +0000
-To: Nick Desaulniers <ndesaulniers@google.com>
+Date: Mon, 11 Jan 2021 20:57:25 +0000
+To: Kees Cook <keescook@chromium.org>
 From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Cc: Alexander Lobakin <alobakin@pm.me>, Fangrui Song <maskray@google.com>, clang-built-linux <clang-built-linux@googlegroups.com>, linux-mips@vger.kernel.org, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Kees Cook <keescook@chromium.org>, Nathan Chancellor <natechancellor@gmail.com>, Sami Tolvanen <samitolvanen@google.com>, Ralf Baechle <ralf@linux-mips.org>, LKML <linux-kernel@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>
+Cc: Alexander Lobakin <alobakin@pm.me>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Huacai Chen <chenhuacai@kernel.org>, Pei Huang <huangpei@loongson.cn>, Fangrui Song <maskray@google.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, Ralf Baechle <ralf@linux-mips.org>, Corey Minyard <cminyard@mvista.com>, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, stable@vger.kernel.org, clang-built-linux@googlegroups.com
 Reply-To: Alexander Lobakin <alobakin@pm.me>
-Subject: Re: [BUG mips llvm] MIPS: malformed R_MIPS_{HI16,LO16} with LLVM
-Message-ID: <20210111204936.17905-1-alobakin@pm.me>
-In-Reply-To: <CAKwvOdnOXXaz+S1agu5kCQLm+qEkXE2Hpd2_V8yPsbUTQH7JZw@mail.gmail.com>
-References: <20210109171058.497636-1-alobakin@pm.me> <CAKwvOdmV2tj4Uyz1iDkqCj+snWPpnnAmxJyN+puL33EpMRPzUw@mail.gmail.com> <20210109191457.786517-1-alobakin@pm.me> <CAKwvOdnOXXaz+S1agu5kCQLm+qEkXE2Hpd2_V8yPsbUTQH7JZw@mail.gmail.com>
+Subject: Re: [PATCH v5 mips-next 0/9] MIPS: vmlinux.lds.S sections fixes & cleanup
+Message-ID: <20210111205649.18263-1-alobakin@pm.me>
+In-Reply-To: <202101111153.AE5123B6@keescook>
+References: <20210110115245.30762-1-alobakin@pm.me> <202101111153.AE5123B6@keescook>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Spam-Status: No, score=0.8 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,LOTS_OF_MONEY,MONEY_NOHTML
-	shortcircuit=no autolearn=disabled version=3.4.4
+X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF shortcircuit=no
+	autolearn=disabled version=3.4.4
 X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
 	mailout.protonmail.ch
 X-Original-Sender: alobakin@pm.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@pm.me header.s=protonmail header.b=c8P8tAhK;       spf=pass
+ header.i=@pm.me header.s=protonmail header.b=dKDO7F+t;       spf=pass
  (google.com: domain of alobakin@pm.me designates 185.70.40.131 as permitted
  sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
  sp=QUARANTINE dis=NONE) header.from=pm.me
@@ -129,180 +129,96 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Mon, 11 Jan 2021 12:03:29 -0800
+From: Kees Cook <keescook@chromium.org>
+Date: Mon, 11 Jan 2021 11:53:39 -0800
 
-> Hi Alexander,
-> I'm genuinely trying to reproduce/understand this report, questions below:
-
-Hi Nick!
-
-> On Sat, Jan 9, 2021 at 11:15 AM Alexander Lobakin <alobakin@pm.me> wrote:
+> On Sun, Jan 10, 2021 at 11:53:50AM +0000, Alexander Lobakin wrote:
+>> This series hunts the problems discovered after manual enabling of
+>> ARCH_WANT_LD_ORPHAN_WARN. Notably:
+>>  - adds the missing PAGE_ALIGNED_DATA() section affecting VDSO
+>>    placement (marked for stable);
+>>  - stops blind catching of orphan text sections with .text.*
+>>    directive;
+>>  - properly stops .eh_frame section generation.
 >>
->> From: Nick Desaulniers <ndesaulniers@google.com>
->> Date: Sat, 9 Jan 2021 09:50:44 -0800
+>> Compile and runtime tested on MIPS32R2 CPS board with no issues
+>> using two different toolkits:
+>>  - Binutils 2.35.1, GCC 10.2.1 (with Alpine patches);
+>>  - LLVM stack: 11.0.0 and from latest Git snapshot.
 >>
->>> On Sat, Jan 9, 2021 at 9:11 AM Alexander Lobakin <alobakin@pm.me> wrote:
->>>>
->>>> Machine: MIPS32 R2 Big Endian (interAptiv (multi))
->>>>
->>>> While testing MIPS with LLVM, I found a weird and very rare bug with
->>>> MIPS relocs that LLVM emits into kernel modules. It happens on both
->>>> 11.0.0 and latest git snapshot and applies, as I can see, only to
->>>> references to static symbols.
->>>>
->>>> When the kernel loads the module, it allocates a space for every
->>>> section and then manually apply the relocations relative to the
->>>> new address.
->>>>
->>>> Let's say we have a function phy_probe() in drivers/net/phy/libphy.ko.
->>>> It's static and referenced only in phy_register_driver(), where it's
->>>> used to fill callback pointer in a structure.
->>>>
->>>> The real function address after module loading is 0xc06c1444, that
->>>> is observed in its ELF st_value field.
->>>> There are two relocs related to this usage in phy_register_driver():
->>>>
->>>> R_MIPS_HI16 refers to 0x3c010000
->>>> R_MIPS_LO16 refers to 0x24339444
+>> Since v4 [3]:
+>>  - new: drop redundant .text.cps-vec creation and blind inclusion
+>>    of orphan text sections via .text.* directive in vmlinux.lds.S;
+>>  - don't assert SIZEOF(.rel.dyn) as it's reported that it may be not
+>>    empty on certain machines and compilers (Thomas);
+>>  - align GOT table like it's done for ARM64;
+>>  - new: catch UBSAN's "unnamed data" sections in generic definitions
+>>    when building with LD_DEAD_CODE_DATA_ELIMINATION;
+>>  - collect Reviewed-bys (Kees, Nathan).
 >
-> Sorry, how are these calculated?  (Explicit shell commands invoked
-> would be appreciated)
+> Looks good; which tree will this land through?
 
-Just look at the disassembly below and you'll see the similar
-instructions in your module.
+linux-mips/mips-next I guess, since 7 of 9 patches are related only
+to this architecture.
+This might need Arnd's Acked-bys or Reviewed-by for the two that
+refer include/asm-generic, let's see what Thomas think.
 
-> I'm doing:
-> $ ARCH=mips CROSS_COMPILE=mips-linux-gnu- make CC=clang -j71 32r2_defconfig
-> $ ARCH=mips CROSS_COMPILE=mips-linux-gnu- make CC=clang -j71 modules
-> $ llvm-nm --format=sysv drivers/net/phy/phy_device.o | grep phy_probe
-> $ llvm-objdump -Dr --disassemble-symbols=phy_driver_register drivers/net/phy/phy_device.o
-> $ llvm-readelf -r drivers/net/phy/phy_device.o  | grep -e R_MIPS_HI16 -e R_MIPS_LO16
+> -Kees
 >
-> for some of the commands trying to verify.
->
->>>>
->>>> The address of .text is 0xc06b8000. So the destination is calculated
->>>> as follows:
->>>>
->>>> 0x00000000 from hi16;
->>>> 0xffff9444 from lo16 (sign extend as it's always treated as signed);
->>>> 0xc06b8000 from base.
->>>>
->>>> = 0xc06b1444. The value is lower than the real phy_probe() address
->>>> (0xc06c1444) by 0x10000 and is lower than the base address of
->>>> module's .text, so it's 100% incorrect.
->
-> The disassembly for me produces:
->     399c: 3c 03 00 00   lui     $3, 0 <phy_device_free>
->                         0000399c:  R_MIPS_HI16  .text
-> ...
->     39a8: 24 63 3a 5c   addiu   $3, $3, 14940 <phy_probe>
->                         000039a8:  R_MIPS_LO16  .text
-
-So, in your case the values of the instructions that relocs refer are:
-
-0x3c030000 R_MIPS_HI16
-0x24633a5c R_MIPS_LO16
-
-Mine were:
-
-0x3c010000
-0x24339444
-
-Your second one doesn't have bit 15 set, so I think this pair won't
-break the code.
-Try to hunt for R_MIPS_LO16 that have this bit set, i.e. they have
-'8', '9', 'a', 'b', 'c', 'd' or 'e' as their [15:12].
-
-> I'm not really sure how to manually resolve the relocations; Fangrui
-> do you have any tips? (I'm coincidentally reading through Linkers &
-> Loaders currently, but only just started chpt. 4).
->
->>>>
->>>> This results in:
->>>>
->>>> [    2.204022] CPU 3 Unable to handle kernel paging request at virtual
->>>> address c06b1444, epc == c06b1444, ra == 803f1090
->>>>
->>>> The correct instructions should be:
->>>>
->>>> R_MIPS_HI16 0x3c010001
->>>> R_MIPS_LO16 0x24339444
->>>>
->>>> so there'll be 0x00010000 from hi16.
->>>>
->>>> I tried to catch those bugs in arch/mips/kernel/module.c (by checking
->>>> if the destination is lower than the base address, which should never
->>>> happen), and seems like I have only 3 such places in libphy.ko (and
->>>> one in nf_tables.ko).
->>>> I don't think it should be handled somehow in mentioned source code
->>>> as it would look rather ugly and may break kernels build with GNU
->>>> stack, which seems to not produce such bad codes.
->>>>
->>>> If I should report this to any other resources, please let me know.
->>>> I chose clang-built-linux and LKML as it may not happen with userland
->>>> (didn't tried to catch).
->>>
->>> Thanks for the report.  Sounds like we may indeed be producing an
->>> incorrect relocation.  This is only seen for big endian triples?
 >>
->> Unfortunately I don't have a LE board to play with, so can confirm
->> only Big Endian.
+>> Since v3 [2]:
+>>  - fix the third patch as GNU stack emits .rel.dyn into VDSO for
+>>    some reason if .cfi_sections is specified.
 >>
->> (BTW, if someone can say if it's possible for MIPS (and how if it is)
->> to launch a LE kernel from BE-booted preloader and U-Boot, that would
->> be super cool)
+>> Since v2 [1]:
+>>  - stop discarding .eh_frame and just prevent it from generating
+>>    (Kees);
+>>  - drop redundant sections assertions (Fangrui);
+>>  - place GOT table in .text instead of asserting as it's not empty
+>>    when building with LLVM (Nathan);
+>>  - catch compound literals in generic definitions when building with
+>>    LD_DEAD_CODE_DATA_ELIMINATION (Kees);
+>>  - collect two Reviewed-bys (Kees).
 >>
->>> Getting a way for us to deterministically reproduce would be a good
->>> first step.  Which config or configs beyond defconfig, and which
->>> relocations specifically are you observing this with?
+>> Since v1 [0]:
+>>  - catch .got entries too as LLD may produce it (Nathan);
+>>  - check for unwanted sections to be zero-sized instead of
+>>    discarding (Fangrui).
 >>
->> I use `make 32r2_defconfig` which combines several configs from
->> arch/mips/configs:
->>  - generic_defconfig;
->>  - generic/32r2.config;
->>  - generic/eb.config.
+>> [0] https://lore.kernel.org/linux-mips/20210104121729.46981-1-alobakin@pm.me
+>> [1] https://lore.kernel.org/linux-mips/20210106200713.31840-1-alobakin@pm.me
+>> [2] https://lore.kernel.org/linux-mips/20210107115120.281008-1-alobakin@pm.me
+>> [3] https://lore.kernel.org/linux-mips/20210107123331.354075-1-alobakin@pm.me
 >>
->> Aside from that, I enable a bunch of my WIP drivers and the
->> Netfilter. On my setup, this bug is always present in libphy.ko,
->> so CONFIG_PHYLIB=m (with all deps) should be enough.
+>> Alexander Lobakin (9):
+>>   MIPS: vmlinux.lds.S: add missing PAGE_ALIGNED_DATA() section
+>>   MIPS: CPS: don't create redundant .text.cps-vec section
+>>   MIPS: vmlinux.lds.S: add ".gnu.attributes" to DISCARDS
+>>   MIPS: properly stop .eh_frame generation
+>>   MIPS: vmlinux.lds.S: explicitly catch .rel.dyn symbols
+>>   MIPS: vmlinux.lds.S: explicitly declare .got table
+>>   vmlinux.lds.h: catch compound literals into data and BSS
+>>   vmlinux.lds.h: catch UBSAN's "unnamed data" into data
+>>   MIPS: select ARCH_WANT_LD_ORPHAN_WARN
 >>
->> The three failed relocs belongs to this part of code: [0]
+>>  arch/mips/Kconfig                 |  1 +
+>>  arch/mips/include/asm/asm.h       | 18 ++++++++++++++++++
+>>  arch/mips/kernel/cps-vec.S        |  1 -
+>>  arch/mips/kernel/vmlinux.lds.S    | 11 +++++++++--
+>>  include/asm-generic/vmlinux.lds.h |  6 +++---
+>>  5 files changed, 31 insertions(+), 6 deletions(-)
 >>
->> llvm-readelf on them:
+>> --
+>> 2.30.0
 >>
->> Relocation section '.rel.text' at offset 0xbf60 contains 2281 entries:
->> [...]
->> 00005740  00029305 R_MIPS_HI16            00000000   .text
->> 00005744  00029306 R_MIPS_LO16            00000000   .text
->> 00005720  00029305 R_MIPS_HI16            00000000   .text
->> 00005748  00029306 R_MIPS_LO16            00000000   .text
->> 0000573c  00029305 R_MIPS_HI16            00000000   .text
->> 0000574c  00029306 R_MIPS_LO16            00000000   .text
->>
->> The first pair is the one from my first mail:
->> 0x3c010000 <-- should be 0x3c010001 to work properly
->> 0x24339444
->>
->> I'm planning to hunt for more now, will let you know.
->>
->> [0] https://elixir.bootlin.com/linux/v5.11-rc2/source/drivers/net/phy/phy_device.c#L2989
->>
->> > Thanks,
->> > ~Nick Desaulniers
->>
->> Thanks,
->> Al
 >>
 >
-> Thanks,
-> ~Nick Desaulniers
+> --
+> Kees Cook
 
-Thanks,
 Al
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210111204936.17905-1-alobakin%40pm.me.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210111205649.18263-1-alobakin%40pm.me.
