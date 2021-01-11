@@ -1,146 +1,152 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVX26L7QKGQENVHF7PY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCL7Q422UBBBT776L7QKGQE23IXEUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EBF82F2172
-	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 22:04:23 +0100 (CET)
-Received: by mail-ua1-x937.google.com with SMTP id r13sf70696uao.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 13:04:23 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610399062; cv=pass;
+Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
+	by mail.lfdr.de (Postfix) with ESMTPS id 22CC52F2195
+	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 22:14:57 +0100 (CET)
+Received: by mail-pj1-x1037.google.com with SMTP id m7sf91527pjr.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 13:14:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610399696; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E1lO2RqfdP8qL4JrUWskQFOaG9Yf4cmd9aWiyrA4qV56ZFFrvY3djNXdLZCGiVwdpd
-         aDPjUv8QEvTDHmZlEgDEXyQWKdqllwVufyK+ybgy/lL3Ipr0T5Snj2A7ApVBcAgkxTFl
-         t1CclpAF+y1xU7Y6XWAjuY++kqxqCd1kBHBbbuTU1inxHGaZNA9eVisM7cFQ+Jiaigvk
-         EpUholO6IMr7jWLqQNfdSGS4CmV4f0eEkWm+QEe7v8kOCysxI/2kHo1TCY2kqiWus5XP
-         H4cZDjpRafh9ThAUJqgveWwHbHeEDtrHXnMKLDe5PDlEfbB9DBqzBGPipxm79RXyQka4
-         bnbA==
+        b=Ss7AWVFO9igZuQ32Z2K0TisC1ZqX6zDMqYO17GhIoXA1kr/1kw096fP+5NhCtsYlWN
+         c/Aqsm9fv+3adlq4IUeA3OC/udx1aP3tws+/tgiytsv3VWKLLv1WKsx9JRFmjzfXQI3Q
+         kVRXuQ/ev6avxZF0uleYl4h7yM7CMMnWIhKekMS6CcQxVQewG5g0uF3PmPD7UiUwiAqz
+         fQMt+f9sTGe45zALrxiu3232bjr5QT9iVV7AkN+p/rhg5IZaLpZjpGjyOGTrlOi9cjF+
+         vMG3FHPwfMXhzEmQDOKRN43fmYPz/Qp8A3DxxpFEMmLFZqdnmNj2cLmVglK8PAS6mvWP
+         T7kg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=T1g48d5VVURQEfqswkWvXzX0Uf9XUVrAH8whTjUEl5s=;
-        b=egq6xiH3Qit8Gs6D0geXQ4lHwrht+ZBDkkg6XdI4Q8cwmYaQe4bBRTtC6DdVXh5sPW
-         +cv/9cyopekhIRWQCcv8FJBeggLtu1Zmqin1FptbxiVdmB9g9/9erekzUvWA8LoAY4+C
-         pfOrqQqjrrBeicyhJOkZtMpinC1ZfYeQ98HgaeUKlxUQtvDJsog9BqMLaQVTqc33dzQ5
-         kPptyLgRebAjzyBFWgms27faIQy2UIP0Akz3MgzdABTjg+84yQJdEkRhVO+4Ko4rkRMM
-         dkzmkk3watnjHdOoZOgVhwAzTBnhcRoGbRgZ0OctA47YKBZLtRyCnjyQftrMkW5ovSOd
-         hR3w==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=XBkA4RKpH1i2pQt2+T+5oUCuWNOIOfUYlOTF/UKGh3o=;
+        b=DH6H9IpWwvm3xsNC6mDedCKVfVq9JBOum1jmewARno/EfySzBfKtNZ05XkjLSiXLnX
+         +6dMTjClIEs/ms2qVfBBLbjp6Hum520zDS89bcFtLb4tuN3t4p1m/Ajq4ncPNApWzDVZ
+         VvKZ42qxWhh4SkApQY1XpFoor0AcYiGQ9kk/ZgUFyvcC1X1jY+IdHUiSlp2hPyXwgWct
+         VEaevAxanJvJ6Z4dMvq/fO5owAN+ACuYG7yNpu2WgSrpbsl7Rs/4pr0zfofn15PB1ozc
+         B6ebSv+1RBLM6R2xGqZuShyPwXybKrCW98RvHN5XqPv2Um5WCQw/5uviKxl25s8+R8oP
+         Yq1A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OXMlL0nF;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d36 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Y5IXc+Pe;
+       spf=pass (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=shorne@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=T1g48d5VVURQEfqswkWvXzX0Uf9XUVrAH8whTjUEl5s=;
-        b=KCAd2aYtBk7vE9VV9tR3Z60T9RHsdWgEjUVuH8ryyDtbnTzXiiU/kq3HAhd1aRV7Mc
-         mSY3cCuRKt6JBX94HzdRYukEYY8cYdHKQFsHXPtv8UZoyMpherKSJaluPOL88PQISQ2A
-         9RiEeb0187eD/cy3Y74xnTfW/miD4ndu8g5Wai7CqfmP3DwM+epMDvHtyWTR4f0ejERy
-         zNXS5WqNjqjPLMg7Zt5oFoJKpBjkfALS1coyOcbUVHGBNvt2pPgCK3+SFfzzaiZKZJt1
-         SFkEoMHQRDJzCJX9pYBTvjvwvdBHEnagEE6ZrznV6EYqzichdI7mpb1CQSX8DDwUiYDn
-         t4Fg==
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=XBkA4RKpH1i2pQt2+T+5oUCuWNOIOfUYlOTF/UKGh3o=;
+        b=k0BNKkz0sY2TznOAG3DTPsEqbYIC1ICao46SZSMp7cYC2iGbSgYIoKUFjQUW4ez4bM
+         j66tAdXRbxooDIreadD/4oQqKrCWBBPWLIvfwCiJUdZg2nkz/KYLZqqSvuucl3TUdX6S
+         xYcfx3uj7eRRg6ThGlT8JsqfmjtXAOvfKsn6vBnWBjEiHNzOXKz3YEoTZITlYL7QWwL5
+         3t+PQUMP264l2/c5Vmq2409ta2kzsRIbW7gZiqjx2yn1Bz13JrBBuRIbzPLQmrHD+l5Y
+         9xbiuaCcRSRHCRUp6JtdNv1lCC0zSOyBhYRIVZtw+7umKZD+xA/lOefA28tepLK/CMCj
+         M7TA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=T1g48d5VVURQEfqswkWvXzX0Uf9XUVrAH8whTjUEl5s=;
-        b=n5GiRT93wLZu/yBuvG45h9E0ibBNkWy+z/7Gy760uG5i/7cmAceZBSGdN8CZktI1DT
-         EffKTcUQh8lPNYSyQ/lh1aeTbYnoJjN83jtQ2hCobhj7A26rkH9O20tWPYphMmJAMzwS
-         p7Dxa0Z/Lzp/4Rt5CmVc8eq2iItpREZNZMQadS861yv/3JdjboklyRP2Th0tZ6OBOG2E
-         sIRt8exIDxx8OBoeahjhZtVYLVNHCZRtTyPo4Cyvz9/oOIMaeVpq6yTv4PdWJ3txNHPs
-         VTPmmDzZRsy9SXmRVyfLgi03+jGl6Am+z9mUqtTW70m3OMScwR1eXBrZwdhLvwlms+DI
-         CO0Q==
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=XBkA4RKpH1i2pQt2+T+5oUCuWNOIOfUYlOTF/UKGh3o=;
+        b=mIo9QuVXncqoQ1X9WbQBIl2ZL5jOzyiXy7oWigR3EjH0KkBkcLgqF6fcb5A7Xt42so
+         YK0ccAi+A4f69iqvpblRIzOrhtu54+RnMKeLmrR+O4fZp4RqwLMvF0DeIhWd9cLVTux4
+         FrgePxjh/sXLCz6OjUDwQhPn0fkENyblCgHPRSoHP6H8/SSwHwduKo2PdKLwnsM3tIav
+         le3r5nDICER7+TrKkw44zBuvDby7jSFXWnWTkZY/ffdR7+Rhe5L1Zqmg84uIIw+tFqAX
+         PH3xlw0T0B6BQbQjvp0kcBXzTtKhy6j2Gq5Pil6Afu09zXB2kUAPCKYutNV5KVZ/4iQI
+         XXzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=T1g48d5VVURQEfqswkWvXzX0Uf9XUVrAH8whTjUEl5s=;
-        b=OeX3Ska2V6Oa2qlkWecg8+KMIYXAbFu6WF2X2JJsGWNpEsTnh6a9Hy+2a+OFMTlqv8
-         OmnAR9lviXCoUEkuOAhwSyrrBFkpHsdGhWv93huTm0aylU5D9x8BRF4LDIMPEbkAx1yA
-         cud0DcfYc6WwZDNMnwd8VURvvdSlIkYHWks+YEyYCtYOz/cA+Cbwj2iguDc25I6OkV17
-         5rk43N9x2CXL3Y/WYyh/w3czP3DDIs2aMLzuZCZhVdWGQy6+bQ7MGn4seK0quEHW9Fdr
-         K2VUtPTv971KoGY3hctnwj5U3rWBGK2FcnXUoSIWHRYMY3gBeuF1bLzRLUEM6J7m0Yoa
-         5d3A==
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=XBkA4RKpH1i2pQt2+T+5oUCuWNOIOfUYlOTF/UKGh3o=;
+        b=cmGjJf6n2bJcI33T2MgAvTqwLSmOui6jKYhxzQ4ax5drs5d64Lpp+RsG8HlqMrIoER
+         ZDUbEz2ZgUZpRLN8TBo4nt0Q3MYZrC8XlSj0Z17VK7zSSD5wWg8Otg6UvOceXEpKgphq
+         iMbCf8LydngHlG3IEafztst3VNmjge+T3REBWTP5CC0ZXsc4+IP4RNbC6JBrYMEoLf6T
+         41NcGKFAEYLrsEWaB4xSNG5/1G0DUQpTCEFJw1tWA4Y4qxw+s8zsqqBCV65QKWTWhXV5
+         Xwv6vU7CuPUL8e1eOjhR8xnHYLmxQBWOgb7YUnSlX0IunEiLo94FMD0bQKjzrqrgNRPm
+         /e8Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532fL/mRskEtYpXY/IZay4UJmztoNCfzr09ON/xgpG8J4LBUqG3e
-	iBY+WJumCebG+psntmzk3N8=
-X-Google-Smtp-Source: ABdhPJw20nqR3isFRkah/oFtuUhuWOTCExdPQ+48vprDAZVfDGJkIOb8ZywgXhRImmtrh4mSmnUjgw==
-X-Received: by 2002:ab0:113:: with SMTP id 19mr1272104uak.71.1610399062263;
-        Mon, 11 Jan 2021 13:04:22 -0800 (PST)
+X-Gm-Message-State: AOAM532I1orEXzGFwoVbad6tWBt4mPTpBh3XzRS2hDnORMPAArYAySD5
+	t2N2TGa2t1mVXWAp1A3yUW0=
+X-Google-Smtp-Source: ABdhPJyOQ4f4S/xC1TZguKOsDu5sdg3zCWlhhPgavubnKntRZruO5ZZMg7aqaFYZCQY6+pkFf2luqA==
+X-Received: by 2002:a17:90a:4f03:: with SMTP id p3mr804688pjh.69.1610399695772;
+        Mon, 11 Jan 2021 13:14:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:208c:: with SMTP id r12ls59274uak.8.gmail; Mon, 11 Jan
- 2021 13:04:21 -0800 (PST)
-X-Received: by 2002:ab0:146d:: with SMTP id c42mr1347798uae.56.1610399061876;
-        Mon, 11 Jan 2021 13:04:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610399061; cv=none;
+Received: by 2002:a17:90b:f0f:: with SMTP id br15ls227313pjb.3.canary-gmail;
+ Mon, 11 Jan 2021 13:14:55 -0800 (PST)
+X-Received: by 2002:a17:902:7c8f:b029:dc:8e14:95ac with SMTP id y15-20020a1709027c8fb02900dc8e1495acmr1718850pll.8.1610399695178;
+        Mon, 11 Jan 2021 13:14:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610399695; cv=none;
         d=google.com; s=arc-20160816;
-        b=mSeC+/p37PdhtMtoGDbrFFJ6TU7whli8uQmpIIa5c//BYNcNHC0hzM3wUVw/f8YROx
-         t6rcCLlv4/4ijOOdTJgKyTxLqr91YTv4qT4+dy7agruUW8rrsUzwXzm2TUMy9uzATvCf
-         hp/+mDcFdCO84h2CBXs+cjf0X2LHNO/7tmINOPyt69KUfZAL+pq+pcoFgL8E2Y5LUOVD
-         lyP6ZJPL5NZps/Epse7CvTIBJAtzsz1zrpQ44l6SUbGv/XKr1wpv8JOzkh0/JAAVY4To
-         q9R71zT8nLF7wcyBartjyh44oYCKYfE854eTiywaCK4HbT7TdpdlfHqOtmvnqhAyVGp+
-         OlXQ==
+        b=RXvRFMVPUMikVhQfx/YYhW6wC5+5enrmK+rtdzi6U2RcLeQZoEMP6Z8ILT6ms0CLfm
+         LaGj213hJfA9vlTM6tPdbiTpeY2rDVL1p7NxkUNsIThBH414jV7tSfMCEFJ5WRJcFTIT
+         x5Vuy9BkUpxKLyHFfahL6iX5qb8WzvnIRlsI5AH0q92gENeaRgKwnf1xBA8jTKJYIvLf
+         5KQeyp+j9WWu8DvQqOtQaRrVyk9m+LrXin7iu5EkEvBjORJj9ZLpcEKH2+IEsanku8vg
+         dXaS9zm0bDerFTFlZSgjIgWKDQ0iMnyI/67tTJ+wXD4wt9tseyqxRTTZih1bzbKsSgi3
+         YH/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=N/JvOTzwKH7g4yOdOBaQJ0iIJUcwItzyG+gczSopw4M=;
-        b=f70fDXpY2OlN26qfXJ+cLm5v2eRmBbrSCVs/LBw1UxWfyLZtOpKZ5apfGlkYmME/qx
-         WVdVpd7eHrwUfU3bw5wJdF4m677/ok9SbUuwbsjJZIGakJqqwmaU4YU8M0SRNkM2nmxc
-         m+X54DlK+APRO0bkzQ0Yh84ZvGxvjGni9/cqH1zdhQQ/1ZR3FpbNoEj7ZM+Qb1RkjLSX
-         8O8KdlvmeDEQQjnyTfnZEsE6D1g1sPsoXmv/PrjXTDz/uN4xLCYOty6AYY8oGu1WSoet
-         vrmtBSQwlUeLRufa4ZdM5w1qLoy1y7jWpCvS9zG2gFiQcttmIe1AxOsYUxKWanMbvb8M
-         dkag==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=tBBYBALNeTXmfoXgIuvASWSb43rmlp3hgP0L/sV8MGk=;
+        b=bRFJtJoqTC3JCOWsGO9teYxDGQJKqADIkpJaR6dQHP5LV1qZ+1nEjHk3o0w2GS7A/I
+         a4WX49LSBQvdxZpSNfgmtwfTVxUlk7W437YS2Z/ilqtsx6WZvXQdVo3DvMQcqNCrZFdN
+         ikYR7ZWMry4cedaxrU7HDsTczrcMJz/uBZhCofntqdCXSCTq13o1yxKn3Hu3K7rcNHh7
+         ze1ZKbtZ1SACbMyLDqfUCUee01p22Q90DHmWSblh4y5BCKPVNeRjcBMAraMbO+RN7JSH
+         S8wWn6Aqvjax8tF2ohkRdGbO2uvf3ADY33sSEMN+JO6v2RCuvQciralm3w+DuQDx7Ho3
+         axsw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OXMlL0nF;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d36 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Y5IXc+Pe;
+       spf=pass (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=shorne@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd36.google.com (mail-io1-xd36.google.com. [2607:f8b0:4864:20::d36])
-        by gmr-mx.google.com with ESMTPS id v23si72721uap.1.2021.01.11.13.04.21
+Received: from mail-pj1-x102d.google.com (mail-pj1-x102d.google.com. [2607:f8b0:4864:20::102d])
+        by gmr-mx.google.com with ESMTPS id j11si72445pgm.4.2021.01.11.13.14.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Jan 2021 13:04:21 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d36 as permitted sender) client-ip=2607:f8b0:4864:20::d36;
-Received: by mail-io1-xd36.google.com with SMTP id o6so1115650iob.10
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 13:04:21 -0800 (PST)
-X-Received: by 2002:a6b:b5d2:: with SMTP id e201mr858966iof.111.1610399061403;
-        Mon, 11 Jan 2021 13:04:21 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id r9sm547004ill.72.2021.01.11.13.04.19
+        Mon, 11 Jan 2021 13:14:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::102d as permitted sender) client-ip=2607:f8b0:4864:20::102d;
+Received: by mail-pj1-x102d.google.com with SMTP id n3so485735pjm.1
+        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 13:14:55 -0800 (PST)
+X-Received: by 2002:a17:90a:c084:: with SMTP id o4mr772591pjs.165.1610399694897;
+        Mon, 11 Jan 2021 13:14:54 -0800 (PST)
+Received: from localhost (g178.219-103-173.ppp.wakwak.ne.jp. [219.103.173.178])
+        by smtp.gmail.com with ESMTPSA id o11sm336964pjs.36.2021.01.11.13.14.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Jan 2021 13:04:20 -0800 (PST)
-Date: Mon, 11 Jan 2021 14:04:18 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Bill Wendling <morbo@google.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Masahiro Yamada <masahiroy@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>
-Subject: Re: [PATCH] pgo: add clang's Profile Guided Optimization
- infrastructure
-Message-ID: <20210111210418.GA3660906@ubuntu-m3-large-x86>
-References: <20210111081821.3041587-1-morbo@google.com>
+        Mon, 11 Jan 2021 13:14:54 -0800 (PST)
+Date: Tue, 12 Jan 2021 06:14:52 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: kernel test robot <lkp@intel.com>,
+	Pawel Czarnecki <pczarnecki@internships.antmicro.com>,
+	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	Mateusz Holenko <mholenko@antmicro.com>
+Subject: Re: drivers/soc/litex/litex_soc_ctrl.c:143:34: warning: unused
+ variable 'litex_soc_ctrl_of_match'
+Message-ID: <20210111211452.GB2002709@lianli.shorne-pla.net>
+References: <202101070445.8Kz6oJcS-lkp@intel.com>
+ <20210111123055.GA2002709@lianli.shorne-pla.net>
+ <20210111164334.GA1322395@ubuntu-m3-large-x86>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210111081821.3041587-1-morbo@google.com>
-X-Original-Sender: natechancellor@gmail.com
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20210111164334.GA1322395@ubuntu-m3-large-x86>
+X-Original-Sender: shorne@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=OXMlL0nF;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::d36 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20161025 header.b=Y5IXc+Pe;       spf=pass
+ (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::102d as
+ permitted sender) smtp.mailfrom=shorne@gmail.com;       dmarc=pass (p=NONE
+ sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,96 +159,110 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jan 11, 2021 at 12:18:21AM -0800, Bill Wendling wrote:
-> From: Sami Tolvanen <samitolvanen@google.com>
-> 
-> Enable the use of clang's Profile-Guided Optimization[1]. To generate a
-> profile, the kernel is instrumented with PGO counters, a representative
-> workload is run, and the raw profile data is collected from
-> /sys/kernel/debug/pgo/profraw.
-> 
-> The raw profile data must be processed by clang's "llvm-profdata" tool before
-> it can be used during recompilation:
-> 
->   $ cp /sys/kernel/debug/pgo/profraw vmlinux.profraw
->   $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
-> 
-> Multiple raw profiles may be merged during this step.
-> 
-> The data can be used either by the compiler if LTO isn't enabled:
-> 
->     ... -fprofile-use=vmlinux.profdata ...
-> 
-> or by LLD if LTO is enabled:
-> 
->     ... -lto-cs-profile-file=vmlinux.profdata ...
-> 
-> This initial submission is restricted to x86, as that's the platform we know
-> works. This restriction can be lifted once other platforms have been verified
-> to work with PGO.
-> 
-> Note that this method of profiling the kernel is clang-native and isn't
-> compatible with clang's gcov support in kernel/gcov.
-> 
-> [1] https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization
-> 
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> Co-developed-by: Bill Wendling <morbo@google.com>
-> Signed-off-by: Bill Wendling <morbo@google.com>
+On Mon, Jan 11, 2021 at 09:43:34AM -0700, Nathan Chancellor wrote:
+> On Mon, Jan 11, 2021 at 09:30:55PM +0900, Stafford Horne wrote:
+> > On Thu, Jan 07, 2021 at 04:04:47AM +0800, kernel test robot wrote:
+> > > Hi Pawel,
+> > >=20
+> > > FYI, the error/warning still remains.
+> > >=20
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linu=
+x.git master
+> > > head:   e71ba9452f0b5b2e8dc8aa5445198cd9214a6a62
+> > > commit: 22447a99c97e353bde8f90c2353873f27681d57c drivers/soc/litex: a=
+dd LiteX SoC Controller driver
+> > > date:   8 weeks ago
+> > > config: x86_64-randconfig-a001-20210107 (attached as .config)
+> > > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project =
+5c951623bc8965fa1e89660f2f5f4a2944e4981a)
+> > > reproduce (this is a W=3D1 build):
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master=
+/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         # install x86_64 cross compiling tool for clang build
+> > >         # apt-get install binutils-x86-64-linux-gnu
+> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/li=
+nux.git/commit/?id=3D22447a99c97e353bde8f90c2353873f27681d57c
+> > >         git remote add linus https://git.kernel.org/pub/scm/linux/ker=
+nel/git/torvalds/linux.git
+> > >         git fetch --no-tags linus master
+> > >         git checkout 22447a99c97e353bde8f90c2353873f27681d57c
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cros=
+s ARCH=3Dx86_64=20
+> > >=20
+> > > If you fix the issue, kindly add following tag as appropriate
+> > > Reported-by: kernel test robot <lkp@intel.com>
+> > >=20
+> > > All warnings (new ones prefixed by >>):
+> > >=20
+> > > >> drivers/soc/litex/litex_soc_ctrl.c:143:34: warning: unused variabl=
+e 'litex_soc_ctrl_of_match' [-Wunused-const-variable]
+> > >    static const struct of_device_id litex_soc_ctrl_of_match[] =3D {
+> > >                                     ^
+> > >    1 warning generated.
+> > >=20
+> > >=20
+> > > vim +/litex_soc_ctrl_of_match +143 drivers/soc/litex/litex_soc_ctrl.c
+> > >=20
+> > >    142=09
+> > >  > 143	static const struct of_device_id litex_soc_ctrl_of_match[] =3D=
+ {
+> > >    144		{.compatible =3D "litex,soc-controller"},
+> > >    145		{},
+> > >    146	};
+> > >    147=09
+> > >=20
+> >=20
+> > I don't use clang but GCC, and I cannot reproduce this warning.
+> >=20
+> > $ make drivers/soc/litex/litex_soc_ctrl.o=20
+> >   CALL    scripts/checksyscalls.sh
+> >   CALL    scripts/atomic/check-atomics.sh
+> >   DESCEND  objtool
+> >   CC      drivers/soc/litex/litex_soc_ctrl.o
+> >=20
+> > Also, I can see litex_soc_ctrl_of_match is used.  I am not sure what is=
+ going on
+> > here.
+> >=20
+> > -Stafford
+> >=20
+>=20
+> You need W=3D1
+>=20
+> $ make -skj"$(nproc)" W=3D1 olddefconfig drivers/soc/litex/litex_soc_ctrl=
+.o
+> drivers/soc/litex/litex_soc_ctrl.c:143:34: warning: =E2=80=98litex_soc_ct=
+rl_of_match=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+>   143 | static const struct of_device_id litex_soc_ctrl_of_match[] =3D {
+>       |                                  ^~~~~~~~~~~~~~~~~~~~~~~
+>=20
+> $ rg "CONFIG_OF|CONFIG_LITEX_SOC_CONTROLLER" .config
+> 1124:# CONFIG_OF is not set
+> 4673:CONFIG_LITEX_SOC_CONTROLLER=3Dy
+>=20
+> This variable is used in two places in that file, in the
+> MODULE_DEVICE_TABLE macro and the of_match_ptr macro. When CONFIG_OF is
+> disabled, of_match_ptr evaluates to NULL. When the file is built into
+> the kernel image, MODULE_DEVICE_TABLE evaluates to nothing, leaving this
+> variable defined but unused in the final preprocessed source.
+>=20
+> Hope that helps!
 
-I took this for a spin against x86_64_defconfig and ran into two issues:
+That helps, I noticed it was only used in those macros so that was fishy.  =
+I
+forgot to add W=3D1.
 
-1. https://github.com/ClangBuiltLinux/linux/issues/1252
+We will need to surround the definition in:
 
-   There is also one in drivers/gpu/drm/i915/i915_query.c. For the time
-   being, I added PGO_PROFILE_... := n for those two files.
+#if defined(CONFIG_OF)
+#endif /* CONFIG_OF */
 
-2. After doing that, I run into an undefined function error with ld.lld.
-
-How I tested:
-
-$ make -skj"$(nproc)" LLVM=1 defconfig
-
-$ scripts/config -e PGO_CLANG
-
-$ make -skj"$(nproc)" LLVM=1 olddefconfig vmlinux all
-ld.lld: error: undefined symbol: __llvm_profile_instrument_memop
->>> referenced by head64.c
->>>               arch/x86/kernel/head64.o:(__early_make_pgtable)
->>> referenced by head64.c
->>>               arch/x86/kernel/head64.o:(x86_64_start_kernel)
->>> referenced by head64.c
->>>               arch/x86/kernel/head64.o:(copy_bootdata)
->>> referenced 2259 more times
-
-Local diff:
-
-diff --git a/drivers/char/Makefile b/drivers/char/Makefile
-index ffce287ef415..4b2f238770b5 100644
---- a/drivers/char/Makefile
-+++ b/drivers/char/Makefile
-@@ -4,6 +4,7 @@
- #
- 
- obj-y				+= mem.o random.o
-+PGO_PROFILE_random.o		:= n
- obj-$(CONFIG_TTY_PRINTK)	+= ttyprintk.o
- obj-y				+= misc.o
- obj-$(CONFIG_ATARI_DSP56K)	+= dsp56k.o
-diff --git a/drivers/gpu/drm/i915/Makefile b/drivers/gpu/drm/i915/Makefile
-index e5574e506a5c..d83cacc79b1a 100644
---- a/drivers/gpu/drm/i915/Makefile
-+++ b/drivers/gpu/drm/i915/Makefile
-@@ -168,6 +168,7 @@ i915-y += \
- 	  i915_vma.o \
- 	  intel_region_lmem.o \
- 	  intel_wopcm.o
-+PGO_PROFILE_i915_query.o := n
- 
- # general-purpose microcontroller (GuC) support
- i915-y += gt/uc/intel_uc.o \
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210111210418.GA3660906%40ubuntu-m3-large-x86.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210111211452.GB2002709%40lianli.shorne-pla.net.
