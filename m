@@ -1,135 +1,139 @@
-Return-Path: <clang-built-linux+bncBC27X66SWQMBBCUZ6P7QKGQELWW7CVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBEEZ6P7QKGQEH5CQH7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4C16E2F226C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 23:09:15 +0100 (CET)
-Received: by mail-qk1-x740.google.com with SMTP id p185sf199479qkc.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 14:09:15 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610402954; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id CE9472F226D
+	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 23:09:21 +0100 (CET)
+Received: by mail-pg1-x53f.google.com with SMTP id j37sf242445pgb.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 14:09:21 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610402960; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GhpHyh6P6kM+kvNuy/bTqC6NkPnJUUOH9U833/IrmrEpbmCDIMLh6QSiyMTXYF0ffg
-         Bn5w+cYJik7PNWuDggVbA/Ea7E76czeUF1K6i1Exh4sM35L81NLTZeI086fV3uNPSJUP
-         0ow5NMj5E8O71WmYWwKsn2X4h65/cNtMm/JHfMAiPuopdxEL0ZElqvML/rUrDNs+Upm0
-         xCGrI7h8RE2LE+842hos7BDydy7+OMugg0m9Ox2a2ruVKHnyw1yRKheSe3wAp/6sEJwU
-         Y5BitIvbAKIVNhoE3KOvLVJAMmDH2SAK4SS3k9iKbg77do1uVC+AxwRKABuMngF+DVcA
-         rd3w==
+        b=E0OK9IlhF843Lerq+VgrPtDerCYazdBvkJrW4BMJt9lM7ey0+56+Bb9zfH3qJIGjG/
+         xLs9EC0YG8CIano9T9xh9edh8vBU65eSQEhNiZMTIgyveuS9U7SmFbbu0NPcuD4BtUZU
+         Nf58Y3QHpf8BRotOTZERkK2NYjv7URnA6PHDLBHigos0ZfPKx2rPQs91qhVPty9aFKJM
+         Tk2DW+qw/7ieeC4+71X1lXFFX3o31DgF9UL3geynG4zNuxdk31Ox5gYCzBSPebEen2Zq
+         eCR/khAZSLaXbEd5/yhSv0NDTIURj83aOcGpAoawZ4N90Nlv3ObItgB713h/8CsVP+7/
+         kJGQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=I4RLOw7BFvw/Ri9LAdSNTE4waZuDAd1q69bmwTfTdmc=;
-        b=Ekd8U7SQpvSuztPTKp3SkeqETJhh/uzY1cAf2yQUSbllhAoq+mlstkm3CgdDYAfe+h
-         YuXHjyzOC906Xb2IxN9FgoP/8CJ/5tyO81+KtzQRleUyeMOZyyIpmACKM4umIwIzPnG4
-         y14ld11ah4sltWY5fNz1I7jl8ak/WO03mDJB1rEKtnuchdKtMsRCGoazvA4Gfy/nXeIb
-         3gwjmbrTnBVoCbC+UcTDbyueI3lHP/49iE+eM6+6yv6CLNgFq+kD2DyzWKkmgAkxKiqA
-         JYqw/p5IavW9eX48QD9ZQUdfoiAsJZ1t4b4xXop1j3J8LCmnvT+IJddph1FiGO/AYzGH
-         gV6g==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=w6J4bFSx49Lh1XIQ0RF4llgcBTF45hCMTLbUpRBJnrs=;
+        b=HvRisB0QUXx5sMNaZ7Of57VY/UyjBBbPj1uoPKAIIMFqe4yaT2DXgHbz3QUFcGDQy1
+         y6EH5vdRY62asRsUzRfTuqJMDe7ixydL+f7zEK4mRINebJukqN4AbiTkYXyswC+E6wup
+         dKttF9Fc0maRz5J4o3qm97z/EBIBQcFNsQo7RzAzy/AeYzpgBsYd486hsEzCrlCBqf+L
+         ZAhC0efBlqbyf+F6NKsSS06SATo2xAQ4SZXJq6XLnDHGjOKBowZ10DxHGG60JhXmSW14
+         3+ONBU0CuZj02bngbMNAlCcUK6XrgXdzwtN59i/sMrWeaNMaICDiu+6QKU2B+ru1XCCP
+         D3cA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=AJ+mOjPj;
-       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Xc1wAeFB;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=I4RLOw7BFvw/Ri9LAdSNTE4waZuDAd1q69bmwTfTdmc=;
-        b=jiZz7MB8da1M8yTMozBpFw8IGdkZmcyTsc676h1w57SLRmkDEAw0CMwRmOnC891tED
-         CVeI9y4WSsLI/5eGqlGemMIO46a8avejw2djmds2AGyO+ACFr4bC+cOqgpPgWV47jOuG
-         ZO6T5eMXzhi78H9fSN7rxHVMc/tdzyjoAgyHBZQ8PdmiT4I4M8B93JVXZYliCSqktWdV
-         kHRJHOB/3TZjoxDs2lkQP4vMA1ghwb87cuaRE0algJvNuHVz6IDtA5MdXuLFbTNYygw5
-         GbluuOA25Riwc9FWFyKXBvtw3Cl+xZEhSpBRtrFTeMXBxK/mww6pfqkK5FmNW6iKcncw
-         bRPw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=w6J4bFSx49Lh1XIQ0RF4llgcBTF45hCMTLbUpRBJnrs=;
+        b=LRz8XMJxmBCkYEsiGiQx/RG52MLqB6YeI0cg6yfMZfPTtUlXTQDvWoFFsf6ymK64+A
+         krTRebF1KkEBJJZj0m3zSeP3nfGchP+NoHI9Ifw32zhP3ALmn5DCCYdVUKMeFJRcJi9k
+         /FqzbmL1xrPYj44A0XQd9QI6bux7kE3gOdHM7bEpFRkzPcVDAGHjNcTbEgAJYeWlTOP2
+         SF6USzVIg3yT+MfonevaPTYAXyxzOgri6Rj5tzDms50iN520yT9bQCUHzhkZwGp3ChVc
+         vBRR/pjwS2qO4kMAJ0S5LW7kvdlCcAU5xmMhb0vL23zRvUIqboo/tVrUSZU5K7PEkJBC
+         4ULA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=I4RLOw7BFvw/Ri9LAdSNTE4waZuDAd1q69bmwTfTdmc=;
-        b=rDXLSUui5SkfvtOBMubTQGSBGJOQsa+R6I/sKhvyp4lb0szANbLO9BuzyLuwklkp36
-         WL97hZqM43DWmFFn9usIvwT12sCuqJ2V9mzw8Jpqd+8b4ZcIspEYM/7Ah0iFwD2+iPIM
-         PQK3/PnOqYBnxYoet8F78RlfybpTlTiO65j1rMjHPSQOYy9x0wEHlA9yFQ86+NZ9oWpb
-         E1Q5rC93OLs5TKcmhO35shPPQprzixcZNEHIBcHaZkRUyQ/sJmTAANUyulorCVo50H1l
-         iIVMJQEwZtyngX5ErPudQSSj6oA20gMUzZ4w+NHUJzk1pmcT8hZ5MqEAyPOnkEQkFUCL
-         5Nqg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=w6J4bFSx49Lh1XIQ0RF4llgcBTF45hCMTLbUpRBJnrs=;
+        b=hnqCWC50ScvxNsRkqJfv7lzJUbFOzYmly92OxErqiZ/hjnfpLxkfv0vIabN5q2lwYM
+         X2h8sAiErxTU/8p+Y5jEuXgR7yoqWFpcvqtA2rLZmUdRoFVxKJKfqZnnIOBMkJvteHFN
+         NzYnMdZ9OKVQC6hBkgrhfvSE/D1pAKg/8VCCKXkAE47qXS3e0i7d5fS8ttcAuS0G72nY
+         nI3Tc8+dkKN7m8eTS3dL1mtNLK88dBASf0rJvp9VHiYttH+fE5C654/qBGn5Vfoji8W5
+         zq6K3tXNTHaWlfctGn+H/fTSI+so9CUKteDwEIuW4iIT0AYMgZl6oEDUA1Fxuwc5iNjv
+         +zMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530lSGyA1a96Ahlwo7r2fZJB3Ets+5OF9G6Ln+0kKluw2Z5fwtFv
-	aHwvCI7UbEiSoJGOOSOQ5eM=
-X-Google-Smtp-Source: ABdhPJzSV//bnpvJlBJa+LR29kMztbXFFVfOw5lQLV41xF8lBDldEUYSlf6Tef2ULmG+Nx45VP9s6g==
-X-Received: by 2002:ac8:6f69:: with SMTP id u9mr1751654qtv.16.1610402954221;
-        Mon, 11 Jan 2021 14:09:14 -0800 (PST)
+X-Gm-Message-State: AOAM5308kbAY/N7XXnUjZ7M/v9QbmBqQL7MK4X+ionD4uIpXw5/gd3oz
+	VrlyYbQAQ54HLAW8lk++WqU=
+X-Google-Smtp-Source: ABdhPJxNpGo/LGUn2Vih/40C+HiQ2zVImjL25g8+op5nMzK3Z3T+5c7r/ke0/kduaVhDA8Ep9yH04g==
+X-Received: by 2002:a63:f608:: with SMTP id m8mr1508440pgh.11.1610402960509;
+        Mon, 11 Jan 2021 14:09:20 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:5603:: with SMTP id k3ls621252qkb.2.gmail; Mon, 11 Jan
- 2021 14:09:13 -0800 (PST)
-X-Received: by 2002:a37:2dc5:: with SMTP id t188mr1544692qkh.5.1610402953862;
-        Mon, 11 Jan 2021 14:09:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610402953; cv=none;
+Received: by 2002:aa7:96d4:: with SMTP id h20ls304264pfq.5.gmail; Mon, 11 Jan
+ 2021 14:09:19 -0800 (PST)
+X-Received: by 2002:aa7:86da:0:b029:1ad:e24a:8451 with SMTP id h26-20020aa786da0000b02901ade24a8451mr1647326pfo.39.1610402959865;
+        Mon, 11 Jan 2021 14:09:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610402959; cv=none;
         d=google.com; s=arc-20160816;
-        b=HPr591YJIRgleOhuKkq5OkudUutGuQeWcGNW3JIcOgB94+P2K42wtyRBFpwNzfUejU
-         kUaETWLiFX0pt0UmVSBPg1DsIvgIPIcTqcosrAkDGZVPfg0VxeASG2fQKMGRzUQnThDK
-         F5/+4ZxZyJ8mOfFOZeGUdvfSLa+g96wbNaWqtfj2xFj22ukq2u8cRKmy5ibmnT/Jer5V
-         qI+xaqcGogDvVG+FNa9AnkZ/3TOpSdKxLboEsKTfIuD8l/YoDCQaXIOq82YQnI/iJWy3
-         oUwosgc2P+DXhoLHqKaiUbg6EGdDmAmVXnNU7eiCRwhVKqIbpVmqrtghxOoOqOqeHb+B
-         AvqA==
+        b=c75TEHk0JzMDNHgnK46NWX1i6HcIjsLe5WVwVis729DpJzfklfaSZtw2BKcyWpXLW0
+         bUJV5uTZAeAbiiaktwjdaajH8/SJ7K4CxWyVLq3eIvDaeOoW4ZHv9zsquZqetDlsQANN
+         grsWsglSXk0A3A+srOC3hLtIX3GY7U8F9feZJI9QAEBcevpD18uxeM8rJKaZwMxYt44V
+         +/qE/PEoQn0tpO6yk9DwcQ2WCJCp7jKIavUzx0CDb3qCKDUwDxgc5khbdCO13RvzHYRf
+         8jDGMi0Y12ldoIjBFA/Di0x9a6FeamA5ZdiFWIzqGwLIHyZd2KcTx9ijxgS3xRwXgBxJ
+         VgIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=wAtnYWwrlK7tpbrs/+tnNUH4YreR07+THJRUh9/6qM8=;
-        b=qv9e8sM07X9QjxgGl7W3k5qLN4y3sC7o1rak3VLA9RipLTC730Tu5hN4+OFPV3RTnK
-         v841p/X6d+nOmCa0NIjGwOiQi1PvPr6QsPjbYuEAf+QZF92yKmwGwHi81cZiQCjsqgu0
-         lAa/nEUMWxAYSTZowdQrDuyJNWmezpso6vB8AaIVKw1nTFzz7+wG3kfHjruUEnqh5f85
-         qReEsifkeYvyTDWGE8b5o3xzPmiV7u8G+N09JFOqt+HaJJN8EqrGBiodzTVDQA8E7H7+
-         QCQrz8Aog7QT/Yy/jB0M/3zNjx/zZJ6xvWBNfQTFGLF2uE4z/HYwEZeKqNRnZ5SzIwmp
-         hesw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Q8xcEaScocMaIAyGo9r9RJw+Py5fHWtPNocsWnO7jC4=;
+        b=gBczSKrR52A/ZlnstzGeMoY/rGrChEb+SGmS3fcB5RAZeu4+YyAmAhT68hLgQxqAG2
+         xMv6MzPWhkNchsJsNAbsOecJxU6JBrUB9g/EDDEkvaR0MtJzcQAsxUwLefGRDTyc7GRm
+         LgVB8rJCi79i1UQaqrM0BC3+jhm/yBl6w8ZOHhNCIRnjYqU6xHLjt7gw80hRfvvSoQfa
+         IpOu+5OzFOBm/x4t2IHF0mC3lcFF0kuHRq2nZEbOpSgi+Q9IxhgU5ZBLl+MYGRfeoIMT
+         lIKxh+SoGPJoF4YN8SL7+hBrvGIaXQbed/TJ/9U27SR3vatETEMegl6YNE49GKGHhrH5
+         UZ0A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=AJ+mOjPj;
-       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Xc1wAeFB;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id t2si111142qkg.0.2021.01.11.14.09.13
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id d2si60402pfr.4.2021.01.11.14.09.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 11 Jan 2021 14:09:13 -0800 (PST)
-Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mail-io1-f72.google.com (mail-io1-f72.google.com
- [209.85.166.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-95-qO6YEJ20N7aUAl_coHI8_w-1; Mon, 11 Jan 2021 17:09:12 -0500
-X-MC-Unique: qO6YEJ20N7aUAl_coHI8_w-1
-Received: by mail-io1-f72.google.com with SMTP id a1so222853ios.2
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 14:09:11 -0800 (PST)
-X-Received: by 2002:a02:bb99:: with SMTP id g25mr1555071jan.11.1610402951223;
-        Mon, 11 Jan 2021 14:09:11 -0800 (PST)
-X-Received: by 2002:a02:bb99:: with SMTP id g25mr1555056jan.11.1610402951001;
-        Mon, 11 Jan 2021 14:09:11 -0800 (PST)
-Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
-        by smtp.gmail.com with ESMTPSA id m15sm692170ilh.6.2021.01.11.14.09.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Jan 2021 14:09:10 -0800 (PST)
-From: trix@redhat.com
-To: johan@kernel.org,
-	gregkh@linuxfoundation.org,
-	natechancellor@gmail.com,
-	ndesaulniers@google.com
-Cc: linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Tom Rix <trix@redhat.com>
-Subject: [PATCH] USB: serial: mos7720: improve handling of a kmalloc failure in read_mos_reg()
-Date: Mon, 11 Jan 2021 14:09:04 -0800
-Message-Id: <20210111220904.1035957-1-trix@redhat.com>
-X-Mailer: git-send-email 2.27.0
+        Mon, 11 Jan 2021 14:09:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-28-W4ny10YCPTGLemtj538iuw-1; Mon, 11 Jan 2021 17:09:15 -0500
+X-MC-Unique: W4ny10YCPTGLemtj538iuw-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 41733809DCC;
+	Mon, 11 Jan 2021 22:09:13 +0000 (UTC)
+Received: from treble (ovpn-120-156.rdu2.redhat.com [10.10.120.156])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 830315C5DF;
+	Mon, 11 Jan 2021 22:09:11 +0000 (UTC)
+Date: Mon, 11 Jan 2021 16:09:09 -0600
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Fangrui Song <maskray@google.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Arnd Bergmann <arnd@arndb.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v3] x86/entry: emit a symbol for register restoring thunk
+Message-ID: <20210111220909.2wexjehwiria7jem@treble>
+References: <20210106015810.5p6crnh7jqtmjtv4@treble>
+ <20210111203807.3547278-1-ndesaulniers@google.com>
+ <20210111205814.m6bbvekdhqs7pnhr@google.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: trix@redhat.com
+Content-Disposition: inline
+In-Reply-To: <20210111205814.m6bbvekdhqs7pnhr@google.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=AJ+mOjPj;
-       spf=pass (google.com: domain of trix@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=Xc1wAeFB;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -143,56 +147,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Tom Rix <trix@redhat.com>
+On Mon, Jan 11, 2021 at 12:58:14PM -0800, Fangrui Song wrote:
+> On 2021-01-11, Nick Desaulniers wrote:
+> > Arnd found a randconfig that produces the warning:
+> > 
+> > arch/x86/entry/thunk_64.o: warning: objtool: missing symbol for insn at
+> > offset 0x3e
+> > 
+> > when building with LLVM_IAS=1 (use Clang's integrated assembler). Josh
+> > notes:
+> > 
+> >  With the LLVM assembler stripping the .text section symbol, objtool
+> >  has no way to reference this code when it generates ORC unwinder
+> >  entries, because this code is outside of any ELF function.
+> > 
+> > Fangrui notes that this optimization is helpful for reducing images size
+> > when compiling with -ffunction-sections and -fdata-sections. I have
+> > observerd on the order of tens of thousands of symbols for the kernel
+> > images built with those flags. A patch has been authored against GNU
+> > binutils to match this behavior, with a new flag
+> > --generate-unused-section-symbols=[yes|no].
+> 
+> https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=d1bcae833b32f1408485ce69f844dcd7ded093a8
+> has been committed. The patch should be included in binutils 2.37.
+> The maintainers are welcome to the idea, but fixing all the arch-specific tests is tricky.
+> 
+> H.J. fixed the x86 tests and enabled this for x86. When binutils 2.37
+> come out, some other architectures may follow as well.
+> 
+> > We can omit the .L prefix on a label to emit an entry into the symbol
+> > table for the label, with STB_LOCAL binding.  This enables objtool to
+> > generate proper unwind info here with LLVM_IAS=1.
+> 
+> Josh, I think objtool orc generate needs to synthesize STT_SECTION
+> symbols even if they do not exist in object files.
 
-clang static analysis reports this problem
+I'm guessing you don't mean re-adding *all* missing STT_SECTIONs, as
+that would just be undoing these new assembler features.
 
-mos7720.c:352:2: warning: Undefined or garbage value returned to caller
-        return d;
-        ^~~~~~~~
+We could re-add STT_SECTION only when there's no other corresponding
+symbol associated with the code, but then objtool would have to start
+updating the symbol table (which right now it manages to completely
+avoid).  But that would only be for the niche cases, like
+'SYM_CODE.*\.L' as you mentioned.
 
-In the parport_mos7715_read_data()'s call to read_mos_reg(), 'd' is
-only set after the alloc block.
+I'd rather avoid making doing something so pervasive for such a small
+number of edge cases.  It's hopefully easier and more robust to just say
+"all code must be associated with a symbol".  I suspect we're already
+~99.99% there anyway.
 
-	buf = kmalloc(1, GFP_KERNEL);
-	if (!buf)
-		return -ENOMEM;
+  $ git grep -e 'SYM_CODE.*\.L'
+  arch/x86/entry/entry_64.S:SYM_CODE_START_LOCAL_NOALIGN(.Lbad_gs)
+  arch/x86/entry/entry_64.S:SYM_CODE_END(.Lbad_gs)
+  arch/x86/entry/thunk_64.S:SYM_CODE_START_LOCAL_NOALIGN(.L_restore)
+  arch/x86/entry/thunk_64.S:SYM_CODE_END(.L_restore)
+  arch/x86/lib/copy_user_64.S:SYM_CODE_START_LOCAL(.Lcopy_user_handle_tail)
+  arch/x86/lib/copy_user_64.S:SYM_CODE_END(.Lcopy_user_handle_tail)
+  arch/x86/lib/getuser.S:SYM_CODE_START_LOCAL(.Lbad_get_user_clac)
+  arch/x86/lib/getuser.S:SYM_CODE_END(.Lbad_get_user_clac)
+  arch/x86/lib/getuser.S:SYM_CODE_START_LOCAL(.Lbad_get_user_8_clac)
+  arch/x86/lib/getuser.S:SYM_CODE_END(.Lbad_get_user_8_clac)
+  arch/x86/lib/putuser.S:SYM_CODE_START_LOCAL(.Lbad_put_user_clac)
+  arch/x86/lib/putuser.S:SYM_CODE_END(.Lbad_put_user_clac)
 
-Although the problem is reported in parport_most7715_read_data(),
-none of the callee's of read_mos_reg() check the return status.
+Alternatively, the assemblers could add an option to only strip
+-ffunction-sections and -fdata-sections STT_SECTION symbols, e.g. leave
+".text" and friends alone.
 
-So move the clearing of data to before the malloc.
-
-Fixes: 0d130367abf5 ("USB: serial: mos7720: fix control-message error handling")
-Signed-off-by: Tom Rix <trix@redhat.com>
----
- drivers/usb/serial/mos7720.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/usb/serial/mos7720.c b/drivers/usb/serial/mos7720.c
-index 41ee2984a0df..23e8162c768b 100644
---- a/drivers/usb/serial/mos7720.c
-+++ b/drivers/usb/serial/mos7720.c
-@@ -214,6 +214,7 @@ static int read_mos_reg(struct usb_serial *serial, unsigned int serial_portnum,
- 	u8 *buf;
- 	int status;
- 
-+	*data = 0;
- 	buf = kmalloc(1, GFP_KERNEL);
- 	if (!buf)
- 		return -ENOMEM;
-@@ -227,7 +228,6 @@ static int read_mos_reg(struct usb_serial *serial, unsigned int serial_portnum,
- 			"mos7720: usb_control_msg() failed: %d\n", status);
- 		if (status >= 0)
- 			status = -EIO;
--		*data = 0;
- 	}
- 
- 	kfree(buf);
 -- 
-2.27.0
+Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210111220904.1035957-1-trix%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210111220909.2wexjehwiria7jem%40treble.
