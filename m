@@ -1,143 +1,141 @@
-Return-Path: <clang-built-linux+bncBCCL7Q422UBBBBEK6H7QKGQEW5D3M5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27X66SWQMBBCOL6H7QKGQE67A3KSI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0FB2E2F1251
-	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 13:31:02 +0100 (CET)
-Received: by mail-ua1-x93c.google.com with SMTP id 14sf3764996uae.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 04:31:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610368261; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 43DB12F18AB
+	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 15:49:47 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id p19sf9430854plr.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 06:49:47 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610376586; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qcr+U9Puea0zqGUSkl/AIYGa2CRoH3Qdl8us/TVoBTVdLjj9kNTS+J6tTUqv3hIWAI
-         FUFQRBBaZ5/J0V6J/kJwJqK8P4upHKhheYisQF1ZYCad4EpHgp4XWufwp230k1sDIt7X
-         dwBMW2FUgmTqNz8JJtZQ90RbWCZK8pBLbVQenSZmUXerRbCq6TnJaBPwq5oRzeHV4QDM
-         20DiLZW2pJNMVr4SNH/Y2QKQIVki6rS+ZwZRB7eGtygf8oR/lzIdJwo2M9twrLDwDhHF
-         YdZ6zpug98ZC83yEDdO5H+WN3vzc42Wvg0AZ9KLiOuKodDf1dioAI8D0fZ4QXMOmXQaV
-         tedA==
+        b=BAOYNzZgW50gjSy12l3FjMGKdMzirnsYbYIKBchPSlRnQrSK0Pkk+5U1t1Ab+tOqau
+         qvs8X6RE+6CZbROnbtA4+M5CoFlXuI/sV8ArEmS3VG9lt2Yhqg7juMt4NdsY93F4ZH9M
+         i/VCBGfpp5Ff0tB887m1QNLa7E8jflQAGQQA4RytqMGKtYcKeDglTLf6rc40UUeOnvsw
+         mCcGW2PK9acL91LoJgLwm1mQZZ41Ln/mGt0WGGmQDNqIqm59dCT2bJIi3nNjXBfpPK9I
+         k31QKaZ4GfhcMoca7+vzVfwCe44aAgib+mzRgjr2E1yX1R1+dgY0BT3mGRaNgs4Vf3TG
+         HAcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=32COveRDOINdG20Ad3s45naZIKtdVQDZkVzBRBxY/gA=;
-        b=yDQ2ycU1Mysi7Weucqw976ly2F132O2Y6pC5fyghJGpGtLnSqALHGQP1PBBn4GTl+N
-         LWDmy+AdjZgICME4+08NDSwlKA4j+S8or1JXJNlWS4ia7DFp0HgoX3yUwNs+HxQjvUZ4
-         o7VXj5akz4dFi7GDZW+2sS+DsMi5I7ifnW1Dh5Y1HG8MiDhRnBWBH8QBqe3cNBE4zsBg
-         E59girvMr094jboXx9fOszRwuXkUbecg2YH44s+HE+VlP8T6c90GA6v+tGhLF0C3pFev
-         nF73XfBDv0mmsfdYAwjzjYLDIWFhAKhLIUPHW+juE86qafLXlW56WOt/tyZGgA8fw5tm
-         mVqg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=tMHFzphOpPkuGuzVlpBjV1WZbTgLWHAocNAjh74fs8s=;
+        b=mqNzsCgxS4UGEnwkrlCgp58cxLSWN4RFrXNAc9VfgR1gyfRQwaZ/K2iYJr3UMRyFtC
+         SpxEn7dhR4/ebPWm4fpqhN2LQ+GoKyiUlmEb09Th1yRjsUovFpQ8BVWzCBJLRjaIy5NJ
+         rZwPlTI5TGjt8t+i7vsm7gF6q7mCRx/0Ylk8lIYt8YTeRjOcUXfIZ3b7XcmL8mW0MYYx
+         sxpVx/MggKkL4sy7nVenG+Hh3UEf6XVW6bF7JtBQeC0BOFa4H6Tiyb2B/UBPJFpWsNeq
+         G4WwDp58vSNej9WJY1v+d3xfTIz/jHlXfBLrvOPoiGqs3B+naeO/Su/cNmsx97XmSsDJ
+         /wKg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=thTK+QwC;
-       spf=pass (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::534 as permitted sender) smtp.mailfrom=shorne@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RSOz4PC9;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=32COveRDOINdG20Ad3s45naZIKtdVQDZkVzBRBxY/gA=;
-        b=jX2uWuiawruqxwRXdPspyRlf1DnsBSVZ611ctC7CMj9mMp5LJ4qv8FNRzrJmXhXxYi
-         w73exIjMjU1v39a2Evf35SAWaQ/jRCIJjwWwzPZtYOTUce+w3a9pQD6HSRB82FzFLCf+
-         800F++q5Z2ORFXVs2aRIRq5+MWpibM792h2zyVYvT9OsF74/nodZ8WkKNCz9V/PG/eD7
-         WLRB9EY+UMxZVYcnxT62MYDXrjKiM2skmRwIrq+P65vxMvy1caPzXEPhS/zxjpBSByK0
-         tQ2l3lyBaGcQufek5q+Lz8TwXzHuUgZtNjZYT9HjT6FTv2LgAr3ROLQomwG2htzB2XiJ
-         2YWw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=32COveRDOINdG20Ad3s45naZIKtdVQDZkVzBRBxY/gA=;
-        b=WxEiAwIeeiTJfa8bdToPD4CrDcwKpGT9T5Pm3LNpls/MVy9KKSK9nDpYGxFoCLWO7T
-         ZigJGZtl9fslDY6PYkXF4u3vdFvVfmndHjLXqo9R4wNJBReZkOI/s8vyS1M2aCWWu0bA
-         B6QHSWWYGVLoTHosy4hlktf6xGnG0LmiP2sWsWLD6OH3ML4nW1/PIrjbYVpPSxVtwJ3C
-         oUNJqlPtCDfQWa77xgfoZQewJt7JZ/rP/Wl1/v8NoSFT5qdowihCS2YEsxe2o4Syj35m
-         HZpZVRNSXAfJkJPMdlYGYMnJMcScZMEjUbfIM7dVaObUDi+cWlMCKnuqkxqO5/EqmceG
-         MArA==
+        bh=tMHFzphOpPkuGuzVlpBjV1WZbTgLWHAocNAjh74fs8s=;
+        b=GHDKXM14DZkMGJcJUqwAKG3JgSi+hbUikbiSHGzE5PjUeKSuIJQ0lDxgqD9sLbeR2/
+         2F1/PABSo3030wzjBijs2zrEGtyvcnfpenQP01vzQiYYv+nNhwbt/4bfecJXWSK0oON4
+         pPxAbvQ819UVzl9O/P8Bx/aw5UO1pDbjT8UgfhGfUE2DFe5v3HQ8oNKZliNS3RSKueIR
+         ZjVrHUZ3sahdfSaQGsdaIoHf38+MRNU0KgYB+VLVf7MuNbJix2YM1XmDpqgeue7Khhs5
+         AxhWaoOk236wos4hcQhR2mWAbXfhd92XzMJUe/XvuHeXfMjFlvWsVGlaSoeDHb/kbmJp
+         Q4rQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=32COveRDOINdG20Ad3s45naZIKtdVQDZkVzBRBxY/gA=;
-        b=Ya9axB1mwRVXic/FSzH7ovWWH5Xh7JJFohw5znVY45t28nH/QtIAjcJN2HTZ9Gsm1i
-         FQ0JCf7RZ5z9kpt4eW298lypp9P87k7ELYSTAnlG8M+jUXNjgphjs7ai94bDvRDh1sr3
-         FuRcvzwdJiqK2NPK3WGHJr6vzGCyH65I3L8WjJuw9ZQP/LzKz4liUN4/NpgQjZWd7+qG
-         EdFIeKIJ6kkvQJ+cRZ6Sq9kQzIh1urqdo7q4948M49sqaLvZC5cpPZeBZY9nr4QwSiom
-         tEOe+kAft3hlm2Ki/kBpg/azh4H7Sr4hSdmTBQ0DTdPT9bnZ+JwiBF7SbPchUgxjjtN1
-         0RXQ==
+        bh=tMHFzphOpPkuGuzVlpBjV1WZbTgLWHAocNAjh74fs8s=;
+        b=Mx5uqhwCF5siEmw2cxvlwx8jzKODSpPqeCbZ144i8xMmXFyokP37dWgowSY2ebAzcy
+         gM5t2OVFEhx+A5djA5Idehwdtj8dGQ4+17tSevy4aMPKLm9GnIS2bmwN3HOK8rJJ7AWK
+         UvkWFWr017NtI6s969nJiyKxCPfYOaf1gj5Oo7+X+P7vHMj7WPZ4oY1QKsY2e1WO/z9X
+         sHU3Swh8fJdX5MUoMMaUq7mDt9q4QpPIutngq1ipDVLU3YXEFD5VLz03tgCwsA8LJSfl
+         s3O0DtYdY+TeI6eH233UQY0sDrmvG0Wr6FITaDBJ9rG4JjG6CMraDEQ0xn6RujOPxSzQ
+         IGiw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532uXSTa2PsXwg95ESQf8+b6zGJz4T5rASyk4S6k0qeAF+RX7TiO
-	RIz2mFW5qoSbftwlAyCYIoo=
-X-Google-Smtp-Source: ABdhPJwI2Mh2qdzzDS8Q2hiTlMQMbNyurv+3Xblozd6fL8WSJzNmuDLHvFS6ST1QcwsyNgtRaAY5/g==
-X-Received: by 2002:ab0:240b:: with SMTP id f11mr12126715uan.111.1610368260916;
-        Mon, 11 Jan 2021 04:31:00 -0800 (PST)
+X-Gm-Message-State: AOAM531wZPZQRrYZ6mVGXYfJSyVzlyu2ofLizIrhVQmv7F9VZNcnSNBf
+	Ym900gfkpiZX7X1atvOxXeA=
+X-Google-Smtp-Source: ABdhPJxfCff/NxGlyeoYBOyvduVkt18Vk3sChwzDDgERlIIDGyeQ9WDws0vkx5ONYcpM5899eJtT8g==
+X-Received: by 2002:a17:902:ee05:b029:dd:f952:db11 with SMTP id z5-20020a170902ee05b02900ddf952db11mr14850648plb.42.1610376585734;
+        Mon, 11 Jan 2021 06:49:45 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:ea12:: with SMTP id g18ls2277751vso.9.gmail; Mon, 11 Jan
- 2021 04:31:00 -0800 (PST)
-X-Received: by 2002:a05:6102:104d:: with SMTP id h13mr12583698vsq.15.1610368260487;
-        Mon, 11 Jan 2021 04:31:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610368260; cv=none;
+Received: by 2002:a62:7615:: with SMTP id r21ls6835167pfc.4.gmail; Mon, 11 Jan
+ 2021 06:49:45 -0800 (PST)
+X-Received: by 2002:a63:5c53:: with SMTP id n19mr19792670pgm.116.1610376585084;
+        Mon, 11 Jan 2021 06:49:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610376585; cv=none;
         d=google.com; s=arc-20160816;
-        b=bs96hMrgWwQgMJfrdDzM7hd4HcAyRFC98QrIpSHtS4J8yp85m5ELK/hABDLWTxdswQ
-         Pc3hL8/ODa9R9qd4kWs6bNo4bfvnrzSPY10as6mn6V6bhLi9nRXjylWaPeqfhqn+rXkE
-         P4TsAnrcpEqhbWyPsBF8LmpUj3Hzd+0UkSLkVHOGlcv6uJnciUdPI+w9oVNAz0cIJ+R9
-         BeSSG7HTeWNKuWEd3CfrD9+MqPAhTjyZih1m/t/y0xidL3b7gw7+dhf1OwwYUU/ni+ZI
-         lUvRhC+8XAfe+FH8JZpaXRkJ3BDjv4wFSLTMIN3AJaLQPMJPDZtQva6HxxguJ0pzCRnV
-         88mg==
+        b=QpBPirybD8I0qlN1fdsyf6meU6Y3SK/5K4B10D8M5CqS4bxmmun16UtTOkabPmzrMC
+         KSRIJwqH5jFMVlVawqzyg86ywD2d6tU+FjNuqgHuXO/4PN7wV+D5QNRsML/1YDWyj1S6
+         1hrW1eLlmiHWuIW0fj7JZHZY/r8hFTuGm89hJfBtr5LjL8pu0KIkg2la60F8wy3vJOnS
+         jyQMCTswSKvJWNuTIGkiR+mZHbbWrJAJ/daMuzJxCF2MjvqQ4ysTrjtd1zKk4Kz2n+rm
+         chToNAWRsyTVeREwioLX6NegXlkV1mFjm6xFI6/SIIFIF6dXSsJxmO7x8z3gAMae2a2W
+         gjLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=MQIcMMQr4fBdNn/n7xtKL3xisvfpOYXLZCgeqAib7vs=;
-        b=sYjNAQiN6bEtji9Fwq29Eyh3s3TFQcfZpEq7dkLJs9KDG8v8r85n+rM86T0TNn8DzK
-         mV6Oyv2VKM9XpWGo/W8tDE8Cwp0WM0kwQSfOUqieCabD1C9YiHd/vXHiyo0sUh97prW+
-         Oy02p8RCzrxYBl6T78gLp2KjqKfk08+U2ti1T++QeGax/SLOxj58lAZl7WdYYhsIB/WC
-         AoHCypKkIj8gmuYEVsV9nAfN/NHHt0zq/zHOQQ8DzbXzImjJ3lU9vvmXXjHEGn6iJy34
-         bbncGggrWgq9udYItE/tClOtBoB3rJsPKa2ZMw5nTsW6gvB48e2wR4uj8/A/iD86QvAv
-         Fiyg==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=tqZH7PucLcSk/Qb7NQ3SkFiM8vGpSQE/gSgpg3BnCno=;
+        b=UJw0uUS8HcFCOilueyxWJkYJRdNjwv5c6AemJ5BoMmj72Bumf7vPioMZGJBO6o3Nwu
+         ZV1Ra3B5ZyYoNsKRQBhNNIdh8byPTe4ITiQYUhJ6w9pa4wpeP0KQsGGhSJmw8va1lWkr
+         Mmztju9YS0YPoCY5Puyi1usXdjjRaKBU+k+VQzVAbbXToWd60/EQSyVDwy7D1/XTHJBO
+         6NkhBwJaDvxkvy067/g+UbDNnVuI++/WwEa4mHCuhLuEhjNUXACZsQt+4patuQBoNyrT
+         nm7RlnynoOFhcjKeVhVF32VLMXc7Ajqp35+fmOaBm3dxndkynA1NIdMBH/cyq+HPJdGm
+         9qQA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=thTK+QwC;
-       spf=pass (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::534 as permitted sender) smtp.mailfrom=shorne@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pg1-x534.google.com (mail-pg1-x534.google.com. [2607:f8b0:4864:20::534])
-        by gmr-mx.google.com with ESMTPS id q22si877730vsn.2.2021.01.11.04.31.00
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RSOz4PC9;
+       spf=pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id o14si1316344pjt.0.2021.01.11.06.49.44
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 11 Jan 2021 06:49:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of trix@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-il1-f200.google.com (mail-il1-f200.google.com
+ [209.85.166.200]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-445-MkWZgQUzPk67Fsz3d61k1Q-1; Mon, 11 Jan 2021 09:49:42 -0500
+X-MC-Unique: MkWZgQUzPk67Fsz3d61k1Q-1
+Received: by mail-il1-f200.google.com with SMTP id f19so17344753ilk.8
+        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 06:49:42 -0800 (PST)
+X-Received: by 2002:a05:6638:11d0:: with SMTP id g16mr124968jas.26.1610376582087;
+        Mon, 11 Jan 2021 06:49:42 -0800 (PST)
+X-Received: by 2002:a05:6638:11d0:: with SMTP id g16mr124950jas.26.1610376581745;
+        Mon, 11 Jan 2021 06:49:41 -0800 (PST)
+Received: from trix.remote.csb (075-142-250-213.res.spectrum.com. [75.142.250.213])
+        by smtp.gmail.com with ESMTPSA id a9sm11033641ion.53.2021.01.11.06.49.39
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Jan 2021 04:31:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::534 as permitted sender) client-ip=2607:f8b0:4864:20::534;
-Received: by mail-pg1-x534.google.com with SMTP id 30so12443683pgr.6
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 04:31:00 -0800 (PST)
-X-Received: by 2002:a65:64ce:: with SMTP id t14mr19691144pgv.36.1610368259531;
-        Mon, 11 Jan 2021 04:30:59 -0800 (PST)
-Received: from localhost (g178.219-103-173.ppp.wakwak.ne.jp. [219.103.173.178])
-        by smtp.gmail.com with ESMTPSA id e5sm18420926pfc.76.2021.01.11.04.30.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Jan 2021 04:30:58 -0800 (PST)
-Date: Mon, 11 Jan 2021 21:30:55 +0900
-From: Stafford Horne <shorne@gmail.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Pawel Czarnecki <pczarnecki@internships.antmicro.com>,
-	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	Mateusz Holenko <mholenko@antmicro.com>
-Subject: Re: drivers/soc/litex/litex_soc_ctrl.c:143:34: warning: unused
- variable 'litex_soc_ctrl_of_match'
-Message-ID: <20210111123055.GA2002709@lianli.shorne-pla.net>
-References: <202101070445.8Kz6oJcS-lkp@intel.com>
+        Mon, 11 Jan 2021 06:49:41 -0800 (PST)
+Subject: Re: [PATCH] block/rnbd-clt: improve find_or_create_sess() return
+ check
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: danil.kipnis@cloud.ionos.com, jinpu.wang@cloud.ionos.com,
+ axboe@kernel.dk, ndesaulniers@google.com, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210110215726.861269-1-trix@redhat.com>
+ <20210111051431.GA4167786@ubuntu-m3-large-x86>
+From: Tom Rix <trix@redhat.com>
+Message-ID: <e63aa1a6-8be6-d3b7-dbad-19b1eec287a5@redhat.com>
+Date: Mon, 11 Jan 2021 06:49:39 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.0
 MIME-Version: 1.0
+In-Reply-To: <20210111051431.GA4167786@ubuntu-m3-large-x86>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202101070445.8Kz6oJcS-lkp@intel.com>
-X-Original-Sender: shorne@gmail.com
+Content-Language: en-US
+X-Original-Sender: trix@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=thTK+QwC;       spf=pass
- (google.com: domain of shorne@gmail.com designates 2607:f8b0:4864:20::534 as
- permitted sender) smtp.mailfrom=shorne@gmail.com;       dmarc=pass (p=NONE
- sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=RSOz4PC9;
+       spf=pass (google.com: domain of trix@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=trix@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,64 +148,110 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 07, 2021 at 04:04:47AM +0800, kernel test robot wrote:
-> Hi Pawel,
-> 
-> FYI, the error/warning still remains.
-> 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   e71ba9452f0b5b2e8dc8aa5445198cd9214a6a62
-> commit: 22447a99c97e353bde8f90c2353873f27681d57c drivers/soc/litex: add LiteX SoC Controller driver
-> date:   8 weeks ago
-> config: x86_64-randconfig-a001-20210107 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 5c951623bc8965fa1e89660f2f5f4a2944e4981a)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=22447a99c97e353bde8f90c2353873f27681d57c
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout 22447a99c97e353bde8f90c2353873f27681d57c
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> drivers/soc/litex/litex_soc_ctrl.c:143:34: warning: unused variable 'litex_soc_ctrl_of_match' [-Wunused-const-variable]
->    static const struct of_device_id litex_soc_ctrl_of_match[] = {
->                                     ^
->    1 warning generated.
-> 
-> 
-> vim +/litex_soc_ctrl_of_match +143 drivers/soc/litex/litex_soc_ctrl.c
-> 
->    142	
->  > 143	static const struct of_device_id litex_soc_ctrl_of_match[] = {
->    144		{.compatible = "litex,soc-controller"},
->    145		{},
->    146	};
->    147	
-> 
 
-I don't use clang but GCC, and I cannot reproduce this warning.
+On 1/10/21 9:14 PM, Nathan Chancellor wrote:
+> On Sun, Jan 10, 2021 at 01:57:26PM -0800, trix@redhat.com wrote:
+>> From: Tom Rix <trix@redhat.com>
+>>
+>> clang static analysis reports this problem
+>>
+>> rnbd-clt.c:1212:11: warning: Branch condition evaluates to a
+>>   garbage value
+>>         else if (!first)
+>>                  ^~~~~~
+> Ah, is it complaining that the 'if (IS_ERR(sess)) {' section in
+> find_or_create_sess() does not initialize first even though that will be
+> caught by the 'if (sess == ERR_PTR(-ENOMEM))' in
+> find_and_get_or_create_sess() because alloc_sess() only returns an
+> -ENOMEM error pointer?
 
-$ make drivers/soc/litex/litex_soc_ctrl.o 
-  CALL    scripts/checksyscalls.sh
-  CALL    scripts/atomic/check-atomics.sh
-  DESCEND  objtool
-  CC      drivers/soc/litex/litex_soc_ctrl.o
+Reviewing the code, failure looks like it returns only -ENOMEM.
 
-Also, I can see litex_soc_ctrl_of_match is used.  I am not sure what is going on
-here.
+So the check is correct but brittle.
 
--Stafford
+>
+>> This is triggered in the find_and_get_or_create_sess() call
+>> because the variable first is not initialized and the
+>> earlier check is specifically for
+>>
+>> 	if (sess == ERR_PTR(-ENOMEM))
+>>
+>> This is false positive.
+>>
+>> But the if-check can be reduced by initializing first to
+>> false and then returning if the call to find_or_creat_sess()
+>> does not set it to true.  When it remains false, either
+>> sess will be valid or not.  The not case is caught by
+>> find_and_get_or_create_sess()'s caller rnbd_clt_map_device()
+>>
+>> 	sess = find_and_get_or_create_sess(...);
+>> 	if (IS_ERR(sess))
+>> 		return ERR_CAST(sess);
+>>
+>> Since find_and_get_or_create_sess() initializes first to false
+>> setting it in find_or_create_sess() is not needed.
+>>
+>> Signed-off-by: Tom Rix <trix@redhat.com>
+> Every maintainer has their preference for where and how stuff gets
+> initialized but this makes sense to me. I am not sure the commit above
+> find_or_create_sess() is needed but again, personal preference.
+
+Mostly this removes two unneeded branches at the cost of initializing a variable.
+
+Secondary, the static analysis complaint is resolved.
+
+Tom
+
+>
+> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+>
+>> ---
+>>  drivers/block/rnbd/rnbd-clt.c | 10 ++++------
+>>  1 file changed, 4 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/block/rnbd/rnbd-clt.c b/drivers/block/rnbd/rnbd-clt.c
+>> index 96e3f9fe8241..251f747cf10d 100644
+>> --- a/drivers/block/rnbd/rnbd-clt.c
+>> +++ b/drivers/block/rnbd/rnbd-clt.c
+>> @@ -919,6 +919,7 @@ static struct rnbd_clt_session *__find_and_get_sess(const char *sessname)
+>>  	return NULL;
+>>  }
+>>  
+>> +/* caller is responsible for initializing 'first' to false */
+>>  static struct
+>>  rnbd_clt_session *find_or_create_sess(const char *sessname, bool *first)
+>>  {
+>> @@ -934,8 +935,7 @@ rnbd_clt_session *find_or_create_sess(const char *sessname, bool *first)
+>>  		}
+>>  		list_add(&sess->list, &sess_list);
+>>  		*first = true;
+>> -	} else
+>> -		*first = false;
+>> +	}
+>>  	mutex_unlock(&sess_lock);
+>>  
+>>  	return sess;
+>> @@ -1203,13 +1203,11 @@ find_and_get_or_create_sess(const char *sessname,
+>>  	struct rnbd_clt_session *sess;
+>>  	struct rtrs_attrs attrs;
+>>  	int err;
+>> -	bool first;
+>> +	bool first = false;
+>>  	struct rtrs_clt_ops rtrs_ops;
+>>  
+>>  	sess = find_or_create_sess(sessname, &first);
+>> -	if (sess == ERR_PTR(-ENOMEM))
+>> -		return ERR_PTR(-ENOMEM);
+>> -	else if (!first)
+>> +	if (!first)
+>>  		return sess;
+>>  
+>>  	if (!path_cnt) {
+>> -- 
+>> 2.27.0
+>>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210111123055.GA2002709%40lianli.shorne-pla.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e63aa1a6-8be6-d3b7-dbad-19b1eec287a5%40redhat.com.
