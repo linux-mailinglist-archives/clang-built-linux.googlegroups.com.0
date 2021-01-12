@@ -1,123 +1,143 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBC5D7D7QKGQEIP7ZGIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBA5N7D7QKGQE2OHZLII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A9722F3BC3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 22:15:57 +0100 (CET)
-Received: by mail-io1-xd40.google.com with SMTP id x17sf2588540iov.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 13:15:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610486156; cv=pass;
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A5162F3BDE
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 22:37:08 +0100 (CET)
+Received: by mail-oo1-xc3b.google.com with SMTP id i16sf12375oos.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 13:37:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610487427; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ozNM0r1RfHXOR5hqcY4zifc3FBWd4oWy6i9kcOAygqNXvBeq+HK8QQfnaH8QqpfnNW
-         rdP+HbxDJjHFFRMemY5vRkwD88XM3fa9Xp6m2lG0MOjRVYoXGi8xbA7kjOpRzF1HJNTO
-         Ds10aOj5LlQDKkyFE9dv0LChjSdksNS5fnzeWYgfFH32Xs6eeyFTcOykETAFPGkC+Z3P
-         GwJcCfoDlBBxgSojo/Lo/FOxYrAOMW4+k/BxD7pUakfrmpTgAPsqwXB7NWHcb5i0whfN
-         RfTO4AvNPU+9uPowd1hP1Kb70pO6fDybs1dZkajBdmeT7yyuVcJOoEPMJfKWP3hQdYdn
-         zVYQ==
+        b=mmgzpoiZPO5l+DeSXj5D5/w9vjv9YBRNFUdh0659K31nf/N++tj1U3wFqrlkXQTydI
+         BeL5KreqIVyuztrSvD6ZVeKSCXaQd3pcC4nZSTCP2fA7UnnFcEQlwtzflyo+UbM4RPvy
+         6Jmh/US7I1OB0IQlH0Tyjps7n2tqLWPHSo1fKni2JKm65YBHo4ouMz57wlGLCuRyYJeK
+         Gv1j+06NbkPP44I44GTqjGu42AmeNGBM7825l6jrgAlg+HjLr+iypwqXYU2k7eolYgOi
+         GvhjMb5nUtsYleNjeQZaDbJ3CvLIUHH2EtwamZT8kHu7qvGUFKmHtptQQIOmnCCCdEoo
+         EiGg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=6Yf1NGcaN5nF3Bt4tx1ZIuU53/EE4lXe9lVi19MBhyc=;
-        b=C4GYX6Rqjina5Jg+nouPOvd3jZEZDw0YI5VWl9hMpOy2TJYy0+Cp8jDxGj3FEbUd7z
-         ePCzyCVtbSAyzdhMfsgwxsVwnQgusIoiTeSvnA0TdfEuAsG9I01Qghxap3zn8xRc92nf
-         Tv0PJWmBkTBSwH1jqmzoNfB7EAxYz17GMwT15GtZGIHulNMaCM5ICUrKw42Dmd6G5lTc
-         6ncLW81ITqTEblJ4QIWmnZgzjoHZaJ1o4sMAfjJTN1V22faD0i0zJWDCFnO1AYiImYCY
-         F5Zbod/OCfSQIT9/RVfl3D7u0tRdVyIggcp9SCf0+OdrAy0OTl8PcfjEur8vOPMq5sTb
-         HLqA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=rrUMWxg54Xq2BT7gt5Le+JlbwmcDHvB3HL+lZNwVyhI=;
+        b=F7nX5/lTDW8hK6H0IsEnhTP7jUXegyu8vHBphqZELQg7amB07pNgXDrUA2GWtlZCPu
+         1nmQ222cyCMaUzGPhYV1t+P41bWu8BZU4NPpWAqFILI1HcHJOjgamFEZzyCcPU+016lh
+         BSP3Vug7hvJfC/5+XSLShuNC3o32+40wzN/hjMMinRc2UCAvavVy1UXoN1HWlS6iu5z8
+         Riqaofm+SgzxC1CK7aJjN+nlq3BtTp8pnYxGryEGKmqznSpJ4fSWvSWkyMhE4X9z+BwO
+         4ujT1qclEz9DBMwObGYBww7r9zg5CBn+4BFKnIVppDYLghjcXhQrLEkNUitIrn71/7DQ
+         +xPg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=s9ReiTEz;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iaw0Kylz;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72a as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6Yf1NGcaN5nF3Bt4tx1ZIuU53/EE4lXe9lVi19MBhyc=;
-        b=rYw/m+eFPf7UlA2JUnuMB8OYn0//RFS41A/vAv3WE6DVtqOJyn7pL6skvQD5LoLFUP
-         4wfh6rtV+67XTHBRcV7ZTWqq9E/DN4n0WhH77yDBv+eb8tabAxfuXjzW/e8jeIDtIhLT
-         xyZDA5VUSNNwdxZYoV39gqcYFDEdg8f7KDeYDp+aNUxBFSfPY5hcuz9k6PElCOQP0L9U
-         nb5mwQ8cu9TQLCiKIwYh1tRFCopI71cSwemlsbkRGORzvxsOc4Joy8Qr5pfUT96wgncq
-         f6aXcZXEq6k73ETCiKAw3XUufqw+Rc05NTv94soFEGJxudstnsrbSoWIL9goKKYs+ed4
-         Vhlg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=rrUMWxg54Xq2BT7gt5Le+JlbwmcDHvB3HL+lZNwVyhI=;
+        b=dwyhdlUWkurtORqBXKZImUzOFcV/jFlruCVInzcfVJ5qSlpvHAiJAsEfN0DdUKi3Tk
+         y6td92ew8TPPANqDZarpJFsPZ4pvOfMsIgQHkpm0b+43xvP/965WnKVRoLjv6HYWs19D
+         mCWOg1XtBnY5wrMc7rh8MMrMaVrsoGAt30YWAZ/lh/GeJn1b5AzvJ7ioj2jnAj6FLKN6
+         fHWQ8cbmJdHfScui3QGd//MmM3S3Vof0w39S+z0f9h4LSMJgE9nW2IrSvlssJVmgh+nh
+         gKLyUYQPxms/zn3QDF/88Qg2YA3/Unlp6aGBHpnPub76aJXji+i68P6fXDpdj/F+eSlb
+         7tVw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=rrUMWxg54Xq2BT7gt5Le+JlbwmcDHvB3HL+lZNwVyhI=;
+        b=RmNN/wabw4l6cwjy5Z3PdRGQdjrjvITSK/7qJuFyB5NpiY2G+327NancdteVt9p9Oi
+         +VLQMNcMpzs/dzEfm3rBuQ1bxKDqweIcALAc61wlw5J9R6D2VeJumfo7+RwP5Sntz8rW
+         xLlvptVmENq5W6GwVkrwvZGoDPMnWZSIg9ulj4EmCrxccy5Pe2svAWSm8Dlt00/Dt323
+         5UCoRD/BIEPv/AosrCF7O5AoUCYgalcrsnS7P8D2YtTBQo4Zw2J8ZVCbk4rClYKDA7fJ
+         Owa6yXqCK6iabD4V6cmoYNhCJ6iWvdhQaec1jziDw20TmhDiZpY/Bx4x+BqHPfL4vH3Y
+         4AIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6Yf1NGcaN5nF3Bt4tx1ZIuU53/EE4lXe9lVi19MBhyc=;
-        b=adIJGbDLYQW2MO58HO9syqmCGeGAg1k50ovl4btxs/somphCuWiNZeK3Y7W0WO6XVX
-         BW3sNSWF3hNwnWp8PR2DMegBAUyg9vYW534M7C3PevVQaDtqBff4PllQVp9RVJjG5pab
-         er3QqDCbTZ918L1DHt3NcUQjAWb2snLTwcT4QsSlehzgxtSzTVbcEBnJUVWY6xEzFh96
-         FscgesB+K8USgq8Hzvh1hNsJ4IHN367eo1eZFqgWG3jm3r65qT/mOxFHzfJxNhmN3F21
-         GKXRc7THu4gUClHPDcYl3xVOY3jxesrICe16c96y2ZNpjlgcPgwNvQhZhEjsor2bQUw2
-         73nQ==
-X-Gm-Message-State: AOAM532hE+zSBruerbVXjkLJQ1NjGVmgAgGGlNAORadS+8Z/V3WgCkKj
-	aBawZ9RyhLPOvmURTDpudZY=
-X-Google-Smtp-Source: ABdhPJwEdpGUMGHpJ2zfpQ4OmQ8rlDBZ5d6VxksmQWWypvYjQV+3LHktolyDYPifOBhYeT1okTBLeg==
-X-Received: by 2002:a02:cba7:: with SMTP id v7mr1249328jap.133.1610486155425;
-        Tue, 12 Jan 2021 13:15:55 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=rrUMWxg54Xq2BT7gt5Le+JlbwmcDHvB3HL+lZNwVyhI=;
+        b=mpmWF+luihzwGxyPx767qDlNod/tQCHTCPBI5xPsXVUZ01TA8kBRUdQq3A0dgP9f2r
+         3KchM2af0LAU/7W9jHlOps/v69Xqj+VksQ8ys/YzjqXUZJdrsxWw2uqZmOscTQi+mNpN
+         OeldfUtOvSs9o3vW5MsFzj9ESszF8qAn4bo3YiNEwZy6H8MEKvQNwu9fDtHTMLf/T2tM
+         CICuht+LuyPmS6+qYbVsCGvQzlzy6HBO7RpvIdsm49JeoYCnT3mw7ZxJ3MasUg5g19Dg
+         ZtMJmTpLLU6Ruosv/yvz43o7/xv4JV3U/xJV+i+QiT9O+964s26fFQMBQl2BoRCs5ZYC
+         ui2A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531r/npEsHmrPK4xKM0XPXVEDn9P1TpjOqzyUg1RB5fVpt85W8lG
+	43ZU8eFt4kb433DLOJKTEhg=
+X-Google-Smtp-Source: ABdhPJzzx7mB65cDgBIgjJFEhS1lXoEMr0kL84YWlFwquqZwskWmYrkoTphmB5RBzMGXnDWwqUmvNg==
+X-Received: by 2002:a05:6808:650:: with SMTP id z16mr734581oih.50.1610487427141;
+        Tue, 12 Jan 2021 13:37:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:9ed0:: with SMTP id a16ls816087ioe.5.gmail; Tue, 12 Jan
- 2021 13:15:55 -0800 (PST)
-X-Received: by 2002:a5e:dd0d:: with SMTP id t13mr807344iop.132.1610486154955;
-        Tue, 12 Jan 2021 13:15:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610486154; cv=none;
+Received: by 2002:aca:758a:: with SMTP id q132ls10683oic.4.gmail; Tue, 12 Jan
+ 2021 13:37:06 -0800 (PST)
+X-Received: by 2002:aca:4892:: with SMTP id v140mr727313oia.71.1610487426724;
+        Tue, 12 Jan 2021 13:37:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610487426; cv=none;
         d=google.com; s=arc-20160816;
-        b=rqBYBo2RzeelaRfM9bqwMAHLfuUPMIezQqP9ick6YA7C6JeOWZOGp2o6mGE7o92gL3
-         PSLRnOPke/YbV3qFwLkNlnVm77XqybpSC0bPG9zIgZa+cp70tyypCnr45idCJlZmMhES
-         8YUR0FXMPHlSk1y96ymeEEI7odUssZJDMRysrOEk0fnGa4whVEtVCxfIE/LlDqtpi67M
-         20eXkNJW1GpO6ND1PmHddWgovQNFQtXzOYmjySMNWFefXIo1L9TrONachufqhJc1En+2
-         D/XszGsJP6lhe8ztyoHnoJ+yrsCpdNRoWxkbjp55qBV4sbWDnQxSzupGR8bRzYMB4QIp
-         oCIw==
+        b=dnmc70qjBCqX6lAGK69+Oo9o1fuVjSbo6AVE8Q1SmkGcUwHqmjRinkG19NU/JmfG9j
+         kfJ+gdWH7gg6j7/NoZIZuMEpJWLkHmHgeCM7RmllJMWWu5gxXFa6Lxo22y2kbO7yLJu4
+         cBHxDjklHg5dva7m+QNsdW1DwIlTFDLUFGpPO55hFQIZTVFO8eY0oRE6OIOFWTIAwqkl
+         c/8DZsHR/VZvbRu4wEpCVsbscMiBN8bKUwA7mZz2SLV77ELDuQWtYbTUE+jMzucYxYl6
+         pTguNdtyj/hXYMtH1w/xN7BbvnkRNNPlJCWJhJXgs9Mdqq05OImnHVFPQ+TYbvhU/Kwl
+         oUMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=XpRF98H6QxDvYHR2YECMLpFGbIbXZ63ebl8zScm/1pg=;
-        b=xkAWdkGQG6pH1JD1u5BitoyXCh5Cf5Ki7FOaXi32wCgF1QKO9iuKIw8yi29iPf18Y9
-         e4Mz1Szilg04LZkeiX3gR1b6HVNEh6iNni5gFcT3ge3LPtoiwhQONwgbyaJd5Snww4vf
-         ekZcVvRJ+D5P46SgMW97F+x3HYiUFg9610GDsZtCQH2UmALNEi9tefVQBoVrXW+7aSQB
-         aB3NP4FBruTiQaXefvVGN3o3PD0AQYDs5OiZrR6yBk2izvWZFbuYIyZHKhpu/ZV8qb1d
-         VRVosXoMlnccIssqK3KdMBdrDZtUwJMh/rHQ/HCQeD0wt+mB7qw2/DQJjMmKJCrKDUS0
-         4ttw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=MC7BSr6d4yh4fJNH+ilIdGBl8uQ03KTfoLip01VhE/8=;
+        b=mXjxnP2trc7hU/9mjFV9fm+Ej88OX3Tf+9uKjX3Fe+DjXWpUJXYbCXvDumxhQARy76
+         6bCJi72HAcpbbyYmGojsaWboIF7yesk5yvlrhMT/nhVJNoZh5VwKIBP9hweaBEtqYPda
+         6fO0zCwVf41aVmGWcaehoJTPpw7l8gaz2vPcqvfCFIDsQOMHwVRATymFbqt4yeEslUMh
+         vvbIJsZHdPBPFGUTsqfRz7hKo/dfshc7NQHMBB6lqWyiz89juziKtInx+AS0QoYy9ZhE
+         XxwJ/D5tqalEYWySHwFyVo6HV8MAfrXy/G5+S9crU5iRUkoerYESRdL44W0fUACBMha/
+         9Ycw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=s9ReiTEz;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x432.google.com (mail-pf1-x432.google.com. [2607:f8b0:4864:20::432])
-        by gmr-mx.google.com with ESMTPS id e26si310872ios.2.2021.01.12.13.15.54
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iaw0Kylz;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72a as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x72a.google.com (mail-qk1-x72a.google.com. [2607:f8b0:4864:20::72a])
+        by gmr-mx.google.com with ESMTPS id f7si331386otf.3.2021.01.12.13.37.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Jan 2021 13:15:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432 as permitted sender) client-ip=2607:f8b0:4864:20::432;
-Received: by mail-pf1-x432.google.com with SMTP id c79so2174350pfc.2
-        for <clang-built-linux@googlegroups.com>; Tue, 12 Jan 2021 13:15:54 -0800 (PST)
-X-Received: by 2002:a63:1f47:: with SMTP id q7mr1015387pgm.10.1610486154136;
- Tue, 12 Jan 2021 13:15:54 -0800 (PST)
-MIME-Version: 1.0
-References: <20210112205542.1375847-1-natechancellor@gmail.com>
-In-Reply-To: <20210112205542.1375847-1-natechancellor@gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 12 Jan 2021 13:15:42 -0800
-Message-ID: <CAKwvOd=yrVKBn9TN2cP8SiB7A8=c2g41PyodKGJu+xEQwAmnDA@mail.gmail.com>
-Subject: Re: [PATCH] ubsan: Implement __ubsan_handle_alignment_assumption
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Kees Cook <keescook@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
+        Tue, 12 Jan 2021 13:37:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72a as permitted sender) client-ip=2607:f8b0:4864:20::72a;
+Received: by mail-qk1-x72a.google.com with SMTP id b64so3288623qkc.12
+        for <clang-built-linux@googlegroups.com>; Tue, 12 Jan 2021 13:37:06 -0800 (PST)
+X-Received: by 2002:a37:a2d1:: with SMTP id l200mr1562906qke.445.1610487426123;
+        Tue, 12 Jan 2021 13:37:06 -0800 (PST)
+Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id b11sm1929244qtc.5.2021.01.12.13.37.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Jan 2021 13:37:05 -0800 (PST)
+Date: Tue, 12 Jan 2021 14:37:03 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Kees Cook <keescook@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	LKML <linux-kernel@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] ubsan: Implement __ubsan_handle_alignment_assumption
+Message-ID: <20210112213703.GA1376568@ubuntu-m3-large-x86>
+References: <20210112205542.1375847-1-natechancellor@gmail.com>
+ <CAKwvOd=yrVKBn9TN2cP8SiB7A8=c2g41PyodKGJu+xEQwAmnDA@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=yrVKBn9TN2cP8SiB7A8=c2g41PyodKGJu+xEQwAmnDA@mail.gmail.com>
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=s9ReiTEz;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=iaw0Kylz;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::72a as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,104 +150,81 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 12, 2021 at 12:55 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
->
-> ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
-> >>> referenced by slab.h:557 (include/linux/slab.h:557)
-> >>>               main.o:(do_initcalls) in archive init/built-in.a
-> >>> referenced by slab.h:448 (include/linux/slab.h:448)
-> >>>               do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
-> >>> referenced by slab.h:448 (include/linux/slab.h:448)
-> >>>               do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
-> >>> referenced 1579 more times
->
-> Implement this for the kernel based on LLVM's
-> handleAlignmentAssumptionImpl because the kernel is not linked against
-> the compiler runtime.
->
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1245
-> Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  lib/ubsan.c | 28 ++++++++++++++++++++++++++++
->  lib/ubsan.h |  6 ++++++
->  2 files changed, 34 insertions(+)
->
-> diff --git a/lib/ubsan.c b/lib/ubsan.c
-> index 3e3352f3d0da..a1e6cc9993f8 100644
-> --- a/lib/ubsan.c
-> +++ b/lib/ubsan.c
-> @@ -427,3 +427,31 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
->         ubsan_epilogue();
->  }
->  EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
-> +
-> +void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
-> +                                        unsigned long align,
-> +                                        unsigned long offset)
-> +{
-> +       struct alignment_assumption_data *data = _data;
-> +       unsigned long real_ptr;
-> +
-> +       if (suppress_report(&data->location))
-> +               return;
-> +
-> +       ubsan_prologue(&data->location, "alignment-assumption");
-> +
-> +       if (offset)
-> +               pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
-> +                      align, offset, data->type->type_name);
-> +       else
-> +               pr_err("assumption of %lu byte alignment for pointer of type %s failed",
-> +                      align, data->type->type_name);
-> +
-> +       real_ptr = ptr - offset;
-> +       pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
-> +              offset ? "offset " : "", BIT(ffs(real_ptr)),
+On Tue, Jan 12, 2021 at 01:15:42PM -0800, Nick Desaulniers wrote:
+> On Tue, Jan 12, 2021 at 12:55 PM Nathan Chancellor
+> <natechancellor@gmail.com> wrote:
+> >
+> > When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
+> >
+> > ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
+> > >>> referenced by slab.h:557 (include/linux/slab.h:557)
+> > >>>               main.o:(do_initcalls) in archive init/built-in.a
+> > >>> referenced by slab.h:448 (include/linux/slab.h:448)
+> > >>>               do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
+> > >>> referenced by slab.h:448 (include/linux/slab.h:448)
+> > >>>               do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
+> > >>> referenced 1579 more times
+> >
+> > Implement this for the kernel based on LLVM's
+> > handleAlignmentAssumptionImpl because the kernel is not linked against
+> > the compiler runtime.
+> >
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/1245
+> > Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> > ---
+> >  lib/ubsan.c | 28 ++++++++++++++++++++++++++++
+> >  lib/ubsan.h |  6 ++++++
+> >  2 files changed, 34 insertions(+)
+> >
+> > diff --git a/lib/ubsan.c b/lib/ubsan.c
+> > index 3e3352f3d0da..a1e6cc9993f8 100644
+> > --- a/lib/ubsan.c
+> > +++ b/lib/ubsan.c
+> > @@ -427,3 +427,31 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
+> >         ubsan_epilogue();
+> >  }
+> >  EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
+> > +
+> > +void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
+> > +                                        unsigned long align,
+> > +                                        unsigned long offset)
+> > +{
+> > +       struct alignment_assumption_data *data = _data;
+> > +       unsigned long real_ptr;
+> > +
+> > +       if (suppress_report(&data->location))
+> > +               return;
+> > +
+> > +       ubsan_prologue(&data->location, "alignment-assumption");
+> > +
+> > +       if (offset)
+> > +               pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
+> > +                      align, offset, data->type->type_name);
+> > +       else
+> > +               pr_err("assumption of %lu byte alignment for pointer of type %s failed",
+> > +                      align, data->type->type_name);
+> > +
+> > +       real_ptr = ptr - offset;
+> > +       pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
+> > +              offset ? "offset " : "", BIT(ffs(real_ptr)),
+> 
+> if real_ptr is an unsigned long, do we want to use `__ffs(real_ptr) +
+> 1` here rather than ffs which takes an int?  It seems the kernel is
+> missing a definition of ffsl. :(
 
-if real_ptr is an unsigned long, do we want to use `__ffs(real_ptr) +
-1` here rather than ffs which takes an int?  It seems the kernel is
-missing a definition of ffsl. :(
+Why the + 1? I think if we use __ffs (which it seems like we should), I
+think that needs to become
 
-Otherwise code LGTM.
+BIT(real_ptr ? __ffs(real_ptr) : 0)
 
-> +              real_ptr & (align - 1));
-> +
-> +       ubsan_epilogue();
-> +}
-> +EXPORT_SYMBOL(__ubsan_handle_alignment_assumption);
-> diff --git a/lib/ubsan.h b/lib/ubsan.h
-> index 7b56c09473a9..9a0b71c5ff9f 100644
-> --- a/lib/ubsan.h
-> +++ b/lib/ubsan.h
-> @@ -78,6 +78,12 @@ struct invalid_value_data {
->         struct type_descriptor *type;
->  };
->
-> +struct alignment_assumption_data {
-> +       struct source_location location;
-> +       struct source_location assumption_location;
-> +       struct type_descriptor *type;
-> +};
-> +
->  #if defined(CONFIG_ARCH_SUPPORTS_INT128)
->  typedef __int128 s_max;
->  typedef unsigned __int128 u_max;
->
-> base-commit: 7c53f6b671f4aba70ff15e1b05148b10d58c2837
-> --
-> 2.30.0
->
+I have made that change locally and will send it for v2 in a day or so
+to give Kees some time to check it out.
 
-
--- 
-Thanks,
-~Nick Desaulniers
+Thanks for the review!
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DyrVKBn9TN2cP8SiB7A8%3Dc2g41PyodKGJu%2BxEQwAmnDA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210112213703.GA1376568%40ubuntu-m3-large-x86.
