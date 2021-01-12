@@ -1,133 +1,123 @@
-Return-Path: <clang-built-linux+bncBDQ2L75W5QGBBZU47D7QKGQELW2HBIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBC5D7D7QKGQEIP7ZGIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5B2FB2F3BAC
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 22:02:31 +0100 (CET)
-Received: by mail-oo1-xc3c.google.com with SMTP id o15sf1716902oov.22
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 13:02:31 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610485350; cv=pass;
+Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A9722F3BC3
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 22:15:57 +0100 (CET)
+Received: by mail-io1-xd40.google.com with SMTP id x17sf2588540iov.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 13:15:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610486156; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BhBxJo7ORI8gpeA2VjVcebasCbY5XAft1dNNOWRtEjmJ+w3jpvnxsboFOIUE2ahAOG
-         kEvk8pYBwR+v0nQgtSjH05EvpagCwRXylYyMNEtMcFBjqnHzLRyKvRPn9ZvfAu/WN7ne
-         8QnLpVMyXbjS4NDBGD1X+0m9y6or83cpaiU9VKCL6ioD6krqLEnPHBDMw6XYoJkqjnYA
-         tXcLY7Pf83XbMWvLvYD3BMu5QMmX6kUzmpabxz7RTKtBWXWLnl0fKVWkV2hA5o6XpZlx
-         Qh0/AFMBLE9E28t7X0Tve8rT12tuvGRPxMr8VBpGkEHa3+qxl8exAazll2YBOp4whOAb
-         oZqQ==
+        b=ozNM0r1RfHXOR5hqcY4zifc3FBWd4oWy6i9kcOAygqNXvBeq+HK8QQfnaH8QqpfnNW
+         rdP+HbxDJjHFFRMemY5vRkwD88XM3fa9Xp6m2lG0MOjRVYoXGi8xbA7kjOpRzF1HJNTO
+         Ds10aOj5LlQDKkyFE9dv0LChjSdksNS5fnzeWYgfFH32Xs6eeyFTcOykETAFPGkC+Z3P
+         GwJcCfoDlBBxgSojo/Lo/FOxYrAOMW4+k/BxD7pUakfrmpTgAPsqwXB7NWHcb5i0whfN
+         RfTO4AvNPU+9uPowd1hP1Kb70pO6fDybs1dZkajBdmeT7yyuVcJOoEPMJfKWP3hQdYdn
+         zVYQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=343VsX0lpf9s0xRiRutnHbt5w7Qsi3iaRKdW2s6SgKQ=;
-        b=0dUf8gOmDVdNwjetMYiLTnFhfGJKMYpQ0Qq9O3jFjuZ609Z+fP7EUZei0/OO9u0uZA
-         MjYbtWHIH3OiMPhyaUYK39Up7lGJDYstmlbBZdyUT+LgABLqj3iRHAtBy5gLH10FISTP
-         ltqwEPZUZBrf5TYNDCOYshd7g0x+9rBosKMAbfEPMremNwniQEMbTEXphKyCwXgDaFmK
-         Axs0/Z9hn44jbCl8tkDaqEd3Ua7DBcSxJUUP+I3r3z9NoRi0m5+2oygYdenPSCqTrrPh
-         ZEEokHVdDcSsZWgnGFPMZ1vXI+mejO4d40pmzypVnO9+o9eq5g0iWq+MVOhKqsE+Q1qT
-         gAyA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=6Yf1NGcaN5nF3Bt4tx1ZIuU53/EE4lXe9lVi19MBhyc=;
+        b=C4GYX6Rqjina5Jg+nouPOvd3jZEZDw0YI5VWl9hMpOy2TJYy0+Cp8jDxGj3FEbUd7z
+         ePCzyCVtbSAyzdhMfsgwxsVwnQgusIoiTeSvnA0TdfEuAsG9I01Qghxap3zn8xRc92nf
+         Tv0PJWmBkTBSwH1jqmzoNfB7EAxYz17GMwT15GtZGIHulNMaCM5ICUrKw42Dmd6G5lTc
+         6ncLW81ITqTEblJ4QIWmnZgzjoHZaJ1o4sMAfjJTN1V22faD0i0zJWDCFnO1AYiImYCY
+         F5Zbod/OCfSQIT9/RVfl3D7u0tRdVyIggcp9SCf0+OdrAy0OTl8PcfjEur8vOPMq5sTb
+         HLqA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uAFq5wox;
-       spf=pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=broonie@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=s9ReiTEz;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=343VsX0lpf9s0xRiRutnHbt5w7Qsi3iaRKdW2s6SgKQ=;
-        b=OJsVtcQQO41TUY8gsz6xo6tUAYjMONttyWulA9/m6/0hY1Me2Bg7045Cb8efKqHyhQ
-         bTxbxkhgOpMpJYPwM8+nzquOX3Rt/0f52EDY2l2Q3ZDLhFV5TuynriCtPycUCiTTS79Z
-         FgqglzVHT2VA4cjxNxPZ9pkikTn3px4qy/7nyXVb9b9Q2eVBO0AOmLRYli1nuYfd7ZFf
-         2QXVOB3aOFLGSbnIqJQr424NSdRvGJHGH71XzAqJjQ/PRbPwx0xqfwAe1rqmVMT0Fsqr
-         T8v/uI+tiOr8gXwqVO/5cJy2B9dO7/YWd7OkjOwY56F4hEWeSoJwJHfZS93TjEpfVkRV
-         v5jQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6Yf1NGcaN5nF3Bt4tx1ZIuU53/EE4lXe9lVi19MBhyc=;
+        b=rYw/m+eFPf7UlA2JUnuMB8OYn0//RFS41A/vAv3WE6DVtqOJyn7pL6skvQD5LoLFUP
+         4wfh6rtV+67XTHBRcV7ZTWqq9E/DN4n0WhH77yDBv+eb8tabAxfuXjzW/e8jeIDtIhLT
+         xyZDA5VUSNNwdxZYoV39gqcYFDEdg8f7KDeYDp+aNUxBFSfPY5hcuz9k6PElCOQP0L9U
+         nb5mwQ8cu9TQLCiKIwYh1tRFCopI71cSwemlsbkRGORzvxsOc4Joy8Qr5pfUT96wgncq
+         f6aXcZXEq6k73ETCiKAw3XUufqw+Rc05NTv94soFEGJxudstnsrbSoWIL9goKKYs+ed4
+         Vhlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=343VsX0lpf9s0xRiRutnHbt5w7Qsi3iaRKdW2s6SgKQ=;
-        b=UDH11MM1RhzwftDOD/L9Wflw3Ol/vE06P5HhekfLOdf3o4LruRHtPTABUMoGnD9yf1
-         wWKKY4UmjGWRY3ikKAYi65jsPbbrbWkSRlsP1KWXCVhbnl0cYkG5iTPZSXP4nz2XShGQ
-         XSDf80E2s2coKVIdzuNt6x3M6ADyWf6BrRGbAiZbtcx26YN6dMUiT7sGUbl/uLGi9l5C
-         VmlZLkzBm6jJkXs4j4qsMlI8VAaSD/64lf1GG/m3tP3iTHfjzVDYiEB/RuylQ1BiRTJ/
-         SaDapJzBObMtK6m51OYC9ZJhIJTtxBngk8pHKAtvJMHh0aaoOD4uf5RgQBdOe/hnwKvd
-         ii7A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532OhniJqz0bP39qF1wbGg0kvlCZl+jLIXu3NSuw4YSpZ0KRXVMS
-	nayD/OyuQl9uF2fQxBzbAfg=
-X-Google-Smtp-Source: ABdhPJwN9aJxOhB9nSCw3JFTItOEA1dS6MPybfwffSAJF5Gf6CBnWi++yNMvF5N12kq8KatiUckxKw==
-X-Received: by 2002:aca:e007:: with SMTP id x7mr672928oig.8.1610485350381;
-        Tue, 12 Jan 2021 13:02:30 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6Yf1NGcaN5nF3Bt4tx1ZIuU53/EE4lXe9lVi19MBhyc=;
+        b=adIJGbDLYQW2MO58HO9syqmCGeGAg1k50ovl4btxs/somphCuWiNZeK3Y7W0WO6XVX
+         BW3sNSWF3hNwnWp8PR2DMegBAUyg9vYW534M7C3PevVQaDtqBff4PllQVp9RVJjG5pab
+         er3QqDCbTZ918L1DHt3NcUQjAWb2snLTwcT4QsSlehzgxtSzTVbcEBnJUVWY6xEzFh96
+         FscgesB+K8USgq8Hzvh1hNsJ4IHN367eo1eZFqgWG3jm3r65qT/mOxFHzfJxNhmN3F21
+         GKXRc7THu4gUClHPDcYl3xVOY3jxesrICe16c96y2ZNpjlgcPgwNvQhZhEjsor2bQUw2
+         73nQ==
+X-Gm-Message-State: AOAM532hE+zSBruerbVXjkLJQ1NjGVmgAgGGlNAORadS+8Z/V3WgCkKj
+	aBawZ9RyhLPOvmURTDpudZY=
+X-Google-Smtp-Source: ABdhPJwEdpGUMGHpJ2zfpQ4OmQ8rlDBZ5d6VxksmQWWypvYjQV+3LHktolyDYPifOBhYeT1okTBLeg==
+X-Received: by 2002:a02:cba7:: with SMTP id v7mr1249328jap.133.1610486155425;
+        Tue, 12 Jan 2021 13:15:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:24b0:: with SMTP id v16ls1106498ots.10.gmail; Tue,
- 12 Jan 2021 13:02:30 -0800 (PST)
-X-Received: by 2002:a9d:5d1a:: with SMTP id b26mr914022oti.112.1610485349991;
-        Tue, 12 Jan 2021 13:02:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610485349; cv=none;
+Received: by 2002:a5d:9ed0:: with SMTP id a16ls816087ioe.5.gmail; Tue, 12 Jan
+ 2021 13:15:55 -0800 (PST)
+X-Received: by 2002:a5e:dd0d:: with SMTP id t13mr807344iop.132.1610486154955;
+        Tue, 12 Jan 2021 13:15:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610486154; cv=none;
         d=google.com; s=arc-20160816;
-        b=IsqFnKUVM86bOBMLuEIADCgpY6WL/tt4u6wLO/DQLH3F+ukEW37xQaCRfGyqcqsr7w
-         w4HslEdLfF9TyHh1xW0RQ0gwKppkXdGN17pBlkQ4jG6q0S6rJEgmWD6sxLVB0AJxJHXg
-         TweNQ934tHuUmpBTchWR9DhOvWfij9J7QYEWkVtv8Ag5L7qv2HmdfNHzRX89bHe09Fi0
-         +jibmCzTPAhHkISmmtr5xgLU0VOPtBMgaJ4pRwxDoflt5+xZ9mZQI32oYL4ZSdFArd5y
-         Jnr2VaJGxYMLkbAqF7NWZt0lEtIikE+M2WtZekw051N5fPUHuaPXHXQjJFT6oHQPHH8/
-         ne/g==
+        b=rqBYBo2RzeelaRfM9bqwMAHLfuUPMIezQqP9ick6YA7C6JeOWZOGp2o6mGE7o92gL3
+         PSLRnOPke/YbV3qFwLkNlnVm77XqybpSC0bPG9zIgZa+cp70tyypCnr45idCJlZmMhES
+         8YUR0FXMPHlSk1y96ymeEEI7odUssZJDMRysrOEk0fnGa4whVEtVCxfIE/LlDqtpi67M
+         20eXkNJW1GpO6ND1PmHddWgovQNFQtXzOYmjySMNWFefXIo1L9TrONachufqhJc1En+2
+         D/XszGsJP6lhe8ztyoHnoJ+yrsCpdNRoWxkbjp55qBV4sbWDnQxSzupGR8bRzYMB4QIp
+         oCIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=l6LoxlPMN3Zl3CTEzuEfgXkmVj8xOkLrWbymWfeo30s=;
-        b=hBlkPuXoZpG3YVRnKzQB6/WyDL8MT5v0zPSQSlD6SvlcKk5KjJWKDB5iayOSVHQFy1
-         pnex831rhtDx/16PMCtC3KIUQ2DQ2647l8ulGG2mRzSfFyq2StTbqC2clYh7UwtjKAdN
-         FwrRY6IE51RtLqPDUdpsAU0Ouvf2DvlGIo2uX4vS0X8Na+EbVhOVBa3wqWZ2PzZwU6JG
-         scILGmSVL6u3GLccwmyxA++tzdUn192O3BTThwHh60jupOWT+kSBRbYktTqp2Z1BAg3H
-         v1erLQ9+tEBRlyVyG/oc113rsueJ/cMAwr6FtfLicWEBZNo7xS87Z8p2oVI3B1GZzUGJ
-         20Pg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XpRF98H6QxDvYHR2YECMLpFGbIbXZ63ebl8zScm/1pg=;
+        b=xkAWdkGQG6pH1JD1u5BitoyXCh5Cf5Ki7FOaXi32wCgF1QKO9iuKIw8yi29iPf18Y9
+         e4Mz1Szilg04LZkeiX3gR1b6HVNEh6iNni5gFcT3ge3LPtoiwhQONwgbyaJd5Snww4vf
+         ekZcVvRJ+D5P46SgMW97F+x3HYiUFg9610GDsZtCQH2UmALNEi9tefVQBoVrXW+7aSQB
+         aB3NP4FBruTiQaXefvVGN3o3PD0AQYDs5OiZrR6yBk2izvWZFbuYIyZHKhpu/ZV8qb1d
+         VRVosXoMlnccIssqK3KdMBdrDZtUwJMh/rHQ/HCQeD0wt+mB7qw2/DQJjMmKJCrKDUS0
+         4ttw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uAFq5wox;
-       spf=pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=broonie@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f20si320049oig.2.2021.01.12.13.02.29
+       dkim=pass header.i=@google.com header.s=20161025 header.b=s9ReiTEz;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x432.google.com (mail-pf1-x432.google.com. [2607:f8b0:4864:20::432])
+        by gmr-mx.google.com with ESMTPS id e26si310872ios.2.2021.01.12.13.15.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Jan 2021 13:02:29 -0800 (PST)
-Received-SPF: pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3BB2D2311F;
-	Tue, 12 Jan 2021 21:02:28 +0000 (UTC)
-Date: Tue, 12 Jan 2021 21:01:54 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Fangrui Song <maskray@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Jiri Slaby <jirislaby@kernel.org>,
-	Joe Perches <joe@perches.com>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v4] x86/entry: emit a symbol for register restoring thunk
-Message-ID: <20210112210154.GI4646@sirena.org.uk>
-References: <20210112115421.GB13086@zn.tnic>
- <20210112194625.4181814-1-ndesaulniers@google.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Jan 2021 13:15:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432 as permitted sender) client-ip=2607:f8b0:4864:20::432;
+Received: by mail-pf1-x432.google.com with SMTP id c79so2174350pfc.2
+        for <clang-built-linux@googlegroups.com>; Tue, 12 Jan 2021 13:15:54 -0800 (PST)
+X-Received: by 2002:a63:1f47:: with SMTP id q7mr1015387pgm.10.1610486154136;
+ Tue, 12 Jan 2021 13:15:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mXDO3udm/xYWQeMQ"
-Content-Disposition: inline
-In-Reply-To: <20210112194625.4181814-1-ndesaulniers@google.com>
-X-Cookie: Stay away from hurricanes for a while.
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: broonie@kernel.org
+References: <20210112205542.1375847-1-natechancellor@gmail.com>
+In-Reply-To: <20210112205542.1375847-1-natechancellor@gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 12 Jan 2021 13:15:42 -0800
+Message-ID: <CAKwvOd=yrVKBn9TN2cP8SiB7A8=c2g41PyodKGJu+xEQwAmnDA@mail.gmail.com>
+Subject: Re: [PATCH] ubsan: Implement __ubsan_handle_alignment_assumption
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Kees Cook <keescook@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=uAFq5wox;       spf=pass
- (google.com: domain of broonie@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=broonie@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=s9ReiTEz;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::432
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,60 +130,104 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Tue, Jan 12, 2021 at 12:55 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
+>
+> ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
+> >>> referenced by slab.h:557 (include/linux/slab.h:557)
+> >>>               main.o:(do_initcalls) in archive init/built-in.a
+> >>> referenced by slab.h:448 (include/linux/slab.h:448)
+> >>>               do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
+> >>> referenced by slab.h:448 (include/linux/slab.h:448)
+> >>>               do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
+> >>> referenced 1579 more times
+>
+> Implement this for the kernel based on LLVM's
+> handleAlignmentAssumptionImpl because the kernel is not linked against
+> the compiler runtime.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1245
+> Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  lib/ubsan.c | 28 ++++++++++++++++++++++++++++
+>  lib/ubsan.h |  6 ++++++
+>  2 files changed, 34 insertions(+)
+>
+> diff --git a/lib/ubsan.c b/lib/ubsan.c
+> index 3e3352f3d0da..a1e6cc9993f8 100644
+> --- a/lib/ubsan.c
+> +++ b/lib/ubsan.c
+> @@ -427,3 +427,31 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
+>         ubsan_epilogue();
+>  }
+>  EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
+> +
+> +void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
+> +                                        unsigned long align,
+> +                                        unsigned long offset)
+> +{
+> +       struct alignment_assumption_data *data = _data;
+> +       unsigned long real_ptr;
+> +
+> +       if (suppress_report(&data->location))
+> +               return;
+> +
+> +       ubsan_prologue(&data->location, "alignment-assumption");
+> +
+> +       if (offset)
+> +               pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
+> +                      align, offset, data->type->type_name);
+> +       else
+> +               pr_err("assumption of %lu byte alignment for pointer of type %s failed",
+> +                      align, data->type->type_name);
+> +
+> +       real_ptr = ptr - offset;
+> +       pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
+> +              offset ? "offset " : "", BIT(ffs(real_ptr)),
 
---mXDO3udm/xYWQeMQ
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+if real_ptr is an unsigned long, do we want to use `__ffs(real_ptr) +
+1` here rather than ffs which takes an int?  It seems the kernel is
+missing a definition of ffsl. :(
 
-On Tue, Jan 12, 2021 at 11:46:24AM -0800, Nick Desaulniers wrote:
+Otherwise code LGTM.
 
-This:
+> +              real_ptr & (align - 1));
+> +
+> +       ubsan_epilogue();
+> +}
+> +EXPORT_SYMBOL(__ubsan_handle_alignment_assumption);
+> diff --git a/lib/ubsan.h b/lib/ubsan.h
+> index 7b56c09473a9..9a0b71c5ff9f 100644
+> --- a/lib/ubsan.h
+> +++ b/lib/ubsan.h
+> @@ -78,6 +78,12 @@ struct invalid_value_data {
+>         struct type_descriptor *type;
+>  };
+>
+> +struct alignment_assumption_data {
+> +       struct source_location location;
+> +       struct source_location assumption_location;
+> +       struct type_descriptor *type;
+> +};
+> +
+>  #if defined(CONFIG_ARCH_SUPPORTS_INT128)
+>  typedef __int128 s_max;
+>  typedef unsigned __int128 u_max;
+>
+> base-commit: 7c53f6b671f4aba70ff15e1b05148b10d58c2837
+> --
+> 2.30.0
+>
 
-> when building with LLVM_IAS=1 (Clang's integrated assembler). Josh
-> notes:
 
->   So basically, you can use an .L symbol *inside* a function or a code
->   segment, you just can't use the .L symbol to contain the code using a
->   SYM_*_START/END annotation pair.
-
-is a stronger statement than this:
-
-> +  Developers should avoid using local symbol names that are prefixed with
-> +  ``.L``, as this has special meaning for the assembler; a symbol entry will
-> +  not be emitted into the symbol table. This can prevent ``objtool`` from
-> +  generating correct unwind info. Symbols with STB_LOCAL binding may still be
-> +  used, and ``.L`` prefixed local symbol names are still generally useable
-> +  within a function, but ``.L`` prefixed local symbol names should not be used
-> +  to denote the beginning or end of code regions via
-> +  ``SYM_CODE_START_LOCAL``/``SYM_CODE_END``.
-
-and seems more what I'd expect - SYM_FUNC* is also affected for example.
-Even though other usages are probably not very likely it seems better to
-keep the stronger statement in case someone comes up with one, and to
-stop anyone spending time wondering why only SYM_CODE_START_LOCAL is
-affected.
-
-This also looks like a good candiate for a checkpatch rule, but that can
-be done separately of course.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210112210154.GI4646%40sirena.org.uk.
-
---mXDO3udm/xYWQeMQ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl/+DkEACgkQJNaLcl1U
-h9Cq7wf/T25FXiQQZ1vqQuvuSs9y7UidITjNn00or2An/9AZvjd7fNSIGitE6JZF
-ulLa3Dnm6DnJ8IHxCom/f9HA0Bhqduottun00gPpRE4yYnc6I6rs4+jD3D3yaM+e
-P48KYy2zaNF6Xgud3wdMdBWrO6wHbpk/FtrGu9myxKXbPoaWXCc/2JO+lQGHy2Ld
-stRoPLzuNHGsqiiQyQVFUCJcva6y2q5UTYqWG21loFirQ0khEI1aHwVuifeddpjE
-JamhRqQhmlTD8qRrnf8c4iVj6oexQsKzjOKkaKX2qpyYhK8bxdgvG8r0kwJfnuZM
-LObeotMsynR86MF2K/fVFTw7r4fXMw==
-=H9dS
------END PGP SIGNATURE-----
-
---mXDO3udm/xYWQeMQ--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DyrVKBn9TN2cP8SiB7A8%3Dc2g41PyodKGJu%2BxEQwAmnDA%40mail.gmail.com.
