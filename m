@@ -1,139 +1,131 @@
-Return-Path: <clang-built-linux+bncBDM3FG7YWUNBBZPM677QKGQEJRX7HVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBBPR677QKGQEX7QNYMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8FC32F39EC
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 20:20:06 +0100 (CET)
-Received: by mail-io1-xd37.google.com with SMTP id w26sf4665004iox.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 11:20:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610479206; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 711D22F3A2F
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 20:29:10 +0100 (CET)
+Received: by mail-oi1-x23b.google.com with SMTP id l9sf1574718oih.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 11:29:10 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610479749; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zfueDBPkcYMgzDhy47cInD5qRFKiZh35zY00x97ToKmrCSvVD/KHtnuqHmTfwGiauU
-         wICXqbzQKhS86BHN36BMs0ro6HzjCPOq1XIuXnHb44AoL9dIHMOBD+iLmCnkFFMY+mJG
-         0JPzPEme2vY7Go+hKZS2EocQSdzsez2qsyhpe42M4YA01HbLYNeS/S09WFk5qDsNkEXn
-         gx7q3K/ipjTfNNjVO+NYVGQWeXFxrfDad0nVf9GYG02HejePejBlkSIHNJXNv+BdTq1i
-         3g8+GWemgyqjc/Hn3k1pYv07z7FX5YWb4yk/+EPClhlE62fX4iaXS+8s+XpccB64NXix
-         OywA==
+        b=WbaKHflo4mX5CIZufwvpuTV4rK3tqthxAEnhZkrG2FLqVcBRxmw/8FKGVZhGKACAzv
+         +bS/inlc4tBt4LQ3Yz7wAANjIHG+NRb89ycC5Wwx24CfrXBbNI8J5JXXp0sbVsmDbc5r
+         vItVEc2DxEWes2SNEwgchoNBQjKkmxqE0cPzTewAZP7cFSm12vCYYYSg2jb9XG75JbKe
+         5rz6KJ36qbTnxpQU0ue3m12+6Etqm/qCRSw85ifX3oJCHKraSezX32FrUIfgbCFX28zq
+         bZMUjsgKFSRrPK4mynvKD5x+epQTdz4VyeMAovaNLM4pGgRuHTMvoLiQJCiQz0rAI4e/
+         3wLQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=90iVrA83ESI0suW/niqFwt9DuLCQycnVbxxSAYQ6iis=;
-        b=RnG94eBpX1ClnPw+OC8d5xVQ334KLGY+CXmgFVijC3FIbsW7iL7vA5KbkYyLtlTiN1
-         Gvw/fRQSiO6uWZMQkLkraJktMW2JATOlfM2WmKJMDrnWB+mOW8I1Pvf/a5ICQSsxmhNJ
-         FxqFJIdg7hHb98RPi/mh9cf7GFzsGrgNo/ax+PnsjpSC1y3z839M54QydSrHCe6L7ZXy
-         2IX2uFmr2TWrk+psIZ3yIb7fWw1DMdOhdL12LGMZMsOXqSxN+n+bWQgDwJKoe0rxG7es
-         P7bYz2USE2uz6vU/tMMUYOiN45CmG9szH8masvo+rXAVwhb9ptKnnI0QxDRVOYiAEw80
-         vQkQ==
+        bh=RJwuR0sdq/yjSA0PSkqPE476qLs3Y1qqrMtdtIl8WRI=;
+        b=Yj7kgirdmr+6Ddo12WHakYogRcMgsDg1rpR7EqlASS9HopTKrYqOoaoNHCHJVcF9w4
+         HCE1rf0DOTlCy1mN8p9AbrgOOXatuExS1i50S0zHCDu39Odj26q4QoB6mMNHejxF3YO1
+         mdjCfKtxmG3h0VzVaR9QefkazDhljJWX+exvd3XMMulcIDnRDuOqYbw1CpEbp0BjMyJH
+         TFfyxw4WVGREhzIq6UIxwwp3CAmAhDYL4RL79tbmz4BjerUZaFfqMj02WI42isV/HapV
+         5l1E+LIBS4xBPtMv7zGe6cmS/xGrl7UZhAxRHd6T4LMYGTBzbC7bfu8Xws+o0PZCVIB7
+         6u3A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=PNo9Hvdj;
-       spf=pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2e as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=HKHDJZvf;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=90iVrA83ESI0suW/niqFwt9DuLCQycnVbxxSAYQ6iis=;
-        b=SW8+r+7MvZhawD/KWWTaJZiSO3uFgXvz6NdIsumDE4DOkvVbSdqQYsz7ROroHm0GqJ
-         stqUs3/mPyGfCtmPUEkGECREqovxPMJmOiiI9gAITHrLXR7au6JlAzR3DMY/3VFkwo8d
-         lbP+QBw+nRzwsfcSTosD+w+iV7XdnHQ4Zc4i0/44jNRKl/MYbw2CcrJsu0YBdH0QWhhQ
-         QMceHDjjc49YOsdM+HXIAzNJcBh4ZPZ0WpJUPru7TaYTLZdlDNg6FoZ2lb7+eA522AyO
-         /9Nmb31ybojV9TRpCSMJolpQ5JpEN574T9weGc5+E9TSZlriyDKhLYdnHsUgYqz3zAdZ
-         5ZfA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=90iVrA83ESI0suW/niqFwt9DuLCQycnVbxxSAYQ6iis=;
-        b=DqCaW+Upx8fbRqhzCgrAvVvhlKRldJ0Md2q4cA7Uv9/AZTn4OURF7+xRyRIy/w8WUN
-         XDTfAukDSML/SFdgwU3KthrZmNZ3P9ZI812/gJnCI0HkQSgKMz7rsRamEWbfRJwaKOjU
-         SmMTOQZd6XZhtbr/mabWRg/72JQjpNg61WsEoQutUqrF4ozc5AnEpL42q2nNdzTdTXOu
-         Oi7pv+wNa7w6va/8GRgnWEkjceX06aoNkcHfhwiIrqqgzIOyC0pttzikWk3zJcj54smG
-         fJBOKVRkZYTroTWjqBjQjWOfEkmqrGLqFpsO/yl/WLXp/c6SFHNK+oUkYt2BW7u0Yf9j
-         JbNg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RJwuR0sdq/yjSA0PSkqPE476qLs3Y1qqrMtdtIl8WRI=;
+        b=sI7lqF8uTgVG8C7NO2WaruVwQXpEN78L2kOWc5dAro+kugRc9+pxuinJG4Y/rqbSmv
+         6y15sE60/FU9m0ihOjNmOP2Q6ifnkoQV621E20bhwGtO2qTsiAg4DZdwWs5wf/hKl5Dx
+         bqN12PRoauNKahNmA6ckAKu32osEN7IdbkaCV19yL17uheSCAhOf26buv+9uIfFCJj2f
+         WkLM1v3vN3/xLl+MfFeF61avT2IEtVEjaUx7WhZPzIlFsDrSIYPuZE+BdPe8zdnlGXpK
+         Jqy2F1tuOLbjpQ7AcxkoT1ujqqZt+0VB53rf/P8tcTvnDMZ/cb+qsR5uj7/DocBq25yh
+         9P+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=90iVrA83ESI0suW/niqFwt9DuLCQycnVbxxSAYQ6iis=;
-        b=ofjwWGkHO0p/TBz3ERSwDhBaKxoyczvpTiScFyMPavSkxetfRbMmVIpXS47P71mhjF
-         4p2mcOhzu+0/4OIU3QI7MtY3wKCVMZ8ugpEcKvfd+6jXRYWCnya4iIm465PFx30SCLax
-         Y+013ymfA18cRUpuT8Lv4NMyK6iojG97mwJNkn24dCRc0eS8ASR2iEamZoJg0JAe31Av
-         UhNVDG4ENSqEV9CfTazh+Zr6xri7Jxs3buu4LD09X2BgVH57nm0cTQ9kzt3ANROpxQ9Z
-         Iokl8hJ+m29jfzVRaLUJLlB9SNA2fqtNe2NiY4/0pZG/veyWu8fmT8lF7OM39C7UJjhc
-         z2nw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=RJwuR0sdq/yjSA0PSkqPE476qLs3Y1qqrMtdtIl8WRI=;
+        b=RgPRsfl1C08ZyJi3noIsMlK2v4MzbNow0+rTaWVUmAmWD7gbFT9mbt28dzESLttLac
+         Ec10vkqKDwaIvFhBkAHY2OC12SSt/31D3EibjDibquQCd8OQa3InvrhD3wA2ZmR4yeoB
+         +05wx3mgds1yCFJioGpD1xeG1Dd4QmJkgb4HbzFWyHTvOl7bo2SkxS6XGPYzHwX/G16Z
+         Ggqy0Zp4vkQeozUfYwFw4vtHdmYJ6M4D2R25pHtPOYc0ZPyA/1gTpdzBgXJsapsf3dfx
+         YjBMChyq5RFVguWiVTekoBvdgjgHq8gFUT55khMB/7Y3BEwUJk83pWQqiGSEslBUKQr7
+         yYzw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533DCbdj7bReBqPYBDlRuNZDNk+Tx08YO/GEkni4METEklWkMfLs
-	UPXfCe+pw4H7gQGT6sFggZE=
-X-Google-Smtp-Source: ABdhPJy1rEcDIRVsQMM+wVwgVZQmcrsmWumjwyUHw/hrCXyfau7PmTI+yujjGIeIcs4ZfE6GkZd+eg==
-X-Received: by 2002:a6b:3f54:: with SMTP id m81mr364217ioa.113.1610479205916;
-        Tue, 12 Jan 2021 11:20:05 -0800 (PST)
+X-Gm-Message-State: AOAM531cdyZDyiodBr6PhgRgY7J1OF0YXrKqlDUVEYSVd7O7KXCRnwuo
+	0X24MPQ0JadL3t7MXTT22cQ=
+X-Google-Smtp-Source: ABdhPJwiUrptDccPBdRSjGVNLpRUa0GDAt0w4jwWZ06LWbhjvo4sJa3TzL1mgocyMRgh9H90b24c6A==
+X-Received: by 2002:a9d:19cb:: with SMTP id k69mr652901otk.75.1610479749432;
+        Tue, 12 Jan 2021 11:29:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:9844:: with SMTP id l65ls1305304ili.3.gmail; Tue, 12 Jan
- 2021 11:20:05 -0800 (PST)
-X-Received: by 2002:a92:c692:: with SMTP id o18mr551367ilg.215.1610479205367;
-        Tue, 12 Jan 2021 11:20:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610479205; cv=none;
+Received: by 2002:aca:2119:: with SMTP id 25ls1006393oiz.10.gmail; Tue, 12 Jan
+ 2021 11:29:09 -0800 (PST)
+X-Received: by 2002:aca:c1d6:: with SMTP id r205mr456749oif.37.1610479749027;
+        Tue, 12 Jan 2021 11:29:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610479749; cv=none;
         d=google.com; s=arc-20160816;
-        b=RhQK4pW0EbPXrJCRKQ4kepmZ/5Rq6jVplHrc6A1acYgyZLtkcSqprUXDmh3ZPOQmRQ
-         qiof1t/L5Z3y9n8zkEHaq9Uwu33ECbjDkeUhbhezC5oUCfJB9Le+VGPk6ePADyxSRSjL
-         q183tb2fkkVQck0TtV41Lbt4e2gioPgi9u6XQLV5o+dEmNwsmtEi71nJapfae5CMlS5e
-         Wwx8Tl20EtMXsc6xnKpF39xqvf1vhDFNkZ7j5siH5FLnKTfzN5xX5nkyOw4Et2JA1kIg
-         BOXYmZbvFdTe1UiLhQaHh5v7wQs6zh2iHPG6u+LPY1LPz4vzwRzA8uoaaf0ClKg0EAkg
-         d+nQ==
+        b=qGNs1dZ1OTwGeFYzGUHZ3c7gvOPiMWmBHKnpfkb6Nz1Z3lULFyirBLY0x39onl5BdX
+         2R4cSTQ3Ec3wrxtIDydAYpF/Fa0ISWRHC9BnN5chaAN+xCYvMB769Po46iT3Q18mBjdy
+         G6fHlObx6t+RcP2CsquDr4HS3gjMkx79MJxUqFy5FGzb6VpnPCnXPrKppnZA7rbGzIcI
+         8MYXGmHWeDQkFqzluOIzbF6ZmIEIQQPz/HdfYs3IczvoRJBhzT0uh4+aGQn0aeSzaYr+
+         Ujg/67zcu5yjYDKppsa59U02ZJqbxSOeTT5Z5ROWdjtMlgTY9b6ag4HReHLl86ZpfJEy
+         5Q8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=i0n0baEhIZB6PLVxfawhkdvZ9JWiMrHgUJ5jvwqBFKI=;
-        b=ImozP0XzKIPnkfIiNqYwt6WrGM+jd0OevvRTFGtwTqTNNbpTFiUz64jkJc1EFoMUyf
-         jYdBMM5GV7CJFoY+Bi/b4n+vYku2xyOVdNdRfBr8yPaEGT7d8E46edtehZwKJt5y0dE4
-         0xkA5KGhH8z3Y0l8eN5laoxHtbuPhxqvcQ2Bcd8PLGj+jTbhtFOBhbisOYXYL90uXMBa
-         A0oga3a6ha93WvYbZoEjv53TP58jdpeyF/HWJQhKS0SsDMhs4yPhQ3PcwDLCH+WuGFTr
-         pNVx7mnLlK3BCc4hnQKWW/3QW1QaKX67nLmv1g7NtNBRcdt4puhFIIFzoo9nf7ag/SP8
-         AZCg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=1bwCcCtPxQEqy4Yw5npKDE89awmp7YJED+c/BEKJgTM=;
+        b=tLFEDpgsBnREYLmS3yw28XS6eftB4/jyWuIwI0l3Xpb5GLpEqJE41agFJM29QXWBxt
+         yiayc+eCnbaULvmAjGdWfwi8+iSAJ6sAsV0TnGULD4b1LNkIgOBnzbvMsw+baHg1B3aw
+         RwMO4b+uXpfamzmy/QfyGpKSe9EEi5n2el+C7ksolrXllXMbNK39NBMrMjZjRT+kOlkq
+         qHIQ6Dp8DqVCER4a12KWPsbvDQkIoB9IytHu9ADQw6AgJ3yJ5UuJzUnUobH50CTyxnqn
+         rTW1H84LXGsF5KBrbDRhAKZtpyBJgiK+9rlqzdftD0QswzOLzDtG005X6nCj8ds6VnYg
+         DDUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=PNo9Hvdj;
-       spf=pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2e as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-vk1-xa2e.google.com (mail-vk1-xa2e.google.com. [2607:f8b0:4864:20::a2e])
-        by gmr-mx.google.com with ESMTPS id e26si287310ios.2.2021.01.12.11.20.05
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=HKHDJZvf;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id v23si414726otn.0.2021.01.12.11.29.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Jan 2021 11:20:05 -0800 (PST)
-Received-SPF: pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2e as permitted sender) client-ip=2607:f8b0:4864:20::a2e;
-Received: by mail-vk1-xa2e.google.com with SMTP id m145so877234vke.7
-        for <clang-built-linux@googlegroups.com>; Tue, 12 Jan 2021 11:20:05 -0800 (PST)
-X-Received: by 2002:ac5:c92e:: with SMTP id u14mr1166960vkl.15.1610479204636;
- Tue, 12 Jan 2021 11:20:04 -0800 (PST)
-MIME-Version: 1.0
-References: <202101100936.GwZyiMDo-lkp@intel.com> <CAFqt6zaAd1Oe7FmD8HfumbssyuFO=DkVDzLuq=_Ficg10LRzrg@mail.gmail.com>
- <X/yvHIekJZV9WLvO@kroah.com>
-In-Reply-To: <X/yvHIekJZV9WLvO@kroah.com>
-From: Souptick Joarder <jrdr.linux@gmail.com>
-Date: Wed, 13 Jan 2021 00:49:52 +0530
-Message-ID: <CAFqt6zZwpaPxcuGwbyxg=TKyNXnW3PzOqodiCArOU=Mkds_RVA@mail.gmail.com>
-Subject: Re: [linux-stable-rc:linux-4.19.y 1441/2773] drivers/base/node.c:429:5:
- warning: no previous prototype for function 'register_mem_block_under_node_early'
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: kernel test robot <lkp@intel.com>, Laurent Dufour <ldufour@linux.ibm.com>, kbuild-all@lists.01.org, 
-	clang-built-linux@googlegroups.com, Andrew Morton <akpm@linux-foundation.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>, David Hildenbrand <david@redhat.com>, 
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 12 Jan 2021 11:29:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7B9772070B;
+	Tue, 12 Jan 2021 19:29:07 +0000 (UTC)
+Date: Tue, 12 Jan 2021 20:30:16 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Souptick Joarder <jrdr.linux@gmail.com>
+Cc: kernel test robot <lkp@intel.com>,
+	Laurent Dufour <ldufour@linux.ibm.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	David Hildenbrand <david@redhat.com>,
 	Oscar Salvador <osalvador@suse.de>
+Subject: Re: [linux-stable-rc:linux-4.19.y 1441/2773]
+ drivers/base/node.c:429:5: warning: no previous prototype for function
+ 'register_mem_block_under_node_early'
+Message-ID: <X/34yJ07vHVLk0MP@kroah.com>
+References: <202101100936.GwZyiMDo-lkp@intel.com>
+ <CAFqt6zaAd1Oe7FmD8HfumbssyuFO=DkVDzLuq=_Ficg10LRzrg@mail.gmail.com>
+ <X/yvHIekJZV9WLvO@kroah.com>
+ <CAFqt6zZwpaPxcuGwbyxg=TKyNXnW3PzOqodiCArOU=Mkds_RVA@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jrdr.linux@gmail.com
+Content-Disposition: inline
+In-Reply-To: <CAFqt6zZwpaPxcuGwbyxg=TKyNXnW3PzOqodiCArOU=Mkds_RVA@mail.gmail.com>
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=PNo9Hvdj;       spf=pass
- (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2e
- as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linuxfoundation.org header.s=korg header.b=HKHDJZvf;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,57 +138,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 12, 2021 at 1:32 AM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Tue, Jan 12, 2021 at 12:48:22AM +0530, Souptick Joarder wrote:
-> > On Sun, Jan 10, 2021 at 6:33 AM kernel test robot <lkp@intel.com> wrote:
-> > >
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.19.y
-> > > head:   610bdbf6a174c9a91e34e276a9594114b44bef74
-> > > commit: b6f69f72c15d7f973f5709c5351f378f235b3654 [1441/2773] mm: don't rely on system state to detect hot-plug operations
-> > > config: x86_64-randconfig-a001-20210110 (attached as .config)
-> > > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project bc556e5685c0f97e79fb7b3c6f15cc5062db8e36)
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # install x86_64 cross compiling tool for clang build
-> > >         # apt-get install binutils-x86-64-linux-gnu
-> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git/commit/?id=b6f69f72c15d7f973f5709c5351f378f235b3654
-> > >         git remote add linux-stable-rc https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
-> > >         git fetch --no-tags linux-stable-rc linux-4.19.y
-> > >         git checkout b6f69f72c15d7f973f5709c5351f378f235b3654
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> > >
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > > All warnings (new ones prefixed by >>):
-> > >
-> > > >> drivers/base/node.c:429:5: warning: no previous prototype for function 'register_mem_block_under_node_early' [-Wmissing-prototypes]
-> > >    int register_mem_block_under_node_early(struct memory_block *mem_blk, void *arg)
-> > >        ^
-> > >    drivers/base/node.c:429:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-> > >    int register_mem_block_under_node_early(struct memory_block *mem_blk, void *arg)
-> > >    ^
-> > >    static
-> > >    1 warning generated.
+On Wed, Jan 13, 2021 at 12:49:52AM +0530, Souptick Joarder wrote:
+> On Tue, Jan 12, 2021 at 1:32 AM Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> wrote:
 > >
-> > It is fixed in the mainline. Will stable tree pick it from there ?
->
-> What is the git commit id for this?
+> > On Tue, Jan 12, 2021 at 12:48:22AM +0530, Souptick Joarder wrote:
+> > > On Sun, Jan 10, 2021 at 6:33 AM kernel test robot <lkp@intel.com> wrote:
+> > > >
+> > > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.19.y
+> > > > head:   610bdbf6a174c9a91e34e276a9594114b44bef74
+> > > > commit: b6f69f72c15d7f973f5709c5351f378f235b3654 [1441/2773] mm: don't rely on system state to detect hot-plug operations
+> > > > config: x86_64-randconfig-a001-20210110 (attached as .config)
+> > > > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project bc556e5685c0f97e79fb7b3c6f15cc5062db8e36)
+> > > > reproduce (this is a W=1 build):
+> > > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > > >         chmod +x ~/bin/make.cross
+> > > >         # install x86_64 cross compiling tool for clang build
+> > > >         # apt-get install binutils-x86-64-linux-gnu
+> > > >         # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git/commit/?id=b6f69f72c15d7f973f5709c5351f378f235b3654
+> > > >         git remote add linux-stable-rc https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+> > > >         git fetch --no-tags linux-stable-rc linux-4.19.y
+> > > >         git checkout b6f69f72c15d7f973f5709c5351f378f235b3654
+> > > >         # save the attached .config to linux build tree
+> > > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> > > >
+> > > > If you fix the issue, kindly add following tag as appropriate
+> > > > Reported-by: kernel test robot <lkp@intel.com>
+> > > >
+> > > > All warnings (new ones prefixed by >>):
+> > > >
+> > > > >> drivers/base/node.c:429:5: warning: no previous prototype for function 'register_mem_block_under_node_early' [-Wmissing-prototypes]
+> > > >    int register_mem_block_under_node_early(struct memory_block *mem_blk, void *arg)
+> > > >        ^
+> > > >    drivers/base/node.c:429:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+> > > >    int register_mem_block_under_node_early(struct memory_block *mem_blk, void *arg)
+> > > >    ^
+> > > >    static
+> > > >    1 warning generated.
+> > >
+> > > It is fixed in the mainline. Will stable tree pick it from there ?
+> >
+> > What is the git commit id for this?
+> 
+> commit  f85086f95fa3 (mm: don't rely on system state to detect
+> hot-plug operations)
+> which marks this function as static.
 
-commit  f85086f95fa3 (mm: don't rely on system state to detect
-hot-plug operations)
-which marks this function as static.
+Ah, that's not ok for stable trees.  Don't worry about this, sparse
+issues for stuff like this is not a big deal for stable releases.
 
->
-> thanks,
->
-> greg k-h
+thanks,
+
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFqt6zZwpaPxcuGwbyxg%3DTKyNXnW3PzOqodiCArOU%3DMkds_RVA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/X/34yJ07vHVLk0MP%40kroah.com.
