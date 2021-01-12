@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBXPA6P7QKGQESQIJWUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBB77B6P7QKGQERASJ7FA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0277B2F244C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 01:42:06 +0100 (CET)
-Received: by mail-oo1-xc3c.google.com with SMTP id l191sf420797ooc.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 16:42:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610412125; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 700FC2F244F
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 01:44:48 +0100 (CET)
+Received: by mail-io1-xd38.google.com with SMTP id l5sf393239ioj.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 16:44:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610412287; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JU0vW1ebaQpvNJtnD6Gg5Q2ccA0rKmK7fD5pXaRSpeXu/Zch/fLEUpcOkRJEqlPXj4
-         7X1PkRTTBIi0JI/Ykyy+r6b3+oI9K7Kd+KIR+vnWuqh+uwQMQKbuoke+pCYsphXN4mo5
-         6ctKo4fDQ4TfgTgt1QQtJsi/lBjWXpdYsyNOikZlh+UqPPV1Yxb9cwEYwKjGOC+1Fkmj
-         C7GiyGV0vbwvvvBfkplyoaIinIhUn0GxXQcBVMzGcbiAa8a1XLeAvbjTFpGc/1zz3KRG
-         kW6/005gQNmISsqZ2d3u16TFlvu1LYNC44ERar/tSyxUd+UWl2oUy6a7htuvWfNFPzn3
-         nX9A==
+        b=yTKqOf34wN8FZCebeyQRMjrpl84ZWA0jzqUgOIENJMxrynujditaWpCiplXLNLFB+S
+         SM8hLgeOZLFppFegJj/UlIuqov0FLG4SpPKZyKZuna7K3+PtAwt1YWsPUst4VmqSWpIO
+         HyrS1ljAbwiDllHfIBrOmnt1rnVwGV5hZbvnO4U3Qqz6XaZ5YtCxqTP+RzcTTMJl0VfE
+         +RNchkS+pZOL9AUGgAd8m6BMJWsIyhS+tsEpwvCgq89EVaCc+/OlHhCDj0kZYr4P33LZ
+         Kf7U4DbTlqNIiplGAXA/VzRNZ5cMODTjFt8lQtqoUjiXvvS6cCRtBfEAMkXbp8bo3Qbj
+         uO7A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=nckl3pnHsE+RwQ8bAOSR2yOnohxpTc0mZVyPoc7ctqg=;
-        b=u6+RhVKlkKC2CmTs6wioTgtIyffguiwqnJgCapu4mdTpoiFulE3sClIZDBq4LXhhkx
-         9r6vrTAL6PMpWvmVG5c1pe3rS0+aODGDf0Q0/y/h6/qlj+qhqDhbKgjhRx9OvpPYZ8Ul
-         nxJ6swuaysUBHoP0lKrPeGtcrTj2/aH0eNiJ2atE2YCzi4vOXQsDtw7l1mw+yqsZfg3R
-         Av6ku70SC8yfQZsIlbp9/S4NzVnh3JaKtSkHb+C1zkyrncxM5gCIF4lAO0jI4YY3P1rd
-         k8Unrm0q/MWKKLRW4aFFzvYB3RQ3UHWSkY0iWurq3Y5DY1fKY+1JdEctUXSy+intzbvo
-         FnNQ==
+        bh=h67nDiuPo4nvTMBqZ8pxRnmRsjG4ISvqvDzqGwnETZ8=;
+        b=H5R/cBnpQXmL/UKSNn9WHNrXxaHMAMe3kOdn9KC6+BG/TW1kf+rk7/+ChR0BwUXK7p
+         gNixpudZmnZZM92qMuh7erTQT0QpM5HmgWopkyMm4Phk++Rb9+C98WFYJMz2fgdIwxHh
+         rAAMF49JL46EcmG5EHo/2c5avff2/JJGV77+JQT8tlHhx7sDMHqHtPL4gIx/qFL8Jluc
+         R5STMbL468Xdp2sJ1wAJGqCHcsCf0cfzOhm8IuKu7hlJ4KsvpD7t5xs3QVVgX04BV7B1
+         UgucOLw/WD1mpRo18Wu+WWeiOdtrRyUDK3wyvgq0aZm3e42CEbbg5GNIN/lGh08djxOs
+         qIOA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=fo+rEysu;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::636 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YYZM3nC4;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=maskray@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nckl3pnHsE+RwQ8bAOSR2yOnohxpTc0mZVyPoc7ctqg=;
-        b=Ng4/AZT9dHqR8urT4JklvvHrmGUqWl9nJ2sEOWfFnn21T5e5vZv/qlcIIUTAPKukUn
-         j1IT1khq29DvEkQBiEyDlMz8CSUEiSWOVXQEak7S9EFxWmQdAHVKkmGo92OjIIediGNX
-         0CU6sBcikSUTeuaKivZB5VMGo57hy9D45brmZSsZi/gxVIHLgKoFmmUUTOkVGjn67jSu
-         C4dlLnD8IkVSmzmvH1EAlyqEKfTwMa4rVbI6epFydELJ5TwcFFFqqiBtqDRbkLuae/dP
-         1xid+zKw6SQ5urhZKj52oqJMj8Ek5SeFc1VDEavdX54ZK3+wD/FbMyj6LSYIYWWbdvOf
-         MiXg==
+        bh=h67nDiuPo4nvTMBqZ8pxRnmRsjG4ISvqvDzqGwnETZ8=;
+        b=s9cHTzq6vLaluXrohpjiWTl33snCri7CQgQwVQ8HWIDpNpWNHzegC2CCIjU731aD78
+         od4rpUfdB65DOJNycgmbxDM+e2sp0joB3CWh8Hp63w9wLfu02Mq1gNgFYm7oW3yt7Dv0
+         vF3mnK0zRQ3VKv/0m9VMSy2NxMDX8N7XBg7BKc96XBDmLwIWa7u8vpMf0TtpSoqmw/L/
+         IdfSrNYrIHcy2ACHSRBIOpz5P3cm/7OyHb//meiLGxbWfZ5pcV38da75CzYCOrLXRvEz
+         kq0y3OucMdexlaevV0ktZJYXffp4s6GQMvwLaZLqhpTixBrMSrGUmDv5IQSeYQdmntMz
+         a2mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,74 +49,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nckl3pnHsE+RwQ8bAOSR2yOnohxpTc0mZVyPoc7ctqg=;
-        b=MBxDmPJ3aV2HIXDEfIOgbQXTj6N62M4PzLCSB0DT5BsCWyWbjuLBf51/uhOO/sqbI2
-         WYMuktdaZRd/xYYNfh0bu0lxOdz8FRgBV1hdAhihQMRnRwrXVOiymA7Lq9DnVJ3R9neC
-         flJ1VJM4/C9QS1m9x53xcPOdq9mNzLZieakc5HytuX6XZXbLDdHTDQpt19qlThGFkCP0
-         JEnYeaOaZCpE21FhSZOKPz7SQNAguXgnmAu9Jmxsn5Z0FnMDE4AjKl6+Xy+/UoWDpLrx
-         VwGKi6vwZ6k/M3wyyJCDWW1HlbC/C4h2nf/4EkOAXC41XlKIK9vMUSLwt1Ho9IjqB9Px
-         FIXA==
-X-Gm-Message-State: AOAM5315qrSSFnGgGDtNmQnpYL0VqYq3xix6QZsLRAkKeEmyI6QzfapU
-	USBcR95BZF5v0/wvDy045Go=
-X-Google-Smtp-Source: ABdhPJxnUPfmcyDcRMFdV8dPcmg4HnW25hujuxKbsZVf6BOeTyibZSn5Lw2dnoSoUTdcGfT+5i8z4w==
-X-Received: by 2002:aca:5711:: with SMTP id l17mr862170oib.53.1610412125279;
-        Mon, 11 Jan 2021 16:42:05 -0800 (PST)
+        bh=h67nDiuPo4nvTMBqZ8pxRnmRsjG4ISvqvDzqGwnETZ8=;
+        b=juyMM2A12g2nrS878SWRCB5Lj0ALO4Kd+eeAkihHZi79niWbcvPLMXYWAoTkpYaQq5
+         3qXSCSme4dmqylYDy6Rwibwlt/W6WprEQmZRzmSby8HwP+lN0RVO7vH5rDRZpIONsDhY
+         2raqfKbKSXv19hxcL/z/wEhagCLygTYyDhFPmiFEAvFFVuvTRG/jOtEHVIo4Oaiirpgz
+         QR23qk/bNInHK8er0Ml0yNZPo3N6G4EEN/RTc8Z0YjNG+L/DageGV2KpLRx4bg/Tjqjf
+         7MY6du6NdLB5OR42okEkVw5v7AYLyRqpkI6HE6sxUtaOTNAcW17uLUaE1OGxjki+/vXQ
+         Ndyw==
+X-Gm-Message-State: AOAM530+C66p28Aq+Evmp0hwtWZFdFoTkJaHeKZ3YW9d6feFENxuxOOF
+	av+BhhbAO9bhZOuYfZ7hgAs=
+X-Google-Smtp-Source: ABdhPJxDylp2r1nMFMW8zWH5FkfBmSXHK8ZB/e4/j4xocfp8gpPyDK245Enr3l+L6cyZm7seN4LnlQ==
+X-Received: by 2002:a92:444e:: with SMTP id a14mr1577915ilm.129.1610412287230;
+        Mon, 11 Jan 2021 16:44:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:9868:: with SMTP id z37ls61281ooi.6.gmail; Mon, 11 Jan
- 2021 16:42:04 -0800 (PST)
-X-Received: by 2002:a4a:8c73:: with SMTP id v48mr1200915ooj.53.1610412124923;
-        Mon, 11 Jan 2021 16:42:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610412124; cv=none;
+Received: by 2002:a02:390a:: with SMTP id l10ls251970jaa.6.gmail; Mon, 11 Jan
+ 2021 16:44:46 -0800 (PST)
+X-Received: by 2002:a05:6638:19c:: with SMTP id a28mr1947551jaq.76.1610412286694;
+        Mon, 11 Jan 2021 16:44:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610412286; cv=none;
         d=google.com; s=arc-20160816;
-        b=f4zQhBUkkY+iczKgeAWbvjnRsCi80y9ZDaKCeuRT95Dtm7hrP4v9x/c7C01v10irim
-         fHfhMr5nz00hKpsPDu5iwmbLm2QnVaoaYwLdpQqfcWAHPbuMEbEuS4WvpCegf7jKALzW
-         UPewtk9Nnyk0TMDsLse3RUo6R/kWDumTxVuQ/+ujjAxb6AKy+FNC+a76O51oaL1bpvEt
-         RLyW7iVndhegLcEYBS2sMjNYQSidh9BMu8SzmeJ/i4k4Tbylb8Ac0Oo/3OTudO12AT4s
-         dnv3Da29k/df6wAWrtgx9PtzZ7Pt1bsCsfVo0rfWsp8W9oDk2885+EbPkWAzJ9p2wfat
-         7WXw==
+        b=aAW+0FVC3Ux8PVQME3jewZ1AJJHVBKXvdYi1rZgWiQw4Tno5FU3fqAO0Yb0tR8T06k
+         UthbubUD+YyEh3SvvA74O7kJUY3DxoDKfZou9vd80RuqAwnBv86Zih8omdjqsd0hrxSX
+         wlDKLkJiKdQ3A6oR394/uwg+ZSoY79UQ7M55VZpL43pmRZOvA+NVoqWOjPo8kDZRlsCK
+         Ue7g0/ovP3b+tHEHsxnpIP4Gb52gIkPoFxAT5dW4Gqu/wMvXH+k4DC/aDulchTPMmvv6
+         fTgM5JDP74X/KjSEq6TkYUrfGhRkmuYxLb1EEmtc2x6XX7B+S9Mmc4NjVO1QlHS6a9dT
+         X12A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=fORzdtbKexeYqZL9m64WT6sjX1DlAcK6JwMJGQMmjlk=;
-        b=Cpnl7M3Q3+0XoLkfXDnIVo4N/8+jrIt/ROJDLmEtKZZObsEs8vett/Pp5RbXYM4M56
-         i47fgoTpFWF2tJE1uiDWwAzlNjtSK83mYemsH1SGtcVRklJw48brGuf9LnZNWqdwHEIP
-         pm2Aogj/6uhuh0MurwaNbQaGvfoehpoxz52/Ss5VvPIMOxe1fk9tLgCO/nCt3PlPTMka
-         8kAiPmP0vITccX4v1JiSp/AJmJIWXuecSyyV/emLo/jcbE9iQypDsPRWBhmnFhXS3CYf
-         3ViCmnXx8dJeCDPQKur7ESV6L32MKXVTxnl5C/75P6cl0nK8zoN3udnaYjLpz9nQV0U/
-         DKpA==
+        bh=dPK8pNH4QCaFIUUZrNoOKMv2joVCl+mHPXFylSDuRyY=;
+        b=aAQIslA4CJvHQtZvS9hDLAT8clhB9DQxCfLQeTvELZ/PjU0XKNym4GPy9zO7jxNJ91
+         MAGE89btWeT7LxUITj12t2GaqmU5HKD9FqcFaBSx+cG1iDGJiaqFZgvji/29ZAzyZUc+
+         rhZGr1RN5MY8Ica6TDF+JMzpIcUCNlkMRhD48IrLstDeBLVPpuURCySCIACoPg8ADYl0
+         NpMo9vyM1AH92fvFqofNg1PQHZfLLuUYJZu4oXEsazxkkdNcKX3+gIlNb1Q5SiFvhej9
+         jorglg797v5IJovgNdU1L9ztdHoNiB0baXkE4K/pvDWAlj/2sWOnNxN4lc/KeyUZnuX8
+         q3EA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=fo+rEysu;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::636 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YYZM3nC4;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=maskray@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x636.google.com (mail-pl1-x636.google.com. [2607:f8b0:4864:20::636])
-        by gmr-mx.google.com with ESMTPS id u2si139099otg.1.2021.01.11.16.42.04
+Received: from mail-pg1-x52e.google.com (mail-pg1-x52e.google.com. [2607:f8b0:4864:20::52e])
+        by gmr-mx.google.com with ESMTPS id k131si65210iof.1.2021.01.11.16.44.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Jan 2021 16:42:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::636 as permitted sender) client-ip=2607:f8b0:4864:20::636;
-Received: by mail-pl1-x636.google.com with SMTP id v3so420907plz.13
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 16:42:04 -0800 (PST)
-X-Received: by 2002:a17:90a:6c25:: with SMTP id x34mr1543495pjj.47.1610412124034;
- Mon, 11 Jan 2021 16:42:04 -0800 (PST)
+        Mon, 11 Jan 2021 16:44:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52e as permitted sender) client-ip=2607:f8b0:4864:20::52e;
+Received: by mail-pg1-x52e.google.com with SMTP id z21so286310pgj.4
+        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 16:44:46 -0800 (PST)
+X-Received: by 2002:a63:5a08:: with SMTP id o8mr2065138pgb.118.1610412285888;
+ Mon, 11 Jan 2021 16:44:45 -0800 (PST)
 MIME-Version: 1.0
-References: <20210106015810.5p6crnh7jqtmjtv4@treble> <20210111203807.3547278-1-ndesaulniers@google.com>
- <20210112003839.GL25645@zn.tnic>
-In-Reply-To: <20210112003839.GL25645@zn.tnic>
+References: <20210111081821.3041587-1-morbo@google.com> <20210111201224.l5r2zxuyd7ayszke@google.com>
+ <CAGG=3QWo5_wwTMHtif4BzFssByaW1ScvpaEH1p1nZ6ymVggLjA@mail.gmail.com>
+ <20210111203120.daeef4yuwgmk5em4@google.com> <CAGG=3QVs8dUaqcnuHYiaqccMhp7OmkxewZ_PAhAr96todNJhfQ@mail.gmail.com>
+In-Reply-To: <CAGG=3QVs8dUaqcnuHYiaqccMhp7OmkxewZ_PAhAr96todNJhfQ@mail.gmail.com>
 From: =?UTF-8?B?J0bEgW5nLXJ1w6wgU8OybmcnIHZpYSBDbGFuZyBCdWlsdCBMaW51eA==?= <clang-built-linux@googlegroups.com>
-Date: Mon, 11 Jan 2021 16:41:52 -0800
-Message-ID: <CAFP8O3+uEE4Lity-asyFLN6_+8qRUD3hgcZVapXwk6EfmGM+DA@mail.gmail.com>
-Subject: Re: [PATCH v3] x86/entry: emit a symbol for register restoring thunk
-To: Borislav Petkov <bp@alien8.de>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, X86 ML <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Mon, 11 Jan 2021 16:44:34 -0800
+Message-ID: <CAFP8O3+knLmtt1M-wqdr0XGDFNbocz+1gmfTVUTtwDk5mS1FEA@mail.gmail.com>
+Subject: Re: [PATCH] pgo: add clang's Profile Guided Optimization infrastructure
+To: Bill Wendling <morbo@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=fo+rEysu;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::636
+ header.i=@google.com header.s=20161025 header.b=YYZM3nC4;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52e
  as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
@@ -133,76 +135,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jan 11, 2021 at 4:38 PM Borislav Petkov <bp@alien8.de> wrote:
+On Mon, Jan 11, 2021 at 4:38 PM Bill Wendling <morbo@google.com> wrote:
 >
-> On Mon, Jan 11, 2021 at 12:38:06PM -0800, Nick Desaulniers wrote:
-> > Arnd found a randconfig that produces the warning:
+> On Mon, Jan 11, 2021 at 12:31 PM Fangrui Song <maskray@google.com> wrote:
+> > On 2021-01-11, Bill Wendling wrote:
+> > >On Mon, Jan 11, 2021 at 12:12 PM Fangrui Song <maskray@google.com> wrote:
+> > >>
+> > >> On 2021-01-11, 'Bill Wendling' via Clang Built Linux wrote:
+> > >> >From: Sami Tolvanen <samitolvanen@google.com>
+> > >> >
+> > >> >Enable the use of clang's Profile-Guided Optimization[1]. To generate a
+> > >> >profile, the kernel is instrumented with PGO counters, a representative
+> > >> >workload is run, and the raw profile data is collected from
+> > >> >/sys/kernel/debug/pgo/profraw.
+> > >> >
+> > >> >The raw profile data must be processed by clang's "llvm-profdata" tool before
+> > >> >it can be used during recompilation:
+> > >> >
+> > >> >  $ cp /sys/kernel/debug/pgo/profraw vmlinux.profraw
+> > >> >  $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
+> > >> >
+> > >> >Multiple raw profiles may be merged during this step.
+> > >> >
+> > >> >The data can be used either by the compiler if LTO isn't enabled:
+> > >> >
+> > >> >    ... -fprofile-use=vmlinux.profdata ...
+> > >> >
+> > >> >or by LLD if LTO is enabled:
+> > >> >
+> > >> >    ... -lto-cs-profile-file=vmlinux.profdata ...
+> > >>
+> > >> This LLD option does not exist.
+> > >> LLD does have some `--lto-*` options but the `-lto-*` form is not supported
+> > >> (it clashes with -l) https://reviews.llvm.org/D79371
+> > >>
+> > >That's strange. I've been using that option for years now. :-) Is this
+> > >a recent change?
 > >
-> > arch/x86/entry/thunk_64.o: warning: objtool: missing symbol for insn at
-> > offset 0x3e
+> > The more frequently used options (specifyed by the clang driver) are
+> > -plugin-opt=... (options implemented by LLVMgold.so).
+> > `-lto-*` is rare.
 > >
-> > when building with LLVM_IAS=1 (use Clang's integrated assembler). Josh
-> > notes:
+> > >> (There is an earlier -fprofile-instr-generate which does
+> > >> instrumentation in Clang, but the option does not have broad usage.
+> > >> It is used more for code coverage, not for optimization.
+> > >> Noticeably, it does not even implement the Kirchhoff's current law
+> > >> optimization)
+> > >>
+> > >Right. I've been told outside of this email that -fprofile-generate is
+> > >the prefered flag to use.
+> > >
+> > >> -fprofile-use= is used by both regular PGO and context-sensitive PGO (CSPGO).
+> > >>
+> > >> clang -flto=thin -fprofile-use= passes -plugin-opt=cs-profile-path= to the linker.
+> > >> For regular PGO, this option is effectively a no-op (confirmed with CSPGO main developer).
+> > >>
+> > >> So I think the "or by LLD if LTO is enabled:" part should be removed.
+> > >
+> > >But what if you specify the linking step explicitly? Linux doesn't
+> > >call "clang" when linking, but "ld.lld".
 > >
-> >   With the LLVM assembler stripping the .text section symbol, objtool
-> >   has no way to reference this code when it generates ORC unwinder
-> >   entries, because this code is outside of any ELF function.
-> >
-> > Fangrui notes that this optimization is helpful for reducing images size
-> > when compiling with -ffunction-sections and -fdata-sections. I have
-> > observerd on the order of tens of thousands of symbols for the kernel
-> > images built with those flags. A patch has been authored against GNU
-> > binutils to match this behavior, with a new flag
-> > --generate-unused-section-symbols=[yes|no].
-> >
-> > We can omit the .L prefix on a label to emit an entry into the symbol
-> > table for the label, with STB_LOCAL binding.  This enables objtool to
-> > generate proper unwind info here with LLVM_IAS=1.
-> >
-> > Cc: Fangrui Song <maskray@google.com>
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1209
-> > Link: https://reviews.llvm.org/D93783
-> > Link: https://sourceware.org/binutils/docs/as/Symbol-Names.html
-> > Link: https://sourceware.org/pipermail/binutils/2020-December/114671.html
-> > Reported-by: Arnd Bergmann <arnd@arndb.de>
-> > Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
-> > Changes v2 -> v3:
-> > * rework to use STB_LOCAL rather than STB_GLOBAL by dropping .L prefix,
-> >   as per Josh.
+> > Regular PGO+LTO does not need -plugin-opt=cs-profile-path=
+> > CSPGO+LTO needs it.
+> > Because -fprofile-use= may be used by both, Clang driver adds it.
+> > CSPGO is relevant in this this patch, so the linker option does not need to be mentioned.
 >
-> Ok so I read a bit around those links above...
+> I'm still a bit confused. Are you saying that when clang uses
+> `-flto=thin -fprofile-use=foo` that the profile file "foo" is embedded
+> into the bitcode file so that when the linker's run it'll be used?
 >
-> Are you trying to tell me here that we can't use .L-prefixed local
-> labels anymore because, well, clang's assembler is way too overzealous
-> when stripping symbols to save whopping KiBs of memory?!
+> This is the workflow:
+>
+> clang ... -fprofile-use=vmlinux.profdata ... -c -o foo.o foo.c
+> clang ... -fprofile-use=vmlinux.profdata ... -c -o bar.o bar.c
+> ld.lld ... <output file> foo.o bar.o
+>
+> Are you saying that we don't need to have
+> "-plugin-opt=cs-profile-path=vmlinux.profdata" on the "ld.lld ..."
+> line?
+>
+> -bw
 
-To be fair: we cannot use .L-prefixed local because of the objtool limitation.
-The LLVM integrated assembler behavior is a good one and binutils
-global maintainers have agreed so H.J. went ahead and implemented it
-for GNU as x86.
+The backend compile step -flto=thin -fprofile-use=foo has all the information.
 
-> Btw Josh made sense to me when asking for a flag or so to keep .text.
->
-> And I see --generate-unused-section-symbols=[yes|no] for binutils.
->
-> So why isn't there a patch using that switch on clang too instead of the
-> kernel having to dance yet again for some tool?
-
---generate-unused-section-symbols=[yes|no] as an assembler option has
-been rejected.
-
-
-> :-\
->
-> --
-> Regards/Gruss,
->     Boris.
->
-> https://people.kernel.org/tglx/notes-about-netiquette
+-plugin-opt=cs-profile-path=vmlinux.profdata is not needed for regular PGO.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFP8O3%2BuEE4Lity-asyFLN6_%2B8qRUD3hgcZVapXwk6EfmGM%2BDA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFP8O3%2BknLmtt1M-wqdr0XGDFNbocz%2B1gmfTVUTtwDk5mS1FEA%40mail.gmail.com.
