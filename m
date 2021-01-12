@@ -1,130 +1,135 @@
-Return-Path: <clang-built-linux+bncBD66FMGZA4IKT2HU74CRUBCV4EPDA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB6XY6T7QKGQE2TZO2ZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E3B02F27E2
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 06:31:22 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id h75sf1319535ybg.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 21:31:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610429481; cv=pass;
+Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 40ACB2F2834
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 07:06:51 +0100 (CET)
+Received: by mail-vk1-xa37.google.com with SMTP id a204sf680310vka.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jan 2021 22:06:51 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610431610; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kw2pcTBtoKUKQYxdR9sW4MD/p6LHShTHGsVLNuI2ps/KyfZVASHke2Exc17K+kM3h8
-         3KrCQaRzoW2Ut5SRjrWw7x5+eCdatF4tMR1EwTT68Nb2ACO3mIZ0QCeDxoiiK32iAG7V
-         21zxspIV/A1aiJyYsWXuSbJDdQAYxLz7MibdjVMJfdnSYAJyFK1ihzTl+rxe2T0PVhdh
-         lnffeYn7X0Q+VMS0OdrZ7nDmjQklFTiOb59Ydx+gLgEXWgQEZ2Xh1UDsJyCyOQptcr1Z
-         GlLpdFpmwMhwWZ8NI1QcMGst2NLVlCkfoj0DZmbShRu2DqIJip2evGH9osSksXeX8Eiq
-         FvEA==
+        b=aegODIkUtotYt5voVqlibbvyxJCs8aEyarZMeAZxk6hAOfIbuu91PXY52XsC+ap+Ss
+         g0489ylGax5MUWDnu6xCSEvf3RrkGRdBRNtMe1GDYMMonXGpXwD86SgqROsOyDqNMmJu
+         vXCWGn2UQrVpMuwMZKzO4wz3qNRYHVPpD9I769lEomdJwf8A0FQyWSzDwHkH0I/U5W1G
+         1TYk2oaXmQJu64LQKgKFZbnXchMXAnCMFfw2f+TwjS1vnpuXnbJxpmUvn0gnt60pZgeP
+         iIBTJgWgOgWnzE4fdx4HTab8diZ9mRyfDSKYLYwVBWjBFDPDf6a6/yN0fgEDMwRhFmgW
+         3+8A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:sender:dkim-signature;
-        bh=XgLhZcG6VScFSzsl2YeVol6PlxbqYP8rXViI3ec79Q8=;
-        b=B3JKXH5eQ9swRxVncn6Zu1NusgKfXwaq75Iz8DWWHmCDoo8XDTUWFwG5D71HdCOL3r
-         KeTnMkPdCU93+LAyJkwIUSoDMaXvxrbkLo37/0SV2TOWV0gHkjQQGeYloSRM5SBtEtBa
-         uJnZ1D2dI/iXOQRzrHBkbStaQgqtnd8Rl0chqcIlZJgEMHYkXwr7YAEvA1slShmhNqbk
-         uJnrIoy5jUEZys8bME1Y7XGEUa4SY6/moR+xWIlc6nGu65Ai3UDXwi62Fkh2+ZrY9TEm
-         4zFjS+3qS1yy21hFeFptNXMANXFo9jss4SwSuFlWGkX5xSL+Rq1HDxVZTdP9Jv50MFJk
-         O8fA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=I1iHsYRmy2BpLyv9DHi/Sp6iJzraDQjR3JWw2rKI/wo=;
+        b=OOKADZ33njeR3VYtzvkmXV+RXeIrnsRRTbLrZFOF0B7iH6L09ttM7jHRGAwrdPmfWP
+         9+c7/des+qXy7aftsF/f4eqVuQA8ZvT+Nkw1YDOZyAI1ATcCSe3ADEEe3r9938UpGBfD
+         geG3DCRX4BUu2htC3U7Nvm7nap6kgA7mxmn/29HIjC07pztFOc+vVE20KZ6XU2s19Uxb
+         yPHYYeWMSzHkFy3vRsgyoa/k6/r0ZnLnom+J4ItHH2OXKGiAfvQSnbqWNCSK2AMoATLo
+         kjuGmNkrZFGzeWU0Fwbbky4T9IXzz/OHr7Ep8RKTs8YMTgPHQm7pjgj/lVoYH2bJDh6E
+         jGwg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="JUh/o0CD";
-       spf=pass (google.com: domain of 3kdt9xwukeys136q3v33v0t.r31r0p2v-q9x08-0x29cv33v0tv63947.r31@flex--morbo.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3KDT9XwUKEYs136q3v33v0t.r31r0p2v-q9x08-0x29Cv33v0tv63947.r31@flex--morbo.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:in-reply-to:message-id:mime-version:references:subject
-         :from:to:cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=XgLhZcG6VScFSzsl2YeVol6PlxbqYP8rXViI3ec79Q8=;
-        b=aiEZ++zubEX+5v/d7mTt8Nl/N2KL6dlnvVViyXjJgECbz108m6OzNK3QmU84UFKvyE
-         3W4eai6p9yao2k5TYjDfn32ARoxteWFe6qiWDeR5Lziude1MJS0122wlm7AnfbliJEPV
-         4S/uwxnfC7j91osOu8FyUjsMJzE/SMnLg4KiTGHafYus4lC2UVERHW14xYwXPN+BZL2A
-         v4utpBNDIYy+rheDt0lQH3HTtwjt5SH7vwIkbbSI6NmBoLz4uEw/aeiA+9G+TNShWUR5
-         EDq0wrvuvWNB9Dlwqf6202B0ZxQ/C5hCPnreghDCa6o8YVkYT4j18fFuiVjwJviUs2hQ
-         m4Ag==
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=I1iHsYRmy2BpLyv9DHi/Sp6iJzraDQjR3JWw2rKI/wo=;
+        b=T7cmjwcy6b8Ff9HWJdjnZf6MJmw4GfDW66rVjvB3wBgetIKwvkkCIzBjULYTh7aJjZ
+         d37G7Szp/1kwJAQzqu+ir7HHYoo9hymOa3oM5ur7srL/NRi7xSnh9dS0MlIubA8A35X6
+         4H8eu8Ii/r0EYfHmGReNz0g6pqm3tKlcXOcm+oAw86QqSwsMG99WexpweDjBggp+M85b
+         VfcRGss/+0YfvhMF9Ipb5APriYdKmCALXGciMNlz31mvDK5agIgjRFhRMeUXjg0ey37/
+         bCvAay+WbrEWLej+1mGr2IZQSUL2VG9WkSR5J6ZNlvQASrLqFvMRFh61pYLgiMV0jVll
+         gORw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XgLhZcG6VScFSzsl2YeVol6PlxbqYP8rXViI3ec79Q8=;
-        b=WoHyRbOKNkYkYphCCau4nt6lijONMJ8060Ed39A64t6csSDnjVFicgEW8dJzuze/js
-         rmRP1XoDNhDdp8Ey9K5HN+Mx615QKMqjIV+yttd0SRu0NrMqdgDhHTr70u/7uZDgYyiK
-         FP4+iVaCtxMZ6h2Zbywb1EmkaQhrRSNpcCRp9V8YhwegIYSrxFBtNK8hokF8s5CxWlJ9
-         qPGuzzhZdIE0+qrKLFsZOEiAa5cTdEkZczi555ZHbwFFwgpY6DmXUZzWYhVO9DKwvBZU
-         8Oes7fbaaaHvYk7rPJYs9SmBL3zhP15y64dUv0MmzuQknpNXn8qzfTH24MeSISkJlRbl
-         FdwA==
-X-Gm-Message-State: AOAM5328MEpTCEG9TTKrE32Wu3wgty4NaEGPk9sdIHbxXTtRedvQdGZ/
-	rv0Kh/Xkh7tOozEgnyFyf2s=
-X-Google-Smtp-Source: ABdhPJzn+TCi/NBcdNA6byBopnt8diLPYngcJOqoT3MHicXRNChIAPHQ4CO24Mby5yerUD2Nv9UM2A==
-X-Received: by 2002:a25:bbcf:: with SMTP id c15mr4230170ybk.418.1610429481250;
-        Mon, 11 Jan 2021 21:31:21 -0800 (PST)
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=I1iHsYRmy2BpLyv9DHi/Sp6iJzraDQjR3JWw2rKI/wo=;
+        b=TfZ6/DMAzrQUecoEZTOCxXe9DtwmTs82q1z7R0F6I0tHbY1ukgq5ZzVm7DC6osss87
+         Tc7PnWbIwdJl3e1tL6cYuiCr4b+MVx+EMC+ke7LBi1vqlYUv/JLrM0cqGwIyb1iIK2Da
+         pBSmZFaRO8voXJgzr2kGU0RplkQzrDprKqhz16TAY1U00QoPobBQp33fFcCR5ThOKN8K
+         pinU0J9eBT9HZyj75T2vTzBBxpCyxPUyyg7J+4ZAs+NynAiPgKJJYEzfkEttRA8k2Gq0
+         l9FVtRh75G7NnLfg4p4HhZ23ARBl0UgpXIdJWWS/NG3iRseHWecZuFGBDmlcPyOrDAw1
+         b+lQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531BjTKTk/bgL2SIM4MRiVuIY5HKo5HyT7EE8yP47ULt8DhFlVhf
+	3DC2WYB9sxJlkdu+1zTy4sQ=
+X-Google-Smtp-Source: ABdhPJyr04HikydPZ+wokiUTnQEHEFJnso6KzPoUl//AXEvlCL0bBCVCVfhYC6ZGn2Kp4ce9jIGI2Q==
+X-Received: by 2002:a1f:5fd5:: with SMTP id t204mr2599924vkb.6.1610431610119;
+        Mon, 11 Jan 2021 22:06:50 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6902:6af:: with SMTP id j15ls1046674ybt.3.gmail; Mon, 11
- Jan 2021 21:31:20 -0800 (PST)
-X-Received: by 2002:a25:40d:: with SMTP id 13mr4845284ybe.422.1610429480792;
-        Mon, 11 Jan 2021 21:31:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610429480; cv=none;
+Received: by 2002:a67:ea12:: with SMTP id g18ls292923vso.9.gmail; Mon, 11 Jan
+ 2021 22:06:49 -0800 (PST)
+X-Received: by 2002:a67:cfc9:: with SMTP id h9mr2384964vsm.23.1610431609546;
+        Mon, 11 Jan 2021 22:06:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610431609; cv=none;
         d=google.com; s=arc-20160816;
-        b=XWvmcTOvdnOhjPwGrGaUPMSPstXLzVpSp8S1bIiwhMRtxtz2btyjquDSq3Hy1Ic87L
-         c0eUoJRO6PlQxnDLPwVzAJFO8Jwj4kJrXTV+sfad8wgABQYcHnMb9aAmlyr9nhIQcnrL
-         Qel7Mo9YfVrm4iArvA6jJ8g98ZZJTzxiiuENIDtnpysawhODS3xA+B106LPD6eVGCfuj
-         Fp99vCmVpsGdTJA1a1hj8tC1kN3rczGispNlikMRb2fWFSgQN+xnkQLxo/gKMNlCMGjz
-         22f7Z4t9b4w92FnXh+6o/u89CEXcoskj/A1XrZfF5vByeVUkaEcNziv10C8OlqRR03bA
-         56DQ==
+        b=YUb9JSWNmUCTZuuQL7MWqNIgVwzuYgKKLj74OaN8MXdt995X4Od8mYAT54/1FNXryV
+         DzzKlYdKUo68SbcU1ptEVvA2x5AJ3RFq0SUbT85/xVanAYkgeI9C5pgoGzpngAr2Hwc2
+         XVCv7ndnZkmkBroTamaX6ppV6pINOZbaoDSRC05zToxFCYV3XgTP2Q+HXE7PNV7I2IjN
+         dj5BjPQz4jz7r/6GOucOeuxaGfKzJ+NzTkJBDQLQmByzCs+ZN26XASpMrZqgMo423nrG
+         PUS7Aw2udUKk4rlcrwo6LJxMo+6R94NkuakoZp59k/Mh7ZpjS/9eeWeKCthVabfdKYoJ
+         7F4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:from:subject:references
-         :mime-version:message-id:in-reply-to:date:sender:dkim-signature;
-        bh=kpF5NgJCo58zS4DPp0R3P0tqgpyr1BKQ01ChymMw5XI=;
-        b=s6l65ijzF26SclsbQ3V13qySWzdf0r0p3htefOEdQQF0sUEh8mp7s/aCW8fBWqBmFZ
-         n6h4O28iuI43IKdm6sjLmBDEw2wR8+EKVZN/BhF7i0hbn+nVynMbyfAIp/rnWB/XVmSF
-         VEk7lF2XLCe9C42yoZBvmNlcUWd82wOsPukgf5g/sZxYG8WBtXuyugD8Ja7dNhbOM8FO
-         7eB7HTCmQ5NaGTTCxtg9g6Eixky33BlKmA1GteZKwSj+iNC+FQoya8zAfH6yJVCUg40p
-         uEcnSS0MF9nRAMPxLynJkyJYXD1s1fiuJRJcMcZ+tL7BtqWedsIS3tVQbmmOZT9P63IO
-         Y3Hg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=yF5fDaibPugfuBRd3zeHBHjLdLDSEBYDLiV+H6HMbWs=;
+        b=taFL1yXuGIpoFFxfvwyHt6hEbqnCwV2f0lNv2JK6fkXyZ8gdOOG/tieO5D8VzYBrqI
+         aFFbsIImxv6O3m12CW1W70uRNZISYHyghDuYzvurvKflcoLac6s2EVt9EM/vwKsVNc32
+         K72GE0XxZP+NEOByFNjJXhS2cOqf1gv6Yug9O145F2UC9iArSqgcEUZ88MxDBYdLb5ab
+         bgyqAL6NatFsheFUqfspS4kbOW5sBdpiLoQP+1QRgfvNWAsB/pzZCcs/fszR5dveyJK5
+         Hxm/E516YXV+psO1BJRrTv2XsgWM/QLReqS0MaQIuJw5GqU081dZXfkLBKtBp2cnHoIu
+         m7ZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="JUh/o0CD";
-       spf=pass (google.com: domain of 3kdt9xwukeys136q3v33v0t.r31r0p2v-q9x08-0x29cv33v0tv63947.r31@flex--morbo.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3KDT9XwUKEYs136q3v33v0t.r31r0p2v-q9x08-0x29Cv33v0tv63947.r31@flex--morbo.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
-        by gmr-mx.google.com with ESMTPS id 23si241786ybc.0.2021.01.11.21.31.20
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id g17si142128vso.1.2021.01.11.22.06.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Jan 2021 21:31:20 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3kdt9xwukeys136q3v33v0t.r31r0p2v-q9x08-0x29cv33v0tv63947.r31@flex--morbo.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
-Received: by mail-yb1-xb49.google.com with SMTP id c9so1341133ybs.8
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Jan 2021 21:31:20 -0800 (PST)
-Sender: "morbo via sendgmr" <morbo@fawn.svl.corp.google.com>
-X-Received: from fawn.svl.corp.google.com ([100.116.77.50]) (user=morbo
- job=sendgmr) by 2002:a25:d257:: with SMTP id j84mr3866201ybg.479.1610429480456;
- Mon, 11 Jan 2021 21:31:20 -0800 (PST)
-Date: Mon, 11 Jan 2021 21:31:13 -0800
-In-Reply-To: <20210112051428.4175583-1-morbo@google.com>
-Message-Id: <20210112053113.4180271-1-morbo@google.com>
-Mime-Version: 1.0
-References: <20210112051428.4175583-1-morbo@google.com>
-X-Mailer: git-send-email 2.30.0.284.gd98b1dd5eaa7-goog
-Subject: [PATCH v3] pgo: add clang's Profile Guided Optimization infrastructure
-From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, Andrew Morton <akpm@linux-foundation.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <morbo@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: morbo@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="JUh/o0CD";       spf=pass
- (google.com: domain of 3kdt9xwukeys136q3v33v0t.r31r0p2v-q9x08-0x29cv33v0tv63947.r31@flex--morbo.bounces.google.com
- designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3KDT9XwUKEYs136q3v33v0t.r31r0p2v-q9x08-0x29Cv33v0tv63947.r31@flex--morbo.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Bill Wendling <morbo@google.com>
-Reply-To: Bill Wendling <morbo@google.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 11 Jan 2021 22:06:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+IronPort-SDR: k4BErpGc08iwPlIFKXDuy2cKnlnAGKodHBqPc9r4Mt/jsZ6ON5T9YBdR7m7HrHzxmbeRgb/t0P
+ 3iFMLDCOx5nA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9861"; a="178138233"
+X-IronPort-AV: E=Sophos;i="5.79,340,1602572400"; 
+   d="gz'50?scan'50,208,50";a="178138233"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jan 2021 22:06:47 -0800
+IronPort-SDR: T9w1FyZ1sGsqfjgfiZ2t3SrYZPxYe6jtiFAgj7qE84AAwSOE5z3z5Ky9mAiFTwLBQnohJXGsZn
+ Bzs8dkAHoA/A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.79,340,1602572400"; 
+   d="gz'50?scan'50,208,50";a="345117288"
+Received: from lkp-server01.sh.intel.com (HELO 3cff8e4c45aa) ([10.239.97.150])
+  by fmsmga007.fm.intel.com with ESMTP; 11 Jan 2021 22:06:45 -0800
+Received: from kbuild by 3cff8e4c45aa with local (Exim 4.92)
+	(envelope-from <lkp@intel.com>)
+	id 1kzCpI-0000Z3-EB; Tue, 12 Jan 2021 06:06:44 +0000
+Date: Tue, 12 Jan 2021 14:06:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ben Widawsky <ben.widawsky@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: Re: [RFC PATCH v3 10/16] cxl/mem: Add send command
+Message-ID: <202101121454.ROMX16qs-lkp@intel.com>
+References: <20210111225121.820014-11-ben.widawsky@intel.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="Q68bSM7Ycu6FN28Q"
+Content-Disposition: inline
+In-Reply-To: <20210111225121.820014-11-ben.widawsky@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,1751 +142,869 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Sami Tolvanen <samitolvanen@google.com>
 
-Enable the use of clang's Profile-Guided Optimization[1]. To generate a
-profile, the kernel is instrumented with PGO counters, a representative
-workload is run, and the raw profile data is collected from
-/sys/kernel/debug/pgo/profraw.
+--Q68bSM7Ycu6FN28Q
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-The raw profile data must be processed by clang's "llvm-profdata" tool
-before it can be used during recompilation:
+Hi Ben,
 
-  $ cp /sys/kernel/debug/pgo/profraw vmlinux.profraw
-  $ llvm-profdata merge --output=3Dvmlinux.profdata vmlinux.profraw
+[FYI, it's a private test report for your RFC patch.]
+[auto build test ERROR on pm/linux-next]
+[also build test ERROR on driver-core/driver-core-testing linux/master linus/master v5.11-rc3 next-20210111]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
 
-Multiple raw profiles may be merged during this step.
+url:    https://github.com/0day-ci/linux/commits/Ben-Widawsky/CXL-2-0-Support/20210112-083452
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
+config: x86_64-randconfig-r025-20210111 (attached as .config)
+compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 32bcfcda4e28375e5a85268d2acfabcfcc011abf)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install x86_64 cross compiling tool for clang build
+        # apt-get install binutils-x86-64-linux-gnu
+        # https://github.com/0day-ci/linux/commit/08bbe46d8b00e6a4d9c02d7a72b6aec1f2a7583c
+        git remote add linux-review https://github.com/0day-ci/linux
+        git fetch --no-tags linux-review Ben-Widawsky/CXL-2-0-Support/20210112-083452
+        git checkout 08bbe46d8b00e6a4d9c02d7a72b6aec1f2a7583c
+        # save the attached .config to linux build tree
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
-The data can now be used by the compiler:
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
 
-  $ make LLVM=3D1 KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata ...
+All errors (new ones prefixed by >>):
 
-This initial submission is restricted to x86, as that's the platform we
-know works. This restriction can be lifted once other platforms have
-been verified to work with PGO.
+   In file included from <built-in>:1:
+   ./usr/include/linux/cxl_mem.h:67:2: error: unknown type name '__u32'
+           __u32 id;
+           ^
+   ./usr/include/linux/cxl_mem.h:69:2: error: unknown type name '__u32'
+           __u32 flags;
+           ^
+   ./usr/include/linux/cxl_mem.h:75:2: error: unknown type name '__s32'
+           __s32 size_in;
+           ^
+   ./usr/include/linux/cxl_mem.h:76:2: error: unknown type name '__s32'
+           __s32 size_out;
+           ^
+   ./usr/include/linux/cxl_mem.h:109:2: error: unknown type name '__u32'
+           __u32 n_commands;
+           ^
+   ./usr/include/linux/cxl_mem.h:110:2: error: unknown type name '__u32'
+           __u32 rsvd;
+           ^
+   ./usr/include/linux/cxl_mem.h:136:2: error: unknown type name '__u32'
+           __u32 id;
+           ^
+   ./usr/include/linux/cxl_mem.h:137:2: error: unknown type name '__u32'
+           __u32 flags;
+           ^
+   ./usr/include/linux/cxl_mem.h:138:2: error: unknown type name '__u32'
+           __u32 rsvd;
+           ^
+   ./usr/include/linux/cxl_mem.h:139:2: error: unknown type name '__u32'
+           __u32 retval;
+           ^
+   ./usr/include/linux/cxl_mem.h:142:3: error: unknown type name '__s32'
+                   __s32 size_in;
+                   ^
+>> ./usr/include/linux/cxl_mem.h:143:3: error: unknown type name '__u64'
+                   __u64 in_payload;
+                   ^
+   ./usr/include/linux/cxl_mem.h:147:3: error: unknown type name '__s32'
+                   __s32 size_out;
+                   ^
+   ./usr/include/linux/cxl_mem.h:148:3: error: unknown type name '__u64'
+                   __u64 out_payload;
+                   ^
+   14 errors generated.
 
-Note that this method of profiling the kernel is clang-native and isn't
-compatible with clang's gcov support in kernel/gcov.
-
-[1] https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimizatio=
-n
-
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Co-developed-by: Bill Wendling <morbo@google.com>
-Signed-off-by: Bill Wendling <morbo@google.com>
 ---
-v2: - Added "__llvm_profile_instrument_memop" based on Nathan Chancellor's
-      testing.
-    - Corrected documentation, re PGO flags when using LTO, based on F=C4=
-=81ng-ru=C3=AC
-      S=C3=B2ng's comments.
-v3: - Added change log section based on Sedat Dilek's comments.
----
- Documentation/dev-tools/index.rst     |   1 +
- Documentation/dev-tools/pgo.rst       | 127 +++++++++
- MAINTAINERS                           |   9 +
- Makefile                              |   3 +
- arch/Kconfig                          |   1 +
- arch/arm/boot/bootp/Makefile          |   1 +
- arch/arm/boot/compressed/Makefile     |   1 +
- arch/arm/vdso/Makefile                |   3 +-
- arch/arm64/kernel/vdso/Makefile       |   3 +-
- arch/arm64/kvm/hyp/nvhe/Makefile      |   1 +
- arch/mips/boot/compressed/Makefile    |   1 +
- arch/mips/vdso/Makefile               |   1 +
- arch/nds32/kernel/vdso/Makefile       |   4 +-
- arch/parisc/boot/compressed/Makefile  |   1 +
- arch/powerpc/kernel/Makefile          |   6 +-
- arch/powerpc/kernel/trace/Makefile    |   3 +-
- arch/powerpc/kernel/vdso32/Makefile   |   1 +
- arch/powerpc/kernel/vdso64/Makefile   |   1 +
- arch/powerpc/kexec/Makefile           |   3 +-
- arch/powerpc/xmon/Makefile            |   1 +
- arch/riscv/kernel/vdso/Makefile       |   3 +-
- arch/s390/boot/Makefile               |   1 +
- arch/s390/boot/compressed/Makefile    |   1 +
- arch/s390/kernel/Makefile             |   1 +
- arch/s390/kernel/vdso64/Makefile      |   3 +-
- arch/s390/purgatory/Makefile          |   1 +
- arch/sh/boot/compressed/Makefile      |   1 +
- arch/sh/mm/Makefile                   |   1 +
- arch/sparc/vdso/Makefile              |   1 +
- arch/x86/Kconfig                      |   1 +
- arch/x86/boot/Makefile                |   1 +
- arch/x86/boot/compressed/Makefile     |   1 +
- arch/x86/entry/vdso/Makefile          |   1 +
- arch/x86/kernel/vmlinux.lds.S         |   2 +
- arch/x86/platform/efi/Makefile        |   1 +
- arch/x86/purgatory/Makefile           |   1 +
- arch/x86/realmode/rm/Makefile         |   1 +
- arch/x86/um/vdso/Makefile             |   1 +
- drivers/firmware/efi/libstub/Makefile |   1 +
- drivers/s390/char/Makefile            |   1 +
- include/asm-generic/vmlinux.lds.h     |  44 +++
- kernel/Makefile                       |   1 +
- kernel/pgo/Kconfig                    |  34 +++
- kernel/pgo/Makefile                   |   5 +
- kernel/pgo/fs.c                       | 382 ++++++++++++++++++++++++++
- kernel/pgo/instrument.c               | 188 +++++++++++++
- kernel/pgo/pgo.h                      | 206 ++++++++++++++
- scripts/Makefile.lib                  |  10 +
- 48 files changed, 1058 insertions(+), 9 deletions(-)
- create mode 100644 Documentation/dev-tools/pgo.rst
- create mode 100644 kernel/pgo/Kconfig
- create mode 100644 kernel/pgo/Makefile
- create mode 100644 kernel/pgo/fs.c
- create mode 100644 kernel/pgo/instrument.c
- create mode 100644 kernel/pgo/pgo.h
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-diff --git a/Documentation/dev-tools/index.rst b/Documentation/dev-tools/in=
-dex.rst
-index f7809c7b1ba9e..8d6418e858062 100644
---- a/Documentation/dev-tools/index.rst
-+++ b/Documentation/dev-tools/index.rst
-@@ -26,6 +26,7 @@ whole; patches welcome!
-    kgdb
-    kselftest
-    kunit/index
-+   pgo
-=20
-=20
- .. only::  subproject and html
-diff --git a/Documentation/dev-tools/pgo.rst b/Documentation/dev-tools/pgo.=
-rst
-new file mode 100644
-index 0000000000000..da0e654ae7078
---- /dev/null
-+++ b/Documentation/dev-tools/pgo.rst
-@@ -0,0 +1,127 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-+Using PGO with the Linux kernel
-+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-+
-+Clang's profiling kernel support (PGO_) enables profiling of the Linux ker=
-nel
-+when building with Clang. The profiling data is exported via the ``pgo``
-+debugfs directory.
-+
-+.. _PGO: https://clang.llvm.org/docs/UsersManual.html#profile-guided-optim=
-ization
-+
-+
-+Preparation
-+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-+
-+Configure the kernel with:
-+
-+.. code-block:: make
-+
-+   CONFIG_DEBUG_FS=3Dy
-+   CONFIG_PGO_CLANG=3Dy
-+
-+Note that kernels compiled with profiling flags will be significantly larg=
-er
-+and run slower.
-+
-+Profiling data will only become accessible once debugfs has been mounted:
-+
-+.. code-block:: sh
-+
-+   mount -t debugfs none /sys/kernel/debug
-+
-+
-+Customization
-+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-+
-+You can enable or disable profiling for individual file and directories by
-+adding a line similar to the following to the respective kernel Makefile:
-+
-+- For a single file (e.g. main.o)
-+
-+  .. code-block:: make
-+
-+     PGO_PROFILE_main.o :=3D y
-+
-+- For all files in one directory
-+
-+  .. code-block:: make
-+
-+     PGO_PROFILE :=3D y
-+
-+To exclude files from being profiled use
-+
-+  .. code-block:: make
-+
-+     PGO_PROFILE_main.o :=3D n
-+
-+and
-+
-+  .. code-block:: make
-+
-+     PGO_PROFILE :=3D n
-+
-+Only files which are linked to the main kernel image or are compiled as ke=
-rnel
-+modules are supported by this mechanism.
-+
-+
-+Files
-+=3D=3D=3D=3D=3D
-+
-+The PGO kernel support creates the following files in debugfs:
-+
-+``/sys/kernel/debug/pgo``
-+	Parent directory for all PGO-related files.
-+
-+``/sys/kernel/debug/pgo/reset``
-+	Global reset file: resets all coverage data to zero when written to.
-+
-+``/sys/kernel/debug/profraw``
-+	The raw PGO data that must be processed with ``llvm_profdata``.
-+
-+
-+Workflow
-+=3D=3D=3D=3D=3D=3D=3D=3D
-+
-+The PGO kernel can be run on the host or test machines. The data though sh=
-ould
-+be analyzed with Clang's tools from the same Clang version as the kernel w=
-as
-+compiled. Clang's tolerant of version skew, but it's easier to use the sam=
-e
-+Clang version.
-+
-+The profiling data is useful for optimizing the kernel, analyzing coverage=
-,
-+etc. Clang offers tools to perform these tasks.
-+
-+Here is an example workflow for profiling an instrumented kernel with PGO =
-and
-+using the result to optimize the kernel:
-+
-+1) Install the kernel on the TEST machine.
-+
-+2) Reset the data counters right before running the load tests
-+
-+   .. code-block:: sh
-+
-+      echo 1 > /sys/kernel/debug/pgo/reset
-+
-+3) Run the load tests.
-+
-+4) Collect the raw profile data
-+
-+   .. code-block:: sh
-+
-+      cp -a /sys/kernel/debug/pgo/profraw /tmp/vmlinux.profraw
-+
-+5) (Optional) Download the raw profile data to the HOST machine.
-+
-+6) Process the raw profile data
-+
-+   .. code-block:: sh
-+
-+      llvm-profdata merge --output=3Dvmlinux.profdata vmlinux.profraw
-+
-+   Note that multiple raw profile data files can be merged during this ste=
-p.
-+
-+7) Rebuild the kernel using the profile data (PGO disabled)
-+
-+   .. code-block:: sh
-+
-+      make LLVM=3D1 KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata ...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cc1e6a5ee6e67..1b979da316fa4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13954,6 +13954,15 @@ S:	Maintained
- F:	include/linux/personality.h
- F:	include/uapi/linux/personality.h
-=20
-+PGO BASED KERNEL PROFILING
-+M:	Sami Tolvanen <samitolvanen@google.com>
-+M:	Bill Wendling <wcw@google.com>
-+R:	Nathan Chancellor <natechancellor@gmail.com>
-+R:	Nick Desaulniers <ndesaulniers@google.com>
-+S:	Supported
-+F:	Documentation/dev-tools/pgo.rst
-+F:	kernel/pgo
-+
- PHOENIX RC FLIGHT CONTROLLER ADAPTER
- M:	Marcus Folkesson <marcus.folkesson@gmail.com>
- L:	linux-input@vger.kernel.org
-diff --git a/Makefile b/Makefile
-index 9e73f82e0d863..9128bfe1ccc97 100644
---- a/Makefile
-+++ b/Makefile
-@@ -659,6 +659,9 @@ endif # KBUILD_EXTMOD
- # Defaults to vmlinux, but the arch makefile usually adds further targets
- all: vmlinux
-=20
-+CFLAGS_PGO_CLANG :=3D -fprofile-generate
-+export CFLAGS_PGO_CLANG
-+
- CFLAGS_GCOV	:=3D -fprofile-arcs -ftest-coverage \
- 	$(call cc-option,-fno-tree-loop-im) \
- 	$(call cc-disable-warning,maybe-uninitialized,)
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 24862d15f3a36..f39d3991f6bfe 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -1112,6 +1112,7 @@ config ARCH_SPLIT_ARG64
- 	   pairs of 32-bit arguments, select this option.
-=20
- source "kernel/gcov/Kconfig"
-+source "kernel/pgo/Kconfig"
-=20
- source "scripts/gcc-plugins/Kconfig"
-=20
-diff --git a/arch/arm/boot/bootp/Makefile b/arch/arm/boot/bootp/Makefile
-index 981a8d03f064c..523bd58df0a4b 100644
---- a/arch/arm/boot/bootp/Makefile
-+++ b/arch/arm/boot/bootp/Makefile
-@@ -7,6 +7,7 @@
- #
-=20
- GCOV_PROFILE	:=3D n
-+PGO_PROFILE	:=3D n
-=20
- LDFLAGS_bootp	:=3D --no-undefined -X \
- 		 --defsym initrd_phys=3D$(INITRD_PHYS) \
-diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/M=
-akefile
-index fb521efcc6c20..5fd0fd85fc0e5 100644
---- a/arch/arm/boot/compressed/Makefile
-+++ b/arch/arm/boot/compressed/Makefile
-@@ -24,6 +24,7 @@ OBJS		+=3D hyp-stub.o
- endif
-=20
- GCOV_PROFILE		:=3D n
-+PGO_PROFILE		:=3D n
- KASAN_SANITIZE		:=3D n
-=20
- # Prevents link failures: __sanitizer_cov_trace_pc() is not linked in.
-diff --git a/arch/arm/vdso/Makefile b/arch/arm/vdso/Makefile
-index b558bee0e1f6b..11f6ce4b48b56 100644
---- a/arch/arm/vdso/Makefile
-+++ b/arch/arm/vdso/Makefile
-@@ -36,8 +36,9 @@ else
- CFLAGS_vgettimeofday.o =3D -O2 -include $(c-gettimeofday-y)
- endif
-=20
--# Disable gcov profiling for VDSO code
-+# Disable gcov and PGO profiling for VDSO code
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- # Prevents link failures: __sanitizer_cov_trace_pc() is not linked in.
- KCOV_INSTRUMENT :=3D n
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makef=
-ile
-index cd9c3fa25902f..d48fc0df07020 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -41,8 +41,9 @@ ifneq ($(c-gettimeofday-y),)
-   CFLAGS_vgettimeofday.o +=3D -include $(c-gettimeofday-y)
- endif
-=20
--# Disable gcov profiling for VDSO code
-+# Disable gcov and PGO profiling for VDSO code
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- obj-y +=3D vdso.o
- targets +=3D vdso.lds
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Mak=
-efile
-index 1f1e351c5fe2b..ad128ecdbfbdf 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -60,6 +60,7 @@ KBUILD_CFLAGS :=3D $(filter-out $(CC_FLAGS_FTRACE) $(CC_F=
-LAGS_SCS), $(KBUILD_CFLAG
- # compiler instrumentation that inserts callbacks or checks into the code =
-may
- # cause crashes. Just disable it.
- GCOV_PROFILE	:=3D n
-+PGO_PROFILE	:=3D n
- KASAN_SANITIZE	:=3D n
- UBSAN_SANITIZE	:=3D n
- KCOV_INSTRUMENT	:=3D n
-diff --git a/arch/mips/boot/compressed/Makefile b/arch/mips/boot/compressed=
-/Makefile
-index 47cd9dc7454af..0855ea12f2c7f 100644
---- a/arch/mips/boot/compressed/Makefile
-+++ b/arch/mips/boot/compressed/Makefile
-@@ -37,6 +37,7 @@ KBUILD_AFLAGS :=3D $(KBUILD_AFLAGS) -D__ASSEMBLY__ \
- # Prevents link failures: __sanitizer_cov_trace_pc() is not linked in.
- KCOV_INSTRUMENT		:=3D n
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- # decompressor objects (linked with vmlinuz)
- vmlinuzobjs-y :=3D $(obj)/head.o $(obj)/decompress.o $(obj)/string.o
-diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
-index 5810cc12bc1d9..d7eb64de35eae 100644
---- a/arch/mips/vdso/Makefile
-+++ b/arch/mips/vdso/Makefile
-@@ -66,6 +66,7 @@ ldflags-y :=3D -Bsymbolic --no-undefined -soname=3Dlinux-=
-vdso.so.1 \
- CFLAGS_REMOVE_vdso.o =3D -pg
-=20
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
- KCOV_INSTRUMENT :=3D n
-=20
-diff --git a/arch/nds32/kernel/vdso/Makefile b/arch/nds32/kernel/vdso/Makef=
-ile
-index 55df25ef00578..f2b53ee2124b7 100644
---- a/arch/nds32/kernel/vdso/Makefile
-+++ b/arch/nds32/kernel/vdso/Makefile
-@@ -15,9 +15,9 @@ obj-vdso :=3D $(addprefix $(obj)/, $(obj-vdso))
- ccflags-y :=3D -shared -fno-common -fno-builtin -nostdlib -fPIC -Wl,-share=
-d -g \
- 	-Wl,-soname=3Dlinux-vdso.so.1 -Wl,--hash-style=3Dsysv
-=20
--# Disable gcov profiling for VDSO code
-+# Disable gcov and PGO profiling for VDSO code
- GCOV_PROFILE :=3D n
--
-+PGO_PROFILE :=3D n
-=20
- obj-y +=3D vdso.o
- targets +=3D vdso.lds
-diff --git a/arch/parisc/boot/compressed/Makefile b/arch/parisc/boot/compre=
-ssed/Makefile
-index dff4536875305..5cf93a67f7da7 100644
---- a/arch/parisc/boot/compressed/Makefile
-+++ b/arch/parisc/boot/compressed/Makefile
-@@ -7,6 +7,7 @@
-=20
- KCOV_INSTRUMENT :=3D n
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
-=20
- targets :=3D vmlinux.lds vmlinux vmlinux.bin vmlinux.bin.gz vmlinux.bin.bz=
-2
-diff --git a/arch/powerpc/kernel/Makefile b/arch/powerpc/kernel/Makefile
-index fe2ef598e2ead..c642c046660d7 100644
---- a/arch/powerpc/kernel/Makefile
-+++ b/arch/powerpc/kernel/Makefile
-@@ -153,17 +153,21 @@ endif
- obj-$(CONFIG_PPC_SECURE_BOOT)	+=3D secure_boot.o ima_arch.o secvar-ops.o
- obj-$(CONFIG_PPC_SECVAR_SYSFS)	+=3D secvar-sysfs.o
-=20
--# Disable GCOV, KCOV & sanitizers in odd or sensitive code
-+# Disable GCOV, PGO, KCOV & sanitizers in odd or sensitive code
- GCOV_PROFILE_prom_init.o :=3D n
-+PGO_PROFILE_prom_init.o :=3D n
- KCOV_INSTRUMENT_prom_init.o :=3D n
- UBSAN_SANITIZE_prom_init.o :=3D n
- GCOV_PROFILE_kprobes.o :=3D n
-+PGO_PROFILE_kprobes.o :=3D n
- KCOV_INSTRUMENT_kprobes.o :=3D n
- UBSAN_SANITIZE_kprobes.o :=3D n
- GCOV_PROFILE_kprobes-ftrace.o :=3D n
-+PGO_PROFILE_kprobes-ftrace.o :=3D n
- KCOV_INSTRUMENT_kprobes-ftrace.o :=3D n
- UBSAN_SANITIZE_kprobes-ftrace.o :=3D n
- GCOV_PROFILE_syscall_64.o :=3D n
-+PGO_PROFILE_syscall_64.o :=3D n
- KCOV_INSTRUMENT_syscall_64.o :=3D n
- UBSAN_SANITIZE_syscall_64.o :=3D n
- UBSAN_SANITIZE_vdso.o :=3D n
-diff --git a/arch/powerpc/kernel/trace/Makefile b/arch/powerpc/kernel/trace=
-/Makefile
-index 858503775c583..7d72ae7d4f8c6 100644
---- a/arch/powerpc/kernel/trace/Makefile
-+++ b/arch/powerpc/kernel/trace/Makefile
-@@ -23,7 +23,8 @@ obj-$(CONFIG_TRACING)			+=3D trace_clock.o
- obj-$(CONFIG_PPC64)			+=3D $(obj64-y)
- obj-$(CONFIG_PPC32)			+=3D $(obj32-y)
-=20
--# Disable GCOV, KCOV & sanitizers in odd or sensitive code
-+# Disable GCOV, PGO, KCOV & sanitizers in odd or sensitive code
- GCOV_PROFILE_ftrace.o :=3D n
-+PGO_PROFILE_ftrace.o :=3D n
- KCOV_INSTRUMENT_ftrace.o :=3D n
- UBSAN_SANITIZE_ftrace.o :=3D n
-diff --git a/arch/powerpc/kernel/vdso32/Makefile b/arch/powerpc/kernel/vdso=
-32/Makefile
-index 9cb6f524854b9..655e159975a04 100644
---- a/arch/powerpc/kernel/vdso32/Makefile
-+++ b/arch/powerpc/kernel/vdso32/Makefile
-@@ -34,6 +34,7 @@ targets :=3D $(obj-vdso32) vdso32.so.dbg
- obj-vdso32 :=3D $(addprefix $(obj)/, $(obj-vdso32))
-=20
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- KCOV_INSTRUMENT :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-diff --git a/arch/powerpc/kernel/vdso64/Makefile b/arch/powerpc/kernel/vdso=
-64/Makefile
-index bf363ff371521..12c286f5afc16 100644
---- a/arch/powerpc/kernel/vdso64/Makefile
-+++ b/arch/powerpc/kernel/vdso64/Makefile
-@@ -21,6 +21,7 @@ targets :=3D $(obj-vdso64) vdso64.so.dbg
- obj-vdso64 :=3D $(addprefix $(obj)/, $(obj-vdso64))
-=20
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- KCOV_INSTRUMENT :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-diff --git a/arch/powerpc/kexec/Makefile b/arch/powerpc/kexec/Makefile
-index 4aff6846c7726..1c7f65e3cb969 100644
---- a/arch/powerpc/kexec/Makefile
-+++ b/arch/powerpc/kexec/Makefile
-@@ -16,7 +16,8 @@ endif
- endif
-=20
-=20
--# Disable GCOV, KCOV & sanitizers in odd or sensitive code
-+# Disable GCOV, PGO, KCOV & sanitizers in odd or sensitive code
- GCOV_PROFILE_core_$(BITS).o :=3D n
-+PGO_PROFILE_core_$(BITS).o :=3D n
- KCOV_INSTRUMENT_core_$(BITS).o :=3D n
- UBSAN_SANITIZE_core_$(BITS).o :=3D n
-diff --git a/arch/powerpc/xmon/Makefile b/arch/powerpc/xmon/Makefile
-index eb25d7554ffd1..7aff80d18b44b 100644
---- a/arch/powerpc/xmon/Makefile
-+++ b/arch/powerpc/xmon/Makefile
-@@ -2,6 +2,7 @@
- # Makefile for xmon
-=20
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- KCOV_INSTRUMENT :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makef=
-ile
-index 0cfd6da784f84..882340dc3c647 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -32,8 +32,9 @@ CPPFLAGS_vdso.lds +=3D -P -C -U$(ARCH)
- # Disable -pg to prevent insert call site
- CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) -Os
-=20
--# Disable gcov profiling for VDSO code
-+# Disable gcov and PGO profiling for VDSO code
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- KCOV_INSTRUMENT :=3D n
-=20
- # Force dependency
-diff --git a/arch/s390/boot/Makefile b/arch/s390/boot/Makefile
-index 41a64b8dce252..bee4a32040e79 100644
---- a/arch/s390/boot/Makefile
-+++ b/arch/s390/boot/Makefile
-@@ -5,6 +5,7 @@
-=20
- KCOV_INSTRUMENT :=3D n
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-=20
-diff --git a/arch/s390/boot/compressed/Makefile b/arch/s390/boot/compressed=
-/Makefile
-index de18dab518bb6..c3ab883e8425a 100644
---- a/arch/s390/boot/compressed/Makefile
-+++ b/arch/s390/boot/compressed/Makefile
-@@ -7,6 +7,7 @@
-=20
- KCOV_INSTRUMENT :=3D n
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-=20
-diff --git a/arch/s390/kernel/Makefile b/arch/s390/kernel/Makefile
-index dd73b7f074237..bd857aacad794 100644
---- a/arch/s390/kernel/Makefile
-+++ b/arch/s390/kernel/Makefile
-@@ -14,6 +14,7 @@ CFLAGS_REMOVE_early.o		=3D $(CC_FLAGS_FTRACE)
- endif
-=20
- GCOV_PROFILE_early.o		:=3D n
-+PGO_PROFILE_early.o		:=3D n
- KCOV_INSTRUMENT_early.o		:=3D n
- UBSAN_SANITIZE_early.o		:=3D n
- KASAN_SANITIZE_ipl.o		:=3D n
-diff --git a/arch/s390/kernel/vdso64/Makefile b/arch/s390/kernel/vdso64/Mak=
-efile
-index a6e0fb6b91d6c..d7c43b7c1db96 100644
---- a/arch/s390/kernel/vdso64/Makefile
-+++ b/arch/s390/kernel/vdso64/Makefile
-@@ -35,8 +35,9 @@ obj-y +=3D vdso64_wrapper.o
- targets +=3D vdso64.lds
- CPPFLAGS_vdso64.lds +=3D -P -C -U$(ARCH)
-=20
--# Disable gcov profiling, ubsan and kasan for VDSO code
-+# Disable gcov and PGO profiling, ubsan and kasan for VDSO code
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-=20
-diff --git a/arch/s390/purgatory/Makefile b/arch/s390/purgatory/Makefile
-index c57f8c40e9926..9aef584e98466 100644
---- a/arch/s390/purgatory/Makefile
-+++ b/arch/s390/purgatory/Makefile
-@@ -17,6 +17,7 @@ $(obj)/mem.o: $(srctree)/arch/s390/lib/mem.S FORCE
-=20
- KCOV_INSTRUMENT :=3D n
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
- KASAN_SANITIZE :=3D n
-=20
-diff --git a/arch/sh/boot/compressed/Makefile b/arch/sh/boot/compressed/Mak=
-efile
-index 589d2d8a573db..ae19aeeb3964c 100644
---- a/arch/sh/boot/compressed/Makefile
-+++ b/arch/sh/boot/compressed/Makefile
-@@ -13,6 +13,7 @@ targets		:=3D vmlinux vmlinux.bin vmlinux.bin.gz \
- OBJECTS =3D $(obj)/head_32.o $(obj)/misc.o $(obj)/cache.o
-=20
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- #
- # IMAGE_OFFSET is the load offset of the compression loader
-diff --git a/arch/sh/mm/Makefile b/arch/sh/mm/Makefile
-index f69ddc70b1465..ea2782c631f43 100644
---- a/arch/sh/mm/Makefile
-+++ b/arch/sh/mm/Makefile
-@@ -43,3 +43,4 @@ obj-$(CONFIG_UNCACHED_MAPPING)	+=3D uncached.o
- obj-$(CONFIG_HAVE_SRAM_POOL)	+=3D sram.o
-=20
- GCOV_PROFILE_pmb.o :=3D n
-+PGO_PROFILE_pmb.o :=3D n
-diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-index c5e1545bc5cf9..ab5f3783fe199 100644
---- a/arch/sparc/vdso/Makefile
-+++ b/arch/sparc/vdso/Makefile
-@@ -115,6 +115,7 @@ quiet_cmd_vdso =3D VDSO    $@
-=20
- VDSO_LDFLAGS =3D -shared --hash-style=3Dboth --build-id=3Dsha1 -Bsymbolic
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- #
- # Install the unstripped copies of vdso*.so.  If our toolchain supports
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 21f851179ff08..36305ea61dc09 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -96,6 +96,7 @@ config X86
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
- 	select ARCH_SUPPORTS_NUMA_BALANCING	if X86_64
- 	select ARCH_SUPPORTS_KMAP_LOCAL_FORCE_MAP	if NR_CPUS <=3D 4096
-+	select ARCH_SUPPORTS_PGO_CLANG		if X86_64
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_USE_QUEUED_SPINLOCKS
-diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
-index fe605205b4ce2..383853e32f673 100644
---- a/arch/x86/boot/Makefile
-+++ b/arch/x86/boot/Makefile
-@@ -71,6 +71,7 @@ KBUILD_AFLAGS	:=3D $(KBUILD_CFLAGS) -D__ASSEMBLY__
- KBUILD_CFLAGS	+=3D $(call cc-option,-fmacro-prefix-map=3D$(srctree)/=3D)
- KBUILD_CFLAGS	+=3D -fno-asynchronous-unwind-tables
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
-=20
- $(obj)/bzImage: asflags-y  :=3D $(SVGA_MODE)
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/M=
-akefile
-index e0bc3988c3faa..ed12ab65f6065 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -54,6 +54,7 @@ CFLAGS_sev-es.o +=3D -I$(objtree)/arch/x86/lib/
-=20
- KBUILD_AFLAGS  :=3D $(KBUILD_CFLAGS) -D__ASSEMBLY__
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3Dn
-=20
- KBUILD_LDFLAGS :=3D -m elf_$(UTS_MACHINE)
-diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
-index 02e3e42f380bd..26e2b3af0145c 100644
---- a/arch/x86/entry/vdso/Makefile
-+++ b/arch/x86/entry/vdso/Makefile
-@@ -179,6 +179,7 @@ quiet_cmd_vdso =3D VDSO    $@
- VDSO_LDFLAGS =3D -shared --hash-style=3Dboth --build-id=3Dsha1 \
- 	$(call ld-option, --eh-frame-hdr) -Bsymbolic
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- quiet_cmd_vdso_and_check =3D VDSO    $@
-       cmd_vdso_and_check =3D $(cmd_vdso); $(cmd_vdso_check)
-diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-index efd9e9ea17f25..f6cab2316c46a 100644
---- a/arch/x86/kernel/vmlinux.lds.S
-+++ b/arch/x86/kernel/vmlinux.lds.S
-@@ -184,6 +184,8 @@ SECTIONS
-=20
- 	BUG_TABLE
-=20
-+	PGO_CLANG_DATA
-+
- 	ORC_UNWIND_TABLE
-=20
- 	. =3D ALIGN(PAGE_SIZE);
-diff --git a/arch/x86/platform/efi/Makefile b/arch/x86/platform/efi/Makefil=
-e
-index 84b09c230cbd5..5f22b31446ad4 100644
---- a/arch/x86/platform/efi/Makefile
-+++ b/arch/x86/platform/efi/Makefile
-@@ -2,6 +2,7 @@
- OBJECT_FILES_NON_STANDARD_efi_thunk_$(BITS).o :=3D y
- KASAN_SANITIZE :=3D n
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- obj-$(CONFIG_EFI) 		+=3D quirks.o efi.o efi_$(BITS).o efi_stub_$(BITS).o
- obj-$(CONFIG_EFI_MIXED)		+=3D efi_thunk_$(BITS).o
-diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-index 95ea17a9d20cb..36f20e99da0bc 100644
---- a/arch/x86/purgatory/Makefile
-+++ b/arch/x86/purgatory/Makefile
-@@ -23,6 +23,7 @@ targets +=3D purgatory.ro purgatory.chk
-=20
- # Sanitizer, etc. runtimes are unavailable and cannot be linked here.
- GCOV_PROFILE	:=3D n
-+PGO_PROFILE	:=3D n
- KASAN_SANITIZE	:=3D n
- UBSAN_SANITIZE	:=3D n
- KCSAN_SANITIZE	:=3D n
-diff --git a/arch/x86/realmode/rm/Makefile b/arch/x86/realmode/rm/Makefile
-index 83f1b6a56449f..21797192f958f 100644
---- a/arch/x86/realmode/rm/Makefile
-+++ b/arch/x86/realmode/rm/Makefile
-@@ -76,4 +76,5 @@ KBUILD_CFLAGS	:=3D $(REALMODE_CFLAGS) -D_SETUP -D_WAKEUP =
-\
- KBUILD_AFLAGS	:=3D $(KBUILD_CFLAGS) -D__ASSEMBLY__
- KBUILD_CFLAGS	+=3D -fno-asynchronous-unwind-tables
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
- UBSAN_SANITIZE :=3D n
-diff --git a/arch/x86/um/vdso/Makefile b/arch/x86/um/vdso/Makefile
-index 5943387e3f357..54f5768f58530 100644
---- a/arch/x86/um/vdso/Makefile
-+++ b/arch/x86/um/vdso/Makefile
-@@ -64,6 +64,7 @@ quiet_cmd_vdso =3D VDSO    $@
-=20
- VDSO_LDFLAGS =3D -fPIC -shared -Wl,--hash-style=3Dsysv
- GCOV_PROFILE :=3D n
-+PGO_PROFILE :=3D n
-=20
- #
- # Install the unstripped copy of vdso*.so listed in $(vdso-install-y).
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/l=
-ibstub/Makefile
-index 8a94388e38b33..2d81623b33f29 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -40,6 +40,7 @@ KBUILD_CFLAGS			:=3D $(cflags-y) -Os -DDISABLE_BRANCH_PRO=
-FILING \
- KBUILD_CFLAGS :=3D $(filter-out $(CC_FLAGS_SCS), $(KBUILD_CFLAGS))
-=20
- GCOV_PROFILE			:=3D n
-+PGO_PROFILE			:=3D n
- # Sanitizer runtimes are unavailable and cannot be linked here.
- KASAN_SANITIZE			:=3D n
- KCSAN_SANITIZE			:=3D n
-diff --git a/drivers/s390/char/Makefile b/drivers/s390/char/Makefile
-index c6fdb81a068a6..bf6c5db5da1fc 100644
---- a/drivers/s390/char/Makefile
-+++ b/drivers/s390/char/Makefile
-@@ -9,6 +9,7 @@ CFLAGS_REMOVE_sclp_early_core.o	=3D $(CC_FLAGS_FTRACE)
- endif
-=20
- GCOV_PROFILE_sclp_early_core.o		:=3D n
-+PGO_PROFILE_sclp_early_core.o		:=3D n
- KCOV_INSTRUMENT_sclp_early_core.o	:=3D n
- UBSAN_SANITIZE_sclp_early_core.o	:=3D n
- KASAN_SANITIZE_sclp_early_core.o	:=3D n
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinu=
-x.lds.h
-index b2b3d81b1535a..3a591bb18c5fb 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -316,6 +316,49 @@
- #define THERMAL_TABLE(name)
- #endif
-=20
-+#ifdef CONFIG_PGO_CLANG
-+#define PGO_CLANG_DATA							\
-+	__llvm_prf_data : AT(ADDR(__llvm_prf_data) - LOAD_OFFSET) {	\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_start =3D .;					\
-+		__llvm_prf_data_start =3D .;				\
-+		KEEP(*(__llvm_prf_data))				\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_data_end =3D .;				\
-+	}								\
-+	__llvm_prf_cnts : AT(ADDR(__llvm_prf_cnts) - LOAD_OFFSET) {	\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_cnts_start =3D .;				\
-+		KEEP(*(__llvm_prf_cnts))				\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_cnts_end =3D .;				\
-+	}								\
-+	__llvm_prf_names : AT(ADDR(__llvm_prf_names) - LOAD_OFFSET) {	\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_names_start =3D .;				\
-+		KEEP(*(__llvm_prf_names))				\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_names_end =3D .;				\
-+		. =3D ALIGN(8);						\
-+	}								\
-+	__llvm_prf_vals : AT(ADDR(__llvm_prf_vals) - LOAD_OFFSET) {	\
-+		__llvm_prf_vals_start =3D .;				\
-+		KEEP(*(__llvm_prf_vals))				\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_vals_end =3D .;				\
-+		. =3D ALIGN(8);						\
-+	}								\
-+	__llvm_prf_vnds : AT(ADDR(__llvm_prf_vnds) - LOAD_OFFSET) {	\
-+		__llvm_prf_vnds_start =3D .;				\
-+		KEEP(*(__llvm_prf_vnds))				\
-+		. =3D ALIGN(8);						\
-+		__llvm_prf_vnds_end =3D .;				\
-+		__llvm_prf_end =3D .;					\
-+	}
-+#else
-+#define PGO_CLANG_DATA
-+#endif
-+
- #define KERNEL_DTB()							\
- 	STRUCT_ALIGN();							\
- 	__dtb_start =3D .;						\
-@@ -1125,6 +1168,7 @@
- 		CONSTRUCTORS						\
- 	}								\
- 	BUG_TABLE							\
-+	PGO_CLANG_DATA
-=20
- #define INIT_TEXT_SECTION(inittext_align)				\
- 	. =3D ALIGN(inittext_align);					\
-diff --git a/kernel/Makefile b/kernel/Makefile
-index aa7368c7eabf3..0b34ca228ba46 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -111,6 +111,7 @@ obj-$(CONFIG_BPF) +=3D bpf/
- obj-$(CONFIG_KCSAN) +=3D kcsan/
- obj-$(CONFIG_SHADOW_CALL_STACK) +=3D scs.o
- obj-$(CONFIG_HAVE_STATIC_CALL_INLINE) +=3D static_call.o
-+obj-$(CONFIG_PGO_CLANG) +=3D pgo/
-=20
- obj-$(CONFIG_PERF_EVENTS) +=3D events/
-=20
-diff --git a/kernel/pgo/Kconfig b/kernel/pgo/Kconfig
-new file mode 100644
-index 0000000000000..318d36bb3d106
---- /dev/null
-+++ b/kernel/pgo/Kconfig
-@@ -0,0 +1,34 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+menu "Profile Guided Optimization (PGO) (EXPERIMENTAL)"
-+
-+config ARCH_SUPPORTS_PGO_CLANG
-+	bool
-+
-+config PGO_CLANG
-+	bool "Enable clang's PGO-based kernel profiling"
-+	depends on DEBUG_FS
-+	depends on ARCH_SUPPORTS_PGO_CLANG
-+	help
-+	  This option enables clang's PGO (Profile Guided Optimization) based
-+	  code profiling to better optimize the kernel.
-+
-+	  If unsure, say N.
-+
-+	  Run a representative workload for your application on a kernel
-+	  compiled with this option and download the raw profile file from
-+	  /sys/kernel/debug/pgo/profraw. This file needs to be processed with
-+	  llvm-profdata. It may be merged with other collected raw profiles.
-+
-+	  Copy the resulting profile file into vmlinux.profdata, and enable
-+	  KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata to produce an optimized
-+	  kernel.
-+
-+	  Note that a kernel compiled with profiling flags will be
-+	  significatnly larger and run slower. Also be sure to exclude files
-+	  from profiling which are not linked to the kernel image to prevent
-+	  linker errors.
-+
-+	  Note that the debugfs filesystem has to be mounted to access
-+	  profiling data.
-+
-+endmenu
-diff --git a/kernel/pgo/Makefile b/kernel/pgo/Makefile
-new file mode 100644
-index 0000000000000..41e27cefd9a47
---- /dev/null
-+++ b/kernel/pgo/Makefile
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
-+GCOV_PROFILE	:=3D n
-+PGO_PROFILE	:=3D n
-+
-+obj-y	+=3D fs.o instrument.o
-diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-new file mode 100644
-index 0000000000000..790a8df037bfc
---- /dev/null
-+++ b/kernel/pgo/fs.c
-@@ -0,0 +1,382 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2019 Google, Inc.
-+ *
-+ * Author:
-+ *	Sami Tolvanen <samitolvanen@google.com>
-+ *
-+ * This software is licensed under the terms of the GNU General Public
-+ * License version 2, as published by the Free Software Foundation, and
-+ * may be copied, distributed, and modified under those terms.
-+ *
-+ * This program is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ * GNU General Public License for more details.
-+ *
-+ */
-+
-+#define pr_fmt(fmt)	"pgo: " fmt
-+
-+#include <linux/kernel.h>
-+#include <linux/debugfs.h>
-+#include <linux/fs.h>
-+#include <linux/module.h>
-+#include <linux/slab.h>
-+#include <linux/vmalloc.h>
-+#include "pgo.h"
-+
-+static struct dentry *directory;
-+
-+struct prf_private_data {
-+	void *buffer;
-+	unsigned long size;
-+};
-+
-+/*
-+ * Raw profile data format:
-+ *
-+ *	- llvm_prf_header
-+ *	- __llvm_prf_data
-+ *	- __llvm_prf_cnts
-+ *	- __llvm_prf_names
-+ *	- zero padding to 8 bytes
-+ *	- for each llvm_prf_data in __llvm_prf_data:
-+ *		- llvm_prf_value_data
-+ *			- llvm_prf_value_record + site count array
-+ *				- llvm_prf_value_node_data
-+ *				...
-+ *			...
-+ *		...
-+ */
-+
-+static void prf_fill_header(void **buffer)
-+{
-+	struct llvm_prf_header *header =3D *(struct llvm_prf_header **)buffer;
-+
-+	header->magic =3D LLVM_PRF_MAGIC;
-+	header->version =3D LLVM_PRF_VARIANT_MASK_IR | LLVM_PRF_VERSION;
-+	header->data_size =3D prf_data_count();
-+	header->padding_bytes_before_counters =3D 0;
-+	header->counters_size =3D prf_cnts_count();
-+	header->padding_bytes_after_counters =3D 0;
-+	header->names_size =3D prf_names_count();
-+	header->counters_delta =3D (u64)__llvm_prf_cnts_start;
-+	header->names_delta =3D (u64)__llvm_prf_names_start;
-+	header->value_kind_last =3D LLVM_PRF_IPVK_LAST;
-+
-+	*buffer +=3D sizeof(*header);
-+}
-+
-+/*
-+ * Copy the source into the buffer, incrementing the pointer into buffer i=
-n the
-+ * process.
-+ */
-+static void prf_copy_to_buffer(void **buffer, void *src, unsigned long siz=
-e)
-+{
-+	memcpy(*buffer, src, size);
-+	*buffer +=3D size;
-+}
-+
-+static u32 __prf_get_value_size(struct llvm_prf_data *p, u32 *value_kinds)
-+{
-+	struct llvm_prf_value_node **nodes =3D
-+		(struct llvm_prf_value_node **)p->values;
-+	u32 kinds =3D 0;
-+	u32 size =3D 0;
-+	unsigned int kind;
-+	unsigned int n;
-+	unsigned int s =3D 0;
-+
-+	for (kind =3D 0; kind < ARRAY_SIZE(p->num_value_sites); kind++) {
-+		unsigned int sites =3D p->num_value_sites[kind];
-+
-+		if (!sites)
-+			continue;
-+
-+		/* Record + site count array */
-+		size +=3D prf_get_value_record_size(sites);
-+		kinds++;
-+
-+		if (!nodes)
-+			continue;
-+
-+		for (n =3D 0; n < sites; n++) {
-+			u32 count =3D 0;
-+			struct llvm_prf_value_node *site =3D nodes[s + n];
-+
-+			while (site && ++count <=3D U8_MAX)
-+				site =3D site->next;
-+
-+			size +=3D count *
-+				sizeof(struct llvm_prf_value_node_data);
-+		}
-+
-+		s +=3D sites;
-+	}
-+
-+	if (size)
-+		size +=3D sizeof(struct llvm_prf_value_data);
-+
-+	if (value_kinds)
-+		*value_kinds =3D kinds;
-+
-+	return size;
-+}
-+
-+static u32 prf_get_value_size(void)
-+{
-+	u32 size =3D 0;
-+	struct llvm_prf_data *p;
-+
-+	for (p =3D __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
-+		size +=3D __prf_get_value_size(p, NULL);
-+
-+	return size;
-+}
-+
-+/* Serialize the profiling's value. */
-+static void prf_serialize_value(struct llvm_prf_data *p, void **buffer)
-+{
-+	struct llvm_prf_value_data header;
-+	struct llvm_prf_value_node **nodes =3D
-+		(struct llvm_prf_value_node **)p->values;
-+	unsigned int kind;
-+	unsigned int n;
-+	unsigned int s =3D 0;
-+
-+	header.total_size =3D __prf_get_value_size(p, &header.num_value_kinds);
-+
-+	if (!header.num_value_kinds)
-+		/* Nothing to write. */
-+		return;
-+
-+	prf_copy_to_buffer(buffer, &header, sizeof(header));
-+
-+	for (kind =3D 0; kind < ARRAY_SIZE(p->num_value_sites); kind++) {
-+		struct llvm_prf_value_record *record;
-+		u8 *counts;
-+		unsigned int sites =3D p->num_value_sites[kind];
-+
-+		if (!sites)
-+			continue;
-+
-+		/* Profiling value record. */
-+		record =3D *(struct llvm_prf_value_record **)buffer;
-+		*buffer +=3D prf_get_value_record_header_size();
-+
-+		record->kind =3D kind;
-+		record->num_value_sites =3D sites;
-+
-+		/* Site count array. */
-+		counts =3D *(u8 **)buffer;
-+		*buffer +=3D prf_get_value_record_site_count_size(sites);
-+
-+		/*
-+		 * If we don't have nodes, we can skip updating the site count
-+		 * array, because the buffer is zero filled.
-+		 */
-+		if (!nodes)
-+			continue;
-+
-+		for (n =3D 0; n < sites; n++) {
-+			u32 count =3D 0;
-+			struct llvm_prf_value_node *site =3D nodes[s + n];
-+
-+			while (site && ++count <=3D U8_MAX) {
-+				prf_copy_to_buffer(buffer, site,
-+						   sizeof(struct llvm_prf_value_node_data));
-+				site =3D site->next;
-+			}
-+
-+			counts[n] =3D (u8)count;
-+		}
-+
-+		s +=3D sites;
-+	}
-+}
-+
-+static void prf_serialize_values(void **buffer)
-+{
-+	struct llvm_prf_data *p;
-+
-+	for (p =3D __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
-+		prf_serialize_value(p, buffer);
-+}
-+
-+static inline unsigned long prf_get_padding(unsigned long size)
-+{
-+	return 8 - (size % 8);
-+}
-+
-+static unsigned long prf_buffer_size(void)
-+{
-+	return sizeof(struct llvm_prf_header) +
-+			prf_data_size()	+
-+			prf_cnts_size() +
-+			prf_names_size() +
-+			prf_get_padding(prf_names_size()) +
-+			prf_get_value_size();
-+}
-+
-+/* Serialize the profling data into a format LLVM's tools can understand. =
-*/
-+static int prf_serialize(struct prf_private_data *p)
-+{
-+	int err =3D 0;
-+	void *buffer;
-+
-+	p->size =3D prf_buffer_size();
-+	p->buffer =3D vzalloc(p->size);
-+
-+	if (!p->buffer) {
-+		err =3D -ENOMEM;
-+		goto out;
-+	}
-+
-+	buffer =3D p->buffer;
-+
-+	prf_fill_header(&buffer);
-+	prf_copy_to_buffer(&buffer, __llvm_prf_data_start,  prf_data_size());
-+	prf_copy_to_buffer(&buffer, __llvm_prf_cnts_start,  prf_cnts_size());
-+	prf_copy_to_buffer(&buffer, __llvm_prf_names_start, prf_names_size());
-+	buffer +=3D prf_get_padding(prf_names_size());
-+
-+	prf_serialize_values(&buffer);
-+
-+out:
-+	return err;
-+}
-+
-+/* open() implementation for PGO. Creates a copy of the profiling data set=
-. */
-+static int prf_open(struct inode *inode, struct file *file)
-+{
-+	struct prf_private_data *data;
-+	unsigned long flags;
-+	int err;
-+
-+	data =3D kzalloc(sizeof(*data), GFP_KERNEL);
-+	if (!data) {
-+		err =3D -ENOMEM;
-+		goto out;
-+	}
-+
-+	flags =3D prf_lock();
-+
-+	err =3D prf_serialize(data);
-+	if (err) {
-+		kfree(data);
-+		goto out_unlock;
-+	}
-+
-+	file->private_data =3D data;
-+
-+out_unlock:
-+	prf_unlock(flags);
-+out:
-+	return err;
-+}
-+
-+/* read() implementation for PGO. */
-+static ssize_t prf_read(struct file *file, char __user *buf, size_t count,
-+			loff_t *ppos)
-+{
-+	struct prf_private_data *data =3D file->private_data;
-+
-+	BUG_ON(!data);
-+
-+	return simple_read_from_buffer(buf, count, ppos, data->buffer,
-+				       data->size);
-+}
-+
-+/* release() implementation for PGO. Release resources allocated by open()=
-. */
-+static int prf_release(struct inode *inode, struct file *file)
-+{
-+	struct prf_private_data *data =3D file->private_data;
-+
-+	if (data) {
-+		vfree(data->buffer);
-+		kfree(data);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct file_operations prf_fops =3D {
-+	.owner		=3D THIS_MODULE,
-+	.open		=3D prf_open,
-+	.read		=3D prf_read,
-+	.llseek		=3D default_llseek,
-+	.release	=3D prf_release
-+};
-+
-+/* write() implementation for resetting PGO's profile data. */
-+static ssize_t reset_write(struct file *file, const char __user *addr,
-+			   size_t len, loff_t *pos)
-+{
-+	struct llvm_prf_data *data;
-+
-+	memset(__llvm_prf_cnts_start, 0, prf_cnts_size());
-+
-+	for (data =3D __llvm_prf_data_start; data < __llvm_prf_data_end; ++data) =
-{
-+		struct llvm_prf_value_node **vnodes;
-+		u64 current_vsite_count;
-+		u32 i;
-+
-+		if (!data->values)
-+			continue;
-+
-+		current_vsite_count =3D 0;
-+		vnodes =3D (struct llvm_prf_value_node **)data->values;
-+
-+		for (i =3D LLVM_PRF_IPVK_FIRST; i <=3D LLVM_PRF_IPVK_LAST; ++i)
-+			current_vsite_count +=3D data->num_value_sites[i];
-+
-+		for (i =3D 0; i < current_vsite_count; ++i) {
-+			struct llvm_prf_value_node *current_vnode =3D vnodes[i];
-+
-+			while (current_vnode) {
-+				current_vnode->count =3D 0;
-+				current_vnode =3D current_vnode->next;
-+			}
-+		}
-+	}
-+
-+	return len;
-+}
-+
-+static const struct file_operations prf_reset_fops =3D {
-+	.owner		=3D THIS_MODULE,
-+	.write		=3D reset_write,
-+	.llseek		=3D noop_llseek,
-+};
-+
-+/* Create debugfs entries. */
-+static int __init pgo_init(void)
-+{
-+	directory =3D debugfs_create_dir("pgo", NULL);
-+	if (!directory)
-+		goto err_remove;
-+
-+	if (!debugfs_create_file("profraw", 0600, directory, NULL,
-+				 &prf_fops))
-+		goto err_remove;
-+
-+	if (!debugfs_create_file("reset", 0200, directory, NULL,
-+				 &prf_reset_fops))
-+		goto err_remove;
-+
-+	return 0;
-+
-+err_remove:
-+	pr_err("initialization failed\n");
-+	return -EIO;
-+}
-+
-+/* Remove debufs entries. */
-+static void __exit pgo_exit(void)
-+{
-+	debugfs_remove_recursive(directory);
-+}
-+
-+module_init(pgo_init);
-+module_exit(pgo_exit);
-diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-new file mode 100644
-index 0000000000000..465615b7f8735
---- /dev/null
-+++ b/kernel/pgo/instrument.c
-@@ -0,0 +1,188 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2019 Google, Inc.
-+ *
-+ * Author:
-+ *	Sami Tolvanen <samitolvanen@google.com>
-+ *
-+ * This software is licensed under the terms of the GNU General Public
-+ * License version 2, as published by the Free Software Foundation, and
-+ * may be copied, distributed, and modified under those terms.
-+ *
-+ * This program is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ * GNU General Public License for more details.
-+ *
-+ */
-+
-+#define pr_fmt(fmt)	"pgo: " fmt
-+
-+#include <linux/kernel.h>
-+#include <linux/export.h>
-+#include <linux/spinlock.h>
-+#include <linux/types.h>
-+#include "pgo.h"
-+
-+/* Lock guarding value node access and serialization. */
-+static DEFINE_SPINLOCK(pgo_lock);
-+static int current_node;
-+
-+unsigned long prf_lock(void)
-+{
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&pgo_lock, flags);
-+
-+	return flags;
-+}
-+
-+void prf_unlock(unsigned long flags)
-+{
-+	spin_unlock_irqrestore(&pgo_lock, flags);
-+}
-+
-+/*
-+ * Return a newly allocated profiling value node which contains the tracke=
-d
-+ * value by the value profiler.
-+ * Note: caller *must* hold pgo_lock.
-+ */
-+static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
-+						 u32 index, u64 value)
-+{
-+	if (&__llvm_prf_vnds_start[current_node + 1] >=3D __llvm_prf_vnds_end)
-+		return NULL; /* Out of nodes */
-+
-+	current_node++;
-+
-+	/* Make sure the node is entirely within the section */
-+	if (&__llvm_prf_vnds_start[current_node] >=3D __llvm_prf_vnds_end ||
-+	    &__llvm_prf_vnds_start[current_node + 1] > __llvm_prf_vnds_end)
-+		return NULL;
-+
-+	return &__llvm_prf_vnds_start[current_node];
-+}
-+
-+/*
-+ * Counts the number of times a target value is seen.
-+ *
-+ * Records the target value for the CounterIndex if not seen before. Other=
-wise,
-+ * increments the counter associated w/ the target value.
-+ */
-+void __llvm_profile_instrument_target(u64 target_value, void *data, u32 in=
-dex)
-+{
-+	struct llvm_prf_data *p =3D (struct llvm_prf_data *)data;
-+	struct llvm_prf_value_node **counters;
-+	struct llvm_prf_value_node *curr;
-+	struct llvm_prf_value_node *min =3D NULL;
-+	struct llvm_prf_value_node *prev =3D NULL;
-+	u64 min_count =3D U64_MAX;
-+	u8 values =3D 0;
-+	unsigned long flags;
-+
-+	if (!p || !p->values)
-+		return;
-+
-+	counters =3D (struct llvm_prf_value_node **)p->values;
-+	curr =3D counters[index];
-+
-+	while (curr) {
-+		if (target_value =3D=3D curr->value) {
-+			curr->count++;
-+			return;
-+		}
-+
-+		if (curr->count < min_count) {
-+			min_count =3D curr->count;
-+			min =3D curr;
-+		}
-+
-+		prev =3D curr;
-+		curr =3D curr->next;
-+		values++;
-+	}
-+
-+	if (values >=3D LLVM_PRF_MAX_NUM_VALS_PER_SITE) {
-+		if (!min->count || !(--min->count)) {
-+			curr =3D min;
-+			curr->value =3D target_value;
-+			curr->count++;
-+		}
-+		return;
-+	}
-+
-+	/* Lock when updating the value node structure. */
-+	flags =3D prf_lock();
-+
-+	curr =3D allocate_node(p, index, target_value);
-+	if (!curr)
-+		goto out;
-+
-+	curr->value =3D target_value;
-+	curr->count++;
-+
-+	if (!counters[index])
-+		counters[index] =3D curr;
-+	else if (prev && !prev->next)
-+		prev->next =3D curr;
-+
-+out:
-+	prf_unlock(flags);
-+}
-+EXPORT_SYMBOL(__llvm_profile_instrument_target);
-+
-+/* Counts the number of times a range of targets values are seen. */
-+void __llvm_profile_instrument_range(u64 target_value, void *data,
-+				     u32 index, s64 precise_start,
-+				     s64 precise_last, s64 large_value)
-+{
-+	if (large_value !=3D S64_MIN && (s64)target_value >=3D large_value)
-+		target_value =3D large_value;
-+	else if ((s64)target_value < precise_start ||
-+		 (s64)target_value > precise_last)
-+		target_value =3D precise_last + 1;
-+
-+	__llvm_profile_instrument_target(target_value, data, index);
-+}
-+EXPORT_SYMBOL(__llvm_profile_instrument_range);
-+
-+static inline int inst_prof_popcount(unsigned long long value)
-+{
-+	value =3D value - ((value >> 1) & 0x5555555555555555ULL);
-+	value =3D (value & 0x3333333333333333ULL) +
-+		((value >> 2) & 0x3333333333333333ULL);
-+	value =3D (value + (value >> 4)) & 0x0F0F0F0F0F0F0F0FULL;
-+
-+	return (int)((unsigned long long)(value * 0x0101010101010101ULL) >> 56);
-+}
-+
-+static u64 inst_prof_get_range_rep_value(u64 value)
-+{
-+	if (value <=3D 8)
-+		/* The first ranges are individually tracked, us it as is. */
-+		return value;
-+	else if (value >=3D 513)
-+		/* The last range is mapped to its lowest value. */
-+		return 513;
-+	else if (inst_prof_popcount(value) =3D=3D 1)
-+		/* If it's a power of two, use it as is. */
-+		return value;
-+
-+	/* Otherwise, take to the previous power of two + 1. */
-+	return (1 << (64 - __builtin_clzll(value) - 1)) + 1;
-+}
-+
-+/*
-+ * The target values are partitioned into multiple ranges. The range spec =
-is
-+ * defined in compiler-rt/include/profile/InstrProfData.inc.
-+ */
-+void __llvm_profile_instrument_memop(u64 target_value, void *data,
-+				     u32 counter_index)
-+{
-+	u64 rep_value;
-+
-+	/* Map the target value to the representative value of its range. */
-+	rep_value =3D inst_prof_get_range_rep_value(target_value);
-+	__llvm_profile_instrument_target(rep_value, data, counter_index);
-+}
-+EXPORT_SYMBOL(__llvm_profile_instrument_memop);
-diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
-new file mode 100644
-index 0000000000000..df0aa278f28bd
---- /dev/null
-+++ b/kernel/pgo/pgo.h
-@@ -0,0 +1,206 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2019 Google, Inc.
-+ *
-+ * Author:
-+ *	Sami Tolvanen <samitolvanen@google.com>
-+ *
-+ * This software is licensed under the terms of the GNU General Public
-+ * License version 2, as published by the Free Software Foundation, and
-+ * may be copied, distributed, and modified under those terms.
-+ *
-+ * This program is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ * GNU General Public License for more details.
-+ *
-+ */
-+
-+#ifndef _PGO_H
-+#define _PGO_H
-+
-+/*
-+ * Note: These internal LLVM definitions must match the compiler version.
-+ * See llvm/include/llvm/ProfileData/InstrProfData.inc in LLVM's source co=
-de.
-+ */
-+
-+#ifdef CONFIG_64BIT
-+	#define LLVM_PRF_MAGIC		\
-+		((u64)255 << 56 |	\
-+		 (u64)'l' << 48 |	\
-+		 (u64)'p' << 40 |	\
-+		 (u64)'r' << 32 |	\
-+		 (u64)'o' << 24 |	\
-+		 (u64)'f' << 16 |	\
-+		 (u64)'r' << 8  |	\
-+		 (u64)129)
-+#else
-+	#define LLVM_PRF_MAGIC		\
-+		((u64)255 << 56 |	\
-+		 (u64)'l' << 48 |	\
-+		 (u64)'p' << 40 |	\
-+		 (u64)'r' << 32 |	\
-+		 (u64)'o' << 24 |	\
-+		 (u64)'f' << 16 |	\
-+		 (u64)'R' << 8  |	\
-+		 (u64)129)
-+#endif
-+
-+#define LLVM_PRF_VERSION		5
-+#define LLVM_PRF_DATA_ALIGN		8
-+#define LLVM_PRF_IPVK_FIRST		0
-+#define LLVM_PRF_IPVK_LAST		1
-+#define LLVM_PRF_MAX_NUM_VALS_PER_SITE	16
-+
-+#define LLVM_PRF_VARIANT_MASK_IR	(0x1ull << 56)
-+#define LLVM_PRF_VARIANT_MASK_CSIR	(0x1ull << 57)
-+
-+/**
-+ * struct llvm_prf_header - represents the raw profile header data structu=
-re.
-+ * @magic: the magic token for the file format.
-+ * @version: the version of the file format.
-+ * @data_size: the number of entries in the profile data section.
-+ * @padding_bytes_before_counters: the number of padding bytes before the
-+ *   counters.
-+ * @counters_size: the size in bytes of the LLVM profile section containin=
-g the
-+ *   counters.
-+ * @padding_bytes_after_counters: the number of padding bytes after the
-+ *   counters.
-+ * @names_size: the size in bytes of the LLVM profile section containing t=
-he
-+ *   counters' names.
-+ * @counters_delta: the beginning of the LLMV profile counters section.
-+ * @names_delta: the beginning of the LLMV profile names section.
-+ * @value_kind_last: the last profile value kind.
-+ */
-+struct llvm_prf_header {
-+	u64 magic;
-+	u64 version;
-+	u64 data_size;
-+	u64 padding_bytes_before_counters;
-+	u64 counters_size;
-+	u64 padding_bytes_after_counters;
-+	u64 names_size;
-+	u64 counters_delta;
-+	u64 names_delta;
-+	u64 value_kind_last;
-+};
-+
-+/**
-+ * struct llvm_prf_data - represents the per-function control structure.
-+ * @name_ref: the reference to the function's name.
-+ * @func_hash: the hash value of the function.
-+ * @counter_ptr: a pointer to the profile counter.
-+ * @function_ptr: a pointer to the function.
-+ * @values: the profiling values associated with this function.
-+ * @num_counters: the number of counters in the function.
-+ * @num_value_sites: the number of value profile sites.
-+ */
-+struct llvm_prf_data {
-+	const u64 name_ref;
-+	const u64 func_hash;
-+	const void *counter_ptr;
-+	const void *function_ptr;
-+	void *values;
-+	const u32 num_counters;
-+	const u16 num_value_sites[LLVM_PRF_IPVK_LAST + 1];
-+} __aligned(LLVM_PRF_DATA_ALIGN);
-+
-+/**
-+ * structure llvm_prf_value_node_data - represents the data part of the st=
-ruct
-+ *   llvm_prf_value_node data structure.
-+ * @value: the value counters.
-+ * @count: the counters' count.
-+ */
-+struct llvm_prf_value_node_data {
-+	u64 value;
-+	u64 count;
-+};
-+
-+/**
-+ * struct llvm_prf_value_node - represents an internal data structure used=
- by
-+ *   the value profiler.
-+ * @value: the value counters.
-+ * @count: the counters' count.
-+ * @next: the next value node.
-+ */
-+struct llvm_prf_value_node {
-+	u64 value;
-+	u64 count;
-+	struct llvm_prf_value_node *next;
-+};
-+
-+/**
-+ * struct llvm_prf_value_data - represents the value profiling data in ind=
-exed
-+ *   format.
-+ * @total_size: the total size in bytes including this field.
-+ * @num_value_kinds: the number of value profile kinds that has value prof=
-ile
-+ *   data.
-+ */
-+struct llvm_prf_value_data {
-+	u32 total_size;
-+	u32 num_value_kinds;
-+};
-+
-+/**
-+ * struct llvm_prf_value_record - represents the on-disk layout of the val=
-ue
-+ *   profile data of a particular kind for one function.
-+ * @kind: the kind of the value profile record.
-+ * @num_value_sites: the number of value profile sites.
-+ * @site_count_array: the first element of the array that stores the numbe=
-r
-+ *   of profiled values for each value site.
-+ */
-+struct llvm_prf_value_record {
-+	u32 kind;
-+	u32 num_value_sites;
-+	u8 site_count_array[];
-+};
-+
-+#define prf_get_value_record_header_size()		\
-+	offsetof(struct llvm_prf_value_record, site_count_array)
-+#define prf_get_value_record_site_count_size(sites)	\
-+	roundup((sites), 8)
-+#define prf_get_value_record_size(sites)		\
-+	(prf_get_value_record_header_size() +		\
-+	 prf_get_value_record_site_count_size((sites)))
-+
-+/* Data sections */
-+extern struct llvm_prf_data __llvm_prf_data_start[];
-+extern struct llvm_prf_data __llvm_prf_data_end[];
-+
-+extern u64 __llvm_prf_cnts_start[];
-+extern u64 __llvm_prf_cnts_end[];
-+
-+extern char __llvm_prf_names_start[];
-+extern char __llvm_prf_names_end[];
-+
-+extern struct llvm_prf_value_node __llvm_prf_vnds_start[];
-+extern struct llvm_prf_value_node __llvm_prf_vnds_end[];
-+
-+/* Locking for vnodes */
-+extern unsigned long prf_lock(void);
-+extern void prf_unlock(unsigned long flags);
-+
-+#define __DEFINE_PRF_SIZE(s) \
-+	static inline unsigned long prf_ ## s ## _size(void)		\
-+	{								\
-+		unsigned long start =3D					\
-+			(unsigned long)__llvm_prf_ ## s ## _start;	\
-+		unsigned long end =3D					\
-+			(unsigned long)__llvm_prf_ ## s ## _end;	\
-+		return roundup(end - start,				\
-+				sizeof(__llvm_prf_ ## s ## _start[0]));	\
-+	}								\
-+	static inline unsigned long prf_ ## s ## _count(void)		\
-+	{								\
-+		return prf_ ## s ## _size() /				\
-+			sizeof(__llvm_prf_ ## s ## _start[0]);		\
-+	}
-+
-+__DEFINE_PRF_SIZE(data);
-+__DEFINE_PRF_SIZE(cnts);
-+__DEFINE_PRF_SIZE(names);
-+__DEFINE_PRF_SIZE(vnds);
-+
-+#undef __DEFINE_PRF_SIZE
-+
-+#endif /* _PGO_H */
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 213677a5ed33e..9b218afb5cb87 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -143,6 +143,16 @@ _c_flags +=3D $(if $(patsubst n%,, \
- 		$(CFLAGS_GCOV))
- endif
-=20
-+#
-+# Enable clang's PGO profiling flags for a file or directory depending on
-+# variables PGO_PROFILE_obj.o and PGO_PROFILE.
-+#
-+ifeq ($(CONFIG_PGO_CLANG),y)
-+_c_flags +=3D $(if $(patsubst n%,, \
-+		$(PGO_PROFILE_$(basetarget).o)$(PGO_PROFILE)y), \
-+		$(CFLAGS_PGO_CLANG))
-+endif
-+
- #
- # Enable address sanitizer flags for kernel except some files or directori=
-es
- # we don't want to check (depends on variables KASAN_SANITIZE_obj.o, KASAN=
-_SANITIZE)
---=20
-2.30.0.284.gd98b1dd5eaa7-goog
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202101121454.ROMX16qs-lkp%40intel.com.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210112053113.4180271-1-morbo%40google.com.
+--Q68bSM7Ycu6FN28Q
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+
+--Q68bSM7Ycu6FN28Q--
