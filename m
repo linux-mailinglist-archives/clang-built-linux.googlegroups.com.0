@@ -1,129 +1,122 @@
-Return-Path: <clang-built-linux+bncBCKIT2MIT4IBBIPL7T7QKGQETUDBOCA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDBYDM54RYPRBUMD7X7QKGQE7ACWM3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 636D32F519A
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 19:02:10 +0100 (CET)
-Received: by mail-io1-xd3e.google.com with SMTP id c7sf4257323iob.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 10:02:10 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610560929; cv=pass;
+Received: from mail-ej1-x640.google.com (mail-ej1-x640.google.com [IPv6:2a00:1450:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B2DD2F52BB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 19:54:09 +0100 (CET)
+Received: by mail-ej1-x640.google.com with SMTP id m11sf1242556ejr.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 10:54:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610564049; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cP1e2leu+WbVW+LeKFK4OIq8A6QwAEi6LzTToJztNGjteVBB9xmfYSei9egb2vLj6N
-         Hsg750y5OTt4hWTXi54/LQbXJnEfw/fBrq1A5wiECM4dMXdPHJ11cK37nnD0XBpQDygj
-         TadnV0iH/uGwZgzySwRG8RLzStW8qNiEVZ56GsdFPXugPMLJBge+DIbQhdqFVBXICXlH
-         UrX6Tr46T3Q20gHndRTrV/Z7Z9DGZ8HStixAhO3/Eked+cj84RYVbsmexZHxXDWf/Gjg
-         qBEc96zbEgQqObRMeGwtZll2ITe8lLqfkP4UWry5s6vtHlQ+IYWXV7NkOBBdoT16Kf1l
-         I2DQ==
+        b=OjHvgBZ0teP0P2ifsgAsrcgURnebuoQ4xVBaePOtSvKgf3RowzvtQvvG7yp02TLep9
+         zyOEICi98jqWif2UXIj2EoWWBHyVfMvA8cqstXKluTrzOboazX4RG1okWOgSiXdsWlrw
+         x/eUEZR8eL0UuN5ueRh0oCV1G+tmnlTOL3lVxfRwc5kQ9W8khOS1pNoN1uQxBcNzmMk/
+         4eCSWZnDVifk/H5i8Ma0K5cH3wbLuDUhyuXwxnX0STavjKQ79Pw4X2ykTZ5gWh8qTSNC
+         JgPfVNI4hvyzZFQ5RnAYHMqLkMt3DKDrPEfssDOzKauQShDTUG2jUvLZAECQou8NLLgN
+         BCmw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=2bQ6BYzWUvmI02qpPn3obiw0wuZElAfm6WGklk04O5s=;
-        b=G6TLwMoxE1LqQ45EVTyS8EJKXWnQzMPQaHE11Xv11u0kZxmkbaiWIoOtMZlwQ9GufW
-         CUCK7n/RiKUsAJ411HYWXsyVj9mj1pARAatGXu4tIy4GyG3D1qY1NXDycNK3ePCrnPlD
-         CgCPt1kWImMunJUCrQwSvYzpoyxbZPYuvN8k0QxL9IgdgJGh40tbBcUX/g8X4fNjsVjs
-         5TnN8VCz4ROQKt/DMfyOOPvjXTeX2f9a7oIIiv6XsTgqadutPkXacZqAYgUWTgcpaOHl
-         kkUNRaUOeECKjlMxPioSSM1u/8gt8P7xf53A+jKVPSgytz3fvDRkuCb4d7x3UYQvOTva
-         g3Mg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=L8hWIAU5da4vAgn+fXlMYBocJiGl4FeWihS2y71i8Wk=;
+        b=Zy4rmsBnSUtRZaEhZ7ZuLArhyNPNx0/34rgcO4dqAdRyjBw1qzge9/i4widGVuSi+6
+         h4lUB6H5phX7FTpRNGNbQ6u/QyUgDv3eDaoqN6gHw8f4otGjmJIQglIdkWSm3hkqem8b
+         6WNzFDhyScuS883M+qz+PiikQbJPnxdxpS65tjBkUsKzCOrbcp4zcGahhV07iX6wjjRm
+         +lfe22crrJsOi33s9uZAJQ+3Zya3b7RK3M0SV5tYiSFhWmxN7EvJb1+PJ+IkoR22vGWP
+         JZ9Ny6o7gDRqmEVqFCoJ32UGvYLvsonuiSJAMFIJGIHDD4vMgGH7rqT39RU0ZK8lbg3X
+         LmxA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=aFEhs+R2;
-       spf=pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=dan.rue@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=drzqhua1;
+       spf=pass (google.com: domain of vishal.bhoj@linaro.org designates 2a00:1450:4864:20::32f as permitted sender) smtp.mailfrom=vishal.bhoj@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2bQ6BYzWUvmI02qpPn3obiw0wuZElAfm6WGklk04O5s=;
-        b=ieZidJsdDUKIQpMmRtHEuNeCHTNlGWAMer5eitBsdGVLcUZOU7b56CHNgD+WtwYszL
-         3RjKJDmlU6EfRo3NVkaCSH3YtSSRIAvrsRYU3/FKg7IZ/A+3DZ36UVPFTcAxTbfOvIUt
-         6L/W1pfLghN6IV0yAHdW8rcuphxyHPEokwQPQT+wRILbYmwxyJ+KgxlYQgoE6rbl6h8E
-         UsE7vHB9n5FG8juCbF6qC0U7idkQms7uKmLBnKAXN3fSp5sgy9tRZH8IMDjvqCfN+b+T
-         cZ0gPtq6ePEUhCid8dQ+g10X0CWD4JLNxlV8Qy23MbiJbLrY0UR8kEUIBdfBUfyaDmjT
-         gBAQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=L8hWIAU5da4vAgn+fXlMYBocJiGl4FeWihS2y71i8Wk=;
+        b=ODgSJOolIeqv6LpYVfXqW3k2hSR+TclNEvaFUYwPRUata7VfWrm/lJ5Vl826rZ43ce
+         3lPKacGcOey0YOGzyT9sLwM8TW8Xnd+3J6nP3ktl1UNt5lziahZAsWpgKVwILaaH6p70
+         vuRBEfGqhtZrLH9i4TFnSaIZ1mWikbfArnsEHmcwrHkteZAgICJMtzo4TJM7NSYahmc4
+         vpn3g662KhSwFntXvBLHA49KMtKKqGYBh1UlGm6QKRGJS1OpEATJb2lYXwQq/Ij6+sjv
+         MgzGpqjbfA2O95naFetsPvOiAyo1FUg++XphRlzzMfPxo6fyOVEdwo4eOaCLDKpkHbCk
+         WHMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=2bQ6BYzWUvmI02qpPn3obiw0wuZElAfm6WGklk04O5s=;
-        b=Em531nyB1giLgEsaiogPckdQxOnfCWRxe3ShT8DwkKXXKPl5dKfK8g2F9nqKFA2K+5
-         CY309/GLgl1oQLOCcF2NIAV4HSbmZXWPuolPpPoN8nMAY4nRXbFyTMUySQ4gyoC9pBZm
-         D/VrI40yVqTy+/oMF7d9J6KeDr2/sQGNb/uRsjsdW47AHbp/PEaaJ0D8J5SzGth23MXe
-         FFKTNZEM4bh+bfb/YvlJzqK1J3/urMnS2bFsqw3gdaqFWOVXDkTB3ktAAWti7ppJ9Jwo
-         FT8ChZp2rL3Po348JROKHyE/LfnP1AmdUULdlySNB2vV+Ry10NY45GrgDLXJkZcoFyP+
-         PdPg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=L8hWIAU5da4vAgn+fXlMYBocJiGl4FeWihS2y71i8Wk=;
+        b=TSiqYA5i9rQvRCvkpwGJhnum7hN/YTIg+/dIfn06nOP+TPZVWlN2XQ/2+Jn9wgjuqX
+         CyScKcBrKu8tNaqNdhl4jm8JJItFbJlT+gZxT90Nx0Bg4ssV/U3pqDUSqrnvswvMllzw
+         jizlTC0vbkM5+uAkq1dR7mbJXuynlfpguPFuN9bcCvS89Wlji8nVunMWy1YPWUB6fq3q
+         LV9aakAZ9yqzPIe1w8xcM+ZIyKEsklBI9aOxUvh/t6qJhVurdbUxDogN0v68HKSfKcgV
+         yENM3Budn1NhlkA79WGhIxLzTKZQzRYZeb5DP5wnPGWc8WRBjeyiMv7GvV77GYTt0Xbf
+         9cCA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530w0oX/+J2NHpDv0pZacLtLC8tZSzrGVGGQO0GsAa7t770vJINy
-	5gDQEtNiJd/J84reCOR8s3o=
-X-Google-Smtp-Source: ABdhPJwvQ7V7VGf+4ub45iX+Eiki2NzdT5yB1Nla6nC/tXbxq++DIafouIAkx9h+sv3ZuQ67ZgXEOg==
-X-Received: by 2002:a92:4002:: with SMTP id n2mr3341857ila.293.1610560929353;
-        Wed, 13 Jan 2021 10:02:09 -0800 (PST)
+X-Gm-Message-State: AOAM533f8dWSCPajh6uJonBrDT/c3dUtQm0cKgHM4cSdP+pRrKGo87oU
+	fnSN2UivBfjUISYruSG6Noo=
+X-Google-Smtp-Source: ABdhPJwUmm/Q0jfh1/THkyln34Ya4k0HESWOva+m9Pb0ezoK93THWj1vqftu4jLIJp5uWXmG91JN5Q==
+X-Received: by 2002:aa7:c84c:: with SMTP id g12mr2885957edt.193.1610564049325;
+        Wed, 13 Jan 2021 10:54:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:9844:: with SMTP id l65ls764576ili.3.gmail; Wed, 13 Jan
- 2021 10:02:09 -0800 (PST)
-X-Received: by 2002:a92:c890:: with SMTP id w16mr3392724ilo.188.1610560928949;
-        Wed, 13 Jan 2021 10:02:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610560928; cv=none;
+Received: by 2002:a05:6402:1432:: with SMTP id c18ls355428edx.0.gmail; Wed, 13
+ Jan 2021 10:54:08 -0800 (PST)
+X-Received: by 2002:a05:6402:46:: with SMTP id f6mr2964754edu.163.1610564048385;
+        Wed, 13 Jan 2021 10:54:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610564048; cv=none;
         d=google.com; s=arc-20160816;
-        b=WuOtaKZwYA43yACGD9cQP3PeFFM0KqBy/vbu5s45pMWQm8/jj8lYB3CbiJl+QLAkjX
-         CRYrdPenrj5CC/dXMxPdaws4ePHZLu8bxPec+TskJIJct4MAM/6u8R/3x7CBrbIFz8OF
-         8dKa0mSWkQqIzq8GQg6Yh/Sw4TUACDI3Utlq1GRp/AplKEvNkRtJADQ3Wi1NWcjUZeyf
-         rGVbxyckqPhQVg07aJZZhhgSxdUImlPKAb0heRADB5036R49rype1cks4rBXH/HLoP0H
-         ELtVHL2GVSupYP8h7+pxCsehGWBf1rGQIicWam3oa5VV4Wd4QchTrifkpeM8BJGi1IsQ
-         9r3A==
+        b=x1OrH8UHeYFDRd5K/GzH44Lwh8y69i2hc4vqSB+IEtRDXt6KqIZvOVbZw1GmDMTNLn
+         zEMP9ZAi2Lh2n4pjwXcVGaNXM3vbP8E5InU0x/NajkH7K3jPMq7VtBspzqLhyrBdizgB
+         yDvYhffdQP0c66mulDaRSiSHzVGnqojp7VwryvKKFPrlaLrwnC47XiX3WAZ0Fk70A5wr
+         txDmLdy+G9rfmosFAspy4H+rcNlaJVeEaA4VNmyhq7GZmBygfsPQEXJLOzCzKDBj+m6S
+         qPAb8S548EO5vXBhUeTMnIEnZF4rVh2mhYZx2EklxxNs41NBTx/b8zc/g7D2+908mpKZ
+         n/Kg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=2kWdn3372Fy3vprgZ8mPMkjz/pzN3GCF9pJ0+E2svDI=;
-        b=AAsaU6uNq16H81n+qtlo/urzzilWikkOOzuPkfJuEnihqiJiEDaRxHWLHRmJBaP/yy
-         Jkal4ArBiCZdD7PUuYF8PD7ZfpwwlKRpMOIETJQOozFfIPdLmLPqMn/vnzMkyqUAXsi9
-         OSvEaVW2F7YG9dyoMtubIXHI9k6VVuvwCxVHqSGBTg+kuXOFdfJlTysmPO/Xt65gp7JX
-         XNUJv2CPV0i1laBSgCqmTdMhSuiB9+cvcMyRDp6GjiStVyBwqgS7rjkmDswiggzWPLqe
-         H965oPGLQ+yQmrbNmwPGuNcBLTaou+Lt4qKOAD5LbQ9JGbOHuxesHmcWC2b/mF81RBKe
-         kwSw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=A2V5I8vK8xrAEph0xRJAaMlzEeIN3PGN2R59mDOfnDw=;
+        b=m3IJK4k4OI//zwI5o21PkRxraUwDK+AN64lVdhbjGGFbrfQUsf8SlmXswKIn+zdWBH
+         BOQYVkbnq2JWuHRzMgLGyHp3WzG9FP9lKRUJnd4i2Iqzj8/TnhyiibmDVcVISyGY6mMP
+         Fsus+DZ8nu+3qZOKlLBgQbjtI9rCrG1FRWmdDJ32sxeooqONZhp1zlkmPNbSrA0iDgCb
+         kwW2CYfJivQrWGuKQqaDsxFOxubITxX7/jtG6DyLLcz3oIE0LhKTGHrRXmrg9UbHk5b2
+         YDNmvSalOlW31IDIBRALUIhKA/nImOH6n2G5g3HGPy666ED280CM3LRiaQcZsbN1dXgH
+         v/hA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=aFEhs+R2;
-       spf=pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=dan.rue@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=drzqhua1;
+       spf=pass (google.com: domain of vishal.bhoj@linaro.org designates 2a00:1450:4864:20::32f as permitted sender) smtp.mailfrom=vishal.bhoj@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-io1-xd30.google.com (mail-io1-xd30.google.com. [2607:f8b0:4864:20::d30])
-        by gmr-mx.google.com with ESMTPS id q4si180614iog.3.2021.01.13.10.02.08
+Received: from mail-wm1-x32f.google.com (mail-wm1-x32f.google.com. [2a00:1450:4864:20::32f])
+        by gmr-mx.google.com with ESMTPS id cc25si92092edb.2.2021.01.13.10.54.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Jan 2021 10:02:08 -0800 (PST)
-Received-SPF: pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d30 as permitted sender) client-ip=2607:f8b0:4864:20::d30;
-Received: by mail-io1-xd30.google.com with SMTP id d9so5922645iob.6
-        for <clang-built-linux@googlegroups.com>; Wed, 13 Jan 2021 10:02:08 -0800 (PST)
-X-Received: by 2002:a05:6638:2a5:: with SMTP id d5mr3432405jaq.92.1610560927202;
-        Wed, 13 Jan 2021 10:02:07 -0800 (PST)
-Received: from localhost ([2601:441:27f:8f73:af1c:7719:f4b4:52c6])
-        by smtp.gmail.com with ESMTPSA id y3sm1939150ilq.9.2021.01.13.10.02.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Jan 2021 10:02:06 -0800 (PST)
-Date: Wed, 13 Jan 2021 12:02:06 -0600
-From: Dan Rue <dan.rue@linaro.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: kernelci@groups.io, Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: tuxbuilds in kcidb?
-Message-ID: <20210113180206.lv45oscrshsocapz@jug>
-References: <20210113001320.qreaohq2hzzmlxxu@jug>
- <0fd95437-74c4-1ab0-d53e-41fd6fe4f759@redhat.com>
- <20210113162845.xugh6v5p6talrm7h@jug>
- <CAKwvOd=Z8HYcz1zdccUHUWcQkgh9cFfpVRjcAfPF+ug4_NX5iw@mail.gmail.com>
+        Wed, 13 Jan 2021 10:54:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of vishal.bhoj@linaro.org designates 2a00:1450:4864:20::32f as permitted sender) client-ip=2a00:1450:4864:20::32f;
+Received: by mail-wm1-x32f.google.com with SMTP id i63so2547891wma.4
+        for <clang-built-linux@googlegroups.com>; Wed, 13 Jan 2021 10:54:08 -0800 (PST)
+X-Received: by 2002:a7b:c773:: with SMTP id x19mr543862wmk.127.1610564047998;
+ Wed, 13 Jan 2021 10:54:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOd=Z8HYcz1zdccUHUWcQkgh9cFfpVRjcAfPF+ug4_NX5iw@mail.gmail.com>
-X-Original-Sender: dan.rue@linaro.org
+References: <CAGm4vTOdh3j7_9BPvDVLpMikktyEYY9T7P+zZP89F+eewiOeFQ@mail.gmail.com>
+ <CAKwvOd=73XPTSQQ6YJG8_yCSXF49b3ZmFz-HsHDsVcGvO3canA@mail.gmail.com>
+In-Reply-To: <CAKwvOd=73XPTSQQ6YJG8_yCSXF49b3ZmFz-HsHDsVcGvO3canA@mail.gmail.com>
+From: Vishal Bhoj <vishal.bhoj@linaro.org>
+Date: Thu, 14 Jan 2021 00:23:55 +0530
+Message-ID: <CAKdWgSyrB4Psfnd+Ft9Q7jnEBGw=CtZ=16c=UqguNxNcJs-fXQ@mail.gmail.com>
+Subject: Re: TuxBuild/TuxMake priorities?
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Dan Rue <dan.rue@linaro.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Antonio Terceiro <antonio.terceiro@linaro.org>
+Content-Type: multipart/alternative; boundary="000000000000f82a0905b8cca9ad"
+X-Original-Sender: vishal.bhoj@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=aFEhs+R2;       spf=pass
- (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::d30
- as permitted sender) smtp.mailfrom=dan.rue@linaro.org;       dmarc=pass
+ header.i=@linaro.org header.s=google header.b=drzqhua1;       spf=pass
+ (google.com: domain of vishal.bhoj@linaro.org designates 2a00:1450:4864:20::32f
+ as permitted sender) smtp.mailfrom=vishal.bhoj@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -137,61 +130,181 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 13, 2021 at 09:52:22AM -0800, Nick Desaulniers wrote:
-> On Wed, Jan 13, 2021 at 8:28 AM Dan Rue <dan.rue@linaro.org> wrote:
-> >
-> > On Wed, Jan 13, 2021 at 01:00:11PM +0200, Nikolai Kondrashov wrote:
-> > > Hi Dan,
-> > >
-> > > On 1/13/21 2:13 AM, Dan Rue wrote:
-> > > > Hi Nikolai,
-> > > >
-> > >
-> > > Just want to make sure it stays (relatively) stable and is recognizable.
-> > >
-> > > > I'm not sure how to represent the result of the build (pass/fail) - I
-> > > > used "valid".
-> > >
-> > > Yes, that's the right field for now.
-> > >
-> > > I'm thinking about replacing it with "PASS"/"FAIL" "status", to match tests
-> > > after all, but not sure about that yet.
-> >
-> > So if a build passes, i'll set it to True. Otherwise, False.
-> >
-> > Note that sometimes users do somewhat foul things (i'm looking at you,
-> > ClangBuiltLinux), which cause builds to fail through no fault of the
-> > source tree. Things like setting various binutils to llvm variants, or
-> > building configs which don't pass with llvm. In other words, these
-> > aren't necessarily curated expected-to-pass builds in all cases. But I
-> > plan to just start with the production LKFT builds, which are expected
-> > to pass in pretty much all cases.
-> 
-> Right, theoretically we can have build failures that are regressions
-> on the toolchain side.  It's still probably worthwhile to record them.
-> For example, while I'm using github actions for orchestration and
-> reporting/visualization of results/reporting, I envision having it
-> just send results to KCIDB then having some interface or query to see
-> the results of my build.
-> 
-> We might also have builds that are "not regressed" in the sense of
-> they were never green to begin with. That likely happens when we're in
-> the process of bringing online a new arch (like s390, csky, m68k,
-> riscv) (new in the sense new for us to support) or config.
-> 
-> Otherwise, I'm pretty sure we're using standard Kbuild invocations and
-> not doing anything "foul" per se.
+--000000000000f82a0905b8cca9ad
+Content-Type: text/plain; charset="UTF-8"
 
-Sorry I didn't mean to imply impropriety; I meant "foul" in the good and
-productive sense :)
+Hi Nick,
 
-Dan
+On Tue, 12 Jan, 2021, 11:11 pm Nick Desaulniers, <ndesaulniers@google.com>
+wrote:
 
-> -- 
+> On Tue, Jan 12, 2021 at 9:30 AM Dan Rue <dan.rue@linaro.org> wrote:
+> >
+> > Hello,
+> >
+> > I won't be able to make it to the meeting tomorrow. I've seen a lot of
+> > activity on https://github.com/ClangBuiltLinux/continuous-integration2
+> > and a lot of issues that are blocked on tuxmake or tuxbuild issues,
+> > but it's hard to know which ones are blockers vs nice to have vs
+> > something in between.
+> >
+> > Can you help us prioritize these issues? Here's what I've found:
+> >
+> > - Allow llvm-related make variables
+> > https://gitlab.com/Linaro/tuxbuild/-/issues/91 (blocks
+> > https://github.com/ClangBuiltLinux/continuous-integration2/issues/18)
+>
+> ^ #2
+>
+
+
+We have added support to set these variables and updated the documentation:
+https://gitlab.com/Linaro/tuxbuild#make-variables
+
+
+> > - ability to specify --git-repo and --git-ref in --tux-config file
+> > https://gitlab.com/Linaro/tuxbuild/-/issues/79 (blocks
+> > https://github.com/ClangBuiltLinux/continuous-integration2/issues/3)
+>
+
+You can now specify them in buildset:
+https://gitlab.com/Linaro/tuxbuild/-/blob/master/README.md#passing-git_repo-in-build-set
+
+
+> ^ #1
+>
+> (the rest are lower priority)  Thanks Dan and team!
+>
+> > - big endian ppc builds are broken
+> > https://gitlab.com/Linaro/tuxmake/-/issues/108 (blocks
+> > https://github.com/ClangBuiltLinux/continuous-integration2/issues/2)
+> > - Produce epapr images for PPC64le
+> > https://gitlab.com/Linaro/tuxmake/-/issues/109 (blocks
+> > https://github.com/ClangBuiltLinux/continuous-integration2/issues/2)
+> > - uImage.gz is not a target for malta_kvm_guest_defconfig
+> > https://gitlab.com/Linaro/tuxmake/-/issues/110 (blocks
+> > https://github.com/ClangBuiltLinux/continuous-integration2/issues/1)
+> >
+> > Thanks,
+> > Dan
+>
+>
+>
+> --
 > Thanks,
 > ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210113180206.lv45oscrshsocapz%40jug.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKdWgSyrB4Psfnd%2BFt9Q7jnEBGw%3DCtZ%3D16c%3DUqguNxNcJs-fXQ%40mail.gmail.com.
+
+--000000000000f82a0905b8cca9ad
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div>Hi Nick,<br><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">On Tue, 12 Jan, 2021, 11:11 pm Nick Desaulnie=
+rs, &lt;<a href=3D"mailto:ndesaulniers@google.com">ndesaulniers@google.com<=
+/a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0=
+ 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">On Tue, Jan 12, 2021=
+ at 9:30 AM Dan Rue &lt;<a href=3D"mailto:dan.rue@linaro.org" target=3D"_bl=
+ank" rel=3D"noreferrer">dan.rue@linaro.org</a>&gt; wrote:<br>
+&gt;<br>
+&gt; Hello,<br>
+&gt;<br>
+&gt; I won&#39;t be able to make it to the meeting tomorrow. I&#39;ve seen =
+a lot of<br>
+&gt; activity on <a href=3D"https://github.com/ClangBuiltLinux/continuous-i=
+ntegration2" rel=3D"noreferrer noreferrer" target=3D"_blank">https://github=
+.com/ClangBuiltLinux/continuous-integration2</a><br>
+&gt; and a lot of issues that are blocked on tuxmake or tuxbuild issues,<br=
+>
+&gt; but it&#39;s hard to know which ones are blockers vs nice to have vs<b=
+r>
+&gt; something in between.<br>
+&gt;<br>
+&gt; Can you help us prioritize these issues? Here&#39;s what I&#39;ve foun=
+d:<br>
+&gt;<br>
+&gt; - Allow llvm-related make variables<br>
+&gt; <a href=3D"https://gitlab.com/Linaro/tuxbuild/-/issues/91" rel=3D"nore=
+ferrer noreferrer" target=3D"_blank">https://gitlab.com/Linaro/tuxbuild/-/i=
+ssues/91</a> (blocks<br>
+&gt; <a href=3D"https://github.com/ClangBuiltLinux/continuous-integration2/=
+issues/18" rel=3D"noreferrer noreferrer" target=3D"_blank">https://github.c=
+om/ClangBuiltLinux/continuous-integration2/issues/18</a>)<br>
+<br>
+^ #2<br></blockquote></div></div><div dir=3D"auto"><br></div><div dir=3D"au=
+to"><br></div><div dir=3D"auto">We have added support to set these variable=
+s and updated the documentation:</div><div dir=3D"auto"><a href=3D"https://=
+gitlab.com/Linaro/tuxbuild#make-variables">https://gitlab.com/Linaro/tuxbui=
+ld#make-variables</a><br></div><div dir=3D"auto"><br></div><div dir=3D"auto=
+"><div class=3D"gmail_quote"><blockquote class=3D"gmail_quote" style=3D"mar=
+gin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+<br>
+&gt; - ability to specify --git-repo and --git-ref in --tux-config file<br>
+&gt; <a href=3D"https://gitlab.com/Linaro/tuxbuild/-/issues/79" rel=3D"nore=
+ferrer noreferrer" target=3D"_blank">https://gitlab.com/Linaro/tuxbuild/-/i=
+ssues/79</a> (blocks<br>
+&gt; <a href=3D"https://github.com/ClangBuiltLinux/continuous-integration2/=
+issues/3" rel=3D"noreferrer noreferrer" target=3D"_blank">https://github.co=
+m/ClangBuiltLinux/continuous-integration2/issues/3</a>)<br></blockquote></d=
+iv></div><div dir=3D"auto"><br></div><div dir=3D"auto">You can now specify =
+them in buildset:</div><div dir=3D"auto"><a href=3D"https://gitlab.com/Lina=
+ro/tuxbuild/-/blob/master/README.md#passing-git_repo-in-build-set">https://=
+gitlab.com/Linaro/tuxbuild/-/blob/master/README.md#passing-git_repo-in-buil=
+d-set</a><br></div><div dir=3D"auto"><br></div><div dir=3D"auto"><div class=
+=3D"gmail_quote"><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8=
+ex;border-left:1px #ccc solid;padding-left:1ex">
+<br>
+^ #1<br>
+<br>
+(the rest are lower priority)=C2=A0 Thanks Dan and team!<br>
+<br>
+&gt; - big endian ppc builds are broken<br>
+&gt; <a href=3D"https://gitlab.com/Linaro/tuxmake/-/issues/108" rel=3D"nore=
+ferrer noreferrer" target=3D"_blank">https://gitlab.com/Linaro/tuxmake/-/is=
+sues/108</a> (blocks<br>
+&gt; <a href=3D"https://github.com/ClangBuiltLinux/continuous-integration2/=
+issues/2" rel=3D"noreferrer noreferrer" target=3D"_blank">https://github.co=
+m/ClangBuiltLinux/continuous-integration2/issues/2</a>)<br>
+&gt; - Produce epapr images for PPC64le<br>
+&gt; <a href=3D"https://gitlab.com/Linaro/tuxmake/-/issues/109" rel=3D"nore=
+ferrer noreferrer" target=3D"_blank">https://gitlab.com/Linaro/tuxmake/-/is=
+sues/109</a> (blocks<br>
+&gt; <a href=3D"https://github.com/ClangBuiltLinux/continuous-integration2/=
+issues/2" rel=3D"noreferrer noreferrer" target=3D"_blank">https://github.co=
+m/ClangBuiltLinux/continuous-integration2/issues/2</a>)<br>
+&gt; - uImage.gz is not a target for malta_kvm_guest_defconfig<br>
+&gt; <a href=3D"https://gitlab.com/Linaro/tuxmake/-/issues/110" rel=3D"nore=
+ferrer noreferrer" target=3D"_blank">https://gitlab.com/Linaro/tuxmake/-/is=
+sues/110</a> (blocks<br>
+&gt; <a href=3D"https://github.com/ClangBuiltLinux/continuous-integration2/=
+issues/1" rel=3D"noreferrer noreferrer" target=3D"_blank">https://github.co=
+m/ClangBuiltLinux/continuous-integration2/issues/1</a>)<br>
+&gt;<br>
+&gt; Thanks,<br>
+&gt; Dan<br>
+<br>
+<br>
+<br>
+-- <br>
+Thanks,<br>
+~Nick Desaulniers</blockquote></div></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAKdWgSyrB4Psfnd%2BFt9Q7jnEBGw%3DCtZ%3D16c%3DU=
+qguNxNcJs-fXQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">http=
+s://groups.google.com/d/msgid/clang-built-linux/CAKdWgSyrB4Psfnd%2BFt9Q7jnE=
+BGw%3DCtZ%3D16c%3DUqguNxNcJs-fXQ%40mail.gmail.com</a>.<br />
+
+--000000000000f82a0905b8cca9ad--
