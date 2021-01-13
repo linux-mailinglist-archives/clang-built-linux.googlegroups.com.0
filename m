@@ -1,145 +1,144 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBZ7S7D7QKGQE346VLKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBR7W7D7QKGQEGHDIXVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2398A2F3CB4
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 01:06:00 +0100 (CET)
-Received: by mail-vk1-xa38.google.com with SMTP id p184sf189828vkd.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 16:06:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610496359; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 161742F3CB5
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 01:14:01 +0100 (CET)
+Received: by mail-pg1-x537.google.com with SMTP id 24sf325364pgt.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Jan 2021 16:14:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610496839; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lrxaeiSsCq6X/HdYJZc6Gj7M8/ta+dEzzpZ52fJhV2/uR2K1N5f9zeXikpGgb0sJ9U
-         Bvxad2RyKrKqZ+a3CpZqx+yz1j0YSPuTtSgEcuGHjHlRexg1p4hML/pNHqhbvc9UVrO4
-         khg6m0b5e8G7l0tFwklaSXZzDLoe1E2zt/ZK1xlxnanShzx6TCGCsDTqGfueY1RGbm0d
-         uLz6oTSp1CzqSkHOnQyZ0Jmfs+n5DlxrJ4Hb+I7UwA4kPYUTxy1E1cb6kYRhny8TuXAQ
-         IfVEyOAMU46O/nGTDOi2YTqGB6kVUEfMf+ACjep+zo3nrW4fq3QBphrK5T8pUj7wMRs3
-         71AQ==
+        b=PlDHIO5entLHtAt3yt5Zf3dt8PuQ8TAtSxDX7R6/Loo18vZV07JiziOVeaN8/Js/WF
+         jusADYmQ8c+h9fLRJ5IZD5vreuLxJKPA9EAVht9wpJYJE0WDNuLm+5643ZCp5etvudWR
+         9+whQEXsf9GZImaLTKGAZAkJZjZQZkSvUorFH7dM6hl4sO3SII9N7KfUFzwWh5JbspBX
+         GG9qigAGsIc2uZPYmzSEuCesd4jtwamv01/KqtN5oR0c5qfdzkL71f9PdrFcF7Wiz8RX
+         t30BAk94iaCG7Fu6nb1sJ9x0ePxji/ysuYIwo2l65hNGLFq3IlKXwGtWJw4Fnfs4OPO+
+         K+Uw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=J5+z2O+JnimUZe9YKpnuEHoPihD8wtb2njZdQJ90Wcw=;
-        b=k2Mb51hi8p2nUHzSMEJyUuulHnluiRueSl/pEN3s93B0LnOio8zX6LoCdN9R5/XfZ0
-         Od1JxZ8meE1hPFvfaUMep623v5Uca/X39GogqoP5ePtd/iChfBsKzMwAsHR+UHUEC4g4
-         +ZSH2AkkxuA79802AOBn/dFS7RxcyGlbIBZMEhs3Ym8jvyVttSLnRoRA1wW3TaSU4dCV
-         2fd+uaBO/qprpiWWluCApXVKXumP2MI4XcN9PE+QOzqRm/lnZHWhONJjYVnSf+rHm8FR
-         yqoTKQMr3iBdEq9EHXoo9h2cKEKen37aDHthcMFRgP4nQnB473WACakO01VyJl/44lBi
-         /Jyw==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature
+         :dkim-signature;
+        bh=RDshR6iqsXdxbj3nDrdk5g5T6x7KWl4CNVMCevhr/Co=;
+        b=x/bDKkdJDxgV3Ss9JHPzPALZu7KojfKqkT5z+vtF4U9ga8XaRD95VwsBVTdAWT9JAe
+         YwzD9ZdKvUBZe9GEyydjXXJY+PhE+5RJA8Zw+IvA6izymVhvHoBZKgwgmXKk7VvnAoRI
+         jv1A1FToe5WN5AD7Gov1vdh/qbxUIieXdpEnbUtAEWL1suBke8NGU2UvRgC+uWah9Piz
+         F+xPuaOYvPmHLIh6bq+Y53+wpR7cMKdPh6e9WJbivhuIvZBsgdnnpPKWOdstUkVSRWY4
+         1tex7JGiBZgjCInREkNxwMtXkMqHHN7xB8yDs7MWUO1hW6r+1TKxvKKj0HycAXJRlDng
+         frNg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FVXB+hPo;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FyywR9Im;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=J5+z2O+JnimUZe9YKpnuEHoPihD8wtb2njZdQJ90Wcw=;
-        b=VlcP3P8hyYMIU4HAZPY3BDqxw3xwZ73MJ+CkXEm9VHeo6iZqmur9K3aUyWGGEDtXdv
-         nPZTuHalTYxpxsYMCRS4YUhES0P0WVUnwHymSh3NIYpE+YP9VDOm00mtrVa4NSDRtZpo
-         5Na482b7q1QIU70bde992fCy0up95QJKKmUVRMAxZkUxMr0CjO0R3EpGWySWq1Qu4rTz
-         CQnHw1l1qVynBPIbBk1TsT0XBkgZ8SYTS9pW0x85Zqj8E1kGp7rKBiV76rsmbZ+XzsmM
-         u2wGRh3EwQ1/fqIccrGvfusHo0ULxNFtpMmHINLg/qteq/azItbUAnWNORcoT7+a2sqn
-         JUnQ==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=RDshR6iqsXdxbj3nDrdk5g5T6x7KWl4CNVMCevhr/Co=;
+        b=jjSBAlAzXCGj29vhGnu9wW2bwIN4CCik8FK0or0fta2IcDP04be3YLyN0RBTbTgJ78
+         2TajpWEdzff4wbt91Li2uJuEsGYIrmcdxx9UHQVGrP2HMiVwmEq+fSNyHQWG9OoFEPQ5
+         vLAfSr0Hc9J01kTgIR3CI2hdUmW07VH4APNOuv7YEiOG8J3E8W6ZbCLBu1hTfLkg8FPN
+         f6/acnEiArnIUrJBm0qbMUe+BELqN3VJ6IQi2naRS9Fg3RpzLQTvXh+uehr/RMw2p8hG
+         U6kq8QK6zZOtyBByFtKJXDmZ32YIPI1pr4r34nc4B3pW9vL81itGS7YyPYtP3aUjiqWV
+         zNWQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=J5+z2O+JnimUZe9YKpnuEHoPihD8wtb2njZdQJ90Wcw=;
-        b=inY8UptGQwgbbhqDYTydcbcW9OBzoLPEK+/0tY+eRJ3TQJJjU+mvm2pE2KnWEfBHcn
-         A6GLtgfWcQcYyOwuCGL1LXbEgPQRG+4G0Y2padc0qA9y6m8wOhuz7P5Blm0P6RVis+uO
-         YlCikeoQFUNiBRZZgfoAowOd9A2QsmeVmiPldld6kJaRmuev7bi4b3Qkncndh9ea+jq9
-         na9d+0/OO2/bBh+lYLrbUtFQzezBzo7N8yKOTdCGxEkqGueDIPw/9C4HMMDZrYz/g2qy
-         U1Dv1niAuAn8vu8NN/EnJI3qil6/jRZQ9bDsRJuC7z65n4S+S9dH3B/ErRlqx3nQTcvs
-         wz+g==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=RDshR6iqsXdxbj3nDrdk5g5T6x7KWl4CNVMCevhr/Co=;
+        b=bChd1gmDqhwJ7V7zJ+XccpIAlW+1bNp1+mBa8z7bwyUJjby3gvdIMJb1up4zP7hSNa
+         aNVhro2WspmmoDKCyhwKIb9iHsgAa+vtp5uZNTTCyfhZwm3Ho0QuT9YjjJoE8fDn0LVi
+         VNAK37hJjMgxB7NRsXPyhPhHwcFkoT1TUBf/jowiSWCqSGlfp2vLN0HA5npHmcvaoG/v
+         LXVCKp4hTe6uyMiCWxn3TOUovDZCoPN/WgLnCs+LOHw/qyC3KkFHZF6Nb7IWOwuz0+Un
+         cm4XERi3ZszYi9++E43NRBgWARzFnuUkrQwGHAnTKUY9D5rMxDOs4eTL9bb30tmPhXd9
+         ElmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=J5+z2O+JnimUZe9YKpnuEHoPihD8wtb2njZdQJ90Wcw=;
-        b=Jx1WhNNdDd2Ddn1KRKCjPB4lwaXhFuP2kQ1ezTZBiTLlPP1h8SPvBYHtlCn3Izl8h0
-         /DKojuIGwfsVFWbRDHL4yyPC/W9rCBAKnENck1nysmPrRreAtng0N5kCfA4s5gU1EZf2
-         R5jZanX4+EOuALEBy2gpB0jjtDD+0cTXfrLzTFmq0nJiuyqErNVEQZd5m9D3tyXztF3B
-         gt9j+OmfVJ5jdOizvVYugLPj3+H/4oyHf1HNFjlb+mXCvVWYvi4RcisYUb/gmyCtCe90
-         SUBpz+VIa7tKOIOtOKpYe4H4U9XYYRtVCNsmFaGy4rnCRtHxVp+K/qz74GFjDxv2U3lE
-         BfQg==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=RDshR6iqsXdxbj3nDrdk5g5T6x7KWl4CNVMCevhr/Co=;
+        b=V42D93Fqb+VuohbCCEMZvGXAFtazIZWCA6Lq11rBu/1ZU4lNmyK2+MpagPzQJ+I3x9
+         Ph9CRh7farDqyn6slB4nCuH7UGf60xjWSAD08vrsFgrj6QKbpRItzfTNKHpEljNWsLLk
+         s9U5zLcxRFBiO2kGRwhxrFhNw/wqp7iTK2WlJw2N7YC4WRYecSnKWYyxlGfBMTxv65hL
+         g8MCvSge00YMJF4z7YBHpVF27FEvFqbl6v5ovLwAGdoq5zsSPygadPW8XH9vvV8Leme7
+         C7b0Nlo7UR1+Ny6GKwzHRd8GqKhaByOZkXXsIRTSVbZpvg8xQUlzLRBOv558sroWNFZG
+         8jfQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533PyW3ydie0D7pEezzaHqlnMF/UdSahoxq/NjnCF7GurrOAaRyM
-	CXloxoy0YQQ6XFp+zPjWk+M=
-X-Google-Smtp-Source: ABdhPJxaEhKosSHjtD2qyg9Aj0lCnV6ISNfOnIdaFPGbD0pPHwu3YBhzzgRgUjgqqFJnXdob97Ispw==
-X-Received: by 2002:a67:fc87:: with SMTP id x7mr1981336vsp.38.1610496359190;
-        Tue, 12 Jan 2021 16:05:59 -0800 (PST)
+X-Gm-Message-State: AOAM533L8bVqEQtVOntvHlb8qz6Bug6UaL83o+grhebW+SSMpC6hrLNw
+	uRKC2iC1U+tXwDsZ/GeBlGk=
+X-Google-Smtp-Source: ABdhPJwmfqTy3Pzz4MhwFM60MMtXiP3ZI/gd1jg0pJOFWdJ0BN+ILMyCweuXt5BeIIqnCKChGcslsA==
+X-Received: by 2002:a63:cf43:: with SMTP id b3mr1522948pgj.387.1610496839789;
+        Tue, 12 Jan 2021 16:13:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:3641:: with SMTP id s1ls14510uad.10.gmail; Tue, 12 Jan
- 2021 16:05:58 -0800 (PST)
-X-Received: by 2002:a9f:240a:: with SMTP id 10mr1874267uaq.124.1610496358702;
-        Tue, 12 Jan 2021 16:05:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610496358; cv=none;
+Received: by 2002:a17:90a:ac0b:: with SMTP id o11ls97270pjq.3.gmail; Tue, 12
+ Jan 2021 16:13:59 -0800 (PST)
+X-Received: by 2002:a17:902:f54e:b029:de:19f9:c45f with SMTP id h14-20020a170902f54eb02900de19f9c45fmr1914390plf.48.1610496839153;
+        Tue, 12 Jan 2021 16:13:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610496839; cv=none;
         d=google.com; s=arc-20160816;
-        b=IkkLGzdm2t2dmgxiwOpJ5yaHOE8r2bydsxFlfaomZmEySidGw29oTi1SjoVGlQJSEn
-         l1KZUMMZfqcShJsD3Npeg09Fdgqpe0M/xuM/6qJw89LLXoyHSSCztW01x8swHXYVLYX7
-         ThbL9k2jLRNjq1NVp3xNAsNBaD9W1dJXeRIlSzBtJbR5kGFPcUfgUe1ernpq/4w0aK2e
-         PjiOlMwrq1jIlnDIUVS3418lH7D5LiJ4lcSwMTm7BAaLuWxxKEb7SRI9YwbmRNeqFCL5
-         8zAcYQBXLGW7SA5rrZTKos263Gvb4W0A8o8RaWitCxuAc53TU5+ErRQMAv45ns/Tw+Eh
-         jpOw==
+        b=cdnQEv0eYg/Sf/lNXwvGWp0vZWIwCvUJ9iObTM2Qhg3aN7sauZaLLjrGk38x4kACWK
+         d1zr+G9b4gbd5WS7kRb+aqWDec5GSJR8brispA9raGRq0kLIo2fBLrn0WaHD3Zad4Fc+
+         WIv9gGXrp6LALPTg0AYMFkq65JYBXnN7i61T6pNxVzQiuLbA6mgl8wX3VOa1ODCqshr9
+         TcaWpeA1hSLwZRZT7D+Gssp85bwkfrdJfzhOyzAKEIZ+ZrAUyQimW4HJosX+9zfPW3q6
+         NJKVxqOSeBgExSsYcbn12dJnmoDcfue2bqn2cEqBO4W/zsuIOwuV+xKb62GxrM6zQ+S3
+         uPuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=RdoZ7GoxSEbYVJ01iieMFNr9Ola9MkWTkjbqFK+imx4=;
-        b=kaa10Q7cP91/CSxcwSjIBvN1J5eue7p4sTyBjuN+zbbA6xCEAqYxdF7R/6qlap28N2
-         7pmKFdoygLamblgsvbz2SQeJvzKf3bKVBzbY246ktHgPYP8WQMAwPPfM3Qz3RSGtQj1i
-         e3jiZMGr2WvkKWfSwxpdhEjVJyCKqFGXhy/71FvUT2SBPlMKui8jvBDOgn8/60c/SiFl
-         CIhVIQmX5O3v9vvVj4WiDtcqvleY35VssbaTDpM57XvbMcrKitiuliitqvH5ZnXyQldo
-         r8M6rjR2KNdOv0yeMbmvijD4vROAs6HaReUNLqX3NoFNsxN5vzCNmy85e6wLM6b8gbjs
-         squQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=JtzmkKAKIsKUQbcgnYgSWKmk6z6gl62X3y6GDOrXpNk=;
+        b=KnqIf0aj5+zF8w4e5zXU2dPPxO9vlQdYelpRbwZa86F3U4T7OFnQVQroH4vDFiQfgT
+         qVshUYOVq7wIgQSA5EmEpOgOnJHBqw44U4uIHnZR4gwjbsS7+Y913Xt5hrgOe8zaxL0P
+         gXIo91obLHzVVYiPhe44ApcdCH3ZYfsvnd9VQ2bfH1Q0EkOEvjZZDukwU3EAIYqe4ZpG
+         i1LYtYzUYCZ/eoyxx83fNHFJv/SueXswB65KvuoAZ8VXOHt4ThDHZ+hMvoAdm6QLNmv4
+         U3i/Ds0eyJPAWGvTgVZaigYKd8Sv89mMRluD89BwIC8bjHwgUHZ6CY6ringb6lsVI4VN
+         AWQw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FVXB+hPo;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FyywR9Im;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd33.google.com (mail-io1-xd33.google.com. [2607:f8b0:4864:20::d33])
-        by gmr-mx.google.com with ESMTPS id h123si16505vkg.0.2021.01.12.16.05.58
+Received: from mail-io1-xd2f.google.com (mail-io1-xd2f.google.com. [2607:f8b0:4864:20::d2f])
+        by gmr-mx.google.com with ESMTPS id o14si18078pjt.0.2021.01.12.16.13.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Jan 2021 16:05:58 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) client-ip=2607:f8b0:4864:20::d33;
-Received: by mail-io1-xd33.google.com with SMTP id 81so450490ioc.13
-        for <clang-built-linux@googlegroups.com>; Tue, 12 Jan 2021 16:05:58 -0800 (PST)
-X-Received: by 2002:a5e:9b1a:: with SMTP id j26mr1345463iok.124.1610496358109;
-        Tue, 12 Jan 2021 16:05:58 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id e1sm227666iod.17.2021.01.12.16.05.56
+        Tue, 12 Jan 2021 16:13:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) client-ip=2607:f8b0:4864:20::d2f;
+Received: by mail-io1-xd2f.google.com with SMTP id u17so629130iow.1
+        for <clang-built-linux@googlegroups.com>; Tue, 12 Jan 2021 16:13:59 -0800 (PST)
+X-Received: by 2002:a02:1007:: with SMTP id 7mr1929669jay.73.1610496838645;
+        Tue, 12 Jan 2021 16:13:58 -0800 (PST)
+Received: from localhost.localdomain ([2604:1380:45f1:1d00::1])
+        by smtp.gmail.com with ESMTPSA id 8sm280985ill.13.2021.01.12.16.13.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Jan 2021 16:05:57 -0800 (PST)
-Date: Tue, 12 Jan 2021 17:05:55 -0700
+        Tue, 12 Jan 2021 16:13:57 -0800 (PST)
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Marco Elver <elver@google.com>,
-	George Popescu <georgepope@android.com>,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] [v2] ubsan: disable unsigned-overflow check for i386
-Message-ID: <20210113000555.GA1584947@ubuntu-m3-large-x86>
-References: <20210112202922.2454435-1-arnd@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <natechancellor@gmail.com>
+Subject: [PATCH v2] ubsan: Implement __ubsan_handle_alignment_assumption
+Date: Tue, 12 Jan 2021 17:12:43 -0700
+Message-Id: <20210113001242.1662786-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20210112205542.1375847-1-natechancellor@gmail.com>
+References: <20210112205542.1375847-1-natechancellor@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210112202922.2454435-1-arnd@kernel.org>
+X-Patchwork-Bot: notify
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=FVXB+hPo;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=FyywR9Im;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,58 +151,97 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 12, 2021 at 09:29:15PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Building ubsan kernels even for compile-testing introduced these
-> warnings in my randconfig environment:
-> 
-> crypto/blake2b_generic.c:98:13: error: stack frame size of 9636 bytes in function 'blake2b_compress' [-Werror,-Wframe-larger-than=]
-> static void blake2b_compress(struct blake2b_state *S,
-> crypto/sha512_generic.c:151:13: error: stack frame size of 1292 bytes in function 'sha512_generic_block_fn' [-Werror,-Wframe-larger-than=]
-> static void sha512_generic_block_fn(struct sha512_state *sst, u8 const *src,
-> lib/crypto/curve25519-fiat32.c:312:22: error: stack frame size of 2180 bytes in function 'fe_mul_impl' [-Werror,-Wframe-larger-than=]
-> static noinline void fe_mul_impl(u32 out[10], const u32 in1[10], const u32 in2[10])
-> lib/crypto/curve25519-fiat32.c:444:22: error: stack frame size of 1588 bytes in function 'fe_sqr_impl' [-Werror,-Wframe-larger-than=]
-> static noinline void fe_sqr_impl(u32 out[10], const u32 in1[10])
-> 
-> Further testing showed that this is caused by
-> -fsanitize=unsigned-integer-overflow, but is isolated to the 32-bit
-> x86 architecture.
-> 
-> The one in blake2b immediately overflows the 8KB stack area architectures,
-> so better ensure this never happens by disabling the option for 32-bit
-> x86.
-> 
-> Fixes: d0a3ac549f38 ("ubsan: enable for all*config builds")
-> Link: https://lore.kernel.org/lkml/20201230154749.746641-1-arnd@kernel.org/
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
 
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
+>>> referenced by slab.h:557 (include/linux/slab.h:557)
+>>>               main.o:(do_initcalls) in archive init/built-in.a
+>>> referenced by slab.h:448 (include/linux/slab.h:448)
+>>>               do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
+>>> referenced by slab.h:448 (include/linux/slab.h:448)
+>>>               do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
+>>> referenced 1579 more times
 
-> ---
-> v2: only turn it off for i386 as discussed
-> ---
->  lib/Kconfig.ubsan | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/lib/Kconfig.ubsan b/lib/Kconfig.ubsan
-> index 8b635fd75fe4..3a0b1c930733 100644
-> --- a/lib/Kconfig.ubsan
-> +++ b/lib/Kconfig.ubsan
-> @@ -123,6 +123,7 @@ config UBSAN_SIGNED_OVERFLOW
->  config UBSAN_UNSIGNED_OVERFLOW
->  	bool "Perform checking for unsigned arithmetic overflow"
->  	depends on $(cc-option,-fsanitize=unsigned-integer-overflow)
-> +	depends on !X86_32 # avoid excessive stack usage on x86-32/clang
->  	help
->  	  This option enables -fsanitize=unsigned-integer-overflow which checks
->  	  for overflow of any arithmetic operations with unsigned integers. This
-> -- 
-> 2.29.2
-> 
+Implement this for the kernel based on LLVM's
+handleAlignmentAssumptionImpl because the kernel is not linked against
+the compiler runtime.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/1245
+Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
+Acked-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+---
+
+v1 -> v2:
+
+* Use __ffs instead of ffs because due to size of input (unsigned long
+  vs int) and we want a zero based index (Nick Desaulniers).
+
+* Pick up Kees's ack.
+
+ lib/ubsan.c | 28 ++++++++++++++++++++++++++++
+ lib/ubsan.h |  6 ++++++
+ 2 files changed, 34 insertions(+)
+
+diff --git a/lib/ubsan.c b/lib/ubsan.c
+index 3e3352f3d0da..1432a8645224 100644
+--- a/lib/ubsan.c
++++ b/lib/ubsan.c
+@@ -427,3 +427,31 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
+ 	ubsan_epilogue();
+ }
+ EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
++
++void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
++					 unsigned long align,
++					 unsigned long offset)
++{
++	struct alignment_assumption_data *data = _data;
++	unsigned long real_ptr;
++
++	if (suppress_report(&data->location))
++		return;
++
++	ubsan_prologue(&data->location, "alignment-assumption");
++
++	if (offset)
++		pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
++		       align, offset, data->type->type_name);
++	else
++		pr_err("assumption of %lu byte alignment for pointer of type %s failed",
++		       align, data->type->type_name);
++
++	real_ptr = ptr - offset;
++	pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
++	       offset ? "offset " : "", BIT(real_ptr ? __ffs(real_ptr) : 0),
++	       real_ptr & (align - 1));
++
++	ubsan_epilogue();
++}
++EXPORT_SYMBOL(__ubsan_handle_alignment_assumption);
+diff --git a/lib/ubsan.h b/lib/ubsan.h
+index 7b56c09473a9..9a0b71c5ff9f 100644
+--- a/lib/ubsan.h
++++ b/lib/ubsan.h
+@@ -78,6 +78,12 @@ struct invalid_value_data {
+ 	struct type_descriptor *type;
+ };
+ 
++struct alignment_assumption_data {
++	struct source_location location;
++	struct source_location assumption_location;
++	struct type_descriptor *type;
++};
++
+ #if defined(CONFIG_ARCH_SUPPORTS_INT128)
+ typedef __int128 s_max;
+ typedef unsigned __int128 u_max;
+
+base-commit: 7c53f6b671f4aba70ff15e1b05148b10d58c2837
+-- 
+2.30.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210113000555.GA1584947%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210113001242.1662786-1-natechancellor%40gmail.com.
