@@ -1,97 +1,98 @@
 Return-Path: <clang-built-linux+bncBAABBJFE7P7QKGQEW7ENAMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id AFEB22F4911
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E1A262F4912
 	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 11:57:41 +0100 (CET)
-Received: by mail-io1-xd3f.google.com with SMTP id v21sf2216859iol.8
+Received: by mail-io1-xd3a.google.com with SMTP id h206sf2178048iof.18
         for <lists+clang-built-linux@lfdr.de>; Wed, 13 Jan 2021 02:57:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610535460; cv=pass;
+ARC-Seal: i=2; a=rsa-sha256; t=1610535461; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GLXVLMNOaQMIZGQOaMQHlvf+Q6S4THcDyC3aaiRhBKwu4wLLQvvbIWtVnN6Z5JIqhU
-         GMy/J8uMeJtGoUM2gKMn8scXxJXOYnQiC5RprblYsLxVi4fBozZvS0s48Vu0qW8Ac0G9
-         a3DZRr2GC9vf0+TyPUIlfqfHcLCBYstTsU/MexVReCgjuuTfC+k2cQdoHrYFrAHHOJKu
-         1yAltZli1fhK7eElZKce8ilaB09VxolFr/Yk7IlCTanl0I4eGIEnYQ0PPgPJvU2/am7L
-         sCJ/QfqnkLvrzUg0b0f5Ha6+RiFrKpP3+bC+9nBjS2VNJDbzQPGm3TQ8bkOgtQPdzPEY
-         uYGA==
+        b=NCg4Fd4RgT9HA3V0cHzjD11tP8YdkAoGKnmmF4kkhftL8lSOyM30dTn3jGFs66uXGF
+         XJjwHuHLt7bAAiaW4ZnjpQs9vFmN/iYscNo7CxuwaSVqjljd+GLHhzUiOrmgJjITeUOk
+         jWjFKdIkWcH8HJ6N/AYQZ/wXfXz8i+9h0RraN+vBTwjNU/ACLr5cAPoseCb9NnFMHE4x
+         xTwmAC73QKGqT9VBBzZASxSMEB6NyoSqvfCsCp2al50ddXNa5PgGRY6n9NWr41MliRV5
+         ri/rL0gv1dshXoCQDHSDp/vaJ6G/aJT44IAZIXrMcz8rG2JGBXUQ1PbgqTbKx+LhKcE6
+         k16w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=XHNR5wYCdJUiEgqVpqscOaP0wrNR0imnVIO/IJNamZM=;
-        b=XnmB3ncTxkbvJWXbPBokY+osAz5EgTA/tNuDbJvS6G/CR9Hl0bOySwC6JQ3v1q8CE7
-         lsI3T4hvojTJA8IAgxIi0JFTTHQbYd0myjrabqx0UuLzLbd3N2t4XR3d6PxLDVK8/gjq
-         mkyR6f8rVYln5DU2YARIXXF8wHoc3FW9dIkD1A1BhtDv5kCw6Q9qLoT6CIuCQhIMTnl7
-         5QS1PKDSVOywOy6sf7T7iSbz5soTdKR3BGjmY636PhbXShO0jUkz12I9Q58Zqfam9tAq
-         T2mWEI1WQCkLTrFPYpq29onqle/vPND8AWh+sKHCYRcUeFtIrxFe12evsV14YUW4rchO
-         gGuA==
+         :list-id:mailing-list:precedence:references:in-reply-to:message-id
+         :date:subject:cc:to:from:mime-version:sender:dkim-signature;
+        bh=AqFPBbQwClplLVYa6nVxed0iUanCciCSJGI1jNnn30s=;
+        b=0Ex1mY/EWLnS8JZWggjC6pgnpQUc/Jlf1TaNbsi5gjW4vQ1h1YVGH94X1Uubb1Swiz
+         +RANAjTgtm2UHSVtoZZBZlMyyHTncPev8fMj0nUMk+OglOADhzNG0/Lqt8bojknRRDgp
+         XgECORsCK770lZsZsxneQpxc+7pXyWgN95f053RZ2dv+sb+Jgm6o5g2zEvlF20KK9bnh
+         Xq5VKQMFHMDt+wEx0nEDWn90xsRIG6238mnsk3NGphyPcDWc7Z5Z4TJYVyrjqwHdX+IY
+         5woqFfTvRlJUDhE2rYFD0MiNNsELGeXQBMpW7mXC8RXSHQ+bkq0H49lfaJUzFIiwStee
+         J4yA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id:in-reply-to
+         :references:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XHNR5wYCdJUiEgqVpqscOaP0wrNR0imnVIO/IJNamZM=;
-        b=dFeVr+XuIyAYTxj5GjGymjOIZ0I5BbEYcXr8PiOaqaBift+dAeQ3PeqLhLYalEcJTt
-         /eNx9BeUA52F5pQD5G+dqu0qQq5+agZ4qSfw82C+3pJQOdbg8/08JtT3Zj2aQtcGwiI/
-         oKglNvkVGqBk4j0mwIUN2RfLgo6+9ZWaXfxVcbH3AOaO9/kb54fBL7uK1pjgHSD/YnHW
-         xkck/yTV+pJxo8F15wkctLtBJY7JHIkcQwx93sXQT9LcQcnx2mYaDz7PWKUkSBz9SX1U
-         0xufkYSIQNdhd55M+0T89qcBUq1iPK4+kgcI1kLm8lNVTYM+8oOoytWbqsZvwNVUyc5z
-         A7ag==
+        bh=AqFPBbQwClplLVYa6nVxed0iUanCciCSJGI1jNnn30s=;
+        b=agWnEq3S4bkliWWQBZbgWXHU3dZFvlW1AEVov45SciKpU3xbCA3gXjOzoaWyipjjZD
+         qmyxeCy+ayYUp2FcYlEjp29/olIW7y5Vh5XniQ6IqAE9YmLOj8lZE1Am17Q8tM2YWHk5
+         yBt1OMgq05UcVNnq7IjTImj4uKePcrXCQ8S6VWSQ4PA+e0feiO2LcOYkrSWj745FLXlS
+         cclc6kYxvHtDbyfVjHNGRdVBDkS4wj8yFcXKQf3mg3AQ7wouZ49S9YOu6/NftEwIcZ/5
+         b3lVUzg7U9actNoZeoSt3hHdo7o7jhoDjPIgohCXE22jrTekTUiUl2nyVK1mlnHWzjzd
+         lENA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XHNR5wYCdJUiEgqVpqscOaP0wrNR0imnVIO/IJNamZM=;
-        b=gEmCzR/ec88E4mfRDDZoOnLt/GzTxipAb0suyrFBnCp5mTTFFs+0cldq1pBDX13VJZ
-         2JbBE7WjQn3cYLRZzhiTOtMofkaxQfLidl4f5JGDrQuuxFhr1Te/eh/iCfOdIbVIovxW
-         oxsh6qlqNeibQif0giuuj5ZsHJ3RC0CzH/aRqcbAZTt6PrDS4HfkuuGVZ4uBrE0nInAp
-         K0I0haJDONrCVsP+LBxZ+0COWFcW8RGHb0ijuudMzlAyfif7rj5eyvRsxktGKi53RQYV
-         7VC+z6k3X6nfZlUjnq+wOL3yFWtTBr6HpdaYHRvaXeFr9qOluGm+uYZR2NqGMvasSgv0
-         4Y+g==
+         :message-id:in-reply-to:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=AqFPBbQwClplLVYa6nVxed0iUanCciCSJGI1jNnn30s=;
+        b=thCF3j5g203pZ1oznZ1aoIA6e9pi9HnvSAZddbT4a09eL+QCenXFSuUSLvr/lD6kzf
+         ORXj2wa4zxnxdzm/TdnhGuHNiN6wZUlHUvQi16Dj/E90wb2w21H45dKngEnYrpAQr3sN
+         Rm6oUF+RBJYlqgVYiz/jLFpryDOcdSkhbFI1F4EKANSQg3deRvWdAb+WRSAYVaYXAL/2
+         UvUA3ZFIqwB8NkMVu4WOVfluy7hlFIp3apnQVnFP0dZZPE2boyS4INVDGwW49KnTH0sE
+         Aun7KSALfTBjQXWX7pcemuG67we/l1yIhgmfzKToATpzxmooCEr+hcVPWPmeku7s0Ew3
+         fYOQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5308kvd0zSezL+MfoF/jNWaWsO6P7XyTn1Hf9x5zo504usmDSuUa
-	3eSp2TfKeGvg4YkFuivhxKs=
-X-Google-Smtp-Source: ABdhPJxUyBV1OHitRx27s7WRh9F3TCqN2AU6u5jfwz9lNBv5+GmPzxyBiPh/62HKvq4KvzlQbcoROw==
-X-Received: by 2002:a05:6602:2c4e:: with SMTP id x14mr1263897iov.58.1610535460781;
+X-Gm-Message-State: AOAM533Dw6I+fRcheWnEthDFvgZNKJzgJUqnQd9ZTZM0n22/ZciyBMBY
+	CIacuy/AtR4B9JM9OSVoINI=
+X-Google-Smtp-Source: ABdhPJymo8nDKXtGqx+yvlE0Hr04QYkEzGMYE3T1JVD7G+Zf3aRwEF9te8uycNfCQfhK4L/za8DowA==
+X-Received: by 2002:a92:9f59:: with SMTP id u86mr1764462ili.205.1610535460938;
         Wed, 13 Jan 2021 02:57:40 -0800 (PST)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:fb06:: with SMTP id h6ls206516iog.9.gmail; Wed, 13 Jan
+Received: by 2002:a92:c549:: with SMTP id a9ls451568ilj.10.gmail; Wed, 13 Jan
  2021 02:57:40 -0800 (PST)
-X-Received: by 2002:a6b:cd02:: with SMTP id d2mr1308611iog.4.1610535460382;
+X-Received: by 2002:a05:6e02:87:: with SMTP id l7mr1789324ilm.57.1610535460383;
         Wed, 13 Jan 2021 02:57:40 -0800 (PST)
 ARC-Seal: i=1; a=rsa-sha256; t=1610535460; cv=none;
         d=google.com; s=arc-20160816;
-        b=gv16eIv5TMfhwMHdgDWMWz+e3ky1MSJrGKusFvhAd68afz7FJzud2+tNytHofhckuh
-         LFmLPg80jvaxR/73lhkW72wZMZIhywJZqdgIPKP0rfhmetIRLyXF7U4GCsTOaceWpghu
-         OW33AyPtkCJhItZWNEi8BM4dz6Gnw19n+6KKsDwMZ7kOXaGX+lvp6h3HqJYbWpXduz26
-         z+6zL0j+1AR+qUkeibaznVPs7sSXu7bjEgMzEKGog/BJRDKTiQWixvFBRXZe0KmXNg1H
-         stnbM1DtfFMe2zIUuflPXNckE2yfTuDFIozlbWsFhz+u9BvoMLOMG+kDtYANixeh3DNu
-         WiXQ==
+        b=czpZtBiLk8JmIPFyGzida86wGAwBKZl/Wb3Mhp0MY7FoO+TCdeX+bUXm6tjpxSXXcy
+         MzsXucwb1FiU8/nsF0VnkObtgbHkWeW1ScLTbLRbymB6ypOIyRrEpLJP2FB5YPoicda8
+         jnu43Pjz35YNDXvBZb5gEkgUgjWAsKdJ3OE/xstKUK4RLB9/VsrMrXEDhC4LUQ0W1m48
+         spwr6fYlz0KDwg9TE2bjYVHhWIOwJMzHydgV6M+qiHxCMCxGh3ufT4h7dFbwjSJHSsyk
+         e6dgMC8OozXR5gj3skOry3tJiq/PQm3wls3hqStdZTLmGAPScgpupGODAOz1/wNqmqLc
+         fcrA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from;
-        bh=UzX1c2t7BmQ8BAj1a1mZfrvDE4g4bH+sBpdthuqMIeU=;
-        b=n//8dkQ3yOPbivT4PFFduHMkDh8rvOMgjiOhH6jm0Un+CVkmhkqqfc+SNiVqqFVg1N
-         b47A3IDM2Y8hspjcLIaKduPBBtX7YDWm1AMiBGyNYZ2i5fX6qlJvs7dZ7pF5WbE2CJmS
-         mK2Mup3mC1avRLB6lz/GtjOzJwbN5BmeiauR6H9X2PtfQ8zCnO1bHOhJzPZhuqNlvPsm
-         87ZL+wSxg4HqURNBWhBubmqC9oDO9RQ9fKUOwkj6dUVjmrDgzLNwtVI0IrhZKCdqPkAH
-         cRIEZWxN89ZeVYGTR924G5g9jMxsqCvw6EV/F5vTAVrP3RpXCoIZvexvpPosK7PTjNU7
-         /O+Q==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from;
+        bh=kO98n2Gu/JbkqOrSj+PH2IJ+P6gMq0WGC5pTRO0gzBc=;
+        b=NM0O6ggl9tVxKjLhq8WevTKmGocLgMSd4+et/vEpHnv5rEb/bisSUxV7Sw5miQsKRd
+         Z93KbGIc0Xl/eJQ4bt69GCsESYqaqd08qcJX5P7z6JPijYF/Ov3RCrv3e5kUCYjX968x
+         gX1lIv+zJWCq5bZKepipMDLkhhiiLHGS0tdtazwCxEHefDMGQQNiKETW0/HPRtYz8Rxb
+         OO6u2ghs+HQ8nI5XJCEqwM9aHQQQczmjDPXZeY4ltGX+utTQKSUOry8QdCgfrketXVdx
+         Rdpq2ZTaCf+ONPufDbKnB8hrqlLBxfW5QifJGgti/QGEiGZSW64kKo7jxxDs9goEY0w6
+         sMJw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
 Received: from loongson.cn (mail.loongson.cn. [114.242.206.163])
-        by gmr-mx.google.com with ESMTP id l3si2284iol.1.2021.01.13.02.57.39
+        by gmr-mx.google.com with ESMTP id v81si90546iod.4.2021.01.13.02.57.39
         for <clang-built-linux@googlegroups.com>;
         Wed, 13 Jan 2021 02:57:40 -0800 (PST)
 Received-SPF: pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) client-ip=114.242.206.163;
 Received: from linux.localdomain (unknown [113.200.148.30])
-	by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dxr78d0v5fhLMDAA--.6498S2;
-	Wed, 13 Jan 2021 18:57:34 +0800 (CST)
+	by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dxr78d0v5fhLMDAA--.6498S3;
+	Wed, 13 Jan 2021 18:57:35 +0800 (CST)
 From: Tiezhu Yang <yangtiezhu@loongson.cn>
 To: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -111,25 +112,30 @@ Cc: linux-sparse@vger.kernel.org,
 	linux-mips@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Xuefeng Li <lixuefeng@loongson.cn>
-Subject: [PATCH 0/2] Fix build errors and warnings when make M=samples/bpf
-Date: Wed, 13 Jan 2021 18:57:31 +0800
-Message-Id: <1610535453-2352-1-git-send-email-yangtiezhu@loongson.cn>
+Subject: [PATCH bpf 1/2] samples/bpf: Set flag __SANE_USERSPACE_TYPES__ for MIPS to fix build warnings
+Date: Wed, 13 Jan 2021 18:57:32 +0800
+Message-Id: <1610535453-2352-2-git-send-email-yangtiezhu@loongson.cn>
 X-Mailer: git-send-email 2.1.0
-X-CM-TRANSID: AQAAf9Dxr78d0v5fhLMDAA--.6498S2
-X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUY67AC8VAFwI0_Xr0_Wr1l1xkIjI8I6I8E
-	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
-	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8I
-	cVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2js
-	IEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE
-	5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26F4j6r4UJwAm72
-	CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7
-	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkIecxEwVAFwVW8twCF04k20xvY0x0EwIxGrwCFx2
-	IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v2
-	6r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67
-	AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IY
-	s7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxV
-	W8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VU14rW7UUUUU==
+In-Reply-To: <1610535453-2352-1-git-send-email-yangtiezhu@loongson.cn>
+References: <1610535453-2352-1-git-send-email-yangtiezhu@loongson.cn>
+X-CM-TRANSID: AQAAf9Dxr78d0v5fhLMDAA--.6498S3
+X-Coremail-Antispam: 1UD129KBjvJXoW7tr18Gr1kZF4UuFWkCF4rXwb_yoW8Gw45pa
+	n2kayxGrWFkw43GFW7Ar1jvr13J3y8u34jgFW8WFyYqFy2qFyvqr4kJrW3tr48urs2yayS
+	qFy3GFy5CFyrXr7anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPC14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJVW8JwAC
+	jcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0x
+	kIwI1lc2xSY4AK67AK6r4DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4U
+	MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67
+	AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0
+	cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
+	80aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI
+	43ZEXa7VUjZqXJUUUUU==
 X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
 X-Original-Sender: yangtiezhu@loongson.cn
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -148,25 +154,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-There exists many build errors and warnings when make M=samples/bpf,
-this patch series fix some of them, I will submit some other patches
-related with MIPS later.
+MIPS needs __SANE_USERSPACE_TYPES__ before <linux/types.h> to select
+'int-ll64.h' in arch/mips/include/uapi/asm/types.h and avoid compile
+warnings when printing __u64 with %llu, %llx or %lld.
 
-Tiezhu Yang (2):
-  samples/bpf: Set flag __SANE_USERSPACE_TYPES__ for MIPS to fix build
-    warnings
-  compiler.h: Include asm/rwonce.h under ARM64 and ALPHA to fix build
-    errors
+    printf("0x%02x : %llu\n", key, value);
+                     ~~~^          ~~~~~
+                     %lu
+   printf("%s/%llx;", sym->name, addr);
+              ~~~^               ~~~~
+              %lx
+  printf(";%s %lld\n", key->waker, count);
+              ~~~^                 ~~~~~
+              %ld
 
- include/linux/compiler.h    | 6 ++++++
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
  samples/bpf/Makefile        | 4 ++++
  tools/include/linux/types.h | 3 +++
- 3 files changed, 13 insertions(+)
+ 2 files changed, 7 insertions(+)
 
+diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
+index 26fc96c..27de306 100644
+--- a/samples/bpf/Makefile
++++ b/samples/bpf/Makefile
+@@ -183,6 +183,10 @@ BPF_EXTRA_CFLAGS := $(ARM_ARCH_SELECTOR)
+ TPROGS_CFLAGS += $(ARM_ARCH_SELECTOR)
+ endif
+ 
++ifeq ($(ARCH), mips)
++TPROGS_CFLAGS += -D__SANE_USERSPACE_TYPES__
++endif
++
+ TPROGS_CFLAGS += -Wall -O2
+ TPROGS_CFLAGS += -Wmissing-prototypes
+ TPROGS_CFLAGS += -Wstrict-prototypes
+diff --git a/tools/include/linux/types.h b/tools/include/linux/types.h
+index 154eb4e..e9c5a21 100644
+--- a/tools/include/linux/types.h
++++ b/tools/include/linux/types.h
+@@ -6,7 +6,10 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ 
++#ifndef __SANE_USERSPACE_TYPES__
+ #define __SANE_USERSPACE_TYPES__	/* For PPC64, to get LL64 types */
++#endif
++
+ #include <asm/types.h>
+ #include <asm/posix_types.h>
+ 
 -- 
 2.1.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1610535453-2352-1-git-send-email-yangtiezhu%40loongson.cn.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1610535453-2352-2-git-send-email-yangtiezhu%40loongson.cn.
