@@ -1,126 +1,140 @@
-Return-Path: <clang-built-linux+bncBAABB4XPQKAAMGQE2O7L3FQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB5XPQKAAMGQEJF7JSRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5D632F6D30
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 22:30:27 +0100 (CET)
-Received: by mail-oi1-x23b.google.com with SMTP id l23sf2968147oii.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 13:30:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610659827; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id BC29B2F6D31
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 22:30:31 +0100 (CET)
+Received: by mail-pf1-x43f.google.com with SMTP id c70sf4132814pfb.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 13:30:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610659830; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ey/3qH7ZPRxBzxYO03TgLzqA2hkOcAqW5AhAEaj7mIMskNtcoq98UvggSptbAmiQ+l
-         LFeo4JWPO6XGZdEKRg+ZSvTTLwQGHUpFW1UaSMou/9rZ38gg6ddhzM50fUCm+etioECa
-         BoiSf4gNY5ooBUF9bDB2bAMYk+XH9tBALSPf3N+aKnuz9TIQBdnNuaupKAu3/zxPvy8K
-         sgNmfmAAbJrcwaQTKnNHPZzGgnPvc/kUThCPDRKctK0IbO2TJZYAw4TlQUs6Fq321TY9
-         6ibLVyoshS+BtIo0rQM74UxKp3iwHv7EWoLa2ctfdzMYo0UDa3mAd4AJAcElXvWvKx4Y
-         64vg==
+        b=p9O0l+T0tXUdMJLpQxKuMaEZYKkBhHiMXvpjKN54CbsRdpC54fYOwSfJTLr3iXPxtk
+         qHO/jp8nT9cpu0ZejIVitViqxYdcx7DBtXuCZ3HbKoabPcuaz1rjHUf3sBmy0R6lSMgD
+         7OAyo8BoysVV3mMSHDV97LBu2nPRdMfP0Zv733hB3vkglo3rj0NyoqO4+EEgYdH5yDat
+         SuJp3ejkVg69G2TGX86794ybZyJYT3wdPyDHr9rYv4gNJS3yLOWlq0rO+/ZGzwf0nybI
+         8rzvulYwmgFfnG/rxgSRkmnWMX80o8RNDssEg8TN8peai0/iwgma5GaAdhNpktuC4tTH
+         EupQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=OQZiYKdyRgAFspxe9neh4P0AyKZiNBIbPQw48bf2L+w=;
-        b=mjWK/DgE0QEn77iMJ2okcW2Y94gh4mSXIg5mHEnRHz3PHD7MixZxklrYBtAGZJVK6/
-         fEPqKfEwto5XFZS0+cIDR8Jrmqnr0jB+S3n/4K1zXUx3PjJFcaUplQqCYrWasmTd90mu
-         fPkd8cmA2HUOyMV+7KzhX/Df0Qprfcc6gyXQzFVuarjrBQ5oXCuj3XbnDEIjp/9+i7of
-         rFOkRw6BYznC7uoMlsA/e3XWWjTvCgbDdxWtouC6XswlHcCrt1uezKBNHnfUzgWMaEMN
-         TXbfPYEakYOSV371SZ1kPS2S4LwMgwaFVdnElPfZke/Unj+1XUgNcYSu5/ovIpnhm4X6
-         xThA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=AjTrLYnD5uVGE8O7nnaWlDYneYg73j+JD8lG7Knzoe4=;
+        b=BH5dr6BF+TYGw/iYHpEHZGUXlPH4IYDAg9E0KzxwC8gL6ioFijeTcoYfX9rICqk3/o
+         hdpmj3x+YXkj1vmMGPQrWpZDzBqVobsNA8Hp+gGdRkGyw+Di+6iqtJbgtjtBHN2S+3yL
+         W4+dbx5irGRo4rBRLXGwb9dcspsonZYlYjyvtohcimXPfVEtsWlz9dSKhvGNepr/4xiC
+         76LbnVvIE6PpYKmOwqOf+oc0vyMUPl4iIOsD38D0bD7DKQeNz/f7BBOW8VEHd1eh1dPJ
+         hs6WlkLW2zm8ju5R7ZvAfxuXp1NWWpdJvhpgLWwxOfKwyPC2MTnE72jRRwK1+D9MsRqM
+         ylNg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tQNkbEvx;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=QSjKT2f9;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=AjTrLYnD5uVGE8O7nnaWlDYneYg73j+JD8lG7Knzoe4=;
+        b=BGarKldzN6MIX02MruY86VdxrI8hM6CmiC+jZEDFUBGUpz0aS+U6rUrTpsyoVoLwZJ
+         MfLCcRZuuQ+PruHSbxM5RwhXiOUfu/dZAUNQMbXN6dFJ4Ru9+bcq62oO7Ve2IKlNjTQK
+         NBaSgdmKT16EbJE8Y1zHNUx2Ss3PnMLNMKOALtcXsXT+Tfzy5JOYMPQuJw/YQmumMh7h
+         l7cqgkdQh/pMP/j+SUl/vKJWsS6Bq+5UVhHi82suDQwV1XB5bLnzNMrlyLrUOOklRePj
+         DlZJkE/7aMtg7EeLtrlQeUyWZG6+00JPrKIdvLotM6yjO/KC3oUcxd5DAMRE94ff8Fns
+         dAJg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OQZiYKdyRgAFspxe9neh4P0AyKZiNBIbPQw48bf2L+w=;
-        b=iX+3L3jQxoD8xht1AaaCDmFqnGNsMsRWvTWNwdqL6bDCUsaxWToNxBgutSsJvpUKcb
-         w27K62m+Beb0jaF07Hu3waSzdf2fTgNffO88ELmtpkhJA9N8vFMwHe2A9b+i1tsKGzsZ
-         pc2lhNJg+z/jNWrpbKEV+qH8/tQMHcBha4iIVuIHEOucmcR/Q6mzJU4SLZ9Erp9ZVZuG
-         CNike5xl1ndVD63Vv2u/GVB1dd3drK7lv56M5naJvUJfjpAc4HcywQdKuU/aIFBT9mOG
-         0DHfE5CEus+5VgctcVNHT2U73ou1bOqaWHUW207M36ujzMyS88blI0D8Z7qY/NOld7dF
-         J0oQ==
+        bh=AjTrLYnD5uVGE8O7nnaWlDYneYg73j+JD8lG7Knzoe4=;
+        b=fqw50tRzpcbsA5dGoYfTcHnkyk+7HZ4W9DTA6za+j38h1Dq4od8LuN32aUdAUoXav2
+         u0qLupjyMOOeR3ADnl/y1VXwYPVsUKfoc51wuFgJyQ/l8HmS2x7DU6IIewIxVQp0TNb8
+         SOWBQADB6JJE6Z6CRFtrEBqDtibjywCOKIKbx51zfvXHQJ4Qtfj6Y9Xj5q4L9JZQT+bB
+         4K7n7Ju/VeU3K/1iSr+OKxfTCrcjxGrBKvuCwjzSNCOkf13JsLwvTG2yo4jsz564EWps
+         JhLed7dTzdbndM31ZfDVbyGTjHkG9dNoXSHOqlUGJ6uNAC5/A3oQkrwcQNHkw8UURq0B
+         NTRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=OQZiYKdyRgAFspxe9neh4P0AyKZiNBIbPQw48bf2L+w=;
-        b=aNBAa4PJHIzr8Q1DtN/9KTgCb+X9IeVAm/ca+BoPPcwrCrj/TiZVMDFkIIAs6/PiZI
-         13fS/mUShVxsrzUH6Y72LyFzgvNMm9SK/gVshp+P/FizSXmIq5O5DGnQhRxzUEzjIWVR
-         PTU0omx1wdmlNrpVY9dJlSai/+KEVeFI31QdPfr5VOQUlimK8eDpsM1reRVKOXZRqHQa
-         R9WcwFh4S7kB+aFsFFF0cPndF1DilGETZfscYq+EO2cmspJCXjikyKx/PEDjNjjFh1K6
-         0Bc6dDT2xF5tmdZ5vtkgk9cXJhFNBtfEFfJYw/NXyWUTnJBJ80mpQ9O+ihbqMTooLndj
-         nNZA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=AjTrLYnD5uVGE8O7nnaWlDYneYg73j+JD8lG7Knzoe4=;
+        b=M0zR+KiQk2z6j/hHdN9DhV9yT9tjGv1Uq/9+zXgywBp8b7nQrQlX6fxz71QU4WLd3A
+         AKW9un3gkXC4zVWHZBbI4VYzzetbJ7QK8e+x6hAaWk4+CYFj1WVVK6r8wu2jrmwcoDWn
+         d47SZ6ADO3k54oSB3ERKadtyA8fr/PDZdZtxLTAcS13jNDPZ9XyqdbAJCTuzE+2fkcVK
+         bnzuvjvZ38kFkQ/Tambts6UzJkmScTnByn7xxPXJTrheKuSGdH0QF1jmsgkjEIIBwWmR
+         CFCOTlFh5BnwrUfeB71h2SvsnA1Bic/o5+vyY0AicqChbOFzpKSc8Rq6zSX218GlhMVr
+         0a9w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53357zKH4Vnn+cYhZBkE+9zE4JqYV+YCyLZc3KvR/Z8T6YdyNQ+4
-	Fj6ArBtOU+vekha40u+DIUw=
-X-Google-Smtp-Source: ABdhPJzs/9wK3yhEwIGuruQhuTFapHndXtRNsLv6rCaGckt5+hA8P7ujn0Q4nXnkzwvEAq6jNYWxsg==
-X-Received: by 2002:a05:6820:381:: with SMTP id r1mr6007126ooj.73.1610659826873;
-        Thu, 14 Jan 2021 13:30:26 -0800 (PST)
+X-Gm-Message-State: AOAM531IGexkltWta22k+pAzDi+qaHv1SHXfv6hbbmasgFSYCfJlAxmW
+	ej3VFu4X6D1To8r9nX6Zsmc=
+X-Google-Smtp-Source: ABdhPJyfq3fr/KEpCL5U+PGpHwWeQh/Lh0H5yMuuUkk6QwUIGUBhWKGn0awsibwDoa3v3ca4WACujQ==
+X-Received: by 2002:a63:f80f:: with SMTP id n15mr9282217pgh.415.1610659830495;
+        Thu, 14 Jan 2021 13:30:30 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:a843:: with SMTP id r64ls1689557oie.2.gmail; Thu, 14 Jan
- 2021 13:30:26 -0800 (PST)
-X-Received: by 2002:aca:dd03:: with SMTP id u3mr3870420oig.47.1610659826449;
-        Thu, 14 Jan 2021 13:30:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610659826; cv=none;
+Received: by 2002:aa7:96d4:: with SMTP id h20ls2601817pfq.5.gmail; Thu, 14 Jan
+ 2021 13:30:29 -0800 (PST)
+X-Received: by 2002:a62:d142:0:b029:19e:62a0:ca16 with SMTP id t2-20020a62d1420000b029019e62a0ca16mr9212283pfl.46.1610659829803;
+        Thu, 14 Jan 2021 13:30:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610659829; cv=none;
         d=google.com; s=arc-20160816;
-        b=YjA1Vjjx8mKQvNFk3mWQWNBwAVbBAbwTPs9zvLNBZBAAr2DoWjC6XPOe3hUlw8FK5D
-         VPJ1WiF0wLlcf85p3ZLpZJv7oVBzFjo1LksTWy6ABR9vCm2gJhU1nvkygfsO4jZWQSYk
-         lrTBwI8f3mFOcNO4n/o8PEYPebdlD7HQLnSHB+WOAqdQd5LcxPx5rPUIGTCeVDMMSji1
-         QhiT7A78EwKhyi23BqJyOqiCmS9QoTEBfDRxq4crdjpoFzFqIWICE60nrMjHA3xAFb2u
-         oZDgXfapfKOJlP89a7tWpTT1FgdTLOGJDYcqXwzpbEo69GJMRhLvPd25I9hi/m257pDZ
-         MhLQ==
+        b=VS9Kct5J/wBHd8LTDZffxdWkh/3CS5qBLy8uywEGdPzD+5UGSdjOUkQWIA11Q7X0t5
+         YPcj3aVPv3XQlFBi2rosD7ogss31oHyLRbcJfidw6nUAMQcrseKK8FU6ScIWBEXCACNf
+         FLF3hjRtLUGGhgGwsZAwzMxdxg2b/jjUCHRCYuCvfEoYE1n05McPSYBKtyveI/+OuaYm
+         6x/GhHLjPKkloO0L2fgzUnef3fVqA1KN3iIPBF42tvNGZMNHy1AGZFrPaCI8u20VZVFn
+         rZbDJSl2SZOd4+45ITGsprw7AMA8otKy8+vHvb/kzfqbqGgPTzC0vaAss7CjeHhQbbYO
+         0x6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=6aXl3pZMOc0qS/PHQG24WoGUNNGK8gfse7mlKSfmJBk=;
-        b=YNWjqrQzE6lnsT18ZFt0iD717blkrsx0q0gJS8ilu1haKVEmwW0XikEkL9GWg1UhIl
-         vKKNiMMpBzi118BKdxVctcDAziqiHeW6U1PSqAVyf/EVaHwVri8MYM/r28M8JaSZ34Nz
-         KsEHzME7o4AshJz+VM+zbntSDS03xfxC/wUBfBUS0Tb06qJKyl4zdt14QD73OpfByCGk
-         h2P63goqg3ghlg6mRLucPEKsKgeCyfqlGRWlV19KmMpM7TACXNnlVLHPDmowwofIbRUA
-         rqXft+DRj+EKwoAUQREmvXLkLyINuc9uDRqBH9pRDoGELKO3jBmkjzzK6fZWG2HCNxO/
-         9TqA==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/5OcUCXKSVoXp2v9h0odUus7RHd5rJAYMLUHH9GNUHY=;
+        b=qddkgmJq1nXtfvOkHyHLbgOI2iYgKjOWCfWWc401Toz8KUblQejHrPOyMyXERLRUC5
+         Qui632UTlIXJUoYmZEHwU8Sw2+U64mo0rG2FqUOlx0ZTCWJ/4IqvZf5Mt2DdCUcJQ1GW
+         bqmrztPtTOFsQ6ZqqSsfKa7BAIjrpl+tcgWivkuSdWDxBVwZIdPWKemkxbHEbSOQxR1W
+         rMal1UrXuTcRbb4L8fB+l++0A6Oe5uXkjEXbDL2XPUK0nEwmMVc4Ia0wUI44WEmJq56H
+         vBUCMWrOmxd5r3pDcYsqTgmaa6RdMGzX5T/cnlBaVj76n+oy39+VdsvssvIytOeky+Wz
+         Z6jA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tQNkbEvx;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f7si365865otf.3.2021.01.14.13.30.26
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=QSjKT2f9;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd2f.google.com (mail-io1-xd2f.google.com. [2607:f8b0:4864:20::d2f])
+        by gmr-mx.google.com with ESMTPS id o14si548513pjt.0.2021.01.14.13.30.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Jan 2021 13:30:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 35C8523977;
-	Thu, 14 Jan 2021 21:30:23 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Richard Weinberger <richard@nod.at>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Zhihao Cheng <chengzhihao1@huawei.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Wang Hai <wanghai38@huawei.com>,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] ubifs: replay: Fix high stack usage, again
-Date: Thu, 14 Jan 2021 22:30:11 +0100
-Message-Id: <20210114213020.4108485-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.29.2
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Jan 2021 13:30:29 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2f as permitted sender) client-ip=2607:f8b0:4864:20::d2f;
+Received: by mail-io1-xd2f.google.com with SMTP id o6so14119926iob.10
+        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 13:30:29 -0800 (PST)
+X-Received: by 2002:a92:c692:: with SMTP id o18mr8526362ilg.215.1610659829438;
+ Thu, 14 Jan 2021 13:30:29 -0800 (PST)
 MIME-Version: 1.0
-X-Original-Sender: arnd@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=tQNkbEvx;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+References: <cover.1610652862.git.jpoimboe@redhat.com> <37e341c0f4522656a6320528f0aacb0cb7ff0034.1610652862.git.jpoimboe@redhat.com>
+ <20210114205544.ehynfby5tummams5@treble>
+In-Reply-To: <20210114205544.ehynfby5tummams5@treble>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Thu, 14 Jan 2021 22:30:18 +0100
+Message-ID: <CA+icZUV2BWt=Q4Z0+4xXYkfQ9DRicNrjKkX6wP60Zf1+dwxGaw@mail.gmail.com>
+Subject: Re: [PATCH v1.1 11/21] objtool: Move unsuffixed symbol conversion to
+ a helper function
+To: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	Peter Zijlstra <peterz@infradead.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Kees Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Miroslav Benes <mbenes@suse.cz>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=QSjKT2f9;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2f
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,43 +147,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Thu, Jan 14, 2021 at 9:55 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
+>
+> This logic will also be needed for the CONFIG_CFI_CLANG support.
+>
 
-An earlier commit moved out some functions to not be inlined by gcc, but
-after some other rework to remove one of those, clang started inlining
-the other one and ran into the same problem as gcc did before:
+Good you fixed that in v2.
+I re-pulled from [1].
 
-fs/ubifs/replay.c:1174:5: error: stack frame size of 1152 bytes in function 'ubifs_replay_journal' [-Werror,-Wframe-larger-than=]
+- Sedat -
 
-Mark the function as noinline_for_stack to ensure it doesn't happen
-again.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/jpoimboe/linux.git/log/?h=objtool-vmlinux
 
-Fixes: f80df3851246 ("ubifs: use crypto_shash_tfm_digest()")
-Fixes: eb66eff6636d ("ubifs: replay: Fix high stack usage")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- fs/ubifs/replay.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/fs/ubifs/replay.c b/fs/ubifs/replay.c
-index 79801c9a5b87..0f8a6a16421b 100644
---- a/fs/ubifs/replay.c
-+++ b/fs/ubifs/replay.c
-@@ -559,7 +559,9 @@ static int is_last_bud(struct ubifs_info *c, struct ubifs_bud *bud)
- }
- 
- /* authenticate_sleb_hash is split out for stack usage */
--static int authenticate_sleb_hash(struct ubifs_info *c, struct shash_desc *log_hash, u8 *hash)
-+static int noinline_for_stack
-+authenticate_sleb_hash(struct ubifs_info *c,
-+		       struct shash_desc *log_hash, u8 *hash)
- {
- 	SHASH_DESC_ON_STACK(hash_desc, c->hash_tfm);
- 
--- 
-2.29.2
+> Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
+> ---
+>  tools/objtool/elf.c | 60 ++++++++++++++++++++++++++++-----------------
+>  1 file changed, 37 insertions(+), 23 deletions(-)
+>
+> diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+> index be89c741ba9a..6d248a19e2c6 100644
+> --- a/tools/objtool/elf.c
+> +++ b/tools/objtool/elf.c
+> @@ -262,6 +262,38 @@ struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, uns
+>         return find_reloc_by_dest_range(elf, sec, offset, 1);
+>  }
+>
+> +static int find_unsuffixed_func(const struct elf *elf, struct symbol *sym,
+> +                               const char *suffix, struct symbol **func)
+> +{
+> +       char name[MAX_NAME_LEN + 1];
+> +       const char *loc;
+> +       size_t len;
+> +
+> +       *func = NULL;
+> +
+> +       loc = strstr(sym->name, suffix);
+> +       if (!loc)
+> +               return 0;
+> +
+> +       len = loc - sym->name;
+> +       if (len > MAX_NAME_LEN) {
+> +               WARN("%s(): unsuffixed function name exceeds maximum length of %d characters",
+> +                    sym->name, MAX_NAME_LEN);
+> +               return -1;
+> +       }
+> +
+> +       strncpy(name, sym->name, len);
+> +       name[len] = '\0';
+> +
+> +       *func = find_symbol_by_name(elf, name);
+> +       if (!*func || (*func)->type != STT_FUNC) {
+> +               WARN("%s(): can't find unsuffixed function", sym->name);
+> +               return -1;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+>  void insn_to_reloc_sym_addend(struct section *sec, unsigned long offset,
+>                               struct reloc *reloc)
+>  {
+> @@ -374,7 +406,6 @@ static int read_symbols(struct elf *elf)
+>         struct list_head *entry;
+>         struct rb_node *pnode;
+>         int symbols_nr, i;
+> -       char *coldstr;
+>         Elf_Data *shndx_data = NULL;
+>         Elf32_Word shndx;
+>
+> @@ -456,37 +487,20 @@ static int read_symbols(struct elf *elf)
+>         /* Create parent/child links for any cold subfunctions */
+>         list_for_each_entry(sec, &elf->sections, list) {
+>                 list_for_each_entry(sym, &sec->symbol_list, list) {
+> -                       char pname[MAX_NAME_LEN + 1];
+> -                       size_t pnamelen;
+>                         if (sym->type != STT_FUNC)
+>                                 continue;
+>
+> -                       if (sym->pfunc == NULL)
+> +                       if (!sym->pfunc)
+>                                 sym->pfunc = sym;
+>
+> -                       if (sym->cfunc == NULL)
+> +                       if (!sym->cfunc)
+>                                 sym->cfunc = sym;
+>
+> -                       coldstr = strstr(sym->name, ".cold");
+> -                       if (!coldstr)
+> -                               continue;
+> -
+> -                       pnamelen = coldstr - sym->name;
+> -                       if (pnamelen > MAX_NAME_LEN) {
+> -                               WARN("%s(): parent function name exceeds maximum length of %d characters",
+> -                                    sym->name, MAX_NAME_LEN);
+> +                       if (find_unsuffixed_func(elf, sym, ".cold", &pfunc))
+>                                 return -1;
+> -                       }
+>
+> -                       strncpy(pname, sym->name, pnamelen);
+> -                       pname[pnamelen] = '\0';
+> -                       pfunc = find_symbol_by_name(elf, pname);
+> -
+> -                       if (!pfunc) {
+> -                               WARN("%s(): can't find parent function",
+> -                                    sym->name);
+> -                               return -1;
+> -                       }
+> +                       if (!pfunc)
+> +                               continue;
+>
+>                         sym->pfunc = pfunc;
+>                         pfunc->cfunc = sym;
+> --
+> 2.29.2
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210114213020.4108485-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUV2BWt%3DQ4Z0%2B4xXYkfQ9DRicNrjKkX6wP60Zf1%2BdwxGaw%40mail.gmail.com.
