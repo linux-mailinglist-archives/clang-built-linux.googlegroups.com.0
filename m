@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBBUHQKAAMGQENILB72Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB64HQKAAMGQE6RVV64A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6EC462F6803
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 18:46:47 +0100 (CET)
-Received: by mail-pg1-x53c.google.com with SMTP id e2sf4261402pgg.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 09:46:47 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610646406; cv=pass;
+Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 960B92F680D
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 18:48:44 +0100 (CET)
+Received: by mail-qv1-xf40.google.com with SMTP id m1sf5192670qvp.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 09:48:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610646523; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mD1QL3PnOvgDbO0uOcht1z2gn23X+Pe2dgsZgwuua36NRscyq+nPvdG+qziW+rTfvO
-         D7ukwVdnmviCNZT8D2p5olAS97Ww2XjVtLsQ7TItvCgfLOyg9OOpMpW7g/zYRGkeXE0d
-         zVfhVjdGCIAGxkmNKsMEWWDWaAhpTP37RX0PsOALq+plwgfjkAQCIc/ya8OD+rIUky5O
-         Zf43v/3oewEoBk+6nR3LPAPKo6qRwJiPLX/nmBrwpbG1xW9r57Axu+uq6IpsMeo8gyWD
-         rU+NiVeBR1sbIOyQGB8VTQLF0pZrvktc+M0Zdo3xCmkYZuynwC6AUjJvbVcFGmFqn7gJ
-         806w==
+        b=F8So2VMP1zZDm2J76u4p9VabzzfmNgz+Lb40ptjK/0N0mQI7dInH3p77u0xxVzfRnV
+         Bb3UbvTvmPFnAArR50/N6+lf0GiDhtUSDEFcKgMitL/+Snfajm/d1dzwnKm4KbUEyv9r
+         lJe5cUxz6IbFOzc5D3r5tU3Z34mLt+VsyIBvBfhug024bMLctq80q/bR728GhyOavDgZ
+         xdv32fBgrpL7zAvYxQegAHNDZmkVXX5BH+ydbXNIrphDzPfu+3936wIVYMJO963sEkm1
+         0IzsEtRmb4MvhuoFFFIVCVlLWlPlpKl+BsYR+VueH1+R+ryR1GOo7NALrRH9UjxKr9LZ
+         TYvQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=E0mjG+NhI/GpNsh458ZwRiib8KAwN5+k9AkVUcFqZvI=;
-        b=ZMJ0YCYmxp13ywbVH2oT1OwqewQNS+39jJuQM/02qCuFLOwQfqwIK3GXJQDoqHLyw+
-         mVXz5LVooJlLeNpngW4kgh7BfQJZVOJtn1Qb8tlMZpfeGkubHf3QLJalI1XW1CJjbBR2
-         yPu4NLv1KcEnoUcUkcYzgdTgF2WSG70gsQAnkYlXwKCRdB7LOwm9mWtWNqE/K890eGZw
-         MONgaT8A6yIbyQPdzbTkoZFGbEIq7JDuMyjQSQS8dzU9Ns5fofOBK/qLxXg1Ju6cs3N5
-         HcVpOPGz6URJRp9mJmEfDkQbGqIeTY/x4IkAuYAUsxMLG0bB9WqlgRP0Bx7AVSTV/qrN
-         H6xg==
+        bh=QqXkpLprhWfsophcogfSAUV4wfEtNXSy+BRQLARic5U=;
+        b=zk98e/wgMf6Dqq0fyYgmvubDyvGY/ev30oypYaFjjWM5exzyy52O+Y0xH+4A+gLJRS
+         7/dwVlbXSh0PnIECfk/o42l14EJNlxEM5d37ub+aqorhasndOASeP6mSs2i6++5/SgOi
+         8++AIghmsQZbchOJVkK/2/4PK5YDnqFg1gCo+qWqC+u/XJNFgM70DcoyT9Y0rnsxqO0N
+         W6khcudTHx00ObBcV7U8hUDxpfgFnThBmOeibD6+x8J+Rel6HErnREinybuIRlVXWdNS
+         S7zZJpmL7xNwOEA3EVO27ZWLMImrPXiUqTm3Gg1c/bLlRfffS+xGIRR1p7Bvfmsu6NBN
+         dF/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=bngQS6YB;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bQbHRL+A;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::529 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=E0mjG+NhI/GpNsh458ZwRiib8KAwN5+k9AkVUcFqZvI=;
-        b=Ft2DgOfzPAKjtqjdK3eGbHFbVZ2qCPqKbzmGQ+YuArQCG5iZhdNvqQxCxLndPaQ/ql
-         rErgRdWn1LHDv9SLk9KuZsuHEpxVMOiLTfBXyL4rFgRJd4QYTQJVAjnN+T7uEobsvHwo
-         bYdqLH/6d03+fkWvO9U/QYDooLQMBTyCXF8G8fmBAid7h5CdcOPJNzwtPc50L/Vjyv5O
-         UJ0LIgWf+a94fX+2rtCINDNvq5+EpFaJTIW3lJMMIcbpeJRXhackKyfl9aIXgdWCp7is
-         nYm2Xvor3czBG+++/uosY8KEJ4BmD3Or2TfVCJsMg5j/VnPxLNb/RaIHGAoVt18TmPJj
-         Y2SQ==
+        bh=QqXkpLprhWfsophcogfSAUV4wfEtNXSy+BRQLARic5U=;
+        b=r1iWco1p84fA/rRNnAwSmPlFVdsmS0GWlLAQtLeP4oGERYA3wIQlXzov1nbUcFpIpD
+         7k5L46Egm0VkTnam0R4/fI1+Q9rqkuJbHuttfRgjm+sdXnGUTjissBqF5GxATDyGjVIc
+         2DjYByVTGaiQcwCv+5F/wrisby88P/8eFLWwVXxwoCuflcMBd1Wi2ey4ULuCgzWzTTvC
+         Jl6kyKEWL5KoM53RW5Mop4bfMM4NEClrtIUg/72+hleR380k3j2ujsing4GvIyCPS98a
+         sYp60LSJ0ASAq6+f5ukYYzZB+97uI6UNN2rlM+tlGU/uJ22+UfHvL6lqN0PJDFh0eW/S
+         W2hA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=E0mjG+NhI/GpNsh458ZwRiib8KAwN5+k9AkVUcFqZvI=;
-        b=rei8leHrbBgEX98v5gAfTRxjiseTCBjGFmVepnsJV2HxA8TR3rPSJBi3wQ6YsNct1C
-         wtLttn+YynDwtQNrboiHMpiOjZwqEJeT9X7X64IeMnClFJVaE6IQcGJCSEDOKoSC/m3v
-         O0ZcfeTjPUbGo//Z4lDuxuARmOcI/b4av03ObQWU+0Id6F/nvrC2c1n8RqJ8OqtEj/Kn
-         73v6WdQwTG4AHPoIFFKdRDoP0edunwYLZq9Z+neLVb63a42z6aXcKfPTqjXDPVG4neM1
-         02eOusCgiS6kB8NuhK+KGIvP7npEpHcPkmbaKHKii1Gq9nwPxT9C+NEVU37DcmBJnF5u
-         HKIw==
-X-Gm-Message-State: AOAM531jZzPTRCpaaVW9OhrtkVEMJQtRqjzxpgButzU7uF5bDVkn28//
-	WO9W/dfvoKToJE5oPmGBl2I=
-X-Google-Smtp-Source: ABdhPJwgY1mhIfhw2aJweVJ2JPsjTR/UFoDQ7Ms55hTsFXWsSvAr+7chTJX5szDMfeu///0BeoiYmg==
-X-Received: by 2002:a63:5d53:: with SMTP id o19mr8644786pgm.39.1610646406156;
-        Thu, 14 Jan 2021 09:46:46 -0800 (PST)
+        bh=QqXkpLprhWfsophcogfSAUV4wfEtNXSy+BRQLARic5U=;
+        b=Njz4DKke2ekDPf7c9sDDIOggQrl0tTiIVHFUbMd2V2efP1gAuQM1o/eax1KUJSYclo
+         CaThRqp2VficLtXVg+hXW8y+MHFcvFZt8qe95XPcewI/cHZC1upt1SNIHWxNutedKWPj
+         D4OOexhUSZ3cOXFToGHQ5S+muVkbzxlRht/ZRf94a7n7ofictOxf9/LWjat8P9wlUAol
+         S7IVl+hGihYreL3vKuerpqYNdOKaqxARTLXZqdQd6FxArpI5DuU/+wgXdJfSjCK8vXV5
+         YnpLdB0IQitHtYLjrtgeRAc0l10YjAyDpQKUWIl/WZN0VPY629sNXitA71Y5YDxo64xV
+         QNXw==
+X-Gm-Message-State: AOAM533yTryDSkJuHboS0ttKiA23vjKQaG4MurAzsEz0pp5l/nbmHxE6
+	kQLu5+7ZqFKKGGSHtYk7fiw=
+X-Google-Smtp-Source: ABdhPJxs6nbjOZdXpKsP9Ki4BUbfxccKpjr1akaHPAhGZz6sunmj0eIAIc+0PmTqao2BFU7LZ51lrg==
+X-Received: by 2002:ac8:66c7:: with SMTP id m7mr8254856qtp.69.1610646523583;
+        Thu, 14 Jan 2021 09:48:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bb95:: with SMTP id v21ls3203033pjr.0.canary-gmail;
- Thu, 14 Jan 2021 09:46:45 -0800 (PST)
-X-Received: by 2002:a17:902:684f:b029:de:3124:d4ee with SMTP id f15-20020a170902684fb02900de3124d4eemr8653419pln.13.1610646405524;
-        Thu, 14 Jan 2021 09:46:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610646405; cv=none;
+Received: by 2002:ae9:ea19:: with SMTP id f25ls3131411qkg.7.gmail; Thu, 14 Jan
+ 2021 09:48:43 -0800 (PST)
+X-Received: by 2002:a37:9f4c:: with SMTP id i73mr8336360qke.82.1610646523266;
+        Thu, 14 Jan 2021 09:48:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610646523; cv=none;
         d=google.com; s=arc-20160816;
-        b=Hmj+rgboHHWmjl1bsHC/hgEbtR6zF8ZIIv5tDj6f9ao17e2K6pw/jjdkyOy80jLGZ3
-         fC1wchgzkX1YYRt3g/cFKj6+KAjEGwlyipTWCT78YFAqTlNE1Kwkqb8hdzKZc2B2gI8+
-         UUIPezmgwjlIul0NljhaQ71OSjuLulLKUIbR4M7CTNdtTjTllzDFvYmSSA4Z7TobNMbS
-         PLZ7JEPNNgjj6aInxEW7mg7ts8+AdfyAM0lGVJLtXeU596BOXm8/kDPDUg9hM5Du0sxf
-         QSA+zg2g/iju/u3/l4JHC7uttLor+yfjBwAyeLHex6S5u0rCfl1CYiFS9hZvFksC2blK
-         R5vw==
+        b=lvAuBy3IJnxOCNLzVrsiEg1071tfs2m8n4bg4lzaYnicnUxBUKuiVeEiJotcXwp/Xw
+         UsEAkS8SUts+zlwC0YJxfjen+o+fVkivUGEQ3hXg1bs5wRrg3N/ewQG+NnwaKAwg63na
+         QgiPplSxi/e+mzY5PUxDZqZ1cr/5HLO+HGFgJkSDsbyaMGNpWR7KZFuAL5HjA1PYjAKQ
+         4Ch64ykLwKJMyJFWkEB623IbuGuVtMtBBQU5P8ugiv5/jydQ4svjD84aQBsO85zayhAG
+         IKGDEW+f+/Z/UMilWMlt5MhnIh0usmcQVmwmu/+s8GK25HrTYkS3kFSt3RatXv8izYeP
+         K88Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=VkWokvHVtOdb6hEe9nrnv98hGpXNaKuzGm4oJYMDFhY=;
-        b=ccqFjErJPrG68xzjfZSFMvud2I9c4mu8j8HBapz/rR0WetiRFKKkeCyU9f2hY2ndIs
-         HylvaU6gx//sNfxN21PkF91Rnw80ib6hxMWQ/uU7Sae+tRdl3gGMPtf1Zz+W6VfPiUF2
-         o/VH/oF3ehrYImPKRSZCKKv5PYjE3tybYmabhL5lQdE7m531kiWYPkhxhu09uPEOxmF2
-         IajU37l9yXaFXxCzpL6aTel2/ijuY5Wpm38KNAfowkMaHoAO2pTKGfkQnuhpNvHw5Twr
-         /7CKXGY9HozS8zuAJc7NAMn2sQ2nfFM5b6yGnOgwjQ4uDc87XOA1J2S3fZCTfPCwcpl8
-         F1VQ==
+        bh=1o9uWR5TsphyYxa9rKGSc/bmltnz4js3z2K7w6fMWLk=;
+        b=rl+CbCXs6Ndx4YC2KhpRQEtvJiPxWjH882NRToECs7dA/3fLlWFvSYPGlNLsgsuHAs
+         ADH9z8oeCXyEk2Cvajn35kMrxEPnG+X4lGwAPcYagVAeM/dkDPPhWUD1ogqqBkKN29mj
+         nXMH+h75pcQZIPwU8sD6nLOabvhi7B6mNvJR4cHhdKIZ2p91o1ez5CTgK077GKu1niI6
+         FviWf58uG5iWNSfQBj1dOyTJZjIHxmOYE0Di11iWjKiOCrByRKiL00VPQCMP9jplvmaT
+         bEV9GTLrvD8knO7py3pBC7jkCxb9MClkMRG2nhrT1aacLm4ocRyf4/6BBjwN3gCzQf2u
+         0Gxg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=bngQS6YB;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bQbHRL+A;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::529 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x62b.google.com (mail-pl1-x62b.google.com. [2607:f8b0:4864:20::62b])
-        by gmr-mx.google.com with ESMTPS id t9si86682pjv.2.2021.01.14.09.46.45
+Received: from mail-pg1-x529.google.com (mail-pg1-x529.google.com. [2607:f8b0:4864:20::529])
+        by gmr-mx.google.com with ESMTPS id p55si585839qtc.2.2021.01.14.09.48.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Jan 2021 09:46:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) client-ip=2607:f8b0:4864:20::62b;
-Received: by mail-pl1-x62b.google.com with SMTP id q4so3274003plr.7
-        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 09:46:45 -0800 (PST)
-X-Received: by 2002:a17:90a:31c3:: with SMTP id j3mr5923345pjf.25.1610646405067;
- Thu, 14 Jan 2021 09:46:45 -0800 (PST)
+        Thu, 14 Jan 2021 09:48:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::529 as permitted sender) client-ip=2607:f8b0:4864:20::529;
+Received: by mail-pg1-x529.google.com with SMTP id n25so4279550pgb.0
+        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 09:48:43 -0800 (PST)
+X-Received: by 2002:a63:1f47:: with SMTP id q7mr8646560pgm.10.1610646522288;
+ Thu, 14 Jan 2021 09:48:42 -0800 (PST)
 MIME-Version: 1.0
-References: <20210114042420.229524-1-masahiroy@kernel.org> <CAHFW8PRr6kjEE=7BSzWo7itSZgAhy_dhmnSe1yq5wMfDwEyJ9g@mail.gmail.com>
- <CA+icZUWBUiM2XgGW6Q_KHT1d=1M5nsu2rRaf--xhTR90u2tjeQ@mail.gmail.com>
-In-Reply-To: <CA+icZUWBUiM2XgGW6Q_KHT1d=1M5nsu2rRaf--xhTR90u2tjeQ@mail.gmail.com>
+References: <20210114173416.738455-1-natechancellor@gmail.com>
+In-Reply-To: <20210114173416.738455-1-natechancellor@gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 14 Jan 2021 09:46:34 -0800
-Message-ID: <CAKwvOdnx-LPcmAmTiC02We1RYd3SGBC0S_ArLJX8hrsMA=QcGw@mail.gmail.com>
-Subject: Re: [PATCH v2] kbuild: check the minimum compiler version in Kconfig
-To: Sedat Dilek <sedat.dilek@gmail.com>
-Cc: Ilie Halip <ilie.halip@gmail.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Nathan Chancellor <natechancellor@gmail.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Thu, 14 Jan 2021 09:48:31 -0800
+Message-ID: <CAKwvOdmiWhtr6qkKDFnVXqLZhyFU4bfhjTyQ6BKiLYup+qasMQ@mail.gmail.com>
+Subject: Re: [PATCH] MIPS: Compare __SYNC_loongson3_war against 0
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-mips@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kernel test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=bngQS6YB;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b
+ header.i=@google.com header.s=20161025 header.b=bQbHRL+A;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::529
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,18 +130,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 14, 2021 at 12:09 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+On Thu, Jan 14, 2021 at 9:34 AM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
 >
-> I remember at university I used ICC successfully with building a Linux-kernel.
-
-Not asking you to disclose anything or date yourself, but to readers
-who don't know when you attended university, that could have been this
-year or 100 years ago.
-
-> Anyone has used ICC recently?
+> When building with clang when CONFIG_CPU_LOONGSON3_WORKAROUNDS is
+> enabled:
 >
-> I cannot remember to have seen any bug-reports regarding ICC to
-> linux-kernel or linux-kbuild mailing-lists.
+>  In file included from lib/errseq.c:4:
+>  In file included from ./include/linux/atomic.h:7:
+>  ./arch/mips/include/asm/atomic.h:52:1: warning: converting the result of
+>  '<<' to a boolean always evaluates to true
+>  [-Wtautological-constant-compare]
+>  ATOMIC_OPS(atomic64, s64)
+>  ^
+>  ./arch/mips/include/asm/atomic.h:40:9: note: expanded from macro
+>  'ATOMIC_OPS'
+>          return cmpxchg(&v->counter, o, n);
+>                 ^
+>  ./arch/mips/include/asm/cmpxchg.h:194:7: note: expanded from macro
+>  'cmpxchg'
+>          if (!__SYNC_loongson3_war)
+>               ^
+>  ./arch/mips/include/asm/sync.h:147:34: note: expanded from macro
+>  '__SYNC_loongson3_war'
+>  # define __SYNC_loongson3_war   (1 << 31)
+>                                     ^
+>
+> While it is not wrong that the result of this shift is always true in a
+> boolean context, it is not a problem here. Regardless, the warning is
+> really noisy so rather than making the shift a boolean implicitly, use
+> it in an equality comparison so the shift is used as an integer value.
+>
+> Fixes: 4d1dbfe6cbec ("MIPS: atomic: Emit Loongson3 sync workarounds within asm")
+> Fixes: a91f2a1dba44 ("MIPS: cmpxchg: Omit redundant barriers for Loongson3")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+
+Acked-by: Nick Desaulniers <ndesaulniers@google.com>
+
+> ---
+>  arch/mips/include/asm/atomic.h  | 2 +-
+>  arch/mips/include/asm/cmpxchg.h | 6 +++---
+>  2 files changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/mips/include/asm/atomic.h b/arch/mips/include/asm/atomic.h
+> index f904084fcb1f..27ad76791539 100644
+> --- a/arch/mips/include/asm/atomic.h
+> +++ b/arch/mips/include/asm/atomic.h
+> @@ -248,7 +248,7 @@ static __inline__ int pfx##_sub_if_positive(type i, pfx##_t * v)    \
+>          * bltz that can branch to code outside of the LL/SC loop. As   \
+>          * such, we don't need to emit another barrier here.            \
+>          */                                                             \
+> -       if (!__SYNC_loongson3_war)                                      \
+> +       if (__SYNC_loongson3_war == 0)                                  \
+>                 smp_mb__after_atomic();                                 \
+>                                                                         \
+>         return result;                                                  \
+> diff --git a/arch/mips/include/asm/cmpxchg.h b/arch/mips/include/asm/cmpxchg.h
+> index 5b0b3a6777ea..ed8f3f3c4304 100644
+> --- a/arch/mips/include/asm/cmpxchg.h
+> +++ b/arch/mips/include/asm/cmpxchg.h
+> @@ -99,7 +99,7 @@ unsigned long __xchg(volatile void *ptr, unsigned long x, int size)
+>          * contains a completion barrier prior to the LL, so we don't   \
+>          * need to emit an extra one here.                              \
+>          */                                                             \
+> -       if (!__SYNC_loongson3_war)                                      \
+> +       if (__SYNC_loongson3_war == 0)                                  \
+>                 smp_mb__before_llsc();                                  \
+>                                                                         \
+>         __res = (__typeof__(*(ptr)))                                    \
+> @@ -191,7 +191,7 @@ unsigned long __cmpxchg(volatile void *ptr, unsigned long old,
+>          * contains a completion barrier prior to the LL, so we don't   \
+>          * need to emit an extra one here.                              \
+>          */                                                             \
+> -       if (!__SYNC_loongson3_war)                                      \
+> +       if (__SYNC_loongson3_war == 0)                                  \
+>                 smp_mb__before_llsc();                                  \
+>                                                                         \
+>         __res = cmpxchg_local((ptr), (old), (new));                     \
+> @@ -201,7 +201,7 @@ unsigned long __cmpxchg(volatile void *ptr, unsigned long old,
+>          * contains a completion barrier after the SC, so we don't      \
+>          * need to emit an extra one here.                              \
+>          */                                                             \
+> -       if (!__SYNC_loongson3_war)                                      \
+> +       if (__SYNC_loongson3_war == 0)                                  \
+>                 smp_llsc_mb();                                          \
+>                                                                         \
+>         __res;                                                          \
+>
+> base-commit: 7c53f6b671f4aba70ff15e1b05148b10d58c2837
+
+^ is this "base-commit" something you manually added, or can git
+format generate that?
+
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -150,4 +230,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnx-LPcmAmTiC02We1RYd3SGBC0S_ArLJX8hrsMA%3DQcGw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmiWhtr6qkKDFnVXqLZhyFU4bfhjTyQ6BKiLYup%2BqasMQ%40mail.gmail.com.
