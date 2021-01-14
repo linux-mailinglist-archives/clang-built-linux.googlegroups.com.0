@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKP6QKAAMGQEOTSYV6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQMAQOAAMGQE3GTIL5A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id D0C6C2F6D9C
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 23:01:14 +0100 (CET)
-Received: by mail-yb1-xb3f.google.com with SMTP id j1sf3264362ybj.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 14:01:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610661674; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E5E62F6DA7
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 23:05:55 +0100 (CET)
+Received: by mail-pg1-x53e.google.com with SMTP id k21sf4674995pgh.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 14:05:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610661953; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yKlOyi3ECfdFgUE7viYDY9ESuILYLNofS5LrwcLvx3NWPI6J6ljCT584D+Zf8UDW3E
-         aBeBAOCnJRFQLaQhC4oXLnjhkGVeZZGYVOGwTvCQv5VmuRyaPU98Cquw4euSXzu3EsuP
-         CQc3OeTm+wcuf0EXS+eD+1mqsE9ORLwB9mdOq3Z69+8I65aWr1//BJlErsaGGIO/SRax
-         D1hfuyRULxn3u62zMGAFYTulmUHw8SnvnIEwke+gBmCvINgptbpCqArScS3GMnncckQI
-         OEaaUHMaoYJ3pm0eWFVKAHGjTmMiHMnHH3HyjDFhMw+qxz36oTE56oJzNoiic+w81OeQ
-         Wfsw==
+        b=ZIxg+5vyYbDbW4bMcRAHn6A8bKIB8XZgGUde8smtZsAtsUBXJBx4xqiI4AJCfw56Cg
+         ydrzzci0CZATi5bWxSIGylWvkJapA0zihkvdTlI9Vw3Ds3l8RoroQNxroRDLseh3gkpU
+         wrouSyqtBVkJ4mRrDq2CKawJUWvZUKN7yg3/9aplAvibZ3sPowqzwJM/oCBBJGVEu1Ak
+         Dr+S0ISOWZGB+dBduvclrZ7sj7K4Ugmh+66MR3jgpkMhtA/FwbLkrjacMSt7imTwxGMW
+         HObecWaVt+wPdDAT8vFmKAsHvHv+pQ077ZjtRu6Jmjli9/ycZTrsEY/97q3DyX4T4mHb
+         E2cQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=OsQW89faLrtDnlvQval1riFSFnn9+chjS7UAKRoSXjE=;
-        b=CJWKcW+/jp+jQRTWLXwVdJhCbF1Bh0+rr71VqAXQ1wmo+S+I5DTTRunveipZzjeDSH
-         HGLO5bb1R7iD+8yveeMsm21cGDPdVwCtcNhAt8UoI7ll32BT5OfrBd2LtGXWrSGVNOb0
-         yeh1L7SYAQfRAQDoR3o6OvW47UADHkacBWS3AITaC7oV+6WVVdmI9nKn8DON8V2Pxb1z
-         RdHHlTToGnpYH79qS1mqUVgoaet9uzGyiSB3BLvPxjn3N9Yc0MrFDTK9S5kAch6Q+9Vy
-         hFGPPa25bCjvuD6TNn2EVQ6wUOUVGfxx3t3jtcAtFScF7cc+IDNHedbOybLJcR6O5ceq
-         uKFQ==
+        bh=3yziWAOydYmZLXJi9YnwMwJdS0GlWfPT5ryiK80qz7s=;
+        b=cczfFPkoLle0wRIplcRBzqSAwoS0NOjw5KlZ5Viu7Zr4js1RIG4mQ31/0gZtcIPsU7
+         dBtO7ppeQI9iDXxN0Pz03msznxcOUxkEtMkEGGZhsJ4osrTe4Y+znUA2WcvbmyQuYUTg
+         5YMhtwL7v9gDW+rxXDfZC53IDclFS/Bhs9N0Ov/lak5561Fc9FHPjaB7kJjFq31+em4A
+         oQ9qfw7TRQFYxVoGvJ+/AGaw2p45vBmUz8fwfmIY/YxTQ14NxL/4ubOxRwA0bO6FEYoh
+         q22dSB5KHp0X9g0N49VGM8f76yZmH9V0kTJ5vECXNmPVr278FdEcuTyQCO+0LcmciXZ1
+         bv3w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Y8Aex8dp;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Rd9jHYrS;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OsQW89faLrtDnlvQval1riFSFnn9+chjS7UAKRoSXjE=;
-        b=B2q7tlDkfwL3lWVQ/9wUrowFGLZqrSU0e+HrhuRR5y8kJHiqIGBCtAA+ket09xiREP
-         G7hDP7ANa+7RHseDEyuRQKRsXTV612lUKza9OmntThlmAwdDV+8cHAqVzY5vMghoYojx
-         M8G39EYuUn+/Xx3M8WCA/KE5atJANQSxKUfMfKay56/AorhVa2BEQU1XYJ4N4rf33N2r
-         Mq5Jxfpzo4ogSWVaO3l9LAXMKZ2N7AcDzK8pMLZcB5Z9o2jvKzofCWPC1yb3st0xUsSv
-         qjnaK0ptJ8ehgtZVmlfnZFS3HH9E590Fmm3y0hKF3Vp5+pOjetxkyNnVp47RVSleK0zR
-         o5Ow==
+        bh=3yziWAOydYmZLXJi9YnwMwJdS0GlWfPT5ryiK80qz7s=;
+        b=CFZ6OznuwE9cMYFugMIUwkGQFZnFfhxG2z0gE2XFf7DHRMMhDQwIGQiMo5ilW24DXt
+         M4NHU1/arqcmLdgcKZS8YS9x/mJChFM+QPk3SP5e8eCemmTtYhc76WhP80KOB3hNt4AT
+         dMePqtRZuFHfB+qEospP56Psk9rjg0zm1GvdkwK3vNWNmdqU8Kl0lkpFWpX8x4mwXZjS
+         yuT+POL/bL+c+kcjEpLfqsgE4b/ocr8pexNKNztZQo6X3obCZmHGlqbca2Js4ipOmSMk
+         EDq39h1h9NkoKjKckrFwVjRTKdjdsWW4BhA2IFaw8qMeRDSevBjECVZEFeJTbXcqPiSf
+         NRfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OsQW89faLrtDnlvQval1riFSFnn9+chjS7UAKRoSXjE=;
-        b=qNsVO3zmxQDil0MrWWp2whqJrUbRudcanbZjoWCDxJ2/rs9isBuo99vLIdwJTx09el
-         X9mzdQiYrnvX1D1s83S08UT+5ugj6eQ5L3r1QmjhHct6dMcv/kxory/ibUDcFJCili/b
-         +xKnBUKulSj3mwhT9uhhGnxOpKF49mP5d0bS46emrwUWOidgvkuvRu5tk3y7xf2CuNH1
-         fqHHCFMPEViTZ3K9ltgkS0hVUN5yDu4aLFTEIgedR+zz8BOatdDEkOC/CpEzfcE9Y5bl
-         /yD7mqpqdW+a9vfWIskh2mGg4i667bTuN8yZRlxpXbecfPPVZdi69Cvs85wxlx3HUxaB
-         GK/g==
-X-Gm-Message-State: AOAM533HN0tw6sKLwEpye/9uFc3esbufOJy3l/sDLzBxSpX26lT/URar
-	ELKSnSmFValQwjiBk2dh7Wc=
-X-Google-Smtp-Source: ABdhPJxxldalJnFAH1PJ9uFh9Ws1cMHBQWD75fh+x0AjjJxYWmOYHjZG1XIQr4GfzCySAirmXXrxag==
-X-Received: by 2002:a25:b320:: with SMTP id l32mr5091743ybj.104.1610661673823;
-        Thu, 14 Jan 2021 14:01:13 -0800 (PST)
+        bh=3yziWAOydYmZLXJi9YnwMwJdS0GlWfPT5ryiK80qz7s=;
+        b=lOnDBvM775lXGuzaFWSnISYeVKIiNRAnM3T79w08EnZfSB53U8qC2YD2HQ+vOH8zdb
+         8jdqsg8KYRPXnTtN40cC7EcUDwGa1YXBjehQLZj2UeyT40n4dG3ELJnBEgN2tA5GYOdM
+         yun28ZYOwNvd9/gJjGIHqMkcc3iAaa+7KRY7OX+jjsQi6t9jGyrWjw3q9w99PYGxbQQW
+         y/zNE8Q9JTguFjOebhkkPFIHxh8IYAMyh8OdvVk1xKDp+9/KjcpGfu4mG3rS1BGGGsxf
+         JzCitbXrSlJdNruJXWJVBZkMVavH776GDh032gYOhQ05kXh+UHZpQtH+GFwj8bRC6YUK
+         9/ww==
+X-Gm-Message-State: AOAM5332TqQ+hWUG48yuby/INtzziB0kmttj8mwGZ0k99oa4F7lmxtAz
+	RU0MLKpgniToSVG5lBaxxnA=
+X-Google-Smtp-Source: ABdhPJzfbE2k3w7RH/EcluZj656itHEhT+5g73MgQObVAZtRMiEjFhRKePwTzQ4w6lQl8f2HXkCmhA==
+X-Received: by 2002:aa7:8b51:0:b029:1ae:687f:d39b with SMTP id i17-20020aa78b510000b02901ae687fd39bmr9352363pfd.50.1610661953440;
+        Thu, 14 Jan 2021 14:05:53 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:f80c:: with SMTP id u12ls3407693ybd.4.gmail; Thu, 14 Jan
- 2021 14:01:13 -0800 (PST)
-X-Received: by 2002:a25:3587:: with SMTP id c129mr14139531yba.223.1610661673196;
-        Thu, 14 Jan 2021 14:01:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610661673; cv=none;
+Received: by 2002:a17:902:a416:: with SMTP id p22ls3307443plq.3.gmail; Thu, 14
+ Jan 2021 14:05:52 -0800 (PST)
+X-Received: by 2002:a17:90a:3d0b:: with SMTP id h11mr6957398pjc.188.1610661952766;
+        Thu, 14 Jan 2021 14:05:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610661952; cv=none;
         d=google.com; s=arc-20160816;
-        b=PCQEzkgo3WYqRpEIwiLddT8AdBvkLxq71pgQ9Q0ESPxL45FmLGAlBSHJ0/DWz7w/Ea
-         vCNQkfn02AbBJ5bpWYns/Y2p+u3QVrrwJoaipgP5qpza7YMnJ1soRrw1/iN24ROlFGUt
-         4oH/FHUkJ6CblxdFAI7O05xaZSty3/ojNt6dvOdloXkJ1qDu4vPTelUfEkLJPu3+uiLB
-         Qz89AZo8dXezJa2KoMpXMmbd6Y2KtZSRY8tmLiUDTTUmQxQ1JJ1NRoM8u8G8aDm4NA9X
-         Aai+Bgy4JLwyhTScyq1rZ6DCYc9RnJ48ZDuB8DAxenGamICK2B3UsD6e51zY+rXPz9/C
-         foFg==
+        b=y1yzrOS4tp+JVj4IBvcynT3c9/AzjYIvIBBroax5GxVGxupKhZxX53sZvvKzCJzxD1
+         HxsTBue884PvyCGcIPC5iBkg5vbHRYIJcU7gg0Dw6UQY4b7cN3fF8Xa0D1efNefk4zzh
+         On2GUaEmn7d1+JM+pl3a5TeS30ZgbjU5otDjrSj3VLR3Vh8Op9fTy0+i9fO8+DnZDxyV
+         8feebpZwJBzQyI7euk+/OpOCXOvZv9DXOv4q32PNSDUwNtOCb3S/MDqdjee7YjxXKIuU
+         0G/EmxpEbponibJdQCD74TDnPh1mNswtUZ1ta4TIeaGEz3xQI05AcnvAA/K/6DlzbB1D
+         B8Vw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=cVv6S5EAOTDagu+nMi70jtjXxb9kx3oijm5M+lP6Ygs=;
-        b=YEO38POxjVgNpdLqMfdGdzgWQkV4F5dsDpOp60nNQbqhu1rLOr2CH/0jwUNW2zueTK
-         oLy/Oo7w2S/gvseIsQZL/akC7Rp78GF1PvB85x6U9nfZcaso85EgaLz0RXWj3MP/9vG+
-         P6xkaQR8PKnDvAQ2/ETabfUQ6FSSvNFuPaG9OP/SflrtMO2jYYOSBBqeURmMzoEgaydZ
-         pLMrdTne1ogMm6IHm1DGnfCporg2x1IZVy1A+xT7QgbdzYiy34N82pqU4X+0o1riDOFT
-         2Tmt8vPfAD8LP4xssBedSkSf02c6rXzg4gcQ5JefFhWTFhY3h/TmVP/WrrgsqCInG+Ks
-         u2FQ==
+        bh=wUgYvY8oKdE3vIqZqcGoJhcy0h+YbWsnar8Vy45H+Zw=;
+        b=dTYc/kwQ5Fxd1rCZIo2jb1pA20xjk5AWQlrjlLrpgpOhQXbVG/X08DHmOzgyuLrils
+         hybMjb0orQRvm/6ZmU22634/speYUtNMCNyei4ZIl8xQYQEp5UgpE2Q/AGf1aLxisIvD
+         xErRWxu73C+JAI88+jOe8KMqAMZGAMvqNFPQwZFo8RiLcAX1fOgaXud9hCvjasRmz3V5
+         L/mOTjBTjOJt+ASwHhOB7GmXkC4NXB8ffk22xS0+Aln2WxYw+W3mRh9IqmIBOuJPZPKM
+         FUBwlVSWxJC6JdR0egtZvK4vM3VzL6Gn5ACSwgzoAWxZvJ5aSYtiTqI7ojhi5m4zyei6
+         sDdw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Y8Aex8dp;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Rd9jHYrS;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x102d.google.com (mail-pj1-x102d.google.com. [2607:f8b0:4864:20::102d])
-        by gmr-mx.google.com with ESMTPS id x18si201141ybe.0.2021.01.14.14.01.13
+Received: from mail-pj1-x1032.google.com (mail-pj1-x1032.google.com. [2607:f8b0:4864:20::1032])
+        by gmr-mx.google.com with ESMTPS id o14si553960pjt.0.2021.01.14.14.05.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Jan 2021 14:01:13 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102d as permitted sender) client-ip=2607:f8b0:4864:20::102d;
-Received: by mail-pj1-x102d.google.com with SMTP id my11so4491353pjb.1
-        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 14:01:13 -0800 (PST)
-X-Received: by 2002:a17:90a:6ba4:: with SMTP id w33mr7202654pjj.32.1610661672195;
- Thu, 14 Jan 2021 14:01:12 -0800 (PST)
+        Thu, 14 Jan 2021 14:05:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1032 as permitted sender) client-ip=2607:f8b0:4864:20::1032;
+Received: by mail-pj1-x1032.google.com with SMTP id y12so3898520pji.1
+        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 14:05:52 -0800 (PST)
+X-Received: by 2002:a17:902:26a:b029:da:af47:77c7 with SMTP id
+ 97-20020a170902026ab02900daaf4777c7mr9613780plc.10.1610661952331; Thu, 14 Jan
+ 2021 14:05:52 -0800 (PST)
 MIME-Version: 1.0
-References: <20210114211840.GA5617@linux-8ccs> <20210114215416.993167-1-maskray@google.com>
-In-Reply-To: <20210114215416.993167-1-maskray@google.com>
+References: <20201204011129.2493105-1-ndesaulniers@google.com>
+ <20201204011129.2493105-3-ndesaulniers@google.com> <CA+icZUVa5rNpXxS7pRsmj-Ys4YpwCxiPKfjc0Cqtg=1GDYR8-w@mail.gmail.com>
+ <CA+icZUW6h4EkOYtEtYy=kUGnyA4RxKKMuX-20p96r9RsFV4LdQ@mail.gmail.com>
+ <CABtf2+RdH0dh3NyARWSOzig8euHK33h+0jL1zsey9V1HjjzB9w@mail.gmail.com>
+ <CA+icZUUtAVBvpU8M0PONnNSiOATgeL9Ym24nYUcRPoWhsQj8Ug@mail.gmail.com>
+ <CAKwvOd=+g88AEDO9JRrV-gwggsqx5p-Ckiqon3=XLcx8L-XaKg@mail.gmail.com>
+ <CAKwvOdnSx+8snm+q=eNMT4A-VFFnwPYxM=uunRkXdzX-AG4s0A@mail.gmail.com>
+ <5707cd3c-03f2-a806-c087-075d4f207bee@fb.com> <CA+icZUXuzJ4SL=AwTaVq_-tCPnSSrF+w_P8gEKYnT56Ln0Zoew@mail.gmail.com>
+ <CA+icZUXQ5bNX0eX7jEhgTMawdctZ4vkmYoRKDgxEMV5ZKp8YaQ@mail.gmail.com>
+In-Reply-To: <CA+icZUXQ5bNX0eX7jEhgTMawdctZ4vkmYoRKDgxEMV5ZKp8YaQ@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 14 Jan 2021 14:01:01 -0800
-Message-ID: <CAKwvOdnG8VP2n0E5UiM+txxN6SJp-MOMfNqawqtrCi04BettHg@mail.gmail.com>
-Subject: Re: [PATCH v2] module: Ignore _GLOBAL_OFFSET_TABLE_ when warning for
- undefined symbols
-To: Fangrui Song <maskray@google.com>, Jessica Yu <jeyu@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Sam Ravnborg <sam@ravnborg.org>, 
-	Marco Elver <elver@google.com>
+Date: Thu, 14 Jan 2021 14:05:41 -0800
+Message-ID: <CAKwvOdn98zvjGaEy0O7uCb9AUZdZANCeSYpdti3U3uj4+V4dyQ@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] Kbuild: DWARF v5 support
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Yonghong Song <yhs@fb.com>, Jiri Olsa <jolsa@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Caroline Tice <cmtice@google.com>, 
+	Arvind Sankar <nivedita@alum.mit.edu>, Jakub Jelinek <jakub@redhat.com>, 
+	Fangrui Song <maskray@google.com>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Nick Clifton <nickc@redhat.com>, 
+	bpf <bpf@vger.kernel.org>, Masahiro Yamada <masahiroy@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Y8Aex8dp;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102d
+ header.i=@google.com header.s=20161025 header.b=Rd9jHYrS;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1032
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,95 +142,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 14, 2021 at 1:54 PM 'Fangrui Song' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
+On Thu, Jan 14, 2021 at 1:52 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
 >
-> clang-12 -fno-pic (since
-> https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6)
-> can emit `call __stack_chk_fail@PLT` instead of `call __stack_chk_fail`
-> on x86.  The two forms should have identical behaviors on x86-64 but the
-> former causes GNU as<2.37 to produce an unreferenced undefined symbol
-> _GLOBAL_OFFSET_TABLE_.
->
-> (On x86-32, there is an R_386_PC32 vs R_386_PLT32 difference but the
-> linker behavior is identical as far as Linux kernel is concerned.)
->
-> Simply ignore _GLOBAL_OFFSET_TABLE_ for now, like what
-> scripts/mod/modpost.c:ignore_undef_symbol does. This also fixes the
-> problem for gcc/clang -fpie and -fpic, which may emit `call foo@PLT` for
-> external function calls on x86.
->
-> Note: ld -z defs and dynamic loaders do not error for unreferenced
-> undefined symbols so the module loader is reading too much.  If we ever
-> need to ignore more symbols, the code should be refactored to ignore
-> unreferenced symbols.
->
-> Reported-by: Marco Elver <elver@google.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1250
-> Signed-off-by: Fangrui Song <maskray@google.com>
+> Today, I have observed and reported (see [1]) bpf/btf/pahole issues
+> with Clang v12 (from apt.llvm.org) and DWARF-4 ("four").
+> Cannot speak for other compilers and its version.
 
-Thanks for the patch.
+If these are not specific to DWARF5, then it sounds like
+CONFIG_DEBUG_INFO_DWARF4 should also be marked as `depends on
+!DEBUG_INFO_BTF`? (or !BTF && CC=clang)
 
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
-Jessica, would you mind adding when applying:
-
-Cc: <stable@vger.kernel.org>
-
-as I suspect we might want this fixed in stable tree's branches, too.
-It might of interest to add:
-
-Link: https://sourceware.org/bugzilla/show_bug.cgi?id=27178
-
-too.
-
-> ---
->  kernel/module.c | 20 ++++++++++++++++++--
->  1 file changed, 18 insertions(+), 2 deletions(-)
-> ---
-> Changes in v2:
-> * Fix Marco's email address
-> * Add a function ignore_undef_symbol similar to scripts/mod/modpost.c:ignore_undef_symbol
 >
-> diff --git a/kernel/module.c b/kernel/module.c
-> index 4bf30e4b3eaa..278f5129bde2 100644
-> --- a/kernel/module.c
-> +++ b/kernel/module.c
-> @@ -2348,6 +2348,20 @@ static int verify_exported_symbols(struct module *mod)
->         return 0;
->  }
+> - Sedat -
 >
-> +static int ignore_undef_symbol(Elf_Half emachine, const char *name)
-> +{
-> +       /* On x86, PIC code and Clang non-PIC code may have call foo@PLT. GNU as
-> +        * before 2.37 produces an unreferenced _GLOBAL_OFFSET_TABLE_ on x86-64.
-> +        * i386 has a similar problem but may not deserve a fix.
-> +        *
-> +        * If we ever have to ignore many symbols, consider refactoring the code to
-> +        * only warn if referenced by a relocation.
-> +        */
-> +       if (emachine == EM_386 || emachine == EM_X86_64)
-> +               return !strcmp(name, "_GLOBAL_OFFSET_TABLE_");
-> +       return 0;
-> +}
-> +
->  /* Change all symbols so that st_value encodes the pointer directly. */
->  static int simplify_symbols(struct module *mod, const struct load_info *info)
->  {
-> @@ -2395,8 +2409,10 @@ static int simplify_symbols(struct module *mod, const struct load_info *info)
->                                 break;
->                         }
->
-> -                       /* Ok if weak.  */
-> -                       if (!ksym && ELF_ST_BIND(sym[i].st_info) == STB_WEAK)
-> +                       /* Ok if weak or ignored.  */
-> +                       if (!ksym &&
-> +                           (ELF_ST_BIND(sym[i].st_info) == STB_WEAK ||
-> +                            ignore_undef_symbol(info->hdr->e_machine, name)))
->                                 break;
->
->                         ret = PTR_ERR(ksym) ?: -ENOENT;
-> --
+> [1] https://lore.kernel.org/bpf/CA+icZUWb3OyaSQAso8LhsRifZnpxAfDtuRwgB786qEJ3GQ+kRw@mail.gmail.com/T/#m6d05cc6c634e9cee89060b2522abc78c3705ea4c
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -227,4 +163,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnG8VP2n0E5UiM%2BtxxN6SJp-MOMfNqawqtrCi04BettHg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn98zvjGaEy0O7uCb9AUZdZANCeSYpdti3U3uj4%2BV4dyQ%40mail.gmail.com.
