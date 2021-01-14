@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBBN5QKAAMGQEISSOAHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBCF5QKAAMGQE2DIQBIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 030A42F6B54
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 20:41:59 +0100 (CET)
-Received: by mail-pl1-x63a.google.com with SMTP id ba10sf3813914plb.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 11:41:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610653317; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 06F162F6B55
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 20:42:02 +0100 (CET)
+Received: by mail-pj1-x1040.google.com with SMTP id m7sf4021023pjr.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 11:42:01 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610653320; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pzmdtrVktpuATJELfQZYdN8dNlI5CE6ymZd29FavqK8g/WWDx2EIZyGRUvMx/rz1Hp
-         PSES5SKB2I+k849B0OS+4+jllYBNFdzhB9dU5t2GhArwnc2ej2sBrTXlWO3+PbQvNIzB
-         CFCXeSMMCxH/d1vRPJBkqKvZatK20FI1DLByBlT9cz2U1QZx8bT8RI9+32ztGtVDQWTy
-         9Q2IWAR/7ATtL2o3mYmXZ9QL7u6k6Q42omtnT83mSBraznpYrbcVobLrgKVhrGLDs6Kj
-         qoeY+fLMJmz6vRQTTnCr0x+99vZ7gEiwygTChcFBB8uuZ3b+++wECVpLTfcLMYAYAhB9
-         S/5w==
+        b=WHz66NKAzKRSdHyaOiGdeShY3I6YaOW8GMTgrG2mxdhZQzjqUhc+5dUCzMQky2l1AG
+         VABgNqU494ZXm7tZ3OGTFUwu/Hmf3foS/XWltImUaKPTLC59rsbbP6Ftcf4AR6cSqk+u
+         n22N4jlND/MlExzwvqzQh1Cig4ZDeogq9tgNMP+Z09DBefBHebmTTf1I4F7UFxatXd6/
+         fC7dJNzWteuGziqVitgD/gIHUi+Lk6Zcay8BlaTTnc+MAf/ZT7BNz5HNVPyF1kPn0rbP
+         evgY1UTSDfrjNVH5vEavD5Gz7nAxyYxfl5Xga59WXZxv8qSJuM+DQA/urlgpOB5cLofZ
+         aOhg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=TWgJWLVzIGmzJLbDy3zMd9VUQwoOnmTNSU3M9x1arUU=;
-        b=X9rmsZc3Pk0DF/vbj9mfctTVtpUZdaW5Td4wGp45TPAyUZNNY6b1Dhdktl0hR+Fm4y
-         /8ckHY44O6L8QaToLLnAeWbeqnHoTu61OTOLQn2Qo2qJl9n/vrUbZWrMd9xoQlFcvvi+
-         /pgg9IcFd6cHpDI6ICVdsYLh8Wyo6XykaOvu5lopsMh3bETBfn0FIVOsZTDsw+DyXM5E
-         MbX5pcKwh4j+YhupId4gpMYP3DeIh/Trb0A4kgvynoKM7J5EUXoJJ6GW7kKEhM4DIWL6
-         A5+14prFenghesasaBau5tH7s5Km5BTa6aljVuGzRqpirDlUiz37gIBZk17X1h/vJplR
-         JmkQ==
+        bh=6ZmNpP6JhBH/B3yvWnJb2NxUqdX1W6TbqD+nCJFbruw=;
+        b=GHpjqbaF3/f8JBn8kgDsx9VYOxUSTYuyLAfmhD7NeqtmDK5Odz+ggzCMHlbsH9cXOJ
+         Ja8cTfn7VI0Vp4/WzCFsk5xfN90/ER6YMNLltNGdfYSdRfAAQMJKl54yiGT9gdc5oF3c
+         Yh8x8Mzt06eUiytwmFz2aHguNpIXQJQVuKr2uaT7hc7YWJldLbCnZkbnp/dZlyH+tC0G
+         iJ1/r/imOGVD9+em3vwbuFIvGD5SewetNGEIl26RERaCjaU9+gqt0mYBJDx+Yno8Wnpj
+         6slI6PjUMsJ/H8rTxGev07+8Otg4l2eDHAwLb9Y+vk2xa7gCTqSTKL6fh9SxepL17QCP
+         o0uw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KDc0mkOQ;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=NP2Vwcl1;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TWgJWLVzIGmzJLbDy3zMd9VUQwoOnmTNSU3M9x1arUU=;
-        b=gl8xEzBe6YamcKvecKPFsGOJYVeJK+VtV/LpiVH41rxGsXz9LvMlNCNYjQaiApUh/a
-         V/STnn5dgmuvG01a9+i+6ym1cZHnVuoJD6pUbKZCGUpvCasDRgEE1RHysSbHresusc7p
-         pjIX/5GidDcXqd1AQNeo4CKzgXV8rBSun/KC9V+E5VLfacJhB+3yuvSp4VdGiSJXsGqA
-         IK+tMODmsWAH9haJEeIF01THzhzjlO2kdj/e8CBfLx1BzZc8Z1QTBEnAD5DOIJGKezpn
-         PXUF7vql316p8DsKcFebVib9Mp/3UurSOwj/JzEL7EUw7yiWZmoDQMpHpF4+x0qls6Rh
-         y2Bg==
+        bh=6ZmNpP6JhBH/B3yvWnJb2NxUqdX1W6TbqD+nCJFbruw=;
+        b=Hf9OXAOO0vKSr2XKVDdTLrJ0/mHaNNx0G5sqxMT8Tdu9+0sp6tu+fgO7WNtthiM+nR
+         FpYHbg6AONVz2oQkSCa5dS77Ftgi252P5rDC7nvGYDmuLViaT9YTueGT46JrrqK6GUzZ
+         OD6IgZikAg53jzFFQYZ7m5C0J4P6l2RkDnC5oHaEMKV75v+LgGKYMr8iDbPfPuy3bN7O
+         6C7H6DzuycDJ18oi9KOGXqzXG4UepRiaSeNKt6mA9ye0NP4zpTgCa9DduTCaj8NeAKxj
+         tv5/kaCfHQzF7l142mtMolXB3+DHzuHlJ2ETIkbJkmD8kf8Djzfk317752eq3ydDs4cm
+         CJGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,64 +49,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TWgJWLVzIGmzJLbDy3zMd9VUQwoOnmTNSU3M9x1arUU=;
-        b=hBW6B/9Je8w+qlFxII33pskmInKBHvI94XsKmMVica64TqCWpujTmal9SWNkrwM/on
-         SuuUvESgtLh/rpAeGL5w4gLaWU2nmNCiT0QcJ+3MnkRGwPpNRIZfwwGZY9DauvDaEYOn
-         Db6rWD5tR6py6uwosedMkYZ6+xQw3kf2epq8FafRIgfo4Rf5yeJMlqBtMeg/5A7gil6W
-         0385gS22AqlGVLkJ/y18eDlNgsLtvbIFIogSZtgc8foAuMaOjsysupbpnaZL4SYei1Kg
-         W5wMCUkswS3mwVf3eFzeDmqqS2MTwOtlwvb2y3/VF9ngTcs1Et9z4TV8M0U0jLsS6FQ8
-         ZHsA==
+        bh=6ZmNpP6JhBH/B3yvWnJb2NxUqdX1W6TbqD+nCJFbruw=;
+        b=izbn+3wPE7my58h/vOKSePcRoTY/TmSxbloDWoP60+xdIW/N8RXcHu9MkbEqzOOt0x
+         Cw3WnqiZMPFvXAKpmD6pVJgy0VvRl8mJbcYlCPCbX9SRlOI6WTLoS7oPMn7zT9yFABME
+         sqSntlxBEY/WxcOSA4+XVpvilhuID5RcGLXgTbITzr+sj4BsXJddbcoSinekI6hgQK3y
+         fTQN0ZzB1PaZwf6xgbEL+rLcnpE1bnT1UcCs1MFEO6btQ+YhwyaMU7zrIlF+QKfQZ+/8
+         lBYPGd6yv5Uvr8z+7FQ2XGPxDc+VDjfq63isf1kzSqZe4L5K/9j9uOiaqZu5lUG//zzY
+         lK3A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530HVTG38gohzqsHU3uWnwwanx7xwusuuEHd3q+j3Fg3x4sQQnIL
-	W87mX+T+yvri9q7PvkhYCLg=
-X-Google-Smtp-Source: ABdhPJxD4CZcmQJrHPMCe4VnWSNnSlgdaG/yE7+QlQ/BnU7uP/OMZRxfkcjbXPqFDUJrDclscGV3LQ==
-X-Received: by 2002:a17:90a:5298:: with SMTP id w24mr6456804pjh.182.1610653317638;
-        Thu, 14 Jan 2021 11:41:57 -0800 (PST)
+X-Gm-Message-State: AOAM5331Ks3pps8EOxuo84mQDrjXwVBRctdxI2DyEoM5md9/FP+n0edY
+	ZO2fDy5LMMiIg53jBrteO1k=
+X-Google-Smtp-Source: ABdhPJwEhryCpy5zTWOrFQsyCV2Ga+37FqQ7o2Xx7T5QYlaBAkxGNM3v5yj1kaY3Cy/5CGVS/HXz2g==
+X-Received: by 2002:a63:db08:: with SMTP id e8mr3488517pgg.261.1610653320731;
+        Thu, 14 Jan 2021 11:42:00 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:6d0e:: with SMTP id i14ls2595199pgc.8.gmail; Thu, 14 Jan
- 2021 11:41:57 -0800 (PST)
-X-Received: by 2002:a63:700c:: with SMTP id l12mr9092120pgc.137.1610653316916;
-        Thu, 14 Jan 2021 11:41:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610653316; cv=none;
+Received: by 2002:a62:5c85:: with SMTP id q127ls2501084pfb.11.gmail; Thu, 14
+ Jan 2021 11:42:00 -0800 (PST)
+X-Received: by 2002:a62:aa06:0:b029:19d:f4d3:335e with SMTP id e6-20020a62aa060000b029019df4d3335emr8891444pff.60.1610653320065;
+        Thu, 14 Jan 2021 11:42:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610653320; cv=none;
         d=google.com; s=arc-20160816;
-        b=YwUDkubgGKk3c7D9tsEcScUZbjJlOtI/5Zh5bv8Fb0JBueHymik2r8q561tRohAj+5
-         WeO4t9qvA6coxOUrPGCV3TjehVv+dYnpuwndmB57RPJZGUShlaytrTEsiLTAtkzvIAnd
-         je2+fTyFl7TYkHQg+N52VTXukqdVUvKoDOPQs5HHqBfV+u0qG7IW/Yo+eWeDA3G4YKNN
-         D+wJFS4c3imLaszoyjkvaYFsRgWbcvhaStfpxfpkPuQrl314DVjuADEWgPrcYHxhsUh3
-         N+aeoLlUwMfHR14SxA3YL7ZT5Hy4I7u5voBFnmIp7qJKTNyXqu8OO43MkHomu1FnNeC1
-         ilFg==
+        b=gg9KiECuEawFVfpPIAZaWcKKF7ZyvF3mGa8i6v7O8D+Mo4If7I2ZAKEo9fnVEkXY90
+         onIoMf6z7KKPxzyrTCiga5N1YwUI1uux1pw+HR8nX/dcFbqrX9mxnGjG1uCBs+f6cVtZ
+         rSovOEw+fY74PoF0dPja+1B3a2cbDsWLVtgZ0WbWSPd0iaNjUUILNxwSkeOG7rSUsWUe
+         VNu7nVcBGqtBNdnsX94auFpY22x1/M+8N5pwI0Jz6tmXw68+dy9Eh7m7niLH1lQcbqx5
+         ioGBpB1FqYHX7sgsPIXFvWCL+JWZp7U7g1PveXoRCLudkt7XNaae65LFHkWDUgYoktKl
+         jzOg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=360o/x4ZqeVu5+7Na9DmtSZt0qDu3O3xdQF63jJIqdA=;
-        b=YxthMmFGSkJ4Sjpw3mLQJ0g3q8g0/1VXZRo0sd7xVSnlX9dAKXPE+m6hJO2u++3ZJS
-         WTH0bEBp2UZ4Hf42k/equEgCZRqgNKrsT30ejnhsqrlwIl5W24epDwRdstuqN7IFSHda
-         MKzxtGSuPGRKiAnadFs7BQNrHsVFF0/fBoje6twy1SBKX7zwWX8nJLljl8GlNovPwTlP
-         pG6duGfyADd8AMCoFWbZeOX5vli0I2DI0RVpR1iZ8NvG601hobcelM1+sKkng6KdN8Z2
-         Cd7M6NIQN4cQ656vrukLfwYX05dISarJJLRVMEkqkBv4ylwhtJVBdcZ1jpCyiDpfYaUJ
-         hErg==
+        bh=0vEE4omOoEVIIrSo277ugwb7AgXeFGkOd1dV5Hy4GDU=;
+        b=YL0SFMT8hGbv27+UNc+jsPGmkNdPfnLB5KZthtfkMJ0V3OXhN4U2nsf4+scsoKAJh6
+         9VGYOjlA21+QZ0xO76jPojTPVPlHzUjX75TNB0+hngXtSelXyLVbVHCSZnvYR/ksnEh3
+         b+4Q9+MpJk3Gk1AVU16F2v43NCPq7xjPf5bM318e0BZfD7bNVGDivgHYrXO0SxvnZAeg
+         jNGy+I4GlDGxVNjRos/OtxDd6YH+cDFX/ToJZbbYcs8JEWf3y2kaUV82ct8kpwcWbz2C
+         3COIbnM25hKe+6WI65O8UWn21U3rsc1v5nPKhSREFbKgmwetV9qPC831vdSiPpAxC7Pw
+         mXmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KDc0mkOQ;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=NP2Vwcl1;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id e193si331221pfh.2.2021.01.14.11.41.56
+        by gmr-mx.google.com with ESMTPS id q15si468515pfs.1.2021.01.14.11.41.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Jan 2021 11:41:56 -0800 (PST)
+        Thu, 14 Jan 2021 11:42:00 -0800 (PST)
 Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-21-U7vjDBHAN9mB124vVQYirw-1; Thu, 14 Jan 2021 14:41:51 -0500
-X-MC-Unique: U7vjDBHAN9mB124vVQYirw-1
+ us-mta-561-Ku4PqDyfMuSj9BmsnWN6Gw-1; Thu, 14 Jan 2021 14:41:54 -0500
+X-MC-Unique: Ku4PqDyfMuSj9BmsnWN6Gw-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7628A107ACF8;
-	Thu, 14 Jan 2021 19:41:49 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0A2D7107ACF8;
+	Thu, 14 Jan 2021 19:41:53 +0000 (UTC)
 Received: from treble.redhat.com (ovpn-120-156.rdu2.redhat.com [10.10.120.156])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id C1E9210023B4;
-	Thu, 14 Jan 2021 19:41:46 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id A76341001E73;
+	Thu, 14 Jan 2021 19:41:50 +0000 (UTC)
 From: Josh Poimboeuf <jpoimboe@redhat.com>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -119,16 +119,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Miroslav Benes <mbenes@suse.cz>,
 	"Rafael J. Wysocki" <rjw@rjwysocki.net>,
 	Pavel Machek <pavel@ucw.cz>
-Subject: [PATCH 20/21] x86/power: Move restore_registers() to top of the file
-Date: Thu, 14 Jan 2021 13:40:16 -0600
-Message-Id: <66baa19ceda840fc89a3bed8e0549db1184685a5.1610652862.git.jpoimboe@redhat.com>
+Subject: [PATCH 21/21] x86/power: Support objtool validation in hibernate_asm_64.S
+Date: Thu, 14 Jan 2021 13:40:17 -0600
+Message-Id: <0df4a9767074ec0f493fefdd4a2e57b4c9c53d00.1610652862.git.jpoimboe@redhat.com>
 In-Reply-To: <cover.1610652862.git.jpoimboe@redhat.com>
 References: <cover.1610652862.git.jpoimboe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=KDc0mkOQ;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=NP2Vwcl1;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates
  216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
@@ -145,140 +145,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Because restore_registers() is page-aligned, the assembler inexplicably
-adds an unreachable jump from after the end of the previous function to
-the beginning of restore_registers().
+The OBJECT_FILES_NON_STANDARD annotation is used to tell objtool to
+ignore a file.  File-level ignores won't work when validating vmlinux.o.
 
-That confuses objtool, understandably.  It also creates significant text
-fragmentation.  As a result, most of the object file is wasted text
-(nops).
-
-Move restore_registers() to the beginning of the file to both prevent
-the text fragmentation and avoid the dead jump instruction.
-
-$ size /tmp/hibernate_asm_64.before.o /tmp/hibernate_asm_64.after.o
-   text	   data	    bss	    dec	    hex	filename
-   4415	      0	      0	   4415	   113f	/tmp/hibernate_asm_64.before.o
-    524	      0	      0	    524	    20c	/tmp/hibernate_asm_64.after.o
+Instead, convert restore_image() and core_restore_code() to be ELF
+functions.  Their code is conventional enough for objtool to be able to
+understand them.
 
 Cc: "Rafael J. Wysocki" <rjw@rjwysocki.net>
 Cc: Pavel Machek <pavel@ucw.cz>
 Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 ---
- arch/x86/power/hibernate_asm_64.S | 92 +++++++++++++++----------------
- 1 file changed, 46 insertions(+), 46 deletions(-)
+ arch/x86/power/Makefile           | 1 -
+ arch/x86/power/hibernate_asm_64.S | 8 ++++----
+ 2 files changed, 4 insertions(+), 5 deletions(-)
 
+diff --git a/arch/x86/power/Makefile b/arch/x86/power/Makefile
+index 6907b523e856..3ff80156f21a 100644
+--- a/arch/x86/power/Makefile
++++ b/arch/x86/power/Makefile
+@@ -1,5 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+-OBJECT_FILES_NON_STANDARD_hibernate_asm_$(BITS).o := y
+ 
+ # __restore_processor_state() restores %gs after S3 resume and so should not
+ # itself be stack-protected
 diff --git a/arch/x86/power/hibernate_asm_64.S b/arch/x86/power/hibernate_asm_64.S
-index 24d971911c9d..4ca6d68b0293 100644
+index 4ca6d68b0293..fce9ed03e939 100644
 --- a/arch/x86/power/hibernate_asm_64.S
 +++ b/arch/x86/power/hibernate_asm_64.S
-@@ -23,6 +23,52 @@
- #include <asm/frame.h>
- #include <asm/nospec-branch.h>
+@@ -99,7 +99,7 @@ SYM_FUNC_START(swsusp_arch_suspend)
+ 	ret
+ SYM_FUNC_END(swsusp_arch_suspend)
  
-+	 /* code below belongs to the image kernel */
-+	.align PAGE_SIZE
-+SYM_FUNC_START(restore_registers)
-+	/* go back to the original page tables */
-+	movq    %r9, %cr3
-+
-+	/* Flush TLB, including "global" things (vmalloc) */
-+	movq	mmu_cr4_features(%rip), %rax
-+	movq	%rax, %rdx
-+	andq	$~(X86_CR4_PGE), %rdx
-+	movq	%rdx, %cr4;  # turn off PGE
-+	movq	%cr3, %rcx;  # flush TLB
-+	movq	%rcx, %cr3
-+	movq	%rax, %cr4;  # turn PGE back on
-+
-+	/* We don't restore %rax, it must be 0 anyway */
-+	movq	$saved_context, %rax
-+	movq	pt_regs_sp(%rax), %rsp
-+	movq	pt_regs_bp(%rax), %rbp
-+	movq	pt_regs_si(%rax), %rsi
-+	movq	pt_regs_di(%rax), %rdi
-+	movq	pt_regs_bx(%rax), %rbx
-+	movq	pt_regs_cx(%rax), %rcx
-+	movq	pt_regs_dx(%rax), %rdx
-+	movq	pt_regs_r8(%rax), %r8
-+	movq	pt_regs_r9(%rax), %r9
-+	movq	pt_regs_r10(%rax), %r10
-+	movq	pt_regs_r11(%rax), %r11
-+	movq	pt_regs_r12(%rax), %r12
-+	movq	pt_regs_r13(%rax), %r13
-+	movq	pt_regs_r14(%rax), %r14
-+	movq	pt_regs_r15(%rax), %r15
-+	pushq	pt_regs_flags(%rax)
-+	popfq
-+
-+	/* Saved in save_processor_state. */
-+	lgdt	saved_context_gdt_desc(%rax)
-+
-+	xorl	%eax, %eax
-+
-+	/* tell the hibernation core that we've just restored the memory */
-+	movq	%rax, in_suspend(%rip)
-+
-+	ret
-+SYM_FUNC_END(restore_registers)
-+
- SYM_FUNC_START(swsusp_arch_suspend)
- 	movq	$saved_context, %rax
- 	movq	%rsp, pt_regs_sp(%rax)
-@@ -100,49 +146,3 @@ SYM_CODE_START(core_restore_code)
+-SYM_CODE_START(restore_image)
++SYM_FUNC_START(restore_image)
+ 	/* prepare to jump to the image kernel */
+ 	movq	restore_jump_address(%rip), %r8
+ 	movq	restore_cr3(%rip), %r9
+@@ -114,10 +114,10 @@ SYM_CODE_START(restore_image)
+ 	/* jump to relocated restore code */
+ 	movq	relocated_restore_code(%rip), %rcx
+ 	JMP_NOSPEC rcx
+-SYM_CODE_END(restore_image)
++SYM_FUNC_END(restore_image)
+ 
+ 	/* code below has been relocated to a safe page */
+-SYM_CODE_START(core_restore_code)
++SYM_FUNC_START(core_restore_code)
+ 	/* switch to temporary page tables */
+ 	movq	%rax, %cr3
+ 	/* flush TLB */
+@@ -145,4 +145,4 @@ SYM_CODE_START(core_restore_code)
+ .Ldone:
  	/* jump to the restore_registers address from the image header */
  	JMP_NOSPEC r8
- SYM_CODE_END(core_restore_code)
--
--	 /* code below belongs to the image kernel */
--	.align PAGE_SIZE
--SYM_FUNC_START(restore_registers)
--	/* go back to the original page tables */
--	movq    %r9, %cr3
--
--	/* Flush TLB, including "global" things (vmalloc) */
--	movq	mmu_cr4_features(%rip), %rax
--	movq	%rax, %rdx
--	andq	$~(X86_CR4_PGE), %rdx
--	movq	%rdx, %cr4;  # turn off PGE
--	movq	%cr3, %rcx;  # flush TLB
--	movq	%rcx, %cr3
--	movq	%rax, %cr4;  # turn PGE back on
--
--	/* We don't restore %rax, it must be 0 anyway */
--	movq	$saved_context, %rax
--	movq	pt_regs_sp(%rax), %rsp
--	movq	pt_regs_bp(%rax), %rbp
--	movq	pt_regs_si(%rax), %rsi
--	movq	pt_regs_di(%rax), %rdi
--	movq	pt_regs_bx(%rax), %rbx
--	movq	pt_regs_cx(%rax), %rcx
--	movq	pt_regs_dx(%rax), %rdx
--	movq	pt_regs_r8(%rax), %r8
--	movq	pt_regs_r9(%rax), %r9
--	movq	pt_regs_r10(%rax), %r10
--	movq	pt_regs_r11(%rax), %r11
--	movq	pt_regs_r12(%rax), %r12
--	movq	pt_regs_r13(%rax), %r13
--	movq	pt_regs_r14(%rax), %r14
--	movq	pt_regs_r15(%rax), %r15
--	pushq	pt_regs_flags(%rax)
--	popfq
--
--	/* Saved in save_processor_state. */
--	lgdt	saved_context_gdt_desc(%rax)
--
--	xorl	%eax, %eax
--
--	/* tell the hibernation core that we've just restored the memory */
--	movq	%rax, in_suspend(%rip)
--
--	ret
--SYM_FUNC_END(restore_registers)
+-SYM_CODE_END(core_restore_code)
++SYM_FUNC_END(core_restore_code)
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/66baa19ceda840fc89a3bed8e0549db1184685a5.1610652862.git.jpoimboe%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0df4a9767074ec0f493fefdd4a2e57b4c9c53d00.1610652862.git.jpoimboe%40redhat.com.
