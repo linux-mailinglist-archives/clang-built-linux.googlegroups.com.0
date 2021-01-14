@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRB754QKAAMGQEQVTEV3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBBN5QKAAMGQEISSOAHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7235F2F6B53
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 20:41:52 +0100 (CET)
-Received: by mail-oi1-x23d.google.com with SMTP id f15sf2848974oig.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 11:41:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610653311; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 030A42F6B54
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 20:41:59 +0100 (CET)
+Received: by mail-pl1-x63a.google.com with SMTP id ba10sf3813914plb.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 11:41:58 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610653317; cv=pass;
         d=google.com; s=arc-20160816;
-        b=drc4F7+X6DnFfjx56yQTfiFcyz98dgVXyx71llSryHWrdyvA3xKu2ZjKd3obIiyhpC
-         7u51n3bBrGMSQmSkIIGERYVAjXvdZeuNHK0CUoEDO6IjNAi2i1qkunwtWwD+t94Fst0i
-         uKYJZlmEoY/mXY/dX+K5IsPU7SBuhhH0+eAD0MtWQ6Hoz9Ygr5kjFNn7Ivh+lFVw0E3n
-         LKdxClrh9I76hcPYFJ92uNxxLMF4tyNFWyoCYTcRxLPlnE2j/MqNuDihJEFaG0U5bI+o
-         VZJk3E1lJ4oatQHODi9QKQfQnVDZaeOBeb4kkf0mFBU5B16PTUp7J5lxfD6H/1z2auQE
-         ZOrw==
+        b=pzmdtrVktpuATJELfQZYdN8dNlI5CE6ymZd29FavqK8g/WWDx2EIZyGRUvMx/rz1Hp
+         PSES5SKB2I+k849B0OS+4+jllYBNFdzhB9dU5t2GhArwnc2ej2sBrTXlWO3+PbQvNIzB
+         CFCXeSMMCxH/d1vRPJBkqKvZatK20FI1DLByBlT9cz2U1QZx8bT8RI9+32ztGtVDQWTy
+         9Q2IWAR/7ATtL2o3mYmXZ9QL7u6k6Q42omtnT83mSBraznpYrbcVobLrgKVhrGLDs6Kj
+         qoeY+fLMJmz6vRQTTnCr0x+99vZ7gEiwygTChcFBB8uuZ3b+++wECVpLTfcLMYAYAhB9
+         S/5w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=xwODHoAze66VZ7zun+/F7q7edZO5SGtW265Sf0Op2DQ=;
-        b=oRKeuP8OiJFoj0nVd+QZ04i97wNgmlbOzhlC7wBYMxnWiLEnaSdm8yt0/rNsxz5pTL
-         0Hn5Di4Ekst+4X14I1YzRGXH1Z0PLuy9wPLsB364hyjslwYVRGNa403udSAJoG0oCvlP
-         jn7L6UiaBmWJlaH2JYoRKJOleLRHocEF7dpCE4ep00MuThUOe2LVeKzYGj3YvVKkUvZE
-         NvqLLwedq2EbQvwVJ2HNxxnYYrY2I7xgEgb73LMD4zVcNBD5ecAnwI0VWmpYMEBw1nI+
-         8qxJqyxEhkhWUXRWCXsM9/N69AggnARAhLP7wpEBFegGQiQAV9cO0tcoQAACZbfmBdNK
-         zXtQ==
+        bh=TWgJWLVzIGmzJLbDy3zMd9VUQwoOnmTNSU3M9x1arUU=;
+        b=X9rmsZc3Pk0DF/vbj9mfctTVtpUZdaW5Td4wGp45TPAyUZNNY6b1Dhdktl0hR+Fm4y
+         /8ckHY44O6L8QaToLLnAeWbeqnHoTu61OTOLQn2Qo2qJl9n/vrUbZWrMd9xoQlFcvvi+
+         /pgg9IcFd6cHpDI6ICVdsYLh8Wyo6XykaOvu5lopsMh3bETBfn0FIVOsZTDsw+DyXM5E
+         MbX5pcKwh4j+YhupId4gpMYP3DeIh/Trb0A4kgvynoKM7J5EUXoJJ6GW7kKEhM4DIWL6
+         A5+14prFenghesasaBau5tH7s5Km5BTa6aljVuGzRqpirDlUiz37gIBZk17X1h/vJplR
+         JmkQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WzPHM7q7;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KDc0mkOQ;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xwODHoAze66VZ7zun+/F7q7edZO5SGtW265Sf0Op2DQ=;
-        b=lr9eF8VW09B3Vf0yBfAG+LzJCSg3ip36Iq9zgz/LS1HqKU4DsuFLUhtJNA0eZNV1wx
-         kB/H6b4yaSpOmk96G9s9QkWbo3Fl2A0lBUhS0kcdJdAiYdeQrI7zvda/1tZF6P0zwmUr
-         CErYYbl0QvCLfKows8TTKTtEXdGOoIuzuUZ/TlGDz8KWTUjwl0WTze3bE2d6pL+O8WV8
-         +Vw5f8L/Qu8YcwLn4WunbdT+P376zXTmrTg6ptbyJ0tkfLQ7T0ZBuRVNnGGW5LGLwa4S
-         TPlTRI5GCK/psvolT5ehD22g9dyOHivCF7LD5m1+/tVvUOS4bZv9OR9qG8/HnaOLRE3m
-         DRRA==
+        bh=TWgJWLVzIGmzJLbDy3zMd9VUQwoOnmTNSU3M9x1arUU=;
+        b=gl8xEzBe6YamcKvecKPFsGOJYVeJK+VtV/LpiVH41rxGsXz9LvMlNCNYjQaiApUh/a
+         V/STnn5dgmuvG01a9+i+6ym1cZHnVuoJD6pUbKZCGUpvCasDRgEE1RHysSbHresusc7p
+         pjIX/5GidDcXqd1AQNeo4CKzgXV8rBSun/KC9V+E5VLfacJhB+3yuvSp4VdGiSJXsGqA
+         IK+tMODmsWAH9haJEeIF01THzhzjlO2kdj/e8CBfLx1BzZc8Z1QTBEnAD5DOIJGKezpn
+         PXUF7vql316p8DsKcFebVib9Mp/3UurSOwj/JzEL7EUw7yiWZmoDQMpHpF4+x0qls6Rh
+         y2Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,64 +49,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xwODHoAze66VZ7zun+/F7q7edZO5SGtW265Sf0Op2DQ=;
-        b=WaHXYShIcBWCgbA1EkQjCAlrcTCBItweOi9r+mI8zq16mT9/13BlJO0qnsS/fOV42t
-         kkbXDM06rDdYD+DzFqFIAZ1P18EMSvK0FHsMWjKfHKJSkrFSKjmZ1wkR9HKk+4WOGT2y
-         9CuqfBmu1sR7sz4F1LO0r35GACscBZR2zeICKFkhTEveI7WqfSSgZI1CL2OSMnwwfYVk
-         AmCUMJUNBdA2N+xgW259AJcEQ/gmnaUvAv60fiWyc1NBpWkw5nPPBQIIasT1N5O/Esd1
-         Hv5+CDn53g9jH0ssHsAoShB+bt5l7XhFwzFCb2+sPzH3cMuWZ+ukuzs5hTl9ggvV8zR0
-         a/Wg==
+        bh=TWgJWLVzIGmzJLbDy3zMd9VUQwoOnmTNSU3M9x1arUU=;
+        b=hBW6B/9Je8w+qlFxII33pskmInKBHvI94XsKmMVica64TqCWpujTmal9SWNkrwM/on
+         SuuUvESgtLh/rpAeGL5w4gLaWU2nmNCiT0QcJ+3MnkRGwPpNRIZfwwGZY9DauvDaEYOn
+         Db6rWD5tR6py6uwosedMkYZ6+xQw3kf2epq8FafRIgfo4Rf5yeJMlqBtMeg/5A7gil6W
+         0385gS22AqlGVLkJ/y18eDlNgsLtvbIFIogSZtgc8foAuMaOjsysupbpnaZL4SYei1Kg
+         W5wMCUkswS3mwVf3eFzeDmqqS2MTwOtlwvb2y3/VF9ngTcs1Et9z4TV8M0U0jLsS6FQ8
+         ZHsA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533P9QyJX9YuWEZl5ueIxqUebmQy+ho0lPJZxX6J4kvJxAOeZIj8
-	T75f4DgGT2a6YUU+iyqkyZE=
-X-Google-Smtp-Source: ABdhPJxGshEF4HnAWrYh4t/rfbuhMJgKAOiEcohdY3XKz9ss5i4SO2iiDqw/66HAQpRpcV0i4Va67Q==
-X-Received: by 2002:a05:6830:1105:: with SMTP id w5mr5795216otq.255.1610653311421;
-        Thu, 14 Jan 2021 11:41:51 -0800 (PST)
+X-Gm-Message-State: AOAM530HVTG38gohzqsHU3uWnwwanx7xwusuuEHd3q+j3Fg3x4sQQnIL
+	W87mX+T+yvri9q7PvkhYCLg=
+X-Google-Smtp-Source: ABdhPJxD4CZcmQJrHPMCe4VnWSNnSlgdaG/yE7+QlQ/BnU7uP/OMZRxfkcjbXPqFDUJrDclscGV3LQ==
+X-Received: by 2002:a17:90a:5298:: with SMTP id w24mr6456804pjh.182.1610653317638;
+        Thu, 14 Jan 2021 11:41:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7a8e:: with SMTP id l14ls1647465otn.1.gmail; Thu, 14 Jan
- 2021 11:41:51 -0800 (PST)
-X-Received: by 2002:a9d:664f:: with SMTP id q15mr5369288otm.40.1610653311062;
-        Thu, 14 Jan 2021 11:41:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610653311; cv=none;
+Received: by 2002:a63:6d0e:: with SMTP id i14ls2595199pgc.8.gmail; Thu, 14 Jan
+ 2021 11:41:57 -0800 (PST)
+X-Received: by 2002:a63:700c:: with SMTP id l12mr9092120pgc.137.1610653316916;
+        Thu, 14 Jan 2021 11:41:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610653316; cv=none;
         d=google.com; s=arc-20160816;
-        b=s4RIVB6HcAu1zbMHHP0ZuhGFRqMh7k/9amb4XVKpSs0fwOp3Iv5pbyj5kJlDTrLH1+
-         E3fK+MMDZxXQNAlJhgrsKgDQSp2U/TJP9qHLAxGfE6VNPFM08U9hOZyv5OaD4TR0hcZ/
-         CLM3JmBK+S+3bqvm7QN2EbkDTwP4LVMzxppPcoIGtp4uz7vWUo90iu6SLzYVkbKMNZ9B
-         eRR9WODw+M66fthSpVBzvOl7XsygnmziFwlk3mCy6QWs02EVdKKjcRuOuWttofBk9iPZ
-         yrLLk+UTVPoZkpwrKktTE7LfC6c0lZfDfMietSMnuxQkfM+n/q64pFrXPi/PM+nI7n5V
-         knkQ==
+        b=YwUDkubgGKk3c7D9tsEcScUZbjJlOtI/5Zh5bv8Fb0JBueHymik2r8q561tRohAj+5
+         WeO4t9qvA6coxOUrPGCV3TjehVv+dYnpuwndmB57RPJZGUShlaytrTEsiLTAtkzvIAnd
+         je2+fTyFl7TYkHQg+N52VTXukqdVUvKoDOPQs5HHqBfV+u0qG7IW/Yo+eWeDA3G4YKNN
+         D+wJFS4c3imLaszoyjkvaYFsRgWbcvhaStfpxfpkPuQrl314DVjuADEWgPrcYHxhsUh3
+         N+aeoLlUwMfHR14SxA3YL7ZT5Hy4I7u5voBFnmIp7qJKTNyXqu8OO43MkHomu1FnNeC1
+         ilFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=XuaSh1jiZTg/VIGM2iLx4bVb5sX8DSpIZVRiX7a3MCE=;
-        b=ANB7nRuXuHvWUyxWIZon+2Q6yKpK6MDgPrIZ6x20eyr1lCquiTGmAtaqJsOISBtIWK
-         tHVDY5zaQIKED8/M0ADCk3bPdDOz5Xoj/ICXf3TUIoJur4TxjkrA5UjTf11yPZmssrQ0
-         ZXEI5Y+fV+WcyQjiHjy5UJZsyrdTH+hm82TAg/1egBGw4r2AIFJP3NQRREHsyZu7MoZX
-         mSeQh5dDnIOKBWEwXKnXXXAGPkrEpnz4po8mOEzZ9dPyMqCRQy6QrXaV8rYX0WceOv2q
-         ZOdVQ8tvVCT7YVRlOmrOwaaCEIPpeahsyi53nPGQDHlVgVnxFRDOBMJm74Pw+ExYC0i0
-         QiEQ==
+        bh=360o/x4ZqeVu5+7Na9DmtSZt0qDu3O3xdQF63jJIqdA=;
+        b=YxthMmFGSkJ4Sjpw3mLQJ0g3q8g0/1VXZRo0sd7xVSnlX9dAKXPE+m6hJO2u++3ZJS
+         WTH0bEBp2UZ4Hf42k/equEgCZRqgNKrsT30ejnhsqrlwIl5W24epDwRdstuqN7IFSHda
+         MKzxtGSuPGRKiAnadFs7BQNrHsVFF0/fBoje6twy1SBKX7zwWX8nJLljl8GlNovPwTlP
+         pG6duGfyADd8AMCoFWbZeOX5vli0I2DI0RVpR1iZ8NvG601hobcelM1+sKkng6KdN8Z2
+         Cd7M6NIQN4cQ656vrukLfwYX05dISarJJLRVMEkqkBv4ylwhtJVBdcZ1jpCyiDpfYaUJ
+         hErg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WzPHM7q7;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KDc0mkOQ;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id r8si462128otp.4.2021.01.14.11.41.50
+        by gmr-mx.google.com with ESMTPS id e193si331221pfh.2.2021.01.14.11.41.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Jan 2021 11:41:51 -0800 (PST)
+        Thu, 14 Jan 2021 11:41:56 -0800 (PST)
 Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-591-9yU8OmYrMLGLW2FQ2KQlBQ-1; Thu, 14 Jan 2021 14:41:48 -0500
-X-MC-Unique: 9yU8OmYrMLGLW2FQ2KQlBQ-1
+ us-mta-21-U7vjDBHAN9mB124vVQYirw-1; Thu, 14 Jan 2021 14:41:51 -0500
+X-MC-Unique: U7vjDBHAN9mB124vVQYirw-1
 Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9191D190B2A0;
-	Thu, 14 Jan 2021 19:41:46 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7628A107ACF8;
+	Thu, 14 Jan 2021 19:41:49 +0000 (UTC)
 Received: from treble.redhat.com (ovpn-120-156.rdu2.redhat.com [10.10.120.156])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 3097010023B4;
-	Thu, 14 Jan 2021 19:41:44 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id C1E9210023B4;
+	Thu, 14 Jan 2021 19:41:46 +0000 (UTC)
 From: Josh Poimboeuf <jpoimboe@redhat.com>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -119,16 +119,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Miroslav Benes <mbenes@suse.cz>,
 	"Rafael J. Wysocki" <rjw@rjwysocki.net>,
 	Pavel Machek <pavel@ucw.cz>
-Subject: [PATCH 19/21] x86/power: Convert indirect jumps to retpolines
-Date: Thu, 14 Jan 2021 13:40:15 -0600
-Message-Id: <354da72ff95aed0cea40b410f6db882bfb0877d5.1610652862.git.jpoimboe@redhat.com>
+Subject: [PATCH 20/21] x86/power: Move restore_registers() to top of the file
+Date: Thu, 14 Jan 2021 13:40:16 -0600
+Message-Id: <66baa19ceda840fc89a3bed8e0549db1184685a5.1610652862.git.jpoimboe@redhat.com>
 In-Reply-To: <cover.1610652862.git.jpoimboe@redhat.com>
 References: <cover.1610652862.git.jpoimboe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=WzPHM7q7;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=KDc0mkOQ;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates
  216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
@@ -145,51 +145,140 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-It's kernel policy to not have (unannotated) indirect jumps because of
-Spectre v2.  These are probably harmless, but better safe than sorry.
-Convert them to retpolines.
+Because restore_registers() is page-aligned, the assembler inexplicably
+adds an unreachable jump from after the end of the previous function to
+the beginning of restore_registers().
+
+That confuses objtool, understandably.  It also creates significant text
+fragmentation.  As a result, most of the object file is wasted text
+(nops).
+
+Move restore_registers() to the beginning of the file to both prevent
+the text fragmentation and avoid the dead jump instruction.
+
+$ size /tmp/hibernate_asm_64.before.o /tmp/hibernate_asm_64.after.o
+   text	   data	    bss	    dec	    hex	filename
+   4415	      0	      0	   4415	   113f	/tmp/hibernate_asm_64.before.o
+    524	      0	      0	    524	    20c	/tmp/hibernate_asm_64.after.o
 
 Cc: "Rafael J. Wysocki" <rjw@rjwysocki.net>
 Cc: Pavel Machek <pavel@ucw.cz>
 Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 ---
- arch/x86/power/hibernate_asm_64.S | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/x86/power/hibernate_asm_64.S | 92 +++++++++++++++----------------
+ 1 file changed, 46 insertions(+), 46 deletions(-)
 
 diff --git a/arch/x86/power/hibernate_asm_64.S b/arch/x86/power/hibernate_asm_64.S
-index 7918b8415f13..24d971911c9d 100644
+index 24d971911c9d..4ca6d68b0293 100644
 --- a/arch/x86/power/hibernate_asm_64.S
 +++ b/arch/x86/power/hibernate_asm_64.S
-@@ -21,6 +21,7 @@
- #include <asm/asm-offsets.h>
- #include <asm/processor-flags.h>
+@@ -23,6 +23,52 @@
  #include <asm/frame.h>
-+#include <asm/nospec-branch.h>
+ #include <asm/nospec-branch.h>
  
++	 /* code below belongs to the image kernel */
++	.align PAGE_SIZE
++SYM_FUNC_START(restore_registers)
++	/* go back to the original page tables */
++	movq    %r9, %cr3
++
++	/* Flush TLB, including "global" things (vmalloc) */
++	movq	mmu_cr4_features(%rip), %rax
++	movq	%rax, %rdx
++	andq	$~(X86_CR4_PGE), %rdx
++	movq	%rdx, %cr4;  # turn off PGE
++	movq	%cr3, %rcx;  # flush TLB
++	movq	%rcx, %cr3
++	movq	%rax, %cr4;  # turn PGE back on
++
++	/* We don't restore %rax, it must be 0 anyway */
++	movq	$saved_context, %rax
++	movq	pt_regs_sp(%rax), %rsp
++	movq	pt_regs_bp(%rax), %rbp
++	movq	pt_regs_si(%rax), %rsi
++	movq	pt_regs_di(%rax), %rdi
++	movq	pt_regs_bx(%rax), %rbx
++	movq	pt_regs_cx(%rax), %rcx
++	movq	pt_regs_dx(%rax), %rdx
++	movq	pt_regs_r8(%rax), %r8
++	movq	pt_regs_r9(%rax), %r9
++	movq	pt_regs_r10(%rax), %r10
++	movq	pt_regs_r11(%rax), %r11
++	movq	pt_regs_r12(%rax), %r12
++	movq	pt_regs_r13(%rax), %r13
++	movq	pt_regs_r14(%rax), %r14
++	movq	pt_regs_r15(%rax), %r15
++	pushq	pt_regs_flags(%rax)
++	popfq
++
++	/* Saved in save_processor_state. */
++	lgdt	saved_context_gdt_desc(%rax)
++
++	xorl	%eax, %eax
++
++	/* tell the hibernation core that we've just restored the memory */
++	movq	%rax, in_suspend(%rip)
++
++	ret
++SYM_FUNC_END(restore_registers)
++
  SYM_FUNC_START(swsusp_arch_suspend)
  	movq	$saved_context, %rax
-@@ -66,7 +67,7 @@ SYM_CODE_START(restore_image)
- 
- 	/* jump to relocated restore code */
- 	movq	relocated_restore_code(%rip), %rcx
--	jmpq	*%rcx
-+	JMP_NOSPEC rcx
- SYM_CODE_END(restore_image)
- 
- 	/* code below has been relocated to a safe page */
-@@ -97,7 +98,7 @@ SYM_CODE_START(core_restore_code)
- 
- .Ldone:
+ 	movq	%rsp, pt_regs_sp(%rax)
+@@ -100,49 +146,3 @@ SYM_CODE_START(core_restore_code)
  	/* jump to the restore_registers address from the image header */
--	jmpq	*%r8
-+	JMP_NOSPEC r8
+ 	JMP_NOSPEC r8
  SYM_CODE_END(core_restore_code)
- 
- 	 /* code below belongs to the image kernel */
+-
+-	 /* code below belongs to the image kernel */
+-	.align PAGE_SIZE
+-SYM_FUNC_START(restore_registers)
+-	/* go back to the original page tables */
+-	movq    %r9, %cr3
+-
+-	/* Flush TLB, including "global" things (vmalloc) */
+-	movq	mmu_cr4_features(%rip), %rax
+-	movq	%rax, %rdx
+-	andq	$~(X86_CR4_PGE), %rdx
+-	movq	%rdx, %cr4;  # turn off PGE
+-	movq	%cr3, %rcx;  # flush TLB
+-	movq	%rcx, %cr3
+-	movq	%rax, %cr4;  # turn PGE back on
+-
+-	/* We don't restore %rax, it must be 0 anyway */
+-	movq	$saved_context, %rax
+-	movq	pt_regs_sp(%rax), %rsp
+-	movq	pt_regs_bp(%rax), %rbp
+-	movq	pt_regs_si(%rax), %rsi
+-	movq	pt_regs_di(%rax), %rdi
+-	movq	pt_regs_bx(%rax), %rbx
+-	movq	pt_regs_cx(%rax), %rcx
+-	movq	pt_regs_dx(%rax), %rdx
+-	movq	pt_regs_r8(%rax), %r8
+-	movq	pt_regs_r9(%rax), %r9
+-	movq	pt_regs_r10(%rax), %r10
+-	movq	pt_regs_r11(%rax), %r11
+-	movq	pt_regs_r12(%rax), %r12
+-	movq	pt_regs_r13(%rax), %r13
+-	movq	pt_regs_r14(%rax), %r14
+-	movq	pt_regs_r15(%rax), %r15
+-	pushq	pt_regs_flags(%rax)
+-	popfq
+-
+-	/* Saved in save_processor_state. */
+-	lgdt	saved_context_gdt_desc(%rax)
+-
+-	xorl	%eax, %eax
+-
+-	/* tell the hibernation core that we've just restored the memory */
+-	movq	%rax, in_suspend(%rip)
+-
+-	ret
+-SYM_FUNC_END(restore_registers)
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/354da72ff95aed0cea40b410f6db882bfb0877d5.1610652862.git.jpoimboe%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/66baa19ceda840fc89a3bed8e0549db1184685a5.1610652862.git.jpoimboe%40redhat.com.
