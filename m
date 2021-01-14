@@ -1,205 +1,244 @@
-Return-Path: <clang-built-linux+bncBAABB5UZQOAAMGQER7D2LWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBMVPQOAAMGQE45FPN3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id B55EE2F6EBF
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 00:00:06 +0100 (CET)
-Received: by mail-lj1-x23e.google.com with SMTP id f23sf2511409ljg.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 15:00:06 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1610665206; cv=pass;
+Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC9172F6F14
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 00:45:55 +0100 (CET)
+Received: by mail-io1-xd3b.google.com with SMTP id l18sf11235485iok.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 15:45:55 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1610667954; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IFM6rui3yQ8on6qutj9WbX6n4uvkHBaho+06CL/slEPjbl90JxTYoh4G/TwJB3+uml
-         bMRVclAHmPJAZaqJrO+EBssiQaYUDK+hFLjrdTBkPD5uYtDrEbTWSB/Cbo/V3UykxiXC
-         zOkNQnAPO4zl2bUcAJrWA+ai17kfxI0MyDXQRE8T+PRz26Or6+7eN/DGIFYNREfROXhc
-         k+QcTxeR7IxGydFCvpXcro7bcL457R8c8k495N5NgRwNl74wdNI1X7adHaPCExrHddIA
-         dPZMiPIU2FQZ7msM7y4Y0E101cJN7WLa30p5PglEy3I0FcvZ/ZRv6TmKBpPX8Id+GuIo
-         QM+Q==
+        b=EMI3A2WOpm1Kjf4Am5AKquOD6VpUh2TWJCsWH7d+IImyMfM3iDJJJWXu3EZJBLuhhN
+         oHSUAgheA7jBiWQ/Kd8GOdUtOy8yMZ1mxtS684b5HhIXhn6NwE1FuBDvkXB81iMQAyYL
+         9BpaabSxMLEyvr0GWwmgJJWbDd1QHiQQuossCt0hrRMHQCG8zJ5hYsU5sunq7w8vne3Q
+         auTWOjAxjBHhkd1wUkBLv8JJT+TYPUskABbUOJdu9Nh6SjF+B7Qz257huOQnKZWoi5LV
+         VHNQNuAMO2KyzSfTlMujFMzU4U9L1HKwOOVSqgdFOckh1TQEAV8+G+cllDltiiOQWQVa
+         Di4A==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version
          :content-language:in-reply-to:user-agent:date:message-id:from
-         :references:cc:to:subject:ironport-sdr:dkim-signature;
-        bh=Fbm7iVqsd4Ic5ZgbZ1PaFzeQjW2Lst0WIvWafuYXd4U=;
-        b=ksBysdfq2r7tshlb7afF8KSNaiuOVX2oWhGGeMifNk+LNKFL6sFuUD9I94GlHBQZIi
-         lnvdNYLu+AW3MDB0hlrEUkkdpBV6kLvA1XVMDEpPsY5RWYgUSSPH6vjW8JSHKapxHWKg
-         aFDg5jjRGrROPWm44Cky2VFTgd2KJp+eFiyGi3G2OetpO77zmN+YYyqT1UfFVIyNZjjf
-         jCI4mQrehLnmYBdCIprYuH/AUaA0PKn+4B31h/LUjjOuXuLnr6QS7FRYUqzujSBmsznG
-         XuKPggkPahrL4cc7DcmOP9JFbtUmLKxgiNpkUSeoNphLDSLrdqwnhZrIgFnvFdom0H+4
-         nHmQ==
+         :references:cc:to:subject:dkim-signature;
+        bh=WxPWV8rQmGZpdSsPjwi9Xgp6iyXFKiUUdfts/1Ue/wI=;
+        b=xyksK3A/tjR68yiM0CcBHlsjPAOa+R370Sufmm5HPDQut+Wv0DS3LAu6jTOmQ0tJg+
+         O2/7uxZbZVvpctipORPQOVphKMOfF6vkZwZfUbk0Xh0WpS2y8GVK+YLDMQczjbaqkBZM
+         nfP4Ojq29ONC3PWy3YsyOOwT0nntp2YpRXth6btHUYdegoYpwYp9H3A75q7KHvOj7BvX
+         yzyaH/LoeVRcxK1FUdmEMoRn366JhGSL51Yw8iWdHbonxDImr2YpDIMZ18U3EIJ3Cclq
+         w/xm6QFcyM+4DpKp9q3YmpsKfWNBq+TGnDhV8yiKSR78cI5KVLMfwSwNIGvJouCm5XsP
+         tvrA==
 ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@citrix.com header.s=securemail header.b=GosVFwTc;
-       dkim=pass header.i=@citrix.onmicrosoft.com header.s=selector2-citrix-onmicrosoft-com header.b=pUJFWA2b;
-       arc=pass (i=1 spf=pass spfdomain=citrix.com dkim=pass dkdomain=citrix.com dmarc=pass fromdomain=citrix.com);
-       spf=pass (google.com: domain of andrew.cooper3@citrix.com designates 216.71.155.144 as permitted sender) smtp.mailfrom=Andrew.Cooper3@citrix.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=citrix.com
+       dkim=pass header.i=@fb.com header.s=facebook header.b=mkMDJOIU;
+       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=LZdFp1pT;
+       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
+       spf=pass (google.com: domain of prvs=064855ab8e=yhs@fb.com designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=064855ab8e=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=ironport-sdr:subject:to:cc:references:from:message-id:date
-         :user-agent:in-reply-to:content-language:mime-version
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Fbm7iVqsd4Ic5ZgbZ1PaFzeQjW2Lst0WIvWafuYXd4U=;
-        b=Dm7gHB+hRgu8L/tA8KhMD8rCpzxOrU7mJcu8Zn6GhPbNwAO9VOJ3FSLwR51akMnwTy
-         05Q3xtFrL+BhjfRjcrRIg8nbxLux6iqd+KngnAqpomOReAjRT0BDoAzT/Be0mMWeK5ar
-         KCOyhE7VLoGWtm6LfXaOsCDiSClsJ2ZC2Fm30AyjK0VwwIv02zDAoisxsM6SbQcFHe6f
-         xLYb8meeXbOcvIyLXhyKEHs4ES0RTHId8cNkRCeBocrjWZfNFrKYOJRiTJDngpofi4PJ
-         QHEghyIexBCc/ExxqDvf5HT+Gn+zmd7MsKaJCOb1FrWoQP4GDfoM9EPLeLL3BbYvWt3c
-         ho7g==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :in-reply-to:content-language:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=WxPWV8rQmGZpdSsPjwi9Xgp6iyXFKiUUdfts/1Ue/wI=;
+        b=FPPZ/IS9JjVVPf8YDET/RjTAqsY4sNqCpgu/zXGSfTgkwZ+6t7RIpGemZx9P1lOmwJ
+         5a/rui6KPfm/Hak3hId9j5edj6pqfqOAISC+PAiAZ4W2B3Ta8oihh+ubtuQMDVsMFUV1
+         83WToyyh5267IcVAISor9FSFPsCNltcVHZc9P+klTuWiZvvzxvqxSoqW7whHtbEzYx+O
+         g/F3vrdBIQBoESqsjYKe47ZZXSUMgpCn42cWnumLBQiKdFXiwFXj47at22jvzorpuKaE
+         WDWKbbSZmm6DRV5bOj7e09jiaICImzpWEUna9EghEOWG0vwJf4EWIIjjyVi7Bef7ouJR
+         EWZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:ironport-sdr:subject:to:cc:references:from
-         :message-id:date:user-agent:in-reply-to:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
-         :reply-to:precedence:mailing-list:list-id:x-spam-checked-in-group
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Fbm7iVqsd4Ic5ZgbZ1PaFzeQjW2Lst0WIvWafuYXd4U=;
-        b=EKEuNA9P+omxtG0vJT+pc6L9mdupnJZg+1ie+dxbFn/TcaTY676CyyG+YsbIuDl/qa
-         YOAhIOxt6OhPrfbCdCA8OudFJ9HDsevxnmfJNfZec2ReABgI8Tyfb54l5dyQL9d/ApA/
-         B5yg1fP+xHtej0e3jBQpR++/QAhguz4bmK7FF/VDT43X0H/7zqzkjYSHFSh9RzgXbxkx
-         /6XANSSXbufmaD29ApEOUi5rR1ViWxWPqGaaJ9Cjo5yvqO7m2RaIo0+bcVMb/IS2kYOj
-         3z8GTjBZlJ5RLhnRbhCd6It/1f0BvbwHZnveq0F4kuMZ24AyzdIjo5m2m/LuymdQwUN4
-         +i7g==
-X-Gm-Message-State: AOAM532LRW9S2GfXHQzu0gVXrTPSfh7TFIiiE59Hqd54dqh+siOWM23x
-	gdp1l9I+uaHACeY4DBjwEHQ=
-X-Google-Smtp-Source: ABdhPJydEqPZygb3c+wIHXFsQFdmde8OqBAeb9iTqcnatIRB5eM0zP4yeydiNs0NhxdqDzDRCcRMlQ==
-X-Received: by 2002:ac2:5472:: with SMTP id e18mr4146717lfn.489.1610665206228;
-        Thu, 14 Jan 2021 15:00:06 -0800 (PST)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:in-reply-to:content-language:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=WxPWV8rQmGZpdSsPjwi9Xgp6iyXFKiUUdfts/1Ue/wI=;
+        b=a2Q35WIde19ETDs16zV6XSqR2mPFDfFQSIkHywk6AUxh01QnHaNZccFMLfHzeLQ3c1
+         YqfPiGtnjvunzwggVdT/foQ1QBXEN5mFm4OQgSHk+myr+NbRlJzDgKqJ65joxA6tdNZi
+         VDDDvX3mh89G0AjJBiMFCR9sXcot8XHFxjT249FbGT1c6dxDNCqQDAw3JbYYfhRIJlma
+         yzyv59vW3y2fmNR7wDI0ix+vWR3VeiJhoJE4XMcBsf1Hdwmm0jNWqMmL3egG8jXTH2Bz
+         MkRJCsn58yiJtOo/5/xAzBWALWuapSnjgmzFmQFkKgmX8Q9u9xJktpFBETK0nBHQcApk
+         V+oA==
+X-Gm-Message-State: AOAM533oklvDCjoOtIeL5pXyw5YZz3vbGIm9NP4cjYNvlv6iW43zXNwo
+	1DE3L67u6x8p/FyEt5rPYyE=
+X-Google-Smtp-Source: ABdhPJzHR6bpySs1Bfb2OmZG9zz+EJcbahkuuV89LrlYZsyAYoOoW/cZUYDMJ0+falvNPhZDLYVSdQ==
+X-Received: by 2002:a92:c102:: with SMTP id p2mr8404007ile.254.1610667954715;
+        Thu, 14 Jan 2021 15:45:54 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:51c4:: with SMTP id u4ls1134116lfm.0.gmail; Thu, 14 Jan
- 2021 15:00:05 -0800 (PST)
-X-Received: by 2002:a19:670f:: with SMTP id b15mr4115811lfc.340.1610665205426;
-        Thu, 14 Jan 2021 15:00:05 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610665205; cv=pass;
+Received: by 2002:a92:7f0f:: with SMTP id a15ls2107432ild.8.gmail; Thu, 14 Jan
+ 2021 15:45:54 -0800 (PST)
+X-Received: by 2002:a92:aa45:: with SMTP id j66mr161835ili.269.1610667954287;
+        Thu, 14 Jan 2021 15:45:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610667954; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VvQnYBwfuentH8gFpNDi2+F5SN1R+V5UR2EKONKsrJQp5ruYsclvx9FR9BwQ924ca6
-         YNHvZ0YI/W5/7ivPS6/bpnb/xlrFuBWbXM6o7OYCFUmteATkwePRFkUaXL7yx+0VrXAd
-         77tB/5gQgW/a2D7oWTKNAgnjj0FLshkIPkZDlm/37lTpjqIMPaO7H8WeDXlhmaiCYKsg
-         5qBlJqregrluUIxtu5qeduoIl/EszAtRpDwB+iPAmALjddi4eFM/sJQs8ADa0GcmHRjW
-         RgjiNaxRxDsOLMQA10WNd2iihuXw0YNbAtzg/OjPA5hykb3a0Y9pWjUiN6EpD88DxqQ7
-         36pw==
+        b=wf7v+m+efsj8p17B7MmJyL30dqKhSkIBNnHK5N90A5DcuV/Yu0Nn7j6rHezuARQrpg
+         2T9yJDRROI6uDPXwOWQ8f9sUM6iOoLRyr+l56pLbGW0hWshfV7IFX4Q9wGAt3qPaYR4M
+         7CMW6gL26meYMgw+W2vOwJ8cS1rtArj72ksRpOJ3J2bR4FPw7BN9p07AbsVOa0TV8gmr
+         1UgLUWbpRi5skWlAquFDNS842BJagEyLfWGpIomevTtesnvOHj0mBjR2rG1G08Bl195K
+         wZqyJYhsv+t2Mve8l5lgfym8yubK3SAsoO+ymErSJ4lhC5g4G9DgiHTTmNl2/N8+vJpR
+         ZRTQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-language:content-transfer-encoding:in-reply-to
+        h=mime-version:content-transfer-encoding:content-language:in-reply-to
          :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature:ironport-sdr:dkim-signature;
-        bh=OdD4Qor8RUTah6Qju6TaWGx5pJ2vn+8aZ5+/VlU9gtU=;
-        b=EUgVyl0bwMLUwxeVW7frgwtq9AlqypPDGkFkZwJiluZBTOMgpT/2UHCN0hl4ZLiiuA
-         UJ191/zB2E5EFDokopGPsWeFasbwRKw3hnSU1A5mHIUB5GnsMZ2HHnw8lW60dYZqNuLn
-         obD4Qp5uxMUCCFAZR4jJVoFdaV9Kyvi8EZnXZMcGWeCytqICpcSGDaDUJOUd2KYRRBF3
-         RVgFmueT5iV2Jh8NCZ8svjzSaI6/uWCqPJL2D18lvafRReLsJclOZmSjKy2OJGiUlzbT
-         pSEwA0gp5r5QevUlgOft5z8nCIfn0OikCk2IN13/g4rY3VHiV/1KLI6mHNKbUcs4lM8Z
-         S+ZA==
+         :dkim-signature:dkim-signature;
+        bh=/jEu2XhKgorHo8uo/NhrgaTgf5uLHICfAQPx1ajaSK8=;
+        b=RoVxskzb19aAl5vvN2NmeQhgi61ubm4c5MaIqZgq0Rxc9Xy1kudNE7U+Mjd9DPu108
+         QtWDNkQyhSniqnsAxxCRTMoE3YGjEP7G5mX25+K7va+6J1BADG6PJOacgvHDwoZdS0Md
+         AUHTYp8f2oxRzNrTrOCWu+tShJ3/aBelaa0zSy63sxJSicXT1oI7+eUwQVNc+CtGYAOw
+         0kjnqPjNq/bYthykDu7YnTZvnQFUjk1sn/FGgNww4BSlx1F9EUkaVDdXHsc01Jnt+l+M
+         +cZuH+BptBXWD4K+l5rNQBH/ODRCZOvrRFCrPywyLDRVb3k93P0hL12YGQU1sd/prz9z
+         5oCw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@citrix.com header.s=securemail header.b=GosVFwTc;
-       dkim=pass header.i=@citrix.onmicrosoft.com header.s=selector2-citrix-onmicrosoft-com header.b=pUJFWA2b;
-       arc=pass (i=1 spf=pass spfdomain=citrix.com dkim=pass dkdomain=citrix.com dmarc=pass fromdomain=citrix.com);
-       spf=pass (google.com: domain of andrew.cooper3@citrix.com designates 216.71.155.144 as permitted sender) smtp.mailfrom=Andrew.Cooper3@citrix.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=citrix.com
-Received: from esa4.hc3370-68.iphmx.com (esa4.hc3370-68.iphmx.com. [216.71.155.144])
-        by gmr-mx.google.com with ESMTPS id e18si349540lfn.6.2021.01.14.15.00.04
+       dkim=pass header.i=@fb.com header.s=facebook header.b=mkMDJOIU;
+       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=LZdFp1pT;
+       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
+       spf=pass (google.com: domain of prvs=064855ab8e=yhs@fb.com designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=064855ab8e=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+Received: from mx0a-00082601.pphosted.com (mx0b-00082601.pphosted.com. [67.231.153.30])
+        by gmr-mx.google.com with ESMTPS id f8si616951ils.4.2021.01.14.15.45.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Jan 2021 15:00:05 -0800 (PST)
-Received-SPF: pass (google.com: domain of andrew.cooper3@citrix.com designates 216.71.155.144 as permitted sender) client-ip=216.71.155.144;
-IronPort-SDR: mymqzfoK2J8rJ/yoTsuo7W8t/cC9adpMpoufRIqCXZwQg2BO830Yp2yFQLuYslF5qMSWqox4uu
- JYT9Cph+9wq7lzPo44Hd2Oxc5YVsxIkCSjTTPn1genCmLHxj0kcpW31ECbaQmHLudR+CWF+iTW
- 5hOWyQ2tF4NeWot+2ZQEm/qia5jLr5UjEtRgXV5xZ3HvIzEepnSct7QUJNWg4CjlSMtZJeK5nk
- cVgiScmaw73yMHCAM7TkY9aVbF2LzjN6fccHMbpGQWaeon/2QRjc2in/6gKhcA83qAc1oFhFa8
- q0s=
-X-SBRS: 5.2
-X-MesageID: 36427667
-X-Ironport-Server: esa4.hc3370-68.iphmx.com
-X-Remote-IP: 162.221.156.83
-X-Policy: $RELAYED
-X-IronPort-AV: E=Sophos;i="5.79,347,1602561600"; 
-   d="scan'208";a="36427667"
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 14 Jan 2021 15:45:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of prvs=064855ab8e=yhs@fb.com designates 67.231.153.30 as permitted sender) client-ip=67.231.153.30;
+Received: from pps.filterd (m0001303.ppops.net [127.0.0.1])
+	by m0001303.ppops.net (8.16.0.43/8.16.0.43) with SMTP id 10ENhJhq018886;
+	Thu, 14 Jan 2021 15:45:50 -0800
+Received: from maileast.thefacebook.com ([163.114.130.16])
+	by m0001303.ppops.net with ESMTP id 361fp3wun1-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Thu, 14 Jan 2021 15:45:50 -0800
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.36.101) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Thu, 14 Jan 2021 15:45:49 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=JtA6JMJ1MUR9GVmbk2sopsP708BgKRsKDVgtrQZPRW48pAsDbSRWV2Zr+hqAVBPx8GjeG+XWJhK+mWn8wKtjA87UUzJH1GJDakOyJdI9D/K7d8KeilFhUg62xdEUpWAUelg7Fztkb9BDIO5H7RC4gBdnMbku6ihUshr3eZgDAAlW6Y22TONV2iEVVoyfkLMRP+JZjPFG+EUEPawmdhbvzJEmY0zOgD8Bi7d7YcRLgXZkj/EJcw0GKz3ZsD5U3KUesZ7taAXvWmTN+uLdAV9FhR4svewcJ2ULwb22qlabanaOyoCQXX44NomOo9+ntd75yH0lHj72MeN33pWwEswu7Q==
+ b=A1wGP0HypJfbshlhh+5C74idHLHZe2/W7yEJU+C6I4VBEuNuvM43j+2DrzOlFR8nWbfUqYA0Z0UybPf6qA+4NThOUI+Oo6bNQz88e1EV0YrqhNQpJemDhtUZOQD7xTE3SmBS1nfC2rptpem7Cq8XyImvuYdAqknMBwm22wb5gbSgBHprlE6UkO9iiqKX1EYCUn65Pe+6nl5SImooesIoimhGmj4uzeeeY5zAcVesglPAmQuEJsVDpETu5mcBJlamHKaaaRv9W/q5VVLw5d0C7YbgPPcIUYJZzVn9PESQGUWbbSkbzAzlnacRR9GCk9SaAxaRrSASmrhw7RzUmehJWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OdD4Qor8RUTah6Qju6TaWGx5pJ2vn+8aZ5+/VlU9gtU=;
- b=HR/AQPB8HXH3+YsM+nF/ZJSiCGK82QsVAmazFhy4u5i0GScSa5YKZ7FGPPTo8morOagQk9p+DBxlz6Jap5cyQMSRNNPEZ/kgrPfiu4E9jra8EeVhUp1uSEZbOX3h2zfG7RdhhsOLT1KfgxuV2fPq0eWoIgIrY6PH4GWi0J/xjWIZQa7RiwwBES9sw0B9LH3bZPhXRZrmgTXqoLVMSqm+YZnNimnS+0AQzFBMumPeoF+IStZyWFlFKepLTQYm9UYr74rLxDm/8Jo4TKlWVUAqHuNkTaIXvrKAhSotUyjQDwtFiijQLlvMDdpxLEUC1H6xbSafy6l3x/KV4k992iB8+A==
+ bh=/jEu2XhKgorHo8uo/NhrgaTgf5uLHICfAQPx1ajaSK8=;
+ b=KYjNRMSueMpwCqNNqRaA+oFfmHhM2mybB+P7G3mRcTIbR1INz2oc2oLkMD+A9APsrsvf14HJlwkdi/Q/u1P5CPddK4CfEHLLeci/x1G7sTyy/GNFodHn8/71qukVY14ea1FirCz/Y9SpNeS9NwdD3uAuXQ7Ah4LVI5hNqnrWWJ/Yvxf333VcImVnfoD4Ub1L6oF7LkPIgTepWzzlnCNwuOmHcZxhbk+kb48kgtrYD35pI7xyuugv+3SbDl6zMBjhHwTeCCHUOXbMETyaWvLmAu8S5oIfcOfTZ2avmumNWPQ9/7aaBBobthDKFj4nchScuj17diq1azNRIAuCU/xAdw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
- dkim=pass header.d=citrix.com; arc=none
-Subject: Re: [PATCH 17/21] x86/acpi: Convert indirect jump to retpoline
-To: Josh Poimboeuf <jpoimboe@redhat.com>, <x86@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-	Sami Tolvanen <samitolvanen@google.com>, Sedat Dilek <sedat.dilek@gmail.com>,
-	Kees Cook <keescook@chromium.org>, Nick Desaulniers
-	<ndesaulniers@google.com>, <clang-built-linux@googlegroups.com>, Miroslav
- Benes <mbenes@suse.cz>, "Rafael J. Wysocki" <rjw@rjwysocki.net>, Len Brown
-	<len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>
-References: <cover.1610652862.git.jpoimboe@redhat.com>
- <a1e4f5620deb81fc644b436eca5f51ec3a694459.1610652862.git.jpoimboe@redhat.com>
-From: "'Andrew Cooper' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Message-ID: <5017a6c5-55fa-0767-b1ed-2bd9e2a5efc1@citrix.com>
-Date: Thu, 14 Jan 2021 22:59:39 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.1
-In-Reply-To: <a1e4f5620deb81fc644b436eca5f51ec3a694459.1610652862.git.jpoimboe@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-GB
-X-ClientProxiedBy: LO4P123CA0496.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1ab::15) To BYAPR03MB4728.namprd03.prod.outlook.com
- (2603:10b6:a03:13a::24)
-MIME-Version: 1.0
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from BYAPR15MB4088.namprd15.prod.outlook.com (2603:10b6:a02:c3::18)
+ by BYAPR15MB3510.namprd15.prod.outlook.com (2603:10b6:a03:112::26) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3763.11; Thu, 14 Jan
+ 2021 23:45:48 +0000
+Received: from BYAPR15MB4088.namprd15.prod.outlook.com
+ ([fe80::9ae:1628:daf9:4b03]) by BYAPR15MB4088.namprd15.prod.outlook.com
+ ([fe80::9ae:1628:daf9:4b03%7]) with mapi id 15.20.3763.011; Thu, 14 Jan 2021
+ 23:45:48 +0000
+Subject: Re: [PATCH v3 0/2] Kbuild: DWARF v5 support
+To: <sedat.dilek@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>
+CC: Jiri Olsa <jolsa@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+        Arnaldo
+ Carvalho de Melo <acme@kernel.org>,
+        Caroline Tice <cmtice@google.com>,
+        Arvind
+ Sankar <nivedita@alum.mit.edu>,
+        Jakub Jelinek <jakub@redhat.com>, Fangrui
+ Song <maskray@google.com>,
+        Clang-Built-Linux ML
+	<clang-built-linux@googlegroups.com>,
+        Nick Clifton <nickc@redhat.com>, bpf
+	<bpf@vger.kernel.org>,
+        Masahiro Yamada <masahiroy@kernel.org>
+References: <20201204011129.2493105-1-ndesaulniers@google.com>
+ <20201204011129.2493105-3-ndesaulniers@google.com>
+ <CA+icZUVa5rNpXxS7pRsmj-Ys4YpwCxiPKfjc0Cqtg=1GDYR8-w@mail.gmail.com>
+ <CA+icZUW6h4EkOYtEtYy=kUGnyA4RxKKMuX-20p96r9RsFV4LdQ@mail.gmail.com>
+ <CABtf2+RdH0dh3NyARWSOzig8euHK33h+0jL1zsey9V1HjjzB9w@mail.gmail.com>
+ <CA+icZUUtAVBvpU8M0PONnNSiOATgeL9Ym24nYUcRPoWhsQj8Ug@mail.gmail.com>
+ <CAKwvOd=+g88AEDO9JRrV-gwggsqx5p-Ckiqon3=XLcx8L-XaKg@mail.gmail.com>
+ <CAKwvOdnSx+8snm+q=eNMT4A-VFFnwPYxM=uunRkXdzX-AG4s0A@mail.gmail.com>
+ <5707cd3c-03f2-a806-c087-075d4f207bee@fb.com>
+ <CA+icZUXuzJ4SL=AwTaVq_-tCPnSSrF+w_P8gEKYnT56Ln0Zoew@mail.gmail.com>
+ <CA+icZUXQ5bNX0eX7jEhgTMawdctZ4vkmYoRKDgxEMV5ZKp8YaQ@mail.gmail.com>
+ <CAKwvOdn98zvjGaEy0O7uCb9AUZdZANCeSYpdti3U3uj4+V4dyQ@mail.gmail.com>
+ <CA+icZUUMPwUF7wHir1rqNTGdQEgR1Fo5j646BunhEB6D3aFXsA@mail.gmail.com>
+From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <02124c07-9411-2356-6288-3bc8c7aba61b@fb.com>
+Date: Thu, 14 Jan 2021 15:45:45 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.6.1
+In-Reply-To: <CA+icZUUMPwUF7wHir1rqNTGdQEgR1Fo5j646BunhEB6D3aFXsA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Originating-IP: [2620:10d:c090:400::5:ab59]
+X-ClientProxiedBy: MWHPR2001CA0003.namprd20.prod.outlook.com
+ (2603:10b6:301:15::13) To BYAPR15MB4088.namprd15.prod.outlook.com
+ (2603:10b6:a02:c3::18)
 X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [IPv6:2620:10d:c085:21e1::13f6] (2620:10d:c090:400::5:ab59) by MWHPR2001CA0003.namprd20.prod.outlook.com (2603:10b6:301:15::13) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3763.9 via Frontend Transport; Thu, 14 Jan 2021 23:45:47 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 777ca840-dced-4ff3-139f-08d8b8e01715
-X-MS-TrafficTypeDiagnostic: BYAPR03MB3542:
-X-Microsoft-Antispam-PRVS: <BYAPR03MB35424FCBA29218482F6BEBA6BAA80@BYAPR03MB3542.namprd03.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:5236;
+X-MS-Office365-Filtering-Correlation-Id: 5ab63abd-5d97-4553-7797-08d8b8e684ce
+X-MS-TrafficTypeDiagnostic: BYAPR15MB3510:
+X-Microsoft-Antispam-PRVS: <BYAPR15MB35100B53C4B3DBE08980FA39D3A80@BYAPR15MB3510.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:10000;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: vO4lPCKEArhPccV3p8G3tXTGpWa+v6bq7iHCVXt2t+8r6JNQtukBy9Lm8vtko6Cdu1D1B0mvR8BlQT3CNnfhAS1YlNoZJe4YFKv39NNJc5ylEYUtHpurKs1J31m+dgpXkCIEvfWOJFchAeNER48PxeeQpbCOctzuJW8s9FZzFMvSbatwHSozh+8bFIY+ZMiIhp+5FGmxcb19TJ97tYoFe6twmBZMz5KWAYAk9M4Zw79BQeakB+SpRbvmRqITNFAipMJoCA7cKurc20Fz0cy9a1Qjk0gff1pAfYRli10M//rWMyjbGiwdzpMC/ZysKMP6cg2ueuPABy03lqglTuQXE5CxLFJ5oav+muViRWLDCojEWcLZKZCWsPwtoFQni3C6UCxqWYaREjoKgKquw+qpSR4YVcXV3/nDGMInFObOqWFqaNZ1A/CYZ5bb54pm4IMvOMjz8hD5qX0L7f7nwiaCkFpqkTn7CKt0xlEd6HDFT50=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR03MB4728.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(136003)(39860400002)(366004)(396003)(346002)(376002)(6666004)(2906002)(956004)(2616005)(6486002)(31696002)(66556008)(66946007)(26005)(66476007)(186003)(478600001)(83380400001)(16576012)(7416002)(4326008)(316002)(86362001)(54906003)(5660300002)(31686004)(8936002)(8676002)(53546011)(16526019)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?U3J4OTJoRmZSbzBFRzhsWjhlM0IrbEpDY0s1UUhzZ2FYZXRKZ1UvUXlFbW5t?=
- =?utf-8?B?SE5yR01GWDB2dHJ1M09jd3FDTnFPZFZaZUh1OE9FMTBFbi9JWU1oaWIrL0pj?=
- =?utf-8?B?bXY5TkhYNVYzUTJFWHprRGR1VWd2bEwzemNBS0NEWmEva3hvejBaWVBJUVpl?=
- =?utf-8?B?bkc4dFVVRjhjWmhzSlJGakdGQ0VmOFdRSGYxNVk1enM2TC92OHZQRXJIa2ho?=
- =?utf-8?B?bXhkSUNlQ2kzUTRBY25xL2daUUFMQUpLeXFCWHB6L1ZZcG44ZGQ2UUZmV2ds?=
- =?utf-8?B?OWl6eklyMHNXRExVZDVIS055Sk9EcmRNSWtrK1lZSmlva2h1QW03SWNmRGMz?=
- =?utf-8?B?VWhiaEhRQmZZZXZPRGtXbHBtMWpVUEtJZVNYSmh1eGdvUXgvZDYzVk8xeGpr?=
- =?utf-8?B?Nnl1czFhcGV3Mm5CWVFtUS9FcXYva1ZkeDNtTWZsY1dVM09SKzl3NlpNMWFy?=
- =?utf-8?B?N3M2TFNoV0hTT2NqWTZoSVFXWTdYWUJ1alZVYzBpa2QzSTRoQTVtenUzVUN3?=
- =?utf-8?B?clUzdk9iVm1QSEppSWZka2M4LzRrS25jK3pKcXk2M25aWkQydFpDNGhsalhw?=
- =?utf-8?B?QzB3VEJjYXN1TEFYSU9CMnZtNm52UjdVUFY3SWZBNDFvMzFFd2c0QUwxS3V1?=
- =?utf-8?B?bEFZWU4vYVZrbnppdG0xNCtLWDFWWG8yWGhlVWRlWGJkMEpTRXhGampZY2Np?=
- =?utf-8?B?VjlCRWw0WExYMWdjUytxZW1nQ0Z5eHp6azlvWXVpVUdNZ2F1ZzVJWFlEN2JO?=
- =?utf-8?B?b0dmMTFFTDh2K2JmRm83Ym5MdWZuWDRWR2xkdWsxd0UwNVFCQjJGUmgvOC9p?=
- =?utf-8?B?UlpScUg2TzlyaXhwWlREd3UyY2VIZDI0Q0dlV29WVEZGRmlQNGlUT3JjNS96?=
- =?utf-8?B?TmxYLzJSV2tSZFZ0eDdjR3JPdmQyZEE0SkxOUGJnVVYxMGpWbGRwUXNKajd6?=
- =?utf-8?B?dllieG9jSVU2c25UZ0wxdDdHTHNmNGl3WnM5VVI5clkvNk1NVFprbHpJa3ZC?=
- =?utf-8?B?RGZYNjAyTmpmaW5vaC9hZjZkMUFwai9rb3pyb2R6cTBkdHcxSTdsb0tUZ3c1?=
- =?utf-8?B?TVRmaHkwdEYzY0JIaXJmZUhSUlluVXFlYzFCN2pzTUJPanUweFUxNVI4N2tj?=
- =?utf-8?B?eWgrU1B5Y2xmR2RqU0pBOFpUTlExaFMyZ0lJUTBDMk14VlV1S0VLVnlrblY2?=
- =?utf-8?B?bzZNZmF0c1RVSndYeDVFRnFoTGloOUFxSHY2U08vZENWUkppd0RMcHJsclo5?=
- =?utf-8?B?VlpiMUNCQk50UnNudEVNVERSeVdPKzJmL1NQUDNoUEV4a3RmaUkvSnV0VHBa?=
- =?utf-8?Q?hs5d10+NiqtTV3Uiwzpyk0W2VXD/you7Gg?=
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR03MB4728.namprd03.prod.outlook.com
+X-Microsoft-Antispam-Message-Info: 5gTfclJq++2kXVPAFp20L6zVDWmlhRra6TS+svtBVHu7+GDZDd2fppddIHAPPUN2GcQzk/iIn84twxtmHPp+veS2Ca7+GaeyttqcNV8bm/DKYgRdvE+1rStyhILx+hI3pDIYgvQ7N0pn1nns8BkU2kj9ILGAtjRi13+5J8nXUla3GfLpGY1+7BoFP6pzieCh/ZXwi1XiYj55wd5wwIOmtuKQ0bhDHuYmkqgSpwnL6W7mDP6QszjdEH//Qti63DtbHoT5c8WblLOe0rz+ZGKt5B7YRmAmbrHAoR5iLOBrvDDBHKzr0d0lXjRA1UauPcecosovJ6Ez9xPwZmJuzJSoG7bpgDvocqcP76YoWEG8nPIYE6rgcnwTRDu64k/5wj7tatDQOqcQ/d0n68XjTALUjUmgIj77rKdzGDof8UrxP7g9kijzHRJGwkwNQgzqWa5VZlcU8aD9cJ9mnlk0yCa7GUS/7wySw+MsK5hKrGqIJcRAbfcXUqzAdi6Na3fxntAJZzkjaO9fal0veOKAFf09hmtwBoyDvy+35cHSMULiDew7EGxTJjulVZ6MTFBNc2/V
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR15MB4088.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(396003)(136003)(39860400002)(376002)(346002)(366004)(66946007)(2616005)(478600001)(16526019)(31686004)(66556008)(8936002)(2906002)(66476007)(31696002)(316002)(5660300002)(52116002)(54906003)(53546011)(7416002)(186003)(8676002)(36756003)(4326008)(6916009)(966005)(6486002)(86362001)(43740500002)(45980500001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?aHh5NEFiUHJSdFJaVHkyMDJwQWxoT2tQWG5CaDdxUjNWSTJxbG9aV09pOUZ2?=
+ =?utf-8?B?SDZwdThOckpBNHE3aXVEVlN5UGtmb2Z6QmZDUlNBRWpIazRjWnBzdldmTXhK?=
+ =?utf-8?B?UHpRc1BBV09vWkJxV0NXYzF6dmFKdGRKSUJldjJURGlOdzhyVkFiYkRQV0dB?=
+ =?utf-8?B?cTlXUEx3cEVxYVg0OVlwWmlKbFNPRCs5TFpwZDhnN3E4NFJmaE82RVpsRDNr?=
+ =?utf-8?B?d3lxSys2Q0I2MFpNRHdjRnI5a0lZNnlVYkdyV21MSUpCSjJyRldFc3JBR1BW?=
+ =?utf-8?B?RCt6UkNUdVlrVmlSRFpvMkoyY3F5bUs2V2JuVkk1MGVOUDBVUiszM1RVZGxS?=
+ =?utf-8?B?WTFKQVZhZHRFaHNvQXMvZGtZRDFHU3ZhZkpxQktVMXpVQVRuUndOUnhaVW9H?=
+ =?utf-8?B?VGZjdFhvcGovYS9LV2UxWWtVZDJSTHp6OFNwRU9aQzJxbDZlM2tCQllDYnpU?=
+ =?utf-8?B?aFA1ZzBvZ2NNTHNWN0dQRXhSbmpkcENMTG9YYUdXTXNOeUFZbHlIOCtvOTZS?=
+ =?utf-8?B?NnYyUS83ZmNrRzNIQ2VGZXBTQUpFWXhSaVA3alRnN3QycTRyOXNwL2lxeGRz?=
+ =?utf-8?B?TE9SR0p6M3ZaUXVET0ZZbVFBY2ZIL0ZoOS9ZWUtNYnR3SGRQbGtKMUNBVzhH?=
+ =?utf-8?B?YnhFMGZsSFFrdWtpa1B2TXdTN0RzeCtaVVllVzNwZHZWdE5CclE2Yk9keWlR?=
+ =?utf-8?B?VkQ1UFNtR1p1VU5mUmkyOFRmZUlnUHF4K1NBZSt5d3FoR3VYV0FHTEtUOUNq?=
+ =?utf-8?B?c3dndUlKaGhnam5VWjg5OVBUV3h5K3RWUUl1aGlvNFUyT3EvUU0vSzl6YUo4?=
+ =?utf-8?B?bEpCby9YNjVsY25hVkdmNG5mMVVnelU5azAyWk0rVzVtSEFNQkI4cW82WVZH?=
+ =?utf-8?B?TTFCQjBySXhwS2NSSm4zUnRmME0wOE0yOVFLREtFdC9mVXBoUExxdjNEN1R3?=
+ =?utf-8?B?VDFxNmdRUmhPb0tHT3lkdk5GR0pLMzFLVE9wQ1NSYzd5NWEweUxUY2JOYjNK?=
+ =?utf-8?B?cXVnMEUyU1ZabXdlWmpUblJ0OVZMalZUdDBTeGtLb0xPZk4xSnFGOVJDZ25H?=
+ =?utf-8?B?bnRPalZYMzduS2U0c1hEZkh0YVZCWlgyU1orK2xWL1crWmtZM1ZXOGVuZlVa?=
+ =?utf-8?B?enIwQ3FkYlN2ZjdSUDdEVVdpUFp1V2kwZkhETWpDNjRGdGxEZTV6d3lGTnZ2?=
+ =?utf-8?B?cjh0NGphWXh2Z1VKcmlHUThSdE0rbFkzODdQc20yay9IRnNocVB1aU5peTM0?=
+ =?utf-8?B?SzljZVA3elNRaUc2T0NEWjNuRWdUN2FGekVIb1FxS0ZZUHhuOFdGRXpXYVVJ?=
+ =?utf-8?B?MUtUYXRRRldFbEV6NlFRS205Z2lLS1RrNkhPenh2T3VGMDFyWWVsQmhFbEhw?=
+ =?utf-8?B?b1A4bS96eW1MOXc9PQ==?=
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR15MB4088.namprd15.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2021 22:59:47.1697
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2021 23:45:48.1748
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
-X-MS-Exchange-CrossTenant-Network-Message-Id: 777ca840-dced-4ff3-139f-08d8b8e01715
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ab63abd-5d97-4553-7797-08d8b8e684ce
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TeWiaMYo5hD8BfDOUYE6h964sUSPxgvjk1+NrVq24105XtWKBbwgqrS3/i8JKOLruLzFnuK4KptutqR+WKfJW2nOIVM0ddmjFHv3bGCHBbs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR03MB3542
-X-OriginatorOrg: citrix.com
-X-Original-Sender: andrew.cooper3@citrix.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5Uv9MVl4eu6t1CFJP1JVEqRU3u4d3oABoPhbYsezZTep7PfZWTpDayfvt++IVKb5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB3510
+X-OriginatorOrg: fb.com
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.343,18.0.737
+ definitions=2021-01-14_10:2021-01-14,2021-01-14 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 suspectscore=0
+ mlxlogscore=999 phishscore=0 spamscore=0 priorityscore=1501 bulkscore=0
+ clxscore=1015 mlxscore=0 impostorscore=0 adultscore=0 malwarescore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2101140137
+X-FB-Internal: deliver
+X-Original-Sender: yhs@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@citrix.com header.s=securemail header.b=GosVFwTc;       dkim=pass
- header.i=@citrix.onmicrosoft.com header.s=selector2-citrix-onmicrosoft-com
- header.b=pUJFWA2b;       arc=pass (i=1 spf=pass spfdomain=citrix.com
- dkim=pass dkdomain=citrix.com dmarc=pass fromdomain=citrix.com);
-       spf=pass (google.com: domain of andrew.cooper3@citrix.com designates
- 216.71.155.144 as permitted sender) smtp.mailfrom=Andrew.Cooper3@citrix.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=citrix.com
-X-Original-From: Andrew Cooper <andrew.cooper3@citrix.com>
-Reply-To: Andrew Cooper <andrew.cooper3@citrix.com>
+ header.i=@fb.com header.s=facebook header.b=mkMDJOIU;       dkim=pass
+ header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
+ header.b=LZdFp1pT;       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass
+ dkdomain=fb.com dmarc=pass fromdomain=fb.com);       spf=pass (google.com:
+ domain of prvs=064855ab8e=yhs@fb.com designates 67.231.153.30 as permitted
+ sender) smtp.mailfrom="prvs=064855ab8e=yhs@fb.com";       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Yonghong Song <yhs@fb.com>
+Reply-To: Yonghong Song <yhs@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -212,51 +251,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 14/01/2021 19:40, Josh Poimboeuf wrote:
-> It's kernel policy to not have (unannotated) indirect jumps because of
-> Spectre v2.  This one's probably harmless, but better safe than sorry.
-> Convert it to a retpoline.
->
-> Cc: "Rafael J. Wysocki" <rjw@rjwysocki.net>
-> Cc: Len Brown <len.brown@intel.com>
-> Cc: Pavel Machek <pavel@ucw.cz>
-> Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
-> ---
->  arch/x86/kernel/acpi/wakeup_64.S | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/x86/kernel/acpi/wakeup_64.S b/arch/x86/kernel/acpi/wakeup_64.S
-> index 5d3a0b8fd379..0b371580e620 100644
-> --- a/arch/x86/kernel/acpi/wakeup_64.S
-> +++ b/arch/x86/kernel/acpi/wakeup_64.S
-> @@ -7,6 +7,7 @@
->  #include <asm/msr.h>
->  #include <asm/asm-offsets.h>
->  #include <asm/frame.h>
-> +#include <asm/nospec-branch.h>
->  
->  # Copyright 2003 Pavel Machek <pavel@suse.cz
->  
-> @@ -39,7 +40,7 @@ SYM_FUNC_START(wakeup_long64)
->  	movq	saved_rbp, %rbp
->  
->  	movq	saved_rip, %rax
-> -	jmp	*%rax
-> +	JMP_NOSPEC rax
->  SYM_FUNC_END(wakeup_long64)
 
-I suspect this won't work as you intend.
 
-wakeup_long64() still executes on the low mappings, not the high
-mappings, so the `jmp __x86_indirect_thunk_rax` under this JMP_NOSPEC
-will wander off into the weeds.
+On 1/14/21 2:21 PM, Sedat Dilek wrote:
+> On Thu, Jan 14, 2021 at 11:05 PM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+>>
+>> On Thu, Jan 14, 2021 at 1:52 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+>>>
+>>> Today, I have observed and reported (see [1]) bpf/btf/pahole issues
+>>> with Clang v12 (from apt.llvm.org) and DWARF-4 ("four").
+>>> Cannot speak for other compilers and its version.
+>>
+>> If these are not specific to DWARF5, then it sounds like
+>> CONFIG_DEBUG_INFO_DWARF4 should also be marked as `depends on
+>> !DEBUG_INFO_BTF`? (or !BTF && CC=clang)
+>>
+> 
+> My experiments yesterday on Wednesday were with GCC v10.2.1 plus LLVM=1.
+> There were no issues with DWARF v2 and v4 but v5.
+> 
+> Unfortunately, build-time is long here on my systems.
+> 
+> For now, I did CONFIG_DEBUG_INFO_BTF=n.
+> 
+> I have applied attached patch.
+> 
+> Is it possible to re-arrange CC depends?
+> 
+> [ /lib/Kconfig.debug ]
+> 
+> config DEBUG_INFO_DWARF5
+>         bool "Generate DWARF Version 5 debuginfo"
+> -       depends on GCC_VERSION >= 50000 || CC_IS_CLANG
+> -       depends on CC_IS_GCC ||
+> $(success,$(srctree)/scripts/test_dwarf5_support.sh $(CC)
+> $(CLANG_FLAGS))
+> +      depends on CC_IS_GCC && GCC_VERSION >= 50000 || CC_IS_CLANG
+> +      depends on $(success,$(srctree)/scripts/test_dwarf5_support.sh
+> $(CC) $(CLANG_FLAGS))
+> +       depends on !DEBUG_INFO_BTF
+>         help
+>           Generate DWARF v5 debug info. Requires binutils 2.35, gcc 5.0+ (gcc
+>           5.0+ accepts the -gdwarf-5 flag but only had partial support for some
+> 
+> And adding text to help concerning DEBUG_INFO_BTF is no good these days.
 
-This is why none of the startup "jmps from weird contexts onto the high
-mappings" have been retpolined-up.
+Thanks, the above change looks good to me as well as the suggestion to 
+add some explanation why disabling DEBUG_INFO_BTF.
 
-~Andrew
+> 
+> BTW, if you do not mind:
+> 
+> Label your patches with "*k*build:" not "*K*build:".
+> 
+> Use "DWARF *v*ersion" not "DWARF *V*ersion" - everywhere.
+> 
+> One patch missed the label "kbuild:" (guess the subject has too many
+> characters).
+> 
+>>From what I remember - but these are small nits.
+> 
+> Thanks for DWARF v5 support in Linux.
+> 
+> - Sedat -
+> 
+>>>
+>>> - Sedat -
+>>>
+>>> [1] https://lore.kernel.org/bpf/CA+icZUWb3OyaSQAso8LhsRifZnpxAfDtuRwgB786qEJ3GQ+kRw@mail.gmail.com/T/#m6d05cc6c634e9cee89060b2522abc78c3705ea4c
+>> --
+>> Thanks,
+>> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5017a6c5-55fa-0767-b1ed-2bd9e2a5efc1%40citrix.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/02124c07-9411-2356-6288-3bc8c7aba61b%40fb.com.
