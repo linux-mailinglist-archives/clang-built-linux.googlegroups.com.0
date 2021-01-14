@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBXW7QKAAMGQEZI6LMEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBAPAQKAAMGQEUMNN53Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id DA4EA2F6C9F
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 21:55:59 +0100 (CET)
-Received: by mail-pf1-x440.google.com with SMTP id r15sf4078967pfg.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 12:55:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610657758; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A75A2F6CA8
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 21:56:35 +0100 (CET)
+Received: by mail-io1-xd3d.google.com with SMTP id w26sf10558464iox.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 12:56:35 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610657794; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Z3Dz90Lrl+aFZnuEXo8QAlt19Sd6a9WSyTl4rWumRiVkywYAUfH1v3beFTDmvSFYkE
-         IR24wEmfSxKKKTkHvCblO0VDytl4+A15EjC+98p1t+pEmPpRCmbyrM6PawY2AK5Cys+c
-         LiHAd+5FCDthjIvb5mZYfqfoTK2O71JVGWUiHc1QKb0lAwkD6rKI6g3eTnIj8Zr2ISXe
-         glT2nDJIhsStAJ4ge+WqiUUUzQFYIOPu27Z7Zo7cdHydh55VbYoThbl017CSpPQ92FnZ
-         xDTRottgAWWKLJTciTa13TRUJZI2FKXZVTPI4fbInh2utB0i70xYijd6y69HDJ78qXa+
-         p+kg==
+        b=n/b+y1V1tCxxW+dsoIRNdxHxMni5x4ytBTmauhgXh3sCZskpYN3iqjCH7bBDiA9KUB
+         Qx4IH10wIjtzmi1YvMzWSHKmn8ZVuZpt3UykiSKz/pAcfGHxDgyZXIwcKq7ly5abc5GB
+         0bHzoKcx7CzuTv3ikEx3QA+siHie8UmZyWjzZhou7iwmaNr+vlmRYgC8eZzTxYJrk5AN
+         qdppVvr8vOMTifl8Yobe18Ekrakqztrlz1INkQ8h+j2qhwMrGkuSFxTGXjajQVavCmRZ
+         Uqr9yzpB1cT0B7VvGIc8o0JLtoPe5fX6GwDiWOdV9hk/ZWODQPFEc8ci6nZx4mBNndMw
+         FD4w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=MR9oBU+QAhBcMeXAVV9BKjZMHE8mB/GmCAS1BHrXpq4=;
-        b=SYkJKhy7jENFoN1DCPw10o0Ex2tPUdfyFl4ix0Ci1/CgtC9kJcmG4REEB5wwkDw0aq
-         lhIAOfDLIGd0Bku/iJJaTXaT0YPU5qShtCIahe1JjbiKjt0wQ2B9eg1buWKeFUUeVmey
-         rQqOdioU7MjJLSLQmfM68bnja5KHfbUh+ecbDRApoYjQc8Weq19YJ6yhRULijnv0TEYR
-         eBZBDlhXVTMh5StGUNGYRxiEfEz26Kb+E/YMkU/6gN+tDv/2lMIw37ZHP3Z9UDyqzaE1
-         sAqQZqGEQ+00KGDiWcIP2vbXALsYw4IxFayDtWO9oco/Xsrm8RmpVKhLTxoXFI0pTkpP
-         7egQ==
+        bh=PG6zU2ApCKkLUZn7ngoVjeN7FS988AQkkJ9VmfNK3rA=;
+        b=EPez7z8p7FdhmL12gzT9oScUvGWCXU0N2G9AUUCeS8KnbpsT42BO7f7Oia2ZEMxaKM
+         NDXIQkOGqDFCuRTrgfs2HP2tiEM1DHfby6wEz+MnAsvN7MUrvTTFBXJ0vTermjPxWeN9
+         KNulsTHUrqRdokSnRtWFwJzWK4LMlrg96HuGQk89us+XWS21iVDuMZqJlzi7iVpN9juh
+         zASG4eI/eoQXoQV9882Zo2Bq9KExwX8CkQqbcUnDp2gjdXUmfL+3g6icOBrY7hiTws1e
+         a4cze+bUvqAnnXwGMhfxEe3IKnn7lrKJXAnjoR+1ZsP6/nkAFsUSIa3hdpliQuhtLilT
+         qpIA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=EcVHab8A;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=IQE7vJZl;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=MR9oBU+QAhBcMeXAVV9BKjZMHE8mB/GmCAS1BHrXpq4=;
-        b=d1DbtYlJzHIwvwZXrm05vBi4Z6CAwXqEfdFprDA/G3eoe4wwwgyBSSd4Cf2WJoSBbl
-         SBSJ1Fw8W6eyd5hxEGVMQnMVT7JzgKGBCrkajUcNQDC38eZveHEZgvq7+v3umzWRIEQ8
-         /M/CDQQZ8Ktp69U9UJIiDynnDg0Sb5ZbEkBCvMXvBFyggqsZplV5fDIy8aIyH+s9e5XY
-         9dTjNDHPbnfHHesSq5ALTHRNhoacvCY0o34NH7HC6H85CyrjgEnUt0MRX9n/7gJQiMEG
-         EvtvPZrhOB9VaShg5ez24vQd2WDcu/aUMVrQOgo8etIY5sIAdj6Y4MbOHAEW1Bvbb4xc
-         Tclg==
+        bh=PG6zU2ApCKkLUZn7ngoVjeN7FS988AQkkJ9VmfNK3rA=;
+        b=pF6RkHZhEs7GjvWXPCouLGznQEF1g2/Nshaq84lUSnjRFP+qgFaNmk7LkPKWr0GO1k
+         cP/C9Y9iv/8X6h2ai45IkhXwG8DCGQCw/vpWVX+/+IybbGWfB1yw7COrLXSYOe1mwlpA
+         9oCQ9sJkaT8VDtZ7o55dS2/zolMa/647KKVBCaT6PZhPL2enJtmMnvYBwKveNAMnmUkd
+         YxvOJogV/JaAOSP3a8R/gYXK/nDkipgMuxeYJ0oXhmqK8+56NlFs+gicoOLaWqHGe7lw
+         +4wb0MI+fbRgivOP8R3/EhPO4TDt7mWOUklAZZaueDyVPlkrmCrmHvjnQa5+TDM1rFV3
+         l+Mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,65 +50,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=MR9oBU+QAhBcMeXAVV9BKjZMHE8mB/GmCAS1BHrXpq4=;
-        b=KsNuih1eJ4TbnvSr4K/3vMAIaQI6YDcFns4aeqDFN1Pb/rxfNv8vL8dugfCVZMDu3w
-         sbeTn/INfL/i+sUKXacFuBsk5x/7OSJm7kOj27sWuGoKvH/XY9wwaWs2kKAw7UPJizsT
-         4OCnH8+ccoZEDfbUrBIciQZAqW7HKC82ETnzPTjsGcX6ToA0rCast8nLLXbN3D53A3Xe
-         lUn3f29DQikuNLXuKOMLsVFwrIp/zAX1FIztPrrVgFC3tVUcgOw0Cl68dsKEakfkl9Wr
-         GDtMhIRQ5BMZ3n3vPLmmRWbzAo/to+1DxAPfuUyFEDvUwQk0VXL7oM263n5vHLgOUGXW
-         5EFA==
+        bh=PG6zU2ApCKkLUZn7ngoVjeN7FS988AQkkJ9VmfNK3rA=;
+        b=dtjXMni2ZgTiDN3vQ79lGXzBKI+d7lOdT8aCHv70PpcaKoUt6SGstUm4cTm+e2wRms
+         h3v98KZHaIreSVWNS0a6/CnB+OjA0ByXkZU/XAupFHAXE1eW27gHHt+YVY7l4PyqTY3L
+         rBT/ncEkbYPjtuLQ7Uy7kEx7+d8hEFaSfpil4ezGiYFJIeoOU+alEOPL1k3QNjOh8LSq
+         nYLX4lbumc6+y85X0oyDRx9nJSAMzDzYUspVh/HAE5+j0iib1BZhFkTsrYXiGr/R5WlR
+         4KPe1Xw+rbxkiC6AYBF8mBMAPZKgY+QRSxFbHQRfzDsKSQDJD3f5KqIQTkafArbVwjzY
+         Am0g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531DtpqmF6e8HVGgGhe6q4+3sHunHCpET6z6szVD9oXd1SnOIWOi
-	wce/ZqKVoFv+zlcuVndq558=
-X-Google-Smtp-Source: ABdhPJya87sgv3q+H69GUo4F7Rjxhc4D/CWG7sIZ4TiwK3IRA2UnDezNkkPToJbh3I5zHQUtQZ8P7A==
-X-Received: by 2002:a65:5209:: with SMTP id o9mr9243303pgp.34.1610657758588;
-        Thu, 14 Jan 2021 12:55:58 -0800 (PST)
+X-Gm-Message-State: AOAM530uBJZ8v4+etQr1teCTowy0qsC8CjYaMFP6wOfmCtnchzhTqcd6
+	BIcQqg37RYkmfJUihiXKBp0=
+X-Google-Smtp-Source: ABdhPJy0G6RFPp3jo4N/pQ0O3jLqEWDWkF8+SJ8d6wPXqIQA4hm/Kpi5cWs1OX/roTtDo2wewu8kOw==
+X-Received: by 2002:a05:6e02:152e:: with SMTP id i14mr5083182ilu.247.1610657794111;
+        Thu, 14 Jan 2021 12:56:34 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ea89:: with SMTP id x9ls3243258plb.2.gmail; Thu, 14
- Jan 2021 12:55:58 -0800 (PST)
-X-Received: by 2002:a17:902:8203:b029:dc:3ef7:9321 with SMTP id x3-20020a1709028203b02900dc3ef79321mr9030009pln.39.1610657757956;
-        Thu, 14 Jan 2021 12:55:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610657757; cv=none;
+Received: by 2002:a05:6e02:1346:: with SMTP id k6ls2012440ilr.2.gmail; Thu, 14
+ Jan 2021 12:56:33 -0800 (PST)
+X-Received: by 2002:a05:6e02:1544:: with SMTP id j4mr7956434ilu.29.1610657793625;
+        Thu, 14 Jan 2021 12:56:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610657793; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZJwe7GrYovLhKy9dNfr5J3YCw8mhXjHubkDd/RHze5weDtFpCs4SaFpAdK7clW3Zqw
-         YcBFomqoyyYgim5eAC5exNdwrFUJPrB0omwtCfSe/V/AISvw69WRf/7QoKwv8dukF/ws
-         sYBfV7v/Ovjb9lkZvamGSQSAS/lSXT6SAeA96IJtvr2E5aDq0z8v3l2v8VhNdkAnUVbr
-         BX+asRWLJX1h4RYT2pqUECAjna/EF3UFI0n6+G8m25kbuRYYxF/LiwjhZBOAwF4eWxJP
-         i0kGYOrSWU/Z9NP/KCTW1ZLqVaPaUN7k/GJMp8o+fLk2qF595b20n4BadYiVY4jxcFOs
-         4mVg==
+        b=k3Ihf5/rCBGgb/pNdHAQEm5cl6rX3FAgWmAjzBxN19SeD6X5cH/EgqrLG46lzIiRHv
+         siiNGBQt+me4uxWKpHFobXTnOrrmzqrwHv0HrzBU9YuUveih/MFsUORiDEF7ar3+Q1nK
+         JQVvv8TWKHL9LEMt56hm+OoGzTBB13T/nzfC0iiYmOYcQw6UOt2EVbSMQAnCd22ZmpEa
+         Stg57WcGH+auUW0yxT0+aua4dv0pkZRrXv/o3v9VvWNeifKHPQH5UkRLgQerfeXkUrKd
+         gVfkwTtN2AJEMReZAJLRfM2uTSfHP7Weyl5Urwq4IaZ0B71M7fnKIf456YMX5r2v3xUo
+         FboQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=yBGqFp0/AGy67G2GU5MRUO2gAeWdKdgk866e/Nrr2ow=;
-        b=bKHSOsLOxGuuL6d6ydd9gmKDpjHhV65bE32UYGgEZcT+zxfvkZDTK9NRriOVxQYQOg
-         J/LznnLQfWPNXLf9xK8NBjg7Sa7LNKIDDNOiNR54KycAJiGddBoaUzZi+B6qGlGjwozy
-         V7JZtWN34I3QPYKR3bP67JmzwtHPkxZGB6dF7Xulk6rtn/UgkGR7beSMYqfjsisYIyIB
-         9KDgAvrQutrigJofLQyMfCiRiy1FPAKSmsCrkBHyICYhCihOsXQgUXKv+Vtr48cO2g4s
-         vlFVcfzwUvnQL9njF8COZEQfh7xG02xqqdskxDBAeUXyNEhdIHAvGY/5eqSd1yynbdyO
-         IOUQ==
+        bh=G9+4Pk0QfMyGrL+EPSU/M84dgufmtwgcIjPfqAvJ8sg=;
+        b=F0o8zQNYtsOBJDcFqm9wKwcqfFMPETAUIf6ZrQ98mWGEZ5Nqcb7j7CA35yzX3RLmBY
+         f4tw8lxEtQG/vw7cU3kpiENRNojPp8pn45JYnDVGNedHtpD3OpOJymBJrCH/KYI6TywP
+         isvZcOtsNkDQFpljb4+WCwmzk3hfyqVlj3/irUEioaZM69bVRyzFMwCyak9LaaYaMogV
+         yidsmjd5NGNUnCaJMtByPmSBrFARwgEAU/ajHwgUyASy+KuDImkoNiaFs4zjgKBJNRCb
+         eIR5QcRCDe2XjPoRj1fqGXcNoB0OpUunXntrhv33EiZApq0B59YkTEXxYdubtg2o+X8C
+         D2DQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=EcVHab8A;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=IQE7vJZl;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
-        by gmr-mx.google.com with ESMTPS id l192si313979pfd.6.2021.01.14.12.55.57
+        by gmr-mx.google.com with ESMTPS id v81si312803iod.4.2021.01.14.12.56.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Jan 2021 12:55:57 -0800 (PST)
+        Thu, 14 Jan 2021 12:56:33 -0800 (PST)
 Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-256-6gvhsoLSPPuUyzdfBBXneg-1; Thu, 14 Jan 2021 15:55:53 -0500
-X-MC-Unique: 6gvhsoLSPPuUyzdfBBXneg-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-48-d1u3mahQOtyoXoN_KPF6aw-1; Thu, 14 Jan 2021 15:56:29 -0500
+X-MC-Unique: d1u3mahQOtyoXoN_KPF6aw-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 82752806668;
-	Thu, 14 Jan 2021 20:55:51 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7A454107ACF7;
+	Thu, 14 Jan 2021 20:56:27 +0000 (UTC)
 Received: from treble (ovpn-120-156.rdu2.redhat.com [10.10.120.156])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 68D101803B;
-	Thu, 14 Jan 2021 20:55:49 +0000 (UTC)
-Date: Thu, 14 Jan 2021 14:55:44 -0600
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5952E12D7E;
+	Thu, 14 Jan 2021 20:56:26 +0000 (UTC)
+Date: Thu, 14 Jan 2021 14:56:24 -0600
 From: Josh Poimboeuf <jpoimboe@redhat.com>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
@@ -117,19 +117,18 @@ Cc: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
 	Kees Cook <keescook@chromium.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com, Miroslav Benes <mbenes@suse.cz>
-Subject: [PATCH v1.1 11/21] objtool: Move unsuffixed symbol conversion to a
- helper function
-Message-ID: <20210114205544.ehynfby5tummams5@treble>
+Subject: [PATCH v1.1 12/21] objtool: Add CONFIG_CFI_CLANG support
+Message-ID: <20210114205624.dpodesrcljpnfsaj@treble>
 References: <cover.1610652862.git.jpoimboe@redhat.com>
- <37e341c0f4522656a6320528f0aacb0cb7ff0034.1610652862.git.jpoimboe@redhat.com>
+ <c1889131d5de558e58700ba559e7d8606fe9c680.1610652862.git.jpoimboe@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <37e341c0f4522656a6320528f0aacb0cb7ff0034.1610652862.git.jpoimboe@redhat.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+In-Reply-To: <c1889131d5de558e58700ba559e7d8606fe9c680.1610652862.git.jpoimboe@redhat.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=EcVHab8A;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=IQE7vJZl;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates
  63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
@@ -145,111 +144,107 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This logic will also be needed for the CONFIG_CFI_CLANG support.
 
+The upcoming CONFIG_CFI_CLANG support uses -fsanitize=cfi, the
+non-canonical version of which hijacks function entry by changing
+function relocation references to point to an intermediary jump table.
+
+For example:
+
+  Relocation section '.rela.discard.func_stack_frame_non_standard' at offset 0x37e018 contains 6 entries:
+      Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+  0000000000000000  0002944700000002 R_X86_64_PC32          00000000000023f0 do_suspend_lowlevel + 0
+  0000000000000008  0003c11900000001 R_X86_64_64            0000000000000008 xen_cpuid$e69bc59f4fade3b6f2b579b3934137df.cfi_jt + 0
+  0000000000000010  0003980900000001 R_X86_64_64            0000000000000060 machine_real_restart.cfi_jt + 0
+  0000000000000018  0003962b00000001 R_X86_64_64            0000000000000e18 kretprobe_trampoline.cfi_jt + 0
+  0000000000000020  000028f300000001 R_X86_64_64            0000000000000000 .rodata + 12
+  0000000000000028  000349f400000001 R_X86_64_64            0000000000000018 __crash_kexec.cfi_jt + 0
+
+  0000000000000060 <machine_real_restart.cfi_jt>:
+    60: e9 00 00 00 00          jmpq   65 <machine_real_restart.cfi_jt+0x5>
+                        61: R_X86_64_PLT32      machine_real_restart-0x4
+    65: cc                      int3
+    66: cc                      int3
+    67: cc                      int3
+
+This breaks objtool vmlinux validation in many ways, including static
+call site detection and the STACK_FRAME_NON_STANDARD() macro.
+
+Fix it by converting those relocations' symbol references back to their
+original non-jump-table versions.  Note this doesn't change the actual
+relocations in the object itself, it just changes objtool's view of
+them.
+
+Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
 Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 ---
- tools/objtool/elf.c | 60 ++++++++++++++++++++++++++++-----------------
- 1 file changed, 37 insertions(+), 23 deletions(-)
+ tools/objtool/elf.c | 28 ++++++++++++++++++++++++++++
+ tools/objtool/elf.h |  2 +-
+ 2 files changed, 29 insertions(+), 1 deletion(-)
 
 diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index be89c741ba9a..6d248a19e2c6 100644
+index 6d248a19e2c6..142b2ce49328 100644
 --- a/tools/objtool/elf.c
 +++ b/tools/objtool/elf.c
-@@ -262,6 +262,38 @@ struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, uns
- 	return find_reloc_by_dest_range(elf, sec, offset, 1);
- }
+@@ -382,6 +382,11 @@ static int read_sections(struct elf *elf)
+ 		}
+ 		sec->len = sec->sh.sh_size;
  
-+static int find_unsuffixed_func(const struct elf *elf, struct symbol *sym,
-+				const char *suffix, struct symbol **func)
-+{
-+	char name[MAX_NAME_LEN + 1];
-+	const char *loc;
-+	size_t len;
++		/* Detect -fsanitize=cfi related sections */
++		if (!strcmp(sec->name, ".text.__cfi_check") ||
++		    !strncmp(sec->name, ".text..L.cfi.jumptable", 22))
++			sec->cfi_jt = true;
 +
-+	*func = NULL;
-+
-+	loc = strstr(sym->name, suffix);
-+	if (!loc)
-+		return 0;
-+
-+	len = loc - sym->name;
-+	if (len > MAX_NAME_LEN) {
-+		WARN("%s(): unsuffixed function name exceeds maximum length of %d characters",
-+		     sym->name, MAX_NAME_LEN);
-+		return -1;
-+	}
-+
-+	strncpy(name, sym->name, len);
-+	name[len] = '\0';
-+
-+	*func = find_symbol_by_name(elf, name);
-+	if (!*func || (*func)->type != STT_FUNC) {
-+		WARN("%s(): can't find unsuffixed function", sym->name);
-+		return -1;
-+	}
-+
-+	return 0;
-+}
-+
- void insn_to_reloc_sym_addend(struct section *sec, unsigned long offset,
- 			      struct reloc *reloc)
- {
-@@ -374,7 +406,6 @@ static int read_symbols(struct elf *elf)
- 	struct list_head *entry;
- 	struct rb_node *pnode;
- 	int symbols_nr, i;
--	char *coldstr;
- 	Elf_Data *shndx_data = NULL;
- 	Elf32_Word shndx;
- 
-@@ -456,37 +487,20 @@ static int read_symbols(struct elf *elf)
- 	/* Create parent/child links for any cold subfunctions */
- 	list_for_each_entry(sec, &elf->sections, list) {
- 		list_for_each_entry(sym, &sec->symbol_list, list) {
--			char pname[MAX_NAME_LEN + 1];
--			size_t pnamelen;
- 			if (sym->type != STT_FUNC)
- 				continue;
- 
--			if (sym->pfunc == NULL)
-+			if (!sym->pfunc)
- 				sym->pfunc = sym;
- 
--			if (sym->cfunc == NULL)
-+			if (!sym->cfunc)
- 				sym->cfunc = sym;
- 
--			coldstr = strstr(sym->name, ".cold");
--			if (!coldstr)
--				continue;
--
--			pnamelen = coldstr - sym->name;
--			if (pnamelen > MAX_NAME_LEN) {
--				WARN("%s(): parent function name exceeds maximum length of %d characters",
--				     sym->name, MAX_NAME_LEN);
-+			if (find_unsuffixed_func(elf, sym, ".cold", &pfunc))
+ 		list_add_tail(&sec->list, &elf->sections);
+ 		elf_hash_add(elf->section_hash, &sec->hash, sec->idx);
+ 		elf_hash_add(elf->section_name_hash, &sec->name_hash, str_hash(sec->name));
+@@ -613,6 +618,29 @@ static int read_relocs(struct elf *elf)
  				return -1;
--			}
+ 			}
  
--			strncpy(pname, sym->name, pnamelen);
--			pname[pnamelen] = '\0';
--			pfunc = find_symbol_by_name(elf, pname);
--
--			if (!pfunc) {
--				WARN("%s(): can't find parent function",
--				     sym->name);
--				return -1;
--			}
-+			if (!pfunc)
-+				continue;
++			/*
++			 * Deal with -fsanitize=cfi (CONFIG_CFI_CLANG), which
++			 * hijacks function entry by arbitrarily changing a lot
++			 * of relocation symbol references to refer to an
++			 * intermediate jump table.  Undo that conversion so
++			 * objtool can make sense of things.
++			 */
++			if (reloc->sym->sec->cfi_jt) {
++				struct symbol *func, *sym;
++
++				if (reloc->sym->type == STT_SECTION)
++					sym = find_func_by_offset(reloc->sym->sec,
++								  reloc->addend);
++				else
++					sym = reloc->sym;
++
++				if (find_unsuffixed_func(elf, sym, ".cfi_jt", &func))
++					return -1;
++
++				if (func)
++					reloc->sym = func;
++			}
++
+ 			elf_add_reloc(elf, reloc);
+ 			nr_reloc++;
+ 		}
+diff --git a/tools/objtool/elf.h b/tools/objtool/elf.h
+index e6890cc70a25..bcc524d73f51 100644
+--- a/tools/objtool/elf.h
++++ b/tools/objtool/elf.h
+@@ -39,7 +39,7 @@ struct section {
+ 	char *name;
+ 	int idx;
+ 	unsigned int len;
+-	bool changed, text, rodata, noinstr;
++	bool changed, text, rodata, noinstr, cfi_jt;
+ };
  
- 			sym->pfunc = pfunc;
- 			pfunc->cfunc = sym;
+ struct symbol {
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210114205544.ehynfby5tummams5%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210114205624.dpodesrcljpnfsaj%40treble.
