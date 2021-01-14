@@ -1,143 +1,158 @@
-Return-Path: <clang-built-linux+bncBCU77JVZ7MCBB64EQCAAMGQE7BX4RDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ7PBVA4YBBBF4HQCAAMGQEDYA7UFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADA082F5C82
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 09:36:11 +0100 (CET)
-Received: by mail-lf1-x137.google.com with SMTP id i7sf1745761lfi.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 00:36:11 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610613371; cv=pass;
+Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1362B2F5C8B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 09:40:56 +0100 (CET)
+Received: by mail-lf1-x13a.google.com with SMTP id c11sf1743342lfi.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 00:40:56 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610613655; cv=pass;
         d=google.com; s=arc-20160816;
-        b=k+Oa6rAWFMDAdPDX0drxMOWQipv3yLm3IlvVqX1WuJ0O/4k6ol1Pv1nCN3evUMpKre
-         VVYEkBHvi1Sh9mFDcY4l4f303GO4OMn5a03Z/9oxRuTa8YufBn34AerOUVLIeJkmex8M
-         85i3E/Edyh06gH71xOaewlqeNbXuRFiqaxMD4meGeqZYNRzgpJPX9UdnmbAn3V8en5OV
-         mB6UBkdKqY4WsAnyjgy5QmooODWtfXCddYf4im+NXk1Ig2b/jl4lucjEFLcJWK4tOroC
-         582DKp0gWMgnLNrF9U8ivCg39gcmGWz/N1igxacb9C28Zj5sKT/91IPaS0L68wn6nN6K
-         vqww==
+        b=AvE5tsycnxTtv4woMa/3Ul4yVT9yiXkkLJuCFhi5anSGC+pSPzdJ0PY3z7ChHU+eSR
+         XZr+E8AnGvOM6IW/vsjrxIUp7prtu5gGQFoxYs76ZXyfG0l70DbDyEE6kep2BuwmSyxO
+         eQM6imIC+iSM0JtPh0C56i+HXvzwSrZoS13DaorfM2C/saKUqXNKn6BvsTKKh4655mUk
+         m7LF8Hh3zoylHwJszds5TQFHzaZtoXubyruTpTZP4VjyYnn1QnA6qcX3YgLSGe6FqykI
+         ZK1fuwbtVOM5VSW80U4/D64N/3nY/GoS7YT0LPuslEKveRLDDBzAdhEyqlCWyiCl5jt5
+         aVBA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=caO5zMkOFCz7Ksjq8mKKBAx2+QX8828J5SHJXA21nHQ=;
-        b=bXP+RpcOrMJ/WG2WPde6V9VdV4CbxZ0RXv1XEvnzWxOcx0lTtCW3ogGHMaDE+ADPTa
-         fJbXprP+by5Xv2uNWRVnpqMhvkPiPNVyg4GAyqvPTBvv+jktT483Lj96PfM9yBpPbRsm
-         XiaHdDB5uwzP98ISMnRqGvUUX9omVn+TB5Os1+K/f/NETXdftVFnizFg9xPDI1bHMa6h
-         vbqR5neptDDbOCYS1d/8+XKI/C3SDPu6EELW/SiYoBodwGkNPFpAMFvzhdYafJEPG8Sd
-         fzdNP12v7qfNUb+bzc9TznvavjLU12Knhn3Y7MTvjHreBfnZaFhe8UDiuvDgTqh5r3gJ
-         S0yg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:organization:from
+         :references:cc:to:subject:sender:dkim-signature:dkim-signature;
+        bh=YkPEvU+/Hj5fBTuDk79M0iDfEY3qe02mHZBf3+hc6cA=;
+        b=W0ymQ59m3k3AvutP/PyoCFqOTtDxZe42B3LiGzFiuY3T9sd9KiMh2bt13ToyKESkoE
+         +g8mDVUMmPjH7jj8Ck0QbpJhtcCkmbYoCoZamDapeOKxL5bM1jo41OgQ3yw8YPkjJcDT
+         YG11AvwWj3htvg0DFI8ELriMRUaWisv5cHrGKCVFRv018LKGkd9t2v7fiGzq4bNnRsDC
+         McS0EITKLk2bEocUsXlYJyxJHLqEvuPPdBpaPxoRGWB8avLG/2wfjBnQQONK24+VwOum
+         ZeOziRAWeZ93B+VYTWkoC05BNCM26hlmMx3W0mtPNQFfHZzvtCNx+VDpR5BgT+HSUxPU
+         976w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=J7mq5d8o;
-       spf=pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::62e as permitted sender) smtp.mailfrom=olteanv@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=M9TsRLMO;
+       spf=pass (google.com: domain of sergei.shtylyov@gmail.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=sergei.shtylyov@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:subject:to:cc:references:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=caO5zMkOFCz7Ksjq8mKKBAx2+QX8828J5SHJXA21nHQ=;
-        b=aWcGQFHKTrhTTjTtbmoHJqkxlk3iL9dXurz2KvsVFPbYHEv+GXP3Mqh5mrk8wEg+3b
-         wPBkZ6tyZua+XI98zp04gJKhl3lBKdJM90E+7pSgk8C+ZUe01wMz53874cUUVWBuK8o0
-         8yfEQ6GI8amuDv8FMeX5IN7IoPu9d01hapYQRkSmX29FVw674179+QGQhqTQerikut+e
-         /vRQPZtv86DleZYpoyWLuZO+YrSid/MywyO6wnmfyCQNnNY0syX1wUx7dfby5kZn4GYg
-         nnFg/N2QxATwclussY4NI2MmfT3kU/amL2Foc7OsXaGfbrsmSrZKYmZ9vLNAMQnKxOtF
-         P40g==
+        bh=YkPEvU+/Hj5fBTuDk79M0iDfEY3qe02mHZBf3+hc6cA=;
+        b=X3drBls9XPg98E9UsCYoEFplzKZ0JWRZbnn5yyg2CkhmgpcR2fppB6LFe0MblBexv1
+         EPXM1rUTpsQyDqDaOGB0j256tGh6Qxh1zAqH8ZlZ8FM1xu7kTqolgiFHG+nlcyq+UlaO
+         QX2p6wbFov06KEVqWXPAXEE+uxSKIAjKR9GdM/yr2SXnwjd2SVUyh8yBCHL1E8UhiUSn
+         YXzEh4T0hdC4vFTEhnCyZpedwq3dQuknG6xUJ8aTHyZXY43CTWaXzZZZlRjVHgPva6yP
+         MCQTICDDdpjDu/8VC25x33+IpMwroPwDYOz5y3IJUot4jagsxeNcnU2OK4j+RLhglExu
+         53IA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=caO5zMkOFCz7Ksjq8mKKBAx2+QX8828J5SHJXA21nHQ=;
-        b=CCalOpc8MdogLd13kmnNln1viSGX9FEazNnU1j2crURrc3rmiDEj8av9YUsF2OYzTX
-         tELfYlh4aGa4vYmOyxopfU0Lca1/Nj4hLgDsEXLtIBRB5bNrL9Mg5h5sKNWcL2enTNdh
-         olJuKZG46kCJyyG7zc7v0i5W+bwGJfFU++H+clPFhP8WtRarNjbKi/AqeumFXiD13LdH
-         gXWyBUMO39Ox7ulS7GaO4TbTZmin4zU84WCqRtaLtjC0hR8Azed+VitJ8jg4oTDCTTDS
-         JdAhLD2BWfVkCOub1UxVPZ/EjV3VMzxHIXcWgx9HpcxHgrWKL3GXSCq3Cjmd6Curh/pE
-         7FYQ==
+        h=subject:to:cc:references:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YkPEvU+/Hj5fBTuDk79M0iDfEY3qe02mHZBf3+hc6cA=;
+        b=NApN9R+91B1Im982VD7OjlL4hd91uopULC6ZtkF8gey+mstTxtbPAmAXFz7gR9ureC
+         krajYA1LLC8ahCUvxXeFNOLcDNdOjgQQoPqcKDrhdKAC5Cc9x9yzm5QBu/83uzh0s5dV
+         nRiowUeYrjE2PMZ8chYAy5aEVnRqbz3fOt6XPALwhzkDpOSwFjHOUDCG5yWrnQESyjYw
+         e1nv4BZ3nicqmVtIk5qnDWy8WyNalGJrFunCx8DKQPBRy5r2AhXcu8XLAg6Uad0UfU7b
+         f4kOkXVuCsHeuq/HB2nmZOlA85mpwyVnp33rQ6YrkiNqJsgbCMCPW1zdoZKbY5wtLpFK
+         qYjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=caO5zMkOFCz7Ksjq8mKKBAx2+QX8828J5SHJXA21nHQ=;
-        b=DPkUpviR4UwglEQIp4VhXskJD04JcJaUi+Gvqzey+NNpUDYDKYiostchysfRtppNOw
-         07q4i7uG31yFCTjEqlIoocw4ejBjxUz15CFontWF9UK2Kf6xfNaNsAuwfVaXP7NTEJ2n
-         GekWAWKH5EFef8zGFjlBKlZ/KaFpGVNst//PaDUITf/vLXHrQmmnnq/poJ6eEtZF2lS1
-         zwWPfnt08lX/HttxIJbLEYX+Pk6Z6z9Bdsmy33eiXG3FAvLUSOzZAfVXEz3K2cX6qnV/
-         JMOG0XECmeLkdux1k/DzRdpCEMra01le/ylxPKlG1wePuz+p1OdVR2u8AMBNUi6DY64n
-         C/Wg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YkPEvU+/Hj5fBTuDk79M0iDfEY3qe02mHZBf3+hc6cA=;
+        b=cGiEBZ3gwvGFjtyx52zqg8TLWRGHms9f7V0am0iiuFizCIvhyViILxiRmlc67IFQeA
+         xscRIAvPW8ycjHJa6zcKws5pemfANj6jAsnMU+RHKJ4P5AdBYJbdORc0OhNgYQY6Be5v
+         Y6iVcvlMGftZLiqP7GIXpWUdPeLh7huX+aInCBzTLCKuRD0rlp1o9Mwsqap089dKNV/R
+         TGCO6oKxBCZ9L39aaxWLhtLZ1I5pluXIxu1F41Q4LwPUIaKleyEo0De/vuEPnQnCugVN
+         dEVH03+lPVkPzHqhqKT+TND9i7e1PEtEm0ozqhbUdtNFK05wXESwOqjCPBb7niP2OONF
+         qkeA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530gSDCCqkcXCYfmcX6lCTG8zef/lPn4Svfj6gWISVy1okg3mvKs
-	KJnqS5UNnPyeke5DIB2NY24=
-X-Google-Smtp-Source: ABdhPJzxRai8/nLIsaROrodxfBRzq9UA3Xi0wiF2S/lb+S9UpEZXWOoxCdjdvavRZssg1i1saEIiYw==
-X-Received: by 2002:a19:7d2:: with SMTP id 201mr2672834lfh.518.1610613371265;
-        Thu, 14 Jan 2021 00:36:11 -0800 (PST)
+X-Gm-Message-State: AOAM530j1pzcjTjeNjKfPPyq0h+3byY1WmvuSVlRYKsjo2oihPdDt12Y
+	qBJfMX8JNZs17NTBrVcEdRo=
+X-Google-Smtp-Source: ABdhPJx5RR8uilFcITkf4ToV8heUSivgJ6dDjLkt7IbhFUfJryzdDvI/JLriX28aWBCGcOzl6H9uXA==
+X-Received: by 2002:a05:651c:48e:: with SMTP id s14mr2784793ljc.159.1610613655566;
+        Thu, 14 Jan 2021 00:40:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:980e:: with SMTP id a14ls797101ljj.7.gmail; Thu, 14 Jan
- 2021 00:36:10 -0800 (PST)
-X-Received: by 2002:a05:651c:286:: with SMTP id b6mr2624788ljo.232.1610613370370;
-        Thu, 14 Jan 2021 00:36:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610613370; cv=none;
+Received: by 2002:a05:651c:1a5:: with SMTP id c5ls795953ljn.10.gmail; Thu, 14
+ Jan 2021 00:40:54 -0800 (PST)
+X-Received: by 2002:a2e:b4a7:: with SMTP id q7mr2667834ljm.391.1610613654410;
+        Thu, 14 Jan 2021 00:40:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610613654; cv=none;
         d=google.com; s=arc-20160816;
-        b=vtT3oiH1cTZwQzqgjDtTGT9YFLHwSziwlrygGP7nyy6cuKA0faQwIk0VB2KC1V5X+i
-         49a2q4zkec22LxkZA8oUBD9hsXVmqT9nvw+J0n0PTeMItgicOURkUMzSuVMGCoaGkscV
-         6seLOdNfW286LL2WGgeo41eHkpPXUVwdYuUAzUIPqLdPhsqbZDHo1qkBV5cQsFRlSJKl
-         T3uVNKVQdEn4yCsTwo4IGSwP/900Qs5EM/g1HPwnMJS7/M+w81vZTOHdMK8kZJafPPPf
-         zZgxYrZo9XcugN5X96yAmfll5pQ1jL5G5lBdXQEQgXksqRu88LqmAKksN8fb2qs9MTKJ
-         sY9A==
+        b=0GgthcIQKv6rct+NhMOSau7SwTRRF7crfE8ybEm+zSwy0Rfxynw3K0YCfih4D6iWVs
+         bfJKL+82h9dXuHEJxpZSHqzahrcddEX/9yWvS3dsYwzC9aoGUPEhrVVqxRUH0gmrH0HM
+         0DXZD+t+eWZWSGRcexfng4t70E+UflV+2L+PjCX4nUDFMff0H6cPY5qEx/sCTqalwffY
+         42jrIygbgWvkIsxBmDHE4oM+0c3BjiPhGkCUYaq3FZWTY0Im/pUJ/Safd4QjH7/X/gRo
+         ONrDSJpd8D1/VSE6rN20V4ZPnnulAUjMRKctfBFdztDOQQyUwkHWyZZvUx0N2phcnkNG
+         Mjtw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=Fpbkw1/mO8jMuG8za1QNFcPos1MTHSCasjJ+BTbNExk=;
-        b=C96qbNwFjgx47ZJPLlXM8anZZAG56tTAOcotMo9/bRDJ9FWAZU6hgMabEjivlvVV6f
-         uqSaKlacXwm6yyWTJcTJT6AfGalaRSoCNIoMRLwff9eLhvRxHPEvNx/e8HFb6xyzDA9e
-         1GSCiu4J42CaMAhY8VeXeeCQAIpM0PZKUlFgEdOiaL0Kl1PI4CZEI0x3zB0mq7D+Ej9x
-         ORbA/rwn3ZvEWC+dHexUXw3LoT5Xuo6FNJBDU1TSwOHTp9lDemBQ5uLfQTTz8UThoHqJ
-         mE3fG69wDha/CZjYgp8UeFGxLNkktFpvbN11t3G0CoTZIFOhKHGdXpf7RHvMVSox8Lqg
-         g7JQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:dkim-signature;
+        bh=yZyuwqgUBskABVFLYIWGAD2FMF/t9yzwUC2QTWtpxG8=;
+        b=MCVZh4Ch243+K21z0feTAlaxw+3f/+8fEEd6XYzbWb+G6fZlC7VUtRGSE4NJR6Edzz
+         0RUf4zIOAJqhtsLTGO5VY3uThmsYEYH/g8EmRsy/rGj4kOzfo9XSwi3CJHhbgxfOWGvi
+         abxR60M+e9o/SsSw5jltNcmn+5KEbI7H9qoyH40NFT/m9YE1byCZiHvy/e9E4FL5r7M9
+         tm02/O1P2oIRnveEfMkF3uyFEUkxNgLi4nx9tuC4MoBNhN3JkIpQ+6hWcZj+slhXHqvM
+         I0vr8/RBe+abJua8F9bBpF07A/94ToBJSdrq5rkghPkbZLF7P7cfgyK0YZ3unYaCilh7
+         J9Zw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=J7mq5d8o;
-       spf=pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::62e as permitted sender) smtp.mailfrom=olteanv@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=M9TsRLMO;
+       spf=pass (google.com: domain of sergei.shtylyov@gmail.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=sergei.shtylyov@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x62e.google.com (mail-ej1-x62e.google.com. [2a00:1450:4864:20::62e])
-        by gmr-mx.google.com with ESMTPS id c24si183833ljk.7.2021.01.14.00.36.10
+Received: from mail-lj1-x233.google.com (mail-lj1-x233.google.com. [2a00:1450:4864:20::233])
+        by gmr-mx.google.com with ESMTPS id c15si259512ljn.0.2021.01.14.00.40.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Jan 2021 00:36:10 -0800 (PST)
-Received-SPF: pass (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::62e as permitted sender) client-ip=2a00:1450:4864:20::62e;
-Received: by mail-ej1-x62e.google.com with SMTP id hs11so4636789ejc.1
-        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 00:36:10 -0800 (PST)
-X-Received: by 2002:a17:906:5618:: with SMTP id f24mr4484156ejq.517.1610613369886;
-        Thu, 14 Jan 2021 00:36:09 -0800 (PST)
-Received: from localhost.localdomain (5-12-227-87.residential.rdsnet.ro. [5.12.227.87])
-        by smtp.gmail.com with ESMTPSA id m24sm1680892ejo.52.2021.01.14.00.36.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Jan 2021 00:36:09 -0800 (PST)
-From: Vladimir Oltean <olteanv@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Kurt Kanzenbach <kurt@linutronix.de>,
-	Vadym Kochan <vkochan@marvell.com>,
-	Taras Chornyi <tchornyi@marvell.com>,
-	Ido Schimmel <idosch@nvidia.com>,
-	clang-built-linux@googlegroups.com,
-	linux-mm@kvack.org,
-	kbuild-all@lists.01.org
-Subject: [PATCH net-next] net: marvell: prestera: fix uninitialized vid in prestera_port_vlans_add
-Date: Thu, 14 Jan 2021 10:35:56 +0200
-Message-Id: <20210114083556.2274440-1-olteanv@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        Thu, 14 Jan 2021 00:40:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of sergei.shtylyov@gmail.com designates 2a00:1450:4864:20::233 as permitted sender) client-ip=2a00:1450:4864:20::233;
+Received: by mail-lj1-x233.google.com with SMTP id w26so5538007ljo.4
+        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 00:40:54 -0800 (PST)
+X-Received: by 2002:a2e:8745:: with SMTP id q5mr2546502ljj.77.1610613654215;
+        Thu, 14 Jan 2021 00:40:54 -0800 (PST)
+Received: from [192.168.1.100] ([178.176.79.115])
+        by smtp.gmail.com with ESMTPSA id p5sm476176lfj.295.2021.01.14.00.40.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Jan 2021 00:40:53 -0800 (PST)
+Subject: Re: [PATCH 2/2] compiler.h: Include asm/rwonce.h under ARM64 and
+ ALPHA to fix build errors
+To: Tiezhu Yang <yangtiezhu@loongson.cn>,
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Nathan Chancellor <natechancellor@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: linux-sparse@vger.kernel.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, clang-built-linux@googlegroups.com,
+ linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Xuefeng Li <lixuefeng@loongson.cn>
+References: <1610535453-2352-1-git-send-email-yangtiezhu@loongson.cn>
+ <1610535453-2352-3-git-send-email-yangtiezhu@loongson.cn>
+From: Sergei Shtylyov <sergei.shtylyov@gmail.com>
+Organization: Brain-dead Software
+Message-ID: <04749e2c-6e80-5316-a575-e4aaf780bb81@gmail.com>
+Date: Thu, 14 Jan 2021 11:40:39 +0300
+User-Agent: Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.1
 MIME-Version: 1.0
-X-Original-Sender: OlteanV@gmail.com
+In-Reply-To: <1610535453-2352-3-git-send-email-yangtiezhu@loongson.cn>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: sergei.shtylyov@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=J7mq5d8o;       spf=pass
- (google.com: domain of olteanv@gmail.com designates 2a00:1450:4864:20::62e as
- permitted sender) smtp.mailfrom=olteanv@gmail.com;       dmarc=pass (p=NONE
- sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Type: text/plain; charset="UTF-8"
+ header.i=@gmail.com header.s=20161025 header.b=M9TsRLMO;       spf=pass
+ (google.com: domain of sergei.shtylyov@gmail.com designates
+ 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=sergei.shtylyov@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,44 +165,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
+Hello!
 
-prestera_bridge_port_vlan_add should have been called with vlan->vid,
-however this was masked by the presence of the local vid variable and I
-did not notice the build warning.
+On 13.01.2021 13:57, Tiezhu Yang wrote:
 
-Reported-by: kernel test robot <lkp@intel.com>
-Fixes: b7a9e0da2d1c ("net: switchdev: remove vid_begin -> vid_end range from VLAN objects")
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
- drivers/net/ethernet/marvell/prestera/prestera_switchdev.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+> When make M=samples/bpf on the Loongson 3A3000 platform which
+> belongs to MIPS arch, there exists many similar build errors
+> about 'asm/rwonce.h' file not found, so include it only under
+> CONFIG_ARM64 and CONFIG_ALPHA due to it exists only in arm64
+> and alpha arch.
+> 
+>    CLANG-bpf  samples/bpf/xdpsock_kern.o
+> In file included from samples/bpf/xdpsock_kern.c:2:
+> In file included from ./include/linux/bpf.h:9:
+> In file included from ./include/linux/workqueue.h:9:
+> In file included from ./include/linux/timer.h:5:
+> In file included from ./include/linux/list.h:9:
+> In file included from ./include/linux/kernel.h:10:
+> ./include/linux/compiler.h:246:10: fatal error: 'asm/rwonce.h' file not found
+>           ^~~~~~~~~~~~~~
+> 1 error generated.
+> 
+> $ find . -name rwonce.h
+> ./include/asm-generic/rwonce.h
+> ./arch/arm64/include/asm/rwonce.h
+> ./arch/alpha/include/asm/rwonce.h
+> 
+> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+> ---
+>   include/linux/compiler.h | 6 ++++++
+>   1 file changed, 6 insertions(+)
+> 
+> diff --git a/include/linux/compiler.h b/include/linux/compiler.h
+> index b8fe0c2..bdbe759 100644
+> --- a/include/linux/compiler.h
+> +++ b/include/linux/compiler.h
+> @@ -243,6 +243,12 @@ static inline void *offset_to_ptr(const int *off)
+>    */
+>   #define prevent_tail_call_optimization()	mb()
+>   
+> +#ifdef CONFIG_ARM64
 
-diff --git a/drivers/net/ethernet/marvell/prestera/prestera_switchdev.c b/drivers/net/ethernet/marvell/prestera/prestera_switchdev.c
-index beb6447fbe40..8c2b03151736 100644
---- a/drivers/net/ethernet/marvell/prestera/prestera_switchdev.c
-+++ b/drivers/net/ethernet/marvell/prestera/prestera_switchdev.c
-@@ -1007,7 +1007,6 @@ static int prestera_port_vlans_add(struct prestera_port *port,
- 	struct prestera_bridge_port *br_port;
- 	struct prestera_switch *sw = port->sw;
- 	struct prestera_bridge *bridge;
--	u16 vid;
- 
- 	if (netif_is_bridge_master(dev))
- 		return 0;
-@@ -1021,7 +1020,7 @@ static int prestera_port_vlans_add(struct prestera_port *port,
- 		return 0;
- 
- 	return prestera_bridge_port_vlan_add(port, br_port,
--					     vid, flag_untagged,
-+					     vlan->vid, flag_untagged,
- 					     flag_pvid, extack);
- }
- 
--- 
-2.25.1
+    Why not #if defined(CONFIG_ALPHA) || defined(CONFIG_ARM64)?
+
+>   #include <asm/rwonce.h>
+> +#endif
+> +
+> +#ifdef CONFIG_ALPHA
+> +#include <asm/rwonce.h>
+> +#endif
+>   
+>   #endif /* __LINUX_COMPILER_H */
+> 
+
+MBR, Sergei
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210114083556.2274440-1-olteanv%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/04749e2c-6e80-5316-a575-e4aaf780bb81%40gmail.com.
