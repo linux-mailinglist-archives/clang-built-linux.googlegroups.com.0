@@ -1,113 +1,116 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBC6QQ6AAMGQEB26DKZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBYGRQ6AAMGQE46JDC5I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 362162F850D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 20:07:56 +0100 (CET)
-Received: by mail-oi1-x23b.google.com with SMTP id f190sf4860402oib.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 11:07:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610737675; cv=pass;
+Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C4AE2F8523
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 20:11:29 +0100 (CET)
+Received: by mail-ot1-x337.google.com with SMTP id j22sf4380469otq.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 11:11:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610737888; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YLSqiuI/wYKkrJj8lP7mNPxNeUYHDO4GWxvSKdc32mMnEprV9sJZpm7R5Ry4Ye7/vq
-         P8PxrvbC9BwUvdY/Wb8N6o5LIIKF6vNnpdBIaoIM2aid4vtYJaj65eVXy9TeQdRhRqdg
-         uwPtGuN+XH6AU4HrakIg67B9uOEdwbkpzu8hUgx2lWuyDmq/OrAXhfhq2HQ5pEyqjld4
-         EQsbYt5SOc9vOZfRVYm1h32RwlOmUUxOi68sds8kJp1ljmkn3ncYfG9E25Iyb73osoq8
-         T+u9dv7cXzq6i9YlT2aiXEbzI0C67xadzSvo818B4KsAm5gfrvBDvHavllENyfq+iumI
-         A+dA==
+        b=DkMhqLoXe7j/uEurStbWdeIXsVq3ZRsw8HVTA9asmn/wVWiPzffhfVGuk33CbeMuKY
+         i2vvyJcUf9qqfO7aCcHU1UMbWZ1Y/6R7owGe8LV3RVifwV1FDje/hg+C2Bwy+oQ/lcNx
+         2quSGa1N0iBbyR2Zw7SZtwzJ5isainbxeddHW5crhS4Ve4lqwQAm0poTPQ2lhoHG/BkH
+         Dork3e9347NprXr6Ofcz6TtdbT8aIeOHdid27Lz11/CEgjY/4u6m+ScQaFUsmogPJg/T
+         fMBT+nddr3vkKiSfh22GssfBXwRvaFQkD3AsnK9LyjGqwc39c31RK/1yhekqSBsXfydO
+         Mmhw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=l1IsOBsXOApXEQEbJEpoQqvPmCwWtf4I/MQDBcPE2FE=;
-        b=Nnb00GDC/nBGdJRunN4YAZcO7mUTZz8/xSlw/39lyU8avoLpa73WykcBYrqKb1uLYp
-         xCe3ml5ezcI3IbyVtkJ575IytWzBNpywfjDOfFXKjmolGvZjPVM/kY6nE1SZ0it6LuDo
-         IEsfbNhWeKgHqhvmrLWNGC0nlAcubsNC/p8N5XgjEpO3Av9T+5+8MfHFeMyGPeU3Ecfd
-         W/QYfyz0hvYTfcsSf5hB8toXCRmoA4cRUqC7kHRj42fBrb7d0jGvFIj7GkFod8WNIsnx
-         r+LcYBAyZXu105WbMmAOsAFokyYrQxloENgLa/QWmPES0Fl6rxRHlm+CfDP/X0NFmI7S
-         e7+w==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:sender:dkim-signature;
+        bh=nOHWbVcYAJTIMkB9QxZZbLTGS2NjN5mxGTeANMM81HA=;
+        b=cACzQH+zJAbKomCWYrihYjvDDcCRG2mCoKkVPAvcJWoOG83m3SLRwKUUeZ7L3xLmDb
+         5Cj99R1r16xKii23Q3FjxjhSv0E8eh6WXkuQuthD2HqZCeTBpSVyEvxLSrqLbVCKDgW2
+         90QsT07rv/ImRkEgzIljX7yd0jvSasIMmDRg+FKpAkUC2rXDm8YSBQC+9ADaEy3nI84t
+         x3RBJhEmcX+RmHjRJ1Qxjexp/DQnNTBCnKBRdw2OAQl6XFwyPZ5U3rmkg4hkUf/gZmdK
+         k+BLgVWhXdXay1fLe+1wtsWvSGete0gCNBNKx/2xbOl3DPT8wl69eDkSG1j8l4kqzAws
+         HV0w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=h91vSr45;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::82c as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YVcbxd9A;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=sender:from:date:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=l1IsOBsXOApXEQEbJEpoQqvPmCwWtf4I/MQDBcPE2FE=;
-        b=tIQW//VZX/gjBzJooMi1H6//vJrWwgsMGKrFQ+1BP8zKwpPTjhTQkaIqhwR2mLSGKf
-         RpsobbqDffZOBZDKU6v070oAmBy3EQk6rXiBU79agqx4A+o0Dme81AszQxFy9rUtVNZX
-         2SVtFu0S3r8gBRs/zMyk6ldjeRfZL/mdy5i9rwH0YcKmS/zTsOljgh8oJH3vk41yqc2X
-         4K87Gzy4EVgleZPGhr/9ybwM7a+1SwL632ny/ciRw5NQta5EqGiONMWQLQb0+Vt44e5Q
-         W/kQl6ClGhFWwoSQcGVwcl2Pa+1v0gtLF5LuOamq2VhI2k6GXMFJ1LFg9Qw2vRDGibL7
-         g4bw==
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=nOHWbVcYAJTIMkB9QxZZbLTGS2NjN5mxGTeANMM81HA=;
+        b=WVe2vXzN6aCamWc2Sd3mIyx05dB7r279oZVT1v7xyM74hbcNvsvYLh6jlIquji/d+G
+         XuNZPCiiKgJSICXH3mP6QuiN7j8BfvuDuAhuJoAoEFwarzbMqIX4uuUf12r8GWkZApXs
+         XLpMGJFyrJiyJZw30uVGRITr1YviKe8JBNFDZCbtGobXQCMu4xQBPYoBUQ7FiDmqy5hc
+         engXdQzpTU3jT9U2TYeibyvAagIlMyiBjWgl86TN5ieSXNJrlcLutD3b3MISzgshnI5o
+         x300zjWsO1LbNHLXD0vYJRaw/MWEkM20z9noBvqnE0SJoAlbQ7Lk4DdaluT1Im6+btUd
+         bn5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
          :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=l1IsOBsXOApXEQEbJEpoQqvPmCwWtf4I/MQDBcPE2FE=;
-        b=mdyTIKksy/Yqw5qfjoOwQDB/hzFlHSVLsrjPB+bdMPJD122WVYV2gA8Jl9gTsSSKlK
-         Imz/8CHOd2K4S7JWOf9T0o0KKoH4YUn/D8PdAUU8P/Hg08J+qQWX9sMQydRvtm5Goi54
-         m4EyS9AQfqNJ9dZIWeI63OunPoYXEIL8aKqjqKtcwEhjy01k4BTx5KAtREprcMu4MUsP
-         Kl9sqRLWRakgQXlgXWbibB87tQsR8a3rrkb9793Fnqa3MwKVrQn08J9sAL6K/hte9ipj
-         EwZyU9qfzQjIBmvRSHAKS/HIdh5Q9XY0FYguu5cZ8DmwIydcxcwZqzhf1bEl7zifdU1j
-         15Vg==
-X-Gm-Message-State: AOAM533sX92XVUApdwJpox7SUgCvGS/ld+ykiiRAllbAhR7eOdTxfAku
-	mRihFPM4tEBwS2vLIPNOcNk=
-X-Google-Smtp-Source: ABdhPJxKZFPzOuu1heqACV5MpkYhWg5cTZXx/ABVLP4WnyQk+ej3AZLbz6IvmWjzXicEmIcT2/m4JA==
-X-Received: by 2002:a05:6830:4b5:: with SMTP id l21mr9661607otd.321.1610737675204;
-        Fri, 15 Jan 2021 11:07:55 -0800 (PST)
+         :x-original-sender:x-original-authentication-results
+         :content-transfer-encoding:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=nOHWbVcYAJTIMkB9QxZZbLTGS2NjN5mxGTeANMM81HA=;
+        b=XXFFnPqK+pxBDCEALDeL7V7J75mGtK5pYBuZjyPBd/vWS6sPAuUY4cSfz3MIbTDD0D
+         AMt8DdIQvKDbHsZLkbMMOIoOL2Z7uXqzpTimXT+mB6OE+x8S2qIlZNF/FWi+Oi3ckKJy
+         IE32tWOkvE8BdQhX0quj+tkNKgDjoMOsh1f3JkeiY7dvIuDwpRI5EJ5kMtnBjjTiS6N+
+         0mX4rzg+8DaQ6epd9HHHp+pKFFeCf/izLwzyyMygQr/RoOLE6GCh39xWCgCTNknhOSpK
+         QDnzbhu7NWQIFmLrnBI1chpXrSv5vhiwcLzS5jYMz3mlkKe4arXN9KWOKTaso/gp+fW+
+         y94g==
+X-Gm-Message-State: AOAM5313AopvxQ5zk2ZUzcbdxTB8ObBlXsCrLqMgiH8UBdxLjG9GGG8X
+	byuhQpkRRdtA2FpZVQ81cfU=
+X-Google-Smtp-Source: ABdhPJwJ8oOD8OvQmr2/kAA1HJ5HpDyMVHmUzQJw5vfLbDZsXARC+Zi39YQEM0jnEcc1YhLrKMeJxw==
+X-Received: by 2002:aca:3094:: with SMTP id w142mr6540655oiw.101.1610737888652;
+        Fri, 15 Jan 2021 11:11:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:a843:: with SMTP id r64ls2410945oie.2.gmail; Fri, 15 Jan
- 2021 11:07:54 -0800 (PST)
-X-Received: by 2002:aca:3c8a:: with SMTP id j132mr6549195oia.73.1610737674740;
-        Fri, 15 Jan 2021 11:07:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610737674; cv=none;
+Received: by 2002:a54:4694:: with SMTP id k20ls2416017oic.0.gmail; Fri, 15 Jan
+ 2021 11:11:28 -0800 (PST)
+X-Received: by 2002:aca:3757:: with SMTP id e84mr6394079oia.5.1610737888141;
+        Fri, 15 Jan 2021 11:11:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610737888; cv=none;
         d=google.com; s=arc-20160816;
-        b=Et3+jukatSxMj8IDAp3AltGKWVUN/FCQgydzOQiQrbRtgpUqgZqLnEDBxlZcWrOKCH
-         oz+JjU+YgxD0EGXb++vequMMJl9mY2kWRMuQaKtamjc1KBhqS9/0zmiqPkHhmiTrtz1x
-         oZO3yzqGzRfyaFckDN7IpufyrL+8O5a1Zq5q6mTgrWRwKHkFj34ghVBAX1klFmFu4aj4
-         ruJiZREA//hRivpE+zAj22IXQO8jWZ3ah/HwxEOMhWWjH03ARPiUt06yptkW59870KnP
-         /RUx62C9uhpiwyWD7EdyMbdBOJcCjEczm9xzQYvtQ9Q9zI9yClaOhUC+lO/yg6UByoK0
-         lfzg==
+        b=JER4dDTZmbW816/CLgIbnzBA1Exu4xUTgp2GkO8LveoXAG8gwkt6MAg3hqcbiP8AWc
+         6Aja7sqvdf+uEFMScoEzR5KHliwq81K+zG4yKQx3B+T14/iTbKC2un8rUGgO09Mb+kZP
+         JGLMyhpLGj8QHfu++9SpQ3VP3tB8g3RK5pX2jNVVPiSyyF16PTkSitpYf52Ik57Bt/hT
+         5yMoEpqHkZFjQ0Kevjjy7PV245wn+JGOjx/caDt6VGFRBeQPWtKX9/L13MxiOMlDI9Og
+         rjE5/kW4lJcy8LUK52mlEygNTkd20iY+qfui62vFY2IpUuOAaOfjaS7x1/NF7qT4dl03
+         PGJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:date:from:sender:dkim-signature;
-        bh=6VFAEqW7kc3cIpTfEOGsqZWNF/6PRxbAffbJEVT5A/E=;
-        b=wdd+1MxuHlO5Go/gPuJxEtF4VhOarkihU/yGU0kz2GF372FGCLjEHC7LBk6Z8CLM9h
-         K8kwypLtvPKNG9t2DmjatZzvLN6qSKnaNEuqSf1Z4wkEH7mmn4cT0W13TS2JT1ZO7RDE
-         SQdZxv112xmnn4ozm4y/mbF0qokDv9PYy4FUJygK2pHxk+pujluwaMyBOWz5tvIWFHfZ
-         2JqkjO6O24ue4X5EpgQubweOIq/+lyrW09SGUJzBrcCgXAsV9Mjt9BZOh3La+753ocCP
-         upHGS+0YV0xOPzJnrdw9RdLw7CH4iy/zThoOHeQBgB8t/kFu9SWITYouE5lQ0wGLa1Al
-         byKA==
+        bh=mcPqm+ALLmKYyfXL3d5GTSykbXw6V8Jgdo0h2nfOwvU=;
+        b=mb3ihU/9YD2Lz1/xeCt2nIDKyNqcyu/HgLtC8x9Spu06XMFiwR78Ob8KMSnqziFDsB
+         J7zOx+9relO+pZ9LxetFML24TWE8YCfgH+RoKzAg7tlDpA5xrkHRHvCMaoNemLhtSQDd
+         syIp4LIzxkOpQ1OdSxwbrt+u9RyICd7xK8TGuB4jWaXOtfpEpDWZcAiCZ3AmF8OL/cls
+         YWhY2yIh6kHT98t8kL/HxDLehN1hNMtif2j0/e+koEE8CM0bXyz7A3WoH7ZzgeQ/r3DU
+         5X6qSMZ9vBI3Kxvc3DlGe2OECWutwuq2cuv8sfjhLaT+Egm+lcmiwQV/+5M6/I4aQZ+K
+         i2uA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=h91vSr45;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::82c as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qt1-x82c.google.com (mail-qt1-x82c.google.com. [2607:f8b0:4864:20::82c])
-        by gmr-mx.google.com with ESMTPS id c18si647056oib.5.2021.01.15.11.07.54
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YVcbxd9A;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qk1-x731.google.com (mail-qk1-x731.google.com. [2607:f8b0:4864:20::731])
+        by gmr-mx.google.com with ESMTPS id c18si648103oib.5.2021.01.15.11.11.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Jan 2021 11:07:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::82c as permitted sender) client-ip=2607:f8b0:4864:20::82c;
-Received: by mail-qt1-x82c.google.com with SMTP id c14so6820794qtn.0
-        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 11:07:54 -0800 (PST)
-X-Received: by 2002:ac8:6f41:: with SMTP id n1mr13036465qtv.170.1610737674080;
-        Fri, 15 Jan 2021 11:07:54 -0800 (PST)
+        Fri, 15 Jan 2021 11:11:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731 as permitted sender) client-ip=2607:f8b0:4864:20::731;
+Received: by mail-qk1-x731.google.com with SMTP id b64so12721188qkc.12
+        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 11:11:28 -0800 (PST)
+X-Received: by 2002:a37:7907:: with SMTP id u7mr14106962qkc.472.1610737887654;
+        Fri, 15 Jan 2021 11:11:27 -0800 (PST)
 Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id k42sm5469974qtk.17.2021.01.15.11.07.52
+        by smtp.gmail.com with ESMTPSA id b12sm5253330qtj.12.2021.01.15.11.11.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Jan 2021 11:07:53 -0800 (PST)
+        Fri, 15 Jan 2021 11:11:27 -0800 (PST)
 Sender: Arvind Sankar <niveditas98@gmail.com>
 From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Fri, 15 Jan 2021 14:07:51 -0500
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, Nathan Chancellor <natechancellor@gmail.com>,
+Date: Fri, 15 Jan 2021 14:11:25 -0500
+To: Borislav Petkov <bp@alien8.de>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Arnd Bergmann <arnd@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
 	Andy Shevchenko <andy@infradead.org>,
@@ -115,17 +118,21 @@ Cc: Ard Biesheuvel <ardb@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
-Message-ID: <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
+Message-ID: <YAHo3ZEMu+6mESZA@rani.riverdale.lan>
 References: <20210107223424.4135538-1-arnd@kernel.org>
+ <20210115182300.GD9138@zn.tnic>
+ <20210115183203.GA1991122@ubuntu-m3-large-x86>
+ <20210115190729.GE9138@zn.tnic>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210107223424.4135538-1-arnd@kernel.org>
+In-Reply-To: <20210115190729.GE9138@zn.tnic>
 X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=h91vSr45;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::82c
+ header.i=@gmail.com header.s=20161025 header.b=YVcbxd9A;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731
  as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Content-Transfer-Encoding: quoted-printable
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,67 +145,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 07, 2021 at 11:34:15PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> When 5-level page tables are enabled, clang triggers a BUILD_BUG_ON():
-> 
-> x86_64-linux-ld: arch/x86/platform/efi/efi_64.o: in function `efi_sync_low_kernel_mappings':
-> efi_64.c:(.text+0x22c): undefined reference to `__compiletime_assert_354'
-> 
-> Use the same method as in commit c65e774fb3f6 ("x86/mm: Make PGDIR_SHIFT
-> and PTRS_PER_P4D variable") and change it to MAYBE_BUILD_BUG_ON(),
-> so it only triggers for constant input.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/256
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/x86/platform/efi/efi_64.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
-> index e1e8d4e3a213..62bb1616b4a5 100644
-> --- a/arch/x86/platform/efi/efi_64.c
-> +++ b/arch/x86/platform/efi/efi_64.c
-> @@ -137,8 +137,8 @@ void efi_sync_low_kernel_mappings(void)
->  	 * As with PGDs, we share all P4D entries apart from the one entry
->  	 * that covers the EFI runtime mapping space.
->  	 */
-> -	BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
-> -	BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
-> +	MAYBE_BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
-> +	MAYBE_BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
->  
->  	pgd_efi = efi_pgd + pgd_index(EFI_VA_END);
->  	pgd_k = pgd_offset_k(EFI_VA_END);
-> -- 
-> 2.29.2
-> 
+On Fri, Jan 15, 2021 at 08:07:29PM +0100, Borislav Petkov wrote:
+> On Fri, Jan 15, 2021 at 11:32:03AM -0700, Nathan Chancellor wrote:
+> > I triggered it with CONFIG_UBSAN=3Dy + CONFIG_UBSAN_UNSIGNED_OVERFLOW=
+=3Dy
+> > (it can be exposed with an allyesconfig/allmodconfig on mainline
+> > currently).
+>=20
+> Yah, I can trigger with that, thanks.
+>=20
+> But I'll be damned, check this out:
+>=20
+> clang preprocesses to this:
+>=20
+>  do { extern void __compiletime_assert_332(void) ; if (!(!(p4d_index((-68=
+ * ((1UL) << 30))) !=3D p4d_index((0xffffffffff000000UL))))) __compiletime_=
+assert_332(); } while (0);
+>=20
+> The resulting asm is:
+>=20
+> .LBB1_32:
+>         movabsq $-73014444032, %r13     # imm =3D 0xFFFFFFEF00000000
+>         testb   $1, %al
+>         jne     .LBB1_33
+> .LBB1_34:
+>         xorl    %r14d, %ebx
+>         testl   $33554431, %ebx         # imm =3D 0x1FFFFFF
+>         je      .LBB1_36
+> # %bb.35:
+>         callq   __compiletime_assert_332
+>=20
+> so the undefined symbol is there, leading to:
+>=20
+> ld: arch/x86/platform/efi/efi_64.o: in function `efi_sync_low_kernel_mapp=
+ings':
+> /home/boris/kernel/linux/arch/x86/platform/efi/efi_64.c:140: undefined re=
+ference to `__compiletime_assert_332'
+>=20
+> Now look at gcc:
+>=20
+> It preprocesses to:
+>=20
+>  do { extern void __compiletime_assert_332(void) __attribute__((__error__=
+("BUILD_BUG_ON failed: " "p4d_index(EFI_VA_END) !=3D p4d_index(MODULES_END)=
+"))); if (!(!(p4d_index((-68 * ((1UL) << 30))) !=3D p4d_index((0xffffffffff=
+000000UL))))) __compiletime_assert_332(); } while (0);
+>=20
+>=20
+> Resulting asm:
+>=20
+> $ grep __compiletime_assert_332  arch/x86/platform/efi/efi_64.s
+> $
+>=20
+> That thing has been optimized away!
+>=20
+> Which means, those build assertions are gone on gcc and they don't catch
+> diddly squat. I sure hope I'm missing something here...
 
-I think this needs more explanation as to why clang is triggering this.
-The issue mentions clang not inline p4d_index(), and I guess not
-performing inter-procedural analysis either?
+That's how build-time assertions work: they are _supposed_ to be
+optimized away completely when the assertion is true. If they're
+_not_ optimized away, the build will fail.
 
-For the second assertion there, everything is always constant AFAICT:
-EFI_VA_START, EFI_VA_END and P4D_MASK are all constants regardless of
-CONFIG_5LEVEL.
-
-For the first assertion, it isn't technically constant, but if
-p4d_index() gets inlined, the compiler should be able to see that the
-two are always equal, even though ptrs_per_p4d is not constant:
-	EFI_VA_END >> 39 == MODULES_END >> 39
-so the masking with ptrs_per_p4d-1 doesn't matter for the comparison.
-
-As a matter of fact, it seems like the four assertions could be combined
-into:
-	BUILD_BUG_ON((EFI_VA_END & P4D_MASK) != (MODULES_END & P4D_MASK));
-	BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
-instead of separately asserting they're the same PGD entry and the same
-P4D entry.
-
-Thanks.
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YAHoB4ODvxSqNhsq%40rani.riverdale.lan.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/YAHo3ZEMu%2B6mESZA%40rani.riverdale.lan.
