@@ -1,138 +1,134 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBWF6QSAAMGQEHTDMRRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDB3VRMVXIPRBZ6KQSAAMGQEM2WNP4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id B443B2F71BB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 05:51:37 +0100 (CET)
-Received: by mail-qk1-x737.google.com with SMTP id x74sf6671148qkb.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 20:51:37 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610686296; cv=pass;
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2FC3B2F71FF
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 06:17:28 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id j5sf3633898wro.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 21:17:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610687848; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KZDoqTUhuS7Ln3AaR06R8Ih2PT5J2lJDqnLVSgY9N/PufCKizfmidisEybjUiXZ4TZ
-         T9igFmO7H8bOmiN1SGMz+L9TouMmQ11T5y/7nTo2plfKis+rb3/LLtoXM/9ttegspXV4
-         WoFQcQC9UU1DHryRRlo+uboVpv747w4edoUqKkGr25MZrmRxs60v+sBMNF++ZjAT4ubU
-         kcJgZ3mPTeVEWfp3v5fVUWVyX6bRYvveY2glZzkQFO2Z6KvxGxjZs7YnKEPXvqnpwORn
-         +lS/xhGwNO0w8OXg5GORW0jEeRR++C3sfjYQn9q1+YmLqAFCICArmEYWMyv8fVBdblDT
-         FHlA==
+        b=t8aU4KrYwUt+lOLAAZuTS4bE+iHoOUznnj033g08d9HDFc+DJ9S2bDujE5Hf0Np3zE
+         DdPZqJC9oeL7O59hUN5HTe+r9YvMG+SlJeYNl6XUTjqskoto+nWr1W4M+vy7ZQZ9RL0w
+         1VfZlmaoa0skb93x2RJiHjoaZ143xQmLcna0eTEqcNibbwajmv1LrdY2ui7pWmbSfOkw
+         gWy1SuGaPNW96Z+hBNmPsglvSZaVxglN7ubqcmt9dQhXbaWoIWkam2aVSmkxLHrXyaBY
+         wyFlJaUmngPb8MCI96EhORmcbCu3Iusibp7CcWLxFF9ac4ReydYY3Fjr/PPKKZOilu9n
+         HiCw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:reply-to:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=ITD6KMc6PgYhonXUTZLn87iDT+wKkuCV/TcIk8OqRC8=;
-        b=oFqgP1QCte7VpASKxqz4ZsZ5HLESScc3vptp9iAXYI8b8OS9p1PPq5nPDkkL30GpS0
-         imQzFpoBBNJM3ORIlOyv2FRhFxD5ibnqwsdXhe98OmFVWHI7i7AJ5+9INEES7N5yZec2
-         h+wbusI0Vky4Gf6jfYkHnIXciYc8vdoes9WMsl6bjKrn4SGzk+4PTPlsky0Hm4X2yBmt
-         yo4N1B8DV/E3M1dX6Vc4ThnQMwxd2uDAKdrhxYzgQJc9695WRUYZ54pDYfKXte1Ht8h2
-         Ea9m55RgB35DR3jTT9NTUCrL+dsyaVJNCeuz8XIkPXWcKl+IPQocmLx8JIv0la2pJHGn
-         p3jA==
+        bh=gJOFYPsD+OB/RvNSDiHXQ2ejbKha8v3AxJWTjLNc3ek=;
+        b=ugT2GRiwk7i/8FwXOE5M2K53wOtfEnEqyufYj3Up/0dDSeHLDaNzc0DFuVtj4FNaa5
+         tzCVVj6XjZxc3mbrKGiKzN0tdMBSE2pdFDMbv1sczpJHGDVSMeM1OBHGkejJ4rH3NDny
+         NlG7xSZax40r2NbER93J8HQeQk4tK15tkFZp0/FHMwFnP99l0xJ4kDFHIRJQ7NKzr1dC
+         7897w0cXZxj2i8LH4hzSUuwA+xz4Y+45SofvhccJ/6qmUwWBWIuEJgJBkIwKSn/zoEBc
+         3YwP2q/NvKNfxhqcRDFwRllsHtqXlaEU1ZJI8B7zUKow8pWJnOGP7YPMD9Th/ObB1XwH
+         mYHA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mIBaiyCa;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=gMRvbYFg;
+       spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ITD6KMc6PgYhonXUTZLn87iDT+wKkuCV/TcIk8OqRC8=;
-        b=DLLy836lQBExmjmX+ej41Xy58CFehvrfwY/jV0MLXw5148+DoF2cs9gQAPMzKrgETr
-         JkP0nceJpm6HOMQMIdSPc052c3Sow8xnbJ1PZATsvYuQi/p2EPq6ksn7T5GZ544+jrFs
-         l3zsk2yTcjw3N4WByINQn3UY2RqmRQy0Cn75DtDniI/+yBEozfcAUD6mZUL6SUcNgOJ5
-         1JMXf3eqgSadmBkKB/IzyXH49K0aPCVWF6pgUQLA7OJht+AypBp48nStGaK3TA2cn6nr
-         2lMiLAtXSKptx7oOFBMFhkMSgXlWF+kWCJ6JLHft0GzLm++8oXvWBpQjHnwfATXp1kYS
-         LZBw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ITD6KMc6PgYhonXUTZLn87iDT+wKkuCV/TcIk8OqRC8=;
-        b=SMERsbY21wRdBTNwnAQl/xiYmYYPRWxXeIBUc68lXH88WAaw9gyE1TSk6hnLgBs9r8
-         KfUMaAqRicxC7u6Wc2/os0eyBtsvt6Yf+RI1nbCdFgi8S8EfX9++MIjNRF+5qH8U0Tz0
-         sY3a+aIpfOWvLErmDjwR2TJt3f/YlrbZ3GV15OEAcrKnahEry112Hp83wGZVvJxp7pcJ
-         TsgVLgGPWUoY2su2hJP38Ze60+1IM5mDKW0xROIXjTOoCE9fpzEdGZyTS+0GRMa/LUrl
-         wUd73L+Gv5VFy/STCJpeaMl42DTYdznwpewNXVqWVv8xWO3RDSN5WEUyWUBha9IWixbu
-         ATEA==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=gJOFYPsD+OB/RvNSDiHXQ2ejbKha8v3AxJWTjLNc3ek=;
+        b=TZDSsIMfYEk1glxMzCiW95qfaZwyJWVOh3OZYfzvW8Llh3yRnu66eQ8QEd/x0v4dLA
+         oUQ4pDF/rmm2myjTIQAopaMT4UurW+rzjqg4yLu4EQvihP4rwuxGhLALTMhHN0oZlbmz
+         NDOtFLWKmbNZqnhJi/V2i5YKNs9AXvKcZn+w0MFDVe+qUt1coNDXnH1sScG5EuOFhsyp
+         VqIVm9vcRjaLWqHsYIx9cN1H3RBVRkpELnYCythXox4oTD8Zqjrg8vvFySE1/OAIGV2J
+         FIRO7Ky4UerXaTBhIyD9aCeT0soQVM+WKODzW1uL2pMqrZEaqMFmXxlmiSifOJBf3rQk
+         PtLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ITD6KMc6PgYhonXUTZLn87iDT+wKkuCV/TcIk8OqRC8=;
-        b=hSVEGBE//GtaKAXuXOVPHQHXhOzqxJypuGFqnpumYh9wKJMeDiDJ01whdHWtSm9Bov
-         nQxp6FWZWPMN7jg5hev0Sg238jrVC5BThMqyyc0owbFQYS2McJe4b/H5Mrtgz+8xm5je
-         anjLd5vGELZyYMdhqdpRFer/CI/+7qqhbrO3+IoRvstjKhd8XBN6gTe7x5jRUpvbz11G
-         fmGuSF9gQGaLLPBZ03GkV+8mkl4hALG0blak3V/Ptw1VFlyAzm2anmIPCDOGFY4ecIyz
-         DYJw+Nk/+XuPIC9IGbk7jOGlDIxHssNeWJlKs0eStAD25yXWrhQKZdO3MpDiTCEtvgEN
-         JHWw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531sgb+225BYnXCy79irZQd4nPYNwOVmSFZKDku4T83RZZVsKoc7
-	ergiM3BpNvlfWZ3sJSRxNLY=
-X-Google-Smtp-Source: ABdhPJx0Fo4Op/Mnoq/dhaBAGu2tmF2fjkxRTUtH5toQ4gPd7/rhTX2wr+q+N9QtV+h0K4q76D+1Fg==
-X-Received: by 2002:a37:5d84:: with SMTP id r126mr10201288qkb.396.1610686296441;
-        Thu, 14 Jan 2021 20:51:36 -0800 (PST)
+        bh=gJOFYPsD+OB/RvNSDiHXQ2ejbKha8v3AxJWTjLNc3ek=;
+        b=NClmtsJFaQnc6OPq6EfonS+1e4DCEd4bzl6WDcdqdEEmtBtYIAMALHv1hMBj/A42+U
+         /jV2YtPpWisM69uIDbG2K5fXIqvfi1MkkGg+Y6tDK2IQYylQlPDhqTKkrNfXgzHROtAE
+         UGutJQwvpInuhFRTUypo5oRuSiNRKNw6D2cujcKCiC2Ya+Vfw0Cf6U0mv0ASc+huydWe
+         lDk19Ys2jT4ygB0v0tsXzthypuAo5XaJvegk71/igmaFBLZtQkKM/kLanY8efL7zY+Cx
+         B5tc0P085TP41xwTUUN8KUb60+wfGGx6QouH/2k6P4itHBN7EMLwG+2INWSwvG7ALHJu
+         fFvA==
+X-Gm-Message-State: AOAM533uMM3v+AY8hR3o0e7CRbl/JRHIuvNzpPNNay/VZlD17vfmR9LS
+	HrP8rmXHR0nPPAuWfE75vk4=
+X-Google-Smtp-Source: ABdhPJxI5SY/qV5EwM89fNCeKxxH2j315KjcrqoHJSAhUB8H7fmW7A3WpN8MOina4JZRD1BZPHBajg==
+X-Received: by 2002:a5d:4a06:: with SMTP id m6mr11567150wrq.189.1610687847973;
+        Thu, 14 Jan 2021 21:17:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:c001:: with SMTP id u1ls3964365qkk.1.gmail; Thu, 14 Jan
- 2021 20:51:36 -0800 (PST)
-X-Received: by 2002:a37:9c8a:: with SMTP id f132mr10588119qke.189.1610686295931;
-        Thu, 14 Jan 2021 20:51:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610686295; cv=none;
+Received: by 2002:a1c:4482:: with SMTP id r124ls1764079wma.1.canary-gmail;
+ Thu, 14 Jan 2021 21:17:27 -0800 (PST)
+X-Received: by 2002:a1c:220b:: with SMTP id i11mr6994805wmi.8.1610687847136;
+        Thu, 14 Jan 2021 21:17:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610687847; cv=none;
         d=google.com; s=arc-20160816;
-        b=fQxJ8GWH73psIzvz/hAAHi6eTUH/hEODRgE5CbrdaZPes/xyG+H/g6XLHo0y6tt1AU
-         CNT81+suwHM5IN1YTSMnNSdamwUD0b7zp7MyXTFmLGU2/nc3q+EPAuEsgghujN3HeoOi
-         iZYH4/3zyE/50GnlsnqEEnkux7Bf6wHMkBz73ID+S2DuN3lxcie++2lxjXGMEmW+bPhe
-         yAOWahoITq8bMwWvbYBD/jD1cLdZ7w8aVx8HcbHJs7oG0PHpf3M33ZNr5eWh0yF8a40G
-         ZfOBwNkscdg8P7SZVNLR7lDAqBzN0okLRla068H+qiS61TnNqodFUFoTaaXWH1/9e0cX
-         3nvw==
+        b=0lQGU9Ojvu4GgH7ihhS2YkO7TTwfCyH8zVRIe8Sds9KZTrNHBecP/K6y5M+X4V72NK
+         x2rKwKG+H5vYScpWdf0LPdvH7wveFm4iLZnzIAbGknQEP1onaiDDSUNE7sN7Kcc7WsFn
+         9fMz43TYYpEjV4TDzxhvjdyd+30xWQzq09Kk8drWRoY7t1/4x8pdt8F4Qi74Vzu5MhAP
+         tMca4dZ5EWZ2ZD8TMxy1PxHIQmtFh7K4Xxe8iOXaQyCo5vUk672NVLZKPCVDabqinSS1
+         xL7bEngLAqFCL8U/wlCXDpMeS3tZmH+I/ZtWKrWxpQJkKaX0ftqfGqZt8GiAUr+Oorm4
+         iJxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=QBJgA4HNYXN/XW/YtH3zS5vGCt3KtxYhfozKpWDh0/Y=;
-        b=QV3seTOBADzAUb4IY/z8G64wEqd8a5Cyb4u1D4gyVZsRP5b6AgoEwhKCZzO1a64XQG
-         OQy0/b9567o3yoYTGWa/1rfUtc6Y7ObEdVcnez+NyGLSmpb3wScM3WUrOUJPf4EwIE6o
-         LnAytXUEnTMTI06r1fiefE3PHKOLR7MRZnMNhEl/LLqHyGS2b4T2IZ84OhAkFh04J+NL
-         f9aWzkU/cYeEnSzb8JQ33Un7qRXQQWlXfdQhtJoEtNMZd8Bw9/BTxCOVsGJoVjTnn6vM
-         eN0jw+5fn05aHg7ILqDztm0kUpioRs6RKszYjuITUd+Vzd9A6LFYlBqKSNhRBDTormj9
-         UwBg==
+        h=in-reply-to:mime-version:user-agent:date:message-id:from:references
+         :cc:to:subject:dkim-signature;
+        bh=y+EEM5p4J6HAj0K86gGJsuaTuVxaPbz2acsMV1JwTEk=;
+        b=kdAmQPtTIwaPxrlQZfhUeBIaZhvJ4XBxzwZIvbBv53tuGMWbd6NUg00a+Dz3YAcV+c
+         HMnrI22SCVOgTZEdsrMx4xYjSLgXbGiZd2drzpK0oHi5wEUjm51DkHIXFu5RGT2U6/Wm
+         Nsheb6mXu9pDw3B/ULrmHdZKt616gdulNzfY0bwOGQMNFc8GkQh1qilKaMBnZ3stDgDo
+         8hxzDvIIuWeS3TcUsfRtjt/c4LI14dAxwKobcfxG0WmWBegWoM0gVAIALWeJg7wbtfZI
+         uFB2A6VwOLFj8G8CzyO9LGzNp+32Xr0WsqdZH7phmXgny3t7r2hH9hI+WBbmCxwYEO9b
+         vzCw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mIBaiyCa;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd2a.google.com (mail-io1-xd2a.google.com. [2607:f8b0:4864:20::d2a])
-        by gmr-mx.google.com with ESMTPS id t2si478431qkg.0.2021.01.14.20.51.35
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=gMRvbYFg;
+       spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
+        by gmr-mx.google.com with ESMTPS id b1si395504wrv.5.2021.01.14.21.17.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Jan 2021 20:51:35 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a as permitted sender) client-ip=2607:f8b0:4864:20::d2a;
-Received: by mail-io1-xd2a.google.com with SMTP id d81so752486iof.3
-        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 20:51:35 -0800 (PST)
-X-Received: by 2002:a05:6e02:eb0:: with SMTP id u16mr9293810ilj.209.1610686295416;
- Thu, 14 Jan 2021 20:51:35 -0800 (PST)
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 14 Jan 2021 21:17:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+	by mx2.suse.de (Postfix) with ESMTP id 9A849AE61;
+	Fri, 15 Jan 2021 05:17:26 +0000 (UTC)
+Subject: Re: [PATCH 14/21] x86/xen: Support objtool vmlinux.o validation in
+ xen-head.S
+To: Josh Poimboeuf <jpoimboe@redhat.com>, x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ Sami Tolvanen <samitolvanen@google.com>, Sedat Dilek
+ <sedat.dilek@gmail.com>, Kees Cook <keescook@chromium.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com, Miroslav Benes <mbenes@suse.cz>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>
 References: <cover.1610652862.git.jpoimboe@redhat.com>
-In-Reply-To: <cover.1610652862.git.jpoimboe@redhat.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Fri, 15 Jan 2021 05:51:24 +0100
-Message-ID: <CA+icZUV1a-DEf-dTm8MyyBbp_VYmW5WwJPF9DQb=yJHPykJASQ@mail.gmail.com>
-Subject: Re: [PATCH 00/21] objtool: vmlinux.o and CLANG LTO support
-To: Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
-	Peter Zijlstra <peterz@infradead.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	Kees Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Miroslav Benes <mbenes@suse.cz>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
+ <02a3b646aa20035c9c700c5b6d7897a9f898ba24.1610652862.git.jpoimboe@redhat.com>
+From: =?UTF-8?Q?=27J=C3=BCrgen_Gro=C3=9F=27_via_Clang_Built_Linux?= <clang-built-linux@googlegroups.com>
+Message-ID: <43d47af1-6735-6651-db11-4489c86c62a2@suse.com>
+Date: Fri, 15 Jan 2021 06:17:25 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
+MIME-Version: 1.0
+In-Reply-To: <02a3b646aa20035c9c700c5b6d7897a9f898ba24.1610652862.git.jpoimboe@redhat.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="2YhinrR0QVR3BdE4MEf3ELoBpe54uf0wZ"
+X-Original-Sender: jgross@suse.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=mIBaiyCa;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@suse.com header.s=susede1 header.b=gMRvbYFg;       spf=pass
+ (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted
+ sender) smtp.mailfrom=jgross@suse.com;       dmarc=pass (p=QUARANTINE sp=NONE
+ dis=NONE) header.from=suse.com
+X-Original-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Reply-To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,98 +141,162 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 14, 2021 at 8:40 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
->
-> Add support for proper vmlinux.o validation, which will be needed for
-> Sami's upcoming x86 LTO set.  (And vmlinux validation is the future for
-> objtool anyway, for other reasons.)
->
-> This isn't 100% done -- most notably, crypto still needs to be supported
-> -- but I think this gets us most of the way there.
->
-> This can also be found at
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/jpoimboe/linux.git objtool-vmlinux
->
-> And for more testing it can be combined with Sami's x86 LTO patches:
->
->   https://github.com/samitolvanen/linux clang-lto
->
->
->
-> Josh Poimboeuf (21):
->   objtool: Fix seg fault in BT_FUNC() with fake jump
->   objtool: Fix error handling for STD/CLD warnings
->   objtool: Fix retpoline detection in asm code
->   objtool: Fix ".cold" section suffix check for newer versions of GCC
->   objtool: Support retpoline jump detection for vmlinux.o
->   x86/ftrace: Add UNWIND_HINT_FUNC annotation for ftrace_stub
->   objtool: Assume only ELF functions do sibling calls
->   objtool: Add asm version of STACK_FRAME_NON_STANDARD
->   objtool: Combine UNWIND_HINT_RET_OFFSET and UNWIND_HINT_FUNC
->   objtool: Add xen_start_kernel() to noreturn list
->   objtool: Move unsuffixed symbol conversion to a helper function
->   objtool: Add CONFIG_CFI_CLANG support
->   x86/xen: Support objtool validation in xen-asm.S
->   x86/xen: Support objtool vmlinux.o validation in xen-head.S
->   x86/xen/pvh: Convert indirect jump to retpoline
->   x86/ftrace: Support objtool vmlinux.o validation in ftrace_64.S
->   x86/acpi: Convert indirect jump to retpoline
->   x86/acpi: Support objtool validation in wakeup_64.S
->   x86/power: Convert indirect jumps to retpolines
->   x86/power: Move restore_registers() to top of the file
->   x86/power: Support objtool validation in hibernate_asm_64.S
->
->  arch/x86/include/asm/unwind_hints.h |  13 +---
->  arch/x86/kernel/acpi/Makefile       |   1 -
->  arch/x86/kernel/acpi/wakeup_64.S    |   5 +-
->  arch/x86/kernel/ftrace_64.S         |   8 +--
->  arch/x86/lib/retpoline.S            |   2 +-
->  arch/x86/platform/pvh/head.S        |   3 +-
->  arch/x86/power/Makefile             |   1 -
->  arch/x86/power/hibernate_asm_64.S   | 105 ++++++++++++++--------------
->  arch/x86/xen/Makefile               |   1 -
->  arch/x86/xen/xen-asm.S              |  29 +++++---
->  arch/x86/xen/xen-head.S             |   5 +-
->  include/linux/objtool.h             |  13 +++-
->  tools/include/linux/objtool.h       |  13 +++-
->  tools/objtool/arch/x86/decode.c     |   4 +-
->  tools/objtool/arch/x86/special.c    |   2 +-
->  tools/objtool/check.c               |  91 +++++++++++++-----------
->  tools/objtool/check.h               |  12 +++-
->  tools/objtool/elf.c                 |  87 +++++++++++++++++------
->  tools/objtool/elf.h                 |   2 +-
->  19 files changed, 241 insertions(+), 156 deletions(-)
->
-> --
-> 2.29.2
->
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--2YhinrR0QVR3BdE4MEf3ELoBpe54uf0wZ
+Content-Type: multipart/mixed; boundary="vKOsGyGWEuckNKaORjGB8A10DjxiUpUmV";
+ protected-headers="v1"
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+To: Josh Poimboeuf <jpoimboe@redhat.com>, x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ Sami Tolvanen <samitolvanen@google.com>, Sedat Dilek
+ <sedat.dilek@gmail.com>, Kees Cook <keescook@chromium.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com, Miroslav Benes <mbenes@suse.cz>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>
+Message-ID: <43d47af1-6735-6651-db11-4489c86c62a2@suse.com>
+Subject: Re: [PATCH 14/21] x86/xen: Support objtool vmlinux.o validation in
+ xen-head.S
+References: <cover.1610652862.git.jpoimboe@redhat.com>
+ <02a3b646aa20035c9c700c5b6d7897a9f898ba24.1610652862.git.jpoimboe@redhat.com>
+In-Reply-To: <02a3b646aa20035c9c700c5b6d7897a9f898ba24.1610652862.git.jpoimboe@redhat.com>
 
-I tried this series on top of clang-cfi and it segfaults here.
+--vKOsGyGWEuckNKaORjGB8A10DjxiUpUmV
+Content-Type: multipart/mixed;
+ boundary="------------BBA3C57DDCB4B42CF384FC97"
+Content-Language: en-US
 
-+ info OBJTOOL vmlinux.o
-+ [  != silent_ ]
-+ printf   %-7s %s\n OBJTOOL vmlinux.o
- OBJTOOL vmlinux.o
-+ tools/objtool/objtool orc generate --duplicate --mcount --vmlinux
---no-fp --no-unreachable --retpoline --uaccess vmlinux.o
-Segmentation fault
-+ on_exit
-+ [ 139 -ne 0 ]
-+ cleanup
-+ rm -f .btf.*
-+ rm -f .tmp_System.map
-+ rm -f .tmp_initcalls.lds
-+ rm -f .tmp_symversions.lds
-+ rm -f .tmp_vmlinux*
-+ rm -f System.map
-+ rm -f vmlinux
-+ rm -f vmlinux.o
-make[3]: *** [Makefile:1213: vmlinux] Error 139
+This is a multi-part message in MIME format.
+--------------BBA3C57DDCB4B42CF384FC97
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 
-- Sedat -
+On 14.01.21 20:40, Josh Poimboeuf wrote:
+> The Xen hypercall page is filled with zeros, causing objtool to fall
+> through all the empty hypercall functions until it reaches a real
+> function, resulting in a stack state mismatch.
+> 
+> The build-time contents of the hypercall page don't matter, since it
+> gets mapped to the hypervisor.
+
+This sentence is technically wrong: the contents don't matter, as the
+page will be rewritten by the hypervisor.
+
+
+Juergen
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUV1a-DEf-dTm8MyyBbp_VYmW5WwJPF9DQb%3DyJHPykJASQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/43d47af1-6735-6651-db11-4489c86c62a2%40suse.com.
+
+--------------BBA3C57DDCB4B42CF384FC97
+Content-Type: application/pgp-keys;
+ name="OpenPGP_0xB0DE9DD628BF132F.asc"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+ filename="OpenPGP_0xB0DE9DD628BF132F.asc"
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOBy=
+cWx
+w3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJvedYm8O=
+f8Z
+d621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJNwQpd369y=
+9bf
+IhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvxXP3FAp2pkW0xq=
+G7/
+377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEBAAHNHEp1ZXJnZW4gR=
+3Jv
+c3MgPGpnQHBmdXBmLm5ldD7CwHkEEwECACMFAlOMcBYCGwMHCwkIBwMCAQYVCAIJCgsEFgIDA=
+QIe
+AQIXgAAKCRCw3p3WKL8TL0KdB/93FcIZ3GCNwFU0u3EjNbNjmXBKDY4FUGNQH2lvWAUy+dnyT=
+hpw
+dtF/jQ6j9RwE8VP0+NXcYpGJDWlNb9/JmYqLiX2Q3TyevpB0CA3dbBQp0OW0fgCetToGIQrg0=
+MbD
+1C/sEOv8Mr4NAfbauXjZlvTj30H2jO0u+6WGM6nHwbh2l5O8ZiHkH32iaSTfN7Eu5RnNVUJbv=
+oPH
+Z8SlM4KWm8rG+lIkGurqqu5gu8q8ZMKdsdGC4bBxdQKDKHEFExLJK/nRPFmAuGlId1E3fe10v=
+5QL
++qHI3EIPtyfE7i9Hz6rVwi7lWKgh7pe0ZvatAudZ+JNIlBKptb64FaiIOAWDCx1SzR9KdWVyZ=
+2Vu
+IEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+wsB5BBMBAgAjBQJTjHCvAhsDBwsJCAcDAgEGFQgCC=
+QoL
+BBYCAwECHgECF4AACgkQsN6d1ii/Ey/HmQf/RtI7kv5A2PS4RF7HoZhPVPogNVbC4YA6lW7Dr=
+Wf0
+teC0RR3MzXfy6pJ+7KLgkqMlrAbN/8Dvjoz78X+5vhH/rDLa9BuZQlhFmvcGtCF8eR0T1v0nC=
+/nu
+AFVGy+67q2DH8As3KPu0344TBDpAvr2uYM4tSqxK4DURx5INz4ZZ0WNFHcqsfvlGJALDeE0Lh=
+ITT
+d9jLzdDad1pQSToCnLl6SBJZjDOX9QQcyUigZFtCXFst4dlsvddrxyqT1f17+2cFSdu7+ynLm=
+XBK
+7abQ3rwJY8SbRO2iRulogc5vr/RLMMlscDAiDkaFQWLoqHHOdfO9rURssHNN8WkMnQfvUewRz=
+80h
+SnVlcmdlbiBHcm9zcyA8amdyb3NzQG5vdmVsbC5jb20+wsB5BBMBAgAjBQJTjHDXAhsDBwsJC=
+AcD
+AgEGFQgCCQoLBBYCAwECHgECF4AACgkQsN6d1ii/Ey8PUQf/ehmgCI9jB9hlgexLvgOtf7PJn=
+FOX
+gMLdBQgBlVPO3/D9R8LtF9DBAFPNhlrsfIG/SqICoRCqUcJ96Pn3P7UUinFG/I0ECGF4EvTE1=
+jnD
+kfJZr6jrbjgyoZHiw/4BNwSTL9rWASyLgqlA8u1mf+c2yUwcGhgkRAd1gOwungxcwzwqgljf0=
+N51
+N5JfVRHRtyfwq/ge+YEkDGcTU6Y0sPOuj4Dyfm8fJzdfHNQsWq3PnczLVELStJNdapwPOoE+l=
+otu
+fe3AM2vAEYJ9rTz3Cki4JFUsgLkHFqGZarrPGi1eyQcXeluldO3m91NK/1xMI3/+8jbO0tsn1=
+tqS
+EUGIJi7ox80eSnVlcmdlbiBHcm9zcyA8amdyb3NzQHN1c2UuZGU+wsB5BBMBAgAjBQJTjHDrA=
+hsD
+BwsJCAcDAgEGFQgCCQoLBBYCAwECHgECF4AACgkQsN6d1ii/Ey+LhQf9GL45eU5vOowA2u5N3=
+g3O
+ZUEBmDHVVbqMtzwlmNC4k9Kx39r5s2vcFl4tXqW7g9/ViXYuiDXb0RfUpZiIUW89siKrkzmQ5=
+dM7
+wRqzgJpJwK8Bn2MIxAKArekWpiCKvBOB/Cc+3EXE78XdlxLyOi/NrmSGRIov0karw2RzMNOu5=
+D+j
+LRZQd1Sv27AR+IP3I8U4aqnhLpwhK7MEy9oCILlgZ1QZe49kpcumcZKORmzBTNh30FVKK1Evm=
+V2x
+AKDoaEOgQB4iFQLhJCdP1I5aSgM5IVFdn7v5YgEYuJYx37IoN1EblHI//x/e2AaIHpzK5h88N=
+Eaw
+QsaNRpNSrcfbFmAg987ATQRTjHAWAQgAyzH6AOODMBjgfWE9VeCgsrwH3exNAU32gLq2xvjpW=
+nHI
+s98ndPUDpnoxWQugJ6MpMncr0xSwFmHEgnSEjK/PAjppgmyc57BwKII3sV4on+gDVFJR6Y8ZR=
+wgn
+BC5mVM6JjQ5xDk8WRXljExRfUX9pNhdE5eBOZJrDRoLUmmjDtKzWaDhIg/+1Hzz93X4fCQkNV=
+bVF
+LELU9bMaLPBG/x5q4iYZ2k2ex6d47YE1ZFdMm6YBYMOljGkZKwYde5ldM9mo45mmwe0icXKLk=
+pEd
+IXKTZeKDO+Hdv1aqFuAcccTg9RXDQjmwhC3yEmrmcfl0+rPghO0Iv3OOImwTEe4co3c1mwARA=
+QAB
+wsBfBBgBAgAJBQJTjHAWAhsMAAoJELDendYovxMvQ/gH/1ha96vm4P/L+bQpJwrZ/dneZcmEw=
+Tbe
+8YFsw2V/Buv6Z4Mysln3nQK5ZadD534CF7TDVft7fC4tU4PONxF5D+/tvgkPfDAfF77zy2AH1=
+vJz
+Q1fOU8lYFpZXTXIHb+559UqvIB8AdgR3SAJGHHt4RKA0F7f5ipYBBrC6cyXJyyoprT10EMvU8=
+VGi
+wXvTyJz3fjoYsdFzpWPlJEBRMedCot60g5dmbdrZ5DWClAr0yau47zpWj3enf1tLWaqcsuylW=
+svi
+uGjKGw7KHQd3bxALOknAp4dN3QwBYCKuZ7AddY9yjynVaD5X7nF9nO5BjR/i1DG86lem3iBDX=
+zXs
+ZDn8R38=3D
+=3D2wuH
+-----END PGP PUBLIC KEY BLOCK-----
+
+--------------BBA3C57DDCB4B42CF384FC97--
+
+--vKOsGyGWEuckNKaORjGB8A10DjxiUpUmV--
+
+--2YhinrR0QVR3BdE4MEf3ELoBpe54uf0wZ
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmABJWUFAwAAAAAACgkQsN6d1ii/Ey+u
+Wwf+L7Wc4s2VSdkGP4TziiAQOPyXLMzZtIadL+AffpeLjPyuvSLrrlb2OW9B4GrVLpk8LXEbEKv/
+NsewZGlR97vLwqnq8r8P5RUxOLYGZ2arjm+h1je5f0f+OnvHbVbWEqgx+qqjeoWfJwjj1bmve40g
++UPpgxpe6Yyyvg+MYrHBjBqDOFIkSDEX7eGdM7b3qKDJZtVbOSn3uWGcO+C1G/VxPnfdKznCoWN4
+KfSaF58zU1YeiEzhL/5I9mdQRwFu9sELPl3zqfDzDkkJPd6ejqT5/1KlX7tVrmdz8CU6KyDbwgVo
+rdGK4lP+tKKUoVUA6aM5qk0jNXkzAhZ5y/L3Y8VHtw==
+=EbbS
+-----END PGP SIGNATURE-----
+
+--2YhinrR0QVR3BdE4MEf3ELoBpe54uf0wZ--
