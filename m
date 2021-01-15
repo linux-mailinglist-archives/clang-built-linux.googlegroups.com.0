@@ -1,133 +1,123 @@
-Return-Path: <clang-built-linux+bncBDB3VRMVXIPRB7ONQSAAMGQEWQ2HSFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7OBJGL2MHBBY74QSAAMGQER3F2DYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13c.google.com (mail-lf1-x13c.google.com [IPv6:2a00:1450:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2F8282F7204
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 06:24:14 +0100 (CET)
-Received: by mail-lf1-x13c.google.com with SMTP id b11sf2727359lfj.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 21:24:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610688253; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id AD00C2F736E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 08:04:05 +0100 (CET)
+Received: by mail-pg1-x537.google.com with SMTP id y2sf5547571pgq.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Jan 2021 23:04:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610694244; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HQ0yAyz/f+N57CeItDDMU7XfVIL7nxhR87Z2eyK+Wqmkyq2OSQ9RdNZTIC1TqvKE0a
-         sWA7ki25kpfnU/6H+DGxl+iLzU1ltt5G0JSMlDz7MwCMKFGIbeoBvklyGlDmIiYKVhsu
-         C9DvAnT2O7ViwxF1IW+WrPfmNcJtNTt16kmhZysm34C1tI+OlH1YEppQ8nUG0q/JCAZj
-         2Fje0b18u7Lvv7ZT8B41Coru1632QpdZIpyg+tDgaNpoGqQNq7O5gi6TK6u3kTVSGcsG
-         vQlJxHgg9XIDrHUfiE6Bz/HZJrci2ZnvVFTnpyUXMPVC3VY90bFYx8FfDKFWGQejYxah
-         51bw==
+        b=YPUbVCbm0iWJaL4bQHqlW8tXDLoRfPVfeKn0jUX2ZF80UCs4Jo7GHDAaOnnhNdLPCK
+         f3ZP8KP3Hm6dtLsNasnCyXQOu59iCSRXgNp/grJnvHzJiKTPQo4CG8Ff5Mg8xG8BCr6K
+         dDADZbmO1Kg97ageQ8XTydE54vbFeHbVpqTNo55uMFBEIn4g3BBsxsvRGmUxeI44Sdkg
+         /zy/ZYQR7DZnnom4QlHhXPLWK/tgJ3fR8Yqscm31nqv7oUHI6lkfv7Td4qfKYip0Bpqi
+         vCEWlgQu1PjRIY9QHSyvXt09zVN8PV+InL428laMfRLnUQxCD5eAVf6nylE0MvZ0CuET
+         dhVg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to:mime-version
-         :user-agent:date:message-id:subject:from:references:cc:to
-         :dkim-signature;
-        bh=bBBpp57Zvb7dkCDOiIm/uFKz2zc+MZyZHTt+Xfzaezc=;
-        b=vV1Xc9aH8zB53goL/Lx9/VcB+Bj0iulSG9Gayo1hv7o1o9Qa2l4VMuuB0REnbG//Jh
-         x4aaHcvtafJMU3iFXqLKXfsQFylaiKBQqAH+ZXqCeWrEFljscJXuBBYe++rK1iSnH3Zq
-         c/ZWbDfvoDMSnFz447TH0wWsxvTNIyX8nKisCffzOsSbiGWzJX7z9Y41tOiZKUT6lSUx
-         +b6HdUuSkMD+yS8MYwaIZ/ZagnenLIb78+vY7Aif7ZjectNKzg6GHUv6xGprs1PccDjP
-         jI8eQnEeE2POdHC9lcAV15QkYuAodgy6BiPJiJyL3q81B5VXwRCcKQYKq3WnGoRLalbI
-         P5EA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=PZufYrGbYYlBgn/JPhoWtGNO6CKF5mOhxVYz+Vm+j+U=;
+        b=jeo6Qzk3FvMHTdkBbVaBHs9jGk97Io6lMvbS2JyP06HOrHX4LXzgy8+mpyYiyP/bZN
+         bnOaXRWF6sdCwmGyQGbZIyVjNl9bw0hlvuJVDJ3oXCZ8bxZQ/Vj/aSW0f9iDnkvhW9+S
+         nqI8zizN6YDmElJiUmg2eXKhKIkOPiHOiYAajugAJajsvhmgngCKl/bb+F3C4mZ5XdW9
+         +tCfmPvcQD2O+Din51gvnQAmlBBBHPz9eJI4nxiCHeEzj6cFqFB5ae3zw9z34FAj9lCf
+         zOHQVsc7YJ8+chxRnBiwMcYrgO8Kuwl/+FZ2t0aeuzNP3hMSMVdKHX6H8Wv/hPLxmdpK
+         JNWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=QydJfn0z;
-       spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
-       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dd0tjJF7;
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as permitted sender) smtp.mailfrom=elver@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=to:cc:references:from:subject:message-id:date:user-agent
-         :mime-version:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=bBBpp57Zvb7dkCDOiIm/uFKz2zc+MZyZHTt+Xfzaezc=;
-        b=INWjOAm3yfuyB7eFELbKyIvss6fvM70FzgUUNt6upgcopnJrJvMDSFIHM5SgLX/S7F
-         3WmsgDikq7sPFeI/jLRTVUAMRshkczLqtYdR0YhFqYCeT8mKPCGfHxYqcec4yk533pZn
-         uOznwx2pLDZLIUwNkxlyuWHzOSyNyFquKlYmNFGNN6cpX/Hi0pPULdM4GKJto4CdTOJc
-         jw1yccS4fzeQrBPynJNey1Q9un0MhSEFcnvXixoO6oHjjtP23qUdjd8RdOUp7mn+g1Tt
-         sEOLgVE9PPikhUuLmrbohRVnIABtd+rFwxHjETnITXb4BouaBngi+9jgqH2SriE3yI97
-         miLQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PZufYrGbYYlBgn/JPhoWtGNO6CKF5mOhxVYz+Vm+j+U=;
+        b=TthRMSIK8NTlxRBfOfggOj+4HNiBGAWxFJaCelsaEqSLrLlNbSGSqHJcHQgkW9wi+m
+         C1QrrltCFwDT3ybw1TC7G8aReu83IFmOPdxMZXdr8GlWpMrioQbrO6EF2oTZTw3ZeA85
+         4O/fjzSfKp2uKsVvjvpMTzemJPLxFgv2COSkxpncsgDsxWh2SFkzIQejmox36NzA+yZ6
+         50wCEMOxjlz4kef4cRJ+lxNYNR/bo10gKB8BJcgX/TdwOC3/Yf7Lii7caeJbB4r7QadH
+         ztJkfgt8YKVccz2fvZGC2gAJxxPJK/uKMxGI25JU/3YnDuQPs0XuwuzvRjGFnRL/RNi9
+         vIiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:to:cc:references:from:subject:message-id:date
-         :user-agent:mime-version:in-reply-to:x-original-sender
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bBBpp57Zvb7dkCDOiIm/uFKz2zc+MZyZHTt+Xfzaezc=;
-        b=HUxczbgcdUYSzZLueaIyQXoR4Y7JKsaDDH4+JF22bJvuP92bD3hXbWRIX06LuK1oUv
-         oRam0S9Nht3MmgnsYGdrvToSVGON3CTZrgF9KEQRVrXwKvkKTz7T0IZLWlEOxn5VgV/G
-         1zI2O6Nm/K+fWcKeMC+o2AfvDSRZZk0MCH3s2l94JYk/ww+AzqCUKswq3lAjOa+hIx5/
-         xrL/pUrZJ2j5W8/TyrBZtZgePlEfLgSyb3C4h5B9cfEEnaGPtj2CfrGFacVks7hH5aLg
-         3ZGYugsG0n8dUq/FCSW5p8Kg9793rF/48qjPFlYQCxR1Hu6g+8O+qGaAYanOqCcvhM2N
-         BoyQ==
-X-Gm-Message-State: AOAM53242BruJ+mJefLDrcGke0wSzMDrY6IjXyBNaI8P19JpXhmNT0ib
-	vDW9yCDgEmCvst7Xj5/Vv7Y=
-X-Google-Smtp-Source: ABdhPJygNSCiwZoBMvWw+n0oR8MWj3g6vztj5Mnt3WiYrYzLKLwSXJyAEg5slIMV+oBpbk8TRif1MA==
-X-Received: by 2002:a19:2390:: with SMTP id j138mr4670052lfj.294.1610688253679;
-        Thu, 14 Jan 2021 21:24:13 -0800 (PST)
+        bh=PZufYrGbYYlBgn/JPhoWtGNO6CKF5mOhxVYz+Vm+j+U=;
+        b=DCmrrcbgrBUEoZ5LcSs6WQtT773e5oBzXJ3qOfbpcP0Fr65eag3oEMXmNPvulGGdXk
+         ov7SAtXdhHd+ks0bpChM/h4xDmAveceQ9p7a4vbSOMUykHJHT8j3qR6yuxy9k7HvDhcE
+         oqeOtYOQLvT5AIBTiRDxlVmA/45V39VMFh3oIDsOCs1lhAkG0Bzlt79n9Ohj38H+hAbE
+         oXqWjWmcDwvV9mUiz3u/twCwEsBDyPgKGpnTT1qwP4eG3HrdLx6uppCir92PQWZ+Ac0D
+         x8iGCkOfT9QHWQKf4+tpyKMrkKEWbUax60w7VscAP35Rt49347l3dLPfqEh7XcfFZ8ph
+         5kyA==
+X-Gm-Message-State: AOAM5329P7LoezgoTvbW4UxlAcrZGYyH/tZXSut/dSnQlLNV/u9V3qdq
+	Xmww8lnWA4HRZbXohgT1AYQ=
+X-Google-Smtp-Source: ABdhPJzvSXCoy2Ku27Mo4VS3sbp6MujmZs6+Xl3+rSWT+tsI06ovjwYJPoNjQo90s3ZaepkgxQRoPg==
+X-Received: by 2002:a17:90b:3c7:: with SMTP id go7mr9024540pjb.188.1610694243867;
+        Thu, 14 Jan 2021 23:04:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3993:: with SMTP id j19ls1620941lfu.3.gmail; Thu,
- 14 Jan 2021 21:24:12 -0800 (PST)
-X-Received: by 2002:a05:6512:504:: with SMTP id o4mr5227581lfb.398.1610688252679;
-        Thu, 14 Jan 2021 21:24:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610688252; cv=none;
+Received: by 2002:a17:902:a416:: with SMTP id p22ls3971806plq.3.gmail; Thu, 14
+ Jan 2021 23:04:03 -0800 (PST)
+X-Received: by 2002:a17:90a:ff03:: with SMTP id ce3mr8983884pjb.44.1610694243105;
+        Thu, 14 Jan 2021 23:04:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610694243; cv=none;
         d=google.com; s=arc-20160816;
-        b=SCSBML3y0a+f52yCvq2zkCFfg8dKaPsfmW86rYd2MwZIuvcC+R2P++FH8wxOZKf8WZ
-         OX/CS0hLKJ2OfZsw6EKGoLfc7yWZBJB6H9T46tXqAIB5dbKYaMWT9I67M1hzWArJWBdt
-         Gd02RsL3yMEZUdEUBYKksh6InHHBpuDVaojWZ8A99Rww7dQ55HdIChLrI0qPkU8cWY7h
-         8yvBqRl71TaeY47Y88rAFhzsP5bWaSGjVvXC1PJALGIwSWd6tAjtHb3HZ4aEV+xWfZQc
-         G/hpfK0prLrI/2c+8Y6bQi7+uzOgED0neoeGavVIzoV4v+jzBMF+9o4Bafts2Hiuld6t
-         il8g==
+        b=RsKbIJS/17LCBD/tr9Q4NFrBe5l0BjmLZ/gilh2nI10n384Ps4YqSf/4tKcgSCeqxC
+         rSHG4/Yhl5WVLFuCo2kXZSvubOFGniKg6PmpZbCHKMgCnwzkvV32NAEbx06jrMQL9mSZ
+         NKp4/JUe6WxNg4lm91hj0U+DU4/YuHiwFwa5lSltWRj1jBVubb+WjslgwP885/xQImff
+         Z2xRB4lYyvyyOhXeegi+2mY+eErCTpAvlS404xSTtiawV2+pIJ8PptqwQpHsW9QR3YYb
+         8vlFpIBHSfTtcQ+TjZViMe84674Y/lLvHfLyi5CnlNHsxLTR5Z2HXLMuTjjSt1Nr3hZE
+         fbIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:mime-version:user-agent:date:message-id:subject:from
-         :references:cc:to:dkim-signature;
-        bh=J2xnywbZmgxwNYeVJp6k6b1c5mAHJeCdKgFgbMlcff8=;
-        b=NNUJuejrcBFlKKvV6jj8IFEpzh2lj7tViR4nQCboSXvFgDnePTDDtiGnU7Hndb86Gi
-         ozk61XsOCcv5L7Tdk9YjoAATQL82clfLx1iz8JN48XyYKnHqbJbt45JjtxQ0LqtJvr1A
-         hIymxw/xigjg8yZwXFXaQRjsiOeO5aE98TOodzXNuJ9/qstOvt6vDffA0UWUGS0UwNhB
-         d/bUqEYxfEbg4lpY/mlyIy8P4E3PQIw0bQrSiefjczBRag1hsSIvjJZjxGn4ugE92Yvt
-         Q6w0l7Ta5d+s8Cfgh08vwqGxVm0LJgW05SoBfIieyty13wapFrnrMDWmJn4u7J5hR8Kr
-         ZeKA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JZuzVr+TgXPqb7ivDtim3E40dPuUOJv5AgOFr5mOA50=;
+        b=aNNoU190OuTsOs2EHkAkJiAGM4LXGd5gEmKGrgin0uYl9LzU11DgO5xUClINLEs0ES
+         V7xcwSHCGGgwSuX2n7ZAblUwn7fOkx0up2zmNJ9zqh7leuwCuCd+YtK/RPXf2cXxOJGK
+         trliLr4ZZOF7prTXipeAD9WRfvhw245Lcr8t+4s5ClSlbyuU4IPL7qR3QIDCe5+Ajl/P
+         shjHxkfFICtgB1+rXODxo20W97quj7R7t/KsuCD+VbfykKvRxdMzdAq8IBk1Fwf9xbCq
+         XHgpbNQQ4oXdIwnvOjFc4kS5rrehw1m/7ZciZJ0Mal5J60wT1e9Ec1BQzQv4c4rvXHTl
+         59JA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=QydJfn0z;
-       spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
-       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
-Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
-        by gmr-mx.google.com with ESMTPS id l8si272285ljc.2.2021.01.14.21.24.12
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dd0tjJF7;
+       spf=pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as permitted sender) smtp.mailfrom=elver@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ot1-x333.google.com (mail-ot1-x333.google.com. [2607:f8b0:4864:20::333])
+        by gmr-mx.google.com with ESMTPS id m63si386577pfb.3.2021.01.14.23.04.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Jan 2021 21:24:12 -0800 (PST)
-Received-SPF: pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
-	by mx2.suse.de (Postfix) with ESMTP id D4484AB7A;
-	Fri, 15 Jan 2021 05:24:11 +0000 (UTC)
-To: Josh Poimboeuf <jpoimboe@redhat.com>, x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Sami Tolvanen <samitolvanen@google.com>, Sedat Dilek
- <sedat.dilek@gmail.com>, Kees Cook <keescook@chromium.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- clang-built-linux@googlegroups.com, Miroslav Benes <mbenes@suse.cz>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>
-References: <cover.1610652862.git.jpoimboe@redhat.com>
- <adfa2afe5ddc831017222db9f48ad0fbff17c807.1610652862.git.jpoimboe@redhat.com>
-From: =?UTF-8?Q?=27J=C3=BCrgen_Gro=C3=9F=27_via_Clang_Built_Linux?= <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH 15/21] x86/xen/pvh: Convert indirect jump to retpoline
-Message-ID: <12afb52c-f555-656e-d544-c2965a616bdc@suse.com>
-Date: Fri, 15 Jan 2021 06:24:10 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Jan 2021 23:04:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as permitted sender) client-ip=2607:f8b0:4864:20::333;
+Received: by mail-ot1-x333.google.com with SMTP id n42so7640003ota.12
+        for <clang-built-linux@googlegroups.com>; Thu, 14 Jan 2021 23:04:03 -0800 (PST)
+X-Received: by 2002:a05:6830:2413:: with SMTP id j19mr7591335ots.251.1610694242544;
+ Thu, 14 Jan 2021 23:04:02 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <adfa2afe5ddc831017222db9f48ad0fbff17c807.1610652862.git.jpoimboe@redhat.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="tcEbDVrouNxRCQT6V6Z5mmVZzjxADZESG"
-X-Original-Sender: jgross@suse.com
+References: <20210114211840.GA5617@linux-8ccs> <20210114215416.993167-1-maskray@google.com>
+In-Reply-To: <20210114215416.993167-1-maskray@google.com>
+From: "'Marco Elver' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 15 Jan 2021 08:03:51 +0100
+Message-ID: <CANpmjNOrD76O2_Zpwo5RJ2d12gczuQpG9bJkXYLY_sOVeEVZGQ@mail.gmail.com>
+Subject: Re: [PATCH v2] module: Ignore _GLOBAL_OFFSET_TABLE_ when warning for
+ undefined symbols
+To: Fangrui Song <maskray@google.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, Jessica Yu <jeyu@kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Sam Ravnborg <sam@ravnborg.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: elver@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.com header.s=susede1 header.b=QydJfn0z;       spf=pass
- (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted
- sender) smtp.mailfrom=jgross@suse.com;       dmarc=pass (p=QUARANTINE sp=NONE
- dis=NONE) header.from=suse.com
-X-Original-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Reply-To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+ header.i=@google.com header.s=20161025 header.b=dd0tjJF7;       spf=pass
+ (google.com: domain of elver@google.com designates 2607:f8b0:4864:20::333 as
+ permitted sender) smtp.mailfrom=elver@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Marco Elver <elver@google.com>
+Reply-To: Marco Elver <elver@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,186 +130,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---tcEbDVrouNxRCQT6V6Z5mmVZzjxADZESG
-Content-Type: multipart/mixed; boundary="BghqoVWYJFtxav4Rjq1fhrg7lEQgeEz5i";
- protected-headers="v1"
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-To: Josh Poimboeuf <jpoimboe@redhat.com>, x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Sami Tolvanen <samitolvanen@google.com>, Sedat Dilek
- <sedat.dilek@gmail.com>, Kees Cook <keescook@chromium.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- clang-built-linux@googlegroups.com, Miroslav Benes <mbenes@suse.cz>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>
-Message-ID: <12afb52c-f555-656e-d544-c2965a616bdc@suse.com>
-Subject: Re: [PATCH 15/21] x86/xen/pvh: Convert indirect jump to retpoline
-References: <cover.1610652862.git.jpoimboe@redhat.com>
- <adfa2afe5ddc831017222db9f48ad0fbff17c807.1610652862.git.jpoimboe@redhat.com>
-In-Reply-To: <adfa2afe5ddc831017222db9f48ad0fbff17c807.1610652862.git.jpoimboe@redhat.com>
+On Thu, 14 Jan 2021 at 22:54, Fangrui Song <maskray@google.com> wrote:
+> clang-12 -fno-pic (since
+> https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6)
+> can emit `call __stack_chk_fail@PLT` instead of `call __stack_chk_fail`
+> on x86.  The two forms should have identical behaviors on x86-64 but the
+> former causes GNU as<2.37 to produce an unreferenced undefined symbol
+> _GLOBAL_OFFSET_TABLE_.
+>
+> (On x86-32, there is an R_386_PC32 vs R_386_PLT32 difference but the
+> linker behavior is identical as far as Linux kernel is concerned.)
+>
+> Simply ignore _GLOBAL_OFFSET_TABLE_ for now, like what
+> scripts/mod/modpost.c:ignore_undef_symbol does. This also fixes the
+> problem for gcc/clang -fpie and -fpic, which may emit `call foo@PLT` for
+> external function calls on x86.
+>
+> Note: ld -z defs and dynamic loaders do not error for unreferenced
+> undefined symbols so the module loader is reading too much.  If we ever
+> need to ignore more symbols, the code should be refactored to ignore
+> unreferenced symbols.
+>
+> Reported-by: Marco Elver <elver@google.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1250
+> Signed-off-by: Fangrui Song <maskray@google.com>
 
---BghqoVWYJFtxav4Rjq1fhrg7lEQgeEz5i
-Content-Type: multipart/mixed;
- boundary="------------50C7AC22B88B580CBA5BADB1"
-Content-Language: en-US
+Tested-by: Marco Elver <elver@google.com>
 
-This is a multi-part message in MIME format.
---------------50C7AC22B88B580CBA5BADB1
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Thank you for the patch!
 
-On 14.01.21 20:40, Josh Poimboeuf wrote:
-> It's kernel policy to not have (unannotated) indirect jumps because of
-> Spectre v2.  This one's probably harmless, but better safe than sorry.
-> Convert it to a retpoline.
-> 
-> Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
-> Cc: Juergen Gross <jgross@suse.com>
-> Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 > ---
->   arch/x86/platform/pvh/head.S | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/x86/platform/pvh/head.S b/arch/x86/platform/pvh/head.S
-> index 43b4d864817e..d87cebd08d32 100644
-> --- a/arch/x86/platform/pvh/head.S
-> +++ b/arch/x86/platform/pvh/head.S
-> @@ -16,6 +16,7 @@
->   #include <asm/boot.h>
->   #include <asm/processor-flags.h>
->   #include <asm/msr.h>
-> +#include <asm/nospec-branch.h>
->   #include <xen/interface/elfnote.h>
->   
->   	__HEAD
-> @@ -105,7 +106,7 @@ SYM_CODE_START_LOCAL(pvh_start_xen)
->   	/* startup_64 expects boot_params in %rsi. */
->   	mov $_pa(pvh_bootparams), %rsi
->   	mov $_pa(startup_64), %rax
-> -	jmp *%rax
-> +	JMP_NOSPEC rax
+>  kernel/module.c | 20 ++++++++++++++++++--
+>  1 file changed, 18 insertions(+), 2 deletions(-)
+> ---
+> Changes in v2:
+> * Fix Marco's email address
+> * Add a function ignore_undef_symbol similar to scripts/mod/modpost.c:ignore_undef_symbol
+>
+> diff --git a/kernel/module.c b/kernel/module.c
+> index 4bf30e4b3eaa..278f5129bde2 100644
+> --- a/kernel/module.c
+> +++ b/kernel/module.c
+> @@ -2348,6 +2348,20 @@ static int verify_exported_symbols(struct module *mod)
+>         return 0;
+>  }
+>
+> +static int ignore_undef_symbol(Elf_Half emachine, const char *name)
 
-I'd rather have it annotated only.
+Why not 'bool' return-type?
 
-Using ALTERNATIVE in very early boot code is just adding needless
-clutter, as the retpoline variant won't ever be active.
+> +{
+> +       /* On x86, PIC code and Clang non-PIC code may have call foo@PLT. GNU as
 
+Not sure if checkpatch.pl warns about this, but this multi-line
+comment does not follow the normal kernel-style (see elsewhere in
+file):
 
-Juergen
+/*
+ * ...
+ */
+
+> +        * before 2.37 produces an unreferenced _GLOBAL_OFFSET_TABLE_ on x86-64.
+> +        * i386 has a similar problem but may not deserve a fix.
+> +        *
+> +        * If we ever have to ignore many symbols, consider refactoring the code to
+> +        * only warn if referenced by a relocation.
+> +        */
+> +       if (emachine == EM_386 || emachine == EM_X86_64)
+> +               return !strcmp(name, "_GLOBAL_OFFSET_TABLE_");
+> +       return 0;
+> +}
+> +
+>  /* Change all symbols so that st_value encodes the pointer directly. */
+>  static int simplify_symbols(struct module *mod, const struct load_info *info)
+>  {
+> @@ -2395,8 +2409,10 @@ static int simplify_symbols(struct module *mod, const struct load_info *info)
+>                                 break;
+>                         }
+>
+> -                       /* Ok if weak.  */
+> -                       if (!ksym && ELF_ST_BIND(sym[i].st_info) == STB_WEAK)
+> +                       /* Ok if weak or ignored.  */
+> +                       if (!ksym &&
+> +                           (ELF_ST_BIND(sym[i].st_info) == STB_WEAK ||
+> +                            ignore_undef_symbol(info->hdr->e_machine, name)))
+>                                 break;
+>
+>                         ret = PTR_ERR(ksym) ?: -ENOENT;
+> --
+> 2.30.0.296.g2bfb1c46d8-goog
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/12afb52c-f555-656e-d544-c2965a616bdc%40suse.com.
-
---------------50C7AC22B88B580CBA5BADB1
-Content-Type: application/pgp-keys;
- name="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Transfer-Encoding: quoted-printable
-Content-Disposition: attachment;
- filename="OpenPGP_0xB0DE9DD628BF132F.asc"
-
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOBy=
-cWx
-w3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJvedYm8O=
-f8Z
-d621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJNwQpd369y=
-9bf
-IhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvxXP3FAp2pkW0xq=
-G7/
-377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEBAAHNHEp1ZXJnZW4gR=
-3Jv
-c3MgPGpnQHBmdXBmLm5ldD7CwHkEEwECACMFAlOMcBYCGwMHCwkIBwMCAQYVCAIJCgsEFgIDA=
-QIe
-AQIXgAAKCRCw3p3WKL8TL0KdB/93FcIZ3GCNwFU0u3EjNbNjmXBKDY4FUGNQH2lvWAUy+dnyT=
-hpw
-dtF/jQ6j9RwE8VP0+NXcYpGJDWlNb9/JmYqLiX2Q3TyevpB0CA3dbBQp0OW0fgCetToGIQrg0=
-MbD
-1C/sEOv8Mr4NAfbauXjZlvTj30H2jO0u+6WGM6nHwbh2l5O8ZiHkH32iaSTfN7Eu5RnNVUJbv=
-oPH
-Z8SlM4KWm8rG+lIkGurqqu5gu8q8ZMKdsdGC4bBxdQKDKHEFExLJK/nRPFmAuGlId1E3fe10v=
-5QL
-+qHI3EIPtyfE7i9Hz6rVwi7lWKgh7pe0ZvatAudZ+JNIlBKptb64FaiIOAWDCx1SzR9KdWVyZ=
-2Vu
-IEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+wsB5BBMBAgAjBQJTjHCvAhsDBwsJCAcDAgEGFQgCC=
-QoL
-BBYCAwECHgECF4AACgkQsN6d1ii/Ey/HmQf/RtI7kv5A2PS4RF7HoZhPVPogNVbC4YA6lW7Dr=
-Wf0
-teC0RR3MzXfy6pJ+7KLgkqMlrAbN/8Dvjoz78X+5vhH/rDLa9BuZQlhFmvcGtCF8eR0T1v0nC=
-/nu
-AFVGy+67q2DH8As3KPu0344TBDpAvr2uYM4tSqxK4DURx5INz4ZZ0WNFHcqsfvlGJALDeE0Lh=
-ITT
-d9jLzdDad1pQSToCnLl6SBJZjDOX9QQcyUigZFtCXFst4dlsvddrxyqT1f17+2cFSdu7+ynLm=
-XBK
-7abQ3rwJY8SbRO2iRulogc5vr/RLMMlscDAiDkaFQWLoqHHOdfO9rURssHNN8WkMnQfvUewRz=
-80h
-SnVlcmdlbiBHcm9zcyA8amdyb3NzQG5vdmVsbC5jb20+wsB5BBMBAgAjBQJTjHDXAhsDBwsJC=
-AcD
-AgEGFQgCCQoLBBYCAwECHgECF4AACgkQsN6d1ii/Ey8PUQf/ehmgCI9jB9hlgexLvgOtf7PJn=
-FOX
-gMLdBQgBlVPO3/D9R8LtF9DBAFPNhlrsfIG/SqICoRCqUcJ96Pn3P7UUinFG/I0ECGF4EvTE1=
-jnD
-kfJZr6jrbjgyoZHiw/4BNwSTL9rWASyLgqlA8u1mf+c2yUwcGhgkRAd1gOwungxcwzwqgljf0=
-N51
-N5JfVRHRtyfwq/ge+YEkDGcTU6Y0sPOuj4Dyfm8fJzdfHNQsWq3PnczLVELStJNdapwPOoE+l=
-otu
-fe3AM2vAEYJ9rTz3Cki4JFUsgLkHFqGZarrPGi1eyQcXeluldO3m91NK/1xMI3/+8jbO0tsn1=
-tqS
-EUGIJi7ox80eSnVlcmdlbiBHcm9zcyA8amdyb3NzQHN1c2UuZGU+wsB5BBMBAgAjBQJTjHDrA=
-hsD
-BwsJCAcDAgEGFQgCCQoLBBYCAwECHgECF4AACgkQsN6d1ii/Ey+LhQf9GL45eU5vOowA2u5N3=
-g3O
-ZUEBmDHVVbqMtzwlmNC4k9Kx39r5s2vcFl4tXqW7g9/ViXYuiDXb0RfUpZiIUW89siKrkzmQ5=
-dM7
-wRqzgJpJwK8Bn2MIxAKArekWpiCKvBOB/Cc+3EXE78XdlxLyOi/NrmSGRIov0karw2RzMNOu5=
-D+j
-LRZQd1Sv27AR+IP3I8U4aqnhLpwhK7MEy9oCILlgZ1QZe49kpcumcZKORmzBTNh30FVKK1Evm=
-V2x
-AKDoaEOgQB4iFQLhJCdP1I5aSgM5IVFdn7v5YgEYuJYx37IoN1EblHI//x/e2AaIHpzK5h88N=
-Eaw
-QsaNRpNSrcfbFmAg987ATQRTjHAWAQgAyzH6AOODMBjgfWE9VeCgsrwH3exNAU32gLq2xvjpW=
-nHI
-s98ndPUDpnoxWQugJ6MpMncr0xSwFmHEgnSEjK/PAjppgmyc57BwKII3sV4on+gDVFJR6Y8ZR=
-wgn
-BC5mVM6JjQ5xDk8WRXljExRfUX9pNhdE5eBOZJrDRoLUmmjDtKzWaDhIg/+1Hzz93X4fCQkNV=
-bVF
-LELU9bMaLPBG/x5q4iYZ2k2ex6d47YE1ZFdMm6YBYMOljGkZKwYde5ldM9mo45mmwe0icXKLk=
-pEd
-IXKTZeKDO+Hdv1aqFuAcccTg9RXDQjmwhC3yEmrmcfl0+rPghO0Iv3OOImwTEe4co3c1mwARA=
-QAB
-wsBfBBgBAgAJBQJTjHAWAhsMAAoJELDendYovxMvQ/gH/1ha96vm4P/L+bQpJwrZ/dneZcmEw=
-Tbe
-8YFsw2V/Buv6Z4Mysln3nQK5ZadD534CF7TDVft7fC4tU4PONxF5D+/tvgkPfDAfF77zy2AH1=
-vJz
-Q1fOU8lYFpZXTXIHb+559UqvIB8AdgR3SAJGHHt4RKA0F7f5ipYBBrC6cyXJyyoprT10EMvU8=
-VGi
-wXvTyJz3fjoYsdFzpWPlJEBRMedCot60g5dmbdrZ5DWClAr0yau47zpWj3enf1tLWaqcsuylW=
-svi
-uGjKGw7KHQd3bxALOknAp4dN3QwBYCKuZ7AddY9yjynVaD5X7nF9nO5BjR/i1DG86lem3iBDX=
-zXs
-ZDn8R38=3D
-=3D2wuH
------END PGP PUBLIC KEY BLOCK-----
-
---------------50C7AC22B88B580CBA5BADB1--
-
---BghqoVWYJFtxav4Rjq1fhrg7lEQgeEz5i--
-
---tcEbDVrouNxRCQT6V6Z5mmVZzjxADZESG
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmABJvoFAwAAAAAACgkQsN6d1ii/Ey98
-dwf9FKFxh6mblBLmXpWbnobv8fq1R9wat7m3z2UhO6kyOlwBeFJzVvmE6IbT6pwaaT5n3ZfCnQuA
-EOnNel9tEAzJoc0hfaFkugTaS+ptIzX1qKfIJvmM1B4JSqcWMpNdf46eqBdIQpwGfopHN0QqCqR0
-tK6k/nHWkSBuhIGzwvb1NjbcIiqxggT8NwS/kNhkpRS1hXAA/zVHbg3o4kyJMeKcT8l7/+sEni5/
-5NxrVrw2kdJVKK2ll1n1NiWzMJgZUocgeY5hRMKn2x51hgYNOBBrsu8nZY7NYxGjrJ7A6WqX/zAF
-YPd/+5rkMJ9LD3AfPdwQJpFoo61c/1nieAsOfXAvew==
-=wtac
------END PGP SIGNATURE-----
-
---tcEbDVrouNxRCQT6V6Z5mmVZzjxADZESG--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANpmjNOrD76O2_Zpwo5RJ2d12gczuQpG9bJkXYLY_sOVeEVZGQ%40mail.gmail.com.
