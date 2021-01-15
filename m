@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBUEHRCAAMGQEEOAEZKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBVEHRCAAMGQERFO2BHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 296D72F8724
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 22:06:25 +0100 (CET)
-Received: by mail-qk1-x73e.google.com with SMTP id n13sf9224592qkn.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 13:06:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610744784; cv=pass;
+Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id B2C3E2F8725
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 22:06:29 +0100 (CET)
+Received: by mail-oi1-x23f.google.com with SMTP id i9sf5054764oih.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 13:06:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610744788; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GBWWbbXdHkMa6js9tj7LxVEFJdMl/fqSO/eETG7aXyROeJhrSiS6c8UvtBLeyS46p8
-         wxolZwD6jocvlrWnsEbbhIHmAAQbGv1DMi+gzpMIWgh916MWOHPfaO7/5nynOlLoNp+3
-         BrvasWM4nNN/RqsFqw4s3IcCS2mJJoCxC74AOPcN/tO0x1pf0PIU5gC0Tsx0KdGguluZ
-         EtCdHC2oRHpU1Nfg26EB9tfd6lqmkbE8b/QpJ3MtEAKaGM9+8NdZpRXUg07uw5ZMjVMG
-         lsjwlU66c9ncbNafH/FmdJNhfmJ31J4XsOG8TH5JuUjKBPq4Hnu/j5JBX21YhKC33+T7
-         CVlg==
+        b=B8qZMLXyKN9+fU90fOtL9A+SL0GIC0bJxFvXm85+YnRDuvx7uoPXoLIXUcKD73dV4R
+         yJFrHXH5p20/2ozj83bOwGW/N79nsUYC/UrKqChYhFPes+PmNr2ThPiV2UQxCKDDupRf
+         bPe53DGmqMj/b1tEuobQGfqrmZZNoLgofnhg7gFg9hmVndBKaQ9TurXc/2bFSYCquc8R
+         zgReYwGbGD/Ivbz6s8pyeXhiz9vcQWCwiCUoCAaNySUH3r9FWRxOtU2yzcKZuIhzXJBt
+         gNCM6VJO/mB59HIRoTQCiiEbUFNU58QPKGf810oQVM66VwntuwJOd+sFVymuKVrF/Ds/
+         xUpQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:sender
          :dkim-signature;
-        bh=0IQ3kXsZsNwcZFD+DX15a4SnfUsRBGG21j6yQWlxY2c=;
-        b=pjEJ7kFEPtP3OdcHE0ElAXUxGMzT7aTA4sN3MU1/yLBv/uqg048YJs/JK9h3EVOg1O
-         QW8uA6ekX2gxx+U8SUeaD00nGvH5To96AL55Icc6QlOB57KxZD/3Q0xAwi8bLE7DhZx7
-         2dp0tKv9AYB5Vdzkcv9BLnvjUGB07wvKEEkBQZZrXtrBZLN7V0znU2vuUQxp7Uz75ssp
-         eLAOH/fiPw+5YGU53634nVfxqF6pK1PGYaEfThu8MiJupW7UJEhp1TwS05d3na0yUemw
-         GOotUtjLBUBdA/ic7+QmpFvNhDzVBDDVwoIiCDRaQ4SwJSCnlu1rWHtS+o+bIT5k63kC
-         9Fsw==
+        bh=zmB2s2K1oAc8Tj4PbRkThL0y8XcjrfJmNcIW/KRIM84=;
+        b=J2DODxgMLd5mpGy5vinZuxUId2kvR0s4qgN3JygW68FWcTMA6BjFDYW8AScWPLf7YV
+         foNJ0hrZsVin5YMkAGbAXsod3JWZiq4N7hb1Kkl4XWlEAIP+hZg6AU3UHk0sZM2TJGaQ
+         izc8o7qdGfsLtIBBesVWYSWB6e506bec3pwmFWooHsRghOvF5EeXpzKAT85KffNUkBnP
+         j/qKhnsQpdi+P9SST5yZiBdHeZnGNImApY74gHPHOJyRRQvYR00ub3PydIVHMDcauqUT
+         ffcVA8DGU7cY92bGTl2+U/dq7FEQ0dlgfnsbVTIm53oGhjDN4EinpwN6TgLlnj9Q2cew
+         MsEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=P98utPfE;
-       spf=pass (google.com: domain of 3zwmcyawkaoqtjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3zwMCYAwKAOQTJKYGaRTOKXYMUUMRK.IUS@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dhblPhm4;
+       spf=pass (google.com: domain of 30qmcyawkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=30QMCYAwKAOYVLMaIcTVQMZaOWWOTM.KWU@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :from:to:cc:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=0IQ3kXsZsNwcZFD+DX15a4SnfUsRBGG21j6yQWlxY2c=;
-        b=JQS64XPj9U34aeXs/ka9V1QZ7mgREQay2I9owwMzwFY8BNApoNBgTTPVOy/lzoOKYH
-         sac6Oo16RlgPbhhllxCMgXc85xsG8QIv7gneoTxTlpGaEaO+rWS6/blHmVF7zk0D78lq
-         KYocvSBBBjEAjpkah82au83RLHDDtjxXP5aMroHMQOoEos3KZRJDFwRh27hizenx7X+O
-         UR84EfOPC9KnBuo7Bx/0Hv5o63hTREpPj571ixlMVRwqprK3GSh7W6RlCXTL2saA44CQ
-         2ubTvn5kIgEyJLxYRVbf67Rhf5LP1kFERdIvNszUtVshfQ2h+O1JMw4EqyrBe/VXpzmA
-         W/+g==
+        bh=zmB2s2K1oAc8Tj4PbRkThL0y8XcjrfJmNcIW/KRIM84=;
+        b=iVfkXXwmY93nsBmEXGjtrBq+HNlenQY29zbto8X3nnDQyC5KLLfZZoLbQowRDNgWUX
+         eHWhzNWvr6P9MZ+79ZHDK9VuX+YSYi1O15/XB/tOpmvunY/cLXJtFAV1dj79hfzD43Vo
+         mTIxh0qctVbJIZXHkzcAzEuBBW3tH90fctp9aURW37ymrBECJhSTkMe9xWwLiHhHznnY
+         4pLbiQr1F+3/Mw+f2ObLUvh4ZvaQnydpux+xSiw5KFYr2zWxZFmArr0K1WNQ2MMJ0Z2J
+         eAA3xq1EdkcGx4iYwIYEBVkSc5mGnQLSCim7rL3iNsS7FQoL0H5InNohaoGylV7btvAo
+         cVuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
@@ -50,64 +50,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0IQ3kXsZsNwcZFD+DX15a4SnfUsRBGG21j6yQWlxY2c=;
-        b=J1yyJ8kPBiEP/9auILEvcUHequZ4C4K4hJbeZIgUNGD4h3krbYOOURMrtLM5UeqKwC
-         ZfQVY2S5ukraNOeQM/Qojj6oTduxwOgG39Pb0f2OsfwKgIi2sG5F3RKRxqb5n45Cc9NB
-         9Gs5ZB6NMP0LJgdypCbZE41HZiaZ+ZlI515BgZW3p/HNs9W9QDcVG34eLlRCsMnmHHU5
-         eTpB0/jzNsMKZmqsn88iwS2s7t/Pb5DXnm/y0shFX/Fns4EnSMLrSaf9lJw96ji/gO1z
-         iyn2+z3rmNod8Q2ws6Htf5PbFlT1lnFKThw3I00E9nJIvIdug3mt9JBiwiW+oybmURdq
-         9n+A==
-X-Gm-Message-State: AOAM532pezRGHvfpB353oYeoTkpHJOvTZkTXvMIWep8CxGWW9tlnPFiD
-	uGkVsRk0M0KTKPAApddh7oQ=
-X-Google-Smtp-Source: ABdhPJzZin0eRHZ4UJ8N5vRf9VZTBQjPLjqzjDTB9n2ZHIzXJqNai6OC88SmgovqqKlJoCZOl4vgeQ==
-X-Received: by 2002:a05:622a:14e:: with SMTP id v14mr13569937qtw.298.1610744784251;
-        Fri, 15 Jan 2021 13:06:24 -0800 (PST)
+        bh=zmB2s2K1oAc8Tj4PbRkThL0y8XcjrfJmNcIW/KRIM84=;
+        b=M1XOyMJlO6z6Hukw0WNl/TNDckHrUXQandnNNgZt7g0c9ziWXlYfnJe1lYOefoKwSe
+         xUgzjyJJ54RPqyFiLb6SWwx6e750f+PEjlB4yQHHW+AnxX0woncUnPohM3qdpjv0DiVp
+         vhtrvoZu+x3CerEh/B1uAIdMzx+P/hm+3H7yaUQ2aUqYJreUbSJ1HmSlCGUs8qIGWw4J
+         ecZHXR4L0ukwvPJq8vE+WkW9YNsReO18jaAqfy1R+6iUgHM7NZqXBwFwmyYQ6ZXsaNJQ
+         1aX2gHMABCg8Hdrt8gACbtXlJZe1MAHZN8bYrH+Yxf5WzHAw2yHrrDtc66jpkV0+CAlp
+         hOtA==
+X-Gm-Message-State: AOAM533euDS47mr9K6nup2iptFM1h9YE3qxEVOQhZD1cWT4ApCCzaULB
+	JFTxehl08zLlwif2iQbw1mM=
+X-Google-Smtp-Source: ABdhPJyDV5LnWSdmTORRd3kU8jLZm1fiFITS5k1iZ6ufnuPThWrn+Z4jukydAZLgvLzDzQgJl28ziw==
+X-Received: by 2002:aca:4d4:: with SMTP id 203mr6849586oie.113.1610744788709;
+        Fri, 15 Jan 2021 13:06:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:242:: with SMTP id q2ls5209366qkn.9.gmail; Fri, 15
- Jan 2021 13:06:23 -0800 (PST)
-X-Received: by 2002:a37:63d1:: with SMTP id x200mr14206241qkb.164.1610744783908;
-        Fri, 15 Jan 2021 13:06:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610744783; cv=none;
+Received: by 2002:a9d:7c95:: with SMTP id q21ls873192otn.7.gmail; Fri, 15 Jan
+ 2021 13:06:26 -0800 (PST)
+X-Received: by 2002:a9d:7344:: with SMTP id l4mr3685049otk.181.1610744786492;
+        Fri, 15 Jan 2021 13:06:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610744786; cv=none;
         d=google.com; s=arc-20160816;
-        b=HRl2QkiqEwyMjWrlhR/x4D3HujWWsWAormuMLqrDFxdEPdfbot2kCVC3uR0v4dtcY3
-         E8M+q/T7jV0WPo7uKJO6ljJ4AaQb8RW9Up2dkmhKp33agxjuiIqUnXnmE+lXNF35Zyjn
-         08p3nnzaOjfiRac8TZ08HcuG65wEzeIG4KyY5y5O7maWdj/TJ+wT4e9XAjQw7NcSln+W
-         hQBMuUIO4g++Z4sZK5Plt/Ve9P6a8ms8q9OaVM7qlK7RRgWBhuAiNVX50RQYwUxym9E0
-         c5HMXu2rogO5uKmy3GbyItdKDg+LashYGDOk8JbFneH3wFeP/esTy8bmn7cUGhZ1hGAK
-         4p4A==
+        b=c2xfwnhAxusZRWJDbzahEiUAN+3frNZ4WqQCBYzbu30hjQzdZo7rcpqXpiRRTf6pDv
+         KwtnxOCQif6EBASGTn7+WhdR0JPGTi1YuHQFzA3WgCESZPUtvUcQLKBm/5+LSogimXoj
+         okI/KQkQNIhoQg1vjNVbEITuDP6hByZIjfdmdZPhmQDCd9UTEW3XiBWrpOiRWuCdKc4n
+         pcaJlf5DxxS3p6PC5ysXcF2cmx3UdbEK+s6ERE0oiaf4OWkaSznBCUIN93GRyJDW7h5b
+         6J4VFoDe7bEX5u9wm47oViOGkKzsavOJWC5IOUIx+FMPVx7ST1bMZjnMWgBgZgX+xp4d
+         y0Dw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:sender:dkim-signature;
-        bh=WwUdb2o6/JIc/+fz+e0NhIo1IFclKkxRZVZ3uFNIMcs=;
-        b=VseNnMBUv577fKRMirnEf0PevdgHA00apRebzNcoCyyhEa4vQNbFL+yExVU6gRG9Ya
-         r9RUrKzXhAi7ScYp4xUX9ASYte/x9WqNFJbYS8wLmGd/g0Qaf5isez8FlPs/Z6QwjODN
-         EKE4qmQgy1rXdmoxEXd2pSdGlETWOjXndvkE0YxZjCIRyc8IcIK4gYdR+K0zpwDCyceM
-         1bQ3QJ7a1n0f5rITiayO78rO7x6EHG2JAGZIEmQtk4YknLcRJZ3tcIdifmX4ilc23ctx
-         2pRD2hsJIAsT/qKzpiJGZdINGuEVr26BaMjHBuaaSI3JA7qV7MUDkMUtia983wpC1GXh
-         B3wQ==
+        bh=hLpMcuoMrHdKRuRQ10ZvVy2SGH1r/TsEXPc2P6puki0=;
+        b=FKLMx0exEhWLJjoi2y3RlVq/2W2OuBGKfyVD53xrgmLRAric88HKjW/sAFz+pXOdAS
+         pR9cG7Ic1sRp0wvnEt3EHbyli4RSuqd5f8+2jsD3ZqQ6hOHg/Quv39quwpoG5swru88x
+         ZGoOc+7QYbKUk0oU4R5g7URwhH3b+KxDgih54vr/lHt7r+ddGvh4MPF8lErLxvNIpEXP
+         NmVyg2zFkhVKWj+hPXHx8ZV5T/+/6VBDG6Xn7VFBms4Ye3HVLwX4SfoiSWHaczxl77jM
+         CiaWZXHT3qDt9rRcehQgFYvJAFROny6kl65jUicxn3D3smXgWQGo+CEUJdT0ARHC5Wm9
+         FIag==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=P98utPfE;
-       spf=pass (google.com: domain of 3zwmcyawkaoqtjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3zwMCYAwKAOQTJKYGaRTOKXYMUUMRK.IUS@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dhblPhm4;
+       spf=pass (google.com: domain of 30qmcyawkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=30QMCYAwKAOYVLMaIcTVQMZaOWWOTM.KWU@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb49.google.com (mail-yb1-xb49.google.com. [2607:f8b0:4864:20::b49])
-        by gmr-mx.google.com with ESMTPS id p55si1020645qtc.2.2021.01.15.13.06.23
+Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id f20si715790oig.2.2021.01.15.13.06.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Jan 2021 13:06:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3zwmcyawkaoqtjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b49 as permitted sender) client-ip=2607:f8b0:4864:20::b49;
-Received: by mail-yb1-xb49.google.com with SMTP id 67so3935011ybh.22
-        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 13:06:23 -0800 (PST)
+        Fri, 15 Jan 2021 13:06:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of 30qmcyawkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
+Received: by mail-pf1-x449.google.com with SMTP id m65so3910495pfb.20
+        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 13:06:26 -0800 (PST)
 Sender: "ndesaulniers via sendgmr" <ndesaulniers@ndesaulniers1.mtv.corp.google.com>
 X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:f693:9fff:fef4:4d25])
- (user=ndesaulniers job=sendgmr) by 2002:a25:340c:: with SMTP id
- b12mr4325908yba.474.1610744783536; Fri, 15 Jan 2021 13:06:23 -0800 (PST)
-Date: Fri, 15 Jan 2021 13:06:15 -0800
+ (user=ndesaulniers job=sendgmr) by 2002:a62:ac09:0:b029:1a9:dd65:2f46 with
+ SMTP id v9-20020a62ac090000b02901a9dd652f46mr14422249pfe.15.1610744785693;
+ Fri, 15 Jan 2021 13:06:25 -0800 (PST)
+Date: Fri, 15 Jan 2021 13:06:16 -0800
 In-Reply-To: <20210115210616.404156-1-ndesaulniers@google.com>
-Message-Id: <20210115210616.404156-3-ndesaulniers@google.com>
+Message-Id: <20210115210616.404156-4-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20210115210616.404156-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.30.0.284.gd98b1dd5eaa7-goog
-Subject: [PATCH v5 2/3] Kbuild: make DWARF version a choice
+Subject: [PATCH v5 3/3] Kbuild: implement support for DWARF v5
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: Nathan Chancellor <natechancellor@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
@@ -121,9 +122,9 @@ Cc: Nathan Chancellor <natechancellor@gmail.com>, Andrew Morton <akpm@linux-foun
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=P98utPfE;       spf=pass
- (google.com: domain of 3zwmcyawkaoqtjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::b49 as permitted sender) smtp.mailfrom=3zwMCYAwKAOQTJKYGaRTOKXYMUUMRK.IUS@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=dhblPhm4;       spf=pass
+ (google.com: domain of 30qmcyawkaoyvlmaictvqmzaowwotm.kwu@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=30QMCYAwKAOYVLMaIcTVQMZaOWWOTM.KWU@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -139,82 +140,158 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Modifies CONFIG_DEBUG_INFO_DWARF4 to be a member of a choice. Adds an
-explicit CONFIG_DEBUG_INFO_DWARF2, which is the default. Does so in a
-way that's forward compatible with existing configs, and makes adding
-future versions more straightforward.
+DWARF v5 is the latest standard of the DWARF debug info format.
 
+Feature detection of DWARF5 is onerous, especially given that we've
+removed $(AS), so we must query $(CC) for DWARF5 assembler directive
+support.
+
+The DWARF version of a binary can be validated with:
+$ llvm-dwarfdump vmlinux | head -n 4 | grep version
+or
+$ readelf --debug-dump=info vmlinux 2>/dev/null | grep Version
+
+DWARF5 wins significantly in terms of size when mixed with compression
+(CONFIG_DEBUG_INFO_COMPRESSED).
+
+363M    vmlinux.clang12.dwarf5.compressed
+434M    vmlinux.clang12.dwarf4.compressed
+439M    vmlinux.clang12.dwarf2.compressed
+457M    vmlinux.clang12.dwarf5
+536M    vmlinux.clang12.dwarf4
+548M    vmlinux.clang12.dwarf2
+
+515M    vmlinux.gcc10.2.dwarf5.compressed
+599M    vmlinux.gcc10.2.dwarf4.compressed
+624M    vmlinux.gcc10.2.dwarf2.compressed
+630M    vmlinux.gcc10.2.dwarf5
+765M    vmlinux.gcc10.2.dwarf4
+809M    vmlinux.gcc10.2.dwarf2
+
+Though the quality of debug info is harder to quantify; size is not a
+proxy for quality.
+
+Jakub notes:
+  All [GCC] 5.1 - 6.x did was start accepting -gdwarf-5 as experimental
+  option that enabled some small DWARF subset (initially only a few
+  DW_LANG_* codes newly added to DWARF5 drafts).  Only GCC 7 (released
+  after DWARF 5 has been finalized) started emitting DWARF5 section
+  headers and got most of the DWARF5 changes in...
+
+Version check GCC so that we don't need to worry about the difference in
+command line args between GNU readelf and llvm-readelf/llvm-dwarfdump to
+validate the DWARF Version in the assembler feature detection script.
+
+GNU `as` only recently gained support for specifying -gdwarf-5, so when
+compiling with Clang but without Clang's integrated assembler
+(LLVM_IAS=1 is not set), explicitly add -Wa,-gdwarf-5 to DEBUG_CFLAGS.
+
+Disabled for now if CONFIG_DEBUG_INFO_BTF is set; pahole doesn't yet
+recognize the new additions to the DWARF debug info. Thanks to Sedat for
+the report.
+
+Link: http://www.dwarfstd.org/doc/DWARF5.pdf
+Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
 Suggested-by: Arvind Sankar <nivedita@alum.mit.edu>
+Suggested-by: Caroline Tice <cmtice@google.com>
 Suggested-by: Fangrui Song <maskray@google.com>
+Suggested-by: Jakub Jelinek <jakub@redhat.com>
 Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
+Suggested-by: Nathan Chancellor <natechancellor@gmail.com>
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- Makefile          | 13 ++++++-------
- lib/Kconfig.debug | 21 ++++++++++++++++-----
- 2 files changed, 22 insertions(+), 12 deletions(-)
+ Makefile                          |  6 ++++++
+ include/asm-generic/vmlinux.lds.h |  6 +++++-
+ lib/Kconfig.debug                 | 18 ++++++++++++++++++
+ scripts/test_dwarf5_support.sh    |  8 ++++++++
+ 4 files changed, 37 insertions(+), 1 deletion(-)
+ create mode 100755 scripts/test_dwarf5_support.sh
 
 diff --git a/Makefile b/Makefile
-index d49c3f39ceb4..4eb3bf7ee974 100644
+index 4eb3bf7ee974..1dcea03861ef 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -826,13 +826,12 @@ else
- DEBUG_CFLAGS	+= -g
- endif
+@@ -828,10 +828,16 @@ endif
  
--ifneq ($(LLVM_IAS),1)
--KBUILD_AFLAGS	+= -Wa,-gdwarf-2
--endif
--
--ifdef CONFIG_DEBUG_INFO_DWARF4
--DEBUG_CFLAGS	+= -gdwarf-4
--endif
-+dwarf-version-$(CONFIG_DEBUG_INFO_DWARF2) := 2
-+dwarf-version-$(CONFIG_DEBUG_INFO_DWARF4) := 4
-+DEBUG_CFLAGS	+= -gdwarf-$(dwarf-version-y)
-+# Binutils 2.35+ required for -gdwarf-4+ support.
-+dwarf-aflag	:= $(call as-option,-Wa$(comma)-gdwarf-$(dwarf-version-y))
-+KBUILD_AFLAGS	+= $(dwarf-aflag)
+ dwarf-version-$(CONFIG_DEBUG_INFO_DWARF2) := 2
+ dwarf-version-$(CONFIG_DEBUG_INFO_DWARF4) := 4
++dwarf-version-$(CONFIG_DEBUG_INFO_DWARF5) := 5
+ DEBUG_CFLAGS	+= -gdwarf-$(dwarf-version-y)
+ # Binutils 2.35+ required for -gdwarf-4+ support.
+ dwarf-aflag	:= $(call as-option,-Wa$(comma)-gdwarf-$(dwarf-version-y))
+ KBUILD_AFLAGS	+= $(dwarf-aflag)
++ifdef CONFIG_CC_IS_CLANG
++ifneq ($(LLVM_IAS),1)
++DEBUG_CFLAGS	+= $(dwarf-aflag)
++endif
++endif
  
  ifdef CONFIG_DEBUG_INFO_REDUCED
  DEBUG_CFLAGS	+= $(call cc-option, -femit-struct-debug-baseonly) \
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index 49944f00d2b3..37dc4110875e 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -843,7 +843,11 @@
+ 		.debug_types	0 : { *(.debug_types) }			\
+ 		/* DWARF 5 */						\
+ 		.debug_macro	0 : { *(.debug_macro) }			\
+-		.debug_addr	0 : { *(.debug_addr) }
++		.debug_addr	0 : { *(.debug_addr) }			\
++		.debug_line_str	0 : { *(.debug_line_str) }		\
++		.debug_loclists	0 : { *(.debug_loclists) }		\
++		.debug_rnglists	0 : { *(.debug_rnglists) }		\
++		.debug_str_offsets	0 : { *(.debug_str_offsets) }
+ 
+ /* Stabs debugging sections. */
+ #define STABS_DEBUG							\
 diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index dd7d8d35b2a5..e80770fac4f0 100644
+index e80770fac4f0..658f32ec0c05 100644
 --- a/lib/Kconfig.debug
 +++ b/lib/Kconfig.debug
-@@ -256,13 +256,24 @@ config DEBUG_INFO_SPLIT
- 	  to know about the .dwo files and include them.
- 	  Incompatible with older versions of ccache.
+@@ -273,6 +273,24 @@ config DEBUG_INFO_DWARF4
+ 	  It makes the debug information larger, but it significantly
+ 	  improves the success of resolving variables in gdb on optimized code.
  
-+choice
-+	prompt "DWARF version"
++config DEBUG_INFO_DWARF5
++	bool "Generate DWARF Version 5 debuginfo"
++	depends on GCC_VERSION >= 50000 || CC_IS_CLANG
++	depends on CC_IS_GCC || $(success,$(srctree)/scripts/test_dwarf5_support.sh $(CC) $(CLANG_FLAGS))
++	depends on !DEBUG_INFO_BTF
 +	help
-+	  Which version of DWARF debug info to emit.
++	  Generate DWARF v5 debug info. Requires binutils 2.35, gcc 5.0+ (gcc
++	  5.0+ accepts the -gdwarf-5 flag but only had partial support for some
++	  draft features until 7.0), and gdb 8.0+.
 +
-+config DEBUG_INFO_DWARF2
-+	bool "Generate DWARF Version 2 debuginfo"
-+	help
-+	  Generate DWARF v2 debug info.
++	  Changes to the structure of debug info in Version 5 allow for around
++	  15-18% savings in resulting image and debug info section sizes as
++	  compared to DWARF Version 4. DWARF Version 5 standardizes previous
++	  extensions such as accelerators for symbol indexing and the format
++	  for fission (.dwo/.dwp) files. Users may not want to select this
++	  config if they rely on tooling that has not yet been updated to
++	  support DWARF Version 5.
 +
- config DEBUG_INFO_DWARF4
--	bool "Generate dwarf4 debuginfo"
-+	bool "Generate DWARF Version 4 debuginfo"
- 	help
--	  Generate dwarf4 debug info. This requires recent versions
--	  of gcc and gdb. It makes the debug information larger.
--	  But it significantly improves the success of resolving
--	  variables in gdb on optimized code.
-+	  Generate DWARF v4 debug info. This requires gcc 4.5+ and gdb 7.0+.
-+	  It makes the debug information larger, but it significantly
-+	  improves the success of resolving variables in gdb on optimized code.
-+
-+endchoice # "DWARF version"
+ endchoice # "DWARF version"
  
  config DEBUG_INFO_BTF
- 	bool "Generate BTF typeinfo"
+diff --git a/scripts/test_dwarf5_support.sh b/scripts/test_dwarf5_support.sh
+new file mode 100755
+index 000000000000..1a00484d0b2e
+--- /dev/null
++++ b/scripts/test_dwarf5_support.sh
+@@ -0,0 +1,8 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++
++# Test that assembler accepts -gdwarf-5 and .file 0 directives, which were bugs
++# in binutils < 2.35.
++# https://sourceware.org/bugzilla/show_bug.cgi?id=25612
++# https://sourceware.org/bugzilla/show_bug.cgi?id=25614
++echo '.file 0 "filename"' | $* -gdwarf-5 -Wa,-gdwarf-5 -c -x assembler -o /dev/null -
 -- 
 2.30.0.284.gd98b1dd5eaa7-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210115210616.404156-3-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210115210616.404156-4-ndesaulniers%40google.com.
