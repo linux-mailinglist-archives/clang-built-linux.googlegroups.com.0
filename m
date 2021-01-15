@@ -1,144 +1,138 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBYW7Q2AAMGQEPBW253I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBCPKQ2AAMGQEJNCK4FA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8DD0A2F7EF1
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 16:08:19 +0100 (CET)
-Received: by mail-qt1-x83c.google.com with SMTP id a11sf7562633qto.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 07:08:19 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610723298; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A45D2F7F86
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 16:30:18 +0100 (CET)
+Received: by mail-oi1-x23b.google.com with SMTP id j28sf4435383oig.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 07:30:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610724617; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NUsK3sZ1SOFDKc5vPJ0pU5tGXzbZcbQ+mwf5MXrQdwWCPJPpCFCZvjMr0qBNwSGfw2
-         9hW0OIrvG2MSgrNChndAHT7p7DwJMLzYVkWiG2453VPfWzl7C9MHRdEStqRWmwBxC+eV
-         m5STVW6bp2G4gPllmlnqLJ12vEwAIMOWsDA61+0Uo2Ud5lqK5MIm+F7iczM7MwP3YJMl
-         iINOWBrpcmNjelMYtafssQFyVGdfrRxtgHBucXQqiZgbBwTbdo5eZwe+OT5vAgokdZ5V
-         9CemQ6ehYDelIqbeeQnMug0AgrM/ROp3PiGjXihWIeNkliVsh6srAO3AlfnG3bpbWmQd
-         ewFQ==
+        b=cDuxmlQya3QjbGCP9regrqRvzctnr7ZmiR/uB8laYdORaWPALRxW93OkQunBWRPuiG
+         Aj977RRsTkpIGLROgB0BWzY576mUuwg755jlJXEx+1QRT3kuySZmxTQB5/EgeBZUgzLt
+         3x7JT9zLqhqkgQxqUHHp4gOb/M8OxREUOt3TVEbD7i0K2fsUvurulsIeybp/SeEd/jae
+         InHFuWVLd/HSQLzkiwj8aCMQuB6asPB/UZT7PFoHNa3QhBqJdM7e6nsLlJfkg1BmKudt
+         mwWjHVpwh3KjKngQvNfFiiDW1/jHW1ypoOZJ3DRMoJwOhJoq9l2awYtEcj4aPzbk56nm
+         zEUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=QWMAYY4Yl97asCXntDuQh94ZIUTkf9mQJXMqKngzPFE=;
-        b=CPXEte3yVGkZPunlR8uUdEtXoYDIctNulmBnMvPjuJC5Ar8T17E7gHoNl6PX4CfUYW
-         t5Nnz4uli0+tfYnBnB9TA/zilb9AANH1nLxBu93SDhMwLyD00uCaic5dM/aUCeB/Xmtw
-         PjKqFmnD0zPcGcH7awLS2NcyNjiHCfjkqo2a9jfJBxCk+nCASDtKyYV6YM/tPNlvt5Zr
-         tDar/TOp6q0JbH/jkvteycy5YS/F1Uabbf/nMI3J1SURTQTsPogQCrryWqd1vWNyCeb7
-         MalV2/Rhe/N9gkp6iKchDkEVSVc7KgdPuit/3vUpZfJhMXPqIcpH4IwJ910IIStdqbY+
-         DXcQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=MJjmPxKd3QOF/9uKeNuD4maTtBO4b8vP93mhX5POxdk=;
+        b=oJJnBKl+M2NZqi9r+OQt0KT307MFS7u322eUrRMO4nmOuBEZ9iWkklIVq2yRTWgkCh
+         ZMf3AAVI1S36JiqyuAY5qPEiHUijdIx3XAYaAofVlGdbfmI69JrjRr+N5Rn9HzXCso7N
+         lpFHJ0vQlBg6Mz1l07pfYuMVIRfJQO7Us018/xkNmt42mtP1bliOt5rASTcgNypTqou8
+         t96zCOh3mBbc4T9O0PJagXZWtaLN6ka0HXf0lrLo2YZp7CMxz7laXYWqNejrZbZ2N+DH
+         xYQnk/LOiGkiHRf+RA4llmSz7gtzGTCMSbeItAGl8siDtcsJPm7HbEoQvr8HIpMvj7bq
+         IiOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RJPr4dBR;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NXSO1eFy;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=MJjmPxKd3QOF/9uKeNuD4maTtBO4b8vP93mhX5POxdk=;
+        b=RL1SEHJ3TzulP2+JsQQiqwNNUVFwsbapfpn9J7zv+a0TuJTl1CHduAeqqE466+TZIl
+         8z/aRYVuU2xLtIqROJ9HVKWUTDjzounfDjwx48CaGXZjZ+3NM4wqNvW942Nacniah9t3
+         4o8DotllLu2pCOz/iMEJ+xoVrAC1q79LawM6g4UDiupHO7YZDAMUsYUYmZLNDIqbcAx2
+         cA29ElYSiVfXX7BgYrrOTf8ztIkPeCA/EtKvf77M+Tj3Lvl1tTVAVbixTMFd9ax/kFjU
+         mXRV6DHl678pvgGHwFaQzUPhrL8Plj6Z3BQtZSuSoMsKy/KpqqBV5K31gWeKXs5daSio
+         B5gg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QWMAYY4Yl97asCXntDuQh94ZIUTkf9mQJXMqKngzPFE=;
-        b=CtOKxV5pxK4d2Iza7rembvvjtiWCAP5GpDdXWfhMGw7g4As+g/a5DwF46zsrbnFA0H
-         Vxw3XKnQtayf9yK0dzdhiLWzgP1g91PJdZyHuEGmzz9/4oiX0ZCn6oqlg9H0yQ3a/gUv
-         an6YYVWcLrt1kksOGwWvqokVSyY2aGMFdhVxpD5jXSSGJaWK0Yp5fGOVGt5hpz3Mew4c
-         qZSxpTacbgHFdoXJ8Ln3JWY878YqbM8E2B/uxkvQNIxII4JJ0ruByOQUqE2uZX00bABc
-         sDUGoyZDDkJKFxDDYUQXTMYFC5BlWiQ9mgidXAUiVjwgj3Lofl9u/4v5S3ArOOP+glzm
-         U+JQ==
+        bh=MJjmPxKd3QOF/9uKeNuD4maTtBO4b8vP93mhX5POxdk=;
+        b=o9aYzHigBu8G0ker6q9yVRQM4g5ME8RuwPUM6KLTp6HUMCkynKwiZE+XrJrAoMUNg5
+         JUXrn/QLF7zKvJn/la8DoR0eF82CAnOMpw7e6vNRUvZ7G4LJUT5aYdXcAJ5shAh146s6
+         et6TFJinxre53NS+KNNhfJK/rDO464HgPcUBFxJUOl5dLMzo6aszIep7eihOs3JXqsh4
+         yShhi65QTY9TRdeV+XRmhpkUPkc5ll/GculP2INQHHfqznMB1CN+GlZTjtu9MaueQdhS
+         bHeWhROd5zGOc7uo7KM7tyZa3ffaheHBTBL+YDd+i1u+LZix065cGbLKTzJnn4Jrugq/
+         H6OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QWMAYY4Yl97asCXntDuQh94ZIUTkf9mQJXMqKngzPFE=;
-        b=DcxhAhMjdwch0+sYyp+U7rcuLgwT/7onHnZ9EL80CkpQ1F1E/mu/dWCQQ4Lss0rm+B
-         t9HYNQVyCxxg8Jk0Ctgm4vpzcGBgSadZc+kWrgW+1u9C8El/c329QwPvCErLyJakR4yS
-         MH8OL4+3YbcdpaMPOk6f81zaNqqmGDGe1CzpcWYfdLXO5Bw8/ZtmkxZduBqzls1s2hYv
-         NrnOWyP/VC4SRK+iMGlCJw8cj/9vVvtSdfSAUwxqjr2PI7g30peb4VOu6M4enlnAMnFX
-         ktZtZ3TS5Xw0uodOfbsuy8EfZuqrZr9JoLpISVqjfRsYnTG9o2ZqqLJxNVBfYt8EiR9U
-         YPbg==
+        bh=MJjmPxKd3QOF/9uKeNuD4maTtBO4b8vP93mhX5POxdk=;
+        b=BgwcVHOVi2y2GxPxLEFNfDWzSewEH6ZFSWMEn3kpNg7GUg770inESlEv+I1zWgFAaW
+         WanAn4H7JBKI19TyqdQcfiu9JTnNCgf8SKZa78IIX/746LjSpOrOBulbK2txleSr1K8j
+         bwOTXVQgjZPE67PyyfmIciR9YLku5oX/XK0DGhwnqI1NI+x4h5nz4eSZ04wBh8S8/vNB
+         DjTEciciVXnCoImzd90PkLpRyZ4HvioAkhtpb6cj2DI6CCO3J3UUnlDFVnRzT3pQsley
+         2E3+c6OaOgA6iqDwfjp3YEyHS+T1wTLfvQhfECEO92TS9Or7kQ+7wYWDcK1jq25bPnXh
+         C+wQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ixA4qyiXNuOyFVneoVXtuAHO3C9LP6I28VEK2tgo9uEhZTVr2
-	gMnSPKl0CsEphveHu/wSH1E=
-X-Google-Smtp-Source: ABdhPJyafpFjW9iYqLbEAXG3ZXyq/eqUASI6HCyFJvP/1jcxjrrBrVOsCZL5t0NLDhGgx5cFVpOuMw==
-X-Received: by 2002:a05:620a:63c:: with SMTP id 28mr12639173qkv.26.1610723298330;
-        Fri, 15 Jan 2021 07:08:18 -0800 (PST)
+X-Gm-Message-State: AOAM530EBPGfT/yHQcnd9PKydkHBbiAtRzKjxKJUNnvix2dq4qbXgqy2
+	rMlGNAs2dxtG+dd2p2XzoIo=
+X-Google-Smtp-Source: ABdhPJxXuHqurt3OMlfdp5TCjAo/88zgXdmN8GxSZ/EFaoGEREc8WIsGWebFA7CFZFv4t0fdqhiTmw==
+X-Received: by 2002:aca:54d8:: with SMTP id i207mr5935396oib.101.1610724617459;
+        Fri, 15 Jan 2021 07:30:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:bec6:: with SMTP id o189ls4721978qkf.4.gmail; Fri, 15
- Jan 2021 07:08:18 -0800 (PST)
-X-Received: by 2002:a37:a06:: with SMTP id 6mr12468931qkk.376.1610723297980;
-        Fri, 15 Jan 2021 07:08:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610723297; cv=none;
+Received: by 2002:a9d:6841:: with SMTP id c1ls2363341oto.8.gmail; Fri, 15 Jan
+ 2021 07:30:17 -0800 (PST)
+X-Received: by 2002:a05:6830:12:: with SMTP id c18mr8981222otp.283.1610724616995;
+        Fri, 15 Jan 2021 07:30:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610724616; cv=none;
         d=google.com; s=arc-20160816;
-        b=XtTUgtYk7OOBjSU2ppWqIKQ6X+nVw8LYuOCuRIETdF6TELpvmhr64QctBrp++0HRta
-         5FbUGuYN9CxfeGtG9mvkJ+vRuIcVrhUv3NKueIMnpAc77rlBFpWxe+DE3jTpKGdL4S6v
-         V1yBDI0Dcfki5n5iAF5Bk7A6w6wutRfqLdq7Q1hzlcuxjGXFvPcSD/LU3bc+SY3tTJ/L
-         xcFbzjPRmrsQdrD7jiwbRb40LPwnXfaE3A1hxV0+BJlj2bk038Pf0fYcu7KY5Rvzc1kT
-         HSCUCNc1fqzX5EAcd55SlSv/mRWv5+36vTcL8bzPYW7kLiuL18mlYDDAIyhMGHcshAhu
-         Satg==
+        b=EAE4ndZpiO3GIZ/US9AYjT6G4uhjvrEPZxD7D6o7oHHMkERFAx2/sAElf9lX7yrLWA
+         /DuIIdheDmy4Gj2bMMRO3w09L/9E/i7iVHuUxqMy1aJ97Ajx8kiEOnvMobkAY7wX/pPa
+         hSruoXcppKKXJMS7HugaPACeONTodlnbXnVdKam34V5xp3C/4HxCUj81JAP3P8rKV85w
+         0Ak69ntBLkBWiTGPmDH0Lkgxa5lTToMUer5poGU1fZYsaKx8g+BP3wakr7NCGY0PfjNX
+         Nlg4UqDy3M3Rb/P48VfkXwQxYb1VNKn32u7EowlDqnzZfVhTzu22wbDoW4nsltPfZa6R
+         b/3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=NJb6ukKVIDGK20PzckBJC7srAf03mNvPdQ0z7RPLWw8=;
-        b=IO3KfJxaRedcLAfDHAGwr9JoC7PufuTeleJ2A/2zaEg/URYwvD0u//9+NhHC5/In7k
-         58yzAFc/T1Ni6Z36IKUSGbuka1OWAwqVDAGvGHwlF+fakxulUsCmI7fjOrzsIFzADKdj
-         tjpUi2HDMqdJEBEo9LRoIJ1+77HIPfUUQPiRmJAJVKT33U2dL4546NcXwL2iaoCzzAfu
-         0OJZpAWJRaofugMi7R0iXCaYBDmCgcVnixytfpMpD9fo7LnxkvbMQyVp0/fIEyGPJRpu
-         2gq1Bb49+Osak5LgLDttQ7SgIvwdSagCdXKGSx1rMUFOoQX1CmCfljguJdH/QDskYt+Z
-         rhwQ==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=9tGP6LLQ137anIQKqmX6+3qkciwULnuVTeg/pgmzRE8=;
+        b=mjrLYSQR1JuofWHlcy+n7wOEbnYHCdbRjI2h49p9zj6F0jF6kkk0l7WaqhHwMX0RfY
+         xu3E90G9xzqcYvZshMxL28DPD5kCVLcaAtlRxhUEhHwq3eHmfcRKVLU59PnFhtqN/Yby
+         oIBe+oA4xTvk4LuIymXOaIMUF1aaaAtrD4RjzIc48Ply1gt908Z37yDMknotY3v3yzDk
+         LqDJr3qIlHUaGZ4wtFREw4eIIKV1yyhTeJcO+bsO0CwpGIIgy46ZZ7zsVNrV7bDOvyr1
+         S4ytakqCzxVqARpgfX61k3ZI2aptK/VvL+snRdLkWCVmw4icch8zA2R3rErK/AP0PIsy
+         sKdA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RJPr4dBR;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
-        by gmr-mx.google.com with ESMTPS id y56si671294qtb.4.2021.01.15.07.08.17
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NXSO1eFy;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd2c.google.com (mail-io1-xd2c.google.com. [2607:f8b0:4864:20::d2c])
+        by gmr-mx.google.com with ESMTPS id 7si635183otq.5.2021.01.15.07.30.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 15 Jan 2021 07:08:17 -0800 (PST)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-20-iMfeSiUpMzKE07biV3KWzQ-1; Fri, 15 Jan 2021 10:08:15 -0500
-X-MC-Unique: iMfeSiUpMzKE07biV3KWzQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 0C759CE650;
-	Fri, 15 Jan 2021 15:08:14 +0000 (UTC)
-Received: from treble (ovpn-116-102.rdu2.redhat.com [10.10.116.102])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id EE9DD60BF3;
-	Fri, 15 Jan 2021 15:08:12 +0000 (UTC)
-Date: Fri, 15 Jan 2021 09:08:11 -0600
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: =?utf-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com, Miroslav Benes <mbenes@suse.cz>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>
-Subject: Re: [PATCH 15/21] x86/xen/pvh: Convert indirect jump to retpoline
-Message-ID: <20210115150811.abom3lkutyrwetpi@treble>
-References: <cover.1610652862.git.jpoimboe@redhat.com>
- <adfa2afe5ddc831017222db9f48ad0fbff17c807.1610652862.git.jpoimboe@redhat.com>
- <12afb52c-f555-656e-d544-c2965a616bdc@suse.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Jan 2021 07:30:16 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2c as permitted sender) client-ip=2607:f8b0:4864:20::d2c;
+Received: by mail-io1-xd2c.google.com with SMTP id n4so18750697iow.12
+        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 07:30:16 -0800 (PST)
+X-Received: by 2002:a5e:9b06:: with SMTP id j6mr8945465iok.171.1610724616587;
+ Fri, 15 Jan 2021 07:30:16 -0800 (PST)
 MIME-Version: 1.0
+References: <cover.1610652862.git.jpoimboe@redhat.com> <CA+icZUV1a-DEf-dTm8MyyBbp_VYmW5WwJPF9DQb=yJHPykJASQ@mail.gmail.com>
+In-Reply-To: <CA+icZUV1a-DEf-dTm8MyyBbp_VYmW5WwJPF9DQb=yJHPykJASQ@mail.gmail.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 15 Jan 2021 16:30:05 +0100
+Message-ID: <CA+icZUVc0M3Ydf=SKSV2MhDmdb49nGSrN-9TjYvjL25vmDHaeQ@mail.gmail.com>
+Subject: Re: [PATCH 00/21] objtool: vmlinux.o and CLANG LTO support
+To: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	Peter Zijlstra <peterz@infradead.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Kees Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Miroslav Benes <mbenes@suse.cz>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <12afb52c-f555-656e-d544-c2965a616bdc@suse.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-Original-Sender: jpoimboe@redhat.com
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=RJPr4dBR;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 170.10.133.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@gmail.com header.s=20161025 header.b=NXSO1eFy;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2c
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,53 +145,107 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jan 15, 2021 at 06:24:10AM +0100, J=C3=BCrgen Gro=C3=9F wrote:
-> On 14.01.21 20:40, Josh Poimboeuf wrote:
-> > It's kernel policy to not have (unannotated) indirect jumps because of
-> > Spectre v2.  This one's probably harmless, but better safe than sorry.
-> > Convert it to a retpoline.
-> >=20
-> > Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
-> > Cc: Juergen Gross <jgross@suse.com>
-> > Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
-> > ---
-> >   arch/x86/platform/pvh/head.S | 3 ++-
-> >   1 file changed, 2 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/arch/x86/platform/pvh/head.S b/arch/x86/platform/pvh/head.=
-S
-> > index 43b4d864817e..d87cebd08d32 100644
-> > --- a/arch/x86/platform/pvh/head.S
-> > +++ b/arch/x86/platform/pvh/head.S
-> > @@ -16,6 +16,7 @@
-> >   #include <asm/boot.h>
-> >   #include <asm/processor-flags.h>
-> >   #include <asm/msr.h>
-> > +#include <asm/nospec-branch.h>
-> >   #include <xen/interface/elfnote.h>
-> >   	__HEAD
-> > @@ -105,7 +106,7 @@ SYM_CODE_START_LOCAL(pvh_start_xen)
-> >   	/* startup_64 expects boot_params in %rsi. */
-> >   	mov $_pa(pvh_bootparams), %rsi
-> >   	mov $_pa(startup_64), %rax
-> > -	jmp *%rax
-> > +	JMP_NOSPEC rax
->=20
-> I'd rather have it annotated only.
->=20
-> Using ALTERNATIVE in very early boot code is just adding needless
-> clutter, as the retpoline variant won't ever be active.
+On Fri, Jan 15, 2021 at 5:51 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+>
+> On Thu, Jan 14, 2021 at 8:40 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
+> >
+> > Add support for proper vmlinux.o validation, which will be needed for
+> > Sami's upcoming x86 LTO set.  (And vmlinux validation is the future for
+> > objtool anyway, for other reasons.)
+> >
+> > This isn't 100% done -- most notably, crypto still needs to be supported
+> > -- but I think this gets us most of the way there.
+> >
+> > This can also be found at
+> >
+> >   git://git.kernel.org/pub/scm/linux/kernel/git/jpoimboe/linux.git objtool-vmlinux
+> >
+> > And for more testing it can be combined with Sami's x86 LTO patches:
+> >
+> >   https://github.com/samitolvanen/linux clang-lto
+> >
+> >
+> >
+> > Josh Poimboeuf (21):
+> >   objtool: Fix seg fault in BT_FUNC() with fake jump
+> >   objtool: Fix error handling for STD/CLD warnings
+> >   objtool: Fix retpoline detection in asm code
+> >   objtool: Fix ".cold" section suffix check for newer versions of GCC
+> >   objtool: Support retpoline jump detection for vmlinux.o
+> >   x86/ftrace: Add UNWIND_HINT_FUNC annotation for ftrace_stub
+> >   objtool: Assume only ELF functions do sibling calls
+> >   objtool: Add asm version of STACK_FRAME_NON_STANDARD
+> >   objtool: Combine UNWIND_HINT_RET_OFFSET and UNWIND_HINT_FUNC
+> >   objtool: Add xen_start_kernel() to noreturn list
+> >   objtool: Move unsuffixed symbol conversion to a helper function
+> >   objtool: Add CONFIG_CFI_CLANG support
+> >   x86/xen: Support objtool validation in xen-asm.S
+> >   x86/xen: Support objtool vmlinux.o validation in xen-head.S
+> >   x86/xen/pvh: Convert indirect jump to retpoline
+> >   x86/ftrace: Support objtool vmlinux.o validation in ftrace_64.S
+> >   x86/acpi: Convert indirect jump to retpoline
+> >   x86/acpi: Support objtool validation in wakeup_64.S
+> >   x86/power: Convert indirect jumps to retpolines
+> >   x86/power: Move restore_registers() to top of the file
+> >   x86/power: Support objtool validation in hibernate_asm_64.S
+> >
+> >  arch/x86/include/asm/unwind_hints.h |  13 +---
+> >  arch/x86/kernel/acpi/Makefile       |   1 -
+> >  arch/x86/kernel/acpi/wakeup_64.S    |   5 +-
+> >  arch/x86/kernel/ftrace_64.S         |   8 +--
+> >  arch/x86/lib/retpoline.S            |   2 +-
+> >  arch/x86/platform/pvh/head.S        |   3 +-
+> >  arch/x86/power/Makefile             |   1 -
+> >  arch/x86/power/hibernate_asm_64.S   | 105 ++++++++++++++--------------
+> >  arch/x86/xen/Makefile               |   1 -
+> >  arch/x86/xen/xen-asm.S              |  29 +++++---
+> >  arch/x86/xen/xen-head.S             |   5 +-
+> >  include/linux/objtool.h             |  13 +++-
+> >  tools/include/linux/objtool.h       |  13 +++-
+> >  tools/objtool/arch/x86/decode.c     |   4 +-
+> >  tools/objtool/arch/x86/special.c    |   2 +-
+> >  tools/objtool/check.c               |  91 +++++++++++++-----------
+> >  tools/objtool/check.h               |  12 +++-
+> >  tools/objtool/elf.c                 |  87 +++++++++++++++++------
+> >  tools/objtool/elf.h                 |   2 +-
+> >  19 files changed, 241 insertions(+), 156 deletions(-)
+> >
+> > --
+> > 2.29.2
+> >
+>
+> I tried this series on top of clang-cfi and it segfaults here.
+>
+> + info OBJTOOL vmlinux.o
+> + [  != silent_ ]
+> + printf   %-7s %s\n OBJTOOL vmlinux.o
+>  OBJTOOL vmlinux.o
+> + tools/objtool/objtool orc generate --duplicate --mcount --vmlinux
+> --no-fp --no-unreachable --retpoline --uaccess vmlinux.o
+> Segmentation fault
+> + on_exit
+> + [ 139 -ne 0 ]
+> + cleanup
+> + rm -f .btf.*
+> + rm -f .tmp_System.map
+> + rm -f .tmp_initcalls.lds
+> + rm -f .tmp_symversions.lds
+> + rm -f .tmp_vmlinux*
+> + rm -f System.map
+> + rm -f vmlinux
+> + rm -f vmlinux.o
+> make[3]: *** [Makefile:1213: vmlinux] Error 139
+>
 
-Yeah, Andy pointed out something similar.  I'll be changing this to an
-annotation.
+I re-tried with the latest clang-lto Git and switched to Debian's LLVM-11.0.1.
+This build was successful.
+No objtool-vmlinux warnings observed.
 
---=20
-Josh
+In the next step I try with my selfmade LLVM-11.1.0-rc1 (to see if it's broken).
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210115150811.abom3lkutyrwetpi%40treble.
+- Sedat
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVc0M3Ydf%3DSKSV2MhDmdb49nGSrN-9TjYvjL25vmDHaeQ%40mail.gmail.com.
