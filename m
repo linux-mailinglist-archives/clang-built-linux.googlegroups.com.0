@@ -1,138 +1,128 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBYGRQ6AAMGQE46JDC5I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDOILZ6ZXABBBXOSQ6AAMGQE5BRQ5ZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C4AE2F8523
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 20:11:29 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id j22sf4380469otq.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 11:11:29 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610737888; cv=pass;
+Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B6482F852A
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 20:13:34 +0100 (CET)
+Received: by mail-wr1-x43c.google.com with SMTP id q2sf4556386wrp.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 11:13:34 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610738014; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DkMhqLoXe7j/uEurStbWdeIXsVq3ZRsw8HVTA9asmn/wVWiPzffhfVGuk33CbeMuKY
-         i2vvyJcUf9qqfO7aCcHU1UMbWZ1Y/6R7owGe8LV3RVifwV1FDje/hg+C2Bwy+oQ/lcNx
-         2quSGa1N0iBbyR2Zw7SZtwzJ5isainbxeddHW5crhS4Ve4lqwQAm0poTPQ2lhoHG/BkH
-         Dork3e9347NprXr6Ofcz6TtdbT8aIeOHdid27Lz11/CEgjY/4u6m+ScQaFUsmogPJg/T
-         fMBT+nddr3vkKiSfh22GssfBXwRvaFQkD3AsnK9LyjGqwc39c31RK/1yhekqSBsXfydO
-         Mmhw==
+        b=QOtLGpRjYj5R0Z2UmKpUpXExL4gPGnsnOh8u8np9Yi+IF4LNM4+J+SY2iV2Cu3gtz9
+         v1ye2OrGtxV25+uWjFYr5Ju858sa37nNpXZB9qpjmwgBWdMCbwa8j8LLHlXXCG3vIDoF
+         B/RT+9qRUjUHiBMHUmgTySHMvGQzcBHiZPpIAeJP+X7jCkWdMSEVEffGnMMjNAqx5Te9
+         0IqatdJsaZXlMj6hU9Jst8rjikV5tVZvbmFGgMRYAL2Cla/I5hIvVcHoomcaQI9EAmgi
+         EIDi8PuaCdIvGa6lS4z1U0XyMjNuR3gaKzfnzk+lEvUE1m/IY2z77Fn3hliHTAG6B9ac
+         Gd1Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=nOHWbVcYAJTIMkB9QxZZbLTGS2NjN5mxGTeANMM81HA=;
-        b=cACzQH+zJAbKomCWYrihYjvDDcCRG2mCoKkVPAvcJWoOG83m3SLRwKUUeZ7L3xLmDb
-         5Cj99R1r16xKii23Q3FjxjhSv0E8eh6WXkuQuthD2HqZCeTBpSVyEvxLSrqLbVCKDgW2
-         90QsT07rv/ImRkEgzIljX7yd0jvSasIMmDRg+FKpAkUC2rXDm8YSBQC+9ADaEy3nI84t
-         x3RBJhEmcX+RmHjRJ1Qxjexp/DQnNTBCnKBRdw2OAQl6XFwyPZ5U3rmkg4hkUf/gZmdK
-         k+BLgVWhXdXay1fLe+1wtsWvSGete0gCNBNKx/2xbOl3DPT8wl69eDkSG1j8l4kqzAws
-         HV0w==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=A+tJN2ebBJvzX6GZpo7gU9nbB63M0D0yUF8L5XPSqGA=;
+        b=DSLMWv43wA2rX0ywy9gXJsiIRi/NvX42F5H31jqFDF6YNwAUi82WymQ5+cX3HzZl3u
+         qUhn63b020asZwbZofVO9w5uSu266uNtIhehBQmZsdPGtL4W6gavgIj1Rpwu0218SqoN
+         gkCGW9WB7NvzZK2Hjf1U24c6o5xWxWzzkANO1QfjcAk1vnejg8rm/zHuPke7wfFoLBig
+         rQh9RJfLBYtgW3BWLsjq16InGS9ElNHpewmGLwVgSwoHLbzog094vSYK7yh/D6EYOCix
+         TVCTG4BSycMakmfw7z6o6pQwfI6X5Hw2am+kzrh4DdpOd+1upNgRGoeCRHLQBoEHKcni
+         P2fw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YVcbxd9A;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="e7I/8+0Q";
+       spf=pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        d=googlegroups.com; s=20161025;
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nOHWbVcYAJTIMkB9QxZZbLTGS2NjN5mxGTeANMM81HA=;
-        b=WVe2vXzN6aCamWc2Sd3mIyx05dB7r279oZVT1v7xyM74hbcNvsvYLh6jlIquji/d+G
-         XuNZPCiiKgJSICXH3mP6QuiN7j8BfvuDuAhuJoAoEFwarzbMqIX4uuUf12r8GWkZApXs
-         XLpMGJFyrJiyJZw30uVGRITr1YviKe8JBNFDZCbtGobXQCMu4xQBPYoBUQ7FiDmqy5hc
-         engXdQzpTU3jT9U2TYeibyvAagIlMyiBjWgl86TN5ieSXNJrlcLutD3b3MISzgshnI5o
-         x300zjWsO1LbNHLXD0vYJRaw/MWEkM20z9noBvqnE0SJoAlbQ7Lk4DdaluT1Im6+btUd
-         bn5A==
+        bh=A+tJN2ebBJvzX6GZpo7gU9nbB63M0D0yUF8L5XPSqGA=;
+        b=SikyPqFGG3gzbuJSvzgF/+7ITg2d9l0EYgv1GvJqRfwPkc8W3oYjCMEFPZkidyeQLm
+         MLZyLB1kTTH61JLfIYfcjOG6+OTxbalJ5Ue0VMNGR+mEWpVWyZjXEEY7HJnW0ZEPp+aa
+         9/hJ1MUyvrACaZyduDRhpnqSPBIB2zqTcXkkyelD0D1MrcZ1Lfmcmk4F7Fuwkp3hMc64
+         IBotdIxezWCzhA4jVAXxyn7Cp4eatm+9paVNOl6BQrHtBQAyRTHPpe4RZVJ2t0sQs9u2
+         KwvfVFEP5squw8LIlv+aLvWd9bt/fs5cTEaZ9cTa94J8v+gwFEkPYLchFrUFOobaqcP1
+         fmSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results
-         :content-transfer-encoding:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nOHWbVcYAJTIMkB9QxZZbLTGS2NjN5mxGTeANMM81HA=;
-        b=XXFFnPqK+pxBDCEALDeL7V7J75mGtK5pYBuZjyPBd/vWS6sPAuUY4cSfz3MIbTDD0D
-         AMt8DdIQvKDbHsZLkbMMOIoOL2Z7uXqzpTimXT+mB6OE+x8S2qIlZNF/FWi+Oi3ckKJy
-         IE32tWOkvE8BdQhX0quj+tkNKgDjoMOsh1f3JkeiY7dvIuDwpRI5EJ5kMtnBjjTiS6N+
-         0mX4rzg+8DaQ6epd9HHHp+pKFFeCf/izLwzyyMygQr/RoOLE6GCh39xWCgCTNknhOSpK
-         QDnzbhu7NWQIFmLrnBI1chpXrSv5vhiwcLzS5jYMz3mlkKe4arXN9KWOKTaso/gp+fW+
-         y94g==
-X-Gm-Message-State: AOAM5313AopvxQ5zk2ZUzcbdxTB8ObBlXsCrLqMgiH8UBdxLjG9GGG8X
-	byuhQpkRRdtA2FpZVQ81cfU=
-X-Google-Smtp-Source: ABdhPJwJ8oOD8OvQmr2/kAA1HJ5HpDyMVHmUzQJw5vfLbDZsXARC+Zi39YQEM0jnEcc1YhLrKMeJxw==
-X-Received: by 2002:aca:3094:: with SMTP id w142mr6540655oiw.101.1610737888652;
-        Fri, 15 Jan 2021 11:11:28 -0800 (PST)
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=A+tJN2ebBJvzX6GZpo7gU9nbB63M0D0yUF8L5XPSqGA=;
+        b=T6D5Z1/Nl6QR/oejng5RqOa/GIcPZuqzTA0MsNPE3lPgPGb5g0qdEiXR43n9okENF/
+         478gZ5itZfgp3A5/ZvrzsHsr8jv/m4rxrtaKrWZ7gk+VMJM1Llvam4PY87Ko6vnDdRi/
+         OBz8iSXftbDja9R6BfzgmTE+/BuSH+SqbdtbKWl6n7/o0jETPit+hRZ6wiNVu/sixnzf
+         XdGcWWWM8p8qV4XLTscTlkgjcPtN+rhNrhNio3i9J1QkH1nDMq/ghPTsXz9yos8yj/oK
+         fPhJ+/9Md647M/IZ7+XFzBvJxn8Igg9Uz8UxwWljHL2aeo3MunyOLSHHLtfnUi961a1p
+         8qCg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533+KYR46FQ20uTllflbzHzhj4Mbo30aXqXVGkWQ18udwUfEdRLB
+	izvwvuksuumw4+RvHALzz5k=
+X-Google-Smtp-Source: ABdhPJz5PLkrocnB7FnK5P74VBPBzE2tVz/sPOLybkLlpe0nQnMFhWSDkccuTf0dytZcsWrPjWTXBQ==
+X-Received: by 2002:a5d:6842:: with SMTP id o2mr10210445wrw.138.1610738014018;
+        Fri, 15 Jan 2021 11:13:34 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a54:4694:: with SMTP id k20ls2416017oic.0.gmail; Fri, 15 Jan
- 2021 11:11:28 -0800 (PST)
-X-Received: by 2002:aca:3757:: with SMTP id e84mr6394079oia.5.1610737888141;
-        Fri, 15 Jan 2021 11:11:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610737888; cv=none;
+Received: by 2002:a5d:6812:: with SMTP id w18ls1141599wru.1.gmail; Fri, 15 Jan
+ 2021 11:13:33 -0800 (PST)
+X-Received: by 2002:a5d:6884:: with SMTP id h4mr14624392wru.174.1610738013228;
+        Fri, 15 Jan 2021 11:13:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610738013; cv=none;
         d=google.com; s=arc-20160816;
-        b=JER4dDTZmbW816/CLgIbnzBA1Exu4xUTgp2GkO8LveoXAG8gwkt6MAg3hqcbiP8AWc
-         6Aja7sqvdf+uEFMScoEzR5KHliwq81K+zG4yKQx3B+T14/iTbKC2un8rUGgO09Mb+kZP
-         JGLMyhpLGj8QHfu++9SpQ3VP3tB8g3RK5pX2jNVVPiSyyF16PTkSitpYf52Ik57Bt/hT
-         5yMoEpqHkZFjQ0Kevjjy7PV245wn+JGOjx/caDt6VGFRBeQPWtKX9/L13MxiOMlDI9Og
-         rjE5/kW4lJcy8LUK52mlEygNTkd20iY+qfui62vFY2IpUuOAaOfjaS7x1/NF7qT4dl03
-         PGJw==
+        b=hiDYJxfNc7SdB0mT7jYnaVzDTcutF7jO1m3HGz8Mx4o3+XC6/yUIu1kw5G+I1Te8TQ
+         HVZDkEdqzGLc2TNq2cOWtehZGnAYCNP8JEIT5DM5o8VkDyQu/PdVFVCK6bg0RnXSM9p9
+         FMrWTbHTrFZc47wHNELpylqi9Nlbi5oGW+NdysOvxNx348FMw18u5k34s4y+cJvAMNAu
+         Mox4m20Muccb6aAf59zGOCPUKRsQQwVe18btIwJk4QZo0VjGHKgF6HCwLdqr0Xi+gZzR
+         WnqUoW1DNlSaKKEVlVsotOF5BVt6/0OZo0a6Jobx2BbnOnMaF1EnU2yLSofTf+LxMPtU
+         Lv4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=mcPqm+ALLmKYyfXL3d5GTSykbXw6V8Jgdo0h2nfOwvU=;
-        b=mb3ihU/9YD2Lz1/xeCt2nIDKyNqcyu/HgLtC8x9Spu06XMFiwR78Ob8KMSnqziFDsB
-         J7zOx+9relO+pZ9LxetFML24TWE8YCfgH+RoKzAg7tlDpA5xrkHRHvCMaoNemLhtSQDd
-         syIp4LIzxkOpQ1OdSxwbrt+u9RyICd7xK8TGuB4jWaXOtfpEpDWZcAiCZ3AmF8OL/cls
-         YWhY2yIh6kHT98t8kL/HxDLehN1hNMtif2j0/e+koEE8CM0bXyz7A3WoH7ZzgeQ/r3DU
-         5X6qSMZ9vBI3Kxvc3DlGe2OECWutwuq2cuv8sfjhLaT+Egm+lcmiwQV/+5M6/I4aQZ+K
-         i2uA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=PftEDz+QoIuMD7vFvCCvvry9AT4u1Otsfrl7LAEO2DM=;
+        b=Xt2FTsBiMddeBOqVSmvTFPomgdj8OQSDeYyIj/6PLgaqOLmj184wj+ZeXkqwWKmXuf
+         JotCqWWEVmP2eRgjH/cmFe64ifx6YA2fQTOQfGWyXdcpfDg7b6DX0F1eR2Obidj2FjBb
+         kYzdHS1M1d/m3id9Mj3ETWqycYIDGMG59K7h7oBmLWWRkj/XhD8uHKINemT66vuGhBX5
+         XRJtD+dNaCobqhSarwyvQ1CyEDSKT7FImwfCV6/35G3tu20dd6aA6do03WPNuWiUhgRN
+         RpGtNjH/s/HDeGsB5ksgKZRBqoCMdjeoFyYEx2mrxPzcKW19Av+96IL7waP7mE5s5kZD
+         GKVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YVcbxd9A;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qk1-x731.google.com (mail-qk1-x731.google.com. [2607:f8b0:4864:20::731])
-        by gmr-mx.google.com with ESMTPS id c18si648103oib.5.2021.01.15.11.11.28
+       dkim=pass header.i=@linaro.org header.s=google header.b="e7I/8+0Q";
+       spf=pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-lj1-x22d.google.com (mail-lj1-x22d.google.com. [2a00:1450:4864:20::22d])
+        by gmr-mx.google.com with ESMTPS id d17si614156wma.4.2021.01.15.11.13.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Jan 2021 11:11:28 -0800 (PST)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731 as permitted sender) client-ip=2607:f8b0:4864:20::731;
-Received: by mail-qk1-x731.google.com with SMTP id b64so12721188qkc.12
-        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 11:11:28 -0800 (PST)
-X-Received: by 2002:a37:7907:: with SMTP id u7mr14106962qkc.472.1610737887654;
-        Fri, 15 Jan 2021 11:11:27 -0800 (PST)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id b12sm5253330qtj.12.2021.01.15.11.11.26
+        Fri, 15 Jan 2021 11:13:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::22d as permitted sender) client-ip=2a00:1450:4864:20::22d;
+Received: by mail-lj1-x22d.google.com with SMTP id m10so11578553lji.1
+        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 11:13:33 -0800 (PST)
+X-Received: by 2002:a2e:86c4:: with SMTP id n4mr5594493ljj.208.1610738012915;
+        Fri, 15 Jan 2021 11:13:32 -0800 (PST)
+Received: from localhost (c-9b28e555.07-21-73746f28.bbcust.telenor.se. [85.229.40.155])
+        by smtp.gmail.com with ESMTPSA id t17sm998823lfr.5.2021.01.15.11.13.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Jan 2021 11:11:27 -0800 (PST)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Fri, 15 Jan 2021 14:11:25 -0500
-To: Borislav Petkov <bp@alien8.de>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Arnd Bergmann <arnd@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
-	Andy Shevchenko <andy@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, linux-efi@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
-Message-ID: <YAHo3ZEMu+6mESZA@rani.riverdale.lan>
-References: <20210107223424.4135538-1-arnd@kernel.org>
- <20210115182300.GD9138@zn.tnic>
- <20210115183203.GA1991122@ubuntu-m3-large-x86>
- <20210115190729.GE9138@zn.tnic>
+        Fri, 15 Jan 2021 11:13:32 -0800 (PST)
+From: Anders Roxell <anders.roxell@linaro.org>
+To: tsbogend@alpha.franken.de,
+	natechancellor@gmail.com,
+	ndesaulniers@google.com
+Cc: linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Anders Roxell <anders.roxell@linaro.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] mips: vdso: fix DWARF2 warning
+Date: Fri, 15 Jan 2021 20:13:30 +0100
+Message-Id: <20210115191330.2319352-1-anders.roxell@linaro.org>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210115190729.GE9138@zn.tnic>
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: anders.roxell@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=YVcbxd9A;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::731
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Content-Transfer-Encoding: quoted-printable
+ header.i=@linaro.org header.s=google header.b="e7I/8+0Q";       spf=pass
+ (google.com: domain of anders.roxell@linaro.org designates
+ 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,71 +135,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jan 15, 2021 at 08:07:29PM +0100, Borislav Petkov wrote:
-> On Fri, Jan 15, 2021 at 11:32:03AM -0700, Nathan Chancellor wrote:
-> > I triggered it with CONFIG_UBSAN=3Dy + CONFIG_UBSAN_UNSIGNED_OVERFLOW=
-=3Dy
-> > (it can be exposed with an allyesconfig/allmodconfig on mainline
-> > currently).
->=20
-> Yah, I can trigger with that, thanks.
->=20
-> But I'll be damned, check this out:
->=20
-> clang preprocesses to this:
->=20
->  do { extern void __compiletime_assert_332(void) ; if (!(!(p4d_index((-68=
- * ((1UL) << 30))) !=3D p4d_index((0xffffffffff000000UL))))) __compiletime_=
-assert_332(); } while (0);
->=20
-> The resulting asm is:
->=20
-> .LBB1_32:
->         movabsq $-73014444032, %r13     # imm =3D 0xFFFFFFEF00000000
->         testb   $1, %al
->         jne     .LBB1_33
-> .LBB1_34:
->         xorl    %r14d, %ebx
->         testl   $33554431, %ebx         # imm =3D 0x1FFFFFF
->         je      .LBB1_36
-> # %bb.35:
->         callq   __compiletime_assert_332
->=20
-> so the undefined symbol is there, leading to:
->=20
-> ld: arch/x86/platform/efi/efi_64.o: in function `efi_sync_low_kernel_mapp=
-ings':
-> /home/boris/kernel/linux/arch/x86/platform/efi/efi_64.c:140: undefined re=
-ference to `__compiletime_assert_332'
->=20
-> Now look at gcc:
->=20
-> It preprocesses to:
->=20
->  do { extern void __compiletime_assert_332(void) __attribute__((__error__=
-("BUILD_BUG_ON failed: " "p4d_index(EFI_VA_END) !=3D p4d_index(MODULES_END)=
-"))); if (!(!(p4d_index((-68 * ((1UL) << 30))) !=3D p4d_index((0xffffffffff=
-000000UL))))) __compiletime_assert_332(); } while (0);
->=20
->=20
-> Resulting asm:
->=20
-> $ grep __compiletime_assert_332  arch/x86/platform/efi/efi_64.s
-> $
->=20
-> That thing has been optimized away!
->=20
-> Which means, those build assertions are gone on gcc and they don't catch
-> diddly squat. I sure hope I'm missing something here...
+When building mips tinyconifg the following warning show up
 
-That's how build-time assertions work: they are _supposed_ to be
-optimized away completely when the assertion is true. If they're
-_not_ optimized away, the build will fail.
+make --silent --keep-going --jobs=8 O=/home/anders/src/kernel/next/out/builddir ARCH=mips CROSS_COMPILE=mips-linux-gnu- HOSTCC=clang CC=clang
+/srv/src/kernel/next/arch/mips/vdso/elf.S:14:1: warning: DWARF2 only supports one section per compilation unit
+.pushsection .note.Linux, "a",@note ; .balign 4 ; .long 2f - 1f ; .long 4484f - 3f ; .long 0 ; 1:.asciz "Linux" ; 2:.balign 4 ; 3:
+^
+/srv/src/kernel/next/arch/mips/vdso/elf.S:34:2: warning: DWARF2 only supports one section per compilation unit
+ .section .mips_abiflags, "a"
+ ^
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/YAHo3ZEMu%2B6mESZA%40rani.riverdale.lan.
+Rework so the mips vdso Makefile adds flag '-no-integrated-as' unless
+LLVM_IAS is defined.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/1256
+Cc: stable@vger.kernel.org # v4.19+
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Anders Roxell <anders.roxell@linaro.org>
+---
+ arch/mips/vdso/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
+index 5810cc12bc1d..83e8cf216ac8 100644
+--- a/arch/mips/vdso/Makefile
++++ b/arch/mips/vdso/Makefile
+@@ -26,6 +26,10 @@ ifdef CONFIG_CC_IS_CLANG
+ ccflags-vdso += $(filter --target=%,$(KBUILD_CFLAGS))
+ endif
+ 
++ifneq ($(LLVM_IAS),1)
++ccflags-vdso += -no-integrated-as
++endif
++
+ #
+ # The -fno-jump-tables flag only prevents the compiler from generating
+ # jump tables but does not prevent the compiler from emitting absolute
+-- 
+2.29.2
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210115191330.2319352-1-anders.roxell%40linaro.org.
