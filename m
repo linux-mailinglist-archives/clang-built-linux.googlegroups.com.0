@@ -1,127 +1,143 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBBOORCAAMGQEI4V6WOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBAWRRCAAMGQENYVJOYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA0132F896B
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Jan 2021 00:36:38 +0100 (CET)
-Received: by mail-ot1-x340.google.com with SMTP id d10sf4886301ote.22
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 15:36:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610753797; cv=pass;
+Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 75EFF2F8983
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Jan 2021 00:42:59 +0100 (CET)
+Received: by mail-oo1-xc40.google.com with SMTP id p13sf6088223oos.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Jan 2021 15:42:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610754178; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZOSxNudOVkBsu6V3XkkiqfoqCAHnLTVdPjFyVWqW2aIyDKgHcEZTbr/wtwnylbqEKB
-         v7OpB8HGjfnGcVDOWj+2c8a8Bbu9ysqXP7tXCIae6yNR7JZ0b5z28GG3ROa0hQoJuK2o
-         lGp/EtId3vTqUbT3fmjsxzNzM+keV00siWYpQknVPryqYKV+F8wgNXZo7GEClSep1S9s
-         LY42siWDN9mi6XcVzcRQ0qGhCmGh2joMPBdTvZU3gFvIQCcdPb+evtJtXZtlvYsfQwfx
-         mKCdvP8oT8H+e7tYERFgXmUhG2ziNId3XtFUg7NW7vL5dMGrdAdYMEInH7LjO1/Br666
-         Nbww==
+        b=Uxsb+jdxlvbddl9QQjaAaM++Hu2QE0cTScmBpdwil7GjSDLgeCtaOKETkQ/7n9YkbX
+         aK/vsXm1Kr/9XOpYKkHVTufpc0BoS8BByKwwaIKveHKFZy10lVymsY39az/TRIrze8S5
+         RvJMiqCAZ1A0MpNtEgnhwJaVZArUjBZhrEh1BxBO5RgRVl3FjomansitRkh3N5H8uto3
+         qE8dGL4ZiQnSc3z9/S3y5MZw1CQjcO8Lqcme1YKkAHBowRKF/S7xIQWFt0DVM3TNad7G
+         vhdt3GuDhegnLE4Cqpa6mdu7IY+6KgB3kG7wyJJPhuhzxakcgNExMrKcdgKMtsiOYgkq
+         Sctg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=IlAdtkK0wkHICL78r8OweCbcA/YwxLy420Zzjt3AW5o=;
-        b=bEfr+ybAMKYaZtw9XbTN9Rt/2lG+RxjvCM5+x25IG1AiIbsLeW3R7JKB19NrLXvWYZ
-         2GeW2GE4tCK5CwpmC2guoH/jh9bLl7MpKWbIJp0EmPHnJJdIhQX2F7vjAjkkjkHMS9KR
-         yfpYjt801A0duIx62biuzmdLHNDGA6S3BTUBq82/VsFEtBYs6n+jncxs1z2TLnDV3YlW
-         4kkZ0LpCx7yldujh21fRbpo39aVN0VxgYyFOhgh5klhw4CV8hS/NJ04Cte2V8fAL13VS
-         ZcoNV6PGJ/EwLalh1/9OqlqBEt4s+xo8f5XT7gMUGWMGPxcKFySA4dJ2t6/5Nwd9IDxR
-         ONCw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=WXDljf9ENAyqtkib9leys8b2dVbG6JtwAKIDaM50kT4=;
+        b=aqo3Khc5PFpSKofPoiZOC7BJp88FlLTMDI+LdWlocx69PbVeeb6Fl1QMVlQC59uAn9
+         tMenwplY8jPvkR+QPiQEoVR43pc8O2qUNbCGXGzTsiSUJ8j1BPn3xPZx62eGErO0t2Nu
+         ZdWS494n4pSiXs0rZxlbWuFnzQCwExYN7uko5GnqJovmf4Yt5GA/cVK6qaXhKy7SUtSH
+         JeCAyjeOUVVRuOjIbFrKPsUc9nra7Pcx6zNZn+lDYtvlhMMYOHNxEJMpsKQNj5ZUmj+c
+         EkOQwFKEOsg7TQi0juG6h28M+mEiiXZVL/2P1miTgG2E0XREJlpo9TgmF2ULOPrm2Mgm
+         66XA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=SYiD+vkQ;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.75 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ruZ8RBfU;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WXDljf9ENAyqtkib9leys8b2dVbG6JtwAKIDaM50kT4=;
+        b=W3gtNTfAo3uaVtC/QwGF0UQgOsEHLRRoeJi80kpxhslIZSmmfb3LuZPQdPu3MUiOBY
+         xZkcvOIYUzMy43TOogIw9gMUYKw/+HkVf5j+CyFW6rZqFDoR3bk6BljB6jeRNNUJ3MSp
+         MEbd8qDhBmB2lMp5qJJXv+hAMm5+Zu3MRAtbDPvPuarCUPJFPUBjrWpvXqTLNoDEoumy
+         fvfecmmN1Mnr9fkfd4lfz4gCnKYJ5dYjwnekm3Nx3pV5NxDdHQZlrEmdcuk+BQ49zTyg
+         ewh3hF03S7tXhNeajDBVhOUPDAIOJFK6kmlfxhy5Oj6JLYm1bIjcrL0z51FUvhNTONgd
+         WC1w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IlAdtkK0wkHICL78r8OweCbcA/YwxLy420Zzjt3AW5o=;
-        b=MOHE/7BRKE1FXP6X04Raw3rgKCXt4Ce8tlxYCqNKVOAoBOBVOQhPiK8A5UeNCCKsbD
-         5NwPY2RBDZntveS6q0HZJPJgjPob4LJOCYObOEliVS9pXGjUtXC3iwUEaEBWNA2F7fyH
-         SOI/A2yWsx9podR6nlDRjIz2fZxZANfVrpPZIbYXiZFa/vrAvve8hB0KzGe11Y6hH3AF
-         HE1hygQZS9zu0tgixL0GisuOMm2LFQfM8y3ROq3bMWJz9YLyRlGilgz3gRo0ZmadxT0A
-         UlEL+T3kuNuPU4y2jBXKZbkOty0JodUTnOYISf0BgJbDBTssjjXy+4QcJDNjUDIsQN13
-         aW9Q==
+        bh=WXDljf9ENAyqtkib9leys8b2dVbG6JtwAKIDaM50kT4=;
+        b=Y3rqcQXx+lqN/nSfBKz8poavgyewdEI0wNUgxhUQ1qG88j491bUZ+h7ylG8seBddUq
+         1cCXrIswA6x61H19MyOgEvQFzYcAf0tIoSU05YlUh5WpD7PleC1PwwUlk4cVYgqdrWbB
+         2hYqq5QmZz1VHFTXa3sD5RQs7oBEmM8Z4xFXXkgyosVokCbJ3dlLTpwulhwro+WdJsVM
+         oQ0suNWV0k036cmufraZSsyR4E+PLf5ayPjocTdKTsZpPDcRV2BdHYkFzeNxjNgr6Rvg
+         CanKvGzpUADuJrO3itjIxI2J3WgMStFgpBPY4TOfnCtE0O1DFRbEL3VGLLB623Xi6LQ4
+         4f/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IlAdtkK0wkHICL78r8OweCbcA/YwxLy420Zzjt3AW5o=;
-        b=aItwT/cWBRAQm2frqQPCZx6GMIJd8Upoho2qqTBfzuRt3frruoXYX2KADuQf5KqKq7
-         dt0whmRgweZhn94nPp4k3xYljvdxYZCsxxT9CTa0zDTJnC/ViHhqrRfI7ebGEa3qySwe
-         9GOQr5sjNmvC8SfINbo0beXvYaG84kW4i4MX+/6p5T7+NKYThy+nkBEckswy7tRIgXDy
-         6Bf/knfyrrKpExQBPi5ieyqsSnz2JNZ9IKeurHBS7QXbh6IqY77iQMBQmGHdSNWMugSi
-         4JVQZ02ME6tZNfHuWcRckt4zsh0lr1j6XsIZo5ag/AxV8XEbORJbpS8tg9u71j7yt3V2
-         x7Og==
+        bh=WXDljf9ENAyqtkib9leys8b2dVbG6JtwAKIDaM50kT4=;
+        b=agYrKOnukWYwZVmhOSU3ehdkULfI9SBgvHdLuSjfEcc/SD8n4eh6HQgL9PjN57jJ0Y
+         wdVOf38jVHiGG8tIPM4vMfWkoiR2SMpPCBv4V1KzNNc2LiKcLoQovb+VT/rwLVhXsmxV
+         NTU7OX9l8mWk7b7gWmnfxNfUb3FcZMV3w0ejiACRVvyASAwhwfiEsomrbbFcASDjuxuU
+         hzNYas185lVH1DmBITRoWiyQQYHybLqkGG70K6DUGBcE6HgKfkbr8CqwZ7UUdRqf+yUh
+         ds+iqvD+HFRzT/U4bG+Zh9s3l13Un+Vm9Imb+Mg/KhS+wWeNkLL+c3251SZjGYtPMbFq
+         WkSw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532lGB5/qAeH2Np8f5wKcfxkG3M8l+FQ2ATnRlFmBpGDNUqvoij2
-	+dIXP+XCvkSRporcgbHZgYs=
-X-Google-Smtp-Source: ABdhPJxowQL33LRQNN1EGCeLOwrnOs1JxLQdoIpsTg9Ou85nYCV5mnlspb/CWNNbdZlDed+4N925CA==
-X-Received: by 2002:a05:6830:22eb:: with SMTP id t11mr10758872otc.114.1610753797462;
-        Fri, 15 Jan 2021 15:36:37 -0800 (PST)
+X-Gm-Message-State: AOAM532UL7QZWXUeKJlBNn4/Rzxr9pbVoVENAPDUG2eEnlzX3l/uVIaz
+	XSZPYQcJ/rkJSeiEyqmOSf0=
+X-Google-Smtp-Source: ABdhPJwALyc/FpK9HSyxMPMoYgFx8OusQ0Uejnhe72RbsKxcaG88ZSMVqID80TVDMZ/QcWuc+dOPlg==
+X-Received: by 2002:a05:6830:150c:: with SMTP id k12mr9958364otp.11.1610754178472;
+        Fri, 15 Jan 2021 15:42:58 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7c95:: with SMTP id q21ls960925otn.7.gmail; Fri, 15 Jan
- 2021 15:36:37 -0800 (PST)
-X-Received: by 2002:a9d:6b02:: with SMTP id g2mr819808otp.19.1610753797078;
-        Fri, 15 Jan 2021 15:36:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610753797; cv=none;
+Received: by 2002:aca:2119:: with SMTP id 25ls2560975oiz.10.gmail; Fri, 15 Jan
+ 2021 15:42:58 -0800 (PST)
+X-Received: by 2002:aca:5196:: with SMTP id f144mr7170080oib.51.1610754178082;
+        Fri, 15 Jan 2021 15:42:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610754178; cv=none;
         d=google.com; s=arc-20160816;
-        b=pjtS0QmBEu2u5HHCXYQzunb+95v/mA5QNQrtFko+LOxmDwSAHE5ArBThrpK5rDg+hx
-         Ev2FAbPixzYQ7cPmJI5zAw78zWbwm5B/eESlrQU7xkf8eYMy7aWuyJOnO140+PPeBthG
-         avu+ffx/NbXKe1jGqDS7Z/aRCizCjwVjYtT/dN3v5j9oCsVmZrq/foaJ0K1vGwfHsDZc
-         j1NKFq0UJGOID6m5rGbCAXUoSmCAI4vYzqVFy2feSDfEks7Lo/Sz/m9Ek+YyncDUT4SY
-         voCUUJXW5Cx/CaxpgnlpajNT/lAgIkIsyKxiWu2UgbP7EuBAUysA5aDxDnnlOVa/wnNE
-         AOMA==
+        b=W3S/V/cjpkfkpNtjIxXCc+LxVveOFK1K3clGS9lhv4Elidr+fX8LaLlsjOvvqb7yOc
+         3cAIv9rk+Jwu0sST+D1zx9ugYJMbp9rHBvSmEzOiflFFKClJlcbC2AMquqSRfaVRHEW1
+         GbdeNWX//Xg7MRX9dwFnwzv2r30BaM+2xNctYgOBE0Xqp1UPeVRhQnfDEuW6CKDI0vTk
+         HsEa1aWjPejvTPMfu9aqLwPVVHume90liCnwJ+xFIIy8FOsSH4Bdrf12oRLlZkrGQQek
+         n5vLft2Qvf3kgIZyjYbDzCb6ZYa0ahbdPqKL7CX1bEDOQMvrfFALDZfC0xjeNcl2B39i
+         eXlg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=t/sU56WKsXGzaygkLzFMUCdxvBLw8GoRruZV89g7Tf8=;
-        b=yrHRfc2R3HogEXDT8T/HB5M3rNROgnC+NxBPFoIv19e+XOT/PeLrL8VqDIvCWFPFkQ
-         ZDmpQ7REY4gLlLBwtNN/m4Rq5QrjoAhrjywRFIHfg5dbm9gCVAY+5HZ66wdWM2d+N8nP
-         ivt/THYI3gP9sefUWKtwGz+VGu/OlOR52ej5Cz4CMsDREI/UXOCV/7++nBM1+ntffB8H
-         q+Kx08Tr5SJzxwj1iNxgsEByWVi0h3bGm5skCH4bhj0ogc6p8ZXdq/Cdg2U1hucfj89l
-         TVPczWjv7NBvr3bG3py78iicL58YMF0YJ2cefNBLHUW7ZA8IFKvUZHJ9G2IzD/Yb6ZS1
-         n9hw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=2F29hULLcdjxbbHgzXktPmVGYBC0Y8dyyq9NoQsYzh8=;
+        b=ONV6GfSbcAPIgt6LZeNFpgyzUZAfXWBHy5MbGv49wqyIuSIGqVE3R4obKEZWlssqNc
+         A9qygAgAtkbFQlq7FYxtXVYkaa22ybg/I/J7FUi2sMxomELz40yUUsvJUEjJ3SuJNUmc
+         erR5KuhCjTSg6/2BCnX8YLaOEiK//7cHtAeIiYkFiGGkk3tCpqOJmTSr6tifZbj3d8bI
+         0x/1cI41umZ6ruix3H/bZdn/OT2LCb/4UAL505lcafowjCZnFrxMWg8EWbaX//2fSY4H
+         OQe87ZrQ23ROaXr1xcXKc/DQ9/V7DQbL+poXLX5hncha5xcP0FAEC33AT6/HmHWAr6GW
+         8pUQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=SYiD+vkQ;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.75 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-08.nifty.com (conuserg-08.nifty.com. [210.131.2.75])
-        by gmr-mx.google.com with ESMTPS id u25si844980oic.0.2021.01.15.15.36.36
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ruZ8RBfU;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-yb1-xb34.google.com (mail-yb1-xb34.google.com. [2607:f8b0:4864:20::b34])
+        by gmr-mx.google.com with ESMTPS id r8si941969otp.4.2021.01.15.15.42.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 15 Jan 2021 15:36:36 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.75 as permitted sender) client-ip=210.131.2.75;
-Received: from grover.flets-west.jp (softbank126026094251.bbtec.net [126.26.94.251]) (authenticated)
-	by conuserg-08.nifty.com with ESMTP id 10FNZjc3014111;
-	Sat, 16 Jan 2021 08:35:45 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-08.nifty.com 10FNZjc3014111
-X-Nifty-SrcIP: [126.26.94.251]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: Paul Gortmaker <paul.gortmaker@windriver.com>,
-        Linus Torvalds <torvalds@linux-foundation.org>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Miguel Ojeda <ojeda@kernel.org>, Sedat Dilek <sedat.dilek@gmail.com>,
-        Will Deacon <will@kernel.org>, clang-built-linux@googlegroups.com,
-        linux-kernel@vger.kernel.org
-Subject: [PATCH v6] kbuild: check the minimum compiler version in Kconfig
-Date: Sat, 16 Jan 2021 08:35:42 +0900
-Message-Id: <20210115233542.70789-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.27.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Jan 2021 15:42:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) client-ip=2607:f8b0:4864:20::b34;
+Received: by mail-yb1-xb34.google.com with SMTP id x78so2140316ybe.11
+        for <clang-built-linux@googlegroups.com>; Fri, 15 Jan 2021 15:42:58 -0800 (PST)
+X-Received: by 2002:a25:d6d0:: with SMTP id n199mr20593271ybg.27.1610754177664;
+ Fri, 15 Jan 2021 15:42:57 -0800 (PST)
 MIME-Version: 1.0
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=SYiD+vkQ;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.75 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+References: <20210115210616.404156-1-ndesaulniers@google.com>
+ <CA+icZUVp+JNq89uc_DyWC6zh5=kLtUr7eOxHizfFggnEVGJpqw@mail.gmail.com>
+ <7354583d-de40-b6b9-6534-a4f4c038230f@fb.com> <CAKwvOd=5iR0JONwDb6ypD7dzzjOS3Uj0CjcyYqPF48eK4Pi90Q@mail.gmail.com>
+In-Reply-To: <CAKwvOd=5iR0JONwDb6ypD7dzzjOS3Uj0CjcyYqPF48eK4Pi90Q@mail.gmail.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Fri, 15 Jan 2021 15:42:46 -0800
+Message-ID: <CAEf4BzZ7y84+oe9CD4g3r19qGup=kYnm8+f+5K4YQ=6gqTWtcQ@mail.gmail.com>
+Subject: Re: [PATCH v5 0/3] Kbuild: DWARF v5 support
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Sedat Dilek <sedat.dilek@gmail.com>, Yonghong Song <yhs@fb.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
+	Jakub Jelinek <jakub@redhat.com>, Fangrui Song <maskray@google.com>, Caroline Tice <cmtice@google.com>, 
+	Nick Clifton <nickc@redhat.com>, Jiri Olsa <jolsa@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=ruZ8RBfU;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,339 +150,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Paul Gortmaker reported a regression in the GCC version check. [1]
-If you use GCC 4.8, the build breaks before showing the error message
-"error Sorry, your version of GCC is too old - please use 4.9 or newer."
+On Fri, Jan 15, 2021 at 3:34 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> On Fri, Jan 15, 2021 at 3:24 PM Yonghong Song <yhs@fb.com> wrote:
+> >
+> >
+> >
+> > On 1/15/21 1:53 PM, Sedat Dilek wrote:
+> > > En plus, I encountered breakage with GCC v10.2.1 and LLVM=1 and
+> > > CONFIG_DEBUG_INFO_DWARF4.
+> > > So might be good to add a "depends on !DEBUG_INFO_BTF" in this combination.
+>
+> Can you privately send me your configs that repro? Maybe I can isolate
+> it to a set of configs?
 
-I do not want to apply his fix-up since it implies we would not be able
-to remove any cc-option test. Anyway, I admit checking the GCC version
-in <linux/compiler-gcc.h> is too late.
+Why privately? To reproduce and fix the issue we (BPF and pahole
+community) would need the config as well.
 
-Almost at the same time, Linus also suggested to move the compiler
-version error to Kconfig time. [2]
 
-I unified the two similar scripts, gcc-version.sh and clang-version.sh
-into cc-version.sh. The old scripts invoked the compiler multiple times
-(3 times for gcc-version.sh, 4 times for clang-version.sh). I refactored
-the code so the new one invokes the compiler just once, and also tried
-my best to use shell-builtin commands where possible.
+>
+> >
+> > I suggested not to add !DEBUG_INFO_BTF to CONFIG_DEBUG_INFO_DWARF4.
+> > It is not there before and adding this may suddenly break some users.
+> >
+> > If certain combination of gcc/llvm does not work for
+> > CONFIG_DEBUG_INFO_DWARF4 with pahole, this is a bug bpf community
+> > should fix.
+>
+> Is there a place I should report bugs?
 
-The new script runs faster.
+bpf@vger.kernel.org (BPF in general) and dwarves@vger.kernel.org
+(pahole, which seems to be emitting these warnings and having problems
+with DWARF5).
 
-  $ time ./scripts/clang-version.sh clang
-  120000
 
-  real    0m0.029s
-  user    0m0.012s
-  sys     0m0.021s
-
-  $ time ./scripts/cc-version.sh clang
-  Clang 120000
-
-  real    0m0.009s
-  user    0m0.006s
-  sys     0m0.004s
-
-cc-version.sh also shows the error if the compiler is too old:
-
-  $ make defconfig CC=clang-9
-  *** Default configuration is based on 'x86_64_defconfig'
-  ***
-  *** Compiler is too old.
-  ***   Your Clang version:    9.0.1
-  ***   Minimum Clang version: 10.0.1
-  ***
-  scripts/Kconfig.include:46: Sorry, this compiler is not supported.
-  make[1]: *** [scripts/kconfig/Makefile:81: defconfig] Error 1
-  make: *** [Makefile:602: defconfig] Error 2
-
-The new script takes care of ICC because we have <linux/compiler-intel.h>
-although I am not sure if building the kernel with ICC is well-supported.
-
-[1]: https://lore.kernel.org/r/20210110190807.134996-1-paul.gortmaker@windriver.com
-[2]: https://lore.kernel.org/r/CAHk-=wh-+TMHPTFo1qs-MYyK7tZh-OQovA=pP3=e06aCVp6_kA@mail.gmail.com
-
-Fixes: 87de84c9140e ("kbuild: remove cc-option test of -Werror=date-time")
-Reported-by: Paul Gortmaker <paul.gortmaker@windriver.com>
-Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
-Tested-by: Miguel Ojeda <ojeda@kernel.org>
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
-Changes in v6:
-  - Now that https://lore.kernel.org/r/20210112224832.10980-1-will@kernel.org
-    landed in Linus' tree, I cleaned up <linux/compiler-gcc.h> as well.
-
-Changes in v5:
-  - double-quote $(cc-name) in the CC_IS_GCC and CC_IS_CLANG
-
-Changes in v4:
-  - use lore version of the links
-
-Changes in v3:
-  - add $(srctree)/ to fix out-of-tree build
-  - support ICC version
-
-Changes in v2:
-  - fix the function name
-
- include/linux/compiler-clang.h | 10 -----
- include/linux/compiler-gcc.h   | 11 -----
- init/Kconfig                   |  9 ++--
- scripts/Kconfig.include        |  6 +++
- scripts/cc-version.sh          | 82 ++++++++++++++++++++++++++++++++++
- scripts/clang-version.sh       | 19 --------
- scripts/gcc-version.sh         | 20 ---------
- 7 files changed, 93 insertions(+), 64 deletions(-)
- create mode 100755 scripts/cc-version.sh
- delete mode 100755 scripts/clang-version.sh
- delete mode 100755 scripts/gcc-version.sh
-
-diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-index 98cff1b4b088..04c0a5a717f7 100644
---- a/include/linux/compiler-clang.h
-+++ b/include/linux/compiler-clang.h
-@@ -3,16 +3,6 @@
- #error "Please don't include <linux/compiler-clang.h> directly, include <linux/compiler.h> instead."
- #endif
- 
--#define CLANG_VERSION (__clang_major__ * 10000	\
--		     + __clang_minor__ * 100	\
--		     + __clang_patchlevel__)
--
--#if CLANG_VERSION < 100001
--#ifndef __BPF_TRACING__
--# error Sorry, your version of Clang is too old - please use 10.0.1 or newer.
--#endif
--#endif
--
- /* Compiler specific definitions for Clang compiler */
- 
- /* same as gcc, this was present in clang-2.6 so we can assume it works
-diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-index 555ab0fddbef..48750243db4c 100644
---- a/include/linux/compiler-gcc.h
-+++ b/include/linux/compiler-gcc.h
-@@ -10,17 +10,6 @@
- 		     + __GNUC_MINOR__ * 100	\
- 		     + __GNUC_PATCHLEVEL__)
- 
--/* https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58145 */
--#if GCC_VERSION < 40900
--# error Sorry, your version of GCC is too old - please use 4.9 or newer.
--#elif defined(CONFIG_ARM64) && GCC_VERSION < 50100
--/*
-- * https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
-- * https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
-- */
--# error Sorry, your version of GCC is too old - please use 5.1 or newer.
--#endif
--
- /*
-  * This macro obfuscates arithmetic on a variable address so that gcc
-  * shouldn't recognize the original var, and make assumptions about it.
-diff --git a/init/Kconfig b/init/Kconfig
-index b77c60f8b963..8f04e5db2001 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -26,11 +26,11 @@ config CC_VERSION_TEXT
- 	    and then every file will be rebuilt.
- 
- config CC_IS_GCC
--	def_bool $(success,echo "$(CC_VERSION_TEXT)" | grep -q gcc)
-+	def_bool $(success,test "$(cc-name)" = GCC)
- 
- config GCC_VERSION
- 	int
--	default $(shell,$(srctree)/scripts/gcc-version.sh $(CC)) if CC_IS_GCC
-+	default $(cc-version) if CC_IS_GCC
- 	default 0
- 
- config LD_VERSION
-@@ -38,14 +38,15 @@ config LD_VERSION
- 	default $(shell,$(LD) --version | $(srctree)/scripts/ld-version.sh)
- 
- config CC_IS_CLANG
--	def_bool $(success,echo "$(CC_VERSION_TEXT)" | grep -q clang)
-+	def_bool $(success,test "$(cc-name)" = Clang)
- 
- config LD_IS_LLD
- 	def_bool $(success,$(LD) -v | head -n 1 | grep -q LLD)
- 
- config CLANG_VERSION
- 	int
--	default $(shell,$(srctree)/scripts/clang-version.sh $(CC))
-+	default $(cc-version) if CC_IS_CLANG
-+	default 0
- 
- config LLD_VERSION
- 	int
-diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
-index a5fe72c504ff..0228cb9c74aa 100644
---- a/scripts/Kconfig.include
-+++ b/scripts/Kconfig.include
-@@ -39,6 +39,12 @@ as-instr = $(success,printf "%b\n" "$(1)" | $(CC) $(CLANG_FLAGS) -c -x assembler
- $(error-if,$(failure,command -v $(CC)),compiler '$(CC)' not found)
- $(error-if,$(failure,command -v $(LD)),linker '$(LD)' not found)
- 
-+# Get the compiler name, version, and error out if it is not supported.
-+cc-info := $(shell,$(srctree)/scripts/cc-version.sh $(CC))
-+$(error-if,$(success,test -z "$(cc-info)"),Sorry$(comma) this compiler is not supported.)
-+cc-name := $(shell,set -- $(cc-info) && echo $1)
-+cc-version := $(shell,set -- $(cc-info) && echo $2)
-+
- # Fail if the linker is gold as it's not capable of linking the kernel proper
- $(error-if,$(success, $(LD) -v | grep -q gold), gold linker '$(LD)' not supported)
- 
-diff --git a/scripts/cc-version.sh b/scripts/cc-version.sh
-new file mode 100755
-index 000000000000..d1edbe4d140c
---- /dev/null
-+++ b/scripts/cc-version.sh
-@@ -0,0 +1,82 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Print the compiler name and its version in a 5 or 6-digit form.
-+# Also, perform the minimum version check.
-+
-+set -e
-+
-+# When you raise the compiler version, please update
-+# Documentation/process/changes.rst as well.
-+gcc_min_version=4.9.0
-+clang_min_version=10.0.1
-+icc_min_version=16.0.3 # temporary
-+
-+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
-+# https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
-+if [ "$SRCARCH" = arm64 ]; then
-+	gcc_min_version=5.1.0
-+fi
-+
-+# print the compiler name and versions
-+get_compiler_info()
-+{
-+	cat <<- EOF | "$@" -E -P -x c - 2>/dev/null
-+	#if defined(__clang__)
-+	Clang	__clang_major__  __clang_minor__  __clang_patchlevel__
-+	#elif defined(__INTEL_COMPILER)
-+	ICC	__INTEL_COMPILER  __INTEL_COMPILER_UPDATE
-+	#elif defined(__GNUC__)
-+	GCC	__GNUC__  __GNUC_MINOR__  __GNUC_PATCHLEVEL__
-+	#else
-+	unknown
-+	#endif
-+	EOF
-+}
-+
-+# convert the version string x.y.z to a canonical 5 or 6-digit form
-+get_canonical_version()
-+{
-+	IFS=.
-+	set -- $1
-+	echo $((10000 * $1 + 100 * $2 + $3))
-+}
-+
-+# $@ instead of $1 because multiple words might be given e.g. CC="ccache gcc"
-+orig_args="$@"
-+set -- $(get_compiler_info "$@")
-+
-+name=$1
-+
-+case "$name" in
-+GCC)
-+	version=$2.$3.$4
-+	min_version=$gcc_min_version
-+	;;
-+Clang)
-+	version=$2.$3.$4
-+	min_version=$clang_min_version
-+	;;
-+ICC)
-+	version=$(($2 / 100)).$(($2 % 100)).$3
-+	min_version=$icc_min_version
-+	;;
-+*)
-+	echo "$orig_args: unknown compiler" >&2
-+	exit 1
-+	;;
-+esac
-+
-+cversion=$(get_canonical_version $version)
-+min_cversion=$(get_canonical_version $min_version)
-+
-+if [ "$cversion" -lt "$min_cversion" ]; then
-+	echo >&2 "***"
-+	echo >&2 "*** Compiler is too old."
-+	echo >&2 "***   Your $name version:    $version"
-+	echo >&2 "***   Minimum $name version: $min_version"
-+	echo >&2 "***"
-+	exit 1
-+fi
-+
-+echo $name $cversion
-diff --git a/scripts/clang-version.sh b/scripts/clang-version.sh
-deleted file mode 100755
-index 6fabf0695761..000000000000
---- a/scripts/clang-version.sh
-+++ /dev/null
-@@ -1,19 +0,0 @@
--#!/bin/sh
--# SPDX-License-Identifier: GPL-2.0
--#
--# clang-version clang-command
--#
--# Print the compiler version of `clang-command' in a 5 or 6-digit form
--# such as `50001' for clang-5.0.1 etc.
--
--compiler="$*"
--
--if ! ( $compiler --version | grep -q clang) ; then
--	echo 0
--	exit 1
--fi
--
--MAJOR=$(echo __clang_major__ | $compiler -E -x c - | tail -n 1)
--MINOR=$(echo __clang_minor__ | $compiler -E -x c - | tail -n 1)
--PATCHLEVEL=$(echo __clang_patchlevel__ | $compiler -E -x c - | tail -n 1)
--printf "%d%02d%02d\\n" $MAJOR $MINOR $PATCHLEVEL
-diff --git a/scripts/gcc-version.sh b/scripts/gcc-version.sh
-deleted file mode 100755
-index ae353432539b..000000000000
---- a/scripts/gcc-version.sh
-+++ /dev/null
-@@ -1,20 +0,0 @@
--#!/bin/sh
--# SPDX-License-Identifier: GPL-2.0
--#
--# gcc-version gcc-command
--#
--# Print the gcc version of `gcc-command' in a 5 or 6-digit form
--# such as `29503' for gcc-2.95.3, `30301' for gcc-3.3.1, etc.
--
--compiler="$*"
--
--if [ ${#compiler} -eq 0 ]; then
--	echo "Error: No compiler specified." >&2
--	printf "Usage:\n\t$0 <gcc-command>\n" >&2
--	exit 1
--fi
--
--MAJOR=$(echo __GNUC__ | $compiler -E -x c - | tail -n 1)
--MINOR=$(echo __GNUC_MINOR__ | $compiler -E -x c - | tail -n 1)
--PATCHLEVEL=$(echo __GNUC_PATCHLEVEL__ | $compiler -E -x c - | tail -n 1)
--printf "%d%02d%02d\\n" $MAJOR $MINOR $PATCHLEVEL
--- 
-2.27.0
+>
+> >
+> > >
+> > > I had some other small nits commented in the single patches.
+> > >
+> > > As requested in your previous patch-series, feel free to add my:
+> > >
+> > > Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+>
+> Yeah, I'll keep it if v6 is just commit message changes.
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210115233542.70789-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzZ7y84%2Boe9CD4g3r19qGup%3DkYnm8%2Bf%2B5K4YQ%3D6gqTWtcQ%40mail.gmail.com.
