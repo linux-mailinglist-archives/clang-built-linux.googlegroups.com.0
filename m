@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBAABBHUQRSAAMGQEPBW5HHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD63HSEZTUIBBIFLRSAAMGQEWUVQCJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 826482F8D98
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Jan 2021 16:37:03 +0100 (CET)
-Received: by mail-yb1-xb38.google.com with SMTP id x64sf11698135yba.23
-        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Jan 2021 07:37:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610811422; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2C9E32F8DB2
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Jan 2021 17:34:42 +0100 (CET)
+Received: by mail-pf1-x43f.google.com with SMTP id y187sf8545217pfc.7
+        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Jan 2021 08:34:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610814881; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RW/qecwqbaKd3W3zcR3Sqq4gB2ZltwAhYrpbBPxBtV7k2EvIyA3fNWvEYExR4Myv5L
-         25yETNbSsiKw2ESN+VDaOB0Tl9cASxWfILAle0RBfu1+Qvwoig4wLjBvb2Mdmnan3moZ
-         //9D5enDkdSvteSIQ+JpIVigMJE82T7LnxvbySzgj9RAjd+yIRV7kLiJonkRLyPwHl9u
-         3K1Cy2Qb5hFCelD93v1mK4xOjvAgldvDhEMHnmJ2rBgz00FwrFGyQzsH48Z7NlQnPZHm
-         41+YDvHWsM7IjMVMIBhvekGGR8L/FMxmkaWNrnT2sKDX+tY0tV+qFmPGNZQPuQx8jjB0
-         OhwQ==
+        b=a48tFYUCna6xciMhl38O3MfdlTdrAxAyKDt0YrhBx3Wg9vq3H6LXdvLqZP70j+uj9U
+         YQr7TTX3XxUbKUiuzZqLPRabaVMK2yzMEbbhuMVoncN4e+YYFTKv5qK9W82PacvJ+C+b
+         ktYj9zpBf8YaO4n0+bIuMNdnUNamHVyzF99VfEdEcftHL9+UmpGwciDfD8/hwBgY+Hs/
+         6IlP75f+CJMsI+5JhI2WWJjtan1kqZJwm4xwII7HC4OhRTtCJwfH9XLWXqqcQQfRkN8Q
+         JTB/RJRn0OPVhbNq6FHyRkai+dNlzgpUtjEnfQYTnZC4l4Q785zLYV/zmMiFV9TD6z+B
+         WQ2g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=5wl/NyT9fzIMRhK/fh4l6raAKVfzneh4+bWHhK1hjsA=;
-        b=jdDe0aAb9mcRQ2XgzEQ4G962PX5Gxw8WYwhvHdK45kl/e9YlJMIrODxNhaE1BjZMZG
-         uCR89TMX+RICVSL0Km0x65jDFhNNScET+jUp+IUdCa24jps6aU45DeZwBbvlH9arK7HG
-         i7qmUgEnIl7i5KTbGvuY2h2OHUanASqEVOGK40zf1uwPkDMrAUarxH1VNY4Nm67iqGlP
-         2YB9COuWhQ90L+JldVxhini2E+WWj+EyWoUo55ZKW8+iaMWzK4CEb9GO0vc2lA2195JT
-         V4Ogk++0+n7E5s98gml5l97DbD/XzJ3uv8fv0p+6bMBRjRZbr2NuBzYlkkiT48aCFOeJ
-         qWBw==
+        bh=fAiklhoL8NDhKyOLGOf+9xgR55t1RCzZyhRAfcSmpBI=;
+        b=RATSLBxuCg80oW/6S2QF5yFoFrHisdpInAMyGR5hrBIbD2XtDgMbMih1Ez7/vVz/J0
+         7s7P4VoawWJ4YYSSgdfMBx9kn9HUS1Ymecy5p+xLtSVo854rstdcUnwKZ6vXqHCpkeFx
+         MJp756rNF0/hb6hZSdVuF05/4V7qsKQraAH3BykzewehHCSXFB27hrVdcobzuUEl8GCU
+         24VqucPzSmRDjhkAnre2C4JpdJ0b6NUQ1EaHODWSLiZa29G/FMdlBlqpydbcj/pZGRP6
+         BF/oHHOnZikyQEPmxOuRpXo/+RXqmhVW7joBc4uK6Tp9M2h9buP32F7aucfSfbjyD83j
+         sPkQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=il3FDsOs;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UTwCnHtV;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5wl/NyT9fzIMRhK/fh4l6raAKVfzneh4+bWHhK1hjsA=;
-        b=Cf/f2E/3J6vtUxpIRDnZ0cDHoc3FP84TLCcuN1rbTZbnQQ9RR2TSGsBWVRwPpWTJq2
-         wNVnXvUsb1rPCPJ3rQAR8s5ofmPU+6d3jKmWuycRcPDDawnigxyT/l63Ww47WTbu26XM
-         dO7KsP2OXomsyi0RPdHYTZSkltbTJVdlShyFlwPA7zQWlJ03pZvD/YpnHMbofm7OWWKG
-         VeW7JyWdbokzg6gb2gFEYVF383iwhHcCzPlYtyCZKKgRrBtGfO6mdcHCV8dcesfeBxQd
-         km4MNw9QnhGmT8aJ7epY4nolmbWs1HOc3g84mUlkIQIJh4YZcljCpNvepd/GmKxAKLuf
-         /pvQ==
+        bh=fAiklhoL8NDhKyOLGOf+9xgR55t1RCzZyhRAfcSmpBI=;
+        b=mQJ2DP0B+RPiAFxViNKjZZEWoN9OJ44IbRK7A0W7Kql+AKfJVFoTKSdgwpofzH6Tap
+         +L8AxwfhhOdVZdOOy2ZGHgFzlUTFN9kRQpmix9+fWGcr44sGXWTc3RX/PmSccrz/MoAM
+         aHgdFCKamMxH5rSgBl/C4hsCpWTSDxo7aO+0Vuv1i0dN875J1H5JN5yw3PkeB4F/OEIL
+         6/B13vjVcZPb95btGPvbb0/vBh9pmxgDZg1C2x0CwYLW18RxV98LiDPen+JLCzepbbu0
+         2aLbFWtSv29StfL3uQBgU95paub/hL8RHEG+d8EMAltxACJk1dcAJ0Kiq9lAUjGbgbXF
+         KWSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,80 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5wl/NyT9fzIMRhK/fh4l6raAKVfzneh4+bWHhK1hjsA=;
-        b=clBetRub2p4Kq6GCtMg4udTSW5ttVoEw3YvqiUX+XLip5vxcOMYFtlHQpVw37ZAKLz
-         i0m6Eiyw0mlP9yvzKPPKEasqrmHKuDtqknhm8d6pJfDiywW3h4s1pKsCE0NQqfi2uZoz
-         dI2aD+tEA2RyhgqPJ3FQGFCHMrhMsgCMwEQcLbcFr5+p9l3DLG7LKWgQBJoJJ96Vee2S
-         bh9bT3JcEke1WArjWqCauW3Rvqkyj+GZoMX0zP6TjY9Fmwl3IyhVqsIeJcOuiDuzb7Wa
-         Qp8Iz19O+Vg7VU7VPKyWr7gA6SglJek2bL73QUOS20ic8J+x91NCEyWf7fcRxJeQSyzJ
-         Qb3g==
+        bh=fAiklhoL8NDhKyOLGOf+9xgR55t1RCzZyhRAfcSmpBI=;
+        b=UXhq6iS2J3IQYmiZHkRzFftza2IXq2qk5igcc/q+4B8FZTAP1ezbBaLgmvm1TKqsmR
+         8+TZIVEFmdacT2G2gk2CmxyHFwF260rmMv2kS0QLcPJsMGUG7xX5uoivt+GIIAL5Z0O+
+         x7ZIhOfHJ3ArPxWLI0G37mVH6YJ1L90B6w1pFXjfLqt77o8K6AQTYFvSG4GMQNHRhTN/
+         bQjO1K+Q+2UodTv9kSY/bc2p1whS3QuS2s2/VI7fMf3Y91ra7qd4x9/AktzkdeUtCBkm
+         mquHS6dhOFx2bEv7rq+B3Km7tD6wWiklu9YaG0wsJFPN65y5rS8c7vOzH3MQSemJ/TrS
+         yjig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532KBQN0zDmPJKecF+QWVfFU6lKPzHKr9Khfxg2/ZoKBpB70ti+7
-	VJY2DtZ5iABmAGbfAwp+fgk=
-X-Google-Smtp-Source: ABdhPJzawDeswuQrENUQvtln7+TO13PMir9NtVv93Se+8Is2Ly7NkScu3+6Iad85JGObr+kF/2bgPQ==
-X-Received: by 2002:a25:1e02:: with SMTP id e2mr8185119ybe.57.1610811422592;
-        Sat, 16 Jan 2021 07:37:02 -0800 (PST)
+X-Gm-Message-State: AOAM531jr6E+ID/lnu7PNV+NNtq+OS2liMEoWNpuSVUwrm6x3BR0Ceax
+	zHlnYndOvnAppjZ0m7256XA=
+X-Google-Smtp-Source: ABdhPJz3Z8N7b0KoaxpasgvlwVxlq1mP9YcJAxHom95RaLc6Z8lSflGtTxiQXrGj9jw/ZSVxhtBFiw==
+X-Received: by 2002:a63:643:: with SMTP id 64mr18114482pgg.422.1610814880893;
+        Sat, 16 Jan 2021 08:34:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:c594:: with SMTP id v142ls5943563ybe.9.gmail; Sat, 16
- Jan 2021 07:37:02 -0800 (PST)
-X-Received: by 2002:a25:d644:: with SMTP id n65mr21453801ybg.55.1610811422207;
-        Sat, 16 Jan 2021 07:37:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610811422; cv=none;
+Received: by 2002:a17:902:7614:: with SMTP id k20ls1150009pll.5.gmail; Sat, 16
+ Jan 2021 08:34:40 -0800 (PST)
+X-Received: by 2002:a17:902:a5cb:b029:dc:2706:4cc8 with SMTP id t11-20020a170902a5cbb02900dc27064cc8mr18045294plq.62.1610814880290;
+        Sat, 16 Jan 2021 08:34:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610814880; cv=none;
         d=google.com; s=arc-20160816;
-        b=dej0qaSULU0oCmhRcI1g0gXBt7e5p0Y7OnEewhw5KhsvD//T5JjUAN0Vq8SJenHhHD
-         beWwlOESO38xaEk6C8YPkgDaHCCpLE8rrmV9yL3Ia7Krt+d+B1q/mxf36kv/HG7MwMHM
-         WGvNv7af8zCctzLgOkPB2WO/yEBqgJppFpqi5S15KR6CudJ31mIBuMJSV6F8/+NIbFJN
-         VwKQWRuxSvytNk9afOfSNqis6pmULs89t63Pkh46ggCjQVM/HULFvQzahpHI38pE8UFb
-         Q41EWzRDhcXCu0f9PzNxRzzu2G5nLiDbkPkrXIdv5biWhicd0v+jdhH4S9Rho6m9VLSS
-         HThQ==
+        b=EOfrWZDZXuDZR1UQRiygicSWdN6eqAMBGg9n303ZIXOEdn8sWHg+X7Pf2dE0EUcqa+
+         SdzSr18WscpmKdadX1IgjYqdqhhfY8MqJ5jgeKdx1KfeWUoqUtzZnxihWI0g59J6wgf9
+         lbVuKZ/DiDdNdUS2uooV25Mdmiq0B2ES+oxbQZhNdZEx6Num3qv4oHm3bLTZhq42UBsv
+         sXy7WGjeaMp8/INFQyjjMVz7QfXxWya+dV0xYEmZOeWYxQYQ4+sjIC+rj+QxRAuqGlNK
+         /MujwJZ1dujYJHd5d7rdPi9Zu9Vphuu2wkSAxyoLToSZPO51iaKkXSDxqoUArW0bjV5B
+         moTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=HQ1G34ITMbeyMotDNRPLoEJ5820Wfc8xDV31c9Hid9Q=;
-        b=gvi75Ew/x6n9InTUMfZpWuUBKrGbvRO6ENcmsWYi16iZNAfdKfaubS7/Dut63ZlbT5
-         naEcpR/qQHR1GP/1k3EnmdRU5gk8FuqJ6Lwql8Vn/E4i4lWSViyRNXk6imHduG+gvSxz
-         XyaF5eicfFiBYDWB2+n51RDQTdFVRV2lbwP08OHkq310RTlnX/t2Om8PekEMpmXYSu/P
-         TWNLdFK/ySQRSPX7tZw4KEoA7BcTIRCPJ8iBJNApic8e9omjFC/u+lX+qiQ9uG1rPcrI
-         yK0rZR+pZIFmajxtpFwn4hANNgyTYlJ9Utv0uwedb6Kuo/nhqe1yKf0Q0MQv8ItTyZe4
-         OqOA==
+        bh=7CO2WWfCq23CXaO1FckbzcIRWfsj141sYPpEvfVXS+M=;
+        b=p9zYagO9R8GVgBHjyx9lEGQgGMn353l86Pz/algAg5j9/AMPm+HtriQnmJXBVGAsYY
+         OO35QXJ1LU4lF4A9FWbQRYszlAiWEshO2DZcTsG80CamRQUh1+ofa+jeMu3HO4cnT3BC
+         3rw3K77C8v/5V2rUWE8gkJ5/y4u2TUN/RFQselvrxBI+TK7uZjPT/O3oJC8hgAaVQsu0
+         XCrzyvr44N3pQ9IsgdvNnBubSh2K5jBTPgkAF6GM9wKKXpmZ26rciNH5euHIHFOmlVmB
+         gpTK6JdzJu4b0CENFldZmSsdRTXnD/6H44FfTvIiRrh84Crck/N3PRnO8dDYuXMFm6H+
+         1oMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=il3FDsOs;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UTwCnHtV;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k19si985756ybj.5.2021.01.16.07.37.02
+        by gmr-mx.google.com with ESMTPS id d2si925473pfr.4.2021.01.16.08.34.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 16 Jan 2021 07:37:02 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 28A3A23339
-	for <clang-built-linux@googlegroups.com>; Sat, 16 Jan 2021 15:37:01 +0000 (UTC)
-Received: by mail-ot1-f48.google.com with SMTP id o11so11734643ote.4
-        for <clang-built-linux@googlegroups.com>; Sat, 16 Jan 2021 07:37:01 -0800 (PST)
-X-Received: by 2002:a9d:7a4b:: with SMTP id z11mr12332724otm.305.1610811420486;
- Sat, 16 Jan 2021 07:37:00 -0800 (PST)
+        Sat, 16 Jan 2021 08:34:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id CBFEB23119
+	for <clang-built-linux@googlegroups.com>; Sat, 16 Jan 2021 16:34:39 +0000 (UTC)
+Received: by mail-ot1-f46.google.com with SMTP id a109so11868291otc.1
+        for <clang-built-linux@googlegroups.com>; Sat, 16 Jan 2021 08:34:39 -0800 (PST)
+X-Received: by 2002:a05:6830:10d2:: with SMTP id z18mr12489782oto.90.1610814879037;
+ Sat, 16 Jan 2021 08:34:39 -0800 (PST)
 MIME-Version: 1.0
-References: <202101160841.jUXjdS7j-lkp@intel.com> <YAJIhjzmvszXAXUb@gmail.com>
-In-Reply-To: <YAJIhjzmvszXAXUb@gmail.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Sat, 16 Jan 2021 16:36:44 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1FTzwK=xK2eC5hiBSC+Xjq1eNO_cv3=CRB4csNiMpsUA@mail.gmail.com>
-Message-ID: <CAK8P3a1FTzwK=xK2eC5hiBSC+Xjq1eNO_cv3=CRB4csNiMpsUA@mail.gmail.com>
-Subject: Re: [linux-next:master 952/3956] crypto/blake2b_generic.c:73:13:
- warning: stack frame size of 9776 bytes in function 'blake2b_compress_one_generic'
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"open list:HARDWARE RANDOM NUMBER GENERATOR CORE" <linux-crypto@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Kees Cook <keescook@chromium.org>, Marco Elver <elver@google.com>, 
-	George Popescu <georgepope@android.com>
+References: <20210107223424.4135538-1-arnd@kernel.org> <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
+ <YAH6r3lak/F2wndp@rani.riverdale.lan>
+In-Reply-To: <YAH6r3lak/F2wndp@rani.riverdale.lan>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sat, 16 Jan 2021 17:34:27 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
+Message-ID: <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
+Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Arnd Bergmann <arnd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, X86 ML <x86@kernel.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>, 
+	Andy Shevchenko <andy@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	linux-efi <linux-efi@vger.kernel.org>, platform-driver-x86@vger.kernel.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@kernel.org
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=il3FDsOs;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ header.i=@kernel.org header.s=k20201202 header.b=UTwCnHtV;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -136,39 +138,90 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Jan 16, 2021 at 2:59 AM Eric Biggers <ebiggers@kernel.org> wrote:
-> On Sat, Jan 16, 2021 at 08:59:50AM +0800, kernel test robot wrote
+On Fri, 15 Jan 2021 at 21:27, Arvind Sankar <nivedita@alum.mit.edu> wrote:
 >
-> Looks like the clang bug that causes large stack usage in this function
-> (https://bugs.llvm.org/show_bug.cgi?id=45803 which is still unfixed) got
-> triggered again.  Note that the function only has 264 bytes of local variables,
-> so there's no reason why it should use anywhere near 9776 bytes of stack space.
+> On Fri, Jan 15, 2021 at 02:07:51PM -0500, Arvind Sankar wrote:
+> > On Thu, Jan 07, 2021 at 11:34:15PM +0100, Arnd Bergmann wrote:
+> > > From: Arnd Bergmann <arnd@arndb.de>
+> > >
+> > > When 5-level page tables are enabled, clang triggers a BUILD_BUG_ON():
+> > >
+> > > x86_64-linux-ld: arch/x86/platform/efi/efi_64.o: in function `efi_sync_low_kernel_mappings':
+> > > efi_64.c:(.text+0x22c): undefined reference to `__compiletime_assert_354'
+> > >
+> > > Use the same method as in commit c65e774fb3f6 ("x86/mm: Make PGDIR_SHIFT
+> > > and PTRS_PER_P4D variable") and change it to MAYBE_BUILD_BUG_ON(),
+> > > so it only triggers for constant input.
+> > >
+> > > Link: https://github.com/ClangBuiltLinux/linux/issues/256
+> > > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> > > ---
+> > >  arch/x86/platform/efi/efi_64.c | 4 ++--
+> > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
+> > > index e1e8d4e3a213..62bb1616b4a5 100644
+> > > --- a/arch/x86/platform/efi/efi_64.c
+> > > +++ b/arch/x86/platform/efi/efi_64.c
+> > > @@ -137,8 +137,8 @@ void efi_sync_low_kernel_mappings(void)
+> > >      * As with PGDs, we share all P4D entries apart from the one entry
+> > >      * that covers the EFI runtime mapping space.
+> > >      */
+> > > -   BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
+> > > -   BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> > > +   MAYBE_BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
+> > > +   MAYBE_BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> > >
+> > >     pgd_efi = efi_pgd + pgd_index(EFI_VA_END);
+> > >     pgd_k = pgd_offset_k(EFI_VA_END);
+> > > --
+> > > 2.29.2
+> > >
+> >
+> > I think this needs more explanation as to why clang is triggering this.
+> > The issue mentions clang not inline p4d_index(), and I guess not
+> > performing inter-procedural analysis either?
+> >
+> > For the second assertion there, everything is always constant AFAICT:
+> > EFI_VA_START, EFI_VA_END and P4D_MASK are all constants regardless of
+> > CONFIG_5LEVEL.
+> >
+> > For the first assertion, it isn't technically constant, but if
+> > p4d_index() gets inlined, the compiler should be able to see that the
+> > two are always equal, even though ptrs_per_p4d is not constant:
+> >       EFI_VA_END >> 39 == MODULES_END >> 39
+> > so the masking with ptrs_per_p4d-1 doesn't matter for the comparison.
+> >
+> > As a matter of fact, it seems like the four assertions could be combined
+> > into:
+> >       BUILD_BUG_ON((EFI_VA_END & P4D_MASK) != (MODULES_END & P4D_MASK));
+> >       BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> > instead of separately asserting they're the same PGD entry and the same
+> > P4D entry.
+> >
+> > Thanks.
 >
-> I'm not sure what we can do about this.  Last time the solution was commit
-> 0c0408e86dbe which randomly added a 'pragma nounroll' to the loop at the end.
+> I actually don't quite get the MODULES_END check -- Ard, do you know
+> what that's for?
 >
-> Anyone have any better idea than randomly trying adding optimization pragmas and
-> seeing what makes the report go away?
->
-> Also this was reported with clang 12.0.0 which is a prerelease version, so I'm
-> not sure how much I'm supposed to care about this report.
 
-I sent a workaround to disable UBSAN_UNSIGNED_OVERFLOW an
-x86-32, after showing that this did not affect arm32, arm64 or x86-64:
-27c287b41659 ("ubsan: disable unsigned-overflow check for i386")
+Maybe Boris remembers? He wrote the original code for the 'new' EFI
+page table layout.
 
-As the report is for ppc64, it appears that this is not just specific to x86-32
-after all. I have had no success in isolating the problem in clang, but I
-did not try too hard either. I see this .config also enables
-CONFIG_UBSAN_UNSIGNED_OVERFLOW=y, so it would be a
-reasonable assumption that this is the same problem as on x86-32.
 
-There is also another thread on CONFIG_UBSAN_UNSIGNED_OVERFLOW
-causing BUILD_BUG_ON() failures.
+> What we really should be checking is that EFI_VA_START is in the top-most
+> PGD entry and the top-most P4D entry, since we only copy PGD/P4D entries
+> before EFI_VA_END, but not after EFI_VA_START. So the checks should
+> really be
+>         BUILD_BUG_ON(((EFI_VA_START - 1) & P4D_MASK) != (-1ul & P4D_MASK));
+>         BUILD_BUG_ON(((EFI_VA_START - 1) & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> imo. I guess that's what using MODULES_END is effectively checking, but
+> it would be clearer to check it directly.
 
-        Arnd
+This obviously needs a comment, but checking that everything lives in
+the top 512 GB of the kernel VA space seems sufficient to me,
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1FTzwK%3DxK2eC5hiBSC%2BXjq1eNO_cv3%3DCRB4csNiMpsUA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXGZFZciN1_KruCr%3Dg6GANNpRrCLR48b3q13%2BQfK481C7Q%40mail.gmail.com.
