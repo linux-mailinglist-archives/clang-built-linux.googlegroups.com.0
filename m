@@ -1,141 +1,135 @@
-Return-Path: <clang-built-linux+bncBCH3DPMZSAEBBDMPS2AAMGQEXM3NMVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBE45S2AAMGQEOB7F7OY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id B13E92FA0B0
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 14:05:18 +0100 (CET)
-Received: by mail-oo1-xc40.google.com with SMTP id p13sf13354856oos.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 05:05:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610975117; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id D615B2FA1B8
+	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 14:35:16 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id v19sf3234214plg.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 05:35:16 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610976915; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GgZGjfkcpkGwetF518QPtuzM6bqDPyCYxu8C8SVv4JGvzP0LdRT96YGO2CAPQK3KUh
-         Y7CUQ8FhBNkM4TYKFPq89YxzkO9Y722n55tSnR6cPJaLYoZCgsWaXwF8F4NQmvhvnTqi
-         Xh4dRXkXj+e1YFj2j36bw08eHQ9+7X3BrwCPaT+SIMMBxQiukIw1l+oUo7lzS7ox5Pti
-         Of5bGdu1Y5HQ/AVsCVX3gjWk9h1j0xLv34NeVff8j8G+/2n7UW9tOaRoDtMvCS9h/p7m
-         AcE+vuW0TMO7pr4LPM0ky1sXsBMHEtrWLcSZWPTehfP34CIGVgVxJv9FbLew13ypq37U
-         brjg==
+        b=K8V9ed1pgSZufDWm3cgLhX2QjNaHETt2P2Y9DR8oXqY2ue5jcDwxggVtM7HceO8zJ+
+         9ZrRXqnO7QiP8ZGwCSxT/z7N35Jo4Vsw5TQRWQO9mQvrdlhrpPGCSmVnNH3TGtZmwfof
+         2smVfvaGoOMzTA8tIimjj7b/ukov602Z6yFeP4uexxKCYX5E/uVfzPouhW5Ka46TtVtP
+         EpjtNcVJHV3JlHplhnY7e0FptS0hp/u1ta7enqz3rO/MuzefrD8KrTzTyaj8XwTi0bhE
+         q1ki/Mn38ZpzIW58oKZqx2JVYzXoKVc/NS0c8agiflb1XMUQlbhp0vdCy/4vlobSUzcp
+         0+dg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:organization:from
-         :references:cc:to:subject:ironport-sdr:ironport-sdr:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=ueLM10Sx9K8G45vnagY7nu8cZRJTZh0FDpkd5FgcM+c=;
-        b=kN9FzHCof+Uyjnvcw1EjG7QxsJ7CE+5ZFmIWvHOBZycNpBjAU3GBsSNAjMi20MOVJB
-         OUc3BB1mjsxKY28htDCEQ/+eK8WhLuzJyhDkGMjEYv6WoC/cElmVOEJYvf5AEl9ZZ28O
-         yL/LJeGdq8Knwai1unuskwQtkNbxudjfq1LTMTsPrVn8VrI+w1H6pwpVvqxfdM2hVZ7Z
-         ilttz20Tm3xsuvSo7Wau+MHgiS8MQB/l+zt6SldX9lZg+0QhbKU8MD+vbfb0bHAvxxai
-         3cjCHJ13gGerlQOZGK2IQyVBHIU0cj4PdWXxTFYNaHhBtN32vFCgvBU9eI+q00oVpJfo
-         T+4Q==
+        bh=aGXtVLjH0KC5U4mgv4A/phphwIxEepK5td9WNqcnuSo=;
+        b=zOrIdIHPH21S0keT2lVBTGAYb+SmgpFZ5aP82DDRYUUEfQmaS3LVp9eIzQGDkYiT46
+         wn9fGasQlcn1xoCsMVxzbZ+amozsLjZ//wHgPGiD8ejOjS3o0Q+xDaM5V8+ZxkF8XWy7
+         oxGoS+Y7tYs2Tcc419ommxL3HbmZQIvvZAffJNxML7TOD7x7y0WRuU2BzBsrT0+DtaQE
+         NyQQHoFhljZ5taijzD7hwdujU2w9EyfH/o2fmX/N7h/gIlblAtb+SfrJNWPErPq9cf9E
+         TdpUoqYa7NyRBgSjnsaCQNzl90QFAEhYe3D0iMIkXgRYoHn6kPv8bDmxJ7hm5Ie+T/3L
+         c7ag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of like.xu@linux.intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=like.xu@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=DXnI2dGL;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
-         :organization:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ueLM10Sx9K8G45vnagY7nu8cZRJTZh0FDpkd5FgcM+c=;
-        b=M7PL6429XI4aamvt+clVqUnxl9rt9WtA+TdNTsvTUWIbyPAwbFz5Fbch6iRrhMlQQD
-         r/j18DBnfLyvvMQj8hSJNmaqyKuvBH+MQwwvmmH+YVGhaROY7FPEuf5EZX3Iu6zRaKnQ
-         UugYF1UkB9r1LcOWSc6f4NaN1o47kuWwOrNGLLunoRa99CEDmEjTehkHLz2BIsvN/ed9
-         ZBSfQzq+532NyQBsps3fxKjXP+o8Qe8E4nnLF1/uloDvtJk0COF+qg23warmfNz61RDQ
-         g5iNsXKeFCcfykBv/Hv3QwzhdRybTPe7J3mlPPJ0hPi3hrwt9QNLW3uvVHtxn/sMZ4OX
-         nHug==
+        bh=aGXtVLjH0KC5U4mgv4A/phphwIxEepK5td9WNqcnuSo=;
+        b=GzhRGAg8oyZcnkpT1LqWemedmXMhketAzVkTDj0/LaFea3jsJRo2lrsgPKehgLd+ga
+         JJ35tj0s4sGO81OIp7eP+MflZnBlUF0IRCUG0MPd7V3k0nEe5ju7rgz524FnNgnYvPkX
+         Mu0ytuvN/dmrJVcYOVIE+AaDvHaGNAzBgyoX4CUw5R98zjERQTBrOutR4MapBk/6VGHa
+         gOlEwg3YkSrlKIBMgV0nWOilIYpnsrOlRjjw1FN+recLU+zv6t/3v1cVAyxOTmBhabCB
+         nchNDb+bOYyIlIM0YeN64WiN8IL0noDfrea0L5fjC5eAWDlYmYHUbtw6R5NBJG+IoVdz
+         ectQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
-         :references:from:organization:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ueLM10Sx9K8G45vnagY7nu8cZRJTZh0FDpkd5FgcM+c=;
-        b=Y58EO26bQGHy7DPLeB+HFZpln28NFsESN50rGZjzE6Tc/S2gER7TIgGVlFFueW4eVb
-         MyCodIy5vT7S9PFX8o0pkoXl42DS2hwTyioD17DIfedk1ovNOYKPBTdIP4awPUuwDLxF
-         44fJXxGFwHWGj6LKjMBClDqiGCPvCSsLbKsn6/O3KKydSXv64624BNBfK7ipyNi6eM1W
-         vkIoWeG/L/CrE7gWnMRs9ACGhw8vYbTnGm1mlVkCrrTGI5AG271ZAE5wcnA3AG+1rKkp
-         viCvqa9CEl5bwZw0smlp40xHMREH9/MH+lIP5J4izIkX22XcRIYDR6EC1JR2fQ9Co8f+
-         +VFA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=aGXtVLjH0KC5U4mgv4A/phphwIxEepK5td9WNqcnuSo=;
+        b=L7AO44XzCeV6N1zlY6u0LL0Qt9/bJXgX/I/LvCJxGQERvhW/J/6Ny6faPqaqwadCU6
+         gL4AODYmtqTGf83Z1qWJGXNlegjtgYA8owdId4k3wGxJ2hx0k2lkWGDb2Y7xFZM88BFG
+         PtZ8cNEG+U4zShCLcWtXz/sHFYyNjz3NIiSc1pKbNxwsanxk6D1tVzhI3Gw22sqHjlQO
+         x2GGMe4uPp9jHhbcgCOyaMUtRly/fn/MzKeVDRdudmA3Gx7XIhjKBF+C8BjoySOF2Olg
+         BzbbmmnT6cFDCFnUe95WwL2tmv9hpso72D+9Pl3udEAGW1c3sYcg6Sp6SO+SRQMZ2yPn
+         RNBA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533lYVMvSBBptWHbTG0fE3O0ksSzO1BDSx3MR1LBl3Fv5SFXRyTn
-	UNFNkOl0puB8SFWgW+dPccY=
-X-Google-Smtp-Source: ABdhPJyiPn5eBN9G3oFlCscSZvtZTGW+GK1jtFCnEGdzllXMwRHgWhd6vJ1apGuk+OX/8leHEaS8VA==
-X-Received: by 2002:a9d:4786:: with SMTP id b6mr1146024otf.269.1610975117681;
-        Mon, 18 Jan 2021 05:05:17 -0800 (PST)
+X-Gm-Message-State: AOAM530RbzSs4JgzVzrNuXlGdXVi6mMcyC4pnezHyMJheYebYe4Fb7Xh
+	5nKp8IDWvE2K8NUHe0x1bqk=
+X-Google-Smtp-Source: ABdhPJzylnIBFfrS66LJeiX8XLu3Y/PubD/iPG98Zq3EdrWVqWM50uttoT+yzpa1sfj4/xVuel65kA==
+X-Received: by 2002:a17:90b:1a87:: with SMTP id ng7mr24796942pjb.211.1610976915654;
+        Mon, 18 Jan 2021 05:35:15 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a54:4694:: with SMTP id k20ls4337492oic.0.gmail; Mon, 18 Jan
- 2021 05:05:17 -0800 (PST)
-X-Received: by 2002:a05:6808:b18:: with SMTP id s24mr12995833oij.72.1610975117242;
-        Mon, 18 Jan 2021 05:05:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610975117; cv=none;
+Received: by 2002:a17:90a:4881:: with SMTP id b1ls9206342pjh.1.gmail; Mon, 18
+ Jan 2021 05:35:15 -0800 (PST)
+X-Received: by 2002:a17:90a:ab8e:: with SMTP id n14mr25679504pjq.96.1610976915043;
+        Mon, 18 Jan 2021 05:35:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610976915; cv=none;
         d=google.com; s=arc-20160816;
-        b=BPg1X8LyGkjanUK5hWsNGwvrPN11Onp5VwlVjWs0/a7uppkV40a3YCc8QN0u7uB6AC
-         u9mKuZo0Uin9AloIv5PsGAxL+MPcGrb8LCXlwthaGxCT3N0GNrSzUbWr6Z8lv27IYldo
-         IWa78gEXgEAWzbRQDtjJyJhP9jYqzHkRW04W7q97VBc3KkQUIDVXjvMR1w/j/Hwdk2d4
-         QB5dMkf8mZmA/92opOI2qx3yikyWXXWCptiCAxmEbRkS0QnpUaleORsIEanDufFzuNLW
-         Ti3DkwtpRhI1rVDEXf9lh7FBFY9lnrlv7AWZgWU/GYCNv2zftq/j+waNGKD3eMjrC0IO
-         GdlQ==
+        b=eLyyIA92j4D8pSmoJ7BRvmryNU02KSwLPLOxT5CZDoppFKlXCmGPt0J3bAoiNn0BR6
+         pxwdFF08gwBV9ox1eUv7IkK9DMq4gm0BqLSPbAo8bp/bS/sCpa2Z/WsGnyClgq3UuNIe
+         WA95F+NBEvLC5das8Oq9zV8ahDnjcZGelGBTJEeQCSMKo0hjIawN3OilkgHjfYYg9Wo6
+         KnRH5zcd1KOFE1uC6biXUkjYfrhAMy2Sz32Wv4vNGGXHX6M0DTQpm6ERjMVmZs5rQ2EI
+         WUpeIyr+kLxZa7I4B/yN0KR+bGD3G1Twg2OVzKni/Vy+SPTj3L0XCqFK4oW/6u7I80c4
+         X6Mg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:cc:to
-         :subject:ironport-sdr:ironport-sdr;
-        bh=ilGq8WlBFmFXJovfUH0LHVcRMCUkEbPZ2OaNgNZpyGE=;
-        b=Xb/oJBGasIeZzwoA+df1QYLtrrNpTvzIMELdtHVwTqWBy3GQS4sn1FbNK3RN/LomDJ
-         PvizeO13xx9DDU+gmY9QkyxBVIx9Q1e/Oe5+nr/qcCaF63v3pvFAQWSLwY+AMeAwMjfU
-         4PwCMGXSUO0fpedF8DyoywVIxkkbbg7lU9IAqxd3bdChRoOq+QMCy1YC2Vs62C0zD19b
-         a7BDK6Uf71Q07kIUiu6n6VqSEjQNQorKU+0XKrdcSD18uXbVs5cpGzFpR1p56ojbJd7L
-         FrJNaHrZQngaaosjBzswLu1JSkwU7fuL4rC78yoQYzJpeFHhxDIUSHJ9+DzFZVXIn7K9
-         UrHQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Xvb2bA8jC9t3A+BvPDpcUOdOaB4WCZGa538oav7lt1c=;
+        b=GxF83ufs+N8n2Xy3ppp9ptl4oV3RfrQCRMVy/7EfH7nccLt7JSTjnsl9MfXnoDSxlg
+         2qubv5fzLIg4J0Mep39m0lM/nQL3Yk43TR4q2m3jqI3S6rr3+Pa249rvPJgQRL/O65RM
+         OiqFOqV1XkmN0rggIjU1HVbEQ4asq4ew4oUGBb+O19omrEGV51lZGBSsZoDw8Yf9A26a
+         BXzzXrAzP8eJHn9Pe70/pELWvv4ZPVn0umMQXJcs1XfV46DvJ2DNl8Kc8czE9KOe2jQJ
+         8jpnistOcgUk8uMdcpizJjnOuQyeuoDTrWvax9wVht7JpmxvU+ISF1yaq+iiLXgad9DG
+         vmKQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of like.xu@linux.intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=like.xu@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id m7si651212otq.5.2021.01.18.05.05.16
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=DXnI2dGL;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id z2si1324549pjq.0.2021.01.18.05.35.14
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 18 Jan 2021 05:05:17 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of like.xu@linux.intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: kzJpjUIplE93kEn9Hu9ataX75rq2BuFA05PCziSc7Egol0Ch6O3ix57Slt5JVz5jTn3d+Vu2ty
- iuHG9/TTgn/Q==
-X-IronPort-AV: E=McAfee;i="6000,8403,9867"; a="175296172"
-X-IronPort-AV: E=Sophos;i="5.79,356,1602572400"; 
-   d="scan'208";a="175296172"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jan 2021 05:05:14 -0800
-IronPort-SDR: Z4a7e9twg5ORZ3x9btiBnSsh5HzEFV6p2J/lJlFX/iclkhR1YWxwGNzRUUO9BE21p9QjkQRs+j
- C4NA5X2qPwDw==
-X-IronPort-AV: E=Sophos;i="5.79,356,1602572400"; 
-   d="scan'208";a="383566818"
-Received: from likexu-mobl1.ccr.corp.intel.com (HELO [10.255.29.150]) ([10.255.29.150])
-  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Jan 2021 05:05:09 -0800
-Subject: Re: [PATCH] x86/perf: Use static_call for x86_pmu.guest_get_msrs
-To: Peter Zijlstra <peterz@infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Jan 2021 05:35:14 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1l1UgU-00028y-VW; Mon, 18 Jan 2021 13:35:07 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 0DEFF30015A;
+	Mon, 18 Jan 2021 14:35:04 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id ECF642023AA35; Mon, 18 Jan 2021 14:35:03 +0100 (CET)
+Date: Mon, 18 Jan 2021 14:35:03 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Like Xu <like.xu@linux.intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- linux-kernel@vger.kernel.org, Jason Baron <jbaron@akamai.com>,
- Josh Poimboeuf <jpoimboe@redhat.com>, kernel test robot <lkp@intel.com>
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, Jason Baron <jbaron@akamai.com>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] x86/perf: Use static_call for x86_pmu.guest_get_msrs
+Message-ID: <YAWOhxi6Vxiq8JLR@hirez.programming.kicks-ass.net>
 References: <20210118072151.44481-1-like.xu@linux.intel.com>
  <202101182008.jQybUDa0-lkp@intel.com>
-From: Like Xu <like.xu@linux.intel.com>
-Organization: Intel OTC
-Message-ID: <a82754e7-9a2d-7ab4-466d-fc0d51a3b7f2@linux.intel.com>
-Date: Mon, 18 Jan 2021 21:05:06 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.1
+ <a82754e7-9a2d-7ab4-466d-fc0d51a3b7f2@linux.intel.com>
 MIME-Version: 1.0
-In-Reply-To: <202101182008.jQybUDa0-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: like.xu@linux.intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of like.xu@linux.intel.com
- designates 192.55.52.93 as permitted sender) smtp.mailfrom=like.xu@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <a82754e7-9a2d-7ab4-466d-fc0d51a3b7f2@linux.intel.com>
+X-Original-Sender: peterz@infradead.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@infradead.org header.s=merlin.20170209 header.b=DXnI2dGL;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,96 +142,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-I guess this fix will silence the compiler error,
-and v2 will be sent after the local 0day test passes.
+On Mon, Jan 18, 2021 at 09:05:06PM +0800, Like Xu wrote:
+> I guess this fix will silence the compiler error,
+> and v2 will be sent after the local 0day test passes.
 
-diff --git a/arch/x86/include/asm/perf_event.h 
-b/arch/x86/include/asm/perf_event.h
-index b9a7fd0a27e2..517f546b6b45 100644
---- a/arch/x86/include/asm/perf_event.h
-+++ b/arch/x86/include/asm/perf_event.h
-@@ -479,15 +479,11 @@ static inline void perf_events_lapic_init(void)   { }
-  static inline void perf_check_microcode(void) { }
-  #endif
+I think there's also a problem where you don't assign a function at all.
 
--#if defined(CONFIG_PERF_EVENTS) && defined(CONFIG_CPU_SUP_INTEL)
-  extern struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr);
-+
-+#if defined(CONFIG_PERF_EVENTS) && defined(CONFIG_CPU_SUP_INTEL)
-  extern int x86_perf_get_lbr(struct x86_pmu_lbr *lbr);
-  #else
--static inline struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr)
--{
--       *nr = 0;
--       return NULL;
--}
-  static inline int x86_perf_get_lbr(struct x86_pmu_lbr *lbr)
-  {
-         return -1;
+I think you want something like
 
-On 2021/1/18 20:12, kernel test robot wrote:
-> Hi Like,
-> 
-> Thank you for the patch! Yet something to improve:
-> 
-> [auto build test ERROR on tip/perf/core]
-> [also build test ERROR on v5.11-rc4 next-20210118]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Like-Xu/x86-perf-Use-static_call-for-x86_pmu-guest_get_msrs/20210118-153219
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git 9a7832ce3d920426a36cdd78eda4b3568d4d09e3
-> config: x86_64-randconfig-a002-20210118 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 95d146182fdf2315e74943b93fb3bb0cbafc5d89)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install x86_64 cross compiling tool for clang build
->          # apt-get install binutils-x86-64-linux-gnu
->          # https://github.com/0day-ci/linux/commit/0cd2262fad043a5edef91fca07d16759703658b8
->          git remote add linux-review https://github.com/0day-ci/linux
->          git fetch --no-tags linux-review Like-Xu/x86-perf-Use-static_call-for-x86_pmu-guest_get_msrs/20210118-153219
->          git checkout 0cd2262fad043a5edef91fca07d16759703658b8
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
->>> arch/x86/events/core.c:670:31: error: redefinition of 'perf_guest_get_msrs'
->     struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr)
->                                   ^
->     arch/x86/include/asm/perf_event.h:486:45: note: previous definition is here
->     static inline struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr)
->                                                 ^
->     1 error generated.
-> 
-> 
-> vim +/perf_guest_get_msrs +670 arch/x86/events/core.c
-> 
->     669	
->   > 670	struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr)
->     671	{
->     672		struct perf_guest_switch_msr *ret = NULL;
->     673	
->     674		ret = static_call(x86_pmu_guest_get_msrs)(nr);
->     675		if (!ret)
->     676			*nr = 0;
->     677	
->     678		return ret;
->     679	}
->     680	EXPORT_SYMBOL_GPL(perf_guest_get_msrs);
->     681	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+	if (!x86_pmu.guest_get_msr)
+		x86_pmu.guest_get_msr = guest_get_msr_nop;
+
+right before x86_pmu_static_call_update();
+
+And then have it be something like:
+
+static void *guest_et_msr_nop(int *nr)
+{
+	*nr = 0;
+	return NULL;
+}
+
+and then you can reduce the entire thing to:
+
+struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr)
+{
+	return static_call(x86_pmu_guest_get_msrs)(nr);
+}
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a82754e7-9a2d-7ab4-466d-fc0d51a3b7f2%40linux.intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YAWOhxi6Vxiq8JLR%40hirez.programming.kicks-ass.net.
