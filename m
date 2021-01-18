@@ -1,140 +1,141 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBQEBTCAAMGQEI2MLGDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4IKJCEYQADBUBB7LQFWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id EC7262FACE0
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 22:42:25 +0100 (CET)
-Received: by mail-ot1-x339.google.com with SMTP id p24sf2020078otl.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 13:42:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611006144; cv=pass;
+Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id CF5AC2FACFF
+	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 22:56:52 +0100 (CET)
+Received: by mail-wm1-x33b.google.com with SMTP id r1sf5074970wmn.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 13:56:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611007012; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E3nCM7JCaNhTkbRPqaJIkvKd7IGNLJPziU6zIsh+Xb43OghHu7ZGhqfsByrHAhvjnl
-         MB2sIXOsbytsnJNroGeK7HxvK0ASjVRjZxi9W4/j17wSd/Vblr9V+E85cDw6HgH1K2jG
-         3d3L4XDdwcAwZ4pyAifiw1aF4sXpPvXMafSkswbmW31trVkt6SWsGa+HzAzUQmUcgeeG
-         /cZZeIcyJlcsG7ft/mzWT4YblLG8jaPdq38CREEqTC+eWvMloegcNYMEMNiSkStQ4lA+
-         9stceO0UbjAtfT2PUyBd6jTtKeRi3DeOhUaUQUNoh8KUJW6JLhuYtO59eFOHz+fc1fS4
-         xsng==
+        b=wvvWT9IE2o0XLOwdozsc071pYQLF60sZJJt+DbuIvz1iEoXAIv9i4y8aF5cpFtPgR4
+         kU7JEKqgQarTdlXC3YnP3FiSZQ9aHZV/AKAlVttHF9E8UKFAXQProzKe0sstnapuXy+S
+         AeDB14uZ2crCC6+nv4fDb9Ng0K2ykLw5JngGu9atKIpBotK3leMBDPU5yWWi7wxGvDX2
+         CuSaT2OChN0oRKgV5KLLEpcfpTI5/JT88UNTydgdDc05YIM60NuuX3h+MPL0R3kD1w/E
+         DFYAYDbpFxfVp+0V+jVe13H5vszLObETG3k1cggciB/cSkCH3jPPJzSy0Ui0VN8sk2uc
+         ag/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:sender
-         :dkim-signature;
-        bh=VJVBMz56fzUQKTwmXkaUNrYMacouucrXkURGiyKeR0Y=;
-        b=y049bxaf0tuW/iIGq2Zm/6H9mLbloyKpR4uumE0Gm186032DYYCJHunEzDnPeLqegh
-         7lCYe48f2G9Kj7HbRD8A9TN2o8kvy1kHr9h3H9o6JgGNzXPVdwv2iZQ0QN/g7zdOp3lW
-         a2q2i751ZW/re9hNKtXIepXDTpXo8peIDAYW60MZLBp5ItZi8MpG48Dnh+JiisMQOzua
-         ZhMlXxj/Fq0/wcDOIBRuQCutMpny/cS/yQXq0YQd1ArCybk0ytffB0AKCFxRY7SJSumn
-         t5uITQ9CxGTf/7taXqy2NJioQMSfuuwwRmym5vq2O3C6TfcaveNnNa75ObnUmudQzKJo
-         f9kw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=VlDz+L6RztnpomcIooccpJNMzwQfulDc7XWgsw8jAwY=;
+        b=zOMPiZ4zVxynHT8prWZTbGt59s+acLAUKNr4WQNV6GA/0A0JPIdNQl9sCCFVbOS1Te
+         TBCoyqHsooLJd2rlih8K9CJqLDp39o2fW6D5WB+V2ZCmb0wI/5AZeUlC8DFL1ILZyAnS
+         3oSIw22NDubsNafSTnr8cP9bs4b+kWFJwCB/I/tDH3hwAjPazcowmPEyjOHyRumjoEkt
+         MeN4+aMcBvzWEM4YP7X3kPyjUuGbKRDhOA9iWYILY9TB4MQ/GAmCC66eJfwqro+mPlqB
+         mHZ3Opw0U1OhaNFrG82tcYQEl92wg/P7a50HmpZhMDdt4ymYItmZtOe+m3DInI0TZ365
+         15zw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="hYi/lsRj";
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f36 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=G9OuzfiK;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::634 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VJVBMz56fzUQKTwmXkaUNrYMacouucrXkURGiyKeR0Y=;
-        b=kEzDssfDb5Wl7X/RoOufrN6+dI9vR6HikXviU2OfU1XFSIRtf5zlX9M8uOd2OIB1Iz
-         lginKSYMIU8XcZFf/ehlD9nXDHcKfOL9jdbsBLkO3U4/2DgzpChPY/yEn+xiC/ST5iTz
-         OwV+kwJrOjuio0iIK+AOgyy9Jjbvk/mQ1inSnmX3hN2+/UlX5H4JaHIp2GxlBYXtqxwO
-         VIlPspESHbEHIxfm24wu8eOuMEavFVVL8kdTtEY+MuUBUu5uiRzKOUh3CKixR36zDCrD
-         Ow7ZW26ZrbwuAeVQdpSb8iujz4YTt8OhuYwtIJutk1OzAnERqPA8oHi3E+Sv6ZtGT2cB
-         DxyA==
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=VlDz+L6RztnpomcIooccpJNMzwQfulDc7XWgsw8jAwY=;
+        b=j/bRsXca3CHz3GYecm/e+cdfG2pz0EnqwaiQOcmpFYMehK+DM3mJX00J4vLTQGZ2aP
+         kyTrFsMteixuIuYhrHiY3pjl1kYdq1MsQd9tCaoLebWNgFqffnKTEnMw27YmR1qrCBZo
+         0fw2fYG5NUBwVfHrnUItTt1BMhxXag2GoJP0LA1j0hJNsADHU8M5xqf3o+fQpNY20Pgn
+         vT6qSl2zAEoPKhdAILX9avOQqlhHxXN4ZWw4t3Vx3c/A3qCkQgMYpuSWNHiPO+CPMoE+
+         dAWLjDJkHtXGNeOsb9yPvu27DnTS4FsmqeVcdYKkaU2ZkEFKRJCkyBfF4RuGijtJG254
+         nlnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=VJVBMz56fzUQKTwmXkaUNrYMacouucrXkURGiyKeR0Y=;
-        b=pawEZfrGuWWPK66lWEp3A15YX15uQOKWItfBQw6du1oA/WFvtMeLQ8sxZctoykw0tD
-         8JohNqCS6f/06V7YLVCkiksGiAfmXDqfcfsIBrlLLxuY5PA6d9A4vlQVf76GynSlQ3yb
-         /GGhl9rvmhC1w/C+yDjt5PEC0lDOXtSGU5/BgI0sZ+SKvXxVbNRTv9hd+krCgSSxnInA
-         0v2fOi6B4IC2Rq9FzED+JCTdJoosAtz2wNDQot9p6uFSEWqVrHx+9zG3dJhQ5Bxhk+wP
-         hM0G5iyCnI0CKtutV0DV9orKa4/2EoG0VeqxVfdjIskIoXNVDPNSG65p1jfiXDP0xD3R
-         Jzdw==
-X-Gm-Message-State: AOAM531ZBCX+ipULi0GWU5EHnx/sOoavc+7gzW0cf0V4rZ/mCLEDtLkv
-	/i9NUn09uW5BjFXHYwILNBU=
-X-Google-Smtp-Source: ABdhPJw5nwoOmdT4FoARuN+83d2HVUL7HhzhmO/2HT4CqpNvectZAbNZwnEP4DApcuBzSdlVN0U2CA==
-X-Received: by 2002:aca:f283:: with SMTP id q125mr782632oih.59.1611006144803;
-        Mon, 18 Jan 2021 13:42:24 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=VlDz+L6RztnpomcIooccpJNMzwQfulDc7XWgsw8jAwY=;
+        b=FOVl7rBdGMg45hLnWK4mA5aJSmoNNeVTduO/dyq8yNLFZHClP4wFY60E5SsFIt5fev
+         A7G1GMRAbHd/utZDKXDpAAGfLQ0QBSs9Vvv9wZA+bm7WLTxD3yup+Qywv1+O3/bCz+Dn
+         QEEXQ7b+df/gjmfJwk2ZcXDX+CMeBe58PlehUWu57XWW/nSPvSrBczKLYh+DB/4BxkWH
+         Ux/tsNZUoiJ1aR2P/wAwJo7L8XeHiNsLqCjh+zwKanFkdGNAHhoZUomIVKkvhytId9CU
+         7gAEJJfoiWX9pppWSk5u5fKK51sdbFkOF6LC41yyVB9svTLCw2RJ+f3IhuKLdbfhpsi4
+         YrPg==
+X-Gm-Message-State: AOAM532XygSYF8iTtDfte4UgPmSVDXJP5oZM6od09FU6hhcJMs05m5P9
+	viQIdtAZOYVzQ7mxu6WTaLI=
+X-Google-Smtp-Source: ABdhPJwb7iTLRBu/WA9wGmGsns7AEyM/0ARV3KU2BXZ0dK46sGor4ExxD8qGSafI4JeYq6/yN2bIpg==
+X-Received: by 2002:adf:dd10:: with SMTP id a16mr1354669wrm.149.1611007012613;
+        Mon, 18 Jan 2021 13:56:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:3d36:: with SMTP id a51ls5003708otc.3.gmail; Mon, 18 Jan
- 2021 13:42:24 -0800 (PST)
-X-Received: by 2002:a9d:6a1:: with SMTP id 30mr1146607otx.242.1611006144333;
-        Mon, 18 Jan 2021 13:42:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611006144; cv=none;
+Received: by 2002:adf:e608:: with SMTP id p8ls10361781wrm.2.gmail; Mon, 18 Jan
+ 2021 13:56:51 -0800 (PST)
+X-Received: by 2002:a5d:6c6d:: with SMTP id r13mr1333583wrz.343.1611007011801;
+        Mon, 18 Jan 2021 13:56:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611007011; cv=none;
         d=google.com; s=arc-20160816;
-        b=AyzTh0gpqXfj2j6vB1TheiVgRSJl58C6wLGGDdfkYpBCHhvTUxlKbDJuWHx4GHHNx9
-         SzLxl+LqXUM0IdiZd1xB2QdrPYkMzyqRmdMFXm37biSOguLU4cLlVZxBnHtLyuZSL8v4
-         WLcQakup2RGX/G8NjnN9h6RnmtMS/lurLWtJ4Ru/xHk51dfVQYD4khe/LLv7z+2d/kSI
-         Qm7LpLHrEwM07t9OU/BtJLYS6VcAxryf00rowgXUJej6AgFCq/y+r+GMD/DWIpT7aq/W
-         xo0HiVk6rVtNA1OAkRB/+VdSSC3qJo/i4udTNGs5eeNPa0w+L6FNlQ8u4fzp+NhPP4X1
-         PyWw==
+        b=qHG4sWsnht32KQ+JoAcf4n+YS6Ogq0tJDbQO8OLsgbbq73PfOR7NDycT+ktfj4atxB
+         g7zFwN5m0negID9tIYeZ7ZiiRzmS22/Xnqo0WBq37Ekilddw2PY/iYd+fgedqpY2oy9Y
+         LBCuwujA0AsYRwM+lBiz22cCpRt/sXz4P3fqPtx3o/LQ14mKFaocJq+VMGqPsiHvzjCr
+         HWg2OSUSJ3G837SpIfDTqK1kxvLJs09BXmlB4BRWwEqqzIDaWr+jLP7RQ1w872qtJLdD
+         4fmROL4DXFEBZx3+EVZQ9WMi4AMah2KVKF/M0dCRFF0hNPZbYvBm1BnjrV35MZ747Q+/
+         5x7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:sender:dkim-signature;
-        bh=7WHZONqXFgXEk6ISoZzpiq15kU0W8eyDeH2IAM8jdzk=;
-        b=ilPHi1aMkgRNPD4BeA67IG1jmtqTTQC9UZWSGK3Q2fAmyPgN2irm1RR4ZTAMLv8eT/
-         Bt82zg39Ju4nlYmFMJjFN5V5OhcohEA/m2aE3cpPA4HSG+rLNNURSoaAISowApRvExuI
-         9IV944P6DdTZMK3KI7kzmgn+Dtf/5Ev0lg5nBmXbzbD64KWurmDecTXqeufIWZe5Zjh5
-         +8Mopg9lG136iiWhDXQvMAvQQYzWDLUCHmPJcv3hgjGP+byNhiPP6WUN9akq/MIeqnVj
-         GT1+tHebgbDuCayZfpXPwG0tHjDBujilRXKsNWi+e2ojmlYm9arebz6Mi4Q3IpeGv6sq
-         1hdg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=oatfa8Uxac5y+QfNKWVhpzcqRMF9g7xn6+1Ypo2kSWs=;
+        b=KGffUgo3hNXLDtrJU+MGuB0Dnuk32/SobADsJQfKzeBU0qwDorx0Ase0Kmyd+oaBAP
+         xYZEGZhGhniQhPzGiT2r7vXhd5aOP/NBX3PB34OQs0YAEPtHarEwGzQT9HGbjOhSqCPF
+         5hcwZXQFv+CPUEVG7pQTZxPDbhzgWSBUmXrbzLugx2goLred1Dr7U7DDC3ut1n7KSCV5
+         vStdFYxP0STzWvtxs6s5K6m8j3wFjqTTyY+f7tE4S6yHILAPZqy2jSbjxWBCfiJ4mOCa
+         MoDugEwlthEE+4EM/SVaiJlzCEfwcoIl0KLjroMo6CwAR1xwZCL+tBJ0XKWCzqqAyekK
+         LwRw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="hYi/lsRj";
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f36 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qv1-xf36.google.com (mail-qv1-xf36.google.com. [2607:f8b0:4864:20::f36])
-        by gmr-mx.google.com with ESMTPS id x20si2130670oot.1.2021.01.18.13.42.24
+       dkim=pass header.i=@google.com header.s=20161025 header.b=G9OuzfiK;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::634 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ej1-x634.google.com (mail-ej1-x634.google.com. [2a00:1450:4864:20::634])
+        by gmr-mx.google.com with ESMTPS id e16si1114403wrn.1.2021.01.18.13.56.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Jan 2021 13:42:24 -0800 (PST)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f36 as permitted sender) client-ip=2607:f8b0:4864:20::f36;
-Received: by mail-qv1-xf36.google.com with SMTP id a13so8229151qvv.0
-        for <clang-built-linux@googlegroups.com>; Mon, 18 Jan 2021 13:42:24 -0800 (PST)
-X-Received: by 2002:ad4:59d2:: with SMTP id el18mr1664166qvb.35.1611006143640;
-        Mon, 18 Jan 2021 13:42:23 -0800 (PST)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id h75sm11354276qke.130.2021.01.18.13.42.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Jan 2021 13:42:22 -0800 (PST)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Mon, 18 Jan 2021 16:42:20 -0500
-To: Borislav Petkov <bp@alien8.de>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, X86 ML <x86@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
-	Andy Shevchenko <andy@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-efi <linux-efi@vger.kernel.org>,
-	platform-driver-x86@vger.kernel.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
-Message-ID: <YAYAvBARSRSg8z8G@rani.riverdale.lan>
-References: <20210107223424.4135538-1-arnd@kernel.org>
- <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
- <YAH6r3lak/F2wndp@rani.riverdale.lan>
- <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
- <20210118202409.GG30090@zn.tnic>
+        Mon, 18 Jan 2021 13:56:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::634 as permitted sender) client-ip=2a00:1450:4864:20::634;
+Received: by mail-ej1-x634.google.com with SMTP id 6so25723138ejz.5
+        for <clang-built-linux@googlegroups.com>; Mon, 18 Jan 2021 13:56:51 -0800 (PST)
+X-Received: by 2002:a17:907:e9e:: with SMTP id ho30mr1073618ejc.529.1611007011377;
+ Mon, 18 Jan 2021 13:56:51 -0800 (PST)
 MIME-Version: 1.0
+References: <20210113061958.886723-1-morbo@google.com> <20210116094357.3620352-1-morbo@google.com>
+ <CA+icZUUgTuD6fO_AZFs9KoRFS8FUmyhezvYeeoRX2dveG_ifDA@mail.gmail.com>
+ <CAGG=3QXZTR_f9pKzAR=LrALmMzdDqsvWM_zrTXOb2PpiDGB-+A@mail.gmail.com>
+ <CA+icZUWf05ek+DFsJNyBc-4cg0s6cVrn=rNJDyL4RJ6=fMO5NA@mail.gmail.com>
+ <CA+icZUVD1AHaXYu4Ne8JhzmtMR5DReL4C=ZxKfA0hjLtbC79qQ@mail.gmail.com>
+ <CA+icZUUTJbwmTYCDJhyRtif3BdsB_yzQ3bSdLR62EmttJf3Row@mail.gmail.com>
+ <CA+icZUUfWR1v3GStn6t_6MYDmwTdJ_zDwBTe2jmQRg7aOA1Q2A@mail.gmail.com>
+ <CA+icZUU-3i7Of71C6XaNmee7xD4y_DeoWJFvUHnMUyBaMN3Ywg@mail.gmail.com>
+ <CA+icZUXmn15w=kSq2CZzQD5JggJw_9AEam=Sz13M0KpJ68MWZg@mail.gmail.com>
+ <CA+icZUWUPCuLWCo=kuPr9YZ4-NZ3F8Fv1GzDXPbDevyWjaMrJg@mail.gmail.com>
+ <CAGG=3QW+ayBzCxOusLyQ0-y5K5C_3hNXjara_pYOcxK8MseN9g@mail.gmail.com>
+ <CA+icZUU1HihUFaEHzF69+01+Picg8aq6HAqHupxiRqyDGJ=Mpw@mail.gmail.com>
+ <CA+icZUUuzA5JEXyVzKbVX+T3xeOdRAU6-mntbo+VwwTxqmN7LA@mail.gmail.com>
+ <CAGG=3QWmOA+yM2GJF+cHUb7wUq6yiBpHasa-ry9OhAdvciDm6Q@mail.gmail.com>
+ <CA+icZUVwbWDtGUzMEkitxYn2UvbZPnFTxfJyDOY46j6BTK0deQ@mail.gmail.com> <CA+icZUXa9wvSWe=21_gjAapoHpbgBmYzFpQjb=o_WRQgK+O4gA@mail.gmail.com>
+In-Reply-To: <CA+icZUXa9wvSWe=21_gjAapoHpbgBmYzFpQjb=o_WRQgK+O4gA@mail.gmail.com>
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 18 Jan 2021 13:56:39 -0800
+Message-ID: <CAGG=3QUcaY1wzJhBD4ZGhPSNPik-kL0PuoE1SJqkFJEM_mkGYA@mail.gmail.com>
+Subject: Re: [PATCH v5] pgo: add clang's Profile Guided Optimization infrastructure
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	Fangrui Song <maskray@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210118202409.GG30090@zn.tnic>
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: morbo@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="hYi/lsRj";       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f36
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@google.com header.s=20161025 header.b=G9OuzfiK;       spf=pass
+ (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::634 as
+ permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,79 +148,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jan 18, 2021 at 09:24:09PM +0100, Borislav Petkov wrote:
-> > > > As a matter of fact, it seems like the four assertions could be combined
-> > > > into:
-> > > >       BUILD_BUG_ON((EFI_VA_END & P4D_MASK) != (MODULES_END & P4D_MASK));
-> > > >       BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
-> > > > instead of separately asserting they're the same PGD entry and the same
-> > > > P4D entry.
+On Mon, Jan 18, 2021 at 9:26 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+>
+> On Mon, Jan 18, 2021 at 1:39 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+> >
+> > On Mon, Jan 18, 2021 at 3:32 AM Bill Wendling <morbo@google.com> wrote:
+> > >
+> > > On Sun, Jan 17, 2021 at 4:27 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
 > > > >
-> > > > Thanks.
+> > > > [ big snip ]
 > > >
-> > > I actually don't quite get the MODULES_END check -- Ard, do you know
-> > > what that's for?
+> > > [More snippage.]
 > > >
-> > 
-> > Maybe Boris remembers? He wrote the original code for the 'new' EFI
-> > page table layout.
-> 
-> That was added by Kirill for 5-level pgtables:
-> 
->   e981316f5604 ("x86/efi: Add 5-level paging support")
+> > > > [ CC Fangrui ]
+> > > >
+> > > > With the attached...
+> > > >
+> > > >    [PATCH v3] module: Ignore _GLOBAL_OFFSET_TABLE_ when warning for
+> > > > undefined symbols
+> > > >
+> > > > ...I was finally able to boot into a rebuild PGO-optimized Linux-kernel.
+> > > > For details see ClangBuiltLinux issue #1250 "Unknown symbol
+> > > > _GLOBAL_OFFSET_TABLE_ loading kernel modules".
+> > > >
+> > > Thanks for confirming that this works with the above patch.
+> > >
+> > > > @ Bill Nick Sami Nathan
+> > > >
+> > > > 1, Can you say something of the impact passing "LLVM_IAS=1" to make?
+> > >
+> > > The integrated assembler and this option are more-or-less orthogonal
+> > > to each other. One can still use the GNU assembler with PGO. If you're
+> > > having an issue, it may be related to ClangBuiltLinux issue #1250.
+> > >
+> > > > 2. Can you please try Nick's DWARF v5 support patchset v5 and
+> > > > CONFIG_DEBUG_INFO_DWARF5=y (see attachments)?
+> > > >
+> > > I know Nick did several tests with PGO. He may have looked into it
+> > > already, but we can check.
+> > >
+> >
+> > Reproducible.
+> >
+> > LLVM_IAS=1 + DWARF5 = Not bootable
+> >
+> > I will try:
+> >
+> > LLVM_IAS=1 + DWARF4
+> >
+>
+> I was not able to boot into such a built Linux-kernel.
+>
+PGO will have no effect on debugging data. If this is an issue with
+DWARF, then it's likely orthogonal to the PGO patch.
 
-That just duplicates the existing pgd_index() check for the p4d_index()
-as well. It looks like the original commit adding
-efi_sync_low_kernel_mappings() used to copy upto the PGD entry including
-MODULES_END:
-  d2f7cbe7b26a7 ("x86/efi: Runtime services virtual mapping")
-and then Matt changed that when creating efi_mm:
-  67a9108ed4313 ("x86/efi: Build our own page table structures")
-to use EFI_VA_END instead but have a check that EFI_VA_END is in the
-same entry as MODULES_END.
+> For me worked: DWARF2 and LLVM_IAS=1 *not* set.
+>
+> Of course, this could be an issue with my system's LLVM/Clang.
+>
+> Debian clang version
+> 12.0.0-++20210115111113+45ef053bd709-1~exp1~20210115101809.3724
+>
+Please use the official clang 11.0.1 release
+(https://releases.llvm.org/download.html), modifying the
+kernel/pgo/Kconfig as I suggested above. The reason we specify clang
+12 for the minimal version is because of an issue that was recently
+fixed.
 
-AFAICT, MODULES_END is only relevant as being something that happens to
-be in the top 512GiB, and -1ul would be clearer.
+> Can you give me a LLVM commit-id where you had success with LLVM_IAS=1
+> and especially CONFIG_DEBUG_INFO_DWARF5=y?
+> Success means I was able to boot in QEMU and/or bare metal.
+>
+The DWARF5 patch isn't in yet, so I don't want to rely upon it too much.
 
-> 
->  Documentation/x86/x86_64/mm.rst should explain the pagetable layout:
-> 
->    ffffff8000000000 | -512    GB | ffffffeeffffffff |  444 GB | ... unused hole
->    ffffffef00000000 |  -68    GB | fffffffeffffffff |   64 GB | EFI region mapping space
->    ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | ... unused hole
->    ffffffff80000000 |   -2    GB | ffffffff9fffffff |  512 MB | kernel text mapping, mapped to physical address 0
->    ffffffff80000000 |-2048    MB |                  |         |
->    ffffffffa0000000 |-1536    MB | fffffffffeffffff | 1520 MB | module mapping space
->    ffffffffff000000 |  -16    MB |                  |         |
->       FIXADDR_START | ~-11    MB | ffffffffff5fffff | ~0.5 MB | kernel-internal fixmap range, variable size and offset
-> 
-> That thing which starts at -512 GB above is the last PGD on the
-> pagetable. In it, between -4G and -68G there are 64G which are the EFI
-> region mapping space for runtime services.
-> 
-> Frankly I'm not sure what this thing is testing because the EFI VA range
-> is hardcoded and I can't imagine it being somewhere else *except* in the
-> last PGD.
-
-It's just so that someone doesn't just change the #define's for
-EFI_VA_END/START and think that it will work, I guess.
-
-Another reasonable option, for example, would be to reserve an entire
-PGD entry, allowing everything but the PGD level to be shared, and
-adding the EFI PGD to the pgd_list and getting rid of
-efi_sync_low_kernel_mappings() altogether. There aren't that many PGD
-entries still unused though, so this is probably not worth it.
-
-> 
-> Lemme add Kirill for clarification.
-> 
-> -- 
-> Regards/Gruss,
->     Boris.
-> 
-> https://people.kernel.org/tglx/notes-about-netiquette
+-bw
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YAYAvBARSRSg8z8G%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QUcaY1wzJhBD4ZGhPSNPik-kL0PuoE1SJqkFJEM_mkGYA%40mail.gmail.com.
