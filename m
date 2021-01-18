@@ -1,146 +1,126 @@
-Return-Path: <clang-built-linux+bncBAABBFNISWAAMGQEXVDK7LY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD45FSE2XIORBJN7SWAAMGQEUJM4HDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E48C72F9BDA
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 10:25:42 +0100 (CET)
-Received: by mail-oi1-x23a.google.com with SMTP id b11sf5197804oib.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 01:25:42 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1610961942; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id AA3292F9C37
+	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 11:15:02 +0100 (CET)
+Received: by mail-pl1-x63f.google.com with SMTP id b2sf11173611pls.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Jan 2021 02:15:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1610964901; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OXOk8M1Xkm5IVCk+5VnqaFgpfURTZu1kfPeVG1XREdWlwEjtO3m4IsCjL59H/7dIQE
-         9EPU5EFeb/mKY+ZLwNg5rXS7jygTizVkxdJ7Pi6dRmx+BnOcahHM4j08rXFS0fqsTOUL
-         1KyC/sTU5w0DZylqZBSRCUX9c6qQ/E9/QreDG96xsbnL/O+B+I24O6zn2S7u82tBCcnS
-         4HPrbFZgYIBwgYJ9fKzxssKU8+uCmf4WYhTPGV5s4iPS5cfRe8IuaRe9kcJTa/KXQks5
-         fJiyVqRlbfzx9SqZpLq5eEQvxgyOjJswKL322908p9O9W9uidKWUx5f+LuW1bnVlue2L
-         mTYQ==
+        b=NtfKFZtfIkys+fY9ww5lSQcLuk5WQ0JWOVqPKNIjyQaI9ZSFUJ4MSnFzFod1e5XqEy
+         kAH8e2kUEcK9BzleDY2j/YheZXTeb7//jLbZEENpCydYdJn+6hzbMjszyzWhGJDX8HAU
+         v84w4Jizq1UPOgZAmkBGneE293H21UpkcIjjAsMzoiuTep6c3KlqQibLrcmXas91H+Bi
+         sAcMkK3MYYB/0rG053mG05YQFkFr6xCkOlVVJ3Se9K1jgeSYDYrpJi4lx5NLAGbzNxBQ
+         FTrrHwJxGbdyLdLu0l+coSf4B3VB521IaeMME5xKRDRVSv8OfT5BYCyrINbMwAjXQJIl
+         0GWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:mime-version:user-agent
-         :date:message-id:from:cc:references:to:subject:sender:dkim-signature;
-        bh=FIBVjcjskRKYWuFrZuE2itPnzuYRFFxSxPO4Az4DfrU=;
-        b=pYSHQz5pgNIgZJN3veRiBvwAFC70o0p+YzSn+ssu8DSWOYgZCh+Jo5UatJmSqE+nAO
-         Deoje2eE20emvxyA3KR44ODOUJXjPFysgSspzZexIhefhn8jvlXquhAwCr5v5mWTP4mw
-         kbHme9MQmSYUEbdlHpmA/CM2S3rYVXI1X//r76EbfTEEEkF1EsuD6OUvdjEbvSFnoPZf
-         d9WUbJyhziSuAHvB7VmRDQKG8vbEPEPYsxyP8YkNnFDPl+CzUR4deG20V2GfQY/ZvasA
-         Mj7VV3hS3S7FGBIG0NICjkrn7ENh4qSf9ni9gZaX4AsvS4xIqrSWj3T/cakW+OPi2xOE
-         wj7g==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=90i+Xbqxnad9LDzk4SlUjqzYm2jYb24FNUNkwJqSoCs=;
+        b=NB+eIqo8De+vX8BbpPJny5hTYOcQUAmfCCkkXxTRrjffkKhOhxR2pYMFWqOtEaspch
+         1/ToMme9QX17Mh2lB8upJ66KJJnB0SnPp4RaABzsDOS4SNZXpIhKTIl9XsfsVikKSUqt
+         tgd+zN7LmMl/MEby589t97+5TXluTB/owfxVZmZFqSM85IOqgnxVILX8gnxArvhHV6wZ
+         EfArh3ojsakkmXUIyY4WQImQMmFuVAcCoBapNJIBHAN+Ti0miVvOEEh3UrQUtSJ3/TIm
+         VbMWQhSsUyDOyrrMER2zHpEXMdKUX29j3UQjoCG6AawD6xPtaVAnVl6TwTbDn/CmfQjx
+         IEVg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=IiAscpFg;
+       spf=pass (google.com: domain of jeyu@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jeyu@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:references:cc:from:message-id:date:user-agent
-         :mime-version:in-reply-to:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FIBVjcjskRKYWuFrZuE2itPnzuYRFFxSxPO4Az4DfrU=;
-        b=BGw1CeGdAvRQTpBaZC7QFoQV6BI7FVCkfkewSsAX+n90mHsVhixrtPyft4M46tzXWB
-         nRWzJUmIvAzYU2JIwT/OU2frS7/ErtjBCbqK1WDV/+EFt0Hu46M0CaBsI+zytwi2/alt
-         8s3x7Y8EBZKNKxnnJpgPtTsqDiZNpiKQFhA3Lq7d58ifvc/try/l2ekntB7ODOUdnwlI
-         2Z47IPh3AIyx5F52+UwmmwOktmcxWOEntFaISu/vgwc+aEvyQvLCYHsuAyCiIolPZf3V
-         Gt84Q8xLGLOUt8yUFxAjsMS9m4ANmMYdP2rzADmfK2a70wC/AhyTcfo3y2dJLpHaEROu
-         NmXw==
+        bh=90i+Xbqxnad9LDzk4SlUjqzYm2jYb24FNUNkwJqSoCs=;
+        b=b7GKmcFn2LlByXWjaoG41+qxaJXJJZnY/ARga1qXd+4n8Lc0v9k9XG3YCXmCaccNH2
+         BD0E30DHzRjTXgmEwZxXahowxwkYxtoIrZXZBby3eX+x2K6RFOwoL1pk8hia793gVcCO
+         fRkQc+n1k8HPaTpsAxOW9g9qHfpgGcqc7itfHJN0oZuIufXrfvhonlScJFjxkS0nDrwM
+         bHVUklbPm/m3EOIOhnLvWn/+zRFSxgPNGKh1mYJHXUHA4tpi8BQ8dcWf6RhmylfLiAez
+         qqDZarJVL1JCDXtrvri3t4Kz0cjJAGnQy7AWuIX+AqL4xwds7O9ZlSVJTtnQgiUYvBq9
+         +JWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:references:cc:from:message-id
-         :date:user-agent:mime-version:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=FIBVjcjskRKYWuFrZuE2itPnzuYRFFxSxPO4Az4DfrU=;
-        b=J8pQTJafDcjKBxN0q1YS8D2Py0aql3xrYgsq79CTf9ix1rBBHdxhhmYIvvm3qJ4LbB
-         5gXmD5wxuJLoyID/XCsDw2be/b97kaxU72koDCq5jxJUzldJW2JV6P/fs0tp/zvezoXc
-         1Te+nA7Na6vSTyWJ+gmsVLFCoCN+f9ok/wIivjWQkrXCNR7o2JT8wACeQc0SugARztTD
-         dlha63XYxyWd5ebt8S8l9OziX/see2kLujUzHs7aL7aVb+yrwP4YRqe2reVw/KasoDOB
-         4ojMDOTTe7BtBW01nJLH3OUDSFz18pkSWpn/amdedSIlr5aG0tQkXIxnIoDN6mwbLQoO
-         vedA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=90i+Xbqxnad9LDzk4SlUjqzYm2jYb24FNUNkwJqSoCs=;
+        b=KgrC/9U6LeTTuFJjEVQur+AJOTAMJMz8SX6ISWo4pQjM3jmAPQBmULcIlQLgfLYHH5
+         /bQlohiAJ/kkug77a1PKF1iX3xqcjKyuPYmBTFs9CYG1cvbHLTpnkGAIUgVe63xXe4fK
+         UGwgKxocbyrDmt3SB+QqDgzSlCzAAKqlm/7BSeRVyg3XJ11g/PVYGwrvqm/UNYDxLDS+
+         FtUdq3ukV+3pSohXmKJWJQ6O1xn2UZxwpnRiwl4rEUD0uBTUuvAnq7BoF30RWOtwAwIt
+         +N3Id2fSOdzU+qLnksEkUb9okw9S+KX63IaUIBKnfJR4ZXpALJ0e68w8eAi9uEQHE9Zn
+         sHaw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533YK/bxS9wbrVux/ht62ngQCo/1m6e4MZL2lUwJop3FEb6VkpB6
-	c0j8LI8Zdq/2sctbXUp1Gyk=
-X-Google-Smtp-Source: ABdhPJxQbRHvlh8ZGpuG9/MaRbpW185VR3UmVFHYd+6CCzCTqWUsA7/izbp/3bk7qw8r9DeGEJ5s5w==
-X-Received: by 2002:a9d:7a48:: with SMTP id z8mr9904842otm.53.1610961941912;
-        Mon, 18 Jan 2021 01:25:41 -0800 (PST)
+X-Gm-Message-State: AOAM530TwyrUQ6EqCaC8ZwNivsEBI1i/owDPd9AD0z2TzS3gkHFcYKUT
+	ZCuZo3A/Jk+07MP63im3CF4=
+X-Google-Smtp-Source: ABdhPJwZJRHxoiIxv40x7+Mi2oe9D+xdlk5otTbDJOv32JWld3Y2dxNW3oYY0xZ95dGB6KtQAIrg+Q==
+X-Received: by 2002:a17:90a:5aa4:: with SMTP id n33mr26042084pji.66.1610964901197;
+        Mon, 18 Jan 2021 02:15:01 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:7508:: with SMTP id q8ls79489oic.4.gmail; Mon, 18 Jan
- 2021 01:25:41 -0800 (PST)
-X-Received: by 2002:aca:ded4:: with SMTP id v203mr12317870oig.148.1610961941271;
-        Mon, 18 Jan 2021 01:25:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1610961941; cv=none;
+Received: by 2002:a62:92d5:: with SMTP id o204ls1680331pfd.6.gmail; Mon, 18
+ Jan 2021 02:15:00 -0800 (PST)
+X-Received: by 2002:a63:2fc6:: with SMTP id v189mr25273755pgv.303.1610964900608;
+        Mon, 18 Jan 2021 02:15:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1610964900; cv=none;
         d=google.com; s=arc-20160816;
-        b=tcokqLxV4Fa/uOp8j85KsYsT42/TZQEYIanYNa0fbMTIAEBrCNlD3R+XYrk18gLsm9
-         Ub5ErrBR2EB0Yzqx48WTlOQHbkGYgqaIzTej5xOJB1HHLi8Q1bsrGCLF3Z1ujMQapG1D
-         Afj9TBJNCQ40dr4qg+kHnJnoBbfEisX4sBfpR0CS19vqqkglmIzKszs4H6NFlL/smRwV
-         iu8+54i/8LJGxSzHMLXXQiglnSeCjU6aXT9x/meRhmpcYu3WeCB8J73CNj35FfYTJAwW
-         sa9nEc6GvzmwyJ7EVDXOkkTTUjk5gJwDghXlolAAm0CixdASiHogEGO7531rqU8nFftZ
-         /kLw==
+        b=Coh65QfVZaU1BAHssgjpSKIPKobpmdOUMwCRKTZSK60dduGSIfOyRQkzj8Rn7nJ8Fy
+         gprMlUI0wp46BuRpRxf2VKKEfK8FH+h2FsG9aF7Eb2vULr0jE1EHmB1Qsfio598UDsv6
+         9KoJ4whDHsvM3OdCny4NhXpuwqZCOjhrlPpi9gk02O8uJLDmS5zO49unfghRm1rPs3uB
+         sCnYIYU/7S9pJziGwO6EBmH/roLI66nrH76AKYZS3AyLjrVbHOIDziSiv1oVt3xfah0q
+         igIAH3xVjCp5R9JMb9oV/Cm+KFqVtHiY+ssw8sdior/Srq8T0Z+jb4mq81Nmw5Xj11bh
+         o+qw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:cc:references:to:subject;
-        bh=pVJ/2kAXp80yGaaJ9tEyByCdYDYWCg2HhIUEH5Fl9II=;
-        b=xQoKu19idvjVxdZW9dFXuaDwjeYVgXhKpCwHLXqE385cr0NsUBUirOaBMjnM1XeDyp
-         pHhkLtcsuJXJTc5c8YX46+DnW9Y2I6xUmLguNM2A7Lbz39P3rdpomzW9zrLT2zRpGa7h
-         exOrRm6Ux4kZfY+HjoCX3BTPUqZ3DMmLhQc3qc0r84jZZ9UZjuFbFa4ep9Um0w8rAi7t
-         1bM4rpIv/kABt3K6zHHpRZgjqoWiEB4/b0OZTYky6e0mBacvUrMHDJiKSp4oJb2k5CC7
-         e9OtKvW65AhMeR1J2nZlBC6Tnpzm9Gtnw0XbkD3aMPDqQWbusuZycBWxHv06pe4EiKqw
-         BzCA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=3j8b33T57F+c69uwMADnxbeu2g2VJ8ZYGfuoBiAbpSw=;
+        b=wzhgkZOcuaoYWRmSRbMszErW64Ehtk3+/HEwDYyixDa4/mslaVNLTXSmVcCbi9phab
+         fKQkh/05UB3hwPjkxqvjV+fLRvzdSHLvehUUxcOR9r1nEhbY75vSxysUvbktzi3SdoOz
+         dvS1h+LMW1g9scv1vxjfyWQZnD1zKvcJv6twXiE6zllN9qjc5qwnglhj9fDbfuYA1ORC
+         A7eT2OepiV98frtbWNKNTxWsiZSuGtQpFuZ7t7r9Ariky6A+NhrJq930ZMGleBufEuBP
+         YXO5PPGSFASaB/2ChlI2hhF5eDAvXYsTAZxjNgGoPVzVIKwgJ9g8/kOWzpFWKhYjVJ03
+         deBg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
-Received: from loongson.cn (mail.loongson.cn. [114.242.206.163])
-        by gmr-mx.google.com with ESMTP id s126si1279545ooa.0.2021.01.18.01.25.40
-        for <clang-built-linux@googlegroups.com>;
-        Mon, 18 Jan 2021 01:25:40 -0800 (PST)
-Received-SPF: pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) client-ip=114.242.206.163;
-Received: from [10.130.0.135] (unknown [113.200.148.30])
-	by mail.loongson.cn (Coremail) with SMTP id AQAAf9DxSL4PVAVguK4GAA--.10639S3;
-	Mon, 18 Jan 2021 17:25:36 +0800 (CST)
-Subject: Re: [PATCH 2/2] compiler.h: Include asm/rwonce.h under ARM64 and
- ALPHA to fix build errors
-To: Yonghong Song <yhs@fb.com>,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-References: <1610535453-2352-1-git-send-email-yangtiezhu@loongson.cn>
- <1610535453-2352-3-git-send-email-yangtiezhu@loongson.cn>
- <33050fcc-a4a0-af2e-6fba-dca248f5f23b@fb.com>
-Cc: linux-sparse@vger.kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, clang-built-linux@googlegroups.com,
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
- Xuefeng Li <lixuefeng@loongson.cn>,
- Sergei Shtylyov <sergei.shtylyov@gmail.com>,
- kernel test robot <lkp@intel.com>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <5663510d-2aa5-c1f2-d0c8-5313cc2a4a18@loongson.cn>
-Date: Mon, 18 Jan 2021 17:25:35 +0800
-User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
- Thunderbird/45.4.0
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=IiAscpFg;
+       spf=pass (google.com: domain of jeyu@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jeyu@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id d2si1360653pfr.4.2021.01.18.02.15.00
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 18 Jan 2021 02:15:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of jeyu@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 95ACF221EC;
+	Mon, 18 Jan 2021 10:14:58 +0000 (UTC)
+Date: Mon, 18 Jan 2021 11:14:55 +0100
+From: Jessica Yu <jeyu@kernel.org>
+To: Fangrui Song <maskray@google.com>
+Cc: linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	Sam Ravnborg <sam@ravnborg.org>, Marco Elver <elver@google.com>,
+	Nick Desaulniers <ndesaulniers@google.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v3] module: Ignore _GLOBAL_OFFSET_TABLE_ when warning for
+ undefined symbols
+Message-ID: <20210118101453.GA13910@linux-8ccs>
+References: <20210114211840.GA5617@linux-8ccs>
+ <20210115195222.3453262-1-maskray@google.com>
 MIME-Version: 1.0
-In-Reply-To: <33050fcc-a4a0-af2e-6fba-dca248f5f23b@fb.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-CM-TRANSID: AQAAf9DxSL4PVAVguK4GAA--.10639S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7uw1rtF4UCF4xKw1xJr13Jwb_yoW8GFWxpF
-	4DZr4kKrZ8Wry5JrsYvr12kr43A39xGrW5tF97W348Z3WIqFy7GanYgwn8CF4xWanIqFWI
-	k3W2gry3Jw4jv37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUB014x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
-	0xkIwI1lc7I2V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_GFWl42xK82IYc2Ij64vIr4
-	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
-	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
-	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
-	wI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
-	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU83kuDUUUU
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Original-Sender: yangtiezhu@loongson.cn
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as
- permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
+Content-Disposition: inline
+In-Reply-To: <20210115195222.3453262-1-maskray@google.com>
+X-OS: Linux linux-8ccs 5.8.0-rc6-lp150.12.61-default+ x86_64
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: jeyu@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=IiAscpFg;       spf=pass
+ (google.com: domain of jeyu@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=jeyu@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,53 +133,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 01/14/2021 01:14 AM, Yonghong Song wrote:
-> I do not think this fix is correct. x86 does not define its own
-> rwonce.h and still compiles fine.
++++ Fangrui Song [15/01/21 11:52 -0800]:
+>clang-12 -fno-pic (since
+>https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6)
+>can emit `call __stack_chk_fail@PLT` instead of `call __stack_chk_fail`
+>on x86.  The two forms should have identical behaviors on x86-64 but the
+>former causes GNU as<2.37 to produce an unreferenced undefined symbol
+>_GLOBAL_OFFSET_TABLE_.
 >
-> As noted in the above, we have include/asm-generic/rwonce.h.
-> Once you do a proper build, you will have rwonce.h in arch
-> generated directory like
+>(On x86-32, there is an R_386_PC32 vs R_386_PLT32 difference but the
+>linker behavior is identical as far as Linux kernel is concerned.)
 >
-> -bash-4.4$ find . -name rwonce.h
-> ./include/asm-generic/rwonce.h
-> ./arch/alpha/include/asm/rwonce.h
-> ./arch/arm64/include/asm/rwonce.h
-> ./arch/x86/include/generated/asm/rwonce.h
+>Simply ignore _GLOBAL_OFFSET_TABLE_ for now, like what
+>scripts/mod/modpost.c:ignore_undef_symbol does. This also fixes the
+>problem for gcc/clang -fpie and -fpic, which may emit `call foo@PLT` for
+>external function calls on x86.
 >
-> for mips, it should generated in 
-> arch/mips/include/generated/asm/rwonce.h. Please double check why this 
-> does not happen.
+>Note: ld -z defs and dynamic loaders do not error for unreferenced
+>undefined symbols so the module loader is reading too much.  If we ever
+>need to ignore more symbols, the code should be refactored to ignore
+>unreferenced symbols.
+>
+>Reported-by: Marco Elver <elver@google.com>
+>Link: https://github.com/ClangBuiltLinux/linux/issues/1250
+>Signed-off-by: Fangrui Song <maskray@google.com>
+>Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+>Tested-by: Marco Elver <elver@google.com>
+>Cc: <stable@vger.kernel.org>
+>
+>---
+>Changes in v2:
+>* Fix Marco's email address
+>* Add a function ignore_undef_symbol similar to scripts/mod/modpost.c:ignore_undef_symbol
+>---
+>Changes in v3:
+>* Fix the style of a multi-line comment.
+>* Use static bool ignore_undef_symbol.
 
-Hi Yonghong,
+Patch has been queued up on modules-next:
 
-Thank you very much for your reply.
-You are right, this patch is meaningless.
+https://git.kernel.org/pub/scm/linux/kernel/git/jeyu/linux.git/commit/?h=modules-next&id=ebfac7b778fac8b0e8e92ec91d0b055f046b4604
 
-I find this build error when make M=samples/bpf after make clean,
-so the ./arch/mips/include/generated/asm/rwonce.h is not exist.
+Thanks!
 
-After rebuild the kernel, this header file can be found when make
-M=samples/bpf due to samples/bpf/Makefile contains $LINUXINCLUDE.
-
-$ find . -name rwonce.h
-./include/asm-generic/rwonce.h
-./arch/arm64/include/asm/rwonce.h
-./arch/mips/include/generated/asm/rwonce.h
-./arch/alpha/include/asm/rwonce.h
-$ cat ./arch/mips/include/generated/asm/rwonce.h
-#include <asm-generic/rwonce.h>
-
-
-Hi Sergei and kernel test robot,
-
-Thank you for your suggestion and report,
-please ignore this patch, sorry for the noise.
-
-Thanks,
-Tiezhu
+Jessica
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5663510d-2aa5-c1f2-d0c8-5313cc2a4a18%40loongson.cn.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210118101453.GA13910%40linux-8ccs.
