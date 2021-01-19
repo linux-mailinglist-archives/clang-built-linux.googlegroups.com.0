@@ -1,139 +1,129 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBB7FLTWAAMGQEFSZDEMA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB4FOTWAAMGQEIMWMB4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 42A762FC2DD
-	for <lists+clang-built-linux@lfdr.de>; Tue, 19 Jan 2021 22:58:21 +0100 (CET)
-Received: by mail-io1-xd3a.google.com with SMTP id m14sf8506838ioc.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Jan 2021 13:58:21 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611093500; cv=pass;
+Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 421632FC2EF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 19 Jan 2021 23:04:33 +0100 (CET)
+Received: by mail-qk1-x73d.google.com with SMTP id u9sf21673063qkk.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Jan 2021 14:04:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611093872; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lmVjEr0XyDkof++OXiGiGiqL08CJVvopIjMyX3OJiL9/TaTz4CBTNuoUi2ehg8Vq2U
-         WBUz0pxUD3vg223e3ln/2VVK7Pr9vdW/UZJRPT+ZPa2HnqYZoZ4FsO8uyyAfeIpBDfzw
-         /Rn0S5XdQa11PzC8YzMT+ZSmLVJQZ157WMSgWVBKr+E23Rvpp70MI7Q/WOZNMD5G6bNG
-         tkDKWctc33fTiJ2Fv7B9/kouHfFa2OM4r3EsO2/KAW/kVbZg5zPsKTU6f0bOp2A2Ugu+
-         /pxSnnC/NzU3A9LlXhNi9Kz0tgkpSjPKfbOYg+MxLTkfvbO13556teCE+RWzb1wY9kha
-         2yyA==
+        b=0u4gHoBpOkLNLYjdahJ6M7wvs3+xeAIY5FUO4UwnjMnMBrMrZDvWqmsOrGl6rOe/gl
+         F1TrvJw8+XeEOtdOvKaYwy9Md3jnhKRqkJZdS2vikKLvvujnHgVbz7BkDcnOyDAFw2Ex
+         9CYeH4M3ZcpOIk3sr+TZ2eFFhwaShnJfbHIr+kbc/Mu9wqpP80Eq+j9WAvO3XQ8G051/
+         7gl+iOwFBHiXIILKSNhR08k/OucCuNU1QXXRrHKPBwU4ePp5Na1xUNr/2OjJFglTVS6a
+         em/0d2zKuQoQvADdPU2FyU0Zou5XRTmRR+IikPXzquyfwb4JcsTLIbpa9Ye4E8V3wehn
+         lUxw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=XnO1vQKD9MReC2wdcuRAYNIKXA07oG+x3aBMEeiywRk=;
-        b=MkEKLrnXFxeHJQ5h1ygUh/N4PMy/tkyblh8c6cLk4SvH8BaRPbVj3NHO2Y+OMUeLAz
-         N5UlKiEloTp0xqAwmBCSyOB4siG4th0u6gtAas6OOfVS+dqcSCPwhzhpFdOmrSoeOo7h
-         2sswRPsELgLjsdm3Nt7ostjz5D9irD3IazZrXmuedXMQdWAFTdf5enRgDOdfKdE2H74I
-         pdkVLoEM9XKCSzDkzozG3MZieCM2JE7yqroRT2mYaJAhLm10B+OGFjHhsU0rM3ReIw4J
-         j89/tpEw7uxz4DRAt11STkSUDFsaqzz1pDSgc1mKoEr+LDmialNsVQzkTVLCMv1I7EIs
-         GMTQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=sRbnHOm46REsBEv2LRVwzqa2H2tEkWiZJSxP7vWrw0c=;
+        b=wlmnFiM7IgK5jEU4FwK+Rktd9uDUbciWXlY9ZZJw4nT9v+K3uhBls7lOmF7BFf0K8R
+         zwwxh0X1Tb6qcGRjn5Z0PNfcjxDhWr5X5TE9VbAc6X87Ny/W5s/M34ehQ+J3XZHSdPXo
+         WryzVFx/HYtEu2eAIHJ25W75WK431EUU3+z+Wjo4yE6VQ9F5w8WNMFPqQYmGFHUMn4fs
+         Hlw+0nGn7E3Aa8rFfj15o2ywDsIQCER0Gqejo7NCrnvQA07zgWKxWHTnCPJPJFLFsHD7
+         OPWgrQ9qAaiEpZxboIW8URemuaoURdp3NZ1PXSZp5acp+52jQRXvVAUpWJJn/I/o01aV
+         vq1w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=byWAnMtO;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52d as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bXveCDme;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=XnO1vQKD9MReC2wdcuRAYNIKXA07oG+x3aBMEeiywRk=;
-        b=MGtPb+JhHH6Jg0g4VrbsnSVudi5rtbXDkxQCvbHfXsPFxkEuFAWw9SQAz9LJTwAlDS
-         S7zJWYcpcBQJbDnNEx3mzxzZgZ71DQO8H/WuWTHaEBPyBSCUGbivIMHS5puGXHLntAH0
-         VNkI7cCAnqAVHa4Dv4qt8F52fzV92T/Qw2uMPqcvgQGrwmKoZfA9hQ6RpLY6J667ilC1
-         Si0Eukx8MnQqyXxM8wn4PHg6aHWgekt6NEJUJv2Nsf65P6Ihs+GblbsiM1PP9EknJpkQ
-         XEd+pFM2UtTmNU6nFYDa1KBtMdr9s26Opj30uUZ6EBiLQNPTu0hUyoZGpQXTwafjW0Vp
-         ejHQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=sRbnHOm46REsBEv2LRVwzqa2H2tEkWiZJSxP7vWrw0c=;
+        b=B/hG5kQ8Z3l+w+SR6VoVwBvzKuT0USEsmErigXkQGIM2MGcpESyTJT8X8mYDtbKzRb
+         UuaN+LeiRlqQiFLeFxUfjfkWYNuif7grWQHMTyD37WwH8xGwGzulygcZdowCoYowljCb
+         L5JokeUdVTA3evTVGjsxJlBSsQ/Zcoij89cPcqDAwZYCkFnHnD2f8N5up+XcBH3mB4a4
+         mBquUNKBg7PcprOdejDoHICLu442N6OmKxINSa0kp4pMI33rXJyCLqGP8rBhfhF42C+L
+         XA0M1rzWNooV8cSugciJwpMjEu4lWJaS+JbDAm8lxT+sqS9DFk5M0K2yRDpsvHArRmtv
+         U6xQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XnO1vQKD9MReC2wdcuRAYNIKXA07oG+x3aBMEeiywRk=;
-        b=JWTT4K71v7beCeEEVJRqPFdQ48M80TxnDatCxpahcaMe6KMp0sMkiuY8fglbsqCOHT
-         lrAxIPKmuhG0YM8dDPQMmAmdTEzgCgL6Felubi/7698CvrTVYHnak5fUxb5ohW2oleLQ
-         vAnht+JRxoqtgngc7wi4esRiExc1fMHkcI9Hhz0cTRNfv0VC5ZuFAKRQ6Tvk4DmijY+J
-         WLF8N1rxAKEsqWXa1aRiCIt9MMmbDabAHy5RiS9RfSVxJEs601DKHnnBDOvHZZj6mmpY
-         1fAZQ0eowCmE+iCDONNOpHFedLwT7R1UzF1J4/IMPkr1fzCfiw2dT4W6gIXLaK0BRJSu
-         D+cQ==
-X-Gm-Message-State: AOAM530KHotxD7Ldc6Sb4zEpFFahNrRpgysHizLh87Vqjxr9Dywv3wfs
-	/AGeuF31X2VfGZ+vQpH48yQ=
-X-Google-Smtp-Source: ABdhPJys/ZXv9Pq9MCL3Z6q+EDWGlj8KHm15ZMwDaaRXA7uBPrQYI36J76OASUEnfGdJrhDsPgL7wA==
-X-Received: by 2002:a92:5b8e:: with SMTP id c14mr5343935ilg.275.1611093500298;
-        Tue, 19 Jan 2021 13:58:20 -0800 (PST)
+        bh=sRbnHOm46REsBEv2LRVwzqa2H2tEkWiZJSxP7vWrw0c=;
+        b=FNZLoYDP50kEp2rUPvSkbq6Rxa1gLiJRRk72hZxmYBG1Ik4h7zZ/eeUlH67DrI6Nc4
+         PQUpwn3Twp4vcDvbGBdtmN5uiIK+YacsaR0vcrTWsetVZX+5SE/fTKy9Nr8am8aXUCD7
+         DwHWGRzeQdtstPatMdyCm1bbN4cXZVjJdNXPOQ6+5vrg0QZUidrIzCa/pf/GcqCC1DaV
+         rsY2Tkg7Sz0kE/Wgk3RW+MkIQ0GFPJDFoIJVlfGlwGMvl4KjQ3Dzd1dNaRI4s0bFhheC
+         lokOIu4zszuJ4PzFpFTnygiaWFQdDJMq/o8SyuYKh1vyGGeBoMAEN/SjQLu+Rh/Ahc9x
+         HKug==
+X-Gm-Message-State: AOAM532dEywSt41LMUiwwNxgD4vJA1B1T0CHQ8Alhx4BswF0yPX/3dMF
+	rqE59yUw2khyLf79zGDriGc=
+X-Google-Smtp-Source: ABdhPJwK+gpngZxv6YZvyoqoeDMIXlG0WU47qXKFJX7lfIvb/Tby3RGLdGmkAB384TDuq4wxZ2j6GA==
+X-Received: by 2002:ac8:5509:: with SMTP id j9mr6164172qtq.284.1611093872239;
+        Tue, 19 Jan 2021 14:04:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:3609:: with SMTP id d9ls5760561ila.4.gmail; Tue, 19 Jan
- 2021 13:58:19 -0800 (PST)
-X-Received: by 2002:a92:77c9:: with SMTP id s192mr5182515ilc.75.1611093499832;
-        Tue, 19 Jan 2021 13:58:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611093499; cv=none;
+Received: by 2002:ac8:4b77:: with SMTP id g23ls9247969qts.0.gmail; Tue, 19 Jan
+ 2021 14:04:31 -0800 (PST)
+X-Received: by 2002:ac8:730d:: with SMTP id x13mr6207573qto.162.1611093871893;
+        Tue, 19 Jan 2021 14:04:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611093871; cv=none;
         d=google.com; s=arc-20160816;
-        b=NhwJhZU2wwDSgFh2waeL/9Egwmd15H7q3qzIfWM1x3gdpTssCjR0obNlYZ3lG2AMeP
-         Mp+TnHmm9ledJjo3OXGKuxC1y5GnEvBLyAJjvqxgKT6kbfd+eHGfM7dKmHOpSJoRtelY
-         A38gnULVe/z8iiFkRpHMb1WAzK4ThY7/I8RuHxabvYz1r5nImragUAPnwSLlffCE10Fv
-         jo9dlZnE8raDBOSLgAWQgjrKgqRmQZbUqTFlLPHdu8nuQ7UQdggTTdXMSaxOTv9u+Rah
-         1/R6qRzLYrDPRl9kasW0D26VKFRyBs3dTqAHLu5CJL6xLhOqi21Nbj0imi/i2OKrGMc3
-         VMRw==
+        b=NWBlZRPxa3etrcMGPhUI4dt82ZNVmsWglLcwr66dzjwfxIg36YecYYAlVupApsh98s
+         9E9XhGCnyXC+IQjKyrGW3Zkyysn1TLwetlUGHQzx+VwgEZP9v905Ftx0JWl7H/DrtEv/
+         3HGELzFpHjK0lr27G3oDs+Nryg3Wi9dkB8cLjLrzsQTYqjnCrr3dV+ULANeOYfKrmUJC
+         GBQOp58aBWHK9Z7ZMNRs2CQzc4HuPq38rbv/UHZInI/afbl8WVEJvhrecajyazqhENik
+         ZPQrhivaavmJKA3UAOZd2sCntFzcTd35NRBOJ5yJ+PYrJfF+o2iMgzVszYh/OAihjg/i
+         4bVQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=OFfub22SWSVkVrjpbdutuEU3cmHlEtcZeAWzURJZldA=;
-        b=S2RrKB8l9yRqJGYfFdmB5wfXy7V6Vaw3/VRmPsRB9CKzY+xKrVd/Y5ssPCsHl8A3q5
-         dODTMAro7OmUEZaCgNNKVlLB1rwA17U7ck5fmFtGvPe1bbneopkrDR66WGEwNM29euLP
-         rJgP3RoUXc/QFXi7PQSEdq0xOyshGYHftFL6d/ZrbIFW0Hf/6oU7tW68SeUT9HKYE/q3
-         4vA98cNBeYyWU+GO+rZ7y0WZlz9oBDUiBxFXn/+vnTGSjzShxNp4YG+vN3hoYqrHK9yK
-         +4FGbN8DIOUnZfN6XOnCXwKRkuQeOl82icqt64TCbmqDLWXmddnAWLJD5QL7oIhZwHkO
-         pFfw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=km0tLx3Hb+77Yn2mV9SD+nXc5uKHViN4cP4UCVTdwFw=;
+        b=QErEU3JC4gyuE0RQ0F19bs7ZYYUyZc764dEKCaOuOmfSk/e8X11VOWmwtNTBR1RW/U
+         LIT4KdDw0UYlnVfj/Y03ydA5iBzkYn7YY6NEe5DYY95C5OzKgEpaF4ra6+AHBnmfTB68
+         bcvsNcdlyocza9dq5wnUj8ekCgUBIA8KACD7y8FAa5cSi+G1P77rhsqyQ6AUMXQr9Wch
+         X2TbaYavdpHyBap1wpw7zFwtmPBIR+pzQmq1z/3JVX90u/p23r/TQyM9hTXnd72syjyS
+         RnZhLBZ0mbZe4E+GqlrPzmZR5vcfCy6vi7qeVMGBEyfgLhFBeqpyx37lbP1vc0AymjnS
+         IJsA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=byWAnMtO;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52d as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bXveCDme;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x52d.google.com (mail-pg1-x52d.google.com. [2607:f8b0:4864:20::52d])
-        by gmr-mx.google.com with ESMTPS id j21si13738ilg.5.2021.01.19.13.58.19
+Received: from mail-pf1-x430.google.com (mail-pf1-x430.google.com. [2607:f8b0:4864:20::430])
+        by gmr-mx.google.com with ESMTPS id p55si23432qtc.2.2021.01.19.14.04.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Jan 2021 13:58:19 -0800 (PST)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52d as permitted sender) client-ip=2607:f8b0:4864:20::52d;
-Received: by mail-pg1-x52d.google.com with SMTP id p18so13802725pgm.11
-        for <clang-built-linux@googlegroups.com>; Tue, 19 Jan 2021 13:58:19 -0800 (PST)
-X-Received: by 2002:a63:1f18:: with SMTP id f24mr6316123pgf.133.1611093499079;
-        Tue, 19 Jan 2021 13:58:19 -0800 (PST)
-Received: from google.com ([2620:15c:2ce:0:a6ae:11ff:fe11:4abb])
-        by smtp.gmail.com with ESMTPSA id z29sm91002pfk.67.2021.01.19.13.58.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Jan 2021 13:58:18 -0800 (PST)
-Date: Tue, 19 Jan 2021 13:58:15 -0800
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>, netdev@vger.kernel.org,
-	bpf@vger.kernel.org, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org, Xuefeng Li <lixuefeng@loongson.cn>
-Subject: Re: [PATCH bpf-next v2] samples/bpf: Update README.rst and Makefile
- for manually compiling LLVM and clang
-Message-ID: <20210119215815.efyerbwwq5x2o26q@google.com>
-References: <1611042978-21473-1-git-send-email-yangtiezhu@loongson.cn>
+        Tue, 19 Jan 2021 14:04:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430 as permitted sender) client-ip=2607:f8b0:4864:20::430;
+Received: by mail-pf1-x430.google.com with SMTP id m6so13177382pfk.1
+        for <clang-built-linux@googlegroups.com>; Tue, 19 Jan 2021 14:04:31 -0800 (PST)
+X-Received: by 2002:a63:1142:: with SMTP id 2mr6367757pgr.263.1611093870873;
+ Tue, 19 Jan 2021 14:04:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Disposition: inline
-In-Reply-To: <1611042978-21473-1-git-send-email-yangtiezhu@loongson.cn>
-X-Original-Sender: maskray@google.com
+References: <20210119131724.308884-1-adrian.ratiu@collabora.com>
+ <20210119131724.308884-2-adrian.ratiu@collabora.com> <CAKwvOdkNZ09kkzi+A8diaxViqSufxrHizuBu-7quG6an3Z8iDA@mail.gmail.com>
+ <CAK8P3a0XWVu-oG3YaGppZDedRL=SA37Gr8YM4cojVap5Bwk2TA@mail.gmail.com>
+In-Reply-To: <CAK8P3a0XWVu-oG3YaGppZDedRL=SA37Gr8YM4cojVap5Bwk2TA@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 19 Jan 2021 14:04:19 -0800
+Message-ID: <CAKwvOdmPr8T9T=tjiVGWJAw-pGzDgsKxtkLxTW4CwTrHjT-v7A@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] arm: lib: xor-neon: remove unnecessary GCC < 4.6 warning
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Adrian Ratiu <adrian.ratiu@collabora.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Collabora Kernel ML <kernel@collabora.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=byWAnMtO;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::52d
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=bXveCDme;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::430
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,103 +136,107 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2021-01-19, Tiezhu Yang wrote:
->The current llvm/clang build procedure in samples/bpf/README.rst is
->out of date. See below that the links are not accessible any more.
+On Tue, Jan 19, 2021 at 1:35 PM Arnd Bergmann <arnd@kernel.org> wrote:
 >
->$ git clone http://llvm.org/git/llvm.git
->Cloning into 'llvm'...
->fatal: unable to access 'http://llvm.org/git/llvm.git/': Maximum (20) redirects followed
->$ git clone --depth 1 http://llvm.org/git/clang.git
->Cloning into 'clang'...
->fatal: unable to access 'http://llvm.org/git/clang.git/': Maximum (20) redirects followed
+> On Tue, Jan 19, 2021 at 10:18 PM 'Nick Desaulniers' via Clang Built
+> Linux <clang-built-linux@googlegroups.com> wrote:
+> >
+> > On Tue, Jan 19, 2021 at 5:17 AM Adrian Ratiu <adrian.ratiu@collabora.com> wrote:
+> > > diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
+> > > index b99dd8e1c93f..f9f3601cc2d1 100644
+> > > --- a/arch/arm/lib/xor-neon.c
+> > > +++ b/arch/arm/lib/xor-neon.c
+> > > @@ -14,20 +14,22 @@ MODULE_LICENSE("GPL");
+> > >  #error You should compile this file with '-march=armv7-a -mfloat-abi=softfp -mfpu=neon'
+> > >  #endif
+> > >
+> > > +/*
+> > > + * TODO: Even though -ftree-vectorize is enabled by default in Clang, the
+> > > + * compiler does not produce vectorized code due to its cost model.
+> > > + * See: https://github.com/ClangBuiltLinux/linux/issues/503
+> > > + */
+> > > +#ifdef CONFIG_CC_IS_CLANG
+> > > +#warning Clang does not vectorize code in this file.
+> > > +#endif
+> >
+> > Arnd, remind me again why it's a bug that the compiler's cost model
+> > says it's faster to not produce a vectorized version of these loops?
+> > I stand by my previous comment: https://bugs.llvm.org/show_bug.cgi?id=40976#c8
 >
->The llvm community has adopted new ways to build the compiler. There are
->different ways to build llvm/clang, the Clang Getting Started page [1] has
->one way. As Yonghong said, it is better to just copy the build procedure
->in Documentation/bpf/bpf_devel_QA.rst to keep consistent.
+> The point is that without vectorizing the code, there is no point in building
+> both the default xor code and a "neon" version that has to save/restore
+> the neon registers but doesn't actually use them.
 >
->I verified the procedure and it is proved to be feasible, so we should
->update README.rst to reflect the reality. At the same time, update the
->related comment in Makefile.
->
->[1] https://clang.llvm.org/get_started.html
->
->Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
->Acked-by: Yonghong Song <yhs@fb.com>
->---
->
->v2: Update the commit message suggested by Yonghong,
->    thank you very much.
->
-> samples/bpf/Makefile   |  2 +-
-> samples/bpf/README.rst | 17 ++++++++++-------
-> 2 files changed, 11 insertions(+), 8 deletions(-)
->
->diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
->index 26fc96c..d061446 100644
->--- a/samples/bpf/Makefile
->+++ b/samples/bpf/Makefile
->@@ -208,7 +208,7 @@ TPROGLDLIBS_xdpsock		+= -pthread -lcap
-> TPROGLDLIBS_xsk_fwd		+= -pthread
->
-> # Allows pointing LLC/CLANG to a LLVM backend with bpf support, redefine on cmdline:
->-#  make M=samples/bpf/ LLC=~/git/llvm/build/bin/llc CLANG=~/git/llvm/build/bin/clang
->+# make M=samples/bpf LLC=~/git/llvm-project/llvm/build/bin/llc CLANG=~/git/llvm-project/llvm/build/bin/clang
-> LLC ?= llc
-> CLANG ?= clang
-> OPT ?= opt
->diff --git a/samples/bpf/README.rst b/samples/bpf/README.rst
->index dd34b2d..d1be438 100644
->--- a/samples/bpf/README.rst
->+++ b/samples/bpf/README.rst
->@@ -65,17 +65,20 @@ To generate a smaller llc binary one can use::
-> Quick sniplet for manually compiling LLVM and clang
-> (build dependencies are cmake and gcc-c++)::
->
->- $ git clone http://llvm.org/git/llvm.git
->- $ cd llvm/tools
->- $ git clone --depth 1 http://llvm.org/git/clang.git
->- $ cd ..; mkdir build; cd build
->- $ cmake .. -DLLVM_TARGETS_TO_BUILD="BPF;X86"
->- $ make -j $(getconf _NPROCESSORS_ONLN)
->+ $ git clone https://github.com/llvm/llvm-project.git
->+ $ mkdir -p llvm-project/llvm/build/install
+>           Arnd
 
-llvm-project/llvm/build/install is not used.
+Thoughts?  Also, Nathan brings up my previous point about restrict.
+This would benefit both GCC and Clang as they would not produce 2
+"versions" of the loop; one vectorized if the std::distance between x
+& y >= 8, one scalar otherwise.  But the callers would have to ensure
+no overlap otherwise UB.
 
->+ $ cd llvm-project/llvm/build
->+ $ cmake .. -G "Ninja" -DLLVM_TARGETS_TO_BUILD="BPF;X86" \
->+            -DLLVM_ENABLE_PROJECTS="clang"    \
->+            -DBUILD_SHARED_LIBS=OFF           \
+diff --git a/include/asm-generic/xor.h b/include/asm-generic/xor.h
+index b62a2a56a4d4..7db16adc7d89 100644
+--- a/include/asm-generic/xor.h
++++ b/include/asm-generic/xor.h
+@@ -7,12 +7,21 @@
 
--DBUILD_SHARED_LIBS=OFF is the default. It can be omitted.
+ #include <linux/prefetch.h>
 
->+            -DCMAKE_BUILD_TYPE=Release        \
->+            -DLLVM_BUILD_RUNTIME=OFF
++/* Overrule LLVM's cost model in order to always produce a vectorized loop
++ * version.
++ */
++#if defined(__clang__) && defined(CONFIG_ARM)
++#define FORCE_VECTORIZE _Pragma("clang loop vectorize(enable)")
++#else
++#define CLANG_FORCE_VECTORIZE
++#endif
++
+ static void
+ xor_8regs_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
+ {
+        long lines = bytes / (sizeof (long)) / 8;
 
--DLLVM_BUILD_RUNTIME=OFF can be omitted if none of
-compiler-rt/libc++/libc++abi is built.
+-       do {
++       FORCE_VECTORIZE do {
+                p1[0] ^= p2[0];
+                p1[1] ^= p2[1];
+                p1[2] ^= p2[2];
+@@ -32,7 +41,7 @@ xor_8regs_3(unsigned long bytes, unsigned long *p1,
+unsigned long *p2,
+ {
+        long lines = bytes / (sizeof (long)) / 8;
 
->+ $ ninja
->
-> It is also possible to point make to the newly compiled 'llc' or
-> 'clang' command via redefining LLC or CLANG on the make command line::
->
->- make M=samples/bpf LLC=~/git/llvm/build/bin/llc CLANG=~/git/llvm/build/bin/clang
->+ make M=samples/bpf LLC=~/git/llvm-project/llvm/build/bin/llc CLANG=~/git/llvm-project/llvm/build/bin/clang
->
-> Cross compiling samples
-> -----------------------
->-- 
->2.1.0
->
->-- 
->You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
->To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
->To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1611042978-21473-1-git-send-email-yangtiezhu%40loongson.cn.
+-       do {
++       FORCE_VECTORIZE do {
+                p1[0] ^= p2[0] ^ p3[0];
+                p1[1] ^= p2[1] ^ p3[1];
+                p1[2] ^= p2[2] ^ p3[2];
+@@ -53,7 +62,7 @@ xor_8regs_4(unsigned long bytes, unsigned long *p1,
+unsigned long *p2,
+ {
+        long lines = bytes / (sizeof (long)) / 8;
+
+-       do {
++       FORCE_VECTORIZE do {
+                p1[0] ^= p2[0] ^ p3[0] ^ p4[0];
+                p1[1] ^= p2[1] ^ p3[1] ^ p4[1];
+                p1[2] ^= p2[2] ^ p3[2] ^ p4[2];
+@@ -75,7 +84,7 @@ xor_8regs_5(unsigned long bytes, unsigned long *p1,
+unsigned long *p2,
+ {
+        long lines = bytes / (sizeof (long)) / 8;
+
+-       do {
++       FORCE_VECTORIZE do {
+                p1[0] ^= p2[0] ^ p3[0] ^ p4[0] ^ p5[0];
+                p1[1] ^= p2[1] ^ p3[1] ^ p4[1] ^ p5[1];
+                p1[2] ^= p2[2] ^ p3[2] ^ p4[2] ^ p5[2];
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210119215815.efyerbwwq5x2o26q%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmPr8T9T%3DtjiVGWJAw-pGzDgsKxtkLxTW4CwTrHjT-v7A%40mail.gmail.com.
