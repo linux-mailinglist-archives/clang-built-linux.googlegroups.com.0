@@ -1,146 +1,125 @@
-Return-Path: <clang-built-linux+bncBDRJJBNBQAFBBRGPUCAAMGQEUSVZQ3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDSIRFEA54GRBBGYUCAAMGQENLZWXRY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D041C2FD04F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 13:53:25 +0100 (CET)
-Received: by mail-ot1-x33b.google.com with SMTP id d60sf8229876otb.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 04:53:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611147204; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BFCE2FD108
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 14:11:32 +0100 (CET)
+Received: by mail-wr1-x43a.google.com with SMTP id w5sf11305955wrl.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 05:11:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611148292; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UqZabRqH2Zdq3sF0YG55CaHbra7bKvNM5GXQ/uDNgCOb8jwvaLL4mrYREtBgD+gJGk
-         g1Tw0d7IQGhs1wWOlAb+O5sYUnqkdIlNlIx9XySO2kQNfLqO0EmYKqm+jUz0wj7uau1r
-         bGlkHZ0+AJk52HX96ohiW/rwXz0EZ/31rj+goT/+KUjnhxNSAkl35bhzpkbexc1fCFQn
-         XJ6b3MpMYh/HhnSKwT+EVzTICeI/1HEQiGCV2GEWNh+1uJDMwVMlrg6KExCkd1jcLQHD
-         TQ962W6zsZAjDza6zjb522hodQXn/MHXVn2lGJQfxOY6k7mI/48g1joVLPC+B49FEtBK
-         3+Yw==
+        b=TtQJQVWW0cxqErSE5cIfGf6wfuIlRY/9ppyEcDlDc9GS+fnUlcjTUA1jaaqaf8XoV8
+         pX+kEKbrAfHa59d2RKF2a/w9xutITwRHjyEy+ufF6uB7E2cTUIp24zW2TOzF2Pk1oUeA
+         tXKlrt/V1dpMUBQtIxNzr342bTcl/pGpA+ZbRyXDhHgv7/TzdbCc8e5VzfB520qQJo1T
+         NlwOlXaT2v0+YA02bxE8VDRoWGXk00ddPiQvHWx5C3gA3PFiZ5q9fJ9mE4N2r2DyZMPO
+         ziaiK1p/6KAdEM7wOUkRMDYfGb93z+zJKEg4nTd3u2PjS21utAum3O9nkxUADft0icsk
+         cNuw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature:dkim-signature;
-        bh=fFGkRf4gsUIf61K1StBWPpUJHNR6TIgs55sZVOE453w=;
-        b=TdU4n+icr3AaISqLhjEXCSQDTeuO6JT7KRPvyO/Fw4l4BFH//aZy1LKYx/D7JzJWbj
-         hYCos9vGqoPQNFcG6EI8SztywBTEXVe4XEWlgcz3Q3QQj3cevX6XxKeI1TLm3RtPwI6i
-         qaVbEklwbWD6wdljfcrDg1xCi/t9rmaw3w28cjSE7YKrs78UjnfnaKSKberbIA8OLLHc
-         zOcGrvjeSwm9XD0mS9+AryBDyXvWq8DvDERfdWw5DkrTCwAyFp8SY5XrdnXRHNKiZNS3
-         on1l9sK2FqheTb0M26hIe4SjfMoa2JmYDT1sy0tB04TvOZphr7abgtv3lHFO2HkUQ+C9
-         gbpw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=eFq5pi8FfF4JDRQazkeYws1IUdfasnuWEmSxRx70hzc=;
+        b=Avd4KdSxeD7DU+mq5t9D34YQHr9nF6NTi2lyTCjL4kksFCIadCkmxgx0oCE/iDJN2E
+         ZCVB1M7su6QKPL1ae1bbGuBkKDLLV7gsdon2GEP6uGQyPv0Y/Qh8nI1tcWOQNnL6OWUk
+         PpjYhrsCUIrRpVYt2IRK01rxPqUfnX02HLZr5d3ewX+O5cz2VIBb0BiS/ybh05wD1HpI
+         FWfJ5ff3oMElyx7iwOswh5MokLk44g8/y2EpF7RILc1UfpsG1zhzD0ItZwgMsXojBjcm
+         MJithd8M1KTxi4Upkv3XelGNe+r1XFJnPwW6YU5Wi7qxvBQ9xcIJZOxVfeZEuZyH7977
+         uNIA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Seq9VaSK;
-       spf=pass (google.com: domain of yashsri421@gmail.com designates 2607:f8b0:4864:20::529 as permitted sender) smtp.mailfrom=yashsri421@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fFGkRf4gsUIf61K1StBWPpUJHNR6TIgs55sZVOE453w=;
-        b=Ys3BeM0BC3Zvzv9hI+kfxsMCe+L+Ym46OYgZgmk+dzk2II4u+kOjo9Qki/qi1i65Oi
-         puoA50esTBYSBAJl0Qi2RNm8kXWTYDkWL3mO5RUqLMZKZPtkefVba/1eDSS0C1svAZ7h
-         y1gjMBcVZMp8sk93+aVfc+ATzZbrz3c1W08zVANfIETalyGL5SjmAH0x6N7m1ajuPoS9
-         Cj+L8GNyC4yo2G0wEgpb07ya9gFFBnMqFCkpydvgLsWrtSiLmiK38FPiIwXyZpCFN+yG
-         bwHRYhxsuIO2HkOOIp7I0H/5URQvb8lT77ZijScy9zbXzHIEp3voykc+7PLUtFa7gds7
-         Ghtw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fFGkRf4gsUIf61K1StBWPpUJHNR6TIgs55sZVOE453w=;
-        b=mfINYEJI0yRYdF21w0MiR2Y5dxHOMUMK94wP/7cIyCxEjcN3fZJ9ug19ddCcg3OVFW
-         87Tn0D78ceWDnqut59gqQ7cvyTi2+v/l+c9HGfJs/lWncdQjzKuy9wcGY61qhA5TXGU5
-         F8sXbtDp1PMo+YAq7czgRFJI8HzZ0H94JccYneNcd8GkFFiT+Rw+5T9mQSNys9I/H9ry
-         1IThMJ+Xhd3kL6dZyYZLgMzapGaJBr7jOjsqajQl4I5goNrtYK9fEfypBstujtDZU+FX
-         E1I9Q9A7cLX6W+ei1j3OYKuJhkrFaxNtAAaoY83IYEF0/E0Itr6J3H4c2iLwNBd9KPra
-         EJ3g==
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eFq5pi8FfF4JDRQazkeYws1IUdfasnuWEmSxRx70hzc=;
+        b=KgmNdeDbHsB2ud5WH5noiy8I8pqwx3Vxnbfyy3fUvCY2H+jGmQkt33YF3TWWY/Mw3v
+         nEBA+vSlEvQT+pyM32wYmN53fb1wOPmOCasMxguxXUxLoCAn4O3Sr+JHSR5RdgpWJYk9
+         3m3/XXcj6fLg1t7X3en7q0fo1/2pDa5o+1BS0iXQGV7o+wtdAqYZF03CoKdA4sVp+VqG
+         4QmIhGoI+h2zSjXTarhWKePLFmEiyKOqDSkfZHHU2lwcI+HftvXeAWR4aT9de0aRahsa
+         xmt634KtotIqHbYhIfL9GHgo5MmOpIj8aJuCib8bRUR5WNCyHk880xrCxLFpPsiNvcE8
+         rbAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=fFGkRf4gsUIf61K1StBWPpUJHNR6TIgs55sZVOE453w=;
-        b=Qokq8tvzRViwZucQgM4AxCTIPlrcOxToWAuYcZJ130K89bgTVko5jrkMnYRS9orHI7
-         fabtUJjbbXtEmHksL/Ysvj79NnHD3LrF9XdHsffYEXdPqGpQM4/orZgVBUhSzVIM7A3C
-         fBD0aBLUht366+hnC0TxGfwNmcCQN/lyMuaT1GJtlas1khuqaHVk48MmSdqzvWR8d3oE
-         F3O1P0HaiWmhwRZdRjQKKTar/Z23TRi7SPGbxypgR9Nexeao9b15lIWPwMyi3vdzY5h6
-         3coYgOaEvytLFrcuL0LO+mqWCo5iQTBznS8xPX3nWMv855idDcvwlBLH9StnRHrYGQYw
-         0afw==
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eFq5pi8FfF4JDRQazkeYws1IUdfasnuWEmSxRx70hzc=;
+        b=bdC+3jPHucUgy0j484wRUL3ZT9a8I9OvKqP+ifAs/0XSlZYsV2e02EHOw3vkb8IXhB
+         FjVmUKIaWZTuQheA8XzAAR9PUnpX+mZRSO7v2HIVo1Rx2fYOwk5nuSEvzAMaO6sQoWe/
+         DgLF3BrRVsmCTC5eMB2X+E2PG8lfPK8UXANVBUezBYIhDHrdPl7T3n9YDj426WzwNc04
+         cphOUZCLSo487EH9O3f67znvYHnqxmZ4CSEfAz0wicsCHrkkwKHdA3W6T+dx5WQGlGDM
+         Y0QA3ABGPZqxko/JLKidFOjnQ/FAwK9+QdeFuFeYPSalYgaYpBXyNV3OwTuWjuvfKdlG
+         LyKg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5313JqtbZFCrZKUYpDZo/3G1g6XVpzeXh7HylV6Rez56vsLjHwDl
-	lQeW130reRH6/3ak7hYGYeI=
-X-Google-Smtp-Source: ABdhPJxMVLbDq2iRJ7oh/3ILhHHvPiGcaADrhtn0U8PXqDXvZLJBqs8w6133LIM120UxYyCw2tBviQ==
-X-Received: by 2002:aca:5b08:: with SMTP id p8mr2799536oib.23.1611147204871;
-        Wed, 20 Jan 2021 04:53:24 -0800 (PST)
+X-Gm-Message-State: AOAM530Tb+w3Nd7dO+ShNaE1P37XPwFtpr8LL3JvnW/f5yn0V8an3tJq
+	7jXEqGfctPuu7ISC1kOZTPQ=
+X-Google-Smtp-Source: ABdhPJzAb8l7qZqDzZXJzAk3EMHKR3Af56YLVrx+BV+pm9f9yXCxNRLoIVh+lotkQn4xMkZTtb3rfA==
+X-Received: by 2002:a7b:ce11:: with SMTP id m17mr4256558wmc.158.1611148292284;
+        Wed, 20 Jan 2021 05:11:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7290:: with SMTP id t16ls1088349otj.11.gmail; Wed, 20
- Jan 2021 04:53:24 -0800 (PST)
-X-Received: by 2002:a9d:7dcd:: with SMTP id k13mr6915722otn.362.1611147204461;
-        Wed, 20 Jan 2021 04:53:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611147204; cv=none;
+Received: by 2002:adf:a54b:: with SMTP id j11ls984921wrb.3.gmail; Wed, 20 Jan
+ 2021 05:11:31 -0800 (PST)
+X-Received: by 2002:a5d:5501:: with SMTP id b1mr8228426wrv.162.1611148291407;
+        Wed, 20 Jan 2021 05:11:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611148291; cv=none;
         d=google.com; s=arc-20160816;
-        b=0RCvaTYhd3SciCf2TprkTV97UsG3tOLTALDaqVTpJCcY+9iwCQE7sH1ZH6xGVjre1S
-         WIsqmU16QoigVHuH1q0pcR1HjD52fvBONHu+D4OHZIyvlrBGQXlTk1plzG/9ySFn28x5
-         aDfWYYywp17RRZeQUs2KF4AsDuJuokH+TqKwISqAISxr3ssbmO1OQp2dqOcVfEx3AnDU
-         HbnHuAUnBAHSjtPYqeG2NYm4Z4XCF1CuKp+eoLL86wdiwub/AzlMr1bW9ggKaF6+lba4
-         g8bvnI/jTLGspLobKCM0Ia0260eZxAJMXkxONNstSQ4b9gAkXMUV+EKh8B05Khf0LF8W
-         RylQ==
+        b=Pzl7jz1o65hg67b2JKLnoGr6Orfx09TjLpsGW/TAyH4anAAKoJyXEwwUWn1IeHBJMZ
+         gAOi3rLr38ib0OLLnl4YBcUq1cvOjm4bZqNhzlirzw/Zrh70ravDIlp0raN4qEDbory/
+         K691D1e8o3kc2RCu46Ztekh4geUcc75GqlGeSExTQyK5/J3BGMJVvB7OhCv2R8eTemMZ
+         IW1SCEcoW3Av5cJOTG2ATAiuywrHJhsx4zPO04NrFDfRSZ6zw4sC3XFV50O3M5oV5zqK
+         NPknR8Shze58x0xcxqVhVvX01p8e7UCg96klgY+6M3mNxNRik8vhhaO8L8Nl6xY+rVWY
+         9cGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=hB+1o0DrnShLgQiO0WE1Gdsq3IMq61KourkCYu6qcaY=;
-        b=H72R8EBR5tP+Qh/X9NcX4KFrEJosFE/II7VtMuidM/dxhagHS2Ft2sjENIxBwWFU8V
-         2tmTUIMg8k025vZrCksdc48XCkg4UfBm5P6urOFZI8bVk0F+MjB3/PwqhHaRvUlYJTs2
-         PemUxhWHLJhljTBCGrQyIII2Tm9I9876GjMyT/UY7p1IzcjHYnqcKlt4w2cy5hYNWQe3
-         77QPw2Y1zy1EpAg0aH4330/SVLVsnw6H1yH0FhB2iAgZcxcaEJtvOdcdmbMTzzAyjTrD
-         TAyd5+mdsOE+pDY6V/HJuDdUiCw/d4NBfHUmgekOieW5PRb1LnLdKba8sO23Dho3sVxW
-         i9vg==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from;
+        bh=rSzFd+9IIEjU8BikpZT7HdXaTMO1tdtIM34ZwdoQcuc=;
+        b=B705HgJ0ZMBqezWa4BsCkwjwdBXuQqIxvWwQDfoxaQAASe6fiDKk/BDjuPsdeCxaln
+         O0F3dLui695lk282MtAyWqbeByDbCKmL8JIb66MT4pLubq+RZb7b4Rsd/2e0/VT0uD90
+         JE1nPv8dEuR7M6hUDJJllxurvNMt5QHlyA5Joc3ypEpmRfHX7WURdr3hpnehaR3tc9CN
+         a9aCdxZYjhjafmliHD5O2GZH7A9EpWeVufgi0ackdy2wxJDyx4ly9FtV34j5AzCSNGmY
+         ooeKDp7OFGboaTodpuJaL+wmAzf0wgzeL63a40+0sqIkXOc2387FLfYL2w2yh6i7uap/
+         m2uw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Seq9VaSK;
-       spf=pass (google.com: domain of yashsri421@gmail.com designates 2607:f8b0:4864:20::529 as permitted sender) smtp.mailfrom=yashsri421@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pg1-x529.google.com (mail-pg1-x529.google.com. [2607:f8b0:4864:20::529])
-        by gmr-mx.google.com with ESMTPS id x20si230317oot.1.2021.01.20.04.53.24
+       spf=pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
+        by gmr-mx.google.com with ESMTPS id l21si78856wmg.2.2021.01.20.05.11.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Jan 2021 04:53:24 -0800 (PST)
-Received-SPF: pass (google.com: domain of yashsri421@gmail.com designates 2607:f8b0:4864:20::529 as permitted sender) client-ip=2607:f8b0:4864:20::529;
-Received: by mail-pg1-x529.google.com with SMTP id v19so15106699pgj.12
-        for <clang-built-linux@googlegroups.com>; Wed, 20 Jan 2021 04:53:24 -0800 (PST)
-X-Received: by 2002:a63:4504:: with SMTP id s4mr9089641pga.284.1611147203498;
-        Wed, 20 Jan 2021 04:53:23 -0800 (PST)
-Received: from ?IPv6:2405:201:600d:a089:7054:d78f:3538:6af3? ([2405:201:600d:a089:7054:d78f:3538:6af3])
-        by smtp.gmail.com with ESMTPSA id j17sm2242003pfh.183.2021.01.20.04.53.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Jan 2021 04:53:22 -0800 (PST)
-Subject: Re: [PATCH] checkpatch: add warning for avoiding .L prefix symbols in
- assembly files
-To: Joe Perches <joe@perches.com>, linux-kernel@vger.kernel.org
-Cc: lukas.bulwahn@gmail.com, dwaipayanray1@gmail.com, broonie@kernel.org,
- linux-kernel-mentees@lists.linuxfoundation.org,
- clang-built-linux@googlegroups.com
-References: <20210120072547.10221-1-yashsri421@gmail.com>
- <e5c5f8495fbdd063f4272f02a259bbf28b199bdd.camel@perches.com>
-From: Aditya <yashsri421@gmail.com>
-Message-ID: <14707ab9-1872-4f8c-3ed8-e77b663c3adb@gmail.com>
-Date: Wed, 20 Jan 2021 18:23:16 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Wed, 20 Jan 2021 05:11:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of adrian.ratiu@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(Authenticated sender: aratiu)
+	with ESMTPSA id 971571F454EF
+From: Adrian Ratiu <adrian.ratiu@collabora.com>
+To: Nick Desaulniers <ndesaulniers@google.com>, Adrian Ratiu
+ <adrian.ratiu@collabora.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, Nathan Chancellor
+ <natechancellor@gmail.com>, Russell King <linux@armlinux.org.uk>, Ard
+ Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>,
+ clang-built-linux <clang-built-linux@googlegroups.com>, Collabora Kernel
+ ML <kernel@collabora.com>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 1/2] arm: lib: xor-neon: remove unnecessary GCC < 4.6
+ warning
+In-Reply-To: <CAKwvOdkNZ09kkzi+A8diaxViqSufxrHizuBu-7quG6an3Z8iDA@mail.gmail.com>
+References: <20210119131724.308884-1-adrian.ratiu@collabora.com>
+ <20210119131724.308884-2-adrian.ratiu@collabora.com>
+ <CAKwvOdkNZ09kkzi+A8diaxViqSufxrHizuBu-7quG6an3Z8iDA@mail.gmail.com>
+Date: Wed, 20 Jan 2021 15:11:27 +0200
+Message-ID: <87o8hjg3cw.fsf@collabora.com>
 MIME-Version: 1.0
-In-Reply-To: <e5c5f8495fbdd063f4272f02a259bbf28b199bdd.camel@perches.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: yashsri421@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Seq9VaSK;       spf=pass
- (google.com: domain of yashsri421@gmail.com designates 2607:f8b0:4864:20::529
- as permitted sender) smtp.mailfrom=yashsri421@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; format=flowed; charset="UTF-8"
+X-Original-Sender: adrian.ratiu@collabora.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of adrian.ratiu@collabora.com designates
+ 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=adrian.ratiu@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,37 +132,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 20/1/21 2:51 pm, Joe Perches wrote:
-> On Wed, 2021-01-20 at 12:55 +0530, Aditya Srivastava wrote:
->> Local symbols prefixed with '.L' do not emit symbol table entries, as
->> they have special meaning for the assembler.
+On Tue, 19 Jan 2021, Nick Desaulniers <ndesaulniers@google.com> 
+wrote:
+> On Tue, Jan 19, 2021 at 5:17 AM Adrian Ratiu 
+> <adrian.ratiu@collabora.com> wrote: 
+>> 
+>> From: Nathan Chancellor <natechancellor@gmail.com> 
+>> 
+>> Drop warning because kernel now requires GCC >= v4.9 after 
+>> commit 6ec4476ac825 ("Raise gcc version requirement to 4.9") 
+>> and clarify that -ftree-vectorize now always needs enabling for 
+>> GCC by directly testing the presence of CONFIG_CC_IS_GCC. 
+>> 
+>> Another reason to remove the warning is that Clang exposes 
+>> itself as GCC < 4.6 so it triggers the warning about GCC which 
+>> doesn't make much sense and misleads Clang users by telling 
+>> them to update GCC. 
+>> 
+>> Because Clang is now supported by the kernel print a clear 
+>> Clang-specific warning. 
+>> 
+>> Link: https://github.com/ClangBuiltLinux/linux/issues/496 Link: 
+>> https://github.com/ClangBuiltLinux/linux/issues/503 
+>> Reported-by: Nick Desaulniers <ndesaulniers@google.com> 
+>> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com> 
+> 
+> This is not the version of the patch I had reviewed; please drop 
+> my reviewed-by tag when you change a patch significantly, as 
+> otherwise it looks like I approved this patch. 
+> 
+> Nacked-by: Nick Desaulniers <ndesaulniers@google.com> 
+> 
+
+Sorry for not removing the reviewed-by tags from the previous 
+versions in this v4. I guess the only way forward with this is to 
+actually make clang vectorization work. Also thanks for the patch 
+suggestion in the other e-mail!
+
+>> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+>> Signed-off-by: Adrian Ratiu <adrian.ratiu@collabora.com>
+>> ---
+>>  arch/arm/lib/xor-neon.c | 18 ++++++++++--------
+>>  1 file changed, 10 insertions(+), 8 deletions(-)
 >>
->> '.L' prefixed symbols can be used within a code region, but should be
->> avoided for denoting a range of code via 'SYM_*_START/END' annotations.
+>> diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
+>> index b99dd8e1c93f..f9f3601cc2d1 100644
+>> --- a/arch/arm/lib/xor-neon.c
+>> +++ b/arch/arm/lib/xor-neon.c
+>> @@ -14,20 +14,22 @@ MODULE_LICENSE("GPL");
+>>  #error You should compile this file with '-march=armv7-a -mfloat-abi=softfp -mfpu=neon'
+>>  #endif
 >>
->> Add a new check to emit a warning on finding the usage of '.L' symbols
->> in '.S' files, if it lies within SYM_*_START/END annotation pair.
-> 
-> I believe this needs a test for $file as it won't work well on
-> patches as the SYM_*_START/END may not be in the patch context.
-> 
-Okay.
-
-> Also, is this supposed to work for local labels like '.L<foo>:'?
-> I don't think a warning should be generated for those.
-> 
-Yes, currently it will generate warning for all symbols which start
-with .L and have non- white character symbol following it, if it is
-lying within SYM_*_START/END annotation pair.
-
-Should I reduce the check to \.L_\S+ instead? (please note "_"
-following ".L")
-Pardon me, I'm not good with assembly :/
-
-Thanks
-Aditya
+>> +/*
+>> + * TODO: Even though -ftree-vectorize is enabled by default in Clang, the
+>> + * compiler does not produce vectorized code due to its cost model.
+>> + * See: https://github.com/ClangBuiltLinux/linux/issues/503
+>> + */
+>> +#ifdef CONFIG_CC_IS_CLANG
+>> +#warning Clang does not vectorize code in this file.
+>> +#endif
+>
+> Arnd, remind me again why it's a bug that the compiler's cost model
+> says it's faster to not produce a vectorized version of these loops?
+> I stand by my previous comment: https://bugs.llvm.org/show_bug.cgi?id=40976#c8
+>
+>> +
+>>  /*
+>>   * Pull in the reference implementations while instructing GCC (through
+>>   * -ftree-vectorize) to attempt to exploit implicit parallelism and emit
+>>   * NEON instructions.
+>>   */
+>> -#if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
+>> +#ifdef CONFIG_CC_IS_GCC
+>>  #pragma GCC optimize "tree-vectorize"
+>> -#else
+>> -/*
+>> - * While older versions of GCC do not generate incorrect code, they fail to
+>> - * recognize the parallel nature of these functions, and emit plain ARM code,
+>> - * which is known to be slower than the optimized ARM code in asm-arm/xor.h.
+>> - */
+>> -#warning This code requires at least version 4.6 of GCC
+>>  #endif
+>>
+>>  #pragma GCC diagnostic ignored "-Wunused-variable"
+>> --
+>> 2.30.0
+>>
+>
+>
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/14707ab9-1872-4f8c-3ed8-e77b663c3adb%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87o8hjg3cw.fsf%40collabora.com.
