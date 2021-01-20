@@ -1,141 +1,129 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRB3XLUKAAMGQEN3YLUJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTHQUKAAMGQE7OON2IY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E61C2FDCC7
-	for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 00:00:00 +0100 (CET)
-Received: by mail-pj1-x1038.google.com with SMTP id t10sf226897pjw.4
-        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 15:00:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611183599; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id B0D272FDCCF
+	for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 00:10:05 +0100 (CET)
+Received: by mail-oi1-x239.google.com with SMTP id l1sf7376700oib.10
+        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 15:10:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611184204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=alDnWtsQMopPxAf2d71uKvhR9vMBrz9w1N+4IFqZvV0LywvGdeIXb31XBe76ski3sX
-         idpRJfmnA5uqo5gDENaBtKRMqNzIrZ3muypYpioFapwnzAw+/H2Xtzh20J/t0R2dxsfl
-         yAsuPZlNGohmcXKuxGwdIe8dfSAZyomEyXXX+2It63a9Qabr5LSLocIMNeAsKdMT9/Tq
-         TDR7zi0OxuBOOmp70rdzTR/BRW+bzYVYSC9VMIl4j3YJgNd+QOX7c+WQN8Ho2TsfPIk1
-         YBFmzfhf+piuiYuagbuKzxlZ6c97Q31p91ZMIArbPwMBbr/+GXkzS/3VN1HgPo9sykWT
-         98OA==
+        b=lAP383puo3pGTyDC3d9plEevPqyYHHxiK3p/lOC9YD1zHKmVUbY/jQxoVqmCbL52zd
+         5ISCYPlgZWcm8A2JRaftXC4Nta0mS13U4vUlJpV44QOpsyTtmeRC+3LiU3ACaPrA5oo+
+         04TD90q/olbcxyHtUSPJdoNiyxiN6ndofSH1Ao+bbH6ksBOm/0x4pFmKu7V4IusCZ4ZR
+         TKXAKUGvqUWrKdGNgzaSAzmNrn37+nz0IDePQaARiWvy/s0MQ/zbB9XOizsveiDcJgtL
+         hp+QV59QX+yUTd0Uv9ZL5aNzOYpf9ix8lQgUcqH2SS7q3B8NSvQa2i/MU8PpjWRWmI60
+         fpGg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=DJpyMgAT5Pr88hKLt81oC6Pc/H9dMciJ8QpvPKutWBo=;
-        b=KV+b6PwZHn8eNhDDu2ds34V4FWr/46oP66isJV/O4zmn5fMhbHBZUN7jymVCNxf869
-         crJA+RKWAdWBUIYXMY+PmrE/ryriVbRZxQoGEUBs8cc/PipKHMDUotrHqiqrumBlnN55
-         D5GSum0efj+aS4mXgoArgy0WPoG3tb3+flkOgBSDWVya+eB5yRp+4hbmBmOw3DFXny46
-         yb490LOgRBTd9bmIdWptu53OcfygCrzrQJSoJCacPyOXrbb8qK5n3pMcCi6wMP1QSw3b
-         y3D0qfO0M82YHS8b9TWQk/4KYEyJ/jWj7fDVnlzMVwWZkdfN+jhinuPjN0s7h70IzEvo
-         4uYA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=PNEm8+yLYoyLB6x6Q/BxkiSkj22coYvs5b2J7QxQI2s=;
+        b=dadqjoVcKPITb9g/HqogzX6SN2hgVTY08eK/skdKoMIqozeP8COgiTm7htKMo4HNq+
+         fAV8xfQVodyreQAmGXYCwWsao5C7RAcCU5RiilGKaSpDjL0ibwtYRz8wYS+tSaTJcl9i
+         ano5OAjnoyvuPa2Bsku7eQDKB6yZu9hxObKNK7+vEhv1Ei0MpQxHQIoDRPR9L17Upkax
+         WKWhbjtcXHCX8I2zQk2Q/8t+UusDq69orGdO4/X6Apid7iSro5ai3KSRlRRv6WkW82aS
+         e+dbfc8hVbqOeo9HvTLU5WD3KAPgoVohG8tntL9ucaO5+PRCUF9PsbB6PPJEjMRTsBCF
+         i8oQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=AobkxXfw;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=D35sbY5I;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DJpyMgAT5Pr88hKLt81oC6Pc/H9dMciJ8QpvPKutWBo=;
-        b=Tz8AIHQnMa7dLGb8YeghjL37VYR8nkUmp4B5DnZnbh3CwjZuzL73U1BsRUFs1eXHaX
-         EBvTo9ANaNpUiJ4TGGF4ARAmhHO3FwzFtCuLbxgTwiQgvr0jBuR9yrSomeo6pyg4+6pl
-         5kfHK07t0XdKRftB4PrDch1Q6go7bTzbGLcL1Wzdg5BUSgeIcvETZJuu0032HPo+ZCxW
-         7U9BiNG7gMuTHTusdrzKVQjZ00fT3o5p7vH9FBe91lvLRkC0yMfpc9qO4mwgmvS7cOgm
-         cTSU6tZ/WpeChADT6IAwamZqn+W7q0mQAzuH3gfumr/+oYQ/pS9BS0CIygaZ6C96Y3cJ
-         NNIw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PNEm8+yLYoyLB6x6Q/BxkiSkj22coYvs5b2J7QxQI2s=;
+        b=EfPnIhz5Frp/zdrjQ71M/YJgI+5B0WWYxwuMrTB+9Rs7oykFV4jIdkVYvRGEsnbNJP
+         StHX7Gvr3Ej6yyzZwdOTYM2Lr7ADoFPY9e3kwsHV8P3CzaaTGiQQf4EYIgRhnwiBJEED
+         ymQGu8IGIyoB2g8GO6YwFzTFPvh/e5WlHy9Y/afMC0naKslf+ewCF7JG6ru59P+XiHXt
+         zpQ9I2Qa704pvtiVeoMmkB07jqI5s67WvgRNEp2sIyD8au2sW0EviIgl2KTvZlnL6MlD
+         f2BwuNk90kqjWxQyKDhC7DxkiPJaDzjYFikbF8x3bwRq/htFyKS/y9fQ8/BApIfgLGI+
+         GsaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=DJpyMgAT5Pr88hKLt81oC6Pc/H9dMciJ8QpvPKutWBo=;
-        b=RYSLypsuqAXFdidZeycuXXC9CeLn4OWNfjUkprw5FAmrUdgK//V4UPFv704EReCcYN
-         PjBIhtFpfeyEvu9AIyYl4Oe+cYw8ypTy12Y2TubQJyuvIWehEQf2kQaQYtMSvuZp+nw0
-         HlXEy/b2btemgUv/PDXFUI018HlFILFlvBizIrGphrroNpBbagHA1PIIHGCiq3sI9Z8E
-         n6NCscO40GJsdSHuJJZcBZ+jyB8gdZCS80aiMGE/ogiJHKYBWoaeFRVVplm/LtmmzmS4
-         PB+ksbzk60VSYTtGdYWGFGd+vKbMWvFYPS4bxsU71VPRSWBCdM5IroABdTTyM82Cx7Wi
-         Zo7g==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533tofMspjYrFM6OcdnDc5SEaDDpbmRKuQCHu/JHxv0ehgBlvOQp
-	BtiXAUqergQRW5tEPXhnJPc=
-X-Google-Smtp-Source: ABdhPJxuJiQQRbOdBIMR7C/oiIT97VRxkJmFUQjbnvOS5M+bqCQU2ZY6n+ln/WDXmVHTHgZrpfCxaw==
-X-Received: by 2002:a63:4444:: with SMTP id t4mr10764710pgk.329.1611183598863;
-        Wed, 20 Jan 2021 14:59:58 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PNEm8+yLYoyLB6x6Q/BxkiSkj22coYvs5b2J7QxQI2s=;
+        b=WczrdVM0TNy1QLpxOSAtrYGPZITx5Pffz0Om81DSw/TpdUd3bUZ/Bugwuk3usarVYF
+         y20v3ctXV7QqdZI/hPTw0GEd4WLcOVbq3b8jSu7vTrJv5c+1X+INfdUAPfN792RdhDjv
+         269ZzGd/u4UUVpQ1PHNu78eZal5fGZfBoiZVNY51e0WOEYwS48HRA5ISUG7dRgxChCFf
+         psH0ArqxpOnXZIMnFFXp05AlpNnJSZI0duFQCGlAFxfM/ougnroApkdqEboyRQzQaepx
+         NhB2lY3FX4mTpFbbyZpsbIAuytETljgzPa2IlrS3nDjN/eE0em/SKv10HO1rsg35ymrK
+         /8bA==
+X-Gm-Message-State: AOAM531V9nsGq9ghdWirML5V+9M6OxpVolXtR9/7AqwkuhkPLuTnjNEu
+	/j+2CJvmninR02H/gXKV+kk=
+X-Google-Smtp-Source: ABdhPJwVORhtCb7N2tRUhG6G4SiahXx4LsJVRsijGfUS+ckf8OcBmdsb7y6mbghkD0l9jsvXdLbdzQ==
+X-Received: by 2002:a4a:bf14:: with SMTP id r20mr7623971oop.2.1611184204573;
+        Wed, 20 Jan 2021 15:10:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:15c8:: with SMTP id o8ls48448pfu.8.gmail; Wed, 20
- Jan 2021 14:59:58 -0800 (PST)
-X-Received: by 2002:a62:75c1:0:b029:1b6:b71a:a369 with SMTP id q184-20020a6275c10000b02901b6b71aa369mr11280853pfc.27.1611183598163;
-        Wed, 20 Jan 2021 14:59:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611183598; cv=none;
+Received: by 2002:a05:6830:1391:: with SMTP id d17ls27720otq.2.gmail; Wed, 20
+ Jan 2021 15:10:04 -0800 (PST)
+X-Received: by 2002:a05:6830:1308:: with SMTP id p8mr8339011otq.330.1611184204162;
+        Wed, 20 Jan 2021 15:10:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611184204; cv=none;
         d=google.com; s=arc-20160816;
-        b=FZZtfoAfO1thIEN37Tsfcyzh0JcG1827n5K9rSvsCvenQmZAHEPyn56BOUYITglTi6
-         mRAhFjhiVk5Bxn6v2BSY6zObzPPEcaRyC/yjcfkt/9pgUm+09sfGY0+n1LIecdtFzprS
-         QYkczlPZCTSv7GxD2kfj9qckQ6TTCG1MyHXUhaNmAOwFiB6V9V4kDxaBEx77yF2xw3M9
-         iONdvZB8a8DrwSLUTXICR5gBY08okh11rqkuM7l6J/Hd2Y4XtUFVqROQwKDOrPa96n2u
-         viPG7U1iUD/Zq+zTPa7brgfRzn5uEWD9nP0cZJmtgqE7KRrMTtfr+1yvnxyjBbIBgzP5
-         b6HA==
+        b=auF9RHhFJ7JzJ+TiL+e3tv3uHxw5p0sIrQ9saSg3gwaBPFTUN7ZgpH8Uh961Q9g/D7
+         ofgNAUpeZGDwClPF6sc0lS+DZYjOxcJlgYLs8kWGH0amawbgo4YGwX2U+LK7dkYPr8wX
+         LsLZ+3/ZhyqbTXk/9Vebmdt/kH2GryOo0r/90IU36Z2XE5669aJ1WNWGb/qNafBCY+Vg
+         HYTa1x7K3wiPN2vGBqSnTmjuNCdq7nNrLYiMtuqfuP4W+sepV34FdBY0/xlxXuAJUkr+
+         vn0TNF52smFreyF3asWiW7sTDb++oJUHJWbGLomH8hFyFnsThyp4IYLHQ22QskFcTojc
+         n3gQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Om7VwHKhcnxl7GarBDwRVzXmPEeOP48pbHGghTabBUQ=;
-        b=lqgGEaRRsqXJmRHgxyRhgYqrLwZVMLlfzt5lhDtglLA0GKEO1fkgH+iC6PrbIioe6j
-         RiiE5tZwlTulAyXV0nZ8ZB7J4m6vy4DqBx5yaZxltf6sPUf0F7hUay49PA7xp3J21PsZ
-         PM8gzQKMnHd6zqn8jwACr5KvT4gDwK0p6t3KLr8B0rQ8LA4aqSF+N+xjj93LJBR+wUY6
-         zHvugFutm0EJm3ctylhPdivpY4pvRevAIpisIf03ajoyGUfa26TFd9auR2/GVhF8H5rg
-         Y61ZZeAOz2iWVWL1MSiOMuLsy7K65t/KX9o23ipGs4lufaEBApBKz1wWo0yQs/Nh98F0
-         iDuQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zhYUIY/pxxk2hZgz6LMzQ8D+neAYmmcm1aEWExzAYmQ=;
+        b=TXw2qP1DreWW4bCPcHtfXbOuZEa8UEgdH0WsOFjJCFDbK0xMyOU0bFekxXHbzeM7VZ
+         24eLOiufYI3rD1JbaiVmSm43WKze4r0g70wKEdrfooEYzI/VUhbvQmJ6S0ZUsRvEunoU
+         FKVMRp5R5l3kS2H4HvygmYTJu0VZUOkXAK5WvLGXPsB+VH4x2a/vIvnQcHfpYLISt7HK
+         DBzNc9U4J9jSaPkTQbHKyY64jlkvlrOeJakic+JBBJBE8OkvktwJKYgZs4X7IcTZ0ycZ
+         ZSS47l1xHcS3Cyp1eiaOrUIGBqft+tEihiV5L4n/iMHvQhx+IP/oFDknLnnN4nLNizAl
+         6xzg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=AobkxXfw;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id jz6si315903pjb.1.2021.01.20.14.59.58
+       dkim=pass header.i=@google.com header.s=20161025 header.b=D35sbY5I;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x52d.google.com (mail-pg1-x52d.google.com. [2607:f8b0:4864:20::52d])
+        by gmr-mx.google.com with ESMTPS id r27si315464oth.2.2021.01.20.15.10.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 20 Jan 2021 14:59:58 -0800 (PST)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-123-SHMIIL66OSu14XH1DwGo3w-1; Wed, 20 Jan 2021 17:59:53 -0500
-X-MC-Unique: SHMIIL66OSu14XH1DwGo3w-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 96227107ACE3;
-	Wed, 20 Jan 2021 22:59:51 +0000 (UTC)
-Received: from treble (ovpn-116-102.rdu2.redhat.com [10.10.116.102])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 89D5060C6D;
-	Wed, 20 Jan 2021 22:59:50 +0000 (UTC)
-Date: Wed, 20 Jan 2021 16:59:48 -0600
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Aditya <yashsri421@gmail.com>, LKML <linux-kernel@vger.kernel.org>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>, dwaipayanray1@gmail.com,
-	Mark Brown <broonie@kernel.org>,
-	linux-kernel-mentees@lists.linuxfoundation.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Joe Perches <joe@perches.com>
-Subject: Re: [PATCH] checkpatch: add warning for avoiding .L prefix symbols
- in assembly files
-Message-ID: <20210120225948.lgbfhy5s265we6jn@treble>
-References: <20210120072547.10221-1-yashsri421@gmail.com>
- <e5c5f8495fbdd063f4272f02a259bbf28b199bdd.camel@perches.com>
- <14707ab9-1872-4f8c-3ed8-e77b663c3adb@gmail.com>
- <fb1b511d71761c99a9bece803f508b674fce9962.camel@perches.com>
- <CAKwvOd=HNuB8bqJvXEjvYWorika99QX=jKSfHy2hf0NOKrrc8w@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 Jan 2021 15:10:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52d as permitted sender) client-ip=2607:f8b0:4864:20::52d;
+Received: by mail-pg1-x52d.google.com with SMTP id z21so16304384pgj.4
+        for <clang-built-linux@googlegroups.com>; Wed, 20 Jan 2021 15:10:04 -0800 (PST)
+X-Received: by 2002:a63:1142:: with SMTP id 2mr11653031pgr.263.1611184203611;
+ Wed, 20 Jan 2021 15:10:03 -0800 (PST)
 MIME-Version: 1.0
+References: <20210119131724.308884-1-adrian.ratiu@collabora.com>
+ <20210119131724.308884-2-adrian.ratiu@collabora.com> <CAKwvOdkNZ09kkzi+A8diaxViqSufxrHizuBu-7quG6an3Z8iDA@mail.gmail.com>
+ <CAK8P3a0XWVu-oG3YaGppZDedRL=SA37Gr8YM4cojVap5Bwk2TA@mail.gmail.com>
+In-Reply-To: <CAK8P3a0XWVu-oG3YaGppZDedRL=SA37Gr8YM4cojVap5Bwk2TA@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 20 Jan 2021 15:09:53 -0800
+Message-ID: <CAKwvOdnVwkxQTQ-LkdZi4pFWTMg6d0Lddddp=j4pCEh-JT-34Q@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] arm: lib: xor-neon: remove unnecessary GCC < 4.6 warning
+To: Arnd Bergmann <arnd@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Adrian Ratiu <adrian.ratiu@collabora.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Arvind Sankar <nivedita@alum.mit.edu>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Collabora Kernel ML <kernel@collabora.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOd=HNuB8bqJvXEjvYWorika99QX=jKSfHy2hf0NOKrrc8w@mail.gmail.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
-X-Original-Sender: jpoimboe@redhat.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=AobkxXfw;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@google.com header.s=20161025 header.b=D35sbY5I;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::52d
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,48 +136,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 20, 2021 at 10:57:03AM -0800, Nick Desaulniers wrote:
-> > $ git grep -P '^\s*SYM_[A-Z]+_(?:START|END)(?:_[A-Z_]+)?\s*\(\s*\.L' -- '*.S'
-> > arch/x86/boot/compressed/head_32.S:SYM_FUNC_START_LOCAL_NOALIGN(.Lrelocated)
-> > arch/x86/boot/compressed/head_32.S:SYM_FUNC_END(.Lrelocated)
-> > arch/x86/boot/compressed/head_64.S:SYM_FUNC_START_LOCAL_NOALIGN(.Lrelocated)
-> > arch/x86/boot/compressed/head_64.S:SYM_FUNC_END(.Lrelocated)
-> > arch/x86/boot/compressed/head_64.S:SYM_FUNC_START_LOCAL_NOALIGN(.Lpaging_enabled)
-> > arch/x86/boot/compressed/head_64.S:SYM_FUNC_END(.Lpaging_enabled)
-> > arch/x86/boot/compressed/head_64.S:SYM_FUNC_START_LOCAL_NOALIGN(.Lno_longmode)
-> > arch/x86/boot/compressed/head_64.S:SYM_FUNC_END(.Lno_longmode)
-> > arch/x86/boot/pmjump.S:SYM_FUNC_START_LOCAL_NOALIGN(.Lin_pm32)
-> > arch/x86/boot/pmjump.S:SYM_FUNC_END(.Lin_pm32)
-> > arch/x86/entry/entry_64.S:SYM_CODE_START_LOCAL_NOALIGN(.Lbad_gs)
-> > arch/x86/entry/entry_64.S:SYM_CODE_END(.Lbad_gs)
-> > arch/x86/lib/copy_user_64.S:SYM_CODE_START_LOCAL(.Lcopy_user_handle_tail)
-> > arch/x86/lib/copy_user_64.S:SYM_CODE_END(.Lcopy_user_handle_tail)
-> > arch/x86/lib/getuser.S:SYM_CODE_START_LOCAL(.Lbad_get_user_clac)
-> > arch/x86/lib/getuser.S:SYM_CODE_END(.Lbad_get_user_clac)
-> > arch/x86/lib/getuser.S:SYM_CODE_START_LOCAL(.Lbad_get_user_8_clac)
-> > arch/x86/lib/getuser.S:SYM_CODE_END(.Lbad_get_user_8_clac)
-> > arch/x86/lib/putuser.S:SYM_CODE_START_LOCAL(.Lbad_put_user_clac)
-> > arch/x86/lib/putuser.S:SYM_CODE_END(.Lbad_put_user_clac)
-> > arch/x86/realmode/rm/wakeup_asm.S:SYM_DATA_START_LOCAL(.Lwakeup_idt)
-> > arch/x86/realmode/rm/wakeup_asm.S:SYM_DATA_END(.Lwakeup_idt)
-> 
-> Josh, I assume objtool does not annotate code under:
-> arch/x86/boot/
-> arch/x86/entry/
-> arch/x86/realmode/
-> ?
-> 
-> The rest, ie
-> arch/x86/lib/
-> seem potentially relevant?
+On Tue, Jan 19, 2021 at 1:35 PM Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> On Tue, Jan 19, 2021 at 10:18 PM 'Nick Desaulniers' via Clang Built
+> Linux <clang-built-linux@googlegroups.com> wrote:
+> >
+> > On Tue, Jan 19, 2021 at 5:17 AM Adrian Ratiu <adrian.ratiu@collabora.com> wrote:
+> > > diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
+> > > index b99dd8e1c93f..f9f3601cc2d1 100644
+> > > --- a/arch/arm/lib/xor-neon.c
+> > > +++ b/arch/arm/lib/xor-neon.c
+> > > @@ -14,20 +14,22 @@ MODULE_LICENSE("GPL");
+> > >  #error You should compile this file with '-march=armv7-a -mfloat-abi=softfp -mfpu=neon'
+> > >  #endif
+> > >
+> > > +/*
+> > > + * TODO: Even though -ftree-vectorize is enabled by default in Clang, the
+> > > + * compiler does not produce vectorized code due to its cost model.
+> > > + * See: https://github.com/ClangBuiltLinux/linux/issues/503
+> > > + */
+> > > +#ifdef CONFIG_CC_IS_CLANG
+> > > +#warning Clang does not vectorize code in this file.
+> > > +#endif
+> >
+> > Arnd, remind me again why it's a bug that the compiler's cost model
+> > says it's faster to not produce a vectorized version of these loops?
+> > I stand by my previous comment: https://bugs.llvm.org/show_bug.cgi?id=40976#c8
+>
+> The point is that without vectorizing the code, there is no point in building
+> both the default xor code and a "neon" version that has to save/restore
+> the neon registers but doesn't actually use them.
 
-Both arch/x86/entry/* and arch/x86/lib/* are read by objtool and should
-probably be fixed up.
+Doesn't that already happen today with GCC when the pointer arguments
+are overlapping?  The loop is "versioned" and may not actually use the
+NEON registers at all at runtime for such arguments.
+https://godbolt.org/z/q48q8v  See also:
+https://bugs.llvm.org/show_bug.cgi?id=40976#c11.  Or am I missing
+something?
+
+So I'm thinking if we extend out this pattern to the rest of the
+functions, we can actually avoid calls to
+kernel_neon_begin()/kernel_neon_end() for cases in which pointers
+would be too close to use the vectorized loop version; meaning for GCC
+this would be an optimization (don't save neon registers when you're
+not going to use them).  I would probably consider moving
+include/asm-generic/xor.h somewhere under arch/arm/
+perhaps...err...something for the other users of <asm-generic/xor.h>.
+
+diff --git a/arch/arm/include/asm/xor.h b/arch/arm/include/asm/xor.h
+index aefddec79286..abd748d317e8 100644
+--- a/arch/arm/include/asm/xor.h
++++ b/arch/arm/include/asm/xor.h
+@@ -148,12 +148,12 @@ extern struct xor_block_template const
+xor_block_neon_inner;
+ static void
+ xor_neon_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
+ {
+-       if (in_interrupt()) {
+-               xor_arm4regs_2(bytes, p1, p2);
+-       } else {
++       if (!in_interrupt() && abs((uintptr_t)p1, (uintptr_t)p2) >= 8) {
+                kernel_neon_begin();
+                xor_block_neon_inner.do_2(bytes, p1, p2);
+                kernel_neon_end();
++       } else {
++               xor_arm4regs_2(bytes, p1, p2);
+        }
+ }
+diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
+index b99dd8e1c93f..0e8e474c0523 100644
+--- a/arch/arm/lib/xor-neon.c
++++ b/arch/arm/lib/xor-neon.c
+@@ -14,22 +14,6 @@ MODULE_LICENSE("GPL");
+ #error You should compile this file with '-march=armv7-a
+-mfloat-abi=softfp -mfpu=neon'
+ #endif
+
+-/*
+- * Pull in the reference implementations while instructing GCC (through
+- * -ftree-vectorize) to attempt to exploit implicit parallelism and emit
+- * NEON instructions.
+- */
+-#if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
+-#pragma GCC optimize "tree-vectorize"
+-#else
+-/*
+- * While older versions of GCC do not generate incorrect code, they fail to
+- * recognize the parallel nature of these functions, and emit plain ARM code,
+- * which is known to be slower than the optimized ARM code in asm-arm/xor.h.
+- */
+-#warning This code requires at least version 4.6 of GCC
+-#endif
+-
+ #pragma GCC diagnostic ignored "-Wunused-variable"
+ #include <asm-generic/xor.h>
+diff --git a/include/asm-generic/xor.h b/include/asm-generic/xor.h
+index b62a2a56a4d4..69df62095c33 100644
+--- a/include/asm-generic/xor.h
++++ b/include/asm-generic/xor.h
+@@ -8,7 +8,7 @@
+ #include <linux/prefetch.h>
+
+ static void
+-xor_8regs_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
++xor_8regs_2(unsigned long bytes, unsigned long * __restrict p1,
+unsigned long * __restrict p2)
+ {
+        long lines = bytes / (sizeof (long)) / 8;
+
 
 -- 
-Josh
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210120225948.lgbfhy5s265we6jn%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnVwkxQTQ-LkdZi4pFWTMg6d0Lddddp%3Dj4pCEh-JT-34Q%40mail.gmail.com.
