@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDXLVH6MVYKRB2OBUKAAMGQERRNHORQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXLVH6MVYKRB5GBUKAAMGQECT2TRBQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 145672FDBDB
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 22:30:18 +0100 (CET)
-Received: by mail-vk1-xa39.google.com with SMTP id f139sf12710813vke.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 13:30:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611178217; cv=pass;
+Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 879232FDBDC
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 22:30:29 +0100 (CET)
+Received: by mail-yb1-xb40.google.com with SMTP id b3sf111382yba.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 13:30:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611178228; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KV1kMdHUlQSkiwu4u7dIcqAVOsUKg4WrNLUtHVyaaEgfQrzaMVSNk5wkcpXPMBpBNw
-         I6y/uxXpLoEgpEdQ+ORraqSwLFJ+qklnqKHj0+cdJrj4fQR1w/1RGqqA1tXj3DhP9n/a
-         KAIlEIFfbDxqdHPREysBpq9Cv2m67e6r2uUSwK0tmk5b48i+rgH0DU3aPBMnj/5H0mPj
-         i8Kj7fZTUh1ZpGamsQLVXPogOfaZaIy6857kCsZccUdrGaV0Nl1Qg2UXOENtk0eA+erg
-         QgdqatThdKFUpdYgeN4xFo8RZXs7QNO6zRqZfhsHXRC/66dU9SFZYVNv+DwDfurGjzZu
-         ZP0A==
+        b=Wog1TmJsGKyGjQLBIluITkcFKlHtUVmbbqKbe5AW/sPEkFIw0SQo3TGbKOmtMzk1aC
+         /x8EuL/shZdNOcpNBBeMBAnSoRXJ7EsAxveop/EXaMwx614LzbvNSJJjfkHXBnD0V2aP
+         wsUwDzzaKgmMsct3b42AobITzA7OM0LI0FPkzwwsFhVfg1SNRO5LZheBKi9znzFe0RdW
+         iELPGLdyetLeCvNWQJGz/xtCTOt3PdT/3SpGyacr3QgiEgjnPYWpe9/qn31aU4sM7W2x
+         rVQGFcF5UkjvTlt12d30upjOL2/6ykaqQfVsQGPdJUOYDxhpkry8QBfbTnGITkaXMTbb
+         WVRg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:in-reply-to
          :mime-version:user-agent:date:message-id:from:references:cc:to
          :subject:sender:dkim-signature:dkim-signature;
-        bh=qW193PXxhcA9ni3lleY9KSyS73M/tDsdgNcuuPkV1Hk=;
-        b=tbkBjI5TFia7AooBVF3S01BZky5IfxolnX5XxFISB9PeM1oA9SbGWptj3YMZn1xfVe
-         V0AlCzG9tkt0MRgUXwI4OjPogdV49/c4qIr0basKjhRyaR9c+M9V5WKakRcYGndky/Se
-         qDMnnQQDwHPpiaGXn1y15/K3nLKrB4eL9MqPTT6e0UvM16lvxeDEXf7n4DXwT8gtyO6f
-         cpg+xZKpowD/VnxyW42HxLUIDFcW1pvBauJ7uiWUuw55i8b+sCTz/cMvV3MkUL2+BbTu
-         aHBoyznyyRvuU6OEJFfBwgJRcKFkI9koiLMHADGjwM1PtTzAfr5c4J3w77Ca7kgqn0Az
-         Yo1w==
+        bh=LIrj5uxOxGEKRV7uIgqEn+2GdF0I9wY8qEKfyAG09ro=;
+        b=jcrMA1BCCmzcizq15jEbyEP1kfogKybJjxjbcIqPTFHVDC6HOPizN9Y4BaoFZYOwUk
+         CGsX53haNToH9KcC4/ecn5kRY03mG5iHJ2cZBzHtDPtk9DclQCHq5N2/YwOSyWiERJs3
+         UhDmIUWYMmm+c3DxuSrR/TlpN64nlEb2caFmVDntNgLyZPGIU8evXtU+HeEUVZjKvQ/P
+         XEriqAtmvFvHGV4e8aRSI+0Xgitxm5MRGC/1+1BXrTcv5WnzxyUPUgYNAmBJu46rGJ2J
+         XLzov/h03Tlr2Pv+xHY2UJJBcYsYxfkMJRTNDHGyGDPduSpYAoYxXhenk1qYYEamj16N
+         J0IQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="tRB/xVmQ";
-       spf=pass (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::1034 as permitted sender) smtp.mailfrom=jsmart2021@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CKr3jptq;
+       spf=pass (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::435 as permitted sender) smtp.mailfrom=jsmart2021@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qW193PXxhcA9ni3lleY9KSyS73M/tDsdgNcuuPkV1Hk=;
-        b=Z5fYNQep/7ycUg9hHpDcn+vLPp2c3FLSE2au2lm0FdzIwpvV9FQMmbc+S5n0+iJ2LO
-         ENmsx+eNDQ4Y+CNTbiu7fICt/XzWAFm8HMr62kcTKFDf80CuIvPoB2Yi8KV0MDPtlnKn
-         ro2/wkaMq/3lHPpNlHXD63+qf/mU69G/PTnqBcpW7dzi7OISkYm6XE6PNzRSmSoRGBPH
-         IAWm3FIitRa60GiPo2cBMIrY4uIU2cSde2fZMY6WhQHiB+LahZfnw560Sk0GwKqvblK5
-         onCAhRGmEy5h2FcUN97+T0InP/5okTAs/YoWwUXtuqrOpJ+V3yJ9uHFV7fGGqfdnKFrU
-         0H9g==
+        bh=LIrj5uxOxGEKRV7uIgqEn+2GdF0I9wY8qEKfyAG09ro=;
+        b=K1r9mcIGBpJ5BKMD0U2Ng9NkOq4ISvfOMRFjMJDlueuy+7pFGleHOLt43Xsuk9COki
+         RtSieXzur/mXH8vEZimqVKqpwEjrKf5zUATh1M/MrbvE8yEbGM9K5QOmR/CNBNfJSdkV
+         I6hC7U/YMPo/do1bM/EwUy4so9b7b2auHbZAoI71jxFc7z4qO957eA/NVxzyj2NQvn/D
+         YGnzF+p1OhMip4MTQdZRClOT75ry3NrXKcAyZzGG32u0xi0sukH1hJUehxtTJ/64MAK2
+         niWWMhtfCO7lidiHNtW5u04UbxP7SHkA8tjl4ePR6z/0Jz+ZnjOnioUPaVCh0pSLfaFz
+         HUbg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=subject:to:cc:references:from:message-id:date:user-agent
          :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qW193PXxhcA9ni3lleY9KSyS73M/tDsdgNcuuPkV1Hk=;
-        b=IERad5xKIavNq2hLK/jZq8U06jE3iFgM4Ul0RdSytvnEVOrHrr4nMAgD84V1/JAmaD
-         Ky+iE2/IfWrMa4PI3UeDX9NOp8r/onB1VC84arqWvPEhU9BH59JD93hblx3J8E0jhZNd
-         pcDTcTkLsLuF7byUQiCDvfvAZf4BwCt17SErfVmfanubYeZfm7y4/1QKQ5xi2czYmqK3
-         bjiKBkWGukRyzM6yLKbQN1hbvQACaC58jk+wKp7RnMzNJV8dyNAiLirpSUlAwt7t6kaN
-         Obf9JxKgoYv/tLC6bVIwKSF4Rufuyj/emr3k4TD5MTudoOLYqF9fEfZ1aRKUcHmjR0Fk
-         PG1A==
+        bh=LIrj5uxOxGEKRV7uIgqEn+2GdF0I9wY8qEKfyAG09ro=;
+        b=lELLguT5UMLmfWHZC6JOgIOQNurnt3WR/RO9ZLeN9vZn0YvikqSEFBw2p+ml2ZGbyN
+         mLC90Py4DtFW9ojvFI2ER7tAX5PJ0eMIdcgTLxtjEkg8LnZIpyoU902HE78JcuLxSWIx
+         Ll6RHU0rkWi/BEXh/OwVVZGv2ikUzQnCt51z+3CcspQ5DJzzbEW4JwqmRGm/Rz9q09Ee
+         XW55U258q7gd88zNrK7Ok3KMQhzBa6QZ/aGvNrxvK71UaTrZLXJGjL9zK2ZNW+4oeG5N
+         mWefRD56PBeBZqv7SaXxIjQLu9Q4gwghR3nEHipNlf5pRSNp/EoooBYjeFYSnyh/sy79
+         7lAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
@@ -63,84 +63,84 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=qW193PXxhcA9ni3lleY9KSyS73M/tDsdgNcuuPkV1Hk=;
-        b=Cg/1tjJv51Sx3D74/kbWRp4M0JKFLwsx1/FKBSLS/VfQCfUtH+WSYIkckxWe26NDCw
-         6xguH2jALXtScbwBePrd4z1nLSuP19x9X4WeSKKwnt3gSORwwjq492RZoYaysa5bELc5
-         V47vxICvFmJdCbnChZwEzPW93iQV6pNPP8WYrOcXrwSoyjImWr01RieJguRJWVT/+wXT
-         yhH/NTkdohpW52yfcgG/qYFKK6kMiozNjm1ySuKHZ20i5eo9/4mfF03OWZjsnx8YcFO8
-         EUDnE19xuYdMGLsWRR3QxlB5VyQUeiTPI1rNvNBj/SlAC1g8intpteagTm42BZZW3kS+
-         k5TQ==
+        bh=LIrj5uxOxGEKRV7uIgqEn+2GdF0I9wY8qEKfyAG09ro=;
+        b=Hb8EXADuowvoE92XKtLwgWQC2oV5ye59EHa0V5/2y6TJokv7RhtHVIrNJhWWf4vg+8
+         mgaUrKtvdEy1k9/HzNC6TeetmfmsNiXwDDg1lhcaC100e2qujELJgZHU/KGRH5QmbBaU
+         DtHIKECQe8dIlL/nj/cizd4emuEeRSiTrES+vXyrBOWhwxEbrGphToR5eEn43T5jBuuW
+         d5997n6/hhk4XefwmCh9mYH6B4CQ0/ksMlWfg1bzl8yhlQWKtq4D5jR7CAq9GLEf4cyL
+         Q/2koWAiAfW1Cl2a18KcdwrcYsJG9kGGhwEiG/nQhS7B2+ktIkHnh62XHFyCeEOububi
+         wy6A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530m0DTbjOXLwi4VO8OhoyCQRAHVUMb6asnXlHrgPtJSFPGvy70o
-	Be8H0p8Bk2M9eprNJ58JVXE=
-X-Google-Smtp-Source: ABdhPJyyOtSynbRQVEsfrHSksimdP3if6QQ8lkddvFl9Ul1p92AhtoW2Slbsww30Zu8UyIONaMbyPg==
-X-Received: by 2002:a05:6102:808:: with SMTP id g8mr8380188vsb.0.1611178217184;
-        Wed, 20 Jan 2021 13:30:17 -0800 (PST)
+X-Gm-Message-State: AOAM533016hLTGZXJjnjMCN6657TqdX+qXdxqdOsmo8WVOkbRBZx0X5G
+	YbrtsZJwvU26Inu6T1hcf/Q=
+X-Google-Smtp-Source: ABdhPJxwMlNLzfLiSZ1ELl1GNmSFDj1EuOT0C8gNXzkuOKYH7uQJm/E7xd1kXFLRR6g1gd/OxpgILA==
+X-Received: by 2002:a25:26c7:: with SMTP id m190mr16430088ybm.464.1611178228435;
+        Wed, 20 Jan 2021 13:30:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:ea12:: with SMTP id g18ls3667000vso.9.gmail; Wed, 20 Jan
- 2021 13:30:16 -0800 (PST)
-X-Received: by 2002:a67:eecc:: with SMTP id o12mr2496916vsp.40.1611178216749;
-        Wed, 20 Jan 2021 13:30:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611178216; cv=none;
+Received: by 2002:a25:ff19:: with SMTP id c25ls93387ybe.2.gmail; Wed, 20 Jan
+ 2021 13:30:28 -0800 (PST)
+X-Received: by 2002:a25:f30e:: with SMTP id c14mr15275743ybs.251.1611178228060;
+        Wed, 20 Jan 2021 13:30:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611178228; cv=none;
         d=google.com; s=arc-20160816;
-        b=fGxawqKn4M6YcVkQBahKmCCGFKW3NzqH3SEUC97a/XUhD+O17umgCIJ0DAx5muylzK
-         u+dqqV+NdPgzmjkX3u4czHqZ8pPxotsd28ax1fDReaYRWLmrCY1KXSDM56CDo8cT0ghh
-         Bd2E6JQWC8Se/F+816fvr96yP1GfV7CJXBigkQgBGSqlNs3JeFediVpwwgnJAgkcCIly
-         6wmq1+eL89KYOtDHG98L0FOC6xJdhrLucYdyeU46K+GdrJm8XuQR5nREq5UwCftsnqDM
-         Z9YDv9DkHqkcAcHNR4qJCk0m1j4LAqoZ1WRD/N3CHFnhbYhTB8U041hXQog7z8lU0Hh5
-         xHtA==
+        b=zz28xn/Q9dh+rvHQeyg01F0ZCxztv8omEjk7BpzFySiQKUf9FH4v33C+/ERcTBPUnh
+         CNGSEZASBS5haPrmevmAQb81IzmR9moR6egXwk3FET+34YWSst4mMz129BXrzbxmGvtk
+         w7xPvaLpyz9tz/qfMwryOR81Axo968lOSmNv/HMsxgiTiqcOc6KrC3gjQhh92s/JoKeO
+         d6wtkY3yvH4gEeJMLKwMQtcYXYtEYJpg2sUcgUOqqfJG1IIL3+M8rFS5XVm0a1a+6DYD
+         Z7Pq6fJ5IOFqsz5cWt5gctcMh+8N7TfPWew5jyvZoN/+VaN71j+VtIvmpfsyIWbxWm0K
+         dqiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
          :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=TdwwHM1/CBQE4e/47xbtOGnzLX6NRqS36RY4+N1Vy/k=;
-        b=Kf6pcKyI1NOEQSOgWB185HuEwKPO7qQQhPBdw+ndDwXJP0OLlSgTOZ+vLjTnKwPxhS
-         Xjh3/ki9SAYw7PxjUM2tdPxY1Ds/MK8n/N1NCErJMSBi/x+aVd3s12Ev1Mw3twJEICfd
-         5qrqipKjJsaDWf5Z7E11Skt47vQdbzwQ7klgw0RP8q87jObOGyquMd4kcOWEGIomkMtU
-         lgZLuuL9oWXMHZzqakNJWVRWpne3y+1tCu2ehSUlARz9DZsemY1akiyN15rK5LtUnMn5
-         otluyNTk38KtIM14a/H2EnYBQjt35blphcPqE4oc9cxDNUnuIvAgMVMLuJ6I08AQUpfT
-         1Jcw==
+        bh=jKYexl2vcEmfmU/MRHTVfCuegl3Ac5+7kuT33+d0f4k=;
+        b=ZNF49XWQ3I9x+ohnQh/NMzgLVgU3VIAQmAjPA7C46X5iEyI7N17EpljG1rYYRWCRVX
+         bdAkn0hT2jkb3jxU2l1IQICppkoyrQUeW1oVTWPtOl4RkeKB2htFzOwEgpfy++4AdSLk
+         tnrQuorkJ14W3e32+kMKFGkEa3pqO4Ai4tkm5rjNSlSE0NdKSEj20cWCV+PF3XF16HO9
+         MDGuyPHylmv02MeWwT+Lt3hOXSAxRKbb4NYQt045baHjClsJODe/rUw8JvEObP5U6sOU
+         ApRZA/xtkrN0oo+plRrJc0wNvNaPjnI451h/3zmIyeZ7wYTgdZpBgxYsYI83SSqiDEpw
+         ZWkA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="tRB/xVmQ";
-       spf=pass (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::1034 as permitted sender) smtp.mailfrom=jsmart2021@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CKr3jptq;
+       spf=pass (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::435 as permitted sender) smtp.mailfrom=jsmart2021@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pj1-x1034.google.com (mail-pj1-x1034.google.com. [2607:f8b0:4864:20::1034])
-        by gmr-mx.google.com with ESMTPS id g3si308926vkl.1.2021.01.20.13.30.16
+Received: from mail-pf1-x435.google.com (mail-pf1-x435.google.com. [2607:f8b0:4864:20::435])
+        by gmr-mx.google.com with ESMTPS id l15si307341ybf.1.2021.01.20.13.30.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Jan 2021 13:30:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::1034 as permitted sender) client-ip=2607:f8b0:4864:20::1034;
-Received: by mail-pj1-x1034.google.com with SMTP id x20so3052340pjh.3
-        for <clang-built-linux@googlegroups.com>; Wed, 20 Jan 2021 13:30:16 -0800 (PST)
-X-Received: by 2002:a17:902:aa49:b029:de:1a8d:bd8d with SMTP id c9-20020a170902aa49b02900de1a8dbd8dmr11957615plr.62.1611178215938;
-        Wed, 20 Jan 2021 13:30:15 -0800 (PST)
+        Wed, 20 Jan 2021 13:30:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::435 as permitted sender) client-ip=2607:f8b0:4864:20::435;
+Received: by mail-pf1-x435.google.com with SMTP id w18so4051603pfu.9
+        for <clang-built-linux@googlegroups.com>; Wed, 20 Jan 2021 13:30:27 -0800 (PST)
+X-Received: by 2002:a63:dc4c:: with SMTP id f12mr11245550pgj.167.1611178217750;
+        Wed, 20 Jan 2021 13:30:17 -0800 (PST)
 Received: from [10.230.185.151] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id b13sm3285505pfi.162.2021.01.20.13.30.14
+        by smtp.gmail.com with ESMTPSA id 5sm3205137pjz.23.2021.01.20.13.30.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Jan 2021 13:30:15 -0800 (PST)
-Subject: Re: [linux-stable-rc:linux-5.4.y 1860/4509]
- drivers/scsi/lpfc/lpfc_nportdisc.c:290:1: warning: no previous prototype for
- function 'lpfc_defer_pt2pt_acc'
+        Wed, 20 Jan 2021 13:30:17 -0800 (PST)
+Subject: Re: [linux-stable-rc:linux-5.4.y 1944/4509]
+ drivers/scsi/lpfc/lpfc_nportdisc.c:344:1: warning: no previous prototype for
+ function 'lpfc_defer_acc_rsp'
 To: kernel test robot <lkp@intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Dick Kennedy <dick.kennedy@broadcom.com>,
  "Martin K. Petersen" <martin.petersen@oracle.com>,
  Sasha Levin <alexander.levin@microsoft.com>
-References: <202101191736.6RlPLSkT-lkp@intel.com>
+References: <202101191830.NLq63hZ2-lkp@intel.com>
 From: James Smart <jsmart2021@gmail.com>
-Message-ID: <7aef190f-f27a-9712-c0f5-a5c46304f08f@gmail.com>
-Date: Wed, 20 Jan 2021 13:30:14 -0800
+Message-ID: <1a990243-cc81-934d-8e34-7d0771428b46@gmail.com>
+Date: Wed, 20 Jan 2021 13:30:16 -0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.6.1
 MIME-Version: 1.0
-In-Reply-To: <202101191736.6RlPLSkT-lkp@intel.com>
+In-Reply-To: <202101191830.NLq63hZ2-lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Language: en-US
 X-Original-Sender: jsmart2021@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="tRB/xVmQ";       spf=pass
- (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::1034
+ header.i=@gmail.com header.s=20161025 header.b=CKr3jptq;       spf=pass
+ (google.com: domain of jsmart2021@gmail.com designates 2607:f8b0:4864:20::435
  as permitted sender) smtp.mailfrom=jsmart2021@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
@@ -155,14 +155,14 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 1/19/2021 1:35 AM, kernel test robot wrote:
+On 1/19/2021 2:43 AM, kernel test robot wrote:
 > Hi James,
 > 
 > FYI, the error/warning still remains.
 > 
 > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.4.y
 > head:   f07bbbcbb287be51052321bcb6b6d4edbdf810e6
-> commit: 6b8fbd9b2db056d888dc4f34f61c824faea659b3 [1860/4509] scsi: lpfc: Fix pt2pt discovery on SLI3 HBAs
+> commit: a9e53499f4de56277f76ae2d362248a0632a5bc2 [1944/4509] scsi: lpfc: Fix incomplete NVME discovery when target
 > config: x86_64-randconfig-a011-20210119 (attached as .config)
 > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project 22b68440e1647e16b5ee24b924986207173c02d1)
 > reproduce (this is a W=1 build):
@@ -170,10 +170,10 @@ On 1/19/2021 1:35 AM, kernel test robot wrote:
 >          chmod +x ~/bin/make.cross
 >          # install x86_64 cross compiling tool for clang build
 >          # apt-get install binutils-x86-64-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git/commit/?id=6b8fbd9b2db056d888dc4f34f61c824faea659b3
+>          # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git/commit/?id=a9e53499f4de56277f76ae2d362248a0632a5bc2
 >          git remote add linux-stable-rc https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
 >          git fetch --no-tags linux-stable-rc linux-5.4.y
->          git checkout 6b8fbd9b2db056d888dc4f34f61c824faea659b3
+>          git checkout a9e53499f4de56277f76ae2d362248a0632a5bc2
 >          # save the attached .config to linux build tree
 >          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
 > 
@@ -182,22 +182,29 @@ On 1/19/2021 1:35 AM, kernel test robot wrote:
 > 
 > All warnings (new ones prefixed by >>):
 > 
->>> drivers/scsi/lpfc/lpfc_nportdisc.c:290:1: warning: no previous prototype for function 'lpfc_defer_pt2pt_acc' [-Wmissing-prototypes]
+>     drivers/scsi/lpfc/lpfc_nportdisc.c:290:1: warning: no previous prototype for function 'lpfc_defer_pt2pt_acc' [-Wmissing-prototypes]
 >     lpfc_defer_pt2pt_acc(struct lpfc_hba *phba, LPFC_MBOXQ_t *link_mbox)
 >     ^
 >     drivers/scsi/lpfc/lpfc_nportdisc.c:289:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
 >     void
 >     ^
 >     static
->     1 warning generated.
+>>> drivers/scsi/lpfc/lpfc_nportdisc.c:344:1: warning: no previous prototype for function 'lpfc_defer_acc_rsp' [-Wmissing-prototypes]
+>     lpfc_defer_acc_rsp(struct lpfc_hba *phba, LPFC_MBOXQ_t *pmb)
+>     ^
+>     drivers/scsi/lpfc/lpfc_nportdisc.c:343:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>     void
+>     ^
+>     static
+>     2 warnings generated.
 
 fyi - Fixed by:
 
-commit f7cb0d0945eb scsi: lpfc: Make function lpfc_defer_pt2pt_acc static
+commit fdb827e4a3f8  scsi: lpfc: Make lpfc_defer_acc_rsp static
 
 -- james
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7aef190f-f27a-9712-c0f5-a5c46304f08f%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1a990243-cc81-934d-8e34-7d0771428b46%40gmail.com.
