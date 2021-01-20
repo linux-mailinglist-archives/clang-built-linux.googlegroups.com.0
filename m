@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3GNTWAAMGQESY6TSYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBOECT2AAMGQEYBXLY6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF2312FC479
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 00:10:37 +0100 (CET)
-Received: by mail-qt1-x83e.google.com with SMTP id w5sf8365886qts.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Jan 2021 15:10:37 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611097837; cv=pass;
+Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 191C72FC636
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 02:02:50 +0100 (CET)
+Received: by mail-yb1-xb38.google.com with SMTP id c9sf28118565ybs.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Jan 2021 17:02:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611104569; cv=pass;
         d=google.com; s=arc-20160816;
-        b=09kbJ/XcWNZfUDfGeH7vW7kyQHLQJySPMTRFkO0572N2TvIwEC1EWbcb13TNUCviJv
-         cTdTMNyVw15pmAwjc/aGKOeuGkjezJGxGEC29XOEPfuo5kaJbv1kKhNqatFcrxXQBvrZ
-         jBnmnTJewnMQOXFrHKkJFQJjP7rQmgoyVunNujKuJ86R55bKKXjAAcgCB06Pyv43OxYT
-         I4cbkn8BqrAsxLkMTXINRdR+HZjDi48RPT7+QpBG4N5ONlexOLXXDArs72hCXsdKFhhC
-         WiFqsgZfp2SbI5TL+HWU5Q22gkqECk/lMwEFo6XugtWqEvH7a8FkO7Tf0tjagVrlEe3p
-         T4eA==
+        b=PfrxHH9AFr/EPrWUPoqTuWHjAFWkDB0WEflRy3HpqG0dfsgrBs+Hm18BExpHm+DRK9
+         21KEbWyYgv/HV4/hEupr8qJyOFnwH0g6g5ycmt07Mv8XepAYcvpBChRem5qf1aq7Tqbu
+         FELWR1tVrL9kQ/aayh1TktjMpzzssCOjkqbkQh+u4v9SBFw8cQYh1XAUp10lDY/uxBWD
+         wnO8Jss6kxMRqgiiypdlRdO2GGBRQdqM0LFLyx/UEq55/ylq9L1sW1/Tax613+kX+TsD
+         eZHxlU2CDWw1S4OXrrk6RGoQ04mpBaboukiPu1amofX9A8EArb8Ws8uyki+xQIwwJPS9
+         YG0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=IbcJ0hC+13JL6L4Mxjap1tltxMtclqvlVAnySNiaKuw=;
-        b=0B29aHDIXWvdKDt00shz1KuMHrVXT1h6qSlHWM393sLu2kPTn1uHL8/0TgJ6IeUSly
-         2DJfM27avB7bOZxqopKPehAMmCgOdZ9MFdRYq27yVmgMDrs5AodOmxl+jGo4vXEn4zHo
-         Mgho0gSXVf5tx691mLxr17gAeR0IGvLwCRvwY1jpCgAq0AHOSIeOa0advsVlVd54pgC/
-         OSv4bZ8j7ZNBI3ybsHEFvDpeiCl8R93lxjYS+JLMofsCeBwwibhSza49n7Xh9pqeNbhM
-         oQ0fQQ5HG827gPGYPsFJT697AGeZiTTVbTf9cUdA0FSvMIqZXXnWlCkOG9jmdVippppN
-         glgQ==
+        bh=GELS6EEQLiqejNlAMrsxrCyToDeiFLtotOzICmfqpac=;
+        b=g8w1CbQmp/Gtd+VyUZZSgywYuMtm7Ex24lg7TQgzfTEza+Igv5R23hHdk+MGQqKdUR
+         gxKqd9uAytZEXdsZCMmI1ToPOeNZpO74DYvH1a4Wx1RH4FpaSgtBDUvVcY3YcvX89qEo
+         9IaArrcus3hU8ry3PT2lrQtY6gh4AGT6SAXYpGW1j+2XzvyWSWK6aWKRqzQ5tJGuXcCp
+         XfSLyqUsu3z9nKaG2sOVN1doond+wncVlshN7h1sCnq4+zZm+OQGsICjDHj6awrCT/WT
+         rxxio7Pxi0UwhIPVqR/A5+BN/ylMgPux1QV5ToL+LIgWZiXlRXRs9ELylPnsediley9j
+         9PcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LhWvTljf;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::436 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XwWSQ6Yx;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1030 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IbcJ0hC+13JL6L4Mxjap1tltxMtclqvlVAnySNiaKuw=;
-        b=cWdIHCwJTqs4xCVycgfwVSEiqwhqWNRHqKcSxqds/CYTqE6zcx+EbWbaiazKNAs9nY
-         ZpVP7svz+Ae1YeXih3YiErE6Ct3c4B0+esld9Zp0Qxc+PkEwkKAucK7EqHM9b4njWng5
-         wwgBZi6LTulMjn2aesL25xrkHYdwbTWzrvUu8q9sZ7xPiOT6YYPvUlMjXhw2PEaBaMQn
-         fuN53X8hAuhS67AaNQS99XFRuY8CuYmQWG81lLAF5cs4zB97F+m6jHLXuW9gBVyE3wwX
-         wJoZo2p+KtPoX0w6S5Ff5lFM4BJ2ZmiwCM0aW89NjKkdtc6izhGa92k1TFq5OF25gRpU
-         NP3w==
+        bh=GELS6EEQLiqejNlAMrsxrCyToDeiFLtotOzICmfqpac=;
+        b=de1Y260hntZVHl3vONuGoccGEZIAre2+GDcjIggI0pNN5+fJ/oj8GOOVqVJUDxebsJ
+         5uW62ZGunqpsDULKJJOzarJ8pWETfy88qcRddKOC6Y/tpRe573VC4HGvOwzSkkE/2D7u
+         EwPGzAuNZzC+KXWvJ5TKhiEGlkJJPgDNhfUFMrUdKlcoh59lDyNJOWSN9WWcbKFX8DgN
+         IQuBnYe8fTNmDcEKSUfWiDnMJCS1lqzkOWWiwoVPLNaFss8WEcoR4aWtxxSdOWJFq34c
+         zl/8rAnKENKtuLrY4TPvHLtCWobdZkCGJMioMrwbCxn/495rqJ3Bos3A3YTNmBZuxLKz
+         GBhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,77 +49,74 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IbcJ0hC+13JL6L4Mxjap1tltxMtclqvlVAnySNiaKuw=;
-        b=RtBXEI3RvQ1rDpEUHZeOleyBiY6z8QiiPPgWpYPFobtWsk/1jJQwBHwqWchN3f6DpM
-         znLPem5vuLx2KTF5cKbj3m3lfMdFtt7JhZdT+RnKYbysrHDdbmL5YaB5dzf7med3Zwyx
-         xF6vKyrw9B9wSk0DuYZ5QodTkA8LInjJ8h6BsLmJwKZhtC1oP5iAKq4Hozxt8C451a4+
-         H3DG6O3r7HKU2yf1n2jszmRgxr3yDZ5sBwPMlZbvWNl/onpIfQAOpVn8cwSYLygaVzod
-         88w0SJMJAVKM1uHkp4+ehb2VykJxN57nRRhCCFa1qKhOyhANLOgi+54wEAK9pXIqrety
-         +7hA==
-X-Gm-Message-State: AOAM531v1FWtS1ONJbBXmhhca5Rth01VJ7SQkfU9RAnfSnY0KzFblj5g
-	417wnPDqztht1mUMeyEE494=
-X-Google-Smtp-Source: ABdhPJwwsUj3/ZpZRvXhKTXOEsPDJv4EFkmapTYOhoyqg9QBTlS1gTg6BeTZl9L/fDn1bLxxeIoNUg==
-X-Received: by 2002:ad4:438f:: with SMTP id s15mr7003809qvr.13.1611097836924;
-        Tue, 19 Jan 2021 15:10:36 -0800 (PST)
+        bh=GELS6EEQLiqejNlAMrsxrCyToDeiFLtotOzICmfqpac=;
+        b=d7ZFvwW9WUod3jM0eSLv3ucU8GtjQaBOmbFMuXS35JtoXZ8CYAb8zgXzCP8x+GqhbM
+         m42OPqZU95v/NSlfQ9+H6TqVT/f1MZekG1hQfJsJX7r0MhW4J7/QmAgzcWzgC1Gqu08j
+         UL/qx4h1GWxUSEetXZc1nuIRaWXq2PXrx+YSImAtEhvbrtgINtF7YsGhdfxACRN34NDg
+         hHLefKzlUsS4bqi/hB4Yo+OMb7JjJ2NC+uMdiizfM7ewPgQ9GGKeQ+BRlkNYmsvBeCsh
+         S0n1RGY6l4RETeP/18U3yMxlByZ+skGpYrjzdzEqF4hlYHLqxMv2r6mJ2TXphHyJRJMh
+         pLjw==
+X-Gm-Message-State: AOAM533AFQiGPcwNAt0sCLm2okot9qruZaHvdguyJf+y8u/FVOGjnX5r
+	Zg7Dejfp0M5tZxbeiZudDcc=
+X-Google-Smtp-Source: ABdhPJzIIL7AK2VNnAbcamTqv0HHdfHUYRyPZNA4Oz/HsCFS24uiLoB/nDlZhvcIyOHEGMtJ7C0KhQ==
+X-Received: by 2002:a25:cb01:: with SMTP id b1mr10216488ybg.221.1611104568969;
+        Tue, 19 Jan 2021 17:02:48 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:b8a7:: with SMTP id y39ls5123396qvf.5.gmail; Tue, 19 Jan
- 2021 15:10:36 -0800 (PST)
-X-Received: by 2002:a0c:b9a8:: with SMTP id v40mr6937198qvf.36.1611097836610;
-        Tue, 19 Jan 2021 15:10:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611097836; cv=none;
+Received: by 2002:a25:af4a:: with SMTP id c10ls181920ybj.1.gmail; Tue, 19 Jan
+ 2021 17:02:48 -0800 (PST)
+X-Received: by 2002:a25:be06:: with SMTP id h6mr10288976ybk.38.1611104568576;
+        Tue, 19 Jan 2021 17:02:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611104568; cv=none;
         d=google.com; s=arc-20160816;
-        b=YQukB7xQoso4+FVkKMSZO6+E7309TMIx8yPPoVN1wNQ8K/AfO+Rji+rfMVVBg1o1rf
-         Z6E/uWnaf0DSvBHcFS4xpnOt7wiNTZ5IdtjOkVz08dWzhXkncDTVMVJG5/Uk5SFtSozC
-         KNHOk6JE8PnWBYIdHrfpGkSt0c+PrlsOwVhpbiNU41Sjakj+vgMwgPX9LYBB5MR1u+vI
-         I4x7jMpbteaV6imKd39IV7RU2B1d/rwnwUUbOpsScMKO1sZeuk+lT6LzCMkpuwbYdi0c
-         Y942JOTkkWPBhor3Bu6mRgOAP2XSYxANOwV+nFMv8sn83wmPTKNabXnfF+IaKZovni7u
-         M2xw==
+        b=ux2OhSK9hDQPWUX5DtjaUTNMx9m0hK6ACaQi91q4FQo+ktiqiJZzoJh5ODkH17zCYD
+         mtZGBfxNTVjgTCephKN5Uwsj1kqAVPayAu9yZy5sSs51ebrWbyWiG3Z0M0nyl681VAXJ
+         5Hr3CoP9s4DzYE9ym7GnoqmFp1YX/oJ6Dtzqd+4I+1chHk0gdp3LAw+H8HyDLBYEvym+
+         dP/qeO8PEd6UuUss+Irj5YGelN2/dkBLqHkxTEmewds+Hh1/b/bDVjXPUqzXJ65hffuB
+         1lEPjisBS7aArQgNMtYaCSYPCCKkcYmkD8GHujNwII4Bq4Vwu8csPetUMcZt0AeZ7Lsw
+         fkyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=yc+iZPAoEfYuwC32vfILEtYohiPDc+ecLJoHB/5av04=;
-        b=gOkIK9H/nonqGTzFSHVNO3uquYwWQBlQn9S0IlNcFEFd9pPI+z3NpvcE5zTkFzzLVS
-         sc/Dey8i/vmBLBhxdy4uDPo5PSI8DfOEW/xSFG35xlHCdz2+oDfQ7xAN5sumvoYGL1Qu
-         pEWi+v1129XAXPgwRveoC7Pa6yTpeLd/8Sm3Jwn8GkyEIfNFQ4NVx3rqKcqq/vB+hF/w
-         zy/uBJBZSJE6YZjh7D1BMZxNVAlu7fgMY0+vhZRgeR6aTsIEKD2sHZFLFjQcVTLWwxKQ
-         q+mkSRIfj67dzxPMk7j+KOU3NXGWC/QbXCSPoDEGTUklX/xuZHQBaS13cCxTTRoTlyRE
-         lcRw==
+        bh=2ijWFqCFik7AEqDTngTlHLoNVrHEGUc429TyhF79LIQ=;
+        b=jV7+8W46ibe1trP20HgRiTlDLXwYdb43+mINLnvQNxPG13P+rFuGP/7qx4XQdqWztf
+         VV2R926xtw24K7c6gY8RcFs33xYTBarQo8d+Vu7Ag0fJuSAyC9xJ4uqwpxJUfWB6mbwx
+         EebdbK7p/FXlLoHhrRx5mPqZudxE9Jh2jVznop4EH5s0rLOhdZRPwVqMlLZDVoIxmo2Y
+         kdu8KqzFzl7ir706PBXJ39wua9heBSU43zJblMdvwVkQVDdZgZb/J0d5NUa0f7XDrzZE
+         qHszRLV1RUeY2OCDQlwxCjCXJUxhecU3NK9ApEdQjJ9kX7BrlLXmMPsBxFp0rnQ8mvW1
+         b8Tw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LhWvTljf;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::436 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XwWSQ6Yx;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1030 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x436.google.com (mail-pf1-x436.google.com. [2607:f8b0:4864:20::436])
-        by gmr-mx.google.com with ESMTPS id g51si37861qtc.4.2021.01.19.15.10.36
+Received: from mail-pj1-x1030.google.com (mail-pj1-x1030.google.com. [2607:f8b0:4864:20::1030])
+        by gmr-mx.google.com with ESMTPS id s187si77320ybc.2.2021.01.19.17.02.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Jan 2021 15:10:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::436 as permitted sender) client-ip=2607:f8b0:4864:20::436;
-Received: by mail-pf1-x436.google.com with SMTP id i63so6194706pfg.7
-        for <clang-built-linux@googlegroups.com>; Tue, 19 Jan 2021 15:10:36 -0800 (PST)
-X-Received: by 2002:a63:5701:: with SMTP id l1mr6516095pgb.381.1611097835433;
- Tue, 19 Jan 2021 15:10:35 -0800 (PST)
+        Tue, 19 Jan 2021 17:02:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1030 as permitted sender) client-ip=2607:f8b0:4864:20::1030;
+Received: by mail-pj1-x1030.google.com with SMTP id p15so1082374pjv.3
+        for <clang-built-linux@googlegroups.com>; Tue, 19 Jan 2021 17:02:48 -0800 (PST)
+X-Received: by 2002:a17:90a:6ba4:: with SMTP id w33mr2729981pjj.32.1611104568023;
+ Tue, 19 Jan 2021 17:02:48 -0800 (PST)
 MIME-Version: 1.0
-References: <20210119131724.308884-1-adrian.ratiu@collabora.com>
- <20210119131724.308884-2-adrian.ratiu@collabora.com> <CAKwvOdkNZ09kkzi+A8diaxViqSufxrHizuBu-7quG6an3Z8iDA@mail.gmail.com>
- <CAK8P3a0XWVu-oG3YaGppZDedRL=SA37Gr8YM4cojVap5Bwk2TA@mail.gmail.com> <CAKwvOdmPr8T9T=tjiVGWJAw-pGzDgsKxtkLxTW4CwTrHjT-v7A@mail.gmail.com>
-In-Reply-To: <CAKwvOdmPr8T9T=tjiVGWJAw-pGzDgsKxtkLxTW4CwTrHjT-v7A@mail.gmail.com>
+References: <20210113061958.886723-1-morbo@google.com> <20210116094357.3620352-1-morbo@google.com>
+In-Reply-To: <20210116094357.3620352-1-morbo@google.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 19 Jan 2021 15:10:24 -0800
-Message-ID: <CAKwvOdkoKEve-SAFgnAGyRCCHWACdFRYJpuhsCTyrsk47EG9zQ@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] arm: lib: xor-neon: remove unnecessary GCC < 4.6 warning
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Adrian Ratiu <adrian.ratiu@collabora.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>, 
+Date: Tue, 19 Jan 2021 17:02:36 -0800
+Message-ID: <CAKwvOd=BK3DBm0H9GiiicY2NWP9KLq7_Qtx5VY-iezW3o5zuTg@mail.gmail.com>
+Subject: Re: [PATCH v5] pgo: add clang's Profile Guided Optimization infrastructure
+To: Bill Wendling <morbo@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Collabora Kernel ML <kernel@collabora.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=LhWvTljf;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::436
+ header.i=@google.com header.s=20161025 header.b=XwWSQ6Yx;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1030
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -136,115 +133,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 19, 2021 at 2:04 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
+On Sat, Jan 16, 2021 at 1:44 AM Bill Wendling <morbo@google.com> wrote:
 >
-> On Tue, Jan 19, 2021 at 1:35 PM Arnd Bergmann <arnd@kernel.org> wrote:
-> >
-> > On Tue, Jan 19, 2021 at 10:18 PM 'Nick Desaulniers' via Clang Built
-> > Linux <clang-built-linux@googlegroups.com> wrote:
-> > >
-> > > On Tue, Jan 19, 2021 at 5:17 AM Adrian Ratiu <adrian.ratiu@collabora.com> wrote:
-> > > > diff --git a/arch/arm/lib/xor-neon.c b/arch/arm/lib/xor-neon.c
-> > > > index b99dd8e1c93f..f9f3601cc2d1 100644
-> > > > --- a/arch/arm/lib/xor-neon.c
-> > > > +++ b/arch/arm/lib/xor-neon.c
-> > > > @@ -14,20 +14,22 @@ MODULE_LICENSE("GPL");
-> > > >  #error You should compile this file with '-march=armv7-a -mfloat-abi=softfp -mfpu=neon'
-> > > >  #endif
-> > > >
-> > > > +/*
-> > > > + * TODO: Even though -ftree-vectorize is enabled by default in Clang, the
-> > > > + * compiler does not produce vectorized code due to its cost model.
-> > > > + * See: https://github.com/ClangBuiltLinux/linux/issues/503
-> > > > + */
-> > > > +#ifdef CONFIG_CC_IS_CLANG
-> > > > +#warning Clang does not vectorize code in this file.
-> > > > +#endif
-> > >
-> > > Arnd, remind me again why it's a bug that the compiler's cost model
-> > > says it's faster to not produce a vectorized version of these loops?
-> > > I stand by my previous comment: https://bugs.llvm.org/show_bug.cgi?id=40976#c8
-> >
-> > The point is that without vectorizing the code, there is no point in building
-> > both the default xor code and a "neon" version that has to save/restore
-> > the neon registers but doesn't actually use them.
-> >
-> >           Arnd
+> From: Sami Tolvanen <samitolvanen@google.com>
 >
-> Thoughts?  Also, Nathan brings up my previous point about restrict.
-> This would benefit both GCC and Clang as they would not produce 2
-> "versions" of the loop; one vectorized if the std::distance between x
-> & y >= 8, one scalar otherwise.  But the callers would have to ensure
-> no overlap otherwise UB.
+> Enable the use of clang's Profile-Guided Optimization[1]. To generate a
+> profile, the kernel is instrumented with PGO counters, a representative
+> workload is run, and the raw profile data is collected from
+> /sys/kernel/debug/pgo/profraw.
 >
-> diff --git a/include/asm-generic/xor.h b/include/asm-generic/xor.h
-> index b62a2a56a4d4..7db16adc7d89 100644
-> --- a/include/asm-generic/xor.h
-> +++ b/include/asm-generic/xor.h
-> @@ -7,12 +7,21 @@
+> The raw profile data must be processed by clang's "llvm-profdata" tool
+> before it can be used during recompilation:
 >
->  #include <linux/prefetch.h>
+>   $ cp /sys/kernel/debug/pgo/profraw vmlinux.profraw
+>   $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
 >
-> +/* Overrule LLVM's cost model in order to always produce a vectorized loop
-> + * version.
-> + */
-> +#if defined(__clang__) && defined(CONFIG_ARM)
-> +#define FORCE_VECTORIZE _Pragma("clang loop vectorize(enable)")
-> +#else
-> +#define CLANG_FORCE_VECTORIZE
+> Multiple raw profiles may be merged during this step.
+>
+> The data can now be used by the compiler:
+>
+>   $ make LLVM=1 KCFLAGS=-fprofile-use=vmlinux.profdata ...
+>
+> This initial submission is restricted to x86, as that's the platform we
+> know works. This restriction can be lifted once other platforms have
+> been verified to work with PGO.
+>
+> Note that this method of profiling the kernel is clang-native, unlike
+> the clang support in kernel/gcov.
+>
+> [1] https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization
+>
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Co-developed-by: Bill Wendling <morbo@google.com>
+> Signed-off-by: Bill Wendling <morbo@google.com>
+> ---
+> v2: - Added "__llvm_profile_instrument_memop" based on Nathan Chancellor's
+>       testing.
+>     - Corrected documentation, re PGO flags when using LTO, based on Fangrui
+>       Song's comments.
+> v3: - Added change log section based on Sedat Dilek's comments.
+> v4: - Remove non-x86 Makfile changes and se "hweight64" instead of using our
+>       own popcount implementation, based on Nick Desaulniers's comment.
+> v5: - Correct padding calculation, discovered by Nathan Chancellor.
 
-^ err, I had renamed it, but missed this. Should have been
-`FORCE_VECTORIZE` but you catch the drift.
+Specifically for v5:
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
 
-> +#endif
-> +
->  static void
->  xor_8regs_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
->  {
->         long lines = bytes / (sizeof (long)) / 8;
->
-> -       do {
-> +       FORCE_VECTORIZE do {
->                 p1[0] ^= p2[0];
->                 p1[1] ^= p2[1];
->                 p1[2] ^= p2[2];
-> @@ -32,7 +41,7 @@ xor_8regs_3(unsigned long bytes, unsigned long *p1,
-> unsigned long *p2,
->  {
->         long lines = bytes / (sizeof (long)) / 8;
->
-> -       do {
-> +       FORCE_VECTORIZE do {
->                 p1[0] ^= p2[0] ^ p3[0];
->                 p1[1] ^= p2[1] ^ p3[1];
->                 p1[2] ^= p2[2] ^ p3[2];
-> @@ -53,7 +62,7 @@ xor_8regs_4(unsigned long bytes, unsigned long *p1,
-> unsigned long *p2,
->  {
->         long lines = bytes / (sizeof (long)) / 8;
->
-> -       do {
-> +       FORCE_VECTORIZE do {
->                 p1[0] ^= p2[0] ^ p3[0] ^ p4[0];
->                 p1[1] ^= p2[1] ^ p3[1] ^ p4[1];
->                 p1[2] ^= p2[2] ^ p3[2] ^ p4[2];
-> @@ -75,7 +84,7 @@ xor_8regs_5(unsigned long bytes, unsigned long *p1,
-> unsigned long *p2,
->  {
->         long lines = bytes / (sizeof (long)) / 8;
->
-> -       do {
-> +       FORCE_VECTORIZE do {
->                 p1[0] ^= p2[0] ^ p3[0] ^ p4[0] ^ p5[0];
->                 p1[1] ^= p2[1] ^ p3[1] ^ p4[1] ^ p5[1];
->                 p1[2] ^= p2[2] ^ p3[2] ^ p4[2] ^ p5[2];
-> --
-> Thanks,
-> ~Nick Desaulniers
+If anything changes drastically, please drop that and I'll retest it;
+otherwise for changes to the commit message or docs, feel free to
+carry it forward.
 
-
-
+I'll try to provide code review by EOW, assuming we can stop
+regressing LLVM so I can focus. (Ha!)
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -252,4 +192,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkoKEve-SAFgnAGyRCCHWACdFRYJpuhsCTyrsk47EG9zQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DBK3DBm0H9GiiicY2NWP9KLq7_Qtx5VY-iezW3o5zuTg%40mail.gmail.com.
