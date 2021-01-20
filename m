@@ -1,118 +1,119 @@
-Return-Path: <clang-built-linux+bncBDB3VRMVXIPRB566UCAAMGQENTEHCLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDB3VRMVXIPRB6O6UCAAMGQEKZWTKJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6DF2C2FD140
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 14:26:16 +0100 (CET)
-Received: by mail-lj1-x238.google.com with SMTP id f20sf6627787ljj.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 05:26:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611149176; cv=pass;
+Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB4512FD141
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 14:26:17 +0100 (CET)
+Received: by mail-lj1-x239.google.com with SMTP id z8sf6654556lji.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 20 Jan 2021 05:26:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611149177; cv=pass;
         d=google.com; s=arc-20160816;
-        b=o8lqkfI3JXsMXHNdL4+328MLAgO7VWXnGfS/dmM7drb2fQsC6qjp95L6MsWd3+4AVL
-         A7Dc3HmJ8S+CxSxWE1GQKlqb08/CtXiVtjRB2WuhXT0k1//42JUDVYdHBxxesbiMiIwk
-         0e87zfPp3tGgQs0VA2uezOmX1BMexA9K33xfuK+19134F9XEXHZ8EiuUNftga6DsqDvu
-         26ct2Ab/vmhpgybjYQV0VRb/82mFYMBIR4YpKsDh/P8bUzceouVevrM1wVw1mtH/v3K4
-         lkMaYd3LZu2etcf4cTr9dSvAaIHvWjCVn/j0F76g6BvmPx0JFRyiJfbwdVZGfKa0PLhG
-         lciw==
+        b=Iz7NK/mNa6/bzvWC4NfLtjQ5FK8eixT+al3jAs5QXs1MVN18TJ2g1qoGk/Pib7Vh5B
+         DnMi7hhz5dsIVhOmWHkZUv39zglTDCXdaEJb+i5QrO0UJK+09rFVvD3VcCWEruXFQlkA
+         ntnDl1kd/4j4WALEnLkAsF74Y9Xq0VMCKaA/hz9ADmcL4L019vaytFQO4YHlDsz33zId
+         FYec6MuVdC5pEC31Xti30b7j0t42k0o4Hlql5NHWX3whpqWwecxLJcxTyTh1Z+3N5Tou
+         s1AfXfbfkCTBA5Moo3GUTOw+hdpnt8oKVtGmJbE6Brl+Kx9xtREhhykqdl75jMWVh5Ya
+         eKkQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
-         :date:subject:to:from:dkim-signature;
-        bh=Z3ey16kHPuydmXjYA0oZ2SCVp6HxKnM+mzeLmuxBjSM=;
-        b=xp0FpKbUp0GSCy4QAfxHlXdykn4l73yBI38rEkW0kBdhyCKpz+VXWiOTcwDJ1xm8dW
-         D1JzmcvydVhxBgMIEPfCXOOCL/f56D5TMsRkqnW1rJNR1LT9ZFkSv3VCuxMwMozNqxbS
-         9enK3gtM8e4tW+cUjZTuhM7r4xBRV69WuDldVZL+CuXjO6lZH0hbYnWhkIxcNXyqiq0c
-         780i/zO9EX9x1WHmEqqjkPOHQB8wTJDo+lNG2k6iuSKswJ1VSt6rdNDNlVh6V8glJbYM
-         840wq3yqvxCQEsS2Mb71xwT2uPWwIDSgHltRbzyKfJ5EaKHZgr/SpOoaMk0LYGCNxi1D
-         ZJ8w==
+         :list-id:mailing-list:precedence:reply-to:mime-version:references
+         :in-reply-to:message-id:date:subject:to:from:dkim-signature;
+        bh=1VDD7E3GEw1v5jpikJK2JQpCfc+knucpBO7oSNITtM4=;
+        b=kc/JctuKX2BU4X+9eB5Ww49vrPIVvaEGmGLvQivTwnLzDz/slu9TQxEpUT14naFh5W
+         raKGVpamPPcEmp0CBV8bwLvxMjtxyWpNwRWwYOlkRs216+UG58ztmaZoB9ZWZo6LgtpA
+         jNu0gtpQELMnJwSstQqYAnj6p++FX1uyx8DcW/f2+a+AtPH+MSMUxsGKXI3WezeIqrs7
+         +y4d9/uO9Mn3fojLJ3oRjPAsB+JjPEdLJQfzL7R1pKRiRJQI81MKUMed2c0x5IGbLk9M
+         XmMC8RyG1J5R6NI+DhBcUsb24+O1hnan3Wq2cajYCvMDS0E6/du8s/hUQ+wx/V9CJCHr
+         TVkA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=YoQQYyi9;
+       dkim=pass header.i=@suse.com header.s=susede1 header.b="GL/fY4RS";
        spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
        dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=from:to:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=Z3ey16kHPuydmXjYA0oZ2SCVp6HxKnM+mzeLmuxBjSM=;
-        b=ZVFbrUvZ0T+03GT0g0tCMnY0wwHGjW2ll1d5XxQkGVXk++4r5O3dpN1BeSSUKW4ybd
-         QmGEAudOD5SQTXduPGW+IzcgwVNsLW7bGpwTPpMbG4uDoydbWoBIl0+xEJvbWJe5zPnC
-         sOg87MN0qlTAC4AVOOSabVnow08v7vCgPmThRpU2zTXHkBfCi5Hcqv3PKxuQtvwU606h
-         7zB7gYXZc5jf1MgV6T42QuUtEyjJGY3VqaLYB7jsS0MAH5+50eBw9Hq2IrUUnTYtRVyk
-         q9gj6BC/nebBeljfAXf1af0x+jc1V65y7LgaLFQI2mts87Iuw6wZZXj9cnwzvC18nOxo
-         fElQ==
+        h=from:to:subject:date:message-id:in-reply-to:references:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1VDD7E3GEw1v5jpikJK2JQpCfc+knucpBO7oSNITtM4=;
+        b=AQ6yZIjdsQO/QasRlvVL55v1rOb/8PRUGWj9hEqmo/EBNluB9KMUCh+0ZQSgxG234Z
+         CIcdSRU275vv+NUWqeGeTiRTCGrR8i0MxBABLR4GdoM13Sdyk1fCOUWVcnGxS8RJQEj8
+         kVm9cI3XYV810w1Miq2yc/16Gw4NW/1+na13L71tp/E64m4pL9AuowhS0OuTbIMaWVok
+         Bxf0s8FvUdLNe4yFF2FOatCo3LCw98iMI+XkR9QuJgpg38gWyvXaP5wn1osRIitD4JEb
+         0jbobkopN5aVKtXqkPh16r57YpEtTL/kpZWCdAqVqKiSRTQu5zH3EuQxKSY9ffyacjpW
+         UoGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:from:to:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Z3ey16kHPuydmXjYA0oZ2SCVp6HxKnM+mzeLmuxBjSM=;
-        b=hHFJuzjh6fe2PgOrA1MaNuoB0OjKXJhgHQrZ3k/8BYQCSHsZAqrlwLptcVpvqn5Jmg
-         7xT/AMfqH6q/mmSjlH9LshKFv7oJLnKVoL11XSuYnhTkzDrz7+XfsrnSFBIeh4vfJV4W
-         wVOW/zrfBzuEywO02Fhq89loAdXXSwNLt9ZlbFLdqWNmJoHFLzUBnVi/O5cerdP7F8KZ
-         ZzV8WTBmKBc4GcjeGOFB+ZkZwtS1QMKXiJETnliM+7/nHdE1etGiG6lN1pelvhNYWsNm
-         2O1RWVIWSL5okh5GTq78nsOLJWifwz23RiBRpGzgZaJRAcCOjNpxs9HahpIKVO2qH5ld
-         arIQ==
-X-Gm-Message-State: AOAM533nZH76/3W/+AIKyDAL4YyTHUdlI7na3kPkX7bbsy1V/KLnIBpk
-	zNJVC6u40Z3nn0RkDgKicy8=
-X-Google-Smtp-Source: ABdhPJxEMLU4uK2RHi2h727u81+OpLejVuWD8jP4LAhK8PPNqMPnH3Bkgh7yyEyojwlGl/gutm89Wg==
-X-Received: by 2002:a2e:6f18:: with SMTP id k24mr4156943ljc.225.1611149175886;
-        Wed, 20 Jan 2021 05:26:15 -0800 (PST)
+        h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+         :references:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1VDD7E3GEw1v5jpikJK2JQpCfc+knucpBO7oSNITtM4=;
+        b=lpP/feTrRFEeAsR2LOmd8LVhTry5TpBFigi0Xln5O5EeJQIZIKKLXMcb081ndgjJ+/
+         PF69RHGR+GGDvSIbvNRGOw2JXwSXrbF02ozlsLg/Ap8TSY+qOhr5nRpFtbxm/RS3xgZO
+         bGD978/tSqBV/kJqUdNCbiTSEUsB3/bjf75iz6Mp6HOniizavOVC7xybVRFeYrpS1dt0
+         Ba6lBDT4xX8XFI9FAVnLJasP9FWGDyKWGJEta2ZgsnAe18jSqnsTJ8Xzw6nFyQL5AbEE
+         Yy+j9txtWyhvYm7SIX4vnfWXjO7shkHU21UZfjwrfzCU5I7m2CAJ4idUvFWUqIQ33C6F
+         ueuA==
+X-Gm-Message-State: AOAM532aBE5b/1lzT6Tu0o6AIN0qFfbHPXsQknomhchsD04ttrnSSgDX
+	sSw7BeJOCNB9/31ZTZT+LMo=
+X-Google-Smtp-Source: ABdhPJy4yS++ZYxcqS7S5z/dqSrGwLrGAXxKUGdkZjhhD62fexMG5fObjHC9tAfwWb4w6vL5nT5Mxg==
+X-Received: by 2002:a2e:b52c:: with SMTP id z12mr4662746ljm.250.1611149177324;
+        Wed, 20 Jan 2021 05:26:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b549:: with SMTP id a9ls4119815ljn.1.gmail; Wed, 20 Jan
- 2021 05:26:14 -0800 (PST)
-X-Received: by 2002:a2e:b16d:: with SMTP id a13mr1261401ljm.39.1611149174924;
-        Wed, 20 Jan 2021 05:26:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611149174; cv=none;
+Received: by 2002:a2e:91c3:: with SMTP id u3ls339388ljg.10.gmail; Wed, 20 Jan
+ 2021 05:26:16 -0800 (PST)
+X-Received: by 2002:a2e:b542:: with SMTP id a2mr2896775ljn.306.1611149176407;
+        Wed, 20 Jan 2021 05:26:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611149176; cv=none;
         d=google.com; s=arc-20160816;
-        b=07mkMhtThR5WLjYBEYhbhrDEMDLilJuljedEHoQclMcOzZK2UZljZTwy+oI5ZqLgrm
-         K2Caav1gbbZ9sfJ4UfdSJ4PW8YbpxC1Sgtvh7IsH6J/6ELEVmI7erdGnwQbNXeohWodE
-         wqfRCj2fbceMJCma42+sQdBtumiT7/Wj9raKUziTfvH07vfvUEykVYCNxR8ZiNnHFvW/
-         lyNEBslXbHpiouZZSX1D2p5W9sTv9VN8nWvICy+8OrL3UzsMixUya+E+dTfyCTfiHfWZ
-         4F2e+XLM/ZktVA/1iXI3xZFdEv4IsuK3GzBeE2FYwQDost6aoTZvWGMT23bth5MqhUu4
-         GvJw==
+        b=rdBjroLC7Fv5lEmVe2lo+ilaS83NgvUt0iJ5t9LKw/lUQJ7xpLJapPhAHxA0gK1LXQ
+         WcEiMvVME773wERT2MexkPzrgl3iWP8prarewzaT6zGwQqT/OkjbYBS69hPoB9VuHG6V
+         9w5KRtjrato8a8S/wp/4ep+blkpdwt18SkwTNlV1xkj/k6zxTgFPxZGZCSesL8m7RKX3
+         uayrkHp1pN3N/UzG48mE312N7TWi7gletQp5YXn215FlUj+EfFD177dr7GthTHv/pjIO
+         21O24JKvEOj1Wmy0HsG2FiC81lDjfYtwdD14gH4lcr+YdkPzVCL79YYknMoX9/tbGUxX
+         nX7w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:dkim-signature;
-        bh=CpmyovsicWRsraKS/oNts+zojxJvItjt3KCZ7hy85ig=;
-        b=N9of5i+xeFooeoSMaX8Xln9XBm4rdYjpyJpZktWYCHlpDtuwbSqg/qemgZOJVg0Th5
-         ehjPfDZOvW6jTMO6tdKCIo4+dxPwx6vM1AwgbvL0xY2sE6hoDX+7KUDbDUN1d0v+lHO6
-         Jp+FFJw1l2XLvkWgfRbWeZ2ZHfYBqkjdHtoy4yfb9y4teb5Xnq3IWWwZWUSHc3C0xyks
-         dZmX+1++Qeb4gbpYTXHHcshYUGfz3gQgJCymb53rkyBk4sQ4igJDOxx9M21c6ihOthip
-         ihBjxB0+WFsgRqvy8hE7WF7yCUbPtpTS76XfyOeB5An/RZH+FWR9luD5SiCi65qSWPbZ
-         TVIA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:dkim-signature;
+        bh=HLdbfKKd8U3U0mpjOuCtG4D+mEzxepybK1454rxDb0I=;
+        b=N2AiEWhte3VQ3PmkAHZQQST/IEls2ZJYEBoUjgGds3IBslRjOXTYoOxmceybMmmVKT
+         YMgfpG9NbrBPdxFXkzxjixh44uJYFhgiVzdehCkrnPWYnDVOvHLfNNkN6SDnzCni9wR9
+         1YhjPnIH4Y0ZsyycF4gASKKOjG8izYNNClZNiAuQFYwDvX2F0swJhMhivh9s7uGE7vas
+         yL39s1oWYfzf/h+IU0bzVWdqx+0zLdFDVm0hfExENVfeTTjge3yicjAdvV/IC/QTugje
+         0uAK2YLgY8tSO0JbExx00zbNhw9M0iiHdNxFl640/Goh9IOwPK2WtN64Pfw7wid8YU7b
+         WymA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=YoQQYyi9;
+       dkim=pass header.i=@suse.com header.s=susede1 header.b="GL/fY4RS";
        spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
        dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
-        by gmr-mx.google.com with ESMTPS id 7si101147lfp.13.2021.01.20.05.26.14
+        by gmr-mx.google.com with ESMTPS id c24si129768ljk.7.2021.01.20.05.26.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 20 Jan 2021 05:26:14 -0800 (PST)
+        Wed, 20 Jan 2021 05:26:16 -0800 (PST)
 Received-SPF: pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.221.27])
-	by mx2.suse.de (Postfix) with ESMTP id 0F7E4AAAE;
-	Wed, 20 Jan 2021 13:26:14 +0000 (UTC)
+	by mx2.suse.de (Postfix) with ESMTP id 8E708B337;
+	Wed, 20 Jan 2021 13:26:15 +0000 (UTC)
 From: "'Juergen Gross' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: bpetkov@suse.com,
-	linux-kernel@vger.kernel.org,
 	x86@kernel.org,
 	virtualization@lists.linux-foundation.org,
-	linux-hyperv@vger.kernel.org,
-	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH v4 00/15] x86: major paravirt cleanup
-Date: Wed, 20 Jan 2021 14:25:58 +0100
-Message-Id: <20210120132613.31487-1-jgross@suse.com>
+Subject: [PATCH v4 11/15] x86/paravirt: simplify paravirt macros
+Date: Wed, 20 Jan 2021 14:26:09 +0100
+Message-Id: <20210120132613.31487-12-jgross@suse.com>
 X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210120132613.31487-1-jgross@suse.com>
+References: <20210120132613.31487-1-jgross@suse.com>
 MIME-Version: 1.0
 X-Original-Sender: jgross@suse.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.com header.s=susede1 header.b=YoQQYyi9;       spf=pass
+ header.i=@suse.com header.s=susede1 header.b="GL/fY4RS";       spf=pass
  (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted
  sender) smtp.mailfrom=jgross@suse.com;       dmarc=pass (p=QUARANTINE sp=NONE
  dis=NONE) header.from=suse.com
@@ -131,97 +132,135 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This is a major cleanup of the paravirt infrastructure aiming at
-eliminating all custom code patching via paravirt patching.
+The central pvops call macros ____PVOP_CALL() and ____PVOP_VCALL() are
+looking very similar now.
 
-This is achieved by using ALTERNATIVE instead, leading to the ability
-to give objtool access to the patched in instructions.
+The main differences are using PVOP_VCALL_ARGS or PVOP_CALL_ARGS, which
+are identical, and the return value handling.
 
-In order to remove most of the 32-bit special handling from pvops the
-time related operations are switched to use static_call() instead.
+So drop PVOP_VCALL_ARGS and instead of ____PVOP_VCALL() just use
+(void)____PVOP_CALL(long, ...).
 
-At the end of this series all paravirt patching has to do is to
-replace indirect calls with direct ones. In a further step this could
-be switched to static_call(), too, but that would require a major
-header file disentangling.
+Note that it isn't easily possible to just redefine ____PVOP_VCALL()
+to use ____PVOP_CALL() instead, as this would require further hiding of
+commas in macro parameters.
 
-For a clean build without any objtool warnings a modified objtool is
-required. Currently this is available in the "tip" tree in the
-objtool/core branch.
+Signed-off-by: Juergen Gross <jgross@suse.com>
+---
+V3:
+- new patch
 
-Changes in V4:
-- fixed several build failures
-- removed objtool patch, as objtool patches are in tip now
-- added patch 1 for making usage of static_call easier
-- even more cleanup
+V4:
+- fix build warnings with clang (kernel test robot)
+---
+ arch/x86/include/asm/paravirt_types.h | 41 ++++++++-------------------
+ 1 file changed, 12 insertions(+), 29 deletions(-)
 
-Changes in V3:
-- added patches 7 and 12
-- addressed all comments
-
-Changes in V2:
-- added patches 5-12
-
-Juergen Gross (14):
-  x86/xen: use specific Xen pv interrupt entry for MCE
-  x86/xen: use specific Xen pv interrupt entry for DF
-  x86/pv: switch SWAPGS to ALTERNATIVE
-  x86/xen: drop USERGS_SYSRET64 paravirt call
-  x86: rework arch_local_irq_restore() to not use popf
-  x86/paravirt: switch time pvops functions to use static_call()
-  x86/alternative: support "not feature" and ALTERNATIVE_TERNARY
-  x86: add new features for paravirt patching
-  x86/paravirt: remove no longer needed 32-bit pvops cruft
-  x86/paravirt: simplify paravirt macros
-  x86/paravirt: switch iret pvops to ALTERNATIVE
-  x86/paravirt: add new macros PVOP_ALT* supporting pvops in
-    ALTERNATIVEs
-  x86/paravirt: switch functions with custom code to ALTERNATIVE
-  x86/paravirt: have only one paravirt patch function
-
-Peter Zijlstra (1):
-  static_call: Pull some static_call declarations to the type headers
-
- arch/x86/Kconfig                        |   1 +
- arch/x86/entry/entry_32.S               |   4 +-
- arch/x86/entry/entry_64.S               |  28 ++-
- arch/x86/include/asm/alternative-asm.h  |   4 +
- arch/x86/include/asm/alternative.h      |   7 +
- arch/x86/include/asm/cpufeatures.h      |   2 +
- arch/x86/include/asm/idtentry.h         |   6 +
- arch/x86/include/asm/irqflags.h         |  53 ++----
- arch/x86/include/asm/mshyperv.h         |   2 +-
- arch/x86/include/asm/paravirt.h         | 197 ++++++++------------
- arch/x86/include/asm/paravirt_types.h   | 227 +++++++++---------------
- arch/x86/kernel/Makefile                |   3 +-
- arch/x86/kernel/alternative.c           |  49 ++++-
- arch/x86/kernel/asm-offsets.c           |   7 -
- arch/x86/kernel/asm-offsets_64.c        |   3 -
- arch/x86/kernel/cpu/vmware.c            |   5 +-
- arch/x86/kernel/irqflags.S              |  11 --
- arch/x86/kernel/kvm.c                   |   2 +-
- arch/x86/kernel/kvmclock.c              |   2 +-
- arch/x86/kernel/paravirt-spinlocks.c    |   9 +
- arch/x86/kernel/paravirt.c              |  83 +++------
- arch/x86/kernel/paravirt_patch.c        | 109 ------------
- arch/x86/kernel/tsc.c                   |   2 +-
- arch/x86/xen/enlighten_pv.c             |  36 ++--
- arch/x86/xen/irq.c                      |  23 ---
- arch/x86/xen/time.c                     |  11 +-
- arch/x86/xen/xen-asm.S                  |  52 +-----
- arch/x86/xen/xen-ops.h                  |   3 -
- drivers/clocksource/hyperv_timer.c      |   5 +-
- drivers/xen/time.c                      |   2 +-
- include/linux/static_call.h             |  20 ---
- include/linux/static_call_types.h       |  27 +++
- tools/include/linux/static_call_types.h |  27 +++
- 33 files changed, 376 insertions(+), 646 deletions(-)
- delete mode 100644 arch/x86/kernel/paravirt_patch.c
-
+diff --git a/arch/x86/include/asm/paravirt_types.h b/arch/x86/include/asm/paravirt_types.h
+index 42f9eef84131..45bd21647dd8 100644
+--- a/arch/x86/include/asm/paravirt_types.h
++++ b/arch/x86/include/asm/paravirt_types.h
+@@ -408,11 +408,9 @@ int paravirt_disable_iospace(void);
+  * makes sure the incoming and outgoing types are always correct.
+  */
+ #ifdef CONFIG_X86_32
+-#define PVOP_VCALL_ARGS							\
++#define PVOP_CALL_ARGS							\
+ 	unsigned long __eax = __eax, __edx = __edx, __ecx = __ecx;
+ 
+-#define PVOP_CALL_ARGS			PVOP_VCALL_ARGS
+-
+ #define PVOP_CALL_ARG1(x)		"a" ((unsigned long)(x))
+ #define PVOP_CALL_ARG2(x)		"d" ((unsigned long)(x))
+ #define PVOP_CALL_ARG3(x)		"c" ((unsigned long)(x))
+@@ -428,12 +426,10 @@ int paravirt_disable_iospace(void);
+ #define VEXTRA_CLOBBERS
+ #else  /* CONFIG_X86_64 */
+ /* [re]ax isn't an arg, but the return val */
+-#define PVOP_VCALL_ARGS						\
++#define PVOP_CALL_ARGS						\
+ 	unsigned long __edi = __edi, __esi = __esi,		\
+ 		__edx = __edx, __ecx = __ecx, __eax = __eax;
+ 
+-#define PVOP_CALL_ARGS		PVOP_VCALL_ARGS
+-
+ #define PVOP_CALL_ARG1(x)		"D" ((unsigned long)(x))
+ #define PVOP_CALL_ARG2(x)		"S" ((unsigned long)(x))
+ #define PVOP_CALL_ARG3(x)		"d" ((unsigned long)(x))
+@@ -458,59 +454,46 @@ int paravirt_disable_iospace(void);
+ #define PVOP_TEST_NULL(op)	((void)pv_ops.op)
+ #endif
+ 
+-#define PVOP_RETMASK(rettype)						\
++#define PVOP_RETVAL(rettype)						\
+ 	({	unsigned long __mask = ~0UL;				\
++		BUILD_BUG_ON(sizeof(rettype) > sizeof(unsigned long));	\
+ 		switch (sizeof(rettype)) {				\
+ 		case 1: __mask =       0xffUL; break;			\
+ 		case 2: __mask =     0xffffUL; break;			\
+ 		case 4: __mask = 0xffffffffUL; break;			\
+ 		default: break;						\
+ 		}							\
+-		__mask;							\
++		__mask & __eax;						\
+ 	})
+ 
+ 
+-#define ____PVOP_CALL(rettype, op, clbr, call_clbr, extra_clbr, ...)	\
++#define ____PVOP_CALL(ret, op, clbr, call_clbr, extra_clbr, ...)	\
+ 	({								\
+ 		PVOP_CALL_ARGS;						\
+ 		PVOP_TEST_NULL(op);					\
+-		BUILD_BUG_ON(sizeof(rettype) > sizeof(unsigned long));	\
+ 		asm volatile(paravirt_alt(PARAVIRT_CALL)		\
+ 			     : call_clbr, ASM_CALL_CONSTRAINT		\
+ 			     : paravirt_type(op),			\
+ 			       paravirt_clobber(clbr),			\
+ 			       ##__VA_ARGS__				\
+ 			     : "memory", "cc" extra_clbr);		\
+-		(rettype)(__eax & PVOP_RETMASK(rettype));		\
++		ret;							\
+ 	})
+ 
+ #define __PVOP_CALL(rettype, op, ...)					\
+-	____PVOP_CALL(rettype, op, CLBR_ANY, PVOP_CALL_CLOBBERS,	\
+-		      EXTRA_CLOBBERS, ##__VA_ARGS__)
++	____PVOP_CALL(PVOP_RETVAL(rettype), op, CLBR_ANY,		\
++		      PVOP_CALL_CLOBBERS, EXTRA_CLOBBERS, ##__VA_ARGS__)
+ 
+ #define __PVOP_CALLEESAVE(rettype, op, ...)				\
+-	____PVOP_CALL(rettype, op.func, CLBR_RET_REG,			\
++	____PVOP_CALL(PVOP_RETVAL(rettype), op.func, CLBR_RET_REG,	\
+ 		      PVOP_CALLEE_CLOBBERS, , ##__VA_ARGS__)
+ 
+-
+-#define ____PVOP_VCALL(op, clbr, call_clbr, extra_clbr, ...)		\
+-	({								\
+-		PVOP_VCALL_ARGS;					\
+-		PVOP_TEST_NULL(op);					\
+-		asm volatile(paravirt_alt(PARAVIRT_CALL)		\
+-			     : call_clbr, ASM_CALL_CONSTRAINT		\
+-			     : paravirt_type(op),			\
+-			       paravirt_clobber(clbr),			\
+-			       ##__VA_ARGS__				\
+-			     : "memory", "cc" extra_clbr);		\
+-	})
+-
+ #define __PVOP_VCALL(op, ...)						\
+-	____PVOP_VCALL(op, CLBR_ANY, PVOP_VCALL_CLOBBERS,		\
++	(void)____PVOP_CALL(, op, CLBR_ANY, PVOP_VCALL_CLOBBERS,	\
+ 		       VEXTRA_CLOBBERS, ##__VA_ARGS__)
+ 
+ #define __PVOP_VCALLEESAVE(op, ...)					\
+-	____PVOP_VCALL(op.func, CLBR_RET_REG,				\
++	(void)____PVOP_CALL(, op.func, CLBR_RET_REG,			\
+ 		      PVOP_VCALLEE_CLOBBERS, , ##__VA_ARGS__)
+ 
+ 
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210120132613.31487-1-jgross%40suse.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210120132613.31487-12-jgross%40suse.com.
