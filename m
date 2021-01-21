@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBU7EU6AAMGQEOCUWLTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBVXEU6AAMGQETGH7CJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id AD0C22FF739
-	for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 22:29:56 +0100 (CET)
-Received: by mail-ot1-x33e.google.com with SMTP id l12sf1332723otq.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 13:29:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611264595; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5AB162FF73A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 22:30:00 +0100 (CET)
+Received: by mail-pf1-x43f.google.com with SMTP id 68sf2007401pfe.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 13:30:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611264599; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QrK3DuN8dpQv7RJglRr+/yzdtEAHQj19AHpCHcmlrtHsSKRL+DNOWa1njaHP+ezYTw
-         h7toLm4b933T7JFZCyeQohBukyXjw44g1+AuRyIH1UvjGk1g1B/NbKVM8gncy+sXebMn
-         dU39RbC3ChrLAaPiPrjb0b+Xijh5ZJq6iOerb1DKgAMzNMhWfhqj+aOoGs24MD+FL7Wi
-         /vL2+S9ymanYiU5POxW3yf57bnDuYs8r0QdqI094s4WnA4Msnmv/DhBQM7J5iKrEtYFH
-         xsL5cOy7b3WT7dAK/jlgPaZAiiJB+3lgak5P9pxuY6x1oM1LJx/qK/nD/PcgZXEkIR4I
-         F6Zw==
+        b=VEFd+XZjI6VJE8tTZ81eU4EslMfwEZVRCePzHFwUmQyP4hef8wRh9SIOyfAYtNvSgJ
+         iAr11BDL0fjmIO78huT2wp4mhAR0AQpIxLwDPgkElyrpe5KbKQWjWZS5rvgHbXIuaABB
+         7xyd8+kt0fylY5I/CjNg1U18zBreanrrjYyRS/yR0PnTBTW34KtzwBEngQkEz8uZhI3i
+         JDXibGQ/JfXqk+4oa6XECdFyWyONzxHvdrO/dV+Dl2iTFRnjYkEJ+4pS8sq2n9EOe73q
+         Wo0XGVcGJsFPJapEPIzdEXYKOmFsd5nKmkgY7mlX/LLDeEQZ1db3eUSoQ0lgJFcgHvBh
+         QV5Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=lA0+XKKWJyMgeuR7nBVp+Mj+DXU+wiFTVkixZ/KWIQc=;
-        b=DIRom05eriYsy3rVc5e7YnmX41nqVE6CEt4AQks6LlEI0rbO3YwWLkkn9d+yqr8LrK
-         rBy5K+ofpRC/J8/CbbJog/aDa5SG5CMkaEQk2OZpwOR1B0T5dzRqJHZBPZsUEtc0P1io
-         TdmY3ENixgzLWDqBWICL1hHxk1FLnl5F/9MAuLvHZHk1Xz7Qgl4hh66aD3aiZV5uil8q
-         XDxH/0FRkf/OUyEGQulGg2NGBddShCl01WC3wLUVsKeeqg4WTSZ8s3lBTYAwpifvJRC5
-         nV04Sdf1cSFDjRy8uQue7U3ate+TV2LmS5qA4fwCvJcrl31Xw5aG7xHKtaQqXiNcTv7x
-         g+OA==
+        bh=TWB+FMKTsBb1IKV4sr1LHU4QklgRCupRcqwXaTTbTDU=;
+        b=kXbaNz1+3LFjnOnE2OrBRkNEyWVSe98/WxbvAJjpyS60S3X7uVgQIg71KNy2ePX9qm
+         VysnoHF7Y6XhBqVPb79mD4dwIOyn8GaXd9WQhQgOeKG+XihUgg0yWCXOWjfU1uFyRTT3
+         h9DLZbTs0QSac4HbL3XYa9w1I5BbDUXbiU+WniRmY0+Xa5I7LdNXNglkXDGz1cSq1/LC
+         WWDmu8Ay019GlHacSjlkG+AkpuM9iLHb10R5iuom85/dNFgwml+CLqaruq3V6XxvzsxM
+         jIXCKBpDZzPOMumib4inTd0ruYGu866iP2VZDlr8YEPAtFGM2Y5fdEThWhuYsEbdL7x7
+         3jBw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ZO4htwAM;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FXmvHYgM;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lA0+XKKWJyMgeuR7nBVp+Mj+DXU+wiFTVkixZ/KWIQc=;
-        b=PJ6ccdpmEfyVs2utskW61kex4ASj4G3QU4rkwPnwQuLw5Q1uKT1bwqQC8C7BatLSZA
-         WQIwDE+S4Ka3TIa5S+aKboGobIYC1OLEKezuTe4+jN04sMal8PbwVL01ic/hqIQAolPz
-         369Rjh1HW9B2eSqIP3X8+9ra8LrhFblgmaPshO1qzk/Mygzc7d+5Rw1HyqeX0/oBIsYK
-         /hda1RrH0Tr7G694fI+Cjf+axeeOoHVwZDMipk5NeeOXWsD5I8TFkLSUGUUu8gOv9VFh
-         mrGIkfrGcVlA+4aiI/GekOiHUV72HMbai6qOXzS8uGw+ZLvmGrXDC5RaaAZqCVh31734
-         ysfQ==
+        bh=TWB+FMKTsBb1IKV4sr1LHU4QklgRCupRcqwXaTTbTDU=;
+        b=azkbgwmO1fdEEuoFCAzYtbIkXMe3/FZBRvRbkQGWkZAMZwspkxoi1b9gwa1xTza7rf
+         xf6mSMI7Wee1QZwEQoDsa34ntxdRnYOMvJTSWnOopgkzZ3Qiv+0k0uKCrmALpJfHG6pi
+         5FNVsKcSu/UMevIDcaztywvM4Q+/qeG4ZJYhRIHdRzSwONstfpJhpkq6SY7C/zEFP7yR
+         h2lDCql0df1i12CUG+XTh4W2E3TuhaeU83QxgAw1qvp+J0wIAjyoTLE74PmaP4uM4/Zj
+         3/EF3TZAbuUoxthuS3IcQiXwAdMTm+t0Qk0hcJQ+jShsnE9ICf8x2P41VEdG49d7Xcxm
+         Sk2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,64 +49,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lA0+XKKWJyMgeuR7nBVp+Mj+DXU+wiFTVkixZ/KWIQc=;
-        b=CKQ/J/4PzS/OYsR0nmlPh1Zr8O2Q32bsSjokuh+m5ZEAT1MpvyCMKaSKwCxB68T50/
-         xh+KrrRxNdYGJkaXtq3W59KhJLzMX2ttWe7EPt2wnU7iQfyDv0UsDSF46humd4F4T79n
-         n6v9GyRN2nWg/iTrTzUWsvc+E+3ALcNI0wjs5XWFJXrEbdC2fYdZylWlBUfarAJK5o3f
-         3wVlPqrgD3TEhYHAhFUD8AV8z4EzqJMSgynnCFkFiszNqq5aSk5Xm9sHPoBosd4duj6k
-         p0vZ9z+BNv2z0RYf2cQ8ZHfRvPDD/4CxUqbCUXE9nSNVMo8VM5Sv837HSJG38h3GuzNp
-         MNEQ==
+        bh=TWB+FMKTsBb1IKV4sr1LHU4QklgRCupRcqwXaTTbTDU=;
+        b=jKdAD6+4zo9Ygq1F6MLNQ0eJTJ9orj7shHTvsFnlluophmgaLjJh1Kq0WqsYH/6WGt
+         E8ye+1fnQ5HmyA5PsgcFY+jM+2+c1s8rN3tb0StxFE0SS1K6xYjmA9G2wtM7ZSpLtXrx
+         we4q/dwXp/0/mqUMeDCHUCb9VGQ1txYaMQiEmtgPz/OIhPbDHZB7zCj2KmCHyebhmx56
+         nwV7yh2zRt6VagcOE4Eanag3Wb+mDRo2cQAtw9ZaypPkEsgfiNAgxmeBGpKqp2hIUO+m
+         SwPdzv0d/S9lUJBSw+z3VbtDWlzwaBAonQM5FlzKeJQcvjExa0eEDRjzNriAPLTbuq/M
+         KReA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532JGw1bYhzPRo2lucDzm6BE74mjg+yRcUiRnKPAe+LmMDesS1cu
-	3MPgJbIeEtRAqAn7pUwVeow=
-X-Google-Smtp-Source: ABdhPJyc57l5H+bQEv8uHuUOREH5fE7D9PwxRGxmRq9xpodGwKN1FwydhYjH90VQ7sL2NkA+LysUXg==
-X-Received: by 2002:a4a:96e1:: with SMTP id t30mr1319760ooi.19.1611264595551;
-        Thu, 21 Jan 2021 13:29:55 -0800 (PST)
+X-Gm-Message-State: AOAM533/GVD1gapyzuilBeNeVofogSUeK3Sry2QcnCOfPHoqXV3psBI2
+	dwaZoJr3GG19rd9WOV6OyAM=
+X-Google-Smtp-Source: ABdhPJyL/j/zH1BYD4Pzs+gnX/yZOLgLbY365Ebno2+Aq/G5FDn79LoPyuELY9jclDT7LN05Hf/zeg==
+X-Received: by 2002:a63:c441:: with SMTP id m1mr1209534pgg.353.1611264599066;
+        Thu, 21 Jan 2021 13:29:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:52c5:: with SMTP id g188ls760518oib.8.gmail; Thu, 21 Jan
- 2021 13:29:55 -0800 (PST)
-X-Received: by 2002:aca:e103:: with SMTP id y3mr1092203oig.11.1611264595182;
-        Thu, 21 Jan 2021 13:29:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611264595; cv=none;
+Received: by 2002:a62:3583:: with SMTP id c125ls1289240pfa.2.gmail; Thu, 21
+ Jan 2021 13:29:58 -0800 (PST)
+X-Received: by 2002:a62:7bc8:0:b029:1bb:2947:5810 with SMTP id w191-20020a627bc80000b02901bb29475810mr1654620pfc.39.1611264598262;
+        Thu, 21 Jan 2021 13:29:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611264598; cv=none;
         d=google.com; s=arc-20160816;
-        b=ipz09eTHMXLyzwep0gbZLMr0WoxZOABCgyCW8UwDOTQ9gv7ftnj0UXRJYfa5hNGcq7
-         Fp/yNkC2rhKrvbu222y5w6tyq2sae6du5oaPNJspSAtFFXMRiz/5F1J4B6x+eSRRWttY
-         TU7+oLFM1oJC3d1Yq/FX6fHzjq7C+W4blCPq2tWWBGuUHjaFOpEkptqDTuRWZFoia8yu
-         YqIZbhSm0hpIDfF/8aIFX/2+vMfBmVrpz9OPIc/UJgfrFXkEzjWzvtRzLP8lFbkmUThs
-         wKV3Fpjl4xl+L8ofDDGPI9o//h05GO9KXodYoxtS9BABenAYFnY4xoCc6os6a98hvLvp
-         fUzA==
+        b=nNuRqLA2LNIlYmxnz/ZZ7mzb4pI0y/UIp8eyXcxOEvZufRhttdSxLok8AcjqX2JYU+
+         6ekKTz7+V9D21sGLHKlnNn+jUMGX/TCAVe7eUfUJf1oqo2hdWox5MN2npp0ljpmj2Z02
+         ck/R5GBQZxFGn3RdRYWDtlBvjkg0ACUaZhPCh2wgw0/Kl5b/Gmlc3WeGmPSzHwpZQo3x
+         lCpEsCfH1x4JrSrzWWtIT8hfFYBt2homcxVsw3X17aomGv0Oz1N+B7J1iDz6J9sggGKV
+         rUne6Tcd7hfE+G0k07Ju8KjhDwJyS4M11DhBh8E1RQdAjhoQc7M92GyA174ZE/1SRhV+
+         Tlwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=A3tZhw5lFO9vqK5NVdOq0e0gwHHYr93gbViyAOdUZh8=;
-        b=GgSaYbtSyUQlslCTYEebC3OuzHzcXhbb+HdxYCCkoam9AtAQlUTQ7+5TvX9jcnoD+C
-         y5M3D/zDVfhb6xyOhQ+a/Q2fGh6i+SEpO/lQ/qV9JOSCoBNz6UzuUl+g6CLaCnj6v34I
-         EY9aZMDTU9Wlo9sA5+LVwWkQ6Duqesz1Tpl5thsphlh9p4dapv/HQyYGgtgw+7mTLDwQ
-         tm5PFGmMy+dEQwHZ5xxBDB8AtT/PCNOCBtA7bVKuHvhO3kbLIKSiecA3Ig9Eq8u6MwSS
-         UWTjSPBcmagx0ylHDhWVnr1MFE7j5gARPfntYQcWXRSEc3AOqfFJDvQrw97+4WyERZgw
-         GVJg==
+        bh=VS+YoGMFgG2YazgtA1ZDl7T3MfORR0OAXZJ7xgAEGug=;
+        b=PDEiAVubDVpstvwez3dCA6WZTdeMA9dI21JcCJbnCpWVN5ZJSpYxLTJk8B9a7asynh
+         44YSOyQ7qvONnEahW8J3svirUuVtlgN+RdyQ5t+RLLpQkemxpinxiGBRRhirK+AwBKmc
+         UDSqDPS/fz5zyfy4fwPkJg8AG/A3MwOLLvgwpcoikPAIWO1+rmkxOqVcXD2QLFcuKOSU
+         da3nF+XkawjZvVU8w4Mt5btoFepgyvZB7LVo6GdcJjinzShxnMyVAXj4M6gkjAwHidHm
+         aL/OhkKEp02I3FAsjQP2+p2apTbifQSp02d+I6rehcqNgXO2Fqf7wd9njGHS8vBnp0k+
+         Q4NA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=ZO4htwAM;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FXmvHYgM;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
-        by gmr-mx.google.com with ESMTPS id r8si453636otp.4.2021.01.21.13.29.55
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id l192si361914pfd.6.2021.01.21.13.29.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 21 Jan 2021 13:29:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
+        Thu, 21 Jan 2021 13:29:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-14-nnvBoIYePH23VFajn1q8dw-1; Thu, 21 Jan 2021 16:29:50 -0500
-X-MC-Unique: nnvBoIYePH23VFajn1q8dw-1
+ us-mta-597-uTmTM6ciMzGjhwkf9lJstw-1; Thu, 21 Jan 2021 16:29:55 -0500
+X-MC-Unique: uTmTM6ciMzGjhwkf9lJstw-1
 Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A4959802B40;
-	Thu, 21 Jan 2021 21:29:48 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DC54B1005504;
+	Thu, 21 Jan 2021 21:29:53 +0000 (UTC)
 Received: from treble.redhat.com (ovpn-116-102.rdu2.redhat.com [10.10.116.102])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id AB8433AE1;
-	Thu, 21 Jan 2021 21:29:46 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DBA4B19C59;
+	Thu, 21 Jan 2021 21:29:48 +0000 (UTC)
 From: Josh Poimboeuf <jpoimboe@redhat.com>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -117,18 +117,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com,
 	Miroslav Benes <mbenes@suse.cz>
-Subject: [PATCH v2 03/20] objtool: Fix ".cold" section suffix check for newer versions of GCC
-Date: Thu, 21 Jan 2021 15:29:19 -0600
-Message-Id: <ca0b5a57f08a2fbb48538dd915cc253b5edabb40.1611263461.git.jpoimboe@redhat.com>
+Subject: [PATCH v2 04/20] objtool: Support retpoline jump detection for vmlinux.o
+Date: Thu, 21 Jan 2021 15:29:20 -0600
+Message-Id: <4302893513770dde68ddc22a9d6a2a04aca491dd.1611263461.git.jpoimboe@redhat.com>
 In-Reply-To: <cover.1611263461.git.jpoimboe@redhat.com>
 References: <cover.1611263461.git.jpoimboe@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=ZO4htwAM;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=FXmvHYgM;
        spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 170.10.133.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+ 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -143,38 +143,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-With my version of GCC 9.3.1 the ".cold" subfunctions no longer have a
-numbered suffix, so the trailing period is no longer there.
+Objtool converts direct retpoline jumps to type INSN_JUMP_DYNAMIC, since
+that's what they are semantically.
 
-Presumably this doesn't yet trigger a user-visible bug since most of the
-subfunction detection logic is duplicated.   I only found it when
-testing vmlinux.o validation.
+That conversion doesn't work in vmlinux.o validation because the
+indirect thunk function is present in the object, so the intra-object
+jump check succeeds before the retpoline jump check gets a chance.
 
-Fixes: 54262aa28301 ("objtool: Fix sibling call detection")
+Rearrange the checks: check for a retpoline jump before checking for an
+intra-object jump.
+
 Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 ---
- tools/objtool/check.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ tools/objtool/check.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 081572170f6b..c964cd56b557 100644
+index c964cd56b557..5f5949951ca7 100644
 --- a/tools/objtool/check.c
 +++ b/tools/objtool/check.c
-@@ -846,8 +846,8 @@ static int add_jump_destinations(struct objtool_file *file)
- 			 * case where the parent function's only reference to a
- 			 * subfunction is through a jump table.
- 			 */
--			if (!strstr(insn->func->name, ".cold.") &&
--			    strstr(insn->jump_dest->func->name, ".cold.")) {
-+			if (!strstr(insn->func->name, ".cold") &&
-+			    strstr(insn->jump_dest->func->name, ".cold")) {
- 				insn->func->cfunc = insn->jump_dest->func;
- 				insn->jump_dest->func->pfunc = insn->func;
+@@ -781,10 +781,6 @@ static int add_jump_destinations(struct objtool_file *file)
+ 		} else if (reloc->sym->type == STT_SECTION) {
+ 			dest_sec = reloc->sym->sec;
+ 			dest_off = arch_dest_reloc_offset(reloc->addend);
+-		} else if (reloc->sym->sec->idx) {
+-			dest_sec = reloc->sym->sec;
+-			dest_off = reloc->sym->sym.st_value +
+-				   arch_dest_reloc_offset(reloc->addend);
+ 		} else if (!strncmp(reloc->sym->name, "__x86_indirect_thunk_", 21) ||
+ 			   !strncmp(reloc->sym->name, "__x86_retpoline_", 16)) {
+ 			/*
+@@ -798,6 +794,10 @@ static int add_jump_destinations(struct objtool_file *file)
  
+ 			insn->retpoline_safe = true;
+ 			continue;
++		} else if (reloc->sym->sec->idx) {
++			dest_sec = reloc->sym->sec;
++			dest_off = reloc->sym->sym.st_value +
++				   arch_dest_reloc_offset(reloc->addend);
+ 		} else {
+ 			/* external sibling call */
+ 			insn->call_dest = reloc->sym;
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ca0b5a57f08a2fbb48538dd915cc253b5edabb40.1611263461.git.jpoimboe%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/4302893513770dde68ddc22a9d6a2a04aca491dd.1611263461.git.jpoimboe%40redhat.com.
