@@ -1,144 +1,142 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJO3VCAAMGQEUH32XZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBR63VCAAMGQE7LHVTFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id B265C2FFA0E
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 02:43:02 +0100 (CET)
-Received: by mail-qt1-x838.google.com with SMTP id m21sf2667734qtp.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 17:43:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611279781; cv=pass;
+Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
+	by mail.lfdr.de (Postfix) with ESMTPS id C6C902FFA0F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 02:43:36 +0100 (CET)
+Received: by mail-vk1-xa40.google.com with SMTP id d202sf570234vkd.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 17:43:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611279816; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cF07jYNxYjKfmQ8yv980lqnNf7mwEEdX4x8LvgnctT5tRZhbUNTbngKDOafQ8IZXW5
-         86dkeZ73tx7qxdlQ0LShOTrnT280bi5BnUkbeg6GUVIR0u0agXP1GxD0i4h/2thXeT81
-         bwXKTUAIkTfzGkyiqjaKJhIaOZeu+/qDsCb6pXRT+bRjpvfNSaPlzTtalF1XczNEYs91
-         ImwK9kRDTLEmhpOGrC3NrPHR0SdBT9TvXsb+bZfu4a9SGv3d7M/A4mJf2UomeMMRweTN
-         DtIpHGYm6g9mR+J2ZgFLCLhZJ4OwPaYMjHdSLMBr6SIUs43Dz3sfISn8V1SgBH1YWXjr
-         Q1RA==
+        b=R9R2mxvrm78Ot7A0mOLlpE56hhm5um6Ct6YVKsBorbVrzC8d1zsjG+jhUqpU2KoCEC
+         k/tN6qALkjT9cLPV4u/exOkpAuTlyvNx8LHbPGIoNmIQQwa4le3RYTLzVGbanDU4OY3D
+         wq3OgIEj1CrOP8y9/PCTdEhiZRUSyizTqscxKabiWX+MSxK2w592/cIYSr/eJk/HO9yr
+         2EA2SP+WMTLj+7BOBkbKKxbiLYUUwwgenZEbeGMs/42bAdzkhbAl17yvf5GDBhP1KELc
+         Aa0ECJiutqCC2kmxNfV40cuPFah6a9gqGlbv1XZsEoQkHbxeYgAQiyoxRAFKkfmZCCf1
+         FVig==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=PSIWojkwTmzj5l0bcrPzdUXLo9I7YJq53VXvM4Lei2s=;
-        b=HbwtMadocqb0g1fiwTxL3dHmZ35Gef8nLgIkak9SMtKiL1cKmbJM3QBBhcGhL9witN
-         SFCNUOLJ9itRKyR67onWmJWFABFCrvItO6+LebKX1qL3LLU5X20cc2R6d6NHM+ddnXmV
-         mwmFHyfduX5llKKWDuRSRBbLskonesyuNRq1aqDuCsNI+VpneiTZuDyWKhG//WyyiHd4
-         9x5LsJR5D/2RRHQ/w5eaabs54ji7LUTa9X4S2moTvcSEK+js1jOFhY+lQitVOAcRd72Q
-         tizyN1+zjhF1gCBAxirqg97k4sMQaB184NreQ3HuEUj+voDws0uiFUI9KGVGzipW+7L2
-         H5Yw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=fW2q8E/7XC6QdELBZAwYQdqpxxf8KbwhwyzNo8Nrmy8=;
+        b=GzwesooeX8EYiv5cl5fmicC8HoZuVRAUj2uQCFZldAwAkwFBElS8sNprrTSMFEdRLj
+         wqO15opiPGn9wn3uigmvdqzDuj+KwYPz1WpBJfzSMBI+J9a1x7dTh15ETeVOOAppSV9q
+         kJ2j/vyUORMUR7wKRqlP75TJBtZESjjNJdEzyN7jlpbbnb67x3B/Kh4vYdODgNJXMfaL
+         tSlmUSuEfgm0miI2i64C+c80usRzvYsnxHLlKQu2HdEYUNMC6Ac4idtkK417AICfbMAM
+         +2CtZvUUpFJEE3yhamDsSOvyDxBgTUDvgCdNMcaEOXgWgLWrl7zXQGQ1EHsnBaveQVVQ
+         Qf8A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="Cn+/rff9";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BZHLJs8y;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=fW2q8E/7XC6QdELBZAwYQdqpxxf8KbwhwyzNo8Nrmy8=;
+        b=MJL2UI2K5/5VRnt/IBhjJ1yiTWmLF+I+5RLMCnhZHHYOTX3Qzyz3YEh5z4YxU6swwS
+         CGG9edx5nPiYiLGj+juKFFe4Sar/ygM5BxtKQs7qJV/MYk+1vlS+1IkFQ6d2kFbxksWY
+         Fowv/GnGtsY62fAej8OK+KaSro/h6cMTF4duwbLVvHvWch9g9vnyG9Ivdy2szYURVh1g
+         fivQrOi1w1FD+JUHS3RvIE9YSiO9oFUCx/iaQW6twpi4wOALXnzo8ub7RkPH5ullZ/I6
+         JonX2lL+2xOItzMqM7oT/8wvPlkfkmFzDMxEmUqVXQVKxfHllrBStUq3CeDBhpou5wh5
+         TqkA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PSIWojkwTmzj5l0bcrPzdUXLo9I7YJq53VXvM4Lei2s=;
-        b=FfgfKXWIIPp3CZmEHOvUbZS55DZOjGTMciEV07+SXiyqLdaA+Jy/yyqGC+ReiHK2BQ
-         vS/Ue90e0USMK6pi5mRRRwr9/If7mSPbYMJd92boxU9ZIANXGIzG7K/KaSAoMyrbvOb8
-         wawXDO7djaM1JndEuKETRngJKge5+IQs5xuSUlPBHH2OyAeeJIAjuBe9bICtW6CA1inl
-         eWB6CG+gCXCXIdYcG/lr+CfEsyMwqIZVUZgeOOLHROCEzJgd94165xxcavfdPoPlOiIg
-         mPMB1iqJwP4EstmGhIa7xYcy5o17PWCuZ5qap1kD8AbqptSmVc7t6mzbKzZ7v+If1kI0
-         jr/w==
+        bh=fW2q8E/7XC6QdELBZAwYQdqpxxf8KbwhwyzNo8Nrmy8=;
+        b=Vddat/ZjPhiz8/r6+ABBOGUn4NcKtmQf86P8d97RjgetzQ3iWBhgfsRQP0cLsqxoEq
+         z1vJWj2N/XrUAAOqj1uhkO/aMiLEX8EYOx1TV7eTGeq09k9vSIcjfu5FRTbUFIh5PkcL
+         caDuioPczGIQuToiX59eJBv2nbrTfsUtKc65lVe0sFOh9+qY6OOywaXZbz2MrVpmbOh9
+         QcMmHbLJdEkpfe9S+tZVlYKURgbODQzWhF83hnCZIMPeH/JfzpODy5YCzduNWCSAq8Yg
+         Xw2spQhabkxn8Vlb7Mvy3cOhExkVYDoCkaOcY8wRWFgkghTozzYVY8ofsJbh0FzzqzDg
+         FEHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PSIWojkwTmzj5l0bcrPzdUXLo9I7YJq53VXvM4Lei2s=;
-        b=tYqipuLbtJ3T15twDOEykv8uHT104Y09/F7BlKv0mFmVYnHLDs8fgFMDLIiDIznDAD
-         bptsIyRRFMc6UKq6EKMVKF716yH8qUJlyPHuWC9am+kLbgYUZ5cmFVvgNCAjN2GdpO4p
-         RCMTz7QJh9LypIbTg/5q+uto6cD/71cDnaEHelAGF8pAZ9EiL+UdPQaHb7yPHjMGpajb
-         P7uQQfZ4yT76+FzSvlmFu6JCb10Qbh4s27ystGIBqb//11hkc+RafqWSmlJm0iD/xGFU
-         nWqv2s6l3FHU//FqIZnGqEspyNdpvvBNhP/fjOxS6zRQvqBUxt8UZcwT2mqiPaGzFcZn
-         iMPw==
-X-Gm-Message-State: AOAM533I0TuAixWuoXvnxD7CKNG5JHb9hDXp73alVJkw2jJn9gJ3b+A5
-	dK4jT86Rq9YoOfcm1ykIizs=
-X-Google-Smtp-Source: ABdhPJyHpSK5lOjjNzph95LTnkyRdKtJt5KSpnFAR+Ak73B1mn6v/mYSq/s6x0K3hrcztoD433n5vQ==
-X-Received: by 2002:ad4:4f4a:: with SMTP id eu10mr2543861qvb.17.1611279781869;
-        Thu, 21 Jan 2021 17:43:01 -0800 (PST)
+        bh=fW2q8E/7XC6QdELBZAwYQdqpxxf8KbwhwyzNo8Nrmy8=;
+        b=Mmh2PbyGevYvQrNoQVfydek+6bp5d8o2JZEK/wbgOHq7jsQb0F6hKwMESriLggvOcf
+         ONPUW74vgHBALmyIFPhvNavYuWIN2YrGjATYwMzHyT3mpj7NlhLkh6Abbz+DJrAO1LXA
+         YLIDXlejUDRGW/g4l4nyKcfwWh/M7GKZQBgIhiiC/zrs1AcXwpF86Fk+3JgKc5ne8GT0
+         9o53Y4RNdFuczJpvpIMgzlzvPwIyUWE/jvEg7dl2/guk3WDX2LH2Y8yhGMXovQZFkmCc
+         KBZa2H6Wcz7mZBW6JXSJ3CJ12vzMJZISrwNAD/7yQiGPuysmTMeS+Gc1sOIjgUSSglZz
+         vfdw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532V8eZL2DAA0YQTC67drNa4VQ0JF3wHtfU5UU6PudxMQbWo8/I7
+	/AbT2uMYPcumYw4iO6eZirY=
+X-Google-Smtp-Source: ABdhPJy88WkTtOgyNbZG6Qn1lRTxgBamTJLpqLdfGVXXPKZ/83Qdl2/O/eixVTpty1e5/bPIyxHGSg==
+X-Received: by 2002:a67:8e02:: with SMTP id q2mr1898133vsd.53.1611279815842;
+        Thu, 21 Jan 2021 17:43:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:702:: with SMTP id 2ls2067941qkc.11.gmail; Thu, 21
- Jan 2021 17:43:01 -0800 (PST)
-X-Received: by 2002:a05:620a:1203:: with SMTP id u3mr2739784qkj.39.1611279781564;
-        Thu, 21 Jan 2021 17:43:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611279781; cv=none;
+Received: by 2002:ab0:6155:: with SMTP id w21ls356951uan.0.gmail; Thu, 21 Jan
+ 2021 17:43:35 -0800 (PST)
+X-Received: by 2002:ab0:7296:: with SMTP id w22mr1988912uao.13.1611279815466;
+        Thu, 21 Jan 2021 17:43:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611279815; cv=none;
         d=google.com; s=arc-20160816;
-        b=difu7eiXNCK0dkqa9VHMrxagXKo5XEqQphpQo2u24OqRP+mO8J5eeyKgP7aR/ussqV
-         NEl4e8GXiOpMT65OvmZlhIp1Vb+bYCs8UdXZkcmlMNSgCtI1UoXpzXWLVFcZihefLcQc
-         XQ4kNPVh136JXf02w7ca9ZbBl4RWzCeKJbzpi61Dg/HMxT4yTSFunbg+welbNaoTW+Si
-         ptj33F9jvCziygfVibr+lKPoEFF9x9G/1Cy5dLR5ZuFOB+bFzo0tDV0YNjTqvxpeaCHT
-         sqgq8pYMMc8/w4CyBv9XYrxungeM2Xcx4GuKjtvmknku/5jfjrhWt4xUnUeyfZxjDE8U
-         +ROg==
+        b=JuZDpblpW8YiGibywunvveYrYmL7NcOJM9zDkdr+l1qhMtD5Laf+hraRd83e+5FAaY
+         JKY/3yTuzuu+Mstw4VOhKs0WQNZ7TAK8vagdvfEKRuOFLyVBBj6HyMvt4i+r0rYGQcY/
+         GZ77dxIAwIJWJ8gA56efsaXPH5g2EJNc8BvL63IlBYY4b/2TscHc6UHyc6zBhmrdZq51
+         iavbZjTP+6MjSsb0pzucHM0UTGIZd/Iu95eaYOIqygOe51TecP0SfSH3RplB7JHopPNc
+         E+W77QJXAt7c0WCUckVfe1YgUyvAQuVdVgolD1l2TQAKFgF1i4bouSUuEaMagNdzvTQU
+         vLAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=JHmsyWW/3ORqzCCxIgYU3HZ6BJYN5rvOhQgY5Vhnihs=;
-        b=KSxYF6o9kjdK3WGx5jkCbNnatsAoZiU/ini8oKKkE1HGDvTEBe9Yiehgj5tSoQTSMy
-         jhliep9PVhomVbuPstkP/MRwJtM2l1L673ErDlOM+J6bT+R/J+kAX87tKL/oTRplcDBJ
-         snPs55sxceFEj9/TfHnRltIbPEqGPWAkxv9oRI2fbEHa5016/nIfBiHwuNR3rTP/zKNd
-         fY8OxemRuhy5lkdMJOa4PIYDxxNQlvVFz4IFz0EadSu05gifc7857aaF8chDOkcEk26C
-         b4b+a+YdSnLOT9+9P/xJQbKuR/iCBAHBkfxFOoM02nwc54lwnKcrEdMLNEv630jto3dX
-         NKcQ==
+        bh=ZrJ80j43VKcZseBzjEDXZkPUTdnyBRJJDoCKdAeE1fI=;
+        b=y7vHTrXholFmGkY6ikx5LkHEby71cKrSKLF0ZfeBmwTQG+mN77cV6pIFWCcn5xBkh/
+         l80zSHEYqBCTCHCRm098v0RgmKl7Fq6Njj4DGHQXlM+oJI42HeS1625BXUGHuIuajBiM
+         wCdMH6/zyW9Tzcq7n46yqW10qkIp7dlQI9qLlP0qlmYWtTynIOfhsvrE2bjK+o+0oJpd
+         dBpyzKwR6SLr5lyr+Kb1Kd3TWgThk3L8ufD+y2hyEyUM8RSVtwo8yXB3hqB06f30oRrz
+         O5H3EroM7zQgs1QZanrFQvHp0r1SxMD7M5XK7bsbBnP0nggCJqGMBaDJu9F/HAkD8SZv
+         OKFg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="Cn+/rff9";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x536.google.com (mail-pg1-x536.google.com. [2607:f8b0:4864:20::536])
-        by gmr-mx.google.com with ESMTPS id q66si365430qkd.3.2021.01.21.17.43.01
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BZHLJs8y;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd33.google.com (mail-io1-xd33.google.com. [2607:f8b0:4864:20::d33])
+        by gmr-mx.google.com with ESMTPS id y127si385889vsc.0.2021.01.21.17.43.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Jan 2021 17:43:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536 as permitted sender) client-ip=2607:f8b0:4864:20::536;
-Received: by mail-pg1-x536.google.com with SMTP id g15so2588871pgu.9
-        for <clang-built-linux@googlegroups.com>; Thu, 21 Jan 2021 17:43:01 -0800 (PST)
-X-Received: by 2002:a62:7896:0:b029:1b6:7319:52a7 with SMTP id
- t144-20020a6278960000b02901b6731952a7mr2450111pfc.30.1611279780913; Thu, 21
- Jan 2021 17:43:00 -0800 (PST)
+        Thu, 21 Jan 2021 17:43:35 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) client-ip=2607:f8b0:4864:20::d33;
+Received: by mail-io1-xd33.google.com with SMTP id q129so8149813iod.0
+        for <clang-built-linux@googlegroups.com>; Thu, 21 Jan 2021 17:43:35 -0800 (PST)
+X-Received: by 2002:a5e:970c:: with SMTP id w12mr919750ioj.171.1611279814937;
+ Thu, 21 Jan 2021 17:43:34 -0800 (PST)
 MIME-Version: 1.0
-References: <20210113061958.886723-1-morbo@google.com> <20210116094357.3620352-1-morbo@google.com>
- <CA+icZUUgTuD6fO_AZFs9KoRFS8FUmyhezvYeeoRX2dveG_ifDA@mail.gmail.com>
- <CAGG=3QXZTR_f9pKzAR=LrALmMzdDqsvWM_zrTXOb2PpiDGB-+A@mail.gmail.com>
- <CA+icZUWf05ek+DFsJNyBc-4cg0s6cVrn=rNJDyL4RJ6=fMO5NA@mail.gmail.com>
- <CA+icZUVD1AHaXYu4Ne8JhzmtMR5DReL4C=ZxKfA0hjLtbC79qQ@mail.gmail.com>
- <CA+icZUUTJbwmTYCDJhyRtif3BdsB_yzQ3bSdLR62EmttJf3Row@mail.gmail.com>
- <CA+icZUUfWR1v3GStn6t_6MYDmwTdJ_zDwBTe2jmQRg7aOA1Q2A@mail.gmail.com>
- <CA+icZUU-3i7Of71C6XaNmee7xD4y_DeoWJFvUHnMUyBaMN3Ywg@mail.gmail.com>
- <CA+icZUXmn15w=kSq2CZzQD5JggJw_9AEam=Sz13M0KpJ68MWZg@mail.gmail.com>
- <CA+icZUWUPCuLWCo=kuPr9YZ4-NZ3F8Fv1GzDXPbDevyWjaMrJg@mail.gmail.com>
- <CAGG=3QW+ayBzCxOusLyQ0-y5K5C_3hNXjara_pYOcxK8MseN9g@mail.gmail.com>
- <CA+icZUU1HihUFaEHzF69+01+Picg8aq6HAqHupxiRqyDGJ=Mpw@mail.gmail.com>
- <CA+icZUUuzA5JEXyVzKbVX+T3xeOdRAU6-mntbo+VwwTxqmN7LA@mail.gmail.com>
- <CAGG=3QWmOA+yM2GJF+cHUb7wUq6yiBpHasa-ry9OhAdvciDm6Q@mail.gmail.com>
- <CA+icZUVwbWDtGUzMEkitxYn2UvbZPnFTxfJyDOY46j6BTK0deQ@mail.gmail.com>
- <CA+icZUXa9wvSWe=21_gjAapoHpbgBmYzFpQjb=o_WRQgK+O4gA@mail.gmail.com>
- <CAGG=3QUcaY1wzJhBD4ZGhPSNPik-kL0PuoE1SJqkFJEM_mkGYA@mail.gmail.com> <CA+icZUU+OWW46CVq4Co-y7hckGjoV5bbqxS-G+HDqUDci_AzHw@mail.gmail.com>
-In-Reply-To: <CA+icZUU+OWW46CVq4Co-y7hckGjoV5bbqxS-G+HDqUDci_AzHw@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 21 Jan 2021 17:42:49 -0800
-Message-ID: <CAKwvOdkOOjDo+zFFz_T63FphZn2Lg7MW8vd7qd-yS_eB_yYdmA@mail.gmail.com>
-Subject: Re: [PATCH v5] pgo: add clang's Profile Guided Optimization infrastructure
-To: Sedat Dilek <sedat.dilek@gmail.com>
+References: <20210111081821.3041587-1-morbo@google.com> <CA+icZUW63tP7kzWCKofJH0E0xA7yLCYpSOYz_aw1D4mkhNhW=w@mail.gmail.com>
+ <CAKwvOd==OfKHKzhWVGAQs5bFJ9qSbm8WRkX7qDF+FQd-p1gdNQ@mail.gmail.com>
+In-Reply-To: <CAKwvOd==OfKHKzhWVGAQs5bFJ9qSbm8WRkX7qDF+FQd-p1gdNQ@mail.gmail.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 22 Jan 2021 02:43:22 +0100
+Message-ID: <CA+icZUWfgu2aHRTJZWSd6hjk58YkmU7ey4iRk=8=wVf5twSMAA@mail.gmail.com>
+Subject: Re: [PATCH] pgo: add clang's Profile Guided Optimization infrastructure
+To: Nick Desaulniers <ndesaulniers@google.com>
 Cc: Bill Wendling <morbo@google.com>, Jonathan Corbet <corbet@lwn.net>, 
 	Masahiro Yamada <masahiroy@kernel.org>, Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
 	LKML <linux-kernel@vger.kernel.org>, 
 	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
 	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
 	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Fangrui Song <maskray@google.com>
+	Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="Cn+/rff9";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=BZHLJs8y;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,127 +149,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 20, 2021 at 6:03 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
+On Fri, Jan 22, 2021 at 2:34 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> On Mon, Jan 18, 2021 at 10:56 PM Bill Wendling <morbo@google.com> wrote:
+> On Wed, Jan 20, 2021 at 6:21 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
 > >
-> > On Mon, Jan 18, 2021 at 9:26 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
-> > >
-> > > On Mon, Jan 18, 2021 at 1:39 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
-> > > >
-> > > > On Mon, Jan 18, 2021 at 3:32 AM Bill Wendling <morbo@google.com> wrote:
-> > > > >
-> > > > > On Sun, Jan 17, 2021 at 4:27 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
-> > > > > >
-> > > > > > [ big snip ]
-> > > > >
-> > > > > [More snippage.]
-> > > > >
-> > > > > > [ CC Fangrui ]
-> > > > > >
-> > > > > > With the attached...
-> > > > > >
-> > > > > >    [PATCH v3] module: Ignore _GLOBAL_OFFSET_TABLE_ when warning for
-> > > > > > undefined symbols
-> > > > > >
-> > > > > > ...I was finally able to boot into a rebuild PGO-optimized Linux-kernel.
-> > > > > > For details see ClangBuiltLinux issue #1250 "Unknown symbol
-> > > > > > _GLOBAL_OFFSET_TABLE_ loading kernel modules".
-> > > > > >
-> > > > > Thanks for confirming that this works with the above patch.
-> > > > >
-> > > > > > @ Bill Nick Sami Nathan
-> > > > > >
-> > > > > > 1, Can you say something of the impact passing "LLVM_IAS=1" to make?
-> > > > >
-> > > > > The integrated assembler and this option are more-or-less orthogonal
-> > > > > to each other. One can still use the GNU assembler with PGO. If you're
-> > > > > having an issue, it may be related to ClangBuiltLinux issue #1250.
-> > > > >
-> > > > > > 2. Can you please try Nick's DWARF v5 support patchset v5 and
-> > > > > > CONFIG_DEBUG_INFO_DWARF5=y (see attachments)?
-> > > > > >
-> > > > > I know Nick did several tests with PGO. He may have looked into it
-> > > > > already, but we can check.
-> > > > >
-> > > >
-> > > > Reproducible.
-> > > >
-> > > > LLVM_IAS=1 + DWARF5 = Not bootable
-> > > >
-> > > > I will try:
-> > > >
-> > > > LLVM_IAS=1 + DWARF4
-> > > >
-> > >
-> > > I was not able to boot into such a built Linux-kernel.
-> > >
-> > PGO will have no effect on debugging data. If this is an issue with
-> > DWARF, then it's likely orthogonal to the PGO patch.
+> > Hi,
 > >
-> > > For me worked: DWARF2 and LLVM_IAS=1 *not* set.
-> > >
-> > > Of course, this could be an issue with my system's LLVM/Clang.
-> > >
-> > > Debian clang version
-> > > 12.0.0-++20210115111113+45ef053bd709-1~exp1~20210115101809.3724
-> > >
-> > Please use the official clang 11.0.1 release
-> > (https://releases.llvm.org/download.html), modifying the
-> > kernel/pgo/Kconfig as I suggested above. The reason we specify clang
-> > 12 for the minimal version is because of an issue that was recently
-> > fixed.
+> > When I looked through the code I wondered why we do not add a
+> > "CONFIG_PGO_CLANG_PROFDATA" which can be helpful when doing the PGO
+> > rebuild with a vmlinux.profdata.
 > >
+> > This introduces a "PGO_PROFDATA" to turn on/off to pass
+> > "-fprofile-use=vmlinux.profdata" (see CFLAGS_PGO_CLANG_PROFDATA in
+> > top-level Makefile).
+> >
+> > If we turn off via "PGO_PROFILE := n" in several Makefiles - we should
+> > do the same and add "PGO_PROFDATA := n" to the same Makefiles?
+> >
+> > Please see the attached diff.
 >
-> I downgraded to clang-11.1.0-rc1.
-> ( See attachment. )
+> This is a good idea; something that I brought up in initial code
+> review (on github).  Would it be ok with you to land the core first,
+> then follow up with this suggestion?
 >
-> Doing the first build with PGO enabled plus DWARF5 and LLVM_IAS=1 works.
+> Also, AutoFDO production builds are so incredibly similar to PGO
+> builds that I could see a possible path forward:
+> 1. land PGO upstream
+> 2. adds docs for AutoFDO
+> 3. consider a config for hardcoding the location of the profiling data
+> so that we don't need to specify it at the command line invocation of
+> make.
 >
-> But again after generating vmlinux.profdata and doing the PGO-rebuild
-> - the resulting Linux-kernel does NOT boot in QEMU or on bare metal.
-> With GNU/as I can boot.
->
-> So this is independent of DWARF v4 or DWARF v5 (LLVM_IAS=1 and DWARF
-> v2 is not allowed).
-> There is something wrong (here) with passing LLVM_IAS=1 to make when
-> doing the PGO-rebuild.
->
-> Can someone please verify and confirm that the PGO-rebuild with
-> LLVM_IAS=1 boots or boots not?
 
-I was able to build+boot with LLVM_IAS=1 on my personal laptop (no
-dwarf 5, just mainline+v5).
+I made a v3 - with some small nits.
+The idea was to do the "PGO-rebuild" handling a bit easier.
 
->
-> Thanks.
->
-> - Sedat -
->
-> > > Can you give me a LLVM commit-id where you had success with LLVM_IAS=1
-> > > and especially CONFIG_DEBUG_INFO_DWARF5=y?
-> > > Success means I was able to boot in QEMU and/or bare metal.
-> > >
-> > The DWARF5 patch isn't in yet, so I don't want to rely upon it too much.
+But as you say that can wait.
 
-I agree, providing test results with patches that haven't landed yet
-can cloud the interpretation of results.  It would be helpful to drop
-local patch sets before trying this.
+Some personal notes:
 
-If the resulting image still isn't working for you, can you please
-provide your config? Surely we'd be able to reproduce boot failures in
-QEMU?  Nothing comes to mind about a change of assemblers causing an
-issue; I would assume assembly cannot be instrumented by the compiler
-(even though the compiler is the "driver" of the assembler).
+I will be very happy when people verify/confirm what's going on with
+PGO-rebuild + LLVM_IAS=1.
+As said GNU/AS and PGO-rebuild is fine.
+( This seems to be independent of clang-12 or clang-11. )
+( This seems to be independent of DWARF v4 or v5 enabled. )
 
-The hash warnings are certainly curious.
-IndexedInstrProfReader::getInstrProfRecord() is the only place in LLVM
-sources that can emit that.
--- 
-Thanks,
-~Nick Desaulniers
+The benefit here I saw was a reduction in build-time of 00:30 seen
+from a total 04:30 when using a PGO-rebuilt Linux-kernel.
+Approx. 10%?
+
+This is not much compared to a ThinLTO + PGO optimized LLVM toolchain
+whcih saved here 40% of build-time.
+
+- Sedat -
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkOOjDo%2BzFFz_T63FphZn2Lg7MW8vd7qd-yS_eB_yYdmA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWfgu2aHRTJZWSd6hjk58YkmU7ey4iRk%3D8%3DwVf5twSMAA%40mail.gmail.com.
