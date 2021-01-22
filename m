@@ -1,131 +1,126 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBVGUVOAAMGQEJI37QMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBHGXVOAAMGQE6ET657I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8395F3006AD
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 16:08:05 +0100 (CET)
-Received: by mail-oi1-x23c.google.com with SMTP id m15sf2250612oig.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 07:08:05 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611328084; cv=pass;
+Received: from mail-ej1-x63f.google.com (mail-ej1-x63f.google.com [IPv6:2a00:1450:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B5933006CC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 16:13:32 +0100 (CET)
+Received: by mail-ej1-x63f.google.com with SMTP id k3sf2286219ejr.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 07:13:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611328412; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cfW3Sdak3xSQ5vCTWzlVcm6N7IK445Zu06RZRQ3iPt8rZkq6+sFC61z8Gf6ZQcHzsg
-         Ptk6ifv20pBwDfpxBHiMb1Yy2RedJwjX7ST1y15EabQwAH8h1HD1jED4Y5YpNQURwDRM
-         REqdmCuxOB3pNIkrM7A36oxu2brwL0nNkm0getVmbQZQMrcIhHv4ToagRjXZwg1lUB8s
-         C5UONcyoNZ0VAmQWX5dmo2jtkTtC3PV1j4iiVOfo/x8h5Blsr/aEx7Nes2PiRBnvnW0n
-         mpAzFQoDlMCiMaJBA7qkq7T8rkA3RDsvYyhWrDJAt4sjTtgdEFjNOPA4luO7vg3ETBF0
-         gLvw==
+        b=cAvF0kbaQy1wjRtMzHrgJfgKJ/TyQctD27UXIAziyPj+gTkViZpa+b24BcjGmSc1IH
+         uDt11wVT4gS6S+Qn/YwdPWdKFHtjkxnYDL/WN31kHTb32qltZLPoTzAvjXBM5A2z75iz
+         F9nZ3Ydv3N2SH4rRmd38wYbT7B4KAFwmVXRdp6g04S/z3d+X4VKT0WD6PVnd7ZSTJh/o
+         P9msa/cip5K9tg70sxVbvo15Sc7rItHRzTA3WFkNhSzyGaPaVXPnzSRWEoomR4HB8H9F
+         40xGalcLxg5c2q0G9khm1z49jXibHJqTqKBXdCuSz1fa/euFTcuShothQpUPw2BKpSyX
+         h1GA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=c6VKxv+4SGhqXWncd9fjBqE5hxPlhAHC0EWlg6BsueI=;
-        b=xYGjx7vOxO42xTXtUs98mu6mZH+3PEqGD4k1FGlhJFNUDy1ohAOQwhMLj9Yz5InFtq
-         6gZOA9eD3wTY4a5DfOKzu9CRdUfVdupm0PPaB1RWBVecGWQXU0yWRpiO4IshlslAkRGw
-         YqkLQuPPR7WXxDIJElBzlO2gH1/dJxoqp5y5mqQ+kpFUfIT8ln1JMNkBRJLKUlpNEZBW
-         b5RgS/fOU/xfkdUISqrBURZ6HTgHRj8a+QXfLy5loJd++cbsnxjj+3wKI6DD/Q6G+dlU
-         vQsBevewWu+m60WqKa4CsbXZE25csSKNTjzNXdnlhzODMM9jGfVCf87Zsj7y3etoU9EE
-         2/GA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=g8GgzAyyRoPm3fL4PKWk/dJiqhobEBRXmZ16seqmcMo=;
+        b=XYlXbS/wdXRorjVEwz0ApSVoDt8ruojI/YWuat5hWZcYKudct4j/nwiQYm5eFkf2j2
+         QH342HVlm6PgKkNzu0fDG80iLplZvh39g/0uurZyZxO5GDTxqrMIIjeIqmGBJOTw+MrZ
+         etAIQM2Lb1rEyvy+Uiu/wfWYfam7hPG50XWVYdgZBpRJm6G2Q+2vCe9uAxIIo5xyDlaf
+         89r+VGgupK31hbeZoToJXBjiJEgZacLro5SpfxmRsgGSgDUBx9mJthMCk0lfTOmRl+PB
+         4s9lPVAXhE+04eQwOC1Dz7EZTIAOMpdQd1XAQysmWCBo6E1ljnbbSPMzvW12NrXRPZVj
+         n2sA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=WDgeuQvf;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=H+wA3DVW;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=c6VKxv+4SGhqXWncd9fjBqE5hxPlhAHC0EWlg6BsueI=;
-        b=aWgPLmq7izke1WPzFEE3pZqQaZCVJ/LYemNe0Ei4rOgGT5PvgpGZq71Ie3CyrZ//kc
-         3sBZ3YPrNJNzTSiirr7WYilN95WRQ5DKSLHYU9z40q+g8mXjAw29iE7SFXVEpciwifMb
-         XFiS3inFwMxIXlP2us4nw+046Up20pshGqA5M/Hg9U2iSxBsOOiPXCp462CdHgRZ/yah
-         LwVxccjSKWmFMTZFD87QPX1vuC8O+sG+LwIFLSseG5U5R2Y8psg3HRVPnwh7dRNeUgI1
-         FbZ3l6ELYybDmZickxQcou9clVGiCNqfi3QtHQZa2GezRCAgf5LTI1Amv8hflg0/ma6W
-         O6xA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=g8GgzAyyRoPm3fL4PKWk/dJiqhobEBRXmZ16seqmcMo=;
+        b=pjQq2lXA989ArbgIbfZ6OeS/+z4FsMMUWRCjMtvbSLB47/m5QbZH7Zm7hNvuGt+Ntv
+         +pmaD/XBUv64OdnX1dNETLglWIArvhteJoAJQbexJzOL0I1LuGASfAuhq1HHPM5zKbSN
+         PWwpm+m9K9w91cofn2O36R5RA8B3cZzEdwje6axl0uyz58lrbdLjWsr/ZPxY5xnHswBX
+         yOqzxdyFCaIO7f+w5psEUxrA/arH+7kCpG5rsyEWf2wZQ5w4siqzUZgKiq37BgxnDsHK
+         xPI2HdzrJDhU9wQ7ipVRD8xmVqEft2710n6R2futeWg0LxQ30cBhJoycqGY2N1Bf+H3I
+         c+Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=c6VKxv+4SGhqXWncd9fjBqE5hxPlhAHC0EWlg6BsueI=;
-        b=UaM8TimJ+KVYstwNnQ0X7IlKT4Cie/JyOCKQDYfeDq5JR4Yi+TjIE0ynvgmoqBrzmn
-         LskV7T9so9yYA/vr1f3WFMmCHRiMz70Y2ccwQqVuYk7S6pZHMYfpV7s43k4LIWuPPsC1
-         x/zdsvAkD8kFwQf7pvnd5EFPtiEX0KWpndyiuJwpenuJ88FtOLeLmj1cU2iY+ElUkblZ
-         PSPhJmrDPIEf0SJyBRpbvMdMDeZhxiSIxeGTWYJwoBLOsM2yc/P96BgmVkcGPlqyV7+x
-         NNZO1sDHxwO2VrZUteCyz9IMjS+U1AF5pbgF1E1vzU6pSxOQmma4bIczGA3Awi4T/Rnm
-         AbYA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=g8GgzAyyRoPm3fL4PKWk/dJiqhobEBRXmZ16seqmcMo=;
+        b=OiFebC5OKJFcRyUzr+mwschcqBdekRTULmQyV7GjE7QA+S0sS7DruWw8tsSFhY2qcu
+         Wp+QchsibWdJbKBQW6Fcb60jwWjFwYlaj6fTFebY3r/vOn3y+SdH/LCZJzTZ8HbaW8Ui
+         qZxpEa5rUFIJN4t103m+s48j7uAE/pI/D0RBkZBpTwA2STF3+9N8UksP+6cWYwHOZAx6
+         vZkO1AFwkEJ4lss0VC60optztN+KxwRuExKCLDf7sXyOkj6NwIroNs8WbV7lbxaNKv1X
+         RNL54u9HCiq1DuEX0KYir74blf7bDvJxxfeuL6/8UGDIgIHP+3gJr3DpJ7n9Mj8htA9W
+         +Now==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533CU3xm0eWwNCKY+VHp/4Ezl5qSIvmiiK23gGA2eoNaegBAIfZx
-	Nna6Cda9VckVMTmrGQSmpAM=
-X-Google-Smtp-Source: ABdhPJxeMWGwPauqfcflFRQRZCzcS5xf641NIkLQWvHqacndYTBH/5yfW7Q3Rx7fFOcykCfLg6yMRQ==
-X-Received: by 2002:a54:480f:: with SMTP id j15mr3604932oij.50.1611328084419;
-        Fri, 22 Jan 2021 07:08:04 -0800 (PST)
+X-Gm-Message-State: AOAM533hn02/JvEPegbgMYMt3UJkiLxF3wOYtIMGC5Aed1h4uRMGKqrG
+	bqqhfLPzaBP9uAPlDO2Jn4M=
+X-Google-Smtp-Source: ABdhPJwBD9apnEF3/gEzv4i2M3XRsj0V/H3ew7PzxA/F5WsKaKBq9k2mu3GxXmajL6uiyPXuny53RA==
+X-Received: by 2002:a05:6402:11c7:: with SMTP id j7mr3534758edw.290.1611328412200;
+        Fri, 22 Jan 2021 07:13:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:3c3:: with SMTP id o3ls1018502oie.1.gmail; Fri, 22
- Jan 2021 07:08:04 -0800 (PST)
-X-Received: by 2002:aca:dd08:: with SMTP id u8mr3452353oig.85.1611328084041;
-        Fri, 22 Jan 2021 07:08:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611328084; cv=none;
+Received: by 2002:a05:6402:520e:: with SMTP id s14ls7819800edd.3.gmail; Fri,
+ 22 Jan 2021 07:13:31 -0800 (PST)
+X-Received: by 2002:a05:6402:104e:: with SMTP id e14mr51836edu.316.1611328411356;
+        Fri, 22 Jan 2021 07:13:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611328411; cv=none;
         d=google.com; s=arc-20160816;
-        b=m2V+OG16BbX1PUH/6mtlRw97rQGkS8JKhf007Q6Bmp7x03qekPdUEHeci8DwyTovQ9
-         KN1P/gKrwzWfgw2h+GDRnjXwHJAvQ/a65sSNnlwCaA7rRVV/pM+UaNZdMZiLqdcNPSke
-         hz4uTX0lX2sQ+mVvT1+5jf4EdtOHNOfDfT8lT/UB9qzJcm9EMyr9fFVYgA8uCqULiYNg
-         dZp4CpHsdy1ZzH9MolmaF+z0lW/aDX9EuutAyTvBttZJAdt4CRIRrs8Ew0X2oG5z5XvN
-         NrZpbNm5JA84/8F4za/aVby4V3Hc5c+8HIux1YXUeG472Zxkz0vE8jE0D20wttoAfRss
-         v3JA==
+        b=G3ZuHS8N8MKgqy1s0veQa603W1MCuQeXYtNJcERJjxgHinubDwvC6+Hrt1zScOCnda
+         302+KjZbNkBHSN75+PgUYL7onh8RdbUlWKjH5pbxokSkjdWZYjm00GG04IUdeyHFSUj7
+         UckcZ8Z1V3iDCDf0IhNLePZeqnNpNDoV0yCdZ17cublMYGPu1qz/EPEIAAU2qirHBHf3
+         gB5ctnhH7s6hXcFg2XScUZKJRz4fK7dqv8K0KBhCVPMB9lhCyFNVTtNCrj5e6tGx6r/n
+         CxpfMNRbZnGOPj8ralNR0ax34bwL2LTqAfjxBMbr9j2ydx9wTUGbBNeKn8P7K3yroIZk
+         +oig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=qprfMSWAN8X1Z74dcvN1JEnWpZlz8GFGxcSrkFS43tk=;
-        b=x/YgGshKNnCotOIDVdsDgYKCSK+5vEPAthQco8OEAZN2gXREdeRbS088cp4V6trJsu
-         ZpiRPIJiuETJ1YA0qlNHyhsdIEaALDVr+4kbWgN/W5cRkyz0rGHt8ry0gOjJl0p6uqZ4
-         BuO5w91dZGMrh0qbA10Dxv6ZO2Prqj9RmwECSZbPuMOLa31kKwE3Q6a651K+Fvsz0rOK
-         8lOg+47ds8fp+nMVGdaFYZLM1hjX5ocFyYIODWO7hkNSJmlNErbqA1rfuro79rvNSvue
-         n2YBxpI6n++bQsUvcxZlyv9OtKm20tiaELUEo+SwD2bQDMAGu61j3dXRQa0Bx6rgqdT6
-         q1xA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=x6lEXEYlBycVbeohirMEw6ub/Wz8ckmFQxXY6Dkjps8=;
+        b=brWnQtbm4Kp5sQBT5bQKPdQpuQl0KpMGgC40Q0bXhZ7DJ1jNSn32yKHiC9p0Rs+iOi
+         VRoyPN1IPcb0qVVq9H8dBoShqm4Lu++9ntjGj8aD6wyZMbxvnXdNdYqAqTHz0PulJ+rs
+         aU6yLirt9SI6QUTkkUoSxTy+dWVS2Qb1r0kRZUIT34FAGmcNhBmIRjztCHVBvUoeC//V
+         NMJE28iZ5VzoefDHrakHSJN6VM6EGKnrI7B+H9kBlEJenTIh6OsuUM+d6nd9Rg2D2G0X
+         eoRsa8akfHgPY+wpu74f+IwPtxXPBScHM44wBK9V+HCpj3GgdyLiU3R7SL9TyaqTWPjD
+         xVcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=WDgeuQvf;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id a33si525145ooj.2.2021.01.22.07.08.03
+       dkim=pass header.i=@linaro.org header.s=google header.b=H+wA3DVW;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-ej1-x630.google.com (mail-ej1-x630.google.com. [2a00:1450:4864:20::630])
+        by gmr-mx.google.com with ESMTPS id mm17si485164ejb.1.2021.01.22.07.13.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 22 Jan 2021 07:08:03 -0800 (PST)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9A61923AA1;
-	Fri, 22 Jan 2021 15:08:02 +0000 (UTC)
-Date: Fri, 22 Jan 2021 16:08:00 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: open list <linux-kernel@vger.kernel.org>, Shuah Khan <shuah@kernel.org>,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	linux-stable <stable@vger.kernel.org>, pavel@denx.de,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Will Deacon <will@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [PATCH 4.14 00/50] 4.14.217-rc1 review
-Message-ID: <YArqULK9c1Cnt5gM@kroah.com>
-References: <20210122135735.176469491@linuxfoundation.org>
- <CA+G9fYso4QNbRWdrQiiOiMb5RUr8VtM3AkKEGLasgN+KsPSvDw@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 Jan 2021 07:13:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::630 as permitted sender) client-ip=2a00:1450:4864:20::630;
+Received: by mail-ej1-x630.google.com with SMTP id 6so8143028ejz.5
+        for <clang-built-linux@googlegroups.com>; Fri, 22 Jan 2021 07:13:31 -0800 (PST)
+X-Received: by 2002:a17:906:2695:: with SMTP id t21mr3434030ejc.287.1611328410832;
+ Fri, 22 Jan 2021 07:13:30 -0800 (PST)
 MIME-Version: 1.0
+References: <20210122135735.176469491@linuxfoundation.org> <CA+G9fYso4QNbRWdrQiiOiMb5RUr8VtM3AkKEGLasgN+KsPSvDw@mail.gmail.com>
+ <YArqULK9c1Cnt5gM@kroah.com>
+In-Reply-To: <YArqULK9c1Cnt5gM@kroah.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Fri, 22 Jan 2021 20:43:18 +0530
+Message-ID: <CA+G9fYuzE9WMSB7uGjV4gTzK510SHEdJb_UXQCzsQ5MqA=h9SA@mail.gmail.com>
+Subject: Re: [PATCH 4.14 00/50] 4.14.217-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: open list <linux-kernel@vger.kernel.org>, Shuah Khan <shuah@kernel.org>, patches@kernelci.org, 
+	lkft-triage@lists.linaro.org, linux-stable <stable@vger.kernel.org>, pavel@denx.de, 
+	Andrew Morton <akpm@linux-foundation.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Guenter Roeck <linux@roeck-us.net>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Will Deacon <will@kernel.org>, Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@kernel.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYso4QNbRWdrQiiOiMb5RUr8VtM3AkKEGLasgN+KsPSvDw@mail.gmail.com>
-X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=WDgeuQvf;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@linaro.org header.s=google header.b=H+wA3DVW;       spf=pass
+ (google.com: domain of naresh.kamboju@linaro.org designates
+ 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,48 +133,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jan 22, 2021 at 08:32:46PM +0530, Naresh Kamboju wrote:
-> On Fri, 22 Jan 2021 at 19:45, Greg Kroah-Hartman
-> <gregkh@linuxfoundation.org> wrote:
+On Fri, 22 Jan 2021 at 20:38, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Fri, Jan 22, 2021 at 08:32:46PM +0530, Naresh Kamboju wrote:
+> > On Fri, 22 Jan 2021 at 19:45, Greg Kroah-Hartman
+> > <gregkh@linuxfoundation.org> wrote:
+> > >
+> > > This is the start of the stable review cycle for the 4.14.217 release.
+> > > There are 50 patches in this series, all will be posted as a response
+> > > to this one.  If anyone has any issues with these being applied, please
+> > > let me know.
+> > >
+> > > Responses should be made by Sun, 24 Jan 2021 13:57:23 +0000.
+> > > Anything received after that time might be too late.
+> > >
+> > > The whole patch series can be found in one patch at:
+> > >         https://www.kernel.org/pub/linux/kernel/v4.x/stable-review/patch-4.14.217-rc1.gz
+> > > or in the git tree and branch at:
+> > >         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.14.y
+> > > and the diffstat can be found below.
+> > >
+> > > thanks,
+> > >
+> > > greg k-h
 > >
-> > This is the start of the stable review cycle for the 4.14.217 release.
-> > There are 50 patches in this series, all will be posted as a response
-> > to this one.  If anyone has any issues with these being applied, please
-> > let me know.
+> > arm64 clang-10 builds breaks due to this patch on
+> >    - stable-rc 4.14
+> >    - stable-rc 4.9
+> >    - stable-rc 4.4
 > >
-> > Responses should be made by Sun, 24 Jan 2021 13:57:23 +0000.
-> > Anything received after that time might be too late.
+> > > Will Deacon <will@kernel.org>
+> > >     compiler.h: Raise minimum version of GCC to 5.1 for arm64
 > >
-> > The whole patch series can be found in one patch at:
-> >         https://www.kernel.org/pub/linux/kernel/v4.x/stable-review/patch-4.14.217-rc1.gz
-> > or in the git tree and branch at:
-> >         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.14.y
-> > and the diffstat can be found below.
-> >
-> > thanks,
-> >
-> > greg k-h
-> 
-> arm64 clang-10 builds breaks due to this patch on
->    - stable-rc 4.14
->    - stable-rc 4.9
->    - stable-rc 4.4
-> 
-> > Will Deacon <will@kernel.org>
-> >     compiler.h: Raise minimum version of GCC to 5.1 for arm64
-> 
-> arm64 (defconfig) with clang-10 - FAILED
+> > arm64 (defconfig) with clang-10 - FAILED
+>
+> How is a clang build breaking on a "check what version of gcc is being
+> used" change?
+>
+> What is the error message?
 
-How is a clang build breaking on a "check what version of gcc is being
-used" change?
+make --silent --keep-going --jobs=8
+O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=arm64
+CROSS_COMPILE=aarch64-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
+clang'
+In file included from <built-in>:1:
+include/linux/kconfig.h:74:
+include/linux/compiler_types.h:58:
+include/linux/compiler-gcc.h:160:3: error: Sorry, your version of GCC
+is too old - please use 5.1 or newer.
+# error Sorry, your version of GCC is too old - please use 5.1 or newer.
+  ^
+1 error generated.
 
-What is the error message?
+build error link:
+https://gitlab.com/Linaro/lkft/mirrors/stable/linux-stable-rc/-/jobs/980489003#L514
 
-thanks,
-
-greg k-h
+- Naresh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YArqULK9c1Cnt5gM%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYuzE9WMSB7uGjV4gTzK510SHEdJb_UXQCzsQ5MqA%3Dh9SA%40mail.gmail.com.
