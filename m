@@ -1,141 +1,136 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVPTVGAAMGQE4Q6U5JQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBPX2VGAAMGQEE7BOPIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5DEB92FFD0B
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 08:08:06 +0100 (CET)
-Received: by mail-yb1-xb3d.google.com with SMTP id r1sf4593730ybd.23
-        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 23:08:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611299285; cv=pass;
+Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D23412FFD46
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 08:22:39 +0100 (CET)
+Received: by mail-oi1-x23f.google.com with SMTP id j25sf1881984oie.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Jan 2021 23:22:39 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611300158; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dg0HrBh1irF9kLkIAvV1kQ19e7cXMXA3T5MUBmnOC3RRBE+HClGAQb7MAqcJ0rUDZo
-         onJjDPTbHa3nVNyWgL9FHOWHCl7EXILKasVPnmdnJdAaZ4okzvKB1Fz01Asc9WNWp7OG
-         9MId646KgFC+31bMMQhfY6G1gvwMzuGbW9tp9rYY478E43d91jOMCMyzb/1TzdnJ4vHZ
-         ODMMAxrSA4498G6mJIKPSNsx6uMIC2M/uMQ+eoS6XbJDFXtamE8xRBUCVbGIjeaAwtYN
-         7nWiXYSyVlszRSnA7HQXcGxrHBj9hIe+pyEGxtj+Yld++j4ONoECsgKs7jKvirjamUC3
-         z94A==
+        b=GPf+/EECV6eM7Ol8aJneWDH7JshodOEXl098BK5pT6U1GXL+B8TVQzEJkrnoqvopAi
+         apTJYZGhvLDPcoVwDylbhntvccngKlYIkDd4T7VwbnuOQnx3t3s2cjzXmyiL5ujLggAQ
+         hF0xYh/IjBgjbzgMMNannnWpyoEBrAWb93BT3q3LQMaX5Ihef86+DALIt5HmWUChJLSS
+         jWIoWXa2izXUwmVhugotkmXBI9ly7iWihimImpoK0/zgEmJjM21Css3d1BXehQa8Ihgm
+         tLt2qmmqtov/VKiZhD7r1NrMLIau5KsxQ8hCMoX5p3tg6AgD1Q0b7P05lA8vXhWJ3mdm
+         /z1Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=cFxwS5PW7yrU39y+5MoT2UJdgPUI1bQmzXRlICxfD1M=;
-        b=IgJNataOXV5wUD5CqDmqELJrpdoNHkPiTb4ul5sYHKEV870Qy0wEGwjheosEjWNrmn
-         94iIheNNbr4vxa1BtxZKRAO+yprT9mryu6LK7vcToJL3decBNditU2SIIvT3LFDE0rr9
-         Aqc5CvzQDUNwcb9mo+DD2Z/I2Ko7l0YEsZs84kNpK9NATF7MqiwMrsIuO/AvLSryqYBL
-         KOwKHKNy6anfIUOu3Sl6AjNC3Vbf5Aesz/qz0nbFcw0SCAsZO51L/d7Jb3SteVr1jujT
-         c6HVdFxTUJLtV8ZaduGNT5yApBfKRndyNQHI2woG/e7wrBfOjl7HJrZ14GuyC4Q+il16
-         3lTQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=YhYqUlq2q7b4R23IPWl+s0Ghf/HwU6yiDuEG1ZO5BFc=;
+        b=Ds/vV9SUyjcpuJx/C+V7fgc/h8Huxf3HstUSs+UVpmBOZKGSiCCDLsbTTBdIxVTSDI
+         oHpslzSwsszXm4xba/ed6KidTSMNX7UKxizRI8THu7d9rB7JyiwDeLVnB0jCfNzpZzYF
+         v7SHvI2YdWBMmUvFxT9VBbfgVtVvY6TH1QrK1r7whE505+F+DMFN+kgY9E4Nx5pGTOBI
+         M10Y4552Q+CnbpqOt8Oemc5xqvGac9zEcvRaB+Uo1R7yIWaz15ryWMC74MEtuOYBVBzY
+         y9rnbBkyU1K7vhEdxloCQ7GYgAxUAccEadGuUALxXQiQQ8+FZvETRLHtV8RlQHRzvSgN
+         Ot+Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qOlTtoh2;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72d as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cFxwS5PW7yrU39y+5MoT2UJdgPUI1bQmzXRlICxfD1M=;
-        b=emweK6+Y/hWCQB/XwNKT3iJPLfgNqGl/rDHaIkomD317cn2QlziKTI2pZ9XX+UAZoY
-         UdMlyrTj+lrRTzDmsFVsfuwb4/o4JOhu+9zUdDSLVXD7NGBEq1h3D0OoukMlB6TtOuXo
-         ai5fnCHmIn+Ae4USHbgeXYpGc61S3qN9okVMEDXA6L9JCX3N0tT7gu1t6BkOR4hejXJX
-         B0JO6RFuIp1vvOO91eYyDVWOc1sPiIGeio+d0c6qmavTRNlY3d71PdH915lxPvahE1HM
-         wG/KjITGmG+wIhHsIevb5neWbvxcF8PlnpTpO9mwnhJDsmcNbpfkLzeltwvho0UW7a/H
-         rgzw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cFxwS5PW7yrU39y+5MoT2UJdgPUI1bQmzXRlICxfD1M=;
-        b=YEMQbmzYL8myfUrHVMATQ13DoF0ju4WnstS9Rj1mrYY+ysoGx+NWAG3txYqz0ef3FX
-         O+9H8Jq50cz9LT77mJ3FCGISAh83Ufq7/FIs0t4qbpRARCirueNZ7IefTpbFSPl8JWVr
-         PbzVs5u/0orEPl5mi1rNc+DBKMeG5FEdgZBvQAdkWd0kk24asMXnh9wIaICVORVbskKb
-         q0H9vmBzOAKZo1YW3iDvWDd93uNIFF8CmKjTbSqSsDKsIsDv5arZS6phGRa49iaUaLXt
-         D8648T1c0rs4eoVNZ7w/H/JEeei7HvlcyjVEHQ9ZMVuvqwSOF1r656Dnt1K1mCAO9rfR
-         lCeA==
+        bh=YhYqUlq2q7b4R23IPWl+s0Ghf/HwU6yiDuEG1ZO5BFc=;
+        b=Saxeshwc2EjgBTdM5WJ4NRmJBPtqV30oHeGifOgrqwPsbTStUWNAabP0QtwoBIlZP8
+         6NC4IZKcOwy0OA3agAC/VKCD8ajQXpaVNwl1gB2BSu+ZCfly5XTJ18N+w34SdKoTqInR
+         Ff8NSlMEplGuuxkXZjamf/QU92VS5Ige1oelW2HU5vuTbsUqgk7dERbqhcwDW5b/rk8B
+         b7bHK2dhLZPLTfKTsfcD8ntl7mAJt7tmLPlUP0rIMTXsldCJHYfNpYftVfiujNhY6mx2
+         k2vpsmzvo7gYix+Pgw/ul/OsXt+ucQo18RWFLL2ahjjXRWenw/tagGu/yk0eUC4SIShS
+         QqzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=cFxwS5PW7yrU39y+5MoT2UJdgPUI1bQmzXRlICxfD1M=;
-        b=msJz7BmyT5o5YYJgK2m7kDIwkemivA6A16W1U7JThho9amYu/PAmUdszlRapdKClXM
-         dMh4iwnXEIeLYp83phqajM+pjZr5qP2WvJCidAvJk5dpOWmCL1LJEnfQaRlPdXuwknuf
-         KhF4zDYe0v+hzfL5dRKpEk+lOz1gm7byqc2vjC7LAO4WYBO23qrMnildWk0UY15oUI2h
-         rmJZpOL2a6Zf64KZEVM062Ir3rvhfpRETuFyekgCjbB/OeJwdCswdYeWDk74UUs7Gwcn
-         uxM7hl+i4MWGtNGtwlCpljhdzcYO1T4eER+d0nMto8gPkk31J7Tcxg1GOpWFfmb6AeCF
-         kLqQ==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YhYqUlq2q7b4R23IPWl+s0Ghf/HwU6yiDuEG1ZO5BFc=;
+        b=HQy+yJjWGdj1x33fCr4VaJSjuU7axq5bDCKKBzxWLfzzwGXFscJfTbd5RfsMKH+qlQ
+         cC6UndTtXpXY9JEP6IjKJjywktW3A1TOSJvyONILFPzqXP+W2FOSIUp1vu4MknhMLOUd
+         Nvf6NeJ3obiXixYw7E4eDzqHRWNglNo/rv9mQ4+X14imdUt1tLOjpWGjQ9EvGyOIrUCO
+         7MUec7LRFr2R7RWh+PphXVYdmKjgrC+rnbORPTE0tuGh92WCABZadadU2LKYJT/DoVAP
+         dqzq3cQyxtryBdRpylP73oZnsdTMmGiVBTLwj9E5XtloYQKo+mai94N2s3CCy+ijBeZb
+         Ib4A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5325vmdHkDGmPlcN62wNNEzOJC4GxpdHcWIjXDLM4WDoPfQMTFet
-	EoNjGY81i6boZqELD8pHiVs=
-X-Google-Smtp-Source: ABdhPJzYkTVUq6c3uWxwiu59nqnaZmb5a+u+SyPXVIDXpYhPzTcIW89dpdepy1zy2Iwv1l4dvdK1Og==
-X-Received: by 2002:a25:2505:: with SMTP id l5mr4494724ybl.292.1611299285407;
-        Thu, 21 Jan 2021 23:08:05 -0800 (PST)
+X-Gm-Message-State: AOAM531nG53PBFR17SNwEeIwcJ5FBIr26m3niS3eubU09do5dY8n72Eq
+	23ajgKtNIEDVkjqygXjic+M=
+X-Google-Smtp-Source: ABdhPJx8biG9+4vswXVe6/n6HZAlZvXTSWKS8go2j2tx2WNCIiWJJ2dwHN8Gcc8E5U4ce90tVc6ODA==
+X-Received: by 2002:a9d:745a:: with SMTP id p26mr2474858otk.206.1611300158497;
+        Thu, 21 Jan 2021 23:22:38 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:ff19:: with SMTP id c25ls2565748ybe.2.gmail; Thu, 21 Jan
- 2021 23:08:05 -0800 (PST)
-X-Received: by 2002:a25:5c44:: with SMTP id q65mr4317111ybb.394.1611299284998;
-        Thu, 21 Jan 2021 23:08:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611299284; cv=none;
+Received: by 2002:a9d:69c2:: with SMTP id v2ls601223oto.5.gmail; Thu, 21 Jan
+ 2021 23:22:38 -0800 (PST)
+X-Received: by 2002:a9d:640b:: with SMTP id h11mr2326872otl.224.1611300158100;
+        Thu, 21 Jan 2021 23:22:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611300158; cv=none;
         d=google.com; s=arc-20160816;
-        b=uiMDOqxwbDhjhQAcbTxUryjVWoYrF3HQ2y7wIlulA3PFoVd3/wTWKeVJMmOA2Fmbru
-         vlDgWeFQVjRpCP/oH92/61qfkLsPRWjtBoJQPCjHpNc5TqHLxOPt4s2/H8itKQ22h4Cb
-         f8j58+VO7QaYH2kV4LLSR37Q/gfa2kWASk1RL3iVDe78pM9oSrVAISlrCx5qGvDhweLd
-         K9C4BMDToJnR/KrkMBGbJ0nlFacHw07sXoKxrKlIyqZgOl2Z9q/vo8lPy2CHA6QTcXXw
-         weXEh58Tjgn5B56aDnYt/N6x8QtHEHANiVNC2Fp+apWP/jyFST3RvuRhQjKvozBKtGyD
-         FPWQ==
+        b=t6HSzrmvz82GPlNz0FFAnaEbBBDOJi4nbyT88bfuGR5HyJdG+l0GI3X6JlwlV54dLi
+         Rd3mOTz3i5MPN4oApvX/FNxx6CYKh26jn6fejN9WwJFUNZLyGniHEc7XH7BWFcOz5gva
+         O2eAMBquu04cBwiOD9mYP81rPj0poSRbTK+PQavSzujAg5hpN9CBt6kYMaONt3NAJmIH
+         DQtqPuxFuoVGgWCAZL/us8grM8LeBFW4YrS/9eE0cEjlmuyVuFpaSHyi+/DkN0m35SIJ
+         uGJRKScCJQujGwb20e3cNTX9xO1myA9UsedM1V43KFKNtjRgx7TADSMhr0zDvZ7iukcs
+         X00A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=vmMfFppZkK3hlDi2fZ5GjzFDLVbQdDDB/UVAy+8OTqM=;
-        b=P5yPyxdKbN5yRJjFt3+2Mze5nDyPkN2x8eVp0VX8trcp1mqZDEJ2PFLCN1MWoQr5lf
-         feMbR16WYlF2MYnty4YPoIanRfs4w3qnz+Fd2EtQab4B7F2tBkKDiZXTea/cqjczio0B
-         3LlgN5XaiqfsYQoT3iWBsAWJtnfYXY5XFobcD57lGqFwz25OQUKALKqETehBHDrzAiU6
-         feDA8Lbzd+v0+EUYt8BsEjjMWQbq4vutzacm/t4Xwmc6mPms/d7UPZNZpfpBZW92V5sL
-         QwGn8Uc439rEVjyr/8We5NJBhrL/IBf1duW1XBDTx7wt2Y1+EuPyhKOaVMJoNVDfZOEV
-         Nqqg==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=m+qG0acOPTBtPw4I322UeAEEgmTYl000DH1snNaICkc=;
+        b=tAmQB/811VW33DttuSB4q0gg0zzvDY4WBMAFrSPsbNnS19IHgJWKAuB89jrk5i/L++
+         ZnFH88dVNoS73x7nEt+2RJ9iKe1MQzV8v74VHUhhUPSr3Lye91ZDtvB6H59Oi2kVGtF2
+         ss7omJbgEM/d9bcv9LgYRMWw/2R/uU7H0jd9FUpwRDBp69uiFSNfjMDC4jNDCECFtnQs
+         NLj69m1regDUkKhGD0n/7yMd3He1hRoja43H1hlupapqueE6fb3A/z7iVH4dvHvi99RC
+         AhY275dcwpm/BzJYYwf9fA5kcK74xZYVefEGkKDpFV5fogzieMDjxPVFD976R4y0/7xj
+         UHnw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qOlTtoh2;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72d as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x72d.google.com (mail-qk1-x72d.google.com. [2607:f8b0:4864:20::72d])
-        by gmr-mx.google.com with ESMTPS id x13si944444ybk.3.2021.01.21.23.08.04
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id s126si369505ooa.0.2021.01.21.23.22.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Jan 2021 23:08:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::72d as permitted sender) client-ip=2607:f8b0:4864:20::72d;
-Received: by mail-qk1-x72d.google.com with SMTP id 19so4257704qkm.8
-        for <clang-built-linux@googlegroups.com>; Thu, 21 Jan 2021 23:08:04 -0800 (PST)
-X-Received: by 2002:a05:620a:16d5:: with SMTP id a21mr3629728qkn.188.1611299284630;
-        Thu, 21 Jan 2021 23:08:04 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
-        by smtp.gmail.com with ESMTPSA id c7sm5548702qkm.99.2021.01.21.23.08.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Jan 2021 23:08:03 -0800 (PST)
-Date: Fri, 22 Jan 2021 00:08:02 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: arch/riscv/kernel/vdso/vdso-syms.S:2: Error: junk at end of
- line, first unrecognized character is `@'
-Message-ID: <20210122070802.GA3498705@ubuntu-m3-large-x86>
-References: <202101220925.JILgZfQl-lkp@intel.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 21 Jan 2021 23:22:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+IronPort-SDR: DVOlaC2y/tRYMLTcHoWeTEaTxvZy09ANGWgzsAYcfIsxcELdCPqh9lgNJ+yeTrZvw7PgsRz3SW
+ NBaxI0ScrLUg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9871"; a="179488740"
+X-IronPort-AV: E=Sophos;i="5.79,366,1602572400"; 
+   d="scan'208";a="179488740"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2021 23:22:35 -0800
+IronPort-SDR: ErB1AWbj+DyAwa//ZXhe9li1HwS5CCKgY2kPqzlmhmgKRbDH5UvAvc2NUN3+mBmACk2IFCzy+l
+ AsGEVr/obvUQ==
+X-IronPort-AV: E=Sophos;i="5.79,366,1602572400"; 
+   d="scan'208";a="427876246"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.117]) ([10.239.13.117])
+  by orsmga001-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2021 23:22:34 -0800
+Subject: Re: torture: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Fangrui Song <i@maskray.me>,
+ clang-built-linux <clang-built-linux@googlegroups.com>, lkp <lkp@intel.com>
+References: <2b2a556c-5050-abe4-32f6-72621624bd8f@intel.com>
+ <CAKwvOdk_yB9esvxyuYQ9zdraiK41fm5ncbdzw4GvLnX8FXbShQ@mail.gmail.com>
+ <CAKwvOdn+TW8icmE7D_4OXPh492c908hTa7mA5MVZB1uRgg8btA@mail.gmail.com>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <41c18ad2-e824-28a5-2a7b-cbcf33a9d8de@intel.com>
+Date: Fri, 22 Jan 2021 15:21:39 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202101220925.JILgZfQl-lkp@intel.com>
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=qOlTtoh2;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::72d as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+In-Reply-To: <CAKwvOdn+TW8icmE7D_4OXPh492c908hTa7mA5MVZB1uRgg8btA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 134.134.136.65 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,53 +143,127 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jan 22, 2021 at 09:41:35AM +0800, kernel test robot wrote:
-> Hi Palmer,
-> 
-> First bad commit (maybe != root cause):
-> 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   9f29bd8b2e7132b409178d1367dae1813017bd0e
-> commit: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c RISC-V: Fix the VDSO symbol generaton for binutils-2.35+
-> date:   3 months ago
-> config: riscv-randconfig-r002-20210122 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project bd3a387ee76f58caa0d7901f3f84e9bb3d006f27)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install riscv cross compiling tool for clang build
->         # apt-get install binutils-riscv64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
->    arch/riscv/kernel/vdso/vdso-syms.S: Assembler messages:
-> >> arch/riscv/kernel/vdso/vdso-syms.S:2: Error: junk at end of line, first unrecognized character is `@'
->    arch/riscv/kernel/vdso/vdso-syms.S:4: Error: junk at end of line, first unrecognized character is `@'
->    arch/riscv/kernel/vdso/vdso-syms.S:6: Error: junk at end of line, first unrecognized character is `@'
->    arch/riscv/kernel/vdso/vdso-syms.S:8: Error: junk at end of line, first unrecognized character is `@'
->    arch/riscv/kernel/vdso/vdso-syms.S:10: Error: junk at end of line, first unrecognized character is `@'
->    arch/riscv/kernel/vdso/vdso-syms.S:12: Error: junk at end of line, first unrecognized character is `@'
->    clang-12: error: assembler command failed with exit code 1 (use -v to see invocation)
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Hi Nick,
 
-I believe this is https://github.com/ClangBuiltLinux/linux/issues/1266.
+The problem was found by the CI but bisected manually.
 
-Cheers,
-Nathan
+Best Regards,
+Rong Chen
+
+On 1/21/21 4:51 AM, Nick Desaulniers wrote:
+> Oh, this is a nice service! Is this new? (bisection of LLVM itself)
+>
+> On Wed, Jan 20, 2021 at 12:49 PM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+>> https://github.com/ClangBuiltLinux/linux/issues/1250
+>>
+>> On Fri, Dec 18, 2020 at 1:47 AM Chen, Rong A <rong.a.chen@intel.com> wrote:
+>>> 0day found a regression on commit
+>>> a084c0388e2a59b9556f2de0083333232da3f1d6 which causes the below issue:
+>>>
+>>>
+>>> user  :notice: [   90.913529] 2020-12-17 22:53:55 modprobe locktorture
+>>>
+>>> kern  :warn  : [   90.925547] torture: Unknown symbol
+>>> _GLOBAL_OFFSET_TABLE_ (err -2)
+>>> user  :err   : [   90.980297] modprobe: ERROR: could not insert
+>>> 'locktorture': Unknown symbol in module, or unknown parameter (see dmesg)
+>>>
+>>>
+>>>
+>>> commit a084c0388e2a59b9556f2de0083333232da3f1d6
+>>> Author: Fangrui Song <i@maskray.me>
+>>> Date:   Sat Dec 5 14:54:37 2020 -0800
+>>>
+>>>       [TargetMachine] Don't imply dso_local on function declarations in
+>>> Reloc::Static model for ELF/wasm
+>>>
+>>>       clang/lib/CodeGen/CodeGenModule sets dso_local on applicable
+>>> function declarations,
+>>>       we don't need to duplicate the work in
+>>> TargetMachine:shouldAssumeDSOLocal.
+>>>       (Actually the long-term goal (started by r324535) is to drop
+>>> TargetMachine::shouldAssumeDSOLocal.)
+>>>
+>>>       By not implying dso_local, we will respect
+>>> dso_local/dso_preemptable specifiers
+>>>       set by the frontend. This allows the proposed
+>>> -fno-direct-access-external-data
+>>>       option to work with -fno-pic and prevent a canonical PLT entry
+>>> (SHN_UNDEF with non-zero st_value)
+>>>       when taking the address of a function symbol.
+>>>
+>>>       This patch should be NFC in terms of the Clang emitted assembly
+>>> because the case
+>>>       we don't set dso_local is a case Clang sets dso_local. However,
+>>> some tests don't
+>>>       set dso_local on some function declarations and expose some
+>>> differences. Most
+>>>       tests have been fixed to be more robust in the previous commit.
+>>>
+>>> :040000 040000 930703e51e21ae9aea20ad64530d74ea05ea8f42
+>>> 01c6ecbff5899804cdd30358c09dd36119859235 M      llvm
+>>>
+>>>
+>>>
+>>> git bisect start
+>>> # bad: [eea67baf8706d82268d26e908cf5415c5af114ff] [llvm-profgen][NFC]
+>>> Fix test failure by making unwinder's output deterministic
+>>> git bisect bad eea67baf8706d82268d26e908cf5415c5af114ff
+>>> # good: [175ebad958a0ebaf6c56c20ab30b9d4347742c29] DebugInfo: remove
+>>> unnecessary mtriple from test/DebugInfo/X86/abstract_origin.ll
+>>> git bisect good 175ebad958a0ebaf6c56c20ab30b9d4347742c29
+>>> # good: [c4a04059026b98e8c23981f1195a61494a661cdb] Add `Operation*
+>>> OpState::operator->()` to provide more convenient access to members of
+>>> Operation.
+>>> git bisect good c4a04059026b98e8c23981f1195a61494a661cdb
+>>> # good: [ad923edfc1ce0c0b60e8270954c8d098aab3c3f8] [RISCV] Add support
+>>> for printing pcrel immediates as absolute addresses in llvm-objdump
+>>> git bisect good ad923edfc1ce0c0b60e8270954c8d098aab3c3f8
+>>> # bad: [9fe1809f8cac141fdb5cf7e6e05ef1ea4818343c] [X86] Delete 3 unused
+>>> declarations
+>>> git bisect bad 9fe1809f8cac141fdb5cf7e6e05ef1ea4818343c
+>>> # good: [8925d2347432b69d7e4b721a4ced85df0ad782b1] [BasicAA] Add recphi
+>>> tests with nested loops (NFC)
+>>> git bisect good 8925d2347432b69d7e4b721a4ced85df0ad782b1
+>>> # bad: [ee607ed5c36efd8e0536ddbeab1f2025b0e5f045] [debugserver] Call
+>>> posix_spawnattr_setarchpref_np throught the fn ptr.
+>>> git bisect bad ee607ed5c36efd8e0536ddbeab1f2025b0e5f045
+>>> # good: [68edf39ededf97a12602676f9cd537ed689151f0] [TargetMachine]
+>>> Simplify shouldAssumeDSOLocal by processing ExternalSymbolSDNode early
+>>> git bisect good 68edf39ededf97a12602676f9cd537ed689151f0
+>>> # bad: [a084c0388e2a59b9556f2de0083333232da3f1d6] [TargetMachine] Don't
+>>> imply dso_local on function declarations in Reloc::Static model for ELF/wasm
+>>> git bisect bad a084c0388e2a59b9556f2de0083333232da3f1d6
+>>> # good: [37f0c8df47d84ba311fc9a2c1884935ba8961e84] [X86] Emit @PLT for
+>>> x86-64 and keep unadorned symbols for x86-32
+>>> git bisect good 37f0c8df47d84ba311fc9a2c1884935ba8961e84
+>>> # good: [bfda69416c6d0a76b40644b1b0cbc1cbca254a61] [BasicAA] Fix a bug
+>>> with relational reasoning across iterations
+>>> git bisect good bfda69416c6d0a76b40644b1b0cbc1cbca254a61
+>>> # good: [6b6c3aaeacfdc4a482de4af41719b0a4b50aeadf] [test] Add explicit
+>>> dso_local to function declarations in static relocation model tests
+>>> git bisect good 6b6c3aaeacfdc4a482de4af41719b0a4b50aeadf
+>>> # first bad commit: [a084c0388e2a59b9556f2de0083333232da3f1d6]
+>>> [TargetMachine] Don't imply dso_local on function declarations in
+>>> Reloc::Static model for ELF/wasm
+>>>
+>>> Best Regards,
+>>> Rong Chen
+>>>
+>>> --
+>>> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>>> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>>> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2b2a556c-5050-abe4-32f6-72621624bd8f%40intel.com.
+>>
+>>
+>> --
+>> Thanks,
+>> ~Nick Desaulniers
+>
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210122070802.GA3498705%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/41c18ad2-e824-28a5-2a7b-cbcf33a9d8de%40intel.com.
