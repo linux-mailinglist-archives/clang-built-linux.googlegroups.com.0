@@ -1,139 +1,159 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBKXPVKAAMGQE5SVGOSQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDIZTUWNWICRBUEMVOAAMGQETBM6ETA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5773A30019B
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 12:31:56 +0100 (CET)
-Received: by mail-io1-xd39.google.com with SMTP id y20sf8162920ioy.18
-        for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 03:31:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611315115; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5514030031C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 13:34:26 +0100 (CET)
+Received: by mail-pf1-x43a.google.com with SMTP id o77sf3302782pfd.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 04:34:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611318865; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tdY+jcPa64vJLXD0jcKe5qdsQDB9wtkODjfBhXP0xY4CnXcQmwHvhxNqKHSO8kbGi2
-         53GCp+CCJiNTOizFQjXsdZJFkO1Yr/6tOumyj8n52I5n/ftQwSlJrW4DBgh/yV0FgoWT
-         IXqu/s7sCzhltoSpj2c9jiac6QcFkbCpFsC0DFapgYqJjf51itMuhxp81k/j+qvHGKnC
-         +x9aE6WhI49YUiefiLV6hlyN2qNCJF6rNaqNrv57DA2IGfOorFGvXuARVmsXgZqB3F5+
-         +fKcSqW24oRxuy/cLqScGIv8pEFttybwvTAmu/bTgG8mbLDBqwKrFIJXNkQ56SCXAtrx
-         FjdQ==
+        b=zl04/Zg7Xow09JcrDQ75guktWkwWpsnyll7vCY7WoKL6PPyMMG7YOVsIslc8OePWKb
+         lMHCa2gm8KipqCARIoefkIbnK3RCQaq1Z58Ay/mt0z5r/6AXurQCfm85VnSqPaQ3LsBP
+         13vY/LzbadtJAGnHk5aYXNw3njjJFInxCeDIuS9JS5Y94LgwqadPXYVP72duk8gy1QVv
+         720cP4QS7no5L3uEpq/JMzaLrGhiYGfUcZV/acA+SK/VRwYfDlGb3EQdiVJTe6VmeHfa
+         xZOw4bZIuhVxiF+I5KKCzm6HE3V2W/iV3HdP2l38oUpTL/h1jBsr8k8V4E5UhDtyQFVl
+         v9sg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=mOrJEV5Z7pBqkm+eZapLIQbCkukifWO9O9+X1LXQMfM=;
-        b=WoU+pb/jgk5x/2/YgZQsD298COTYxnRaFy+/QCBI1tcUeMwJIPOzDsyXD2gYBkOt4l
-         pxR97eCoTvmhswrXd3pGnYi37FXpFWPjKBIKIa5/fVBHR8g+TBROXvz2vwdFXp4DDW2Z
-         LUsdoehOD4EGHORS7KsAwiahFDp7PT2NGWJfX9IrQMDkqk4v7d63KQy/cul/b2Sr3NCj
-         7VQ9evLmvoNUqKOZVHIi9QW+a05Piy9JNqW21CYAntlN19qMMyNmMoyuCHplbnjT5yEu
-         Rzxl7jpCicgfJle9VgkN2zonmJYUqez73mBUG53dbs/+Ag/HBPOWXM4z9vQ92eVtBqNg
-         +/3w==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=8lsFSyx+rGJ9eSpPQi+wo7gxm/4V5keHLxA3JDXBf+Y=;
+        b=wJl0a0R5kDuGsJKID0Tl3dLmgxaIyo7QRBal1PGn6sx9mbaN/X3U4JAD9Cg6w2+9wh
+         7nCqZTACCxubpOlftdx0VPCRqZLt0HtDULkYr3lDpsA1IM8qjW6LcfjBotlQyGH3sWcL
+         xYimba1vcZBEWnn3H1yJ5xHHrh0D2CQsr0Gl7fS/VNu/b7+qeBHAcqS1tDdqceWNgIJ7
+         5vPUpg/UGNOrP/zr0VFmjF58xo41WP3l05qCXXKbFM/tJgzBDp3+H3rlnhL4fMgQ/j2R
+         PoMeMgZOJXXPERqkOsywwM0I7d93K6d29ze8HwuOlFdtLru6GswLnzB8yRC0OvHxv3R2
+         L7Aw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mNqn8Hs5;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2b as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=tmNTmEw3;
+       spf=pass (google.com: domain of dan.carpenter@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=dan.carpenter@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mOrJEV5Z7pBqkm+eZapLIQbCkukifWO9O9+X1LXQMfM=;
-        b=c5HbCPSpuAZrZ3u31tJZqoQ30JH0Q4GCRP5AseyFvE7Jjk7PFoARQGp564dG65wxri
-         eBwR2+4zRBAmG/7xjAsLhnFNwBgHFEMhdN1qWWPAgcGKr/axmSTeAKPl6ebW8kV5TzON
-         FcK5A2JkFSylwI+2RGAyIGeLsUsYieV9V1VrtlE8BiVl3BU3YijYPnK9RszZfz/a6rN+
-         5pw0Fq4YZBZ4V/IfujdO3NlhZ8liQPEEjt1MZSXBXy6mXMp3R/2Y4q01iXYmLsQiRrGJ
-         MWlbzLGlustsECNARGRmvQf6zxujBzg7zgk9qNu2VNdhGAHRStY5eBtJHf7lTXsa7/B5
-         KUSA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=mOrJEV5Z7pBqkm+eZapLIQbCkukifWO9O9+X1LXQMfM=;
-        b=qyQAlRDt6pSuUGer5rWk6kBjeen9P44msCb4uMyIxS3LKC7FB5+ZOE34KswsB4VmPM
-         PuGGhHYvMZDBgNm6QQnKk26itPPXzob7HFt/8g/p5SJIzCcD9y0Pbv8ZN27IoTbZhR+h
-         50LOTmjhFsvGNme/KUVm+leEqUyBwaCSG456cAYoOFZzNGViFJgZhdZohtCjlsyobtzl
-         Bscim1PmSAGjZsVKKILgJbTdy6ggsMhybFpFguksOEleZ9WHhEVxnFTA16RInzaHkkA8
-         iqjYqEOZHUjkhpWxMIhKVls4SeaV56885cHVEKfZZKSxXISpy66ae7PwjeHvc15v5cXa
-         oDIg==
+        bh=8lsFSyx+rGJ9eSpPQi+wo7gxm/4V5keHLxA3JDXBf+Y=;
+        b=GNp2Zrgv111cipQRIDVvsInV/v342iqe2vAgKIMW8x01DcFX+a3i1c9V1IJrE8Oquw
+         EXc/NwINmyBORgLEP7Vkamp2QfRlnPHF5Hyseh4XoxzjR3JUfUEN2tpk7Y+jG2IF1hXx
+         RjDnZq8b0ZAm4MMxFUV/jMqB/LDSbYTZT2wFg1KxuROH/GvfyI88AQ7/W3r4pfCeQwuj
+         8RT4n7QjIZ/iYVM9muCF1w+1yx08AS7UQ/a5nG2lTujl8ekHQU1Uer7u9lwSVJAxXgjV
+         UvdexZT7bTSsklt5Iq0J7cdK6ebEUSynyDwLzkve+xN6r6XtBRiSqkMHQ29PXtVufU1d
+         3kqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=mOrJEV5Z7pBqkm+eZapLIQbCkukifWO9O9+X1LXQMfM=;
-        b=TVjuFucXgx3E6Z3U9UBvttvwlsWWRCfoK6LXyrcfup710fQDSl3aH7BrJBJ6WKSQ8d
-         FTbg+lazF16+e7jvvXmVP1Y07zKoIEpAhbkIDDWsdmZBel8KNVCuPEODpJJKoC4MGIK8
-         33NYbILGuc+xkkhAA/LePaqzJCk+dFQPHqKZhUefp4k0rpRSMJuFt4Sh5YFQyNVLDKrr
-         KPpSGn4wjYbXmoeMLgRc8C5EA2iXuMNFP82oFy2c8SUVP2Q53F1IbNoi1HCmvIidbtVS
-         sEOYJ5ynR6x+u1jhAilsJg8d05/gryQShjrXLEk+ihvYegNXvtkgB2/znfRkkGLt3t6p
-         8trg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=8lsFSyx+rGJ9eSpPQi+wo7gxm/4V5keHLxA3JDXBf+Y=;
+        b=Ut4cRXE7wR7OJsbCY1N0ZG46Pqvr35IMljC6NQBcwnRoRWgYu6EGSijBMie2ID54Qo
+         G01xsWlrYG352iMGGVAG9Yz7TVY7TyC9OvsuV1Gws0oBuymYUCx4VIlg0s4/IkOmiT3+
+         tBG/VhdYbXTko+WvtYrUpv06BntXFwXKxQOCkvgIRz0h6wMhHKGZX0tlGAqBs7ka1Lus
+         ePHWqXTuXmXcIDuhtPMBkXDL1isBWdM2vWf2xJXwBq3IJHFgGBFoVAASLhd7+Un2cFho
+         z18AH4u9nfiVNJv5KZUs5ocPd3B5am35fMql6WAgy0EfrMJ238/B5ZjbmPTpcdGeyhf3
+         rjHw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533KOweMjXOlRdl0jWWsLlvJ8ecIfIR1ZFN2mwgHk1q5/z9m/SJV
-	shh0amRUL0I4XnvFIwNV1DE=
-X-Google-Smtp-Source: ABdhPJwt5OjANdYvNccQKkQiIQ1YDX43ZuPrxDd1JRULuhC9Vxe6MpeHSAFek7nbu7gzqmPp5XFA8g==
-X-Received: by 2002:a92:b011:: with SMTP id x17mr3483068ilh.179.1611315115105;
-        Fri, 22 Jan 2021 03:31:55 -0800 (PST)
+X-Gm-Message-State: AOAM5318xPemTxE9r0bqgu/G23onCz4vsGZXdCvba4yGtC2tAunI6yS1
+	o393zzFEO2eXCbWcylUUveE=
+X-Google-Smtp-Source: ABdhPJzeRPMWwve9CH5RQy2VbZ9Qua0hv0CxH2megdQRDN3N0s/fgM3kBNxP2lnIgSS/9t7f4QBdNA==
+X-Received: by 2002:a17:90b:128f:: with SMTP id fw15mr5252863pjb.8.1611318865087;
+        Fri, 22 Jan 2021 04:34:25 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:52c8:: with SMTP id d191ls628536jab.9.gmail; Fri, 22 Jan
- 2021 03:31:54 -0800 (PST)
-X-Received: by 2002:a05:6638:378c:: with SMTP id w12mr1589899jal.107.1611315114140;
-        Fri, 22 Jan 2021 03:31:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611315114; cv=none;
+Received: by 2002:a63:545e:: with SMTP id e30ls2117644pgm.4.gmail; Fri, 22 Jan
+ 2021 04:34:24 -0800 (PST)
+X-Received: by 2002:aa7:8f13:0:b029:1bd:f965:66d8 with SMTP id x19-20020aa78f130000b02901bdf96566d8mr1115546pfr.80.1611318864430;
+        Fri, 22 Jan 2021 04:34:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611318864; cv=none;
         d=google.com; s=arc-20160816;
-        b=UDUnQt2zKqXWutgou9Kc1BmWXmX9yVJui/A+f79CZFtwJXtjr9K7LO88BS8NszFha7
-         /fqdkBpuO4S1KonMFuyTFfJ2bOuK0mR7p4EoT2z5WkPrMNZTk5AU2VcN17GwfHMCzxSq
-         Ae6HA/ASPMBY4W8VFmWrg+mzlzWQ3MrzeM90Z36+HsxzbU26zYHBf73nW3JU5petr0xC
-         RqbcdHtfYiMMofmfmvvSyDzPru5cB81vkqUGLkC//ydDgjqnRVbuBYdM55viZXwLg1kn
-         dFBtfOjCTjlFyq9xI2y+He+c7Gg1wNCTlh1cj/Ki3x3GXUh3HqHGJLlPnHsxmXi7jw3T
-         BNrQ==
+        b=GYVVxlFxI3nAVYenru/rhrqKiYTWk5KzhE0QHVLrVyGAW3JcD1n4/d3UgDJ9LlLSW/
+         zkvjIAmrLrHWDPW/SVDYw15g7EY9S67eE6NfhCSqs9cUhh0NDWUnvPnr4gMe4XwU/h6G
+         hTXKlOxxbBFOGX6Mzl9gKTVe65hzsInHTE2vAmCv4p6DogchgtOBI/pOP3k7kl15tIa0
+         awRd7O9bKJe6Ye7IeGLcjWUYpQHfuM8+WpzWpsArzcU249yC68Pu6R6SHA1DxNCxFnE1
+         E+xTfVzw1o1AXU0j9RrCZU0ej9o1HmZJQjxtgDptZYrX8poHi3v+udG3HcHOoyV5aqRX
+         iUpQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=W8cSV+QC0vxLqf4Vaa3dowdm0ykX07lz4eGjPXYc18A=;
-        b=WtRCap2AsaSlZL8ONjNj4iSl0kgwzUQTMoXEQtG+Q3unRKZgHmrrV/9esx8xXHwQgs
-         OpAOMzpJMVJsy7wI+eQ/ibWRpxcFteloh8uPDqNAYnYPQ3lVEc180KI1gRD2hUh1kH+N
-         Dy98blmw4iELKl1Ibo08OibiOp9TtiiIidIRpfTXOL8FGYxMe7bE0X/iNt7ho7QKufy8
-         YziRrgKa3TapaLhKTXp0wcJCXXPeTc8lQs6VpmBcCBD4fsVRTL2Tv/sdzGtHUR2FQ2Q/
-         ftkGjH7NCJ5oSUWIXDSCFpxygFujd/XZgAecEnxi0ExqzNw9JxnmNgtECx5roe8sL8w9
-         ugWg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=jIuCDq1ZmhYjXckv6wk+/8lC9So5NyF6llF4m0ZdrDA=;
+        b=pAAwKzvSsMFzKsz75LuwGgH78QdCuvyoSktAOzLtHHELhkg8zJXSooJ/t4ZPGxe4t0
+         X6mOfLTZn4OZgJD44pSiBT9TYsgKDIU6YeBwQcS/Bg5f7haml/GP4dgq8Py/3/488FCU
+         MfCLx83RY/jcEY1Thkot0FM5AzNdGCSubLbktiEw6zCBmWfhpDK5lx+fAxhBczVw/mjb
+         ycv1ZATEFcqw6M16fCcqwYG/O8ICO9HVUpTkgjKMfKLoM/cFupQhSf+8RcgzKYWvgDrl
+         a6TQeUzEPX2mpImiI3OaxR4Wvu618n7uZ6VtbK6TyaEH+0x/zqXUz8ThMxSUdQMZRQih
+         w5Bg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mNqn8Hs5;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2b as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd2b.google.com (mail-io1-xd2b.google.com. [2607:f8b0:4864:20::d2b])
-        by gmr-mx.google.com with ESMTPS id c2si640249ilj.3.2021.01.22.03.31.54
+       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=tmNTmEw3;
+       spf=pass (google.com: domain of dan.carpenter@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=dan.carpenter@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+Received: from aserp2120.oracle.com (aserp2120.oracle.com. [141.146.126.78])
+        by gmr-mx.google.com with ESMTPS id z18si463912plo.5.2021.01.22.04.34.24
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 Jan 2021 03:31:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2b as permitted sender) client-ip=2607:f8b0:4864:20::d2b;
-Received: by mail-io1-xd2b.google.com with SMTP id e22so10324185iog.6
-        for <clang-built-linux@googlegroups.com>; Fri, 22 Jan 2021 03:31:54 -0800 (PST)
-X-Received: by 2002:a5e:970c:: with SMTP id w12mr2194910ioj.171.1611315113285;
- Fri, 22 Jan 2021 03:31:53 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 22 Jan 2021 04:34:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of dan.carpenter@oracle.com designates 141.146.126.78 as permitted sender) client-ip=141.146.126.78;
+Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
+	by aserp2120.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 10MCYL52136295;
+	Fri, 22 Jan 2021 12:34:21 GMT
+Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
+	by aserp2120.oracle.com with ESMTP id 3668qn3tr4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 22 Jan 2021 12:34:21 +0000
+Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
+	by userp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 10MCFruC189345;
+	Fri, 22 Jan 2021 12:34:14 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+	by userp3030.oracle.com with ESMTP id 3668rgtr7x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 22 Jan 2021 12:34:14 +0000
+Received: from abhmp0005.oracle.com (abhmp0005.oracle.com [141.146.116.11])
+	by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 10MCY4A0004548;
+	Fri, 22 Jan 2021 12:34:08 GMT
+Received: from kadam (/102.36.221.92)
+	by default (Oracle Beehive Gateway v4.0)
+	with ESMTP ; Fri, 22 Jan 2021 04:34:04 -0800
+Date: Fri, 22 Jan 2021 15:33:54 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+        Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Clang-Built-Linux ML <clang-built-linux@googlegroups.com>,
+        Joe Perches <joe@perches.com>,
+        Ralf Ramsauer <ralf.ramsauer@oth-regensburg.de>,
+        Pia Eichinger <pia.eichinger@st.oth-regensburg.de>,
+        kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: adjust to clang-version.sh removal
+Message-ID: <20210122123354.GR2696@kadam>
+References: <20210121160115.4676-1-lukas.bulwahn@gmail.com>
+ <CA+icZUV3p+yQYXn=iVseNNQwUSvoMwztLxNDOFpdFb731kDOJg@mail.gmail.com>
 MIME-Version: 1.0
-References: <20210121082451.2240540-1-morbo@google.com> <20210122101156.3257143-1-morbo@google.com>
-In-Reply-To: <20210122101156.3257143-1-morbo@google.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Fri, 22 Jan 2021 12:31:40 +0100
-Message-ID: <CA+icZUU4Sjs9QKE+VTiibqfLRMH_wEKxPsL2N6-+dQqDNPQL3Q@mail.gmail.com>
-Subject: Re: [PATCH v7] pgo: add clang's Profile Guided Optimization infrastructure
-To: Bill Wendling <morbo@google.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
+Content-Disposition: inline
+In-Reply-To: <CA+icZUV3p+yQYXn=iVseNNQwUSvoMwztLxNDOFpdFb731kDOJg@mail.gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=9871 signatures=668683
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 mlxscore=0 spamscore=0
+ suspectscore=0 phishscore=0 adultscore=0 mlxlogscore=999 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
+ definitions=main-2101220069
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=9871 signatures=668683
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 priorityscore=1501
+ adultscore=0 impostorscore=0 mlxlogscore=999 spamscore=0 suspectscore=0
+ phishscore=0 clxscore=1011 bulkscore=0 mlxscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
+ definitions=main-2101220070
+X-Original-Sender: dan.carpenter@oracle.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=mNqn8Hs5;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2b
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@oracle.com header.s=corp-2020-01-29 header.b=tmNTmEw3;
+       spf=pass (google.com: domain of dan.carpenter@oracle.com designates
+ 141.146.126.78 as permitted sender) smtp.mailfrom=dan.carpenter@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,1373 +166,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jan 22, 2021 at 11:12 AM 'Bill Wendling' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
->
-> From: Sami Tolvanen <samitolvanen@google.com>
->
-> Enable the use of clang's Profile-Guided Optimization[1]. To generate a
-> profile, the kernel is instrumented with PGO counters, a representative
-> workload is run, and the raw profile data is collected from
-> /sys/kernel/debug/pgo/profraw.
->
-> The raw profile data must be processed by clang's "llvm-profdata" tool
-> before it can be used during recompilation:
->
->   $ cp /sys/kernel/debug/pgo/profraw vmlinux.profraw
->   $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
->
-> Multiple raw profiles may be merged during this step.
->
-> The data can now be used by the compiler:
->
->   $ make LLVM=1 KCFLAGS=-fprofile-use=vmlinux.profdata ...
->
-> This initial submission is restricted to x86, as that's the platform we
-> know works. This restriction can be lifted once other platforms have
-> been verified to work with PGO.
->
-> Note that this method of profiling the kernel is clang-native, unlike
-> the clang support in kernel/gcov.
->
-> [1] https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization
->
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> Co-developed-by: Bill Wendling <morbo@google.com>
-> Signed-off-by: Bill Wendling <morbo@google.com>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> v2: - Added "__llvm_profile_instrument_memop" based on Nathan Chancellor's
->       testing.
->     - Corrected documentation, re PGO flags when using LTO, based on Fangrui
->       Song's comments.
-> v3: - Added change log section based on Sedat Dilek's comments.
-> v4: - Remove non-x86 Makfile changes and se "hweight64" instead of using our
->       own popcount implementation, based on Nick Desaulniers's comment.
-> v5: - Correct padding calculation, discovered by Nathan Chancellor.
-> v6: - Add better documentation about the locking scheme and other things.
->     - Rename macros to better match the same macros in LLVM's source code.
-> v7: - Fix minor build failure reported by Sedat.
+On Thu, Jan 21, 2021 at 05:15:56PM +0100, Sedat Dilek wrote:
+> On Thu, Jan 21, 2021 at 5:01 PM Lukas Bulwahn <lukas.bulwahn@gmail.com> wrote:
+> >
+> > Commit 6c8ad4427f6e ("kbuild: check the minimum compiler version in
+> > Kconfig") removed ./scripts/clang-version.sh and moved its content to
+> > ./scripts/cc-version.sh.
+> >
+> > Since then, ./scripts/get_maintainer.pl --self-test=patterns complains:
+> >
+> >   warning: no file matches    F:    scripts/clang-version.sh
+> >
+> > The CLANG/LLVM BUILD SUPPORT section in MAINTAINERS intends to track
+> > changes in ./scripts/clang-version.sh; as the file is removed, track
+> > changes in ./scripts/cc-version.sh instead now.
+> >
+> > Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+> 
+> Good catch, Lukas.
+> 
+> As a tipp:
+> Next time you can pass '--subject-prefix="PATCH next-YYYYMMDD"' when
+> doing 'git format-patch ...' (or whatever you use to generate the
+> patch).
 
-Thanks for v7.
+I've never seen anyone use this prefix before.
 
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com> # LLVM/Clang v11.1.0-rc1
+What does the date really help?  In staging, we apply everything on top
+of staging-next and if it doesn't apply then we don't investigate, we
+just say "doesn't apply.  resend if needed".
 
-- Sedat -
+We may as well just say [PATCH linux-next].  No one is ever going to
+look up the date if it doesn't apply to the latest linux-next.
 
-> ---
->  Documentation/dev-tools/index.rst     |   1 +
->  Documentation/dev-tools/pgo.rst       | 127 +++++++++
->  MAINTAINERS                           |   9 +
->  Makefile                              |   3 +
->  arch/Kconfig                          |   1 +
->  arch/x86/Kconfig                      |   1 +
->  arch/x86/boot/Makefile                |   1 +
->  arch/x86/boot/compressed/Makefile     |   1 +
->  arch/x86/crypto/Makefile              |   4 +
->  arch/x86/entry/vdso/Makefile          |   1 +
->  arch/x86/kernel/vmlinux.lds.S         |   2 +
->  arch/x86/platform/efi/Makefile        |   1 +
->  arch/x86/purgatory/Makefile           |   1 +
->  arch/x86/realmode/rm/Makefile         |   1 +
->  arch/x86/um/vdso/Makefile             |   1 +
->  drivers/firmware/efi/libstub/Makefile |   1 +
->  include/asm-generic/vmlinux.lds.h     |  44 +++
->  kernel/Makefile                       |   1 +
->  kernel/pgo/Kconfig                    |  35 +++
->  kernel/pgo/Makefile                   |   5 +
->  kernel/pgo/fs.c                       | 389 ++++++++++++++++++++++++++
->  kernel/pgo/instrument.c               | 189 +++++++++++++
->  kernel/pgo/pgo.h                      | 203 ++++++++++++++
->  scripts/Makefile.lib                  |  10 +
->  24 files changed, 1032 insertions(+)
->  create mode 100644 Documentation/dev-tools/pgo.rst
->  create mode 100644 kernel/pgo/Kconfig
->  create mode 100644 kernel/pgo/Makefile
->  create mode 100644 kernel/pgo/fs.c
->  create mode 100644 kernel/pgo/instrument.c
->  create mode 100644 kernel/pgo/pgo.h
->
-> diff --git a/Documentation/dev-tools/index.rst b/Documentation/dev-tools/index.rst
-> index f7809c7b1ba9..8d6418e85806 100644
-> --- a/Documentation/dev-tools/index.rst
-> +++ b/Documentation/dev-tools/index.rst
-> @@ -26,6 +26,7 @@ whole; patches welcome!
->     kgdb
->     kselftest
->     kunit/index
-> +   pgo
->
->
->  .. only::  subproject and html
-> diff --git a/Documentation/dev-tools/pgo.rst b/Documentation/dev-tools/pgo.rst
-> new file mode 100644
-> index 000000000000..b7f11d8405b7
-> --- /dev/null
-> +++ b/Documentation/dev-tools/pgo.rst
-> @@ -0,0 +1,127 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +===============================
-> +Using PGO with the Linux kernel
-> +===============================
-> +
-> +Clang's profiling kernel support (PGO_) enables profiling of the Linux kernel
-> +when building with Clang. The profiling data is exported via the ``pgo``
-> +debugfs directory.
-> +
-> +.. _PGO: https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization
-> +
-> +
-> +Preparation
-> +===========
-> +
-> +Configure the kernel with:
-> +
-> +.. code-block:: make
-> +
-> +   CONFIG_DEBUG_FS=y
-> +   CONFIG_PGO_CLANG=y
-> +
-> +Note that kernels compiled with profiling flags will be significantly larger
-> +and run slower.
-> +
-> +Profiling data will only become accessible once debugfs has been mounted:
-> +
-> +.. code-block:: sh
-> +
-> +   mount -t debugfs none /sys/kernel/debug
-> +
-> +
-> +Customization
-> +=============
-> +
-> +You can enable or disable profiling for individual file and directories by
-> +adding a line similar to the following to the respective kernel Makefile:
-> +
-> +- For a single file (e.g. main.o)
-> +
-> +  .. code-block:: make
-> +
-> +     PGO_PROFILE_main.o := y
-> +
-> +- For all files in one directory
-> +
-> +  .. code-block:: make
-> +
-> +     PGO_PROFILE := y
-> +
-> +To exclude files from being profiled use
-> +
-> +  .. code-block:: make
-> +
-> +     PGO_PROFILE_main.o := n
-> +
-> +and
-> +
-> +  .. code-block:: make
-> +
-> +     PGO_PROFILE := n
-> +
-> +Only files which are linked to the main kernel image or are compiled as kernel
-> +modules are supported by this mechanism.
-> +
-> +
-> +Files
-> +=====
-> +
-> +The PGO kernel support creates the following files in debugfs:
-> +
-> +``/sys/kernel/debug/pgo``
-> +       Parent directory for all PGO-related files.
-> +
-> +``/sys/kernel/debug/pgo/reset``
-> +       Global reset file: resets all coverage data to zero when written to.
-> +
-> +``/sys/kernel/debug/profraw``
-> +       The raw PGO data that must be processed with ``llvm_profdata``.
-> +
-> +
-> +Workflow
-> +========
-> +
-> +The PGO kernel can be run on the host or test machines. The data though should
-> +be analyzed with Clang's tools from the same Clang version as the kernel was
-> +compiled. Clang's tolerant of version skew, but it's easier to use the same
-> +Clang version.
-> +
-> +The profiling data is useful for optimizing the kernel, analyzing coverage,
-> +etc. Clang offers tools to perform these tasks.
-> +
-> +Here is an example workflow for profiling an instrumented kernel with PGO and
-> +using the result to optimize the kernel:
-> +
-> +1) Install the kernel on the TEST machine.
-> +
-> +2) Reset the data counters right before running the load tests
-> +
-> +   .. code-block:: sh
-> +
-> +      $ echo 1 > /sys/kernel/debug/pgo/reset
-> +
-> +3) Run the load tests.
-> +
-> +4) Collect the raw profile data
-> +
-> +   .. code-block:: sh
-> +
-> +      $ cp -a /sys/kernel/debug/pgo/profraw /tmp/vmlinux.profraw
-> +
-> +5) (Optional) Download the raw profile data to the HOST machine.
-> +
-> +6) Process the raw profile data
-> +
-> +   .. code-block:: sh
-> +
-> +      $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
-> +
-> +   Note that multiple raw profile data files can be merged during this step.
-> +
-> +7) Rebuild the kernel using the profile data (PGO disabled)
-> +
-> +   .. code-block:: sh
-> +
-> +      $ make LLVM=1 KCFLAGS=-fprofile-use=vmlinux.profdata ...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 705776b31c8d..0a75d223682d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -13948,6 +13948,15 @@ S:     Maintained
->  F:     include/linux/personality.h
->  F:     include/uapi/linux/personality.h
->
-> +PGO BASED KERNEL PROFILING
-> +M:     Sami Tolvanen <samitolvanen@google.com>
-> +M:     Bill Wendling <wcw@google.com>
-> +R:     Nathan Chancellor <natechancellor@gmail.com>
-> +R:     Nick Desaulniers <ndesaulniers@google.com>
-> +S:     Supported
-> +F:     Documentation/dev-tools/pgo.rst
-> +F:     kernel/pgo
-> +
->  PHOENIX RC FLIGHT CONTROLLER ADAPTER
->  M:     Marcus Folkesson <marcus.folkesson@gmail.com>
->  L:     linux-input@vger.kernel.org
-> diff --git a/Makefile b/Makefile
-> index b0e4767735dc..9339541f7cec 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -659,6 +659,9 @@ endif # KBUILD_EXTMOD
->  # Defaults to vmlinux, but the arch makefile usually adds further targets
->  all: vmlinux
->
-> +CFLAGS_PGO_CLANG := -fprofile-generate
-> +export CFLAGS_PGO_CLANG
-> +
->  CFLAGS_GCOV    := -fprofile-arcs -ftest-coverage \
->         $(call cc-option,-fno-tree-loop-im) \
->         $(call cc-disable-warning,maybe-uninitialized,)
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 24862d15f3a3..f39d3991f6bf 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -1112,6 +1112,7 @@ config ARCH_SPLIT_ARG64
->            pairs of 32-bit arguments, select this option.
->
->  source "kernel/gcov/Kconfig"
-> +source "kernel/pgo/Kconfig"
->
->  source "scripts/gcc-plugins/Kconfig"
->
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 21f851179ff0..36305ea61dc0 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -96,6 +96,7 @@ config X86
->         select ARCH_SUPPORTS_DEBUG_PAGEALLOC
->         select ARCH_SUPPORTS_NUMA_BALANCING     if X86_64
->         select ARCH_SUPPORTS_KMAP_LOCAL_FORCE_MAP       if NR_CPUS <= 4096
-> +       select ARCH_SUPPORTS_PGO_CLANG          if X86_64
->         select ARCH_USE_BUILTIN_BSWAP
->         select ARCH_USE_QUEUED_RWLOCKS
->         select ARCH_USE_QUEUED_SPINLOCKS
-> diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
-> index fe605205b4ce..383853e32f67 100644
-> --- a/arch/x86/boot/Makefile
-> +++ b/arch/x86/boot/Makefile
-> @@ -71,6 +71,7 @@ KBUILD_AFLAGS := $(KBUILD_CFLAGS) -D__ASSEMBLY__
->  KBUILD_CFLAGS  += $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
->  KBUILD_CFLAGS  += -fno-asynchronous-unwind-tables
->  GCOV_PROFILE := n
-> +PGO_PROFILE := n
->  UBSAN_SANITIZE := n
->
->  $(obj)/bzImage: asflags-y  := $(SVGA_MODE)
-> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-> index e0bc3988c3fa..ed12ab65f606 100644
-> --- a/arch/x86/boot/compressed/Makefile
-> +++ b/arch/x86/boot/compressed/Makefile
-> @@ -54,6 +54,7 @@ CFLAGS_sev-es.o += -I$(objtree)/arch/x86/lib/
->
->  KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
->  GCOV_PROFILE := n
-> +PGO_PROFILE := n
->  UBSAN_SANITIZE :=n
->
->  KBUILD_LDFLAGS := -m elf_$(UTS_MACHINE)
-> diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-> index a31de0c6ccde..5753aea7bcbd 100644
-> --- a/arch/x86/crypto/Makefile
-> +++ b/arch/x86/crypto/Makefile
-> @@ -4,6 +4,10 @@
->
->  OBJECT_FILES_NON_STANDARD := y
->
-> +# Disable PGO for curve25519-x86_64. With PGO enabled, clang runs out of
-> +# registers for some of the functions.
-> +PGO_PROFILE_curve25519-x86_64.o := n
-> +
->  obj-$(CONFIG_CRYPTO_GLUE_HELPER_X86) += glue_helper.o
->
->  obj-$(CONFIG_CRYPTO_TWOFISH_586) += twofish-i586.o
-> diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
-> index 02e3e42f380b..26e2b3af0145 100644
-> --- a/arch/x86/entry/vdso/Makefile
-> +++ b/arch/x86/entry/vdso/Makefile
-> @@ -179,6 +179,7 @@ quiet_cmd_vdso = VDSO    $@
->  VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 \
->         $(call ld-option, --eh-frame-hdr) -Bsymbolic
->  GCOV_PROFILE := n
-> +PGO_PROFILE := n
->
->  quiet_cmd_vdso_and_check = VDSO    $@
->        cmd_vdso_and_check = $(cmd_vdso); $(cmd_vdso_check)
-> diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-> index efd9e9ea17f2..f6cab2316c46 100644
-> --- a/arch/x86/kernel/vmlinux.lds.S
-> +++ b/arch/x86/kernel/vmlinux.lds.S
-> @@ -184,6 +184,8 @@ SECTIONS
->
->         BUG_TABLE
->
-> +       PGO_CLANG_DATA
-> +
->         ORC_UNWIND_TABLE
->
->         . = ALIGN(PAGE_SIZE);
-> diff --git a/arch/x86/platform/efi/Makefile b/arch/x86/platform/efi/Makefile
-> index 84b09c230cbd..5f22b31446ad 100644
-> --- a/arch/x86/platform/efi/Makefile
-> +++ b/arch/x86/platform/efi/Makefile
-> @@ -2,6 +2,7 @@
->  OBJECT_FILES_NON_STANDARD_efi_thunk_$(BITS).o := y
->  KASAN_SANITIZE := n
->  GCOV_PROFILE := n
-> +PGO_PROFILE := n
->
->  obj-$(CONFIG_EFI)              += quirks.o efi.o efi_$(BITS).o efi_stub_$(BITS).o
->  obj-$(CONFIG_EFI_MIXED)                += efi_thunk_$(BITS).o
-> diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-> index 95ea17a9d20c..36f20e99da0b 100644
-> --- a/arch/x86/purgatory/Makefile
-> +++ b/arch/x86/purgatory/Makefile
-> @@ -23,6 +23,7 @@ targets += purgatory.ro purgatory.chk
->
->  # Sanitizer, etc. runtimes are unavailable and cannot be linked here.
->  GCOV_PROFILE   := n
-> +PGO_PROFILE    := n
->  KASAN_SANITIZE := n
->  UBSAN_SANITIZE := n
->  KCSAN_SANITIZE := n
-> diff --git a/arch/x86/realmode/rm/Makefile b/arch/x86/realmode/rm/Makefile
-> index 83f1b6a56449..21797192f958 100644
-> --- a/arch/x86/realmode/rm/Makefile
-> +++ b/arch/x86/realmode/rm/Makefile
-> @@ -76,4 +76,5 @@ KBUILD_CFLAGS := $(REALMODE_CFLAGS) -D_SETUP -D_WAKEUP \
->  KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
->  KBUILD_CFLAGS  += -fno-asynchronous-unwind-tables
->  GCOV_PROFILE := n
-> +PGO_PROFILE := n
->  UBSAN_SANITIZE := n
-> diff --git a/arch/x86/um/vdso/Makefile b/arch/x86/um/vdso/Makefile
-> index 5943387e3f35..54f5768f5853 100644
-> --- a/arch/x86/um/vdso/Makefile
-> +++ b/arch/x86/um/vdso/Makefile
-> @@ -64,6 +64,7 @@ quiet_cmd_vdso = VDSO    $@
->
->  VDSO_LDFLAGS = -fPIC -shared -Wl,--hash-style=sysv
->  GCOV_PROFILE := n
-> +PGO_PROFILE := n
->
->  #
->  # Install the unstripped copy of vdso*.so listed in $(vdso-install-y).
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 8a94388e38b3..2d81623b33f2 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -40,6 +40,7 @@ KBUILD_CFLAGS                 := $(cflags-y) -Os -DDISABLE_BRANCH_PROFILING \
->  KBUILD_CFLAGS := $(filter-out $(CC_FLAGS_SCS), $(KBUILD_CFLAGS))
->
->  GCOV_PROFILE                   := n
-> +PGO_PROFILE                    := n
->  # Sanitizer runtimes are unavailable and cannot be linked here.
->  KASAN_SANITIZE                 := n
->  KCSAN_SANITIZE                 := n
-> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-> index b2b3d81b1535..3a591bb18c5f 100644
-> --- a/include/asm-generic/vmlinux.lds.h
-> +++ b/include/asm-generic/vmlinux.lds.h
-> @@ -316,6 +316,49 @@
->  #define THERMAL_TABLE(name)
->  #endif
->
-> +#ifdef CONFIG_PGO_CLANG
-> +#define PGO_CLANG_DATA                                                 \
-> +       __llvm_prf_data : AT(ADDR(__llvm_prf_data) - LOAD_OFFSET) {     \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_start = .;                                   \
-> +               __llvm_prf_data_start = .;                              \
-> +               KEEP(*(__llvm_prf_data))                                \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_data_end = .;                                \
-> +       }                                                               \
-> +       __llvm_prf_cnts : AT(ADDR(__llvm_prf_cnts) - LOAD_OFFSET) {     \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_cnts_start = .;                              \
-> +               KEEP(*(__llvm_prf_cnts))                                \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_cnts_end = .;                                \
-> +       }                                                               \
-> +       __llvm_prf_names : AT(ADDR(__llvm_prf_names) - LOAD_OFFSET) {   \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_names_start = .;                             \
-> +               KEEP(*(__llvm_prf_names))                               \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_names_end = .;                               \
-> +               . = ALIGN(8);                                           \
-> +       }                                                               \
-> +       __llvm_prf_vals : AT(ADDR(__llvm_prf_vals) - LOAD_OFFSET) {     \
-> +               __llvm_prf_vals_start = .;                              \
-> +               KEEP(*(__llvm_prf_vals))                                \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_vals_end = .;                                \
-> +               . = ALIGN(8);                                           \
-> +       }                                                               \
-> +       __llvm_prf_vnds : AT(ADDR(__llvm_prf_vnds) - LOAD_OFFSET) {     \
-> +               __llvm_prf_vnds_start = .;                              \
-> +               KEEP(*(__llvm_prf_vnds))                                \
-> +               . = ALIGN(8);                                           \
-> +               __llvm_prf_vnds_end = .;                                \
-> +               __llvm_prf_end = .;                                     \
-> +       }
-> +#else
-> +#define PGO_CLANG_DATA
-> +#endif
-> +
->  #define KERNEL_DTB()                                                   \
->         STRUCT_ALIGN();                                                 \
->         __dtb_start = .;                                                \
-> @@ -1125,6 +1168,7 @@
->                 CONSTRUCTORS                                            \
->         }                                                               \
->         BUG_TABLE                                                       \
-> +       PGO_CLANG_DATA
->
->  #define INIT_TEXT_SECTION(inittext_align)                              \
->         . = ALIGN(inittext_align);                                      \
-> diff --git a/kernel/Makefile b/kernel/Makefile
-> index aa7368c7eabf..0b34ca228ba4 100644
-> --- a/kernel/Makefile
-> +++ b/kernel/Makefile
-> @@ -111,6 +111,7 @@ obj-$(CONFIG_BPF) += bpf/
->  obj-$(CONFIG_KCSAN) += kcsan/
->  obj-$(CONFIG_SHADOW_CALL_STACK) += scs.o
->  obj-$(CONFIG_HAVE_STATIC_CALL_INLINE) += static_call.o
-> +obj-$(CONFIG_PGO_CLANG) += pgo/
->
->  obj-$(CONFIG_PERF_EVENTS) += events/
->
-> diff --git a/kernel/pgo/Kconfig b/kernel/pgo/Kconfig
-> new file mode 100644
-> index 000000000000..76a640b6cf6e
-> --- /dev/null
-> +++ b/kernel/pgo/Kconfig
-> @@ -0,0 +1,35 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +menu "Profile Guided Optimization (PGO) (EXPERIMENTAL)"
-> +
-> +config ARCH_SUPPORTS_PGO_CLANG
-> +       bool
-> +
-> +config PGO_CLANG
-> +       bool "Enable clang's PGO-based kernel profiling"
-> +       depends on DEBUG_FS
-> +       depends on ARCH_SUPPORTS_PGO_CLANG
-> +       depends on CC_IS_CLANG && CLANG_VERSION >= 120000
-> +       help
-> +         This option enables clang's PGO (Profile Guided Optimization) based
-> +         code profiling to better optimize the kernel.
-> +
-> +         If unsure, say N.
-> +
-> +         Run a representative workload for your application on a kernel
-> +         compiled with this option and download the raw profile file from
-> +         /sys/kernel/debug/pgo/profraw. This file needs to be processed with
-> +         llvm-profdata. It may be merged with other collected raw profiles.
-> +
-> +         Copy the resulting profile file into vmlinux.profdata, and enable
-> +         KCFLAGS=-fprofile-use=vmlinux.profdata to produce an optimized
-> +         kernel.
-> +
-> +         Note that a kernel compiled with profiling flags will be
-> +         significantly larger and run slower. Also be sure to exclude files
-> +         from profiling which are not linked to the kernel image to prevent
-> +         linker errors.
-> +
-> +         Note that the debugfs filesystem has to be mounted to access
-> +         profiling data.
-> +
-> +endmenu
-> diff --git a/kernel/pgo/Makefile b/kernel/pgo/Makefile
-> new file mode 100644
-> index 000000000000..41e27cefd9a4
-> --- /dev/null
-> +++ b/kernel/pgo/Makefile
-> @@ -0,0 +1,5 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +GCOV_PROFILE   := n
-> +PGO_PROFILE    := n
-> +
-> +obj-y  += fs.o instrument.o
-> diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-> new file mode 100644
-> index 000000000000..1678df3b7d64
-> --- /dev/null
-> +++ b/kernel/pgo/fs.c
-> @@ -0,0 +1,389 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2019 Google, Inc.
-> + *
-> + * Author:
-> + *     Sami Tolvanen <samitolvanen@google.com>
-> + *
-> + * This software is licensed under the terms of the GNU General Public
-> + * License version 2, as published by the Free Software Foundation, and
-> + * may be copied, distributed, and modified under those terms.
-> + *
-> + * This program is distributed in the hope that it will be useful,
-> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> + * GNU General Public License for more details.
-> + *
-> + */
-> +
-> +#define pr_fmt(fmt)    "pgo: " fmt
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/debugfs.h>
-> +#include <linux/fs.h>
-> +#include <linux/module.h>
-> +#include <linux/slab.h>
-> +#include <linux/vmalloc.h>
-> +#include "pgo.h"
-> +
-> +static struct dentry *directory;
-> +
-> +struct prf_private_data {
-> +       void *buffer;
-> +       unsigned long size;
-> +};
-> +
-> +/*
-> + * Raw profile data format:
-> + *
-> + *     - llvm_prf_header
-> + *     - __llvm_prf_data
-> + *     - __llvm_prf_cnts
-> + *     - __llvm_prf_names
-> + *     - zero padding to 8 bytes
-> + *     - for each llvm_prf_data in __llvm_prf_data:
-> + *             - llvm_prf_value_data
-> + *                     - llvm_prf_value_record + site count array
-> + *                             - llvm_prf_value_node_data
-> + *                             ...
-> + *                     ...
-> + *             ...
-> + */
-> +
-> +static void prf_fill_header(void **buffer)
-> +{
-> +       struct llvm_prf_header *header = *(struct llvm_prf_header **)buffer;
-> +
-> +#ifdef CONFIG_64BIT
-> +       header->magic = LLVM_INSTR_PROF_RAW_MAGIC_64;
-> +#else
-> +       header->magic = LLVM_INSTR_PROF_RAW_MAGIC_32;
-> +#endif
-> +       header->version = LLVM_VARIANT_MASK_IR_PROF | LLVM_INSTR_PROF_RAW_VERSION;
-> +       header->data_size = prf_data_count();
-> +       header->padding_bytes_before_counters = 0;
-> +       header->counters_size = prf_cnts_count();
-> +       header->padding_bytes_after_counters = 0;
-> +       header->names_size = prf_names_count();
-> +       header->counters_delta = (u64)__llvm_prf_cnts_start;
-> +       header->names_delta = (u64)__llvm_prf_names_start;
-> +       header->value_kind_last = LLVM_INSTR_PROF_IPVK_LAST;
-> +
-> +       *buffer += sizeof(*header);
-> +}
-> +
-> +/*
-> + * Copy the source into the buffer, incrementing the pointer into buffer in the
-> + * process.
-> + */
-> +static void prf_copy_to_buffer(void **buffer, void *src, unsigned long size)
-> +{
-> +       memcpy(*buffer, src, size);
-> +       *buffer += size;
-> +}
-> +
-> +static u32 __prf_get_value_size(struct llvm_prf_data *p, u32 *value_kinds)
-> +{
-> +       struct llvm_prf_value_node **nodes =
-> +               (struct llvm_prf_value_node **)p->values;
-> +       u32 kinds = 0;
-> +       u32 size = 0;
-> +       unsigned int kind;
-> +       unsigned int n;
-> +       unsigned int s = 0;
-> +
-> +       for (kind = 0; kind < ARRAY_SIZE(p->num_value_sites); kind++) {
-> +               unsigned int sites = p->num_value_sites[kind];
-> +
-> +               if (!sites)
-> +                       continue;
-> +
-> +               /* Record + site count array */
-> +               size += prf_get_value_record_size(sites);
-> +               kinds++;
-> +
-> +               if (!nodes)
-> +                       continue;
-> +
-> +               for (n = 0; n < sites; n++) {
-> +                       u32 count = 0;
-> +                       struct llvm_prf_value_node *site = nodes[s + n];
-> +
-> +                       while (site && ++count <= U8_MAX)
-> +                               site = site->next;
-> +
-> +                       size += count *
-> +                               sizeof(struct llvm_prf_value_node_data);
-> +               }
-> +
-> +               s += sites;
-> +       }
-> +
-> +       if (size)
-> +               size += sizeof(struct llvm_prf_value_data);
-> +
-> +       if (value_kinds)
-> +               *value_kinds = kinds;
-> +
-> +       return size;
-> +}
-> +
-> +static u32 prf_get_value_size(void)
-> +{
-> +       u32 size = 0;
-> +       struct llvm_prf_data *p;
-> +
-> +       for (p = __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
-> +               size += __prf_get_value_size(p, NULL);
-> +
-> +       return size;
-> +}
-> +
-> +/* Serialize the profiling's value. */
-> +static void prf_serialize_value(struct llvm_prf_data *p, void **buffer)
-> +{
-> +       struct llvm_prf_value_data header;
-> +       struct llvm_prf_value_node **nodes =
-> +               (struct llvm_prf_value_node **)p->values;
-> +       unsigned int kind;
-> +       unsigned int n;
-> +       unsigned int s = 0;
-> +
-> +       header.total_size = __prf_get_value_size(p, &header.num_value_kinds);
-> +
-> +       if (!header.num_value_kinds)
-> +               /* Nothing to write. */
-> +               return;
-> +
-> +       prf_copy_to_buffer(buffer, &header, sizeof(header));
-> +
-> +       for (kind = 0; kind < ARRAY_SIZE(p->num_value_sites); kind++) {
-> +               struct llvm_prf_value_record *record;
-> +               u8 *counts;
-> +               unsigned int sites = p->num_value_sites[kind];
-> +
-> +               if (!sites)
-> +                       continue;
-> +
-> +               /* Profiling value record. */
-> +               record = *(struct llvm_prf_value_record **)buffer;
-> +               *buffer += prf_get_value_record_header_size();
-> +
-> +               record->kind = kind;
-> +               record->num_value_sites = sites;
-> +
-> +               /* Site count array. */
-> +               counts = *(u8 **)buffer;
-> +               *buffer += prf_get_value_record_site_count_size(sites);
-> +
-> +               /*
-> +                * If we don't have nodes, we can skip updating the site count
-> +                * array, because the buffer is zero filled.
-> +                */
-> +               if (!nodes)
-> +                       continue;
-> +
-> +               for (n = 0; n < sites; n++) {
-> +                       u32 count = 0;
-> +                       struct llvm_prf_value_node *site = nodes[s + n];
-> +
-> +                       while (site && ++count <= U8_MAX) {
-> +                               prf_copy_to_buffer(buffer, site,
-> +                                                  sizeof(struct llvm_prf_value_node_data));
-> +                               site = site->next;
-> +                       }
-> +
-> +                       counts[n] = (u8)count;
-> +               }
-> +
-> +               s += sites;
-> +       }
-> +}
-> +
-> +static void prf_serialize_values(void **buffer)
-> +{
-> +       struct llvm_prf_data *p;
-> +
-> +       for (p = __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
-> +               prf_serialize_value(p, buffer);
-> +}
-> +
-> +static inline unsigned long prf_get_padding(unsigned long size)
-> +{
-> +       return 7 & (sizeof(u64) - size % sizeof(u64));
-> +}
-> +
-> +static unsigned long prf_buffer_size(void)
-> +{
-> +       return sizeof(struct llvm_prf_header) +
-> +                       prf_data_size() +
-> +                       prf_cnts_size() +
-> +                       prf_names_size() +
-> +                       prf_get_padding(prf_names_size()) +
-> +                       prf_get_value_size();
-> +}
-> +
-> +/*
-> + * Serialize the profiling data into a format LLVM's tools can understand.
-> + * Note: caller *must* hold pgo_lock.
-> + */
-> +static int prf_serialize(struct prf_private_data *p)
-> +{
-> +       int err = 0;
-> +       void *buffer;
-> +
-> +       p->size = prf_buffer_size();
-> +       p->buffer = vzalloc(p->size);
-> +
-> +       if (!p->buffer) {
-> +               err = -ENOMEM;
-> +               goto out;
-> +       }
-> +
-> +       buffer = p->buffer;
-> +
-> +       prf_fill_header(&buffer);
-> +       prf_copy_to_buffer(&buffer, __llvm_prf_data_start,  prf_data_size());
-> +       prf_copy_to_buffer(&buffer, __llvm_prf_cnts_start,  prf_cnts_size());
-> +       prf_copy_to_buffer(&buffer, __llvm_prf_names_start, prf_names_size());
-> +       buffer += prf_get_padding(prf_names_size());
-> +
-> +       prf_serialize_values(&buffer);
-> +
-> +out:
-> +       return err;
-> +}
-> +
-> +/* open() implementation for PGO. Creates a copy of the profiling data set. */
-> +static int prf_open(struct inode *inode, struct file *file)
-> +{
-> +       struct prf_private_data *data;
-> +       unsigned long flags;
-> +       int err;
-> +
-> +       data = kzalloc(sizeof(*data), GFP_KERNEL);
-> +       if (!data) {
-> +               err = -ENOMEM;
-> +               goto out;
-> +       }
-> +
-> +       flags = prf_lock();
-> +
-> +       err = prf_serialize(data);
-> +       if (unlikely(err)) {
-> +               kfree(data);
-> +               goto out_unlock;
-> +       }
-> +
-> +       file->private_data = data;
-> +
-> +out_unlock:
-> +       prf_unlock(flags);
-> +out:
-> +       return err;
-> +}
-> +
-> +/* read() implementation for PGO. */
-> +static ssize_t prf_read(struct file *file, char __user *buf, size_t count,
-> +                       loff_t *ppos)
-> +{
-> +       struct prf_private_data *data = file->private_data;
-> +
-> +       BUG_ON(!data);
-> +
-> +       return simple_read_from_buffer(buf, count, ppos, data->buffer,
-> +                                      data->size);
-> +}
-> +
-> +/* release() implementation for PGO. Release resources allocated by open(). */
-> +static int prf_release(struct inode *inode, struct file *file)
-> +{
-> +       struct prf_private_data *data = file->private_data;
-> +
-> +       if (data) {
-> +               vfree(data->buffer);
-> +               kfree(data);
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct file_operations prf_fops = {
-> +       .owner          = THIS_MODULE,
-> +       .open           = prf_open,
-> +       .read           = prf_read,
-> +       .llseek         = default_llseek,
-> +       .release        = prf_release
-> +};
-> +
-> +/* write() implementation for resetting PGO's profile data. */
-> +static ssize_t reset_write(struct file *file, const char __user *addr,
-> +                          size_t len, loff_t *pos)
-> +{
-> +       struct llvm_prf_data *data;
-> +
-> +       memset(__llvm_prf_cnts_start, 0, prf_cnts_size());
-> +
-> +       for (data = __llvm_prf_data_start; data < __llvm_prf_data_end; data++) {
-> +               struct llvm_prf_value_node **vnodes;
-> +               u64 current_vsite_count;
-> +               u32 i;
-> +
-> +               if (!data->values)
-> +                       continue;
-> +
-> +               current_vsite_count = 0;
-> +               vnodes = (struct llvm_prf_value_node **)data->values;
-> +
-> +               for (i = LLVM_INSTR_PROF_IPVK_FIRST; i <= LLVM_INSTR_PROF_IPVK_LAST; i++)
-> +                       current_vsite_count += data->num_value_sites[i];
-> +
-> +               for (i = 0; i < current_vsite_count; i++) {
-> +                       struct llvm_prf_value_node *current_vnode = vnodes[i];
-> +
-> +                       while (current_vnode) {
-> +                               current_vnode->count = 0;
-> +                               current_vnode = current_vnode->next;
-> +                       }
-> +               }
-> +       }
-> +
-> +       return len;
-> +}
-> +
-> +static const struct file_operations prf_reset_fops = {
-> +       .owner          = THIS_MODULE,
-> +       .write          = reset_write,
-> +       .llseek         = noop_llseek,
-> +};
-> +
-> +/* Create debugfs entries. */
-> +static int __init pgo_init(void)
-> +{
-> +       directory = debugfs_create_dir("pgo", NULL);
-> +       if (!directory)
-> +               goto err_remove;
-> +
-> +       if (!debugfs_create_file("profraw", 0600, directory, NULL,
-> +                                &prf_fops))
-> +               goto err_remove;
-> +
-> +       if (!debugfs_create_file("reset", 0200, directory, NULL,
-> +                                &prf_reset_fops))
-> +               goto err_remove;
-> +
-> +       return 0;
-> +
-> +err_remove:
-> +       pr_err("initialization failed\n");
-> +       return -EIO;
-> +}
-> +
-> +/* Remove debugfs entries. */
-> +static void __exit pgo_exit(void)
-> +{
-> +       debugfs_remove_recursive(directory);
-> +}
-> +
-> +module_init(pgo_init);
-> +module_exit(pgo_exit);
-> diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-> new file mode 100644
-> index 000000000000..62ff5cfce7b1
-> --- /dev/null
-> +++ b/kernel/pgo/instrument.c
-> @@ -0,0 +1,189 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2019 Google, Inc.
-> + *
-> + * Author:
-> + *     Sami Tolvanen <samitolvanen@google.com>
-> + *
-> + * This software is licensed under the terms of the GNU General Public
-> + * License version 2, as published by the Free Software Foundation, and
-> + * may be copied, distributed, and modified under those terms.
-> + *
-> + * This program is distributed in the hope that it will be useful,
-> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> + * GNU General Public License for more details.
-> + *
-> + */
-> +
-> +#define pr_fmt(fmt)    "pgo: " fmt
-> +
-> +#include <linux/bitops.h>
-> +#include <linux/kernel.h>
-> +#include <linux/export.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/types.h>
-> +#include "pgo.h"
-> +
-> +/*
-> + * This lock guards both profile count updating and serialization of the
-> + * profiling data. Keeping both of these activities separate via locking
-> + * ensures that we don't try to serialize data that's only partially updated.
-> + */
-> +static DEFINE_SPINLOCK(pgo_lock);
-> +static int current_node;
-> +
-> +unsigned long prf_lock(void)
-> +{
-> +       unsigned long flags;
-> +
-> +       spin_lock_irqsave(&pgo_lock, flags);
-> +
-> +       return flags;
-> +}
-> +
-> +void prf_unlock(unsigned long flags)
-> +{
-> +       spin_unlock_irqrestore(&pgo_lock, flags);
-> +}
-> +
-> +/*
-> + * Return a newly allocated profiling value node which contains the tracked
-> + * value by the value profiler.
-> + * Note: caller *must* hold pgo_lock.
-> + */
-> +static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
-> +                                                u32 index, u64 value)
-> +{
-> +       if (&__llvm_prf_vnds_start[current_node + 1] >= __llvm_prf_vnds_end)
-> +               return NULL; /* Out of nodes */
-> +
-> +       current_node++;
-> +
-> +       /* Make sure the node is entirely within the section */
-> +       if (&__llvm_prf_vnds_start[current_node] >= __llvm_prf_vnds_end ||
-> +           &__llvm_prf_vnds_start[current_node + 1] > __llvm_prf_vnds_end)
-> +               return NULL;
-> +
-> +       return &__llvm_prf_vnds_start[current_node];
-> +}
-> +
-> +/*
-> + * Counts the number of times a target value is seen.
-> + *
-> + * Records the target value for the index if not seen before. Otherwise,
-> + * increments the counter associated w/ the target value.
-> + */
-> +void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index);
-> +void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
-> +{
-> +       struct llvm_prf_data *p = (struct llvm_prf_data *)data;
-> +       struct llvm_prf_value_node **counters;
-> +       struct llvm_prf_value_node *curr;
-> +       struct llvm_prf_value_node *min = NULL;
-> +       struct llvm_prf_value_node *prev = NULL;
-> +       u64 min_count = U64_MAX;
-> +       u8 values = 0;
-> +       unsigned long flags;
-> +
-> +       if (!p || !p->values)
-> +               return;
-> +
-> +       counters = (struct llvm_prf_value_node **)p->values;
-> +       curr = counters[index];
-> +
-> +       while (curr) {
-> +               if (target_value == curr->value) {
-> +                       curr->count++;
-> +                       return;
-> +               }
-> +
-> +               if (curr->count < min_count) {
-> +                       min_count = curr->count;
-> +                       min = curr;
-> +               }
-> +
-> +               prev = curr;
-> +               curr = curr->next;
-> +               values++;
-> +       }
-> +
-> +       if (values >= LLVM_INSTR_PROF_MAX_NUM_VAL_PER_SITE) {
-> +               if (!min->count || !(--min->count)) {
-> +                       curr = min;
-> +                       curr->value = target_value;
-> +                       curr->count++;
-> +               }
-> +               return;
-> +       }
-> +
-> +       /* Lock when updating the value node structure. */
-> +       flags = prf_lock();
-> +
-> +       curr = allocate_node(p, index, target_value);
-> +       if (!curr)
-> +               goto out;
-> +
-> +       curr->value = target_value;
-> +       curr->count++;
-> +
-> +       if (!counters[index])
-> +               counters[index] = curr;
-> +       else if (prev && !prev->next)
-> +               prev->next = curr;
-> +
-> +out:
-> +       prf_unlock(flags);
-> +}
-> +EXPORT_SYMBOL(__llvm_profile_instrument_target);
-> +
-> +/* Counts the number of times a range of targets values are seen. */
-> +void __llvm_profile_instrument_range(u64 target_value, void *data,
-> +                                    u32 index, s64 precise_start,
-> +                                    s64 precise_last, s64 large_value);
-> +void __llvm_profile_instrument_range(u64 target_value, void *data,
-> +                                    u32 index, s64 precise_start,
-> +                                    s64 precise_last, s64 large_value)
-> +{
-> +       if (large_value != S64_MIN && (s64)target_value >= large_value)
-> +               target_value = large_value;
-> +       else if ((s64)target_value < precise_start ||
-> +                (s64)target_value > precise_last)
-> +               target_value = precise_last + 1;
-> +
-> +       __llvm_profile_instrument_target(target_value, data, index);
-> +}
-> +EXPORT_SYMBOL(__llvm_profile_instrument_range);
-> +
-> +static u64 inst_prof_get_range_rep_value(u64 value)
-> +{
-> +       if (value <= 8)
-> +               /* The first ranges are individually tracked, use it as is. */
-> +               return value;
-> +       else if (value >= 513)
-> +               /* The last range is mapped to its lowest value. */
-> +               return 513;
-> +       else if (hweight64(value) == 1)
-> +               /* If it's a power of two, use it as is. */
-> +               return value;
-> +
-> +       /* Otherwise, take to the previous power of two + 1. */
-> +       return (1 << (64 - __builtin_clzll(value) - 1)) + 1;
-> +}
-> +
-> +/*
-> + * The target values are partitioned into multiple ranges. The range spec is
-> + * defined in compiler-rt/include/profile/InstrProfData.inc.
-> + */
-> +void __llvm_profile_instrument_memop(u64 target_value, void *data,
-> +                                    u32 counter_index);
-> +void __llvm_profile_instrument_memop(u64 target_value, void *data,
-> +                                    u32 counter_index)
-> +{
-> +       u64 rep_value;
-> +
-> +       /* Map the target value to the representative value of its range. */
-> +       rep_value = inst_prof_get_range_rep_value(target_value);
-> +       __llvm_profile_instrument_target(rep_value, data, counter_index);
-> +}
-> +EXPORT_SYMBOL(__llvm_profile_instrument_memop);
-> diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
-> new file mode 100644
-> index 000000000000..ddc8d3002fe5
-> --- /dev/null
-> +++ b/kernel/pgo/pgo.h
-> @@ -0,0 +1,203 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2019 Google, Inc.
-> + *
-> + * Author:
-> + *     Sami Tolvanen <samitolvanen@google.com>
-> + *
-> + * This software is licensed under the terms of the GNU General Public
-> + * License version 2, as published by the Free Software Foundation, and
-> + * may be copied, distributed, and modified under those terms.
-> + *
-> + * This program is distributed in the hope that it will be useful,
-> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> + * GNU General Public License for more details.
-> + *
-> + */
-> +
-> +#ifndef _PGO_H
-> +#define _PGO_H
-> +
-> +/*
-> + * Note: These internal LLVM definitions must match the compiler version.
-> + * See llvm/include/llvm/ProfileData/InstrProfData.inc in LLVM's source code.
-> + */
-> +
-> +#define LLVM_INSTR_PROF_RAW_MAGIC_64   \
-> +               ((u64)255 << 56 |       \
-> +                (u64)'l' << 48 |       \
-> +                (u64)'p' << 40 |       \
-> +                (u64)'r' << 32 |       \
-> +                (u64)'o' << 24 |       \
-> +                (u64)'f' << 16 |       \
-> +                (u64)'r' << 8  |       \
-> +                (u64)129)
-> +#define LLVM_INSTR_PROF_RAW_MAGIC_32   \
-> +               ((u64)255 << 56 |       \
-> +                (u64)'l' << 48 |       \
-> +                (u64)'p' << 40 |       \
-> +                (u64)'r' << 32 |       \
-> +                (u64)'o' << 24 |       \
-> +                (u64)'f' << 16 |       \
-> +                (u64)'R' << 8  |       \
-> +                (u64)129)
-> +
-> +#define LLVM_INSTR_PROF_RAW_VERSION            5
-> +#define LLVM_INSTR_PROF_DATA_ALIGNMENT         8
-> +#define LLVM_INSTR_PROF_IPVK_FIRST             0
-> +#define LLVM_INSTR_PROF_IPVK_LAST              1
-> +#define LLVM_INSTR_PROF_MAX_NUM_VAL_PER_SITE   255
-> +
-> +#define LLVM_VARIANT_MASK_IR_PROF      (0x1ULL << 56)
-> +#define LLVM_VARIANT_MASK_CSIR_PROF    (0x1ULL << 57)
-> +
-> +/**
-> + * struct llvm_prf_header - represents the raw profile header data structure.
-> + * @magic: the magic token for the file format.
-> + * @version: the version of the file format.
-> + * @data_size: the number of entries in the profile data section.
-> + * @padding_bytes_before_counters: the number of padding bytes before the
-> + *   counters.
-> + * @counters_size: the size in bytes of the LLVM profile section containing the
-> + *   counters.
-> + * @padding_bytes_after_counters: the number of padding bytes after the
-> + *   counters.
-> + * @names_size: the size in bytes of the LLVM profile section containing the
-> + *   counters' names.
-> + * @counters_delta: the beginning of the LLMV profile counters section.
-> + * @names_delta: the beginning of the LLMV profile names section.
-> + * @value_kind_last: the last profile value kind.
-> + */
-> +struct llvm_prf_header {
-> +       u64 magic;
-> +       u64 version;
-> +       u64 data_size;
-> +       u64 padding_bytes_before_counters;
-> +       u64 counters_size;
-> +       u64 padding_bytes_after_counters;
-> +       u64 names_size;
-> +       u64 counters_delta;
-> +       u64 names_delta;
-> +       u64 value_kind_last;
-> +};
-> +
-> +/**
-> + * struct llvm_prf_data - represents the per-function control structure.
-> + * @name_ref: the reference to the function's name.
-> + * @func_hash: the hash value of the function.
-> + * @counter_ptr: a pointer to the profile counter.
-> + * @function_ptr: a pointer to the function.
-> + * @values: the profiling values associated with this function.
-> + * @num_counters: the number of counters in the function.
-> + * @num_value_sites: the number of value profile sites.
-> + */
-> +struct llvm_prf_data {
-> +       const u64 name_ref;
-> +       const u64 func_hash;
-> +       const void *counter_ptr;
-> +       const void *function_ptr;
-> +       void *values;
-> +       const u32 num_counters;
-> +       const u16 num_value_sites[LLVM_INSTR_PROF_IPVK_LAST + 1];
-> +} __aligned(LLVM_INSTR_PROF_DATA_ALIGNMENT);
-> +
-> +/**
-> + * structure llvm_prf_value_node_data - represents the data part of the struct
-> + *   llvm_prf_value_node data structure.
-> + * @value: the value counters.
-> + * @count: the counters' count.
-> + */
-> +struct llvm_prf_value_node_data {
-> +       u64 value;
-> +       u64 count;
-> +};
-> +
-> +/**
-> + * struct llvm_prf_value_node - represents an internal data structure used by
-> + *   the value profiler.
-> + * @value: the value counters.
-> + * @count: the counters' count.
-> + * @next: the next value node.
-> + */
-> +struct llvm_prf_value_node {
-> +       u64 value;
-> +       u64 count;
-> +       struct llvm_prf_value_node *next;
-> +};
-> +
-> +/**
-> + * struct llvm_prf_value_data - represents the value profiling data in indexed
-> + *   format.
-> + * @total_size: the total size in bytes including this field.
-> + * @num_value_kinds: the number of value profile kinds that has value profile
-> + *   data.
-> + */
-> +struct llvm_prf_value_data {
-> +       u32 total_size;
-> +       u32 num_value_kinds;
-> +};
-> +
-> +/**
-> + * struct llvm_prf_value_record - represents the on-disk layout of the value
-> + *   profile data of a particular kind for one function.
-> + * @kind: the kind of the value profile record.
-> + * @num_value_sites: the number of value profile sites.
-> + * @site_count_array: the first element of the array that stores the number
-> + *   of profiled values for each value site.
-> + */
-> +struct llvm_prf_value_record {
-> +       u32 kind;
-> +       u32 num_value_sites;
-> +       u8 site_count_array[];
-> +};
-> +
-> +#define prf_get_value_record_header_size()             \
-> +       offsetof(struct llvm_prf_value_record, site_count_array)
-> +#define prf_get_value_record_site_count_size(sites)    \
-> +       roundup((sites), 8)
-> +#define prf_get_value_record_size(sites)               \
-> +       (prf_get_value_record_header_size() +           \
-> +        prf_get_value_record_site_count_size((sites)))
-> +
-> +/* Data sections */
-> +extern struct llvm_prf_data __llvm_prf_data_start[];
-> +extern struct llvm_prf_data __llvm_prf_data_end[];
-> +
-> +extern u64 __llvm_prf_cnts_start[];
-> +extern u64 __llvm_prf_cnts_end[];
-> +
-> +extern char __llvm_prf_names_start[];
-> +extern char __llvm_prf_names_end[];
-> +
-> +extern struct llvm_prf_value_node __llvm_prf_vnds_start[];
-> +extern struct llvm_prf_value_node __llvm_prf_vnds_end[];
-> +
-> +/* Locking for vnodes */
-> +extern unsigned long prf_lock(void);
-> +extern void prf_unlock(unsigned long flags);
-> +
-> +#define __DEFINE_PRF_SIZE(s) \
-> +       static inline unsigned long prf_ ## s ## _size(void)            \
-> +       {                                                               \
-> +               unsigned long start =                                   \
-> +                       (unsigned long)__llvm_prf_ ## s ## _start;      \
-> +               unsigned long end =                                     \
-> +                       (unsigned long)__llvm_prf_ ## s ## _end;        \
-> +               return roundup(end - start,                             \
-> +                               sizeof(__llvm_prf_ ## s ## _start[0])); \
-> +       }                                                               \
-> +       static inline unsigned long prf_ ## s ## _count(void)           \
-> +       {                                                               \
-> +               return prf_ ## s ## _size() /                           \
-> +                       sizeof(__llvm_prf_ ## s ## _start[0]);          \
-> +       }
-> +
-> +__DEFINE_PRF_SIZE(data);
-> +__DEFINE_PRF_SIZE(cnts);
-> +__DEFINE_PRF_SIZE(names);
-> +__DEFINE_PRF_SIZE(vnds);
-> +
-> +#undef __DEFINE_PRF_SIZE
-> +
-> +#endif /* _PGO_H */
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index 213677a5ed33..9b218afb5cb8 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -143,6 +143,16 @@ _c_flags += $(if $(patsubst n%,, \
->                 $(CFLAGS_GCOV))
->  endif
->
-> +#
-> +# Enable clang's PGO profiling flags for a file or directory depending on
-> +# variables PGO_PROFILE_obj.o and PGO_PROFILE.
-> +#
-> +ifeq ($(CONFIG_PGO_CLANG),y)
-> +_c_flags += $(if $(patsubst n%,, \
-> +               $(PGO_PROFILE_$(basetarget).o)$(PGO_PROFILE)y), \
-> +               $(CFLAGS_PGO_CLANG))
-> +endif
-> +
->  #
->  # Enable address sanitizer flags for kernel except some files or directories
->  # we don't want to check (depends on variables KASAN_SANITIZE_obj.o, KASAN_SANITIZE)
-> --
-> 2.30.0.280.ga3ce27912f-goog
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210122101156.3257143-1-morbo%40google.com.
+regards,
+dan carpenter
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUU4Sjs9QKE%2BVTiibqfLRMH_wEKxPsL2N6-%2BdQqDNPQL3Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210122123354.GR2696%40kadam.
