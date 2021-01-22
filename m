@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB3M6VSAAMGQEDILWE3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBINKVSAAMGQEIUB5FXI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8720C300A19
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 18:46:22 +0100 (CET)
-Received: by mail-vk1-xa3a.google.com with SMTP id m20sf974225vkk.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 09:46:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611337581; cv=pass;
+Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D83BC300AA0
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 19:10:42 +0100 (CET)
+Received: by mail-qt1-x83c.google.com with SMTP id g14sf1457551qtu.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 22 Jan 2021 10:10:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611339042; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HlFEwGo+N1rTPT6sZD74acfWuKVhMBn4O+bs521TK24FU3AMaMpwgOC9l7gtOmN0T/
-         1BaN7DaYakv2mX0I0oYkSbMX3/F7N70bVUH3Z7fvMnxCeJjyuNpAy0D86Uet8GIVvYYJ
-         SY+kWcVJYRwBNR6QRyRfx01G6BYORs51rjZXxCIn1PNoU7hPqR7vgiX8ZQ42048ftrxe
-         RLKTY67Zi67FCbNdPGFM+twrN93klw5n6+OYPsnJ3nG90P7kZ9pkZ1Vxh1bIVLFR7pCf
-         VANJhepEnFo5q0kMIYQFjH3lc2aZ0+d+rq247fSaRZG5BNMu0xZ9jKU/Tsux6MWcEKeM
-         1m2w==
+        b=pKtKARum7KG7wNaJzORxQZzXkRQYidhlDK/gznDPm8y48gr1NwkOpavPwmtLtbYmbB
+         GqfXyE0dbJDP7EpHPVVpRAr9/aVgxjfo83FmExoklMSH/mm4XdW417Mkk8DT4C3H/xoK
+         ioiFhjHk0TrZFQfDiRvnS9IjB57hPFdPljUj9eBaL9mxDouurIYqOJ3cHSSFztlK5F8e
+         kIiqDAfFtDRj+ASlW2w32wBrfnZloswWG0pZ2CIc+bXilEjNPV5QdyZiwR66x2D4LO1s
+         wueXF4xxFjfKXJR/jQlIRUbFq2SzJZ61kQO8p87kBGay0JNkWsztpHw0AL65OROYEmGy
+         Dwiw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=fCu7SmjtQPKNT2KNBUKHb3WpQlAAkhC+9wzhcK2IaSs=;
-        b=Bg7msrSUl3bu7lxGHEFkz/s2cdNUk4/VxdNWdAxsFyyQZkKIHl5X+n/JJCyEApltZx
-         mRec/gIYQbe+FyjQON2QIbhK5FKWuhbc2npAKIlPFqnBPIfRulRLGnBg5p2ZtAZkcwcv
-         CPyazVdVf4ctNOmfnbge2Z2JjIdCP7SRL/0Fe3EBdG7cDOBqupDUVj7DEonqsL1+InuN
-         NFgIE9jpidgupbKXzA1GIyvmcDZzZGJXgNrND9D45h8ivmvp6hdBbvAZMA757HAfW+IH
-         tLGMuqKWW8ZLiz6Im5Ul0EvRKSCybLqXAiY/rV0CmtQ6MEA69BmGBi6Xq5gihv50f6He
-         BS7A==
+        bh=eOVVO2URE38YzKpx2svamXIcfETIoTvmR5lk1h3aQ88=;
+        b=ePAbaOeAUkDGffGeVwlnWw/TroqSXZn9RncPDwybh+zh1AALXOz4/iQ9SbZR/sIYqm
+         +Sf9NXtyLFxheZgguGVz9Ya62duiU4p5UtSO+EBxbsAprNP0QzQjXahhNjZD7t+tfavq
+         qBLNTMXvJy6S2lcoQy8JtZT9H/PUS2bqY92diJXGVewiQN7mKa193Lf9CNIRSX5+BMEr
+         jb+xpkkmiOKp05eYqW2QzCrP/G5QsERJX7jvintBOn/trtEGBiyQ88MEmwBuUDGQZfVh
+         XZAmD/Ms57qSzOW/Dk6KDdBduR1Pk4Y3iGHWrVhpqQgkc04AG+nNnjQJGsF9Nvvd9o+x
+         YQCQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Wuvv5G6D;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=C4jkq5xm;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fCu7SmjtQPKNT2KNBUKHb3WpQlAAkhC+9wzhcK2IaSs=;
-        b=Y/IJDMA09pkCYnrk/MM/5dFXOnQHuIJzDC8b7xCbqwnIGVAjsaL67NcgBJbj++u+ye
-         3q8j5dqNCHCjcubFgi0vR5Bz8QfJ/iqae+Kr67e46w+SdEekkM9kJhYmYFowQjTlSU7m
-         hWvmASGQp2We+jgwOzu2RsLI9p166s8sSoGCFLp6jf3UifiKT6vWxxgShS6b5TWMsz3x
-         4S3gtC50TdCXsU4MSPUzSjvtiL60E/ogA+jKpZ3cT/3hfmwlY7B02KljQ0BPCjUac/5A
-         IriCABFcxkZbn8d98h6koRwtFQlYffFBWqxS00I3UIvH8BA/CTg0u33+u7jiOU4lunzO
-         h4lw==
+        bh=eOVVO2URE38YzKpx2svamXIcfETIoTvmR5lk1h3aQ88=;
+        b=gnGdCr8Z9D+bwGeWvma10UiKO8K/FbFVjnxxblwd9C0sPJFarAXtmWBClH/UNkLlWY
+         GldRsfOabskQU8rq1FJP0YIrTJ9Hu77eahrCdGH+OlUFCp0p29M1ZosFQ5GDbLdRE+MJ
+         6Bu/sST5+Y1BizahjL/6jB2cvztf99PIF7GkS/4Ue0dO4Bpg/BQiziJpjG+O+Zp6Gxqr
+         FK4k2KCNKvNS3Msj5U69bFIz7HZWbGxHs1zUZ1d5f7MzCfaA7AsDSFnTVugv/iMo3Ibv
+         FLlQRpCOg8EJSewlnVeJnLYMTXLjLN1hCgsN0oYzUAre1nloTKR8pg6P/TQs9aF9KBh+
+         NOJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fCu7SmjtQPKNT2KNBUKHb3WpQlAAkhC+9wzhcK2IaSs=;
-        b=SkF1hu8u5VOGb/Pq3y2ko+WOd2ZveT/CxXLxfisPykBtEo9B/HwksFRtrluvkgouW+
-         X6Wxlsk47yShNvu2We6W/k9sbGQgQUgA2gKPAGIG9OO7tu0achy2gVpHj9k8WEJ2+3cP
-         zIgap1g1hQ7is2JBKgtWMU4xXohW+KAsSKE4PutWBlfmsM1sXBS2qxnT+vAYEQYBty9p
-         O574zml/Noaryk7Gdrdccfxv707N0tVtE7OkcuUQcG1ZI4fx8C4+MqoShhGPPauQDLsu
-         d8lk5cdm/3riRqOGq7+UIaDNLDfONxl1zuKUC9Ef3PViIag2Nkp4h0vyMJmMgWwImlB4
-         SCoA==
-X-Gm-Message-State: AOAM533uNPr/audc9wt+9DK4uamT2LF/ZDQp/xAWq95RUaG1bdQDWB3H
-	zEeN4SjBPfP7NBIJL1Eibrk=
-X-Google-Smtp-Source: ABdhPJzMZrzDEqt22sz4/qRhBqS22E0NbYG7jvVlttDjyncqPqlJN8kUuIOosHdKZRUhodIaj2Rt5Q==
-X-Received: by 2002:a67:f810:: with SMTP id l16mr984335vso.41.1611337581551;
-        Fri, 22 Jan 2021 09:46:21 -0800 (PST)
+        bh=eOVVO2URE38YzKpx2svamXIcfETIoTvmR5lk1h3aQ88=;
+        b=tpN+dhwLNxF1rMEQaoFijzZNaj9ybzDGuV5PpP4ZDsuDTcE0yy3ltQm6JOTdc/omAf
+         g5RiL6+PLXpCSFpdaO1ISjGyN16aZDkvEyFN3M9ElL7vPAkQYIKKLNBQoq2Z3U3Hdj1l
+         6Ntq47BqSz7oB0DxeeMc/ZPyado/JktyCTLAsENF1KAj0GYLtLtLb/OiN+gpJGh44hML
+         BXVGnOMb5yC2MIMyWSA3qeOUAd27OXfgNf5xJd0fmrJtvlKyOilQASSUzLCP33mrpWeM
+         NWGAAUeylqcEqYEDvAg6yrc9Yhb0/kyTNa2PT8cqKyHENVp5J6Hd0//QQjuJgaW7K1EO
+         Hn6Q==
+X-Gm-Message-State: AOAM530M8BEA/eKUQtNI7gvtQ54SEz3CjZafYtjHyRMlljAxT2JyBJ79
+	RuD7b7a/72KDrUEA7G1qk94=
+X-Google-Smtp-Source: ABdhPJxhB4C0AqN+zZ7X0MfNOJqCwdBTfsLrILIRv/kmkr62/TxWeMIWgwDCz8VNkXD8jt8mDgADMQ==
+X-Received: by 2002:ac8:5483:: with SMTP id h3mr5381943qtq.289.1611339041952;
+        Fri, 22 Jan 2021 10:10:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:4ac6:: with SMTP id x189ls396988vka.4.gmail; Fri, 22 Jan
- 2021 09:46:21 -0800 (PST)
-X-Received: by 2002:a1f:ae89:: with SMTP id x131mr652895vke.8.1611337581018;
-        Fri, 22 Jan 2021 09:46:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611337581; cv=none;
+Received: by 2002:ac8:4816:: with SMTP id g22ls2476585qtq.11.gmail; Fri, 22
+ Jan 2021 10:10:41 -0800 (PST)
+X-Received: by 2002:ac8:7259:: with SMTP id l25mr5456129qtp.1.1611339041562;
+        Fri, 22 Jan 2021 10:10:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611339041; cv=none;
         d=google.com; s=arc-20160816;
-        b=S54yf7CBBCb+LdtW9JNGCXACLbYBM29TbUoSLSK29lJcd2V8f2fz7xOALAxmVDoSQ0
-         ALtTK/0S1iBj4FedgYVC8yhR1vWBYp37bxGAsyar1WNdhOBH9ejcheLxv5x1Ongc7On7
-         G7nO2UX5IsRSExFs9cdOL+k7+ZTkmaZ0SaFEnI5XYZA5SSqqh0mxNqteFh6BYr/07G8n
-         2CZjcqupN4APgz6DY1FZrqtqe0kdIKllFdrLp+Qle6PkSY1EQi2aL6S/1eY4vej21dxY
-         LCdLAcNZIfGj4zy3hMJ+TTEsh5Q6+M5lQOX1ay8idUsAey18u3N39rJVHBDB6cNLvBuM
-         v7IQ==
+        b=CXGKXeK1kvsBCLXsBL9VB86FU0W+4kVfpFxw77MRwaR7/u2beza7gXs7vF7dsuisFU
+         A8j7utTW20lml9s1Zsp1WL/Lo6Z2HbVvcA7P7x42EZmfjQjH/LBIhuSoXeKRL6heyUXX
+         L6cDDrvP1Mxc8LHp4y06ImeZv1nHCViYGnyyjX7Gehz3sfFRemJKem+4nh1RX9bzLAxD
+         31pArLHxj58wt8348W56XH0+TWDy2avqabxgEgJT7VbWKoiBc3cDHY2f75QSo0wbUNUU
+         8Z9Syud9btC3uNM+zU1tv8AS8hpajPxAvk5i5JYHO1G7LnfXwcfuJqYWH/QC4s5Xvx87
+         Cmiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=gv+NKby1AgiuBrYLrBBB1VlVrkq+Y1/AQO5M5yEOCqw=;
-        b=hI/EnW6odeo9Avd1+pHV13Cn5/fEwoXeRDOWKl3pqxhT/6gSmnCh2T7sbSUi3xGx4A
-         KgNtVr6gjccPNfDPiaZc75Ge2a9sK9eP6i+d4JxViueLQtwd2BCQ8yr1CnpM5/GpJqJC
-         cZpSgdPl+ioT/Ea511sRRIEffD3Y+1bT8wrtssHd4TU2tUbM4UONi93LQherxcpCiSDW
-         9g0oR/S0Lwk6fpsGim4oDjgLSKGFJ7wJvFJSm257VCwkU8HEBekmzFwKGbs5KZD9ASbu
-         hsh19dol3ySUWzAs874Q+kAlWMvbdfuOObuBYzSDwddK1XyqQJAlBccBxOP/cha7RO5V
-         mb0A==
+        bh=onXgfk50DtN3v5QEyv/WEjxxRRdvu/axfAB5ohqM2OM=;
+        b=XumlChz903MK7E/sxiaMVaqI1Dc5nfHipMlPajIT6OlRC38ddFU5nU716Nskw4gr8O
+         86thCiQB0FCYhHCe4X7st7ljM3bSa9jdU7FsaqpnDkqkNMIsveK5GGagzqzR3RrIvi4+
+         7S20BlXj9eGbbd6WQ9Z4vCo4ft9KkGRichC1T+pYrftTcBIA1DlZxFmZSay5vJsBTb8H
+         STfVzEbP2ryF5ytKVP2PZ2FzHiRugxeKURBeezTCKKsPY0eyMJFa3waLjRHOIgVcEnjD
+         mnBC6CVB7+wdL0vlLb+/ofDOQs1H8mXf4oPBaNbqzR6ZZR2I9QG9NmHmZz1SZk+edHhE
+         UPhA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Wuvv5G6D;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=C4jkq5xm;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
-        by gmr-mx.google.com with ESMTPS id h123si642922vkg.0.2021.01.22.09.46.20
+Received: from mail-pl1-x62c.google.com (mail-pl1-x62c.google.com. [2607:f8b0:4864:20::62c])
+        by gmr-mx.google.com with ESMTPS id a26si60999qkl.1.2021.01.22.10.10.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 Jan 2021 09:46:21 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
-Received: by mail-pj1-x102e.google.com with SMTP id u4so4296425pjn.4
-        for <clang-built-linux@googlegroups.com>; Fri, 22 Jan 2021 09:46:20 -0800 (PST)
-X-Received: by 2002:a17:90b:228f:: with SMTP id kx15mr6884288pjb.32.1611337579851;
- Fri, 22 Jan 2021 09:46:19 -0800 (PST)
+        Fri, 22 Jan 2021 10:10:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62c as permitted sender) client-ip=2607:f8b0:4864:20::62c;
+Received: by mail-pl1-x62c.google.com with SMTP id 31so3719634plb.10
+        for <clang-built-linux@googlegroups.com>; Fri, 22 Jan 2021 10:10:41 -0800 (PST)
+X-Received: by 2002:a17:90a:9915:: with SMTP id b21mr6730628pjp.101.1611339040406;
+ Fri, 22 Jan 2021 10:10:40 -0800 (PST)
 MIME-Version: 1.0
-References: <2b2a556c-5050-abe4-32f6-72621624bd8f@intel.com>
- <CAKwvOdk_yB9esvxyuYQ9zdraiK41fm5ncbdzw4GvLnX8FXbShQ@mail.gmail.com>
- <CAKwvOdn+TW8icmE7D_4OXPh492c908hTa7mA5MVZB1uRgg8btA@mail.gmail.com> <41c18ad2-e824-28a5-2a7b-cbcf33a9d8de@intel.com>
-In-Reply-To: <41c18ad2-e824-28a5-2a7b-cbcf33a9d8de@intel.com>
+References: <20210122135735.176469491@linuxfoundation.org> <CA+G9fYso4QNbRWdrQiiOiMb5RUr8VtM3AkKEGLasgN+KsPSvDw@mail.gmail.com>
+ <YArqULK9c1Cnt5gM@kroah.com> <CA+G9fYuzE9WMSB7uGjV4gTzK510SHEdJb_UXQCzsQ5MqA=h9SA@mail.gmail.com>
+ <20210122153604.GA24972@willie-the-truck> <20210122154246.GA1308786@ubuntu-m3-large-x86>
+In-Reply-To: <20210122154246.GA1308786@ubuntu-m3-large-x86>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 22 Jan 2021 09:46:08 -0800
-Message-ID: <CAKwvOdmLe3D1BehPdM_Vej716NLMVdeDzs3vEXLsgYm6WnQLfw@mail.gmail.com>
-Subject: Re: torture: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
-To: Rong Chen <rong.a.chen@intel.com>
-Cc: Fangrui Song <i@maskray.me>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	lkp <lkp@intel.com>
+Date: Fri, 22 Jan 2021 10:10:29 -0800
+Message-ID: <CAKwvOdkaW3abbZOzf4zj=e2OcNQKiAgc4afnxFcFdT3Di8LZUA@mail.gmail.com>
+Subject: Re: [PATCH 4.14 00/50] 4.14.217-rc1 review
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Naresh Kamboju <naresh.kamboju@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, open list <linux-kernel@vger.kernel.org>, 
+	Shuah Khan <shuah@kernel.org>, patches@kernelci.org, lkft-triage@lists.linaro.org, 
+	linux-stable <stable@vger.kernel.org>, Pavel Machek <pavel@denx.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Guenter Roeck <linux@roeck-us.net>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Wuvv5G6D;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e
+ header.i=@google.com header.s=20161025 header.b=C4jkq5xm;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62c
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,134 +136,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 21, 2021 at 11:22 PM Rong Chen <rong.a.chen@intel.com> wrote:
+On Fri, Jan 22, 2021 at 7:42 AM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
 >
-> Hi Nick,
->
-> The problem was found by the CI but bisected manually.
-
-ah, ok thanks for taking the time to run the bisection and report the
-results! We appreciate it.
-
->
-> Best Regards,
-> Rong Chen
->
-> On 1/21/21 4:51 AM, Nick Desaulniers wrote:
-> > Oh, this is a nice service! Is this new? (bisection of LLVM itself)
+> On Fri, Jan 22, 2021 at 03:36:04PM +0000, Will Deacon wrote:
+> > On Fri, Jan 22, 2021 at 08:43:18PM +0530, Naresh Kamboju wrote:
+> > > On Fri, 22 Jan 2021 at 20:38, Greg Kroah-Hartman
+> > > <gregkh@linuxfoundation.org> wrote:
+> > > >
+> > > > On Fri, Jan 22, 2021 at 08:32:46PM +0530, Naresh Kamboju wrote:
+> > > > > On Fri, 22 Jan 2021 at 19:45, Greg Kroah-Hartman
+> > > > > <gregkh@linuxfoundation.org> wrote:
+> > > > > >
+> > > > > > This is the start of the stable review cycle for the 4.14.217 release.
+> > > > > > There are 50 patches in this series, all will be posted as a response
+> > > > > > to this one.  If anyone has any issues with these being applied, please
+> > > > > > let me know.
+> > > > > >
+> > > > > > Responses should be made by Sun, 24 Jan 2021 13:57:23 +0000.
+> > > > > > Anything received after that time might be too late.
+> > > > > >
+> > > > > > The whole patch series can be found in one patch at:
+> > > > > >         https://www.kernel.org/pub/linux/kernel/v4.x/stable-review/patch-4.14.217-rc1.gz
+> > > > > > or in the git tree and branch at:
+> > > > > >         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.14.y
+> > > > > > and the diffstat can be found below.
+> > > > > >
+> > > > > > thanks,
+> > > > > >
+> > > > > > greg k-h
+> > > > >
+> > > > > arm64 clang-10 builds breaks due to this patch on
+> > > > >    - stable-rc 4.14
+> > > > >    - stable-rc 4.9
+> > > > >    - stable-rc 4.4
+> > > > >
+> > > > > > Will Deacon <will@kernel.org>
+> > > > > >     compiler.h: Raise minimum version of GCC to 5.1 for arm64
+> > > > >
+> > > > > arm64 (defconfig) with clang-10 - FAILED
+> > > >
+> > > > How is a clang build breaking on a "check what version of gcc is being
+> > > > used" change?
+> > > >
+> > > > What is the error message?
+> > >
+> > > make --silent --keep-going --jobs=8
+> > > O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=arm64
+> > > CROSS_COMPILE=aarch64-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
+> > > clang'
+> > > In file included from <built-in>:1:
+> > > include/linux/kconfig.h:74:
+> > > include/linux/compiler_types.h:58:
+> > > include/linux/compiler-gcc.h:160:3: error: Sorry, your version of GCC
+> > > is too old - please use 5.1 or newer.
+> > > # error Sorry, your version of GCC is too old - please use 5.1 or newer.
+> > >   ^
+> > > 1 error generated.
+> > >
+> > > build error link:
+> > > https://gitlab.com/Linaro/lkft/mirrors/stable/linux-stable-rc/-/jobs/980489003#L514
 > >
-> > On Wed, Jan 20, 2021 at 12:49 PM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
-> >> https://github.com/ClangBuiltLinux/linux/issues/1250
-> >>
-> >> On Fri, Dec 18, 2020 at 1:47 AM Chen, Rong A <rong.a.chen@intel.com> wrote:
-> >>> 0day found a regression on commit
-> >>> a084c0388e2a59b9556f2de0083333232da3f1d6 which causes the below issue:
-> >>>
-> >>>
-> >>> user  :notice: [   90.913529] 2020-12-17 22:53:55 modprobe locktorture
-> >>>
-> >>> kern  :warn  : [   90.925547] torture: Unknown symbol
-> >>> _GLOBAL_OFFSET_TABLE_ (err -2)
-> >>> user  :err   : [   90.980297] modprobe: ERROR: could not insert
-> >>> 'locktorture': Unknown symbol in module, or unknown parameter (see dmesg)
-> >>>
-> >>>
-> >>>
-> >>> commit a084c0388e2a59b9556f2de0083333232da3f1d6
-> >>> Author: Fangrui Song <i@maskray.me>
-> >>> Date:   Sat Dec 5 14:54:37 2020 -0800
-> >>>
-> >>>       [TargetMachine] Don't imply dso_local on function declarations in
-> >>> Reloc::Static model for ELF/wasm
-> >>>
-> >>>       clang/lib/CodeGen/CodeGenModule sets dso_local on applicable
-> >>> function declarations,
-> >>>       we don't need to duplicate the work in
-> >>> TargetMachine:shouldAssumeDSOLocal.
-> >>>       (Actually the long-term goal (started by r324535) is to drop
-> >>> TargetMachine::shouldAssumeDSOLocal.)
-> >>>
-> >>>       By not implying dso_local, we will respect
-> >>> dso_local/dso_preemptable specifiers
-> >>>       set by the frontend. This allows the proposed
-> >>> -fno-direct-access-external-data
-> >>>       option to work with -fno-pic and prevent a canonical PLT entry
-> >>> (SHN_UNDEF with non-zero st_value)
-> >>>       when taking the address of a function symbol.
-> >>>
-> >>>       This patch should be NFC in terms of the Clang emitted assembly
-> >>> because the case
-> >>>       we don't set dso_local is a case Clang sets dso_local. However,
-> >>> some tests don't
-> >>>       set dso_local on some function declarations and expose some
-> >>> differences. Most
-> >>>       tests have been fixed to be more robust in the previous commit.
-> >>>
-> >>> :040000 040000 930703e51e21ae9aea20ad64530d74ea05ea8f42
-> >>> 01c6ecbff5899804cdd30358c09dd36119859235 M      llvm
-> >>>
-> >>>
-> >>>
-> >>> git bisect start
-> >>> # bad: [eea67baf8706d82268d26e908cf5415c5af114ff] [llvm-profgen][NFC]
-> >>> Fix test failure by making unwinder's output deterministic
-> >>> git bisect bad eea67baf8706d82268d26e908cf5415c5af114ff
-> >>> # good: [175ebad958a0ebaf6c56c20ab30b9d4347742c29] DebugInfo: remove
-> >>> unnecessary mtriple from test/DebugInfo/X86/abstract_origin.ll
-> >>> git bisect good 175ebad958a0ebaf6c56c20ab30b9d4347742c29
-> >>> # good: [c4a04059026b98e8c23981f1195a61494a661cdb] Add `Operation*
-> >>> OpState::operator->()` to provide more convenient access to members of
-> >>> Operation.
-> >>> git bisect good c4a04059026b98e8c23981f1195a61494a661cdb
-> >>> # good: [ad923edfc1ce0c0b60e8270954c8d098aab3c3f8] [RISCV] Add support
-> >>> for printing pcrel immediates as absolute addresses in llvm-objdump
-> >>> git bisect good ad923edfc1ce0c0b60e8270954c8d098aab3c3f8
-> >>> # bad: [9fe1809f8cac141fdb5cf7e6e05ef1ea4818343c] [X86] Delete 3 unused
-> >>> declarations
-> >>> git bisect bad 9fe1809f8cac141fdb5cf7e6e05ef1ea4818343c
-> >>> # good: [8925d2347432b69d7e4b721a4ced85df0ad782b1] [BasicAA] Add recphi
-> >>> tests with nested loops (NFC)
-> >>> git bisect good 8925d2347432b69d7e4b721a4ced85df0ad782b1
-> >>> # bad: [ee607ed5c36efd8e0536ddbeab1f2025b0e5f045] [debugserver] Call
-> >>> posix_spawnattr_setarchpref_np throught the fn ptr.
-> >>> git bisect bad ee607ed5c36efd8e0536ddbeab1f2025b0e5f045
-> >>> # good: [68edf39ededf97a12602676f9cd537ed689151f0] [TargetMachine]
-> >>> Simplify shouldAssumeDSOLocal by processing ExternalSymbolSDNode early
-> >>> git bisect good 68edf39ededf97a12602676f9cd537ed689151f0
-> >>> # bad: [a084c0388e2a59b9556f2de0083333232da3f1d6] [TargetMachine] Don't
-> >>> imply dso_local on function declarations in Reloc::Static model for ELF/wasm
-> >>> git bisect bad a084c0388e2a59b9556f2de0083333232da3f1d6
-> >>> # good: [37f0c8df47d84ba311fc9a2c1884935ba8961e84] [X86] Emit @PLT for
-> >>> x86-64 and keep unadorned symbols for x86-32
-> >>> git bisect good 37f0c8df47d84ba311fc9a2c1884935ba8961e84
-> >>> # good: [bfda69416c6d0a76b40644b1b0cbc1cbca254a61] [BasicAA] Fix a bug
-> >>> with relational reasoning across iterations
-> >>> git bisect good bfda69416c6d0a76b40644b1b0cbc1cbca254a61
-> >>> # good: [6b6c3aaeacfdc4a482de4af41719b0a4b50aeadf] [test] Add explicit
-> >>> dso_local to function declarations in static relocation model tests
-> >>> git bisect good 6b6c3aaeacfdc4a482de4af41719b0a4b50aeadf
-> >>> # first bad commit: [a084c0388e2a59b9556f2de0083333232da3f1d6]
-> >>> [TargetMachine] Don't imply dso_local on function declarations in
-> >>> Reloc::Static model for ELF/wasm
-> >>>
-> >>> Best Regards,
-> >>> Rong Chen
-> >>>
-> >>> --
-> >>> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> >>> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> >>> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2b2a556c-5050-abe4-32f6-72621624bd8f%40intel.com.
-> >>
-> >>
-> >> --
-> >> Thanks,
-> >> ~Nick Desaulniers
+> > Urgh, looks like we need backports of 815f0ddb346c
+> > ("include/linux/compiler*.h: make compiler-*.h mutually exclusive") then.
 > >
-> >
+> > Greg -- please drop my changes from 4.14, 4.9 and 4.4 for now and I'll
+> > look at this next week.
 >
+> That backport is going to be pretty gnarly, there was a pretty decent
+> tailwind of fixes around that patch IIRC.
+>
+> The simple solution would be to stick a !defined(__clang__) in that
+> preprocessor conditional so that it truly fires only for GCC.
 
-
+I agree with that approach.
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -266,4 +217,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmLe3D1BehPdM_Vej716NLMVdeDzs3vEXLsgYm6WnQLfw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkaW3abbZOzf4zj%3De2OcNQKiAgc4afnxFcFdT3Di8LZUA%40mail.gmail.com.
