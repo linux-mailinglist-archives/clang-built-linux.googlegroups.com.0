@@ -1,125 +1,146 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBPNUYKAAMGQEVWA7HSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBB4V2YKAAMGQEGUN3G3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3e.google.com (mail-vs1-xe3e.google.com [IPv6:2607:f8b0:4864:20::e3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id EB6C4304C58
-	for <lists+clang-built-linux@lfdr.de>; Tue, 26 Jan 2021 23:39:58 +0100 (CET)
-Received: by mail-vs1-xe3e.google.com with SMTP id j14sf107616vso.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 26 Jan 2021 14:39:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611700798; cv=pass;
+Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
+	by mail.lfdr.de (Postfix) with ESMTPS id E9A78304CB2
+	for <lists+clang-built-linux@lfdr.de>; Tue, 26 Jan 2021 23:53:38 +0100 (CET)
+Received: by mail-lj1-x23d.google.com with SMTP id k7sf152992ljj.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 26 Jan 2021 14:53:38 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611701618; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bMkSivqONkkok5ZeRICzpcdaJBCvxHWlK28l8TqP32c584YFApHpaph35QaSVgELWl
-         SiVd5gStNHOzy+SqzP1kEjFTyUdH0ImmwsJqMjY7ANzdzDvVipP2vUU2fsYRGUD04A1D
-         9Y35N1TfiIjmvJf6NqaICfsTdgEgvbTxnC4P6rFrmoR/atmo50NgaDj+epJg2qeSHMVi
-         RaenqQebsBbogyWJyFmd4cHe1yCcrmKtB/1W0scWs+TFLbuCanj4lOS00vj5L+bhGNJX
-         lN7peH83BX4RbXybkRLHEiLqUWXMJ+3dTtbJdltWTeKkRx3YWBYLesYqmgA0dzeKQyrF
-         3eBA==
+        b=NZ0v1TQOzk+ZtWbKMU28FPxZVKG7SyLBqXxb5mXVMBJ78hC0h/9GUD3sWTpdPJj244
+         irsU0JLbqB1JKldbjksNWzWcmSMHCy+V/rPKMlJpz/AiffAweGeXUgrJ5ZNgRLSkt+vZ
+         ETkdrzzuSZO1Fyw3xZejoONye/J/TdgHBGaPAcwlLHLGrDBCIHMoShcQc03eyqPxREEc
+         7lxe35cTD58/1pBrEw5LZdjgBlMQtmKRXKpX8re54Q7OQOKi9jie4aAKtwKOi1crcQhY
+         EEpGYgA1UDRo6Tz2moUisShCDXXMZKhcdGqJ4Ssf+Mx0yCar1efgQQy6CgyzTt/gvKKu
+         vjHA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=g1lXkjFVoWcHimrRyusFFxrIWTFA9Q+rr6rz92SJWtU=;
-        b=bHfutR/NHIez7jKCRasU49CVJIMjJsGpAawhGoM996nw8WGXF4zwDfJWMTDDfJAZcZ
-         vh6aC9JAq9hWNULJJkaXc3vMsxBCbRBPDeFzCc/mAsPOLSZ8i74SOL4+m6B7bhdPCQVK
-         g2O1WxWePquff6/PIYuk4Ntb6UMJpnz6VhGr8LwSEwFeaYdIlO8c9WWq0NK3q4HpsOFv
-         BG0elvFfXGZLju82kmT3ItBH3fVnDFBy9mXI1oWmqOCbKnoIESqNHsddMWME+XCiitum
-         MF+r5m5n5kTjuaLTEuUxctLEj9wZFdcPtvgAZEX1aTsCq/eRSH+nZ7AqiNtXItU5a6W+
-         lfZw==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=tr4sPpMYP0cGAe35LouwpPZuqVl9m46p08ETYrjCdoU=;
+        b=bHGqBna71xrAJ9tkdjRIEnCPgg/vB4jUEvD9Xm3R6Ue71xQj9nTh5KeGWkMl6FkyWO
+         4at7eFGOqx88FyvMoWY2lglZjJETGcWwRWHu38mwQX3421T6TXHyst4uuuohA9YLUkje
+         wZZYnDSL6bFpRgI9YosqyX+lRDSAiAA14wWDQFv6X7Mmq36WnRfjSwmVY1Tn4PgUP5UX
+         Cxz/wm1CNl6q7RjXJnMOPCredLOdOquMBVmCVab4wsp6Lw8mIITWMyeQNNHCSvhMNXml
+         SE3tqzfoM1iwsa7caxyZsEy/+E88Td3Qgfy1EN+ETxpT5yG7H3D2qSs4w391LL6cP1nR
+         /Suw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=gKNKBbKX;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=g1lXkjFVoWcHimrRyusFFxrIWTFA9Q+rr6rz92SJWtU=;
-        b=eCUhw9K4WSs+57kcYidwXtCBVhMg7h3KzNkOjDYFbkYNnULPwsyrZNTRcwQ3f9zmF+
-         JqrqenSjY3oz+2jggoPhLCEmrayhT00LX8+keVQcbcy+HREbyi7y/w/UB/3OuKqC2F1k
-         tS0jxpiC/ul/70AiS+SP7V43pEv7SlaumFGMFWEZbHx9CF/BdUqC0otZjDGa05Pg/Exw
-         GpssaiAGUKV9BCaOECxmStqj3rpNGWrodNl+eAYIl3I6gW0mgmN7r2iBxvzYd2XpOxos
-         f5lx4hdmp0ELIL5yQVQ+oS7qmUa005VvQYJ2ALPm2llt987871BZUoJNpFXUC/+q02a9
-         bZFg==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=tr4sPpMYP0cGAe35LouwpPZuqVl9m46p08ETYrjCdoU=;
+        b=M63sJT6tGTtJCF6CzVEbVFWKCQZ9/2d6ryS1WxzD5RIdlaftBUcMy/hNEgOulTc4cn
+         66coDbCcMQ4BzDtqhvZTVY639lvIYlvucEPo62auNhRI9ifoS+Bcv88+B1pfJTeJWQiM
+         lNVn5xxzHUJVd6c+gCcGVYfNwDPcwsNyPahwlz5u+OS60KzITj+uPCIxkHvNDfaSMR0r
+         jhP62QP0lY84ib5K+AXs/UVkke1t4+GC7brRQ9xavTGSeyLY9EXVvBUkqiXK0cDQIMAu
+         Tuuhz8zpfXmWl/2BgpNOmByxPS82ynOUpyd42wD8d8dHjWD41sq7y15EnrpVSUJ12n0j
+         1EkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=g1lXkjFVoWcHimrRyusFFxrIWTFA9Q+rr6rz92SJWtU=;
-        b=U3YBuT68lKJ9WWVSsCFH+RgrHZdheg5G2Xyi4zdkzrazLm7O16flWVXEaiot1Lp/XJ
-         pdxhBKbLsRrrxpWae1a6TFZOWtq/k3LUMps39ChVcF+av5FiyaMpvcYvHN6ToB32ko4g
-         YMFT4MoOgl41MWH9TbU951NzDMoBQrH5VFiAFE1dl2+phR7rNdeDpogeCvboRwhAIq9D
-         E3mu0R1mStjo+mQP119Jf7wm9mMxTzWuqLCfs3lfBoZSvdrIcl0fOkjlr9ONy07OJEOS
-         wcRcK1tW7k+neozeXMHHRsosXI0Vr2WEkP+zptxkGInQDwRpwWheGSQmHEzzOiJx0Kc7
-         XV0w==
-X-Gm-Message-State: AOAM530NdAaPa8ADOJZveBl6jiG2oRnT1rkd8yCAASKZGVfM1NxZ5LH/
-	tT5pCYMWh4FfeicU+aSBayw=
-X-Google-Smtp-Source: ABdhPJwU9GTOE2JOzCKu1zCJgwwlxiDTnQxu9z8LUa+P9+A94ReH6RLw/26Ox//OSdDOtRjxU4OFOw==
-X-Received: by 2002:a1f:30cd:: with SMTP id w196mr6517037vkw.13.1611700798050;
-        Tue, 26 Jan 2021 14:39:58 -0800 (PST)
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=tr4sPpMYP0cGAe35LouwpPZuqVl9m46p08ETYrjCdoU=;
+        b=oXzuRTZ+mMBMuwZkzTRd0uCoYOZ3S0ybFThuxOgfb8VXdzwoy6+kdjs70zLTW72U+R
+         gepIuOlzcbl2YZyYoBP+APUCbo8nAsvZJGgy/q9AKsxt6vg0hkBI0mO6NwbFYooy7nG1
+         rc8FClXnx/sFogvzceO7CZb97aw5Famv36XMSgaasxOmIcO2pQMWRctN0mM3ZVI++z2P
+         OiUrnIIGInChIK5caEunaQv0s3Wc4KQVx1/Y5ciEj0SyAt8vC2YDA93VR42NetGYcRap
+         5nCVe7bXCiVepFpIE/0YnbupkWt4Ki8wFiiQjey6LZn//Kq6nTdk84WQnPS+iVhJVX4j
+         /MWw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533iEIvfN961TPXHx0dfFxvJaEV9Ij0puRlXY8JKYLftVQekbEwe
+	MDGJSKIQUi2eExLmQwpISJs=
+X-Google-Smtp-Source: ABdhPJyTfm0BRJKcZnX1GiHe1C/rejcH1Z7O9eUFf6a0pCJhrkFW3UTdM5zTiUZAmMJi642UsD6PXQ==
+X-Received: by 2002:a2e:898c:: with SMTP id c12mr4199486lji.193.1611701618479;
+        Tue, 26 Jan 2021 14:53:38 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:8f8d:: with SMTP id r135ls692413vkd.1.gmail; Tue, 26 Jan
- 2021 14:39:57 -0800 (PST)
-X-Received: by 2002:a05:6122:31a:: with SMTP id c26mr6700614vko.0.1611700797670;
-        Tue, 26 Jan 2021 14:39:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611700797; cv=none;
+Received: by 2002:ac2:4adc:: with SMTP id m28ls48749lfp.0.gmail; Tue, 26 Jan
+ 2021 14:53:37 -0800 (PST)
+X-Received: by 2002:ac2:58f2:: with SMTP id v18mr3603949lfo.623.1611701617505;
+        Tue, 26 Jan 2021 14:53:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611701617; cv=none;
         d=google.com; s=arc-20160816;
-        b=RD8py3yipURJUnEtTRH4OS8KuaRoA1VzC2n8GKgOqLyvl7Z4wN4rOI9ZNrlPNY9eHz
-         75eOhqOvPAZsOsGQLQCvZ1yvKX86BImBSwUhmgUiixAjAWwWmASRSy7h8ZVcjpiKBhP9
-         r0KTYdd17Rp6UOHRkjzSDQQeGNwwgo6rglz6/AdCOY6riFhmfiYqxuahyMRYlQQrJqpo
-         7CiyYUBywc/iw8EdjJtx0MTzfT5LgBH6HM++NI3vw0IEIwNcFNPZQRUJuVSemJWBmXi6
-         qV4dGCkWrtSgzU8ZIa7Q38n+rF0M7ZKmWzDaz30o8E/Tg0SbGZKhTVjfAgAPX8bcQzOC
-         pydQ==
+        b=omCQcSg1vpFBMOZ5dN6CxGDOAGKiI4QgmcVtnS9Gg4brgbFo5FSOQHZ2zvVM2r8S9n
+         pDbnlx1WYedvPiaxe8GtCBXKd+Ew4AlAegNMom8obWOSIXkRe9e1Mh/ul92aNgfINNjV
+         0n3uyN5WN9KnQQ6nqRXktVnOO0xmyl+e1EL8w9J0b0irKNyyPuhpcJ6wylDBh+V5kiCl
+         wBV0kzyNF9K5OJKGykIyDBY1nRsVpo2JckAV3bvnlpP9APZT6dyzs/4yf0FhaXWOSbrx
+         Zri0eCAuGTKYvI5mEubfthFVsICFpwR/VECUEedBhCBT8+IlGQCZTmESIQ5iQECWHHfF
+         8MQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KUG/geLRjhLjyfQGAyqVhEUSE3izIcSCJeli9/n0gv4=;
-        b=cCEx48oqQobulBjUlVqny7Wr63mUd1CKtmVQ4Br0UD3bLIYChsK4DllnvFhmqbuxR/
-         4ASS7+ADblr8cy82ip+HWMzEqRmC6aDas1cyDW1DlW2Sa/41DgIXB1OWY4IcBErWxIC0
-         eYdxlVyuaEyWlk0fCrTk2HvG04lU+sLN4vxmjMtpbOavigIZ+ftSnK+8Wm9dtWWkAY6o
-         a0GqFy748iwoSO+Urp7acLDACiyaMap2wnX0EnaLdKElIXJP7IvN7P33cInGCZMXJGhY
-         4KtTQY95dZD1zBEwW//fg/T2Bj2xxIvsbf9rU/RDkPe4OkBC7Rga4Yrm7GbozQtcGarh
-         NkgQ==
+        h=content-transfer-encoding:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=indPSvusvV4gxd1XJ27+6DaTJW+2T73oiMkblYzZTEw=;
+        b=B7LrTK+ZjmqBPNo9zlJXE8wyzeW6WGTYqfa30G3Ru8XP0ab5edpi/rQkCPWrra1BBP
+         OT79Pcq9ECApbarkti6Qw/R4pK7tDGnlkuMmlr4EhHrBa8TMy/bq8QCYxwOMz9yNZMi8
+         LyMtxlO4YYjNfu4aiepEGd4G/zah98OE5/hc6YppbPHaDuOAIjaEc0J6tvX//fHwkkGq
+         Dsh5vgvH9EyERHI0YyRkfjD+scLOeeAgBSJjdPEgl+NXkTeEnOFDzMWi4XF2uUE5GCV3
+         I3stprOD1S6rwU/PCG+HRuZG7CPZQfI6T3TmOk/lK/fOZVVdCi7fQQK9zRbkDFnwhYu1
+         PNbA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=gKNKBbKX;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x102d.google.com (mail-pj1-x102d.google.com. [2607:f8b0:4864:20::102d])
-        by gmr-mx.google.com with ESMTPS id c4si12619vkh.1.2021.01.26.14.39.57
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.85.151])
+        by gmr-mx.google.com with ESMTPS id y6si10085ljn.3.2021.01.26.14.53.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 26 Jan 2021 14:39:57 -0800 (PST)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102d as permitted sender) client-ip=2607:f8b0:4864:20::102d;
-Received: by mail-pj1-x102d.google.com with SMTP id a20so95915pjs.1
-        for <clang-built-linux@googlegroups.com>; Tue, 26 Jan 2021 14:39:57 -0800 (PST)
-X-Received: by 2002:a17:90a:da02:: with SMTP id e2mr2038773pjv.173.1611700796742;
- Tue, 26 Jan 2021 14:39:56 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 26 Jan 2021 14:53:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) client-ip=185.58.85.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-76-30NQJlUXPP2CXDT06Y_EHA-1; Tue, 26 Jan 2021 22:53:34 +0000
+X-MC-Unique: 30NQJlUXPP2CXDT06Y_EHA-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Tue, 26 Jan 2021 22:53:31 +0000
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Tue, 26 Jan 2021 22:53:31 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Nick Desaulniers' <ndesaulniers@google.com>, Candle Sun
+	<candlesea@gmail.com>
+CC: "keescook@chromium.org" <keescook@chromium.org>, "arnd@arndb.de"
+	<arnd@arndb.de>, "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"natechancellor@gmail.com" <natechancellor@gmail.com>,
+	"candle.sun@unisoc.com" <candle.sun@unisoc.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: RE: [PATCH] lkdtm: fix memory copy size for WRITE_KERN
+Thread-Topic: [PATCH] lkdtm: fix memory copy size for WRITE_KERN
+Thread-Index: AQHW8v+fVpSBFdR3bUKo3QkF9iGP/qo4I1KAgAIcALWAAEXe8A==
+Date: Tue, 26 Jan 2021 22:53:31 +0000
+Message-ID: <9b48470af3b841e4bd8ba15a4ee5e745@AcuMS.aculab.com>
+References: <20210125085622.2322-1-candlesea@gmail.com>
+ <97d1f36a3b534b7fbd3790a0277ccaf5@AcuMS.aculab.com>
+ <CAPnx3XPRnpPQyW7UO_TTmQrHwitDw+_i3ESVkaGq+JyiY9Pu0w@mail.gmail.com>
+ <CAKwvOdnH8kXt+jAutjqsL_5H5PzswLGEZOieaGru2SDn13pj+w@mail.gmail.com>
+In-Reply-To: <CAKwvOdnH8kXt+jAutjqsL_5H5PzswLGEZOieaGru2SDn13pj+w@mail.gmail.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-References: <20210126212730.2097108-1-nathan@kernel.org> <CAKwvOdkpJn=e+4cuX7-F3AUPhSGKGqG1SuNtZTo1FKCLFjHSGQ@mail.gmail.com>
-In-Reply-To: <CAKwvOdkpJn=e+4cuX7-F3AUPhSGKGqG1SuNtZTo1FKCLFjHSGQ@mail.gmail.com>
-From: =?UTF-8?B?J0bEgW5nLXJ1w6wgU8OybmcnIHZpYSBDbGFuZyBCdWlsdCBMaW51eA==?= <clang-built-linux@googlegroups.com>
-Date: Tue, 26 Jan 2021 14:39:45 -0800
-Message-ID: <CAFP8O3K5DTOFERgoRWdYoSC-Cq_soOyRw2emfZM5OVOCcQtZug@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS/.mailmap: Use my @kernel.org address
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: maskray@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=gKNKBbKX;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102d
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
-Reply-To: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,88 +153,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 26, 2021 at 1:30 PM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
->
-> On Tue, Jan 26, 2021 at 1:27 PM Nathan Chancellor <nathan@kernel.org> wro=
-te:
+From: Nick Desaulniers
+> Sent: 26 January 2021 18:40
+> 
+> On Tue, Jan 26, 2021 at 6:13 AM Candle Sun <candlesea@gmail.com> wrote:
 > >
-> > Use my @kernel.org for all points of contact so that I am always
-> > accessible.
+> > On Mon, Jan 25, 2021 at 6:37 PM David Laight <David.Laight@aculab.com> wrote:
+> > >
+> > > From: Candle Sun
+> > > > Sent: 25 January 2021 08:56
+> > > >
+> > > > From: Candle Sun <candle.sun@unisoc.com>
+> > > >
+> > > > Though do_overwritten() follows do_nothing() in source code, the final
+> > > > memory address order is determined by compiler. We can't always assume
+> > > > address of do_overwritten() is bigger than do_nothing(). At least the
+> > > > Clang we are using places do_overwritten() before do_nothing() in the
+> > > > object. This causes the copy size in lkdtm_WRITE_KERN() is *really*
+> > > > big and WRITE_KERN test on ARM32 arch will fail.
+> > > >
+> > > > Compare the address order before doing the subtraction.
+> > >
+> > > It isn't clear that helps.
+> > > Compile with -ffunction-sections and/or do LTO an there
+> > > is no reason at all why the functions should be together.
+> > >
+> > > Even without that lkdtm_WRITE_KERN() could easily be between them.
+> > >
+> > > You need to get the size of the 'empty function' from the
+> > > symbol table.
+> > >
+> > >         David
 > >
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
->
-> Acked-by: Nick Desaulniers <ndesaulniers@google.com>
->
-> > ---
-> >  .mailmap    | 1 +
-> >  MAINTAINERS | 2 +-
-> >  2 files changed, 2 insertions(+), 1 deletion(-)
+> > Thanks David.
 > >
-> > diff --git a/.mailmap b/.mailmap
-> > index b1ab0129c7d6..b25a44ab5ba6 100644
-> > --- a/.mailmap
-> > +++ b/.mailmap
-> > @@ -247,6 +247,7 @@ Morten Welinder <welinder@anemone.rentec.com>
-> >  Morten Welinder <welinder@darter.rentec.com>
-> >  Morten Welinder <welinder@troll.com>
-> >  Mythri P K <mythripk@ti.com>
-> > +Nathan Chancellor <nathan@kernel.org> <natechancellor@gmail.com>
-> >  Nguyen Anh Quynh <aquynh@gmail.com>
-> >  Nicolas Ferre <nicolas.ferre@microchip.com> <nicolas.ferre@atmel.com>
-> >  Nicolas Pitre <nico@fluxnic.net> <nicolas.pitre@linaro.org>
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 992fe3b0900a..f9a360103daa 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -4303,7 +4303,7 @@ S:        Maintained
-> >  F:     .clang-format
-> >
-> >  CLANG/LLVM BUILD SUPPORT
-> > -M:     Nathan Chancellor <natechancellor@gmail.com>
-> > +M:     Nathan Chancellor <nathan@kernel.org>
-> >  M:     Nick Desaulniers <ndesaulniers@google.com>
-> >  L:     clang-built-linux@googlegroups.com
-> >  S:     Supported
-> >
-> > base-commit: f8ad8187c3b536ee2b10502a8340c014204a1af0
-> > --
-> > 2.30.0
-> >
-> > --
-> > You received this message because you are subscribed to the Google Grou=
-ps "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send =
-an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/ms=
-gid/clang-built-linux/20210126212730.2097108-1-nathan%40kernel.org.
->
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
->
-> --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/CAKwvOdkpJn%3De%2B4cuX7-F3AUPhSGKGqG1SuNtZTo1FKCLFjHSGQ=
-%40mail.gmail.com.
+> > I think using abs() by Nick's advice would be better. But could you
+> > point out which kernel function can get function size?
+> 
+> The Elf symbol table should contain this info, IIUC.
+> 
+> Given a string literal of a symbol (such as a function identifier),
+> kallsyms_lookup_name() can be used to return its address.
+> 
+> From there we'd want to fetch the Elf_Sym for the address which should
+> contain a st_size field which I think corresponds to the size in bytes
+> of the function.  (At least, from playing with `llvm-readelf -s`)
+> Probably would want to validate it's an STT_FUNC symbol type, too.  We
+> basically want something like kexec_purgatory_find_symbol(), but that
+> knows about the entire kernel image, and not the purgatory image used
+> during kexec.  I don't see any such function currently in the
+> kernel...but it's a large codebase to search through.
 
-Congratulations for a @kernel.org inbox! =F0=9F=91=8F
+The alternative is to get the linker script to define a specific
+constant to the size of the function.
+You can then link against it (by using it as the address of a symbol).
 
+It may be easier to use an asm file for the 'return 0' code.
+I'm guessing there are things in the static branch area
+that could be used.
 
---=20
-=E5=AE=8B=E6=96=B9=E7=9D=BF
+	David
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAFP8O3K5DTOFERgoRWdYoSC-Cq_soOyRw2emfZM5OVOCcQtZug%40mai=
-l.gmail.com.
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/9b48470af3b841e4bd8ba15a4ee5e745%40AcuMS.aculab.com.
