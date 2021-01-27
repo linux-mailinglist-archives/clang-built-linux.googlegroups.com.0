@@ -1,125 +1,124 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBUWWY6AAMGQEHGREA3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBLO2Y6AAMGQE2WLNW3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE7B9306732
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 23:38:11 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id f15sf1533651oto.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 14:38:11 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611787090; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 937EA306737
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 23:46:06 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id y10sf1949031pll.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 14:46:06 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611787565; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gmQbNLvtzjjDK2QceccSD22Y0sfDFqHiJwdaZjKj11oGsUIEQ5H6ZsWFjeYeYBe60l
-         FpMYMKjjI/UHB17rN97Sk+jpMpNFgVS4dy3V6+Ev1FC0GFNWsQx6QEnuVSu6R9EHp5kz
-         NCAUbb7voOnAVXukJuTQ0FGp6PpfOs5kzRBdmaevNQDOhweUdPkvzNm5bWYqb2qFlP3K
-         ihOzhBiDX+bQy4H2m3+U5Jx4LulWbsx63t4VnneFRROSnyzfS0znXxjvNuveUHMSxDgc
-         /dXVev7Fh/QZQWwj2ASvAo/DoQRgWYiQbIsEMB+pxsQcKdvXK2JQPVa4Uy5IBjfGzgLg
-         YA8A==
+        b=gDnMEaVnT4QHwlIvFgIEFu2SiIG36uv3ZNr1XPZE328wR6X0kE2NZktQvAcZd4MRqO
+         Nup+qWmafZYR2x86fYE3vjFtNB8MAIJwh7JJ/fvnHTBkX02FPD02suHDyg6DE6ePG8Qd
+         VAW/UDThfjB9TGaKKpQqRVEybMpEpRCV1qfOl+hHe6PGRiJiTLLPjvTbAHiNbSElf0vw
+         SE7Xunvb1uV60MwuxCejotOJkmE1xlU609sGvGSe0AuxcxnOYUuHFaYT0YFGIk8Tx8/P
+         BmyncfcvZcRqWEoottFvFRp52xZ1Mj7qXhsnuZAPWRKBmeu5ZMgYPdAbntfkN9PVimrc
+         XU/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=/L9aoFfHvq47X9Qd19LBp7h4GbwfgFieOp6cliw41Ik=;
-        b=uzzHMXEVLbmu4d6cMw9o5349QYyf/iQz/v0GfVvld6iTZL2Sj0IeIB/+Hvi/IooRXK
-         MGO0stce2GB41Vw/ze7AzhNTK3jnrp444gbs2vtv6LlPmLr+IwCjeWZTHdQxKvnmu48C
-         bYFBMYWyFbKtvP4VY/RRO/Wl6fxIFabWxnE69k582+weuT7n2+ygI4j2FACvNRudDJwz
-         l2ol6XikKlnNUpGpQkGzfyUeaAjM3eDwevcEWqQk8AKnbmL1QCRH8lXhdDGTs7wC3Cif
-         sHFSdp6KdBgQoOKqyXMCCbDnwbJy5hJnqHdPgO2LjRLBLj8CNiZ0oMOi/+48mMT69loE
-         lmLQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=uXiIrTgk9yCxua3qgsQl2fLc3H54Ae2Ue+Wy1KKOP4w=;
+        b=eg/sX2KiGyhvkwYTc6LGEa/n7F/7/GsXRct7nPR4rw/vSdA3p5+LuDW11MebmjxCK2
+         OHqVBWuFeSPg0G9bAsy3mPr9C91Sgxzbe+0ICyyAO+2MUwvuNOGkYy7EYHY+kbi0lxb8
+         tHtr7HdCL2JEYf2vCWL9bpxsc1N/eqWW8IX2x2OoEDpwxnSJzJYNx7PGJKqxn6wBw43y
+         TKIOru2RahYPFbf1h8zOWlTiyjE63U4uO6MjGZuhZUomlSeOsS/zq9e5kbGC9iUkol/6
+         2gO9C1tZIlke9bT+6R+T8NmKItEqlM2ReoRfs7URZD8mYBmBM58oREaqkwrAvZTk3rGo
+         rSmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=cgoLzwUD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=JOQIW5BS;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/L9aoFfHvq47X9Qd19LBp7h4GbwfgFieOp6cliw41Ik=;
-        b=Z8uqNzUBghuW1ul/sM87uFf3hRjMyJSR5N6ReRsQ6ilcbjdaALHDF0QB7XeZ+HPyjp
-         bVZPs52bJSInTPemkdHjsORgUlLqqXINt+y1fJkzQk9+jjAkT+iCW/ca8dT24EqoAiv4
-         85Uar7evvVErcVkNpmbZRyQGzxG35oMQr9gsYqzxb3zc3uGIWUAZMKBBhw84viuAX6go
-         wArxfkxOhxvzfBoaLWpFrBiLypeeRJ3UYVEtOX+cqQtu67VoG3ukBNVvJojWbT9MZS3M
-         L6hta+DkkxdRpL/j5RZ3YPmJr4oFFICPmZx1JAapJ/TNOTKZQ6yRS0wIMbjV9aO7xG0u
-         mqzg==
+        bh=uXiIrTgk9yCxua3qgsQl2fLc3H54Ae2Ue+Wy1KKOP4w=;
+        b=MEikwWLvJvaPjpOBw0GGdFvXBicnQlhuDTj02vQRNrPcQDdK1OiwpUGzEQDZh5jApk
+         TVGkOi3HVjiJlCausgXQkTQQPy5ZC9Zc5H8Flx66f/Sx2LxLmC6DZD19edLGQ8hrqxVF
+         2JXVIIfxjgvmrlmU+1W/ohBwqjxOIlkvmq+y2QC7VXx6PDW2yv7gaxBf2EgYqpZVcwZZ
+         B42cjUpAEkrmz6ljyZkNMexbYj14MPGsSLxFMs3DbnpQnXfZSChklUSJYSwXtcU+g3dc
+         CnHtvyQDckeDsrU2Xg26wkY4t4skB/CuY++20/XT6rR/PUp97gF+T9EqbOPNmmSyeWym
+         rDsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/L9aoFfHvq47X9Qd19LBp7h4GbwfgFieOp6cliw41Ik=;
-        b=LZdh5Tc84pd/8cgCCevrO7ncEFLIaDxgDcmdzjWkZdLaRg9+WIAawrJzXkLz40P0iP
-         w/RwvSz0zsKBj1g2SD4X+UVl6UhMumz216LwpHarQk6qGc+ojHHsZSwZ71NESevNE6Kz
-         d8vsh/9OBPZsoZ7Z3Z6h/W7TaBuCccrKRvlVFbLoHrmDOdPeGNW4k7ya3Sa0ztc6acfj
-         dW+s1kizdIfBwkMrqcUGEvHeTwWSvC/zbAz/HusLrjzNDfbdr3tAci9pGZQgKMzvo3NG
-         pwgT7ZOG7racK7vlMTWoq1dFj1hkBS7KODCiKbg9ZeAma9jQThuc4ZgRiRhcZHTbVnFu
-         QiKQ==
-X-Gm-Message-State: AOAM5338RpC1uVyPG7cG/Slam6QX7KGOzfAVii4jc241+ur25MxU1p5H
-	omdW848u1lM/9CoCuoddVtM=
-X-Google-Smtp-Source: ABdhPJx01vjFsZ2/MBvXNjT7qctTBoIMgDJJ53A8wiEjBZTd8434Ed4XvN6rp2hMaxL5cgmFjlLxQA==
-X-Received: by 2002:a9d:e81:: with SMTP id 1mr9475452otj.14.1611787090683;
-        Wed, 27 Jan 2021 14:38:10 -0800 (PST)
+        bh=uXiIrTgk9yCxua3qgsQl2fLc3H54Ae2Ue+Wy1KKOP4w=;
+        b=pgD9oKbPqttMWEoKBPErklQSNxlrh9BC6vqWE/T/kAVL0bW1MNu5pEpiY1wjr200xi
+         dRPK7PfNkZNtlVNI1vWsruAjNMe4TkN1siv0bEZNCMsTFuQf4Y55h/Fsy2c/7ZC8nN5b
+         khh4696L2dhynf4Da5U3CV8/tcBcjllIjnwGVsAZ6aNK0EfbXKdoKl24NVDwKbc8ELJ9
+         g99JKzxYmTlS4JblYt64+uLZ5YUse4gnbE86H+LzIZPqlIIDiDf2mL2muGC3iOlQEm2h
+         ty5X9HF+PWYmOs8//MhcsabU70yWsGWOPReGdcCPAupLqpZDdZjYtJ3IeTUoXOX0Qau0
+         kKkw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530JkupgDSVNFzrmLXRv7Y3bA5A9Fr/D22YGwieKZU4aTmX9Kdk0
+	z42DhosxT+EjtwSS6bXvu+I=
+X-Google-Smtp-Source: ABdhPJz/wh87TuwNG+XotQPrj7mJPEskVEyKAqZgmY80/tHotCmycikuIvOFI9kLgGpBoBqQLn7epA==
+X-Received: by 2002:a63:4b0f:: with SMTP id y15mr13749403pga.398.1611787565279;
+        Wed, 27 Jan 2021 14:46:05 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7290:: with SMTP id t16ls877364otj.11.gmail; Wed, 27 Jan
- 2021 14:38:10 -0800 (PST)
-X-Received: by 2002:a9d:19cb:: with SMTP id k69mr9508551otk.75.1611787090270;
-        Wed, 27 Jan 2021 14:38:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611787090; cv=none;
+Received: by 2002:a17:90b:4b8f:: with SMTP id lr15ls1778558pjb.3.gmail; Wed,
+ 27 Jan 2021 14:46:04 -0800 (PST)
+X-Received: by 2002:a17:90a:4494:: with SMTP id t20mr8104467pjg.155.1611787564577;
+        Wed, 27 Jan 2021 14:46:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611787564; cv=none;
         d=google.com; s=arc-20160816;
-        b=A3jzEfdXIUPGGXq9k+WGF39HMvsZmZx8iTSZRttRMV+BqYV3q2AqOsfNXa3ZkCoRCD
-         o4qpsM4d/ZeKW8Ov5oVTWMs+vUcHenaSaQZVaNXaq++N306Rs9sFl5lMdCTBl3veJgxZ
-         JnQW/uy4aym0Daj9czG3VLFBkMGDbBVx6U522AWOXnNpJtg38pyAovee+BO3i5Yz/X3A
-         78pF2dMwqtFPCAwDxxjvx1+zDYexuSBOtRmojAU5QOlNY6ac8Uqqi0KIxsjvh+LupMSY
-         h8pvKFXSMF60qmJsulbkEROSL69ZRykvglMa4tHl4bDUGMTXkNnnoRaF1FwHSRifNN3h
-         E+iA==
+        b=ANAkEfN2kqYS7mBY2CJ9VUT696YBWqtrJCIVSIA4bdWVh95oDUByfEkaZ/0Y1fLaDX
+         Gx7jyhrPeR5YmY6zkJ7tn7vhOtDJjCDpGuKxCCyRSO/evCAjgN0QV0ZkKuVpbbTplIhx
+         YTgO/fnZfqc3oRZrvEcSYNWCbfTOPa14rLV4SVnCi/8+k5/UioiqkhXR66R2OAvlHkWc
+         1w/7FBImFPDDyuachfqOg1tpIgp+4QGouuPOR+T5TZTdwf0AOrKqv5JwkvFtpKlLO3Tg
+         FiR80ocKIAvnDm0/awSUCmdS2ALruwDfIu9ugksZePwRk9WHLwSlDq1JPOWZSTz52Rvl
+         6tkA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=EGTDub2HL3JRl4kOfLecB1flsjSx6VNDzS6CSE6flsM=;
-        b=btamVoWWgUgoS40TFZELMrjS12zJNeYzf1rDuCJxEkveGon0ZCidMs1pHzX862/MuR
-         FgBZTcN8XLHUvR5+7pUmsF4Yq1HHqFb5JoMgff2MDph9viZVVL5Xu8SyqjR9J9SiJlHh
-         Lz/wCzEhrHIBxRKw+dn3jVwMNODb3+Bfh8XeT372Ktp1wPQFwR5Qvi41w5Nh2luUnOHa
-         gKANn3l264o6YJppHUDvdz/D/HXk2t0qhIeUoQiAT/gX7JNWZ35cCJxnd2tGDjcb/qXx
-         slB9XN3Im0F3BT4pOH8srOEDTVHHLeW6hSEiIhToGTUOeQgO9h75cH+1O3MOI0+cTGU0
-         HcQA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=7RK0lQHQj2t22IR+D7n4rVWmuLDotTEHFOG6E1KdJ9M=;
+        b=aZmlsQQSUIJoQ36SlOJl27YIeYSSC3ROXLYQbV7cr3g8uKF1gLfiYoUyqRxUc7zGOD
+         1EJvVqrSbGUb7xRh+eq/iKMQ33tbDqf6TFEnjHgOU713x2v91kM1ks5dbt2cWw0cTYs1
+         ZHHtz9rhfnoMsIX8nGGgWtKylW4eKa6mcMnMAoskQ+s5sdAvZ49G+h9EjCx58GKjny8D
+         NpBWHagAvLHVcH3dORq4z6JleeFZcL4X4zjA8Q/5BhqJ+EEQJ0JE3/g8W/jmZ/csqo1s
+         mTJt7isnwtZrn/tV40Iw2K7C5pp1CR39briJNzswto4Fr4xAlkrE1+lREQu4bd/fKh4I
+         3AUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=cgoLzwUD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x42b.google.com (mail-pf1-x42b.google.com. [2607:f8b0:4864:20::42b])
-        by gmr-mx.google.com with ESMTPS id l126si202084oih.3.2021.01.27.14.38.10
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=JOQIW5BS;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id j11si235251pgm.4.2021.01.27.14.46.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Jan 2021 14:38:10 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b as permitted sender) client-ip=2607:f8b0:4864:20::42b;
-Received: by mail-pf1-x42b.google.com with SMTP id y205so2362299pfc.5
-        for <clang-built-linux@googlegroups.com>; Wed, 27 Jan 2021 14:38:10 -0800 (PST)
-X-Received: by 2002:a62:1896:0:b029:197:491c:be38 with SMTP id
- 144-20020a6218960000b0290197491cbe38mr12776863pfy.15.1611787089325; Wed, 27
- Jan 2021 14:38:09 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 27 Jan 2021 14:46:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id CE60B64DD7;
+	Wed, 27 Jan 2021 22:46:03 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH v3] ubsan: Implement __ubsan_handle_alignment_assumption
+Date: Wed, 27 Jan 2021 15:44:52 -0700
+Message-Id: <20210127224451.2587372-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20210113001242.1662786-1-natechancellor@gmail.com>
+References: <20210113001242.1662786-1-natechancellor@gmail.com>
 MIME-Version: 1.0
-References: <20210125172956.j2prlchhqwfcgzuc@google.com> <20210127205600.1227437-1-maskray@google.com>
-In-Reply-To: <20210127205600.1227437-1-maskray@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 27 Jan 2021 14:37:57 -0800
-Message-ID: <CAKwvOdkWkBMzFmYdLtdJswXdL2U7ycteVvmZLwk8AUvtrAy6gQ@mail.gmail.com>
-Subject: Re: [PATCH v4] x86: Treat R_386_PLT32 as R_386_PC32
-To: Fangrui Song <maskray@google.com>, Borislav Petkov <bp@alien8.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Michael Matz <matz@suse.de>, 
-	Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=cgoLzwUD;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=JOQIW5BS;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,136 +131,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 27, 2021 at 12:56 PM Fangrui Song <maskray@google.com> wrote:
->
-> This is similar to commit b21ebf2fb4cd ("x86: Treat R_X86_64_PLT32 as
-> R_X86_64_PC32"), but for i386.  As far as Linux kernel is concerned,
-> R_386_PLT32 can be treated the same as R_386_PC32.
->
-> R_386_PLT32/R_X86_64_PLT32 are PC-relative relocation types which can
-> only be used by branches. If the referenced symbol is defined
-> externally, a PLT will be used.
-> R_386_PC32/R_X86_64_PC32 are PC-relative relocation types which can be
-> used by address taking operations and branches. If the referenced symbol
-> is defined externally, a copy relocation/canonical PLT entry will be
-> created in the executable.
->
-> On x86-64, there is no PIC vs non-PIC PLT distinction and an
-> R_X86_64_PLT32 relocation is produced for both `call/jmp foo` and
-> `call/jmp foo@PLT` with newer (2018) GNU as/LLVM integrated assembler.
-> This avoids canonical PLT entries (st_shndx=0, st_value!=0).
->
-> On i386, there are 2 types of PLTs, PIC and non-PIC. Currently the
-> GCC/GNU as convention is to use R_386_PC32 for non-PIC PLT and
-> R_386_PLT32 for PIC PLT. Copy relocations/canonical PLT entries are
-> possible ABI issues but GCC/GNU as will likely keep the status quo
-> because (1) the ABI is legacy (2) the change will drop a GNU ld
-> diagnostic for non-default visibility ifunc in shared objects.
-> https://sourceware.org/bugzilla/show_bug.cgi?id=27169
->
-> clang-12 -fno-pic (since
-> https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6)
-> can emit R_386_PLT32 for compiler generated function declarations,
-> because preventing canonical PLT entries is weighed over the rare ifunc
-> diagnostic.
+When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
 
-Boris, my CI is red since
-https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6
-landed (Dec 5) for i386.  If you need a shorter (or less toolchain
-verbiage) commit message, please consider simply:
+ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
+>>> referenced by slab.h:557 (include/linux/slab.h:557)
+>>>               main.o:(do_initcalls) in archive init/built-in.a
+>>> referenced by slab.h:448 (include/linux/slab.h:448)
+>>>               do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
+>>> referenced by slab.h:448 (include/linux/slab.h:448)
+>>>               do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
+>>> referenced 1579 more times
 
-```
-This is similar to commit b21ebf2fb4cd ("x86: Treat R_X86_64_PLT32 as
-R_X86_64_PC32"), but for i386.  From that commit message:
-  As far as the Linux kernel is concerned, R_386_PLT32 can be
-  treated the same as R_386_PC32.
+Implement this for the kernel based on LLVM's
+handleAlignmentAssumptionImpl because the kernel is not linked against
+the compiler runtime.
 
-clang-12 -fno-pic (since
-https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6)
-can emit R_386_PLT32 for compiler generated function declarations.
-```
+Link: https://github.com/ClangBuiltLinux/linux/issues/1245
+Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
+Acked-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
 
-It would help me abuse <strikethrough>alcohol</strikethrough>coffee
-less to have one less fire.
+v2 -> v3:
 
->
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1210
-> Reported-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Fangrui Song <maskray@google.com>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> Tested-by: Nathan Chancellor <natechancellor@gmail.com>
->
-> ---
-> Change in v2:
-> * Improve commit message
-> ---
-> Change in v3:
-> * Change the GCC link to the more relevant GNU as link.
-> * Fix the relevant llvm-project commit.
-> ---
-> Change in v4:
-> * Improve comments and commit message
-> ---
->  arch/x86/kernel/module.c |  1 +
->  arch/x86/tools/relocs.c  | 12 ++++++++----
->  2 files changed, 9 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/x86/kernel/module.c b/arch/x86/kernel/module.c
-> index 34b153cbd4ac..5e9a34b5bd74 100644
-> --- a/arch/x86/kernel/module.c
-> +++ b/arch/x86/kernel/module.c
-> @@ -114,6 +114,7 @@ int apply_relocate(Elf32_Shdr *sechdrs,
->                         *location += sym->st_value;
->                         break;
->                 case R_386_PC32:
-> +               case R_386_PLT32:
->                         /* Add the value, subtract its position */
->                         *location += sym->st_value - (uint32_t)location;
->                         break;
-> diff --git a/arch/x86/tools/relocs.c b/arch/x86/tools/relocs.c
-> index ce7188cbdae5..1c3a1962cade 100644
-> --- a/arch/x86/tools/relocs.c
-> +++ b/arch/x86/tools/relocs.c
-> @@ -867,9 +867,11 @@ static int do_reloc32(struct section *sec, Elf_Rel *rel, Elf_Sym *sym,
->         case R_386_PC32:
->         case R_386_PC16:
->         case R_386_PC8:
-> +       case R_386_PLT32:
->                 /*
-> -                * NONE can be ignored and PC relative relocations don't
-> -                * need to be adjusted.
-> +                * NONE can be ignored and PC relative relocations don't need
-> +                * to be adjusted. Because sym must be defined, R_386_PLT32 can
-> +                * be treated the same way as R_386_PC32.
->                  */
->                 break;
->
-> @@ -910,9 +912,11 @@ static int do_reloc_real(struct section *sec, Elf_Rel *rel, Elf_Sym *sym,
->         case R_386_PC32:
->         case R_386_PC16:
->         case R_386_PC8:
-> +       case R_386_PLT32:
->                 /*
-> -                * NONE can be ignored and PC relative relocations don't
-> -                * need to be adjusted.
-> +                * NONE can be ignored and PC relative relocations don't need
-> +                * to be adjusted. Because sym must be defined, R_386_PLT32 can
-> +                * be treated the same way as R_386_PC32.
->                  */
->                 break;
->
-> --
-> 2.30.0.280.ga3ce27912f-goog
->
+* Add prototype right above definition to avoid introducing a warning
+  with W=1.
 
+v1 -> v2:
 
+* Use __ffs instead of ffs because due to size of input (unsigned long
+  vs int) and we want a zero based index (Nick Desaulniers).
+
+* Pick up Kees's ack.
+
+ lib/ubsan.c | 31 +++++++++++++++++++++++++++++++
+ lib/ubsan.h |  6 ++++++
+ 2 files changed, 37 insertions(+)
+
+diff --git a/lib/ubsan.c b/lib/ubsan.c
+index 3e3352f3d0da..bec38c64d6a6 100644
+--- a/lib/ubsan.c
++++ b/lib/ubsan.c
+@@ -427,3 +427,34 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
+ 	ubsan_epilogue();
+ }
+ EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
++
++void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
++					 unsigned long align,
++					 unsigned long offset);
++void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
++					 unsigned long align,
++					 unsigned long offset)
++{
++	struct alignment_assumption_data *data = _data;
++	unsigned long real_ptr;
++
++	if (suppress_report(&data->location))
++		return;
++
++	ubsan_prologue(&data->location, "alignment-assumption");
++
++	if (offset)
++		pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
++		       align, offset, data->type->type_name);
++	else
++		pr_err("assumption of %lu byte alignment for pointer of type %s failed",
++		       align, data->type->type_name);
++
++	real_ptr = ptr - offset;
++	pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
++	       offset ? "offset " : "", BIT(real_ptr ? __ffs(real_ptr) : 0),
++	       real_ptr & (align - 1));
++
++	ubsan_epilogue();
++}
++EXPORT_SYMBOL(__ubsan_handle_alignment_assumption);
+diff --git a/lib/ubsan.h b/lib/ubsan.h
+index 7b56c09473a9..9a0b71c5ff9f 100644
+--- a/lib/ubsan.h
++++ b/lib/ubsan.h
+@@ -78,6 +78,12 @@ struct invalid_value_data {
+ 	struct type_descriptor *type;
+ };
+ 
++struct alignment_assumption_data {
++	struct source_location location;
++	struct source_location assumption_location;
++	struct type_descriptor *type;
++};
++
+ #if defined(CONFIG_ARCH_SUPPORTS_INT128)
+ typedef __int128 s_max;
+ typedef unsigned __int128 u_max;
+
+base-commit: 6ee1d745b7c9fd573fba142a2efdad76a9f1cb04
 -- 
-Thanks,
-~Nick Desaulniers
+2.30.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkWkBMzFmYdLtdJswXdL2U7ycteVvmZLwk8AUvtrAy6gQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210127224451.2587372-1-nathan%40kernel.org.
