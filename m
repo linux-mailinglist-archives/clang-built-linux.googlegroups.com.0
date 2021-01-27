@@ -1,122 +1,139 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBOO6Y6AAMGQE2DIMCFY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBSHNY6AAMGQEBRJQLZA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0BDC7306742
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 23:54:51 +0100 (CET)
-Received: by mail-oi1-x23d.google.com with SMTP id k66sf1574121oia.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 14:54:50 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611788090; cv=pass;
+Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B32303067CD
+	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 00:27:05 +0100 (CET)
+Received: by mail-ua1-x93e.google.com with SMTP id u32sf947101uau.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 15:27:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611790024; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CytVIf07JX8/pAUQb8uMeLeeG4R3mKvR87yrsjQW0AHg41TsEzhuroc18q4XgYK234
-         5hPMsfL+A+up1Vc0JoeGvuYWr21vmWMhjVqred/NTcZKquXtu9CD/C7DVIKqo3Tw304w
-         mQ+ecl28fOo50djbczowWOL2rGofbbkhCDah9FI5T/GJ9+50HasYKe2m59Z/FIrwQ87B
-         aIMAvJjoE3U3YeJQGFA9ReZ6+YDhFEmLpRZAdfSn+zfkp/vnZPpBiuFTD1IvDpthTBDH
-         bV13kv/e4QUGJOd9B2461Cv6PyhnwpfFhb6QL2qxQ5FH0LioETg8g8XBtwdcCo+a4gjq
-         dSew==
+        b=ztB/6vj43ocJ0uZkYjKTrugMolJuCApY6jCjH72JkSay/U/WudELPbioY+DawvWELJ
+         XmprTwBQ21G/bLk2Bdek/FRoH8pNblytOHMRXIHtA40IaTZYLuc/2PO6sAq3u/I5zrUs
+         O0V27KBwU3lcGRPp/hnRrzQSGcFHVsEnGhnUf3dWp6omM1aOTmHnKY9kgoDr6nbJACfr
+         SEZwyvXvzrU7T2CkJUbUvJ+GjmzUhZemD1gqrl9Tftiza8GU74xRn3S6CizKoGMlweG6
+         1LVc4fKkqZMEONCSUho7swrDnyzHss3xOBfJiGp2bzQ/Xf2hVp7bPBFiuLT3vH8iOX3D
+         j6kg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=fhvgUo7JSOIsJWHPTIuDbskbR6DrQuF9OUzg1Sydrw8=;
-        b=SQY4+sHB/MzX701xmwKXGwJ7PxxDrzfYP61lV8mFxWf0h8iCmA+8LReX4ArwVVvJB9
-         Ke0s1iQ/cLPWhOrUMIobf92yvof8L1owV2PPfl9YrEZxG2JJtcY7oprGGB74/bdkHA6D
-         7ybQfvvaJqcLUiLV9DxholKhUPzL1CMueVCKaYRVWUFAgnIZ05+mNedlr8UDAq1ilyz8
-         Rpd9REzh3wUa/gh0wUiNFjVzN1aHFq9SuO9DYHlwoQZTY35sLFMth232RzWiH7L++7dd
-         4t75AJGCJB1zW+r3NzbCwAclvG38PE2xjvcwPWNILClNau5mrh+yxmQ9SQlPZu2iGqVV
-         CGYw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=UUHTESGO7Eg6nziULGVp2u7ucETwqNiLxiPNSK/fZOk=;
+        b=Wsv/1cmH+UacSX4PJJojogThf4s2y3nSlozHDcIMntpHwaAczG5N9x3f8sOJwmfdYt
+         mpOeeza0bhojmtd1nawZrHHYGOHX3Pa+dfGGfXCVdlhvXIQcf1+wdZY+Cq5nDMt533y6
+         6FOLWhLqXuuPxUqFOIyuG+gJ9qdi28vszibL7Oym9P+Yr4BCAzaiWjaAkVKwBtCat1hJ
+         FqJOc0zeZQ69Hj+s2RP7IX8TnWfCrENxvgrxoE/Rx8zLBZ6ELdEgMkPn1xoa7/WxqadL
+         kz2SsqqMd3rcLTdwP/PgiN8i9m27WQkLCDmG4vvdVjBEcEaZu6LsmLCsI7ZmI/QIu4Xf
+         36+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=FmWfoKd2;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=V5Hf+EOs;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fhvgUo7JSOIsJWHPTIuDbskbR6DrQuF9OUzg1Sydrw8=;
-        b=HZ43pQUFns74Rcp3f2zZqo6KspGdR+YDAm5y+Cqpqo/mNM4ktHMSNt3fOIJf2k0KLm
-         8cB5/BrTzvKujkh9YXzx4U+mfLRohNItIwxj/e3qLt5Gd4zVeY4994d34QMHwdG02qk9
-         m5aHqjAu1DZM4FPhoKWSLGdUDjN4IsheNuiu4s0VA0B3ZCmBuj5XqDb9MN8/JGC+es4g
-         vlfIoHod2zXYncQINHw8/po6tFPdUev7kem3zF76Dgp5QamJexz1bygF8CdtNA36dRd2
-         hlFfksXazGblilRC0b4AEKorovDUtkmXLNneHBNp36awTZL9+ppGgssyGerXsFp9Xfzd
-         q1RA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=UUHTESGO7Eg6nziULGVp2u7ucETwqNiLxiPNSK/fZOk=;
+        b=th5ChyUlRDot1PKdg3UF5+iUNDpljt+RtVeQ/hGOXM1FVLIBicWP0+zQGfLFfwFsqK
+         lQt0JfsMZA6DSHcrmEA3MyIZhwNNNWXp4RZtgoSIiC/HcIdrzwehth8Zh0M9L3H9wIl5
+         OI2oJnvE4UpruUk+oK0KJpeFpfVbf6YG7agJTIn6FQqb2V6r49fG2zPnSbW4GOyKVbqj
+         NO3r/9onQgvRCyL8BYqYYEwkdYVJC6F6/gA4VKckFsHzbGAtvzvVQf+l6hyiWkpxDkuj
+         tpO4OhVkIE89qYbqo85iaBvRg39fT5k/WjY/KnPI+7fUbcvnRb0N0GpX0RCjxzAwowjs
+         vEvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fhvgUo7JSOIsJWHPTIuDbskbR6DrQuF9OUzg1Sydrw8=;
-        b=sLo9N5D7/TFMhCNPj4CTGdW1vOnfsDF1kG4vveyozLpJeQ8ry/1pI4LuE6Cl6bX+dw
-         BvB6lSV55bgTdAMnJ/bhZfhen/hiQsRUnbEn8xmLrp/R74Vo+AAU2Lh8WHQcY6MPO5XD
-         fRkPGHAZfEDxMLtwJvLE1X0fQtLapbCWwmIcCAsQSuDLFlpLuK4cdJMpFU5st7KQuZ2A
-         QkyKJLMkFiHQkZWF8FasSYE0nhDAlHZC1JmV15G9qlJzZdU0NeVyTtBsc4CLKmkoywWO
-         UVM1WTvueYcWe2XEiE7fVaGdnxf1JO2gKewa77kKZIdj2ezMsV857Rb9DcqVhLe7lIar
-         6r+A==
-X-Gm-Message-State: AOAM531EffWV0TtgTKrBkA8KveZPMwdgImhp9vAMbR9ADvCn0oGXf43s
-	/FO0OkBj3akUiMbGTfY9VUY=
-X-Google-Smtp-Source: ABdhPJzQDMZCpetmqQIgSCswafphJKaVovyVecyfImImGlUbwhLTa7xCawVhSl8SHJTR3IY2JAL9VA==
-X-Received: by 2002:a05:6830:138a:: with SMTP id d10mr9606212otq.123.1611788090027;
-        Wed, 27 Jan 2021 14:54:50 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=UUHTESGO7Eg6nziULGVp2u7ucETwqNiLxiPNSK/fZOk=;
+        b=B3crKUM9McuA8XsTnbxBK6Lwt3t4FIemjKDQGQX0futMPir++aQ+fSE/R0tioQbqqr
+         HCV2a4uXrpS0oRmPUv1cxkId7+UDoyzUUVXVdnjcooe/4tE2vvAZKPYzLr+5vVv64Wy7
+         one76t0CsSnEsrctLdkTDtgEG5z3pB3eZuttoSylq8gyu6wVbiyatTybXV47Ru2m0PLY
+         XUTIJlSZnTEZ+nW/fFny9eR0+DrF9+Ym/Ugubcya1aBJc6cWRkWloiv/CVe8Bx4lktZG
+         WEathDvuEggSEgVAIVaDu/2cyQJ3o4F8+cta2OAIGlY+MBEUTSkE650gz0ZvQcbYLKr1
+         z3Dg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5310VRUCbuckgknF1lrBsLM6yLjiLRIvHjcdwY7XzLZY0s/JuQcN
+	wT3WLqciKh+8Fn9KM32S6wI=
+X-Google-Smtp-Source: ABdhPJxpMHZ0Oc/xOL9wXXXyUAG+huydLwQMz+flyKVrq3oO2VTd8u5UiN1NiHtmSrkAUxgXYgWv9Q==
+X-Received: by 2002:a1f:1c4c:: with SMTP id c73mr10152984vkc.22.1611790024593;
+        Wed, 27 Jan 2021 15:27:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:69c2:: with SMTP id v2ls891180oto.5.gmail; Wed, 27 Jan
- 2021 14:54:49 -0800 (PST)
-X-Received: by 2002:a05:6830:19d9:: with SMTP id p25mr9779982otp.220.1611788089636;
-        Wed, 27 Jan 2021 14:54:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611788089; cv=none;
+Received: by 2002:a67:f898:: with SMTP id h24ls501630vso.5.gmail; Wed, 27 Jan
+ 2021 15:27:04 -0800 (PST)
+X-Received: by 2002:a05:6102:36a:: with SMTP id f10mr9925274vsa.52.1611790024114;
+        Wed, 27 Jan 2021 15:27:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611790024; cv=none;
         d=google.com; s=arc-20160816;
-        b=RDeuIUtwBGasXnWaFc9mEJ/7vUXAKixev8Wd9MXret9Ge1l27udFw03JyGvEdc5Ajn
-         fEitEMFDFezo4TQcOJCOz4hgk7tyGMcTga/iPg33J4hDVCW46qcCc/8TKfQiF/YaHotB
-         8DKmsEGP2GyIIutQ5mxxao6NJ0oMwdulbqT9F2OJFzcZrINDItTs3AmHR+1a9UN3yZZc
-         tHMWI++5z+BCVHOgFk5EztnPjONiqeci+GPMIUSk6zz7KtmSPet0uHu+jzi4gTOiJuIt
-         l0jswxnN6ucRvMvYOVS09KDs7KiKSrSrKrbAH4r7FQZF8iLPC98s2qWwmSrrbNIOmMNv
-         w19Q==
+        b=LzkBqFkssz7gKm/gfzlk1gucm3hfEr2616dVkxLNQV1mBD1Z+FgKr+nm/B/8IeiA+1
+         wQHXnNbLN5W5B1wQHiSm56wv09o8UUSup5MPu+1WfQBE3QCWaVZE+ZWBEBH91L0VrYb+
+         kkMJvvzC3FGFV49roK3O1N+jNrU7Cw4noPMbQLB37gvU4Mi1/fsqBw+QJhgYx24s2p0V
+         DcHddeiUtUPAs9NvwRuemsflLOv5EILGiJQYqHmtI8G0gbRn6pXkELN2FUpCgw7+WPMo
+         d+CRYPvWUCFvgi3xt0zNMFeThOEHrBMMtQCAe70AGyrWvrNv3aPVQFGoGdogHT+d+yFB
+         plDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0RpK9qYNeNCq2pBdqCqkQh3HL9e9C4g0oYh/5JBoHmU=;
-        b=PPC2lH8h9gJcG5g9q8rIeSDue2mRivy3jHzwHmbJkrlvjcQaZCHrNWKDuKH8ewUka9
-         QFPE+6nrHvXrJ0j5C5DkjptRjveZzg91dxirPa6fznricYlwDWz8+lZxZP1uzuNEbpoR
-         NFrdP07tAQ5+UYZ6LXcU8Wmli6s4w3yQHfeK40RWiO5cxNmY+sBziYS1QTiUHQB1g0e7
-         1FDwIg4KcgxNK1TLym3SpkXcDJkv3huExBKZfV008c/z9PPmp1brROQgC+Ob1iOnjjsy
-         BHLZEmV7qfqmxONluTemwG7p2FrUzgGVXisbz7bSIlI46634PJ+65yS5rc7qpKd7R2t8
-         0liQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=UmZtO9S6cUQ2CC3kIdExR5VZtUZQ7YeAA3zNA2d3Y68=;
+        b=G2+KlfzjekusxHE9kGOyVDlnFHOG1jXtckuxEGn16I7ntkW0DmqJBWNHyrkGU5pBuk
+         FkSrMz7pO4k2oWm8CWmh/gstLA/o05r0A4/JRvk5MbQ/flu87/njYU28PnTPTTod/d35
+         t96DfpTfcy79SPMAyl2JXesn3TaQr0hwa49TpqK4zqoOHWEghyrppt0icGQEbzAT9yMi
+         llUloJUvvauENpL2iDgOaqULqThQk3GCG+ROVE782cvoP9FlIruAnpU9+9dqzwYITAVg
+         LcYXK/qzHNK58+gElt/wEPrrgGFUNV/dLk/flz310afGUZMGDf6f794Osm6jjz86L3mU
+         GMQg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=FmWfoKd2;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x42c.google.com (mail-pf1-x42c.google.com. [2607:f8b0:4864:20::42c])
-        by gmr-mx.google.com with ESMTPS id i2si256758otk.1.2021.01.27.14.54.49
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=V5Hf+EOs;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id g17si213774vso.1.2021.01.27.15.27.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Jan 2021 14:54:49 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c as permitted sender) client-ip=2607:f8b0:4864:20::42c;
-Received: by mail-pf1-x42c.google.com with SMTP id o20so2413840pfu.0
-        for <clang-built-linux@googlegroups.com>; Wed, 27 Jan 2021 14:54:49 -0800 (PST)
-X-Received: by 2002:a63:5701:: with SMTP id l1mr13438877pgb.381.1611788088801;
- Wed, 27 Jan 2021 14:54:48 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 27 Jan 2021 15:27:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-508-yX2crCwSMlywEzTRrvJlVw-1; Wed, 27 Jan 2021 18:27:00 -0500
+X-MC-Unique: yX2crCwSMlywEzTRrvJlVw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 25DAC911E3;
+	Wed, 27 Jan 2021 23:26:57 +0000 (UTC)
+Received: from treble (ovpn-120-118.rdu2.redhat.com [10.10.120.118])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6681D10016FA;
+	Wed, 27 Jan 2021 23:26:53 +0000 (UTC)
+Date: Wed, 27 Jan 2021 17:26:51 -0600
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: jthierry@redhat.com, ardb@kernel.org, broonie@kernel.org,
+	catalin.marinas@arm.com, keescook@chromium.org,
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mark.rutland@arm.com, masahiroy@kernel.org, michal.lkml@markovi.net,
+	peterz@infradead.org, raphael.gault@arm.com, will@kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [RFC PATCH 12/17] gcc-plugins: objtool: Add plugin to detect
+ switch table on arm64
+Message-ID: <20210127232651.rj3mo7c2oqh4ytsr@treble>
+References: <20210120173800.1660730-13-jthierry@redhat.com>
+ <20210127221557.1119744-1-ndesaulniers@google.com>
 MIME-Version: 1.0
-References: <20210113001242.1662786-1-natechancellor@gmail.com> <20210127224451.2587372-1-nathan@kernel.org>
-In-Reply-To: <20210127224451.2587372-1-nathan@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 27 Jan 2021 14:54:37 -0800
-Message-ID: <CAKwvOd=t3jT8cWREvKpZCn4pP=dszNgWK0uShnxBBk-xKW53CQ@mail.gmail.com>
-Subject: Re: [PATCH v3] ubsan: Implement __ubsan_handle_alignment_assumption
-To: Nathan Chancellor <nathan@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20210127221557.1119744-1-ndesaulniers@google.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=FmWfoKd2;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42c
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@redhat.com header.s=mimecast20190719 header.b=V5Hf+EOs;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,118 +146,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 27, 2021 at 2:46 PM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
->
-> ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
-> >>> referenced by slab.h:557 (include/linux/slab.h:557)
-> >>>               main.o:(do_initcalls) in archive init/built-in.a
-> >>> referenced by slab.h:448 (include/linux/slab.h:448)
-> >>>               do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
-> >>> referenced by slab.h:448 (include/linux/slab.h:448)
-> >>>               do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
-> >>> referenced 1579 more times
->
-> Implement this for the kernel based on LLVM's
-> handleAlignmentAssumptionImpl because the kernel is not linked against
-> the compiler runtime.
->
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1245
-> Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
-> Acked-by: Kees Cook <keescook@chromium.org>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+On Wed, Jan 27, 2021 at 02:15:57PM -0800, Nick Desaulniers wrote:
+> > From: Raphael Gault <raphael.gault@arm.com>
+> > 
+> > This plugins comes into play before the final 2 RTL passes of GCC and
+> > detects switch-tables that are to be outputed in the ELF and writes
+> > information in an ".discard.switch_table_info" section which will be
+> > used by objtool.
+> > 
+> > Signed-off-by: Raphael Gault <raphael.gault@arm.com>
+> > [J.T.: Change section name to store switch table information,
+> >        Make plugin Kconfig be selected rather than opt-in by user,
+> >        Add a relocation in the switch_table_info that points to
+> >        the jump operation itself]
+> > Signed-off-by: Julien Thierry <jthierry@redhat.com>
+> 
+> Rather than tightly couple this feature to a particular toolchain via
+> plugin, it might be nice to consider what features could be spec'ed out
+> for toolchains to implement (perhaps via a -f flag).
 
-Thanks for the patch!
+The problem is being able to detect switch statement jump table vectors.
 
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+For a given indirect branch (due to a switch statement), what are all
+the corresponding jump targets?
 
-> ---
->
-> v2 -> v3:
->
-> * Add prototype right above definition to avoid introducing a warning
->   with W=1.
->
-> v1 -> v2:
->
-> * Use __ffs instead of ffs because due to size of input (unsigned long
->   vs int) and we want a zero based index (Nick Desaulniers).
->
-> * Pick up Kees's ack.
->
->  lib/ubsan.c | 31 +++++++++++++++++++++++++++++++
->  lib/ubsan.h |  6 ++++++
->  2 files changed, 37 insertions(+)
->
-> diff --git a/lib/ubsan.c b/lib/ubsan.c
-> index 3e3352f3d0da..bec38c64d6a6 100644
-> --- a/lib/ubsan.c
-> +++ b/lib/ubsan.c
-> @@ -427,3 +427,34 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
->         ubsan_epilogue();
->  }
->  EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
-> +
-> +void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
-> +                                        unsigned long align,
-> +                                        unsigned long offset);
-> +void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
-> +                                        unsigned long align,
-> +                                        unsigned long offset)
-> +{
-> +       struct alignment_assumption_data *data = _data;
-> +       unsigned long real_ptr;
-> +
-> +       if (suppress_report(&data->location))
-> +               return;
-> +
-> +       ubsan_prologue(&data->location, "alignment-assumption");
-> +
-> +       if (offset)
-> +               pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
-> +                      align, offset, data->type->type_name);
-> +       else
-> +               pr_err("assumption of %lu byte alignment for pointer of type %s failed",
-> +                      align, data->type->type_name);
-> +
-> +       real_ptr = ptr - offset;
-> +       pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
-> +              offset ? "offset " : "", BIT(real_ptr ? __ffs(real_ptr) : 0),
-> +              real_ptr & (align - 1));
-> +
-> +       ubsan_epilogue();
-> +}
-> +EXPORT_SYMBOL(__ubsan_handle_alignment_assumption);
-> diff --git a/lib/ubsan.h b/lib/ubsan.h
-> index 7b56c09473a9..9a0b71c5ff9f 100644
-> --- a/lib/ubsan.h
-> +++ b/lib/ubsan.h
-> @@ -78,6 +78,12 @@ struct invalid_value_data {
->         struct type_descriptor *type;
->  };
->
-> +struct alignment_assumption_data {
-> +       struct source_location location;
-> +       struct source_location assumption_location;
-> +       struct type_descriptor *type;
-> +};
-> +
->  #if defined(CONFIG_ARCH_SUPPORTS_INT128)
->  typedef __int128 s_max;
->  typedef unsigned __int128 u_max;
->
-> base-commit: 6ee1d745b7c9fd573fba142a2efdad76a9f1cb04
-> --
-> 2.30.0
->
+We would need the compiler to annotate that information somehow.
 
+> Distributions (like Android, CrOS) wont be able to use such a feature as
+> is.
+
+Would a Clang plugin be out of the question?
 
 -- 
-Thanks,
-~Nick Desaulniers
+Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3Dt3jT8cWREvKpZCn4pP%3DdszNgWK0uShnxBBk-xKW53CQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210127232651.rj3mo7c2oqh4ytsr%40treble.
