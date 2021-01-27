@@ -1,117 +1,121 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQF2Y6AAMGQEV7OEGVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBPN7Y6AAMGQEKUMSEGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD155306663
-	for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 22:38:09 +0100 (CET)
-Received: by mail-pj1-x1037.google.com with SMTP id ez7sf1998614pjb.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 13:38:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611783488; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 455113066A9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 22:48:46 +0100 (CET)
+Received: by mail-vk1-xa39.google.com with SMTP id g201sf795967vke.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 13:48:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611784125; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZSy0YWL6Vs1RkcGyuceLXDIZwnJBaXrDDvtZcX/7O+hEGPDbSFeiNVDdEB2XnzRR4r
-         5s6Bzd4HCDKVJpboA5901ujXSAT/gmJBoQ7/M6xnaJsY+Qjv/2m5SGT21Rgvt+OB9bxu
-         XNfsp485R8amInqXBNSxSGVljeAwJY/Uo1q2gbr6pKO9GRFThZqVB2qCJHyvRBg6grkX
-         aSqTHGkae/3MtP9emlHCo5Jo0Ute8hG3AyfMNMYsuAZ05OP9O4fCHsZ3z6OwWo0Pi5Iw
-         VSOKMAs+mUcw76gnWTKUGyEKR72+THvbzPNXZThxamVzTH+dpmgplknqiHj40qdTTfbA
-         A2qg==
+        b=PK+VKOx67ayB+wsASgUqCAjQISRg0kIzRxLEuTQho08prIO7C/EtFxYa4Sd2hzPw/H
+         IMIN4ZLDsSafRHeHBRp4X92gMX+JX0dRalNzQTyIM0GhJ19WV9F8K4MFtiQBV9T1JGqQ
+         N/l+lcV0+e2u1+o22liXZTI0hgGqAqCWzYIfIxLxwh5iWUwfogQYcGgw/QqSaRygFC4B
+         M+76Ng/YkY6f1RYQJGG1FYp4j2HXGORhBR8JrYUEfjhZ0Z0ZI1A7P/Np/1jESAYCuuqg
+         OsOJfHgVImRq3HffX2tz6fVF8JzXS73rthmf1KenaTabU5f0WxPFrltDH1k9HzGq6BUA
+         YtVQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:to:from:subject:date
-         :message-id:mime-version:dkim-signature;
-        bh=OiFWRrrhT98w2NiIInCZnct+e+ez3ERBTAoxEwxlIgQ=;
-        b=LuBtgyWKQvm20TCdLI8n/HfvCYWWJFCzRpNkiM58tXHYthRoz7LlJd1oJ+WS2x0xAD
-         AwpcIT6Ry3NZnWSgo8foqAMyBGhZfMGvDBxuiraYKh+Hl4zL+XXh62R2QpPIJQuxbhAp
-         LKwGBzav2GL7RRxf2Jgow3ngmxkXtt9n2JTXxzXunDlqcUAcHy1nZvgKpspZFoEVsjtc
-         aR3YNg/V2RPXXcKHPIvycyqDgYdu/zppVvgVZCzQFHs/zTHKRxYCEgcndKmPwR076H7z
-         NnvMWUcwrObFcu+gPY/OOPL64HOCd2BQDj7WEYHywjT1cyaTo9p/35tQWYpyFfwAyqNL
-         92yA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=HVQ+S46opSSEK3Vwb/atFqdZRxUhFSia5cUgyetflVQ=;
+        b=r7RpNQFwheTJH0/ui/tLBZZYYn4MO0VYYPO2dUIuOGMDJlYbgJB3dpZ4ls0hIeGwot
+         6MdQWBdqebDZHpVrZw5RxZN+GNtJc34zDwXG6/9D4Ws5xLS2mp2GTurJ0ZR2Sp1JPJp6
+         0d+VW/Yfu2m0BNTvNnNZ65sD3+UNBwb5cF3OgS/DY9ktVfkvTIMHTBiRqfbr6KeR+eRJ
+         g0InmUbAlvNGh9LhfxN2NbtS/6UibnvF26p3D/Qy0i6F15BHvReCCri7XyO24/Y8j6GS
+         tRAPEG7w1a47wZOf7xDrwTW927Bh/+S0OXVBMbG6dJtlMI4Qi0165MC3rHbwkMQEcV98
+         6XJQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="S/rD5CXh";
-       spf=pass (google.com: domain of 3pt0ryawkaecwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com designates 2607:f8b0:4864:20::147 as permitted sender) smtp.mailfrom=3Pt0RYAwKAEcwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=BgQF2Wo9;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:message-id:date:subject:from:to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=OiFWRrrhT98w2NiIInCZnct+e+ez3ERBTAoxEwxlIgQ=;
-        b=av6v2Ed1Z+DJ5m8eCGQpyaDMN7d68zQeeFfnGvVxEduBz0F8pT2VbuSIlcjB2Uu6K+
-         7zXxrTFkw8Uf8U4VnN9VFElZG8I5iLVFgXxndWi47fTNUrmZHDWjV1t1XypIQKQLfuU0
-         +jqrXL2HF/958F3l2mU4x6EcnAQ4PM4qv5c1umV0yl+aPaUakyEFEngv9K+8O6fUh6js
-         uLdlwKt59ehHr39yxPITfdGh0gWK166fqh6RCCBRyP7VEdXyve7lHmWMdqXF+wxH8Kqs
-         aJnGatXa0kw139Xi0Dp1In9RUeaC4udhnoA8VJEc9zlKj7tAkusuIlB/qux2xYm+842s
-         0CnA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=HVQ+S46opSSEK3Vwb/atFqdZRxUhFSia5cUgyetflVQ=;
+        b=HK0RuSEO2HNK2iG8E1M9p12jnGMtvAPPFagqfeJg6f+62Nzya6zF+bD3mosve5hE4w
+         YfBDVmx0Xe3WeaNzeDlObsAEurtkyZLUmOtM7ML3Ya0RyeCFfvJloyFRuKKV1tGciWd/
+         lo7daYx6yrYeyQQf0H0yNnmmETaJoaSUbw2pbYKsS3/077TjP/uyytb0oEJ8UGoaKU/E
+         oTTGx8xu1nBa1w7EEqPLQki9fN+dSWdK5stIVYW7iT2DmmohxHJEyJyx6FCiTB1RgqLf
+         iStsq4uMgRzT468xAdPbElQhxF15IUb8vD0VZ1Sls2o3aq7kyEFNk+3lbtY+I1MTVIqd
+         eOcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:message-id:date:subject:from:to
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=OiFWRrrhT98w2NiIInCZnct+e+ez3ERBTAoxEwxlIgQ=;
-        b=f5jMKj33hoSMAEInRGNupTlcpqM8GEivWC2Ku6SCtJMLfXMAPJBkV/AmMGGbOim7iz
-         iXqDZrzPf2PAtVX2e95EtYbl0Dsi0eN+J2m8E1Y4mt6mxv9TGYSunhmjDGKzPTC6yxBL
-         tjUhsil/h7MVUbUF9DPVqHb8EEEvNPJA+o518Iq2+x3wJLgZonqBDpTotxccyziznHl2
-         fCsnwgdf488oqNvTG9CqAcozoQukvB6aYgsIk7LxPTMWOck1AYPe7ndhK5QjpdZPydt/
-         0TI8aTvxDVYxkIFPKPxja2p2Pe3AXvR25ZGlDhHhN0PbZvANzpr34dzBh6/FveQw+o4b
-         Q+xQ==
-X-Gm-Message-State: AOAM531ZdCeH4Sn4vm53xyoweqS6q9WZ5QvUlTOyhBc4mCBl2ESZAw+R
-	JTWOZznQ1bTQ6BQu4tbQdWU=
-X-Google-Smtp-Source: ABdhPJyT+MmZYWj3tZwtjKkrkP1r26tnBVWMVsXKIntfTpoZ2FhqfIRC1W4o7Q/nvOY7pLRyfLaufA==
-X-Received: by 2002:a17:90b:fd3:: with SMTP id gd19mr7821396pjb.129.1611783488450;
-        Wed, 27 Jan 2021 13:38:08 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=HVQ+S46opSSEK3Vwb/atFqdZRxUhFSia5cUgyetflVQ=;
+        b=jnGQyyUNOeT7g6Lq2cbt4us9o9qu1MeDhxE/ngltXcIYa1hBCL4JAG7peJBD4eX0wF
+         gydXDIWTs+zIjSCBCBZdEuQxvP/DZVBHvQgXukJzBu2EKBaTvhx24lXxnl8bvzZ2f1G1
+         Qjs7jyQN+xmS/HLSam/wx8OGggZOrnfSKkfDT6Dg3clRJJs1G/oj/rFS/jV+SjGeY16j
+         9oGvZak3Ae11v519W4wJTv9gpSFGW93ztOt5c9fR9pbCsTRJjTnQMt3f81JZapJObpnL
+         AeOctcbBq7Lvc78JLg7OHX4f9e4iw/Jx+0r3OsvXGRMNj+Ia3pMKclVutiMcXH9hBniY
+         UDng==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533Q/w+xDeJNzEVQrc5pAo5CcN+HTy3y4al5/ETuG7skOfAPFAoi
+	RVC/9uVLY9Adc+MxCJQ+nLk=
+X-Google-Smtp-Source: ABdhPJwEuz5FzGnQYdFP3SdOCeQCBc5687ii4DARWlitgUhtTZK/PjJ6FbyWsyDl4KjjTKB8aKsXxg==
+X-Received: by 2002:a67:f152:: with SMTP id t18mr9305572vsm.52.1611784125172;
+        Wed, 27 Jan 2021 13:48:45 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:71c6:: with SMTP id m6ls1717295pjs.0.canary-gmail;
- Wed, 27 Jan 2021 13:38:07 -0800 (PST)
-X-Received: by 2002:a17:90b:228f:: with SMTP id kx15mr7978516pjb.32.1611783487539;
-        Wed, 27 Jan 2021 13:38:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611783487; cv=none;
+Received: by 2002:a67:f515:: with SMTP id u21ls477292vsn.2.gmail; Wed, 27 Jan
+ 2021 13:48:44 -0800 (PST)
+X-Received: by 2002:a67:eac2:: with SMTP id s2mr10041822vso.22.1611784124788;
+        Wed, 27 Jan 2021 13:48:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611784124; cv=none;
         d=google.com; s=arc-20160816;
-        b=XfbLv8Jkxd/x05feqBS0cixGMcavOREgD27pT948iUMuxWU07F5qrarzuHEVLCBTMK
-         G1Xb0yHOSyxD//j5jzZ7lnwxgX2q2i671+laJaB2ATZqCccPIgVjdub8VQuoAzrYq0Pk
-         0pUCiwsxZUBnkppZijNpvzyBLDouRsLdFGJJfOv3t1GZMSoCmXAwwJbzgvpxKyQZ4xUo
-         IhVcnZYiSRI2nEAjVDjhNfI1CBNh8/Cbuoi4jmliFkoXfki0ES784kbtq/rIj/H5vy7x
-         /7H56c8HyNXks+5vZeZJH8FGvBd1PA2fIYDM9Pv1dnV1q3MYqF/EzEx4oly4AhWLh9IY
-         wGrw==
+        b=RvU9MImOnJ9j/Wxel8+wcowZuLMhs0+kJz3z9yi1MXlkg2E8RpFIkDwnbqm4W1NujA
+         vXqtdGrudFpNn6koVplVu+yQGFLkVTxUOb71PVNjVQkAWPqa4aswZVSH4ytwDMHNmWgs
+         jzMsQOE/KbNmMVceQR4AiuNEx+TaK8+U+zBxRivqFOyL1xrcKAnk2HjA6HDoKDkOlB44
+         2iyqEb1hr3d3RxQ5+Oj75kcy5g+CsuLqz3fmp25uSMvlew2SuAkDmMgCv3Qp6V3IkdgN
+         xS9uGlSl8v5YePFGslwbP1tOlSr2otKRG8gOfO6/HKYIuYGt0DnT7+4CbqRvUA4f94pb
+         xvdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:from:subject:date:message-id:mime-version:dkim-signature;
-        bh=ekowB/tJmpHLgpwSrmvGpFqYL4rEILPiPS86C+TFYho=;
-        b=hRlSbBPcYiyvR2R8p6ZoRAPiWisCKcfAhdJ9HqlofzEtj+9+G87AykKz+yDjRaHBrg
-         9BQtadebeI5JCBxFIhKJ5Sv5iqtDdgFM/g/UMQBJslv8Y1vuij4MLuXFWs3YY6nAJJNH
-         ljj6GQ8hKgTxH8Sek35cTQhO/ApxOwJi1jlNaYEqk6nZ0SN3/l+rcZFmPiEpDZeV+71e
-         aqOBinUV7ieNUpkoCWNjPsUnTbmJAB341OpSSi0og7+4znhwD8fp+qyfNx0aIZcnPCoh
-         ZPwdy9lgTtWhcnYT6gfujToL/pvi/2yOJCugyyN5PgW/rU/kxh9K1xBUcfFv9JouWduS
-         A5Qg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=gdeVJIriW+T3+Ni56aptjsLOov+eQEfCrcQXd2LT47s=;
+        b=EmZ/7ZwkHwHSPUgmtR8WGunrdvG7PKYbud3+vti9AvG2IBpcDzmT/D0SEvEEJU1m3o
+         WN9hU163Yxd64rnBAjJfhsNHoA2XiZdDSy6McaNSAMll/KatH9xNnXrxw7BJsFSiooCo
+         DZIVDJEIPFFIecJDMu4gbS02xwuiHFeLezJ9IFT4dCGxN8k9KEMlQfmJwE6jX7Ymzxl4
+         UkCFvR9QTp2p3d7ppz6KYQyRlmhw758Fe9X4ZAvgdNC53GBMlmhTix9PPT8h/wFmNiWj
+         RYyUtKfk6KFsNldZD980GzzeTH37ISHEJEa+F3yhmTm5yUTUi2yRDkSoXvJPYIs568/p
+         OZTQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="S/rD5CXh";
-       spf=pass (google.com: domain of 3pt0ryawkaecwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com designates 2607:f8b0:4864:20::147 as permitted sender) smtp.mailfrom=3Pt0RYAwKAEcwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-il1-x147.google.com (mail-il1-x147.google.com. [2607:f8b0:4864:20::147])
-        by gmr-mx.google.com with ESMTPS id w2si147840ply.1.2021.01.27.13.38.07
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=BgQF2Wo9;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id h123si198676vkg.0.2021.01.27.13.48.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Jan 2021 13:38:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3pt0ryawkaecwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com designates 2607:f8b0:4864:20::147 as permitted sender) client-ip=2607:f8b0:4864:20::147;
-Received: by mail-il1-x147.google.com with SMTP id i7so2898394ilu.2
-        for <clang-built-linux@googlegroups.com>; Wed, 27 Jan 2021 13:38:07 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 27 Jan 2021 13:48:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2F5B564DC4;
+	Wed, 27 Jan 2021 21:48:43 +0000 (UTC)
+Date: Wed, 27 Jan 2021 14:48:41 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: ndesaulniers@google.com
+Cc: android-llvm@google.com, clang-linux-fellowship@google.com,
+	clang-built-linux@googlegroups.com
+Subject: Re: Clang-Built Linux Meeting Notes - Jan 27, 2021
+Message-ID: <20210127214841.GA1684067@localhost>
+References: <000000000000304cc805b9e896d5@google.com>
 MIME-Version: 1.0
-X-Received: by 2002:a92:cd81:: with SMTP id r1mr10481073ilb.252.1611783486812;
- Wed, 27 Jan 2021 13:38:06 -0800 (PST)
-Message-ID: <000000000000304cc805b9e896d5@google.com>
-Date: Wed, 27 Jan 2021 21:38:06 +0000
-Subject: Clang-Built Linux Meeting Notes - Jan 27, 2021
-From: ndesaulniers via Clang Built Linux <clang-built-linux@googlegroups.com>
-To: ndesaulniers@google.com, android-llvm@google.com, 
-	clang-linux-fellowship@google.com, clang-built-linux@googlegroups.com
-Content-Type: multipart/alternative; boundary="000000000000304cb205b9e896d2"
-X-Original-Sender: ndesaulniers@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <000000000000304cc805b9e896d5@google.com>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="S/rD5CXh";       spf=pass
- (google.com: domain of 3pt0ryawkaecwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com
- designates 2607:f8b0:4864:20::147 as permitted sender) smtp.mailfrom=3Pt0RYAwKAEcwmn1j3uwrn01pxxpun.lxv@maestro.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: ndesaulniers@google.com
-Reply-To: ndesaulniers@google.com
+ header.i=@kernel.org header.s=k20201202 header.b=BgQF2Wo9;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -124,128 +128,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000304cb205b9e896d2
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+On Wed, Jan 27, 2021 at 09:38:06PM +0000, ndesaulniers via Clang Built Linux wrote:
+> Parsing bug Linus+Will
+> https://reviews.llvm.org/D95408
 
-http://go/clang-built-linux-notes
-Meeting: Hangouts Meet
+https://lore.kernel.org/lkml/20210114175934.13070-1-will@kernel.org/
+https://lore.kernel.org/linux-arm-kernel/20210120173612.20913-1-will@kernel.org/
 
+> Fixed infinite loop observed on s390 build
+> https://goto.google.com/llvm-cr/D94996
 
-Jan 27, 2021
-------------
+For us mere mortals :)
 
-Integrated as
-Reverted for x86_64 for 4.19 due to ltp nanosleep 32b test
-https://android-review.googlesource.com/c/kernel/common/+/1559459
-Arm32b blocked on https://github.com/ClangBuiltLinux/linux/issues/1195,  
-https://bugs.llvm.org/show_bug.cgi?id=48894.
-LTO bugs
-Debug info growth out of control
-thinLTO duplicates CU entries
-New objtool series for x86
-https://lore.kernel.org/lkml/cover.1611263461.git.jpoimboe@redhat.com/
-PGO bugs
-https://lore.kernel.org/lkml/20210122101156.3257143-1-morbo@google.com/
-Reported issues with hash mismatches?
--Wno-error=backend-plugin
-Dwarfv5???
-CI work
-https://github.com/ClangBuiltLinux/continuous-integration2
-https://gitlab.com/cki-project/pipeline-definition/-/merge_requests/1085
-LinuxConfAU report
-Slides:  
-https://lca-kernel.ozlabs.org/2021-Desaulniers-ClangBuiltLinux_Whats_Next.pdf
-Parsing bug Linus+Will
-https://reviews.llvm.org/D95408
-Fixed infinite loop observed on s390 build
-https://goto.google.com/llvm-cr/D94996
-Ubsan bug_on (need to chase these) allmodconfig failures
-llvm 10 and llvm11 next
-https://github.com/ClangBuiltLinux/continuous-integration2/issues/58
-https://github.com/ClangBuiltLinux/continuous-integration2/issues/57
--Wunreachable-code-*
-https://github.com/ClangBuiltLinux/linux/issues/1180
-Objtool arm64
-Requires a GCC plugin?
-https://lore.kernel.org/lkml/a3393eb3-03a5-e4dd-f40c-b801cc60778e@linux.microsoft.com/T/#m44b90dc4ff63f86e76ac4ee68710dfe61b69720e
+https://reviews.llvm.org/D94996
+
+> Ubsan bug_on (need to chase these) allmodconfig failures
+
+As far as I am aware, these are the three outstanding issues
+
+https://github.com/ClangBuiltLinux/linux/issues/1213
+https://lore.kernel.org/lkml/20210107223424.4135538-1-arnd@kernel.org/
+https://lore.kernel.org/lkml/20201230154104.522605-1-arnd@kernel.org/
+
+This one is fixed by destined for 5.12 it seems:
+
+https://github.com/ClangBuiltLinux/linux/issues/1243
+
+> Objtool arm64
+> Requires a GCC plugin?
+> https://lore.kernel.org/lkml/a3393eb3-03a5-e4dd-f40c-b801cc60778e@linux.microsoft.com/T/#m44b90dc4ff63f86e76ac4ee68710dfe61b69720e
+
+https://lore.kernel.org/linux-arm-kernel/20210120173800.1660730-1-jthierry@redhat.com/
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/000000000000304cc805b9e896d5%40google.com.
-
---000000000000304cb205b9e896d2
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<html><head><style> h1 { font-size: 1.2em; font-weight: bold; } h2 { font-s=
-ize: 1.1em; font-weight: bold; } </style></head><body><a href=3D'go/clang-b=
-uilt-linux-notes'><span style=3D'text-decoration: underline'>http://go/clan=
-g-built-linux-notes</span></a><br />Meeting: <a href=3D'https://meet.google=
-.com/yjf-jyqk-iaz'><span style=3D'text-decoration: underline'>Hangouts Meet=
-</span></a><br /><br /><h1>Jan 27, 2021<br /></h1><ul><li>Integrated as</li=
-><ul><li>Reverted for x86_64 for 4.19 due to ltp nanosleep 32b test</li><ul=
-><li><a href=3D'https://android-review.googlesource.com/c/kernel/common/+/1=
-559459'><span style=3D'text-decoration: underline'>https://android-review.g=
-ooglesource.com/c/kernel/common/+/1559459</span></a> </li></ul><li>Arm32b b=
-locked on <a href=3D'https://github.com/ClangBuiltLinux/linux/issues/1195'>=
-<span style=3D'text-decoration: underline'>https://github.com/ClangBuiltLin=
-ux/linux/issues/1195</span></a>, <a href=3D'https://bugs.llvm.org/show_bug.=
-cgi?id=3D48894'><span style=3D'text-decoration: underline'>https://bugs.llv=
-m.org/show_bug.cgi?id=3D48894</span></a>. </li></ul><li>LTO bugs</li><ul><l=
-i>Debug info growth out of control</li><ul><li>thinLTO duplicates CU entrie=
-s</li></ul><li>New objtool series for x86</li><ul><li><a href=3D'https://lo=
-re.kernel.org/lkml/cover.1611263461.git.jpoimboe@redhat.com/'><span style=
-=3D'text-decoration: underline'>https://lore.kernel.org/lkml/cover.16112634=
-61.git.jpoimboe@redhat.com/</span></a> </li></ul></ul><li>PGO bugs</li><ul>=
-<li><a href=3D'https://lore.kernel.org/lkml/20210122101156.3257143-1-morbo@=
-google.com/'><span style=3D'text-decoration: underline'>https://lore.kernel=
-.org/lkml/20210122101156.3257143-1-morbo@google.com/</span></a> </li><li>Re=
-ported issues with hash mismatches?</li><ul><li>-Wno-error=3Dbackend-plugin=
-</li></ul><li>Dwarfv5???</li></ul><li>CI work</li><ul><li><a href=3D'https:=
-//github.com/ClangBuiltLinux/continuous-integration2'><span style=3D'text-d=
-ecoration: underline'>https://github.com/ClangBuiltLinux/continuous-integra=
-tion2</span></a></li><li><a href=3D'https://gitlab.com/cki-project/pipeline=
--definition/-/merge_requests/1085'><span style=3D'text-decoration: underlin=
-e'>https://gitlab.com/cki-project/pipeline-definition/-/merge_requests/1085=
-</span></a> </li></ul><li>LinuxConfAU report</li><ul><li>Slides: <a href=3D=
-'https://lca-kernel.ozlabs.org/2021-Desaulniers-ClangBuiltLinux_Whats_Next.=
-pdf'><span style=3D'text-decoration: underline'>https://lca-kernel.ozlabs.o=
-rg/2021-Desaulniers-ClangBuiltLinux_Whats_Next.pdf</span></a> </li></ul><li=
->Parsing bug Linus+Will</li><ul><li><a href=3D'https://reviews.llvm.org/D95=
-408'><span style=3D'text-decoration: underline'>https://reviews.llvm.org/D9=
-5408</span></a> </li></ul><li>Fixed infinite loop observed on s390 build</l=
-i><ul><li><a href=3D'https://goto.google.com/llvm-cr/D94996'><span style=3D=
-'text-decoration: underline'>https://goto.google.com/llvm-cr/D94996</span><=
-/a> </li></ul><li>Ubsan bug_on (need to chase these) allmodconfig failures<=
-/li><li>llvm 10 and llvm11 next</li><ul><li><a href=3D'https://github.com/C=
-langBuiltLinux/continuous-integration2/issues/58'><span style=3D'text-decor=
-ation: underline'>https://github.com/ClangBuiltLinux/continuous-integration=
-2/issues/58</span></a> </li><li><a href=3D'https://github.com/ClangBuiltLin=
-ux/continuous-integration2/issues/57'><span style=3D'text-decoration: under=
-line'>https://github.com/ClangBuiltLinux/continuous-integration2/issues/57<=
-/span></a> </li></ul><li>-Wunreachable-code-*</li><ul><li><a href=3D'https:=
-//github.com/ClangBuiltLinux/linux/issues/1180'><span style=3D'text-decorat=
-ion: underline'>https://github.com/ClangBuiltLinux/linux/issues/1180</span>=
-</a> </li></ul><li>Objtool arm64</li><ul><li>Requires a GCC plugin?</li><li=
-><a href=3D'https://lore.kernel.org/lkml/a3393eb3-03a5-e4dd-f40c-b801cc6077=
-8e@linux.microsoft.com/T/#m44b90dc4ff63f86e76ac4ee68710dfe61b69720e'><span =
-style=3D'text-decoration: underline'>https://lore.kernel.org/lkml/a3393eb3-=
-03a5-e4dd-f40c-b801cc60778e@linux.microsoft.com/T/#m44b90dc4ff63f86e76ac4ee=
-68710dfe61b69720e</span></a> </li></ul></ul><br /><hr /><br />Sent by http:=
-//go/sendnotes</body></html>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/000000000000304cc805b9e896d5%40google.com?utm_=
-medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid/clang=
--built-linux/000000000000304cc805b9e896d5%40google.com</a>.<br />
-
---000000000000304cb205b9e896d2--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210127214841.GA1684067%40localhost.
