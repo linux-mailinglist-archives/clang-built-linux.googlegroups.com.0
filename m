@@ -1,147 +1,128 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBAO6ZSAAMGQELMOEOGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBBHVZSAAMGQEHVSVSDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9288930809D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 22:39:14 +0100 (CET)
-Received: by mail-pf1-x43b.google.com with SMTP id z13sf4418485pfn.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 13:39:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611869953; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A1FE308116
+	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 23:28:21 +0100 (CET)
+Received: by mail-pj1-x103e.google.com with SMTP id gj19sf4310374pjb.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 14:28:21 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611872900; cv=pass;
         d=google.com; s=arc-20160816;
-        b=n1qzIMj7vuZ86ELm18hQTeewFjxMwqHgGnS17gUJF/maBkARRedU+mOzDYykw0ljHE
-         VyKNsI+c0693KpmaQj+2d2jfvUBNkzr/WmNH+LrBSaQjx5a8dQ+Fdw8FUgwZ3r8beS4Q
-         9Y14QIipPqymSNJwCpDf+QqH5osrv8/s3hF4VEDNxFJsnHGOyUfG0e6d8t5M97SEwrdW
-         XCvWK2NYyjsKW+11+ZIa6IIxofBErpNygEJk9eBXwXbtrtuqinXg2cGCpU4CYYWRZLUY
-         h7/XrVdgZjahbJIBdcOf6Sn7uCvUNbXR1aZjGD1jZuMLxQYKHH8gnkhfXhMwsdupsefd
-         MOpg==
+        b=VnGAuUlVmQFlhNS1U8kObFvQiKecc4NVFtLGP6zWKAhsUAtu9puXKEGAlwvI/PRyBk
+         dT4Y8oC+JvF1BlG1oKpyIcrO6L4bHEiSRAO08oN32tRqq46exCiTIIfYIHnnmyzoB920
+         0SggWdFrqYn9dqXPIpj5XsipgB7XIL0oK6FGbCFAKLxAMQnXXADwBKK443WHYliJRC+S
+         rOiNLXNJUpWmLpdiwvAe+tMYXKCWnJdwl357aVs0s1tkSypEpapXtAgF5hUrzo3hQ2Lf
+         30HPttsQ8Z7qMnxy12MjatekfPuFqk1PVdkQhB9B2YpLyB8o7D3+RUQ+rvY8HtC4o29y
+         WN9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
-         :subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:sender:dkim-signature:dkim-signature;
-        bh=n2Emgth8JDr6OtYp8rHJmmoCUpL4rnYaI2iLePQrycE=;
-        b=yCIoVnswfEhC5qLpf5TZrjGLKY9c/bgX9YNu29bEUl1PepLOdHsq9YwNG20yyztRpA
-         eIU5p8J3oHfOc5im5PcM8n35DQJSJ2ZI/8lCufW8ZsIfd7/oLbuVvTxD3SshOf71mUVM
-         8FJSnmPEBEloR6xFZZTfrTzbwUpS+5pXBfy2p6VcRwj7dbu9KCFyHJosK72mGZq/EHnI
-         1Y3vjwV1tuMSG974oEkvZVdIgenl6o09Uoyk5erupAAc19ILL4CmUez5ImddcS8GJHDA
-         TZquu7vKfdjj9deEaYr38YRlqH8ZZV9tmkXfhgweHVTNiGkeASACM/PKoOw9WIuqfxj7
-         nfmQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=k+kpzkEhENSi1/8Uxi5nOtg6CdSxOUybH8FARjrWmZE=;
+        b=G5Jkpk7sZjtyo+sbY52xnT4UILQCApinmZyaFmHDu/B/jzZI2H3wXDX/5O8a8Z4i0a
+         ODP93TPTnn5lg3bJ2cmpLgUnWb3TuGbttbTrj8xfUOn46uFYMT9TD80BWEPgo6mZHRpD
+         7h4x0rg+AqVb0U2ea4MfMqR/b26J0qpjp+FxrVAjK62e7yhpSJAIfWdMEuifzeEmfipe
+         9izpAmJQSlIcp8a3Yv3/37hlmnlYLlgwYrk/nBd14j8xjTkR7Ou2xJJmUOcHKIoINH0A
+         mxQm4e7jcM5m4D9eRlzAimljUIKUnZa8hEFjiMHPcenWUbCgGfhNYkxMsExBtOd/5ZqX
+         r4SA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cNJfHShS;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2d as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=fFGk3Pqa;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=n2Emgth8JDr6OtYp8rHJmmoCUpL4rnYaI2iLePQrycE=;
-        b=AzIOwFfSTT49o4FSjLO73PNBy2MPIV/2emrxtm2wSghsuspClu/nCBLlppvZimjXCv
-         YJb24s+eN5xzeun4UjUTao9QtapmnsIZyR9+5xk8RdtQiOwF5Q33p4nPQLGncnmPCIdB
-         XOJqD8PO+/IXW7LwSZ6GuRWxIGxPLaFldRYdZdMOcOdlGi87Bw/vWAZni+cgcYYFgf3a
-         CxNbOh6J5ZJj05+Yhcv10M+d5xL4NIrg+VbzMk0gJAxMbBblG68qiY8S57kLB33IXXvx
-         3ThpO1Aps9usTvF6sjCuMJoAOmt7t1/0BprFjNApDlWGZpnFNHJPmGssGOlt1qD3YHLg
-         ntVA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n2Emgth8JDr6OtYp8rHJmmoCUpL4rnYaI2iLePQrycE=;
-        b=uwnUiI48Yj9/CWRu7hYpffX9Oo/ndn3dmV+bYMRjjUqgzTFAbcWR9eo14WwxenVjas
-         S3/eOhKn0C3dvojiSWpYhXQdAS6kzVSRWG44QKHAAR6LCxu8OhF4eDeiqDCJTdk/+3dF
-         1tQNcwwPx+KVm6PxhoaU0gMJ4hCuOY03AItxkkWb9smFzPlnfEmAYkNjpFXcHF4RgbuB
-         Y1G6HUT5UnCpS9rrHKrbV6Lz7Y5phHw/WdcnecDZIECBbtV5AJJKBZXCsaEnRRYekPx5
-         TsqgYM0QvBOXg1LU2HnsOsDOp/FdJiVDUQhe9Z8hyQ6GflH4E3BUgKQAiCfJKZCdNNyJ
-         zJlQ==
+        bh=k+kpzkEhENSi1/8Uxi5nOtg6CdSxOUybH8FARjrWmZE=;
+        b=f0hzFMz9qpDmca8ET7Iv996lh/lD/lNnlQut0tStiuF4JSCAcqwjK+cnfPTyzt+sH5
+         sn+iBuVBCya9bnKWR3a9Biax8uwOO1un4xMMekUa/0b3Lew5DQfnUxFIOMY4H7TmUfai
+         UfnJzaWC965ePFU68Tz2RVksTbTTNBpKhdAxm2JBAbunB3jgfh1rtEheKdz029TAICJU
+         5lMoY8gfjZhNltoROdhMNEqcaVKs8pkp50xi4ReNQLZdLbQuDdM/YCyC/mzFNyauC3Nk
+         l3DyzmRWpyCtmtZ6aCJb/OkdfAk3Uppn5ySsx//nD8aYw5tGKSMrmAkWnAb66H/A5K97
+         hYFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=n2Emgth8JDr6OtYp8rHJmmoCUpL4rnYaI2iLePQrycE=;
-        b=EG8u4/PkcSvhe+HXWxMqsse6RAmvvqTUN5aF8yQpKbO8dZaYHeDBdq+9HHGblz1Voh
-         GyaJk97+g92EPgtaHbwqFYTyZ7KdESdBTQY6OcnqPpq2sq1yhLfck14Ctrypwtw8LvPD
-         C+gUx97cXjZc3RTOO35NwSZZzoc3W8bFRpUebf4atb421GVfVgGxI9ja8vkATA+//o9e
-         F7LM4TxCT+IqqKavnIky08cTbLpeL7T3c2DFb3NUVsLUOPb6prWP4/XTOAa52sV2tzKc
-         RropKzgzSnbx07KbjOkRpCNlmhxkoOevAR1y6HR7K+srWR6KIisay17tNtK8d9lU6aKW
-         WeeQ==
+        bh=k+kpzkEhENSi1/8Uxi5nOtg6CdSxOUybH8FARjrWmZE=;
+        b=MnpZ+iftumPVrI4MyhtF8iIfpwfCZVLew6sO7ZQe2N2A1oe0TKEqJvRtGqL+gZc/Dc
+         xI4an6fADbFOlwzJ8mdA7z0xb/7j0HRA7+L8/eGLaxW1naaXfcCfBiOLAdXNmcxUehmu
+         wEDg+DTXLSGGh40F5oUCvX2PkP+On140LMtHOZ9T/++sl236+B9TzTlHRzvfqLG289H8
+         IHvW5dHTWUxUIuNkyLOdUKn8j4mEk2Y3ZadtPsV2JRLUJKr/0bGICmGZL8K9NNPGbtKG
+         1P4bCKCEgEs7+ab8hOj8Qs0lGdJHaeuL/Fne7Gg3IDDUoE7I5pYlL9IlizYMeGrCJQ4Q
+         hvbg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5306ayA/DR3Huo/ff1uZIQbEXwKQwvMd4cKUAkcdXob2PP4tdwYm
-	AxMs2VAQPQTysuVT4w1hRlQ=
-X-Google-Smtp-Source: ABdhPJxLYS5Vsd3or0JLqr14IM8Ocpnk44gOkKiKPocGayWXOL3uG9m1B3vyZHkcDqnt3gXZ0CKTzw==
-X-Received: by 2002:a17:902:e885:b029:de:abac:f9c4 with SMTP id w5-20020a170902e885b02900deabacf9c4mr1374657plg.30.1611869953357;
-        Thu, 28 Jan 2021 13:39:13 -0800 (PST)
+X-Gm-Message-State: AOAM533hHCHu4VzOzM1LDCH1DvAzlBCF+LtRfWSZQlaE77wCby2EdzQJ
+	RKa3BfLhfFFQdDreCmgj/1A=
+X-Google-Smtp-Source: ABdhPJySfwT/0pUvD06fgTuxNHyDpBLPIWqDy2ofOCPGcZ4beITyYeowFitv52XXhA/pCZOFleKutA==
+X-Received: by 2002:a17:90b:46d5:: with SMTP id jx21mr1494017pjb.67.1611872900393;
+        Thu, 28 Jan 2021 14:28:20 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:9f87:: with SMTP id g7ls3277984plq.5.gmail; Thu, 28
- Jan 2021 13:39:12 -0800 (PST)
-X-Received: by 2002:a17:902:f68d:b029:e1:d20:8641 with SMTP id l13-20020a170902f68db02900e10d208641mr1110551plg.81.1611869952630;
-        Thu, 28 Jan 2021 13:39:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611869952; cv=none;
+Received: by 2002:a62:19d8:: with SMTP id 207ls2750832pfz.5.gmail; Thu, 28 Jan
+ 2021 14:28:19 -0800 (PST)
+X-Received: by 2002:a63:cb01:: with SMTP id p1mr1530517pgg.406.1611872899769;
+        Thu, 28 Jan 2021 14:28:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611872899; cv=none;
         d=google.com; s=arc-20160816;
-        b=dg+Apf3nIhSBNiflYfBUbk8/pAfbYvUq06MuEtqr+L02m+7fIWroW/VJUfYSrAJcNO
-         v3VsGu0xI5D+NuYLihGqqPwUJ6rWM4kOfPN3aXNbaeVw5/wvjdGt0fs/edI/2guz7Nie
-         qojAi74e5ZyMGTZUwtSfapKsJqVZkgN6DQ0mVuOwZnAYfI8lYSk5XcQS+cW+eQ/X/sgv
-         oycXgitm+gHcTEPxE1YnUf7h9FUQw9egrgD6aNOZep2Arh83TYob1IuO08RR0bmghJm/
-         dOkjAuGTsjJywuPvyMPN0wRP/pzTIYnqE91g1NWxC5yS74LHcpEyNKFwQ6GQi9a4R0Qy
-         rMeQ==
+        b=rYpQOKoa2Q1OTrEzpiMnm/iX4WajViOiSLtK7BVnIGwLkKzg1wKIXuyu2z52cbMcEP
+         LwPXV9+eqfbsL9frKlk2d4rcCFAgqX2SI4SrJLxjZZzvtlFwJb2A6/9pZ9DfeTM7/NaJ
+         thRSYcdh1bOvPgtYHHrx8PSoxv7eNaqC4LJZw1OBeiV+X09KprgeWVbTg7zIQML8BpCD
+         TcnKmWmUsDl9e3QTss7IwZgYRwXVAjV/jldt6w6PIUOYcHjyDf5d4xRuwlUDyNH4Zyht
+         iKu5jmfwzOQRyYWfQLzc0Rokdw589zeaDtdyoNgH1u+QQrl1D6TtMes421c6DKos9NCg
+         hjEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:dkim-signature;
-        bh=/CjtAu+M0Wiwb7WvO8Hl9jt0o2jkZcEdDdnm/nslick=;
-        b=tY3MHnxx9RAR4baTcbfP9DkwruOjLfGlL54B4Dk7bCmJvYcc2ZNLjjPQN84C0G0frH
-         LWBX8ifIl32Eiomgltcyf8mpo7GP3rgsLSk4CFNdmEZpbLtNzEWTqzcAt8zD/pylzv4i
-         r3dZ/6gfxfdvxEwPVOBmo7lab8HMRCoV59CLVYYdx5Yeb1eimi3pFdgJeyeqtWdzXCw2
-         +mjDHFyBX/vrQgg5O7usiQwBFMJPAY+K3W1aiiRZh1Siw9FQ2F0o3K6GmId6c7zZjlTf
-         UL4hO0DxX/XIQo/e6OIVty73cWEoscD/7ZstrMlfbWkRQ0yqN5j89DN8sFe4nukdLR+B
-         NwRw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wD6Dlv8eBGohbWt+EVG41HDH+t/pTKQy9Zdn8yrDnLg=;
+        b=0irqQhqdV+51II1I45NqvD6mZj/u/MxFUNvUXxcIsMfqPCDPDlVNhpBMXGLEaZ+clp
+         MDduhUo5DBP6qS9Lxx0pWefEeoikjLF9BoPvmzTo8s1feus/BCDmQrq1Kd4HiTgE090o
+         /z9gvpT0BfRw/esv/522O4qx5Rm9O1ICOe3Ci4orNaQ2u6YnTAwk+uxPo+rflLofizAH
+         Q8UAvdnI/VwPVvVkmBK+R4BPTKtEtknk3sQW33FAvQG0uciMA5U0znyfhnajuQAkq52w
+         YSo0mP7LafTw2+w7D6nJDXhecoJWmCiw9OHCPcjiSg1wHLBBsL6sMUkgTXl8GqgerDbU
+         eZCg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cNJfHShS;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2d as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd2d.google.com (mail-io1-xd2d.google.com. [2607:f8b0:4864:20::d2d])
-        by gmr-mx.google.com with ESMTPS id f11si282956plo.4.2021.01.28.13.39.12
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=fFGk3Pqa;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id l22si571023pjt.3.2021.01.28.14.28.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 28 Jan 2021 13:39:12 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2d as permitted sender) client-ip=2607:f8b0:4864:20::d2d;
-Received: by mail-io1-xd2d.google.com with SMTP id q129so7188734iod.0
-        for <clang-built-linux@googlegroups.com>; Thu, 28 Jan 2021 13:39:12 -0800 (PST)
-X-Received: by 2002:a05:6602:2b01:: with SMTP id p1mr1647556iov.156.1611869951999;
- Thu, 28 Jan 2021 13:39:11 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 28 Jan 2021 14:28:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 623D064DE6
+	for <clang-built-linux@googlegroups.com>; Thu, 28 Jan 2021 22:28:19 +0000 (UTC)
+Received: by mail-ot1-f54.google.com with SMTP id n42so6791372ota.12
+        for <clang-built-linux@googlegroups.com>; Thu, 28 Jan 2021 14:28:19 -0800 (PST)
+X-Received: by 2002:a05:6830:139a:: with SMTP id d26mr1078337otq.305.1611872898629;
+ Thu, 28 Jan 2021 14:28:18 -0800 (PST)
 MIME-Version: 1.0
-References: <20210121082451.2240540-1-morbo@google.com> <20210122101156.3257143-1-morbo@google.com>
- <CAKwvOdm+3o8z2GivPjSJRa=c=UKdfkiY-79s6yn2BxJkFnoFTw@mail.gmail.com>
- <CA+icZUU=XfwqMcXYonQKcD4QgqTBW-mA+d_84b7cU2R3HYPOSQ@mail.gmail.com>
- <CAKwvOdnUm2FqC0CEF3qFuMCaWoqiUMqr7ddMjA2UNsJugA9DNQ@mail.gmail.com>
- <CA+icZUWJu0FWdRY0DMQxpYwjqq1WTB87y9u1-6t3YMmkR3UsBQ@mail.gmail.com> <CAKwvOdnVic2MiVSkiTQGGKPFKtJrf=kt1LgjWejOK6mMtMiX3Q@mail.gmail.com>
-In-Reply-To: <CAKwvOdnVic2MiVSkiTQGGKPFKtJrf=kt1LgjWejOK6mMtMiX3Q@mail.gmail.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Thu, 28 Jan 2021 22:39:00 +0100
-Message-ID: <CA+icZUUVpUban7Fka6xE9fXzgZT+SuFWeMfLELMNdKVD4O0TXA@mail.gmail.com>
-Subject: Re: [PATCH v7] pgo: add clang's Profile Guided Optimization infrastructure
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Bill Wendling <morbo@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Sami Tolvanen <samitolvanen@google.com>
+References: <CAK8P3a0MbxMC9iLe0NGR0ttLY7sZDjsrgKvfRZOXVJLjzDNKmA@mail.gmail.com>
+ <20210128193422.241155-1-ndesaulniers@google.com> <CAMj1kXE5uw4+zV3JVpfA2drOD5TZVMs5a_E5wrrnzjEYc=E_fA@mail.gmail.com>
+In-Reply-To: <CAMj1kXE5uw4+zV3JVpfA2drOD5TZVMs5a_E5wrrnzjEYc=E_fA@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Thu, 28 Jan 2021 23:28:02 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a0CTUh=4h=U6S5A_tqHxYEyO52HTropAV9mKh2hwJvi0g@mail.gmail.com>
+Message-ID: <CAK8P3a0CTUh=4h=U6S5A_tqHxYEyO52HTropAV9mKh2hwJvi0g@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: kprobes: rewrite test-[arm|thumb].c in UAL
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Russell King <linux@armlinux.org.uk>, 
+	Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=cNJfHShS;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2d
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernel.org header.s=k20201202 header.b=fFGk3Pqa;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,132 +135,145 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 28, 2021 at 10:24 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Thu, Jan 28, 2021 at 1:19 PM Sedat Dilek <sedat.dilek@gmail.com> wrote=
-:
+On Thu, Jan 28, 2021 at 10:03 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+> On Thu, 28 Jan 2021 at 20:34, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> > @@ -468,15 +468,15 @@ void kprobe_thumb32_test_cases(void)
 > >
-> > On Thu, Jan 28, 2021 at 10:12 PM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
-> > >
-> > > On Thu, Jan 28, 2021 at 12:46 PM Sedat Dilek <sedat.dilek@gmail.com> =
-wrote:
-> > > >
-> > > > [ LLVM ]
-> > > >
-> > > > Today, I switched over to LLVM version 12.0.0-rc1.
-> > > >
-> > > >
-> > > > [ Step #1: 5.11.0-rc5-5-amd64-clang12-pgo ]
-> > > >
-> > > > My first kernel was built with CONFIG_PGO_CLANG=3Dy and LLVM=3D1 pl=
-us LLVM_IAS=3D1.
-> > > >
-> > > > [ start-build_5.11.0-rc5-5-amd64-clang12-pgo.txt ]
-> > > > dileks    193090  193065  0 06:54 pts/2    00:00:00 /usr/bin/perf_5=
-.10
-> > > > stat make V=3D1 -j4 HOSTCC=3Dclang HOSTCXX=3Dclang++ HOSTLD=3Dld.ll=
-d CC=3Dclang
-> > > > LD=3Dld.lld LLVM=3D1 LLVM_IAS=3D1 PAHOLE=3D/opt/pahole/bin/pahole
-> > > > LOCALVERSION=3D-5-amd64-clang12-pgo KBUILD_VERBOSE=3D1
-> > > > KBUILD_BUILD_HOST=3Diniza KBUILD_BUILD_USER=3Dsedat.dilek@gmail.com
-> > > > KBUILD_BUILD_TIMESTAMP=3D2021-01-28 bindeb-pkg
-> > > > KDEB_PKGVERSION=3D5.11.0~rc5-5~bullseye+dileks1
-> > > >
-> > > > Config: config-5.11.0-rc5-5-amd64-clang12-pgo
-> > > >
-> > > >
-> > > > [ Step #2: x86-64 defconfig & vmlinux.profdata ]
-> > > >
-> > > > Booted into 5.11.0-rc5-5-amd64-clang12-pgo and built an x86-64
-> > > > defconfig to generate/merge a vmlinux.profdata file.
-> > > >
-> > > > [ start-build_x86-64-defconfig.txt ]
-> > > > dileks     18430   15640  0 11:15 pts/2    00:00:00 make V=3D1 -j4
-> > > > HOSTCC=3Dclang HOSTCXX=3Dclang++ HOSTLD=3Dld.lld CC=3Dclang LD=3Dld=
-.lld LLVM=3D1
-> > > > LLVM_IAS=3D1
-> > > >
-> > > > Script: profile_clang-pgo.sh
-> > > > Config: dot-config.x86-64-defconfig
-> > > >
-> > > >
-> > > > [ Step #3.1: 5.11.0-rc5-6-amd64-clang12-pgo & GNU-AS ]
-> > > >
-> > > > The first rebuild with CONFIG_PGO_CLANG=3Dn and "LLVM=3D1
-> > > > KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata".
-> > > > I was able to boot into this one.
-> > > > Used assembler: GNU-AS 2.35.1
-> > > >
-> > > > [ start-build_5.11.0-rc5-6-amd64-clang12-pgo.txt ]
-> > > > dileks     65734   65709  0 11:54 pts/2    00:00:00 /usr/bin/perf_5=
-.10
-> > > > stat make V=3D1 -j4 HOSTCC=3Dclang HOSTCXX=3Dclang++ HOSTLD=3Dld.ll=
-d CC=3Dclang
-> > > > LD=3Dld.lld PAHOLE=3D/opt/pahole/bin/pahole
-> > > > LOCALVERSION=3D-6-amd64-clang12-pgo KBUILD_VERBOSE=3D1
-> > > > KBUILD_BUILD_HOST=3Diniza KBUILD_BUILD_USER=3Dsedat.dilek@gmail.com
-> > > > KBUILD_BUILD_TIMESTAMP=3D2021-01-28 bindeb-pkg
-> > > > KDEB_PKGVERSION=3D5.11.0~rc5-6~bullseye+dileks1 LLVM=3D1
-> > > > KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata
-> > > >
-> > > > Config: config-5.11.0-rc5-6-amd64-clang12-pgo
-> > > >
-> > > >
-> > > > [ Step #3.2: 5.11.0-rc5-7-amd64-clang12-pgo & Clang-IAS ]
-> > > >
-> > > > The second rebuild with CONFIG_PGO_CLANG=3Dn and "LLVM=3D1
-> > > > KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata" plus LLVM_IAS=3D1.
-> > > > Compilable but NOT bootable in QEMU and on bare metal.
-> > > > Used assembler: Clang-IAS v12.0.0-rc1
-> > > >
-> > > > [ start-build_5.11.0-rc5-7-amd64-clang12-pgo.txt ]
-> > > > dileks      6545    6520  0 16:31 pts/2    00:00:00 /usr/bin/perf_5=
-.10
-> > > > stat make V=3D1 -j4 HOSTCC=3Dclang HOSTCXX=3Dclang++ HOSTLD=3Dld.ll=
-d CC=3Dclang
-> > > > LD=3Dld.lld PAHOLE=3D/opt/pahole/bin/pahole
-> > > > LOCALVERSION=3D-7-amd64-clang12-pgo KBUILD_VERBOSE=3D1
-> > > > KBUILD_BUILD_HOST=3Diniza KBUILD_BUILD_USER=3Dsedat.dilek@gmail.com
-> > > > KBUILD_BUILD_TIMESTAMP=3D2021-01-28 bindeb-pkg
-> > > > KDEB_PKGVERSION=3D5.11.0~rc5-7~bullseye+dileks1 LLVM=3D1
-> > > > KCFLAGS=3D-fprofile-use=3Dvmlinux.profdata LLVM_IAS=3D1
-> > > >
-> > > > Config: config-5.11.0-rc5-7-amd64-clang12-pgo
-> > > >
-> > > >
-> > > > [ Conclusion ]
-> > > >
-> > > > The only statement I can tell you is a "PGO optimized" rebuild with
-> > > > LLVM_IAS=3D1 is compilable but NOT bootable.
-> > >
-> > > Thanks for the extensive testing and report. Can you compress, upload=
-,
-> > > and post a link to your kernel image? I would like to take it for a
-> > > spin in QEMU and see if I can find what it's doing, then work
-> > > backwards from there.
-> > >
+> >         TEST_UNSUPPORTED("strexb        r0, r1, [r2]")
+> >         TEST_UNSUPPORTED("strexh        r0, r1, [r2]")
+> > -       TEST_UNSUPPORTED("strexd        r0, r1, [r2]")
+> > +       TEST_UNSUPPORTED("strexd        r0, r1, r2, [r2]")
+> >         TEST_UNSUPPORTED("ldrexb        r0, [r1]")
+> >         TEST_UNSUPPORTED("ldrexh        r0, [r1]")
+> > -       TEST_UNSUPPORTED("ldrexd        r0, [r1]")
+> > +       TEST_UNSUPPORTED("ldrexd        r0, r1, [r1]")
 > >
-> > Which files do you need?
-> > For QEMU: bzImage and initrd.img enough?
+> >         TEST_GROUP("Data-processing (shifted register) and (modified immediate)")
+> >
+> >  #define _DATA_PROCESSING32_DNM(op,s,val)                                       \
+> > -       TEST_RR(op s".w r0,  r",1, VAL1,", r",2, val, "")                       \
+> > +       TEST_RR(op s"   r0,  r",1, VAL1,", r",2, val, "")                       \
 >
-> bzImage should be enough; I'll use my own initrd.  If that boots for
-> me, maybe then I'll take a look with the initrd added.
->
+> What is wrong with these .w suffixes? Shouldn't the assembler accept
+> these even on instructions that only exist in a wide encoding?
 
-You should receive an email with a link to my dropbox shared-folder
-"clang-pgo > for-nick".
-Please let me know if you were able to download.
+I don't know if that is a bug in the integrated assembler or
+intentional behavior, but it may be easier to just change the
+kernel than the compiler in this case, as it also makes it work
+for older versions.
 
-Thanks, Sedat
-=EF=BF=BC
+FWIW, I needed a related change in a couple of other files:
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CA%2BicZUUVpUban7Fka6xE9fXzgZT%2BSuFWeMfLELMNdKVD4O0TXA%4=
-0mail.gmail.com.
+diff --git a/arch/arm/lib/copy_from_user.S b/arch/arm/lib/copy_from_user.S
+index 6acdfde56849..3ced01d9afe4 100644
+--- a/arch/arm/lib/copy_from_user.S
++++ b/arch/arm/lib/copy_from_user.S
+@@ -60,7 +60,7 @@
+ #define LDR1W_SHIFT 0
+
+  .macro ldr1w ptr reg abort
+- USERL(\abort, W(ldr) \reg, [\ptr], #4)
++ USERL(\abort, ldr \reg, [\ptr], #4)
+  .endm
+
+  .macro ldr4w ptr reg1 reg2 reg3 reg4 abort
+@@ -80,7 +80,7 @@
+ #define STR1W_SHIFT 0
+
+  .macro str1w ptr reg abort
+- W(str) \reg, [\ptr], #4
++ str \reg, [\ptr], #4
+  .endm
+
+  .macro str8w ptr reg1 reg2 reg3 reg4 reg5 reg6 reg7 reg8 abort
+diff --git a/arch/arm/lib/copy_to_user.S b/arch/arm/lib/copy_to_user.S
+index 485fa3cffdbe..a6a96f814720 100644
+--- a/arch/arm/lib/copy_to_user.S
++++ b/arch/arm/lib/copy_to_user.S
+@@ -34,7 +34,7 @@
+ #define LDR1W_SHIFT 0
+
+  .macro ldr1w ptr reg abort
+- W(ldr) \reg, [\ptr], #4
++ ldr \reg, [\ptr], #4
+  .endm
+
+  .macro ldr4w ptr reg1 reg2 reg3 reg4 abort
+@@ -77,7 +77,7 @@
+ #define STR1W_SHIFT 0
+
+  .macro str1w ptr reg abort
+- USERL(\abort, W(str) \reg, [\ptr], #4)
++ USERL(\abort, str \reg, [\ptr], #4)
+  .endm
+
+  .macro str8w ptr reg1 reg2 reg3 reg4 reg5 reg6 reg7 reg8 abort
+diff --git a/arch/arm/lib/memcpy.S b/arch/arm/lib/memcpy.S
+index e4caf48c089f..7b980a1a4227 100644
+--- a/arch/arm/lib/memcpy.S
++++ b/arch/arm/lib/memcpy.S
+@@ -15,7 +15,7 @@
+ #define STR1W_SHIFT 0
+
+  .macro ldr1w ptr reg abort
+- W(ldr) \reg, [\ptr], #4
++ ldr \reg, [\ptr], #4
+  .endm
+
+  .macro ldr4w ptr reg1 reg2 reg3 reg4 abort
+@@ -31,7 +31,7 @@
+  .endm
+
+  .macro str1w ptr reg abort
+- W(str) \reg, [\ptr], #4
++ str \reg, [\ptr], #4
+  .endm
+
+  .macro str8w ptr reg1 reg2 reg3 reg4 reg5 reg6 reg7 reg8 abort
+diff --git a/arch/arm/lib/memmove.S b/arch/arm/lib/memmove.S
+index 6fecc12a1f51..35c5c06b7588 100644
+--- a/arch/arm/lib/memmove.S
++++ b/arch/arm/lib/memmove.S
+@@ -84,24 +84,24 @@ WEAK(memmove)
+  addne pc, pc, ip @ C is always clear here
+  b 7f
+ 6: W(nop)
+- W(ldr) r3, [r1, #-4]!
+- W(ldr) r4, [r1, #-4]!
+- W(ldr) r5, [r1, #-4]!
+- W(ldr) r6, [r1, #-4]!
+- W(ldr) r7, [r1, #-4]!
+- W(ldr) r8, [r1, #-4]!
+- W(ldr) lr, [r1, #-4]!
++ ldr r3, [r1, #-4]!
++ ldr r4, [r1, #-4]!
++ ldr r5, [r1, #-4]!
++ ldr r6, [r1, #-4]!
++ ldr r7, [r1, #-4]!
++ ldr r8, [r1, #-4]!
++ ldr lr, [r1, #-4]!
+
+  add pc, pc, ip
+  nop
+  W(nop)
+- W(str) r3, [r0, #-4]!
+- W(str) r4, [r0, #-4]!
+- W(str) r5, [r0, #-4]!
+- W(str) r6, [r0, #-4]!
+- W(str) r7, [r0, #-4]!
+- W(str) r8, [r0, #-4]!
+- W(str) lr, [r0, #-4]!
++ str r3, [r0, #-4]!
++ str r4, [r0, #-4]!
++ str r5, [r0, #-4]!
++ str r6, [r0, #-4]!
++ str r7, [r0, #-4]!
++ str r8, [r0, #-4]!
++ str lr, [r0, #-4]!
+
+  CALGN( bcs 2b )
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a0CTUh%3D4h%3DU6S5A_tqHxYEyO52HTropAV9mKh2hwJvi0g%40mail.gmail.com.
