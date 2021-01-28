@@ -1,122 +1,168 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBR5OZCAAMGQEGZRCODY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBJNRZCAAMGQELCD3LKI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id D3D58306AA0
-	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 02:45:44 +0100 (CET)
-Received: by mail-pl1-x63d.google.com with SMTP id z2sf538259pln.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 17:45:44 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611798343; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB50F306AB4
+	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Jan 2021 02:51:33 +0100 (CET)
+Received: by mail-wm1-x337.google.com with SMTP id u1sf1775513wml.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Jan 2021 17:51:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611798693; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RGJZw5e6ef44rolIS0RrwoKPfGRnwUoCKouah2DKDFZXZcAJK1h8gwZUBUNvPqith4
-         5l283BZszunPaQFUqpju24ETl0N1ca1J0PKP3hgVS1P+RPDVZZkZU9lRMPNEOhvBIo5I
-         H/RMyG63XTRU2i50UwZGfH15ZNjA/eR1nGwR4Xstl/pJXluNOWuUeMUk5QXa3lme+fgA
-         pitxe5UfLJ3WvRb7axc/CO2I9zO9oLoU8oVuNmqYoD5100S4yN4CpvBZZbSxIuetpS3c
-         ocjYKVqNWpodsN1NZvBlfneBumQQ2gKYX6d+LKujZVNK+ygCDc+sv/IZ4c72h60Ka8Cf
-         d8iA==
+        b=KEzOb3aM68KrQ3NBkACfGADaTz5jlCgwklLlhevdV+ju3I6dwmOhsbveoHH7ExIHhb
+         8c9w4D1xgVatozWLbS4+D+IC3g+vwWJ7Q5go+Mu0iIi8I4udyIq5vBRZfM24RThhlpyH
+         +ERpWvleLk+1j23QkSqP+i9vuLWnHqCGuTkmEYcrA7nFlB1dWhRQQXNZ0UX1P00+6wPd
+         zQBcPK3Y1nDdks0QWdzhcmkAulKszhQlucHCPLZEFFZzurk80QpGgKJQZ1sbBFU08oVG
+         28qEcweZy41QUqZkGBTPy9auVqQbasFLDluUhJ3LikmBZCCyiBHShwNHCHcfXuwoH74f
+         YfSg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:sender:dkim-signature;
-        bh=X3jd469USiqUSGMjQRsoUhW7KnFLyYlwMbKwGrFKtSw=;
-        b=sVj5X/dQLhHDaN701F3+oy1Tby6cPwTeX1RRD76JCssk1FLHEJEhfdGCUHBsJFOe+w
-         p2Q5kstjBHaM0DUEqn7Ly47LvMYo1zWUl7ATY2teIQpNQtiCBe4qPHN2h13et2Hf+R5A
-         xoA8XLVgYVuHO6Q3SFBFltsHoJxdXMdtT2zRXbk9bM3/bLlLJo7pNIOU1tO2PG4i2URN
-         OhZPh2drWY4d1DKsaB8/UD/JToimv2oA0DZSorWocYm1KJYuTAneBJs7NleOsBD0IJ4I
-         BMxIOSBqyH7eSpM+I6gs3wNOH+c4cqtnV+1cOpog/XFGFgCmtqUcbAgHM1HeXlx1tPbp
-         IHlw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:to:from:sender:dkim-signature:dkim-signature;
+        bh=OAAD+3gLZI1EKuPOmKYHdxx3NFjHqjAUJH4I1C4Z4fg=;
+        b=R1Kt2jWFn2RBCqnaO85/0A0HT48o6v4R/j4z22pC2iJUqrUx9kzeT22gCyCsbzoorU
+         Rs085ek3BKsWRhhT7rdTrNMcIh0r1Ybfya51aMQTN9PkYsA9AOP63imI+ByZQg2YB4aM
+         +NDPEp6i2FLBjXtbibjcOlXDAdKgKLBCbI9AO/SU2vl9mmummVF95+K5/sOcuBn+lB6m
+         XbEUP89pPr/kDcZTJQ6ABikuoJRaXYZilzuP/hxaMlCPGhCIkeLjCY1UN+md2ED5fU5g
+         5jvHC+yPGNC4A46hZ0FvqNeg5XOXzaDZveq3d+WW86mrgOYq2jNx8Uzap4leUpqttQz/
+         E4iA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=rXVoMSyl;
-       spf=pass (google.com: domain of 3rhcsyawkammwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3RhcSYAwKAMMwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BhtLdpqE;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::632 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=X3jd469USiqUSGMjQRsoUhW7KnFLyYlwMbKwGrFKtSw=;
-        b=UrJXoJtMKrJYLSmO4Snhg+tenfF+yl3Nav8R6Qvcyav7MZgDuo+rtGWvdOR08doClM
-         UdeHaBi4seA4u28mPlzde0Jp2lppqTGwX0bFXGiYWJZmXK0gN4u5vqS0dXzLkBQNClj1
-         HoDb294jPwYhqzLgkI7CaMmJIyYY4+RQx85UDeah1l/6VFWRn7mRR65C2Gsze/fFc0kX
-         tY9Ek6RKiPza5CADEzDDZ4tvyXzLRL7Cf6ODTTctpoJ3sihm+QAz/k7xZkRJSX8g9HJf
-         BB4fqRTguU50+fp4qNhZoBQaTLYRHcPusLFT+PbteTw75oq9xHxBcvfdGFI5WwxqA7/g
-         D93g==
+        bh=OAAD+3gLZI1EKuPOmKYHdxx3NFjHqjAUJH4I1C4Z4fg=;
+        b=fx61LCvLmkfCb6KKD8LEZFyA4NXmKJgEw6xOUv7CUopgO2LRcpfchL5NsN3k0PBSu3
+         AVE/GBt1/Iur4yT2Oamxw55a3U/92F5k/HIvp8XWC2b13v9pBI+hTE4oyRwx6Wt9CB2I
+         FYm9duCdjnm0Sg7H2TYHSezAQTXornO/NK8EW0PGZNRFu6a+QMDRtUPqNz6DdMmOYniz
+         ATDRkpvj2c/XW7cgL389ChD5Ue0oatn2dvkhr39c+Oxg+5Ej1XHY40JQhMXb6TCFjk4o
+         Bkp+Pvm0yRwm9XeAeWHTKUAfdIp84F3V6N608vUh17hjh2a+hRyEdSS9MaSFRytDJPnn
+         y1vQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:subject:date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=OAAD+3gLZI1EKuPOmKYHdxx3NFjHqjAUJH4I1C4Z4fg=;
+        b=SxlOpgCvOM0+bF6ByvkfXM19bFct4RTlfeva6UlbmzYi6jUIWkeMrgtUzaUs3Ncy42
+         bbBiVUmeCMNo1RHHhRfxKc1XMxyucSEncrjDqMX+/hS58t9PEeV1nL5/FIZaggRjjG9+
+         4gwVB0s6d9ABhFF6hwFstM6i58NDwQVtTuz4CGFxp3xZoXOyMWDgmfKMBfMYT2Z3a1qc
+         wUlxyK9O+yjcl/89ZkD0gwy/YAmaase4xAr9jfXXBHIUHDcar5b/qyeMyzG02WvpRhkB
+         dHJPNRdTzI6uXLGz16m4xxktxCuUeZmFlbn0qtgyfwdNFy/Z6oFVNzXIRYvicV6+EDKp
+         HX+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:date:message-id:mime-version:subject:from
-         :to:cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:x-gm-message-state:from:to:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=X3jd469USiqUSGMjQRsoUhW7KnFLyYlwMbKwGrFKtSw=;
-        b=FPrqq+1jQ0I8Bn7znJcWuikxSk6XlvHEjq/pOif5UX95QwlqRstAZoNHp2X1zkVNSg
-         VRASbAZF/KZAnKEc7IZ1C+vo/cAi5eTY3H4NgOrsbIUzZmIt4mPGRD5x5wT/acYXQk1i
-         xRFQXZlDqivbZiTovjlfTPkM2rS4Ph6fjdKWkrXIi2vkLassgvZ2OSj7MrTQvLMHlq2M
-         oFs6Dz6z8uPbR2QD6wsxAe65tCGSJsMc5gonIN59CSGGo/jM/kgyG0jRygcWPGayaXCU
-         bSP3KClrwPoiDR4ZqKoiDSpRGnetl/4HTtazRj4ETNTU50lXYYIikrx9BD4S4xUnKCEP
-         9VMA==
-X-Gm-Message-State: AOAM532fZnoPWw6pGsbwinoY1vjGRPXjuCvi4ocm9kchRPSBTQKAPfBa
-	ENZsKgxGaDoE80dir/arkUY=
-X-Google-Smtp-Source: ABdhPJxYPqcNXuHiEmx0YNCJTBOGOYoogsL+Nve5hRqr/HVEUWxcSZpfn+nuzHy50gYnzcrJyD7Kig==
-X-Received: by 2002:a17:902:ed93:b029:de:84d2:9ce1 with SMTP id e19-20020a170902ed93b02900de84d29ce1mr13797130plj.47.1611798343558;
-        Wed, 27 Jan 2021 17:45:43 -0800 (PST)
+        bh=OAAD+3gLZI1EKuPOmKYHdxx3NFjHqjAUJH4I1C4Z4fg=;
+        b=YoJehmE91LCECi4YCeRIokVMn0bY33RHQPCu3s54fS4dDOyBhf9N9krdw+7OcEuBDm
+         /C+wKJzI7tJ4mLZF9gTFkYHyEeGgtAR2wB3PjnonasuUDP1/Fw2FrbGd3+ZnU2oUHmIH
+         jgGOL03DG+LSsND6VF1TJ3KRU4ORHHFbb/r0dBJ+T8nxHGMR31jfeEpXkHZZ6Gk0EiFW
+         0F1pM331hgqIEhn38cEz5PQzP0/QJknZY2DtTdNw0K4ca9cmTQ/2QdPQT1hPZ7CGuMIw
+         XYoxp8kiTQe6hvdt8XALRW8jNUm+HCFW3mhICSoU5et7P63eXn97GESZjuzL0RtWwmX0
+         gY4w==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530SsklvnfPdCS200Yxe7vdU5XL6JFCs+AqTRVMq27fbaGrR29k1
+	fPpaI4AmvXZyI+EYOyfPKG8=
+X-Google-Smtp-Source: ABdhPJwttC7tggXXNiWooYRWjad17iiawb96dK/3ERt60K2J512Gpw1q5hHZ1uLQvrXhTa0DyYbFEg==
+X-Received: by 2002:a5d:61d0:: with SMTP id q16mr14050297wrv.387.1611798693403;
+        Wed, 27 Jan 2021 17:51:33 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:92d5:: with SMTP id o204ls1555596pfd.6.gmail; Wed, 27
- Jan 2021 17:45:43 -0800 (PST)
-X-Received: by 2002:a63:c64f:: with SMTP id x15mr13746357pgg.196.1611798342873;
-        Wed, 27 Jan 2021 17:45:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611798342; cv=none;
+Received: by 2002:a5d:4485:: with SMTP id j5ls3488217wrq.1.gmail; Wed, 27 Jan
+ 2021 17:51:32 -0800 (PST)
+X-Received: by 2002:a5d:554e:: with SMTP id g14mr13925171wrw.305.1611798692553;
+        Wed, 27 Jan 2021 17:51:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611798692; cv=none;
         d=google.com; s=arc-20160816;
-        b=Dn9UKXXAUgPdolV2GvYiZlg0Qa4fC/dnW2+uagHieAdlyQ3vk8sq7SGCMDA1/yvn78
-         EaNyBqA+fCMEh44oY+F7np8sJELEjPmUlZMtsWSm14EBFDyC8RFYBrnOXAWgh8UKYZx2
-         YbQXQIkptoPnufSCfOiDwWa/sb/5b6eCv/yVCUm9ai2VtbcfqNXSTeWg9wlpIMwm8rYh
-         1X7SrDJlEZ+BTwSiFXOylddQOskfIlCPaucvsgZKyl5hppHcWOha+b7iaet6KUmqc0tB
-         Oyx9DKFkHknqLefszGCh0g37mMpEEKijMWXRQdxtkSJwXOSRobUxyHq/WP9KzHq2H0pz
-         3JTw==
+        b=hsEp0K/f6I7JlRkF1NJVtB2eTOe8x7ANF+hc87SDmwkhdiF9cm9FK/WUQ8G05W1Kzj
+         Ss4wCMdzhiE/blclTcfXMKGTR3O3efjBxIVDQ7DINTP97ACC6jPm0NmM1laTAE/TOd8Z
+         JmMwMGJK6fQyweSWxi1Hx1CcCX2tYewkDtZU3uBJDi+wZIMEMrjFt85M1RkuV1ALR3sW
+         D79mvKhfrN8DPq1nKMAB/VGwzLMUcz40xSnlTql/0tlOHOF13TN81ZcvCGobkuCqflFE
+         dl+PgIwbJYmkwVrSN3lpta6AZGXVbdx+fwYflTrUWC9InTKnXFmnN0lrbsJyesaewt8G
+         jPaQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:sender
-         :dkim-signature;
-        bh=fMvzJ1JDqC/qNvFg/v53Ff5hETsG8LqS20g0X4uLhNU=;
-        b=YeTYvoxyrtdJcuaT8XW4UWbLrYNlmVu5wx8W8jttNQ4GK3GSIMKyvkL3rmlgA1A+mr
-         05diwiIfX3bd4/NGJbdGc3SbUgZOZZTwMH7tVLr2tHrvZsqrTrFKt3Tp5dSswjxUaLv1
-         x9AFpQ4UJNb//xUvqj/wXom38RiUDgEga9E46a2eOFxmPWXgt6b1ocr+OsysX0xlMq/R
-         dBmn68ZRS5bXJqhlik3R4bj3LRZvYsRfrAdd4SwEtg3IOgmmiaShyOiyJW2yhRNTEOy3
-         5gY5hWy4px9VqjkEQy5depTifLtT7+2GCb/PnScSBdoBThiFPu+8T1D5/NVk3PWSmMQY
-         wB0Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:dkim-signature;
+        bh=APM/j64XJ64toEHsmY/3rHQUz6ZGR8j9tLguMFaF1jg=;
+        b=vNwLqs8kbMMGDDWiBwqo6T6V8c4TTOORJhTii9hNpGwnlVoqznguQ3zys9BRcqzamw
+         vlHiwTP2twdk8QURpyzvv3jaWrqjiaww1rYOCVXx6pfliujUJEPJd3bagk+N7w4i9vek
+         XcRatVTjSQsFwDmngQL86CsXOhQPlqbF+OdANkrA9SlwdaWz2DdRMMqDj5kC06mY1QVl
+         aur/+nfrxu0izTKD55MgXw+AAnhY/zZxPGCWELZKS5jkedOt5nlIEDcFW81+PiIzK+in
+         Fj/3C8qQWMYP1tBtX6FnslIihEfSy+xfVvqDYcQPWQu84dck8hUbUF6CiQjWvw/I+23d
+         zE+Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=rXVoMSyl;
-       spf=pass (google.com: domain of 3rhcsyawkammwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3RhcSYAwKAMMwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
-        by gmr-mx.google.com with ESMTPS id ci6si423490pjb.1.2021.01.27.17.45.42
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BhtLdpqE;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::632 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ej1-x632.google.com (mail-ej1-x632.google.com. [2a00:1450:4864:20::632])
+        by gmr-mx.google.com with ESMTPS id o203si206006wma.0.2021.01.27.17.51.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Jan 2021 17:45:42 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3rhcsyawkammwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
-Received: by mail-pf1-x449.google.com with SMTP id 68so2489748pfe.2
-        for <clang-built-linux@googlegroups.com>; Wed, 27 Jan 2021 17:45:42 -0800 (PST)
-Sender: "ndesaulniers via sendgmr" <ndesaulniers@ndesaulniers1.mtv.corp.google.com>
-X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:f693:9fff:fef4:4d25])
- (user=ndesaulniers job=sendgmr) by 2002:a17:90a:4582:: with SMTP id
- v2mr8395520pjg.79.1611798342525; Wed, 27 Jan 2021 17:45:42 -0800 (PST)
-Date: Wed, 27 Jan 2021 17:45:39 -0800
-Message-Id: <20210128014539.2962552-1-ndesaulniers@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.30.0.365.g02bc693789-goog
-Subject: [RFC] ARM: use .arch directives instead of assembler command line flags
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: clang-built-linux@googlegroups.com, 
-	Nick Desaulniers <ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+        Wed, 27 Jan 2021 17:51:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::632 as permitted sender) client-ip=2a00:1450:4864:20::632;
+Received: by mail-ej1-x632.google.com with SMTP id a10so5429901ejg.10
+        for <clang-built-linux@googlegroups.com>; Wed, 27 Jan 2021 17:51:32 -0800 (PST)
+X-Received: by 2002:a17:907:104e:: with SMTP id oy14mr8583617ejb.276.1611798692278;
+        Wed, 27 Jan 2021 17:51:32 -0800 (PST)
+Received: from localhost.localdomain (ip-109-40-66-249.web.vodafone.de. [109.40.66.249])
+        by smtp.gmail.com with ESMTPSA id p10sm1610141ejb.82.2021.01.27.17.51.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Jan 2021 17:51:31 -0800 (PST)
+From: Sedat Dilek <sedat.dilek@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>,
+	Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Quentin Monnet <quentin@isovalent.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Tobias Klauser <tklauser@distanz.ch>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Yulia Kartseva <hex@fb.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	Stephane Eranian <eranian@google.com>,
+	"Frank Ch. Eigler" <fche@redhat.com>,
+	Thomas Hebb <tommyhebb@gmail.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Davide Caratti <dcaratti@redhat.com>,
+	Briana Oursler <briana.oursler@gmail.com>,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH bpf-next] tools: Factor Clang, LLC and LLVM utils definitions
+Date: Thu, 28 Jan 2021 02:50:58 +0100
+Message-Id: <20210128015117.20515-1-sedat.dilek@gmail.com>
+X-Mailer: git-send-email 2.30.0
+MIME-Version: 1.0
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=rXVoMSyl;       spf=pass
- (google.com: domain of 3rhcsyawkammwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3RhcSYAwKAMMwmn1j3uwrn01pxxpun.lxv@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=BhtLdpqE;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::632
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,479 +175,170 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Similar to commit a6c30873ee4a ("ARM: 8989/1: use .fpu assembler
-directives instead of assembler arguments").
+When dealing with BPF/BTF/pahole and DWARF v5 I wanted to build bpftool.
 
-GCC and GNU binutils support setting the "sub arch" via -march=,
--Wa,-march, target function attribute, and .arch assembler directive.
+While looking into the source code I found duplicate assignments
+in misc tools for the LLVM eco system, e.g. clang and llvm-objcopy.
 
-Clang's integrated assembler does not support -Wa,-march (and the logic
-to overrule one when multiple of the above are used).
+Move the Clang, LLC and/or LLVM utils definitions to
+tools/scripts/Makefile.include file and add missing
+includes where needed.
+Honestly, I was inspired by commit c8a950d0d3b9
+("tools: Factor HOSTCC, HOSTLD, HOSTAR definitions").
 
-Since most assembler is non-conditionally assembled with one sub arch
-(modulo arch/arm/delay-loop.S which conditionally is assembled as armv4
-based on CONFIG_ARCH_RPC, and arch/arm/mach-at91/pm-suspend.S which is
-conditionally assembled as armv7-a based on CONFIG_CPU_V7), prefer the
-.arch assembler directive.
+I tested with bpftool and perf on Debian/testing AMD64 and
+LLVM/Clang v11.1.0-rc1.
 
-Link: https://bugs.llvm.org/show_bug.cgi?id=48894
-Link: https://github.com/ClangBuiltLinux/linux/issues/1195
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+Build instructions:
+
+[ make and make-options ]
+MAKE="make V=1"
+MAKE_OPTS="HOSTCC=clang HOSTCXX=clang++ HOSTLD=ld.lld CC=clang LD=ld.lld LLVM=1 LLVM_IAS=1"
+MAKE_OPTS="$MAKE_OPTS PAHOLE=/opt/pahole/bin/pahole"
+
+[ clean-up ]
+$MAKE $MAKE_OPTS -C tools/ clean
+
+[ bpftool ]
+$MAKE $MAKE_OPTS -C tools/bpf/bpftool/
+
+[ perf ]
+PYTHON=python3 $MAKE $MAKE_OPTS -C tools/perf/
+
+I was careful with respecting the user's wish to override custom compiler,
+linker, GNU/binutils and/or LLVM utils settings.
+
+Some personal notes:
+1. I have NOT tested with cross-toolchain for other archs (cross compiler/linker etc.).
+2. This patch is on top of bpf-next.
+
+CC: bpf@vger.kernel.org
+Acked-by: Andrii Nakryiko <andrii@kernel.org>
+Acked-by: Jiri Olsa <jolsa@redhat.com> # tools/build and tools/perf
+Signed-off-by: Sedat Dilek <sedat.dilek@gmail.com>
 ---
- arch/arm/boot/compressed/Makefile  |  2 --
- arch/arm/common/Makefile           |  2 --
- arch/arm/common/mcpm_head.S        |  2 ++
- arch/arm/common/vlock.S            |  2 ++
- arch/arm/kernel/Makefile           |  1 -
- arch/arm/kernel/hyp-stub.S         |  2 ++
- arch/arm/lib/Makefile              |  4 ----
- arch/arm/lib/delay-loop.S          |  4 ++++
- arch/arm/mach-at91/Makefile        |  3 ---
- arch/arm/mach-at91/pm_suspend.S    |  4 ++++
- arch/arm/mach-imx/Makefile         |  3 ---
- arch/arm/mach-imx/headsmp.S        |  2 ++
- arch/arm/mach-imx/resume-imx6.S    |  2 ++
- arch/arm/mach-imx/suspend-imx6.S   |  2 ++
- arch/arm/mach-mvebu/Makefile       |  1 -
- arch/arm/mach-mvebu/coherency_ll.S |  1 +
- arch/arm/mach-npcm/Makefile        |  2 --
- arch/arm/mach-npcm/headsmp.S       |  2 ++
- arch/arm/mm/Makefile               | 13 -------------
- arch/arm/mm/abort-ev6.S            |  1 +
- arch/arm/mm/abort-ev7.S            |  1 +
- arch/arm/mm/cache-v6.S             |  2 ++
- arch/arm/mm/cache-v7.S             |  2 ++
- arch/arm/mm/cache-v7m.S            |  2 ++
- arch/arm/mm/proc-v6.S              |  2 ++
- arch/arm/mm/proc-v7-2level.S       |  2 ++
- arch/arm/mm/proc-v7.S              |  2 ++
- arch/arm/mm/tlb-v6.S               |  2 ++
- arch/arm/mm/tlb-v7.S               |  2 ++
- 29 files changed, 41 insertions(+), 31 deletions(-)
+ tools/bpf/bpftool/Makefile                  | 2 --
+ tools/bpf/runqslower/Makefile               | 3 ---
+ tools/build/feature/Makefile                | 4 ++--
+ tools/perf/Makefile.perf                    | 1 -
+ tools/scripts/Makefile.include              | 7 +++++++
+ tools/testing/selftests/bpf/Makefile        | 2 --
+ tools/testing/selftests/tc-testing/Makefile | 3 +--
+ 7 files changed, 10 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
-index fb521efcc6c2..c0236b095227 100644
---- a/arch/arm/boot/compressed/Makefile
-+++ b/arch/arm/boot/compressed/Makefile
-@@ -193,7 +193,5 @@ CFLAGS_font.o := -Dstatic=
- $(obj)/font.c: $(FONTC)
- 	$(call cmd,shipped)
+diff --git a/tools/bpf/bpftool/Makefile b/tools/bpf/bpftool/Makefile
+index 45ac2f9e0aa9..8ced1655fea6 100644
+--- a/tools/bpf/bpftool/Makefile
++++ b/tools/bpf/bpftool/Makefile
+@@ -75,8 +75,6 @@ endif
  
--AFLAGS_hyp-stub.o := -Wa,-march=armv7-a
--
- $(obj)/hyp-stub.S: $(srctree)/arch/$(SRCARCH)/kernel/hyp-stub.S
- 	$(call cmd,shipped)
-diff --git a/arch/arm/common/Makefile b/arch/arm/common/Makefile
-index 8cd574be94cf..6a42600fa4c5 100644
---- a/arch/arm/common/Makefile
-+++ b/arch/arm/common/Makefile
-@@ -14,7 +14,5 @@ obj-$(CONFIG_SHARP_SCOOP)	+= scoop.o
- obj-$(CONFIG_CPU_V7)		+= secure_cntvoff.o
- obj-$(CONFIG_MCPM)		+= mcpm_head.o mcpm_entry.o mcpm_platsmp.o vlock.o
- CFLAGS_REMOVE_mcpm_entry.o	= -pg
--AFLAGS_mcpm_head.o		:= -march=armv7-a
--AFLAGS_vlock.o			:= -march=armv7-a
- obj-$(CONFIG_BL_SWITCHER)	+= bL_switcher.o
- obj-$(CONFIG_BL_SWITCHER_DUMMY_IF) += bL_switcher_dummy_if.o
-diff --git a/arch/arm/common/mcpm_head.S b/arch/arm/common/mcpm_head.S
-index 291d969bc719..299495c43dfd 100644
---- a/arch/arm/common/mcpm_head.S
-+++ b/arch/arm/common/mcpm_head.S
-@@ -15,6 +15,8 @@
+ INSTALL ?= install
+ RM ?= rm -f
+-CLANG ?= clang
+-LLVM_STRIP ?= llvm-strip
  
- #include "vlock.h"
+ FEATURE_USER = .bpftool
+ FEATURE_TESTS = libbfd disassembler-four-args reallocarray zlib libcap \
+diff --git a/tools/bpf/runqslower/Makefile b/tools/bpf/runqslower/Makefile
+index 4d5ca54fcd4c..9d9fb6209be1 100644
+--- a/tools/bpf/runqslower/Makefile
++++ b/tools/bpf/runqslower/Makefile
+@@ -3,9 +3,6 @@ include ../../scripts/Makefile.include
  
-+.arch armv7-a
-+
- .if MCPM_SYNC_CLUSTER_CPUS
- .error "cpus must be the first member of struct mcpm_sync_struct"
- .endif
-diff --git a/arch/arm/common/vlock.S b/arch/arm/common/vlock.S
-index f1c7fd44f1b1..1fa09c4697ed 100644
---- a/arch/arm/common/vlock.S
-+++ b/arch/arm/common/vlock.S
-@@ -12,6 +12,8 @@
- #include <linux/linkage.h>
- #include "vlock.h"
+ OUTPUT ?= $(abspath .output)/
  
-+.arch armv7-a
-+
- /* Select different code if voting flags  can fit in a single word. */
- #if VLOCK_VOTING_SIZE > 4
- #define FEW(x...)
-diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-index ae295a3bcfef..4f12e5f2d6ce 100644
---- a/arch/arm/kernel/Makefile
-+++ b/arch/arm/kernel/Makefile
-@@ -99,7 +99,6 @@ CFLAGS_head-inflate-data.o := $(call cc-option,-Wframe-larger-than=10240)
- obj-$(CONFIG_XIP_DEFLATED_DATA) += head-inflate-data.o
- 
- obj-$(CONFIG_ARM_VIRT_EXT)	+= hyp-stub.o
--AFLAGS_hyp-stub.o		:=-Wa,-march=armv7-a
- ifeq ($(CONFIG_ARM_PSCI),y)
- obj-$(CONFIG_SMP)		+= psci_smp.o
- endif
-diff --git a/arch/arm/kernel/hyp-stub.S b/arch/arm/kernel/hyp-stub.S
-index b699b22a4db1..3a506b9095a5 100644
---- a/arch/arm/kernel/hyp-stub.S
-+++ b/arch/arm/kernel/hyp-stub.S
-@@ -9,6 +9,8 @@
- #include <asm/assembler.h>
- #include <asm/virt.h>
- 
-+.arch armv7-a
-+
- #ifndef ZIMAGE
- /*
-  * For the kernel proper, we need to find out the CPU boot mode long after
-diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
-index 6d2ba454f25b..42fb75c06647 100644
---- a/arch/arm/lib/Makefile
-+++ b/arch/arm/lib/Makefile
-@@ -36,10 +36,6 @@ else
-   lib-y	+= io-readsw-armv4.o io-writesw-armv4.o
- endif
- 
--ifeq ($(CONFIG_ARCH_RPC),y)
--  AFLAGS_delay-loop.o		+= -march=armv4
--endif
--
- $(obj)/csumpartialcopy.o:	$(obj)/csumpartialcopygeneric.S
- $(obj)/csumpartialcopyuser.o:	$(obj)/csumpartialcopygeneric.S
- 
-diff --git a/arch/arm/lib/delay-loop.S b/arch/arm/lib/delay-loop.S
-index 3ccade0f8130..3ac05177d097 100644
---- a/arch/arm/lib/delay-loop.S
-+++ b/arch/arm/lib/delay-loop.S
-@@ -8,6 +8,10 @@
- #include <asm/assembler.h>
- #include <asm/delay.h>
- 
-+#ifdef CONFIG_ARCH_RPC
-+		.arch	armv4
-+#endif
-+
- 		.text
- 
- .LC0:		.word	loops_per_jiffy
-diff --git a/arch/arm/mach-at91/Makefile b/arch/arm/mach-at91/Makefile
-index f565490f1b70..b91631423b95 100644
---- a/arch/arm/mach-at91/Makefile
-+++ b/arch/arm/mach-at91/Makefile
-@@ -13,9 +13,6 @@ obj-$(CONFIG_SOC_SAMV7)		+= samv7.o
- # Power Management
- obj-$(CONFIG_ATMEL_PM)		+= pm.o pm_suspend.o
- 
--ifeq ($(CONFIG_CPU_V7),y)
--AFLAGS_pm_suspend.o := -march=armv7-a
--endif
- ifeq ($(CONFIG_PM_DEBUG),y)
- CFLAGS_pm.o += -DDEBUG
- endif
-diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
-index 0184de05c1be..909856c8a8c6 100644
---- a/arch/arm/mach-at91/pm_suspend.S
-+++ b/arch/arm/mach-at91/pm_suspend.S
-@@ -12,6 +12,10 @@
- #include "pm.h"
- #include "pm_data-offsets.h"
- 
-+#ifdef CONFIG_CPU_V7
-+.arch armv7-a
-+#endif
-+
- #define	SRAMC_SELF_FRESH_ACTIVE		0x01
- #define	SRAMC_SELF_FRESH_EXIT		0x00
- 
-diff --git a/arch/arm/mach-imx/Makefile b/arch/arm/mach-imx/Makefile
-index 9cebd360d58e..7cec52979122 100644
---- a/arch/arm/mach-imx/Makefile
-+++ b/arch/arm/mach-imx/Makefile
-@@ -36,7 +36,6 @@ obj-$(CONFIG_HAVE_IMX_GPC) += gpc.o
- obj-$(CONFIG_HAVE_IMX_MMDC) += mmdc.o
- obj-$(CONFIG_HAVE_IMX_SRC) += src.o
- ifneq ($(CONFIG_SOC_IMX6)$(CONFIG_SOC_LS1021A),)
--AFLAGS_headsmp.o :=-Wa,-march=armv7-a
- obj-$(CONFIG_SMP) += headsmp.o platsmp.o
- obj-$(CONFIG_HOTPLUG_CPU) += hotplug.o
- endif
-@@ -50,12 +49,10 @@ obj-$(CONFIG_SOC_IMX7D_CM4) += mach-imx7d-cm4.o
- obj-$(CONFIG_SOC_IMX7ULP) += mach-imx7ulp.o pm-imx7ulp.o
- 
- ifeq ($(CONFIG_SUSPEND),y)
--AFLAGS_suspend-imx6.o :=-Wa,-march=armv7-a
- obj-$(CONFIG_SOC_IMX6) += suspend-imx6.o
- obj-$(CONFIG_SOC_IMX53) += suspend-imx53.o
- endif
- ifeq ($(CONFIG_ARM_CPU_SUSPEND),y)
--AFLAGS_resume-imx6.o :=-Wa,-march=armv7-a
- obj-$(CONFIG_SOC_IMX6) += resume-imx6.o
- endif
- obj-$(CONFIG_SOC_IMX6) += pm-imx6.o
-diff --git a/arch/arm/mach-imx/headsmp.S b/arch/arm/mach-imx/headsmp.S
-index 766dbdb2ae27..c9c969fcf0a6 100644
---- a/arch/arm/mach-imx/headsmp.S
-+++ b/arch/arm/mach-imx/headsmp.S
-@@ -8,6 +8,8 @@
- #include <linux/init.h>
- #include <asm/assembler.h>
- 
-+.arch armv7-a
-+
- diag_reg_offset:
- 	.word	g_diag_reg - .
- 
-diff --git a/arch/arm/mach-imx/resume-imx6.S b/arch/arm/mach-imx/resume-imx6.S
-index 5bd1ba7ef15b..2c0c5c771251 100644
---- a/arch/arm/mach-imx/resume-imx6.S
-+++ b/arch/arm/mach-imx/resume-imx6.S
-@@ -9,6 +9,8 @@
- #include <asm/hardware/cache-l2x0.h>
- #include "hardware.h"
- 
-+.arch armv7-a
-+
- /*
-  * The following code must assume it is running from physical address
-  * where absolute virtual addresses to the data section have to be
-diff --git a/arch/arm/mach-imx/suspend-imx6.S b/arch/arm/mach-imx/suspend-imx6.S
-index e06f946b75b9..63ccc2d0e920 100644
---- a/arch/arm/mach-imx/suspend-imx6.S
-+++ b/arch/arm/mach-imx/suspend-imx6.S
-@@ -9,6 +9,8 @@
- #include <asm/hardware/cache-l2x0.h>
- #include "hardware.h"
- 
-+.arch armv7-a
-+
- /*
-  * ==================== low level suspend ====================
-  *
-diff --git a/arch/arm/mach-mvebu/Makefile b/arch/arm/mach-mvebu/Makefile
-index cb106899dd7c..d62612bfac48 100644
---- a/arch/arm/mach-mvebu/Makefile
-+++ b/arch/arm/mach-mvebu/Makefile
-@@ -1,7 +1,6 @@
+-CLANG ?= clang
+-LLC ?= llc
+-LLVM_STRIP ?= llvm-strip
+ BPFTOOL_OUTPUT := $(OUTPUT)bpftool/
+ DEFAULT_BPFTOOL := $(BPFTOOL_OUTPUT)bpftool
+ BPFTOOL ?= $(DEFAULT_BPFTOOL)
+diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
+index 89ba522e377d..3e55edb3ea54 100644
+--- a/tools/build/feature/Makefile
++++ b/tools/build/feature/Makefile
+@@ -1,4 +1,6 @@
  # SPDX-License-Identifier: GPL-2.0
- ccflags-$(CONFIG_ARCH_MULTIPLATFORM) := -I$(srctree)/arch/arm/plat-orion/include
- 
--AFLAGS_coherency_ll.o		:= -Wa,-march=armv7-a
- CFLAGS_pmsu.o			:= -march=armv7-a
- 
- obj-$(CONFIG_MACH_MVEBU_ANY)	 += system-controller.o mvebu-soc-id.o
-diff --git a/arch/arm/mach-mvebu/coherency_ll.S b/arch/arm/mach-mvebu/coherency_ll.S
-index a3a64bf97250..25197290632d 100644
---- a/arch/arm/mach-mvebu/coherency_ll.S
-+++ b/arch/arm/mach-mvebu/coherency_ll.S
-@@ -23,6 +23,7 @@
- #include <asm/assembler.h>
- #include <asm/cp15.h>
- 
-+	.arch armv7-a
- 	.text
- /*
-  * Returns the coherency base address in r1 (r0 is untouched), or 0 if
-diff --git a/arch/arm/mach-npcm/Makefile b/arch/arm/mach-npcm/Makefile
-index 1bc3a70bfab8..7946877d645f 100644
---- a/arch/arm/mach-npcm/Makefile
-+++ b/arch/arm/mach-npcm/Makefile
-@@ -1,5 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0-only
--AFLAGS_headsmp.o		+= -march=armv7-a
--
- obj-$(CONFIG_ARCH_NPCM7XX)	+= npcm7xx.o
- obj-$(CONFIG_SMP)		+= platsmp.o headsmp.o
-diff --git a/arch/arm/mach-npcm/headsmp.S b/arch/arm/mach-npcm/headsmp.S
-index c083fe09a07b..84d2b6daaf0b 100644
---- a/arch/arm/mach-npcm/headsmp.S
-+++ b/arch/arm/mach-npcm/headsmp.S
-@@ -6,6 +6,8 @@
- #include <linux/init.h>
- #include <asm/assembler.h>
- 
-+.arch armv7-a
++include ../../scripts/Makefile.include
 +
- /*
-  * The boot ROM does not start secondary CPUs in SVC mode, so we need to do that
-  * here.
-diff --git a/arch/arm/mm/Makefile b/arch/arm/mm/Makefile
-index 3510503bc5e6..d8f751b94126 100644
---- a/arch/arm/mm/Makefile
-+++ b/arch/arm/mm/Makefile
-@@ -33,9 +33,6 @@ obj-$(CONFIG_CPU_ABRT_EV5TJ)	+= abort-ev5tj.o
- obj-$(CONFIG_CPU_ABRT_EV6)	+= abort-ev6.o
- obj-$(CONFIG_CPU_ABRT_EV7)	+= abort-ev7.o
+ FILES=                                          \
+          test-all.bin                           \
+          test-backtrace.bin                     \
+@@ -76,8 +78,6 @@ FILES=                                          \
+ FILES := $(addprefix $(OUTPUT),$(FILES))
  
--AFLAGS_abort-ev6.o	:=-Wa,-march=armv6k
--AFLAGS_abort-ev7.o	:=-Wa,-march=armv7-a
--
- obj-$(CONFIG_CPU_PABRT_LEGACY)	+= pabort-legacy.o
- obj-$(CONFIG_CPU_PABRT_V6)	+= pabort-v6.o
- obj-$(CONFIG_CPU_PABRT_V7)	+= pabort-v7.o
-@@ -49,10 +46,6 @@ obj-$(CONFIG_CPU_CACHE_FA)	+= cache-fa.o
- obj-$(CONFIG_CPU_CACHE_NOP)	+= cache-nop.o
- obj-$(CONFIG_CPU_CACHE_V7M)	+= cache-v7m.o
+ PKG_CONFIG ?= $(CROSS_COMPILE)pkg-config
+-LLVM_CONFIG ?= llvm-config
+-CLANG ?= clang
  
--AFLAGS_cache-v6.o	:=-Wa,-march=armv6
--AFLAGS_cache-v7.o	:=-Wa,-march=armv7-a
--AFLAGS_cache-v7m.o	:=-Wa,-march=armv7-m
--
- obj-$(CONFIG_CPU_COPY_V4WT)	+= copypage-v4wt.o
- obj-$(CONFIG_CPU_COPY_V4WB)	+= copypage-v4wb.o
- obj-$(CONFIG_CPU_COPY_FEROCEON)	+= copypage-feroceon.o
-@@ -72,9 +65,6 @@ obj-$(CONFIG_CPU_TLB_V6)	+= tlb-v6.o
- obj-$(CONFIG_CPU_TLB_V7)	+= tlb-v7.o
- obj-$(CONFIG_CPU_TLB_FA)	+= tlb-fa.o
+ all: $(FILES)
  
--AFLAGS_tlb-v6.o		:=-Wa,-march=armv6
--AFLAGS_tlb-v7.o		:=-Wa,-march=armv7-a
--
- obj-$(CONFIG_CPU_ARM7TDMI)	+= proc-arm7tdmi.o
- obj-$(CONFIG_CPU_ARM720T)	+= proc-arm720.o
- obj-$(CONFIG_CPU_ARM740T)	+= proc-arm740.o
-@@ -101,9 +91,6 @@ obj-$(CONFIG_CPU_V6K)		+= proc-v6.o
- obj-$(CONFIG_CPU_V7)		+= proc-v7.o proc-v7-bugs.o
- obj-$(CONFIG_CPU_V7M)		+= proc-v7m.o
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 62f3deb1d3a8..f4df7534026d 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -176,7 +176,6 @@ endef
+ LD += $(EXTRA_LDFLAGS)
  
--AFLAGS_proc-v6.o	:=-Wa,-march=armv6
--AFLAGS_proc-v7.o	:=-Wa,-march=armv7-a
--
- obj-$(CONFIG_OUTER_CACHE)	+= l2c-common.o
- obj-$(CONFIG_CACHE_B15_RAC)	+= cache-b15-rac.o
- obj-$(CONFIG_CACHE_FEROCEON_L2)	+= cache-feroceon-l2.o
-diff --git a/arch/arm/mm/abort-ev6.S b/arch/arm/mm/abort-ev6.S
-index c58bf8b43fea..836dc1299243 100644
---- a/arch/arm/mm/abort-ev6.S
-+++ b/arch/arm/mm/abort-ev6.S
-@@ -16,6 +16,7 @@
-  * abort here if the I-TLB and D-TLB aren't seeing the same
-  * picture.  Unfortunately, this does happen.  We live with it.
-  */
-+	.arch	armv6k
- 	.align	5
- ENTRY(v6_early_abort)
- 	mrc	p15, 0, r1, c5, c0, 0		@ get FSR
-diff --git a/arch/arm/mm/abort-ev7.S b/arch/arm/mm/abort-ev7.S
-index f7cc5d68444b..d4385f7f73e0 100644
---- a/arch/arm/mm/abort-ev7.S
-+++ b/arch/arm/mm/abort-ev7.S
-@@ -12,6 +12,7 @@
-  *
-  * Purpose : obtain information about current aborted instruction.
-  */
-+	.arch	armv7-a
- 	.align	5
- ENTRY(v7_early_abort)
- 	mrc	p15, 0, r1, c5, c0, 0		@ get FSR
-diff --git a/arch/arm/mm/cache-v6.S b/arch/arm/mm/cache-v6.S
-index f0f65eb073e4..250c83bf7158 100644
---- a/arch/arm/mm/cache-v6.S
-+++ b/arch/arm/mm/cache-v6.S
-@@ -19,6 +19,8 @@
- #define D_CACHE_LINE_SIZE	32
- #define BTB_FLUSH_SIZE		8
+ PKG_CONFIG = $(CROSS_COMPILE)pkg-config
+-LLVM_CONFIG ?= llvm-config
  
-+.arch armv6
+ RM      = rm -f
+ LN      = ln -f
+diff --git a/tools/scripts/Makefile.include b/tools/scripts/Makefile.include
+index 1358e89cdf7d..4255e71f72b7 100644
+--- a/tools/scripts/Makefile.include
++++ b/tools/scripts/Makefile.include
+@@ -69,6 +69,13 @@ HOSTCC  ?= gcc
+ HOSTLD  ?= ld
+ endif
+ 
++# Some tools require Clang, LLC and/or LLVM utils
++CLANG		?= clang
++LLC		?= llc
++LLVM_CONFIG	?= llvm-config
++LLVM_OBJCOPY	?= llvm-objcopy
++LLVM_STRIP	?= llvm-strip
 +
- /*
-  *	v6_flush_icache_all()
-  *
-diff --git a/arch/arm/mm/cache-v7.S b/arch/arm/mm/cache-v7.S
-index dc8f152f3556..3698aed57416 100644
---- a/arch/arm/mm/cache-v7.S
-+++ b/arch/arm/mm/cache-v7.S
-@@ -16,6 +16,8 @@
+ ifeq ($(CC_NO_CLANG), 1)
+ EXTRA_WARNINGS += -Wstrict-aliasing=3
+ endif
+diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+index 63d6288e419c..f0674d406f40 100644
+--- a/tools/testing/selftests/bpf/Makefile
++++ b/tools/testing/selftests/bpf/Makefile
+@@ -19,8 +19,6 @@ ifneq ($(wildcard $(GENHDR)),)
+   GENFLAGS := -DHAVE_GENHDR
+ endif
  
- #include "proc-macros.S"
+-CLANG		?= clang
+-LLVM_OBJCOPY	?= llvm-objcopy
+ BPF_GCC		?= $(shell command -v bpf-gcc;)
+ SAN_CFLAGS	?=
+ CFLAGS += -g -rdynamic -Wall -O2 $(GENFLAGS) $(SAN_CFLAGS)		\
+diff --git a/tools/testing/selftests/tc-testing/Makefile b/tools/testing/selftests/tc-testing/Makefile
+index 91fee5c43274..4d639279f41e 100644
+--- a/tools/testing/selftests/tc-testing/Makefile
++++ b/tools/testing/selftests/tc-testing/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
++include ../../../scripts/Makefile.include
  
-+.arch armv7-a
-+
- #ifdef CONFIG_CPU_ICACHE_MISMATCH_WORKAROUND
- .globl icache_size
- 	.data
-diff --git a/arch/arm/mm/cache-v7m.S b/arch/arm/mm/cache-v7m.S
-index 1bc3a0a50753..eb60b5e5e2ad 100644
---- a/arch/arm/mm/cache-v7m.S
-+++ b/arch/arm/mm/cache-v7m.S
-@@ -18,6 +18,8 @@
+ top_srcdir = $(abspath ../../../..)
+ APIDIR := $(top_scrdir)/include/uapi
+@@ -7,8 +8,6 @@ TEST_GEN_FILES = action.o
+ KSFT_KHDR_INSTALL := 1
+ include ../lib.mk
  
- #include "proc-macros.S"
+-CLANG ?= clang
+-LLC   ?= llc
+ PROBE := $(shell $(LLC) -march=bpf -mcpu=probe -filetype=null /dev/null 2>&1)
  
-+.arch armv7-m
-+
- /* Generic V7M read/write macros for memory mapped cache operations */
- .macro v7m_cache_read, rt, reg
- 	movw	\rt, #:lower16:BASEADDR_V7M_SCB + \reg
-diff --git a/arch/arm/mm/proc-v6.S b/arch/arm/mm/proc-v6.S
-index a0618f3e6836..203dff89ab1a 100644
---- a/arch/arm/mm/proc-v6.S
-+++ b/arch/arm/mm/proc-v6.S
-@@ -32,6 +32,8 @@
- #define TTB_FLAGS_SMP	TTB_RGN_WBWA|TTB_S
- #define PMD_FLAGS_SMP	PMD_SECT_WBWA|PMD_SECT_S
- 
-+.arch armv6
-+
- ENTRY(cpu_v6_proc_init)
- 	ret	lr
- 
-diff --git a/arch/arm/mm/proc-v7-2level.S b/arch/arm/mm/proc-v7-2level.S
-index 5db029c8f987..0a3083ad19c2 100644
---- a/arch/arm/mm/proc-v7-2level.S
-+++ b/arch/arm/mm/proc-v7-2level.S
-@@ -24,6 +24,8 @@
- #define TTB_FLAGS_SMP	TTB_IRGN_WBWA|TTB_S|TTB_NOS|TTB_RGN_OC_WBWA
- #define PMD_FLAGS_SMP	PMD_SECT_WBWA|PMD_SECT_S
- 
-+.arch armv7-a
-+
- /*
-  *	cpu_v7_switch_mm(pgd_phys, tsk)
-  *
-diff --git a/arch/arm/mm/proc-v7.S b/arch/arm/mm/proc-v7.S
-index 28c9d32fa99a..7553510a278a 100644
---- a/arch/arm/mm/proc-v7.S
-+++ b/arch/arm/mm/proc-v7.S
-@@ -24,6 +24,8 @@
- #include "proc-v7-2level.S"
- #endif
- 
-+.arch armv7-a
-+
- ENTRY(cpu_v7_proc_init)
- 	ret	lr
- ENDPROC(cpu_v7_proc_init)
-diff --git a/arch/arm/mm/tlb-v6.S b/arch/arm/mm/tlb-v6.S
-index 5335b9687297..971c85a95031 100644
---- a/arch/arm/mm/tlb-v6.S
-+++ b/arch/arm/mm/tlb-v6.S
-@@ -17,6 +17,8 @@
- 
- #define HARVARD_TLB
- 
-+.arch armv6
-+
- /*
-  *	v6wbi_flush_user_tlb_range(start, end, vma)
-  *
-diff --git a/arch/arm/mm/tlb-v7.S b/arch/arm/mm/tlb-v7.S
-index 1bb28d7db567..2643e2f51b6a 100644
---- a/arch/arm/mm/tlb-v7.S
-+++ b/arch/arm/mm/tlb-v7.S
-@@ -16,6 +16,8 @@
- #include <asm/tlbflush.h>
- #include "proc-macros.S"
- 
-+.arch armv7-a
-+
- /*
-  *	v7wbi_flush_user_tlb_range(start, end, vma)
-  *
+ ifeq ($(PROBE),)
 -- 
-2.30.0.365.g02bc693789-goog
+2.30.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210128014539.2962552-1-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210128015117.20515-1-sedat.dilek%40gmail.com.
