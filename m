@@ -1,138 +1,126 @@
-Return-Path: <clang-built-linux+bncBDY57XFCRMIBBWWC2CAAMGQESQLFSWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRBO6X2CAAMGQEHN7YKOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 498B130899D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 15:53:16 +0100 (CET)
-Received: by mail-pj1-x1039.google.com with SMTP id v14sf5892518pjt.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 06:53:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611931995; cv=pass;
+Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id DF9993089EB
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 16:37:32 +0100 (CET)
+Received: by mail-oo1-xc3d.google.com with SMTP id u9sf4436462oon.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 07:37:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611934652; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fgPBto9pl9dPkAGDIgyvUTCpl8FN7k3DmW/VPO7Bt5ZBbShMxKphSDSDvNc50JIeiu
-         dWLBmZumhlbg/kjgSe8S4GTm8/4D87uAOZMfL9T8Q2mUVRZroyUaxHDFcRKi9UPGyuDs
-         U7BwnuFCySaBdY4+IOnogcd/s807C/a0Fk376CNznWWNPA9SilU5cJBDttAtE0ULrdgx
-         1biRvZOY0GoLCD8SV/5M6oGSnq/bs5EqVJzww/1f2OED9cLVXYrKUU3iHRTO1G9VneVa
-         b+X2L7dkqGFTQnE6dGZ8phmHEBLkxJhYngFN8j/nG4cX0bWMdjP5TA6TSAjOkDOcCHhp
-         LEdA==
+        b=y2aC/xFxaWHV0nuANOX+vJl5/5N+ivgv7XQd7y1DJ5zUmv49ROKrKlZy8gkKUbued2
+         K5HjbbYA2y+UFKLoO71/CIb+9eNFKUJETDxxpXvD2F3zp7jIz0l80cDL+V5xgPQ5AyrG
+         AhMN+DbvuKXGFnyVECcVtXDbai8Ks65vYyLJoWk/VwaPgnM8tNEUzThSJ4WfOw21hJkO
+         MOHdwgS/968AvfoEuLBIekT6g13fBRT74fpMNE13RfqoHocNp+XomFoCrVitvykNuXLB
+         rn5bZMC+Ifc5pBfqmBNSumdID+12Ae74qG3/qSJGA1tF37IBKQaxWegZLtjs5q40mi01
+         vdfw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :message-id:cc:date:subject:to:from:mime-version:sender
-         :dkim-signature;
-        bh=PjCieJUDvdPBVHkfodX3t2OyT3eS+3Yvp9iFIVhLKB4=;
-        b=k/KSnHNDiTwzViFjvw8xeSvVEWklAvFYVpcsXSIAet/cWC589FneuiPubSa/k+x7qp
-         xOPlUbcza0Pk0yMxEBEAnJTKDXufdXdoxRpD+s/azARkdVZjZFW3/r2OvzTcYbyTNZcp
-         Z8gTH5WDDcSObmlze5OZrXL4rZVov8D/xQN/ozFWRyGT45hRdSKYozku+N1xJRO8G/mN
-         1NA8PGXTKlZmdgm2K0nCsjXmnoblq6TviCkPDYDy7rcMA7ZfYlvyiE18LQwcwOszUAec
-         4EP4k9rh1kv0/bQtNkJ/Bk33L8uVfzTC5IJwEO3IqFC5iJSkLOLH/3AgnvXtqvYq4I/S
-         4kfQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=6zSydcetQ7wjkX3ixAowedrgnncTME53Q3KT2Fo/Z88=;
+        b=xxZ5ZDhcvfcc3LgXQeTyUmP4SZiomT38EKmIfxX+q6Wyps1BHFkkPBhrKs5VFTikRD
+         PRDYBV/Qg3+qpLqjJqH3cwIKXpNJ8aZcf15+A1td+6VhU9vu33+2OhPXDR/e8ZeSl/ze
+         1LMhEUyCCFijyCVGLPDMUrDqZTLnlcA+oMuxwjNZvlNgp5mRAVDimJKR/ijGOAxj3jlF
+         JGABRKMtf8nXwDGjYcyYrviTA/8dkT1r0wKkhDG1uSDmTq5e9jRsP5Ag9JrKvPbJy6sh
+         l1NL5r3wv1DLq6lGXlobvYEjiUOzQ1mFEURiu44VkRr2PbqmxiTiWfA26/oZe7Ncjl9z
+         3gpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=SNWzZaM2;
-       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oWNboHmf;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:subject:date:cc:message-id
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PjCieJUDvdPBVHkfodX3t2OyT3eS+3Yvp9iFIVhLKB4=;
-        b=EmrevLR6msw6mMomIxvNy9BwzJwZpLYFikZH1ybLz1ZaEUX13Rhr4rJH39brrtcqSC
-         7ff+nBeMexvHZ5mSoOddyponrDnGz1K3dBh3a+a+JrYazBXNWsS1NXi/hwDD8hp/fqUR
-         3FpRWutwRgfhrU3HECZZoUFseYYYpm+QnMhQogUyuQFQY+S+irg/HpRMwUT+jU4e5Ep6
-         0hmY2uiidtGBoYi0RefWeoRpyVDl6FpMiBYvvCWjUtfDiuEvqrqkBmNf1MnHfEI8Npe7
-         TeNeYfhElTD6PABc2y0SqHupdGFuAjYfOzM2KXb9pTbOSo/bhs5MTrPMBN08YneutFpp
-         QeGA==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6zSydcetQ7wjkX3ixAowedrgnncTME53Q3KT2Fo/Z88=;
+        b=jiiG8TEwz/xjfAygmDPLi8lauQlzV9qmG5imRjdh+AC9J0aDP+oPyqy+aMOaaFC/QC
+         +mFilNqtUBFHqwaEDSuWt4qiKX52i6HvuA0n3Qz+PGUBZLclO1oBCvWZIt8iXGcxZpOA
+         Z0oYBjEwoYGhSybyTTOv2+wrw3Pv8XM4OB/0MK/4fAYsdeD3EUdqwF1eJwf4fk8CVXFY
+         Y/GTXgut7nMm5+9nmUhTrkA1I9gcs9GsArMG7IybJ0lwuZWCh624JOkcbI7/+b/kzJmn
+         ho3y9FRdzhoWAFkY3ypZCqQZ8GdxSxPYeWFS1lIgNrELdT/q6yir3qrFtyYVQp4FE6XH
+         IYvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:subject:date:cc
-         :message-id:content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PjCieJUDvdPBVHkfodX3t2OyT3eS+3Yvp9iFIVhLKB4=;
-        b=d3al9ft4DqPcGgN5T5ps2kdDgBmfg45TU5IhxQ591u4+WbHHvRESvYbXK4Qqrjg9QZ
-         9xhUDi2x1EbNmxBprXXXY06ckLmNDMLL7ir6c/0uBO4i2ibIaaTclC2R+gR0rVahgx61
-         46nWPe71FdLUuUY0IgJUB2PrZfJq2sTjiYMopnASWgeai7YxQWl1KHabXwn0floB5Nhc
-         AzqM5RB37oHdQ3QOUFYzmvwa7fMcUyNKL8/bL57VV2Z4m6/HgYibBqBvMXYnzZfwDHrg
-         L31vRxivk0RgSbbfp0z6MwMvEh8A361YtxSPxgJ0Wy4hSiX9JRX1ISRGd5fxU5KgHl97
-         66NA==
+        bh=6zSydcetQ7wjkX3ixAowedrgnncTME53Q3KT2Fo/Z88=;
+        b=S8HTALOO5lFzF2IvxN1EscDHa0A4p/GfvpDQRF56uvVh6D67gaqUwwaJ8I3grt/bNS
+         ZKm03LMFa2qiRoBduwKn3g9ukLPye4r1qeZG5ZLpjvXZOy3eJP4YCMvhcsg3Vri+OGmY
+         GZ/Xf86ZMfhs4tOo+bccv9tGjb5k+YFkAsufmMSMP45AlgoFImnaKROuFf4EosYx4D3i
+         Q+F2zZczRhUrd5KEvHZ4G21BnYReug+rWNN7wvJym/gWKrST1jNqUBUXgKO/3e+tCSFM
+         l1H5Qb7bDhVAhnfOcoTkjNo8H/nIi9+clnur9Eu9B9mWBM3RgelRbRcRMW6Mppv6qlTO
+         /Tlg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532xDRJ1Xze/EEU2G98pAJSPbgB8gIlZECS9chHdzofQ+ePvBBgR
-	nMz+CWAMMrCIeZnleufPyks=
-X-Google-Smtp-Source: ABdhPJwTVwUz4SQH5BZF7W5/lBL1UqdfjCW2XJlEVQgZUC7hjnuB/EEkLrPi8KWR/XvETDF9yxQXeA==
-X-Received: by 2002:aa7:95ba:0:b029:1c0:9d17:b36b with SMTP id a26-20020aa795ba0000b02901c09d17b36bmr4981512pfk.5.1611931994769;
-        Fri, 29 Jan 2021 06:53:14 -0800 (PST)
+X-Gm-Message-State: AOAM530BQerffd1OhV4ti5yVXoQH5ecY9ywUv0nRSzx+Mkbt7FN6iD/4
+	Lq73jREcL7Y173rL+lr5a10=
+X-Google-Smtp-Source: ABdhPJz+R76nY/46Oz4pjxSa7OkOhgMxSRTISRoNGZ35HulkS1m1kAwD2bMW7Jh0BAZzpDLIfWp1LQ==
+X-Received: by 2002:aca:4d97:: with SMTP id a145mr2964906oib.147.1611934651908;
+        Fri, 29 Jan 2021 07:37:31 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:378a:: with SMTP id mz10ls4837073pjb.2.gmail; Fri,
- 29 Jan 2021 06:53:14 -0800 (PST)
-X-Received: by 2002:a17:902:6543:b029:e1:1758:649f with SMTP id d3-20020a1709026543b02900e11758649fmr4682321pln.38.1611931994036;
-        Fri, 29 Jan 2021 06:53:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611931994; cv=none;
+Received: by 2002:a4a:7a41:: with SMTP id a62ls581086ooc.9.gmail; Fri, 29 Jan
+ 2021 07:37:31 -0800 (PST)
+X-Received: by 2002:a4a:dcc6:: with SMTP id h6mr3470891oou.89.1611934651473;
+        Fri, 29 Jan 2021 07:37:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611934651; cv=none;
         d=google.com; s=arc-20160816;
-        b=ebTd27/Vqa3XF0xWzY5r+wzHZw+L+V3FPQFzRmwFX2HXWiPFeY7vfrRJKJnRRkkn9d
-         bxU+zs5eUha58Oyi6u681U8OIBPfH68JgK4aKd6C6VJU9IoFxw89o6eWssVAkOZ4puFe
-         nTfczLKu8jl2J8deWHvCp8Nvc4yQrEwamVYUmf6A2ycpIrxuHkblNj91o1xaOEjDqXPK
-         fUCu7OVLOJ1Xx6MHbwuN1xnm49dQDa7CUD3Q/BmTMz4czv3Yc3mRfwn+LlynXd/kulIp
-         SZc59Q87DKEDwUkEYMQPtyQcUP1KKhgSdBiunStz8ykCISP9IGeyfoeLJ/cznGFLmrps
-         ph2Q==
+        b=Q767XNuKT8uFGVdGQdOxsQsGZEyvIA1y3TCGwth5gQUiTAb1v+/VpAMYqvojm42GQ2
+         yL9IsvKmUVKchC/XpJFbvO82m5CUZPuTHQa4Z9VkaS536Eti3tb/JqjjVdOh0O3OuHvp
+         FNBxOPvC+aHWwqLAjOjoVAXxU5pTROSsBBgK3M4VFhAC0969YrtFPR2H7Jef8BK5hHPF
+         bngY3+1XfEl3Xk9IL0wXt08mXdzb1DaZB12FTiqPNMGQL/sZOmbu5v77Tf4hScrGRSR4
+         6zJ9DVldUDDCC/MIHWyQwqhHMqoO19OJnU8Ry7tx+WKYGJDDMuQ5tJBuwd1mZjXzk3WP
+         hcng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:message-id:cc:date:subject:to:from
-         :mime-version:dkim-signature;
-        bh=LPJsOA/MeQhoFM55+RVxYICymJrvly0wMSN/HJcTiS4=;
-        b=Z51U5P78h3+A61r2Z7xudIqvHmT0X0IwjpnhA90gs4glFmyJssdvdU8L3/M23RxYWg
-         Jv8W0+4LEmk/0guMpClV6TDB71rdvzvQEX/4Ml/4sF7z1kZvecRwcqE/4M5kVX5UkwAg
-         WVd0hMrgr82GmmYotBCWHR9cuBqaC9Qd3T3xssRGd4Pjoi0JC0aVBH2/BuLX0qcEAMqY
-         UQG4WM8UqcZf2fNoVYjL5BO27UVuvvcSZ09AtEBrmy3o+Vhcj1atP27PwrLlHOIoM5j8
-         JZbkBb4BoLpWMTcfkm9d+Oa7eD6M1kkrgYZa01Hk8ZZl6TE5F9bDss4fAeh8+u3UarI7
-         D6Aw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=qRlqAsaGjGsDbm3/De84EY0Go7H7onUc6lr/PmmPYmY=;
+        b=rjFPOYY1SejLH7CuhAMR0A8dnlm4BAWAjkJjKckHDsXrERHkBIaW3QSEnzEKJMjCX6
+         sFMT/lGs4mvCVDHHTWP9UrwCd4twzzVFV6St51JX7pgiz6aNcVYZKvIiVb4B+qD/6ZGN
+         xCHTAe9XaMm2ZL+cQGTxN8RjuHIK61IgBpXG1u8uxaBQZyIoKE1I+clBm0EQDY0FBdS/
+         B0RwqPpTd51wfWVVK6FsT/KP/Jx8loecjOKHWDrNIA9WwXhIWzCOzzpObcVWPPQtUITF
+         Jdskogrlrmh91aMRCrdDBTBX6TaLlU5PuU/+GigtOff2sq/ql73+Q7sutyXOB7ZGz7pk
+         /Iug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=SNWzZaM2;
-       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id j11si652733pgm.4.2021.01.29.06.53.13
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oWNboHmf;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id b124si476836oii.4.2021.01.29.07.37.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 29 Jan 2021 06:53:14 -0800 (PST)
-Received-SPF: pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-169-ZyqQKi4_OQK_3SMrENO0WA-1; Fri, 29 Jan 2021 09:53:10 -0500
-X-MC-Unique: ZyqQKi4_OQK_3SMrENO0WA-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C404F9CC03
-	for <clang-built-linux@googlegroups.com>; Fri, 29 Jan 2021 14:53:09 +0000 (UTC)
-Received: from [172.23.4.2] (unknown [10.0.115.152])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 49F1C19C66;
-	Fri, 29 Jan 2021 14:53:06 +0000 (UTC)
+        Fri, 29 Jan 2021 07:37:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D03EC64E0E;
+	Fri, 29 Jan 2021 15:37:29 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Sasha Levin <sashal@kernel.org>,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.10 14/41] objtool: Don't add empty symbols to the rbtree
+Date: Fri, 29 Jan 2021 10:36:45 -0500
+Message-Id: <20210129153713.1592185-14-sashal@kernel.org>
+X-Mailer: git-send-email 2.27.0
+In-Reply-To: <20210129153713.1592185-1-sashal@kernel.org>
+References: <20210129153713.1592185-1-sashal@kernel.org>
 MIME-Version: 1.0
-From: CKI Project <cki-project@redhat.com>
-To: skt-results-master@redhat.com, clang-built-linux@googlegroups.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for kernel 5.11.0-rc5
- (mainline.kernel.org-clang)
-Date: Fri, 29 Jan 2021 14:53:05 -0000
-CC: Milos Malik <mmalik@redhat.com>, Ondrej Mosnacek <omosnace@redhat.com>,
- Rachel Sibley <rasibley@redhat.com>, Erico Nunes <ernunes@redhat.com>,
- Xiaowu Wu <xiawu@redhat.com>, Baoquan He <bhe@redhat.com>,
- Yi Zhang <yi.zhang@redhat.com>
-Message-ID: <cki.01477DAF44.4MDGOWPB5S@redhat.com>
-X-Gitlab-Pipeline-ID: 622446
-X-Gitlab-Url: https://xci32.lab.eng.rdu2.redhat.com/
-X-Gitlab-Path: /cki-project/cki-pipeline/pipelines/622446
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: cki-project@redhat.com
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=SNWzZaM2;
-       spf=pass (google.com: domain of cki-project@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@kernel.org header.s=k20201202 header.b=oWNboHmf;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,334 +133,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+From: Josh Poimboeuf <jpoimboe@redhat.com>
 
-Hello,
+[ Upstream commit a2e38dffcd93541914aba52b30c6a52acca35201 ]
 
-We ran automated tests on a recent commit from this kernel tree:
+Building with the Clang assembler shows the following warning:
 
-       Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvald=
-s/linux.git
-            Commit: e5ff2cb9cf67 - Merge tag 'for-linus-5.11-rc6-tag' of gi=
-t://git.kernel.org/pub/scm/linux/kernel/git/xen/tip
+  arch/x86/kernel/ftrace_64.o: warning: objtool: missing symbol for insn at offset 0x16
 
-The results of these automated tests are provided below.
+The Clang assembler strips section symbols.  That ends up giving
+objtool's find_func_containing() much more test coverage than normal.
+Turns out, find_func_containing() doesn't work so well for overlapping
+symbols:
 
-    Overall result: FAILED (see details below)
-             Merge: OK
-           Compile: OK
- Selftests compile: FAILED
-             Tests: FAILED
+     2: 000000000000000e     0 NOTYPE  LOCAL  DEFAULT    2 fgraph_trace
+     3: 000000000000000f     0 NOTYPE  LOCAL  DEFAULT    2 trace
+     4: 0000000000000000   165 FUNC    GLOBAL DEFAULT    2 __fentry__
+     5: 000000000000000e     0 NOTYPE  GLOBAL DEFAULT    2 ftrace_stub
 
-All kernel binaries, config files, and logs are available for download here=
-:
+The zero-length NOTYPE symbols are inside __fentry__(), confusing the
+rbtree search for any __fentry__() offset coming after a NOTYPE.
 
-  https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?pre=
-fix=3Ddatawarehouse-public/2021/01/28/622446
+Try to avoid this problem by not adding zero-length symbols to the
+rbtree.  They're rare and aren't needed in the rbtree anyway.
 
-One or more kernel tests failed:
+One caveat, this actually might not end up being the right fix.
+Non-empty overlapping symbols, if they exist, could have the same
+problem.  But that would need bigger changes, let's see if we can get
+away with the easy fix for now.
 
-    ppc64le:
-     =E2=9D=8C selinux-policy: serge-testsuite
+Reported-by: Arnd Bergmann <arnd@kernel.org>
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ tools/objtool/elf.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-    aarch64:
-     =E2=9D=8C selinux-policy: serge-testsuite
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index 4e1d7460574b4..9b2c475e6908e 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -422,6 +422,13 @@ static int read_symbols(struct elf *elf)
+ 		list_add(&sym->list, entry);
+ 		elf_hash_add(elf->symbol_hash, &sym->hash, sym->idx);
+ 		elf_hash_add(elf->symbol_name_hash, &sym->name_hash, str_hash(sym->name));
++
++		/*
++		 * Don't store empty STT_NOTYPE symbols in the rbtree.  They
++		 * can exist within a function, confusing the sorting.
++		 */
++		if (!sym->len)
++			rb_erase(&sym->node, &sym->sec->symbol_tree);
+ 	}
+ 
+ 	if (stats)
+-- 
+2.27.0
 
-    x86_64:
-     =E2=9D=8C selinux-policy: serge-testsuite
-
-We hope that these logs can help you find the problem quickly. For the full
-detail on our testing procedures, please scroll to the bottom of this messa=
-ge.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
-Compile testing
----------------
-
-We compiled the kernel for 3 architectures:
-
-    aarch64:
-      make options: make LLVM=3D1 -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
-
-    ppc64le:
-      make options: make CC=3Dclang -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
-
-    x86_64:
-      make options: make LLVM=3D1 -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
-
-
-We built the following selftests:
-
-  x86_64:
-      net: fail
-      bpf: fail
-      install and packaging: fail
-
-You can find the full log (build-selftests.log) in the artifact storage abo=
-ve.
-
-
-Hardware testing
-----------------
-We booted each kernel and ran the following tests:
-
-  aarch64:
-    Host 1:
-       =E2=9C=85 Boot test
-       =E2=9D=8C selinux-policy: serge-testsuite
-       =E2=9C=85 storage: software RAID testing
-       =E2=9C=85 stress: stress-ng
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - ext4
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - xfs
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - btrfs
-       =F0=9F=9A=A7 =E2=9D=8C IPMI driver test
-       =F0=9F=9A=A7 =E2=9C=85 IPMItool loop stress test
-       =F0=9F=9A=A7 =E2=9C=85 Storage blktests
-       =F0=9F=9A=A7 =E2=9C=85 Storage block - filesystem fio test
-       =F0=9F=9A=A7 =E2=9C=85 Storage block - queue scheduler test
-       =F0=9F=9A=A7 =E2=9C=85 Storage nvme - tcp
-       =F0=9F=9A=A7 =E2=9C=85 Storage: swraid mdadm raid_module test
-
-    Host 2:
-       =E2=9C=85 Boot test
-       =E2=9C=85 ACPI table test
-       =E2=9C=85 ACPI enabled test
-       =E2=9C=85 LTP
-       =E2=9C=85 Loopdev Sanity
-       =E2=9C=85 Memory: fork_mem
-       =E2=9C=85 Memory function: memfd_create
-       =E2=9C=85 AMTU (Abstract Machine Test Utility)
-       =E2=9C=85 Networking bridge: sanity
-       =E2=9C=85 Networking socket: fuzz
-       =E2=9C=85 Networking: igmp conformance test
-       =E2=9C=85 Networking route: pmtu
-       =E2=9C=85 Networking route_func - local
-       =E2=9C=85 Networking route_func - forward
-       =E2=9C=85 Networking TCP: keepalive test
-       =E2=9C=85 Networking UDP: socket
-       =E2=9C=85 Networking tunnel: geneve basic test
-       =E2=9C=85 Networking tunnel: gre basic
-       =E2=9C=85 L2TP basic test
-       =E2=9C=85 Networking tunnel: vxlan basic
-       =E2=9C=85 Networking ipsec: basic netns - transport
-       =E2=9C=85 Networking ipsec: basic netns - tunnel
-       =E2=9C=85 Libkcapi AF_ALG test
-       =E2=9C=85 pciutils: update pci ids test
-       =E2=9C=85 ALSA PCM loopback test
-       =E2=9C=85 ALSA Control (mixer) Userspace Element test
-       =E2=9C=85 storage: SCSI VPD
-       =F0=9F=9A=A7 =E2=9C=85 CIFS Connectathon
-       =F0=9F=9A=A7 =E2=9C=85 POSIX pjd-fstest suites
-       =F0=9F=9A=A7 =E2=9D=8C Firmware test suite
-       =F0=9F=9A=A7 =E2=9C=85 jvm - jcstress tests
-       =F0=9F=9A=A7 =E2=9C=85 Memory function: kaslr
-       =F0=9F=9A=A7 =E2=9C=85 Ethernet drivers sanity
-       =F0=9F=9A=A7 =E2=9C=85 Networking firewall: basic netfilter test
-       =F0=9F=9A=A7 =E2=9C=85 audit: audit testsuite test
-       =F0=9F=9A=A7 =E2=9C=85 trace: ftrace/tracer
-       =F0=9F=9A=A7 =E2=9D=8C kdump - kexec_boot
-
-  ppc64le:
-    Host 1:
-       =E2=9C=85 Boot test
-       =E2=9C=85 LTP
-       =E2=9C=85 Loopdev Sanity
-       =E2=9C=85 Memory: fork_mem
-       =E2=9C=85 Memory function: memfd_create
-       =E2=9C=85 AMTU (Abstract Machine Test Utility)
-       =E2=9C=85 Networking bridge: sanity
-       =E2=9C=85 Networking socket: fuzz
-       =E2=9C=85 Networking route: pmtu
-       =E2=9C=85 Networking route_func - local
-       =E2=9C=85 Networking route_func - forward
-       =E2=9C=85 Networking TCP: keepalive test
-       =E2=9C=85 Networking UDP: socket
-       =E2=9C=85 Networking tunnel: geneve basic test
-       =E2=9C=85 Networking tunnel: gre basic
-       =E2=9C=85 L2TP basic test
-       =E2=9C=85 Networking tunnel: vxlan basic
-       =E2=9C=85 Networking ipsec: basic netns - tunnel
-       =E2=9C=85 Libkcapi AF_ALG test
-       =E2=9C=85 pciutils: update pci ids test
-       =E2=9C=85 ALSA PCM loopback test
-       =E2=9C=85 ALSA Control (mixer) Userspace Element test
-       =F0=9F=9A=A7 =E2=9C=85 CIFS Connectathon
-       =F0=9F=9A=A7 =E2=9C=85 POSIX pjd-fstest suites
-       =F0=9F=9A=A7 =E2=9C=85 jvm - jcstress tests
-       =F0=9F=9A=A7 =E2=9C=85 Memory function: kaslr
-       =F0=9F=9A=A7 =E2=9C=85 Ethernet drivers sanity
-       =F0=9F=9A=A7 =E2=9C=85 Networking firewall: basic netfilter test
-       =F0=9F=9A=A7 =E2=9C=85 audit: audit testsuite test
-       =F0=9F=9A=A7 =E2=9C=85 trace: ftrace/tracer
-
-    Host 2:
-
-       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
- (marked
-       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
-       This is not the fault of the kernel that was tested.
-
-       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
-       =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-testsuite
-       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
-fio test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
-uler test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_=
-module test
-
-    Host 3:
-
-       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
- (marked
-       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
-       This is not the fault of the kernel that was tested.
-
-       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
-       =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-testsuite
-       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
-fio test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
-uler test
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
-       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_=
-module test
-
-    Host 4:
-       =E2=9C=85 Boot test
-       =E2=9D=8C selinux-policy: serge-testsuite
-       =E2=9C=85 storage: software RAID testing
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - ext4
-       =E2=8F=B1  xfstests - xfs
-       =E2=8F=B1  xfstests - btrfs
-       =E2=8F=B1  IPMI driver test
-       =E2=8F=B1  IPMItool loop stress test
-       =E2=8F=B1  Storage blktests
-       =E2=8F=B1  Storage block - filesystem fio test
-       =E2=8F=B1  Storage block - queue scheduler test
-       =E2=8F=B1  Storage nvme - tcp
-       =E2=8F=B1  Storage: swraid mdadm raid_module test
-
-  x86_64:
-    Host 1:
-       =E2=9C=85 Boot test
-       =F0=9F=9A=A7 =E2=9C=85 kdump - sysrq-c
-       =F0=9F=9A=A7 =E2=9C=85 kdump - file-load
-
-    Host 2:
-       =E2=9C=85 Boot test
-       =E2=9C=85 ACPI table test
-       =E2=9C=85 LTP
-       =E2=9C=85 Loopdev Sanity
-       =E2=9C=85 Memory: fork_mem
-       =E2=9C=85 Memory function: memfd_create
-       =E2=9C=85 AMTU (Abstract Machine Test Utility)
-       =E2=9C=85 Networking bridge: sanity
-       =E2=9C=85 Networking socket: fuzz
-       =E2=9C=85 Networking: igmp conformance test
-       =E2=9C=85 Networking route: pmtu
-       =E2=9C=85 Networking route_func - local
-       =E2=9C=85 Networking route_func - forward
-       =E2=9C=85 Networking TCP: keepalive test
-       =E2=9C=85 Networking UDP: socket
-       =E2=9C=85 Networking tunnel: geneve basic test
-       =E2=9C=85 Networking tunnel: gre basic
-       =E2=9C=85 L2TP basic test
-       =E2=9C=85 Networking tunnel: vxlan basic
-       =E2=9C=85 Networking ipsec: basic netns - transport
-       =E2=9C=85 Networking ipsec: basic netns - tunnel
-       =E2=9C=85 Libkcapi AF_ALG test
-       =E2=9C=85 pciutils: sanity smoke test
-       =E2=9C=85 pciutils: update pci ids test
-       =E2=9C=85 ALSA PCM loopback test
-       =E2=9C=85 ALSA Control (mixer) Userspace Element test
-       =E2=9C=85 storage: SCSI VPD
-       =F0=9F=9A=A7 =E2=9C=85 CIFS Connectathon
-       =F0=9F=9A=A7 =E2=9C=85 POSIX pjd-fstest suites
-       =F0=9F=9A=A7 =E2=9D=8C Firmware test suite
-       =F0=9F=9A=A7 =E2=9C=85 jvm - jcstress tests
-       =F0=9F=9A=A7 =E2=9C=85 Memory function: kaslr
-       =F0=9F=9A=A7 =E2=9C=85 Ethernet drivers sanity
-       =F0=9F=9A=A7 =E2=9C=85 Networking firewall: basic netfilter test
-       =F0=9F=9A=A7 =E2=9C=85 audit: audit testsuite test
-       =F0=9F=9A=A7 =E2=9C=85 trace: ftrace/tracer
-       =F0=9F=9A=A7 =E2=9D=8C kdump - kexec_boot
-
-    Host 3:
-       =E2=9C=85 Boot test
-       =E2=9D=8C selinux-policy: serge-testsuite
-       =E2=9C=85 storage: software RAID testing
-       =E2=9C=85 stress: stress-ng
-       =F0=9F=9A=A7 =E2=9C=85 CPU: Frequency Driver Test
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - ext4
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - xfs
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - btrfs
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - nfsv4.2
-       =F0=9F=9A=A7 =E2=9C=85 xfstests - cifsv3.11
-       =F0=9F=9A=A7 =E2=9D=8C IPMI driver test
-       =F0=9F=9A=A7 =E2=9C=85 IPMItool loop stress test
-       =F0=9F=9A=A7 =E2=9D=8C Storage blktests
-       =F0=9F=9A=A7 =E2=9C=85 Storage block - filesystem fio test
-       =F0=9F=9A=A7 =E2=9C=85 Storage block - queue scheduler test
-       =F0=9F=9A=A7 =E2=9C=85 Storage nvme - tcp
-       =F0=9F=9A=A7 =E2=9C=85 Storage: swraid mdadm raid_module test
-
-  Test sources: https://gitlab.com/cki-project/kernel-tests
-    =F0=9F=92=9A Pull requests are welcome for new tests or improvements to=
- existing tests!
-
-Aborted tests
--------------
-Tests that didn't complete running successfully are marked with =E2=9A=A1=
-=E2=9A=A1=E2=9A=A1.
-If this was caused by an infrastructure issue, we try to mark that
-explicitly in the report.
-
-Waived tests
-------------
-If the test run included waived tests, they are marked with =F0=9F=9A=A7. S=
-uch tests are
-executed but their results are not taken into account. Tests are waived whe=
-n
-their results are not reliable enough, e.g. when they're just introduced or=
- are
-being fixed.
-
-Testing timeout
----------------
-We aim to provide a report within reasonable timeframe. Tests that haven't
-finished running yet are marked with =E2=8F=B1.
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/cki.01477DAF44.4MDGOWPB5S%40redhat.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210129153713.1592185-14-sashal%40kernel.org.
