@@ -1,131 +1,142 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBBM72GAAMGQETADNUVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTZ5O62V4ORBP5B2GAAMGQEOJPIUEA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4C0E2308C20
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 19:10:14 +0100 (CET)
-Received: by mail-vk1-xa3d.google.com with SMTP id x25sf2680563vkn.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 10:10:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611943813; cv=pass;
+Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 94E31308C2F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 19:15:28 +0100 (CET)
+Received: by mail-oo1-xc38.google.com with SMTP id w3sf4652984oov.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 10:15:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611944127; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wWQgmRSN+ZyMkcnrseVFXceOapUz7khNY6yyr969ViNx68BLgEkB4Z7mDE9v6wf8pK
-         CZYbOs675DPeQw/fvO5mHlsAh40UCNqSKj10AgF3zC8GT4uMR9lyrgLatlW9mlBunQ+/
-         5nImVJ+B/TMYsLcz9lIiPbHTMtiAb9OV2K7oDVWkAu0E+1r+iYa2W4KbfSbXUO1q9E48
-         EogAmZNAVuGtKzbq+5lqIKr6bbAozF81q/mho9zvBdBnCZOfiuSbDfeE709ZD7QFVx0Q
-         J/VvxNSflqO9hw8DAJ11mAihc6ujdY7Nl36rQmdZ3QDBcEq9rYjh9vAA5dzHlQmhQzI1
-         J+YA==
+        b=dAJT0aHtL7bG2Zt5sF9O7KyzSXBJGoL1/mPbDP8gNIDQhgckwKqjWP6jQyZa/Z1hmN
+         R2CAF/6WgPB1Pu05I1rqyTMjYuOVPyB+Iphjb0MgSmwc2034Mc3NO0+oIMzl/El+fHGq
+         CFAqmHJUPr3y6Dzb0SiRxxk5/XpW18ic3SQaGQaw9XFcIDhQqFdvkfCroxvC5hO/F7o8
+         bptYIqjya5CKBfPl9bcMR6DVBJu/57/zap1+HRacqbnxxznmwWlE46cf5HLmQtzS9S91
+         5Nhooi0gqaN1ZVfCNPzGwvZubzNUf9UmPQ7HsqfX5H0X1d2zxVGJVpOuNFOJaZRZjMVR
+         pm7g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=lDXweLN88/pzYHtqHMBJ06WVIb/j9phOZ1k9xqDIbSA=;
-        b=gX82vAavKa1D8EIxM0GjJG2tdSbLx37F88UMOsY541mJjUZZJsrfMbgVdUqaQ7t/fB
-         M9yVyIXm/Jj97TsfcTjaIPU9fymzTrKcujn1BZ1JdbKyX3RY+WFCFCF+eBH6cHXQvpCL
-         mzBPMfyDbZhmxmIQoF/rjty+KXwB2DTTwswHWw/W5+nTlKuDUA/dxNkCKoEFbZGn5ePA
-         iPNRcwF+WqKADk1Q+BmaEDlMUxOQsHC0+w2hJGNjh4zn1nX27p5pljwKTFbNd7qejXCf
-         ntJWgm2dGtJcgP9ushsyf5zCnK23hV+0DogAtTD5+mu5dofqv3Y7KTNvq3oisl81Sr5x
-         I/ig==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=kqoT8wCdNoS2O59nEpcA+ct1WakbLTgaqKbMs16GQlM=;
+        b=iJ0AJoSnMgexALmeM+BaqeJQzNvvZEH3BTBLHpK5LC4sFcB/5LPGo4pSUvbSBMjpij
+         1e2Qn6zeo9EeDdH+MZ3zynSu9TiBtiZcE3xVAVT+nhlcU2WFbLrMtPC61CJWuX/8RB8w
+         oTAEcGXYvlPwP7Bhxn1rRfEew3GoJzwcuXW6BK/pHqNGr+cgY8iLZkDFV/i/k3cAmdbS
+         k50a0I1EZ1VrYAVeM2qhZ1dD7luij9qPwpy5GxjNGuHE3s4erD8tDc0OZWlU9iX7s3Se
+         gqRM0133hRWU2dvta9I/IyeVGDKy8u9Hm75A9vCHH7NEabojQ3w92QpLQzwo+wTkysBv
+         SuLQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=KvqRCWR7;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LX8O8N5P;
+       spf=pass (google.com: domain of viniciustinti@gmail.com designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lDXweLN88/pzYHtqHMBJ06WVIb/j9phOZ1k9xqDIbSA=;
-        b=EwM3g9FVzLO1ZZBkwzlPDghpkgWJ33jd3NXx2ObK7JirjE/5scotNrKLaD1My7G8Mr
-         Rdtj2AiXJIPUwykZnkrJcG0C9xOvUlCYkEiTQ/LV0kUlxkf0NJRe46mgS089i03ixgXH
-         9mg/HOvZhi9DK8sR+GqL6GvADkitTgvXxRFesOXE4K6KsMhZs/bFOkK0cez/C3zyYfuX
-         2cng/3ckYa9dL4D/Zccx+OlEGEy45p1gHbRxRo72fpdsWs+SEz02+okGvdfsZWZXDVpk
-         VA7F4SZliXsKSgPlIhxBLHIn+NjlDuvn9BbksalA6LdLEYq+SBi7AK5uxun0tK6JQGXJ
-         8bBQ==
+        bh=kqoT8wCdNoS2O59nEpcA+ct1WakbLTgaqKbMs16GQlM=;
+        b=Q8lgm5FQY0toqYkgMxGb+b6ZGv2nXUNhCwGv8WESYaB8GSOH+Do5hSYoJauyAfDSUW
+         kvfQ0oRdDrNwYq7qyKSmVcqY4D/oRFUOZ0FYz/dQ2gpbGlM6AAj8UpWvBsQm4bJi+u9K
+         VneOVHHAOlgaPpZzs6x7FZVseVAIO3ak2OQznPOTzwXOnMOSS9+OHki5ycLe2dv2uLVz
+         rah9YZZdrSlaPREZP7xeg1jYgsAnjN2YPOQe9Bqcl/ej6KJDO6sy9ShGIodLq6uhIbEs
+         K/FNdSHGGuErwI9Z7SpW+DR/faO0qkhlZFcwuUdE9osgGyvVFBbWMJ6CQadonNa77rDJ
+         ozjQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kqoT8wCdNoS2O59nEpcA+ct1WakbLTgaqKbMs16GQlM=;
+        b=hpUvizUDMy8F5B/eWgc+phC0K6t2lxXsrh9kNnsXbsd0jwxLRN4RDDzVksO6ZgJLwV
+         G7PRfTNhLlHPyoL53BJGxWiyd5vsXmkUUEye6k5QmSiz26zr0a984tx4MiaAaG82Qf//
+         lUycWrq6ialpDNvKdc/ukV4h8K3px80Li0RhNilQztgFXcpsnOF+vV8JCth91ITTVQtU
+         ERxtakoZ+CSRyn0lL6bM2gz2ao3Ltv0QlZz3Athqcw2SwS9rOI3qiPm1n3fJdnJX6VPO
+         4DLF3NLiFbmDKaPudDu15hCkCoQM2IYjavH/fJzVsKWfbTLFV0qlbjVBWJBTUpbMkkdW
+         MgNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=lDXweLN88/pzYHtqHMBJ06WVIb/j9phOZ1k9xqDIbSA=;
-        b=gz7LL+RyD4xKRU8QrsNHfBDR17FVYPyVd0Jv3HduZnVQW2TXSQ+upajmTOsfFH4yRD
-         sTkWVCMdFuqQ9FPHmoiUdB6bvVXepjNXINifW3aulGsPxzmyjWtQOGGB4EIha2kKDHKW
-         T9wz8FJTYZdTxFdOD/e8dZ8OprIlV5PjpmQO9wuwK5HjPSbiyX1m/LEE8YB1yQOMqCgp
-         j7kL18ncFDbGSHit30tnZziu4av27NxDAAAZiDnKpqNpQ3U7vUx3M9o0SRJ8T1b2Wl2X
-         23NZWQhKwuoQjCjkl9CGIQo/bD3r1tvkLaU4opR5O9iNYwjEYuFu07l+qyEGa0XOy/Us
-         CAIw==
-X-Gm-Message-State: AOAM531X6zx/6WUuB3U5Rg7PAw9eluj0XOocu7Ncm8YhPyOHRhwSvswd
-	ktamil4nclddYhcK3xqmg4I=
-X-Google-Smtp-Source: ABdhPJwRhmpqLKKwh7bIpt9xQDDE1oXbObw2UBhNVGr7jlYUgig+homLi8QX8Pk7j4ZlunFBToU0Rw==
-X-Received: by 2002:a9f:35a1:: with SMTP id t30mr3559854uad.106.1611943813307;
-        Fri, 29 Jan 2021 10:10:13 -0800 (PST)
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kqoT8wCdNoS2O59nEpcA+ct1WakbLTgaqKbMs16GQlM=;
+        b=YtjLDyf1hi1y9+1+GzaWr7wbwsKiPaufapULNfNex8MFSzhDn7rsEsh9/NcXUda2EQ
+         m7lbgFZmOsXRFmWzfvA3UFqnDT8yDifkiTRHFivINbGtgEbGRcICKknQI/a6rn3VpFE6
+         7wbU+SCIIAh0wyWfAg+3/Cac71ElLkiwt/qthClvmoqUJ9Hwdp3AFeGfJpVRV7B7RebV
+         zpCIBPX6WCX0UXCGRGnNFMPvXHQzaWOJp1pdyoEEqzkDY1ZNn6BxnSK0ccoCqFEyqA7v
+         tKBQw6cDGRri2HctivQs/EFNFAv9e08ivhku8MNc4WxxLvuHRE4jMWyCwens8DQ32e89
+         bvMQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531Lh+xFBJh4UaheFUb1Fi/gT1TQAyZ91+4YdxmIGblVF1zr4w5j
+	0l4XvqcPET/Vu/aEp+kxMu4=
+X-Google-Smtp-Source: ABdhPJzNXN8vkiIJpmht7CyavXCEQ2pSXPNT4oK3nKdMtMGxN07aJd78OsZDeMNSbESeUgzpclxgAw==
+X-Received: by 2002:a9d:1293:: with SMTP id g19mr3623076otg.311.1611944127541;
+        Fri, 29 Jan 2021 10:15:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:3641:: with SMTP id s1ls775475uad.10.gmail; Fri, 29 Jan
- 2021 10:10:12 -0800 (PST)
-X-Received: by 2002:ab0:15a2:: with SMTP id i31mr3646982uae.129.1611943812931;
-        Fri, 29 Jan 2021 10:10:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611943812; cv=none;
+Received: by 2002:aca:5786:: with SMTP id l128ls2268499oib.1.gmail; Fri, 29
+ Jan 2021 10:15:27 -0800 (PST)
+X-Received: by 2002:aca:3306:: with SMTP id z6mr3165524oiz.141.1611944127176;
+        Fri, 29 Jan 2021 10:15:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611944127; cv=none;
         d=google.com; s=arc-20160816;
-        b=ivd1P/w4RLpSoqSBcg9Hk266w5mSkW01t4eIU2eA7q/qT1yOsur4GBWWvR4vWR1c82
-         zi9pSTahXDMARGbvTh9+b5yzVhtI1vVqlYs/zntVyRsU+Z7b5xYpXGEz5BY/9uyK6XV0
-         dVJdQTNX9lJkrKRB1pBseffI5JqorhXIVEdbrXF2LUQU3Ng7W2chFWl7CxLcPMtejKx4
-         Af51jOqRLKNZGz/RiaLlSQAx1M2EUCgdl3esURqwkiQwe+IwmWRRs2iNECZeiVRR+Gjn
-         xbDgdOx5f2oRZYB4JinhqWdP0flmVw5dz6f0uSYRrawH78kOHyHwmZmoNh1eymp24bx+
-         Olpw==
+        b=HK63jfAM4gwGhhe1JPvnFJSISwZkw2nSDYRhjeoIGIRsaayskJBHO5Qs4wPgKbqyaz
+         bfDDe1Altx1dnnAOfEb1A20FesglyHM04vZg30ZBCKqU9Bm3+1PU3Zj0Ri71/oasqIE9
+         zG7aqwCxxUiPiSx1zpDiTkiFJFbEpkh2UzqWxof71LhEATpHLzrM9HHefSL2w7/huvsa
+         jFp83pVDTEu3UWK3fmEUEodAXf5JRL3yaN6BAOZ4XWSR0v6Pczm1ibl19FQQ1GTiWbJQ
+         TuZf+IKJg/Yacptk4VQH0uQSL9MyWVMXsUxbe+a6Tjhy/vvDjcDcOys+Scyh0jbumLYH
+         BaIA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=X8bQLC4KTV3CkyE7ZwNAPVrk7LCX4mmpuoPxOJQrWiE=;
-        b=0THZ3+FXmVIWkERYfrjeyJnM9rjTswAvOLrUrproHz9VESI0+nLowF69DsMziftIqb
-         xvauKLR4IwVGa5eCcCRip726+Rg6wfdFhR+87AMCAz9Hbyjvw6/3QOEFifL8pU6l8kEh
-         XfCGoVBSdIWLXnMi8RLIjiSmQeQ0KVaWKWLEwatkxg4O1p0R/tg+TOxlxD3daBJ0dOuD
-         8994XGtI4vPhnPfwOQpSCzFRmwlqt4n8Ob61MHqmahc2zqimuglZqRvC06eZuLgONHLc
-         /S82483C/5/X3aWlhm4u7cibUMNJrolAPMMptL/VcVEXg/7VWqGVnpcZuuSmmELM6YDD
-         Su8A==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=/0fATYjcdJLSc2/pVck+A/BrJt10YSf2Y8cyXjqnWuw=;
+        b=WqWXiviQ/CxYfChOouNoty39XBfTmV980ppC9dypPVl1iy0cqWsca5KvyWZJqTVQd9
+         b27/VqfxO7Iw/BmBa2RXMLKVJ2UXJhpoNPI0BWEKUJuyNuHlR4wlExI3KnCjunrMQI6R
+         ulRI3LdeDnne95ueHXyGvqydaZrDwVK2X8v+mCAGq79i1KKD+yWOKO+hvBy1AkhHR5FL
+         8cICarfv2DuBG+6tc96dpdPf6G2AW3FIOj4XHySFsqrSRfp/OVG9nsNWgNL2wcUuwnbB
+         Mjv0Oi4gz8mKpzy3+ZuzqroJZ4+aCyfpKHiK9eINRIPJNnUFqamgeAtanXMz6VrnPByC
+         u4Gg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=KvqRCWR7;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
-        by gmr-mx.google.com with ESMTPS id s196si464703vkb.2.2021.01.29.10.10.12
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=LX8O8N5P;
+       spf=pass (google.com: domain of viniciustinti@gmail.com designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd2c.google.com (mail-io1-xd2c.google.com. [2607:f8b0:4864:20::d2c])
+        by gmr-mx.google.com with ESMTPS id f197si546978oob.2.2021.01.29.10.15.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 29 Jan 2021 10:10:12 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
-Received: by mail-pj1-x102e.google.com with SMTP id gx1so6796101pjb.1
-        for <clang-built-linux@googlegroups.com>; Fri, 29 Jan 2021 10:10:12 -0800 (PST)
-X-Received: by 2002:a17:902:26a:b029:da:af47:77c7 with SMTP id
- 97-20020a170902026ab02900daaf4777c7mr5473562plc.10.1611943812360; Fri, 29 Jan
- 2021 10:10:12 -0800 (PST)
+        Fri, 29 Jan 2021 10:15:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of viniciustinti@gmail.com designates 2607:f8b0:4864:20::d2c as permitted sender) client-ip=2607:f8b0:4864:20::d2c;
+Received: by mail-io1-xd2c.google.com with SMTP id u8so5160509ior.13
+        for <clang-built-linux@googlegroups.com>; Fri, 29 Jan 2021 10:15:27 -0800 (PST)
+X-Received: by 2002:a5e:c91a:: with SMTP id z26mr4413552iol.89.1611944126885;
+        Fri, 29 Jan 2021 10:15:26 -0800 (PST)
+Received: from llvm-development.us-central1-a.c.llvm-285123.internal (85.235.72.34.bc.googleusercontent.com. [34.72.235.85])
+        by smtp.googlemail.com with ESMTPSA id r129sm4535791iod.14.2021.01.29.10.15.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 Jan 2021 10:15:26 -0800 (PST)
+From: Vinicius Tinti <viniciustinti@gmail.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Vinicius Tinti <viniciustinti@gmail.com>,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] drm/i915: Remove unreachable code
+Date: Fri, 29 Jan 2021 18:15:19 +0000
+Message-Id: <20210129181519.69963-1-viniciustinti@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20210120173800.1660730-13-jthierry@redhat.com>
- <20210127221557.1119744-1-ndesaulniers@google.com> <20210127232651.rj3mo7c2oqh4ytsr@treble>
-In-Reply-To: <20210127232651.rj3mo7c2oqh4ytsr@treble>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 29 Jan 2021 10:10:01 -0800
-Message-ID: <CAKwvOdkOeENcM5X7X926sv2Xmtko=_nOPeKZ2+51s13CW1QAjw@mail.gmail.com>
-Subject: Re: [RFC PATCH 12/17] gcc-plugins: objtool: Add plugin to detect
- switch table on arm64
-To: Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: Julien Thierry <jthierry@redhat.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Kees Cook <keescook@chromium.org>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	linux-efi <linux-efi@vger.kernel.org>, linux-hardening@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
-	Peter Zijlstra <peterz@infradead.org>, raphael.gault@arm.com, Will Deacon <will@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: viniciustinti@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=KvqRCWR7;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::102e
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=LX8O8N5P;       spf=pass
+ (google.com: domain of viniciustinti@gmail.com designates 2607:f8b0:4864:20::d2c
+ as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,70 +149,165 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jan 27, 2021 at 3:27 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
->
-> On Wed, Jan 27, 2021 at 02:15:57PM -0800, Nick Desaulniers wrote:
-> > > From: Raphael Gault <raphael.gault@arm.com>
-> > >
-> > > This plugins comes into play before the final 2 RTL passes of GCC and
-> > > detects switch-tables that are to be outputed in the ELF and writes
-> > > information in an ".discard.switch_table_info" section which will be
-> > > used by objtool.
-> > >
-> > > Signed-off-by: Raphael Gault <raphael.gault@arm.com>
-> > > [J.T.: Change section name to store switch table information,
-> > >        Make plugin Kconfig be selected rather than opt-in by user,
-> > >        Add a relocation in the switch_table_info that points to
-> > >        the jump operation itself]
-> > > Signed-off-by: Julien Thierry <jthierry@redhat.com>
-> >
-> > Rather than tightly couple this feature to a particular toolchain via
-> > plugin, it might be nice to consider what features could be spec'ed out
-> > for toolchains to implement (perhaps via a -f flag).
->
-> The problem is being able to detect switch statement jump table vectors.
->
-> For a given indirect branch (due to a switch statement), what are all
-> the corresponding jump targets?
->
-> We would need the compiler to annotate that information somehow.
+By enabling -Wunreachable-code-aggressive on Clang the following code
+paths are unreachable.
 
-Makes sense, the compiler should have this information.  How is this
-problem solved on x86?
+Commit ce22c320b8ca ("drm/i915/sdvo: convert to encoder disable/enable")
+Commit 19f1f627b333 ("drm/i915/gt: Move ivb GT workarounds from
+init_clock_gating to workarounds")
+Commit 0a97015d45ee ("drm/i915: Compress GPU objects in error state")
 
->
-> > Distributions (like Android, CrOS) wont be able to use such a feature as
-> > is.
->
-> Would a Clang plugin be out of the question?
+By removing the unreachable code at
+drivers/gpu/drm/i915/display/intel_sdvo.c the function
+intel_sdvo_set_encoder_power_state becomes unused.
 
-Generally, we frown on out of tree kernel modules for a couple reasons.
+Commit ea5b213ad4b1 ("drm/i915: Subclass intel_encoder.")
 
-Maintaining ABI compatibility when the core kernel changes is
-generally not instantaneous; someone has to notice the ABI has changed
-which will be more delayed than if the module was in tree.  Worse is
-when semantics subtly change.  While we must not break userspace, we
-provide no such guarantees within the kernel proper.
+Clang warns unreachable:
 
-Also, it's less likely that out of tree kernel modules have been
-reviewed by kernel developers.  They may not have the same quality,
-use the recommended interfaces, follow coding conventions, etc..
+drivers/gpu/drm/i915/display/intel_sdvo.c:1768:3: warning: code will never
+be executed [-Wunreachable-code]
+                intel_sdvo_set_encoder_power_state(intel_sdvo,
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/gpu/drm/i915/display/intel_sdvo.c:1767:6: note: silence by adding
+parentheses to mark code as explicitly dead
+        if (0)
+            ^
+            /* DISABLES CODE */ ( )
+drivers/gpu/drm/i915/display/intel_sdvo.c:1852:3: warning: code will never
+be executed [-Wunreachable-code]
+                intel_sdvo_set_encoder_power_state(intel_sdvo,
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/gpu/drm/i915/display/intel_sdvo.c:1851:6: note: silence by adding
+parentheses to mark code as explicitly dead
+        if (0)
+            ^
+            /* DISABLES CODE */ ( )
 
-Oh, did I say "out of tree kernel modules?"  I meant "compiler
-plugins."  But it's two different sides of the same coin to me.
+drivers/gpu/drm/i915/gt/intel_workarounds.c:884:3: warning: code will never
+be executed [-Wunreachable-code]
+                wa_masked_dis(wal, CACHE_MODE_0_GEN7, HIZ_RAW_STALL_OPT_DISABLE);
+                ^~~~~~~~~~~~~
+drivers/gpu/drm/i915/gt/intel_workarounds.c:882:6: note: silence by adding
+parentheses to mark code as explicitly dead
+        if (0) { /* causes HiZ corruption on ivb:gt1 */
+            ^
+            /* DISABLES CODE */ ( )
 
-FWIW, I think the approach taken by -mstack-protector-guard-reg= is a
-useful case study.  It was prototyped as a GCC extension, then added
-to GCC proper, then added to LLVM (currently only x86, but most of the
-machinery is in place in the compiler to get it running on arm64).  My
-recommendation is to skip the plugin part and work on a standard
-interface for compilers to implement, with input from compiler
-developers.
+drivers/gpu/drm/i915/i915_gpu_error.c:319:11: warning: code will never be
+executed [-Wunreachable-code]
+        if (0 && zstream->total_out > zstream->total_in)
+                 ^~~~~~~
+drivers/gpu/drm/i915/i915_gpu_error.c:319:6: note: silence by adding
+parentheses to mark code as explicitly dead
+        if (0 && zstream->total_out > zstream->total_in)
+            ^
+            /* DISABLES CODE */ ( )
+
+Clang warns unused after removing unreachable:
+
+drivers/gpu/drm/i915/display/intel_sdvo.c:696:13: warning: unused function
+'intel_sdvo_set_encoder_power_state' [-Wunused-function]
+static bool intel_sdvo_set_encoder_power_state(struct intel_sdvo *intel_sdvo,
+            ^
+
+Signed-off-by: Vinicius Tinti <viniciustinti@gmail.com>
+---
+ drivers/gpu/drm/i915/display/intel_sdvo.c   | 30 ---------------------
+ drivers/gpu/drm/i915/gt/intel_workarounds.c |  5 ----
+ drivers/gpu/drm/i915/i915_gpu_error.c       |  4 ---
+ 3 files changed, 39 deletions(-)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_sdvo.c b/drivers/gpu/drm/i915/display/intel_sdvo.c
+index 4eaa4aa86ecd..45d03b09f8f0 100644
+--- a/drivers/gpu/drm/i915/display/intel_sdvo.c
++++ b/drivers/gpu/drm/i915/display/intel_sdvo.c
+@@ -693,30 +693,6 @@ static bool intel_sdvo_get_active_outputs(struct intel_sdvo *intel_sdvo,
+ 				    outputs, sizeof(*outputs));
+ }
+ 
+-static bool intel_sdvo_set_encoder_power_state(struct intel_sdvo *intel_sdvo,
+-					       int mode)
+-{
+-	u8 state = SDVO_ENCODER_STATE_ON;
+-
+-	switch (mode) {
+-	case DRM_MODE_DPMS_ON:
+-		state = SDVO_ENCODER_STATE_ON;
+-		break;
+-	case DRM_MODE_DPMS_STANDBY:
+-		state = SDVO_ENCODER_STATE_STANDBY;
+-		break;
+-	case DRM_MODE_DPMS_SUSPEND:
+-		state = SDVO_ENCODER_STATE_SUSPEND;
+-		break;
+-	case DRM_MODE_DPMS_OFF:
+-		state = SDVO_ENCODER_STATE_OFF;
+-		break;
+-	}
+-
+-	return intel_sdvo_set_value(intel_sdvo,
+-				    SDVO_CMD_SET_ENCODER_POWER_STATE, &state, sizeof(state));
+-}
+-
+ static bool intel_sdvo_get_input_pixel_clock_range(struct intel_sdvo *intel_sdvo,
+ 						   int *clock_min,
+ 						   int *clock_max)
+@@ -1764,9 +1740,6 @@ static void intel_disable_sdvo(struct intel_atomic_state *state,
+ 		intel_sdvo_disable_audio(intel_sdvo);
+ 
+ 	intel_sdvo_set_active_outputs(intel_sdvo, 0);
+-	if (0)
+-		intel_sdvo_set_encoder_power_state(intel_sdvo,
+-						   DRM_MODE_DPMS_OFF);
+ 
+ 	temp = intel_de_read(dev_priv, intel_sdvo->sdvo_reg);
+ 
+@@ -1848,9 +1821,6 @@ static void intel_enable_sdvo(struct intel_atomic_state *state,
+ 			    "sync\n", SDVO_NAME(intel_sdvo));
+ 	}
+ 
+-	if (0)
+-		intel_sdvo_set_encoder_power_state(intel_sdvo,
+-						   DRM_MODE_DPMS_ON);
+ 	intel_sdvo_set_active_outputs(intel_sdvo, intel_sdvo->attached_output);
+ 
+ 	if (pipe_config->has_audio)
+diff --git a/drivers/gpu/drm/i915/gt/intel_workarounds.c b/drivers/gpu/drm/i915/gt/intel_workarounds.c
+index adc9a8ea410a..d60ff2c67138 100644
+--- a/drivers/gpu/drm/i915/gt/intel_workarounds.c
++++ b/drivers/gpu/drm/i915/gt/intel_workarounds.c
+@@ -879,11 +879,6 @@ ivb_gt_workarounds_init(struct drm_i915_private *i915, struct i915_wa_list *wal)
+ 			   GEN7_FF_VS_SCHED_HW |
+ 			   GEN7_FF_DS_SCHED_HW);
+ 
+-	if (0) { /* causes HiZ corruption on ivb:gt1 */
+-		/* enable HiZ Raw Stall Optimization */
+-		wa_masked_dis(wal, CACHE_MODE_0_GEN7, HIZ_RAW_STALL_OPT_DISABLE);
+-	}
+-
+ 	/* WaDisable4x2SubspanOptimization:ivb */
+ 	wa_masked_en(wal, CACHE_MODE_1, PIXEL_SUBSPAN_COLLECT_OPT_DISABLE);
+ 
+diff --git a/drivers/gpu/drm/i915/i915_gpu_error.c b/drivers/gpu/drm/i915/i915_gpu_error.c
+index d8cac4c5881f..6ec699da1dc2 100644
+--- a/drivers/gpu/drm/i915/i915_gpu_error.c
++++ b/drivers/gpu/drm/i915/i915_gpu_error.c
+@@ -315,10 +315,6 @@ static int compress_page(struct i915_vma_compress *c,
+ 		cond_resched();
+ 	} while (zstream->avail_in);
+ 
+-	/* Fallback to uncompressed if we increase size? */
+-	if (0 && zstream->total_out > zstream->total_in)
+-		return -E2BIG;
+-
+ 	return 0;
+ }
+ 
 -- 
-Thanks,
-~Nick Desaulniers
+2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkOeENcM5X7X926sv2Xmtko%3D_nOPeKZ2%2B51s13CW1QAjw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210129181519.69963-1-viniciustinti%40gmail.com.
