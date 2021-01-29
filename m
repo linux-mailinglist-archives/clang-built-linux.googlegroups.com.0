@@ -1,126 +1,135 @@
-Return-Path: <clang-built-linux+bncBC5JXFXXVEGRBO6X2CAAMGQEHN7YKOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXO746SYYBRB5UH2GAAMGQEJDEB3JI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF9993089EB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 16:37:32 +0100 (CET)
-Received: by mail-oo1-xc3d.google.com with SMTP id u9sf4436462oon.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 07:37:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611934652; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C702308B53
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 18:20:57 +0100 (CET)
+Received: by mail-pl1-x638.google.com with SMTP id ba10sf5609642plb.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 09:20:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611940855; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y2aC/xFxaWHV0nuANOX+vJl5/5N+ivgv7XQd7y1DJ5zUmv49ROKrKlZy8gkKUbued2
-         K5HjbbYA2y+UFKLoO71/CIb+9eNFKUJETDxxpXvD2F3zp7jIz0l80cDL+V5xgPQ5AyrG
-         AhMN+DbvuKXGFnyVECcVtXDbai8Ks65vYyLJoWk/VwaPgnM8tNEUzThSJ4WfOw21hJkO
-         MOHdwgS/968AvfoEuLBIekT6g13fBRT74fpMNE13RfqoHocNp+XomFoCrVitvykNuXLB
-         rn5bZMC+Ifc5pBfqmBNSumdID+12Ae74qG3/qSJGA1tF37IBKQaxWegZLtjs5q40mi01
-         vdfw==
+        b=eMN6LTQ/HPjIs3tRiQzIkKRRp0LOJSwB5plVI73Ns9DzkHjqw0ZEESKOq1MTrvH8w3
+         xV/KEUYeBc+HNU8c2YLWzViSNc7F8Hi0Kk2BRV9TKvFgq0Cp4W3BkfW070Ehs7l+ZUEN
+         LHzdGpQBCoIBNS18kxcIqqFrR8FitHuFuqVZf1m2LFuHMKXhsz1TDYjsKJrNT7gYvDSs
+         W+ZWeu6v3CxkvrXoFFPz1BqfZJNIlksV2VfBQxtMGoeU0VJW5J79q4VrXzLgMvEcVhRv
+         IqSe3pnWvqVVmPrS3aBLldrICYEU8bl8AkHeYl0SEH2oL6C0h251SXDKNHFCylBOoxAd
+         wEmQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=6zSydcetQ7wjkX3ixAowedrgnncTME53Q3KT2Fo/Z88=;
-        b=xxZ5ZDhcvfcc3LgXQeTyUmP4SZiomT38EKmIfxX+q6Wyps1BHFkkPBhrKs5VFTikRD
-         PRDYBV/Qg3+qpLqjJqH3cwIKXpNJ8aZcf15+A1td+6VhU9vu33+2OhPXDR/e8ZeSl/ze
-         1LMhEUyCCFijyCVGLPDMUrDqZTLnlcA+oMuxwjNZvlNgp5mRAVDimJKR/ijGOAxj3jlF
-         JGABRKMtf8nXwDGjYcyYrviTA/8dkT1r0wKkhDG1uSDmTq5e9jRsP5Ag9JrKvPbJy6sh
-         l1NL5r3wv1DLq6lGXlobvYEjiUOzQ1mFEURiu44VkRr2PbqmxiTiWfA26/oZe7Ncjl9z
-         3gpw==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=4/8osuweEEQSdCgmhsOEkizAGhdVwn3JSeIBQIfcU90=;
+        b=tO5bJp4dboSuZgfUMebxPM8Pk8R05+QDnN/UlX43v1YNa2CdPCP7SbWvW8QUyqg1CS
+         fTkx2ejKAq3PP7X4hxLaUguuF+eJpTnlnBKlz6UTi5GkLZ++9QEs6k3KKdSswC7tQo08
+         T1GavB2m2Jr0cFQNZgxqSqSYMK1B0IOybdkwAiFUPxlr2LkohSyL5vHbOCIWhQpGTMF5
+         Ie2mMqB4uNaoOblOOk8GXiC0Fj/CTjYGpDWYg9WRVegsxweZePLXNxHCHXriXnO2hS8g
+         fIyA/ELLvj0SfktnrLMWZQ9p/mFaTlM+LBEHk3t+GDegMS2u+Y7mRmG6Yh1jtymzi/r5
+         o5gw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oWNboHmf;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=nn+1jji7;
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=nn+1jji7;
+       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 96.44.175.130 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6zSydcetQ7wjkX3ixAowedrgnncTME53Q3KT2Fo/Z88=;
-        b=jiiG8TEwz/xjfAygmDPLi8lauQlzV9qmG5imRjdh+AC9J0aDP+oPyqy+aMOaaFC/QC
-         +mFilNqtUBFHqwaEDSuWt4qiKX52i6HvuA0n3Qz+PGUBZLclO1oBCvWZIt8iXGcxZpOA
-         Z0oYBjEwoYGhSybyTTOv2+wrw3Pv8XM4OB/0MK/4fAYsdeD3EUdqwF1eJwf4fk8CVXFY
-         Y/GTXgut7nMm5+9nmUhTrkA1I9gcs9GsArMG7IybJ0lwuZWCh624JOkcbI7/+b/kzJmn
-         ho3y9FRdzhoWAFkY3ypZCqQZ8GdxSxPYeWFS1lIgNrELdT/q6yir3qrFtyYVQp4FE6XH
-         IYvg==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4/8osuweEEQSdCgmhsOEkizAGhdVwn3JSeIBQIfcU90=;
+        b=Q3VTWEZD7uO/MRTCklgj/UJ95F+jXBYxVFd/6wMgVoXAoCwe0jlCIbvQAkdKGmZP/D
+         1zAoRp4L1JkR1ozgardVKBxH7hyD0fvmQqqj09mRfjeAhCEspCAb2CC1gtzxHr5dTC5j
+         117/qNTcmSy7+yxoZttgF2GWTI+PADTGbBwj5CYj7PgLrPPsjaTgacU3WiYcFHdTFGBb
+         qzfjixolOHBBaiqPvf1/NHyGeZgtHdrRiejHcAgZD4ohA8OcFBbA6B5ZRm+St0QxeE+4
+         hBL0ioEOwVhw8DghrHUiwiDQCNGK/TPpWchm266T+exzYe6Tu7iW/KKFxg4wMgtQiB61
+         gbOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6zSydcetQ7wjkX3ixAowedrgnncTME53Q3KT2Fo/Z88=;
-        b=S8HTALOO5lFzF2IvxN1EscDHa0A4p/GfvpDQRF56uvVh6D67gaqUwwaJ8I3grt/bNS
-         ZKm03LMFa2qiRoBduwKn3g9ukLPye4r1qeZG5ZLpjvXZOy3eJP4YCMvhcsg3Vri+OGmY
-         GZ/Xf86ZMfhs4tOo+bccv9tGjb5k+YFkAsufmMSMP45AlgoFImnaKROuFf4EosYx4D3i
-         Q+F2zZczRhUrd5KEvHZ4G21BnYReug+rWNN7wvJym/gWKrST1jNqUBUXgKO/3e+tCSFM
-         l1H5Qb7bDhVAhnfOcoTkjNo8H/nIi9+clnur9Eu9B9mWBM3RgelRbRcRMW6Mppv6qlTO
-         /Tlg==
+        bh=4/8osuweEEQSdCgmhsOEkizAGhdVwn3JSeIBQIfcU90=;
+        b=ufy00e4oDhQf9YcMtNccUBBYGZBKuKJd6ioAUFzONwV9pvf5deO8izpMvT46NE+X+a
+         cNrzOgWdu3PKaUBb6gOQlOH5SD9kMUg5RuHyisforCMFV83pR1i1ZXAiUhgskDnlz/A0
+         8OOaoxGyq1hofKnR4+ZdUvyRpz4ku40C3jU6uHhePGdUJAO/hgnMSOy1h7a8kCyj5DXD
+         g3k7NoqKJ0J+ftiBjbF621lECgWUUKaek+tD39UyUFNcLHX0g6t92uzu2FZ2AGzQ35my
+         K6ZQRFBpD3Z2vDTy2keluNLTDk87mNuPlsLgU9edYfoCA8dkr2Q8Zni5sieKmn09OUTW
+         mnrA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530BQerffd1OhV4ti5yVXoQH5ecY9ywUv0nRSzx+Mkbt7FN6iD/4
-	Lq73jREcL7Y173rL+lr5a10=
-X-Google-Smtp-Source: ABdhPJz+R76nY/46Oz4pjxSa7OkOhgMxSRTISRoNGZ35HulkS1m1kAwD2bMW7Jh0BAZzpDLIfWp1LQ==
-X-Received: by 2002:aca:4d97:: with SMTP id a145mr2964906oib.147.1611934651908;
-        Fri, 29 Jan 2021 07:37:31 -0800 (PST)
+X-Gm-Message-State: AOAM532EpP+5p8KYl9sKQfB+18ngM9hGApvkvwwwvp5MaFQav69MC8m0
+	vYqhQr8t7uI3Whs9ta4ro+k=
+X-Google-Smtp-Source: ABdhPJyHildyHE4GpAzGQF74NVSYu9J4vV5p2o4PyZRtEuUgdW0+P874b4u83y//S6gGdPGsRkTYXA==
+X-Received: by 2002:a65:4788:: with SMTP id e8mr5739127pgs.72.1611940855026;
+        Fri, 29 Jan 2021 09:20:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:7a41:: with SMTP id a62ls581086ooc.9.gmail; Fri, 29 Jan
- 2021 07:37:31 -0800 (PST)
-X-Received: by 2002:a4a:dcc6:: with SMTP id h6mr3470891oou.89.1611934651473;
-        Fri, 29 Jan 2021 07:37:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611934651; cv=none;
+Received: by 2002:a63:6d0e:: with SMTP id i14ls3874596pgc.8.gmail; Fri, 29 Jan
+ 2021 09:20:54 -0800 (PST)
+X-Received: by 2002:a63:f111:: with SMTP id f17mr5724800pgi.287.1611940854407;
+        Fri, 29 Jan 2021 09:20:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611940854; cv=none;
         d=google.com; s=arc-20160816;
-        b=Q767XNuKT8uFGVdGQdOxsQsGZEyvIA1y3TCGwth5gQUiTAb1v+/VpAMYqvojm42GQ2
-         yL9IsvKmUVKchC/XpJFbvO82m5CUZPuTHQa4Z9VkaS536Eti3tb/JqjjVdOh0O3OuHvp
-         FNBxOPvC+aHWwqLAjOjoVAXxU5pTROSsBBgK3M4VFhAC0969YrtFPR2H7Jef8BK5hHPF
-         bngY3+1XfEl3Xk9IL0wXt08mXdzb1DaZB12FTiqPNMGQL/sZOmbu5v77Tf4hScrGRSR4
-         6zJ9DVldUDDCC/MIHWyQwqhHMqoO19OJnU8Ry7tx+WKYGJDDMuQ5tJBuwd1mZjXzk3WP
-         hcng==
+        b=cq479yeb688E/pq2+FmRrjoBc+RoXaJWCivDFuIs9OKBsALOm1HpUY/PiJfs5+2aeA
+         9AdkYis9KSN5YihbQEtO8GSDmMTdq3sSoZmpS+rgwMKZwUnjEtCMoJazIM5VXNMfUIba
+         wijqQJbiEYtXuh3k6WZmX0jQuwWa2eAvgpaYGupnEf8V52Nc/q3IrDDn90no5wh2F8Ps
+         K0BPeEzuxfB2cdirQygbLdOMtvYRPtbFYJJQ3NAQMYJGorA6Rc8RUBEZHHHMeP9HVKmC
+         4g93MXm/RsOE1OEXlzmUa850jSLn3NHW54gWhahzzU0yy4iElS2B3X7n6CUaodJBsX2E
+         lVbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=qRlqAsaGjGsDbm3/De84EY0Go7H7onUc6lr/PmmPYmY=;
-        b=rjFPOYY1SejLH7CuhAMR0A8dnlm4BAWAjkJjKckHDsXrERHkBIaW3QSEnzEKJMjCX6
-         sFMT/lGs4mvCVDHHTWP9UrwCd4twzzVFV6St51JX7pgiz6aNcVYZKvIiVb4B+qD/6ZGN
-         xCHTAe9XaMm2ZL+cQGTxN8RjuHIK61IgBpXG1u8uxaBQZyIoKE1I+clBm0EQDY0FBdS/
-         B0RwqPpTd51wfWVVK6FsT/KP/Jx8loecjOKHWDrNIA9WwXhIWzCOzzpObcVWPPQtUITF
-         Jdskogrlrmh91aMRCrdDBTBX6TaLlU5PuU/+GigtOff2sq/ql73+Q7sutyXOB7ZGz7pk
-         /Iug==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:dkim-signature
+         :dkim-signature;
+        bh=kaOQgDDu4mEO99kgvgP+8nGG6KrgEZm43bv8wywtlqY=;
+        b=Y9MZWMxHzMHNpGhZFrYEsZwT6KaghgPgo2P+ei8sdF2b4RCseHAoM4K+Zk7HqniI+H
+         Zt5Diev5WQKDiwOCqnyGK4wpWcWO3Z0b0/AMkf4+6N6JoCurGPlLytEKomV6yVSyiCO+
+         Mm7X+MU58DezenDxFAkhj0y35EVHGIvh6TYwWPlgefbbAcW4lA0i2UkyWez/QIxU7yQM
+         /2K742czzS4+aJdVfwFE9fsHKXEOvVqmlOkjYFHeFdFGF+lckJ+bgJ+WGKu54EVQFUtL
+         oPHDT1hsAhuHk/bc6i8V2LGN314cS5aMXQ7CEpbv9tpKUTGjyynJptSWefwHfpvySv+7
+         5EdA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oWNboHmf;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b124si476836oii.4.2021.01.29.07.37.31
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=nn+1jji7;
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216 header.b=nn+1jji7;
+       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com designates 96.44.175.130 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
+Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com. [96.44.175.130])
+        by gmr-mx.google.com with ESMTPS id f11si380648plo.4.2021.01.29.09.20.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 29 Jan 2021 07:37:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D03EC64E0E;
-	Fri, 29 Jan 2021 15:37:29 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Sasha Levin <sashal@kernel.org>,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.10 14/41] objtool: Don't add empty symbols to the rbtree
-Date: Fri, 29 Jan 2021 10:36:45 -0500
-Message-Id: <20210129153713.1592185-14-sashal@kernel.org>
-X-Mailer: git-send-email 2.27.0
-In-Reply-To: <20210129153713.1592185-1-sashal@kernel.org>
-References: <20210129153713.1592185-1-sashal@kernel.org>
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=oWNboHmf;       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Fri, 29 Jan 2021 09:20:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of james.bottomley@hansenpartnership.com designates 96.44.175.130 as permitted sender) client-ip=96.44.175.130;
+Received: from localhost (localhost [127.0.0.1])
+	by bedivere.hansenpartnership.com (Postfix) with ESMTP id 70BD2128082B;
+	Fri, 29 Jan 2021 09:20:53 -0800 (PST)
+Received: from bedivere.hansenpartnership.com ([127.0.0.1])
+	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 0joy9tFLy1gZ; Fri, 29 Jan 2021 09:20:53 -0800 (PST)
+Received: from jarvis.int.hansenpartnership.com (unknown [IPv6:2601:600:8280:66d1::c447])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 198351280810;
+	Fri, 29 Jan 2021 09:20:53 -0800 (PST)
+Message-ID: <aa8e8553c1e94e2b2225aa66557f6a49886b0203.camel@HansenPartnership.com>
+Subject: Re: aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
+ `security/keys/trusted-keys/tpm2key.asn1.o' being placed in section
+ `.eh_frame'
+From: James Bottomley <James.Bottomley@HansenPartnership.com>
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Date: Fri, 29 Jan 2021 09:20:52 -0800
+In-Reply-To: <202101292235.TSfb52uc-lkp@intel.com>
+References: <202101292235.TSfb52uc-lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.34.4
+MIME-Version: 1.0
+X-Original-Sender: James.Bottomley@hansenpartnership.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@hansenpartnership.com header.s=20151216 header.b=nn+1jji7;
+       dkim=pass header.i=@hansenpartnership.com header.s=20151216
+ header.b=nn+1jji7;       spf=pass (google.com: domain of james.bottomley@hansenpartnership.com
+ designates 96.44.175.130 as permitted sender) smtp.mailfrom=James.Bottomley@hansenpartnership.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=hansenpartnership.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,65 +142,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Josh Poimboeuf <jpoimboe@redhat.com>
+On Fri, 2021-01-29 at 22:27 +0800, kernel test robot wrote:
+> tree:   
+> https://github.com/0day-ci/linux/commits/UPDATE-20210129-183238/James-Bottomley/TPM-2-0-trusted-key-rework/20210129-175906
+> head:   d98ce41d6c32fa78e380385c6e146f752e4d3809
+> commit: af175fe469c6f0bdd1e14a14a3d107e7adb122bb security: keys:
+> trusted: use ASN.1 TPM2 key format for the blobs
+> date:   4 hours ago
+> config: arm64-randconfig-r023-20210129 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project
+> 275c6af7d7f1ed63a03d05b4484413e447133269)
+> reproduce (this is a W=1 build):
+>         wget 
+> https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross
+> -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm64 cross compiling tool for clang build
+>         # apt-get install binutils-aarch64-linux-gnu
+>         # 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=af175fe469c6f0bdd1e14a14a3d107e7adb122bb
+>         git remote add linux-review 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>         git fetch --no-tags linux-review UPDATE-20210129-
+> 183238/James-Bottomley/TPM-2-0-trusted-key-rework/20210129-175906
+>         git checkout af175fe469c6f0bdd1e14a14a3d107e7adb122bb
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross
+> ARCH=arm64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>    aarch64-linux-gnu-ld: warning: orphan section `.eh_frame' from
+> `fs/dlm/rcom.o' being placed in section `.eh_frame'
 
-[ Upstream commit a2e38dffcd93541914aba52b30c6a52acca35201 ]
+What's the problem here?  the file you're complaining about is pure
+machine generated so I can't alter its .c anyway and this looks like
+some type of linker problem anyway.
 
-Building with the Clang assembler shows the following warning:
+Let's start with what does the error actually mean?
 
-  arch/x86/kernel/ftrace_64.o: warning: objtool: missing symbol for insn at offset 0x16
+James
 
-The Clang assembler strips section symbols.  That ends up giving
-objtool's find_func_containing() much more test coverage than normal.
-Turns out, find_func_containing() doesn't work so well for overlapping
-symbols:
-
-     2: 000000000000000e     0 NOTYPE  LOCAL  DEFAULT    2 fgraph_trace
-     3: 000000000000000f     0 NOTYPE  LOCAL  DEFAULT    2 trace
-     4: 0000000000000000   165 FUNC    GLOBAL DEFAULT    2 __fentry__
-     5: 000000000000000e     0 NOTYPE  GLOBAL DEFAULT    2 ftrace_stub
-
-The zero-length NOTYPE symbols are inside __fentry__(), confusing the
-rbtree search for any __fentry__() offset coming after a NOTYPE.
-
-Try to avoid this problem by not adding zero-length symbols to the
-rbtree.  They're rare and aren't needed in the rbtree anyway.
-
-One caveat, this actually might not end up being the right fix.
-Non-empty overlapping symbols, if they exist, could have the same
-problem.  But that would need bigger changes, let's see if we can get
-away with the easy fix for now.
-
-Reported-by: Arnd Bergmann <arnd@kernel.org>
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/objtool/elf.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index 4e1d7460574b4..9b2c475e6908e 100644
---- a/tools/objtool/elf.c
-+++ b/tools/objtool/elf.c
-@@ -422,6 +422,13 @@ static int read_symbols(struct elf *elf)
- 		list_add(&sym->list, entry);
- 		elf_hash_add(elf->symbol_hash, &sym->hash, sym->idx);
- 		elf_hash_add(elf->symbol_name_hash, &sym->name_hash, str_hash(sym->name));
-+
-+		/*
-+		 * Don't store empty STT_NOTYPE symbols in the rbtree.  They
-+		 * can exist within a function, confusing the sorting.
-+		 */
-+		if (!sym->len)
-+			rb_erase(&sym->node, &sym->sec->symbol_tree);
- 	}
- 
- 	if (stats)
--- 
-2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210129153713.1592185-14-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/aa8e8553c1e94e2b2225aa66557f6a49886b0203.camel%40HansenPartnership.com.
