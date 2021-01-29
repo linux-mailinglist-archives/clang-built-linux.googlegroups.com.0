@@ -1,145 +1,139 @@
-Return-Path: <clang-built-linux+bncBCH6BRHDXYLRBUUK2KAAMGQEFH2SDQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRB5UK2KAAMGQEELBOTSQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68893308FB5
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 22:59:47 +0100 (CET)
-Received: by mail-il1-x13b.google.com with SMTP id j5sf8751266ila.13
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 13:59:47 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611957586; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id C4056308FB7
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 23:00:23 +0100 (CET)
+Received: by mail-qt1-x837.google.com with SMTP id g14sf7045641qtu.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 14:00:23 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611957622; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hgo1qMshO8EBEmnxzHMEED+ftWQF7qsTkwbWa3mwMJrtepHSsQgAFi6I4xWn+FU0g8
-         UYr60DRhdoeT6uDs8KfMLKhb/NBLquBekhH3h83NOi7VdRa57WigGx33tK6Oop0Lcp1W
-         7rc3Yt4IaFfSFvPQfEFKKyXvqmqSliRq4cI+/vCX3NEZgpgd2ctDCi5vrXnaqMrJnP4g
-         fhIrFuNTYWpaxQApVAP2QZBzOuo72bwXQUy9zD4h2B4SaOhhpozTB9wdNYvcwXnVmAME
-         HlzRD0uR9Qxe4l3isGy1oOZQWNmu30WrViawcJwN/BO0H7IFgGnpMbpsF1kxmVwChTom
-         ZA4w==
+        b=esXz+Lv+/+fsWrAB2lRVPYleZvGSytoabqatQEkC6jlph6MKQb0etx4Wr+f/ovXKx2
+         8nPBJFPjzcpKWmuSC31sqNsPNkJTy6nUofi/Fd4BLXH8E4LOjsZKvankevaHWiG7cx+e
+         oMwAYYskbH94ccOuCHDHV9H+KxYBoqSDBXJy2b7gpXeFduAS95UVcYxhowM8nAHWWzal
+         HmR3oWcakZKY7m2E1kRgJFB1+q49e1z3JInwzD6KD4KtUoO7lXQaeh1wslbgNnaBZxZK
+         FGH6OrzfcVVBS27jqh/ejt9O+YBxPrNkllaGYH2RdlrlgdwPUeaFmErBa54DNoXWN8sh
+         PMKw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:organization:from
-         :references:cc:to:subject:reply-to:sender:dkim-signature;
-        bh=kNGD9rgZ0l8F9QegpivngGrRIWsVQgPO/OlcfrSY0+4=;
-        b=auYtZDPBc6o3TTQXnvf3ilaLNzzgpq/uPYDXbhOrngdSmH+mhEWNlh9guqAkVOvyXB
-         7RpvmrrzKArjyeNiKwdqZJ8QPl74PRk6S4ouN8J3mIRk+U1B0aac1NHKf6HJjHbLngFs
-         2qwaA6f5/pS53kcEceCDuJUbBIX4j2I0g9sNt6Lmm96FqQXRt+T5H15HDmY+dYEJ0nJr
-         3C0r2CcHhVfwryupi7MIEVdgANuhNJBhiYGbuxSVtTw7HFhQ41IWy3VO7eAcUakg+Wb9
-         5xNEecy+VsaP/vvzXRPt85pTSbvhKnz0l8nnF3NRIlSItV3YtJeS0XvG0ijjx/iydOk+
-         5onQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=lgSyNywS5woB5lC7K3SCP+0nb94q/z1OxY/5lbzKUxc=;
+        b=dHBtgPoLPkg+TGwbLeY/6OLqD0YQQO5pZCCb+9K+Mp43bxnWNIMpds80IoulCQFZG4
+         8Cc7qr50a1TtimmoznZKuSpYqOrbNswWF+fV2vGzfKf/ACPnbCwdzU/eJWHA5N4l+xDy
+         vvc/wUWTWoFbxXT5vpvoAIaqnNBMvxZzfPRJeypeyKglm3noiNCBMWLFGp2U4fQzLaun
+         Kcrfmpv+u5AxNudXCzIU0qG/SanwFpTecCn+gMqsUVF1s4l5SgEiYWvJY3wCG2Av9Rw6
+         BX8YazqzaujoTXsVLdghNT0OPuUeDk5OgJtvlYLL7iIGLYPJaizJ4gcUXBUZc6dGylsM
+         qcPg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=VELGJjPz;
-       spf=pass (google.com: domain of tstellar@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="Y/sPciJI";
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b2f as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:reply-to:subject:to:cc:references:from:organization
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kNGD9rgZ0l8F9QegpivngGrRIWsVQgPO/OlcfrSY0+4=;
-        b=d89fU5ydZSWcpMWChxJcUbT8c6jKG10SQaoRDgL7rFVLqBlVogYX2JBTNpwfurBjYk
-         bX76KIbO2j32J3tfKNHuNNVMDmVFpKT1DbURkH3bQYUswd5GpgpOGRGCQoxJ28l/XC8d
-         545sdVPiZLOHWJVDjCamO1rO+vszC6sbo/B9/PU7xVIBWhTA6rLKrLFKhDt8yl3Cvso2
-         v39kKzGJVB24NJRsiSTiFAxqk4uhvwdUxQATiUN+EsoC5XLt1GvC+YChPg665ZMzS9mc
-         3ydbC2zZWEzHuT/hpZY/6k+LLbcFQRvkXSTctTZut1v5wQxf1CW9kG8GcDkY6X+PHp92
-         ZJpQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lgSyNywS5woB5lC7K3SCP+0nb94q/z1OxY/5lbzKUxc=;
+        b=Sm/K3dWWS64GgbLO/4CLCInCQTtbufuKxL6Oc70Fmi4y2mLK2/OLH4RNsyzK6RO61M
+         Giy9XhiIJ2TeLHDlgFBr/7bWwM90HqHIyMIZvjFlhij9cEwlYOE6tg4AfK6cpl+36ec1
+         zdFIUNGHJOcw8shKOG/imIQvagS5BK9g8rhdGa+ZKIKrMlqqWf3VESH53MNdyAYm5V0w
+         u2xs6m6gbqaL/NtKiN3iUBoWXKAtsURmQ3QdmHeFp65fTYJOHG9g6ZGRvye6wqA7wU8j
+         vLFUjDO79a9nhs9cexMoLDs9pbz2aoQsF1lClnpqTznqzKna//r0L7eOI/11HoAUy22B
+         jPBg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lgSyNywS5woB5lC7K3SCP+0nb94q/z1OxY/5lbzKUxc=;
+        b=OU7oS9TRdZWtkCMqOxuKHZ3+h5eJOcbF1U2HNWSHqejRLqt/eM8GUBtYdUiXyHU8li
+         GMqrOE6gqqRtNINTmH94k30cjcjQeGJBd66wQxiU0tEX1cDqMYjjsi+ArFikMbYStYNX
+         eD08HTJMi+esXAb4EUJ9PYsTgepto2yrIskWjvoR0OHkpDuaKLMn/ry4ibUTciYpORti
+         /recCsxl6Bkh75yxwB6h4Nz/KJhd2I6ycDALbYpYn0qSWDfgg2sAgCfLE8aPOFaIiw5f
+         zI2Mg6CXX/Y7xT/+7lRgRqukCVSwzYX3Ukqc/Hc8os/Nv4zJq9oSNoNOWG+HTDqQIKLh
+         /QRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:reply-to:subject:to:cc:references:from
-         :organization:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=kNGD9rgZ0l8F9QegpivngGrRIWsVQgPO/OlcfrSY0+4=;
-        b=JNFRqUbv0CeLCsRbYAsgFQUtWrQiVElC5tQZ2AeoVHGEVfHb8EdgUVyLz77T3n66cO
-         PIFKI9gsUwJPYbOl57m6KiYlWP8oGWPveiKr8k5W/lHhaoMu9XIeCGqEfDGEvGahZyRN
-         bAhRelSqBLV37yTndCj5MHUOAMEoiHpE6hzXGWZ+2gk9LGliZx/qaxTGa4SyheQk8bD/
-         2pW2jGiPEnHpDW2L2HMrfyAZhd96P1Qw3iBDZp/FANbwxyA5hHCTofmpHhYCD7w039yy
-         O7hVST8TKzD8juibMHVmlYsGy6ve9OlC5GV/2vnNWaQTj8qCgjOGiJwrffpOC/vqix6j
-         H2ZQ==
+        bh=lgSyNywS5woB5lC7K3SCP+0nb94q/z1OxY/5lbzKUxc=;
+        b=lR9CJXJVGZXjhO3NOUcCvUqWvc2StSI3I1kFpnI6tlhgVdIHc62mNSRrKMzdXJs8M8
+         Oh/pchd35rGVg1ngjr/Vr25HVU9KxxeOBWfFNQe0PWZ1HuDgmFGjjmcQZtpy5ALl+nhU
+         Sw19zSKVzGiudXxsclIdosiLuefhCtS0U7jW0bky7nn01BNXVhwxjWSrniLwFYnk2FTb
+         BEjy5gOC943NbCWZeFyh+nXtuR/r/i6IJiPd82vY9GDsEtaFw4ZG4lUgzmGW+ca+PHUW
+         CGULNQCO7JzMHfiBuReH5ApDAHlu5UQunq5FBFJKICvajUeNRqo2yrG91jcgSXZTLVQY
+         pOGg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533ibdg8KKQsmhJWX4rgFw/uvzTauogz33H8sRxrzF+11hkJgCP+
-	uDCMfG0JnZv0+xfJwCNiup8=
-X-Google-Smtp-Source: ABdhPJy9N2ybFLNbuaZzsQ7bm8aA7PbHph0eljp0VMvXwFyX7v7t4qYzabi3WOdeAzqMBtUth5AwlQ==
-X-Received: by 2002:a02:c6a8:: with SMTP id o8mr5544984jan.119.1611957586425;
-        Fri, 29 Jan 2021 13:59:46 -0800 (PST)
+X-Gm-Message-State: AOAM533NEmW3018pUKXm0cAdDMGblnrdRHtXLjyT4NpqjZ46Me+GURBJ
+	nIMcVCeYtAUM9ZiOnomZXxU=
+X-Google-Smtp-Source: ABdhPJyLSw6MBabMY+wjfDV4YzbPs9vCGRdILHnpm+V0taaQhdtestN9QnyFxfbe3U0z7fH22Slv9Q==
+X-Received: by 2002:ac8:4c90:: with SMTP id j16mr3871005qtv.121.1611957622685;
+        Fri, 29 Jan 2021 14:00:22 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:1687:: with SMTP id f7ls1279676jat.11.gmail; Fri,
- 29 Jan 2021 13:59:46 -0800 (PST)
-X-Received: by 2002:a05:6638:2694:: with SMTP id o20mr5494083jat.132.1611957585979;
-        Fri, 29 Jan 2021 13:59:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611957585; cv=none;
+Received: by 2002:ac8:1001:: with SMTP id z1ls3955189qti.4.gmail; Fri, 29 Jan
+ 2021 14:00:22 -0800 (PST)
+X-Received: by 2002:ac8:39e6:: with SMTP id v93mr6201534qte.139.1611957622325;
+        Fri, 29 Jan 2021 14:00:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611957622; cv=none;
         d=google.com; s=arc-20160816;
-        b=Bg70OEgenr8LSHJrnQuB5J6p8Gd1j/NaLn17qfl7VXoATtDDOaHiNbYSY9ZgHnM0oM
-         QQbgH8yUSk8zgZpIpGLhIaS04DOhjlzD2haG2FCIAioyllgdnw8RoLj+fm++341nENgf
-         WNtPEbnd99uh79RMorjpzqXQt9lZtk8Guu18l72R1zp8x+88Qt2icw9Rjp84FAWyPkdr
-         qZDgMB9joqjjU/SehJNeAxpyZ51od20bMZmHllX96T6vfRygwIg3MnV+OSZzrLo1L5zj
-         ErAzl/U7OaJ/RJ7YkN7BJWqcsTMSnAJVMtAfhU/eMBGhVvdYC1wJcgUa9hW8rwFNPZGF
-         n1aw==
+        b=MP537+Nk+Gn/3FgWsSVzuHgBDE34Ot/y/MKdqmLZxjOniqVvhyD6h2I0gN8ZvVnwXp
+         hJUPSs32Mk04Bel6v867HTkNKfKSsmTtIw/tdLnlv9n4iAyVfhVuscpULalVY1NPIuAN
+         VkNpb31YySA7QBC4M4tNTNppM7nOYcPymuf/afptcFpvltnr1b3167LFUPKzr1Oxt3uA
+         yHLrM0zbnuaBQ5+hCG9NtthD1IFKtOoCvCK0KVgwhCqyzhMlq6HgCodrPSOfx+zgVP9B
+         SfAOqJR14acgJjeH7oXJWRmGh5qhH9YosGe6Vst3wc2NPJTUJkmH3mHy0nwcu8fIu2EW
+         c1kw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:cc:to
-         :subject:reply-to:dkim-signature;
-        bh=9h63ZDO9g0/ToSgRJPmZMP2JGNWf0biye/HO5sj8Vt0=;
-        b=Tnz4cqlrBWiXJmjlQSZjMcJ647pwAqdq7fOpw30B2z1FQQh6aoryFszY5xCvWk4HB/
-         H7J3IljES7eV5IcIxBT7Ll7dy8+vQsp8pQL7TMk4ncsg090eiX3lt3CRg1Tv3Q9k+P3O
-         cm6R3mQx95o87lNU3o2DODENl/NHIXIk8kTpz4lXoTjcVuRuzrx8Xe1J4tVsaARsxIHS
-         U2Cj6+DpxdupJkuWL9T6xS9ToEYBetLa9PEUAHkDjF5cM8sX4upPyBOdtXJ9gaKVj4XA
-         f/wqzCVXTtb+k4eq+7vmTclSdvO7kUhbGzhf/51MhtsXrx6hY9gEv+QtBwygkHvf6J24
-         QB+g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=GL8tZ7TgV38tEYE0q1sSw8bheGOboWJLuZPv8CpL0Q8=;
+        b=HV+63MobSXHiRUtyMRpr7MVfbghqjRzy5PC+agv8+2CqGNH601mmaMphXWa0gs6zA6
+         fB9KD0nzw5pl/nMr1t3WUZMHy0YnbuklBO3EDW/lBsC2QxdVsqx/6G/HR9UWuwLDMtRP
+         +uHDfa2Jcm4PwRmLKjeXqRLKXgCmtitYq1ASA4MIEaKxpM00iDLk9SAkoLIHFCjhDGKy
+         A1NJu7zKKRNmjGqTFo2otNeqUyXk+1ArgD+Z6mzm2WKXQgZuH0ErAo4CgtcM0iY8D1bs
+         J7zbJ50vKSw+u9gtDf90pqHkpWetit6/IoR5NNCOGXTXo6bUNmsngbHhfTA/dXgztKE+
+         4+rg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=VELGJjPz;
-       spf=pass (google.com: domain of tstellar@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
-        by gmr-mx.google.com with ESMTPS id y16si131592ili.3.2021.01.29.13.59.45
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="Y/sPciJI";
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b2f as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-yb1-xb2f.google.com (mail-yb1-xb2f.google.com. [2607:f8b0:4864:20::b2f])
+        by gmr-mx.google.com with ESMTPS id p6si466865qti.1.2021.01.29.14.00.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 29 Jan 2021 13:59:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of tstellar@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-516-CPS5sBaaMiaZpuYUA2VX3g-1; Fri, 29 Jan 2021 16:59:41 -0500
-X-MC-Unique: CPS5sBaaMiaZpuYUA2VX3g-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 46C1810054FF;
-	Fri, 29 Jan 2021 21:59:39 +0000 (UTC)
-Received: from tstellar.remote.csb (ovpn-114-179.phx2.redhat.com [10.3.114.179])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 284346F986;
-	Fri, 29 Jan 2021 21:59:38 +0000 (UTC)
-Reply-To: tstellar@redhat.com
-Subject: Re: Minimum supported version of LLVM
-To: Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Sedat Dilek <sedat.dilek@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
- Lukas Bulwahn <lukas.bulwahn@gmail.com>, Kees Cook <keescook@chromium.org>,
- Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- Arvind Sankar <nivedita@alum.mit.edu>, Ilie Halip <ilie.halip@gmail.com>
-Cc: kernelci@groups.io, clang-built-linux@googlegroups.com
-References: <20210129212009.GA2659554@localhost>
-From: Tom Stellard <tstellar@redhat.com>
-Organization: Red Hat
-Message-ID: <0422fd4f-a706-219d-d8d2-066541fd24b1@redhat.com>
-Date: Fri, 29 Jan 2021 13:59:37 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 29 Jan 2021 14:00:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b2f as permitted sender) client-ip=2607:f8b0:4864:20::b2f;
+Received: by mail-yb1-xb2f.google.com with SMTP id y128so10349810ybf.10
+        for <clang-built-linux@googlegroups.com>; Fri, 29 Jan 2021 14:00:22 -0800 (PST)
+X-Received: by 2002:a25:af8c:: with SMTP id g12mr9441450ybh.33.1611957622067;
+ Fri, 29 Jan 2021 14:00:22 -0800 (PST)
 MIME-Version: 1.0
+References: <20210129212009.GA2659554@localhost>
 In-Reply-To: <20210129212009.GA2659554@localhost>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: tstellar@redhat.com
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 29 Jan 2021 23:00:11 +0100
+Message-ID: <CANiq72kaAQ0KBx8mofyT-v0v6Tb+S5xX+_xEB4uPzzjnwafrPA@mail.gmail.com>
+Subject: Re: Minimum supported version of LLVM
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+	Kees Cook <keescook@chromium.org>, Marco Elver <elver@google.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Arvind Sankar <nivedita@alum.mit.edu>, 
+	Ilie Halip <ilie.halip@gmail.com>, kernelci@groups.io, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=VELGJjPz;
-       spf=pass (google.com: domain of tstellar@redhat.com designates
- 63.128.21.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@gmail.com header.s=20161025 header.b="Y/sPciJI";       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2607:f8b0:4864:20::b2f as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,137 +146,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 1/29/21 1:20 PM, Nathan Chancellor wrote:
-> Hi all,
-> 
-> I am starting this thread to spur some discussion about our support
-> model for the minimum supported version of LLVM and how that might
-> impact bumping the minimum supported version of LLVM/Clang in the
-> future. I am adding what I hope are relevant parties (individual testers
-> and maintainers/lists of CI systems). Feel free to add anyone that I
-> might have missed.
-> 
-> Some history:
-> 
-> For the longest time, ClangBuiltLinux as a project rejected the idea of
-> a minimum supported version as we did not have as many resources for
-> testing or a good idea of "what works" and "what doesn't work". After
-> Linux Plumbers 2020, we decided that we would support from clang 10.0.1
-> on, which resulted in commit 1f7a44f63e6c ("compiler-clang: add build
-> check for clang 10.0.1").
-> 
-> The problem:
-> 
-> I would say there are three different levels of support:
-> 
-> 1. CC=clang: Compiling with clang, GNU binutils for everything else
-> 2. LLVM=1: Compiling with clang, LLVM binutils, GNU as
-> 3. LLVM=1 LLVM_IAS=1: Compiling with clang, LLVM binutils, and LLVM's
->     integrated assembler.
-> 
-> We have started to address these different levels of support in the LLVM
-> documentation in the kernel:
-> 
-> https://lore.kernel.org/linux-doc/20210114003447.7363-1-natechancellor@gmail.com/
-> 
-> The issue that has been coming up more recently is whether or not the
-> minimum supported version of clang (the first tier of support) equals
-> the minimum supported version of LLVM (the second and third tier of
-> support) when it comes to inserting workarounds or disabling configs
-> that are known broken.
-> 
-> Some considerations:
-> 
-> 1. LLVM 10.0.1 has a few issues that are not present in LLVM 11.x that
->     will or have required workarounds in the kernel:
-> 
->     * https://github.com/ClangBuiltLinux/linux/issues/732
->     * https://github.com/ClangBuiltLinux/linux/issues/1187
-> 
-> 2. There are still outstanding issues with LLVM utilities that prevent
->     recommending LLVM=1 for some architectures so committing to a minimum
->     supported version might mean we would need to insert more workarounds
->     as time goes on. For example:
-> 
->     * ld.lld for MIPS big-endian:
->       https://github.com/ClangBuiltLinux/linux/issues/1025
->     * ld.lld and llvm-objdump for PowerPC64 big-endian:
->       https://github.com/ClangBuiltLinux/linux/issues/602
->       https://github.com/ClangBuiltLinux/linux/issues/666
->     * ld.lld for PowerPC64 little-endian:
->       https://github.com/ClangBuiltLinux/linux/issues/811
->     * ld.lld for RISC-V:
->       https://github.com/ClangBuiltLinux/linux/issues/1020
-> 
+On Fri, Jan 29, 2021 at 10:20 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>
 > Questions to address:
-> 
-
-I think it's going to be difficult to support a minimum version of LLVM for an
-extended period of time.  The reason being that upstream only 'supports' a
-released version of LLVM for 3 months (i.e. 12.0.0 is released, 3 months later
-12.0.1 is released, and then there are no more 12.x releases).
-
-My recommendation would be to support 2 versions only: the latest released
-versions (e.g. right now this is 11.0.1) and the latest snapshot build from
-git.  Any version older than that is just going to continue to accumulate
-workarounds in the kernel, since upstream is no longer fixing bugs.
-
-If you want to try to support more versions than 2, then I think it would be
-worth starting a conversation with upstream LLVM about what it would take to
-extend the support lifetime of the releases.
-
+>
 > I believe the first place to start is answering the question is there a
 > minimum supported version of LLVM? Is it LLVM as a whole or one
 > particular utility (such as ld.lld)?
-> 
 
-I would recommend using the same minimum supported version for all of the
-LLVM sub-projects (e.g. llvm, clang, and lld).  Most of the time users have the
-same versions of all these tools installed anyway, and toolchains that mismatch
-versions of clang and lld don't likely get a lot of testing.
-
--Tom
+Would this be the minimum version for LLVM=1 (in supported
+architectures)? If yes, then yes (eventually). In other words, I think
+there should be one minimum version for LLVM=1 eventually, even if for
+the moment we only have one for CC=clang.
 
 > If there is a minimum supported version of LLVM or ld.lld, is it the
 > same as clang?
-> 
+
+I would try to aim for that, yes. I think having it undefined for the
+moment is fine, but when LLVM=1 works for all architectures that we
+care for, then the minimum should be the same for both CC=clang and
+LLVM=1 to simplify things and avoid regressing.
+
 > If there is not a minimum supported version of LLVM, do we insert
 > workarounds for issues that we know are fixed with newer versions of
 > LLVM or do we just tell people to upgrade the version of LLVM they are
 > using?
-> 
+
+Until the minimum is defined, I'd simply tell them to use the latest
+one for LLVM=1.
+
 > If we decide that it is worth defining a minimum supported version of
 > LLVM, I would vote that it be LLVM 11.0.0. If we decide that that
 > version should stay in sync with the supported clang version, then I
 > would vote that we update that for Linux 5.12. Taking a look across
 > various distributions:
-> 
-> archlinux/base:latest: clang version 11.0.1
-> debian:stable-slim: clang version 7.0.1-8+deb10u2 (tags/RELEASE_701/final)
-> debian:testing-slim: Debian clang version 11.0.1-2
-> debian:unstable-slim: Debian clang version 11.0.1-2
-> fedora:latest: clang version 11.0.0 (Fedora 11.0.0-2.fc33)
-> fedora:rawhide: clang version 11.1.0 (Fedora 11.1.0-0.3.rc2.fc34)
-> opensuse/leap:latest: clang version 9.0.1
-> opensuse/tumbleweed:latest: clang version 11.0.1
-> ubuntu:18.04: clang version 6.0.0-1ubuntu2 (tags/RELEASE_600/final)
-> ubuntu:20.04: clang version 10.0.0-4ubuntu1
-> ubuntu:latest: clang version 10.0.0-4ubuntu1
-> ubuntu:rolling: Ubuntu clang version 11.0.0-2
-> ubuntu:devel: Ubuntu clang version 11.0.1-2
-> 
-> I am not so concerned for Ubuntu and Debian, as there are updated
-> versions of LLVM available from apt.llvm.org and OpenSUSE Leap is
-> already unable to build the upstream kernel with its version of
-> clang. Everyone else should be unaffected by that bump.
-> 
-> Hopefully all of that makes sense and spurs some good discussion.
-> 
-> Cheers,
-> Nathan
-> 
+
+Well, this depends on how we look at it. Ideally, we want to reach a
+point where we don't bump LLVM/Clang minimum versions unless there is
+a reason for it, i.e. the same policy like we do so for GCC. That is
+why I think it wouldn't hurt to wait to define a minimum version for
+LLVM=1 until we are reasonably sure we can keep it stable for a while.
+
+Having said that, bumping versions for LLVM is not as big of a deal as
+for GCC so far, since the support is recent and distributions are not
+building the kernel with it just yet (AFAIK, at least).
+
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0422fd4f-a706-219d-d8d2-066541fd24b1%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72kaAQ0KBx8mofyT-v0v6Tb%2BS5xX%2B_xEB4uPzzjnwafrPA%40mail.gmail.com.
