@@ -1,116 +1,154 @@
-Return-Path: <clang-built-linux+bncBCDITI7XW4DRBZXM2GAAMGQEZGMS3DA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCVJB37EUYFBBK7N2GAAMGQEHMIWCBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8FE38308EC1
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 21:56:07 +0100 (CET)
-Received: by mail-lj1-x237.google.com with SMTP id p6sf1834631ljg.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 12:56:07 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1611953767; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8DF42308EC4
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 21:57:16 +0100 (CET)
+Received: by mail-qk1-x73a.google.com with SMTP id v190sf8054065qkc.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Jan 2021 12:57:16 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1611953835; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QXTnvdPh9vp/R4ZzFSLGDq/IPrPbWEAABvr/vz7ze1sIXcss1Xpnp1WLo0p2eve7U3
-         kg93mwlHpRETwpRJMZhD2nPHay0JLNC+5ZYgurOjnPtAs6j8HDUNSqZR2enJS6yik5l8
-         rWPXuArDv2krMiV6WYh5y1hmBYVo27c5qczW+Ii8HQn/OvGf4x1avnCod/KxMpxplwuQ
-         /pQlwGgFGOeRQVTwdbN2MPHV/dH3/2iu/EFzoh5msJwJ2fmb5/0FlEAyjniV/jqc2sPa
-         TZi2FY24CRcUTebuV1W/ETrzsRIms6QKeya+/9zbr0MYGFHyzCX7ziwgBn2S0soziIqn
-         ijFw==
+        b=Wrgypxfl6aLJhGTDKjGeqdsIn4VWWz6pt+AxxxUDuZ9g3+47/+q9jQ3zLUNd3c/vhp
+         bcysBsljswbMMtzwAwvCnYf2sNI1DjbhzSJRZMnxyWVSFbJJi05oNdsbacuuRHKZXOwm
+         7R7AOvweKNZ5ON+emcMYwQxXnekjA25ExJGtKX6pSklIXNwxhOR+03i1QGgfEEvVoX6l
+         t/AaIRRCKygrI8z5C9Wb5FpAs9FB/b5TENdN4G9vBxos0ElEBSBURJY1vNsUF4Y7ldvW
+         YZ3jQ90XUORQgtTk/Le09eGozOO09ZAJDhhs4wQ5fDfclT2RbbhDotcr8ObFtenmpIRv
+         p+IA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:message-id:date:to:cc
-         :from:subject:references:in-reply-to:mime-version:sender
-         :dkim-signature;
-        bh=5VFE2Iym5OiTGDsokDwZxFXURtWhqU8G9NlFieA/KJI=;
-        b=MWO9qenMbLAUdqakPyMwOYlTh9yjuvkA90byXbcNXhRU+fWLhHoZN8Y9/8e0Esq58f
-         O3C+IV3E7bKPna8RF7JjTOpAIyLNEx27WFweDi02EHkkh1AnQZWmVzRC1Kef5deAQbk0
-         1L1gxhbLbaqvqHJtPgcc8cXYIxard2eg5dfSQzBYOgCdqWwmu/BgcIXrztJjJmP94ax+
-         e5ErghqG/A0D89mrqH/gQQuwy92vSMmBIjZK4YDocWqUGsIuz+i7a3ZENkzlSPpX7ZGq
-         aLRqXFnF5VztDGnG8qrXfCNEVQ/yzikUk/5RCnFByXkq9viRy6lYTpbodkGsoKBH/tJB
-         Zoaw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+         :sender:dkim-signature;
+        bh=K40aD2UJ6L74M+2trQ/No01gogZgqTtSmypd7Ck7L2g=;
+        b=lxk3X/xRgqQWUzbjAc+XwwY7NQfnHAzjdiUXHLWRLe2x8Fuu64jhPSRVW3ZKdNXG6z
+         EirpaIqoby+oUwj9NF5cWHtOx8sghdvmQ88wGQ2tWYhPDbaO92bcv3XA3j0AqQMwiA/B
+         qrNTjuvUReD5l117+HMmewrOVl8BI01PprJM5JU5Fkdf5U6WR1kLVXmjSXtk0OPhAoet
+         7jPUBEkLvVnL8WyewUwtumglpSCgV7/Bv3gp0YVzbOukA4mKjAAgCeIkYMTXs6uwOUkM
+         YY5fPbJ1Zv61h4tVgfi6dKW5Qd8wXKpFIWq+YXOoGK+izc+MU73sxXpJ//nS7PUtc2wd
+         mbQg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 77.68.26.236 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Ni3/YpOQ";
+       spf=pass (google.com: domain of jakub@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jakub@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:subject:from:cc:to:date
-         :message-id:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:reply-to:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5VFE2Iym5OiTGDsokDwZxFXURtWhqU8G9NlFieA/KJI=;
-        b=LkN/iwBKL3W9EtjLZ1xBdnEyK9Ts84Dzo0lytsDF53dDaACYL0+OxjA01b1QldI67F
-         d21YUBgwxGsZVl7MvsHHgcCzidGlaogCOZXC8o5P8DByHPIxEKnhR6VqwxwPBEDaNWVj
-         kJPxS/EQq7bFRq/j2NI1IejhRBTqR0dX9SUw1pZNlxroXaZhF5Mjyh3KX0S8tb3npPOs
-         A+72EcKGSNWPMvPtv+cgy8E2zF063SU20t+iTx2hx1JCV2BmHIKRY/Aycd4dMgM1/KLr
-         cUW/NzZB6WWxsX0mcuUfbQit2RoCEBXDkP8OpfelM+ZWebMWlJtdAJkTGp56A46oLqmd
-         IPOg==
+        bh=K40aD2UJ6L74M+2trQ/No01gogZgqTtSmypd7Ck7L2g=;
+        b=rKvDGwYGNeyYG4WpSl+cgYTbrGJvfm2E1xVGxHl7jgJUwkSSOX1xYgj6j7h4czQh6R
+         /TWGtyrM7ylBB2nJ1fPWQMC9KdC8vKrw50aql6EshC1LfBqOSqXNU1MT+w4V6wlEkyG/
+         gC6F4ZBaGc0kKgpW+zFZ5ERGoYpVTc/YQ/aL04Qtb78XFxuWvjH/va/jrvEUiv/Ojd7+
+         MDllfiVpUtuY5LlbZrN9dJJSHjDnwd8n5sWY3Ye+SOQZ75eU1QT5oK4wX0nKa9edB3iO
+         KI+CLjlmF4LLP2Arjz99Mjlann32K1mM5CiajudMe+7fqG2FIKVuw5JT11GtvISBO/Uo
+         lzOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references
-         :subject:from:cc:to:date:message-id:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5VFE2Iym5OiTGDsokDwZxFXURtWhqU8G9NlFieA/KJI=;
-        b=m7pWcDEJ44vc2sTDUjxU8YztSusGOhrEy3Dm+PF6oQokrJwPnnazKnR+WMGmbzk4gj
-         Ee2rpDSknjI1HMLTlXvSdAZfPJRfvEogl+CGW7+dyAHBbDZkVMG8lJE4383kvW1gRORh
-         1YZZk+p8zK+8S8not7zvSUtcBruVxONZZzX6HHBQYQLIoN++E7xhF5b5XqXyET9h3wCs
-         PUHqz+dEBaFTQl0HxnyyrgRePDe9hy7ZdlYywB5KtDBTQwcmJ1sAVzBSEVO68A8o0sEe
-         Bt5urH3CNSBtwHscLS5H1uA0+tzdqJsRi8Lpii5fE/6N/d5NRsB0+RMDLmW95GAFdKED
-         onLA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :reply-to:references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=K40aD2UJ6L74M+2trQ/No01gogZgqTtSmypd7Ck7L2g=;
+        b=hxGjKEMaJBMSKp020D5wMzCpOFFXjZ+ZFlsan0HORp6BdzyiyFjnCppJB56zt3GlVP
+         VZ/H5MhbOiOWUJfL6M9hc3HJod+gtyHC6KMbs423JTb3E0o0+pQ2J/N1uhq+KwTXHnfj
+         Jv6i86o5gaaE8LEC+TtOc15aclcZ7xYss4bnGM7q9MZ7Agnj6aAnNRb+HiUzei1pX+YL
+         mL7G7QPPTdqLb7eZ+gqnlxAOlaIDrl6qknBbxwS5oHadyRgVVGgBlJatTDgUyF2LpJq3
+         MgKsUglCfjjTV1B5C2kRigaBfycePkLp+zTCsrJbegisQhYVvQvuV8V+XNzvRC+JE9zS
+         /qqw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533avIKq3vZQY0RxgVyvQDN+UdXL7CspyC/bWoJ4vcrjsutk1hgm
-	NEfDAIzmZabvn7ih6TebHZs=
-X-Google-Smtp-Source: ABdhPJxmXaWI87AejWth7IO8npbT1IdsZmorcSY1MFuVxwWI9I63W0g1QKQw0jxXz0i8r4GUj6T4Hg==
-X-Received: by 2002:a2e:9090:: with SMTP id l16mr3523713ljg.122.1611953767107;
-        Fri, 29 Jan 2021 12:56:07 -0800 (PST)
+X-Gm-Message-State: AOAM532QJhHMSSVxd/9AJTum/bFUWUgIY07834VICACQIm6Z9WsJQMcW
+	hnULyGZ4aopRkhVOYXIB84U=
+X-Google-Smtp-Source: ABdhPJzJCoXaLv9SJWsaqfaAIZvvPjsbOS1q7xMbooFT7F+3i3kmOtfJiXBRBMzDm+Qugd/QoMjaPg==
+X-Received: by 2002:ac8:5bc2:: with SMTP id b2mr6129634qtb.98.1611953835618;
+        Fri, 29 Jan 2021 12:57:15 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5519:: with SMTP id j25ls863111lfk.2.gmail; Fri, 29 Jan
- 2021 12:56:05 -0800 (PST)
-X-Received: by 2002:ac2:5e2a:: with SMTP id o10mr2873277lfg.349.1611953765905;
-        Fri, 29 Jan 2021 12:56:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1611953765; cv=none;
+Received: by 2002:a0c:9163:: with SMTP id q90ls2571866qvq.1.gmail; Fri, 29 Jan
+ 2021 12:57:15 -0800 (PST)
+X-Received: by 2002:a0c:83e1:: with SMTP id k88mr5642105qva.60.1611953835246;
+        Fri, 29 Jan 2021 12:57:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611953835; cv=none;
         d=google.com; s=arc-20160816;
-        b=f5ffSGPJE04LH2N//roagdEyk/6dIzlk1O0PaWVVYYNa1OzqXyLU4JSs8s2wV88ZT/
-         ZhNG1A9LS+MntRNl/wfPEAt81PKcYTIQ2H1KwtXFEsDdFx3n68MfNGplV8O8NWDpqqD4
-         BTyr/rlemnzWrX8KEB9hH5D7wahqP2DvkEqMwd7+J5TJ+34fLav8Q+P6i1liBJ/7ogfE
-         raCv8GWn7YecaWoa0RHAmOqLC1fxuDI+yYoXUnNoj0ryRBuO+ksWnsTeOmYZZJpw6wZo
-         C7plYJP9CMPfMc8iyEbZcbHs50czgUXAcgmWEzHYJo9fU3I6XM/kEYKp/Ipgl+vGfGan
-         gOvw==
+        b=OL15n/M1RN9pWzEjEKqPWfu3X9NqGEZB4/AlphQyIoHlRoZgV6rfD04buaDWCRmJaV
+         NS6biynb3UunIKGd5uHAGbk/1gcXLoJXJwZQJtNuzW7e/l9Nv22uXKcQm+CqDPU84fRy
+         Ge8DMFoboaHixUwRIV0lmROeijOXEFIHZTTJb1WKkF8jx9gLSyuXsyu8wt/RIDL6M5Cr
+         CEIEY6Pl6qerAWDDepXHk5nHsZmeN3Ib7wguGw1ziRx5uFv89N0G5L37dC26w0odg7fY
+         a8b0+xIZhorN5O75IkmszO/njTVrT3IZ5GFpwjuEVaoAvQv9Rolojej+tw9JX+aG2BIM
+         xRMA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:message-id:date:to:cc:from:subject:references
-         :in-reply-to:content-transfer-encoding:mime-version;
-        bh=VBmJqWS4K2XUaQaaJ4eku79fqkYqj5EcqpxrgGjMKjs=;
-        b=YwZB1F0/oqSAyd3qUBSqQs2BJaPRjnPgygZPmKj1QMP0rSTYF64j4+ModreVwTW45g
-         VCXnX6NViWpKvSyiA5QcyDkkpccW/vqAK673PasJrvmmQ+wblP9/lVR/2eLl9hka8Cs2
-         97PdIWCzYx5v0dcWk4tOuRXBUJb2JVb97Q5KoX9yq6E6JAPBP+aU782agwTFcLHo22MG
-         xTTbWG5jmVmw14H2YBJw9FoF27pamtPOqwLOLQHv7I7Dn2YW+IgwXemNdiA8Y7F7gJWD
-         WzjGi7YDca+RJlpcV/UMcGPWa6soNOS95Xu396Z5BeybIJ+VMAqh/a60faFleEbVB5jw
-         sPQQ==
+        h=in-reply-to:content-disposition:mime-version:references:reply-to
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=jJAl8faLaTXKp5DstykPQouYkGkdmrA8uwwSrWLNEdw=;
+        b=LwObzm38NJlYQeGAjjQZRARzi2dI9TzW4Vub5Fx3P10S64EZ0p92KeO1cOQXOEBNLM
+         EKdlzyHjHtLTMDr0yjUtV7W3kXQrJuCMBDXTvA/dfEcCZqpjd7A2E+N6arAJu8H2FbRJ
+         5VQDhj6cbL24Aja/hnLX5wggTTetYRsgZIBNWCWrzfKYV7XEoZl7FlkPNK6GifRB73Wy
+         9QVs8jjZdd81i1r8VtQBfP7A5m/NEtyhfQPN8NfMMZ/2f0fflkVngTXh8qpHR90N10jr
+         KG0fvtHapEc8MvMg4wQauH+xaplAl/TacvFbd1jaWlEgrxSN5ty4t5DD//ea1TwfIjjc
+         ZqTQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 77.68.26.236 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
-Received: from fireflyinternet.com ([77.68.26.236])
-        by gmr-mx.google.com with ESMTPS id c6si364128ljk.2.2021.01.29.12.56.05
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Ni3/YpOQ";
+       spf=pass (google.com: domain of jakub@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jakub@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id j40si968979qtk.2.2021.01.29.12.57.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 29 Jan 2021 12:56:05 -0800 (PST)
-Received-SPF: neutral (google.com: 77.68.26.236 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) client-ip=77.68.26.236;
-X-Default-Received-SPF: pass (skip=forwardok (res=PASS)) x-ip-name=78.156.65.138;
-Received: from localhost (unverified [78.156.65.138]) 
-	by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id 23741559-1500050 
-	for multiple; Fri, 29 Jan 2021 20:55:55 +0000
-Content-Type: text/plain; charset="UTF-8"
+        Fri, 29 Jan 2021 12:57:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of jakub@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-584-4jqVEabdM_mz1KST0Orp4A-1; Fri, 29 Jan 2021 15:57:11 -0500
+X-MC-Unique: 4jqVEabdM_mz1KST0Orp4A-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 047F1107ACE3;
+	Fri, 29 Jan 2021 20:57:09 +0000 (UTC)
+Received: from tucnak.zalov.cz (ovpn-112-64.ams2.redhat.com [10.36.112.64])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 7BA7960BE2;
+	Fri, 29 Jan 2021 20:57:08 +0000 (UTC)
+Received: from tucnak.zalov.cz (localhost [127.0.0.1])
+	by tucnak.zalov.cz (8.16.1/8.16.1) with ESMTPS id 10TKv4KA2368399
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 29 Jan 2021 21:57:05 +0100
+Received: (from jakub@localhost)
+	by tucnak.zalov.cz (8.16.1/8.16.1/Submit) id 10TKv2Kg2368396;
+	Fri, 29 Jan 2021 21:57:02 +0100
+Date: Fri, 29 Jan 2021 21:57:02 +0100
+From: Jakub Jelinek <jakub@redhat.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Sedat Dilek <sedat.dilek@gmail.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        LKML <linux-kernel@vger.kernel.org>,
+        Clang-Built-Linux ML <clang-built-linux@googlegroups.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        linux-arch <linux-arch@vger.kernel.org>,
+        Fangrui Song <maskray@google.com>, Caroline Tice <cmtice@google.com>,
+        Nick Clifton <nickc@redhat.com>, Yonghong Song <yhs@fb.com>,
+        Jiri Olsa <jolsa@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+        Arnaldo Carvalho de Melo <acme@kernel.org>,
+        Arvind Sankar <nivedita@alum.mit.edu>
+Subject: Re: [PATCH v6 2/2] Kbuild: implement support for DWARF v5
+Message-ID: <20210129205702.GS4020736@tucnak>
+Reply-To: Jakub Jelinek <jakub@redhat.com>
+References: <20210129194318.2125748-1-ndesaulniers@google.com>
+ <20210129194318.2125748-3-ndesaulniers@google.com>
+ <CA+icZUX4q-JhCo+UZ9T3FhbC_gso-oaB0OR9KdH5iEpoGZyqVw@mail.gmail.com>
+ <CAKwvOdnj1Np62+eOiTOCRXSW6GLSv4hmvtWaz=0aTZEEot_dhw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20210129181519.69963-1-viniciustinti@gmail.com>
-References: <20210129181519.69963-1-viniciustinti@gmail.com>
-Subject: Re: [PATCH] drm/i915: Remove unreachable code
-From: Chris Wilson <chris@chris-wilson.co.uk>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Vinicius Tinti <viniciustinti@gmail.com>, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-To: Jani Nikula <jani.nikula@linux.intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, Vinicius Tinti <viniciustinti@gmail.com>
-Date: Fri, 29 Jan 2021 20:55:54 +0000
-Message-ID: <161195375417.17568.2762721732398065240@build.alporthouse.com>
-User-Agent: alot/0.9
-X-Original-Sender: chris@chris-wilson.co.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 77.68.26.236 is neither permitted nor denied by best guess
- record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnj1Np62+eOiTOCRXSW6GLSv4hmvtWaz=0aTZEEot_dhw@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Original-Sender: jakub@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b="Ni3/YpOQ";
+       spf=pass (google.com: domain of jakub@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=jakub@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -123,22 +161,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Quoting Vinicius Tinti (2021-01-29 18:15:19)
-> By enabling -Wunreachable-code-aggressive on Clang the following code
-> paths are unreachable.
+On Fri, Jan 29, 2021 at 12:48:11PM -0800, Nick Desaulniers wrote:
+> > Should this be...?
+> >
+> > KBUILD_AFLAGS += -Wa,-gdwarf-5
+> 
+> No; under the set of conditions Clang is compiling .c to .S with DWARF
+> v5 assembler directives. GAS will choke unless told -gdwarf-5 via
+> -Wa,-gdwarf-5 for .c source files, hence it is a C flag, not an A
 
-That code exists as commentary and, especially for sdvo, library
-functions that we may need in future.
+Wasn't that fixed in GAS?
+https://sourceware.org/bugzilla/show_bug.cgi?id=27195
 
-The ivb-gt1 case => as we now set the gt level for ivb, should we not
-enable the optimisation for ivb unaffected by the w/a? Just no one has
-taken the time to see if it causes a regression.
-
-For error state, the question remains whether we should revert to
-uncompressed data if the compressed stream is larger than the original.
--Chris
+	Jakub
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/161195375417.17568.2762721732398065240%40build.alporthouse.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210129205702.GS4020736%40tucnak.
