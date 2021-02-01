@@ -1,126 +1,126 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBO5J3WAAMGQECUJPYTI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBZ5U3WAAMGQEGRZW7FA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 54F0D309FD9
-	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Feb 2021 02:09:17 +0100 (CET)
-Received: by mail-pg1-x537.google.com with SMTP id n2sf10273583pgj.12
-        for <lists+clang-built-linux@lfdr.de>; Sun, 31 Jan 2021 17:09:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612141756; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6186330A008
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Feb 2021 02:33:29 +0100 (CET)
+Received: by mail-pl1-x63b.google.com with SMTP id d1sf8577589plh.13
+        for <lists+clang-built-linux@lfdr.de>; Sun, 31 Jan 2021 17:33:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612143208; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oMIdvXK02HI11FCbOiRHHJw58rGSYhCCKO8mAk7k/nqawjHgvcFZYsgPIWYOYrQPkx
-         +mbfmSvoOp+FICvJxap+Vs3zQFnaJrFG+ssGzv0hf9PMdjb2ZB8ZPrYWvPZCRus0VHnH
-         EsaRqrFhK0pacV+9l/B9yRAWa/D7ysjPY7Dh6uxoLCK6rxAZdeETdbXjNuu1Oz0DSLXl
-         BdGy3UHCZMneqHoXUEav63NYf++q9NYZbpptBmgF/qPmpUhgcBK+rT8SQ63MHBvjzz9u
-         m9zz0djsHzOhVn+c7zVESxKb0+rJZBMMoQ02k8b+yE/eQ1fyxPhHTeVDJ6iUAJuDiii2
-         SRPQ==
+        b=rsc3/tC3z1Y8f5NziDMn8BdqmVQhbb8Pwdynv8rRu0Ufhztm7q6+tIyFpT5jirSAhj
+         KIlQrSHWRysunI40xPmG6pGqH+Rsd3D9GBmT3Rw2dk9Y2U/JC5Gt2/pXB4R14G5lXihW
+         aZ40YbAwQPb6rwOJAr7j5J/TIlTZ4oPwCIZtVYSsHujPny5Zve5gTV1Aa1zrHLvr08gS
+         LErBOp94n3ceF4fFnBwJm6k4f3tD++JQgLKax1LeTO0ujhPsov5AfWuFhPiYYFlwUqg3
+         ZoMbuXrQb1n98n7cGtRb0aNaW9ZPXowwYt2H7d3aDgSOIlERfF7VC1kCKJtzS0pfCRyX
+         vLWg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=rCRM5HLeOHlolCchivm7nJU2B8JsaA/uwfBv3xbXF8A=;
-        b=LbCAPPiLX6kMLqGfIe89tuVeS0spg08Vv2nUL4J+CPu1Z3L1vZf917IolzjC1YiVYG
-         sIzyEmpah8t26gTNA9AeOEhsVJbOHXndPlUOSCwRQM/lUEUm/16+ZkM5V92qRsLxQsGs
-         pJYW6D1pNZKNs4ZvcYYiPngq4hgrqyAd4Df4Ythg74AyjYYuoXU5kO1OW1EugfYtJy4r
-         V1awJs9X6ofvi/Wv7fyyDn5utQmC37W42hupJ5faTYv46haXJSPCLr4a6UuLw/d4tp21
-         ZUTrNsLhBW6QD1Z6ukBAirdotg8RTwMHdc7V6ykr4ooh558vxEWa25wljVcqktutZqOo
-         I8Kw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=pL2IS9+AIYxSs6LwhpTLGDqeo+/HwPJwgffAwzmEP5A=;
+        b=bGTdslXRK3+dJ7jqN9PGcWrrq+qEbtBlRVJzDPmbWz5cSOKo0qcTR12q9+Rri1zUUu
+         a53//HUFjndGd8eioJyUBDQQRNS9uM72GK5XcPZqM9OlZuvMhFv1Fe201hwURQ0Z1cnw
+         nC8hmxm3SDi9N87wkTn5msP8YSFeJHhLBYEcXmvf6e7VwhcAN5nBW7mysp/tVodYRQC8
+         EQzKeDD6qYD0bvASB0OaCGbqo2UQz9E98Sk/Nj/vt1guDa6ypUhESUvzJpsji2eiEB0V
+         a9iDTF6GtMfbqFFLxKXc2nvig6pYQV0tYUJ3qx4X5ThzHtd6Bq6ssA+X1r3fMcuJHoFH
+         l6Fg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=1fsNDfi7;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hsJzZlc9;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rCRM5HLeOHlolCchivm7nJU2B8JsaA/uwfBv3xbXF8A=;
-        b=J54KLKcTsH8CRql9iySYWFdpFMbD7pYhshqmXNzcB5lLvmRDm2KDD24Yzit0ipfrON
-         B/DgoXJ4yynWKiVvexxuqjafAV2SlKbVXwuG2ZzU16tMwgtklOdfxiajXo1yQx1ChW98
-         NzxlYLIEz/tfSCDfBqJJeov6V/QfrXQSUiTkglDlmz14+9de6TVK97Ry5R3biniHfuQp
-         l8nILIE1EHt9+gwxYWjIAgk5fBSasGhTXGBjephjkUFepxzk70T/DT3vxhs/mIjlBBId
-         otP25HobSBEt4ugLezvb82N+py8VX/mriaeAm0hRtPVwLiXc3liLEmCQQ050NKy1IVdT
-         6C3w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=pL2IS9+AIYxSs6LwhpTLGDqeo+/HwPJwgffAwzmEP5A=;
+        b=JlQMulpwxWtbsR/4XWAstbEJiU6zHYp/bFH00SpYIocUUlijm4VXKZTGU0cz1YtBjN
+         3J5wlthJnUg0hYf/SFu7RYVdybyszn/7oAM+4l0PWdLxJFZ7SkyLWCAKJSZsjnLJoXGb
+         WgZQTXqkTGqKC0zbcA/DaUKOjNCamMwe3P0wzIoFeLMIR4hKmJkeq/XR3C4oghC8A/Hq
+         CMPOX4t+S1mFXNqgHsIUD8PN+9/BRo+3akCaftMHPUMhL6re8ehSRZNcKWdV2X5CpR9b
+         ea3ltUbKJ7fwIFkIirMgB/9vAwTaVg0bVfQTtGpfraf4j/Cmo6Q77JMw9u0dPPOyuWJ5
+         jcgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rCRM5HLeOHlolCchivm7nJU2B8JsaA/uwfBv3xbXF8A=;
-        b=CUAz+V+Zv/cJMTALymqTfRKFroh8tRWOozdvlZIXEmmD73puqtu5PVruBZsMyJi9IG
-         phiKX1s6j8fZyhZf3mmHpeO2xmE8lH2zx+lTksZsuCRVA6tl1eYImZm9/hBZjtUZa48H
-         +HnJxdC5tbWFuO8QOb1CD+GHrJhwn6yqvNqxAeHotzeq7l06BzkNgF0DTHfK7IfiRPxw
-         d14W5xLVdpCKdzlwE6n3bK3V8d+WrsxoPtYBL4TUFATg7AaZswvfB5FKf5Doz/W8kzs3
-         9QJyrZXLwWWmukl5lC0mseGg6mKbtaK2NDNmz43rJp/azRfWky/WQZboDfrc2bvYyJIK
-         Iq0w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=pL2IS9+AIYxSs6LwhpTLGDqeo+/HwPJwgffAwzmEP5A=;
+        b=TkuUTzF1NrACgqpuiHjmaJfZ5IlyThWgW43+HunpgbkAueWdkzI2TBVHekVNYj42tg
+         i+t4+hwGk4i0d6ma+6URlNmeHIbU3TN12uhMosKsfZp+1Y5lM6f/BYoXOPpmpg8dnDbn
+         4ZUAfJDt7sEx1Wc4Voql60ptaH+l7mXFdyQnl/7W0KuQA/mesZgJqwFbzmkfj55lx31D
+         Neb8+omUm5ku9mSIRKM8tBmcfgVwtDFKqbxRbi6SZ/sF28dQIs6PZ94STKCy0Q431Yu/
+         wriTNjYj1tnu/pmvLJ99RLThSVvyfDwwdA+KKdxmffHnIkJqSy/XiEjaa2G3uGJwuTZE
+         6xPg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530ESxzMFI4MwNg59r7nRVtGK/s09NAvIbEZDwqkaMI1oO+Sg4h4
-	R+iUdHCH9JAD1yKBGet8IDg=
-X-Google-Smtp-Source: ABdhPJxEhcQIY+P1yQ9vs/klX/i/6uzVAsNe4InvvcJPvK4InPsY2hlFsGqVJvcPr9gmECM3Bhgmhg==
-X-Received: by 2002:a17:902:9007:b029:df:f347:3cc3 with SMTP id a7-20020a1709029007b02900dff3473cc3mr15462583plp.41.1612141756090;
-        Sun, 31 Jan 2021 17:09:16 -0800 (PST)
+X-Gm-Message-State: AOAM531sEpRoWwELg+wXqBt85PvBpMTua3QVLt8h09fMgdfBm1qf6unb
+	YeJ5ZN1ePlcVGOSqNKoYneQ=
+X-Google-Smtp-Source: ABdhPJwaCcxCeWxIAOV/kj/q8/7A2SCFZLBW1CRhZDEx1THQ4ABqrc5NmFr1TQsfGnKkNvw/qINlrQ==
+X-Received: by 2002:a17:90a:304:: with SMTP id 4mr4168032pje.126.1612143207932;
+        Sun, 31 Jan 2021 17:33:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8b8a:: with SMTP id ay10ls816941plb.5.gmail; Sun, 31
- Jan 2021 17:09:15 -0800 (PST)
-X-Received: by 2002:a17:90a:1542:: with SMTP id y2mr2159641pja.123.1612141755467;
-        Sun, 31 Jan 2021 17:09:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612141755; cv=none;
+Received: by 2002:a17:90a:ba17:: with SMTP id s23ls7356093pjr.3.canary-gmail;
+ Sun, 31 Jan 2021 17:33:27 -0800 (PST)
+X-Received: by 2002:a17:902:a614:b029:e1:5b43:956a with SMTP id u20-20020a170902a614b02900e15b43956amr3065654plq.38.1612143207331;
+        Sun, 31 Jan 2021 17:33:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612143207; cv=none;
         d=google.com; s=arc-20160816;
-        b=LvexXnGHBfLjoOeGmK3HYKz3j0g7zLttaX4aetV4VGcwA8Ih3fhknc8uWAGQGdRlfo
-         RLOlGGAxr70Q8MFcSIgN0yDGo/dakmED9nZLxHMuVtvAXBOzchiOtS/DxtUgEW7g01tp
-         JDg6BKAGDxYDzmp39tFk0twhVTchmqJ9CwZXCDjKkI0tR4pEvBiwMvmBk56dlNGyrqLd
-         Z7DL/2sSIrdfrg3i5ca9B9kGh1oIAaGMDaDAW66KzTjSdDzkmZub6pkWL5P985oFWq9f
-         V627uA4hEn+ytxonWtbmqDY0ipIeWrM7TapRXwFzL7LiZoR03Jo3qd5BFGJCJ/Ec+jgq
-         pqBw==
+        b=qxG4QEXeP6cCsnbeIBjEfV4xz0NmQ/Gf4gcW481SOXAx6R7lkK5ei6WTl8J/+N3/uo
+         bncbXTQZE9KpqYfJquttGQdxlAAxDyJZHk0EQJMkjghViUypdLB6lk3pIb3jQml/D+sw
+         i0PJF/WYxOf+z4DE5pYrteeL4nwd/sZwMPvI/jHiIDBmlClQ5Sn63P2Kuaux22yM95xF
+         Ndxvc2mpWjhH3mjZn79f7qFJ1eFx3Ucgqrgrpl2I+y2yAZ7ti63L8y8MLDhbotyMb5Wn
+         6RISYC77I51T4ikyYr5+5DmE3m7kWAjbjBscLBTbrviwmDWUvSKRrerXElLNyFtOVNtI
+         d68g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=eXbmZVUON4I0dEihsAGwk68LJPotOUe3IiJ7+FBD0Dc=;
-        b=SZFakbOLqLh2zXgtGwgo5IawCOo40XWIfOuy0D8l710QIARQ+LkfFit4FXO6wnP2sr
-         lwDM/YlOVHg6kV9TH5NBytdVaeH2fk8l1HPfoVd5JIFCDfzoIO90+aROxaypGTzQrdil
-         8jPqdkmeLth4oC251B4BG/3DodLO7XUel1thgcIzkmmQGYzGIPSjEWPb/nvQwSbSBUUF
-         rkTYCs3cvbodaS9+BZMUPP0BCF5om5BePe7a3tw3cPbvXYEHGUZ4krHLvEer/0FEhEfj
-         qdFSNwn+3EkmGQqBGWFgW/9v2jtheANL5hCtpqKKGUPlNaUb6MC2Ga8l0CGgZyjZ7ziJ
-         xMxw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=g4PvqZzWG4zpxGnnkiNTYBSHMVkLcnXauLhWOIubAwk=;
+        b=ERUY7v3F45phQ28RHysgyjt2qC0V2Ixffvt3upkB7la83XF7jN2mv/LyF6AuO0UvPU
+         JunV7c0YDoC1WhwQrGlThZ4hbDnYIyLU1MpIC2Mn1dsQXWQGcv+MYxoA+dCz9WPXMmGw
+         trIq5CV2ae+Xo44DBsUCO/onjmbiJcSpRXhOQBuOyxzQ0zoZStU2NFviAW3N8jN1Xz5B
+         U3OmNfNDR4LbhPZHHxu6zFzsFv+1NATejmVv9Q+zFW906jSKFTx7m1bT0FrstHpzQqLY
+         afGZwuh29zkonziJACfc1lN9o/E7uHL1QrcbifcA/Huh8M7L6QKhfb/yUlVW1ThKdFfL
+         Z4zw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=1fsNDfi7;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id c17si541583pjo.0.2021.01.31.17.09.15
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hsJzZlc9;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id c17si543197pjo.0.2021.01.31.17.33.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 31 Jan 2021 17:09:15 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
-Received: from grover.flets-west.jp (softbank126026094251.bbtec.net [126.26.94.251]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 11118Msg002624;
-	Mon, 1 Feb 2021 10:08:23 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 11118Msg002624
-X-Nifty-SrcIP: [126.26.94.251]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-doc@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>,
-        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-        linux-spdx@vger.kernel.org
-Subject: [PATCH] scripts: switch some more scripts explicitly to Python 3
-Date: Mon,  1 Feb 2021 10:08:18 +0900
-Message-Id: <20210201010819.655597-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.27.0
+        Sun, 31 Jan 2021 17:33:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 3FE0B64E2A;
+	Mon,  1 Feb 2021 01:33:26 +0000 (UTC)
+Date: Sun, 31 Jan 2021 18:33:24 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, linux-doc@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+	linux-spdx@vger.kernel.org
+Subject: Re: [PATCH] scripts: switch some more scripts explicitly to Python 3
+Message-ID: <20210201013324.GA2423231@localhost>
+References: <20210201010819.655597-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=1fsNDfi7;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210201010819.655597-1-masahiroy@kernel.org>
+X-Original-Sender: nathan@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=hsJzZlc9;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,52 +133,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-For the same reason as commit 51839e29cb59 ("scripts: switch explicitly
-to Python 3"), switch some more scripts, which I tested and confirmed
-working on Python 3.
+On Mon, Feb 01, 2021 at 10:08:18AM +0900, Masahiro Yamada wrote:
+> For the same reason as commit 51839e29cb59 ("scripts: switch explicitly
+> to Python 3"), switch some more scripts, which I tested and confirmed
+> working on Python 3.
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
+Acked-by: Nathan Chancellor <nathan@kernel.org>
 
- scripts/clang-tools/gen_compile_commands.py | 2 +-
- scripts/clang-tools/run-clang-tools.py      | 2 +-
- scripts/spdxcheck.py                        | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/scripts/clang-tools/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
-index 19963708bcf8..8ddb5d099029 100755
---- a/scripts/clang-tools/gen_compile_commands.py
-+++ b/scripts/clang-tools/gen_compile_commands.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env python3
- # SPDX-License-Identifier: GPL-2.0
- #
- # Copyright (C) Google LLC, 2018
-diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
-index fa7655c7cec0..f754415af398 100755
---- a/scripts/clang-tools/run-clang-tools.py
-+++ b/scripts/clang-tools/run-clang-tools.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env python3
- # SPDX-License-Identifier: GPL-2.0
- #
- # Copyright (C) Google LLC, 2020
-diff --git a/scripts/spdxcheck.py b/scripts/spdxcheck.py
-index bc87200f9c7c..cbdb5c83c08f 100755
---- a/scripts/spdxcheck.py
-+++ b/scripts/spdxcheck.py
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/env python3
- # SPDX-License-Identifier: GPL-2.0
- # Copyright Thomas Gleixner <tglx@linutronix.de>
- 
--- 
-2.27.0
+> ---
+> 
+>  scripts/clang-tools/gen_compile_commands.py | 2 +-
+>  scripts/clang-tools/run-clang-tools.py      | 2 +-
+>  scripts/spdxcheck.py                        | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/scripts/clang-tools/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
+> index 19963708bcf8..8ddb5d099029 100755
+> --- a/scripts/clang-tools/gen_compile_commands.py
+> +++ b/scripts/clang-tools/gen_compile_commands.py
+> @@ -1,4 +1,4 @@
+> -#!/usr/bin/env python
+> +#!/usr/bin/env python3
+>  # SPDX-License-Identifier: GPL-2.0
+>  #
+>  # Copyright (C) Google LLC, 2018
+> diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
+> index fa7655c7cec0..f754415af398 100755
+> --- a/scripts/clang-tools/run-clang-tools.py
+> +++ b/scripts/clang-tools/run-clang-tools.py
+> @@ -1,4 +1,4 @@
+> -#!/usr/bin/env python
+> +#!/usr/bin/env python3
+>  # SPDX-License-Identifier: GPL-2.0
+>  #
+>  # Copyright (C) Google LLC, 2020
+> diff --git a/scripts/spdxcheck.py b/scripts/spdxcheck.py
+> index bc87200f9c7c..cbdb5c83c08f 100755
+> --- a/scripts/spdxcheck.py
+> +++ b/scripts/spdxcheck.py
+> @@ -1,4 +1,4 @@
+> -#!/usr/bin/env python
+> +#!/usr/bin/env python3
+>  # SPDX-License-Identifier: GPL-2.0
+>  # Copyright Thomas Gleixner <tglx@linutronix.de>
+>  
+> -- 
+> 2.27.0
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210201010819.655597-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210201013324.GA2423231%40localhost.
