@@ -1,126 +1,139 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQUQ4GAAMGQEH6D7BNI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTZ5O62V4ORB6UW4GAAMGQEWIMZP5I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id B81EA30AF36
-	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Feb 2021 19:28:19 +0100 (CET)
-Received: by mail-oo1-xc38.google.com with SMTP id p5sf2073092oot.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Feb 2021 10:28:19 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612204098; cv=pass;
+Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2C84F30AFA0
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Feb 2021 19:42:03 +0100 (CET)
+Received: by mail-wr1-x43b.google.com with SMTP id d7sf10929692wri.23
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Feb 2021 10:42:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612204923; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mcpG0Jw7vdqywbsYrxrmK3+S2c6IyFNiDv/FJsa6/BBtgDHWjY0UaLdL8LkGtjhoy5
-         eYc9AtQMtZEfSRaSUCjkURbzQAcTbsChjzgfTH3O0ZkF+9elp8zvVUS0ZOFEzFLN4V5m
-         cY9JbrS1Apuia0hjNQvM+lCK+mC0GUKf7n1mAZAQRihlak2DNguHF+nq7qywZVk2KcTl
-         CbH6S913UbK0Ktc5R/ZkMgQMJi5AXdeWIAuj7MjofOhfsCFAolClqQ26ti5lIva2MMGG
-         yTu6jJBQYSFsN8X5uHnmvWEc0KsC9gudfVGzcQ9TYawNY4S1HijXLA6r9Bytfx6FiTNW
-         BJpg==
+        b=bEAWZtflOjC6Mu7jeg9A3aN1y5qENcXRp5cptJ5a4vpME0hxxLt5Dtbe7kNzTEohNn
+         QilXPFjIhwpf50JMQKfvl/Wa7c/z9GtMRiG/VIhxZ09WaZi3zOdrRfMl6LtVLseweFdA
+         9phzSIj5e0rbK9APU8e5lUyOINxFWIKcDtzu9CVkXwgjj7RFCW9Vg+95VBdTofdN1WXJ
+         O7uTcurgV8mANQf5BWZoGdk0uebQ9TyLy9npinjUhJ+uPdLzdkY8Deh2WTYqJsUyEzlh
+         A5UyHxkeJ0gx5Xg3i9WdNzepPWJ6+JrfM7OO7l0AwcZUFzw2Xwij7+XfYiqQq5G37J7z
+         CIsA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=e2OeZavyWidl1RFqF6RMczsIFMNkJB8fkRySHR0zE5A=;
-        b=kruG1sAV+mF10w8xw0IfACnOnpKY+ENS2pYcz9dAYIvIlhfx0FRJHgWIiyXqTDohZ/
-         l1QpQF7jSS1bKs7VDLLc6WCQoY5dI6GgdIksXHY+C6yPTdd5nnekePYy2ggOIi5SRlcc
-         JRcFs6KmoXoXk8GY7CORmkDuaLfWARne+pIVfRkiGxM5R/FlufCgJsvevmf5ZfFm6Qs0
-         KgpZtpYOCvYngRn3Mhs+0uqCiyjCuxZg0CcmnwdzQhCcopbUHWkd4/dRMMGNT6nEjwYo
-         sAgtt6xM7I5b88Je6UfYExvEiZdzEOrQWbPjyhpJhT1qAwjEqsRmUVIMMZOsVi6WIBj6
-         evuA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=V4VW1+EGp7p4OHNAJTGWVtq4uU1/hjBtK0Xz/lQTOKA=;
+        b=PJb50vanmVcegHX/CldFz1nKmkUFWmYtQ+R4hD/zVR8za0yo7sY/WF1F+yBR7ZxZLO
+         wxWmDnHNkqPYOALGqb7rBicNV1l02lMlJGrQZ3VGstnPURoFeXkQy3IBXG2G7XxXFBh+
+         K/xmIV+txZ0MbcEa9w1NCVcxk2Xwq3aXHuYnVmFgg/8MzwAhYUdZ5c6eWySel/soZCN8
+         Zh9OkBztDTcySE8AEUIx6W9zRk31Oypqc55OGJFMRgT84kd8q1tWxkTFWwzuUMVUE1uT
+         kBayhlJzY/lSncH5N4Dsk6dEXbah0DEQUnbdkzejLkifxTfpV2E5zyGP0VtOds1kdVwA
+         1nlA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=n7LNoaNu;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WssRBfUX;
+       spf=pass (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::436 as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=e2OeZavyWidl1RFqF6RMczsIFMNkJB8fkRySHR0zE5A=;
-        b=bA3Qo+whaovMnLwlOM1Foyc3IL9QbZG6EJYLxRui14jiWG1AXv5SouL59dO4G+Umvi
-         rb7i/TRzabsnGGdvieDWJH8ur4NlFdNwpEcaavd3MUiX3rOKPKF8ciiZbx3pETc8Sv5N
-         Xn6I6UBwokx7rcV8bWbPploYTxSueLGWndGWOKCYN5aubSZscJffX634+c26/JAeMIsu
-         MQi+lVUt+wKac001a7I1x95J1payjTOz1xqXItZqM8TMzMA5mJhtCPfg6V9b1UMk66KH
-         bR6put8lBtMtaZdAvYK2SjSZIZDJFCbZAnqrUw0CGWWHjZT/7MgRQ+Wc1UJOLRvhq57q
-         jGmQ==
+        bh=V4VW1+EGp7p4OHNAJTGWVtq4uU1/hjBtK0Xz/lQTOKA=;
+        b=O6CRqqwVxBozfwGHaNgPzI86vFno8qFKUg/xE3mUR7ijGPztfYHGO4x+7FkjwcI6W/
+         omctceFeMaS85bzE5xlVGfPgj0+vvi/MPf7kwHKF+lM9VjuqaJdGPAwA0/DsIdKkv/Ui
+         irNY0bMjbg4vUwSdMb601VNm7s0PIQCDvrxr7/N6ks7MP1wVj8uWzeR7H5U0w/Yq7H+F
+         brieDAGufKAUxCzA2jDu+MQa6UV6+MWkIIhYMxB04rvXOikF/57tU3MMDXcm9U6+Cp7g
+         09fIWZJ7Hk6Ncf/ecnQ+TSryVaBqB5ZKrP9wmoS0MumDTw9+tTJYsPkHRmBjnX7Bd7AL
+         lPtw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=V4VW1+EGp7p4OHNAJTGWVtq4uU1/hjBtK0Xz/lQTOKA=;
+        b=dpbgclQwc2HorT35EQ55oDjrezqKfoJPnnlTmitphGnX+9uUK7YnSiz0Ns3ynyWBjn
+         5ZlUhDK8HSSMa/tKIHsGjfeT5rsbquFxVB4e1RZ2swteh1D8p6Vr8BMZmojicpMbziaT
+         ktvbqV66lMxWVfbnjOCToet0zzoiCHG2QF1VF3JV8kB9wtcVG0GAdIZ6iwwcA6vZ4ERa
+         t5rSczhRg022obYYTp4dpmtsrn79GZaudOCbLRm1/saoTcsBF9L/xGDuBee4safHLIW2
+         lNcZrUx312qKGfG6qGUJktpT8Zl/uj8/YQoh+quOXc8cx65N7/y+tUGLSHi6Qm9Rh/Gh
+         lvTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=e2OeZavyWidl1RFqF6RMczsIFMNkJB8fkRySHR0zE5A=;
-        b=kfDI5IVuQe2tvr3CDjx+smvVJ1S+t3tAlLg2RdJCVGNgtnaSFsrXnuh1QJ3KmRClcA
-         /1ViXXrfyN8g89dWO+rswuzj8XtK/3//ZVJQvZBMzpCZvhfCfNERstrGKji6Rhg0hY+S
-         NOQiyIm4KBjMe2hswqPyXjOEz9LXMCMUWTQCDGgWoN3Z9v1X3yhZ/IESI5wj9+Mq7f3I
-         JxekV7PeESX3o6YkmGfBMKY4WncC73aqWCbWH6uS6sND+DGfsX2DSfUenXfJ8vHDUwjb
-         xtscxAg3w5oeSiBgmFTlBgj+HznSOhvzjlZmNFAJSI5tHyC1H447TB6+spXAMGLFJJz3
-         ymoQ==
-X-Gm-Message-State: AOAM531dFVrywdKHOCpHOFuKaB68UyCivSo8sNQbSRZYzKTpqj9Vc/dv
-	zCmYJvL+CjUV+KKZCdFemjQ=
-X-Google-Smtp-Source: ABdhPJyt3QOaKLWikVWOSseB+HpfUSIEB8e0Pc+G7CTH0o7BKj+RHOYEtNo/jxu8ryCUr7jTAa+jWw==
-X-Received: by 2002:aca:3b06:: with SMTP id i6mr118202oia.81.1612204098533;
-        Mon, 01 Feb 2021 10:28:18 -0800 (PST)
+        bh=V4VW1+EGp7p4OHNAJTGWVtq4uU1/hjBtK0Xz/lQTOKA=;
+        b=aCmYrFxbFF1LV9BQCG4GmRiX5PIl/JMFAcVonzhZj8Tie5XXjUs5uOnDkP9t94cVWp
+         mPfnACMFDM1WWCHKO1GJ5WLu0I7e0nE2YpqVkQasp0S9jwa7hTdSUopTxjet6H6ji+I4
+         LF0dqS9gf3pTZKVKggP5yiUFAJtkuN25UobU8pJbC2cvx7CeoZGyQxcWnp5lLB29arZo
+         B/LDF2hvAer+Tt1UvuJ4wzX8JuF5Vl1xJiQhklbM2i4dnGWkAKxFjSysyWCQhx9pCWnp
+         4L4hKBOo/1xGjZtu6jm2uv74EWtXdK4gPtSmvUj/4ai5iQpSA9psKMUbR7xbvNWoyEPH
+         nPqw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5327sQPicOTo32nMaYr7MhgG1QBuTAxaxQMZ35UYoTsq+NR32bI/
+	8ASMuhnAYdNzzaLLbm56wxo=
+X-Google-Smtp-Source: ABdhPJxihQm1LJqjgVMdc2/xs7aly40HUImVQ+UstT1oN0QRFCxEUrpOXC4//KTiph6jGssUXDG4Ag==
+X-Received: by 2002:a5d:4f84:: with SMTP id d4mr19398056wru.374.1612204922943;
+        Mon, 01 Feb 2021 10:42:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:3c5:: with SMTP id f63ls4209039otf.6.gmail; Mon, 01 Feb
- 2021 10:28:18 -0800 (PST)
-X-Received: by 2002:a05:6830:4006:: with SMTP id h6mr12208465ots.33.1612204098122;
-        Mon, 01 Feb 2021 10:28:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612204098; cv=none;
+Received: by 2002:a1c:770f:: with SMTP id t15ls69217wmi.0.gmail; Mon, 01 Feb
+ 2021 10:42:02 -0800 (PST)
+X-Received: by 2002:a05:600c:4f13:: with SMTP id l19mr232899wmq.70.1612204922138;
+        Mon, 01 Feb 2021 10:42:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612204922; cv=none;
         d=google.com; s=arc-20160816;
-        b=tbSQtWXV5RZZNIl6eWjHpXarjjQau2jZkfN1Pjj8gHOdFmYWguwFlcfgfB9itu/f0A
-         3wBWO4JCx/M7qfiGa6yAEmbri1BZI0O5cRU3xw3MdsfClFI+1AzuaV8DOzthKArY/4j/
-         x9m4n1Itm4cUCVorwA9LDv19EU3G7w8oqrHMysMD3JqLB4vpr1nMBJrsAl8hXvGeb0TE
-         nVHybvSRSaR781ZrKmYl0DLVAce5NssLqoMB72Ms07NXCXovzDwf2R7gYWz5N6AtKvFI
-         dsoWDyeEIF+ZCU2Opa/+qraRgMneEmPx1pSyCvFf0zSgaYUZXJLKPyuuxAVwMdum8SJR
-         W4IA==
+        b=BNySjycBSdgX6VQ2OR4+Wv1KgPCYH7QdJty8CDvSg3Hquc9p2O/fuVFnMLsnUDLCDx
+         0yWDa3Erek6dMODxRu0E6R+crEtwXcBNCjJKPtPX88mj+UF5xJz6LtTrxwOswOxNkpSA
+         BaCq9KithtOQaPL1zrYFKtDegCF4gZjmn9+H9kahhV30Zz9Rn5rcpDCLyu/NZMgfvLYz
+         3xa/wztvQp8to2joyFq7uG0EpUxOXpaLE91wy7GyqABcX2GCibrC3Lo/XuWCCGyKETnG
+         6/KijYn9J4lkA5hkWiSO2zYGZNODTJfpi1q0VSApfs6fBbdsTP8WqCPoFTX+lry1ZJ+T
+         G+UA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=ZpTMPQ2QiuaE7YgK9D97So9gGS45ZWVWJvJLwPy7gVE=;
-        b=W3i1OESq4WIIJsINboQi8xIiYybhLtSqGKTkN+OaqnUT18qC7+mhIUnTNPpOhVwXec
-         bzxCVzSL6u7E1A6o34aV+rq35HlZDxh2YMuwpTpa3nP6GYcB03ZI1eaS8g8L+kkwI4rI
-         BTFV/Aq+9djw6fr/YqdmK2rnT5dLM/vkiC2eso0COpK3KWAJB8KM7AEf488yFqBU02YA
-         o9vYta5BZPoDhFad42bHg9PPXvlOQU7COFv5Xzo8+MLAtVdQBeH4gv0dMZ+uklhxrzzf
-         0yyRoR/lLL1P49KIiQv2/8NDf6cfXy7L2tOXupMH+ItXxn4EiPkZcSewWLxFEHhOyUxs
-         LGyQ==
+        bh=wmtu6bNpF5dPnSRFTlVUqn3pIC+xqRbu0mxekXQ1e2w=;
+        b=LbmIzRAj/aCRfAD7LbduRrRtUcJ3GCOkC67z/ziQYF+E5WuYcuk8g6mqui2/HVQQ6L
+         BSM0x3mmgltdPVaDqrGamOjg/7FNDGasy9ar1FivC0WD0csWVv9OSu07rlv+6cRgFenj
+         WQ2eJtuljSf/K9zoazUAJ0rEOioi9d0ltE8wKkzYxEVJHfF97aRCmp0IZHQMmCknqbQP
+         YWSx5KJew/qybqyNMQ2qTti7OyHYffSfhH7NYcP4rgAp8Mi6Jcnh4Dv0vQNaVT5bks/S
+         IlL5xfta4VfSzuxm2HSZeqGJtTNx5HprVpsq141V2cxyd4fkU09j0XvHTFccho2oWfQn
+         Or5A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=n7LNoaNu;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x531.google.com (mail-pg1-x531.google.com. [2607:f8b0:4864:20::531])
-        by gmr-mx.google.com with ESMTPS id r27si1255428oth.2.2021.02.01.10.28.18
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WssRBfUX;
+       spf=pass (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::436 as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x436.google.com (mail-wr1-x436.google.com. [2a00:1450:4864:20::436])
+        by gmr-mx.google.com with ESMTPS id s74si5470wme.0.2021.02.01.10.42.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Feb 2021 10:28:18 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531 as permitted sender) client-ip=2607:f8b0:4864:20::531;
-Received: by mail-pg1-x531.google.com with SMTP id c132so12664880pga.3
-        for <clang-built-linux@googlegroups.com>; Mon, 01 Feb 2021 10:28:18 -0800 (PST)
-X-Received: by 2002:a62:7896:0:b029:1b6:7319:52a7 with SMTP id
- t144-20020a6278960000b02901b6731952a7mr17982053pfc.30.1612204097451; Mon, 01
- Feb 2021 10:28:17 -0800 (PST)
+        Mon, 01 Feb 2021 10:42:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::436 as permitted sender) client-ip=2a00:1450:4864:20::436;
+Received: by mail-wr1-x436.google.com with SMTP id a1so17774725wrq.6
+        for <clang-built-linux@googlegroups.com>; Mon, 01 Feb 2021 10:42:02 -0800 (PST)
+X-Received: by 2002:a05:6000:1543:: with SMTP id 3mr19861502wry.254.1612204921821;
+ Mon, 01 Feb 2021 10:42:01 -0800 (PST)
 MIME-Version: 1.0
-References: <20210201010819.655597-1-masahiroy@kernel.org>
-In-Reply-To: <20210201010819.655597-1-masahiroy@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 1 Feb 2021 10:28:06 -0800
-Message-ID: <CAKwvOdnECGDFe=n6ms0Aj7FB0sN7ktZyk4dyVvV0UTgPvpuWpA@mail.gmail.com>
-Subject: Re: [PATCH] scripts: switch some more scripts explicitly to Python 3
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-spdx@vger.kernel.org
+References: <AAB32610-D238-4137-96DE-33655AAAB545@dilger.ca>
+ <20210201003125.90257-1-viniciustinti@gmail.com> <20210201124924.GA3284018@infradead.org>
+ <CALD9WKxc0kMPCHSoikko+qYk2+ZLUy73+ryKGW9qMSpyzAobLA@mail.gmail.com> <YBg20AuSC3/9w2zz@mit.edu>
+In-Reply-To: <YBg20AuSC3/9w2zz@mit.edu>
+From: Vinicius Tinti <viniciustinti@gmail.com>
+Date: Mon, 1 Feb 2021 15:41:50 -0300
+Message-ID: <CALD9WKzO53AXQW-qQ82VZ41H5=cGdLTUiEoz3X6BmPkb6XaTag@mail.gmail.com>
+Subject: Re: [PATCH v2] ext4: Enable code path when DX_DEBUG is set
+To: "Theodore Ts'o" <tytso@mit.edu>
+Cc: Christoph Hellwig <hch@infradead.org>, Andreas Dilger <adilger.kernel@dilger.ca>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: viniciustinti@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=n7LNoaNu;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::531
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=WssRBfUX;       spf=pass
+ (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::436
+ as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,74 +146,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Jan 31, 2021 at 5:08 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+On Mon, Feb 1, 2021 at 2:13 PM Theodore Ts'o <tytso@mit.edu> wrote:
 >
-> For the same reason as commit 51839e29cb59 ("scripts: switch explicitly
-> to Python 3"), switch some more scripts, which I tested and confirmed
-> working on Python 3.
+> On Mon, Feb 01, 2021 at 01:15:29PM -0300, Vinicius Tinti wrote:
+> > On Mon, Feb 1, 2021 at 9:49 AM Christoph Hellwig <hch@infradead.org> wrote:
+> > >
+> > > DX_DEBUG is completely dead code, so either kill it off or make it an
+> > > actual CONFIG_* symbol through Kconfig if it seems useful.
+> >
+> > About the unreachable code in "if (0)" I think it could be removed.
+> > It seems to be doing an extra check.
+> >
+> > About the DX_DEBUG I think I can do another patch adding it to Kconfig
+> > as you and Nathan suggested.
 >
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Yes, it's doing another check which is useful in terms of early
+> detection of bugs when a developer has the code open for
+> modifications.  It slows down performance under normal circumstances,
+> and assuming the code is bug-free(tm), it's entirely unnecessary ---
+> which is why it's under an "if (0)".
 
-Thanks for the patch. It's time to move on from Python 2.
+My goal is to avoid having a dead code. Three options come to mind.
 
-It looks like there's already a patch in -next for scripts/spdxcheck.py.
-("spdxcheck.py: Use Python 3") by Bert Vermeulen.
-https://lore.kernel.org/r/20210121085412.265400-1-bert@biot.com
+The first would be to add another #ifdef SOMETHING (suggest a name).
+But this doesn't remove the code and someone could enable it by accident.
 
-What about:
-scripts/tracing/draw_functrace.py
-scripts/show_delta
-scripts/jobserver-exec
+The second would be to add the code in a block comment. Then document
+that it is for checking an invariant. This will make it harder to cause
+problems.
 
-Or do those need additional source level changes?
+The third would be to remove the code and explain the invariant in a block
+comment. Maybe add a pseudo code too in the comment.
 
-> ---
+What do you think?
+
+> However, if there *is* a bug, having an early detection that the
+> representation invariant of the data structure has been violated can
+> be useful in root causing a bug.  This would probably be clearer if
+> the code was pulled out into a separate function with comments
+> explaining that this is a rep invariant check.
+
+Good idea. I will do that too.
+
+> The main thing about DX_DEBUG right now is that it is **super**
+> verbose.  Unwary users who enable it.... will be sorry.  If we want to
+> make it to be a first-class feature enabled via CONFIG_EXT4_DEBUG, we
+> should convert all of the dx_trace calls to use pr_debug so they are
+> enabled only if dynamic debug enables those pr_debug() statements.
+> And this should absolutely be a separate patch.
+
+Agreed. For now I only want to focus on the "if (0)".
+
+Regards,
+Vinicius
+
+> Cheers,
 >
->  scripts/clang-tools/gen_compile_commands.py | 2 +-
->  scripts/clang-tools/run-clang-tools.py      | 2 +-
->  scripts/spdxcheck.py                        | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/scripts/clang-tools/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
-> index 19963708bcf8..8ddb5d099029 100755
-> --- a/scripts/clang-tools/gen_compile_commands.py
-> +++ b/scripts/clang-tools/gen_compile_commands.py
-> @@ -1,4 +1,4 @@
-> -#!/usr/bin/env python
-> +#!/usr/bin/env python3
->  # SPDX-License-Identifier: GPL-2.0
->  #
->  # Copyright (C) Google LLC, 2018
-> diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
-> index fa7655c7cec0..f754415af398 100755
-> --- a/scripts/clang-tools/run-clang-tools.py
-> +++ b/scripts/clang-tools/run-clang-tools.py
-> @@ -1,4 +1,4 @@
-> -#!/usr/bin/env python
-> +#!/usr/bin/env python3
->  # SPDX-License-Identifier: GPL-2.0
->  #
->  # Copyright (C) Google LLC, 2020
-> diff --git a/scripts/spdxcheck.py b/scripts/spdxcheck.py
-> index bc87200f9c7c..cbdb5c83c08f 100755
-> --- a/scripts/spdxcheck.py
-> +++ b/scripts/spdxcheck.py
-> @@ -1,4 +1,4 @@
-> -#!/usr/bin/env python
-> +#!/usr/bin/env python3
->  # SPDX-License-Identifier: GPL-2.0
->  # Copyright Thomas Gleixner <tglx@linutronix.de>
->
-> --
-> 2.27.0
->
-
-
--- 
-Thanks,
-~Nick Desaulniers
+>                                                 - Ted
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnECGDFe%3Dn6ms0Aj7FB0sN7ktZyk4dyVvV0UTgPvpuWpA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CALD9WKzO53AXQW-qQ82VZ41H5%3DcGdLTUiEoz3X6BmPkb6XaTag%40mail.gmail.com.
