@@ -1,151 +1,123 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBBNN4KAAMGQE3ON5GRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB7XP4KAAMGQESLC2CXI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id ED65D30B3C5
-	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Feb 2021 01:02:14 +0100 (CET)
-Received: by mail-pg1-x53b.google.com with SMTP id l7sf6472988pgj.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Feb 2021 16:02:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612224133; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id D1E6730B531
+	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Feb 2021 03:25:03 +0100 (CET)
+Received: by mail-pg1-x539.google.com with SMTP id y34sf12796048pgk.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Feb 2021 18:25:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612232702; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kR6ng+qLLdO36z+pigYPnW4+Z8r6FBbyPyOELOiIsiSWkz2pg/SXpdBKGXP6rmMxII
-         tz5lwfHgUtkl4L/F9VaPH/bbNuDf72LUxOVYnmDYNMW9Z2UuzyVGgQWNt7uhSeGRepwG
-         ouoE8a9ECqn62KiUpiK0Wftbrrq1Asa9sjY+X9YK4JAEzKF2ZEYm9sM5RikrcDERWmtr
-         YVBAvsC6jiQa6qpbtDOtHtO/jzanPORQmWt+0cbEzRCKMmCHUZsHf+yy1RcEplbxk1/c
-         JXwkAceX4LNx2zdh+c0ieBZfxCQQfaB5uVwtn+cnAgEcao5KSFYeLq9t0o+O+Hd/a4i+
-         nB5g==
+        b=eY3jwzMDdjhbUNaWZpyf6YVWIfaL6RujULYpP371zjOrJJ8YxXKR7oWknij0cKLDby
+         /VaBmpgpGp8ikIXCN670B9A+W+gYff2dZpvolyjL7a0nzuDaEuMela1GgYOlHWrldI0P
+         CYO3EGA8kVnV3Dsx43Jv+KMYQ/Z0Wf6mgYua1etx2wzBS2lk/5GWyEcPbkSQrsEdVgpV
+         E9HLybeX0XZAhG8JF8pU5qZjSUDHB3134yCKyCenhkknwv08MdxNuebKUureeFLJIc5I
+         QgRcKsFHOlPrqoQv4EZv7y0yZHrJ+ZHMfogvqD9dDjlQwVYatF5116BIPqIfOR3azGQw
+         qaDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=Tem/XMJLAeDgtQJ+wHI0JICk0zccwqBr+StZGv7g7nc=;
-        b=bL2W9k49c7qbAmn2Vpg4ioW6sK62M5DAJhKTE8d99r84gXE1tLSK8F3m/Sm4a7AZmu
-         MkT+VbfKbu6AF1WECNM7n66PYPxNnu0oNzA0KSpLWgQMJNTZDpeZ5m5h8CF5J1qMJaPR
-         hzyiPIVu8PT1/fmb23orc4vaGTjL5u95g0P8GEyfzZkYfFyT2gDGM2eOVDuwzhlbb4kX
-         byF9s5OwXjiaAiph+w7M4RTSsHlebDm0gUgMX17oG/pUQ71lM7ug4JQYBuXrfMI4lUim
-         XLH3Nrd306uv+qxI1+p/pSnz8PaaOg3nGLA4bsikYkNjcVorAGRW9pNV24CBciGugpI5
-         99cA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=Z9S92YxPROqAbSHvXjV8aGDWnA/peBuPcWwn/gdQwig=;
+        b=SbU2fykgcADinXf6AF+HwgQ0XOTQO0aQtzywoIXbyYrmWBMtfFHFgFC8G+64tvOEVM
+         mkHzgknhGwDk/57gF8WtTUgdb+F7556U7yI9TelBW5wyf33AqhE5oM0eqppyJ6FbXfOv
+         KKXmEwnujmOAqDAg4phYpaCgcsKahfoH7rYho89ivJN/DCunIbBsMjCeptL9wrvUIn9d
+         STz5XEmcW6ZSHQ9My3vVX75uSfKou5VHqvnINQOzv21KSWz/KOiPPaqcCOzvybApEOpd
+         s1WlAl1Z9TIdqPoF+U1wn/liBFC4vD2ZRF5d+lwSbGDp+6LWQNXCcfr1yXYhgV5UNlf/
+         xsvg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Pf7dp5TH;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oaHaPq6x;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Tem/XMJLAeDgtQJ+wHI0JICk0zccwqBr+StZGv7g7nc=;
-        b=Uwh8JGgLhEIeSeLX3jXq74UMhpJpjHgGuqp/Vzow6Bd0laNUjb7WLpp2RGOG3mrpDr
-         AK4SwufHZPOcFnhsOR83hOedaA/C5DTTSoUUcNcS+mbxU9YRVZQkEF/cJcwOujjWNSuf
-         IppddUXyPa+OhzU5Q6srZa2nihwN5JcGlzyjZM6ZDwmdP/faN+E7jGbsvD8Se9/lVuKB
-         9iTQkYh6wAEO7Irlr38ILZIYQ/NJRoEzu2fK/apWv1xVUh5xA8D9tCJC4QrCAc4Mv/6W
-         jp5zFNk44+YX4Lhdl25phhd8Jm+OTCp185aFw8gS22RhSGILitsohr6lhMrIfNhQ6mL6
-         l9/g==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Z9S92YxPROqAbSHvXjV8aGDWnA/peBuPcWwn/gdQwig=;
+        b=A92zVkqZaAOuY4yGo5Qmxppf4uDdxSCJo2KZk9X4lF8kXNqtKy3+nVSo58QS0Rt3iL
+         JVeI+LHYqv0yJz0LBg+DQH7IIxDNapl/FKl2Zdi0NZR5TZkuWMdjmbHdlHIDXWT38mX1
+         /hT98Gjmh8ash3B62EC5oQk4W3o7vsoqo+8LuEG6RVMd1hm6l9y+iN9SPECjTFpkxVK/
+         8D6Euw7EIFAnpRMvKkSqwyeGbHzn4A2iQCnwXB4j9A143I6b5bhDxJYMSDry6cVjrqsP
+         NVSagt2VIaYQtZsvvoXuOG9dsuX0eCc3v3ksaiAyAegqzwkBvZSuQgfEiPUtp7a/0Fh9
+         YujA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Tem/XMJLAeDgtQJ+wHI0JICk0zccwqBr+StZGv7g7nc=;
-        b=f+TNkFD7fcGyE69v/GYnr1eSGUZsgi1R5D/5FhLJntUmnrvQhpGg0Pt49IopVgORk8
-         UJSYn98CG4wdxU4poeeEVl2s5NQSASbPFLzdKbQDZjqU4waCLvfFAS3+S81jmvlNIZnt
-         +aBQ5CmlXzAAnw2B+cBlQVXQ3Mz/YCKS5nxKntnVsfSHynw3NmAo+Jv8Ol2c4MEy2uOM
-         mVPsTG1Dgxojwdg4NlBBa3uElO0l7qX4F/M6smqadKVrt0A5Z2gNuf5BNkQCaIYBiqdB
-         LAJC30VTCI/Uw2YSAlJVO+qnXTATeBYovxcZ22CQc3Cla7i8Wotmh/xL1cA3OYyvi0Hg
-         ONgA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Z9S92YxPROqAbSHvXjV8aGDWnA/peBuPcWwn/gdQwig=;
+        b=ocTl7v+cRA6IKh1kWhvCcoYqeQwB37IZghyTArmKFuXnu2trb2Zxmqtyt0kGvIrws1
+         IEpM8xCRXvKltgHyUEX6WR4EjStxvKFeaMuPqDtraEKwpjDt/IcOAe5dYYKWCdqtxEKX
+         lsRKcplyN+6TCgBaifzztt5PNlGPizC6J3nZjkWabbg6wiw1TuI5/pDINgUw1yz1tb0q
+         ImlDEq0aojONPW3Hahkjr6kNTC2oFT451/g7xDIbdLBKC4BC7QqXnbi5aNhLyZ1ifYdN
+         Mu+Md+tWhcY0nCFKSBAXM5O6+x2MSI7AyO2/y0h0H+cSu3D0WqZA+ndo6Qq7UakWbTyC
+         u4cA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5335lObWcS8Ww889GebEJ6rN0aJvKLsIQKvconxSr7kcjRdSWGoY
-	s6uqQQ4DvAvm3+e5sUy3mJA=
-X-Google-Smtp-Source: ABdhPJw37uv/cV1iHzEMA+kuhjWTjMXHcKagv9rzc++oQfaEn+YpmpFEd0NggVUddT+K0e+hwClp+w==
-X-Received: by 2002:a17:90a:a10e:: with SMTP id s14mr1295168pjp.133.1612224133451;
-        Mon, 01 Feb 2021 16:02:13 -0800 (PST)
+X-Gm-Message-State: AOAM531JIz/si+0EP7jS6KAO+Vvf7UuBrzcA4kvLA5DAL9oF+d6obr0g
+	1kIfzit8HWQ49kpC9QBjUSw=
+X-Google-Smtp-Source: ABdhPJzMG5PJKDZiOERBWz6Wc/dQggvnN0n45dnQhbPzz76OcKdH/pc/oa11uwWsX0rz+V7EmsmezA==
+X-Received: by 2002:a17:902:201:b029:e1:20bc:74ca with SMTP id 1-20020a1709020201b02900e120bc74camr14451671plc.31.1612232702493;
+        Mon, 01 Feb 2021 18:25:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:fb01:: with SMTP id o1ls7117766pgh.7.gmail; Mon, 01 Feb
- 2021 16:02:12 -0800 (PST)
-X-Received: by 2002:a63:db08:: with SMTP id e8mr19154459pgg.261.1612224132866;
-        Mon, 01 Feb 2021 16:02:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612224132; cv=none;
+Received: by 2002:a62:19d8:: with SMTP id 207ls7445771pfz.5.gmail; Mon, 01 Feb
+ 2021 18:25:01 -0800 (PST)
+X-Received: by 2002:a63:5309:: with SMTP id h9mr19489136pgb.19.1612232701880;
+        Mon, 01 Feb 2021 18:25:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612232701; cv=none;
         d=google.com; s=arc-20160816;
-        b=h7E1PfSLyv5GfKCEzGru/bpDA3k3giqgO8Ynz5qkJe49pe4rgkpWNqMU8uZ2JaQRHu
-         d4V3yafU/dFSPuama9t02UVnGlTkB2aDg3oXJlh4uYqq5EuI6MBy4DnnZlT+JOjC91RI
-         jjVbCaIKiHE/jAZLlYcakGIW/BCMIfciG+uYhpKMxqEkJRo2QsJnQre81Yb4+a8xxeTI
-         vhEgthsA8N9zsFskichn7X0DUnIs6TgpGpMvRXL2cpsyTy97zUyMfHZXUw69qs7h/XPS
-         GM7GUmDA3/g4FSqTGD80M9myOOjH7MPX3+2xEHCtcIySxuvcluELIU6QS3tutMZEIy2H
-         VfBQ==
+        b=HLSpNcDy4bf7OF9nV2BA+5qJPP7PkNRUUG7I7WZAsT0227OxGv62sNtIuZSdehXK/e
+         jiCDjrFJSAxeFIclre8XCCCI8zRtTELYEflDUmYEZYRns89ipS3FsMK4a65pTC/NCUBy
+         p3BpspwI5jSuUdpZBheVuAj+SNrmb9T8WwQIS7gEoK6vhuw32Y9hBPobcUmKz38iZuLa
+         VAgm73fh1ADWgT9ohudIDc2VLK0n99bpgYDfnlgVRqHm8x3kYSsUNkuBcl2LhG0BdDfn
+         qu/A8XE9lR2OBZU9xGYOiutYWCA9W0czrwNqfDY+iqynLwTuFFj7z0nnlQrhFdtN0+tK
+         u/9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=xMnypghb7eobehgvuvyvI6ftY8R6Uotx581HxzZ88OM=;
-        b=UAfM/D7dgVvrWfC2qpwhwfUeTbG4/X0Dg2f2Llf0ELkYz/pVbu4ha5Rl0M3D0W/7w/
-         BHamx5EBg5bY5OcX41svPQ7RsuLqMa5FrEgr2CATc4vi00ccBnAQwZkrAxBPdvqjQA/L
-         cAYj6vnaT6AoHJWXkmVMncKWKvW7rGu7Ui1x7lj9wyKlqbROCt/KhRUZ/YTr8aOJRIFK
-         ldkCck9J+k5QMXLVczNsH74qmpjlnbIoNBvM9PA5EsSTDjdN9taxjWOZ681mfAgG/C8+
-         qv4DZ4tBgAHh4kcwhRdr2VhjfV3/G4BJSbrW/U2mn8AThB9N1H+2xgNNOhWXESPTrmUX
-         laNQ==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=Ma+fjx1SUCTiz/bG2e3ixUh9rhnWLUhzdK83PHNNXo8=;
+        b=SYIhOulAsStXqwbuKEPNK+qVAhuuQRntmbXFzqKE7MRXacI3cTnD2fQC6AMu4nRoeJ
+         +kd4TkRJlHeC6adMRAg2sELetPQOrtHF9kvjLPmhhxWWJaZpw11fLgIc/QCGBsijYC9X
+         WxWThoSONE2Rq2oJRl7g44sPH39N0UiHWwZAIrrW8urjcU8WKFONTQpfjjWu769kfrRW
+         f21egr36Os7Oxw8NUeLw82MkLtDn5SikOBXYCXM3DHMebMAZYNtGGwkwUlYoJHHk1lCF
+         6SA2W60UAb2IvBq5HzzjMMJBgH6r+TGry4+4HkQrKi0Zpn1l2Ur1ugVRyD90y7Dkup/w
+         iP4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Pf7dp5TH;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id 13si1020311pgf.0.2021.02.01.16.02.12
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oaHaPq6x;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id y16si305580pfb.3.2021.02.01.18.25.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 01 Feb 2021 16:02:12 -0800 (PST)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-507-PjoyMbgUNiSDiR5nWhS47g-1; Mon, 01 Feb 2021 19:02:10 -0500
-X-MC-Unique: PjoyMbgUNiSDiR5nWhS47g-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9FE43107ACE6;
-	Tue,  2 Feb 2021 00:02:07 +0000 (UTC)
-Received: from treble (ovpn-120-118.rdu2.redhat.com [10.10.120.118])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 4250E5D9CA;
-	Tue,  2 Feb 2021 00:02:05 +0000 (UTC)
-Date: Mon, 1 Feb 2021 18:02:03 -0600
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Julien Thierry <jthierry@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-efi <linux-efi@vger.kernel.org>,
-	linux-hardening@vger.kernel.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Peter Zijlstra <peterz@infradead.org>, raphael.gault@arm.com,
-	Will Deacon <will@kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Bill Wendling <morbo@google.com>
-Subject: Re: [RFC PATCH 12/17] gcc-plugins: objtool: Add plugin to detect
- switch table on arm64
-Message-ID: <20210202000203.rk7lh5mx4aflgkwr@treble>
-References: <20210120173800.1660730-13-jthierry@redhat.com>
- <20210127221557.1119744-1-ndesaulniers@google.com>
- <20210127232651.rj3mo7c2oqh4ytsr@treble>
- <CAKwvOdkOeENcM5X7X926sv2Xmtko=_nOPeKZ2+51s13CW1QAjw@mail.gmail.com>
- <20210201214423.dhsma73k7ccscovm@treble>
- <CAKwvOdmgNPSpY2oPHFr8EKGXYJbm7K9gySKFgyn4FERa9nTXmw@mail.gmail.com>
+        Mon, 01 Feb 2021 18:25:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id AB04D64ECB;
+	Tue,  2 Feb 2021 02:25:00 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: [PATCH] arm64: Make CPU_BIG_ENDIAN depend on !LD_IS_LLD
+Date: Mon,  1 Feb 2021 19:24:42 -0700
+Message-Id: <20210202022441.1451389-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdmgNPSpY2oPHFr8EKGXYJbm7K9gySKFgyn4FERa9nTXmw@mail.gmail.com>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-Original-Sender: jpoimboe@redhat.com
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=Pf7dp5TH;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@kernel.org header.s=k20201202 header.b=oaHaPq6x;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -158,147 +130,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 01, 2021 at 03:17:40PM -0800, Nick Desaulniers wrote:
-> > > > > Rather than tightly couple this feature to a particular toolchain via
-> > > > > plugin, it might be nice to consider what features could be spec'ed out
-> > > > > for toolchains to implement (perhaps via a -f flag).
-> > > >
-> > > > The problem is being able to detect switch statement jump table vectors.
-> > > >
-> > > > For a given indirect branch (due to a switch statement), what are all
-> > > > the corresponding jump targets?
-> > > >
-> > > > We would need the compiler to annotate that information somehow.
-> > >
-> > > Makes sense, the compiler should have this information.  How is this
-> > > problem solved on x86?
-> >
-> > Thus far we've been able to successfully reverse engineer it on x86,
-> > though it hasn't been easy.
-> >
-> > There were some particulars for arm64 which made doing so impossible.
-> > (I don't remember the details.)
-> 
-> I think the details are pertinent to finding a portable solution.  The
-> commit message of this commit in particular doesn't document such
-> details, such as why such an approach is necessary or how the data is
-> laid out for objtool to consume it.
+Similar to commit 28187dc8ebd9 ("ARM: 9025/1: Kconfig: CPU_BIG_ENDIAN
+depends on !LD_IS_LLD"), ld.lld does not support aarch64 big endian,
+leading to the following build error when CONFIG_CPU_BIG_ENDIAN is
+selected:
 
-Agreed, the commit message needs more details.
+ld.lld: error: unknown emulation: aarch64linuxb
 
-> > > > > Distributions (like Android, CrOS) wont be able to use such a feature as
-> > > > > is.
-> > > >
-> > > > Would a Clang plugin be out of the question?
-> > >
-> > > Generally, we frown on out of tree kernel modules for a couple reasons.
-> > >
-> > > Maintaining ABI compatibility when the core kernel changes is
-> > > generally not instantaneous; someone has to notice the ABI has changed
-> > > which will be more delayed than if the module was in tree.  Worse is
-> > > when semantics subtly change.  While we must not break userspace, we
-> > > provide no such guarantees within the kernel proper.
-> > >
-> > > Also, it's less likely that out of tree kernel modules have been
-> > > reviewed by kernel developers.  They may not have the same quality,
-> > > use the recommended interfaces, follow coding conventions, etc..
-> > >
-> > > Oh, did I say "out of tree kernel modules?"  I meant "compiler
-> > > plugins."  But it's two different sides of the same coin to me.
-> >
-> > I thought Android already relied on OOT modules.
-> 
-> Android Common Kernel does not *rely* on OOT modules or compiler
-> plugins.  Android doesn't forbid vendors from using OOT modules,
-> though, just as the mainline kernel does not prevent modules from
-> being built out of tree, or users from insmod'ing them.  It's
-> certainly a pragmatic approach; idealism doesn't work for all OEMs.
+There are not currently plans to implement big endian support for
+aarch64 in ld.lld but if it should be supported in the future, this
+symbol can depend on the version that first supports it. In the
+meantime, prevent this symbol from being selected to avoid these type
+of build errors.
 
-No judgement, RHEL is similar.  Linux is nothing if not pragmatic.
+While we are here, the indentation of this symbol used spaces since its
+introduction in commit a872013d6d03 ("arm64: kconfig: allow
+CPU_BIG_ENDIAN to be selected"). Change it to tabs to be consistent with
+kernel coding style.
 
-> Personally, I lean more towards idealistic; I prefer in-tree modules,
-> dislike compiler plugins (for much the same reasons), and idealize
-> loose coupling of software components. This series looks to me like it
-> tightly couples arm64 live patching to objtool and GCC.
-> 
-> On the earlier thread, Julien writes:
-> 
-> >> I think most people interested in livepatching are using GCC built
-> >> kernels, but I could be mistaken (althought in the long run, both
-> >> compilers should be supported, and yes, I realize the objtool solution
-> >> currently only would support GCC).
-> 
-> Google's production kernels are using livepatching and are built with
-> Clang.  Getting similar functionality working for arm64 would be of
-> interest.
+Link: https://github.com/ClangBuiltLinux/linux/issues/380
+Link: https://github.com/ClangBuiltLinux/linux/issues/1288
+Reported-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/arm64/Kconfig | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Well, that's cool.  I had no idea.
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index f39568b28ec1..5ddf9fe7b4ee 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -952,8 +952,9 @@ choice
+ 	  that is selected here.
+ 
+ config CPU_BIG_ENDIAN
+-       bool "Build big-endian kernel"
+-       help
++	bool "Build big-endian kernel"
++	depends on !LD_IS_LLD
++	help
+ 	  Say Y if you plan on running a kernel with a big-endian userspace.
+ 
+ config CPU_LITTLE_ENDIAN
 
-I'm curious how they're generating livepatch modules?  Because
-kpatch-build doesn't support Clang (AFAIK), and if they're not using
-kpatch-build then there are some traps to look out for.
-
-> > GCC plugins generally enforce the exact same GCC version for OOT
-> > modules.  So there's no ABI to worry about.  I assume Clang does the
-> > same?
-> >
-> > Or did I miss your point?
-> 
-> I think so.  It would seem that the current solution for stack
-> validation would require multiple different compiler plugins to work
-> reliably.  If jump tables are an issue, I don't see why you wouldn't
-> pursue a more portable option like -fno-jump-tables first, then work
-> to claw back any performance loss from that, if relevant?  Then
-> there's no complaint about toolchain specific implementations or tight
-> coupling.
-> 
-> Objtool support on arm64 is interesting to me though, because it has
-> found bugs in LLVM codegen. That alone is extremely valuable.  But not
-> it's not helpful if it's predicated or tightly coupled to GCC, as this
-> series appears to do.
-
-I agree 100%, if there are actual Clang livepatch users (which it sounds
-like there are) then we should target both compilers.
-
-And yes, objtool has been pretty good at finding compiler bugs, so the
-more coverage the better.
-
-I like the -fno-jump-tables suggestion, assuming it doesn't affect
-performance significantly.
-
-> The idea of rebuilding control flow from binary analysis and using
-> that to find codegen bugs is a really cool idea (novel, even? idk),
-> and I wish we had some analog for userspace binaries that could
-> perform similar checks.
-
-Objtool is generic in many ways -- in fact I recently heard from a PhD
-candidate who used it successfully on another kernel for an ORC
-unwinder.
-
-It could probably be used on user space without much effort.  That was
-an early original stated goal but I definitely don't have the bandwidth
-or incentive to work on it.
-
-> > > FWIW, I think the approach taken by -mstack-protector-guard-reg= is a
-> > > useful case study.  It was prototyped as a GCC extension, then added
-> > > to GCC proper, then added to LLVM (currently only x86, but most of the
-> > > machinery is in place in the compiler to get it running on arm64).  My
-> > > recommendation is to skip the plugin part and work on a standard
-> > > interface for compilers to implement, with input from compiler
-> > > developers.
-> >
-> > I like the idea.  Is there a recommended forum for such discussions?
-> > Just an email to GCC/Clang development lists?
-> 
-> linux-toolchains@vger.kernel.org is probably a good start.
-
-Thanks, I'll write something up (maybe a more specific proposal) and
-post it.
-
+base-commit: 88bb507a74ea7d75fa49edd421eaa710a7d80598
 -- 
-Josh
+2.30.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210202000203.rk7lh5mx4aflgkwr%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210202022441.1451389-1-nathan%40kernel.org.
