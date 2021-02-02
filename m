@@ -1,122 +1,154 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQ5446AAMGQEYTPUTAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBFOE46AAMGQE5UWTMMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95C6C30CFCF
-	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 00:20:36 +0100 (CET)
-Received: by mail-pg1-x537.google.com with SMTP id f16sf15272128pgh.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Feb 2021 15:20:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612308035; cv=pass;
+Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
+	by mail.lfdr.de (Postfix) with ESMTPS id A49F830CFE9
+	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 00:36:54 +0100 (CET)
+Received: by mail-vs1-xe40.google.com with SMTP id k20sf3472400vsm.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Feb 2021 15:36:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612309013; cv=pass;
         d=google.com; s=arc-20160816;
-        b=El24MM/ON0nI0TLd/RYArSVgmI7IZXVGJdcx/1wLU2F1I0wwFDXWMO2zj+NcXQYGKH
-         /NTK5GbjTUNb1Ozs11MAia5OUukQiV55qOcxQDy+frYfS8BddkydrspX6NCMj278sm01
-         FEvFL2KB/tJV/SM7o7s6WjksZCHSEDy12g5cz56wQy1ru1rbU5XPBxsUcPWghjrmEh57
-         xYBL512lglT8hSKxBYkFuXgkMHTqmAoaPvaKJ2ZyFr/k7GcZEI4Omyw7UoJBZvBjiBNb
-         0fYa1At2JlOVLrQlo0lNQylIbzkM8IIOg+XKogQw9FpFWHBLWPoIEQEE7/HoP8YGJfQe
-         44qg==
+        b=CdRRMagiZkZ3VkUrLZacxfusT1HmPD6vicOXjpbtnJTb0Pfj+LM5MHTAxMgdk7VBIT
+         H7JKWohSFK2auzzfXsnaetX/tLkd2GWxco1hK9+lHFlALzVAxBvsyyasYvLlJMwKwHVr
+         XK44/eLfebj0pSk2fxQnaizLoudJjk5yFzi6oEm/4uofnOD/w5uqetfAh6PPTIujXyz1
+         niqEnktOMvqecMrJ2mwI5+Fh7nxyXv80BpW0ybFXDV1o3cj8RqjlDCG0edYLzo7V7qVv
+         D2IRsWqLk9hCFg5o8ilV9t10MQV4pdb6k9KgsJPF7lPpdR+lqRWT0Gz5G9qYendkW8KS
+         R4qQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=MWoSPPEK1ZVO6PeKsOGDu0Xyja509ZsBrYEFxY9KVXQ=;
-        b=MKNdk8kWE4ZkcRRr9Jf0bYrsv5pqmTXkXUNHczTKjfrLxAyRaswGfWhq2cDHN02iJK
-         xzBcEuBkSwDhECXh385vvrOaUlg1+0J0dId9vHvZXV8mV90LUAEnhXuwOrJsDI9BIJYU
-         CsdHucGx6DRUcjyZM+KCPapyXSWb+sqdxqCaQJ+dvBsTfxi+eAc0+hoVniPl8RBVNg8O
-         jYyDEnbgrSqA2+J6O4DMIruyxZVNwcVJQWdFIJHV1BAgw4sATJU8ZNAoz9jdsbMAJ93/
-         V8jIphXGNTo/meSgET0MIunIj6ABL+RN6RFZUAPLW63vj58pLxOuftec8PJGxm9Ia2Ol
-         ysrQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=kEN9sdU+mp45lvXUPSRKMoc0SXW4BLDcVzm24WfxZ+w=;
+        b=Upm9GtVqDleOFOr1j2zkYNCkHMSCzLshRdeVERoRTzyDbwaBGjKjCWHKUxmiYi0SsN
+         hShNpfW1R2Yxej2cSuR77KHLDYvzRaCdmygdL4sX0GSdeB/CfLUcRz3xzPXnESm4sy2v
+         ry1SBAhCjpMf3wGYWrSRLMYuofMgHZJ2WG51w5lGFdB0f+76dysmB+i1toZw5vvSqq+R
+         idLowGPZhPkRlHOnC2dleSI7LUKBgShhJvk+FPkYIJcjhOast0n1J7lmQsB1j1S8pRKp
+         4wSjT8v9pS/wHRTUm/B0XVA8PWtxvnZSwEuY+J8J3GmZUO5+C0JVgHhoZPBkDjggN7v2
+         lXFw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=tguqq1BX;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WFQlhIFj;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=MWoSPPEK1ZVO6PeKsOGDu0Xyja509ZsBrYEFxY9KVXQ=;
-        b=AglpUhKgssJQvv4RPTdqfxzBrIIeXuqiOuf7xfiENMGKQW1kYRnC2Os/MVx4a4rrhm
-         BtpLryaBwlwdpsn6i11jaVmHIyhZMowBeLRGQ8WukzG01yghZ7CoOvMaMzbUnTsVQmvY
-         xSJp9Dj4NHbkTfbU3VIVgmFHtwpVaiGt3eIbYSfHMfiqHiIBXayLFMsDp5HWVThZfWAV
-         a4Tn4xTdeb7jUTdE0XnTSQZoTidylj6WrUU2Qo0YeyTAflV+lepNN08mw7P44pABwmGy
-         E5p1sMeBjkoAW5VyI5NKtTYra9sNd2YDYy/0jvUEr7s4l/MxqmhAqyqq5L6uGkQ3hpdl
-         o9aA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kEN9sdU+mp45lvXUPSRKMoc0SXW4BLDcVzm24WfxZ+w=;
+        b=aXYWQdskGiIAYgAWIHGk1P7ffJBGxbZGbFM2G3+tKtdEJh3gtM1sJl8HzvUx45chIE
+         dB6oh83s+llot8pgdZkN7no94BZmUE2/clZind1z+fhgWMvK+6G3FxLHeDv3TdOB7T9Z
+         wXsaTqx7qVQ5KcrzuIjZSHP0Cm2pd5HfxzS9hBQGj5SPpbNoMZKe3+L2n0xQswaSTVVP
+         q/b7dplNwzdH7d2N1IOmgUDrCfOSI5ZeICCwMKXylK603+c2Wey6IJQJr86iWTNI2Lfm
+         FDwxz2cXiJIYsEeHsd/ZTD5swGTBFUVKD5N1VHjeN3pF5W6Btk3yj9I79V3yTVjTGz4r
+         zjzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=MWoSPPEK1ZVO6PeKsOGDu0Xyja509ZsBrYEFxY9KVXQ=;
-        b=TlP8mn8rm+Ha5Gh27EdWgrATxpu73rFCeFSSHokpnbJH3B2eJk/zPhf4/VwfmHOVfM
-         zfPuKU7YTj9ovf3+aMuOR4MG7XBmZGWg4hJP+Sri2W6Kx3Ec4d7iMjGg6go3VAA1vkBm
-         gZ/Rthz6xZsHGh38aY0/t2xEbfio4fid/Jhv9B9voXFgL4CZaerOaEhLDQK1Obeii5hc
-         4OVSmwi4mAsi4cTfYbeWYKCV41JQellPH5k5butWY25RUmOhay92p2IxVXrNufnm8QaH
-         /OlFxHfBi0fK2I8WuVXcCTxSZVlvBWxdVjYgKguR7weA+M480n8/2DzgD9x/hDQ+Eoo5
-         8LEg==
-X-Gm-Message-State: AOAM5328B2ZuuXQbjG7EL1UhTP5SvwZ7Qmm029tC3ma5NVF3LLEiftl/
-	xZ9yMu78jM6CdfnuJgPLxi8=
-X-Google-Smtp-Source: ABdhPJyoBeIVHbLiDALEPUOQdVKwidORctK57dZlyMqgXiGsqh8QjwHxoJPwUKpQ2fDlj1TEydEMPw==
-X-Received: by 2002:a63:4f1e:: with SMTP id d30mr435991pgb.203.1612308035342;
-        Tue, 02 Feb 2021 15:20:35 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=kEN9sdU+mp45lvXUPSRKMoc0SXW4BLDcVzm24WfxZ+w=;
+        b=mfPTXmFGwyMumfYREhsK/AR8RKIEw0QX6x3ZYAeL7wC/gIye9T8m2N4oVl0ArgDsHd
+         7Wlx6AZEuyR2QcQrjt0XL5Pog9UAEzShCOLrz4/5rWIP4970yjClaNjqZqfmvxHs32YV
+         CpLO6TJOSFDHudC5vEaia+Nhh+7xzp64bVXWMTxFZQHBCFyaV69QgVAMOPgODadxSeob
+         KFUEvE6JqYSsA0NvONlcBfOCuCnktYTTH5S+SZJtPaukUecgaDSLf8Mb5mUWJZur9z9c
+         8g5BCw3cjYahNFqgUcd4Z0EV5sst4v8IORTgpsUQdjowJ1BBalJrvuRYegOGUSJxvE2s
+         YzTw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532YTwyLfnDMc/7eQ2PVWmM4UGloxgkVnR4GKQPzf3zb4/USm8jR
+	k+xaySprtkqvPKjpgjxSBaU=
+X-Google-Smtp-Source: ABdhPJwNW7hGdKolDUEiZsjDuC+/EvRpuhOKr9wGhz8t/GWx2FWvQvuzNPTgd5ESNv1lgh5VSPgpBw==
+X-Received: by 2002:a05:6102:2279:: with SMTP id v25mr199015vsd.11.1612309013762;
+        Tue, 02 Feb 2021 15:36:53 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:6d0e:: with SMTP id i14ls82717pgc.8.gmail; Tue, 02 Feb
- 2021 15:20:34 -0800 (PST)
-X-Received: by 2002:a63:c70c:: with SMTP id n12mr440419pgg.347.1612308034631;
-        Tue, 02 Feb 2021 15:20:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612308034; cv=none;
+Received: by 2002:a67:804e:: with SMTP id b75ls18896vsd.1.gmail; Tue, 02 Feb
+ 2021 15:36:53 -0800 (PST)
+X-Received: by 2002:a05:6102:1245:: with SMTP id p5mr157041vsg.53.1612309013333;
+        Tue, 02 Feb 2021 15:36:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612309013; cv=none;
         d=google.com; s=arc-20160816;
-        b=mtC66iZCymuUetT8p9lpEyKDEI4F3htgqonjA2vDVXl8zqnybEjbAiW57HSuJjDEh2
-         xqOu8Du5o0ZbHPX5A2m/h7Gfj7Uck5Yzp+jSaJF963fLBb68EwOdIi6J6WElYNDYzeNh
-         6w59Dyl4UyFPsb/TBHGA/fiyrXS1ehLflg1zTQ4mSkYGpLJQKf4b3wqoETTweNPgApCA
-         WojSQ2EfpoB3nBAfJT4UAL0KRCV4Or3n0NN6uX59renFt4Ss6TdHIekYEpkkm2sQRhpo
-         cWZ4EJyr3KKYgZ+zIJcp2noC2IfK4cxjjtLKrgDFeYJBLUpA4595vqhwVWvC+J2t6bS5
-         UY3g==
+        b=cAxHRtJjIkavso0msM8t3x/vtnNZPAi7M7wo6xvIBVT8Tm8862a1Mc9YqZiLilQ1Y3
+         u4r+EZmzAbuk9Qy3CxrOUIvVDIMlP7i0v0zWh9ZMRWyHVG5XtZUOrpFTuZupesg5eM7L
+         ByNwv6AVyVq2PcwJPPKvULJlQtaKCrJujXDeeAHs6qDdqBL0QWyhZGW1jVKkEwJyUflr
+         whoJv1Kfr+K+t+g1SwMehWVpUBY3d4LVItU1o/VsU9HRywNj40TD74UaZNQI4i/5qxRZ
+         yhnzUQiQ8cZATgKXRo/egB3eJ5lea7wvGPZzhh7hC23zk8/3WvlqyVxWR8c3wsoGwuMc
+         hZfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=XEuEO3RsVjr9B2SQWPNe7La7w8u1REO3RR1aADbKhKc=;
-        b=VSDX4bESnpOmsoGFpmqJS8tdM6T8FbjM82K1aAHgdbzq2eNcr7fgyAXZPHWFSoQnyj
-         k4jYV9xTSWVXYYS80CT1lp+q3hnW9rs7uN8rNZIBj3x6s1JCt+afYiliaWz23b216dKt
-         0BnDmLj3L8u3xmYje4bUUQIoMN/pWX7z+KwlP48PGjgqv+eJIDfPNu6h7/XMqGoPx+ua
-         59/LHXLoHwJcQ8ENVEJ8VGQG1qjb4RO9BTf/+WBo6h6of5bNuYx7ecyD8BmffGjODkUV
-         pjPVEcHJ8U5bNo1d9/6Wk/R3B6cfOz+8AaCx5br7q2VZ0fleV9/3OR9bn8QVte+yAnrx
-         +LUA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=jss9BHM8ER2sH3J1Y701o3PQpwb7W/xqsNFGP2giOhw=;
+        b=sSgY8zcky9M7YCpUo3bLdgpvDPdFyZtPqEZiWRdmIrtByCZ8Rs5pUsQicrjWcmE63E
+         EAl5c+081obkGDHPHPu6MYlX+I/KNo3LU1/fZ/lfkB2mm63ZAwUYWjtlw6jDabVgQfx1
+         nlS6rNUY2IZpa256S58DOgcdPtngf6hANo/XFHJypf8tMvzXBYm8RrTuIyEs9B/mCdNm
+         eMiCrOKWFvRHVsueO/Vnt2azsSFaJ41iAp71UW+BrT12Cmti4f8TyUwEc7V6nyzfKyQf
+         vq7uh45rgMkYKXCo2sS8kxaEgeiSxl2slhVB9IYPTvG+LbMGIEfg4+w8HEKDoRvBncW2
+         6ihw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=tguqq1BX;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x62b.google.com (mail-pl1-x62b.google.com. [2607:f8b0:4864:20::62b])
-        by gmr-mx.google.com with ESMTPS id j11si25833pgm.4.2021.02.02.15.20.34
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WFQlhIFj;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id p73si14951vkp.3.2021.02.02.15.36.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Feb 2021 15:20:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) client-ip=2607:f8b0:4864:20::62b;
-Received: by mail-pl1-x62b.google.com with SMTP id b17so13383165plz.6
-        for <clang-built-linux@googlegroups.com>; Tue, 02 Feb 2021 15:20:34 -0800 (PST)
-X-Received: by 2002:a17:902:ed94:b029:de:8844:a650 with SMTP id
- e20-20020a170902ed94b02900de8844a650mr526774plj.56.1612308034051; Tue, 02 Feb
- 2021 15:20:34 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 02 Feb 2021 15:36:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-533-sH3jKwTvP9a0zdxKzgF-SA-1; Tue, 02 Feb 2021 18:36:49 -0500
+X-MC-Unique: sH3jKwTvP9a0zdxKzgF-SA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 58CD51015C80;
+	Tue,  2 Feb 2021 23:36:46 +0000 (UTC)
+Received: from treble (ovpn-120-118.rdu2.redhat.com [10.10.120.118])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 9A89B6E510;
+	Tue,  2 Feb 2021 23:36:43 +0000 (UTC)
+Date: Tue, 2 Feb 2021 17:36:36 -0600
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Julien Thierry <jthierry@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	linux-hardening@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Peter Zijlstra <peterz@infradead.org>, raphael.gault@arm.com,
+	Will Deacon <will@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Bill Wendling <morbo@google.com>, swine@google.com,
+	yonghyun@google.com, live-patching@vger.kernel.org
+Subject: Re: [RFC PATCH 12/17] gcc-plugins: objtool: Add plugin to detect
+ switch table on arm64
+Message-ID: <20210202233636.nvbl6wivgnhacbvg@treble>
+References: <20210120173800.1660730-13-jthierry@redhat.com>
+ <20210127221557.1119744-1-ndesaulniers@google.com>
+ <20210127232651.rj3mo7c2oqh4ytsr@treble>
+ <CAKwvOdkOeENcM5X7X926sv2Xmtko=_nOPeKZ2+51s13CW1QAjw@mail.gmail.com>
+ <20210201214423.dhsma73k7ccscovm@treble>
+ <CAKwvOdmgNPSpY2oPHFr8EKGXYJbm7K9gySKFgyn4FERa9nTXmw@mail.gmail.com>
+ <20210202000203.rk7lh5mx4aflgkwr@treble>
+ <CAKwvOd=R_ELec5Q3+oe9zuYXrwSGfLkqomAPOTr=UH=SZPtKUw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20210128014539.2962552-1-ndesaulniers@google.com> <CAK8P3a0VVCuo===sUYA-2QYRr1bbYj3CptT3dJsBUYmpNheY2g@mail.gmail.com>
-In-Reply-To: <CAK8P3a0VVCuo===sUYA-2QYRr1bbYj3CptT3dJsBUYmpNheY2g@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 2 Feb 2021 15:20:22 -0800
-Message-ID: <CAKwvOdn-df5=xEj-TTNrHvihDKGCC3vWA6Q0oZ+GycezsfAMyg@mail.gmail.com>
-Subject: Re: [RFC] ARM: use .arch directives instead of assembler command line flags
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=R_ELec5Q3+oe9zuYXrwSGfLkqomAPOTr=UH=SZPtKUw@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=tguqq1BX;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@redhat.com header.s=mimecast20190719 header.b=WFQlhIFj;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,215 +161,145 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-It looks like David's LLVM patch makes all of this irrelevant!
-https://reviews.llvm.org/D95872 (for 32b arm), as he notes in
-https://bugs.llvm.org/show_bug.cgi?id=48894#c8 this is still a problem
-for clang for 64b, but at least now we have a pretty good
-understanding of the issue and template to follow to solve it there,
-too.
+On Tue, Feb 02, 2021 at 02:33:38PM -0800, Nick Desaulniers wrote:
+> On Mon, Feb 1, 2021 at 4:02 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
+> >
+> > On Mon, Feb 01, 2021 at 03:17:40PM -0800, Nick Desaulniers wrote:
+> > > On the earlier thread, Julien writes:
+> > >
+> > > >> I think most people interested in livepatching are using GCC built
+> > > >> kernels, but I could be mistaken (althought in the long run, both
+> > > >> compilers should be supported, and yes, I realize the objtool solution
+> > > >> currently only would support GCC).
+> > >
+> > > Google's production kernels are using livepatching and are built with
+> > > Clang.  Getting similar functionality working for arm64 would be of
+> > > interest.
+> >
+> > Well, that's cool.  I had no idea.
+> >
+> > I'm curious how they're generating livepatch modules?  Because
+> > kpatch-build doesn't support Clang (AFAIK), and if they're not using
+> > kpatch-build then there are some traps to look out for.
+> 
+> Ok, I just met with a bunch of folks that are actively working on
+> this.  Let me intro
+> Yonghyun Hwang <yonghyun@google.com>
+> Pete Swain <swine@google.com>
+> who will be the folks on point for this from Google.
 
-On Thu, Jan 28, 2021 at 1:52 AM Arnd Bergmann <arnd@kernel.org> wrote:
->
-> On Thu, Jan 28, 2021 at 2:45 AM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
-> >
-> > Similar to commit a6c30873ee4a ("ARM: 8989/1: use .fpu assembler
-> > directives instead of assembler arguments").
-> >
-> > GCC and GNU binutils support setting the "sub arch" via -march=,
-> > -Wa,-march, target function attribute, and .arch assembler directive.
-> >
-> > Clang's integrated assembler does not support -Wa,-march (and the logic
-> > to overrule one when multiple of the above are used).
-> >
-> > Since most assembler is non-conditionally assembled with one sub arch
-> > (modulo arch/arm/delay-loop.S which conditionally is assembled as armv4
-> > based on CONFIG_ARCH_RPC, and arch/arm/mach-at91/pm-suspend.S which is
-> > conditionally assembled as armv7-a based on CONFIG_CPU_V7), prefer the
-> > .arch assembler directive.
-> >
-> > Link: https://bugs.llvm.org/show_bug.cgi?id=48894
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1195
-> > Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
->
-> Looks good to me in general. However, there are a few extra ones
-> I needed for my randconfig builds in the end:
->
-> a) inline assembly in .c files:
->
-> diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-> index 48a02eb3ac89..62d56e2dda7f 100644
-> --- a/arch/arm/kernel/Makefile
-> +++ b/arch/arm/kernel/Makefile
-> @@ -70,7 +70,6 @@ obj-$(CONFIG_HAVE_TCM)                += tcm.o
->  obj-$(CONFIG_OF)               += devtree.o
->  obj-$(CONFIG_CRASH_DUMP)       += crash_dump.o
->  obj-$(CONFIG_SWP_EMULATE)      += swp_emulate.o
-> -CFLAGS_swp_emulate.o           := -Wa,-march=armv7-a
->  obj-$(CONFIG_HAVE_HW_BREAKPOINT)       += hw_breakpoint.o
->
->  obj-$(CONFIG_CPU_XSCALE)       += xscale-cp0.o
-> diff --git a/arch/arm/kernel/swp_emulate.c b/arch/arm/kernel/swp_emulate.c
-> index 35ff7c7965a9..bdff448bd0f2 100644
-> --- a/arch/arm/kernel/swp_emulate.c
-> +++ b/arch/arm/kernel/swp_emulate.c
-> @@ -34,6 +34,7 @@
->   */
->  #define __user_swpX_asm(data, addr, res, temp, B)              \
->         __asm__ __volatile__(                                   \
-> +       ".arch armv7-a\n"                                       \
->         "0:     ldrex"B"        %2, [%3]\n"                     \
->         "1:     strex"B"        %0, %1, [%3]\n"                 \
->         "       cmp             %0, #0\n"                       \
-> diff --git a/arch/arm/mach-mvebu/Makefile b/arch/arm/mach-mvebu/Makefile
-> index d62612bfac48..9b9fddb69958 100644
-> --- a/arch/arm/mach-mvebu/Makefile
-> +++ b/arch/arm/mach-mvebu/Makefile
-> @@ -1,8 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  ccflags-$(CONFIG_ARCH_MULTIPLATFORM) :=
-> -I$(srctree)/arch/arm/plat-orion/include
->
-> -CFLAGS_pmsu.o                  := -march=armv7-a
-> -
->  obj-$(CONFIG_MACH_MVEBU_ANY)    += system-controller.o mvebu-soc-id.o
->
->  ifeq ($(CONFIG_MACH_MVEBU_V7),y)
-> diff --git a/arch/arm/mach-mvebu/pmsu.c b/arch/arm/mach-mvebu/pmsu.c
-> index 73d5d72dfc3e..9a77cc3a10bd 100644
-> --- a/arch/arm/mach-mvebu/pmsu.c
-> +++ b/arch/arm/mach-mvebu/pmsu.c
-> @@ -294,6 +294,7 @@ int armada_370_xp_pmsu_idle_enter(unsigned long deepidle)
->
->         /* Test the CR_C bit and set it if it was cleared */
->         asm volatile(
-> +       ".arch  armv7-a\n\t"
->         "mrc    p15, 0, r0, c1, c0, 0 \n\t"
->         "tst    r0, %0 \n\t"
->         "orreq  r0, r0, #(1 << 2) \n\t"
->
->
-> b) an arm specific driver:
->
-> diff --git a/drivers/memory/Makefile b/drivers/memory/Makefile
-> index bc7663ed1c25..d1388a748872 100644
-> --- a/drivers/memory/Makefile
-> +++ b/drivers/memory/Makefile
-> @@ -32,8 +32,6 @@ obj-$(CONFIG_FPGA_DFL_EMIF)   += dfl-emif.o
->
->  ti-emif-sram-objs              := ti-emif-pm.o ti-emif-sram-pm.o
->
-> -AFLAGS_ti-emif-sram-pm.o       :=-Wa,-march=armv7-a
-> -
->  $(obj)/ti-emif-sram-pm.o: $(obj)/ti-emif-asm-offsets.h
->
->  $(obj)/ti-emif-asm-offsets.h: $(obj)/emif-asm-offsets.s FORCE
-> diff --git a/drivers/memory/ti-emif-sram-pm.S b/drivers/memory/ti-emif-sram-pm.S
-> index d1c83bd5b98e..af2feb251303 100644
-> --- a/drivers/memory/ti-emif-sram-pm.S
-> +++ b/drivers/memory/ti-emif-sram-pm.S
-> @@ -36,6 +36,7 @@
->
->         .arm
->         .align 3
-> +       .arch armv7-a
->
->  ENTRY(ti_emif_sram)
->
->
-> c) slightly different problem: .arch xscale is not understood by clang,
-> but .arch armv5te is sufficient:
->
->
-> diff --git a/arch/arm/mm/Makefile b/arch/arm/mm/Makefile
-> index d8f751b94126..71b858c9b10c 100644
-> --- a/arch/arm/mm/Makefile
-> +++ b/arch/arm/mm/Makefile
-> @@ -55,8 +55,6 @@ obj-$(CONFIG_CPU_XSCALE)      += copypage-xscale.o
->  obj-$(CONFIG_CPU_XSC3)         += copypage-xsc3.o
->  obj-$(CONFIG_CPU_COPY_FA)      += copypage-fa.o
->
-> -CFLAGS_copypage-feroceon.o := -march=armv5te
-> -
->  obj-$(CONFIG_CPU_TLB_V4WT)     += tlb-v4.o
->  obj-$(CONFIG_CPU_TLB_V4WB)     += tlb-v4wb.o
->  obj-$(CONFIG_CPU_TLB_V4WBI)    += tlb-v4wbi.o
-> diff --git a/arch/arm/mm/copypage-feroceon.c b/arch/arm/mm/copypage-feroceon.c
-> index 064b19e63571..5fc8ef1e665f 100644
-> --- a/arch/arm/mm/copypage-feroceon.c
-> +++ b/arch/arm/mm/copypage-feroceon.c
-> @@ -15,6 +15,7 @@ static void feroceon_copy_user_page(void *kto, const
-> void *kfrom)
->         int tmp;
->
->         asm volatile ("\
-> +.arch  armv5te                                 \n\
->  1:     ldmia   %1!, {r2 - r7, ip, lr}          \n\
->         pld     [%1, #0]                        \n\
->         pld     [%1, #32]                       \n\
-> diff --git a/arch/arm/mm/copypage-xsc3.c b/arch/arm/mm/copypage-xsc3.c
-> index 8fc8f3b91197..3cc74a4862c5 100644
-> --- a/arch/arm/mm/copypage-xsc3.c
-> +++ b/arch/arm/mm/copypage-xsc3.c
-> @@ -29,7 +29,7 @@ static void xsc3_mc_copy_user_page(void *kto, const
-> void *kfrom)
->         int tmp;
->
->         asm volatile ("\
-> -.arch  xscale                                  \n\
-> +.arch  armv5te                                 \n\
->         pld     [%1, #0]                        \n\
->         pld     [%1, #32]                       \n\
->  1:     pld     [%1, #64]                       \n\
-> @@ -81,7 +81,7 @@ void xsc3_mc_clear_user_highpage(struct page *page,
-> unsigned long vaddr)
->  {
->         void *ptr, *kaddr = kmap_atomic(page);
->         asm volatile ("\
-> -.arch  xscale                                  \n\
-> +.arch  armv5te                                 \n\
->         mov     r1, %2                          \n\
->         mov     r2, #0                          \n\
->         mov     r3, #0                          \n\
-> diff --git a/arch/arm/mm/copypage-xscale.c b/arch/arm/mm/copypage-xscale.c
-> index eb5d338657d1..c7461755082b 100644
-> --- a/arch/arm/mm/copypage-xscale.c
-> +++ b/arch/arm/mm/copypage-xscale.c
-> @@ -41,7 +41,7 @@ static void mc_copy_user_page(void *from, void *to)
->          * when prefetching destination as well.  (NP)
->          */
->         asm volatile ("\
-> -.arch xscale                                   \n\
-> +.arch armv5te                                  \n\
->         pld     [%0, #0]                        \n\
->         pld     [%0, #32]                       \n\
->         pld     [%1, #0]                        \n\
-> @@ -107,7 +107,7 @@ xscale_mc_clear_user_highpage(struct page *page,
-> unsigned long vaddr)
->  {
->         void *ptr, *kaddr = kmap_atomic(page);
->         asm volatile("\
-> -.arch xscale                                   \n\
-> +.arch armv5te                                  \n\
->         mov     r1, %2                          \n\
->         mov     r2, #0                          \n\
->         mov     r3, #0                          \n\
->
->
-> These are just the ones that I found experimentally, I have not done a
-> thorough search
-> for similar instances that randconfig has not been able to find (yet).
->
->          Arnd
+Nice to meet you all.  Adding the live-patching ML sub-thread.
 
+> My understanding after some clarifications today is that Google is
+> currently using a proprietary kernel patching mechanism that developed
+> around a decade ago, "pre-ksplice Oracle acquisition."  But we are
+> looking to transition to kpatch, and help towards supporting arm64.
+> Live patching is important for deploying kernel fixes faster than
+> predetermined scheduled draining of jobs in clusters.
+> 
+> The first steps for kpatch transition is supporting builds with Clang.
+> Yonghyun is working on that and my hope is he will have patches for
+> you for that soon.
 
+That would be great!
+
+> Curiously, the proprietary mechanism doesn't rely on stack validation.
+
+If this proprietary mechanism relies on stack traces, that could
+problematic.  Livepatch originally made the same assumption, but it was
+shot down quickly:
+
+  https://lwn.net/Articles/634649/
+  https://lwn.net/Articles/658333/
+
+> I think that such dependency was questioned on the cover letter
+> patch's thread as well.
+
+Yes, though it's generally agreed that unvalidated compiler-generated
+unwinder metadata isn't going to be robust enough for kernel live
+patching.
+
+> Maybe there's "some traps to look out for" you're referring to there?
+
+The "traps" are more about how the patches are generated.  If they're
+built with source code, like a normal kernel module, you have to be
+extra careful because of function ABI nastiness.  kpatch-build avoids
+this problem.  Unfortunately this still isn't documented.
+
+> I'm not privy to the details, though I would guess it has to do with
+> ensuring kernel threads aren't executing (or planning to return
+> through) code regions that are trying to be patched/unpatched.
+
+Right.  There are some good details in
+Documentation/livepatch/livepatch.rst.
+
+> I am curious about frame pointers never being omitted for arm64; is
+> frame pointer chasing is unreliable in certain contexts?
+
+Yes, problematic areas are interrupts, exceptions, inline asm,
+hand-coded asm.  A nice document was recently added in
+Documentation/livepatch/reliable-stacktrace.rst which covers a lot of
+this stuff.
+
+> The internal functionality has been used heavily in production for
+> almost a decade, though without it being public or supporting arm64;
+> I'm not sure precisely how they solve such issues (or how others might
+> review such an approach).
+
+Very impressive to run it in production that long.  Their experience and
+expertise is definitely welcome.
+
+> Either way, the dependencies for live patching are less important, so
+> long as they are toolchain portable.  The ability to live patch kernel
+> images is ___important___ to Google.
+> 
+> > > Objtool support on arm64 is interesting to me though, because it has
+> > > found bugs in LLVM codegen. That alone is extremely valuable.  But not
+> > > it's not helpful if it's predicated or tightly coupled to GCC, as this
+> > > series appears to do.
+> >
+> > I agree 100%, if there are actual Clang livepatch users (which it sounds
+> > like there are) then we should target both compilers.
+> 
+> Or will be. (Sorry, I didn't know we hadn't completed the transition
+> to kpatch yet.  It is "the opposite side of the house" from where I
+> work; I literally have 8 bosses, not kidding).
+> 
+> Though if kpatch moves to requiring GCC plugins for architectures we
+> use extensively or would like to use more of, that's probably going to
+> throw a wrench in multiple transition plans.  (The fleet's transition
+> to Clang is done, I'm not worried about that).
+
+Hopefully we can just forget the GCC plugin idea.
+
+It would be really nice to see some performance numbers for
+-fno-jump-tables so we can justify doing that instead, at least in the
+short-term.  I'd suspect the difference isn't measurable in the real
+world.
+
+(In the case of GCC+retpolines, it would be a performance improvement.)
+
+> > And yes, objtool has been pretty good at finding compiler bugs, so the
+> > more coverage the better.
+> > > The idea of rebuilding control flow from binary analysis and using
+> > > that to find codegen bugs is a really cool idea (novel, even? idk),
+> > > and I wish we had some analog for userspace binaries that could
+> > > perform similar checks.
+> >
+> > Objtool is generic in many ways -- in fact I recently heard from a PhD
+> > candidate who used it successfully on another kernel for an ORC
+> > unwinder.
+> 
+> That's pretty cool!  Reuse outside the initial context is always a
+> good sign that something was designed right.
+
+So basically you're saying objtool is both useful and well-designed.  I
+will quote you on that!
 
 -- 
-Thanks,
-~Nick Desaulniers
+Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn-df5%3DxEj-TTNrHvihDKGCC3vWA6Q0oZ%2BGycezsfAMyg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210202233636.nvbl6wivgnhacbvg%40treble.
