@@ -1,125 +1,126 @@
-Return-Path: <clang-built-linux+bncBCYYJNMLYYMRB67N5CAAMGQESY77IHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBBNN5GAAMGQEQYX3QOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45F2F30D31B
-	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 06:39:09 +0100 (CET)
-Received: by mail-vs1-xe40.google.com with SMTP id g20sf3565455vsb.20
-        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Feb 2021 21:39:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612330748; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 928EA30D459
+	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 08:53:43 +0100 (CET)
+Received: by mail-pg1-x539.google.com with SMTP id 8sf16304688pgn.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Feb 2021 23:53:43 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612338822; cv=pass;
         d=google.com; s=arc-20160816;
-        b=U7At+TW3uI0To61Rxfpdn75gjFhnGZjd/5OLu5Dn/9taNt+c87bcUUuvwP0s32RPl5
-         Lio6dnCB98666RajVfBGN2QMcEWgBVapjEOBDM//KefBoJgsiPkK60kEL4+6A8FeytPl
-         f7LH8qyHn9Gp2gEx+LlcZG8DkzHl2OC2RiWVmEfswXYMS61LBjAZs3++wzA4d0u6u2rv
-         nUepsUsaZpAxEJ6tPDN2XGM1d6bVBjLf2fUBy9Dj4k6UbJdJz3BgLmaicXhQpVrASm1g
-         2Q+HvpCDjw+oEgwU1UI7LqrfKxqMAMMR/I/fHbTsiC/uD4rfbC0sey/SWWrpFMdraJqv
-         y4hQ==
+        b=YeQTf2K6BWQjqQrj/kgei5gHb5apQBvdm2fs0XPRTXgiG4VRlmGicOnMv5xoClMa2Y
+         h/OEZQxUXrwUM/r7awQOvVMN6zeJtrc0tGdrAY3ZsAmrjFYBRsV6LkAa/Qei9Yj0egJz
+         +a2tp3RZENXmqbNBQrHJ68DlCaLZqLIL2MFjHOTvPMTNQUpDDHmds/ROnXeLmrl4PsQ3
+         6qZ22cdqA1RCouc2arqXxvk9My+7ddGWDyX3fZgY7+jxIYZtSTqC6uUSUnrzkXjnJp46
+         so+9/wAmDplrqx7/pTekPOOv7bIBmg+9LBuVEAc6TtdAQGxH/EmLUOKtyFrQYVFZbyg0
+         9+pg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=RtQTSCKLCYeAmRhvK3EIt8H3+FdLUG+RBx89FgJiw0U=;
-        b=ItIVOWlj0j0DUTqlJYT+Owl3oBHLDy6lDhHpw2Yxoh/TFP/+/gLomeGdN9sGU4XlrU
-         6yEn9DiiSHVAmJDHFPddpt38o6eXB/9t/oNiKxZ9qpXG326MfkaKaCJ1xVEAhufzQbZH
-         8C8IMpVTps/24e5T6LPOOWGKeFymGRFdRnmhxYx13NG6o6faGZKb1JGlfQ8Q6NkbnDK9
-         DHd2ERfsgx0K2sGVDsKzGYW/uHc1HipqzpdgCMo5QV+SJiCqqI4gVBJD3q8LkVdvke+6
-         DPcHz0Y+BYpsGWIMUyXx67eo23kF4NGd/+g1vPj5WElbGQcXdZhUEiObV8wPRAS/WCGb
-         zIwA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
+        bh=6V7QsoBSkgYrjEtPt+eZtHsKYtvFD8Q7JbRZXiwni5I=;
+        b=maRfTdZy3xat/ZhhKgFtQuIv46K3lqiABT/RlwKMJEgC8CFpmUOQNoOrc4IZuJ+V2Z
+         2BPL/rMok8kZxDet3iQO8JB7OmyNvEjRBBptJpckCAViecHIz6/yhxWMDzmGQdelKVvz
+         ipY1ac5h7zB7rT/haDf7seH/3DZQC5vx4W9vKlYC9SsXk+XUGZLqVRcY3ff0Fk6hoAte
+         G/12jzDz4jPtd0/HpU3pS10WlnORQKxBwLzMWITqENw0LC+/p0gQzO19xU31PdiyZSvl
+         PexKzn4tpBIOYMnziYTkNfVLUe0s6X5AE1OM4mxvBwt+j3/eeAfYCbaSKzl5ZjUHbcyN
+         LlZQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RJoPgfyp;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RtQTSCKLCYeAmRhvK3EIt8H3+FdLUG+RBx89FgJiw0U=;
-        b=O2npKUB5HNe9OFDVK52qmLwmbn4APHQ1v5RprmmbcPumXGKaC6/3FrSMM4rvIfNDrk
-         FJefZ3YFHIVvwrmyazVLDhRmHCA+MaNA4DD9AFyy5XGuqPDR6XW5dfVO/7xNE7zqxZ9k
-         +wgN0s0v7RjnYlYCAhMgHhpMdjj02m2DaEaHLu+Or4l7HM0HREmbMaKmjwPAztRNqKKk
-         XnCkPOIm5emgD55wObOWFEHwF0+8Bk5vI9rwDOFDYvs1Plc7JBmRGuutkZcTPDfuVhEf
-         QiM1qoFWKii9g7W8Wkhpki8bnB+j5gKDQnd/SzPF2RvCZZqCBmguXSW6iUV3fbF0kwuV
-         g+Gw==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6V7QsoBSkgYrjEtPt+eZtHsKYtvFD8Q7JbRZXiwni5I=;
+        b=hOZ+D9fFMMTZy3n5IOYa7LgX6Z2dxr8oQJ4QygEJjT2qQOWjnKq+7QcBkVcIavrKsF
+         xIE4+dxSM/AxcQwJlY9scAX0ip2OjgmdjNIf87qv1rvCvrL/f9XTuBoOp8SssQZHru3v
+         u9+W341i6VbiyQo7zelaSXUmT3MjHtLfnpu1A6R/4jJLKKJH5TSmxUaU/T7j4oP0LjXF
+         XWyW7ZFWgC7PqJVAdvNI4s6aFhnNuypmouw0YaN+ULN5v8Er6yTn45XldXk6k1FEwngb
+         lt76lj+WK2N5ewNFhLM94Ao6HMVF5EnsFFK1i4RxkwwlDm2/yKI+NvsPGjhejPS4MPTV
+         yr1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=RtQTSCKLCYeAmRhvK3EIt8H3+FdLUG+RBx89FgJiw0U=;
-        b=A7lN67P1E5v9BeXK4zhgrsq802hUz1K4n4hngvS4U76OBOIdO34PcV6Mikzm4jzG4e
-         ECT+bYva3hwvOUHduAWw1KgCv/c1mnouXJyljdh0dT2mW7s/sH5/SOUtM2vr5Jln8Fih
-         kAeLU+gyuK3faf+pJtcOlNweCZq5dkebp4rQ0zeJUpdqi0wVSJXcMhhMrTd49L+mhDma
-         W75EZO+v4JqzwYY6ObX2/z1hh+wJ+mxNdgEfUcv19r9Oa/ZXnK2UcqGs7Wb2IsjTGbF8
-         A3Ul9KBz2lWdkLvxOYGwD2dclI97r897PUfnty3nLI3LJSOB50WaIv+jI8PwaPEXkPRi
-         T8Zg==
+        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
+         :message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6V7QsoBSkgYrjEtPt+eZtHsKYtvFD8Q7JbRZXiwni5I=;
+        b=tzfSbXA/IFiLXNM3UtYJ9/eBDkxYDGb1QDGFhNG6BvX3fScDPVAba70WEF5Prl0J3X
+         ySwhb76a3B16lgdRYopLimMMOb7lgssUiDyQEf/A3nH11MkEPAoa5PA3vyyJd9A78MFm
+         dEvMUDzyTov6iJhyDVlYG/lVYlMdgN9Ahb/Gs9kuXkkE0O/Rpz6pXoQY6MBxvjPM3MYr
+         hpHzSypq6StpiKJFR+JK6DPdZ5Ai71SWGXBXG25nR1I8fk5iOvKvhdko+IFLueEcqv8F
+         Jn9vlljvRfMQurlwhDtaZxw+Iwm7afl35kMEpnh4CXjI93trv+suxO39QkdSB5G/CVCi
+         IELQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532JS+AlHJewniw/yM/SpXDGZOiZVpZDxP4ynei9lHjLzITYegTf
-	pvWNJ5HhUYz9Sky0f5HucXs=
-X-Google-Smtp-Source: ABdhPJw/x1tq4jVti6wNuZ/BZDXJBzxgG2k2zxPyKWppBjY7uf46U+AZbWE5hmH7IGbiLgbygSyfCg==
-X-Received: by 2002:a1f:1f96:: with SMTP id f144mr629922vkf.16.1612330748006;
-        Tue, 02 Feb 2021 21:39:08 -0800 (PST)
+X-Gm-Message-State: AOAM532/CCXXYD0I1dBQYvK2c4SOpnO+7NLCnW+P7TYFuf3IcaClZM7C
+	Sedf6GsEyVFYraWRGSxSwEg=
+X-Google-Smtp-Source: ABdhPJxh/d03IoFndX1U9N892YgbQCQLljceU9ecFIDasWdd82jMlL5MQz3HYDow2aVtjGfN2LSMug==
+X-Received: by 2002:a17:90b:11c9:: with SMTP id gv9mr1999969pjb.196.1612338821903;
+        Tue, 02 Feb 2021 23:53:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:8f8d:: with SMTP id r135ls54457vkd.1.gmail; Tue, 02 Feb
- 2021 21:39:07 -0800 (PST)
-X-Received: by 2002:a1f:2209:: with SMTP id i9mr739151vki.11.1612330747587;
-        Tue, 02 Feb 2021 21:39:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612330747; cv=none;
+Received: by 2002:aa7:96f8:: with SMTP id i24ls592575pfq.9.gmail; Tue, 02 Feb
+ 2021 23:53:41 -0800 (PST)
+X-Received: by 2002:a63:5b4f:: with SMTP id l15mr2319528pgm.339.1612338821292;
+        Tue, 02 Feb 2021 23:53:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612338821; cv=none;
         d=google.com; s=arc-20160816;
-        b=OMaN0uRJ3CZ44hr3oq80GHD50A9WVB9pm3nDYmIPVzhj3l2twTDcsZjPsw6w9lc2Qr
-         Io/mG7WrBSUzjt/IIzmmmd7leqOpdhFE7g0/MvbaACg6bHoOjKyoo39J4uY7OBjCrCKs
-         QoXVl9R+P9bOg/wyspzrv5cULHfwRZPqN9y+GNSTiGDisrBwmnVaS23weZHF13t3nIrv
-         RLDH4LQsasRvP2BYP/DmLQrdF7KpJQ6anb6to1S9DAo71o8gFxNGS3ARDc3pXAifCXW+
-         57bT3LPDkkNYNlkE34obLgOMdbvaWZS2MkVu1nAnbiWe+iEebIVZs/MNyjUU+UsaQuI+
-         E5dg==
+        b=DUJmXfOxlyfNTyFqqWb8m0v6W5zYTuE2RougACQWCI/53MjTzizr3GOrWHQSN8SwWE
+         E1XhNtbvnGPLJs9yR/ONwmhPwLy0t4jaTEwuBd3ga1/j13drlmUP+lIxvvTIWUmDCT/B
+         QNFNWMPcL1CmxuLJGYNAqZ98wUZJ4Bx0L6hgO8qxjJ4TtyqmhIfgixFfgo08TTG58V/p
+         sVkFWD+bCrS4aSxakeLRIlfQn5eG1nVhGS5VCnf3p4TQLGtrVXcDfdvbUoDtZRzdVG2h
+         7XMS9gbSWsMgT07yHCitLAPECWhQxyjeoVMvhya0aNzmzW07L39hU+EWd64SoCFrWNoU
+         QpSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=8T0VpjuUY9+wZyHqWsL1S0PXkVPM9fKTNG9E/LJ3xyA=;
-        b=y4FFR8CEJ4dsDqTQmOCsyPR48p1do3pn8FwyRR8Z6Seh3+AyOezhU8TaWiRM3OJE6c
-         ZjAEkibsmXqhoHYFEXOAFO57ERInLyfd5mPOoZ7Xk0mcOVpkHKfjofMm7MLORiNzhjer
-         DNfY9vKMQnhPEhhVTm2cENauVfgfMBiNMR3PnKNRBRBjE55had3iS5Lr1mJuRGw0U6Jq
-         tMGvfxFOnAD+2AYCm/F/XIzZC0mGqr/cRATFR67GwyAJUyb3nb3bSlN+zPBzBdXc4fJ7
-         r0HY4I51W5esIpjziep6q9aDkeZQWC3QnZnu3g2G8IQHAXn3XKS006vzupLG6q8rCI9t
-         xRQA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:dkim-filter;
+        bh=BHikcps5Egh9U8s8X6kTCoeloxrM5VMBhf3jGdV23oU=;
+        b=i7FKaEJiPH+JH9DetYlvzyfRBaT8Z/uO+j5sQigczGsLbaAhWwF81Tq5+C8B3dqtJQ
+         l+GY1tyWY8yfx0M9TfYw/YmiNV3EbKxAabtdloaJ6LnV6Yl3pQra5psD05wOzjikiha/
+         vd2nx/+iZFT7Syf652ChTZ8NaWu9ECXO95XtxU/n/YZt5mDgxJPqj6NJjN0B5iy42Kar
+         1Efdk815rLr+BGs28M5km09mpRGD4iHyQmSi00ealWHJvom4cm8ERSzIXnnQkTffqG+D
+         3/jwJdhrgCggQJyZSu0j+Oo2WSkwBxiMlsY9zh6kSoRJsBdO9THiYYyO2uYoIq25rLH6
+         LtnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu. [18.9.28.11])
-        by gmr-mx.google.com with ESMTPS id n3si57850uad.0.2021.02.02.21.39.07
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RJoPgfyp;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conuserg-11.nifty.com (conuserg-11.nifty.com. [210.131.2.78])
+        by gmr-mx.google.com with ESMTPS id l8si25995plg.2.2021.02.02.23.53.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 02 Feb 2021 21:39:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) client-ip=18.9.28.11;
-Received: from cwcc.thunk.org (pool-72-74-133-215.bstnma.fios.verizon.net [72.74.133.215])
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 1135d3Oe004504
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 3 Feb 2021 00:39:04 -0500
-Received: by cwcc.thunk.org (Postfix, from userid 15806)
-	id 63F7215C39E2; Wed,  3 Feb 2021 00:39:03 -0500 (EST)
-Date: Wed, 3 Feb 2021 00:39:03 -0500
-From: "Theodore Ts'o" <tytso@mit.edu>
-To: Vinicius Tinti <viniciustinti@gmail.com>
-Cc: Christoph Hellwig <hch@infradead.org>,
-        Andreas Dilger <adilger.kernel@dilger.ca>,
+        Tue, 02 Feb 2021 23:53:41 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.78 as permitted sender) client-ip=210.131.2.78;
+Received: from grover.flets-west.jp (softbank126026094251.bbtec.net [126.26.94.251]) (authenticated)
+	by conuserg-11.nifty.com with ESMTP id 1137qgIr002018;
+	Wed, 3 Feb 2021 16:52:42 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 1137qgIr002018
+X-Nifty-SrcIP: [126.26.94.251]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: Sedat Dilek <sedat.dilek@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Andi Kleen <andi@firstfloor.org>, Ian Rogers <irogers@google.com>,
+        Mark Wielaard <mark@klomp.org>, Michal Marek <michal.lkml@markovi.net>,
         Nathan Chancellor <natechancellor@gmail.com>,
-        Nick Desaulniers <ndesaulniers@google.com>, linux-ext4@vger.kernel.org,
-        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v3] ext4: Enable code path when DX_DEBUG is set
-Message-ID: <YBo29/SdgCkZZinT@mit.edu>
-References: <20210202080508.GA3550351@infradead.org>
- <20210202162837.129631-1-viniciustinti@gmail.com>
+        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: [PATCH] kbuild: fix duplicated flags in DEBUG_CFLAGS
+Date: Wed,  3 Feb 2021 16:52:39 +0900
+Message-Id: <20210203075239.5505-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=RJoPgfyp;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.78 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210202162837.129631-1-viniciustinti@gmail.com>
-X-Original-Sender: tytso@mit.edu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted
- sender) smtp.mailfrom=tytso@mit.edu
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,60 +133,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Feb 02, 2021 at 04:28:37PM +0000, Vinicius Tinti wrote:
-> Clang with -Wunreachable-code-aggressive is being used to try to find
-> unreachable code that could cause potential bugs. There is no plan to
-> enable it by default.
-> 
-> The following code was detected as unreachable:
-> 
-> fs/ext4/namei.c:831:17: warning: code will never be executed
-> [-Wunreachable-code]
->                         unsigned n = count - 1;
->                                      ^~~~~
-> fs/ext4/namei.c:830:7: note: silence by adding parentheses to mark code as
-> explicitly dead
->                 if (0) { // linear search cross check
->                     ^
->                     /* DISABLES CODE */ ( )
-> 
-> This has been present since commit ac27a0ec112a ("[PATCH] ext4: initial
-> copy of files from ext3") and fs/ext3 had it present at the beginning of
-> git history. It has not been changed since.
-> 
-> This patch moves the code to a new function `htree_rep_invariant_check`
-> which only performs the check when DX_DEBUG is set. This allows the
-> function to be used in other parts of the code.
-> 
-> Suggestions from: Andreas, Christoph, Nathan, Nick and Ted.
-> 
-> Signed-off-by: Vinicius Tinti <viniciustinti@gmail.com>
+Sedat Dilek noticed duplicated debug flags passed when building C
+files with CONFIG_DEBUG_INFO.
 
-Thanks, applied, although I rewrote the commit description:
+I do not know much about his build environment, but yes, Kbuild
+recurses to the top Makefile with some build targets. For example,
+'make CC=clang bindeb-pkg' reproduces the issue.
 
-    ext4: factor out htree rep invariant check
-    
-    This patch moves some debugging code which is used to validate the
-    hash tree node when doing a binary search of an htree node into a
-    separate function, which is disabled by default (since it is only used
-    by developers when they are modifying the htree code paths).
-    
-    In addition to cleaning up the code to make it more maintainable, it
-    silences a Clang compiler warning when -Wunreachable-code-aggressive
-    is enabled.  (There is no plan to enable this warning by default, since
-    there it has far too many false positives; nevertheless, this commit
-    reduces one of the many false positives by one.)
+With commit 121c5d08d53c ("kbuild: Only add -fno-var-tracking-assignments
+for old GCC versions") applied, DEBUG_CFLAGS is now reset only when
+CONFIG_CC_IS_GCC=y.
 
-The original description buried the lede, in terms of the primary
-reason why I think the change was worthwhile (although I know you have
-different priorities than mine :-).
+Fix it to reset DEBUG_CFLAGS also when using Clang.
 
-Thanks for working to find a way to improve the code in a way that
-makes both of us happy!
+Fixes: 121c5d08d53c ("kbuild: Only add -fno-var-tracking-assignments for old GCC versions")
+Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
 
-					- Ted
+ Makefile | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 3d3f67b98ca2..769a38ee81b9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -811,10 +811,12 @@ KBUILD_CFLAGS	+= -ftrivial-auto-var-init=zero
+ KBUILD_CFLAGS	+= -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang
+ endif
+ 
++DEBUG_CFLAGS	:=
++
+ # Workaround for GCC versions < 5.0
+ # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=61801
+ ifdef CONFIG_CC_IS_GCC
+-DEBUG_CFLAGS	:= $(call cc-ifversion, -lt, 0500, $(call cc-option, -fno-var-tracking-assignments))
++DEBUG_CFLAGS	+= $(call cc-ifversion, -lt, 0500, $(call cc-option, -fno-var-tracking-assignments))
+ endif
+ 
+ ifdef CONFIG_DEBUG_INFO
+-- 
+2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YBo29/SdgCkZZinT%40mit.edu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210203075239.5505-1-masahiroy%40kernel.org.
