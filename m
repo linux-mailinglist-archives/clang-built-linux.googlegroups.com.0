@@ -1,141 +1,140 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDVD5SAAMGQELVWO3GY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB35O5SAAMGQE73N7VDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 946A030E4BF
-	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 22:11:43 +0100 (CET)
-Received: by mail-io1-xd39.google.com with SMTP id e10sf877599ioc.4
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 13:11:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612386702; cv=pass;
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 80E2230E504
+	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 22:36:48 +0100 (CET)
+Received: by mail-io1-xd3a.google.com with SMTP id f6sf905507iox.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 13:36:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612388207; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WFN1gHG6KkOVY0JmRx+kPvLtr/za8kvuOcEuIyTqoHG+nKfkEqYvorx70+odeJvwwy
-         jl6DtVwM+7OIGbU2JwJ6FjJVNsWd+QYt/WmmmQHqyV8+lgi/Td1GuP17TAPm6Bu7mTFi
-         Ftz9/KLTK/3y9OoB0ZroRWOEjyuGOxw6m+f2sqE4JiqHYuX/uqKdOSDE3+YFzxmAJ0C0
-         UfBAFrj5yYKNYJI7UHHaDUJf33pYiDNjh3FNugQosSTnIL7dHEzgTp6ZRuek+XWI6pLp
-         7MYQ3y77QrwwcqiTfEOjuMJ6QKBlw+7MadtqdwveKmDOMlXK7WEyHUlMAt+RTpiIu6I4
-         6qpg==
+        b=qCNJ1jFNjk0Ueq4tE8rdFYjsVJpr0n+sseRPZgolA7HOTgkeetpFBqc50azy+Q6YHi
+         WnEK6hNm7Q3BA3K50Ejpc58z7XHg858Xw3xtSDQRzOb8QfX+3bnd5eFm1Nm/psrb+h93
+         11KHO3gLIFlC5EBGp6rXc9TZS/rVA8V+gCVpFgWB7SrFuCNYOnPt8CQrynxWkTtMWdtE
+         9Qxp71rTSVjwLo56PELpO3RpGQ9/2B361jeGaDqIDYwqOsCTlFeAQqvp0OpTH5pxOJEq
+         KpN+Vb68bW/xoSNJsZd62rAaM8e6ZsWWOC6b0Zs52pyWba4GQa8M9KpPh8HXYW7RJA12
+         rHBA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=oTGBYm0Dj2QsYJH6Pf99SKQwAia1HKzU+bY+jb5vu9w=;
-        b=odP39GU0CYkPTuxiK3F/rUgG+V8vORade7Zm/brtMLto+ONkzEXFYYNWAI26YSU4dz
-         kdppGQjT0/aXEt73Ew1dFBkBFKT/5/AIMSoCqjbe4kUfwk/mVRYWcBQHIPH8IZm3ADrc
-         keWf6tKZmvVCYeh9nAaUpqkY6vfphFGvzP9br/9shdWwza6JALgLKB5Jj2+Ci4/nUfJQ
-         xUvfNN8uhgIjWs3YEBRy1qvcCGbcGTWYcVt48lTnE5QxQOIrv7yjtn8jn3w8UlyZWlzE
-         YFUUg4tkfjJuJnCYdrCASQ0U1wnP7pA655RaipNK9KwDrClYl32uyIt7I+pOnVBd4giE
-         rxcQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=1DfUZ36hQc6rQcOw8hpG9bGz7aM80LO1yLtj/xutP70=;
+        b=VJseb6d3gvPg/6B8R2T2tUhOcH7fRGp2fSDW46TDLD/WbmHTlsc+5iLBpjQELhRng4
+         RHAOzPLtMDGJGHA6Jbsq/ONr0o0yDD7GRQcbbT49xxhlG8sw+xi9WwHYVdyttRAx27sS
+         H2gntzAyeWoulH9Cvt7pS2g0NMIbGtBwEyQOV+3zfbC8FUcaggM14IR9ZCQw9MiOGyU/
+         ML5qF3nR/dJ+NfQ1YgtkYG+CK+V4riD0YKkzkDzB2MZXSm81jr+83QssaE+RKinK6/nr
+         gx7fIVYjReGmUzuuFdbwzQ7NpYupk+m5aEX/OSMBbGXa4MwO6jBRH8vh3RtUBusTychS
+         izzw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Hd9T6wgq;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::130 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1DfUZ36hQc6rQcOw8hpG9bGz7aM80LO1yLtj/xutP70=;
+        b=PRsylSnMJuX1ItYFKNNm8yXAkhPHLYC9s8yoXk6kSrsEjM5ymXIM/AY/ZwE9DKBVo9
+         NBUNP+Fc/CNuJrgfrJG8lVsbwLpouA3kNcXaA3u4JjxDePY6UmphclgZuO0+WkLiWbrv
+         VzfSRug9qxdPlceoypsHyibthRhF0x4ZXUmHvGWYargUr6OZikt9IHI7B5wjJqtog65D
+         veIfiuN5Mq+QLVwrXucnVwaZzyZBqr5Vc5tJbo2Lm8WwNgMTpU1jDO4GtHNv/e0/VQlK
+         z7XM7hNby+DBh7nZm8R3hOVBUdAEL95gdQZjBOsaEPgdGBDGElcJMfbPo0xaCDdeqwSz
+         VgcA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oTGBYm0Dj2QsYJH6Pf99SKQwAia1HKzU+bY+jb5vu9w=;
-        b=ealkV45ED6AabhS7pPIYSffoJMJNJMgl/3ezeROmuLMxOHvhQaPqbECY4FwDRiJroo
-         1tQULDha24/yZncFdGyfgm2EjgbjCYRJn4wCACy5sKqFiE0Q18ml0viIlDL8MS7ZRtYQ
-         X6SkBVo6vDGA5xmbUxQ+JiV1pMuQE9mPOsIMVgJHFlxU/mEmbMzlXAdo/h8ETisvR/YN
-         7qGSdhcmP5WhjdauiDW70jWKIddv2YhTBwbmXpTP3PgNTo2sNojnOGARSnPD7PD+C+F4
-         q6ymBuhEdUjAAo/vewn2+hpScaBM7ndlnpbnJZQJmBF6jPnGX8ROuUJWi5BPifBa56p5
-         EabA==
+        bh=1DfUZ36hQc6rQcOw8hpG9bGz7aM80LO1yLtj/xutP70=;
+        b=p1onFIl89zf7J5ubg5M32kl9z1LVU+2amv2lNbDktUb+gHBnSJkiJ1EUvFGUpH6kju
+         JWmz0+A6miL7l74Pl2LTZf4wIZKx8N0tptpnC005qNfYPpZQ/D734ygkvhs9qc31HILg
+         KdLbZXh1HVkTjsaY/Shi/BCjQXJpizyQ4tzHk/PwuKF1NTAX+kA9PTT1qKV6ivBZq3b7
+         DgqvRpSdw7jmNl3VtJm1aHgtEM4uYTV8b67wCedq0+Ez98Rs7/MaziomAt3Zewe+G90o
+         yPfnwkIVIkMK2eFPVYNHFJdwROTjNRxOfzmup1PviILfLT7Ed6rywgI3Rhb0fclINqXR
+         P2sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oTGBYm0Dj2QsYJH6Pf99SKQwAia1HKzU+bY+jb5vu9w=;
-        b=Bi76eGlodCno8nIsROl4NzsEEjxkJWOdBqSMTc5m8VBO9u4golkM4BB+WwaT4p6kKf
-         qB69HNUy39sSu857trIW3bC9+yvwrRJnc4UuV6oI5jtHX3VcsQvdpX+UMOJ4sw6YK7y0
-         IEU97+kPCicsvk0DOwNt/qFMnuZ6Y4+pAItOv0MPFJbIkUPodQAd2J0pi6rNcTL05mLY
-         +WzXH4RshSL60Sf7UkAc8Jo79KyUVGqek4WQTLJGVlTjU2hxi6sqz9kAv5vd1mGj+MSI
-         B5NzfnbToS8dw7m+zbyffP1+QKbFNavtgD8kOeouN2HmhZnFeoJGqvz+NWzDGLSLyxzS
-         Rl7g==
+        bh=1DfUZ36hQc6rQcOw8hpG9bGz7aM80LO1yLtj/xutP70=;
+        b=ucmwFC77a7sbIJPHk+AjrCPjBDt+5IXA7VoqhAQ771fyWBJX/rm1sUzxftRPo0epkK
+         aEDdvjY9XQ2u8q0/EW97iEdPwjvHTe9P+nVpstS4qg0zq9UAA3zxj8BctS7bzQ+RU30H
+         3vEKKuteFGCYn1ZvXsYFU8Olqy8MIZAo+uJnECIYhPqtdmxERDT7gRDD2pidsJMymmkC
+         tR5Cbq9h3MYA7CUj4kaAh34xHPDgYLqnUSReA9ZWq44sdfxCvrnC4Ed5Cj4xM+bvN++s
+         SaTCQ6yoVhskEB2eZpQfRhUeo6Sq4wGkchXSIuC5e0bi1/FVEiOJ/wt7piWqHce7zhbE
+         cXBQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531+j0f129NtkdtYNugn2PlBpJnq/4UAOr9dC3AjdG56m5I6VPth
-	mIWBGCz96FY6Y4nS3ZRmIv4=
-X-Google-Smtp-Source: ABdhPJxnKVE9esZ0srwpZkXuTVWUXexWOSu1YGJz2Xq9ZXuaaLzBUbozb2dbPOB7swms7BAo+fmeSg==
-X-Received: by 2002:a02:6d09:: with SMTP id m9mr4677573jac.70.1612386702366;
-        Wed, 03 Feb 2021 13:11:42 -0800 (PST)
+X-Gm-Message-State: AOAM530yNM3tCUpwgz7GP1L3Ml0IdqmGhLaGhSzAFEPm83sBoWtJD3wT
+	cGctZFyQgyItM3xs725OfjU=
+X-Google-Smtp-Source: ABdhPJzXjpNCIwHIW0no3Jg270kGNpJZv+lDz2wlGiLS181btZibmp/3eP7QVhd++yfxWKNYZ+2KxQ==
+X-Received: by 2002:a92:c849:: with SMTP id b9mr1414826ilq.271.1612388207492;
+        Wed, 03 Feb 2021 13:36:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:1446:: with SMTP id l6ls408229jad.5.gmail; Wed, 03
- Feb 2021 13:11:42 -0800 (PST)
-X-Received: by 2002:a05:6638:271f:: with SMTP id m31mr4685958jav.23.1612386701800;
-        Wed, 03 Feb 2021 13:11:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612386701; cv=none;
+Received: by 2002:a92:3606:: with SMTP id d6ls782685ila.3.gmail; Wed, 03 Feb
+ 2021 13:36:47 -0800 (PST)
+X-Received: by 2002:a05:6e02:1d95:: with SMTP id h21mr4232974ila.151.1612388206947;
+        Wed, 03 Feb 2021 13:36:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612388206; cv=none;
         d=google.com; s=arc-20160816;
-        b=V2BfY5Ttgloq6GYS7BGcoA0xNu2HCIWlJdFBTzW1WTDRIgwEw/PV3fL1b5neMzsecI
-         ChDcFByn91ReCYlub3zuMWYcK65pCudxKW/Kvx3qfu3Fh5Vk7PLue8A/Tsc0rlI7XUHM
-         Ov4sN/2W9OXsvmRSphwoNbWTUlIoxDalHECSdPSGfjpGez0AdjR/KxO7zSSqCpCTRcCf
-         7/0lk6TQu1gErlBD8u01bshZWftj9wLkCJQxRSXE8D4LF+IMhSIVGOgGCASGptK7ojII
-         xOIef3y3lnGufSRa/LCeOnSbAzyLIR1NgPDHVI+zZKfbYd9ASZffEqXR6QK4kcoFtNqc
-         g30Q==
+        b=QY0rr3WVOdZ+Z5q54TnkQTEs6cRvURYI829ROF6UUF9AiYCGRjpads3LiFw+3Fr2yx
+         TD4v0yWyoQ9oUFO+Ip4rePeW9Y9hs+lJYPVDAHA3fSi2TrabI3SrWu4yxP0vy/6XWt0x
+         himkA2voiY/3j0lr1UQKkPp3kn4toXMb82cNDD0rWT9LEJwVE7resszsPGHr+W1vEehp
+         Iv5oHycw2nSfwmBF6R1GUcANuBao4ybrvickACH8MeYD7MEMDIYZLcH5C/S5/TvpWbZt
+         6jxCGA6RTfv19ZitjVUNmQfN9CW8v/p56GnRqUUSj8m2fd7lmtCbXndGtNh1vrj1u1vY
+         mUuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=AoT099je+w7qEHxXSCstC4hjoCFQ+V9zE+Z7/J7uUGA=;
-        b=GIJK2ZbLR5EwH+x+vz1HLzqxq8zMYi7czeY+qixdLUDk1slpl7mqwTiAKzan+x5z4v
-         yf0GT1iY5zFwN613CnACzUIy1zvxBfgSKcSTOSeiWzM2TRROy/Leix6k+Op60fanIpBH
-         XRdf2QxTy7+WKSo2PHrGc/9UOQzd2ZCDeyqzpvCOaQyDSLPjj4sMG+oalz7CQjyfQhvt
-         FD/NDMZcYzM0LEfY4uewZGsqD2FrA6IS/W3Qme99o8oB6abeTw0+VK6iLutylpGeT4ts
-         jjF+iTRYAKPAoRiRDxL8FlvJEH5yfrtqhFLjEc4eDcmwqzsvoQj7H80KlbYNWgCdJsGD
-         wJ5A==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=nk4Eqy5gI1BiAgrnMQQPHD5g4sRl79y53xGcikXIORo=;
+        b=mP6FFWst8lNZo9C90ko08x2LP9c8aI8pvVjqNzS443NprMDUC6XWBWQhXiSGktyUAc
+         QWMJGzgLxGLfUOsv5XjoV+oCW9V3AZNLpncJI1drkMKt2DmGsVDN0G7DWTjfOFAYNiT9
+         i8i5r6JFwC/KI63gRJ+U7R5aqGLB9W1wzY3UqF0s0XRTQFqGHYZVP++XI9RlX1PUIa6i
+         +Jk3r58w1ct2vJu+5cwwJ1hSS90wry4tdKHPDm6uu23sIIGKfUYGc4EnVPvt0pYxb+N0
+         vJhktd0jX5iuR78BETjspUQmCbsc3XM3q+lN+o4Njf9D6KnCau8JtGy9xxGQsdIrBnsr
+         XMEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id y16si182808ili.3.2021.02.03.13.11.41
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Hd9T6wgq;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::130 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-il1-x130.google.com (mail-il1-x130.google.com. [2607:f8b0:4864:20::130])
+        by gmr-mx.google.com with ESMTPS id s10si131994ild.2.2021.02.03.13.36.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Feb 2021 13:11:41 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: 7sZkZMy1J3ssa4zu63KBJmmZH0DHMb7d2SkrED4nUMqPBxKfv432XiZV+R5RcYd1AN+6ixUyOp
- P5IW1tN1U3dg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9884"; a="168227123"
-X-IronPort-AV: E=Sophos;i="5.79,399,1602572400"; 
-   d="gz'50?scan'50,208,50";a="168227123"
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2021 13:11:39 -0800
-IronPort-SDR: iyFE7iRjARN53tL7QvSeoRE0G0ima/4kEwUwNgj1CX0tgbjuuwjWi6uvhdTSwZcJMczJhzXx4/
- 9rDP59OoZA4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.79,399,1602572400"; 
-   d="gz'50?scan'50,208,50";a="414716909"
-Received: from lkp-server02.sh.intel.com (HELO 8b832f01bb9c) ([10.239.97.151])
-  by fmsmga002.fm.intel.com with ESMTP; 03 Feb 2021 13:11:36 -0800
-Received: from kbuild by 8b832f01bb9c with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1l7PR2-0000TG-5M; Wed, 03 Feb 2021 21:11:36 +0000
-Date: Thu, 4 Feb 2021 05:11:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Bjorn Helgaas <helgaas@kernel.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Gustavo Pimentel <Gustavo.Pimentel@synopsys.com>
-Subject: Re: [PATCH v3 04/15] PCI: Add pci_find_vsec_capability() to find a
- specific VSEC
-Message-ID: <202102040510.Uat1Zl20-lkp@intel.com>
-References: <0462a8cb6a8a1150b6c484e51c2750da6833683a.1612374941.git.gustavo.pimentel@synopsys.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Feb 2021 13:36:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::130 as permitted sender) client-ip=2607:f8b0:4864:20::130;
+Received: by mail-il1-x130.google.com with SMTP id g9so675278ilc.3
+        for <clang-built-linux@googlegroups.com>; Wed, 03 Feb 2021 13:36:46 -0800 (PST)
+X-Received: by 2002:a05:6e02:d0:: with SMTP id r16mr4169346ilq.112.1612388206459;
+ Wed, 03 Feb 2021 13:36:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="17pEHd4RhPHOinZp"
-Content-Disposition: inline
-In-Reply-To: <0462a8cb6a8a1150b6c484e51c2750da6833683a.1612374941.git.gustavo.pimentel@synopsys.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+References: <cki.C90653A6EF.V9S14CF2MY@redhat.com> <20210203180333.GA765672@localhost>
+ <5877bb33-ba17-6459-410c-1c51bd193481@redhat.com>
+In-Reply-To: <5877bb33-ba17-6459-410c-1c51bd193481@redhat.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Wed, 3 Feb 2021 22:36:32 +0100
+Message-ID: <CA+icZUWTia0CS5nrdGx7oE+Zj_J3oC4id6U3jpVbUgqVosoFxw@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IPCfkqUgUEFOSUNLRUQ6IFRlc3QgcmVwb3J0IGZvciBrZXJuZWwgNS4xMS4wLXJjNg==?=
+	=?UTF-8?B?IChtYWlubGluZS5rZXJuZWwub3JnLWNsYW5nKQ==?=
+To: Rachel Sibley <rasibley@redhat.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, CKI Project <cki-project@redhat.com>, 
+	Milos Malik <mmalik@redhat.com>, Yi Zhang <yi.zhang@redhat.com>, Filip Suba <fsuba@redhat.com>, 
+	Memory Management <mm-qe@redhat.com>, Ondrej Mosnacek <omosnace@redhat.com>, skt-results-master@redhat.com, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Jan Stancek <jstancek@redhat.com>
+Content-Type: multipart/alternative; boundary="00000000000049501905ba7562bf"
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=Hd9T6wgq;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::130
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,709 +147,1532 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
---17pEHd4RhPHOinZp
+--00000000000049501905ba7562bf
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hi Gustavo,
+On Wed, Feb 3, 2021 at 9:45 PM Rachel Sibley <rasibley@redhat.com> wrote:
 
-I love your patch! Perhaps something to improve:
+>
+>
+> On 2/3/21 1:03 PM, Nathan Chancellor wrote:
+> > On Wed, Feb 03, 2021 at 01:58:32AM -0000, CKI Project wrote:
+> >>
+> >> Hello,
+> >>
+> >> We ran automated tests on a recent commit from this kernel tree:
+> >>
+> >>         Kernel repo:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> >>              Commit: 3aaf0a27ffc2 - Merge tag
+> 'clang-format-for-linux-v5.11-rc7' of git://github.com/ojeda/linux
+> >>
+> >> The results of these automated tests are provided below.
+> >>
+> >>      Overall result: FAILED (see details below)
+> >>               Merge: OK
+> >>             Compile: OK
+> >>   Selftests compile: FAILED
+> >>               Tests: PANICKED
+> >>
+> >> All kernel binaries, config files, and logs are available for download
+> here:
+> >>
+> >>
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?pre=
+fix=3Ddatawarehouse-public/2021/02/02/622905
+> >>
+> >> One or more kernel tests failed:
+> >>
+> >>      aarch64:
+> >>       =E2=9D=8C selinux-policy: serge-testsuite
+> >>
+> >>      x86_64:
+> >>       =E2=9D=8C selinux-policy: serge-testsuite
+> >>       =E2=9D=8C LTP lite
+> >
+> > These should be the failures for this particular set of tests correct?
+> >
+> >
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-=
+public/2021/02/02/622905/build_x86_64_redhat%3A1092370/tests/LTP_lite/95073=
+27_x86_64_1_RHELKT1LITE.FILTERED.fail.log
+> >
+> > I am curious, is there any way to get a side by side comparison of the
+> > test results between GCC and clang? In other words, I would like to kno=
+w
+> > if a test is failing with both compilers versus just clang. This would
+> > help us understand if it is a compiler specific issue or something that
+> > broke the kernel.
+> >
+> >>       =F0=9F=92=A5 LTP
+> >
+> >>From what I can tell:
+> >
+> > [12262.428593] general protection fault, probably for non-canonical
+> address 0x8bc08b308b608b5: 0000 [#1] SMP PTI
+> > [12262.428810] CPU: 1 PID: 465515 Comm: proc01 Not tainted 5.11.0-rc6 #=
+1
+> > [12262.428810] Hardware name: Red Hat KVM, BIOS 0.5.1 01/01/2007
+> > [12262.428810] RIP: 0010:string+0x50/0x110
+> > [12262.428810] Code: ce 48 c1 fe 30 85 f6 0f 84 be 00 00 00 31 c0 eb 15
+> 66 0f 1f 84 00 00 00 00 00 48 83 c0 01 39 c6 0f 84 ac 00 00 00 4c 8d 0c 0=
+7
+> <45> 0f b6 14 00 45 84 d2 0f 84 a2 00 00 00 49 39 d1 73 dd 45 88 11
+> > [12262.428810] RSP: 0018:ffffb1ea012bbc40 EFLAGS: 00010246
+> > [12262.428810] RAX: 0000000000000000 RBX: ffff9ea25e9ea03e RCX:
+> ffff0a00ffffff04
+> > [12262.428810] RDX: ffff9ea25e9eb000 RSI: ffffffffffffffff RDI:
+> ffff9ea25e9ea03e
+> > [12262.428810] RBP: ffffffff8f5c95f1 R08: 08bc08b308b608b5 R09:
+> ffff9ea25e9ea03e
+> > [12262.428810] R10: 0000001000000000 R11: ffffffff8e212401 R12:
+> ffff9ea25e9eb000
+> > [12262.428810] R13: ffffffff8f5c95f3 R14: 0000000000000002 R15:
+> ffffb1ea012bbca0
+> > [12262.428810] FS:  00007fab43075740(0000) GS:ffff9ea35bd00000(0000)
+> knlGS:0000000000000000
+> > [12262.428810] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> > [12262.428810] CR2: 00005584bb6dba68 CR3: 0000000111bbe000 CR4:
+> 00000000000006e0
+> > [12262.428810] DR0: 0000000000000001 DR1: 0000000000000000 DR2:
+> 0000000000000000
+> > [12262.428810] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7:
+> 0000000000000600
+> > [12262.428810] Call Trace:
+> > [12262.428810]  vsnprintf+0x570/0x710
+> > [12262.428810]  seq_printf+0x6b/0x90
+> > [12262.428810]  ? lock_acquire+0x27/0x280
+> > [12262.428810]  ? mod_objcg_state+0xd2/0x160
+> > [12262.428810]  ? vsnprintf+0x32f/0x710
+> > [12262.428810]  print_name+0x46/0xc0
+> > [12262.428810]  ? seq_printf+0x6b/0x90
+> > [12262.428810]  ? __kmalloc_node+0xaf/0x340
+> > [12262.428810]  ? lock_acquire+0x27/0x280
+> > [12262.428810]  ? kvmalloc_node+0x4b/0x90
+> > [12262.428810]  lc_show+0x82/0xe0
+> > [12262.428810]  seq_read_iter+0x311/0x420
+> > [12262.428810]  proc_reg_read_iter+0x3f/0x80
+> > [12262.428810]  vfs_read+0x2c3/0x340
+> > [12262.428810]  ksys_read+0x5f/0xb0
+> > [12262.428810]  do_syscall_64+0x33/0x40
+> > [12262.428810]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+> > [12262.428810] RIP: 0033:0x7fab4318791d
+> > [12262.428810] Code: 0f 1f 44 00 00 48 8b 0d 51 45 0b 00 45 31 c0 64 83
+> 39 0b 75 d2 eb c0 e8 b1 fb ff ff 90 f3 0f 1e fa 48 39 ca 77 2b 31 c0 0f 0=
+5
+> <48> 3d 00 f0 ff ff 77 0b c3 66 2e 0f 1f 84 00 00 00 00 00 48 8b 15
+> > [12262.428810] RSP: 002b:00007ffcaeb265b8 EFLAGS: 00000246 ORIG_RAX:
+> 0000000000000000
+> > [12262.428810] RAX: ffffffffffffffda RBX: 00007ffcaeb27730 RCX:
+> 00007fab4318791d
+> > [12262.428810] RDX: 0000000000000400 RSI: 000000000044b820 RDI:
+> 0000000000000005
+> > [12262.428810] RBP: 0000000000008000 R08: 0000000000000000 R09:
+> 00007ffcaeb27520
+> > [12262.428810] R10: 0000000000000000 R11: 0000000000000246 R12:
+> 0000000000000000
+> > [12262.428810] R13: 0000000000000005 R14: 0000000000000000 R15:
+> 0000000000000000
+> > [12262.428810] Modules linked in: snd_seq_dummy minix snd_hrtimer
+> snd_seq snd_seq_device authenc pcrypt crypto_user sha3_generic algif_hash
+> salsa20_generic binfmt_misc n_gsm pps_ldisc slcan ppp_synctty n_hdlc mkis=
+s
+> ax25 ppp_async ppp_generic slip slhc nfsv3 nfs_acl nfs nfs_ssc fscache
+> lockd grace rds tun brd overlay exfat vfat fat xfs sctp tcp_diag udp_diag
+> inet_diag rfkill sunrpc snd_hda_codec_generic ledtrig_audio snd_hda_intel
+> snd_intel_dspcfg soundwire_intel soundwire_generic_allocation snd_soc_cor=
+e
+> snd_compress snd_pcm_dmaengine soundwire_cadence snd_hda_codec snd_hda_co=
+re
+> ac97_bus snd_hwdep snd_pcm joydev snd_timer snd virtio_net soundcore
+> net_failover pcspkr virtio_balloon failover i2c_piix4 fuse zram ip_tables
+> x_tables cirrus drm_kms_helper cec virtio_blk drm serio_raw ata_generic
+> pata_acpi floppy btrfs raid6_pq xor [last unloaded: can]
+> > [12262.462039] ---[ end trace f683b95858968bee ]---
+> >
+> > I cannot reproduce this in QEMU with a Debian rootfs with the supplied
+> > configuration file though, proc01 -m 128 passes for me.
+>
+> Hi Nathan,
+>
+> We recently moved the mainline tree to use Fedora Rawhide as the base
+> distro, this helps out kdump and other tests which require
+> updated user space for testing. As a result, there were a few tests that
+> shouldn't have run like LTP Lite. So the log you linked
+> above is not related to the panic:
+>
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-=
+public/2021/02/02/622905/build_x86_64_redhat%3A1092370/tests/LTP_lite/95073=
+27_x86_64_1_RHELKT1LITE.FILTERED.fail.log
+>
+> This is the version of LTP we run for internal RHEL kernels and therefore
+> isn't supported against upstream kernels. I'm working on a fix
+> for this now and should be resolved soon, sorry about that.
+>
+> As far as the panic, it was was triggered on our upstream LTP test, I
+> don't have a corresponding x86_64/LTP mainline(GCC) job since there is a =
+BPF
+> bug which is causing our jobs to abort while updating the kernel for x86.
+> You will see the following in the logs:
+>
+> 'failed to validate module [something] BTF: -22 '
+>
 
-[auto build test WARNING on vkoul-dmaengine/next]
-[also build test WARNING on pci/next linux/master linus/master v5.11-rc6 next-20210125]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch]
+Guess this is with CONFIG_DEBUG_INFO_BTF=3Dy and LLVM/Clang?
 
-url:    https://github.com/0day-ci/linux/commits/Gustavo-Pimentel/dmaengine-dw-edma-HDMA-support/20210204-021120
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-config: s390-randconfig-r031-20210202 (attached as .config)
-compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 275c6af7d7f1ed63a03d05b4484413e447133269)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install s390 cross compiling tool for clang build
-        # apt-get install binutils-s390x-linux-gnu
-        # https://github.com/0day-ci/linux/commit/01913af21093b2ba821ea6ff4846edff4971e981
-        git remote add linux-review https://github.com/0day-ci/linux
-        git fetch --no-tags linux-review Gustavo-Pimentel/dmaengine-dw-edma-HDMA-support/20210204-021120
-        git checkout 01913af21093b2ba821ea6ff4846edff4971e981
-        # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390 
+*Today, I played with above and diverse DWARF version settings.*
+*Even recent pahole from Git in combination with up-to-date LLVM/Clang is
+incompatible with DWARF-v4 and DWARF-v5.*
+*Means all my builds were broken.*
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+Mark Wielaard says:
+"I would try to avoid using clang producing DWARF5. It clearly has some
+incompatibilities with dwarves/pahole. It should work if you don't set
+DEBUG_INFO_DWARF5. Try GCC 11 (which defaults to -gdwarf-5) or an
+earlier version (probably at least GCC 8 or higher) using -gdwarf-5
+explicitly."
 
-All warnings (new ones prefixed by >>):
+If this is with CONFIG_DEBUG_INFO_BTF=3Dy you should make it unavailable wh=
+en
+CC_IS_CLANG=3Dy.
 
-   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-                                                             ^
-   include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
-           ___constant_swab32(x) :                 \
-                              ^
-   include/uapi/linux/swab.h:19:12: note: expanded from macro '___constant_swab32'
-           (((__u32)(x) & (__u32)0x000000ffUL) << 24) |            \
-                     ^
-   In file included from drivers/pci/pci.c:18:
-   In file included from include/linux/pci.h:39:
-   In file included from include/linux/io.h:13:
-   In file included from arch/s390/include/asm/io.h:80:
-   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-                                                           ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
-   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-                                                             ^
-   include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
-           ___constant_swab32(x) :                 \
-                              ^
-   include/uapi/linux/swab.h:20:12: note: expanded from macro '___constant_swab32'
-           (((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |            \
-                     ^
-   In file included from drivers/pci/pci.c:18:
-   In file included from include/linux/pci.h:39:
-   In file included from include/linux/io.h:13:
-   In file included from arch/s390/include/asm/io.h:80:
-   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-                                                           ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
-   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-                                                             ^
-   include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
-           ___constant_swab32(x) :                 \
-                              ^
-   include/uapi/linux/swab.h:21:12: note: expanded from macro '___constant_swab32'
-           (((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |            \
-                     ^
-   In file included from drivers/pci/pci.c:18:
-   In file included from include/linux/pci.h:39:
-   In file included from include/linux/io.h:13:
-   In file included from arch/s390/include/asm/io.h:80:
-   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-                                                           ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
-   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-                                                             ^
-   include/uapi/linux/swab.h:119:21: note: expanded from macro '__swab32'
-           ___constant_swab32(x) :                 \
-                              ^
-   include/uapi/linux/swab.h:22:12: note: expanded from macro '___constant_swab32'
-           (((__u32)(x) & (__u32)0xff000000UL) >> 24)))
-                     ^
-   In file included from drivers/pci/pci.c:18:
-   In file included from include/linux/pci.h:39:
-   In file included from include/linux/io.h:13:
-   In file included from arch/s390/include/asm/io.h:80:
-   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-                                                           ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
-   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
-                                                             ^
-   include/uapi/linux/swab.h:120:12: note: expanded from macro '__swab32'
-           __fswab32(x))
-                     ^
-   In file included from drivers/pci/pci.c:18:
-   In file included from include/linux/pci.h:39:
-   In file included from include/linux/io.h:13:
-   In file included from arch/s390/include/asm/io.h:80:
-   include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           __raw_writeb(value, PCI_IOBASE + addr);
-                               ~~~~~~~~~~ ^
-   include/asm-generic/io.h:511:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-                                                         ~~~~~~~~~~ ^
-   include/asm-generic/io.h:521:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-                                                         ~~~~~~~~~~ ^
-   include/asm-generic/io.h:609:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           readsb(PCI_IOBASE + addr, buffer, count);
-                  ~~~~~~~~~~ ^
-   include/asm-generic/io.h:617:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           readsw(PCI_IOBASE + addr, buffer, count);
-                  ~~~~~~~~~~ ^
-   include/asm-generic/io.h:625:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           readsl(PCI_IOBASE + addr, buffer, count);
-                  ~~~~~~~~~~ ^
-   include/asm-generic/io.h:634:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           writesb(PCI_IOBASE + addr, buffer, count);
-                   ~~~~~~~~~~ ^
-   include/asm-generic/io.h:643:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           writesw(PCI_IOBASE + addr, buffer, count);
-                   ~~~~~~~~~~ ^
-   include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-           writesl(PCI_IOBASE + addr, buffer, count);
-                   ~~~~~~~~~~ ^
->> drivers/pci/pci.c:717:15: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
-           while ((vsec == pci_find_next_ext_capability(dev, vsec,
-                   ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/pci/pci.c:717:15: note: remove extraneous parentheses around the comparison to silence this warning
-           while ((vsec == pci_find_next_ext_capability(dev, vsec,
-                  ~     ^
-   drivers/pci/pci.c:717:15: note: use '=' to turn this equality comparison into an assignment
-           while ((vsec == pci_find_next_ext_capability(dev, vsec,
-                        ^~
-                        =
-   21 warnings generated.
+- Sedat -
 
 
-vim +717 drivers/pci/pci.c
+>
+> Here is a regular mainline job for reference where you can it:
+>
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-=
+public/2021/02/02/622904/build_x86_64_redhat%3A1092352/tests/9507513_x86_64=
+_1_console.log
+>
+> As far as comparing tests for mainline run with gcc vs clang, we don't
+> email an upstream ML for regular mainline, so nothing archived.
+> However, the logs are still published externally and we can always link
+> them here for comparison.
+>
+> If you like, we could start forwarding you reports for both ? Otherwise,
+> we are working on publishing our results database we use internally,
+> but this will take some time.
+>
+> Thanks,
+> Rachel
+>
+> >
+> > Cheers,
+> > Nathan
+> >
+> >> We hope that these logs can help you find the problem quickly. For the
+> full
+> >> detail on our testing procedures, please scroll to the bottom of this
+> message.
+> >>
+> >> Please reply to this email if you have any questions about the tests
+> that we
+> >> ran or if you have any suggestions on how to make future tests more
+> effective.
+> >>
+> >>          ,-.   ,-.
+> >>         ( C ) ( K )  Continuous
+> >>          `-',-.`-'   Kernel
+> >>            ( I )     Integration
+> >>             `-'
+> >>
+> _________________________________________________________________________=
+_____
+> >>
+> >> Compile testing
+> >> ---------------
+> >>
+> >> We compiled the kernel for 3 architectures:
+> >>
+> >>      aarch64:
+> >>        make options: make LLVM=3D1 -j30 INSTALL_MOD_STRIP=3D1 targz-pk=
+g
+> >>
+> >>      ppc64le:
+> >>        make options: make CC=3Dclang -j30 INSTALL_MOD_STRIP=3D1 targz-=
+pkg
+> >>
+> >>      x86_64:
+> >>        make options: make LLVM=3D1 -j30 INSTALL_MOD_STRIP=3D1 targz-pk=
+g
+> >>
+> >>
+> >> We built the following selftests:
+> >>
+> >>    x86_64:
+> >>        net: fail
+> >>        bpf: fail
+> >>        install and packaging: fail
+> >>
+> >> You can find the full log (build-selftests.log) in the artifact storag=
+e
+> above.
+> >>
+> >>
+> >> Hardware testing
+> >> ----------------
+> >> We booted each kernel and ran the following tests:
+> >>
+> >>    aarch64:
+> >>      Host 1:
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9D=8C selinux-policy: serge-testsuite
+> >>         =E2=9C=85 lvm thinp sanity
+> >>         =E2=9C=85 storage: software RAID testing
+> >>         =E2=9C=85 stress: stress-ng
+> >>         =F0=9F=9A=A7 =E2=9C=85 xfstests - ext4
+> >>         =F0=9F=9A=A7 =E2=9C=85 xfstests - xfs
+> >>         =F0=9F=9A=A7 =E2=9C=85 Storage blktests
+> >>         =F0=9F=9A=A7 =E2=9D=8C Storage nvme - rdma
+> >>         =F0=9F=9A=A7 =E2=9C=85 Storage nvme - tcp
+> >>         =F0=9F=9A=A7 =E2=9C=85 Storage: swraid mdadm raid_module test
+> >>         =F0=9F=9A=A7 =E2=9D=8C storage: iSCSI parameters
+> >>
+> >>      Host 2:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+> >>
+> >>      Host 3:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9C=85 ACPI table test
+> >>         =E2=9C=85 LTP lite
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utilit=
+y)
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking MACsec: sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking sctp-auth: sockopts tes=
+t
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic te=
+st
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tr=
+ansport
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tu=
+nnel
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Ele=
+ment test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Usex - version 1.9-29
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Syscalls: nrdiff
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suit=
+es
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Trinity Fuzzer - Tier=
+1
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kasl=
+r
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP: openposix test s=
+uite
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sani=
+ty
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: ipv6/Fuji=
+tsu-socketapi-test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking firewall: =
+basic netfilter test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuit=
+e test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: dm/common
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libhugetlbfs - versio=
+n 2.2.1
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+> >>
+> >>      Host 4:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+> >>
+> >>      Host 5:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+> >>
+> >>    ppc64le:
+> >>      Host 1:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+> >>
+> >>      Host 2:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP lite
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utilit=
+y)
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking MACsec: sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking sctp-auth: sockopts tes=
+t
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic te=
+st
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tu=
+nnel
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Ele=
+ment test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Usex - version 1.9-29
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Syscalls: nrdiff
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suit=
+es
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Trinity Fuzzer - Tier=
+1
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kasl=
+r
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP: openposix test s=
+uite
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sani=
+ty
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: ipv6/Fuji=
+tsu-socketapi-test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking firewall: =
+basic netfilter test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuit=
+e test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: dm/common
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libhugetlbfs - versio=
+n 2.2.1
+> >>
+> >>      Host 3:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-testsuite
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 lvm thinp sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - rdma
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm=
+ raid_module test
+> >>
+> >>      Host 4:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-testsuite
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 lvm thinp sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - rdma
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm=
+ raid_module test
+> >>
+> >>      Host 5:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-testsuite
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 lvm thinp sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - rdma
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm=
+ raid_module test
+> >>
+> >>    x86_64:
+> >>      Host 1:
+> >>
+> >>         =E2=9A=A1 Internal infrastructure issues prevented one or more=
+ tests
+> (marked
+> >>         with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this archite=
+cture.
+> >>         This is not the fault of the kernel that was tested.
+> >>
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9D=8C selinux-policy: serge-testsuite
+> >>         =E2=9C=85 lvm thinp sanity
+> >>         =E2=9C=85 storage: software RAID testing
+> >>         =E2=9C=85 stress: stress-ng
+> >>         =F0=9F=9A=A7 =E2=9C=85 xfstests - ext4
+> >>         =F0=9F=9A=A7 =E2=9C=85 xfstests - xfs
+> >>         =F0=9F=9A=A7 =E2=9C=85 Storage blktests
+> >>         =F0=9F=9A=A7 =E2=9D=8C Storage nvme - rdma
+> >>         =F0=9F=9A=A7 =E2=9D=8C Storage nvme - tcp
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvdimm ndctl =
+test suite
+> >>         =F0=9F=9A=A7 =E2=9C=85 Storage: swraid mdadm raid_module test
+> >>         =F0=9F=9A=A7 =E2=9D=8C storage: iSCSI parameters
+> >>
+> >>      Host 2:
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9C=85 kdump - sysrq-c
+> >>         =F0=9F=9A=A7 =E2=9C=85 kdump - file-load
+> >>
+> >>      Host 3:
+> >>         =E2=9C=85 Boot test
+> >>         =E2=9C=85 ACPI table test
+> >>         =E2=9D=8C LTP lite
+> >>         =F0=9F=92=A5 LTP
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utilit=
+y)
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking MACsec: sanity
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking sctp-auth: sockopts tes=
+t
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic te=
+st
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tr=
+ansport
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tu=
+nnel
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: sanity smoke test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Ele=
+ment test
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Usex - version 1.9-29
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+> >>         =E2=9A=A1=E2=9A=A1=E2=9A=A1 Syscalls: nrdiff
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suit=
+es
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Trinity Fuzzer - Tier=
+1
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kasl=
+r
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP: openposix test s=
+uite
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sani=
+ty
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: ipv6/Fuji=
+tsu-socketapi-test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking firewall: =
+basic netfilter test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuit=
+e test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: dm/common
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libhugetlbfs - versio=
+n 2.2.1
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Tracepoints: operatio=
+nal test
+> >>         =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+> >>
+> >>    Test sources: https://gitlab.com/cki-project/kernel-tests
+> >>      =F0=9F=92=9A Pull requests are welcome for new tests or improveme=
+nts to
+> existing tests!
+> >>
+> >> Aborted tests
+> >> -------------
+> >> Tests that didn't complete running successfully are marked with =E2=9A=
+=A1=E2=9A=A1=E2=9A=A1.
+> >> If this was caused by an infrastructure issue, we try to mark that
+> >> explicitly in the report.
+> >>
+> >> Waived tests
+> >> ------------
+> >> If the test run included waived tests, they are marked with =F0=9F=9A=
+=A7. Such
+> tests are
+> >> executed but their results are not taken into account. Tests are waive=
+d
+> when
+> >> their results are not reliable enough, e.g. when they're just
+> introduced or are
+> >> being fixed.
+> >>
+> >> Testing timeout
+> >> ---------------
+> >> We aim to provide a report within reasonable timeframe. Tests that
+> haven't
+> >> finished running yet are marked with =E2=8F=B1.
+> >>
+> >> --
+> >> You received this message because you are subscribed to the Google
+> Groups "Clang Built Linux" group.
+> >> To unsubscribe from this group and stop receiving emails from it, send
+> an email to clang-built-linux+unsubscribe@googlegroups.com.
+> >> To view this discussion on the web visit
+> https://groups.google.com/d/msgid/clang-built-linux/cki.C90653A6EF.V9S14C=
+F2MY%40redhat.com
+> .
+> >
+> >
+>
+> --
+> You received this message because you are subscribed to the Google Groups
+> "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an
+> email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit
+> https://groups.google.com/d/msgid/clang-built-linux/5877bb33-ba17-6459-41=
+0c-1c51bd193481%40redhat.com
+> .
+>
 
-   694	
-   695	/**
-   696	 * pci_find_vsec_capability - Find a vendor-specific extended capability
-   697	 * @dev: PCI device to query
-   698	 * @cap: vendor-specific capability ID code
-   699	 *
-   700	 * Typically this function will be called by the pci driver, which passes
-   701	 * through argument the 'struct pci_dev *' already pointing for the device
-   702	 * config space that is associated with the vendor and device ID which will
-   703	 * know which ID to search and what to do with it, however, it might be
-   704	 * cases that this function could be called outside of this scope and
-   705	 * therefore is the caller responsibility to check the vendor and/or
-   706	 * device ID first.
-   707	 *
-   708	 * Returns the address of the vendor-specific structure that matches the
-   709	 * requested capability ID code within the device's PCI configuration space
-   710	 * or 0 if it does not find a match.
-   711	 */
-   712	u16 pci_find_vsec_capability(struct pci_dev *dev, int vsec_cap_id)
-   713	{
-   714		u16 vsec = 0;
-   715		u32 header;
-   716	
- > 717		while ((vsec == pci_find_next_ext_capability(dev, vsec,
-   718							     PCI_EXT_CAP_ID_VNDR))) {
-   719			if (pci_read_config_dword(dev, vsec + PCI_VSEC_HDR,
-   720						  &header) == PCIBIOS_SUCCESSFUL &&
-   721			    PCI_VSEC_CAP_ID(header) == vsec_cap_id)
-   722				return vsec;
-   723		}
-   724	
-   725		return 0;
-   726	}
-   727	EXPORT_SYMBOL_GPL(pci_find_vsec_capability);
-   728	
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CA%2BicZUWTia0CS5nrdGx7oE%2BZj_J3oC4id6U3jpVbUgqVosoFxw%4=
+0mail.gmail.com.
 
----
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+--00000000000049501905ba7562bf
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102040510.Uat1Zl20-lkp%40intel.com.
+<div dir=3D"ltr"><div dir=3D"ltr"><br></div><br><div class=3D"gmail_quote">=
+<div dir=3D"ltr" class=3D"gmail_attr">On Wed, Feb 3, 2021 at 9:45 PM Rachel=
+ Sibley &lt;<a href=3D"mailto:rasibley@redhat.com" target=3D"_blank">rasibl=
+ey@redhat.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" sty=
+le=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);paddi=
+ng-left:1ex"><br>
+<br>
+On 2/3/21 1:03 PM, Nathan Chancellor wrote:<br>
+&gt; On Wed, Feb 03, 2021 at 01:58:32AM -0000, CKI Project wrote:<br>
+&gt;&gt;<br>
+&gt;&gt; Hello,<br>
+&gt;&gt;<br>
+&gt;&gt; We ran automated tests on a recent commit from this kernel tree:<b=
+r>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Kernel repo: <a href=3D"https://g=
+it.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git" rel=3D"noreferre=
+r" target=3D"_blank">https://git.kernel.org/pub/scm/linux/kernel/git/torval=
+ds/linux.git</a><br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 Commit: 3aaf0a27ff=
+c2 - Merge tag &#39;clang-format-for-linux-v5.11-rc7&#39; of git://<a href=
+=3D"http://github.com/ojeda/linux" rel=3D"noreferrer" target=3D"_blank">git=
+hub.com/ojeda/linux</a><br>
+&gt;&gt;<br>
+&gt;&gt; The results of these automated tests are provided below.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Overall result: FAILED (see details below)<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Merge: OK<br=
+>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Compile: OK<br>
+&gt;&gt;=C2=A0 =C2=A0Selftests compile: FAILED<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Tests: PANIC=
+KED<br>
+&gt;&gt;<br>
+&gt;&gt; All kernel binaries, config files, and logs are available for down=
+load here:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 <a href=3D"https://arr-cki-prod-datawarehouse-public.=
+s3.amazonaws.com/index.html?prefix=3Ddatawarehouse-public/2021/02/02/622905=
+" rel=3D"noreferrer" target=3D"_blank">https://arr-cki-prod-datawarehouse-p=
+ublic.s3.amazonaws.com/index.html?prefix=3Ddatawarehouse-public/2021/02/02/=
+622905</a><br>
+&gt;&gt;<br>
+&gt;&gt; One or more kernel tests failed:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 aarch64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9D=8C selinux-policy: serge-testsuit=
+e<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 x86_64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9D=8C selinux-policy: serge-testsuit=
+e<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9D=8C LTP lite<br>
+&gt; <br>
+&gt; These should be the failures for this particular set of tests correct?=
+<br>
+&gt; <br>
+&gt; <a href=3D"https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/=
+datawarehouse-public/2021/02/02/622905/build_x86_64_redhat%3A1092370/tests/=
+LTP_lite/9507327_x86_64_1_RHELKT1LITE.FILTERED.fail.log" rel=3D"noreferrer"=
+ target=3D"_blank">https://arr-cki-prod-datawarehouse-public.s3.amazonaws.c=
+om/datawarehouse-public/2021/02/02/622905/build_x86_64_redhat%3A1092370/tes=
+ts/LTP_lite/9507327_x86_64_1_RHELKT1LITE.FILTERED.fail.log</a><br>
+&gt; <br>
+&gt; I am curious, is there any way to get a side by side comparison of the=
+<br>
+&gt; test results between GCC and clang? In other words, I would like to kn=
+ow<br>
+&gt; if a test is failing with both compilers versus just clang. This would=
+<br>
+&gt; help us understand if it is a compiler specific issue or something tha=
+t<br>
+&gt; broke the kernel.<br>
+&gt; <br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=92=A5 LTP<br>
+&gt; <br>
+&gt;&gt;From what I can tell:<br>
+&gt; <br>
+&gt; [12262.428593] general protection fault, probably for non-canonical ad=
+dress 0x8bc08b308b608b5: 0000 [#1] SMP PTI<br>
+&gt; [12262.428810] CPU: 1 PID: 465515 Comm: proc01 Not tainted 5.11.0-rc6 =
+#1<br>
+&gt; [12262.428810] Hardware name: Red Hat KVM, BIOS 0.5.1 01/01/2007<br>
+&gt; [12262.428810] RIP: 0010:string+0x50/0x110<br>
+&gt; [12262.428810] Code: ce 48 c1 fe 30 85 f6 0f 84 be 00 00 00 31 c0 eb 1=
+5 66 0f 1f 84 00 00 00 00 00 48 83 c0 01 39 c6 0f 84 ac 00 00 00 4c 8d 0c 0=
+7 &lt;45&gt; 0f b6 14 00 45 84 d2 0f 84 a2 00 00 00 49 39 d1 73 dd 45 88 11=
+<br>
+&gt; [12262.428810] RSP: 0018:ffffb1ea012bbc40 EFLAGS: 00010246<br>
+&gt; [12262.428810] RAX: 0000000000000000 RBX: ffff9ea25e9ea03e RCX: ffff0a=
+00ffffff04<br>
+&gt; [12262.428810] RDX: ffff9ea25e9eb000 RSI: ffffffffffffffff RDI: ffff9e=
+a25e9ea03e<br>
+&gt; [12262.428810] RBP: ffffffff8f5c95f1 R08: 08bc08b308b608b5 R09: ffff9e=
+a25e9ea03e<br>
+&gt; [12262.428810] R10: 0000001000000000 R11: ffffffff8e212401 R12: ffff9e=
+a25e9eb000<br>
+&gt; [12262.428810] R13: ffffffff8f5c95f3 R14: 0000000000000002 R15: ffffb1=
+ea012bbca0<br>
+&gt; [12262.428810] FS:=C2=A0 00007fab43075740(0000) GS:ffff9ea35bd00000(00=
+00) knlGS:0000000000000000<br>
+&gt; [12262.428810] CS:=C2=A0 0010 DS: 0000 ES: 0000 CR0: 0000000080050033<=
+br>
+&gt; [12262.428810] CR2: 00005584bb6dba68 CR3: 0000000111bbe000 CR4: 000000=
+00000006e0<br>
+&gt; [12262.428810] DR0: 0000000000000001 DR1: 0000000000000000 DR2: 000000=
+0000000000<br>
+&gt; [12262.428810] DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 000000=
+0000000600<br>
+&gt; [12262.428810] Call Trace:<br>
+&gt; [12262.428810]=C2=A0 vsnprintf+0x570/0x710<br>
+&gt; [12262.428810]=C2=A0 seq_printf+0x6b/0x90<br>
+&gt; [12262.428810]=C2=A0 ? lock_acquire+0x27/0x280<br>
+&gt; [12262.428810]=C2=A0 ? mod_objcg_state+0xd2/0x160<br>
+&gt; [12262.428810]=C2=A0 ? vsnprintf+0x32f/0x710<br>
+&gt; [12262.428810]=C2=A0 print_name+0x46/0xc0<br>
+&gt; [12262.428810]=C2=A0 ? seq_printf+0x6b/0x90<br>
+&gt; [12262.428810]=C2=A0 ? __kmalloc_node+0xaf/0x340<br>
+&gt; [12262.428810]=C2=A0 ? lock_acquire+0x27/0x280<br>
+&gt; [12262.428810]=C2=A0 ? kvmalloc_node+0x4b/0x90<br>
+&gt; [12262.428810]=C2=A0 lc_show+0x82/0xe0<br>
+&gt; [12262.428810]=C2=A0 seq_read_iter+0x311/0x420<br>
+&gt; [12262.428810]=C2=A0 proc_reg_read_iter+0x3f/0x80<br>
+&gt; [12262.428810]=C2=A0 vfs_read+0x2c3/0x340<br>
+&gt; [12262.428810]=C2=A0 ksys_read+0x5f/0xb0<br>
+&gt; [12262.428810]=C2=A0 do_syscall_64+0x33/0x40<br>
+&gt; [12262.428810]=C2=A0 entry_SYSCALL_64_after_hwframe+0x44/0xa9<br>
+&gt; [12262.428810] RIP: 0033:0x7fab4318791d<br>
+&gt; [12262.428810] Code: 0f 1f 44 00 00 48 8b 0d 51 45 0b 00 45 31 c0 64 8=
+3 39 0b 75 d2 eb c0 e8 b1 fb ff ff 90 f3 0f 1e fa 48 39 ca 77 2b 31 c0 0f 0=
+5 &lt;48&gt; 3d 00 f0 ff ff 77 0b c3 66 2e 0f 1f 84 00 00 00 00 00 48 8b 15=
+<br>
+&gt; [12262.428810] RSP: 002b:00007ffcaeb265b8 EFLAGS: 00000246 ORIG_RAX: 0=
+000000000000000<br>
+&gt; [12262.428810] RAX: ffffffffffffffda RBX: 00007ffcaeb27730 RCX: 00007f=
+ab4318791d<br>
+&gt; [12262.428810] RDX: 0000000000000400 RSI: 000000000044b820 RDI: 000000=
+0000000005<br>
+&gt; [12262.428810] RBP: 0000000000008000 R08: 0000000000000000 R09: 00007f=
+fcaeb27520<br>
+&gt; [12262.428810] R10: 0000000000000000 R11: 0000000000000246 R12: 000000=
+0000000000<br>
+&gt; [12262.428810] R13: 0000000000000005 R14: 0000000000000000 R15: 000000=
+0000000000<br>
+&gt; [12262.428810] Modules linked in: snd_seq_dummy minix snd_hrtimer snd_=
+seq snd_seq_device authenc pcrypt crypto_user sha3_generic algif_hash salsa=
+20_generic binfmt_misc n_gsm pps_ldisc slcan ppp_synctty n_hdlc mkiss ax25 =
+ppp_async ppp_generic slip slhc nfsv3 nfs_acl nfs nfs_ssc fscache lockd gra=
+ce rds tun brd overlay exfat vfat fat xfs sctp tcp_diag udp_diag inet_diag =
+rfkill sunrpc snd_hda_codec_generic ledtrig_audio snd_hda_intel snd_intel_d=
+spcfg soundwire_intel soundwire_generic_allocation snd_soc_core snd_compres=
+s snd_pcm_dmaengine soundwire_cadence snd_hda_codec snd_hda_core ac97_bus s=
+nd_hwdep snd_pcm joydev snd_timer snd virtio_net soundcore net_failover pcs=
+pkr virtio_balloon failover i2c_piix4 fuse zram ip_tables x_tables cirrus d=
+rm_kms_helper cec virtio_blk drm serio_raw ata_generic pata_acpi floppy btr=
+fs raid6_pq xor [last unloaded: can]<br>
+&gt; [12262.462039] ---[ end trace f683b95858968bee ]---<br>
+&gt; <br>
+&gt; I cannot reproduce this in QEMU with a Debian rootfs with the supplied=
+<br>
+&gt; configuration file though, proc01 -m 128 passes for me.<br>
+<br>
+Hi Nathan,<br>
+<br>
+We recently moved the mainline tree to use Fedora Rawhide as the base distr=
+o, this helps out kdump and other tests which require<br>
+updated user space for testing. As a result, there were a few tests that sh=
+ouldn&#39;t have run like LTP Lite. So the log you linked<br>
+above is not related to the panic:<br>
+<a href=3D"https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/dataw=
+arehouse-public/2021/02/02/622905/build_x86_64_redhat%3A1092370/tests/LTP_l=
+ite/9507327_x86_64_1_RHELKT1LITE.FILTERED.fail.log" rel=3D"noreferrer" targ=
+et=3D"_blank">https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/da=
+tawarehouse-public/2021/02/02/622905/build_x86_64_redhat%3A1092370/tests/LT=
+P_lite/9507327_x86_64_1_RHELKT1LITE.FILTERED.fail.log</a><br>
+<br>
+This is the version of LTP we run for internal RHEL kernels and therefore i=
+sn&#39;t supported against upstream kernels. I&#39;m working on a fix<br>
+for this now and should be resolved soon, sorry about that.<br>
+<br>
+As far as the panic, it was was triggered on our upstream LTP test, I don&#=
+39;t have a corresponding x86_64/LTP mainline(GCC) job since there is a BPF=
+<br>
+bug which is causing our jobs to abort while updating the kernel for x86. Y=
+ou will see the following in the logs:<br>
+<br>
+&#39;failed to validate module [something] BTF: -22 &#39;<br></blockquote><=
+div><br></div><div>Guess this is with=C2=A0<span style=3D"font-family:monos=
+pace;color:rgb(0,0,0)">CONFIG_DEBUG_INFO_</span><span style=3D"font-family:=
+monospace;font-weight:bold;color:rgb(255,84,84)">BTF=3Dy and LLVM/Clang?</s=
+pan></div><div><span style=3D"font-family:monospace;font-weight:bold;color:=
+rgb(255,84,84)"><br></span></div><div><font color=3D"#ff5454" face=3D"monos=
+pace"><b>Today, I played with above and diverse DWARF version settings.</b>=
+</font></div><div><font color=3D"#ff5454" face=3D"monospace"><b>Even recent=
+ pahole from Git in combination with up-to-date LLVM/Clang is incompatible =
+with DWARF-v4 and DWARF-v5.</b></font></div><div><font color=3D"#ff5454" fa=
+ce=3D"monospace"><b>Means all my builds were broken.</b></font></div><div><=
+font color=3D"#ff5454" face=3D"monospace"><b><br></b></font></div><div>Mark=
+ Wielaard says:<br></div><div>&quot;I would try to avoid using clang produc=
+ing DWARF5. It clearly has some<br>incompatibilities with dwarves/pahole. I=
+t should work if you don&#39;t set<br>DEBUG_INFO_DWARF5. Try GCC 11 (which =
+defaults to -gdwarf-5) or an<br>earlier version (probably at least GCC 8 or=
+ higher) using -gdwarf-5<br>explicitly.&quot;<br></div><div><br></div><div>=
+If this is with=C2=A0CONFIG_DEBUG_INFO_BTF=3Dy you should make it unavailab=
+le when CC_IS_CLANG=3Dy.</div><div><br></div><div>- Sedat -</div><div>=C2=
+=A0<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px =
+0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+<br>
+Here is a regular mainline job for reference where you can it:<br>
+<a href=3D"https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/dataw=
+arehouse-public/2021/02/02/622904/build_x86_64_redhat%3A1092352/tests/95075=
+13_x86_64_1_console.log" rel=3D"noreferrer" target=3D"_blank">https://arr-c=
+ki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-public/2021/02/=
+02/622904/build_x86_64_redhat%3A1092352/tests/9507513_x86_64_1_console.log<=
+/a><br>
+<br>
+As far as comparing tests for mainline run with gcc vs clang, we don&#39;t =
+email an upstream ML for regular mainline, so nothing archived.<br>
+However, the logs are still published externally and we can always link the=
+m here for comparison.<br>
+<br>
+If you like, we could start forwarding you reports for both ? Otherwise, we=
+ are working on publishing our results database we use internally,<br>
+but this will take some time.<br>
+<br>
+Thanks,<br>
+Rachel<br>
+<br>
+&gt; <br>
+&gt; Cheers,<br>
+&gt; Nathan<br>
+&gt; <br>
+&gt;&gt; We hope that these logs can help you find the problem quickly. For=
+ the full<br>
+&gt;&gt; detail on our testing procedures, please scroll to the bottom of t=
+his message.<br>
+&gt;&gt;<br>
+&gt;&gt; Please reply to this email if you have any questions about the tes=
+ts that we<br>
+&gt;&gt; ran or if you have any suggestions on how to make future tests mor=
+e effective.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ,-.=C2=A0 =C2=A0,-.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0( C ) ( K )=C2=A0 Continuous<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 `-&#39;,-.`-&#39;=C2=A0 =C2=A0Ke=
+rnel<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ( I )=C2=A0 =C2=A0 =C2=A0=
+Integration<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0`-&#39;<br>
+&gt;&gt; __________________________________________________________________=
+____________<br>
+&gt;&gt;<br>
+&gt;&gt; Compile testing<br>
+&gt;&gt; ---------------<br>
+&gt;&gt;<br>
+&gt;&gt; We compiled the kernel for 3 architectures:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 aarch64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 make options: make LLVM=3D1 -j30 INSTAL=
+L_MOD_STRIP=3D1 targz-pkg<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 ppc64le:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 make options: make CC=3Dclang -j30 INST=
+ALL_MOD_STRIP=3D1 targz-pkg<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 x86_64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 make options: make LLVM=3D1 -j30 INSTAL=
+L_MOD_STRIP=3D1 targz-pkg<br>
+&gt;&gt;<br>
+&gt;&gt;<br>
+&gt;&gt; We built the following selftests:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 x86_64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 net: fail<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 bpf: fail<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 install and packaging: fail<br>
+&gt;&gt;<br>
+&gt;&gt; You can find the full log (build-selftests.log) in the artifact st=
+orage above.<br>
+&gt;&gt;<br>
+&gt;&gt;<br>
+&gt;&gt; Hardware testing<br>
+&gt;&gt; ----------------<br>
+&gt;&gt; We booted each kernel and ran the following tests:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 aarch64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 1:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9D=8C selinux-policy: serge-t=
+estsuite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 lvm thinp sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 storage: software RAID =
+testing<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 stress: stress-ng<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 xfstests -=
+ ext4<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 xfstests -=
+ xfs<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 Storage bl=
+ktests<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9D=8C Storage nv=
+me - rdma<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 Storage nv=
+me - tcp<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 Storage: s=
+wraid mdadm raid_module test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9D=8C storage: i=
+SCSI parameters<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 2:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump=
+ - sysrq-c<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 kdump - file-load<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 3:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 ACPI table test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 LTP lite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP<b=
+r>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopd=
+ev Sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Memor=
+y function: memfd_create<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU =
+(Abstract Machine Test Utility)<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking bridge: sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking MACsec: sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking socket: fuzz<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking sctp-auth: sockopts test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking: igmp conformance test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route: pmtu<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route_func - local<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route_func - forward<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking TCP: keepalive test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking UDP: socket<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: geneve basic test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: gre basic<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP =
+basic test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: vxlan basic<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking ipsec: basic netns - transport<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking ipsec: basic netns - tunnel<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkc=
+api AF_ALG test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 pciut=
+ils: update pci ids test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA =
+PCM loopback test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA =
+Control (mixer) Userspace Element test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Usex =
+- version 1.9-29<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 stora=
+ge: SCSI VPD<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Sysca=
+lls: nrdiff<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 CIFS Connectathon<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 POSIX pjd-fstest suites<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Trinity Fuzzer - Tier1<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Memory function: kaslr<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 LTP: openposix test suite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Ethernet drivers sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Networking: ipv6/Fujitsu-socketapi-test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Networking firewall: basic netfilter test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 audit: audit testsuite test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 storage: dm/common<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 trace: ftrace/tracer<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Libhugetlbfs - version 2.2.1<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 kdump - kexec_boot<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 4:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump=
+ - sysrq-c<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 kdump - file-load<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 5:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump=
+ - sysrq-c<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 kdump - file-load<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 ppc64le:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 1:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot =
+test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump=
+ - sysrq-c<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 kdump - file-load<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 2:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot =
+test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP l=
+ite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP<b=
+r>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopd=
+ev Sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Memor=
+y function: memfd_create<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU =
+(Abstract Machine Test Utility)<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking bridge: sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking MACsec: sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking socket: fuzz<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking sctp-auth: sockopts test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route: pmtu<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route_func - local<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route_func - forward<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking TCP: keepalive test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking UDP: socket<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: geneve basic test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: gre basic<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP =
+basic test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: vxlan basic<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking ipsec: basic netns - tunnel<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkc=
+api AF_ALG test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 pciut=
+ils: update pci ids test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA =
+PCM loopback test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA =
+Control (mixer) Userspace Element test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Usex =
+- version 1.9-29<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Sysca=
+lls: nrdiff<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 CIFS Connectathon<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 POSIX pjd-fstest suites<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Trinity Fuzzer - Tier1<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Memory function: kaslr<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 LTP: openposix test suite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Ethernet drivers sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Networking: ipv6/Fujitsu-socketapi-test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Networking firewall: basic netfilter test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 audit: audit testsuite test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 storage: dm/common<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 trace: ftrace/tracer<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Libhugetlbfs - version 2.2.1<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 3:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot =
+test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 selin=
+ux-policy: serge-testsuite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 lvm t=
+hinp sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 stora=
+ge: software RAID testing<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 xfstests - ext4<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 xfstests - xfs<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage blktests<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvme - rdma<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvme - tcp<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage: swraid mdadm raid_module test<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 4:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot =
+test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 selin=
+ux-policy: serge-testsuite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 lvm t=
+hinp sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 stora=
+ge: software RAID testing<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 xfstests - ext4<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 xfstests - xfs<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage blktests<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvme - rdma<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvme - tcp<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage: swraid mdadm raid_module test<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 5:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot =
+test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 selin=
+ux-policy: serge-testsuite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 lvm t=
+hinp sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 stora=
+ge: software RAID testing<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 xfstests - ext4<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 xfstests - xfs<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage blktests<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvme - rdma<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvme - tcp<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage: swraid mdadm raid_module test<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 x86_64:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 1:<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1 Internal infrastructure=
+ issues prevented one or more tests (marked<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0with =E2=9A=A1=E2=9A=A1=E2=9A=A1)=
+ from running on this architecture.<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0This is not the fault of the kern=
+el that was tested.<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9D=8C selinux-policy: serge-t=
+estsuite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 lvm thinp sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 storage: software RAID =
+testing<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 stress: stress-ng<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 xfstests -=
+ ext4<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 xfstests -=
+ xfs<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 Storage bl=
+ktests<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9D=8C Storage nv=
+me - rdma<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9D=8C Storage nv=
+me - tcp<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Storage nvdimm ndctl test suite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 Storage: s=
+wraid mdadm raid_module test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9D=8C storage: i=
+SCSI parameters<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 2:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 kdump - sysrq-c<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9C=85 kdump - fi=
+le-load<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 Host 3:<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 Boot test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9C=85 ACPI table test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9D=8C LTP lite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=92=A5 LTP<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopd=
+ev Sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Memor=
+y function: memfd_create<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU =
+(Abstract Machine Test Utility)<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking bridge: sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking MACsec: sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking socket: fuzz<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking sctp-auth: sockopts test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking: igmp conformance test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route: pmtu<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route_func - local<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking route_func - forward<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking TCP: keepalive test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking UDP: socket<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: geneve basic test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: gre basic<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP =
+basic test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking tunnel: vxlan basic<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking ipsec: basic netns - transport<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Netwo=
+rking ipsec: basic netns - tunnel<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkc=
+api AF_ALG test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 pciut=
+ils: sanity smoke test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 pciut=
+ils: update pci ids test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA =
+PCM loopback test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA =
+Control (mixer) Userspace Element test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Usex =
+- version 1.9-29<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 stora=
+ge: SCSI VPD<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=9A=A1=E2=9A=A1=E2=9A=A1 Sysca=
+lls: nrdiff<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 CIFS Connectathon<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 POSIX pjd-fstest suites<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Trinity Fuzzer - Tier1<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Memory function: kaslr<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 LTP: openposix test suite<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Ethernet drivers sanity<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Networking: ipv6/Fujitsu-socketapi-test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Networking firewall: basic netfilter test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 audit: audit testsuite test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 storage: dm/common<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 trace: ftrace/tracer<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Libhugetlbfs - version 2.2.1<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 Tracepoints: operational test<br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=
+=E2=9A=A1 kdump - kexec_boot<br>
+&gt;&gt;<br>
+&gt;&gt;=C2=A0 =C2=A0 Test sources: <a href=3D"https://gitlab.com/cki-proje=
+ct/kernel-tests" rel=3D"noreferrer" target=3D"_blank">https://gitlab.com/ck=
+i-project/kernel-tests</a><br>
+&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =F0=9F=92=9A Pull requests are welcome for new=
+ tests or improvements to existing tests!<br>
+&gt;&gt;<br>
+&gt;&gt; Aborted tests<br>
+&gt;&gt; -------------<br>
+&gt;&gt; Tests that didn&#39;t complete running successfully are marked wit=
+h =E2=9A=A1=E2=9A=A1=E2=9A=A1.<br>
+&gt;&gt; If this was caused by an infrastructure issue, we try to mark that=
+<br>
+&gt;&gt; explicitly in the report.<br>
+&gt;&gt;<br>
+&gt;&gt; Waived tests<br>
+&gt;&gt; ------------<br>
+&gt;&gt; If the test run included waived tests, they are marked with =F0=9F=
+=9A=A7. Such tests are<br>
+&gt;&gt; executed but their results are not taken into account. Tests are w=
+aived when<br>
+&gt;&gt; their results are not reliable enough, e.g. when they&#39;re just =
+introduced or are<br>
+&gt;&gt; being fixed.<br>
+&gt;&gt;<br>
+&gt;&gt; Testing timeout<br>
+&gt;&gt; ---------------<br>
+&gt;&gt; We aim to provide a report within reasonable timeframe. Tests that=
+ haven&#39;t<br>
+&gt;&gt; finished running yet are marked with =E2=8F=B1.<br>
+&gt;&gt;<br>
+&gt;&gt; -- <br>
+&gt;&gt; You received this message because you are subscribed to the Google=
+ Groups &quot;Clang Built Linux&quot; group.<br>
+&gt;&gt; To unsubscribe from this group and stop receiving emails from it, =
+send an email to <a href=3D"mailto:clang-built-linux%2Bunsubscribe@googlegr=
+oups.com" target=3D"_blank">clang-built-linux+unsubscribe@googlegroups.com<=
+/a>.<br>
+&gt;&gt; To view this discussion on the web visit <a href=3D"https://groups=
+.google.com/d/msgid/clang-built-linux/cki.C90653A6EF.V9S14CF2MY%40redhat.co=
+m" rel=3D"noreferrer" target=3D"_blank">https://groups.google.com/d/msgid/c=
+lang-built-linux/cki.C90653A6EF.V9S14CF2MY%40redhat.com</a>.<br>
+&gt; <br>
+&gt; <br>
+<br>
+-- <br>
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br>
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux%2Bunsubscribe@googlegroups.com"=
+ target=3D"_blank">clang-built-linux+unsubscribe@googlegroups.com</a>.<br>
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/5877bb33-ba17-6459-410c-1c51bd193481%40redhat.=
+com" rel=3D"noreferrer" target=3D"_blank">https://groups.google.com/d/msgid=
+/clang-built-linux/5877bb33-ba17-6459-410c-1c51bd193481%40redhat.com</a>.<b=
+r>
+</blockquote></div></div>
 
---17pEHd4RhPHOinZp
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
+<p></p>
 
-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
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CA%2BicZUWTia0CS5nrdGx7oE%2BZj_J3oC4id6U3jpVbU=
+gqVosoFxw%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
+groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWTia0CS5nrdGx7oE%2BZj_=
+J3oC4id6U3jpVbUgqVosoFxw%40mail.gmail.com</a>.<br />
 
---17pEHd4RhPHOinZp--
+--00000000000049501905ba7562bf--
