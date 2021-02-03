@@ -1,144 +1,144 @@
-Return-Path: <clang-built-linux+bncBDAOJ6534YNBB36R5KAAMGQE3BQFTXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDV37XP3XYDRBB6Y5KAAMGQEEHL32JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x63d.google.com (mail-ej1-x63d.google.com [IPv6:2a00:1450:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04B1730DB95
-	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 14:45:20 +0100 (CET)
-Received: by mail-ej1-x63d.google.com with SMTP id le12sf12043711ejb.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 05:45:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612359919; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id DF72430DC05
+	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 14:58:32 +0100 (CET)
+Received: by mail-pl1-x63c.google.com with SMTP id e12sf10771484plh.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 05:58:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612360711; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ilVm+DTdf/6XMFSmU/AUpq63B6FX6O2PtIoUmuTCmdP1/Tr37xNQH/mS+CR60sOL2x
-         v4d7RUSQck2XhlKUMjMSXYPWfCmELPXSYLd3m5x8ib84MmCV3J1K7RTPBFS7kKzHFW6W
-         e69Ioj/ZqpX8I/i+7i8rXUiXgQOalAgIRTdcO5IB0nwI29sHvACiowjdK9Wec+O7asDE
-         HGsN0WN8XUHMKPTA2eeAIYpyXTbOoRES583zpzb6lgbHxndxfwf9ft/iXJzRNwMYbUUY
-         tF8NeOegd6ItgUtOyleKY1YayxltMhCVFMmBi2mq/LVBJyTN4r22/U6pXuPtdSyFEWN5
-         ImcA==
+        b=Bl/cC8JWdERiYJjSMHvuVGY6TQLlMrxZ9vmHmpNjn9LdlXat7nDfipQqZS5+C+3+iQ
+         EuCfti9qzwu6Q4eQsBCheIXEruzkVb5xxvRRq0GKllKmpch+I50Sk4wp6HLHM+h+GyEf
+         K2HgajaBjDveiWyRyGSsploBy4YCAk9AoCmv9yQbc9eYHmyPHjhbIdBSTZ7sBRsjkO48
+         bVZs/sbS4rLDqtLaxPWJRMCFRSt5Nl4Ovx3/Pc3U42WFBfOi8AGzhsyULuuZaGt9Y43N
+         qYYigcSvP7+lFUydbsVXAetf4yD4yGfXzeSBPm2RS4xLilzycwJTEv12ZC4wq+eqs5pW
+         QA1w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=r8SGKtUJdXtK3XSw6tw1oAY2TqoTbTkFqC0MSAKrENo=;
-        b=NT4WWIDVjEmmVNRvs2DBd58MVzN2/KYfZ7rfQV1aTqO1mWmLB45Czterh3IvkzVMAt
-         /FLsgJaJusCGKHo/bbUOulOCr65w2sTwytAey00Ws+/foxb1r4GFXw5XUeCyapqzU9Ty
-         +2yduWn1GOpNpQG3MxhzxnkRVMGu8zqb3Grhgmi5YbgIWzuRPGFotLkTGz118kZVWMz5
-         gaISKvRpoq1f1PFRYjkDc35x4oLf0hXAwV/tYFRl2JdqLPotmB4oNk/0JhwIy3XFvQxD
-         yrq3fFSE04NarBsSrJK8TGoS0+sVEFBAlm+l94nEtFlKAdG1zPB9MdFu1CbZ834F/NkU
-         gFjA==
+        bh=dqrlN1Na+MH8nGf6q9Pv0IQSYUJuzXvZ7HLnF+sDfgY=;
+        b=KHCdKEdmwbMvJdxgEAfJKQ1aZhl5zvqAQHXd45IBl4h22+kAMsVmfFJzbXr1cvqi2x
+         6nYcXnoZFqjXpqzDL95Tudc9UgooYO7qr9rMpDOqXIfCnwRV6Zs7znq3USkXK3woZ8HU
+         J9LlGPfPc7jL3QvFOcHS9U2r96Sziblj9aGcNkDNHhxpvHFJW6YGmme8AC0JvkrGLPKz
+         jxLj1Rf1gLBpEmyXuqhThdd3Bva6uFb/BFEXZrVKctj9NlNC0N+MM4XxSQ0lh5zfBb/9
+         WTx9eZXrkzhRHvAtv+KE6toBT+KWEYSCNM+4w8gZVapWqK6uH78qnsLWFphuec+oVKZq
+         NzJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=uEVfZB7k;
-       spf=pass (google.com: domain of snovitoll@gmail.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=snovitoll@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=r8SGKtUJdXtK3XSw6tw1oAY2TqoTbTkFqC0MSAKrENo=;
-        b=XIIAbB6dcAMefTHPgvXBOU9LNrRMYhsS0XErUsgINo8PrTe0ipI7BY1hQYirR7+i8o
-         k0Tj9/jvVP6k3JYzXtG0lHytupPYzH6Dt3hOUa86phJcsOmfB3F1k4FlSHHJAg73vGQf
-         uU4VSensocFdWdTDVVPPloCyNY7f8t4VqBFltI/HN5zXckgrcty8KfrOxUO7S8ZBO890
-         NZRShZvuj1TuxgC3HfaFMY5MBf7Xqstx/LZr/EKnmFzQe8yykzFqmERzQcq/JKEby/Ua
-         vbhvpQWbPy7npUjJvK63SWRyg/cSBjcN4cKgiBqJZjj1qhGfgTJ6BwvW59v9ISVaawa5
-         B/4Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=r8SGKtUJdXtK3XSw6tw1oAY2TqoTbTkFqC0MSAKrENo=;
-        b=F+HT1UpGNys6KBQoOZSp6as0R2fXnR9pr9utkLqclupLW6I1Vp9PiemmD1bKaryzwl
-         wqe8/92OqJHtBiUppCEjUtNvMzy3cgbei/4KVykl541fvUoZD/oklThQepPt/UtxS01F
-         2bWz617fdf2neiSkxrFsdQ4igQ4eJ3elP1YvtduF8qaukmNlN0FHSsBllC367fh7U+lQ
-         tIDxTUo/rIlAideI8BFCPokmw+KFcZr0rRLznW9/MsiuJ0udtQSacTyF7sjEPfNXbApi
-         9ND8p9QsKLM/aSz8en/XdxHFdSTz+Z8nbICVePy515LRdIygNuSPg0GoCBODnxiqrVLW
-         VXvw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=dqrlN1Na+MH8nGf6q9Pv0IQSYUJuzXvZ7HLnF+sDfgY=;
+        b=azhItzP/7GvRR1exrPyvhTq8Zd4SRDBPxJZJrMzi+9O1bjz8llDk5FOLqkbVUPq1SZ
+         GUgwG35p31t30wYVWCOAXI4aHKWe/HfCJm50yy1YAU48cTuSAzZJJo/Ag8PUIa3AvmlE
+         UNdz/mW8mJ71dAuNk5sCP1rBwrRjU8Ll9CNGiY91RoKQqLotc/4lQeikrUHEe5HrfNes
+         THI+ZcTdi9Uli0PZxSs25v/8dLYCLS+7chxSq31VnUhy9LpzRW4987KIqZYbjpMkAGo8
+         7TmzhbDFUfO5wYq1czG2Sbcld1/ATkiA7WRXvNJz/izAL92jWsgQFWge3jzTjxNRyRgE
+         pPaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=r8SGKtUJdXtK3XSw6tw1oAY2TqoTbTkFqC0MSAKrENo=;
-        b=TkFPXobd70XKXUhTSvPaU0WvDcCaHTuAiWhe2FSLdC+EuszTdBCqd5DXGlcVwn1kbx
-         2Yoqw1/+GepCE80yT4GwDpocLVzKzZU+MMCO5Gis2Y5B9bACIFlAccoAFe3bNB9Mer48
-         aWDIlbGKIw52u4WVrWu9Ej1uHF4NXDUapyke7hGnSImrZgCebJ3hPTDWuLmsSCNFDiEP
-         wv6yIOE282Ei3Uq7OkUjsDhF1XJejd13XqFCzDgYjS5sXy5vYkdTZHLFq6j7sJllYOtb
-         Tqybg7Mz/W6BIe6OiB/NoMIw2SaTzSh7llSoQJkzpP0MoQldFSYH/HGAVN0LsAKslsZY
-         zj9g==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=dqrlN1Na+MH8nGf6q9Pv0IQSYUJuzXvZ7HLnF+sDfgY=;
+        b=OejEc6IWAF8bgSOLEpl4Ec7dwTMfg8YTsFYr5ANgeUavrAdl+pRlN/odKn/W1w4A8R
+         QB8akl40FRR0v8o1uH+iZ8uIOH3+JU8FOutZyPuiB/QO8b/kZ3qqIv/sXZmT0CQ6RHLO
+         GLTwCvksm0uCQVHQCOM0ue7T33I31zw2kaeIVxPyvl4pZlthMFA6gv+TVRdJf0ukDULW
+         wgp+elNtGSPF5GJeN4sk+J8SNdW1OfxdY4ObtmKNfepnDLfAxAVN14aSQbRNJ18ejDjl
+         S5eRXy6+Q8lpOR/wljvDLp7OCxTBiE9E0/3jA3daF4B34+aAyiBLCHz5AJ64rYhPJqxU
+         +fRQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533PedCGVXBH69bvCsM4w92qj2SVOCq3bVlke0vhgkIxjvtvUdL5
-	oOSze9Azs1VC87FvQUOn6hQ=
-X-Google-Smtp-Source: ABdhPJwtKLw77+34oCCQyPNnopdizd9LgZbNc2ghKgNpUuz/6oiIhnN7v4Zj5C/aEd2oFH15N/fehQ==
-X-Received: by 2002:aa7:d60f:: with SMTP id c15mr2990162edr.291.1612359919828;
-        Wed, 03 Feb 2021 05:45:19 -0800 (PST)
+X-Gm-Message-State: AOAM531Wo3v9DYP7ndEYuUMqN2gmtFRjrwtUVaU1VHjsFeZz8xppP0Ts
+	ANi5Mp0F5gHzp2UlRU7+ZJg=
+X-Google-Smtp-Source: ABdhPJw8np5xgq7Wv8Ap6JAciZhnRw1wOOTAiFcMaKSln/Ox+9S5Tm6XU7YbXw4aftKtkJ32/04CbA==
+X-Received: by 2002:a63:1a44:: with SMTP id a4mr3716894pgm.41.1612360711300;
+        Wed, 03 Feb 2021 05:58:31 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:1192:: with SMTP id n18ls1308089eja.5.gmail; Wed, 03
- Feb 2021 05:45:19 -0800 (PST)
-X-Received: by 2002:a17:906:f2ca:: with SMTP id gz10mr3191770ejb.285.1612359919032;
-        Wed, 03 Feb 2021 05:45:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612359919; cv=none;
+Received: by 2002:a17:90b:4b8f:: with SMTP id lr15ls1147941pjb.3.gmail; Wed,
+ 03 Feb 2021 05:58:30 -0800 (PST)
+X-Received: by 2002:a17:90a:5d87:: with SMTP id t7mr3053946pji.175.1612360710553;
+        Wed, 03 Feb 2021 05:58:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612360710; cv=none;
         d=google.com; s=arc-20160816;
-        b=rr8KOorGHp2GHroiiG4RDqL18yueV8l/qBvrdJ0xp+u9K/hX74khq043XxOqGK5Zgl
-         FneCY+x5Fj8LuK9QyFiyV3e7SI9pHypNXJdkpzp/fc6yqzsHLOmz7bI8sRsnu3h5dpGt
-         Qn2lYA0jByVL0v/a5UhwcGIU4qwGh+Qd53ljA/7LF+sQe3A1Im+RwzmLpvifRkcP9WjF
-         O5YCwnKclfvK3xevcoDYlPAB7ZCJkHnkC+rrcXrWuJhN7oQsIMe/9lJIrO33TuLhn5U6
-         nwaM+7qsNCYmDGFUlax3EUPESwTXT1brIV2FYcTAKs8qprshJaaxdqQcksdK+7dMxm5h
-         6k4w==
+        b=n8mcaGdMx0tQS947Y0vayTfvqVGcn26vbr5R4gst+c3mcvh9PixQO2f89EdpGMh+Iv
+         ffTbcymDqj+NkDxUiAYlFv0X9oUPbKfj2oYngTPXGYpMj+Y/dS779cjGpW3EBekepHzA
+         CQBgtwk4v74YR0R090MemhqqOYuaS2JmZ99mgsbpe6w+OO4EpSnMEZx2fMsCjq2G++4O
+         7Jx0hHpA0oTmZ6Ys90pTlH2Q6YGI8fGeuhY8CNnXdP1pcEMwzbDuOjV0FeJ5eM0cOpym
+         Pg+AVV4UXaLtXmoxQ7HA/IOSogdejtS4aCHVzZylRRz5J3w9uB2d2tDS7Dn46utPiErJ
+         y0eA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=JJ9DM6PdGtNUfSAd2slUQiJAIPkbwKKdmEnN7FGvrZ0=;
-        b=MPcDgjSCfe/O/GxENoz8EwSyCsxwUQ6Zl+L7nthjQatPSKN+MsiOGK0OefggCj93fJ
-         A9jvs7KUW/BGdDBxnRnl3zx8btyRGhTbiJNfeF4KYuXdcDW8VUvJDKPuAmg2tIhpmBRR
-         jC94eaWRvPpq1NZR66J4ls0hFDquvA9G/cCT4ukm+QuBSgEar8JJC99YKhn+cGtYAu+x
-         TYf/88Tw6A2ictDhA0sWvuYb8VNw5XeVbtkyg5eWc0Bx70OQ79Brdxo9Hd4ADSE8HfX6
-         YrWLPSBp+iPIq4G2C0spRQkkurTjF45TRqsHcrBMWSERnkPjMJ/c/1W24QFxEnx7zb9x
-         N03w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=7jcKuKJSg8pciK4+g71J2hYJ9Bmr1dnzsU3M2uRFs70=;
+        b=RH378+I5gOZSvUbGQn/In64VgAyar6Es95Wg/PhMCLE8S/HpCSYFuK05FUwO+Qgv9p
+         GyF3EnsGyTlScazMU63g5Wt2sWKwlc3/JmO62Z65enRWpujAAtBshVz40fQiMrfRZVKS
+         PgqEKzFnOyhtGB7Lz4sAmi0oHf+/clJNNHY+CAe+lS1lrM694lkW+Z4HRAgDQ/mc3T+/
+         bYQRIdrUU15nA77tj1ct6FZcV0+Xs+2Zznk5O+hL00VPkrsgdj6OEspE9dCwfSULhw9f
+         P0swBArY8NPcV7Z8X2tM/JVvwV/LTxPia43OC5jNhRpmuutaMy0FxZOuV0806cj2LWL2
+         8HHQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=uEVfZB7k;
-       spf=pass (google.com: domain of snovitoll@gmail.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=snovitoll@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x12f.google.com (mail-lf1-x12f.google.com. [2a00:1450:4864:20::12f])
-        by gmr-mx.google.com with ESMTPS id jz19si156199ejb.0.2021.02.03.05.45.19
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Feb 2021 05:45:19 -0800 (PST)
-Received-SPF: pass (google.com: domain of snovitoll@gmail.com designates 2a00:1450:4864:20::12f as permitted sender) client-ip=2a00:1450:4864:20::12f;
-Received: by mail-lf1-x12f.google.com with SMTP id u25so33328070lfc.2
-        for <clang-built-linux@googlegroups.com>; Wed, 03 Feb 2021 05:45:19 -0800 (PST)
-X-Received: by 2002:a19:ad03:: with SMTP id t3mr1812604lfc.358.1612359918784;
-        Wed, 03 Feb 2021 05:45:18 -0800 (PST)
-Received: from localhost.localdomain ([146.158.65.228])
-        by smtp.googlemail.com with ESMTPSA id p10sm259216lji.137.2021.02.03.05.45.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Feb 2021 05:45:18 -0800 (PST)
-From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
-To: lkp@intel.com
-Cc: clang-built-linux@googlegroups.com,
-	kbuild-all@lists.01.org,
-	linux-kernel@vger.kernel.org,
-	phillip@squashfs.org.uk,
-	snovitoll@gmail.com,
-	syzbot+2ccea6339d368360800d@syzkaller.appspotmail.com
-Subject: [PATCH v2] fs/squashfs: restrict length of xattr_ids in read_xattr_id_table
-Date: Wed,  3 Feb 2021 19:45:16 +0600
-Message-Id: <20210203134516.1697931-1-snovitoll@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <202102032044.wrsk1CfP-lkp@intel.com>
-References: <202102032044.wrsk1CfP-lkp@intel.com>
+       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id b189si75103pfg.5.2021.02.03.05.58.30
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 03 Feb 2021 05:58:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8148F13D5;
+	Wed,  3 Feb 2021 05:58:29 -0800 (PST)
+Received: from C02TD0UTHF1T.local (unknown [10.57.11.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A40443F73B;
+	Wed,  3 Feb 2021 05:58:25 -0800 (PST)
+Date: Wed, 3 Feb 2021 13:58:22 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Julien Thierry <jthierry@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	linux-hardening@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Peter Zijlstra <peterz@infradead.org>, raphael.gault@arm.com,
+	Will Deacon <will@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Bill Wendling <morbo@google.com>, swine@google.com,
+	yonghyun@google.com
+Subject: Re: [RFC PATCH 12/17] gcc-plugins: objtool: Add plugin to detect
+ switch table on arm64
+Message-ID: <20210203135822.GN55896@C02TD0UTHF1T.local>
+References: <20210120173800.1660730-13-jthierry@redhat.com>
+ <20210127221557.1119744-1-ndesaulniers@google.com>
+ <20210127232651.rj3mo7c2oqh4ytsr@treble>
+ <CAKwvOdkOeENcM5X7X926sv2Xmtko=_nOPeKZ2+51s13CW1QAjw@mail.gmail.com>
+ <20210201214423.dhsma73k7ccscovm@treble>
+ <CAKwvOdmgNPSpY2oPHFr8EKGXYJbm7K9gySKFgyn4FERa9nTXmw@mail.gmail.com>
+ <671f1aa9-975e-1bda-6768-259adbdc24c8@redhat.com>
+ <CAKwvOdkqWyDbAvMJAd6gkc2QAEL7DiZg6_uRJ6NUE4tCip4Jvw@mail.gmail.com>
+ <20210203001414.idjrcrki7wmhndre@treble>
 MIME-Version: 1.0
-X-Original-Sender: snovitoll@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=uEVfZB7k;       spf=pass
- (google.com: domain of snovitoll@gmail.com designates 2a00:1450:4864:20::12f
- as permitted sender) smtp.mailfrom=snovitoll@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210203001414.idjrcrki7wmhndre@treble>
+X-Original-Sender: mark.rutland@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=mark.rutland@arm.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,52 +151,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In PATCH v2 fixed return -ENOMEM as error pointer.
+On Tue, Feb 02, 2021 at 06:14:14PM -0600, Josh Poimboeuf wrote:
+> On Tue, Feb 02, 2021 at 03:01:22PM -0800, Nick Desaulniers wrote:
+> > > >> Thus far we've been able to successfully reverse engineer it on x86,
+> > > >> though it hasn't been easy.
+> > > >>
+> > > >> There were some particulars for arm64 which made doing so impossible.
+> > > >> (I don't remember the details.)
+> > >
+> > > The main issue is that the tables for arm64 have more indirection than x86.
+> > 
+> > I wonder if PAC or BTI also make this slightly more complex?  PAC at
+> > least has implications for unwinders, IIUC.
+> 
+> What is PAC/BTI?
 
->syzbot found WARNING in squashfs_read_table [1] when length of xattr_ids
->exceeds KMALLOC_MAX_SIZE in squashfs_read_table() for kmalloc().
->
->For other squashfs tables, currently such as boundary is checked with
->another table's boundaries. Xattr table is the last one, so there is
->no defined limit. But to avoid order >= MAX_ORDER warning condition,
->we should restrict SQUASHFS_XATTR_BLOCK_BYTES(*xattr_ids) to
->KMALLOC_MAX_SIZE, and it gives 1024 pages in squashfs_read_table via
->(length + PAGE_SIZE - 1) >> PAGE_SHIFT.
->
->[1]
->Call Trace:
-> alloc_pages_current+0x18c/0x2a0 mm/mempolicy.c:2267
-> alloc_pages include/linux/gfp.h:547 [inline]
-> kmalloc_order+0x2e/0xb0 mm/slab_common.c:916
-> kmalloc_order_trace+0x14/0x120 mm/slab_common.c:932
-> kmalloc include/linux/slab.h:559 [inline]
-> squashfs_read_table+0x43/0x1e0 fs/squashfs/cache.c:413
-> squashfs_read_xattr_id_table+0x191/0x220 fs/squashfs/xattr_id.c:81
+PAC is "Pointer Authentication Codes". The gist is that we munge some
+bits in pointers when they get stored in memory (called "signing"), and
+undo that with a check (called "authentication") when reading from
+memory, in order to detect unexpected modification. There's some new
+instructions that may exist in function prologues and epilogues, etc.
 
-Reported-by: syzbot+2ccea6339d368360800d@syzkaller.appspotmail.com
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
----
- fs/squashfs/xattr_id.c | 3 +++
- 1 file changed, 3 insertions(+)
+There's a basic introduction at:
 
-diff --git a/fs/squashfs/xattr_id.c b/fs/squashfs/xattr_id.c
-index d99e08464554..2462876c66c4 100644
---- a/fs/squashfs/xattr_id.c
-+++ b/fs/squashfs/xattr_id.c
-@@ -78,5 +78,8 @@ __le64 *squashfs_read_xattr_id_table(struct super_block *sb, u64 start,
- 
- 	TRACE("In read_xattr_index_table, length %d\n", len);
- 
-+	if (len > KMALLOC_MAX_SIZE)
-+		return ERR_PTR(-ENOMEM);
-+
- 	return squashfs_read_table(sb, start + sizeof(*id_table), len);
- }
--- 
-2.25.1
+https://events.static.linuxfound.org/sites/events/files/slides/slides_23.pdf
+https://www.kernel.org/doc/html/latest/arm64/pointer-authentication.html
+
+Return address signing/authentication uses the SP as an input, so
+without knowing the SP something was signed against it's not possible to
+alter it reliably (or to check it). The arm64 unwinder ignores the PAC
+bits, and ftrace uses patchable-function-entry so that we don't have to
+do anything special to manipulate the return address.
+
+Today the ABI used by the kernel doesn't mess with the pointers used in
+jump tables, but that may come in future as toolchain folk are working
+to define an ABI that might.
+
+BTI is "Branch Target Identification", which is a bit like CET's
+indirect branch tracking -- indirect branches need to land on a specific
+instruction, or they'll raise an exception.
+
+Thanks,
+Mark.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210203134516.1697931-1-snovitoll%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210203135822.GN55896%40C02TD0UTHF1T.local.
