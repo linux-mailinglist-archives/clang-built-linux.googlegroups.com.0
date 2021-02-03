@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDHA5OAAMGQEFW7YMYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBSPB5OAAMGQEB566VMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2648630E2C4
-	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 19:48:46 +0100 (CET)
-Received: by mail-oo1-xc3b.google.com with SMTP id h10sf379890ooj.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 10:48:46 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612378125; cv=pass;
+Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id E255E30E2CE
+	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 19:51:54 +0100 (CET)
+Received: by mail-vk1-xa3c.google.com with SMTP id b28sf99473vko.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 10:51:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612378314; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0Nxc53FpNo3jTUoYVPLGGQSwMSqQNIb2Uo6hplyWpNMH6SdmtwAwsyERCCzFI+JOxX
-         Mxvus47C7QNYO/pvxDEHb3eCBGCZFJ56i5j9YVdDGtgMEvXesRyhz2RdeVX8T7rW7F2b
-         QZYNiUso24tF08l/jgArTEdy4UZeAUPTdGe031K5Ddk0BOq8o+thbMNNFhaeFqp95ped
-         4Gtt+KLlIhcCZLb8VHIvFUvWVeRprGDkh7qDTTQE9zeNr7krSXRK7aVu5+tcihXKJVAC
-         HcBLTiTUMmdb449es4sxH3vsCimjeEo8BqfuPulWN2Cc2Vkj6caVK5c0Odr1UxFUoW/F
-         lsQA==
+        b=NtJi0G5mSqAm5q8AwRINKWfflRT4522j0y5WVrL9ksHd8YkKMBIP79PGjEZPzix27D
+         hTO592BVRkkAQpebxoTwnxd2T33kwKT5qLm6BjIPDLw0b6eU4KGRNfJYgCGlvKL75lgJ
+         FFMsLfwuSq91JqGgbrJ+pcFPqxhqlV4IvTDL93rTyGO3qHpPx6NbU78TOB496NMX++Sg
+         Nj8ndXM8i2NsE71kWTFlIsIqCq0H7jGCsIk/SIBsGxgxhrhbl3vnlYbGYgFoCJe4zk7S
+         SgU5JLUBhqBWZW8uljJeen2W/CwvjQxtbCjqP9PvVK2883T9Fm0mUmpQzY9NmgaoDtRT
+         r4gA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=rmvZSqW/JCkDK+ttrv+/iZTojcRSkD/szLdt2lvbuG8=;
-        b=fM9vDL2lHhbp5QhGO3ujGT6/KSHVLCnkD1PYZFITeeVimG8BlumHiZYh39jPaVsCTd
-         ik92qS0ChkoqjHNa47Xa8ADx7+2tMC1MS4cYubPyRm7rqlzbAJRML1nBzHRPK6pH0g/0
-         2hNxqTmz88X46UjY8Ag1zehyjltJOv92FlABdtrG7qdh62a9u+iLBEDhhjkVJ3GJjbjP
-         vnn6yTxfezd3a3BY5/LSRHpnIn5meuh74uoBryiJohDatEUq7+AE7BdWrIPIFmltpDS8
-         WEACB0HqWalqTlSa8UST8AFdw/RX93T/laYoOOFyQrd6r139/PI4uK5n762y4ckPfpl0
-         0uTA==
+        bh=3dFtIgjKvLec1sHLFZB0I70rdfzA9FbwVuY4NYbsqAc=;
+        b=DApxQAqj59j+LDkE6DWyY0MczatvjRgQax876zP36JC9ar8ENmQ1rqpcYG6RnQBmIM
+         1PmmgB9EGA63uCP/RBGlsUXPWO1dvNhYoy9gHhlYqN/uRqPt3//R8R3ddL5OAG65+5t1
+         S39ky+1Zc6QrIS39lkE9EFRQp4aUFkgkeBntAOS2H7y0ymXRZT1/Keh84NG5Km7qCVhi
+         cxo5fWb6w6JdQFqHBWJdT27aVXV51BvtbWYzGgTaS2MiyWeEJp5eDnw5+XBVHrSjSndo
+         qsjZJaPNnfVjoqz/dxutdHiR+G8ctGiW3/gFHzNa8nxHCiCrjoIA6QN4dQmSMQ0ONpV8
+         NVNA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qG6MVI5Q;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="bY/Ya/8j";
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rmvZSqW/JCkDK+ttrv+/iZTojcRSkD/szLdt2lvbuG8=;
-        b=bxOsCQWxJ/PZdC3WIA12/OFvXPcpjXCP6Qnxbj7o+WUQih2uNe5v3eXC+LzaDUi+M5
-         BKheV/R032hbSHdKAay7VItMoUHMi04IDL1rBPF9oOsAyj3b77q89FzP0/ycHX9Bgg7p
-         UWmJC/GdJmTyaHmo6a7evVfC+MStnU1X7FEL4U325Ic0r1sa9pHjLIUwmulB4ecsX8EG
-         uQ2dy66RTgRvBpX4J/NpHkzKTjjwZ0KG+iG4ykorDCep/cYJeIhekpIPwEu7zVIN0DQE
-         Wfu/ahApeR/ElA5vbN6F1ySCT5FSPwrg/ZowVfjRgO86AtCSOC86mthydYPaP2cujmgt
-         Lo6A==
+        bh=3dFtIgjKvLec1sHLFZB0I70rdfzA9FbwVuY4NYbsqAc=;
+        b=EZhGVKbxj3rdbLFps3raOliKewqhLvrvICg8x7dMDWc77r5KY+SsREWEwoMpo4t59g
+         ovy9tzzRiykppF2ILi7MGJCNHmUBPE8F/rjAZKdATW8WXdwCkX61l/lJaOsUUBKAOoAI
+         CL7+XIVefVa5Hhys7x33/1l/hYpqp/Tx+sY6cIhwnvXDxjDt98uc7IX97fuUtVXkdqHs
+         Y2l3PIQ7gdFsS2vjjVTLFUrApfhaTJHODayq6NkdzPph8Y2UeeiOhfW2XGfaST9e41zj
+         RfbQ0GprXNlrwZQvmvldCSW1Ws+LAPMUSalFKlWiog3pEuvetgZ37FG3TbOcj+jfnwLI
+         5cwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,77 +50,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=rmvZSqW/JCkDK+ttrv+/iZTojcRSkD/szLdt2lvbuG8=;
-        b=aIT1YwcWzHKo1VbJfR6MUXWferHbEYm6koEDoCI23PGfDXRRlIwoJk/oNAyJ1Rwf7F
-         MO+axxREVIwHsnaqF67Q/G9aYb44prL3V5jnR44iR9svXADb6AvO1b+/JNmM1zfeMmZo
-         yDcopxnMYo3cVxJlpEo5mL51fMOxMa5TDX0wko59ezi+Pm5SP1RJ5OJlH1DI/YmulWP5
-         h5qp/XhvEKA18XpLjuwG3hMijsIeInPtw3WuIL/Qj7YXbjB+NGbSLL/hgupB1e2MxQc1
-         FzH/dm1JxxhF7mHA+dxqFBQIOl5JSk+CW3vriJA2Ew5dNL8I/SyPP8M3zEpXAPvkhmjc
-         TReg==
+        bh=3dFtIgjKvLec1sHLFZB0I70rdfzA9FbwVuY4NYbsqAc=;
+        b=LP+kFK4afixLH1tOjKGPf1w2IIBugGvhD6H23F65e8waBWGcA31m4zl3tlllQqFIz2
+         JHFOQg27OM9K1Wb6iot4/yiT30KiMuTzO5Q6OOM9Ulifx8A5y4le30q7AlLgZAxYDCjo
+         uSzgoB5SspTvV8mGsxazy8ZkFRzhT/uYRn0sTE329YKoWeYV2Qinqaw2JwdDrcltE0BY
+         3E3GH0DzZOoUNLC0HnzvL0vBCVLN4xPcJB/7BO3T+voZesN+Ms1a/EWR6WF2X0aOIwTF
+         wTRiA0pkYE7r2P3igigLkDb2KJYlMoDhlw0wdgf1qTkn+xgahKdcGY/iq9pqLQcyF32c
+         UxQw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532xI8l4PXnSiVbUXgmtwGdKegmZ6JSK5k3hs6Sav2D3ySCtN1fn
-	I2MCBdgwNm3UL/vgsXbT0zw=
-X-Google-Smtp-Source: ABdhPJypd5hDUUt5o8SrpzDoTJt37JKi5ZrN//bLwRCmDIyzPxz6Wgtd2KA6yIR+gAkOLrfcdu2hIQ==
-X-Received: by 2002:a9d:7e87:: with SMTP id m7mr3131231otp.128.1612378124900;
-        Wed, 03 Feb 2021 10:48:44 -0800 (PST)
+X-Gm-Message-State: AOAM533ft+Zqi6n2MSwP36WU4TPGygkBSMTvMxt4U1CiyrPhi0islNvm
+	UJ2dHo+RJ4wEp8ppdf3RFfo=
+X-Google-Smtp-Source: ABdhPJw0ywmvt0z7J5wJZuDfg8jRwWwoPUR5B/U9hXxZr5uk759IA8h7mlrkNSPPAuzvjCnEmFkqRg==
+X-Received: by 2002:a67:a85:: with SMTP id 127mr2689346vsk.16.1612378313791;
+        Wed, 03 Feb 2021 10:51:53 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1e4a:: with SMTP id e10ls726389otj.7.gmail; Wed, 03
- Feb 2021 10:48:44 -0800 (PST)
-X-Received: by 2002:a9d:4b0d:: with SMTP id q13mr3030784otf.325.1612378124493;
-        Wed, 03 Feb 2021 10:48:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612378124; cv=none;
+Received: by 2002:a05:6122:486:: with SMTP id o6ls172423vkn.3.gmail; Wed, 03
+ Feb 2021 10:51:53 -0800 (PST)
+X-Received: by 2002:a1f:a78c:: with SMTP id q134mr2862284vke.17.1612378313251;
+        Wed, 03 Feb 2021 10:51:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612378313; cv=none;
         d=google.com; s=arc-20160816;
-        b=g8ArfAj7ciafC4Bf1dLkuctY3aUf2UxRM8wZ5R3S9Taf6RrDf9mAQOC752Dc7ET+R5
-         U4ugYSBYNdOYKG+M0l1ozaXggv8yxyCTG33nVHUlhhRPJ/riuk0s/MF4Y/aN6osboAr0
-         DEtl0DdSIHvnVWbMf2zPN2Bmqi+s/ic/KV4LuDljVvrddeBElxtUaDeQPl+F41pzcxrV
-         vfjRXvfLBhXlFzlwOeQhQToQqM/yYkJbaZuSGzqlXjn7x9e2KKfQhb5Zsn1EzgzdtaUm
-         ri1GgHn3ZLQ0cjlk4ZWSBTnZNF/OsCiYm/2aVvrqr5Zj4ae5f2DMGEFyZouqEhPOS2v7
-         Vs7A==
+        b=Akx3kBjS203Svz3RDVoWxwgPrnR2omRKHbQoMkSy8tAIjPgcZUjqu8TZip9JV/UgQi
+         rSvPGTtOUr6En+Q7A4gaycxeZCkAsQAEVlJNBJH180crLu55Bq5g0IGLMZV5qxiXIWAW
+         pdz+MsukwchMSBMMX99/2QMFGYOig/zvouTNdmJFY2b8aYU48dbsfh31sh9TH5IbDWK7
+         I4geG9mbW9PaYB7KgH7Pp3A30rYk4O0aRt8xnIC2PKfA3nyUKiap3ETvykJ/rXx1uznD
+         sId/hYJO4pR2/Ms+sP/5FMxsiJEkLi3IMan1e61koWXnr9pbmOyB54QZsgvA3KlpTysi
+         2Fng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=/oZIYHSq61gnt9cbnaXsAvCethqPR9E55+req5zWNWg=;
-        b=EH3AmGh8AEujodzmrT51yarX5juBby6+u3s095NPNvn3P++sIzFP4GzdTakSTRsm81
-         gXuJ8jvvgmgFoCnx/pvl4oh0rhqFPClWTRRC22Hz5/PEF1j6I91cXXWSiqawqc1lVZSJ
-         qrqPZcn1sxzk6SODfAeqwkA3/Vk+y0mK+8QZSdpIza8RUKTt0FeQjh6SJfiq7LM5TL6y
-         jgzfGcxAUIAA6/ZKuXKWIvKTWkmkKlLWnFSsIoKA5ZiLotIhcpSAXzkk9BJqMfQJuBHM
-         krS00NtkLz6M/ynbR/zjl2GK51Wsb387Vk8YDmIr4FCkFZkCRb7gJ2MExFEIUqbl4sGG
-         dUZw==
+        bh=vb4zVkh2yIGSmLl2TvIxQwxLbEaUjpQ/NnvsSmfa04E=;
+        b=oI+5q+Ai3z3wKoFqQkVGAl3N/ftcbiZ0xpZz12aPivyu2lsNep+TwRSk1Ki4VQU9YM
+         1mYC4ShajIR1PZfLjz5fMmiw4u6JdT43qnIAQ2FMiwJq5fPsRf3z/YfYGb7K3EDwZ6jQ
+         8F4Tb2a285IXyL+TStyzuBOHsdIb9J3f/5vI+fEsq4CUQ4kAMKaoVIIvXHlpx96vlvV4
+         XKmKHC/7ryyxWh4ZJLZHeVFgPVeZ8f/3JpNcj7jXNb1WH3iQOOcd8prunY6dS7qigk4N
+         7VoTBa/l52UIHu4qysvwjJY6gAb/IHhbZrdygvsuZTiO2D2mW01dg4ydGbRj4CZyh48C
+         zFkQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qG6MVI5Q;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="bY/Ya/8j";
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k4si192290oib.1.2021.02.03.10.48.44
+        by gmr-mx.google.com with ESMTPS id c4si170562vkh.1.2021.02.03.10.51.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Feb 2021 10:48:44 -0800 (PST)
+        Wed, 03 Feb 2021 10:51:53 -0800 (PST)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 910D464DE1;
-	Wed,  3 Feb 2021 18:48:42 +0000 (UTC)
-Date: Wed, 3 Feb 2021 11:48:40 -0700
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8608864DF2;
+	Wed,  3 Feb 2021 18:51:50 +0000 (UTC)
+Date: Wed, 3 Feb 2021 11:51:48 -0700
 From: Nathan Chancellor <nathan@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>, Borislav Petkov <bp@alien8.de>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, X86 ML <x86@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Kees Cook <keescook@chromium.org>
-Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Wei Yang <richard.weiyang@linux.alibaba.com>,
-	Arnd Bergmann <arnd@arndb.de>, Vlastimil Babka <vbabka@suse.cz>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Brian Geffon <bgeffon@google.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] mm/mremap: fix BUILD_BUG_ON() error in get_extent
-Message-ID: <20210203184840.GA1711681@localhost>
-References: <20201230154104.522605-1-arnd@kernel.org>
- <20210112191634.GA1587546@ubuntu-m3-large-x86>
+	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
+	Andy Shevchenko <andy@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	platform-driver-x86@vger.kernel.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
+Message-ID: <20210203185148.GA1711888@localhost>
+References: <20210107223424.4135538-1-arnd@kernel.org>
+ <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
+ <YAH6r3lak/F2wndp@rani.riverdale.lan>
+ <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
+ <20210118202409.GG30090@zn.tnic>
+ <YAYAvBARSRSg8z8G@rani.riverdale.lan>
+ <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210112191634.GA1587546@ubuntu-m3-large-x86>
+In-Reply-To: <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=qG6MVI5Q;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b="bY/Ya/8j";       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -136,61 +146,87 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 12, 2021 at 12:16:34PM -0700, Nathan Chancellor wrote:
-> On Wed, Dec 30, 2020 at 04:40:40PM +0100, Arnd Bergmann wrote:
-> > From: Arnd Bergmann <arnd@arndb.de>
-> > 
-> > clang cannt evaluate this function argument at compile time
-> > when the function is not inlined, which leads to a link
-> > time failure:
-> > 
-> > ld.lld: error: undefined symbol: __compiletime_assert_414
-> > >>> referenced by mremap.c
-> > >>>               mremap.o:(get_extent) in archive mm/built-in.a
-> > 
-> > Mark the function as __always_inline to avoid it.
-> > 
-> > Fixes: 9ad9718bfa41 ("mm/mremap: calculate extent in one place")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Wed, Jan 20, 2021 at 10:33:43AM +0100, Ard Biesheuvel wrote:
+> On Mon, 18 Jan 2021 at 22:42, Arvind Sankar <nivedita@alum.mit.edu> wrote:
+> >
+> > On Mon, Jan 18, 2021 at 09:24:09PM +0100, Borislav Petkov wrote:
+> > > > > > As a matter of fact, it seems like the four assertions could be combined
+> > > > > > into:
+> > > > > >       BUILD_BUG_ON((EFI_VA_END & P4D_MASK) != (MODULES_END & P4D_MASK));
+> > > > > >       BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> > > > > > instead of separately asserting they're the same PGD entry and the same
+> > > > > > P4D entry.
+> > > > > >
+> > > > > > Thanks.
+> > > > >
+> > > > > I actually don't quite get the MODULES_END check -- Ard, do you know
+> > > > > what that's for?
+> > > > >
+> > > >
+> > > > Maybe Boris remembers? He wrote the original code for the 'new' EFI
+> > > > page table layout.
+> > >
+> > > That was added by Kirill for 5-level pgtables:
+> > >
+> > >   e981316f5604 ("x86/efi: Add 5-level paging support")
+> >
+> > That just duplicates the existing pgd_index() check for the p4d_index()
+> > as well. It looks like the original commit adding
+> > efi_sync_low_kernel_mappings() used to copy upto the PGD entry including
+> > MODULES_END:
+> >   d2f7cbe7b26a7 ("x86/efi: Runtime services virtual mapping")
+> > and then Matt changed that when creating efi_mm:
+> >   67a9108ed4313 ("x86/efi: Build our own page table structures")
+> > to use EFI_VA_END instead but have a check that EFI_VA_END is in the
+> > same entry as MODULES_END.
+> >
+> > AFAICT, MODULES_END is only relevant as being something that happens to
+> > be in the top 512GiB, and -1ul would be clearer.
+> >
+> > >
+> > >  Documentation/x86/x86_64/mm.rst should explain the pagetable layout:
+> > >
+> > >    ffffff8000000000 | -512    GB | ffffffeeffffffff |  444 GB | ... unused hole
+> > >    ffffffef00000000 |  -68    GB | fffffffeffffffff |   64 GB | EFI region mapping space
+> > >    ffffffff00000000 |   -4    GB | ffffffff7fffffff |    2 GB | ... unused hole
+> > >    ffffffff80000000 |   -2    GB | ffffffff9fffffff |  512 MB | kernel text mapping, mapped to physical address 0
+> > >    ffffffff80000000 |-2048    MB |                  |         |
+> > >    ffffffffa0000000 |-1536    MB | fffffffffeffffff | 1520 MB | module mapping space
+> > >    ffffffffff000000 |  -16    MB |                  |         |
+> > >       FIXADDR_START | ~-11    MB | ffffffffff5fffff | ~0.5 MB | kernel-internal fixmap range, variable size and offset
+> > >
+> > > That thing which starts at -512 GB above is the last PGD on the
+> > > pagetable. In it, between -4G and -68G there are 64G which are the EFI
+> > > region mapping space for runtime services.
+> > >
+> > > Frankly I'm not sure what this thing is testing because the EFI VA range
+> > > is hardcoded and I can't imagine it being somewhere else *except* in the
+> > > last PGD.
+> >
+> > It's just so that someone doesn't just change the #define's for
+> > EFI_VA_END/START and think that it will work, I guess.
+> >
+> > Another reasonable option, for example, would be to reserve an entire
+> > PGD entry, allowing everything but the PGD level to be shared, and
+> > adding the EFI PGD to the pgd_list and getting rid of
+> > efi_sync_low_kernel_mappings() altogether. There aren't that many PGD
+> > entries still unused though, so this is probably not worth it.
+> >
 > 
-> I would like to see some movement on getting this fixed in 5.11. As it
-> stands, this is one of three __compiletime_assert references with
-> CONFIG_UBSAN_UNSIGNED_OVERFLOW. If we want to keep the BUILD_BUG()
-> around, I think this is fine. Alternatively, turning it into a runtime
-> check would be fine too.
+> The churn doesn't seem to be worth it, tbh.
 > 
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> So could we get rid of the complexity here, and only build_bug() on
+> the start address of the EFI region being outside the topmost p4d?
+> That should make the PGD test redundant as well.
 
-Ping? It is pretty late into the 5.11 cycle and this is still broken.
+Was there ever a resolution to this conversation or a patch sent? I am
+still seeing the build failure that Arnd initially sent the patch for.
+x86_64 all{mod,yes}config with clang are going to ship broken in 5.11.
 
 Cheers,
 Nathan
 
-> > ---
-> >  mm/mremap.c | 5 +++--
-> >  1 file changed, 3 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/mm/mremap.c b/mm/mremap.c
-> > index c5590afe7165..1cb464a07184 100644
-> > --- a/mm/mremap.c
-> > +++ b/mm/mremap.c
-> > @@ -336,8 +336,9 @@ enum pgt_entry {
-> >   * valid. Else returns a smaller extent bounded by the end of the source and
-> >   * destination pgt_entry.
-> >   */
-> > -static unsigned long get_extent(enum pgt_entry entry, unsigned long old_addr,
-> > -			unsigned long old_end, unsigned long new_addr)
-> > +static __always_inline unsigned long get_extent(enum pgt_entry entry,
-> > +			unsigned long old_addr, unsigned long old_end,
-> > +			unsigned long new_addr)
-> >  {
-> >  	unsigned long next, extent, mask, size;
-> >  
-> > -- 
-> > 2.29.2
->  
-
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210203184840.GA1711681%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210203185148.GA1711888%40localhost.
