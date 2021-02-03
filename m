@@ -1,134 +1,138 @@
-Return-Path: <clang-built-linux+bncBDWIJUMT74BRB3GY5GAAMGQEART43XA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTZ5O62V4ORBKXE5GAAMGQEBTUDGCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2497230D63E
-	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 10:27:09 +0100 (CET)
-Received: by mail-vk1-xa3b.google.com with SMTP id y84sf5380551vkd.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 01:27:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612344428; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B5DF30D6B5
+	for <lists+clang-built-linux@lfdr.de>; Wed,  3 Feb 2021 10:51:39 +0100 (CET)
+Received: by mail-lf1-x13d.google.com with SMTP id z22sf5885640lfd.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Feb 2021 01:51:39 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612345898; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SO6+MDUV39cmFm251VvZBFOXhmnoQ4EEd+awvarc2tckHZhrNFlhYTmUlxJksodjEW
-         4N1pV67j3PjPLz7tzm8tOV8iyGR8h7Jn8WSVfW82Yjb4Fn42wPSJfSwcO7IfqZLT0TnH
-         WilpwPVZjNFj8qZaXZRTie5uQ8A4O5SGirwIQV/eOTwtDZLt5chqzdyD0dtf6DM4Zc8Z
-         xb046IjAKYONjSxCimEwKEI/ImKoMyInWdlWOVKLapxUw4VmQoqb+Y+IKyAAyRQY2pz+
-         yHn6tA9QF1SWS1ivuB/RXC6sAVm3wqOS4Dg3rLEbW5YnkzdU8aXFb5L67W4IZNp2BQFl
-         c2DQ==
+        b=s0j5cIMRAhgVrquqvrvaNg2Y5uuA9e+LlcDt9jmyKmTwCpx5pk24lLCduWlgX+c7r5
+         9l+/oid71JCVc1DaSqy44KesGxg0J1Zth4oftNV3Bd5xAU6Gu3h501IILlR2lQRz/MC3
+         PtGkKcPHVdmr+0yPU3GqGD/ar3Wi4bNPp8+qcUBFO72lrmnE84sWu92ukRN8vdlbVM8c
+         AFlZNYKpw6MXBNuFB/9pw4ARjfhmr3igI9oykIIw94FGjnck1awR0xjiUcgDkZ3JAk2g
+         ywK8O6ArTm5dd2/uHQgG2nWiDN8W0cYi2V9QL2j7LgfNUHrF1HFS6y6ZoiFJrYcAQPle
+         Fzcg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:user-agent:references
-         :in-reply-to:subject:cc:to:from:date:mime-version:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=bTmFj1/GWZNmI4djWrf42Sc0TZef7c+R48fVz14+wFA=;
-        b=ZLEMyP9bUSZEsXYJDTBC1Fo9Pn9SxEi/FgcPX0emDJvSODe2IbJ6bwBIlt1wNEFimI
-         dUlNE5+yM7qfzrviyNdaGv9/z7HWVagMLKkfICd/8aA+/FXG4UWK9TLuVO+oxMvRY9H6
-         iTwW8Go4Sh14LAHkX0wam/zaHmx9Uj5YsbLsm0g20JQBNFUxPmXsr2lpVn8peedj8F2o
-         g4iDesfv29ibq8qx5zUh5JaBKz/z+aZQoaU5HLNytTsYeMmETm5TJHQXS37gdOO+LPM8
-         zkVOPO6+XmVqzi+29w5veS69ld4vv6Qjyc9fAa/MT5khQ/vLgMmzW1X7i65Hmygcl6c5
-         3YRw==
+        bh=A059gvXvA3eVwJD7ycIgdQ3+nHyrbj3wRwQrPH+/ln8=;
+        b=Qz5pgEY45iApVfh6EGjti/tl/aMqO2w3Qse/avecKq7CKnkhehDCJVsEBqoy4bHhHG
+         RR9ClKBc3YED+T1Ghk/UD1b1aeWWCrSyYAxF3RyDX9KgOe5ckeTWOMVO4Daq49X/lU+D
+         7KJS4EhuQKceH9KFGJiEYvGgSyHbDiYbg6Q/Y2/nPNBfji7R/b1+OkgwrmtGd+GDA5xh
+         OS5SjBUNk2O+YCnyfKm6ZUovNb63bDMi4YdeRz0xotd4Qu8jJmxQziPtgSsv+40012y0
+         u9ZE6pnzWEpss7vPNzzI8wCJdrJkvtl4QGTz4vKBXO0X3wVfvb/G9+/TzrWfUNnTicgI
+         erkg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AidCjKbL;
+       spf=pass (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::433 as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:date:from:to:cc:subject:in-reply-to:references
-         :user-agent:message-id:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bTmFj1/GWZNmI4djWrf42Sc0TZef7c+R48fVz14+wFA=;
-        b=GQMd8NX1+wjsZJuK54DbPr2e0KZhC5oT7pNocGhiC6Uasbtg77mreGKii6tVMJQtxS
-         zkHm/TcB8phNRFhP8TAdf3DqOYAXSD1kkTyXQnLGJwAwQtiFem8BHbsgCklkvbsOF5ke
-         Wdmcx12vvkyyXqukVbqQZ50hara+JnBNvQj77dS/8ipzo5og2BHnOhibqFGY3TLcXbHV
-         E0OdMwWN7ZoJDmWEnGvl98j3MK2CW7dh/EL2/Rw5JJBSh1W0EsCWJ5W3AzEtZ8FL+A0U
-         0W1Hog95F/VesyPJ9NK13p7I7IgvyV2k07h6WHv+Tm81UZRmoo6ZM/5q+9eA4Jx4FPbC
-         1tMw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=A059gvXvA3eVwJD7ycIgdQ3+nHyrbj3wRwQrPH+/ln8=;
+        b=WIjkyLWHU2PyiUlSx6KqGalPy+kExT44FR06Q9Y8wZ1oLGZyx4QwwfvF1zIrEIEMa8
+         RTKBpHUde96NVpFsBY9OA7fvSUCw+U+J5WNnK4jnPPwoJ2Rw/8Gr/dIaWEeJiog78ZCJ
+         ibjnXXbOk+ZjhpMaO3URh1ioX/XqDp84LiKXoM5vDIp3wjH327do3bLuHlqIFzimA88v
+         kVxFIht8xl67sckR+1HnxXgeMzMO+B90GFnkwI3hWWRR7qM26uRM6YL/ZcsRMU3frZZS
+         021/Oc0PUAlMRwMb4erU1hqewms6VwRrgPy1u7QULLchdr/2W+T26YDJTxvmI+nzb1gc
+         Ic2A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=A059gvXvA3eVwJD7ycIgdQ3+nHyrbj3wRwQrPH+/ln8=;
+        b=dOZaEiHPeqcrv5WsMm3t7OdIzgnen8WxFOVRkDdQNVU8mvDLw5OnjBcP0+0cgFNOS2
+         2Q/45X5DRXCIj0KMiZ9m3GV9/bmXRxld8lC3JfrEm+tJ5HS/i4qFcA1TDLf/FpmSqZ3X
+         wNQsZ3HY1LXTbQ1ZidUPqlWDSfgwZLXLuJmqn6gYIzcY2FaDLpc36m4RdtveTRtSw9sZ
+         MUWw9lRctvI4V4NZEJmpOGrv4ZELy78yI3MVaDMkpkoJOGXXOmcqoCSmif1vBjSrMZno
+         BqpA6TVrFObI5dr9+k0C5Bwe35LCpRNxntupDQ3NZazxhh/W2qnUYxrBfnnzchixv6qt
+         d3Jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:date:from:to:cc:subject
-         :in-reply-to:references:user-agent:message-id:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bTmFj1/GWZNmI4djWrf42Sc0TZef7c+R48fVz14+wFA=;
-        b=HWWEW7p84L1D78V1urwR/AW1nOw4lIxpNJBAk6P606m6K/A2S1SjsBD6PIJxkbMY0E
-         evO0A4DlHqhOtFn8NuxMK9Jkpbo8NIkDgrA5ww3J0+O2IT6Zulx/YXmA6zpDsyXL4n5Z
-         e8//YAfDVhPRsHHAgAd+AltxT2J6aiQVDYDkd/0+RgRLN9+cj6BYL/C1wMlE4taOirxR
-         qDznjgNRd0VKjwIfez6A1E0+1F7VjvFcmy6EOewyezOb2ZP7pZ0V4Synh0pOuacOXLu6
-         0TMP9LegJqvU5na+NvEvzT/xxlH7ntYsEH6yVWePy4e/vf41HPAq8b/nKJiwe+w1Y0bs
-         zl4w==
+        bh=A059gvXvA3eVwJD7ycIgdQ3+nHyrbj3wRwQrPH+/ln8=;
+        b=Duc0C18gmMaqQ9D9cqstkXokudyoJ+hA5M816TsWnSr9sfr/HZu7D86Eubq/cVghVe
+         Ij9/RAgCrFPqALzNvDGC/9i1zFGap2byLfxUPKTGK2TSfnUW0OU7eWJa/qqNTO0RCjUH
+         Dmi6ga9xdK8Ta9URZ62PSIn8GqdQB8uNHTz+LKbeHgl5+MmXmt12+0gEi5Mswd22lkuv
+         LRZWOIbdkiN6UV/rVSDITXlEnTKiYt+t3iusCIrL304bWCR6gL0Kw86pid5ugr8fUJEO
+         R014klvxQhGTmf84zTZTWboWBne0SB2XU9HjgbUoUaYJJWws1Iz9iysSyP+Y3962+IMJ
+         BFJQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531q/lCD5Fft6A3lsztURZzzHozL8qyBLOdUeDbuOu1FtHu88vR/
-	c5dMF/ABD8u83HiDLdpcqRM=
-X-Google-Smtp-Source: ABdhPJwqMTu2WVXy3AXVoiR+4z4cgRjlmCAeOwfU3E4ZxXHXZTcULMI03k0vdrQKYjohpaxKjmFrjQ==
-X-Received: by 2002:a1f:a283:: with SMTP id l125mr1136860vke.19.1612344428158;
-        Wed, 03 Feb 2021 01:27:08 -0800 (PST)
+X-Gm-Message-State: AOAM533j2p6ABtMHKspxXd/LEVQfTm2zOXjFC5KT67x0HD2Fj9M2mYtq
+	iXff9dqHXFpDRd2aPHQ+pxU=
+X-Google-Smtp-Source: ABdhPJwVIGLign1aMZqway/48CGFZFMR6foLKPNkCH/uC8onOcLq0BbKXzNGs05r/MEqhoNDZP3rkA==
+X-Received: by 2002:a05:6512:6c4:: with SMTP id u4mr1288799lff.63.1612345898693;
+        Wed, 03 Feb 2021 01:51:38 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:c0c:: with SMTP id a12ls109939uak.0.gmail; Wed, 03 Feb
- 2021 01:27:07 -0800 (PST)
-X-Received: by 2002:ab0:32d8:: with SMTP id f24mr1273204uao.34.1612344427734;
-        Wed, 03 Feb 2021 01:27:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612344427; cv=none;
+Received: by 2002:a2e:97c5:: with SMTP id m5ls261389ljj.10.gmail; Wed, 03 Feb
+ 2021 01:51:37 -0800 (PST)
+X-Received: by 2002:a2e:3204:: with SMTP id y4mr1306084ljy.242.1612345897750;
+        Wed, 03 Feb 2021 01:51:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612345897; cv=none;
         d=google.com; s=arc-20160816;
-        b=rQmcDkpC8wUmqNxeT047qgGVeZbLkgHrFcXZKtheeDehocAQI/RLVKSlBT2s45DWDX
-         LXWX+yTmCkHClZvCGd4+2eeiXx2rUfQ9XBgyZDIIGG/MxQWRFig8f3y0lZMemxJup2BJ
-         5gxH82jon+raZhlhXJC4hiIIEQer+fjhe/1S2swRZIqepDEe7f0yQmVB5WC8FV5aBzKn
-         ZgzJvMy1ITXgvtabZwDSh63k8zfcXk0K2/ImOpFxC9IAKkcgGE2zigg1/pBULa1hC4AP
-         D3oNjgOunOZ8I5nWUDyRA5FKnploALhSJVNdziglxntvotf9QsfW/wWTRqInvvDEVdnm
-         iyiQ==
+        b=Mor1C54Ysug/jGVeKZ3FKbQzBRBdAQDvQvPpvCYTDHZGM1hgV3L/dWOHNAEAfa9BJx
+         7LtVyKft51WCnvK7eBmhIOcf7dtW5LoYhcXeRM60FAruOms6egJ2so4BSStc/SRBCw2f
+         JPFoIMfjKgZ7+3GTNEXSoKbpLUxxyNDJ+WlrIxdXlGUfZm8NbGriGqDKxSEOIDBNhcho
+         wdxhsIPG1KWTadCui69FWL7vhNYb6TMIX1x3Nhr8NtIsDRXHbpf3qKxZrlrXTpghQImB
+         RQyybfz5YGV4idyfPs1319a9ZmQA0btETK7L/NpgVZRQX2rNhD3V6iuMYDg7NR/MHwPZ
+         mrng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:user-agent:references:in-reply-to:subject:cc:to:from
-         :date:content-transfer-encoding:mime-version;
-        bh=dG1OcFyg0aEIb/SZA6d75Hk2eej24+d6WippCDwRINo=;
-        b=oJtiQEUvuW7IOfgrBPMzQWKYCSsZxz4VAGx4ue66k2plPCUP1IJmnMFXpwLSfKennc
-         9eW3Y0b+h4jk7LF6S0sEWnQLnOIu9JzDZBQzFMZnKktQM/1y05WbAnI/nL68SgZEl4KU
-         lTmhMsxEoymPKVRCg6azXeT7ntP5VoV8xh9ADxIWv8IM9b/LOQprQuNFexQ7Xp3y+gzR
-         bbY4DbUI9hQC3czcEX5Jq2g9iH06f6/+P1KGcVI7hKk/d6POUyTPO9s0eBDeUXOJMw+n
-         CiqMbG9yNYob/r0tUX89xRuxB/KDsRSRL/zJZ0zHWGqToGKmfte9l/Ons/W5ZBB0YfRc
-         vVuQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=CWjEkbuWLlblTtjuIWif0x7AzX7GeK00PJG/7+QyP+g=;
+        b=CTk2s2udyi8baHjJqyiS1oN8dvHip6jOv/+JyFrxi0M4oh3aCWN/wAWeL7mPaKiOOF
+         sk5W1+blB2nsQmuOIIL3hiYNL2T+okbKqA26PTZHgORsQeGOk+bCx91uC4sMY7Wlp4Yy
+         B1CIBgO7tN4Zcd+HuuLrmCXZrXaiqP2aIRParhV/4MfDUVlHZb7buHyZR2uY5/8fzNFV
+         pXGop7rVVWPaGsZ8yMoSqWr8vMjngXP4NMU+IVKmyqHGVs49xr0LigKvXHq/M4PhTAHp
+         XTSzNkDiAH2Anv9iqBJXMp4u/cF6996msAbaM4FC0GJtAzUsdFMj5UWA1U1OYtN0Eklf
+         dHkw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j25si96384vsq.2.2021.02.03.01.27.07
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AidCjKbL;
+       spf=pass (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::433 as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x433.google.com (mail-wr1-x433.google.com. [2a00:1450:4864:20::433])
+        by gmr-mx.google.com with ESMTPS id b2si64397lfd.5.2021.02.03.01.51.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Feb 2021 01:27:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org [51.254.78.96])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 5C01064F6C;
-	Wed,  3 Feb 2021 09:27:06 +0000 (UTC)
-Received: from disco-boy.misterjones.org ([51.254.78.96] helo=www.loen.fr)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.94)
-	(envelope-from <maz@kernel.org>)
-	id 1l7ERE-00BiKt-6O; Wed, 03 Feb 2021 09:27:04 +0000
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Feb 2021 01:51:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::433 as permitted sender) client-ip=2a00:1450:4864:20::433;
+Received: by mail-wr1-x433.google.com with SMTP id c4so20693243wru.9
+        for <clang-built-linux@googlegroups.com>; Wed, 03 Feb 2021 01:51:37 -0800 (PST)
+X-Received: by 2002:a05:6000:188b:: with SMTP id a11mr2459195wri.151.1612345897392;
+ Wed, 03 Feb 2021 01:51:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Date: Wed, 03 Feb 2021 09:27:04 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Will Deacon <will@kernel.org>, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com, linux-arm-kernel@lists.infradead.org,
- Jianyong Wu <jianyong.wu@arm.com>
-Subject: Re: [arm-platforms:kvm-arm64/ptp 1/7]
- drivers/firmware/smccc/kvm_guest.c:12:13: warning: no previous prototype for
- function 'kvm_init_hyp_services'
-In-Reply-To: <202102030600.pWU6P0hf-lkp@intel.com>
-References: <202102030600.pWU6P0hf-lkp@intel.com>
-User-Agent: Roundcube Webmail/1.4.10
-Message-ID: <c87d2ce394cdaabb0874d8614837c586@kernel.org>
-X-Sender: maz@kernel.org
-X-SA-Exim-Connect-IP: 51.254.78.96
-X-SA-Exim-Rcpt-To: lkp@intel.com, will@kernel.org, kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, linux-arm-kernel@lists.infradead.org, jianyong.wu@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-Original-Sender: maz@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=maz@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+References: <20210202080508.GA3550351@infradead.org> <20210202162837.129631-1-viniciustinti@gmail.com>
+ <YBo29/SdgCkZZinT@mit.edu>
+In-Reply-To: <YBo29/SdgCkZZinT@mit.edu>
+From: Vinicius Tinti <viniciustinti@gmail.com>
+Date: Wed, 3 Feb 2021 06:51:26 -0300
+Message-ID: <CALD9WKz-Jgmz7inOghv37ZwzD_8sVPT_-YZUX5FpQE5aKrDJJg@mail.gmail.com>
+Subject: Re: [PATCH v3] ext4: Enable code path when DX_DEBUG is set
+To: "Theodore Ts'o" <tytso@mit.edu>
+Cc: Christoph Hellwig <hch@infradead.org>, Andreas Dilger <adilger.kernel@dilger.ca>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Ext4 Developers List <linux-ext4@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: viniciustinti@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=AidCjKbL;       spf=pass
+ (google.com: domain of viniciustinti@gmail.com designates 2a00:1450:4864:20::433
+ as permitted sender) smtp.mailfrom=viniciustinti@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,69 +145,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2021-02-02 22:55, kernel test robot wrote:
-> tree:
-> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git
-> kvm-arm64/ptp
-> head:   fecd9f021d3220b48d00597bd8e04e4fa6fd9dee
-> commit: 0f90140a1f02cefb2ce98a94d7f01f5892b95fc2 [1/7] arm/arm64:
-> Probe for the presence of KVM hypervisor
-> config: arm64-randconfig-r032-20210202 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project
-> 275c6af7d7f1ed63a03d05b4484413e447133269)
-> reproduce (this is a W=1 build):
->         wget
-> https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross
-> -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm64 cross compiling tool for clang build
->         # apt-get install binutils-aarch64-linux-gnu
->         #
-> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/commit/?id=0f90140a1f02cefb2ce98a94d7f01f5892b95fc2
->         git remote add arm-platforms
-> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git
->         git fetch --no-tags arm-platforms kvm-arm64/ptp
->         git checkout 0f90140a1f02cefb2ce98a94d7f01f5892b95fc2
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross 
-> ARCH=arm64
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
->>> drivers/firmware/smccc/kvm_guest.c:12:13: warning: no previous 
->>> prototype for function 'kvm_init_hyp_services' [-Wmissing-prototypes]
->    void __init kvm_init_hyp_services(void)
->                ^
->    drivers/firmware/smccc/kvm_guest.c:12:1: note: declare 'static' if
-> the function is not intended to be used outside of this translation
-> unit
->    void __init kvm_init_hyp_services(void)
->    ^
->    static
->>> drivers/firmware/smccc/kvm_guest.c:44:6: warning: no previous 
->>> prototype for function 'kvm_arm_hyp_service_available' 
->>> [-Wmissing-prototypes]
->    bool kvm_arm_hyp_service_available(u32 func_id)
->         ^
->    drivers/firmware/smccc/kvm_guest.c:44:1: note: declare 'static' if
-> the function is not intended to be used outside of this translation
-> unit
->    bool kvm_arm_hyp_service_available(u32 func_id)
->    ^
->    static
->    2 warnings generated.
-> 
+On Wed, Feb 3, 2021 at 2:39 AM Theodore Ts'o <tytso@mit.edu> wrote:
+>
+> On Tue, Feb 02, 2021 at 04:28:37PM +0000, Vinicius Tinti wrote:
+> > Clang with -Wunreachable-code-aggressive is being used to try to find
+> > unreachable code that could cause potential bugs. There is no plan to
+> > enable it by default.
+> >
+> > The following code was detected as unreachable:
+> >
+> > fs/ext4/namei.c:831:17: warning: code will never be executed
+> > [-Wunreachable-code]
+> >                         unsigned n = count - 1;
+> >                                      ^~~~~
+> > fs/ext4/namei.c:830:7: note: silence by adding parentheses to mark code as
+> > explicitly dead
+> >                 if (0) { // linear search cross check
+> >                     ^
+> >                     /* DISABLES CODE */ ( )
+> >
+> > This has been present since commit ac27a0ec112a ("[PATCH] ext4: initial
+> > copy of files from ext3") and fs/ext3 had it present at the beginning of
+> > git history. It has not been changed since.
+> >
+> > This patch moves the code to a new function `htree_rep_invariant_check`
+> > which only performs the check when DX_DEBUG is set. This allows the
+> > function to be used in other parts of the code.
+> >
+> > Suggestions from: Andreas, Christoph, Nathan, Nick and Ted.
+> >
+> > Signed-off-by: Vinicius Tinti <viniciustinti@gmail.com>
+>
+> Thanks, applied, although I rewrote the commit description:
+>
+>     ext4: factor out htree rep invariant check
+>
+>     This patch moves some debugging code which is used to validate the
+>     hash tree node when doing a binary search of an htree node into a
+>     separate function, which is disabled by default (since it is only used
+>     by developers when they are modifying the htree code paths).
+>
+>     In addition to cleaning up the code to make it more maintainable, it
+>     silences a Clang compiler warning when -Wunreachable-code-aggressive
+>     is enabled.  (There is no plan to enable this warning by default, since
+>     there it has far too many false positives; nevertheless, this commit
+>     reduces one of the many false positives by one.)
+>
+> The original description buried the lede, in terms of the primary
+> reason why I think the change was worthwhile (although I know you have
+> different priorities than mine :-).
+>
+> Thanks for working to find a way to improve the code in a way that
+> makes both of us happy!
 
-Now fixed with an include of <asm/hypervisor.h>
+Thanks for the feedback.
 
-            M.
--- 
-Jazz is not dead. It just smells funny...
+And thanks for all the ones who reviewed.
+
+>                                         - Ted
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c87d2ce394cdaabb0874d8614837c586%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CALD9WKz-Jgmz7inOghv37ZwzD_8sVPT_-YZUX5FpQE5aKrDJJg%40mail.gmail.com.
