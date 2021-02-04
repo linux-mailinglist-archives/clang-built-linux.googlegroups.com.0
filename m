@@ -1,133 +1,147 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHHX6CAAMGQEK2NMJDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBXEA6GAAMGQEDMPZWZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 57BAF30FB43
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 19:23:26 +0100 (CET)
-Received: by mail-pf1-x437.google.com with SMTP id t22sf3014906pfc.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 10:23:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612463005; cv=pass;
+Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 118BE30FBBB
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 19:43:41 +0100 (CET)
+Received: by mail-wr1-x438.google.com with SMTP id d7sf3348667wri.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 10:43:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612464220; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TwHQb97rZDP6uVZPyQl1sv1Q8g6dB/8IE9J2B5cNr9+dVWWOFqUXtKpYbDBYg+uKbF
-         qPZ0NP8Il9DDINStmWTKVQcEHE9Iic1BwZ4fSuUdnN6pIrAusqpCIv9EAMk+Vk8efNpn
-         NQXcYWc7CP7ApAex8Z897HHlo2P+A43cjBV5y5JiT7FvyMHEOdhFKZMNm/1vUr+vsJkE
-         QV66R3J0TuZYXkxlRvLXyW7Civ/N9+5zBB+0Tlnk71skIBfHYyv1YMxKXoDZfwQTqykg
-         x/2EY/KNko/Z0YonXGs8eGv7Dwf61dxS4yxOWKHih//eQIYX61w6X7B73AgdLMO/CBDi
-         fsNw==
+        b=kvv1jLCKluEiShkiLfZMMwygQK1ouFsCKC2D6/YhxfH1npo7ROHpnYaWOk7CvTdD2u
+         TPm//xwZI0k5QpA11QFWtTfZ3yL9V86ZDdH394yPXOYUWeuoXIvDmXVA0gknGCjkVaQq
+         ICpLCk3bz7TGZ9pnofI5sdOt4S2gT3Zmxff8R7PHQUdmP1uMssQWkbYy+VSpZgi6M4uf
+         YXPEWsMhFNrk68168YcRNTeFn+tLHCv354Bru3P9j9RZA5x83onEF22vYnQRhDFmjZGM
+         yiO+FxqRGuMPxjdf50dkQ6eQaSdnBY5gVwNtGmNqkx6M/X2skLMPA/MVqmsd0mvBYSHs
+         GRPQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=EEt2/gHP2levRSFuvxvZpyrTy9oI87S7Pm9ZEua+jvQ=;
-        b=tJ2YMWgYDdj6fztRtwBj+sdaQAYRnYgVK33i0CjbGYq7C57L4BJiRbqplvfoLUFrKo
-         xyA7lWsfaA6enZdLdixGtyytS7ZDBCPKnSTj+qMi/RtnWB/AbfJ99bnU4X6tNHloxFVg
-         z3vDxPctQWwvelDKUN+QQPnLp9ghJXE5TiLGP/GiPclSnK32Mi3c9Z450EUBXxny4Ceo
-         GGTjCyBrUerp+6UFlx3VyhCWhA1LraHYLseoisUVLzH5YqBdLPVCAPdqWajjf5UFrvCP
-         pRkjXevYcimBs4xks/VGgbDUh+cnxm2GGM3z5wDVqfkPyK0bAQO3gBLUq06NjGKYTfqE
-         xRVA==
+         :list-id:mailing-list:precedence:reply-to:content-language
+         :in-reply-to:mime-version:user-agent:date:message-id:organization
+         :from:references:cc:to:subject:ironport-sdr:dkim-signature;
+        bh=1ExcGScmJbuFIm3imd3SUaxqGm9MeXIthAHdnxTiHhU=;
+        b=l4aepIUYfGzc1FLaGfAu6GI2Aoyc0bduDJ08nCbw9AF0Vgkbx5Rrm4zCsWn6HjVG//
+         wzbgeERqYSLeIWObqnOK2P7luwYJFhO4Ro+0iRXCE87vMdpre3NXQGzYZq8Dqd0UdsS0
+         QJLzHKN33URknMjrJA0+AhP8q7AT6Z8K0zkPt6WAlG2wAY79D3V2e/CLxpg6dfWgl3sF
+         +LsXx916YwdFeV0rmjau8lkkacTe2t3agozuEIVxn7yjEdS6oLV0MRuBk5wPnk02pD9y
+         ju12bXfI8TX7dbDzrx+Z4Lsi6Dm4uXPpTKOC57irhCZ22SwkE1yBreMBz4JSfgYJdDFy
+         ovkA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=bvjpTD7o;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@microchip.com header.s=mchp header.b=ETj4cJWG;
+       spf=pass (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123 as permitted sender) smtp.mailfrom=Nicolas.Ferre@microchip.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=ironport-sdr:subject:to:cc:references:from:organization:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EEt2/gHP2levRSFuvxvZpyrTy9oI87S7Pm9ZEua+jvQ=;
-        b=sXdCxNqkznvcRMw0e4dq4RTgDQuQQ34gsiXjcum6RMXNRZcT8u16iKZic1gRi5AE9b
-         T9sXieueqSZG0PT3Uf+5eEEbKxx6g+5IlPaGXeBWFcUsTQuljv8gUJ7BjxM9580V0YeI
-         6j/VonSEWHLExjhY49y/BTSZl5Zkg3wMlJakSo5efA/UrgrKnJK6Kqh3wzf1fF6vwir4
-         +LImMH4eSIiXEm+05Apvqgy38A2jlQoiejTlj1zVi/uE+bCL1yt/ExPhj1P0Kc4t3eCw
-         zm67e98vI53QoA5U/1yCPt/ztPTlVVpRCsaJ95HwUVwB9N9FjrlSxWW+qbUNYSIFtiMI
-         fiAQ==
+        bh=1ExcGScmJbuFIm3imd3SUaxqGm9MeXIthAHdnxTiHhU=;
+        b=QQ3UHfu2Of/W1AQB9DN7pkjAwtmmxYNlhVayGsUyUSgOIFCZgGrd9/mVttf/djVfGc
+         83bpvSPX7VGXzic3MgPgk4qbQtxVttv4n1MOmAfvXIDTWB/ulRnuRn1yTFoYwOJgKC4W
+         8RTJ7Ri7/IK5rmzv5Q0ovlACV8yB+tlh1k18aMy9i62AQyC5n9zmJL6+dj5ELzeHo+KV
+         xBou3BkOGGzrdm8WS8xEFHbQhPFUZ6D+R0o+Xpidg9JjgfeQfuMiEe5NlfjlNzX+nhsS
+         BubvHlzVFkbw6NQKcHTwb+QUq2RSxXLGHWCKmQKTxuelaMpuMrQfdovrtZnv50DMeM3f
+         SLtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:ironport-sdr:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EEt2/gHP2levRSFuvxvZpyrTy9oI87S7Pm9ZEua+jvQ=;
-        b=UxxTXIn+iCsOpmrfMswS8DmPZ3O/TOANFKzh7b6jpCfFJoCMBd+yc4EOFpLJypoIn8
-         /pcKS9M0z3m1egaQ/H0+CgtYRgau8e2l288fpG+LFHToBTaWj9a/eh4X6Z1gIctkjJ2S
-         hU1HotAkLT21bcdljXqQ6UMKtGa9EC0ei6DPwTTo51h3MpD0taM5wyhM77NmFGIhOaBJ
-         DNcVEyUaylqz3+ft4BcqAHJzU4eKvdt+FI28K/lFa4WPAXaU9lvt4Kca2mEL+owxDjLf
-         jl/tjW9TwVq76tTV18+rvNU5kMmn5hEYrUZNU4jDmAheaT0Dfo7bp2IUW3Fb6sCWgszy
-         3Eqw==
-X-Gm-Message-State: AOAM530mvG4DbO9l+JlWWanda3ouftVnVP14/ZnMzkNX/mQ26spxTkYB
-	6t4d6EMj8YsNX9iio6fFXVg=
-X-Google-Smtp-Source: ABdhPJy0uRWmMR2r4vEN28NltC5dX8UiTca5FW8WOztuHPLqJ1bDz2je5N5ENnQjH0rlD3agjlDmJQ==
-X-Received: by 2002:a17:90a:9310:: with SMTP id p16mr213808pjo.211.1612463005059;
-        Thu, 04 Feb 2021 10:23:25 -0800 (PST)
+        bh=1ExcGScmJbuFIm3imd3SUaxqGm9MeXIthAHdnxTiHhU=;
+        b=B+H5JaVwjrrLcx1PbWMIjk78cD71VI5YEpqqbuINAHtscZ4F9JfYgivVj4ZKcScMl9
+         kVh91uDwI/lKRITblANMEb9E1WO1ex0L4c2Efdikw+y4QTcxsXm1Ribl1HGGv7gEtvjd
+         Jg5UkfGlUBLGNKTae6i76etokTx+zB69kgMJZKSICeSC+lD4qLXytQEBB41DZ01pPmqr
+         PKu3QIICPvi9QeHTCNSCsRkdxbrc00gdDvL8LK3PSLIExlDLO6mEWs7ACSMCFZ7qVDgS
+         wGPMzCVKuH6roKJBgzgdbmoKJl3RtbTcNAm1hXCdkn/V9k0zyNVYcVBxnnFmkjPCKsn0
+         Diiw==
+X-Gm-Message-State: AOAM531s9Ux6nXrbpqLc14S+lLOJz6s/RxHjQY7G+XnG6Zx4yA068brk
+	uKduRkxzLaVi55Q0Jk9rrbg=
+X-Google-Smtp-Source: ABdhPJzIh1yHQi3dfpS5M9JA8VNY+Gmi1qcw7cABBfaBWFfE4ZCNkO3kPud+Uxpzq8uJoqJdxcIRRQ==
+X-Received: by 2002:adf:ffcd:: with SMTP id x13mr789454wrs.149.1612464220816;
+        Thu, 04 Feb 2021 10:43:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:ce54:: with SMTP id r20ls2665090pgi.2.gmail; Thu, 04 Feb
- 2021 10:23:24 -0800 (PST)
-X-Received: by 2002:a63:cc05:: with SMTP id x5mr272768pgf.254.1612463004390;
-        Thu, 04 Feb 2021 10:23:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612463004; cv=none;
+Received: by 2002:adf:f852:: with SMTP id d18ls1238922wrq.2.gmail; Thu, 04 Feb
+ 2021 10:43:40 -0800 (PST)
+X-Received: by 2002:adf:f8c1:: with SMTP id f1mr830008wrq.76.1612464220163;
+        Thu, 04 Feb 2021 10:43:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612464220; cv=none;
         d=google.com; s=arc-20160816;
-        b=PRtyXBOXCYcK1kUjg/Cm12hZvHkIy3r7ZkrgSH+awM2CNOUBdkUtytL7Rhfe54AIoZ
-         jmoKW3KCMqaqkXi3/zCycBsdtvRjnCtMxUPboUw4SUJntnEfT9E8od50c12l/L2DmssI
-         IsIepBFfck0w88swtEAyFbxARQ+ZH/jU9SkF2fG4qB0GfJbhNxlHqYYQqYgNnMannExI
-         NHMwMGu2VFog2frGDENUAg54EuURgoB59CZDf2GT6r8BfPEdl/9N5kUlfT3uoYrgNE0t
-         NdwpTtupYEUSm19rt7mHxtqBZJepVmq3Dxx5Nnz1esb5LfpF46lrS/w6U6hUzEgFA22u
-         L2Aw==
+        b=V6oZx6E/m3BLErwAfoy1Y5gA9+6Nniwo1b1dK+sJs3mr/dRIcJKhMc2rbEBtOoy8+Z
+         MpK73+RpWiU2f2DGcep5iFgPVWw7+gJNjVJAR7xMX1PenzTH4y7pJLDYbbuCVR4HEkSb
+         YEE6Lw54nNeRExcxe2GfyC2+HOBtdrp5UivhSfmTtRiKTZbCKfk+W5CmAehIZR9TAErv
+         mcyjkCj0oTDYdMTzJTYqRjl9YLmfdeEdHmmRIvFwIPQ1q99UviYSXc+rTOyiXbB8oGu5
+         fh/57otM+/Ys1eWoKIhYSQnuV9bQU/X7ofiofcH/UksmLeu0TOFPg9zPVsJsOXmFn73D
+         xalg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=jajB5tF8FeIJnHD6r5t0+o0yif7uNCHw33YMW00aC2Y=;
-        b=Y/6N7viQ35074xK80FLNrbjYoBYAnXTDA9Lk2L7JIv6r9mTTw3xdZoQwdMCPGSXjfr
-         Xz7FxIq6gyoeYvWs1HrgcVyPv+yV+Wtb3S61axZIfTya7zgXwnP4pJJ/5wy9TpwoYf81
-         zI0PjMifrsS+2jzFVHOJa5C0MK2cVVJKk45u9BhUwSn56uxYda/PPKdKkvlRV07WuLGD
-         iFfKmddFqXDGnk64Ex9WupuUfiUPZGVW0rnSLAB61/rCmDo1hU+7tqw0bNSBpG8oMcew
-         K5jYklG/ZUOhbHTJgkTlEqf7P7ANywwNEhYddI4Iey7HVrjszOt1MAcJx93UavtjNZBv
-         dmfA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:ironport-sdr:dkim-signature;
+        bh=rNXkrpeIh2LfUOVilwcJH+Xevmnh/DrQlSFjwguGqf0=;
+        b=zfjPM0sGmd2MkIuHMoyNYRVbvjp7+tZRiuvdalHKBqK/v71jHfAl+r9wDthdWTE2JQ
+         +ImHcq333fsVdzG+jc2OSvvW9PP4I46zSBJenmRF+EVVObRXosd4AiqDvPf04RzMifpf
+         VsPUSZDgwkWky+IVMMtkHWHw14ooT2tGM92i9usyTt1nKCrcwe60lHWusVnnp5DFVhAX
+         3MuIJqGZwRrGC1B0jNUcL+3SDOyxh34WZyqufFHHV5e37mIUtU6lNjxv96B7LKqzCRBR
+         8wIz+TMNBNPIoASslC6bzSSA0eXvBAots98QbEZ2D6/eR+1fqzef+uiwQGz1xewZ8JLz
+         JbLw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=bvjpTD7o;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x634.google.com (mail-pl1-x634.google.com. [2607:f8b0:4864:20::634])
-        by gmr-mx.google.com with ESMTPS id f24si584099pju.1.2021.02.04.10.23.24
+       dkim=pass header.i=@microchip.com header.s=mchp header.b=ETj4cJWG;
+       spf=pass (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123 as permitted sender) smtp.mailfrom=Nicolas.Ferre@microchip.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com. [68.232.154.123])
+        by gmr-mx.google.com with ESMTPS id 201si302580wmb.2.2021.02.04.10.43.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Feb 2021 10:23:24 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634 as permitted sender) client-ip=2607:f8b0:4864:20::634;
-Received: by mail-pl1-x634.google.com with SMTP id u11so2182188plg.13
-        for <clang-built-linux@googlegroups.com>; Thu, 04 Feb 2021 10:23:24 -0800 (PST)
-X-Received: by 2002:a17:902:26a:b029:da:af47:77c7 with SMTP id
- 97-20020a170902026ab02900daaf4777c7mr641577plc.10.1612463003852; Thu, 04 Feb
- 2021 10:23:23 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 04 Feb 2021 10:43:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123 as permitted sender) client-ip=68.232.154.123;
+IronPort-SDR: eBql+5flRwgc+oDmGTlZF9RKUq4v1KWEeMtbEx4ZXLcJYkkofIYtx8AbnPU149a+52HFeWaWwy
+ OqBtCZt5W4f1jRgAmbNCHQC+wTEf2qeuymTAJifC63KzX4wNqZcu6UOj9wiNc21lveeu/tVp0S
+ TqiLjvljRimti5Iv/prihHIgIy3TCgs+d5XlrjQDhNAtwz3lxJFwRS1LJfTV0NFwcLHnj5qRWx
+ hvZJs0Dz01fO8ix3KL4Wk4UOpSLcNWW/ev5F4CXRda1DSXWQLAYqtDTU7WeJ52A+Ecoelw//yH
+ mEU=
+X-IronPort-AV: E=Sophos;i="5.81,153,1610434800"; 
+   d="scan'208";a="102622916"
+Received: from smtpout.microchip.com (HELO email.microchip.com) ([198.175.253.82])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Feb 2021 11:43:37 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Thu, 4 Feb 2021 11:43:37 -0700
+Received: from [10.171.246.84] (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
+ Transport; Thu, 4 Feb 2021 11:43:33 -0700
+Subject: Re: [PATCH] ARM: at91: use proper asm syntax in pm_suspend
+To: Arnd Bergmann <arnd@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Ludovic Desroches
+	<ludovic.desroches@microchip.com>, Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>, Claudiu Beznea
+	<claudiu.beznea@microchip.com>
+CC: <soc@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Stephen Boyd
+	<sboyd@kernel.org>, <clang-built-linux@googlegroups.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20210204160129.2249394-1-arnd@kernel.org>
+From: "'Nicolas Ferre' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Organization: microchip
+Message-ID: <d5cc7f4f-ef4a-dbe6-6f87-918a1d96603e@microchip.com>
+Date: Thu, 4 Feb 2021 19:43:32 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
-References: <6c65bcef-d4e7-25fa-43cf-2c435bb61bb9@collabora.com>
- <CAMj1kXHMw5hMuV5VapcTeok3WJu1B79=Z3Xho0qda0nCqBFERA@mail.gmail.com>
- <20210204100601.GT1463@shell.armlinux.org.uk> <CAMj1kXFog3=5zD7+P=cRfRLj1xfD1h1kU58iifASBSXkRe-E6g@mail.gmail.com>
- <c0037472-75c8-6cf9-6ecf-e671fce9d636@collabora.com> <46373679-a149-8a3d-e914-780e4c6ff8be@collabora.com>
- <CAMj1kXEshuPTrKvN4LpXQMftHJG+yH8+fgU7uVc6GYn0qd8-xA@mail.gmail.com>
- <7c685184-8688-9319-075b-66133cb0b0c3@collabora.com> <CAMj1kXH_CCYyd5zNVRL=KWpBXtsKamV7Bfg=O1YWBJL0f_eXLQ@mail.gmail.com>
- <CAKwvOd=ziPWHmBiPtW3h2VYLZ-CTMp4=aEonmMLM7c=Y0SeG1Q@mail.gmail.com> <20210204181216.GB2989696@localhost>
-In-Reply-To: <20210204181216.GB2989696@localhost>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 4 Feb 2021 10:23:12 -0800
-Message-ID: <CAKwvOd=UYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g@mail.gmail.com>
-Subject: Re: next/master bisection: baseline.login on rk3288-rock2-square
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Guillaume Tucker <guillaume.tucker@collabora.com>, 
-	Russell King - ARM Linux admin <linux@armlinux.org.uk>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, Nicolas Pitre <nico@fluxnic.net>, 
-	"kernelci-results@groups.io" <kernelci-results@groups.io>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+In-Reply-To: <20210204160129.2249394-1-arnd@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nicolas.ferre@microchip.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=bvjpTD7o;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@microchip.com header.s=mchp header.b=ETj4cJWG;       spf=pass
+ (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123
+ as permitted sender) smtp.mailfrom=Nicolas.Ferre@microchip.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
+X-Original-From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Reply-To: Nicolas Ferre <nicolas.ferre@microchip.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,36 +154,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 4, 2021 at 10:12 AM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> On Thu, Feb 04, 2021 at 10:06:08AM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
-> > On Thu, Feb 4, 2021 at 8:02 AM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > >
-> > > On Thu, 4 Feb 2021 at 16:53, Guillaume Tucker
-> > > <guillaume.tucker@collabora.com> wrote:
-> > > >
-> > > > On 04/02/2021 15:42, Ard Biesheuvel wrote:
-> > > > > On Thu, 4 Feb 2021 at 12:32, Guillaume Tucker
-> > > > > <guillaume.tucker@collabora.com> wrote:
-> > > > >>
-> > > > >> Essentially:
-> > > > >>
-> > > > >>   make -j18 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LLVM=1 CC="ccache clang" zImage
-> >
-> > This command should link with BFD (and assemble with GAS; it's only
-> > using clang as the compiler.
->
-> I think you missed the 'LLVM=1' before CC="ccache clang". That should
-> use all of the LLVM utilities minus the integrated assembler while
-> wrapping clang with ccache.
+On 04/02/2021 at 17:01, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Compiling with the clang integrated assembler warns about
+> a recently added instruction:
+> 
+> <instantiation>:14:13: error: unknown token in expression
+>   ldr tmp1, =#0x00020010UL
+> arch/arm/mach-at91/pm_suspend.S:542:2: note: while in macro instantiation
+>   at91_plla_enable
+> 
+> Remove the extra '#' character that is not used for the 'ldr'
+> instruction when doing an indirect load of a constant.
+> 
+> Fixes: 4fd36e458392 ("ARM: at91: pm: add plla disable/enable support for sam9x60")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-You're right, I missed `LLVM=1`. Adding `LD=ld.bfd` I think should
-permit fallback to BFD.
+Looks good to me:
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+
+Thanks!
+
+Best regards,
+   Nicolas
+
+> ---
+>   arch/arm/mach-at91/pm_suspend.S | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
+> index 909856c8a8c6..0d467cc40129 100644
+> --- a/arch/arm/mach-at91/pm_suspend.S
+> +++ b/arch/arm/mach-at91/pm_suspend.S
+> @@ -446,7 +446,7 @@ ENDPROC(at91_backup_mode)
+>          str     tmp1, [pmc, #AT91_PMC_PLL_UPDT]
+> 
+>          /* step 2. */
+> -       ldr     tmp1, =#AT91_PMC_PLL_ACR_DEFAULT_PLLA
+> +       ldr     tmp1, =AT91_PMC_PLL_ACR_DEFAULT_PLLA
+>          str     tmp1, [pmc, #AT91_PMC_PLL_ACR]
+> 
+>          /* step 3. */
+> --
+> 2.29.2
+> 
+
+
 -- 
-Thanks,
-~Nick Desaulniers
+Nicolas Ferre
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DUYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d5cc7f4f-ef4a-dbe6-6f87-918a1d96603e%40microchip.com.
