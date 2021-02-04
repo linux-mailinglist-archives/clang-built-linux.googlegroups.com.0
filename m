@@ -1,124 +1,133 @@
-Return-Path: <clang-built-linux+bncBCM77JPN2AIRBQ7F6CAAMGQEWNVGYXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVXH6CAAMGQE3TW6RVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 02E0130F9FF
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 18:45:41 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id v7sf4003864ybl.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 09:45:40 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612460740; cv=pass;
+Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
+	by mail.lfdr.de (Postfix) with ESMTPS id E5AF930FA1C
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 18:50:15 +0100 (CET)
+Received: by mail-qt1-x83d.google.com with SMTP id o20sf3152460qtx.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 09:50:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612461014; cv=pass;
         d=google.com; s=arc-20160816;
-        b=s4HIsIMtsPqUMs2ySumcjNoZa4fbzf/bxW4GVpnxdetOstPkT6hWCbH7jyuOw9biy1
-         H9i7+B0546RW5dSzQjJP/VyHd5XzRLBAL5TzwOxJK1cqp/jGD4UjA8tA6tCmGqVt8bAP
-         ZkTX3gVpna4360dV/hbpTPl4v4t4TtxGSb8YiB9++TjABooDQVZZRe8EwkVS25duD4Pj
-         N/UWFPvzol7KtYwJ9mNbMUH2Qk1oYn6ZUmnXBet76gbc5LosGOsWGkXOMf4+5keoOAEM
-         0igwz8DuKrPSrIp48WbeFvgrirS66YyQe47J3KEz8mLgziSFBZXDj0JJGV9szGFmH9c6
-         FR1g==
+        b=EuP1nCOpUPSmMk107myooKPdVpFVTE6lDR5Q42fkyYQQfiuEOYatJ9JtQbMZEOKgKP
+         1siqHOuK54hXxs5mFjsrzlGSV42fCp5Y144x39fNZmwotNgj+s1edzxMr29oc7KFCp/S
+         EYDFiEv6phhlmHSUTRmzMk3rnGnNWlalB2aDtRZHE95flzp9/dod3fGUX5iW48GFbyLO
+         6EfDxIsmghxdj3L34A9y5M6oFzy/ssH2SCzxeExW3SOpqnmi1taFXEKW5cOAo0EVYgqe
+         SJJC7GyR7XcRZTfcPHiZ1zWcJyGNbpVjGtC9JmrZWMdzKG+40Zwh8z+Nt+hWNj4mpb9c
+         L4vA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=h6LKnhbBp9fLOO7sW5YHsIVDAQpPMvAwsliUsxb5meI=;
-        b=jfEP1ChRn5KnzHHD2h2Z0KVyhQS9EGjc0cydSok6HU6pUyJN9Ok9HN5e4zRD0Ef7Yy
-         WqoLd7UzaojpvtXk1XEFD9ox62d4giE5RKTyJUcqmtBLgDUQdu5csX1AIVd14ubdu+qW
-         vVUbzFDszOOKIfptOJ8dEQfrRPNvphS3hqc+auYnVs+6YKEnORK06xgTPgkIS02Fth04
-         PQ7EQOd3r+/P8LRAM5MZQKVDj4mguf7da0ZkH0T8HzSACrThznruJlt8m/Q6Mk+1ebb8
-         gteH07vOoaG6ryP7Zl8EOLV0bbFVnriLCTMhWxv0OaOCbAwRh6JEtPvoS6kIFFy2YXKN
-         PJOg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=bLbB+uKo3fLTJBvYYxcjxI686GAYXoZVaml0E7db+GM=;
+        b=fAKnODqxOEx1gnMNucee2j44f3AOCsvPOtH0mc85P6MiN7AuNiMMYFPrgkU0i/nwm3
+         UMfd0SCWA1pjxMlBxYY2yo7E3D1PaqWyMiomk/u+i5QF6pMyEhmhvAIdOumtFBhTbuiN
+         JuTV/CdXmWoWLUOvb/l0KRzzm85P0LD+ZM4AEj4LZ1CqduKfa4IffvLGaMZ420JkPrm7
+         dEhoEptpq71YkItYYZTJgy897GWKrV/o5kv/h5pajwAh8gFkDWgBqP3Uli6Zq/wC/2CY
+         7Go81rWfXeckM5KOVORaKwGzUYfNpTML0cPxZU3dJ5+IpWNKFvo/hvtbpTfMxY9r3I/z
+         G9MQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=F1KC94Jx;
-       spf=pass (google.com: domain of kyletso@google.com designates 2607:f8b0:4864:20::f33 as permitted sender) smtp.mailfrom=kyletso@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qCY2Wi7b;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=h6LKnhbBp9fLOO7sW5YHsIVDAQpPMvAwsliUsxb5meI=;
-        b=rYhjzxiEPpQLQjDT0/SKgYuSeFkv0/tLT/ED6rMBhoqIdN24nZ9r84t6PYPrt3DLff
-         jSdE+SsQyTUvJ6dLjDNCfauCEz7Yh3EDyWMzda/TJ6SchGP09/YHNw0InRuEDWyyEasY
-         jfMCY8xzbqlNs9nOdCrbHNPuUQ6TAGxDBH6IGOCagQK92QlNYHAW+RSml/BLQXbxkg9n
-         ZJsdRboM9lNmO3xx8RD746R9asyK9zGEHAhFrUxNAhcvKHQftKamKHLU2W6xgmxrJC+N
-         1caQnwX73PrKG21HQf8186JI8VmqXgGJ+B2ecw7rupCDsxdjyWNzEh5SvRuWoxvk727X
-         GgSA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bLbB+uKo3fLTJBvYYxcjxI686GAYXoZVaml0E7db+GM=;
+        b=WRrWlkRQyC3UXY8VmyxzhKSfkTUyTqfkqTyzPNms8wbj0etAsmTnE2yS2Ls/iwgLtX
+         W9VMyg7XkjWjVDjC8s5idUbJT0TTzfH3b6RDi1cg6DKppTlTQbxutO639XOZDtgeUEQW
+         Pu37euJk+vyjNces/v31pC8Qtw+rMJ+PVINoh7gHXloth1Jg0Imx+C3U0+H/A5EkNWpH
+         ct4NFcqXxSoIL5k8P16eiffcGTSQSUyrVjZibsvg3CeH+rdPskGhb6cbKe+vMxM8ldIk
+         WEdeuIV0jrk7vQte3YTu9Uz1dTnEzUeEdF8j6zknNHudl/i40+PO7vaoNidW2RK/p4Fh
+         uv5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=h6LKnhbBp9fLOO7sW5YHsIVDAQpPMvAwsliUsxb5meI=;
-        b=aR0TYMRk2LEt03fjltEHN72J/TI5iFxJHqyKl6Mi+2qShArzWWdhEtcwcc2sIPq5cJ
-         n3ftBk50U1ziRgrHaanyrE3urWRHnbXpBam/Q0G+Cl3gRfvMLkXiZBqhHyAocZSV+oXm
-         iOR7NkK5HyRBLdvdmYJR/vd7OG1244wZNvdEYXtPW4rOsvum1IetoV7TY3FjTvpltk++
-         yxnWLhuhHz1ahURi0OM8rr/WwqJaI6OJSnMNvYV5v/y6tnL8i+tK/uQVIqXnVx2Z55eo
-         FsCAgGtikTQPKzvqNXMsVcDUneYtel+BcQymL5ZGTYxBbkKRuZAGx2UqaeykFI+pQlt9
-         Bsnw==
-X-Gm-Message-State: AOAM530JkRnJ5vge+As4iZ7F/6ESNm/bR0OlvbpzHAkxj73r2S2EQvsz
-	LYmq3bGC6AgoKzv7COhn7u8=
-X-Google-Smtp-Source: ABdhPJxIMti9hzIg0ZfheIa56tTEZvMbeqdxTyazlcubVdFNdRSoTo7QA1mZpf8kHDxe6r0vlSENww==
-X-Received: by 2002:a25:8c5:: with SMTP id 188mr551900ybi.18.1612460740002;
-        Thu, 04 Feb 2021 09:45:40 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=bLbB+uKo3fLTJBvYYxcjxI686GAYXoZVaml0E7db+GM=;
+        b=RmGMohXfxYsb0LfwwxYxcOaFDwW09eDlIGCtZ3Ek0QVZ5cnCDabHWRcDTHR4OKlEM3
+         2sX3aVavHqo+n8IH15P1dphiMKkOlaxV7OQYVa6uwWt0QsoFpszThy+ID/LOOTP9b3wz
+         TfaxQWmrZlaR2XKCrV6gFpUtZwSyhFOMu1Gx7iTNyT3pKXb/7Ivy4d4v2QwAcwTK4PRM
+         IuipjNnRVD8dZtkIEhF8sjtJtkHH69rNuAiOX52ITUVV5+j+iv3VgcKpeXamw2Fpu1Cw
+         SFHzwuPNGJNrydHSlfSe0Z9+UIGKSk0rzTDVN98YOA3n7a8M8VA3Thhldrr/bbX2eJ5W
+         gacQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531X3Qprt8PDVQTTbkGUiWzK51amYPn09P05o/uRVd5q1d9fuCAN
+	1xsnR9PsuAi1AA8iCIfMg1s=
+X-Google-Smtp-Source: ABdhPJx5fA4mYU6WAfWr/zS9NiL9JlgmEgm4uNc4CojCH08gr/plTEFlaHZ39JavuxnddJ0d8Xak2g==
+X-Received: by 2002:ad4:486e:: with SMTP id u14mr338466qvy.21.1612461014794;
+        Thu, 04 Feb 2021 09:50:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:3006:: with SMTP id w6ls3064595ybw.4.gmail; Thu, 04 Feb
- 2021 09:45:39 -0800 (PST)
-X-Received: by 2002:a25:9bc8:: with SMTP id w8mr514213ybo.354.1612460739595;
-        Thu, 04 Feb 2021 09:45:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612460739; cv=none;
+Received: by 2002:ae9:e904:: with SMTP id x4ls3422763qkf.6.gmail; Thu, 04 Feb
+ 2021 09:50:14 -0800 (PST)
+X-Received: by 2002:a37:aa90:: with SMTP id t138mr299239qke.150.1612461014389;
+        Thu, 04 Feb 2021 09:50:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612461014; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZxfGaceaong0YzL4voH51vt7+ShIgeFNMQTqa8YEjSKNZj+NWa7K4fi3cnG7EETeGX
-         MW+eRwdhkccXEkVI9K+M3nXloNJg0zgLgLc2szF8buaD5oTECnc+xJ061PV3NNVlVRqU
-         b7Q2RhMgXAvoYLqbGBCLl+xhQBJxymIaqlUBwRBQkFhGKbKesFL/tyEpjj78JD+DU7PB
-         xUgf48969I/fFhLrHunQdljdOR7z862n36thlewMDryh5g5hikRGznsgGl2HbsqKywhT
-         Ul6uBgdgwZvBlVxAHhZ4VQcJFIda/0u539L4DwOY1uDlCkIim5KA3DDcI4RoXs7JI6Ye
-         rAcQ==
+        b=ZdnymUGQXEJ6fT5YiQ4VJckjQkSQBPaGWWP1O8a9n+JSfixMSYFv/jfw6Mx3m0Aq73
+         K9TgXj8T9a2AxlM1+17oB7Em0wr53YEdwlCMzbLHwPaqmfA3aUYXwQCfsFYpPqZ0vh85
+         967cqPLGLqdSH4YyOrLuooKqz3FqitlYg38M7W3EnUmcDmU7Tp10F8qnTm5XaLZrfOpf
+         c+1CkWauPDcas6FuMKZqpii2t/H0gNB8w8GXzROWoPhVG22HKGGAuTCRhpOwNqiEnWe5
+         fpZtA/zE5SLwzPjqNUQW58D0yfDmB4IFon99tKGb0BdmC3fNPrZ0AMuP/L2Z6sqpk24h
+         QR5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=cqyjoq8OoX0qfgab+vhSM3IoqZR0KCLAhoUlCdPfvrw=;
-        b=BHxqNJJ1X6E72ypU9Tf0QD/rQs9kuPmqryxbxUYANNZzr5ZWmapJfQpCd4ElAYvf9z
-         BT/L0L8yPPC5yoDZgYn133DqebgGkmrD2nTK4cIYyLN+UFZQFvFhsXNPJltZx2MbxQc4
-         KhHvt1pLRZgsG1HJZKp0zguXV+naM5ZyUMxEWtfyILx9FEcFVic0qsx6xJxbuQ8H2f4c
-         CPQe7ZbNSf4f+QqdDTGLcyPlMYcgO+iZxuOcOTKADJ29yJWtITY6N/l4aaLvPNqP2OXJ
-         3kOD5zu8BNVIDwTARuPcs4FZKONVbxNRhFUKntF58W/8lmqXVixfxMp5SdTBl9HmKzKX
-         W9rg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=8Kh68VvzJ7uDFBbTKZm/8Opn8JiDLvZAUjjlXXyNQrk=;
+        b=qG8fbjyuB4vf2+jHLPwDPOB38xxXBfisk5q+5mEnnLlT/ixH/JPN7hfYO3w7d4HX6K
+         ZY1HwUnVAuxCg7ePWgbI3IjNzDsFYTSF+CGWkgT3XOJZitFsZ8R1eSivA+X82fZtdjGN
+         H0pL52PDcu3hdHRWO9+HGhC43mfYxKXfOMWUvbsxa6lV/zn9rkjUVtaaapYFcSVzucYT
+         R0G9uDLiqHWQf3BU8UoYjCoA6UAwHnhBiK2vK3LiTU9NIM7jh7yoX8tCnhxw7O39XMVW
+         jYChqZa9Y7dFTJHDOGmhMfXwQaE7iy313VR0gb3kF5GnCadVbUP3GHoTv3MD1YhP+qwT
+         fguA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=F1KC94Jx;
-       spf=pass (google.com: domain of kyletso@google.com designates 2607:f8b0:4864:20::f33 as permitted sender) smtp.mailfrom=kyletso@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qv1-xf33.google.com (mail-qv1-xf33.google.com. [2607:f8b0:4864:20::f33])
-        by gmr-mx.google.com with ESMTPS id k12si363001ybf.5.2021.02.04.09.45.39
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qCY2Wi7b;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id f10si251233qko.5.2021.02.04.09.50.14
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Feb 2021 09:45:39 -0800 (PST)
-Received-SPF: pass (google.com: domain of kyletso@google.com designates 2607:f8b0:4864:20::f33 as permitted sender) client-ip=2607:f8b0:4864:20::f33;
-Received: by mail-qv1-xf33.google.com with SMTP id l11so2133159qvt.1
-        for <clang-built-linux@googlegroups.com>; Thu, 04 Feb 2021 09:45:39 -0800 (PST)
-X-Received: by 2002:a05:6214:11ab:: with SMTP id u11mr550555qvv.17.1612460738789;
- Thu, 04 Feb 2021 09:45:38 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 04 Feb 2021 09:50:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 3F4FD64F7E;
+	Thu,  4 Feb 2021 17:50:12 +0000 (UTC)
+Date: Thu, 4 Feb 2021 10:50:10 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Sedat Dilek <sedat.dilek@gmail.com>
+Cc: Rachel Sibley <rasibley@redhat.com>,
+	CKI Project <cki-project@redhat.com>,
+	Milos Malik <mmalik@redhat.com>, Yi Zhang <yi.zhang@redhat.com>,
+	Filip Suba <fsuba@redhat.com>, Memory Management <mm-qe@redhat.com>,
+	Ondrej Mosnacek <omosnace@redhat.com>,
+	skt-results-master@redhat.com,
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>,
+	Jan Stancek <jstancek@redhat.com>
+Subject: Re: =?utf-8?B?8J+SpSBQQU5JQ0tFRDogVGVz?= =?utf-8?Q?t?= report for
+ kernel 5.11.0-rc6 (mainline.kernel.org-clang)
+Message-ID: <20210204175010.GA2988776@localhost>
+References: <cki.C90653A6EF.V9S14CF2MY@redhat.com>
+ <20210203180333.GA765672@localhost>
+ <5877bb33-ba17-6459-410c-1c51bd193481@redhat.com>
+ <CA+icZUWTia0CS5nrdGx7oE+Zj_J3oC4id6U3jpVbUgqVosoFxw@mail.gmail.com>
+ <20210203220612.GA1738694@localhost>
+ <CA+icZUVjeGq0UzCrJbf9qMYtR56woJ_XtFGiAzhvHnt0zEbD7A@mail.gmail.com>
 MIME-Version: 1.0
-References: <202102050042.DpTJdrHK-lkp@intel.com>
-In-Reply-To: <202102050042.DpTJdrHK-lkp@intel.com>
-From: "'Kyle Tso' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 5 Feb 2021 01:45:22 +0800
-Message-ID: <CAGZ6i=0t1W0Qm99b6FO9+F-YQtreNnZuQxF2V_09PMm32uRppw@mail.gmail.com>
-Subject: Re: [usb:usb-testing 155/158] drivers/platform/chrome/cros_ec_typec.c:778:8:
- error: use of undeclared identifier 'CABLE_ATYPE'
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
-	USB <linux-usb@vger.kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: kyletso@google.com
+Content-Disposition: inline
+In-Reply-To: <CA+icZUVjeGq0UzCrJbf9qMYtR56woJ_XtFGiAzhvHnt0zEbD7A@mail.gmail.com>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=F1KC94Jx;       spf=pass
- (google.com: domain of kyletso@google.com designates 2607:f8b0:4864:20::f33
- as permitted sender) smtp.mailfrom=kyletso@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Kyle Tso <kyletso@google.com>
-Reply-To: Kyle Tso <kyletso@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=qCY2Wi7b;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,159 +140,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 5, 2021 at 12:24 AM kernel test robot <lkp@intel.com> wrote:
->
-> Hi Kyle,
->
-> FYI, the error/warning still remains.
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
-> head:   d021e0694d77ee3cdc5d3fca2c8d53ae7575499a
-> commit: 0e1d6f55a12e47942ce207dfb93e23049b454c9e [155/158] usb: pd: Update VDO definitions
+On Thu, Feb 04, 2021 at 07:07:49AM +0100, Sedat Dilek wrote:
+> On Wed, Feb 3, 2021 at 11:06 PM Nathan Chancellor <nathan@kernel.org> wrote:
+> >
+> > On Wed, Feb 03, 2021 at 10:36:32PM +0100, Sedat Dilek wrote:
+> > > On Wed, Feb 3, 2021 at 9:45 PM Rachel Sibley <rasibley@redhat.com> wrote:
+> >
+> > [snip]
+> >
+> > > > As far as the panic, it was was triggered on our upstream LTP test, I
+> > > > don't have a corresponding x86_64/LTP mainline(GCC) job since there is a BPF
+> > > > bug which is causing our jobs to abort while updating the kernel for x86.
+> > > > You will see the following in the logs:
+> > > >
+> > > > 'failed to validate module [something] BTF: -22 '
+> > > >
+> > >
+> > > Guess this is with CONFIG_DEBUG_INFO_BTF=y and LLVM/Clang?
+> >
+> > I read that sentence as there are issues with BPF issues with GCC, not
+> > LLVM/Clang.
+> >
+> > CONFIG_DEBUG_INFO_BTF is already disabled for the LLVM jobs:
+> >
+> > https://gitlab.com/cki-project/pipeline-definition/-/commit/7d138e9a3aede46f7674476fa1b3ca02a391767b#90e1e97a102a5713d6a68df323738846b425341a_1358_1369
+> >
+> 
+> OK, Thanks.
+> 
+> Can you give me the link of your (above) response in the
+> ClangBuiltLinux mailing-list?
+> 
+> - Sedat -
+> 
 
-Hi,
-This seems to be the old buggy patch.
+https://groups.google.com/g/clang-built-linux/c/de_mNh23FOc/m/oNIZyE6fBQAJ
 
-commit: 0e1d6f55a12e47942ce207dfb93e23049b454c9e [155/158] usb: pd:
-Update VDO definitions
-
-thanks,
-Kyle
-
-> config: mips-randconfig-r011-20210204 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 275c6af7d7f1ed63a03d05b4484413e447133269)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install mips cross compiling tool for clang build
->         # apt-get install binutils-mips-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?id=0e1d6f55a12e47942ce207dfb93e23049b454c9e
->         git remote add usb https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git
->         git fetch --no-tags usb usb-testing
->         git checkout 0e1d6f55a12e47942ce207dfb93e23049b454c9e
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=mips
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
-> >> drivers/platform/chrome/cros_ec_typec.c:778:8: error: use of undeclared identifier 'CABLE_ATYPE'
->                    case CABLE_ATYPE:
->                         ^
-> >> drivers/platform/chrome/cros_ec_typec.c:781:8: error: use of undeclared identifier 'CABLE_BTYPE'
->                    case CABLE_BTYPE:
->                         ^
->    drivers/platform/chrome/cros_ec_typec.c:1000:3: warning: format specifies type 'unsigned char' but the argument has type 'unsigned int' [-Wformat]
->                    typec->pd_ctrl_ver);
->                    ^~~~~~~~~~~~~~~~~~
->    include/linux/dev_printk.h:123:39: note: expanded from macro 'dev_dbg'
->            dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
->                                         ~~~     ^~~~~~~~~~~
->    include/linux/dynamic_debug.h:162:19: note: expanded from macro 'dynamic_dev_dbg'
->                               dev, fmt, ##__VA_ARGS__)
->                                    ~~~    ^~~~~~~~~~~
->    include/linux/dynamic_debug.h:147:56: note: expanded from macro '_dynamic_func_call'
->            __dynamic_func_call(__UNIQUE_ID(ddebug), fmt, func, ##__VA_ARGS__)
->                                                                  ^~~~~~~~~~~
->    include/linux/dynamic_debug.h:129:15: note: expanded from macro '__dynamic_func_call'
->                    func(&id, ##__VA_ARGS__);               \
->                                ^~~~~~~~~~~
->    1 warning and 2 errors generated.
->
->
-> vim +/CABLE_ATYPE +778 drivers/platform/chrome/cros_ec_typec.c
->
-> 8fab2755191f86 Prashant Malani 2020-11-16  750
-> 3b3dd1f0dbfe92 Benson Leung    2021-01-28  751  static int cros_typec_handle_sop_prime_disc(struct cros_typec_data *typec, int port_num, u16 pd_revision)
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  752  {
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  753          struct cros_typec_port *port = typec->ports[port_num];
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  754          struct ec_response_typec_discovery *disc = port->disc_data;
-> f4edab68e10119 Prashant Malani 2020-11-16  755          struct typec_cable_desc c_desc = {};
-> f4edab68e10119 Prashant Malani 2020-11-16  756          struct typec_plug_desc p_desc;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  757          struct ec_params_typec_discovery req = {
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  758                  .port = port_num,
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  759                  .partner_type = TYPEC_PARTNER_SOP_PRIME,
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  760          };
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  761          u32 cable_plug_type;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  762          int ret = 0;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  763
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  764          memset(disc, 0, EC_PROTO2_MAX_RESPONSE_SIZE);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  765          ret = cros_typec_ec_command(typec, 0, EC_CMD_TYPEC_DISCOVERY, &req, sizeof(req),
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  766                                      disc, EC_PROTO2_MAX_RESPONSE_SIZE);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  767          if (ret < 0) {
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  768                  dev_err(typec->dev, "Failed to get SOP' discovery data for port: %d\n", port_num);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  769                  goto sop_prime_disc_exit;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  770          }
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  771
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  772          /* Parse the PD identity data, even if only 0s were returned. */
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  773          cros_typec_parse_pd_identity(&port->c_identity, disc);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  774
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  775          if (disc->identity_count != 0) {
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  776                  cable_plug_type = VDO_TYPEC_CABLE_TYPE(port->c_identity.vdo[0]);
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  777                  switch (cable_plug_type) {
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16 @778                  case CABLE_ATYPE:
-> f4edab68e10119 Prashant Malani 2020-11-16  779                          c_desc.type = USB_PLUG_TYPE_A;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  780                          break;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16 @781                  case CABLE_BTYPE:
-> f4edab68e10119 Prashant Malani 2020-11-16  782                          c_desc.type = USB_PLUG_TYPE_B;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  783                          break;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  784                  case CABLE_CTYPE:
-> f4edab68e10119 Prashant Malani 2020-11-16  785                          c_desc.type = USB_PLUG_TYPE_C;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  786                          break;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  787                  case CABLE_CAPTIVE:
-> f4edab68e10119 Prashant Malani 2020-11-16  788                          c_desc.type = USB_PLUG_CAPTIVE;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  789                          break;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  790                  default:
-> f4edab68e10119 Prashant Malani 2020-11-16  791                          c_desc.type = USB_PLUG_NONE;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  792                  }
-> f4edab68e10119 Prashant Malani 2020-11-16  793                  c_desc.active = PD_IDH_PTYPE(port->c_identity.id_header) == IDH_PTYPE_ACABLE;
-> 72d6e32bd85bd1 Prashant Malani 2020-11-16  794          }
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  795
-> f4edab68e10119 Prashant Malani 2020-11-16  796          c_desc.identity = &port->c_identity;
-> 3b3dd1f0dbfe92 Benson Leung    2021-01-28  797          c_desc.pd_revision = pd_revision;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  798
-> f4edab68e10119 Prashant Malani 2020-11-16  799          port->cable = typec_register_cable(port->port, &c_desc);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  800          if (IS_ERR(port->cable)) {
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  801                  ret = PTR_ERR(port->cable);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  802                  port->cable = NULL;
-> f4edab68e10119 Prashant Malani 2020-11-16  803                  goto sop_prime_disc_exit;
-> f4edab68e10119 Prashant Malani 2020-11-16  804          }
-> f4edab68e10119 Prashant Malani 2020-11-16  805
-> f4edab68e10119 Prashant Malani 2020-11-16  806          p_desc.index = TYPEC_PLUG_SOP_P;
-> f4edab68e10119 Prashant Malani 2020-11-16  807          port->plug = typec_register_plug(port->cable, &p_desc);
-> f4edab68e10119 Prashant Malani 2020-11-16  808          if (IS_ERR(port->plug)) {
-> f4edab68e10119 Prashant Malani 2020-11-16  809                  ret = PTR_ERR(port->plug);
-> f4edab68e10119 Prashant Malani 2020-11-16  810                  port->plug = NULL;
-> f4edab68e10119 Prashant Malani 2020-11-16  811                  goto sop_prime_disc_exit;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  812          }
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  813
-> 1563090965421f Prashant Malani 2020-11-16  814          ret = cros_typec_register_altmodes(typec, port_num, false);
-> 1563090965421f Prashant Malani 2020-11-16  815          if (ret < 0) {
-> 1563090965421f Prashant Malani 2020-11-16  816                  dev_err(typec->dev, "Failed to register plug altmodes, port: %d\n", port_num);
-> 1563090965421f Prashant Malani 2020-11-16  817                  goto sop_prime_disc_exit;
-> 1563090965421f Prashant Malani 2020-11-16  818          }
-> 1563090965421f Prashant Malani 2020-11-16  819
-> f4edab68e10119 Prashant Malani 2020-11-16  820          return 0;
-> f4edab68e10119 Prashant Malani 2020-11-16  821
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  822  sop_prime_disc_exit:
-> f4edab68e10119 Prashant Malani 2020-11-16  823          cros_typec_remove_cable(typec, port_num);
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  824          return ret;
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  825  }
-> 8b46a212ad11f2 Prashant Malani 2020-11-16  826
->
-> :::::: The code at line 778 was first introduced by commit
-> :::::: 72d6e32bd85bd1e5cb5aa467f4eb5d0a69559953 platform/chrome: cros_ec_typec: Store cable plug type
->
-> :::::: TO: Prashant Malani <pmalani@chromium.org>
-> :::::: CC: Benson Leung <bleung@chromium.org>
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGZ6i%3D0t1W0Qm99b6FO9%2BF-YQtreNnZuQxF2V_09PMm32uRppw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210204175010.GA2988776%40localhost.
