@@ -1,132 +1,149 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHHN6GAAMGQE7HY2QRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBC7O6GAAMGQEOHA275Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83a.google.com (mail-qt1-x83a.google.com [IPv6:2607:f8b0:4864:20::83a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 86EA431001E
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 23:35:09 +0100 (CET)
-Received: by mail-qt1-x83a.google.com with SMTP id g14sf3762904qtu.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 14:35:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612478108; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id E071C310020
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 23:37:00 +0100 (CET)
+Received: by mail-yb1-xb3d.google.com with SMTP id h192sf4712722ybg.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 14:37:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612478220; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XN7yVN5QcDQsDP0GvbyCC6d6F/dWojTJwB+E6+GPvv5PkvRJ5TjrdG7F38CUhlos+s
-         ehJgau9I151cmpFQJWGWzTvijecH5cI2BCbEJhql+7BMBnSNfo76v5ARwNoxgW2tQ0gr
-         dAUMEFovGSJdKRbxh8aLWe5C4A96uK74gFvOe1W2YACSlDF3VWesgC+0nUc4rgjkjH+z
-         ntasW8QgLTVJ85Y35Ri6YkDxyM2+BipJUBYSWBi+7O13POnk/U3VMc4JF6JTWAQOBxr6
-         KTJGL+iaa2ivfhpathE4w3ihYLbOO+Mbt94OQitHi2vZ+bS5R6yvol/dUqb2rUVf1bsI
-         6EYA==
+        b=T7rB61tcUVflr9KAj9ScJtU2DORdqaOSQg4+7xLuuDrI9Vzv9He1xQiD6UUdoqsklT
+         zAbjlo4byRcHGD3XsskPlkrY0sRCST3+VdfljiVBSPtl4OjPFaeg7aQYnD5/SICRPSxw
+         xbsBNpvmFQTvrErEA9nzbt5LmB2Ir6F01fW+kE9RNy45rCSjUqV6GhVTaZQN+WOzcxHA
+         5RH575X+DA/O2Rpc0rTOkjgxD2tPD8LeoZ4Cg/5ltIe51PUiQO80NoO9i0ckIPScNnj0
+         HJLwu0/uaC/wIemmvYJx8hIfH2LGEETSS8+dGaC20IZ0d9v5I03XNL285llTkCIdloZn
+         ggHw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=xOHDAB2RfJUBv8fw92W7s1E9HsT3RYKPpxog4rTds2s=;
-        b=mru3OS3KYlxwKStu4cdUP5QSDfYvGh8q1ACmZESzHNhufkZdkZ1MTSYqIc1KQpi7Wq
-         hGd6PByAOv8OjBOYHvdXpw4mM0h6yP3Z7+0sZmdA/fc1AtVNL3dKEVlpeBBSUh2F6NVP
-         hobcXd554uYdwNfkFds+1T/8yW/dz9oLKSHjvdKyqd1eSDuxKS23Py7aLyreWFD0Lz/y
-         /Du8FcnLik5doMzk8NIMx4bJ+k1coB2+aHZ/PF3m6jllQdB8n4KLWrvgkW6i3b17EHe/
-         KYklWZnZ6p5fSPDSGEkYQBIjGkwnHKoacvgoWD4I1psleaFAtJEFk+VNq4o5HIMtxX4K
-         iuyg==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=npTEMtXMXRKEe5XDfYJ0qXQkwSs8c0fBOLJquMvQXHI=;
+        b=z5f0tEtodRCOx4xQfCBVcq8yjS61wwyjBCVxuw6reZizfgqteeChvuaeGjxqZ6inmN
+         CL8Aw0x4l7AgvE8BXJc95vxz+rCj09n7YUxARzIGNF6099VRG1xZRJle5ii2OYr75vzj
+         j05RsbfE4E76N4A6hO3wRmQqI4GD+vGyvQLLWefbEa31rO5VhA4rKF6srqM2yAYnjiyb
+         ju3zQIW5eBFM6YLd9JKmvvpZ/bl1ZckxqY8tsjByVYzuhzV0Z7ZD9rsCsboxiY9KTsKe
+         vNKICqDsBVPwX5yxcoP/A86idAmKEIu6I4+sNqdaFOSj+d/80Bbxvdn5lYiLbNuVBk02
+         YYFg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ox03cIso;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=AHuu6rRv;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::536 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+        h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xOHDAB2RfJUBv8fw92W7s1E9HsT3RYKPpxog4rTds2s=;
-        b=FxV5YqIgWCau7GJ3bxBAMRqshtI36jr/+UpqF5AM9udsaDpbHx4xSyHpD/qDxk7e6a
-         kyG+ksSx655LCcZchDOX4LMTV2GQuO16uKFOSb/pEhZHDBduM92Pkkfa9o6z3sbKtmYR
-         q1GwL2KMnPaxTN3AKfkB3pivRdtJa3b9+QmwTrwx1CPJVUeN/cpaqd1P+GBqo6u3J9S/
-         h3qkhu4Ve5gcZcSttWEshF1NlBZg3Pj7zbc9Uos5MQTV2rsMjBVIyMgIgvaCf6SPqaHR
-         PQIBkx/nwrIBxm86Vtbvi2/5LUd5/tCQg1aqOovNoa4gqAJ67eaMJo+MwlaSnojv0e2r
-         0ykQ==
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=npTEMtXMXRKEe5XDfYJ0qXQkwSs8c0fBOLJquMvQXHI=;
+        b=Z9pljb/z5T1DJ4VcsotKoRuoUZqTLop0yP09VnsNfPv1Q7p97p7b0EfYjFa59C6cok
+         LXLueBhfzqm0FUxXbBfhscwrtstbtOCDbZrF/eAu1YPNFKjLBcBNNPE75C47dsm/SXKu
+         6yfacuGBF3hFfYnvITrCax6bu27uehDxGW9TwagqYqvtuEj19aG2IpleM9P2Qj+C53TO
+         dpYeWEPx/B1SHoeQAUySi0lwRR8kkKg5q3Nz7ReiQmVio5fVIZimIlsvHDn52iuAOQSF
+         B8R/eu8/0ZlbJ5zMlUNI+M/6Ujh7k7WeUjm+ZwIq3j/IPu9ACMDW5JJBNpyREmT0Kswc
+         SsOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=xOHDAB2RfJUBv8fw92W7s1E9HsT3RYKPpxog4rTds2s=;
-        b=f8KmEyUQWbMhQEAP5u/Xh9q6KOmFUqU4GJE2q8yEQDLHbmnw3mpBcSSN6p7As/Vo9f
-         THIlu1m/OmFmojhHG0cv7IbMwwc5tqOMikip9RJmVSgOLEWLzDq68fuVH8ABusoUj3ZQ
-         HLMoyOWhWbviUVtpaHQEG8X14dffJiWwhWcgvHrmQjuB21IOuWFA8FGZPqdIL8FWHbgs
-         v7ZAqpaDX22UhtPdEOKKWSwHv9Fk+kY8BhzcXF/0m7Cbu7/5xV0QtsRZgEHfEGX/bTaZ
-         njdDSM86S1MJMP7tyVYj548wb1PaYKwDeflywryMRXlICYTWLFKCxydEK0l+OirmIdrt
-         rOxg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5336BS9iVXeqQakOUZVGMVSWpNSWcBEQ+n9WZ8l6xE6EWh4C8zbG
-	XC9UbFjs370ga0naiLKPzbU=
-X-Google-Smtp-Source: ABdhPJwqdMBUodVCiBz7PSgOLzEG1nVxboEgwqGas/1C9q9sIfiu32Ut4OecgAP316yyHMneNI62NQ==
-X-Received: by 2002:ae9:e883:: with SMTP id a125mr1442321qkg.431.1612478108654;
-        Thu, 04 Feb 2021 14:35:08 -0800 (PST)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=npTEMtXMXRKEe5XDfYJ0qXQkwSs8c0fBOLJquMvQXHI=;
+        b=OTgJwBlVCqrO2lgv3PItNtbXzFjuQybQlXsg44sG35JUr6TUS2Rp2o1x+MdBfXv7V3
+         RbK3nb3Lrjik97vhULkzLzMMSs/lbSj6yEt1b9x3dYWOy9usyKd/i/tiPzPHmMD2qoFS
+         8nCrmID0YIzC5KofgAXlzO3vZWzPGpiLSN/gaekzz7aeKMXWUChjHCjSHUuoQD9knCoM
+         eyya+ufehQ0FgSuQIAzaOeVaVfYhOgb7Z5o2W/a3AjZSvLPOuOhO357R71YijTccNbGw
+         WA+cyg7qOvyBgFSd8v92LNDBhAz5s3aJB/qFawaeMLXTUihhJW1XPHkkyjptcy+Tp/l5
+         bgBA==
+X-Gm-Message-State: AOAM530+5srhuwLXcRj7silZX02tr1pDhmKymcZli7n32336ROvppRon
+	EwrLw+E+a/swB415p7Daw8Q=
+X-Google-Smtp-Source: ABdhPJwBtkAtHf5i/He8QaLBbDEOGTngAlX0yRMmW7NAQ+WNYdqpLhdDgObM7XlsdkpYrgX+Ftj9SQ==
+X-Received: by 2002:a25:8385:: with SMTP id t5mr2035122ybk.81.1612478219802;
+        Thu, 04 Feb 2021 14:36:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:12cc:: with SMTP id e12ls3806275qkl.10.gmail; Thu,
- 04 Feb 2021 14:35:08 -0800 (PST)
-X-Received: by 2002:a37:bc8:: with SMTP id 191mr1512148qkl.384.1612478108336;
-        Thu, 04 Feb 2021 14:35:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612478108; cv=none;
+Received: by 2002:a25:b5cb:: with SMTP id d11ls3411093ybg.5.gmail; Thu, 04 Feb
+ 2021 14:36:59 -0800 (PST)
+X-Received: by 2002:a25:d6c2:: with SMTP id n185mr2161496ybg.71.1612478219376;
+        Thu, 04 Feb 2021 14:36:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612478219; cv=none;
         d=google.com; s=arc-20160816;
-        b=XM5jP9fMSg36yqsiGrzP16qgBV8zkq/Ix2y+XyRTwlf6sxfhQwroWmILH75m85SwTA
-         17wAyrxINsW8Rah17FtusyrP6cFrSuEsVyBO6N026mSlgle4stDuJaC+DFxCnJbxWvt9
-         cCfWBMGmmHj0FpUbnGwqzLD+eeGDWHcdnDQJGSVCptC+Uk+k3TXx/jRQmM3F6lEBmWck
-         2ohBFJ592ZpzvfBRqGqBnekpJCiqxtOPvmupK5WJh0pKOm7WXQQIKwBAvxzZH6Fc5z/Y
-         nOOjjNUB/tZRDKs+6XMWJPMZ8IpYgW7Y2JIXNWUqRWosIOe/dKDKCXGVQ7lxoqbbeuY0
-         GLJg==
+        b=sWq+u9xuMq0sZcKRMA1jb//Czf54EpplNOAl0HgNVJxVptc98lLEID54YfvB5A1y2s
+         nqzX3fZZFnnZI7MR76RFQcJBvfQXZJPkLjlJy+D1TUDbyH4sGom5t3YCuS0gIwEDXaQk
+         zZ+84gTFX3QxpwYzYzSckOt9KfIM7DjCzNSrIi8kOxqfMqyyBl5JiyllmnaP6eulmZDu
+         hplsVbBRt+FO6lxpUmeMxlNQioleS/C+sVs04y+svE18xQNsg0Uk7MGULkTpFbd7BxPT
+         Zo5ggUbbAUWwIf7uSKGvNMXF5S60SNpRBGy7kFxkI6LvspMnTpcmiFjfHdD+SkZX59Nj
+         EnZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=JQ/gedPV53ZijiLG5CnAphXThzY2cqA0g4v8pOzY9tk=;
-        b=E+B+k87Df7/JryWnPTlc4h5xJDJYLkxH5MDNkwDY16a5FGPQRzUjMYR3zwNSjlPPQs
-         I/msFiRQQL+wv3ZBR+01+uaziLVZxg/dQjLuekJUs+QedlGmjgiiLtSbZC5g74Pdj3G7
-         8DR+78GwrlYHeaHGAu8KNBVWeoQ7BTteI2nSj1FiyxN+4Iak1snrA+LJpLEaTYrmLBGL
-         GVx5pI36JmyV/hE5eJiXJWWATDbwQGVE61TWbhkR2ZtMjKVsseEL3885AHxIyCFTb16O
-         9T1TrdyU+GlHQIPfPDNIIP4E3RDk+x2/Zm0Ij0knzAZd8LfoPpeVbtimL03fkSanGrfQ
-         jSpw==
+        bh=INhwWxeKaxDYj3jP/dkgnR5P6JjGXqIIyeSFxqgbdbs=;
+        b=MXQ1Vdx+MLN8hsCVQCaElXwNv5ROj95wISlqYGE4g9+rbfq23YkUslq+Q/DClV/qMg
+         SGQ3wpppAEvyG5llmT9w8SfaADBcz1dQ4VS0kN740y8hYYxEXA4F5GuksT63axWVN0DM
+         W+WhPfmq+7MN1RbLA2L9ItcPIiI3kqFlX5wuUXieyPzMSCtRSOTZT8AlpHv1qJtvWsQl
+         1Fn63krb/7Uq3BCfaAj9Cr8cMrHoVaJemmUWD1T7Y12onNgr4cb0Azy+Rc49hMeo9jlI
+         NBL/eSVIMCMxzDG0jUnscYQYWyHFX9i6XYgov3tZRLnJKpXjtfJP9NcLgP2hXO2Jvu5i
+         Vz7g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ox03cIso;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j40si656352qtk.2.2021.02.04.14.35.08
+       dkim=pass header.i=@google.com header.s=20161025 header.b=AHuu6rRv;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::536 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x536.google.com (mail-pg1-x536.google.com. [2607:f8b0:4864:20::536])
+        by gmr-mx.google.com with ESMTPS id d37si366550ybi.4.2021.02.04.14.36.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 04 Feb 2021 14:35:08 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 97E4464F53;
-	Thu,  4 Feb 2021 22:35:06 +0000 (UTC)
-Date: Thu, 4 Feb 2021 15:35:04 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Sedat Dilek <sedat.dilek@gmail.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
-Subject: Re: =?utf-8?B?8J+SpSBQQU5JQ0tFRDogVGVz?= =?utf-8?Q?t?= report for
- kernel 5.11.0-rc6 (mainline.kernel.org-clang)
-Message-ID: <20210204223504.GA428461@localhost>
-References: <5877bb33-ba17-6459-410c-1c51bd193481@redhat.com>
- <CA+icZUWTia0CS5nrdGx7oE+Zj_J3oC4id6U3jpVbUgqVosoFxw@mail.gmail.com>
- <20210203220612.GA1738694@localhost>
- <CA+icZUVjeGq0UzCrJbf9qMYtR56woJ_XtFGiAzhvHnt0zEbD7A@mail.gmail.com>
- <20210204175010.GA2988776@localhost>
- <CA+icZUVV3q3Jr8HEi=LmqYucOWK8b3zOEvfGsk8Mn5FS--8bnQ@mail.gmail.com>
- <CAKwvOdmqF=wXxFgUNyjJnCPtFnMrnbnuxP2APyOLimVbBqK0JA@mail.gmail.com>
- <CANiq72kN+tpC2J4rBrtT=ANhcs6F-RTpjGPFuowW+SdFgJF6-Q@mail.gmail.com>
- <CA+icZUWPN_fjpWyQN1oW+0y0naf_iajD9TzkfyxyMmHTnaS9Nw@mail.gmail.com>
- <CAKwvOdmOKvzHOBAichsZe6HQfJ=q0j+Gp_7QkhBDAKdZE9Y3Kw@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Feb 2021 14:36:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::536 as permitted sender) client-ip=2607:f8b0:4864:20::536;
+Received: by mail-pg1-x536.google.com with SMTP id o21so1733856pgn.12
+        for <clang-built-linux@googlegroups.com>; Thu, 04 Feb 2021 14:36:59 -0800 (PST)
+X-Received: by 2002:a63:1f54:: with SMTP id q20mr1162260pgm.135.1612478218430;
+        Thu, 04 Feb 2021 14:36:58 -0800 (PST)
+Received: from google.com ([2620:15c:2ce:0:4d44:7b6c:ce63:a46c])
+        by smtp.gmail.com with ESMTPSA id n73sm6863261pfd.109.2021.02.04.14.36.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Feb 2021 14:36:57 -0800 (PST)
+Date: Thu, 4 Feb 2021 14:36:53 -0800
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Mark Wielaard <mark@klomp.org>, Masahiro Yamada <masahiroy@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	Jakub Jelinek <jakub@redhat.com>, Caroline Tice <cmtice@google.com>,
+	Nick Clifton <nickc@redhat.com>, Yonghong Song <yhs@fb.com>,
+	Jiri Olsa <jolsa@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Arvind Sankar <nivedita@alum.mit.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH v7 1/2] Kbuild: make DWARF version a choice
+Message-ID: <20210204223653.23dijma7d526btqb@google.com>
+References: <20210130004401.2528717-1-ndesaulniers@google.com>
+ <20210130004401.2528717-2-ndesaulniers@google.com>
+ <20210204103946.GA14802@wildebeest.org>
+ <CAKwvOdm0O8m_+mxy7Z91Lu=Hzf6-DyCdAjMOsCRiMmNis4Pd2A@mail.gmail.com>
+ <20fdd20fe067dba00b349407c4a0128c97c1a707.camel@klomp.org>
+ <CAKwvOdmT4t==akMN7eHWgD_XdpN--PLpUj8vgujGJ4TpREvteQ@mail.gmail.com>
+ <42d2542d4b7f9836121b92d9bf349afa920bd4cd.camel@klomp.org>
+ <CAKwvOdmHM8srtLaEy+L_XGzO9TBbhP3csQNAhUTH_TmeDePkDQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdmOKvzHOBAichsZe6HQfJ=q0j+Gp_7QkhBDAKdZE9Y3Kw@mail.gmail.com>
-X-Original-Sender: nathan@kernel.org
+In-Reply-To: <CAKwvOdmHM8srtLaEy+L_XGzO9TBbhP3csQNAhUTH_TmeDePkDQ@mail.gmail.com>
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=ox03cIso;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=AHuu6rRv;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::536
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,42 +156,201 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 04, 2021 at 02:22:02PM -0800, Nick Desaulniers wrote:
-> Moving our CKI friends to BCC, which I perhaps should have done sooner.
-> 
-> On Thu, Feb 4, 2021 at 1:26 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
-> >
-> > On Thu, Feb 4, 2021 at 10:03 PM Miguel Ojeda
-> > <miguel.ojeda.sandonis@gmail.com> wrote:
-> > >
-> > > On Thu, Feb 4, 2021 at 7:09 PM 'Nick Desaulniers' via Clang Built
-> > > Linux <clang-built-linux@googlegroups.com> wrote:
-> > > >
-> > > > We can move to vger+lore. Google groups was faster to setup, but has
-> > > > many downsides.  I don't have resources to pursue archiving the
-> > > > existing list, and corralling the folks to set up vger and lore, but I
-> > > > can point people in the right direction and would be supportive.
-> > >
-> > > I can submit the request like I did for Rust for Linux if you want.
-> 
-> If Nathan's cool with it, I would appreciate it.  I'm proud that we
-> have folks that would volunteer to do so, and more than happy to owe
-> more beers.  I look forward to buying those! Being cooped up for so
-> long due to the pandemic has given me cabin fever.
-> 
+On 2021-02-04, Nick Desaulniers wrote:
+>On Thu, Feb 4, 2021 at 12:28 PM Mark Wielaard <mark@klomp.org> wrote:
+>>
+>> On Thu, 2021-02-04 at 12:04 -0800, Nick Desaulniers wrote:
+>> > On Thu, Feb 4, 2021 at 11:56 AM Mark Wielaard <mark@klomp.org> wrote:
+>> > > I agree with Jakub. Now that GCC has defaulted to DWARF5 all the
+>> > > tools
+>> > > have adopted to the new default version. And DWARF5 has been out
+>> > > for
+>> >
+>> > "all of the tools" ?
+>>
+>> I believe so yes, we did a mass-rebuild of all of Fedora a few weeks
+>> back with a GCC11 pre-release and did find some tools which weren't
+>> ready, but as far as I know all have been fixed now. I did try to
+>
+>Congrats, I'm sure that was _a lot_ of work.  Our toolchain folks have
+>been pouring a lot of effort over getting our internal code all moved
+>over, and it doesn't look like it's been easy from my perspective.
+>
+>> coordinate with the Suse and Debian packagers too, so all the major
+>> distros should have all the necessary updates once switching to GCC11.
+>
+>That's great for users of the next Fedora release who can and will
+>upgrade, but I wouldn't assume kernel developers can, or will (or are
+>even using those distros).
+>
+>Most recently, there was discussion on the list about upgrading the
+>minimally required version of GCC for building the kernel to GCC 5.1;
+>we still had developers complain about abandoning GCC 4.9.  And
+>Guenter shared with me a list of architectures he tests with where he
+>cannot upgrade the version of GCC in order to keep building them.
+>https://github.com/groeck/linux-build-test/blob/master/bin/stable-build-arch.sh
+>(I hope someone sent bug reports for those)
+>
+>My intent is very much to allow for users of toolchains that have not
+>switched the implicit default (such as all of the supported versions
+>of GCC that have been released ie. up to GCC 10.2, and Clang; so all
+>toolchains the kernel still supports) to enjoy the size saving of
+>DWARF v5, and find what other tooling needs to be updated.
+>
+>> > > more than 4 years already. It isn't unreasonable to assume that people
+>> > > using GCC11 will also be using the rest of the toolchain that has moved
+>> > > on. Which DWARF consumers are you concerned about not being ready for
+>> > > GCC defaulting to DWARF5 once GCC11 is released?
+>> >
+>> > Folks who don't have top of tree pahole or binutils are the two that
+>> > come to mind.
+>>
+>> I believe pahole just saw a 1.20 release. I am sure it will be widely
+>> available once GCC11 is released (which will still be 1 or 2 months)
+>> and people are actually using it. Or do you expect distros/people are
+>> going to upgrade to GCC11 without updating their other toolchain tools?
+>
+>Does no one test linux kernel builds with top of tree GCC built from
+>source?  Or does that require "updating their other toolchain tools?"
+>If I build ToT GCC from source, do I need to do the same for
+>binutils-gdb in order to build the kernel?  Pretty sure I don't.
+>
+>https://bugzilla.redhat.com/show_bug.cgi?id=1922707 and
+>https://bugzilla.redhat.com/show_bug.cgi?id=1922698 look like user
+>reports to me, but hopefully some CI system reported earlier that
+>builds of the Linux kernel with GCC 11 pre release would produce the
+>warnings from those bug report.  Otherwise it looks like evidence that
+>users "are going to upgrade to GCC11 without updating their other
+>toolchain tools."  In the case of pahole, they could not, because
+>fixes were not yet written.  "Just upgrade" doesn't work if there's no
+>fix yet upstream.  (pahole is reported fixed for that specific issue,
+>FWIW).
+>
+>> BTW. GCC11 doesn't need top of tree binutils, it will detect the
+>> binutils capabilities (bugs) and adjust its DWARF output based on it.
+>
+>Yes, I saw https://gcc.gnu.org/git/gitweb.cgi?p=gcc.git;h=6923255e35a3d54f2083ad0f67edebb3f1b86506
+>and https://gcc.gnu.org/git/gitweb.cgi?p=gcc.git;h=1aeb7d7d67d167297ca2f4a97ef20f68e7546b4c.
+>It's nice that GCC can tightly couple to a version of binutils. Clang
+>without its integrated assembler can make no such assumptions about
+>which assembler the user will prefer to use instead at runtime, and
+>without binutils 2.35.1 being widely available as we all would like,
+>leads to issues shipping DWARF v5 by default.
+>
+>> >   I don't have specifics on out of tree consumers, but
+>> > some Aarch64 extensions which had some changes to DWARF for ARMv8.3
+>> > PAC support broke some debuggers.
+>>
+>> It would be really helpful if you could provide some specifics. I did
+>> fix some consumers to handle the PAC operands in CFI last year, but I
+>> don't believe that had anything to do with the default DWARF version,
+>> just with dealing with DW_CFA_AARCH64_negate_ra_state.
+>
+>Yep, that's the one.  I suspect that the same out of tree consumers of
+>DWARF that did not see that coming will similarly be stumped when
+>presented with DWARF v5, but it's hypothetical, so not much of an
+>argument I'll admit.  I just wouldn't bet that an upgrade to DWARF v5
+>will be painless at this point in time, as evidenced by how much blood
+>has been poured into finding what tools out there were broken and
+>needed to be fixed.  I also recognize we can't drag our heels forever
+>over this.  It's not the intent of the patch series to do so.
+>
+>> > I don't doubt a lot of work has gone into fixing many downstream
+>> > projects and then when building everything from ToT that there are no
+>> > issues with DWARF v5.  The issue is getting upgrades into developers
+>> > hands, and what to default to until then.
+>>
+>> I would suggest you simply default to what you already do when the
+>> compiler is given -g. Just like you do already for the implicit default
+>> -std=gnuc*. Once GCC11 is actually released and people upgrade their
+>> toolchain to use it the tools will be ready and in developers hands.
+>
+>Hmmm...thinking about this more over lunch.
+>
+>I think the linker script additions for the new DWARF v5 sections are
+>most important.  There's no need to hold those hostage over what we do
+>with the configs. They are orthogonal, and can go in first.  There's
+>already one section in the linker script already related to v5, and we
+>know that DWARF v5 is coming, so there's no reason not to just add
+>them.  That would resolve
+>https://bugzilla.redhat.com/show_bug.cgi?id=1922707.
+>
+>For configs, today the kernel has an explicit opt in for DWARF v4
+>called CONFIG_DEBUG_INFO_DWARF4.  When it was introduced, I suspect
+>DWARF v2 (or v3) was the default, so it let kernel developers opt in
+>to newer versions (say, for testing) than what was the implicit
+>default version.  With the advent of DWARF v5 and toolchains moving to
+>producing that by default, maybe there is still a place for
+>CONFIG_DEBUG_INFO_DWARF4, but as a way to opt in to older versions.
+>Your installed version of pahole or binutils is too old for DWARF v5?
+>Great, CONFIG_DEBUG_INFO_DWARF4 is your friend until you can update
+>your tools.  CONFIG_DEBUG_INFO_DWARF4 becomes "opt backwards" rather
+>than it's original "opt forwards" (if that makes sense).
+>
+>One small issue I have with that is that it doesn't help users of GCC
+>5 through 10.2 (or clang) opt into DWARF v5 (to test, or for the size
+>savings) similar to the original intent of CONFIG_DEBUG_INFO_DWARF4.
+>That was my intent with this series; to opt into new versions so we
+>can begin testing them and finding kinks in other tools.  It was not
+>intentionally to hold back compilers once they upgrade their default
+>versions, even if I still think explicit is better than implicit.  And
+>it would be nice to have the framework to continue to do so for v6
+>someday.
+>
+>So opting in to v4 explicitly provides a "pressure relief valve" for
+>developers that don't have the latest tools.  Opting into v5
+>explicitly allows for testing of those tools with the latest DWARF
+>version (and size savings that are worthwhile) for folks with older
+>GCC and Clang.
+>
+>What are your thoughts on this?
+>
+>What if I modified the config to have 3 options:
+>1. (default) CONFIG_DEBUG_INFO_DWARF_VERSION_DONT_CARE (I'm open to a
+>better color for the bikeshed). Does not set a -gdwarf-*.  This is the
+>status quo today when you build the kernel.  You allow toolchain
+>developers to decide your fate. If that makes you unhappy, congrats,
+>you have the below options.
+>2. CONFIG_DEBUG_INFO_DWARF4 (the ship has already sailed on the name
+>here, sorry) Explicitly sets -gdwarf-4. Use this if you have a good
+>reason not to upgrade to the recommended -gdwarf-5.  We might
+>disappear this option soon. (already exists in tree today, and doesn't
+>need to be removed; instead repurposed)
+>3. CONFIG_DEBUG_INFO_DWARF5 Explicitly sets -gdwarf-5.  Use this if
+>you would like to opt into a newer version than what's provided by
+>default.  Provides significant size savings over DWARF v4. Avoid if
+>you have broken shit you can't upgrade for whatever reason?
+>
+>Then I think everyone can be happy? Toolchain vendors can to continue
+>pursuing updates of implicit default dwarf version (aggressive, but
+>necessary force adoption, perhaps), BTF/pahole/binutils users can
+>downgrade until they have the necessary updates, and developers with
+>older GCC and clang can opt in new features without having to upgrade
+>the toolchain's implicit default (since that requires significant work
+>for other codebases, but is making progress) and still realize the
+>binary size savings.
 
-Yes, that is fine with me! We tried to submit a request for a
-vger.kernel.org list once but I do not think that we got any response.
-Maybe now that the project is bigger and more relevant, they will be
-more responsive to our request.
+The points raised by Nick are very reasonable.
 
-Migrating off of Google Groups would be nice (although vger has its own
-problems at times).
+A few colleagues and I are involved in upgrading our internal systems to be
+DWARF v5 ready. It required to fix a dozen of things.
 
-Cheers,
-Nathan
+Externally I watch binutils mailing list closely and in recent months DWARF
+fixes are quite regular.  (Mark and H.J. contributed lot of fixes. Big thanks!)
+For example, objdump -S did not display source for gcc-11 compiled object
+files.  It was just fixed a few days ago
+https://sourceware.org/bugzilla/show_bug.cgi?id=27231 , which is included in
+binutils 2.35.2
+(https://sourceware.org/pipermail/binutils/2021-January/115150.html).
+
+As we all know DWARF v5 has huge size savings and we want to make it the
+default, but today is probably a bit early.
+
+
+(Note about Clang and binutils: I added -fbinutils-version= to Clang 12.
+If there are workaround needs we can use that option.)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210204223504.GA428461%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210204223653.23dijma7d526btqb%40google.com.
