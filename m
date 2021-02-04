@@ -1,231 +1,133 @@
-Return-Path: <clang-built-linux+bncBAABB47U6CAAMGQE3F42LZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHHX6CAAMGQEK2NMJDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x640.google.com (mail-ej1-x640.google.com [IPv6:2a00:1450:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E88230FB0E
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 19:18:28 +0100 (CET)
-Received: by mail-ej1-x640.google.com with SMTP id h4sf3278232eja.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 10:18:28 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1612462708; cv=pass;
+Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 57BAF30FB43
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 19:23:26 +0100 (CET)
+Received: by mail-pf1-x437.google.com with SMTP id t22sf3014906pfc.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 10:23:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612463005; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QPxPGozUL9uX+Iy+Y38cK1uz/ka6qGPkHFzhPzz3hOkKK50Gp0vbNmvTijTN5IGAdb
-         qoRWien86ahM4IG7BXH+EFHzNSfG6Vyq3sldQGEoZd72PlmdUpY6Gyb1jTYv539Wjaqu
-         WrXdlq95mjqTONMOBV74vfKaB0+L4z8J5tQaXOguCKExJ2rl2c3feIKi2i/gA2D4obMb
-         t5/gDVbJ/avjZWbB7oV4LX0C2h2lNJbMtZUHmxSTbWO6ateKObgpgjGDljaJHicUqz4/
-         L+kFpyfmFMiN6w+eqGrniIUGN3Bw1YC8yLy9Ii0XHwnHjjk8LC6dy3/iAKuM0rNfcvRQ
-         HF7Q==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=TwHQb97rZDP6uVZPyQl1sv1Q8g6dB/8IE9J2B5cNr9+dVWWOFqUXtKpYbDBYg+uKbF
+         qPZ0NP8Il9DDINStmWTKVQcEHE9Iic1BwZ4fSuUdnN6pIrAusqpCIv9EAMk+Vk8efNpn
+         NQXcYWc7CP7ApAex8Z897HHlo2P+A43cjBV5y5JiT7FvyMHEOdhFKZMNm/1vUr+vsJkE
+         QV66R3J0TuZYXkxlRvLXyW7Civ/N9+5zBB+0Tlnk71skIBfHYyv1YMxKXoDZfwQTqykg
+         x/2EY/KNko/Z0YonXGs8eGv7Dwf61dxS4yxOWKHih//eQIYX61w6X7B73AgdLMO/CBDi
+         fsNw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:content-id
-         :user-agent:content-language:accept-language:in-reply-to:references
-         :message-id:date:thread-index:thread-topic:subject:cc:to:from
-         :ironport-sdr:dkim-signature;
-        bh=jsaTdPlMZNF4a3NlP6QGJhEsadrSZZ0V5/IphtQBEG0=;
-        b=J+Ye6YxxNDWdt1QQaMZJJLsBPIeGF4/WvN7U/nO5b5y32n7L/EVR2ABnIibKSO+BDf
-         aKL66O7i4cSdYRj+uUsqFdNRrjuVOGHGF9eEpjALKYkqcHyBJsI8PkBswdo+ivWpUByr
-         iciOW7G390MYSnJutNm2ueizLFnCia7uu/nGcW+TVqliUjCMH40jn2BO/AQ2A59RdMDW
-         Dv89oJPKncgOO1prnuByN6B8xWfTZLeGH4Wtu3i2DSV0xXF5ddQ3hg/1PUNkbIqXg8Tf
-         vDhKuyPmTjqLC4gyFKo8R0VlkYTopHXk1849uLHllTE41ocsc1T7rv5wGwPsxZrJdbxz
-         8MSA==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@microchip.com header.s=mchp header.b=hk5vtFaE;
-       dkim=pass header.i=@microchiptechnology.onmicrosoft.com header.s=selector2-microchiptechnology-onmicrosoft-com header.b=cWc10Jdm;
-       arc=pass (i=1 spf=pass spfdomain=microchip.com dkim=pass dkdomain=microchip.com dmarc=pass fromdomain=microchip.com);
-       spf=pass (google.com: domain of claudiu.beznea@microchip.com designates 68.232.154.123 as permitted sender) smtp.mailfrom=Claudiu.Beznea@microchip.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=EEt2/gHP2levRSFuvxvZpyrTy9oI87S7Pm9ZEua+jvQ=;
+        b=tJ2YMWgYDdj6fztRtwBj+sdaQAYRnYgVK33i0CjbGYq7C57L4BJiRbqplvfoLUFrKo
+         xyA7lWsfaA6enZdLdixGtyytS7ZDBCPKnSTj+qMi/RtnWB/AbfJ99bnU4X6tNHloxFVg
+         z3vDxPctQWwvelDKUN+QQPnLp9ghJXE5TiLGP/GiPclSnK32Mi3c9Z450EUBXxny4Ceo
+         GGTjCyBrUerp+6UFlx3VyhCWhA1LraHYLseoisUVLzH5YqBdLPVCAPdqWajjf5UFrvCP
+         pRkjXevYcimBs4xks/VGgbDUh+cnxm2GGM3z5wDVqfkPyK0bAQO3gBLUq06NjGKYTfqE
+         xRVA==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bvjpTD7o;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=ironport-sdr:from:to:cc:subject:thread-topic:thread-index:date
-         :message-id:references:in-reply-to:accept-language:content-language
-         :user-agent:content-id:mime-version:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=jsaTdPlMZNF4a3NlP6QGJhEsadrSZZ0V5/IphtQBEG0=;
-        b=NGIFnlgWzY1cTLRpOpRdRpaToZhH7HE2Z4DHXyBvMjZ715whGMpKM5Hg2fubMUaojp
-         Frzg5o2ALSkLCz/t/0KmXzCJv9Qfm21B8ypViL4w40KI8bjF015oymI7i4pjPkjLO/mg
-         KPomUaGhfX27XhIT8nU34qzEGzVpIzeMwRvPq8+sNodAe/vkUjDq4sDXt65c2LOwqNIg
-         4p+2+KpwTMm9CzOoXQLEkKWB2cVFML8ftZEZMGeq4Wmlu1E+VYBtULpLt6D11v2WEJ/E
-         9/4sSxnbG04Rk00800krCrW5KCQunByve4e7L2bB1xCsiabwXrxQHCZZGUZ+Z7HZDw4l
-         tYyg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EEt2/gHP2levRSFuvxvZpyrTy9oI87S7Pm9ZEua+jvQ=;
+        b=sXdCxNqkznvcRMw0e4dq4RTgDQuQQ34gsiXjcum6RMXNRZcT8u16iKZic1gRi5AE9b
+         T9sXieueqSZG0PT3Uf+5eEEbKxx6g+5IlPaGXeBWFcUsTQuljv8gUJ7BjxM9580V0YeI
+         6j/VonSEWHLExjhY49y/BTSZl5Zkg3wMlJakSo5efA/UrgrKnJK6Kqh3wzf1fF6vwir4
+         +LImMH4eSIiXEm+05Apvqgy38A2jlQoiejTlj1zVi/uE+bCL1yt/ExPhj1P0Kc4t3eCw
+         zm67e98vI53QoA5U/1yCPt/ztPTlVVpRCsaJ95HwUVwB9N9FjrlSxWW+qbUNYSIFtiMI
+         fiAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:ironport-sdr:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:user-agent:content-id:mime-version
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jsaTdPlMZNF4a3NlP6QGJhEsadrSZZ0V5/IphtQBEG0=;
-        b=mBf7n4CDiabzZvWPyxBN8N3AWq9x28R9fXczzw4pfP+373NNDuVqd+Exxr7Fi5IvYQ
-         LbST+AjGsir4Qx8/PhVYNBdHwtt60jzdgr0NPd+kJ7PkSbbhSStB87gtTbo6RqSUo+/k
-         EFQG540Xcxh/rejRzP05HC1XHkgvuS8iaXNOiYpt8ePa+7JcUrQn58d8hmu/FQb8b+E6
-         k4DuP7KgF8SsSq4xzKWDuEvYBopiKYT62kJ87O6dTLk5d8xdaSvtP14YxObwnBJHQgqS
-         P8QqOT+AqIcV8R9NQ8c+Ayaua4Xh2q126xppg78dQhmvofza9ATRhFxnjLsc2NLnOC7O
-         1cJw==
-X-Gm-Message-State: AOAM5305ExZJxUnrmWN9t9SAhvdAvSkkdus4ZiQ76+npprDXJ0UOVLSp
-	4enfZtsoo+nAQtfRg02qjRE=
-X-Google-Smtp-Source: ABdhPJzU/X1QBXBY/ESeXymotC4kc/9VsoXLmjrr3q+0nrwRVawitOn2DJ54PnILOk/uYtdqNeF4kw==
-X-Received: by 2002:a17:906:2583:: with SMTP id m3mr333069ejb.499.1612462708141;
-        Thu, 04 Feb 2021 10:18:28 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EEt2/gHP2levRSFuvxvZpyrTy9oI87S7Pm9ZEua+jvQ=;
+        b=UxxTXIn+iCsOpmrfMswS8DmPZ3O/TOANFKzh7b6jpCfFJoCMBd+yc4EOFpLJypoIn8
+         /pcKS9M0z3m1egaQ/H0+CgtYRgau8e2l288fpG+LFHToBTaWj9a/eh4X6Z1gIctkjJ2S
+         hU1HotAkLT21bcdljXqQ6UMKtGa9EC0ei6DPwTTo51h3MpD0taM5wyhM77NmFGIhOaBJ
+         DNcVEyUaylqz3+ft4BcqAHJzU4eKvdt+FI28K/lFa4WPAXaU9lvt4Kca2mEL+owxDjLf
+         jl/tjW9TwVq76tTV18+rvNU5kMmn5hEYrUZNU4jDmAheaT0Dfo7bp2IUW3Fb6sCWgszy
+         3Eqw==
+X-Gm-Message-State: AOAM530mvG4DbO9l+JlWWanda3ouftVnVP14/ZnMzkNX/mQ26spxTkYB
+	6t4d6EMj8YsNX9iio6fFXVg=
+X-Google-Smtp-Source: ABdhPJy0uRWmMR2r4vEN28NltC5dX8UiTca5FW8WOztuHPLqJ1bDz2je5N5ENnQjH0rlD3agjlDmJQ==
+X-Received: by 2002:a17:90a:9310:: with SMTP id p16mr213808pjo.211.1612463005059;
+        Thu, 04 Feb 2021 10:23:25 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:1cc7:: with SMTP id i7ls2307218ejh.9.gmail; Thu, 04
- Feb 2021 10:18:27 -0800 (PST)
-X-Received: by 2002:a17:906:f6c7:: with SMTP id jo7mr408083ejb.178.1612462707439;
-        Thu, 04 Feb 2021 10:18:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612462707; cv=pass;
+Received: by 2002:a63:ce54:: with SMTP id r20ls2665090pgi.2.gmail; Thu, 04 Feb
+ 2021 10:23:24 -0800 (PST)
+X-Received: by 2002:a63:cc05:: with SMTP id x5mr272768pgf.254.1612463004390;
+        Thu, 04 Feb 2021 10:23:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612463004; cv=none;
         d=google.com; s=arc-20160816;
-        b=nPFATpuG/l4Txak/9zcNjOeKWqtp1mQih8002RHyLyLMZt83WfCJjNvMY/L6tdRvJf
-         zHrwx7uQKdlC4+Oi/4HPjbJM6M1+M7OfDz2C2bfbekvjJBX8XjvQAwf5dnKpoA2HL0+Z
-         kEGB8wYpK6Q92hhh7Xu/ivrVe0vu83y0QwtAVwjSw4Yg1e6Rs/D36DWtCPTA4n2yyAu8
-         1u3wKxv6Pus5GbMVvAMt/pT+tha9q2mlXU66lBLn4wapxR93pL3qWntABorHtHo6H/iV
-         pecSv50pCHfQhk2yQls7/okFcyOP4Bi4rJVOGDhhViinNsCksm/8IYkdC8dXN3qxs715
-         +Gpg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:user-agent
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature
-         :ironport-sdr:dkim-signature;
-        bh=mS6rEgMwGeeKjHBoaN7R/2Q2r4gA+qYjzKdedI7YHq4=;
-        b=NDOqPg83KcIQ69QvpOXBFvMcm7lh4vhsjfaVfVs+exehnPutGK6MifYcdoVOhy306A
-         /oH/RU8dp40T27qLJJILCLk8arAXuUVTNIV0jviRkiCGwkH3XGBDKH35uXePBg1FG303
-         mTb870SFc/3Ell7x0MC9GqpQTnlGWeUQKD3mvXkkshEug0ezo/yBE+7r0TNnDbzaFsiW
-         /mUWHIlRC83ZmMnEdhvF2xU1STkHWshP50ZKx1Zqv5EePfcF5nLOWh9QEImlnUCUM+3l
-         /zRnRjUfg0K+1zd/5RNgaO5KgpkdTEwFdOwt+vr6gJ9OSuKtRkW51Z8rhSYTfUx2eogM
-         h/IQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@microchip.com header.s=mchp header.b=hk5vtFaE;
-       dkim=pass header.i=@microchiptechnology.onmicrosoft.com header.s=selector2-microchiptechnology-onmicrosoft-com header.b=cWc10Jdm;
-       arc=pass (i=1 spf=pass spfdomain=microchip.com dkim=pass dkdomain=microchip.com dmarc=pass fromdomain=microchip.com);
-       spf=pass (google.com: domain of claudiu.beznea@microchip.com designates 68.232.154.123 as permitted sender) smtp.mailfrom=Claudiu.Beznea@microchip.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com. [68.232.154.123])
-        by gmr-mx.google.com with ESMTPS id s10si141603edi.4.2021.02.04.10.18.26
+        b=PRtyXBOXCYcK1kUjg/Cm12hZvHkIy3r7ZkrgSH+awM2CNOUBdkUtytL7Rhfe54AIoZ
+         jmoKW3KCMqaqkXi3/zCycBsdtvRjnCtMxUPboUw4SUJntnEfT9E8od50c12l/L2DmssI
+         IsIepBFfck0w88swtEAyFbxARQ+ZH/jU9SkF2fG4qB0GfJbhNxlHqYYQqYgNnMannExI
+         NHMwMGu2VFog2frGDENUAg54EuURgoB59CZDf2GT6r8BfPEdl/9N5kUlfT3uoYrgNE0t
+         NdwpTtupYEUSm19rt7mHxtqBZJepVmq3Dxx5Nnz1esb5LfpF46lrS/w6U6hUzEgFA22u
+         L2Aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=jajB5tF8FeIJnHD6r5t0+o0yif7uNCHw33YMW00aC2Y=;
+        b=Y/6N7viQ35074xK80FLNrbjYoBYAnXTDA9Lk2L7JIv6r9mTTw3xdZoQwdMCPGSXjfr
+         Xz7FxIq6gyoeYvWs1HrgcVyPv+yV+Wtb3S61axZIfTya7zgXwnP4pJJ/5wy9TpwoYf81
+         zI0PjMifrsS+2jzFVHOJa5C0MK2cVVJKk45u9BhUwSn56uxYda/PPKdKkvlRV07WuLGD
+         iFfKmddFqXDGnk64Ex9WupuUfiUPZGVW0rnSLAB61/rCmDo1hU+7tqw0bNSBpG8oMcew
+         K5jYklG/ZUOhbHTJgkTlEqf7P7ANywwNEhYddI4Iey7HVrjszOt1MAcJx93UavtjNZBv
+         dmfA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bvjpTD7o;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x634.google.com (mail-pl1-x634.google.com. [2607:f8b0:4864:20::634])
+        by gmr-mx.google.com with ESMTPS id f24si584099pju.1.2021.02.04.10.23.24
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 04 Feb 2021 10:18:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of claudiu.beznea@microchip.com designates 68.232.154.123 as permitted sender) client-ip=68.232.154.123;
-IronPort-SDR: T8HHXIcYR3aA2Tgf1jid6I4+sAzawDgoJGp4c9PobZS+TZieIoBHEfOwlZq6hv1PyAIXb2LbcB
- fb99yOdOyNV7xZ2BRdSBE+oqTmfyr3uHTUkFq2kiQV89d5D2O/i5oNUdqSi526jBVXl2ECv6GU
- jJXpm0Gr6jxuUF0I30irvfeGVTYINA6OPsOAA19Tg8rx52wTMWlju2bfJnxSbOVYxnTmCVrVHM
- lB+OMXi45ibvy5Hu0LobDmgvUHecGf6Wr37WiwV9+PKfveTtpSg2Y94PDoS9C7UFoI/v7MEYhR
- xJ4=
-X-IronPort-AV: E=Sophos;i="5.81,153,1610434800"; 
-   d="scan'208";a="42955131"
-Received: from smtpout.microchip.com (HELO email.microchip.com) ([198.175.253.82])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Feb 2021 11:18:24 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Thu, 4 Feb 2021 11:18:17 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1979.3
- via Frontend Transport; Thu, 4 Feb 2021 11:18:17 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HAGNQ3I8kVuWKt2qiShGe1E501MEHosotFx5aMdWcN8wNTD7QieOgwyDqs6yQFKh7bpaWfTKzsdF7efWGzVEJbT4UbmZNcLEBpE4xH4EsW+SyZjL//MPo+R9Xt2w4Lj795jQBuhfe2LxKMPtuHMVO6bZcGjA/hVoj23Zdmd5gBtjd+hJ8ZDb/dFt/xgqdxfn2eEUyHQT33cuaKAzJPZgZyXZiaLwPIPR0EYO1c+lVXvEOymMhTM0Y5NLign4nkox5Est/WbSBfu7eWrCw56nKEL2pjzFkVBGRLKFWjG67N59fslQpLbrZ6xE6Ql6mAs3H7JTmU5IkyYo7b1BZ3EFyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mS6rEgMwGeeKjHBoaN7R/2Q2r4gA+qYjzKdedI7YHq4=;
- b=kt2YWJPoiOZiFySaUljLUK9FsZSjk+Ua5DlKkPeDJrQLiNou5U9ddFP/k2JU0CoIjMuSyt2jPT2z8Sf4EaW488PtZSFak8WWrPxZ+U5y4SEMCWKWzNCUNcp4TCrSo3GTKcr1TglfnzSbM8mP+IFEy1H8nWMskIUeWZohm5kg7JvRBktV9bBBJ06l8753p4U3eLd5vNbU+c4vxbnmPe2/+cBMJ0q06zrB8ysWDONvIM7jHPdAHH+jjI3FZbA5vKUzIY6ImetpWO9vy6VewdpnHzvVQ3okjpzPu3IGEjPzktUc1hKyDHPBiPPlRMi8yOsEt+PuHfz32HNXeAwGEZH0XA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-Received: from DM6PR11MB3420.namprd11.prod.outlook.com (2603:10b6:5:69::31) by
- DM5PR11MB1993.namprd11.prod.outlook.com (2603:10b6:3:12::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3825.23; Thu, 4 Feb 2021 18:18:14 +0000
-Received: from DM6PR11MB3420.namprd11.prod.outlook.com
- ([fe80::b96e:6776:6971:80f4]) by DM6PR11MB3420.namprd11.prod.outlook.com
- ([fe80::b96e:6776:6971:80f4%5]) with mapi id 15.20.3805.027; Thu, 4 Feb 2021
- 18:18:14 +0000
-From: "Claudiu.Beznea via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: <arnd@kernel.org>, <linux@armlinux.org.uk>, <Nicolas.Ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <Ludovic.Desroches@microchip.com>,
-	<nathan@kernel.org>, <ndesaulniers@google.com>
-CC: <soc@kernel.org>, <arnd@arndb.de>, <sboyd@kernel.org>,
-	<clang-built-linux@googlegroups.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: at91: use proper asm syntax in pm_suspend
-Thread-Topic: [PATCH] ARM: at91: use proper asm syntax in pm_suspend
-Thread-Index: AQHW+w8qQUwoH91XlEGs7R8gkYKHo6pIThMA
-Date: Thu, 4 Feb 2021 18:18:14 +0000
-Message-ID: <c7e601ab-03c0-7b20-9678-3f9f4615836d@microchip.com>
-References: <20210204160129.2249394-1-arnd@kernel.org>
-In-Reply-To: <20210204160129.2249394-1-arnd@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
-x-originating-ip: [213.233.108.88]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 80926142-59a2-43f4-15d3-08d8c9393d01
-x-ms-traffictypediagnostic: DM5PR11MB1993:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <DM5PR11MB199344A0959F1ADF0D46910687B39@DM5PR11MB1993.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:3276;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ++vkoc2lnFJ7WKplb4iC6fZ/D6YnTPJUN91fALo0A8fvNVq0CMbvOj7KkFqvOE/eu13Eb323ClVzDI1S1cw50wLmQeyAU6lu4IEYjGZGPSXhK0hR/a4VwzgvdBrz4lZiu8I3tjlhLMwXF0Nwb9ncwwOvYogSRQGbt1eS7czf4aU2JzbWFoctaOrWDmg4k4vh8BmjqC1dyD26m7M55iIZx0qYau2XDnItxfm37iCfe7/BHSNQ2cXHtT54HKCna6gqXLU4WrrVyjWKnhXPzEweBdFzNK5VXTgoUSRn62reFvsoe97DKz8zYNns44/mOGky9cNkez8FvPt9oZzQZWDH46Skqoibv2TOUZz6jUHg+pLt75HObH2p0aBXtX6hWnmuuEknwrNl8KpFwD1418toRcSaLMBxh4ZufEvnkkeZAn8VROoh592KuNitsjiquaBfv19UaLl4asVO7+2ObGmX83SmIShU6R5G9joNF+oxh1xVwULu6b1cjRJTS3XJR0Qj2/Ca+wsfsP/HopEKc6wOF/0+AXIQAAEcMOVO186zz72ZY1T+s5xXsdaTeb+p63GrlmokWC52VEa0BCw6foNZiM4MHq4yUAsGINVRerXf/PE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR11MB3420.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(346002)(39860400002)(136003)(396003)(366004)(376002)(31686004)(53546011)(26005)(4326008)(6506007)(186003)(31696002)(71200400001)(86362001)(2906002)(6512007)(8936002)(2616005)(83380400001)(5660300002)(36756003)(54906003)(66476007)(76116006)(66556008)(6486002)(64756008)(110136005)(91956017)(316002)(66446008)(7416002)(478600001)(8676002)(66946007)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata: =?utf-8?B?R1F1R0JqaGlacEh5Z2poV0hKWjFGUGV4Q043bEdRVGNNaS9ndSsxR1FCN0pP?=
- =?utf-8?B?YVpBeWppNjYrTWo2YW9EVWlvQU9GM1luT0hDMlFEWE1uVXVBSUhXMDU1cjdN?=
- =?utf-8?B?Q3d3bTNwdHdnKy9mNndzV0RvaVp4b1Awc2dJZVk3RGJTbEY1NXRzd3B2MjIv?=
- =?utf-8?B?LytDOTZ5VDlrcnR3UEduUVZRQlVkZm42a3JlNXBDSjUxdHFiUkRzYnBDeWFN?=
- =?utf-8?B?bzNoQUswaTlndXNQU1NxeDFDZEJkZ2o3S2VkeExuZXNmQ3pyclg5VUp3VERB?=
- =?utf-8?B?T3A1MWJZaG12Wm1wTEJ2eWoweTlHL1hVM0Z6TEZpd3VKV1JaNjFGQUZ2d2R5?=
- =?utf-8?B?TGlENmNwT3pzUHBUMmtFOVB0bUhLUCtkdDNIcitzL0htVzZKVWNzOEhmYTFj?=
- =?utf-8?B?UnNXZWdGUFpnUWI2VlJoTkhoMjJVcWNaQ0hQaUVOVkVyMHNHOVlaTnlQQVNh?=
- =?utf-8?B?d0JkcGdiK0V0U2VJSENka2ZoQzM0eXNObFM2ODk1dGNxcS8wQXVVT1g5eitC?=
- =?utf-8?B?dnlaei9aNk9TWm54VlBsWlh0TjZoM04yUlo3U1pCSGRGUFJvdFJjdEJ1dkpR?=
- =?utf-8?B?a3Rjbi9oaEZMTWtCRjZYNkdpNnQyT0hVWG1mT29NcVVuTTAyU0s1NGJiRGtM?=
- =?utf-8?B?NkdNcHFGbWJlZERkaUFiMVk2NjMwVzBSUzhCQ1hZUmg5azZsenNCQUgzYTBh?=
- =?utf-8?B?WEd5N2FibXRJRnZTZmNGS0pxOGZhNFBDTS92UUErZGZUQUJmRldhYm55VEQw?=
- =?utf-8?B?OC9OVWZzRWNnZEhwWVM0SlpuZmpVaHdJMzNLTWJBbUxOWVF6MWVoYTJ5dUFG?=
- =?utf-8?B?SDlzTVE3VFJPOEdHWVRQbUovaXpQS2VhWTdud2VGeElqamVPQlRxRXAxOVR5?=
- =?utf-8?B?OG5YUlc2SlExM3FadjlzNUIrZEdoV2VyV0MyQWNSZWovUHVNeXRtYmJpbERq?=
- =?utf-8?B?MmhGZkNGc1VZZFBrblZpZ1VpcDFTSUo5NlNJZXRaYThqeDcremVmdG9VVmR0?=
- =?utf-8?B?NEtyekJENEdoSEJ3eHE1TVgzWTJZNWJJRXhXS2dIbzhIZ2hJYm1sTWgvbCtp?=
- =?utf-8?B?blNuNDZ0aVRNcm44ZWxaTHh2RkNNdlVNRmNRTndHOERkMjNRdkpaZVduT2F3?=
- =?utf-8?B?aEpMYS9CeFNYMzBDQ1JaZEhGVDhOSm90YjRVUnBzZjlDOE52a052R0NyVWd5?=
- =?utf-8?B?RFZ3WDFub0ZuYXBSNzVldGUyZTZONFcrN0VPbTNnWS9NWmFJSFRGWDUrR0pu?=
- =?utf-8?B?MVpsUHJTRVAxTWFmSkprSGpJRnI3NUppUS9oMzBodkUzOW81RFRGcTV1VU83?=
- =?utf-8?B?TklNMlpWNEZVL28xeFFzY25VRnR3UVNNY2hUc1JQN0hOaGhKSVROcWpuUEsv?=
- =?utf-8?B?azJ5S01XYm5rVWJTRWM2V2dZNHhjckdyY2d2Q0svWlBrdEx5UXRSMit5Z3My?=
- =?utf-8?B?RzRxY2Y4YkhDTWZZSUN1T2lweEJNQlBMeVhVZ1RpQk9RNHdRd25uSHVKdmRP?=
- =?utf-8?B?TzI2NzE5ZVIvZDZjODdmM3RSZkFuUGJDcXo3SUpiV29UTWZ6L3RVaHkzWDdH?=
- =?utf-8?B?OGlocjVBZFc3R0ZEYURiZFlTZjFzempLRFNDTkN3dHh4QWFwMGxxTE44Wm5o?=
- =?utf-8?B?MlZ3d2FQRjJjZk4vMU02S2Y0VS94L1FSTlJnVnJpWmZRNHhFeFFSWjJOSFRU?=
- =?utf-8?B?WCtKVXpBUVAwMXFxQU54c0JhaVJJbi95RTZnUktQT1I5SStZY05qa0RHMmlU?=
- =?utf-8?B?VkUraG1abGUrdGJlMnpYM3RjQXpjWk9BWG9MUVd1R2NoUSs1UGt2amRNMzJz?=
- =?utf-8?B?eThONUZZa1ZaejNjamZudz09?=
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <AD43F4833FCC8245888A679CE06E24CF@namprd11.prod.outlook.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Feb 2021 10:23:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634 as permitted sender) client-ip=2607:f8b0:4864:20::634;
+Received: by mail-pl1-x634.google.com with SMTP id u11so2182188plg.13
+        for <clang-built-linux@googlegroups.com>; Thu, 04 Feb 2021 10:23:24 -0800 (PST)
+X-Received: by 2002:a17:902:26a:b029:da:af47:77c7 with SMTP id
+ 97-20020a170902026ab02900daaf4777c7mr641577plc.10.1612463003852; Thu, 04 Feb
+ 2021 10:23:23 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3420.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80926142-59a2-43f4-15d3-08d8c9393d01
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Feb 2021 18:18:14.5675
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: fi2vYrG0ksxu59gxdj07bYhsuceSjkofLfOUUtl3EgVnGRaPCtO9P02yWbJ8YJJ+abTOGMBYJSq/sT1gH4W6pT5yTvATJn4Z1H3tt4sSyxo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR11MB1993
-X-Original-Sender: claudiu.beznea@microchip.com
+References: <6c65bcef-d4e7-25fa-43cf-2c435bb61bb9@collabora.com>
+ <CAMj1kXHMw5hMuV5VapcTeok3WJu1B79=Z3Xho0qda0nCqBFERA@mail.gmail.com>
+ <20210204100601.GT1463@shell.armlinux.org.uk> <CAMj1kXFog3=5zD7+P=cRfRLj1xfD1h1kU58iifASBSXkRe-E6g@mail.gmail.com>
+ <c0037472-75c8-6cf9-6ecf-e671fce9d636@collabora.com> <46373679-a149-8a3d-e914-780e4c6ff8be@collabora.com>
+ <CAMj1kXEshuPTrKvN4LpXQMftHJG+yH8+fgU7uVc6GYn0qd8-xA@mail.gmail.com>
+ <7c685184-8688-9319-075b-66133cb0b0c3@collabora.com> <CAMj1kXH_CCYyd5zNVRL=KWpBXtsKamV7Bfg=O1YWBJL0f_eXLQ@mail.gmail.com>
+ <CAKwvOd=ziPWHmBiPtW3h2VYLZ-CTMp4=aEonmMLM7c=Y0SeG1Q@mail.gmail.com> <20210204181216.GB2989696@localhost>
+In-Reply-To: <20210204181216.GB2989696@localhost>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 4 Feb 2021 10:23:12 -0800
+Message-ID: <CAKwvOd=UYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g@mail.gmail.com>
+Subject: Re: next/master bisection: baseline.login on rk3288-rock2-square
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Guillaume Tucker <guillaume.tucker@collabora.com>, 
+	Russell King - ARM Linux admin <linux@armlinux.org.uk>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, Nicolas Pitre <nico@fluxnic.net>, 
+	"kernelci-results@groups.io" <kernelci-results@groups.io>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@microchip.com header.s=mchp header.b=hk5vtFaE;       dkim=pass
- header.i=@microchiptechnology.onmicrosoft.com header.s=selector2-microchiptechnology-onmicrosoft-com
- header.b=cWc10Jdm;       arc=pass (i=1 spf=pass spfdomain=microchip.com
- dkim=pass dkdomain=microchip.com dmarc=pass fromdomain=microchip.com);
-       spf=pass (google.com: domain of claudiu.beznea@microchip.com designates
- 68.232.154.123 as permitted sender) smtp.mailfrom=Claudiu.Beznea@microchip.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
-X-Original-From: <Claudiu.Beznea@microchip.com>
-Reply-To: <Claudiu.Beznea@microchip.com>
+ header.i=@google.com header.s=20161025 header.b=bvjpTD7o;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::634
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -238,52 +140,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Thu, Feb 4, 2021 at 10:12 AM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> On Thu, Feb 04, 2021 at 10:06:08AM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
+> > On Thu, Feb 4, 2021 at 8:02 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > > On Thu, 4 Feb 2021 at 16:53, Guillaume Tucker
+> > > <guillaume.tucker@collabora.com> wrote:
+> > > >
+> > > > On 04/02/2021 15:42, Ard Biesheuvel wrote:
+> > > > > On Thu, 4 Feb 2021 at 12:32, Guillaume Tucker
+> > > > > <guillaume.tucker@collabora.com> wrote:
+> > > > >>
+> > > > >> Essentially:
+> > > > >>
+> > > > >>   make -j18 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LLVM=1 CC="ccache clang" zImage
+> >
+> > This command should link with BFD (and assemble with GAS; it's only
+> > using clang as the compiler.
+>
+> I think you missed the 'LLVM=1' before CC="ccache clang". That should
+> use all of the LLVM utilities minus the integrated assembler while
+> wrapping clang with ccache.
 
-
-On 04.02.2021 18:01, Arnd Bergmann wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Compiling with the clang integrated assembler warns about
-> a recently added instruction:
-> 
-> <instantiation>:14:13: error: unknown token in expression
->  ldr tmp1, =#0x00020010UL
-> arch/arm/mach-at91/pm_suspend.S:542:2: note: while in macro instantiation
->  at91_plla_enable
-> 
-> Remove the extra '#' character that is not used for the 'ldr'
-> instruction when doing an indirect load of a constant.
-> 
-> Fixes: 4fd36e458392 ("ARM: at91: pm: add plla disable/enable support for sam9x60")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-Tested-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-
-> ---
->  arch/arm/mach-at91/pm_suspend.S | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
-> index 909856c8a8c6..0d467cc40129 100644
-> --- a/arch/arm/mach-at91/pm_suspend.S
-> +++ b/arch/arm/mach-at91/pm_suspend.S
-> @@ -446,7 +446,7 @@ ENDPROC(at91_backup_mode)
->         str     tmp1, [pmc, #AT91_PMC_PLL_UPDT]
-> 
->         /* step 2. */
-> -       ldr     tmp1, =#AT91_PMC_PLL_ACR_DEFAULT_PLLA
-> +       ldr     tmp1, =AT91_PMC_PLL_ACR_DEFAULT_PLLA
->         str     tmp1, [pmc, #AT91_PMC_PLL_ACR]
-> 
->         /* step 3. */
-> --
-> 2.29.2
-> 
+You're right, I missed `LLVM=1`. Adding `LD=ld.bfd` I think should
+permit fallback to BFD.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c7e601ab-03c0-7b20-9678-3f9f4615836d%40microchip.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DUYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g%40mail.gmail.com.
