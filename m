@@ -1,144 +1,139 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBHWN6GAAMGQEBISXK7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5KPPH4YUKRBHOP6GAAMGQE235SNEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A7B2930FF43
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 22:26:55 +0100 (CET)
-Received: by mail-io1-xd3f.google.com with SMTP id k26sf4148334ios.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 13:26:55 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612474014; cv=pass;
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0EAF830FF4D
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 22:31:10 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id e15sf3628598wrm.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 13:31:10 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612474269; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a0hXIaWDx6015hgxdsWcIxlrztB9j318Nwa79gFW6w24yYhG0ZXjAXy7EUBVi/wqC2
-         gWXeC9iXih041UM2TDlNvy2WXjzILlz+b3fYID7ww3IhXPKzPrQVecHLhy0Hp6wMs0/0
-         4o4BLsp4URHEtXpXr3J9iILZQ6ioI0cvYINTtPqCGeblAmNoEWsFzbJbLnQKcsnoMnog
-         B4szUWkgqGgjXo8dEa3ANrZvmUSGlMUkKiDbnge+et+FomBkTpSwCEz0D4q3+ua8jag/
-         w6vRnCWzLSAJyfLnUsKbUD5xm04WdmYji+8JTDaaTWPzLQp39GWnVc3Hz/B/HKcSo3+w
-         XJQA==
+        b=AQUSdG/UQB/+dGoYU5iJWLO26dHKu8G7yK02dR2qux04L0UCMJT1+cwS2TSSHz2mqs
+         qxhLvTTxuvkaNCxqQCAOyga/r0GiIVuP1kh5Bl9oU34fB88Q6tidqh3Cn2cEitDAN9MX
+         RFDboNtIIrxNw0HL6m8pNGe25+nMZppCu8d6uUHu/YfEZwkRgU2Cfb4OKoAw51N/nt5M
+         p+MYR66uyUcIWuzjF39mjeav+BChoRs5jiBOrGA2VDeN0UZK2HssvOtpRGBaH5bKd+fo
+         33z/l8PH8H8aU5YmrjogHVj1FCT7wOY2WzU1pWPzrWKC12vbN2IJyGExnEu9WD7YVYZ4
+         rFzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=FhRVuPfhTg+rTjd/5sI7RaUPagPeX5SYGECrO1Q/vE0=;
-        b=Wl5a+KSFpAMvjxpNooUo8tgs3iKsHI986IgZJr0tY83ty6rb9mPM8Ya75BH+YRq76B
-         5sPL3oe2e8yYuTd2HqBPsQhoJzPKHkqoCQNxr7wRoDIljb2PDzLayY3gvjWHnRUgLDTV
-         D/zvY1Aflqf0YVxyiq+9JACkw18fXvvbMYPrmLVVapd0mY8PegNcfeDY9pBdWNGNynvE
-         CW1fItB0utF4QOmsCQhnURn+UzGw8Cb61KNF5IvCwtTDCOXtOSHg0TU+xnwFvhjIqpkm
-         QzZZQZCipHmzZLOLR8gYjVecumH17XmDXT6jakEMrWgU+UZ0Rvcx+oqabweWsv7fioq1
-         9Vcw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=QrNec+hOWijAUTpZRyT09gUlDMOHj4foQ6TgNO8Ci4I=;
+        b=jBtkg+hixPWQBI6koCPdeIt5Xoh3j7F2ElUT4sfyNGT+yiRtjpDtfhHECirWjQsW0S
+         Qdd+MJwWwZmTDheMKIqjZ7By/L5NKnsJBOGksrKLpGnqUXx5XajAnPfxMhKxEVzVpEoQ
+         m2TQ29MnDKd9ZsGZITi1CDS6qMA6tLCALjfwk8NBslJ2DblM4Xd9QqWbcqaYCbMVHcR5
+         hh03cHP3YvtHfTZsVS5ZCkySxOHgtpKsdEQNIcXQfToeMiyfApV6Fr3esxdsRP4ZpAg6
+         BZp4t8tlRk+xS+zFDTK7nywUihpMl32LWlwZyIICYmiuxBSa8BWQhvwfl73sLkSCoDfb
+         tCYA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qbQmCRVQ;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::135 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FhRVuPfhTg+rTjd/5sI7RaUPagPeX5SYGECrO1Q/vE0=;
-        b=QFkgKppOT2dsdNhetpAQThGSMc6gMXvpdL9fjH22oB/ygLpI5nZ4oF7LFkbwjR/Q//
-         0aUMqEdQ8BlgNf6WbARWtn64+IqWooSlu3rXp10N6UCC439uMa+zC+iP+gShicKylfsF
-         OUip2YHBEHjx8bTp1ifjDUY3Fp96tqqaBFEob7moJtocdtPGHtoSjnjVowpPhOuyIOKt
-         6EA0cVTT8jSNQ6pLoUTkSgFlG4FYiGusSGSkjF5CLN2TAfAMdhWkN++mA9S1oGBjFUwZ
-         jokOXomrBLi5J5pJxlYkrQ8SCTxy3FwUJ5XVahhFCvqcz0f/BFiaMM8WfA/I/cYFUffP
-         krVA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=FhRVuPfhTg+rTjd/5sI7RaUPagPeX5SYGECrO1Q/vE0=;
-        b=Jqa6nYjQSLGq26SlaPj9xydhTBe561qKV1UB5+RLMLXz+8WUq+OpRYht/Mxi1Iy0R+
-         jb9NiE2EZYIbBkNsnQ7a30PE1Ycf9qepNDE1CFWOGERufcbQd58PPiusJxrd6hkBt+wn
-         2pB4AG6ZP8jL/EL0ZP9ukI2B3vCUGvouVqUkYQfWZ8vFNByKSTI7eW9QapQu7RGLJk3l
-         N9BaX+URugosHHmT/PttVAzti3alq1vhZ/M3BNGF8KjCG08IeL2OTI4rmaTrW1Gr/X/X
-         d6ntx2KpFrl2YMkSBDM9SIy0RDNH14QS1O6ujcK78Y747TNCxmb3o3eoMU23FHeH2urD
-         KOxg==
+        bh=QrNec+hOWijAUTpZRyT09gUlDMOHj4foQ6TgNO8Ci4I=;
+        b=MGhGJG16FFtkv8uR5B+zb2b8RvgnD8nfrfbrJCFymn64+DbfpeMlXc7A9TweiYf8Tc
+         Dy+roSSwVAOoofjCm9gjS6zeQrGdWaKRdcogno+Kl2Oa9MsosJdBGAaLMaA7fDhuAQpv
+         kIzXXSPKvotLcsyCB79hH2gkZU/uzbo2jjPDHNR/pmYoGVJ7nY0LH2U6Qmq4AOTyoAOT
+         HlzwHfZQk85W5PiJmENMbtUbVUH+tKHoe+HbUMyoZnZT091gFKWU8MK5xiV+GQY3iS84
+         bC1AvsXv7jXqFrGePrxbtYy2M0liZtZMuIMQRhMfHDvLR0ujiy1ASQ4wd3LUqP4LIrO2
+         OZLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=FhRVuPfhTg+rTjd/5sI7RaUPagPeX5SYGECrO1Q/vE0=;
-        b=YbQSlXnoUmuDVc9IME84L5hDRf1lOeTQPdsLtoV/AT3HGLf5+DhDTHORKENQWKfTdb
-         JOzpqCMsosb/+JXCyad3GG8agcuEyNqyvO+6hXxK2mDK5qzqQ2gzuoY3bxB8xQylbwQm
-         Y7cXZovGX2R5BbiDny3F5UdsX9GduaoYTuGlybuPmSsFbKqX9Rj/CgmFu12um009FMDr
-         9ECXLf6PjUutD2pXlpk6LJ0wa2Ych20HIl+mrOVn5og5JlxmZjoRaFsq7sxrBtRp9H5i
-         rmSvd2kO1EkMBWLNkmTxlSwRn7JdJUdt8Qf4I3hur/kWpAaJCAeLoHfvfvh4xvQfJAz/
-         tkgA==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=QrNec+hOWijAUTpZRyT09gUlDMOHj4foQ6TgNO8Ci4I=;
+        b=PS9yVIOuv1ypWsEOPmNfd9b1ghahRjLT46p1D3O72E4Nb1EXax67NSRCWQcj7OWrv4
+         9dpEl7ce0iCmBHwKMELfTlxYp7OX4Ze3K7MrWfZOIqFbz2cweQLv5XU/AmpWcLVLEUer
+         pZoGgarsI/OTRBLYYb74L0RHjWZJTvewDm+gcLXtceAVo5vmElGradYjlxYH64EJh5aj
+         uUCV0Q/d1e8nV27ARke37XHYg/GDjvnLQFoXWtcAwBTtPeNRm4+1UILm02Bh0o0y11SG
+         lrfOhE4b7ZNTKIQ5YiK5Jx3I+vC+MC1SQEqurxurbK5KcKHYc9aKRxO615K+YXXHahIP
+         YjfQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533nzHz75zGSI9dQr2r7z3/oszJsH+7kb8QiGNHlUTS4ZymdjLW1
-	smKszQ54hla05MyD0UNRNho=
-X-Google-Smtp-Source: ABdhPJxgrlp97JWQbMpK0DQGpvoWcOnDX1QMVJ4PSvfwBHYUd3unFFCPCVxhfvT+vZRPrG/mGBLZkw==
-X-Received: by 2002:a02:c84a:: with SMTP id r10mr1486976jao.35.1612474014573;
-        Thu, 04 Feb 2021 13:26:54 -0800 (PST)
+X-Gm-Message-State: AOAM533KmkHlxooCYYqd/IPxlv1HYVV/Wzhmk8cdHlN8oCdcVjXI8qwq
+	yEkh78A34MO2nwluOZZ89ms=
+X-Google-Smtp-Source: ABdhPJyBK0q8YTRv6ZERq/sWJ+dCwjH5uoT/dJeokdT4YchHBzev6wTmPUERkfetK5Rj+tD1Aw6y0Q==
+X-Received: by 2002:a5d:6b0a:: with SMTP id v10mr1379097wrw.183.1612474269838;
+        Thu, 04 Feb 2021 13:31:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:ca4c:: with SMTP id i12ls918418jal.6.gmail; Thu, 04 Feb
- 2021 13:26:54 -0800 (PST)
-X-Received: by 2002:a05:6638:3795:: with SMTP id w21mr1495170jal.65.1612474014138;
-        Thu, 04 Feb 2021 13:26:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612474014; cv=none;
+Received: by 2002:a1c:4e14:: with SMTP id g20ls1280377wmh.2.canary-gmail; Thu,
+ 04 Feb 2021 13:31:09 -0800 (PST)
+X-Received: by 2002:a1c:8002:: with SMTP id b2mr961058wmd.94.1612474268932;
+        Thu, 04 Feb 2021 13:31:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612474268; cv=none;
         d=google.com; s=arc-20160816;
-        b=JtbChX083BPCQNgOdG5uChMZ+EWP8HL+dSLGMvQj88k0Y4yzTYPqchMFF2BnPE4hWG
-         w8gTKK3xhhd1bxwPFAyGKZI0A66TEwf4cc17dl6sSykN0yzSfU1/hCCNDtzXs3/9hmIm
-         koQCjVwCK2N/IOi/Qi6uGmwvKJUDSY71mzclZY7LfODrZPGDYNxjlM54ZJDxf0PRFYTp
-         Jwd3jHWRy3EaM9EPS4YsQ38Kb/17uM4ge/u0lwqJo7Ktot3IeWZ0l3KEgQyivf/OJQq/
-         N1kE3a0ovvnx44B5VHo6puUAD46sddhwH8FUV8Mv7pBqfbd0KM6L4K39cGCkZTp86Swy
-         GEew==
+        b=0PwRBIjegsnX197Zaxrgwde14FIkf301nBilAyHQy5PEhZfnzwJimQovS2CQPBozrl
+         pva8er6FllY5uWJOyxke8pGcR+G6yPFxFRsI9jPUyYPrwwBkYQVpRNxJrH5CZI6QtyMt
+         QI6J4dTv2V7vPnWTT4slsFHMObshURfi7jg8WfIBM0zyWjBqIX5mm/+jIDjsRzpGXq83
+         cc+U5SjEp8m6kn1QBQ15zZuxWW/zOLw6FU2+pA5TyiSUQ0giEHXDdUou1NXupx4g4y+L
+         LWONq5ssTk/OPn/SvM+OXsbKfkDhj92erKYInXoeZJRGRmxpUWMiOeKE7xtFj7QGCZ1X
+         bLKA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=QeaYy+WArPqiJSBWA655fKpOiYY64b6xuzEFq+Qmn7k=;
-        b=XD0gk+GIBWE1nbQl8eu2q/Evdw8ML1ykAKfuHdGP13XQbEg0vwk21TXwlvlaZaN5OQ
-         1M5cLZU9WdSHSgT+d33QzUqRIKAz5Na1KGIv2yIlvretfFMmEZbr5p43zAUneMg1SuDG
-         pQT3c0lKMzCQhL3BKAR6/FRuNC+th/M/Gy3QIUfYJ6zzoTB+s15up96xUkImEBJhbA6y
-         Z0pr5jY6qHgCFmZriVgzyuXKFpbTr+cGbjnsH2TRA4HvR0BXkBDOxVltdBrtiDMqFRzc
-         Xg51IHkV3wuo9mAH8Nh9oghshpj9oBoVSnV35tNz6ZuKBdya+Wo2yCUPN2OgypAQqpI1
-         UKCw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=fUKw/JFvJR7tmwVJ9DLO/A9fV5Ash3njY/KBsaefsAE=;
+        b=lUJy9D66Lsjbt7Iz8GL6XH5mjfxqfz0mtEA2OW8a+j5Lg1rnLivQOLOSSWyAo0OYtb
+         JGBxEx97+kd8wrNYLREy0Qqu7quGN4AtfnHuaLuyp9zpJXl/Jqk3jSjWiGyc71APe3Jw
+         yxaYuqsgc5z4u3eonVTwuv2fyG/Nk1GItATGuH4MlNLU+Rj34o1tIg37QZVj12Oa6JOw
+         YLuvNcZum8PcdR/CQw/h72MsvVaCIg8PKd5gdnY5G7Ll7JDc5y3UmjIxh+S1PLlDYkuN
+         QFgSv1zxevgCP8mFvADil4m/aDOrXDdVgqqwspXpxR2V3Oz9P9ZkN8amtgG82CDfUuYh
+         FcqA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qbQmCRVQ;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::135 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x135.google.com (mail-il1-x135.google.com. [2607:f8b0:4864:20::135])
-        by gmr-mx.google.com with ESMTPS id o7si436132ilt.4.2021.02.04.13.26.54
+       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [46.235.227.227])
+        by gmr-mx.google.com with ESMTPS id s3si305465wrt.5.2021.02.04.13.31.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Feb 2021 13:26:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::135 as permitted sender) client-ip=2607:f8b0:4864:20::135;
-Received: by mail-il1-x135.google.com with SMTP id z18so3974823ile.9
-        for <clang-built-linux@googlegroups.com>; Thu, 04 Feb 2021 13:26:54 -0800 (PST)
-X-Received: by 2002:a92:444e:: with SMTP id a14mr988950ilm.215.1612474013801;
- Thu, 04 Feb 2021 13:26:53 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 04 Feb 2021 13:31:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) client-ip=46.235.227.227;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(Authenticated sender: gtucker)
+	with ESMTPSA id 43D251F4648D
+Subject: Re: next/master bisection: baseline.login on rk3288-rock2-square
+To: Nick Desaulniers <ndesaulniers@google.com>,
+ Nathan Chancellor <nathan@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Russell King - ARM Linux admin <linux@armlinux.org.uk>
+Cc: "kernelci-results@groups.io" <kernelci-results@groups.io>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Nicolas Pitre <nico@fluxnic.net>, Linus Walleij <linus.walleij@linaro.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
+References: <6c65bcef-d4e7-25fa-43cf-2c435bb61bb9@collabora.com>
+ <CAMj1kXHMw5hMuV5VapcTeok3WJu1B79=Z3Xho0qda0nCqBFERA@mail.gmail.com>
+ <20210204100601.GT1463@shell.armlinux.org.uk>
+ <CAMj1kXFog3=5zD7+P=cRfRLj1xfD1h1kU58iifASBSXkRe-E6g@mail.gmail.com>
+ <c0037472-75c8-6cf9-6ecf-e671fce9d636@collabora.com>
+ <46373679-a149-8a3d-e914-780e4c6ff8be@collabora.com>
+ <CAMj1kXEshuPTrKvN4LpXQMftHJG+yH8+fgU7uVc6GYn0qd8-xA@mail.gmail.com>
+ <7c685184-8688-9319-075b-66133cb0b0c3@collabora.com>
+ <CAMj1kXH_CCYyd5zNVRL=KWpBXtsKamV7Bfg=O1YWBJL0f_eXLQ@mail.gmail.com>
+ <CAKwvOd=ziPWHmBiPtW3h2VYLZ-CTMp4=aEonmMLM7c=Y0SeG1Q@mail.gmail.com>
+ <20210204181216.GB2989696@localhost>
+ <CAKwvOd=UYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g@mail.gmail.com>
+From: Guillaume Tucker <guillaume.tucker@collabora.com>
+Message-ID: <253b2987-c8e9-fcb6-c1b9-81e765c0cc2a@collabora.com>
+Date: Thu, 4 Feb 2021 21:31:06 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 MIME-Version: 1.0
-References: <cki.C90653A6EF.V9S14CF2MY@redhat.com> <20210203180333.GA765672@localhost>
- <5877bb33-ba17-6459-410c-1c51bd193481@redhat.com> <CA+icZUWTia0CS5nrdGx7oE+Zj_J3oC4id6U3jpVbUgqVosoFxw@mail.gmail.com>
- <20210203220612.GA1738694@localhost> <CA+icZUVjeGq0UzCrJbf9qMYtR56woJ_XtFGiAzhvHnt0zEbD7A@mail.gmail.com>
- <20210204175010.GA2988776@localhost> <CA+icZUVV3q3Jr8HEi=LmqYucOWK8b3zOEvfGsk8Mn5FS--8bnQ@mail.gmail.com>
- <CAKwvOdmqF=wXxFgUNyjJnCPtFnMrnbnuxP2APyOLimVbBqK0JA@mail.gmail.com> <CANiq72kN+tpC2J4rBrtT=ANhcs6F-RTpjGPFuowW+SdFgJF6-Q@mail.gmail.com>
-In-Reply-To: <CANiq72kN+tpC2J4rBrtT=ANhcs6F-RTpjGPFuowW+SdFgJF6-Q@mail.gmail.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Thu, 4 Feb 2021 22:26:42 +0100
-Message-ID: <CA+icZUWPN_fjpWyQN1oW+0y0naf_iajD9TzkfyxyMmHTnaS9Nw@mail.gmail.com>
-Subject: =?UTF-8?B?UmU6IPCfkqUgUEFOSUNLRUQ6IFRlc3QgcmVwb3J0IGZvciBrZXJuZWwgNS4xMS4wLXJjNg==?=
-	=?UTF-8?B?IChtYWlubGluZS5rZXJuZWwub3JnLWNsYW5nKQ==?=
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Rachel Sibley <rasibley@redhat.com>, CKI Project <cki-project@redhat.com>, 
-	Milos Malik <mmalik@redhat.com>, Yi Zhang <yi.zhang@redhat.com>, Filip Suba <fsuba@redhat.com>, 
-	Memory Management <mm-qe@redhat.com>, Ondrej Mosnacek <omosnace@redhat.com>, skt-results-master@redhat.com, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Jan Stancek <jstancek@redhat.com>
+In-Reply-To: <CAKwvOd=UYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=qbQmCRVQ;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::135
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Language: en-US
+X-Original-Sender: guillaume.tucker@collabora.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of guillaume.tucker@collabora.com designates
+ 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,27 +146,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 4, 2021 at 10:03 PM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
->
-> On Thu, Feb 4, 2021 at 7:09 PM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
-> >
-> > We can move to vger+lore. Google groups was faster to setup, but has
-> > many downsides.  I don't have resources to pursue archiving the
-> > existing list, and corralling the folks to set up vger and lore, but I
-> > can point people in the right direction and would be supportive.
->
-> I can submit the request like I did for Rust for Linux if you want.
->
+On 04/02/2021 18:23, Nick Desaulniers wrote:
+> On Thu, Feb 4, 2021 at 10:12 AM Nathan Chancellor <nathan@kernel.org> wrote:
+>>
+>> On Thu, Feb 04, 2021 at 10:06:08AM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
+>>> On Thu, Feb 4, 2021 at 8:02 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+>>>>
+>>>> On Thu, 4 Feb 2021 at 16:53, Guillaume Tucker
+>>>> <guillaume.tucker@collabora.com> wrote:
+>>>>>
+>>>>> On 04/02/2021 15:42, Ard Biesheuvel wrote:
+>>>>>> On Thu, 4 Feb 2021 at 12:32, Guillaume Tucker
+>>>>>> <guillaume.tucker@collabora.com> wrote:
+>>>>>>>
+>>>>>>> Essentially:
+>>>>>>>
+>>>>>>>   make -j18 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LLVM=1 CC="ccache clang" zImage
+>>>
+>>> This command should link with BFD (and assemble with GAS; it's only
+>>> using clang as the compiler.
+>>
+>> I think you missed the 'LLVM=1' before CC="ccache clang". That should
+>> use all of the LLVM utilities minus the integrated assembler while
+>> wrapping clang with ccache.
+> 
+> You're right, I missed `LLVM=1`. Adding `LD=ld.bfd` I think should
+> permit fallback to BFD.
 
-+1
+That was close, except we're cross-compiling with GCC for arm.
+So I've now built a plain next-20210203 (without Ard's fix) using
+this command line:
 
-I am fine with that move to vger + lore.
+    make LD=arm-linux-gnueabihf-ld.bfd -j18 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LLVM=1 CC="ccache clang" zImage
 
-- Sedat -
+I'm using a modified Docker image gtucker/kernelci-build-clang-11
+with the very latest LLVM 11 and gcc-8-arm-linux-gnueabihf
+packages added to be able to use the GNU linker.  BTW I guess we
+should enable this kind of hybrid build setup on kernelci.org as
+well.
+
+Full build log + kernel binaries can be found here:
+
+    https://storage.staging.kernelci.org/gtucker/next-20210203-ard-fix/v5.10-rc4-24722-g58b6c0e507b7-gtucker_single-staging-41/arm/multi_v7_defconfig/clang-11/
+
+And this booted fine, which confirms it's really down to how
+ld.lld puts together the kernel image.  Does it actually solve
+the debate whether this is an issue to fix in the assembly code
+or at link time?
+
+Full test job details for the record:
+
+    https://lava.collabora.co.uk/scheduler/job/3176004
+
+Hope that helps,
+Guillaume
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWPN_fjpWyQN1oW%2B0y0naf_iajD9TzkfyxyMmHTnaS9Nw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/253b2987-c8e9-fcb6-c1b9-81e765c0cc2a%40collabora.com.
