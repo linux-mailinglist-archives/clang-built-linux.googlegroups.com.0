@@ -1,147 +1,142 @@
-Return-Path: <clang-built-linux+bncBAABBXEA6GAAMGQEDMPZWZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBEMQ6GAAMGQE3WWPDLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 118BE30FBBB
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 19:43:41 +0100 (CET)
-Received: by mail-wr1-x438.google.com with SMTP id d7sf3348667wri.23
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 10:43:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612464220; cv=pass;
+Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 313DA30FC57
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Feb 2021 20:16:35 +0100 (CET)
+Received: by mail-ot1-x339.google.com with SMTP id t1sf2214137otp.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Feb 2021 11:16:35 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612466194; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kvv1jLCKluEiShkiLfZMMwygQK1ouFsCKC2D6/YhxfH1npo7ROHpnYaWOk7CvTdD2u
-         TPm//xwZI0k5QpA11QFWtTfZ3yL9V86ZDdH394yPXOYUWeuoXIvDmXVA0gknGCjkVaQq
-         ICpLCk3bz7TGZ9pnofI5sdOt4S2gT3Zmxff8R7PHQUdmP1uMssQWkbYy+VSpZgi6M4uf
-         YXPEWsMhFNrk68168YcRNTeFn+tLHCv354Bru3P9j9RZA5x83onEF22vYnQRhDFmjZGM
-         yiO+FxqRGuMPxjdf50dkQ6eQaSdnBY5gVwNtGmNqkx6M/X2skLMPA/MVqmsd0mvBYSHs
-         GRPQ==
+        b=iIwrg74bdMchVOEGxQ0pDwe4ydRRxCfCJKoGgkUfwNw6XKDHeOsLRyd0xfTpo14pYe
+         9gbtCkPVjDLsyxIL/9Xwi68ya7rNY1jLxwq7Hj9ONrEwFzZtqS6xa+kF1JZZMh5TyYtE
+         4Q0TLI5swxuovoaDbaBF2RKiyBtgw1O3PV7UpxX01Iw9+OXQaHrlnpmdekyiadMj6XqL
+         NewNbocpGeAmGiRd2Y2ZuzNMx002Ff+HWEDFHkg3q465NZtTAu21bsUlfUBV+IrHdKQu
+         4t/KGCgZSoYjluK/x4MhUuN+1JZz4XNU2d2cFXKFR0/J8S7ahIIrEiKXiTORgiFRSxUt
+         iNwg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-language
-         :in-reply-to:mime-version:user-agent:date:message-id:organization
-         :from:references:cc:to:subject:ironport-sdr:dkim-signature;
-        bh=1ExcGScmJbuFIm3imd3SUaxqGm9MeXIthAHdnxTiHhU=;
-        b=l4aepIUYfGzc1FLaGfAu6GI2Aoyc0bduDJ08nCbw9AF0Vgkbx5Rrm4zCsWn6HjVG//
-         wzbgeERqYSLeIWObqnOK2P7luwYJFhO4Ro+0iRXCE87vMdpre3NXQGzYZq8Dqd0UdsS0
-         QJLzHKN33URknMjrJA0+AhP8q7AT6Z8K0zkPt6WAlG2wAY79D3V2e/CLxpg6dfWgl3sF
-         +LsXx916YwdFeV0rmjau8lkkacTe2t3agozuEIVxn7yjEdS6oLV0MRuBk5wPnk02pD9y
-         ju12bXfI8TX7dbDzrx+Z4Lsi6Dm4uXPpTKOC57irhCZ22SwkE1yBreMBz4JSfgYJdDFy
-         ovkA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=Fo/Ep00PZfs29Hz42Ke5VMQ0Cy8I53/LDRDQvkbdkGQ=;
+        b=seHm88lSr2z8J++/UiYUhWhgGupgAkb7dIBuz490jnGFSuj7IDlFzSVY1IIVdWCyN0
+         Y7w5mAW/ahx7vGUsgPmrYUBaxt7R7/AdCplaRiVq0RpVxbLuCw6Nb2D1eLUZOm+Z0wCx
+         bzmZvewxciFh0ItA/ub18+2xF1Q9CYp1nObmpj39m2//oJ9tnds32E5I/vJaQn96VNPv
+         KC2iQipotHIJJCXBEKxsEeDN3QJhQrgN0Yo/REnK9odr88GQVPjaWnl7gVJo3ZDPruvZ
+         GW7VFTGV1FeJWjApIJ5frDhvExcY3Gh32wlrMNCkYdMWjQF46I2rBhsauBTEIwAjTR5w
+         pFEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@microchip.com header.s=mchp header.b=ETj4cJWG;
-       spf=pass (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123 as permitted sender) smtp.mailfrom=Nicolas.Ferre@microchip.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KBQdU9Of;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=ironport-sdr:subject:to:cc:references:from:organization:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1ExcGScmJbuFIm3imd3SUaxqGm9MeXIthAHdnxTiHhU=;
-        b=QQ3UHfu2Of/W1AQB9DN7pkjAwtmmxYNlhVayGsUyUSgOIFCZgGrd9/mVttf/djVfGc
-         83bpvSPX7VGXzic3MgPgk4qbQtxVttv4n1MOmAfvXIDTWB/ulRnuRn1yTFoYwOJgKC4W
-         8RTJ7Ri7/IK5rmzv5Q0ovlACV8yB+tlh1k18aMy9i62AQyC5n9zmJL6+dj5ELzeHo+KV
-         xBou3BkOGGzrdm8WS8xEFHbQhPFUZ6D+R0o+Xpidg9JjgfeQfuMiEe5NlfjlNzX+nhsS
-         BubvHlzVFkbw6NQKcHTwb+QUq2RSxXLGHWCKmQKTxuelaMpuMrQfdovrtZnv50DMeM3f
-         SLtQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Fo/Ep00PZfs29Hz42Ke5VMQ0Cy8I53/LDRDQvkbdkGQ=;
+        b=Og/n6f/n2B0/Pd/kqKCT9pLnoKyvGFw1ceCsvuln3DtoaSmGgHd36hitmZHbPPXzIz
+         sNNS3wQ1UnGpPUaoALs3WCg2melFHo9RHnzOx6h9RpsE6nOEDRnNOPatlPWBKsE61Ejy
+         4z7h7fE6ZyvAPev60j7tbd0ty16KeLuyVZ4myFdqD25Hc+oPaRI/kZdVHwWO8U2toN7W
+         n0xOUrFPOYoDSktWTWET5W9Q0qXUL4pPAXCvz7rKMsh3WZuUgZ0mw+hIRVwfD8a3n+Ww
+         qf0USH9H48YHO0NTSfCu592X9HJu8CPkARg/SiZYg9XyxlyrIinWywPAQVRCKAaSZ2/5
+         MhBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:ironport-sdr:subject:to:cc:references:from
-         :organization:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1ExcGScmJbuFIm3imd3SUaxqGm9MeXIthAHdnxTiHhU=;
-        b=B+H5JaVwjrrLcx1PbWMIjk78cD71VI5YEpqqbuINAHtscZ4F9JfYgivVj4ZKcScMl9
-         kVh91uDwI/lKRITblANMEb9E1WO1ex0L4c2Efdikw+y4QTcxsXm1Ribl1HGGv7gEtvjd
-         Jg5UkfGlUBLGNKTae6i76etokTx+zB69kgMJZKSICeSC+lD4qLXytQEBB41DZ01pPmqr
-         PKu3QIICPvi9QeHTCNSCsRkdxbrc00gdDvL8LK3PSLIExlDLO6mEWs7ACSMCFZ7qVDgS
-         wGPMzCVKuH6roKJBgzgdbmoKJl3RtbTcNAm1hXCdkn/V9k0zyNVYcVBxnnFmkjPCKsn0
-         Diiw==
-X-Gm-Message-State: AOAM531s9Ux6nXrbpqLc14S+lLOJz6s/RxHjQY7G+XnG6Zx4yA068brk
-	uKduRkxzLaVi55Q0Jk9rrbg=
-X-Google-Smtp-Source: ABdhPJzIh1yHQi3dfpS5M9JA8VNY+Gmi1qcw7cABBfaBWFfE4ZCNkO3kPud+Uxpzq8uJoqJdxcIRRQ==
-X-Received: by 2002:adf:ffcd:: with SMTP id x13mr789454wrs.149.1612464220816;
-        Thu, 04 Feb 2021 10:43:40 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Fo/Ep00PZfs29Hz42Ke5VMQ0Cy8I53/LDRDQvkbdkGQ=;
+        b=ULh6HHX+8p0lZwJqbt/ibtCrggHKcCf6VyutMBYnKxTjphUfm58sLoBMlckn3mGnfo
+         m3h3qJnVcK1p3mw5D8T668CfIwetwH+in9kbq1IZPYYprN82fTpjk08XFRssXX6r5QxW
+         utFswvVABbdn8QxayJZoW7qjI++l2i06WmM9mYx+y/8wYfBO3XnVkW3yZrvmn53VJ7m3
+         WXxVTTLoecou5WGfDK1mr0eMIQYIJmub2zMwqewVYXUnK1NkdfxjGPOC496DVu/NJLuw
+         oJVsIz6ESJ/HMKH4XyWJ6hcdJsL4smQMVeS6qAnZIU4SqR4VTnuIReURD/xYjF6Tp+4r
+         I9vA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531oS27TT+mcJ5dXiWx/cegO5/1A4Fkxi9LVAhknBrfVpbWi1o2F
+	7Y71QldpcY2yKoQFx/gSy5k=
+X-Google-Smtp-Source: ABdhPJzFvLcnAcvGRneeiJtA2MLxgqXrYZcSrF0zMntlf2OdDErKLMU9sYGAqe4Wlvl+8HsgAvB1fw==
+X-Received: by 2002:a05:6808:8cb:: with SMTP id k11mr695543oij.22.1612466193925;
+        Thu, 04 Feb 2021 11:16:33 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f852:: with SMTP id d18ls1238922wrq.2.gmail; Thu, 04 Feb
- 2021 10:43:40 -0800 (PST)
-X-Received: by 2002:adf:f8c1:: with SMTP id f1mr830008wrq.76.1612464220163;
-        Thu, 04 Feb 2021 10:43:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612464220; cv=none;
+Received: by 2002:a05:6830:1e31:: with SMTP id t17ls1628140otr.3.gmail; Thu,
+ 04 Feb 2021 11:16:33 -0800 (PST)
+X-Received: by 2002:a9d:469:: with SMTP id 96mr672852otc.165.1612466193454;
+        Thu, 04 Feb 2021 11:16:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612466193; cv=none;
         d=google.com; s=arc-20160816;
-        b=V6oZx6E/m3BLErwAfoy1Y5gA9+6Nniwo1b1dK+sJs3mr/dRIcJKhMc2rbEBtOoy8+Z
-         MpK73+RpWiU2f2DGcep5iFgPVWw7+gJNjVJAR7xMX1PenzTH4y7pJLDYbbuCVR4HEkSb
-         YEE6Lw54nNeRExcxe2GfyC2+HOBtdrp5UivhSfmTtRiKTZbCKfk+W5CmAehIZR9TAErv
-         mcyjkCj0oTDYdMTzJTYqRjl9YLmfdeEdHmmRIvFwIPQ1q99UviYSXc+rTOyiXbB8oGu5
-         fh/57otM+/Ys1eWoKIhYSQnuV9bQU/X7ofiofcH/UksmLeu0TOFPg9zPVsJsOXmFn73D
-         xalg==
+        b=sCIs5AQoBdzeUtNaQ/Iof0dWZ2NtMN6a1VphlluBQSK6Pg1oiaVOUTR/lzQsjgfoib
+         Omu009oLoriak93+z77K7L27wZzIOhsM8eXiwLDsnBP+j37mD/Ko0o7kwBs8Do6bJbzN
+         iwMRddPtePe2rYtbJf/r0vVQ7kpB0VosgUvONs82aEk55DqBT25P/NbHRi6VSEvzCikl
+         w/b2g05G7IhFVZhQ2C/NpuumIG5HtEvOMtejf9ll/NmSNHsk8EbadJRZE4WDUjtmxEqm
+         LXSyLeMRLOESCrab36mEyHg7YmFcek20EYYrOvHzV6u0f0xViYmA4uCYGEKBkSouvKTF
+         372w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:cc:to
-         :subject:ironport-sdr:dkim-signature;
-        bh=rNXkrpeIh2LfUOVilwcJH+Xevmnh/DrQlSFjwguGqf0=;
-        b=zfjPM0sGmd2MkIuHMoyNYRVbvjp7+tZRiuvdalHKBqK/v71jHfAl+r9wDthdWTE2JQ
-         +ImHcq333fsVdzG+jc2OSvvW9PP4I46zSBJenmRF+EVVObRXosd4AiqDvPf04RzMifpf
-         VsPUSZDgwkWky+IVMMtkHWHw14ooT2tGM92i9usyTt1nKCrcwe60lHWusVnnp5DFVhAX
-         3MuIJqGZwRrGC1B0jNUcL+3SDOyxh34WZyqufFHHV5e37mIUtU6lNjxv96B7LKqzCRBR
-         8wIz+TMNBNPIoASslC6bzSSA0eXvBAots98QbEZ2D6/eR+1fqzef+uiwQGz1xewZ8JLz
-         JbLw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Q1f0Xc1X8UgZZWqiIMuWyB6AWmbTXpSLZVvTN+c1Bjk=;
+        b=qs900P06ZRW4jY1qXk+ySY7IXj5DvaBvYsInsW/bZcQS2KL9y+2eZIlJCBGzHlUhfp
+         v8UIm52QGZQzxVH7814AY/KdRh1/zXRysSb7H2Xzd6K3c4uFyoPtd8e+hWzES0qyy9Ux
+         ArrCXDgDEiu1eGoqMKNhQQ8H890Uo4IpSXIUKvHihaUJLd5pmjGWqWOLyZJ4ZpfbAAK9
+         DvFfeuUPrDI354l/qCdOnQ7ptqz3KRXkyv14JylYIUztTx36bHSpbS0aSXmRzuII4ipy
+         MbHB+nP4aheSMrOk4v2FON+h3aqqySJwsilJSaBG1iw9gJuY/BPrzRJdtNg2h6OsDXla
+         /Qfg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@microchip.com header.s=mchp header.b=ETj4cJWG;
-       spf=pass (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123 as permitted sender) smtp.mailfrom=Nicolas.Ferre@microchip.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com. [68.232.154.123])
-        by gmr-mx.google.com with ESMTPS id 201si302580wmb.2.2021.02.04.10.43.39
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KBQdU9Of;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id m26si404880otk.1.2021.02.04.11.16.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 04 Feb 2021 10:43:39 -0800 (PST)
-Received-SPF: pass (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123 as permitted sender) client-ip=68.232.154.123;
-IronPort-SDR: eBql+5flRwgc+oDmGTlZF9RKUq4v1KWEeMtbEx4ZXLcJYkkofIYtx8AbnPU149a+52HFeWaWwy
- OqBtCZt5W4f1jRgAmbNCHQC+wTEf2qeuymTAJifC63KzX4wNqZcu6UOj9wiNc21lveeu/tVp0S
- TqiLjvljRimti5Iv/prihHIgIy3TCgs+d5XlrjQDhNAtwz3lxJFwRS1LJfTV0NFwcLHnj5qRWx
- hvZJs0Dz01fO8ix3KL4Wk4UOpSLcNWW/ev5F4CXRda1DSXWQLAYqtDTU7WeJ52A+Ecoelw//yH
- mEU=
-X-IronPort-AV: E=Sophos;i="5.81,153,1610434800"; 
-   d="scan'208";a="102622916"
-Received: from smtpout.microchip.com (HELO email.microchip.com) ([198.175.253.82])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Feb 2021 11:43:37 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Thu, 4 Feb 2021 11:43:37 -0700
-Received: from [10.171.246.84] (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
- Transport; Thu, 4 Feb 2021 11:43:33 -0700
-Subject: Re: [PATCH] ARM: at91: use proper asm syntax in pm_suspend
-To: Arnd Bergmann <arnd@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Ludovic Desroches
-	<ludovic.desroches@microchip.com>, Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>, Claudiu Beznea
-	<claudiu.beznea@microchip.com>
-CC: <soc@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Stephen Boyd
-	<sboyd@kernel.org>, <clang-built-linux@googlegroups.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20210204160129.2249394-1-arnd@kernel.org>
-From: "'Nicolas Ferre' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Organization: microchip
-Message-ID: <d5cc7f4f-ef4a-dbe6-6f87-918a1d96603e@microchip.com>
-Date: Thu, 4 Feb 2021 19:43:32 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+        Thu, 04 Feb 2021 11:16:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 18E0E64DF0;
+	Thu,  4 Feb 2021 19:16:31 +0000 (UTC)
+Date: Thu, 4 Feb 2021 12:16:28 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, X86 ML <x86@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
+	Andy Shevchenko <andy@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	platform-driver-x86@vger.kernel.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
+Message-ID: <20210204191628.GC2991903@localhost>
+References: <20210107223424.4135538-1-arnd@kernel.org>
+ <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
+ <YAH6r3lak/F2wndp@rani.riverdale.lan>
+ <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
+ <20210118202409.GG30090@zn.tnic>
+ <YAYAvBARSRSg8z8G@rani.riverdale.lan>
+ <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
+ <20210203185148.GA1711888@localhost>
+ <CAMj1kXFPOvkcw573wzKzMQOgT-nddFcAZo9M4Lk+idn_1UBbnA@mail.gmail.com>
+ <20210204105155.GA32255@zn.tnic>
 MIME-Version: 1.0
-In-Reply-To: <20210204160129.2249394-1-arnd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nicolas.ferre@microchip.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210204105155.GA32255@zn.tnic>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@microchip.com header.s=mchp header.b=ETj4cJWG;       spf=pass
- (google.com: domain of nicolas.ferre@microchip.com designates 68.232.154.123
- as permitted sender) smtp.mailfrom=Nicolas.Ferre@microchip.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=microchip.com
-X-Original-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Reply-To: Nicolas Ferre <nicolas.ferre@microchip.com>
+ header.i=@kernel.org header.s=k20201202 header.b=KBQdU9Of;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,57 +149,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 04/02/2021 at 17:01, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Thu, Feb 04, 2021 at 11:51:55AM +0100, Borislav Petkov wrote:
+> On Wed, Feb 03, 2021 at 09:29:18PM +0100, Ard Biesheuvel wrote:
+> > I think we have agreement on the approach but it is unclear who is
+> > going to write the patch.
 > 
-> Compiling with the clang integrated assembler warns about
-> a recently added instruction:
+> How's that below?
 > 
-> <instantiation>:14:13: error: unknown token in expression
->   ldr tmp1, =#0x00020010UL
-> arch/arm/mach-at91/pm_suspend.S:542:2: note: while in macro instantiation
->   at91_plla_enable
+> And frankly, I'd even vote for removing those assertions altogether. If
+> somehow the EFI pgd lands somewhere else, the kernel will crash'n'burn
+> spectacularly and quickly so it's not like we won't catch it...
 > 
-> Remove the extra '#' character that is not used for the 'ldr'
-> instruction when doing an indirect load of a constant.
-> 
-> Fixes: 4fd36e458392 ("ARM: at91: pm: add plla disable/enable support for sam9x60")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-
-Looks good to me:
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-
-Thanks!
-
-Best regards,
-   Nicolas
-
 > ---
->   arch/arm/mach-at91/pm_suspend.S | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
-> index 909856c8a8c6..0d467cc40129 100644
-> --- a/arch/arm/mach-at91/pm_suspend.S
-> +++ b/arch/arm/mach-at91/pm_suspend.S
-> @@ -446,7 +446,7 @@ ENDPROC(at91_backup_mode)
->          str     tmp1, [pmc, #AT91_PMC_PLL_UPDT]
-> 
->          /* step 2. */
-> -       ldr     tmp1, =#AT91_PMC_PLL_ACR_DEFAULT_PLLA
-> +       ldr     tmp1, =AT91_PMC_PLL_ACR_DEFAULT_PLLA
->          str     tmp1, [pmc, #AT91_PMC_PLL_ACR]
-> 
->          /* step 3. */
-> --
-> 2.29.2
-> 
 
+This resolves the issue initially reported in this thread. Obviously
+removing the assertions will do that as well. Feel free to carry
+forward
 
--- 
-Nicolas Ferre
+Tested-by: Nathan Chancellor <nathan@kernel.org>
+
+on a patch if you send it out.
+
+> diff --git a/arch/x86/include/asm/pgtable_64_types.h b/arch/x86/include/asm/pgtable_64_types.h
+> index 91ac10654570..b6be19c09841 100644
+> --- a/arch/x86/include/asm/pgtable_64_types.h
+> +++ b/arch/x86/include/asm/pgtable_64_types.h
+> @@ -156,8 +156,8 @@ extern unsigned int ptrs_per_p4d;
+>  #define CPU_ENTRY_AREA_PGD	_AC(-4, UL)
+>  #define CPU_ENTRY_AREA_BASE	(CPU_ENTRY_AREA_PGD << P4D_SHIFT)
+>  
+> -#define EFI_VA_START		( -4 * (_AC(1, UL) << 30))
+> -#define EFI_VA_END		(-68 * (_AC(1, UL) << 30))
+> +#define EFI_VA_START		( -4UL * (_AC(1, UL) << 30))
+> +#define EFI_VA_END		(-68UL * (_AC(1, UL) << 30))
+>  
+>  #define EARLY_DYNAMIC_PAGE_TABLES	64
+>  
+> diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
+> index e1e8d4e3a213..56fdc0bbb554 100644
+> --- a/arch/x86/platform/efi/efi_64.c
+> +++ b/arch/x86/platform/efi/efi_64.c
+> @@ -123,9 +123,7 @@ void efi_sync_low_kernel_mappings(void)
+>  	 * only span a single PGD entry and that the entry also maps
+>  	 * other important kernel regions.
+>  	 */
+> -	MAYBE_BUILD_BUG_ON(pgd_index(EFI_VA_END) != pgd_index(MODULES_END));
+> -	MAYBE_BUILD_BUG_ON((EFI_VA_START & PGDIR_MASK) !=
+> -			(EFI_VA_END & PGDIR_MASK));
+> +	MAYBE_BUILD_BUG_ON((EFI_VA_START & PGDIR_MASK) != PGDIR_MASK);
+>  
+>  	pgd_efi = efi_pgd + pgd_index(PAGE_OFFSET);
+>  	pgd_k = pgd_offset_k(PAGE_OFFSET);
+> @@ -137,8 +135,7 @@ void efi_sync_low_kernel_mappings(void)
+>  	 * As with PGDs, we share all P4D entries apart from the one entry
+>  	 * that covers the EFI runtime mapping space.
+>  	 */
+> -	BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
+> -	BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> +	BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != P4D_MASK);
+>  
+>  	pgd_efi = efi_pgd + pgd_index(EFI_VA_END);
+>  	pgd_k = pgd_offset_k(EFI_VA_END);
+> 
+> 
+> -- 
+> Regards/Gruss,
+>     Boris.
+> 
+> https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d5cc7f4f-ef4a-dbe6-6f87-918a1d96603e%40microchip.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210204191628.GC2991903%40localhost.
