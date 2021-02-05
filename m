@@ -1,131 +1,143 @@
-Return-Path: <clang-built-linux+bncBAABBC5D6SAAMGQEYCH6UAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP4ZTXNRIFBBVN66SAAMGQEVXTPKEA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
-	by mail.lfdr.de (Postfix) with ESMTPS id 83EF83107F5
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 10:36:12 +0100 (CET)
-Received: by mail-qt1-x839.google.com with SMTP id w3sf4748812qti.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 01:36:12 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612517771; cv=pass;
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6716C310932
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 11:35:02 +0100 (CET)
+Received: by mail-wm1-x339.google.com with SMTP id b62sf3585038wmc.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 02:35:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612521302; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lAl2bL/H0xcsSqyVvM4ZP/xr7DPNU9133Dxk2FvAnrMFGzws3k/NPi6BxfYYI7X94/
-         9i6xgI83UctDU/kjhrOaZgSvmr5A3+LMhDv9ysFLO3ZKQkUro43+Yu6SRxIIZpaVYk/P
-         8N92d1mkpXI8NE2UJ5YItVBMqWhWCPYTzQ+cVfgoEJreATbnjYL6ezBfWLV7tbKwNyCi
-         mt3c7CcIgjjcTrv14oD46lA5As+cfMyjT11JKVSUHZgBFVT8wSmRUgl+NpyTR2UDAuZj
-         DkgAsIIBcTM/C7nHhT47Ck1YMwwdJ50AkcUMFgE/wtbGQxcWz8Kp0n+5K9R7D3NXMeaE
-         HifA==
+        b=v1rsyj7wIv/ENjwYRIDr552pkk9C0WtS9zY33e0etOawlWrKUHAk2rNfXhmlot39yR
+         nAQ6Mqp+TqXOwH7bg5hEJN+7kso+mIM0sWfLMed6rRi4Qg/Xw21EKnPUUgsCDxVKgjXW
+         Lzu+elICOOxXtxVuXj5kH65wedUOzsI8Mwp5wH3d84kF2IN+JHkzziUhsEpQ68ZSyliD
+         B9Jw0QmYu4ZSHmldfj8D98lBYFL/TJ1yQTpm+6Nc/hFKT2T4JZt6N22d/1jNRdes5XpX
+         yxaQPOFx89z5e8V8L7W5A3uQz7wD43UNY+eyGQr8fppi3LZjApC7GQjzmBYz7hdIqT8m
+         Cirg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=C4i67hRovmY+DH5AVopxL783BXKYagcU/pMNG4w24eI=;
-        b=fhXM3ODVAcbDL0VcHC2AJJRnCJqZvlLNgUtYwu/w5saoAokBEdhaOJHE6fwtsHSV8R
-         54YSOpGefegIU73ePdSvuZsAtK4FL4agNqZmmtf6FZ+EqAYaB1QzI5XINcolqxMw8D38
-         GLUzPIZlpw8SqLkMJ9BdHQILsgnsyLI63xBjekqZYC+Guh0DQao3MWi4Ag5WMqtFxRfg
-         92U9fHELAZliU9vBPdC9I/tcmzKXiQousZsVhK6l1KSImw5V1rsK5ybFpyMvS4vIibvL
-         dQ3mXid1+c/YrQ320CjOMEUc8Wj8BekuPH8xzkLrIjVu0o55WWZj4NAEUujOkkAUVkEP
-         uYiQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=hXDFv+SJPsxH6D18aPqVOsL3KxMIR1/aS1E41QPf7Q4=;
+        b=e8dwv0BESn2A7513XodFjaq76fw9mBMNDhDslquPnkWvbCUG5ovvNZO9+HQM3iIFry
+         Pw/3Ar1HV5nx2FrmJdfZ6ht42Q9fjAv+JN05uITAemC8yegvGnt8WgkIp7CusL9ulZzJ
+         mi7GolwcJA26eQiMnsNDsZ19e/vnSbbzjo2EyCQrmc98OXQHwJdGSQGO8fCLgDlmJzJO
+         Kr8j85J37O0xoFQX9GbdEZom8AdgW2AJfP4OktzQoRqsrOP9cKPP+RKdAITRxFYW4edx
+         1MxNhbgQMJf3fSGuQzMIaUsgxj3WSZRUq7GnBGu3bly2lZl/WLggYenZ+xnHrGvv10Yx
+         A2sA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=Jianlin.Lv@arm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+       dkim=pass header.i=@alien8.de header.s=dkim header.b=WvoLruU+;
+       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=C4i67hRovmY+DH5AVopxL783BXKYagcU/pMNG4w24eI=;
-        b=Oic3FKLQ5Nf6SD2QJTJaafv5P6pVVfEUVN/YweTPTBvPlb5ETLytqxuQST2il5zKnn
-         PahU10SIt1fv7/wyj9AEgHTvLLEudVRUk4slGPeW2Tz2zSP0f3WG0HXuGVuBD0Len5d7
-         NVMItNeZzEJZkA2d6ggZeORmaJqI8pYA1rXsO0DTo6EWD+a9XyhQieP91qvagCyuMogr
-         O5/xDQgHv84U7DUyPQT4l6vdgH5ol1LQB6AaXZK3ja1F/64IdIkLPLa8ovE5WDHJDrs6
-         RKfQcKfhyeWdvvUWCNtW/uDBNr4auybx6guQ/eY1ngnOrEtvNxu96FWQyn8XfeAKS0bY
-         Md6Q==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=hXDFv+SJPsxH6D18aPqVOsL3KxMIR1/aS1E41QPf7Q4=;
+        b=FKHUb2xK8eiy4QkegGnRH3CKpevfckeOU295JXLkHTmXdQYijuQisl0OW4xT/1VhbX
+         8yvzm8UckWU/khEej2zK+kDeN+OAxM1dIO+3ftiPHTHgrROtnCMSI4p1mB5EH0Swa+WD
+         jIqCXWK5gnSd5WkN8bSGGta5mKvtJR9PjRJ4nGh7NJtiuIrpWxNmPgJETgRqAa9yINP9
+         xcMg03CYyFeHJUU77cBIc1eipI1QJnGGE2r+UadtViQtYPrlgcADCajFBmuQs25CqeBG
+         bPWaKKe8qgY8d2/VwmoIm6NRw4WMMmdRoHACbAgmLM6xZq2qdCvlo44kyHj65zCyVBAj
+         Mi1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=C4i67hRovmY+DH5AVopxL783BXKYagcU/pMNG4w24eI=;
-        b=S6EZvUf/wYbNF70xHUqniylbmRjwEZXvvpsq5fO/8Ye5Woc2vqG0iHyBlNkIJIL9wz
-         drKcevKJ9smIITGB6gNiIcVsgTzl/eExj7Ia1GD3PPilbJA5wQTJ0Bi3DzM11o2g99rp
-         sRlRDQ0AE/uU/PA8kHi0zzRy34klbiLuYosw0wNy3bQhbh7batOkkB/JqDIyZTYCg33r
-         3mE+o2vhgnBZrxl1ReZxLHqpx6UUa00DT2s7/+whzDphyEqKjERPBPBYB+IsyIMl14BS
-         iakdddZlkynopeTGDXKxOIl8NYGh+AK5x5jagcMFx02TuUeD1+aMms1QQKeqUVSPLUZ9
-         YUAw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=hXDFv+SJPsxH6D18aPqVOsL3KxMIR1/aS1E41QPf7Q4=;
+        b=hXoZ5DyQieHjzgZUB+6nnVrBVVPFQ4NV2odbaVDpjvODMTHYhyoxenkJ9EW+QOBWVK
+         nbyn4usgLLXCbOQr3FGeMJIiiXbm2n/maAH1Id/dcMJfnN5vFmZ2+RYqdaZewm525emA
+         knjTEdm+xewu4LXvPaE3MNx61W8V5ac1xtNCL7qwAswD1fIVeC4WqpsZsf8KKHab55LO
+         ewmJv5J7rZnuLJPDmR+5WF5uA8ZqINoRuG7QB7VovfEPmm63Cwxu6GQvGLq52Ek+i/M0
+         kZ29d6p1Za5R3I7f2S/Tq+F8XTrYGc1UusA4kcGP6X6mYP5+Tbm/S5hA2VYYkDIXXuSa
+         DNqA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532uTKhfdBZwaWDMZ35+3csFjBcYvU8iRy1MMS5KzjJOvw5XMhJh
-	XdtAVNbB+lkr+W8zMvx/5xk=
-X-Google-Smtp-Source: ABdhPJzvUjL4tZXL8AFOxGDmC6Wsl5NmflWbMXCrWwV94BgCQIkLmiDOVQoUrKu+IdPGHeSKW2tEBw==
-X-Received: by 2002:a37:5b06:: with SMTP id p6mr3603130qkb.382.1612517771350;
-        Fri, 05 Feb 2021 01:36:11 -0800 (PST)
+X-Gm-Message-State: AOAM533lhUOTrO9G2iIqHemAmh4pkHFGOpGlZch7P7X0vNbzCXuQgJXR
+	IOa2X12BdGGUgJRCKCiwI40=
+X-Google-Smtp-Source: ABdhPJw03lh+W69lkGuRiI90dXXj4bOH7g9gecMkL/EgjyH8O5Md+zhJ6BswoNJlBj8hMzVUGIY16A==
+X-Received: by 2002:a1c:9c84:: with SMTP id f126mr3092630wme.152.1612521302117;
+        Fri, 05 Feb 2021 02:35:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:404f:: with SMTP id r15ls2041141qvp.6.gmail; Fri, 05 Feb
- 2021 01:36:11 -0800 (PST)
-X-Received: by 2002:a05:6214:1703:: with SMTP id db3mr3257856qvb.43.1612517771009;
-        Fri, 05 Feb 2021 01:36:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612517771; cv=none;
+Received: by 2002:adf:fd09:: with SMTP id e9ls3814102wrr.0.gmail; Fri, 05 Feb
+ 2021 02:35:01 -0800 (PST)
+X-Received: by 2002:adf:fc86:: with SMTP id g6mr4259091wrr.20.1612521301304;
+        Fri, 05 Feb 2021 02:35:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612521301; cv=none;
         d=google.com; s=arc-20160816;
-        b=wRBqMPOyiiVCfa6IKHJlR3Of96/NYgniYntk0SCw/QMNUpP4qpNfR86tif14S+6LYJ
-         i5zeljkJfPIdqnhaMi35FGbYQQR2OT54EYTyiUoCX5Rxdq81eU0g99j8qxMdKl8JjaQQ
-         82A/w1LxV/UZCD+G5lm6Dl6qQ1U39qY2OwFKFMoc0R6G6ihFp5pPn8P7kQHw0TQ6RfIU
-         3OiS+Bi7aj0V2xDWSmK0ZY0jU9XF7sPwpjHZEdVBr9b0rermLqlBblJaFA6cV5Va4Hon
-         D+i/9HPGHf5JTACTmw/8OaM9EGhEQ/Ol8AQSK5hFZVtabhbsZotRouW+lkuCTBUZxdrv
-         +3bA==
+        b=Yhs9p4U72TvalCPdp9lwkMAdofvnpen0JHesmKtrR9Kzy7pFndbnDbw+rRFwX3Bp+l
+         dQyf2iYVMpPmusIzIdF+QYKCxITm62As5WdzCaQvNp2jJ8qymUtOrvl5nYjeYrTIL24K
+         wvJa36ySA8ncyyB3muzswAG9YFr7xREF/QBwjqEerqxOvrA/HI7r5s1fUjkXXlnso6Ol
+         9YL27P6/1I084nOqc3cfR51xDaIuII4Oyqa0+Ur6vBnVYtZGxHsB2iNuB/nIgYraDBTG
+         2MreWh7zFmQXSuPZ9E+b62JriveVLQQpwGz7oh6B/lA9PoP2N5ukCGcMCsy1H/jzDZLR
+         pc5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=6O1inmGi+qH30KRMib3f/9BmJPTePEq10XLjeXSEn3U=;
-        b=WnzSHslaoO/5okrCdi7fcf2O/jresIByg1JFQkKFcyIxujrDY9MrsfubxYFuHZMWhv
-         k0vj98bGtEouAYNGiWbBlMUuMFMMIfP6/DGsMSyaLr2rxRKvYqVcXg8HjM7OWJhxeNmH
-         YVT3psTekT7Ni0O3sV70UNq6uUissU67UVamk6eWEVjjNmFexMgnNoC/Z8uLPVMA61AW
-         nVvjLjwfNaW0ay2+m90cHfA52YNjXXrkt+uqx0HDL2FhtcxDAENELrKrQWOF6IrbOcBR
-         dlA3gBPgwUi+ZhhQfVDQDGdB/3ZdAu3tdWsNRzeMLXxHfo+eGR2t0XHE+f84o2kkD0KT
-         Nfog==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=mpQ2H03vRziBvKFdKZ6tUIGAARtxtvomCBNzTQhxNf4=;
+        b=vaH5TbUTy3YrCzBQ5ybejkk6r/IiDb40KWRHIuvLJSk/E6/tWyRX3gnvTxAEJPIRAT
+         PlOV381XymTUMLzYjUWPitT/1u/wvBPPQzmUfYSEb+WxlfnGVASKPMb5dViHx/at7/LH
+         FzXb0BWnfS4uJwRcZ5WmUGjLF5+tSuLtyGpslVOIbu7cj6m87ioKIC28CkQUWp09uhnG
+         9LfPbhJAdL7FS9FeSmXz5dN/cuCsh/eazM7rbZUrdJwnh/tZP10LWKT+epY24VJIKv5O
+         7CHBx8kGs/dLxQdB+tiwAQ/yTVi/l1Y0a3MEf+K0o9AvNmqNQXC0btLeEKLOrlmer4do
+         1UFg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=Jianlin.Lv@arm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id f10si335516qko.5.2021.02.05.01.36.10
-        for <clang-built-linux@googlegroups.com>;
-        Fri, 05 Feb 2021 01:36:10 -0800 (PST)
-Received-SPF: pass (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C3C431B;
-	Fri,  5 Feb 2021 01:36:10 -0800 (PST)
-Received: from net-arm-thunderx2-02.shanghai.arm.com (net-arm-thunderx2-02.shanghai.arm.com [10.169.208.220])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EBECC3F73B;
-	Fri,  5 Feb 2021 01:36:04 -0800 (PST)
-From: Jianlin Lv <Jianlin.Lv@arm.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@redhat.com,
-	namhyung@kernel.org,
-	natechancellor@gmail.com,
-	ndesaulniers@google.com,
-	mhiramat@kernel.org,
-	fche@redhat.com,
-	irogers@google.com,
-	sumanthk@linux.ibm.com,
-	adrian.hunter@intel.com
-Cc: Jianlin.Lv@arm.com,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] perf probe: fix kretprobe issue caused by GCC bug
-Date: Fri,  5 Feb 2021 17:35:58 +0800
-Message-Id: <20210205093558.3057814-1-Jianlin.Lv@arm.com>
-X-Mailer: git-send-email 2.25.1
+       dkim=pass header.i=@alien8.de header.s=dkim header.b=WvoLruU+;
+       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
+Received: from mail.skyhub.de (mail.skyhub.de. [2a01:4f8:190:11c2::b:1457])
+        by gmr-mx.google.com with ESMTPS id t16si988979wmi.3.2021.02.05.02.35.01
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 05 Feb 2021 02:35:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) client-ip=2a01:4f8:190:11c2::b:1457;
+Received: from zn.tnic (p200300ec2f0bad000b74c3ca4e4ea61e.dip0.t-ipconnect.de [IPv6:2003:ec:2f0b:ad00:b74:c3ca:4e4e:a61e])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id B044D1EC04DF;
+	Fri,  5 Feb 2021 11:35:00 +0100 (CET)
+Date: Fri, 5 Feb 2021 11:34:57 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, X86 ML <x86@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
+	Andy Shevchenko <andy@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	platform-driver-x86@vger.kernel.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
+Message-ID: <20210205103457.GC17488@zn.tnic>
+References: <20210107223424.4135538-1-arnd@kernel.org>
+ <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
+ <YAH6r3lak/F2wndp@rani.riverdale.lan>
+ <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
+ <20210118202409.GG30090@zn.tnic>
+ <YAYAvBARSRSg8z8G@rani.riverdale.lan>
+ <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
+ <20210203185148.GA1711888@localhost>
 MIME-Version: 1.0
-X-Original-Sender: jianlin.lv@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as
- permitted sender) smtp.mailfrom=Jianlin.Lv@arm.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=arm.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210203185148.GA1711888@localhost>
+X-Original-Sender: bp@alien8.de
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@alien8.de header.s=dkim header.b=WvoLruU+;       spf=pass
+ (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as
+ permitted sender) smtp.mailfrom=bp@alien8.de;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=alien8.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,191 +150,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Perf failed to add kretprobe event with debuginfo of vmlinux which is
-compiled by gcc with -fpatchable-function-entry option enabled.
-The same issue with kernel module.
+On Wed, Feb 03, 2021 at 11:51:48AM -0700, Nathan Chancellor wrote:
+> x86_64 all{mod,yes}config with clang are going to ship broken in 5.11.
 
-Issue:
+Dunno, it is still broken here even with those build assertions removed. And it
+ain't even an all{mod,yes}config - just my machine's config with
 
-  # perf probe  -v 'kernel_clone%return $retval'
-  ......
-  Writing event: r:probe/kernel_clone__return _text+599624 $retval
-  Failed to write event: Invalid argument
-    Error: Failed to add events. Reason: Invalid argument (Code: -22)
+CONFIG_ARCH_HAS_UBSAN_SANITIZE_ALL=y
+CONFIG_UBSAN=y
+# CONFIG_UBSAN_TRAP is not set
+CONFIG_CC_HAS_UBSAN_BOUNDS=y
+CONFIG_CC_HAS_UBSAN_ARRAY_BOUNDS=y
+CONFIG_UBSAN_BOUNDS=y
+CONFIG_UBSAN_ARRAY_BOUNDS=y
+CONFIG_UBSAN_SHIFT=y
+CONFIG_UBSAN_DIV_ZERO=y
+CONFIG_UBSAN_SIGNED_OVERFLOW=y
+CONFIG_UBSAN_UNSIGNED_OVERFLOW=y
+CONFIG_UBSAN_OBJECT_SIZE=y
+CONFIG_UBSAN_BOOL=y
+CONFIG_UBSAN_ENUM=y
+CONFIG_UBSAN_ALIGNMENT=y
+CONFIG_UBSAN_SANITIZE_ALL=y
+# CONFIG_TEST_UBSAN is not set
 
-  # cat /sys/kernel/debug/tracing/error_log
-  [156.75] trace_kprobe: error: Retprobe address must be an function entry
-  Command: r:probe/kernel_clone__return _text+599624 $retval
-                                        ^
+and clang-10:
 
-  # llvm-dwarfdump  vmlinux |grep  -A 10  -w 0x00df2c2b
-  0x00df2c2b:   DW_TAG_subprogram
-                DW_AT_external  (true)
-                DW_AT_name      ("kernel_clone")
-                DW_AT_decl_file ("/home/code/linux-next/kernel/fork.c")
-                DW_AT_decl_line (2423)
-                DW_AT_decl_column       (0x07)
-                DW_AT_prototyped        (true)
-                DW_AT_type      (0x00dcd492 "pid_t")
-                DW_AT_low_pc    (0xffff800010092648)
-                DW_AT_high_pc   (0xffff800010092b9c)
-                DW_AT_frame_base        (DW_OP_call_frame_cfa)
+lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x253: call to __ubsan_handle_add_overflow() with UACCESS enabled
+lib/strnlen_user.o: warning: objtool: strnlen_user()+0x244: call to __ubsan_handle_add_overflow() with UACCESS enabled
+ld: init/main.o: in function `kmalloc':
+/home/boris/kernel/linux/./include/linux/slab.h:557: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: init/initramfs.o: in function `kmalloc':
+/home/boris/kernel/linux/./include/linux/slab.h:552: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: init/initramfs.o: in function `kmalloc_large':
+/home/boris/kernel/linux/./include/linux/slab.h:481: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: init/initramfs.o: in function `kmalloc':
+/home/boris/kernel/linux/./include/linux/slab.h:552: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: /home/boris/kernel/linux/./include/linux/slab.h:552: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: init/initramfs.o:/home/boris/kernel/linux/./include/linux/slab.h:552: more undefined references to `__ubsan_handle_alignment_assumption' follow
+ld: mm/mremap.o: in function `get_extent':
+/home/boris/kernel/linux/mm/mremap.c:355: undefined reference to `__compiletime_assert_327'
+ld: mm/rmap.o: in function `anon_vma_chain_alloc':
+/home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: mm/rmap.o: in function `anon_vma_alloc':
+/home/boris/kernel/linux/mm/rmap.c:89: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: mm/rmap.o: in function `anon_vma_chain_alloc':
+/home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: /home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: /home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
+ld: mm/vmalloc.o:/home/boris/kernel/linux/mm/vmalloc.c:1213: more undefined references to `__ubsan_handle_alignment_assumption' follow
+make: *** [Makefile:1164: vmlinux] Error 1
 
-  # cat /proc/kallsyms |grep kernel_clone
-  ffff800010092640 T kernel_clone
-  # readelf -s vmlinux |grep -i kernel_clone
-  183173: ffff800010092640  1372 FUNC    GLOBAL DEFAULT    2 kernel_clone
-
-  # objdump -d vmlinux |grep -A 10  -w \<kernel_clone\>:
-  ffff800010092640 <kernel_clone>:
-  ffff800010092640:       d503201f        nop
-  ffff800010092644:       d503201f        nop
-  ffff800010092648:       d503233f        paciasp
-  ffff80001009264c:       a9b87bfd        stp     x29, x30, [sp, #-128]!
-  ffff800010092650:       910003fd        mov     x29, sp
-  ffff800010092654:       a90153f3        stp     x19, x20, [sp, #16]
-
-The entry address of kernel_clone converted by debuginfo is _text+599624
-(0x92648), which is consistent with the value of DW_AT_low_pc attribute.
-But the symbolic address of kernel_clone from /proc/kallsyms is
-ffff800010092640.
-
-This issue is found on arm64, -fpatchable-function-entry=2 is enabled when
-CONFIG_DYNAMIC_FTRACE_WITH_REGS=y;
-Just as objdump displayed the assembler contents of kernel_clone,
-GCC generate 2 NOPs  at the beginning of each function.
-
-kprobe_on_func_entry detects that (_text+599624) is not the entry address
-of the function, which leads to the failure of adding kretprobe event.
-
----
-kprobe_on_func_entry
-->_kprobe_addr
-->kallsyms_lookup_size_offset
-->arch_kprobe_on_func_entry		// FALSE
----
-
-The cause of the issue is that the first instruction in the compile unit
-indicated by DW_AT_low_pc does not include NOPs.
-This issue exists in all gcc versions that support
--fpatchable-function-entry option.
-
-I have reported it to the GCC community:
-https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98776
-
-Currently arm64 and PA-RISC may enable fpatchable-function-entry option.
-The kernel compiled with clang does not have this issue.
-
-FIX:
-
-The result of my investigation is that this GCC issue will only cause the
-registration failure of the kretprobe event;
-Other functions of perf probe will not be affected, such as line probe,
-local variable probe, uprobe, etc.
-
-A workaround solution is to traverse all the compilation units in
-debuginfo for the retprobe event and check whether the DW_AT_producer
-attribute valaue of each CUs contains substrings: "GNU" and
-"-fpatchable-function-entry". If these two substrings are included,
-then debuginfo will not be used to convert perf_probe_event.
-Instead, map will be used to query the probe function address.
-
--grecord-gcc-switches causes the command-line options used to invoke the
-compiler to be appended to the DW_AT_producer attribute in DWARF debugging
-information.It is enabled by default.
-
-A potential defect is that if -gno-record-gcc-switches option is enabled,
-the command-line options will not be recorded in debuginfo. This workaround
-solution will fail.
-Assume that this situation may not happen for kernel compilation.
-
-Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
----
- tools/perf/util/probe-event.c | 60 +++++++++++++++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
-
-diff --git a/tools/perf/util/probe-event.c b/tools/perf/util/probe-event.c
-index 8eae2afff71a..c0c1bcc59250 100644
---- a/tools/perf/util/probe-event.c
-+++ b/tools/perf/util/probe-event.c
-@@ -885,6 +885,60 @@ static int post_process_probe_trace_events(struct perf_probe_event *pev,
- 	return ret;
- }
- 
-+/*
-+ * Perf failed to add kretprobe event with debuginfo of vmlinux which is
-+ * compiled by gcc with -fpatchable-function-entry option enabled.
-+ * The same issue with kernel module. Refer to gcc issue: #98776
-+ * This issue only cause the registration failure of kretprobe event,
-+ * and it doesn't affect other perf probe functions.
-+ * This workaround solution use map to query the probe function address
-+ * for retprobe event.
-+ * A potential defect is that if -gno-record-gcc-switches option is enabled,
-+ * the command-line options will not be recorded in debuginfo. This workaround
-+ * solution will fail.
-+ */
-+static bool retprobe_gcc_fpatchable_issue_workaround(struct debuginfo *dbg,
-+		struct perf_probe_event *pev)
-+{
-+	Dwarf_Off off = 0, noff = 0;
-+	size_t cuhl;
-+	Dwarf_Die cu_die;
-+	const char *producer = NULL;
-+	Dwarf_Attribute attr;
-+
-+	if (!pev->point.retprobe)
-+		return false;
-+
-+	/* Loop on CUs (Compilation Unit) */
-+	while (!dwarf_nextcu(dbg->dbg, off, &noff, &cuhl, NULL, NULL, NULL)) {
-+		/* Get the DIE(Debugging Information Entry) of this CU */
-+		if (dwarf_offdie(dbg->dbg, off + cuhl, &cu_die) == NULL) {
-+			off = noff;
-+			continue;
-+		}
-+
-+		/* Get information about the compiler that produced CUs */
-+		if (dwarf_hasattr(&cu_die, DW_AT_producer)
-+			&& dwarf_attr(&cu_die, DW_AT_producer, &attr)) {
-+			producer = dwarf_formstring(&attr);
-+			if (producer == NULL) {
-+				off = noff;
-+				continue;
-+			}
-+			/* Check that CU is compiled by GCC with
-+			 * fpatchable-function-entry option enabled
-+			 */
-+			if (strstr(producer, "GNU") &&
-+				strstr(producer, "-fpatchable-function-entry")) {
-+				pr_debug("Workaround for gcc issue, find probe function addresses from map.\n");
-+				return true;
-+			}
-+		}
-+		off = noff;
-+	}
-+	return false;
-+}
-+
- /* Try to find perf_probe_event with debuginfo */
- static int try_to_find_probe_trace_events(struct perf_probe_event *pev,
- 					  struct probe_trace_event **tevs)
-@@ -902,6 +956,12 @@ static int try_to_find_probe_trace_events(struct perf_probe_event *pev,
- 		return 0;
- 	}
- 
-+	/* workaround for gcc #98776 issue */
-+	if (retprobe_gcc_fpatchable_issue_workaround(dinfo, pev) && !need_dwarf) {
-+		debuginfo__delete(dinfo);
-+		return 0;
-+	}
-+
- 	pr_debug("Try to find probe point from debuginfo.\n");
- 	/* Searching trace events corresponding to a probe event */
- 	ntevs = debuginfo__find_trace_events(dinfo, pev, tevs);
 -- 
-2.25.1
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210205093558.3057814-1-Jianlin.Lv%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210205103457.GC17488%40zn.tnic.
