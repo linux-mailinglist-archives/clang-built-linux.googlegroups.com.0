@@ -1,122 +1,131 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBDEO6SAAMGQEHQ2XCSQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBC5D6SAAMGQEYCH6UAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EEE1310707
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 09:51:25 +0100 (CET)
-Received: by mail-yb1-xb40.google.com with SMTP id f127sf6252909ybf.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 00:51:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612515084; cv=pass;
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id 83EF83107F5
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 10:36:12 +0100 (CET)
+Received: by mail-qt1-x839.google.com with SMTP id w3sf4748812qti.17
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 01:36:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612517771; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cdXHpzW6OjM4DKiUT4dHh0Od0G8HijpSxrT4ardlobXSzSsfmZC3NxD9A0IN+289me
-         79DZVIS+aYgJYex8nuhQH/rsXwvv3xPg9/IEqTN1vjhNPZP8BNh3MWd/OYf1v1M5jc4s
-         XX2QxwfcjKG9e1TP50bQQmKiVyAUSGu+5bAlKJvY0Z3uK4wVfBICtc4vfM5J/knWP4Lx
-         59DctdoRI3lpterMuuwHThfy7644mct1GmAmdhZxptFqYqjvA48AyjD3IAKhdHpXrV9h
-         VZwh1EW9NgtfabS5uDngfk3DsrQ2Seg6JdiPRrzbWzGipyV9ws+InDFeZEAc8lBzT3cm
-         Ihmg==
+        b=lAl2bL/H0xcsSqyVvM4ZP/xr7DPNU9133Dxk2FvAnrMFGzws3k/NPi6BxfYYI7X94/
+         9i6xgI83UctDU/kjhrOaZgSvmr5A3+LMhDv9ysFLO3ZKQkUro43+Yu6SRxIIZpaVYk/P
+         8N92d1mkpXI8NE2UJ5YItVBMqWhWCPYTzQ+cVfgoEJreATbnjYL6ezBfWLV7tbKwNyCi
+         mt3c7CcIgjjcTrv14oD46lA5As+cfMyjT11JKVSUHZgBFVT8wSmRUgl+NpyTR2UDAuZj
+         DkgAsIIBcTM/C7nHhT47Ck1YMwwdJ50AkcUMFgE/wtbGQxcWz8Kp0n+5K9R7D3NXMeaE
+         HifA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=yk7GoPH0kyRbEuGlhtcteke7QYmXa2gsTAmM48PSfig=;
-        b=Og08hFYwzl4XX9UGbTjxZyZvc971wYNXFVY5b3PDT67qbr0deHD3gBtbYK4hPzIMez
-         11I+BFNu+GcuPFPeDSedY56gGWeGEpVF/6K6HXsZqo6mzX9Tafj8XjL5rYVchtZY4QCA
-         MhIskP8FiNu3JzCZ1oVC/3Y3ZbpqfIkkMU88Tf3BPa8rmz9cpn2KFj3htZlRPuR511vY
-         372kfTi3G/5hKoPGjvKw4TwHSeufJkflT/ltnnQiEO+2RXa+ZeqyqMGodP2nrJ05I/ZQ
-         MPfS/oEbJH4j9XdLMWgKBLlfq2hxXPHEJ/6cxv7zjDjdUfIathniV7nXCZm8THjxR+NN
-         z9VQ==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=C4i67hRovmY+DH5AVopxL783BXKYagcU/pMNG4w24eI=;
+        b=fhXM3ODVAcbDL0VcHC2AJJRnCJqZvlLNgUtYwu/w5saoAokBEdhaOJHE6fwtsHSV8R
+         54YSOpGefegIU73ePdSvuZsAtK4FL4agNqZmmtf6FZ+EqAYaB1QzI5XINcolqxMw8D38
+         GLUzPIZlpw8SqLkMJ9BdHQILsgnsyLI63xBjekqZYC+Guh0DQao3MWi4Ag5WMqtFxRfg
+         92U9fHELAZliU9vBPdC9I/tcmzKXiQousZsVhK6l1KSImw5V1rsK5ybFpyMvS4vIibvL
+         dQ3mXid1+c/YrQ320CjOMEUc8Wj8BekuPH8xzkLrIjVu0o55WWZj4NAEUujOkkAUVkEP
+         uYiQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="P/YyfDAf";
-       spf=pass (google.com: domain of srs0=tnco=hh=linuxfoundation.org=gregkh@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=tncO=HH=linuxfoundation.org=gregkh@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=Jianlin.Lv@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yk7GoPH0kyRbEuGlhtcteke7QYmXa2gsTAmM48PSfig=;
-        b=ojklkMYhkQMQm40d/iP8tlwYgeEA9eaP8Fw4q24RD9kMBowquTwkMBxW6XTfBWpQvq
-         OmxV6Ax1JCtbpDfa0joHDMqy06Ea5oK28H/t/bGeCWMEb0u2/QTIeRhQ30YMqB/A5r8c
-         6bFSKpNcji67oyNXs/b283Zz9+fsKLBGZBwBCwnJ4FYyFTC4FoQ81VoYrBcM8QXOihRx
-         KG0d0JseJXfwuaJzRel/+UdcPshZ7o7l7LXRzkhHXhCRRN8fFpJ/aKCPFAoKymsgW4V5
-         T76A6/CtEMgmifLm2xWzBVjj/BnVifmTmfZY5dV6gjlRMQXiO1aUSIFEjIPaA9h0vh1t
-         Wxjg==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=C4i67hRovmY+DH5AVopxL783BXKYagcU/pMNG4w24eI=;
+        b=Oic3FKLQ5Nf6SD2QJTJaafv5P6pVVfEUVN/YweTPTBvPlb5ETLytqxuQST2il5zKnn
+         PahU10SIt1fv7/wyj9AEgHTvLLEudVRUk4slGPeW2Tz2zSP0f3WG0HXuGVuBD0Len5d7
+         NVMItNeZzEJZkA2d6ggZeORmaJqI8pYA1rXsO0DTo6EWD+a9XyhQieP91qvagCyuMogr
+         O5/xDQgHv84U7DUyPQT4l6vdgH5ol1LQB6AaXZK3ja1F/64IdIkLPLa8ovE5WDHJDrs6
+         RKfQcKfhyeWdvvUWCNtW/uDBNr4auybx6guQ/eY1ngnOrEtvNxu96FWQyn8XfeAKS0bY
+         Md6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=yk7GoPH0kyRbEuGlhtcteke7QYmXa2gsTAmM48PSfig=;
-        b=oIln9LUGiayP90hQNJTfYH1TPx99m0LVVJuUXklg/48qIpiifrnceZyURrteZoUfcj
-         /0Ucuhmvzfb3phZEgDyNSuVBR+BrCABM+lXS5AtfM/fEMT4JnxRt5bL5foZ7LyGCkfmJ
-         ZD5EvjHotnCWCwViw5zlsIwFizYCYtvLyOTSjohIe9xjsg/WsROHRwg7Cd57Nf2X4Fdc
-         hZQbB9aySAX+Lz53E9TV+Ad8ccdh8VPUtRv/S0nmbHjCm9vtbMda9X/WNLinm5y+ogPz
-         jTgrgmeDKUKIEXCMOJzrEtvmLbshrl1zTO/5HN4w9ZEhk3WUyP/CQ5a+2/2qsddzc1OM
-         X2HA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=C4i67hRovmY+DH5AVopxL783BXKYagcU/pMNG4w24eI=;
+        b=S6EZvUf/wYbNF70xHUqniylbmRjwEZXvvpsq5fO/8Ye5Woc2vqG0iHyBlNkIJIL9wz
+         drKcevKJ9smIITGB6gNiIcVsgTzl/eExj7Ia1GD3PPilbJA5wQTJ0Bi3DzM11o2g99rp
+         sRlRDQ0AE/uU/PA8kHi0zzRy34klbiLuYosw0wNy3bQhbh7batOkkB/JqDIyZTYCg33r
+         3mE+o2vhgnBZrxl1ReZxLHqpx6UUa00DT2s7/+whzDphyEqKjERPBPBYB+IsyIMl14BS
+         iakdddZlkynopeTGDXKxOIl8NYGh+AK5x5jagcMFx02TuUeD1+aMms1QQKeqUVSPLUZ9
+         YUAw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532ruKd2pBOtCxLg2Iq0sADF6+i/c8xLC/u/Epu6HN8uq+Z5RJWZ
-	5L4Dnl2HRkWpCEQOyH+K89o=
-X-Google-Smtp-Source: ABdhPJz0SZscc24vozIc/foXzAFzsfXOOFsB1O7cHxXMu66yXN8dq06rPLIB+BXt5pU1gIGtRX9XQw==
-X-Received: by 2002:a25:5583:: with SMTP id j125mr4518372ybb.307.1612515084105;
-        Fri, 05 Feb 2021 00:51:24 -0800 (PST)
+X-Gm-Message-State: AOAM532uTKhfdBZwaWDMZ35+3csFjBcYvU8iRy1MMS5KzjJOvw5XMhJh
+	XdtAVNbB+lkr+W8zMvx/5xk=
+X-Google-Smtp-Source: ABdhPJzvUjL4tZXL8AFOxGDmC6Wsl5NmflWbMXCrWwV94BgCQIkLmiDOVQoUrKu+IdPGHeSKW2tEBw==
+X-Received: by 2002:a37:5b06:: with SMTP id p6mr3603130qkb.382.1612517771350;
+        Fri, 05 Feb 2021 01:36:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:1244:: with SMTP id 65ls3958021ybs.11.gmail; Fri, 05 Feb
- 2021 00:51:23 -0800 (PST)
-X-Received: by 2002:a25:a89:: with SMTP id 131mr4713979ybk.429.1612515083778;
-        Fri, 05 Feb 2021 00:51:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612515083; cv=none;
+Received: by 2002:ad4:404f:: with SMTP id r15ls2041141qvp.6.gmail; Fri, 05 Feb
+ 2021 01:36:11 -0800 (PST)
+X-Received: by 2002:a05:6214:1703:: with SMTP id db3mr3257856qvb.43.1612517771009;
+        Fri, 05 Feb 2021 01:36:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612517771; cv=none;
         d=google.com; s=arc-20160816;
-        b=YhqB0isxj0amMNBgDUHKLKjZZfxWH7dJtk/k4QeyuMxwgvirGOsc2CeoOcpDllqxHV
-         zUx9L6fP7WIkqEPa+p1fsPzyB9/aQTKkNRblu9d1xoMExtmAFh56apibUgnTp8j8G425
-         LEsx7FCs0GDO1S20m0Oqmv0AC3c5u/xZWWKK727ipu/6jN6cKXu/Fn3jhfwQK3+0mTT3
-         cbuE6ueJaGhPcFkhW/HNUE/BkmLJsEwNBa0Ch5YFn2pNn9uVn2hS4yGLlZMKFiSUyS52
-         SIgecjnuA4z8K7HjnisOr5FjvCoVda21H45fUrxfYWTepebVNcDare99Z5Pi/GJuklpl
-         fWFg==
+        b=wRBqMPOyiiVCfa6IKHJlR3Of96/NYgniYntk0SCw/QMNUpP4qpNfR86tif14S+6LYJ
+         i5zeljkJfPIdqnhaMi35FGbYQQR2OT54EYTyiUoCX5Rxdq81eU0g99j8qxMdKl8JjaQQ
+         82A/w1LxV/UZCD+G5lm6Dl6qQ1U39qY2OwFKFMoc0R6G6ihFp5pPn8P7kQHw0TQ6RfIU
+         3OiS+Bi7aj0V2xDWSmK0ZY0jU9XF7sPwpjHZEdVBr9b0rermLqlBblJaFA6cV5Va4Hon
+         D+i/9HPGHf5JTACTmw/8OaM9EGhEQ/Ol8AQSK5hFZVtabhbsZotRouW+lkuCTBUZxdrv
+         +3bA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=sSNL9ge6L+zIqfEG8vbxqO+cKe7RN4705BYDzdHjWZw=;
-        b=MN0fsViLHGMEBhDqk4fWELsWoZznhvDza39YgyCv2+FoMBy8Xcu5DrAdSKySuQa4lx
-         tZWtmSGEILvzeUfD2jscpQySDP/Ittq9OdmifV4GXXGh/uQGSZVF+nA4XUeghN9R/AZI
-         cBwWYc4BtrftpFs0Sojw8Qn0INtwS1PQdoa8JL4jZU/fM39V4HSp5YQVSBXxFRr0Nodr
-         pVJM5HuGFcaN/QmTOldDUZJfFp8Dr0+4FzsSaYBzg8b31YDE46t9DdWazPkWcntHHtpM
-         TA/oFL6sLnEAMmAC0xvpo0X256xgo6i8hQJbOQC4WaLiCBz4tNFjASCEyTCYw28cAx17
-         WNww==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=6O1inmGi+qH30KRMib3f/9BmJPTePEq10XLjeXSEn3U=;
+        b=WnzSHslaoO/5okrCdi7fcf2O/jresIByg1JFQkKFcyIxujrDY9MrsfubxYFuHZMWhv
+         k0vj98bGtEouAYNGiWbBlMUuMFMMIfP6/DGsMSyaLr2rxRKvYqVcXg8HjM7OWJhxeNmH
+         YVT3psTekT7Ni0O3sV70UNq6uUissU67UVamk6eWEVjjNmFexMgnNoC/Z8uLPVMA61AW
+         nVvjLjwfNaW0ay2+m90cHfA52YNjXXrkt+uqx0HDL2FhtcxDAENELrKrQWOF6IrbOcBR
+         dlA3gBPgwUi+ZhhQfVDQDGdB/3ZdAu3tdWsNRzeMLXxHfo+eGR2t0XHE+f84o2kkD0KT
+         Nfog==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="P/YyfDAf";
-       spf=pass (google.com: domain of srs0=tnco=hh=linuxfoundation.org=gregkh@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=tncO=HH=linuxfoundation.org=gregkh@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c10si525435ybf.1.2021.02.05.00.51.23
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 05 Feb 2021 00:51:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of srs0=tnco=hh=linuxfoundation.org=gregkh@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id CE9F264F45;
-	Fri,  5 Feb 2021 08:51:21 +0000 (UTC)
-Date: Fri, 5 Feb 2021 09:51:19 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Sasha Levin <sashal@kernel.org>, stable@vger.kernel.org,
-	Nick Desaulniers <ndesaulniers@google.com>,
+       spf=pass (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=Jianlin.Lv@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id f10si335516qko.5.2021.02.05.01.36.10
+        for <clang-built-linux@googlegroups.com>;
+        Fri, 05 Feb 2021 01:36:10 -0800 (PST)
+Received-SPF: pass (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C3C431B;
+	Fri,  5 Feb 2021 01:36:10 -0800 (PST)
+Received: from net-arm-thunderx2-02.shanghai.arm.com (net-arm-thunderx2-02.shanghai.arm.com [10.169.208.220])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EBECC3F73B;
+	Fri,  5 Feb 2021 01:36:04 -0800 (PST)
+From: Jianlin Lv <Jianlin.Lv@arm.com>
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@redhat.com,
+	namhyung@kernel.org,
+	natechancellor@gmail.com,
+	ndesaulniers@google.com,
+	mhiramat@kernel.org,
+	fche@redhat.com,
+	irogers@google.com,
+	sumanthk@linux.ibm.com,
+	adrian.hunter@intel.com
+Cc: Jianlin.Lv@arm.com,
+	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: Re: Apply 28187dc8ebd938d574edfc6d9e0f9c51c21ff3f4 to linux-5.10.y
-Message-ID: <YB0HB+tcBT30QdLM@kroah.com>
-References: <20210205041351.GA2494386@localhost>
+Subject: [PATCH] perf probe: fix kretprobe issue caused by GCC bug
+Date: Fri,  5 Feb 2021 17:35:58 +0800
+Message-Id: <20210205093558.3057814-1-Jianlin.Lv@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
+X-Original-Sender: jianlin.lv@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jianlin.lv@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=Jianlin.Lv@arm.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=arm.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210205041351.GA2494386@localhost>
-X-Original-Sender: gregkh@linuxfoundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b="P/YyfDAf";
-       spf=pass (google.com: domain of srs0=tnco=hh=linuxfoundation.org=gregkh@kernel.org
- designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=tncO=HH=linuxfoundation.org=gregkh@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,20 +138,191 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 04, 2021 at 09:13:51PM -0700, Nathan Chancellor wrote:
-> Hi Greg and Sasha,
-> 
-> Please apply commit 28187dc8ebd9 ("ARM: 9025/1: Kconfig: CPU_BIG_ENDIAN
-> depends on !LD_IS_LLD") to linux-5.10.y, as it fixes a series of errors
-> that are seen with ARCH=arm LLVM=1 all{mod,yes}config. CONFIG_LD_IS_LLD
-> was introduced in 5.8 so it currently does not need to go back farther
-> than 5.10.
+Perf failed to add kretprobe event with debuginfo of vmlinux which is
+compiled by gcc with -fpatchable-function-entry option enabled.
+The same issue with kernel module.
 
-Now applied, thanks.
+Issue:
 
-greg k-h
+  # perf probe  -v 'kernel_clone%return $retval'
+  ......
+  Writing event: r:probe/kernel_clone__return _text+599624 $retval
+  Failed to write event: Invalid argument
+    Error: Failed to add events. Reason: Invalid argument (Code: -22)
+
+  # cat /sys/kernel/debug/tracing/error_log
+  [156.75] trace_kprobe: error: Retprobe address must be an function entry
+  Command: r:probe/kernel_clone__return _text+599624 $retval
+                                        ^
+
+  # llvm-dwarfdump  vmlinux |grep  -A 10  -w 0x00df2c2b
+  0x00df2c2b:   DW_TAG_subprogram
+                DW_AT_external  (true)
+                DW_AT_name      ("kernel_clone")
+                DW_AT_decl_file ("/home/code/linux-next/kernel/fork.c")
+                DW_AT_decl_line (2423)
+                DW_AT_decl_column       (0x07)
+                DW_AT_prototyped        (true)
+                DW_AT_type      (0x00dcd492 "pid_t")
+                DW_AT_low_pc    (0xffff800010092648)
+                DW_AT_high_pc   (0xffff800010092b9c)
+                DW_AT_frame_base        (DW_OP_call_frame_cfa)
+
+  # cat /proc/kallsyms |grep kernel_clone
+  ffff800010092640 T kernel_clone
+  # readelf -s vmlinux |grep -i kernel_clone
+  183173: ffff800010092640  1372 FUNC    GLOBAL DEFAULT    2 kernel_clone
+
+  # objdump -d vmlinux |grep -A 10  -w \<kernel_clone\>:
+  ffff800010092640 <kernel_clone>:
+  ffff800010092640:       d503201f        nop
+  ffff800010092644:       d503201f        nop
+  ffff800010092648:       d503233f        paciasp
+  ffff80001009264c:       a9b87bfd        stp     x29, x30, [sp, #-128]!
+  ffff800010092650:       910003fd        mov     x29, sp
+  ffff800010092654:       a90153f3        stp     x19, x20, [sp, #16]
+
+The entry address of kernel_clone converted by debuginfo is _text+599624
+(0x92648), which is consistent with the value of DW_AT_low_pc attribute.
+But the symbolic address of kernel_clone from /proc/kallsyms is
+ffff800010092640.
+
+This issue is found on arm64, -fpatchable-function-entry=2 is enabled when
+CONFIG_DYNAMIC_FTRACE_WITH_REGS=y;
+Just as objdump displayed the assembler contents of kernel_clone,
+GCC generate 2 NOPs  at the beginning of each function.
+
+kprobe_on_func_entry detects that (_text+599624) is not the entry address
+of the function, which leads to the failure of adding kretprobe event.
+
+---
+kprobe_on_func_entry
+->_kprobe_addr
+->kallsyms_lookup_size_offset
+->arch_kprobe_on_func_entry		// FALSE
+---
+
+The cause of the issue is that the first instruction in the compile unit
+indicated by DW_AT_low_pc does not include NOPs.
+This issue exists in all gcc versions that support
+-fpatchable-function-entry option.
+
+I have reported it to the GCC community:
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98776
+
+Currently arm64 and PA-RISC may enable fpatchable-function-entry option.
+The kernel compiled with clang does not have this issue.
+
+FIX:
+
+The result of my investigation is that this GCC issue will only cause the
+registration failure of the kretprobe event;
+Other functions of perf probe will not be affected, such as line probe,
+local variable probe, uprobe, etc.
+
+A workaround solution is to traverse all the compilation units in
+debuginfo for the retprobe event and check whether the DW_AT_producer
+attribute valaue of each CUs contains substrings: "GNU" and
+"-fpatchable-function-entry". If these two substrings are included,
+then debuginfo will not be used to convert perf_probe_event.
+Instead, map will be used to query the probe function address.
+
+-grecord-gcc-switches causes the command-line options used to invoke the
+compiler to be appended to the DW_AT_producer attribute in DWARF debugging
+information.It is enabled by default.
+
+A potential defect is that if -gno-record-gcc-switches option is enabled,
+the command-line options will not be recorded in debuginfo. This workaround
+solution will fail.
+Assume that this situation may not happen for kernel compilation.
+
+Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
+---
+ tools/perf/util/probe-event.c | 60 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
+
+diff --git a/tools/perf/util/probe-event.c b/tools/perf/util/probe-event.c
+index 8eae2afff71a..c0c1bcc59250 100644
+--- a/tools/perf/util/probe-event.c
++++ b/tools/perf/util/probe-event.c
+@@ -885,6 +885,60 @@ static int post_process_probe_trace_events(struct perf_probe_event *pev,
+ 	return ret;
+ }
+ 
++/*
++ * Perf failed to add kretprobe event with debuginfo of vmlinux which is
++ * compiled by gcc with -fpatchable-function-entry option enabled.
++ * The same issue with kernel module. Refer to gcc issue: #98776
++ * This issue only cause the registration failure of kretprobe event,
++ * and it doesn't affect other perf probe functions.
++ * This workaround solution use map to query the probe function address
++ * for retprobe event.
++ * A potential defect is that if -gno-record-gcc-switches option is enabled,
++ * the command-line options will not be recorded in debuginfo. This workaround
++ * solution will fail.
++ */
++static bool retprobe_gcc_fpatchable_issue_workaround(struct debuginfo *dbg,
++		struct perf_probe_event *pev)
++{
++	Dwarf_Off off = 0, noff = 0;
++	size_t cuhl;
++	Dwarf_Die cu_die;
++	const char *producer = NULL;
++	Dwarf_Attribute attr;
++
++	if (!pev->point.retprobe)
++		return false;
++
++	/* Loop on CUs (Compilation Unit) */
++	while (!dwarf_nextcu(dbg->dbg, off, &noff, &cuhl, NULL, NULL, NULL)) {
++		/* Get the DIE(Debugging Information Entry) of this CU */
++		if (dwarf_offdie(dbg->dbg, off + cuhl, &cu_die) == NULL) {
++			off = noff;
++			continue;
++		}
++
++		/* Get information about the compiler that produced CUs */
++		if (dwarf_hasattr(&cu_die, DW_AT_producer)
++			&& dwarf_attr(&cu_die, DW_AT_producer, &attr)) {
++			producer = dwarf_formstring(&attr);
++			if (producer == NULL) {
++				off = noff;
++				continue;
++			}
++			/* Check that CU is compiled by GCC with
++			 * fpatchable-function-entry option enabled
++			 */
++			if (strstr(producer, "GNU") &&
++				strstr(producer, "-fpatchable-function-entry")) {
++				pr_debug("Workaround for gcc issue, find probe function addresses from map.\n");
++				return true;
++			}
++		}
++		off = noff;
++	}
++	return false;
++}
++
+ /* Try to find perf_probe_event with debuginfo */
+ static int try_to_find_probe_trace_events(struct perf_probe_event *pev,
+ 					  struct probe_trace_event **tevs)
+@@ -902,6 +956,12 @@ static int try_to_find_probe_trace_events(struct perf_probe_event *pev,
+ 		return 0;
+ 	}
+ 
++	/* workaround for gcc #98776 issue */
++	if (retprobe_gcc_fpatchable_issue_workaround(dinfo, pev) && !need_dwarf) {
++		debuginfo__delete(dinfo);
++		return 0;
++	}
++
+ 	pr_debug("Try to find probe point from debuginfo.\n");
+ 	/* Searching trace events corresponding to a probe event */
+ 	ntevs = debuginfo__find_trace_events(dinfo, pev, tevs);
+-- 
+2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YB0HB%2BtcBT30QdLM%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210205093558.3057814-1-Jianlin.Lv%40arm.com.
