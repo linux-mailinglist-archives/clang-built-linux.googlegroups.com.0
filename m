@@ -1,125 +1,142 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBSFJ62AAMGQEXTNC7QA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBW5J62AAMGQENEEZHOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 18D3F31106A
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 19:56:09 +0100 (CET)
-Received: by mail-wr1-x43b.google.com with SMTP id n18sf5883362wrm.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 10:56:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612551368; cv=pass;
+Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B6972311071
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 19:56:28 +0100 (CET)
+Received: by mail-vk1-xa3d.google.com with SMTP id m20sf1837532vkk.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 10:56:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612551387; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ErbeEmPI5Vy09qgU7eOcJ9Sw12O5ieNbH9xdmOdsMyc8B+WEl4dhSLFs4yCWftvLYw
-         Tv2Slh7sP1xgubBikRYig3TJry7PePhka7/JRE+bgknVoan7gzuX9pXOc8MYb7Ns9fZe
-         zM5TxzZPyo7bDl7ksTn163+0cRZY+Rl5zenGnRVMddS2VtQpf6RbkN2S74r1GfjKKr9l
-         Hr+fcep6HuuljlX24ZzSTBiNiGyJ72OLF8IN7lxKJ0//KX00kBAo/SekFhiWMwfyatOk
-         vNvMAgIanKL9J5sZaZ6Mat+Un3Fq2EeI2TmeHF4aA/Tm4wyX4spLts/8iz9WscUjULD4
-         QytA==
+        b=evbSvDlv7oyTyR7UcwGZUbgbvtl5iq9p5wFnzaytDJM236RkgclEKcC8pGRHR9gej3
+         MqC9lSfPYLydyElw27lbN4Eb+i8aVGN7TJG4QRvjvHT6vXuWM0MAGZATU6TBL/npJ7+J
+         eSPeca7ZSzXyfLA8HG+WY7yaCNHHda2yaHRmGuw6LsPI3E/02k15r1xNZzSbrx/aNo8u
+         xt7X3teIelcsj5JRomNoKI5Ku2Jjdl2tYx84zvk337Two0bymHloIwpp0FpzBtvg0c4+
+         RnaKMwlpuOH56qcDmCooMGUHZxcLXt119D7+lSgn2X0DEQSyFBt1mqb3ju1T71XhTRmD
+         AdWQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=fe3ydTDCQxqen86ZT2fAkfYxKLv4TSam2e1AIYFTr2U=;
-        b=ueoZfJFWoVd6HWP5f41cXEgJIYUg21v0HNHzZ0xqgYKwNy7SCIU4IcYXpqAdwjfCm0
-         HXPC+DhkzqH3rJu3JoGxLwc9YanWPAIAfVSP2gvRtvoVq86i8h45Y00jjbdy9YK3Va7p
-         7Vmpx47gmgbeYtQWVsZwtSJiNwQRF+cC0YvUQh6k94+yAV0GGdzdv0NGm1lEe/a84Fiw
-         d0sUn3KiwEfbw5X1zjh5eH/0+boWuRDUQbyWEkt/pxYfisfSEP+YwfInuCvPF25TiyKy
-         S+sIezYARh9jp4FKS37tTaGuQ8a0+1LDqrAm1FyOCGMWlK25L5f6MnGMuzQYz2+08m9V
-         lvlA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=+Inlb1Shq1Lhy2GYojTQazjFzOaW1NUIfncu5Foiofk=;
+        b=hklmcIyV4VxDRrzig3jOeWCUaMz3/1Kbppuxh+N+qUhYvW6Zfg4X3O06Ztubd4IDUp
+         WTw7ePvO70dMkpMmEeg2pE6Xq//hFnYGRBLxWhYoYTzsw/RAYZHrVIEMkzkD44WPTsZN
+         nAUOY3l9x+vgVetg0AtH23xUqdtJfKQlnl+bEz96cL3NcN+EUAuTCEnOtWMU012yvwKU
+         ikBhOir+F3R2kihgsKzh9pE5dJusXFMJkiezn0pXHaH8md26lWG36xcO/kOnTlZtW9CD
+         OViVNf59AkE5CXwqKcI+xiZglwNMe39sggDjMlk3Mx8suzr9piGQjcCsYvicgZkVEIxH
+         T8ig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=nSPKDptT;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=f2VckE1Z;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fe3ydTDCQxqen86ZT2fAkfYxKLv4TSam2e1AIYFTr2U=;
-        b=gGNx8JUcSZKMJqnrrR34Rst/dKIy7E1DIJBfw3hZ29o8NHWOLur7gZyWk8z3MQXMU0
-         J6YDOex8ykS+ims8OdyAW//OI40qzOTjxHAmzSs9lsTmuRBFvy3Xjh1wHsoN+Dg4OcAw
-         iSl5F7jea8xTYRM5ZvOXbSC0cW6sSlbN8V8V/uEcswB7iu8RLOgPkQbxJZ+IdFEK1hxP
-         s1lWmIkcYnTaucqGdS4xtW9aklm5u8W+aKPUWw90lIfdCx/Wh1ToYBZ+TxswT45L3Lyq
-         qZhKHi9ebLNHigFvCqB4IS75uBmSl0katKIHUocvZJGsm+lYCxxGPPVeIZqfXKaBwPfr
-         c/uQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+Inlb1Shq1Lhy2GYojTQazjFzOaW1NUIfncu5Foiofk=;
+        b=L5Ltc9/7HiUxZ+mZmdfP0wAlZfv46zHUVxrrpG6p/A4xDMEEz+kjKlAwv2xEpWEuuc
+         cR0jLx3XSlJr4FsU6Jc9hxy/2krlYVncK1n1W+btSsv9Jwqr9Sb9SwcEpRc0DTfOD3vW
+         cR7c+mgELG/HkurwisqofqxFvyGc3WUrf78DaM6siXLT3SAPnFDTL5XM7DzUvtX/b2di
+         MvRiiXuwcN2bc9I00u8v6EIixlDeFHN0DfHOp18SJx0sCdyWrreDUaazVm7s+I++Qezn
+         Jodn8Fkf2W09FYNEtSxygRzWqyHRpNhcD1rzIxU4E6y5sIXjwNUM36aWISogm/AdBzPW
+         1o/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fe3ydTDCQxqen86ZT2fAkfYxKLv4TSam2e1AIYFTr2U=;
-        b=nSd3vpw5T0UqPsdIdiGMJKAFZBDbM8NeAAHcBNvjuKW+hQ3f3FsLIMYuhq0s0GC+DT
-         SVWCdy1u7L4QWodD5g5y56NS4bQY+ka0IEEwrgX+JSzJvHlkcuds2QcInZqG6sgDLyuj
-         MjphyOm0VTN/0umCkvn9eIHTC3VelYZFc4QYJrPFHf8gwtki1J+bN0DodvmI+ma4+Uuw
-         88MmHpOyPYXdS6JjXqk/xmqD+a5gZvHZY0Thx915IAIxgM13faR122nsSHdVXxjDEAoC
-         r6txpWUPuWURb7Vfp2ML+8uLtCRnLiSHLK2DA5d06Ye4p0ezoKVrHQVZp5i/ms5ZBecJ
-         Tg9A==
-X-Gm-Message-State: AOAM533X/6WhnqW4XcRdwPrJb3RnT4qtFUEo7OIrHGgy3l5oKZZFtNWk
-	Eo3fgK5pkW2Ue6/8lmdjR4M=
-X-Google-Smtp-Source: ABdhPJwXxpR7vvGw2mcdodn+ZvQyhLJ2obFFrhKDHu1zJ1Tut4f4NCLC2t0CShd3aPEhdMyv6FEhMg==
-X-Received: by 2002:a5d:6b47:: with SMTP id x7mr6746380wrw.170.1612551368893;
-        Fri, 05 Feb 2021 10:56:08 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=+Inlb1Shq1Lhy2GYojTQazjFzOaW1NUIfncu5Foiofk=;
+        b=KLfUGRwcIpRuUQ2J7SUr/ros3BJ0al0ckZ1UdANS1f91os6BfWhPQEtdMXFhk7vqHJ
+         HNeReSYyvFpNTT0Nxf4wfO51BmQKn6fdljtaXhQDmyfXNiFrzPrnGGz2CI7d4t1IOfUD
+         ijt4+tfXKO76Z25w9FnFfU+u5QYmtt2U/NJfsptDUWVnBUvyHY8UmO2yqLLb3h8oNfPN
+         DV8DXkPjKl0XrbfjNc1eZXkxG6tb/2fmxDP/QFB6DdYxRIXSbYRbySyDG4iUC8afFTkk
+         c2BzJIw/ap8d1dE9d7vzqr1EgDAHd+a8oH3xxQ6BOlCZuD7LCe6OyTCFBHCrRVxJkNmE
+         NpMQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530IzZ78q0w++j1qIVpq6yO2qoEjOJW7LkUF6wE+k3s+FvsEpCFT
+	ehVd0m/LOkz4qk8JYP3SUBU=
+X-Google-Smtp-Source: ABdhPJy+iThvc9KQ/8s3nWHmssQ0LdMEX9Xqh321uFcv4/XiG69L7brrgKQKN5uXtYFaTl4KZ73Clw==
+X-Received: by 2002:a05:6102:21cd:: with SMTP id r13mr4260364vsg.5.1612551387791;
+        Fri, 05 Feb 2021 10:56:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:fd09:: with SMTP id e9ls1494299wrr.0.gmail; Fri, 05 Feb
- 2021 10:56:08 -0800 (PST)
-X-Received: by 2002:a5d:4d8b:: with SMTP id b11mr6550375wru.215.1612551368130;
-        Fri, 05 Feb 2021 10:56:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612551368; cv=none;
+Received: by 2002:a67:f515:: with SMTP id u21ls1314441vsn.2.gmail; Fri, 05 Feb
+ 2021 10:56:27 -0800 (PST)
+X-Received: by 2002:a67:d786:: with SMTP id q6mr4124534vsj.1.1612551387310;
+        Fri, 05 Feb 2021 10:56:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612551387; cv=none;
         d=google.com; s=arc-20160816;
-        b=CSAV1craUL6OnDOknkAv86ZKeP+4+de+YhNDu81uk/MPElHvbfXnTPPRqHKcZAhybL
-         /9Xw84BdCDbhzB/TS5R8pECMTMujtQxzXFyWY3TDXMyvR/TluZ/7+R68h7LmeW+hihlR
-         M0S/+tjMNyivP8HkCFarNK4YENL5ASylXC7bipkRLqJ2od8X2gY2g0bFZQwHe/VVsXgv
-         oxKLBLKQ+YVQ/gs4OoAlsiR+7IMN06GeRy8Rq5O96UCNaffTUVdRvR+SPCJ6U8ZQ/bSM
-         6QmzmzZFKDHYk94eQpcl7o9BKSgunT92X+R9f0JTfQ/3HU8D/U+/a9Blncqpjr4X3gWE
-         1fYA==
+        b=skbL9QqKerAUuK94R0HtTloR2lJjIdHPBAVH9oY/7B9EAwSAQF2ReVxOgHJAUoX50h
+         q5Gmv4ltLVS/Ic/fwsd1ps2YEvuE4kNojfq02WiSzVkteWGAqG+INe9dPs0fVDqv2Dlz
+         rlFfxtBupWVrlmI/yYf52DXzSmiJRjp5pYf3LXqkcv1zVjKz08Yv1VQllVjbkGX0L6Nd
+         lHH/SfvrXJgKcuWlq5iDQOxhXUlyv/SLOZ1mz4Vhfw7ZfIonhUTaYm2iBQQxMpD+vQFQ
+         A4pbF27c+W/7nEAdaAzEFJPEk2fLXt5JcpDll6PKeAAs8QGuuun7Yj+qtAdMuwDS58Ce
+         mqYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=dXbF3gESexP5jf547OTG2kLlzkt9MNfOpNyUGdGQX1s=;
-        b=ryNv0apThwk+oL/0X5qWsll9l3PM8YEq/XsBd0AAVVq3Eq0i3VtEwXjDEWIFcQV69I
-         I0U7ykaMW7iZ3OgMbiXw5ZmoL2mxaB0Aae/f8XmvbfTuqRKaQUYNQl0iXt6DegwLlZYG
-         xuztaAh1tZ2pUGOLJQ0gS4Vg5lbi1j6nXp/iYMt2IaeHIGpu9hKyfTE/aws8jGq/FciP
-         tFlSXy1nMqAOO2W9XvuFSmrb5pvip7TusDCp4grPiCCgoKINRfRxtNhjNl1LEF+pPxOD
-         OhIux1ZvA5JlR5eISlkdK4zZ9X5+M8/dbmdN+AaEGOfvOIFY/0j02aciCXPgbpKUZSg2
-         Cw4w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=OaBe2Y5K6+ZrnaBdt0JGSH1TmRHDR6qgnD7WB5F65hc=;
+        b=l3MFTU6L80sSnxnTKd56mSNi1s0P/cfsc5M4e42cD0rTam8AOvTKzELtuZeqZv46Ix
+         CFt+2pT8VzGFMzMKNVS8+zr8G3IA6gC++wChI4rtHTJkg+6KoTrkWmRJX0xGacM3j029
+         Dg6efF8vywHa07CFOGfGqD8SkhxEcxp7Xu80eODR3gzO/gHLPkXIeXyuAcuiBzIgb0ch
+         TBwdMRPbd3a0Nrb2LK6waC2uMgqbqE5aZxMWE1EdBaxvcLjDpmSwLXFBtGAsnMfm41H3
+         NIbg5PD1yWoGdoPM4mxwBv5Op/z5xpQro6bxyJb8I6HpetYve4yVkXuZEqEkE7s6yo0b
+         fLTA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=nSPKDptT;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x134.google.com (mail-lf1-x134.google.com. [2a00:1450:4864:20::134])
-        by gmr-mx.google.com with ESMTPS id s74si393630wme.0.2021.02.05.10.56.08
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=f2VckE1Z;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id y127si419366vsc.0.2021.02.05.10.56.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Feb 2021 10:56:08 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) client-ip=2a00:1450:4864:20::134;
-Received: by mail-lf1-x134.google.com with SMTP id i187so11351893lfd.4
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 10:56:08 -0800 (PST)
-X-Received: by 2002:ac2:5622:: with SMTP id b2mr3201385lff.297.1612551367653;
- Fri, 05 Feb 2021 10:56:07 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 05 Feb 2021 10:56:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7C40E64DDD;
+	Fri,  5 Feb 2021 18:56:24 +0000 (UTC)
+Date: Fri, 5 Feb 2021 11:56:22 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, X86 ML <x86@kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
+	Andy Shevchenko <andy@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	platform-driver-x86@vger.kernel.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Subject: Re: [PATCH] x86/efi: Remove EFI PGD build time checks
+Message-ID: <20210205185622.GA461042@localhost>
+References: <20210118202409.GG30090@zn.tnic>
+ <YAYAvBARSRSg8z8G@rani.riverdale.lan>
+ <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
+ <20210203185148.GA1711888@localhost>
+ <CAMj1kXFPOvkcw573wzKzMQOgT-nddFcAZo9M4Lk+idn_1UBbnA@mail.gmail.com>
+ <20210204105155.GA32255@zn.tnic>
+ <YBxqnosGDroAnpio@rani.riverdale.lan>
+ <20210204221318.GI32255@zn.tnic>
+ <YByMdh/qDEwreq6S@rani.riverdale.lan>
+ <20210205113930.GD17488@zn.tnic>
 MIME-Version: 1.0
-References: <20210205085220.31232-1-ardb@kernel.org> <CAKwvOdkg75CRM0QNeO4ojM=OndFgJ+j7fO3Yt=jE4k0eTfYmRQ@mail.gmail.com>
- <CAMj1kXHKOEJokzHH_Bf0bq-ATmJ4u-yZUN_tAYJvTX4c_trMXw@mail.gmail.com>
-In-Reply-To: <CAMj1kXHKOEJokzHH_Bf0bq-ATmJ4u-yZUN_tAYJvTX4c_trMXw@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 5 Feb 2021 10:55:55 -0800
-Message-ID: <CAKwvOdnB6y=juVMtVfTqrRiCu-Nmj90=8EQEkddmqOwq6kaAhw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: decompressor: fix BSS size calculation for LLVM ld.lld
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Russell King <linux@armlinux.org.uk>, Nathan Chancellor <nathan@kernel.org>, 
-	Guillaume Tucker <guillaume.tucker@collabora.com>, Fangrui Song <maskray@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20210205113930.GD17488@zn.tnic>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=nSPKDptT;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=f2VckE1Z;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,81 +149,95 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 5, 2021 at 10:11 AM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Fri, 5 Feb 2021 at 19:00, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> >
-> > On Fri, Feb 5, 2021 at 12:52 AM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > >
-> > > The LLVM ld.lld linker uses a different symbol type for __bss_start,
-> > > resulting in the calculation of KBSS_SZ to be thrown off. Up until now,
-> > > this has gone unnoticed as it only affects the appended DTB case, but
-> > > pending changes for ARM in the way the decompressed kernel is cleaned
-> > > from the caches has uncovered this problem.
-> > >
-> > > On a ld.lld build:
-> > >
-> > >   $ nm vmlinux |grep bss_
-> > >   c1c22034 D __bss_start
-> > >   c1c86e98 B __bss_stop
-> > >
-> > + Fangrui,
-> > Fangrui, __bss_start looks like it's linker script defined by the
-> > BSS_SECTION macro from include/asm-generic/vmlinux.lds.h:1160 being
-> > used in arch/arm/kernel/vmlinux.lds.S:149.  Should these symbols be
-> > placed in .bss? Might save a few bytes in the image, unless there's an
-> > initial value that's encoded with them?
-> >
->
-> Not sure what you are asking here. These symbols just delineate .bss,
-> they don't take up any space themselves.
->
-> What seems to be happening is that the placement of __bss_start
-> outside of the .sbss/.bss section declarations causes it to be
-> annotated as residing in .data.
+On Fri, Feb 05, 2021 at 12:39:30PM +0100, Borislav Petkov wrote:
+> From: Borislav Petkov <bp@suse.de>
+> 
+> With CONFIG_X86_5LEVEL, CONFIG_UBSAN and CONFIG_UBSAN_UNSIGNED_OVERFLOW
+> enabled, clang fails the build with
+> 
+>   x86_64-linux-ld: arch/x86/platform/efi/efi_64.o: in function `efi_sync_low_kernel_mappings':
+>   efi_64.c:(.text+0x22c): undefined reference to `__compiletime_assert_354'
+> 
+> which happens due to -fsanitize=unsigned-integer-overflow being enabled:
+> 
+>   -fsanitize=unsigned-integer-overflow: Unsigned integer overflow, where
+>   the result of an unsigned integer computation cannot be represented
+>   in its type. Unlike signed integer overflow, this is not undefined
+>   behavior, but it is often unintentional. This sanitizer does not check
+>   for lossy implicit conversions performed before such a computation
+>   (see -fsanitize=implicit-conversion).
+> 
+> and that fires when the (intentional) EFI_VA_START/END defines overflow
+> an unsigned long, leading to the assertion expressions not getting
+> optimized away (on GCC they do)...
+> 
+> However, those checks are superfluous: the runtime services mapping
+> code already makes sure the ranges don't overshoot EFI_VA_END as the
+> EFI mapping range is hardcoded. On each runtime services call, it is
+> switched to the EFI-specific PGD and even if mappings manage to escape
+> that last PGD, this won't remain unnoticed for long.
+> 
+> So rip them out.
+> 
+> See https://github.com/ClangBuiltLinux/linux/issues/256 for more info.
+> 
+> Reported-by: Arnd Bergmann <arnd@arndb.de>
+> Link: http://lkml.kernel.org/r/20210107223424.4135538-1-arnd@kernel.org
+> Signed-off-by: Borislav Petkov <bp@suse.de>
 
-Perhaps a misunderstanding on my part on how symbols are represented
-in ELF, but my understanding is:
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Tested-by: Nathan Chancellor <nathan@kernel.org>
 
-$ cat foo.c
-int foo;
-int bar = 0;
-int baz = 42;
-$ cc -c foo.c
-$ nm foo.o
-0000000000000004 B bar
-0000000000000000 D baz
-0000000000000000 B foo
-$ ls -l foo.o
--rw-r----- 1 ndesaulniers primarygroup 1016 Feb  5 10:47 foo.o
-
-$ cat bar.c
-int foo;
-int bar = 0;
-int baz = 0; // changed from foo.c
-$ cc -c bar.o
-$ nm bar.o
-0000000000000004 B bar
-0000000000000008 B baz
-0000000000000000 B foo
-$ ls -l bar.o
--rw-r----- 1 ndesaulniers primarygroup 1008 Feb  5 10:48 bar.o
-# ^ smaller object file
-
-That if a symbol's value was an address within .bss, then there was no
-additional space reserved in an ELF object since the initial value for
-all such symbols in the section can memset to 0 by the loader.  But if
-a symbol's value was an address in .data, that initial value must
-occupy space in the object file.  Perhaps that's not the case though
-for linker defined symbols, since I'm not sure what data/initial value
-they would correspond to besides the Elf{32|64}_Sym's value in the
-symbol table?  (I should go reread the relevant section from Expert C
-Programming: Deep C Secrets, or finish reading Linkers and Loaders).
--- 
-Thanks,
-~Nick Desaulniers
+> ---
+>  arch/x86/platform/efi/efi_64.c | 19 -------------------
+>  1 file changed, 19 deletions(-)
+> 
+> diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
+> index e1e8d4e3a213..8efd003540ca 100644
+> --- a/arch/x86/platform/efi/efi_64.c
+> +++ b/arch/x86/platform/efi/efi_64.c
+> @@ -115,31 +115,12 @@ void efi_sync_low_kernel_mappings(void)
+>  	pud_t *pud_k, *pud_efi;
+>  	pgd_t *efi_pgd = efi_mm.pgd;
+>  
+> -	/*
+> -	 * We can share all PGD entries apart from the one entry that
+> -	 * covers the EFI runtime mapping space.
+> -	 *
+> -	 * Make sure the EFI runtime region mappings are guaranteed to
+> -	 * only span a single PGD entry and that the entry also maps
+> -	 * other important kernel regions.
+> -	 */
+> -	MAYBE_BUILD_BUG_ON(pgd_index(EFI_VA_END) != pgd_index(MODULES_END));
+> -	MAYBE_BUILD_BUG_ON((EFI_VA_START & PGDIR_MASK) !=
+> -			(EFI_VA_END & PGDIR_MASK));
+> -
+>  	pgd_efi = efi_pgd + pgd_index(PAGE_OFFSET);
+>  	pgd_k = pgd_offset_k(PAGE_OFFSET);
+>  
+>  	num_entries = pgd_index(EFI_VA_END) - pgd_index(PAGE_OFFSET);
+>  	memcpy(pgd_efi, pgd_k, sizeof(pgd_t) * num_entries);
+>  
+> -	/*
+> -	 * As with PGDs, we share all P4D entries apart from the one entry
+> -	 * that covers the EFI runtime mapping space.
+> -	 */
+> -	BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
+> -	BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
+> -
+>  	pgd_efi = efi_pgd + pgd_index(EFI_VA_END);
+>  	pgd_k = pgd_offset_k(EFI_VA_END);
+>  	p4d_efi = p4d_offset(pgd_efi, 0);
+> -- 
+> 2.29.2
+> 
+> -- 
+> Regards/Gruss,
+>     Boris.
+> 
+> https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnB6y%3DjuVMtVfTqrRiCu-Nmj90%3D8EQEkddmqOwq6kaAhw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210205185622.GA461042%40localhost.
