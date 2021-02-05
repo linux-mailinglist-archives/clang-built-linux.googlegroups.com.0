@@ -1,143 +1,132 @@
-Return-Path: <clang-built-linux+bncBCP4ZTXNRIFBBVN66SAAMGQEVXTPKEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBA6J6SAAMGQE3A7KOQQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6716C310932
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 11:35:02 +0100 (CET)
-Received: by mail-wm1-x339.google.com with SMTP id b62sf3585038wmc.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 02:35:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612521302; cv=pass;
+Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC62131099F
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 11:57:08 +0100 (CET)
+Received: by mail-qv1-xf37.google.com with SMTP id m1sf4635152qvp.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 02:57:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612522628; cv=pass;
         d=google.com; s=arc-20160816;
-        b=v1rsyj7wIv/ENjwYRIDr552pkk9C0WtS9zY33e0etOawlWrKUHAk2rNfXhmlot39yR
-         nAQ6Mqp+TqXOwH7bg5hEJN+7kso+mIM0sWfLMed6rRi4Qg/Xw21EKnPUUgsCDxVKgjXW
-         Lzu+elICOOxXtxVuXj5kH65wedUOzsI8Mwp5wH3d84kF2IN+JHkzziUhsEpQ68ZSyliD
-         B9Jw0QmYu4ZSHmldfj8D98lBYFL/TJ1yQTpm+6Nc/hFKT2T4JZt6N22d/1jNRdes5XpX
-         yxaQPOFx89z5e8V8L7W5A3uQz7wD43UNY+eyGQr8fppi3LZjApC7GQjzmBYz7hdIqT8m
-         Cirg==
+        b=ZUXOlikgt+eiEFsmUp8TR5x6y6T+DrnL1gmx3pT/mN0KD5G78qkVkksFNUN9o4vuvI
+         o+PefwZE5ESKnw2UF3RWeYZdPSBqfXZ3aet9lkILPzR6exzOtJN13EfocJ7j0RbOdXNT
+         EbKDumDdvxnhwcIqVMBXOVQIJxWm3+CUFcTVEMY2zcCc0KR66PHuc6lwUkpOHIc8L1kl
+         kwMRXfpXDFU2B3lVTGfADpfYnE7WHBkprO+NyswP+Yf3hvoSuUUuwE5b3k8qqqsAgFGw
+         lS7OzE0OkqOiu6J1qUvJQwkjODOStikqIhssWoSYjQNpsbnyHo5xLESc7nIJ/scTG5Nk
+         wlxg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=hXDFv+SJPsxH6D18aPqVOsL3KxMIR1/aS1E41QPf7Q4=;
-        b=e8dwv0BESn2A7513XodFjaq76fw9mBMNDhDslquPnkWvbCUG5ovvNZO9+HQM3iIFry
-         Pw/3Ar1HV5nx2FrmJdfZ6ht42Q9fjAv+JN05uITAemC8yegvGnt8WgkIp7CusL9ulZzJ
-         mi7GolwcJA26eQiMnsNDsZ19e/vnSbbzjo2EyCQrmc98OXQHwJdGSQGO8fCLgDlmJzJO
-         Kr8j85J37O0xoFQX9GbdEZom8AdgW2AJfP4OktzQoRqsrOP9cKPP+RKdAITRxFYW4edx
-         1MxNhbgQMJf3fSGuQzMIaUsgxj3WSZRUq7GnBGu3bly2lZl/WLggYenZ+xnHrGvv10Yx
-         A2sA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:mime-version:sender:dkim-signature:dkim-signature;
+        bh=kS1q9CecY56EAtk16wPHC95EetkUELewaJ/cvs4d+OQ=;
+        b=HEnfzdP0uIN61kN3C273pUt03KTI462x1PqMzBXizpwtGCyXd3UrNl8ZY87rbLw2Lk
+         Q/ptF94cuLGaCBDRInJBq4nosUXovEj0YMlcunMXV9LJObgauQdWhk1WWn2mK3NF2d/m
+         dA8GLdsjUGQdccueE8vPD78IwmBZlJ8Xdk8PjMBLNSHhPyITakYURfrZEEq8DAvEAxvl
+         wCGtcrWyOYGBTeeE3Zcw14jFsQ7hiIzf+K43dkTYN6O6enqstjpSL40eMCUbY2q/66mz
+         Is1tSFyAoDLIaM0p56lOcQDsBixMFscJMbqeDjg9+0nM1Tt8IB5DchaIkY0saPD3KlTR
+         UX9w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@alien8.de header.s=dkim header.b=WvoLruU+;
-       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qHGUpsN8;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::129 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=hXDFv+SJPsxH6D18aPqVOsL3KxMIR1/aS1E41QPf7Q4=;
-        b=FKHUb2xK8eiy4QkegGnRH3CKpevfckeOU295JXLkHTmXdQYijuQisl0OW4xT/1VhbX
-         8yvzm8UckWU/khEej2zK+kDeN+OAxM1dIO+3ftiPHTHgrROtnCMSI4p1mB5EH0Swa+WD
-         jIqCXWK5gnSd5WkN8bSGGta5mKvtJR9PjRJ4nGh7NJtiuIrpWxNmPgJETgRqAa9yINP9
-         xcMg03CYyFeHJUU77cBIc1eipI1QJnGGE2r+UadtViQtYPrlgcADCajFBmuQs25CqeBG
-         bPWaKKe8qgY8d2/VwmoIm6NRw4WMMmdRoHACbAgmLM6xZq2qdCvlo44kyHj65zCyVBAj
-         Mi1w==
+        h=sender:mime-version:reply-to:from:date:message-id:subject:to:cc
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kS1q9CecY56EAtk16wPHC95EetkUELewaJ/cvs4d+OQ=;
+        b=WMCP/PP5GtXiUnax0BsIR4zSvUK/LOthKZV+P0WIhgU3f/cmqhnVWkB1b6A+B8xH6s
+         H30jgi9vGtiRyJ4BDNh4mhgwobd3tSuh4FNNBnWUUtdx2hRMCVA2xWLBdJlUzPCyqgll
+         B5uN15ut8NtaBM0aknMjJsoYCkrpPmSOoCIx23ZmuG8pv5MC2X98llT1Xl6weih0A3/y
+         Ylkhb0HZy4/X3mUYobFdxNbqPHHgFmfvS1sWEkzzss/4z00UWzfzyrsWBFjYPT0Kjyiy
+         FveR9sNkL8FxUBvXj3NMtrH/y6ZtZ/0jXg1ERC4nxzb7LKAImQ08Q/4JTJcVEL+qcebQ
+         FM7A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to:cc
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kS1q9CecY56EAtk16wPHC95EetkUELewaJ/cvs4d+OQ=;
+        b=Av7DGLCIG6G0d/uFzy9h/mBwY1h4/5t+MnZxlxwcLgBURSJvRsharC4SeZwTMLswnV
+         0eWGGi2hIXErVaBcECBMIs0Urz2QCJwU5rMsmKCiSRKqK7br77a2rXWk0IBr7xf5JfEr
+         XZnAKgbZpjZyALDgKWVDSsylBZowkvwsOlkBjcUNGhYUwl/37cEzyhe7aOOdIkgraK/E
+         yRTzQhlQNAhZaC75yaO20QmwM5kmrXlBiHh5xVjE+mDjNLXqr0CXJoLkFuLmN46K73Eu
+         n6zNfgflgaiiAvEzeXFIXxj1EzLaAVfbrDiYf0xIwM3KhMUl5ZBbEpqDG9i4juuMx5u0
+         j5Pw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=hXDFv+SJPsxH6D18aPqVOsL3KxMIR1/aS1E41QPf7Q4=;
-        b=hXoZ5DyQieHjzgZUB+6nnVrBVVPFQ4NV2odbaVDpjvODMTHYhyoxenkJ9EW+QOBWVK
-         nbyn4usgLLXCbOQr3FGeMJIiiXbm2n/maAH1Id/dcMJfnN5vFmZ2+RYqdaZewm525emA
-         knjTEdm+xewu4LXvPaE3MNx61W8V5ac1xtNCL7qwAswD1fIVeC4WqpsZsf8KKHab55LO
-         ewmJv5J7rZnuLJPDmR+5WF5uA8ZqINoRuG7QB7VovfEPmm63Cwxu6GQvGLq52Ek+i/M0
-         kZ29d6p1Za5R3I7f2S/Tq+F8XTrYGc1UusA4kcGP6X6mYP5+Tbm/S5hA2VYYkDIXXuSa
-         DNqA==
+        h=sender:x-gm-message-state:mime-version:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kS1q9CecY56EAtk16wPHC95EetkUELewaJ/cvs4d+OQ=;
+        b=k4ZwVkwvF4h2ZVZRUIE+fjYEwySC/AR7D2psNzoK/0RuhUX6SmRl7vAk3A8FRTS0V+
+         frV+BLn4XEySqx/+fcEwMsidNO1pIHwXrXkAtqsgwUWRzOHaP8cjAtnBLWepS4PQP8cG
+         zpqcTgdFzxTRMXcwUZjYg37GY2KQeXpDAWGZWWxfG287bC9WjcXOGdX7cj/jud3g4p5y
+         PQ3TjGKV7MdxvAuSuzWABNh+4dXQl9t9Wiefcwn5f4Llzu+Ds91S9mgH0OIXS27NhQuD
+         MNiuIfrIqV1FebyvegppJeRRt7I5WKrLWyHKtZ8tSn4+bW+qiAIJxac2ZNZ9UzsH5ZDf
+         6BEw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533lhUOTrO9G2iIqHemAmh4pkHFGOpGlZch7P7X0vNbzCXuQgJXR
-	IOa2X12BdGGUgJRCKCiwI40=
-X-Google-Smtp-Source: ABdhPJw03lh+W69lkGuRiI90dXXj4bOH7g9gecMkL/EgjyH8O5Md+zhJ6BswoNJlBj8hMzVUGIY16A==
-X-Received: by 2002:a1c:9c84:: with SMTP id f126mr3092630wme.152.1612521302117;
-        Fri, 05 Feb 2021 02:35:02 -0800 (PST)
+X-Gm-Message-State: AOAM531dV919oAHaDJxULrCO0muchrS+T8K9R/Q1xh51sP5HiSNcjBU2
+	mZBtyVY3Y2dJbypekji7fGA=
+X-Google-Smtp-Source: ABdhPJwph9gmGgI0D/VcyNKzmD5wE1JihcvaAS6UnGI5gooTz4GxsWWLEhfcFY3sxmgUAwQ0iQFGzQ==
+X-Received: by 2002:aed:3a04:: with SMTP id n4mr1318769qte.22.1612522627867;
+        Fri, 05 Feb 2021 02:57:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:fd09:: with SMTP id e9ls3814102wrr.0.gmail; Fri, 05 Feb
- 2021 02:35:01 -0800 (PST)
-X-Received: by 2002:adf:fc86:: with SMTP id g6mr4259091wrr.20.1612521301304;
-        Fri, 05 Feb 2021 02:35:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612521301; cv=none;
+Received: by 2002:ac8:758a:: with SMTP id s10ls3317245qtq.2.gmail; Fri, 05 Feb
+ 2021 02:57:07 -0800 (PST)
+X-Received: by 2002:ac8:675a:: with SMTP id n26mr3588238qtp.383.1612522627477;
+        Fri, 05 Feb 2021 02:57:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612522627; cv=none;
         d=google.com; s=arc-20160816;
-        b=Yhs9p4U72TvalCPdp9lwkMAdofvnpen0JHesmKtrR9Kzy7pFndbnDbw+rRFwX3Bp+l
-         dQyf2iYVMpPmusIzIdF+QYKCxITm62As5WdzCaQvNp2jJ8qymUtOrvl5nYjeYrTIL24K
-         wvJa36ySA8ncyyB3muzswAG9YFr7xREF/QBwjqEerqxOvrA/HI7r5s1fUjkXXlnso6Ol
-         9YL27P6/1I084nOqc3cfR51xDaIuII4Oyqa0+Ur6vBnVYtZGxHsB2iNuB/nIgYraDBTG
-         2MreWh7zFmQXSuPZ9E+b62JriveVLQQpwGz7oh6B/lA9PoP2N5ukCGcMCsy1H/jzDZLR
-         pc5Q==
+        b=izUcEp4BuB+RIs85YVOaWFyvwaNKmVCzVVApkNVV/zM6ER479D2WgCNzTcRj3kW13m
+         ML0uE9wjtcyJIMF7OFpC/8ThXau2V5dGwkvLDOfsfqcTWArMm3UlyGe5is75g/bU/wVm
+         TZ7s1wvZ8G4V/iPQIyfyShdn3xmvVXpRUIATqibl4zcpKljR/wps3lGozAHsk2ua3wRy
+         32kvuPqvojmnDZ0/9X+UHP4cqOq1m5XrcLt0lTSaat3qMask0UDM1v8HVa1iyOQbSC4p
+         kj5SSahgVCAvyWlGKKAH+a8//pTTIGoroL8qbMIBuwE/XoKVv38uV+IcuVl6x3gl4h1L
+         Wz/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=mpQ2H03vRziBvKFdKZ6tUIGAARtxtvomCBNzTQhxNf4=;
-        b=vaH5TbUTy3YrCzBQ5ybejkk6r/IiDb40KWRHIuvLJSk/E6/tWyRX3gnvTxAEJPIRAT
-         PlOV381XymTUMLzYjUWPitT/1u/wvBPPQzmUfYSEb+WxlfnGVASKPMb5dViHx/at7/LH
-         FzXb0BWnfS4uJwRcZ5WmUGjLF5+tSuLtyGpslVOIbu7cj6m87ioKIC28CkQUWp09uhnG
-         9LfPbhJAdL7FS9FeSmXz5dN/cuCsh/eazM7rbZUrdJwnh/tZP10LWKT+epY24VJIKv5O
-         7CHBx8kGs/dLxQdB+tiwAQ/yTVi/l1Y0a3MEf+K0o9AvNmqNQXC0btLeEKLOrlmer4do
-         1UFg==
+        h=cc:to:subject:message-id:date:from:reply-to:mime-version
+         :dkim-signature;
+        bh=IV251W//AjH9o0T9QP5zg1g7QdWQe3QcIbrbw0AVt9M=;
+        b=k9fpjSZ/Ds3/4RQJhe7dI7IlBaWtE2lOk4xq9XWCU3AKoKlmxQDm74ZP0p1CQVakHB
+         bAe9zOohwewVKEJigj2/c06X6zBzQ/6UgqqtrCTIctrtAtJHUuRZIzSWF5hlt6LeRlRg
+         cPHRD+vVxLpGCX8r7+9jdHOG73oB91Wu8dDUjLToKG/tdVoGEaRcSS+tt/5RKDu3UdNX
+         U4wHhBQTSdJ6Q7V155Z6zQfc/zsKmOso7CsujhIVyRJL2hRYnBzMlG2BIMBnfRMIZKT3
+         9vcKInvTEeoUmK26YCfejOENrv8kTCMX7QZiQyG35ClTsE5wjcr6vOGm3gp1j1O3k+W2
+         lXow==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@alien8.de header.s=dkim header.b=WvoLruU+;
-       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
-Received: from mail.skyhub.de (mail.skyhub.de. [2a01:4f8:190:11c2::b:1457])
-        by gmr-mx.google.com with ESMTPS id t16si988979wmi.3.2021.02.05.02.35.01
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=qHGUpsN8;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::129 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-il1-x129.google.com (mail-il1-x129.google.com. [2607:f8b0:4864:20::129])
+        by gmr-mx.google.com with ESMTPS id e14si179417qtx.4.2021.02.05.02.57.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 05 Feb 2021 02:35:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) client-ip=2a01:4f8:190:11c2::b:1457;
-Received: from zn.tnic (p200300ec2f0bad000b74c3ca4e4ea61e.dip0.t-ipconnect.de [IPv6:2003:ec:2f0b:ad00:b74:c3ca:4e4e:a61e])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id B044D1EC04DF;
-	Fri,  5 Feb 2021 11:35:00 +0100 (CET)
-Date: Fri, 5 Feb 2021 11:34:57 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Arvind Sankar <nivedita@alum.mit.edu>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, X86 ML <x86@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Arnd Bergmann <arnd@arndb.de>, Darren Hart <dvhart@infradead.org>,
-	Andy Shevchenko <andy@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-efi <linux-efi@vger.kernel.org>,
-	platform-driver-x86@vger.kernel.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Subject: Re: [PATCH] x86: efi: avoid BUILD_BUG_ON() for non-constant p4d_index
-Message-ID: <20210205103457.GC17488@zn.tnic>
-References: <20210107223424.4135538-1-arnd@kernel.org>
- <YAHoB4ODvxSqNhsq@rani.riverdale.lan>
- <YAH6r3lak/F2wndp@rani.riverdale.lan>
- <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
- <20210118202409.GG30090@zn.tnic>
- <YAYAvBARSRSg8z8G@rani.riverdale.lan>
- <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
- <20210203185148.GA1711888@localhost>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Feb 2021 02:57:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::129 as permitted sender) client-ip=2607:f8b0:4864:20::129;
+Received: by mail-il1-x129.google.com with SMTP id d6so5434929ilo.6
+        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 02:57:07 -0800 (PST)
+X-Received: by 2002:a92:58ce:: with SMTP id z75mr3474026ilf.209.1612522627089;
+ Fri, 05 Feb 2021 02:57:07 -0800 (PST)
 MIME-Version: 1.0
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 5 Feb 2021 11:56:55 +0100
+Message-ID: <CA+icZUUjb_71mWwWFMYN_OPZir2vStLq1kDY1O+JCFjtmEEBjA@mail.gmail.com>
+Subject: Using GNU AS from a selfmade binutils v2.35.2
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Cc: Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, linux-kbuild@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210203185148.GA1711888@localhost>
-X-Original-Sender: bp@alien8.de
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@alien8.de header.s=dkim header.b=WvoLruU+;       spf=pass
- (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as
- permitted sender) smtp.mailfrom=bp@alien8.de;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=alien8.de
+ header.i=@gmail.com header.s=20161025 header.b=qHGUpsN8;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::129
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,64 +139,121 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Feb 03, 2021 at 11:51:48AM -0700, Nathan Chancellor wrote:
-> x86_64 all{mod,yes}config with clang are going to ship broken in 5.11.
+Hi Masahiro and ClangBuiltLinux folks,
 
-Dunno, it is still broken here even with those build assertions removed. And it
-ain't even an all{mod,yes}config - just my machine's config with
+I am trying to use binaries from GNU/binutils v2.35.2 for my
+Linux-kernel builds.
 
-CONFIG_ARCH_HAS_UBSAN_SANITIZE_ALL=y
-CONFIG_UBSAN=y
-# CONFIG_UBSAN_TRAP is not set
-CONFIG_CC_HAS_UBSAN_BOUNDS=y
-CONFIG_CC_HAS_UBSAN_ARRAY_BOUNDS=y
-CONFIG_UBSAN_BOUNDS=y
-CONFIG_UBSAN_ARRAY_BOUNDS=y
-CONFIG_UBSAN_SHIFT=y
-CONFIG_UBSAN_DIV_ZERO=y
-CONFIG_UBSAN_SIGNED_OVERFLOW=y
-CONFIG_UBSAN_UNSIGNED_OVERFLOW=y
-CONFIG_UBSAN_OBJECT_SIZE=y
-CONFIG_UBSAN_BOOL=y
-CONFIG_UBSAN_ENUM=y
-CONFIG_UBSAN_ALIGNMENT=y
-CONFIG_UBSAN_SANITIZE_ALL=y
-# CONFIG_TEST_UBSAN is not set
+Background is I am doing some testing for BTF + pahole with GCC-10 and LLVM-12.
 
-and clang-10:
+I tried several strategies.
 
-lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x253: call to __ubsan_handle_add_overflow() with UACCESS enabled
-lib/strnlen_user.o: warning: objtool: strnlen_user()+0x244: call to __ubsan_handle_add_overflow() with UACCESS enabled
-ld: init/main.o: in function `kmalloc':
-/home/boris/kernel/linux/./include/linux/slab.h:557: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: init/initramfs.o: in function `kmalloc':
-/home/boris/kernel/linux/./include/linux/slab.h:552: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: init/initramfs.o: in function `kmalloc_large':
-/home/boris/kernel/linux/./include/linux/slab.h:481: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: init/initramfs.o: in function `kmalloc':
-/home/boris/kernel/linux/./include/linux/slab.h:552: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: /home/boris/kernel/linux/./include/linux/slab.h:552: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: init/initramfs.o:/home/boris/kernel/linux/./include/linux/slab.h:552: more undefined references to `__ubsan_handle_alignment_assumption' follow
-ld: mm/mremap.o: in function `get_extent':
-/home/boris/kernel/linux/mm/mremap.c:355: undefined reference to `__compiletime_assert_327'
-ld: mm/rmap.o: in function `anon_vma_chain_alloc':
-/home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: mm/rmap.o: in function `anon_vma_alloc':
-/home/boris/kernel/linux/mm/rmap.c:89: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: mm/rmap.o: in function `anon_vma_chain_alloc':
-/home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: /home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: /home/boris/kernel/linux/mm/rmap.c:136: undefined reference to `__ubsan_handle_alignment_assumption'
-ld: mm/vmalloc.o:/home/boris/kernel/linux/mm/vmalloc.c:1213: more undefined references to `__ubsan_handle_alignment_assumption' follow
-make: *** [Makefile:1164: vmlinux] Error 1
+[ STRATEGY #1 - Use a-local-binutils.conf LDCONFIG ]
 
--- 
-Regards/Gruss,
-    Boris.
+[ /etc/ld.so.conf.d/a-local-binutils.conf ]
 
-https://people.kernel.org/tglx/notes-about-netiquette
+# Selfmade GNU/binutils lib configuration
+/opt/binutils/lib
+- EOT -
+
+sudo ldconfig
+sudo ldconfig -v -p
+...shows me above lib path is in the ldconfig-cache.
+
+In my build-script I additionally add:
+
+BINUTILS_BIN_PATH="/opt/binutils/bin"
+if [ -d ${BINUTILS_BIN_PATH} ]; then
+    export PATH="${BINUTILS_BIN_PATH}:${PATH}"
+fi
+
+That's NOT including ld.bfd from /opt/binutils/bin - not including nm,
+ar, strip etc.
+
+NOTE: Symlink: lrwxrwxrwx 1 root   root     15  5. Feb 11:10
+/opt/binutils -> binutils-2.35.2
+
+[ STRATEGY #2 - Use LD_LIBRARY_PATH ]
+
+From my build-script:
+
+BINUTILS_BIN_PATH="/opt/binutils/bin"
+BINUTILS_LIB_PATH="/opt/binutils/lib"
+if [ -d ${BINUTILS_BIN_PATH} ] && [ -d ${BINUTILS_LIB_PATH} ]; then
+   export PATH="${BINUTILS_BIN_PATH}:${PATH}"
+   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${BINUTILS_LIB_PATH}"
+fi
+
+That's not working either.
+New PATH and LD_LIBRARY_PATH are set in the user's environment variables.
+
+[ STRATEGY #3 - Use which to get full path to binary ]
+
+### GCC version settings
+GCC_MAJOR_VER="10"
+
+### Compiler options
+CC_FOR_BUILD="clang"
+CXX_FOR_BUILD="clang++"
+
+### Linker options
+##LD_FOR_BUILD="ld.bfd"
+LD_FOR_BUILD=$(which ld.bfd)
+
+### GNU tools options
+# NOTE: Selfmade GNU AS v2.35.2 needs to be symlinked in /usr/bin directory
+# XXX: Symlink: /usr/bin/as -> /opt/binutils-2.35.2/bin/as
+HOSTAR_FOR_BUILD=$(which ar)
+AR_FOR_BUILD=$(which ar)
+NM_FOR_BUILD=$(which nm)
+STRIP_FOR_BUILD=$(which strip)
+OBJCOPY_FOR_BUILD=$(which objcopy)
+OBJDUMP_FOR_BUILD=$(which objdump)
+READELF_FOR_BUILD=$(which readelf)
+GNU_TOOLS_OPTS="HOSTCC=${CC_FOR_BUILD} HOSTCXX=${CXX_FOR_BUILD}
+HOSTLD=${LD_FOR_BUILD} HOSTAR=${HOSTAR_FOR_BUILD}"
+GNU_TOOLS_OPTS="$GNU_TOOLS_OPTS CC=${CC_FOR_BUILD} LD=${LD_FOR_BUILD}
+AR=${AR_FOR_BUILD} NM=${NM_FOR_BUILD} STRIP=${STRIP_FOR_BUILD}"
+GNU_TOOLS_OPTS="$GNU_TOOLS_OPTS OBJCOPY=${OBJCOPY_FOR_BUILD}
+OBJDUMP=${OBJDUMP_FOR_BUILD} READELF=${READELF_FOR_BUILD}"
+
+That works - means passes all binaries from GNU binutils v2.35.2 to my
+make-line.
+
+Please NOTE that I had to symlink GNU AS v2.35.2 as I saw too late I
+was using Debian's GNU AS v2.35.1 within my last builds.
+
+AFAICS there is no more AS= assignment in the top-level Makefile.
+How can I say: "Please use a different ASsembler?"
+
+[ LDD ]
+
+When I inspect with ldd (here: GNU AS v2.35.2):
+
+# ldd /opt/binutils/bin/as
+       linux-vdso.so.1 (0x00007ffc7f4d6000)
+       libopcodes-2.35.2.so =>
+/opt/binutils-2.35.2/lib/libopcodes-2.35.2.so (0x00007f11f3bcc000)
+       libbfd-2.35.2.so => /opt/binutils-2.35.2/lib/libbfd-2.35.2.so
+(0x00007f11f3a8b000)
+       libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f11f3a44000)
+       libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f11f387f000)
+       libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f11f3879000)
+       /lib64/ld-linux-x86-64.so.2 (0x00007f11f3de3000)
+
+So GNU AS v2.35.2 is loading from the correct places.
+
+Is the symlink in /opt directory a problem?
+binutils -> binutils-2.35.2
+
+Can someone comment and give me a hint?
+
+Thanks in advance.
+
+Regards,
+- Sedat -
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210205103457.GC17488%40zn.tnic.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUUjb_71mWwWFMYN_OPZir2vStLq1kDY1O%2BJCFjtmEEBjA%40mail.gmail.com.
