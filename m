@@ -1,136 +1,124 @@
-Return-Path: <clang-built-linux+bncBCJP7WOE5UIBBNH46WAAMGQEAPP4JWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBPEP62AAMGQED52G3JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 50ED7310E76
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 18:19:49 +0100 (CET)
-Received: by mail-vk1-xa3b.google.com with SMTP id q193sf1749712vkb.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 09:19:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612545588; cv=pass;
+Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 958D9310F4F
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 19:00:28 +0100 (CET)
+Received: by mail-ed1-x537.google.com with SMTP id i13sf7223846edq.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 10:00:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612548028; cv=pass;
         d=google.com; s=arc-20160816;
-        b=viqlGzY5AF32UYRkPvrgawg9VGSZoH5QITeq8uhKDtbuKny6ijB2HboBTqD/V3yrzv
-         V0zGOJQUmpG2TiNtJOqlAZELlo1CZXCt28r6ZJrSGtaB7FZIBcCqs8VYT/UgtBPL/Wwo
-         2UXrRVo7VshiGyw+29+8bHnwI6OBEIwWUPJRF31b16ax5tVqifD5WLGflidyQ2Y0Z3je
-         bloz5J1kILL1spzcNDd1FM9FQG3H1I4knr9JPVVlxglEYFuWHfxcdq+TNSpU76G1WbXc
-         xV1mEeLvImgtHpvMzGksI6+6oiLSUR/BgsL748dOJdgaFT6sdgMf4x6HTv+B3vRKttXv
-         ZO9A==
+        b=kjJ15DS768DVPAeeYwon/IAwcZ9I1VqSZrqr9JNA29u1cGTccFBLtsf7cOUQVUbZya
+         5V7cG0EwZbZpPUqb6PhjjxAM6PnIeTwqoN0nI/A29UZJT0XkmryilMl7pOE4rQLOE1gD
+         g8DaNEhi3X531MrcumOwVqJLIuhGd+SNzNN2rEekHpToCKDXMF3nHg17WUpNxIUa7HQP
+         xo4MZUR0WBTFMQSljzuPialh3XO5cZudYBAsX5jxwLgLQFkQsBygvcEr7KOLzh4NYP5u
+         Brkslf3H8DJfXNPQgY6bU3aweFIQV5KJPX48klCUbOdEwJrD+CbkqqLqmlHAbuj78dqN
+         Iocg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=Gn3GWu3k7/Z8I5yA8NgaaCMuPfpC6+20kZ0zAlGKcfo=;
-        b=rg654u9wBdqf1GzqZh5Qgum3hDKAat4of/DToG0SdIy8GC12BM2CHHnY5OqkxuQJ5D
-         MdTLeFdcsqFr5U4GkfjG6+OStq/Gz//V89a1S/Qw9h2W+s9LLnUiI4RtL4FTB/2hA+qj
-         jzhsROaeCqThe4fDsDAlCSGL7CHknvCDW2f9z5ESoFvfesGbmh5hQqzQR3vVrWIxjrvQ
-         +r8trllhc7rPnSQozqjFpvqDUSWPLtyl70aKYGVhiqrkUOHsqGEJdxC+yvmsI1sliNUO
-         fEHjDF/Uk17KijOyxM9gQW20dcYga8scrESTMxcxF8dWoygPgBHv2CKOWaKVFEbQ8VXX
-         Gs5A==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=eXspM5n6MfL5tMKRO+QKIUEeTyI7H31JicdOQLRxJfg=;
+        b=auWWwgOy5b4tg9ZXhjwghb4vMYbT5B2TuYgzinn917nPLXnCYRG1144TVyWbV8Jpty
+         pgTs1x/eHtomlMvFIGqOCX0uDuNUb94UfhXiQO5J7x1RqAKYkLZTgbCBnZD45KIPRAPf
+         pnq1jQ9QtcYUzp545V1ez6qXbU28s6dIDMnX1EzBkm+xlKZ0hQwEUYtOTrsZPfzN/fLG
+         3VQHYtB+KKRYGuxql/V7eptHPKHysw8m8dlQXOsQ7hdXrHmB2mrOg2JI2MY+saf5jE5h
+         sTo0Zeeg+HDO3pVjBv/62U2jpLhWkiPvhPHpYbR0BdOe0+cAMse1+nVqkVxi+6o9N35v
+         +q2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Y1KlXeRl;
-       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::72f as permitted sender) smtp.mailfrom=dianders@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=lP8jBr1c;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Gn3GWu3k7/Z8I5yA8NgaaCMuPfpC6+20kZ0zAlGKcfo=;
-        b=EvTA1ErDHP9eqgASx6GTfU6DhUY6YnYVmpcTTtqXrYIh+MaZl020X44Wfj/0GV8lfg
-         IaOSVL5FD6tRYtROHjcsJIsOR7g3JHbRtCEthk/3CX8ZP5yJSIOafJleGz7Zq9id/oFl
-         Ybes3dKhChXomt1h5fLsy8sxp8L6CdSzgY4b/jG8xQBpuMhTuubM5NxLm2GSTCBQn4YD
-         2IOVdCXTD2kUGuCqRayYBPgSWKG6XeJ+EgPLS4isOuckBOtU8EPdu55sgh+hv0iKxL9Z
-         4K7NM0vgqH/9D4D1+FPgqAPVjyvevd18QTHRl9gh7DzR20AQHL4yHze8JnItbnoknHf5
-         8duQ==
+        bh=eXspM5n6MfL5tMKRO+QKIUEeTyI7H31JicdOQLRxJfg=;
+        b=cYXskhHtKl/0VOypQuRm7hkJqD3s4bPem4xVro2/sQy3wT2/WWaxBQbjzQ/F+127m1
+         aXMtBQ4KE4ZLuKPBnJ+tWADv//BwiZbrGUWVAa7GTbVjHVrNXPwmdxyQ3AKguc705/lD
+         1CdtNQa8cKOrUVFAYLBY8X0KIqp1Ti3kI8evIiCjHgcZy240YsJ1XsIaDZK2p8hXM8pB
+         PnW0vg+oFFqdowciCY0LeJnfUNYidimRONRBHgg2NpY43i4Kf2dO7HPwlPbLwfYIs7Xa
+         EhMAKZBhOXzJLRz9TiL/soKIcsOQLueNJLY2fW3CSFS5nAfw+v8CESq/eu5C4C5mYp6b
+         QwpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Gn3GWu3k7/Z8I5yA8NgaaCMuPfpC6+20kZ0zAlGKcfo=;
-        b=mxHHuObIJzyCxurcG7obBsC//WMZFi/fUSm9mytSmcgbIRy+K0fryE74oYYnbH+HHS
-         BEohnK1nigB+gnUQaOq+A2BuEX0RZM5ZHsZXbUdhGgH1tFEPl0wQafqMEc2naVQKoVPJ
-         ++rmxDJqrU99b1v3szeNIMhPBz4J5wHIoA0ftWq0K1Y8B5L6Ch/bqzvZLMGa9zMXfFy0
-         W1ABh1BpPb725h/5QfwEXeU5VNAwpWDeIxkPVqm6swMiWsyfyPCw0EZ57MkXTVws4hCe
-         Sdhv1+fHDUn5oKehYC0CFywdkselws6hJnKFQd6LoRDJL5cpsJl8piSu9BQ9xnlt15Xr
-         bqzQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Qyyjm73wdZhkvKWG3IjdTJCiaDuSu+m70cAUxXTLaV/7c5Qam
-	p6ROPlFJSLqrrCVVyQqcyUc=
-X-Google-Smtp-Source: ABdhPJz9U7rG0024bLMcrDpRzTyIAecIbOzUH+5f1h+sNLTfNGhx5agLUOvZ2Qlzfolos1EYy5E8Xw==
-X-Received: by 2002:a05:6102:22e4:: with SMTP id b4mr3993797vsh.36.1612545588367;
-        Fri, 05 Feb 2021 09:19:48 -0800 (PST)
+        bh=eXspM5n6MfL5tMKRO+QKIUEeTyI7H31JicdOQLRxJfg=;
+        b=FWM7WzCbDUld9cskETGEVxP77ZvWhrgfOKt/a8I9c1Q2EBGNCtaurpwh/jvDxqA4/R
+         P0oihnQwi0tdWVeLIx20zVibucDEIM5wEY04ZfrkcPXIckyQwGJylOiE5wN31C+mQa3X
+         W1BWfD1Tci8gQ4anE0w/SwJP6el7JKSqCKMDT7f1spRPsFU1Qcs4tGU/pVEiMLcrErhz
+         Iy3crr3Irbbu8LQbVHVN+qJpS3j3KmTd9VkLgYmSHKhJrgnL9mVxwp+aAzFkFieN54A7
+         hp7/QoxJ88C+zKh9OKgja4kDW4qk0On/qNdtx3P2KtybgTtNJ2W3geoWCm/ZUFjgMCIZ
+         3/vw==
+X-Gm-Message-State: AOAM530TB15/TsSJuQRa8geTj5jBtt9toW3cyrwudmIMfwdWfqukNu0i
+	so5PcSXaxyZ41ICo9AGzDlE=
+X-Google-Smtp-Source: ABdhPJxO+95Ux+S+5fumZ8pUpgWVSsioshV0k/BAEnY/Wzuopy755f8prD5xgtc9Oo63EU7uUUN2PQ==
+X-Received: by 2002:a17:906:ecfb:: with SMTP id qt27mr5023528ejb.123.1612548028326;
+        Fri, 05 Feb 2021 10:00:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:f515:: with SMTP id u21ls1269165vsn.2.gmail; Fri, 05 Feb
- 2021 09:19:48 -0800 (PST)
-X-Received: by 2002:a05:6102:209:: with SMTP id z9mr3842759vsp.35.1612545588023;
-        Fri, 05 Feb 2021 09:19:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612545588; cv=none;
+Received: by 2002:a17:906:6a87:: with SMTP id p7ls4934140ejr.10.gmail; Fri, 05
+ Feb 2021 10:00:27 -0800 (PST)
+X-Received: by 2002:a17:906:e104:: with SMTP id gj4mr5095621ejb.349.1612548027405;
+        Fri, 05 Feb 2021 10:00:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612548027; cv=none;
         d=google.com; s=arc-20160816;
-        b=z4/S6V3avld2PrgXTtfSVOvOA3PKvdLP+AQJSCKNB/DMgsAMMjCHFf/w2QXdlPtRVp
-         XBCqL/y+RYvyMzCnIvDrybVSD9Z/kecEl+DFiEnf66W1VONY0q1Qx+bojR42ucfxZY/m
-         r8a4hUvzIDH6FjFFMcV7kqKWgS2Z0dBIlWZqKH6j1A8cSRmQH4Wz2l01K/7l+zSJpmJR
-         1RLGgoBOeBF8HBBerlGGQyA1qOoEQcEk5hRhzU/lElwMEgWgLWi+maqJyI9551nJNb4A
-         ZuVc6cG8wFDp9/5tH+v/iHLVWkhcURXbKVAeZWr0BJgaSa/okoBXAMO3o+MCYRW6BU78
-         rSLg==
+        b=uBpLuSiN5H0qGKzyGvBEzdOl35Nzj5Ax+CSH7JhlOOSxKOqpzWJi4nRGdhchW6MvBU
+         oSIOe/mV4KivWPn41U/vFIfVRJs727YkOimODNTNQUS82chxWhoFg/lfRNpzQzgU8YYe
+         XnIaDYBsyrJn2ipDA7XFxCUyL3xuhVhdmAUPlE4fUdlghEv2z4b8WZRQM4EC73olk34p
+         rGl7TIRvXH8ZBJlY9qQutkd7ryTyDFAV1hYI0G9mYxme+ufFXXleZrPwtQ6AJmDA7C45
+         PiOAnVdkC6/XDrbfomeeo2PAEISP2w2/mQN/0PjuKP7IVG8xHd+KboLc9L9L1ZmhZArU
+         doGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=JI+1S8T48pFcr35wnbPxCUfOS4yHFzqI/JgwK92UMUE=;
-        b=aY60i22NbF8ZQ+4RWgr+62OB9QYDK4f6cd+Hj3CaUTR58WgchMyt7edTg5mOvBjC7u
-         IkocuP7ZCKmyLOH+xNQih25KvzC/2m7XeaOcYVtu4eHt6qAaPMiwuAZvccQqugmTI38K
-         aZd2c4hm+gsA81CSYOf2/ZIZdMCWTTZfLC8MagDo2A7w5YXPP+qzX5bK22qvfzCdEvsL
-         0/HSyL3Nzl40WdUuidQg739ZkjUByPuvfOxcAaowbVEmvByiLsp78iPmL6MVgmLKJqt+
-         tk/b1M0zpwYPP7+5xlXuH01l1fbFAopJ4ufUL3rSS5VfkqsvTC3gHHj4YZ8yuATGNbe+
-         HgxQ==
+        bh=pSE0sW9HDz15zHSVgPXcggYny/sFfBMwmGghDuU5vck=;
+        b=tf8p/OBNEoA873/KAmFhkL28THDRa2tpwlz7UlSinJXqfrh7WhIUoW4texSPFU6USv
+         IWibMX8m8qn1lsyqyX85D4QpI6b9DY884yywsQI1brViZA/FZwX3QlHi6DzisaN0c2q8
+         hdCMcj1yqcxfl9oFAungHm/LmW8F4kmHgJ39zpRMsZlG1VfUaUGwA7I8ZdCkZlqI/tXo
+         ZccOtKT9JhGjxSvGbAMMnswRY35U9pJ1dDcifsj2c60rbKI8cXgpdyKcnvkVHlZOKZ7L
+         qEHpg8YGzfhVuG54nSDEJi9YV5ITlWcgKGd9hEhx+Ia4/cTsoCfr74UFJ895ko2GmaCE
+         ECPw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Y1KlXeRl;
-       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::72f as permitted sender) smtp.mailfrom=dianders@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-qk1-x72f.google.com (mail-qk1-x72f.google.com. [2607:f8b0:4864:20::72f])
-        by gmr-mx.google.com with ESMTPS id q11si731591ual.1.2021.02.05.09.19.48
+       dkim=pass header.i=@google.com header.s=20161025 header.b=lP8jBr1c;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x12f.google.com (mail-lf1-x12f.google.com. [2a00:1450:4864:20::12f])
+        by gmr-mx.google.com with ESMTPS id z69si224392ede.1.2021.02.05.10.00.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Feb 2021 09:19:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::72f as permitted sender) client-ip=2607:f8b0:4864:20::72f;
-Received: by mail-qk1-x72f.google.com with SMTP id 19so7644714qkh.3
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 09:19:48 -0800 (PST)
-X-Received: by 2002:a37:73c3:: with SMTP id o186mr5065681qkc.194.1612545587423;
-        Fri, 05 Feb 2021 09:19:47 -0800 (PST)
-Received: from mail-yb1-f174.google.com (mail-yb1-f174.google.com. [209.85.219.174])
-        by smtp.gmail.com with ESMTPSA id p188sm10023922qkf.89.2021.02.05.09.19.45
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Feb 2021 09:19:46 -0800 (PST)
-Received: by mail-yb1-f174.google.com with SMTP id w204so7483936ybg.2
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 09:19:45 -0800 (PST)
-X-Received: by 2002:a25:60d6:: with SMTP id u205mr7882421ybb.276.1612545585241;
- Fri, 05 Feb 2021 09:19:45 -0800 (PST)
+        Fri, 05 Feb 2021 10:00:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) client-ip=2a00:1450:4864:20::12f;
+Received: by mail-lf1-x12f.google.com with SMTP id q12so11047147lfo.12
+        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 10:00:27 -0800 (PST)
+X-Received: by 2002:ac2:5622:: with SMTP id b2mr3092499lff.297.1612548026909;
+ Fri, 05 Feb 2021 10:00:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20201203202737.7c4wrifqafszyd5y@google.com> <20201208054646.2913063-1-maskray@google.com>
- <CAD=FV=WWSniXCaC+vAKRa1fCZB4_dbaejwq+NCF56aZFYE-Xsg@mail.gmail.com>
- <CAKwvOdkFpqEDvJ5b9wpwEhnOdh-YJ8GxCc33JcHXqNRDnO=RfQ@mail.gmail.com> <CAD=FV=XUuo3OaDVOnFiczUTeyKt1moX7nQ+XEX_HiDpv2f3k8A@mail.gmail.com>
-In-Reply-To: <CAD=FV=XUuo3OaDVOnFiczUTeyKt1moX7nQ+XEX_HiDpv2f3k8A@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 5 Feb 2021 09:19:33 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=UTQCdd9dDG8W8fZZZhSPY3cwWgZk-3VYXZdz6pRbp8Ow@mail.gmail.com>
-Message-ID: <CAD=FV=UTQCdd9dDG8W8fZZZhSPY3cwWgZk-3VYXZdz6pRbp8Ow@mail.gmail.com>
-Subject: Re: [PATCH v2] firmware_loader: Align .builtin_fw to 8
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Fangrui Song <maskray@google.com>, 
-	Arnd Bergmann <arnd@arndb.de>, linux-arch <linux-arch@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, kernel test robot <lkp@intel.com>
+References: <20210205085220.31232-1-ardb@kernel.org>
+In-Reply-To: <20210205085220.31232-1-ardb@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 5 Feb 2021 10:00:14 -0800
+Message-ID: <CAKwvOdkg75CRM0QNeO4ojM=OndFgJ+j7fO3Yt=jE4k0eTfYmRQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: decompressor: fix BSS size calculation for LLVM ld.lld
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Russell King <linux@armlinux.org.uk>, Nathan Chancellor <nathan@kernel.org>, 
+	Guillaume Tucker <guillaume.tucker@collabora.com>, Fangrui Song <maskray@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: dianders@chromium.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=Y1KlXeRl;       spf=pass
- (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::72f
- as permitted sender) smtp.mailfrom=dianders@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20161025 header.b=lP8jBr1c;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,67 +131,130 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
-
-On Fri, Jan 22, 2021 at 11:04 AM Doug Anderson <dianders@chromium.org> wrote:
+On Fri, Feb 5, 2021 at 12:52 AM Ard Biesheuvel <ardb@kernel.org> wrote:
 >
-> Hi,
+> The LLVM ld.lld linker uses a different symbol type for __bss_start,
+> resulting in the calculation of KBSS_SZ to be thrown off. Up until now,
+> this has gone unnoticed as it only affects the appended DTB case, but
+> pending changes for ARM in the way the decompressed kernel is cleaned
+> from the caches has uncovered this problem.
 >
-> On Tue, Jan 5, 2021 at 11:20 AM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > On Tue, Jan 5, 2021 at 9:45 AM Doug Anderson <dianders@chromium.org> wrote:
-> > >
-> > > Hi,
-> > >
-> > > On Mon, Dec 7, 2020 at 9:49 PM Fangrui Song <maskray@google.com> wrote:
-> > > >
-> > > > arm64 references the start address of .builtin_fw (__start_builtin_fw)
-> > > > with a pair of R_AARCH64_ADR_PREL_PG_HI21/R_AARCH64_LDST64_ABS_LO12_NC
-> > > > relocations. The compiler is allowed to emit the
-> > > > R_AARCH64_LDST64_ABS_LO12_NC relocation because struct builtin_fw in
-> > > > include/linux/firmware.h is 8-byte aligned.
-> > > >
-> > > > The R_AARCH64_LDST64_ABS_LO12_NC relocation requires the address to be a
-> > > > multiple of 8, which may not be the case if .builtin_fw is empty.
-> > > > Unconditionally align .builtin_fw to fix the linker error. 32-bit
-> > > > architectures could use ALIGN(4) but that would add unnecessary
-> > > > complexity, so just use ALIGN(8).
-> > > >
-> > > > Fixes: 5658c76 ("firmware: allow firmware files to be built into kernel image")
-> > > > Link: https://github.com/ClangBuiltLinux/linux/issues/1204
-> > > > Reported-by: kernel test robot <lkp@intel.com>
-> > > > Signed-off-by: Fangrui Song <maskray@google.com>
-> > > > Acked-by: Arnd Bergmann <arnd@arndb.de>
-> > > >
-> > > > ---
-> > > > Change in v2:
-> > > > * Use output section alignment instead of inappropriate ALIGN_FUNCTION()
-> > > > ---
-> > > >  include/asm-generic/vmlinux.lds.h | 2 +-
-> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > Tested-by: Douglas Anderson <dianders@chromium.org>
-> > >
-> > > For whatever reason this is hitting developers on Chrome OS a whole
-> > > lot suddenly.  Any chance it could be landed?  Which tree should it go
-> > > through?
-> >
-> > Andrew,
-> > Would you mind picking up this patch for us, please?
-> > https://lore.kernel.org/lkml/20201208054646.2913063-1-maskray@google.com/
+> On a ld.lld build:
 >
-> I just synced today and I'm still hitting this error when building
-> mainline.  Perhaps Andrew is busy and someone else can pick it up?
-> It'd be nice to get this into v5.11
+>   $ nm vmlinux |grep bss_
+>   c1c22034 D __bss_start
+>   c1c86e98 B __bss_stop
+>
+> resulting in
+>
 
-I hate to be a broken record, but I synced and built mainline today
-(v5.11-rc6-139-gdd86e7fa07a3) and I'm still hitting this.  It feels
-like we need an alternate way to get this landed...
+$ readelf -s arch/arm/boot/compressed/vmlinux | grep bss_size
 
--Doug
+>   433: c1c86e98     0 NOTYPE  GLOBAL DEFAULT  ABS _kernel_bss_size
+>
+> which is obviously incorrect, and may cause the cache clean to access
+> unmapped memory, or cause the size calculation to wrap, resulting in no
+> cache clean to be performed at all.
+>
+> Fix this by updating the sed regex to take D type symbols into account.
+>
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> Cc: Guillaume Tucker <guillaume.tucker@collabora.com>
+> Link: https://lore.kernel.org/linux-arm-kernel/6c65bcef-d4e7-25fa-43cf-2c435bb61bb9@collabora.com/
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+
+
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+
+Thanks for debugging+fixing this, and Guillaume for the report.  It's
+nice to see a fix so early; thinking back to last year before KernelCI
+integration, we probably would have only noticed when CrOS went to
+upgrade their rk3288 platform devices.
+
+Some other tags that might be nice to apply:
+
+Cc: stable@kernel.org
+Fixes: 429f7a062e3b ("ARM: decompressor: fix BSS size calculation")
+Reported-by: Guillaume Tucker <guillaume.tucker@collabora.com>
+Reported-by: "kernelci.org bot" <bot@kernelci.org>
+
+Tests run:
+
+Before (LLD):
+$ llvm-nm vmlinux | grep bss_
+c1c1a3fc D __bss_start
+c1c7e998 B __bss_stop
+$ llvm-readelf -s arch/arm/boot/compressed/vmlinux | grep bss_size
+   440: c1c7e998     0 NOTYPE  GLOBAL DEFAULT   ABS _kernel_bss_size
+
+After (LLD):
+$ llvm-nm vmlinux | grep bss_
+c1c1a3fc D __bss_start
+c1c7e998 B __bss_stop
+$ llvm-readelf -s arch/arm/boot/compressed/vmlinux | grep bss_size
+   440: 0006459c     0 NOTYPE  GLOBAL DEFAULT   ABS _kernel_bss_size
+
+Before (BFD):
+$ llvm-nm vmlinux | grep bss_
+c1c1a3fc B __bss_start
+c1c7e998 B __bss_stop
+$ llvm-readelf -s arch/arm/boot/compressed/vmlinux | grep bss_size
+   463: 0006459c     0 NOTYPE  GLOBAL DEFAULT   ABS _kernel_bss_size
+
+After (BFD):
+$ llvm-nm vmlinux | grep bss_
+c1c1a3fc B __bss_start
+c1c7e998 B __bss_stop
+$ llvm-readelf -s arch/arm/boot/compressed/vmlinux | grep bss_size
+   463: 0006459c     0 NOTYPE  GLOBAL DEFAULT   ABS _kernel_bss_size
+
++ Fangrui,
+Fangrui, __bss_start looks like it's linker script defined by the
+BSS_SECTION macro from include/asm-generic/vmlinux.lds.h:1160 being
+used in arch/arm/kernel/vmlinux.lds.S:149.  Should these symbols be
+placed in .bss? Might save a few bytes in the image, unless there's an
+initial value that's encoded with them?
+
+> ---
+>  arch/arm/boot/compressed/Makefile | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+> index fb521efcc6c2..54307db7854d 100644
+> --- a/arch/arm/boot/compressed/Makefile
+> +++ b/arch/arm/boot/compressed/Makefile
+> @@ -115,8 +115,8 @@ asflags-y := -DZIMAGE
+>
+>  # Supply kernel BSS size to the decompressor via a linker symbol.
+>  KBSS_SZ = $(shell echo $$(($$($(NM) $(obj)/../../../../vmlinux | \
+> -               sed -n -e 's/^\([^ ]*\) [AB] __bss_start$$/-0x\1/p' \
+> -                      -e 's/^\([^ ]*\) [AB] __bss_stop$$/+0x\1/p') )) )
+> +               sed -n -e 's/^\([^ ]*\) [ABD] __bss_start$$/-0x\1/p' \
+> +                      -e 's/^\([^ ]*\) [ABD] __bss_stop$$/+0x\1/p') )) )
+
+I wasn't sure whether we still needed `A`, but
+commit 6cea14f55474 ("ARM: replace unnecessary perl with sed and the
+shell $(( )) operator")
+references that depending on the version of binutils you might observe
+that.  There's no more info on which version or under what conditions.
+Lest we reintroduce this same problem for that version, it's fine to
+leave it.
+
+>  LDFLAGS_vmlinux = --defsym _kernel_bss_size=$(KBSS_SZ)
+>  # Supply ZRELADDR to the decompressor via a linker symbol.
+>  ifneq ($(CONFIG_AUTO_ZRELADDR),y)
+> --
+> 2.30.0
+>
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAD%3DFV%3DUTQCdd9dDG8W8fZZZhSPY3cwWgZk-3VYXZdz6pRbp8Ow%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkg75CRM0QNeO4ojM%3DOndFgJ%2Bj7fO3Yt%3DjE4k0eTfYmRQ%40mail.gmail.com.
