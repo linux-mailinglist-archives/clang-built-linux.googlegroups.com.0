@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCU4TIPXUUFRBQHF6SAAMGQENTSZH5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU4TIPXUUFRBL7J6SAAMGQERXYRXEY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x939.google.com (mail-ua1-x939.google.com [IPv6:2607:f8b0:4864:20::939])
-	by mail.lfdr.de (Postfix) with ESMTPS id F4143310AB9
-	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 12:57:53 +0100 (CET)
-Received: by mail-ua1-x939.google.com with SMTP id c1sf2305209uab.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 03:57:53 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612526273; cv=pass;
+Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
+	by mail.lfdr.de (Postfix) with ESMTPS id DAC02310ADB
+	for <lists+clang-built-linux@lfdr.de>; Fri,  5 Feb 2021 13:06:08 +0100 (CET)
+Received: by mail-ua1-x93d.google.com with SMTP id x14sf2318037uac.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 04:06:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612526768; cv=pass;
         d=google.com; s=arc-20160816;
-        b=En2VZ/7iYAKIa5De8dbH9p49L1efRRLaZad7wLItk8qpdXAKTDalfHOYUr7gdTZO5H
-         SLTJdjL6asGZaqT3Nh+qiywuHOetWGxAxNjoxO3a4qFgC8mJk5CPf6+KuVLWnp29fq0t
-         QiMNrCrD4I5mA73AWErqtUTtfADWYxDc4D1nUWZbcrHL9SI6UXOZldY1h1x9KTXvJc83
-         t8brsngBHeha7ZdCwHm/UQ6syqq+EMDY/ilwfP6uTvTZ1NGf0T9VQ3ULb2qa2VvJ4ZY2
-         3PIOs1NX/xygItp4FeAT5mQIUQAISN+2qk7QrEc3WIzAEUNFam+CTzB77caZoKQyljXH
-         Kf9w==
+        b=BZbTRgbz5Q3+1kVY/AJ9fyP5KXNuMzmhPuTN5iZG9/ApAgHpdd/dkEXUWHfz2x7EQy
+         5ef/5hD6BTO1TPCYtzXwaAfaMCqQTDnz7VvwwL+0rtl3AOuejSfl/rPkX805LZi8UOMP
+         0Mj2mfBrKjOV9AWKg818c9rQWJWWjlLiE2ZCAntFAaLzlU8sl9OHOWpbGI3FPmJegBMX
+         e9VDqeitVjmxARTDmvukTI/i4skN+VFBJkubIXHF1uSJi3npNJqFPOknWjIvzJ9HqTTo
+         he731kC5eMM1Js2oRmI8AFFKJ9HE6f55IQ4p3pLWHK11+5t2LPO1kZC1tYo2u4ko/W7N
+         SD4w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=iuOXAr/vfp4gQE33mMmg+8z2VsXg3USOpbt23yVIZLI=;
-        b=KwbKZSCl7oKdyPRnD87Jbc87x0QG8RF58ExN2eeMh5gbhR36lLwOOlqhF8TxeOVbhH
-         kidbp44IehDDjP1a08V6o6ghIuataA5360P81QfP5nFsy/flymodAP0rE4gjT9couabk
-         DWJD6SC8xIAEaynnk+QCw/8bB3TngyGGL/4TRaYQ4ps0JZpUZN3GnFbvT/Bvq3W1Sp9t
-         5Wx0XMdP2Gwcakh77o4k27Eli84Mu4qWA5GazlCnWatK1sik0dW1D5pJk6M/GDMZo0rE
-         94INjXhE5iP7Ga6FJOZ4VfvYcLMkA5e4YPSIGnBFEohWVx891vQ1QvnWqc5ikDQSUnFh
-         Emcg==
+        bh=QazEe/qvawrNDzAs4zA6d9hj/WlJDLMr+26rOUkEYJ0=;
+        b=rqo/ke5W2m/ryxlrscacRdtcpZswNPcN1RyeHj9Bvx20aXfgV1qireWqkw9LZ2Ys3y
+         Zoiz3dc6G7YIDuUdUs885fyaM1218sxErjnsbIDB0VHeA3/MhaLQuADMpT4X+lE54Rca
+         xggn/F9bK66PTlE/zdYNtXTpJ+x3jxe58uqspe2LaAox38C5nhWOfpI3w0/Mss6Zk6NZ
+         5vXQUvgmL2kzbYh6ZgZ/8maBJvANCiNtbFh2thbd2wkxnDdhvHbaC2DwQEiXU0OstvZ0
+         V5lnZY7ZxHSgG/sieUwwMbOEOKvGm+Yk/dXN0dExl99LUWdmgolo8VFJWzhSZz/L9gMt
+         tULQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=eglJi6jj;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YJ0jINN3;
        spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iuOXAr/vfp4gQE33mMmg+8z2VsXg3USOpbt23yVIZLI=;
-        b=HyYkgm1RP+f5eh8sILjBl8K0T4Hruwx4+x7QNWgy1Brj9B95MDkVX7hIMp6pvzv6yb
-         1aj/Q3vUzZccWxzUJuRQBNbxEGMtrohi4wpDV/ST7ElkBUNajB0xP1T1GJgqi8G8lQaj
-         HNDFKkP5xBd15zkOMWhIs1jplga63/VLHdmmHEon4C9VwOP3h8WO+UMxxacsT7BnpUwA
-         dO5GgO/7bxdPAEjEmiJLKxgwFjerPXV9KCcdeaN53w7Dhg7LYhaIPAWhF1MenT2R3DSL
-         PCYCtBtYb43+vyKjsk6xSXHVmFAsqrrFz8fhDc7a2AxnU0TtJ0NwwtnV/SDoJwXi3Wkw
-         vplg==
+        bh=QazEe/qvawrNDzAs4zA6d9hj/WlJDLMr+26rOUkEYJ0=;
+        b=DxJQnW/Fy/1png57uIAq+pS4cgYOZh1Fi6dPRNeiDutIBsHzvTTmpnw9xO+JH6RCAR
+         2wpApYSa61BcOAfVRmJAl7qKCSPI0ZQX4JtcNauRKdn2Vb1jmN6aUWc3UpHfJp7LmeFf
+         oz24u+ZIdRN2S4WXIHAfe68GtpTXzAouuIIKdWm5v1ed2bBE+Uw5tgq5IIADc9k+h/LY
+         Eyy8SGNakuB0Tdoq1ABDQx8WIfahqYzJfirp1LBKz1LPFxXp99twYalYu32G3d9kq2DU
+         ZnflTKFFh7slGt2DQtPRZvp6nli68ZMvnURN2fy78osXha+TpS8kUBeFOW4PMIX2G76G
+         5+hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,86 +49,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iuOXAr/vfp4gQE33mMmg+8z2VsXg3USOpbt23yVIZLI=;
-        b=CnOqEpbBwm0EOl7I0jz+gorakM+wdOKYg0H5WsfAWXu8ppffmpmdGxHTtVxl5Lkko5
-         kZt0HrFtxJBr1jybFtP0NbDYDDBS3Lae0SwLnC/N0pgY8Hfx6gp/DJzNOGfSyxIEBSCJ
-         LSPIGMYMeyodZzfsijKKt6oWKE8ffg7L8XslNSIdD5SHeqOASFzrKWrb68N9CdVpnQXJ
-         /yzC2YL8joUJjYTU1I76X7XXhDVYvwNrTOTRDQFe+IBEOe4EE1VLlhCdx8u9j4bjcpPM
-         d5m+B5pVWjmN+5DH0ikUn4SIbTjNO+lAix4ZV611ymQhwbFUnv95+t0b6d3B9LGbdtcz
-         YAJA==
+        bh=QazEe/qvawrNDzAs4zA6d9hj/WlJDLMr+26rOUkEYJ0=;
+        b=ATLzXaloD4hxOdJrnMTvszD//h4oHck8dj4LDMIUuKdc1/UOaVKUwukhefQ92CnyLB
+         03VPPxGoyyyREHNK4UjBiKP2ogLNIK/xhB50dHIURCtQmFUS8gVV5122tgGegrseLadM
+         dnEZHgb9/RRw5mKxccSCrE1GilPcbF2lW1jeBKXKcUSQ0izBpjhU5GHcLbPtQr06kVpf
+         zPnq9fE01/U+YdNZ3YS6SE839yYg0FICT290/3HXg5bGic9Aqkii9NuzmFaya9Q5cPRO
+         zKQYUiJOE+bZ4y+sbb29zV8ysdKQLJnMe9TlQH7D4F9By/k8WGbGb9ZOpUkrOCcqcHLL
+         Q9hw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Oeipg2D1R3e3BkgiUpwoGBW7KrfRC7l9NmB1SpsTWO9/DTx8v
-	/J1ME7pAcDtptB3p04jeg5M=
-X-Google-Smtp-Source: ABdhPJzhKNloRA3yiiC+VvjV/ixMRUDah3cXzewhGFS3GKEVBUkktv2LT8+gwAcwk3Aq0aQr15/2QQ==
-X-Received: by 2002:a67:2e81:: with SMTP id u123mr2939566vsu.40.1612526272817;
-        Fri, 05 Feb 2021 03:57:52 -0800 (PST)
+X-Gm-Message-State: AOAM530I07cREKlb5cwF1IosX9shU/0MXRiN8H36mRNXxUrfEFHD9+Lq
+	KgA09Yb/YCrNBmU0Ef0WsU0=
+X-Google-Smtp-Source: ABdhPJwYIhyUz0FhRAfz3DALVeEpYitUE3WbWsT4LXwB6d/5ap0SjkxVlWILyvfLXACzFotWvyGxiw==
+X-Received: by 2002:a9f:31ad:: with SMTP id v42mr2726859uad.42.1612526767880;
+        Fri, 05 Feb 2021 04:06:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:3916:: with SMTP id b22ls703400uaw.6.gmail; Fri, 05 Feb
- 2021 03:57:52 -0800 (PST)
-X-Received: by 2002:a9f:36cc:: with SMTP id p70mr2459237uap.137.1612526272376;
-        Fri, 05 Feb 2021 03:57:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612526272; cv=none;
+Received: by 2002:a05:6102:88:: with SMTP id t8ls938120vsp.11.gmail; Fri, 05
+ Feb 2021 04:06:07 -0800 (PST)
+X-Received: by 2002:a67:fc16:: with SMTP id o22mr2571783vsq.49.1612526767386;
+        Fri, 05 Feb 2021 04:06:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612526767; cv=none;
         d=google.com; s=arc-20160816;
-        b=gC3O0tk2rPCjAAbvsv+FER/W/Utma/v0LQLEN8D9Sf1OfZD4KTTHrOXyE/DL+PsUwH
-         WchPsiu17MIowI485DHQZslxjQrdWgioS39Vhq+lSOcYpcMNsKDA3kGenlQWC7Bojt1q
-         TDOjVrnET28Iq3Ai6IvrTbRJh4aRaO9rhyzheSDDa/UzRLkWuw6MVmkldkdUrUQuvMxJ
-         l1qPyyfnb2CYsBOkZXOITsgl3y5a3k20BPcQcAic0sFZXg0EypYiopYO/rliqzE0mNE+
-         IldXstQPlvM4SuX+sWMF73RnN0vbCETTF+YrSYb9IYOVF/F+3rxFSV2yhbECPgjq5FhW
-         Ld5g==
+        b=oEah6BtSLqg4rn/M4UPoSSFy+NmtrHch39sO1ROGdJ0YMyO/Rdo4y98QXCfaIpTdbM
+         Shh1MaKQaXvKBJ7Rh767guzDG/YZORcbRCjgGtf7wu+jqQfTWzxFGS6q9xN5YvktUU7E
+         s67K8lzgCiYdxWxNX1ySHliBqIlbAJGRYlJozzL50OytulDiPDKLH8AJIbKXkw/t5P0M
+         ZBQ79oNcPM2Zl8+h+pKXgby9lXWwsW2bOyyfyq1XfFh9yeAmS7KQgoymBZDGr9NFUA8/
+         UxDcfA6LCHgPDIPiamubCEwvP69JKqbtLT5mXeNfEXVUtitNLv++FKsbdRuFLqhz90Hr
+         UWjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=SOiwW8I/hsVjC8fyD3u4ss/tHAk9Sz4OtjmJvEU2W5U=;
-        b=jFzukVnbFSoryFsIEuU1zMHlEAw4HOCbZQYOcvZneHTFQDnC8+CA6Vzpc/SZNjWXVl
-         Kv+OAglYwidVa3gCL1CUjWgNzIldqvEbUjglu9DVAreUHCjFgpD9T+2XzWHVCBwt8rsL
-         NyCge2EjXji2SFdxETYAkbWprzRKBagN539mUm9m6hJo66nsQpGxvRjqL86My3l0EHa7
-         M9iHu4wUpZKrNR29BK8UC649MmJt80BF2oyuXYGts/1poUmiuPfW2xGM3HKXhLQrKaSo
-         uEzEEN4gtgjbCJPYaibAjhs//Qvd8bzJjhYC004D88oL3xcNBWlf/14A7G0NT4h2sDsg
-         MQQw==
+        bh=kbN1qoGlKGN/HhSUO8JkiVZjLqofe85u59BLH/C+YRk=;
+        b=Sjg6L2gEKG2DmdbDNAwvN1aZwvy56aniGibLmWG744lYvudome7tpipTumDK7K4bKE
+         2xw8b6wPgRtoiuNrb4K85Y5te2kVtbuiyDUv2xfffDIv86pjnjCozfQcufVURxz1wyw5
+         2ftJpRiOSBxq45Htlfo0kaA+zdCeQtsBoOBKxMibrbo8UzW8dDi5dDPvEnYxVzV0irqz
+         dHdNL7Yzi0+6UX7O7Jy9rxqWEwLRzY6z/5DF5ci/rY9tP6MR8NsRV1nU04VuYxxPuyGb
+         A9guFqGsk5z7j1rkK447VYE6opj+iAQX8GfPQGf01gjZiriFmUxFfZ+BRchwD3J3Zug/
+         Fl9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=eglJi6jj;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YJ0jINN3;
        spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q1si553415vsn.1.2021.02.05.03.57.52
+        by gmr-mx.google.com with ESMTPS id e11si482923vkp.4.2021.02.05.04.06.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 05 Feb 2021 03:57:52 -0800 (PST)
+        Fri, 05 Feb 2021 04:06:07 -0800 (PST)
 Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id F053664FCE
-	for <clang-built-linux@googlegroups.com>; Fri,  5 Feb 2021 11:57:50 +0000 (UTC)
-Received: by mail-oi1-f173.google.com with SMTP id h192so7170521oib.1
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 03:57:50 -0800 (PST)
-X-Received: by 2002:aca:ea0b:: with SMTP id i11mr2772699oih.33.1612526270014;
- Fri, 05 Feb 2021 03:57:50 -0800 (PST)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0F4D464E0A
+	for <clang-built-linux@googlegroups.com>; Fri,  5 Feb 2021 12:06:06 +0000 (UTC)
+Received: by mail-ot1-f44.google.com with SMTP id f6so6624062ots.9
+        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 04:06:05 -0800 (PST)
+X-Received: by 2002:a05:6830:1e2a:: with SMTP id t10mr3220364otr.90.1612526765201;
+ Fri, 05 Feb 2021 04:06:05 -0800 (PST)
 MIME-Version: 1.0
-References: <CAMj1kXGZFZciN1_KruCr=g6GANNpRrCLR48b3q13+QfK481C7Q@mail.gmail.com>
- <20210118202409.GG30090@zn.tnic> <YAYAvBARSRSg8z8G@rani.riverdale.lan>
- <CAMj1kXHM98-iDYpAozaWEv-qxhZ0-CUMwSdG532x2d+55gXDhQ@mail.gmail.com>
- <20210203185148.GA1711888@localhost> <CAMj1kXFPOvkcw573wzKzMQOgT-nddFcAZo9M4Lk+idn_1UBbnA@mail.gmail.com>
- <20210204105155.GA32255@zn.tnic> <YBxqnosGDroAnpio@rani.riverdale.lan>
- <20210204221318.GI32255@zn.tnic> <YByMdh/qDEwreq6S@rani.riverdale.lan> <20210205113930.GD17488@zn.tnic>
-In-Reply-To: <20210205113930.GD17488@zn.tnic>
+References: <6c65bcef-d4e7-25fa-43cf-2c435bb61bb9@collabora.com>
+ <CAMj1kXHMw5hMuV5VapcTeok3WJu1B79=Z3Xho0qda0nCqBFERA@mail.gmail.com>
+ <20210204100601.GT1463@shell.armlinux.org.uk> <CAMj1kXFog3=5zD7+P=cRfRLj1xfD1h1kU58iifASBSXkRe-E6g@mail.gmail.com>
+ <c0037472-75c8-6cf9-6ecf-e671fce9d636@collabora.com> <46373679-a149-8a3d-e914-780e4c6ff8be@collabora.com>
+ <CAMj1kXEshuPTrKvN4LpXQMftHJG+yH8+fgU7uVc6GYn0qd8-xA@mail.gmail.com>
+ <7c685184-8688-9319-075b-66133cb0b0c3@collabora.com> <CAMj1kXH_CCYyd5zNVRL=KWpBXtsKamV7Bfg=O1YWBJL0f_eXLQ@mail.gmail.com>
+ <CAKwvOd=ziPWHmBiPtW3h2VYLZ-CTMp4=aEonmMLM7c=Y0SeG1Q@mail.gmail.com>
+ <20210204181216.GB2989696@localhost> <CAKwvOd=UYuKPp6rO7aWGFEsc9yLa_UCLnAL-vwqzi_5sZg7O3g@mail.gmail.com>
+ <253b2987-c8e9-fcb6-c1b9-81e765c0cc2a@collabora.com> <CAMj1kXFKzEPqG5j2bn5n_3imc9aFyOEHX7CVDdwe2=ugTq=bZQ@mail.gmail.com>
+In-Reply-To: <CAMj1kXFKzEPqG5j2bn5n_3imc9aFyOEHX7CVDdwe2=ugTq=bZQ@mail.gmail.com>
 From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 5 Feb 2021 12:57:38 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEpNuMyotUN5ojoFUjvAdx--OxqDqN030S2RmdONn3a6g@mail.gmail.com>
-Message-ID: <CAMj1kXEpNuMyotUN5ojoFUjvAdx--OxqDqN030S2RmdONn3a6g@mail.gmail.com>
-Subject: Re: [PATCH] x86/efi: Remove EFI PGD build time checks
-To: Borislav Petkov <bp@alien8.de>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Arnd Bergmann <arnd@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	X86 ML <x86@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Darren Hart <dvhart@infradead.org>, Andy Shevchenko <andy@infradead.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, linux-efi <linux-efi@vger.kernel.org>, 
-	platform-driver-x86@vger.kernel.org, 
+Date: Fri, 5 Feb 2021 13:05:54 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGrABn7KxSPxTo3pWJEk3fNsN-zBBHZkbVfg7gTavL_pQ@mail.gmail.com>
+Message-ID: <CAMj1kXGrABn7KxSPxTo3pWJEk3fNsN-zBBHZkbVfg7gTavL_pQ@mail.gmail.com>
+Subject: Re: next/master bisection: baseline.login on rk3288-rock2-square
+To: Guillaume Tucker <guillaume.tucker@collabora.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Russell King - ARM Linux admin <linux@armlinux.org.uk>, 
+	"kernelci-results@groups.io" <kernelci-results@groups.io>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Nicolas Pitre <nico@fluxnic.net>, Linus Walleij <linus.walleij@linaro.org>, 
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+	Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=eglJi6jj;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=YJ0jINN3;       spf=pass
  (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -144,95 +144,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 5 Feb 2021 at 12:39, Borislav Petkov <bp@alien8.de> wrote:
+On Fri, 5 Feb 2021 at 09:21, Ard Biesheuvel <ardb@kernel.org> wrote:
 >
-> From: Borislav Petkov <bp@suse.de>
+> On Thu, 4 Feb 2021 at 22:31, Guillaume Tucker
+> <guillaume.tucker@collabora.com> wrote:
+> >
+> > On 04/02/2021 18:23, Nick Desaulniers wrote:
+> > > On Thu, Feb 4, 2021 at 10:12 AM Nathan Chancellor <nathan@kernel.org> wrote:
+> > >>
+> > >> On Thu, Feb 04, 2021 at 10:06:08AM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
+> > >>> On Thu, Feb 4, 2021 at 8:02 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >>>>
+> > >>>> On Thu, 4 Feb 2021 at 16:53, Guillaume Tucker
+> > >>>> <guillaume.tucker@collabora.com> wrote:
+> > >>>>>
+> > >>>>> On 04/02/2021 15:42, Ard Biesheuvel wrote:
+> > >>>>>> On Thu, 4 Feb 2021 at 12:32, Guillaume Tucker
+> > >>>>>> <guillaume.tucker@collabora.com> wrote:
+> > >>>>>>>
+> > >>>>>>> Essentially:
+> > >>>>>>>
+> > >>>>>>>   make -j18 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LLVM=1 CC="ccache clang" zImage
+> > >>>
+> > >>> This command should link with BFD (and assemble with GAS; it's only
+> > >>> using clang as the compiler.
+> > >>
+> > >> I think you missed the 'LLVM=1' before CC="ccache clang". That should
+> > >> use all of the LLVM utilities minus the integrated assembler while
+> > >> wrapping clang with ccache.
+> > >
+> > > You're right, I missed `LLVM=1`. Adding `LD=ld.bfd` I think should
+> > > permit fallback to BFD.
+> >
+> > That was close, except we're cross-compiling with GCC for arm.
+> > So I've now built a plain next-20210203 (without Ard's fix) using
+> > this command line:
+> >
+> >     make LD=arm-linux-gnueabihf-ld.bfd -j18 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- LLVM=1 CC="ccache clang" zImage
+> >
+> > I'm using a modified Docker image gtucker/kernelci-build-clang-11
+> > with the very latest LLVM 11 and gcc-8-arm-linux-gnueabihf
+> > packages added to be able to use the GNU linker.  BTW I guess we
+> > should enable this kind of hybrid build setup on kernelci.org as
+> > well.
+> >
+> > Full build log + kernel binaries can be found here:
+> >
+> >     https://storage.staging.kernelci.org/gtucker/next-20210203-ard-fix/v5.10-rc4-24722-g58b6c0e507b7-gtucker_single-staging-41/arm/multi_v7_defconfig/clang-11/
+> >
+> > And this booted fine, which confirms it's really down to how
+> > ld.lld puts together the kernel image.  Does it actually solve
+> > the debate whether this is an issue to fix in the assembly code
+> > or at link time?
+> >
+> > Full test job details for the record:
+> >
+> >     https://lava.collabora.co.uk/scheduler/job/3176004
+> >
 >
-> With CONFIG_X86_5LEVEL, CONFIG_UBSAN and CONFIG_UBSAN_UNSIGNED_OVERFLOW
-> enabled, clang fails the build with
 >
->   x86_64-linux-ld: arch/x86/platform/efi/efi_64.o: in function `efi_sync_low_kernel_mappings':
->   efi_64.c:(.text+0x22c): undefined reference to `__compiletime_assert_354'
+> So the issue appears to be in the way the linker generates the
+> _kernel_bss_size symbol, which obviously has an impact, given that the
+> queued fix takes it into account in the cache_clean operation.
 >
-> which happens due to -fsanitize=unsigned-integer-overflow being enabled:
+> On GNU ld, I see
 >
->   -fsanitize=unsigned-integer-overflow: Unsigned integer overflow, where
->   the result of an unsigned integer computation cannot be represented
->   in its type. Unlike signed integer overflow, this is not undefined
->   behavior, but it is often unintentional. This sanitizer does not check
->   for lossy implicit conversions performed before such a computation
->   (see -fsanitize=implicit-conversion).
+>    479: 00065e14     0 NOTYPE  GLOBAL DEFAULT  ABS _kernel_bss_size
 >
-> and that fires when the (intentional) EFI_VA_START/END defines overflow
-> an unsigned long, leading to the assertion expressions not getting
-> optimized away (on GCC they do)...
+> whereas n LLVM ld.lld, I see
 >
-> However, those checks are superfluous: the runtime services mapping
-> code already makes sure the ranges don't overshoot EFI_VA_END as the
-> EFI mapping range is hardcoded. On each runtime services call, it is
-> switched to the EFI-specific PGD and even if mappings manage to escape
-> that last PGD, this won't remain unnoticed for long.
+>    433: c1c86e98     0 NOTYPE  GLOBAL DEFAULT  ABS _kernel_bss_size
 >
-> So rip them out.
+> and adding this value may cause the cache clean to operate on unmapped
+> addresses, or cause the addition to wrap and not perform a cache clean
+> at all.
 >
-> See https://github.com/ClangBuiltLinux/linux/issues/256 for more info.
->
-> Reported-by: Arnd Bergmann <arnd@arndb.de>
-> Link: http://lkml.kernel.org/r/20210107223424.4135538-1-arnd@kernel.org
-> Signed-off-by: Borislav Petkov <bp@suse.de>
+> AFAICT, this also breaks the appended DTB case in LLVM, so this needs
+> a separate fix in any case.
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+I pushed a combined branch of torvalds/master, rmk/fixes (still
+containing my 9052/1 fix) and this patch to my for-kernelci branch
 
-> ---
->  arch/x86/platform/efi/efi_64.c | 19 -------------------
->  1 file changed, 19 deletions(-)
->
-> diff --git a/arch/x86/platform/efi/efi_64.c b/arch/x86/platform/efi/efi_64.c
-> index e1e8d4e3a213..8efd003540ca 100644
-> --- a/arch/x86/platform/efi/efi_64.c
-> +++ b/arch/x86/platform/efi/efi_64.c
-> @@ -115,31 +115,12 @@ void efi_sync_low_kernel_mappings(void)
->         pud_t *pud_k, *pud_efi;
->         pgd_t *efi_pgd = efi_mm.pgd;
->
-> -       /*
-> -        * We can share all PGD entries apart from the one entry that
-> -        * covers the EFI runtime mapping space.
-> -        *
-> -        * Make sure the EFI runtime region mappings are guaranteed to
-> -        * only span a single PGD entry and that the entry also maps
-> -        * other important kernel regions.
-> -        */
-> -       MAYBE_BUILD_BUG_ON(pgd_index(EFI_VA_END) != pgd_index(MODULES_END));
-> -       MAYBE_BUILD_BUG_ON((EFI_VA_START & PGDIR_MASK) !=
-> -                       (EFI_VA_END & PGDIR_MASK));
-> -
->         pgd_efi = efi_pgd + pgd_index(PAGE_OFFSET);
->         pgd_k = pgd_offset_k(PAGE_OFFSET);
->
->         num_entries = pgd_index(EFI_VA_END) - pgd_index(PAGE_OFFSET);
->         memcpy(pgd_efi, pgd_k, sizeof(pgd_t) * num_entries);
->
-> -       /*
-> -        * As with PGDs, we share all P4D entries apart from the one entry
-> -        * that covers the EFI runtime mapping space.
-> -        */
-> -       BUILD_BUG_ON(p4d_index(EFI_VA_END) != p4d_index(MODULES_END));
-> -       BUILD_BUG_ON((EFI_VA_START & P4D_MASK) != (EFI_VA_END & P4D_MASK));
-> -
->         pgd_efi = efi_pgd + pgd_index(EFI_VA_END);
->         pgd_k = pgd_offset_k(EFI_VA_END);
->         p4d_efi = p4d_offset(pgd_efi, 0);
-> --
-> 2.29.2
->
-> --
-> Regards/Gruss,
->     Boris.
->
-> https://people.kernel.org/tglx/notes-about-netiquette
+https://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git/log/
+
+Guillaume,
+
+It seems there is no Clang-11 coverage there, right? Mind giving this
+branch a spin? If this fixes the regressions, we can get these queued
+up.
+
+Thanks,
+Ard.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEpNuMyotUN5ojoFUjvAdx--OxqDqN030S2RmdONn3a6g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXGrABn7KxSPxTo3pWJEk3fNsN-zBBHZkbVfg7gTavL_pQ%40mail.gmail.com.
