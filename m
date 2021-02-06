@@ -1,131 +1,128 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBO7L66AAMGQE4PGFVQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBMXZ66AAMGQEQJG43QA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BFE2311821
-	for <lists+clang-built-linux@lfdr.de>; Sat,  6 Feb 2021 02:49:49 +0100 (CET)
-Received: by mail-oo1-xc40.google.com with SMTP id h10sf4613387ooj.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 17:49:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612576188; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 79059311836
+	for <lists+clang-built-linux@lfdr.de>; Sat,  6 Feb 2021 03:19:32 +0100 (CET)
+Received: by mail-pl1-x63e.google.com with SMTP id 32sf5426077plf.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 05 Feb 2021 18:19:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612577971; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dAPTGLLBVtBq/ZeKrcmpgBB3CIi/zX1HDbJc4UEHRNfHisPXyi0eoV6jBTzCk2gveh
-         m3n6iCXTxsZK8Zuub8Qf3Fy5xA5TQt/+uYT5G2KRxzHdaihcz4opXMReG10LVpQUqrnK
-         Z0J1A71om4Rio6Dvu3fZMcDvOloovo26sTLzcb7kcLLghDUikt91pghhMBKbE43ZbRET
-         p3YNhZ+z1Z4UyR8sXbCSkzuaRmytNa04e4cxTtLSzjQNTNvEnhsiDIU7DCUXwb+Br2S9
-         /Csja+a6k+SMhQhoiSXRm3xyuf76Vyzr4b+aF3Xm86ez1kMt8Xm04NnvehWS0K6SfwAZ
-         ktXw==
+        b=WkfB5gzibCPscjdaaUKX3rD3SonFeH7cVtvCAW6VeJMmLRY28IwFzBhNYyafquLk1T
+         JDwfrtt8LUddGh7wjRUuYPiyzW/0om+5FXBKLnRhbBwjpwIM+nanCKUVPyHhIbts0eVF
+         ZpgKqnLm6HR3TiYDAHNEybebDya5NoLIVM/QgN2P3ucxaSsyRu0CFoc4+wIvx+nhQSi6
+         qMVj0cnjnSXH3uICCZVUrYHoe6d4gEzS/2MCrIAhLTi78wJ6mM/PyWL7glNLOS5A9kN+
+         I43xYGmFfkEUVz5coTXV1Wgw66OU19bXnEy3LfTPjK0vYaI2INC4cxExbYYNMVrw6nu4
+         rA5w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=kZMaAOLmxVO/6PVq0dq+luQZDNDw2Zah91MuvMwS/Tc=;
-        b=kw3f7xFLQvUhIaHThoQOfn9B+1utEN2JVEQCWKwoX8fhdgtlE89gXB+5NKMx80UDH+
-         gI0CmWdlrA5tyiMF2haV563yeZxDg2h1+tUDaVjsLbEYBSqsPmZzTl9BR6EUD+sv/1qY
-         KuU4NtXEE6uRDTE2nvaPRFMPBieGWlJHcx3Rkh08KwxURb3uHzu5S43fwWP580ZNok2C
-         ExBE1iV0SeQDM3Vsp8C6MwVVtYKNwFQQza0/k++QEfRHyY8upAlwgXsFDHErUu7bW5nl
-         2Bf6EL9S7VsV/4dtjN+cGX4H+vsJ4G2uibAnogYCf0kdKLj78jcl/RySEcNLjAvinz9X
-         MHQw==
+        bh=8U86emLqMcyLjVskj+s+M125OyWnkrcDO3KyEXm+eck=;
+        b=L9QgcSgi9ERjYAX0UFDj9xT+xkmth01pl8PWHbk2f/H78XXhx/sd3sbxaVXTkgjMh3
+         JjygQkoLl3cH321Als0VWNl4AFQBGlF3fcm+h3XSJh9W07vgkurHhMmeKqGntfjqqUNX
+         NBe5XABIzE8O5AraBJ6Fs2qS9JVtnXe7varxEYnqtheu25nQFbLidSnAITFM9yE+kkR5
+         UC8X54D5afhS7cdAc9gHHvzLMnHKQL/8bNKKet3FlPirheAH2lVpju6OUXnX52qwJVF8
+         lCHiIv6jED6dY+y47C0jNyy5z5IIpNocUaHWQgKLYOUsuVfBt/JP9MlpmUF2kjLFON+F
+         pQiA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=xYLjqAKA;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=SmTeXrnC;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kZMaAOLmxVO/6PVq0dq+luQZDNDw2Zah91MuvMwS/Tc=;
-        b=FfXgpdRbMjSThXrKAavJepL2UKgCBJB8Jq8pzQG47g5gX6s/Eaacbx5ZLAVfPckFyx
-         x98o+KyDHw/23mxLPJEKrPnB74HPaOPx5k9mgkXzC0ZkJEH5QFKNuPP2Y8IGMYQB93RI
-         5T5EfEnpBhnKsykT77kviQ+W3oz7Fn/eBFDPh+gNbXWQDUFuAU4WeM6H66eIgE4t4G9h
-         sa45LTbb0mIKKGlm6bi54UBe/UwbAdT1uXY9YdHdXwGjSF7mLgONhTjrA0uABhqn9+ks
-         V/VDRlekYS/nJ+zxpfnKMsJr6AoINMJRCTd2dFzDr83yts5WrHihFC7ivdPWP9zAdZgs
-         ZxVg==
+        bh=8U86emLqMcyLjVskj+s+M125OyWnkrcDO3KyEXm+eck=;
+        b=WsZr67ys8GFXQgSb8JqfDWFg213Dgo14poFG+LB2ctvcipDPuWBAL1a+Px9hCIC36y
+         H2ZrVBgV+leTSOeLsV3ejVOfQoujqFusSllcBkVTHm/ts26ioqZtWKkN77gK4UFSPfwP
+         T+mKbeh1CDi8yXFCEFPnfym90rJ1vdhuvoqHIhM+x5qh+R9/pj+w0jULR5Ji+FnJIa+z
+         lmQdCypy0JtHAmuNkHxY6y4q3JKhfOzCvRCoLE5VIhxF5zH+JIeuQzvxLQEnoZDjV4VG
+         1t6ONjQ8Gm+X+dkWoljOTyBsPND/bjU7ve8f0csIIT76Fbi044gNCB/PwT6W0Hzrv7xa
+         FG0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=kZMaAOLmxVO/6PVq0dq+luQZDNDw2Zah91MuvMwS/Tc=;
-        b=ANyPzhKrj/uXPPlS0ZhaZSZJZ1hBlyEYreVVkEapF49BW8Hicq7sXpfA7PyW0QPz0d
-         nh0hXaB0JGU6UISFvb6Jm23E2GzGbh3aSXKxDSbOekoQFH7vHAug2gpBKP8oUPR4+FgZ
-         rauE7DwESyHKpKO97e+QFpeZxYqOfPj9fMUDUpNfJLpH4/mp7aDEl0nzVf9TFC3nM7P+
-         YJcTSIclIH2O2qXznQmA9K/hQF6WFAipJtoCwvnRniXk1fYY4EokjPjEkni7XsZ9BQ3J
-         Xaekv9BEiSxSYcSI2FYWJ0KhURMglb4MXJMSpZHHw/Jyxvf2r1xI4njfLqSnP06EFCjt
-         YHww==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=8U86emLqMcyLjVskj+s+M125OyWnkrcDO3KyEXm+eck=;
+        b=H3G/JJ0wmk0XzbWaYmapIK//TIYFXeiFZ9Hy3XnYY5zo4EO0gYNHAvksWEvGfLwUsw
+         3jSCIut6pyZURLDCmAd57AMcpXYTe3CHpvtAxn1GtbIfBTZT49MOXExqXxJ0DiW87yOD
+         fwy7LRLeKCaIL5oKkvYHTzlyYy6oOL4QowxHjRfCx7Emkmf/Z/G6UdQu+kZBOcXMMUY6
+         3o8gKTttzAE9XGRERDuHq9eh+p2avTBORFp8etm87dhpE1j4V1aYsWlmCatLhndzxc6Z
+         /gvtdxfXUncMmQgk0/HoewQhEkAVpOSKxEQzjVUOhxizjj3tcvUNfWO9V9tMRuTjxiQo
+         RHxw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5322xOaZIEkkMC5/ngoxBhgTVNFEPmW3q4wIt2eY4R0mWGEeQCBI
-	ozBdP2sxnJ4dokUygr+qGzw=
-X-Google-Smtp-Source: ABdhPJzwJnywW5dhhTDpPIbhGhNeJmvCmi2Q2JXY7UMbI1GNAfW9wzm6r0DtKJy7Q1knW/B2aJnClg==
-X-Received: by 2002:a9d:30f:: with SMTP id 15mr5418700otv.212.1612576188019;
-        Fri, 05 Feb 2021 17:49:48 -0800 (PST)
+X-Gm-Message-State: AOAM532n8fZFW+hERwdk5UNYk1P+yugt3D3llDtz7gXjXdRAwTX8eVAP
+	eSJEG7pfNzk/imLSt3XgcrI=
+X-Google-Smtp-Source: ABdhPJx2Z/alUuxePQAxE9HkCy/+bB2j8USbTx5LUvs2G25w9Y3hlwqa98YLp8pQgfL8czeluDSDrQ==
+X-Received: by 2002:a17:90a:7e94:: with SMTP id j20mr7111627pjl.8.1612577970874;
+        Fri, 05 Feb 2021 18:19:30 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1e4a:: with SMTP id e10ls2711718otj.7.gmail; Fri,
- 05 Feb 2021 17:49:47 -0800 (PST)
-X-Received: by 2002:a9d:6e0b:: with SMTP id e11mr451236otr.343.1612576187581;
-        Fri, 05 Feb 2021 17:49:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612576187; cv=none;
+Received: by 2002:a63:296:: with SMTP id 144ls1312188pgc.4.gmail; Fri, 05 Feb
+ 2021 18:19:30 -0800 (PST)
+X-Received: by 2002:a05:6a00:15c8:b029:1b7:d521:32e9 with SMTP id o8-20020a056a0015c8b02901b7d52132e9mr7386527pfu.22.1612577970239;
+        Fri, 05 Feb 2021 18:19:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612577970; cv=none;
         d=google.com; s=arc-20160816;
-        b=kUgSyUt7EuSPW54Nlxs9wNHb4H6OymlOemF7oDJgrqF6R5rMw09S5Yp2sH+SeFpnvu
-         m8eikrTbFes5vdm3ZxTgwWoBK2cFItUxASCaH6ZvgLossrF84zno6Ue174/A48mtYtdA
-         gcRaLn/hQ2xMRFb+EVaOi7IQi+2XPXBOC0jyQETBuk5BP4viwq1cljWR4lTB2S0ly0UE
-         MsIpAMijOEEWpipUpsXVBJ4YpZL7aPFpW1ytwmBh31m1lIs2r1h/Ziymi1ND/4rUT3fc
-         EGH2/G1NoYxw/xFIixl+xWCinGO4tfdgVAimGuIOv8rHiPVrGZDld3AsbKN5NufCnzLF
-         zS/A==
+        b=mnQ3YFyzQrEc2QWLFq6/xSVNwCiL+lyNxBZOhxBcnTFYAUq47mLbMATOD3zBAp/9sI
+         Tr9RTZX5zezBJfOuXUB/Q/cY9wCEvskbohJvkdZ9LmboCtcDaR8ZdJuTo/aTuVUVwflW
+         7BuWO/3sohvpCH/7e0USI/UpXJXqA1M3L16FEGnsod1+edLy7IvWSW/6eVYnV777P3ax
+         msO5MsWSAjsBN4A5d+Vo8hei9kelsqT8qWAza0+0by7B98jb37jAgejTVlsJXOZ+iVdG
+         GGI3ig/gzzjIVyipnjsPc1wzehzJ3uRj8o767NyyIXQTO/YlMCi92FvIzBJSp0h1wCRI
+         KcaA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=gpqQwaTvQcIqHtmt2nFODRlCdmq9NF34DAVw/eO4LAI=;
-        b=WE3innwCa1vPn4KcOXJKkb2nCNGonZO8s5QpwuaCEzZPzT5rsxos7YBtBndX0RhII9
-         1CthQGnhN1IN2uKWiCpXwgy8U+P5fXmmCN/DsW2+mdr+g8i3wFx0WiTXdawIHVmaea5y
-         V0ExnhyTH9/azxNbpBh5IT53/wQhUq3hrKx9HbTAG7sn/qfEoAf/ZXB8SZSuWXJqV1q0
-         k4cEkJkJ3OVdb/+oYntBR2p709+H+V0rKYGjD4S6V2zC/AVwM0NXVUxDoNbfceQ7qSG1
-         QhkGqxIaFXR0g7GGyegXeTUZ6Pz1PUCyejWjaLqhXXXEwQbhuMOzW7SJtvsRD74ZTgmy
-         HPyg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=rtxrNo6d0DmrIPvL3eI3Nymjk5wlPELB2pv08qWf2/U=;
+        b=l0x/f7rFRcJKBqfqZishLzV8veK0MveXvp9zcfl5BRBfTeDvHwFPa6t1hhf4+q0SJx
+         7YumugO7UzH7dmsgdv7nupsnt6E0CHNbgJUSWoXHCR6jXSRxiHqbY+g1XicD5jnrUY9q
+         vlRuF0q7r49LsRAUuMEgJn9ppIw2C1byZhDmg6ju141GAr0tZGpRUn3nfrIBlyHmiuS/
+         MSUXpD6oF5aXbX3+6aNJK+QNPr/Kjh6AnD3nipRXzSMP5X8ZaS6pRD6H6HBRPQdJOfbk
+         2ftHWGmhkgJ6qp/8xgaU7yphguf9IgNOckoevURO3j2AaWTpf0F0ziCwvWQR2FdNWQZk
+         kYxA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=xYLjqAKA;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
-        by gmr-mx.google.com with ESMTPS id i84si132610oib.4.2021.02.05.17.49.47
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=SmTeXrnC;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id i10si639513pfa.6.2021.02.05.18.19.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 05 Feb 2021 17:49:47 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179]) (authenticated)
-	by conssluserg-06.nifty.com with ESMTP id 1161nRDx008826
-	for <clang-built-linux@googlegroups.com>; Sat, 6 Feb 2021 10:49:28 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 1161nRDx008826
-X-Nifty-SrcIP: [209.85.215.179]
-Received: by mail-pg1-f179.google.com with SMTP id s23so5766801pgh.11
-        for <clang-built-linux@googlegroups.com>; Fri, 05 Feb 2021 17:49:27 -0800 (PST)
-X-Received: by 2002:a63:ff09:: with SMTP id k9mr7335315pgi.175.1612576167170;
- Fri, 05 Feb 2021 17:49:27 -0800 (PST)
+        Fri, 05 Feb 2021 18:19:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9205164F97;
+	Sat,  6 Feb 2021 02:19:29 +0000 (UTC)
+Date: Fri, 5 Feb 2021 19:19:28 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: CKI Project <cki-project@redhat.com>
+Cc: skt-results-master@redhat.com, clang-built-linux@googlegroups.com,
+	Memory Management <mm-qe@redhat.com>,
+	Jan Stancek <jstancek@redhat.com>,
+	Rachel Sibley <rasibley@redhat.com>,
+	Milos Malik <mmalik@redhat.com>,
+	Ondrej Mosnacek <omosnace@redhat.com>,
+	David Arcari <darcari@redhat.com>, Yi Zhang <yizhan@redhat.com>
+Subject: Re: =?utf-8?B?8J+SpSBQQU5JQ0tFRDogVGVz?= =?utf-8?Q?t?= report for
+ kernel 5.11.0-rc6 (mainline.kernel.org-clang)
+Message-ID: <20210206021928.GA2219249@ubuntu-m3-large-x86>
+References: <cki.DC2474EF23.YM0YCFTL5T@redhat.com>
+ <20210206014149.GA1121962@ubuntu-m3-large-x86>
 MIME-Version: 1.0
-References: <20210205220125.2931504-1-ndesaulniers@google.com>
-In-Reply-To: <20210205220125.2931504-1-ndesaulniers@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 6 Feb 2021 10:48:50 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARKHvjTcnic=ZKntH3NY5meehQbJuBr34y9_tn8b-Ym0w@mail.gmail.com>
-Message-ID: <CAK7LNARKHvjTcnic=ZKntH3NY5meehQbJuBr34y9_tn8b-Ym0w@mail.gmail.com>
-Subject: Re: [PATCH] Makefile: reuse CC_VERSION_TEXT
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Michal Marek <michal.lkml@markovi.net>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20210206014149.GA1121962@ubuntu-m3-large-x86>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=xYLjqAKA;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=SmTeXrnC;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,78 +135,137 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Feb 6, 2021 at 7:01 AM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
->
-> I noticed we're invoking $(CC) via $(shell) more than once to check the
-> version.  Let's reuse the first string captured in $CC_VERSION_TEXT.
->
-> Fixes: 315bab4e972d ("kbuild: fix endless syncconfig in case arch Makefile sets CROSS_COMPILE")
+On Fri, Feb 05, 2021 at 06:41:49PM -0700, Nathan Chancellor wrote:
+> On Fri, Feb 05, 2021 at 08:48:39PM -0000, CKI Project wrote:
+> > 
+> > Hello,
+> > 
+> > We ran automated tests on a recent commit from this kernel tree:
+> > 
+> >        Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> >             Commit: dd86e7fa07a3 - Merge tag 'pci-v5.11-fixes-2' of git://git.kernel.org/pub/scm/linux/kernel/git/helgaas/pci
+> > 
+> > The results of these automated tests are provided below.
+> > 
+> >     Overall result: FAILED (see details below)
+> >              Merge: OK
+> >            Compile: OK
+> >  Selftests compile: FAILED
+> >              Tests: PANICKED
+> > 
+> > All kernel binaries, config files, and logs are available for download here:
+> > 
+> >   https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?prefix=datawarehouse-public/2021/02/05/623168
+> 
+> I don't know if I am missing something or there was a mix up somewhere
+> but all of the configuration files in that link show that GCC was used
+> for all of these builds:
+> 
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-public/2021/02/05/623168/build_aarch64_redhat%3A1095500/kernel-mainline.kernel.org-clang-aarch64-dd86e7fa07a3ec33c92c957ea7b642c4702516a0.config
+> 
+> CONFIG_CC_VERSION_TEXT="aarch64-linux-gnu-gcc (GCC) 10.2.1 20200826 (Red Hat Cross 10.2.1-3)"
+> CONFIG_CC_IS_GCC=y
+> CONFIG_GCC_VERSION=100201
+> CONFIG_LD_VERSION=235010000
+> CONFIG_CLANG_VERSION=0
+> CONFIG_LLD_VERSION=0
+> 
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-public/2021/02/05/623168/build_ppc64le_redhat%3A1095501/kernel-mainline.kernel.org-clang-ppc64le-dd86e7fa07a3ec33c92c957ea7b642c4702516a0.config
+> 
+> CONFIG_CC_VERSION_TEXT="powerpc64le-linux-gnu-gcc (GCC) 10.2.1 20200826 (Red Hat Cross 10.2.1-3)"
+> CONFIG_CC_IS_GCC=y
+> CONFIG_GCC_VERSION=100201
+> CONFIG_LD_VERSION=235010000
+> CONFIG_CLANG_VERSION=0
+> CONFIG_LLD_VERSION=0
+> 
+> https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-public/2021/02/05/623168/build_x86_64_redhat%3A1095499/kernel-mainline.kernel.org-clang-x86_64-dd86e7fa07a3ec33c92c957ea7b642c4702516a0.config
+> 
+> CONFIG_CC_VERSION_TEXT="gcc (GCC) 11.0.0 20210130 (Red Hat 11.0.0-0)"
+> CONFIG_CC_IS_GCC=y
+> CONFIG_GCC_VERSION=110000
+> CONFIG_LD_VERSION=235010000
+> CONFIG_CLANG_VERSION=0
+> CONFIG_LLD_VERSION=0
+> 
+> Cheers,
+> Nathan
+> 
 
+I can see by booting the binary that the kernel was compiled with clang
+and linked with lld though. However, I still cannot reproduce this
+crash.
 
-I did not touch this hunk because I have a plan
-for different refactoring, but I have never got
-around to do it.
+root@ubuntu-m3-large-x86:~# cat /proc/version
+Linux version 5.11.0-rc6 (cki@runner-3uc3rmvr-project-2-concurrent-4lc6vt) (clang version 11.1.0 (Fedora 11.1.0-0.4.rc2.fc34), LLD 11.1.0) #1 SMP Fri Feb 5 00:21:48 UTC 2021
+root@ubuntu-m3-large-x86:~# lsmod
+Module                  Size  Used by
+binfmt_misc            24576  1
+intel_rapl_msr         20480  0
+intel_rapl_common      32768  1 intel_rapl_msr
+amd_energy             16384  0
+crct10dif_pclmul       16384  1
+crc32_pclmul           16384  0
+crc32c_intel           24576  0
+ghash_clmulni_intel    16384  0
+snd_pcm               139264  0
+snd_timer              45056  1 snd_pcm
+snd                   106496  2 snd_timer,snd_pcm
+joydev                 28672  0
+soundcore              16384  1 snd
+serio_raw              20480  0
+pcspkr                 16384  0
+virtio_net             65536  0
+net_failover           28672  1 virtio_net
+failover               16384  1 net_failover
+ata_generic            16384  0
+i2c_piix4              28672  0
+pata_acpi              16384  0
+floppy                 94208  0
+qemu_fw_cfg            20480  0
+bpf_preload            16384  0
+ip_tables              32768  0
+x_tables               53248  1 ip_tables
+root@ubuntu-m3-large-x86:~# ltp/testcases/kernel/fs/proc/proc01 -m 128
+proc01      0  TINFO  :  /proc/sys/fs/binfmt_misc/register: is write-only.
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/all/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/default/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/dummy0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ens2/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/erspan0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/gre0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/gretap0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ifb0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ifb1/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip6_vti0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip6gre0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip6tnl0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip_vti0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/lo/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/tunl0/stable_secret: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/kmsg: known issue: errno=EAGAIN/EWOULDBLOCK(11): Resource temporarily unavailable
+proc01      0  TINFO  :  /proc/sysrq-trigger: is write-only.
+proc01      0  TINFO  :  /proc/self/task/753/mem: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/self/task/753/clear_refs: is write-only.
+proc01      0  TINFO  :  /proc/self/task/753/pagemap: reached maxmbytes (-m)
+proc01      0  TINFO  :  /proc/self/mem: known issue: errno=EIO(5): Input/output error
+proc01      0  TINFO  :  /proc/self/clear_refs: is write-only.
+proc01      0  TINFO  :  /proc/self/pagemap: reached maxmbytes (-m)
+proc01      1  TPASS  :  readproc() completed successfully, total read: 280264271 bytes, 3326 objs
+root@ubuntu-m3-large-x86:~# ltp/testcases/kernel/fs/read_all/read_all -d /proc -q -r 3
+read_all.c:446: TPASS: Finished reading files/fs/read_all/read_all -d /proc -q -r 3
 
-Anyway, you beat me, and I will pick this up.
-But, the Fixes tag is questionable because
-this is code refactoring.
+Summary:
+passed   1
+failed   0
+broken   0
+skipped  0
+warnings 0
 
-
-
-
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  Makefile | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/Makefile b/Makefile
-> index a85535eb6a7d..70034d7c1051 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -557,7 +557,13 @@ ifdef building_out_of_srctree
->         { echo "# this is build directory, ignore it"; echo "*"; } > .gitignore
->  endif
->
-> -ifneq ($(shell $(CC) --version 2>&1 | head -n 1 | grep clang),)
-> +# The expansion should be delayed until arch/$(SRCARCH)/Makefile is included.
-> +# Some architectures define CROSS_COMPILE in arch/$(SRCARCH)/Makefile.
-> +# CC_VERSION_TEXT is referenced from Kconfig (so it needs export),
-> +# and from include/config/auto.conf.cmd to detect the compiler upgrade.
-> +CC_VERSION_TEXT = $(shell $(CC) --version 2>/dev/null | head -n 1)
-> +
-> +ifneq ($(findstring clang,$(CC_VERSION_TEXT)),)
->  ifneq ($(CROSS_COMPILE),)
->  CLANG_FLAGS    += --target=$(notdir $(CROSS_COMPILE:%-=%))
->  GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
-> @@ -576,12 +582,6 @@ KBUILD_AFLAGS      += $(CLANG_FLAGS)
->  export CLANG_FLAGS
->  endif
->
-> -# The expansion should be delayed until arch/$(SRCARCH)/Makefile is included.
-> -# Some architectures define CROSS_COMPILE in arch/$(SRCARCH)/Makefile.
-> -# CC_VERSION_TEXT is referenced from Kconfig (so it needs export),
-> -# and from include/config/auto.conf.cmd to detect the compiler upgrade.
-> -CC_VERSION_TEXT = $(shell $(CC) --version 2>/dev/null | head -n 1)
-> -
->  ifdef config-build
->  # ===========================================================================
->  # *config targets only - make sure prerequisites are updated, and descend
-> --
-> 2.30.0.478.g8a0d178c01-goog
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210205220125.2931504-1-ndesaulniers%40google.com.
-
-
-
--- 
-Best Regards
-Masahiro Yamada
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARKHvjTcnic%3DZKntH3NY5meehQbJuBr34y9_tn8b-Ym0w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210206021928.GA2219249%40ubuntu-m3-large-x86.
