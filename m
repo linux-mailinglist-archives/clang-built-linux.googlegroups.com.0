@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBXMF7OAAMGQEBPC6C7Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBPNK7OAAMGQE4SKHLAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2960E311E9C
-	for <lists+clang-built-linux@lfdr.de>; Sat,  6 Feb 2021 17:25:02 +0100 (CET)
-Received: by mail-ot1-x339.google.com with SMTP id 76sf5459528oty.23
-        for <lists+clang-built-linux@lfdr.de>; Sat, 06 Feb 2021 08:25:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612628701; cv=pass;
+Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B05B311F30
+	for <lists+clang-built-linux@lfdr.de>; Sat,  6 Feb 2021 18:43:27 +0100 (CET)
+Received: by mail-oo1-xc3f.google.com with SMTP id o15sf5727669oov.22
+        for <lists+clang-built-linux@lfdr.de>; Sat, 06 Feb 2021 09:43:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612633405; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kIYdInnaGduV/zHXh1hTXdQ1wVwXSA2yVyIWQkedSE3bA6e8q24DXpF68yL57nj1Pk
-         79eZfrKP6DKmyL0TvtcPJ53XkUohFOthe68vr7LbYCe50MUCRAMqig+IdwAU9PoGCGi/
-         QBQjayPGDDr0SHn4Cmz2VmeNo1DjZ22bVWtw/qQT2uYFwdqMsGy0URzW2Pv4VDmltmak
-         I055qeOLrXQdDokEZB9ZqQgxePthIRSDg84E7NzsOuDtIxt6sS25rHnMoUQtb0SJxhMR
-         pdqTHlCpUe8Tvb3UJp3w4aZfFBPcHArWZ1KWyR67ONTqb6xKjYOVYULv6N+hwAWhqJ5e
-         VpHA==
+        b=rVtN/MxRZSIfJR+vNm/5/2wBDst85BlPdjlAHVn9C6xnwhW6Jsw6HJ9jebxUcyc/iw
+         Iqzw03DQMofGyjKolkqYe7GmK4F4l1w17cPSInGKp9whtWhW66WWgtaL9mT2d/DBHcE6
+         DL3QjOvCn+tbhjcuNZpxbk4rAMYclRYNjq8QwrwO9yBfqlUYiYIShinxk14HHQXrNDh6
+         n1Oz3WoqpWtIVT3fY9J0tEz/dww1Gv0HWLQPYbe+N0qS6zqJKz2vI2Eod0fO7v3FwUh2
+         7VRhwO6p7O5KNKy4H84+W1S2lVjorIC+1w8wRldES0bPAZ/5TP0CyRrYad7okIkxpitT
+         L1kg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=VgfonyAl/OM4xW3sr7zx4MlEbeFbhgvumaSFmfU1FY4=;
-        b=meJiaTXdWM18y1X9um93w8lW3+PUqQvJzbeCe0lD2PtyJASsOsbd4q8kI8mcwfBwjz
-         nLA2iCH/LNXJ+s15SvlF1VljkRvYBpnagtaLy1Ti5/asU1UnhSiNpV9wUvfZBeUfvf0A
-         NAwzomYkRmlRBcsfOT5A2tWjXAj9pmzDzE2wmvrWbruO75pso1Qk5fSEAPank6LFC66j
-         6NdhnrKq8Vf6b5kw0bhlugnVpbcJkIuawzdsGe6Qlk7qHlrSV3q5p6rAApKdlY8iiF+R
-         ONHWHqB2spr5ht6Cv0blneOLr+/St1HfR7+byBbv6WMk1cZbq/wR9UGAU2KEatLNrwm5
-         eg6Q==
+        bh=1DSa0b+waSqqq9jU5AI7PflPChrovxqElxhRtEkwufk=;
+        b=sSJySWOvoRR+9NLz0yP5YjzCg8A1rhEFoidFrkRRSzr2pNZZY1QwUab3sc2t+E6ASl
+         JY0cvHGTMFEDTOErkFJdty8UBT6aF44+jAO98K/9u8mwXQwITy4mycbfIKXjZEuegmHE
+         7FSgpVGkAp9P6YgkNVypjJgddI5MtPbMhehfc9/kQE2diW/5Y/09vcCQPnI09xkLguXR
+         TyS02URkJkgsH0QyIg8tUt7q5+1ld1auGc5UgAkbG/yE0PHGipL/Qf2IKv16IoMUrPMz
+         fzcUMM/Zg5RWtx99JIBFdfFMx3C+2FCOblnkpiw1GGB9rZs4rfo4ODq6lZnwt7zSgfjB
+         jozw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VgfonyAl/OM4xW3sr7zx4MlEbeFbhgvumaSFmfU1FY4=;
-        b=BLj79KhLBe6MKAd6VzyXrKXHcyAQTlFv34Yqp3vpvYYtaGVzxJePv//SY3n0V6do47
-         PNx4ivZ6+VyXxaAxM72fPDEcFtArPnrMGdr+HT/CF7OnGeWqdcc0u7cwfiIJ+q/JAw6x
-         zobJ21Pmu2KpatgUXDdZU8WGRpZy4xi9HiH9+LLLIdsbeIqGZbgVYqE40IyguH0XazEc
-         ktcWMojZrt8JgCPhyluwC41Ks3KWitM5P4qdxRJjy0iYR8YLyYFG1umVqfyUZVeBtusf
-         cKXKp51Co9suZj+yLmj0ommtw8Ucz2GdYNJWCQ7J0fWcJyITrjEQAlBN0e0rh1ni2nEC
-         q+oA==
+        bh=1DSa0b+waSqqq9jU5AI7PflPChrovxqElxhRtEkwufk=;
+        b=bwjFtn3g2ceMDz6MvDrtqCAPIP1ECZL/IsezF+uLNiZEBiWH/sD05AC7qaMHjOP2yZ
+         48u3kssLuHXxlitQBcXrhxIQuo/eOqBMBM79zFug7pFXqaPYfmXpuq1Y+iOESWA8dXdU
+         9jTIQaTjp+3TECLn5zgh+j8iprg1kk+NTcekkswQXbMuPWiJog2Ov6yPfnz6hHwUMj1n
+         k8hbfu/Oalq80nRVtQIPwQ+BaRBllVh2yji0DsDikEXQGcxVmQWwLPTV6ylpoQ9elVtv
+         De3oPRvc4+CDAsBIcMN3q8zZlnGzna1WXRXUXX8e9yTtODNdc47YI11tSwmT6B01Eyf2
+         MWxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,86 +51,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VgfonyAl/OM4xW3sr7zx4MlEbeFbhgvumaSFmfU1FY4=;
-        b=IzNe30ysEpb0OPsdOGl2iZosqzohIIn9zQdngQu5wIarlxgnuajvAVRrlG9bYf3TzJ
-         JJw4hWc0cP2hIFkU2c0VEzb/M9ie32YDmXg+9PxfrMNOPt98K/2tcA+u+cFFi1/rY6ZO
-         QjoRsAacqwb6CGajy4cl6DcsHFH1aePsDIc+sezUfzpgczJVrqc1PriyVpmx1H/rEKsT
-         l0qQ/40yFXrzMGfcNn++k9hv5A7CpA9u9kREnJOI8wVmawz7eG8/6KyOEWAFKxF9JwVL
-         ycboRg5GJem90jDBnG7wjeWFxwJD00ZellQYBG+g96aeK+0aj0/V+SasTZbh719ggPv3
-         Qdvg==
+        bh=1DSa0b+waSqqq9jU5AI7PflPChrovxqElxhRtEkwufk=;
+        b=eaPuiTOFj20L0gTtSFsoRyfGtr/PaFxhT/8uA/81vHbhVRLgWyEe3wYu+vH0G2+1SV
+         x1Ks3a3yiOojHSVSxMP4+4+YDs8MAxr31tTELvD4lbEmRZ6HEFFEhNFK7mUv53VEqTNZ
+         LEGX8vvw2znyXMayg7UUbvZs+Rkl+OzQq8Yp5T5L7pJ790pJ0+G0rq4MLvFKmmkvLfLx
+         h/GslWmQtfYV7+k/7Bf9xPnm0jnDz+p3MxS2y0D58QuL5qxK/trSdDJQGYTrjSsIxZgD
+         xdd0Be5X97VfcUI5W/W9ZbbPoJbuc8efsuDASV8uuxs3oeWChojBRTMr/QHtdvcCUXcm
+         XQuA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533tmpCx8am8caVZBed9K4yxkbueAF5uDZCnNamnBzDvt1XUnnBH
-	JmNkfUxf4gcAaZznlQ8EnRs=
-X-Google-Smtp-Source: ABdhPJxxZVEOhBVJCcuB9EHiZdnNfrd5ikiCYQJNvss2O8Qfa8aKPiC6nsq9JDV+aPgLP9I1va5MaQ==
-X-Received: by 2002:a05:6830:1bd5:: with SMTP id v21mr7423934ota.125.1612628701086;
-        Sat, 06 Feb 2021 08:25:01 -0800 (PST)
+X-Gm-Message-State: AOAM532sLadAbeYk4pv5+HexPYcAUGBByXhfZkglP0uk4BW1/TxODNq0
+	vUfrV9dFo/BbNTnC0ReqD9E=
+X-Google-Smtp-Source: ABdhPJzSFa/P26WxyNciUEKyi5bq3yAtG/rGCpD3ylMDxbvbT4RprrGbzptGfa/wPJJgsbZC5r4EWA==
+X-Received: by 2002:a9d:a77:: with SMTP id 110mr7404081otg.74.1612633405751;
+        Sat, 06 Feb 2021 09:43:25 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:7249:: with SMTP id p70ls1667973oic.5.gmail; Sat, 06 Feb
- 2021 08:25:00 -0800 (PST)
-X-Received: by 2002:aca:5a04:: with SMTP id o4mr6287963oib.167.1612628700507;
-        Sat, 06 Feb 2021 08:25:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612628700; cv=none;
+Received: by 2002:a05:6830:1614:: with SMTP id g20ls3067979otr.1.gmail; Sat,
+ 06 Feb 2021 09:43:25 -0800 (PST)
+X-Received: by 2002:a05:6830:2485:: with SMTP id u5mr4883250ots.48.1612633405205;
+        Sat, 06 Feb 2021 09:43:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612633405; cv=none;
         d=google.com; s=arc-20160816;
-        b=Mzeifukhirra5B5JdjpLtc84YxtZkU/UTEkfewhYIZjetusMbp6/iQePOjOVyy88NH
-         lwsazTjeAV2mu4J+ZZq+pBT8xTZMlzXu6CC0c2iT1XivmQdwG1sfAI1Mzs7YhEusXj4+
-         ENgTeIAmrWYN+XnWaWpI5td1NmCT9s4+f/2XG9DKx6cTwe6lZGNIrXEKAwrNdJMUbrYh
-         yN0GlMAzLXuf06N3rYgsZtpR57yO83inQdKa2kGbvmyxLf5vITo5dA+H6ssT78PQpC6a
-         oNKV7AOyWtsiwkXqH2ijcmLEQ09HPB2bhLnQqUboE2AjofNwB03ECT0INnE18jnT24FI
-         feYw==
+        b=xi6xTCP8BSC/jnHt//3xnkBuDKtx+K9f8UsNChqdRNriJ9Ov61cHTGNSjEKh2yjlQ3
+         IUWFgH92sboLZvP3rKI2E0EM6usP59zfXJdQZotP03Uj6HLY5v0+wzfafSxVeKsw7slk
+         zh8SJQAVTZ38jVkwyCJGx0H1CYwwkDt36epmXqKzGGy/msNjT0a2OmVNS20145hZJUcH
+         LaPZm39x4m6zsKR51aGVQrLdBZK+Jww8n/1Zz5re0z3ySR8k8EDkRaGuhlB7uGY4dl7m
+         LQzLatKPd6bSfz7Zgjlrr/fifys72dxQE8LGTC03jNQaneh1HaD6Yw1s//gh9vg88/Kn
+         joZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=FHyM5PjVEgNegYS/BQhKknxwSb7WR5fn6gt9zxSOdaA=;
-        b=hDKdbfHOszOYV4lfaNRU5ajzBtzlyqIhOPrq0EUDv19IHwxCQa1WBiwJqptNG76ghh
-         4mLfHo33RrkDMzdV5/LmEHKFdAQPvz8ut5yy5wD+EogXDKlAb0dpiFfGygrvB8TFElTx
-         ssST0KT3spevjHKdNVpYXU2sRTEx4FbVcF093PzICYtbhiy2N4D7kQeuRSPyylO1zhxD
-         nD9JzLzOQNeOzdVFCxMfHBIK9tXCfLqfWSH/LvyEOPEJbUV84xZsuDYo8pRrC7SVzybO
-         lpG7MN5orwhEx3wnk5FvGq9oJzrfis5pbzxXW/6/nH62ry4CUtbWJMPwpaoCAuxnoKBr
-         rHvQ==
+        bh=XGpbu/jXI6G7BxcFAmzKbOMjpgn9EbMYlGETcgFN82k=;
+        b=HknXBOtnM3LQsMIvEQoGmC3LOJYmdFqEv73KXc+99Fuml33SCKo0ppsSCm2g2T7uvg
+         FXB8cWOrwCN52q3Y7yziPgyfQmdbXgrKGnJUfDneMlr+hX5Ttry4lAUwEXF7HMNHn2/P
+         kEg91ZM03wNTNVcKqzpWBHwatKVvBdYEfOkYHwpP/0Z5sfOEBIlryL52AOdp5g1vazJ+
+         c/UPuXr0seQPKqDSmZeDbI10imSDDfF/kAZkwjW17A9neKzfORWUNZC3dlNA39hN3TDx
+         MhrTdFCaxkomKH/1e/aAEavsJaXZvG999X/E4O6/P3GvPsCL7MFfDRIJZFCRv7/NRCIv
+         EcAQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id r13si786354otd.3.2021.02.06.08.25.00
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id r13si794594otd.3.2021.02.06.09.43.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 06 Feb 2021 08:25:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
-IronPort-SDR: Dz5ofLFkEjU/6rSB5dkMtQJPWolOWe+MmO8XYopG+jM8Wh7GupTsnIpZ8YiNG5P60qGgCt5fB4
- 7zEqRDXsIj7Q==
-X-IronPort-AV: E=McAfee;i="6000,8403,9887"; a="245621245"
+        Sat, 06 Feb 2021 09:43:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+IronPort-SDR: VO+tL7QQECb5lxEoBnmffqBHm7HJroxH1nNhAa1PjvjYsK+v3esQoIjq27aySCSMJ7J/T0X0jm
+ lOcsGBNMjrqw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9887"; a="168675511"
 X-IronPort-AV: E=Sophos;i="5.81,158,1610438400"; 
-   d="gz'50?scan'50,208,50";a="245621245"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2021 08:24:58 -0800
-IronPort-SDR: qTJMXRGiqLRvyMcdT4Kk/NZSP5Heybbmr9M/LoiKwPkqJ3ykoLqUl+8NMEVxSIYLSiYbkhftRB
- Mtb3kOXrqTIQ==
+   d="gz'50?scan'50,208,50";a="168675511"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2021 09:43:23 -0800
+IronPort-SDR: hyRu3+KkVHeOx5j4aubfan95lXScdpGpK6hlGmyUVSuMIcRsm0ys/TdeOe89oRRY0dI9ZYZDlR
+ QFsJ7OzOJFdw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.81,158,1610438400"; 
-   d="gz'50?scan'50,208,50";a="485392556"
+   d="gz'50?scan'50,208,50";a="374613680"
 Received: from lkp-server02.sh.intel.com (HELO 8b832f01bb9c) ([10.239.97.151])
-  by fmsmga001.fm.intel.com with ESMTP; 06 Feb 2021 08:24:56 -0800
+  by fmsmga008.fm.intel.com with ESMTP; 06 Feb 2021 09:43:20 -0800
 Received: from kbuild by 8b832f01bb9c with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1l8QOF-0002Sy-Nr; Sat, 06 Feb 2021 16:24:55 +0000
-Date: Sun, 7 Feb 2021 00:24:38 +0800
+	id 1l8Rc8-0002Xc-AI; Sat, 06 Feb 2021 17:43:20 +0000
+Date: Sun, 7 Feb 2021 01:42:57 +0800
 From: kernel test robot <lkp@intel.com>
 To: Parav Pandit <parav@nvidia.com>, netdev@vger.kernel.org,
 	davem@davemloft.net, kuba@kernel.org
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Parav Pandit <parav@nvidia.com>
-Subject: Re: [PATCH net-next 1/7] netdevsim: Add support for add and delete
- of a PCI PF port
-Message-ID: <202102070009.D5OLcm8R-lkp@intel.com>
-References: <20210206125551.8616-2-parav@nvidia.com>
+	Parav Pandit <parav@nvidia.com>, Jiri Pirko <jiri@nvidia.com>
+Subject: Re: [PATCH net-next 2/7] netdevsim: Add support for add and delete
+ PCI SF port
+Message-ID: <202102070122.eXrAtXqJ-lkp@intel.com>
+References: <20210206125551.8616-3-parav@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="x+6KMIRAuhnl3hBn"
+Content-Type: multipart/mixed; boundary="0F1p//8PRICkK4MW"
 Content-Disposition: inline
-In-Reply-To: <20210206125551.8616-2-parav@nvidia.com>
+In-Reply-To: <20210206125551.8616-3-parav@nvidia.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -146,7 +146,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---x+6KMIRAuhnl3hBn
+--0F1p//8PRICkK4MW
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -165,166 +165,215 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/0day-ci/linux/commit/4234edd1adbb2da7f6f156c2bfdac5170eb97dbb
+        # https://github.com/0day-ci/linux/commit/980b8cbe1c29602278397d53732cc258b1d62416
         git remote add linux-review https://github.com/0day-ci/linux
         git fetch --no-tags linux-review Parav-Pandit/netdevsim-port-add-delete-support/20210206-210153
-        git checkout 4234edd1adbb2da7f6f156c2bfdac5170eb97dbb
+        git checkout 980b8cbe1c29602278397d53732cc258b1d62416
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
-   In file included from drivers/net/netdevsim/netdev.c:27:
->> drivers/net/netdevsim/netdevsim.h:317:23: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
-                                 const struct devlink_port_new_attrs *attrs,
-                                              ^
-   1 warning generated.
---
-   In file included from drivers/net/netdevsim/dev.c:36:
->> drivers/net/netdevsim/netdevsim.h:317:23: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
-                                 const struct devlink_port_new_attrs *attrs,
-                                              ^
->> drivers/net/netdevsim/dev.c:908:3: error: field designator 'port_new' does not refer to any field in type 'const struct devlink_ops'
-           .port_new = nsim_dev_devlink_port_new,
-            ^
->> drivers/net/netdevsim/dev.c:909:3: error: field designator 'port_del' does not refer to any field in type 'const struct devlink_ops'
-           .port_del = nsim_dev_devlink_port_del,
-            ^
-   1 warning and 2 errors generated.
---
    In file included from drivers/net/netdevsim/port_function.c:7:
->> drivers/net/netdevsim/netdevsim.h:317:23: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
+   drivers/net/netdevsim/netdevsim.h:318:23: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
                                  const struct devlink_port_new_attrs *attrs,
                                               ^
->> drivers/net/netdevsim/port_function.c:51:20: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
+   drivers/net/netdevsim/port_function.c:54:20: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
                               const struct devlink_port_new_attrs *attrs)
                                            ^
->> drivers/net/netdevsim/port_function.c:71:23: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:74:23: error: incomplete definition of type 'struct devlink_port_new_attrs'
            port->flavour = attrs->flavour;
                            ~~~~~^
-   drivers/net/netdevsim/port_function.c:51:20: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
                               const struct devlink_port_new_attrs *attrs)
                                            ^
-   drivers/net/netdevsim/port_function.c:73:11: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:76:11: error: incomplete definition of type 'struct devlink_port_new_attrs'
            if (attrs->port_index_valid)
                ~~~~~^
-   drivers/net/netdevsim/port_function.c:51:20: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
                               const struct devlink_port_new_attrs *attrs)
                                            ^
-   drivers/net/netdevsim/port_function.c:75:16: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:78:16: error: incomplete definition of type 'struct devlink_port_new_attrs'
                                          attrs->port_index,
                                          ~~~~~^
-   drivers/net/netdevsim/port_function.c:51:20: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
                               const struct devlink_port_new_attrs *attrs)
                                            ^
-   drivers/net/netdevsim/port_function.c:76:16: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:79:16: error: incomplete definition of type 'struct devlink_port_new_attrs'
                                          attrs->port_index, GFP_KERNEL);
                                          ~~~~~^
-   drivers/net/netdevsim/port_function.c:51:20: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
                               const struct devlink_port_new_attrs *attrs)
                                            ^
-   drivers/net/netdevsim/port_function.c:88:16: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:91:16: error: incomplete definition of type 'struct devlink_port_new_attrs'
                                          attrs->pfnum, attrs->pfnum,
                                          ~~~~~^
-   drivers/net/netdevsim/port_function.c:51:20: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
                               const struct devlink_port_new_attrs *attrs)
                                            ^
-   drivers/net/netdevsim/port_function.c:88:30: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:91:30: error: incomplete definition of type 'struct devlink_port_new_attrs'
                                          attrs->pfnum, attrs->pfnum,
                                                        ~~~~~^
-   drivers/net/netdevsim/port_function.c:51:20: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
                               const struct devlink_port_new_attrs *attrs)
                                            ^
-   drivers/net/netdevsim/port_function.c:130:19: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
+>> drivers/net/netdevsim/port_function.c:97:7: error: use of undeclared identifier 'DEVLINK_PORT_FLAVOUR_PCI_SF'
+           case DEVLINK_PORT_FLAVOUR_PCI_SF:
+                ^
+   drivers/net/netdevsim/port_function.c:98:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                   if (attrs->sfnum_valid)
+                       ~~~~~^
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
+                              const struct devlink_port_new_attrs *attrs)
+                                           ^
+   drivers/net/netdevsim/port_function.c:99:63: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                           ret = ida_alloc_range(&dev->port_functions.sfnum_ida, attrs->sfnum,
+                                                                                 ~~~~~^
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
+                              const struct devlink_port_new_attrs *attrs)
+                                           ^
+   drivers/net/netdevsim/port_function.c:100:17: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                                                 attrs->sfnum, GFP_KERNEL);
+                                                 ~~~~~^
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
+                              const struct devlink_port_new_attrs *attrs)
+                                           ^
+   drivers/net/netdevsim/port_function.c:106:22: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                   port->pfnum = attrs->pfnum;
+                                 ~~~~~^
+   drivers/net/netdevsim/port_function.c:54:20: note: forward declaration of 'struct devlink_port_new_attrs'
+                              const struct devlink_port_new_attrs *attrs)
+                                           ^
+   drivers/net/netdevsim/port_function.c:131:7: error: use of undeclared identifier 'DEVLINK_PORT_FLAVOUR_PCI_SF'
+           case DEVLINK_PORT_FLAVOUR_PCI_SF:
+                ^
+   drivers/net/netdevsim/port_function.c:151:19: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
                              const struct devlink_port_new_attrs *attrs)
                                           ^
-   drivers/net/netdevsim/port_function.c:135:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:156:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
                    if (attrs->port_index_valid &&
                        ~~~~~^
-   drivers/net/netdevsim/port_function.c:130:19: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
                              const struct devlink_port_new_attrs *attrs)
                                           ^
-   drivers/net/netdevsim/port_function.c:136:31: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:157:31: error: incomplete definition of type 'struct devlink_port_new_attrs'
                        tmp->port_index == attrs->port_index)
                                           ~~~~~^
-   drivers/net/netdevsim/port_function.c:130:19: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
                              const struct devlink_port_new_attrs *attrs)
                                           ^
-   drivers/net/netdevsim/port_function.c:138:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:159:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
                    if (attrs->flavour == DEVLINK_PORT_FLAVOUR_PCI_PF &&
                        ~~~~~^
-   drivers/net/netdevsim/port_function.c:130:19: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
                              const struct devlink_port_new_attrs *attrs)
                                           ^
-   drivers/net/netdevsim/port_function.c:140:26: error: incomplete definition of type 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:161:26: error: incomplete definition of type 'struct devlink_port_new_attrs'
                        tmp->pfnum == attrs->pfnum)
                                      ~~~~~^
-   drivers/net/netdevsim/port_function.c:130:19: note: forward declaration of 'struct devlink_port_new_attrs'
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
                              const struct devlink_port_new_attrs *attrs)
                                           ^
-   drivers/net/netdevsim/port_function.c:201:18: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
-                                   const struct devlink_port_new_attrs *attrs)
-                                                ^
-   drivers/net/netdevsim/port_function.c:203:14: error: incomplete definition of type 'struct devlink_port_new_attrs'
-           return attrs->flavour == DEVLINK_PORT_FLAVOUR_PCI_PF;
-                  ~~~~~^
-   drivers/net/netdevsim/port_function.c:201:18: note: forward declaration of 'struct devlink_port_new_attrs'
-                                   const struct devlink_port_new_attrs *attrs)
-                                                ^
-   drivers/net/netdevsim/port_function.c:207:23: warning: declaration of 'struct devlink_port_new_attrs' will not be visible outside of this function [-Wvisibility]
-                                 const struct devlink_port_new_attrs *attrs,
-                                              ^
-   drivers/net/netdevsim/port_function.c:206:5: error: conflicting types for 'nsim_dev_devlink_port_new'
-   int nsim_dev_devlink_port_new(struct devlink *devlink,
-       ^
-   drivers/net/netdevsim/netdevsim.h:316:5: note: previous declaration is here
-   int nsim_dev_devlink_port_new(struct devlink *devlink,
-       ^
-   drivers/net/netdevsim/port_function.c:217:11: error: incomplete definition of type 'struct devlink_port_new_attrs'
-           if (attrs->port_index_valid &&
-               ~~~~~^
-   drivers/net/netdevsim/port_function.c:207:23: note: forward declaration of 'struct devlink_port_new_attrs'
-                                 const struct devlink_port_new_attrs *attrs,
-                                              ^
-   drivers/net/netdevsim/port_function.c:218:11: error: incomplete definition of type 'struct devlink_port_new_attrs'
-               attrs->port_index < nsim_bus_dev->port_count) {
-               ~~~~~^
-   drivers/net/netdevsim/port_function.c:207:23: note: forward declaration of 'struct devlink_port_new_attrs'
-                                 const struct devlink_port_new_attrs *attrs,
-                                              ^
-   drivers/net/netdevsim/port_function.c:223:49: error: incompatible pointer types passing 'const struct devlink_port_new_attrs *' to parameter of type 'const struct devlink_port_new_attrs *' [-Werror,-Wincompatible-pointer-types]
-           if (!nsim_dev_port_flavour_supported(nsim_dev, attrs)) {
-                                                          ^~~~~
-   drivers/net/netdevsim/port_function.c:201:42: note: passing argument to parameter 'attrs' here
-                                   const struct devlink_port_new_attrs *attrs)
-                                                                        ^
-   drivers/net/netdevsim/port_function.c:232:42: error: incompatible pointer types passing 'const struct devlink_port_new_attrs *' to parameter of type 'const struct devlink_port_new_attrs *' [-Werror,-Wincompatible-pointer-types]
-           if (nsim_dev_port_port_exists(nsim_dev, attrs)) {
+   drivers/net/netdevsim/port_function.c:164:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                   if (attrs->flavour == DEVLINK_PORT_FLAVOUR_PCI_SF &&
+                       ~~~~~^
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
+                             const struct devlink_port_new_attrs *attrs)
+                                          ^
+   drivers/net/netdevsim/port_function.c:166:12: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                       attrs->sfnum_valid &&
+                       ~~~~~^
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
+                             const struct devlink_port_new_attrs *attrs)
+                                          ^
+   drivers/net/netdevsim/port_function.c:167:26: error: incomplete definition of type 'struct devlink_port_new_attrs'
+                       tmp->sfnum == attrs->sfnum && tmp->pfnum == attrs->pfnum)
+                                     ~~~~~^
+   drivers/net/netdevsim/port_function.c:151:19: note: forward declaration of 'struct devlink_port_new_attrs'
+                             const struct devlink_port_new_attrs *attrs)
+                                          ^
+   fatal error: too many errors emitted, stopping now [-ferror-limit=]
+   3 warnings and 20 errors generated.
 
 
-vim +908 drivers/net/netdevsim/dev.c
+vim +/DEVLINK_PORT_FLAVOUR_PCI_SF +97 drivers/net/netdevsim/port_function.c
 
-   894	
-   895	static const struct devlink_ops nsim_dev_devlink_ops = {
-   896		.supported_flash_update_params = DEVLINK_SUPPORT_FLASH_UPDATE_COMPONENT |
-   897						 DEVLINK_SUPPORT_FLASH_UPDATE_OVERWRITE_MASK,
-   898		.reload_actions = BIT(DEVLINK_RELOAD_ACTION_DRIVER_REINIT),
-   899		.reload_down = nsim_dev_reload_down,
-   900		.reload_up = nsim_dev_reload_up,
-   901		.info_get = nsim_dev_info_get,
-   902		.flash_update = nsim_dev_flash_update,
-   903		.trap_init = nsim_dev_devlink_trap_init,
-   904		.trap_action_set = nsim_dev_devlink_trap_action_set,
-   905		.trap_group_set = nsim_dev_devlink_trap_group_set,
-   906		.trap_policer_set = nsim_dev_devlink_trap_policer_set,
-   907		.trap_policer_counter_get = nsim_dev_devlink_trap_policer_counter_get,
- > 908		.port_new = nsim_dev_devlink_port_new,
- > 909		.port_del = nsim_dev_devlink_port_del,
-   910	};
-   911	
+    51	
+    52	static struct nsim_port_fn *
+    53	nsim_devlink_port_fn_alloc(struct nsim_dev *dev,
+    54				   const struct devlink_port_new_attrs *attrs)
+    55	{
+    56		struct nsim_bus_dev *nsim_bus_dev = dev->nsim_bus_dev;
+    57		struct nsim_port_fn *port;
+    58		struct net_device *netdev;
+    59		int ret;
+    60	
+    61		netdev = alloc_netdev(sizeof(*port), "eth%d", NET_NAME_UNKNOWN,
+    62				      nsim_port_fn_ndev_setup);
+    63		if (!netdev)
+    64			return ERR_PTR(-ENOMEM);
+    65	
+    66		dev_net_set(netdev, nsim_dev_net(dev));
+    67		netdev->netdev_ops = &nsim_netdev_ops;
+    68		nsim_bus_dev = dev->nsim_bus_dev;
+    69		SET_NETDEV_DEV(netdev, &nsim_bus_dev->dev);
+    70	
+    71		port = netdev_priv(netdev);
+    72		memset(port, 0, sizeof(*port));
+    73		port->netdev = netdev;
+    74		port->flavour = attrs->flavour;
+    75	
+    76		if (attrs->port_index_valid)
+    77			ret = ida_alloc_range(&dev->port_functions.ida,
+    78					      attrs->port_index,
+    79					      attrs->port_index, GFP_KERNEL);
+    80		else
+    81			ret = ida_alloc_min(&dev->port_functions.ida,
+    82					    nsim_bus_dev->port_count, GFP_KERNEL);
+    83		if (ret < 0)
+    84			goto port_ida_err;
+    85	
+    86		port->port_index = ret;
+    87	
+    88		switch (port->flavour) {
+    89		case DEVLINK_PORT_FLAVOUR_PCI_PF:
+    90			ret = ida_alloc_range(&dev->port_functions.pfnum_ida,
+    91					      attrs->pfnum, attrs->pfnum,
+    92					      GFP_KERNEL);
+    93			if (ret < 0)
+    94				goto fn_ida_err;
+    95			port->pfnum = ret;
+    96			break;
+  > 97		case DEVLINK_PORT_FLAVOUR_PCI_SF:
+    98			if (attrs->sfnum_valid)
+    99				ret = ida_alloc_range(&dev->port_functions.sfnum_ida, attrs->sfnum,
+   100						      attrs->sfnum, GFP_KERNEL);
+   101			else
+   102				ret = ida_alloc(&dev->port_functions.sfnum_ida, GFP_KERNEL);
+   103			if (ret < 0)
+   104				goto fn_ida_err;
+   105			port->sfnum = ret;
+   106			port->pfnum = attrs->pfnum;
+   107			break;
+   108		default:
+   109			break;
+   110		}
+   111		/* refcount_t is not needed as port is protected by port_functions.mutex.
+   112		 * This count is to keep track of how many SF ports are attached a PF port.
+   113		 */
+   114		port->refcount = 1;
+   115		return port;
+   116	
+   117	fn_ida_err:
+   118		ida_simple_remove(&dev->port_functions.ida, port->port_index);
+   119	port_ida_err:
+   120		free_netdev(netdev);
+   121		return ERR_PTR(ret);
+   122	}
+   123	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -333,14 +382,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102070009.D5OLcm8R-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102070122.eXrAtXqJ-lkp%40intel.com.
 
---x+6KMIRAuhnl3hBn
+--0F1p//8PRICkK4MW
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICF65HmAAAy5jb25maWcAjDxJd9w20vf8in7OJXOIo82K/c3TASTBbqRJggbAXnTh68ht
+H4sICMfNHmAAAy5jb25maWcAjDxJd9w20vf8in7OJXOIo82K/c3TASTBbqRJggbAXnTh68ht
 jyZaPC0psf/9VwWQTQAsKplDxl1VxFp7FfTjDz/O2Mvz4/3u+fZmd3f3ffZl/7A/7J73n2af
 b+/2/55lclZJM+OZMG+BuLh9ePn2y7f3l+3lxezd29PTtyc/H24uZsv94WF/N0sfHz7ffnmB
 AW4fH3748YdUVrmYt2narrjSQlat4Rtz9ebmbvfwZfbn/vAEdLPTs7cnb09mP325ff6/X36B
@@ -975,4 +1024,4 @@ S1I9jpkGafcWWinyQt14x6/VvcdJDEazcQQ5R5J9IU3mCnY+eUE8T19e+fNZod77rqkYi8w+
 oniBgfb+rV8HjBmYiDrkdgpuFxt/mYtltKGIFq0HbpYOREHrYDuUFKHCGgkVFnAC0UqhXBcP
 f50cwn8WiwEhlyQ5dbUSLzcGdDo8dW4GBH7fBmkSlCX+/wpHkjguGQIA
 
---x+6KMIRAuhnl3hBn--
+--0F1p//8PRICkK4MW--
