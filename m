@@ -1,149 +1,128 @@
-Return-Path: <clang-built-linux+bncBC4INQUBT4IRBZHKQWAQMGQEL6TSLJA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRBX7XQWAQMGQEZ57QHOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A7207313AF1
-	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Feb 2021 18:31:17 +0100 (CET)
-Received: by mail-ot1-x33f.google.com with SMTP id s29sf8748261otg.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Feb 2021 09:31:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612805476; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id E88E2313BD9
+	for <lists+clang-built-linux@lfdr.de>; Mon,  8 Feb 2021 18:58:56 +0100 (CET)
+Received: by mail-pg1-x537.google.com with SMTP id z20sf11298197pgh.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Feb 2021 09:58:56 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612807135; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JIYr9t9yaUYvQpvlV2TxU/+MR1BjyWWziMHOzkP7fVQa9UsTwv3GjpN8EircYuY0Ij
-         L/vkTiKYpVpI5UlChzMbd6N/7wHJheT57F+rmMp49FFZGdj6c3kT6aM32smqNFc5Die9
-         SZnKsOHiFCqQAQPoFvHZmYoLizPrjcugaecfyZ41rtFTQGEwt8NSyeIkfQgxtVyvD+ZT
-         bmyoKb97NRr7N5PMylmHKI2NfUEFolocJDOM4Tk+RnY3FQN+MdzdwJ7pPJZnXgmk458N
-         SzuR5KwNsobcImPk/bWV6K/vSb9dHLg85SVRjRQ66Eg8nIZVufqN1z1v5v549h0gt/M3
-         qhoA==
+        b=F/y0z3wFk7aX/mtl+oGZyizPVn4x8lDpjaYI2PS7HNmqrcQBO1kqV1ZXlIKepQg+h3
+         h6TvchnlmL/zS65RMg2zjyo/qxbT1gXa6dus/scT49HyRp151X5ZPWDCNNs+XIisjFy4
+         uIcsUR82DynvJ/30JIhtSNYHlsy0r1eg9SnlKqPWx2ZFtWlP/NSPGAE4YZMRUhR524kM
+         WzRqzbRfDf/BFAlGKtB+/Z8utjxAkaVbaGQQYMiVT9wlio3S/sLzfjzJKFdm+u/0NGwQ
+         b8u4fEJcK480ooQWFy//rtrKY70eQ93qd24bBEao9BUISh2/0X61GZWDTNRT0h5zerr8
+         xnKA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :thread-index:thread-topic:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:sender:dkim-signature;
-        bh=6+UGa56Bu80WD6Z69eCSspaNkTc74CpiuDmygAXv8LE=;
-        b=JoaJX06A3ddnR98JpZxxyUabtq2I7pdJm1Uo5zPOFw7RIBxSCDjRK9osY37w9gIDmP
-         FEHSsMx23aO90iloYqD6T8ZcIyMgtPKA4kEGYmVRIGKgauB5hs9BBW968WcP4NH+1Dqw
-         28JS0cRzYJ6ZPO0Uc6gzsS/7XlNruCDdUdqbsU/gg6/3RcgvPbcWZ1X712ugo8Zf9rpd
-         /2EnHzPF5pQPuE+sIXZ4MSeCdwKLmmSFmYTNcrgFsCP6I1mS3x0yTTPsN2Et+cCYEJYB
-         gG934d/qRRYmiEskGY9DyKP22BsMeitVsyh8rW0McTLsOpoDGp6suLsVoVbldR18aSDQ
-         XhJg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=JxbkgLm9QXmrJX1YQ11kXrOQZDQgCoOc4kOFsK93A1c=;
+        b=LshSwO22J/kUWNAi5xDTPhGsYQS6nlY+4wkNic8r6zQrdY2beiQdK3lw5WpIjp9Zxh
+         PV3/KQUdDVd82Jete6BgIfNuDzKgsBKaIA8W3V/+V1W9I5fnnlgf8xyllIe0fH+mB0gE
+         6Qt3gDOEUrse8ppff0hlvW2pvL5S580yR9PytLLM6jwW52K67iGTfv1rnPGRenZI/P4S
+         oKXMos3mXivVefmtLz2ScXReXVfml+X9oL0NaajIj5XhnxJyZf8Y1ka0517Jtzfibypg
+         pb41YJ7m43+opuAZ6k5VmyNpASJy41fOqshctlpB/ioq27UOU0wQOJfP74InZs347Ssl
+         lezQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FYNI5m4j;
-       spf=pass (google.com: domain of vkabatov@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=vkabatov@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iPuvdzXP;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:message-id:in-reply-to:references:subject
-         :mime-version:thread-topic:thread-index:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6+UGa56Bu80WD6Z69eCSspaNkTc74CpiuDmygAXv8LE=;
-        b=AfUhx7tGkDnzBHxA3519o6LYodq5rpW+QlzP1h7JeXQeOcsEUBsTiclFh/3EO5B8Ei
-         a4bnyf4p25R754em6H2vCrLFcnaTK7kZ9O5+DhLRmm6jEGDlm0Kx/eBUkZok9NendjDF
-         TnL2E+W83CIBUWzNxPY8LXypICIrTTwhZHpTUsnypt6L8XtwA0avHtAHXoVpJgjGPTj6
-         YEAXeY3x0SAfOv+pFzkyRhE4HVB02Eam/CoBNVadp0i4/5YxKJ9qp97IvBfXltTtF0GO
-         bevQ7jbhTYlT9ccEUnFfIrvQtsvpbKf0FrSvTw3K++Bv4c1Lo2kbEeIkW3vryT/aDv3x
-         HL9A==
+        bh=JxbkgLm9QXmrJX1YQ11kXrOQZDQgCoOc4kOFsK93A1c=;
+        b=lsL1h8QDE3UaLdoZemI/lEBBdqhHnfRDD3CGfZGm2PstpI4NdI2Okaokxxzw9+pvlF
+         6H8huzs6ui6Rzy5MgIERrZoAG7NjnPTW/zOUBbu6O1b6DSZPnYWpqZ6Lza7hdTDCy9/U
+         PWXDPJYR7/9JNw8vtr+c29c4McwenKLVr1XdvDlX4BljJrVa4QWYktCIqCrtan2A4BCJ
+         9r1z/3wjjzLwvbA9SG+MUbJTQ5T0XeHejA0VQNTkvc+eZkAYKma2cTEsGvfC3Cu0sLvM
+         kRH8rX/gssPJCT2smp5mmo2GBRugK1+6AB16SCralOZqSn+xPjvEFMHxh8Wrf3J2g3Fy
+         drew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:message-id:in-reply-to
-         :references:subject:mime-version:thread-topic:thread-index
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6+UGa56Bu80WD6Z69eCSspaNkTc74CpiuDmygAXv8LE=;
-        b=WOszniJ0CetxwpCY6FzWBiK19Jbwph7RRSx1y/Nm9rvvWxL/PpI9sW1kDLAram1idd
-         BOONsf6E2w/6/Noq4VQJKLtwC+lXsTI1J7+p18NE8hXlRK+HiQvyJ1lcgSfsHilpHOsi
-         oqvyigpLXX90U4uGl322vWoRx//nhCtyWhHByZ0f4nLMqEDXEVwIUGTtq9KDAnVkjFx5
-         W1hyknNFN44B5IwkSy5JWpb6Vdfayfne2pIrj5N5FUw/M1SLGj8auRWRBSlkCiMGhAhb
-         Qu/92ejQvVlvOrod0tUgyYaCcrpjGkiIdpx46LhsIYFz5B6Ic0WOLzHKGUmgNabZ7wXW
-         qLQQ==
+        bh=JxbkgLm9QXmrJX1YQ11kXrOQZDQgCoOc4kOFsK93A1c=;
+        b=uL1g2RPzxs4vPSk1ZyPaWJjApP2jcUmGEZQIuUTv2Zbs8oFNcIZF2O6W3e3KfwD291
+         +bLX1g7xLZW5S7Aut38LB51jcjGQM8Pis82gh5ttvi1ptKvxPrgWF54dtEWKfN5Q88OB
+         GvliI3wdYUS/PuO+WS7iy+fxQeCH0+Gft+ymBzJ0/eqeBU7S2RhGKfEHMK4opFyUHtbn
+         NM1m0OW6QlnFoMDQ3vtprsvPQj/9fsW8LAXJhyoTfu6DTnfNfhO6ZLnbKz6y33Aw1RoC
+         I075gnA6x84LHs4/Mc16cu/z4LeYtKQcHDK4fsV/6dJwDOpUuAOziDfi2oi+laMOUBAc
+         zTVw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531CLbL+zvNTTJCgzw04cIxIVK/4VdaOVc1fzKMXvwmNr/4hRR97
-	A1lQfgdYQ5m0PCQpzf35Bvw=
-X-Google-Smtp-Source: ABdhPJwEMnLrlz+mPV0LjqeYY5IVavENNMTA+JxxLxwN6EwYIr3XUvcuInpIsCqMKApov6H0ERZagQ==
-X-Received: by 2002:a05:6830:2316:: with SMTP id u22mr767660ote.324.1612805476681;
-        Mon, 08 Feb 2021 09:31:16 -0800 (PST)
+X-Gm-Message-State: AOAM5320vn5WDvORcqNAEKEehrq/Yv2/1uBEQx3liE7KEYiZKBQDi9hD
+	cnxAXdkK4bwdLfJXehxluYg=
+X-Google-Smtp-Source: ABdhPJwIX158FdrxKdyhPtdVj3zaW1QKIa7OkFVoYcYv4mJg43i5oWikwylO5wntuSZKwssSNfIe+w==
+X-Received: by 2002:a17:90a:4d88:: with SMTP id m8mr7102390pjh.45.1612807135478;
+        Mon, 08 Feb 2021 09:58:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1f0d:: with SMTP id u13ls4331121otg.8.gmail; Mon,
- 08 Feb 2021 09:31:16 -0800 (PST)
-X-Received: by 2002:a05:6830:120c:: with SMTP id r12mr5687183otp.72.1612805476229;
-        Mon, 08 Feb 2021 09:31:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612805476; cv=none;
+Received: by 2002:a63:da46:: with SMTP id l6ls1219339pgj.5.gmail; Mon, 08 Feb
+ 2021 09:58:54 -0800 (PST)
+X-Received: by 2002:a62:7a94:0:b029:1d9:1b43:f23f with SMTP id v142-20020a627a940000b02901d91b43f23fmr14729035pfc.41.1612807134717;
+        Mon, 08 Feb 2021 09:58:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612807134; cv=none;
         d=google.com; s=arc-20160816;
-        b=FeXLWPpZafcoYShNBSuK+m3y32RZrj5pY3R+BZ0UuwLHelXCkkLHKppul0tFagVnbI
-         /UdM4V9jmNWf9U8OkdBUk+jrPsvMY/q7nSH3zy2L6Nfz8W/0Y76HmBUQi/PT2Dc0+VeK
-         0R5V+Qfb3gveakJNjyaVBBWS/9cIBhW02cDRtMIzC/t2paBLcm3S6Xpt4xBYPSUxn377
-         S65p1C91ThubfXM5mwhwRZh0f3Bqo0K3Af4KEY2PnP0dyhESU5fu2eQa0L7b0MFaW6iI
-         +J6JT89oNmdvw0OTcpCTSXHzU2lWbcmT3bCn5M08deh3TnrJiTn/hnnl7ZneyWLTEYbt
-         ro0w==
+        b=0ks00EmGXYBejbxjbdrHvTgK92VB7NNUcNjPkok0VNnCs/4gJOta++VvjrK5Z0MLIB
+         6bMLEhdp9tJXcj6+fX7nPRuyVYENP6hXEN0A6tmgmdYs5LAy2nqUCyS/boGN/saKCuiM
+         rGT0k45GpCBeODZJomHpySxqEkFIlSj+oc3fHxuXD+D25V57jiIzLcPa3RtkBTxZq5ki
+         MdtS3v62RYl3XKOFgF/D70wSt3SOPN2ZzHzspWrM5CFF9BM0FYQg3AAGcP/cvxx0gHVN
+         xpo65pgTxx334grrLhuolJc/Bwv91+tXk3iAdXJ+ERS9dqylMXA0UkOmyKMbvEMmViQQ
+         kh9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:thread-index:thread-topic:mime-version
-         :subject:references:in-reply-to:message-id:cc:to:from:date
-         :dkim-signature;
-        bh=qiU3DyLphK6+w27jj0G/WZa/m8PyiJHPliW7Ojr5/MQ=;
-        b=NzRwTfjW9Lw8aq/oqUPhhaF4Sjv9U3uAHhcsV28U/fmnklDLMdj4MnvqczjMQ2pgKH
-         rQiC73m7IR/JxQW/27ZshOosCSb0hOzsdrKspSlorozH3pGCPLDquRL0Aeed8Wks/VhP
-         PkUy7rcVR0KOcdrCXKhomGFwZ2XJx40LxSThP1Y4CPbQOVi2PDkD0oc2TvzjrgrK5WOH
-         IbFnpMPY15dR2j9EqziYhR+vcJIrmqZE88aU1bzJijHmjJYlrz79bZviC2OYEqf6NPbF
-         eSCGuOxjcWzrqsHzC6088VMGD3VxNllHJEjps3PJ/ZLEbSN555lANb4wOhsJGb2jOoNq
-         0jqQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=EMxHmAfCOml9QQ7v1XLdbbMvRu5c0N8igJALrwzthLI=;
+        b=A5cJawAktTWlLyjzsFm+jFudioUpE14YYKO5wEBZnEV4mXnkEPABXjLed3hjc48YFu
+         ooibqb3AQUPszOV3YkeCf0BR1ha8qjbCkgjmpoTH4P3cS/iOJTX+9D4tDVy53tRmY0RF
+         QJ/mODHBvUC97zTJUWI/hDEvmp9PdimvUievStJte0nN8x+PyO90UKcIVFVK0XlpYrC9
+         rXMY50nIfC7N+sns0/TklQpBevRz9ZFPXn5kb/KXiCxs/WCc3VyvvPFofnGqRf+wndyT
+         B04s3/ZNEcHWjBL5I7Dxu2QUNCrJDLL9yNMqXmJtWaWzAM09CasPA3yDdKmTEl41HOxG
+         WYpQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FYNI5m4j;
-       spf=pass (google.com: domain of vkabatov@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=vkabatov@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
-        by gmr-mx.google.com with ESMTPS id x35si1219104otr.4.2021.02.08.09.31.16
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iPuvdzXP;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id q21si748997pgt.3.2021.02.08.09.58.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 08 Feb 2021 09:31:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of vkabatov@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-442-ayA8bLhROoetJHO30eWhRQ-1; Mon, 08 Feb 2021 12:31:12 -0500
-X-MC-Unique: ayA8bLhROoetJHO30eWhRQ-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 66600651;
-	Mon,  8 Feb 2021 17:31:11 +0000 (UTC)
-Received: from colo-mx.corp.redhat.com (colo-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.21])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 5C64B5D9DC;
-	Mon,  8 Feb 2021 17:31:11 +0000 (UTC)
-Received: from zmail19.collab.prod.int.phx2.redhat.com (zmail19.collab.prod.int.phx2.redhat.com [10.5.83.22])
-	by colo-mx.corp.redhat.com (Postfix) with ESMTP id 4790857DF9;
-	Mon,  8 Feb 2021 17:31:11 +0000 (UTC)
-Date: Mon, 8 Feb 2021 12:31:09 -0500 (EST)
-From: Veronika Kabatova <vkabatov@redhat.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: CKI Project <cki-project@redhat.com>, Milos Malik <mmalik@redhat.com>, 
-	clang-built-linux@googlegroups.com, 
-	Memory Management <mm-qe@redhat.com>, 
-	Ondrej Mosnacek <omosnace@redhat.com>, skt-results-master@redhat.com, 
-	David Arcari <darcari@redhat.com>, Yi Zhang <yizhan@redhat.com>, 
-	Jan Stancek <jstancek@redhat.com>, 
-	Rachel Sibley <rasibley@redhat.com>
-Message-ID: <932912533.26916631.1612805468995.JavaMail.zimbra@redhat.com>
-In-Reply-To: <1903282816.26862171.1612782431967.JavaMail.zimbra@redhat.com>
-References: <cki.DC2474EF23.YM0YCFTL5T@redhat.com> <20210206014149.GA1121962@ubuntu-m3-large-x86> <20210206021928.GA2219249@ubuntu-m3-large-x86> <1903282816.26862171.1612782431967.JavaMail.zimbra@redhat.com>
-Subject: =?utf-8?Q?Re:_=F0=9F=92=A5_PANICKED:_Test_report_for=09kernel?=
- =?utf-8?Q?_5.11.0-rc6_(mainline.kernel.org-clang)?=
+        Mon, 08 Feb 2021 09:58:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 66D7664ED7;
+	Mon,  8 Feb 2021 17:58:53 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.10 34/36] ubsan: implement __ubsan_handle_alignment_assumption
+Date: Mon,  8 Feb 2021 12:58:04 -0500
+Message-Id: <20210208175806.2091668-34-sashal@kernel.org>
+X-Mailer: git-send-email 2.27.0
+In-Reply-To: <20210208175806.2091668-1-sashal@kernel.org>
+References: <20210208175806.2091668-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-Originating-IP: [10.36.112.91, 10.4.195.25]
-Thread-Topic: ? PANICKED: Test report for kernel 5.11.0-rc6 (mainline.kernel.org-clang)
-Thread-Index: hYZ/rK+Qqoow4ey4Q2lzfs7W/rwTXaqn6vdq
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: vkabatov@redhat.com
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=FYNI5m4j;
-       spf=pass (google.com: domain of vkabatov@redhat.com designates
- 63.128.21.124 as permitted sender) smtp.mailfrom=vkabatov@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@kernel.org header.s=k20201202 header.b=iPuvdzXP;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,276 +135,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+From: Nathan Chancellor <nathan@kernel.org>
 
+[ Upstream commit 28abcc963149e06d956d95a18a85f4ba26af746f ]
 
------ Original Message -----
-> From: "Veronika Kabatova" <vkabatov@redhat.com>
-> To: "Nathan Chancellor" <nathan@kernel.org>
-> Cc: "CKI Project" <cki-project@redhat.com>, "Milos Malik" <mmalik@redhat.=
-com>, clang-built-linux@googlegroups.com,
-> "Memory Management" <mm-qe@redhat.com>, "Ondrej Mosnacek" <omosnace@redha=
-t.com>, skt-results-master@redhat.com,
-> "David Arcari" <darcari@redhat.com>, "Yi Zhang" <yizhan@redhat.com>, "Jan=
- Stancek" <jstancek@redhat.com>, "Rachel
-> Sibley" <rasibley@redhat.com>
-> Sent: Monday, February 8, 2021 12:07:11 PM
-> Subject: Re: =F0=9F=92=A5 PANICKED: Test report for	kernel 5.11.0-rc6 (ma=
-inline.kernel.org-clang)
->=20
->=20
->=20
-> ----- Original Message -----
-> > From: "Nathan Chancellor" <nathan@kernel.org>
-> > To: "CKI Project" <cki-project@redhat.com>
-> > Cc: "Milos Malik" <mmalik@redhat.com>, clang-built-linux@googlegroups.c=
-om,
-> > "Memory Management" <mm-qe@redhat.com>,
-> > "Ondrej Mosnacek" <omosnace@redhat.com>, skt-results-master@redhat.com,
-> > "David Arcari" <darcari@redhat.com>, "Yi
-> > Zhang" <yizhan@redhat.com>, "Jan Stancek" <jstancek@redhat.com>
-> > Sent: Saturday, February 6, 2021 3:19:28 AM
-> > Subject: Re: =F0=9F=92=A5 PANICKED: Test report for	kernel 5.11.0-rc6
-> > (mainline.kernel.org-clang)
-> >=20
-> > On Fri, Feb 05, 2021 at 06:41:49PM -0700, Nathan Chancellor wrote:
-> > > On Fri, Feb 05, 2021 at 08:48:39PM -0000, CKI Project wrote:
-> > > >=20
-> > > > Hello,
-> > > >=20
-> > > > We ran automated tests on a recent commit from this kernel tree:
-> > > >=20
-> > > >        Kernel repo:
-> > > >        https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/lin=
-ux.git
-> > > >             Commit: dd86e7fa07a3 - Merge tag 'pci-v5.11-fixes-2' of
-> > > >             git://git.kernel.org/pub/scm/linux/kernel/git/helgaas/p=
-ci
-> > > >=20
-> > > > The results of these automated tests are provided below.
-> > > >=20
-> > > >     Overall result: FAILED (see details below)
-> > > >              Merge: OK
-> > > >            Compile: OK
-> > > >  Selftests compile: FAILED
-> > > >              Tests: PANICKED
-> > > >=20
-> > > > All kernel binaries, config files, and logs are available for downl=
-oad
-> > > > here:
-> > > >=20
-> > > >   https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.=
-html?prefix=3Ddatawarehouse-public/2021/02/05/623168
-> > >=20
-> > > I don't know if I am missing something or there was a mix up somewher=
-e
-> > > but all of the configuration files in that link show that GCC was use=
-d
-> > > for all of these builds:
-> > >=20
-> > > https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawareho=
-use-public/2021/02/05/623168/build_aarch64_redhat%3A1095500/kernel-mainline=
-.kernel.org-clang-aarch64-dd86e7fa07a3ec33c92c957ea7b642c4702516a0.config
-> > >=20
-> > > CONFIG_CC_VERSION_TEXT=3D"aarch64-linux-gnu-gcc (GCC) 10.2.1 20200826=
- (Red
-> > > Hat Cross 10.2.1-3)"
-> > > CONFIG_CC_IS_GCC=3Dy
-> > > CONFIG_GCC_VERSION=3D100201
-> > > CONFIG_LD_VERSION=3D235010000
-> > > CONFIG_CLANG_VERSION=3D0
-> > > CONFIG_LLD_VERSION=3D0
-> > >=20
-> > > https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawareho=
-use-public/2021/02/05/623168/build_ppc64le_redhat%3A1095501/kernel-mainline=
-.kernel.org-clang-ppc64le-dd86e7fa07a3ec33c92c957ea7b642c4702516a0.config
-> > >=20
-> > > CONFIG_CC_VERSION_TEXT=3D"powerpc64le-linux-gnu-gcc (GCC) 10.2.1 2020=
-0826
-> > > (Red Hat Cross 10.2.1-3)"
-> > > CONFIG_CC_IS_GCC=3Dy
-> > > CONFIG_GCC_VERSION=3D100201
-> > > CONFIG_LD_VERSION=3D235010000
-> > > CONFIG_CLANG_VERSION=3D0
-> > > CONFIG_LLD_VERSION=3D0
-> > >=20
-> > > https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawareho=
-use-public/2021/02/05/623168/build_x86_64_redhat%3A1095499/kernel-mainline.=
-kernel.org-clang-x86_64-dd86e7fa07a3ec33c92c957ea7b642c4702516a0.config
-> > >=20
-> > > CONFIG_CC_VERSION_TEXT=3D"gcc (GCC) 11.0.0 20210130 (Red Hat 11.0.0-0=
-)"
-> > > CONFIG_CC_IS_GCC=3Dy
-> > > CONFIG_GCC_VERSION=3D110000
-> > > CONFIG_LD_VERSION=3D235010000
-> > > CONFIG_CLANG_VERSION=3D0
-> > > CONFIG_LLD_VERSION=3D0
-> > >=20
-> > > Cheers,
-> > > Nathan
-> > >=20
-> >=20
-> > I can see by booting the binary that the kernel was compiled with clang
-> > and linked with lld though. However, I still cannot reproduce this
-> > crash.
-> >=20
->=20
-> Hi,
->=20
-> I'll take a look if running config file scripts with the same make
-> options as the kernel build overrides the gcc data in there. The base
-> config is grabbed from fedora and already contains the gcc strings as
-> the fedora configs are built with gcc.
->=20
+When building ARCH=mips 32r2el_defconfig with CONFIG_UBSAN_ALIGNMENT:
 
-Update:
+  ld.lld: error: undefined symbol: __ubsan_handle_alignment_assumption
+     referenced by slab.h:557 (include/linux/slab.h:557)
+                   main.o:(do_initcalls) in archive init/built-in.a
+     referenced by slab.h:448 (include/linux/slab.h:448)
+                   do_mounts_rd.o:(rd_load_image) in archive init/built-in.a
+     referenced by slab.h:448 (include/linux/slab.h:448)
+                   do_mounts_rd.o:(identify_ramdisk_image) in archive init/built-in.a
+     referenced 1579 more times
 
-Fixing up the make options to be called with the config scripts works.
-I'm currently checking if this helps with the previous test failures
-where tests tried to build external modules with the wrong compiler, or
-if that would require some more future work (I already added the clang
-dependencies to the test runs).
+Implement this for the kernel based on LLVM's
+handleAlignmentAssumptionImpl because the kernel is not linked against
+the compiler runtime.
 
-Slightly related, the problem with DEBUG_INFO_BTF having to be disabled
-due to pahole segfaulting is now gone as a fixed pahole version is in
-fedora rawhide now. x86_64 compiles with the enabled option fine,
-however aarch64 fails with
+Link: https://github.com/ClangBuiltLinux/linux/issues/1245
+Link: https://github.com/llvm/llvm-project/blob/llvmorg-11.0.1/compiler-rt/lib/ubsan/ubsan_handlers.cpp#L151-L190
+Link: https://lkml.kernel.org/r/20210127224451.2587372-1-nathan@kernel.org
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Acked-by: Kees Cook <keescook@chromium.org>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ lib/ubsan.c | 31 +++++++++++++++++++++++++++++++
+ lib/ubsan.h |  6 ++++++
+ 2 files changed, 37 insertions(+)
 
-FAILED unresolved symbol vfs_truncate
+diff --git a/lib/ubsan.c b/lib/ubsan.c
+index cb9af3f6b77e3..adf8dcf3c84e6 100644
+--- a/lib/ubsan.c
++++ b/lib/ubsan.c
+@@ -427,3 +427,34 @@ void __ubsan_handle_load_invalid_value(void *_data, void *val)
+ 	ubsan_epilogue();
+ }
+ EXPORT_SYMBOL(__ubsan_handle_load_invalid_value);
++
++void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
++					 unsigned long align,
++					 unsigned long offset);
++void __ubsan_handle_alignment_assumption(void *_data, unsigned long ptr,
++					 unsigned long align,
++					 unsigned long offset)
++{
++	struct alignment_assumption_data *data = _data;
++	unsigned long real_ptr;
++
++	if (suppress_report(&data->location))
++		return;
++
++	ubsan_prologue(&data->location, "alignment-assumption");
++
++	if (offset)
++		pr_err("assumption of %lu byte alignment (with offset of %lu byte) for pointer of type %s failed",
++		       align, offset, data->type->type_name);
++	else
++		pr_err("assumption of %lu byte alignment for pointer of type %s failed",
++		       align, data->type->type_name);
++
++	real_ptr = ptr - offset;
++	pr_err("%saddress is %lu aligned, misalignment offset is %lu bytes",
++	       offset ? "offset " : "", BIT(real_ptr ? __ffs(real_ptr) : 0),
++	       real_ptr & (align - 1));
++
++	ubsan_epilogue();
++}
++EXPORT_SYMBOL(__ubsan_handle_alignment_assumption);
+diff --git a/lib/ubsan.h b/lib/ubsan.h
+index 7b56c09473a98..9a0b71c5ff9fb 100644
+--- a/lib/ubsan.h
++++ b/lib/ubsan.h
+@@ -78,6 +78,12 @@ struct invalid_value_data {
+ 	struct type_descriptor *type;
+ };
+ 
++struct alignment_assumption_data {
++	struct source_location location;
++	struct source_location assumption_location;
++	struct type_descriptor *type;
++};
++
+ #if defined(CONFIG_ARCH_SUPPORTS_INT128)
+ typedef __int128 s_max;
+ typedef unsigned __int128 u_max;
+-- 
+2.27.0
 
-Is this a problem you already know about? This is the newest mainline,
-compilation with gcc works. I can publish the logs and configs or
-whatever else if needed.
-
-
-Veronika
-
-> Adding Rachel and keeping test maintainers in this thread since I
-> can't help with the LTP failure.
->=20
-> Veronika
->=20
-> > root@ubuntu-m3-large-x86:~# cat /proc/version
-> > Linux version 5.11.0-rc6 (cki@runner-3uc3rmvr-project-2-concurrent-4lc6=
-vt)
-> > (clang version 11.1.0 (Fedora 11.1.0-0.4.rc2.fc34), LLD 11.1.0) #1 SMP =
-Fri
-> > Feb 5 00:21:48 UTC 2021
-> > root@ubuntu-m3-large-x86:~# lsmod
-> > Module                  Size  Used by
-> > binfmt_misc            24576  1
-> > intel_rapl_msr         20480  0
-> > intel_rapl_common      32768  1 intel_rapl_msr
-> > amd_energy             16384  0
-> > crct10dif_pclmul       16384  1
-> > crc32_pclmul           16384  0
-> > crc32c_intel           24576  0
-> > ghash_clmulni_intel    16384  0
-> > snd_pcm               139264  0
-> > snd_timer              45056  1 snd_pcm
-> > snd                   106496  2 snd_timer,snd_pcm
-> > joydev                 28672  0
-> > soundcore              16384  1 snd
-> > serio_raw              20480  0
-> > pcspkr                 16384  0
-> > virtio_net             65536  0
-> > net_failover           28672  1 virtio_net
-> > failover               16384  1 net_failover
-> > ata_generic            16384  0
-> > i2c_piix4              28672  0
-> > pata_acpi              16384  0
-> > floppy                 94208  0
-> > qemu_fw_cfg            20480  0
-> > bpf_preload            16384  0
-> > ip_tables              32768  0
-> > x_tables               53248  1 ip_tables
-> > root@ubuntu-m3-large-x86:~# ltp/testcases/kernel/fs/proc/proc01 -m 128
-> > proc01      0  TINFO  :  /proc/sys/fs/binfmt_misc/register: is write-on=
-ly.
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/all/stable_secret: kno=
-wn
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/default/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/dummy0/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ens2/stable_secret: kn=
-own
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/erspan0/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/gre0/stable_secret: kn=
-own
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/gretap0/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ifb0/stable_secret: kn=
-own
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ifb1/stable_secret: kn=
-own
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip6_vti0/stable_secret=
-:
-> > known issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip6gre0/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip6tnl0/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/ip_vti0/stable_secret:
-> > known
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/lo/stable_secret: know=
-n
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/sys/net/ipv6/conf/tunl0/stable_secret: k=
-nown
-> > issue: errno=3DEIO(5): Input/output error
-> > proc01      0  TINFO  :  /proc/kmsg: known issue:
-> > errno=3DEAGAIN/EWOULDBLOCK(11): Resource temporarily unavailable
-> > proc01      0  TINFO  :  /proc/sysrq-trigger: is write-only.
-> > proc01      0  TINFO  :  /proc/self/task/753/mem: known issue:
-> > errno=3DEIO(5):
-> > Input/output error
-> > proc01      0  TINFO  :  /proc/self/task/753/clear_refs: is write-only.
-> > proc01      0  TINFO  :  /proc/self/task/753/pagemap: reached maxmbytes
-> > (-m)
-> > proc01      0  TINFO  :  /proc/self/mem: known issue: errno=3DEIO(5):
-> > Input/output error
-> > proc01      0  TINFO  :  /proc/self/clear_refs: is write-only.
-> > proc01      0  TINFO  :  /proc/self/pagemap: reached maxmbytes (-m)
-> > proc01      1  TPASS  :  readproc() completed successfully, total read:
-> > 280264271 bytes, 3326 objs
-> > root@ubuntu-m3-large-x86:~# ltp/testcases/kernel/fs/read_all/read_all -=
-d
-> > /proc -q -r 3
-> > read_all.c:446: TPASS: Finished reading files/fs/read_all/read_all -d /=
-proc
-> > -q -r 3
-> >=20
-> > Summary:
-> > passed   1
-> > failed   0
-> > broken   0
-> > skipped  0
-> > warnings 0
-> >=20
-> > Cheers,
-> > Nathan
-> >=20
-> >=20
->=20
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/932912533.26916631.1612805468995.JavaMail.zimbra%40redhat=
-.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210208175806.2091668-34-sashal%40kernel.org.
