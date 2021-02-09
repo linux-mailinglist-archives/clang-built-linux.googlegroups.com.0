@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCCI5LFKZYOBBKHURKAQMGQECY7DSOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM3FG7YWUNBBTPSRKAQMGQEFCFGBTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E2493153F9
-	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Feb 2021 17:36:59 +0100 (CET)
-Received: by mail-ot1-x33a.google.com with SMTP id t8sf4330235ots.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 09 Feb 2021 08:36:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612888618; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id A8D053153ED
+	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Feb 2021 17:33:18 +0100 (CET)
+Received: by mail-ua1-x93a.google.com with SMTP id l1sf4657133uan.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 09 Feb 2021 08:33:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612888397; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MuV2ZuuS7KeIZ9BEz7JabTfFQWO0HDdUTOY2Wowz7nvuHUejZ75ABtrK6/lip/1nzy
-         A+i1vQQMnHA69xyL6Q0MfLizvkKDzhuKT5iWExzEUY+Nt3TU/6u+1aJl0iHg2NV4DZqp
-         xVn5rKsDZGdjHlQ40n2Otylp6f08D75yZKhz8ATedEUTAPCbEOQ56Oy2AklyM14UExiz
-         laMUsXfsDrDkD1hhcQibntT4WIN/pU/2LGSwuDq/2NdcrZOPa0F+xO0tL2a/Kx3wNX+2
-         fBRkHVbKN1j5eDpZIgX0c1CL55lHyf+gw0381Cu6YCs5/qrHMZmVZF4uuThDMqiXTeYL
-         BxTQ==
+        b=XRZgFXoeHxCVV0fvaIwnulA1RVRrCGjkBSM5X2JvgtZht0+KSqbU+ZmfXO15Ye6gVa
+         NCi8M1HczlQA8qunsm36j2JQA9y7U/WQxLGP0+2BT8GF/I2/Nf9XM1FKrZKyjjqMarj5
+         lsDjps/nhsgFDHL+6hkC3o5U/1YP3WB2IczUBSxTScMLCaRUTLEWhK+W/oWGJxNhw6H9
+         +xWuU7UxXZbMEsZyxju9x28Xc7QNXhbvtURvEmTrjRpR0PySbLsESrwlBtuDoSEvmxOw
+         yYl34xgoL+sX0RYibVH883rZSG6s6+9BJZQcOWF31yheTXsnR4ZFzBM1CPxmRRg5RGe+
+         K1jw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=L1dIxahuQ0WBS59QuOkLKCI8UhfFbE3SveUTLq17pHI=;
-        b=y7cxOvKTqqaCrZbSGbhkgkcHfAUztisWGMylRhDCnv0skRCAKLUqjHkMHSXhlmMfuR
-         rdVcI5OU8bmwxUC+jZ5ZKR1SxL13G3yKoBWGI6xaNBZA9hBdhM26ngO9FM5QV7hSMjkc
-         6UKtilnsfksZfuwIsHYq3s1hG9CuePBjQEp5ZGC8uHYXS27R9MgYdV0FDHaghQIZT2Tu
-         VXTtNe3zAhi7Ig6V6efJ+4Y6LzUmfglLS3c4IS+XL93tXAR/+m6+XDPDUUB71ooPh8vK
-         tbf0IiJAoYY1ugbW5majf4RW48A+4nKGGzupYiVHLyGZbwdt9v2eL2m7Rx4c7pWWDcHr
-         W47A==
+        bh=6BQC8OZWHsd4HdvFxBrbC9Wd2kj1wnsXF0mx7BXcK20=;
+        b=wtz6qft7Y22OgOZZejdzFL4zLfBQ5XTASZAW4ESiMNDS2tHvVcRq9s7+1NDkppQTg4
+         s3OMFXKNGNGeZzDrnBY5WTbiqG1mkMxWC5sbz44HqmznCCy7Ix0fTF9g2Aq/GzOtvjXc
+         5bIzEjekXDY7qVwCGUZrdOxdpKWmoCxEEEb/1xDjMup7JUifSgvwfUi9+ixEBMtYbchp
+         Vzzs0TXQ6OSFeS2YKCiK5Bk2qb+FmLHzBLVwdC1Ru02+6dhY9LOWCbgqfF3CjCrYvxdJ
+         aL10FUoymVyfFVyUY/WYEahT5770vemA3qJvPtNqZ7L0jeZBvteq19ugebQcYBkl1fNQ
+         gJ3Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eVY8EJZh;
-       spf=pass (google.com: domain of stephenzhangzsd@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=stephenzhangzsd@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=pzlBKSdu;
+       spf=pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2f as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,107 +36,108 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=L1dIxahuQ0WBS59QuOkLKCI8UhfFbE3SveUTLq17pHI=;
-        b=Ky9aY5NQ9rTRO2CHZW9EeJMKI/Kjotok72oYbQhWzUVaPOvVa7OYWIsUHirHV15cCT
-         dlG2zGCXWP9lGEkHU89cu648TLpqYV/x66yZuF/o8nfoKZ+YmEHAGeFK8+cRHadf6LGP
-         fdfO5HZy1cAEgS5F5PTsFCNqcgS60lCII/g92oF8CcdTITc6HvmIegDkBIQzh2qyBQf4
-         RXjNFgwKHh8GWonxeCaaxtLlxp8TvLw6ZLzyfwnYX2p4Dz4NQDf8Ab+DqVz19OK4Tb+s
-         I9kK1q5mWEIdKHptOG4JTwMP9XO8L6KBJElgX/3sHV7/Cdf6CU+yvm0l8Fa57uHk9n76
-         rvww==
+        bh=6BQC8OZWHsd4HdvFxBrbC9Wd2kj1wnsXF0mx7BXcK20=;
+        b=ElrS2kRZ/ddhKF6PIwO3DNGhaWZNix3OX/2HridgoZqi8aCfmfH2lZTgxH6qCGVFqd
+         tm20cUSBCgaAcX5I8kc7y/YZ20WaM50ZbUap2ndJwEJNHsNcKyPfdJO7zoRSxSUE+MiT
+         jjhXnPVDmrqnI0thRjwSHDVATeiRVtd6wX2P6/aC/4vF3Lk4Z4hNd50smJrhSRzPo0iV
+         SbKJT7OIFZ7w2e4XqhLyaqmPvBxJhGLoOsafQO/D9VdXk1aQUifQlj7S8ZKu2JcaH/2f
+         YzfA8R4c7S9rpxklMQqsdeSKoAMU00PaNcC8H9XGc2/3FgozG46MmPi/Nz7X85YMEjYv
+         9L7g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=L1dIxahuQ0WBS59QuOkLKCI8UhfFbE3SveUTLq17pHI=;
-        b=dxwrWQ42CnjG0JqgqbiS+vAJ/M2lirBHJA+ilDZaIT7dW9qlBh6njgPLW6VdhgbRPJ
-         y1Afebsj1zETfLyLjzH8S7vmrpHlvR1y8PnWyaRPk0Bo1jZLggVKhGTrxi0BeRpCfFYW
-         7yKZISRd8iqU6o9a3BgIcpMsgayaQqaLeBzPoMYS3MrPJboYJaDHGrWx++7Ez89u0GQa
-         x3by+AChHBrzb+ws+rOVpwNtTPsUu08+s+n5/bR00Bfkkz4/ILv01Brw70VCapWemBzH
-         2XpzjcIQGxUpAd8cgGlRDiaMTdqwFwSciAp7+595fmHuybP+7zbVNw+59FZU2nzRY2QW
-         bEZw==
+        bh=6BQC8OZWHsd4HdvFxBrbC9Wd2kj1wnsXF0mx7BXcK20=;
+        b=bLoyI2nmrPXSQCq/R77Qo87hUX5W2czWKAd6Q/A0Xo02o974GoQJF0MT4sWRWNQa5R
+         hmEVIVzhWbehc0vMeA3mpgps2zutakXiOuLs86a9pjtWEF9ggk6AoWZX/1JXJcXi5qQd
+         6X2xg/KIpl6vxBCFUTd3nFDlJwxvWPvTO/E6P3JHIZD7lDofbHicmzZ5nlshCtrqAYT5
+         rTIyeiOegz1YZObtTFGSlBPBhZ65pyyVlE42USDNV/saMlYuyQyaIoz8R1ZzsekYQ2oO
+         CfgosURNabi6e2MY1h5qtWyUmdXp0oE+Sk8jof3Zm+bPUk+tU5Koy7CV7NHhGGezUZmM
+         EQVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
          :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=L1dIxahuQ0WBS59QuOkLKCI8UhfFbE3SveUTLq17pHI=;
-        b=sN+wRf7lCZNXnxYAAjxrX8oH/b0rozux2rn4Uy4n76mtuhOwiHWpeFP44a1LQVFdZd
-         UzeQl7MIAdPh5TPMaqL3BStFrMrUjJdNq0b3IPnqDgS+ud78H80WzFFmbNDJbyqX7V34
-         OpDU74AxuoJjPMG15q7hmbGxUPXxr9uYeJJABAv0T0coH6mxFtgDWZNFvNlxAHsgGr42
-         eCDNmEiY/Dlp/Z/S8Ho37sXfP6K73ft3XD9D3m+wUvAOhrIsZoebakDfCYs/5s8eDEfK
-         +0DX3iRbV45tgR2i3jjjSFqi4MUAkkp05IEyCL5pxtLsUaPYXuG6IPVo3tSYkynLvJIg
-         a4Cg==
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6BQC8OZWHsd4HdvFxBrbC9Wd2kj1wnsXF0mx7BXcK20=;
+        b=i+hNYn55egyqfiMiAQEmop2p3Rw7newyfNHXrmGbdi97pdJ3CD0ZNg6cCW9B4CvLPF
+         yDrMArOrnsKHKtLEWsX+HSmeJl6a3SC5pGLCgHjQrf1NauQT1W38tu9zAaqkVit73p/y
+         YyWKNp03+KHcINEFRvVa90aFJLFSaD5ClSLmnBqq6wEA5TWZm9HhRbo/YBYyZk2Hcw4T
+         JyXFmKXnDng4G9QltqTd3vXlxQj1NKxVyUPCU5yIe0MVNzAkjCFhOo73KXkB3uMEo9KY
+         YTAyLVv5h/T7oS8IxcLri5L0l1Cxxf37s6VvZw1XfnQJ/HPma0W2/O3X1EKWOAvWhL01
+         Y3+Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532gTy90/zOcymJDbbXXtDVNDc21Ac3S+X/JXxDfctHBC92xFESb
-	FgsiKdncAVt/bvwJ8y2SVt4=
-X-Google-Smtp-Source: ABdhPJwQuwp18cFX4iezMgpI/cNJhPFPTWPV6YOFfzrqC9MIpSmJr2M75rKeEE/9NsZbbrgstBhAOg==
-X-Received: by 2002:a05:6830:233a:: with SMTP id q26mr15720658otg.151.1612888616580;
-        Tue, 09 Feb 2021 08:36:56 -0800 (PST)
+X-Gm-Message-State: AOAM531KGQq9nuOuwP8josRQ0QmdeMOoBtWHTszZvUCqx5/BxGhAjYHy
+	NeYnFPlaABw0m+Vm0FuBF6E=
+X-Google-Smtp-Source: ABdhPJxIhKZn3TDPUn4tnLrZFrBcqr3ka48EQnUy8SoNGNhAMqDjkm6vM1KlwZ4KfKoFhEFzeBhe+w==
+X-Received: by 2002:a67:8c6:: with SMTP id 189mr13334453vsi.55.1612888397743;
+        Tue, 09 Feb 2021 08:33:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:2a88:: with SMTP id e8ls4856343otb.6.gmail; Tue, 09 Feb
- 2021 08:36:56 -0800 (PST)
-X-Received: by 2002:a05:6830:1651:: with SMTP id h17mr10128372otr.363.1612888616295;
-        Tue, 09 Feb 2021 08:36:56 -0800 (PST)
-Received: by 2002:a05:6808:10c5:b029:df:6bb:110a with SMTP id s5-20020a05680810c5b02900df06bb110amsois;
-        Tue, 9 Feb 2021 05:56:33 -0800 (PST)
-X-Received: by 2002:a5d:9653:: with SMTP id d19mr15117993ios.65.1612878993352;
-        Tue, 09 Feb 2021 05:56:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612878993; cv=none;
+Received: by 2002:ab0:c0c:: with SMTP id a12ls1622232uak.0.gmail; Tue, 09 Feb
+ 2021 08:33:17 -0800 (PST)
+X-Received: by 2002:ab0:28c9:: with SMTP id g9mr14320946uaq.142.1612888397335;
+        Tue, 09 Feb 2021 08:33:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612888397; cv=none;
         d=google.com; s=arc-20160816;
-        b=vfXCvtOeW/WxBh1ji8NdqMlANroBnT+k59aQb6/HGJduF9HHbPtqJAWVqaMfdOY8Kf
-         eWOP1hsUKqXpPt2XYyW+uZJ2WEMXFlEcRtTqDTOYlH4pM4bIkKI9S9Mk8JXPRcH2XGd5
-         zDjBvLTeFobztiQvtb2g4DvkrmvesSaWUkKkWYZBzsW0+0nvBlD6YnxD7/rHFPOpyoAX
-         fyqsCDn1SMY5OhTmnvmQBVcwhbt5hKT09WOnHMy9NQTRiYPFN+O83V1mquoWEPWkTPE6
-         z8reZwX/3gHW8kokiISNCazvz8d0AAeeuvpjaaabc9UasvjnlE2JC7Jv4EiOqmhW7U3U
-         b1qA==
+        b=FowrF+/+IyI1dSwSs9C76ghrN3CKWRCc9gLF2sn1orEdqs7TrIef299+0Kwaw56/au
+         DQEkiePbAHmYF2kkWp99WDTr4LBnc434ctJ/hZglAJ5KnU4OAw9TU4j+GHwuENVd8Llj
+         sjq0cbb7zlfTTNzWHZiynp5P+uCf8LXujOqBmfNs4TZohqdX4H9NMkd6XepUlcaUU/OJ
+         RIQ6CdWAsnHz0t++q2CbutbUmDZMIxYyKILB3Gr2Idb2OppA0M9TUnQdTId9+I+s/fQl
+         1h6VhU7xpDd+UfYUUW5bvJOqaMWzqjT4IjRNRHFB09fgU5smxfAucA/ehM8PGIcMGOeO
+         4t5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=e72WGaXgmUdrKb6dau86OH0YNdyrrF90QghdGKWRbCM=;
-        b=c0MV6B54liIq7RRgvHgMtH0NzBLa9eu8e5jK+RimGza560zE0/KQX85+j6li1eoO86
-         vWJQHAGghshB/AkxkgCAo6Cf5+8jwRpRfgVXt2WcikOn4S1IPka2emDEToxpdla7PBv1
-         prrsHDyfhS6ikHJ/h22N49/qMlJf5fKzIXAMRieL9ZNDNmv7d05JZTBYTFyQ49g/w2T7
-         J1Uj39gF6/szpTwvsAbEku6OX5uBJTjYBTvHDfdB1hKhriBmpTavWv7JBHLlR3TyH8Wk
-         zqyGdnQswTe5f89I5YXqG0kvlwyGPc25MFFvSkQO+PD8ksOyJcR5yG/3X1yDMJXaNX5k
-         h0SA==
+        bh=ylRfpxij4Gi4Y2NFiIFM8ci8361C7ERTwaut+6Gw6P8=;
+        b=BYn++iFotcYhYGAeCxeXB7q8KfyeAILoYvP1Ao3qrutm4jD6GBNnmZEBalx2nH3UeT
+         XIZrJWVxSquFQs+9RW48mAwrk1iEZCfeHUaG0pCSdIzzWfGbpquCFVwu5V/q2nu8XuNA
+         y4Ha4ijgQc9qEnS7BvtOGvkZg8QMT7+V/i1Fzn41UepA4RIc3UUjxETwRX319T/FGTnK
+         wubWUH4+MV8Km/yjl5JbfSTwIWhOwYH468OsxtZV3LgBs44CJj/h0SR1FjerfyDB2g+h
+         R7+S7j9uqPeW0R0GHWX5EoJ4gokgMmZU0mR1bJRTxXGD9tT6iGOyK3fDBr1hVqwMerd7
+         KAHw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=eVY8EJZh;
-       spf=pass (google.com: domain of stephenzhangzsd@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=stephenzhangzsd@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=pzlBKSdu;
+       spf=pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2f as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb34.google.com (mail-yb1-xb34.google.com. [2607:f8b0:4864:20::b34])
-        by gmr-mx.google.com with ESMTPS id y16si1090933ili.3.2021.02.09.05.56.33
+Received: from mail-vk1-xa2f.google.com (mail-vk1-xa2f.google.com. [2607:f8b0:4864:20::a2f])
+        by gmr-mx.google.com with ESMTPS id e11si1304836vkp.4.2021.02.09.08.33.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Feb 2021 05:56:33 -0800 (PST)
-Received-SPF: pass (google.com: domain of stephenzhangzsd@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) client-ip=2607:f8b0:4864:20::b34;
-Received: by mail-yb1-xb34.google.com with SMTP id y128so18213599ybf.10
-        for <clang-built-linux@googlegroups.com>; Tue, 09 Feb 2021 05:56:33 -0800 (PST)
-X-Received: by 2002:a25:dccc:: with SMTP id y195mr13754626ybe.182.1612878993036;
- Tue, 09 Feb 2021 05:56:33 -0800 (PST)
+        Tue, 09 Feb 2021 08:33:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2f as permitted sender) client-ip=2607:f8b0:4864:20::a2f;
+Received: by mail-vk1-xa2f.google.com with SMTP id v66so1210412vkd.10
+        for <clang-built-linux@googlegroups.com>; Tue, 09 Feb 2021 08:33:17 -0800 (PST)
+X-Received: by 2002:a1f:da45:: with SMTP id r66mr9976098vkg.6.1612888397062;
+ Tue, 09 Feb 2021 08:33:17 -0800 (PST)
 MIME-Version: 1.0
-References: <1612783737-3512-1-git-send-email-stephenzhangzsd@gmail.com> <20210208195439.GA1097868@ubuntu-m3-large-x86>
-In-Reply-To: <20210208195439.GA1097868@ubuntu-m3-large-x86>
-From: Stephen Zhang <stephenzhangzsd@gmail.com>
-Date: Tue, 9 Feb 2021 21:56:20 +0800
-Message-ID: <CALuz2=d-ENRbWgGYaO_ESEaw5eOVSwkQmkeYBJ-w0Vb3zZ+REg@mail.gmail.com>
-Subject: Re: [PATCH v1] clang_tools:gen_compile_commands: Change the default
- source directory
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, natechancellor@gmail.com, 
-	clang-built-linux@googlegroups.com, LKML <linux-kernel@vger.kernel.org>
-Content-Type: multipart/alternative; boundary="00000000000072211d05bae7a7b5"
-X-Original-Sender: stephenzhangzsd@gmail.com
+References: <202102070252.HkjUQntk-lkp@intel.com>
+In-Reply-To: <202102070252.HkjUQntk-lkp@intel.com>
+From: Souptick Joarder <jrdr.linux@gmail.com>
+Date: Tue, 9 Feb 2021 22:03:05 +0530
+Message-ID: <CAFqt6zZm7rAZ=eqJWoWNojT-s+pmdnYL7MbbCPBE89fk6Q6szA@mail.gmail.com>
+Subject: Re: [linux-next:master 3824/6048] drivers/net/dsa/xrs700x/xrs700x_i2c.c:127:34:
+ warning: unused variable 'xrs700x_i2c_dt_ids'
+To: kernel test robot <lkp@intel.com>
+Cc: George McCollister <george.mccollister@gmail.com>, kbuild-all@lists.01.org, 
+	clang-built-linux@googlegroups.com, 
+	Linux Memory Management List <linux-mm@kvack.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: jrdr.linux@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=eVY8EJZh;       spf=pass
- (google.com: domain of stephenzhangzsd@gmail.com designates
- 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=stephenzhangzsd@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20161025 header.b=pzlBKSdu;       spf=pass
+ (google.com: domain of jrdr.linux@gmail.com designates 2607:f8b0:4864:20::a2f
+ as permitted sender) smtp.mailfrom=jrdr.linux@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
+X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -145,168 +146,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---00000000000072211d05bae7a7b5
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Nathan Chancellor <nathan@kernel.org> =E4=BA=8E2021=E5=B9=B42=E6=9C=889=E6=
-=97=A5=E5=91=A8=E4=BA=8C =E4=B8=8A=E5=8D=883:54=E5=86=99=E9=81=93=EF=BC=9A
-
-> On Mon, Feb 08, 2021 at 07:28:57PM +0800, Stephen Zhang wrote:
-> > The default source directory is set equal to build directory which
-> > specified by "-d".But it is designed to be set to the current working
-> > directoy by default, as the help messge says.It makes a differece when
-> > source directory and build directory are in separted directorys.
-> >
-> > Signed-off-by: Stephen Zhang <stephenzhangzsd@gmail.com>
+On Sat, Feb 6, 2021 at 11:32 PM kernel test robot <lkp@intel.com> wrote:
 >
-> I don't think this patch makes much sense unless I am misunderstanding
-> the description of the problem. The entire point of this script is to
-> parse the .cmd files that kbuild generates and those are only present
-> in the build directory, not the source directory, so we should never be
-> looking in there, unless args.directory is its default value, which is
-> the way the script is currently written. Your patch would appear to
-> either make use do way more searching than necessary (if the build
-> folder is within the source folder) or miss it altogether (if the build
-> folder is outside the source folder).
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   59fa6a163ffabc1bf25c5e0e33899e268a96d3cc
+> commit: ee00b24f32eb822f55190efd1078fe572e931d5c [3824/6048] net: dsa: add Arrow SpeedChips XRS700x driver
+> config: x86_64-randconfig-a011-20210207 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=ee00b24f32eb822f55190efd1078fe572e931d5c
+>         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>         git fetch --no-tags linux-next master
+>         git checkout ee00b24f32eb822f55190efd1078fe572e931d5c
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
 >
-> Cheers,
-> Nathan
-
-
-Specifically,the souce directory is  /vm/linux/tools/perf on my machine,
-while the build
-directory is /vm/tmpbuild/tools/perf .In the build directory , Execute the
-command:
-
-/vm/linux/scripts/clang-tools/gen_compile_commands.py --log_level DEBUG -d =
-.
-
-The resulting debugging message is:
-
-    INFO: Could not add line from /vm/tmpbuild/tools/perf/.perf.o.cmd: File
-/vm/tmpbuild/tools/perf/perf.c
-    not found.
-
-But actually what we want is =EF=BC=9A
-
-    add line from /vm/tmpbuild/tools/perf/.perf.o.cmd: File
-/vm/linux/tools/perf/perf.c.
-
-The    " /vm/tmpbuild/tools/perf " of  the "File
-/vm/tmpbuild/tools/perf/perf.c not found." is passed by  "-d".
-
-so it is the "-d" which decides the source prefix.
-
-Then we execute:
-
- /vm/linux/scripts/clang-tools/gen_compile_commands.py --log_level DEBUG
--d  /vm/linux/tools/perf
-
-But in the oringnal code , the default build directory is the same as  the
-source directory:
-
-@@ -64,7 +64,7 @@ def parse_arguments():
-             os.path.abspath(args.directory),
-             args.output,
-             args.ar,
--            args.paths if len(args.paths) > 0 else [args.directory])
-+            args.paths if len(args.paths) > 0 else [os.getcwd()])
-
-after changing  it ,we then get the right result.
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CALuz2%3Dd-ENRbWgGYaO_ESEaw5eOVSwkQmkeYBJ-w0Vb3zZ%2BREg%4=
-0mail.gmail.com.
-
---00000000000072211d05bae7a7b5
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr">Nathan Chancellor &lt;<a href=3D"mailto:n=
-athan@kernel.org">nathan@kernel.org</a>&gt; =E4=BA=8E2021=E5=B9=B42=E6=9C=
-=889=E6=97=A5=E5=91=A8=E4=BA=8C =E4=B8=8A=E5=8D=883:54=E5=86=99=E9=81=93=EF=
-=BC=9A<br></div><div class=3D"gmail_quote"><blockquote class=3D"gmail_quote=
-" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);=
-padding-left:1ex">On Mon, Feb 08, 2021 at 07:28:57PM +0800, Stephen Zhang w=
-rote:<br>
-&gt; The default source directory is set equal to build directory which<br>
-&gt; specified by &quot;-d&quot;.But it is designed to be set to the curren=
-t working<br>
-&gt; directoy by default, as the help messge says.It makes a differece when=
-<br>
-&gt; source directory and build directory are in separted directorys.<br>
-&gt; <br>
-&gt; Signed-off-by: Stephen Zhang &lt;<a href=3D"mailto:stephenzhangzsd@gma=
-il.com" target=3D"_blank">stephenzhangzsd@gmail.com</a>&gt;<br>
-<br>
-I don&#39;t think this patch makes much sense unless I am misunderstanding<=
-br>
-the description of the problem. The entire point of this script is to<br>
-parse the .cmd files that kbuild generates and those are only present<br>
-in the build directory, not the source directory, so we should never be<br>
-looking in there, unless args.directory is its default value, which is<br>
-the way the script is currently written. Your patch would appear to<br>
-either make use do way more searching than necessary (if the build<br>
-folder is within the source folder) or miss it altogether (if the build<br>
-folder is outside the source folder).<br>
-<br>
-Cheers,<br>
-Nathan</blockquote><div>=C2=A0</div><div>Specifically,the souce directory i=
-s=C2=A0 /vm/linux/tools/perf on my machine, while the build=C2=A0</div><div=
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 >
+> All warnings (new ones prefixed by >>):
+>
+> >> drivers/net/dsa/xrs700x/xrs700x_i2c.c:127:34: warning: unused variable 'xrs700x_i2c_dt_ids' [-Wunused-const-variable]
+>    static const struct of_device_id xrs700x_i2c_dt_ids[] = {
+>                                     ^
+>    1 warning generated.
 
-directory is /vm/tmpbuild/tools/perf
+I think, this can defined under #ifdef CONFIG_OF.
 
-.In the build directory , Execute the command:</div><div><br></div><div>/vm=
-/linux/scripts/clang-tools/gen_compile_commands.py --log_level DEBUG -d .</=
-div><div><br></div><div>The resulting debugging message is:</div><div><br><=
-/div><div>=C2=A0 =C2=A0 INFO: Could not add line from /vm/tmpbuild/tools/pe=
-rf/.perf.o.cmd: File /vm/tmpbuild/tools/perf/perf.c=C2=A0</div><div>=C2=A0 =
-=C2=A0 not found.<br></div><div><br></div><div>But actually what we want is=
- =EF=BC=9A</div><div><br></div><div>=C2=A0 =C2=A0=20
+>
+>
+> vim +/xrs700x_i2c_dt_ids +127 drivers/net/dsa/xrs700x/xrs700x_i2c.c
+>
+>    126
+>  > 127  static const struct of_device_id xrs700x_i2c_dt_ids[] = {
+>    128          { .compatible = "arrow,xrs7003e", .data = &xrs7003e_info },
+>    129          { .compatible = "arrow,xrs7003f", .data = &xrs7003f_info },
+>    130          { .compatible = "arrow,xrs7004e", .data = &xrs7004e_info },
+>    131          { .compatible = "arrow,xrs7004f", .data = &xrs7004f_info },
+>    132          {},
+>    133  };
+>    134  MODULE_DEVICE_TABLE(of, xrs700x_i2c_dt_ids);
+>    135
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-add line from /vm/tmpbuild/tools/perf/.perf.o.cmd:
-
-File /vm/linux/tools/perf/perf.c.</div><div><br></div><div>The=C2=A0 =C2=A0=
- &quot;
-
-/vm/tmpbuild/tools/perf
-
-&quot; of=C2=A0 the &quot;File /vm/tmpbuild/tools/perf/perf.c not found.&qu=
-ot; is passed by=C2=A0 &quot;-d&quot;.</div><div><br></div><div>so it is th=
-e &quot;-d&quot; which decides the source prefix.</div><div><br></div><div>=
-Then we execute:</div><div><br></div><div>=C2=A0/vm/linux/scripts/clang-too=
-ls/gen_compile_commands.py --log_level DEBUG -d=C2=A0 /vm/linux/tools/perf=
-=C2=A0<br></div><div><br></div><div>But in the oringnal code , the default =
-build directory is the same as=C2=A0 the source directory:</div><div><br></=
-div><div>@@ -64,7 +64,7 @@ def parse_arguments():<br>=C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0os.path.abspath(args.directory),<br>=C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0args.output,<br>=C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0<a href=3D"http://args.ar/" rel=3D"noreferrer" t=
-arget=3D"_blank">args.ar</a>,<br>-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- args.paths if len(args.paths) &gt; 0 else [args.directory])<br>+=C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 args.paths if len(args.paths) &gt; 0 else [=
-os.getcwd()])<br></div><div><br></div><div>after changing=C2=A0 it ,we then=
- get the right result.</div></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CALuz2%3Dd-ENRbWgGYaO_ESEaw5eOVSwkQmkeYBJ-w0Vb=
-3zZ%2BREg%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
-groups.google.com/d/msgid/clang-built-linux/CALuz2%3Dd-ENRbWgGYaO_ESEaw5eOV=
-SwkQmkeYBJ-w0Vb3zZ%2BREg%40mail.gmail.com</a>.<br />
-
---00000000000072211d05bae7a7b5--
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFqt6zZm7rAZ%3DeqJWoWNojT-s%2BpmdnYL7MbbCPBE89fk6Q6szA%40mail.gmail.com.
