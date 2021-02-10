@@ -1,141 +1,147 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBSN7SCAQMGQEOYEJBZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBB4GHSCAQMGQELN3B6BQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 20658316DA4
-	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 19:02:51 +0100 (CET)
-Received: by mail-yb1-xb3f.google.com with SMTP id k7sf3270372ybm.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 10:02:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612980170; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id A12AE316E59
+	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 19:20:33 +0100 (CET)
+Received: by mail-qt1-x83f.google.com with SMTP id v22sf2221233qto.16
+        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 10:20:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612981232; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RSZBDiamUCeiLExJJEmjbcpPpbv+s0hTGxgE+PH2NcInipbNtun/EoVHp7XVm9ZTeZ
-         7maTL9d+aFXWaqRwM3V1rN3w0HjFFJL0S17hr5W7Nr3h2zYRZC6V7LF8Rk7ni/KvwZYh
-         xOepmznQ+GvcNvi4YFS2BTkZTMEGRac1J5XF67VvBMc9k7iy8qt2LFMEtsVs0mCoiftP
-         ZH1bKxl2SQ2jx/R4mUJlXAMsL38iW4t/rTCX2giC27rscF+rDzZjHNo6AqPapXdFLh0E
-         eXBlFE/2WrOL5psMFGgl/7KmB9XZu537O6o2A2oXAxTTK65lFoVcO1uesDKvNU2HrIOP
-         31gA==
+        b=02PR0+qAebrQK7FZ3WEUBGTFSMwaJxkpkS6bDEq0Wv2eXuKrDdvawKTODSB3upSYv9
+         JWn6dNniaG9P9rU1JkzdhC+zXPawHsaW+KxLbjzMTO0E3tg1UZ1c+7fCPzgUhzRcBKFK
+         DdcwFD8m3le/GR6bQC2urmKbpxNrvt6blloCgPZR+FA5PTUQqZyjcmaPhnq/JSlI5bvz
+         QucpuKMFp+L8KNlXWMxbQqL7SfNxIS7JHX5h/sZYJcFJZlXNF0URxMfRgxOLbGKTzih5
+         8hcCJyyhK8rbmSbLLdPTNpMwC+3grWaEyrQ83ocou8CfV+2kD5Dg5xXAOAriwRvEXz0v
+         WxDQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=9chC8s04nkR+3Djkan89OaFWIsw8F8KSnATkdNMellc=;
-        b=ke1SBjDkOmKX/NIdxwUecRSmcl6wyZVy7U0yTihcfYiS0IJCu3sb6m6cFbs5Indad5
-         Vy4HHpI35tOVdAd5FjGnlX3olTliBfc6hI8vIU7j4UygwvqiTID81PXQxY8++qNfm6ml
-         BX+cD7PRwfdHL2D1NQlaL+I63zp7+qpvVvJTmjKjvEMI7oieNaTvJW74pSjdzn0CIcLq
-         uqKiEuZD3MSO5oCMpMml1mk8MUZHgEI9Dnt3W9gHi2Tnlp5AbTkvFJEYt12YZyBsaoAP
-         n5qUxg2CzIRfngN32mdRSKcVKgzDMywLkjH0eCM3F3NHuglex/5FbkSIk0mWMBJLtGOB
-         7vPQ==
+        bh=ke3N/MwzBOhwAmnnCLWDUNWlDTnJTuSDJBiCXD33Z0k=;
+        b=xF+RvOizXCyT6LFBCguVX8dgNr5qWuKAY44OjvneMCVTAnAfmwQS7Jb/cxAZ5EJkcY
+         YF+MN3aZKrrAzqtzqKRZUy1EFeW6BABswEjWFUUJLUhUVl3y5J3DpAak5R6yuQym66HN
+         unwmWrXmbFgiDnmg9YjJ7n1sX/nCeO6yg89yhE6/FwjMrtPTF5w9aWbMZiPQO99iSbPA
+         5mXLoZDVpYfyQlYbtNjuZfOZOQnD529tTzVqhKEu3oSW1qypszYFIxlZm36rfBAnC/Gi
+         B8cTu/v2vJoATzdBFd1AMGsaza5Uk2Bru0/7ndqod88Yi2Ktsv8R+J1eFJpabEvm7cB5
+         6fHQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=TV6sz6nP;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=J9eWa3Rp;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=9chC8s04nkR+3Djkan89OaFWIsw8F8KSnATkdNMellc=;
-        b=Cd35Z4AtAxn6wgxl4+D6pmdLyq8vZsm5oAr1LI29/VT0WRiJxHBPUYTPffD1Cso2l1
-         wSZMiM/iGeAGlhG53JQoH1l194bj6fZRtMdh6tz12tvGbbqZEM5m14gY169YE6X47fR3
-         qT7TPG5QiCc085DHxizlwQ/Pj3btLT+CsP/L+oLEjar5SU/JrAYhjWze1n50F/+fela+
-         j99tfiG5uxHwAb8TcNfxCgQyuQ1IXcpnkPNDd44CnqVMfztciM8yG1mxicGDwZFa4RUd
-         MgLXE9gwE9gClzGGjCj5fb2Sxdjv6aRUxje7sHHS2O16403GJKvVhOTDDEx7aEcIAscO
-         K4tQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ke3N/MwzBOhwAmnnCLWDUNWlDTnJTuSDJBiCXD33Z0k=;
+        b=PrI/hDdwuh+Ydww1PbNnTjE7WasuW0WEJJ0UF9op+VavUvgz+7JcO3RoMy8cf2AmlA
+         FHprCUzh1lKPdzKN6G/UfrM5qM7QmBaRRfpWdEpA2oFxPqOcml4SdM4g5AKcgAK5u2HU
+         8t0I6J0kuLqH4BsbvTnlySWj3dip2kGr2p+LWWv0mU03WMFXzsTvAcXZhWjRl+py3V8G
+         Lr46HodG9Vx3Q7/sJG6Mo4mo1gO1w9lo8xDYAAQgEy0imjV1QamW9W1qaeZk0EaS3JnH
+         uqwrstr9zA0u6nm2Me7Xk5c3eryMA4OnFtspFAYyN7ZIRTXQgxyVy1gxM+jke2wW3oJ6
+         zeeA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ke3N/MwzBOhwAmnnCLWDUNWlDTnJTuSDJBiCXD33Z0k=;
+        b=t9V2olbQQBz4ZmWZq1R1IrYfmklcU/zUZCit1xZmGunqwLNhdiyRv8nE2v2dk+8L+7
+         5dsqe/HSiaOXf/BidRwZHDuGuMN/Iv15tPWhjVIlHBLykWie9COvyoToZOSwCGjuvJyx
+         CJ2esKTFsKQM881BWaeeP8V4MQV5ycyZ1JOkyet1cuxFaoukfa0PdgMVqCHuFium1t0N
+         7OmywkToe7jusQQ0MFY6b1N/H0ODx9SnPbGhs6h+UbTGzb4xSt9xajPhemUpli6vTFdj
+         /mwtPBAENrub5qqOCiRtQLyXlfQ7LSNmJ/PEy2BmSVu11BIu0RzD0EEduhHy24xudV1k
+         j4zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=9chC8s04nkR+3Djkan89OaFWIsw8F8KSnATkdNMellc=;
-        b=Ug9bpSL51r+nqiqqII6CiNFEpl+hbtaL12RGP49+MR9jCKyX0tdp9o0x3M4D49Vebk
-         AU6bc13/psT3ChlLJiwhGheyhdmMHlfOsaT1/wvmhf7k62zPjCYPckJyutQ1KpqQQkmS
-         3QfVnZgpH/xE2GALNOGrHrIvsTSB3djJEgVFS/EklAwNh9NIbXfxIRshwU6SUTjD8RjP
-         127OhWW8wMG3xljGyJNGwf8DcCh7D+gkJWfLBfZvCdBxDz4Y0AeJHW33k9OvwRfRSG7G
-         k2CKvnCONi7F8XGClUWOvCwDnA7H5yuBDxG/+CNXKpShDt+bzq52G/wCdoonIhqhyhfh
-         Fi5Q==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ke3N/MwzBOhwAmnnCLWDUNWlDTnJTuSDJBiCXD33Z0k=;
+        b=Zw+PTm52jDqP4aXfdpdh+r7RWlM5lx9lFtMmOQ/ozHjz8jlSmFdReGjFiNMoUhb4ey
+         n+69MuhL/+/gxpMV5baxEGM3vRSdGrQcMueZH0FzaqHjAdAqZHADH2uoPcFeXH4JwXa6
+         SpF+vCI0lN2MbsGKkYgXDopttamLYtUfchoo9EzXYBlI/4NWRk3ZUHv+WYIuNGP0tsos
+         526wRRzSZ0BEeVhcl9fwFGRmItKFeVKBp1fX739xq2/yAezx89PDfLOwwxYoTuxF0lTO
+         ARwf7w0Im0SqdIkoHc0YUJtXcPtkxCZiW7SrXHouDxEVOAGCMT8Ez943toakqzbYvIgl
+         TSGg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533SYhi7GGE/VXMUUVneq92tVE0pGtnGZDdGc++2TrujEO7xxBGM
-	pqSDziM07Q3bU21v4ZOg0Co=
-X-Google-Smtp-Source: ABdhPJwaZ4htgZQ6lslMB+dAqOnqaxwOUvo653DTm186nM1Is404DD1M2i1xQzQBNxdqvFfR1Ii7+w==
-X-Received: by 2002:a25:af94:: with SMTP id g20mr5915928ybh.414.1612980170002;
-        Wed, 10 Feb 2021 10:02:50 -0800 (PST)
+X-Gm-Message-State: AOAM530dY3YCMVCv8O30NJTtap3pbziAUi1EqbkHhr91utXJHgpOkkr/
+	oCCiuQME/OAnxUiJtFF6W2E=
+X-Google-Smtp-Source: ABdhPJwq7eUSoUl+z7ghXwjiAjbPMkzOez8NWbgPZ484odHmkNaU0k/qFqEVoU+4RcWH9znx4nCehA==
+X-Received: by 2002:a0c:8c87:: with SMTP id p7mr3877538qvb.46.1612981232393;
+        Wed, 10 Feb 2021 10:20:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:b325:: with SMTP id l37ls1324172ybj.11.gmail; Wed, 10
- Feb 2021 10:02:49 -0800 (PST)
-X-Received: by 2002:a25:7183:: with SMTP id m125mr5923989ybc.151.1612980169566;
-        Wed, 10 Feb 2021 10:02:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612980169; cv=none;
+Received: by 2002:ac8:d0:: with SMTP id d16ls1032129qtg.11.gmail; Wed, 10 Feb
+ 2021 10:20:32 -0800 (PST)
+X-Received: by 2002:ac8:6f04:: with SMTP id g4mr4008510qtv.20.1612981231922;
+        Wed, 10 Feb 2021 10:20:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612981231; cv=none;
         d=google.com; s=arc-20160816;
-        b=qiZbx5eUiWSxR7uRPbk2GyTv7vIrMNsbgX98zvhgVzLv6apY6r54NksS1bXAaqq6HN
-         YspvC3+s4BUJ+H5glvrc3de6ryehV0alFhz9ho5d+HdAlMwNDN7F6DAnSSP6h3ZC00B8
-         +EGH414xMXlFClL6Tx/UgGOfj0eqhFxBmtsKDuoQMrUZkes23obHJLZgr+Qn2uG6piTH
-         KjpOM6xz6W4saX18BWPC3CXCEP7K5XR1M/59SovOvbMPGXvBbye6UcnmM5wMEk7PESiZ
-         TVuCUJkK1sj0H+rSu3M740pdD/NN8HTCwdJuWWmm1qfD3/i637fi9oL45eFC7ph0ktmD
-         Gxvw==
+        b=Kjao4tH4R0KU5xwHlOoOSScdScVPyMyuZ+RqYyt9vQ68YLaAmhxff0B0SN4cFrIbmv
+         9pWBVN1lkJk7SXaaeXybyKzk3Dceg5eN/8Ilk0h4+Bf6C9avND5N2SG7IIB5UJO8wbhV
+         gpoIw48ACSAWNk8ZLjncPhCwFwm2gNwjyO6xP/pI1LYK9t/UhTHJeNZ1uE1Ukxb6DBx5
+         aQA0XcFO08ayAx/x3FB0zLMVRH3IhzUiRMB/9CzCA1TSmGMVC/+w6f4NXXv756oJzX7i
+         Fko+BAvZUOZ8wxJVt3UqgtvqCpOpposMp8KzHa1NjI/RxGiqwJGz6hj1alkwuG314ive
+         HiyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Or54sIQZO92BAajhA3YpDAuHp18NWegv/ubJMj18vxo=;
-        b=p9OHcW0ONl0o1Jy3JPdD91X2Rb8oI7WLDeJJ4hy8krUvwnAgsx5/oCXjeKlQqUvBYv
-         ZRWmtNvQbRPxxtzMausxYQc6ZUyLQVOeL9KnXXqy0NAXQKxFzYx5sFu6Pk9Op9GOOKBs
-         XEPPvuX1eA8IK6m0JujfmpfaIzXqFSNRbvePWvu2CACgrDOpeh79RbH81HcbuyZxR47X
-         RhOIXFqdx8HZEJr34CErZGw4W8+6/XCMILA7wpbTcK3AIx21vZhZpWdDOLYWCTqv+oQu
-         FIm6mNG6AJbFUf2u32p06kALl19+ntHJe+c3JH37kXNLoaGx0NVu9ilBj2/zKV0Bxgjs
-         HEWg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XUbrz/8xxXdqtk8DEEenUBbYYKqni3z7WGyd8h4oZBY=;
+        b=xB3T+Abx7gkPSjYCKWs2BnL0OgGiUGGm1dk43UC07iOIXSyU6chCppeavpKY9h2NAf
+         YIqySfIFe71BwdWVm60T5so6F07u5ghZCHJibkUumxE7AqgNwZW4EcQ6tm55edbnQQp3
+         FCCqbSiqjKaoxbP7YvCh9j5pEufYDGMwe5Btb+qSHqnLIDLf1EnV4rr1gD6AM0sDKF+I
+         M75ugh9VaLjuSqF7FbgHb46Q3rfyv5iAtoZAlvscDrFAcaGegyusbSUG+t0MYj60KNmN
+         /9yVziAOB9vz5k2aEF7vc2ah3QUxQDq6qz/Ru3kXssE+Vbq7jI2Aw840963KRFlOn7Tg
+         5+Ug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=TV6sz6nP;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b16si197963ybq.0.2021.02.10.10.02.49
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=J9eWa3Rp;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-yb1-xb32.google.com (mail-yb1-xb32.google.com. [2607:f8b0:4864:20::b32])
+        by gmr-mx.google.com with ESMTPS id x65si163824qkb.2.2021.02.10.10.20.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 10 Feb 2021 10:02:49 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id CCDD964ED0;
-	Wed, 10 Feb 2021 18:02:47 +0000 (UTC)
-Date: Wed, 10 Feb 2021 11:02:46 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Jiri Olsa <jolsa@redhat.com>
-Cc: Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Veronika Kabatova <vkabatov@redhat.com>,
-	Jiri Olsa <jolsa@kernel.org>
-Subject: Re: FAILED unresolved symbol vfs_truncate on arm64 with LLVM
-Message-ID: <20210210180246.GA1945861@ubuntu-m3-large-x86>
-References: <CAEf4BzZV0-zx6YKUUKmecs=icnQNXJjTokdkSAoexm36za+wdA@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Feb 2021 10:20:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b32 as permitted sender) client-ip=2607:f8b0:4864:20::b32;
+Received: by mail-yb1-xb32.google.com with SMTP id r2so2925716ybk.11
+        for <clang-built-linux@googlegroups.com>; Wed, 10 Feb 2021 10:20:31 -0800 (PST)
+X-Received: by 2002:a25:c905:: with SMTP id z5mr5909207ybf.260.1612981231520;
+ Wed, 10 Feb 2021 10:20:31 -0800 (PST)
+MIME-Version: 1.0
+References: <20210209052311.GA125918@ubuntu-m3-large-x86> <CAEf4BzZV0-zx6YKUUKmecs=icnQNXJjTokdkSAoexm36za+wdA@mail.gmail.com>
  <CAEf4BzYvri7wzRnGH_qQbavXOx5TfBA0qx4nYVnn=YNGv+vNVw@mail.gmail.com>
  <CAEf4Bzax90hn_5axpnCpW+E6gVc1mtUgCXWqmxV0tJ4Ud7bsaA@mail.gmail.com>
- <20210209074904.GA286822@ubuntu-m3-large-x86>
- <YCKB1TF5wz93EIBK@krava>
- <YCKlrLkTQXc4Cyx7@krava>
- <CAEf4BzaL=qsSyDc8OxeN4pr7+Lvv+de4f+hM5a56LY8EABAk3w@mail.gmail.com>
- <YCMEucGZVPPQuxWw@krava>
- <CAEf4BzacQrkSMnmeO3sunOs7sfhX1ZoD_Hnk4-cFUK-TpLNqUA@mail.gmail.com>
+ <20210209074904.GA286822@ubuntu-m3-large-x86> <YCKB1TF5wz93EIBK@krava>
+ <YCKlrLkTQXc4Cyx7@krava> <CAEf4BzaL=qsSyDc8OxeN4pr7+Lvv+de4f+hM5a56LY8EABAk3w@mail.gmail.com>
+ <YCMEucGZVPPQuxWw@krava> <CAEf4BzacQrkSMnmeO3sunOs7sfhX1ZoD_Hnk4-cFUK-TpLNqUA@mail.gmail.com>
  <YCPfEzp3ogCBTBaS@krava>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 In-Reply-To: <YCPfEzp3ogCBTBaS@krava>
-X-Original-Sender: nathan@kernel.org
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 10 Feb 2021 10:20:20 -0800
+Message-ID: <CAEf4BzbzquqsA5=_UqDukScuoGLfDhZiiXs_sgYBuNUvTBuV6w@mail.gmail.com>
+Subject: Re: FAILED unresolved symbol vfs_truncate on arm64 with LLVM
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Networking <netdev@vger.kernel.org>, 
+	bpf <bpf@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Veronika Kabatova <vkabatov@redhat.com>, Jiri Olsa <jolsa@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrii.nakryiko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=TV6sz6nP;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=J9eWa3Rp;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,11 +154,12 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Feb 10, 2021 at 02:26:43PM +0100, Jiri Olsa wrote:
+On Wed, Feb 10, 2021 at 5:26 AM Jiri Olsa <jolsa@redhat.com> wrote:
+>
 > On Tue, Feb 09, 2021 at 02:00:29PM -0800, Andrii Nakryiko wrote:
-> 
+>
 > SNIP
-> 
+>
 > > > > > I'm still trying to build the kernel.. however ;-)
 > > > > >
 > > > > > patch below adds the ftrace check only for static functions
@@ -182,25 +189,84 @@ On Wed, Feb 10, 2021 at 02:26:43PM +0100, Jiri Olsa wrote:
 > > > on the ther hand, we'are already slow ;-) I'll check
 > > > how big the slowdown would be
 > > >
-> > 
+> >
 > > We currently record addresses and do binary search. Now we need to
 > > record address + size and still do binary search with a slightly
 > > different semantics (find closest entry >= addr). Then just check that
 > > it overlaps, taking into account the length of the function code. It
 > > shouldn't result in a noticeable slowdown. Might be actually faster,
 > > because we might avoid callback function call costs.
-> 
+>
 > I'm still not sure how to handle the external check for function via elf,
+
+I might be missing something, but don't all functions have
+corresponding ELF symbols? And then symbol can have LOCAL or GLOBAL
+type. LOCALs are supposed to be not visible outside respective CUs (so
+correspond to static functions), while GLOBALs are extern-able funcs.
+So if func's symbol is GLOBAL, it should be ok to assume it's
+attachable (not inlined, at least).
+
 > but below is change for checking that ftrace addrs are within elf functions
-> 
+>
 > seems to work in my tests, I'll run some more tests and send full patch
-> 
+
+It seems unnecessarily convoluted. I was thinking about something like
+this (the diff will totally be screwed up by gmail, and I haven't even
+compiled it):
+
+diff --git a/btf_encoder.c b/btf_encoder.c
+index b124ec20a689..8162b238bd43 100644
+--- a/btf_encoder.c
++++ b/btf_encoder.c
+@@ -236,6 +236,23 @@ get_kmod_addrs(struct btf_elf *btfe, __u64
+**paddrs, __u64 *pcount)
+        return 0;
+ }
+
++struct func_seg { __u64 start; __u64 end; };
++
++static int func_exists(struct func_seg *segs, size_t len, __u64 addr)
++{
++       size_t l = 0, r = len - 1, m;
++
++       while (l < r) {
++               m = l + (r - l + 1) / 2;
++               if (segs[m].start <= addr)
++                       l = m;
++               else
++                       r = m - 1;
++       }
++
++       return segs[l].start <= addr && addr < segs[l].end;
++}
++
+ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
+ {
+        __u64 *addrs, count, i;
+@@ -286,7 +303,7 @@ static int setup_functions(struct btf_elf *btfe,
+struct funcs_layout *fl)
+                __u64 addr = kmod ? func->addr + func->sh_addr : func->addr;
+
+                /* Make sure function is within ftrace addresses. */
+-               if (bsearch(&addr, addrs, count, sizeof(addrs[0]), addrs_cmp)) {
++               if (func_exists(addrs, count, addr))
+                        /*
+                         * We iterate over sorted array, so we can easily skip
+                         * not valid item and move following valid field into
+
+
+So the idea is to use address segments and check whether there is a
+segment that overlaps with a given address by first binary searching
+for a segment with the largest starting address that is <= addr. And
+then just confirming that segment does overlap with the requested
+address.
+
+WDYT?
+
+>
 > jirka
-
-This passes the build test with the initial problematic configuration
-file and the reduced one that I came up with. That is about the extent
-to which I can verify that it works though :)
-
+>
+>
 > ---
 > diff --git a/btf_encoder.c b/btf_encoder.c
 > index b124ec20a689..548a12847f99 100644
@@ -208,174 +274,174 @@ to which I can verify that it works though :)
 > +++ b/btf_encoder.c
 > @@ -36,6 +36,7 @@ struct funcs_layout {
 >  struct elf_function {
->  	const char	*name;
->  	unsigned long	 addr;
-> +	unsigned long	 end;
->  	unsigned long	 sh_addr;
->  	bool		 generated;
+>         const char      *name;
+>         unsigned long    addr;
+> +       unsigned long    end;
+>         unsigned long    sh_addr;
+>         bool             generated;
 >  };
 > @@ -44,7 +45,7 @@ static struct elf_function *functions;
 >  static int functions_alloc;
 >  static int functions_cnt;
->  
+>
 > -static int functions_cmp(const void *_a, const void *_b)
 > +static int functions_cmp_name(const void *_a, const void *_b)
 >  {
->  	const struct elf_function *a = _a;
->  	const struct elf_function *b = _b;
+>         const struct elf_function *a = _a;
+>         const struct elf_function *b = _b;
 > @@ -52,6 +53,16 @@ static int functions_cmp(const void *_a, const void *_b)
->  	return strcmp(a->name, b->name);
+>         return strcmp(a->name, b->name);
 >  }
->  
+>
 > +static int functions_cmp_addr(const void *_a, const void *_b)
 > +{
-> +	const struct elf_function *a = _a;
-> +	const struct elf_function *b = _b;
+> +       const struct elf_function *a = _a;
+> +       const struct elf_function *b = _b;
 > +
-> +	if (a->addr == b->addr)
-> +		return 0;
-> +	return a->addr < b->addr ? -1 : 1;
+> +       if (a->addr == b->addr)
+> +               return 0;
+> +       return a->addr < b->addr ? -1 : 1;
 > +}
 > +
 >  static void delete_functions(void)
 >  {
->  	free(functions);
+>         free(functions);
 > @@ -98,6 +109,7 @@ static int collect_function(struct btf_elf *btfe, GElf_Sym *sym,
->  
->  	functions[functions_cnt].name = name;
->  	functions[functions_cnt].addr = elf_sym__value(sym);
-> +	functions[functions_cnt].end = (__u64) -1;
->  	functions[functions_cnt].sh_addr = sh.sh_addr;
->  	functions[functions_cnt].generated = false;
->  	functions_cnt++;
+>
+>         functions[functions_cnt].name = name;
+>         functions[functions_cnt].addr = elf_sym__value(sym);
+> +       functions[functions_cnt].end = (__u64) -1;
+>         functions[functions_cnt].sh_addr = sh.sh_addr;
+>         functions[functions_cnt].generated = false;
+>         functions_cnt++;
 > @@ -236,9 +248,25 @@ get_kmod_addrs(struct btf_elf *btfe, __u64 **paddrs, __u64 *pcount)
->  	return 0;
+>         return 0;
 >  }
->  
+>
 > +static bool is_addr_in_func(__u64 addr, struct elf_function *func, bool kmod)
 > +{
-> +	/*
-> +	 * For vmlinux image both addrs[x] and functions[x]::addr
-> +	 * values are final address and are comparable.
-> +	 *
-> +	 * For kernel module addrs[x] is final address, but
-> +	 * functions[x]::addr is relative address within section
-> +	 * and needs to be relocated by adding sh_addr.
-> +	 */
-> +	__u64 start = kmod ? func->addr + func->sh_addr : func->addr;
-> +	__u64 end = kmod ? func->end+ func->sh_addr : func->end;
+> +       /*
+> +        * For vmlinux image both addrs[x] and functions[x]::addr
+> +        * values are final address and are comparable.
+> +        *
+> +        * For kernel module addrs[x] is final address, but
+> +        * functions[x]::addr is relative address within section
+> +        * and needs to be relocated by adding sh_addr.
+> +        */
+> +       __u64 start = kmod ? func->addr + func->sh_addr : func->addr;
+> +       __u64 end = kmod ? func->end+ func->sh_addr : func->end;
 > +
-> +	return start <= addr && addr < end;
+> +       return start <= addr && addr < end;
 > +}
 > +
 >  static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
 >  {
-> -	__u64 *addrs, count, i;
-> +	__u64 *addrs, count, i_func, i_addr;
->  	int functions_valid = 0;
->  	bool kmod = false;
->  
+> -       __u64 *addrs, count, i;
+> +       __u64 *addrs, count, i_func, i_addr;
+>         int functions_valid = 0;
+>         bool kmod = false;
+>
 > @@ -266,43 +294,62 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
->  		return 0;
->  	}
->  
-> -	qsort(addrs, count, sizeof(addrs[0]), addrs_cmp);
-> -	qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp);
+>                 return 0;
+>         }
+>
+> -       qsort(addrs, count, sizeof(addrs[0]), addrs_cmp);
+> -       qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp);
 > -
->  	/*
-> -	 * Let's got through all collected functions and filter
-> -	 * out those that are not in ftrace.
-> +	 * Sort both functions and addrs so we can iterate
-> +	 * both of them simultaneously and found matching
-> +	 * func/addr pairs.
->  	 */
-> -	for (i = 0; i < functions_cnt; i++) {
-> -		struct elf_function *func = &functions[i];
-> -		/*
-> -		 * For vmlinux image both addrs[x] and functions[x]::addr
-> -		 * values are final address and are comparable.
-> -		 *
-> -		 * For kernel module addrs[x] is final address, but
-> -		 * functions[x]::addr is relative address within section
-> -		 * and needs to be relocated by adding sh_addr.
-> -		 */
-> -		__u64 addr = kmod ? func->addr + func->sh_addr : func->addr;
-> +	qsort(addrs, count, sizeof(addrs[0]), addrs_cmp);
-> +	qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_addr);
+>         /*
+> -        * Let's got through all collected functions and filter
+> -        * out those that are not in ftrace.
+> +        * Sort both functions and addrs so we can iterate
+> +        * both of them simultaneously and found matching
+> +        * func/addr pairs.
+>          */
+> -       for (i = 0; i < functions_cnt; i++) {
+> -               struct elf_function *func = &functions[i];
+> -               /*
+> -                * For vmlinux image both addrs[x] and functions[x]::addr
+> -                * values are final address and are comparable.
+> -                *
+> -                * For kernel module addrs[x] is final address, but
+> -                * functions[x]::addr is relative address within section
+> -                * and needs to be relocated by adding sh_addr.
+> -                */
+> -               __u64 addr = kmod ? func->addr + func->sh_addr : func->addr;
+> +       qsort(addrs, count, sizeof(addrs[0]), addrs_cmp);
+> +       qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_addr);
 > +
-> +	for (i_func = 0, i_addr = 0; i_func < functions_cnt; i_func++) {
-> +		struct elf_function *func = &functions[i_func];
+> +       for (i_func = 0, i_addr = 0; i_func < functions_cnt; i_func++) {
+> +               struct elf_function *func = &functions[i_func];
 > +
-> +		if (i_func + 1 < functions_cnt)
-> +			func->end = functions[i_func + 1].addr;
+> +               if (i_func + 1 < functions_cnt)
+> +                       func->end = functions[i_func + 1].addr;
 > +
-> +		for (; i_addr < count; i_addr++) {
-> +			__u64 addr = addrs[i_addr];
+> +               for (; i_addr < count; i_addr++) {
+> +                       __u64 addr = addrs[i_addr];
 > +
-> +			/* Functions are  ahead, catch up with addrs. */
-> +			if (addr < func->addr)
-> +				continue;
+> +                       /* Functions are  ahead, catch up with addrs. */
+> +                       if (addr < func->addr)
+> +                               continue;
 > +
-> +			/* Addr is within function - mark function as valid. */
-> +			if (is_addr_in_func(addr, func, kmod)) {
-> +				/*
-> +				 * We iterate over sorted array, so we can easily skip
-> +				 * not valid item and move following valid field into
-> +				 * its place, and still keep the 'new' array sorted.
-> +				 */
-> +				if (i_func != functions_valid)
-> +					functions[functions_valid] = functions[i_func];
-> +				functions_valid++;
-> +				i_addr++;
-> +			}
->  
-> -		/* Make sure function is within ftrace addresses. */
-> -		if (bsearch(&addr, addrs, count, sizeof(addrs[0]), addrs_cmp)) {
->  			/*
-> -			 * We iterate over sorted array, so we can easily skip
-> -			 * not valid item and move following valid field into
-> -			 * its place, and still keep the 'new' array sorted.
-> +			 * Addrs are ahead, catch up with functions, or we just
-> +			 * found valid function and want to move to another.
->  			 */
-> -			if (i != functions_valid)
-> -				functions[functions_valid] = functions[i];
-> -			functions_valid++;
-> +			break;
->  		}
->  	}
->  
-> +	if (btf_elf__verbose) {
-> +		printf("Found %d functions out of %d symbols and %llu ftrace addresses.\n",
-> +			functions_valid, functions_cnt, count);
-> +	}
+> +                       /* Addr is within function - mark function as valid. */
+> +                       if (is_addr_in_func(addr, func, kmod)) {
+> +                               /*
+> +                                * We iterate over sorted array, so we can easily skip
+> +                                * not valid item and move following valid field into
+> +                                * its place, and still keep the 'new' array sorted.
+> +                                */
+> +                               if (i_func != functions_valid)
+> +                                       functions[functions_valid] = functions[i_func];
+> +                               functions_valid++;
+> +                               i_addr++;
+> +                       }
+>
+> -               /* Make sure function is within ftrace addresses. */
+> -               if (bsearch(&addr, addrs, count, sizeof(addrs[0]), addrs_cmp)) {
+>                         /*
+> -                        * We iterate over sorted array, so we can easily skip
+> -                        * not valid item and move following valid field into
+> -                        * its place, and still keep the 'new' array sorted.
+> +                        * Addrs are ahead, catch up with functions, or we just
+> +                        * found valid function and want to move to another.
+>                          */
+> -                       if (i != functions_valid)
+> -                               functions[functions_valid] = functions[i];
+> -                       functions_valid++;
+> +                       break;
+>                 }
+>         }
+>
+> +       if (btf_elf__verbose) {
+> +               printf("Found %d functions out of %d symbols and %llu ftrace addresses.\n",
+> +                       functions_valid, functions_cnt, count);
+> +       }
 > +
->  	functions_cnt = functions_valid;
->  	free(addrs);
->  
-> -	if (btf_elf__verbose)
-> -		printf("Found %d functions!\n", functions_cnt);
-> +	/*
-> +	 * And finaly sort 'valid' functions by name,
-> +	 * so find_function can be used.
-> +	 */
-> +	qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_name);
+>         functions_cnt = functions_valid;
+>         free(addrs);
+>
+> -       if (btf_elf__verbose)
+> -               printf("Found %d functions!\n", functions_cnt);
+> +       /*
+> +        * And finaly sort 'valid' functions by name,
+> +        * so find_function can be used.
+> +        */
+> +       qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_name);
 > +
->  	return 0;
+>         return 0;
 >  }
->  
+>
 > @@ -312,7 +359,7 @@ static struct elf_function *find_function(const struct btf_elf *btfe,
->  	struct elf_function key = { .name = name };
->  
->  	return bsearch(&key, functions, functions_cnt, sizeof(functions[0]),
-> -		       functions_cmp);
-> +		       functions_cmp_name);
+>         struct elf_function key = { .name = name };
+>
+>         return bsearch(&key, functions, functions_cnt, sizeof(functions[0]),
+> -                      functions_cmp);
+> +                      functions_cmp_name);
 >  }
->  
+>
 >  static bool btf_name_char_ok(char c, bool first)
-> 
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210210180246.GA1945861%40ubuntu-m3-large-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzbzquqsA5%3D_UqDukScuoGLfDhZiiXs_sgYBuNUvTBuV6w%40mail.gmail.com.
