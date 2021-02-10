@@ -1,123 +1,153 @@
-Return-Path: <clang-built-linux+bncBDGIXFWLTIHBBNPJR2AQMGQER65YVQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBR4JR6AQMGQEPTWNF4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id E46153163BC
-	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 11:25:58 +0100 (CET)
-Received: by mail-oi1-x23f.google.com with SMTP id a203sf708370oib.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 02:25:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1612952757; cv=pass;
+Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 98ABC316549
+	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 12:34:32 +0100 (CET)
+Received: by mail-lj1-x23c.google.com with SMTP id o8sf1310563ljp.15
+        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Feb 2021 03:34:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1612956872; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lsXauJD6LpJO5IahlZRNOFMsXe2sa/kXWF6f0oUpqcYiIW0je/5ih9ekGXN00Iws/G
-         4abUci40a/IMXCifWV+Hb8lW6i17kjaSA+g/pMCk8Hc5K1P+30sn+WehQzAB21FOnpDl
-         VHPi85MZZFbLb4Kduz49ACWfitcgLk7hSlihdLJsEu/tAREmMaEJfj5TQGTVg9Dr0Z5K
-         3rWnV+CjXeI/nvMjuIZDQJ808/hO6OoCEw5dqKTWTceeeF3+5BgsF5iQ/n2esYagr7EX
-         1DLkkvqSbhFBuEid7KW4dyCCV3PcRQZWUdK1jB/2DpHLdD1ephWN4uCRtzeC/t1dfz7v
-         w+hg==
+        b=mUqsxJQt1eJoju36H6i8bRX0ZUzV8CED1rV4XU9FprUNWBct6ar6w8yHOgMO51oirC
+         wCHoSvKRYPcW/bExuEaIEVYrXRyDTUy8MM/1mk1rkS/Y8YmaGSaHT79vL7h447bz4/7x
+         6+oXClGlLiCDg0gWR2MW7vzx4C8kiABq35Ra/iCWyJzArP3KBk7axAzhTeWRM+fHPyMq
+         SiWI436MxRc+IoyQrQF4hXqhDrPrD5O+dFrwkccEnDNgQBkUQVTPn+tg/8TkYFSkwVyJ
+         jx1voq44lRYXTF4oMJGO8CkCaTuTHe+ZlsviHhQX7Sluz5fO4EGrhvmyPjZ3omtngGuz
+         XJMQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=vxeEK+OB3gZgVwQO8tBGuWEtzFy6ivHjY9CyLvv/jXo=;
-        b=ThdfOSUap0MKOQAC9spN6CnS5xF13Ufvm8ZakzRACCEHDC+PEnDgf5pPFPjabJA0h6
-         mkj/Hj7/hQ1epFA/cK6ONiz60K4p1sJZlk/rYHTHdIx0Tiv1YmKFUfZtYIL8TiHajGtS
-         Xhxw5WNLGSPmQ2+a8e9e4Yk3mkuc6IL02+NFnjHFti710A9yyGKpfWhOT/CT5nMHTfRq
-         R+apj/dg5mA1pV2Nm93ryHlFFhZqM7A+FWte8A/xsm5P00NwrZva+FvpfYWZNRdr+qdu
-         8+qxocGjHIIeRCjdygDvO9EbZ6uHJE41XA3rJwME+nMvGu5QX3qO1xT53RC7qRg6KL6s
-         XgRg==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=LCbUX6As1vKEaBBbeCH0DU2G0oyMe2SZ7nU/MhMNOxc=;
+        b=ZVEQryKERMi8Id5FZxdMua9r+ikLqiqFeow/8P4QfM/6dGcn3U8UkQ+owct+Mg2L08
+         UFjV9tkBohKLlHc+OozHwPzai2CL5rytg0cVX0rFIBQ4ooicKc/PJy2V9z/mneYj+ktb
+         hUvShdrUkjsFIcTvwlizGVRBf11Tp1tz0gD1e0FjUNejRe1eoDHpOFePS8W3eLrbuzpJ
+         d2PYf1BaS/enE5JpYZi0spnHNhzIcE1tXlby+JJc6vjBZUa913JhDmp9/KULBBSfpHp9
+         02lgSdNG7qzE3qasxyz7M2YfOXykNIjoINKHU5thG+xE+exPCIf9prD/VyORHS8NqkoZ
+         MFjA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cL1+uDJs;
-       spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=vxeEK+OB3gZgVwQO8tBGuWEtzFy6ivHjY9CyLvv/jXo=;
-        b=Vc2waGVc7hJPBzXSnrwe/ruxVNVsP4I9rzfl8ygJv/JG5L/nN1as+zpf/dluzx886b
-         VMFOUsiMNUktIU4jSiSXWi6UYr9zBosTFNa94Fh/7b9PVLRR6xDyINeI4HEQVtmclS0/
-         3iyJgIUKQyJ9k5s4yuEBIO8+ytAVRo9hZKqPTUaeoYCj5mYOMVfEeMbW7h1DFqHIKknT
-         Ew41EbHMr3oxLkIdUwzBLtgfTzfuXpPXQELn5eTJzJzo38SGJawN4fs7fJMA6Yxlb3k6
-         UyqH7ceVsvTXfvdQ9v6je6MSdNP/1Hyg5eeNYwCWUXDyF0ggDug9q7VJ8HkgktAPS2Kr
-         Amsg==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=LCbUX6As1vKEaBBbeCH0DU2G0oyMe2SZ7nU/MhMNOxc=;
+        b=bJ3aX3SjMg9z48Y5L1TMgUr/ZTRs0Is5pTRqzLIlJwt+PFWhoMe4bqGLTR+vKMGl1O
+         Zqb9qACBFOUzCoEHen8dKTChMKHRnsuf6UtHHcFPz4AEekUNxo0CdpF8OxM9w+dQHIUo
+         jMm5QGNOwic4b00E9eoaKRMAUzcuUkxdy9FuL8tQ4Uuq5Qb9kCKBf9xbCc1H+1D8ckwZ
+         f6QIfZqVEC75WyCIHFEZbGQwcZEbCoTIKAlZ7ezj4rTZoJCRPT2JxgevcU9pHGxSfPaK
+         zOWXndAmpBc7lHZjcMXuIMHrS/9ilXxrEztnZ4WJDkkUnwuTjTLh/Ib+sNtVHIdo4ova
+         rg9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=vxeEK+OB3gZgVwQO8tBGuWEtzFy6ivHjY9CyLvv/jXo=;
-        b=LyI1/ww5mMTRzYuPnPkEYDpa65nJnQERY0QsY9XdxjQJQvuaLEPIz+cj7oaE0n/jZZ
-         /wuGQ87g1QgIH6UP6SQYqfeOv8cxBOVvehgFDF3v8IIoJdVfOXCZrBfhMHphlI4rwPEj
-         RijcqM1C8gzS57hwDJwLk8lafbDXZ5wPxhX4Fn5hTEkSa/ZirmQLAz6an3FJPcDylQGk
-         e70z4YxLWOQO6iq2mMS5Z3rLvcOMsYDjfB+tx/9DHU2xBscbtyHOISpvcgHvlVzaQR+h
-         urSf4xmFRHkKS1NAcpx7U6GQxMu2H6x3lvB4lKKlj1dpnsiYK9RNhaR2YxFMaCbJg2dW
-         R+Ow==
+        bh=LCbUX6As1vKEaBBbeCH0DU2G0oyMe2SZ7nU/MhMNOxc=;
+        b=fUcowjF7bGjEvGWGM2wpyQ+1pOUBJZusTSmEL90YGc9v1FHxR4648bi2NM/dY4QlPV
+         I4LBZNUlvZy9ZUeq1UhoH2DAs/WETSVnJBqr1n5IV/MLv93efuomPzmFQkKOgv5Xtl0J
+         Y2BqsuZVQ1OqbMVnJt7IQdfKlCEcROEMPmO8jf8kOp/dnK2cAzURrwhEYtss0uK4J+Zd
+         tUl6uSBhTn6aOjpxtY6v5deHCzbifANtlSr+vu41VbzzSgRJSG7erXzXM4Nr+V2R7Rcq
+         X0N5nGZ4Hqj0/GT8GUUsaGDf94+Jpwdbr8kmIF+kJTCzHU6RhLkKAWgZ+/Go9rACEKn7
+         ithQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532+qbiJOmkz0VgEOnu5Iim25zqnLIgRqPx5H1/GmFvqOsujPJ+k
-	GEEFO/67HPu8MmA1X99GXw0=
-X-Google-Smtp-Source: ABdhPJwg7UMt4NnnnXwEIGiKSG0wd+hWMO5lKzAjosuVIyuam4ogYT4KjeHurJsYytHdYuIdjwiBMQ==
-X-Received: by 2002:aca:3d85:: with SMTP id k127mr1611789oia.157.1612952757694;
-        Wed, 10 Feb 2021 02:25:57 -0800 (PST)
+X-Gm-Message-State: AOAM533PT0QfdHsvT1TymljisEsDwNXVXM0UPyFAqLtpnJMCTcqjcSt6
+	YxwfdR0uelZ100euYeB9Q80=
+X-Google-Smtp-Source: ABdhPJzwRpLVTYOVwgh/JzOx3eXKdRqiOJqa+FyHBbHZmnbn1R2VfEWpe57Q4+4jRyDKpKz//Pb4iA==
+X-Received: by 2002:ac2:4349:: with SMTP id o9mr1586576lfl.415.1612956872052;
+        Wed, 10 Feb 2021 03:34:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:7249:: with SMTP id p70ls447627oic.5.gmail; Wed, 10 Feb
- 2021 02:25:57 -0800 (PST)
-X-Received: by 2002:aca:6701:: with SMTP id z1mr1480740oix.93.1612952757252;
-        Wed, 10 Feb 2021 02:25:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1612952757; cv=none;
+Received: by 2002:ac2:518c:: with SMTP id u12ls1140286lfi.2.gmail; Wed, 10 Feb
+ 2021 03:34:31 -0800 (PST)
+X-Received: by 2002:a05:6512:118e:: with SMTP id g14mr1402258lfr.205.1612956871053;
+        Wed, 10 Feb 2021 03:34:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612956871; cv=none;
         d=google.com; s=arc-20160816;
-        b=gmc89vL7z1py59OvewkLUDSt9QtpOYxrGttUQPxmumZMuA5W49VovVeInkgLRPVr83
-         +584h9OxQDieGnRyJ5QIRtx3a5aprJLVIEVHM27gyIiHYnzAnp3ZD6edj3ItwHTAUk1u
-         WykjU2ykCZpmMbzyicDBhddNuW9xFKLBVmqIKvdCiPXanfhm3JsSMejujsvY9mTqZ/SS
-         JioYgnalJBV1wHMBBPcGvQCjIhji1u16fIoe4CfM5/a/sp2Yz8Q1mNf1WDed/iu7O9Q+
-         8FtilZb5wp9ZRL2w+S6xsOzg9FS5zbshhjAk1A1sUHXoBufN2Dp4Fje22KdVXrHgCdIo
-         vJjw==
+        b=oCeQ8aNeVEtCSqd2uJibRumqcPezNG/xJxM4hVNFaxLc8oJcJW5EpFxewW0nA7nuPK
+         HnYt7uTBYsnoH/7GlfwS9Ef0xL9y3rHi7Rcu6mSJnS/4UyEzeJKxSAY4N9gv+xCKbJpT
+         baL0ids+xm6c4zM0K4XlEfLzezdoP0MgztL4TwiHJm3YrukR2onnF4HaXAxQwl3DChKf
+         /GT6xD9wIM5X33gfxe8FIklTheS57nIkbcDBWqQd7u0TuUQj+4BoXjIPg3Da5R0PADWC
+         obC+5/n+BD2zdUsBTZT+lpPqI7DEIOwarsLkg2zKuFQTaaP1eObPT3XJvoPpsGlmufHs
+         1U8w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=+25YAqlJCZjk3Gl2wv3AOxv9u27TL8MzkxprjPdjZ0E=;
-        b=g0cgpBibZNnjaTrLdaBn44VeHHIcptbtu0VOlZlAxZRER2fV8/hi9qiHeTnKNyetk3
-         oESmfwIcHcKvLFX465STCZcIGLxbfQzuW73h4bjrjje5q4WIjxHgJAv8M2Frjtr7s8iC
-         X6opwlMQ5YuPYwy9MIzIhJZ3cUGySGBrtBMQADQLIHFk76u0aLErwYuj7P2P5LKr1/T9
-         Q8thxA4bpZaUrI6vEhTa/Y2U6Kq1LNShzpeYTLK6ZZK6UaLa1cqLnxkdeibA5Bc1MkAP
-         z4/I/krKCVcQ/Lww7QNfm7sQ5lgS3s4RhcnIBZApx07W+uGbPl/3a1v2ll+etoPpvOrp
-         l0rg==
+        h=content-transfer-encoding:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=WMP1j7Cvtm0achR8cR6+hQaIy6maZ1uJy0j7OEwO074=;
+        b=nsN0bBiaQE2ohj8pyqdktt+8L7BZqRdL5aZX1IaCLG4Qq6FYZt/33mEmznCojXasvU
+         ViNL41vDy3IkYXF8nWal0TDWcp/S59rp3rM0Njk1JQtmAhFW9980CFdIT48iBPRE8gss
+         24cds+XfvxFRSUbwzGvSBYg0YmqXn7jyYp/Lj82IHhweOnW1T9Xcdykx4d/nRYvcQF18
+         zNF6Jq7u2R1c2ryPPAHandW6KVrq4MBxrLAkL/6KrRgo95okn3OWUOckI7wCBOWM6pMo
+         cP3Gp630gCgDksT+T1eFrxsbPsFumjq8OeBrivdHmk9jeFLeO25gTSfOnbk0cZkn/CMO
+         /2Jg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cL1+uDJs;
-       spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id m7si104594otq.5.2021.02.10.02.25.57
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.86.151])
+        by gmr-mx.google.com with ESMTPS id w18si106434ljw.1.2021.02.10.03.34.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 10 Feb 2021 02:25:57 -0800 (PST)
-Received-SPF: pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id E742864E37;
-	Wed, 10 Feb 2021 10:25:52 +0000 (UTC)
-Date: Wed, 10 Feb 2021 19:25:49 +0900
-From: Masami Hiramatsu <mhiramat@kernel.org>
-To: Jianlin Lv <Jianlin.Lv@arm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@redhat.com,
- namhyung@kernel.org, nathan@kernel.org, ndesaulniers@google.com,
- fche@redhat.com, irogers@google.com, sumanthk@linux.ibm.com,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2] perf probe: fix kretprobe issue caused by GCC bug
-Message-Id: <20210210192549.dedff88ac7adb610529f7f5c@kernel.org>
-In-Reply-To: <20210210062646.2377995-1-Jianlin.Lv@arm.com>
-References: <20210210062646.2377995-1-Jianlin.Lv@arm.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+        Wed, 10 Feb 2021 03:34:29 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) client-ip=185.58.86.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-115-a5OTD5OFOq-Owgh4ZRfTyA-1; Wed, 10 Feb 2021 11:34:27 +0000
+X-MC-Unique: a5OTD5OFOq-Owgh4ZRfTyA-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Wed, 10 Feb 2021 11:34:25 +0000
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Wed, 10 Feb 2021 11:34:25 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Nathan Chancellor' <nathan@kernel.org>, Nick Desaulniers
+	<ndesaulniers@google.com>
+CC: Jiri Olsa <jolsa@redhat.com>, Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <kafai@fb.com>, "Song
+ Liu" <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Networking
+	<netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, Veronika Kabatova
+	<vkabatov@redhat.com>, Jiri Olsa <jolsa@kernel.org>, Arnaldo Carvalho de Melo
+	<acme@redhat.com>, Daniel Kiss <daniel.kiss@arm.com>
+Subject: RE: FAILED unresolved symbol vfs_truncate on arm64 with LLVM
+Thread-Topic: FAILED unresolved symbol vfs_truncate on arm64 with LLVM
+Thread-Index: AQHW/0GRCH7UzKiswkSGiUsyv9cB9qpRQTWg
+Date: Wed, 10 Feb 2021 11:34:25 +0000
+Message-ID: <67555404a0d449508def1d5be4d1f569@AcuMS.aculab.com>
+References: <20210209052311.GA125918@ubuntu-m3-large-x86>
+ <CAEf4BzZV0-zx6YKUUKmecs=icnQNXJjTokdkSAoexm36za+wdA@mail.gmail.com>
+ <CAEf4BzYvri7wzRnGH_qQbavXOx5TfBA0qx4nYVnn=YNGv+vNVw@mail.gmail.com>
+ <CAEf4Bzax90hn_5axpnCpW+E6gVc1mtUgCXWqmxV0tJ4Ud7bsaA@mail.gmail.com>
+ <20210209074904.GA286822@ubuntu-m3-large-x86> <YCKB1TF5wz93EIBK@krava>
+ <YCKlrLkTQXc4Cyx7@krava> <YCKwxNDkS9rdr43W@krava> <YCLdJPPC+6QjUsR4@krava>
+ <CAKwvOdnqx5-SsicRf01yhxKOq8mAkYRd+zBScSOmEQ0XJe2mAg@mail.gmail.com>
+ <20210210000257.GA1683281@ubuntu-m3-large-x86>
+In-Reply-To: <20210210000257.GA1683281@ubuntu-m3-large-x86>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mhiramat@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=cL1+uDJs;       spf=pass
- (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=mhiramat@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,134 +160,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 10 Feb 2021 14:26:46 +0800
-Jianlin Lv <Jianlin.Lv@arm.com> wrote:
+> > > vfs_truncate disasm:
+> > >
+> > >         ffff80001031f430 <vfs_truncate>:
+> > >         ffff80001031f430: 5f 24 03 d5   hint    #34
+> > >         ffff80001031f434: 1f 20 03 d5   nop
+> > >         ffff80001031f438: 1f 20 03 d5   nop
+> > >         ffff80001031f43c: 3f 23 03 d5   hint    #25
+> > >
+> > > thats why we don't match it in pahole.. I checked few other functions
+> > > and some have the same problem and some match the function boundary
+> > >
+> > > those that match don't have that first hint instrucion, like:
+> > >
+> > >         ffff800010321e40 <do_faccessat>:
+> > >         ffff800010321e40: 1f 20 03 d5   nop
+> > >         ffff800010321e44: 1f 20 03 d5   nop
+> > >         ffff800010321e48: 3f 23 03 d5   hint    #25
+> > >
+> > > any hints about hint instructions? ;-)
+> >
+> > aarch64 makes *some* newer instructions reuse the "hint" ie "nop"
+> > encoding space to make software backwards compatible on older hardware
+> > that doesn't support such instructions.  Is this BTI, perhaps? (The
+> > function is perhaps the destination of an indirect call?)
+> 
+> It seems like it. The issue is not reproducible when
+> CONFIG_ARM64_BTI_KERNEL is not set.
 
-> Perf failed to add kretprobe event with debuginfo of vmlinux which is
-> compiled by gcc with -fpatchable-function-entry option enabled.
-> The same issue with kernel module.
-> 
-> Issue:
-> 
->   # perf probe  -v 'kernel_clone%return $retval'
->   ......
->   Writing event: r:probe/kernel_clone__return _text+599624 $retval
->   Failed to write event: Invalid argument
->     Error: Failed to add events. Reason: Invalid argument (Code: -22)
-> 
->   # cat /sys/kernel/debug/tracing/error_log
->   [156.75] trace_kprobe: error: Retprobe address must be an function entry
->   Command: r:probe/kernel_clone__return _text+599624 $retval
->                                         ^
-> 
->   # llvm-dwarfdump  vmlinux |grep  -A 10  -w 0x00df2c2b
->   0x00df2c2b:   DW_TAG_subprogram
->                 DW_AT_external  (true)
->                 DW_AT_name      ("kernel_clone")
->                 DW_AT_decl_file ("/home/code/linux-next/kernel/fork.c")
->                 DW_AT_decl_line (2423)
->                 DW_AT_decl_column       (0x07)
->                 DW_AT_prototyped        (true)
->                 DW_AT_type      (0x00dcd492 "pid_t")
->                 DW_AT_low_pc    (0xffff800010092648)
->                 DW_AT_high_pc   (0xffff800010092b9c)
->                 DW_AT_frame_base        (DW_OP_call_frame_cfa)
-> 
->   # cat /proc/kallsyms |grep kernel_clone
->   ffff800010092640 T kernel_clone
->   # readelf -s vmlinux |grep -i kernel_clone
->   183173: ffff800010092640  1372 FUNC    GLOBAL DEFAULT    2 kernel_clone
-> 
->   # objdump -d vmlinux |grep -A 10  -w \<kernel_clone\>:
->   ffff800010092640 <kernel_clone>:
->   ffff800010092640:       d503201f        nop
->   ffff800010092644:       d503201f        nop
->   ffff800010092648:       d503233f        paciasp
->   ffff80001009264c:       a9b87bfd        stp     x29, x30, [sp, #-128]!
->   ffff800010092650:       910003fd        mov     x29, sp
->   ffff800010092654:       a90153f3        stp     x19, x20, [sp, #16]
-> 
-> The entry address of kernel_clone converted by debuginfo is _text+599624
-> (0x92648), which is consistent with the value of DW_AT_low_pc attribute.
-> But the symbolic address of kernel_clone from /proc/kallsyms is
-> ffff800010092640.
-> 
-> This issue is found on arm64, -fpatchable-function-entry=2 is enabled when
-> CONFIG_DYNAMIC_FTRACE_WITH_REGS=y;
-> Just as objdump displayed the assembler contents of kernel_clone,
-> GCC generate 2 NOPs  at the beginning of each function.
-> 
-> kprobe_on_func_entry detects that (_text+599624) is not the entry address
-> of the function, which leads to the failure of adding kretprobe event.
-> 
-> ---
-> kprobe_on_func_entry
-> ->_kprobe_addr
-> ->kallsyms_lookup_size_offset
-> ->arch_kprobe_on_func_entry		// FALSE
-> ---
-> 
-> The cause of the issue is that the first instruction in the compile unit
-> indicated by DW_AT_low_pc does not include NOPs.
-> This issue exists in all gcc versions that support
-> -fpatchable-function-entry option.
-> 
-> I have reported it to the GCC community:
-> https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98776
-> 
-> Currently arm64 and PA-RISC may enable fpatchable-function-entry option.
-> The kernel compiled with clang does not have this issue.
-> 
-> FIX:
-> 
-> This GCC issue only cause the registration failure of the kretprobe event
-> which doesn't need debuginfo. So, stop using debuginfo for retprobe.
-> map will be used to query the probe function address.
+Is the compiler/linker doing something 'crazy'?
 
-Looks good to me.
+If a function address is taken then the BTI instruction is placed
+before the function body and the symbol moved.
+But non-indirect calls still jump to the original start of the function.
+(In this case the first nop.)
 
-Acked-by: Masami Hiramatsu <mhiramat@kernel.org>
+This saves the execution time of the BTI instruction for non-indirect
+calls.
 
-Thanks!
+	David
 
-> 
-> Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
-> ---
-> v2: stop using debuginfo for retprobe, and update changelog.
-> ---
->  tools/perf/util/probe-event.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/tools/perf/util/probe-event.c b/tools/perf/util/probe-event.c
-> index 8eae2afff71a..a59d3268adb0 100644
-> --- a/tools/perf/util/probe-event.c
-> +++ b/tools/perf/util/probe-event.c
-> @@ -894,6 +894,16 @@ static int try_to_find_probe_trace_events(struct perf_probe_event *pev,
->  	struct debuginfo *dinfo;
->  	int ntevs, ret = 0;
->  
-> +	/* Workaround for gcc #98776 issue.
-> +	 * Perf failed to add kretprobe event with debuginfo of vmlinux which is
-> +	 * compiled by gcc with -fpatchable-function-entry option enabled. The
-> +	 * same issue with kernel module. The retprobe doesn`t need debuginfo.
-> +	 * This workaround solution use map to query the probe function address
-> +	 * for retprobe event.
-> +	 */
-> +	if (pev->point.retprobe)
-> +		return 0;
-> +
->  	dinfo = open_debuginfo(pev->target, pev->nsi, !need_dwarf);
->  	if (!dinfo) {
->  		if (need_dwarf)
-> -- 
-> 2.25.1
-> 
-
-
--- 
-Masami Hiramatsu <mhiramat@kernel.org>
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210210192549.dedff88ac7adb610529f7f5c%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/67555404a0d449508def1d5be4d1f569%40AcuMS.aculab.com.
