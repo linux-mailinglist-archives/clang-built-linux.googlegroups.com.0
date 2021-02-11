@@ -1,140 +1,152 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBNPYSSAQMGQEHUXU6VY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDZTXMP2EPRBZ4QSWAQMGQEAST7Q2A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id F227C318D0E
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 15:16:22 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id o6sf4254783pfd.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 06:16:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613052981; cv=pass;
+Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3E6C8318DD2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 16:08:24 +0100 (CET)
+Received: by mail-yb1-xb3c.google.com with SMTP id d8sf6418253ybs.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 07:08:24 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613056103; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mdPMg4dJeeq0WkFmgpvmSMQRUlip2D4zaooClbJFoA7vHg6CSgh3dpIsIIrs2AzBUR
-         rHIdk+g7VLDd8IRTSU/YlSqK2iRkuz/J0YRQy9hbliW5qHpEZ54YIqGXxD64S2IX5uUM
-         RS1BTKuL74oe8MBke6HGEJPTEA6nM47fuUuUbx7lyYSKsE5ErfYvdHTzaB4eYPVjHq5N
-         Cftu+jdnmNT+w4ffyJVZ1deMdW5Uwzi8KuXQlrJoTfGIl5LidyLXRtMb6RGAuNa9FwSY
-         FP6R8hR5DUTMhD2E98MFbt5qFvtX9SOuKINemnzLV4N/YfdwmRc3GHDQ/lJTTyy4TahO
-         uCmQ==
+        b=sLP27737Y0oOb4ibcu9zCVq9cnowECE4huhgXnSqIX0jXKSugEdDRByjnv42yuwB+i
+         o8CF3UtPGBodY0pQG67+BVC1xLmbWyTAo4TVpbEMUrPT1oguVWu4SjJtbq6SJvRk1yhf
+         ftJVjOJxK+NTI2ByyPuM+v2dCS8phPvQDv3BJGeAFyAKPQ7am3+BIil4UA6yikXF5nlr
+         VyL/fPUK6KEyqgDEJghz6e5n7TBJOErTa2lzjVgeqVTmN7qoFRyQv9aA18soj5tFLUUY
+         8HIGIKMZeB3vHvR8waEUpsi2+nNIp22uVbcBPIj6HFeoJVlVxDm707vqC4SX6SnlfsDm
+         UJaQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
-         :subject:message-id:date:from:in-reply-to:references:mime-version
-         :dkim-filter:sender:dkim-signature;
-        bh=2GAmh0jfWnwFpf47uiNvepd6X9uSnxGVtwxKAqyTdY8=;
-        b=ye7qsHvrxg61Rrk1qA/k+/M0UxQLw3gwNm2aucBleRhUsR3lsin5Lpp0iN5AFzYxPW
-         W21KrlNkZlz79ZXRKMAsYkMYaxIra3B7ShZI4uSHIxZE/kEAbwe6wWvoy98x+I8B8uIs
-         BOlQaf436OEVtajZMg3vxcflhGkPBFvxXf57mdrJXNAEM4e4ps22Dw/4eqgzaY9FbE9u
-         LwwIlUmRdm5fAsAf5MoKYstkeOhC/koWRuUjUN1W8okCjitn6yUmyfUF1p1nzKpC9dw4
-         rp2v0Mw0/Kzvw1blXHpwQJZN6u0ShHEROcIfkFY8rtM+QLVLgmcAw4XZIVau6N0ADOHU
-         +Ufg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=SNBh6335jjTpueJT1wgDysaeTrBwnD89+GumKLYwVXc=;
+        b=K6J/iV33DSW7m2hcuI76Q+6TOs/7E6rme88DxwxJZvNzezlrMA+cep72yj6sp8ATCk
+         OjO36kWx7p00Oq6/eEEbKUKYN++jyQzTwKSG6RQ8OvwA/SPM2AduEmDmpAp2xInE2plW
+         RvoE/GG4u67TG+IaY7uepgH1bjmvfh8V/nvO7Rwj2WdPWuQ4CQ+7uvyR3N0Q/aQpONKN
+         OZ7UyDFDg1sq+7Q7SIHH0TUIlpVvAE3/a4sJ2H30e8Vfjx6E1vNjkp5LR4WYGzcpAzQh
+         boq1VWwJ/cLCNcOLQtj3nStS0GssTwHSuQklPMTh6L8yi7zZFXm77WjCEU+ExAlquL/Y
+         /WWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=SAhz02vX;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="GxCE/qtO";
+       spf=pass (google.com: domain of jolsa@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2GAmh0jfWnwFpf47uiNvepd6X9uSnxGVtwxKAqyTdY8=;
-        b=X1zyIWFel0l1ohhkwYetIZHZtM+biQ6CXR17jH5JhsaWBp3GnaQHKHWRxtBP9nTyFN
-         nl3j62W06H9z7xgagAo6rPg+DWFetzMQq3ZyxfnjGfI/cuwnhiDchOgJOVi3rjxjdCw3
-         VbedQajFCqawp9ryxWRORExgcFtIzP2uR3YvM23yq2AZVZWjX36wJRh+7oZR7sBUQqAg
-         83MCtJUp83R4pmyXDo7hUf4IsrJd2LOxbyDJdROCDJF3dfK9B4xguH+aGrIG2g3h3upF
-         dT9v7kGkApq9npBvrdNSliscPkMU1i7tS/oPFhEMJIJa+jN+oDeNg+R7EHG9/Nho0dZ5
-         nkaQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=SNBh6335jjTpueJT1wgDysaeTrBwnD89+GumKLYwVXc=;
+        b=BAmwhwVquE5/bta9tgjXVBhNRBpojaA820hh4scHrZ1h7Bte4jPJ131DeSHx/TEaMd
+         WdoI6atHwYRopnvThDG+y9W2KFfAUHtTo02SZ0eUkjLV6hpxMiwuH2u/HId2M6yfuL6T
+         qDLK69XxptpHj2TnhXlx3rCdZONdvSvxryYPI6ye3U3QMUCMvKc3foKBXxMf0aDrarfI
+         rdVhxP9b0vw5ojiR9oNTe2OWSDYI8ZOXZ0rUi2tOoSfNBun5Zb3wRPPCl2EfhSojRKg2
+         eC0bGwWNG447/HLpPJL5Q2CX9RXq1XwieTZcsf/Dc/ZleSl2aLhk8atFtjTDNtjc/s5G
+         iNgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2GAmh0jfWnwFpf47uiNvepd6X9uSnxGVtwxKAqyTdY8=;
-        b=PUaJtCryka8sHDLHLibt4M7+8ReuaYQpBXSSilw1okiB1HQwXYVyWMqlfulZ2RIFg/
-         rJeMnN1XzKgSpbwDqeK4Ubpm7ZABmTRWRtRq8W5rqVc/bo+oXF0UyjsRHBZB2XqQ22zf
-         TFPX2FJY17uoHOQU6XmqbV7kQS05cI3I+PfMrGWK7vEt5nBJukriPAbqeNqV6g7wuRnM
-         Es1QPumzyX4DB5I2Yy47I/q+tNAvOXt607fiaDVsa/NJMrtDc1N5eWkaoGSGRDkdALPO
-         kQM0x1BXWzYoM162I7KuwJtKflJj6aS5iGYhznfcJkJOYuj3+6oLdh5NKaaJYZ6vwYc3
-         DGuw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=SNBh6335jjTpueJT1wgDysaeTrBwnD89+GumKLYwVXc=;
+        b=FKe4GUCvBcNgw3jt+/bIHDfDI8pmxu7I2K/4l0eYW+MnC0R2a0ZmM/5p1xDcXTm7R5
+         Iqh4gc22drj2BjNzAgWTgqi0BOeA6N1sATCyyTK461Gbfd0ygXDbBgu4Rp+wYTQJbkpQ
+         Aj2yTv0orrzQuFNjutuFxyxgIEb/ZiDcR2/9EPVMwhUDfZUSrhaXtOLpoEVnVxyOacth
+         USullC5fZKUEQe8pSBi2utUMzs8aCQkzRcSIsEmxr18Q55Jcmu51u3AMBL4Q3V2hVF3l
+         bpbpAOsE/sYdNovcLTRZSgh8zeqDNMUQclB0uFTM6P0hfhOtGZiVYc2OgH1vpZWCG3py
+         7JVA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533cCfkvI73liP87kX6j4dnfAgVvRiCDaUNI64PLFnw32AWI4W1Q
-	YbNdaLKXhJvrBqCdgYkXag8=
-X-Google-Smtp-Source: ABdhPJx8M8AF+FMB6I5oZihMhECQAURky11552Vm7vEhsJamn96vD9uuR6ivX200Fy74L5tIn3+aIw==
-X-Received: by 2002:a62:aa06:0:b029:1d9:6738:26b3 with SMTP id e6-20020a62aa060000b02901d9673826b3mr8134278pff.75.1613052981641;
-        Thu, 11 Feb 2021 06:16:21 -0800 (PST)
+X-Gm-Message-State: AOAM530JXL/tM3QWM76Lja2kJQPMDhNvZ9kPNUCkFy4fvQ3VUkqRfDI6
+	/TKsquFXqLZxCyFm2fIS8XA=
+X-Google-Smtp-Source: ABdhPJy7ONjM3WpY3pbDv4caUuh5HKziEpFXQ8FURonosmEsS8Il2158FVALqyqMZlTnAWkTlf8LcQ==
+X-Received: by 2002:a25:730b:: with SMTP id o11mr9620292ybc.415.1613056103259;
+        Thu, 11 Feb 2021 07:08:23 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:4b8f:: with SMTP id lr15ls2741684pjb.3.gmail; Thu,
- 11 Feb 2021 06:16:21 -0800 (PST)
-X-Received: by 2002:a17:902:728a:b029:e3:530:cc73 with SMTP id d10-20020a170902728ab02900e30530cc73mr6964978pll.60.1613052980758;
-        Thu, 11 Feb 2021 06:16:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613052980; cv=none;
+Received: by 2002:a25:1482:: with SMTP id 124ls2715775ybu.7.gmail; Thu, 11 Feb
+ 2021 07:08:22 -0800 (PST)
+X-Received: by 2002:a25:c407:: with SMTP id u7mr13193092ybf.387.1613056102537;
+        Thu, 11 Feb 2021 07:08:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613056102; cv=none;
         d=google.com; s=arc-20160816;
-        b=LxCgZrJ6ybzdCT354Gm1TRkZxYUwX8G1HVuaMS2mK/O9P2AIDcaHD2cVQ5fz6X/qaQ
-         pgVrdFHTsyO74sYxUVh3DPvfDem3qgzXwDLm+n+mSbuawBmtR/3JlXht5l3uWDYHnBEK
-         nPOj8UtmrkfC1NzHm3b0ijY2pH99cY7d+CVHcr7XUW08bGlgAc7j0QjHwGlDjxfcKrqu
-         rsnCD4AbapqYCM0ft+eNFl9QFAnz98ThnmytEJiXhaOF8sXl2gAc4vDu5H4FyklDNgTY
-         0XxPMfcc5yT51LchOLd6kyWfKgocp/YCl8roTevISkd4TQ7eHX5BdSvNBv5jVGwrbmsD
-         LoXQ==
+        b=MQWGYrJBlFWfbE4NTBBBzDRjtvj8y3ScTc8VrTvGGuehiDLSF3/ZInLrnG16W/nYfU
+         Sq4gz0+GzIzEiz+535xCvnsLTiJxVZibdn9xW3oEyOxWd955QxARkWttwYYVHwPES5SJ
+         61QmbzItXBlpDI7X8mPPXH76RYFxwtzXK926qdNDY32YeJVpPEY2sQ3AG9r7OZS5lPgO
+         eObjFoKjqkbItQ8pn7FefnZHC528mSDMklnayFBudVXX1A3Prhtn0RXpZJPDmUuhZjcv
+         Lb+x/17/ZQrWOEqQNVDr5jPzlAaBUphx7pe1dgcScqbiVGUbd02+SzlqzQQS2fSFRLKo
+         tGMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature:dkim-filter;
-        bh=5fMtClGpoOrpoSoRrTR5BZN+eGFqxHSGcW74p7s3slQ=;
-        b=L8xTBuR4mw2O1Sww58bgfcR8jgcd3rJZGJSh/qu9IlM8tPoXav8Nqt3dG4xuODWVp2
-         59UP3k/8Ap+jOH2kk+jRNKBjcQR9oZHoRXAmXmuYU2Ur4mqMjXRIA2RMnVCSF5mx22e0
-         PoQu73lFHqLNxQSUVWjoriiLr8AkcPJ0f64W3LPOyRqIqL3ckrPmoLwPMoesPnn8F2Md
-         guiOa6VG32Ra18F4W+AyGfH5+NozMqJduan8TR0R8iyAN3Q2pNF7/XGBvXsMdivt5bPl
-         pZlSsyDopRCxUS13IaKk1pfUUsugUNgbF3wk5QTSc0w0bdiO5CawjpaC9g6Nk56Yv2nL
-         l1jA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=IJk4z6TuxNr4nNxcX9hDO3Ok0FW7l/jb6b2/xDt4SXU=;
+        b=QIWo6zZoIRxdx50J0vBLlFN+1KtM5bobKnkCu76nkX3NZexRp7n4IBoW0KhYJGlvnt
+         hgR4zGRhFXuqL6OkvVoevM45mwGdJk/I/8vLst25Y3GJhhgWzBIWrYEigi/YfbZk4Z9Q
+         Nt+K6a+sVD1CoOKTWrcilfTwOUOJ0sSwOZNzf6hPRFAV66YnGY9wZEpU3LYZcl7K5lFH
+         15Aol1qK7ZqnR5PlLwV0PRyZufqI+cen2jZ057f/ikLl0LxkXPIaujI5RtdTs7ws2uw9
+         KnNhq6FoiAEGWWJI/Ncw+xbDyuzXDy8omX9y/Eafst5Adx41iMOEspIVgLO7Qj+9qmjR
+         OI2g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=SAhz02vX;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
-        by gmr-mx.google.com with ESMTPS id w6si243312pgg.1.2021.02.11.06.16.20
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="GxCE/qtO";
+       spf=pass (google.com: domain of jolsa@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id s44si391206ybi.3.2021.02.11.07.08.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 11 Feb 2021 06:16:20 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182]) (authenticated)
-	by conssluserg-01.nifty.com with ESMTP id 11BEFosN021139
-	for <clang-built-linux@googlegroups.com>; Thu, 11 Feb 2021 23:15:51 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 11BEFosN021139
-X-Nifty-SrcIP: [209.85.210.182]
-Received: by mail-pf1-f182.google.com with SMTP id 18so3772876pfz.3
-        for <clang-built-linux@googlegroups.com>; Thu, 11 Feb 2021 06:15:50 -0800 (PST)
-X-Received: by 2002:a62:b416:0:b029:1e4:fb5a:55bb with SMTP id
- h22-20020a62b4160000b02901e4fb5a55bbmr8068091pfn.80.1613052950036; Thu, 11
- Feb 2021 06:15:50 -0800 (PST)
-MIME-Version: 1.0
-References: <1612783737-3512-1-git-send-email-stephenzhangzsd@gmail.com>
- <20210208195439.GA1097868@ubuntu-m3-large-x86> <CALuz2=d-ENRbWgGYaO_ESEaw5eOVSwkQmkeYBJ-w0Vb3zZ+REg@mail.gmail.com>
- <20210209192729.GA820978@ubuntu-m3-large-x86> <CALuz2=dyA_ki98t8VNe2L1UcBXrSoJT1r6j1puEmLn7WrX87XQ@mail.gmail.com>
- <20210210182400.GA3502674@ubuntu-m3-large-x86> <CALuz2=eSv2N2Qp7GimLgdWjvWDwDh1Dj0Q7Czm4Br5a50rs4ew@mail.gmail.com>
-In-Reply-To: <CALuz2=eSv2N2Qp7GimLgdWjvWDwDh1Dj0Q7Czm4Br5a50rs4ew@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 11 Feb 2021 23:15:12 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAT+CG9zqPpYLoy9_1eA4caZWzxyQACcOrhbg9zfArEwPQ@mail.gmail.com>
-Message-ID: <CAK7LNAT+CG9zqPpYLoy9_1eA4caZWzxyQACcOrhbg9zfArEwPQ@mail.gmail.com>
-Subject: Re: [PATCH v1] clang_tools:gen_compile_commands: Change the default
- source directory
-To: Stephen Zhang <stephenzhangzsd@gmail.com>
+        Thu, 11 Feb 2021 07:08:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of jolsa@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-546-18QqE7EhPyWamxk0Tq_6UA-1; Thu, 11 Feb 2021 10:08:18 -0500
+X-MC-Unique: 18QqE7EhPyWamxk0Tq_6UA-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7B4B51005501;
+	Thu, 11 Feb 2021 15:08:15 +0000 (UTC)
+Received: from krava (unknown [10.40.192.105])
+	by smtp.corp.redhat.com (Postfix) with SMTP id 5AE1A60636;
+	Thu, 11 Feb 2021 15:08:12 +0000 (UTC)
+Date: Thu, 11 Feb 2021 16:08:11 +0100
+From: Jiri Olsa <jolsa@redhat.com>
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
 Cc: Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        LKML <linux-kernel@vger.kernel.org>, Tom Roeder <tmroeder@google.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Veronika Kabatova <vkabatov@redhat.com>,
+	Jiri Olsa <jolsa@kernel.org>
+Subject: Re: FAILED unresolved symbol vfs_truncate on arm64 with LLVM
+Message-ID: <YCVIWzq0quDQm6bn@krava>
+References: <CAEf4Bzax90hn_5axpnCpW+E6gVc1mtUgCXWqmxV0tJ4Ud7bsaA@mail.gmail.com>
+ <20210209074904.GA286822@ubuntu-m3-large-x86>
+ <YCKB1TF5wz93EIBK@krava>
+ <YCKlrLkTQXc4Cyx7@krava>
+ <CAEf4BzaL=qsSyDc8OxeN4pr7+Lvv+de4f+hM5a56LY8EABAk3w@mail.gmail.com>
+ <YCMEucGZVPPQuxWw@krava>
+ <CAEf4BzacQrkSMnmeO3sunOs7sfhX1ZoD_Hnk4-cFUK-TpLNqUA@mail.gmail.com>
+ <YCPfEzp3ogCBTBaS@krava>
+ <CAEf4BzbzquqsA5=_UqDukScuoGLfDhZiiXs_sgYBuNUvTBuV6w@mail.gmail.com>
+ <YCQ+d0CVgIclDwng@krava>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <YCQ+d0CVgIclDwng@krava>
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Original-Sender: jolsa@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=SAhz02vX;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b="GxCE/qtO";
+       spf=pass (google.com: domain of jolsa@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,115 +159,222 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 11, 2021 at 10:48 PM Stephen Zhang
-<stephenzhangzsd@gmail.com> wrote:
->
-> Nathan Chancellor <nathan@kernel.org> =E4=BA=8E2021=E5=B9=B42=E6=9C=8811=
-=E6=97=A5=E5=91=A8=E5=9B=9B =E4=B8=8A=E5=8D=882:24=E5=86=99=E9=81=93=EF=BC=
-=9A
-> >
-> > On Wed, Feb 10, 2021 at 08:15:27PM +0800, Stephen Zhang wrote:
-> > > Nathan Chancellor <nathan@kernel.org> =E4=BA=8E2021=E5=B9=B42=E6=9C=
-=8810=E6=97=A5=E5=91=A8=E4=B8=89 =E4=B8=8A=E5=8D=883:27=E5=86=99=E9=81=93=
-=EF=BC=9A
+On Wed, Feb 10, 2021 at 09:13:47PM +0100, Jiri Olsa wrote:
+> On Wed, Feb 10, 2021 at 10:20:20AM -0800, Andrii Nakryiko wrote:
+> 
+> SNIP
+> 
+> > > but below is change for checking that ftrace addrs are within elf functions
 > > >
-> > > > Just as an FYI, your email was HTML, which means it won't hit LKML.
-> > >
-> > >
-> > > Thanks for pointing that out. The existence of a GFW makes it difficu=
-lt for
-> > > me to connect
-> > > to the mail server.  so I use git client to send patches only and rep=
-ly to
-> > > emails with
-> > > gmail  web client.
-> >
-> > You can configure your Gmail web client to send text responses by
-> > default by clicking on the three dot menu in the compose window then
-> > chose the "plain text mode" option.
-> >
->
-> Thanks, this has always been a problem for me.
->
-> > The build directory needs to be involved because that is where the .cmd
-> > files will be but the source directory needs to be known because the
-> > source files in the .cmd files are relative to the source directory, no=
-t
-> > the build directory. This happens to work in most situations like I
-> > point out above but not always.
-> >
-> > I think that my patch is most likely the way to go unless others feel
-> > differently. It would be nice if you could give it a go.
-> >
-> > Cheers,
-> > Nathan
->
-> Do you mean  my patch's failure  in some cases  is because the build
-> directoty isn't involved after using "-d" to specify the source directory=
-?
->
-> Actually, the build directory has already been involved by the "path"
-> argument. See:
->
-> def main():
->     for path in paths:
->          ....
->         if os.path.isdir(path):
->             cmdfiles =3D cmdfiles_in_dir(path)
->         .....
->
-> where the value of paths  is passed by  the "path" argument. Do I miss
-> something?
->
-> Cheers,
-> Stephen
->
-> --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/CALuz2%3DeSv2N2Qp7GimLgdWjvWDwDh1Dj0Q7Czm4Br5a50rs4ew%4=
-0mail.gmail.com.
+> > > seems to work in my tests, I'll run some more tests and send full patch
+> > 
+> > It seems unnecessarily convoluted. I was thinking about something like
+> > this (the diff will totally be screwed up by gmail, and I haven't even
+> > compiled it):
+> > 
+> > diff --git a/btf_encoder.c b/btf_encoder.c
+> > index b124ec20a689..8162b238bd43 100644
+> > --- a/btf_encoder.c
+> > +++ b/btf_encoder.c
+> > @@ -236,6 +236,23 @@ get_kmod_addrs(struct btf_elf *btfe, __u64
+> > **paddrs, __u64 *pcount)
+> >         return 0;
+> >  }
+> > 
+> > +struct func_seg { __u64 start; __u64 end; };
+> > +
+> > +static int func_exists(struct func_seg *segs, size_t len, __u64 addr)
+> > +{
+> > +       size_t l = 0, r = len - 1, m;
+> > +
+> > +       while (l < r) {
+> > +               m = l + (r - l + 1) / 2;
+> > +               if (segs[m].start <= addr)
+> > +                       l = m;
+> > +               else
+> > +                       r = m - 1;
+> > +       }
+> > +
+> > +       return segs[l].start <= addr && addr < segs[l].end;
+> > +}
+> > +
+> >  static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
+> >  {
+> >         __u64 *addrs, count, i;
+> > @@ -286,7 +303,7 @@ static int setup_functions(struct btf_elf *btfe,
+> > struct funcs_layout *fl)
+> >                 __u64 addr = kmod ? func->addr + func->sh_addr : func->addr;
+> > 
+> >                 /* Make sure function is within ftrace addresses. */
+> > -               if (bsearch(&addr, addrs, count, sizeof(addrs[0]), addrs_cmp)) {
+> > +               if (func_exists(addrs, count, addr))
+> 
+> you pass addrs in here, but you mean func_seg array
+> filled with elf functions start/end values, right?
+> 
+> >                         /*
+> >                          * We iterate over sorted array, so we can easily skip
+> >                          * not valid item and move following valid field into
+> > 
+> > 
+> > So the idea is to use address segments and check whether there is a
+> > segment that overlaps with a given address by first binary searching
+> > for a segment with the largest starting address that is <= addr. And
+> > then just confirming that segment does overlap with the requested
+> > address.
+> > 
+> > WDYT?
+
+heya,
+with your approach I ended up with change below, it gives me same
+results as with the previous change
+
+I think I'll separate the kmod bool address computation later on,
+but I did not want to confuse this change for now
+
+jirka
 
 
+---
+diff --git a/btf_encoder.c b/btf_encoder.c
+index b124ec20a689..34df08f2fb4e 100644
+--- a/btf_encoder.c
++++ b/btf_encoder.c
+@@ -36,6 +36,7 @@ struct funcs_layout {
+ struct elf_function {
+ 	const char	*name;
+ 	unsigned long	 addr;
++	unsigned long	 end;
+ 	unsigned long	 sh_addr;
+ 	bool		 generated;
+ };
+@@ -44,7 +45,7 @@ static struct elf_function *functions;
+ static int functions_alloc;
+ static int functions_cnt;
+ 
+-static int functions_cmp(const void *_a, const void *_b)
++static int functions_cmp_name(const void *_a, const void *_b)
+ {
+ 	const struct elf_function *a = _a;
+ 	const struct elf_function *b = _b;
+@@ -52,6 +53,16 @@ static int functions_cmp(const void *_a, const void *_b)
+ 	return strcmp(a->name, b->name);
+ }
+ 
++static int functions_cmp_addr(const void *_a, const void *_b)
++{
++	const struct elf_function *a = _a;
++	const struct elf_function *b = _b;
++
++	if (a->addr == b->addr)
++		return 0;
++	return a->addr < b->addr ? -1 : 1;
++}
++
+ static void delete_functions(void)
+ {
+ 	free(functions);
+@@ -98,6 +109,7 @@ static int collect_function(struct btf_elf *btfe, GElf_Sym *sym,
+ 
+ 	functions[functions_cnt].name = name;
+ 	functions[functions_cnt].addr = elf_sym__value(sym);
++	functions[functions_cnt].end = (__u64) -1;
+ 	functions[functions_cnt].sh_addr = sh.sh_addr;
+ 	functions[functions_cnt].generated = false;
+ 	functions_cnt++;
+@@ -236,6 +248,40 @@ get_kmod_addrs(struct btf_elf *btfe, __u64 **paddrs, __u64 *pcount)
+ 	return 0;
+ }
+ 
++static int is_ftrace_func(struct elf_function *func, __u64 *addrs,
++			  __u64 count, bool kmod)
++{
++	/*
++	 * For vmlinux image both addrs[x] and functions[x]::addr
++	 * values are final address and are comparable.
++	 *
++	 * For kernel module addrs[x] is final address, but
++	 * functions[x]::addr is relative address within section
++	 * and needs to be relocated by adding sh_addr.
++	 */
++	__u64 start = kmod ? func->addr + func->sh_addr : func->addr;
++	__u64 end   = kmod ? func->end + func->sh_addr : func->end;
++
++	size_t l = 0, r = count - 1, m;
++	__u64 addr = 0;
++
++	while (l < r) {
++		m = l + (r - l + 1) / 2;
++		addr = addrs[m];
++
++		if (start <= addr && addr < end)
++			return true;
++
++		if (start <= addr)
++			r = m - 1;
++		else
++			l = m;
++	}
++
++	addr = addrs[l];
++	return start <= addr && addr < end;
++}
++
+ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
+ {
+ 	__u64 *addrs, count, i;
+@@ -267,7 +313,7 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
+ 	}
+ 
+ 	qsort(addrs, count, sizeof(addrs[0]), addrs_cmp);
+-	qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp);
++	qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_addr);
+ 
+ 	/*
+ 	 * Let's got through all collected functions and filter
+@@ -275,18 +321,12 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
+ 	 */
+ 	for (i = 0; i < functions_cnt; i++) {
+ 		struct elf_function *func = &functions[i];
+-		/*
+-		 * For vmlinux image both addrs[x] and functions[x]::addr
+-		 * values are final address and are comparable.
+-		 *
+-		 * For kernel module addrs[x] is final address, but
+-		 * functions[x]::addr is relative address within section
+-		 * and needs to be relocated by adding sh_addr.
+-		 */
+-		__u64 addr = kmod ? func->addr + func->sh_addr : func->addr;
++
++		if (i + 1 < functions_cnt)
++			func->end = functions[i + 1].addr;
+ 
+ 		/* Make sure function is within ftrace addresses. */
+-		if (bsearch(&addr, addrs, count, sizeof(addrs[0]), addrs_cmp)) {
++		if (is_ftrace_func(func, addrs, count, kmod)) {
+ 			/*
+ 			 * We iterate over sorted array, so we can easily skip
+ 			 * not valid item and move following valid field into
+@@ -303,6 +343,8 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
+ 
+ 	if (btf_elf__verbose)
+ 		printf("Found %d functions!\n", functions_cnt);
++
++	qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_name);
+ 	return 0;
+ }
+ 
+@@ -312,7 +354,7 @@ static struct elf_function *find_function(const struct btf_elf *btfe,
+ 	struct elf_function key = { .name = name };
+ 
+ 	return bsearch(&key, functions, functions_cnt, sizeof(functions[0]),
+-		       functions_cmp);
++		       functions_cmp_name);
+ }
+ 
+ static bool btf_name_char_ok(char c, bool first)
 
-Please stop.
-
-
-Commit 6ca4c6d25949117dc5b4845612e290b6d89e70a8
-removed the tools/ support.
-
-
-There exist two build systems in the Linux source tree.
-Kbuild covers the entire tree except tools/.
-The tools/ directory adopts a different build system.
-
-It is a pity that the tools/ directory
-went in a wrong direction, and people
-try to fix problems in a wrong layer.
-
-
-You are not the first person to send to
-tweak obj/source trees of this script.
-
-You can not do this correctly
-without terribly messing up the code.
-
-Please do not try to support tools/.
-
-
-
---=20
-Best Regards
-Masahiro Yamada
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAK7LNAT%2BCG9zqPpYLoy9_1eA4caZWzxyQACcOrhbg9zfArEwPQ%40m=
-ail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YCVIWzq0quDQm6bn%40krava.
