@@ -1,128 +1,127 @@
-Return-Path: <clang-built-linux+bncBCU4TIPXUUFRBJWPSOAQMGQEM5LSARY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBPGWSSAQMGQEDVNV54Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43FCF318623
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 09:15:35 +0100 (CET)
-Received: by mail-vk1-xa38.google.com with SMTP id d19sf1152348vko.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 00:15:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613031334; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id F1A0C318B5E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 14:03:57 +0100 (CET)
+Received: by mail-pg1-x53b.google.com with SMTP id c30sf4353778pgl.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 05:03:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613048636; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PEXZ6YszYSeFh5wvPjq6QkZ1418oZl4gwhS988t6I8uP+gVE1sU7WeJ3haneT6dtOM
-         yr+QqVYOSEU3oRhgrkOpAwducSMh3CrnKNDPWIqnSnJUh6EwzY9RjlBN5oPL03PAHQWX
-         pwPTDfs6w39BiDmnPaCbDxjQQ1F4NI4ZjNpCW7FQWnheOoRwK9TK3YOyHhYl/nIQRRWC
-         OOp6nNkJ1SOQL9YhdXM0EnFmi5c75IBH8cqQJaIHG1NSqtZXf8DNp4jwuALs2eNoamO2
-         nJ6wz4I0rhJyCs5MgJNEzFiPKnnyRjCljIm8HN2/0s34ba+oOKAovHclW5g7JuJxTYZi
-         vteg==
+        b=hpnaLSQNkCngPT38WV7xLS8D6W3feB48hCaaw51mJi3hcpcwVr+3MunsyJ+6Nv0dJ9
+         isYLN+oYnNDXW/8dVdoyoEtyZO+HrqLhrvFnBB0pROqVZbMBpvg7+Nv20m4jo5ypZrBQ
+         xIDV5Z06eMm6TLDXREBgm8HigLa7VbOswjN1KsWH3bQ9IA+pxjQb58CIxqL0tRIOMcoo
+         PWUyF9CH38btH2r6stmd8II/2V9ao+JA7rNuHXyuuQIPU0iYixZdgDqeBCAhOyoHl566
+         hFq5k38Op/I2C2hpsMGPMMCKI8ocFsAEXQ0eiiLIEzfpIziZuU8ZdfD2Nb0aaFotzaDe
+         HyCQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=nHY+H0oF9+3p6R4vf6jCowDXvP/+uKcfYLJ7R2XJyHY=;
-        b=QU+DkRn3qg7BrO5cpWi9rnmaOBpEaFZVSRwwybMcyZbk2/gOkJYLaBxChIBj2RVMsR
-         GPs5N73O1aI6jQZNXfS4c3WhRMoQpXqOq7QDhtWBDsJO/uWQuy8gdZXrbDA3gp9kDMba
-         eyFVPppGcn1JtlBkIXyPPfvaOHsq7EbS1iRUGz7WF3jvrleXr64ckGI77ENbBICOyIB5
-         mZPXNc+W+Rd6s/D/Qx4v0pt9ZRzpFNtXK477PJbzEsCMjm2RPMc9P2jw7wdMrEW35LyG
-         z+LSLozmiSxas3b+b5djpp+qAP6CieICXBO2SJen2SomW8Tyd7O+Wmfr1HDXEybWrc0I
-         AvFA==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=xNnxI3F8JcnFreucxYHaAd8a4TaYPLRhiZfehzSjF6Q=;
+        b=V5nOF78PVy4GIkwdfmjTtlt+TKJngjXBQBiW84BKOGMLO3+zgYK3EIsTM1HE/W9mUd
+         7xXk/PwOLs9qOugiX3xi1EBvo5kbReffHAfcSxGs13gABD0OamUiEAYfkDp4WzsKhIUS
+         JFgm8oG0/u6Re99q01AAb+EKQl2iiAOxMfN8HJsVjRFtvMVgdXN9MtI0MHeSGCIFFlWS
+         zXHF9Jo4FAZQWkpv0fO5ptteOp9Yb7YjQxGzO9Su9ITWcCbOsshKxBRq9X61BLf4w1jt
+         xlhKH4h7jDeACePT9DFEdqY4/dtqYe/Sy4IDU+0kWQLV3QMgx4wfz318BPms7ZdMsRuZ
+         /rsA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=o+cMswZf;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=sejrMlhR;
+       spf=neutral (google.com: 2607:f8b0:4864:20::52c is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nHY+H0oF9+3p6R4vf6jCowDXvP/+uKcfYLJ7R2XJyHY=;
-        b=OnFMuO8ahAmZNpauaZYLqcY0n5m9BQKTyeqqDVfPxlZamiPJ0NXUAOW2IJ5SbdvjFo
-         jO9ux84lkhZeMTxUPYB9NionAO9plHOuDth65NaOkWpPFnvdYnIOfBeD3JSIOQVi2X46
-         kcByb6ii/DvU1IT280ivnJsydcrLkSV2mN03xvR7uVYL1I5JDGzpJeG2aQAr+1AQiEpZ
-         Xxqi9q/GeAKqnzLc9aTNCkCpvn0iMunBX9mGH+SPYt6fWWHsZnn7bMf+N4NVGDRXKjHf
-         Dshmrh74PUNDhMzFa9haSaZEQKTkEjBm6p5lOiOvxHOyLwU2G1KrsRJ1IX8fRW5Sw4CG
-         CGFQ==
+        bh=xNnxI3F8JcnFreucxYHaAd8a4TaYPLRhiZfehzSjF6Q=;
+        b=XU0efNQz/mxsbl/wpOPjXgjELqCojBfb6Z/ngQFyVHi0vvco6fXVoCWuzs8umzGcRr
+         9v1viyKfwtqDMmDE1IqoMQcKEqoo4ZPYlIEezv7VJoInXfOWL0Oqi30SVfSMfWnS7TWy
+         Rt2Ad6suyJ36QOkelVMl3LmLQo8IYjsAWnU+B5qY0OYAVN3czd7G4wjNr650HQroEB7P
+         BM2SpF3xs+gxmq5kwId4Jog7OPQjLkFPiQtGVtdP97y3BwS2+CboSjraHXc7dG2c6ZWj
+         03txjU/UsvqpII+fBZ3kA1VbkXEf2qre5/7XMKLx+SJkTP5pHUPt36uywV6jHKIsebVP
+         n3HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nHY+H0oF9+3p6R4vf6jCowDXvP/+uKcfYLJ7R2XJyHY=;
-        b=UXKxDgon5RUNjFZ7dE3w9qhBAc0yzqen36BkdZ7YIziVCq8QMP9NFBXyVlTD6tcle4
-         2JvWbbacZgNME93X+agNVtftMCwgoLG7/C0Rt0A+oJhr0ML6UQga9GQAwIQVvcOGNPRf
-         pVy7e2SzcUDslpIgrnxEMb6IGLbm8qsA/17H9rf7CilaSAg5C7FBghNWLmOuJNXEN9+s
-         OBwCIBA87Cpl+aqjqXgQTGDIsbzc9yvaBQTE395S7ALkva/LYCqxSPGsNPx5wCpAxXlE
-         OOvdD7g4M8ITfY8K3CtiKmbGqI43idfhCfTqw+kwgzkYiOfTuScIxODn6v7ldy1Wbt28
-         Od7Q==
+        bh=xNnxI3F8JcnFreucxYHaAd8a4TaYPLRhiZfehzSjF6Q=;
+        b=nwMCbp9R/yDzXX/7kOjCK34cA3G1NNxrqFMzinPkn3PdzyAqNz7adNFh5LGgxfFOfZ
+         O444C2IAPVCdQ4JuZwYpVMD+JyUuWGxwauB1NiaH7yHEzYtr8xHeFq95HmgLxPT+JRIV
+         lVw60WVOAieXiBuCPmwjegS3ybB6o112mUOmWrELJQQ3pqnlkppZJMSKNuWhbR/j26mo
+         vp95sIYEkEEpkpKIwf/m6OAa5OChB8fMMErfr3tkRMuq3c5GXYKff1b2DFEfnXkUUjfS
+         lkB41XrdxG3+7yNfWefbk/Zqo7ZK/4Kmk+UFJvRP4Iwxpl4cPfcOC9iS+IGtsZKYwLM0
+         37hg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53094jPg4Rpf7h0qJqk1thO8u18nVNcShrQUYdA9QshoBfVht4wU
-	krlyP13qVh+Uwof4OkppQCI=
-X-Google-Smtp-Source: ABdhPJzof+Y5KJhJf2kL/NbGeBpfZZ5Za4qQxIOIENcz/yxf2Pe03B9UUAOQ8soXheOCrnEN+a48ag==
-X-Received: by 2002:a67:7f06:: with SMTP id a6mr4248379vsd.25.1613031334284;
-        Thu, 11 Feb 2021 00:15:34 -0800 (PST)
+X-Gm-Message-State: AOAM531KDLde3Aydmyh64xFHN309dDm/WnuTZibEW8/r7brEaU7wNw7n
+	yZrWO6RJJA0694XqMdHF4tk=
+X-Google-Smtp-Source: ABdhPJzRIwqsgbrTBWnIb37cQGGAgE275sXaF9JPGx2efzE85amC3XdqruXB0Ok9jtRUlDJXtJhSBg==
+X-Received: by 2002:a63:5904:: with SMTP id n4mr5843737pgb.446.1613048636452;
+        Thu, 11 Feb 2021 05:03:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:5e9d:: with SMTP id y29ls333153uag.9.gmail; Thu, 11 Feb
- 2021 00:15:33 -0800 (PST)
-X-Received: by 2002:ab0:2c0f:: with SMTP id l15mr4379338uar.134.1613031333680;
-        Thu, 11 Feb 2021 00:15:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613031333; cv=none;
+Received: by 2002:a17:902:8b8a:: with SMTP id ay10ls2416502plb.5.gmail; Thu,
+ 11 Feb 2021 05:03:55 -0800 (PST)
+X-Received: by 2002:a17:902:c602:b029:e2:8422:ffb7 with SMTP id r2-20020a170902c602b02900e28422ffb7mr7453630plr.82.1613048635653;
+        Thu, 11 Feb 2021 05:03:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613048635; cv=none;
         d=google.com; s=arc-20160816;
-        b=qMsDW7ufdc3NhLEpIKMGl/DOsd8K6GMg82iUfwBw+FG4EkE3j4VH1kck8UIpnWYdhd
-         CwJLJVaLo3f6dHCKbL0TyxDrI8myGnfCQNlUicm+RN6TPfnjDaaImIXb4+di72ZWDRAX
-         AVObsI8xk/hmnuC1XjbVmJxJ8YvG97jSNRzVZvaZJbEmqEB8fuUr/iGh2qrNB4hcfFf9
-         VY614KIQTnUv1h46M4NJLwpwzJYmz3IlIKRDy8sOlzM4O7Hqh6cnKurtFtZrEy7cL3QF
-         ADcF/VdVHsokSojZw4Lc6/snZU0jO0Ea2tG/VvS8joxNPIlalIpwpjJOqmx2HbeGlKwo
-         pX0A==
+        b=werAQBkLw4iDMbLsuGREioDOdrvKWNA3z/3wBJB/VtreQO19AQf8yy6Ff4qjXxMqH8
+         djjkhq953/OOz0wpnBRixpvdvHTSj4JiQBBEnwl/AromFzIe+ZywqNBRV7KxPgM8jagV
+         YKS6yp36ixoytXyv1cy9yKZmaNqAduBPVI2orS59gt5uMSP7ZfbHWJNJfzQANbalZ0Vk
+         jWkRuv4xDgPVxjAnGa5vsDqNETAK22FKbguLLBaEjRmt2QbwL8ehHg703ABJR5iMdLcG
+         RraWzDFoxZHIR68GfjrK9n8m3xfY/hKKUn1QbXoOnfXQET7pUNSoZ5GtFcStNAYTLiUR
+         VP2g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=nMBEy99dMHkHs10H9CYOkyqDKKb3Ro3i7R4bn2LUDcU=;
-        b=sAsa9m+HfppsL37Uouhe2G39OhLjeISPKKIQEymbgUoNsmg9EcywQtOCyUEc5MGN8K
-         2BCININ1ZaTHEwvBOVojlzg5Ug0YD60bwly02RBHkUL+cxOKQa5JUHAnTvo82PPjwXWn
-         Q9bYmRXnOtbAYNjVzL9cyBCro5mt0YTu/oxw/8VwtNQpvHSpTQ+RSTQWtgRyoDzo6aLG
-         irNnojBfnoELVTNj3XcPtbDxy73RWsrs67Nd6s7utVDqNZrhM1z7efuw8NY06/eJmUgd
-         wZaaoxhjqJA6oaVDGnoeIl8o/J6KEB/OdSvxs9dOirM/g9CXo1TwxQh5uBMbsf8kKC9C
-         jAnQ==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=y5OW16BdfPtAp/vbLhKdgXgEoFd0ayPoTnPp5e6GSGA=;
+        b=RR5UzeGF3CtEQkQ7+XpT4YH+TL26i8jdcyZrhjxOFExaoW9D3vjIYNZbAxcM99k2xN
+         ovuuiKMs7MDrdW3VbTEkDv3932WRMr0ColQUfwfGg3CU4vCJ1eBDGq6hcdoDWEFxKg1c
+         IrOH62pyjbdN9+DFrd3n1rwE3+R1SQaxy1DPZTIP/axDvKm0jFkpYwtIutmxbPCBu702
+         gWVAGm/AJJPM2E1UAOtRJM82Sa8+m/33b4Z9Z0Y9XjZY9uG/v3JobV0CrAUCEeydHAYm
+         fcttLuhgpdoCCXHznQ09grp7xzdkATfoiFLHBDsR7EljndxFmv95gXB6XQs+WAull0f4
+         d6mQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=o+cMswZf;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c4si311109vkh.1.2021.02.11.00.15.33
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=sejrMlhR;
+       spf=neutral (google.com: 2607:f8b0:4864:20::52c is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pg1-x52c.google.com (mail-pg1-x52c.google.com. [2607:f8b0:4864:20::52c])
+        by gmr-mx.google.com with ESMTPS id i23si257700pjl.3.2021.02.11.05.03.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 11 Feb 2021 00:15:33 -0800 (PST)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7245A64E23
-	for <clang-built-linux@googlegroups.com>; Thu, 11 Feb 2021 08:15:32 +0000 (UTC)
-Received: by mail-oi1-f173.google.com with SMTP id l3so5215226oii.2
-        for <clang-built-linux@googlegroups.com>; Thu, 11 Feb 2021 00:15:32 -0800 (PST)
-X-Received: by 2002:aca:b6c1:: with SMTP id g184mr1974072oif.47.1613031331411;
- Thu, 11 Feb 2021 00:15:31 -0800 (PST)
-MIME-Version: 1.0
-References: <20210211025149.3544593-1-ndesaulniers@google.com> <20210211025149.3544593-3-ndesaulniers@google.com>
-In-Reply-To: <20210211025149.3544593-3-ndesaulniers@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 11 Feb 2021 09:15:20 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEY-OmE33WiixrAkXLD4d7y-T2UYH4aOngHVk2hSgyvFA@mail.gmail.com>
-Message-ID: <CAMj1kXEY-OmE33WiixrAkXLD4d7y-T2UYH4aOngHVk2hSgyvFA@mail.gmail.com>
-Subject: Re: [PATCH v5 2/2] ARM: kprobes: rewrite test-arm.c in UAL
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Peter Smith <peter.smith@arm.com>, Renato Golin <rengolin@systemcall.eu>, 
-	David Spickett <david.spickett@linaro.org>, Arnd Bergmann <arnd@arndb.de>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Feb 2021 05:03:55 -0800 (PST)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::52c is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::52c;
+Received: by mail-pg1-x52c.google.com with SMTP id b21so3817295pgk.7
+        for <clang-built-linux@googlegroups.com>; Thu, 11 Feb 2021 05:03:55 -0800 (PST)
+X-Received: by 2002:aa7:998b:0:b029:1e5:f109:aa78 with SMTP id k11-20020aa7998b0000b02901e5f109aa78mr5548884pfh.19.1613048632365;
+        Thu, 11 Feb 2021 05:03:52 -0800 (PST)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id p29sm6273463pgm.64.2021.02.11.05.03.51
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Feb 2021 05:03:51 -0800 (PST)
+Message-ID: <60252b37.1c69fb81.2aa31.d6b4@mx.google.com>
+Date: Thu, 11 Feb 2021 05:03:51 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20210211
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+Subject: next/master build: 230 builds: 20 failed, 210 passed, 30 errors,
+ 385 warnings (next-20210211)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=o+cMswZf;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=sejrMlhR;       spf=neutral (google.com: 2607:f8b0:4864:20::52c is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,569 +134,2843 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 11 Feb 2021 at 03:52, Nick Desaulniers <ndesaulniers@google.com> wrote:
->
-> Clang's integrated assembler only accepts UAL syntax, rewrite the
-> instructions that were changed by RVCTv2.1.  The document "Assembly
-> language changes after RVCTv2.1" was very helpful.
->
->   .syntax unified
->
-> directive is added, since -masm-syntax-unified is unreliable for older
-> but supported versions of GCC. See also:
->
-> commit fe09d9c641f2 ("ARM: 8852/1: uaccess: use unified assembler language syntax")
->
-> Link: https://developer.arm.com/documentation/dui0473/c/writing-arm-assembly-language/assembly-language-changes-after-rvctv2-1
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1271
-> Reported-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+next/master build: 230 builds: 20 failed, 210 passed, 30 errors, 385 warnin=
+gs (next-20210211)
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20210211/
 
-> ---
->  arch/arm/probes/kprobes/test-arm.c  | 290 ++++++++++++++--------------
->  arch/arm/probes/kprobes/test-core.h |   1 +
->  2 files changed, 146 insertions(+), 145 deletions(-)
->
-> diff --git a/arch/arm/probes/kprobes/test-arm.c b/arch/arm/probes/kprobes/test-arm.c
-> index 2543106a203e..a0dae35ffacd 100644
-> --- a/arch/arm/probes/kprobes/test-arm.c
-> +++ b/arch/arm/probes/kprobes/test-arm.c
-> @@ -55,25 +55,25 @@ void kprobe_arm_test_cases(void)
->         TEST_GROUP("Data-processing (register), (register-shifted register), (immediate)")
->
->  #define _DATA_PROCESSING_DNM(op,s,val)                                         \
-> -       TEST_RR(  op "eq" s "   r0,  r",1, VAL1,", r",2, val, "")               \
-> -       TEST_RR(  op "ne" s "   r1,  r",1, VAL1,", r",2, val, ", lsl #3")       \
-> -       TEST_RR(  op "cs" s "   r2,  r",3, VAL1,", r",2, val, ", lsr #4")       \
-> -       TEST_RR(  op "cc" s "   r3,  r",3, VAL1,", r",2, val, ", asr #5")       \
-> -       TEST_RR(  op "mi" s "   r4,  r",5, VAL1,", r",2, N(val),", asr #6")     \
-> -       TEST_RR(  op "pl" s "   r5,  r",5, VAL1,", r",2, val, ", ror #7")       \
-> -       TEST_RR(  op "vs" s "   r6,  r",7, VAL1,", r",2, val, ", rrx")          \
-> -       TEST_R(   op "vc" s "   r6,  r",7, VAL1,", pc, lsl #3")                 \
-> -       TEST_R(   op "vc" s "   r6,  r",7, VAL1,", sp, lsr #4")                 \
-> -       TEST_R(   op "vc" s "   r6,  pc, r",7, VAL1,", asr #5")                 \
-> -       TEST_R(   op "vc" s "   r6,  sp, r",7, VAL1,", ror #6")                 \
-> -       TEST_RRR( op "hi" s "   r8,  r",9, VAL1,", r",14,val, ", lsl r",0, 3,"")\
-> -       TEST_RRR( op "ls" s "   r9,  r",9, VAL1,", r",14,val, ", lsr r",7, 4,"")\
-> -       TEST_RRR( op "ge" s "   r10, r",11,VAL1,", r",14,val, ", asr r",7, 5,"")\
-> -       TEST_RRR( op "lt" s "   r11, r",11,VAL1,", r",14,N(val),", asr r",7, 6,"")\
-> -       TEST_RR(  op "gt" s "   r12, r13"       ", r",14,val, ", ror r",14,7,"")\
-> -       TEST_RR(  op "le" s "   r14, r",0, val, ", r13"       ", lsl r",14,8,"")\
-> -       TEST_R(   op "eq" s "   r0,  r",11,VAL1,", #0xf5")                      \
-> -       TEST_R(   op "ne" s "   r11, r",0, VAL1,", #0xf5000000")                \
-> +       TEST_RR(  op s "eq      r0,  r",1, VAL1,", r",2, val, "")               \
-> +       TEST_RR(  op s "ne      r1,  r",1, VAL1,", r",2, val, ", lsl #3")       \
-> +       TEST_RR(  op s "cs      r2,  r",3, VAL1,", r",2, val, ", lsr #4")       \
-> +       TEST_RR(  op s "cc      r3,  r",3, VAL1,", r",2, val, ", asr #5")       \
-> +       TEST_RR(  op s "mi      r4,  r",5, VAL1,", r",2, N(val),", asr #6")     \
-> +       TEST_RR(  op s "pl      r5,  r",5, VAL1,", r",2, val, ", ror #7")       \
-> +       TEST_RR(  op s "vs      r6,  r",7, VAL1,", r",2, val, ", rrx")          \
-> +       TEST_R(   op s "vc      r6,  r",7, VAL1,", pc, lsl #3")                 \
-> +       TEST_R(   op s "vc      r6,  r",7, VAL1,", sp, lsr #4")                 \
-> +       TEST_R(   op s "vc      r6,  pc, r",7, VAL1,", asr #5")                 \
-> +       TEST_R(   op s "vc      r6,  sp, r",7, VAL1,", ror #6")                 \
-> +       TEST_RRR( op s "hi      r8,  r",9, VAL1,", r",14,val, ", lsl r",0, 3,"")\
-> +       TEST_RRR( op s "ls      r9,  r",9, VAL1,", r",14,val, ", lsr r",7, 4,"")\
-> +       TEST_RRR( op s "ge      r10, r",11,VAL1,", r",14,val, ", asr r",7, 5,"")\
-> +       TEST_RRR( op s "lt      r11, r",11,VAL1,", r",14,N(val),", asr r",7, 6,"")\
-> +       TEST_RR(  op s "gt      r12, r13"       ", r",14,val, ", ror r",14,7,"")\
-> +       TEST_RR(  op s "le      r14, r",0, val, ", r13"       ", lsl r",14,8,"")\
-> +       TEST_R(   op s "eq      r0,  r",11,VAL1,", #0xf5")                      \
-> +       TEST_R(   op s "ne      r11, r",0, VAL1,", #0xf5000000")                \
->         TEST_R(   op s "        r7,  r",8, VAL2,", #0x000af000")                \
->         TEST(     op s "        r4,  pc"        ", #0x00005a00")
->
-> @@ -104,23 +104,23 @@ void kprobe_arm_test_cases(void)
->         TEST_R(   op "  r",8, VAL2,", #0x000af000")
->
->  #define _DATA_PROCESSING_DM(op,s,val)                                  \
-> -       TEST_R(   op "eq" s "   r0,  r",1, val, "")                     \
-> -       TEST_R(   op "ne" s "   r1,  r",1, val, ", lsl #3")             \
-> -       TEST_R(   op "cs" s "   r2,  r",3, val, ", lsr #4")             \
-> -       TEST_R(   op "cc" s "   r3,  r",3, val, ", asr #5")             \
-> -       TEST_R(   op "mi" s "   r4,  r",5, N(val),", asr #6")           \
-> -       TEST_R(   op "pl" s "   r5,  r",5, val, ", ror #7")             \
-> -       TEST_R(   op "vs" s "   r6,  r",10,val, ", rrx")                \
-> -       TEST(     op "vs" s "   r7,  pc, lsl #3")                       \
-> -       TEST(     op "vs" s "   r7,  sp, lsr #4")                       \
-> -       TEST_RR(  op "vc" s "   r8,  r",7, val, ", lsl r",0, 3,"")      \
-> -       TEST_RR(  op "hi" s "   r9,  r",9, val, ", lsr r",7, 4,"")      \
-> -       TEST_RR(  op "ls" s "   r10, r",9, val, ", asr r",7, 5,"")      \
-> -       TEST_RR(  op "ge" s "   r11, r",11,N(val),", asr r",7, 6,"")    \
-> -       TEST_RR(  op "lt" s "   r12, r",11,val, ", ror r",14,7,"")      \
-> -       TEST_R(   op "gt" s "   r14, r13"       ", lsl r",14,8,"")      \
-> -       TEST(     op "eq" s "   r0,  #0xf5")                            \
-> -       TEST(     op "ne" s "   r11, #0xf5000000")                      \
-> +       TEST_R(   op s "eq      r0,  r",1, val, "")                     \
-> +       TEST_R(   op s "ne      r1,  r",1, val, ", lsl #3")             \
-> +       TEST_R(   op s "cs      r2,  r",3, val, ", lsr #4")             \
-> +       TEST_R(   op s "cc      r3,  r",3, val, ", asr #5")             \
-> +       TEST_R(   op s "mi      r4,  r",5, N(val),", asr #6")           \
-> +       TEST_R(   op s "pl      r5,  r",5, val, ", ror #7")             \
-> +       TEST_R(   op s "vs      r6,  r",10,val, ", rrx")                \
-> +       TEST(     op s "vs      r7,  pc, lsl #3")                       \
-> +       TEST(     op s "vs      r7,  sp, lsr #4")                       \
-> +       TEST_RR(  op s "vc      r8,  r",7, val, ", lsl r",0, 3,"")      \
-> +       TEST_RR(  op s "hi      r9,  r",9, val, ", lsr r",7, 4,"")      \
-> +       TEST_RR(  op s "ls      r10, r",9, val, ", asr r",7, 5,"")      \
-> +       TEST_RR(  op s "ge      r11, r",11,N(val),", asr r",7, 6,"")    \
-> +       TEST_RR(  op s "lt      r12, r",11,val, ", ror r",14,7,"")      \
-> +       TEST_R(   op s "gt      r14, r13"       ", lsl r",14,8,"")      \
-> +       TEST(     op s "eq      r0,  #0xf5")                            \
-> +       TEST(     op s "ne      r11, #0xf5000000")                      \
->         TEST(     op s "        r7,  #0x000af000")                      \
->         TEST(     op s "        r4,  #0x00005a00")
->
-> @@ -352,7 +352,7 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe000029f) " @ mul r0, pc, r2")
->         TEST_UNSUPPORTED(__inst_arm(0xe0000f91) " @ mul r0, r1, pc")
->         TEST_RR(    "muls       r0, r",1, VAL1,", r",2, VAL2,"")
-> -       TEST_RR(    "mullss     r7, r",8, VAL2,", r",9, VAL2,"")
-> +       TEST_RR(    "mulsls     r7, r",8, VAL2,", r",9, VAL2,"")
->         TEST_R(     "muls       lr, r",4, VAL3,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe01f0291) " @ muls pc, r1, r2")
->
-> @@ -361,7 +361,7 @@ void kprobe_arm_test_cases(void)
->         TEST_RR(     "mla       lr, r",1, VAL2,", r",2, VAL3,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe02f3291) " @ mla pc, r1, r2, r3")
->         TEST_RRR(    "mlas      r0, r",1, VAL1,", r",2, VAL2,", r",3,  VAL3,"")
-> -       TEST_RRR(    "mlahis    r7, r",8, VAL3,", r",9, VAL1,", r",10, VAL2,"")
-> +       TEST_RRR(    "mlashi    r7, r",8, VAL3,", r",9, VAL1,", r",10, VAL2,"")
->         TEST_RR(     "mlas      lr, r",1, VAL2,", r",2, VAL3,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe03f3291) " @ mlas pc, r1, r2, r3")
->
-> @@ -394,7 +394,7 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe081f392) " @ umull pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe08f1392) " @ umull r1, pc, r2, r3")
->         TEST_RR(  "umulls       r0, r1, r",2, VAL1,", r",3, VAL2,"")
-> -       TEST_RR(  "umulllss     r7, r8, r",9, VAL2,", r",10, VAL1,"")
-> +       TEST_RR(  "umullsls     r7, r8, r",9, VAL2,", r",10, VAL1,"")
->         TEST_R(   "umulls       lr, r12, r",11,VAL3,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe091f392) " @ umulls pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe09f1392) " @ umulls r1, pc, r2, r3")
-> @@ -405,7 +405,7 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe0af1392) " @ umlal pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe0a1f392) " @ umlal r1, pc, r2, r3")
->         TEST_RRRR(  "umlals     r",0, VAL1,", r",1, VAL2,", r",2, VAL3,", r",3, VAL4)
-> -       TEST_RRRR(  "umlalles   r",8, VAL4,", r",9, VAL1,", r",10,VAL2,", r",11,VAL3)
-> +       TEST_RRRR(  "umlalsle   r",8, VAL4,", r",9, VAL1,", r",10,VAL2,", r",11,VAL3)
->         TEST_RRR(   "umlals     r",14,VAL3,", r",7, VAL4,", r",5, VAL1,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe0bf1392) " @ umlals pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe0b1f392) " @ umlals r1, pc, r2, r3")
-> @@ -416,7 +416,7 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe0c1f392) " @ smull pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe0cf1392) " @ smull r1, pc, r2, r3")
->         TEST_RR(  "smulls       r0, r1, r",2, VAL1,", r",3, VAL2,"")
-> -       TEST_RR(  "smulllss     r7, r8, r",9, VAL2,", r",10, VAL1,"")
-> +       TEST_RR(  "smullsls     r7, r8, r",9, VAL2,", r",10, VAL1,"")
->         TEST_R(   "smulls       lr, r12, r",11,VAL3,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe0d1f392) " @ smulls pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe0df1392) " @ smulls r1, pc, r2, r3")
-> @@ -427,7 +427,7 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe0ef1392) " @ smlal pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe0e1f392) " @ smlal r1, pc, r2, r3")
->         TEST_RRRR(  "smlals     r",0, VAL1,", r",1, VAL2,", r",2, VAL3,", r",3, VAL4)
-> -       TEST_RRRR(  "smlalles   r",8, VAL4,", r",9, VAL1,", r",10,VAL2,", r",11,VAL3)
-> +       TEST_RRRR(  "smlalsle   r",8, VAL4,", r",9, VAL1,", r",10,VAL2,", r",11,VAL3)
->         TEST_RRR(   "smlals     r",14,VAL3,", r",7, VAL4,", r",5, VAL1,", r13")
->         TEST_UNSUPPORTED(__inst_arm(0xe0ff1392) " @ smlals pc, r1, r2, r3")
->         TEST_UNSUPPORTED(__inst_arm(0xe0f0f392) " @ smlals r0, pc, r2, r3")
-> @@ -450,7 +450,7 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe10f0091) " @ swp r0, r1, [pc]")
->  #if __LINUX_ARM_ARCH__ < 6
->         TEST_RP("swpb   lr, r",7,VAL2,", [r",8,0,"]")
-> -       TEST_R( "swpvsb r0, r",1,VAL1,", [sp]")
-> +       TEST_R( "swpbvs r0, r",1,VAL1,", [sp]")
->  #else
->         TEST_UNSUPPORTED(__inst_arm(0xe148e097) " @ swpb        lr, r7, [r8]")
->         TEST_UNSUPPORTED(__inst_arm(0x614d0091) " @ swpvsb      r0, r1, [sp]")
-> @@ -477,11 +477,11 @@ void kprobe_arm_test_cases(void)
->         TEST_GROUP("Extra load/store instructions")
->
->         TEST_RPR(  "strh        r",0, VAL1,", [r",1, 48,", -r",2, 24,"]")
-> -       TEST_RPR(  "streqh      r",14,VAL2,", [r",11,0, ", r",12, 48,"]")
-> -       TEST_UNSUPPORTED(  "streqh      r14, [r13, r12]")
-> -       TEST_UNSUPPORTED(  "streqh      r14, [r12, r13]")
-> +       TEST_RPR(  "strheq      r",14,VAL2,", [r",11,0, ", r",12, 48,"]")
-> +       TEST_UNSUPPORTED(  "strheq      r14, [r13, r12]")
-> +       TEST_UNSUPPORTED(  "strheq      r14, [r12, r13]")
->         TEST_RPR(  "strh        r",1, VAL1,", [r",2, 24,", r",3,  48,"]!")
-> -       TEST_RPR(  "strneh      r",12,VAL2,", [r",11,48,", -r",10,24,"]!")
-> +       TEST_RPR(  "strhne      r",12,VAL2,", [r",11,48,", -r",10,24,"]!")
->         TEST_RPR(  "strh        r",2, VAL1,", [r",3, 24,"], r",4, 48,"")
->         TEST_RPR(  "strh        r",10,VAL2,", [r",9, 48,"], -r",11,24,"")
->         TEST_UNSUPPORTED(__inst_arm(0xe1afc0ba) "       @ strh r12, [pc, r10]!")
-> @@ -489,9 +489,9 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe089a0bf) "       @ strh r10, [r9], pc")
->
->         TEST_PR(   "ldrh        r0, [r",0,  48,", -r",2, 24,"]")
-> -       TEST_PR(   "ldrcsh      r14, [r",13,0, ", r",12, 48,"]")
-> +       TEST_PR(   "ldrhcs      r14, [r",13,0, ", r",12, 48,"]")
->         TEST_PR(   "ldrh        r1, [r",2,  24,", r",3,  48,"]!")
-> -       TEST_PR(   "ldrcch      r12, [r",11,48,", -r",10,24,"]!")
-> +       TEST_PR(   "ldrhcc      r12, [r",11,48,", -r",10,24,"]!")
->         TEST_PR(   "ldrh        r2, [r",3,  24,"], r",4, 48,"")
->         TEST_PR(   "ldrh        r10, [r",9, 48,"], -r",11,24,"")
->         TEST_UNSUPPORTED(__inst_arm(0xe1bfc0ba) "       @ ldrh r12, [pc, r10]!")
-> @@ -499,9 +499,9 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe099a0bf) "       @ ldrh r10, [r9], pc")
->
->         TEST_RP(   "strh        r",0, VAL1,", [r",1, 24,", #-2]")
-> -       TEST_RP(   "strmih      r",14,VAL2,", [r",13,0, ", #2]")
-> +       TEST_RP(   "strhmi      r",14,VAL2,", [r",13,0, ", #2]")
->         TEST_RP(   "strh        r",1, VAL1,", [r",2, 24,", #4]!")
-> -       TEST_RP(   "strplh      r",12,VAL2,", [r",11,24,", #-4]!")
-> +       TEST_RP(   "strhpl      r",12,VAL2,", [r",11,24,", #-4]!")
->         TEST_RP(   "strh        r",2, VAL1,", [r",3, 24,"], #48")
->         TEST_RP(   "strh        r",10,VAL2,", [r",9, 64,"], #-48")
->         TEST_RP(   "strh        r",3, VAL1,", [r",13,TEST_MEMORY_SIZE,", #-"__stringify(MAX_STACK_SIZE)"]!")
-> @@ -511,9 +511,9 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe0c9f3b0) "       @ strh pc, [r9], #48")
->
->         TEST_P(    "ldrh        r0, [r",0,  24,", #-2]")
-> -       TEST_P(    "ldrvsh      r14, [r",13,0, ", #2]")
-> +       TEST_P(    "ldrhvs      r14, [r",13,0, ", #2]")
->         TEST_P(    "ldrh        r1, [r",2,  24,", #4]!")
-> -       TEST_P(    "ldrvch      r12, [r",11,24,", #-4]!")
-> +       TEST_P(    "ldrhvc      r12, [r",11,24,", #-4]!")
->         TEST_P(    "ldrh        r2, [r",3,  24,"], #48")
->         TEST_P(    "ldrh        r10, [r",9, 64,"], #-48")
->         TEST(      "ldrh        r0, [pc, #0]")
-> @@ -521,18 +521,18 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe0d9f3b0) "       @ ldrh pc, [r9], #48")
->
->         TEST_PR(   "ldrsb       r0, [r",0,  48,", -r",2, 24,"]")
-> -       TEST_PR(   "ldrhisb     r14, [r",13,0,", r",12,  48,"]")
-> +       TEST_PR(   "ldrsbhi     r14, [r",13,0,", r",12,  48,"]")
->         TEST_PR(   "ldrsb       r1, [r",2,  24,", r",3,  48,"]!")
-> -       TEST_PR(   "ldrlssb     r12, [r",11,48,", -r",10,24,"]!")
-> +       TEST_PR(   "ldrsbls     r12, [r",11,48,", -r",10,24,"]!")
->         TEST_PR(   "ldrsb       r2, [r",3,  24,"], r",4, 48,"")
->         TEST_PR(   "ldrsb       r10, [r",9, 48,"], -r",11,24,"")
->         TEST_UNSUPPORTED(__inst_arm(0xe1bfc0da) "       @ ldrsb r12, [pc, r10]!")
->         TEST_UNSUPPORTED(__inst_arm(0xe099f0db) "       @ ldrsb pc, [r9], r11")
->
->         TEST_P(    "ldrsb       r0, [r",0,  24,", #-1]")
-> -       TEST_P(    "ldrgesb     r14, [r",13,0, ", #1]")
-> +       TEST_P(    "ldrsbge     r14, [r",13,0, ", #1]")
->         TEST_P(    "ldrsb       r1, [r",2,  24,", #4]!")
-> -       TEST_P(    "ldrltsb     r12, [r",11,24,", #-4]!")
-> +       TEST_P(    "ldrsblt     r12, [r",11,24,", #-4]!")
->         TEST_P(    "ldrsb       r2, [r",3,  24,"], #48")
->         TEST_P(    "ldrsb       r10, [r",9, 64,"], #-48")
->         TEST(      "ldrsb       r0, [pc, #0]")
-> @@ -540,18 +540,18 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe0d9f3d0) "       @ ldrsb pc, [r9], #48")
->
->         TEST_PR(   "ldrsh       r0, [r",0,  48,", -r",2, 24,"]")
-> -       TEST_PR(   "ldrgtsh     r14, [r",13,0, ", r",12, 48,"]")
-> +       TEST_PR(   "ldrshgt     r14, [r",13,0, ", r",12, 48,"]")
->         TEST_PR(   "ldrsh       r1, [r",2,  24,", r",3,  48,"]!")
-> -       TEST_PR(   "ldrlesh     r12, [r",11,48,", -r",10,24,"]!")
-> +       TEST_PR(   "ldrshle     r12, [r",11,48,", -r",10,24,"]!")
->         TEST_PR(   "ldrsh       r2, [r",3,  24,"], r",4, 48,"")
->         TEST_PR(   "ldrsh       r10, [r",9, 48,"], -r",11,24,"")
->         TEST_UNSUPPORTED(__inst_arm(0xe1bfc0fa) "       @ ldrsh r12, [pc, r10]!")
->         TEST_UNSUPPORTED(__inst_arm(0xe099f0fb) "       @ ldrsh pc, [r9], r11")
->
->         TEST_P(    "ldrsh       r0, [r",0,  24,", #-1]")
-> -       TEST_P(    "ldreqsh     r14, [r",13,0 ,", #1]")
-> +       TEST_P(    "ldrsheq     r14, [r",13,0 ,", #1]")
->         TEST_P(    "ldrsh       r1, [r",2,  24,", #4]!")
-> -       TEST_P(    "ldrnesh     r12, [r",11,24,", #-4]!")
-> +       TEST_P(    "ldrshne     r12, [r",11,24,", #-4]!")
->         TEST_P(    "ldrsh       r2, [r",3,  24,"], #48")
->         TEST_P(    "ldrsh       r10, [r",9, 64,"], #-48")
->         TEST(      "ldrsh       r0, [pc, #0]")
-> @@ -571,30 +571,30 @@ void kprobe_arm_test_cases(void)
->
->  #if __LINUX_ARM_ARCH__ >= 5
->         TEST_RPR(  "strd        r",0, VAL1,", [r",1, 48,", -r",2,24,"]")
-> -       TEST_RPR(  "strccd      r",8, VAL2,", [r",11,0, ", r",12,48,"]")
-> -       TEST_UNSUPPORTED(  "strccd r8, [r13, r12]")
-> -       TEST_UNSUPPORTED(  "strccd r8, [r12, r13]")
-> +       TEST_RPR(  "strdcc      r",8, VAL2,", [r",11,0, ", r",12,48,"]")
-> +       TEST_UNSUPPORTED(  "strdcc r8, [r13, r12]")
-> +       TEST_UNSUPPORTED(  "strdcc r8, [r12, r13]")
->         TEST_RPR(  "strd        r",4, VAL1,", [r",2, 24,", r",3, 48,"]!")
-> -       TEST_RPR(  "strcsd      r",12,VAL2,", [r",11,48,", -r",10,24,"]!")
-> -       TEST_RPR(  "strd        r",2, VAL1,", [r",5, 24,"], r",4,48,"")
-> -       TEST_RPR(  "strd        r",10,VAL2,", [r",9, 48,"], -r",7,24,"")
-> +       TEST_RPR(  "strdcs      r",12,VAL2,", r13, [r",11,48,", -r",10,24,"]!")
-> +       TEST_RPR(  "strd        r",2, VAL1,", r3, [r",5, 24,"], r",4,48,"")
-> +       TEST_RPR(  "strd        r",10,VAL2,", r11, [r",9, 48,"], -r",7,24,"")
->         TEST_UNSUPPORTED(__inst_arm(0xe1afc0fa) "       @ strd r12, [pc, r10]!")
->
->         TEST_PR(   "ldrd        r0, [r",0, 48,", -r",2,24,"]")
-> -       TEST_PR(   "ldrmid      r8, [r",13,0, ", r",12,48,"]")
-> +       TEST_PR(   "ldrdmi      r8, [r",13,0, ", r",12,48,"]")
->         TEST_PR(   "ldrd        r4, [r",2, 24,", r",3, 48,"]!")
-> -       TEST_PR(   "ldrpld      r6, [r",11,48,", -r",10,24,"]!")
-> -       TEST_PR(   "ldrd        r2, [r",5, 24,"], r",4,48,"")
-> -       TEST_PR(   "ldrd        r10, [r",9,48,"], -r",7,24,"")
-> +       TEST_PR(   "ldrdpl      r6, [r",11,48,", -r",10,24,"]!")
-> +       TEST_PR(   "ldrd        r2, r3, [r",5, 24,"], r",4,48,"")
-> +       TEST_PR(   "ldrd        r10, r11, [r",9,48,"], -r",7,24,"")
->         TEST_UNSUPPORTED(__inst_arm(0xe1afc0da) "       @ ldrd r12, [pc, r10]!")
->         TEST_UNSUPPORTED(__inst_arm(0xe089f0db) "       @ ldrd pc, [r9], r11")
->         TEST_UNSUPPORTED(__inst_arm(0xe089e0db) "       @ ldrd lr, [r9], r11")
->         TEST_UNSUPPORTED(__inst_arm(0xe089c0df) "       @ ldrd r12, [r9], pc")
->
->         TEST_RP(   "strd        r",0, VAL1,", [r",1, 24,", #-8]")
-> -       TEST_RP(   "strvsd      r",8, VAL2,", [r",13,0, ", #8]")
-> +       TEST_RP(   "strdvs      r",8, VAL2,", [r",13,0, ", #8]")
->         TEST_RP(   "strd        r",4, VAL1,", [r",2, 24,", #16]!")
-> -       TEST_RP(   "strvcd      r",12,VAL2,", [r",11,24,", #-16]!")
-> +       TEST_RP(   "strdvc      r",12,VAL2,", r13, [r",11,24,", #-16]!")
->         TEST_RP(   "strd        r",2, VAL1,", [r",4, 24,"], #48")
->         TEST_RP(   "strd        r",10,VAL2,", [r",9, 64,"], #-48")
->         TEST_RP(   "strd        r",6, VAL1,", [r",13,TEST_MEMORY_SIZE,", #-"__stringify(MAX_STACK_SIZE)"]!")
-> @@ -603,9 +603,9 @@ void kprobe_arm_test_cases(void)
->         TEST_UNSUPPORTED(__inst_arm(0xe1efc3f0) "       @ strd r12, [pc, #48]!")
->
->         TEST_P(    "ldrd        r0, [r",0, 24,", #-8]")
-> -       TEST_P(    "ldrhid      r8, [r",13,0, ", #8]")
-> +       TEST_P(    "ldrdhi      r8, [r",13,0, ", #8]")
->         TEST_P(    "ldrd        r4, [r",2, 24,", #16]!")
-> -       TEST_P(    "ldrlsd      r6, [r",11,24,", #-16]!")
-> +       TEST_P(    "ldrdls      r6, [r",11,24,", #-16]!")
->         TEST_P(    "ldrd        r2, [r",5, 24,"], #48")
->         TEST_P(    "ldrd        r10, [r",9,6,"], #-48")
->         TEST_UNSUPPORTED(__inst_arm(0xe1efc3d0) "       @ ldrd r12, [pc, #48]!")
-> @@ -1084,63 +1084,63 @@ void kprobe_arm_test_cases(void)
->         TEST_GROUP("Branch, branch with link, and block data transfer")
->
->         TEST_P(   "stmda        r",0, 16*4,", {r0}")
-> -       TEST_P(   "stmeqda      r",4, 16*4,", {r0-r15}")
-> -       TEST_P(   "stmneda      r",8, 16*4,"!, {r8-r15}")
-> +       TEST_P(   "stmdaeq      r",4, 16*4,", {r0-r15}")
-> +       TEST_P(   "stmdane      r",8, 16*4,"!, {r8-r15}")
->         TEST_P(   "stmda        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_P(   "stmda        r",13,0,   "!, {pc}")
->
->         TEST_P(   "ldmda        r",0, 16*4,", {r0}")
-> -       TEST_BF_P("ldmcsda      r",4, 15*4,", {r0-r15}")
-> -       TEST_BF_P("ldmccda      r",7, 15*4,"!, {r8-r15}")
-> +       TEST_BF_P("ldmdacs      r",4, 15*4,", {r0-r15}")
-> +       TEST_BF_P("ldmdacc      r",7, 15*4,"!, {r8-r15}")
->         TEST_P(   "ldmda        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_BF_P("ldmda        r",14,15*4,"!, {pc}")
->
->         TEST_P(   "stmia        r",0, 16*4,", {r0}")
-> -       TEST_P(   "stmmiia      r",4, 16*4,", {r0-r15}")
-> -       TEST_P(   "stmplia      r",8, 16*4,"!, {r8-r15}")
-> +       TEST_P(   "stmiami      r",4, 16*4,", {r0-r15}")
-> +       TEST_P(   "stmiapl      r",8, 16*4,"!, {r8-r15}")
->         TEST_P(   "stmia        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_P(   "stmia        r",14,0,   "!, {pc}")
->
->         TEST_P(   "ldmia        r",0, 16*4,", {r0}")
-> -       TEST_BF_P("ldmvsia      r",4, 0,   ", {r0-r15}")
-> -       TEST_BF_P("ldmvcia      r",7, 8*4, "!, {r8-r15}")
-> +       TEST_BF_P("ldmiavs      r",4, 0,   ", {r0-r15}")
-> +       TEST_BF_P("ldmiavc      r",7, 8*4, "!, {r8-r15}")
->         TEST_P(   "ldmia        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_BF_P("ldmia        r",14,15*4,"!, {pc}")
->
->         TEST_P(   "stmdb        r",0, 16*4,", {r0}")
-> -       TEST_P(   "stmhidb      r",4, 16*4,", {r0-r15}")
-> -       TEST_P(   "stmlsdb      r",8, 16*4,"!, {r8-r15}")
-> +       TEST_P(   "stmdbhi      r",4, 16*4,", {r0-r15}")
-> +       TEST_P(   "stmdbls      r",8, 16*4,"!, {r8-r15}")
->         TEST_P(   "stmdb        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_P(   "stmdb        r",13,4,   "!, {pc}")
->
->         TEST_P(   "ldmdb        r",0, 16*4,", {r0}")
-> -       TEST_BF_P("ldmgedb      r",4, 16*4,", {r0-r15}")
-> -       TEST_BF_P("ldmltdb      r",7, 16*4,"!, {r8-r15}")
-> +       TEST_BF_P("ldmdbge      r",4, 16*4,", {r0-r15}")
-> +       TEST_BF_P("ldmdblt      r",7, 16*4,"!, {r8-r15}")
->         TEST_P(   "ldmdb        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_BF_P("ldmdb        r",14,16*4,"!, {pc}")
->
->         TEST_P(   "stmib        r",0, 16*4,", {r0}")
-> -       TEST_P(   "stmgtib      r",4, 16*4,", {r0-r15}")
-> -       TEST_P(   "stmleib      r",8, 16*4,"!, {r8-r15}")
-> +       TEST_P(   "stmibgt      r",4, 16*4,", {r0-r15}")
-> +       TEST_P(   "stmible      r",8, 16*4,"!, {r8-r15}")
->         TEST_P(   "stmib        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_P(   "stmib        r",13,-4,  "!, {pc}")
->
->         TEST_P(   "ldmib        r",0, 16*4,", {r0}")
-> -       TEST_BF_P("ldmeqib      r",4, -4,", {r0-r15}")
-> -       TEST_BF_P("ldmneib      r",7, 7*4,"!, {r8-r15}")
-> +       TEST_BF_P("ldmibeq      r",4, -4,", {r0-r15}")
-> +       TEST_BF_P("ldmibne      r",7, 7*4,"!, {r8-r15}")
->         TEST_P(   "ldmib        r",12,16*4,"!, {r1,r3,r5,r7,r8-r11,r14}")
->         TEST_BF_P("ldmib        r",14,14*4,"!, {pc}")
->
->         TEST_P(   "stmdb        r",13,16*4,"!, {r3-r12,lr}")
-> -       TEST_P(   "stmeqdb      r",13,16*4,"!, {r3-r12}")
-> -       TEST_P(   "stmnedb      r",2, 16*4,", {r3-r12,lr}")
-> +       TEST_P(   "stmdbeq      r",13,16*4,"!, {r3-r12}")
-> +       TEST_P(   "stmdbne      r",2, 16*4,", {r3-r12,lr}")
->         TEST_P(   "stmdb        r",13,16*4,"!, {r2-r12,lr}")
->         TEST_P(   "stmdb        r",0, 16*4,", {r0-r12}")
->         TEST_P(   "stmdb        r",0, 16*4,", {r0-r12,lr}")
->
->         TEST_BF_P("ldmia        r",13,5*4, "!, {r3-r12,pc}")
-> -       TEST_P(   "ldmccia      r",13,5*4, "!, {r3-r12}")
-> -       TEST_BF_P("ldmcsia      r",2, 5*4, "!, {r3-r12,pc}")
-> +       TEST_P(   "ldmiacc      r",13,5*4, "!, {r3-r12}")
-> +       TEST_BF_P("ldmiacs      r",2, 5*4, "!, {r3-r12,pc}")
->         TEST_BF_P("ldmia        r",13,4*4, "!, {r2-r12,pc}")
->         TEST_P(   "ldmia        r",0, 16*4,", {r0-r12}")
->         TEST_P(   "ldmia        r",0, 16*4,", {r0-r12,lr}")
-> @@ -1174,80 +1174,80 @@ void kprobe_arm_test_cases(void)
->  #define TEST_COPROCESSOR(code) TEST_UNSUPPORTED(code)
->
->  #define COPROCESSOR_INSTRUCTIONS_ST_LD(two,cc)                                 \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13, #4]")                     \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13, #-4]")                    \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13, #4]!")                    \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13, #-4]!")                   \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13], #4")                     \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13], #-4")                    \
-> -       TEST_COPROCESSOR("stc"two"      0, cr0, [r13], {1}")                    \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13, #4]")                     \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13, #-4]")                    \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13, #4]!")                    \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13, #-4]!")                   \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13], #4")                     \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13], #-4")                    \
-> -       TEST_COPROCESSOR("stc"two"l     0, cr0, [r13], {1}")                    \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13, #4]")                     \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13, #-4]")                    \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13, #4]!")                    \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13, #-4]!")                   \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13], #4")                     \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13], #-4")                    \
-> -       TEST_COPROCESSOR("ldc"two"      0, cr0, [r13], {1}")                    \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13, #4]")                     \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13, #-4]")                    \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13, #4]!")                    \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13, #-4]!")                   \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13], #4")                     \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13], #-4")                    \
-> -       TEST_COPROCESSOR("ldc"two"l     0, cr0, [r13], {1}")                    \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13, #4]")                    \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13, #-4]")                   \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13, #4]!")                   \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13, #-4]!")                  \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13], #4")                    \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13], #-4")                   \
-> +       TEST_COPROCESSOR("stc"two"      p0, cr0, [r13], {1}")                   \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13, #4]")                    \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13, #-4]")                   \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13, #4]!")                   \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13, #-4]!")                  \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13], #4")                    \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13], #-4")                   \
-> +       TEST_COPROCESSOR("stc"two"l     p0, cr0, [r13], {1}")                   \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13, #4]")                    \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13, #-4]")                   \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13, #4]!")                   \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13, #-4]!")                  \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13], #4")                    \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13], #-4")                   \
-> +       TEST_COPROCESSOR("ldc"two"      p0, cr0, [r13], {1}")                   \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13, #4]")                    \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13, #-4]")                   \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13, #4]!")                   \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13, #-4]!")                  \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13], #4")                    \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13], #-4")                   \
-> +       TEST_COPROCESSOR("ldc"two"l     p0, cr0, [r13], {1}")                   \
->                                                                                 \
-> -       TEST_COPROCESSOR( "stc"two"     0, cr0, [r15, #4]")                     \
-> -       TEST_COPROCESSOR( "stc"two"     0, cr0, [r15, #-4]")                    \
-> +       TEST_COPROCESSOR( "stc"two"     p0, cr0, [r15, #4]")                    \
-> +       TEST_COPROCESSOR( "stc"two"     p0, cr0, [r15, #-4]")                   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##daf0001) "  @ stc"two"      0, cr0, [r15, #4]!")    \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##d2f0001) "  @ stc"two"      0, cr0, [r15, #-4]!")   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##caf0001) "  @ stc"two"      0, cr0, [r15], #4")     \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c2f0001) "  @ stc"two"      0, cr0, [r15], #-4")    \
-> -       TEST_COPROCESSOR( "stc"two"     0, cr0, [r15], {1}")                    \
-> -       TEST_COPROCESSOR( "stc"two"l    0, cr0, [r15, #4]")                     \
-> -       TEST_COPROCESSOR( "stc"two"l    0, cr0, [r15, #-4]")                    \
-> +       TEST_COPROCESSOR( "stc"two"     p0, cr0, [r15], {1}")                   \
-> +       TEST_COPROCESSOR( "stc"two"l    p0, cr0, [r15, #4]")                    \
-> +       TEST_COPROCESSOR( "stc"two"l    p0, cr0, [r15, #-4]")                   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##def0001) "  @ stc"two"l     0, cr0, [r15, #4]!")    \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##d6f0001) "  @ stc"two"l     0, cr0, [r15, #-4]!")   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##cef0001) "  @ stc"two"l     0, cr0, [r15], #4")     \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c6f0001) "  @ stc"two"l     0, cr0, [r15], #-4")    \
-> -       TEST_COPROCESSOR( "stc"two"l    0, cr0, [r15], {1}")                    \
-> -       TEST_COPROCESSOR( "ldc"two"     0, cr0, [r15, #4]")                     \
-> -       TEST_COPROCESSOR( "ldc"two"     0, cr0, [r15, #-4]")                    \
-> +       TEST_COPROCESSOR( "stc"two"l    p0, cr0, [r15], {1}")                   \
-> +       TEST_COPROCESSOR( "ldc"two"     p0, cr0, [r15, #4]")                    \
-> +       TEST_COPROCESSOR( "ldc"two"     p0, cr0, [r15, #-4]")                   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##dbf0001) "  @ ldc"two"      0, cr0, [r15, #4]!")    \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##d3f0001) "  @ ldc"two"      0, cr0, [r15, #-4]!")   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##cbf0001) "  @ ldc"two"      0, cr0, [r15], #4")     \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c3f0001) "  @ ldc"two"      0, cr0, [r15], #-4")    \
-> -       TEST_COPROCESSOR( "ldc"two"     0, cr0, [r15], {1}")                    \
-> -       TEST_COPROCESSOR( "ldc"two"l    0, cr0, [r15, #4]")                     \
-> -       TEST_COPROCESSOR( "ldc"two"l    0, cr0, [r15, #-4]")                    \
-> +       TEST_COPROCESSOR( "ldc"two"     p0, cr0, [r15], {1}")                   \
-> +       TEST_COPROCESSOR( "ldc"two"l    p0, cr0, [r15, #4]")                    \
-> +       TEST_COPROCESSOR( "ldc"two"l    p0, cr0, [r15, #-4]")                   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##dff0001) "  @ ldc"two"l     0, cr0, [r15, #4]!")    \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##d7f0001) "  @ ldc"two"l     0, cr0, [r15, #-4]!")   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##cff0001) "  @ ldc"two"l     0, cr0, [r15], #4")     \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c7f0001) "  @ ldc"two"l     0, cr0, [r15], #-4")    \
-> -       TEST_COPROCESSOR( "ldc"two"l    0, cr0, [r15], {1}")
-> +       TEST_COPROCESSOR( "ldc"two"l    p0, cr0, [r15], {1}")
->
->  #define COPROCESSOR_INSTRUCTIONS_MC_MR(two,cc)                                 \
->                                                                                 \
-> -       TEST_COPROCESSOR( "mcrr"two"    0, 15, r0, r14, cr0")                   \
-> -       TEST_COPROCESSOR( "mcrr"two"    15, 0, r14, r0, cr15")                  \
-> +       TEST_COPROCESSOR( "mcrr"two"    p0, 15, r0, r14, cr0")                  \
-> +       TEST_COPROCESSOR( "mcrr"two"    p15, 0, r14, r0, cr15")                 \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c4f00f0) "  @ mcrr"two"     0, 15, r0, r15, cr0")   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c40ff0f) "  @ mcrr"two"     15, 0, r15, r0, cr15")  \
-> -       TEST_COPROCESSOR( "mrrc"two"    0, 15, r0, r14, cr0")                   \
-> -       TEST_COPROCESSOR( "mrrc"two"    15, 0, r14, r0, cr15")                  \
-> +       TEST_COPROCESSOR( "mrrc"two"    p0, 15, r0, r14, cr0")                  \
-> +       TEST_COPROCESSOR( "mrrc"two"    p15, 0, r14, r0, cr15")                 \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c5f00f0) "  @ mrrc"two"     0, 15, r0, r15, cr0")   \
->         TEST_UNSUPPORTED(__inst_arm(0x##cc##c50ff0f) "  @ mrrc"two"     15, 0, r15, r0, cr15")  \
-> -       TEST_COPROCESSOR( "cdp"two"     15, 15, cr15, cr15, cr15, 7")           \
-> -       TEST_COPROCESSOR( "cdp"two"     0, 0, cr0, cr0, cr0, 0")                \
-> -       TEST_COPROCESSOR( "mcr"two"     15, 7, r15, cr15, cr15, 7")             \
-> -       TEST_COPROCESSOR( "mcr"two"     0, 0, r0, cr0, cr0, 0")                 \
-> -       TEST_COPROCESSOR( "mrc"two"     15, 7, r15, cr15, cr15, 7")             \
-> -       TEST_COPROCESSOR( "mrc"two"     0, 0, r0, cr0, cr0, 0")
-> +       TEST_COPROCESSOR( "cdp"two"     p15, 15, cr15, cr15, cr15, 7")          \
-> +       TEST_COPROCESSOR( "cdp"two"     p0, 0, cr0, cr0, cr0, 0")               \
-> +       TEST_COPROCESSOR( "mcr"two"     p15, 7, r15, cr15, cr15, 7")            \
-> +       TEST_COPROCESSOR( "mcr"two"     p0, 0, r0, cr0, cr0, 0")                \
-> +       TEST_COPROCESSOR( "mrc"two"     p15, 7, r14, cr15, cr15, 7")            \
-> +       TEST_COPROCESSOR( "mrc"two"     p0, 0, r0, cr0, cr0, 0")
->
->         COPROCESSOR_INSTRUCTIONS_ST_LD("",e)
->  #if __LINUX_ARM_ARCH__ >= 5
-> diff --git a/arch/arm/probes/kprobes/test-core.h b/arch/arm/probes/kprobes/test-core.h
-> index 19a5b2add41e..f1d5583e7bbb 100644
-> --- a/arch/arm/probes/kprobes/test-core.h
-> +++ b/arch/arm/probes/kprobes/test-core.h
-> @@ -108,6 +108,7 @@ struct test_arg_end {
->
->  #define TESTCASE_START(title)                                  \
->         __asm__ __volatile__ (                                  \
-> +       ".syntax unified                                \n\t"   \
->         "bl     __kprobes_test_case_start               \n\t"   \
->         ".pushsection .rodata                           \n\t"   \
->         "10:                                            \n\t"   \
-> --
-> 2.30.0.478.g8a0d178c01-goog
->
+Tree: next
+Branch: master
+Git Describe: next-20210211
+Git Commit: 671176b0016c80b3943cb5387312c886aba3308d
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXEY-OmE33WiixrAkXLD4d7y-T2UYH4aOngHVk2hSgyvFA%40mail.gmail.com.
+Build Failures Detected:
+
+arm:
+    aspeed_g5_defconfig: (clang-10) FAIL
+
+mips:
+    32r2el_defconfig: (gcc-8) FAIL
+    bigsur_defconfig: (gcc-8) FAIL
+    bmips_be_defconfig: (gcc-8) FAIL
+    bmips_stb_defconfig: (gcc-8) FAIL
+    cavium_octeon_defconfig: (gcc-8) FAIL
+    ip27_defconfig: (gcc-8) FAIL
+    loongson3_defconfig: (gcc-8) FAIL
+    malta_defconfig: (gcc-8) FAIL
+    malta_kvm_defconfig: (gcc-8) FAIL
+    maltaaprp_defconfig: (gcc-8) FAIL
+    maltasmvp_defconfig: (gcc-8) FAIL
+    maltasmvp_eva_defconfig: (gcc-8) FAIL
+    maltaup_defconfig: (gcc-8) FAIL
+    maltaup_xpa_defconfig: (gcc-8) FAIL
+    nlm_xlp_defconfig: (gcc-8) FAIL
+    nlm_xlr_defconfig: (gcc-8) FAIL
+    pistachio_defconfig: (gcc-8) FAIL
+    sb1250_swarm_defconfig: (gcc-8) FAIL
+    xway_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+
+arm64:
+    allmodconfig (clang-10): 18 warnings
+    allmodconfig (gcc-8): 56 warnings
+    allmodconfig (clang-11): 14 warnings
+    defconfig (clang-11): 4 warnings
+    defconfig (clang-10): 4 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 4 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-11): 4 warnings
+
+arm:
+    allmodconfig (gcc-8): 57 warnings
+    aspeed_g5_defconfig (gcc-8): 1 warning
+    aspeed_g5_defconfig (clang-10): 11 errors
+    bcm2835_defconfig (gcc-8): 1 warning
+    davinci_all_defconfig (gcc-8): 1 warning
+    exynos_defconfig (gcc-8): 1 warning
+    gemini_defconfig (gcc-8): 1 warning
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (gcc-8): 1 warning
+    keystone_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    multi_v4t_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 1 warnin=
+g
+    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 1 warning
+    nhk8815_defconfig (gcc-8): 1 warning
+    omap1_defconfig (gcc-8): 2 warnings
+    omap2plus_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (gcc-8): 1 warning
+    qcom_defconfig (gcc-8): 1 warning
+    realview_defconfig (gcc-8): 1 warning
+    shmobile_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (gcc-8): 1 warning
+    tegra_defconfig (gcc-8): 1 warning
+    u8500_defconfig (gcc-8): 1 warning
+    versatile_defconfig (gcc-8): 1 warning
+    vexpress_defconfig (gcc-8): 1 warning
+
+i386:
+    allmodconfig (clang-10): 34 warnings
+    allmodconfig (clang-11): 38 warnings
+
+mips:
+    32r2el_defconfig (gcc-8): 1 error
+    bigsur_defconfig (gcc-8): 1 error
+    bmips_be_defconfig (gcc-8): 1 error
+    bmips_stb_defconfig (gcc-8): 1 error
+    cavium_octeon_defconfig (gcc-8): 1 error
+    ci20_defconfig (gcc-8): 1 warning
+    cu1000-neo_defconfig (gcc-8): 1 warning
+    cu1830-neo_defconfig (gcc-8): 1 warning
+    db1xxx_defconfig (gcc-8): 1 warning
+    gcw0_defconfig (gcc-8): 1 warning
+    ip27_defconfig (gcc-8): 1 error
+    loongson3_defconfig (gcc-8): 1 error
+    malta_defconfig (gcc-8): 1 error
+    malta_kvm_defconfig (gcc-8): 1 error
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    maltaaprp_defconfig (gcc-8): 1 error
+    maltasmvp_defconfig (gcc-8): 1 error
+    maltasmvp_eva_defconfig (gcc-8): 1 error
+    maltaup_defconfig (gcc-8): 1 error
+    maltaup_xpa_defconfig (gcc-8): 1 error
+    nlm_xlp_defconfig (gcc-8): 1 error
+    nlm_xlr_defconfig (gcc-8): 1 error
+    pistachio_defconfig (gcc-8): 1 error
+    qi_lb60_defconfig (gcc-8): 1 warning
+    rm200_defconfig (gcc-8): 1 warning
+    rs90_defconfig (gcc-8): 1 warning
+    sb1250_swarm_defconfig (gcc-8): 1 error
+    xway_defconfig (gcc-8): 1 error
+
+riscv:
+    defconfig+CONFIG_EFI=3Dn (clang-11): 1 warning
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (clang-11): 23 warnings
+    allmodconfig (clang-10): 18 warnings
+    allmodconfig (gcc-8): 62 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (clang-10): 2 warnings
+    x86_64_defconfig (clang-11): 2 warnings
+
+Errors summary:
+
+    19   ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =
+=E2=80=98queued_spin_unlock=E2=80=99
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37554): reloca=
+tion R_ARM_PREL31 out of range: 2135593956 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x374B4): reloca=
+tion R_ARM_PREL31 out of range: 2135594116 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x374A4): reloca=
+tion R_ARM_PREL31 out of range: 2135594132 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37454): reloca=
+tion R_ARM_PREL31 out of range: 2135594212 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37444): reloca=
+tion R_ARM_PREL31 out of range: 2135594228 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x3742C): reloca=
+tion R_ARM_PREL31 out of range: 2135594252 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37414): reloca=
+tion R_ARM_PREL31 out of range: 2135594276 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x373E4): reloca=
+tion R_ARM_PREL31 out of range: 2135594324 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x373B4): reloca=
+tion R_ARM_PREL31 out of range: 2135594372 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x3736C): reloca=
+tion R_ARM_PREL31 out of range: 2135594444 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x34D70): reloca=
+tion R_ARM_PREL31 out of range: 2135538632 is not in [-1073741824, 10737418=
+23]
+
+Warnings summary:
+
+    45   1 warning generated.
+    34   ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=
+=E2=80=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4=
+ has type =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    8    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: v=
+ariable 'ret' is uninitialized when used here [-Wuninitialized]
+    8    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: init=
+ialize the variable 'ret' to silence this warning
+    7    2 warnings generated.
+    6    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_fr=
+ame'
+    6    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: va=
+riable 'stats' is uninitialized when used here [-Wuninitialized]
+    6    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: init=
+ialize the variable 'stats' to silence this warning
+    6    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warnin=
+g: variable 'mode' is used uninitialized whenever switch default is taken [=
+-Wsometimes-uninitialized]
+    6    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note:=
+ initialize the variable 'mode' to silence this warning
+    6    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: v=
+ariable 'structure_size' is used uninitialized whenever switch default is t=
+aken [-Wsometimes-uninitialized]
+    6    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: ini=
+tialize the variable 'structure_size' to silence this warning
+    5    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/mod=
+ules/5.11.0-rc7-next-20210211/kernel/drivers/media/tuners/tuner-types.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the fra=
+me size of 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:7349:1: warning: the frame size of 2272 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:7349:1: warning: the frame size of 2256 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:7349:1: warning: the frame size of 2240 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:5962:1: warning: the frame size of 2912 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:5962:1: warning: the frame size of 2904 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:5962:1: warning: the frame size of 2872 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:2787:1: warning: the frame size of 5360 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:2787:1: warning: the frame size of 5296 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:2787:1: warning: the frame size of 5248 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:1969:1: warning: the frame size of 2248 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:1969:1: warning: the frame size of 2216 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/wireless/nl80211.c:1969:1: warning: the frame size of 2208 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    net/ipv4/tcp.c:3893:1: warning: the frame size of 2056 bytes is la=
+rger than 2048 bytes [-Wframe-larger-than=3D]
+    2    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x3=
+ce: call to __ubsan_handle_add_overflow() with UACCESS enabled
+    2    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x1=
+3c: call to do_strncpy_from_user() with UACCESS enabled
+    2    lib/bitfield_kunit.c:93:1: warning: the frame size of 11296 bytes =
+is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    2    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 1836 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    2    drivers/net/wireless/ralink/rt2x00/rt73usb.c:1283:1: warning: the =
+frame size of 2656 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2120 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2088 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2080 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/macsec.c:3252:1: warning: the frame size of 4176 bytes=
+ is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/macsec.c:3252:1: warning: the frame size of 4080 bytes=
+ is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/macsec.c:3252:1: warning: the frame size of 4040 bytes=
+ is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/net/ethernet/mellanox/mlx5/core/en_tc.c:554:12: warning: s=
+tack frame size of 1148 bytes in function 'mlx5e_hairpin_rss_init' [-Wframe=
+-larger-than=3D]
+    2    drivers/media/tuners/r820t.c:1327:1: warning: the frame size of 28=
+32 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the fra=
+me size of 2144 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/dvb-frontends/stv090x.c:3419:1: warning: the frame s=
+ize of 5280 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/dvb-frontends/stv090x.c:3078:1: warning: the frame s=
+ize of 5888 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/dvb-frontends/stv090x.c:2125:1: warning: the frame s=
+ize of 2096 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/dvb-frontends/stv090x.c:1940:1: warning: the frame s=
+ize of 3280 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/dvb-frontends/stv0367.c:1902:1: warning: the frame s=
+ize of 3296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/media/dvb-frontends/cxd2841er.c:3640:1: warning: the frame=
+ size of 2784 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/tiny/ili9225.c:281:1: warning: the frame size of 2=
+720 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    arch/x86/kvm/x86.c:5044:1: warning: the frame size of 2352 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    arch/x86/kernel/cpu/mshyperv.c:443:1: warning: the frame size of 3=
+880 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:39: Warning: macro instruction expanded into mult=
+iple instructions
+    1    net/rose/rose_subr.o: warning: objtool: rose_write_internal() fall=
+s through to next function rose_decode()
+    1    net/ieee802154/nl802154.c:541:1: warning: the frame size of 2256 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/ieee802154/nl802154.c:541:1: warning: the frame size of 2224 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/ieee802154/nl802154.c:541:1: warning: the frame size of 2216 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/caif/cfctrl.c:549:1: warning: the frame size of 2624 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/caif/cfctrl.c:549:1: warning: the frame size of 2592 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/caif/cfctrl.c:549:1: warning: the frame size of 2576 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/bridge/br_netlink.c:306:1: warning: the frame size of 2200 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/bridge/br_netlink.c:306:1: warning: the frame size of 2152 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/bridge/br_netlink.c:306:1: warning: the frame size of 2144 byt=
+es is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/bridge/br_netlink.c:1663:1: warning: the frame size of 2744 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/bridge/br_netlink.c:1663:1: warning: the frame size of 2696 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    net/bridge/br_netlink.c:1663:1: warning: the frame size of 2672 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/test_kasan.c:892:1: warning: the frame size of 2432 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/test_kasan.c:892:1: warning: the frame size of 2384 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/test_kasan.c:892:1: warning: the frame size of 2160 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/test_kasan.c:875:1: warning: the frame size of 2160 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/test_kasan.c:875:1: warning: the frame size of 2128 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/strnlen_user.o: warning: objtool: strnlen_user()+0xf2: call to=
+ do_strnlen_user() with UACCESS enabled
+    1    lib/strnlen_user.o: warning: objtool: strnlen_user()+0x398: call t=
+o __ubsan_handle_add_overflow() with UACCESS enabled
+    1    lib/crypto/curve25519-hacl64.c:601:1: warning: the frame size of 2=
+384 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/crypto/curve25519-hacl64.c:601:1: warning: the frame size of 2=
+112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    lib/bitfield_kunit.c:93:1: warning: the frame size of 11216 bytes =
+is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete=
+()+0x114d: stack state mismatch: cfa1=3D7+184 cfa2=3D7+176
+    1    fs/ocfs2/xattr.c:3678:1: warning: the frame size of 2368 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/xattr.c:3678:1: warning: the frame size of 2336 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/xattr.c:3678:1: warning: the frame size of 2192 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/super.c:1197:1: warning: the frame size of 3184 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/super.c:1197:1: warning: the frame size of 3176 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/super.c:1197:1: warning: the frame size of 2688 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/namei.c:2072:1: warning: the frame size of 2064 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/namei.c:1694:1: warning: the frame size of 2616 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/namei.c:1694:1: warning: the frame size of 2592 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/namei.c:1694:1: warning: the frame size of 2480 bytes is =
+larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/dlm/dlmrecovery.c:737:1: warning: the frame size of 2112 =
+bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/dlm/dlmrecovery.c:737:1: warning: the frame size of 2072 =
+bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/aops.c:1884:1: warning: the frame size of 2128 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    fs/ocfs2/aops.c:1884:1: warning: the frame size of 2112 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/staging/rtl8723bs/hal/HalBtc8723b2Ant.c:2756:1: warning: t=
+he frame size of 2504 bytes is larger than 2048 bytes [-Wframe-larger-than=
+=3D]
+    1    drivers/staging/media/atomisp/pci/atomisp_cmd.c:5600:5: warning: s=
+tack frame size of 1068 bytes in function 'atomisp_set_fmt' [-Wframe-larger=
+-than=3D]
+    1    drivers/staging/media/atomisp/pci/atomisp_cmd.c:5600:5: warning: s=
+tack frame size of 1048 bytes in function 'atomisp_set_fmt' [-Wframe-larger=
+-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3344 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size=
+ of 1756 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-la=
+rger-than=3D]
+    1    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size=
+ of 1752 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-la=
+rger-than=3D]
+    1    drivers/net/wireless/realtek/rtl818x/rtl8180/rtl8225se.c:386:1: wa=
+rning: the frame size of 4240 bytes is larger than 2048 bytes [-Wframe-larg=
+er-than=3D]
+    1    drivers/net/wireless/realtek/rtl818x/rtl8180/rtl8225se.c:386:1: wa=
+rning: the frame size of 4224 bytes is larger than 2048 bytes [-Wframe-larg=
+er-than=3D]
+    1    drivers/net/wireless/realtek/rtl818x/rtl8180/rtl8225se.c:386:1: wa=
+rning: the frame size of 4216 bytes is larger than 2048 bytes [-Wframe-larg=
+er-than=3D]
+    1    drivers/net/wireless/ralink/rt2x00/rt73usb.c:1283:1: warning: the =
+frame size of 2688 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/wireless/ralink/rt2x00/rt2500usb.c:880:1: warning: the=
+ frame size of 2568 bytes is larger than 2048 bytes [-Wframe-larger-than=3D=
+]
+    1    drivers/net/wireless/ralink/rt2x00/rt2500usb.c:880:1: warning: the=
+ frame size of 2472 bytes is larger than 2048 bytes [-Wframe-larger-than=3D=
+]
+    1    drivers/net/wireless/ralink/rt2x00/rt2500usb.c:880:1: warning: the=
+ frame size of 2464 bytes is larger than 2048 bytes [-Wframe-larger-than=3D=
+]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:25992=
+:1: warning: the frame size of 2544 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:25992=
+:1: warning: the frame size of 2480 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:25992=
+:1: warning: the frame size of 2448 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16894=
+:1: warning: the frame size of 3184 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16894=
+:1: warning: the frame size of 3136 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16894=
+:1: warning: the frame size of 3128 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16552=
+:1: warning: the frame size of 3256 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16552=
+:1: warning: the frame size of 3168 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16552=
+:1: warning: the frame size of 3152 bytes is larger than 2048 bytes [-Wfram=
+e-larger-than=3D]
+    1    drivers/net/wireguard/selftest/allowedips.c:675:1: warning: the fr=
+ame size of 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/wireguard/selftest/allowedips.c:675:1: warning: the fr=
+ame size of 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/ethernet/rocker/rocker_ofdpa.c:560:1: warning: the fra=
+me size of 2400 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/ethernet/rocker/rocker_ofdpa.c:560:1: warning: the fra=
+me size of 2368 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/ethernet/rocker/rocker_ofdpa.c:560:1: warning: the fra=
+me size of 2360 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/bonding/bond_netlink.c:685:1: warning: the frame size =
+of 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/bonding/bond_netlink.c:685:1: warning: the frame size =
+of 2104 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/bonding/bond_netlink.c:685:1: warning: the frame size =
+of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/tuners/r820t.c:1327:1: warning: the frame size of 28=
+16 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/i2c/tvp5150.c:273:1: warning: the frame size of 3992=
+ bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/i2c/tvp5150.c:273:1: warning: the frame size of 3968=
+ bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/i2c/tvp5150.c:273:1: warning: the frame size of 3952=
+ bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:4568:1: warning: the frame s=
+ize of 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:4568:1: warning: the frame s=
+ize of 2104 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:4568:1: warning: the frame s=
+ize of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:4253:1: warning: the frame s=
+ize of 4880 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:4253:1: warning: the frame s=
+ize of 2808 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:4253:1: warning: the frame s=
+ize of 2784 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:3419:1: warning: the frame s=
+ize of 5248 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:3078:1: warning: the frame s=
+ize of 5872 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2496:1: warning: the frame s=
+ize of 2336 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2496:1: warning: the frame s=
+ize of 2328 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2496:1: warning: the frame s=
+ize of 2296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2125:1: warning: the frame s=
+ize of 2136 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2057:1: warning: the frame s=
+ize of 2576 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2057:1: warning: the frame s=
+ize of 2568 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:2057:1: warning: the frame s=
+ize of 2544 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1940:1: warning: the frame s=
+ize of 3296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1842:1: warning: the frame s=
+ize of 3016 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1842:1: warning: the frame s=
+ize of 3008 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1842:1: warning: the frame s=
+ize of 3000 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1583:1: warning: the frame s=
+ize of 5328 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1583:1: warning: the frame s=
+ize of 5320 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1583:1: warning: the frame s=
+ize of 5312 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1195:1: warning: the frame s=
+ize of 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1195:1: warning: the frame s=
+ize of 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1195:1: warning: the frame s=
+ize of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1152:1: warning: the frame s=
+ize of 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1152:1: warning: the frame s=
+ize of 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1152:1: warning: the frame s=
+ize of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1111:1: warning: the frame s=
+ize of 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv090x.c:1111:1: warning: the frame s=
+ize of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/stv0367.c:1902:1: warning: the frame s=
+ize of 3328 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/cxd2841er.c:3640:1: warning: the frame=
+ size of 2816 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/cxd2841er.c:3124:1: warning: the frame=
+ size of 2768 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/cxd2841er.c:3124:1: warning: the frame=
+ size of 2736 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/media/dvb-frontends/cxd2841er.c:3124:1: warning: the frame=
+ size of 2720 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/tiny/ili9225.c:281:1: warning: the frame size of 2=
+768 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/panel/panel-sitronix-st7701.c:195:1: warning: the =
+frame size of 2152 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/panel/panel-sitronix-st7701.c:195:1: warning: the =
+frame size of 2096 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/panel/panel-sitronix-st7701.c:195:1: warning: the =
+frame size of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+i915_gem_execbuffer2_ioctl()+0x335: call to __ubsan_handle_negate_overflow(=
+) with UACCESS enabled
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+i915_gem_execbuffer2_ioctl()+0x2c1: call to __ubsan_handle_negate_overflow(=
+) with UACCESS enabled
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_prefault_relocations()+0xc6: stack state mismatch: cfa1=3D7+8 cfa2=3D-1+=
+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_prefault_relocations()+0xb8: stack state mismatch: cfa1=3D7+8 cfa2=3D-1+=
+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x259: stack state mismatch: cfa1=3D7+104 cfa2=3D-1+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x249: stack state mismatch: cfa1=3D7+104 cfa2=3D-1+0
+    1    drivers/gpu/drm/bridge/tc358768.c:843:1: warning: the frame size o=
+f 2064 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/bridge/tc358768.c:843:1: warning: the frame size o=
+f 2056 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:979:6: warning: stack frame size of 1228 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:979:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
+calc_30.c:963:13: warning: stack frame size of 1068 bytes in function 'dml_=
+rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
+calc_30.c:963:13: warning: stack frame size of 1036 bytes in function 'dml_=
+rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_rq_dlg_=
+calc_21.c:811:13: warning: stack frame size of 1036 bytes in function 'dml_=
+rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1532 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1212 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1164 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1452 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1212 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:3286:6: warning: stack frame size of 1436 bytes in function 'dml20_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1228 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
+ warning: stack frame size of 1580 bytes in function 'dcn_bw_calc_rq_dlg_tt=
+u' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
+ warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
+u' [-Wframe-larger-than=3D]
+    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    1    clang: warning: argument unused during compilation: '-no-pie' [-Wu=
+nused-command-line-argument]
+    1    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_g=
+piod_table=E2=80=99 defined but not used [-Wunused-variable]
+    1    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98am=
+s_delta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+    1    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/mod=
+ules/5.11.0-rc7-next-20210211/kernel/drivers/clk/keystone/pll.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/mod=
+ules/5.11.0-rc7-next-20210211/kernel/drivers/clk/keystone/gate.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/mod=
+ules/5.11.0-rc7-next-20210211/kernel/crypto/cast_common.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    /tmp/cc1tRA8H.s:18195: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/cc1tRA8H.s:18123: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1182:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ./usr/include/linux/bcache.h:355:2: warning: field '' with variabl=
+e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)=
+' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
+zed-type-not-at-end]
+    1    ./usr/include/linux/bcache.h:354:2: warning: field '' with variabl=
+e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)=
+' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
+zed-type-not-at-end]
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 34 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size of 1=
+756 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/staging/media/atomisp/pci/atomisp_cmd.c:5600:5: warning: stack =
+frame size of 1068 bytes in function 'atomisp_set_fmt' [-Wframe-larger-than=
+=3D]
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variabl=
+e 'stats' is uninitialized when used here [-Wuninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initializ=
+e the variable 'stats' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: variab=
+le 'structure_size' is used uninitialized whenever switch default is taken =
+[-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: initiali=
+ze the variable 'structure_size' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: va=
+riable 'mode' is used uninitialized whenever switch default is taken [-Wsom=
+etimes-uninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: init=
+ialize the variable 'mode' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1580 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/en_tc.c:554:12: warning: stack =
+frame size of 1148 bytes in function 'mlx5e_hairpin_rss_init' [-Wframe-larg=
+er-than=3D]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1836 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:979:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_rq_dlg_calc_=
+21.c:811:13: warning: stack frame size of 1036 bytes in function 'dml_rq_dl=
+g_get_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1164 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    2 warnings generated.
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
+30.c:963:13: warning: stack frame size of 1036 bytes in function 'dml_rq_dl=
+g_get_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 57 warnings, 0 section =
+mismatches
+
+Warnings:
+    /tmp/cc1tRA8H.s:18123: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/cc1tRA8H.s:18195: Warning: using r15 results in unpredictable beha=
+viour
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+    net/ipv4/tcp.c:3893:1: warning: the frame size of 2056 bytes is larger =
+than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:1969:1: warning: the frame size of 2248 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:2787:1: warning: the frame size of 5248 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:7349:1: warning: the frame size of 2272 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:5962:1: warning: the frame size of 2872 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    lib/test_kasan.c:892:1: warning: the frame size of 2160 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    lib/bitfield_kunit.c:93:1: warning: the frame size of 11296 bytes is la=
+rger than 2048 bytes [-Wframe-larger-than=3D]
+    net/bridge/br_netlink.c:1663:1: warning: the frame size of 2744 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/bridge/br_netlink.c:306:1: warning: the frame size of 2200 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/panel/panel-sitronix-st7701.c:195:1: warning: the frame=
+ size of 2152 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/bridge/tc358768.c:843:1: warning: the frame size of 205=
+6 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/tiny/ili9225.c:281:1: warning: the frame size of 2768 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/bonding/bond_netlink.c:685:1: warning: the frame size of 21=
+04 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/tuners/r820t.c:1327:1: warning: the frame size of 2816 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16552:1: w=
+arning: the frame size of 3256 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16894:1: w=
+arning: the frame size of 3184 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:25992:1: w=
+arning: the frame size of 2480 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/realtek/rtl818x/rtl8180/rtl8225se.c:386:1: warning=
+: the frame size of 4240 bytes is larger than 2048 bytes [-Wframe-larger-th=
+an=3D]
+    drivers/media/i2c/tvp5150.c:273:1: warning: the frame size of 3992 byte=
+s is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/ralink/rt2x00/rt2500usb.c:880:1: warning: the fram=
+e size of 2568 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/ralink/rt2x00/rt73usb.c:1283:1: warning: the frame=
+ size of 2688 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireguard/selftest/allowedips.c:675:1: warning: the frame s=
+ize of 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/caif/cfctrl.c:549:1: warning: the frame size of 2576 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/namei.c:1694:1: warning: the frame size of 2480 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    net/ieee802154/nl802154.c:541:1: warning: the frame size of 2216 bytes =
+is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2120 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/super.c:1197:1: warning: the frame size of 2688 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/macsec.c:3252:1: warning: the frame size of 4080 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/xattr.c:3678:1: warning: the frame size of 2192 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the frame si=
+ze of 2144 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/ethernet/rocker/rocker_ofdpa.c:560:1: warning: the frame si=
+ze of 2400 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1842:1: warning: the frame size o=
+f 3000 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2125:1: warning: the frame size o=
+f 2136 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2496:1: warning: the frame size o=
+f 2296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:4568:1: warning: the frame size o=
+f 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1940:1: warning: the frame size o=
+f 3296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1583:1: warning: the frame size o=
+f 5328 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1195:1: warning: the frame size o=
+f 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:4253:1: warning: the frame size o=
+f 4880 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1152:1: warning: the frame size o=
+f 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2057:1: warning: the frame size o=
+f 2544 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:3078:1: warning: the frame size o=
+f 5872 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:3419:1: warning: the frame size o=
+f 5248 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv0367.c:1902:1: warning: the frame size o=
+f 3328 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/cxd2841er.c:3640:1: warning: the frame size=
+ of 2816 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/cxd2841er.c:3124:1: warning: the frame size=
+ of 2768 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/ipv4/tcp.c:3893:1: warning: the frame size of 2056 bytes is larger =
+than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:1969:1: warning: the frame size of 2248 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:2787:1: warning: the frame size of 5248 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:7349:1: warning: the frame size of 2272 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:5962:1: warning: the frame size of 2872 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/macsec.c:3252:1: warning: the frame size of 4080 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2120 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the frame si=
+ze of 2144 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 23 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    ./usr/include/linux/bcache.h:354:2: warning: field '' with variable siz=
+ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)' not=
+ at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
+ype-not-at-end]
+    ./usr/include/linux/bcache.h:355:2: warning: field '' with variable siz=
+ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)' not=
+ at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
+ype-not-at-end]
+    2 warnings generated.
+    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete()+0x=
+114d: stack state mismatch: cfa1=3D7+184 cfa2=3D7+176
+    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x13c: c=
+all to do_strncpy_from_user() with UACCESS enabled
+    lib/strnlen_user.o: warning: objtool: strnlen_user()+0xf2: call to do_s=
+trnlen_user() with UACCESS enabled
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: i915_=
+gem_execbuffer2_ioctl()+0x2c1: call to __ubsan_handle_negate_overflow() wit=
+h UACCESS enabled
+    net/rose/rose_subr.o: warning: objtool: rose_write_internal() falls thr=
+ough to next function rose_decode()
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: variab=
+le 'structure_size' is used uninitialized whenever switch default is taken =
+[-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: initiali=
+ze the variable 'structure_size' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: va=
+riable 'mode' is used uninitialized whenever switch default is taken [-Wsom=
+etimes-uninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: init=
+ialize the variable 'mode' to silence this warning
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variabl=
+e 'stats' is uninitialized when used here [-Wuninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initializ=
+e the variable 'stats' to silence this warning
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x13c: c=
+all to do_strncpy_from_user() with UACCESS enabled
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 18 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variabl=
+e 'stats' is uninitialized when used here [-Wuninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initializ=
+e the variable 'stats' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: va=
+riable 'mode' is used uninitialized whenever switch default is taken [-Wsom=
+etimes-uninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: init=
+ialize the variable 'mode' to silence this warning
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: variab=
+le 'structure_size' is used uninitialized whenever switch default is taken =
+[-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: initiali=
+ze the variable 'structure_size' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/crypto/cast_common.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/clk/keystone/gate.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/clk/keystone/pll.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 18 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x3ce: c=
+all to __ubsan_handle_add_overflow() with UACCESS enabled
+    lib/strnlen_user.o: warning: objtool: strnlen_user()+0x398: call to __u=
+bsan_handle_add_overflow() with UACCESS enabled
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: i915_=
+gem_execbuffer2_ioctl()+0x335: call to __ubsan_handle_negate_overflow() wit=
+h UACCESS enabled
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: variab=
+le 'structure_size' is used uninitialized whenever switch default is taken =
+[-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: initiali=
+ze the variable 'structure_size' to silence this warning
+    1 warning generated.
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: va=
+riable 'mode' is used uninitialized whenever switch default is taken [-Wsom=
+etimes-uninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: init=
+ialize the variable 'mode' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variabl=
+e 'stats' is uninitialized when used here [-Wuninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initializ=
+e the variable 'stats' to silence this warning
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x3ce: c=
+all to __ubsan_handle_add_overflow() with UACCESS enabled
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 56 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    lib/crypto/curve25519-hacl64.c:601:1: warning: the frame size of 2112 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:1969:1: warning: the frame size of 2208 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:7349:1: warning: the frame size of 2256 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:2787:1: warning: the frame size of 5360 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:5962:1: warning: the frame size of 2912 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/panel/panel-sitronix-st7701.c:195:1: warning: the frame=
+ size of 2096 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    lib/test_kasan.c:875:1: warning: the frame size of 2160 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    lib/test_kasan.c:892:1: warning: the frame size of 2432 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/tiny/ili9225.c:281:1: warning: the frame size of 2720 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/bridge/br_netlink.c:1663:1: warning: the frame size of 2672 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/bridge/br_netlink.c:306:1: warning: the frame size of 2144 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    lib/bitfield_kunit.c:93:1: warning: the frame size of 11296 bytes is la=
+rger than 2048 bytes [-Wframe-larger-than=3D]
+    net/caif/cfctrl.c:549:1: warning: the frame size of 2624 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    net/ieee802154/nl802154.c:541:1: warning: the frame size of 2256 bytes =
+is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/tuners/r820t.c:1327:1: warning: the frame size of 2832 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/i2c/tvp5150.c:273:1: warning: the frame size of 3968 byte=
+s is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/bonding/bond_netlink.c:685:1: warning: the frame size of 21=
+12 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16552:1: w=
+arning: the frame size of 3168 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16894:1: w=
+arning: the frame size of 3136 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:25992:1: w=
+arning: the frame size of 2544 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2080 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the frame si=
+ze of 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/dlm/dlmrecovery.c:737:1: warning: the frame size of 2112 bytes=
+ is larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/aops.c:1884:1: warning: the frame size of 2128 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/realtek/rtl818x/rtl8180/rtl8225se.c:386:1: warning=
+: the frame size of 4224 bytes is larger than 2048 bytes [-Wframe-larger-th=
+an=3D]
+    drivers/net/wireless/ralink/rt2x00/rt2500usb.c:880:1: warning: the fram=
+e size of 2464 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/ralink/rt2x00/rt73usb.c:1283:1: warning: the frame=
+ size of 2656 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/namei.c:2072:1: warning: the frame size of 2064 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/namei.c:1694:1: warning: the frame size of 2592 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/super.c:1197:1: warning: the frame size of 3184 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/xattr.c:3678:1: warning: the frame size of 2368 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2496:1: warning: the frame size o=
+f 2336 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1842:1: warning: the frame size o=
+f 3008 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:4568:1: warning: the frame size o=
+f 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1940:1: warning: the frame size o=
+f 3280 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1583:1: warning: the frame size o=
+f 5312 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2057:1: warning: the frame size o=
+f 2576 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2125:1: warning: the frame size o=
+f 2096 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1111:1: warning: the frame size o=
+f 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1195:1: warning: the frame size o=
+f 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:4253:1: warning: the frame size o=
+f 2784 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1152:1: warning: the frame size o=
+f 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:3078:1: warning: the frame size o=
+f 5888 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:3419:1: warning: the frame size o=
+f 5280 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv0367.c:1902:1: warning: the frame size o=
+f 3296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/macsec.c:3252:1: warning: the frame size of 4176 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/cxd2841er.c:3124:1: warning: the frame size=
+ of 2736 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/cxd2841er.c:3640:1: warning: the frame size=
+ of 2784 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/ethernet/rocker/rocker_ofdpa.c:560:1: warning: the frame si=
+ze of 2368 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:1969:1: warning: the frame size of 2208 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:7349:1: warning: the frame size of 2256 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:2787:1: warning: the frame size of 5360 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:5962:1: warning: the frame size of 2912 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/macsec.c:3252:1: warning: the frame size of 4176 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the frame si=
+ze of 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2080 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 62 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    arch/x86/kvm/x86.c:5044:1: warning: the frame size of 2352 bytes is lar=
+ger than 2048 bytes [-Wframe-larger-than=3D]
+    lib/crypto/curve25519-hacl64.c:601:1: warning: the frame size of 2384 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    arch/x86/kernel/cpu/mshyperv.c:443:1: warning: the frame size of 3880 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:1969:1: warning: the frame size of 2216 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:7349:1: warning: the frame size of 2240 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:2787:1: warning: the frame size of 5296 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:5962:1: warning: the frame size of 2904 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    lib/test_kasan.c:875:1: warning: the frame size of 2128 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    lib/test_kasan.c:892:1: warning: the frame size of 2384 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    lib/bitfield_kunit.c:93:1: warning: the frame size of 11216 bytes is la=
+rger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/bridge/tc358768.c:843:1: warning: the frame size of 206=
+4 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/panel/panel-sitronix-st7701.c:195:1: warning: the frame=
+ size of 2080 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/dlm/dlmrecovery.c:737:1: warning: the frame size of 2072 bytes=
+ is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/gpu/drm/tiny/ili9225.c:281:1: warning: the frame size of 2720 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/bridge/br_netlink.c:1663:1: warning: the frame size of 2696 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/aops.c:1884:1: warning: the frame size of 2112 bytes is larger=
+ than 2048 bytes [-Wframe-larger-than=3D]
+    net/bridge/br_netlink.c:306:1: warning: the frame size of 2152 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/namei.c:1694:1: warning: the frame size of 2616 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/super.c:1197:1: warning: the frame size of 3176 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    fs/ocfs2/xattr.c:3678:1: warning: the frame size of 2336 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/tuners/r820t.c:1327:1: warning: the frame size of 2832 by=
+tes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/i2c/tvp5150.c:273:1: warning: the frame size of 3952 byte=
+s is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the frame si=
+ze of 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/bonding/bond_netlink.c:685:1: warning: the frame size of 20=
+80 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16552:1: w=
+arning: the frame size of 3152 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:16894:1: w=
+arning: the frame size of 3128 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/net/wireless/broadcom/brcm80211/brcmsmac/phy/phy_n.c:25992:1: w=
+arning: the frame size of 2448 bytes is larger than 2048 bytes [-Wframe-lar=
+ger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2496:1: warning: the frame size o=
+f 2328 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1842:1: warning: the frame size o=
+f 3016 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:4568:1: warning: the frame size o=
+f 2104 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1940:1: warning: the frame size o=
+f 3280 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1583:1: warning: the frame size o=
+f 5320 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2057:1: warning: the frame size o=
+f 2568 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:2125:1: warning: the frame size o=
+f 2096 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1111:1: warning: the frame size o=
+f 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1195:1: warning: the frame size o=
+f 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:4253:1: warning: the frame size o=
+f 2808 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:1152:1: warning: the frame size o=
+f 2088 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:3078:1: warning: the frame size o=
+f 5888 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv090x.c:3419:1: warning: the frame size o=
+f 5280 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/stv0367.c:1902:1: warning: the frame size o=
+f 3296 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/cxd2841er.c:3124:1: warning: the frame size=
+ of 2720 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/dvb-frontends/cxd2841er.c:3640:1: warning: the frame size=
+ of 2784 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireguard/selftest/allowedips.c:675:1: warning: the frame s=
+ize of 2112 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/caif/cfctrl.c:549:1: warning: the frame size of 2592 bytes is large=
+r than 2048 bytes [-Wframe-larger-than=3D]
+    net/ieee802154/nl802154.c:541:1: warning: the frame size of 2224 bytes =
+is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/realtek/rtl818x/rtl8180/rtl8225se.c:386:1: warning=
+: the frame size of 4216 bytes is larger than 2048 bytes [-Wframe-larger-th=
+an=3D]
+    drivers/net/ethernet/rocker/rocker_ofdpa.c:560:1: warning: the frame si=
+ze of 2360 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/ralink/rt2x00/rt2500usb.c:880:1: warning: the fram=
+e size of 2472 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/wireless/ralink/rt2x00/rt73usb.c:1283:1: warning: the frame=
+ size of 2656 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2088 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/macsec.c:3252:1: warning: the frame size of 4040 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/hal/HalBtc8723b2Ant.c:2756:1: warning: the fr=
+ame size of 2504 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    arch/x86/kvm/x86.c:5044:1: warning: the frame size of 2352 bytes is lar=
+ger than 2048 bytes [-Wframe-larger-than=3D]
+    arch/x86/kernel/cpu/mshyperv.c:443:1: warning: the frame size of 3880 b=
+ytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:1969:1: warning: the frame size of 2216 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:7349:1: warning: the frame size of 2240 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:2787:1: warning: the frame size of 5296 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    net/wireless/nl80211.c:5962:1: warning: the frame size of 2904 bytes is=
+ larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/macsec.c:3252:1: warning: the frame size of 4040 bytes is l=
+arger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/media/pci/saa7134/saa7134-cards.c:8074:1: warning: the frame si=
+ze of 2128 bytes is larger than 2048 bytes [-Wframe-larger-than=3D]
+    drivers/net/usb/r8152.c:5524:1: warning: the frame size of 2088 bytes i=
+s larger than 2048 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 14 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: variab=
+le 'structure_size' is used uninitialized whenever switch default is taken =
+[-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: initiali=
+ze the variable 'structure_size' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: va=
+riable 'mode' is used uninitialized whenever switch default is taken [-Wsom=
+etimes-uninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: init=
+ialize the variable 'mode' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variabl=
+e 'stats' is uninitialized when used here [-Wuninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initializ=
+e the variable 'stats' to silence this warning
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3344 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 38 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning: variab=
+le 'structure_size' is used uninitialized whenever switch default is taken =
+[-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note: initiali=
+ze the variable 'structure_size' to silence this warning
+    1 warning generated.
+    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size of 1=
+752 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/media/atomisp/pci/atomisp_cmd.c:5600:5: warning: stack =
+frame size of 1048 bytes in function 'atomisp_set_fmt' [-Wframe-larger-than=
+=3D]
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variabl=
+e 'stats' is uninitialized when used here [-Wuninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initializ=
+e the variable 'stats' to silence this warning
+    1 warning generated.
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: va=
+riable 'mode' is used uninitialized whenever switch default is taken [-Wsom=
+etimes-uninitialized]
+    drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: init=
+ialize the variable 'mode' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:979:6: warning: stack frame size of 1228 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1228 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1436 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
+30.c:963:13: warning: stack frame size of 1068 bytes in function 'dml_rq_dl=
+g_get_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1212 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1452 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1212 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1532 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1836 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/en_tc.c:554:12: warning: stack =
+frame size of 1148 bytes in function 'mlx5e_hairpin_rss_init' [-Wframe-larg=
+er-than=3D]
+    1 warning generated.
+    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_frame'
+    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_frame'
+    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_frame'
+    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_frame'
+    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_frame'
+    ld.lld: warning: <internal>:(.eh_frame) is being placed in '.eh_frame'
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-10) =E2=80=94 FAIL, 11 errors, 0 warnings, =
+0 section mismatches
+
+Errors:
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x34D70): relocation =
+R_ARM_PREL31 out of range: 2135538632 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x3736C): relocation =
+R_ARM_PREL31 out of range: 2135594444 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x373B4): relocation =
+R_ARM_PREL31 out of range: 2135594372 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x373E4): relocation =
+R_ARM_PREL31 out of range: 2135594324 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37414): relocation =
+R_ARM_PREL31 out of range: 2135594276 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x3742C): relocation =
+R_ARM_PREL31 out of range: 2135594252 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37444): relocation =
+R_ARM_PREL31 out of range: 2135594228 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37454): relocation =
+R_ARM_PREL31 out of range: 2135594212 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x374A4): relocation =
+R_ARM_PREL31 out of range: 2135594132 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x374B4): relocation =
+R_ARM_PREL31 out of range: 2135594116 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37554): relocation =
+R_ARM_PREL31 out of range: 2135593956 is not in [-1073741824, 1073741823]
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, =
+0 section mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
+s, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
+rors, 4 warnings, 0 section mismatches
+
+Warnings:
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-11) =E2=80=94 PASS, 0 er=
+rors, 4 warnings, 0 section mismatches
+
+Warnings:
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4665:9: warning: variab=
+le 'ret' is uninitialized when used here [-Wuninitialized]
+    drivers/net/ethernet/hisilicon/hns3/hns3_enet.c:4643:9: note: initializ=
+e the variable 'ret' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /scratch/linux/_modules_/lib/modules/=
+5.11.0-rc7-next-20210211/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_EFI=3Dn (riscv, clang-11) =E2=80=94 PASS, 0 errors, 1 warn=
+ing, 0 section mismatches
+
+Warnings:
+    clang: warning: argument unused during compilation: '-no-pie' [-Wunused=
+-command-line-argument]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section=
+ mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:39: Warning: macro instruction expanded into multiple =
+instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, =
+0 section mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 =
+section mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 1 warning, 0 section mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 1 warning, 0 section mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 =
+warning, 0 section mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_gpiod_=
+table=E2=80=99 defined but not used [-Wunused-variable]
+    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98ams_del=
+ta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 se=
+ction mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0=
+ section mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1182:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    ./include/linux/kern_levels.h:5:18: warning: format =E2=80=98%zu=E2=80=
+=99 expects argument of type =E2=80=98size_t=E2=80=99, but argument 4 has t=
+ype =E2=80=98long unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
+efault_relocations()+0xc6: stack state mismatch: cfa1=3D7+8 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x249: stack state mismatch: cfa1=3D7+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
+efault_relocations()+0xb8: stack state mismatch: cfa1=3D7+8 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x259: stack state mismatch: cfa1=3D7+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
+ warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section=
+ mismatches
+
+Errors:
+    ./arch/mips/include/asm/spinlock.h:17:28: error: redefinition of =E2=80=
+=98queued_spin_unlock=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/60252b37.1c69fb81.2aa31.d6b4%40mx.google.com.
