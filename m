@@ -1,145 +1,124 @@
-Return-Path: <clang-built-linux+bncBD53FBNV6ACRBWNCS2AQMGQETPGS43Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRB5VMS2AQMGQEOP32CNA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BDE47319430
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 21:19:38 +0100 (CET)
-Received: by mail-il1-x13b.google.com with SMTP id s4sf7053393ilv.23
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 12:19:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613074777; cv=pass;
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 84F0D3194A0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 21:41:27 +0100 (CET)
+Received: by mail-ot1-x338.google.com with SMTP id v24sf3447322ott.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 12:41:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613076086; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mUyA7wHZAGxH1CO0hKYotMo194X29i6D3kDQ19VNnvXWwK3PXVdoWNnSY6Pxgds6JC
-         k7q9RjswuywtIj5RZ7PPq5DELCHoWXf3zundjn/wr7n1b3jlGoVByGghAxUwlu8YdeT4
-         TCBA7IqerLOkc/R+8eJtT6NDtUdu5c628F5VycwVuG2V6oKRdKSr/GgVJ2ClKF/K0zUd
-         NEEIOxGp/KYhNmfYjUJfqwo7rniUQw4nAMr0OdvrXferyy8oBxeZwqvvkBT3wJXGEnPl
-         GeK0ps4ON6quu0W1OyV1iBI8RIqL8oYkzcBEKRxKX087zhjcdbptBe116+tzR/E1FyGU
-         odbA==
+        b=g0X5JuG8iODGVKz4lQfdP9DGF5SGPKbUMG+Cbw7az5tYKWj79T08A/znq7XBKzBL2/
+         wrMgNFxb8qaA/tm0ao4lf7vlDOMeCwOaZfk1ezj3LiDYOOgPrn6KVUMe0mOHxw5hPjXw
+         TImZ+m5qALfcnA/KUYrF3SnMK61AuV/Rd7fX4OPqlIHDCl4gzW92+CWrrlF25WxR4SE/
+         dvJJHsyNTQ0oseI5dyjOICwSUuY8JMdIG+dVQDSi0DpimBN3Cn9gyGrW3JrLgu536v50
+         ZSh/p1PsExltQEm/DhX6ezqngqEqJXkWizLwQlsi2xsBlAak/m66psuVaCnrRvb6v+2q
+         0oWw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=o1qe9T6meG6J4CIAtKIbh1x8inrDKsGNzurqjaOiDPQ=;
-        b=dfX/UOBnv8XXVxnmsoXOUQA+7w/luNBMKKSdJI6/GWFAh9fj110JraCI9Y2Y6FwRkV
-         VrdtJvofLplfc7J5xn+Wu7/lHFpNGg9zs+MWtymaAH8i7dxZdB4WcnU3Hm9wpnMG+lWn
-         fkdVr3ZVVAi0yy1FcrldViq8YHTuSe1CMTPvEvqTOKn0Sn0YPiLLlQR/QraequvuWkcx
-         85x3VrF/uMyXPaAI/h5zY7XFVg+Qr4/JKhHD5ylOWdlyt+uSrSCAEcT2jCKjE+exkFIJ
-         TpzXW/PTIsDfExsIU9biirT36vyLTKUpbFtdpiWHUkfPZfr7ue0GtHfzlOaVpalZUJvK
-         FrYA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Nxf/XiOOsIuoUmRZJREZJRBJ5fo/PqdWMf57Y6u7rHk=;
+        b=u5W+89EIMyK58LVEwHGYIFavDnxBbvkio6Ua0K+rQLm3SOJU4m9e1Rk+qzo5FFpJvs
+         ND4C6xDdUeBPGlp1LgMcGwE4vtQh5dsOBtCLLaGdMc4iyYafg03ImFbS2yDwCbrTbaNg
+         ZJ1h+Qo2835KjB0lORHKuFs8rtZAvyFWmoaZoaBqJkznYHCLD6aZT2/1UZXf/+uJY/4I
+         tVFtTtfBV8JXl8v9esQU8OPW3mxt8D5K8uNg6BfiB0JWWyFS8RGot6pgWCGCsXBTHoxZ
+         DVFnJjMx1NOZvxJzPniMU5IYlIdLrd/7uqdVJBoQRH0NARlsHjWE7ncgu5zxXCQRyG6c
+         ZlAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Zpo1d+Fy;
-       spf=pass (google.com: domain of rasibley@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=rasibley@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=JwpYmrz5;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o1qe9T6meG6J4CIAtKIbh1x8inrDKsGNzurqjaOiDPQ=;
-        b=mCTfC02VzKYBkwykV/7EM8+d1xfA90+/jxahWxwroDpgydE0F9Lh/0J8UU+nUpY3Vx
-         UMSXnSTJMno4EiVdDYFAWKeUz3CpquF+QGzOGHCTQ6UXG0jkk2/7DS3ONA8jQ58CTuo8
-         xXvT6W89WqfGZkonz1YmCxtHAzxc8nsS6cgzwD/zHJjKUkjN3MEFXh52YVKim+18+K7E
-         DzbaNe5aF9GfMrHgnxI41fV3PtlX4oEwaKinhvm7jpdye3w7QEoc2AUHTCH4kb5A4lU2
-         w+mVmz7cVKn8wcXAqm02lYZlrIsAI5hGAPPcagoVOjAp9+4duxKu+Bp6MTkZfhKI88UD
-         gIqg==
+        bh=Nxf/XiOOsIuoUmRZJREZJRBJ5fo/PqdWMf57Y6u7rHk=;
+        b=bimD8xZ17xvGdxeFo9k4nJklAizCGWCGPz2+S+oQ90pS10U0Gyax5ZuBks70hyFLUP
+         P6rrkKjHIy6tKZFj2NqTflvQvEKCKbomuCevOYq6CrL1dBcCFNEBVGJgR61ypEkAK8t/
+         zfeD2ZJ+4ZFoRXbagm2KqAkTUNfw/AOH2rvrMsdQI+m0K92i3wer5Njx0vde+7vS9bf8
+         EO+yM6X4eq62pk8/YxGc1oZjSvuuXa+NDPV7UOxgAZ5JljXkwlyhtVUhgA9yZCFQpJDK
+         g/gFZlYtPuAECS29FGUYo6wzk66tv4JZEDdiXqlFBZrUOgHyIC7U1olVXD3SvZLC+TlI
+         Myxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o1qe9T6meG6J4CIAtKIbh1x8inrDKsGNzurqjaOiDPQ=;
-        b=QA7ula045QWbcIgN96ThSBp8RH5YQWOoW5T4fP9zeKV3CY2AeSTZJwbrQZ+BqWAmeI
-         Vjuzrr50PJya2WhvfRmDyLH0GayrR8VSQsJAM9uUsdIb/gA6qUqdBe5LNripNcbEwLks
-         1Ahbv/v9MKRp/IrTfStqVGGthIombrxfAFMyz1vV+rXbHyFtK0wAeAE5Q9JwZMurlV/j
-         noB42wXPPYhjMMuMO9T3Nq1H4iduHz6JxJCo9XmgN6MaQUPfONOYydgXistKHNBVkrTB
-         ynu4Pb/vt3Ym+eMgcHC0SywlqCT2LQqX84krxiMXAS/iqjFgrGX6GP+hRdyy7diQuBHZ
-         i06Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533WfSLTXhFvoa8eahGbEdGgc1v11K1XNGC//4ZW2Rv00wvqZaYc
-	pFk+yHHxlrEVIv5EHEN+j1s=
-X-Google-Smtp-Source: ABdhPJyAJtBNbrOtuR4zat2uMd+jut6L6aw7/W4ikWCNuo8jKqhakL3gM/k8vRFXDJ1t8JDpMr6SyQ==
-X-Received: by 2002:a05:6e02:1404:: with SMTP id n4mr6940934ilo.133.1613074777780;
-        Thu, 11 Feb 2021 12:19:37 -0800 (PST)
+        bh=Nxf/XiOOsIuoUmRZJREZJRBJ5fo/PqdWMf57Y6u7rHk=;
+        b=eB8eAXkEq5zCLM+ANCrA/OmafrsgeKeHC19bvqclEbjlzNcoMAc9wnR2PDONaERTo9
+         x1VJvqCjhE8y5Fjg1Lz8U3l/xtLNM4D99G273D2UZbp4wmHsu6DCnL52blpxYmvUMO/k
+         RFNBKW04FT4C+Rh25rHHq14p72hnNTbCkn2ZEwtnc9sfCWcDqwu1BAM6yuz0ZsUqNx96
+         4D9dALaTi8MT3M6q6tJXEDdtG9K+5arcUA+1zJXtWip8ELQ12xtfpOPnGgjnNz/k9mDN
+         TfB3GNLtMLUzRS731hAv68QY/tQKKPPV1EulMZ6q26mVkD4Yi8gry+Nm/I+QKavU9VC+
+         8iZA==
+X-Gm-Message-State: AOAM530zuAl0CU01k9TvxJO1wfv9QYnJpElBfsOEbo9/6Y1jAuJj++6U
+	ipUH3hJ4gO9KUSbrlDgGPZA=
+X-Google-Smtp-Source: ABdhPJx2ha4U6cAORCjMjYvm3nOw0p5tT/ZL676R6gmac8EUlUZ75Wtr006aEcjwHqxyRzJblW7o+A==
+X-Received: by 2002:a05:6808:18a:: with SMTP id w10mr2098497oic.105.1613076086521;
+        Thu, 11 Feb 2021 12:41:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:c0c7:: with SMTP id t7ls955508ilf.2.gmail; Thu, 11 Feb
- 2021 12:19:37 -0800 (PST)
-X-Received: by 2002:a92:c84e:: with SMTP id b14mr6974609ilq.255.1613074777388;
-        Thu, 11 Feb 2021 12:19:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613074777; cv=none;
+Received: by 2002:a9d:7d19:: with SMTP id v25ls1579100otn.4.gmail; Thu, 11 Feb
+ 2021 12:41:26 -0800 (PST)
+X-Received: by 2002:a9d:7d88:: with SMTP id j8mr7206964otn.45.1613076086130;
+        Thu, 11 Feb 2021 12:41:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613076086; cv=none;
         d=google.com; s=arc-20160816;
-        b=OcTZnbrESSudWfRYoWtMt/gQRgDdnJAkkZ3DaYMpQRsMUR3dqi4/tDAdj/itTvAoV7
-         5LYWlvS6CZIG1m6/MY0yCTX9QodE/sPJZ5ya5/+a19dT+71ThHy5p8EZ97+IO44x11BR
-         IIisYiueiTHnWnVDdizAgAHuCN0f7rrA2XafRz4k/qwxQko0Ivj71mI5GjcztAjB3Lzp
-         cpbq+9U4r/yz3IsaF4IB2Mz6yb2L6XgoIsN/SGNgqGiMeFodwKawi+pDDVrcq2tlXwHf
-         3/2tWedsMMT/Nf8uUoicMu39AtsLDAXPNaXHKx0/wsdjZ+njyXCZdZ1N+HpT8Bh+AKvs
-         Wb4g==
+        b=O4mSlZQ6yGq3w2ADvzCpOhaPps8YJaiwC5zz74tqyj1ltrxiLGZmT3NkMNtwk940Qp
+         XrYVf+djTnHgY6uh5Qkq/B+ntGjn/TDeVxue162w3babrFe6QMXPW8c0rn1N/0YjH02b
+         68sDIYHghLI0ZXD0odYfVx0nv3yrW/PdRDFCewwjE68YZtO2GkAVnoYLos8sgrVQg1rZ
+         dHafm527rvFXkOo56xaAXh84oTv7IVHCi6xOfifJQPI9Plfn3OBuLFNMVwzHfoMe1vpu
+         1OizgU8SRLwoGCSBzkYgqFUiLpbihBpEVZem4HLfAbs1/17m663cAROitNdzrC/+1/KL
+         x/cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=0XBTigk28D5UGH5PGrx/40KiB5WwMrauDa1HZ37FBVA=;
-        b=Ka7mIvtlQoSMCkyU+udIe3nMztcLZQrEKOF0dwv+c14zNsXp/MQsLWe4H6B/fscX2Q
-         XMCIDtIXL9jK2UUEip4jC/LR6uGnnU83Xz92zqzqxc8YF8leew7/XUJCBj6PQt1LSor8
-         VKCfHa00cn+xcxI/g0Z5qG5s+aM/PoYuhy8K2Gk+RZFNkw1jI7sIsyIIyh4O5h3c4Ykn
-         2QxvA5XgZQQpFdeKYqCSj3Ec+nx5MdnFVXKNdDCA38hHREvLh8B96xzgOciM9frFlT6H
-         A55pJfjn4HaRanhpni6vkd0UKJ5mj9YupU1mcuwhPw5JKIpMdK1lzNJCoIOa1khJE8ro
-         QpHA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=JqZZZvFE5VxL++dFfoZprDhk9+CSenhmKTyUPdyCU/U=;
+        b=rmwEoDE6Aw6hRg0DpMwE/uDyzq/cdBdVygX/aDNyexFi/Md0fzmjoXWn+ywRtHwDq/
+         MeWX0v6qqvFlT/D7sexmHqPbnqzlrnbz8wsz5ufwwUelc/9nfEk6QN50c37i9FgvyXL5
+         RXDY9zrPFe9nU81O0abso0upYgonpARld8DCv63+JT0g0ciftDAoIwvQFHCC5Jky3Tt1
+         +ioE/JIkbyktkHOLpLrqhtWaG3TQEml89XtKEDfDM7gw0dfwjMJw+P/Z+UnFhwHIIdLu
+         0n2ys5zWEHugSKTNNRkICdWyOfLP8MwFaeWl+eKeKR3UfTvEjT/WOFKGlaJj3yPjh1sK
+         BhLg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Zpo1d+Fy;
-       spf=pass (google.com: domain of rasibley@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=rasibley@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id d13si273005iow.0.2021.02.11.12.19.37
+       dkim=pass header.i=@google.com header.s=20161025 header.b=JwpYmrz5;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ua1-x933.google.com (mail-ua1-x933.google.com. [2607:f8b0:4864:20::933])
+        by gmr-mx.google.com with ESMTPS id m26si548608otk.1.2021.02.11.12.41.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 11 Feb 2021 12:19:37 -0800 (PST)
-Received-SPF: pass (google.com: domain of rasibley@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-347-F41cjXKsPryHp3VVwvJopw-1; Thu, 11 Feb 2021 15:19:33 -0500
-X-MC-Unique: F41cjXKsPryHp3VVwvJopw-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A906A1005501;
-	Thu, 11 Feb 2021 20:19:32 +0000 (UTC)
-Received: from localhost.localdomain (ovpn-113-64.rdu2.redhat.com [10.10.113.64])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 4292219C48;
-	Thu, 11 Feb 2021 20:19:22 +0000 (UTC)
-Subject: =?UTF-8?Q?Re=3a_=e2=9d=8c_FAIL=3a_Test_report_for_kernel_5=2e11=2e0?=
- =?UTF-8?Q?-rc7_=28mainline=2ekernel=2eorg-clang=29?=
-To: Nathan Chancellor <nathan@kernel.org>, Jan Stancek <jstancek@redhat.com>
-Cc: Milos Malik <mmalik@redhat.com>, Baoquan He <bhe@redhat.com>,
- David Arcari <darcari@redhat.com>, Memory Management <mm-qe@redhat.com>,
- Ondrej Mosnacek <omosnace@redhat.com>, skt-results-master@redhat.com,
- clang-built-linux@googlegroups.com, Yi Zhang <yizhan@redhat.com>,
- Xiaowu Wu <xiawu@redhat.com>, CKI Project <cki-project@redhat.com>
-References: <cki.F92FFE8E6D.9IW1XQCYQ7@redhat.com>
- <20210211183744.GA4084774@ubuntu-m3-large-x86>
-From: Rachel Sibley <rasibley@redhat.com>
-Message-ID: <bc4c35cf-bd79-e4c0-2fed-41f7c0b1ae3b@redhat.com>
-Date: Thu, 11 Feb 2021 15:19:21 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Feb 2021 12:41:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933 as permitted sender) client-ip=2607:f8b0:4864:20::933;
+Received: by mail-ua1-x933.google.com with SMTP id 30so2185147uac.7
+        for <clang-built-linux@googlegroups.com>; Thu, 11 Feb 2021 12:41:26 -0800 (PST)
+X-Received: by 2002:ab0:2448:: with SMTP id g8mr6669684uan.89.1613076085437;
+ Thu, 11 Feb 2021 12:41:25 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20210211183744.GA4084774@ubuntu-m3-large-x86>
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: rasibley@redhat.com
+References: <20210211194258.4137998-1-nathan@kernel.org>
+In-Reply-To: <20210211194258.4137998-1-nathan@kernel.org>
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 11 Feb 2021 12:41:14 -0800
+Message-ID: <CABCJKueyXp5EQnmZ7a6HR87oKwDBDukprnJWT620McSYFd1SMg@mail.gmail.com>
+Subject: Re: [PATCH] qemu_fw_cfg: Make fw_cfg_rev_attr a proper kobj_attribute
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Gabriel Somlo <somlo@cmu.edu>, "Michael S. Tsirkin" <mst@redhat.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Kees Cook <keescook@chromium.org>, qemu-devel@nongnu.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=Zpo1d+Fy;
-       spf=pass (google.com: domain of rasibley@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=rasibley@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@google.com header.s=20161025 header.b=JwpYmrz5;       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,126 +131,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Hi Nathan,
 
+On Thu, Feb 11, 2021 at 11:43 AM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> fw_cfg_showrev() is called by an indirect call in kobj_attr_show(),
+> which violates clang's CFI checking because fw_cfg_showrev()'s second
+> parameter is 'struct attribute', whereas the ->show() member of 'struct
+> kobj_structure' expects the second parameter to be of type 'struct
+> kobj_attribute'.
+>
+> $ cat /sys/firmware/qemu_fw_cfg/rev
+> 3
+>
+> $ dmesg | grep "CFI failure"
+> [   26.016832] CFI failure (target: fw_cfg_showrev+0x0/0x8):
+>
+> Fix this by converting fw_cfg_rev_attr to 'struct kobj_attribute' where
+> this would have been caught automatically by the incompatible pointer
+> types compiler warning. Update fw_cfg_showrev() accordingly.
+>
+> Fixes: 75f3e8e47f38 ("firmware: introduce sysfs driver for QEMU's fw_cfg device")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1299
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-On 2/11/21 1:37 PM, Nathan Chancellor wrote:
-> On Thu, Feb 11, 2021 at 05:11:07PM -0000, CKI Project wrote:
->>
->> Hello,
->>
->> We ran automated tests on a recent commit from this kernel tree:
->>
->>         Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/tor=
-valds/linux.git
->>              Commit: 291009f656e8 - Merge tag 'pm-5.11-rc8' of git://git=
-.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm
->>
->> The results of these automated tests are provided below.
->>
->>      Overall result: FAILED (see details below)
->>               Merge: OK
->>             Compile: OK
->>   Selftests compile: FAILED
->>               Tests: FAILED
->>
->> All kernel binaries, config files, and logs are available for download h=
-ere:
->>
->>    https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html=
-?prefix=3Ddatawarehouse-public/2021/02/10/623699
->>
->> One or more kernel tests failed:
->>
->>      aarch64:
->>       =E2=9D=8C LTP
->>
->>      x86_64:
->>       =E2=9D=8C LTP
->>
->=20
-> It seems like we are very close to getting a passing result... From what
-> I can tell, the failing tests are logged in these two files:
->=20
-> 9548629_aarch64_1_commands.fail.log
-> 9548632_x86_64_1_commands.fail.log
->=20
-> which shows only one test failing: ld01.sh
->=20
-> which appears to be this one:
->=20
-> https://github.com/linux-test-project/ltp/blob/c5004bf071bf8ca96a01f03bde=
-873e9292f7f83b/testcases/commands/ld/ld01.sh
->=20
-> I do not understand how cc.out could have ld in it, when CC is clearly
-> gcc from the log... it passes in my testing. Has the test been modified
-> on your end?
+Looks good to me. Thank you for sending the patch!
 
-We haven't updated recently, we just wrap around the upstream test suite an=
-d I don't see any recent change to the ld01 test ?
-I also see it fail the same way on the gcc mainline kernels:
+Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
 
-https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-pu=
-blic/2021/02/10/623698/build_x86_64_redhat%3A1101938/tests/LTP/9548639_x86_=
-64_1_commands.fail.log
-https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/datawarehouse-pu=
-blic/2021/02/10/623698/build_aarch64_redhat%3A1101939/tests/LTP/9548637_aar=
-ch64_1_commands.fail.log
+Sami
 
-Jan do you know anything about this failure ?
-
- >>> 2:ld01_sh FAIL <<<
-###########################################################################=
-####
-# Test Num    : 2                                                          =
-   #
-# Test Case   : ld01_sh                                                    =
-   #
-# Test Result : FAIL                                                       =
-   #
-###########################################################################=
-####
-
-      1	<<<test_start>>>
-      2	tag=3Dld01_sh stime=3D1613000729
-      3	cmdline=3D"ld01.sh"
-      4	contacts=3D""
-      5	analysis=3Dexit
-      6	<<<test_output>>>
-      7	ld01 1 TINFO: timeout per run is 0h 5m 0s
-      8	ld01 1 TPASS: ld x.o y.o 2> ld.out failed as expected
-      9	ld01 1 TPASS: Missing files were reported
-     10	ld01 2 TPASS: gcc x.o y.o 2> cc.out failed as expected
-     11	ld01 2 TFAIL: Missing files were not reported
-     12	/usr/bin/ld: cannot find x.o: No such file or directory
-     13	/usr/bin/ld: cannot find y.o: No such file or directory
-     14	collect2: error: ld returned 1 exit status
-     15	ld01 3 TPASS: ld -shared f1.o d1.o -o test.so passed as expected
-     16	ld01 3 TPASS: Shared library could be build
-     17	ld01 4 TPASS: ld -Bdynamic -shared f1.o d1.o -o test.so passed as e=
-xpected
-     18	ld01 4 TPASS: ld -Bstatic -L. main.o rd1.o test.so -o a.out failed =
-as expected
-     19	ld01 5 TPASS: ld -Bdynamic -shared main.o f1.o rf1.o -o test.so -L/=
-usr/lib/ passed as expected
-     20	ld01 5 TPASS: ld -Bstatic -r main.o f1.o rf1.o test.so -L/usr/lib/ =
-2> ld.out failed as expected
-     21	ld: attempted static link of dynamic object `test.so'
-     22	ld01 5 TPASS: Got expected error message
-
-Nathan, btw we just started cc'ing you on regular mainline reports built wi=
-th gcc, but please let us know if it's too much
-spam and we can turn it off.
-
->=20
-> Cheers,
-> Nathan
->=20
->=20
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/bc4c35cf-bd79-e4c0-2fed-41f7c0b1ae3b%40redhat.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKueyXp5EQnmZ7a6HR87oKwDBDukprnJWT620McSYFd1SMg%40mail.gmail.com.
