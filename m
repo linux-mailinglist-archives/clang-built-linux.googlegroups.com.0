@@ -1,137 +1,140 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB4GSS2AQMGQE55UOJJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDPOS2AQMGQER5K3WCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7404B31957E
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 23:02:26 +0100 (CET)
-Received: by mail-pf1-x43c.google.com with SMTP id x8sf1220094pfm.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 14:02:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613080945; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id B8B7431962C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Feb 2021 00:00:31 +0100 (CET)
+Received: by mail-pl1-x63c.google.com with SMTP id f3sf5080134plg.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Feb 2021 15:00:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613084429; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Q1F70XQBFpcdLR/l4hq/niRRaB1eXkCFbYIzwRvhEKOfDc2hrfmsaJtG4ZI8BdTlFw
-         OLUJ3besv8wh7l+GaBd8RPxOPKAVAwqlavrQL+h5m+WtQQ/SdLZ/NqMs3oy4955L+iT6
-         d0XDFdXjGexQ6yXq/Mxh/esWtwcs8w7TqzMnvHlr/1IzzFD/P85T0ef9rZAKlGP68aEY
-         PF5T9wS1q9HJGNPGPnGupZ8iXHx67Ak6yn4yTlSIfZ2DVMPPTqulOBAaAJo7LwsBMTTD
-         rT0Rs2Jid4KTQ1acEDQEpA4vTplBqruOeUnHWtz1B1Is6j+8NUiMN+PS25fPPJu6P1X0
-         VbCw==
+        b=YQBtLXOPkNaUKi21daXGBUJHL7tkEj3Bpm74zWsteaYc9NOLTLbPTU/ROVAc15egYp
+         tR+Wm3i3mYgs3SeQcCe7iaI46bk6d/+q5KB8H/2+KbZueS28Z5Jr/N+9GGeTY6iXgnOc
+         GeSw64e6vTWdLo4ETeBwgvLIwua0NipCtMUNDw4Ol6KGlNmb3NNvyw7+ngOkqEtyVhLn
+         hpECZ4PWKBZ6iVteqQPT4qTdGn2zrQLYJOlMejjQqURx5HZ7KW1PlUQbwzh8QesvezLZ
+         3YiSvyaAK4pmtliTODe0mD9ilCD7+CzxrZToV3tE/SAfviFwfGfg9jkHlTJpftH2O9Rq
+         Uj7g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=VN8Zj5MF1BwiHLaNqyfzSBNGMH1iiArhitqFE7ywLas=;
-        b=WM8sfw2Y2MQcAWTcg7Np1QIcxK+HOMQMNyI6PsoAX7fw1fuVdy3wG8HCaLEnNG+FtG
-         NvfAuEeg8qt6yrcjv4xFTVOfGDnpeshs2ynx8TTM0cly7ZQAA6Fj80O484Fd9Ic7Sgnr
-         RKFXbV9FOWFXh4YTcbSY1gtZBJD291HuJ/gh7wdvg7UtXGJ4al+V25j69NmO83AUyLVT
-         90ZY1BfBbvb7Rvs5vV8CtHZksX+0bDu+z22+C6E+nGQXS17s5OP4CYC470h9Xwe9tyr2
-         xfAnYwPmYh4u6tY3gX0bTZS44RQ+f4+0lLaUlAn38oOhgpkOoUJCcOX936xoKu0VjRto
-         mo5A==
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr:sender:dkim-signature;
+        bh=qcp6UaH72WyJnvoEEG+CuKttP7FBi3ENcSmp+RwLK9s=;
+        b=dfzRnSjNuoY/U80860EVjf0r1/ALKiOBm6ClgMbQ0RiO3s9BYAV4gGnK2gpdP99guj
+         CdA7hR7i1GCNQiVSiyKPt/ECVGSA7HQbumB1PRE41MZCyfoWua8VRFN79ViS03nXDygK
+         PjEsEoj1smpZ3TKRIKJDWcghvS7ZSaFY4qq6zdMwBBKO2pUdfFuGzlXCEHisiLOKFreV
+         DUppFcAL9vXXHq0bRr3EYRuH2thDLo4CyK3dKqEJbNREKS9EbIb5fosu5UYz0MnMtSe2
+         I9d5ExPS1h7p0QtL9W2eGUCf9VhC6oE0bwMGqpwRQeugBT5LyHv/FEoGHAeP59HorH0U
+         2t0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VN8Zj5MF1BwiHLaNqyfzSBNGMH1iiArhitqFE7ywLas=;
-        b=noj30Z10UdW3bRSPRaWvzW55lO1sgJ/8lxuezzsc6d/aTvfP/1Gxw+kscOdDqfG+4W
-         /dA4bdeZuPYhW1Y/jcBEEo21FYFyF5dmlPX9EflXTdGN6elXznkPdU38tWqeCtJ70COi
-         NTinYV+H2pzs33atUqPZ/P/a6V3eAvBplMgD/ctm/vog3AGsKP1xDaqeTlWSfDWN3tZD
-         aCaNMoJiUG1YwduBgekH3irZzRAOOXm9ZrnOTBpQtfZjnc9Lq/TKd9S1wOpTjFKIYHPV
-         xNukDemtkeXLDqz7R8shqp6CTQm3ReTABmrGKW6J7EnHCnU4/djzWdfbR/B+9xP4LEEt
-         tEOA==
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qcp6UaH72WyJnvoEEG+CuKttP7FBi3ENcSmp+RwLK9s=;
+        b=iwCCEawpLNRgbtY2Ravjt8ucOQ8+1t2jh7N+QHfA+LUbewHe8gb/lpYA2kivsC2zL2
+         y8d9PM8wGrf0vT1GRKtbPcm5Ii4pdExKQbZ6beSAB7OTl0XhjB6VLbAiva5cHBPwXndC
+         VHvtEqWPZ/ajgL9irhEUUWtJHzFbSbsRaDlSw4kH9MMY0SPbfLyOfJvl3LUJG5JKEFEk
+         Nm8TBBzLTclZ4msg0pSCxE87sOkK0R0csPz1PSds7Pq/N6LIlj+uQWpkn9dviasQF2gf
+         VgMGxLnGjFPFdXYk388OAce4xpLS+GW0rNOPYVf2EoQnSpcRwJfWwmGzu21bbk3yvhUj
+         UEMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
          :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VN8Zj5MF1BwiHLaNqyfzSBNGMH1iiArhitqFE7ywLas=;
-        b=osan9mWA/YTKgOmJBVkTfSJsdjYcqU1Cg9N3Pxhn0FAVlQSMNN7Ve9IaCVMAr7BfEJ
-         VeR9cLL5aXskON4mBtrtrhCLQ8gKRpXVZgKaknUvY18Q6ydfHZjkfZHDeHS2enmnchmb
-         fJ4UvtXr3OWnO8XRnx01iDe3JcSezZJr0TUvqoidS/lBMHFyp5FLQrOqR63iBDLzGY1+
-         jWMq/UTGIrmONGwS92Y5QiBZImShHv9k9qhezZ20rbAZC7JFqIke3BfSj7/A0u40Yxl8
-         bXowvVJa/O2BZszCaEg2/L644iMtGw2uxem3er7/J0USNWv0wHQkdJNugkBHT4k7ggqd
-         VhjQ==
+        bh=qcp6UaH72WyJnvoEEG+CuKttP7FBi3ENcSmp+RwLK9s=;
+        b=S5TObSp8IA9XX1cR+7WZzJoMgT08V9A7PiKTKgJf2F7i/JAW94ogJXwEDjR96PSVLJ
+         28CgUuXnOujJ47rjm647K+cBj0EmcHCTUmq5CzTmR8KT4WPzBe61JXgD7OK4fOWrG3VA
+         L4lTSB6Kjz4swSGgenk3DRHGw/75F3j2HqHaSuzv7IDKOd3vRYMfqtBSFOLVQaf2o/hx
+         QeMnucprbslBhgs0htvjTyk6uNvjY5ecyjmnEgOYFiOqS78/o6D8S21DCmeTBdDPYSdY
+         34yUbvGNST++pmvqh9FRl5acjYDBJBa+J+H4DrZYRu4P7fBs0cCCQmtVFtFgP4GuFjiF
+         WEQw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53227zrDbVAJqrIX/CSBujN1qQVrOQ+D6Y91rZXxkaimgfv68KgF
-	WqOO3A9Ahxn2F0Pe2gH0Lt8=
-X-Google-Smtp-Source: ABdhPJxRpenrXliZSYGLqhlP2vySVMBgr6Ap1SoJO0ugyugg6Zb1fDa1YDXtw34oA+++pwEP0gItNA==
-X-Received: by 2002:a65:624a:: with SMTP id q10mr229399pgv.2.1613080944929;
-        Thu, 11 Feb 2021 14:02:24 -0800 (PST)
+X-Gm-Message-State: AOAM531aDyJ8TPBsyhPWNLRlWfsKjteTB0BC1txgOnwQxM8deoWfXesF
+	cQSnQ4rvPmgmYtMa1tMuB0o=
+X-Google-Smtp-Source: ABdhPJwBR6UjCdXAG5Te4U+OpuY+CcLH0Kg68H5v6PV6T7VBwjZZs27Sx9ubKhzw9SW0ImvQrj5c9g==
+X-Received: by 2002:a62:3181:0:b029:1df:4f2:16b3 with SMTP id x123-20020a6231810000b02901df04f216b3mr76704pfx.24.1613084429139;
+        Thu, 11 Feb 2021 15:00:29 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a416:: with SMTP id p22ls2974688plq.3.gmail; Thu, 11
- Feb 2021 14:02:24 -0800 (PST)
-X-Received: by 2002:a17:902:c78a:b029:e2:d955:9f4f with SMTP id w10-20020a170902c78ab02900e2d9559f4fmr508pla.26.1613080943907;
-        Thu, 11 Feb 2021 14:02:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613080943; cv=none;
+Received: by 2002:a62:f203:: with SMTP id m3ls2621601pfh.9.gmail; Thu, 11 Feb
+ 2021 15:00:28 -0800 (PST)
+X-Received: by 2002:a63:343:: with SMTP id 64mr403740pgd.232.1613084428225;
+        Thu, 11 Feb 2021 15:00:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613084428; cv=none;
         d=google.com; s=arc-20160816;
-        b=ym3SmMw3fKAFMgXjIcWMlNDqGnWUEaF2wKML27R7nzfVgvKrW+m2IeoPiG8pF6h2te
-         VduFCsQqWXJvRDnLvGzXjUNXiVAm262uR02zDWx9XsccoUpT89sjRYkGds7IsLwNGBuL
-         ILtTGJxGfE7zMmeRCFLHM9qLWCx8tm2QrjwXTeICpgxC/a8UPQku0XGKfC7i7v811bOz
-         3QHYCDdYiBrKNb5shqRJWloeqKWtf+fQN92kX4YgI+b06UB8qpnRn2vRX3/p2ufzopBe
-         bT9lpSwBdl0Re1H+LiFyngCV+KJYvcFDLfgoqC1Ja8cOHkk/6k9fC6Q6pOfz+ttPeU9H
-         8E1A==
+        b=xCAcs9pW/xj11MXfViQ/wAUQu0ymj7DZJbfoafUvxHavAmeVktpCRe4tIK6c0Si1R5
+         O9Mu/8epk+3pQoM55rvUmqXfgPiAxKLxTJdSFV99lNNoMSrqQm1UbwAcA7IXukTSXbMe
+         pNv4xaNfzkyQCh6P9bknISPqfUIjk5idVXr/aguNoP6XNp4T10Rp/feQzGebj7h2Vu/k
+         IzwjqLKihOQLgsldu/ZqvJ7l4xhFi4PCC8/LCMqX58OH9HfGXtCDGmu/CPdA0CwxMnCm
+         xOUhL+qcHAYpu5LoCoQPf+DO5USp/4q4SUqMo/tZRwTGUN2OiFfhpMR/pmFvIjnj3jOV
+         wIFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=YK6+KL9+QdorluAy+Xp/SDrA2Hs5+D2q7KzDglU9p4g=;
-        b=KbtshXDmZzZcKPvo94RQKlii+MOmdPbhhd91FioTulE0fjx/IxhTXbz+oD54xPsAWB
-         1B3+tmloNyVRbv2kXOWct9yg/lnKj5WiRx6shkoqCgoYzZuCMF1zXp5TuqU5T4IjvPK1
-         vi0pu5lmFV7svCR9+4TDOWsyqhElljZd4+VVEN/Qq3D01z11hOYzlg8sOxLqz/06yINM
-         qe+i/28OKktDp+HW2kZH0lC1bvFPUwWqJOMHinTcMYVyLv2WtpDtNRylEH8weyTicET7
-         i0QviLycqt927PO09iSYYrDCqwxngszVahG1pCm5c4kT5gdxFl+mTh2mCcKXRyIG9h+L
-         yxTQ==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr;
+        bh=WcKu85tv1ed5/bzaM+VDnaajKx8nvrqN8v6AJ3UZP5c=;
+        b=CHt2lfot9h+ugLSBDisytYl8zc0JA8BLzLyKErQpGolFj/e6g0d0Zj6UX9gdt1ycHv
+         6BNW44s0Xn8ZCIuU8Qo3E/MCKWvqAbkdHSay7g8AyvWyvkoFI9nZe79TGgKXhsuIbyC4
+         rEHJ1v1Vk6sq4yKI3eh4irLoIbeosyGUsQKAEUVri3De+SZhjtEIwNhtUZ0cbkqMTVkG
+         cLAV+O7TCG0G+8ACkRgS6M0ZG4Jm2Ig1gqN6pBBXqX0oEQVJquoxqjc+sn0XtQJRk8py
+         aJeofnWjBZOBGXG01FP/7cZe86ofh+JSNx8w3SyQIl2MaE+JEM+03+7FzImaDQF/32X+
+         b88A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id q10si358713pjp.0.2021.02.11.14.02.23
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id p2si27785pjn.1.2021.02.11.15.00.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 11 Feb 2021 14:02:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: wJ/DM8YyQVlhyUJ4/64px7oJL2jt4Od2Cknmf6Gxo2zhup6KNexDNFEN3zgvCU5dwhYESZLxSd
- wqxPCXJaBKdA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9892"; a="267167506"
-X-IronPort-AV: E=Sophos;i="5.81,171,1610438400"; 
-   d="gz'50?scan'50,208,50";a="267167506"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2021 14:02:22 -0800
-IronPort-SDR: sAH/dJSzvkvbZAtUeHREuuW+mrn9utcWOObzXwtKP3/yBwPdAhFzGNkKE/V+w1CaHygoOzpTfw
- 4fS5CegkuW2w==
+        Thu, 11 Feb 2021 15:00:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+IronPort-SDR: ILebkNzAdXMqEfcpeAWo/b5XfLFpNqJPYD+D2iukxg6XtpqBUUFxU/2df3JWp9RyNrDqLDd+ZN
+ 1yBe5bEv5aBg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9892"; a="161475706"
+X-IronPort-AV: E=Sophos;i="5.81,172,1610438400"; 
+   d="gz'50?scan'50,208,50";a="161475706"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Feb 2021 15:00:27 -0800
+IronPort-SDR: ZhlZaxLhARwmnhEfkY6C3O/qjJf8w7bYpv8Q63hWCAnKtwHPT2iuQVS4kA7xGKl0HhBjs/vbLA
+ zuiy0g+gbpHw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.81,171,1610438400"; 
-   d="gz'50?scan'50,208,50";a="415597434"
+X-IronPort-AV: E=Sophos;i="5.81,172,1610438400"; 
+   d="gz'50?scan'50,208,50";a="511062707"
 Received: from lkp-server02.sh.intel.com (HELO cd560a204411) ([10.239.97.151])
-  by fmsmga004.fm.intel.com with ESMTP; 11 Feb 2021 14:02:19 -0800
+  by orsmga004.jf.intel.com with ESMTP; 11 Feb 2021 15:00:23 -0800
 Received: from kbuild by cd560a204411 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lAK2U-00048y-Or; Thu, 11 Feb 2021 22:02:18 +0000
-Date: Fri, 12 Feb 2021 06:02:10 +0800
+	id 1lAKwg-0004Af-8g; Thu, 11 Feb 2021 23:00:22 +0000
+Date: Fri, 12 Feb 2021 06:59:18 +0800
 From: kernel test robot <lkp@intel.com>
 To: Guido =?iso-8859-1?Q?G=FCnther?= <agx@sigxcpu.org>,
 	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v1 2/4] usb: typec: tps6598x: Add trace event for status
- register
-Message-ID: <202102120534.MfcaZmCg-lkp@intel.com>
-References: <c9a7ddc23cbf5a5315c011dcfda85eca00a7cbe8.1613058605.git.agx@sigxcpu.org>
+Subject: Re: [PATCH v1 3/4] usb: typec: tps6598x: Add trace event for power
+ status register
+Message-ID: <202102120644.IXu75GmJ-lkp@intel.com>
+References: <7ae25a6ca5c55e2250e18f816f94a72764f18f21.1613058605.git.agx@sigxcpu.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="LZvS9be/3tNcYl/X"
+Content-Type: multipart/mixed; boundary="VbJkn9YxBvnuCH5J"
 Content-Disposition: inline
-In-Reply-To: <c9a7ddc23cbf5a5315c011dcfda85eca00a7cbe8.1613058605.git.agx@sigxcpu.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7ae25a6ca5c55e2250e18f816f94a72764f18f21.1613058605.git.agx@sigxcpu.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -147,9 +150,10 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---LZvS9be/3tNcYl/X
+--VbJkn9YxBvnuCH5J
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
 Hi "Guido,
 
@@ -161,228 +165,197 @@ I love your patch! Yet something to improve:
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch]
 
-url:    https://github.com/0day-ci/linux/commits/Guido-G-nther/usb-typec-tps6598x-Add-IRQ-flag-and-register-tracing/20210212-001108
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
+url:    https://github.com/0day-ci/linux/commits/Guido-G-nther/usb-typec-tp=
+s6598x-Add-IRQ-flag-and-register-tracing/20210212-001108
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-=
+testing
 config: mips-randconfig-r036-20210209 (attached as .config)
-compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439c=
+a36342fb6013187d0a69aef92736951476)
+reproduce (this is a W=3D1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # install mips cross compiling tool for clang build
         # apt-get install binutils-mips-linux-gnu
-        # https://github.com/0day-ci/linux/commit/17785e43289bc7b92db7b401cd53a37c7a9faed2
+        # https://github.com/0day-ci/linux/commit/e726633dc82c8537d76fed3f4=
+a2e55a28bc3e670
         git remote add linux-review https://github.com/0day-ci/linux
-        git fetch --no-tags linux-review Guido-G-nther/usb-typec-tps6598x-Add-IRQ-flag-and-register-tracing/20210212-001108
-        git checkout 17785e43289bc7b92db7b401cd53a37c7a9faed2
+        git fetch --no-tags linux-review Guido-G-nther/usb-typec-tps6598x-A=
+dd-IRQ-flag-and-register-tracing/20210212-001108
+        git checkout e726633dc82c8537d76fed3f4a2e55a28bc3e670
         # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=mips 
+        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=
+=3Dmips=20
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-                   { TPS_REG_INT_USER_VID_ALT_MODE_ENTERED,        "USER_VID_ALT_MODE_ENTERED" }, \
-                     ^
-   drivers/usb/typec/tps6598x.h:83:48: note: expanded from macro 'TPS_REG_INT_USER_VID_ALT_MODE_ENTERED'
-   #define TPS_REG_INT_USER_VID_ALT_MODE_ENTERED           BIT(24+32)
-                                                           ^
-   include/vdso/bits.h:7:26: note: expanded from macro 'BIT'
-   #define BIT(nr)                 (UL(1) << (nr))
-                                          ^
-   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/trace/trace_events.h:80:16: note: expanded from macro 'TRACE_EVENT'
-                                PARAMS(print));                   \
-                                ~~~~~~~^~~~~~~
-   include/linux/tracepoint.h:97:25: note: expanded from macro 'PARAMS'
-   #define PARAMS(args...) args
-                           ^
-   include/trace/trace_events.h:367:22: note: expanded from macro 'DECLARE_EVENT_CLASS'
-           trace_seq_printf(s, print);                                     \
-                               ^~~~~
-   In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:154:9: warning: shift count >= width of type [-Wshift-count-overflow]
-                         show_irq_flags(__entry->event2))
-                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/usb/typec/./tps6598x_trace.h:66:5: note: expanded from macro 'show_irq_flags'
-                   { TPS_REG_INT_USER_VID_ALT_MODE_EXIT,           "USER_VID_ALT_MODE_EXIT" }, \
-                     ^
-   drivers/usb/typec/tps6598x.h:82:45: note: expanded from macro 'TPS_REG_INT_USER_VID_ALT_MODE_EXIT'
-   #define TPS_REG_INT_USER_VID_ALT_MODE_EXIT              BIT(25+32)
-                                                           ^
-   include/vdso/bits.h:7:26: note: expanded from macro 'BIT'
-   #define BIT(nr)                 (UL(1) << (nr))
-                                          ^
-   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/trace/trace_events.h:80:16: note: expanded from macro 'TRACE_EVENT'
-                                PARAMS(print));                   \
-                                ~~~~~~~^~~~~~~
-   include/linux/tracepoint.h:97:25: note: expanded from macro 'PARAMS'
-   #define PARAMS(args...) args
-                           ^
-   include/trace/trace_events.h:367:22: note: expanded from macro 'DECLARE_EVENT_CLASS'
-           trace_seq_printf(s, print);                                     \
-                               ^~~~~
-   In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:154:9: warning: shift count >= width of type [-Wshift-count-overflow]
-                         show_irq_flags(__entry->event2))
-                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/usb/typec/./tps6598x_trace.h:67:5: note: expanded from macro 'show_irq_flags'
-                   { TPS_REG_INT_USER_VID_ALT_MODE_ATTN_VDM,       "USER_VID_ALT_MODE_ATTN_VDM" }, \
-                     ^
-   drivers/usb/typec/tps6598x.h:81:49: note: expanded from macro 'TPS_REG_INT_USER_VID_ALT_MODE_ATTN_VDM'
-   #define TPS_REG_INT_USER_VID_ALT_MODE_ATTN_VDM          BIT(26+32)
-                                                           ^
-   include/vdso/bits.h:7:26: note: expanded from macro 'BIT'
-   #define BIT(nr)                 (UL(1) << (nr))
-                                          ^
-   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/trace/trace_events.h:80:16: note: expanded from macro 'TRACE_EVENT'
-                                PARAMS(print));                   \
-                                ~~~~~~~^~~~~~~
-   include/linux/tracepoint.h:97:25: note: expanded from macro 'PARAMS'
-   #define PARAMS(args...) args
-                           ^
-   include/trace/trace_events.h:367:22: note: expanded from macro 'DECLARE_EVENT_CLASS'
-           trace_seq_printf(s, print);                                     \
-                               ^~~~~
-   In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:154:9: warning: shift count >= width of type [-Wshift-count-overflow]
-                         show_irq_flags(__entry->event2))
-                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/usb/typec/./tps6598x_trace.h:68:5: note: expanded from macro 'show_irq_flags'
-                   { TPS_REG_INT_USER_VID_ALT_MODE_OTHER_VDM,      "USER_VID_ALT_MODE_OTHER_VDM" })
-                     ^
-   drivers/usb/typec/tps6598x.h:80:50: note: expanded from macro 'TPS_REG_INT_USER_VID_ALT_MODE_OTHER_VDM'
-   #define TPS_REG_INT_USER_VID_ALT_MODE_OTHER_VDM         BIT(27+32)
-                                                           ^
-   include/vdso/bits.h:7:26: note: expanded from macro 'BIT'
-   #define BIT(nr)                 (UL(1) << (nr))
-                                          ^
-   note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/trace/trace_events.h:80:16: note: expanded from macro 'TRACE_EVENT'
-                                PARAMS(print));                   \
-                                ~~~~~~~^~~~~~~
-   include/linux/tracepoint.h:97:25: note: expanded from macro 'PARAMS'
-   #define PARAMS(args...) args
-                           ^
-   include/trace/trace_events.h:367:22: note: expanded from macro 'DECLARE_EVENT_CLASS'
-           trace_seq_printf(s, print);                                     \
-                               ^~~~~
-   In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:401:
->> drivers/usb/typec/./tps6598x_trace.h:171:9: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
-                         show_status_conn_state(__entry->status),
-                         ^
-   drivers/usb/typec/./tps6598x_trace.h:81:19: note: expanded from macro 'show_status_conn_state'
-           __print_symbolic(TPS_STATUS_CONN_STATE((status)), \
-                            ^
-   drivers/usb/typec/tps6598x.h:28:35: note: expanded from macro 'TPS_STATUS_CONN_STATE'
-   #define TPS_STATUS_CONN_STATE(x)                FIELD_GET(TPS_STATUS_CONN_STATE_MASK, (x))
-                                                   ^
-   In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:172:37: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
-                         show_status_pp_switch_state(TPS_STATUS_PP_5V0_SWITCH(__entry->status)),
+   drivers/usb/typec/./tps6598x_trace.h:190:37: error: implicit declaration=
+ of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+                         show_status_pp_switch_state(TPS_STATUS_PP_5V0_SWIT=
+CH(__entry->status)),
                                                      ^
-   drivers/usb/typec/tps6598x.h:30:38: note: expanded from macro 'TPS_STATUS_PP_5V0_SWITCH'
-   #define TPS_STATUS_PP_5V0_SWITCH(x)             FIELD_GET(TPS_STATUS_PP_5V0_SWITCH_MASK, (x))
+   drivers/usb/typec/tps6598x.h:30:38: note: expanded from macro 'TPS_STATU=
+S_PP_5V0_SWITCH'
+   #define TPS_STATUS_PP_5V0_SWITCH(x)             FIELD_GET(TPS_STATUS_PP_=
+5V0_SWITCH_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:173:37: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
-                         show_status_pp_switch_state(TPS_STATUS_PP_HV_SWITCH(__entry->status)),
+   drivers/usb/typec/./tps6598x_trace.h:191:37: error: implicit declaration=
+ of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+                         show_status_pp_switch_state(TPS_STATUS_PP_HV_SWITC=
+H(__entry->status)),
                                                      ^
-   drivers/usb/typec/tps6598x.h:32:37: note: expanded from macro 'TPS_STATUS_PP_HV_SWITCH'
-   #define TPS_STATUS_PP_HV_SWITCH(x)              FIELD_GET(TPS_STATUS_PP_HV_SWITCH_MASK, (x))
+   drivers/usb/typec/tps6598x.h:32:37: note: expanded from macro 'TPS_STATU=
+S_PP_HV_SWITCH'
+   #define TPS_STATUS_PP_HV_SWITCH(x)              FIELD_GET(TPS_STATUS_PP_=
+HV_SWITCH_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:174:37: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
-                         show_status_pp_switch_state(TPS_STATUS_PP_EXT_SWITCH(__entry->status)),
+   drivers/usb/typec/./tps6598x_trace.h:192:37: error: implicit declaration=
+ of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+                         show_status_pp_switch_state(TPS_STATUS_PP_EXT_SWIT=
+CH(__entry->status)),
                                                      ^
-   drivers/usb/typec/tps6598x.h:34:38: note: expanded from macro 'TPS_STATUS_PP_EXT_SWITCH'
-   #define TPS_STATUS_PP_EXT_SWITCH(x)             FIELD_GET(TPS_STATUS_PP_EXT_SWITCH_MASK, (x))
+   drivers/usb/typec/tps6598x.h:34:38: note: expanded from macro 'TPS_STATU=
+S_PP_EXT_SWITCH'
+   #define TPS_STATUS_PP_EXT_SWITCH(x)             FIELD_GET(TPS_STATUS_PP_=
+EXT_SWITCH_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:175:37: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
-                         show_status_pp_switch_state(TPS_STATUS_PP_CABLE_SWITCH(__entry->status)),
+   drivers/usb/typec/./tps6598x_trace.h:193:37: error: implicit declaration=
+ of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+                         show_status_pp_switch_state(TPS_STATUS_PP_CABLE_SW=
+ITCH(__entry->status)),
                                                      ^
-   drivers/usb/typec/tps6598x.h:36:40: note: expanded from macro 'TPS_STATUS_PP_CABLE_SWITCH'
-   #define TPS_STATUS_PP_CABLE_SWITCH(x)           FIELD_GET(TPS_STATUS_PP_CABLE_SWITCH_MASK, (x))
+   drivers/usb/typec/tps6598x.h:36:40: note: expanded from macro 'TPS_STATU=
+S_PP_CABLE_SWITCH'
+   #define TPS_STATUS_PP_CABLE_SWITCH(x)           FIELD_GET(TPS_STATUS_PP_=
+CABLE_SWITCH_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:176:9: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+   drivers/usb/typec/./tps6598x_trace.h:194:9: error: implicit declaration =
+of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
                          show_status_power_sources(__entry->status),
                          ^
-   drivers/usb/typec/./tps6598x_trace.h:98:19: note: expanded from macro 'show_status_power_sources'
+   drivers/usb/typec/./tps6598x_trace.h:98:19: note: expanded from macro 's=
+how_status_power_sources'
            __print_symbolic(TPS_STATUS_POWER_SOURCE(status), \
                             ^
-   drivers/usb/typec/tps6598x.h:38:37: note: expanded from macro 'TPS_STATUS_POWER_SOURCE'
-   #define TPS_STATUS_POWER_SOURCE(x)              FIELD_GET(TPS_STATUS_POWER_SOURCE_MASK, (x))
+   drivers/usb/typec/tps6598x.h:38:37: note: expanded from macro 'TPS_STATU=
+S_POWER_SOURCE'
+   #define TPS_STATUS_POWER_SOURCE(x)              FIELD_GET(TPS_STATUS_POW=
+ER_SOURCE_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:177:9: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+   drivers/usb/typec/./tps6598x_trace.h:195:9: error: implicit declaration =
+of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
                          show_status_vbus_status(__entry->status),
                          ^
-   drivers/usb/typec/./tps6598x_trace.h:105:19: note: expanded from macro 'show_status_vbus_status'
+   drivers/usb/typec/./tps6598x_trace.h:105:19: note: expanded from macro '=
+show_status_vbus_status'
            __print_symbolic(TPS_STATUS_VBUS_STATUS(status), \
                             ^
-   drivers/usb/typec/tps6598x.h:40:36: note: expanded from macro 'TPS_STATUS_VBUS_STATUS'
-   #define TPS_STATUS_VBUS_STATUS(x)               FIELD_GET(TPS_STATUS_VBUS_STATUS_MASK, (x))
+   drivers/usb/typec/tps6598x.h:40:36: note: expanded from macro 'TPS_STATU=
+S_VBUS_STATUS'
+   #define TPS_STATUS_VBUS_STATUS(x)               FIELD_GET(TPS_STATUS_VBU=
+S_STATUS_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:178:9: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+   drivers/usb/typec/./tps6598x_trace.h:196:9: error: implicit declaration =
+of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
                          show_status_usb_host_present(__entry->status),
                          ^
-   drivers/usb/typec/./tps6598x_trace.h:112:19: note: expanded from macro 'show_status_usb_host_present'
+   drivers/usb/typec/./tps6598x_trace.h:112:19: note: expanded from macro '=
+show_status_usb_host_present'
            __print_symbolic(TPS_STATUS_USB_HOST_PRESENT(status), \
                             ^
-   drivers/usb/typec/tps6598x.h:42:41: note: expanded from macro 'TPS_STATUS_USB_HOST_PRESENT'
-   #define TPS_STATUS_USB_HOST_PRESENT(x)          FIELD_GET(TPS_STATUS_USB_HOST_PRESENT_MASK, (x))
+   drivers/usb/typec/tps6598x.h:42:41: note: expanded from macro 'TPS_STATU=
+S_USB_HOST_PRESENT'
+   #define TPS_STATUS_USB_HOST_PRESENT(x)          FIELD_GET(TPS_STATUS_USB=
+_HOST_PRESENT_MASK, (x))
                                                    ^
    In file included from drivers/usb/typec/tps6598x.c:21:
-   In file included from drivers/usb/typec/./tps6598x_trace.h:191:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
    In file included from include/trace/define_trace.h:102:
    In file included from include/trace/trace_events.h:401:
-   drivers/usb/typec/./tps6598x_trace.h:179:9: error: implicit declaration of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+   drivers/usb/typec/./tps6598x_trace.h:197:9: error: implicit declaration =
+of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
                          show_status_legacy(__entry->status),
                          ^
-   drivers/usb/typec/./tps6598x_trace.h:119:19: note: expanded from macro 'show_status_legacy'
+   drivers/usb/typec/./tps6598x_trace.h:119:19: note: expanded from macro '=
+show_status_legacy'
            __print_symbolic(TPS_STATUS_LEGACY(status),          \
                             ^
-   drivers/usb/typec/tps6598x.h:44:32: note: expanded from macro 'TPS_STATUS_LEGACY'
-   #define TPS_STATUS_LEGACY(x)                    FIELD_GET(TPS_STATUS_LEGACY_MASK, (x))
+   drivers/usb/typec/tps6598x.h:44:32: note: expanded from macro 'TPS_STATU=
+S_LEGACY'
+   #define TPS_STATUS_LEGACY(x)                    FIELD_GET(TPS_STATUS_LEG=
+ACY_MASK, (x))
                                                    ^
+   In file included from drivers/usb/typec/tps6598x.c:21:
+   In file included from drivers/usb/typec/./tps6598x_trace.h:229:
+   In file included from include/trace/define_trace.h:102:
+   In file included from include/trace/trace_events.h:401:
+   drivers/usb/typec/./tps6598x_trace.h:215:11: error: implicit declaration=
+ of function 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+                         !!TPS_POWER_STATUS_CONNECTION(__entry->power_statu=
+s),
+                           ^
+   drivers/usb/typec/tps6598x.h:128:41: note: expanded from macro 'TPS_POWE=
+R_STATUS_CONNECTION'
+   #define TPS_POWER_STATUS_CONNECTION(x)  FIELD_GET(BIT(0), (x))
+                                           ^
+>> drivers/usb/typec/tps6598x.c:235:9: error: implicit declaration of funct=
+ion 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+           mode =3D TPS_POWER_STATUS_PWROPMODE(pwr_status);
+                  ^
+   drivers/usb/typec/tps6598x.h:133:43: note: expanded from macro 'TPS_POWE=
+R_STATUS_PWROPMODE'
+   #define TPS_POWER_STATUS_PWROPMODE(p)       FIELD_GET(TPS_POWER_STATUS_T=
+YPEC_CURRENT_MASK, (p))
+                                               ^
+   drivers/usb/typec/tps6598x.c:505:6: error: implicit declaration of funct=
+ion 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+           if (TPS_POWER_STATUS_CONNECTION(pwr_status) &&
+               ^
+   drivers/usb/typec/tps6598x.h:128:41: note: expanded from macro 'TPS_POWE=
+R_STATUS_CONNECTION'
+   #define TPS_POWER_STATUS_CONNECTION(x)  FIELD_GET(BIT(0), (x))
+                                           ^
+   drivers/usb/typec/tps6598x.c:527:7: error: implicit declaration of funct=
+ion 'FIELD_GET' [-Werror,-Wimplicit-function-declaration]
+                   if (TPS_POWER_STATUS_PWROPMODE(pwr_status) =3D=3D TYPEC_=
+PWR_MODE_PD)
+                       ^
+   drivers/usb/typec/tps6598x.h:133:43: note: expanded from macro 'TPS_POWE=
+R_STATUS_PWROPMODE'
+   #define TPS_POWER_STATUS_PWROPMODE(p)       FIELD_GET(TPS_POWER_STATUS_T=
+YPEC_CURRENT_MASK, (p))
+                                               ^
+   36 warnings and 13 errors generated.
 
 Kconfig warnings: (for reference only)
    WARNING: unmet direct dependencies detected for SSB_EMBEDDED
@@ -391,52 +364,89 @@ Kconfig warnings: (for reference only)
    - BCM47XX_SSB && BCM47XX
 
 
-vim +/FIELD_GET +171 drivers/usb/typec/./tps6598x_trace.h
+vim +/FIELD_GET +235 drivers/usb/typec/tps6598x.c
 
-   156	
-   157	TRACE_EVENT(tps6598x_status,
-   158		    TP_PROTO(u32 status),
-   159		    TP_ARGS(status),
-   160	
-   161		    TP_STRUCT__entry(
-   162				     __field(u32, status)
-   163				     ),
-   164	
-   165		    TP_fast_assign(
-   166				   __entry->status = status;
-   167				   ),
-   168	
-   169		    TP_printk("conn: %s, pp_5v0: %s, pp_hv: %s, pp_ext: %s, pp_cable: %s, "
-   170			      "pwr-src: %s, vbus: %s, usb-host: %s, legacy: %s, flags: %s",
- > 171			      show_status_conn_state(__entry->status),
-   172			      show_status_pp_switch_state(TPS_STATUS_PP_5V0_SWITCH(__entry->status)),
-   173			      show_status_pp_switch_state(TPS_STATUS_PP_HV_SWITCH(__entry->status)),
-   174			      show_status_pp_switch_state(TPS_STATUS_PP_EXT_SWITCH(__entry->status)),
-   175			      show_status_pp_switch_state(TPS_STATUS_PP_CABLE_SWITCH(__entry->status)),
-   176			      show_status_power_sources(__entry->status),
-   177			      show_status_vbus_status(__entry->status),
-   178			      show_status_usb_host_present(__entry->status),
-   179			      show_status_legacy(__entry->status),
-   180			      show_status_flags(__entry->status)
-   181			    )
-   182	);
-   183	
+18a6c866bb191f Bryan O'Donoghue 2020-05-12  220 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  221  static int tps6598x_connec=
+t(struct tps6598x *tps, u32 status)
+0a4c005bd1715d Heikki Krogerus  2017-09-25  222  {
+0a4c005bd1715d Heikki Krogerus  2017-09-25  223  	struct typec_partner_desc=
+ desc;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  224  	enum typec_pwr_opmode mod=
+e;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  225  	u16 pwr_status;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  226  	int ret;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  227 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  228  	if (tps->partner)
+0a4c005bd1715d Heikki Krogerus  2017-09-25  229  		return 0;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  230 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  231  	ret =3D tps6598x_read16(t=
+ps, TPS_REG_POWER_STATUS, &pwr_status);
+0a4c005bd1715d Heikki Krogerus  2017-09-25  232  	if (ret < 0)
+0a4c005bd1715d Heikki Krogerus  2017-09-25  233  		return ret;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  234 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25 @235  	mode =3D TPS_POWER_STATUS=
+_PWROPMODE(pwr_status);
+0a4c005bd1715d Heikki Krogerus  2017-09-25  236 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  237  	desc.usb_pd =3D mode =3D=
+=3D TYPEC_PWR_MODE_PD;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  238  	desc.accessory =3D TYPEC_=
+ACCESSORY_NONE; /* XXX: handle accessories */
+0a4c005bd1715d Heikki Krogerus  2017-09-25  239  	desc.identity =3D NULL;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  240 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  241  	if (desc.usb_pd) {
+0a4c005bd1715d Heikki Krogerus  2017-09-25  242  		ret =3D tps6598x_read_pa=
+rtner_identity(tps);
+0a4c005bd1715d Heikki Krogerus  2017-09-25  243  		if (ret)
+0a4c005bd1715d Heikki Krogerus  2017-09-25  244  			return ret;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  245  		desc.identity =3D &tps->=
+partner_identity;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  246  	}
+0a4c005bd1715d Heikki Krogerus  2017-09-25  247 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  248  	typec_set_pwr_opmode(tps-=
+>port, mode);
+17785e43289bc7 Guido G=C3=BCnther    2021-02-11  249  	typec_set_pwr_role(t=
+ps->port, TPS_STATUS_TO_TYPEC_PORTROLE(status));
+17785e43289bc7 Guido G=C3=BCnther    2021-02-11  250  	typec_set_vconn_role=
+(tps->port, TPS_STATUS_TO_TYPEC_VCONN(status));
+17785e43289bc7 Guido G=C3=BCnther    2021-02-11  251  	tps6598x_set_data_ro=
+le(tps, TPS_STATUS_TO_TYPEC_DATAROLE(status), true);
+0a4c005bd1715d Heikki Krogerus  2017-09-25  252 =20
+cf6e06cddf2972 Heikki Krogerus  2018-03-02  253  	tps->partner =3D typec_re=
+gister_partner(tps->port, &desc);
+cf6e06cddf2972 Heikki Krogerus  2018-03-02  254  	if (IS_ERR(tps->partner))
+cf6e06cddf2972 Heikki Krogerus  2018-03-02  255  		return PTR_ERR(tps->part=
+ner);
+cf6e06cddf2972 Heikki Krogerus  2018-03-02  256 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  257  	if (desc.identity)
+0a4c005bd1715d Heikki Krogerus  2017-09-25  258  		typec_partner_set_identi=
+ty(tps->partner);
+0a4c005bd1715d Heikki Krogerus  2017-09-25  259 =20
+10eb0b6ac63a15 Guido G=C3=BCnther    2020-12-05  260  	power_supply_changed=
+(tps->psy);
+10eb0b6ac63a15 Guido G=C3=BCnther    2020-12-05  261 =20
+0a4c005bd1715d Heikki Krogerus  2017-09-25  262  	return 0;
+0a4c005bd1715d Heikki Krogerus  2017-09-25  263  }
+0a4c005bd1715d Heikki Krogerus  2017-09-25  264 =20
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
 https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102120534.MfcaZmCg-lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/202102120644.IXu75GmJ-lkp%40intel.com.
 
---LZvS9be/3tNcYl/X
+--VbJkn9YxBvnuCH5J
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICAmkJWAAAy5jb25maWcAjDxdc+O2ru/9FZ7tS89MuxsnTnb33skDRVE215KokJRj54Xj
+H4sICHivJWAAAy5jb25maWcAjDxdc+O2ru/9FZ7tS89MuxsnTnb33skDRVE215KokJRj54Xj
 Zp1tbvOx4zht9/z6C1BfpEQ57UOzAkAQJEEQAEH//NPPE/J6eH7cHu5vtw8PPybfdk+7/faw
 +zq5u3/Y/e8kFpNc6AmLuX4PxOn90+s/Hx7vv79Mzt9Pp+9Pftvffpwsd/un3cOEPj/d3X97
 heb3z08//fwTFXnC54ZSs2JScZEbzdb68t3tw/bp2+Sv3f4F6CbT0/cn708mv3y7P/zPhw/w
@@ -1110,4 +1120,4 @@ Kow1EF45yAh11KQm/zJyiuByYBmb5bIVKlpze74IaHjwSzXGdDB6A9zH2LoR0TYRHIcRiKWc
 0UItPn3H6pSMlozEYx8yI6hNTcGDFERsNhFog1e0p06ewQ6CZgh6fQmD3oqozVyhThkqZoni
 3vzjOM4t6/8Bh4BYRtYvAgA=
 
---LZvS9be/3tNcYl/X--
+--VbJkn9YxBvnuCH5J--
