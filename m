@@ -1,146 +1,132 @@
-Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBDNLTOAQMGQEOWVA4NI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBHFZTOAQMGQE6I5VYBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 799DB31A547
-	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Feb 2021 20:22:54 +0100 (CET)
-Received: by mail-ua1-x93e.google.com with SMTP id d9sf163632uaf.18
-        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Feb 2021 11:22:54 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613157773; cv=pass;
+Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id ACA8731A5A8
+	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Feb 2021 20:53:01 +0100 (CET)
+Received: by mail-ot1-x339.google.com with SMTP id v108sf230367otb.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Feb 2021 11:53:01 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613159580; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yTabWi0gZ6WXVBFVmuW2qa79KFp8SDBnDiFwKkEtD1eh8g8GLFG+R9baEgNPqV2kit
-         v4ZoSBW60yxtHkPuMnMFfVc34ZNzNG/7NSbN3B45WvFkwwFuJYsWw3ZX96Dv5EHE9qCO
-         /KyjSit3qmFvnDdj8edbb7yHCe5UOj8ww46+AEFSeP+c5r+D3lrZKfdS+k+DKUjB5pl9
-         qEQXuHUhmQRYaz9zJ9ed9/7gCdKlm86BlOB4zqEIeyxaxA+goF2rLJX8YgnmmMS7iDyg
-         g+ztaw1mZ9mYcZcDe4HVTPzF/2u93qRk9/1/+OQtqC9pFt0jrgGkZZFHyBJf9H+epsR1
-         f4qw==
+        b=NrkU/MOl7Vq0TMHB4Czljeasarcu0dVYjWToENkNpD37Ps1UDiGSTW81JyHbDKIVcy
+         c/t8QtS4jyyXsiaf7CgvcInMn9HuClf0VRrGIJNpktrLj7hLSuX2twiuIeSoyHYWOcUy
+         0pd1u5OPriAQJJEtOCcB+1f/GzMRRszsXiRhEELB+yama6ZHJSDscj/vEF5w1XTgRLiJ
+         hYhDjRN8R8fiG/wcUFzS7qW+w47mQ9pb5wRs4v1KwT5HrWalB5Qp0Da55ugHvVR/DhoC
+         C0NtXUu2Rs+fzgigOICYIwVXntkEDk/FiW/21wMIErAXaQv0QN4m5CMqGbLlrIX9oqlQ
+         b34g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=ZaPmNQ64/IQQBb574VNOF0eOeCE7maMTcv7lweczl+M=;
-        b=dTjo0P23aHEXwBExIkJLVvRYJ1INB8VtHBY3pV0Mbs13TguclJaK47r2bkfIxBgHqy
-         SyoX6ssDkbr0E3830fWWwF5k9Kruj6kXB2G7fKaPMNDEzE4FiGlrTmGCos4MgmFzKYQ3
-         nbX63zgdSmQakOlzrPQqWtxtBzHXCh6IqAuQHozNIr5HjJntfevOVTlnhfm3+aCWZ1iP
-         OnKuC/59NYnWQqQXj70po9N6PeEjzb5RaO2bWyelk+dr0HngK+aSU4RZrKYfa6lG5BHX
-         0NdASvpMhWFQL3hSwozU55eEvrHimk9f5jA9qf1OokW3PU/Pt0+vPnoIjuMmDpBVhPVH
-         yKZg==
+         :list-id:mailing-list:precedence:reply-to:cc:from:subject:references
+         :mime-version:message-id:in-reply-to:date:sender:dkim-signature;
+        bh=sYR97Jlqdpz711ahSxlWVt8pBvsmSGrW2ieJBRdkeiA=;
+        b=Vzzgg5Qj8mpepDTZnGLq/r9h9KqQNhocB/nH2qWwurnmlZf5y+G7XXGTmATfioNUDB
+         PuQMHrp9pOUJ099NnVywQIySQN9AjwWyOdxdcKpQsv68C3SnT51hfXGkJY6BYbFPg/7G
+         gyHFGRzGhdvz4yBTloH6bHOyF3gCZmfXtI34FiwldJkextj6dsYmRHAL0FsUqNxgEV8S
+         7sIdf6bwZUN55iL6Ao639cqfNy3IeCv5L6aBDjZPujQsg6zkSjlL7mFJlLhw+hkup3B4
+         qQWBd7Zg7NRpipAoG3x1ySF9kzjXkzlcVe4uw8KMr5uV/T0h3LcNiWUmgqStdsfqdMnc
+         RNag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YrfMUVKp;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b36 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CEPFGAAZ;
+       spf=pass (google.com: domain of 3m9wmyackefyhgylaygemmejc.amkajyle-zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3m9wmYAcKEfYhgYlaYgemmejc.amkajYle-Zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZaPmNQ64/IQQBb574VNOF0eOeCE7maMTcv7lweczl+M=;
-        b=LayBp7M8xDLhrOxvQewnnT9lss6XUmvt0VKa1oxKrdRQBzJ2PMcIXzKcjSvT05tR8V
-         rY7h8lrfVQqeVY/OYGEEQxP5pknChOtO7eWSEkEbOIJSGEGzfvl0DBdiZD1NxAtIcqAJ
-         Hl8z//boXDaUxFHxUipxj7hhl4NMRbQDXzZCsBomMWABk6mtgxPJUgDdWWLl/VZYpC09
-         PiOKYxAt7oXqdvXpMFeriu5AmLUzOjjRLgTifkP1oevTwzrawkK7z2MGCboHEJPexIG3
-         JyC09zvn7Knotyb6rtXlBGh1HrycWsQ0pOkePKNmNQ52GLBCEwwawPSdQysPBCl1i4qC
-         K8Xw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZaPmNQ64/IQQBb574VNOF0eOeCE7maMTcv7lweczl+M=;
-        b=ma3xevFVH+VhcQGovUuex5mLseSIq+MqLIF81ViwtZKSE7q7guMOo7tBhhFxPhwOzo
-         xpmQxJfL9Q0THOCXLARCXe1u9PMEP3L86xJNPx9X1Ol2pt8SA9rIfzB88iippzlC/l21
-         dbR2CEftSlbewMlWw9rr0ZUqYoAY87WLgLlQQuAcxeelhMK0bKJJEXLQQ76FOsFkCYtm
-         guEBTLw7GkbS7oCo3bU+4XigEpaf0EhJa1yzLbjIZ4GdXMcYXpcTlBSifDAtIV3BzwPj
-         hyuBpY+b5ZxohBvns4r1cNLyDHJJ75yWKmGl6p+ONeEnaCcnKQabT+s0U5R2pV02iD/I
-         aAlA==
+        h=sender:date:in-reply-to:message-id:mime-version:references:subject
+         :from:cc:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=sYR97Jlqdpz711ahSxlWVt8pBvsmSGrW2ieJBRdkeiA=;
+        b=KGGUiVJ/H1mtlFyMtmmTi4slawLH3Ij4ivo9xpUsm00kPLDjDjcpAm9tkFsP4pf9yy
+         68B9TO0QUDmPFacyAwLr2OI6ezPevNiPFJcxN3242rf/x0g7xHLFhGfpbDJzJiOUEau/
+         ZBp1j9iz26ig9/a0zDPhK/3hnUoRya4AAbfz2PcYf63fT3TbktS7WTqUCLnhjyPwiIot
+         8i/4f4PCcYz15f/M4SR/wMAICCMtC1nBREZI1YpicJ6xaQTtXk8xLkw2ZAbmyn1LHfhF
+         Ix0sARZbZxI+iAZn71VDSN9JL9KJCegkB9DbIt1+3CbL38acHByT9tTnRikIAs4zqmCl
+         IsUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
+         :references:subject:from:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZaPmNQ64/IQQBb574VNOF0eOeCE7maMTcv7lweczl+M=;
-        b=a/90xZ9rrgNb4y3b+EMTVdfDPOEcjfViPoWkGEVC497aXoof/zEpiDMexmlBy12Xmr
-         p1vYyTLO5w67fRl3fCHE8c+ChER5AijbhSWY591rDExUx8N4y6g1lwOQAoLtcn841gb4
-         cv1jeHeUB3OdSpp7Uy3UL2kQLADB43NMm80GoUia1Idhs4FRpzxsZX7uO0OGq8Y9fDWq
-         baL15gM9v0R53Qcuo4WOEQd1D5/0CrauG9zdUgWfZFqY4ezrspx/hyoYG4/Ad2Td8o/C
-         vVmxx9nYzSJDB3JcNxmdUQIXP+cMypBLLr1NX1TIRklMoXrxP/v2ZoW1ICI8rm8Piid/
-         Tr2A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532BZbMVAR9IUkuFua3A6jEMRzV/izlfcsP2yrIJgyyqLAazByHk
-	Pg7Q9h86ecpi6aU7IsUewxA=
-X-Google-Smtp-Source: ABdhPJyNL7WTODBg6o+j5guJttDPd0Pqs7D1Qqe6/T8Id63weIRGjLn9oibWYNUt1iaJN/ZVRMZlJw==
-X-Received: by 2002:a67:1d81:: with SMTP id d123mr2873618vsd.21.1613157773438;
-        Fri, 12 Feb 2021 11:22:53 -0800 (PST)
+        bh=sYR97Jlqdpz711ahSxlWVt8pBvsmSGrW2ieJBRdkeiA=;
+        b=GYexO28ZPQV0SBm5ykM7t0bdAGYe4wPrS/Y4ijqtNX5UKuHlah7DkVQLthQLUKkFMf
+         QbrDHu+cMFs4NMqKAifnDhqQuo7iRtmiIXG53HML00tgCbRqslAxr0kRa9Ayp5IfuAi6
+         wqVzRcZFSbB/l9eMUWY0PXoCgzMDsbu/yYmBlGZDLozChAu3goXyZ2FoKdQb/I6w81lr
+         hyNMrah3qMFN8Wcig212RYvpTirvPFiKoh2Zl6k+g5VWKRSS0lbCZvz5NknpULy5qf3h
+         eqRwmnyCaXK5E8y8co6u5WwhVjAoBC2sWMEzwvWJhrrImS6PRtFzQP1pJaM+losCSPyp
+         JQJQ==
+X-Gm-Message-State: AOAM532Xeyf0MCVqNw2+PSd0C0u1vi4XPxW+VM8OyWJSA0aiZJhhv5eg
+	osG8Z4Bw5gLaOftitMA4Duw=
+X-Google-Smtp-Source: ABdhPJwHAYQKOgtWLtDp1VXhZ+sLyW3/IegAcfygKIU1FQ0fLlL0zy+EZODzKwwmklhA+aRVr1S/Rw==
+X-Received: by 2002:a05:6830:8d:: with SMTP id a13mr3073135oto.119.1613159580541;
+        Fri, 12 Feb 2021 11:53:00 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:8886:: with SMTP id k128ls1206764vsd.4.gmail; Fri, 12
- Feb 2021 11:22:53 -0800 (PST)
-X-Received: by 2002:a67:b405:: with SMTP id x5mr3104091vsl.17.1613157772983;
-        Fri, 12 Feb 2021 11:22:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613157772; cv=none;
+Received: by 2002:aca:1014:: with SMTP id 20ls2475667oiq.9.gmail; Fri, 12 Feb
+ 2021 11:53:00 -0800 (PST)
+X-Received: by 2002:a05:6808:1383:: with SMTP id c3mr769060oiw.153.1613159580150;
+        Fri, 12 Feb 2021 11:53:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613159580; cv=none;
         d=google.com; s=arc-20160816;
-        b=OKGRdHusyxOfwFh0wpKoE8Qi2U1I59SYKacSvnm+5AO6dguv7exYY5nkEI0mpPDmrD
-         uoVnrFYUPRxVQId+k5lxHAAwPDNO9NfcvH8obQNOyi7brj3pMXeadtGMYDZeFAYxCGyJ
-         wFxscY/pncX4XxjBPtp12dr2u3Sg6E0rjBg1zII9x2uYWnjTf5s5ow/G1R0CvkR5/lKe
-         6UFFbMaq/3AnGHr7UCXw9JJcqJCzHKct/lEJiJreEc8K/oPTnDXp1c8njelfaCo8yzos
-         ye8zW46tGNniWnqJzj8nMRqU0uIM3t/vpS60ohG3lrOI8s+la6Xu+GxnnrTOXkatEuwX
-         C2cA==
+        b=wYFzZXyySioDn8iLULwGn/xbI6znuNHFxdg/8wqR27s2e/lBVVx9mrLrwP9KS5itB0
+         1CZ/N2dFjg8+ILoCBq0K6E4S8KwfGmX4GQYDNzvjlQ/3WT9WsDqn5An95AhiFJrcXhcr
+         ESrtgIovPceE6ZZPA7KgC4rN9CxgG043Et8ycSpUt06gxGwrbTDNLr6+PeIEAZbp2JJV
+         VD1Hb6wEKREqDdOX9QcpJ4rpY3E0ITFLhIgiUoQOg2VpLJvXXRH4LObc28kUxHxyXV3E
+         T7uy3b9CTDiCiKdIOVtgfkdhuO29OARbTo4JKYh2pjTGcF7f7Z36G37TxjZIzSbky0Br
+         TDFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8WhYApIAA1XHJe5w4ij7wmcVL6byN9dhLexoHXk9CXU=;
-        b=UPKibevAGUb8/tcIqJV4ge2JRk0VVO8aAPZFiPBk8Ryh0iUn1LQV88SpDvvJF4wnRk
-         n+r4P/JY575UvxVHJKrC7SxxyolYX3hDPc2V5e7I4HexgWdqOzX74NXkuzhjzZdZanxo
-         MuLA2ndJScVEXo9XrxoU+o0t2kIZJ4uKwVeIwtGCIm/76VBsZ3EHRzqv+E4t8tS8s44t
-         WJng0iwVTBHXMiRNaKcAJn/l5aA0+1ssKSDG1edmUWxuYr5A8Wfeq0ZhClu12bEYnnJ/
-         sRH4KGth7hcBly62uCf7RRSkjnLN93wszg2F37iPHdMikKLCT9Yw2tW/pO2yBKApNUzJ
-         sw0Q==
+        h=cc:from:subject:references:mime-version:message-id:in-reply-to:date
+         :sender:dkim-signature;
+        bh=i9bXYkYkNrS/myxp10YTd6xQPzarqSevtONWXeGJPlg=;
+        b=l8dJ9+SlpDP2Uya6TMG/1wgrd1YU7bFJz2FkrOST4GRB6AOPBfXluukmkYJqNzxq7a
+         5cTK8AU/5TqO51OHFnr3TXZuUiKOXrx09ktYedk2MHnBIQbm5BbgQIolsBAU/G/fLx+B
+         qagUmMn49RPQYXfyHGvDZhNVWa6CyD95lDWpYY95BT3wLDm8tPsvGE3cy3uNwHXb8Nvd
+         K89Sh1WvaDyxZbLxhuo/6ubnqtkDvxjUqkilVJ84kBQJWIHN4x6iOYWIYeo0CCuRbrLm
+         XNNPZO1DhJ4LQ8Cl95dGmCrU4QOA6WD9qPjhT4mczZb3lR6Cym/FOvK/CeVYCE2vriFZ
+         HRWQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YrfMUVKp;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b36 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb36.google.com (mail-yb1-xb36.google.com. [2607:f8b0:4864:20::b36])
-        by gmr-mx.google.com with ESMTPS id y127si492854vsc.0.2021.02.12.11.22.52
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CEPFGAAZ;
+       spf=pass (google.com: domain of 3m9wmyackefyhgylaygemmejc.amkajyle-zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3m9wmYAcKEfYhgYlaYgemmejc.amkajYle-Zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x104a.google.com (mail-pj1-x104a.google.com. [2607:f8b0:4864:20::104a])
+        by gmr-mx.google.com with ESMTPS id b11si602902otq.0.2021.02.12.11.53.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Feb 2021 11:22:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::b36 as permitted sender) client-ip=2607:f8b0:4864:20::b36;
-Received: by mail-yb1-xb36.google.com with SMTP id 133so513090ybd.5
-        for <clang-built-linux@googlegroups.com>; Fri, 12 Feb 2021 11:22:52 -0800 (PST)
-X-Received: by 2002:a25:c905:: with SMTP id z5mr6186821ybf.260.1613157772513;
- Fri, 12 Feb 2021 11:22:52 -0800 (PST)
-MIME-Version: 1.0
-References: <YCKB1TF5wz93EIBK@krava> <YCKlrLkTQXc4Cyx7@krava>
- <CAEf4BzaL=qsSyDc8OxeN4pr7+Lvv+de4f+hM5a56LY8EABAk3w@mail.gmail.com>
- <YCMEucGZVPPQuxWw@krava> <CAEf4BzacQrkSMnmeO3sunOs7sfhX1ZoD_Hnk4-cFUK-TpLNqUA@mail.gmail.com>
- <YCPfEzp3ogCBTBaS@krava> <CAEf4BzbzquqsA5=_UqDukScuoGLfDhZiiXs_sgYBuNUvTBuV6w@mail.gmail.com>
- <YCQ+d0CVgIclDwng@krava> <YCVIWzq0quDQm6bn@krava> <CAEf4Bzbt2-Mn4+y0c+sSZWUSrP705c_e3SxedjV_xYGPQL79=w@mail.gmail.com>
- <YCavItKm0mKxcVQD@krava>
-In-Reply-To: <YCavItKm0mKxcVQD@krava>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 12 Feb 2021 11:22:41 -0800
-Message-ID: <CAEf4BzaJkfVYLU+zA6kmJRNd5uqGyk2B8G6BT22pKjMt7RqpSg@mail.gmail.com>
-Subject: Re: FAILED unresolved symbol vfs_truncate on arm64 with LLVM
-To: Jiri Olsa <jolsa@redhat.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Networking <netdev@vger.kernel.org>, 
-	bpf <bpf@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Veronika Kabatova <vkabatov@redhat.com>, Jiri Olsa <jolsa@kernel.org>
+        Fri, 12 Feb 2021 11:53:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3m9wmyackefyhgylaygemmejc.amkajyle-zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::104a as permitted sender) client-ip=2607:f8b0:4864:20::104a;
+Received: by mail-pj1-x104a.google.com with SMTP id c19so705944pjo.2
+        for <clang-built-linux@googlegroups.com>; Fri, 12 Feb 2021 11:53:00 -0800 (PST)
+Sender: "jiancai via sendgmr" <jiancai@jiancai.svl.corp.google.com>
+X-Received: from jiancai.svl.corp.google.com ([2620:15c:2ce:0:8cad:e5dd:2b3c:2e84])
+ (user=jiancai job=sendgmr) by 2002:a62:3852:0:b029:1da:7238:1cb1 with SMTP id
+ f79-20020a6238520000b02901da72381cb1mr4445517pfa.11.1613159579252; Fri, 12
+ Feb 2021 11:52:59 -0800 (PST)
+Date: Fri, 12 Feb 2021 11:52:53 -0800
+In-Reply-To: <3f61af0eee9b495e8e8c032902d033c5@AcuMS.aculab.com>
+Message-Id: <20210212195255.1321544-1-jiancai@google.com>
+Mime-Version: 1.0
+References: <3f61af0eee9b495e8e8c032902d033c5@AcuMS.aculab.com>
+X-Mailer: git-send-email 2.30.0.478.g8a0d178c01-goog
+Subject: [PATCH v2] ARM: Implement Clang's SLS mitigation
+From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: ndesaulniers@google.com, manojgupta@google.com, llozano@google.com, 
+	clang-built-linux@googlegroups.com, Jian Cai <jiancai@google.com>, 
+	Nathan Chancellor <nathan@kernel.org>, David Laight <David.Laight@aculab.com>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Arnd Bergmann <arnd@arndb.de>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Kees Cook <keescook@chromium.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, "=?UTF-8?q?Andreas=20F=C3=A4rber?=" <afaerber@suse.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Sender: jiancai@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=YrfMUVKp;       spf=pass
- (google.com: domain of andrii.nakryiko@gmail.com designates
- 2607:f8b0:4864:20::b36 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=CEPFGAAZ;       spf=pass
+ (google.com: domain of 3m9wmyackefyhgylaygemmejc.amkajyle-zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com
+ designates 2607:f8b0:4864:20::104a as permitted sender) smtp.mailfrom=3m9wmYAcKEfYhgYlaYgemmejc.amkajYle-Zsgjr-jglsvemmejcepmsnq.amk@flex--jiancai.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Jian Cai <jiancai@google.com>
+Reply-To: Jian Cai <jiancai@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,212 +139,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 12, 2021 at 8:39 AM Jiri Olsa <jolsa@redhat.com> wrote:
->
-> On Thu, Feb 11, 2021 at 11:59:02AM -0800, Andrii Nakryiko wrote:
->
-> SNIP
->
-> >
-> > So in my previous example I assumed we have address ranges for ftrace
-> > section, which is exactly the opposite from what we have. So this
-> > binary search should be a bit different. start <= addr seems wrong
-> > here as well.
-> >
-> > The invariant here should be that addr[r] is the smallest address that
-> > is >= than function start addr, right? Except the corner case where
-> > there is no such r, but for that we have a final check in the return
-> > below. If you wanted to use index l, you'd need to change the
-> > invariant to find the largest addr, such that it is < end, but that
-> > seems a bit convoluted.
-> >
-> > So, with that, I think it should be like this:
-> >
-> > size_t l = 0, r = count - 1, m;
-> >
-> > /* make sure we don't use invalid r */
-> > if (count == 0) return false;
-> >
-> > while (l < r) {
-> >     /* note no +1 in this case, it's so that at the end, when you
-> >      * have, say, l = 0, and r = 1, you try l first, not r.
-> >      * Otherwise you might end in in the infinite loop when r never == l.
-> >      */
-> >     m = l + (r - l) / 2;
-> >     addr = addrs[m];
-> >
-> >     if (addr >= start)
-> >         /* we satisfy invariant, so tighten r */
-> >         r = m;
-> >     else
-> >         /* m is not good enough as l, maybe m + 1 will be */
-> >         l = m + 1;
-> > }
-> >
-> > return start <= addrs[r] && addrs[r] < end;
-> >
-> >
-> > So, basically, r is maintained as a valid index always, while we
-> > constantly try to tighten the l.
-> >
-> > Does this make sense?
->
-> another take ;-)
->
-> jirka
->
->
-> ---
-> diff --git a/btf_encoder.c b/btf_encoder.c
-> index b124ec20a689..20a93ed60e52 100644
-> --- a/btf_encoder.c
-> +++ b/btf_encoder.c
-> @@ -36,6 +36,7 @@ struct funcs_layout {
->  struct elf_function {
->         const char      *name;
->         unsigned long    addr;
-> +       unsigned long    size;
->         unsigned long    sh_addr;
->         bool             generated;
->  };
-> @@ -44,7 +45,7 @@ static struct elf_function *functions;
->  static int functions_alloc;
->  static int functions_cnt;
->
-> -static int functions_cmp(const void *_a, const void *_b)
-> +static int functions_cmp_name(const void *_a, const void *_b)
->  {
->         const struct elf_function *a = _a;
->         const struct elf_function *b = _b;
-> @@ -52,6 +53,16 @@ static int functions_cmp(const void *_a, const void *_b)
->         return strcmp(a->name, b->name);
->  }
->
-> +static int functions_cmp_addr(const void *_a, const void *_b)
-> +{
-> +       const struct elf_function *a = _a;
-> +       const struct elf_function *b = _b;
-> +
-> +       if (a->addr == b->addr)
-> +               return 0;
-> +       return a->addr < b->addr ? -1 : 1;
-> +}
-> +
->  static void delete_functions(void)
->  {
->         free(functions);
-> @@ -98,6 +109,7 @@ static int collect_function(struct btf_elf *btfe, GElf_Sym *sym,
->
->         functions[functions_cnt].name = name;
->         functions[functions_cnt].addr = elf_sym__value(sym);
-> +       functions[functions_cnt].size = elf_sym__size(sym);
->         functions[functions_cnt].sh_addr = sh.sh_addr;
->         functions[functions_cnt].generated = false;
->         functions_cnt++;
-> @@ -236,6 +248,48 @@ get_kmod_addrs(struct btf_elf *btfe, __u64 **paddrs, __u64 *pcount)
->         return 0;
->  }
->
-> +static int is_ftrace_func(struct elf_function *func, __u64 *addrs,
-> +                         __u64 count, bool kmod)
-> +{
-> +       /*
-> +        * For vmlinux image both addrs[x] and functions[x]::addr
-> +        * values are final address and are comparable.
-> +        *
-> +        * For kernel module addrs[x] is final address, but
-> +        * functions[x]::addr is relative address within section
-> +        * and needs to be relocated by adding sh_addr.
-> +        */
-> +       __u64 start = kmod ? func->addr + func->sh_addr : func->addr;
-> +       __u64 addr, end = func->addr + func->size;
-> +
-> +       /*
-> +        * The invariant here is addr[r] that is the smallest address
-> +        * that is >= than function start addr. Except the corner case
-> +        * where there is no such r, but for that we have a final check
-> +        * in the return.
-> +        */
-> +       size_t l = 0, r = count - 1, m;
-> +
-> +       /* make sure we don't use invalid r */
-> +       if (count == 0)
-> +               return false;
-> +
-> +       while (l < r) {
-> +               m = l + (r - l) / 2;
-> +               addr = addrs[m];
-> +
-> +               if (addr >= start) {
-> +                       /* we satisfy invariant, so tighten r */
-> +                       r = m;
-> +               } else {
-> +                       /* m is not good enough as l, maybe m + 1 will be */
-> +                       l = m + 1;
-> +               }
-> +       }
-> +
-> +       return start <= addrs[r] && addrs[r] < end;
-> +}
-> +
->  static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
->  {
->         __u64 *addrs, count, i;
-> @@ -267,7 +321,7 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
->         }
->
->         qsort(addrs, count, sizeof(addrs[0]), addrs_cmp);
-> -       qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp);
-> +       qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_addr);
+This patch adds CONFIG_HARDEN_SLS_ALL that can be used to turn on
+-mharden-sls=all, which mitigates the straight-line speculation
+vulnerability, speculative execution of the instruction following some
+unconditional jumps. Notice -mharden-sls= has other options as below,
+and this config turns on the strongest option.
 
-All looks good except this. We don't rely on functions being sorted in
-ascending start addr order, do we? If not, just drop this, no need to
-slow down the process.
+all: enable all mitigations against Straight Line Speculation that are implemented.
+none: disable all mitigations against Straight Line Speculation.
+retbr: enable the mitigation against Straight Line Speculation for RET and BR instructions.
+blr: enable the mitigation against Straight Line Speculation for BLR instructions.
 
->
->         /*
->          * Let's got through all collected functions and filter
-> @@ -275,18 +329,9 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
->          */
->         for (i = 0; i < functions_cnt; i++) {
->                 struct elf_function *func = &functions[i];
-> -               /*
-> -                * For vmlinux image both addrs[x] and functions[x]::addr
-> -                * values are final address and are comparable.
-> -                *
-> -                * For kernel module addrs[x] is final address, but
-> -                * functions[x]::addr is relative address within section
-> -                * and needs to be relocated by adding sh_addr.
-> -                */
-> -               __u64 addr = kmod ? func->addr + func->sh_addr : func->addr;
->
->                 /* Make sure function is within ftrace addresses. */
-> -               if (bsearch(&addr, addrs, count, sizeof(addrs[0]), addrs_cmp)) {
-> +               if (is_ftrace_func(func, addrs, count, kmod)) {
->                         /*
->                          * We iterate over sorted array, so we can easily skip
->                          * not valid item and move following valid field into
-> @@ -303,6 +348,8 @@ static int setup_functions(struct btf_elf *btfe, struct funcs_layout *fl)
->
->         if (btf_elf__verbose)
->                 printf("Found %d functions!\n", functions_cnt);
-> +
-> +       qsort(functions, functions_cnt, sizeof(functions[0]), functions_cmp_name);
->         return 0;
->  }
->
-> @@ -312,7 +359,7 @@ static struct elf_function *find_function(const struct btf_elf *btfe,
->         struct elf_function key = { .name = name };
->
->         return bsearch(&key, functions, functions_cnt, sizeof(functions[0]),
-> -                      functions_cmp);
-> +                      functions_cmp_name);
->  }
->
->  static bool btf_name_char_ok(char c, bool first)
->
+Link: https://reviews.llvm.org/D93221
+Link: https://reviews.llvm.org/D81404
+Link: https://developer.arm.com/support/arm-security-updates/speculative-processor-vulnerability/downloads/straight-line-speculation
+https://developer.arm.com/support/arm-security-updates/speculative-processor-vulnerability/frequently-asked-questions#SLS2
+
+Suggested-by: Manoj Gupta <manojgupta@google.com>
+Suggested-by: Nathan Chancellor  <nathan@kernel.org>
+Suggested-by: David Laight <David.Laight@aculab.com>
+Signed-off-by: Jian Cai <jiancai@google.com>
+---
+
+Changes v1 -> v2:
+ Update the description and patch based on Nathan and David's comments. 
+
+ arch/arm/Makefile          | 4 ++++
+ arch/arm64/Makefile        | 4 ++++
+ security/Kconfig.hardening | 7 +++++++
+ 3 files changed, 15 insertions(+)
+
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index 4aaec9599e8a..11d89ef32da9 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -48,6 +48,10 @@ CHECKFLAGS	+= -D__ARMEL__
+ KBUILD_LDFLAGS	+= -EL
+ endif
+ 
++ifeq ($(CONFIG_HARDEN_SLS_ALL), y)
++KBUILD_CFLAGS  += -mharden-sls=all
++endif
++
+ #
+ # The Scalar Replacement of Aggregates (SRA) optimization pass in GCC 4.9 and
+ # later may result in code being generated that handles signed short and signed
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 90309208bb28..ca7299b356a9 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -34,6 +34,10 @@ $(warning LSE atomics not supported by binutils)
+   endif
+ endif
+ 
++ifeq ($(CONFIG_HARDEN_SLS_ALL), y)
++KBUILD_CFLAGS  += -mharden-sls=all
++endif
++
+ cc_has_k_constraint := $(call try-run,echo				\
+ 	'int main(void) {						\
+ 		asm volatile("and w0, w0, %w0" :: "K" (4294967295));	\
+diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
+index 269967c4fc1b..9266d8d1f78f 100644
+--- a/security/Kconfig.hardening
++++ b/security/Kconfig.hardening
+@@ -121,6 +121,13 @@ choice
+ 
+ endchoice
+ 
++config HARDEN_SLS_ALL
++	bool "enable SLS vulnerability hardening"
++	def_bool $(cc-option,-mharden-sls=all)
++        help
++          Enables straight-line speculation vulnerability hardening
++	  at highest level.
++
+ config GCC_PLUGIN_STRUCTLEAK_VERBOSE
+ 	bool "Report forcefully initialized variables"
+ 	depends on GCC_PLUGIN_STRUCTLEAK
+-- 
+2.30.0.478.g8a0d178c01-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzaJkfVYLU%2BzA6kmJRNd5uqGyk2B8G6BT22pKjMt7RqpSg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210212195255.1321544-1-jiancai%40google.com.
