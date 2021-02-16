@@ -1,125 +1,137 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBZNFWCAQMGQELS25P7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB7NJWCAQMGQE6I6FQ2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B52131D05E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 19:45:58 +0100 (CET)
-Received: by mail-wm1-x33b.google.com with SMTP id b201sf11690257wmb.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 10:45:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613501158; cv=pass;
+Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 70E7D31D07D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 19:54:54 +0100 (CET)
+Received: by mail-yb1-xb3c.google.com with SMTP id c12sf14861859ybf.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 10:54:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613501693; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mFL2BQfx2Uj22IqQd6zxXZI+ELax/QyZVaY1A7jEuZfrmER6vJKU8xQk9TutpRK2IU
-         igNBPynVbGvjDT8lPG5uxPL8FOE7LwRs1XUAcnWR/tC9cgZDPL2/yLp0lIcGnYlQEuie
-         9MkRlHgrPQ2mAu7bpyXH7XZJjNT89EJVNoReGMnr7w/X/qLiZBwSa5/l8CjbDQibMEJR
-         DtML8Fr11KygjZiMmGXQvMrrlDKBaWtTdTW+Ik72/QekaLGE+anaRidc/weIs6ewSg5g
-         Yh8aXjNQUG7ttGckyGLD4Bkm3e3SBETnTzSV5AXXXygWiK48NqqcEvP5VNYNiRqhQ6dO
-         /Stw==
+        b=X71vE7zMwLEwuDJHLOJma4yEZiqfxIaUexzb888QcrIvFRMZ9NZxia6Kai+JMMNUXN
+         hx5Brc0tNdxnkF9xopd/KKEjvfE9c0e5PV3qeBI1AOALsP2Q0WYLKFVn8UJ/9uQzxZic
+         hABNoHxCN6kwJjGK5PJ5GRIDUCic2OnHEO0kroQd+1hQY1NrN3MFpboV/yYAiV5fMMe1
+         SnSkTuBzNhM8QEsbTmuztfZlvVO1PnSEpEuHeno9zzquCClRsQsTWTevor5aj4Y5QXwq
+         QpKoRYAzRrf+Hx6XOkV5SvZfEyf1f0v9eJ5fiWwVpPck/0gjiy4/UfdqTmPXEtfWUEKd
+         4euA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=k9X0r1xUmA77L6J3WPvD8eMhU828hcldLBfKavnUnjE=;
-        b=vHS2d2iQizgg2PMxcP+BVkGxDMMCeF/hyYQNc1UZwqqGEACfQ8EyMbKncBkG2cfQ8x
-         Vr7am/14NAqCqzVfa93nDe8BF6qqp574StLXcLf5U1f9di0RtQ6DI1EU80mZTuVoJRgC
-         k3242FrL1dJ+8PUmVifwjp39Tq/GmXI70FwP4rY0AVz+cVhEtE/vh8jUfNK8ipM9d1tv
-         LIJbIGVGcfomrMBfuWqoOfl42pgHKjuUWSgDDT6c/gzNqpPjc3rnESVz8TzcGaqOhK5J
-         5Wpl99MFROXxGgJYY/QvrNWK3Vj/cJx8D0GQDKp8qvGdGQ2P5YiEz8SfkYno2klS0sRG
-         YNFw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=mNEHavi4vE2sKL8YvSD+xIqfuf+qj3Y1xbzyDJQhqnw=;
+        b=Ti2/i5pLs6n2JWkvyXZPaVdh8UYP8VMqZiTeEfq4+rKR/ML3tX+FmZW46QVb8kgpLr
+         QpmvHuN573XajOJt5IPFQYYD1ymH6adGMzZoX8Tbx8gJjAjOHV3+ZQkgECljf1CcfSFa
+         OnC8+g+KneUeIonBtOnmzpor0FsIou24+w7AzrzhA+ADE0aA8rBcxhJhHnC8F8kL9J7+
+         f02XYo8fs1/j/0FIyZUHyTbWjOkS8wZVzMM83YMjOIzrf/8Ru8Hhw+Fo01kobAQbp6U8
+         YyAJh1FoFtA809KhVH7SM294PevBWJ3X7GE0sLc/TQ2I21xL7QWeaOl7YU9b91LEjHU/
+         U/Ig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=XdPdGx9b;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=PRPLQ5Tw;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=k9X0r1xUmA77L6J3WPvD8eMhU828hcldLBfKavnUnjE=;
-        b=I4Jvt3bJwp6BnHD+daEqQPIkFFZFa5EiVcdY4LttA3MznoMKBKVycRhCUQm1A6FXvA
-         zdukE97aMcefhgynrbXWkSXAbXFIkwtTmK/gixzfQvN0pL3utiXJMamJR2qXDcpIYGEv
-         v5wO9neN+biezDJe11fPl8WrzhglwkDLq11jwaPhmjaZmjhfwMlhPDHn8jkssWu9CswE
-         DZdbzlOpOmwCGCEv8OFr9Jd2cdF4FrFTwEB0Efmi6vEr5GmMHftqlost0BQBkwlNLyTH
-         QW1PDR411HlcxExUly1TQ59920N6p/ZMnBINYTwxdrJ/T80Xb3ma6Uc/1eAt8zlT7Mj6
-         uJ0w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=mNEHavi4vE2sKL8YvSD+xIqfuf+qj3Y1xbzyDJQhqnw=;
+        b=kDK+gSQ54crkbNd94aw3xBSQvaxeS4QC9crD146xmxBK5bDKvfYk5UeHUEhWd1ozuI
+         jx68Bsr1JaDdgjHLBaCCfIUuVdxQWfPm8yuhEFx1k+Yi8uc3Viiaz7yeS8Dp6D9WR06v
+         XqEXATEK5dzonYJGb7qh/aWaw69AGJlN5fRZnl5wE5k/B7o2sH4uhxpj+cmsHrFSgCrQ
+         k36Td5Q1dImK4VngA/Pa+DkiwALojf5SWwSzfAtkDE1dDYKvm4ph0SCjz0o4BJV79YoH
+         hAameGOFWRb6kfN6PMf0ChpHZ/FiC5zBCbv7oFpTtle+vJQld/m3+6glIXZW+IsYPsLy
+         Brlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=k9X0r1xUmA77L6J3WPvD8eMhU828hcldLBfKavnUnjE=;
-        b=P+EV6/ef8qzGjnvRxzFm5SdH4RRwjAudBOZNg+4sbpoBF5D/E/NJZ3ol8AsHDHhBNn
-         wHVL9zgEQjxukZARzN0Qbpo6x8ANzYp7ptSHuE1jlCDMVlrvB7+X4hfHYwocs8ZaxtuF
-         20cgyhQKan0JI8PvJG6XFgGRgzs6pVw+gatSjMhqaPuGeJ/njSlzl7/VZQDAZKLDWOIE
-         G1nmWpuVaVWZHfp0Mv9x5JoqbeRitQcW6kSI8iQ3KTgWQna9Da/r0xjpGk4P0h+j5Jk+
-         DZRlS904Y2crMb6ZEUGGAB33XR6PDDMsPkMikll9xUG/XXE47g7NCmxDSrAYMUTIVP5z
-         vNRw==
-X-Gm-Message-State: AOAM533PCwRQgkF6kNFXb8PX+WPbIlm552MuDRQztctM9i9TOHYJ7iTF
-	MMl1mG59Xoa4vw8qtoE0ikY=
-X-Google-Smtp-Source: ABdhPJzlLUC927sHMHuHRwHP7amXXtGUaqZNx/axAGx0eIJnyf0gwBl7v4VaX1pE2KbokniF9NQa5A==
-X-Received: by 2002:adf:facb:: with SMTP id a11mr25569990wrs.161.1613501157894;
-        Tue, 16 Feb 2021 10:45:57 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=mNEHavi4vE2sKL8YvSD+xIqfuf+qj3Y1xbzyDJQhqnw=;
+        b=BZobaaSJ9Q6RwqGpqWK9JTbjywRN9ZmpePM0jzivO9BXThPLo94Sq7c02rqxcPOyrg
+         dSCV7RHnpdXE+qq2EI40/RoH7JyTu5jvmjCzdsPmTxkgI4Jiey3bpHtqEtpIwHNs4yjP
+         2gEq/boKN7013ylxyNdQBhs6u9FxCWbLaCBAf6bckbqgdvLV/H19nA/sRgSMG/wCtyyk
+         mAD9myCJnSv5DIF370QwP0wuSyZGQPWQStuNfys4Dp2CZrbgNHF07KmeDCXYe9UShiZa
+         Dij2RG+iCEgYjuHa6Yst7WhRksHFOzT9uoPgMS5Z2u7BW3aV6G1GdHzHYxbIxmA8QhVu
+         E4AA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532VOn7e+sPcGdE4XERfGjwPyO8v2Ki33sJ6XR8Fy8zv3Dj5Z8Rn
+	BhBXQ8jn/EK37ZcN2zmaR6s=
+X-Google-Smtp-Source: ABdhPJyXZWNXrhEfswQIOacd7m5bYLQc7byd1TtrkZAECq7bHIy7Y1kr+dT3eOn5T4l11kyP7n3e9Q==
+X-Received: by 2002:a25:c6cb:: with SMTP id k194mr11925442ybf.27.1613501693541;
+        Tue, 16 Feb 2021 10:54:53 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c0d8:: with SMTP id s24ls1433425wmh.1.canary-gmail; Tue,
- 16 Feb 2021 10:45:57 -0800 (PST)
-X-Received: by 2002:a1c:7f93:: with SMTP id a141mr4322246wmd.105.1613501156986;
-        Tue, 16 Feb 2021 10:45:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613501156; cv=none;
+Received: by 2002:a25:d907:: with SMTP id q7ls5244940ybg.3.gmail; Tue, 16 Feb
+ 2021 10:54:53 -0800 (PST)
+X-Received: by 2002:a25:1387:: with SMTP id 129mr29468943ybt.423.1613501693178;
+        Tue, 16 Feb 2021 10:54:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613501693; cv=none;
         d=google.com; s=arc-20160816;
-        b=QK7dER/C7ljsFh2UeE9jBiZu8mk9A81KiTjnVzqk8Y9NLejd/vLnNoBMk/SZEcVU6N
-         QggImiSXD1CfdHtRcaFn6WFlTBCIHvv1h4/vY3DbYByINt9mwNv2jrrd2BUQnkaano+p
-         WEY9Rk7MlyBbNyBqNwAh6zyMG1W9zgq/Ws4bCfRvxnC0SyDfZEX9hIQZLJDSSZuu/EOW
-         jbO0JjqFe14BzEUOi2+E1KOeGmznCnm/MlATBOg3vVRUQskopWA71aKxWu866mOGbrFL
-         TP3tpMW3yf3HeW8aFExvOk+JZuivXzsGCpz7fQjOQDKENCaxS2V1I8jNUwunyelcgzs0
-         IWBw==
+        b=katebx1NzJkch5o3ifglWnnJErR4cfT0bP1Tzr/milSrhzzMzirIV9TG5xL0HPkcRW
+         dEZDfgSNr54HNne/dVWl8eeFLXEF3+PU9OFz7g7uzL+7uWmOgJ7saO5uWCVG3d9ARvvN
+         FXf7BA9yQathFbq3069/rVgGXm05QYeiB2aZT9S9etBZ+uQFj7B0jTnUHrwgEBI04+/f
+         OpGaO9QcIK+B7FdcOdFZZHMBlcNREgXJMj2FCDFCwA+0zVGv8gEsVcjPDbw8WIk1mC54
+         CHNSWJWaMWgwcjSshfBDnjRUQJx2L6jIhaH4QczfDQFoV9PKfJ86l81hT727sTu9eiqI
+         Fcqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8EoT3iHrvOBjPufuLSqhYiV2//0LM3pU+ATs24o+R3E=;
-        b=xt8fmTkxGHOSXBGZXUIkjSf7L6Xt2yjBZv728Xl2+IngWp7OIRNXuMnB49FjmKczDn
-         ScdTOp6KggkzMlcDsa6lZ32To4s0UHHFvR/KmsPKj6ozfZEzYpaD1gS6FhJ5B08DOySY
-         3ACJ7Z9+ES9eXRi+EhWq4CLkC4YNv6I8FuhyYEepS+/a5mCBc3IyBsrJ/6oSOcUc3C9D
-         3wOioKy8n7Fm+LGfCSRvbWZ9pRu8JM9KbpBQePfLuwnY16Y105myNLsgvR8XOYvKLTtg
-         H0vW+pTAphzNvS5EWN9fBn+zE8TiQNNTY1PSk3rzedFFQyp+XFzecAPqScR/FzqnPIEV
-         eJ1A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=MDKsmnfFpce/3FrV3IvONi8b+zCvhMgJaSu2ryA75gY=;
+        b=q/I2fouvjyK/30ZSypdHGvwQV4hQ+uZj3QezCVXdfB1WEmBHWdCaC2hW3KjEkiqPNT
+         xty0ZHGtyaniS4jJuVy1zxFtBY6cwGZTcvsUtCIJ9CYr25NHPcSc6DiKHrzzBUr7vuKA
+         /U9x141raNq0/bpoqwUt8/BZBpX64tq4BfQUcpkh8MKbJzJA/uhH4079s55yNX4ttYiz
+         JQbwPtSSOacY5MpVu81ToMCPBXcZ3cDjfxD1SK/bZN6pPe7sK2ToU8Mf4WehN6BlUX7w
+         QmH3evyU5UNYU+uJkFtedNizGXL0tkUeCFj/3VU95E2hpYNx3dYMzRG2zUjqqXYhSyah
+         iqYA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=XdPdGx9b;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x235.google.com (mail-lj1-x235.google.com. [2a00:1450:4864:20::235])
-        by gmr-mx.google.com with ESMTPS id v16si161743wmh.1.2021.02.16.10.45.56
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=PRPLQ5Tw;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id c10si1648432ybf.1.2021.02.16.10.54.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Feb 2021 10:45:56 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) client-ip=2a00:1450:4864:20::235;
-Received: by mail-lj1-x235.google.com with SMTP id c8so10936572ljd.12
-        for <clang-built-linux@googlegroups.com>; Tue, 16 Feb 2021 10:45:56 -0800 (PST)
-X-Received: by 2002:a05:651c:2112:: with SMTP id a18mr13209044ljq.341.1613501155790;
- Tue, 16 Feb 2021 10:45:55 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 16 Feb 2021 10:54:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 60A9264EC8;
+	Tue, 16 Feb 2021 18:54:49 +0000 (UTC)
+Date: Tue, 16 Feb 2021 11:54:47 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Alexander Lobakin <alobakin@pm.me>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Pei Huang <huangpei@loongson.cn>, Kees Cook <keescook@chromium.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Fangrui Song <maskray@google.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Ralf Baechle <ralf@linux-mips.org>,
+	Corey Minyard <cminyard@mvista.com>,
+	kernel test robot <lkp@intel.com>, linux-mips@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH mips-next] vmlinux.lds.h: catch more UBSAN symbols into
+ .data
+Message-ID: <20210216185447.GA64303@24bbad8f3778>
+References: <20210216085442.2967-1-alobakin@pm.me>
+ <CAKwvOdnBgpRff6wa8u1_ogCm_pRey5d_Yro4UCa_O_=tib0FHQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <cover.1613243844.git.luto@kernel.org> <c0ff7dba14041c7e5d1cae5d4df052f03759bef3.1613243844.git.luto@kernel.org>
-In-Reply-To: <c0ff7dba14041c7e5d1cae5d4df052f03759bef3.1613243844.git.luto@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 16 Feb 2021 10:45:44 -0800
-Message-ID: <CAKwvOd=Mrmb9T1h-+y-vXq1fC59U-hfMEO4sg8LV4ZoYJfLLEQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] x86/stackprotector/32: Make the canary into a
- regular percpu variable
-To: Andy Lutomirski <luto@kernel.org>
-Cc: "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Sedat Dilek <sedat.dilek@gmail.com>, Sean Christopherson <seanjc@google.com>, 
-	Brian Gerst <brgerst@gmail.com>, Joerg Roedel <jroedel@suse.de>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Nathan Chancellor <nathan@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnBgpRff6wa8u1_ogCm_pRey5d_Yro4UCa_O_=tib0FHQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=XdPdGx9b;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=PRPLQ5Tw;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,771 +144,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Feb 13, 2021 at 11:19 AM Andy Lutomirski <luto@kernel.org> wrote:
->
-> On 32-bit kernels, the stackprotector canary is quite nasty -- it is
-> stored at %gs:(20), which is nasty because 32-bit kernels use %fs for
-> percpu storage.  It's even nastier because it means that whether %gs
-> contains userspace state or kernel state while running kernel code
-> depends on whether stackprotector is enabled (this is
-> CONFIG_X86_32_LAZY_GS), and this setting radically changes the way
-> that segment selectors work.  Supporting both variants is a
-> maintenance and testing mess.
->
-> Merely rearranging so that percpu and the stack canary
-> share the same segment would be messy as the 32-bit percpu address
-> layout isn't currently compatible with putting a variable at a fixed
-> offset.
->
-> Fortunately, GCC 8.1 added options that allow the stack canary to be
-> accessed as %fs:__stack_chk_guard, effectively turning it into an ordinary
-> percpu variable.  This lets us get rid of all of the code to manage the
-> stack canary GDT descriptor and the CONFIG_X86_32_LAZY_GS mess.
->
-> (That name is special.  We could use any symbol we want for the
->  %fs-relative mode, but for CONFIG_SMP=n, gcc refuses to let us use any
->  name other than __stack_chk_guard.)
->
-> This patch forcibly disables stackprotector on older compilers that
-> don't support the new options and makes the stack canary into a
-> percpu variable.  The "lazy GS" approach is now used for all 32-bit
-> configurations.
->
-> This patch also makes load_gs_index() work on 32-bit kernels.  On
-> 64-bit kernels, it loads the GS selector and updates the user
-> GSBASE accordingly.  (This is unchanged.)  On 32-bit kernels,
-> it loads the GS selector and updates GSBASE, which is now
-> always the user base.  This means that the overall effect is
-> the same on 32-bit and 64-bit, which avoids some ifdeffery.
->
-> Cc: Sedat Dilek <sedat.dilek@gmail.com>
-> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Andy Lutomirski <luto@kernel.org>
-> ---
->  arch/x86/Kconfig                          |  7 +-
->  arch/x86/Makefile                         |  8 +++
->  arch/x86/entry/entry_32.S                 | 56 ++--------------
->  arch/x86/include/asm/processor.h          | 15 ++---
->  arch/x86/include/asm/ptrace.h             |  5 +-
->  arch/x86/include/asm/segment.h            | 30 +++------
->  arch/x86/include/asm/stackprotector.h     | 79 +++++------------------
->  arch/x86/include/asm/suspend_32.h         |  6 +-
->  arch/x86/kernel/asm-offsets_32.c          |  5 --
->  arch/x86/kernel/cpu/common.c              |  5 +-
->  arch/x86/kernel/doublefault_32.c          |  4 +-
->  arch/x86/kernel/head_32.S                 | 18 +-----
->  arch/x86/kernel/setup_percpu.c            |  1 -
->  arch/x86/kernel/tls.c                     |  8 +--
->  arch/x86/kvm/svm/svm.c                    | 10 +--
->  arch/x86/lib/insn-eval.c                  |  4 --
->  arch/x86/platform/pvh/head.S              | 14 ----
->  arch/x86/power/cpu.c                      |  6 +-
->  arch/x86/xen/enlighten_pv.c               |  1 -
->  scripts/gcc-x86_32-has-stack-protector.sh |  6 +-
->  20 files changed, 62 insertions(+), 226 deletions(-)
->
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 21f851179ff0..12d8bf011d08 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -353,10 +353,6 @@ config X86_64_SMP
->         def_bool y
->         depends on X86_64 && SMP
->
-> -config X86_32_LAZY_GS
-> -       def_bool y
-> -       depends on X86_32 && !STACKPROTECTOR
-> -
->  config ARCH_SUPPORTS_UPROBES
->         def_bool y
->
-> @@ -379,7 +375,8 @@ config CC_HAS_SANE_STACKPROTECTOR
->         default $(success,$(srctree)/scripts/gcc-x86_32-has-stack-protector.sh $(CC))
->         help
->            We have to make sure stack protector is unconditionally disabled if
-> -          the compiler produces broken code.
-> +          the compiler produces broken code or if it does not let us control
-> +          the segment on 32-bit kernels.
->
->  menu "Processor type and features"
->
-> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-> index 7116da3980be..0b5cd8c49ccb 100644
-> --- a/arch/x86/Makefile
-> +++ b/arch/x86/Makefile
-> @@ -76,6 +76,14 @@ ifeq ($(CONFIG_X86_32),y)
->
->          # temporary until string.h is fixed
->          KBUILD_CFLAGS += -ffreestanding
-> +
-> +       ifeq ($(CONFIG_STACKPROTECTOR),y)
-> +               ifeq ($(CONFIG_SMP),y)
-> +                       KBUILD_CFLAGS += -mstack-protector-guard-reg=fs -mstack-protector-guard-symbol=__stack_chk_guard
+On Tue, Feb 16, 2021 at 09:56:32AM -0800, 'Nick Desaulniers' via Clang Built Linux wrote:
+> On Tue, Feb 16, 2021 at 12:55 AM Alexander Lobakin <alobakin@pm.me> wrote:
+> >
+> > LKP triggered lots of LD orphan warnings [0]:
+> 
+> Thanks for the patch, just some questions.
+> 
+> With which linker?  Was there a particular config from the bot's
+> report that triggered this?
 
-I'm guessing the CC is because this removes stack protector support
-with clang, because it does not yet support
--mstack-protector-guard-symbol= (as Sedat notes)?  I would like to see
-this called out explicitly in the commit message.
+Looks like GNU ld 2.34 (see below).
 
-(If folks are looking to use various compiler features/flags and find
-support missing, please let us know ASAP as it helps give us more time
-to triage and plan work around existing schedules.  Our ML from
-MAINTAINERS <clang-built-linux@googlegroups.com> or
-linux-toolchains@vger.kernel.org works.)
+> >
+> > mipsel-linux-ld: warning: orphan section `.data.$Lubsan_data299' from
+> > `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_data299'
+> > mipsel-linux-ld: warning: orphan section `.data.$Lubsan_data183' from
+> > `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_data183'
+> > mipsel-linux-ld: warning: orphan section `.data.$Lubsan_type3' from
+> > `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_type3'
+> > mipsel-linux-ld: warning: orphan section `.data.$Lubsan_type2' from
+> > `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_type2'
+> > mipsel-linux-ld: warning: orphan section `.data.$Lubsan_type0' from
+> > `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_type0'
+> >
+> > [...]
+> >
+> > Seems like "unnamed data" isn't the only type of symbols that UBSAN
+> > instrumentation can emit.
+> > Catch these into .data with the wildcard as well.
+> >
+> > [0] https://lore.kernel.org/linux-mm/202102160741.k57GCNSR-lkp@intel.com
+> >
+> > Fixes: f41b233de0ae ("vmlinux.lds.h: catch UBSAN's "unnamed data" into data")
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Signed-off-by: Alexander Lobakin <alobakin@pm.me>
+> > ---
+> >  include/asm-generic/vmlinux.lds.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> > index cc659e77fcb0..83537e5ee78f 100644
+> > --- a/include/asm-generic/vmlinux.lds.h
+> > +++ b/include/asm-generic/vmlinux.lds.h
+> > @@ -95,7 +95,7 @@
+> >   */
+> >  #ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
+> >  #define TEXT_MAIN .text .text.[0-9a-zA-Z_]*
+> > -#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..L* .data..compoundliteral* .data.$__unnamed_*
+> > +#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..L* .data..compoundliteral* .data.$__unnamed_* .data.$Lubsan_*
+> 
+> Are these sections only created when
+> CONFIG_LD_DEAD_CODE_DATA_ELIMINATION is selected?  (Same with
+> .data.$__unnamed_*)
 
-For now I've filed:
-https://bugs.llvm.org/show_bug.cgi?id=49209
+Most likely, as that config is set in the problematic config. My guess
+is that these are GCC's equivalent of Clang's .data.$__unnamed_...
 
-> +               else
-> +                       KBUILD_CFLAGS += -mstack-protector-guard=global
-> +               endif
-> +       endif
->  else
->          BITS := 64
->          UTS_MACHINE := x86_64
-> diff --git a/arch/x86/entry/entry_32.S b/arch/x86/entry/entry_32.S
-> index df8c017e6161..eb0cb662bca5 100644
-> --- a/arch/x86/entry/entry_32.S
-> +++ b/arch/x86/entry/entry_32.S
-> @@ -20,7 +20,7 @@
->   *     1C(%esp) - %ds
->   *     20(%esp) - %es
->   *     24(%esp) - %fs
-> - *     28(%esp) - %gs          saved iff !CONFIG_X86_32_LAZY_GS
-> + *     28(%esp) - unused -- was %gs on old stackprotector kernels
->   *     2C(%esp) - orig_eax
->   *     30(%esp) - %eip
->   *     34(%esp) - %cs
-> @@ -56,14 +56,9 @@
->  /*
->   * User gs save/restore
->   *
-> - * %gs is used for userland TLS and kernel only uses it for stack
-> - * canary which is required to be at %gs:20 by gcc.  Read the comment
-> - * at the top of stackprotector.h for more info.
-> - *
-> - * Local labels 98 and 99 are used.
-> + * This is leftover junk from CONFIG_X86_32_LAZY_GS.  A subsequent patch
-> + * will remove it entirely.
->   */
-> -#ifdef CONFIG_X86_32_LAZY_GS
-> -
->   /* unfortunately push/pop can't be no-op */
->  .macro PUSH_GS
->         pushl   $0
-> @@ -86,49 +81,6 @@
->  .macro SET_KERNEL_GS reg
->  .endm
->
-> -#else  /* CONFIG_X86_32_LAZY_GS */
-> -
-> -.macro PUSH_GS
-> -       pushl   %gs
-> -.endm
-> -
-> -.macro POP_GS pop=0
-> -98:    popl    %gs
-> -  .if \pop <> 0
-> -       add     $\pop, %esp
-> -  .endif
-> -.endm
-> -.macro POP_GS_EX
-> -.pushsection .fixup, "ax"
-> -99:    movl    $0, (%esp)
-> -       jmp     98b
-> -.popsection
-> -       _ASM_EXTABLE(98b, 99b)
-> -.endm
-> -
-> -.macro PTGS_TO_GS
-> -98:    mov     PT_GS(%esp), %gs
-> -.endm
-> -.macro PTGS_TO_GS_EX
-> -.pushsection .fixup, "ax"
-> -99:    movl    $0, PT_GS(%esp)
-> -       jmp     98b
-> -.popsection
-> -       _ASM_EXTABLE(98b, 99b)
-> -.endm
-> -
-> -.macro GS_TO_REG reg
-> -       movl    %gs, \reg
-> -.endm
-> -.macro REG_TO_PTGS reg
-> -       movl    \reg, PT_GS(%esp)
-> -.endm
-> -.macro SET_KERNEL_GS reg
-> -       movl    $(__KERNEL_STACK_CANARY), \reg
-> -       movl    \reg, %gs
-> -.endm
-> -
-> -#endif /* CONFIG_X86_32_LAZY_GS */
->
->  /* Unconditionally switch to user cr3 */
->  .macro SWITCH_TO_USER_CR3 scratch_reg:req
-> @@ -779,7 +731,7 @@ SYM_CODE_START(__switch_to_asm)
->
->  #ifdef CONFIG_STACKPROTECTOR
->         movl    TASK_stack_canary(%edx), %ebx
-> -       movl    %ebx, PER_CPU_VAR(stack_canary)+stack_canary_offset
-> +       movl    %ebx, PER_CPU_VAR(__stack_chk_guard)
->  #endif
->
->  #ifdef CONFIG_RETPOLINE
-> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
-> index c20a52b5534b..c59dff4bbc38 100644
-> --- a/arch/x86/include/asm/processor.h
-> +++ b/arch/x86/include/asm/processor.h
-> @@ -441,6 +441,9 @@ struct fixed_percpu_data {
->          * GCC hardcodes the stack canary as %gs:40.  Since the
->          * irq_stack is the object at %gs:0, we reserve the bottom
->          * 48 bytes of the irq stack for the canary.
-> +        *
-> +        * Once we are willing to require -mstack-protector-guard-symbol=
-> +        * support for x86_64 stackprotector, we can get rid of this.
->          */
->         char            gs_base[40];
->         unsigned long   stack_canary;
-> @@ -461,17 +464,7 @@ extern asmlinkage void ignore_sysret(void);
->  void current_save_fsgs(void);
->  #else  /* X86_64 */
->  #ifdef CONFIG_STACKPROTECTOR
-> -/*
-> - * Make sure stack canary segment base is cached-aligned:
-> - *   "For Intel Atom processors, avoid non zero segment base address
-> - *    that is not aligned to cache line boundary at all cost."
-> - * (Optim Ref Manual Assembly/Compiler Coding Rule 15.)
-> - */
-> -struct stack_canary {
-> -       char __pad[20];         /* canary at %gs:20 */
-> -       unsigned long canary;
-> -};
-> -DECLARE_PER_CPU_ALIGNED(struct stack_canary, stack_canary);
-> +DECLARE_PER_CPU(unsigned long, __stack_chk_guard);
->  #endif
->  /* Per CPU softirq stack pointer */
->  DECLARE_PER_CPU(struct irq_stack *, softirq_stack_ptr);
-> diff --git a/arch/x86/include/asm/ptrace.h b/arch/x86/include/asm/ptrace.h
-> index d8324a236696..b2c4c12d237c 100644
-> --- a/arch/x86/include/asm/ptrace.h
-> +++ b/arch/x86/include/asm/ptrace.h
-> @@ -37,7 +37,10 @@ struct pt_regs {
->         unsigned short __esh;
->         unsigned short fs;
->         unsigned short __fsh;
-> -       /* On interrupt, gs and __gsh store the vector number. */
-> +       /*
-> +        * On interrupt, gs and __gsh store the vector number.  They never
-> +        * store gs any more.
-> +        */
->         unsigned short gs;
->         unsigned short __gsh;
->         /* On interrupt, this is the error code. */
-> diff --git a/arch/x86/include/asm/segment.h b/arch/x86/include/asm/segment.h
-> index 7fdd4facfce7..72044026eb3c 100644
-> --- a/arch/x86/include/asm/segment.h
-> +++ b/arch/x86/include/asm/segment.h
-> @@ -95,7 +95,7 @@
->   *
->   *  26 - ESPFIX small SS
->   *  27 - per-cpu                       [ offset to per-cpu data area ]
-> - *  28 - stack_canary-20               [ for stack protector ]         <=== cacheline #8
-> + *  28 - unused
->   *  29 - unused
->   *  30 - unused
->   *  31 - TSS for double fault handler
-> @@ -118,7 +118,6 @@
->
->  #define GDT_ENTRY_ESPFIX_SS            26
->  #define GDT_ENTRY_PERCPU               27
-> -#define GDT_ENTRY_STACK_CANARY         28
->
->  #define GDT_ENTRY_DOUBLEFAULT_TSS      31
->
-> @@ -158,12 +157,6 @@
->  # define __KERNEL_PERCPU               0
->  #endif
->
-> -#ifdef CONFIG_STACKPROTECTOR
-> -# define __KERNEL_STACK_CANARY         (GDT_ENTRY_STACK_CANARY*8)
-> -#else
-> -# define __KERNEL_STACK_CANARY         0
-> -#endif
-> -
->  #else /* 64-bit: */
->
->  #include <asm/cache.h>
-> @@ -364,22 +357,15 @@ static inline void __loadsegment_fs(unsigned short value)
->         asm("mov %%" #seg ",%0":"=r" (value) : : "memory")
->
->  /*
-> - * x86-32 user GS accessors:
-> + * x86-32 user GS accessors.  This is ugly and could do with some cleaning up.
->   */
->  #ifdef CONFIG_X86_32
-> -# ifdef CONFIG_X86_32_LAZY_GS
-> -#  define get_user_gs(regs)            (u16)({ unsigned long v; savesegment(gs, v); v; })
-> -#  define set_user_gs(regs, v)         loadsegment(gs, (unsigned long)(v))
-> -#  define task_user_gs(tsk)            ((tsk)->thread.gs)
-> -#  define lazy_save_gs(v)              savesegment(gs, (v))
-> -#  define lazy_load_gs(v)              loadsegment(gs, (v))
-> -# else /* X86_32_LAZY_GS */
-> -#  define get_user_gs(regs)            (u16)((regs)->gs)
-> -#  define set_user_gs(regs, v)         do { (regs)->gs = (v); } while (0)
-> -#  define task_user_gs(tsk)            (task_pt_regs(tsk)->gs)
-> -#  define lazy_save_gs(v)              do { } while (0)
-> -#  define lazy_load_gs(v)              do { } while (0)
-> -# endif        /* X86_32_LAZY_GS */
-> +# define get_user_gs(regs)             (u16)({ unsigned long v; savesegment(gs, v); v; })
-> +# define set_user_gs(regs, v)          loadsegment(gs, (unsigned long)(v))
-> +# define task_user_gs(tsk)             ((tsk)->thread.gs)
-> +# define lazy_save_gs(v)               savesegment(gs, (v))
-> +# define lazy_load_gs(v)               loadsegment(gs, (v))
-> +# define load_gs_index(v)              loadsegment(gs, (v))
->  #endif /* X86_32 */
->
->  #endif /* !__ASSEMBLY__ */
-> diff --git a/arch/x86/include/asm/stackprotector.h b/arch/x86/include/asm/stackprotector.h
-> index 7fb482f0f25b..b6ffe58c70fa 100644
-> --- a/arch/x86/include/asm/stackprotector.h
-> +++ b/arch/x86/include/asm/stackprotector.h
-> @@ -5,30 +5,23 @@
->   * Stack protector works by putting predefined pattern at the start of
->   * the stack frame and verifying that it hasn't been overwritten when
->   * returning from the function.  The pattern is called stack canary
-> - * and unfortunately gcc requires it to be at a fixed offset from %gs.
-> - * On x86_64, the offset is 40 bytes and on x86_32 20 bytes.  x86_64
-> - * and x86_32 use segment registers differently and thus handles this
-> - * requirement differently.
-> + * and unfortunately gcc historically required it to be at a fixed offset
-> + * from the percpu segment base.  On x86_64, the offset is 40 bytes.
->   *
-> - * On x86_64, %gs is shared by percpu area and stack canary.  All
-> - * percpu symbols are zero based and %gs points to the base of percpu
-> - * area.  The first occupant of the percpu area is always
-> - * fixed_percpu_data which contains stack_canary at offset 40.  Userland
-> - * %gs is always saved and restored on kernel entry and exit using
-> - * swapgs, so stack protector doesn't add any complexity there.
-> + * The same segment is shared by percpu area and stack canary.  On
-> + * x86_64, percpu symbols are zero based and %gs (64-bit) points to the
-> + * base of percpu area.  The first occupant of the percpu area is always
-> + * fixed_percpu_data which contains stack_canary at the approproate
-> + * offset.  On x86_32, the stack canary is just a regular percpu
-> + * variable.
->   *
-> - * On x86_32, it's slightly more complicated.  As in x86_64, %gs is
-> - * used for userland TLS.  Unfortunately, some processors are much
-> - * slower at loading segment registers with different value when
-> - * entering and leaving the kernel, so the kernel uses %fs for percpu
-> - * area and manages %gs lazily so that %gs is switched only when
-> - * necessary, usually during task switch.
-> + * Putting percpu data in %fs on 32-bit is a minor optimization compared to
-> + * using %gs.  Since 32-bit userspace normally has %fs == 0, we are likely
-> + * to load 0 into %fs on exit to usermode, whereas with percpu data in
-> + * %gs, we are likely to load a non-null %gs on return to user mode.
->   *
-> - * As gcc requires the stack canary at %gs:20, %gs can't be managed
-> - * lazily if stack protector is enabled, so the kernel saves and
-> - * restores userland %gs on kernel entry and exit.  This behavior is
-> - * controlled by CONFIG_X86_32_LAZY_GS and accessors are defined in
-> - * system.h to hide the details.
-> + * Once we are willing to require GCC 8.1 or better for 64-bit stackprotector
-> + * support, we can remove some of this complexity.
->   */
->
->  #ifndef _ASM_STACKPROTECTOR_H
-> @@ -44,14 +37,6 @@
->  #include <linux/random.h>
->  #include <linux/sched.h>
->
-> -/*
-> - * 24 byte read-only segment initializer for stack canary.  Linker
-> - * can't handle the address bit shifting.  Address will be set in
-> - * head_32 for boot CPU and setup_per_cpu_areas() for others.
-> - */
-> -#define GDT_STACK_CANARY_INIT                                          \
-> -       [GDT_ENTRY_STACK_CANARY] = GDT_ENTRY_INIT(0x4090, 0, 0x18),
-> -
->  /*
->   * Initialize the stackprotector canary value.
->   *
-> @@ -86,7 +71,7 @@ static __always_inline void boot_init_stack_canary(void)
->  #ifdef CONFIG_X86_64
->         this_cpu_write(fixed_percpu_data.stack_canary, canary);
->  #else
-> -       this_cpu_write(stack_canary.canary, canary);
-> +       this_cpu_write(__stack_chk_guard, canary);
->  #endif
->  }
->
-> @@ -95,48 +80,16 @@ static inline void cpu_init_stack_canary(int cpu, struct task_struct *idle)
->  #ifdef CONFIG_X86_64
->         per_cpu(fixed_percpu_data.stack_canary, cpu) = idle->stack_canary;
->  #else
-> -       per_cpu(stack_canary.canary, cpu) = idle->stack_canary;
-> -#endif
-> -}
-> -
-> -static inline void setup_stack_canary_segment(int cpu)
-> -{
-> -#ifdef CONFIG_X86_32
-> -       unsigned long canary = (unsigned long)&per_cpu(stack_canary, cpu);
-> -       struct desc_struct *gdt_table = get_cpu_gdt_rw(cpu);
-> -       struct desc_struct desc;
-> -
-> -       desc = gdt_table[GDT_ENTRY_STACK_CANARY];
-> -       set_desc_base(&desc, canary);
-> -       write_gdt_entry(gdt_table, GDT_ENTRY_STACK_CANARY, &desc, DESCTYPE_S);
-> -#endif
-> -}
-> -
-> -static inline void load_stack_canary_segment(void)
-> -{
-> -#ifdef CONFIG_X86_32
-> -       asm("mov %0, %%gs" : : "r" (__KERNEL_STACK_CANARY) : "memory");
-> +       per_cpu(__stack_chk_guard, cpu) = idle->stack_canary;
->  #endif
->  }
->
->  #else  /* STACKPROTECTOR */
->
-> -#define GDT_STACK_CANARY_INIT
-> -
->  /* dummy boot_init_stack_canary() is defined in linux/stackprotector.h */
->
-> -static inline void setup_stack_canary_segment(int cpu)
-> -{ }
-> -
->  static inline void cpu_init_stack_canary(int cpu, struct task_struct *idle)
->  { }
->
-> -static inline void load_stack_canary_segment(void)
-> -{
-> -#ifdef CONFIG_X86_32
-> -       asm volatile ("mov %0, %%gs" : : "r" (0));
-> -#endif
-> -}
-> -
->  #endif /* STACKPROTECTOR */
->  #endif /* _ASM_STACKPROTECTOR_H */
-> diff --git a/arch/x86/include/asm/suspend_32.h b/arch/x86/include/asm/suspend_32.h
-> index fdbd9d7b7bca..7b132d0312eb 100644
-> --- a/arch/x86/include/asm/suspend_32.h
-> +++ b/arch/x86/include/asm/suspend_32.h
-> @@ -13,12 +13,10 @@
->  /* image of the saved processor state */
->  struct saved_context {
->         /*
-> -        * On x86_32, all segment registers, with the possible exception of
-> -        * gs, are saved at kernel entry in pt_regs.
-> +        * On x86_32, all segment registers except gs are saved at kernel
-> +        * entry in pt_regs.
->          */
-> -#ifdef CONFIG_X86_32_LAZY_GS
->         u16 gs;
-> -#endif
->         unsigned long cr0, cr2, cr3, cr4;
->         u64 misc_enable;
->         bool misc_enable_saved;
-> diff --git a/arch/x86/kernel/asm-offsets_32.c b/arch/x86/kernel/asm-offsets_32.c
-> index 6e043f295a60..2b411cd00a4e 100644
-> --- a/arch/x86/kernel/asm-offsets_32.c
-> +++ b/arch/x86/kernel/asm-offsets_32.c
-> @@ -53,11 +53,6 @@ void foo(void)
->                offsetof(struct cpu_entry_area, tss.x86_tss.sp1) -
->                offsetofend(struct cpu_entry_area, entry_stack_page.stack));
->
-> -#ifdef CONFIG_STACKPROTECTOR
-> -       BLANK();
-> -       OFFSET(stack_canary_offset, stack_canary, canary);
-> -#endif
-> -
->         BLANK();
->         DEFINE(EFI_svam, offsetof(efi_runtime_services_t, set_virtual_address_map));
->  }
-> diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-> index 35ad8480c464..f208569d2d3b 100644
-> --- a/arch/x86/kernel/cpu/common.c
-> +++ b/arch/x86/kernel/cpu/common.c
-> @@ -161,7 +161,6 @@ DEFINE_PER_CPU_PAGE_ALIGNED(struct gdt_page, gdt_page) = { .gdt = {
->
->         [GDT_ENTRY_ESPFIX_SS]           = GDT_ENTRY_INIT(0xc092, 0, 0xfffff),
->         [GDT_ENTRY_PERCPU]              = GDT_ENTRY_INIT(0xc092, 0, 0xfffff),
-> -       GDT_STACK_CANARY_INIT
->  #endif
->  } };
->  EXPORT_PER_CPU_SYMBOL_GPL(gdt_page);
-> @@ -599,7 +598,6 @@ void load_percpu_segment(int cpu)
->         __loadsegment_simple(gs, 0);
->         wrmsrl(MSR_GS_BASE, cpu_kernelmode_gs_base(cpu));
->  #endif
-> -       load_stack_canary_segment();
->  }
->
->  #ifdef CONFIG_X86_32
-> @@ -1793,7 +1791,8 @@ DEFINE_PER_CPU(unsigned long, cpu_current_top_of_stack) =
->  EXPORT_PER_CPU_SYMBOL(cpu_current_top_of_stack);
->
->  #ifdef CONFIG_STACKPROTECTOR
-> -DEFINE_PER_CPU_ALIGNED(struct stack_canary, stack_canary);
-> +DEFINE_PER_CPU(unsigned long, __stack_chk_guard);
-> +EXPORT_PER_CPU_SYMBOL(__stack_chk_guard);
->  #endif
->
->  #endif /* CONFIG_X86_64 */
-> diff --git a/arch/x86/kernel/doublefault_32.c b/arch/x86/kernel/doublefault_32.c
-> index 759d392cbe9f..d1d49e3d536b 100644
-> --- a/arch/x86/kernel/doublefault_32.c
-> +++ b/arch/x86/kernel/doublefault_32.c
-> @@ -100,9 +100,7 @@ DEFINE_PER_CPU_PAGE_ALIGNED(struct doublefault_stack, doublefault_stack) = {
->                 .ss             = __KERNEL_DS,
->                 .ds             = __USER_DS,
->                 .fs             = __KERNEL_PERCPU,
-> -#ifndef CONFIG_X86_32_LAZY_GS
-> -               .gs             = __KERNEL_STACK_CANARY,
-> -#endif
-> +               .gs             = 0,
->
->                 .__cr3          = __pa_nodebug(swapper_pg_dir),
->         },
-> diff --git a/arch/x86/kernel/head_32.S b/arch/x86/kernel/head_32.S
-> index 7ed84c282233..67f590425d90 100644
-> --- a/arch/x86/kernel/head_32.S
-> +++ b/arch/x86/kernel/head_32.S
-> @@ -318,8 +318,8 @@ SYM_FUNC_START(startup_32_smp)
->         movl $(__KERNEL_PERCPU), %eax
->         movl %eax,%fs                   # set this cpu's percpu
->
-> -       movl $(__KERNEL_STACK_CANARY),%eax
-> -       movl %eax,%gs
-> +       xorl %eax,%eax
-> +       movl %eax,%gs                   # clear possible garbage in %gs
->
->         xorl %eax,%eax                  # Clear LDT
->         lldt %ax
-> @@ -339,20 +339,6 @@ SYM_FUNC_END(startup_32_smp)
->   */
->  __INIT
->  setup_once:
-> -#ifdef CONFIG_STACKPROTECTOR
-> -       /*
-> -        * Configure the stack canary. The linker can't handle this by
-> -        * relocation.  Manually set base address in stack canary
-> -        * segment descriptor.
-> -        */
-> -       movl $gdt_page,%eax
-> -       movl $stack_canary,%ecx
-> -       movw %cx, 8 * GDT_ENTRY_STACK_CANARY + 2(%eax)
-> -       shrl $16, %ecx
-> -       movb %cl, 8 * GDT_ENTRY_STACK_CANARY + 4(%eax)
-> -       movb %ch, 8 * GDT_ENTRY_STACK_CANARY + 7(%eax)
-> -#endif
-> -
->         andl $0,setup_once_ref  /* Once is enough, thanks */
->         ret
->
-> diff --git a/arch/x86/kernel/setup_percpu.c b/arch/x86/kernel/setup_percpu.c
-> index fd945ce78554..0941d2f44f2a 100644
-> --- a/arch/x86/kernel/setup_percpu.c
-> +++ b/arch/x86/kernel/setup_percpu.c
-> @@ -224,7 +224,6 @@ void __init setup_per_cpu_areas(void)
->                 per_cpu(this_cpu_off, cpu) = per_cpu_offset(cpu);
->                 per_cpu(cpu_number, cpu) = cpu;
->                 setup_percpu_segment(cpu);
-> -               setup_stack_canary_segment(cpu);
->                 /*
->                  * Copy data used in early init routines from the
->                  * initial arrays to the per cpu data areas.  These
-> diff --git a/arch/x86/kernel/tls.c b/arch/x86/kernel/tls.c
-> index 64a496a0687f..3c883e064242 100644
-> --- a/arch/x86/kernel/tls.c
-> +++ b/arch/x86/kernel/tls.c
-> @@ -164,17 +164,11 @@ int do_set_thread_area(struct task_struct *p, int idx,
->                 savesegment(fs, sel);
->                 if (sel == modified_sel)
->                         loadsegment(fs, sel);
-> -
-> -               savesegment(gs, sel);
-> -               if (sel == modified_sel)
-> -                       load_gs_index(sel);
->  #endif
->
-> -#ifdef CONFIG_X86_32_LAZY_GS
->                 savesegment(gs, sel);
->                 if (sel == modified_sel)
-> -                       loadsegment(gs, sel);
-> -#endif
-> +                       load_gs_index(sel);
->         } else {
->  #ifdef CONFIG_X86_64
->                 if (p->thread.fsindex == modified_sel)
-> diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-> index f923e14e87df..ec39073b4897 100644
-> --- a/arch/x86/kvm/svm/svm.c
-> +++ b/arch/x86/kvm/svm/svm.c
-> @@ -1467,12 +1467,8 @@ static void svm_vcpu_put(struct kvm_vcpu *vcpu)
->  #ifdef CONFIG_X86_64
->                 loadsegment(fs, svm->host.fs);
->                 wrmsrl(MSR_KERNEL_GS_BASE, current->thread.gsbase);
-> -               load_gs_index(svm->host.gs);
-> -#else
-> -#ifdef CONFIG_X86_32_LAZY_GS
-> -               loadsegment(gs, svm->host.gs);
-> -#endif
->  #endif
-> +               load_gs_index(svm->host.gs);
->
->                 for (i = 0; i < NR_HOST_SAVE_USER_MSRS; i++)
->                         wrmsrl(host_save_user_msrs[i].index,
-> @@ -3705,13 +3701,11 @@ static noinstr void svm_vcpu_enter_exit(struct kvm_vcpu *vcpu,
->         } else {
->                 __svm_vcpu_run(svm->vmcb_pa, (unsigned long *)&svm->vcpu.arch.regs);
->
-> +               /* Restore the percpu segment immediately. */
->  #ifdef CONFIG_X86_64
->                 native_wrmsrl(MSR_GS_BASE, svm->host.gs_base);
->  #else
->                 loadsegment(fs, svm->host.fs);
-> -#ifndef CONFIG_X86_32_LAZY_GS
-> -               loadsegment(gs, svm->host.gs);
-> -#endif
->  #endif
->         }
->
-> diff --git a/arch/x86/lib/insn-eval.c b/arch/x86/lib/insn-eval.c
-> index 4229950a5d78..7f89a091f1fb 100644
-> --- a/arch/x86/lib/insn-eval.c
-> +++ b/arch/x86/lib/insn-eval.c
-> @@ -404,10 +404,6 @@ static short get_segment_selector(struct pt_regs *regs, int seg_reg_idx)
->         case INAT_SEG_REG_FS:
->                 return (unsigned short)(regs->fs & 0xffff);
->         case INAT_SEG_REG_GS:
-> -               /*
-> -                * GS may or may not be in regs as per CONFIG_X86_32_LAZY_GS.
-> -                * The macro below takes care of both cases.
-> -                */
->                 return get_user_gs(regs);
->         case INAT_SEG_REG_IGNORE:
->         default:
-> diff --git a/arch/x86/platform/pvh/head.S b/arch/x86/platform/pvh/head.S
-> index 43b4d864817e..afbf0bb252da 100644
-> --- a/arch/x86/platform/pvh/head.S
-> +++ b/arch/x86/platform/pvh/head.S
-> @@ -45,10 +45,8 @@
->
->  #define PVH_GDT_ENTRY_CS       1
->  #define PVH_GDT_ENTRY_DS       2
-> -#define PVH_GDT_ENTRY_CANARY   3
->  #define PVH_CS_SEL             (PVH_GDT_ENTRY_CS * 8)
->  #define PVH_DS_SEL             (PVH_GDT_ENTRY_DS * 8)
-> -#define PVH_CANARY_SEL         (PVH_GDT_ENTRY_CANARY * 8)
->
->  SYM_CODE_START_LOCAL(pvh_start_xen)
->         cld
-> @@ -109,17 +107,6 @@ SYM_CODE_START_LOCAL(pvh_start_xen)
->
->  #else /* CONFIG_X86_64 */
->
-> -       /* Set base address in stack canary descriptor. */
-> -       movl $_pa(gdt_start),%eax
-> -       movl $_pa(canary),%ecx
-> -       movw %cx, (PVH_GDT_ENTRY_CANARY * 8) + 2(%eax)
-> -       shrl $16, %ecx
-> -       movb %cl, (PVH_GDT_ENTRY_CANARY * 8) + 4(%eax)
-> -       movb %ch, (PVH_GDT_ENTRY_CANARY * 8) + 7(%eax)
-> -
-> -       mov $PVH_CANARY_SEL,%eax
-> -       mov %eax,%gs
-> -
->         call mk_early_pgtbl_32
->
->         mov $_pa(initial_page_table), %eax
-> @@ -163,7 +150,6 @@ SYM_DATA_START_LOCAL(gdt_start)
->         .quad GDT_ENTRY(0xc09a, 0, 0xfffff) /* PVH_CS_SEL */
->  #endif
->         .quad GDT_ENTRY(0xc092, 0, 0xfffff) /* PVH_DS_SEL */
-> -       .quad GDT_ENTRY(0x4090, 0, 0x18)    /* PVH_CANARY_SEL */
->  SYM_DATA_END_LABEL(gdt_start, SYM_L_LOCAL, gdt_end)
->
->         .balign 16
-> diff --git a/arch/x86/power/cpu.c b/arch/x86/power/cpu.c
-> index db1378c6ff26..ef4329d67a5f 100644
-> --- a/arch/x86/power/cpu.c
-> +++ b/arch/x86/power/cpu.c
-> @@ -99,11 +99,8 @@ static void __save_processor_state(struct saved_context *ctxt)
->         /*
->          * segment registers
->          */
-> -#ifdef CONFIG_X86_32_LAZY_GS
->         savesegment(gs, ctxt->gs);
-> -#endif
->  #ifdef CONFIG_X86_64
-> -       savesegment(gs, ctxt->gs);
->         savesegment(fs, ctxt->fs);
->         savesegment(ds, ctxt->ds);
->         savesegment(es, ctxt->es);
-> @@ -232,7 +229,6 @@ static void notrace __restore_processor_state(struct saved_context *ctxt)
->         wrmsrl(MSR_GS_BASE, ctxt->kernelmode_gs_base);
->  #else
->         loadsegment(fs, __KERNEL_PERCPU);
-> -       loadsegment(gs, __KERNEL_STACK_CANARY);
->  #endif
->
->         /* Restore the TSS, RO GDT, LDT, and usermode-relevant MSRs. */
-> @@ -255,7 +251,7 @@ static void notrace __restore_processor_state(struct saved_context *ctxt)
->          */
->         wrmsrl(MSR_FS_BASE, ctxt->fs_base);
->         wrmsrl(MSR_KERNEL_GS_BASE, ctxt->usermode_gs_base);
-> -#elif defined(CONFIG_X86_32_LAZY_GS)
-> +#else
->         loadsegment(gs, ctxt->gs);
->  #endif
->
-> diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
-> index 9a5a50cdaab5..e18235a6390d 100644
-> --- a/arch/x86/xen/enlighten_pv.c
-> +++ b/arch/x86/xen/enlighten_pv.c
-> @@ -1190,7 +1190,6 @@ static void __init xen_setup_gdt(int cpu)
->         pv_ops.cpu.write_gdt_entry = xen_write_gdt_entry_boot;
->         pv_ops.cpu.load_gdt = xen_load_gdt_boot;
->
-> -       setup_stack_canary_segment(cpu);
->         switch_to_new_gdt(cpu);
->
->         pv_ops.cpu.write_gdt_entry = xen_write_gdt_entry;
-> diff --git a/scripts/gcc-x86_32-has-stack-protector.sh b/scripts/gcc-x86_32-has-stack-protector.sh
-> index f5c119495254..825c75c5b715 100755
-> --- a/scripts/gcc-x86_32-has-stack-protector.sh
-> +++ b/scripts/gcc-x86_32-has-stack-protector.sh
-> @@ -1,4 +1,8 @@
->  #!/bin/sh
->  # SPDX-License-Identifier: GPL-2.0
->
-> -echo "int foo(void) { char X[200]; return 3; }" | $* -S -x c -c -m32 -O0 -fstack-protector - -o - 2> /dev/null | grep -q "%gs"
-> +# This requires GCC 8.1 or better.  Specifically, we require
-> +# -mstack-protector-guard-reg, added by
-> +# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81708
+$ crl https://lore.kernel.org/linux-mm/202102160741.k57GCNSR-lkp@intel.com/2-a.bin | gzip -d | rg "CONFIG_LD_DEAD_CODE|CONFIG_LD_VERSION"
+CONFIG_LD_VERSION=234000000
+CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y
 
-And -mstack-protector-guard-symbol= it would seem, since that's what
-will cause this to fail with Clang?
-
-What about -mstack-protector-guard=global which can be used for non
-SMP?  I'm guessing that came out in an earlier version of GCC than
--mstack-protector-guard-reg, so it doesn't need to be checked?  FWIW,
-some of these were added to Clang in https://reviews.llvm.org/D88631.
-
-> +
-> +echo "int foo(void) { char X[200]; return 3; }" | $* -S -x c -c -m32 -O0 -fstack-protector -mstack-protector-guard-reg=fs -mstack-protector-guard-symbol=__stack_chk_guard - -o - 2> /dev/null | grep -q "%fs"
-> --
-> 2.29.2
->
-
-
--- 
-Thanks,
-~Nick Desaulniers
+> >  #define SDATA_MAIN .sdata .sdata.[0-9a-zA-Z_]*
+> >  #define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]* .rodata..L*
+> >  #define BSS_MAIN .bss .bss.[0-9a-zA-Z_]* .bss..compoundliteral*
+> > --
+> > 2.30.1
+> >
+> >
+> 
+> 
+> -- 
+> Thanks,
+> ~Nick Desaulniers
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DMrmb9T1h-%2By-vXq1fC59U-hfMEO4sg8LV4ZoYJfLLEQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210216185447.GA64303%4024bbad8f3778.
