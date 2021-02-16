@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB6PSWCAQMGQELUU42TQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBI7UWCAQMGQEESKX7SA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id CA9B731D212
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 22:30:34 +0100 (CET)
-Received: by mail-oi1-x238.google.com with SMTP id w134sf6587110oif.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 13:30:34 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613511033; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A90931D224
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 22:33:25 +0100 (CET)
+Received: by mail-pl1-x63e.google.com with SMTP id 42sf9881049plb.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 13:33:25 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613511204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fVIrrCAz7iioII++gJJgNdUuUIuetvXzU4tMLm4Tyon5vdcigO3BubLcCa+PeMcqQ0
-         rzgppEEcZryFN1WimRX3fJnfrlrpLcbvfT4hf5qzNdgZEqTsRXSVUa2HN8Zm8HAvX7ft
-         KCM65bNlbuI7VMXoJPGjiOJZbwXjo/HWfBiDmuU1hRwGVSltViUDPqB+/Pimd7rWwwMX
-         N280k6E0GVLwQGUYGMP+cTMOFp8JetQZr+ivr4IVnIKfA3m8y2MOs3SfA5XgTwQKtu0x
-         T/tiStcaVSRr5tS4dS/21i4PEyewxG88T9JVaALpsrSAwmLRUHc1HkYPx5Cyd4W3Of35
-         zcdg==
+        b=BBa8qBWuisRLrwmujf0Kfft0Qb5siUGO1fUh0vs+mdHPKbdIaHAnIZ6XdBKm9uj0IU
+         aBCAgAfalzWEdOHBM1wPVBrvpK3I6Sd2fzHJsEA6Xn5O2cP7EJhgb2tV+jQwF13Dd317
+         beLgjlnuNREjMehVgGtRqncY0RymhPmYCKxLvWgvstao4EWoU9n6jbnsejWPh9Uele7q
+         vfg3aLB6y12WZw6sshlrxJvhRQBZwB9fS3cKxj+pItZOjQTEDu4pwJe7JeDD0iy4+53X
+         wqZXJ+fkMLSGmAumdwQLJpiHmfErgZqyjDZ/sfcM6IpgQIiimMzeOFPxuLC8sItq2rkZ
+         U6wQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=nD7ZXHZLhejaToEAHzERNmAk7jdbpcLFvGM7kbjQzd0=;
-        b=CaNaQ9sBqpZIQiCq4X//yUgeN/gPFuo8F9bAiihNWs/PeKv0gc3P1FdscgPVJ4T235
-         6gKkm1Ji5XhBUqbmVGq2UlgMfjogroWBohB83XPU11/4UcizqGCRnu9tywCcL3BQUpAk
-         fj5dsY1EmDbw/FGjp5r/DGNEjG0b0k3k+sZvhLdXjXAPI6wasmsYiMoTwG3zbQYwbFwk
-         EwmZTeql/yo64GftrJ/1JHpxfLAFujeDqgpHIjKNHRoLiV2JVnV1bgBZx/KNT5idFi6g
-         qZyGIrEmAKn3HsuOrLngXVu7HsIS4U1pdkPhFxo2N8c3uObTkTgEvaQDzc6apYTCuWTm
-         y9iw==
+        bh=dMBKN06c9kPwobDF1AKmW2nvRqgppgRwWfVoTjbDthI=;
+        b=McI/Dkd63lt9Lcnz0n/K7yR4ak/lIUtl/HYmDpFNQ+7YH01ZojmDMAUwJE0Ch41rnr
+         p0Rz05En6VS2oe7JUHpQrSrR3qstYvtSYRe3Rx84GQlotntqZBVXhrdXXlNAisBaGIW8
+         bFuzoYEC6a9hf/xbE1NknnQQC+qAET0nymf2ls/D9G/xpzaK53ARmXBGbWwxrw1LulVW
+         SDJeVIugzWEGr7CXiV81r22+63DaylX38rqDgu4naL235d13QQBPpoY+ZCrPu1I1vkmy
+         1gPeu+oXTAQIu1AJnzBEcXKvINDfqfw0GJ+M0sykVKziEeKWbdDCevsmJIaNVIWGBLje
+         dB4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="Ru/chHN9";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KoFDnzHY;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,87 +35,85 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nD7ZXHZLhejaToEAHzERNmAk7jdbpcLFvGM7kbjQzd0=;
-        b=HqFCekHApp53AMFa3UlFMbWWQGBvPRGAfMuzDKVqPBdRvQCczJILQT4cxIKQYS6VTO
-         89MxSP3Ac7nmmisGyhKU2YN2X3iMvreQyGobwNWdZMcf7SCXbMSMc9LNmVjkyyDsdY8y
-         6GoNLlYIB+gx4Nep61JYdvElDiVh2PcGQy4PHR2WOru3ovIwE5GNmDL0itUdz1RtgX6X
-         /CrL3fc2DYI+gWrx0SKq/vR+Me+v++3wQwNso2OmDewFKz/qs1HaFY9DIQlEAJ3tZ1Rp
-         ulOenmakzjDuqxSVoP+AYPjuwoJKpuPBdR6nazogw/DQza4NTs6gYPntPjDeCcZrGOFf
-         gupw==
+        bh=dMBKN06c9kPwobDF1AKmW2nvRqgppgRwWfVoTjbDthI=;
+        b=UEiTzn/KeptzQtW31CWwYfVTfc0rIErTLcJWWYNCpEm7b/b/1F9xZsmH56a0XBleKY
+         mycThXT0JzDHo6O4Rds1LQR2JN/ygpibCe0EIkowXpjQJb7V8UESi9tzipHKWZY2qoMc
+         2KGE6gXOlx5VTnIJGXsdg/+D1Ptae9OJYyS7kD6wwS4prLr1HYpD2GDtd7g5Ju4jgkuI
+         8G7Lz4iek/T4QeBF9OgGzFoYnLhHzGQkihCpTggt/7+wUPBchsR9XtIy9+73u0vbnT+N
+         sR7/AAYl65SdbUFGIRa9YSgtY9EMktG9ga9XdWr6DIaImYwbIOTP1f3QWs5aYa9CnfPA
+         t+9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nD7ZXHZLhejaToEAHzERNmAk7jdbpcLFvGM7kbjQzd0=;
-        b=ZpxaQPA7mDnOXpebxKDDeKwZb583YZkNj43UMXWM7ayHU3xcd9Dp+tsHazcQTSIWh1
-         nv4UdIOfd1JAtu+bSqqeCIb/hp0mQ8aU9MnlA6UHsWQTMTzRpZUCLax6UykV2/q5QoK9
-         LcGoMazgujL2xQn4JTdkNcMp98YR+wdHiZEqjYHAK2SXDilE2fdaLk5TdMMWBVTtOcmC
-         rl9uwmkIUnN7K+yQ8lhaDt527HOojDMl3XW5K1ndYqbgiaxl9zCMmr4SiYc8ACUeCFWK
-         zY7mvgTE4YpUcQiGf81ekKqB+5Mff9imp3cRTlPx6iBGMzDWQQqNVvjNtyh/P9oicZM1
-         RzAw==
+        bh=dMBKN06c9kPwobDF1AKmW2nvRqgppgRwWfVoTjbDthI=;
+        b=kmALclGtxtCO/0kJl519QBtXxYRNb/gORP2Vul+CpkiHSMW3Ds8kUzTIo5NDa5QxhH
+         XcmJFoi4uhwtzJXWr6uuki7xpi1WZSXIl8iiXWHhcdHYKl91kslxIJ0wN+MVu4sVd3Cp
+         6EPZuTE6zCZpSu9GRtQUuhfgapZXXO99U6+RM1NMPYWeAF6WCeb8zFJBj37Bj9iWIVcO
+         o8NtqbpalplLgaYcAojLdH88snVRRriaw2w+vLsyZwYnzkFSrU3fdaFeBfeh6eNOCJaa
+         HLsF+FpCcoGec3MyUZ9OSMLy7zsNe/v2v5iOCnF35G3vERq7n8S7GASaMXp86+29G8BF
+         f8QQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530jpdCXPsAKVzjO8pKgxTLdnereXHTZXVA+WFtuhcKILAml0ghj
-	MwOSh3pnKMrt8hPiyPKUCIk=
-X-Google-Smtp-Source: ABdhPJwWjUuaeMbhSvrHAOKhnZgQdxNBjK43ohTZ2V4se2SzCCVl2UdNLgBA2XZl0yxTq5AoS7Tzqg==
-X-Received: by 2002:aca:fc0c:: with SMTP id a12mr3620633oii.5.1613511033596;
-        Tue, 16 Feb 2021 13:30:33 -0800 (PST)
+X-Gm-Message-State: AOAM532rmPcvyfshs2ba5RdbecRZbEkV6ecOz8Ut7CbTeVVeG1kZ6eS5
+	qOU2jMmgotUYn//24QXSAKg=
+X-Google-Smtp-Source: ABdhPJzUG9aOAQMSRNITTnv7Ue6jsKK4REicKjHWJRULxf9xCOWR2ThYgXtZoyt3qrQuyJCLSAn2uA==
+X-Received: by 2002:a17:902:edcb:b029:df:cce5:1105 with SMTP id q11-20020a170902edcbb02900dfcce51105mr21772594plk.2.1613511203886;
+        Tue, 16 Feb 2021 13:33:23 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7d19:: with SMTP id v25ls36998otn.4.gmail; Tue, 16 Feb
- 2021 13:30:33 -0800 (PST)
-X-Received: by 2002:a9d:812:: with SMTP id 18mr15553004oty.335.1613511033272;
-        Tue, 16 Feb 2021 13:30:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613511033; cv=none;
+Received: by 2002:a63:da46:: with SMTP id l6ls7899534pgj.5.gmail; Tue, 16 Feb
+ 2021 13:33:23 -0800 (PST)
+X-Received: by 2002:a63:d751:: with SMTP id w17mr21217816pgi.182.1613511203256;
+        Tue, 16 Feb 2021 13:33:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613511203; cv=none;
         d=google.com; s=arc-20160816;
-        b=y1TFlBy/2V+F/bEU+0SYLLVzpNepTROwdpT3WoS0nMAIZhW7Ljmf/nJqPTcgeLXV7e
-         DGqzWZweg1gql+WcyJQimGty6frnMNq2rOY38ktL+YPWs38Wj6/BNOEbIJN1FKpqeGgZ
-         DwUx2mr5pSz5ASODIiWmyLWp+sUSzvpt3zNdOkaN7r8N2OIC+7Lw2MDgl2uQSgbT0lCg
-         ZtzyxNRR6kiRUw27X4In3LS/txbyjoksJJ/I9otb3QtfBHn19gSbZQ8rJHnqVdy3uzVV
-         J+GcMkGu95Azj/axrYIwGUGJJ+Nz6L5i/vyppi/MTLFHCE5Hgwk2U3+XFUJlYyuZfCjU
-         53/A==
+        b=O89R01OYlh8lpdXxZaoAC640ZStpgnxFCrdb9tbn2vTWw/Qju+jxRPIFOnQNkcbg4V
+         jsWDMIs8pyLxRVqr//eFvxflA7yU2mj2VnslX1532TMYqsLiIP6KaceaYIFVRD6gjZFU
+         C2QvSyuJUTTtACDgRpotrtpqF4EKcmZJfrM11nSfp5a6e0Vd4evyKdx+hgscje3ffSeb
+         XmABavO7b45p8KAAYydnDGmLH4HMhD7D6RCs6OswjnH0fFLTKULZElhcDp4epnbZNdKe
+         /crEreSJRh6vBLfFmOzkbdSLjH8QPjIVYz9uOJ03jK3phfJe7FnUbmhfQ53UJ+hcqvoI
+         /HeQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=cSq2izbMni/XKti+HwO566EHqEegU5pYPkQsy8CyutI=;
-        b=NDh7J6cxyx7D827Mpz9i5PSKYvnsRJ/VZ4drRbVpm0yvBY3touwpx3JTLnT8+SwxL/
-         OOE0sv9vW8hfaEkylAwUrXtPXX4W4ihisRvoZGaF0OmmATi/0vNt1kguCkbCZFi2Udh+
-         9RcyQ7g7H8SrLA5XTDuwVjmB/Ns/f6Asre3nxI3GS8RoQnQ6mlAk84qSE8WwxgPFY5Ff
-         5RWJWATXhda4+GQE4/3sr4LlgsMIjP6oVoMqWTeknGXCjRe0D0JkAlZBaMrdY9pe7EYI
-         RbNP0+Csth6dfctxYqUWv2fwmjkBUB5uiyS6W2Kqbyqj5fz0JXtkXdPt/KM5MlD4mprC
-         uxFg==
+        bh=lSjmvjHDGutbmOjObL713bgK/plA/whMqp6zc8U8PiM=;
+        b=G7F8n7uFLvB7jV4H0ZDWWsDkGaCjnofBI1w0GW9rmfvs757V6Ic91N/m9+X29qvdpj
+         p4s1eIp8GcpBo3GHG9ZKmsupmSrTf3a5SwJBINvtX3/0Odlpikr0TtjIYZRsHizB6wXi
+         1zdcqpzRBwjv9iVbuLqqdgknhFp2ZfxFL4f0LhJzCQHa2KUc1GwtR3h/YI0sBqVGJdTa
+         33GdsA1ZsXvt0QMExQkl7RzI6jIQx02FEaTmmYP0X7VuNWcjwD7aPZJvSjAODxa/bkwG
+         lQUuIVnejXuK07GWgX0xJwFINyDoZ06/GThJ1UTfDB7zsXScd43uebMDQwvZvcu4Gjmh
+         24XA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="Ru/chHN9";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KoFDnzHY;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b11si8388otq.0.2021.02.16.13.30.33
+        by gmr-mx.google.com with ESMTPS id u13si6808plg.1.2021.02.16.13.33.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Feb 2021 13:30:33 -0800 (PST)
+        Tue, 16 Feb 2021 13:33:23 -0800 (PST)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id F211264D99;
-	Tue, 16 Feb 2021 21:30:30 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9420464E08;
+	Tue, 16 Feb 2021 21:33:22 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
-To: Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>
+To: Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
+	linux-kbuild@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH] drm/i915: Enable -Wuninitialized
-Date: Tue, 16 Feb 2021 14:29:54 -0700
-Message-Id: <20210216212953.24458-1-nathan@kernel.org>
+	Michael Fuckner <michael@fuckner.net>
+Subject: [PATCH] Makefile: Remove # characters from compiler string
+Date: Tue, 16 Feb 2021 14:33:12 -0700
+Message-Id: <20210216213312.30462-1-nathan@kernel.org>
 X-Mailer: git-send-email 2.30.1
 MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="Ru/chHN9";       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=KoFDnzHY;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -132,40 +130,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
--Wunintialized was disabled in commit c5627461490e ("drm/i915: Disable
--Wuninitialized") because there were two warnings that were false
-positives. The first was due to DECLARE_WAIT_QUEUE_HEAD_ONSTACK, which
-was fixed in LLVM 9.0.0. The second was in busywait_stop, which was
-fixed in LLVM 10.0.0 (issue 415). The kernel's minimum version for LLVM
-is 10.0.1 so this warning can be safely enabled, where it has already
-caught a couple bugs.
+When using AMD's Optimizing C/C++ Compiler (AOCC), the build fails due
+to a # character in the version string, which is interpreted as a
+comment:
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/220
-Link: https://github.com/ClangBuiltLinux/linux/issues/415
-Link: https://github.com/ClangBuiltLinux/linux/issues/499
-Link: https://github.com/llvm/llvm-project/commit/2e040398f8d691cc378c1abb098824ff49f3f28f
-Link: https://github.com/llvm/llvm-project/commit/c667cdc850c2aa821ffeedbc08c24bc985c59edd
-Fixes: c5627461490e ("drm/i915: Disable -Wuninitialized")
-References: 2ea4a7ba9bf6 ("drm/i915/gt: Avoid uninitialized use of rpcurupei in frequency_show")
-References: 2034c2129bc4 ("drm/i915/display: Ensure that ret is always initialized in icl_combo_phy_verify_state")
-Reported-by: Arnd Bergmann <arnd@arndb.de>
+$ make CC=clang defconfig init/main.o
+include/config/auto.conf.cmd:1374: *** invalid syntax in conditional. Stop.
+
+$ sed -n 1374p include/config/auto.conf.cmd
+ifneq "$(CC_VERSION_TEXT)" "AMD clang version 11.0.0 (CLANG: AOCC_2.3.0-Build#85 2020_11_10) (based on LLVM Mirror.Version.11.0.0)"
+
+Remove all # characters in the version string so that the build does not
+fail unexpectedly.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/1298
+Reported-by: Michael Fuckner <michael@fuckner.net>
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- drivers/gpu/drm/i915/Makefile | 1 -
- 1 file changed, 1 deletion(-)
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/i915/Makefile b/drivers/gpu/drm/i915/Makefile
-index 6d9e81ea67f4..60b60204004f 100644
---- a/drivers/gpu/drm/i915/Makefile
-+++ b/drivers/gpu/drm/i915/Makefile
-@@ -21,7 +21,6 @@ subdir-ccflags-y += $(call cc-disable-warning, unused-but-set-variable)
- subdir-ccflags-y += $(call cc-disable-warning, sign-compare)
- subdir-ccflags-y += $(call cc-disable-warning, sometimes-uninitialized)
- subdir-ccflags-y += $(call cc-disable-warning, initializer-overrides)
--subdir-ccflags-y += $(call cc-disable-warning, uninitialized)
- subdir-ccflags-y += $(call cc-disable-warning, frame-address)
- subdir-ccflags-$(CONFIG_DRM_I915_WERROR) += -Werror
+diff --git a/Makefile b/Makefile
+index de1acaefe87e..9bfe1307447e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -581,7 +581,7 @@ endif
+ # Some architectures define CROSS_COMPILE in arch/$(SRCARCH)/Makefile.
+ # CC_VERSION_TEXT is referenced from Kconfig (so it needs export),
+ # and from include/config/auto.conf.cmd to detect the compiler upgrade.
+-CC_VERSION_TEXT = $(shell $(CC) --version 2>/dev/null | head -n 1)
++CC_VERSION_TEXT = $(shell $(CC) --version 2>/dev/null | head -n 1 | sed 's/\#//g')
  
+ ifdef config-build
+ # ===========================================================================
 
 base-commit: f40ddce88593482919761f74910f42f4b84c004b
 -- 
@@ -174,4 +171,4 @@ base-commit: f40ddce88593482919761f74910f42f4b84c004b
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210216212953.24458-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210216213312.30462-1-nathan%40kernel.org.
