@@ -1,123 +1,126 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBI7UWCAQMGQEESKX7SA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD2INDP3VMPBBK7WWCAQMGQEHNMMAHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A90931D224
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 22:33:25 +0100 (CET)
-Received: by mail-pl1-x63e.google.com with SMTP id 42sf9881049plb.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 13:33:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613511204; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id C786031D231
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 22:37:48 +0100 (CET)
+Received: by mail-io1-xd3f.google.com with SMTP id g16sf3645047ioc.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 13:37:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613511467; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BBa8qBWuisRLrwmujf0Kfft0Qb5siUGO1fUh0vs+mdHPKbdIaHAnIZ6XdBKm9uj0IU
-         aBCAgAfalzWEdOHBM1wPVBrvpK3I6Sd2fzHJsEA6Xn5O2cP7EJhgb2tV+jQwF13Dd317
-         beLgjlnuNREjMehVgGtRqncY0RymhPmYCKxLvWgvstao4EWoU9n6jbnsejWPh9Uele7q
-         vfg3aLB6y12WZw6sshlrxJvhRQBZwB9fS3cKxj+pItZOjQTEDu4pwJe7JeDD0iy4+53X
-         wqZXJ+fkMLSGmAumdwQLJpiHmfErgZqyjDZ/sfcM6IpgQIiimMzeOFPxuLC8sItq2rkZ
-         U6wQ==
+        b=OkjWRW4vvM3WQq/9IF22EX2bs21Xs/7xvaUz+tSD87uOyc5i62yJYZ9sVPhdDPQDDd
+         ZsG9pFofGDJe2Ne5j886IqRHr4toFEcFWOYEhg08OJyfx1UQwfW7tQSd0I4BTwQukhde
+         5YskHOXvxHVE8c3S33OgRciEiCVxj4XTAxk0xEbnM23ly2AnT2HU2kvGFJAc/vO5WS8M
+         91ARWMS57oDRaX/g6j+rIalSffmcInU30TDEyQRywLYQT82gCNoY1aXG5yA8qbzDeOOR
+         8gJvBBheZ+7A2Zn9CQXcE/l5G090hJP2gNWH2MKD6xjjUSOnvJ/hWZ3Gp18zflSUjIo2
+         27KA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=dMBKN06c9kPwobDF1AKmW2nvRqgppgRwWfVoTjbDthI=;
-        b=McI/Dkd63lt9Lcnz0n/K7yR4ak/lIUtl/HYmDpFNQ+7YH01ZojmDMAUwJE0Ch41rnr
-         p0Rz05En6VS2oe7JUHpQrSrR3qstYvtSYRe3Rx84GQlotntqZBVXhrdXXlNAisBaGIW8
-         bFuzoYEC6a9hf/xbE1NknnQQC+qAET0nymf2ls/D9G/xpzaK53ARmXBGbWwxrw1LulVW
-         SDJeVIugzWEGr7CXiV81r22+63DaylX38rqDgu4naL235d13QQBPpoY+ZCrPu1I1vkmy
-         1gPeu+oXTAQIu1AJnzBEcXKvINDfqfw0GJ+M0sykVKziEeKWbdDCevsmJIaNVIWGBLje
-         dB4w==
+         :list-id:mailing-list:precedence:user-agent:message-id:date:to:cc
+         :from:subject:references:in-reply-to:mime-version:sender
+         :dkim-signature;
+        bh=TMHe1Gx/J5kETnrnrKSLq+sbuy0FLEWFCEt/YDbRh6Q=;
+        b=xMORSE9ksh1/0lyjbSdk83LeLP940IKH3Cay5YSouvVB+epl/O5FBmJGCP7W7pHm1p
+         Wiln6m34Jxe1OGbaNnPD6246FumHpjYK1JZpdPkSHKv5saWSf+/UwRBT5HXtLxrzNDpy
+         ElHVzl2pQQ+vFALDDPyBBrEfQ4DTydD8eNSA24HDHH43CzB4bTtEwuzSA2+coezm9GCz
+         da04usa/2G30G38zOAwjGMKDvn8G5sKjf74ve/clHZGj0CfFfqPtcueJLFDWVzyWoPO2
+         BV1YYHT1HV9i0w3aMAc3D27OwkZHCqHyMPuFNx67R07KcAMUqeZfqPUI+U0Zl+i7K8w2
+         OOdQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KoFDnzHY;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@chromium.org header.s=google header.b=ReRhDxqh;
+       spf=pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=swboyd@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dMBKN06c9kPwobDF1AKmW2nvRqgppgRwWfVoTjbDthI=;
-        b=UEiTzn/KeptzQtW31CWwYfVTfc0rIErTLcJWWYNCpEm7b/b/1F9xZsmH56a0XBleKY
-         mycThXT0JzDHo6O4Rds1LQR2JN/ygpibCe0EIkowXpjQJb7V8UESi9tzipHKWZY2qoMc
-         2KGE6gXOlx5VTnIJGXsdg/+D1Ptae9OJYyS7kD6wwS4prLr1HYpD2GDtd7g5Ju4jgkuI
-         8G7Lz4iek/T4QeBF9OgGzFoYnLhHzGQkihCpTggt/7+wUPBchsR9XtIy9+73u0vbnT+N
-         sR7/AAYl65SdbUFGIRa9YSgtY9EMktG9ga9XdWr6DIaImYwbIOTP1f3QWs5aYa9CnfPA
-         t+9g==
+        h=sender:mime-version:in-reply-to:references:subject:from:cc:to:date
+         :message-id:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=TMHe1Gx/J5kETnrnrKSLq+sbuy0FLEWFCEt/YDbRh6Q=;
+        b=d0KeAgDH5eeGu/mDUeStQCoYYNfyDd5iUNaVAtegOBmWUyS9YnnfFOCnGGmIctHqWU
+         xHJl2iIC/dM+d7XprkVFEh9fpAaVImOLCl9oHwH5Md3hgdPL2qsfeQKlKgol8tjOTXzO
+         E2RK4iMjkzAJleTS8XrGyi9gZr0gLV2gj5CNJyLqyOvj/D5RpldL1FoWKZP+Vnbic+5g
+         C8pijPJwLbBbTI0Lujr1NYIFzK5Awo5RTT8x3ZlLvLny+n57owvezuUxvs7Gi5cHCcoN
+         VcZ1phTUR5aycvfP4MXHyUcMsEu0/PD5xhGxdmWy1Wb+C2k/ArWJZV6f2pEUwm2TDC6c
+         OGPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dMBKN06c9kPwobDF1AKmW2nvRqgppgRwWfVoTjbDthI=;
-        b=kmALclGtxtCO/0kJl519QBtXxYRNb/gORP2Vul+CpkiHSMW3Ds8kUzTIo5NDa5QxhH
-         XcmJFoi4uhwtzJXWr6uuki7xpi1WZSXIl8iiXWHhcdHYKl91kslxIJ0wN+MVu4sVd3Cp
-         6EPZuTE6zCZpSu9GRtQUuhfgapZXXO99U6+RM1NMPYWeAF6WCeb8zFJBj37Bj9iWIVcO
-         o8NtqbpalplLgaYcAojLdH88snVRRriaw2w+vLsyZwYnzkFSrU3fdaFeBfeh6eNOCJaa
-         HLsF+FpCcoGec3MyUZ9OSMLy7zsNe/v2v5iOCnF35G3vERq7n8S7GASaMXp86+29G8BF
-         f8QQ==
+        h=sender:x-gm-message-state:mime-version:in-reply-to:references
+         :subject:from:cc:to:date:message-id:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TMHe1Gx/J5kETnrnrKSLq+sbuy0FLEWFCEt/YDbRh6Q=;
+        b=trt8et3JnI8MJpiLtViDIkQTa2CrFFDKs+mJfsaRUTnrZ9AcaRibuOguqzU6Gt+ZUg
+         x+WfR2opKAT9dBEQ4qGLP906BnI/0/Akatge1vBo2RglxB6PIZppQezh6qVWKZ+zS0O+
+         x0C8IqbAxsogZ9Bno0NPBIWpqeVsXktV+sE5RTXW7rvoy9Y+2I2Ad6j+/JoN7EjJ/ml5
+         nRrQVxlXH7eI8LN+iFPYOr086qCtynbe8ObQ59eVbiSWAzxh+RS08mNQ908i0Vidu8rX
+         1OghD1r7sQsxq7BbMxaQ+SvR9mt9VFaSqFVwDPxN/5FQcq94r6BodnBuJ0lZ8edHAR60
+         GNGQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532rmPcvyfshs2ba5RdbecRZbEkV6ecOz8Ut7CbTeVVeG1kZ6eS5
-	qOU2jMmgotUYn//24QXSAKg=
-X-Google-Smtp-Source: ABdhPJzUG9aOAQMSRNITTnv7Ue6jsKK4REicKjHWJRULxf9xCOWR2ThYgXtZoyt3qrQuyJCLSAn2uA==
-X-Received: by 2002:a17:902:edcb:b029:df:cce5:1105 with SMTP id q11-20020a170902edcbb02900dfcce51105mr21772594plk.2.1613511203886;
-        Tue, 16 Feb 2021 13:33:23 -0800 (PST)
+X-Gm-Message-State: AOAM5332V6CtB67q7jzsRBTeKZRc4Gy0JISDcAzQsnj7J0JvhVa3c3ER
+	bE+y7N3AYhdetQZpt8+7yi8=
+X-Google-Smtp-Source: ABdhPJyfxkzQ2wgb6bSWJJjXqI/49ZpChhcS0gf4PRudO3NsBIDQQcKwBjAhOhRpQ4G52Jxha7qxGQ==
+X-Received: by 2002:a5d:9041:: with SMTP id v1mr18155820ioq.155.1613511467591;
+        Tue, 16 Feb 2021 13:37:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:da46:: with SMTP id l6ls7899534pgj.5.gmail; Tue, 16 Feb
- 2021 13:33:23 -0800 (PST)
-X-Received: by 2002:a63:d751:: with SMTP id w17mr21217816pgi.182.1613511203256;
-        Tue, 16 Feb 2021 13:33:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613511203; cv=none;
+Received: by 2002:a5e:8216:: with SMTP id l22ls5338iom.9.gmail; Tue, 16 Feb
+ 2021 13:37:47 -0800 (PST)
+X-Received: by 2002:a5d:9041:: with SMTP id v1mr18155809ioq.155.1613511467166;
+        Tue, 16 Feb 2021 13:37:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613511467; cv=none;
         d=google.com; s=arc-20160816;
-        b=O89R01OYlh8lpdXxZaoAC640ZStpgnxFCrdb9tbn2vTWw/Qju+jxRPIFOnQNkcbg4V
-         jsWDMIs8pyLxRVqr//eFvxflA7yU2mj2VnslX1532TMYqsLiIP6KaceaYIFVRD6gjZFU
-         C2QvSyuJUTTtACDgRpotrtpqF4EKcmZJfrM11nSfp5a6e0Vd4evyKdx+hgscje3ffSeb
-         XmABavO7b45p8KAAYydnDGmLH4HMhD7D6RCs6OswjnH0fFLTKULZElhcDp4epnbZNdKe
-         /crEreSJRh6vBLfFmOzkbdSLjH8QPjIVYz9uOJ03jK3phfJe7FnUbmhfQ53UJ+hcqvoI
-         /HeQ==
+        b=O8+jK4PVLOEJuWO8EI7eiFxu6FccmS2F3UjGtD5aH+Ps6AaoTBd6Wd1CxsP567fSaw
+         I8FeDeVzmpml9G/dmVt6m1cuZ14I0Wo5ZR9UeRgni/2S2EGpxQwj29OrD/zZfIQ4FucL
+         A4b87A9T3wvCnsm8ZfkqPhobKGp9Z4pHKJutKT5+ltgsfnsghjECYa78RmDyanCkOI0C
+         JcVUYkgt/iufZmCXX0El2GPb7F0qHED722y0aWUZBkPAwKw263bbaU8ekDxapPWODkkP
+         YH+xG3R/zinXQ/8A67Q0PaoaTl5YTbbvphQFD0YOSfhadfVrRY5RcVKdLcSnOU7KrrNN
+         A5gg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=lSjmvjHDGutbmOjObL713bgK/plA/whMqp6zc8U8PiM=;
-        b=G7F8n7uFLvB7jV4H0ZDWWsDkGaCjnofBI1w0GW9rmfvs757V6Ic91N/m9+X29qvdpj
-         p4s1eIp8GcpBo3GHG9ZKmsupmSrTf3a5SwJBINvtX3/0Odlpikr0TtjIYZRsHizB6wXi
-         1zdcqpzRBwjv9iVbuLqqdgknhFp2ZfxFL4f0LhJzCQHa2KUc1GwtR3h/YI0sBqVGJdTa
-         33GdsA1ZsXvt0QMExQkl7RzI6jIQx02FEaTmmYP0X7VuNWcjwD7aPZJvSjAODxa/bkwG
-         lQUuIVnejXuK07GWgX0xJwFINyDoZ06/GThJ1UTfDB7zsXScd43uebMDQwvZvcu4Gjmh
-         24XA==
+        h=user-agent:message-id:date:to:cc:from:subject:references
+         :in-reply-to:content-transfer-encoding:mime-version:dkim-signature;
+        bh=5c13cGmUbt4hYOZvHMgppB/+Rio5HpP/68H4KQeLHN0=;
+        b=EuXgJsVu4ly6IsKwIva3mjElfyTGsulGBn+jsNjfax+8ueqnJf50JcJUk2MHDbp5M2
+         oSaggyoD8SG0yUmpnewemtHbLXFd0tpR0d6nvUhwoXCEstL5GVAv52ycIJyZWqSY2HiO
+         B2ahCxGA5R84DCAbAoeka1RKJsntNfHlyE5BjGLVC7VHMQEKlWcR6wiahLPEA/zPwGRu
+         21knDbe63bd/tmM1GGDtwODmft3tvxBax/ZL4m8oq6Yk4I4TZz/p6PzmD8zcpwB4MKbM
+         t4h8BzYNjmRXPXhEclUSv1TWZDMR6s5T6kisgQrczBE7ldnYDShn0zSpl7hpWkQ8gsSP
+         HvkA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KoFDnzHY;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id u13si6808plg.1.2021.02.16.13.33.23
+       dkim=pass header.i=@chromium.org header.s=google header.b=ReRhDxqh;
+       spf=pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=swboyd@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
+        by gmr-mx.google.com with ESMTPS id d2si10591ila.5.2021.02.16.13.37.47
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Feb 2021 13:33:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9420464E08;
-	Tue, 16 Feb 2021 21:33:22 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <nathan@kernel.org>,
-	Michael Fuckner <michael@fuckner.net>
-Subject: [PATCH] Makefile: Remove # characters from compiler string
-Date: Tue, 16 Feb 2021 14:33:12 -0700
-Message-Id: <20210216213312.30462-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.30.1
-MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=KoFDnzHY;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Feb 2021 13:37:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) client-ip=2607:f8b0:4864:20::102c;
+Received: by mail-pj1-x102c.google.com with SMTP id kr16so152982pjb.2
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Feb 2021 13:37:47 -0800 (PST)
+X-Received: by 2002:a17:90a:1485:: with SMTP id k5mr1833899pja.103.1613511466714;
+        Tue, 16 Feb 2021 13:37:46 -0800 (PST)
+Received: from chromium.org ([2620:15c:202:201:e915:2799:f43d:3184])
+        by smtp.gmail.com with ESMTPSA id y200sm23493674pfc.103.2021.02.16.13.37.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Feb 2021 13:37:46 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+In-Reply-To: <20201211184633.3213045-6-samitolvanen@google.com>
+References: <20201211184633.3213045-1-samitolvanen@google.com> <20201211184633.3213045-6-samitolvanen@google.com>
+Subject: Re: [PATCH v9 05/16] kbuild: lto: merge module sections
+From: Stephen Boyd <swboyd@chromium.org>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Paul E. McKenney <paulmck@kernel.org>, Kees Cook <keescook@chromium.org>, Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
+To: Masahiro Yamada <masahiroy@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>, <stable@vger.kernel.org>
+Date: Tue, 16 Feb 2021 13:37:44 -0800
+Message-ID: <161351146485.1254594.3592715065187730966@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
+X-Original-Sender: swboyd@chromium.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@chromium.org header.s=google header.b=ReRhDxqh;       spf=pass
+ (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::102c
+ as permitted sender) smtp.mailfrom=swboyd@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,45 +133,169 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When using AMD's Optimizing C/C++ Compiler (AOCC), the build fails due
-to a # character in the version string, which is interpreted as a
-comment:
+Quoting Sami Tolvanen (2020-12-11 10:46:22)
+> LLD always splits sections with LTO, which increases module sizes. This
+> change adds linker script rules to merge the split sections in the final
+> module.
+> 
+> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Reviewed-by: Kees Cook <keescook@chromium.org>
+> ---
 
-$ make CC=clang defconfig init/main.o
-include/config/auto.conf.cmd:1374: *** invalid syntax in conditional. Stop.
+This patch fixes a warning I see on arm64 devices running the 5.10 LTS kernel.
+Can we queue this to the stable tree once it lands in Linus' tree?
 
-$ sed -n 1374p include/config/auto.conf.cmd
-ifneq "$(CC_VERSION_TEXT)" "AMD clang version 11.0.0 (CLANG: AOCC_2.3.0-Build#85 2020_11_10) (based on LLVM Mirror.Version.11.0.0)"
+ sysfs: cannot create duplicate filename '/module/configs/sections/__patchable_function_entries'
+ CPU: 3 PID: 4173 Comm: modprobe Not tainted 5.10.13 #10
+ Hardware name: Google Lazor (rev3+) with KB Backlight (DT)
+ Call trace:
+  dump_backtrace+0x0/0x1c0
+  show_stack+0x24/0x30
+  dump_stack+0xc0/0x120
+  sysfs_warn_dup+0x74/0x90
+  sysfs_add_file_mode_ns+0x12c/0x178
+  internal_create_group+0x264/0x36c
+  sysfs_create_group+0x24/0x30
+  add_sect_attrs+0x154/0x188
+  mod_sysfs_setup+0x208/0x284
+  load_module+0xff8/0x1158
+  __arm64_sys_finit_module+0xb4/0xf0
+  el0_svc_common+0xf4/0x1c0
+  do_el0_svc_compat+0x2c/0x40
+  el0_svc_compat+0x10/0x1c
+  el0_sync_compat_handler+0xc0/0xf0
+  el0_sync_compat+0x178/0x180
 
-Remove all # characters in the version string so that the build does not
-fail unexpectedly.
+The problem is that the section __patchable_function_entries is present
+twice in the kernel module I've compiled. I see that
+__patchable_function_entries is used on arm64 now that we have commit
+a1326b17ac03 ("module/ftrace: handle patchable-function-entry") combined
+with commit 3b23e4991fb6 ("arm64: implement ftrace with regs").
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/1298
-Reported-by: Michael Fuckner <michael@fuckner.net>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This linker script change nicely combines the section into one instead
+of two.
 
-diff --git a/Makefile b/Makefile
-index de1acaefe87e..9bfe1307447e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -581,7 +581,7 @@ endif
- # Some architectures define CROSS_COMPILE in arch/$(SRCARCH)/Makefile.
- # CC_VERSION_TEXT is referenced from Kconfig (so it needs export),
- # and from include/config/auto.conf.cmd to detect the compiler upgrade.
--CC_VERSION_TEXT = $(shell $(CC) --version 2>/dev/null | head -n 1)
-+CC_VERSION_TEXT = $(shell $(CC) --version 2>/dev/null | head -n 1 | sed 's/\#//g')
+Before:
+
+$ readelf -WS configs.ko 
+There are 29 section headers, starting at offset 0xad78:
+
+Section Headers:
+  [Nr] Name              Type            Address          Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            0000000000000000 000000 000000 00      0   0  0
+  [ 1] .plt              NOBITS          0000000000000000 000040 000001 00  AX  0   0 16
+  [ 2] .init.plt         NOBITS          0000000000000000 000040 000001 00  AX  0   0  1
+  [ 3] .text.ftrace_trampoline NOBITS          0000000000000000 000040 000001 00  AX  0   0  1
+  [ 4] .text             PROGBITS        0000000000000000 000040 00004c 00  AX  0   0  4
+  [ 5] .rela.text        RELA            0000000000000000 00aa10 000078 18   I 26   4  8
+  [ 6] __patchable_function_entries PROGBITS        0000000000000000 000090 000008 00 WAL  4   0  8
+  [ 7] .rela__patchable_function_entries RELA            0000000000000000 00aa88 000018 18   I 26   6  8
+  [ 8] .rodata           PROGBITS        0000000000000000 000098 009c98 00   A  0   0  8
+  [ 9] .rela.rodata      RELA            0000000000000000 00aaa0 000030 18   I 26   8  8
+  [10] .init.text        PROGBITS        0000000000000000 009d30 000068 00  AX  0   0  4
+  [11] .rela.init.text   RELA            0000000000000000 00aad0 0000f0 18   I 26  10  8
+  [12] __patchable_function_entries PROGBITS        0000000000000000 009d98 000008 00 WAL 10   0  8
+  [13] .rela__patchable_function_entries RELA            0000000000000000 00abc0 000018 18   I 26  12  8
+  [14] .exit.text        PROGBITS        0000000000000000 009da0 000028 00  AX  0   0  4
+  [15] .rela.exit.text   RELA            0000000000000000 00abd8 000048 18   I 26  14  8
+  [16] .modinfo          PROGBITS        0000000000000000 009dc8 0000b1 00   A  0   0  1
+  [17] .rodata.str1.1    PROGBITS        0000000000000000 009e79 00000a 01 AMS  0   0  1
+  [18] .comment          PROGBITS        0000000000000000 009e83 0000ce 01  MS  0   0  1
+  [19] .note.Linux       NOTE            0000000000000000 009f54 000018 00   A  0   0  4
+  [20] .gnu.linkonce.this_module PROGBITS        0000000000000000 009f80 000380 00  WA  0   0 64
+  [21] .rela.gnu.linkonce.this_module RELA            0000000000000000 00ac20 000030 18   I 26  20  8
+  [22] .note.gnu.build-id NOTE            0000000000000000 00a300 000024 00   A  0   0  4
+  [23] .note.gnu.property NOTE            0000000000000000 00a328 000020 00   A  0   0  8
+  [24] .note.GNU-stack   PROGBITS        0000000000000000 00a348 000000 00      0   0  1
+  [25] .gnu_debuglink    PROGBITS        0000000000000000 00a348 000018 00      0   0  4
+  [26] .symtab           SYMTAB          0000000000000000 00a360 0004f8 18     27  43  8
+  [27] .strtab           STRTAB          0000000000000000 00a858 0001b1 00      0   0  1
+  [28] .shstrtab         STRTAB          0000000000000000 00ac50 000128 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  p (processor specific)
+
+After:
+
+$ readelf -WS configs.ko 
+There are 26 section headers, starting at offset 0xad40:
  
- ifdef config-build
- # ===========================================================================
+Section Headers:
+  [Nr] Name              Type            Address          Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            0000000000000000 000000 000000 00      0   0  0
+  [ 1] __patchable_function_entries PROGBITS        0000000000000000 000040 000010 00 WAL  5   0  8
+  [ 2] .rela__patchable_function_entries RELA            0000000000000000 00a9e0 000030 18   I 23   1  8
+  [ 3] .rodata           PROGBITS        0000000000000000 000050 009ca2 00 AMS  0   0  8
+  [ 4] .rela.rodata      RELA            0000000000000000 00aa10 000030 18   I 23   3  8
+  [ 5] .text             PROGBITS        0000000000000000 009cf4 00004c 00  AX  0   0  4
+  [ 6] .rela.text        RELA            0000000000000000 00aa40 000078 18   I 23   5  8
+  [ 7] .plt              NOBITS          0000000000000000 009d40 000001 00  AX  0   0 16
+  [ 8] .init.plt         NOBITS          0000000000000000 009d40 000001 00  AX  0   0  1
+  [ 9] .text.ftrace_trampoline NOBITS          0000000000000000 009d40 000001 00  AX  0   0  1
+  [10] .init.text        PROGBITS        0000000000000000 009d40 000068 00  AX  0   0  4
+  [11] .rela.init.text   RELA            0000000000000000 00aab8 0000f0 18   I 23  10  8
+  [12] .exit.text        PROGBITS        0000000000000000 009da8 000028 00  AX  0   0  4
+  [13] .rela.exit.text   RELA            0000000000000000 00aba8 000048 18   I 23  12  8
+  [14] .modinfo          PROGBITS        0000000000000000 009dd0 0000b1 00   A  0   0  1
+  [15] .comment          PROGBITS        0000000000000000 009e81 0000ce 01  MS  0   0  1
+  [16] .note.Linux       NOTE            0000000000000000 009f50 000018 00   A  0   0  4
+  [17] .gnu.linkonce.this_module PROGBITS        0000000000000000 009f80 000380 00  WA  0   0 64
+  [18] .rela.gnu.linkonce.this_module RELA            0000000000000000 00abf0 000030 18   I 23  17  8
+  [19] .note.gnu.build-id NOTE            0000000000000000 00a300 000024 00   A  0   0  4
+  [20] .note.gnu.property NOTE            0000000000000000 00a328 000020 00   A  0   0  8
+  [21] .note.GNU-stack   PROGBITS        0000000000000000 00a348 000000 00      0   0  1
+  [22] .gnu_debuglink    PROGBITS        0000000000000000 00a348 000018 00      0   0  4
+  [23] .symtab           SYMTAB          0000000000000000 00a360 0004c8 18     24  41  8
+  [24] .strtab           STRTAB          0000000000000000 00a828 0001b1 00      0   0  1
+  [25] .shstrtab         STRTAB          0000000000000000 00ac20 000119 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  p (processor specific)
 
-base-commit: f40ddce88593482919761f74910f42f4b84c004b
--- 
-2.30.1
+>  scripts/module.lds.S | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+> 
+> diff --git a/scripts/module.lds.S b/scripts/module.lds.S
+> index 69b9b71a6a47..18d5b8423635 100644
+> --- a/scripts/module.lds.S
+> +++ b/scripts/module.lds.S
+> @@ -23,6 +23,30 @@ SECTIONS {
+>         .init_array             0 : ALIGN(8) { *(SORT(.init_array.*)) *(.init_array) }
+>  
+>         __jump_table            0 : ALIGN(8) { KEEP(*(__jump_table)) }
+> +
+> +       __patchable_function_entries : { *(__patchable_function_entries) }
+> +
+> +       /*
+> +        * With CONFIG_LTO_CLANG, LLD always enables -fdata-sections and
+> +        * -ffunction-sections, which increases the size of the final module.
+> +        * Merge the split sections in the final binary.
+> +        */
+> +       .bss : {
+> +               *(.bss .bss.[0-9a-zA-Z_]*)
+> +               *(.bss..L*)
+> +       }
+> +
+> +       .data : {
+> +               *(.data .data.[0-9a-zA-Z_]*)
+> +               *(.data..L*)
+> +       }
+> +
+> +       .rodata : {
+> +               *(.rodata .rodata.[0-9a-zA-Z_]*)
+> +               *(.rodata..L*)
+> +       }
+> +
+> +       .text : { *(.text .text.[0-9a-zA-Z_]*) }
+>  }
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210216213312.30462-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/161351146485.1254594.3592715065187730966%40swboyd.mtv.corp.google.com.
