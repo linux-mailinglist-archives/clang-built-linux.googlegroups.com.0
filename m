@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXEOWCAQMGQEX2VZYAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBVUWWCAQMGQE4LVCGVA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4FCB931CFB6
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 18:56:45 +0100 (CET)
-Received: by mail-wr1-x43d.google.com with SMTP id b3sf9462756wro.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 09:56:45 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613498205; cv=pass;
+Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E94831CFF7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 19:13:42 +0100 (CET)
+Received: by mail-wr1-x43b.google.com with SMTP id q5sf13997419wrs.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Feb 2021 10:13:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613499222; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aWTJI+w40N3EVF/bKZgnFpAcdmrnw08zj8s4uhM+k4ry2aC5HDG4kRkyCQOGFwksah
-         Ij01Xyml8Yx4Xv5LMWZe/GJKK8jQOC6qf0jgSMmlLBzTE4xP0tnLIVO7J3RrZ5CBrRUL
-         Ak05wS58wb7OHFouO3ZvJIyll4eb1zlE+wJSLKJR5KPH0mdv5ZZMWTGpkPYzdC1HQJ4g
-         ZpttnUvagfsoWYBG9ZtgCDBjsF5nKgu8afr4/zvrndJEVu0mwnV0CVGGnDlQg7bqIiXp
-         rfnC9nWg3/tzkdlhXRZ5nNDn1SuC0h+5yLWO8YGc6JbjtmKLMTPpYq/7Ik7kdyWIkG/4
-         9hzQ==
+        b=O75h2rLBTNdZNF1PGqP5nR8u+5zcRQplceCjQ+LibukELuJkb0iKXjRWi4gkXNxIZY
+         iPARw55uE8+bdaCeEOxRDGJRyGDTXFnuEq6ZC0eT3mXA+xX1NNWwguOw7Ugic9gBBqgu
+         voMzPtytxp4Jq7E/fwkXwtrEs1GG7WgTeSDwrmqQ2OexpQ2V7RscbqLB7LlBnAftX1gQ
+         J2/SBzwkTeg9sltKneHf6pfj7sMdcczGk4sxPYioLJxt1dswMHkeP3/SMpQJA7x45F02
+         pYeIZFi5/mQTuCyiD462bZ2vsz4NIc9BNw1IlhSLUfG8QnkjAmW1t4Dhvs5tLJmQHNIE
+         vByw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=ss0wxu2MFeo4aU5mz0VQVjHOIVC2CeTGjvOxJ4zvuOI=;
-        b=KvfnwY+QA3Lpllm1FzCYZ9Qb52zePgeYLBqo01PW6WiKahNc2S+6y9+dTFbYFXx3dW
-         b7ZAKVD5uB0T0h6GuYVGI+xVMj0KYcO6fSFRLqG+6unCuDPe8pCLZCpGPv9OGVoV664X
-         wINRZyoYI4Yn+z503VYKJxhlMz2Z3jpdD9XFNOxXuHoc3NYraZ5XxX3pt+iWUpaJ/2hX
-         H+vK4oXNLKMtaU5+/hwnJDQgsPCCSvm7jeotqOeqAgiM9Oy/jdbVWcsErBhfCKGBQTpJ
-         Y5hlDSwnH13X+J2ZwlP/xSBnErdIMThzjtrCiukb7WuFhqJpHIYd0gu6w/RRzf5C+lkZ
-         H9mA==
+        bh=2ZaLMSMnmRnmChGgwJaEFu/SWkiBwUCEn5A6KhK0k2c=;
+        b=m/ku6kZPCyUXKKBmI1UvHDQMYF2ms+sa5UoHNhRE89hbdXR2I/u6PhBl7NHrOugwrE
+         x5yP2uNJdGGfXYDdalTGu+nlmnMISqEHFXvDaDrE6hZh/3jXz6TFjkSmIiUY8DhNoXJx
+         R0NnyJDI9BZOinHE8LReathA5HGeSkpvx0HR8ftTkAJLtLL5+p583YzmXYArXSFMKgCq
+         A/zYoNJuiv8gQKVZ4rDw/bh2QGyw93vBNYKYGpaYmnCDOJnnSDjjBcb8Ws4988WxgfVh
+         jRsubmnA9lxKw6rbOYtdc6PJDIKNmRkKUAYSnFL5crQSE6esEvVAuIdX/fVQMTBFRPkV
+         8XmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=HeWFqx35;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ZBm5V3zJ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ss0wxu2MFeo4aU5mz0VQVjHOIVC2CeTGjvOxJ4zvuOI=;
-        b=g5bjeJIuzvkkOJjUcWKOPAX43fRaIH2qCehAFXslXWD81VLiMo6BFg2+1cBUwR4IJ8
-         8C0R3CiZC3lsrt/BltaUqw1vqyZHNiXI93iBTLdm33pI3C2xHS2Xz5NxtIjLewztV2BF
-         m20fzZg1jXurBXVHXsHvnOWX1HRo78PKhNdctd7K6g/Vlg1/Dxp4TH3aS6dTOiZuG7Xa
-         3gFCTTRCjYrQwaN5LYyByQVludSsDsIGHRhP9azN22sBPR44eZQpPl2SRLMMqoa5SsLr
-         t/kj/Fq4p952SaOXjNZxA10HEh28ST7bfcc9c4c2xxtEwwlpKNPuzCV7iPORI0MGgr76
-         AV9A==
+        bh=2ZaLMSMnmRnmChGgwJaEFu/SWkiBwUCEn5A6KhK0k2c=;
+        b=XWxf3saWvSV8GGHw16eKRGrRKia03OPbPD4vuKwpFiGBS4w68/NEZJvCbPT3s+QTr8
+         JOTRz5uLAwyh0Xvw1GSC5CzSkO4rW2sExb2wA6USbFkp6hvhTsCZtc0LQO3y8ACWYNxs
+         fyDlkFyQTwqJ/GTrNFTCsb5HY+4nGCXCBRcEjaZFEsI+3iqrkJkvsiinSq12GxYRRnRG
+         HQJzzMxNU6x67UjdyPT+yiflGuSRWPGAnZGWlhyuVlEF+yRl/dpz8zTRtZqj6UnLzLCv
+         vzCPRYAX9a71DkKrISAj82CuMGfCjOA46R+eeggADbZCZwRoycR33EDgbrNqV0l025FY
+         /9Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,76 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ss0wxu2MFeo4aU5mz0VQVjHOIVC2CeTGjvOxJ4zvuOI=;
-        b=bg8BpI36VcZETh8ypBrtk5PAOAj6yyyxvCwX6hSA7fqK7RY5ASI1JC6ChIzI9ri3fy
-         WngfWdFW1jhkxf98bgNUszp1vfLf6tx3AE48FdeAuGpdT5RreohFbHiXKSYkt+iaUXYS
-         UcQd0kKMbUEglr6IYyf61ixfCi0+QgmqwcpiMMglPHPv+R6ofKYUciCIq97v1SiV+yjE
-         L/lbTXjpVpeyzfwp4xbi8+cD4YxKt2SpyrANqB+sVkewJpcsrk8vMcft3DXU7uRwTk2K
-         p6jRTlO/DnjenaQXkCAI0XB4BFrWNyd2g6FnbY6btKlA70AWJi50StivNAd0Y45BXVLz
-         vxVw==
-X-Gm-Message-State: AOAM5331D0maqB+OzNSKw+PTjXMC3D+7SJS0tpV3JJY5Kom1bKhPZqdx
-	GTzRyxSzy4od5m0kzIcYWVE=
-X-Google-Smtp-Source: ABdhPJyXimOIlfCFuqQsDVUmIdRoIkMz8qQW8tm1vbaTKPC5NpCus7zvzGFdAebb209ZgE1weq8UNg==
-X-Received: by 2002:adf:e543:: with SMTP id z3mr3071348wrm.181.1613498205102;
-        Tue, 16 Feb 2021 09:56:45 -0800 (PST)
+        bh=2ZaLMSMnmRnmChGgwJaEFu/SWkiBwUCEn5A6KhK0k2c=;
+        b=HZ384JQpEKdMjE/oIHg9TV1k9J12vnKnUt+PRazOFvXONV71kYV4Ottd3/DRiX/+ZW
+         fMHLbUdw9oBkEz2E5X2EtK2yQ7CUlSnIs3bRjen3QD37BsWgTOwHdZ0UYaAliyH/UwBn
+         Dr7X1btaMAtadgcU6YJq/7RovZunPlo7C8RbirT79U226JrF2RE5AqUDjoJNLW6gxTV3
+         MrybY6UxO+Ii0K8rgMlTc0vBfDP7QoESqF/4/Z4A9g7OweDzDHQ26RURSFFlftvrVPMS
+         cfCnnMphJhocaaerWOnuvRZJX3uvOOlSx6ds9VoDpNZLdrlH52lLGkQRAiJfugwQjT59
+         ik/Q==
+X-Gm-Message-State: AOAM532qqV+aMuVcRV0xWchlNWrJHxQw4PuSlxe2SzbeVseTEers5wKH
+	TMilvJTQJwzAXuFoSkW4E74=
+X-Google-Smtp-Source: ABdhPJzaNUrAFy9RKmrwpB/Y+DqSy2/1mCD4ouDKTMLVVRmv9fpxUK3WrHZ8KhEwq9Fxru9IBBQuCQ==
+X-Received: by 2002:a1c:c904:: with SMTP id f4mr4302825wmb.14.1613499222203;
+        Tue, 16 Feb 2021 10:13:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:2e44:: with SMTP id u65ls1387997wmu.2.canary-gmail; Tue,
- 16 Feb 2021 09:56:44 -0800 (PST)
-X-Received: by 2002:a05:600c:4fcf:: with SMTP id o15mr4169432wmq.96.1613498204304;
-        Tue, 16 Feb 2021 09:56:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613498204; cv=none;
+Received: by 2002:a1c:60c2:: with SMTP id u185ls1404672wmb.2.gmail; Tue, 16
+ Feb 2021 10:13:41 -0800 (PST)
+X-Received: by 2002:a7b:c410:: with SMTP id k16mr4244273wmi.48.1613499221409;
+        Tue, 16 Feb 2021 10:13:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613499221; cv=none;
         d=google.com; s=arc-20160816;
-        b=bo2jyZtaAWYIoQC8sACbxiUplFP6amzrVkjiHwHaMoO1zz/++Zqsk/D/W5b1tyOu2l
-         1w0MiHxeoA3nmoIQzWhvJxi+42hwtVtp5d0W6jeti3txj+llQ70BN8wrVby7pSDsgTVs
-         4R4YnoCbiRVsifB71P35pcWgEZkT7t5cTpO2ndutaHWSQUvSNkGhKb7AgWL95G2m1u3J
-         HCl1kYjW6FVQZUjmppdIwXBxvhRY/fIry9GIs0GorbWvl5/NuMNqjJeBjOUvy9QPwoZ5
-         rGvYDK1CXEWcQXKwZqFIsV/QpNXficohSdHX2eskgLqktalugAuoid5vzbxdrsw4aR5R
-         fcGw==
+        b=KBImwQq2BEz+CYiOL/PNN4Mcvz3gLpuswVAIaH5bYpD8eQ8DeEwCLAPiCkhvKSTNdw
+         sqysbS32ir6dmJiF+VqTMfz6OvTyOIXrqV4HIwQ2G8v2qPTmPdAwEVfmKjIFkyOpTvTJ
+         oXRDG/xiDIgcN+MWfdoeFTRVSh5mcwq07KcFjEMiPz68G5Xb/KwsMalCO2u+mWUPcljz
+         U1NX2Qh4LN0C3SPeNFbr4glS6ipnO6YTQQ4B9GsXZfLlWGXkJ11li/rG2A+gQ513Gner
+         v7sVnYxXK3bBTwFm9a879NoEhvKj7kon307RLKdRk/vEk7crgj49iWOwJilz/+TT6rHm
+         qnjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=sB0GNU2NK22ymf4WR/Z3NGO8dPeB6xu5QjQGtDipdYg=;
-        b=ZpmUbaBRpV85O7eVLhuHaB7Bq2qa1zQ7F4sxf/aoaRGOwE5fH6HJ+wxcimqPeACH3Q
-         toDXVEBo2oRZ2jSPS0uA8xyFQOFq2tx2cO+IIoFtM73/XVDujtsdsJqZW17DnONSqDlu
-         7tun/jM4pHqjkW47DPE9DluxLVZu+twQwWoaGlYnr9c1NGxXZS5lPHSspCsJVFfMmyUf
-         LOYKZtIxKHgp4rFRBWakplAuLuCq0xh2q4agxvSRjwC9Zc4Rqo84gAKoi3+eocmTXvn9
-         BtBnd72pdM/yu76VWPZXfmBu9zm0dR9NrXeIiiFvvBvg/HZg0hTQAZxAa9LF3bjrSdsn
-         E8SA==
+        bh=uZhgJDXN3qUlzI3D7+EIdLJ24tS4lcpyI6gPNIaOo8w=;
+        b=nd8RJ+e0Fxw00vvk7vMnTcMKChG1+aVq+KKYZMH9q5Ws6o2WKaUSz0YEqhWvHyYp99
+         GykZxFjrg+v3Im589vtFmXzmyIQDyA/37NFpdjfiR+7Kas+nP2/e4fLXF2XeLX33iJY1
+         xvjxRgEMHHAm6woWN1HwLCHwbO8+G4friWdoyBm+cjqKj5tX0a6XlI3TWgWYh4z7VN7N
+         FE5CmDUt2OVPHTBSMwbahfPPofkoRIb4mozza0UVxyfHjHoNtFemZe/KAwY+PhhMm8lr
+         8SKKOD70z2+4hnnupmxogOXfxbaVGXLnOrgymujOeW8XepjuAQnapgzJ6laRXnqCgVUF
+         upmQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=HeWFqx35;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ZBm5V3zJ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12a.google.com (mail-lf1-x12a.google.com. [2a00:1450:4864:20::12a])
-        by gmr-mx.google.com with ESMTPS id v6si347761wri.3.2021.02.16.09.56.44
+Received: from mail-lj1-x22b.google.com (mail-lj1-x22b.google.com. [2a00:1450:4864:20::22b])
+        by gmr-mx.google.com with ESMTPS id m3si190544wme.0.2021.02.16.10.13.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Feb 2021 09:56:44 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a as permitted sender) client-ip=2a00:1450:4864:20::12a;
-Received: by mail-lf1-x12a.google.com with SMTP id f1so17363205lfu.3
-        for <clang-built-linux@googlegroups.com>; Tue, 16 Feb 2021 09:56:44 -0800 (PST)
-X-Received: by 2002:a05:6512:2e3:: with SMTP id m3mr12641403lfq.547.1613498203806;
- Tue, 16 Feb 2021 09:56:43 -0800 (PST)
+        Tue, 16 Feb 2021 10:13:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) client-ip=2a00:1450:4864:20::22b;
+Received: by mail-lj1-x22b.google.com with SMTP id c8so10830093ljd.12
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Feb 2021 10:13:41 -0800 (PST)
+X-Received: by 2002:a05:651c:2112:: with SMTP id a18mr13153514ljq.341.1613499220885;
+ Tue, 16 Feb 2021 10:13:40 -0800 (PST)
 MIME-Version: 1.0
-References: <20210216085442.2967-1-alobakin@pm.me>
-In-Reply-To: <20210216085442.2967-1-alobakin@pm.me>
+References: <cover.1613243844.git.luto@kernel.org>
+In-Reply-To: <cover.1613243844.git.luto@kernel.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 16 Feb 2021 09:56:32 -0800
-Message-ID: <CAKwvOdnBgpRff6wa8u1_ogCm_pRey5d_Yro4UCa_O_=tib0FHQ@mail.gmail.com>
-Subject: Re: [PATCH mips-next] vmlinux.lds.h: catch more UBSAN symbols into .data
-To: Alexander Lobakin <alobakin@pm.me>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Arnd Bergmann <arnd@arndb.de>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	Pei Huang <huangpei@loongson.cn>, Kees Cook <keescook@chromium.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Fangrui Song <maskray@google.com>, 
-	Jiaxun Yang <jiaxun.yang@flygoat.com>, Ralf Baechle <ralf@linux-mips.org>, 
-	Corey Minyard <cminyard@mvista.com>, kernel test robot <lkp@intel.com>, linux-mips@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Tue, 16 Feb 2021 10:13:29 -0800
+Message-ID: <CAKwvOdknXerBUV6aMhNC9y50kH3EQY+0s-aZ7Vvh8-tG8uR_wA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] Clean up x86_32 stackprotector
+To: Andy Lutomirski <luto@kernel.org>
+Cc: "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Sedat Dilek <sedat.dilek@gmail.com>, Sean Christopherson <seanjc@google.com>, 
+	Brian Gerst <brgerst@gmail.com>, Joerg Roedel <jroedel@suse.de>, 
+	Nathan Chancellor <nathan@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=HeWFqx35;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a
+ header.i=@google.com header.s=20161025 header.b=ZBm5V3zJ;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -135,63 +131,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Feb 16, 2021 at 12:55 AM Alexander Lobakin <alobakin@pm.me> wrote:
+On Sat, Feb 13, 2021 at 11:19 AM Andy Lutomirski <luto@kernel.org> wrote:
 >
-> LKP triggered lots of LD orphan warnings [0]:
+> x86_32 stackprotector is a maintenance nightmare.  Clean it up.  This
+> disables stackprotector on x86_32 on GCC 8.1 and on all clang
+> versions.  Some clang people are cc'd.
 
-Thanks for the patch, just some questions.
-
-With which linker?  Was there a particular config from the bot's
-report that triggered this?
+When in doubt, check the MAINTAINERS entry for LLVM for our mailing
+list and listed maintainers.
 
 >
-> mipsel-linux-ld: warning: orphan section `.data.$Lubsan_data299' from
-> `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_data299'
-> mipsel-linux-ld: warning: orphan section `.data.$Lubsan_data183' from
-> `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_data183'
-> mipsel-linux-ld: warning: orphan section `.data.$Lubsan_type3' from
-> `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_type3'
-> mipsel-linux-ld: warning: orphan section `.data.$Lubsan_type2' from
-> `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_type2'
-> mipsel-linux-ld: warning: orphan section `.data.$Lubsan_type0' from
-> `init/do_mounts_rd.o' being placed in section `.data.$Lubsan_type0'
+> Changes from v1:
+>  - Changelog fixes.
+>  - Comment fixes (mostly from Sean).
+>  - Fix the !SMP case.
 >
-> [...]
+> Andy Lutomirski (2):
+>   x86/stackprotector/32: Make the canary into a regular percpu variable
+>   x86/entry/32: Remove leftover macros after stackprotector cleanups
 >
-> Seems like "unnamed data" isn't the only type of symbols that UBSAN
-> instrumentation can emit.
-> Catch these into .data with the wildcard as well.
+>  arch/x86/Kconfig                          |  7 +-
+>  arch/x86/Makefile                         |  8 ++
+>  arch/x86/entry/entry_32.S                 | 95 +----------------------
+>  arch/x86/include/asm/processor.h          | 15 +---
+>  arch/x86/include/asm/ptrace.h             |  5 +-
+>  arch/x86/include/asm/segment.h            | 30 ++-----
+>  arch/x86/include/asm/stackprotector.h     | 79 ++++---------------
+>  arch/x86/include/asm/suspend_32.h         |  6 +-
+>  arch/x86/kernel/asm-offsets_32.c          |  5 --
+>  arch/x86/kernel/cpu/common.c              |  5 +-
+>  arch/x86/kernel/doublefault_32.c          |  4 +-
+>  arch/x86/kernel/head_32.S                 | 18 +----
+>  arch/x86/kernel/setup_percpu.c            |  1 -
+>  arch/x86/kernel/tls.c                     |  8 +-
+>  arch/x86/kvm/svm/svm.c                    | 10 +--
+>  arch/x86/lib/insn-eval.c                  |  4 -
+>  arch/x86/platform/pvh/head.S              | 14 ----
+>  arch/x86/power/cpu.c                      |  6 +-
+>  arch/x86/xen/enlighten_pv.c               |  1 -
+>  scripts/gcc-x86_32-has-stack-protector.sh |  6 +-
+>  20 files changed, 62 insertions(+), 265 deletions(-)
 >
-> [0] https://lore.kernel.org/linux-mm/202102160741.k57GCNSR-lkp@intel.com
->
-> Fixes: f41b233de0ae ("vmlinux.lds.h: catch UBSAN's "unnamed data" into data")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Alexander Lobakin <alobakin@pm.me>
-> ---
->  include/asm-generic/vmlinux.lds.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-> index cc659e77fcb0..83537e5ee78f 100644
-> --- a/include/asm-generic/vmlinux.lds.h
-> +++ b/include/asm-generic/vmlinux.lds.h
-> @@ -95,7 +95,7 @@
->   */
->  #ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
->  #define TEXT_MAIN .text .text.[0-9a-zA-Z_]*
-> -#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..L* .data..compoundliteral* .data.$__unnamed_*
-> +#define DATA_MAIN .data .data.[0-9a-zA-Z_]* .data..L* .data..compoundliteral* .data.$__unnamed_* .data.$Lubsan_*
-
-Are these sections only created when
-CONFIG_LD_DEAD_CODE_DATA_ELIMINATION is selected?  (Same with
-.data.$__unnamed_*)
-
->  #define SDATA_MAIN .sdata .sdata.[0-9a-zA-Z_]*
->  #define RODATA_MAIN .rodata .rodata.[0-9a-zA-Z_]* .rodata..L*
->  #define BSS_MAIN .bss .bss.[0-9a-zA-Z_]* .bss..compoundliteral*
 > --
-> 2.30.1
->
+> 2.29.2
 >
 
 
@@ -202,4 +184,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnBgpRff6wa8u1_ogCm_pRey5d_Yro4UCa_O_%3Dtib0FHQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdknXerBUV6aMhNC9y50kH3EQY%2B0s-aZ7Vvh8-tG8uR_wA%40mail.gmail.com.
