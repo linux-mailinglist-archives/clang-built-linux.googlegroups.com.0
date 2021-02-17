@@ -1,122 +1,128 @@
-Return-Path: <clang-built-linux+bncBCKIT2MIT4IBBG6IW2AQMGQERO74VEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQ6SW2AQMGQEQ5GZRZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0367931E2F8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 00:17:48 +0100 (CET)
-Received: by mail-qk1-x73b.google.com with SMTP id u14sf89801qke.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Feb 2021 15:17:48 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613603868; cv=pass;
+Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id EDEA731E313
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 00:39:47 +0100 (CET)
+Received: by mail-lj1-x23c.google.com with SMTP id s18sf190161ljp.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Feb 2021 15:39:47 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613605187; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aWXpr7qYZ7O4PjLekMaGHH1VwpLuLekNGQzGPsL4dOjW1GX55B7MPIqYUgdK+HKqQG
-         2AFKBvH0PJLUnbGUfsFvbJCPMpltV3X4b/yQ5PhUS0h2YKg2KiuwwVguaLZd6F8GTVbF
-         K19VhbSsDSmRDVcl7A5cSin6Cez0SdpCJFaokgMqhst4vM9NdtfX1xTxHVkedyvl1nyf
-         fy+gZIxBWfD87XOo+df2733o0hDT1OHBW+kvHdCVeX3bU+47/F0X3Rwd6C8PSfU0DXTi
-         VJ6yehXW58t91neZPFFNKTZUm+X5z6RW+Cxg8fSZgCbriN9/Pv8n0HLVMBRuuLrxr+Jr
-         +67Q==
+        b=g6mkfoccosm44UhoM+Qnk6/GyzkN112WLQbDuvFiN/EkSnVcxeKrxl9d1fJQTcTrOH
+         QQsvIKimWx2JMBo9/9oACcUY3qjuiA7SBtfWq7Lm5DmzcJAUDNErvLDCQWF9TXYu/S7X
+         PLXofg71x6SZnwxhrnlHYbkWSDEep03cUTC4tD7vsdweit/6Ww+dnAV7nIgm7zZxde8q
+         rSatpDvuZbyfTIlNPmYlHLmMYL0y0uRBTqvr3k82hCq5Cz4JBWcqiGkHzUVXvtVFIimJ
+         2NNfmZHHN7CMHy9L7O31ALKLkxcv+LI8Ny6S7IzLRkBNFvwze4XLrckLhCIn2PkKGD6j
+         qt2w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=gKG4KsM/y00QmSTmFw/VaFq6hZNbeVawS9RLj7SYSo0=;
-        b=rf7FwRiqnL+5cHzXbfoVCO1W9e8H6HDTm77Li2mErrvy4dMlDMYgCzUrIc0s5eCsTW
-         fN4V75Tv1yeABDXWejuKwzZTEqBv2Bh12GVxXoSiSxZ+vvAgCO2pfv4VPsRkbKBz7/Zy
-         L2NzBqeGPPVOfJT6ZJVzum7MfxJoxXTmrAAJrYx4pclcdgnGgz2ZJ0j7hPJZQnSXlvqB
-         UeCwnTRV6kJgqm2LH80bPXcnZpE3j/Jrzsuvx04gxzXX7XSLpXnf/ZoX5zh9GoxYZ+0e
-         tjCyovd51ksC4pt7+n5nxThkbZoeKJK4yDheJTOYwvxAbFWJqvQ+/3H2XxKdFOpkXDvK
-         mooQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=MY/0PvzNKaKDN2oiDN+eUMuRKYxvHmyP8jVNN+4h0Fo=;
+        b=e9kpLU+Ql7WkH2t+QMH6bxqN2gecaIFdP++9KMxw8wqOihFId/EEEi3q0/xXfG0tW/
+         XuZ1zjgyWmFcL8ejLm32U52+0D/3sGwqXQ9w6uXB0liQczB0PwHAYO7Tey+3Z4RRRg5p
+         xdPn4t0fTCsWmBCmxNcXGojaVAIIINs+MM/CnCoafkXouuHiekOwo5VJ42WNjlXurh2S
+         ZHtRfSI/uWJjRrgvux+tBHndEMWM31svNXGkNCRmx9YHmGaddyCFCGkGLMapBpabGIa9
+         hdo2JrQphljpnDYBOv8CDJtqSqGN2RnFDJ7iZLcFBLslCnrML6hmDhQvXtLVyHyC0Tgp
+         95tg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=jwalCJEG;
-       spf=pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::136 as permitted sender) smtp.mailfrom=dan.rue@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Q/oHA+0J";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gKG4KsM/y00QmSTmFw/VaFq6hZNbeVawS9RLj7SYSo0=;
-        b=hmUGQJmYUtQwAJzD1tmuKaIxEPnXsVQMyjIVURhJybQy+xHwcbqhSc9ll1LcYNmO2p
-         pm+kYdz82+cBP66exg4rmlGYUBNU04RYqRk3Rq+nctyvXaMNbeQTCRihfqaIhchdmec8
-         ukCTEM1RbM9AiEUAAyTUXn7ORGb76loc5jivFW5rbLI/mObxu6Jw224szpLb8MpHz8y4
-         fxBAEelquhhCSaITjLkjdduowusIfjCKncyDXz3HtegG+QhmMrzhZ8DeCB9EcS7P1Ys1
-         SDWEpa7TNEqTRsfS3Osn++m8O7IESmMRyYKAHWW1r2DD0NhFT9b8+MdInLryiaqDcTso
-         jH3g==
+        bh=MY/0PvzNKaKDN2oiDN+eUMuRKYxvHmyP8jVNN+4h0Fo=;
+        b=I3OaRurH2F+odJ4eGDRPvrxTosRn5AUCjsBs6Jof0Nrul3OufDd8jZZ6y2pwd8F7Yh
+         pOeFgzBOaZ62oCHaD6zMMu3Pt8vL1fcSWvrtrBTQOhlsOoaPAt/sujkXoroaFrh/oRmA
+         CY0fVd62N8bVkg8LDiS7SumZbWiaZLzk3/kwgwUvPryOij4RizVIcaxeUcMkoFbjoRh/
+         ElXGzxPW0L6A6qAviiIff36/xPI5fWlZ6550kSwElLfLRQnT66moSabSnq/UmQ5vIWyi
+         h/LIz0cvMhAsnQg2Z90XUK0FExr9ifi+a1GRfpSolNNJ4Fk9jcyke/IUgEU010h3w/Nq
+         mJ0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gKG4KsM/y00QmSTmFw/VaFq6hZNbeVawS9RLj7SYSo0=;
-        b=PnDuBKL8vZs8AcofSClqdqlMLWBkYqiFf+rrpEtcuP7lnY0wPdSbV1ibAaUe6qtKnS
-         7SDwVQP9aBC2y8xVHIybFUZ0NAxrG2r/IdgswY3qHeK/EMnn6uQDFlVTDAfEVuourYYh
-         KekpTe1ea2yD1ndQrdnKAe2Dl2e7hTfklioyPQYa1JlaKYCRZcw+D/WXe+3manOMIBDD
-         uaXo0cuFcPbAlPI2ZbUoPTw1nKY+TotRqRd6ZwFm/G6dIh7qIlEAv8TwkcnUSTywqOKi
-         JHAAhV01y/uRELBYVQCjTaK8apSa+u6Fj6/V0h05sa0E/QdIRUjqgoJiYx5OW8dJulK3
-         dxoA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531HDsdGILTCSx4SqqVR/XfbGpSghVwfrax5PEbk2LStKC3S4mM+
-	vGBZ6hKGcU0WqEZnzfWAg9g=
-X-Google-Smtp-Source: ABdhPJwJYSn4JV/r9ZOxDEeh6cftDD6eMOOulsTOqbpkcrNXJpU1qEmgFkgP5+PJwNP0GWoHDzE27Q==
-X-Received: by 2002:a37:a68a:: with SMTP id p132mr1712025qke.26.1613603867898;
-        Wed, 17 Feb 2021 15:17:47 -0800 (PST)
+        bh=MY/0PvzNKaKDN2oiDN+eUMuRKYxvHmyP8jVNN+4h0Fo=;
+        b=ASD6og5fewhn0C7cAWaW9T5I3tvzxX3d9nlu6jjFJAqv4319CorVzbEmiKtXgaL8aj
+         1YBsuMI0cXmTIk2JJkcbEyW02JN4ItG5lLvMHmZoYtNvBMKOIfVGNB2fku5bVss0udYC
+         z0CCHmdK1rScbavTa9zvCxq1Of/WJmjQaRGRvRIHU0I5MTWh37fgB03+pgLZCYu07p+N
+         cb129Yf7eSgGIywKZYjjr42qKqimvI0lk0+1osNhu78TXDxxj7E6wfYC83tyBB8Df4ml
+         cMmGRvh+PL1Ux/ZdrZi29yyPLp0Bii9NB2MxJOhu5zDHejKpIMOgr16hYGV9/V1t7ran
+         EFLw==
+X-Gm-Message-State: AOAM532+50ceUUzUOgDyDTT4LplDipGaEjg2bIXe5OXSLcdUrEg0kKxi
+	zdHi9WK2W76CtlnK9XHcfjU=
+X-Google-Smtp-Source: ABdhPJyG02hDcuJFOv3o+LNzfFlvQ2TlSxXr1ENEB0+fAPQGie9qCkesQY17W0x5X7k2yhN2hksgtg==
+X-Received: by 2002:a05:651c:1196:: with SMTP id w22mr959884ljo.42.1613605187394;
+        Wed, 17 Feb 2021 15:39:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:a608:: with SMTP id p8ls1815141qke.4.gmail; Wed, 17 Feb
- 2021 15:17:47 -0800 (PST)
-X-Received: by 2002:a37:59c1:: with SMTP id n184mr1704097qkb.67.1613603867547;
-        Wed, 17 Feb 2021 15:17:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613603867; cv=none;
+Received: by 2002:a05:6512:6d4:: with SMTP id u20ls2656980lff.1.gmail; Wed, 17
+ Feb 2021 15:39:46 -0800 (PST)
+X-Received: by 2002:a19:3f93:: with SMTP id m141mr756390lfa.423.1613605186410;
+        Wed, 17 Feb 2021 15:39:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613605186; cv=none;
         d=google.com; s=arc-20160816;
-        b=uNwQYz5ACr2HsgBuixucx/9vPpNZ+3iO0BC07zBBFSWo0fMEN+lB2bhTzVrtfrHkte
-         mOuxvByIjISWe16r+lw2X+2L00jUu2Kc7Gj1v2j/fe3wKHJmJlwa2aHIfKJVsThNPg+H
-         t/2wI1GfDDHoITtekfgfOOdpFQPHZhNhGUdAa4eIGtTKRzJmCYbpy0IaRa6RSLM5LxLU
-         6KLZuS8pv4qM4A++xpyusj9ggfwSzhoRHPBCpQofxYlOVZXUOMxyv5fR53FJQ3D6rf2t
-         0tsaarEZynjL6yS1eiQIywPQmkY6uYGb6Vfx9fJVzqJlfHZ8lnrxMaChk6AQHxR4Y4Fz
-         HpTg==
+        b=KGyjyF+A5rvkn1mmZGO+etZKPNNPemQG5mea0yEME49TpAI89br0/Vc702cIIoZaD4
+         jRCAuBKmPKYRiFIPhyiQHx7iYvPxqQxpbJv7qnaByFJueC4cVJmFt1nO0PaUF1ErCoN1
+         bxBoOLexGzIxyLqci0Zqm7G49WX9ZFwPbIXnTTVGF6yRqghtbReYCOzT003qyGycd56p
+         W3W7Vt5hx1H/hZU0uwKZ+Coy5x4Lo+g5Yu8RQz6QWIS0P0RbP70R9LLK8h4I1X13/QGM
+         cFh5a9YZM6RDHfmJwWDLatLA8ExGvKO04ADblj0EbA2eEorKXI8zy4ug2SWnUPHwX/bc
+         bLXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=KEq+r/iKmLvfxS4BW5PKvmskywVSKaKhTW15OdHSoN0=;
-        b=laneXp/gXgiRA4AleeotBZNabsD/tcrA7OgDlN7L1VoyXntG+nyzs0BvJp9MK/i3OV
-         yYLdXnE7SalloRFoPsed8gCR9lOPaS6zKVCgPtfDrGQ/hJLWC0hzFlevkPBQYetwYDL8
-         0gRKSDUzuR4YDfO4l7j8u59YA6TKW2ySSKq0V1fwVun++FdWc+v2tHTdrJhcxeHsaSoN
-         13+kbB44/4Yv4mmO3rYxaYwBQdUfVKHklizc22zBx7qCRL5iSdodv4E5w3upia+Ic5Bc
-         9dQ/R3xJuxKmKo0g6u6SesH6o8INhfm7uWcBy8Ssska6wPZEhvnKZo7GkKgygAbbWZT0
-         +B3A==
+        bh=teFskEaebZ19i1Z7EB6SGi++FZfsO3CkwFyMngYGBik=;
+        b=wzQgCeLFg6FIpnd9QjuegZxNWw55MeZT1LC70RlK++ITYbBYkusHwD56m92do8yu6X
+         Xlrpc1cfVuhselpqHN/3MJooaMYju25e8N33mT7cImKU09L5p701M/nXo2rtikcVC8Q2
+         F7hJjLgiAEoUxJvFxGQs6Ov91kfnhwTo7WDmmajQQTGxc7Rq4Rd33Jxecf+UsNynZRRf
+         Fe3UM063jKli9ceE9srYxqEXJ91hJvqM6siSTJkseUaDTeb2fXQpchowW6CP08XJyT6E
+         FWwVLqNhJEiiS5ry2xTjedUOcG9pkrF4PgqO1VpyINa7Tu1LawbHzhTVYYSyi/eFfAtb
+         Aaxw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=jwalCJEG;
-       spf=pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::136 as permitted sender) smtp.mailfrom=dan.rue@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-il1-x136.google.com (mail-il1-x136.google.com. [2607:f8b0:4864:20::136])
-        by gmr-mx.google.com with ESMTPS id z14si123459qtv.0.2021.02.17.15.17.47
+       dkim=pass header.i=@google.com header.s=20161025 header.b="Q/oHA+0J";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x129.google.com (mail-lf1-x129.google.com. [2a00:1450:4864:20::129])
+        by gmr-mx.google.com with ESMTPS id d25si159036lji.8.2021.02.17.15.39.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Feb 2021 15:17:47 -0800 (PST)
-Received-SPF: pass (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::136 as permitted sender) client-ip=2607:f8b0:4864:20::136;
-Received: by mail-il1-x136.google.com with SMTP id y15so12882775ilj.11
-        for <clang-built-linux@googlegroups.com>; Wed, 17 Feb 2021 15:17:47 -0800 (PST)
-X-Received: by 2002:a05:6e02:1a25:: with SMTP id g5mr1298804ile.2.1613603867052;
- Wed, 17 Feb 2021 15:17:47 -0800 (PST)
+        Wed, 17 Feb 2021 15:39:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) client-ip=2a00:1450:4864:20::129;
+Received: by mail-lf1-x129.google.com with SMTP id z11so1055623lfb.9
+        for <clang-built-linux@googlegroups.com>; Wed, 17 Feb 2021 15:39:46 -0800 (PST)
+X-Received: by 2002:a05:6512:12c1:: with SMTP id p1mr835669lfg.374.1613605185945;
+ Wed, 17 Feb 2021 15:39:45 -0800 (PST)
 MIME-Version: 1.0
-References: <CAGm4vTNaq05cFMZEC6zN0WEeq2-+_DgK73XM3xsNdbXX7D_Krg@mail.gmail.com>
- <CAKwvOdnjyunWptu=2DzsZ6oxvar32RN00QGbAzD_-843+RnFzQ@mail.gmail.com>
-In-Reply-To: <CAKwvOdnjyunWptu=2DzsZ6oxvar32RN00QGbAzD_-843+RnFzQ@mail.gmail.com>
-From: Dan Rue <dan.rue@linaro.org>
-Date: Wed, 17 Feb 2021 17:17:36 -0600
-Message-ID: <CAGm4vTNNc1i-EmQzAhhe1xnjKO0ZFdCN9+B9znW4zK3QJkJP2g@mail.gmail.com>
-Subject: Re: Do you want to share your builds with KernelCI?
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: tuxsuite <tuxsuite@linaro.org>, 
+References: <20210216103026.323157-1-Jianlin.Lv@arm.com>
+In-Reply-To: <20210216103026.323157-1-Jianlin.Lv@arm.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 17 Feb 2021 15:39:35 -0800
+Message-ID: <CAKwvOd=yYx=c=5TR6BY3nPUTQpn5tvSuD7X-KwZyGq5gTwA73g@mail.gmail.com>
+Subject: Re: [PATCH v3] perf probe: fix kretprobe issue caused by GCC bug
+To: Jianlin Lv <Jianlin.Lv@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, fche@redhat.com, Ian Rogers <irogers@google.com>, 
+	sumanthk@linux.ibm.com, iecedge@gmail.com, 
+	LKML <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: multipart/alternative; boundary="0000000000004df7f605bb906d98"
-X-Original-Sender: dan.rue@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=jwalCJEG;       spf=pass
- (google.com: domain of dan.rue@linaro.org designates 2607:f8b0:4864:20::136
- as permitted sender) smtp.mailfrom=dan.rue@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@google.com header.s=20161025 header.b="Q/oHA+0J";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,230 +135,129 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---0000000000004df7f605bb906d98
-Content-Type: text/plain; charset="UTF-8"
-
-On Wed, Feb 17, 2021 at 4:43 PM Nick Desaulniers <ndesaulniers@google.com>
-wrote:
-
-> On Wed, Feb 17, 2021 at 1:37 PM Dan Rue <dan.rue@linaro.org> wrote:
-> >
-> > Hello, and welcome to the latest updates from TuxSuite!
-> >
-> > # Integration with KernelCI
-> >
-> > TuxBuild is rolling out integration with the KernelCI Common Reporting
-> > database project ("KCIDB"). This is opt-in - if you would like your
-> > build data publicly shared with KernelCI, we will turn on the
-> > integration for your builds in the back end.
-> >
-> > For more details about the project, see the blog post
-> >
-> https://foundation.kernelci.org/blog/2020/08/21/introducing-common-reporting/
-> .
-> >
-> > If you would like your builds to be included, please reply. By default,
-> > builds will remain private.
+On Tue, Feb 16, 2021 at 2:30 AM Jianlin Lv <Jianlin.Lv@arm.com> wrote:
 >
-> Please include results from clang built linux builds via our token for
-> KCIDB.
+> Perf failed to add kretprobe event with debuginfo of vmlinux which is
+> compiled by gcc with -fpatchable-function-entry option enabled.
+> The same issue with kernel module.
 >
+> Issue:
+>
+>   # perf probe  -v 'kernel_clone%return $retval'
+>   ......
+>   Writing event: r:probe/kernel_clone__return _text+599624 $retval
+>   Failed to write event: Invalid argument
+>     Error: Failed to add events. Reason: Invalid argument (Code: -22)
+>
+>   # cat /sys/kernel/debug/tracing/error_log
+>   [156.75] trace_kprobe: error: Retprobe address must be an function entry
+>   Command: r:probe/kernel_clone__return _text+599624 $retval
+>                                         ^
+>
+>   # llvm-dwarfdump  vmlinux |grep  -A 10  -w 0x00df2c2b
+>   0x00df2c2b:   DW_TAG_subprogram
+>                 DW_AT_external  (true)
+>                 DW_AT_name      ("kernel_clone")
+>                 DW_AT_decl_file ("/home/code/linux-next/kernel/fork.c")
+>                 DW_AT_decl_line (2423)
+>                 DW_AT_decl_column       (0x07)
+>                 DW_AT_prototyped        (true)
+>                 DW_AT_type      (0x00dcd492 "pid_t")
+>                 DW_AT_low_pc    (0xffff800010092648)
+>                 DW_AT_high_pc   (0xffff800010092b9c)
+>                 DW_AT_frame_base        (DW_OP_call_frame_cfa)
+>
+>   # cat /proc/kallsyms |grep kernel_clone
+>   ffff800010092640 T kernel_clone
+>   # readelf -s vmlinux |grep -i kernel_clone
+>   183173: ffff800010092640  1372 FUNC    GLOBAL DEFAULT    2 kernel_clone
+>
+>   # objdump -d vmlinux |grep -A 10  -w \<kernel_clone\>:
+>   ffff800010092640 <kernel_clone>:
+>   ffff800010092640:       d503201f        nop
+>   ffff800010092644:       d503201f        nop
+>   ffff800010092648:       d503233f        paciasp
+>   ffff80001009264c:       a9b87bfd        stp     x29, x30, [sp, #-128]!
+>   ffff800010092650:       910003fd        mov     x29, sp
+>   ffff800010092654:       a90153f3        stp     x19, x20, [sp, #16]
+>
+> The entry address of kernel_clone converted by debuginfo is _text+599624
+> (0x92648), which is consistent with the value of DW_AT_low_pc attribute.
+> But the symbolic address of kernel_clone from /proc/kallsyms is
+> ffff800010092640.
+>
+> This issue is found on arm64, -fpatchable-function-entry=2 is enabled when
+> CONFIG_DYNAMIC_FTRACE_WITH_REGS=y;
+> Just as objdump displayed the assembler contents of kernel_clone,
+> GCC generate 2 NOPs  at the beginning of each function.
+>
+> kprobe_on_func_entry detects that (_text+599624) is not the entry address
+> of the function, which leads to the failure of adding kretprobe event.
+>
+> kprobe_on_func_entry
+> ->_kprobe_addr
+> ->kallsyms_lookup_size_offset
+> ->arch_kprobe_on_func_entry             // FALSE
+>
+> The cause of the issue is that the first instruction in the compile unit
+> indicated by DW_AT_low_pc does not include NOPs.
+> This issue exists in all gcc versions that support
+> -fpatchable-function-entry option.
+>
+> I have reported it to the GCC community:
+> https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98776
+>
+> Currently arm64 and PA-RISC may enable fpatchable-function-entry option.
+> The kernel compiled with clang does not have this issue.
 
-Done! It should be in production KCIDB by end of week.
-
-Dan
-
+Thank you for taking the time to check and verify with Clang. I appreciate it!
 
 >
-> >
-> > # Moving to a Mailing List
-> >
-> > I've been sending these emails to you directly, and this is the last one
-> > I'll send direct.
-> >
-> > We have a mailing list which anyone can subscribe to at
-> > https://tuxsuite.com. Future emails will go exclusively to that email
-> > list.
-> >
-> > I'm going to go ahead and enroll all of the TuxSuite users into that
-> > list. Going forward, anyone may subscribe/unsubscribe at will. If you're
-> > not a TuxSuite user and receiving this email, you will probably not be
-> > auto-subscribed by me, and you should go to https://tuxsuite.com and
-> > enroll if you'd like to continue hearing from us.
-> >
-> > # Moving to TuxSuite Authentication
-> >
-> > We are migrating all TuxBuild users to TuxSuite accounts. You do not
-> > have to do anything - your existing tokens will continue to work.
-> >
-> > You will be receiving an email from Vishal with your new account
-> > details. If you would like to create new tokens or remove existing
-> > tokens, you may do that by signing into your account. You may also
-> > change your password. And that's it, for now!
-> >
-> > The reason for this change is to allow you to use your same tokens for
-> > TuxTest, once it's available.
-> >
-> > # IRC & Discord
-> >
-> > We are trying out Discord, which is a modern chat application. If you'd
-> > like to join, follow the link https://discord.gg/4hhTzUrj5M
-> >
-> > We also set up IRC channels on freenode at #tuxsuite and #tuxmake.
-> >
-> > Please feel free to join and collaborate with us as well as other
-> > TuxSuite users.
-> >
-> > # Kselftest & Clang-12
-> >
-> > TuxMake now has support to build kselftest. Usage details can be found
-> > at https://docs.tuxmake.org/targets/#kselftest. Support is not yet in
-> > TuxBuild but will be coming soon.
-> >
-> > Both TuxMake and TuxBuild now support clang-12.
-> >
-> >
-> > That's all for today. Stay well!
-> >
-> > Dan
+> FIX:
 >
+> This GCC issue only cause the registration failure of the kretprobe event
+> which doesn't need debuginfo. So, stop using debuginfo for retprobe.
+> map will be used to query the probe function address.
 >
+> Signed-off-by: Jianlin Lv <Jianlin.Lv@arm.com>
+> ---
+> v2: stop using debuginfo for retprobe, and update changelog.
+> v3: Update changelog, fixed misuse of --- marker.
+> ---
+>  tools/perf/util/probe-event.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 >
+> diff --git a/tools/perf/util/probe-event.c b/tools/perf/util/probe-event.c
+> index 8eae2afff71a..a59d3268adb0 100644
+> --- a/tools/perf/util/probe-event.c
+> +++ b/tools/perf/util/probe-event.c
+> @@ -894,6 +894,16 @@ static int try_to_find_probe_trace_events(struct perf_probe_event *pev,
+>         struct debuginfo *dinfo;
+>         int ntevs, ret = 0;
+>
+> +       /* Workaround for gcc #98776 issue.
+> +        * Perf failed to add kretprobe event with debuginfo of vmlinux which is
+> +        * compiled by gcc with -fpatchable-function-entry option enabled. The
+> +        * same issue with kernel module. The retprobe doesn`t need debuginfo.
+> +        * This workaround solution use map to query the probe function address
+> +        * for retprobe event.
+> +        */
+> +       if (pev->point.retprobe)
+> +               return 0;
+> +
+>         dinfo = open_debuginfo(pev->target, pev->nsi, !need_dwarf);
+>         if (!dinfo) {
+>                 if (need_dwarf)
 > --
-> Thanks,
-> ~Nick Desaulniers
+> 2.25.1
 >
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGm4vTNNc1i-EmQzAhhe1xnjKO0ZFdCN9%2BB9znW4zK3QJkJP2g%40mail.gmail.com.
-
---0000000000004df7f605bb906d98
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr">On Wed, Feb 17, 2021 at 4:43 PM Nick Desa=
-ulniers &lt;<a href=3D"mailto:ndesaulniers@google.com">ndesaulniers@google.=
-com</a>&gt; wrote:<br></div><div class=3D"gmail_quote"><blockquote class=3D=
-"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(2=
-04,204,204);padding-left:1ex">On Wed, Feb 17, 2021 at 1:37 PM Dan Rue &lt;<=
-a href=3D"mailto:dan.rue@linaro.org" target=3D"_blank">dan.rue@linaro.org</=
-a>&gt; wrote:<br>
-&gt;<br>
-&gt; Hello, and welcome to the latest updates from TuxSuite!<br>
-&gt;<br>
-&gt; # Integration with KernelCI<br>
-&gt;<br>
-&gt; TuxBuild is rolling out integration with the KernelCI Common Reporting=
-<br>
-&gt; database project (&quot;KCIDB&quot;). This is opt-in - if you would li=
-ke your<br>
-&gt; build data publicly shared with KernelCI, we will turn on the<br>
-&gt; integration for your builds in the back end.<br>
-&gt;<br>
-&gt; For more details about the project, see the blog post<br>
-&gt; <a href=3D"https://foundation.kernelci.org/blog/2020/08/21/introducing=
--common-reporting/" rel=3D"noreferrer" target=3D"_blank">https://foundation=
-.kernelci.org/blog/2020/08/21/introducing-common-reporting/</a>.<br>
-&gt;<br>
-&gt; If you would like your builds to be included, please reply. By default=
-,<br>
-&gt; builds will remain private.<br>
-<br>
-Please include results from clang built linux builds via our token for KCID=
-B.<br></blockquote><div><br></div><div><div dir=3D"ltr">Done! It should be =
-in production KCIDB=C2=A0by end of week.<div><br></div><div>Dan</div></div>=
-</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0p=
-x 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
-<br>
-&gt;<br>
-&gt; # Moving to a Mailing List<br>
-&gt;<br>
-&gt; I&#39;ve been sending these emails to you directly, and this is the la=
-st one<br>
-&gt; I&#39;ll send direct.<br>
-&gt;<br>
-&gt; We have a mailing list which anyone can subscribe to at<br>
-&gt; <a href=3D"https://tuxsuite.com" rel=3D"noreferrer" target=3D"_blank">=
-https://tuxsuite.com</a>. Future emails will go exclusively to that email<b=
-r>
-&gt; list.<br>
-&gt;<br>
-&gt; I&#39;m going to go ahead and enroll all of the TuxSuite users into th=
-at<br>
-&gt; list. Going forward, anyone may subscribe/unsubscribe at will. If you&=
-#39;re<br>
-&gt; not a TuxSuite user and receiving this email, you will probably not be=
-<br>
-&gt; auto-subscribed by me, and you should go to <a href=3D"https://tuxsuit=
-e.com" rel=3D"noreferrer" target=3D"_blank">https://tuxsuite.com</a> and<br=
->
-&gt; enroll if you&#39;d like to continue hearing from us.<br>
-&gt;<br>
-&gt; # Moving to TuxSuite Authentication<br>
-&gt;<br>
-&gt; We are migrating all TuxBuild users to TuxSuite accounts. You do not<b=
-r>
-&gt; have to do anything - your existing tokens will continue to work.<br>
-&gt;<br>
-&gt; You will be receiving an email from Vishal with your new account<br>
-&gt; details. If you would like to create new tokens or remove existing<br>
-&gt; tokens, you may do that by signing into your account. You may also<br>
-&gt; change your password. And that&#39;s it, for now!<br>
-&gt;<br>
-&gt; The reason for this change is to allow you to use your same tokens for=
-<br>
-&gt; TuxTest, once it&#39;s available.<br>
-&gt;<br>
-&gt; # IRC &amp; Discord<br>
-&gt;<br>
-&gt; We are trying out Discord, which is a modern chat application. If you&=
-#39;d<br>
-&gt; like to join, follow the link <a href=3D"https://discord.gg/4hhTzUrj5M=
-" rel=3D"noreferrer" target=3D"_blank">https://discord.gg/4hhTzUrj5M</a><br=
->
-&gt;<br>
-&gt; We also set up IRC channels on freenode at #tuxsuite and #tuxmake.<br>
-&gt;<br>
-&gt; Please feel free to join and collaborate with us as well as other<br>
-&gt; TuxSuite users.<br>
-&gt;<br>
-&gt; # Kselftest &amp; Clang-12<br>
-&gt;<br>
-&gt; TuxMake now has support to build kselftest. Usage details can be found=
-<br>
-&gt; at <a href=3D"https://docs.tuxmake.org/targets/#kselftest" rel=3D"nore=
-ferrer" target=3D"_blank">https://docs.tuxmake.org/targets/#kselftest</a>. =
-Support is not yet in<br>
-&gt; TuxBuild but will be coming soon.<br>
-&gt;<br>
-&gt; Both TuxMake and TuxBuild now support clang-12.<br>
-&gt;<br>
-&gt;<br>
-&gt; That&#39;s all for today. Stay well!<br>
-&gt;<br>
-&gt; Dan<br>
-<br>
-<br>
-<br>
--- <br>
-Thanks,<br>
-~Nick Desaulniers<br>
-</blockquote></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAGm4vTNNc1i-EmQzAhhe1xnjKO0ZFdCN9%2BB9znW4zK3=
-QJkJP2g%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
-oups.google.com/d/msgid/clang-built-linux/CAGm4vTNNc1i-EmQzAhhe1xnjKO0ZFdCN=
-9%2BB9znW4zK3QJkJP2g%40mail.gmail.com</a>.<br />
-
---0000000000004df7f605bb906d98--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DyYx%3Dc%3D5TR6BY3nPUTQpn5tvSuD7X-KwZyGq5gTwA73g%40mail.gmail.com.
