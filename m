@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMUZXOAQMGQE6W7W3CI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVWBXOAQMGQEUY7VENY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5090F31F0E9
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 21:23:15 +0100 (CET)
-Received: by mail-ua1-x93c.google.com with SMTP id c8sf1410680uac.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 12:23:15 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613679794; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id DC71231F1D0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 22:49:11 +0100 (CET)
+Received: by mail-qk1-x73b.google.com with SMTP id b5sf1271579qka.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 13:49:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613684950; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FtQuvPRUx8tw9+tuIV3C/DPp8FqOlQTmEzW8GVy+LEmllDDZ0uYsAdxKk5P7Y5Yc/Z
-         CMBoWeiOr4WtJrDcHvmivqsmxz1oAHECQPiUXfanXTIvDSYx/YW7h650KsD4R8cuz01g
-         q5XxZ1xfn7Prr2ASViA8G+dCIs+LF6UgzjHPEDjAUEg+NflXZqO9igTKKtZSKha1A9dt
-         OgZCvqe6kgl8j6W7VBPeMrB412FWlatb94u14HHcn2SOeL/PFt5EjLgrZn0SaeUGOdhL
-         rDQcCVrY0kap96If3312YEwoLk17u1axB46kxx1eHqPNIYL1oSvKPleX6ICtlv31fF4Y
-         DIJA==
+        b=HULIngFZigw/8BZHzVDCQtZJBTXgiwKYckTazkO7SxurDCL3bucP2SoCuLUxwHDZBG
+         VRQel5F7EHUJ2L861byJfnZnT2MPTS4hCv9VuiqSwWNeWgu/FsDCZHq1dGnwBtm3QmXF
+         8cEzB/JxfwiX1xO+6E/+d1gilAcRN7gvAqffnrnM8DuegI3D1+xi8uWbMu4lMgO2ABTx
+         /Rx207ezMTugLO2Jek9etP/ATYccXx4RXrcW0oeWSn9VV1LC3lT9Pi35mv1Sl298uWSw
+         1zaGJD4xsCO5r0y1lT92DZZwKZVMjP3mKAWcbjlkzyUMzMppygbwY1/VNAujUvYj4AiR
+         07eQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=RDoI13+JlyaoX+GiL33+Ox4BOg689ERiPUPYnPQCPtU=;
-        b=Kh6hPNZrgNXfPIBgkUhABZSliLedVHO+hed/bzigAxTS3qJmzS5khU2MjzBpKqyHww
-         mU+GsHMZ2cB/bteIs6y0QnvDI591XIdpHfAECNekhID1qt2pblw/SbOkF7ifkYXoIruX
-         LfeJeXQnEJ1CFtg/KzLsgeLHIKadJ78uBQddiZrQPuaDY54WJ0ScaBMUrynhWYMwGd0J
-         4XAtczqmOZVUnZIxYtv/OotX2oW/XTGncqOTKtlhfQIDkO3ZxJoDXbvZb/BGmuuwrYm+
-         N9p6AsSAbsUpg0a9KiISefDU/SGeV5UASEqd1CGAzObg3RrtvNsXS+jEQYSVXF1be8MZ
-         tGpQ==
+        bh=vjJ+axfI9t7/eD22Bkpp6dGwpIayki6DGcgVlHP8a6U=;
+        b=SkPVWqdFhNdcdEZq3Q95sxVZP3qXeJydVxEPTFz2PzTbrAMAZ04yLR0jPE/vEy4zq5
+         J8VEHu+zjTNfcuUcSwUR6pz89fkM3FTbqDeJ2Gw58MdCzDjFe886G6OUZcuXJ+9KLW8Y
+         apGTR/IEZOBdZwtjCj+byTh1b9QCRtw0iSwVk5VkO00Ar4d7LSqcIZJvcM2iQa2J84mF
+         kOKSAQutPGyLuEgr601tck53lYrwCd5aLE5pBW9geArHG2FY/9esOHv0hKjpPwJb6F80
+         91Egjv3N8k8cBI8abn1WThat3bb9ZcecUOpH9QHXl7u2NHA3ruWOZeZR17JvnpFYK9tY
+         dVNA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RDoI13+JlyaoX+GiL33+Ox4BOg689ERiPUPYnPQCPtU=;
-        b=GIy0JPvigfNEUHYJfyRzUG+BpmfGKfDaIPEGGftv5n5TUuurI2tBxfKHC8rs1pM9+0
-         Rl59xY9XijqiTWC5chYqEtVBTizrzI8hH2Ct/SHapikW59gZl3VwIPAQvTRB0p0KwQUr
-         AH3TYHytbStsptifkfWMfKHwWcAy3uhFHewLl1kST/j0a/dP9E/CA4onil6TUZPQuFQv
-         VgyTyhJYzS5L0tQ7JF+otIVEd02kxDP2R9b6Y5xQnO2vyS7FoubDFn4y/P2oj/Tvduv5
-         iVbspBr00KtTxd4AGxOPXn6fxqcGLw/fIpJvc+vWr54xe836pj4Afl813LMa2dsTqrQ1
-         yz7w==
+        bh=vjJ+axfI9t7/eD22Bkpp6dGwpIayki6DGcgVlHP8a6U=;
+        b=sgL42Xajsk09OOtoARuRFkwqPIJROGc6pDrBJEfMAX/dVmKjz0OWhqBqUesminTuT+
+         tYKUrDO8f2KKd//TqTzJ3YrKQVaZRB3h6bbHVhV09GzzPtHAAusB82U7gGL8md3xS2Oa
+         i5XzWNgsJDWLYX1BUPHsWJF3lbgOQMtIIAJ307/+EfWQJ788yjvwEhtcOnbAvzI1ezCw
+         t8duhuluJUniLj2mgZ6o208AfqKqmbqfSw8UqYeX4mf/SGTBsXvRFXds5AYggjuDkIpM
+         uAS/hqQnxbZubCpfJwawdEQcXmGefeD0lbW3iPGJ820gaz83+RnyLTROncKNj/EkqMt9
+         Mehg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,82 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RDoI13+JlyaoX+GiL33+Ox4BOg689ERiPUPYnPQCPtU=;
-        b=KDyj7I23bXC+/aT4tpXxBgohyY+p4oTsuMWMoA1JUMAsGi4lX+zzM/sYD5jl/TQVaw
-         qvjnTZ3lV/s0cDy3GEBqV5zlAmClsLFvPiAHSXbEj0sIaGsome3hukMfav8w12gLCyVs
-         +pLYSmfDQfEcqD8xlkDpRTMxKx2wvwlNvq8HTdMi5D0sGu8BNJtPFPWM/TdEtkZNYiT2
-         wyBF7QaoNSGJmb7NAve7WEQ4RBCwAM/DpdEJI9QyVXMbtPTeKFgy6yhTjnhqQXQidYQ+
-         Pmb3UYgNXHYfuP97U+Xq5SpptNqFtUZwnXbJxE141Lkl/xc29YSwgwelSoH+s7IbA3te
-         mzSQ==
+        bh=vjJ+axfI9t7/eD22Bkpp6dGwpIayki6DGcgVlHP8a6U=;
+        b=aQegUiQyVg61Sgdey6SkmH3BWnpurnVm5ixzrhX3/MeZoUUIcV+a161h+3JhHpqjXJ
+         Cjq+974qTyp4YXFMaGs/j1jo9k34EEJmlWWqKZA6+Xcf81nMl4yIb4c4j2KS1iyzcWmy
+         1BS/KZyKy4+//l+H/aAYQMU/0tX7dYtGqQaCg/5YPcgwFKBzfxDPOvvlawmPbvjb7651
+         NYlD99+BWmUDsVddxatV09Bn8Wrt2xUsj/r9aGcaubcxKb0dY7VuD7572reU+ZareTBC
+         JwJUoGcDBFwveq/y3KWttY8r1cI+CFja8KrYB3B0zJZUtDo8BqwdzZLsJi8Qm2b9ElvJ
+         KDPQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531wbJEv+jWGuVYN4STFXkKjC5+4GZIheZOWAIr+Xmv5XYc+bLZn
-	9YICknr/bV4FVCN4tUQoNxA=
-X-Google-Smtp-Source: ABdhPJz6cRtkPC0RGGCh4eHXYd+PdYIqCbgkGCqgVy789IjSnjy3UljO76qq6uPL9dQsJELzVjWj6w==
-X-Received: by 2002:ab0:498c:: with SMTP id e12mr3296118uad.10.1613679794237;
-        Thu, 18 Feb 2021 12:23:14 -0800 (PST)
+X-Gm-Message-State: AOAM533hyiAh5GdlZ79wBqiXs1FhTD3OEJjEUk2d4YbKbnsoyShtE++P
+	kDkg/6BpssLiHhi86LAQzyA=
+X-Google-Smtp-Source: ABdhPJxUYM0XDpo8W3IUiEg8GA57XE2UsmijyickxctrmI2UYpo7g3u4yVvb9p6qtheJkdQuPyZyBQ==
+X-Received: by 2002:a0c:b617:: with SMTP id f23mr6353848qve.44.1613684950478;
+        Thu, 18 Feb 2021 13:49:10 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:3037:: with SMTP id v23ls839344vsa.8.gmail; Thu, 18
- Feb 2021 12:23:13 -0800 (PST)
-X-Received: by 2002:a67:e3b9:: with SMTP id j25mr4216862vsm.26.1613679793646;
-        Thu, 18 Feb 2021 12:23:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613679793; cv=none;
+Received: by 2002:ac8:5a04:: with SMTP id n4ls2643219qta.5.gmail; Thu, 18 Feb
+ 2021 13:49:10 -0800 (PST)
+X-Received: by 2002:ac8:3951:: with SMTP id t17mr1723504qtb.300.1613684950029;
+        Thu, 18 Feb 2021 13:49:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613684950; cv=none;
         d=google.com; s=arc-20160816;
-        b=ewHAaLaqc3lVBOMEc0Zaa+JvgyHjl1F3gtNyGp+nKzL7Q3e2OIT5HeU+NTQBnCuznO
-         B8fxrqEA1uPFNBKbY+G5EANkbsnYNmh54bPy34SnHgq0pFNrO/OEps7U5WwZGKAp0HY2
-         aq9NHTJV+/Qg+6sPbhWPF0RB715fBdSKOVdFM8DTkB/wy+VXZWSyGyvCPr/z7t2bCiMn
-         fLeJrCIhA1QHkzqzPULI1dxwafPs/v6HBjsBUmq4olGwMfkSI2SJlBPsZe9BvpJqZDcS
-         EyiMhClaFUgJ1qiaqZi3h+nxZm9hwDbx9aH5fYLRXQidqrG2HmpDiYBxOB3celiAaqLL
-         38tw==
+        b=kJU5w/HvFbTVCTbBLL/KfDttMP4KWlvBs44AaDda7AZUQAkoyvCLDrqx4m+irYi278
+         8PZlmPATK8K6ieSr4RGpm1gSxD4qNTCbeQMjIuLs9r98rUYNhBfX3e192Osa5AoewV1p
+         wJFjkGCTizb/pOXL6ahQXN/ruoEM/hNWlaEvGIZ0Wm8DkgbXAGnKNUJdsSEgYrG/AFss
+         CZqMaM4ySkZTgJPnJvANgk3gfQXfy3EejhbGeTnbIAGkaHzteCs4y1iARToRU18iYPRS
+         vBsiy0QqW3Yo/7ssAyFDy0CtCkSYYnbCtaJ1JTWqRuQ5aqIpP20t25fTqi2QLNaGqatB
+         Rrxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=TcMfhOrBJhdiM3ctzPw0AKdbhhjW6tkGmtZhBEs9SOQ=;
-        b=ksC1s6Uiqh6oNv9XdFjZbhjm8ZefB8xMQLfYe1iMSB3YzW2Mxen3sQ0hJlBqCO0qU2
-         NBmIW13iquTz/8V+lHxhpOrV3LWUqVOilPhJZCQLFsRAd/CNNx4hTkoPjfocJ1XqTnKY
-         oYFoCSxAhUzZhdcPdUA/FmIS6vfzySqHoE7cWJ+ynQlOXOT9XmF5jvSfRU6uK/NlyHq+
-         vWYVjBp72aZZxUZDs5KHeJMQLUR2TdJfn43y9RyREag94Gs51jRPYsnsAu+jWVeRgQZK
-         pbZIjRSKQiupUmFEtb0wPQXA8bbR1csW7o43A7KiN6K1z6sYeVUWh4khtayuFie9NPl5
-         kwzg==
+        bh=A9UPuXExusBPXrFcIP8BrLA2RpVkT/qEGy2U71PK7yk=;
+        b=vEyzkOnzk9cldNuXfMS7xrlV66Tk59VFFAjpNrdEuj6IsXNN7XO/LW2TUT/QpaGaNU
+         GvkaSSuZ0PpfYGbIyak4q7IyHUGseX6+Zz8yxE/xS3/DmEfdwQWr2d+xWzWzn3oyoaGk
+         V6ZDuP/CbwRZY6+/CqqbDlPegO1AHk5g/QsDNZiSd6b0dG4yLx/R4yEXPFbFKjXuqv1B
+         mZCCJpoGaIJIQBCZ0Tg56aSzJd0kre+dJh43PZ7k7iySjkPNZDQzKoOloxAkjoZxG4bR
+         iAATQ9Qo6AYiqx6oELp742R0bJfuoaHSGLGsTOqgHLwDdwrvVnEu5BtZCEghuwzocjLX
+         x/zw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id n7si381905vsk.1.2021.02.18.12.23.12
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id g4si274547qtg.3.2021.02.18.13.49.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Feb 2021 12:23:13 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: WmRrLUlVuZNZe74tDV92OM3e//EErIhZTXZ4NsnZ4OctpvBGU0KD/XgbwHxaaiTCyzmXBNvRbF
- vhWo/DV2Fy+Q==
-X-IronPort-AV: E=McAfee;i="6000,8403,9899"; a="181078806"
+        Thu, 18 Feb 2021 13:49:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: TMNFVwXL92Vu5aYCZXZNi+dBMDt69KnPsIYvlWbf/K/d4vXNjv40/wKb68TFqblEgGZmefh3ua
+ jJl1sSxQXsYQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9899"; a="245111062"
 X-IronPort-AV: E=Sophos;i="5.81,187,1610438400"; 
-   d="gz'50?scan'50,208,50";a="181078806"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2021 12:23:04 -0800
-IronPort-SDR: cU8LtYzqSMAi5TrF5RPlLAlXW8WtSQe+GzB3ZoP4rCtemxUFZScP2HVePzjpRqXBpgBcXO2rGT
- MJv/CVZ6f5xg==
+   d="gz'50?scan'50,208,50";a="245111062"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2021 13:49:08 -0800
+IronPort-SDR: gK1PdNHguuoA0tUvvsH/vZhEi61KaEbMfQvv/JzUXBbEdB/cBUpkBJL0oybr5yL0uJ4j6Ptd7t
+ T5bGx91wYgwg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.81,187,1610438400"; 
-   d="gz'50?scan'50,208,50";a="378549089"
+   d="gz'50?scan'50,208,50";a="439990387"
 Received: from lkp-server02.sh.intel.com (HELO cd560a204411) ([10.239.97.151])
-  by orsmga002.jf.intel.com with ESMTP; 18 Feb 2021 12:23:02 -0800
+  by orsmga001.jf.intel.com with ESMTP; 18 Feb 2021 13:49:06 -0800
 Received: from kbuild by cd560a204411 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lCppF-0009sW-IF; Thu, 18 Feb 2021 20:23:01 +0000
-Date: Fri, 19 Feb 2021 04:22:11 +0800
+	id 1lCrAY-0009uw-2P; Thu, 18 Feb 2021 21:49:06 +0000
+Date: Fri, 19 Feb 2021 05:48:24 +0800
 From: kernel test robot <lkp@intel.com>
 To: =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@collabora.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [zen-kernel-zen-kernel:5.11/futex2 4/13] <stdin>:1541:2: warning:
- syscall futex_requeue not implemented
-Message-ID: <202102190409.KBEqP0Uf-lkp@intel.com>
+Subject: [zen-kernel-zen-kernel:5.11/futex2 13/13] kernel/futex2.c:1226:30:
+ error: use of undeclared identifier '__NR_futex_wait'; did you mean
+Message-ID: <202102190522.9HOlG18M-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="pWyiEgJYm5f9v55/"
+Content-Type: multipart/mixed; boundary="y0ulUmNC+osPPQO6"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -140,13 +140,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---pWyiEgJYm5f9v55/
+--y0ulUmNC+osPPQO6
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/zen-kernel/zen-kernel 5.11/futex2
 head:   ea9a7956b5f6f44f3ee70d82542c64fcb7c86c5e
-commit: e1198b0e26063ba40993154176b8232f646c3c4b [4/13] futex2: Implement requeue operation
+commit: ea9a7956b5f6f44f3ee70d82542c64fcb7c86c5e [13/13] futex2: Add sysfs entry for syscall numbers
 config: powerpc64-randconfig-r003-20210217 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
 reproduce (this is a W=1 build):
@@ -154,46 +154,34 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://github.com/zen-kernel/zen-kernel/commit/e1198b0e26063ba40993154176b8232f646c3c4b
+        # https://github.com/zen-kernel/zen-kernel/commit/ea9a7956b5f6f44f3ee70d82542c64fcb7c86c5e
         git remote add zen-kernel-zen-kernel https://github.com/zen-kernel/zen-kernel
         git fetch --no-tags zen-kernel-zen-kernel 5.11/futex2
-        git checkout e1198b0e26063ba40993154176b8232f646c3c4b
+        git checkout ea9a7956b5f6f44f3ee70d82542c64fcb7c86c5e
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
-   <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
-   #warning syscall futex_wait not implemented
-    ^
-   <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
-   #warning syscall futex_wake not implemented
-    ^
-   <stdin>:1538:2: warning: syscall futex_waitv not implemented [-W#warnings]
-   #warning syscall futex_waitv not implemented
-    ^
->> <stdin>:1541:2: warning: syscall futex_requeue not implemented [-W#warnings]
-   #warning syscall futex_requeue not implemented
-    ^
-   4 warnings generated.
---
-   <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
-   #warning syscall futex_wait not implemented
-    ^
-   <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
-   #warning syscall futex_wake not implemented
-    ^
-   <stdin>:1538:2: warning: syscall futex_waitv not implemented [-W#warnings]
-   #warning syscall futex_waitv not implemented
-    ^
->> <stdin>:1541:2: warning: syscall futex_requeue not implemented [-W#warnings]
-   #warning syscall futex_requeue not implemented
-    ^
-   4 warnings generated.
---
+   arch/powerpc/include/asm/io-defs.h:45:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+   DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:616:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+                   __do_##name al;                                 \
+                   ^~~~~~~~~~~~~~
+   <scratch space>:175:1: note: expanded from here
+   __do_insw
+   ^
+   arch/powerpc/include/asm/io.h:557:56: note: expanded from macro '__do_insw'
+   #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+                                          ~~~~~~~~~~~~~~~~~~~~~^
+   In file included from kernel/futex2.c:17:
+   In file included from include/linux/hugetlb.h:9:
+   In file included from include/linux/cgroup.h:26:
+   In file included from include/linux/kernel_stat.h:9:
    In file included from include/linux/interrupt.h:11:
    In file included from include/linux/hardirq.h:10:
    In file included from arch/powerpc/include/asm/hardirq.h:6:
@@ -206,16 +194,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:616:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:191:1: note: expanded from here
+   <scratch space>:177:1: note: expanded from here
    __do_insl
    ^
    arch/powerpc/include/asm/io.h:558:56: note: expanded from macro '__do_insl'
    #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
                                           ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/asm-offsets.c:23:
-   In file included from include/linux/suspend.h:5:
-   In file included from include/linux/swap.h:9:
-   In file included from include/linux/memcontrol.h:13:
+   In file included from kernel/futex2.c:17:
+   In file included from include/linux/hugetlb.h:9:
    In file included from include/linux/cgroup.h:26:
    In file included from include/linux/kernel_stat.h:9:
    In file included from include/linux/interrupt.h:11:
@@ -230,16 +216,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:616:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:193:1: note: expanded from here
+   <scratch space>:179:1: note: expanded from here
    __do_outsb
    ^
    arch/powerpc/include/asm/io.h:559:58: note: expanded from macro '__do_outsb'
    #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/asm-offsets.c:23:
-   In file included from include/linux/suspend.h:5:
-   In file included from include/linux/swap.h:9:
-   In file included from include/linux/memcontrol.h:13:
+   In file included from kernel/futex2.c:17:
+   In file included from include/linux/hugetlb.h:9:
    In file included from include/linux/cgroup.h:26:
    In file included from include/linux/kernel_stat.h:9:
    In file included from include/linux/interrupt.h:11:
@@ -254,16 +238,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:616:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:195:1: note: expanded from here
+   <scratch space>:181:1: note: expanded from here
    __do_outsw
    ^
    arch/powerpc/include/asm/io.h:560:58: note: expanded from macro '__do_outsw'
    #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/asm-offsets.c:23:
-   In file included from include/linux/suspend.h:5:
-   In file included from include/linux/swap.h:9:
-   In file included from include/linux/memcontrol.h:13:
+   In file included from kernel/futex2.c:17:
+   In file included from include/linux/hugetlb.h:9:
    In file included from include/linux/cgroup.h:26:
    In file included from include/linux/kernel_stat.h:9:
    In file included from include/linux/interrupt.h:11:
@@ -278,26 +260,68 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:616:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:197:1: note: expanded from here
+   <scratch space>:183:1: note: expanded from here
    __do_outsl
    ^
    arch/powerpc/include/asm/io.h:561:58: note: expanded from macro '__do_outsl'
    #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
-   6 warnings generated.
-   <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
-   #warning syscall futex_wait not implemented
-    ^
-   <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
-   #warning syscall futex_wake not implemented
-    ^
-   <stdin>:1538:2: warning: syscall futex_waitv not implemented [-W#warnings]
-   #warning syscall futex_waitv not implemented
-    ^
->> <stdin>:1541:2: warning: syscall futex_requeue not implemented [-W#warnings]
-   #warning syscall futex_requeue not implemented
-    ^
-   4 warnings generated.
+>> kernel/futex2.c:1226:30: error: use of undeclared identifier '__NR_futex_wait'; did you mean '__futex_wait'?
+           return sprintf(buf, "%u\n", __NR_futex_wait);
+                                       ^~~~~~~~~~~~~~~
+                                       __futex_wait
+   kernel/futex2.c:581:12: note: '__futex_wait' declared here
+   static int __futex_wait(struct futexv_head *futexv, unsigned int nr_futexes,
+              ^
+>> kernel/futex2.c:1234:30: error: use of undeclared identifier '__NR_futex_wake'; did you mean 'sys_futex_wake'?
+           return sprintf(buf, "%u\n", __NR_futex_wake);
+                                       ^~~~~~~~~~~~~~~
+                                       sys_futex_wake
+   kernel/futex2.c:955:1: note: 'sys_futex_wake' declared here
+   SYSCALL_DEFINE3(futex_wake, void __user *, uaddr, unsigned int, nr_wake,
+   ^
+   include/linux/syscalls.h:217:36: note: expanded from macro 'SYSCALL_DEFINE3'
+   #define SYSCALL_DEFINE3(name, ...) SYSCALL_DEFINEx(3, _##name, __VA_ARGS__)
+                                      ^
+   include/linux/syscalls.h:226:2: note: expanded from macro 'SYSCALL_DEFINEx'
+           __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)
+           ^
+   include/linux/syscalls.h:240:18: note: expanded from macro '__SYSCALL_DEFINEx'
+           asmlinkage long sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))       \
+                           ^
+   <scratch space>:235:1: note: expanded from here
+   sys_futex_wake
+   ^
+>> kernel/futex2.c:1242:30: error: use of undeclared identifier '__NR_futex_waitv'
+           return sprintf(buf, "%u\n", __NR_futex_waitv);
+                                       ^
+   6 warnings and 3 errors generated.
+
+
+vim +1226 kernel/futex2.c
+
+  1222	
+  1223	static ssize_t wait_show(struct kobject *kobj, struct kobj_attribute *attr,
+  1224				     char *buf)
+  1225	{
+> 1226		return sprintf(buf, "%u\n", __NR_futex_wait);
+  1227	
+  1228	}
+  1229	static struct kobj_attribute futex2_wait_attr = __ATTR_RO(wait);
+  1230	
+  1231	static ssize_t wake_show(struct kobject *kobj, struct kobj_attribute *attr,
+  1232				     char *buf)
+  1233	{
+> 1234		return sprintf(buf, "%u\n", __NR_futex_wake);
+  1235	
+  1236	}
+  1237	static struct kobj_attribute futex2_wake_attr = __ATTR_RO(wake);
+  1238	
+  1239	static ssize_t waitv_show(struct kobject *kobj, struct kobj_attribute *attr,
+  1240				     char *buf)
+  1241	{
+> 1242		return sprintf(buf, "%u\n", __NR_futex_waitv);
+  1243	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -306,14 +330,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102190409.KBEqP0Uf-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102190522.9HOlG18M-lkp%40intel.com.
 
---pWyiEgJYm5f9v55/
+--y0ulUmNC+osPPQO6
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICPPKLmAAAy5jb25maWcAlDzLdtu4kvv+Cp305s7idsuSozh3jhcQCYpo8RWAlGxveBRH
+H4sICGrcLmAAAy5jb25maWcAlDzLdtu4kvv+Cp305s7idsuSozh3jhcQCYpo8RWAlGxveBRH
 SXuubXlkOTf991MF8AGARXWmF52oqvAq1BvF/PrLrxP2djo87U4P97vHx78m3/bP++PutP8y
 +frwuP/vSZhPsryc8FCUvwFx8vD89uP3l8N/9seX+8n73y4ufptO1vvj8/5xEhyevz58e4PR
 D4fnX379JcizSKzqIKg3XCqRZ3XJb8rrd/ePu+dvk+/74yvQTS5mv01hjn98ezj96/ff4f9P
@@ -817,4 +841,4 @@ JzzfUHwLsaLXw9PWyE+pUTN5tn7qh5hGHw22PTIaJje0WTwGqbG0lfGg51KA2gOkobXelsxx
 c4VmCv6QJVq0bqo6RS8Ib+TUVLCrhJJChwRc/ppewh/jUAJWim5s/FbIHkZKqMJy7X3Mdi4F
 v8i8hAttgv8/0N/zd9ChAQA=
 
---pWyiEgJYm5f9v55/--
+--y0ulUmNC+osPPQO6--
