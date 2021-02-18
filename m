@@ -1,119 +1,143 @@
-Return-Path: <clang-built-linux+bncBCDITI7XW4DRBU5IYCAQMGQEO32XTMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBXFIYCAQMGQETXLY3QA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3f.google.com (mail-qv1-xf3f.google.com [IPv6:2607:f8b0:4864:20::f3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9DC0331FF80
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Feb 2021 20:41:08 +0100 (CET)
-Received: by mail-qv1-xf3f.google.com with SMTP id bx8sf3833672qvb.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Feb 2021 11:41:08 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613763667; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 997E031FF82
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Feb 2021 20:41:17 +0100 (CET)
+Received: by mail-qk1-x73b.google.com with SMTP id f140sf4275192qke.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Feb 2021 11:41:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613763676; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vn6KZWZWcw9h30qRKBXpxxap0ofi17MNA7DzZxl5o0LDsrbSeimBa3Ie6OU3Eub9Sa
-         BFxdA7isj/fAJKHpvrlYUCKGZRY7DZ2jOmsrfUx+xC/sI9qeFacW0wIiUumQKaoeY+Ce
-         F2lLAsgxse3zNcnP9T3hSjc7BhnGDUAFWQXrSjPo4hubkn8cxh2mW3oAzwGujoy6mJ6p
-         RweXzcKmAUQQSUvGe6tWClUSa3G6rXNnH+LS9pA6Bl+L0gTMIzSL25ijlZ0eR10qBt5H
-         Dw8U095Vp2adRcflyGH9G43TezxQj9B/47b3MdXwOZOz+iR0sf//v2H9boUXUFF3A+Ag
-         lNXA==
+        b=BDCVsXE5ZHQjjPVgO7wN/Rz3Rau8Gg1r9wmmVsveRaO+dCwnEhId08N8jaTBis2OVk
+         O9T5JtyErG/Yr6PjHELW4vCL6uLW408heLeikCYsKRTZAa8Rnfrm7NkyHaU02JupAl/P
+         THtJmprjJanfsLVufncXQGZyleqei3rCxxQ/oWlTQrb1hczT1YZB7hAbizh5f7BStJcf
+         VF5x4BYkUwIaJm3ftwj+hTWVqSJ70yQnvT6MsDpw7WA35cRjxGem03BuxJh9LPR9pY2A
+         EDNsqrvJZScqRp5G4Pkid4BmfeiikMA+IcK/x6DYgPhBjUkrlIuzslOZ6Evn5EiQcWoz
+         wvsg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:message-id:date:to:cc
-         :from:subject:references:in-reply-to:mime-version:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
          :dkim-signature;
-        bh=edCk7HYrGIGZtWFuQ8y48YfZteI9l8yb9c20269clVg=;
-        b=fNS7fZb8CbOopCBU0t8K9WEkCbJFpCWwaKrIPKLqWinIBq/IiblWvi6AE05WTTdBAQ
-         efanZJfkMKsB3hH1j7lmTazI8G3Rr+t5dNMqnFnEKXftDvwIQKKc+OSTpsEfj0bSHXfp
-         gqXaORT/22M/rNJ+CypHrXklMRUg3Xwhy2ayfMc3xYWwYjX0UA5Jxtt/i9Kwai6sWVh6
-         ZXekh++g8HqTVP6pbnJGXcKK7URDgWT9C1U5Jmnyzl726Gf1E59aKEEtpSmyYwIUCwk6
-         3X7iyBhTPwPNIKzJV8K/uLJgZDlykieDd8AY8lbZAgdA6MNPTNiSAOKTAffb01zjKVnh
-         bhDg==
+        bh=YhSpGA36dMvpLPH39B7aSwXvvcJL5ssKXU5vzZvSjhI=;
+        b=q1cGUblBn/koUpT+K+MYKQCHjAnyxxHkTCbzCH9LKY7mpJnaLazj0nOv8AtdeYa+Xy
+         xq+D86Upx0lNT7zy/LC5epE77ALySq1ktcSWCLidmGuklN5z0Ud7VvT16PaiL2qg77qT
+         FX3IJKG5GiOa4lClwEV3jY+CZIb8DcpBS/x5Fqa2IipeZ6q62OVgWb/R0KbZL4elXyI5
+         rKGFtO/INFKIStYWl05USHtp1MzUzwyAAW5MM7X8c6gzI65IlAa858KG9Eqy9w7wtwSg
+         yoUirzEgaCKLjxSrfpTcuKP8txW3zg2HdPm2Ff7dURX9x0DL8Wg75cDj9+tAzvDvHO7m
+         5bsg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Dw2dV5rh;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:subject:from:cc:to:date
-         :message-id:user-agent:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=edCk7HYrGIGZtWFuQ8y48YfZteI9l8yb9c20269clVg=;
-        b=QQa/VT81EtnhWitx6Nak9qK8v1k03xhml5VQdtKj1ofzxW5cSd0p1om14KYCPn2t7D
-         JCW5EiIyshlrhPp0K0nCetiwxnGTXNme9CS3vZmYSSnYrZrc3bJYUneMbUiz671md7YM
-         H/fK8aYw+1MfcYP3QIhJab0I8GBKFYJer4BJB7Ni5F2fWAa7fiAKbYWt2sZzsSjFCdx3
-         PbR704V/eKO2vvcpjIKh2MyNKBTilV/HW5klGNDBCmaglZxrOLk2dqd1j8mpRc2bz+l3
-         zuEf/md+2qHjKYBr//D6Yr4ZrJzTs2DNeWJjgncGHlMHQ4e4iBPZY5qEQqFqTjjH+3L3
-         gZYw==
+        bh=YhSpGA36dMvpLPH39B7aSwXvvcJL5ssKXU5vzZvSjhI=;
+        b=omr7xIn2b1F8rzckfHSIfn2bR5jqpBp7dZlch4GBL09l83m6jj7PxwPWHM74OBSgK8
+         zDrb5zJFIZr3S9uqSf9WWvKtwblVyyNWs4HrNC5hfOtFKTaADLE/bU8Abv9Qq1tWo1zK
+         7bNaNsFyjiU25PqZVHd9BoV5gGQCMeRFepKlAS5Cd+V10Mfk1ubrrZpMid7ei0E8b/gw
+         ZMiNAKLxri/XJsgahJcXomQfLUiUh441xTBqsh9d4mroLr5vZLclwmElRWcuhXk84lfW
+         ZzvuUXQCMl0PnBWHgtmh9clKu6vXPMGileU56i+IaEFb+s/XhpPk7SGwm3DjWOuh5n5F
+         VEPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references
-         :subject:from:cc:to:date:message-id:user-agent:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=edCk7HYrGIGZtWFuQ8y48YfZteI9l8yb9c20269clVg=;
-        b=fWFkqTf9mPvkEOQEuhRbGm+RQGkK2vXUWFZ725gsnoDQ2gRNpTztJLWgMd8M5Qjoau
-         zcxymwNp/0EYSYqZtS7G/EfAbgPifTaL7bb48xyxIOXyd0g3uCaI7hRRfosV+fkwEvmE
-         ulfVnSpP07DJVndJ3RvAfV3YXB7kG7+SJ6qiIbciqyi4sKAG+TZG964EY7mUdPSZfcpq
-         YO34t8kQDZkpX/eeqBS6WPQ4B2nMaY4GvdyF6HCwhAIHdt3zxOWmlAezY7il/JUobuPy
-         Q4yGWG3UExOZrmu2V9V99LDyRWtZWKeGaCFZCS6g99ItsNUifyDzF5oLz//qgKAuRDw+
-         CblA==
+        bh=YhSpGA36dMvpLPH39B7aSwXvvcJL5ssKXU5vzZvSjhI=;
+        b=rTpBsSGsjHJLnp9FWF0dJeyNpFvsMxiOA/uwkajq7md1nbBQqx6J4iTgbF3mZ5Heq7
+         DV0LTk9DFnaV7cCdk10JyKYBwmOITnuze7TOaRTiIKLK8NtzWwHs3L5RuDaNWw+8wiWC
+         KjfuaUBvvd67vOy6o0hf0Lk/1bSwka2arnk7sNo+RMwF0WgaFiwviPr0OewAgZvdEwQX
+         QDCwOrpD5TK4kyPUKyK7ri8ofmOnKQ9dCw2gT+KP284jDn86rRqIOgrtOyFhS2ti61Xj
+         7/O8M6RpMBaDWuJ5WR2Dh/acrA9t8RWGX9I0bVec/1iTTxCOuRy9UUtrRI6DS6aQv3kw
+         Ig0g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532tY9SFuj2krLnjDH3NRncooWLjVBKsvPDmRz/fmZhl8TL4oSIn
-	AUv11WVaBI7AueOf9dj9Hos=
-X-Google-Smtp-Source: ABdhPJxZglcG9qsNfaiGO4C4zJl3mVW+ZLIZvCibm8qThMcSoi4mHgPybYh/MDWus/CLWbNvQ2bB/Q==
-X-Received: by 2002:a0c:90ae:: with SMTP id p43mr10619131qvp.47.1613763667675;
-        Fri, 19 Feb 2021 11:41:07 -0800 (PST)
+X-Gm-Message-State: AOAM530qsIorc5njEY0n5jANyvUua7GxUEsA3ObHxbEqj/oe70kQNchc
+	urAGUnNT7RNfxDsFMt4fl7U=
+X-Google-Smtp-Source: ABdhPJwy008CwKCX2sIbh4h6iRAbS9ex0BrTy8GVI83QuGDgaugPWYaK0BXZ36Hf/t0ERoydxvgDYQ==
+X-Received: by 2002:a05:620a:851:: with SMTP id u17mr10786490qku.129.1613763676527;
+        Fri, 19 Feb 2021 11:41:16 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:9d01:: with SMTP id g1ls5146513qke.6.gmail; Fri, 19 Feb
- 2021 11:41:07 -0800 (PST)
-X-Received: by 2002:a05:620a:22b4:: with SMTP id p20mr10923633qkh.27.1613763667378;
-        Fri, 19 Feb 2021 11:41:07 -0800 (PST)
-Received: by 2002:a37:a412:0:b029:15e:d70c:89db with SMTP id n18-20020a37a4120000b029015ed70c89dbmsqke;
-        Wed, 17 Feb 2021 05:57:00 -0800 (PST)
-X-Received: by 2002:a7b:c956:: with SMTP id i22mr3492987wml.85.1613570219327;
-        Wed, 17 Feb 2021 05:56:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613570219; cv=none;
+Received: by 2002:aed:2d87:: with SMTP id i7ls3874699qtd.2.gmail; Fri, 19 Feb
+ 2021 11:41:16 -0800 (PST)
+X-Received: by 2002:a05:622a:d4:: with SMTP id p20mr10174517qtw.141.1613763676279;
+        Fri, 19 Feb 2021 11:41:16 -0800 (PST)
+Received: by 2002:a37:77c1:0:b029:27a:5057:67cd with SMTP id s184-20020a3777c10000b029027a505767cdmsqkc;
+        Wed, 17 Feb 2021 18:24:53 -0800 (PST)
+X-Received: by 2002:a1f:8f09:: with SMTP id r9mr1944722vkd.10.1613615093049;
+        Wed, 17 Feb 2021 18:24:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613615093; cv=none;
         d=google.com; s=arc-20160816;
-        b=kUjkvTwPBNQEDs/dcIEq+Zmdfuffrq/U8d4fECfk25Xy7Wl6wEAxH3TmhKDWS3AJMP
-         wHonCJxrc6ojobhPy2dfHMBu4WY1DgNXpZQG8x8+zKGcdwxOR6okKsU4Rdka9t8TEKA1
-         jwhPJm5vzpMRNTE+DdihGbPdHj2fflH3PhMrAWpEOe4UMpLz0AL0YtNPCIrBDjEDWl64
-         hPIRDY702cSEMFAhNUyxNR5T0jHEYKKy0Qk9QDvtxazZfSrUlpRtozL4ZrZfHBlJUwWg
-         rPfQWgbOwdXOerzjK43TSTZHVgBPXljQ2xdNfF8ehiRMQW5hIv4NNy7nuUGkxDRHcUOy
-         aTWQ==
+        b=PgZ7lwmHr4VWYmQkKeETrW/TSOUnN2RtV0+kCbw8JdCz7qQ2tvy9KyFhrK3FN5BTMd
+         1IvvcLsc8hWv/QSRgRQNXavVghINvn54ebvermtX2USui3FJpMTKH8jXz8MmsF5muSnz
+         vwfqOfa3sD0p2twJIOLFfOrhmWC/ZOGPPp25MhNaPjA8Ps/OS8T1LBFyAh600ZjzsKHe
+         aPxKpH53y9K6NLtAQAcECvg+nEouYd0WiDGFlBlLg0e/6Xe1NQrGYfyPEBwzasalip26
+         jV/BCfQnUWEaCNJx1bzdjZXdia7ojdeksMDS/u6pz5HW/hPXuRBshX1CwXd0KND/knvY
+         3slw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:message-id:date:to:cc:from:subject:references
-         :in-reply-to:content-transfer-encoding:mime-version;
-        bh=3T7HVKeXf7Cfb1KbcSz0rKsSrhYIEVATJNxs7P0Eetc=;
-        b=HUpIAL7T3llls5egpAKGJduzB4dRTLxVBxJnGthuHjaF5AsN1wE5WDsvPb0ufjtE2T
-         0Q+hAHa1KTl9z9Bp78a3wbrAsY8ll9/Y5KnlnaJIbPDw89iNH+AQ4mGydZoj2lQm5Axv
-         w9upMJNB63Ff4+4B2abwWoiJQbGtERX8TpcFU7ykLtateZQIap1Jmvqkwuf6jrK15AvZ
-         NcSsK7dxUm12xIWdhd3DxfQGuDb66VuhsE0foC4izTr3VAOg7bBaFchrXLeTOlqdj0cG
-         sLHfSoUoaO9a1bdc/xD0vtYp5qmyZfiaEXfsbTd1GLcfYRb7tbgPp5jevEVGaD0FPDY8
-         OtHA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=BKHKij0qeUumqHHZXO0fU069UkfL1mfkCHNe+k3IYU0=;
+        b=vGQw5yp7yyL2pXomY8JNCHBbYZwVSLuzt93kELFu1WS4ap5zmu1NW3X6J5zfd3DlRB
+         rOVKv4OWO1Wbq8dSO9xVTbNZKwDkUaqzvVNTLLtYk3X/QWPjPtapZXo+B8IRGcuHf6EY
+         i9TAoSFMG2BzwF/SnvQEWFCwaOx1lIk/Mm5fA4wAeH16E70YQOgCBn9PoTaqNelgC+Fi
+         LfBb2hLUi2o1KZWkE/0ai8mvSjmKSCPQEYZB4OdE+aHQOQqZZG9FY20HoBDwOabO+d87
+         WL645oaXEZChRcpIHO9QuqzexF7dtEGMPnpqY1vRC59TpSj+SgsXXKScsB0bQlkGGRz6
+         PROQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
-Received: from fireflyinternet.com (mail.fireflyinternet.com. [109.228.58.192])
-        by gmr-mx.google.com with ESMTPS id 15si58048wrb.1.2021.02.17.05.56.59
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Dw2dV5rh;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id y127si175386vsc.0.2021.02.17.18.24.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 17 Feb 2021 05:56:59 -0800 (PST)
-Received-SPF: neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) client-ip=109.228.58.192;
-X-Default-Received-SPF: pass (skip=forwardok (res=PASS)) x-ip-name=78.156.69.177;
-Received: from localhost (unverified [78.156.69.177]) 
-	by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id 23891380-1500050 
-	for multiple; Wed, 17 Feb 2021 13:56:50 +0000
-Content-Type: text/plain; charset="UTF-8"
+        Wed, 17 Feb 2021 18:24:52 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 11I2OH8r026372
+	for <clang-built-linux@googlegroups.com>; Thu, 18 Feb 2021 11:24:18 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 11I2OH8r026372
+X-Nifty-SrcIP: [209.85.214.171]
+Received: by mail-pl1-f171.google.com with SMTP id r2so387715plr.10
+        for <clang-built-linux@googlegroups.com>; Wed, 17 Feb 2021 18:24:17 -0800 (PST)
+X-Received: by 2002:a17:902:bb87:b029:e1:d1f:2736 with SMTP id
+ m7-20020a170902bb87b02900e10d1f2736mr2138431pls.1.1613615057037; Wed, 17 Feb
+ 2021 18:24:17 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20210216212953.24458-1-nathan@kernel.org>
-References: <20210216212953.24458-1-nathan@kernel.org>
-Subject: Re: [PATCH] drm/i915: Enable -Wuninitialized
-From: Chris Wilson <chris@chris-wilson.co.uk>
-Cc: Arnd Bergmann <arnd@arndb.de>, intel-gfx@lists.freedesktop.org, Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, Nathan Chancellor <nathan@kernel.org>, clang-built-linux@googlegroups.com
-To: Jani Nikula <jani.nikula@linux.intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Nathan Chancellor <nathan@kernel.org>, Rodrigo Vivi <rodrigo.vivi@intel.com>
-Date: Wed, 17 Feb 2021 13:56:49 +0000
-Message-ID: <161357020959.15107.941362709800379680@build.alporthouse.com>
-User-Agent: alot/0.9
-X-Original-Sender: chris@chris-wilson.co.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 109.228.58.192 is neither permitted nor denied by best guess
- record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+References: <20210120174146.12287-1-lazerl0rd@thezest.dev>
+In-Reply-To: <20210120174146.12287-1-lazerl0rd@thezest.dev>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Thu, 18 Feb 2021 11:23:40 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARgi+UEBiO_ZyTpYj7x-He-gcRQ9-MbYy8i2OkZL6dGcQ@mail.gmail.com>
+Message-ID: <CAK7LNARgi+UEBiO_ZyTpYj7x-He-gcRQ9-MbYy8i2OkZL6dGcQ@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: Add support for Clang's polyhedral loop optimizer.
+To: Diab Neiroukh <lazerl0rd@thezest.dev>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
+        Danny Lin <danny@kdrag0n.dev>, Michal Marek <michal.lkml@markovi.net>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Kees Cook <keescook@chromium.org>,
+        Masami Hiramatsu <mhiramat@kernel.org>,
+        "Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Valentin Schneider <valentin.schneider@arm.com>,
+        Nick Terrell <terrelln@fb.com>, Quentin Perret <qperret@google.com>,
+        Johannes Weiner <hannes@cmpxchg.org>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=Dw2dV5rh;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -125,31 +149,140 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Quoting Nathan Chancellor (2021-02-16 21:29:54)
-> -Wunintialized was disabled in commit c5627461490e ("drm/i915: Disable
-> -Wuninitialized") because there were two warnings that were false
-> positives. The first was due to DECLARE_WAIT_QUEUE_HEAD_ONSTACK, which
-> was fixed in LLVM 9.0.0. The second was in busywait_stop, which was
-> fixed in LLVM 10.0.0 (issue 415). The kernel's minimum version for LLVM
-> is 10.0.1 so this warning can be safely enabled, where it has already
-> caught a couple bugs.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/220
-> Link: https://github.com/ClangBuiltLinux/linux/issues/415
-> Link: https://github.com/ClangBuiltLinux/linux/issues/499
-> Link: https://github.com/llvm/llvm-project/commit/2e040398f8d691cc378c1abb098824ff49f3f28f
-> Link: https://github.com/llvm/llvm-project/commit/c667cdc850c2aa821ffeedbc08c24bc985c59edd
-> Fixes: c5627461490e ("drm/i915: Disable -Wuninitialized")
-> References: 2ea4a7ba9bf6 ("drm/i915/gt: Avoid uninitialized use of rpcurupei in frequency_show")
-> References: 2034c2129bc4 ("drm/i915/display: Ensure that ret is always initialized in icl_combo_phy_verify_state")
-> Reported-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+On Thu, Jan 21, 2021 at 2:42 AM 'Diab Neiroukh' via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
+>
+> Polly is able to optimize various loops throughout the kernel for cache
+> locality. A mathematical representation of the program, based on
+> polyhedra, is analysed to find opportunistic optimisations in memory
+> access patterns which then leads to loop transformations.
+>
+> Polly is not built with LLVM by default, and requires LLVM to be compiled
+> with the Polly "project". This can be done by adding Polly to
+> -DLLVM_ENABLE_PROJECTS, for example:
+>
+> -DLLVM_ENABLE_PROJECTS="clang;libcxx;libcxxabi;polly"
+>
+> Preliminary benchmarking seems to show an improvement of around two
+> percent across perf benchmarks:
+>
+> Benchmark                         | Control    | Polly
+> --------------------------------------------------------
+> bonnie++ -x 2 -s 4096 -r 0        | 12.610s    | 12.547s
+> perf bench futex requeue          | 33.553s    | 33.094s
+> perf bench futex wake             |  1.032s    |  1.021s
+> perf bench futex wake-parallel    |  1.049s    |  1.025s
+> perf bench futex requeue          |  1.037s    |  1.020s
+>
+> Furthermore, Polly does not produce a much larger image size netting it
+> to be a "free" optimisation. A comparison of a bzImage for a kernel with
+> and without Polly is shown below:
+>
+> bzImage        | stat --printf="%s\n"
+> -------------------------------------
+> Control        | 9333728
+> Polly          | 9345792
+>
+> Compile times were one percent different at best, which is well within
+> the range of noise. Therefore, I can say with certainty that Polly has
+> a minimal effect on compile times, if none.
+>
+> Suggested-by: Danny Lin <danny@kdrag0n.dev>
+> Signed-off-by: Diab Neiroukh <lazerl0rd@thezest.dev>
 
-make CC=clang-11 now compiles cleanly for me as well,
-Reviewed-by: Chris Wilson <chris@chris-wilson.co.uk>
--Chris
+
+
+This patch was correctly sent to clang-built-linux ML,
+but did not get any attention.
+
+
+I did not evaluate anything about this patch, but
+this patch is just adding several flags.
+
+Please try to collect Reviewed-by, Tested-by, etc.
+from Clang folks if you want this merged.
+
+
+Just a minor comment:
+
+Typos in the Makefile changes.
+"beyound" -> "beyond"
+"perfom" -> "perform"
+
+
+
+
+> ---
+>  Makefile     | 16 ++++++++++++++++
+>  init/Kconfig | 13 +++++++++++++
+>  2 files changed, 29 insertions(+)
+>
+> diff --git a/Makefile b/Makefile
+> index b9d3a47c57cf..00f15bde5f8b 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -740,6 +740,22 @@ else ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
+>  KBUILD_CFLAGS += -Os
+>  endif
+>
+> +ifdef CONFIG_POLLY_CLANG
+> +KBUILD_CFLAGS  += -mllvm -polly \
+> +                  -mllvm -polly-ast-use-context \
+> +                  -mllvm -polly-invariant-load-hoisting \
+> +                  -mllvm -polly-opt-fusion=max \
+> +                  -mllvm -polly-run-inliner \
+> +                  -mllvm -polly-vectorizer=stripmine
+> +# Polly may optimise loops with dead paths beyound what the linker
+> +# can understand. This may negate the effect of the linker's DCE
+> +# so we tell Polly to perfom proven DCE on the loops it optimises
+> +# in order to preserve the overall effect of the linker's DCE.
+> +ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
+> +KBUILD_CFLAGS  += -mllvm -polly-run-dce
+> +endif
+> +endif
+> +
+>  # Tell gcc to never replace conditional load with a non-conditional one
+>  KBUILD_CFLAGS  += $(call cc-option,--param=allow-store-data-races=0)
+>  KBUILD_CFLAGS  += $(call cc-option,-fno-allow-store-data-races)
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 05131b3ad0f2..266d7d03ccd1 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -177,6 +177,19 @@ config BUILD_SALT
+>           This is mostly useful for distributions which want to ensure the
+>           build is unique between builds. It's safe to leave the default.
+>
+> +config POLLY_CLANG
+> +       bool "Use Clang Polly optimizations"
+> +       depends on CC_IS_CLANG && $(cc-option,-mllvm -polly)
+> +       depends on !COMPILE_TEST
+> +       help
+> +         This option enables Clang's polyhedral loop optimizer known as
+> +         Polly. Polly is able to optimize various loops throughout the
+> +         kernel for cache locality. This requires a Clang toolchain
+> +         compiled with support for Polly. More information can be found
+> +         from Polly's website:
+> +
+> +           https://polly.llvm.org
+> +
+>  config HAVE_KERNEL_GZIP
+>         bool
+>
+> --
+> 2.30.0
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210120174146.12287-1-lazerl0rd%40thezest.dev.
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/161357020959.15107.941362709800379680%40build.alporthouse.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARgi%2BUEBiO_ZyTpYj7x-He-gcRQ9-MbYy8i2OkZL6dGcQ%40mail.gmail.com.
