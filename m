@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBV4FXOAQMGQEYHQSRNY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBNEQXOAQMGQEHCFRVFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD86831F01A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 20:41:12 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id 68sf2062006pfe.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 11:41:12 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613677271; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id C3B1531F0AC
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 21:04:05 +0100 (CET)
+Received: by mail-io1-xd3f.google.com with SMTP id d8sf2127284ion.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Feb 2021 12:04:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613678644; cv=pass;
         d=google.com; s=arc-20160816;
-        b=c8wt2gyrZcz5l3rh6LdtYeLQVR9j+n1y/AA3QLKWSwTGpdsZ6V95TBts5qV/2MfZ8Q
-         OrKAzp01lgtr/xByr+NCpn2VKuj3LY+LOX5ihGs2XsT8vp2CRJWb/H2j46jIV84hF1lu
-         5QgB5xsNj1MjC3cJO/zXozdAOvwZ3AV4Q+oGcnHp1EsXjJUuBqMY32VsQ3p6CXtn3MLj
-         ULd1ETwDBQzxBFeDIH/01jLIffgtWfRWRE1Ub4kXIzZbWVqeTDJncc8kt0g7PVrd7YqE
-         b2SarUrGG3f6Z8qGCn/CSPD22qHtEH7sHDSqMbjLDyKbOq0Bnor3jsSogX1Z99VXFE07
-         p79Q==
+        b=zcfl8EkFJ9VPwZwoEzJEKq+GuGHKNSGJuUlCOYuTX0lQSEixDDZ2uZDHHmlofYCUhR
+         ySFxJ+pQDDNWnHeYRXK7r3s2benVlUVj0NDicMuDffoKJiP9dWiX8XccU8EueIm/mh/P
+         kCQP3nlMgfj/dncs6Grp1PYz4COlLFGHI8uX9NAtdd4BYA60HBC7Xyi3AfTFxXJ5PD6J
+         wbeRLW+XHstjwlljfFWzXqOspmTY3BoBPPPr8kEfGCvvnD02Ff5nTr9VdhO+6aQy6jjx
+         A0bcNnwn0rm1Vw8gDWFsNjumou8/hEMyGZ5iAD+Ptud4pW6yrEXI0ZYyEdiBKfPW9HAG
+         x18Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=OFvPJFVfiKUjS+zbpKWeu2hwPSKVDuKGrnwZEXwngak=;
-        b=Pb7KCXvcYyQWrcUZ9FN8PDkEIXWR43nmQ67LSLxN9HfIsuvfW0RMgzJoa4IErsfXDt
-         XGfuC09CA5ttsVPysYw3q1YWXczzvrrcmllnbbehdYnPW5JXTSEZZnAx/xD0K5ZB5qSH
-         o+EfxBmcS4k4v+/tUk1WcFpJk4QvM6AahxQ8PlTlKGIoTFpbHSdDduUzHCi13YIpFG1W
-         AvhDl2pXshqUxh24fl/l10knt3LlSJ8Wqqr1wuklMCOhx9ZBBV4fakh+Ff43+RDBBU6A
-         wNPmV818draN7vWjwCsSRA84RINr4NeSZxbOVXrsRaW2VvRQb4U2KIkBI0e5kgSNSZpA
-         Wu4A==
+        bh=ZdsDI6tR5xqbHGBMfOaWUa4pNmj8j5QVp0RntnzYSY0=;
+        b=KlZrQxrwgJ/hjgHL4URZWmUdLuHMxCJU4BR5XP5KAZgTvfk6RJpPdzGqS3HkisKuEl
+         Fe+W+7CZ48TKB9PvTjiiE6zt/wBJ4MNBbpdK3nQNtUZ0TU/vM2oZhGhYNnt/PpG5CK7H
+         auZwRNwSk0LK6zeGGXyIdW8tXSGvWpPJWnWwh9It3NA/Jawr2DECVNzKA/Cavh+iVS8r
+         B+w9idnfBC9u4quua50mqWFHvWAV/KZ2ckHcUGr5OMp9D3Qns6Zr8DlSmlDqBRCAa81y
+         wVi5CouUTwFjPlq0sxSx0oMNqd44m4HVdN8PgXGob2vRcAsjzKf7BfTtZ4TmhqFR34dp
+         iRjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=OFvPJFVfiKUjS+zbpKWeu2hwPSKVDuKGrnwZEXwngak=;
-        b=aCcV2u0S9Ned3RkgZXLTsvL46UeF85zu+Tcx9MmAMcMTJ72wdDPvOVnbTUmuHWIH0V
-         I4ppGCXsQTdioLtz2xmsM/TZNnXpHuJj9ocDuuspDuBR+ZVEFHcbj1ZS482rwmodCgz1
-         VeYVFjsxc9ay8udcM6XY7orgasY1xPKivE5F48FS8M0zQFoNqLwH2KAbRR0yjiFp88TV
-         YvwtWGsieF9ynIxVrPlLE96je820SXFb7dLN8POBiZOimx9nCpC2vLUWty97JSskx5yR
-         dwZDFa/CX+Etn8wsECbhpq/HyaF9/TInch8tq4G/zqzY1lAJipDkTts1GAw6jx10XX9F
-         UFFQ==
+        bh=ZdsDI6tR5xqbHGBMfOaWUa4pNmj8j5QVp0RntnzYSY0=;
+        b=FnB6tjln8UKDR0UqxM/e4bu/i537GDzWaDE/EVVgW9rdLtD3aTnyzjGwS6ODq8/SdP
+         KNaOoepi0nzx8AKAbUv6UdcnyROYRV6HMKAJ26/w/njzY1wwVkEyaXZu14xQiy5pW1Z3
+         1lx2Ics6QnH2fEYCdv1IwuOym5ddRmwnnRbRgwNbDCPKOeCVZxFKD7zE4Hc3ApSe6+21
+         AIXQzxD9M9SU1eK5Zp1tvJMwoyQHjjXN5X4Us03CCXs3di2qZzn0Ep2zdmQW4+tO/9lG
+         /YQbgJ1RUWIzdPvbH7gdLyqTEfiWr1umA+HRs3M3torecJyLzb8iw+IqpWjqUwYpPekF
+         JNjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,77 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=OFvPJFVfiKUjS+zbpKWeu2hwPSKVDuKGrnwZEXwngak=;
-        b=s7qh0asQtHwN1ohcgt6J1fnn9rfRN71zo4q9cfxfxiepqvcGyG3AQaut+GefRtfcn3
-         SPao6CnEhZCnzz6zTKdCd/FJ1X7JrqQmWnbnBK85WLwWM0y9OtRdr5ZRxMynMKtieZpq
-         xsFAXrA2KreZZBzQaD4wag951cJftFyIkPXwLNZntnDQxP5oxfutaZAcljF6Y05APPhk
-         LN7cuFv/EF7pLkPVtKyNJABw7jFXCka7kem9BHmH7GXrd1Bwv1S7iH812dKsVLflvPGX
-         sQR7NbFtfAUmZiSJLE5D3qdK7n6Vl3hUjvYMjalVmNea7POiTM4/lNRalHeuUUzM931P
-         SfKg==
+        bh=ZdsDI6tR5xqbHGBMfOaWUa4pNmj8j5QVp0RntnzYSY0=;
+        b=gKa2DXtK9m0tGW4yXU6kj0pdG1FHfecvAuW5ZRLUCJWOu0m8aqLH70LRy4E8z1yN8Y
+         5ofoJQrRYZtKHJ1KcvRt0ibjB+Tir7mG7ylRAcjK0OLcXQNZ7WbiQo+P1nBIF3+mM/uC
+         TxxUtbv4XgxXIaLykRI12cVirkkUnt5bHUmkDP2ydhIZKED0x8yFZQL4c6fQkggo/O31
+         9RD+tVRC+BvVsMi5RWnPS6YEPP7+pDhoVVEDKRBn7n0X6nEuABQ9fWcH8K5tpzDhsj17
+         D4xRPUsC3RIUvrLlhT51vuQbrxzqAtRTXiwwW9pZ7/Ts+tN0GDEsN0SvyKz9ZbTNQsWs
+         vsjw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530hQhIeIF5B2YuUc3d0WrnKYjvY96dYeCZya8RuforGcOI6AT1W
-	jH86Z/NVcpABm4h7tO+XOQg=
-X-Google-Smtp-Source: ABdhPJwlpDjK480E2MDDyIrEgdWZf5yS2CW04yyzl2KIBbb3ivAzJBwqBC5pTs5Ynllr2NaZSaLvow==
-X-Received: by 2002:a17:90a:ff01:: with SMTP id ce1mr5332680pjb.164.1613677271393;
-        Thu, 18 Feb 2021 11:41:11 -0800 (PST)
+X-Gm-Message-State: AOAM530Nd/mY9E8ptq2r8ZXYSL+XuGLSvn+J5xCkLw2nExRI9M7ZMtFT
+	xl4BOHILQwozI3nCBYwSB3g=
+X-Google-Smtp-Source: ABdhPJzFxfJ53zk42vOWYXNMkzXM2Otc5ocYd+q6nT4P/DtqLb6j5zcOfdsw0TWFtyRhY97u5uPlvg==
+X-Received: by 2002:a6b:7307:: with SMTP id e7mr694515ioh.29.1613678644438;
+        Thu, 18 Feb 2021 12:04:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:903:1c1:: with SMTP id e1ls3218524plh.10.gmail; Thu, 18
- Feb 2021 11:41:10 -0800 (PST)
-X-Received: by 2002:a17:902:aa4b:b029:e2:bb4b:a63 with SMTP id c11-20020a170902aa4bb02900e2bb4b0a63mr5330063plr.7.1613677270748;
-        Thu, 18 Feb 2021 11:41:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613677270; cv=none;
+Received: by 2002:a5d:8ac3:: with SMTP id e3ls1212022iot.4.gmail; Thu, 18 Feb
+ 2021 12:04:04 -0800 (PST)
+X-Received: by 2002:a5d:81d1:: with SMTP id t17mr736204iol.208.1613678643859;
+        Thu, 18 Feb 2021 12:04:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613678643; cv=none;
         d=google.com; s=arc-20160816;
-        b=uOCcvhrhBtDDj+zt9gycX3PaQddVUcFkdN7tkpBlgJgoi+UFM1SvX+AX0v/5dtGJKp
-         zeDed+5RWnTzLqRyKQ3ThO0PYLIE44CV47e3DAD58NKGpPXgUuPm7q27tlJTsS6aoWPm
-         /Df8sFG6BA8rcHDVOHESVZvoHk0bK6cWly1BKQCzs84FREf+IwzQTPcln0fhGFjTV8x3
-         3+5CmFlcnqyfPybAMHmKv8SaMBK/85pUpTzHU8/GJJxqn7o3kZufG2WOnBWSeKwOxrMa
-         UkplbEhNhGZnkQNtT1AXThkIeTZVo/ZiK3zsx6ZMYRM0tjCi2efTa+cA5yEPDW5DM3G4
-         2AVQ==
+        b=dRdonWB+oKDzb6vU7cT8aW3+/w+XtVhK/Ev53hunuOIv9YvmOKtBYhoVoKhhAZSOrN
+         pt4qHmRsJvYblPiFIaV87QTJ94PWgnlTB/E3DuXMmXhQrce1IfMnLUxkIOR9fOA39cZm
+         3v4wVGwdVMkez8hLD0aKQoZPemo3lrD1UhxPCR70CZ47mE9iYZj957uE3c/lof2W4Btr
+         eK3gpNyTm0nyGK6qxhK1zoi/ZpQ0opTw8z51kffA81ksTzJbW2SfKzVtzk3Lw/B5zvIC
+         wqMlkqB3oO5y91riaSsl53DkVeEZMzhMj4dWm+mgPWQBNdSe2tMcba0OxYzxkZwM0gK7
+         Lj0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=0KeVUTUE3lDhv8ohmMZ6NLZ7zC8VcNmjRx+8+v48Jbk=;
-        b=Kyh+tBXouFeF+VIDuTN6tJmRi36gRV/St9zgcjDlQdiXoe0YluDVAJH72BoDJhjkdw
-         sgu0oDi84UOLhudrbVWdACt6Qr3AMOULlWMpd/7uF6igpAka39rCqnyqC6rrXf5MUcLE
-         /10O5DEtAxSH1nqBh326QTLdTdtfe0B2vBs3nPiyjd/3ch3bonwjdBYm5d8zQMvj+YKF
-         e/yHyvTAFU7nTMeXgCr/tSsj2WvkJHcSumLeJbsC7hvg5x4ZSmzdgtjabHPNcXNH/Hnm
-         PpkbWoRflGpLpLfVLlMfkYj47wzer7sMb0Z7KgSmDjnRmr+ZCUc2O1SliJPWnMLjh31/
-         a2lg==
+        bh=3JqQxS1EHMu4tC00qkWP+zRUYN7G3CKYu0Q35Bvpp8A=;
+        b=QyWcSf/XIVxI7KmP/rZrizVLPkPd1Eb9YZBO6Ut5aDie+bSQBb2A9lMpylNzn+bvMq
+         pVzHGv3Kr68Th3iL/20oYlQpQXSIZQ7c6FsSyDLMSPt8SWk5/Usc6p1uwBCVKWmqLVJ1
+         4x66PzjJLJoV/RTMkwYClFLyymgarJZyOQ5LtmTrjZke1JnBItIy40PQVDPXzNGRegI9
+         uidjOoDXMqTSzl3iyXOn66I4wWYzdt9xII7jvqoyMsB9l/9WyTK0mF2ccI0OdPupR6Uw
+         RA0z2qE26QLHyOe6hVMlqEVob2HX/AUoqrRFd4fxKfwjxmwAMhjuaGdkaIW0uHJcdFwh
+         Hskw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id k21si374063pfa.5.2021.02.18.11.41.10
+        by gmr-mx.google.com with ESMTPS id s10si248643ild.2.2021.02.18.12.04.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Feb 2021 11:41:10 -0800 (PST)
+        Thu, 18 Feb 2021 12:04:03 -0800 (PST)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-IronPort-SDR: hfQKSwBiniFL9Px/pBnrBOMQ+V6f738g19NihWawQkpRYvzvE5Wl7Ib1VwWB2F9L4y4JeeBHAT
- DgN5YPJlt0FQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9899"; a="182833776"
+IronPort-SDR: wHMiO8C0hF69sqFvTwHBcwVTb3sUvIL6SuRwBzXGEPlhAWBYyS3K2MR+cONGd1t1jCT3WKL0M5
+ 1Y5KVArCLEVg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9899"; a="182840814"
 X-IronPort-AV: E=Sophos;i="5.81,187,1610438400"; 
-   d="gz'50?scan'50,208,50";a="182833776"
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2021 11:41:01 -0800
-IronPort-SDR: Rds3DUdDotaEx5qm/7vLjnhf/wl9XqNwCX6Syi3tckavxJvo506xfKKIECAGBHQOwQ2E82OgpL
- A3VjYytywWCg==
+   d="gz'50?scan'50,208,50";a="182840814"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2021 12:04:02 -0800
+IronPort-SDR: /2pSSiB832MT+nZRjJ/Sw18I34PTHdqXb6DH86IKZzRHICV23riE6INfbbQpm9w0jL4/iz5CH4
+ FOWU0KrAUW4A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.81,187,1610438400"; 
-   d="gz'50?scan'50,208,50";a="428363626"
+   d="gz'50?scan'50,208,50";a="400653508"
 Received: from lkp-server02.sh.intel.com (HELO cd560a204411) ([10.239.97.151])
-  by fmsmga002.fm.intel.com with ESMTP; 18 Feb 2021 11:41:00 -0800
+  by orsmga008.jf.intel.com with ESMTP; 18 Feb 2021 12:04:00 -0800
 Received: from kbuild by cd560a204411 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lCpAY-0009rJ-S0; Thu, 18 Feb 2021 19:40:58 +0000
-Date: Fri, 19 Feb 2021 03:40:19 +0800
+	id 1lCpWp-0009rt-9x; Thu, 18 Feb 2021 20:03:59 +0000
+Date: Fri, 19 Feb 2021 04:03:49 +0800
 From: kernel test robot <lkp@intel.com>
 To: =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@collabora.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [zen-kernel-zen-kernel:5.11/futex2 1/13] <stdin>:1532:2: warning:
- syscall futex_wait not implemented
-Message-ID: <202102190317.mPR2nkXm-lkp@intel.com>
+Subject: [zen-kernel-zen-kernel:5.11/futex2 3/13] <stdin>:1538:2: warning:
+ syscall futex_waitv not implemented
+Message-ID: <202102190447.793EyfUp-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="huq684BweRXVnRxX"
+Content-Type: multipart/mixed; boundary="OXfL5xGRrasGEqWY"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
@@ -140,13 +140,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---huq684BweRXVnRxX
+--OXfL5xGRrasGEqWY
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/zen-kernel/zen-kernel 5.11/futex2
 head:   ea9a7956b5f6f44f3ee70d82542c64fcb7c86c5e
-commit: a64bf661d4fc6dbfde640bf002eae2e22884a419 [1/13] futex2: Implement wait and wake functions
+commit: bdfdc48ad40d314933c7872f4818172e76bcd350 [3/13] futex2: Implement vectorized wait
 config: powerpc64-randconfig-r003-20210217 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
 reproduce (this is a W=1 build):
@@ -154,10 +154,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://github.com/zen-kernel/zen-kernel/commit/a64bf661d4fc6dbfde640bf002eae2e22884a419
+        # https://github.com/zen-kernel/zen-kernel/commit/bdfdc48ad40d314933c7872f4818172e76bcd350
         git remote add zen-kernel-zen-kernel https://github.com/zen-kernel/zen-kernel
         git fetch --no-tags zen-kernel-zen-kernel 5.11/futex2
-        git checkout a64bf661d4fc6dbfde640bf002eae2e22884a419
+        git checkout bdfdc48ad40d314933c7872f4818172e76bcd350
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
@@ -166,28 +166,28 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
+   <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
    #warning syscall futex_wait not implemented
     ^
->> <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
+   <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
    #warning syscall futex_wake not implemented
     ^
-   2 warnings generated.
+>> <stdin>:1538:2: warning: syscall futex_waitv not implemented [-W#warnings]
+   #warning syscall futex_waitv not implemented
+    ^
+   3 warnings generated.
 --
->> <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
+   <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
    #warning syscall futex_wait not implemented
     ^
->> <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
+   <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
    #warning syscall futex_wake not implemented
     ^
-   2 warnings generated.
+>> <stdin>:1538:2: warning: syscall futex_waitv not implemented [-W#warnings]
+   #warning syscall futex_waitv not implemented
+    ^
+   3 warnings generated.
 --
-   arch/powerpc/include/asm/io.h:557:56: note: expanded from macro '__do_insw'
-   #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
-                                          ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from arch/powerpc/kernel/asm-offsets.c:23:
-   In file included from include/linux/suspend.h:5:
-   In file included from include/linux/swap.h:9:
    In file included from include/linux/memcontrol.h:13:
    In file included from include/linux/cgroup.h:26:
    In file included from include/linux/kernel_stat.h:9:
@@ -282,13 +282,16 @@ All warnings (new ones prefixed by >>):
    #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
    6 warnings generated.
->> <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
+   <stdin>:1532:2: warning: syscall futex_wait not implemented [-W#warnings]
    #warning syscall futex_wait not implemented
     ^
->> <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
+   <stdin>:1535:2: warning: syscall futex_wake not implemented [-W#warnings]
    #warning syscall futex_wake not implemented
     ^
-   2 warnings generated.
+>> <stdin>:1538:2: warning: syscall futex_waitv not implemented [-W#warnings]
+   #warning syscall futex_waitv not implemented
+    ^
+   3 warnings generated.
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -297,14 +300,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102190317.mPR2nkXm-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102190447.793EyfUp-lkp%40intel.com.
 
---huq684BweRXVnRxX
+--OXfL5xGRrasGEqWY
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICIPALmAAAy5jb25maWcAlDzLdtu4kvv+Cp305s7idsuSozh3jhcQCYpo8RWAlGxveBRH
+H4sICH/GLmAAAy5jb25maWcAlDzLdtu4kvv+Cp305s7idsuSozh3jhcQCYpo8RWAlGxveBRH
 SXuubXlkOTf991MF8AGARXWmF52oqvAq1BvF/PrLrxP2djo87U4P97vHx78m3/bP++PutP8y
 +frwuP/vSZhPsryc8FCUvwFx8vD89uP3l8N/9seX+8n73y4ufptO1vvj8/5xEhyevz58e4PR
 D4fnX379JcizSKzqIKg3XCqRZ3XJb8rrd/ePu+dvk+/74yvQTS5mv01hjn98ezj96/ff4f9P
@@ -808,4 +811,4 @@ JzzfUHwLsaLXw9PWyE+pUTN5tn7qh5hGHw22PTIaJje0WTwGqbG0lfGg51KA2gOkobXelsxx
 c4VmCv6QJVq0bqo6RS8Ib+TUVLCrhJJChwRc/ppewh/jUAJWim5s/FbIHkZKqMJy7X3Mdi4F
 v8i8hAttgv8/0N/zd9ChAQA=
 
---huq684BweRXVnRxX--
+--OXfL5xGRrasGEqWY--
