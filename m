@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBB44YGAQMGQEQS6NPMA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBYVAYGAQMGQEMTZ56VY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1D4CC3201F7
-	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 00:47:21 +0100 (CET)
-Received: by mail-pg1-x53b.google.com with SMTP id h6sf4585807pgg.13
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Feb 2021 15:47:21 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613778440; cv=pass;
+Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2367A3201FF
+	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 00:57:24 +0100 (CET)
+Received: by mail-il1-x13d.google.com with SMTP id a9sf4504597ilm.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Feb 2021 15:57:24 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613779043; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qXs2Chk794bfn9WuLQ/dWPSAh8gyG/Yvwn0XXRV04bslYjv3gW+JEFVaB4h0cQlI7A
-         7QUC4plYYhoVP2YmmO/d/9svfUGJ6wEl0mNu53zQMtdJSX8TQwxWJ02ELPljbfm82WoI
-         Zii9cGGo+FVS+lp15Fx7KbTWb1AyA09Vz+JfUFdkAFdyd7YO44mJQ+VwlIsE4X2BGqTL
-         6QS0AqQfQP1FsxDSHnbifrdjb5XetPOpSyYBXb6nkfF3ffQid6EsaMQC5lNnbeeRHGNj
-         Oa1yWTpg9JGLpd0V7G6S+GlBBAeCIh21Ht7tL/n7ql+f2WGJeiDrwuM5Gi5XqLahaL6D
-         kv9w==
+        b=DsX1Df/R7hb79i6XNUYRBHekM9YMPXug5yVZimv55iecF43YPdoq9Cv7rhHAIXt9qq
+         LGz3t4NUn0Sfm4/Mm7n9a9lopFui04YPj23sVvAJ8jYZJQxiGB5oDn1YBdVfBTkM1X0a
+         i4GpX6VxVzuTcFiorRgW6WDGzrUCjoedUa0mwP1YW1FizABnt1WJaA5wbpGya4tnoZAB
+         c8RhX4Np01gGPrEpBLIjqsVrJ4/nMYp1D+uKCwlVJKQBo/5oi6k5Mgrh+NGoi2W2ST/w
+         T1UBqbJpW+QbtCIiAh4F4SnWvdzNpxCSJ2SSmJJf/QJjWcWgm60ufic+JadIPklpZD3l
+         ly2A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=09KnlRZxcxCFq+l0JOghL+X0wIg2CDu52PxHovLRNjc=;
-        b=JOSE1f5wVG+AvyNybOHVfzMTGq1pTu4Q83G8Lqk84LLPX6SSJegomYKQMXMcHEgANY
-         bN8sXxaLNBuPn4Fk+Q7eVh3i+kczi61xDdxYWpQWQ6/akIK7Xm65a8RK0K9600+Tc+T0
-         PnsbovT0O52PtbM67B+YpLAF0FhubydH4o8CiBOITd6DfBZcdYe5wiU2yB+Szdbb2dVC
-         QeLihEKfq1ic/vZNGwQQqP5mOt07QJrBHghfxbaKaeTd2TOXMKbcj+o92A+EBacTtDa0
-         NL836P6+yk2tLNRWXHVZgpOkNuMHUcmu2bf2ptclHykWlS098Tu5tSFrvhjC0sl8Q0wq
-         HgOA==
+        bh=CEhWjfkZoIr2uDAmtqsDgW8ALN3jIL0q6BPywHBsd3Y=;
+        b=U6w5MOOUo7RSLRuPZPn/7pQvw4DrDJ0ihXGmZFGlEJGhWbH/A/cdRPsxSWE8Awjk6u
+         +bsk16tx6NftyCO3zfnQGKfHYH0alibYW20i/BrZia9n1TyN75wqqpgwj7ZDC1UVuhqe
+         4wPAs7txTAWJ7PneNtEsosnMKh6Y1Pj8zc5mAJbZe7phJ4YyhYCq/hTJtDlUBUMx43UM
+         R89UNO+r/h8akrCkGJc+URlAkdclCD7UXOOr3DvaVtq3DqTlxzIp8DOMJIdZCfctnpxh
+         vXrSzuJ7HOR2w+LFQU5ZtSkdgcVcdyu1yYes2NrR6cmAqbg6I4cC+yl0AEA4RO3yIBD5
+         SdRQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=09KnlRZxcxCFq+l0JOghL+X0wIg2CDu52PxHovLRNjc=;
-        b=L4zB0wA/zCaE1EMScPKcPsE2spxaQWT0illPlSby23wBSpbE1cIm21E2Hbp8/RSzBg
-         QRxHkda+SpBpsnRo6TQ5dfBT7D8jNkQAgnJcLXqIAzyuPHFPngDeXPFnLK/oDLcWK52S
-         8xiJ1Yl/vdH08LsDwrcUPGlzac2HT+J0FL7jUQHk1huUCqBPYOOIJ21mheBux0bA2Obt
-         nLAdMLUKzFg9aiZuQdvoLMEQYTrFUrC6Xbm5q6qreW4CuWxXDpuAK878fabvRZCi6smQ
-         XsqRjcqOPoGaaOD2xsnNOiAJ51N1v63je68nQdB8aLh3AU/7x8YIm9P7HptrjTryI/1b
-         rTkA==
+        bh=CEhWjfkZoIr2uDAmtqsDgW8ALN3jIL0q6BPywHBsd3Y=;
+        b=SfiMJNcLMSV9QEMoMCVn9/2E9Cp/j2wKq3XEtuotNpslEXZ8ZCO+Vb96qSQ2bVPD3R
+         9nNTC8jTUg2O4XrvR8ezMd8x94LN4oxpdsVctCFuLT/kZVl+tDxYIhMBZ5M8O9WrUkYH
+         tF0mVscH6qoyghGOS/bClC4hSmqPBYH5hogTvwgGqFLSuIdBBmBoojnBVWMCLMaiDeIW
+         +t0dkA6c5wG5EmObuQz+8uK/XrT/uu7pl6jQF8SGb4wcZ7zUzEFtLwiNDMuVhGSQcbtj
+         exb9rC5s20lEuMe4/Ciz+pPnXNI57jFV85WvuqElnCPoXlbVdw/uhwtR8F0PZYBR+tyW
+         STyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,82 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=09KnlRZxcxCFq+l0JOghL+X0wIg2CDu52PxHovLRNjc=;
-        b=Hiq4rzIsT65EE04ghZa1YGdiGtJy0Df4e1YpTDc+/B99h5mgHKHhwpvhAzJWQmI/+5
-         u5FEGj9/4miHEgCA9+dCPADs/Xv03mov/74cvxancIsVHtzzfL36AiSlcrxgzDNwSWen
-         QdbvVVGHlDt9yZUu8hMaD1I/KdDe5bZLy+qCZ9ns2fYYMNn4Zip05tR4weBfpjzpyNbx
-         ghJVFJgCh+hknI7f9bX9SRi7S0gPLhpYvajU3MNTTPn0aVTsHdSvFGUXd4/fXSu27mKu
-         +SwR/BJ47mz8BWnuuvWDNddNYmphrJwXbU/+FjBE2uKn0YbSK/jy8hge09S30x3arq5B
-         8N7g==
+        bh=CEhWjfkZoIr2uDAmtqsDgW8ALN3jIL0q6BPywHBsd3Y=;
+        b=QuyBncK9iKESMY3J5QtSeHiESlSjUxaFqPBbU531p7hWyI4hTs9v2Ut7cBUpgFr3nI
+         jA8jl+1q3ux0Bg81kIudWQkcm6s+SB0FgHFPZQnLD3Y7HMqBAFefRenMU1I8EYtz+8ni
+         mlLWgWFM/ytBoM+5rHCqL+Pk/TudLow4J1MYVm8l2LNmvRbcK956neaET9uR2GI6sjUp
+         2Ftd8G8B9ep4l61ftEPLcDg/ykwdQ7q2gauDP3MzTpFp0vne0MlMWt4TXDHghlqSUFD3
+         NLoUdZW/xBfChIg5Inecd8sS1j09PsnY/1mmwKmfG2K/DO3qrnEaC0hO0BTHqde40XgF
+         EFdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5338V7JlPyOVN+mHdegO065N4AOztgFoxDp6nTEzWYgFYRupiNRF
-	QZIYuE8GfMwAL8jOht9Fh9U=
-X-Google-Smtp-Source: ABdhPJwI1TUeIeCghAR4BBjnYIeGi76erPioV0Rmge7ue8ORlRMZSCJzNG31L6RmDSLy2ivy0gRZAg==
-X-Received: by 2002:a17:90a:6393:: with SMTP id f19mr11447725pjj.230.1613778439625;
-        Fri, 19 Feb 2021 15:47:19 -0800 (PST)
+X-Gm-Message-State: AOAM530PAtjOO2Tbfna9odpG5+/OFeB2Apavw8TwU2md65E1houl5tE9
+	FDIkjsOo5icCsMhSwfv0Lyg=
+X-Google-Smtp-Source: ABdhPJxf3oAMpZ2T79uoYp6+Rd4IOSJBApYgIUVi6+Laxw2aLhFam75jn99rptI/SvTOm9rRIuadQg==
+X-Received: by 2002:a6b:8d42:: with SMTP id p63mr6254982iod.202.1613779042579;
+        Fri, 19 Feb 2021 15:57:22 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:5290:: with SMTP id w16ls6041357pjh.2.canary-gmail;
- Fri, 19 Feb 2021 15:47:19 -0800 (PST)
-X-Received: by 2002:a17:902:9349:b029:df:fab3:64b8 with SMTP id g9-20020a1709029349b02900dffab364b8mr11335905plp.72.1613778438797;
-        Fri, 19 Feb 2021 15:47:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613778438; cv=none;
+Received: by 2002:a05:6e02:80c:: with SMTP id u12ls2874785ilm.0.gmail; Fri, 19
+ Feb 2021 15:57:22 -0800 (PST)
+X-Received: by 2002:a05:6e02:1ca2:: with SMTP id x2mr6167078ill.243.1613779042018;
+        Fri, 19 Feb 2021 15:57:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613779042; cv=none;
         d=google.com; s=arc-20160816;
-        b=hSWkbqfMJUkwH/aPaJPHWS3IKJI+c1aYGVZJUqyLEQmUemV3wSDKfvayAtoTAlxVAt
-         jcXhtvQh5rBcxUUYEYaThgKZRdUfMgi0TnJ/Vt883L0zbmj7I5Xw3c8RPKtQ5MfRA4h8
-         kTl8KQekzTbP8EJFNnwVspgvNCpm2J4t7uyU5F40pDpNTzPoOnXdEJbKAMo+n5GVPjSk
-         RGsELebT7w51Dif+5W23fkcO4uA9IowJKP2nO8SFbjF79Gk12ea7vBxnSkIvz3FhgrwT
-         qbO73IWMhfN0Y6pndglyS47KM+u+ec1bVRU8ZuP/RddDvCltLosDQatyfhXul0T+/JPE
-         TjrQ==
+        b=qo14eBB5p2UxY9WJlsyrcaxPSsTtOPCuFy0uldKxlzzIGVanjY61KfHaupXPwNUzHy
+         AgfGZgi7D8mOW+wCF1uOKuJgixbvI8w+LgiJFpfrIA32lBVf/uSAsY5aB3nDJgH0UMQF
+         dyb5WfKMlYtHbm8FgWtxZBhHIXVzQBmBau+AyFzMxOID0/iEp+Jr7A9VXJaC6TZOieRf
+         r9Q+U87WWbQYZY/VDY5zIMgzDP6eh1FfFxuce+TuUJpDr7TsVFPEH/xntdJpcmp81nlY
+         emMXA26yIH4PluvvetdBt4e29yZ5O5Uj7kivA/8NQYwlgOZa4fRTZOxEn8iRuEv8XEg1
+         8MFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=KYErcUPBzHC+Te9h01Wqc89krqpQObg2csc94yAiffM=;
-        b=l/GrTau1kdDT2C/0G+k640XiLwC7mcDIzM2YSGsPDJjTuNWDlWI4pk9e2MNq4KQsns
-         yiFGaHtlyKtMF64TSXrP5n6n4qctqcC7h2ZgrOO1SxahCppEJQyUPWfC3coXcWwZKNdA
-         KkwoGE0KTrSDROTkh22HC9ZJnDVASWkTqMY93ov68tsDUD9yvv5XHWbw0tdrXhCwmUQ/
-         zLSN0yEnUZGKs5/6NRQI5AuU+nOTpvMl/k7CuUTJp/IhG+0GkenTuBcOUCywVN9o94iu
-         j08zTfSvWn52tv/H6+PgVB8d1g9eF5dcuTsFu6Du0m15E/dW1c5y4/nq/U+0UwB+l1Nh
-         de2Q==
+        bh=P5XfsnL1fPE6muMbSpj6m3Mgz2S4iGK7I1Y6/ZRPgdU=;
+        b=KFyYSqeBe8HsR1WaoVzTsO8XG6d8Sn0mQj47YP+eO2R03Ndk9zEbtzDeuA8j+apAaO
+         z5UWN9+OO3LZbMjZwOMiu5AV5rAZUcOjO55IvJNjSEEcoT97tFOWRuNnh6a40VUeOyEf
+         JRnFxdkBPV0ywuL75xevqFinGwdrfEmaRTd4+2lpw5YbThlLK2c7djBdLKrNe5x8ONdS
+         rCdogU/GiuA1yWDkVMcQNPkbJGdhx2NMq/DrnLi+0ETmonyDUlXlcM4BqkxoRvGhiY1d
+         fhGR9pOlURF6sc8wApkUhX98wWALRbm00OWhs2XrpEKmOSZ9K2YcPUXp5uUdk4L+/n3d
+         gAUg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id nl3si465858pjb.0.2021.02.19.15.47.18
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id v81si533123iod.4.2021.02.19.15.57.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 19 Feb 2021 15:47:18 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-IronPort-SDR: Jw+vsIEIHG2XnXR/W4RHHcMqMXVJ4/vt9iusR+Vm8Mh6HPcuj7qnEkEh9SfDyyjcuT4mWCHEWz
- to0o5JQUarUA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9900"; a="203298038"
+        Fri, 19 Feb 2021 15:57:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+IronPort-SDR: 6WeK8JqQlO3igw2pGccDeqHGXVfzBurPBUWHHt5xqQLTZ1HpC66UYXCvdOR0pIniCVCCsaIvnQ
+ ty/XhEe2S+1A==
+X-IronPort-AV: E=McAfee;i="6000,8403,9900"; a="184055093"
 X-IronPort-AV: E=Sophos;i="5.81,191,1610438400"; 
-   d="gz'50?scan'50,208,50";a="203298038"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2021 15:47:17 -0800
-IronPort-SDR: 6ukxoAO7maQlJ/UN6W0GEO/D9eHD/naWrfAigJesvLWI/+uPkyN6YLbMaMG7+ulBJ6wJasvUk1
- JsKwA3kb85mA==
+   d="gz'50?scan'50,208,50";a="184055093"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2021 15:57:18 -0800
+IronPort-SDR: GLLY6iC4Ujb0YP8WpQBw36QrNNBNAUvQA73e2fNMOCTf6NS927QipDHHSrEVlgRfDdIr5Zgr51
+ V4AxDu+Hpapw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.81,191,1610438400"; 
-   d="gz'50?scan'50,208,50";a="513855691"
+   d="gz'50?scan'50,208,50";a="496677495"
 Received: from lkp-server02.sh.intel.com (HELO cd560a204411) ([10.239.97.151])
-  by orsmga004.jf.intel.com with ESMTP; 19 Feb 2021 15:47:13 -0800
+  by fmsmga001.fm.intel.com with ESMTP; 19 Feb 2021 15:57:16 -0800
 Received: from kbuild by cd560a204411 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lDFUO-000Agm-RN; Fri, 19 Feb 2021 23:47:12 +0000
-Date: Sat, 20 Feb 2021 07:46:20 +0800
+	id 1lDFe8-000Ahu-64; Fri, 19 Feb 2021 23:57:16 +0000
+Date: Sat, 20 Feb 2021 07:56:39 +0800
 From: kernel test robot <lkp@intel.com>
 To: Mark Rutland <mark.rutland@arm.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [mark-rutland:arm64/fiq 5/8] arch/arm64/kernel/irq.c:74:6: warning:
- no previous prototype for function 'default_handle_irq'
-Message-ID: <202102200718.0NFpbQ9h-lkp@intel.com>
+Subject: [mark-rutland:arm64/fiq 8/8] arch/arm64/kernel/irq.c:79:6: warning:
+ no previous prototype for function 'default_handle_fiq'
+Message-ID: <202102200737.EfqiOgsh-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="cWoXeonUoKmBZSoM"
+Content-Type: multipart/mixed; boundary="jI8keyz6grp/JLjh"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -140,17 +140,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---cWoXeonUoKmBZSoM
+--jI8keyz6grp/JLjh
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-Hi Mark,
-
-FYI, the error/warning still remains.
-
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git arm64/fiq
 head:   6587bd1b119a8cde649c594083686e1b3a73eeb0
-commit: a117a04cd7136520a32af6c4fb39e40cba1dacb2 [5/8] arm64: irq: add a default handle_irq panic function
+commit: 6587bd1b119a8cde649c594083686e1b3a73eeb0 [8/8] arm64: irq: allow FIQs to be handled
 config: arm64-randconfig-r032-20210219 (attached as .config)
 compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
 reproduce (this is a W=1 build):
@@ -158,10 +154,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm64 cross compiling tool for clang build
         # apt-get install binutils-aarch64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=a117a04cd7136520a32af6c4fb39e40cba1dacb2
+        # https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?id=6587bd1b119a8cde649c594083686e1b3a73eeb0
         git remote add mark-rutland https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git
         git fetch --no-tags mark-rutland arm64/fiq
-        git checkout a117a04cd7136520a32af6c4fb39e40cba1dacb2
+        git checkout 6587bd1b119a8cde649c594083686e1b3a73eeb0
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 
@@ -170,24 +166,31 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> arch/arm64/kernel/irq.c:74:6: warning: no previous prototype for function 'default_handle_irq' [-Wmissing-prototypes]
+   arch/arm64/kernel/irq.c:74:6: warning: no previous prototype for function 'default_handle_irq' [-Wmissing-prototypes]
    void default_handle_irq(struct pt_regs *regs)
         ^
    arch/arm64/kernel/irq.c:74:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void default_handle_irq(struct pt_regs *regs)
    ^
    static 
-   arch/arm64/kernel/irq.c:90:13: warning: no previous prototype for function 'init_IRQ' [-Wmissing-prototypes]
+>> arch/arm64/kernel/irq.c:79:6: warning: no previous prototype for function 'default_handle_fiq' [-Wmissing-prototypes]
+   void default_handle_fiq(struct pt_regs *regs)
+        ^
+   arch/arm64/kernel/irq.c:79:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void default_handle_fiq(struct pt_regs *regs)
+   ^
+   static 
+   arch/arm64/kernel/irq.c:105:13: warning: no previous prototype for function 'init_IRQ' [-Wmissing-prototypes]
    void __init init_IRQ(void)
                ^
-   arch/arm64/kernel/irq.c:90:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   arch/arm64/kernel/irq.c:105:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void __init init_IRQ(void)
    ^
    static 
-   2 warnings generated.
+   3 warnings generated.
 
 
-vim +/default_handle_irq +74 arch/arm64/kernel/irq.c
+vim +/default_handle_fiq +79 arch/arm64/kernel/irq.c
 
     73	
   > 74	void default_handle_irq(struct pt_regs *regs)
@@ -195,6 +198,11 @@ vim +/default_handle_irq +74 arch/arm64/kernel/irq.c
     76		panic("IRQ taken without a registered IRQ controller\n");
     77	}
     78	
+  > 79	void default_handle_fiq(struct pt_regs *regs)
+    80	{
+    81		panic("FIQ taken without a registered FIQ controller\n");
+    82	}
+    83	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -203,14 +211,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102200718.0NFpbQ9h-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102200737.EfqiOgsh-lkp%40intel.com.
 
---cWoXeonUoKmBZSoM
+--jI8keyz6grp/JLjh
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDxMMGAAAy5jb25maWcAnDzLduO2kvt8hU5nc2dx03pZtmeOFyAJSoj4MgBKsjc8ii13
+H4sICDFPMGAAAy5jb25maWcAnDzLduO2kvt8hU5nc2dx03pZtmeOFyAJSoj4MgBKsjc8ii13
 PPEjV7Y7yd9PFfgCyKLcZ7LoWKgCUCignijw559+HrGP99fn/fvj3f7p6Z/Rt8PL4bh/P9yP
 Hh6fDv8zCtJRkuoRD4T+BZCjx5ePv7/uj8+L+ejsl8nkl/FofTi+HJ5G/uvLw+O3D+j7+Pry
 088/+WkSimXh+8WGSyXSpNB8p6++3D3tX76Nvh+Ob4A3mkx/GcMY//r2+P7fX7/Cv8+Px+Pr
@@ -993,4 +1001,4 @@ k1DueO54jlSQJUO/bvmlqFFD8tqD8BljaToKzXvLWGVBGiLa0YMlJkVwtiznOYwSn4s+JTdf
 lAY+jLwxE/bVo1qUwqGMHau2utjgz3JucPuIYERMSShkWi4uHQVE9k7jqsLdFOaB4GiE20np
 fBlLJs1n8zMuPP8/6JanEnO1AgA=
 
---cWoXeonUoKmBZSoM--
+--jI8keyz6grp/JLjh--
