@@ -1,130 +1,133 @@
-Return-Path: <clang-built-linux+bncBAABBJFEYOAQMGQEZ2P65FA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBI5QYOAQMGQEOY33SPI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id D05CE32049A
-	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 10:11:01 +0100 (CET)
-Received: by mail-pf1-x43f.google.com with SMTP id w200sf3493377pfc.18
-        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 01:11:01 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613812260; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9DE183204BD
+	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 10:36:36 +0100 (CET)
+Received: by mail-qk1-x73a.google.com with SMTP id v128sf5283978qkc.12
+        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 01:36:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613813795; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yu3u4n1YmfQETGgL8Bzh8Nm4+2nfuuff71YfiJvy+N3ZckwO43A9YzsL79CsrapOv0
-         gW3h+056WHdGOgp9ABmiQphMsPqY1kaa0GdwZyQuz7C4z5HfNHs6AB71XsNQo88KGYN1
-         d3+J+9aEYmN4pIco28L7grMO5Qh1zx9vVTq0UW9s6i8f8nDhwMNaZXvMyRnPGTp0pZF2
-         PWGmIylQGEL6/M6N7GDd0HQboNblpPLKMX7kn62PD4ydaEYetwjHqhoCp0eNO9sqYgCS
-         yQymL99VX2mEA1FaEAqLgPU7NaoZwfFaFloOl2880S5zrJWuHAtAZ7osaB0gkckvC7Bk
-         PWVQ==
+        b=KPSGNjk8KCp0mZov4R1lXfSym9qh2LsiWp6V7hA9szi0fkAw5Ev1Rn0FMc6BM9mcrj
+         N0AzpF6Z6wnwu7uExZppCcF5a6wfNq6ZPexFdOrRD+cQ9pa6GU7vHhYqyb8StGdgx4sN
+         C80FPzfw7USv4FvrKTGe7Lpu2N3vaT3pvlLerptFXI8nLVP4qD87bs4XS0HCuhNIAF6v
+         A+OxBDZL8TA/wFxmwVLLkdxy2FrtfvqOW1XWbdFD5vyppNIDgkEbgQYLgazW6joZetjy
+         641/HLSmsiJA0H5CypSA82XyAvnflnkyyXsPUqyF/kJaHE8WSQQxzBif9X0j201M5mGz
+         WiCQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=k1ZDaMOYDENujg4VOAffKuDLIAAdOa1GiB9vReYbAms=;
-        b=fyvDoC23/oL78YPnmLQj5gzg3hjqQg99hzqMm+2UV9UGYTUR5Mu09JlBGtMe0s6DZv
-         yDXWwN5JIPxzAm5G/LHcSfOiZoNfPm9qFB51oXQrmR0VokyKdp2qkdimkXQiOkDiQwUH
-         fO4FWL9jgtvoxwAlZDH8RuoOgbOGGrudH0fzpcG8UpziCcKgWLVewXEZNJNX8lJS0wxk
-         Hdt8fIUKohXQFG9xBbsS+oaMbauR2LzoQdLxE4DnEI60cblPirDgJIV3Oq5rpfuIFt2y
-         9fcEgj/z3j/MbthRMbMNVNS727KLTh99QTDFKbw8kpNAuqcA45FfKclRDyr2XwljM7TG
-         cLFg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=YVpYV1DWv5xopnXTCzQ5yBNT/kDd0lJfmp7dJ4fuxPE=;
+        b=RumzLy7tVvQyX1dTM2rreKIjRBE9ZrAiOcX2+DrigsVdupaB/Xb0+ZOQp6Dh1b9c6M
+         eHJHCeDS6MBLqPIOKHKrDcOqV/UYNlfgErV7oErcYT13V/O9+AYPSZRXNxaM35ETjiqE
+         ol/Gt7C/Ry3LEYZf9rXc0HkN7UHLbjx4IHIyJz5QFRRjCOVT4siHn9wEHKV3ALnJr5JL
+         icw9EL1U/YjuY7IzeabglNW6knhAI3PpW0RFqBjgQpNGNQUuuGVcZIUfvR2f9WL/103E
+         deVduGNg/sjtmYRnRlSG5m1NJDCf760ES8Gt8yqHm0EyVWXzR3oAoiXr2Dqk9bL2Lw0P
+         PpKA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jiapeng.chong@linux.alibaba.com designates 115.124.30.56 as permitted sender) smtp.mailfrom=jiapeng.chong@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=k1ZDaMOYDENujg4VOAffKuDLIAAdOa1GiB9vReYbAms=;
-        b=lFI4bosbD2l0Wg31/+hVyJCxvhojgdGoLzlra3LaXtZqXGu72hBZJMN0B1Hs9Gna+/
-         32OgUwDAzdadTYmAfG7QOTIlVv0wXNhdwAuh9HVDb0o5n91TTX5BudBdZxPe0eyUEF+G
-         UbHlln4mUUaWQyRyvR90WeJ+Rn4oDG7jgNCfN0vEhGw9hejV+uIVE/dlcKhctOVH96wm
-         yLVqtz3mcU6Kc9z7Z3KUtW0uhd7bp2JblGQL+6k+uqLedWV0N7VJo8swQLtupXHfjPae
-         crffT4+qikkg8lCw3sDlx6D1OW26QpjdFl368ivgn6vybNCrzk2OExwN9aLZVqFoPhd8
-         lnmw==
+        bh=YVpYV1DWv5xopnXTCzQ5yBNT/kDd0lJfmp7dJ4fuxPE=;
+        b=BB/XyA03UVzIBTS3L++R1S/kgOPYVWWLjJQ4l4OPQYahUKO1W/YB9OPJ0hNQEtMjX/
+         IUscxkRxCYBvZf2Y+Bnxwu0R/tH+O0NjfMncMWMm0Cbf9SkDV7mMQjzrcYKPkcCsXaFW
+         g90D2m/9bFagTiHa309bptiFrKMm1/S0iQOLBQueQLW4ApAFDw4j9MLmRGjybCNilF5i
+         Zz2busJR4pr9juszrvnQcDrGdJXyNpD9kZC27MhZC9r7bvmX0p03Fxyg8LoN+Sfh29EH
+         E3IeBCs4/VRuuADExiLg/Pp2NAZtW82gVvOAWNGptAuTPV5qkYaqMMAnJGgYvGBCsRJS
+         W17w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=k1ZDaMOYDENujg4VOAffKuDLIAAdOa1GiB9vReYbAms=;
-        b=gyYh7TyQNBXko8Mydt0Ma5YACG/iETo2M5auox852kWYd1dN7FR00667Y9LRdPBuaV
-         F9kmYLRj8iB8un6EeZdNwaMpCrb5i0Eb0T6DPVr1KFJXyIDu59y27IO3/cRH6Yrs7GJI
-         ltyYGxZ8sC5WHDYuhuYeNjmkPE04M1/wCB1kmROcg49FA7FiAynyc64s/MvoL6sSBS1L
-         zk6gBN3ykZXI8ME/5mSsc9XpUVeLz1wHk47icToxfuhpML4WvZQMpig6vRrxXeznUmwD
-         YOzzgRQHVo8Hp8dpbog/dHVlozJaVzdIhnq/cXHrGxndjUYgm/bT7etb725hejMD/oMo
-         dong==
+        bh=YVpYV1DWv5xopnXTCzQ5yBNT/kDd0lJfmp7dJ4fuxPE=;
+        b=IfRgh4hjJcG5GqboTa4QyuEHFjsAdgyEUvopFTmisDwGObKgPNjvUOOJxS2lAzgoWB
+         Dw6gUSFvAdqq817I4S+Pa3ZrwrvZxrHivHijLJhHnmL17NcDW1KYcs+VT6PocO8BL0h1
+         thlHMS0+5e6edk3vbRKbYOAAuKww9k6ioJr7jM8YcwGd/VPq/V46bPMQjLN/4ZvT6pNq
+         pU/IlxGm1250AxQV+Vh4hL6vhnSp5ER9Ja1P/dGijBYOxT1KCYkLrZCjGvQhss1wE627
+         b3TGQIj1VEF7M3lVnpS0TAKtko7FRrPuRJv0rKkYsGrkupW7L+EZJ6dp2m7cyXIh51Bs
+         NfQQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531sS6wj4JMbCRAQ5j5AWYXhhxywYopFwPsyCcxW39LWmuaC0dKb
-	Vxm23jBPOXSnZ3MGPfdHB54=
-X-Google-Smtp-Source: ABdhPJwtX/K2Gwi5aGSEXWp9IBFNuZaIemSpiW0i4+fhOb0/kdqjDCmJPU05ugYUUf4xwwFuIMi5hg==
-X-Received: by 2002:a62:f942:0:b029:1c0:aed6:fd57 with SMTP id g2-20020a62f9420000b02901c0aed6fd57mr13673574pfm.70.1613812260312;
-        Sat, 20 Feb 2021 01:11:00 -0800 (PST)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM532rvMEf2SnUp23hWSnb8W55gwXK9Tx5YyFNMKoqhjlS69T7aNJo
+	nIAWoZvTvQh1x5W4yensauU=
+X-Google-Smtp-Source: ABdhPJwqu/UynZTupKPNmMMF93w7tK6yoHtTgZU7aJ6UNTcsxALmH7oXhz6gYKn6KwZ7EHMR0A7BtQ==
+X-Received: by 2002:a37:6788:: with SMTP id b130mr13355897qkc.197.1613813795524;
+        Sat, 20 Feb 2021 01:36:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:ed0d:: with SMTP id u13ls4799120pfh.3.gmail; Sat, 20 Feb
- 2021 01:10:59 -0800 (PST)
-X-Received: by 2002:a65:6243:: with SMTP id q3mr11904612pgv.246.1613812259784;
-        Sat, 20 Feb 2021 01:10:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613812259; cv=none;
+Received: by 2002:a05:6214:13d2:: with SMTP id cg18ls2959462qvb.7.gmail; Sat,
+ 20 Feb 2021 01:36:35 -0800 (PST)
+X-Received: by 2002:a0c:e5c9:: with SMTP id u9mr13000958qvm.55.1613813795151;
+        Sat, 20 Feb 2021 01:36:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613813795; cv=none;
         d=google.com; s=arc-20160816;
-        b=M2oU+z7jc0i49o/Rki48iJ9XNwB2AMJ0bvPyFRidJomD5QrWCO36Zk9t7krdzQs7t2
-         2iLiyIF6H/S0eskvv6VFEstJaM7fgpK7s4p9BkyI/L1hFV1qljetSKOU6qd7jFe9UJdh
-         jWstAcOnSl+WpdmP6V+orEcvEetdOUKFzm+YiOP9TfJepKziTe62yS1jSjOV57nbdY5L
-         M+kPNlSwTUDDQj9UZRxvpu8QUh3Zz3HMNDwdLn/4CWLGzBstzKXOkF0MDg/x+QDOSFi5
-         sdQOqqGIgG5ftGpbMzAZS9d1n6lu7/nrn/cRt1v0DdemuJYzvj4GSB5j1YsnQ2YGTD7Q
-         hAwg==
+        b=EcgrdIXWTRH1i5dQ1/icQTbZ+dp06oG/Jfmn2C/HYiPxmPQ5EyvMIahfRZu67pQ4df
+         2CmQe9qbb6HkC9ew2tVJ7GRBiR+hz5XecTFfd7qelbd+sMGuuB/kJNBJzQd7fMRu+mfn
+         krNhNyjLwM9lZiG9vrD/C5eJAnNX4MVT8G+tNOnR0EiazB0KVAylQUbFezqNR4H0DKle
+         +I5djdh7cGx3wLU0yhmfQ/6/CGoNPphWNvkNrGasuugUQbNkRyq/JWqP7TVvwtVsFxHV
+         836r4s1GRssBU6edxVYR/eKgNWazFJFIUYehQfxUd+Zxtl+Gb2DgYHtDHTiF1y7GAHBU
+         lKQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from;
-        bh=PqJoNjcNwRX3u0+kM4Kn2OU0eyEqrGmxP7gb4rjvd7Y=;
-        b=xtqOuQgnKJQZm9/nZdqr2JeXoDyt9SETa4a1NCgq2Y+niKLP/Z4/5QcvjGl4nzVqGC
-         FRrNmOA/sWeQjtwntb/J9eokBetxglMt9224qOoJDbGXGootm87+UXKQK9Y7zEVPtWnd
-         F/6YmT8hZifW+MKWa39EWP+JJ13OhiYveSHKPDKT3nDrt4ZEOnRx5bXW+Uso22n7IWKx
-         13bja1WQBvnN5PSzIRzaMXE9cIcl16bN076IeuocRxB7fG2rC16nVwRWbgWZG3zaPUeA
-         dWRMh1FQEcGYPup0AczjFO6T7aT6ZQjBnKJzZnJuCafBFJpKUvZIUYvxasbpZ/P0Ev76
-         57Vg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=r9KOTRc9wL7fkg9QzDl0oN9k2u24hRAcP+GL4CPakrc=;
+        b=N4ABMfKbvw09ylPVCep3BnS9mZpkPuOLwFkWavMUj7WeAm1G+PVkAd3YzAF4uysc8b
+         7ZDlJ/013H1JHAlpJ/9cgBrznc0CtJ/1jOiZYUDQ+3WmunHhtMYNSKm39YOM1dJTFfQr
+         tnmIvjJZ9sUF7+m0sXt2cY0bamkiIRneRVpVu9f+ljYjPjgE+qF8zqzXqr6aotce+mlb
+         41CktLzKXtAZxkEnPHYAiTUXGo2HfWBZc2QuC5/V57y7FcOHnYryITdTnzL0niM6pTV/
+         OxMOUhGq86MH9mm5XVo0+iQj0fnHv9gtPRwAVdbiBqm3OQ2qeBwng96nJSs4V1SmYtRU
+         9XEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jiapeng.chong@linux.alibaba.com designates 115.124.30.56 as permitted sender) smtp.mailfrom=jiapeng.chong@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Received: from out30-56.freemail.mail.aliyun.com (out30-56.freemail.mail.aliyun.com. [115.124.30.56])
-        by gmr-mx.google.com with ESMTPS id d6si562386plo.3.2021.02.20.01.10.58
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id d12si602060qkn.0.2021.02.20.01.36.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 20 Feb 2021 01:10:59 -0800 (PST)
-Received-SPF: pass (google.com: domain of jiapeng.chong@linux.alibaba.com designates 115.124.30.56 as permitted sender) client-ip=115.124.30.56;
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R521e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04426;MF=jiapeng.chong@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0UP0VSH5_1613812248;
-Received: from j63c13417.sqa.eu95.tbsite.net(mailfrom:jiapeng.chong@linux.alibaba.com fp:SMTPD_---0UP0VSH5_1613812248)
-          by smtp.aliyun-inc.com(127.0.0.1);
-          Sat, 20 Feb 2021 17:10:53 +0800
-From: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-To: ast@kernel.org
-Cc: daniel@iogearbox.net,
-	andrii@kernel.org,
-	kafai@fb.com,
-	songliubraving@fb.com,
-	yhs@fb.com,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	hawk@kernel.org,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-Subject: [PATCH] libbpf: Remove unnecessary conversion to bool
-Date: Sat, 20 Feb 2021 17:10:47 +0800
-Message-Id: <1613812247-17924-1-git-send-email-jiapeng.chong@linux.alibaba.com>
-X-Mailer: git-send-email 1.8.3.1
-X-Original-Sender: jiapeng.chong@linux.alibaba.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jiapeng.chong@linux.alibaba.com designates
- 115.124.30.56 as permitted sender) smtp.mailfrom=jiapeng.chong@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+        Sat, 20 Feb 2021 01:36:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+IronPort-SDR: z++RMDOoojbTKdjwJXb8WH8RA8EAyucnr8+4ost/pw/lBbNbYmgC5UfJAeFBeij3TfQt4Fmy9u
+ T05oCAHtoX8g==
+X-IronPort-AV: E=McAfee;i="6000,8403,9900"; a="171191527"
+X-IronPort-AV: E=Sophos;i="5.81,192,1610438400"; 
+   d="scan'208";a="171191527"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2021 01:36:32 -0800
+IronPort-SDR: mFzJ7a2JziSroRUajwcOW1F660SWFCANNvl3pQWPubhVa5UKMGE7YTFrH+N+cVtY3Tbfkxl6ak
+ rFRS7vfIMhhA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.81,192,1610438400"; 
+   d="scan'208";a="496891001"
+Received: from pl-dbox.sh.intel.com (HELO pl-dbox) ([10.239.159.39])
+  by fmsmga001.fm.intel.com with ESMTP; 20 Feb 2021 01:36:31 -0800
+Date: Sat, 20 Feb 2021 17:30:29 +0800
+From: Philip Li <philip.li@intel.com>
+To: kernel test robot <lkp@intel.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+Subject: Re: [kbuild-all] [linux-rt-devel:linux-5.10.y-rt 180/279]
+ kernel/time/hrtimer.c:2000:6: warning: no previous prototype for function
+ 'cpu_chill'
+Message-ID: <20210220093029.GA69268@pl-dbox>
+References: <202102201625.yt6cYNku-lkp@intel.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202102201625.yt6cYNku-lkp@intel.com>
+X-Original-Sender: philip.li@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of philip.li@intel.com designates 134.134.136.20 as
+ permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,34 +140,127 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Fix the following coccicheck warnings:
+On Sat, Feb 20, 2021 at 04:27:35PM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git linux-5.10.y-rt
+> head:   822f2ce254f44f8e65ccb2cdbd7cf4cf2208a3ff
+> commit: d8f742a94a343c1e55119961ef3bc669d3aa3c00 [180/279] ARM: Allow to enable RT
+> config: arm-randconfig-r031-20210220 (attached as .config)
+> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/commit/?id=d8f742a94a343c1e55119961ef3bc669d3aa3c00
+>         git remote add linux-rt-devel https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
+>         git fetch --no-tags linux-rt-devel linux-5.10.y-rt
+>         git checkout d8f742a94a343c1e55119961ef3bc669d3aa3c00
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+kindly ignore this report, we will remove the testing of 5.x.y-rt per
+early feedback.
 
-./tools/lib/bpf/libbpf.c:1487:43-48: WARNING: conversion to bool not
-needed here.
+Thanks
 
-Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-Signed-off-by: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
----
- tools/lib/bpf/libbpf.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>    kernel/time/hrtimer.c:120:21: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>            [CLOCK_REALTIME]        = HRTIMER_BASE_REALTIME,
+>                                      ^~~~~~~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:118:27: note: previous initialization is here
+>            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:121:22: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>            [CLOCK_MONOTONIC]       = HRTIMER_BASE_MONOTONIC,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:118:27: note: previous initialization is here
+>            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:122:21: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>            [CLOCK_BOOTTIME]        = HRTIMER_BASE_BOOTTIME,
+>                                      ^~~~~~~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:118:27: note: previous initialization is here
+>            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:123:17: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+>            [CLOCK_TAI]             = HRTIMER_BASE_TAI,
+>                                      ^~~~~~~~~~~~~~~~
+>    kernel/time/hrtimer.c:118:27: note: previous initialization is here
+>            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~~
+> >> kernel/time/hrtimer.c:2000:6: warning: no previous prototype for function 'cpu_chill' [-Wmissing-prototypes]
+>    void cpu_chill(void)
+>         ^
+>    kernel/time/hrtimer.c:2000:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    void cpu_chill(void)
+>    ^
+>    static 
+>    kernel/time/hrtimer.c:428:20: warning: unused function 'debug_hrtimer_free' [-Wunused-function]
+>    static inline void debug_hrtimer_free(struct hrtimer *timer)
+>                       ^
+>    kernel/time/hrtimer.c:621:19: warning: unused function 'hrtimer_hres_active' [-Wunused-function]
+>    static inline int hrtimer_hres_active(void)
+>                      ^
+>    kernel/time/hrtimer.c:1726:20: warning: unused function '__hrtimer_peek_ahead_timers' [-Wunused-function]
+>    static inline void __hrtimer_peek_ahead_timers(void) { }
+>                       ^
+>    8 warnings generated.
+> 
+> 
+> vim +/cpu_chill +2000 kernel/time/hrtimer.c
+> 
+> edbeda46322fbc Al Viro         2017-06-07  1995  
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  1996  #ifdef CONFIG_PREEMPT_RT
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  1997  /*
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  1998   * Sleep for 1 ms in hope whoever holds what we want will let it go.
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  1999   */
+> ca2a97742c3689 Thomas Gleixner 2012-03-07 @2000  void cpu_chill(void)
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2001  {
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2002  	unsigned int freeze_flag = current->flags & PF_NOFREEZE;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2003  	struct task_struct *self = current;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2004  	ktime_t chill_time;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2005  
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2006  	raw_spin_lock_irq(&self->pi_lock);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2007  	self->saved_state = self->state;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2008  	__set_current_state_no_track(TASK_UNINTERRUPTIBLE);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2009  	raw_spin_unlock_irq(&self->pi_lock);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2010  
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2011  	chill_time = ktime_set(0, NSEC_PER_MSEC);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2012  
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2013  	current->flags |= PF_NOFREEZE;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2014  	schedule_hrtimeout(&chill_time, HRTIMER_MODE_REL_HARD);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2015  	if (!freeze_flag)
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2016  		current->flags &= ~PF_NOFREEZE;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2017  
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2018  	raw_spin_lock_irq(&self->pi_lock);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2019  	__set_current_state_no_track(self->saved_state);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2020  	self->saved_state = TASK_RUNNING;
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2021  	raw_spin_unlock_irq(&self->pi_lock);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2022  }
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2023  EXPORT_SYMBOL(cpu_chill);
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2024  #endif
+> ca2a97742c3689 Thomas Gleixner 2012-03-07  2025  
+> 
+> :::::: The code at line 2000 was first introduced by commit
+> :::::: ca2a97742c368981d127fcaf7699756da6233d97 rt: Introduce cpu_chill()
+> 
+> :::::: TO: Thomas Gleixner <tglx@linutronix.de>
+> :::::: CC: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
-index 6ae748f..5dfdbf3 100644
---- a/tools/lib/bpf/libbpf.c
-+++ b/tools/lib/bpf/libbpf.c
-@@ -1484,7 +1484,7 @@ static int set_kcfg_value_tri(struct extern_desc *ext, void *ext_val,
- 				ext->name, value);
- 			return -EINVAL;
- 		}
--		*(bool *)ext_val = value == 'y' ? true : false;
-+		*(bool *)ext_val = value == 'y';
- 		break;
- 	case KCFG_TRISTATE:
- 		if (value == 'y')
--- 
-1.8.3.1
+
+> _______________________________________________
+> kbuild-all mailing list -- kbuild-all@lists.01.org
+> To unsubscribe send an email to kbuild-all-leave@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1613812247-17924-1-git-send-email-jiapeng.chong%40linux.alibaba.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210220093029.GA69268%40pl-dbox.
