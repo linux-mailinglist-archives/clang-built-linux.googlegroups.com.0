@@ -1,133 +1,139 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBI5QYOAQMGQEOY33SPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBY5TYOAQMGQEHVM5I7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9DE183204BD
-	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 10:36:36 +0100 (CET)
-Received: by mail-qk1-x73a.google.com with SMTP id v128sf5283978qkc.12
-        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 01:36:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1613813795; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 45B283204CF
+	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 10:44:05 +0100 (CET)
+Received: by mail-io1-xd39.google.com with SMTP id u24sf5645323ioc.16
+        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Feb 2021 01:44:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1613814244; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KPSGNjk8KCp0mZov4R1lXfSym9qh2LsiWp6V7hA9szi0fkAw5Ev1Rn0FMc6BM9mcrj
-         N0AzpF6Z6wnwu7uExZppCcF5a6wfNq6ZPexFdOrRD+cQ9pa6GU7vHhYqyb8StGdgx4sN
-         C80FPzfw7USv4FvrKTGe7Lpu2N3vaT3pvlLerptFXI8nLVP4qD87bs4XS0HCuhNIAF6v
-         A+OxBDZL8TA/wFxmwVLLkdxy2FrtfvqOW1XWbdFD5vyppNIDgkEbgQYLgazW6joZetjy
-         641/HLSmsiJA0H5CypSA82XyAvnflnkyyXsPUqyF/kJaHE8WSQQxzBif9X0j201M5mGz
-         WiCQ==
+        b=S8qyhNn0VXJ2ZmN1o/f1mVA8QkLAo+Q4XuDww2eB7YlyXKKSwixak66dorkdCE8EL6
+         sD7VembqMon1ehoVM+/mgmtLbDRb0IhyzACCu3DVT5kZdpE1+iwfgsYb4LSt5wxZIJOO
+         vQNpLMrJRf+4E7LUtOsLanBEawILJM+QPRb1fmLL74sY9eTiencgdF4BrO5LpsyO7Qhl
+         v37wRDrSQn3q72t/WSs6JgLWrcvl75EFI9GOOpbwNyDw/WvjXKaonKiNm3wpt6EfXjT7
+         wPx9NkzuGJrsNaycQbW9GEjE5rQxrtFvg9gLAS0LJ24dBwqda6vDL5oDumU7N0m0D+qp
+         CwXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=YVpYV1DWv5xopnXTCzQ5yBNT/kDd0lJfmp7dJ4fuxPE=;
-        b=RumzLy7tVvQyX1dTM2rreKIjRBE9ZrAiOcX2+DrigsVdupaB/Xb0+ZOQp6Dh1b9c6M
-         eHJHCeDS6MBLqPIOKHKrDcOqV/UYNlfgErV7oErcYT13V/O9+AYPSZRXNxaM35ETjiqE
-         ol/Gt7C/Ry3LEYZf9rXc0HkN7UHLbjx4IHIyJz5QFRRjCOVT4siHn9wEHKV3ALnJr5JL
-         icw9EL1U/YjuY7IzeabglNW6knhAI3PpW0RFqBjgQpNGNQUuuGVcZIUfvR2f9WL/103E
-         deVduGNg/sjtmYRnRlSG5m1NJDCf760ES8Gt8yqHm0EyVWXzR3oAoiXr2Dqk9bL2Lw0P
-         PpKA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=1OqH7306z6VEDNGOuyg8hDtcrBbCEl1LrRZzD+hDZCo=;
+        b=lt9V93BXF5b3fewvbTarsS6y9gCFGtQwVhWBWj2VcIxVIr/fWhgID17I/hQDqSiwQ6
+         1BeJWfxg+1/hpLuKmynqkzgTOjq0F2Hehw4nsjhbsSptZPt5tdxzcgUpy15dYyxno+9l
+         1dllrAa0xh0ljwAwy27vWsjKHUlmXZFQCL0rRAH3f037AWUzUY82xZKy/Fn9bu/HeLL8
+         9SdZES60yurchqSSSxqT0A8mxsoxmAsTlMCWFoLpvDNyyV0A3+03viKDX/Dt6vaHfhNs
+         WdEQz8L/qktLFnkhrx1G/S+8jZPPSrRgPirc/G6P3Vrlg6nvwkgw0RwAwdYgVTgY2tFC
+         RrvA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=JLMWTVwt;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b30 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1OqH7306z6VEDNGOuyg8hDtcrBbCEl1LrRZzD+hDZCo=;
+        b=bgeDU4mOohS/2/iBUzSFMKEyjDvWz9JhcW42xrhprFqCzKwRC5CXdkFuPrfcD8CoVs
+         sZQyIME3HzojopAyogEXEn87sqmrvlH9HlU4CvwYUZygzPkLBVHDIBF/RdbG/6yx6nV8
+         BYKmFIdz8Pi4OgJVXrzsj9rsb8AEyb7AlzNeU4FOd6kkQD4jhMJB5tzb+cZ8v7qmiGC2
+         4oC/AsD08L3T6kMe0BIWZmFzgWL7PufkCIhqakL/plwIcHnmK1+rLQEJ8ucFKCF4g1kg
+         Sh1bHcsnDAXClHxafwIcJipt62tR3t3jUpJmT6TzHRaoKaEhmGhIZ+lkYnAbeadLrUeC
+         11Xw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YVpYV1DWv5xopnXTCzQ5yBNT/kDd0lJfmp7dJ4fuxPE=;
-        b=BB/XyA03UVzIBTS3L++R1S/kgOPYVWWLjJQ4l4OPQYahUKO1W/YB9OPJ0hNQEtMjX/
-         IUscxkRxCYBvZf2Y+Bnxwu0R/tH+O0NjfMncMWMm0Cbf9SkDV7mMQjzrcYKPkcCsXaFW
-         g90D2m/9bFagTiHa309bptiFrKMm1/S0iQOLBQueQLW4ApAFDw4j9MLmRGjybCNilF5i
-         Zz2busJR4pr9juszrvnQcDrGdJXyNpD9kZC27MhZC9r7bvmX0p03Fxyg8LoN+Sfh29EH
-         E3IeBCs4/VRuuADExiLg/Pp2NAZtW82gVvOAWNGptAuTPV5qkYaqMMAnJGgYvGBCsRJS
-         W17w==
+        bh=1OqH7306z6VEDNGOuyg8hDtcrBbCEl1LrRZzD+hDZCo=;
+        b=mtlvNgw1RzPTc9thgcdiDuRScbPaQeLAiBrFJWIiklS/h/B451II8++fVbGMcAhNTX
+         XlU2NRA03ufhD77hRTmLC8rqsuRBFzshLsphf30zQxbCCpFh1m9UwEUY8NPH35qUFUr0
+         O89m5NR8l+xgh6FlvDWBxH8m2901eNlTAOL+NjXr69GGgvI1IaslUOenLsqj4x/NHcnv
+         mR6+ByJh1uu3dj05xw1TuMCZIsPlF+5EQHVmIfbks1mZYDjBfimYCnmk2oeywlTYZWcl
+         0Q6+rqceUi+ucZgGz43PqCeuUAKFyrim2ziI8wb6fnOtCczrYL2kdmGsC4o7aTE9ctnE
+         Rkww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YVpYV1DWv5xopnXTCzQ5yBNT/kDd0lJfmp7dJ4fuxPE=;
-        b=IfRgh4hjJcG5GqboTa4QyuEHFjsAdgyEUvopFTmisDwGObKgPNjvUOOJxS2lAzgoWB
-         Dw6gUSFvAdqq817I4S+Pa3ZrwrvZxrHivHijLJhHnmL17NcDW1KYcs+VT6PocO8BL0h1
-         thlHMS0+5e6edk3vbRKbYOAAuKww9k6ioJr7jM8YcwGd/VPq/V46bPMQjLN/4ZvT6pNq
-         pU/IlxGm1250AxQV+Vh4hL6vhnSp5ER9Ja1P/dGijBYOxT1KCYkLrZCjGvQhss1wE627
-         b3TGQIj1VEF7M3lVnpS0TAKtko7FRrPuRJv0rKkYsGrkupW7L+EZJ6dp2m7cyXIh51Bs
-         NfQQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1OqH7306z6VEDNGOuyg8hDtcrBbCEl1LrRZzD+hDZCo=;
+        b=n/J1Ng/H7KT8qmtc16/m8hJm55EODAiSbxLmL1SSLBpy6fWZ7MwYgKn+Zz8mqJV6xF
+         QYlVD3xKrF9H1E9AeQKcnmKkD+9sdzj1wXXojhuLSEXGrJujr2lwO+AOVR0Yu6/NHgsb
+         wB/EtVOPPYGxRbiEW9b2KHZHhlDC9vHPsYPvhvtj2+G+niT4iK9x5DAaf0uVVga/pSLS
+         nhNMJDN8B1onBRp2nVHEvMhSNQr5dXVMo/oWBUlxzlVvB84g3/s+8heX9tIugLYF271L
+         UKYn5L4KEUIZ2A+ffsrhqPO4iit6161Ht52hkATH7f61WND7GAa5QzV9zCploWlWV46R
+         n6Vg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532rvMEf2SnUp23hWSnb8W55gwXK9Tx5YyFNMKoqhjlS69T7aNJo
-	nIAWoZvTvQh1x5W4yensauU=
-X-Google-Smtp-Source: ABdhPJwqu/UynZTupKPNmMMF93w7tK6yoHtTgZU7aJ6UNTcsxALmH7oXhz6gYKn6KwZ7EHMR0A7BtQ==
-X-Received: by 2002:a37:6788:: with SMTP id b130mr13355897qkc.197.1613813795524;
-        Sat, 20 Feb 2021 01:36:35 -0800 (PST)
+X-Gm-Message-State: AOAM532e4g3mCtcUtjF5TrE3m8wFROFtcjIui3/x+K1ky4n/0pYQpeGf
+	iVGvKohLGbwQWcPjzuIGJLw=
+X-Google-Smtp-Source: ABdhPJzn6LJzhaeuU8SNN2ToYqrfXa/G2L1be7IaGqvrwwQvjznQZSVmKu4AgjfX8JXqYIJ2oqqBog==
+X-Received: by 2002:a05:6e02:20e5:: with SMTP id q5mr7241807ilv.131.1613814243945;
+        Sat, 20 Feb 2021 01:44:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:13d2:: with SMTP id cg18ls2959462qvb.7.gmail; Sat,
- 20 Feb 2021 01:36:35 -0800 (PST)
-X-Received: by 2002:a0c:e5c9:: with SMTP id u9mr13000958qvm.55.1613813795151;
-        Sat, 20 Feb 2021 01:36:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1613813795; cv=none;
+Received: by 2002:a05:6e02:1032:: with SMTP id o18ls3093453ilj.5.gmail; Sat,
+ 20 Feb 2021 01:44:03 -0800 (PST)
+X-Received: by 2002:a05:6e02:b2e:: with SMTP id e14mr7116064ilu.164.1613814243487;
+        Sat, 20 Feb 2021 01:44:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613814243; cv=none;
         d=google.com; s=arc-20160816;
-        b=EcgrdIXWTRH1i5dQ1/icQTbZ+dp06oG/Jfmn2C/HYiPxmPQ5EyvMIahfRZu67pQ4df
-         2CmQe9qbb6HkC9ew2tVJ7GRBiR+hz5XecTFfd7qelbd+sMGuuB/kJNBJzQd7fMRu+mfn
-         krNhNyjLwM9lZiG9vrD/C5eJAnNX4MVT8G+tNOnR0EiazB0KVAylQUbFezqNR4H0DKle
-         +I5djdh7cGx3wLU0yhmfQ/6/CGoNPphWNvkNrGasuugUQbNkRyq/JWqP7TVvwtVsFxHV
-         836r4s1GRssBU6edxVYR/eKgNWazFJFIUYehQfxUd+Zxtl+Gb2DgYHtDHTiF1y7GAHBU
-         lKQw==
+        b=TmiUTshXdEq5cEev2Nruk9WajzL/vYWKk+nRRVjHBOG3Jg0XjFi9Mev/c37zcd6pEo
+         qyF1RwuNhLFPUP5BshatI2JuvRPoSJpOO6MUMIpWqE6Fu/F5H1Ctilp9oIwmEIQ8Hl1D
+         un1BXO7Hs4sYjOkWF0IlCWR6LdJN2ADZIZym+W5Dn5EvUOxeBc1LtT+z5y7NayBSfAiW
+         mydCvvd2qqrKZkaAFWVj7Lwp8Zd0XbddNg7/9Pc2auU0kdXUE7aYOtXOofrQsqPhdaF4
+         nuTA6+9QMNS2Fx5VyfkstF9DH2WJx1t2fF7gwfhyGbZ/CmRCvQl2fGVtJOzCQX8BZ1q9
+         W7QQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=r9KOTRc9wL7fkg9QzDl0oN9k2u24hRAcP+GL4CPakrc=;
-        b=N4ABMfKbvw09ylPVCep3BnS9mZpkPuOLwFkWavMUj7WeAm1G+PVkAd3YzAF4uysc8b
-         7ZDlJ/013H1JHAlpJ/9cgBrznc0CtJ/1jOiZYUDQ+3WmunHhtMYNSKm39YOM1dJTFfQr
-         tnmIvjJZ9sUF7+m0sXt2cY0bamkiIRneRVpVu9f+ljYjPjgE+qF8zqzXqr6aotce+mlb
-         41CktLzKXtAZxkEnPHYAiTUXGo2HfWBZc2QuC5/V57y7FcOHnYryITdTnzL0niM6pTV/
-         OxMOUhGq86MH9mm5XVo0+iQj0fnHv9gtPRwAVdbiBqm3OQ2qeBwng96nJSs4V1SmYtRU
-         9XEg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wCFYHvazUgNRbpVltxCwLpepYDDeFNsVpUeCIrSJCvM=;
+        b=SQDBE0/2vnBF4SIyikq7G3WbN8t2AFfpi/MytVpltqazQJB5H7iPDE8v80aBiLLh5Y
+         BMvAx4ICci6RvkJSwvRyUIMc1/685JPclaoLLMbbl8+JYXgtJAc31ggv2hC4c9VxAnw5
+         mdv71GifGcnE7mTckKE7RmxiYyKIP5sbIpu0krvwu9bbQDyu7Wv8o4+1AaJjYqOlhiUV
+         NhC1obCsh7dcT9RGk5JOLn6DTR9AC/oaC6IMVaZoeB64+niAV2vTie/d6baufIMGW1wm
+         zavLxTB1Z6bdZm76heTLr7mqbWbmdPpqFmHPz+oRt+l+IyMZYOxcBRSnxVIJMZG5FeBX
+         +a6A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id d12si602060qkn.0.2021.02.20.01.36.34
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=JLMWTVwt;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b30 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-yb1-xb30.google.com (mail-yb1-xb30.google.com. [2607:f8b0:4864:20::b30])
+        by gmr-mx.google.com with ESMTPS id v81si590634iod.4.2021.02.20.01.44.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 20 Feb 2021 01:36:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: z++RMDOoojbTKdjwJXb8WH8RA8EAyucnr8+4ost/pw/lBbNbYmgC5UfJAeFBeij3TfQt4Fmy9u
- T05oCAHtoX8g==
-X-IronPort-AV: E=McAfee;i="6000,8403,9900"; a="171191527"
-X-IronPort-AV: E=Sophos;i="5.81,192,1610438400"; 
-   d="scan'208";a="171191527"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2021 01:36:32 -0800
-IronPort-SDR: mFzJ7a2JziSroRUajwcOW1F660SWFCANNvl3pQWPubhVa5UKMGE7YTFrH+N+cVtY3Tbfkxl6ak
- rFRS7vfIMhhA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.81,192,1610438400"; 
-   d="scan'208";a="496891001"
-Received: from pl-dbox.sh.intel.com (HELO pl-dbox) ([10.239.159.39])
-  by fmsmga001.fm.intel.com with ESMTP; 20 Feb 2021 01:36:31 -0800
-Date: Sat, 20 Feb 2021 17:30:29 +0800
-From: Philip Li <philip.li@intel.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: Re: [kbuild-all] [linux-rt-devel:linux-5.10.y-rt 180/279]
- kernel/time/hrtimer.c:2000:6: warning: no previous prototype for function
- 'cpu_chill'
-Message-ID: <20210220093029.GA69268@pl-dbox>
-References: <202102201625.yt6cYNku-lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 20 Feb 2021 01:44:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b30 as permitted sender) client-ip=2607:f8b0:4864:20::b30;
+Received: by mail-yb1-xb30.google.com with SMTP id m9so7996977ybk.8
+        for <clang-built-linux@googlegroups.com>; Sat, 20 Feb 2021 01:44:03 -0800 (PST)
+X-Received: by 2002:a25:b91:: with SMTP id 139mr20140258ybl.115.1613814243268;
+ Sat, 20 Feb 2021 01:44:03 -0800 (PST)
 MIME-Version: 1.0
+References: <20210215204909.3824509-1-willy@infradead.org> <20210219195509.GA59987@24bbad8f3778>
+ <20210219205403.GX2858050@casper.infradead.org> <CAKwvOdmNz7PEZGJW5=FaQiWcShYUBMeo--_JS6JU94bUN9HagQ@mail.gmail.com>
+ <CANiq72mZPUMipvF6+Dft2XgqqbSRTnAA32P2XM9373i_nq4UNg@mail.gmail.com> <CAKwvOdmo+5oBGcLsboZDQo_qtT9uusXjD5OPtu8isRuUUZ+ysw@mail.gmail.com>
+In-Reply-To: <CAKwvOdmo+5oBGcLsboZDQo_qtT9uusXjD5OPtu8isRuUUZ+ysw@mail.gmail.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Sat, 20 Feb 2021 10:43:52 +0100
+Message-ID: <CANiq72m6C0U8nG6jaWu4jMa3yzMepGYzwyH-eEufOxCnjy86BA@mail.gmail.com>
+Subject: Re: [PATCH] mm/gfp: Add kernel-doc for gfp_t
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Matthew Wilcox <willy@infradead.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Linux Memory Management List <linux-mm@kvack.org>, Mike Rapoport <rppt@linux.ibm.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202102201625.yt6cYNku-lkp@intel.com>
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 134.134.136.20 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=JLMWTVwt;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2607:f8b0:4864:20::b30 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,127 +146,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Feb 20, 2021 at 04:27:35PM +0800, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git linux-5.10.y-rt
-> head:   822f2ce254f44f8e65ccb2cdbd7cf4cf2208a3ff
-> commit: d8f742a94a343c1e55119961ef3bc669d3aa3c00 [180/279] ARM: Allow to enable RT
-> config: arm-randconfig-r031-20210220 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm cross compiling tool for clang build
->         # apt-get install binutils-arm-linux-gnueabi
->         # https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/commit/?id=d8f742a94a343c1e55119961ef3bc669d3aa3c00
->         git remote add linux-rt-devel https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
->         git fetch --no-tags linux-rt-devel linux-5.10.y-rt
->         git checkout d8f742a94a343c1e55119961ef3bc669d3aa3c00
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-kindly ignore this report, we will remove the testing of 5.x.y-rt per
-early feedback.
+On Fri, Feb 19, 2021 at 11:50 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> (There is a separate warning flag for broken header guards,
+> -Wheader-guard:
+> https://github.com/ClangBuiltLinux/linux/issues?q=is%3Aissue+label%3A-Wheader-guard+is%3Aclosed)
 
-Thanks
+Yeah, this would still help cases with headers without guards (not
+really common, but...).
 
-> 
-> All warnings (new ones prefixed by >>):
-> 
->    kernel/time/hrtimer.c:120:21: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->            [CLOCK_REALTIME]        = HRTIMER_BASE_REALTIME,
->                                      ^~~~~~~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:118:27: note: previous initialization is here
->            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
->                                      ^~~~~~~~~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:121:22: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->            [CLOCK_MONOTONIC]       = HRTIMER_BASE_MONOTONIC,
->                                      ^~~~~~~~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:118:27: note: previous initialization is here
->            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
->                                      ^~~~~~~~~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:122:21: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->            [CLOCK_BOOTTIME]        = HRTIMER_BASE_BOOTTIME,
->                                      ^~~~~~~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:118:27: note: previous initialization is here
->            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
->                                      ^~~~~~~~~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:123:17: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
->            [CLOCK_TAI]             = HRTIMER_BASE_TAI,
->                                      ^~~~~~~~~~~~~~~~
->    kernel/time/hrtimer.c:118:27: note: previous initialization is here
->            [0 ... MAX_CLOCKS - 1]  = HRTIMER_MAX_CLOCK_BASES,
->                                      ^~~~~~~~~~~~~~~~~~~~~~~
-> >> kernel/time/hrtimer.c:2000:6: warning: no previous prototype for function 'cpu_chill' [-Wmissing-prototypes]
->    void cpu_chill(void)
->         ^
->    kernel/time/hrtimer.c:2000:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    void cpu_chill(void)
->    ^
->    static 
->    kernel/time/hrtimer.c:428:20: warning: unused function 'debug_hrtimer_free' [-Wunused-function]
->    static inline void debug_hrtimer_free(struct hrtimer *timer)
->                       ^
->    kernel/time/hrtimer.c:621:19: warning: unused function 'hrtimer_hres_active' [-Wunused-function]
->    static inline int hrtimer_hres_active(void)
->                      ^
->    kernel/time/hrtimer.c:1726:20: warning: unused function '__hrtimer_peek_ahead_timers' [-Wunused-function]
->    static inline void __hrtimer_peek_ahead_timers(void) { }
->                       ^
->    8 warnings generated.
-> 
-> 
-> vim +/cpu_chill +2000 kernel/time/hrtimer.c
-> 
-> edbeda46322fbc Al Viro         2017-06-07  1995  
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  1996  #ifdef CONFIG_PREEMPT_RT
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  1997  /*
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  1998   * Sleep for 1 ms in hope whoever holds what we want will let it go.
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  1999   */
-> ca2a97742c3689 Thomas Gleixner 2012-03-07 @2000  void cpu_chill(void)
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2001  {
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2002  	unsigned int freeze_flag = current->flags & PF_NOFREEZE;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2003  	struct task_struct *self = current;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2004  	ktime_t chill_time;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2005  
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2006  	raw_spin_lock_irq(&self->pi_lock);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2007  	self->saved_state = self->state;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2008  	__set_current_state_no_track(TASK_UNINTERRUPTIBLE);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2009  	raw_spin_unlock_irq(&self->pi_lock);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2010  
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2011  	chill_time = ktime_set(0, NSEC_PER_MSEC);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2012  
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2013  	current->flags |= PF_NOFREEZE;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2014  	schedule_hrtimeout(&chill_time, HRTIMER_MODE_REL_HARD);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2015  	if (!freeze_flag)
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2016  		current->flags &= ~PF_NOFREEZE;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2017  
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2018  	raw_spin_lock_irq(&self->pi_lock);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2019  	__set_current_state_no_track(self->saved_state);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2020  	self->saved_state = TASK_RUNNING;
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2021  	raw_spin_unlock_irq(&self->pi_lock);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2022  }
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2023  EXPORT_SYMBOL(cpu_chill);
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2024  #endif
-> ca2a97742c3689 Thomas Gleixner 2012-03-07  2025  
-> 
-> :::::: The code at line 2000 was first introduced by commit
-> :::::: ca2a97742c368981d127fcaf7699756da6233d97 rt: Introduce cpu_chill()
-> 
-> :::::: TO: Thomas Gleixner <tglx@linutronix.de>
-> :::::: CC: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> What happens should the kernel move to gnu11, as discussed once GCC
+> 5.1+ becomes the minimum supported version for all arches?
+> https://lore.kernel.org/lkml/CAHk-=whnKkj5CSbj-uG_MVVUsPZ6ppd_MFhZf_kpXDkh2MAVRA@mail.gmail.com/
+>
+> Then the warning will not fire, since it's only really meant to help C
+> code be portable between -std=c11.
 
+I think it is a fine warning to keep in the compiler nevertheless
+since you already have it, even if disabled by default or only in
+-Wextra or something like that -- e.g. I would use it in my own
+projects since I never intend to redefine a typedef.
 
-> _______________________________________________
-> kbuild-all mailing list -- kbuild-all@lists.01.org
-> To unsubscribe send an email to kbuild-all-leave@lists.01.org
+> https://lore.kernel.org/linux-mm/20210215204909.3824509-1-willy@infradead.org/
+
+Thanks for the link!
+
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210220093029.GA69268%40pl-dbox.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72m6C0U8nG6jaWu4jMa3yzMepGYzwyH-eEufOxCnjy86BA%40mail.gmail.com.
