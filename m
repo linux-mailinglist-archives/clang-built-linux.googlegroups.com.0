@@ -1,119 +1,126 @@
-Return-Path: <clang-built-linux+bncBCT6537ZTEKRBEMN2CAQMGQE2L6AISA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBD4Q2CAQMGQEJG5UVKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id B1EE1322031
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 20:31:29 +0100 (CET)
-Received: by mail-lf1-x140.google.com with SMTP id a19sf781521lfj.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 11:31:29 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614022289; cv=pass;
+Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3EFC9322045
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 20:37:53 +0100 (CET)
+Received: by mail-il1-x13f.google.com with SMTP id e16sf8614851ile.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 11:37:53 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614022672; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aiw6bPLPaHj8sv6A+36cLklqSH1jOwkWTkWklVXyyZTuWuOv+zNh/yWjNaqgZd+4w5
-         uIfcTua/t8G7/hHx2866vOKczB5kf3cpP7fwcWOv8BFUEK3IZMbcCFb8oTUjZWTYPWxg
-         y7iM724ev4ziY38I9m/G73XrFYgPw6xNFnpaIRJWshd+QfqQ73EPIdfA1xNTzsmD6I0v
-         PQDbN39vNKsZ907v5igRVyW5sOJj/ssnQkMZ9+czxkumvE3KbwIn12pBDXZJHZtObOlA
-         2Wm4VfHN0nJ/0xurw1ZdUMsNUTvLQh5qqBTaTF2tWWAAyQOXNU4XBBrqCiR9WStCiS/l
-         mqFQ==
+        b=YS+wN2mIFV8QP+RvwQpbOmE4qN85FEcgxXSrdE2DOqdLfD7HDd5fbp/De7NcgmPmHa
+         gUzxwyKt8S9mtzpC5BP8EFyVjUp4AnamvBZKCmGSriXjmDFH78+xdC8K6pMlOMU788DR
+         D5d1VDbRHs3vJesG4s7OdBDJnArZgkJWu3butOlSmgULCjlh4zbt/uvtHWM2BkcT+dV8
+         0Un1bLK11JFOkO/TN/MVoERKzCM0rYnJZO2OQhmNfp2vWKyWRPPMuweBL1y0ulHzkgNA
+         1K/WzLNW0BFvIrPi2HwyT2y0h/xy0/5rADZr7TAb5q2a5WqHN2MDFTiMUQlnzaiRrqTG
+         E5ug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :mime-version:sender:dkim-signature;
-        bh=5hFqxc5Ak0Injmfe17p6d9RyDVL4wlU53JqmIwrv00g=;
-        b=QKeUw1lF8kLOXniTE1+CxaBUcmQgBgUQblaj1ym33UXIsN+VKxub33WvYvIoZfFN08
-         Al6qsWTajN9RgCeWtqsZFY+kqydBfBGsI0sO0HzVG2QJN/FZEtfTZgG5OXOyAGxZDgC5
-         0BoN76Mxs6AKzJg5fGGRgPg8Lc45rMr8v+tNbNbZ/Iwj/8dez1BYEaLY2ySgVYgDReMv
-         F5fXHaZU5/JtUsV9h6diGRzg8mwYTNl/G6Z+f+0/VtEZY2liBMNKfO8YJK9nvigkgvLy
-         q3FgpdvIeF0LoeqhqeREtoVolKLTw8KAkCrBdhB+jWz5SKLOOIpv5AO9n9Wqvrpg789W
-         tj7w==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=PQ3I1r3Ind/P0Z4SuxoGJJUcRsL1T04aDnjZgPCtZB4=;
+        b=Rag/xdFbUF5J6YWTWOnj+exbn+I3A+VvBnL++pY+Kz2WedQd7YL29TzV7m7qmtzkgr
+         zGkLcC1AGH0/ZT+uTO1gN9J1PNNYNFlSyhbo8DOFzclk5qUWdtdhALlT/L1mpYWwfKbn
+         gCOXDJsrYGidRSgyDLktDI5DrQV5bdsMMQkiZZR2Q+vtEWIZfxaFXyfXPZnG5UbnDPzc
+         u0qRobJOGdaQCq43aYq2CBiU12CA0uvvlGVKOZ2VW76EJwk1FyfpAsDu8JcMQwOF0pBh
+         0HTYYrsCyFGBUkvIRUVqBLc8fVYnFqPzBcuc8TJhW08JhpT+ufdqo8sJ1d8/s4R/ybeW
+         RAGA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=YpHljT4G;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::534 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cTAtP66v;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:date:message-id:subject:to:cc
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5hFqxc5Ak0Injmfe17p6d9RyDVL4wlU53JqmIwrv00g=;
-        b=Fygcxu2dW8fkEozGaJ5+q/17n9teEquGZlY26pJO2g8lEKif/jYIbnd1Y05sezYRQl
-         HhuDmvXGCSbe/6zOCd+0tTBuYyP8pmB3o3FDCxsZ66RtLdKP4icLPe7jgGzot+ukypMb
-         nIfYpSueOxKCpFJpaNbMOafs0/upS+JBJ+vmxey2UFEyLO3aSPjGNU7x2SdJPc5BjcNC
-         Dp4uTLmmNslzlqS41XAAfYP7pd69m5Jv8Wc72Bu84YE+D2GHn6QImml11/lTugb+R1xT
-         xgjKEE3zGlpAjWxHR2h9Thrl7eoZLllxXSU89AL8I8fKpoLGw9AuN3+ZGhSWgZkQjq/1
-         t1pA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=PQ3I1r3Ind/P0Z4SuxoGJJUcRsL1T04aDnjZgPCtZB4=;
+        b=hJZWSM9onGHbZNgLSF47L9kNlMqF9Q3CuokmMwwQF18ZDjgYD85kN5e3GxDi6t2BXv
+         dgXTLO9W4aL7WtEGHzpstfXZrRueSjuDW7BBxrsu8vc7uKwvm2/+axdSXUscimy0sJTU
+         0m6q4xsihSAg3nYVNaU53ckUuS58GeqR7Ub/1ryqSSbRELnQYikih/AeNKzXp2mNsTOq
+         Ft1f6XqPr22k16Sje2h+Xx70ERuVozScgFofH7TL0Xm6DEr8B9Vojmrq1jFvFpFVz+DQ
+         UfaJX58PEctUeGNCB+96Afx2ZkWM87tVglmUKppMwUASm4bSqQ4FWejW+BA0le1z9abI
+         boxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:date:message-id:subject
-         :to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5hFqxc5Ak0Injmfe17p6d9RyDVL4wlU53JqmIwrv00g=;
-        b=tYlTBIwZ9g79HserXh8ykdPCIVXDPy0yd5JoUznv2nJ3at+YQW4v/CPhG5JbXLNuXg
-         3vEyu8+aeaA3pIRw32q4aIckVT2dyHqgNW6dV+oO9inOrD9E9FcoRGEIi9RDiSuPOp+E
-         PrUeEyrmLhu7fo7y919uTHuytMaC0/VckVISGmXL5rlGWbuT733JTFXoxtPMPwJA3Bs+
-         QNlc08MXAvfx6DAb7SZQtVr3FyvWCZWa8PZndSDffb2HWlLOicb7HLB7LosxZ1DXTgyX
-         NwJ8c7DIsTB5AoNHEmU0Rz3EMZrFywzXSMkIwMM2WYe1KoNg8AaweK0gR3nIPgWC7aSc
-         GoOg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=PQ3I1r3Ind/P0Z4SuxoGJJUcRsL1T04aDnjZgPCtZB4=;
+        b=QQSXp+rTf6TW1eAVl00ylgAagHr7+9/qER9VYiNiJ6FbB78D1jXIMMKePaGnUtmakh
+         IUTK6tClAtCoIBiPDabJsVhuu9dQg/tmW2TSdieTnZ0QT/I+omR8SH0zzWM7I04vr+IX
+         +Y0ZD/BAq8GqxJfiPxrvrqxf19IG4yN8C2jXWfNIVq4ubeaKi1zhBtwDL797lKkYSgoB
+         9k4YR3vte0URxSRglizYmekemuFp5b5b4daP9z3upYa54FnOQdwKAa68hClhfm7XP88k
+         NYjalKlVZwN18p5E5vK2OIUGeCiHpl4Z5Xt1L0Azfgm08PPDOEEsnZ4XWWnE2zqg4BhE
+         3Mcw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53174eOLzyqFFx8W/zqVmlvyNYwlMjm4hT1YkeJMwZp66DrQxWqr
-	sTkKEyW+NL9MgD4RCjtoLpQ=
-X-Google-Smtp-Source: ABdhPJxAl1KyhghBNJ+MAzaOZrazVmt7RWuWtMdeMsBlvkStb0UmMPYoWwiNAZi3IZyW5egWuOAFfg==
-X-Received: by 2002:ac2:5396:: with SMTP id g22mr8460569lfh.173.1614022289289;
-        Mon, 22 Feb 2021 11:31:29 -0800 (PST)
+X-Gm-Message-State: AOAM5323q8cVA0kqnfSpjf32tFw3OwLGwTi6B1RYJgz3P4uoL/Qs8OY6
+	A9qotnGt2XYhYk45SFiIbRA=
+X-Google-Smtp-Source: ABdhPJxasadm0yWstP7jrMKZSkoNqkyjCFz02ebid0yhiSQiDP41fv/8dEulhsEnjAYSJZsHJSwA1w==
+X-Received: by 2002:a5d:9506:: with SMTP id d6mr16559117iom.37.1614022672073;
+        Mon, 22 Feb 2021 11:37:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3993:: with SMTP id j19ls745032lfu.3.gmail; Mon, 22
- Feb 2021 11:31:28 -0800 (PST)
-X-Received: by 2002:a05:6512:3391:: with SMTP id h17mr14010532lfg.542.1614022288330;
-        Mon, 22 Feb 2021 11:31:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614022288; cv=none;
+Received: by 2002:a05:6e02:1a85:: with SMTP id k5ls4632536ilv.6.gmail; Mon, 22
+ Feb 2021 11:37:51 -0800 (PST)
+X-Received: by 2002:a92:ce03:: with SMTP id b3mr14392121ilo.302.1614022671625;
+        Mon, 22 Feb 2021 11:37:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614022671; cv=none;
         d=google.com; s=arc-20160816;
-        b=eZ71AMeehKe61BxbCM+hWaCRxU1zPeWHR5bL8GVZGdS8vlIT3jEpCC86/euq8EYLsS
-         AyuTSgIF3/tA43xcCPgK+LHLoWBPkOJuILCCTQUe/OkUq4VcqF9MfnO4BL2hQsxnpbAY
-         FVm50rH2TIXJzCW/FlJF4KZtsKgmL6pp8MVPVyWLJRh0wFPbLfoXwPSE+XgbS7SJOxDi
-         ulh9n/ynRdT4LFn6Yt0W2q5Dx1XdoUogHKE+R6zl0leTPmf6d/Lul+PMr+/UtNYHR1UE
-         P3OuXbe9DRe9lv+4T1XKH2qyxSn09a08pHTmT1c8X6g5SQeBVp+AxxRXAuMZ4zKmASBQ
-         g9aA==
+        b=m/nmJZO1OnCw3HehZowUO23sVXVWM6hgmcgTe2MbDS/JN9Xk5idoQdv4doyWU31zH9
+         bXh7HjxPhdFaeq+kswDGK01iEdDlmH48TjuNlHWIT4EoA/YzIBZ+asJmQtim2u0N+tSS
+         V/pSEe8Ev/KfONdNHfa6HCBuHqI4O2Im/ou+kqCnNw0LRR8FnjZDqGwIt8kucSefictq
+         3g8PRDvoy2koYEXnO1czMZyilYLlD5fYiQgZouZvRQWIk9Cfy7XeVS6A2CvAGxB4+pQr
+         6rmVzR9aioxBd4EqRzX5AiT+T4Nc7s3vfaOH5vs4GOYgEfVTAKk2CQuwZaAc6Wo0NA5l
+         BRkg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=rfD3SQQQMFNXhoku1DuM9YNETkjiInlQqLxzMPB+06o=;
-        b=T3K0ci6tOZR8SpeG3L4Ek+tftUJe7vp2LEDm+IrFq+ZNPadbSOBXF5cpQB1g6ZTNDB
-         ns6ZQFbMK4jQSn/dlBsUXhkPxu8acbDt2Zp7OQrIdr57zmyJ33W89BJHKRgKxW1uT+CQ
-         kV7xUobVv1I+p0O43ilEUp7iWG5Zj38KElWDlu9R7AEnLOuzBkBQ2cFa77ptCptziHcB
-         J0LoT4fl+FGZIJGe+WlrjVq9O09C6hjR541xtsJELiNbUtYMQeYWMi+f7nux+Va6nw8g
-         xB+EwN0Toy7Zk6VmejknFnsG30Fji4nDVPoqscVlmV/UaJqbTf2JLFeb7+k287XF4LqF
-         AvhQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=UAjubPSxKzE9dz+BQ8PvW9UQwxS+TRngv8PLB3URVRg=;
+        b=hBqPjjJrH3UyGiPBONqU+u/bamlkEujlJYKZ+W+I1l5Rlk18XXT5vXkgv35KdEG/dJ
+         NeUlSLrSzeJ8FJzP3F+Cr6Pu3a8Cr/rATuvK8mIn9RMR0tvIOjCaTl11wbr5h78e+9QH
+         rqdRv2eFZuCgw6ZsB/KiaRWGl+RS4aY1CFIlqb5Upidx7PzedMHIY2QUhDScMG/KML+/
+         VE5zlQPzNVcZTY0MEY05gNCdqveNBANrx42k9XSb5tgLi5Km6gUaMlOQHrjyOOzLY2DR
+         1d7u9ky1DUHlQOtvjgbcecqLjk8ZHXNKeSDRycw5L8YldRj+jpW2CV0QGeNyt2oVQfwF
+         42VQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=YpHljT4G;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::534 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-ed1-x534.google.com (mail-ed1-x534.google.com. [2a00:1450:4864:20::534])
-        by gmr-mx.google.com with ESMTPS id j2si496795lfe.5.2021.02.22.11.31.28
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cTAtP66v;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id y6si947206ill.1.2021.02.22.11.37.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Feb 2021 11:31:28 -0800 (PST)
-Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::534 as permitted sender) client-ip=2a00:1450:4864:20::534;
-Received: by mail-ed1-x534.google.com with SMTP id l12so23480426edt.3
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Feb 2021 11:31:28 -0800 (PST)
-X-Received: by 2002:aa7:d38b:: with SMTP id x11mr24007272edq.23.1614022287226;
- Mon, 22 Feb 2021 11:31:27 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 22 Feb 2021 11:37:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id BDDD564E12;
+	Mon, 22 Feb 2021 19:37:50 +0000 (UTC)
+Date: Mon, 22 Feb 2021 12:37:49 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
+	open list <linux-kernel@vger.kernel.org>,
+	lkft-triage@lists.linaro.org, X86 ML <x86@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: clang-12: tun: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
+Message-ID: <20210222193749.GA2954@24bbad8f3778>
+References: <CA+G9fYuE4ELVDju=LESHnphL4Z2DT5YQjdh9rNgr5D1x5gZxgg@mail.gmail.com>
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Tue, 23 Feb 2021 01:01:16 +0530
-Message-ID: <CA+G9fYuE4ELVDju=LESHnphL4Z2DT5YQjdh9rNgr5D1x5gZxgg@mail.gmail.com>
-Subject: clang-12: tun: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
-To: clang-built-linux <clang-built-linux@googlegroups.com>, 
-	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	X86 ML <x86@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: naresh.kamboju@linaro.org
+Content-Disposition: inline
+In-Reply-To: <CA+G9fYuE4ELVDju=LESHnphL4Z2DT5YQjdh9rNgr5D1x5gZxgg@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=YpHljT4G;       spf=pass
- (google.com: domain of naresh.kamboju@linaro.org designates
- 2a00:1450:4864:20::534 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernel.org header.s=k20201202 header.b=cTAtP66v;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,56 +133,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Following test regressions reported after upgrade to clang-12 from clang-10.
-Regression detected on Linux mainline and stable-rc 5.4, 5.10 and 5.11.
+On Tue, Feb 23, 2021 at 01:01:16AM +0530, Naresh Kamboju wrote:
+> Following test regressions reported after upgrade to clang-12 from clang-10.
+> Regression detected on Linux mainline and stable-rc 5.4, 5.10 and 5.11.
+> 
+> qemu-x86_64-clang-12 failed test cases,
+>   ltp-containers-tests:
+>     * netns_breakns_ip_ipv4_ioctl
+>     * netns_breakns_ip_ipv4_netlink
+>     * netns_breakns_ip_ipv6_ioctl
+>     * netns_breakns_ip_ipv6_netlink
+>     * netns_breakns_ns_exec_ipv4_ioctl
+>     * netns_breakns_ns_exec_ipv4_netlink
+>     * netns_breakns_ns_exec_ipv6_ioctl
+>     * netns_breakns_ns_exec_ipv6_netlink
+>     * netns_comm_ip_ipv4_ioctl
+>     * netns_comm_ip_ipv4_netlink
+>     * netns_comm_ip_ipv6_ioctl
+>     * netns_comm_ip_ipv6_netlink
+>     * netns_comm_ns_exec_ipv4_ioctl
+>     * netns_comm_ns_exec_ipv4_netlink
+>     * netns_comm_ns_exec_ipv6_ioctl
+>     * netns_comm_ns_exec_ipv6_netlink
+>     * netns_netlink
+> 
+> Test error log:
+> --------------
+> [   19.017163] tun: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
+> open: No such device
+> netns_netlink    1  TBROK  :  netns_netlink.c:143: system() failed
+> netns_netlink    2  TBROK  :  netns_netlink.c:143: Remaining cases broken
+> netns_breakns 1 TINFO: timeout per run is 0h 15m 0s
+> [   19.070922] veth: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
+> [   19.095171] veth: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
+> Error: Unknown device type.[   19.101364] ip (751) used greatest stack
+> depth: 12088 bytes left
+> 
+> netns_breakns 1 TBROK: unable to create veth pair devices
+> Cannot find device \"veth0\"
+> 
+> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+> 
+> Full test error log link,
+> -------------------------
+> https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-5.11.y/build/v5.11-13-g6380656c9227/testrun/4002283/suite/ltp-containers-tests/test/netns_breakns_ip_ipv4_ioctl/log
+> https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v5.11-2899-g2c405d1ab8b3/testrun/3994442/suite/ltp-containers-tests/test/netns_breakns_ip_ipv4_ioctl/log
+> 
+> -- 
+> Linaro LKFT
+> https://lkft.linaro.org
 
-qemu-x86_64-clang-12 failed test cases,
-  ltp-containers-tests:
-    * netns_breakns_ip_ipv4_ioctl
-    * netns_breakns_ip_ipv4_netlink
-    * netns_breakns_ip_ipv6_ioctl
-    * netns_breakns_ip_ipv6_netlink
-    * netns_breakns_ns_exec_ipv4_ioctl
-    * netns_breakns_ns_exec_ipv4_netlink
-    * netns_breakns_ns_exec_ipv6_ioctl
-    * netns_breakns_ns_exec_ipv6_netlink
-    * netns_comm_ip_ipv4_ioctl
-    * netns_comm_ip_ipv4_netlink
-    * netns_comm_ip_ipv6_ioctl
-    * netns_comm_ip_ipv6_netlink
-    * netns_comm_ns_exec_ipv4_ioctl
-    * netns_comm_ns_exec_ipv4_netlink
-    * netns_comm_ns_exec_ipv6_ioctl
-    * netns_comm_ns_exec_ipv6_netlink
-    * netns_netlink
+Thanks for the report. This has been fixed in -next and has a CC for
+stable when it is merged into mainline:
 
-Test error log:
---------------
-[   19.017163] tun: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
-open: No such device
-netns_netlink    1  TBROK  :  netns_netlink.c:143: system() failed
-netns_netlink    2  TBROK  :  netns_netlink.c:143: Remaining cases broken
-netns_breakns 1 TINFO: timeout per run is 0h 15m 0s
-[   19.070922] veth: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
-[   19.095171] veth: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err -2)
-Error: Unknown device type.[   19.101364] ip (751) used greatest stack
-depth: 12088 bytes left
+https://git.kernel.org/next/linux-next/c/ebfac7b778fac8b0e8e92ec91d0b055f046b4604
+https://github.com/ClangBuiltLinux/linux/issues/1250
 
-netns_breakns 1 TBROK: unable to create veth pair devices
-Cannot find device \"veth0\"
-
-Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-
-Full test error log link,
--------------------------
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-5.11.y/build/v5.11-13-g6380656c9227/testrun/4002283/suite/ltp-containers-tests/test/netns_breakns_ip_ipv4_ioctl/log
-https://qa-reports.linaro.org/lkft/linux-mainline-master/build/v5.11-2899-g2c405d1ab8b3/testrun/3994442/suite/ltp-containers-tests/test/netns_breakns_ip_ipv4_ioctl/log
-
--- 
-Linaro LKFT
-https://lkft.linaro.org
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYuE4ELVDju%3DLESHnphL4Z2DT5YQjdh9rNgr5D1x5gZxgg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210222193749.GA2954%4024bbad8f3778.
