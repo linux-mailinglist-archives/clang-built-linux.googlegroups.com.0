@@ -1,138 +1,126 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBXVQZ6AQMGQE6J6NG4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBDFYZ6AQMGQETNQV3RA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C330321C88
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 17:14:24 +0100 (CET)
-Received: by mail-pl1-x63d.google.com with SMTP id p1sf2102060plf.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 08:14:24 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614010463; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id E30F6321CFA
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 17:30:04 +0100 (CET)
+Received: by mail-wm1-x337.google.com with SMTP id f18sf712899wmq.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 08:30:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614011404; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VVfzlDtHtxg8W8CayHu+slK1ifQBGKkRIXhKPBkGhFKgy/qrK6EyxgP2YM2W2f7lOi
-         QqzGUhydgNkFMez6M0bsEk4C73ZZZ6Xn4cTE3ftTix3W9nuWFvHO+7MxzdeHQjPkQiQH
-         QIL+7RKnx2psS+W8sRPTH8qCs8ejH2qjjkzPi334Lq2pRko7wGc8QPyjkUIOfnTjA0Fk
-         bRhQDp5y9xnoLiWh0S+qo5pmdNtbL9V3o/yveGceE5UmVQckrwRKv6hZp1fkCLOEgVHN
-         FcNF/HEigk2zQZvJ3eVr+z+cntKs36N8j7oG1bpadq0GDVzACINL40r5cnklMoTCSUIv
-         UIMQ==
+        b=BmXGKodqn7XXZHIihtx72C/G3wzxot+ajQ9l2w9jI2wy1NUJOr714J8on32zJ299A0
+         u21lN1Is6iGWlzd6KcoZqXQD6gk/Gx019x91wVos2Q10+ayZEW4g66Ojvg04qp2D0NhU
+         LPxCEGT1Slx/e+KWgoJJTLz4wtxUlUayNqOJoIbWVn31mUzB1wQ8Y8cWJDOGhv3UxcHf
+         HtU6r3Bu+qKYwEsSyjOtLL+sJp6BbRr9KhNOHDuWQhN0+QZU3MmpEjYuv36V5m7yWMQN
+         7qK1SLsKCmh3d4oqc4lGGuR57wyu+nRxVvECW/U2xt0pIPY4185yi86bFR14vVjnARtb
+         nFhg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=yGyl0jNA9NaIBfuz3n6VECeUP46eADC4OI1g54rKs6E=;
-        b=VuWvpaIbypAaZDBl0khRQ1U9pLd/lydFo6K5L13V/sEUNwxi4k9TApXGNAY51E6jxG
-         0ahZRzsDGrF+scJyHfDfKLhRBeWwfGcJWv9n+SePz+KQCYdWApJThmrFc1DsfagTYN/z
-         IpUATkJSZ5Zeianro8TU6JUExBqs1OqSRkGG+SbjPTONLP4mrzppJu4PMW8ImXXTznf7
-         auTbw3gWGRpx8JaDzFT3KKyJsL/hJcO04OqrSfYcc4dJpw5bzshkKr50QnGQR1qC4pKo
-         65CES24mV3sJoDrLchXQ1GfbbL7tnBOMrkYtsl/LTsPkibALrrpBGS/gmcxF8zEYOWgl
-         4O8w==
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=3A9pCIfZAq7yoAFKUquAK8YpxNtZ1iUtqW0j/y5/m5Y=;
+        b=FzWWkssd9tmgx8o2XU1rwrwcE0SKmxlfRAvIQDD83Rlm37BVOfkwUrEkA8iHUA/4Pm
+         B8NDu8AGcM9q8wWOTyW93loSP7rxAkdsvEE1uq+P9R2/viYrqjg4ihJf1+TM92KuKg6z
+         EKiLaLeSF4Ij4tmRQzHS1u3QPB7rynY8QSME3DbGy5Vud/0Jv+zTEwPyr3X+y8rewfMb
+         J1sMNdM4vWYh/QuKuCCmJKOKL+7tzd10SQ/3UV9svHgatqa4FoJNd2+fjV4BrE07pgsD
+         ObeRnbaOjXNTTXpjfN1ZhA6wTjvtSO3skqnsRYLIqVzWa/ENMTs+CA+/MjppxFbcv1mV
+         42kQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OHPYNZch;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=FTApkqpO;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yGyl0jNA9NaIBfuz3n6VECeUP46eADC4OI1g54rKs6E=;
-        b=jG4LsYtAgRGaDVUs24q7W6LX5WpvkwyFOV6i9JEAIYn/vXACmFvnXvdezUgB2LMxA1
-         vXQdARcP09oGkzoseFPvpYyKYu7DEmSfmA6mHsVVoROlRaAFu5KIqwbnifH5RkIeyQ1I
-         mjbAcPT9tBXHg6SUrX9jQO5ghcfNgpRtvwr7nNGgkLniD99FNCrT/LnjkGGtiZqbPbqc
-         wsScvURjrKmc9uEH0Jh2wFJ3WMvMkzcaB9Bz/PZqp7kP+g1yTAmv1sF+PSr/CixUa0hu
-         lILB2GCBnnh0YwUEnRgnTCqSYzYHvSG2IwVBfZG0FefzBoRjxnL6ujhxN4yvodTA8znY
-         ij7w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yGyl0jNA9NaIBfuz3n6VECeUP46eADC4OI1g54rKs6E=;
-        b=I2MujB0t0D43jBlyBSPl4+pgAKaUwU3z1qpKxOq27JhELgad10/ZNUEVJY6ye7Grax
-         qqwyANw0i5mUe4CV+wId0C7Ph+7yjAfwDYEHZgxc+rHvo4wnla7XQ+XrUAwTWDF5PfB0
-         JrBv2YFSDRYAfiJu1MKldgAQ8mL7KQed9HRKH8oJlPmvVh9s+qxf9UXz/dc2gVMiKz4k
-         Yl5fVY33ylDb7+CPtGMrF53u/JmiOYZT2Tet6SsawoijtyjHKOsv9DDn3UmrKGZeir3K
-         BykJ4tYBT/qU66yu6T7HIvd2SZiMplR+dYEyNTK/1jL4CF2SJ3oKk9dkyEIATOfGiBtn
-         KbcQ==
+        bh=3A9pCIfZAq7yoAFKUquAK8YpxNtZ1iUtqW0j/y5/m5Y=;
+        b=Ui9357aNPQtyNxTyFkdDXkiUBg7qr9nTOQzViShGnTJNKc1TeiTFHRyPf1bydkzr5h
+         UooJYh2flSBvg2IbExGMqjkSbIpvuloervydVkNRSScb98+4bN3cIqOS0nplKOfjWybQ
+         u2MEO3OZ8Er8B32ov5Y1GAuOCpE74pyDEfSQ/Yh/7jPj3vMfx2f5mpfiBisCmFUzZBOm
+         MlBpaS7CyGNRDPvhCrYqfsdrd3jvD2w/6zzVBzC6T+likUMlu9k8ba9oSS9RZtINS6hh
+         d+eP1DXIn3DfevwgkH6wHVoWaSDEIOJVQMWiVbjdA6R57H9aD7/pzz0q3B+8pJvW4nWJ
+         7vKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yGyl0jNA9NaIBfuz3n6VECeUP46eADC4OI1g54rKs6E=;
-        b=PQZrxt9WlKxHdTqlg8cYEaP8sRKevDnIqubjwdL8CnEXKsG/jQontCTKktj4jdyuR1
-         BonroxCV5vJ9kn++gLC4wI+WH973KgGrZkMNTcLMyt9TJ7X6zfQ78LbmMswTG3qw91Lq
-         F9XTUDOsQA73ty2uzwprnuQz5irEkX4m2D1zR15ihhrxsmtGMYSTwXVtb3pkbk/LZ74l
-         jFsQGcPMkyun1lNcDh0buKE4rtHClgLMVW+Hu+KmXaTiU1Be8L6UiRLrKxQF8r16Of1L
-         HDZCuh5sJwLMDO7heViCS1k6wT+tmG3hvUk3psbH8qmst1VgF6s58KHekzD9/4nWFpFG
-         eDiQ==
+        bh=3A9pCIfZAq7yoAFKUquAK8YpxNtZ1iUtqW0j/y5/m5Y=;
+        b=DA6FrvZ48WAQIDwTi7ANBnIIQ2W94PStEumThk0R9l9TaBbBAEu3YbsqiIUfgKs9VP
+         zxnJ74tFewgZPPyaBpzg2lRRbWKEXoeJdNA736TdoMRAszAJnkRA5Y+BfvT++j4yVo4O
+         KLtDGto8P7qXznqe6B8km9QQ7PWylB/lqBZb9O3eMkGJkGFmWLWq27Eqq2PdAq1q7Ula
+         ERU9tgNw9TFoo8zTvdfxxvkhlOHG30viIZK7XTDR3o2iAaZ7aL6aep+CS+OIY6RLDmgs
+         lQ03K2GF8d3inkRyKtSOvgOrkE55DbiF48QFR6ahtARil7xSW75bP5ogPQjFNGWvxv/t
+         VkEQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531x41UptwFys2+2tWgNbgreQge31e0b/YlIYKH+opsaIi+iHiN9
-	BI0fAPLIv6hkjFot8klge9Q=
-X-Google-Smtp-Source: ABdhPJxTNCE7dhVrywXqWQOaxrBU2GFEc88BDLhFkwztCOcUZDe3gDd6zGkTvaUVvbHJoUxziT4P1w==
-X-Received: by 2002:a17:902:8a88:b029:e3:1bd0:2c29 with SMTP id p8-20020a1709028a88b02900e31bd02c29mr15383721plo.5.1614010462928;
-        Mon, 22 Feb 2021 08:14:22 -0800 (PST)
+X-Gm-Message-State: AOAM532bXEtc3FCIdS1GDvZGj5q9mtNy4AWV7peVqQedGyjPiWJ/lH4l
+	zUyVHYbEATznl+5vja06u+0=
+X-Google-Smtp-Source: ABdhPJyp8TMaCtyrJDm5RmmWAAPruYgHOo/JBQIQoZRIatGXUSIALX0EoCPE39NY+8+dFJbqbXSVbQ==
+X-Received: by 2002:a7b:cd1a:: with SMTP id f26mr3253652wmj.93.1614011404573;
+        Mon, 22 Feb 2021 08:30:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:e788:: with SMTP id cp8ls1605994plb.4.gmail; Mon, 22
- Feb 2021 08:14:22 -0800 (PST)
-X-Received: by 2002:a17:90a:19d0:: with SMTP id 16mr24515113pjj.121.1614010462296;
-        Mon, 22 Feb 2021 08:14:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614010462; cv=none;
+Received: by 2002:a5d:5592:: with SMTP id i18ls2022969wrv.2.gmail; Mon, 22 Feb
+ 2021 08:30:03 -0800 (PST)
+X-Received: by 2002:a5d:4b50:: with SMTP id w16mr14242503wrs.34.1614011402243;
+        Mon, 22 Feb 2021 08:30:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614011402; cv=none;
         d=google.com; s=arc-20160816;
-        b=lM/1lNW/zFdiG19g/ztLSoG7XbT9v8KWchdnVk5TDsGt2Vc2upypYpfQN1a4BBJ4zb
-         qqePwU1JjX+m/HneEc7SX3rDVMA9ODl6PJ8gkX0C6qIMyxkjw8qzL1go3Z5Da5+bQ1oZ
-         2/TAf5iUdFqJUogVK97k1N8na2a2L1kINnfwR8rEfNnebohEDlBdjVCYbXgajJBe5RXS
-         ZBmv4MW9EHBGenl2or1IJ8uPhBN/8Wmx0ZJfXfp+EyWrhKg5syhAxTEMSddUUrMoCP2L
-         P1F/XIOLko38DsY/E7uEmg6/6GeRyBmnJrF2nXnRnIUE+mzR26Hp9hTnH1wFlPwj8l0s
-         VHdg==
+        b=QPsjS1+Nu90f/H9Ys8aVKnbUW03MXBWTmg6HjL9DyvSFRmdjJ/uzBFaQ2061YpTZ0c
+         HKspqkKdrZ80CqRLpeBs4IbTQpOf8J2zSAHBA4MJdYmKrhrK4n2FVYF3pv5UNzghxH4n
+         A5OeZqIMIo8GQMpzw1AaZPqWerTJyze7+okCcUeHZMvyyBkhPnvvCB5fy+i1y2rQcKTW
+         EwP17dIJHNvyqATbxoXWxqGxiMdK4VRDLNu0n2ai8X7Z3ZSu3YZBwCwk68hHYE4ftU2M
+         9aOEiYzU31EWsTQH4QdDuqCjc0IerBScWwt3Vsp8hc5vm4tL+Z53I37jFyqJNjVqHYtH
+         yIAQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=wv8UYvkcZRJDa28Q22Hdgwpxjk6P0Y3TZKnCb4xl10k=;
-        b=JBikVkV13DqE57o0Y/cGJADCa4Fjun2dB1dVc+i9PpDovYtfOwt0NM8xXbIsZHyR1k
-         Z/QLV24hApfi3rjrzuCdRlgjFN/Pz+JUcRpxQd8+3NEn1VQ13XEYPRTZnCb9zTdRRC5H
-         F9AYqEZZYMlkscW1nYrZd9im7tUunrt6RykevfbllHTqbou5As/BmyIkp/LstsspD0Ez
-         7aoD++0I54NnYV5Gv75kYVpT2of5SmN7WcWQhbxI3BRWMLwO9CYtbKqOWxHuNQIZF401
-         /0Q4N5ju3SOlVq6T79OxSNLsl0skvBGxChik2fMF48bN6v9rUgWPP7GzSbNwnkk2SYuN
-         IgnA==
+        bh=iYFZQhpI9PWFICV4j9Dcg2L4iXOc1SnJH/pDiQOJqnU=;
+        b=gK9xs+RhCTDdL8YSXuqJeh+muf2XK+ANnpAmyJq2DZBxW+7jBeBep/KG0dN/vhtVzD
+         c4mDDaLRnwGha6tWIRCs8WWOk6zuX4g+nFD/zyRNjoMvAUEaQWb3rMvHvKkwN0fvwjpi
+         N9hSRHwIFpgC6oFS/fy0WDPb3SI1HsjW1KtgQwAWXKbJ6ke131ONAOnfOV4MLtB6bUwG
+         2N2RZRBTel+kwa02iAs/lXas4hYoof0P/BhSHRjWc/sskNJC0/cbu96MKmSJ/74VluxQ
+         zVGoqb4TF8sFCIh4vuzuZFgehSWIgh1zi0UUGVnP3MHqWYmCk2YzTwCYwBz16CoW6ldB
+         TpHQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OHPYNZch;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d30 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd30.google.com (mail-io1-xd30.google.com. [2607:f8b0:4864:20::d30])
-        by gmr-mx.google.com with ESMTPS id 33si9781pjz.3.2021.02.22.08.14.22
+       dkim=pass header.i=@linaro.org header.s=google header.b=FTApkqpO;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-ed1-x531.google.com (mail-ed1-x531.google.com. [2a00:1450:4864:20::531])
+        by gmr-mx.google.com with ESMTPS id u1si704659wmj.0.2021.02.22.08.30.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Feb 2021 08:14:22 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d30 as permitted sender) client-ip=2607:f8b0:4864:20::d30;
-Received: by mail-io1-xd30.google.com with SMTP id y202so13805612iof.1
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Feb 2021 08:14:22 -0800 (PST)
-X-Received: by 2002:a05:6638:44e:: with SMTP id r14mr5145828jap.138.1614010461687;
- Mon, 22 Feb 2021 08:14:21 -0800 (PST)
+        Mon, 22 Feb 2021 08:30:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) client-ip=2a00:1450:4864:20::531;
+Received: by mail-ed1-x531.google.com with SMTP id d2so22744168edq.10
+        for <clang-built-linux@googlegroups.com>; Mon, 22 Feb 2021 08:30:02 -0800 (PST)
+X-Received: by 2002:a05:6402:26c9:: with SMTP id x9mr23507629edd.365.1614011401515;
+ Mon, 22 Feb 2021 08:30:01 -0800 (PST)
 MIME-Version: 1.0
 References: <CA+G9fYtNOZ-G_RTq_Uedy-7wkFog2q+OWNbWd--eL+i2-OQ7NA@mail.gmail.com>
-In-Reply-To: <CA+G9fYtNOZ-G_RTq_Uedy-7wkFog2q+OWNbWd--eL+i2-OQ7NA@mail.gmail.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Mon, 22 Feb 2021 17:14:16 +0100
-Message-ID: <CA+icZUVdpyNC=e8Cdg2bXaKdQGgkY1Te-OEXE7jaKARw0KKrCw@mail.gmail.com>
+ <CA+icZUVdpyNC=e8Cdg2bXaKdQGgkY1Te-OEXE7jaKARw0KKrCw@mail.gmail.com>
+In-Reply-To: <CA+icZUVdpyNC=e8Cdg2bXaKdQGgkY1Te-OEXE7jaKARw0KKrCw@mail.gmail.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Mon, 22 Feb 2021 21:59:50 +0530
+Message-ID: <CA+G9fYvGgR82mwC9Kk6fKR6Cb53u02MQJffBBZ+bTp2nNxHL7A@mail.gmail.com>
 Subject: Re: clang-12: i386: Unsupported relocation type: R_386_PLT32 (4)
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
+To: sedat.dilek@gmail.com
 Cc: clang-built-linux <clang-built-linux@googlegroups.com>, 
 	open list <linux-kernel@vger.kernel.org>, x86-ml <x86@kernel.org>, 
 	lkft-triage@lists.linaro.org, Nathan Chancellor <natechancellor@gmail.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Fangrui Song <maskray@google.com>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-stable <stable@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=OHPYNZch;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d30
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b=FTApkqpO;       spf=pass
+ (google.com: domain of naresh.kamboju@linaro.org designates
+ 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,112 +133,114 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 22, 2021 at 5:08 PM Naresh Kamboju
-<naresh.kamboju@linaro.org> wrote:
+On Mon, 22 Feb 2021 at 21:44, Sedat Dilek <sedat.dilek@gmail.com> wrote:
 >
-> While building i386 configs on stable-rc 5.10, stable-rc 5.11 branch
-> and mainline
-> with clang-12 these following warnings and errors were noticed.
+> On Mon, Feb 22, 2021 at 5:08 PM Naresh Kamboju
+> <naresh.kamboju@linaro.org> wrote:
+> >
+> > While building i386 configs on stable-rc 5.10, stable-rc 5.11 branch
+> > and mainline
+> > with clang-12 these following warnings and errors were noticed.
+> >
 >
+> Hi Naresh,
+>
+> Please see commit bb73d07148c405c293e576b40af37737faf23a6a
+> ("x86/build: Treat R_386_PLT32 relocation as R_386_PC32").
+> Recently accepted into Linus Git tree.
 
-Hi Naresh,
+Can this be backported / cherry-picked into stable-rc 5.10 and stable-rc 5.11 ?
 
-Please see commit bb73d07148c405c293e576b40af37737faf23a6a
-("x86/build: Treat R_386_PLT32 relocation as R_386_PC32").
-Recently accepted into Linus Git tree.
+>
+> [1] says:
+>
+> Further info for the more interested:
+>
+>   https://github.com/ClangBuiltLinux/linux/issues/1210
+>   https://sourceware.org/bugzilla/show_bug.cgi?id=27169
+>   https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6
+>
+> Hope that helps.
+>
+> - Sedat -
+>
+> [1] https://git.kernel.org/linus/bb73d07148c405c293e576b40af37737faf23a6a
+>
+> > make --silent --keep-going --jobs=8
+> > O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=i386
+> > CROSS_COMPILE=i686-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
+> > clang'
+> >
+> > drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:2586:9: warning: shift
+> > count >= width of type [-Wshift-count-overflow]
+> >
+> >         return hweight64(VDBOX_MASK(&i915->gt));
+> >                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > include/asm-generic/bitops/const_hweight.h:29:49: note: expanded from
+> > macro 'hweight64'
+> > #define hweight64(w) (__builtin_constant_p(w) ? __const_hweight64(w) :
+> > __arch_hweight64(w))
+> >                                                 ^~~~~~~~~~~~~~~~~~~~
+> > include/asm-generic/bitops/const_hweight.h:21:76: note: expanded from
+> > macro '__const_hweight64'
+> > #define __const_hweight64(w) (__const_hweight32(w) +
+> > __const_hweight32((w) >> 32))
+> >                                                                            ^  ~~
+> > include/asm-generic/bitops/const_hweight.h:20:49: note: expanded from
+> > macro '__const_hweight32'
+> > #define __const_hweight32(w) (__const_hweight16(w) +
+> > __const_hweight16((w) >> 16))
+> >                                                 ^
+> > include/asm-generic/bitops/const_hweight.h:19:48: note: expanded from
+> > macro '__const_hweight16'
+> > #define __const_hweight16(w) (__const_hweight8(w)  +
+> > __const_hweight8((w)  >> 8 ))
+> >                                                ^
+> > include/asm-generic/bitops/const_hweight.h:10:9: note: expanded from
+> > macro '__const_hweight8'
+> >          ((!!((w) & (1ULL << 0))) +     \
+> >                ^
+> > drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:2586:9: warning: shift
+> > count >= width of type [-Wshift-count-overflow]
+> >         return hweight64(VDBOX_MASK(&i915->gt));
+> >                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > <trim>
+> >
+> > 32 warnings generated.
+> > Unsupported relocation type: R_386_PLT32 (4)
+> > make[3]: *** [arch/x86/boot/compressed/Makefile:116:
+> > arch/x86/boot/compressed/vmlinux.relocs] Error 1
+> > make[3]: *** Deleting file 'arch/x86/boot/compressed/vmlinux.relocs'
+> > make[3]: Target 'arch/x86/boot/compressed/vmlinux' not remade because of errors.
+> >
+> > Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+> >
+> > Steps to reproduce:
+> > ---------------------------
+> > # TuxMake is a command line tool and Python library that provides
+> > # portable and repeatable Linux kernel builds across a variety of
+> > # architectures, toolchains, kernel configurations, and make targets.
+> > #
+> > # TuxMake supports the concept of runtimes.
+> > # See https://docs.tuxmake.org/runtimes/, for that to work it requires
+> > # that you install podman or docker on your system.
+> > #
+> > # To install tuxmake on your system globally:
+> > # sudo pip3 install -U tuxmake
+> > #
+> > # See https://docs.tuxmake.org/ for complete documentation.
+> >
+> > tuxmake --runtime podman --target-arch i386 --toolchain clang-12
+> > --kconfig defconfig  --kconfig-add
+> > https://builds.tuxbuild.com/1opxSKxZuRowPsiOsSJ0IoUOXOt/config
+> >
+> > --
+> > Linaro LKFT
+> > https://lkft.linaro.org
 
-[1] says:
-
-Further info for the more interested:
-
-  https://github.com/ClangBuiltLinux/linux/issues/1210
-  https://sourceware.org/bugzilla/show_bug.cgi?id=27169
-  https://github.com/llvm/llvm-project/commit/a084c0388e2a59b9556f2de0083333232da3f1d6
-
-Hope that helps.
-
-- Sedat -
-
-[1] https://git.kernel.org/linus/bb73d07148c405c293e576b40af37737faf23a6a
-
-> make --silent --keep-going --jobs=8
-> O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=i386
-> CROSS_COMPILE=i686-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
-> clang'
->
-> drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:2586:9: warning: shift
-> count >= width of type [-Wshift-count-overflow]
->
->         return hweight64(VDBOX_MASK(&i915->gt));
->                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> include/asm-generic/bitops/const_hweight.h:29:49: note: expanded from
-> macro 'hweight64'
-> #define hweight64(w) (__builtin_constant_p(w) ? __const_hweight64(w) :
-> __arch_hweight64(w))
->                                                 ^~~~~~~~~~~~~~~~~~~~
-> include/asm-generic/bitops/const_hweight.h:21:76: note: expanded from
-> macro '__const_hweight64'
-> #define __const_hweight64(w) (__const_hweight32(w) +
-> __const_hweight32((w) >> 32))
->                                                                            ^  ~~
-> include/asm-generic/bitops/const_hweight.h:20:49: note: expanded from
-> macro '__const_hweight32'
-> #define __const_hweight32(w) (__const_hweight16(w) +
-> __const_hweight16((w) >> 16))
->                                                 ^
-> include/asm-generic/bitops/const_hweight.h:19:48: note: expanded from
-> macro '__const_hweight16'
-> #define __const_hweight16(w) (__const_hweight8(w)  +
-> __const_hweight8((w)  >> 8 ))
->                                                ^
-> include/asm-generic/bitops/const_hweight.h:10:9: note: expanded from
-> macro '__const_hweight8'
->          ((!!((w) & (1ULL << 0))) +     \
->                ^
-> drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:2586:9: warning: shift
-> count >= width of type [-Wshift-count-overflow]
->         return hweight64(VDBOX_MASK(&i915->gt));
->                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> <trim>
->
-> 32 warnings generated.
-> Unsupported relocation type: R_386_PLT32 (4)
-> make[3]: *** [arch/x86/boot/compressed/Makefile:116:
-> arch/x86/boot/compressed/vmlinux.relocs] Error 1
-> make[3]: *** Deleting file 'arch/x86/boot/compressed/vmlinux.relocs'
-> make[3]: Target 'arch/x86/boot/compressed/vmlinux' not remade because of errors.
->
-> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
->
-> Steps to reproduce:
-> ---------------------------
-> # TuxMake is a command line tool and Python library that provides
-> # portable and repeatable Linux kernel builds across a variety of
-> # architectures, toolchains, kernel configurations, and make targets.
-> #
-> # TuxMake supports the concept of runtimes.
-> # See https://docs.tuxmake.org/runtimes/, for that to work it requires
-> # that you install podman or docker on your system.
-> #
-> # To install tuxmake on your system globally:
-> # sudo pip3 install -U tuxmake
-> #
-> # See https://docs.tuxmake.org/ for complete documentation.
->
-> tuxmake --runtime podman --target-arch i386 --toolchain clang-12
-> --kconfig defconfig  --kconfig-add
-> https://builds.tuxbuild.com/1opxSKxZuRowPsiOsSJ0IoUOXOt/config
->
-> --
-> Linaro LKFT
-> https://lkft.linaro.org
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYtNOZ-G_RTq_Uedy-7wkFog2q%2BOWNbWd--eL%2Bi2-OQ7NA%40mail.gmail.com.
+- Naresh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVdpyNC%3De8Cdg2bXaKdQGgkY1Te-OEXE7jaKARw0KKrCw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYvGgR82mwC9Kk6fKR6Cb53u02MQJffBBZ%2BbTp2nNxHL7A%40mail.gmail.com.
