@@ -1,141 +1,134 @@
-Return-Path: <clang-built-linux+bncBDPZFQ463EFRBW6I2CAQMGQEYQCOGBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBGWO2CAQMGQEIGJTHPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E708322188
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 22:38:36 +0100 (CET)
-Received: by mail-qk1-x73e.google.com with SMTP id a80sf2384882qkg.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 13:38:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614029915; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id CCA413221C2
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 22:50:19 +0100 (CET)
+Received: by mail-qk1-x73c.google.com with SMTP id h126sf6937738qkd.4
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Feb 2021 13:50:19 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614030619; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SeSAEhqDzbO5SAlQTvupLgMU66qUV3FZwe5Li9YDQIf0OUWDyS0WRXvuShYRt5C/yh
-         fbmSrrpHxtSQEx1nGFSC4Hk4j5RN5Rw+tAJfE2tUcpbbfHeP+oeUdrrcH/nVp4/EGIp+
-         D1m/H7OaiYs1jB8XaWGjwE0vcyc6FFa52gRcgN+JyIHJ64U5JdzpBMVeAsD4dp+aySSy
-         MvVrbf0+bHVUXv0SF8Rh3CjXkfbYwRt74H9ovKVByhmNp1gzOVCWR2sd5bGwfvu//bxh
-         NO39NWmx1JwtuMc6zsrV2Lqkf8yQikL5EXSXSXlp6khYfWQbe0WcsILNDsafQheG/0x3
-         FdVg==
+        b=ixNX/0AEZI7ONDSv4LBWZYup49qsm2XTe7YIflS+KrF7A33nAE5X7s5hXzz9vwpvv1
+         9E8HCXjymiXUgvqpIt73wsjrQarpHVBLP3Kbi0wJiS6uUSlzNFiGlNo7Z7GHkWcBLOIC
+         jAU3S1j+tc+FAIYnv3CwfLk5Ys/lSmVIx+YM1FQLpAiVi1AmV1t/jx3wig26BiU5btW6
+         7qcKz+X7V4UpxPKRB4Crp4hZcua5zSweLbaYc5RQ1pwTt/ZtV9Spmtq+BletTn2cOZ5U
+         fUbSmpkH7hZeEnmCsBCMej2JMhnX45n1iFMiEGpbACVG2xJICFzdSCKs07d+qFwafcS4
+         cAig==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
-         :subject:message-id:date:from:in-reply-to:references:mime-version
-         :sender:dkim-signature:dkim-signature;
-        bh=kBzsgzcftLGV5BTP84lPAHk2ryqbNeXeXSh3F2pSTXw=;
-        b=eu98rTmkJBTfxahnRCWNh9YxB5510Ccl1fm4PW67M4XoRp+29Ng0hsX69b0KojVEnP
-         DqlHuPb5ciLTAIFo/vMh/qhfByTx0IoIw/aFnw8nRVN+10EiP3pJsDFpkj8lVVBqV3aT
-         9Z2szq/LgtstU//2IweWpuJ1DxsJQVodZPiYiHd9z2WYmzmhtUXk+r8N6vOVUlfHIOzT
-         g7lGDGwkIBOTo1ezmSMMRjaHlJ0HurRwlBMHxNIBu+NaMHsiAEnBUVsR8zJYBLZmO6Gq
-         ZNeQT4MYMaT6GSjDkjeHxBTgfPiMdrj23xl18PDvHboN6h54zuWGTvPjiC7Zj+eTPvQY
-         eS0g==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=8EVrsr7DA/K3uowT0TvjSHQl7wCIphtYcIQ6JD6xvQY=;
+        b=b8aKgiBuvEjbTWil3BzN/fhKVvlGQTdCIk8hNS/qSQIQ9rD6Kruft1ftmm9+xcTDv3
+         fcCRLxgcKeAOFQH8juqPdBPmV4g+fEmagb6p+PpOHV5dY47LUNravy5eAIbHOdJFGf5w
+         VoNP/tw6whBxCRxASAmvnf5g80FrIAYB32LtNNSnsHU3h0hzuk/fNUmyoE7lTvW2ZRzL
+         cEta13qULelsU2kj48Eqqy1zgdt+JA6aPeqkNS4k9WqsZF1MKkNQC4/C66mNy7QdaVHL
+         E7Lu2YgsBacrSvs2LbmENU7zmridKATM1Bnk3pIPWVPLcm5FMgYQbVUVlK27Iw4MuWOr
+         uegQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jV8vA8ff;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::c32 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oPaglzkj;
+       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::334 as permitted sender) smtp.mailfrom=jiancai@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kBzsgzcftLGV5BTP84lPAHk2ryqbNeXeXSh3F2pSTXw=;
-        b=PP5EaxSSD7jEi385qy0G5NHgcnvJBvdFvcItUGqdxOtO5jUE9hgk9rIf3hdEYmBs9K
-         mIf2HP2Pa4VIzF6eXF3Sin/fW7FsPZw+ndvzAB44My3zV9r+WfQo0u5ngRlbnL3IHZPd
-         wV+Z0jCx8UPifjHTqt3ZWsGCQ/F8qICo53Q4RhtG9B0AZWLpmmhv8unot+j6IAULfj0U
-         2wXSsZzQanRRQfzlPNo9H1EO17kasQwWsHl15HljfkZGXxAs2fKxGZC1YfGEHZph/rrF
-         cQK1L8zuOb5X8ZCrJ5cdWrZ2Zl2Tc9ht6niWU7Ud+RI3iok0iq9b+Pm+ZjhpbCLaIw7p
-         eBmw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kBzsgzcftLGV5BTP84lPAHk2ryqbNeXeXSh3F2pSTXw=;
-        b=BHK37EXO/iPSoSxwD60cw7WmxmIDP50A9PCooNpSJ3niwrmzeXMp/Mq9qxUkitKRUP
-         Kuu4LupykNDmNMSY4bzMi27hftggFAcMUeuI6B7N52RJ9LXJOWffcZdlbP4NwB6iOxEL
-         fNejxVU+xA5Koid5aeiRSV+vM8TofI9qp828pw3TMvAI1iR5s9NLc6q6p7KL3ykOAUim
-         DpDee36ewKlKuLeyp+gYTKkl5+cYVoLa3D3aGnto8kHuS9vHGPuAJjF7Pt8Ci50ogGhl
-         bTD2CAU6qRb2/u0ElA0NCPpWSP9gnIDPWd2/ura5roL3esfd2DXxV6gczBpSiYr9rmuO
-         41kg==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8EVrsr7DA/K3uowT0TvjSHQl7wCIphtYcIQ6JD6xvQY=;
+        b=qaZgFBPgJ2aNsqTTXDFAQvK1kQVVlgPBC2i1ECl8ZVxMg/2FNH7PY8OEtZPfZ1Ct8t
+         Caefw/tqCWarKDksZKbmcpEiEyJ5ObyrHn3nwIK9oWNShvv9CG64iq31OGBaDmUw+uar
+         +9c9VsCGTXe8hlh3Dvq7OPO/psvgXsb9VPp67R4qREswJcs/Pi3orgj2vxerXCx62Fcm
+         0cyguryft/1DGBDujd+9ma4OToUDaLntPqKBBDbg0DVrzlM2Xr93yHUkLHLLmxq77TJr
+         wV/lcnm/nKwvmLqtNoC6r51fNbxGYPqv+/xW4WUePqsbX5da6KgbUKTpkS1XapO+t9IZ
+         FONw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=kBzsgzcftLGV5BTP84lPAHk2ryqbNeXeXSh3F2pSTXw=;
-        b=el497ObYBRGCI869mHRnkBhgB5Hs49p0wrXSFfbyJfHXSEwpWyVdIinOLUDicZABv0
-         XkJ9ioiS3gcuQv2tJGI66nOJHHEeeQkvFii4rwRM6RmgvkU4KvaL4IpZwXjafyCuL2Df
-         Mv5qyL1sF6/AfaFswZz5vQt9wL6oxxROyBwTAelJh51Ng0FnDY9ewxm0C8qVcGPTTRpC
-         nJWX4oC6RXr/965/w6FSFx7MAiT46xLaPUJDXMtA5gdVxd0CsHx1I6/VpbfemvoxOxCU
-         tA7LjBKnn7m4jrHu1KncEgCjPzl5ygf1vGpcPjQGJtTj4qJTTB4LwIWqcX/FZPpBTmdU
-         ux/w==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532A7brF9TtHsAAcfB+8qAWfzC/nNzOhkl+s4yG4H/N9dFMaPQgA
-	nt4ksnfpAkLAgvnx7lR5XqQ=
-X-Google-Smtp-Source: ABdhPJwDmt7OelFFJhrcAgGeDXZQwOex3m3rqOmkvJYoSVqZX9X38FIEDd51vf+/LJOUrjBbv9EZuQ==
-X-Received: by 2002:a0c:b526:: with SMTP id d38mr22373672qve.7.1614029915522;
-        Mon, 22 Feb 2021 13:38:35 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8EVrsr7DA/K3uowT0TvjSHQl7wCIphtYcIQ6JD6xvQY=;
+        b=ck7pkKaANaUqfQVnMMnktPl9alVJ8ueaJh0wh3x01Kewl9QqqmARiFJAj1KOeGYHQo
+         OskJIIVCMOB6eao7nPEg0RtuTaO3V0P5w1QJjI2jN9MSvnX40tjU2QGWAQKbvVqnjxwL
+         mCAZqLNdgILEf33Gan5g5YX235r7/1X1fIVMcgYcz5wkeQFWdk7IjGWVnrkCFCcWehk/
+         QMNPzAnaCfJg9cEVjNAyzRPwNTKMckQWZi0yupe5rj8bfEeU27QRGTO7Phr9iIcwFCqZ
+         hW3dpNjAq0blyetRNf9Lzl93250U4BBDPPRR6WUJA7xdgeyXT5hQlelrcZMMVt8t+pAB
+         LSNA==
+X-Gm-Message-State: AOAM531JHsHuaZM+aQreWxBiRfaUZ+CE5OqRQlP9dfyA24ftOrg0JMxJ
+	LRdVE3NMjh2puWggHBXkUiE=
+X-Google-Smtp-Source: ABdhPJy0VQ4wVXz/ZxX37X6VJCrocfEh77EsEQvRktjseT95QmlIXia92FePGFzC1PiLHhcdw/er4Q==
+X-Received: by 2002:ac8:75cb:: with SMTP id z11mr21641806qtq.153.1614030618803;
+        Mon, 22 Feb 2021 13:50:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:1c91:: with SMTP id f17ls6912157qtl.9.gmail; Mon, 22 Feb
- 2021 13:38:35 -0800 (PST)
-X-Received: by 2002:ac8:4e55:: with SMTP id e21mr21712111qtw.159.1614029915225;
-        Mon, 22 Feb 2021 13:38:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614029915; cv=none;
+Received: by 2002:a05:620a:1674:: with SMTP id d20ls9275040qko.0.gmail; Mon,
+ 22 Feb 2021 13:50:18 -0800 (PST)
+X-Received: by 2002:ae9:ec17:: with SMTP id h23mr22339298qkg.193.1614030618471;
+        Mon, 22 Feb 2021 13:50:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614030618; cv=none;
         d=google.com; s=arc-20160816;
-        b=j3vP7WUV/oqHZRKevWlgmFGE4SlGTbtZ1A2qDofq6DM8Pg0x0QCcAxgKqJUOzbbVEu
-         ZhLo8k0eckm4PShrUbdNkyYTocUFTiSokMiWMCrfWOhL8vdCZFdP7k6MfLhNVe47c04X
-         +W3pwJT50gf5/PAbyjYGLS8WSZJ/LvXmqZFbPckoUx8U5l7QR6XvkJQwXGAv00zuQNIj
-         AWj6ZGLsdv5cx6AJp+616Buuw26VXExY5bfE/S8jZy9X09Sg3yHRaNgACJu9kwgUK5P8
-         6Z038P8HHRkkY5SK0Mec3YK6JeLfDkyjd1EnpZQ9owPzDVhj7/ZktDnDvkm67Km4Xoj8
-         Tkaw==
+        b=Im78fcabmRlv00hiL4uHNEKeuAoy/yLlrEe/O1pSAd4SKJ5Ju+PEPqVYXdQymnUEyb
+         thTlUUM9+luqKD6IHVy0eKXfg/bMvhYabF3hJ4rpzVRglwYpYgkLhpOYQqzzTePxDQT7
+         vIO6S7fR2EErbBOUTmo73/JQ1bifUvxCZQENtQMXVEu5lLLsWaB0b1k8jsLCkHE0dhyN
+         W6YITSeAbw7TvFnMuJmTtrfJkm0VFdqrWvZvyuYNmoCIBakFr/boh5nhKrrTCtmb52Ta
+         j7Is8F3Dv2CZAbf2dbq6pkilzf3qjPVJ1CcitBam3QWgV9utpJlCoD+i64izLCRKFPMf
+         Zx2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BdA4QMTkvcuLnrvRLDVtBXvNd3HImh3DqClB8gl/vNc=;
-        b=O3wwmlKfeeFyLHoofPV+FnGnmrcpbfBHWW3ekeNFvVL+41bOkt8gTKycHVnSacE8iX
-         lRK+F/f4oaeyf5O7l7HuPhq87eU4/uembllZulUnmql2lIYzjDzAwjuy24UBcDvBRpsp
-         Cgj5v3rAd091iXRHYVSv49QO5LVqeNgxbAM0azdDT74vGW0sm1mD/H0EJucLclnSIU0R
-         V8OZpHmsuYg2k4jxwfbRt95+6fBM16dZJtYjdtQtQnK2s8z7WncAakl3bkswNxu5mq9t
-         +jaB/id7DwnAgOejKGFBKoiCu5txtj2+/GR/eqFAqzXPL4yCACuI1K90JoZn2ZJuLGIg
-         j/pQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5XvA1Gvev4npN0zTNKBUEQYu6pllkjUp8fGvFiKGsaw=;
+        b=iV2RBop/LKPADaISkgswQ9S2A7sJpnbLl/76irNPOQbRSS0CDJvZIVsC+BIuGxJ3QS
+         KD0T2R+usrkG8XQitkxQkl8NGPIFYc8Et61HX/kLqbmUgXvzjnbwSa3FJAQnXxFV3RMe
+         UwupS8fZhUeKLE46KSk5VfCT9w0qkeL3wIaJwinlWD9811JWEKmU3MIvK68+K1aJOFFY
+         Wi0DK7VNJDwM9N6zNXwARW5S/J1ajmOIQ06odsT+klvovj/CaCkRWP9Rkk4hhZD7MrPc
+         /mbDsrCBQXSO8Wsjd0jrlTFzIou5VmxvfuZ8smrpOAmALK6WRxmJEAnZ8J53JOag491t
+         EtNQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jV8vA8ff;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::c32 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oo1-xc32.google.com (mail-oo1-xc32.google.com. [2607:f8b0:4864:20::c32])
-        by gmr-mx.google.com with ESMTPS id p6si1031619qti.1.2021.02.22.13.38.35
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oPaglzkj;
+       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::334 as permitted sender) smtp.mailfrom=jiancai@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ot1-x334.google.com (mail-ot1-x334.google.com. [2607:f8b0:4864:20::334])
+        by gmr-mx.google.com with ESMTPS id p21si1287873qkh.6.2021.02.22.13.50.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Feb 2021 13:38:35 -0800 (PST)
-Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::c32 as permitted sender) client-ip=2607:f8b0:4864:20::c32;
-Received: by mail-oo1-xc32.google.com with SMTP id k1so1076792oop.0
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Feb 2021 13:38:35 -0800 (PST)
-X-Received: by 2002:a4a:9801:: with SMTP id y1mr1728430ooi.90.1614029914834;
- Mon, 22 Feb 2021 13:38:34 -0800 (PST)
+        Mon, 22 Feb 2021 13:50:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::334 as permitted sender) client-ip=2607:f8b0:4864:20::334;
+Received: by mail-ot1-x334.google.com with SMTP id s6so13554825otk.4
+        for <clang-built-linux@googlegroups.com>; Mon, 22 Feb 2021 13:50:18 -0800 (PST)
+X-Received: by 2002:a05:6830:1def:: with SMTP id b15mr18107040otj.111.1614030617845;
+ Mon, 22 Feb 2021 13:50:17 -0800 (PST)
 MIME-Version: 1.0
-References: <20210218224849.5591-1-nathan@kernel.org> <DE2DF569-7545-41C2-AF18-400D6BD73215@amd.com>
-In-Reply-To: <DE2DF569-7545-41C2-AF18-400D6BD73215@amd.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Mon, 22 Feb 2021 16:38:23 -0500
-Message-ID: <CADnq5_Oc5U9-bPzr4vNiF=BvxSfQHKCvGmSjJjKh=6OUbxmZ0g@mail.gmail.com>
-Subject: Re: [PATCH] drm/amd/pm/swsmu: Avoid using structure_size
- uninitialized in smu_cmn_init_soft_gpu_metrics
-To: "Wang, Kevin(Yang)" <Kevin1.Wang@amd.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
-	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>, 
-	"Deucher, Alexander" <Alexander.Deucher@amd.com>, "Koenig, Christian" <Christian.Koenig@amd.com>
+References: <20210219201852.3213914-1-jiancai@google.com> <20210219230841.875875-1-jiancai@google.com>
+ <20210222115816.GA8605@willie-the-truck>
+In-Reply-To: <20210222115816.GA8605@willie-the-truck>
+From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 22 Feb 2021 13:50:06 -0800
+Message-ID: <CA+SOCLJVGJSn67VU24wPDdsOVeHhGe+KO5ekOCusano=bhn1Mg@mail.gmail.com>
+Subject: Re: [PATCH v4] ARM: Implement SLS mitigation
+To: Will Deacon <will@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Manoj Gupta <manojgupta@google.com>, 
+	Luis Lozano <llozano@google.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <nathan@kernel.org>, David Laight <David.Laight@aculab.com>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Kees Cook <keescook@chromium.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Ingo Molnar <mingo@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Marc Zyngier <maz@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Mike Rapoport <rppt@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	David Brazdil <dbrazdil@google.com>, James Morse <james.morse@arm.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-security-module@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: alexdeucher@gmail.com
+X-Original-Sender: jiancai@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=jV8vA8ff;       spf=pass
- (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::c32
- as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=oPaglzkj;       spf=pass
+ (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::334
+ as permitted sender) smtp.mailfrom=jiancai@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Jian Cai <jiancai@google.com>
+Reply-To: Jian Cai <jiancai@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,80 +141,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Applied.  Thanks!
+Please see my comments inlined below.
 
-Alex
+Thanks,
+Jian
 
-On Thu, Feb 18, 2021 at 6:12 PM Wang, Kevin(Yang) <Kevin1.Wang@amd.com> wro=
-te:
+On Mon, Feb 22, 2021 at 3:58 AM Will Deacon <will@kernel.org> wrote:
 >
-> thanks,
->
-> Reviewed-by: Kevin Wang <kevin1.wang@amd.com>
->
-> Regards,
-> Kevin
->
-> > =E5=9C=A8 2021=E5=B9=B42=E6=9C=8819=E6=97=A5=EF=BC=8C06:49=EF=BC=8CNath=
-an Chancellor <nathan@kernel.org> =E5=86=99=E9=81=93=EF=BC=9A
+> On Fri, Feb 19, 2021 at 03:08:13PM -0800, Jian Cai wrote:
+> > This patch adds CONFIG_HARDEN_SLS_ALL that can be used to turn on
+> > -mharden-sls=all, which mitigates the straight-line speculation
+> > vulnerability, speculative execution of the instruction following some
+> > unconditional jumps. Notice -mharden-sls= has other options as below,
+> > and this config turns on the strongest option.
 > >
-> > =EF=BB=BFClang warns:
+> > all: enable all mitigations against Straight Line Speculation that are implemented.
+> > none: disable all mitigations against Straight Line Speculation.
+> > retbr: enable the mitigation against Straight Line Speculation for RET and BR instructions.
+> > blr: enable the mitigation against Straight Line Speculation for BLR instructions.
 > >
-> > drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning:
-> > variable 'structure_size' is used uninitialized whenever switch default
-> > is taken [-Wsometimes-uninitialized]
-> >        default:
-> >        ^~~~~~~
-> > drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:770:23: note:
-> > uninitialized use occurs here
-> >        memset(header, 0xFF, structure_size);
-> >                             ^~~~~~~~~~~~~~
-> > drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note:
-> > initialize the variable 'structure_size' to silence this warning
-> >        uint16_t structure_size;
-> >                               ^
-> >                                =3D 0
-> > 1 warning generated.
+> > Links:
+> > https://reviews.llvm.org/D93221
+> > https://reviews.llvm.org/D81404
+> > https://developer.arm.com/support/arm-security-updates/speculative-processor-vulnerability/downloads/straight-line-speculation
+> > https://developer.arm.com/support/arm-security-updates/speculative-processor-vulnerability/frequently-asked-questions#SLS2
 > >
-> > Return in the default case, as the size of the header will not be known=
-.
-> >
-> > Fixes: de4b7cd8cb87 ("drm/amd/pm/swsmu: unify the init soft gpu metrics=
- function")
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1304
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> > Suggested-by: Manoj Gupta <manojgupta@google.com>
+> > Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Suggested-by: Nathan Chancellor  <nathan@kernel.org>
+> > Suggested-by: David Laight <David.Laight@aculab.com>
+> > Suggested-by: Will Deacon <will@kernel.org>
+> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> > Signed-off-by: Jian Cai <jiancai@google.com>
 > > ---
-> > drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c | 2 +-
-> > 1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c b/drivers/gpu/drm/a=
-md/pm/swsmu/smu_cmn.c
-> > index bb620fdd4cd2..bcedd4d92e35 100644
-> > --- a/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c
-> > +++ b/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c
-> > @@ -762,7 +762,7 @@ void smu_cmn_init_soft_gpu_metrics(void *table, uin=
-t8_t frev, uint8_t crev)
-> >        structure_size =3D sizeof(struct gpu_metrics_v2_0);
-> >        break;
-> >    default:
-> > -        break;
-> > +        return;
-> >    }
-> >
-> > #undef METRICS_VERSION
-> > --
-> > 2.30.1
-> >
-> _______________________________________________
-> amd-gfx mailing list
-> amd-gfx@lists.freedesktop.org
-> https://lists.freedesktop.org/mailman/listinfo/amd-gfx
+>
+> Please can you reply to my previous questions?
+>
+> https://lore.kernel.org/linux-arm-kernel/20210217094859.GA3706@willie-the-truck/
+>
+> (apologies if you did, but I don't see them in the archive or my inbox)
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CADnq5_Oc5U9-bPzr4vNiF%3DBvxSfQHKCvGmSjJjKh%3D6OUbxmZ0g%4=
-0mail.gmail.com.
+I should have clarified the suggested-by tag was in regard to the
+Kconfig text change. Regarding your earlier questions, please see my
+comments below.
+
+> So I think that either we enable this unconditionally, or we don't enable it
+> at all (and people can hack their CFLAGS themselves if they want to).
+
+Not sure if this answers your question but this config should provide
+a way for people to turn on the mitigation at their own risk.
+
+> It would be helpful for one of the Arm folks to chime in, as I'm yet to see any
+> evidence that this is actually exploitable. Is it any worse that Spectre-v1,
+> where we _don't_ have a compiler mitigation?
+
+> Finally, do we have to worry about our assembly code?
+
+I am not sure if there are any plans to protect assembly code and I
+will leave it to the Arm folks since they know a whole lot better. But
+even without that part, we should still have better protection,
+especially when overhead does not look too bad: I did some preliminary
+experiments on ChromeOS, code size of vmlinux increased 3%, and there
+were no noticeable changes to run-time performance of the benchmarks I
+used.
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLJVGJSn67VU24wPDdsOVeHhGe%2BKO5ekOCusano%3Dbhn1Mg%40mail.gmail.com.
