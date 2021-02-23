@@ -1,147 +1,147 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBTVG2OAQMGQEUYSM6UQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY57XFCRMIBBW5Y2OAQMGQEF2CLJFY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 55497322886
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Feb 2021 11:05:04 +0100 (CET)
-Received: by mail-pg1-x539.google.com with SMTP id f7sf9574111pgp.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Feb 2021 02:05:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614074703; cv=pass;
+Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 21B0C3228F4
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Feb 2021 11:43:41 +0100 (CET)
+Received: by mail-io1-xd3b.google.com with SMTP id l5sf10933528iol.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Feb 2021 02:43:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614077020; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OlzHZkvACEE6fV+7J4x1uEyPKma1n4DywqDZX5REYmJEMhh+rWTJSeZoPWhmIPCfX2
-         pFHfjzrwN+YuPWebQSYs+BLV4DfM2bKtwZX6dMcPkgW9WQvKz5z8kd9bIflohn3DPfwu
-         If1LNwOYFlVzEjHvB0N1CldntOHkayF8J4bYQHE9XYkyVVRZQO1vykDvUMt0xNCUi+Db
-         PUiiCfvIgw6UltKAFLOf//gRJRcdpb4vDAkBX2W33FpZEDFmGGqaQDXXIyytbvwJW0z+
-         siwLeMrPNSJPlHsxDFdm5nQD/gHNHMSGo7E5gTMPhFvpgjwe1uLVYgjfu2GrrEdgLtK9
-         JLzw==
+        b=f+HkB8Uhn5+H6pWdE17eWChOXXsHuhjTky/+vL0p4rLTg1rwnfXgO9gPZSB/LL0Apx
+         83HC0a7Vh51ztQdPIua2ZzAY6cp5qm7aqh/nKjmQY/3LRmJLzyR6ebZmI0D3USwwbiAk
+         f60chea3X2yrkrcVLiC/T8VFjgzJkeE38im2ALUrkw5h6MQGivsyr06j0cbT8PCI2TPX
+         NFh4Le6HbQm6djfz9lVf7HGQ0kcRNQ8l2pOCju8Wi4c3T6LX8rNADAQ0aiJu+Wh5xww8
+         QhOvkkncSAvaTQG/kapTxshIyYhcIUW7NEabW3LxUS8fEnBRBsL6JaoizYiWH16OGKg9
+         9HAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=cfq8v1dUg2tiXLfIyr7PLgJPhRsz1vOUwYF1D+gUzps=;
-        b=VFKdJRivWIx720Q/THzMOaCHTpHztCuU1UpUoBQ4ZC7aUFyobj32BwL1YECcsM9yRB
-         WUVtMj16TpYGpvnOiIcAT6hMep442/yiHF1rJFkNnonElb1Pm51i2An53HeeEOKa2BWO
-         7abDuGAIK0BQycUcInTnOWIGwptdAcY2x5/q7nBx6TAzdgdmEgaguEzv2vDlLZs09GdJ
-         a1n4Jl2wCyuHdiWU092ngz+uzRsWCtvxLfa9WRMf5qHzg/ZM6bk2uVFImPHD5ARru6lr
-         FnY7udxDm8Q0lmylL0fIiwV/qlh261NzM9Nc9wy1zk3o3Ov1kinlhNcctN/I2yrocImB
-         bvyA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :message-id:cc:date:subject:to:from:mime-version:sender
+         :dkim-signature;
+        bh=6Go74k+heQweiUDiMlZMfqL+U6891QGqUxpA6P5l/hU=;
+        b=uX2C7BNF2Vyn0jgIhGQu0rv8RRSp2QP2zt94D4isOpfUmqHr79uq5oWzciu3MCaE+q
+         MLkbJ2aEMpBs/p5KWjglqX0i3KgfbQkzKdTeQyud4wzvi6eEM8jm+6QwNfzo3quq+iHn
+         MUajY+LfsSFiWvZnX5K13sabvZv6B/knlTuvLeEpAMtNdFQAFMvu9kk7jdlzbXGjbLKE
+         GHlnBLsZqD4dvyY1J2FtoWeH7ibLG7Ez+1sfZbvp2T+UH15P8+NS/4mI6aTjC3gh+d8E
+         A80EF5S+tN6wMiwmMfsXkO3ker0N5IYTEjC8fnwlylRnArTxrFlgdYetDDQxbotQY5Fn
+         gn7A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WZOqzYAf;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WCLfUgC0;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:mime-version:from:to:subject:date:cc:message-id
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cfq8v1dUg2tiXLfIyr7PLgJPhRsz1vOUwYF1D+gUzps=;
-        b=hJOWKLQ2zglhJ79b/B3TKCWUrtL0d/akX0pdpqmBzgLQQW7BIxoBgBdEzvnFGZ2iZv
-         /iFwob22H4JoEuKW3hZQg91WdDJjuSWT5tLnWcVoVxsOgWjzH/AnpIvL3dZudARdCAQq
-         zEhNQo9rTjquWU1A/j+fXrNgcMDRGZIxshICy2e26m+pMWlJ7LCnnv62ZkRXRNJFKeLV
-         H+Z9tbAZJyKVQXHCkGfjP44MdG/WzcM/vuJX48YcAPyAmwsxwofBeVv6ghAu8qMLSSky
-         fIMu58aoHKEA3T7aDsLuIrf0cHQCqT3R2HJxyRobGgJe/EnzDl2XwSinorNVNTAmW6mx
-         +EJg==
+        bh=6Go74k+heQweiUDiMlZMfqL+U6891QGqUxpA6P5l/hU=;
+        b=SqTdLntA4hu91sQRP9yODt9PRXKra07l4zASSHGzkyLVf+51v9tqogUvtyJscmQBXw
+         NcTx8OtnnEMrXiCu3Fu3nI10WmFXEHKf2np8vqDXOjgJyNQbz8s6t0N19dY3YYCZyasd
+         U5E9CBo5/Cz5nRIxj3mXu6xuZh9bdxUwhk8Ourbv/oyRS1OljKK2mKWGuFjKGP20SHKj
+         +f1KS+8O3TlhU8d+LSTe5NwzAIA484DKH76X4YZMcV17ComflEmfhT91784XqQ+hjd4R
+         sKCARZNssRPRD2kAawqroCuAwkT3fU9HkSTgvrkG+UIZRxnd12C8ozcVoYT2ESBule8F
+         h+FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=cfq8v1dUg2tiXLfIyr7PLgJPhRsz1vOUwYF1D+gUzps=;
-        b=i3STwgTZ34i0lf+IuTvvOl0p3WMNBXR+SbC0elY39LwtAM3UFq72GSrY4b9nQl4bEV
-         DQbvgMUeWjcXG5r9U+n06tlI/KhUxAONBym207ZEAI/FBEiVTyULV9g/QZrUNxgnZ4Ts
-         szSzrzYvWh8Zi7+QNSRSdHVkoEa7PMNzDIyE3ZXorXhQt3NA3pUwR1V1+vnv7GeT6nSk
-         NfmoLIHYiK0ojIB+LDxG9rgcq64bZb51/iMt710Xbzek2ShZ3BJ+5iJ0cHp7AR3UQLtr
-         qW92bVj5iWqt415OtvnXJqNdEdQL2JngATm9CxRtEuO8UfyxAmLaoGJhoX/ZxeOacIHs
-         o2wQ==
+        h=sender:x-gm-message-state:mime-version:from:to:subject:date:cc
+         :message-id:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6Go74k+heQweiUDiMlZMfqL+U6891QGqUxpA6P5l/hU=;
+        b=fx00sv4unQy2DpdmWisq1+5xBNnSNgtEKk/ETThExXDMHisN4+AkbixGZtib4fEIWj
+         nF8S0y+eGmKKqq5W7GGslwEhCnRdLPXzO041c7DtUyNNCkG0wlPPiijIzZ6+a+aierCK
+         RYaQ38k017p6pdv6/zB8329f7p6nOCbkadWvllQAHCwh1sqfr2daluPDdF2Ox4pJb3Uq
+         FQOg4UeEbxkzIK1GpxdiEMo2b/AYFLlKrKkFf+XSdSz1WApfroSEAUM7EC4bOIs+KDJU
+         LkczZfw/M5Vjxqxjb2CLHqbRls3iN0DAj8dTxK+Aw1/Tja9GQ2ArRaUWjeYs7Y6j/XPc
+         ioaw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53185ywrYwqsNs/+Y4qxQcGG8RGewxBhiFUNmekj53R9LeUhy3sA
-	/0HyBJf/Hd74E17SCsMueYs=
-X-Google-Smtp-Source: ABdhPJzlyvpuuNwpmdmzlrE4zIi5veWSLEdTvwfkDPb35FRhcuuFuMWXV9JwFWBfSf8BkrTrABfE3Q==
-X-Received: by 2002:a63:3686:: with SMTP id d128mr23107766pga.240.1614074702839;
-        Tue, 23 Feb 2021 02:05:02 -0800 (PST)
+X-Gm-Message-State: AOAM530vXuXFQOurekUiZ0PEoW4TW4MG9H0oh+C3tVV4WELSc58VHgPI
+	IIKk+G8n3OT4+Ba0qn0KmUg=
+X-Google-Smtp-Source: ABdhPJwM7kS8GtOkirQq/u6ExukZN5wd5lLtnhDyd7m82AivF40Z5MQ5fgjHe9BDd83vZ65NQKBIaw==
+X-Received: by 2002:a05:6602:2e93:: with SMTP id m19mr9040585iow.122.1614077019882;
+        Tue, 23 Feb 2021 02:43:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:4c89:: with SMTP id m9ls7240010pgt.8.gmail; Tue, 23 Feb
- 2021 02:05:02 -0800 (PST)
-X-Received: by 2002:a62:824d:0:b029:1ed:55f5:f8c0 with SMTP id w74-20020a62824d0000b02901ed55f5f8c0mr17729250pfd.60.1614074702166;
-        Tue, 23 Feb 2021 02:05:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614074702; cv=none;
+Received: by 2002:a5d:860b:: with SMTP id f11ls3508987iol.10.gmail; Tue, 23
+ Feb 2021 02:43:39 -0800 (PST)
+X-Received: by 2002:a6b:c915:: with SMTP id z21mr16366417iof.32.1614077019397;
+        Tue, 23 Feb 2021 02:43:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614077019; cv=none;
         d=google.com; s=arc-20160816;
-        b=T5TmwSBWpKuNWbWId90T+UimMfK4wrNaskHI6eixwmGidYn3ZRbZW2gDNCVPca+uHs
-         CnaPCw1iCDqGx9mSYFO4uqEF9fwW0vfgMdQj5z1WLE9soPrZb22B+lB08vfDp3lB+ogz
-         XoEX4WIxvgrTQT+4aIG1YysePt0fvKyoeJQt/SEEcNo0WljM9Ee1RQGKIo0j2gPP9wu+
-         Rs6s8LbmpAdE1fsBHbtb71cGL0iHWHAL1+FOVamUdEcRIbuwWrtN4Fr0Q3zfPEug3AOE
-         26sRwsMBDmEJoiiz9C6fLXibZBz0TATvbHhGBEjvTQ0+XuiEhkeyRDAFZtH786gETWkD
-         WcYw==
+        b=tPRo/4jzwDd2tfqRI0zBLb1BBLtUoTyr7HmUo2vgsZi0u+R9eXn/fu/JR7xUUZWaPe
+         nTX29R4qf/Z/XJoX0yyiODNX8BcnIhVTSmnYfnAPPUbcmuMm8CM3Ell5HoqHet7+EVlu
+         mptPefKfXs+huj/YFdT2WI2cQQG6YLVe7vxDbXEawXsXuGqqKfsBr5X27CXeJGxoSk/b
+         rczSfbA7PMKAWGi/bt7U4Zb0ttJpZ2Q4O2OtX7DLQ8cOoR6p7G/2wqMQpt+rniqWnmad
+         c8JpmgF8HuZeNmdAdaDKrt9GNX74zraGQqq74m5wSom/PnMT6y9+RwiVD+XK1OX2oH96
+         OuSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=qr6o6Z5KLfhizu24Qfypw30nnVJ4ZifmaNZTTCLc/uQ=;
-        b=ztS+4wYIB7iF0ODceGCPF1HCf5ZWQ14l7noFOcz8OIm7EEJwNeilY/JhW5wj9pJ63z
-         cDctkMQ5jp1ZHMDvA8Miqz+rWpyUPLdvoDo+vJZnbbqapev5HdF0LfkB+uEhdYKG6GDT
-         UywKW2zluFFj8QNmcF7Ce/LKyC0acjVXGDeVqv0vkpwoJtxfYw7EwUVAm3JQQJa2Brxg
-         KapgrK6igR5KXGnePzLlh233ZBu7sS4r5NQofwkqWuAxfdxr06GGCzYbOXvuvRk4rdX7
-         DJrkpya4XUARQMOCrsZOqxMwRV3GAxObVYMtGJhatAM9L/T9z4ryAH4an2lu732agV7+
-         Nyhg==
+        h=content-transfer-encoding:message-id:cc:date:subject:to:from
+         :mime-version:dkim-signature;
+        bh=MgQvmUd2Ny119BITMedUCldjxK15GQ+82yxhITRjDsM=;
+        b=cchKG9bGJaupgOkDA0w1REgQMkOtXC7zot2RMT2yAw7IQxnzkZ9Kno6txj5/qVcwl4
+         Ou1OjSOukQxi0ehjN7W0NBynVgARVj4P5iq87BsnTKMKsOl9T50fcErnE3fas1kNeJLE
+         pTK5Z+8NSXwZ8oX46AWsGF3NMnpUZiaqgFUKZIX9y72aM82irh/FodGMnGKlnh7N3NZ6
+         SKCblNKgDEuehllgzxazu9QgiccrnTzG/MGFeINzgqTFh/zQloG9Al6O4mU/1Cqk2qgu
+         Xu+ds4VcLckNAePOD7JbwEaALCNVuS7yzW8xFDZBIgNay2kTP6qAialwtiZ+aGKo0EaP
+         jahQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WZOqzYAf;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w22si102261pjq.0.2021.02.23.02.05.02
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WCLfUgC0;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id y6si1063576ill.1.2021.02.23.02.43.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 23 Feb 2021 02:05:02 -0800 (PST)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 389EE64E22;
-	Tue, 23 Feb 2021 10:04:57 +0000 (UTC)
-Date: Tue, 23 Feb 2021 10:04:53 +0000
-From: Will Deacon <will@kernel.org>
-To: Jian Cai <jiancai@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Manoj Gupta <manojgupta@google.com>,
-	Luis Lozano <llozano@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	David Laight <David.Laight@aculab.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>, Arnd Bergmann <arnd@arndb.de>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Kees Cook <keescook@chromium.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Ingo Molnar <mingo@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	David Brazdil <dbrazdil@google.com>,
-	James Morse <james.morse@arm.com>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-security-module@vger.kernel.org
-Subject: Re: [PATCH v4] ARM: Implement SLS mitigation
-Message-ID: <20210223100453.GB10254@willie-the-truck>
-References: <20210219201852.3213914-1-jiancai@google.com>
- <20210219230841.875875-1-jiancai@google.com>
- <20210222115816.GA8605@willie-the-truck>
- <CA+SOCLJVGJSn67VU24wPDdsOVeHhGe+KO5ekOCusano=bhn1Mg@mail.gmail.com>
+        Tue, 23 Feb 2021 02:43:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-259-77dB6MS9PXaCS3aUKepQKg-1; Tue, 23 Feb 2021 05:43:36 -0500
+X-MC-Unique: 77dB6MS9PXaCS3aUKepQKg-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 37D0AC29E
+	for <clang-built-linux@googlegroups.com>; Tue, 23 Feb 2021 10:43:35 +0000 (UTC)
+Received: from [172.20.9.196] (unknown [10.0.115.152])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E8EE44D723;
+	Tue, 23 Feb 2021 10:43:19 +0000 (UTC)
 MIME-Version: 1.0
+From: CKI Project <cki-project@redhat.com>
+To: skt-results-master@redhat.com, clang-built-linux@googlegroups.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for kernel 5.11.0
+ (mainline.kernel.org-clang)
+Date: Tue, 23 Feb 2021 10:43:18 -0000
+CC: Fine Fan <ffan@redhat.com>, David Arcari <darcari@redhat.com>,
+ Xiong Zhou <xzhou@redhat.com>, Rachel Sibley <rasibley@redhat.com>,
+ Milos Malik <mmalik@redhat.com>, Ondrej Mosnacek <omosnace@redhat.com>,
+ Erik Hamera <ehamera@redhat.com>, Yi Zhang <yizhan@redhat.com>,
+ Al Stone <ahs3@redhat.com>, Memory Management <mm-qe@redhat.com>,
+ Jan Stancek <jstancek@redhat.com>, Fei Liu <feliu@redhat.com>,
+ Jianlin Shi <jishi@redhat.com>, William Gomeringer <wgomerin@redhat.com>,
+ Jaroslav Kysela <jkysela@redhat.com>, Guangwu Zhang <guazhang@redhat.com>,
+ Jianhong Yin <jiyin@redhat.com>, Zorro Lang <zlang@redhat.com>,
+ Erico Nunes <ernunes@redhat.com>, Christine Flood <chf@redhat.com>,
+ Yi Chen <yiche@redhat.com>, Jianwen Ji <jiji@redhat.com>,
+ Hangbin Liu <haliu@redhat.com>, Ondrej Moris <omoris@redhat.com>
+Message-ID: <cki.6BC979A3FF.FG5TJDOZRL@redhat.com>
+X-Gitlab-Pipeline-ID: 624509
+X-Gitlab-Url: https://xci32.lab.eng.rdu2.redhat.com
+X-Gitlab-Path: /cki-project/cki-pipeline/pipelines/624509
+X-DataWarehouse-Revision-IID: 10286
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CA+SOCLJVGJSn67VU24wPDdsOVeHhGe+KO5ekOCusano=bhn1Mg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: cki-project@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=WZOqzYAf;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=WCLfUgC0;
+       spf=pass (google.com: domain of cki-project@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,82 +154,356 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 22, 2021 at 01:50:06PM -0800, Jian Cai wrote:
-> Please see my comments inlined below.
-> 
-> Thanks,
-> Jian
-> 
-> On Mon, Feb 22, 2021 at 3:58 AM Will Deacon <will@kernel.org> wrote:
-> >
-> > On Fri, Feb 19, 2021 at 03:08:13PM -0800, Jian Cai wrote:
-> > > This patch adds CONFIG_HARDEN_SLS_ALL that can be used to turn on
-> > > -mharden-sls=all, which mitigates the straight-line speculation
-> > > vulnerability, speculative execution of the instruction following some
-> > > unconditional jumps. Notice -mharden-sls= has other options as below,
-> > > and this config turns on the strongest option.
-> > >
-> > > all: enable all mitigations against Straight Line Speculation that are implemented.
-> > > none: disable all mitigations against Straight Line Speculation.
-> > > retbr: enable the mitigation against Straight Line Speculation for RET and BR instructions.
-> > > blr: enable the mitigation against Straight Line Speculation for BLR instructions.
-> > >
-> > > Links:
-> > > https://reviews.llvm.org/D93221
-> > > https://reviews.llvm.org/D81404
-> > > https://developer.arm.com/support/arm-security-updates/speculative-processor-vulnerability/downloads/straight-line-speculation
-> > > https://developer.arm.com/support/arm-security-updates/speculative-processor-vulnerability/frequently-asked-questions#SLS2
-> > >
-> > > Suggested-by: Manoj Gupta <manojgupta@google.com>
-> > > Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
-> > > Suggested-by: Nathan Chancellor  <nathan@kernel.org>
-> > > Suggested-by: David Laight <David.Laight@aculab.com>
-> > > Suggested-by: Will Deacon <will@kernel.org>
-> > > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> > > Signed-off-by: Jian Cai <jiancai@google.com>
-> > > ---
-> >
-> > Please can you reply to my previous questions?
-> >
-> > https://lore.kernel.org/linux-arm-kernel/20210217094859.GA3706@willie-the-truck/
-> >
-> > (apologies if you did, but I don't see them in the archive or my inbox)
-> 
-> I should have clarified the suggested-by tag was in regard to the
-> Kconfig text change. Regarding your earlier questions, please see my
-> comments below.
-> 
-> > So I think that either we enable this unconditionally, or we don't enable it
-> > at all (and people can hack their CFLAGS themselves if they want to).
-> 
-> Not sure if this answers your question but this config should provide
-> a way for people to turn on the mitigation at their own risk.
 
-I'm not sure I see the point; either it's needed or its not. I wonder if
-there's a plan to fix this in future CPUs (another question for the Arm
-folks).
+Hello,
 
-> > It would be helpful for one of the Arm folks to chime in, as I'm yet to see any
-> > evidence that this is actually exploitable. Is it any worse that Spectre-v1,
-> > where we _don't_ have a compiler mitigation?
-> 
-> > Finally, do we have to worry about our assembly code?
-> 
-> I am not sure if there are any plans to protect assembly code and I
-> will leave it to the Arm folks since they know a whole lot better. But
-> even without that part, we should still have better protection,
-> especially when overhead does not look too bad: I did some preliminary
-> experiments on ChromeOS, code size of vmlinux increased 3%, and there
-> were no noticeable changes to run-time performance of the benchmarks I
-> used.
+We ran automated tests on a recent commit from this kernel tree:
 
-If the mitigation is required, I'm not sure I see a lot of point in only
-doing a half-baked job of it. It feels a bit like a box-ticking exercise,
-in which case any overhead is too much.
+       Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvald=
+s/linux.git
+            Commit: d652ea30ba32 - Merge tag 'iommu-updates-v5.12' of git:/=
+/git.kernel.org/pub/scm/linux/kernel/git/joro/iommu
 
-Will
+The results of these automated tests are provided below.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210223100453.GB10254%40willie-the-truck.
+    Overall result: FAILED (see details below)
+             Merge: OK
+           Compile: OK
+ Selftests compile: FAILED
+             Tests: FAILED
+
+All kernel binaries, config files, and logs are available for download here=
+:
+
+  https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?pre=
+fix=3Ddatawarehouse-public/2021/02/22/624509
+
+One or more kernel tests failed:
+
+    x86_64:
+     =E2=9D=8C storage: software RAID testing
+     =E2=9D=8C ACPI table test
+     =E2=9D=8C LTP
+     =E2=9D=8C Memory function: memfd_create
+     =E2=9D=8C AMTU (Abstract Machine Test Utility)
+     =E2=9D=8C Networking bridge: sanity
+     =E2=9D=8C Networking route: pmtu
+     =E2=9D=8C Libkcapi AF_ALG test
+     =E2=9D=8C pciutils: sanity smoke test
+     =E2=9D=8C ALSA PCM loopback test
+     =E2=9D=8C storage: SCSI VPD
+
+We hope that these logs can help you find the problem quickly. For the full
+detail on our testing procedures, please scroll to the bottom of this messa=
+ge.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
+Compile testing
+---------------
+
+We compiled the kernel for 4 architectures:
+
+    aarch64:
+      make options: make LLVM=3D1 -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+    ppc64le:
+      make options: make CC=3Dclang -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+    s390x:
+      make options: make CC=3Dclang -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+    x86_64:
+      make options: make LLVM=3D1 -j30 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+
+We built the following selftests:
+
+  x86_64:
+      net: OK
+      bpf: fail
+      install and packaging: OK
+
+You can find the full log (build-selftests.log) in the artifact storage abo=
+ve.
+
+
+Hardware testing
+----------------
+We booted each kernel and ran the following tests:
+
+  aarch64:
+    Host 1:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       Probable cause: Distro problem, check kpet-db and Beaker
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI table test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI enabled test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - transpor=
+t
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Firmware test suite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking firewall: basic =
+netfilter test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+
+    Host 2:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       Probable cause: Distro problem, check kpet-db and Beaker
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_=
+module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 3:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       Probable cause: Distro problem, check kpet-db and Beaker
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_=
+module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 4:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       Probable cause: Distro problem, check kpet-db and Beaker
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_=
+module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+  ppc64le:
+
+    =E2=9A=A1 Internal infrastructure issues prevented one or more tests (m=
+arked
+    with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+    This is not the fault of the kernel that was tested.
+
+    Probable cause: Distro problem, check kpet-db and Beaker
+
+  s390x:
+
+    =E2=9A=A1 Internal infrastructure issues prevented one or more tests (m=
+arked
+    with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+    This is not the fault of the kernel that was tested.
+
+    Probable cause: Distro problem, check kpet-db and Beaker
+
+  x86_64:
+    Host 1:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       Probable cause: Distro problem, check kpet-db and Beaker
+
+       =E2=9C=85 Boot test
+       =E2=9D=8C storage: software RAID testing
+       =F0=9F=9A=A7 =E2=9D=8C CPU: Frequency Driver Test
+       =F0=9F=9A=A7 =E2=9C=85 CPU: Idle Test
+       =F0=9F=9A=A7 =E2=9D=8C xfstests - ext4
+       =F0=9F=9A=A7 =E2=9C=85 xfstests - xfs
+       =F0=9F=9A=A7 =E2=9C=85 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9C=85 xfstests - nfsv4.2
+       =F0=9F=9A=A7 =E2=9D=8C xfstests - cifsv3.11
+       =F0=9F=9A=A7 =E2=9C=85 IPMI driver test
+       =F0=9F=9A=A7 =E2=9D=8C IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9D=8C selinux-policy: serge-testsuite
+       =F0=9F=9A=A7 =E2=9D=8C power-management: cpupower/sanity test
+       =F0=9F=9A=A7 =E2=9D=8C Storage blktests
+       =F0=9F=9A=A7 =E2=9C=85 Storage block - filesystem fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvdimm ndctl test s=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_=
+module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 2:
+       =E2=9C=85 Boot test
+       =E2=9D=8C ACPI table test
+       =E2=9D=8C LTP
+       =E2=9C=85 Loopdev Sanity
+       =E2=9C=85 Memory: fork_mem
+       =E2=9D=8C Memory function: memfd_create
+       =E2=9D=8C AMTU (Abstract Machine Test Utility)
+       =E2=9D=8C Networking bridge: sanity
+       =E2=9C=85 Networking socket: fuzz
+       =E2=9C=85 Networking: igmp conformance test
+       =E2=9D=8C Networking route: pmtu
+       =E2=9C=85 Networking route_func - local
+       =E2=9C=85 Networking route_func - forward
+       =E2=9C=85 Networking TCP: keepalive test
+       =E2=9C=85 Networking UDP: socket
+       =E2=9C=85 Networking tunnel: geneve basic test
+       =E2=9C=85 Networking tunnel: gre basic
+       =E2=9C=85 L2TP basic test
+       =E2=9C=85 Networking tunnel: vxlan basic
+       =E2=9C=85 Networking ipsec: basic netns - transport
+       =E2=9C=85 Networking ipsec: basic netns - tunnel
+       =E2=9D=8C Libkcapi AF_ALG test
+       =E2=9D=8C pciutils: sanity smoke test
+       =E2=9C=85 pciutils: update pci ids test
+       =E2=9D=8C ALSA PCM loopback test
+       =E2=9C=85 ALSA Control (mixer) Userspace Element test
+       =E2=9D=8C storage: SCSI VPD
+       =E2=9C=85 trace: ftrace/tracer
+       =F0=9F=9A=A7 =E2=9D=8C CIFS Connectathon
+       =F0=9F=9A=A7 =E2=9D=8C POSIX pjd-fstest suites
+       =F0=9F=9A=A7 =E2=9D=8C Firmware test suite
+       =F0=9F=9A=A7 =E2=9D=8C jvm - jcstress tests
+       =F0=9F=9A=A7 =E2=9D=8C Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9C=85 Ethernet drivers sanity
+       =F0=9F=9A=A7 =E2=9D=8C Networking firewall: basic netfilter test
+       =F0=9F=9A=A7 =E2=9D=8C audit: audit testsuite test
+       =F0=9F=9A=A7 =E2=9C=85 kdump - kexec_boot
+
+    Host 3:
+       =E2=9C=85 Boot test
+       =F0=9F=9A=A7 =E2=9C=85 kdump - sysrq-c
+       =F0=9F=9A=A7 =E2=9C=85 kdump - file-load
+
+  Test sources: https://gitlab.com/cki-project/kernel-tests
+    =F0=9F=92=9A Pull requests are welcome for new tests or improvements to=
+ existing tests!
+
+Aborted tests
+-------------
+Tests that didn't complete running successfully are marked with =E2=9A=A1=
+=E2=9A=A1=E2=9A=A1.
+If this was caused by an infrastructure issue, we try to mark that
+explicitly in the report.
+
+Waived tests
+------------
+If the test run included waived tests, they are marked with =F0=9F=9A=A7. S=
+uch tests are
+executed but their results are not taken into account. Tests are waived whe=
+n
+their results are not reliable enough, e.g. when they're just introduced or=
+ are
+being fixed.
+
+Testing timeout
+---------------
+We aim to provide a report within reasonable timeframe. Tests that haven't
+finished running yet are marked with =E2=8F=B1.
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/cki.6BC979A3FF.FG5TJDOZRL%40redhat.com.
