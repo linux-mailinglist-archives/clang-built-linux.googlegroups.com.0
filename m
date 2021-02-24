@@ -1,138 +1,138 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBB4W22AQMGQE7GI5WKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBX5222AQMGQE3DSIUWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A2F3432340A
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 00:08:56 +0100 (CET)
-Received: by mail-ot1-x33b.google.com with SMTP id m11sf139918ote.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Feb 2021 15:08:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614121735; cv=pass;
+Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id D8DB5323477
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 01:27:12 +0100 (CET)
+Received: by mail-il1-x13d.google.com with SMTP id d11sf283561ilu.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Feb 2021 16:27:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614126431; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vhhxaas1YWBV2omlomepnPXN+muQriIsa+gEDJrtnkhqrosgJGnw2e3HpKtEmzLl1m
-         rtnuwg9KNyFzWraxfJhgBlMNRZlIcM2CkOL4cSuiOWAO1NAfDkXxKWYmaxg/83MmxAZk
-         czC+4nheVwpTo9kAxW9MOzByLd61ZK3iSBlvsPZjI/wvth3fuZa0k4oG0zWlbEjXd2I3
-         WX/hX6bjPbr4Mn9Z9K5iVAN1sLoUQ7DK1531n5/wztTBMvFSsdghMzZ7U9/3UFKhU469
-         bzIZTf7aV7drJYtikzFSmEhb9ts/Q6TeZAq5ZPlk/WzQPckucQ174LFHSBTp1u0eZHem
-         LT6g==
+        b=siGDeIZk9CCSOCa3s4b6LSPsjmvUywxWx6GFVuN6Cc14AKsuEBMDBWhuropjO430tF
+         MqhbIIrzp1f9TWuR/a9UFIFRJAqgIkS0aavM4UmHNJEac2OCIRf1+s4kG6onfpLPOURL
+         jFpAcS+GZzdWIlFA/NB7vyaOVrGkye0vpj21jxfgz0YM58FFrjTGpsTyvDBazp7ln+YY
+         lCC9IxQhjDFGBLq4M91EgkcowEuPTGqo8dCblvGq2b0uoBfsP8WXILmN10nswyoWcsrz
+         iGchgW+Q7ogOmaaLrAT+B93gxTLL9fv9yEemyzMESimLTpMmaFYRUv4Vl+Tm822raVXZ
+         JFbA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=QDOT+p2CH40tqN0XjdQ1FuOX7sI3GSR/at1ABpRWjxQ=;
-        b=pRH1KRNgAJxL+JMk7HvexfL6CHY41PAMh6Jl48/ttOHdDfs1LcIo0Od7w9ezXk4+5V
-         HcghPsDJrVrzsjVEcVtuHegSRvroR4qlI6TJNEmXZldLC6vrHPFAhEPKIL6CrrUj1qoM
-         RnMBqs1KRMa6r9uISFSpMwwz32U34dgZwrd3zWV7MpeAG4g3KL9RHzxPqyQQHcLyNyp0
-         s4H1UzuXprMgz02VGLfEARNQEWkXM8bLDzAtShBWQNnoVCpPBEI8as5WRFBa9jP7vpHg
-         ZU0LhtfQNzIyIG3vv/LeP1/f2NAkEO9KgD25VHJgIssbEjCDi2Ly8DCf5H8Pn3yyPl0S
-         tfhA==
+         :list-id:mailing-list:precedence:content-language
+         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:ironport-sdr:ironport-sdr
+         :sender:dkim-signature;
+        bh=zcUIb6Uzwy44KjxnJQ/4jx3Z5bLO6hE+VfXwJta58J0=;
+        b=Wxt0TPccdstf5DXGQqSOggYDVkp2mbAzpcJ3ZNgngvpq2t2WMQUguA++PbXiFVnBIi
+         WGhQAc4s4S1twQbkBB+tb1ytUTQ+07g8yCX++uqzTxL0ID9xhujaK1QJ9auMWBFz1DI/
+         Bjf5ZtzZbYFfYAAqK6dee/YQdyLi5MJySNNDxD+BFmlv0ztBH40S9vFB+1Cjuz39VAO8
+         ByF4T5rZGNA07JfglnIOhPlSq1EOCBj8ws//NSH08WrJWnLN43rjdjU0bBSdBWkk4NoX
+         OMtQQwSw5XBWfvpH19LGKdOwlWshI3zssBEJxv0gTwC6D9k5gMPQuz4vvAq7e7lhoJHM
+         aj3A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=QDOT+p2CH40tqN0XjdQ1FuOX7sI3GSR/at1ABpRWjxQ=;
-        b=ebYhDqsUmLvDbJxRpw0iIeqhoYmhs5nTsH8uW09rvsOageeGn9f+MKAYJWPlayLG48
-         MKNpW8wwTM9LItPFODQxL801woPCbGU4dNA9gyVCaV/p6y5ltTbeBFQWIbFVZeTqA6nT
-         QsdT8K5EqDh0MBBTAFFWD8JcP2ZpBCmsXt2ZtB8KSdzAcJj3swNsf1fqEKOEFI+vGjwt
-         MWAlz5NfzTAnxYYHFAa0S8D0Mb2ygwFErN7KMSh3p0uuQNAuRLJOdejWrKEQPbI899iB
-         kdT0iC8r+GXEsoLFlKrGdJx+esCA7wcFl+FTGmJMj4S4yeW3HjiZjuZibLN11JwJ+yAu
-         pEDw==
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-transfer-encoding:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=zcUIb6Uzwy44KjxnJQ/4jx3Z5bLO6hE+VfXwJta58J0=;
+        b=RYzD+T1tJbOSOpg1mVXueh/m3zdPrzDqoALMH/zFwvhT+YaXw3b9dj62SEAc+lnYlk
+         TjdFM8xa4EaKKeQXqxb4E6+Ht7ksEr5rt3gcGbWZjzjFm0KLlDTSD/xLQQfGqnpC4GRX
+         gwNW13KXC3T2STxEjEuk5U0S6imqTVEKYPgRXMBe4vzFo2KOBjpjCLv1XvUcAT/Pc+VR
+         5zE3pK11MW2qgItMF/NTi9VJp3EZDlO12ThPPKn4iKg4HMN/b87tmayiB6J2gokqm346
+         lQczWlGWGkdGg28bqkZCUqolsOQjguPbh+pNHioymhZPDwc2AK3kJbOjAyV2cw2tKDCD
+         xP3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QDOT+p2CH40tqN0XjdQ1FuOX7sI3GSR/at1ABpRWjxQ=;
-        b=GnPXNkRDsx5VUvNr95xvGFaeHzxJakIqAP60sM5OHF1ELwOPxG7fJzEs5gkxpPIqPv
-         mPPn1hRYCDJr5heyTogfGCaiWdaP3EWaCwh0nzdCAikuMpXoTIcuhB5jJ+gy33sLDloR
-         JGac1UE5u7f+qKvyWT5Ih87uSilcv6NsTAb6UjUFF5rtEnjBfX+XaVt+mYGifSAUcaWH
-         zr2245GC9Yz0z8SY1UMBLjts04G9B0g2gJPQ8qJgWIXzlsJFZOpZ13lPXqG0FGrQO6DN
-         vIfnmUgWK/4KTf8KKXUKB4KMGCLy9jjMgI9hbP8Zy60aG8n8NExWa5CztksQQITvnoXL
-         vpLg==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-transfer-encoding:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=zcUIb6Uzwy44KjxnJQ/4jx3Z5bLO6hE+VfXwJta58J0=;
+        b=SYe7jLyKVydwy6xrEbJ7mdda7jIplPzDFLw5yPRik5oD9x39iwUZN4iavC0Q3oQxnd
+         mOnNEQ0x5EEoPCPKzz4tfBSARMCjfTPkiWqTS6qskSmYbv44BvcbQAX80cBk7uQ6lNaa
+         Knp4THod3Q9LlWhs5eJ/FmJsMumdzD+hlvAUoZsjfZkKKSvqVSPjQ28gS//I3CnpgGK5
+         EyG2GS5fismH+pjR5Zj8IgWpymmriehKyJCCTtZqeqnu/ot+PsU9lDJ4arfaGwzsCFw4
+         OMxbVeNUMOsOn46JAvjmc9Kw9iD8dfLESMe7BAUJMSh3PxuHAEM/YLk2S2G66s2dtzej
+         nbdA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5306UIJxwiEC/LkAYhAWfthbwRygv8m9o2i3gVrKKksOVOvFGzGV
-	GaznPZ7Gcivle3iLV2BLALg=
-X-Google-Smtp-Source: ABdhPJzdpIj8BFhEdD50HBKnoVXCzXt8up0hqAPIfaIc+bJL90HtyIg95OsOWi/tqeLy8M7Zd5PKQg==
-X-Received: by 2002:a9d:4595:: with SMTP id x21mr22195819ote.32.1614121735550;
-        Tue, 23 Feb 2021 15:08:55 -0800 (PST)
+X-Gm-Message-State: AOAM533gpLp4wBB1YEkfaph1pu06adSfSK9apN/bBuP6EYzwv450ss/m
+	MeWG+NCkxx5zZCj0w6fRK9Y=
+X-Google-Smtp-Source: ABdhPJzD1BkSF1Bi2S0PZING/nxccjrXQ1WGaUpRyuW7FS2oAh1WizF5oYD6gqQnWdTzvb9TydKPFA==
+X-Received: by 2002:a5e:980a:: with SMTP id s10mr22370285ioj.101.1614126431542;
+        Tue, 23 Feb 2021 16:27:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2048:: with SMTP id f8ls84450otp.2.gmail; Tue, 23
- Feb 2021 15:08:54 -0800 (PST)
-X-Received: by 2002:a05:6830:3482:: with SMTP id c2mr22151126otu.59.1614121734385;
-        Tue, 23 Feb 2021 15:08:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614121734; cv=none;
+Received: by 2002:a92:d24b:: with SMTP id v11ls86762ilg.7.gmail; Tue, 23 Feb
+ 2021 16:27:11 -0800 (PST)
+X-Received: by 2002:a05:6e02:194e:: with SMTP id x14mr22298796ilu.218.1614126431046;
+        Tue, 23 Feb 2021 16:27:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614126431; cv=none;
         d=google.com; s=arc-20160816;
-        b=v+6kSmhs2jPnNEm9oWkhNNWc+u0+4CAq1bn63oXAkBJug8OmtQNNvb59Fz7YLK9e9S
-         +2wR7F9Q3P0Sg+SUgu8WvbCDeLB7O6Inh3ftBb+KzHV5m4tHxfS58FGRkM2wKmYB4X7K
-         V+pdTLkUdchgSwKeCoVb+bZmr7xC8nnE6J2eWuva7nUlb7G2TDyDYVwGPgs3/YN1sXtP
-         wq+msjtoHqEQFSSuvzP8M1B77EHS6GM/A2jTYcJJvMBpDNxotLX5hErph5DKuFo21rB3
-         NBScHB46Xl7dHIWqFqyjKMLNvcqxwsI9XtNlnLfrBrKGhUjwF/4SfKejrG8qJwStvlo+
-         sTnw==
+        b=AouEassERCfb+muOGFX6sas/DhUwTSl9cbsER8farnHZF6HHdqc5iq00n3jZH6XVLB
+         0i60b3IPn0QJG5xbGoNBWf60f6EPrbQ/gbmQ2OPgaHhr8UTAdIAFAIyuDY/96vqccDKs
+         evTLvRHCg5wvywINh9aIMlgo4SMOQMVrvNPZdgHJ8v4HEiCx3RdalTyXIALyZlobjqrt
+         b7uM+oEkNM8nuCbWlR+ZHnwNzSlYaIrgxF26aSg80GooNk6OD6Yud3JZziB9MWTMY/j7
+         et+ChUqpaLXTJ8k4oPwm+IcR4OkUzTU+3lGCzyyNycMQNKfaXLuCF1XMCSwIRy1et09v
+         aK7A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=3sWYNbsMnrovkhw9dug3vJ+SNEtgpxa6HIU1OkfYXuc=;
-        b=lMj84W3IEprkQLIXSHJ0GQPpoQH2NrqGwgblWp+kchkEC1nXBw6+aPecd4jKc4ZijV
-         FhTX7Yy7MOxsvSfozd36NF4xv+GFCFHGiscLfu+g9piMlcQbDcCNmRR8ciGf+Or2I35j
-         iEegkLKbp6D/fumzg7/Nh4566hx//n82roALNvQL9kPwG6BCvSQ+KccgbAQoKUTrI7xM
-         OKFubGXKaWwatFg/qC9zkMFzqEoOCnGD7P2XVmq+C/Oi5cQ7px/JXSke5h27e9U7DeqJ
-         n5vT4ci/l579gLEktqNqBkrH1duCpnuW46z2MCgGgjxb9tjU4G1MJhdYwH4KlY+TB6ae
-         l0sQ==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=esug6f2deKCiGpxQgFRbKLzyhzQ2oWoWCflMtGFim6M=;
+        b=HoyMv2/rk34oJ/a2zKC4hRS0tkPGlHb+e5eO54dn1op4EI4frVedLNbe0O5ft3ZrGZ
+         kFnPRcISuo97DzXUjEf0DMwlDcSjnKe68L28ly1y2QgQiadYGqVADUbuVCm5VW3aeFvb
+         GDat8Vk01M5NYonA0g6scBLKXGwvhOrasKWzx66XSTEmO3mdr8/4j6OfH4isKq7wO173
+         G+v/PQQeLhdccVxMycdb6K7OKJ4vGot3XnoI1dNVgJsmg2MKtYK1q9bTyWoWZvZx99n6
+         sWpm0E/euiujN1w6IaMG3UkHfwYA3vFUvXMwOIYYYh1wqtuy3uuyu0tsusNk9xGffUlN
+         T0sg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id j20si19710otn.0.2021.02.23.15.08.53
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id g10si41503ioo.0.2021.02.23.16.27.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 23 Feb 2021 15:08:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: jKhqLNgeKX14pthaaJjMMRvA0bSEGQlw3Xt+2A/MIcFRVGmxVHpsEDTP7yFL4UgRCZ79fOpsOK
- LMLb5H64LZTw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9904"; a="172633531"
+        Tue, 23 Feb 2021 16:27:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: j91XET6kuOYrBAivuphFPPjR2Z7EHhfYeocnlHrvxo7FWL+wRVFWgzhSdbQHUVj80MnmPPKOiu
+ AMEhYfJh37mA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9904"; a="246412567"
 X-IronPort-AV: E=Sophos;i="5.81,201,1610438400"; 
-   d="scan'208";a="172633531"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2021 15:08:42 -0800
-IronPort-SDR: ojbF2AWOMNDJvg688L6GHrWUhchJDEiJ/2dDZzSc9Y6zxSo5GwSQenSqdd0ss7eqUh+V/OuRRF
- XAK4Pl4b5xgA==
-X-ExtLoop1: 1
+   d="scan'208";a="246412567"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2021 16:27:09 -0800
+IronPort-SDR: bPNp97p24bfJTr8mlocpc6fkNwpXTt29iZkCFKWuqAylCHg9nRI2GWowCwp6aYq0JBon64tzKJ
+ /kgeVUpHOIcQ==
 X-IronPort-AV: E=Sophos;i="5.81,201,1610438400"; 
-   d="scan'208";a="391285372"
-Received: from pl-dbox.sh.intel.com (HELO pl-dbox) ([10.239.159.39])
-  by fmsmga008.fm.intel.com with ESMTP; 23 Feb 2021 15:08:40 -0800
-Date: Wed, 24 Feb 2021 07:02:46 +0800
-From: Philip Li <philip.li@intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Chen Rong <rong.a.chen@intel.com>, kernel test robot <lkp@intel.com>,
-	kbuild-all@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Fangrui Song <maskray@google.com>,
-	Tom Stellard <tstellar@redhat.com>
-Subject: Re: [linux-next:master 8545/12022] ld.lld: error:
- arch/powerpc/built-in.a(kernel/exceptions-64e.o):(.text+0x2576): unknown
- relocation (110) against symbol interrupt_base_book3e
-Message-ID: <20210223230246.GA132276@pl-dbox>
-References: <202102222003.q8ZqV9Xy-lkp@intel.com>
- <20210223215104.etyo2intapqy2t4n@google.com>
- <CAKwvOd=whAkJDYAe_t53hGHdjFRm3a61rrh2WrpN-TB4s+F7YQ@mail.gmail.com>
+   d="scan'208";a="403396807"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.11]) ([10.239.13.11])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2021 16:27:08 -0800
+Subject: Re: [kbuild-all] Re: [PATCH v3 4/6] ceph: convert readpage to fscache
+ read helper
+To: Jeff Layton <jlayton@kernel.org>, kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+References: <20210223130629.249546-5-jlayton@kernel.org>
+ <202102240217.iFWnRE35-lkp@intel.com>
+ <fca142d9af11b3debd76a49ff8d62bd2dd4a1553.camel@kernel.org>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <552800a2-f04c-74e8-051f-778d96deb469@intel.com>
+Date: Wed, 24 Feb 2021 08:26:31 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOd=whAkJDYAe_t53hGHdjFRm3a61rrh2WrpN-TB4s+F7YQ@mail.gmail.com>
-X-Original-Sender: philip.li@intel.com
+In-Reply-To: <fca142d9af11b3debd76a49ff8d62bd2dd4a1553.camel@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 134.134.136.126 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+ (google.com: domain of rong.a.chen@intel.com designates 134.134.136.31 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,95 +145,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Feb 23, 2021 at 02:09:53PM -0800, Nick Desaulniers wrote:
-> On Tue, Feb 23, 2021 at 1:51 PM 'Fangrui Song' via Clang Built Linux
-> <clang-built-linux@googlegroups.com> wrote:
-> >
-> > On 2021-02-22, kernel test robot wrote:
-> > >CC: Linux Memory Management List <linux-mm@kvack.org>
-> > >TO: Nicholas Piggin <npiggin@gmail.com>
-> > >CC: Michael Ellerman <mpe@ellerman.id.au>
-> > >
-> > >Hi Nicholas,
-> > >
-> > >First bad commit (maybe != root cause):
-> > >
-> > >tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > >head:   37dfbfbdca66834bc0f64ec9b35e09ac6c8898da
-> > >commit: 755d664174463791489dddf34c33308b61de68c3 [8545/12022] powerpc: DebugException remove args
-> > >config: powerpc-randconfig-r026-20210222 (attached as .config)
-> > >compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
-> > >reproduce (this is a W=1 build):
-> > >        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >        chmod +x ~/bin/make.cross
-> > >        # install powerpc cross compiling tool for clang build
-> > >        # apt-get install binutils-powerpc-linux-gnu
-> > >        # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=755d664174463791489dddf34c33308b61de68c3
-> > >        git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > >        git fetch --no-tags linux-next master
-> > >        git checkout 755d664174463791489dddf34c33308b61de68c3
-> > >        # save the attached .config to linux build tree
-> > >        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc
-> > >
-> > >If you fix the issue, kindly add following tag as appropriate
-> > >Reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > >All errors (new ones prefixed by >>):
-> > >
-> > >   ld.lld: error: arch/powerpc/built-in.a(kernel/exceptions-64e.o):(.text+0x23EE): unknown relocation (110) against symbol interrupt_base_book3e
-> > >   ld.lld: error: arch/powerpc/built-in.a(kernel/exceptions-64e.o):(.text+0x2406): unknown relocation (110) against symbol __end_interrupts
-> > >>> ld.lld: error: arch/powerpc/built-in.a(kernel/exceptions-64e.o):(.text+0x2576): unknown relocation (110) against symbol interrupt_base_book3e
-> > >>> ld.lld: error: arch/powerpc/built-in.a(kernel/exceptions-64e.o):(.text+0x258E): unknown relocation (110) against symbol __end_interrupts
-> > >   ld.lld: error: arch/powerpc/built-in.a(kernel/exceptions-64e.o):(.text+0x37F2): unknown relocation (110) against symbol
-> > >   ld.lld: error: undefined symbol: .early_setup
-> > >   >>> referenced by arch/powerpc/kernel/head_64.o:(.ref.text+0x5A)
-> > >   >>> did you mean: early_setup
-> > >   >>> defined in: arch/powerpc/built-in.a(kernel/setup_64.o)
-> > >
-> > >Kconfig warnings: (for reference only)
-> > >   WARNING: unmet direct dependencies detected for HOTPLUG_CPU
-> > >   Depends on SMP && (PPC_PSERIES || PPC_PMAC || PPC_POWERNV || FSL_SOC_BOOKE
-> > >   Selected by
-> > >   - PM_SLEEP_SMP && SMP && (ARCH_SUSPEND_POSSIBLE || ARCH_HIBERNATION_POSSIBLE && PM_SLEEP
-> >
-> > 110 is R_PPC64_ADDR16_HIGH.
-> > This is https://github.com/ClangBuiltLinux/linux/issues/1260
-> >
-> > A newer LLD 12.0.0 (llvmorg-12-init-17087-g5fcb412ed083) supports R_PPC64_ADDR16_HIGH.
-> > llvmorg-12-init-17023-gc9439ca36342 used by the bot does not have R_PPC64_ADDR16_HIGH support.
-> 
-> Thanks Fangrui for verifying.  Philip, clang-12 is not yet released
-> and is still landing fixes.  Can the version used by 0day bot be
-> upgraded? Top of Tree LLVM will be clang-13, so both branches are
-got it, we will upgrade the clang compiler asap.
 
-> actively landing patches.  When clang-12 is officially released, there
-> will be a point release 6 months later, clang-13 will branch, and
-> clang-14 will eventually ship as what's ToT.
-> 
-> >
-> > >---
-> > >0-DAY CI Kernel Test Service, Intel Corporation
-> > >https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> > >
-> > >--
-> > >You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > >To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > >To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102222003.q8ZqV9Xy-lkp%40intel.com.
-> >
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210223215104.etyo2intapqy2t4n%40google.com.
-> 
-> 
-> 
-> -- 
-> Thanks,
-> ~Nick Desaulniers
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210223230246.GA132276%40pl-dbox.
+On 2/24/21 2:31 AM, Jeff Layton wrote:
+> On Wed, 2021-02-24 at 02:18 +0800, kernel test robot wrote:
+>> Hi Jeff,
+>>
+>> I love your patch! Yet something to improve:
+>>
+>> [auto build test ERROR on ceph-client/for-linus]
+>> [also build test ERROR on v5.11]
+>> [cannot apply to next-20210223]
+>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+>
+> Yes. This patch is based on top of David Howells' fscache-netfs-lib
+> branch, which has some new infrastructure that's not in Linus' master
+> branch yet.
+
+Hi Jeff,
+
+Thanks for the feedback, we'll take a look.
+
+Best Regards,
+Rong Chen
+
+>
+>> And when submitting patch, we suggest to use '--base' as documented in
+>> https://git-scm.com/docs/git-format-patch]
+>>
+> I keep forgetting to do that. I'll try to remember in the future.
+>
+> Thanks!
+>
+>> url:    https://github.com/0day-ci/linux/commits/Jeff-Layton/ceph-conver=
+t-to-netfs-helper-library/20210223-211133
+>> base:   https://github.com/ceph/ceph-client.git for-linus
+>> config: x86_64-randconfig-a003-20210223 (attached as .config)
+>> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c94=
+39ca36342fb6013187d0a69aef92736951476)
+>> reproduce (this is a W=3D1 build):
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0wget https://raw.github=
+usercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0chmod +x ~/bin/make.cro=
+ss
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0# install x86_64 cross =
+compiling tool for clang build
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0# apt-get install binut=
+ils-x86-64-linux-gnu
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0# https://github.com/0d=
+ay-ci/linux/commit/aa28edc5eea70d90d6438db51c32b22d47fd0f40
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0git remote add linux-re=
+view https://github.com/0day-ci/linux
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0git fetch --no-tags lin=
+ux-review Jeff-Layton/ceph-convert-to-netfs-helper-library/20210223-211133
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0git checkout aa28edc5ee=
+a70d90d6438db51c32b22d47fd0f40
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0# save the attached .co=
+nfig to linux build tree
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0COMPILER_INSTALL_PATH=
+=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=3Dx86_64
+>>
+>> If you fix the issue, kindly add following tag as appropriate
+>> Reported-by: kernel test robot <lkp@intel.com>
+>>
+>> All errors (new ones prefixed by >>):
+>>
+>>  =C2=A0=C2=A0=C2=A0In file included from fs/ceph/super.c:22:
+>>>> fs/ceph/cache.h:12:10: fatal error: 'linux/netfs.h' file not found
+>>  =C2=A0=C2=A0=C2=A0#include <linux/netfs.h>
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0^~~~~~~~~~~~~~~
+>>  =C2=A0=C2=A0=C2=A01 error generated.
+>> --
+>>>> fs/ceph/addr.c:15:10: fatal error: 'linux/netfs.h' file not found
+>>  =C2=A0=C2=A0=C2=A0#include <linux/netfs.h>
+>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0^~~~~~~~~~~~~~~
+>>  =C2=A0=C2=A0=C2=A01 error generated.
+>>
+>>
+>> vim +12 fs/ceph/cache.h
+>>
+>>  =C2=A0=C2=A0=C2=A0=C2=A011=09
+>>  =C2=A0=C2=A0> 12	#include <linux/netfs.h>
+>>  =C2=A0=C2=A0=C2=A0=C2=A013=09
+>>
+>> ---
+>> 0-DAY CI Kernel Test Service, Intel Corporation
+>> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/552800a2-f04c-74e8-051f-778d96deb469%40intel.com.
