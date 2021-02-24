@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBBM73KAQMGQEECM7TOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBR5M3KAQMGQEMWKRNTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5E7D32433F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 18:40:22 +0100 (CET)
-Received: by mail-ua1-x93f.google.com with SMTP id u20sf1216008ual.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 09:40:22 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614188421; cv=pass;
+Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id DDEF132438B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 19:09:12 +0100 (CET)
+Received: by mail-oo1-xc3a.google.com with SMTP id y15sf1611730oog.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 10:09:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614190151; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oj7vSPCOqOdV6w2zRFom6e6OIrF2TXRv2EoIHZIuhz2ReX4Oi8SloLi0v47MZluWfr
-         u0RfmzYxxZjWs760DKG5Et2VVFY/LkKgsuBtEaCFCwsh9vnmwWWhhCGatDIrbrO6O+5c
-         wqzivXGtmxMT1xWVr8arZoNZPy5mvm2Lu+A9+1ogCh/mkZ0QwUJL4F3A3+wiqS+UeU7U
-         3hDi9kreL4QRdt1u3Hy32/swO7RLj5cF2tzIWlz99+s0cAE9aAaeeky5SIZ7qyylI/yz
-         OplXjn8joCwJXdIzCPM7mvpPunICTotRe1vxW3hGKKcy4mYa/CCZG9okP0f18bgDrlnJ
-         OtPA==
+        b=N59ViaJOQXsJW0uzZYs0p/poa2HwkFZbEnKBeciZySAxA8Suye5eXVwwZsc5/GQT9y
+         ynl+43MkC3jY5SR32tFwwPfB82rpOwL89Zp06SQd/vYOzJldp/BsFSMC2TdoCm/ApC/+
+         htMBrAvrkwIC7Cs6Kc0eTN967CLUR4NOU0GghDkLkFYP8MHxaZ9TNo0GObT3z0VHWrud
+         G78KvKW14kEhB4T4zQaCfcYd1rnFUVeGS2jNmNyWqonu3y8ROHBySdvTl1TgbN4lKWhR
+         bbzFrS+0KhIazIDPNWrgdO2icfxGste35mg+Hd5AKvafkOcK/YLVdUu90EfOZ7IJb9H2
+         XiYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=5DajF123HvbI2QMOQ9Qr7LsOceFCxe5DWUJsxfcydQQ=;
-        b=NWpFk44P7KuQDUvsZvtRXAJiN8n+TOmNpfsBXNAsOnk3e3woUc3Knnnvj0bNQGIRPU
-         7YJq8+pv9lTFfGUWgQ2KVSIR2dnWp+sHGetxuUmjpqb/i6oiSHeyEFwC4SywKUixMw5M
-         tdhqW5cBCsgm3sS4EujsCdplr36tQGbRWWm1TDo53HkiAGBC8CuS0mFG7VxN6I8lSkeU
-         2K+WNZ7+ezltixu2hDVdXxZzT4s1FLwa6Pf6KjIHCxuw2mQJvQV7uepkka50rX5YAQ6t
-         doE0qqk9KpLRnhc7y3NYi4wjJ3VAlfNQpcBdcg510b5TZn2KSrJTDZabd7bwiT+lSUz0
-         g48w==
+        bh=Ljno82E+fnfgcJXPGkeEQeta3HG/8ZId8jajVmZTVig=;
+        b=EZOXOicukGkn58sLfQhYes5D9dXHytOQF1DRhz7xRpfcNTp0p2uxQ53HKLf1lgwJ5A
+         17fQ9pkk2u46l7VlB1gLL0O+1+ngEbTbYux7++rw0TWREOhA8mr/CPldXCQpXFrbaMHV
+         21ggY1s1BbxGHauXbLRntAGspNtJ4bQYhHduUOP4EbiYwOj4FVwuCtdkD2Xg9yQSpbw0
+         6atjh4mH2vQ8viRAIBnIANRrLAeQrtzPPxcZjXUfTaw8XwmBCysm9a0bfa1Sk3dgEIUD
+         gg6ppnM0S/2V7UyIqfnS3n0J44haqi1mxLpholE8XUJchQC0OVBe69HmhzuihKRkWHlK
+         1eew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=rYBE3tx4;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hqke137R;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12a as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5DajF123HvbI2QMOQ9Qr7LsOceFCxe5DWUJsxfcydQQ=;
-        b=fcNhwrCmpQ3PkrB3lQEMuk4WYnQjnR68xv22shT0yBx2OgxKIKIsAN0/UQzUN1UUsB
-         xlyPDX1U1+DjlBjzmi8Y/ccX77TtanAtX0ju+mPpvAOUG5McMz/Sm6FR21rd/loZ0FUL
-         DUHUeUCsHD4wSGkbLeY0DnIudehq3riFdt62T1yT19A9gDSSWqWG6xqnHw1f/7MVUIPt
-         wZe1FdK0kMhgVVGA7obdfIzGPebgPsl0KnuFk6cDQPQoo9gtvE98Lcy8IvuV2JbgQF8U
-         FleRbaLUa7kbCwv4tRVhiuyvxg5uNrW2T5gl7xO1Aw6S+gbGlTe6x4RTeP2D+lofHLk6
-         mcpw==
+        bh=Ljno82E+fnfgcJXPGkeEQeta3HG/8ZId8jajVmZTVig=;
+        b=cKDF8ZOKGTHC08Y3Dz3puij952gW09FJf4dWNC+ZmhrtjGaYnAulf0cXZBksErBzbf
+         9mJypGntw8n7x7aCaMXBi2l59EJy1L/i2zgcQisMgVNZvtNbAgL7DSrZM8Z2ymQFsZKt
+         GyKZ10PPyeQJw8V5TfUwhgYJqoD+Bw5O06DQQLj5PKJnqm/N0AlX0o1VHgxng9eatGGU
+         DimauPCMTKjI7pTnvzjg0Qrc14Ny1Z+uXvVdGhdb4O2yOAxE67EcmZIqocJR2x0p8zr6
+         dntLf3lYLjThGkIw5ZZQf/uLF9ZgkLGsdJbwdjkSsjuVPN8JyAjsQJyOpRvEefR9LqaN
+         Qm1g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5DajF123HvbI2QMOQ9Qr7LsOceFCxe5DWUJsxfcydQQ=;
-        b=glLKcfYfguN5sUBKCZz9hVa9J+Vxn/YoZxAwpKrGj9fyDehAfZWFBCt6JhMTLoDX5O
-         uIh1DmfRz9anHiPjinuRZNid95cig8W1y/9LWC21InJwPss7M2zpJPQrwTUrXeLlY46P
-         bxpVDtTaIH3Unow/tam8SgHQi0eleZO0V68Fz19w/PVXt49Otdu5sJvsUkiBzPeL026g
-         8fsPn4Jl+7f4/EffZJLMQJZ81IMuINuXchTLLNAFGgz2x7Hq85OgwcD0YtCaxCnn7P6Y
-         CdJai3pE2VJu04lmxTQtZBM8AUd3H+3kZ8Iw8uve7K6ffCiX/y6YmPXtG1fpOd+7j7aM
-         ritA==
+        bh=Ljno82E+fnfgcJXPGkeEQeta3HG/8ZId8jajVmZTVig=;
+        b=YOOgf9d3FZkfkfXRV0xBVZqs7S9Me0GNwGlf7biV2/ilcfOL62yKZlUBpcoLvHCFY6
+         uvsRyl2t1Np3cT5HtNcmMrJNX23Aszl8eS98egLcFQFDAKuKgiBj9gqVOW04owRi8rE2
+         TBS/DOcYF7NEY3cOyee4MLDUctELymBbLlQuw+omk1AKg4yV0dEvqzuwfYo+K9swl4eV
+         VlofmnslJoZRnzKFaiszkfhsUnedG8rdojE6KJmjutdYEoh4WAXPUOa/Vysj8tD+pP89
+         SiWwLmF+kN+QSQVVkGkkXnjgWbfarC5/iwlBGAkLsIqTtaN7oq1p5uI/CTTXVAtsvNuf
+         qTQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to
@@ -63,77 +63,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5DajF123HvbI2QMOQ9Qr7LsOceFCxe5DWUJsxfcydQQ=;
-        b=Ej7VQEJ9wDSbt0Bk49rFEVpp4EQn25U/YqxVOPA1yDCl0OKivBLO7NFkrb7alXgYT1
-         VtdtyzbcIgTsSXZV8kNrbO971Nf6iJ2WVja5r3i4T6yJmylbN8V6Al7iIfClvWLrwGl8
-         HDLrtg1XMHdmB0vGm4L9iAFWSxOD2fLlq/WJrJ12RHvTD/1jidW/AaLlm/SX8/IVged6
-         +7iIiGCdf0KWxPrVb7LL4fMqqjB6xnip33tkpl2xS892J8YVV10ycdMbj2yHGvaJWe61
-         USDpOeuitpI+tWdmYuVnBt2xFDxDAOQSEal3yl9OramMw2GKDbLOeM/w53vLsuwqLy9E
-         EJ7A==
+        bh=Ljno82E+fnfgcJXPGkeEQeta3HG/8ZId8jajVmZTVig=;
+        b=BBCim7Ra4UxI7SGI824p3m6Wn8KYS8nNnXBf4ZAt+BGXmdRL06S3BK5b25p8pqTFQY
+         XQzyxw+0U4M5073BrHD4CC0ONzyOxR8Rxj3DS7qbm4I/k7eIyUbutoATARfpiloUW6b9
+         IOZwQ9F2o9w2HJnbDEGYGza+6Ul42lCp3mvFMhytCsmBnErDHcuNnlDY/1pj6wFjDZkv
+         lgEupeM13GrYPyqzfyHAEjU6JnAgfHVcPC4dJ69K7aV3RuWMTApQjd02Tgapv46eZ++a
+         yjCXk6MgrDs5kbQI5skGtZ0tC3rdyXE5O3O/eCscowg8CF894PPRQw476fkv+WYDITLT
+         fHvg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Xq6vW+jDtLysNeusrez2jUwCIMDWadm/hcnSwW2g7d9Jz5WMQ
-	2DV6a1Ayv8K75P3P6jHzkmc=
-X-Google-Smtp-Source: ABdhPJz5av1Vcmzc+AlG7yGMZeMcDrFlOOn8o0o9oI1ISLd0yQQiB5sMDNDdhLMcbb76Dws6PTVgoA==
-X-Received: by 2002:a1f:2c08:: with SMTP id s8mr20926651vks.25.1614188421718;
-        Wed, 24 Feb 2021 09:40:21 -0800 (PST)
+X-Gm-Message-State: AOAM530sFkE/DX8KnD2DLpuGb/EXcBvUkiBAwDB9A/3j6Qix11ylsJr4
+	dfbG5pdgO0r4aykcYDT2H8U=
+X-Google-Smtp-Source: ABdhPJwVKYJ/qWaV4Q5Ju48ngOTh5CO6G5vLDZfObhuNyypaDthRkqfPSVRRRv9eO7dOTtVY+DyY2w==
+X-Received: by 2002:a9d:7519:: with SMTP id r25mr7358947otk.172.1614190151446;
+        Wed, 24 Feb 2021 10:09:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:64d0:: with SMTP id j16ls229018uaq.11.gmail; Wed, 24 Feb
- 2021 09:40:21 -0800 (PST)
-X-Received: by 2002:a9f:2701:: with SMTP id a1mr15731342uaa.120.1614188421107;
-        Wed, 24 Feb 2021 09:40:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614188421; cv=none;
+Received: by 2002:a9d:6c86:: with SMTP id c6ls885912otr.5.gmail; Wed, 24 Feb
+ 2021 10:09:11 -0800 (PST)
+X-Received: by 2002:a05:6830:1154:: with SMTP id x20mr9383157otq.338.1614190151081;
+        Wed, 24 Feb 2021 10:09:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614190151; cv=none;
         d=google.com; s=arc-20160816;
-        b=ck/TEnFpoig944HPeBlBimDQSAz4/Q6XrOcNA0QfCBgK3cuQX6JWJkmaNdJvKZvc69
-         ZLOvl04B4juxYFUQJ6gjHF3H3KOLpFaq6EQ3sMa8Ns/FQs02hIlgkI46C0yB9zIUVMs1
-         zNsTLdT+4GRRCX08c7H03I3jhwVLMMEhZW1AMXMWjrpGD2FVB6YCxDzH/aHLu/zbkPbM
-         QltzYppZGqzDtXmm/027WYEkWjY7SN07srPKSo7mna6ZDYza+wRKq2E3e839JYuyP4Ju
-         iuVlIyop30y6VRDYNvTALXZ+K2A2rTXpITKtX8+/TexaHgh/bT48MULAf+kpNxsTCa2B
-         6hSw==
+        b=bKC5hI9zC3hkwVDWAiVMkZYvDcOHRNtc+Cm+nISWrSVwnP1wXi0Y6nVhYJHO3fdWoc
+         1ZsElGIpUXb0Au2wEi8tJHLS1m01grTHTWHwpnpnOKL1YKpqo5DKQu3MRFQqJyB/9r6x
+         p4PQNGTeM72GLGe6OjcX4x6M9N1mpOwoeaNT6RZ2eLrqUaSQtgsFRMseQ8fnfXWsf0oa
+         4NODCF+ZF87wQKxwQpb17svwwLc2o7Hvw2cdY4zaY1Fm1793ZIRhTH8RYmEvPNWRjz7z
+         xctph9GtFA7qvycAI/oFObVZMupVD7nGOSJhy0eUMVi9j1FU/Ha9TtuT5JppwTlQTKgn
+         jjRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=KVEFF/e3cq8hSLAqkkWzb/tsBUvxw8HxL0663tRmoQo=;
-        b=06QxU2uVqXbqPlPHPk1a+DOOQmEEn3Ae+7Gc33fKMUZvYFzeteqBiv3kfPd3vKx+Is
-         W7ZhoYUl0JDd6emEMbXInJhOt9FvG9EJpgciy7PNuVG2kNc4Uji6i1PFFDebQakSM0IL
-         ezFhuoj9yolsOhZ9H59jCIpPvc+LCBw2NkFiZmpoxt67SNLHmcfdQeSqb+XvvNWbYL0U
-         xv6twO9gulyyrrT2uY0n0rj2AHO0Ag3WR//XF1/QaBYFHruMWEZKGtrF0Ze1dO0GmvQA
-         xaolkgIHQCImpmCywo7MJdqKriI3gxQflpKwieTwXl1IFbSRbCSTA4R8Hq0nNgC1thLG
-         Sv+A==
+        bh=dKCWFwCtere4GZoadEUWnq7pobLJDcHFCquipMb1ruk=;
+        b=gtPVIgjRaEUWPZLGUxgwGMCOahZnoDHb+K1kJUNyiYVsI8J7/ftrkSmsZwA27Jk618
+         Y0erhrQIzTsPWKoc9wy4NDdpAoMd7uwWH1qokEm8BctMNooobMwtFuc/XXzi9VnUuPSR
+         ExyuxY8tK9yfADJCbfN0fa/HwHf71XS9hjG8P2yNjIS9qzncD9kEnwxMMhrXsnmiWGEq
+         g3Sm8ZD6WPZILTx1eXvrC1lMJqpiZkEoV7dUBHgQtbRkg4tV+s6obCtzXv8ilu+sHtDh
+         wl7ENbvaAMu2P4/4o+n4IvP6cf36H4MshjfjcmOVneaxAmphwpfLjWQtr+iBpuWnUmdM
+         JuoQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=rYBE3tx4;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hqke137R;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12a as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x12b.google.com (mail-il1-x12b.google.com. [2607:f8b0:4864:20::12b])
-        by gmr-mx.google.com with ESMTPS id p16si209480vko.0.2021.02.24.09.40.21
+Received: from mail-il1-x12a.google.com (mail-il1-x12a.google.com. [2607:f8b0:4864:20::12a])
+        by gmr-mx.google.com with ESMTPS id y26si261272ooy.1.2021.02.24.10.09.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Feb 2021 09:40:21 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b as permitted sender) client-ip=2607:f8b0:4864:20::12b;
-Received: by mail-il1-x12b.google.com with SMTP id f10so1898993ilq.5
-        for <clang-built-linux@googlegroups.com>; Wed, 24 Feb 2021 09:40:21 -0800 (PST)
-X-Received: by 2002:a92:c145:: with SMTP id b5mr19179398ilh.186.1614188420558;
- Wed, 24 Feb 2021 09:40:20 -0800 (PST)
+        Wed, 24 Feb 2021 10:09:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12a as permitted sender) client-ip=2607:f8b0:4864:20::12a;
+Received: by mail-il1-x12a.google.com with SMTP id f7so2507997ilk.12
+        for <clang-built-linux@googlegroups.com>; Wed, 24 Feb 2021 10:09:11 -0800 (PST)
+X-Received: by 2002:a05:6e02:13a6:: with SMTP id h6mr14196474ilo.10.1614190150784;
+ Wed, 24 Feb 2021 10:09:10 -0800 (PST)
 MIME-Version: 1.0
-References: <20210218224849.5591-1-nathan@kernel.org>
-In-Reply-To: <20210218224849.5591-1-nathan@kernel.org>
+References: <20210211194258.4137998-1-nathan@kernel.org> <CABCJKueyXp5EQnmZ7a6HR87oKwDBDukprnJWT620McSYFd1SMg@mail.gmail.com>
+In-Reply-To: <CABCJKueyXp5EQnmZ7a6HR87oKwDBDukprnJWT620McSYFd1SMg@mail.gmail.com>
 Reply-To: sedat.dilek@gmail.com
 From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Wed, 24 Feb 2021 18:40:09 +0100
-Message-ID: <CA+icZUXGS_bbVRsMVJowVPTZpi8NYQ_18Ec9bXBTztWL6dA=hQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/amd/pm/swsmu: Avoid using structure_size
- uninitialized in smu_cmn_init_soft_gpu_metrics
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Alex Deucher <alexander.deucher@amd.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Kevin Wang <kevin1.wang@amd.com>, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
+Date: Wed, 24 Feb 2021 19:08:59 +0100
+Message-ID: <CA+icZUW=GTV0L884wdohaOdFmg4E4wdtSEOgF+KEGPcKzYOoow@mail.gmail.com>
+Subject: Re: [PATCH] qemu_fw_cfg: Make fw_cfg_rev_attr a proper kobj_attribute
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Gabriel Somlo <somlo@cmu.edu>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Kees Cook <keescook@chromium.org>, qemu-devel@nongnu.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=rYBE3tx4;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b
+ header.i=@gmail.com header.s=20161025 header.b=hqke137R;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12a
  as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
@@ -148,64 +146,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 18, 2021 at 11:49 PM Nathan Chancellor <nathan@kernel.org> wrote:
+On Thu, Feb 11, 2021 at 9:41 PM 'Sami Tolvanen' via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
 >
-> Clang warns:
+> Hi Nathan,
 >
-> drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:764:2: warning:
-> variable 'structure_size' is used uninitialized whenever switch default
-> is taken [-Wsometimes-uninitialized]
->         default:
->         ^~~~~~~
-> drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:770:23: note:
-> uninitialized use occurs here
->         memset(header, 0xFF, structure_size);
->                              ^~~~~~~~~~~~~~
-> drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.c:753:25: note:
-> initialize the variable 'structure_size' to silence this warning
->         uint16_t structure_size;
->                                ^
->                                 = 0
-> 1 warning generated.
+> On Thu, Feb 11, 2021 at 11:43 AM Nathan Chancellor <nathan@kernel.org> wrote:
+> >
+> > fw_cfg_showrev() is called by an indirect call in kobj_attr_show(),
+> > which violates clang's CFI checking because fw_cfg_showrev()'s second
+> > parameter is 'struct attribute', whereas the ->show() member of 'struct
+> > kobj_structure' expects the second parameter to be of type 'struct
+> > kobj_attribute'.
+> >
+> > $ cat /sys/firmware/qemu_fw_cfg/rev
+> > 3
+> >
+> > $ dmesg | grep "CFI failure"
+> > [   26.016832] CFI failure (target: fw_cfg_showrev+0x0/0x8):
+> >
+> > Fix this by converting fw_cfg_rev_attr to 'struct kobj_attribute' where
+> > this would have been caught automatically by the incompatible pointer
+> > types compiler warning. Update fw_cfg_showrev() accordingly.
+> >
+> > Fixes: 75f3e8e47f38 ("firmware: introduce sysfs driver for QEMU's fw_cfg device")
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/1299
+> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 >
-> Return in the default case, as the size of the header will not be known.
+> Looks good to me. Thank you for sending the patch!
 >
-> Fixes: de4b7cd8cb87 ("drm/amd/pm/swsmu: unify the init soft gpu metrics function")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1304
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
+>
 
-I fell over this today with Linux v5.11-10201-gc03c21ba6f4e.
+Environment: Linux v5.11-10201-gc03c21ba6f4e plus Clang-CFI as of
+24-Feb-2021 on top built with LLVM v13-git.
 
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com> # LLVM/Clang v13-git
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
 
 - Sedat -
-
-> ---
->  drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c b/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c
-> index bb620fdd4cd2..bcedd4d92e35 100644
-> --- a/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c
-> +++ b/drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c
-> @@ -762,7 +762,7 @@ void smu_cmn_init_soft_gpu_metrics(void *table, uint8_t frev, uint8_t crev)
->                 structure_size = sizeof(struct gpu_metrics_v2_0);
->                 break;
->         default:
-> -               break;
-> +               return;
->         }
->
->  #undef METRICS_VERSION
-> --
-> 2.30.1
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210218224849.5591-1-nathan%40kernel.org.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUXGS_bbVRsMVJowVPTZpi8NYQ_18Ec9bXBTztWL6dA%3DhQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUW%3DGTV0L884wdohaOdFmg4E4wdtSEOgF%2BKEGPcKzYOoow%40mail.gmail.com.
