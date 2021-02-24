@@ -1,135 +1,128 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBBP23KAQMGQEWJBDATQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDV2D5O34IDRBBH63KAQMGQEGEXQ5LI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
-	by mail.lfdr.de (Postfix) with ESMTPS id BA2C9324578
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 21:54:30 +0100 (CET)
-Received: by mail-qt1-x839.google.com with SMTP id o7sf2618431qtw.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 12:54:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614200069; cv=pass;
+Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 818C032458E
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 22:03:01 +0100 (CET)
+Received: by mail-yb1-xb3b.google.com with SMTP id 6sf3639295ybq.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Feb 2021 13:03:01 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614200580; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kfyoxViHPIEWikzf5kdFlRPSd7IpGiF+kL5SRUSFIF5pGTHed6Ne8gdp3ZEqrRQs/F
-         QCBbDD1iZmIaxZKVPhrBxVDMD8UPD14EJazZLdPovnwcR+20DV6HLtGx2DtQtSv5BmkX
-         IHCgN9zwT4/VUkWlKDCPpMtTTFZsQf5RucRCzs5IX+XtEPbFaU/tZ4Rm8mCKPaw3qpYR
-         eza6tw2oHYR8CUdELPZ8n+dKvNi1pHt0Le7xvS4UJT8nW+CiWV0xuHFceaeLEwgNe30v
-         +cEOrWQzw8qCBwB+2fMEVCoruRoiLxNA5WBo9BW1qzhkgxeXprljDeeeVrBWrY/7hG3Q
-         iSug==
+        b=B0pb2/t3AfyqGR1m2bleArtSV/PT0d6wV/h9PrTx0hGO1snZ4LgZbOI22SQ1dndxyC
+         LTCnwea4vlpz731MetQTWuHN8R+Z0aa8vtlpJfxYARv9Y9Q0Rfv+qRF9gkYQuQQQMzQG
+         mJHWDPg2uk8vlpW2udYUT7kIXbYKrjnuYEgH2xk0wIGOkX7VzTZeKkdGmmKMEtM7xctr
+         D+nxikz32OdcJiUWCtO5/FcmFHE12k36inSO5TBXdELvZ2jSGua1jKIKTypnwtTTBu+l
+         4NPiekegG50Ef43yHm4PB+MoLH4C/APbI8qibceMXmmIa7zu2vmfDbvSThxS6u3YT04e
+         HIqw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=r8pUQPIWV7nrJ8R7+LrF/8u2SR0woaqhvtX1c09Jyjs=;
-        b=x+/k+5AE8zDItL8X/9tk6BCusPDLlK8m+oPNxqVjHQYj4nDk0NLeKQos15jc8i+aIZ
-         oP13IdOGMSv3oT+b99ffeFfwMzkr1BwmyTCkjz1HKFsyynimoDm25diZ8t7EUzdO7I1E
-         q9VVN9jlSVyMz3ugjqqShiL4ON6nu/BemdDW3TzMqaV3FpkSYbOYo973Q8x6WOOwixDD
-         9PIhDRDYd3mWp7XAaTwvBrBzUPIWjgvxeaqybGob90tPD5VxfqdWUHd4KtdEVHSH/6o1
-         xliPdpjcnYjJ9hAkj2OJGMdP3ZX9DU+G62yZZfYyYUco6SGs7LIZgjlgxaxxFHI0t+C7
-         3AcQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=yb0ZU9YeBQMKCL1vW4Akf6ceiLJ2aZOjdWePwOnWnUA=;
+        b=RVMBFGCHNojhJhuyalJqKxFlOpvi/GIrLLrShpReKGg1D555AY6rt9K21QF4FCR4Nh
+         D80Y1RtblVtHE3spFrXbzPayhiNydDNz+8hfVJaQD8mFVcP3w48jGiQ/dwG2+oJQQhmi
+         lRh17iggPdRenWHbory9JL9h/D5lrfeC+tPmSLpldIELUUh2kk6eqiZKYq3GKbDxFvP8
+         zcD38/rsK86U3F4ZSuH0/NYe4f28pZWZl+Op06eH2MIC/29tz5LOI6gtKOtyjCQplutW
+         yb5890rPAPqoME9/P0SPUuc4mu7PBbhdEBtISjuEkPjABgImr/AOkDqkKmi8iZBba7E8
+         +SBA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ollMcONV;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=KKrHr0be;
+       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=r8pUQPIWV7nrJ8R7+LrF/8u2SR0woaqhvtX1c09Jyjs=;
-        b=UP1iIQOubuGQgn86DsvJy1oaoNvoRJUJwNxxntEhJRM071sOu2C1102EH0GqyoKKQ+
-         dvOZkev6Qj2iNqtGPX1TVjKz/3N7oKk3WVWxqQsjEYAColo1zoksVXiwnlakJd0tMeQh
-         nyFhhTX5d0eKE9jXjh8BLqgywY4hAQpVIWQKVIoF7/ZYaM2xl1C960MOnr+zJOsf9qxN
-         uJLTLwTslg1Jp3dyCEaV9t6VdOZp5mhcNXYBUWGfrKq7MbkxgvrHx0WnMEsKkijSOi6g
-         Sb4Livw97HgkkYL2EO2Fw84bHPo8CKo5xLY1k+XoX0rpcNw37eut3PzxLCh0dTr17rMN
-         oFxQ==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=yb0ZU9YeBQMKCL1vW4Akf6ceiLJ2aZOjdWePwOnWnUA=;
+        b=EjHckLT3Ctv4ZI6Ne7RD5o64MumcOed1wtg6Z47yv9+sPx8iXX1Su9swth1Yte4PDG
+         vZVE2yCR03+1S3LT5k6rVH/EEU3QkAap/tNrli4hD//ZVk9Zkyo6OT9mFHgZKwvGIuUD
+         4Uz3ziEokIW1/J72maf5hTQHfOIky+ygzYXMduGUYv0dUQO+zGQAHHzipC9l9OPmpSLz
+         pBKNt3m5NUBsm0bPefheUhdfKl2LcQlIdI/2aplQVdwEHpmDUP7ySJIfgA3SvUgqM+YR
+         pPR46AYK04xgHw/tlQENcO2zoLNAmtFISetTZqNOfjqRd1JQIu3iFdVF7G71AZMOgjBH
+         Tu/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=r8pUQPIWV7nrJ8R7+LrF/8u2SR0woaqhvtX1c09Jyjs=;
-        b=IL8JEzaBR8+x09buuUDi98cTdlwJ7jWRSOzXhV+tWitVuozk9uKBQkRfCLbMQSyovJ
-         zhDzZYFXkgM2eNKMf/8LbByy4Ewbb4NlmWGx2UU+V6AqPoeKrlbxAsuvqM9HpzijFB/F
-         s+QzgCLiE81h9BP2LEBwPzUQ0kBnYbRMtZng/YrfGA2t2Rs4DsDA8kWAT4Wb02zaF8wW
-         DhGpmX2gtMbWO/bYTevcePGk/yILc4jflTPL1wRV1l1WIYlY8vER0IJzuNeBttLIb6Bn
-         2gzB2Smm9vL2RZhGYbHfD+LTXwUmA5a52IZ7Fjyv3Nlxk6zkX7Z9IH5ZUxqTCUdYwYHP
-         HS/A==
-X-Gm-Message-State: AOAM532H3ckvq1Vz9wycXFGphWd5li71fU47GAlQKcurzcdeye0RTbB0
-	lWSa8XmwnAxVWixJuziwJPI=
-X-Google-Smtp-Source: ABdhPJxW3gfY4OU3AHz7PaV1baPSqrtL2detQGbf5YZVgQxwWGeLEQHFGCN/+HtYhZbOTFHCdqNWLw==
-X-Received: by 2002:a37:4d4d:: with SMTP id a74mr32459595qkb.204.1614200069501;
-        Wed, 24 Feb 2021 12:54:29 -0800 (PST)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=yb0ZU9YeBQMKCL1vW4Akf6ceiLJ2aZOjdWePwOnWnUA=;
+        b=CMgoxuQHj5jSBoM6CCkH1lnSDEKgCFrn75dxOjV37zpNIoUiaBG4PnWuDMnJDL5sxd
+         gmzZTHiSY1YDW6lv41IZo9m99w43bpvWhS/zQnyFUzBP+iUAoUuDMaH9FAJp7luzTNHQ
+         JEJz6GEeN3/7OIpm/WUvpEYc+HDuPmDag6CHAKGnJ/TrlrZEJMNTqXQiAbSMJqNnPJn9
+         m0c/0bLEEUBsqUWmO8Z/xCGXR2kesxu1FfMPe29CcMZO/9lhAiC9sa3Ci5PjPfu48lVQ
+         /XrPZ7dnfjzVnzcjXSAkhXjwYjYg8+T6bfT/6JQQrlIseQbhzKmKHx9fZaXdqGIgxx1q
+         RnQA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5330NOX5M2a7Y+8WVyaZFnnjddv95cqkPeP/pdqZGDhDunzSMbkn
+	kAGN4Yau+1LsdXIWYpFb6Dg=
+X-Google-Smtp-Source: ABdhPJy1Op9rz9t4jsQQ2KJEBmEcN/tx8fhDCPgnAjV92z+o6Hlj+dNvEnHatyU3xAAQP+lPVp51+w==
+X-Received: by 2002:a25:d251:: with SMTP id j78mr29050168ybg.480.1614200580339;
+        Wed, 24 Feb 2021 13:03:00 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5a04:: with SMTP id n4ls1286569qta.5.gmail; Wed, 24 Feb
- 2021 12:54:27 -0800 (PST)
-X-Received: by 2002:ac8:7409:: with SMTP id p9mr18548403qtq.100.1614200067460;
-        Wed, 24 Feb 2021 12:54:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614200067; cv=none;
+Received: by 2002:a25:7343:: with SMTP id o64ls1576300ybc.8.gmail; Wed, 24 Feb
+ 2021 13:02:59 -0800 (PST)
+X-Received: by 2002:a25:4101:: with SMTP id o1mr20918057yba.240.1614200579824;
+        Wed, 24 Feb 2021 13:02:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614200579; cv=none;
         d=google.com; s=arc-20160816;
-        b=edkK3eAx2zGI1AVkTuHtIevo5gOPYigdWZwDfS0VCHr6Kkqy8jPT3YTgEuZ9+HKsbn
-         KKW4umlU2mP+UYdkh70Y+Ia10GxKgmrMGaH33+oofKvCBNdOfrg9ikV58VQhnfqYwc5v
-         LSbAki1xKg/7s6v4gVDFDSiDTmKbgMUtDdgcYaPrWkoz7WLzQANL/6q/5u6WFYW8SgHz
-         qvkhMGgHfpu//cNg4+lraKgmzJZu20BCi3/Ik9KbQhIyDSxKHdop9qogmv49r7Fcm+vG
-         fjW/R6mwz3e9XXuMsKKHsas3S2Ev3fKJQarGvXIg95sTKPNU7szV8wU5zQyeRD0pWAyB
-         +jLQ==
+        b=RNIGa8Kzpmlhq2SRzXxMQmYT94j31/UB891s2H4YHXKz/arlN9MGChOD/5vXAowo2l
+         uwTuAZvMZjp7y38HvCb+Qr9a150q/WqDp+0D/bg0nMUueX7M/Wc0SjmMNIkaI4+xH85V
+         wNJd86DNgiK1kFMYyjR2c/UMQx5wN8IdpP/crZqeX3QhvpCG3Xi4mP8ld2kqyo8Mr68U
+         Jj4efnPEf8HKXrn8bUzfaJTUO+vGn1NhQOQ1Hrvu9nYy6AvV13e6nQlM7tsJ9t8MxsaE
+         L+daHs35pfDEDseYqankv7A+E5l2YnB71o8EGVpSnbs7LidBtssAL+o0gBY7VdYo3Yvz
+         a5Ng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=LLIfyeFIub3muB/CP7Hm2VoepJyVW4tHjdnBCk4yhLg=;
-        b=OnLzVHyA5dkuAGiqh5I47olQOveufr9K1Edue+HL1PVXNGYavnzbVm24RWN7M6HsrT
-         UPPhITWVYjt8Wk6mNj5ZWGfCc3cKzU2hTDe7lTH61FUNBoYnkKVWLmN9EcqMaTwy0xNn
-         AII3Whe6s34toMo23wIkhr7htnNpdeaqFkbrX5r2rbBldpOIdf2AF3XqO/UQTXGtm4TC
-         dMpUlFaajxXSg9wbiw/OovF51vnoWqzvjKwd9eo2MqjEcIM4fBa79cm96O6mqYcKO+vp
-         bPcEhX0rmG1LcjZqaHvlgLS+8AWSwdhnRYARxuPYZs3i5gRjN1UnALYPRUGGWdKtrZF8
-         qDhA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=WhViOo4bMhzCRGucQZfad8LzFD6uv/XnGokgXjpbUmg=;
+        b=v9oWfRboqawLiInwHeDEbTLWoCKSzrPSmrWLafyscmkpkbt9DiQ9gLPkXZgo5Xpkln
+         k8e2fQoUf9VNHRMQK/6NDkBNLe5/z9qFSQwJ2j1CIEWPXL4xJU9Fh2YzPsPUYoyOCcVS
+         4pU7dQsDSinS9eVyMUBSVjeoiwKEbvxdINDir/gYkAqLLlF109Wd9ZkCvyt5G8qt6XZb
+         4w+qwPALvu+zG7QsSpokLHAHiDpT3OWuj/aBAUjdg64L0oEKyZB3bdOivr/3P4s4J5OC
+         GeEMMM0l3lEme+SytsyfZ0BTerp1AW6TjxL4fvOkDZQLPZTrdKtwN2dt4/qSRmkyQgfo
+         hliA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ollMcONV;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ua1-x933.google.com (mail-ua1-x933.google.com. [2607:f8b0:4864:20::933])
-        by gmr-mx.google.com with ESMTPS id w19si216372qto.4.2021.02.24.12.54.27
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=KKrHr0be;
+       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id s44si249713ybi.3.2021.02.24.13.02.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Feb 2021 12:54:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933 as permitted sender) client-ip=2607:f8b0:4864:20::933;
-Received: by mail-ua1-x933.google.com with SMTP id c44so1177770uad.12
-        for <clang-built-linux@googlegroups.com>; Wed, 24 Feb 2021 12:54:27 -0800 (PST)
-X-Received: by 2002:a9f:2021:: with SMTP id 30mr11157082uam.66.1614200066849;
- Wed, 24 Feb 2021 12:54:26 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Feb 2021 13:02:59 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
+Received: from [2601:1c0:6280:3f0::d05b]
+	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1lF1JA-0008IL-48; Wed, 24 Feb 2021 21:02:56 +0000
+Subject: Re: [linux-next:master 11942/12503]
+ drivers/video/fbdev/aty/atyfb_base.c:180:6: warning: no previous prototype
+ for function 'aty_st_lcd'
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ Daniel Vetter <daniel.vetter@ffwll.ch>
+References: <202102242016.MJskK6hp-lkp@intel.com>
+ <97716bb9-6aca-d7e6-e390-1b9d3a0b99a8@infradead.org>
+ <CAKwvOdnHZTsYNBONLHGu=dMcPPgp8TM8Lq8vC2L-984CUFwkmA@mail.gmail.com>
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <3628bb0f-0790-2a18-93e5-be244d32be53@infradead.org>
+Date: Wed, 24 Feb 2021 13:02:52 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.0
 MIME-Version: 1.0
-References: <20201211184633.3213045-1-samitolvanen@google.com>
- <20201211184633.3213045-2-samitolvanen@google.com> <20210224201723.GA69309@roeck-us.net>
- <202102241238.93BC4DCF@keescook>
-In-Reply-To: <202102241238.93BC4DCF@keescook>
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 24 Feb 2021 12:54:15 -0800
-Message-ID: <CABCJKufph4se58eiJNSJUd3ASBgbJGmL2e3wg4Jwo4Bi2UxP=Q@mail.gmail.com>
-Subject: Re: [PATCH v9 01/16] tracing: move function tracer options to Kconfig
- (causing parisc build failures)
-To: Kees Cook <keescook@chromium.org>
-Cc: Guenter Roeck <linux@roeck-us.net>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Will Deacon <will@kernel.org>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-kbuild <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	PCI <linux-pci@vger.kernel.org>, linux-parisc@vger.kernel.org, 
-	Helge Deller <deller@gmx.de>
+In-Reply-To: <CAKwvOdnHZTsYNBONLHGu=dMcPPgp8TM8Lq8vC2L-984CUFwkmA@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
+Content-Language: en-US
+X-Original-Sender: rdunlap@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=ollMcONV;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::933
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+ header.i=@infradead.org header.s=merlin.20170209 header.b=KKrHr0be;
+       spf=pass (google.com: best guess record for domain of
+ rdunlap@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,60 +135,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Feb 24, 2021 at 12:38 PM Kees Cook <keescook@chromium.org> wrote:
->
-> On Wed, Feb 24, 2021 at 12:17:23PM -0800, Guenter Roeck wrote:
-> > On Fri, Dec 11, 2020 at 10:46:18AM -0800, Sami Tolvanen wrote:
-> > > Move function tracer options to Kconfig to make it easier to add
-> > > new methods for generating __mcount_loc, and to make the options
-> > > available also when building kernel modules.
-> > >
-> > > Note that FTRACE_MCOUNT_USE_* options are updated on rebuild and
-> > > therefore, work even if the .config was generated in a different
-> > > environment.
-> > >
-> > > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> > > Acked-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
-> >
-> > With this patch in place, parisc:allmodconfig no longer builds.
-> >
-> > Error log:
-> > Arch parisc is not supported with CONFIG_FTRACE_MCOUNT_RECORD at scripts/recordmcount.pl line 405.
-> > make[2]: *** [scripts/mod/empty.o] Error 2
-> >
-> > Due to this problem, CONFIG_FTRACE_MCOUNT_RECORD can no longer be
-> > enabled in parisc builds. Since that is auto-selected by DYNAMIC_FTRACE,
-> > DYNAMIC_FTRACE can no longer be enabled, and with it everything that
-> > depends on it.
->
-> Ew. Any idea why this didn't show up while it was in linux-next?
+On 2/24/21 12:42 PM, Nick Desaulniers wrote:
+> On Wed, Feb 24, 2021 at 12:03 PM Randy Dunlap <rdunlap@infradead.org> wrote:
+>>
+>> On 2/24/21 4:46 AM, kernel test robot wrote:
+>>> Hi Randy,
+>>>
+>>> FYI, the error/warning still remains.
+>>>
+>>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+>>> head:   577c283560fe8a81a23a95654c6d13e8412d22f1
+>>> commit: bfa5782b9caa26f93f42ad79804e1f75a1ce9f18 [11942/12503] fbdev: atyfb: add stubs for aty_{ld,st}_lcd()
+>>> config: arm64-randconfig-r004-20210223 (attached as .config)
+>>> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project f14a14dd2564703db02f80c00db8ae492b594f77)
+>>> reproduce (this is a W=1 build):
+>>>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>>         chmod +x ~/bin/make.cross
+>>>         # install arm64 cross compiling tool for clang build
+>>>         # apt-get install binutils-aarch64-linux-gnu
+>>>         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=bfa5782b9caa26f93f42ad79804e1f75a1ce9f18
+>>>         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>>>         git fetch --no-tags linux-next master
+>>>         git checkout bfa5782b9caa26f93f42ad79804e1f75a1ce9f18
+>>>         # save the attached .config to linux build tree
+>>>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
+>>>
+>>> If you fix the issue, kindly add following tag as appropriate
+>>> Reported-by: kernel test robot <lkp@intel.com>
+>>>
+>>> All warnings (new ones prefixed by >>):
+>>>
+>>>>> drivers/video/fbdev/aty/atyfb_base.c:180:6: warning: no previous prototype for function 'aty_st_lcd' [-Wmissing-prototypes]
+>>>    void aty_st_lcd(int index, u32 val, const struct atyfb_par *par)
+>>>         ^
+>>>    drivers/video/fbdev/aty/atyfb_base.c:180:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>>>    void aty_st_lcd(int index, u32 val, const struct atyfb_par *par)
+>>>    ^
+>>>    static
+>>>>> drivers/video/fbdev/aty/atyfb_base.c:183:5: warning: no previous prototype for function 'aty_ld_lcd' [-Wmissing-prototypes]
+>>>    u32 aty_ld_lcd(int index, const struct atyfb_par *par)
+>>>        ^
+>>>    drivers/video/fbdev/aty/atyfb_base.c:183:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>>>    u32 aty_ld_lcd(int index, const struct atyfb_par *par)
+>>>    ^
+>>>    static
+>>>    2 warnings generated.
+>>>
+>>
+>> These 2 functions are also used/usable (depending on CONFIG options) in
+>> mach64_ct.c so they can't be static.
+>>
+>> AFAIK, we don't make functions have different qualifiers depending on
+>> config options.
+> 
+> Is there a shared header included by both mach64_ct.c and atyfb_base.c
+> you could provide a declaration in, that way should the definition
+> change we'd catch such a change in order to not break the callers?
+> 
 
-Does anyone build parisc allmodconfig from -next?
+atyfb.h:
 
-parisc seems to always use -fpatchable-function-entry with dynamic
-ftrace, so we just need to select
-FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY to stop it from defaulting
-to recordmcount:
+#if defined(CONFIG_PMAC_BACKLIGHT) || defined (CONFIG_FB_ATY_GENERIC_LCD) || \
+defined (CONFIG_FB_ATY_BACKLIGHT)
+extern void aty_st_lcd(int index, u32 val, const struct atyfb_par *par);
+extern u32 aty_ld_lcd(int index, const struct atyfb_par *par);
+#endif
 
-diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
-index ecef9aff9d72..9ee806f68123 100644
---- a/arch/parisc/Kconfig
-+++ b/arch/parisc/Kconfig
-@@ -60,6 +60,7 @@ config PARISC
-        select HAVE_KPROBES
-        select HAVE_KRETPROBES
-        select HAVE_DYNAMIC_FTRACE if
-$(cc-option,-fpatchable-function-entry=1,1)
-+       select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY if HAVE_DYNAMIC_FTRACE
-        select HAVE_FTRACE_MCOUNT_RECORD if HAVE_DYNAMIC_FTRACE
-        select HAVE_KPROBES_ON_FTRACE
-        select HAVE_DYNAMIC_FTRACE_WITH_REGS
+so it's already there unless the .config did not include those #ifdef CONFIG_s.
+I'll recheck that.
 
-I'll send a proper patch shortly.
 
-Sami
+-- 
+~Randy
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKufph4se58eiJNSJUd3ASBgbJGmL2e3wg4Jwo4Bi2UxP%3DQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3628bb0f-0790-2a18-93e5-be244d32be53%40infradead.org.
