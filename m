@@ -1,32 +1,32 @@
 Return-Path: <clang-built-linux+bncBAABBI6D4KAQMGQEYGCPULQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-f58.google.com (mail-ot1-f58.google.com [209.85.210.58])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2C278325E2A
+Received: from mail-qk1-f184.google.com (mail-qk1-f184.google.com [209.85.222.184])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0EF3E325E29
 	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 08:22:13 +0100 (CET)
-Received: by mail-ot1-f58.google.com with SMTP id m11sf4407826ote.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 23:22:13 -0800 (PST)
+Received: by mail-qk1-f184.google.com with SMTP id y64sf5273321qkc.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 23:22:12 -0800 (PST)
 ARC-Seal: i=2; a=rsa-sha256; t=1614324132; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KY2m1fLWd7a1mxUs58p3A6xVFFif0ZEdHvsOZ3ZaZurgEfzehJH6OthOjy9kd4iV95
-         gUguqkiG9HuEI310tDG+fFk/JUZHgAf49hlWYKUGb25e37J29tELXa1e3sz/iZ/LJ24U
-         Z8mqmE6B6hQ6rpz8tNC6TMWn5GYveAEQ5k0PeMMRRBBQuw/PJslMkmu0N33jDyaQhRsU
-         8DxDGYqjrKXdkqYeVDHYgrUVAiTiS4Nzs7gQ/v9l+UVCkpW2WWWUE6RCPLiuJLvYINvd
-         OGuEtKQ5CjJUFgor4kJRECiQ017NQO89x6I0iuWPtmoq1L4ehAEhFaIfa8e2ft1BpcMP
-         mMqg==
+        b=ADohrxY3oUf13Oz1XI8KadZr3r5klUFkF7gd5Fgoj8biZJzXgR674bVU9+3fOtKmgb
+         CZnECiZunN5GuDRRDHU0P04Mpuh+ejWqzPfMQasu3QJf45+E388GH2FOPglZPSsO1BWE
+         YOg4DkFXUTy4EhtKXmvP7L4U2prpzDlTLXNTopXHPXhWsmM+bkarkUc1ltwl/BIos+On
+         6Z8N0vv1dpzOkyozJumUWCz+8zBESr4ScsP45zBCz+FN9/9MKq4koSX9LAE3QK/woQok
+         +/2uF3olXI5X9a8MW7JvdY4Ix/dZpZmdONKNjCFjRawLYjdhf2kl4nw4MYW9NkJFkDI7
+         Dpjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:message-id
          :in-reply-to:date:references:subject:cc:to:from:dmarc-filter:sender;
-        bh=UGe8Y+jj0Tk6TO1hBo3xfc8gd9R+/o+oumY5VNXqq7U=;
-        b=q/Nh7dBcHnoG8NLrf5b/rhv81nsRKE3ea5dRNF3llAV/bYBRP8h4Utu+pcBl2vYbdc
-         M7M4LWVcd0BjKVzxJM+OLus7lqEcOmi7YwjHl4rkkfWPjNEZ6kMiebyMeLwuYoF8s9lr
-         gj+D7TQHCO5VJ26W58NfeODpDc7rW+FHtPXmXehZu5usiV2l5Cvhq/V0LLfVyEeS0as/
-         vckumWzWthxGc//L7Oh5a4dVTyhaZxshNxtaHRN/1q9q6n4WAnCC8MGYAHepNwPzN3fx
-         zS7P04kxjycnQr7dyAxFwzufjuinPveGmKwmrCCtg6GZJkmxslIkYR1Au4naOYHX1PQE
-         iD0Q==
+        bh=1ezdOr6Qo6bUIOKRsIN07hkmydhjla/6e5N0JWLxm44=;
+        b=R+WONF1U3J2IF1ivdpbC1SQy8iJb73X/cljWTS814Rjx9fyLcOL1ywy9lTswrjoGAI
+         +sMOShGJJm1xZeseGmMyedtAv7/FUR3XmqHlXMS3X77RgShD9CKsrXIVjhxjTlm7+TDi
+         P3YOxqimYmGWSiPBy5bBYMU1N08PX1rt8oq0BWToEnR8vwZfJOx9hldnuoBwrfruSxBp
+         en959V0QAfabslXiu9bo5hbWFUai1e+UAZpcqwZK//+2LvZl/JsxwxIM7/YO+GzaPu0Z
+         +JppzHqsPVHCOqcxKpRQ+Z9nOQUtlxZbHWuBO+zyJDy5nId07+MglcysBo14V3P3+crM
+         GHxA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=pnN3dMt0;
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=Po3qDLsE;
        spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.96.11 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
@@ -35,65 +35,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UGe8Y+jj0Tk6TO1hBo3xfc8gd9R+/o+oumY5VNXqq7U=;
-        b=ptvQbXRv4ukutLXboP6+JhgfAkIvEljbAvpR7U6nix4BuYmZJBggUipRPgJ2Pbk5t0
-         OMKHwgVZjCCmT+1j/reh98cmb8aLwtm4sY7U2zYNocPClqC5H4c7d64r6J/LMAGt9GE1
-         CtGfSnFijrUtp8jt8bqB/UYF86/Nhe892cx3TseMv4/PDH6GMtyM1A0oyBfQPY0FAgXK
-         BTaxvGzLs7/Aiel8sSqjdMILtVGfB/ebH9msZfRmuySHXHWmAy6jaQ5j5WPHHnf4JZKC
-         y5H1HBjRS8CbHca9ieyTjSYdKn6jZRgKsRXjLOihSUQnqmfsZZaQcPXg359FhEuaUqX2
-         XkhQ==
-X-Gm-Message-State: AOAM530Al7RnULFG+b/+rnxjXzEFwu/cahHkFZTTcojBAq5IszFtzmMe
-	BJzNhVB5RIfPv7qbb8sUSJE=
-X-Google-Smtp-Source: ABdhPJzLJ5zNfZwyh/0mvDBfGY87RjY5spnumc0lnZ0telHfgOZfRD8gP5rOVbui3AuFuQ1MNiM7dw==
-X-Received: by 2002:aca:3307:: with SMTP id z7mr1131357oiz.34.1614324131782;
+        bh=1ezdOr6Qo6bUIOKRsIN07hkmydhjla/6e5N0JWLxm44=;
+        b=MVBTIO5sY6Vf4Rp3AkpaKqP4wSyUH9czV6it/xVqm/tJKL/sO/USukS3fZLz/vH4cq
+         cUhIeNwhGI4g/zCiTf9F5qHWJi18pLvb1RQT+resXI9oZPLft8ZEWW2QlaPKUm0XVth2
+         ezJG4pzbdl+d8EmT4o1LxmeqlSJkqldLoIA5JRso67MtwPNhjV+OQWJ3+2RE0+2lgbhW
+         z0mxhl8LM0EY59f5Gc1jsnJiihGdyySA2LC/QPdABvbCSiq8iyQo5eRIPwenUKTCdBSS
+         Nlgh0EvI8BX7FALYBa2kYdZUi63MvprFRFsG/wWIDoPnB0KfQuMNfKrupcfNm7ShYun5
+         mlxg==
+X-Gm-Message-State: AOAM530cvk2D3rr/QVSnThUB2y6EnE3kl8q7uZ37KScJ/1yXsP8JsyG/
+	CsmCf5iqQ/97AVR9d7QGGuQ=
+X-Google-Smtp-Source: ABdhPJyR9VD1EPJe93GlLhzwZBRaN4lIxE/OMV+TT5OKy1zHBIVbKo+dBg61FOyTAU6iM65HT/8Xgw==
+X-Received: by 2002:a37:4e54:: with SMTP id c81mr1352062qkb.454.1614324131960;
         Thu, 25 Feb 2021 23:22:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:10d0:: with SMTP id s16ls2107811ois.7.gmail; Thu,
- 25 Feb 2021 23:22:11 -0800 (PST)
-X-Received: by 2002:aca:1907:: with SMTP id l7mr1180733oii.28.1614324131516;
+Received: by 2002:ac8:4682:: with SMTP id g2ls3157248qto.11.gmail; Thu, 25 Feb
+ 2021 23:22:11 -0800 (PST)
+X-Received: by 2002:ac8:5786:: with SMTP id v6mr1653981qta.200.1614324131598;
         Thu, 25 Feb 2021 23:22:11 -0800 (PST)
-Received: by 2002:aca:d5d2:0:b029:fc:f7ce:72d6 with SMTP id m201-20020acad5d20000b02900fcf7ce72d6msoig;
-        Thu, 25 Feb 2021 02:23:08 -0800 (PST)
-X-Received: by 2002:a17:90a:eb88:: with SMTP id o8mr2583167pjy.169.1614248588188;
-        Thu, 25 Feb 2021 02:23:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614248588; cv=none;
+Received: by 2002:a37:a097:0:b029:27c:7058:d7d0 with SMTP id j145-20020a37a0970000b029027c7058d7d0msqke;
+        Thu, 25 Feb 2021 08:00:51 -0800 (PST)
+X-Received: by 2002:a37:b801:: with SMTP id i1mr3294635qkf.133.1614268850874;
+        Thu, 25 Feb 2021 08:00:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614268850; cv=none;
         d=google.com; s=arc-20160816;
-        b=kiFh7Jhd/9IALMvsOV4/zcBRo8stStOLZYYQ1O2JMyD6kYOGMmUMRZj6R80P9FGTfz
-         JQq+CNHMWsNSOsEBGwJniGMQivmhORWN+Y6d1mXXA1DWnubf52zmLL8pfoZEFDhFILB9
-         nOGR/s81zT6MRbxME8HuAlOjfsmnDfRZXdEX+7MPhx9OausL4C9AKqaV5MioVPkYhkyV
-         TUDB56L1dUrQ3mz0WT6CQbSrvA3sKJukIvCPAokd1dFv1hybmFqwBlDNUmNrCPlK6puM
-         VqslH+wWQYTYdqxlOtxwVixzTK+gq+ZKfomFaubRZuON8N90tXAqvdF/5nSoPNdJoMFK
-         Pz9g==
+        b=u+DSQHKFnPndiN/4J/D9gnH9UrptDLF0WmgeWv62iT4xKyXXXcGJ6MSmyuw9fV9SaB
+         quWTESzlu2HEX3fSqiiNlpOhD2MMzCbos4CCr0Fw23ryW9grkJTx3uaT7HzmpbM5PRPr
+         SBiR9lxIXt66zJFon68mllKXwA4mGeBy0PlsUYWN0DDMEmYsqTqBQGOZyuBrpr0tHSuT
+         NoImMDch+L7nnDHX6gLIITgDzy6ey9qd6JvzaJUK5WfdRBZEs2SqFxfaS/wOtp/P16Q7
+         H1HuRqt9VRJgeKD12LU8Hte1k4oeL3quSQsptfVRv/kfaJGVIyi2BD5ZGehzGL6Y0CxE
+         R8wg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:user-agent:message-id:in-reply-to:date:references
          :subject:cc:to:from:dmarc-filter:sender:dkim-signature;
-        bh=OnrGOA7+vtKJaM77uUe4Y7LYAd/8kech7ZlLX5tFEs0=;
-        b=yFAdt72wJrLWFDw4Oa6oTRFXfy+884jepu7JkGhuHOnsBjT9jH58yU2Btt+r+pT8P6
-         L6YwHIog29B7f1BdA3L+drI8w0n0zv5swOkmKvUYwxXkpfgYehpDKP4HWJ2MSDqUtLPE
-         EaM3u7v5buFHEXbFSYFXB55R4FO0IP+cvfu3DdwlCgmDyzWwf97lHedMQowTyH6qnBXG
-         OEoN0wBd8P+B7/qJuoKIbiOMeoR2zq4r07IErlhVczWLNnWxnhkAOw7zxnmpJGB9deOB
-         Fw9cPjvFOJboS+IacvkeiMgEfNtNMuULc+wPfHCIkCaCocCyIb0vm659ZbIxo4PPsEXz
-         i6nw==
+        bh=nax/2qkYZxFNNsM/IxQmHhHuh8ylQMIKgrDBwB+k6Ek=;
+        b=LYgFycWZhXxhtiESJC1fVQ1w2m7DV1N51S52N7TdWRJVVN084q54CX3y7ktFbgbZJx
+         g65NaQRgWjFDe17HBjbnmfDBPzW47vK28sELnXbWLC4n9tPWkGzJ+Z96sW8DI18Yd/22
+         tQ9yHC27AFnztR4xEjcSXi4yezMZIkXoZFfwQeaPW4aX+Za6C4/vIcetv+K4esUuNHUf
+         WRjzdi8aqjjWg/nCijjS1hsFKHq0eVYnKt7+SUM+7sshHN3r+YU6YmU8FGQSwscDNUtA
+         1pnQQJ0YhuyF9o/ZR82BMclF/k3277bKMGbw35xd6VPdeP1847czoHPPau+Z/zleKZl1
+         hw2g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=pnN3dMt0;
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=Po3qDLsE;
        spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.96.11 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Received: from z11.mailgun.us (z11.mailgun.us. [104.130.96.11])
-        by gmr-mx.google.com with UTF8SMTPS id a128si187973pfa.1.2021.02.25.02.23.05
+        by gmr-mx.google.com with UTF8SMTPS id p21si418886qkh.6.2021.02.25.08.00.47
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Feb 2021 02:23:08 -0800 (PST)
+        Thu, 25 Feb 2021 08:00:50 -0800 (PST)
 Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.96.11 as permitted sender) client-ip=104.130.96.11;
 X-Mailgun-Sending-Ip: 104.130.96.11
 X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
 Received: from smtp.codeaurora.org
  (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
- smtp-out-n04.prod.us-west-2.postgun.com with SMTP id
- 60377a844ba4640b2b1b7d0c (version=TLS1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Thu, 25 Feb 2021 10:23:00
+ smtp-out-n02.prod.us-west-2.postgun.com with SMTP id
+ 6037c98ea27401dc653baaae (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Thu, 25 Feb 2021 16:00:14
  GMT
 Sender: kvalo=codeaurora.org@mg.codeaurora.org
 Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id 95244C43464; Thu, 25 Feb 2021 10:23:00 +0000 (UTC)
+	id 39FF0C433ED; Thu, 25 Feb 2021 16:00:14 +0000 (UTC)
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-caf-mail-1.web.codeaurora.org
 X-Spam-Level: 
@@ -103,25 +103,24 @@ Received: from potku.adurom.net (88-114-240-156.elisa-laajakaista.fi [88.114.240
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
 	(Authenticated sender: kvalo)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id C14B4C433C6;
-	Thu, 25 Feb 2021 10:22:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org C14B4C433C6
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id 51CAFC433CA;
+	Thu, 25 Feb 2021 16:00:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 51CAFC433CA
 From: Kalle Valo <kvalo@codeaurora.org>
-To: kernel test robot <lkp@intel.com>
-Cc: samirweng1979 <samirweng1979@163.com>,  imitsyanko@quantenna.com,  geomatsi@gmail.com,  davem@davemloft.net,  kuba@kernel.org,  colin.king@canonical.com,  kbuild-all@lists.01.org,  clang-built-linux@googlegroups.com,  linux-wireless@vger.kernel.org,  netdev@vger.kernel.org,  linux-kernel@vger.kernel.org,  wengjianfeng <wengjianfeng@yulong.com>
-Subject: Re: [PATCH] qtnfmac: remove meaningless goto statement and labels
-References: <20210225064842.36952-1-samirweng1979@163.com>
-	<202102251757.V6qESTrL-lkp@intel.com>
-Date: Thu, 25 Feb 2021 12:22:54 +0200
-In-Reply-To: <202102251757.V6qESTrL-lkp@intel.com> (kernel test robot's
-	message of "Thu, 25 Feb 2021 18:04:03 +0800")
-Message-ID: <875z2gfnup.fsf@codeaurora.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>,  Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>,  "David S. Miller" <davem@davemloft.net>,  Jakub Kicinski <kuba@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,  Ryder Lee <ryder.lee@mediatek.com>,  Matthias Brugger <matthias.bgg@gmail.com>,  Nathan Chancellor <nathan@kernel.org>,  Nick Desaulniers <ndesaulniers@google.com>,  Shayne Chen <shayne.chen@mediatek.com>,  Sean Wang <sean.wang@mediatek.com>,  linux-wireless@vger.kernel.org,  netdev@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,  linux-mediatek@lists.infradead.org,  linux-kernel@vger.kernel.org,  clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 1/2] mt76: mt7915: fix unused 'mode' variable
+References: <20210225145953.404859-1-arnd@kernel.org>
+Date: Thu, 25 Feb 2021 18:00:07 +0200
+In-Reply-To: <20210225145953.404859-1-arnd@kernel.org> (Arnd Bergmann's
+	message of "Thu, 25 Feb 2021 15:59:14 +0100")
+Message-ID: <871rd4f88o.fsf@codeaurora.org>
 User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/24.5 (gnu/linux)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: kvalo@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=pnN3dMt0;       spf=pass
+ header.i=@mg.codeaurora.org header.s=smtp header.b=Po3qDLsE;       spf=pass
  (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
  designates 104.130.96.11 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Precedence: list
@@ -135,44 +134,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-kernel test robot <lkp@intel.com> writes:
+Arnd Bergmann <arnd@kernel.org> writes:
 
-> Hi samirweng1979,
+> From: Arnd Bergmann <arnd@arndb.de>
 >
-> Thank you for the patch! Yet something to improve:
+> clang points out a possible corner case in the mt7915_tm_set_tx_cont()
+> function if called with invalid arguments:
 >
-> [auto build test ERROR on wireless-drivers-next/master]
-> [also build test ERROR on wireless-drivers/master sparc-next/master v5.11 next-20210225]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
+> drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: variable 'mode' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
+>         default:
+>         ^~~~~~~
+> drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:597:13: note: uninitialized use occurs here
+>         rateval =  mode << 6 | rate_idx;
+>                    ^~~~
+> drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: initialize the variable 'mode' to silence this warning
+>         u8 rate_idx = td->tx_rate_idx, mode;
+>                                            ^
 >
-> url:    https://github.com/0day-ci/linux/commits/samirweng1979/qtnfmac-remove-meaningless-goto-statement-and-labels/20210225-145714
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/kvalo/wireless-drivers-next.git master
-> config: x86_64-randconfig-a001-20210225 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project a921aaf789912d981cbb2036bdc91ad7289e1523)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/d18bea1fd25dee219ae56343ff9caf9cb6eb1519
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review samirweng1979/qtnfmac-remove-meaningless-goto-statement-and-labels/20210225-145714
->         git checkout d18bea1fd25dee219ae56343ff9caf9cb6eb1519
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> Change it to return an error instead of continuing with invalid data
+> here.
 >
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->>> drivers/net/wireless/quantenna/qtnfmac/commands.c:1901:8: error: use of undeclared label 'out'
->                    goto out;
+> Fixes: 3f0caa3cbf94 ("mt76: mt7915: add support for continuous tx in testmode")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Do you compile test your patches? This error implies that not.
-Compilation test is a hard requirement for patches.
+Felix, can I take these two to wireless-drivers? An ack would be good.
 
 -- 
 https://patchwork.kernel.org/project/linux-wireless/list/
@@ -182,4 +167,4 @@ https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/875z2gfnup.fsf%40codeaurora.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/871rd4f88o.fsf%40codeaurora.org.
