@@ -1,128 +1,131 @@
-Return-Path: <clang-built-linux+bncBAABB47W32AQMGQEB5K5IBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBDHX32AQMGQESPCUR4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F51F3251D1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 16:00:05 +0100 (CET)
-Received: by mail-pg1-x53d.google.com with SMTP id 33sf4043679pgv.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 07:00:05 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614265204; cv=pass;
+Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id BCD653251DB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 16:00:29 +0100 (CET)
+Received: by mail-oo1-xc40.google.com with SMTP id h10sf3136001ooj.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 07:00:29 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614265228; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ixRwMxbQF8QAXBN+9zfjzHKcaCqx8tRrfSnFtqtGXtU67GCWXYMZDWN264dywwiYbr
-         SGlOqbqqirzAtUgtdR9uW3WPNuMRilXJysipO3ZGPcGOqiNUN1V9p0wegvCIs1Yp+qu6
-         lvHrEmk2qdsuhdOWjTET3uX8vfs9GzT2otRmVQILB5bhmX5WDFa6LvLwH5q059UNjpZQ
-         u2mDBgub2Zje3sLP6fP+jWKjbjlZsQXfy9tOx5YIZ9zT3QpcQuCS/Lvt3/jGN4R8fEME
-         Gl/HeIUrOiv5d3OHMQZKnLIT+r/1seTTwSxVwJ9g3N3LLSehEjxbUsgVHORQmaGlW8dh
-         19WQ==
+        b=zIXt1QcU8J84NhsQrbdroWy9eTq900Wr64TeJLQgWJzH8mGDRYNhoysjbDtJJeiPJS
+         HD5EIdErJYm1i7YEzh/IQvjA4lqpaJskv5rWOiOR4VQcO49K0bdr9t8Z+nUCldClAsEB
+         Z+Avp9Xor8SCko91yqtbUF8CtwFxGukOdnRjQpGMydIehVQbgWPkuaebQ7+Gdx4SZG5W
+         2SavDdvDiYu9yjyfW8BOOcMtiDRZ0ztgK7ZehWAPNIGEIbKxtrZ4IKdqHEcJF7GrsUOv
+         5sU6z990vCaWV1BHEA/CFkg3Y9aGdUfgA3sssgx06/hTpWzF3dr2vSdN4cqBnQauJ68s
+         NGnA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=vcFiug5Na074/6wdi0BCgyDUylQuq/oLpTKRObDzWTE=;
-        b=zxnp1oXR7OCaZlnYzhygiYtyt3b/8lDErfuAKZngBtg/QnKJFpkdRq4KUSsme/fK58
-         ka5f7YoD3xVF4Af/DXQ7EeAKDU6EL7225dTEddirjIDXtWC6Xe4FLDNCbv3ePB6xs+sD
-         E0/R10+U1zZi7sSrIiIa8LAiUT9cw4xuTO9kpTWZqWbBqiOUF6nfCzj702cgyGUJwOKt
-         bkTJVE19UMIjBWp3h/Z4cu7Mfwt768DYUTZXqA2Q1HdTZFWNgFL14biUfrIDWGAWkTL3
-         KTEHfupdf2Dkgx37EF4qavNbv2fvFRq69XUlvGWEi5vyRA/XSRdQs0I4e/4yh7vEQgs6
-         7LLg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=e6m9h9nipoiH9TZI4yO3ZOeQeaSPuKWyfkKsaOWhd0Q=;
+        b=PGuSXlCmr1z92ta4eeMpTCiqzn9yVa4PfK7qYLdxImFPleWdJsOYdXwzgWpxyFqr2S
+         G9gV+eZ9elFKYQuUHJftwrj7Q2eeDrdGIVburJu+AXH5iXgsi8f5wsToPUvOmGjHy08X
+         jZxBNvpD2sg2qCaXCSSvYPoyJm3OLMnaeicLl8hNhC8jf2pIduXkcnFjhJmt0mGg7eh8
+         C0Y4wUpWVI3dREijz4nio9pqnhv7wrMiMGxSHsNNAyu1mxfEz1SuTcpXt8FRsTaaX2xN
+         nq7dO2RwOnQ/MDRKAQIKG3KE3rID0tpRCjDNzdLhTSyQ8E8PcmsgIvYlQMG0iAOLenuy
+         /z4g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=G1oBjB6u;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=LEDUqRTC;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=vcFiug5Na074/6wdi0BCgyDUylQuq/oLpTKRObDzWTE=;
-        b=OwrmCvYYc3L4PwTxkX42/0EelY49dtvt8/o1wI9QxF4yGSnmwMSHw9cszTkiniNkHY
-         JkcsRSVyo4C7Lby6rX+TWeaUUCEYVG1ku0flBFDhnBYqmoUNHchM2erQFLpua+kR+hUp
-         HuhVTUPZxIL9pzgtkJbZfBXfS/bAvOGfEgpLtCsZ2ELWm7EMVzNFADOozGLjPYHkbcHk
-         MK7TtnxBao/8DNJUJ2tQrKSLRGV6ZmO7dWgHmW+/lUHZGQhMnz4BJ2Ah/4mo4zK4IBcX
-         KR6uq3ZqRUKdpVI1Kz+FzidpU+TNuBbFs0q6iZ0dn6IXsZRxtpHw1kozNltHPX3z0kpN
-         tBWw==
+        bh=e6m9h9nipoiH9TZI4yO3ZOeQeaSPuKWyfkKsaOWhd0Q=;
+        b=NPy+dkYuJJ60yS/NpAVm+pRYdKIMw5gCxvtfe2PPmyexjXbmGmkUIm0/4FsEd9DPP9
+         LseSLWPwmIP2jPnxnGhSTSjTR80WqkOzXrIvzwKJYVCADk2Bt8Nq2ojzL0ukN7AGolWp
+         iKuxRvvsZE4AoJ63zzffhy9OX+DB3PkY47mihcxTOtsgZmw4Z8oUtTpn1aCxPsdwXwmk
+         66s7fROPq959/ACtnX4hN85cdYLUra/8EW13EIcEPtdeMl8hRMvMGpcjOm3M6QFHpcCN
+         u6AR7FM3+K3DLl/Ue2cdKZ6JIZu7aUW7hbQ+/qpUJXDuDDlF6rcx8XLBX3rEJ0bzM+aI
+         GcqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vcFiug5Na074/6wdi0BCgyDUylQuq/oLpTKRObDzWTE=;
-        b=EbjIPu817Qtu+XPZDUxDo+x8vMbW7sq+kV0UM9RXK0s+gFMLlFZSMkkAnCObast+RI
-         LWBetmh1ehG5I/Th8V1zl35b7uGJxC1b8HNkAQh4A3oZrJ0JwuQx7l3DZ6Zu5imgdOk0
-         vr0h1vrnK5towKO4b1rHp6E2q7kkPmxf9Zd4Q7QGlWbYzARKZMm3ee+XP0h5RSgIbtGi
-         65ukgwueroa+neRPSYyDivisnq4PrFywToM8EjomjFgr47n3oOHiNeUQgL6XrLRadZ+K
-         1TKXcA3bI0ymmTqdq94HDSLQz/reBHiifQCTnd0Um096ShKpvBFmRQljkPc3UxgZYl+M
-         melg==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=e6m9h9nipoiH9TZI4yO3ZOeQeaSPuKWyfkKsaOWhd0Q=;
+        b=r70ha7ZhMXh7fR2qsAMPcFmk0qL/gn7UsNGODyh5Qtgt03CLNnysNNaMwD0Z2suYaS
+         uj6FCQn+aPw98lnVQR9nWFHyN11qqZxReJz6O1uuaDYvriLgzFDBF0ApqYSoHDodzm1c
+         K/HyrPPQXgDyem2LSGBzVXKKkyGJKAPOSZwiP80IXjqquUDPynsZh09/wj15p6vHoeqv
+         3vh9BNAAnv6CRdO+tlDo8XifJ4GYmaIEpJErM2X8HnG4zPcMmMgj2zIqD82CzbESO1K5
+         kKZEtgOWsDgc4xA3xEZgA//fV7mkrF/FrMetkKFV2EyZVgzDicEnTPEDWkl8vN6mizC0
+         2ONA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Ni543LtfNHPfBCKEAoJQsw1A2qW2AEdMKi3KnE8dFaKDW6qll
-	DWNWx+gul9L/NVyO3d8xrME=
-X-Google-Smtp-Source: ABdhPJwjge1ic6mwG097+PaLnqDCZZuMlghrtVcP5xjHR5bV8V4Tfp2U5FA0nBYbJoC9leGvCUO8RA==
-X-Received: by 2002:a17:90a:4dc4:: with SMTP id r4mr3861433pjl.38.1614265203908;
-        Thu, 25 Feb 2021 07:00:03 -0800 (PST)
+X-Gm-Message-State: AOAM532ozucDHFi1vcAv2JbVRxTh1+paUFLcrxptXUQIGWudSH5M9VcX
+	paLLxCpZ02t+Z+jFYaIONWM=
+X-Google-Smtp-Source: ABdhPJwmeIYFE8uxFR9U/t3SsD7szlqyO0DeEgZ3i39H7glm8ZB5Af4MgSlTnSQuhxwS+vEye1N2pg==
+X-Received: by 2002:aca:f457:: with SMTP id s84mr2118431oih.172.1614265228479;
+        Thu, 25 Feb 2021 07:00:28 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:6102:: with SMTP id v2ls2619159pfb.1.gmail; Thu, 25 Feb
- 2021 07:00:03 -0800 (PST)
-X-Received: by 2002:a63:d24e:: with SMTP id t14mr3290278pgi.348.1614265203317;
-        Thu, 25 Feb 2021 07:00:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614265203; cv=none;
+Received: by 2002:a9d:69da:: with SMTP id v26ls1193416oto.9.gmail; Thu, 25 Feb
+ 2021 07:00:28 -0800 (PST)
+X-Received: by 2002:a9d:d34:: with SMTP id 49mr2598310oti.205.1614265228068;
+        Thu, 25 Feb 2021 07:00:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614265228; cv=none;
         d=google.com; s=arc-20160816;
-        b=0rzEBTysNI1V1wMo4NibrzeqZLloPUg4WJZ7PucxcRiYgZr1DIaZHYl+WPsURo+ir7
-         12XCT3/2i6T5OSqbtrio7KWhuxBkyspxQaA16hsS+dQ71SypqsAmI8SBTsKnzGHN6cfc
-         +0a5WR9S3vpbWAvfExUQpKwyd1aDo9wSHBmpFQn6rDv5M26cENglX9RxkXBWdVFrC05r
-         57ty09G27q4fvpZlIMs8iJZGsNSkukDJhmylxUcMV0BanPSMPYDyVGpFSgpmr9PA3qDr
-         o/8CqOncEfl4ZEEqydFuTrLxf0MBSMzJLp+H1Od4lqVu3glxasAtdoZjXMLiSOwssXUT
-         CCSw==
+        b=nH9RrO6d2lDd2nxrSHwv3fuAqjTypye7zrLh6GZNWhq8ZdicvCl5jxH0tpQhe51e8H
+         m/Ynq12WooPyi2HPSG/EPZUWfuGrsNwabyzd878dCoeq5tXl7afeZ4AW797v5vIEl3RH
+         abqSnWwK307X0KsNBmGBMO52oME6CMETkwy0mCuGht02cRWbPw6pb7GWx4PUUbL4Tiox
+         SoM5W9hC4swAhfOZLcrfKn7zuhUvObuQSHE0JxWrPr3j3ognDUGEAbKv+r8iww53vlQo
+         gvIZ/szpO2jP16r36hgINZFBB0FSFoc7sxnbDMe/2d99d5OwsHQdxZY4p1BglGRV7Ue/
+         R9yA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=df33HWbn+fxg2DNdIFy9+ptcH+KE6zR/8BKqLJi6bC0=;
-        b=r45m4GbI+W1lYy/GlBPh2n5msaecdq4Z2ZXEimNXJ9IAdBYlSTK7xcb2SPJVVhkVh+
-         Zo71Ba8R/7eb7rIF5I6HWlMkWe581sZiZaeYPblYfbx/bQpjgvXpnWS5n/16Icm0gmKJ
-         dd3wUKMQgwErRixucrOGtkYQ4uPkqldZMHYDzng9TVn/WgRwixV67PTBtYSLXRpenugL
-         TfpcBPEk2jzbFmKoKy10mLwtmHuJiC/h2SBd9nOeG8DWl0oeTyHn0ybDRrPjbTWbwear
-         j92DJN5AOkOXafbkD0njCdurdi0VzQjWw3UbDO8NQpqRGLZk0ghAqq+BS48AhLD2uU1v
-         gaLw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=/Yf9wUTQ/JmrWELXaZeFXgI2z/QAkTfKMz/qKdb3N6g=;
+        b=dFIAbnLqeQkKWHBCoRrmMsPJWBCpKAJ/lDgLuLsZdzYTXZ0ipjFjLpXd8XmRPQJdKI
+         nKQ5Mb3eSK4FkQZ++wt8iTjwFBT+f+y3vBcn4+jiPXeIymJ/F5k+Szekl7ixlPbztANP
+         tF16oj0AxXCei6lndv9SnwJZ8rM/+1j4PwPB7ADjdo+kzVbnWMBe5ePRtFP7f4tFFim0
+         RK4NMDOAfWTkdB/vpLnI0W90cQv2kwwD8ppamqu4jYc/M779Qj214YHElkq7lRkhpSnh
+         fXMcwNijkz5U4aMpB738J8fNK+p/n7G+eMT9IagIyMHoia4Cpz3dhoyLfSwJ28BUOUlM
+         Y6KQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=G1oBjB6u;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=LEDUqRTC;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id cm11si410173pjb.0.2021.02.25.07.00.03
+        by gmr-mx.google.com with ESMTPS id f20si193239oiw.1.2021.02.25.07.00.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Feb 2021 07:00:03 -0800 (PST)
+        Thu, 25 Feb 2021 07:00:28 -0800 (PST)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 383B864E83;
-	Thu, 25 Feb 2021 14:59:57 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7024464F17;
+	Thu, 25 Feb 2021 15:00:22 +0000 (UTC)
 From: Arnd Bergmann <arnd@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>,
 	Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>,
 	Kalle Valo <kvalo@codeaurora.org>,
 	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>
+	Jakub Kicinski <kuba@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
 	Ryder Lee <ryder.lee@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
 	Sean Wang <sean.wang@mediatek.com>,
+	Soul Huang <Soul.Huang@mediatek.com>,
 	linux-wireless@vger.kernel.org,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH 1/2] mt76: mt7915: fix unused 'mode' variable
-Date: Thu, 25 Feb 2021 15:59:14 +0100
-Message-Id: <20210225145953.404859-1-arnd@kernel.org>
+Subject: [PATCH 2/2] mt76: mt7921: remove incorrect error handling
+Date: Thu, 25 Feb 2021 15:59:15 +0100
+Message-Id: <20210225145953.404859-2-arnd@kernel.org>
 X-Mailer: git-send-email 2.29.2
+In-Reply-To: <20210225145953.404859-1-arnd@kernel.org>
+References: <20210225145953.404859-1-arnd@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=G1oBjB6u;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=LEDUqRTC;       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -141,52 +144,44 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-clang points out a possible corner case in the mt7915_tm_set_tx_cont()
-function if called with invalid arguments:
+Clang points out a mistake in the error handling in
+mt7921_mcu_tx_rate_report(), which tries to dereference a pointer that
+cannot be initialized because of the error that is being handled:
 
-drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: variable 'mode' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
-        default:
-        ^~~~~~~
-drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:597:13: note: uninitialized use occurs here
-        rateval =  mode << 6 | rate_idx;
-                   ^~~~
-drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: initialize the variable 'mode' to silence this warning
-        u8 rate_idx = td->tx_rate_idx, mode;
-                                           ^
+drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variable 'stats' is uninitialized when used here [-Wuninitialized]
+                stats->tx_rate = rate;
+                ^~~~~
+drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initialize the variable 'stats' to silence this warning
+        struct mt7921_sta_stats *stats;
+                                      ^
+Just remove the obviously incorrect line.
 
-Change it to return an error instead of continuing with invalid data
-here.
-
-Fixes: 3f0caa3cbf94 ("mt76: mt7915: add support for continuous tx in testmode")
+Fixes: 1c099ab44727 ("mt76: mt7921: add MCU support")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/net/wireless/mediatek/mt76/mt7915/testmode.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7921/mcu.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/testmode.c b/drivers/net/wireless/mediatek/mt76/mt7915/testmode.c
-index 7fb2170a9561..aa629e1fb420 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/testmode.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/testmode.c
-@@ -543,6 +543,7 @@ mt7915_tm_set_tx_cont(struct mt7915_phy *phy, bool en)
- 		tx_cont->bw = CMD_CBW_20MHZ;
- 		break;
- 	default:
-+		return -EINVAL;
- 		break;
- 	}
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+index db125cd22b91..b5cc72e7e81c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+@@ -405,10 +405,8 @@ mt7921_mcu_tx_rate_report(struct mt7921_dev *dev, struct sk_buff *skb,
+ 	if (wlan_idx >= MT76_N_WCIDS)
+ 		return;
+ 	wcid = rcu_dereference(dev->mt76.wcid[wlan_idx]);
+-	if (!wcid) {
+-		stats->tx_rate = rate;
++	if (!wcid)
+ 		return;
+-	}
  
-@@ -591,6 +592,7 @@ mt7915_tm_set_tx_cont(struct mt7915_phy *phy, bool en)
- 		mode = MT_PHY_TYPE_HE_MU;
- 		break;
- 	default:
-+		return -EINVAL;
- 		break;
- 	}
- 
+ 	msta = container_of(wcid, struct mt7921_sta, wcid);
+ 	stats = &msta->stats;
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210225145953.404859-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210225145953.404859-2-arnd%40kernel.org.
