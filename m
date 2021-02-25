@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBO4Q32AQMGQE6NKSZIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBDUR32AQMGQERUZ4DTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF696324F07
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 12:21:32 +0100 (CET)
-Received: by mail-pg1-x53a.google.com with SMTP id n2sf3695381pgj.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 03:21:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614252091; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB373324F10
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 12:22:55 +0100 (CET)
+Received: by mail-vk1-xa39.google.com with SMTP id y127sf932413vkc.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 03:22:55 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614252175; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P+b9eXb5jZQiiBqTCAw8w3fN9aS3rRBDzWybwLctlxL3K5VKk6K1SmnYg0FUrMCW+A
-         4AJ9fwkW1Gt+KD1E9M7QIPbgbwT2dZyHjjkvgcqlRNhHnGnAn6KZ35+vJpPYOaVYrssp
-         7M1RBwFCo8AcCpIeg8F8G4GtGNyb+G/ejbuSAcV3fJrwSXERennG9jqbMlDsK+MlDw7Z
-         /Hj3pUfLz2nV0AhwL217Nr0iYABWV/gOrEJm1onfq3QKNaotU0XhbtADeGrDrg1qf08S
-         FYzMmLttzlhvf1TF9OpOyrttPwFuTzHm8FImTIBNPl7M7zHPkR78s4q248+MQ4tpIAsF
-         yw5g==
+        b=mu6zjbY7gohQ2BhkfvtEwMUBrstsH6Tr7dB0a6eMONcstOUjvP4BQl4bCxY9mX07D3
+         jN40/7TUCfdB50J6RPID0R+Sbnqm4+xga7ZcETIFg6ThtwXiaUYWeYMJDfD8pJT/IFH3
+         gFs22Xdmw1i8T6JpblmS/w76Fqks8jBJFZpaeWi0fQy//uPc7hfZIBUM6zsInFxW46VZ
+         nj5GV30qtOJX2rdI6oTYAkp1ohGsBU3oFK52wh5AcQp7Wd92djLKqNkFQ9NVjO8eCqM0
+         7nc75l0N1UbagJAqqP+yFYUScG6AR1luf4JlB2TB/WSv8bvu8qLpCZHkbMQp/AJKWo8M
+         eM/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=CJuXL9bwV4xUNgWouqWK/DYa3yY77OxF0ml6jJDRbKk=;
-        b=APPfndpW9rDMvEcNghhC4aIu5uLX+jo4essF2Pt3KwxumNHwwnRKGLQtbkppvJDY/L
-         UDUB5+XZS/IMtfxd27GhcDBzSFP93KTB4MXt+NjYbei/li1ZZ6T8A/SDJqzTJCKDTPWP
-         dFeT/gc9gjOk+iLrMFU2FaZKRCBkrZ3SeLZXS/IkG71BCdQm3VguBBAn2scSUB716UqH
-         eOa4M5q0qsRvYGsOzoXRRqg1nPFPCCh8fOsD3fw51ZbkNWu+hFsPGB1vJfKbj1C0R6bn
-         QA4UMG4PdO8WrmNH0jWUY5XO+SRmdxGcdDx90RK9lD/INemujjqLhzPs7L8+7L7/B4JJ
-         1y/A==
+        bh=3L5uJ5Wbezz0mcDZgxIWgv/ZH1FE8779M88kvWpFa7M=;
+        b=xwmdhjRGTo75DrOWk+2Fncoi1esofXoR5jkwfMZfR6vBy5YxHpdSMDEC2PGAmkFQy1
+         eTpp+uAElx6tFJTS+dmPxxo1jieleWg5G0mja2BF5/Lv41jlZq/9AbjeO51XO4dWW7jZ
+         gHaJKBId8WPUnO6/B4U9pL1uybhsEqDe/exNL8WinR72TRYPPMa11YU7Ku/3Kfk0o4xx
+         Kf0kq7qGVuuwFVrhisuFp2ZsfgzAxVLc2rnDzeyrCI02kgvVfzQS9iV0rmSMHqsKJI4A
+         qBQuyIxWTdsaRa9FaP0Q+yp3gI0RvZxc/GysQCh8buPcA7+MCWZVLgQwx25pBwqaMWR3
+         3JNA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="p/ZwyTzd";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=i00dPO7Y;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,95 +35,86 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CJuXL9bwV4xUNgWouqWK/DYa3yY77OxF0ml6jJDRbKk=;
-        b=nWJkmRWd1JOByc36OBpadN1JrSFPEDamarygdX5ayC7bbwr2EAtovF1d9UpOTsJE0P
-         3zzoGN8vBeszQIM12I0+PmucjURPl4y/QrBGFXUN1bxQIJmfWOaRA60epH8wpj8t/bxG
-         s+zZdquGN8hORBn8o/6mXF9ivYtDiDzZ3gLMYNHR0TlBjTbWDU/z9GzthG/Yj4Xaq3Q6
-         TWRybVIWEcDtPtI7IbPhtIu8TDEtcMXx1Aeiki2o5PkXDDF0hWCimGdWxSBTNx0j8pWI
-         CvHyrwH2X5qNFGYreYPT3pJEh64Zp4+8Au1oFQTOw534xkCCvD16234R/ZPVWsy7KrC+
-         UoYw==
+        bh=3L5uJ5Wbezz0mcDZgxIWgv/ZH1FE8779M88kvWpFa7M=;
+        b=TKiXVHqJKLQUkFOhL0tAr4s8QelynWLAHdcgQyyLHryE2cXrWtpHyzuLkiVTWNZELQ
+         V4uPcUllbs1l5/aMSXS2BQdiBFhCwUpKHUK610sOpQ+Uyd7zasB0ThzXsh++ob9ozmUj
+         7aNa67o7Ns4seltZJk4Cj75CG0B6wvE1MAiLotF0WpvmUkZRTHYa9QKXAyODqdWJoDvW
+         LBSK7imxQlOnrfhOCUlVWvG+ADMzWlUsQPFbAzLyMsPHXU5iIz5uOn1H8g1nktwtwD52
+         eDbg2vSpdb/pMiHTwDPu4wyBiSR/VFxyNmFkgHt2aaujOX1RZ1TQCAeZxpgbxg3ugE5a
+         SVKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CJuXL9bwV4xUNgWouqWK/DYa3yY77OxF0ml6jJDRbKk=;
-        b=PFJHKJK19kjPIBucz0fwnur9XqrL4ui1aUaWAu35TaAuToqDsR2m7f1LM8I2LDpKQF
-         WbDn10N8xtqu1i4gC9beTstj1VT4w/PNpfa3uW8SAkcmtptgoxJ+KQ3Pg5DVBji9ktdv
-         w5NEBlLgFpFerk9d+oxtvZMBF0h2g0GJUmaekQmsG2UMNKcnPNgFtHVMjGrEiFSi7hbz
-         ccEwKhveiKl3K8BIhQPp/QuzMIduKN5B8BSfDA+LUrZnWHEMAxWTAGUGcWVvWix6tqDr
-         mUmFMU4dHXtL7lgpmtycuPwQBTUU0JZ1V5vQdBQmhO5jD2NVJfKKcj7CghL4oHyBiokZ
-         GNSA==
+        bh=3L5uJ5Wbezz0mcDZgxIWgv/ZH1FE8779M88kvWpFa7M=;
+        b=igCdkw66ephsXSMuPN3BS5b2ycNkHUqh60oF49aT3/19+3buyn9y/1h+PGx+Juogg+
+         lzZPR++KLWaK62KtA9ZcMZcbkbRHEvAeL4UDdMV15+rMF2YSG56JFYBBrZCd/yxlFGn1
+         4NS32rTyZ6vpGsAdV8VMlTS5euwyzGjelicJW72Mh8OKAZGp0cQ0btBoTYbKfJoDM2Fh
+         2YTq/XaK10VPOyWouWALA/xb1YIEzYaBcTCxGgOGOSz3OvqlFVMH1fXnur1JrK4qrcDG
+         iRBxsRBOPMDrJHJMtLooop8++Ybvty4kB33quZHKUaXVe1mdKmJggvwVLsmtOwUihanp
+         AnMA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533neQm2WxBUzb4qAPgMRcBzOB156ttUbbpTiR7kaZkEjRO92ZL6
-	EPQY+7uxDO1pTlVTbO1DP4Q=
-X-Google-Smtp-Source: ABdhPJzUjNhZ6SWTpCvU5998MAVqUqVJ86O6ja1VobtnBrnnEh3LIwPCnaalA7+JxnK64OUVvazL2g==
-X-Received: by 2002:a63:cf05:: with SMTP id j5mr2641750pgg.384.1614252091439;
-        Thu, 25 Feb 2021 03:21:31 -0800 (PST)
+X-Gm-Message-State: AOAM5326tMIOxIdT8jBCMk9P+OTeJQ9agu5XFXrPpB4SLHudqj+2tBqs
+	5FrYoQ5CfSg7BccvDWyH6Ws=
+X-Google-Smtp-Source: ABdhPJzKZ1EaDfDdRZYo4EfiRHt6VOEdcbfeqjXNO1DZ5ym0o0/2ZcqLBwE2FcmSzQUAe1X63NiKdg==
+X-Received: by 2002:a9f:2701:: with SMTP id a1mr1217978uaa.120.1614252175074;
+        Thu, 25 Feb 2021 03:22:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:ed0d:: with SMTP id u13ls2409945pfh.3.gmail; Thu, 25 Feb
- 2021 03:21:31 -0800 (PST)
-X-Received: by 2002:a63:207:: with SMTP id 7mr2527510pgc.346.1614252090994;
-        Thu, 25 Feb 2021 03:21:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614252090; cv=none;
+Received: by 2002:a1f:94c6:: with SMTP id w189ls38959vkd.0.gmail; Thu, 25 Feb
+ 2021 03:22:54 -0800 (PST)
+X-Received: by 2002:a1f:27c1:: with SMTP id n184mr1015850vkn.9.1614252174692;
+        Thu, 25 Feb 2021 03:22:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614252174; cv=none;
         d=google.com; s=arc-20160816;
-        b=sWvkDrKokB/M7OE6jiQivC7AUOHSuddScyYbI+3tIhcAwjCsZADEobWVY8VaVMSl1Q
-         Ldvl9pTzcVSKgtFaYQaMHTwy8Me9JTGAzqKstirbAJuzs4HKB5hn/0Ayx09N0MspauPi
-         6YvH2VKOH3c0Qn5S1NHvc9S3pxACdUZNwc8ST6pkNdBkR6UaP2RatNUCLoSLqQN5n7Nx
-         tupUB09S2pKej4YUK+ZqS3rHyK4WH3IW2P8JXatRfmL7OHZ6SMpZTJOsFN/0qBedS/jG
-         T1wnD5y5wxzWBJk+Ngzc6wl39heUGIydkb9XO3dKEVTD8qb6lSiGtSDNlWMS+s0PC5cR
-         lTgQ==
+        b=mWazQa+PVhqJjt8KeRdADgTgiR04gBlY0k5ADVFhIR47aS/8DHcByM/JKNqm78vrif
+         kmLPou+siJ73c2bbIiTgSezEq/rlhzrdh3ktpqgj/DTBEoQAuAteEa2IOWWM4B0yjdtz
+         TDZqtfxM7RXkWgfUMissb7lARghetN2+Wh01NiiM4gXjmade3nn9aWjZAQZQM4sq6X+c
+         WFXTSsaIAPd4Kj+rwrgYN9qjWnEuzrxsfRKeKLO50z7cXq3bDLVO7B7fxca8z7Pzpxad
+         YKSbeQssgC8vB1XuBi9ZNzKr4bbKU+UPJhhcjujMaVnckcthcSOom07J73fN6Gb5OBUS
+         58Xw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=IraJOlGfV6uaHDzpcYOffeDI6go1S0454CbXnvA32pE=;
-        b=Mfl/v156ow/pn8n2s8bDBiEI9Xpw/zoNVXJxD5puoy8rahHrR6OYrRJed7JRKc6HkQ
-         gnLOmW6I8YZ/SUlyle4laD+/KeLeWZJutIxKG+oUGey3tWATKJ5Ysqg5lstCHWWWwSHc
-         bzJe4MnQzak9fvtUpd3/meMz4JN4FqkZ1+4oDQw46oS2OvAtWECrwqHoVM6wR/UZZhgI
-         ZKLvzfseZScgOGBBMvehNqcaSgc0wJk5AUibYpYJROEB60f9QsSjIPtxFWh3ICXTH21L
-         bUZNyuuLf9jlpkafcz/kgs7YPSPoINx/Cn+ZBCFb1kBAmjgVw0trMDxVnnhoS5q2J2wV
-         D/gw==
+        bh=KAInhMeE9InEy00F8vhH10dgMiL5/N0pYQnJ3KEQ6VI=;
+        b=m1FXh5kH466rHqPWmodEHlZVixykN+pVHtjX7hJXGKuddLZJx5xnKQWTe6g6IPAVO6
+         tZNgkU3yg8nfDfMzdDjVZSSW+k8rAa8pllSCBI6XlOrOwE88t6L1/Lliual0hthO43FB
+         Rzdp5EmhmSTp7JY/qhoFjKe8mA+Bx7yHdVEvHYExBF1upO9EkqGL1xq2lkAb096kP/wq
+         3+Wckh1hzkilMdCrFjxrhORdgayfJ0cRtURBv5Vbgu3XfrzzokWXa0x0RAmCZhEo0Xtn
+         9+h5DRmPLtxNbKvw3V55mYzAjvcP3cFniCopcBERvOnJY2JXukTfkVP2pT4QqLHmdw9U
+         Vo8w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="p/ZwyTzd";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=i00dPO7Y;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h7si236136plr.3.2021.02.25.03.21.30
+        by gmr-mx.google.com with ESMTPS id y127si245320vsc.0.2021.02.25.03.22.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Feb 2021 03:21:30 -0800 (PST)
+        Thu, 25 Feb 2021 03:22:54 -0800 (PST)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A128964EF1;
-	Thu, 25 Feb 2021 11:21:25 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id ACF0D64EF5;
+	Thu, 25 Feb 2021 11:22:50 +0000 (UTC)
 From: Arnd Bergmann <arnd@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Kees Cook <keescook@chromium.org>,
-	Mark Brown <broonie@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kristina Martsenko <kristina.martsenko@arm.com>,
-	Ionela Voinescu <ionela.voinescu@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andrew Scull <ascull@google.com>,
-	David Brazdil <dbrazdil@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] [RFC] arm64: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-Date: Thu, 25 Feb 2021 12:20:56 +0100
-Message-Id: <20210225112122.2198845-1-arnd@kernel.org>
+Subject: [PATCH] x86: mark some mpspec inline functions as __init
+Date: Thu, 25 Feb 2021 12:22:41 +0100
+Message-Id: <20210225112247.2240389-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="p/ZwyTzd";       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=i00dPO7Y;       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -142,67 +133,52 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-When looking at kernel size optimizations, I found that arm64
-does not currently support HAVE_LD_DEAD_CODE_DATA_ELIMINATION,
-which enables the --gc-sections flag to the linker.
+clang-13 sometimes decides to not inline early_get_smp_config(),
+which leads to a link-time warning:
 
-I see that for a defconfig build with llvm, there are some
-notable improvements from enabling this, in particular when
-combined with the recently added CONFIG_LTO_CLANG_THIN
-and CONFIG_TRIM_UNUSED_KSYMS:
+WARNING: modpost: vmlinux.o(.text+0x838cc): Section mismatch in reference from the function early_get_smp_config() to the variable .init.data:x86_init
+The function early_get_smp_config() references
+the variable __initdata x86_init.
+This is often because early_get_smp_config lacks a __initdata
+annotation or the annotation of x86_init is wrong.
 
-   text    data     bss     dec     hex filename
-16570322 10998617 506468 28075407 1ac658f defconfig/vmlinux
-16318793 10569913 506468 27395174 1a20466 trim_defconfig/vmlinux
-16281234 10984848 504291 27770373 1a7be05 gc_defconfig/vmlinux
-16029705 10556880 504355 27090940 19d5ffc gc+trim_defconfig/vmlinux
-17040142 11102945 504196 28647283 1b51f73 thinlto_defconfig/vmlinux
-16788613 10663201 504196 27956010 1aa932a thinlto+trim_defconfig/vmlinux
-16347062 11043384 502499 27892945 1a99cd1 gc+thinlto_defconfig/vmlinux
-15759453 10532792 502395 26794640 198da90 gc+thinlto+trim_defconfig/vmlinux
+There are two other functions which may run into the same issue,
+so mark all three as __init.
 
-I needed a small change to the linker script to get clean randconfig
-builds, but I have not done any meaningful boot testing on it to
-see if it works. If there are no regressions, I wonder whether this
-should be autmatically done for LTO builds, given that it improves
-both kernel size and compile speed.
-
-Link: https://lore.kernel.org/lkml/CAK8P3a05VZ9hSKRzVTxTn+1nf9E+gqebJWTj6N23nfm+ELHt9A@mail.gmail.com/
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm64/Kconfig              | 1 +
- arch/arm64/kernel/vmlinux.lds.S | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ arch/x86/include/asm/mpspec.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b94a678afce4..75e13cc52928 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2,6 +2,7 @@
- config ARM64
- 	def_bool y
- 	select ACPI_CCA_REQUIRED if ACPI
-+	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION
- 	select ACPI_GENERIC_GSI if ACPI
- 	select ACPI_GTDT if ACPI
- 	select ACPI_IORT if ACPI
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index bad2b9eaab22..926cdb597a45 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -217,7 +217,7 @@ SECTIONS
- 		INIT_CALLS
- 		CON_INITCALL
- 		INIT_RAM_FS
--		*(.init.altinstructions .init.bss .init.bss.*)	/* from the EFI stub */
-+		*(.init.altinstructions .init.data.* .init.bss .init.bss.*)	/* from the EFI stub */
- 	}
- 	.exit.data : {
- 		EXIT_DATA
+diff --git a/arch/x86/include/asm/mpspec.h b/arch/x86/include/asm/mpspec.h
+index e90ac7e9ae2c..b41066dbf5c2 100644
+--- a/arch/x86/include/asm/mpspec.h
++++ b/arch/x86/include/asm/mpspec.h
+@@ -49,17 +49,17 @@ extern int smp_found_config;
+ # define smp_found_config 0
+ #endif
+ 
+-static inline void get_smp_config(void)
++static inline __init void get_smp_config(void)
+ {
+ 	x86_init.mpparse.get_smp_config(0);
+ }
+ 
+-static inline void early_get_smp_config(void)
++static inline __init void early_get_smp_config(void)
+ {
+ 	x86_init.mpparse.get_smp_config(1);
+ }
+ 
+-static inline void find_smp_config(void)
++static inline __init void find_smp_config(void)
+ {
+ 	x86_init.mpparse.find_smp_config();
+ }
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210225112122.2198845-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210225112247.2240389-1-arnd%40kernel.org.
