@@ -1,135 +1,131 @@
-Return-Path: <clang-built-linux+bncBDLPBG4DUEARBJVI36AQMGQEN44QAHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCKLU67Z4KBBBVZ36AQMGQEYQ4546Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 490913253D0
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 17:45:27 +0100 (CET)
-Received: by mail-yb1-xb3a.google.com with SMTP id c12sf6756163ybf.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 08:45:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614271526; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D69B632547A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 18:21:11 +0100 (CET)
+Received: by mail-pg1-x53c.google.com with SMTP id w36sf4295587pga.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 09:21:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614273670; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Z82tItJU/UFfntNT2hqXlyX8Yl4T5j2DsUkF755Xu0y48z6mKSw+6/NzvzsS+JpFK5
-         kKkzV15E4Slk4K/csQonGgzRDZh3FEUQCeiTQT8ExGNIWrjLLZM5f3RhAGrlD+eIn4qR
-         X0ZTQFh9k8okSUqTXafcg/AM2tlaRppiQdVDpyoy0hdJTxty9GVRl1Uus/u9YCmZ/JJB
-         3eYuTzFlvQ0pidYlGrimhgBI/ts0dPSv8TdZct/Pj0WqJlRVb3IKFIadx2BQyRg8apzV
-         /fYqUyS71H0js3cpkfP4xxenpjhgO+KTgOkg2pdZS7iMT8bGwlT5dXcYPqMndsqAm5ET
-         Ajeg==
+        b=bahGiWnjxx58QCDZT7k1E+AOCa1VkiCyg1ei66qtVRbaXnEVT/YdqIgJXS+lctIdKv
+         vMwFhGfQVP62WBWoiiiIRjF8bpsjz7bd50ybjieDUQzuf3Jj53spyDqkAYJcmqItyiQ7
+         YdBGQKdiBeS/2INN6sGNS4d2flrtQnYk5aQ1r5GXncYMpj4MQEQ4K9MSKgUYr3gnV7y3
+         JLSCMt6vxuvPcYqkYd1we1wFelXZ9+LkNqTewAcH3TeWl2uZelKkBrn5gzzu/cJsfG52
+         9qH+PmaQgZrtyETwUMBDxZ88u907OYNUic40XecDagbMgqUbVErrZZAKl7WJi70mIFEk
+         Rbxg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=k/dWGBPKqUjqlrb7XOk4dE7puhO77vz0ohuc3IK9cZE=;
-        b=IaB7u8XP6wbsF3hXJsuILP+E0tvzdi5+hlwZgozs1EkppQhHdMU4oHpO8HlzZC2Q13
-         ljjm5dsoCU1fmt7qzM9aXmqPxWGi/gTd68vYTAnOMPi904Xu+2vpJCzkbMjXLqvDM27z
-         jFUx63KPGynoJDzw//lkElzcczwRhwLB2cwRW0I6rOZ9sZgzvWlEMPsOPfec9X6or88J
-         VTtF9xYaICNXPLr/ICCgprmm4QMikfdIe21g1SozIGZzETXxQ0OgbGo6dpKYkKs0D2+C
-         NkzHo4pS1kOdF2HVR17THE91TLNqUmvMIDadSZqcnbds+AEVczKQWlPti6gUlISkQpob
-         g+ZA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=aP2mI5/eiqkRMz/YGHqR29BDo2MRMHMf1zg0xSWXFhg=;
+        b=jGScAv2sJCc0WHfK/WLr8bH8bT9jXiewWIJUb/zS+oqT0TIIkxaoTizIAVPO2a6oba
+         SocVQA93hIEcg3ol5i8l1mVd0arjoNxbhNtyDR2cxY0sJtAK7CPqHE2tLS0n09GXhDhv
+         mSLv2E6SUsEutMXRATFHiYVj+L7gzj2mWOrubHoTWEYuf+LoFnIGK/HuZ8/hMqoRZQez
+         MUMHe+/UOqVHesrbWhKOgHthq6DvdS+X/cQQpv8e8mG0KXlZ5TxupiHwuNI4CKc9Ozno
+         2hDIHqwFPXtTEGAkPzFtn/wPK+hLfxsoQ81K8FrOKqtNICMN3lq7RTjfA+GSzAzE59ly
+         aU6A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=aHUCEcGr;
-       spf=pass (google.com: domain of mathieu.poirier@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=mathieu.poirier@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=suzuki.poulose@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=k/dWGBPKqUjqlrb7XOk4dE7puhO77vz0ohuc3IK9cZE=;
-        b=TKW9a3bgioG2qr33hdgY+PU3Vp4hlZE/+Ms5iJR8hvaEJe2HKHkw0KUyFba3VeNoa6
-         iUFAt45OpJbbIH9U8u/xxAkdSiaCwuWVcJXTJoo5kFQnODOOGfBqxpN2sC0lxWcI6afu
-         FukU9fqOj8c0nLFD2Feya+1UHXZ+jJ8G44MfOpxqZGYDVtGAeb4+fZrkFeAjJDM6yZRw
-         zCEUFfZXZjdLl80lFx5QnIiVTaKUnA5dFsM28HKBOTxg+yRQLnLuim+vdbXh09QCzpFk
-         f1WnITW0Pu47m103LTxr3y70gJy39UdAkPPltCYl2tOdlZzdeoZHEZrWTVBuBsbBRjzI
-         HKXQ==
+        bh=aP2mI5/eiqkRMz/YGHqR29BDo2MRMHMf1zg0xSWXFhg=;
+        b=rRubHJ+0kPhy86EWUlO+V30GkeE3IC+AwOrPdECzEgmLrr+Fp8JROQ4hoc9JEjzWgW
+         ZvytOcB05ebhkxaJ8PZpojDM1Eu0GL1Qe9tjYZYFs/OvOSNJjC3u6a/W1ig1gV+nqEWI
+         opyhbsRP8pf3Ku88zm0xfGK5cM1DI/pSVbUueHKwnzGf9HCuUwYSbCAazrNe+Fd1Vt69
+         irF3aAJwXalHjt8bagZ/SDTqNEfiEnuaeilMtmh+mBFIamZng3mR8Mi40SF6C3mTeniJ
+         GzUzQwB0xSIrI33imk/BkOKezR5UvvePC4e++8QWBiT5yWStGetiLqifG9GwvAs5H5GF
+         5zWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=k/dWGBPKqUjqlrb7XOk4dE7puhO77vz0ohuc3IK9cZE=;
-        b=ZZ6aSFrActYR8DdqtM6gZbYBG1CQNRvLgUWBaAMDa5/KOt9RyrIs5tqdL1GrA5OQsn
-         Oc/eEFeVJyeO4+yn27//kdvF1SN6EF2iI4qVZhliEdrl2WSwraJzpy64u6wLUv4kcn+A
-         utL37dL2xlS19Y57Y5oWpS3bY+BC8syZLIYvLGtJT8F6DcrjY+Yh+zTomnKi9p/i48ax
-         2csy7Ii09JfPeXBlu3+gNKeNSzMPgACuUUc4NCVsyq1JupJeDa/n9GqZAE+sxfZTajQY
-         BpqaEiYpvEPWJt7I/Yy6IiYtrVlqv7zzSn2C4ztrv7Lvy3cYX/4vblstGsIBzIK3sO16
-         N11A==
+        bh=aP2mI5/eiqkRMz/YGHqR29BDo2MRMHMf1zg0xSWXFhg=;
+        b=LFSdZMElvo+HcmGK0S/1gBCBTUkbAEzLm3mgQBCavO11mgOlqEZQxTpy+6tK2bd/GS
+         LN+Qh302z4xsxbsRLz8E/8lEhZVzlCY+ncolqcd0TJgz4p6eP1Ki+xcHJpFjnmCzcDRs
+         Ry3XPM1hMVg6LrOoG2rHPGpLJrQFh3td3YoyiKmIcHTuV2mEHVHKf8TlL4WAuguyw/CH
+         1tjPM/lWVSmInHaB8whQElZpdxS5L7MtlgniAKSgmY2A5EiuZEBEDMoPkx2G58C1WL68
+         4Tn97Wj5RcrqWqslW8VExs3oWY2PdhnWQO9isAYqBYAg3iIjyatpNRgw3fLIrfCxSqw7
+         O+bQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533y+5MI9sBXorRp6cASX71x0ak1ebwLDDobOfwLYg62tZSSjl3L
-	zzkNn+bm2K+bRLQGuE8kal8=
-X-Google-Smtp-Source: ABdhPJwDjHTDY8H8Uuy0cDez5Eu21soPMpdzVTNul/vaXVdRrrX0Jw8O1ftsAUWm8dV5fLepMXKarg==
-X-Received: by 2002:a5b:98a:: with SMTP id c10mr5315670ybq.406.1614271526336;
-        Thu, 25 Feb 2021 08:45:26 -0800 (PST)
+X-Gm-Message-State: AOAM530hjIDwdpSRVrxFMpruhzcqm4ansrYFelaN6Yr0wzPjoJmLoz5E
+	XadRvNGvVdUOxfIX6ftM50Q=
+X-Google-Smtp-Source: ABdhPJyuJqgXRck/kCPfBjm52XYqmoe51ObSkmVjcwWjZyqJrLIHa1wQII9NNYOmyAabloufAHytZQ==
+X-Received: by 2002:a17:90a:3d47:: with SMTP id o7mr4144481pjf.149.1614273670244;
+        Thu, 25 Feb 2021 09:21:10 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:7807:: with SMTP id t7ls2857924ybc.10.gmail; Thu, 25 Feb
- 2021 08:45:25 -0800 (PST)
-X-Received: by 2002:a25:b207:: with SMTP id i7mr5152843ybj.301.1614271525910;
-        Thu, 25 Feb 2021 08:45:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614271525; cv=none;
+Received: by 2002:a17:90b:300f:: with SMTP id hg15ls3818383pjb.2.gmail; Thu,
+ 25 Feb 2021 09:21:09 -0800 (PST)
+X-Received: by 2002:a17:90a:b782:: with SMTP id m2mr4231061pjr.220.1614273669603;
+        Thu, 25 Feb 2021 09:21:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614273669; cv=none;
         d=google.com; s=arc-20160816;
-        b=H+aWrFfEYULNMtj1gxHkYwvPCKjda7ICrt8TP/Grr6jTTSv9VKIztnh/OBlKKy4Cgz
-         f28Q8xremHH3LRE5PCJJHf9NvIeLYtoH0nCm8IcIG3UT62MdAoCvjg9Sl3BNr8mGRSn7
-         s5/g10Sb+4TTNIGSCjCmB6q1EYhLxkV7jHSMUUdSURD1gYS+wAxtCC3wTUCET35lffLx
-         N9qFhO3LBadBPJkWtjuN9QIN0XWNWDv1qchRu0WNEWjw8/DivtPr43A+jir/JXQYK77/
-         7T3pSkuLiEQpkUxjjLbgdvsBAnQ1IsNYGz5Ek3lSoO6EqKX9nO4Z7ioBBm8HrakT5WHo
-         ky7w==
+        b=eKFUnCrdv5O+kg3jouVsO22DSRI+TgspvmcXVbQqRvGhBJ6rds1KISRnfxUXNLAWJ8
+         OHrX2XOAUzZAUmnVu/jgIZwIA/8R9g5y0ns72xECNnq9fwc+Q89svYtzAMIfZW6jtDxT
+         0bgeqSpaq/BMlJ/tdg4pRf+RxG4sJbB9S2Gb2o66q/1Vh5P649Z3/Gryhm9JhMPzkik/
+         WXGACtR6euGAvEHThRc4Qy1atQDj/G2PidMLQYLD+ZYlYmFSH4SoRi+oGdGuBH9frxXQ
+         LUZ/a2dltd94BGIwWTW5GuTKiCNgJfpYrjZM3zUl3qDMXgHPiaosgOrDSKlg0NUny3G+
+         zXWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=/A3h88rm/bzKYDHwXmy10vJWFNAxrqRS/0m9On458gU=;
-        b=pd8GrRRyvOmCy3iXu6qOrgUfxXB0Hq0js5xZlbxg/dcudSlFTlsZ9ObzV5r9pK54V1
-         5q/Sg26/evmCEqE9Med9jb9VIrRilYojvaUieGSbnfPNrlraupTG2HPkxYozau8CQT4t
-         BEV0jEgP3s9VJy6gK7IJn99zM27LJg+HyCVS+M8O7j0gdJbousWuXSZIticGymYx+7S5
-         XK2XAREtm6mouwJBZbt+VH6cAhBkLO1wObz8r16nBHEMf8xgxGcKIrYFVWJ9OFYdFU88
-         Q2YjxYEcTnUMnSvSPEPFVmUAZF1r21TNvaKFzEzK6LDi/qjeDLtLyv/PfHrBA//Tc0l7
-         P2aQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=FrrGfd1EdZQPPUGwleXpAq9NNkW8aJFy98CwizL+8Gg=;
+        b=OvlmdPU5TtInJe5EIuJQyjjO4P2zDkdKB7jufpoeK59MWuy4brdPXPVeEdwv7hr3jp
+         aZvIF3WAmkofhXDZabajg3L7zEHiJSLBv1MzDk+gTcPoLovSzHcOhH8gUXYJXIbQ329C
+         7gICbJ1OG0LDodTuv6GsmVOf/n12lTVk6g255jBmMV/L8cbqaS64lrH6ue9JELUmyD7D
+         JraCdauLmeecJfdRGY4A+RG9H+gIqUTKTjDcfA2iDKSABq/VaUrvgSEC7mxd1Bx0O7fO
+         uxpkXQD8+DoAauw1FhD/gBSOkNdpiCcm1UJRLtTdWIZd0iweaI3km/vXsXLGmVjvnql7
+         tjPA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=aHUCEcGr;
-       spf=pass (google.com: domain of mathieu.poirier@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=mathieu.poirier@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
-        by gmr-mx.google.com with ESMTPS id k6si234279ybt.4.2021.02.25.08.45.25
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Feb 2021 08:45:25 -0800 (PST)
-Received-SPF: pass (google.com: domain of mathieu.poirier@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) client-ip=2607:f8b0:4864:20::629;
-Received: by mail-pl1-x629.google.com with SMTP id p5so3501270plo.4
-        for <clang-built-linux@googlegroups.com>; Thu, 25 Feb 2021 08:45:25 -0800 (PST)
-X-Received: by 2002:a17:902:6949:b029:e3:1ee9:6bfd with SMTP id k9-20020a1709026949b02900e31ee96bfdmr3897370plt.66.1614271524938;
-        Thu, 25 Feb 2021 08:45:24 -0800 (PST)
-Received: from xps15 (S0106889e681aac74.cg.shawcable.net. [68.147.0.187])
-        by smtp.gmail.com with ESMTPSA id s10sm6530952pgl.90.2021.02.25.08.45.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Feb 2021 08:45:24 -0800 (PST)
-Date: Thu, 25 Feb 2021 09:45:22 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Arnd Bergmann <arnd@arndb.de>, Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sai Prakash Ranjan <saiprakash.ranjan@codeaurora.org>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+       spf=pass (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=suzuki.poulose@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id f16si317548plj.0.2021.02.25.09.21.09
+        for <clang-built-linux@googlegroups.com>;
+        Thu, 25 Feb 2021 09:21:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 810F8101E;
+	Thu, 25 Feb 2021 09:21:08 -0800 (PST)
+Received: from [10.57.49.35] (unknown [10.57.49.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9339C3F73D;
+	Thu, 25 Feb 2021 09:21:04 -0800 (PST)
 Subject: Re: [PATCH] coresight: etm4x: work around clang-12+ build failure
-Message-ID: <20210225164522.GA3554437@xps15>
+To: Arnd Bergmann <arnd@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linaro.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+ Sai Prakash Ranjan <saiprakash.ranjan@codeaurora.org>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 References: <20210225094324.3542511-1-arnd@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+Message-ID: <19c9eba2-c5cd-301f-4dfa-a31c971728f9@arm.com>
+Date: Thu, 25 Feb 2021 17:20:57 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 In-Reply-To: <20210225094324.3542511-1-arnd@kernel.org>
-X-Original-Sender: mathieu.poirier@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=aHUCEcGr;       spf=pass
- (google.com: domain of mathieu.poirier@linaro.org designates
- 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=mathieu.poirier@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-GB
+X-Original-Sender: suzuki.poulose@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=suzuki.poulose@arm.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,41 +138,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Good morning,
-
-On Thu, Feb 25, 2021 at 10:42:58AM +0100, Arnd Bergmann wrote:
+On 2/25/21 9:42 AM, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 > 
 > clang-12 fails to build the etm4x driver with -fsanitize=array-bounds:
 > 
 > <instantiation>:1:7: error: expected constant expression in '.inst' directive
 > .inst (0xd5200000|((((2) << 19) | ((1) << 16) | (((((((((((0x160 + (i * 4))))) >> 2))) >> 7) & 0x7)) << 12) | ((((((((((0x160 + (i * 4))))) >> 2))) & 0xf)) << 8) | (((((((((((0x160 + (i * 4))))) >> 2))) >> 4) & 0x7)) << 5)))|(.L__reg_num_x8))
->       ^
+>        ^
 > drivers/hwtracing/coresight/coresight-etm4x-core.c:702:4: note: while in macro instantiation
->                         etm4x_relaxed_read32(csa, TRCCNTVRn(i));
->                         ^
+>                          etm4x_relaxed_read32(csa, TRCCNTVRn(i));
+>                          ^
 > drivers/hwtracing/coresight/coresight-etm4x.h:403:4: note: expanded from macro 'etm4x_relaxed_read32'
->                  read_etm4x_sysreg_offset((offset), false)))
->                  ^
+>                   read_etm4x_sysreg_offset((offset), false)))
+>                   ^
 > drivers/hwtracing/coresight/coresight-etm4x.h:383:12: note: expanded from macro 'read_etm4x_sysreg_offset'
->                         __val = read_etm4x_sysreg_const_offset((offset));       \
->                                 ^
+>                          __val = read_etm4x_sysreg_const_offset((offset));       \
+>                                  ^
 > drivers/hwtracing/coresight/coresight-etm4x.h:149:2: note: expanded from macro 'read_etm4x_sysreg_const_offset'
->         READ_ETM4x_REG(ETM4x_OFFSET_TO_REG(offset))
->         ^
+>          READ_ETM4x_REG(ETM4x_OFFSET_TO_REG(offset))
+>          ^
 > drivers/hwtracing/coresight/coresight-etm4x.h:144:2: note: expanded from macro 'READ_ETM4x_REG'
->         read_sysreg_s(ETM4x_REG_NUM_TO_SYSREG((reg)))
->         ^
+>          read_sysreg_s(ETM4x_REG_NUM_TO_SYSREG((reg)))
+>          ^
 > arch/arm64/include/asm/sysreg.h:1108:15: note: expanded from macro 'read_sysreg_s'
->         asm volatile(__mrs_s("%0", r) : "=r" (__val));                  \
->                      ^
+>          asm volatile(__mrs_s("%0", r) : "=r" (__val));                  \
+>                       ^
 > arch/arm64/include/asm/sysreg.h:1074:2: note: expanded from macro '__mrs_s'
 > "       mrs_s " v ", " __stringify(r) "\n"                      \
->  ^
+>   ^
 > 
 > It appears that the __builin_constant_p() check in
 > read_etm4x_sysreg_offset() falsely returns 'true' here because clang
 > decides finds that an out-of-bounds access to config->cntr_val[] cannot
+
+s/decides finds/decides/ ?
+
 > happen, and then it unrolls the loop with constant register numbers. Then
 > when actually emitting the output, it fails to figure out the value again.
 > 
@@ -187,43 +184,31 @@ On Thu, Feb 25, 2021 at 10:42:58AM +0100, Arnd Bergmann wrote:
 > Link: https://github.com/ClangBuiltLinux/linux/issues/1310
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
 > 
 > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
 > index 15016f757828..4cccf874a602 100644
 > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
 > @@ -691,13 +691,13 @@ static void etm4_disable_hw(void *info)
->  			"timeout while waiting for PM stable Trace Status\n");
->  
->  	/* read the status of the single shot comparators */
+>   			"timeout while waiting for PM stable Trace Status\n");
+>   
+>   	/* read the status of the single shot comparators */
 > -	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
 > +	for (i = 0; i < min_t(u32, drvdata->nr_ss_cmp, ETM_MAX_SS_CMP); i++) {
->  		config->ss_status[i] =
->  			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
->  	}
->  
->  	/* read back the current counter values */
-> -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> +	for (i = 0; i < min_t(u32, drvdata->nr_cntr, ETMv4_MAX_CNTR); i++) {
+>   		config->ss_status[i] =
+>   			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+>   	}
+>   
 
-This patch will work and I'd be happy to apply it if this was the only instance,
-but there are dozens of places in the coresight drivers where such patterns are
-used.  Why are those not flagged as well?  And shouldn't the real fix be with
-clang?
+There are more places where we do this. So I believe you need the similar
+change elsewhere too in the driver. So, that becomes cumbersome for circumventing
+the compiler issue.
 
-Thanks,
-Mathieu 
-
->  		config->cntr_val[i] =
->  			etm4x_relaxed_read32(csa, TRCCNTVRn(i));
->  	}
-> -- 
-> 2.29.2
-> 
+Suzuki
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210225164522.GA3554437%40xps15.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/19c9eba2-c5cd-301f-4dfa-a31c971728f9%40arm.com.
