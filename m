@@ -1,127 +1,144 @@
-Return-Path: <clang-built-linux+bncBAABBSGQ32AQMGQEYUBOFJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC32535MUICBB6WU32AQMGQEH57FI5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43991325098
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 14:38:18 +0100 (CET)
-Received: by mail-pg1-x53c.google.com with SMTP id o11sf3908605pgv.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 05:38:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614260297; cv=pass;
+Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0BD433250B3
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 14:47:40 +0100 (CET)
+Received: by mail-io1-xd3e.google.com with SMTP id q5sf4308964iot.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 05:47:39 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614260859; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pISFa4okk39OFlJ4wwkN2G5NTVmNuFfs6Um++AZ0HvAhqSSUADgcV2nef8ySb/F07t
-         5IHlqSnGI1hrVKD5ILEP8KskGUyPeu/y+8K+7yo2taDIRsufmafUhbJxb+q/nbNBOKZl
-         1bpzPo6naOswaJL+qcyYBNP1E5Dr6IAJXcdbi4pXERf+acsg4OqYgeVkwWTsHnnWauPU
-         ic53/IopXy5GwIF6+rmUE2uJHsuHrk7VQqVwLuxUwdVzcXgZrr+Zbcpqt0iwKK8Cs3Bd
-         f+hxoqnd1v0mcMlaCOFlQQr/Kavca0b+9HCkmPiZoE3Dx1lCD3bSV8tpIK5vbklA3gWN
-         rJtA==
+        b=Crzu6qxgLZRSn4+gFyXLcr8V+liqMHsTVxsXL+eZg43DETh+T1VLe4SmSSQPNm4XpU
+         DsspRta7JdJsyTqWbdW5hGYL6EvFfBWgzJf2326Pbq94WxYCPwCM03Dlp78tXJrPECka
+         zzFnKN4JKySohjR32n3Y0kHtVWy5/WkeGcOf/rtM9KFvSDG4sUrXZg9k3aIvb/zYrJFm
+         23DcAqfqNV+Xxdg4/mI00aiH23GTGLuGTJkHAIg/qzUC9nfmVLk/wNJ1Ek4UjkWhoUM6
+         0jfvwXoj/bz95vdJ9e7FZ37zp+oeRIfBaG+mLGW1fvNyYY1KaLEsB3p3WxsXDm+P3hI4
+         lTvw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=gZiqFql7auXuQrl05b80AclrNoyYJY++oH4JDDLUnGI=;
-        b=na4QmAwaZukFnJn0bfYUV8snbKKvr+knitDLDBSvWvHGjrmVId+m3vG+IjW9o65g+r
-         YHcNKrmX+108HHauJs8imSoKDFfiArRgkuhZqFuoMZDENn3yizipRZ/rCKdN+oiQqsll
-         ZCsssiHpNKGBIEvoWc7q6cmDaB35de/kNgX0oqV9Xsm/p4Gr5sEhUH2QwCjZZeexFkiU
-         G9hjOFosh6Mo4Xj62Vn3m3eV4D+4BhDbuKyUhNFs5wQDnruXZedpaN5qrZ341LTYHnSd
-         0ZA03+HxgMV6PrMdPHDINtzGp6XwRSPXauYB68UkmVo1gujBJmdZ8wyutdsWUxDRLUoN
-         Tz4g==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:organization:from
+         :references:cc:to:subject:sender:dkim-signature;
+        bh=uYm2gYnrV8i24dYTqRfN/LOE6WeW+74n4OGt3kiLysE=;
+        b=Uw6wl4nmrD2m/7XjPexjmGaNP80bQIsafH8tR1s2je5tV7Fl9X5PrS7zLZV+Ei+gSV
+         NNdI51Owol/yL0affg+i4VuF+LGekJTkN2VYBKcgQ+wEHNV5llTH4HdIKp1GwhAgrU3E
+         jAnsZuzofVaLgvSvt8ndPYp+/B3KJv8bx/uH4Wb77/4HMppfoK3C1F/PluXhaOuslQvm
+         vh27DbrExNWOcQuJXp2MI2JK9bq7NadDPelpHZlkgQfwltTtFD2hBCLqDf5SsZ2Ennwi
+         knYT9f/cv4AFUBOMD95wJaC+ULN2RBz1p5xLRCKOGrVuedHrGIcC+eN4azubC17wfgdv
+         CGEA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="fh37CZa/";
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Z/uQbHjN";
+       spf=pass (google.com: domain of david@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=david@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:subject:to:cc:references:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gZiqFql7auXuQrl05b80AclrNoyYJY++oH4JDDLUnGI=;
-        b=VTYUp7HEznttHHOlgiGYSx7tHGSxQKM15TDjZEowKHeWeMaVsiRm4mrlRU5N0sHoh/
-         J4Egj0v5ALIVDGADc19XmOMvytht/GOrpcss8WPvgNmSbrFsGI9Ta0KK3E8kJzy5hO0F
-         fS9eBhDRqCBkrmhXXvqKgebQtDDSf0P/E+gjiB4PQA6NJOYfwL7pF5UyEW3pCLPN28ID
-         jjj98PDM+n1+FbsTwm/6WrDTx8FYxdO5+FjmV55SQJu0T+O7NAzH5by8GnvEQlfxPsZy
-         ucpNgZQrd9/tW0XokBEAsFySh4m6KBJBe33nFTbevzThrZbEwZPd7ClYjdFCVE+4HbIK
-         ahLQ==
+        bh=uYm2gYnrV8i24dYTqRfN/LOE6WeW+74n4OGt3kiLysE=;
+        b=DUgKKUe6+UPj158wBrepU1mSF4Ys5s0Xs2dTlPYnSXF89rNhnyHvh9kRh9BrVqut8e
+         8QzUyPJZp0jL53pcEDR8VkXEIXraj4X1bKpJQLAG/gnZAhkp91iMwh6nkzqXZPE/b50Z
+         0yOlxTlxxt5foi0QIo4HIgabFSzUpG+1x8x859ivsjEnyjaGTBSuS72OsStqIFMWH098
+         dKUfjsFT8zTZP7mYS58u0v4mg/bmjlQ9kOBgsD2LLpugi6miLktTioIN7v/eRYFJTL2n
+         oYMk9mDACgf5eHgfItpM6xZo22J0YVNWGxDOPAEhYfdMzIrdjy2huzTmc0FNL1CYBQJS
+         xuzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gZiqFql7auXuQrl05b80AclrNoyYJY++oH4JDDLUnGI=;
-        b=T4n0AwMc/d7IYixXtXO8tfnzttVHJA1QdBgq3jV2tGKSg7J1VrlR/SbOOWBCudmLH9
-         3AxNpuRUb8kdJfBYXTclGKXYnjsUyhY1seZCIgOXEGOOim6nNA2kU3LXzwvc3YhEQOIg
-         Vg7oAl8LDTYMrP4u3q0fORBVC+UzjzXs6PVwA4QyhuNxewrg2Ak9QtT9ASZJ74nLQJct
-         eQkjMuTPmjwqrnu0ALgB/U7RIg6WLdtHdj/aaYhDy5Sa2RNlFcemmqWarKWm+9NukL9U
-         U7QhQ4/mBV2P1effz8La2+Aw3LGMjxKN69aJ7NJd9ZagI2Pu3KlT31kZyTLA6WrG4TIs
-         tKHw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uYm2gYnrV8i24dYTqRfN/LOE6WeW+74n4OGt3kiLysE=;
+        b=P7c4ySFYm+1Ye+eZTm5GQHgb3GZV5kn9pBkIfTM0uLv74HMaVM3BBBkTCWakpsNDt3
+         kWi42miyW/f80t+QYwFz6ifAadxe73EEP2HaYtT8IR/yTVufy6z+QJhrpYqX+LD9sBEd
+         2Sc9FoSydW/3xe89CvvauCtCx4hbA8rhB+XHJkbkkPnKqqwXfQ1iUcwVHWzV7UqTNnl4
+         Vbepk9mwyDfhUvP4YWYt87RdNIFZ6HVvBrcwa7lSPbDPkDFkKpJtW6VkeuE3d+HhdRJF
+         Xcb5cfewZG/FNKSTu4OYSDikX1Dt1bt17ldLyImVku7fdNpB+HC+GNF+aD1EHiag9o4W
+         v3/A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5304D2fNegQRr8zm5goaS2BkKELZ9UCBoOk1mT2/r00pBz3ADHgH
-	f6uJi0sApZmsocxkrBhnR2Q=
-X-Google-Smtp-Source: ABdhPJwkuM9gOp+cC4kg9Q3I2eTiVBBXJ6MIrHaeiAnKQo2LI1KN+MG2UnRTu1IoJHVnsTNlFArArw==
-X-Received: by 2002:a17:90a:4287:: with SMTP id p7mr3408731pjg.226.1614260296908;
-        Thu, 25 Feb 2021 05:38:16 -0800 (PST)
+X-Gm-Message-State: AOAM532xaiRhygF32BAqsSlQaxoCfSunYTq2xf5b5eiHOcDQaW20NCSP
+	7rZhCqvZ4LnITIZrG/fj7zI=
+X-Google-Smtp-Source: ABdhPJxHyruCRDfw1cV371wNi6nqBFaZMYUdlqdPiB87yzJ/N44AvplLv+e3uyRIHx+0piokLtDlqg==
+X-Received: by 2002:a92:ad10:: with SMTP id w16mr2649402ilh.122.1614260859029;
+        Thu, 25 Feb 2021 05:47:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:da46:: with SMTP id l6ls2220653pgj.5.gmail; Thu, 25 Feb
- 2021 05:38:16 -0800 (PST)
-X-Received: by 2002:a05:6a00:2296:b029:1b6:6972:2f2a with SMTP id f22-20020a056a002296b02901b669722f2amr3270031pfe.69.1614260296375;
-        Thu, 25 Feb 2021 05:38:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614260296; cv=none;
+Received: by 2002:a05:6638:2656:: with SMTP id n22ls827282jat.4.gmail; Thu, 25
+ Feb 2021 05:47:38 -0800 (PST)
+X-Received: by 2002:a05:6638:14c:: with SMTP id y12mr3167517jao.34.1614260858687;
+        Thu, 25 Feb 2021 05:47:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614260858; cv=none;
         d=google.com; s=arc-20160816;
-        b=vM/V9spRvz7UjqZeeIndXjR9wVVdU4Dsf2rh0AL88sOXLhKe6cc6NSSgr1IbwguM+X
-         t6V8Pra1KTUJ+PbRCICTj/M62HFEDHNnduZn6pX18TS0LEcp6fqeE0/kgaMi7fkZ22cY
-         4YpZEPxd/yT4l/HopNlauvhWGgWl5PNWVNb9V4ZaXU6+jmAjlELk2A5lb79h/CWDdIGp
-         +3Ritjo4hmA8hYctOW1Wy2JEm61EYC1QbznzupEzj0DD6SnVfr31EaHH20WGc/5I490J
-         M4cRo2ytWD9i4A4Q4udcwe6hM1NvhUU+fEsVFFWoj7sTa3VyJvkC4J1kPXoAnrqt1QIB
-         m7JQ==
+        b=xX6DYL1IL8svXuKOGx97+DUoV7Mu1hOYBU6zmOhvW/PHaDlJ00qyXzQhgVIEfmbiRu
+         wau8LIcUnkxmgY33Cfue7cSp+x4xdtnh5smqW8dtISsuko0+JUbQpSQUkpwDjROENEFJ
+         fKs4Iftf4BcQGZzuDXyZqGUhty6g/3Rg8h080hVJY/xvx4I0Qx+Z54bgtdqTZ3Lf5dDW
+         vx240WMgIZeOkPb42ALt5gXtKr586uRJe5UZoQwjGPmZlNo+2Tq69tj93rssLuEyBFUs
+         Ezpljn1OaBYZf29hZ8hB+ZWcruRqEXSiV2Hexf4OJBMOUjJAYwDyBiua0reWEzrafsi1
+         F2pA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=qrDvXOyTJ8mNQUiqugHomiRNAGpJuCcZ6jAbszdh0FQ=;
-        b=dcO7//72f1AMZ/jacFotn1Qb2plHWQaCeWCG3g8Bdhj81ooQ0SkOwpijIGTj3KhHbM
-         Gn8TeTPRuRNVuk7RcbWetAIe7RxdYZI+yClBtJuhBQW8do0q/yAk0z7KlHzbDhlDGmSG
-         tJwo3u0P85tK935BPTN4U8d+yReMnxKooM6LaEyqDpzUJkSMU7zITBFbyFrxxF+Hj1he
-         Wx7LqtGPO9K/7l6/UwuVgGTe0WoG6jfZAtJOt5lIdpumk4iKrSswOGZen3CM+SaHyi/2
-         xsm02YUajKrxp+2GeflMfosb+3ThwQbFt5yj0g0HJlHefVKjng8o57jupGL7EXN5dFnd
-         RYPg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:dkim-signature;
+        bh=EgjC+rf5BpRHQVKEWQzIdMLice8BLuA8Q1gYTkfD844=;
+        b=mpzxfuO+C3fvsG57RZXL3aqZMFKZjd2i5hm1ErLf4Ctu7AFju8tAEM+bmKyXSsY96q
+         j/7mT3RHShv/uS6cI7katPWW804r6lEVJRN8Jkb7k6Pcl4Xx7nBKKuyGXvZPenlWbchB
+         zvIXdJlganeae+Nh5rDbJT3oRyvHdfGaOXMuCbZVhmOwHZ6g4CIkFD8UOwBHt14Q8xmG
+         DZwFPMWxVetvpL+B2SHyXAK1X++IAvhp4CrFlRa/wfN2l/lzhKpbqf+FCk+v6QbZN7Hu
+         /f1K82m+fMd3TRZ/8a1zWVLV7HJqpS/FzMwJqGOqwJjF82j5HAkMLIfn7wO4sm1Xe4or
+         dbwA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="fh37CZa/";
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i23si245786pjl.3.2021.02.25.05.38.16
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="Z/uQbHjN";
+       spf=pass (google.com: domain of david@redhat.com designates 63.128.21.124 as permitted sender) smtp.mailfrom=david@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [63.128.21.124])
+        by gmr-mx.google.com with ESMTPS id d2si282818ila.5.2021.02.25.05.47.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Feb 2021 05:38:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5C71264EFA;
-	Thu, 25 Feb 2021 13:38:12 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Faiyaz Mohammed <faiyazm@codeaurora.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	David Hildenbrand <david@redhat.com>,
-	Aslan Bakirov <aslan@fb.com>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] memblock: fix section mismatch warning
-Date: Thu, 25 Feb 2021 14:38:00 +0100
-Message-Id: <20210225133808.2188581-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.29.2
+        Thu, 25 Feb 2021 05:47:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of david@redhat.com designates 63.128.21.124 as permitted sender) client-ip=63.128.21.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-406-f7r-gXxdPe6w62d-1y8HYQ-1; Thu, 25 Feb 2021 08:47:34 -0500
+X-MC-Unique: f7r-gXxdPe6w62d-1y8HYQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2E40A8799E0;
+	Thu, 25 Feb 2021 13:47:32 +0000 (UTC)
+Received: from [10.36.114.58] (ovpn-114-58.ams2.redhat.com [10.36.114.58])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 9CE4919C79;
+	Thu, 25 Feb 2021 13:47:29 +0000 (UTC)
+Subject: Re: [PATCH] memblock: fix section mismatch warning
+To: Arnd Bergmann <arnd@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Faiyaz Mohammed <faiyazm@codeaurora.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
+ Baoquan He <bhe@redhat.com>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Aslan Bakirov <aslan@fb.com>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20210225133808.2188581-1-arnd@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Message-ID: <60989b76-1ae6-6be3-0277-df9f0cc8dc3e@redhat.com>
+Date: Thu, 25 Feb 2021 14:47:28 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.0
 MIME-Version: 1.0
-X-Original-Sender: arnd@kernel.org
+In-Reply-To: <20210225133808.2188581-1-arnd@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-Original-Sender: david@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="fh37CZa/";       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
+ header.i=@redhat.com header.s=mimecast20190719 header.b="Z/uQbHjN";
+       spf=pass (google.com: domain of david@redhat.com designates
+ 63.128.21.124 as permitted sender) smtp.mailfrom=david@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,63 +151,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On 25.02.21 14:38, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> The inlining logic in clang-13 is rewritten to often not inline
+> some functions that were inlined by all earlier compilers.
+> 
+> In case of the memblock interfaces, this exposed a harmless bug
+> of a missing __init annotation:
+> 
+> WARNING: modpost: vmlinux.o(.text+0x507c0a): Section mismatch in reference from the function memblock_bottom_up() to the variable .meminit.data:memblock
+> The function memblock_bottom_up() references
+> the variable __meminitdata memblock.
+> This is often because memblock_bottom_up lacks a __meminitdata
+> annotation or the annotation of memblock is wrong.
+> 
+> Interestingly, these annotations were present originally, but got removed
+> with the explanation that the __init annotation prevents the function
+> from getting inlined. I checked this again and found that while this
+> is the case with clang, gcc (version 7 through 10, did not test others)
+> does inline the functions regardless.
 
-The inlining logic in clang-13 is rewritten to often not inline
-some functions that were inlined by all earlier compilers.
+Did I understand correctly, that with this change it will not get 
+inlined with any version of clang? Maybe __always_inline is more 
+appropriate then.
 
-In case of the memblock interfaces, this exposed a harmless bug
-of a missing __init annotation:
+(I don't see why to not inline that function, but I am obviously not a 
+compiler person :) )
 
-WARNING: modpost: vmlinux.o(.text+0x507c0a): Section mismatch in reference from the function memblock_bottom_up() to the variable .meminit.data:memblock
-The function memblock_bottom_up() references
-the variable __meminitdata memblock.
-This is often because memblock_bottom_up lacks a __meminitdata
-annotation or the annotation of memblock is wrong.
-
-Interestingly, these annotations were present originally, but got removed
-with the explanation that the __init annotation prevents the function
-from getting inlined. I checked this again and found that while this
-is the case with clang, gcc (version 7 through 10, did not test others)
-does inline the functions regardless.
-
-As the previous change was apparently intended to help the clang
-builds, reverting it to help the newer clang versions seems appropriate
-as well. gcc builds don't seem to care either way.
-
-Fixes: 5bdba520c1b3 ("mm: memblock: drop __init from memblock functions to make it inline")
-Reference: 2cfb3665e864 ("include/linux/memblock.h: add __init to memblock_set_bottom_up()")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- include/linux/memblock.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index c88bc24e31aa..d13e3cd938b4 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -460,7 +460,7 @@ static inline void memblock_free_late(phys_addr_t base, phys_addr_t size)
- /*
-  * Set the allocation direction to bottom-up or top-down.
-  */
--static inline void memblock_set_bottom_up(bool enable)
-+static inline __init void memblock_set_bottom_up(bool enable)
- {
- 	memblock.bottom_up = enable;
- }
-@@ -470,7 +470,7 @@ static inline void memblock_set_bottom_up(bool enable)
-  * if this is true, that said, memblock will allocate memory
-  * in bottom-up direction.
-  */
--static inline bool memblock_bottom_up(void)
-+static inline __init bool memblock_bottom_up(void)
- {
- 	return memblock.bottom_up;
- }
 -- 
-2.29.2
+Thanks,
+
+David / dhildenb
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210225133808.2188581-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/60989b76-1ae6-6be3-0277-df9f0cc8dc3e%40redhat.com.
