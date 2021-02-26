@@ -1,137 +1,135 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB77W4KAQMGQEU3L6ELA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQYFH77QIORBZ734KAQMGQENTJXB3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6185B325FB2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 10:12:33 +0100 (CET)
-Received: by mail-pg1-x540.google.com with SMTP id o11sf5776580pgv.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 01:12:33 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614330752; cv=pass;
+Received: from mail-oi1-f186.google.com (mail-oi1-f186.google.com [209.85.167.186])
+	by mail.lfdr.de (Postfix) with ESMTPS id 08C53325FE3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 10:22:49 +0100 (CET)
+Received: by mail-oi1-f186.google.com with SMTP id m136sf3261928oig.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 01:22:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614331367; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Dv6iZLxZ7qItPNuooymyPXBfHBtyhx2Zzkb8niPN3IFW4bhP4/4rCqUOl7Dc+hmVcC
-         PKmd2OIYuFK/uJd/8FT6GmiawbRKyM/MUwpp5B6pmF8XgcLlzEqgAAzGlEZ03Yf1oUeD
-         THkQtlIJMNPetBmY01tji7vFiMxQf73gRriWSMsIRiVJJjELlK0eV+pOvLWi7cu4Ah0O
-         h1fEs7YdcMpuiBtlyIcIQMa1me6HTfbtFdanlCNOgeu3bM8TJ4ZrFORAa4XJqm7jkK5y
-         uaYHHPdAj84foxm8gCaYn/tRB+eo9v7CYKxLYHu8GrbrK+s6Wo77S03WcAVBHT+ima0q
-         F75A==
+        b=f+H7+svPTraxYR7LvjAFF9DYZidLb+pNSV9nq4fhJHuFNhgbSo52Efe3mSrIbajcj+
+         IDxyLIohTK9geQIe0QgQwkJQXd//AHzjj66GsChawfQTEWGqp/D7BrFNjUcz1eRmVU90
+         RNuZcWMUkV/HeQpEICx9EergKaD1MmzCnS8OBaXUY0T8CFr9BDMrcU+0gccz4Txtso9h
+         EE7LjqxAhYYqqTLANqZpdEt5rxUaagdm6wobNRGtzLXeAESYJcQA27u3VLVyCqBALbgL
+         MgvqBuXBAcvpKfkkh+/JTLl7S2HP/phQ9juCHMFFpdqy7y3azb6hjrQzkmqc0bkqkDSl
+         IV9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=56Y8/6Myq6VexoP8n/pkKhhgDkZ6k5VQHC5pZjhPaR8=;
-        b=Ow/mbXYW3sZLYIpvKpQFpoRlDLGWvrtHP00FD1ktT/+cNDblBP6+xslpCyasv21+Rm
-         3jEHAODRCIYaSj3PnRu27aQsdEHC+9gX+iEyhtAF+UPL39IxMWJ1NrQqG+QeI7Hver2M
-         +KEyEJfrSeABy3eVXxGeXG10e3Qq9/LRZWmMpdRLcSeLWBbYt8jfC5qiwvdfEH/+TExk
-         xx2SGmsG2+jP+QB/FXYpCwQ5OA4uvjj0BFxkbmN0XH/tsyCJipHsvRwglsIJKcDIXfi0
-         gm2tIdVGwVz0/qfCB0xRpfmrk8ZLKJ3Cns+USL+jiaVr6WyKgKxlzIkBKOek98pnXflx
-         Oz8Q==
+         :list-id:mailing-list:precedence:date:message-id:user-agent:cc:to
+         :references:in-reply-to:from:subject:mime-version:dmarc-filter
+         :sender;
+        bh=n32FQIiBlm1oHSOMTFBPKh0EhpPzyI2oGBthUFhovHY=;
+        b=YfPpCH8bWvp1SB+t8uZ1Jm5duo1LJcji/JZEqigSbHwMPsG2HHlJytHe1AnCfysZx2
+         GHYp95uNq6eZfMZcXqS/8fLp4NhoWWj/h5PRGSjXgbAXfO8uk8f69AMF1jLPZgMwkcxv
+         mmls+NgxTofUjUT9fJeoVYCAPqiRXmYRaoTUWrifIQOz9/q/JNqS2pDDESNoZbJEt3iK
+         ZPwBW7TArGYx+iWETc04ELuXgVuQs+yrq2+AxoTKabmFJ5XZ1HWRphxDd1V/ng1Yl03e
+         uWvJxBV6NN31iNBnfOH2MN5MxvIyLCeZogUFp8gGvDwcOkX68p/WI8tkqKtjD0/SjNNt
+         /U9Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="X/Pq9r4i";
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=56Y8/6Myq6VexoP8n/pkKhhgDkZ6k5VQHC5pZjhPaR8=;
-        b=KH7N6lsSyEIKArXsYvmCx3V81BCi4gV/ZCP4lZxEp30BAHvpUArwY0ercyzcGcXxWr
-         7zja2GpFc22+CBkDIZ3STgVmlQzG7Lr6GS7xER6X5R9tP0IByZefI4JXpaap9+WuDOiG
-         bvbSDd3eEMsJGy3v/iQwN5P/KcAxLTeKUenBjdPA+ZtuolEY6M16hFrHYsjQAku7kAgm
-         GfPOmI3JWxhatcl1M2aN2JHi67SOTcx7lVElay2U4LzftZfGVapY2DIaJH2vTqjnxu2S
-         HTlYnJ67Py+zzWVw/4AoZXEv5hjrpGMtsLgdJKvhtD+JyP2EFSMv2T57th+xpQ34MICR
-         5gIw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=56Y8/6Myq6VexoP8n/pkKhhgDkZ6k5VQHC5pZjhPaR8=;
-        b=n/j7qiHk8dnAsJoLlQ2s4zp9RvCTLMuYBGl+0zCtJHBe95R8k5TiOYyIH/jrs2BoQp
-         kWsIXReKswkwRQdvYm7k1bh/5q+CyvbdFVsP3Ll/UZQjvBsbeeSOFaTc5bjEGoSmmpe7
-         FxNnMVvsI7aC4h4Af/0TO0HGaJjRmiLgwA8hp5UW27P8NZSBSHpsLbU7UmHq4M2win5W
-         37J0bzFubWWfXj3Gbf2KKrXEXRNmpDCrcwtX+VQlMTNSI8TB5B8BqZrVBx5eTWOBMnk5
-         BlowojuxumGzCnkROGAARiI6VY2PEW+hjczB8dcJoX1hq08u3+yK5ENhremI7aWZamte
-         Ayjg==
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=g264XkKF;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.42.2 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=56Y8/6Myq6VexoP8n/pkKhhgDkZ6k5VQHC5pZjhPaR8=;
-        b=qyH3u1P8sfjYIFQq+/+cFftYm2MEhaqtS2Ivswo/bzhwqF0otcR+usSZf89Mn6p+ST
-         gIiqudp2HO00gcXlKITU/2y6hrX5njtGUtrzt3gKs7Odp2TzP6pr2kx+mimxn5evd8PW
-         uNilUFVnxCyyvFwQjXvVGsSlcc1LhcX+rz1gLFL/UzxKUCjjgeCO0j6TFq7dIdOmqXop
-         flOSiDCbduc3t377TdyqNUfLdgZGZesJG+PYfvEPtisYvGii9m/96fu2ZijqiwggAmlC
-         oU3C1uH7+vk1DtX62lzy92aTeZ0awq4McivspN4Nn+hVHOBh0yX94FrZ0GrenrryvVSN
-         7DGA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Zmj1t8o07wwQ8s0iadwN22PCp4x3R9UCfsPQpoweeUbPAdYWt
-	Lo6s4iEOofG1EZ4HuQywV/Q=
-X-Google-Smtp-Source: ABdhPJziWmcoua3BQ/AIe+6IjSK6xCaeBcZurN/Sf+liRj2u4KwN9w2Q1Yf3/g1NV0beKYVEtG2LUg==
-X-Received: by 2002:a62:a507:0:b029:1ce:ddad:79de with SMTP id v7-20020a62a5070000b02901ceddad79demr2396238pfm.19.1614330751610;
-        Fri, 26 Feb 2021 01:12:31 -0800 (PST)
+        h=x-gm-message-state:sender:dmarc-filter:mime-version:subject:from
+         :in-reply-to:references:to:cc:user-agent:message-id:date
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=n32FQIiBlm1oHSOMTFBPKh0EhpPzyI2oGBthUFhovHY=;
+        b=id6YVUG8IHFZcgN2cE7V1rHVMdR2CShmzNmsMwS2Eo1pCpQtv1XJMEQweARSlQ1EL+
+         Emse3gk/ZwLQSMFMFw8bfiiyEWM+9JErooKfAM7INn5xkwdXPV9Fte5ERKpRSYqj06vD
+         DwHkSzkoG2BOtuela+mDX/f7cLowPJq7l+GGgB4xyam5uKBovBQcJe/2No3lLxNzWepo
+         DyffjRRVoG/zYBVTqYepNZJRzfU+yuT0j48Az56im1yqJmBn7sKp84O8pIpo9zTplY2+
+         AOnDLujKZl8C68ewq0s4uBZx/6ciY1kxL/vB3u9C13aPsRDRD9Uu/PZH4xHzs2EJPtc5
+         1Kpg==
+X-Gm-Message-State: AOAM5336pOL4xk4KCTaap64V9VXTY0z2wSn962z9uxNmna2RSsjVx6jW
+	yjjcf4WI5nFMo0/JTPsIDXQ=
+X-Google-Smtp-Source: ABdhPJyjgn32/4I5pQJTC7TNFj24yza+dzaPtHiq71cg8Wp3pccCqI6GwX/p/0Rhb+KFoiHnL/oPXg==
+X-Received: by 2002:a4a:c602:: with SMTP id l2mr1640000ooq.5.1614331367680;
+        Fri, 26 Feb 2021 01:22:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:903:1c1:: with SMTP id e1ls4458370plh.10.gmail; Fri, 26
- Feb 2021 01:12:31 -0800 (PST)
-X-Received: by 2002:a17:902:b189:b029:dc:4102:4edf with SMTP id s9-20020a170902b189b02900dc41024edfmr2409249plr.80.1614330751019;
-        Fri, 26 Feb 2021 01:12:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614330751; cv=none;
+Received: by 2002:a9d:6c57:: with SMTP id g23ls1017250otq.11.gmail; Fri, 26
+ Feb 2021 01:22:47 -0800 (PST)
+X-Received: by 2002:a9d:4e12:: with SMTP id p18mr1552937otf.201.1614331367352;
+        Fri, 26 Feb 2021 01:22:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614331367; cv=none;
         d=google.com; s=arc-20160816;
-        b=P13lbAg9HrVmwhKG34Hvz5FKHE187URdE+qu855BAdulGjN+goU2I0sTqItYFStcVY
-         JYdgcw7+U+j8ZopJ0ycyPTHxIqtgmlD9MTRcLY03sbXZyvs8GHIESIMmagzeOf0ozaQm
-         GN58wJz2dmgA2igu/Fj9QXyqqjNaGcZ7vCTJL+0uz+cJoaV17mh2dtN4GcjwuN9jQLlV
-         9dq1XyttX8OGrA5youwrTeM/7WpJTes1JtmzWGQkBELs41uEy6kDqxlzcKYxSM4hiYwv
-         caveVB0fgIL1DTBPD6XNPAg8YQAS2AXjV+5GzDVfdeVUJik5VYEFbNbepgoOiBt6QgMF
-         311g==
+        b=NF7DfFAfdZ0Q7rxGAuVT9TRvqb7dww9hZqxX2OedT6q9TPruGM+fw4NJEHnQ/RlAOH
+         Ii+W82CE8PnKc0VTPKbkVGd26hYuB8noik7hwd1OY2WNQogIQYO7v7kjs/5IKphYnABg
+         uImZzXTx2wCd7bPeUux5cEuaBG4h6l126mqke1gAc9UM3EaWhTYGiEIpN+Tr37uxph3H
+         l2ARJriqDJpkRwhk3AQsYpGU/sFqdqQ2NptS6QXkdR6NWwl8nm0jssTxxjyojFJzrmx0
+         5hCcfGPB5DqMcqo7PhvjlPglg9KK8be6jkFhjY8BqfrffgyT/CmHUn2mbjTRHwXcWrB7
+         9a1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=/z0p87O0PvTgjFIawsP2f0f6vDc34DrTSODuWzPDpQ4=;
-        b=OC7ENpDFPL6/sSfo0pQcBjL4LLDZc+ZqzjhgQarErUjqIpOiq7SJUB0/5QlkypEIzO
-         61wVDRKEkka1stAb6O5H7FDjH8KjHnzU4TZZGSj0XKjcuIOVr4FicJbWz4wWf9D4exIc
-         aWrjPwJLAxunMDxFBqVwUm2GoXvht6UbER4adz+Pn7PMBJQB6B3b6o1GGIgreSdyUq0Q
-         sRK6uzo3Sf1YDMbijTh8NZhij66t9g0gCDZS6TBuR4JWUql03kqHmyWCt4y+DMt1tS8a
-         LzAXRkELTWALaP20fAEVI7lIIKfP4zVtKh+88g6N2ceeUvqdAjr0Bywg59hC+h86aDct
-         8j7A==
+        h=date:message-id:user-agent:cc:to:references:in-reply-to:from
+         :subject:content-transfer-encoding:mime-version:dmarc-filter:sender
+         :dkim-signature;
+        bh=WZto6la1xMW9OPXhnH+0FY0I0nURZt4YBbd4cgmNF6k=;
+        b=xApslYLhBDZyagHb4OjI1+PFLsy69ar/Uhagn3MmFX+WRX/8niO0FoCVDwI6foJ2zM
+         KRu9QekHT/0ilEBth+qjfsW9b0518Bqr5eMJ7JfiMtnEqspy/dt7e7fmjz745qKpCOQS
+         qW8nFIxoQi3vt4U8eDMjn9M5loUYN0fgst9M/sr778hvtmlo20/pIR4y2UnqPk0oM/WY
+         7E32BaUm0vAF4WqqWr0iia8gYDS8REEysngfsGlVBYwr/kF6iOMZY+qg8q+EKnOXb0A4
+         2ho+D1xz1bpjiM8nzsBxhb6ZQpAJuXsvC/XzSbuyEG4G1jMlmzmSFFy8/mLaIk4j++zh
+         VFaw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="X/Pq9r4i";
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-io1-xd33.google.com (mail-io1-xd33.google.com. [2607:f8b0:4864:20::d33])
-        by gmr-mx.google.com with ESMTPS id w22si363567pjq.0.2021.02.26.01.12.31
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=g264XkKF;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.42.2 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Received: from m42-2.mailgun.net (m42-2.mailgun.net. [69.72.42.2])
+        by gmr-mx.google.com with UTF8SMTPS id q10si628427oon.2.2021.02.26.01.22.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Feb 2021 01:12:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33 as permitted sender) client-ip=2607:f8b0:4864:20::d33;
-Received: by mail-io1-xd33.google.com with SMTP id i8so8937934iog.7
-        for <clang-built-linux@googlegroups.com>; Fri, 26 Feb 2021 01:12:30 -0800 (PST)
-X-Received: by 2002:a02:74a:: with SMTP id f71mr1959719jaf.30.1614330750350;
- Fri, 26 Feb 2021 01:12:30 -0800 (PST)
-MIME-Version: 1.0
-References: <CAKXUXMw6H4rSNtbjxp03kgx7QYTniUT=F42KYvyBox1em_1KiQ@mail.gmail.com>
-In-Reply-To: <CAKXUXMw6H4rSNtbjxp03kgx7QYTniUT=F42KYvyBox1em_1KiQ@mail.gmail.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Fri, 26 Feb 2021 10:12:19 +0100
-Message-ID: <CA+icZUWFE-NyoxrgtWAa_Z=oc1mYJZk_i1tGoP9+7Q5NT4d3ow@mail.gmail.com>
-Subject: Re: Congrats, Nathan!
-To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>
+        Fri, 26 Feb 2021 01:22:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.42.2 as permitted sender) client-ip=69.72.42.2;
+X-Mailgun-Sending-Ip: 69.72.42.2
+X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
+Received: from smtp.codeaurora.org
+ (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
+ smtp-out-n05.prod.us-east-1.postgun.com with SMTP id
+ 6038bdde2658fcb8738425b5 (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Fri, 26 Feb 2021 09:22:38
+ GMT
+Sender: kvalo=codeaurora.org@mg.codeaurora.org
+Received: by smtp.codeaurora.org (Postfix, from userid 1001)
+	id 9CA15C43462; Fri, 26 Feb 2021 09:22:37 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=2.0 tests=ALL_TRUSTED,BAYES_00,
+	MISSING_DATE,MISSING_MID,SPF_FAIL,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
+Received: from potku.adurom.net (88-114-240-156.elisa-laajakaista.fi [88.114.240.156])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: kvalo)
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id DCCB0C433CA;
+	Fri, 26 Feb 2021 09:22:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org DCCB0C433CA
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
+MIME-Version: 1.0
+Subject: Re: [PATCH 2/2] mt76: mt7921: remove incorrect error handling
+From: Kalle Valo <kvalo@codeaurora.org>
+In-Reply-To: <20210225145953.404859-2-arnd@kernel.org>
+References: <20210225145953.404859-2-arnd@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ Ryder Lee <ryder.lee@mediatek.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Sean Wang <sean.wang@mediatek.com>, Soul Huang <Soul.Huang@mediatek.com>,
+ linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+User-Agent: pwcli/0.1.0-git (https://github.com/kvalo/pwcli/) Python/3.5.2
+Message-Id: <20210226092237.9CA15C43462@smtp.codeaurora.org>
+Date: Fri, 26 Feb 2021 09:22:37 +0000 (UTC)
+X-Original-Sender: kvalo@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="X/Pq9r4i";       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d33
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@mg.codeaurora.org header.s=smtp header.b=g264XkKF;       spf=pass
+ (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
+ designates 69.72.42.2 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,31 +142,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 26, 2021 at 7:54 AM Lukas Bulwahn <lukas.bulwahn@gmail.com> wrote:
->
-> My news ticker just pointed me to some random news repetition of:
->
-> https://www.linuxfoundation.org/en/press-release/google-funds-linux-kernel-developers-to-focus-exclusively-on-security/
->
-> Great to see to have such a great supporter for Clang-Built Linux
-> long-term on board now and some media coverage on it :)
->
-> ...and of course to Nick pulling the required strings, and to Google
-> having those strings :)
->
-> [For you insiders that is probably all very "old" news by now...]
->
->
+Arnd Bergmann <arnd@kernel.org> wrote:
 
-Congrats Nathan.
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Clang points out a mistake in the error handling in
+> mt7921_mcu_tx_rate_report(), which tries to dereference a pointer that
+> cannot be initialized because of the error that is being handled:
+> 
+> drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:409:3: warning: variable 'stats' is uninitialized when used here [-Wuninitialized]
+>                 stats->tx_rate = rate;
+>                 ^~~~~
+> drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:401:32: note: initialize the variable 'stats' to silence this warning
+>         struct mt7921_sta_stats *stats;
+>                                       ^
+> Just remove the obviously incorrect line.
+> 
+> Fixes: 1c099ab44727 ("mt76: mt7921: add MCU support")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-I love when people do good things and are paid for it, too :-).
+Patch applied to wireless-drivers.git, thanks.
 
-Thanks Lukas for sharing this post/link!
+fb5fabb192b2 mt76: mt7921: remove incorrect error handling
 
-- Sedat -
+-- 
+https://patchwork.kernel.org/project/linux-wireless/patch/20210225145953.404859-2-arnd@kernel.org/
+
+https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWFE-NyoxrgtWAa_Z%3Doc1mYJZk_i1tGoP9%2B7Q5NT4d3ow%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210226092237.9CA15C43462%40smtp.codeaurora.org.
