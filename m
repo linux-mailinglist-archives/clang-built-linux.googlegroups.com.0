@@ -1,134 +1,128 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBU624WAQMGQELM6WJUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4ILV2HFQEDBUBEM2Z67A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A6AA63269B2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 22:51:17 +0100 (CET)
-Received: by mail-pf1-x43c.google.com with SMTP id m4sf7498423pfd.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 13:51:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614376276; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id D94233269DF
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 23:20:44 +0100 (CET)
+Received: by mail-qv1-xf3e.google.com with SMTP id m9sf7884506qvu.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 14:20:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614378044; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qGm6SjxcXBLdO/Zx7DvTdHrHc2GwcGDVEBxRWCGU8FgunHuKruP44YhTh3vrCnRE0n
-         ANHv5xbVIh6kEvboNSUCZgbWxqI5KbMrBD2WplwNZTF/OhCE7SyM/DfW05B71lMM5jah
-         gTpoj4Yw2HUuClozsnnjelhcTBbiOf1sHj5rEHfo6A8u25yhtjcNFNqWnI31FZzdzmx3
-         Q5rB0qT9v5pSH8AJYJH5LYAC60544wDfD5cHxXSHG1JXmHxT4DAwD1Xx0gGCCIMQgM0h
-         5DGd5LlHMN2xGJC69o0J4MNkvDiZrbb3CyRIPLWqPTH9FtrBK8uRcIiV8ofYcFuXSDwd
-         SWQA==
+        b=dhJnGJN5HhR/1MYNmUocQbfvnwHfSmEVAYuWHSg6kg5Kt824jYzST3ZGrp7sERPtim
+         TB9SLW+w8dmnH5NNpau6HOnsK6wyj8saz1JSxVSH4krnjCVnd6cFX4+3jVgR59wgmnnI
+         kCQ6wckbW4yh5za+9evUMA0GLfLRM2AuYugfYayAUJdchDnYF2GHBkJgQz/1NwT0qZxd
+         n9isODWCZWMaLOr38T3FJvxuckEV2AgzEzQzitvUhB9jaD1ge04yZ6D6Umaz6sybwoPA
+         jcW3CRsNJaGG6Q4RtmyQBy43caZzv2ee+Duc75yJSVJjvK6VMwoLp1ReqQDeoa8dwOfR
+         cteQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr:sender:dkim-signature;
-        bh=dFpU5J0FwXfGRN45AuDyLm/mTTdgDVnQjZxo79g3Rt0=;
-        b=nchh3ptLJvabnonxx2rvy7t4SnAJghOgiwnmFnQLAHh5i+BF2uWBi4Ymv+RK2lTe98
-         zaD/s69m00Om6X+tXMCIeEUcgzWoEORprSngaJr8QfnBJvweQhmWDkAmqCxtacjpvrED
-         HeryfWvezKtOgeB7zDHYSj7GanlHjdgfbRjPk1+mkr+ZqqWbCUbIhySIFwkHxsae9GaK
-         ltwgPRCe47q6O1BwzgFxZrzzpfy/ABWHplV/V0uUpw9soGOe4q2/UbS67t/TNoqv4sAh
-         ISwdy5IcfmmG3cDxQvqdVi5tjosg1LLy7bKpOf1LqkQ4nE+mHGr22j9YhZfV5T4j/cgX
-         nR4Q==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:sender
+         :dkim-signature;
+        bh=K00sj7/8nsLrlsFemqco803c/cFR0rjAhZvGnglso1g=;
+        b=kTKyuOcAD/FmxHKA680fPj4jJ2FotQ2WymftdIpjOngNvc0EVRFpaVeqL2Vhg06Ade
+         VaAz2poSRbvBEHskY9LXVXQhlnMTboTryLVIuE5BkLYimF+kCJy0QIHoWSLbwBX4Zfhg
+         2XqdkHpMdF6gCdCK2TMcEixvKkXgn5fXL6J7ApMYRjhcPZdPxyEmqidGNXC1VRiCyQPc
+         WQBfxSMQy8z58xhirvjvVLXnj0n5zXu1/R+prH+lQLAXBduwzh+fEa8asubOft603es5
+         Zb1qK0hGxYJhUqvzJrR4xlyx+p8XuA1Tk8hw4Q666IXe9XuZ0Y2OH8QcOdra9nyde8tc
+         GlqA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TEg2IJtw;
+       spf=pass (google.com: domain of 3oxq5yaukera247r4w44w1u.s42s1q3w-ray19-1y3adw44w1uw74a58.s42@flex--morbo.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=3OXQ5YAUKERA247r4w44w1u.s42s1q3w-rAy19-1y3ADw44w1uw74A58.s42@flex--morbo.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dFpU5J0FwXfGRN45AuDyLm/mTTdgDVnQjZxo79g3Rt0=;
-        b=c80QOw4+pHdYcJmoCpcjNn2uRy3Vi4yuQPYc56aPSLp48as8g+zYq9UySsjipMXa7S
-         umT6od4YzysE957GUEnv/pi47UAacFGEQ0L1xomJfY3PJMPoiD9X0acuoQghE9V2PySJ
-         5FXkBcLmFo0Vyqv8t5BP3nNYg+ape5sRhtsEnSUKo8iCrdF3pI1UJQ7woYNQbZ095X2i
-         Mhr1I0htY6eGuFaXFKP5ppHkat8DcoWqG42aNoBHyWBfPr08V1NfnndOqBT2fY8tr8y7
-         NmG7E06nAXHLY8R3bHj5cVbMftqjk7jqKqp16YX4L4yfMEE1TDdMQtE9w+Lt5GHbL8i9
-         eIFg==
+        h=sender:date:in-reply-to:message-id:mime-version:references:subject
+         :from:to:cc:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=K00sj7/8nsLrlsFemqco803c/cFR0rjAhZvGnglso1g=;
+        b=kk50yZuaL6ByjHJ27gysmqcXkjqbGKuoK9RtYMyRUVp7Fq8q0yRnLBeRe3Pd6y10Us
+         8NpRrIIOJjjTYBQ3YWUfkc9Rf4TmOZ8HlOQ4P4TZB+lRAI5PKOoecjZkjaZL5US0QLx+
+         bPr0eBnLsbsUkscZ3HWSCmtfCb9NnQGXkPXeAOvaSsBvxXXMzEskTM0iXC2N3YBHIIqH
+         D8VGun+uSWz9rGPz+9Y11/JibP0ks7ptYSDLL8SKWQ/iHn1y6ao6r2y4vj6nThXdYzot
+         UPjNRM3UxAp2BuSHUKOgZfc9ithGJoP8128+lrw8Ofi7MpXStLCpjuU6xrO8FDIzFwVz
+         BJqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=dFpU5J0FwXfGRN45AuDyLm/mTTdgDVnQjZxo79g3Rt0=;
-        b=esnp/SZjtvp+O1AWPOI2RBbn9riRCxZ5Ow/1gq+xj6NPqw2iR6Qxm91e3SSHz+OmbD
-         EkBU9JmaeD+C9wAP5q/W+7tdRr4i2+tzg0Abyyc2Jr1Xv6XHH9tx2jm9xTjvT9TD3QGO
-         +gae217GCMeyppMWEACxHDCP3+NJhoOcSgJUM+4Sq9kYft5rgZAGe7DXA3Y01gFYlBfX
-         4uRWn5jQFrt9WsfMXc+bKzZ5jgVSZtY3Nt6/4OiZIoWznz9RiVrobxtCR4czlem5hJXQ
-         BLeOD1cZ/3XH9H3t/aLRsKszwuUDSggzkV0OehkNvmShZEv2pLgkuIzWL5ZD737nxQf9
-         EmnQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532VIObBJffMKjOsf8IB0XNl1xkDRiXbKp+LASbIX3YDwrgBPYKe
-	geYg0mzjym6HhSboqSgHLSQ=
-X-Google-Smtp-Source: ABdhPJxbXC2PXsSFvA6zNOnnluWUfbqt1jVKE6ZDPZm4Xm+R6ZXpwLGFXx2DLzmH/AsR55RGjaCoIw==
-X-Received: by 2002:a17:90a:5d02:: with SMTP id s2mr5271906pji.149.1614376276066;
-        Fri, 26 Feb 2021 13:51:16 -0800 (PST)
+        h=x-gm-message-state:sender:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=K00sj7/8nsLrlsFemqco803c/cFR0rjAhZvGnglso1g=;
+        b=Trpv6MN/4PST82DL88i9/im4VMvrUko5GLVU/UGlHrirDxoh2xZjczwzR/ojaM/D7b
+         7PNVkHtKAFvHxMwAm8VqcSUXXwZLBMyqO05wPb1VeR/U7+HCoNBfLgO5OaWStTlw4tF5
+         wFkmj1QwHggAd4LkaPYn/2MJZ3IOGouTAxB6y+zgAeuyhsSdQzNpp4Y+g4Ugp4l4qkK4
+         eO4lnqc4wApSF9d4N5aRJVneoPKfzd/P8oqWYSXc6AEELvxehJZcgtW/Aablbh5h2kHn
+         XhVt33K8GBmvcUOoGAdnkRtaQ8YztEtk9lHK9A9w9P0BKulQq1+m9IZw5F+IJ9fN5GWj
+         kXFQ==
+X-Gm-Message-State: AOAM5301tT1REjpnHBtP8L0XLia5OApPaCSLPkza2gdS4BVsXQhHXnWB
+	NkiY2mo93CB053Aip57KOEA=
+X-Google-Smtp-Source: ABdhPJxiqKbNaph0G/P30Gqg6g0pxH9yZzq9NB6bv+Iq+i04Gyn7zAlLoZI+gqZYkXOpjKY2B4guxQ==
+X-Received: by 2002:a05:620a:4549:: with SMTP id u9mr4800338qkp.113.1614378042808;
+        Fri, 26 Feb 2021 14:20:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:953:: with SMTP id dw19ls1637729pjb.1.canary-gmail;
- Fri, 26 Feb 2021 13:51:15 -0800 (PST)
-X-Received: by 2002:a17:90a:ab86:: with SMTP id n6mr5339918pjq.200.1614376275400;
-        Fri, 26 Feb 2021 13:51:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614376275; cv=none;
+Received: by 2002:ac8:5d10:: with SMTP id f16ls4023539qtx.6.gmail; Fri, 26 Feb
+ 2021 14:20:42 -0800 (PST)
+X-Received: by 2002:aed:3165:: with SMTP id 92mr4662874qtg.233.1614378042228;
+        Fri, 26 Feb 2021 14:20:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614378042; cv=none;
         d=google.com; s=arc-20160816;
-        b=CKIX6q3QTnFMjYeGWTbAOjueSkRpkqoQibHWAlaNlh/nc6oBXWoIFYFmoUcwgZl7n4
-         BFBkwUC+H7K6/KdPuc3bJhpNPqDUfUAj5gyNa1kLdA1j5wedvx0N/Gj9kN9PqMRGcDxN
-         z/QoXJnznnlblMneEFK8IczkN6zeDHLWmzUL5xNo4KGNvjo4YZvKmjOXoenHFPlXQGTA
-         jda5lcQwedO6xQPbAsgSR+PU8camhg2gE26rb+V9nZIkXORK8Jtm7CnrqBid3GonhxK+
-         UymE9ETIS1+CMkSPO3CQBG0Qcdf+NlUjDHQkX2+SqxPmmNRupAavC3b89sVwEprauR01
-         NWtg==
+        b=zd+z2xdJK7Koitq6G97Hpds/Q/S0+CnFQ6u1K4q1PMOYQYHB5JaDbc0ZaxX/gZOA3T
+         2544aiq/Fu5ggp9T1rBiPsjbRHQ9mXmB3e6622EGUiWLd/Hdrd/aiNTAy6BrskXY4jCp
+         oFvaTQW9SgXqCwxUsB/kujsb/1xwDZLa+k5H07HIXLDxZVsjTF6QdmrtZM4N2Vj+s5ob
+         dEjMC2iFC53848f5UjTQfyie4i4vvNIPkkNIckrhQjGhacTomWOBYfNsjwmXjiixHOOY
+         lgsHMDf+VEmSgdkTTiwgv7/CAh1eUc9mNqfdA/NkCwpxS1r73LUR/50OugKVU18QY0Z2
+         ncjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr;
-        bh=X3hOrh3+KZYHNX/NukHlNcgi5lpTsmxtSDy6CCFF3EE=;
-        b=UL0xERA7NMH93uBJfPM//h7esQwX7IS380kpFXxdkMciDRE/kDs5PFKfqJDWs0erLO
-         piwmyy933L/V4ajSY0nnTNJKuO5j3GE2/hK4bilwoFDeMITkPi+fNT6C0wQNZSotkC8x
-         PTXH2VUikTc7+pNsnFhO6NxgfQgSlAje+Viagkmw5Xiv2yR4mmta7X8pnjoI17GaQKNL
-         Xz8rwViaGvMoc2JlzfS8238FerS9Adhw9QXFGpBmWgzpMmlBSIxCdmhsvq5dyj2fA+5X
-         ha/GajmcS3Pd+P0YcAUBgd0MJl8boA5wKxHYtrSMc2gzP0yKxlcUixsZ6wuKaNh9WLt+
-         bvRg==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:sender:dkim-signature;
+        bh=FNKrGfHINJmW3OhMglUQvcU/X/AJJXRHTnCAvAL4q3o=;
+        b=QCnqwCGn7GpO2TPDEyC+OmdrY5xOhLrzllA+Yq94kHG9FfIgrBx9ASTirUj4j7yQ3p
+         G9h9H5C9BGmDKxq0ke0IZgr9Q3J84/RNNSiMN5fv8J6tRpHdI3P4eMBcb7+Uec5hsHrf
+         KAftG0SKD9JkZ7NQljUnYLW0nRWSVKLuuOjEMTy+43lxu5O0YL0R7rACm7zPKSeFmO3E
+         Ca5t1CSkXZTVzFWA9+o+Uf0zxg6mQ38xNIbUHruUuyQKdaNEqnmtryZ3109/KSr6ZAM9
+         H9uINUNjk2VcClWFBxGfpqejqRdi5vvIWzyC86DlH1jLLGZ361DS+WL9xqvEQUxlLPD8
+         NHtw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id g7si648608pju.3.2021.02.26.13.51.15
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TEg2IJtw;
+       spf=pass (google.com: domain of 3oxq5yaukera247r4w44w1u.s42s1q3w-ray19-1y3adw44w1uw74a58.s42@flex--morbo.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=3OXQ5YAUKERA247r4w44w1u.s42s1q3w-rAy19-1y3ADw44w1uw74A58.s42@flex--morbo.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1049.google.com (mail-pj1-x1049.google.com. [2607:f8b0:4864:20::1049])
+        by gmr-mx.google.com with ESMTPS id g4si462903qtg.3.2021.02.26.14.20.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 26 Feb 2021 13:51:15 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-IronPort-SDR: DuTmFp5FBYhgifw/ess1LvaQexqhMi3oHFLiAA1DeNo2Z5AAmopCLqpJdTma93DjpUWJ4+L2/Q
- S24v2iwd6R0Q==
-X-IronPort-AV: E=McAfee;i="6000,8403,9907"; a="205550979"
-X-IronPort-AV: E=Sophos;i="5.81,209,1610438400"; 
-   d="gz'50?scan'50,208,50";a="205550979"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2021 13:51:13 -0800
-IronPort-SDR: InXYykza4z32HeGECHswsGvarqC7+UZkMFb5angp+gv/BDLSPfx+3l0w9rJZ0rQ44gsuEV1ZMp
- hzfVbGW7dbdQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.81,209,1610438400"; 
-   d="gz'50?scan'50,208,50";a="425603783"
-Received: from lkp-server01.sh.intel.com (HELO 16660e54978b) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 26 Feb 2021 13:51:11 -0800
-Received: from kbuild by 16660e54978b with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1lFl0v-0003R9-PQ; Fri, 26 Feb 2021 21:51:09 +0000
-Date: Sat, 27 Feb 2021 05:50:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Darrick J. Wong" <darrick.wong@oracle.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	Chandan Babu R <chandanrlinux@gmail.com>
-Subject: fs/xfs/xfs_rtalloc.c:898:1: warning: stack frame size of 1048 bytes
- in function 'xfs_growfs_rt'
-Message-ID: <202102270554.Hgsu4SMy-lkp@intel.com>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="3V7upXqbjpZ4EhLz"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Feb 2021 14:20:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3oxq5yaukera247r4w44w1u.s42s1q3w-ray19-1y3adw44w1uw74a58.s42@flex--morbo.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) client-ip=2607:f8b0:4864:20::1049;
+Received: by mail-pj1-x1049.google.com with SMTP id q10so7689297pjd.0
+        for <clang-built-linux@googlegroups.com>; Fri, 26 Feb 2021 14:20:42 -0800 (PST)
+Sender: "morbo via sendgmr" <morbo@fawn.svl.corp.google.com>
+X-Received: from fawn.svl.corp.google.com ([100.116.77.50]) (user=morbo
+ job=sendgmr) by 2002:a17:90a:b28a:: with SMTP id c10mr5499987pjr.39.1614378041226;
+ Fri, 26 Feb 2021 14:20:41 -0800 (PST)
+Date: Fri, 26 Feb 2021 14:20:30 -0800
+In-Reply-To: <20210122101156.3257143-1-morbo@google.com>
+Message-Id: <20210226222030.3718075-1-morbo@google.com>
+Mime-Version: 1.0
+References: <20210122101156.3257143-1-morbo@google.com>
+X-Mailer: git-send-email 2.30.1.766.gb4fecdf3b7-goog
+Subject: [PATCH v8] pgo: add clang's Profile Guided Optimization infrastructure
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Jonathan Corbet <corbet@lwn.net>, Masahiro Yamada <masahiroy@kernel.org>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	clang-built-linux@googlegroups.com, Andrew Morton <akpm@linux-foundation.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <morbo@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: morbo@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=TEg2IJtw;       spf=pass
+ (google.com: domain of 3oxq5yaukera247r4w44w1u.s42s1q3w-ray19-1y3adw44w1uw74a58.s42@flex--morbo.bounces.google.com
+ designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=3OXQ5YAUKERA247r4w44w1u.s42s1q3w-rAy19-1y3ADw44w1uw74A58.s42@flex--morbo.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,693 +135,1358 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+From: Sami Tolvanen <samitolvanen@google.com>
 
---3V7upXqbjpZ4EhLz
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Enable the use of clang's Profile-Guided Optimization[1]. To generate a
+profile, the kernel is instrumented with PGO counters, a representative
+workload is run, and the raw profile data is collected from
+/sys/kernel/debug/pgo/profraw.
 
-Hi Darrick,
+The raw profile data must be processed by clang's "llvm-profdata" tool
+before it can be used during recompilation:
 
-FYI, the error/warning still remains.
+  $ cp /sys/kernel/debug/pgo/profraw vmlinux.profraw
+  $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   8b83369ddcb3fb9cab5c1088987ce477565bb630
-commit: f4c32e87de7d66074d5612567c5eac7325024428 xfs: fix realtime bitmap/summary file truncation when growing rt volume
-date:   5 months ago
-config: mips-randconfig-r034-20210226 (attached as .config)
-compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project b889ef4214bc6dc8880fdd4badc0dcd9a3197753)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install mips cross compiling tool for clang build
-        # apt-get install binutils-mips-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f4c32e87de7d66074d5612567c5eac7325024428
-        git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-        git fetch --no-tags linus master
-        git checkout f4c32e87de7d66074d5612567c5eac7325024428
-        # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=mips 
+Multiple raw profiles may be merged during this step.
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+The data can now be used by the compiler:
 
-All warnings (new ones prefixed by >>):
+  $ make LLVM=1 KCFLAGS=-fprofile-use=vmlinux.profdata ...
 
->> fs/xfs/xfs_rtalloc.c:898:1: warning: stack frame size of 1048 bytes in function 'xfs_growfs_rt' [-Wframe-larger-than=]
-   xfs_growfs_rt(
-   ^
-   1 warning generated.
+This initial submission is restricted to x86, as that's the platform we
+know works. This restriction can be lifted once other platforms have
+been verified to work with PGO.
 
+Note that this method of profiling the kernel is clang-native, unlike
+the clang support in kernel/gcov.
 
-vim +/xfs_growfs_rt +898 fs/xfs/xfs_rtalloc.c
+[1] https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization
 
-65eed012d1f2d0 Omar Sandoval       2018-12-21   889  
-^1da177e4c3f41 Linus Torvalds      2005-04-16   890  /*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   891   * Visible (exported) functions.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   892   */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   893  
-^1da177e4c3f41 Linus Torvalds      2005-04-16   894  /*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   895   * Grow the realtime area of the filesystem.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   896   */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   897  int
-^1da177e4c3f41 Linus Torvalds      2005-04-16  @898  xfs_growfs_rt(
-^1da177e4c3f41 Linus Torvalds      2005-04-16   899  	xfs_mount_t	*mp,		/* mount point for filesystem */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   900  	xfs_growfs_rt_t	*in)		/* growfs rt input struct */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   901  {
-^1da177e4c3f41 Linus Torvalds      2005-04-16   902  	xfs_rtblock_t	bmbno;		/* bitmap block number */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   903  	xfs_buf_t	*bp;		/* temporary buffer */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   904  	int		error;		/* error return value */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   905  	xfs_mount_t	*nmp;		/* new (fake) mount structure */
-d5cf09baced0ef Christoph Hellwig   2014-07-30   906  	xfs_rfsblock_t	nrblocks;	/* new number of realtime blocks */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   907  	xfs_extlen_t	nrbmblocks;	/* new number of rt bitmap blocks */
-d5cf09baced0ef Christoph Hellwig   2014-07-30   908  	xfs_rtblock_t	nrextents;	/* new number of realtime extents */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   909  	uint8_t		nrextslog;	/* new log2 of sb_rextents */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   910  	xfs_extlen_t	nrsumblocks;	/* new number of summary blocks */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   911  	uint		nrsumlevels;	/* new rt summary levels */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   912  	uint		nrsumsize;	/* new size of rt summary, bytes */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   913  	xfs_sb_t	*nsbp;		/* new superblock */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   914  	xfs_extlen_t	rbmblocks;	/* current number of rt bitmap blocks */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   915  	xfs_extlen_t	rsumblocks;	/* current number of rt summary blks */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   916  	xfs_sb_t	*sbp;		/* old superblock */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   917  	xfs_fsblock_t	sumbno;		/* summary block number */
-65eed012d1f2d0 Omar Sandoval       2018-12-21   918  	uint8_t		*rsum_cache;	/* old summary cache */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   919  
-^1da177e4c3f41 Linus Torvalds      2005-04-16   920  	sbp = &mp->m_sb;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   921  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   922  	 * Initial error checking.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   923  	 */
-743bb4650da9e2 sandeen@sandeen.net 2008-11-25   924  	if (!capable(CAP_SYS_ADMIN))
-2451337dd04390 Dave Chinner        2014-06-25   925  		return -EPERM;
-73024cf11522c0 Eric Sesterhenn     2006-06-28   926  	if (mp->m_rtdev_targp == NULL || mp->m_rbmip == NULL ||
-^1da177e4c3f41 Linus Torvalds      2005-04-16   927  	    (nrblocks = in->newblocks) <= sbp->sb_rblocks ||
-^1da177e4c3f41 Linus Torvalds      2005-04-16   928  	    (sbp->sb_rblocks && (in->extsize != sbp->sb_rextsize)))
-2451337dd04390 Dave Chinner        2014-06-25   929  		return -EINVAL;
-4cc929ee305c69 Nathan Scott        2007-05-14   930  	if ((error = xfs_sb_validate_fsb_count(sbp, nrblocks)))
-4cc929ee305c69 Nathan Scott        2007-05-14   931  		return error;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   932  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   933  	 * Read in the last block of the device, make sure it exists.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   934  	 */
-ba3726742c1712 Dave Chinner        2014-10-02   935  	error = xfs_buf_read_uncached(mp->m_rtdev_targp,
-4cc929ee305c69 Nathan Scott        2007-05-14   936  				XFS_FSB_TO_BB(mp, nrblocks - 1),
-ba3726742c1712 Dave Chinner        2014-10-02   937  				XFS_FSB_TO_BB(mp, 1), 0, &bp, NULL);
-ba3726742c1712 Dave Chinner        2014-10-02   938  	if (error)
-eab4e63368b4cf Dave Chinner        2012-11-12   939  		return error;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   940  	xfs_buf_relse(bp);
-1922c949c59f93 Dave Chinner        2010-09-22   941  
-^1da177e4c3f41 Linus Torvalds      2005-04-16   942  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   943  	 * Calculate new parameters.  These are the final values to be reached.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   944  	 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   945  	nrextents = nrblocks;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   946  	do_div(nrextents, in->extsize);
-68c3271515f11f Nathan Scott        2006-09-28   947  	nrbmblocks = howmany_64(nrextents, NBBY * sbp->sb_blocksize);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   948  	nrextslog = xfs_highbit32(nrextents);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   949  	nrsumlevels = nrextslog + 1;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   950  	nrsumsize = (uint)sizeof(xfs_suminfo_t) * nrsumlevels * nrbmblocks;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   951  	nrsumblocks = XFS_B_TO_FSB(mp, nrsumsize);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   952  	nrsumsize = XFS_FSB_TO_B(mp, nrsumblocks);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   953  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   954  	 * New summary size can't be more than half the size of
-^1da177e4c3f41 Linus Torvalds      2005-04-16   955  	 * the log.  This prevents us from getting a log overflow,
-^1da177e4c3f41 Linus Torvalds      2005-04-16   956  	 * since we'll log basically the whole summary file at once.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   957  	 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   958  	if (nrsumblocks > (mp->m_sb.sb_logblocks >> 1))
-2451337dd04390 Dave Chinner        2014-06-25   959  		return -EINVAL;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   960  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   961  	 * Get the old block counts for bitmap and summary inodes.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   962  	 * These can't change since other growfs callers are locked out.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   963  	 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   964  	rbmblocks = XFS_B_TO_FSB(mp, mp->m_rbmip->i_d.di_size);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   965  	rsumblocks = XFS_B_TO_FSB(mp, mp->m_rsumip->i_d.di_size);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   966  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   967  	 * Allocate space to the bitmap and summary files, as necessary.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   968  	 */
-1050c71e2925ab Christoph Hellwig   2011-02-13   969  	error = xfs_growfs_rt_alloc(mp, rbmblocks, nrbmblocks, mp->m_rbmip);
-1050c71e2925ab Christoph Hellwig   2011-02-13   970  	if (error)
-^1da177e4c3f41 Linus Torvalds      2005-04-16   971  		return error;
-1050c71e2925ab Christoph Hellwig   2011-02-13   972  	error = xfs_growfs_rt_alloc(mp, rsumblocks, nrsumblocks, mp->m_rsumip);
-1050c71e2925ab Christoph Hellwig   2011-02-13   973  	if (error)
-^1da177e4c3f41 Linus Torvalds      2005-04-16   974  		return error;
-65eed012d1f2d0 Omar Sandoval       2018-12-21   975  
-65eed012d1f2d0 Omar Sandoval       2018-12-21   976  	rsum_cache = mp->m_rsum_cache;
-65eed012d1f2d0 Omar Sandoval       2018-12-21   977  	if (nrbmblocks != sbp->sb_rbmblocks)
-65eed012d1f2d0 Omar Sandoval       2018-12-21   978  		xfs_alloc_rsum_cache(mp, nrbmblocks);
-65eed012d1f2d0 Omar Sandoval       2018-12-21   979  
-d432c80e68e3c2 Nathan Scott        2006-09-28   980  	/*
-d432c80e68e3c2 Nathan Scott        2006-09-28   981  	 * Allocate a new (fake) mount/sb.
-d432c80e68e3c2 Nathan Scott        2006-09-28   982  	 */
-707e0ddaf67e89 Tetsuo Handa        2019-08-26   983  	nmp = kmem_alloc(sizeof(*nmp), 0);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   984  	/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   985  	 * Loop over the bitmap blocks.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   986  	 * We will do everything one bitmap block at a time.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   987  	 * Skip the current block if it is exactly full.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   988  	 * This also deals with the case where there were no rtextents before.
-^1da177e4c3f41 Linus Torvalds      2005-04-16   989  	 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16   990  	for (bmbno = sbp->sb_rbmblocks -
-^1da177e4c3f41 Linus Torvalds      2005-04-16   991  		     ((sbp->sb_rextents & ((1 << mp->m_blkbit_log) - 1)) != 0);
-^1da177e4c3f41 Linus Torvalds      2005-04-16   992  	     bmbno < nrbmblocks;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   993  	     bmbno++) {
-0924b585fc49bf Dave Chinner        2008-11-28   994  		xfs_trans_t	*tp;
-0924b585fc49bf Dave Chinner        2008-11-28   995  
-^1da177e4c3f41 Linus Torvalds      2005-04-16   996  		*nmp = *mp;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   997  		nsbp = &nmp->m_sb;
-^1da177e4c3f41 Linus Torvalds      2005-04-16   998  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16   999  		 * Calculate new sb and mount fields for this round.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1000  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1001  		nsbp->sb_rextsize = in->extsize;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1002  		nsbp->sb_rbmblocks = bmbno + 1;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1003  		nsbp->sb_rblocks =
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1004  			XFS_RTMIN(nrblocks,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1005  				  nsbp->sb_rbmblocks * NBBY *
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1006  				  nsbp->sb_blocksize * nsbp->sb_rextsize);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1007  		nsbp->sb_rextents = nsbp->sb_rblocks;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1008  		do_div(nsbp->sb_rextents, nsbp->sb_rextsize);
-79071eb0b2f142 David Chinner       2008-08-13  1009  		ASSERT(nsbp->sb_rextents != 0);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1010  		nsbp->sb_rextslog = xfs_highbit32(nsbp->sb_rextents);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1011  		nrsumlevels = nmp->m_rsumlevels = nsbp->sb_rextslog + 1;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1012  		nrsumsize =
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1013  			(uint)sizeof(xfs_suminfo_t) * nrsumlevels *
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1014  			nsbp->sb_rbmblocks;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1015  		nrsumblocks = XFS_B_TO_FSB(mp, nrsumsize);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1016  		nmp->m_rsumsize = nrsumsize = XFS_FSB_TO_B(mp, nrsumblocks);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1017  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1018  		 * Start a transaction, get the log reservation.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1019  		 */
-253f4911f297b8 Christoph Hellwig   2016-04-06  1020  		error = xfs_trans_alloc(mp, &M_RES(mp)->tr_growrtfree, 0, 0, 0,
-253f4911f297b8 Christoph Hellwig   2016-04-06  1021  				&tp);
-3d3c8b5222b924 Jie Liu             2013-08-12  1022  		if (error)
-253f4911f297b8 Christoph Hellwig   2016-04-06  1023  			break;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1024  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1025  		 * Lock out other callers by grabbing the bitmap inode lock.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1026  		 */
-1050c71e2925ab Christoph Hellwig   2011-02-13  1027  		xfs_ilock(mp->m_rbmip, XFS_ILOCK_EXCL);
-ddc3415aba1cb2 Christoph Hellwig   2011-09-19  1028  		xfs_trans_ijoin(tp, mp->m_rbmip, XFS_ILOCK_EXCL);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1029  		/*
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1030  		 * Update the bitmap inode's size ondisk and incore.  We need
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1031  		 * to update the incore size so that inode inactivation won't
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1032  		 * punch what it thinks are "posteof" blocks.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1033  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1034  		mp->m_rbmip->i_d.di_size =
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1035  			nsbp->sb_rbmblocks * nsbp->sb_blocksize;
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1036  		i_size_write(VFS_I(mp->m_rbmip), mp->m_rbmip->i_d.di_size);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1037  		xfs_trans_log_inode(tp, mp->m_rbmip, XFS_ILOG_CORE);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1038  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1039  		 * Get the summary inode into the transaction.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1040  		 */
-1050c71e2925ab Christoph Hellwig   2011-02-13  1041  		xfs_ilock(mp->m_rsumip, XFS_ILOCK_EXCL);
-ddc3415aba1cb2 Christoph Hellwig   2011-09-19  1042  		xfs_trans_ijoin(tp, mp->m_rsumip, XFS_ILOCK_EXCL);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1043  		/*
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1044  		 * Update the summary inode's size.  We need to update the
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1045  		 * incore size so that inode inactivation won't punch what it
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1046  		 * thinks are "posteof" blocks.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1047  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1048  		mp->m_rsumip->i_d.di_size = nmp->m_rsumsize;
-f4c32e87de7d66 Darrick J. Wong     2020-10-07  1049  		i_size_write(VFS_I(mp->m_rsumip), mp->m_rsumip->i_d.di_size);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1050  		xfs_trans_log_inode(tp, mp->m_rsumip, XFS_ILOG_CORE);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1051  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1052  		 * Copy summary data from old to new sizes.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1053  		 * Do this when the real size (not block-aligned) changes.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1054  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1055  		if (sbp->sb_rbmblocks != nsbp->sb_rbmblocks ||
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1056  		    mp->m_rsumlevels != nmp->m_rsumlevels) {
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1057  			error = xfs_rtcopy_summary(mp, nmp, tp);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1058  			if (error)
-0924b585fc49bf Dave Chinner        2008-11-28  1059  				goto error_cancel;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1060  		}
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1061  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1062  		 * Update superblock fields.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1063  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1064  		if (nsbp->sb_rextsize != sbp->sb_rextsize)
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1065  			xfs_trans_mod_sb(tp, XFS_TRANS_SB_REXTSIZE,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1066  				nsbp->sb_rextsize - sbp->sb_rextsize);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1067  		if (nsbp->sb_rbmblocks != sbp->sb_rbmblocks)
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1068  			xfs_trans_mod_sb(tp, XFS_TRANS_SB_RBMBLOCKS,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1069  				nsbp->sb_rbmblocks - sbp->sb_rbmblocks);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1070  		if (nsbp->sb_rblocks != sbp->sb_rblocks)
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1071  			xfs_trans_mod_sb(tp, XFS_TRANS_SB_RBLOCKS,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1072  				nsbp->sb_rblocks - sbp->sb_rblocks);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1073  		if (nsbp->sb_rextents != sbp->sb_rextents)
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1074  			xfs_trans_mod_sb(tp, XFS_TRANS_SB_REXTENTS,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1075  				nsbp->sb_rextents - sbp->sb_rextents);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1076  		if (nsbp->sb_rextslog != sbp->sb_rextslog)
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1077  			xfs_trans_mod_sb(tp, XFS_TRANS_SB_REXTSLOG,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1078  				nsbp->sb_rextslog - sbp->sb_rextslog);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1079  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1080  		 * Free new extent.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1081  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1082  		bp = NULL;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1083  		error = xfs_rtfree_range(nmp, tp, sbp->sb_rextents,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1084  			nsbp->sb_rextents - sbp->sb_rextents, &bp, &sumbno);
-0924b585fc49bf Dave Chinner        2008-11-28  1085  		if (error) {
-0924b585fc49bf Dave Chinner        2008-11-28  1086  error_cancel:
-4906e21545814e Christoph Hellwig   2015-06-04  1087  			xfs_trans_cancel(tp);
-d432c80e68e3c2 Nathan Scott        2006-09-28  1088  			break;
-0924b585fc49bf Dave Chinner        2008-11-28  1089  		}
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1090  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1091  		 * Mark more blocks free in the superblock.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1092  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1093  		xfs_trans_mod_sb(tp, XFS_TRANS_SB_FREXTENTS,
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1094  			nsbp->sb_rextents - sbp->sb_rextents);
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1095  		/*
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1096  		 * Update mp values into the real mp structure.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1097  		 */
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1098  		mp->m_rsumlevels = nrsumlevels;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1099  		mp->m_rsumsize = nrsumsize;
-e5720eec0548c0 David Chinner       2008-04-10  1100  
-70393313dd0b26 Christoph Hellwig   2015-06-04  1101  		error = xfs_trans_commit(tp);
-0924b585fc49bf Dave Chinner        2008-11-28  1102  		if (error)
-e5720eec0548c0 David Chinner       2008-04-10  1103  			break;
-e5720eec0548c0 David Chinner       2008-04-10  1104  	}
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1105  
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1106  	/*
-d432c80e68e3c2 Nathan Scott        2006-09-28  1107  	 * Free the fake mp structure.
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1108  	 */
-f0e2d93c29dc39 Denys Vlasenko      2008-05-19  1109  	kmem_free(nmp);
-d432c80e68e3c2 Nathan Scott        2006-09-28  1110  
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1111  	/*
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1112  	 * If we had to allocate a new rsum_cache, we either need to free the
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1113  	 * old one (if we succeeded) or free the new one and restore the old one
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1114  	 * (if there was an error).
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1115  	 */
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1116  	if (rsum_cache != mp->m_rsum_cache) {
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1117  		if (error) {
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1118  			kmem_free(mp->m_rsum_cache);
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1119  			mp->m_rsum_cache = rsum_cache;
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1120  		} else {
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1121  			kmem_free(rsum_cache);
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1122  		}
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1123  	}
-65eed012d1f2d0 Omar Sandoval       2018-12-21  1124  
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1125  	return error;
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1126  }
-^1da177e4c3f41 Linus Torvalds      2005-04-16  1127  
-
-:::::: The code at line 898 was first introduced by commit
-:::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
-
-:::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
-:::::: CC: Linus Torvalds <torvalds@ppc970.osdl.org>
-
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+Co-developed-by: Bill Wendling <morbo@google.com>
+Signed-off-by: Bill Wendling <morbo@google.com>
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+v8: - Rebased on top-of-tree.
+v7: - Fix minor build failure reported by Sedat.
+v6: - Add better documentation about the locking scheme and other things.
+    - Rename macros to better match the same macros in LLVM's source code.
+v5: - Correct padding calculation, discovered by Nathan Chancellor.
+v4: - Remove non-x86 Makfile changes and se "hweight64" instead of using our
+      own popcount implementation, based on Nick Desaulniers's comment.
+v3: - Added change log section based on Sedat Dilek's comments.
+v2: - Added "__llvm_profile_instrument_memop" based on Nathan Chancellor's
+      testing.
+    - Corrected documentation, re PGO flags when using LTO, based on Fangrui
+      Song's comments.
+---
+ Documentation/dev-tools/index.rst     |   1 +
+ Documentation/dev-tools/pgo.rst       | 127 +++++++++
+ MAINTAINERS                           |   9 +
+ Makefile                              |   3 +
+ arch/Kconfig                          |   1 +
+ arch/x86/Kconfig                      |   1 +
+ arch/x86/boot/Makefile                |   1 +
+ arch/x86/boot/compressed/Makefile     |   1 +
+ arch/x86/crypto/Makefile              |   4 +
+ arch/x86/entry/vdso/Makefile          |   1 +
+ arch/x86/kernel/vmlinux.lds.S         |   2 +
+ arch/x86/platform/efi/Makefile        |   1 +
+ arch/x86/purgatory/Makefile           |   1 +
+ arch/x86/realmode/rm/Makefile         |   1 +
+ arch/x86/um/vdso/Makefile             |   1 +
+ drivers/firmware/efi/libstub/Makefile |   1 +
+ include/asm-generic/vmlinux.lds.h     |  44 +++
+ kernel/Makefile                       |   1 +
+ kernel/pgo/Kconfig                    |  35 +++
+ kernel/pgo/Makefile                   |   5 +
+ kernel/pgo/fs.c                       | 389 ++++++++++++++++++++++++++
+ kernel/pgo/instrument.c               | 189 +++++++++++++
+ kernel/pgo/pgo.h                      | 203 ++++++++++++++
+ scripts/Makefile.lib                  |  10 +
+ 24 files changed, 1032 insertions(+)
+ create mode 100644 Documentation/dev-tools/pgo.rst
+ create mode 100644 kernel/pgo/Kconfig
+ create mode 100644 kernel/pgo/Makefile
+ create mode 100644 kernel/pgo/fs.c
+ create mode 100644 kernel/pgo/instrument.c
+ create mode 100644 kernel/pgo/pgo.h
+
+diff --git a/Documentation/dev-tools/index.rst b/Documentation/dev-tools/index.rst
+index f7809c7b1ba9..8d6418e85806 100644
+--- a/Documentation/dev-tools/index.rst
++++ b/Documentation/dev-tools/index.rst
+@@ -26,6 +26,7 @@ whole; patches welcome!
+    kgdb
+    kselftest
+    kunit/index
++   pgo
+ 
+ 
+ .. only::  subproject and html
+diff --git a/Documentation/dev-tools/pgo.rst b/Documentation/dev-tools/pgo.rst
+new file mode 100644
+index 000000000000..b7f11d8405b7
+--- /dev/null
++++ b/Documentation/dev-tools/pgo.rst
+@@ -0,0 +1,127 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++===============================
++Using PGO with the Linux kernel
++===============================
++
++Clang's profiling kernel support (PGO_) enables profiling of the Linux kernel
++when building with Clang. The profiling data is exported via the ``pgo``
++debugfs directory.
++
++.. _PGO: https://clang.llvm.org/docs/UsersManual.html#profile-guided-optimization
++
++
++Preparation
++===========
++
++Configure the kernel with:
++
++.. code-block:: make
++
++   CONFIG_DEBUG_FS=y
++   CONFIG_PGO_CLANG=y
++
++Note that kernels compiled with profiling flags will be significantly larger
++and run slower.
++
++Profiling data will only become accessible once debugfs has been mounted:
++
++.. code-block:: sh
++
++   mount -t debugfs none /sys/kernel/debug
++
++
++Customization
++=============
++
++You can enable or disable profiling for individual file and directories by
++adding a line similar to the following to the respective kernel Makefile:
++
++- For a single file (e.g. main.o)
++
++  .. code-block:: make
++
++     PGO_PROFILE_main.o := y
++
++- For all files in one directory
++
++  .. code-block:: make
++
++     PGO_PROFILE := y
++
++To exclude files from being profiled use
++
++  .. code-block:: make
++
++     PGO_PROFILE_main.o := n
++
++and
++
++  .. code-block:: make
++
++     PGO_PROFILE := n
++
++Only files which are linked to the main kernel image or are compiled as kernel
++modules are supported by this mechanism.
++
++
++Files
++=====
++
++The PGO kernel support creates the following files in debugfs:
++
++``/sys/kernel/debug/pgo``
++	Parent directory for all PGO-related files.
++
++``/sys/kernel/debug/pgo/reset``
++	Global reset file: resets all coverage data to zero when written to.
++
++``/sys/kernel/debug/profraw``
++	The raw PGO data that must be processed with ``llvm_profdata``.
++
++
++Workflow
++========
++
++The PGO kernel can be run on the host or test machines. The data though should
++be analyzed with Clang's tools from the same Clang version as the kernel was
++compiled. Clang's tolerant of version skew, but it's easier to use the same
++Clang version.
++
++The profiling data is useful for optimizing the kernel, analyzing coverage,
++etc. Clang offers tools to perform these tasks.
++
++Here is an example workflow for profiling an instrumented kernel with PGO and
++using the result to optimize the kernel:
++
++1) Install the kernel on the TEST machine.
++
++2) Reset the data counters right before running the load tests
++
++   .. code-block:: sh
++
++      $ echo 1 > /sys/kernel/debug/pgo/reset
++
++3) Run the load tests.
++
++4) Collect the raw profile data
++
++   .. code-block:: sh
++
++      $ cp -a /sys/kernel/debug/pgo/profraw /tmp/vmlinux.profraw
++
++5) (Optional) Download the raw profile data to the HOST machine.
++
++6) Process the raw profile data
++
++   .. code-block:: sh
++
++      $ llvm-profdata merge --output=vmlinux.profdata vmlinux.profraw
++
++   Note that multiple raw profile data files can be merged during this step.
++
++7) Rebuild the kernel using the profile data (PGO disabled)
++
++   .. code-block:: sh
++
++      $ make LLVM=1 KCFLAGS=-fprofile-use=vmlinux.profdata ...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c71664ca8bfd..3a6668792bc5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14019,6 +14019,15 @@ S:	Maintained
+ F:	include/linux/personality.h
+ F:	include/uapi/linux/personality.h
+ 
++PGO BASED KERNEL PROFILING
++M:	Sami Tolvanen <samitolvanen@google.com>
++M:	Bill Wendling <wcw@google.com>
++R:	Nathan Chancellor <natechancellor@gmail.com>
++R:	Nick Desaulniers <ndesaulniers@google.com>
++S:	Supported
++F:	Documentation/dev-tools/pgo.rst
++F:	kernel/pgo
++
+ PHOENIX RC FLIGHT CONTROLLER ADAPTER
+ M:	Marcus Folkesson <marcus.folkesson@gmail.com>
+ L:	linux-input@vger.kernel.org
+diff --git a/Makefile b/Makefile
+index 6ecd0d22e608..b57d4d44c799 100644
+--- a/Makefile
++++ b/Makefile
+@@ -657,6 +657,9 @@ endif # KBUILD_EXTMOD
+ # Defaults to vmlinux, but the arch makefile usually adds further targets
+ all: vmlinux
+ 
++CFLAGS_PGO_CLANG := -fprofile-generate
++export CFLAGS_PGO_CLANG
++
+ CFLAGS_GCOV	:= -fprofile-arcs -ftest-coverage \
+ 	$(call cc-option,-fno-tree-loop-im) \
+ 	$(call cc-disable-warning,maybe-uninitialized,)
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 2bb30673d8e6..111e642a2af7 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -1192,6 +1192,7 @@ config ARCH_HAS_ELFCORE_COMPAT
+ 	bool
+ 
+ source "kernel/gcov/Kconfig"
++source "kernel/pgo/Kconfig"
+ 
+ source "scripts/gcc-plugins/Kconfig"
+ 
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index cd4b9b1204a8..c9808583b528 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -99,6 +99,7 @@ config X86
+ 	select ARCH_SUPPORTS_KMAP_LOCAL_FORCE_MAP	if NR_CPUS <= 4096
+ 	select ARCH_SUPPORTS_LTO_CLANG		if X86_64
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN	if X86_64
++	select ARCH_SUPPORTS_PGO_CLANG		if X86_64
+ 	select ARCH_USE_BUILTIN_BSWAP
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_USE_QUEUED_SPINLOCKS
+diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
+index fe605205b4ce..383853e32f67 100644
+--- a/arch/x86/boot/Makefile
++++ b/arch/x86/boot/Makefile
+@@ -71,6 +71,7 @@ KBUILD_AFLAGS	:= $(KBUILD_CFLAGS) -D__ASSEMBLY__
+ KBUILD_CFLAGS	+= $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
+ KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables
+ GCOV_PROFILE := n
++PGO_PROFILE := n
+ UBSAN_SANITIZE := n
+ 
+ $(obj)/bzImage: asflags-y  := $(SVGA_MODE)
+diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+index e0bc3988c3fa..ed12ab65f606 100644
+--- a/arch/x86/boot/compressed/Makefile
++++ b/arch/x86/boot/compressed/Makefile
+@@ -54,6 +54,7 @@ CFLAGS_sev-es.o += -I$(objtree)/arch/x86/lib/
+ 
+ KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
+ GCOV_PROFILE := n
++PGO_PROFILE := n
+ UBSAN_SANITIZE :=n
+ 
+ KBUILD_LDFLAGS := -m elf_$(UTS_MACHINE)
+diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
+index b28e36b7c96b..4b2e9620c412 100644
+--- a/arch/x86/crypto/Makefile
++++ b/arch/x86/crypto/Makefile
+@@ -4,6 +4,10 @@
+ 
+ OBJECT_FILES_NON_STANDARD := y
+ 
++# Disable PGO for curve25519-x86_64. With PGO enabled, clang runs out of
++# registers for some of the functions.
++PGO_PROFILE_curve25519-x86_64.o := n
++
+ obj-$(CONFIG_CRYPTO_TWOFISH_586) += twofish-i586.o
+ twofish-i586-y := twofish-i586-asm_32.o twofish_glue.o
+ obj-$(CONFIG_CRYPTO_TWOFISH_X86_64) += twofish-x86_64.o
+diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
+index 05c4abc2fdfd..f7421e44725a 100644
+--- a/arch/x86/entry/vdso/Makefile
++++ b/arch/x86/entry/vdso/Makefile
+@@ -180,6 +180,7 @@ quiet_cmd_vdso = VDSO    $@
+ VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 \
+ 	$(call ld-option, --eh-frame-hdr) -Bsymbolic
+ GCOV_PROFILE := n
++PGO_PROFILE := n
+ 
+ quiet_cmd_vdso_and_check = VDSO    $@
+       cmd_vdso_and_check = $(cmd_vdso); $(cmd_vdso_check)
+diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
+index efd9e9ea17f2..f6cab2316c46 100644
+--- a/arch/x86/kernel/vmlinux.lds.S
++++ b/arch/x86/kernel/vmlinux.lds.S
+@@ -184,6 +184,8 @@ SECTIONS
+ 
+ 	BUG_TABLE
+ 
++	PGO_CLANG_DATA
++
+ 	ORC_UNWIND_TABLE
+ 
+ 	. = ALIGN(PAGE_SIZE);
+diff --git a/arch/x86/platform/efi/Makefile b/arch/x86/platform/efi/Makefile
+index 84b09c230cbd..5f22b31446ad 100644
+--- a/arch/x86/platform/efi/Makefile
++++ b/arch/x86/platform/efi/Makefile
+@@ -2,6 +2,7 @@
+ OBJECT_FILES_NON_STANDARD_efi_thunk_$(BITS).o := y
+ KASAN_SANITIZE := n
+ GCOV_PROFILE := n
++PGO_PROFILE := n
+ 
+ obj-$(CONFIG_EFI) 		+= quirks.o efi.o efi_$(BITS).o efi_stub_$(BITS).o
+ obj-$(CONFIG_EFI_MIXED)		+= efi_thunk_$(BITS).o
+diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
+index 95ea17a9d20c..36f20e99da0b 100644
+--- a/arch/x86/purgatory/Makefile
++++ b/arch/x86/purgatory/Makefile
+@@ -23,6 +23,7 @@ targets += purgatory.ro purgatory.chk
+ 
+ # Sanitizer, etc. runtimes are unavailable and cannot be linked here.
+ GCOV_PROFILE	:= n
++PGO_PROFILE	:= n
+ KASAN_SANITIZE	:= n
+ UBSAN_SANITIZE	:= n
+ KCSAN_SANITIZE	:= n
+diff --git a/arch/x86/realmode/rm/Makefile b/arch/x86/realmode/rm/Makefile
+index 83f1b6a56449..21797192f958 100644
+--- a/arch/x86/realmode/rm/Makefile
++++ b/arch/x86/realmode/rm/Makefile
+@@ -76,4 +76,5 @@ KBUILD_CFLAGS	:= $(REALMODE_CFLAGS) -D_SETUP -D_WAKEUP \
+ KBUILD_AFLAGS	:= $(KBUILD_CFLAGS) -D__ASSEMBLY__
+ KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables
+ GCOV_PROFILE := n
++PGO_PROFILE := n
+ UBSAN_SANITIZE := n
+diff --git a/arch/x86/um/vdso/Makefile b/arch/x86/um/vdso/Makefile
+index 5943387e3f35..54f5768f5853 100644
+--- a/arch/x86/um/vdso/Makefile
++++ b/arch/x86/um/vdso/Makefile
+@@ -64,6 +64,7 @@ quiet_cmd_vdso = VDSO    $@
+ 
+ VDSO_LDFLAGS = -fPIC -shared -Wl,--hash-style=sysv
+ GCOV_PROFILE := n
++PGO_PROFILE := n
+ 
+ #
+ # Install the unstripped copy of vdso*.so listed in $(vdso-install-y).
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index c23466e05e60..724fb389bb9d 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -42,6 +42,7 @@ KBUILD_CFLAGS := $(filter-out $(CC_FLAGS_SCS), $(KBUILD_CFLAGS))
+ KBUILD_CFLAGS := $(filter-out $(CC_FLAGS_LTO), $(KBUILD_CFLAGS))
+ 
+ GCOV_PROFILE			:= n
++PGO_PROFILE			:= n
+ # Sanitizer runtimes are unavailable and cannot be linked here.
+ KASAN_SANITIZE			:= n
+ KCSAN_SANITIZE			:= n
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index 6786f8c0182f..4a0c21b840b3 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -329,6 +329,49 @@
+ #define DTPM_TABLE()
+ #endif
+ 
++#ifdef CONFIG_PGO_CLANG
++#define PGO_CLANG_DATA							\
++	__llvm_prf_data : AT(ADDR(__llvm_prf_data) - LOAD_OFFSET) {	\
++		. = ALIGN(8);						\
++		__llvm_prf_start = .;					\
++		__llvm_prf_data_start = .;				\
++		KEEP(*(__llvm_prf_data))				\
++		. = ALIGN(8);						\
++		__llvm_prf_data_end = .;				\
++	}								\
++	__llvm_prf_cnts : AT(ADDR(__llvm_prf_cnts) - LOAD_OFFSET) {	\
++		. = ALIGN(8);						\
++		__llvm_prf_cnts_start = .;				\
++		KEEP(*(__llvm_prf_cnts))				\
++		. = ALIGN(8);						\
++		__llvm_prf_cnts_end = .;				\
++	}								\
++	__llvm_prf_names : AT(ADDR(__llvm_prf_names) - LOAD_OFFSET) {	\
++		. = ALIGN(8);						\
++		__llvm_prf_names_start = .;				\
++		KEEP(*(__llvm_prf_names))				\
++		. = ALIGN(8);						\
++		__llvm_prf_names_end = .;				\
++		. = ALIGN(8);						\
++	}								\
++	__llvm_prf_vals : AT(ADDR(__llvm_prf_vals) - LOAD_OFFSET) {	\
++		__llvm_prf_vals_start = .;				\
++		KEEP(*(__llvm_prf_vals))				\
++		. = ALIGN(8);						\
++		__llvm_prf_vals_end = .;				\
++		. = ALIGN(8);						\
++	}								\
++	__llvm_prf_vnds : AT(ADDR(__llvm_prf_vnds) - LOAD_OFFSET) {	\
++		__llvm_prf_vnds_start = .;				\
++		KEEP(*(__llvm_prf_vnds))				\
++		. = ALIGN(8);						\
++		__llvm_prf_vnds_end = .;				\
++		__llvm_prf_end = .;					\
++	}
++#else
++#define PGO_CLANG_DATA
++#endif
++
+ #define KERNEL_DTB()							\
+ 	STRUCT_ALIGN();							\
+ 	__dtb_start = .;						\
+@@ -1105,6 +1148,7 @@
+ 		CONSTRUCTORS						\
+ 	}								\
+ 	BUG_TABLE							\
++	PGO_CLANG_DATA
+ 
+ #define INIT_TEXT_SECTION(inittext_align)				\
+ 	. = ALIGN(inittext_align);					\
+diff --git a/kernel/Makefile b/kernel/Makefile
+index 320f1f3941b7..a2a23ef2b12f 100644
+--- a/kernel/Makefile
++++ b/kernel/Makefile
+@@ -111,6 +111,7 @@ obj-$(CONFIG_BPF) += bpf/
+ obj-$(CONFIG_KCSAN) += kcsan/
+ obj-$(CONFIG_SHADOW_CALL_STACK) += scs.o
+ obj-$(CONFIG_HAVE_STATIC_CALL_INLINE) += static_call.o
++obj-$(CONFIG_PGO_CLANG) += pgo/
+ 
+ obj-$(CONFIG_PERF_EVENTS) += events/
+ 
+diff --git a/kernel/pgo/Kconfig b/kernel/pgo/Kconfig
+new file mode 100644
+index 000000000000..76a640b6cf6e
+--- /dev/null
++++ b/kernel/pgo/Kconfig
+@@ -0,0 +1,35 @@
++# SPDX-License-Identifier: GPL-2.0-only
++menu "Profile Guided Optimization (PGO) (EXPERIMENTAL)"
++
++config ARCH_SUPPORTS_PGO_CLANG
++	bool
++
++config PGO_CLANG
++	bool "Enable clang's PGO-based kernel profiling"
++	depends on DEBUG_FS
++	depends on ARCH_SUPPORTS_PGO_CLANG
++	depends on CC_IS_CLANG && CLANG_VERSION >= 120000
++	help
++	  This option enables clang's PGO (Profile Guided Optimization) based
++	  code profiling to better optimize the kernel.
++
++	  If unsure, say N.
++
++	  Run a representative workload for your application on a kernel
++	  compiled with this option and download the raw profile file from
++	  /sys/kernel/debug/pgo/profraw. This file needs to be processed with
++	  llvm-profdata. It may be merged with other collected raw profiles.
++
++	  Copy the resulting profile file into vmlinux.profdata, and enable
++	  KCFLAGS=-fprofile-use=vmlinux.profdata to produce an optimized
++	  kernel.
++
++	  Note that a kernel compiled with profiling flags will be
++	  significantly larger and run slower. Also be sure to exclude files
++	  from profiling which are not linked to the kernel image to prevent
++	  linker errors.
++
++	  Note that the debugfs filesystem has to be mounted to access
++	  profiling data.
++
++endmenu
+diff --git a/kernel/pgo/Makefile b/kernel/pgo/Makefile
+new file mode 100644
+index 000000000000..41e27cefd9a4
+--- /dev/null
++++ b/kernel/pgo/Makefile
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0
++GCOV_PROFILE	:= n
++PGO_PROFILE	:= n
++
++obj-y	+= fs.o instrument.o
+diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
+new file mode 100644
+index 000000000000..1678df3b7d64
+--- /dev/null
++++ b/kernel/pgo/fs.c
+@@ -0,0 +1,389 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2019 Google, Inc.
++ *
++ * Author:
++ *	Sami Tolvanen <samitolvanen@google.com>
++ *
++ * This software is licensed under the terms of the GNU General Public
++ * License version 2, as published by the Free Software Foundation, and
++ * may be copied, distributed, and modified under those terms.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ */
++
++#define pr_fmt(fmt)	"pgo: " fmt
++
++#include <linux/kernel.h>
++#include <linux/debugfs.h>
++#include <linux/fs.h>
++#include <linux/module.h>
++#include <linux/slab.h>
++#include <linux/vmalloc.h>
++#include "pgo.h"
++
++static struct dentry *directory;
++
++struct prf_private_data {
++	void *buffer;
++	unsigned long size;
++};
++
++/*
++ * Raw profile data format:
++ *
++ *	- llvm_prf_header
++ *	- __llvm_prf_data
++ *	- __llvm_prf_cnts
++ *	- __llvm_prf_names
++ *	- zero padding to 8 bytes
++ *	- for each llvm_prf_data in __llvm_prf_data:
++ *		- llvm_prf_value_data
++ *			- llvm_prf_value_record + site count array
++ *				- llvm_prf_value_node_data
++ *				...
++ *			...
++ *		...
++ */
++
++static void prf_fill_header(void **buffer)
++{
++	struct llvm_prf_header *header = *(struct llvm_prf_header **)buffer;
++
++#ifdef CONFIG_64BIT
++	header->magic = LLVM_INSTR_PROF_RAW_MAGIC_64;
++#else
++	header->magic = LLVM_INSTR_PROF_RAW_MAGIC_32;
++#endif
++	header->version = LLVM_VARIANT_MASK_IR_PROF | LLVM_INSTR_PROF_RAW_VERSION;
++	header->data_size = prf_data_count();
++	header->padding_bytes_before_counters = 0;
++	header->counters_size = prf_cnts_count();
++	header->padding_bytes_after_counters = 0;
++	header->names_size = prf_names_count();
++	header->counters_delta = (u64)__llvm_prf_cnts_start;
++	header->names_delta = (u64)__llvm_prf_names_start;
++	header->value_kind_last = LLVM_INSTR_PROF_IPVK_LAST;
++
++	*buffer += sizeof(*header);
++}
++
++/*
++ * Copy the source into the buffer, incrementing the pointer into buffer in the
++ * process.
++ */
++static void prf_copy_to_buffer(void **buffer, void *src, unsigned long size)
++{
++	memcpy(*buffer, src, size);
++	*buffer += size;
++}
++
++static u32 __prf_get_value_size(struct llvm_prf_data *p, u32 *value_kinds)
++{
++	struct llvm_prf_value_node **nodes =
++		(struct llvm_prf_value_node **)p->values;
++	u32 kinds = 0;
++	u32 size = 0;
++	unsigned int kind;
++	unsigned int n;
++	unsigned int s = 0;
++
++	for (kind = 0; kind < ARRAY_SIZE(p->num_value_sites); kind++) {
++		unsigned int sites = p->num_value_sites[kind];
++
++		if (!sites)
++			continue;
++
++		/* Record + site count array */
++		size += prf_get_value_record_size(sites);
++		kinds++;
++
++		if (!nodes)
++			continue;
++
++		for (n = 0; n < sites; n++) {
++			u32 count = 0;
++			struct llvm_prf_value_node *site = nodes[s + n];
++
++			while (site && ++count <= U8_MAX)
++				site = site->next;
++
++			size += count *
++				sizeof(struct llvm_prf_value_node_data);
++		}
++
++		s += sites;
++	}
++
++	if (size)
++		size += sizeof(struct llvm_prf_value_data);
++
++	if (value_kinds)
++		*value_kinds = kinds;
++
++	return size;
++}
++
++static u32 prf_get_value_size(void)
++{
++	u32 size = 0;
++	struct llvm_prf_data *p;
++
++	for (p = __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
++		size += __prf_get_value_size(p, NULL);
++
++	return size;
++}
++
++/* Serialize the profiling's value. */
++static void prf_serialize_value(struct llvm_prf_data *p, void **buffer)
++{
++	struct llvm_prf_value_data header;
++	struct llvm_prf_value_node **nodes =
++		(struct llvm_prf_value_node **)p->values;
++	unsigned int kind;
++	unsigned int n;
++	unsigned int s = 0;
++
++	header.total_size = __prf_get_value_size(p, &header.num_value_kinds);
++
++	if (!header.num_value_kinds)
++		/* Nothing to write. */
++		return;
++
++	prf_copy_to_buffer(buffer, &header, sizeof(header));
++
++	for (kind = 0; kind < ARRAY_SIZE(p->num_value_sites); kind++) {
++		struct llvm_prf_value_record *record;
++		u8 *counts;
++		unsigned int sites = p->num_value_sites[kind];
++
++		if (!sites)
++			continue;
++
++		/* Profiling value record. */
++		record = *(struct llvm_prf_value_record **)buffer;
++		*buffer += prf_get_value_record_header_size();
++
++		record->kind = kind;
++		record->num_value_sites = sites;
++
++		/* Site count array. */
++		counts = *(u8 **)buffer;
++		*buffer += prf_get_value_record_site_count_size(sites);
++
++		/*
++		 * If we don't have nodes, we can skip updating the site count
++		 * array, because the buffer is zero filled.
++		 */
++		if (!nodes)
++			continue;
++
++		for (n = 0; n < sites; n++) {
++			u32 count = 0;
++			struct llvm_prf_value_node *site = nodes[s + n];
++
++			while (site && ++count <= U8_MAX) {
++				prf_copy_to_buffer(buffer, site,
++						   sizeof(struct llvm_prf_value_node_data));
++				site = site->next;
++			}
++
++			counts[n] = (u8)count;
++		}
++
++		s += sites;
++	}
++}
++
++static void prf_serialize_values(void **buffer)
++{
++	struct llvm_prf_data *p;
++
++	for (p = __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
++		prf_serialize_value(p, buffer);
++}
++
++static inline unsigned long prf_get_padding(unsigned long size)
++{
++	return 7 & (sizeof(u64) - size % sizeof(u64));
++}
++
++static unsigned long prf_buffer_size(void)
++{
++	return sizeof(struct llvm_prf_header) +
++			prf_data_size()	+
++			prf_cnts_size() +
++			prf_names_size() +
++			prf_get_padding(prf_names_size()) +
++			prf_get_value_size();
++}
++
++/*
++ * Serialize the profiling data into a format LLVM's tools can understand.
++ * Note: caller *must* hold pgo_lock.
++ */
++static int prf_serialize(struct prf_private_data *p)
++{
++	int err = 0;
++	void *buffer;
++
++	p->size = prf_buffer_size();
++	p->buffer = vzalloc(p->size);
++
++	if (!p->buffer) {
++		err = -ENOMEM;
++		goto out;
++	}
++
++	buffer = p->buffer;
++
++	prf_fill_header(&buffer);
++	prf_copy_to_buffer(&buffer, __llvm_prf_data_start,  prf_data_size());
++	prf_copy_to_buffer(&buffer, __llvm_prf_cnts_start,  prf_cnts_size());
++	prf_copy_to_buffer(&buffer, __llvm_prf_names_start, prf_names_size());
++	buffer += prf_get_padding(prf_names_size());
++
++	prf_serialize_values(&buffer);
++
++out:
++	return err;
++}
++
++/* open() implementation for PGO. Creates a copy of the profiling data set. */
++static int prf_open(struct inode *inode, struct file *file)
++{
++	struct prf_private_data *data;
++	unsigned long flags;
++	int err;
++
++	data = kzalloc(sizeof(*data), GFP_KERNEL);
++	if (!data) {
++		err = -ENOMEM;
++		goto out;
++	}
++
++	flags = prf_lock();
++
++	err = prf_serialize(data);
++	if (unlikely(err)) {
++		kfree(data);
++		goto out_unlock;
++	}
++
++	file->private_data = data;
++
++out_unlock:
++	prf_unlock(flags);
++out:
++	return err;
++}
++
++/* read() implementation for PGO. */
++static ssize_t prf_read(struct file *file, char __user *buf, size_t count,
++			loff_t *ppos)
++{
++	struct prf_private_data *data = file->private_data;
++
++	BUG_ON(!data);
++
++	return simple_read_from_buffer(buf, count, ppos, data->buffer,
++				       data->size);
++}
++
++/* release() implementation for PGO. Release resources allocated by open(). */
++static int prf_release(struct inode *inode, struct file *file)
++{
++	struct prf_private_data *data = file->private_data;
++
++	if (data) {
++		vfree(data->buffer);
++		kfree(data);
++	}
++
++	return 0;
++}
++
++static const struct file_operations prf_fops = {
++	.owner		= THIS_MODULE,
++	.open		= prf_open,
++	.read		= prf_read,
++	.llseek		= default_llseek,
++	.release	= prf_release
++};
++
++/* write() implementation for resetting PGO's profile data. */
++static ssize_t reset_write(struct file *file, const char __user *addr,
++			   size_t len, loff_t *pos)
++{
++	struct llvm_prf_data *data;
++
++	memset(__llvm_prf_cnts_start, 0, prf_cnts_size());
++
++	for (data = __llvm_prf_data_start; data < __llvm_prf_data_end; data++) {
++		struct llvm_prf_value_node **vnodes;
++		u64 current_vsite_count;
++		u32 i;
++
++		if (!data->values)
++			continue;
++
++		current_vsite_count = 0;
++		vnodes = (struct llvm_prf_value_node **)data->values;
++
++		for (i = LLVM_INSTR_PROF_IPVK_FIRST; i <= LLVM_INSTR_PROF_IPVK_LAST; i++)
++			current_vsite_count += data->num_value_sites[i];
++
++		for (i = 0; i < current_vsite_count; i++) {
++			struct llvm_prf_value_node *current_vnode = vnodes[i];
++
++			while (current_vnode) {
++				current_vnode->count = 0;
++				current_vnode = current_vnode->next;
++			}
++		}
++	}
++
++	return len;
++}
++
++static const struct file_operations prf_reset_fops = {
++	.owner		= THIS_MODULE,
++	.write		= reset_write,
++	.llseek		= noop_llseek,
++};
++
++/* Create debugfs entries. */
++static int __init pgo_init(void)
++{
++	directory = debugfs_create_dir("pgo", NULL);
++	if (!directory)
++		goto err_remove;
++
++	if (!debugfs_create_file("profraw", 0600, directory, NULL,
++				 &prf_fops))
++		goto err_remove;
++
++	if (!debugfs_create_file("reset", 0200, directory, NULL,
++				 &prf_reset_fops))
++		goto err_remove;
++
++	return 0;
++
++err_remove:
++	pr_err("initialization failed\n");
++	return -EIO;
++}
++
++/* Remove debugfs entries. */
++static void __exit pgo_exit(void)
++{
++	debugfs_remove_recursive(directory);
++}
++
++module_init(pgo_init);
++module_exit(pgo_exit);
+diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
+new file mode 100644
+index 000000000000..62ff5cfce7b1
+--- /dev/null
++++ b/kernel/pgo/instrument.c
+@@ -0,0 +1,189 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2019 Google, Inc.
++ *
++ * Author:
++ *	Sami Tolvanen <samitolvanen@google.com>
++ *
++ * This software is licensed under the terms of the GNU General Public
++ * License version 2, as published by the Free Software Foundation, and
++ * may be copied, distributed, and modified under those terms.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ */
++
++#define pr_fmt(fmt)	"pgo: " fmt
++
++#include <linux/bitops.h>
++#include <linux/kernel.h>
++#include <linux/export.h>
++#include <linux/spinlock.h>
++#include <linux/types.h>
++#include "pgo.h"
++
++/*
++ * This lock guards both profile count updating and serialization of the
++ * profiling data. Keeping both of these activities separate via locking
++ * ensures that we don't try to serialize data that's only partially updated.
++ */
++static DEFINE_SPINLOCK(pgo_lock);
++static int current_node;
++
++unsigned long prf_lock(void)
++{
++	unsigned long flags;
++
++	spin_lock_irqsave(&pgo_lock, flags);
++
++	return flags;
++}
++
++void prf_unlock(unsigned long flags)
++{
++	spin_unlock_irqrestore(&pgo_lock, flags);
++}
++
++/*
++ * Return a newly allocated profiling value node which contains the tracked
++ * value by the value profiler.
++ * Note: caller *must* hold pgo_lock.
++ */
++static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
++						 u32 index, u64 value)
++{
++	if (&__llvm_prf_vnds_start[current_node + 1] >= __llvm_prf_vnds_end)
++		return NULL; /* Out of nodes */
++
++	current_node++;
++
++	/* Make sure the node is entirely within the section */
++	if (&__llvm_prf_vnds_start[current_node] >= __llvm_prf_vnds_end ||
++	    &__llvm_prf_vnds_start[current_node + 1] > __llvm_prf_vnds_end)
++		return NULL;
++
++	return &__llvm_prf_vnds_start[current_node];
++}
++
++/*
++ * Counts the number of times a target value is seen.
++ *
++ * Records the target value for the index if not seen before. Otherwise,
++ * increments the counter associated w/ the target value.
++ */
++void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index);
++void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
++{
++	struct llvm_prf_data *p = (struct llvm_prf_data *)data;
++	struct llvm_prf_value_node **counters;
++	struct llvm_prf_value_node *curr;
++	struct llvm_prf_value_node *min = NULL;
++	struct llvm_prf_value_node *prev = NULL;
++	u64 min_count = U64_MAX;
++	u8 values = 0;
++	unsigned long flags;
++
++	if (!p || !p->values)
++		return;
++
++	counters = (struct llvm_prf_value_node **)p->values;
++	curr = counters[index];
++
++	while (curr) {
++		if (target_value == curr->value) {
++			curr->count++;
++			return;
++		}
++
++		if (curr->count < min_count) {
++			min_count = curr->count;
++			min = curr;
++		}
++
++		prev = curr;
++		curr = curr->next;
++		values++;
++	}
++
++	if (values >= LLVM_INSTR_PROF_MAX_NUM_VAL_PER_SITE) {
++		if (!min->count || !(--min->count)) {
++			curr = min;
++			curr->value = target_value;
++			curr->count++;
++		}
++		return;
++	}
++
++	/* Lock when updating the value node structure. */
++	flags = prf_lock();
++
++	curr = allocate_node(p, index, target_value);
++	if (!curr)
++		goto out;
++
++	curr->value = target_value;
++	curr->count++;
++
++	if (!counters[index])
++		counters[index] = curr;
++	else if (prev && !prev->next)
++		prev->next = curr;
++
++out:
++	prf_unlock(flags);
++}
++EXPORT_SYMBOL(__llvm_profile_instrument_target);
++
++/* Counts the number of times a range of targets values are seen. */
++void __llvm_profile_instrument_range(u64 target_value, void *data,
++				     u32 index, s64 precise_start,
++				     s64 precise_last, s64 large_value);
++void __llvm_profile_instrument_range(u64 target_value, void *data,
++				     u32 index, s64 precise_start,
++				     s64 precise_last, s64 large_value)
++{
++	if (large_value != S64_MIN && (s64)target_value >= large_value)
++		target_value = large_value;
++	else if ((s64)target_value < precise_start ||
++		 (s64)target_value > precise_last)
++		target_value = precise_last + 1;
++
++	__llvm_profile_instrument_target(target_value, data, index);
++}
++EXPORT_SYMBOL(__llvm_profile_instrument_range);
++
++static u64 inst_prof_get_range_rep_value(u64 value)
++{
++	if (value <= 8)
++		/* The first ranges are individually tracked, use it as is. */
++		return value;
++	else if (value >= 513)
++		/* The last range is mapped to its lowest value. */
++		return 513;
++	else if (hweight64(value) == 1)
++		/* If it's a power of two, use it as is. */
++		return value;
++
++	/* Otherwise, take to the previous power of two + 1. */
++	return (1 << (64 - __builtin_clzll(value) - 1)) + 1;
++}
++
++/*
++ * The target values are partitioned into multiple ranges. The range spec is
++ * defined in compiler-rt/include/profile/InstrProfData.inc.
++ */
++void __llvm_profile_instrument_memop(u64 target_value, void *data,
++				     u32 counter_index);
++void __llvm_profile_instrument_memop(u64 target_value, void *data,
++				     u32 counter_index)
++{
++	u64 rep_value;
++
++	/* Map the target value to the representative value of its range. */
++	rep_value = inst_prof_get_range_rep_value(target_value);
++	__llvm_profile_instrument_target(rep_value, data, counter_index);
++}
++EXPORT_SYMBOL(__llvm_profile_instrument_memop);
+diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
+new file mode 100644
+index 000000000000..ddc8d3002fe5
+--- /dev/null
++++ b/kernel/pgo/pgo.h
+@@ -0,0 +1,203 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2019 Google, Inc.
++ *
++ * Author:
++ *	Sami Tolvanen <samitolvanen@google.com>
++ *
++ * This software is licensed under the terms of the GNU General Public
++ * License version 2, as published by the Free Software Foundation, and
++ * may be copied, distributed, and modified under those terms.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ */
++
++#ifndef _PGO_H
++#define _PGO_H
++
++/*
++ * Note: These internal LLVM definitions must match the compiler version.
++ * See llvm/include/llvm/ProfileData/InstrProfData.inc in LLVM's source code.
++ */
++
++#define LLVM_INSTR_PROF_RAW_MAGIC_64	\
++		((u64)255 << 56 |	\
++		 (u64)'l' << 48 |	\
++		 (u64)'p' << 40 |	\
++		 (u64)'r' << 32 |	\
++		 (u64)'o' << 24 |	\
++		 (u64)'f' << 16 |	\
++		 (u64)'r' << 8  |	\
++		 (u64)129)
++#define LLVM_INSTR_PROF_RAW_MAGIC_32	\
++		((u64)255 << 56 |	\
++		 (u64)'l' << 48 |	\
++		 (u64)'p' << 40 |	\
++		 (u64)'r' << 32 |	\
++		 (u64)'o' << 24 |	\
++		 (u64)'f' << 16 |	\
++		 (u64)'R' << 8  |	\
++		 (u64)129)
++
++#define LLVM_INSTR_PROF_RAW_VERSION		5
++#define LLVM_INSTR_PROF_DATA_ALIGNMENT		8
++#define LLVM_INSTR_PROF_IPVK_FIRST		0
++#define LLVM_INSTR_PROF_IPVK_LAST		1
++#define LLVM_INSTR_PROF_MAX_NUM_VAL_PER_SITE	255
++
++#define LLVM_VARIANT_MASK_IR_PROF	(0x1ULL << 56)
++#define LLVM_VARIANT_MASK_CSIR_PROF	(0x1ULL << 57)
++
++/**
++ * struct llvm_prf_header - represents the raw profile header data structure.
++ * @magic: the magic token for the file format.
++ * @version: the version of the file format.
++ * @data_size: the number of entries in the profile data section.
++ * @padding_bytes_before_counters: the number of padding bytes before the
++ *   counters.
++ * @counters_size: the size in bytes of the LLVM profile section containing the
++ *   counters.
++ * @padding_bytes_after_counters: the number of padding bytes after the
++ *   counters.
++ * @names_size: the size in bytes of the LLVM profile section containing the
++ *   counters' names.
++ * @counters_delta: the beginning of the LLMV profile counters section.
++ * @names_delta: the beginning of the LLMV profile names section.
++ * @value_kind_last: the last profile value kind.
++ */
++struct llvm_prf_header {
++	u64 magic;
++	u64 version;
++	u64 data_size;
++	u64 padding_bytes_before_counters;
++	u64 counters_size;
++	u64 padding_bytes_after_counters;
++	u64 names_size;
++	u64 counters_delta;
++	u64 names_delta;
++	u64 value_kind_last;
++};
++
++/**
++ * struct llvm_prf_data - represents the per-function control structure.
++ * @name_ref: the reference to the function's name.
++ * @func_hash: the hash value of the function.
++ * @counter_ptr: a pointer to the profile counter.
++ * @function_ptr: a pointer to the function.
++ * @values: the profiling values associated with this function.
++ * @num_counters: the number of counters in the function.
++ * @num_value_sites: the number of value profile sites.
++ */
++struct llvm_prf_data {
++	const u64 name_ref;
++	const u64 func_hash;
++	const void *counter_ptr;
++	const void *function_ptr;
++	void *values;
++	const u32 num_counters;
++	const u16 num_value_sites[LLVM_INSTR_PROF_IPVK_LAST + 1];
++} __aligned(LLVM_INSTR_PROF_DATA_ALIGNMENT);
++
++/**
++ * structure llvm_prf_value_node_data - represents the data part of the struct
++ *   llvm_prf_value_node data structure.
++ * @value: the value counters.
++ * @count: the counters' count.
++ */
++struct llvm_prf_value_node_data {
++	u64 value;
++	u64 count;
++};
++
++/**
++ * struct llvm_prf_value_node - represents an internal data structure used by
++ *   the value profiler.
++ * @value: the value counters.
++ * @count: the counters' count.
++ * @next: the next value node.
++ */
++struct llvm_prf_value_node {
++	u64 value;
++	u64 count;
++	struct llvm_prf_value_node *next;
++};
++
++/**
++ * struct llvm_prf_value_data - represents the value profiling data in indexed
++ *   format.
++ * @total_size: the total size in bytes including this field.
++ * @num_value_kinds: the number of value profile kinds that has value profile
++ *   data.
++ */
++struct llvm_prf_value_data {
++	u32 total_size;
++	u32 num_value_kinds;
++};
++
++/**
++ * struct llvm_prf_value_record - represents the on-disk layout of the value
++ *   profile data of a particular kind for one function.
++ * @kind: the kind of the value profile record.
++ * @num_value_sites: the number of value profile sites.
++ * @site_count_array: the first element of the array that stores the number
++ *   of profiled values for each value site.
++ */
++struct llvm_prf_value_record {
++	u32 kind;
++	u32 num_value_sites;
++	u8 site_count_array[];
++};
++
++#define prf_get_value_record_header_size()		\
++	offsetof(struct llvm_prf_value_record, site_count_array)
++#define prf_get_value_record_site_count_size(sites)	\
++	roundup((sites), 8)
++#define prf_get_value_record_size(sites)		\
++	(prf_get_value_record_header_size() +		\
++	 prf_get_value_record_site_count_size((sites)))
++
++/* Data sections */
++extern struct llvm_prf_data __llvm_prf_data_start[];
++extern struct llvm_prf_data __llvm_prf_data_end[];
++
++extern u64 __llvm_prf_cnts_start[];
++extern u64 __llvm_prf_cnts_end[];
++
++extern char __llvm_prf_names_start[];
++extern char __llvm_prf_names_end[];
++
++extern struct llvm_prf_value_node __llvm_prf_vnds_start[];
++extern struct llvm_prf_value_node __llvm_prf_vnds_end[];
++
++/* Locking for vnodes */
++extern unsigned long prf_lock(void);
++extern void prf_unlock(unsigned long flags);
++
++#define __DEFINE_PRF_SIZE(s) \
++	static inline unsigned long prf_ ## s ## _size(void)		\
++	{								\
++		unsigned long start =					\
++			(unsigned long)__llvm_prf_ ## s ## _start;	\
++		unsigned long end =					\
++			(unsigned long)__llvm_prf_ ## s ## _end;	\
++		return roundup(end - start,				\
++				sizeof(__llvm_prf_ ## s ## _start[0]));	\
++	}								\
++	static inline unsigned long prf_ ## s ## _count(void)		\
++	{								\
++		return prf_ ## s ## _size() /				\
++			sizeof(__llvm_prf_ ## s ## _start[0]);		\
++	}
++
++__DEFINE_PRF_SIZE(data);
++__DEFINE_PRF_SIZE(cnts);
++__DEFINE_PRF_SIZE(names);
++__DEFINE_PRF_SIZE(vnds);
++
++#undef __DEFINE_PRF_SIZE
++
++#endif /* _PGO_H */
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index eee59184de64..48a65d092c5b 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -139,6 +139,16 @@ _c_flags += $(if $(patsubst n%,, \
+ 		$(CFLAGS_GCOV))
+ endif
+ 
++#
++# Enable clang's PGO profiling flags for a file or directory depending on
++# variables PGO_PROFILE_obj.o and PGO_PROFILE.
++#
++ifeq ($(CONFIG_PGO_CLANG),y)
++_c_flags += $(if $(patsubst n%,, \
++		$(PGO_PROFILE_$(basetarget).o)$(PGO_PROFILE)y), \
++		$(CFLAGS_PGO_CLANG))
++endif
++
+ #
+ # Enable address sanitizer flags for kernel except some files or directories
+ # we don't want to check (depends on variables KASAN_SANITIZE_obj.o, KASAN_SANITIZE)
+-- 
+2.30.1.766.gb4fecdf3b7-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202102270554.Hgsu4SMy-lkp%40intel.com.
-
---3V7upXqbjpZ4EhLz
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-MNplXq6qDEf9D1VamXF7QQEA
-
---3V7upXqbjpZ4EhLz--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210226222030.3718075-1-morbo%40google.com.
