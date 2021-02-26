@@ -1,132 +1,153 @@
-Return-Path: <clang-built-linux+bncBAABBY634KAQMGQEXQNC7KI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBQO44KAQMGQETDHV2KI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09669325EB3
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 09:14:29 +0100 (CET)
-Received: by mail-ot1-x33f.google.com with SMTP id 97sf4471101otm.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 00:14:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614327268; cv=pass;
+Received: from mail-vs1-xe3c.google.com (mail-vs1-xe3c.google.com [IPv6:2607:f8b0:4864:20::e3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F20E325EBC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 09:16:02 +0100 (CET)
+Received: by mail-vs1-xe3c.google.com with SMTP id f184sf751828vsc.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 00:16:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614327361; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aLF/++kUazs6/QXBU7hchRg9mxNR5iVKW/i2yYIwcQnC/vmDcXGdWug96ymbk5gjso
-         bbEUyus+2os42geKNPBX6Jxhj6uKKGqpmFyPlmPPNzceLgTIW4pu67b814datf+vHxS0
-         h6y1ny777R5B/gpsOwkcNEItCwic+RZxvZ5ezwfi6wtCrQRnBDt3timfIYyPNYtMvWpw
-         9PhOMtWVnu+HJrMudUCI1bpuuIOZzil160yBRA8H9rytDhR9bbcfhVkBF4UKUCxKeYMY
-         tbFCyLnFW9tlH2hhX8MnQm7hnn0amIVQV7UoEDtLhweRtLlGsJmxOdoAL0ytSUXnkNo2
-         LKRQ==
+        b=euGcyuwB8jdTesMUfpDjz8554umtg7rprMes8v8EIfWeoQ5jgAOzHsmijjBrUebkFq
+         BIAIpwR9oFwNRmd54UvKM+5+6wOda+n6MOTptUgv0aDY4NpvhXpVBc3EwFqD1aBwfmI7
+         4UYIbY22nAqP9JIEp+K0F7vKbyFETWfRSwreQ6LE+wM8wylZT4epE+K6OLpKtj1JYg8v
+         P4zoZ1kXgPmk1SIYSl4g2KmWcWqUA+3TdEAv29p6EAwU2vNQZJ1UissuCXmOJ/Mk0tlH
+         2yvIOtKPiF47gXbNJA5w8ta3bWT7VNx+Dbbg/EuP2qT35fDWnO1K9E8ih9Eifag5isW8
+         Q57g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=yezDh/7/GopphiorP3GLQjiYSOUJpOMOLNtB+dwSBp8=;
-        b=JjIAAUUWrhey/q39MnK1HQaB6iIhkxafBknFDGUozM8wfE0kDYqSL3LRve+STZh67D
-         itAV3wKEQolIOc93dM/0guRHUlcYTjl4L1jPDtT7VOKgPwlmuGTYalnXC8bQcIRxwArU
-         3NGJqcgN9A1WJGZXeqOOxyRlRvi0IpaMMOIRGxufhItmTEjxt5l/nGMeMqMukR1STwM0
-         se/UCmyWt94drnqqaLETyy1ysIYWSmN3MBKmgHG7j6ULbg2K/5hxFCR9wRZOK90TOswz
-         /AvBYgXItYptPsZmC1No2wViz6MQooA6hyECUV5TsraO+9vjKcJ6uKZQh13CS/gath7i
-         g1Vg==
+         :list-id:mailing-list:precedence:reply-to:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=ifpYQAtE+XJsXEpc1ZpA7gMYyuw1MSMpItfawAqO68w=;
+        b=jAS0VkQQyqS7UTwqOjZfNMgdjymd5sDu8HKPb3EG8u4r8inUj/nehBcYNufVuGxzqQ
+         me6mB4+ADG0gUEMEdZ0oBQit7pflLVxwzkPdxPWKddZK2o6OAszQFVriKmenGoEOa7eJ
+         1jgbjN8Jr/C9BD9T3gcJPB2aYpwz944f1F/WUj+cSXeTD92e+X3a6szJhmgy/g/FFu8q
+         TSHyt/8znVN6u0vUYC5OLzZZgqzaJMkdvmqTttbSfzQivuQak1/pe1zu8svE0aZbxuPL
+         gvVDS8b+zKTFE0PpI7Zn+4+8uuZ7TYItDHc5MoHs7U5M8v8B85CYqn/4MSjZRCKpO0g8
+         +n0Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=n9feerzo;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@ti.com header.s=ti-com-17Q1 header.b=EVXzNnfm;
+       spf=pass (google.com: domain of p.yadav@ti.com designates 198.47.19.142 as permitted sender) smtp.mailfrom=p.yadav@ti.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=yezDh/7/GopphiorP3GLQjiYSOUJpOMOLNtB+dwSBp8=;
-        b=d2ykEwBbm27Y5cRd8iBH+GT5YWsxqHOSUytLJaQ2hEGsiGxkS+LHXG6CDptoMq3S2m
-         fqRhB768JTNVvwo6Jp+D8JywtpqzvWpo7+h8Vd72BwDircaMR4bjOsxvrmzP7ONuvQCj
-         YOorvKY/YF69L1ZOe1AYgBVAxsM/ETzgr268Zw/cO7iYJTMS5DNyoN+FHhtpasuUPl+l
-         7ReVLdNhCSPKh4zksGT9CCndF+Hia+rL6LVMmMxqB1b+87EeNDacFW/N7xz3zLwC0A5Z
-         8KLYucZYqOGqzqhu8AlXtakZTOFJJN+fLnC26H94ktCM3cWaw9p8Utobph3stP3xo6Ng
-         iO2A==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=ifpYQAtE+XJsXEpc1ZpA7gMYyuw1MSMpItfawAqO68w=;
+        b=LE/Uqrj/iZlvC/1Gzd1md8sarIU7qSDMWfnM2z/ho95kSCmlW85G70Utdje2ap6G7/
+         qyYXm03l/wjPn+UeMrCswP7OYe4W1cBodu2TgW+d9FXEPZ+FZCjg8Sf7gCSm3IUroVGp
+         2BRzgeuZMCyJ0HueNZpqBB8I7bXJmfafvLkAiBHkkqUIeQu2wFg0y2qk8ECb5xCvImyY
+         yC0+cHIkrTtcdVP1riSUig2p5IteiKeAwcUAxXLR1mQYeYEcq/lUlIV8BjsW7AweDanN
+         jjtFA7epsx/nmS3484FAaR5CVQpwaFm2ieyKg/MY6G0Fjf16eJ14FuvnEla0VTK+uhRt
+         Okjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=yezDh/7/GopphiorP3GLQjiYSOUJpOMOLNtB+dwSBp8=;
-        b=CfOVirUA+SeAbizgxqqi4KrjkJ5+DXAlMWepx2dqEA0SEI7+lipezSNEy7d7b0NXsY
-         DY9KPnZDluUfCs1Xdhrl8dIZ28Aoji3OoKgMWHNMDuLdFOQjaG8PsuQ4tnBa6LSs1rt8
-         Ut4RwoAlROKd2xDeM8/OP0JHFBEDRlMbiEWA0krYmitaW87JHGhVYcCB4My0jOB/8gpi
-         VeCPClxlo8Jn61ptRkk+gQc1MXDb4ekmuWEgH+B6+7RFSakJ98wM2daDuvQOh8BHGyLw
-         KVFzzIc5f4nNf/20+0wBbr3++FDuCM8qsZSatrvoGiEc4VTzFfHsn7lSKQeUkAqbRUtG
-         1Z3Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530OYjCFT4eQm8qym1+8pclvWmdg/NreHsspPI6g0/LmPLdArtmY
-	wFLnb7EMDa6ChB+8SF9yEuM=
-X-Google-Smtp-Source: ABdhPJy5m4+/1FBuVFwUau8L8VU7aE35p3by/12sGBcqNXEfu4xd+eMatchF8Zy7KrRXXNeHbKZ7vQ==
-X-Received: by 2002:aca:fccb:: with SMTP id a194mr1204025oii.5.1614327267851;
-        Fri, 26 Feb 2021 00:14:27 -0800 (PST)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ifpYQAtE+XJsXEpc1ZpA7gMYyuw1MSMpItfawAqO68w=;
+        b=QZVSov7ai3xsRjypyu9FuZw+vTDIfBH619Mf98X+WABk0FfxBDLFMG+k/ar7NSXw6C
+         oO+roJFTr63uBdCxXr5HAPxWd4qj532AcDT7sPMOUcOrPnJJXhTHZtlJ7CNIZ+KO8Oxw
+         xCjrTmq2d/18TlJ8hE1zKpOGikpfobm55UxSahuJ+4ccJ/qDZUs+ihSaLswy8cUdzgC5
+         67lBHXgn02TWgGoQV46wEMRqkttgCJ4+JheQhuCXJg8JeyrfFBNtqr0VE78qgqHe3RSU
+         qanNwJBRh+a7QpIQnn1+vFx7C3oVThSU/ixNP0johqrNkgBG9l+b7QB6FSpXOBTqKzfd
+         TiQA==
+X-Gm-Message-State: AOAM530QDqUvEubnATawEXsTuBx3PU49f+lMpyCUqh9A4ZPmRvHjd/J5
+	PSJXuBpwiiVizXMxwPYp3ss=
+X-Google-Smtp-Source: ABdhPJzkaFxyyAdzbCb8g6WlwH6KpMhTNRp08StySOFbJ1m8RGJQE9BPdwpXTo8zDL80AAI799+0mw==
+X-Received: by 2002:a67:798b:: with SMTP id u133mr728014vsc.9.1614327361541;
+        Fri, 26 Feb 2021 00:16:01 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1553:: with SMTP id l19ls2353200otp.4.gmail; Fri,
- 26 Feb 2021 00:14:27 -0800 (PST)
-X-Received: by 2002:a9d:640b:: with SMTP id h11mr1396774otl.224.1614327267562;
-        Fri, 26 Feb 2021 00:14:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614327267; cv=none;
+Received: by 2002:a67:3004:: with SMTP id w4ls1001861vsw.9.gmail; Fri, 26 Feb
+ 2021 00:16:01 -0800 (PST)
+X-Received: by 2002:a67:2742:: with SMTP id n63mr860353vsn.1.1614327361045;
+        Fri, 26 Feb 2021 00:16:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614327361; cv=none;
         d=google.com; s=arc-20160816;
-        b=xBUkkheFzt1HIU3OlmG1e2YPyeFsI3Dx6st0z8GHxX8LdtKowQYQbgpL2xHcLipq9r
-         mK5BMTJHEXWwdDJOPhA9AdB8RqECdcTv5d7Z1xEvVEwuDHbcJaJoRDLSq+qG5Su949xI
-         0sRzchk2UgANBQ7s8tZiD6UdMVC2KtAos2Fj+eTDSY0xw4pL5l5UD22QbnbQycp6RHqj
-         Ph8j4+Sq/m4EpWcHHG8iPWUlPIs4CrU8j+UYr6FDIW/RGiwr2KTaaxrt3JUDUZA6h0b3
-         VFTfFcO1++9aXcHkigGRxDu1BkRAJpFZrYC6AWXTbYvc8JoLEHwxKl1X+vBiYiampj3E
-         IYmg==
+        b=LkiTP/8YWyl1tgy2QK/Fd5TPdJJANdeyb2dc6VUxhdqiEzmprtcACjOofRWv77/LYR
+         UxV3b56sJrwd6k/PeV/dlcLIuHfXgHfnRFuS2OgOvLy2KmPWxaRC4nWdelIX8CrV6HBa
+         wZCU2JJLSx+/9J+mZF63tfQRQ8Xu0jGZhwSrCVg8lAZPqeMSNsWkOpunl2XYvkOrJuTM
+         fgCu6L6TF8gR2hw6ldeOskCq0f+sy3f8eb5llANT30upeowqnOzMlkcu5n9HkAPHskS3
+         aOq/iG+8RV3AV+uGBJJxo0Aw+HQ8Y+rDohCFXjRMEy5d43zEuiXbAtC1eIxiuGaET9al
+         MRmQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=suaTE+AFYgUitO8P+MnBS5ESEf+VYBcjC8y5M45Dj/g=;
-        b=LKENRu/P/fFC8eFhSu5JLXtYBZly2VbUa9sy43nC2/5AeFm+EKBSBPzNoH84nK2zbL
-         EvqajwRcgaWShPU6T0UQPbCFH+dAEAibXQXL0K85oFbWhkgEM9i+GhaL8L24quKmznqV
-         ZdR/4gsjsR+rwPr31gpHkx5kr0VdoGs+bwqkAxCGYK01Jqbfs1koszcQrGma7OQcZ5dg
-         PdKmnEhWqGSsg5enppjvYEnFXqAe1SAS+AUxjVuZtqxkdqnEu1cNgDu0jkHUzMssPbDC
-         D0sPFiGtFHJHGjTYtl/bw68SAgF85epxL16G8LDu8VmUNyjw3450byq44/zUcP/cGxDX
-         XBLw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=M1DX4Z5TbpoNhnKn+jRkQPGNQQ6oXlmXqLr7m8RL0SA=;
+        b=k3ZsgyWNf10+2Tu/3l3Dn+GkbkMpuTJbq06dR5N1yTmcZdHje8juN3T1NVKKe1F62B
+         PKCySx6+Psqk5vduQnALFaF7vIyLzF5UGS1xGaAI/zyUyWEUrmcqwHhgipXDXqfP7mj6
+         r4/Goc9SLmFce6kHH7/G2pDcM1TfTftsZksZwNzIQmbR2Ut3tYCeY6VUma6qbFXTBj1C
+         caPtN01j5s21e5EYeGmLJYJRi2/lcF/sxfTEFNev9LfFcmyT8SCHED8Vu9xg0h7Raid2
+         okEhbKArKEoaR3chz20VTrrrCgMfvIymJwmv+0d3kPLhBojXyfFx2zcEp/B9HHmfO8CP
+         6U0g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=n9feerzo;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o21si609644otk.4.2021.02.26.00.14.27
+       dkim=pass header.i=@ti.com header.s=ti-com-17Q1 header.b=EVXzNnfm;
+       spf=pass (google.com: domain of p.yadav@ti.com designates 198.47.19.142 as permitted sender) smtp.mailfrom=p.yadav@ti.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
+Received: from fllv0016.ext.ti.com (fllv0016.ext.ti.com. [198.47.19.142])
+        by gmr-mx.google.com with ESMTPS id e11si455597vkp.4.2021.02.26.00.16.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 26 Feb 2021 00:14:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7442C64EE7
-	for <clang-built-linux@googlegroups.com>; Fri, 26 Feb 2021 08:14:26 +0000 (UTC)
-Received: by mail-oi1-f178.google.com with SMTP id l64so8942588oig.9
-        for <clang-built-linux@googlegroups.com>; Fri, 26 Feb 2021 00:14:26 -0800 (PST)
-X-Received: by 2002:aca:4a47:: with SMTP id x68mr1202138oia.67.1614327265563;
- Fri, 26 Feb 2021 00:14:25 -0800 (PST)
+        Fri, 26 Feb 2021 00:16:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of p.yadav@ti.com designates 198.47.19.142 as permitted sender) client-ip=198.47.19.142;
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 11Q8FovB105037;
+	Fri, 26 Feb 2021 02:15:50 -0600
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 11Q8FodB039421
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 26 Feb 2021 02:15:50 -0600
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Fri, 26
+ Feb 2021 02:15:50 -0600
+Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
+ Frontend Transport; Fri, 26 Feb 2021 02:15:50 -0600
+Received: from localhost (ileax41-snat.itg.ti.com [10.172.224.153])
+	by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 11Q8FnDe107039;
+	Fri, 26 Feb 2021 02:15:49 -0600
+Date: Fri, 26 Feb 2021 13:45:48 +0530
+From: "'Pratyush Yadav' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Arnd Bergmann <arnd@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+        Nathan
+ Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Emil Renner Berthing <kernel@esmil.dk>, Arnd Bergmann <arnd@arndb.de>,
+        Jon
+ Lin <jon.lin@rock-chips.com>,
+        Chris Ruehl <chris.ruehl@gtsys.com.hk>,
+        Alexander Kochetkov <al.kochet@gmail.com>,
+        Johan Jonker <jbx6244@gmail.com>,
+        Vincent Pelletier <plr.vincent@gmail.com>, <linux-spi@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] spi: rockchip: avoid objtool warning
+Message-ID: <20210226081548.h5ls5fxihunzxjvx@ti.com>
+References: <20210225125541.1808719-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20210225112122.2198845-1-arnd@kernel.org> <CA+icZUUDnKBxkfgOVYDdpA29GnLUTT22mqRNyxQeYmay044ejg@mail.gmail.com>
-In-Reply-To: <CA+icZUUDnKBxkfgOVYDdpA29GnLUTT22mqRNyxQeYmay044ejg@mail.gmail.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Fri, 26 Feb 2021 09:14:09 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1QmS6g3cHTR93wWPkKs8vaP6RJEb8nZbTMLX+xphLJRw@mail.gmail.com>
-Message-ID: <CAK8P3a1QmS6g3cHTR93wWPkKs8vaP6RJEb8nZbTMLX+xphLJRw@mail.gmail.com>
-Subject: Re: [PATCH] [RFC] arm64: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-To: Sedat Dilek <sedat.dilek@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>, Mark Brown <broonie@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Kristina Martsenko <kristina.martsenko@arm.com>, Ionela Voinescu <ionela.voinescu@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Andrew Scull <ascull@google.com>, 
-	David Brazdil <dbrazdil@google.com>, Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20210225125541.1808719-1-arnd@kernel.org>
+User-Agent: NeoMutt/20171215
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+X-Original-Sender: p.yadav@ti.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=n9feerzo;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@ti.com header.s=ti-com-17Q1 header.b=EVXzNnfm;       spf=pass
+ (google.com: domain of p.yadav@ti.com designates 198.47.19.142 as permitted
+ sender) smtp.mailfrom=p.yadav@ti.com;       dmarc=pass (p=QUARANTINE sp=NONE
+ dis=NONE) header.from=ti.com
+X-Original-From: Pratyush Yadav <p.yadav@ti.com>
+Reply-To: Pratyush Yadav <p.yadav@ti.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,91 +160,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 26, 2021 at 1:36 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
->
-> On Thu, Feb 25, 2021 at 12:21 PM Arnd Bergmann <arnd@kernel.org> wrote:
-> >
-> > From: Arnd Bergmann <arnd@arndb.de>
-> >
-> > When looking at kernel size optimizations, I found that arm64
-> > does not currently support HAVE_LD_DEAD_CODE_DATA_ELIMINATION,
-> > which enables the --gc-sections flag to the linker.
-> >
-> > I see that for a defconfig build with llvm, there are some
-> > notable improvements from enabling this, in particular when
-> > combined with the recently added CONFIG_LTO_CLANG_THIN
-> > and CONFIG_TRIM_UNUSED_KSYMS:
-> >
-> >    text    data     bss     dec     hex filename
-> > 16570322 10998617 506468 28075407 1ac658f defconfig/vmlinux
-> > 16318793 10569913 506468 27395174 1a20466 trim_defconfig/vmlinux
-> > 16281234 10984848 504291 27770373 1a7be05 gc_defconfig/vmlinux
-> > 16029705 10556880 504355 27090940 19d5ffc gc+trim_defconfig/vmlinux
-> > 17040142 11102945 504196 28647283 1b51f73 thinlto_defconfig/vmlinux
-> > 16788613 10663201 504196 27956010 1aa932a thinlto+trim_defconfig/vmlinux
-> > 16347062 11043384 502499 27892945 1a99cd1 gc+thinlto_defconfig/vmlinux
-> > 15759453 10532792 502395 26794640 198da90 gc+thinlto+trim_defconfig/vmlinux
-> >
->
-> Thanks for the numbers.
-> Does CONFIG_TRIM_UNUSED_KSYMS=y have an impact to the build-time (and
-> disc-usage - negative way means longer/bigger)?
-> Do you have any build-time for the above numbers?
+Hi,
 
-They are in the mailing list archive I linked to:
+On 25/02/21 01:55PM, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Building this file with clang leads to a an unreachable code path
+> causing a warning from objtool:
+> 
+> drivers/spi/spi-rockchip.o: warning: objtool: rockchip_spi_transfer_one()+0x2e0: sibling call from callable instruction with modified stack frame
+> 
+> Use BUG() instead of unreachable() to avoid the undefined behavior
+> if it does happen.
+> 
+> Fixes: 65498c6ae241 ("spi: rockchip: support 4bit words")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  drivers/spi/spi-rockchip.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+> index 936ef54e0903..972beac1169a 100644
+> --- a/drivers/spi/spi-rockchip.c
+> +++ b/drivers/spi/spi-rockchip.c
+> @@ -521,7 +521,7 @@ static void rockchip_spi_config(struct rockchip_spi *rs,
+>  		 * ctlr->bits_per_word_mask, so this shouldn't
+>  		 * happen
+>  		 */
+> -		unreachable();
+> +		BUG();
 
-==== defconfig ====
-     332.001786355 seconds time elapsed
-    8599.464163000 seconds user
-     676.919635000 seconds sys
-==== trim_defconfig ====
-     448.378576012 seconds time elapsed
-   10735.489271000 seconds user
-     964.006504000 seconds sys
-==== gc_defconfig ====
-     324.347492236 seconds time elapsed
-    8465.785800000 seconds user
-     614.899797000 seconds sys
-==== gc+trim_defconfig ====
-     429.188875620 seconds time elapsed
-   10203.759658000 seconds user
-     871.307973000 seconds sys
-==== thinlto_defconfig ====
-     389.793540200 seconds time elapsed
-    9491.665320000 seconds user
-     664.858109000 seconds sys
-==== thinlto+trim_defconfig ====
-     580.431820561 seconds time elapsed
-   11429.515538000 seconds user
-    1056.985745000 seconds sys
-==== gc+thinlto_defconfig ====
-     389.484364525 seconds time elapsed
-    9473.831980000 seconds user
-     675.057675000 seconds sys
-==== gc+thinlto+trim_defconfig ====
-     580.824912807 seconds time elapsed
-   11433.650337000 seconds user
-    1049.845569000 seconds sys
+checkpatch says:
 
-So HAVE_LD_DEAD_CODE_DATA_ELIMINATION is a small improvement
-on build time (since it can spend less time linking), while
-CONFIG_TRIM_UNUSED_KSYMS slows it down quite a bit. Combining
-CONFIG_TRIM_UNUSED_KSYMS with CONFIG_THINLTO is really
-slow because here most of the time is spent in the final link (especially
-when you have many CPU cores to do the earlier bits quickly), but then
-it does the link twice.
+  Avoid crashing the kernel - try using WARN_ON & recovery code rather 
+  than BUG() or BUG_ON()
 
-> BTW, is CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y setable for x86 (64bit)?
-> ( Did not look or check for it. )
+Which makes sense to me. This is not something bad enough to justify 
+crashing the kernel.
 
-No, in mainline, HAVE_LD_DEAD_CODE_DATA_ELIMINATION is currently
-only selected on MIPS and PowerPC. I only sent experimental patches to
-enable it on arm64 and m68k, but have not tried booting them. If you
-select the symbol on x86, you should see similar results.
+>  	}
+>  
+>  	if (use_dma) {
+> -- 
+> 2.29.2
+> 
 
-       Arnd
+-- 
+Regards,
+Pratyush Yadav
+Texas Instruments Inc.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1QmS6g3cHTR93wWPkKs8vaP6RJEb8nZbTMLX%2BxphLJRw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210226081548.h5ls5fxihunzxjvx%40ti.com.
