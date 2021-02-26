@@ -1,136 +1,139 @@
-Return-Path: <clang-built-linux+bncBCQYFH77QIORBBH44KAQMGQEM2YZHKY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBK754KAQMGQE73EYB7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-f187.google.com (mail-oi1-f187.google.com [209.85.167.187])
-	by mail.lfdr.de (Postfix) with ESMTPS id B8CB6325FEA
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 10:23:17 +0100 (CET)
-Received: by mail-oi1-f187.google.com with SMTP id m136sf3262481oig.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 01:23:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614331396; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 24F50325FF6
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 10:26:04 +0100 (CET)
+Received: by mail-ot1-x33f.google.com with SMTP id l15sf4583069otp.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 01:26:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614331563; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DcNKYzqycGHrmnWLbTvgdszqkDsM4bGrXs+4VjwTxoXTJ5x7zmtnLlmdl1fBJnp8LP
-         8hUKOLDm4LI2/Maz0FTPqjVIOurNF8YJxa4IR/sLhyCcuLKDAgh6jdFtAQDGMH7w4Vkb
-         3OatwSbEDMpBa7gEF1w4oX8rAM4V4fQA6WZ99Cmtu5ZaoCu9/KBO/k3qu+cG+xqK5DJG
-         +FK9q6bQqnnpq22GSWs1K1eAAXeYnh/WqjTbUuvsE++Cnr005D6jBxCfpkhiQG+tfNNJ
-         exG5ALzUc7+IFT8x6dwp4f7KKMORyj6mI1HAtqlhjC9Vc9l0tYqmz2LC+sBTe3ggGYHv
-         aJGg==
+        b=BEEtMo4z8n9AvNeI6r9rT/e9eqZ88our42S4/LF2HK9qMDlW7fSeZGn0BHw/d5Q4Fg
+         bEQbW5DJcrzIhODwXgJZ0gDjOME0zmhrkgg+B5NGSO8z8xzKwGYZSVLM2WqcBtYxixsu
+         LOrPymA5+GfDNszz03nzT3JW5AUVi8NcaFTYEhn3bMhPRwAY/drUhASBqO1qMleHYFcA
+         ryP2bLUBRp4bRP/o8hv4x8tDcSy/uwuNZ0cq1W/2pbzOL+Oqmz91B3NpcX00G4NBCECr
+         4V+GeSMIcozmEK7oq2EJl04xUfR5I/5SbPrTFnjOFKSrIr9seI4quIuf7GW70OQdl0EK
+         d64A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:message-id:user-agent:cc:to
-         :references:in-reply-to:from:subject:mime-version:dmarc-filter
-         :sender;
-        bh=thM4mjQssG0EpDvHgsO0m3vAqn13A+VBHSA+YpglxJc=;
-        b=qPXEv0BdNtTHDA8RAwO2gTHY7mm9BA8axngWRtN0SdFbLyFbAZUGAnKlGqKakEL7zx
-         hcP4nM/EoDPNWSIz3V6L+jzyYbSBrG13M2iV9Qgnahu+rlBdlrDj19SvWYlKSJZYkv0x
-         0hrPjXc9ban8QqB/qjdIsnLIJxFFPwRZ5q86dfESpBGTNlNY10T+XKe6KFj6606FQwEe
-         ps8IsYsgoAhmMNcTxJpugOBfTwbhcXgiMCxfYEzyBikZ3fbEkzbwan1ZYCq92Exwctky
-         lfajI6srdXyKGqgtw2Izt6uQXVxhsyEkXy/KGaFKiLOtypQLU9OWgk68jSwADDWk5CN8
-         qP0w==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=3yhLyNdwvSJ58OFfFNolN3jcniceEQiGsv73syKGLNQ=;
+        b=fLdJT5QcgOtuN/YHTD8/swATTC4SH75JQxqXYmK8Qtwqcfz2lZqYc9VYX9hi6U3GEs
+         7pq7vr8c2BcrmkkdREUeOdcw3KzxwpBUMvh4qZelKDfKSx2uSM3ypJ1+TOqopdab0P1T
+         fl0OdUGAJHFSyHi1hV/xhMwOelH8iRxvIROua8e9kJ4QA2AZ2TOgBpoSkoMIHlM+gTDf
+         61XghDcfYYEXeRrxwNvoBKUW9assoye1BYQ58CMxk6nzncn8nKmrOXCmp76pnomj5N6Q
+         YqDrOT4uvdWi/xVPRANRonohevl6kVUbi/Vk2jFk+7xm6mowNyAeVYi8IwvPU9N86JFt
+         mEfw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=p6NvmklM;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.42.2 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=twcv2ssX;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=3yhLyNdwvSJ58OFfFNolN3jcniceEQiGsv73syKGLNQ=;
+        b=WQMqIasTuc9Gt8WXepccibCpngcBCaDLJJNbxFkWcrzdOh+QsheZCVyPX8OoaoqRw5
+         NEDoBCX3Gs8samkhvqdXO5sqhTAvsPK8dwy7eORumcxKB9yc5E82B+j44n/W5lJz19wj
+         mzqnJY7zF/8IhUOYa3lFSRLlkR3q8TbtVi8LQgVN39y4iy3AnFDBSKC8U9hJROc1ZZNU
+         HEzU8TIVk879dgKqc0v4poSaeUOLeJZOpHMMvpun1F7FS9mWTKulJqKTficFUTGN3KAw
+         5eBJRWC2ZkBKKq4OIpoyWxb5WQ9b16FY8dqKH5nYJf3nIlM0H+9t56vwN52ipSCBcYu3
+         Fwww==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3yhLyNdwvSJ58OFfFNolN3jcniceEQiGsv73syKGLNQ=;
+        b=gUJ/Hw5vod2Ps1byojEBBJC4xcSu0ShPD7MPIzUjXtYu/0akRqBRC9hUxE2cvPHSKW
+         Br5XoXATCHa19j0ENieEneZYHKhyqktGvgT1f/QvSaCS79sMqXvfGejt3WeulYf3xfEM
+         oYhO5iJQ4mTU8bUFiCIGFwQ8EqvCn6Zxsm91mthWCbSnm88eVJYqtI7dN4YBtowp8vDb
+         +Hy/lwKE1nnWoSt9+a9I3WNZ2hlWEfD0ZXMcE3Vus2mUi88N692L2vV5UiwJ5HYc3zjJ
+         TF1Rfb3s723b5ggAZsiXX2NKFbx+3e5+by4VJXmt01+eS3PLJXqUF8FZAeNr0R33jUZ6
+         Bkkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:mime-version:subject:from
-         :in-reply-to:references:to:cc:user-agent:message-id:date
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=thM4mjQssG0EpDvHgsO0m3vAqn13A+VBHSA+YpglxJc=;
-        b=PefKsyXxhQzM9z7d9u57bK0vz2ZResq0FVDKCl1isg3J+QH0uXdxfnXfsrhS/9O7Ui
-         PJCh6I2P6ueeZT5al+VglMzugp0nYGLRoYAmI17bqUC3XbKpDg7ezYDB8d/0TouUapJD
-         DSGM6GtE+rh1FA1gDOeVukAKdwjBAqhHNLBmPIhsB/xLD6ulEBZSz6vAt6wd/P4ypvlS
-         HtfYX5vBrb/K+SoDpdOvf7RRQVE0XlR0r1a4wZMePrb/2m0MAvaa6ehUQggvYa4P0MI0
-         ATWgs432Q1AFxn9UiYXALPVSPL6Vz0XZ7Qs2nzWEac+uJhEIlZDJH1qBeVtGc9272Gjt
-         6y4Q==
-X-Gm-Message-State: AOAM531vym66NN5cbJobOy7eW/TIYTkon2e0/eh2EuL5lr28xuGthNw/
-	SArU4b+fpfpIn++KTl41AWs=
-X-Google-Smtp-Source: ABdhPJxmYE6fFL4invLUFt3dFg3YZ5+ftDeLmdjsZcrc5aVK/FJDpOyCR+BMNDwh+86LRqlOwQHsLg==
-X-Received: by 2002:aca:1b05:: with SMTP id b5mr1407031oib.96.1614331396713;
-        Fri, 26 Feb 2021 01:23:16 -0800 (PST)
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3yhLyNdwvSJ58OFfFNolN3jcniceEQiGsv73syKGLNQ=;
+        b=tTfsitwkcdEi3PulfT4wLaPKP/mkh0s5q5W757hsC7NMfRASje01Id8/B2a2WTZp7p
+         Da3P0G4zx7SFqKPvShFmgkoupMYyEeXcLEm82/HFfTeIdFznLJ8DEIA7kZ+xFpreky3e
+         8nmAQfUl9z1qAmen2HlzCewu315j6K089NIby/6Cc4rYkbVSTi1pfnTOwo1qHi60XKS1
+         uJftXFCGugdiUPyt3GlWZMC3+/ZKoAtINWXVjHIkP2EyZmXSxcjZVUW//YmkRlrfr45W
+         206RM3nC4WrRogAibE6z8Low96ss/BYVweUXii/FR9uyLWADuynrezeAtqjdo11qAzdc
+         BvSg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5304jhJ278QLw88Ex4atuLjiwjJ3LUJHDeMTogWpPJ9KFMluoPEF
+	xhwrZBliT+GigkpMqtO1asQ=
+X-Google-Smtp-Source: ABdhPJzYBu3jFEt9Yw1xOX1gtSrtZDy/Sp3uNfKrczwffO0tOUXI+vH2iK6OSfFijcQyEoH55XzcOQ==
+X-Received: by 2002:a9d:6d8a:: with SMTP id x10mr1606589otp.339.1614331563189;
+        Fri, 26 Feb 2021 01:26:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:68d0:: with SMTP id i16ls2388054oto.7.gmail; Fri, 26 Feb
- 2021 01:23:16 -0800 (PST)
-X-Received: by 2002:a9d:131:: with SMTP id 46mr1554643otu.287.1614331396366;
-        Fri, 26 Feb 2021 01:23:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614331396; cv=none;
+Received: by 2002:aca:b489:: with SMTP id d131ls2168656oif.10.gmail; Fri, 26
+ Feb 2021 01:26:02 -0800 (PST)
+X-Received: by 2002:a05:6808:148f:: with SMTP id e15mr1493622oiw.120.1614331562805;
+        Fri, 26 Feb 2021 01:26:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614331562; cv=none;
         d=google.com; s=arc-20160816;
-        b=jb4lTt1yGMENaL8kt+mVTUlf8GrUblTV3V4Suezc/e0X0TRXocQyqQL/NowUV+2Mw/
-         rPtDDmRHGCEoYPxGAui9n8gVB5On+GnmsPo08rDgAGuU2cTBjukUasq6+r1wPjl2Fuk2
-         qCqiFm0nKY+7hIAHgY3ZIaEDb75pnbjCRFylE/zJPlBbI6Z2LuQctpjNgar4uWEpKKG+
-         zxLmuAX9Ka1DW3xz9cX80uKpniJ5eBKdF8MLEKF0wzMYdiQ16gw+ZcAHJRpoip5WQL3I
-         FJB6kDXSk2GtOxgyChHzhjgsAPjEw+xpRviLNnQ2eZwtfTeXowvpiC4ztUflYaQqlte9
-         3pVg==
+        b=J6fte5zRK8cZcXMtwPVgwCMHAcHAz+qrb1Ud4YlD5FctBRipW6pPjedSPhYzEALzW6
+         NwWnjEpdA5UEsHI2A81xWkH/Obg+Cnds9bOzAbMgsY5JfK7LDuSeBfQ6ItSnYLaTKKwx
+         z1XQEY0f/8JXW6uO3g7u2OeIwCP+GVH2Kta5aF9/2rcELBmGB4DWtu9k29GizFcMe0ub
+         xDONGtOZd2hkuh5AbNlC2bOB0aCHgBKDn5AQB+fF5/DdJJMQfS8T9vN837sOFBXkqn+9
+         MOkRDvK/pUraCctMeWK9oO5ocxf3E/hg/ZyRrJ+PHRA01oU2F1ySeLwmdqXm0+hBnhz4
+         3BEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:message-id:user-agent:cc:to:references:in-reply-to:from
-         :subject:content-transfer-encoding:mime-version:dmarc-filter:sender
-         :dkim-signature;
-        bh=mp7yRwPgCTm+lkMg8IO3FOrSKleFckToDfTuDIRWlJU=;
-        b=eM33Bz2fEjgkR2XiLWYrNjMOPj89SOotLLStJghIkkTHaIZziP8RQm3nWHX5EZ1s4Q
-         HTNVrqD01Tlj+PpEKAG72Nqy6KVyEesd9gyk4BP802USQ8q33CIs8yU2v3H4iUr5RYC+
-         mgVv7n9XJsqYTPWbNZ56aQXsKo88c069BR79b840Akp/vZJQko1mm+zZlI3s7wl+w1T1
-         RThtRG6vHV4jrW+ZWpNcUkArw3iovQBdMg/ozhTqTfRnMuvuqqqGIuY6zdyX57HmhddG
-         bZ6mjyonIZnGt7Bz+nNyG9Rsu/woy5O6vsEC2XCkxmcAR9hkkvGPsKziiEPW3bli01FY
-         OfDw==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zYcif3lRZCjOeSRt7zkTKeI8391Ir8d0NUzmRV348z0=;
+        b=E6IwuFoEzZvhQ6XakjCoVQM3zJGc4vSMxoVsK5h5LaH76Pig7tW1MZrJavQudKEOgp
+         SP9LLxrNj6xQsW/+y4m9jUSJYmPVkHuCsWjwOSGNa7YS6PcS8T5zfwjwYMmyow1Yunbb
+         UmiPVXJkbsrAzrWH6la8jAoJBfmqgpYTiD5n9BVkVYsWqRKcOPCuCdZn8udm1UpjaCmT
+         ptzdbk6QlHOQTdlkpwfobEktNsWRr5h/tYl/bRdgoumIm5BnLCsS/HjWgyixjzgfDNnN
+         UAl8JfTDxrKhHf7tnSyqxGNlBVhpkhTPPuXXwHutOUk4cV6plrrPiR+OK3VoORCyz73Q
+         R/kA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=p6NvmklM;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.42.2 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from m42-2.mailgun.net (m42-2.mailgun.net. [69.72.42.2])
-        by gmr-mx.google.com with UTF8SMTPS id q10si628427oon.2.2021.02.26.01.23.15
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=twcv2ssX;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd2a.google.com (mail-io1-xd2a.google.com. [2607:f8b0:4864:20::d2a])
+        by gmr-mx.google.com with ESMTPS id v26si29017otn.1.2021.02.26.01.26.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Feb 2021 01:23:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.42.2 as permitted sender) client-ip=69.72.42.2;
-X-Mailgun-Sending-Ip: 69.72.42.2
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Received: from smtp.codeaurora.org
- (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
- smtp-out-n07.prod.us-west-2.postgun.com with SMTP id
- 6038be026bec4e44c6045e22 (version=TLS1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Fri, 26 Feb 2021 09:23:14
- GMT
-Sender: kvalo=codeaurora.org@mg.codeaurora.org
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id CB0A9C433ED; Fri, 26 Feb 2021 09:23:14 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=2.0 tests=ALL_TRUSTED,BAYES_00,
-	MISSING_DATE,MISSING_MID,SPF_FAIL,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
-Received: from potku.adurom.net (88-114-240-156.elisa-laajakaista.fi [88.114.240.156])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: kvalo)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id 7D371C433CA;
-	Fri, 26 Feb 2021 09:23:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 7D371C433CA
-Content-Type: text/plain; charset="UTF-8"
+        Fri, 26 Feb 2021 01:26:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a as permitted sender) client-ip=2607:f8b0:4864:20::d2a;
+Received: by mail-io1-xd2a.google.com with SMTP id e2so5691775iog.0
+        for <clang-built-linux@googlegroups.com>; Fri, 26 Feb 2021 01:26:02 -0800 (PST)
+X-Received: by 2002:a5e:c10b:: with SMTP id v11mr2059128iol.75.1614331562170;
+ Fri, 26 Feb 2021 01:26:02 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] mt76: mt7915: fix unused 'mode' variable
-From: Kalle Valo <kvalo@codeaurora.org>
-In-Reply-To: <20210225145953.404859-1-arnd@kernel.org>
-References: <20210225145953.404859-1-arnd@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Felix Fietkau <nbd@nbd.name>,
- Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Ryder Lee <ryder.lee@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-User-Agent: pwcli/0.1.0-git (https://github.com/kvalo/pwcli/) Python/3.5.2
-Message-Id: <20210226092314.CB0A9C433ED@smtp.codeaurora.org>
-Date: Fri, 26 Feb 2021 09:23:14 +0000 (UTC)
-X-Original-Sender: kvalo@codeaurora.org
+References: <20210226062548.3334081-1-masahiroy@kernel.org>
+In-Reply-To: <20210226062548.3334081-1-masahiroy@kernel.org>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 26 Feb 2021 10:25:50 +0100
+Message-ID: <CA+icZUXYLVjs-hXEu_5Vy=TdNvOHhyiXe=hc-jc7SAU04Dtstw@mail.gmail.com>
+Subject: Re: [PATCH v2] kbuild: fix UNUSED_KSYMS_WHITELIST for Clang LTO
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Kees Cook <keescook@chromium.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=p6NvmklM;       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 69.72.42.2 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+ header.i=@gmail.com header.s=20161025 header.b=twcv2ssX;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d2a
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,39 +146,137 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Arnd Bergmann <arnd@kernel.org> wrote:
+On Fri, Feb 26, 2021 at 7:26 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Commit fbe078d397b4 ("kbuild: lto: add a default list of used symbols")
+> does not work as expected if the .config file has already specified
+> CONFIG_UNUSED_KSYMS_WHITELIST="my/own/white/list" before enabling
+> CONFIG_LTO_CLANG.
+>
+> So, the user-supplied whitelist and LTO-specific white list must be
+> independent of each other.
+>
+> I refactored the shell script so CONFIG_MODVERSIONS and CONFIG_CLANG_LTO
+> handle whitelists in the same way.
+>
+> Fixes: fbe078d397b4 ("kbuild: lto: add a default list of used symbols")
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
+>
+> Changes in v2:
+>   - Rebase on top of Arnd's patch:
+>     https://lore.kernel.org/lkml/20210225143456.3829513-1-arnd@kernel.org/
+>
+>  init/Kconfig                    |  1 -
+>  scripts/gen_autoksyms.sh        | 35 ++++++++++++++++++++++++---------
+>  scripts/lto-used-symbollist.txt |  6 ------
 
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> clang points out a possible corner case in the mt7915_tm_set_tx_cont()
-> function if called with invalid arguments:
-> 
-> drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:593:2: warning: variable 'mode' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
->         default:
->         ^~~~~~~
-> drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:597:13: note: uninitialized use occurs here
->         rateval =  mode << 6 | rate_idx;
->                    ^~~~
-> drivers/net/wireless/mediatek/mt76/mt7915/testmode.c:506:37: note: initialize the variable 'mode' to silence this warning
->         u8 rate_idx = td->tx_rate_idx, mode;
->                                            ^
-> 
-> Change it to return an error instead of continuing with invalid data
-> here.
-> 
-> Fixes: 3f0caa3cbf94 ("mt76: mt7915: add support for continuous tx in testmode")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+People who want to use their own "white-listed" (allow-listed)
+symbollist-file can do that via
+CONFIG_UNUSED_KSYMS_WHITELIST="my/own/white/list".
+Correct?
 
-Please remove the break and send v2.
+Why do you delete the default "scripts/lto-used-symbollist.txt" file
+and remove the default in the appropriate Kconfig for people who want
+to enable Clang-(Thin)LTO?
+These people should now use
+CONFIG_UNUSED_KSYMS_WHITELIST="scripts/lto-used-symbollist.txt"?
+But again - the file was deleted with your patch.
+Do I miss something?
 
-Patch set to Changes Requested.
+- Sedat -
 
--- 
-https://patchwork.kernel.org/project/linux-wireless/patch/20210225145953.404859-1-arnd@kernel.org/
-
-https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
+>  3 files changed, 26 insertions(+), 16 deletions(-)
+>  delete mode 100644 scripts/lto-used-symbollist.txt
+>
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 719871f8727c..64c32300d1b4 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -2283,7 +2283,6 @@ config TRIM_UNUSED_KSYMS
+>  config UNUSED_KSYMS_WHITELIST
+>         string "Whitelist of symbols to keep in ksymtab"
+>         depends on TRIM_UNUSED_KSYMS
+> -       default "scripts/lto-used-symbollist.txt" if LTO_CLANG
+>         help
+>           By default, all unused exported symbols will be un-exported from the
+>           build when TRIM_UNUSED_KSYMS is selected.
+> diff --git a/scripts/gen_autoksyms.sh b/scripts/gen_autoksyms.sh
+> index d54dfba15bf2..da320151e7c3 100755
+> --- a/scripts/gen_autoksyms.sh
+> +++ b/scripts/gen_autoksyms.sh
+> @@ -19,7 +19,26 @@ esac
+>  # We need access to CONFIG_ symbols
+>  . include/config/auto.conf
+>
+> -ksym_wl=/dev/null
+> +needed_symbols=
+> +
+> +# Special case for modversions (see modpost.c)
+> +if [ -n "$CONFIG_MODVERSIONS" ]; then
+> +       needed_symbols="$needed_symbols module_layout"
+> +fi
+> +
+> +# With CONFIG_LTO_CLANG, LLVM bitcode has not yet been compiled into a binary
+> +# when the .mod files are generated, which means they don't yet contain
+> +# references to certain symbols that will be present in the final binaries.
+> +if [ -n "$CONFIG_LTO_CLANG" ]; then
+> +       # intrinsic functions
+> +       needed_symbols="$needed_symbols memcpy memmove memset"
+> +       # ftrace
+> +       needed_symbols="$needed_symbols _mcount"
+> +       # stack protector symbols
+> +       needed_symbols="$needed_symbols __stack_chk_fail __stack_chk_guard"
+> +fi
+> +
+> +ksym_wl=
+>  if [ -n "$CONFIG_UNUSED_KSYMS_WHITELIST" ]; then
+>         # Use 'eval' to expand the whitelist path and check if it is relative
+>         eval ksym_wl="$CONFIG_UNUSED_KSYMS_WHITELIST"
+> @@ -40,16 +59,14 @@ cat > "$output_file" << EOT
+>  EOT
+>
+>  [ -f modules.order ] && modlist=modules.order || modlist=/dev/null
+> -sed 's/ko$/mod/' $modlist |
+> -xargs -n1 sed -n -e '2{s/ /\n/g;/^$/!p;}' -- |
+> -cat - "$ksym_wl" |
+> +
+> +{
+> +       sed 's/ko$/mod/' $modlist | xargs -n1 sed -n -e '2p'
+> +       echo "$needed_symbols"
+> +       [ -n "$ksym_wl" ] && cat "$ksym_wl"
+> +} | sed -e 's/ /\n/g' | sed -n -e '/^$/!p' |
+>  # Remove the dot prefix for ppc64; symbol names with a dot (.) hold entry
+>  # point addresses.
+>  sed -e 's/^\.//' |
+>  sort -u |
+>  sed -e 's/\(.*\)/#define __KSYM_\1 1/' >> "$output_file"
+> -
+> -# Special case for modversions (see modpost.c)
+> -if [ -n "$CONFIG_MODVERSIONS" ]; then
+> -       echo "#define __KSYM_module_layout 1" >> "$output_file"
+> -fi
+> diff --git a/scripts/lto-used-symbollist.txt b/scripts/lto-used-symbollist.txt
+> deleted file mode 100644
+> index 406ada65e926..000000000000
+> --- a/scripts/lto-used-symbollist.txt
+> +++ /dev/null
+> @@ -1,6 +0,0 @@
+> -memcpy
+> -memmove
+> -memset
+> -_mcount
+> -__stack_chk_fail
+> -__stack_chk_guard
+> --
+> 2.27.0
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210226062548.3334081-1-masahiroy%40kernel.org.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210226092314.CB0A9C433ED%40smtp.codeaurora.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUXYLVjs-hXEu_5Vy%3DTdNvOHhyiXe%3Dhc-jc7SAU04Dtstw%40mail.gmail.com.
