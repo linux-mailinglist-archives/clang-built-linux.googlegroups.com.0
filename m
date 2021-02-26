@@ -1,156 +1,136 @@
-Return-Path: <clang-built-linux+bncBDRLVLXLTULBBUWU4KAQMGQEFVYTDUQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP4ZTXNRIFBBLW34KAQMGQEWXGM3ZA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B1D2E325E83
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 08:59:14 +0100 (CET)
-Received: by mail-lf1-x13b.google.com with SMTP id k7sf3035844lfu.6
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Feb 2021 23:59:14 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614326354; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 64A2D325EB1
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 09:13:34 +0100 (CET)
+Received: by mail-wm1-x33f.google.com with SMTP id f18sf1500608wmq.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Feb 2021 00:13:34 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614327214; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HtK1u145pJTRcbzDXkPyEmqFzN1btJfCEtH37HAXwRdBaFaz9fZBS+6UlAJJxoWcRv
-         51rkpJ7b+/6SOr1yaVKXNszPU0EQlvQKVfXiCvq/oKRqs+G86Z2y9VJ6BxLLNJs5E6qL
-         AiA+TzqpqURfSFAsJs0VvWMtaEnkGobCdRluK5MDUmMNnY7jELbi3LP+xIEJsiT8tCwo
-         O8YSC5GSeo2gg/hpqexqrnBIOY5TfNI+rDv99jHcwZkjx9Eit+9RSweh2dKBcVg0sotS
-         9I8K67jY6UZDdjkWtdBP8lUbqIGaO69Fdanm9s00FTFDWOtuG6tDoCGXt0jxQvZwPxaC
-         yUnA==
+        b=bGU16d4rbWCcSFKhjuJt/DCdsyGqSpULbFl/8y7eePtcdp/MLnbz/KGrcVnblQotdX
+         aNJDVtwxgNJSg2scWIL/L2Iy1kPLh36C6rnuS5U+1i+KkOLTBmexjUtZKJY8Myzab4S/
+         Xy7/QfumXjQsp4QdDU78hsfrlKewUcD/EJvqzFxkTB8Mt13p1qEbgtyna1kSKlc/X0I5
+         /YUvQ4frHrft2PWzVdEEY9ue9kcopaQ30U2YXbCyQ2GHicFEjaoWsBE8H3qwz8LcLOYK
+         ovYCaYl1fLhBYD6yQ5oIWZSgv0WnS7i70qaaqo8ZzqAky6QPW3DxdBGbks3w7qXj0djm
+         KT1w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=UeZbrlAWINRV4VF6OvwFDH6JZg7UG4PL+yo4PPzV5v0=;
-        b=kpZy91yQcUNRCGicCZARWqpnTwcWq9+S5I5lbRxBPeYZQcWXSbCgmb24dGE+Zx0hBe
-         SQeiqwYQvOW5lt8OrVAPZc9sJHiKpZZ9VaOM6wCOQ1rQ4vPrOxm7zQ3fVRodQj4tfv6E
-         shuesIyp/MMHPZE5JZyRsOmaG1++dP6gWjEUQoY2qZCbAHBFLDdmqwPEb/FjgoXco1TK
-         YWiMIF9KbSg3nnuhPOSSfuPsWcc38cVQrTSqK+NVrdpa3ikMY6ZYVvc9yKDLJuLsRF3i
-         ZMmAEZLumTSr6sFC+PIn+6s4ER8jycMZhjnpvTNg4T5ww/eAVB5LkTpf08YMnOrxs+o9
-         GFAQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=BgScqk1jF6Xsb4GEo4HaC98weE0teFOgYY6lSKRRJcc=;
+        b=PSYlcqgtn+V2rS2GA6P2MxCcNBVCffSboiJzQZuoZMFzi7719AnQf+x8Ey4PB+BcV3
+         RhuJ40VCbkHPdedxZrmx8Jv2TQjQF7mrELMnCumlwIDgoJwIs0jqAI2j/gMz84H8iIxq
+         cVkz8ptoWiCo2skLw5ZOPFtNz9eR9g9wBdvbm+3J2HV2v7jvgkUAWjzZAt83scWVga4U
+         hpyvG11ySXcFVOZkrrOqMnlxskjU6PVnvZss4LT5tMg61IFxsQif7oCUXHvhbWIxKCgl
+         9Zn6X7ZgwSQYguBAwogSF9UAs/qZgCR5RQ2a/29J1Ku3olLM4je6pPeXdSyiuCO4drbZ
+         Wxhg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linutronix.de header.s=2020 header.b=gbarmf2Q;
-       dkim=neutral (no key) header.i=@linutronix.de;
-       spf=pass (google.com: domain of john.ogness@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=john.ogness@linutronix.de;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
+       dkim=pass header.i=@alien8.de header.s=dkim header.b=TbRfkcyf;
+       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UeZbrlAWINRV4VF6OvwFDH6JZg7UG4PL+yo4PPzV5v0=;
-        b=hZb3g3wTJvBrWTZ/LUVJktnlkMt0X5Cdf5rrH3VTAfDqDUmdW+X3wRwteQbGEwgIQl
-         MdKjROTrK9Z7Pxu1Zwh/oCMxEuqhEj/nq7pQezqnLhgEgXq2za/hiaPgAzjW4Vempnc2
-         DJEoL2S7/HPzw+nfLusCrISUYn8mR/18U1nfYjUzqsIh5RyKPaPAz/SAGY9GbADxOXk7
-         Liu/FWsjVaaooFJ4Fo0Clr5pfzaFI70nphkUBI/xxyTmpqBZASdRxAsB8lE4SUFR8OP+
-         Js4M7sZsDIu13flsaH2SE/W+wFD3uFcLfBpbIffM/wScQTZCz0DAcA1IcNhcGkWQZh7L
-         5RWg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=BgScqk1jF6Xsb4GEo4HaC98weE0teFOgYY6lSKRRJcc=;
+        b=FJX5MtSAFpOBG0X/kkgx/kiBO54mnp3JLed4CPIP1EtN4v38qzty0QhUi6OKSgQzb0
+         +t8B8SasLBtWufd5IIOiA5GW+IXRgjzXqb/iUuOBVkBUmpqd1hfYajsdeG6kLTAlLyBh
+         0G+bPh/lbP9MBYpYNN/KdJnbtwa4UnXIBX0iRmzqVsvnOMhcENpQhLXI9o8lFGbdK2Z8
+         t94G/kx+iXTmPwkVPkT8H8MKqxeTmu8c8ZGa5O3FdMCbKPi9HjufAPQmD9j/IMQHlGC9
+         KZrrEjxYT06GiQoTyjjAjDZ+B0m2vZH4TR33NZn6RmCutN3jWJJSYMVNyxTJBLkaB3vd
+         PrnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UeZbrlAWINRV4VF6OvwFDH6JZg7UG4PL+yo4PPzV5v0=;
-        b=N5kU5VKkXpXlaCp8MogO6PTB8z8KKHTPH7dmESs78Sb0sP4mHzJVxloayi8l/2rLgs
-         ioW0q8Qo88K/CojzuUjypttUq2ZGcEzauH3SsvOIIughiaXCDx4Yr9w8YFrmobbziahq
-         kacw6JTfrsbgVycC/PSZkW0uRV0Lr0FdvfgNI6nDt1TK35nMgVzt2QK90JVzf9U0g0qJ
-         TfRbI0bs3wN1aNx0tedepGNirN6HFiMvHx1tn8OJNuPIJwU9GiYBD6f1m/p//xACKffs
-         0igN8wif7Z4R5o76MjLPlibLHUW0mkc+cLGTAFzuawu1l8TEKDmx99YP1ZLce+FCXi78
-         0HDA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=BgScqk1jF6Xsb4GEo4HaC98weE0teFOgYY6lSKRRJcc=;
+        b=jt0dv30GKKYd1+4elDYxE23RB4Pokgexx6MBGjJBVCTpp7whHt9meFzDp+3yHaAIeA
+         Jv/NW5ThZu520ruKZsKTjGQCpwvTklfGxsDK1w4k5PQ3sf7F3y0vz1lc9MsdpMVWq9oh
+         P+/FeJkhj39dVUu8P01/tCl/F6Xi9qMGkllT4MRVyU4BW0xCJtuztblfcyaJy3ZqokxC
+         GRGG+dYORC5OlGCFMMVTgkRl0gCK5uqhQjlLdmq+ht9tHAxGmbqyehGU3l+BTXZ7zwVF
+         uuvG45M3zNvjMq8Pqv9FOV3Nhu+RPg7MXGojPHfrhgMOYfpkO3P50RIc0qNfpwxV1mr8
+         l/tA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Lwu+pnXG2TH7wFWLLG0K1zLmUTpYaOP4bDKG08wmUAnBmzaAR
-	lXQtOlBS331yH5h7WgQF8JQ=
-X-Google-Smtp-Source: ABdhPJwhFRy8mZJPcNrLMHUk2EKldd4L19+IUXfe/KfgGwZ4tOOIG55NPc6/XsqbSjP53MW343S8ZQ==
-X-Received: by 2002:a19:ee19:: with SMTP id g25mr1060301lfb.83.1614326354251;
-        Thu, 25 Feb 2021 23:59:14 -0800 (PST)
+X-Gm-Message-State: AOAM532qXp8GB+UZSpN0eDD+gefo0t0GpwwLB4N+WarMR51dgR1+o40K
+	k7Srwp3Nwkl699i5MKnbiWM=
+X-Google-Smtp-Source: ABdhPJy52p0pwc6yuq9Gl6IycP1jxyPU1Valqnp2DrplrHPLGJti4p8ma5Iar8D5rZ+5d+1CaoPMYA==
+X-Received: by 2002:a1c:7e85:: with SMTP id z127mr1574403wmc.131.1614327214211;
+        Fri, 26 Feb 2021 00:13:34 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b4d1:: with SMTP id r17ls1487068ljm.10.gmail; Thu, 25
- Feb 2021 23:59:13 -0800 (PST)
-X-Received: by 2002:a2e:2c0d:: with SMTP id s13mr1073779ljs.298.1614326353219;
-        Thu, 25 Feb 2021 23:59:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614326353; cv=none;
+Received: by 2002:a5d:6a89:: with SMTP id s9ls946647wru.2.gmail; Fri, 26 Feb
+ 2021 00:13:33 -0800 (PST)
+X-Received: by 2002:a5d:658d:: with SMTP id q13mr1883868wru.388.1614327213365;
+        Fri, 26 Feb 2021 00:13:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614327213; cv=none;
         d=google.com; s=arc-20160816;
-        b=x15knry7hnbGMFZXovZrmvqH/XnXuOo65N73afEfHiqPsRrhWqB+s9mE/ELHg+KOCA
-         Xndh1JRALiVbFrcYgZ6nQ/6I8zsCHRaYHNrj5xsu+7aOZ6ZbGLPnYR6J6K2iI1UmZ4QO
-         kMU9UK8w3T6SY2RLftnVgWs/8B0Si3QQ6sHwU8oYBmuWoXWeb7g4luzXTW2V2eRsbI7K
-         krdT61Qv1ae9YCnOIT2GdxSz5S7MG+b+gsaNHljbyAYXGZxL1hlO1R+2l883G2Fogl5U
-         UJAoQRIOn+h7IZMDhWCr7iH7e77z0HK3Itvcx4FnkAzzV4xgpmj9+o3r8zweyCkrP/z0
-         a1lQ==
+        b=lxw6Som7BjYiu319Q67kzKG5huBw6CkRZhoLkjcgijv/XltPeax7WiIfnyDtT1XJ8R
+         +/9pkuoaNB21OIA4LLr+lBjroA5vQdfglXzHMP9IeSdk7y7W51Wr+34avCI/VSylIKXj
+         QgriZ6+nITLG7+kY8eozAfi3woPNZupBMjrgh8x9xBAuXid23kIHVmVmieVANceJiP4y
+         3TnFGpd9R4XJvpg0iMut8wl2JMGZhR0LH63uVNFbqDXwDbxp9JgH0irvw74gkWvgs33J
+         QlBM3abz1Ff4eSl49H0Ki02R63r14rCFvpn/2EpJ4wQPDhvVnMRDA0Gmy/5iNsEeI2+D
+         mgIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :dkim-signature:dkim-signature:from;
-        bh=As1fDYfwKrjxkKoe6zW8X2eDIPaM0LZx7cH6HHLoVWs=;
-        b=0B+ClnJF7LVyApUdZpn6REmQKfLDFUVCwecbzb+8IDggufc0Y7RFQgZiXPfBKcQnQ1
-         uQCV64pmBwZu8F78rKZ901erni9bzUicuULgZnZG5gearBr/oqrNyR3A99ufFQoulwNk
-         UqkKHAzEu9gJxp7SkJvnkrSl/p1gTaDIY2/kNz9NAOqrZjQ3oJiB8HLT4aJ4dvXnS63B
-         aBNhhAfozGDL7IxQ5JsDWk/wlEcubax1jGQEc2evF0OKhTfPvYuB6qX8Ag7dIgxU+ExE
-         hX41WhV0qH49o5gtSnU00VzCX3q9csoZd/FX7t0c8SNxy33u9F5q1FAwO3pe+6a/7ULA
-         PlNQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=l1+9HfOoW+GEk2Nht8GoIcMQYtZGuUP8lH6O60vFDzA=;
+        b=WF/SStiefonnnHb+n0qdg4Pa4ToORo8po43PtYUHknrm7IieC8ydZOF/urzgJ/Mcyf
+         VBRsQ2tZiBV9ovAO1UcG3Q14q9JwkE+SvwXEaSKYyIcke8liI/FBkNkqWyLTFd/mYc7f
+         Fs7stlCekGc/73CYrNDxvwuWvPHGx7fQVtBdkl+hI8/Aw9z5CXBt2EDn5UUCmTPBmidO
+         DOB1awvpmOCyDUoAXQ62derSpz6ter8IMRu0kUkKiYD/TIPT/TK1tWXHnnfvudxCb+E9
+         ibUAscSwTd6jPPKrLUPb9whs3aDNquhNeWYTo8rzh8tnweQs2gmsyTt+zTvSzSoSkGNm
+         cyfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linutronix.de header.s=2020 header.b=gbarmf2Q;
-       dkim=neutral (no key) header.i=@linutronix.de;
-       spf=pass (google.com: domain of john.ogness@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=john.ogness@linutronix.de;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
-Received: from galois.linutronix.de (Galois.linutronix.de. [193.142.43.55])
-        by gmr-mx.google.com with ESMTPS id w10si384011lfk.12.2021.02.25.23.59.12
+       dkim=pass header.i=@alien8.de header.s=dkim header.b=TbRfkcyf;
+       spf=pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) smtp.mailfrom=bp@alien8.de;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
+Received: from mail.skyhub.de (mail.skyhub.de. [2a01:4f8:190:11c2::b:1457])
+        by gmr-mx.google.com with ESMTPS id m3si743596wme.0.2021.02.26.00.13.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Feb 2021 23:59:13 -0800 (PST)
-Received-SPF: pass (google.com: domain of john.ogness@linutronix.de designates 193.142.43.55 as permitted sender) client-ip=193.142.43.55;
-From: John Ogness <john.ogness@linutronix.de>
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
-	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Paul Mackerras <paulus@samba.org>, Jeff Dike <jdike@addtoit.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Stephen Hemminger <sthemmin@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Kees Cook <keescook@chromium.org>,
-	Anton Vorontsov <anton@enomsg.org>, Colin Cross <ccross@android.com>,
-	Tony Luck <tony.luck@intel.com>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <daniel.thompson@linaro.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Pavel Tatashin <pasha.tatashin@soleen.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Christophe Leroy <christophe.leroy@c-s.fr>,
-	Jordan Niethe <jniethe5@gmail.com>,
-	Alistair Popple <alistair@popple.id.au>,
-	Ravi Bangoria <ravi.bangoria@linux.ibm.com>,
-	Nicholas Piggin <npiggin@gmail.com>, Mike Rapoport <rppt@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Thomas Meyer <thomas@m3y3r.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Davidlohr Bueso <dave@stgolabs.net>, Oleg Nesterov <oleg@redhat.com>,
-	Wei Li <liwei391@huawei.com>,
-	Michael Kelley <mikelley@microsoft.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-um@lists.infradead.org,
-	linux-hyperv@vger.kernel.org, linux-mtd@lists.infradead.org,
-	kgdb-bugreport@lists.sourceforge.net,
-	kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH next v3 12/15] printk: introduce a kmsg_dump iterator
-In-Reply-To: <20210225202438.28985-13-john.ogness@linutronix.de>
-References: <20210225202438.28985-1-john.ogness@linutronix.de> <20210225202438.28985-13-john.ogness@linutronix.de>
-Date: Fri, 26 Feb 2021 08:59:10 +0100
-Message-ID: <87a6rrxnsh.fsf@jogness.linutronix.de>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 26 Feb 2021 00:13:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as permitted sender) client-ip=2a01:4f8:190:11c2::b:1457;
+Received: from zn.tnic (p200300ec2f08690046fe8a0234e2694f.dip0.t-ipconnect.de [IPv6:2003:ec:2f08:6900:46fe:8a02:34e2:694f])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id BDAA71EC03A0;
+	Fri, 26 Feb 2021 09:13:32 +0100 (CET)
+Date: Fri, 26 Feb 2021 09:13:27 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	the arch/x86 maintainers <x86@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, "H. Peter Anvin" <hpa@zytor.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Arnd Bergmann <arnd@kernel.org>
+Subject: Re: [PATCH] x86: mark some mpspec inline functions as __init
+Message-ID: <20210226081327.GB19284@zn.tnic>
+References: <20210225112247.2240389-1-arnd@kernel.org>
+ <20210225114533.GA380@zn.tnic>
+ <CAK8P3a0BN3p0F3UAxs9TKsHs--AiAPE0uf6126GVJNhmVTGCsw@mail.gmail.com>
+ <20210225124218.GC380@zn.tnic>
+ <CAK8P3a1ZiUHRxKr=SFgEFETLcSQeViPnR+XB2gBvbVk24vGvqQ@mail.gmail.com>
+ <CAKwvOd=B=cHpp_XfPTtyVpQyrwQrFZX9SXKw=SJC1VC-VbEwFA@mail.gmail.com>
+ <20210225213300.GF380@zn.tnic>
+ <CAKwvOdkKjOb8fS7NgFxvAwEQTp3fPjenhvehnjh5xRw=HevQ=Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: john.ogness@linutronix.de
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdkKjOb8fS7NgFxvAwEQTp3fPjenhvehnjh5xRw=HevQ=Q@mail.gmail.com>
+X-Original-Sender: bp@alien8.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linutronix.de header.s=2020 header.b=gbarmf2Q;       dkim=neutral
- (no key) header.i=@linutronix.de;       spf=pass (google.com: domain of
- john.ogness@linutronix.de designates 193.142.43.55 as permitted sender)
- smtp.mailfrom=john.ogness@linutronix.de;       dmarc=pass (p=NONE
- sp=QUARANTINE dis=NONE) header.from=linutronix.de
+ header.i=@alien8.de header.s=dkim header.b=TbRfkcyf;       spf=pass
+ (google.com: domain of bp@alien8.de designates 2a01:4f8:190:11c2::b:1457 as
+ permitted sender) smtp.mailfrom=bp@alien8.de;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=alien8.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -163,94 +143,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
+On Thu, Feb 25, 2021 at 01:58:48PM -0800, Nick Desaulniers wrote:
+> The config that reproduces it wasn't shared here; I wouldn't be
+> surprised if this was found via randconfig that enabled some config
+> that led to excessive code bloat somewhere somehow.
 
-Thank you kernel test robot!
+I'm sceptical it is the .config. As I said, those single function calls
+which I could replace by hand - the wrappers simply make the code
+cleaner. They could just as well be macros FWIW and then the inlining
+will be practically forced at preprocess time.
 
-Despite all of my efforts to carefully construct and test this series,
-somehome I managed to miss a compile test with CONFIG_MTD_OOPS. That
-kmsg_dumper does require the dumper parameter so that it can use
-container_of().
+> Oh, I don't expect everyone to; just leaving breadcrumbs showing other
+> people on thread how to fish. ;)
 
-I will discuss this with the printk team. But most likely we will just
-re-instate the dumper parameter in the callback.
+Yap, that's appreciated.
 
-I apologize for the lack of care on my part.
+> Sure, it doesn't really matter to me which way this is fixed.  I
+> personally prefer placing functions in the correct sections and
+> letting the compiler be flexible, since if all of this is to satisfy
+> some randconfig then __always_inline is making a decision for all
+> configs, but perhaps it doesn't matter.
 
-John Ogness
+I hope.
 
-On 2021-02-26, kernel test robot <lkp@intel.com> wrote:
-> Hi John,
->
-> I love your patch! Yet something to improve:
->
-> [auto build test ERROR on next-20210225]
->
-> url:    https://github.com/0day-ci/linux/commits/John-Ogness/printk-remove-logbuf_lock/20210226-043457
-> base:    7f206cf3ec2bee4621325cfacb2588e5085c07f5
-> config: arm-randconfig-r024-20210225 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project a921aaf789912d981cbb2036bdc91ad7289e1523)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm cross compiling tool for clang build
->         # apt-get install binutils-arm-linux-gnueabi
->         # https://github.com/0day-ci/linux/commit/fc7f655cded40fc98ba5304c200e3a01e8291fb4
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review John-Ogness/printk-remove-logbuf_lock/20210226-043457
->         git checkout fc7f655cded40fc98ba5304c200e3a01e8291fb4
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->>> drivers/mtd/mtdoops.c:277:45: error: use of undeclared identifier 'dumper'
->            struct mtdoops_context *cxt = container_of(dumper,
->                                                       ^
->>> drivers/mtd/mtdoops.c:277:45: error: use of undeclared identifier 'dumper'
->>> drivers/mtd/mtdoops.c:277:45: error: use of undeclared identifier 'dumper'
->    3 errors generated.
->
->
-> vim +/dumper +277 drivers/mtd/mtdoops.c
->
-> 4b23aff083649e Richard Purdie 2007-05-29  274  
-> fc7f655cded40f John Ogness    2021-02-25  275  static void mtdoops_do_dump(enum kmsg_dump_reason reason)
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  276  {
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03 @277  	struct mtdoops_context *cxt = container_of(dumper,
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  278  			struct mtdoops_context, dump);
-> fc7f655cded40f John Ogness    2021-02-25  279  	struct kmsg_dump_iter iter;
-> fc2d557c74dc58 Seiji Aguchi   2011-01-12  280  
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  281  	/* Only dump oopses if dump_oops is set */
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  282  	if (reason == KMSG_DUMP_OOPS && !dump_oops)
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  283  		return;
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  284  
-> fc7f655cded40f John Ogness    2021-02-25  285  	kmsg_dump_rewind(&iter);
-> fc7f655cded40f John Ogness    2021-02-25  286  
-> df92cad8a03e83 John Ogness    2021-02-25  287  	if (test_and_set_bit(0, &cxt->oops_buf_busy))
-> df92cad8a03e83 John Ogness    2021-02-25  288  		return;
-> fc7f655cded40f John Ogness    2021-02-25  289  	kmsg_dump_get_buffer(&iter, true, cxt->oops_buf + MTDOOPS_HEADER_SIZE,
-> e2ae715d66bf4b Kay Sievers    2012-06-15  290  			     record_size - MTDOOPS_HEADER_SIZE, NULL);
-> df92cad8a03e83 John Ogness    2021-02-25  291  	clear_bit(0, &cxt->oops_buf_busy);
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  292  
-> c1cf1d57d14922 Mark Tomlinson 2020-09-03  293  	if (reason != KMSG_DUMP_OOPS) {
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  294  		/* Panics must be written immediately */
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  295  		mtdoops_write(cxt, 1);
-> c1cf1d57d14922 Mark Tomlinson 2020-09-03  296  	} else {
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  297  		/* For other cases, schedule work to write it "nicely" */
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  298  		schedule_work(&cxt->work_write);
-> 2e386e4bac9055 Simon Kagstrom 2009-11-03  299  	}
-> c1cf1d57d14922 Mark Tomlinson 2020-09-03  300  }
-> 4b23aff083649e Richard Purdie 2007-05-29  301  
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Thx.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87a6rrxnsh.fsf%40jogness.linutronix.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210226081327.GB19284%40zn.tnic.
