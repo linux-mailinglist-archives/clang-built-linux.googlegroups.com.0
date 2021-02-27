@@ -1,47 +1,45 @@
-Return-Path: <clang-built-linux+bncBAABBRFL5CAQMGQE7QSDWTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQJP74GSUDRB6VN5CAQMGQELG4UPQI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B1C6326C8F
-	for <lists+clang-built-linux@lfdr.de>; Sat, 27 Feb 2021 10:49:57 +0100 (CET)
-Received: by mail-yb1-xb37.google.com with SMTP id n10sf349839ybb.12
-        for <lists+clang-built-linux@lfdr.de>; Sat, 27 Feb 2021 01:49:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614419396; cv=pass;
+Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 41496326C91
+	for <lists+clang-built-linux@lfdr.de>; Sat, 27 Feb 2021 10:55:08 +0100 (CET)
+Received: by mail-pf1-x43c.google.com with SMTP id a24sf5033941pfn.6
+        for <lists+clang-built-linux@lfdr.de>; Sat, 27 Feb 2021 01:55:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614419707; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wbkPxsrtXwhgKjheAcEYd7Xucy0puCYGfODO9D3Q9y3ptrcDPxhvleZ/gPPaFOrtzr
-         Yti4l8KLz2likxevZ+y0XodcEC+oKJnmGVh6Sifmj7/+Dgv0XxJgTXAH8c+85Ea9fjYJ
-         29qno1gvRAsMH7n5sKpsAB3E4o+LDYUN8vBAstVfXXYBosmuHpd0hp9QxZbkJ2yuEEGy
-         vw8J+AnEA6wqwN1Xw/0ajQSlYtzix4BEl4UgXLtl3Q9nCl+MLNstaJY+18IBX26CKGEq
-         pfT4F1LmuPsjPQYfvEBo9pUTpgXRvoDgR2jl+LQ4TVyh7LWUhpwdxOsh/tN2dt2takL3
-         4npw==
+        b=uy4hjWmyh9oWgvWHfkUklFLLyHpHbFtAQlZRYQ3IRjSq2fJirhmIpmmyiMgbBG+pHy
+         gNfW6kXT0TIhRQ9s/5G5QZuO4Bss7z4mXtgg41Lko+DKx+U4vxqOn0xA/oGRKF8QY30V
+         sdIcb1s7hBCqAM4s/CuT1H/YqpVE8u+eVbvInqWniN0ph2Pj94CP3mr7g795txuQkmHy
+         I5iYlKugRcAxx1u+aznpjY4CxBEzD34eEWYmuYDHcl4hAW5oT2/+wWrKhyG0x2VSzTqp
+         X+Jc+Bci2t7eSM2qHEAVxR37fhcv7q5ZDNa3AFpwV/gVdLuS9nfGhZRaMDY2kniNYQQQ
+         0OoA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=F5ICRfu27bkCSLa3aoGAlqBs4e6WtkdN+oK8gOqScvg=;
-        b=uJre8vX1kEBdZ+uN0Rt2hy/MFjf9mEedhGv/i88qRf14dkR5lfj+xCTkpn5YTvQhsp
-         Y37V2Q1vcjqylxYuuUw+wZCZERRNlc6To43db3UqEK8uLXodqDEoVQ5SqHjGPNHZxHUY
-         C9on1EOrytW8qp3y+kxI2h+VEzLtduaF7rDYjkGMhI00Utb7+74RR++pJ0XaJDcAe26D
-         W4fu2lmWdW3UvgNIPFqlB8GZgAl3Amt771yBKq24Sz9eiNAg41Jy82FK1laAg3RVM+Zd
-         eQy5f6dOJGFY19McESN9rg4+06Y25jBjSM1vah+6t7axx88wnBiF6TvTP1CuQ6tgFnXz
-         GlyQ==
+        bh=8/Or1Qn1pDhSC6ysUWF7PY+01hnaNvifWp4dkIob6nk=;
+        b=knls2jkC32B7KWI1H4pAtyFO/rJoWMz4JW1E3U4IAZEf98Q7ykqNgIe2Hd51PVxZlO
+         IimjNj+Uq7CnpbKdfq6HSk9bcZdSUHqxMCm1ugM9p7x9YIdAB40nRlLBV3U5xwDsbT2A
+         ILQDIJWN2GmjbrnMpkHerPfW8t6KRSnjBx21gX2n09zP8aQhGtHpUbXAG1ALdtc56one
+         OKjfZ+GEgqK4pN/1TJrNyUvWoilOpVAtdOehAbha0oDmXnnsmRI0RpFqpuh00m5lmLup
+         hnQwXMlai09Tmr4cZd1HCEQL+izCjYeVcsUkNJocH+8I8XbdOLOZdLE8lN0ZDcBH6KXT
+         q5pQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=A9aZzVI1;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.177 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=F5ICRfu27bkCSLa3aoGAlqBs4e6WtkdN+oK8gOqScvg=;
-        b=JGox98i4Gd7RD+U35Q+oMi9Nm4dgoWQX6QC2kEwrYS1GWzWDz+Znv0Hkx0epG04Aga
-         pbD058Pqrjsnnoq4nWqYWL4YfxXsEC88UR8P6yi3ahadpSVFOQmG1CeyT1FnqSqkNpJm
-         mFCqPbehoxA6y5/T2IPAAKFc1O5ZXi9YIYRocHfVsp1wUsSMK/W81rZIx62GCosvEqsO
-         uf9PEQSh7bsO1lB6xY5L08ENULWFEanw2+8SHdT4FVWtdpDGfs9PbkpFScPGWP1nmP6C
-         FnFqUHmkC8lt5WCCni1Y8aj3l5vbUmtt/BrA6pRuBDe1B2ivG/K32a11X39bw39au23X
-         4SDQ==
+        bh=8/Or1Qn1pDhSC6ysUWF7PY+01hnaNvifWp4dkIob6nk=;
+        b=PRPcgT1nPC9bGgNuTJNtme0bPBeZDP7q33ymODZOMIPcfzGcBe0Wd74GhdBiPyksCY
+         ivIrb2vzvWfaDIr3g5a5xgfc6o6bIfRCmky0c4dzi4YLfB7CuYpkDxpzvOivx8C2rrGV
+         17pYaJ6CVtzsPxI7ZOzIUHXo69p3ns2p6RfrIZCyRnZfHZo59JbRd0bZWQ37FBYr/OxM
+         NLiGOlqanG8clZ6tUXatrgHvE8BaYtUSbwaPLbv7BS9hU33NMq9Qa1MNMIjP96+ahUeW
+         BIFBbUzTRj/5vhmLIS8rcsZI4swhMSa/Um5Y9UzpQuF1Pw2jS3c1Z6EtmD9mEM2qk+4w
+         f7rQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,84 +47,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=F5ICRfu27bkCSLa3aoGAlqBs4e6WtkdN+oK8gOqScvg=;
-        b=ZpLL8/Zzsn/IicRwdvTgcS15RWZpmvHjCcoB5EhZ4/mbKlJpByRqX7NpccsyOlWDfB
-         x3uXyDh+eHJnYdqlkO5kjsV8UsB4VsNzXmtNYvT/+vVMy9ilcvhYC5Fh8wgsUUii8BIW
-         +9TwQSb/6VVm/mL1dYLntzaP0KXcSYFGn3GFVr00KXHoI3P89hwReuuypTqyqwjiXDww
-         IiDB+3YPOCoM4bg6fJZ5+T/eOXcN4lQ1EDdyL7iS7vrIr4ZaFNHPRSem2EoJ5KCj+uhM
-         vWQf1+NKOtEG4gzWQjOGKmM9xU4lEkJOOYhMaxm+/jdDImxijvuyr5ToUq+st2k976CV
-         TMGw==
+        bh=8/Or1Qn1pDhSC6ysUWF7PY+01hnaNvifWp4dkIob6nk=;
+        b=AHuBlKpbnDW8gtqVAyvEoE5W+1Xi+MSmi2d/cW85hB139jwAda2sWicg6KYXlh0xaz
+         z5rKtXoLmmyOBKg/mzhaOeq2uoVQXr3MIJb1zUXefTpHE/o9i/mRJzRyniPOM0tKpoG5
+         2eSzS4KRxryfX8EAdF0JgbpdtbOMkRqqbaG/+QlWeBLuYyHHfETSmrcjp/CbSHOthTk7
+         ZdneApRNGFpAMVgmXQggsk6MBV8zveHQvpRfPFtwByBCQYRhGRMHNgM3jBfv+x5Al1DE
+         5loNN2LJMmxAWenhcrQ1x+ivNj0W4oQkCnQTxugcA0vxm4RVYV9zfbWUj9r86NJXaOrb
+         o2iw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533w7ulxszXdDhKsMq4aGVz/XEV82sOL1111CrSdbU8IhDR6mzkD
-	GIZkcXqeMu4cT4zLNJmsKXo=
-X-Google-Smtp-Source: ABdhPJwHNSdNLAz2Qlfz+jKHDfQHWRazEtHnXJH1QSf8AQgAMwZp+RrbkdTH9kPEkk5CGV3YrMrP4Q==
-X-Received: by 2002:a5b:751:: with SMTP id s17mr10283816ybq.111.1614419396168;
-        Sat, 27 Feb 2021 01:49:56 -0800 (PST)
+X-Gm-Message-State: AOAM531ItdfqgiiM6tAvYa0+/hdSi8t67u5fSNOd7XJD6YDNsHXSgr3O
+	5SZm19Nv43CZ8/o5FtGC6cI=
+X-Google-Smtp-Source: ABdhPJwop0ACLGaV0RHPHcu2vVgWnPUoPrxt8Omc0BHgjbLIDj6nhcBxGRgXmi+mvTCW3/PMc/LBPQ==
+X-Received: by 2002:a17:902:503:b029:e4:2ce1:f0c9 with SMTP id 3-20020a1709020503b02900e42ce1f0c9mr6689627plf.52.1614419706888;
+        Sat, 27 Feb 2021 01:55:06 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d907:: with SMTP id q7ls5539292ybg.3.gmail; Sat, 27 Feb
- 2021 01:49:55 -0800 (PST)
-X-Received: by 2002:a25:482:: with SMTP id 124mr10402534ybe.315.1614419395735;
-        Sat, 27 Feb 2021 01:49:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614419395; cv=none;
+Received: by 2002:a65:5b44:: with SMTP id y4ls4507904pgr.0.gmail; Sat, 27 Feb
+ 2021 01:55:06 -0800 (PST)
+X-Received: by 2002:a05:6a00:15d2:b029:1b7:30c1:8495 with SMTP id o18-20020a056a0015d2b02901b730c18495mr6915242pfu.32.1614419706101;
+        Sat, 27 Feb 2021 01:55:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614419706; cv=none;
         d=google.com; s=arc-20160816;
-        b=FExaZDkBdcR3f+pAthKoZB/jK47Pwuct8lno42giT2mi7DmhU7rIBHqmoPN4gLyYei
-         6jIqgiccLJ3oAgLe30OYQ0om11m0Nzzp/CXMvZqc4uslFhA8vFP1dlTMXVdAScBjWxyE
-         HLIK0TCCzOHHgHXeminajybJTnfCUjM/He9+FoKzF22tiRPVno2AhjjfW5G1L5P+OZAu
-         dZKz7qtmA3a+tT7hmg+1lvdNfETbDfGv0pDwA3Vr00262sM1mTpBAnZmq+qjEaL6KVbS
-         obsFBGowaytZ6fqRiUcKaC8JkxkdROUvIx04KDweS0dSwR/hNbmN4wmlnlga58P32Ces
-         hkyg==
+        b=bYk6I8zUfe7oSdaR7UaYy90wYrqcCx1MddsT5jQ6IbdyTy07sg/RyqVs7qzUtGk4eV
+         OuOhz/Lkzc1WfMLtPBju+kAjMk4CNDbWklragmNG4OAHmgTC9PBzlwNAag4HQMubKPrg
+         CwFsq8d/OtT2HiOgBXcdUjU2PgGswngRPSXtIPTiBDbc8lhgDKUvN/1Uy83/hMz9687A
+         OTuNdxiL2RqigRtY8k+2RWuXcsfDYca3dDiNPdTI+zN5UANR0ql4msI3LyIbqx6IJw3w
+         1govg/N25NbXEGgMRsnRMw5K0U5Vnl2rxvUrtx5axAiTrFywtgGC4u5lax6+paR4Qxb/
+         cYKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=RjC8sWt6UvSuJcH8veTYzBozlM/fxqkUrQD0YLsaVtg=;
-        b=YH/1Fa+RjJttkHEensqtNkturQJv8d/RLqOSfE1+uXXnBIK6WUQQcX0rPyZ4APNCEa
-         VNa5msYy1+qYNA2q4iRhfbcAMIfSUQeLFeRoyC73S/aqhJ+mTVq/q3q4AQfI+cmViisZ
-         yewLq2Sxf1kAL5FGlfEG+UmqRuVVF7qkzVFadqVKxB4u21cmSBnzBND1gtWaI4MaTFLn
-         R1qtCkaG8gk7WFSFWiGdcuIiZZ7znv2so6TvfHF8L/SXucSSA6fy5ERvlwSG5enShTlH
-         FTzIh395iF3aFuYRN9Ak7pzNLNVSONSJf1+33TLMUW9cINPPPXDAwYm2muRzdgwVOlR8
-         f8kg==
+         :mime-version;
+        bh=2FtblZAdeGtW05dqBERy4tBfNxSBQQUNZrk6WUT7tes=;
+        b=lad/9A7KQVq35yVdAxphF28n7UfZZ6f/p//Asp6k5lTb05ruFJNGrGcyd2LwHeF7Du
+         G9N/mZFfVyvJEQOfVVI4pblyRh5o96D8IlKTQxg1iJkqbMLmvddCR09QLwjESz2bBcuM
+         6bPMRptE8L7eCymftpVny9Sh3RdgOVgzawTefy7xss00+gjbpLZQfh/WJRfOn7T5gJ7p
+         4NTbUukx+mcZiqDkzNNiW6e0S8LNFv7mKA7J6HnmPrTtdTYQqZNN+aannbP39ArkJlqB
+         u2itgGX0gEeGCWpFwtsop59CH+L80RUnN7grGjWL7zaqYYUHsMvCuCC139uTtgip/YUv
+         9YYA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=A9aZzVI1;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t17si61284ybl.2.2021.02.27.01.49.55
+       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.177 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com. [209.85.167.177])
+        by gmr-mx.google.com with ESMTPS id r7si589449pjp.3.2021.02.27.01.55.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 27 Feb 2021 01:49:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 971A464EE2
-	for <clang-built-linux@googlegroups.com>; Sat, 27 Feb 2021 09:49:54 +0000 (UTC)
-Received: by mail-oi1-f182.google.com with SMTP id w69so12591149oif.1
-        for <clang-built-linux@googlegroups.com>; Sat, 27 Feb 2021 01:49:54 -0800 (PST)
-X-Received: by 2002:aca:c381:: with SMTP id t123mr3973837oif.4.1614419393843;
- Sat, 27 Feb 2021 01:49:53 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 27 Feb 2021 01:55:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.177 as permitted sender) client-ip=209.85.167.177;
+Received: by mail-oi1-f177.google.com with SMTP id x20so12527519oie.11
+        for <clang-built-linux@googlegroups.com>; Sat, 27 Feb 2021 01:55:05 -0800 (PST)
+X-Received: by 2002:a05:6808:a0b:: with SMTP id n11mr4995768oij.161.1614419705255;
+ Sat, 27 Feb 2021 01:55:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20210225112122.2198845-1-arnd@kernel.org> <20210226211323.arkvjnr4hifxapqu@google.com>
-In-Reply-To: <20210226211323.arkvjnr4hifxapqu@google.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Sat, 27 Feb 2021 10:49:37 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a2bLKe3js4SKeZoGp8B51+rpW6G3KvpbJ5=y83sxHSu6g@mail.gmail.com>
-Message-ID: <CAK8P3a2bLKe3js4SKeZoGp8B51+rpW6G3KvpbJ5=y83sxHSu6g@mail.gmail.com>
-Subject: Re: [PATCH] [RFC] arm64: enable HAVE_LD_DEAD_CODE_DATA_ELIMINATION
-To: Fangrui Song <maskray@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Kees Cook <keescook@chromium.org>, Mark Brown <broonie@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Kristina Martsenko <kristina.martsenko@arm.com>, Ionela Voinescu <ionela.voinescu@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Andrew Scull <ascull@google.com>, 
-	David Brazdil <dbrazdil@google.com>, Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Nicholas Piggin <npiggin@gmail.com>
+References: <202102271029.FTsmHEk9-lkp@intel.com>
+In-Reply-To: <202102271029.FTsmHEk9-lkp@intel.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Sat, 27 Feb 2021 10:54:52 +0100
+Message-ID: <CAMuHMdVEpQhBTATr876LF7r3r=zEtnS=V8OFL6_0pgNWDWR0hA@mail.gmail.com>
+Subject: Re: arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no
+ previous prototype for function 'fdt_check_mem_start'
+To: kbuild test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Russell King <rmk+kernel@armlinux.org.uk>, 
+	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=A9aZzVI1;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+X-Original-Sender: geert@linux-m68k.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.177
+ as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,86 +125,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 26, 2021 at 10:13 PM 'Fangrui Song' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
+Hi Kernel Test Robot,
+
+On Sat, Feb 27, 2021 at 3:47 AM kernel test robot <lkp@intel.com> wrote:
+> FYI, the error/warning still remains.
+
+My response in
+https://lore.kernel.org/linux-arm-kernel/CAMuHMdVmMLvvJ4mAa+y8JCJ2+5Bwu2W=psgn3toC1msTghn=Xg@mail.gmail.com/
+is still valid.
+
 >
-> For folks who are interested in --gc-sections on metadata sections,
-> I want to bring you awareness of the implication of __start_/__stop_ symbols and C identifier name sections.
-> You can see https://github.com/ClangBuiltLinux/linux/issues/1307 for a summary.
-> (Its linked blog article has some examples.)
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   3fb6d0e00efc958d01c2f109c8453033a2d96796
+> commit: 0673cb38951215060d7993b43ad3c45cd413c2c3 ARM: 9045/1: uncompress: Validate start of physical memory against passed DTB
+> date:   4 weeks ago
+> config: arm-randconfig-r003-20210226 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project b889ef4214bc6dc8880fdd4badc0dcd9a3197753)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm cross compiling tool for clang build
+>         # apt-get install binutils-arm-linux-gnueabi
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0673cb38951215060d7993b43ad3c45cd413c2c3
+>         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>         git fetch --no-tags linus master
+>         git checkout 0673cb38951215060d7993b43ad3c45cd413c2c3
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
 >
-> In the kernel linker scripts, most C identifier name sections begin with double-underscore __.
-> Some are surrounded by `KEEP(...)`, some are not.
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 >
-> * A `KEEP` keyword has GC root semantics and makes ld --gc-sections ineffectful.
-> * Without `KEEP`, __start_/__stop_ references from a live input section
->    can unnecessarily retain all the associated C identifier name input
->    sections. The new ld.lld option `-z start-stop-gc` can defeat this rule.
+> All warnings (new ones prefixed by >>):
 >
-> As an example, a __start___jump_table reference from a live section
-> causes all `__jump_table` input section to be retained, even if you
-> change `KEEP(__jump_table)` to `(__jump_table)`.
-> (If you change the symbol name from `__start_${section}` to something
-> else (e.g. `__start${section}`), the rule will not apply.)
+> >> arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no previous prototype for function 'fdt_check_mem_start' [-Wmissing-prototypes]
+>    uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+>             ^
+>    arch/arm/boot/compressed/fdt_check_mem_start.c:62:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+>    ^
+>    static
+>    1 warning generated.
+>
+>
+> vim +/fdt_check_mem_start +62 arch/arm/boot/compressed/fdt_check_mem_start.c
+>
+>     46
+>     47  /*
+>     48   * Check the start of physical memory
+>     49   *
+>     50   * Traditionally, the start address of physical memory is obtained by masking
+>     51   * the program counter.  However, this does require that this address is a
+>     52   * multiple of 128 MiB, precluding booting Linux on platforms where this
+>     53   * requirement is not fulfilled.
+>     54   * Hence validate the calculated address against the memory information in the
+>     55   * DTB, and, if out-of-range, replace it by the real start address.
+>     56   * To preserve backwards compatibility (systems reserving a block of memory
+>     57   * at the start of physical memory, kdump, ...), the traditional method is
+>     58   * always used if it yields a valid address.
+>     59   *
+>     60   * Return value: start address of physical memory to use
+>     61   */
+>   > 62  uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+>
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
-I suspect the __start_* symbols are cargo-culted by many developers
-copying stuff around between kernel linker scripts, that's certainly how I
-approach making changes to it normally without a deeper understanding
-of how the linker actually works or what the different bits of syntax mean
-there.
 
-I see the original vmlinux.lds linker script showed up in linux-2.1.23, and
-it contained
 
-+  . = ALIGN(16);               /* Exception table */
-+  __start___ex_table = .;
-+  __ex_table : { *(__ex_table) }
-+  __stop___ex_table = .;
-+
-+  __start___ksymtab = .;       /* Kernel symbol table */
-+  __ksymtab : { *(__ksymtab) }
-+  __stop___ksymtab = .;
+-- 
+Gr{oetje,eeting}s,
 
-originally for arch/sparc, and shortly afterwards for i386. The magic
-__ex_table section was first used in linux-2.1.7 without a linker
-script. It's probably a good idea to try cleaning these up by using
-non-magic start/stop symbols for all sections, and relying on KEEP()
-instead where needed.
+                        Geert
 
-> There are a lot of KEEP usage. Perhaps some can be dropped to facilitate
-> ld --gc-sections.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-I see a lot of these were added by Nick Piggin (added to Cc) in this commit:
-
-commit 266ff2a8f51f02b429a987d87634697eb0d01d6a
-Author: Nicholas Piggin <npiggin@gmail.com>
-Date:   Wed May 9 22:59:58 2018 +1000
-
-    kbuild: Fix asm-generic/vmlinux.lds.h for LD_DEAD_CODE_DATA_ELIMINATION
-
-    KEEP more tables, and add the function/data section wildcard to more
-    section selections.
-
-    This is a little ad-hoc at the moment, but kernel code should be moved
-    to consistently use .text..x (note: double dots) for explicit sections
-    and all references to it in the linker script can be made with
-    TEXT_MAIN, and similarly for other sections.
-
-    For now, let's see if major architectures move to enabling this option
-    then we can do some refactoring passes. Otherwise if it remains unused
-    or superseded by LTO, this may not be required.
-
-    Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
-    Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
-
-which apparently was intentionally cautious.
-
-Unlike what Nick expected in his submission, I now think the annotations
-will be needed for LTO just like they are for --gc-sections.
-
-      Arnd
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a2bLKe3js4SKeZoGp8B51%2BrpW6G3KvpbJ5%3Dy83sxHSu6g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdVEpQhBTATr876LF7r3r%3DzEtnS%3DV8OFL6_0pgNWDWR0hA%40mail.gmail.com.
