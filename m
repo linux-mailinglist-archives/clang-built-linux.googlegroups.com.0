@@ -1,127 +1,136 @@
-Return-Path: <clang-built-linux+bncBCHI74ELZABRBP476OAQMGQEFYBXTYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWIHX4L7AKRBKNG6OAQMGQEETCNU5Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF327327D2B
-	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Mar 2021 12:28:00 +0100 (CET)
-Received: by mail-ot1-x33b.google.com with SMTP id k26sf10365544otn.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Mar 2021 03:28:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614598079; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 40D88327D73
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Mar 2021 12:42:35 +0100 (CET)
+Received: by mail-pl1-x63e.google.com with SMTP id t14sf8978700plr.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Mar 2021 03:42:35 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614598954; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LOlo+F6HIpF+a/OrqL0i7stVT6PxoXERXmgcZ/Q/u5b8u6M5DU3VI2Z3m6lD4WFZLI
-         jwn8J1Sqx45IEEa1wnexJhZm/jBqf0rj/6zCtPzxuaQ+6c5ueb/guD8RpqLa5gbVu8lC
-         I2UfF6sgKH7RfcjpK894PiP3Y6NfuT604kESajxDotzJR9NADOAcJsfcVDTB27wJgmdr
-         NOpRA+DGJTMf+p36tG0Khl6xZnc8M6rKY4lh3WEjONigmk+F3buF83qTuR6L1X4+KzoY
-         bRdHK9hr4HPPdUeo3jQt0SOVQCmPOTp44RRsAhyCVi2u7Ii8g1N1+1kAjonapb3rodF6
-         mOMg==
+        b=AU3Als4cWIe2h5rPGtRK3cjTMETGfTpiVOYuuGUJTJcG3VoGb41iyAPfc5FU7H0liq
+         6Y+U1YJQJwo7M+JufdBkuI1QzislwR0jI0eA90XdF8HgfH1lhG3mEiDDnuK7MZSETZ6V
+         j54cHBM6RbZcj1i72i0qu6/StsIu/SAz3HPcUMH6tj7yxVZAUP1lxAX6/D73TnV4rSD4
+         9JbVfiEo5/EYHiHzsXYLgex/oMcBVBC8nTFa0YZSV9k6d/mezOvS+O2+G8T3YKecLrOc
+         m3KYgMj34G/zDBK0N3294ctNCspaW8hOfG8vytp31LsQyXWKZRHVKDjkmk+vw0V2zV+0
+         kUhQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=DM0T9QnKunpyozhrZnuWgpQJlLgq0x9f0zo5NVbXuBU=;
-        b=EhUXvHedlYaP65vtkMPmjr2WaMQdOJ7alaawRRPZs9y8wprp9x3/7dlEEfwJlfvey4
-         LTpuYQwLEourJtGjyDbBIVHlYHa/6C8ZNGRYnPhlIizuD+sAekQsG8nbo2x9zK7jws5u
-         BaHdrX6hcDvlFtuCftpzTsFwRWmYx5XWmQRmAXKHSxG3NcjMFK4NqCMVB4BdU9rj/reX
-         2V2kk98tCMAUlS20s7vD8cmvNpSHpPpHcttQGyTn+h/90xL0brTixAfosgOAIaQ+VSB4
-         LEQE1foBSLI0CTRKkrmNEh5w8dA/Dm3+h2L5TKRk7PMX0EYB27/oaGBP2Fsa0yNIFQYD
-         903w==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=7su9vFWAcyGr8diPfCGkSGKWQAj+seSYg7koXaNPaiQ=;
+        b=m/d0nNL87/XzklAVaqa7fxvArud57Jv2G3jhyyP6zMi/FsLTOBN5OxDWVR6eeIS+q8
+         axp2T9eBQ/zsuwBenCLp50XZxJBONqKm1Zd9PuI/jPs4MKSuZSvuMhmHLX4ZutpBbfdW
+         qLBSQooRsOQply3r6a+2ksewBnH4yl4vFpbjs2b83Fbf3vOP/d70D5kDzEeZBukiaTCq
+         0qf2lnYo60cD7DQG3AzBNxMRysSm/PQbvIpe93G7SM3XbXDQA+uiHVIeM2Hzj7splQlI
+         rSRf586+FHBkG48R3WxkDCmGDmopeeRu+Tiu6AcOQKhbU2nqdIRklSxhDRPkRPeYBEI3
+         kmUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of linmiaohe@huawei.com designates 45.249.212.190 as permitted sender) smtp.mailfrom=linmiaohe@huawei.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=QZLP9vxK;
+       spf=pass (google.com: domain of idryomov@gmail.com designates 2607:f8b0:4864:20::d32 as permitted sender) smtp.mailfrom=idryomov@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DM0T9QnKunpyozhrZnuWgpQJlLgq0x9f0zo5NVbXuBU=;
-        b=I9VMJt/WCUVmo4CrxlFLDRnK+jSSOvy82aNjMpFugxl1jle5CMXrOlM3PKA+uUIfNd
-         T9G/XVxhjuZNLB028Qa89/8l+JBRaG54n/YdpCET05Ulb7NoOGzlEkdvkz5UbkwDQRB4
-         E4hH3RmKhIdsaGKPGHNs0sExnRcyvJgzMFqpjkCXdqPJOGfWnPelntpGH/aYWgrVbWYk
-         OkurhljuTi6bdabuBBRlPtdSh2Jnx+c8SDbVMrjF3vLePU9SkOenaA44ujXEs2cVa9mi
-         XiSoB68UcUypHvofdW4t+06zmdNITAryDsL/LRng5iMI9vPgX1o/GO2MRBcHzGqqsoKv
-         J+Pw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7su9vFWAcyGr8diPfCGkSGKWQAj+seSYg7koXaNPaiQ=;
+        b=biFkpvxfh0dDHqCFK7NN1IRuHAS+9gF65r2BFwoLgCtdSwxv/J5XcQ68LaT54VmWRX
+         4IgfieLg1xrckGfWhfMMPuQ93ZuWi+b5B46azlNIQ2ClgIC6GfOct9Kb6N+dM/7tRm/U
+         5vSIdkBCWAMomjX7OfChe6JTQWkP8iAPd5VdWMPW8Iokz5UCIjU9BEm9QlelhLhG1GBi
+         wC2DC6Ol4weKD2AQHrPYfc1k9C0PIOeOWCZWnh2OfWjVWax3+JPWt8u6huv+7pAJ/5EP
+         29EtKv064pI34VzFPHEHMk80DTK4vAe6Y1Von4283RVPQ2PDsW/8VIN4p1Wy1Ae0NNvt
+         VE4g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7su9vFWAcyGr8diPfCGkSGKWQAj+seSYg7koXaNPaiQ=;
+        b=H6WJjo6u71xLZY+m2gH5pAt+kzBAt+7Kb6oelNhpByjIjuEqtVIDgZJNf0f9BZLzh2
+         GqwZvLpGIc0F/wKrygVzaGDWz7eq8G73Ntgu9MvlH7WiCc8Z4p2lM2zzIIOuv9Bru/qp
+         aaHXleNUWlPmEuJzmPJ/RetMn9ASfEQDEm7tZG2J+xQOy12bpN6F/lypkljWoVAZVnw3
+         hKPbaOotjI3Q4XAgc5h/X2p/PbWGZEZWHM+PW3jRHNhoyGGPmL22xQiP/VSQPQGsoT3Q
+         KguGVoD9+nPmzRqPHA7J3bOhNsYjfwKCbq189BbHJ4SiIJZxliOWmPWQAo1lmowzEEfl
+         im6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=DM0T9QnKunpyozhrZnuWgpQJlLgq0x9f0zo5NVbXuBU=;
-        b=TN19qVagS4SKtOQyIdQk/S+vlGcbqJuRHc564Ek04rOObj3I3AIpTmYT0O8I6Ppe1V
-         ouibN5Pdwlw7H7p+MxLXgL/zyU6Kdae1S4pStYA8KTn20qv5Cp6CFZh5PWQE5pdpQoyc
-         Wv1onCtKbjtu6UzGCHLZq+z2c6aRoUKYOIphVgdWABUmMV7+mWQQGssfr6OYOXGPkPBw
-         Oh2h4rXyktS7N0/3Vo/K0iiFz9Enlb1zrSoaEo7j6nfdcxf85g6TqAeBFD3xjTzTG4Ta
-         g8NM5Vlwewc0ycKC9cSD4E224GOEUWEZpTOpKObBEDW9t6VMrzILPucnwZQG5bWUsz0y
-         F3KA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7su9vFWAcyGr8diPfCGkSGKWQAj+seSYg7koXaNPaiQ=;
+        b=jfuGKe+VqvA2glVU8Neu0jf+ISh66VH+Trl4kNRD7jieUtyrL4Kabldp1rMcYDZhCj
+         moro+dqNVZn4jsgm1tOp0GEl8zz7fkAhgq4Q6pqiqZlMoV67a/mYD1e+qUkoMx/kG88S
+         r7rAMOPEhqXiQZB1RUMJIuYL0RzEOg+z084ky1to9Dgz3nDEj9Av9QOzgdIFpo5MilDB
+         DthLI2rQ/OUQD8+OuAEzmtCGlzBUUmJBaJAPabeMRR9R28RRqmaACbAIvsMTfuK010GA
+         O0U5TAPP72hfQYEyFnLoGXHnHP3eUKh/ZZZlSPGOWc12hIT8mVQuj/IOXk+Nyb5EIRTS
+         PphQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530w8ASheFvFdElWsht8ef59CLzEcSXJr86aRhb37+Pm35PneguE
-	uz8o0D0bUlERN1/g3b647wg=
-X-Google-Smtp-Source: ABdhPJypDdM6xI76XhfYXmYsUfPXnfm7CYT5T0Q5HOcCrw76gkoF6t9AUvVDZbz+Q+Xx/1mNUAf3Tw==
-X-Received: by 2002:a9d:6019:: with SMTP id h25mr13144385otj.203.1614598079744;
-        Mon, 01 Mar 2021 03:27:59 -0800 (PST)
+X-Gm-Message-State: AOAM533cwFwrz1G+0boT0LfGQcBIMP3kZNVZNqV+2adzde3+hEGu0/Es
+	bDY42z6a62/mArDacKqf1RM=
+X-Google-Smtp-Source: ABdhPJyZYX/c/iqC5MqZHDhAIC4siB+uTDfSMTiZX/zS2KrE30uqIkoXXE5FeDuL9u8Vf14fryZPdg==
+X-Received: by 2002:a17:902:8643:b029:da:d5f9:28f6 with SMTP id y3-20020a1709028643b02900dad5f928f6mr15128203plt.8.1614598954016;
+        Mon, 01 Mar 2021 03:42:34 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:478e:: with SMTP id u136ls4160465oia.5.gmail; Mon, 01
- Mar 2021 03:27:59 -0800 (PST)
-X-Received: by 2002:aca:b6c1:: with SMTP id g184mr11185369oif.47.1614598079357;
-        Mon, 01 Mar 2021 03:27:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614598079; cv=none;
+Received: by 2002:a17:903:4115:: with SMTP id r21ls1357566pld.1.gmail; Mon, 01
+ Mar 2021 03:42:33 -0800 (PST)
+X-Received: by 2002:a17:902:a518:b029:e4:777d:33dd with SMTP id s24-20020a170902a518b02900e4777d33ddmr13937241plq.16.1614598953527;
+        Mon, 01 Mar 2021 03:42:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614598953; cv=none;
         d=google.com; s=arc-20160816;
-        b=iw0jSIS2oKZKjT1wbLxBi587QEyl9lwGTNh4G/uP+D/tEC3CBuGohcFCg/R02nLMRe
-         PLecEOmbzAmKLRonEczBEuZ74Mt4lnwr8TzPPj/l3q142tdxCdJeRvPcWFN0EeoKiecN
-         ORq30eUmaBcpIadWJYJCpv+X034aIm+iChBO5XCdWIJCJr+cLRcj8x3Weu6vS19WVpMd
-         J5DrKywzZpPVMlrikUkhHqiDSXOa1Y4IgqTs8bXGPabEk214qNGk6EEUilrrQUvKvpv9
-         pwEJBDNt9QJPobPGBP0suDwHznhnHYQHm9F1Nyn0/LlucgvPKGwVgQSsTzwWw6BbGx8m
-         jcGg==
+        b=bowulVS5/uDJwUx25+ogjGoKdP+1q+aS40odJNrWJGdy+QBv6JPL5KOcYjt6SjC7G9
+         Tf7VxdxDEFyWK/9eUNoWcDEU1ZM/qLeev74wGaIVG8fnVkF6YtdKdg+YA8jSa+aEpNT3
+         rMZaARPvtstOHqZwweARC4o2Qsi8/Q9avZwj7QB7f5ZiYSw6Qww43kX8tymFL7OwwntA
+         zL+JdTZtcN9bX05QQdhrUABQcloBXXsrbBhhJfJHhTz555vVPdOepSDW7Y2DSPXl7zCz
+         aEmyOQ+mxnX3ZK5eAJ+HKIUx8MUu4rcr7a5pw9uKZ+OPBstuW38sSfFflTyUD4XyEhHr
+         unNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=T0IWBCYHnRsnJnmFD4cF2PLwq3THc5oSxSMPL4d/Cs0=;
-        b=OcLQcvl1iYmIHjY5JQI1EDc+n8+44TocPJMuBNyq/G3zBdiPndU6P6SyXLHrMgUWki
-         imBkT6MLZlcEO/0i7T0i7tLvUWEbLrCuH+8WZkihYhCfw+MXvbb8BMcz4xgGopXtqX01
-         d99RWL0ZXV9NQzWblZ5L+uYtKAs6JaATdVeWsoYi9+UweEnvX0Fg9rUd1VB8Qa7n2hyM
-         BQRSxZEQgnwbeHrLMWxrcI4eX5k1PYXgu6pgXqFaKI9qp7XRlSvhyEXNp0mpfAeQLi34
-         HTKa4vArGzJ7ySS/VonvkeIp38QiVJv2ce+Hfp0GGKLkOhqQ3RE6Emqf9yovD/E/o9ko
-         NxLQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=8aINR1+Bo8I3NYfvd42QRmxd/ctoiHE+DLs7UyhEye8=;
+        b=Jdz48gaygDsBrItigWxwUdiOLyJG3sextBMaWKr7lGkr2O6x1Ddm21MpQYSdxnu3VI
+         AdIi70DdbwUSd60z5q+Us7XRkS4gAxF4cq/6OyJ7tDO2FVEufqCHxIQ5wXM3oBYXAzQG
+         RoOzS2uOlsBeYQoaGRez5bu9+BQwg3yVbMRsu/ynnCqZCm3QMFReZENIcYmGMKlEHd7p
+         0IHCvFlAZJWjxAipTHQ6aVb24DVdO4VjtmoQBuyNrTcn1aF5PzVbSMogDYbM8VEnkASf
+         t8GN4SP7aRMEx0WEiLte+389jJfkTSbJCbKxLmDOLQdz5vs3kJGa1edRtXgUWYxEFFZn
+         ezVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of linmiaohe@huawei.com designates 45.249.212.190 as permitted sender) smtp.mailfrom=linmiaohe@huawei.com
-Received: from szxga04-in.huawei.com (szxga04-in.huawei.com. [45.249.212.190])
-        by gmr-mx.google.com with ESMTPS id l18si1228372otk.3.2021.03.01.03.27.58
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=QZLP9vxK;
+       spf=pass (google.com: domain of idryomov@gmail.com designates 2607:f8b0:4864:20::d32 as permitted sender) smtp.mailfrom=idryomov@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd32.google.com (mail-io1-xd32.google.com. [2607:f8b0:4864:20::d32])
+        by gmr-mx.google.com with ESMTPS id n2si1058836pjp.2.2021.03.01.03.42.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 01 Mar 2021 03:27:59 -0800 (PST)
-Received-SPF: pass (google.com: domain of linmiaohe@huawei.com designates 45.249.212.190 as permitted sender) client-ip=45.249.212.190;
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.60])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4DpycP1WMyz16F3T;
-	Mon,  1 Mar 2021 19:25:41 +0800 (CST)
-Received: from [10.174.179.20] (10.174.179.20) by
- DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
- 14.3.498.0; Mon, 1 Mar 2021 19:27:19 +0800
-Subject: Re: [PATCH] hugetlb_cgroup: fix imbalanced css_get and css_put pair
- for shared mappings
-To: kernel test robot <lkp@intel.com>, <akpm@linux-foundation.org>,
-	<mike.kravetz@oracle.com>
-CC: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>,
-	<almasrymina@google.com>, <rientjes@google.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20210210091606.21051-1-linmiaohe@huawei.com>
- <202102102343.ZEKIAzJ1-lkp@intel.com>
-From: Miaohe Lin <linmiaohe@huawei.com>
-Message-ID: <38553e50-3271-fa50-a440-b2b0b4c44aef@huawei.com>
-Date: Mon, 1 Mar 2021 19:27:19 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 Mar 2021 03:42:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of idryomov@gmail.com designates 2607:f8b0:4864:20::d32 as permitted sender) client-ip=2607:f8b0:4864:20::d32;
+Received: by mail-io1-xd32.google.com with SMTP id p16so17351364ioj.4
+        for <clang-built-linux@googlegroups.com>; Mon, 01 Mar 2021 03:42:33 -0800 (PST)
+X-Received: by 2002:a02:6f08:: with SMTP id x8mr15431611jab.69.1614598953257;
+ Mon, 01 Mar 2021 03:42:33 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <202102102343.ZEKIAzJ1-lkp@intel.com>
+References: <202103011657.ttO1k7BO-lkp@intel.com>
+In-Reply-To: <202103011657.ttO1k7BO-lkp@intel.com>
+From: Ilya Dryomov <idryomov@gmail.com>
+Date: Mon, 1 Mar 2021 12:42:24 +0100
+Message-ID: <CAOi1vP8nq6fOC+coHdq8w63k5uq8kXHY9zgtxDs0k_aVWY88wQ@mail.gmail.com>
+Subject: Re: net/ceph/messenger_v1.c:1204:5: warning: stack frame size of 2944
+ bytes in function 'ceph_con_v1_try_read'
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
+	LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Originating-IP: [10.174.179.20]
-X-CFilter-Loop: Reflected
-X-Original-Sender: linmiaohe@huawei.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of linmiaohe@huawei.com designates 45.249.212.190 as
- permitted sender) smtp.mailfrom=linmiaohe@huawei.com
+X-Original-Sender: idryomov@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=QZLP9vxK;       spf=pass
+ (google.com: domain of idryomov@gmail.com designates 2607:f8b0:4864:20::d32
+ as permitted sender) smtp.mailfrom=idryomov@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,214 +143,301 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2021/2/10 23:32, kernel test robot wrote:
-> Hi Miaohe,
-> 
-> Thank you for the patch! Yet something to improve:
-> 
-> [auto build test ERROR on next-20210125]
-> [also build test ERROR on v5.11-rc7]
-> [cannot apply to linux/master linus/master hnaz-linux-mm/master v5.11-rc7 v5.11-rc6 v5.11-rc5]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Miaohe-Lin/hugetlb_cgroup-fix-imbalanced-css_get-and-css_put-pair-for-shared-mappings/20210210-171736
-> base:    59fa6a163ffabc1bf25c5e0e33899e268a96d3cc
-> config: arm64-randconfig-r025-20210209 (attached as .config)
-> compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
+On Mon, Mar 1, 2021 at 9:36 AM kernel test robot <lkp@intel.com> wrote:
+>
+> Hi Ilya,
+>
+> FYI, the error/warning still remains.
+>
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   fe07bfda2fb9cdef8a4d4008a409bb02f35f1bd8
+> commit: 2f713615ddd9d805b6c5e79c52e0e11af99d2bf1 libceph: move msgr1 protocol implementation to its own file
+> date:   3 months ago
+
+It's fine.  This commit just moved the code which has been this way for
+years and never caused any real issues.  Please add it to the allowlist
+if possible.
+
+> config: powerpc64-randconfig-r001-20210301 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 5de09ef02e24d234d9fc0cd1c6dfe18a1bb784b0)
 > reproduce (this is a W=1 build):
 >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
 >         chmod +x ~/bin/make.cross
->         # install arm64 cross compiling tool for clang build
->         # apt-get install binutils-aarch64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/68f4ed1b80aa7c51a921c3ad913ee7e6e00618d0
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Miaohe-Lin/hugetlb_cgroup-fix-imbalanced-css_get-and-css_put-pair-for-shared-mappings/20210210-171736
->         git checkout 68f4ed1b80aa7c51a921c3ad913ee7e6e00618d0
+>         # install powerpc64 cross compiling tool for clang build
+>         # apt-get install binutils-powerpc64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f713615ddd9d805b6c5e79c52e0e11af99d2bf1
+>         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>         git fetch --no-tags linus master
+>         git checkout 2f713615ddd9d805b6c5e79c52e0e11af99d2bf1
 >         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
-> 
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
+>
 > If you fix the issue, kindly add following tag as appropriate
 > Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
->>> mm/hugetlb.c:5222:17: error: incomplete definition of type 'struct hugetlb_cgroup'
->                            css_put(&h_cg->css);
->                                     ~~~~^
->    include/linux/hugetlb_cgroup.h:20:8: note: forward declaration of 'struct hugetlb_cgroup'
->    struct hugetlb_cgroup;
->           ^
->    1 error generated.
-> 
+>
+> All warnings (new ones prefixed by >>):
+>
+>    __do_insb
+>    ^
+>    arch/powerpc/include/asm/io.h:541:56: note: expanded from macro '__do_insb'
+>    #define __do_insb(p, b, n)      readsb((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+>                                           ~~~~~~~~~~~~~~~~~~~~~^
+>    In file included from net/ceph/messenger_v1.c:8:
+>    In file included from include/net/sock.h:38:
+>    In file included from include/linux/hardirq.h:10:
+>    In file included from arch/powerpc/include/asm/hardirq.h:6:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/powerpc/include/asm/io.h:604:
+>    arch/powerpc/include/asm/io-defs.h:45:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>    DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>                    __do_##name al;                                 \
+>                    ^~~~~~~~~~~~~~
+>    <scratch space>:32:1: note: expanded from here
+>    __do_insw
+>    ^
+>    arch/powerpc/include/asm/io.h:542:56: note: expanded from macro '__do_insw'
+>    #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+>                                           ~~~~~~~~~~~~~~~~~~~~~^
+>    In file included from net/ceph/messenger_v1.c:8:
+>    In file included from include/net/sock.h:38:
+>    In file included from include/linux/hardirq.h:10:
+>    In file included from arch/powerpc/include/asm/hardirq.h:6:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/powerpc/include/asm/io.h:604:
+>    arch/powerpc/include/asm/io-defs.h:47:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>    DEF_PCI_AC_NORET(insl, (unsigned long p, void *b, unsigned long c),
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>                    __do_##name al;                                 \
+>                    ^~~~~~~~~~~~~~
+>    <scratch space>:36:1: note: expanded from here
+>    __do_insl
+>    ^
+>    arch/powerpc/include/asm/io.h:543:56: note: expanded from macro '__do_insl'
+>    #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+>                                           ~~~~~~~~~~~~~~~~~~~~~^
+>    In file included from net/ceph/messenger_v1.c:8:
+>    In file included from include/net/sock.h:38:
+>    In file included from include/linux/hardirq.h:10:
+>    In file included from arch/powerpc/include/asm/hardirq.h:6:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/powerpc/include/asm/io.h:604:
+>    arch/powerpc/include/asm/io-defs.h:49:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>    DEF_PCI_AC_NORET(outsb, (unsigned long p, const void *b, unsigned long c),
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>                    __do_##name al;                                 \
+>                    ^~~~~~~~~~~~~~
+>    <scratch space>:40:1: note: expanded from here
+>    __do_outsb
+>    ^
+>    arch/powerpc/include/asm/io.h:544:58: note: expanded from macro '__do_outsb'
+>    #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+>                                            ~~~~~~~~~~~~~~~~~~~~~^
+>    In file included from net/ceph/messenger_v1.c:8:
+>    In file included from include/net/sock.h:38:
+>    In file included from include/linux/hardirq.h:10:
+>    In file included from arch/powerpc/include/asm/hardirq.h:6:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/powerpc/include/asm/io.h:604:
+>    arch/powerpc/include/asm/io-defs.h:51:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>    DEF_PCI_AC_NORET(outsw, (unsigned long p, const void *b, unsigned long c),
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>                    __do_##name al;                                 \
+>                    ^~~~~~~~~~~~~~
+>    <scratch space>:44:1: note: expanded from here
+>    __do_outsw
+>    ^
+>    arch/powerpc/include/asm/io.h:545:58: note: expanded from macro '__do_outsw'
+>    #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+>                                            ~~~~~~~~~~~~~~~~~~~~~^
+>    In file included from net/ceph/messenger_v1.c:8:
+>    In file included from include/net/sock.h:38:
+>    In file included from include/linux/hardirq.h:10:
+>    In file included from arch/powerpc/include/asm/hardirq.h:6:
+>    In file included from include/linux/irq.h:20:
+>    In file included from include/linux/io.h:13:
+>    In file included from arch/powerpc/include/asm/io.h:604:
+>    arch/powerpc/include/asm/io-defs.h:53:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>    DEF_PCI_AC_NORET(outsl, (unsigned long p, const void *b, unsigned long c),
+>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>                    __do_##name al;                                 \
+>                    ^~~~~~~~~~~~~~
+>    <scratch space>:48:1: note: expanded from here
+>    __do_outsl
+>    ^
+>    arch/powerpc/include/asm/io.h:546:58: note: expanded from macro '__do_outsl'
+>    #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+>                                            ~~~~~~~~~~~~~~~~~~~~~^
+> >> net/ceph/messenger_v1.c:1204:5: warning: stack frame size of 2944 bytes in function 'ceph_con_v1_try_read' [-Wframe-larger-than=]
+>    int ceph_con_v1_try_read(struct ceph_connection *con)
+>        ^
+>    13 warnings generated.
+>
+>
+> vim +/ceph_con_v1_try_read +1204 net/ceph/messenger_v1.c
+>
+>   1200
+>   1201  /*
+>   1202   * Read what we can from the socket.
+>   1203   */
+> > 1204  int ceph_con_v1_try_read(struct ceph_connection *con)
+>   1205  {
+>   1206          int ret = -1;
+>   1207
+>   1208  more:
+>   1209          dout("try_read start %p state %d\n", con, con->state);
+>   1210          if (con->state != CEPH_CON_S_V1_BANNER &&
+>   1211              con->state != CEPH_CON_S_V1_CONNECT_MSG &&
+>   1212              con->state != CEPH_CON_S_OPEN)
+>   1213                  return 0;
+>   1214
+>   1215          BUG_ON(!con->sock);
+>   1216
+>   1217          dout("try_read tag %d in_base_pos %d\n", (int)con->in_tag,
+>   1218               con->in_base_pos);
+>   1219
+>   1220          if (con->state == CEPH_CON_S_V1_BANNER) {
+>   1221                  ret = read_partial_banner(con);
+>   1222                  if (ret <= 0)
+>   1223                          goto out;
+>   1224                  ret = process_banner(con);
+>   1225                  if (ret < 0)
+>   1226                          goto out;
+>   1227
+>   1228                  con->state = CEPH_CON_S_V1_CONNECT_MSG;
+>   1229
+>   1230                  /*
+>   1231                   * Received banner is good, exchange connection info.
+>   1232                   * Do not reset out_kvec, as sending our banner raced
+>   1233                   * with receiving peer banner after connect completed.
+>   1234                   */
+>   1235                  ret = prepare_write_connect(con);
+>   1236                  if (ret < 0)
+>   1237                          goto out;
+>   1238                  prepare_read_connect(con);
+>   1239
+>   1240                  /* Send connection info before awaiting response */
+>   1241                  goto out;
+>   1242          }
+>   1243
+>   1244          if (con->state == CEPH_CON_S_V1_CONNECT_MSG) {
+>   1245                  ret = read_partial_connect(con);
+>   1246                  if (ret <= 0)
+>   1247                          goto out;
+>   1248                  ret = process_connect(con);
+>   1249                  if (ret < 0)
+>   1250                          goto out;
+>   1251                  goto more;
+>   1252          }
+>   1253
+>   1254          WARN_ON(con->state != CEPH_CON_S_OPEN);
+>   1255
+>   1256          if (con->in_base_pos < 0) {
+>   1257                  /*
+>   1258                   * skipping + discarding content.
+>   1259                   */
+>   1260                  ret = ceph_tcp_recvmsg(con->sock, NULL, -con->in_base_pos);
+>   1261                  if (ret <= 0)
+>   1262                          goto out;
+>   1263                  dout("skipped %d / %d bytes\n", ret, -con->in_base_pos);
+>   1264                  con->in_base_pos += ret;
+>   1265                  if (con->in_base_pos)
+>   1266                          goto more;
+>   1267          }
+>   1268          if (con->in_tag == CEPH_MSGR_TAG_READY) {
+>   1269                  /*
+>   1270                   * what's next?
+>   1271                   */
+>   1272                  ret = ceph_tcp_recvmsg(con->sock, &con->in_tag, 1);
+>   1273                  if (ret <= 0)
+>   1274                          goto out;
+>   1275                  dout("try_read got tag %d\n", (int)con->in_tag);
+>   1276                  switch (con->in_tag) {
+>   1277                  case CEPH_MSGR_TAG_MSG:
+>   1278                          prepare_read_message(con);
+>   1279                          break;
+>   1280                  case CEPH_MSGR_TAG_ACK:
+>   1281                          prepare_read_ack(con);
+>   1282                          break;
+>   1283                  case CEPH_MSGR_TAG_KEEPALIVE2_ACK:
+>   1284                          prepare_read_keepalive_ack(con);
+>   1285                          break;
+>   1286                  case CEPH_MSGR_TAG_CLOSE:
+>   1287                          ceph_con_close_socket(con);
+>   1288                          con->state = CEPH_CON_S_CLOSED;
+>   1289                          goto out;
+>   1290                  default:
+>   1291                          goto bad_tag;
+>   1292                  }
+>   1293          }
+>   1294          if (con->in_tag == CEPH_MSGR_TAG_MSG) {
+>   1295                  ret = read_partial_message(con);
+>   1296                  if (ret <= 0) {
+>   1297                          switch (ret) {
+>   1298                          case -EBADMSG:
+>   1299                                  con->error_msg = "bad crc/signature";
+>   1300                                  fallthrough;
+>   1301                          case -EBADE:
+>   1302                                  ret = -EIO;
+>   1303                                  break;
+>   1304                          case -EIO:
+>   1305                                  con->error_msg = "io error";
+>   1306                                  break;
+>   1307                          }
+>   1308                          goto out;
+>   1309                  }
+>   1310                  if (con->in_tag == CEPH_MSGR_TAG_READY)
+>   1311                          goto more;
+>   1312                  ceph_con_process_message(con);
+>   1313                  if (con->state == CEPH_CON_S_OPEN)
+>   1314                          prepare_read_tag(con);
+>   1315                  goto more;
+>   1316          }
+>   1317          if (con->in_tag == CEPH_MSGR_TAG_ACK ||
+>   1318              con->in_tag == CEPH_MSGR_TAG_SEQ) {
+>   1319                  /*
+>   1320                   * the final handshake seq exchange is semantically
+>   1321                   * equivalent to an ACK
+>   1322                   */
+>   1323                  ret = read_partial_ack(con);
+>   1324                  if (ret <= 0)
+>   1325                          goto out;
+>   1326                  process_ack(con);
+>   1327                  goto more;
+>   1328          }
+>   1329          if (con->in_tag == CEPH_MSGR_TAG_KEEPALIVE2_ACK) {
+>   1330                  ret = read_keepalive_ack(con);
+>   1331                  if (ret <= 0)
+>   1332                          goto out;
+>   1333                  goto more;
+>   1334          }
+>   1335
+>   1336  out:
+>   1337          dout("try_read done on %p ret %d\n", con, ret);
+>   1338          return ret;
+>   1339
+>   1340  bad_tag:
+>   1341          pr_err("try_read bad con->in_tag = %d\n", (int)con->in_tag);
+>   1342          con->error_msg = "protocol error, garbage tag";
+>   1343          ret = -1;
+>   1344          goto out;
+>   1345  }
+>   1346
 
-Sorry for late respond. Will fix this. Thanks!
+Thanks,
 
-> 
-> vim +5222 mm/hugetlb.c
-> 
->   5091	
->   5092	/* Return true if reservation was successful, false otherwise.  */
->   5093	bool hugetlb_reserve_pages(struct inode *inode,
->   5094						long from, long to,
->   5095						struct vm_area_struct *vma,
->   5096						vm_flags_t vm_flags)
->   5097	{
->   5098		long chg, add = -1;
->   5099		struct hstate *h = hstate_inode(inode);
->   5100		struct hugepage_subpool *spool = subpool_inode(inode);
->   5101		struct resv_map *resv_map;
->   5102		struct hugetlb_cgroup *h_cg = NULL;
->   5103		long gbl_reserve, regions_needed = 0;
->   5104	
->   5105		/* This should never happen */
->   5106		if (from > to) {
->   5107			VM_WARN(1, "%s called with a negative range\n", __func__);
->   5108			return false;
->   5109		}
->   5110	
->   5111		/*
->   5112		 * Only apply hugepage reservation if asked. At fault time, an
->   5113		 * attempt will be made for VM_NORESERVE to allocate a page
->   5114		 * without using reserves
->   5115		 */
->   5116		if (vm_flags & VM_NORESERVE)
->   5117			return true;
->   5118	
->   5119		/*
->   5120		 * Shared mappings base their reservation on the number of pages that
->   5121		 * are already allocated on behalf of the file. Private mappings need
->   5122		 * to reserve the full area even if read-only as mprotect() may be
->   5123		 * called to make the mapping read-write. Assume !vma is a shm mapping
->   5124		 */
->   5125		if (!vma || vma->vm_flags & VM_MAYSHARE) {
->   5126			/*
->   5127			 * resv_map can not be NULL as hugetlb_reserve_pages is only
->   5128			 * called for inodes for which resv_maps were created (see
->   5129			 * hugetlbfs_get_inode).
->   5130			 */
->   5131			resv_map = inode_resv_map(inode);
->   5132	
->   5133			chg = region_chg(resv_map, from, to, &regions_needed);
->   5134	
->   5135		} else {
->   5136			/* Private mapping. */
->   5137			resv_map = resv_map_alloc();
->   5138			if (!resv_map)
->   5139				return false;
->   5140	
->   5141			chg = to - from;
->   5142	
->   5143			set_vma_resv_map(vma, resv_map);
->   5144			set_vma_resv_flags(vma, HPAGE_RESV_OWNER);
->   5145		}
->   5146	
->   5147		if (chg < 0)
->   5148			goto out_err;
->   5149	
->   5150		if (hugetlb_cgroup_charge_cgroup_rsvd(hstate_index(h),
->   5151					chg * pages_per_huge_page(h), &h_cg) < 0)
->   5152			goto out_err;
->   5153	
->   5154		if (vma && !(vma->vm_flags & VM_MAYSHARE) && h_cg) {
->   5155			/* For private mappings, the hugetlb_cgroup uncharge info hangs
->   5156			 * of the resv_map.
->   5157			 */
->   5158			resv_map_set_hugetlb_cgroup_uncharge_info(resv_map, h_cg, h);
->   5159		}
->   5160	
->   5161		/*
->   5162		 * There must be enough pages in the subpool for the mapping. If
->   5163		 * the subpool has a minimum size, there may be some global
->   5164		 * reservations already in place (gbl_reserve).
->   5165		 */
->   5166		gbl_reserve = hugepage_subpool_get_pages(spool, chg);
->   5167		if (gbl_reserve < 0)
->   5168			goto out_uncharge_cgroup;
->   5169	
->   5170		/*
->   5171		 * Check enough hugepages are available for the reservation.
->   5172		 * Hand the pages back to the subpool if there are not
->   5173		 */
->   5174		if (hugetlb_acct_memory(h, gbl_reserve) < 0)
->   5175			goto out_put_pages;
->   5176	
->   5177		/*
->   5178		 * Account for the reservations made. Shared mappings record regions
->   5179		 * that have reservations as they are shared by multiple VMAs.
->   5180		 * When the last VMA disappears, the region map says how much
->   5181		 * the reservation was and the page cache tells how much of
->   5182		 * the reservation was consumed. Private mappings are per-VMA and
->   5183		 * only the consumed reservations are tracked. When the VMA
->   5184		 * disappears, the original reservation is the VMA size and the
->   5185		 * consumed reservations are stored in the map. Hence, nothing
->   5186		 * else has to be done for private mappings here
->   5187		 */
->   5188		if (!vma || vma->vm_flags & VM_MAYSHARE) {
->   5189			add = region_add(resv_map, from, to, regions_needed, h, h_cg);
->   5190	
->   5191			if (unlikely(add < 0)) {
->   5192				hugetlb_acct_memory(h, -gbl_reserve);
->   5193				goto out_put_pages;
->   5194			} else if (unlikely(chg > add)) {
->   5195				/*
->   5196				 * pages in this range were added to the reserve
->   5197				 * map between region_chg and region_add.  This
->   5198				 * indicates a race with alloc_huge_page.  Adjust
->   5199				 * the subpool and reserve counts modified above
->   5200				 * based on the difference.
->   5201				 */
->   5202				long rsv_adjust;
->   5203	
->   5204				/*
->   5205				 * hugetlb_cgroup_uncharge_cgroup_rsvd() will put the
->   5206				 * reference to h_cg->css. See comment below for detail.
->   5207				 */
->   5208				hugetlb_cgroup_uncharge_cgroup_rsvd(
->   5209					hstate_index(h),
->   5210					(chg - add) * pages_per_huge_page(h), h_cg);
->   5211	
->   5212				rsv_adjust = hugepage_subpool_put_pages(spool,
->   5213									chg - add);
->   5214				hugetlb_acct_memory(h, -rsv_adjust);
->   5215			} else if (h_cg) {
->   5216				/*
->   5217				 * The file_regions will hold their own reference to
->   5218				 * h_cg->css. So we should release the reference held
->   5219				 * via hugetlb_cgroup_charge_cgroup_rsvd() when we are
->   5220				 * done.
->   5221				 */
->> 5222				css_put(&h_cg->css);
->   5223			}
->   5224		}
->   5225		return true;
->   5226	
->   5227	out_put_pages:
->   5228		/* put back original number of pages, chg */
->   5229		(void)hugepage_subpool_put_pages(spool, chg);
->   5230	out_uncharge_cgroup:
->   5231		hugetlb_cgroup_uncharge_cgroup_rsvd(hstate_index(h),
->   5232						    chg * pages_per_huge_page(h), h_cg);
->   5233	out_err:
->   5234		if (!vma || vma->vm_flags & VM_MAYSHARE)
->   5235			/* Only call region_abort if the region_chg succeeded but the
->   5236			 * region_add failed or didn't run.
->   5237			 */
->   5238			if (chg >= 0 && add < 0)
->   5239				region_abort(resv_map, from, to, regions_needed);
->   5240		if (vma && is_vma_resv_set(vma, HPAGE_RESV_OWNER))
->   5241			kref_put(&resv_map->refs, resv_map_release);
->   5242		return false;
->   5243	}
->   5244	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+                Ilya
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/38553e50-3271-fa50-a440-b2b0b4c44aef%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAOi1vP8nq6fOC%2BcoHdq8w63k5uq8kXHY9zgtxDs0k_aVWY88wQ%40mail.gmail.com.
