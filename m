@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDQ2L75W5QGBBHPW6WAQMGQE4XCG4IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2L75W5QGBBGHW6WAQMGQEYJO42DY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id 458B4329544
-	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Mar 2021 00:39:11 +0100 (CET)
-Received: by mail-pj1-x1040.google.com with SMTP id gv10sf635161pjb.3
-        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Mar 2021 15:39:11 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614641950; cv=pass;
+Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3AACB329542
+	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Mar 2021 00:39:06 +0100 (CET)
+Received: by mail-io1-xd3e.google.com with SMTP id v5sf14586709ioq.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 Mar 2021 15:39:06 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614641945; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ELJnJ0csoJcfZjSe+VSVsVELJmaIbxIGEwVHMS+Tw4wH3CAvyfdD+BukTZyJiD4ve8
-         Auk0t3lCpXmZC+SWAvO9hIc1XgUb+q4CELzchCj09b16uU+RTapsOv2LzDg8jmjLjNou
-         b2K1QRr42paTW7SuqxBPPF0crnnf9d8RkeDCe9qyNPcewIUYCvz67EyrRbwy2hUshETM
-         rWSXPvr3ckrsO9vfL3G9EHtUWPP/hQwJi2tf/YYw6WA4OothCWGlbrmy2Sb0RUGZa7OB
-         FlnjFaK/r5tfIrT3IHbNA720SNTEbWOJ1Fs43J0H+0CEf1PGgqMf+usWDKSnjHr/D5p9
-         5//g==
+        b=qzJcaEixKN83YDZa04yOw57E3z4g01V61wc+Aju2AaGNkILxbr9D09B6GdNkVzPaM3
+         SLNNELhMZMC8fX1614EOTsdSG6HtnoRtN97VV3A9YoExBdF0BbrCx4pX53hMsyU4aIdJ
+         C0naDKWSC9hG/oNBxe6gQxIA62iC2wOb3eP8r56BJpCo9kUQWMU0vGesAwz4GO6tjb2p
+         Jq9/k7smcZS82vmGnGiEmHptsZ2sTYfHkLYDasXMKFCkwJDeQlEMvXDyGAOtvRA16BWP
+         zJEmTGqkAhRmqA+GGLUiWF7ieU42DLo6QQTbW78lhW5C4za2tBiuob8DYUj7Fj3X9EV/
+         gkoA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:date:message-id
          :subject:references:in-reply-to:cc:to:from:sender:dkim-signature;
-        bh=lbdIgHRpQ5lZJX8G5TBjXl3IC5j5oDfpAtFV3JL7bfE=;
-        b=IsEFWmfda4M8Vis77hMmSKWDvqScK2ZbZ4S4XGouYiVpgVmpxWfswrxUAWdRbV0TSy
-         f3wJGCS6rL+ciY3Qn08Ps4437Mv4y/5PpJ8UW4C+TjU3YTvKztE3f2/Snpo6aSVGFTVs
-         CCHCYSA830UauJtHHltVg9f6BbTImzMKzPG2IbHKM8l2zOdMeGAE/c4JrGKawHGjvpKR
-         5WG1iT64r9eyWxzhWxP8sAgRWVI4SuWsfbKJ7KJsNUQsPy1e7GEmTT8XBR+uHaq1qeks
-         f9H0r37WYYjMVAHJs2NlIixe7HLKbobMLeekMMyFm3ZkmxsJPdvCPyoe/Q1CycvsszE8
-         DxzA==
+        bh=DNKtk/MxIbirJ3eZuCIE2TcYM1p6cptrIG6cejDWhog=;
+        b=JGzueefe2PA1aeA60Fs8krM2qole2nyKHo02hxiiGbtHKCZS0bVILKVUhvY6c72yZ5
+         q3M0G8c8ytv/vmy3kmMiKMz0Nl+nMakRVSQJnaGVNGRLy4nHcPxYxKRTbhuZIPad3G1l
+         FG4VwId40vCckjLioJFywzk7v8zT1LIsH6Idb7iP75YTWqi+asPeNSuZMS49lH/ElpxV
+         Z3k3EUbcewP5AwZSjo32eBrnVyh8nH7D2ljJw4HpUlp/2e3ShODAc9XNaBA9r6bkz1fp
+         oNEr0pxLHfuTn1LZT97fKmihOu3XF0BxmSK462ShwPzMxBQKV2ouCDnHHbWEKou2ZiUq
+         UX4g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="ge/cQFMM";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="GcmFDVy/";
        spf=pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=broonie@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lbdIgHRpQ5lZJX8G5TBjXl3IC5j5oDfpAtFV3JL7bfE=;
-        b=iQDfAZXPdEnmNgAx1jBeXc7i3rPVG2kG03+P6i1p4oqBSwpUw4b7fApjQnZBxqpnuj
-         y4LnJFHm66ivNjI8mGHkHgsJexiSbxxgWiwXc+SLXPfT1SLrtxQuCF/Zn4Fx1nH3wq6B
-         xGattZoaaa9nJVKxMPW3LQrDUdYkfw4VuKvf/hxW7CXa1ViOlTGlv32XufZeAMe0mSGm
-         jqU0mBxJ1HI1OhVMbW9kR7FQLtjezCSawZ6xgmrH82HSNuqLm0hk+C5E5z4P1XDx2rb6
-         OczjXyEdkb7hRUTgDh4n5K/mpJK/xLWwkg7aqoNqJBnFfSrS9Oj/auJ2N+HyU/o/gH5/
-         wMdg==
+        bh=DNKtk/MxIbirJ3eZuCIE2TcYM1p6cptrIG6cejDWhog=;
+        b=BvqB1B5rY1XqnBU+Kvh3MmCYUN+6GEfHEZ/f2c0hzehLhhoHTHnyCxrRzSISEU6wbd
+         owrZkOpzUkXPXfQnpC/rM0xmUruOs6h6b78JYWyLbU6VMrJCKVVfNCyQam1oB5gWcrMB
+         0CNX3APZZydjJBAOgodN/GIeQYquZ+hhtYDLFJetoOU1gzM0E987v7ulDlIfk4JO/X0N
+         0Wuvb1JRf8TWb+aLnGEHZvcZq0skM2Gt8pI6RwSSYf0igLRbzcYyjHwPAtJrlRSEm8DO
+         4JRaS6EbqGUh1zkd0u67HQV+tKsT8ifj+3Ow0qOBND+pfwd5XwwnjZfOLrWGzxMvpltE
+         UrbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:in-reply-to:references:subject
@@ -49,67 +49,67 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lbdIgHRpQ5lZJX8G5TBjXl3IC5j5oDfpAtFV3JL7bfE=;
-        b=JLbGVLFeD5ccZxjUczIp9bOZzLizzSLdUsnKkYW2YvDNMd7h4+/MisFSui4YOPSSU4
-         9XtfNp+7lPCQR07fdS3pWDFNx+ZRdoz5NBt50XpOGdk3vjccPKe5snNVAu8LhWVSkVP8
-         evAWDNJBk6zZ1x6bmqJJki6c99+bZblS7AmwANSwvR9QfVQZihV6v37r8UiRwWgW7ryU
-         Bg8SbkpmBt+beGrd6GofSm2BmWvu6WTuOr2BI9XV1EIdpyHo+mspDBVfUc1Jg/ZaKsng
-         zU0C4dohNFDa62VCT4FpjBCh+klO3DaSWMViEag1HlV54o81MKIhuFQhQPG5bRd7CMen
-         +wBg==
+        bh=DNKtk/MxIbirJ3eZuCIE2TcYM1p6cptrIG6cejDWhog=;
+        b=CE7Nrijp+27xHGryys3AAjdOOeIYmrRh2+z3VzvQbBdRQjnT+2QIK2vHya7vD3v7bM
+         x+YdteZn5I6UXDGwNsArkLs5kp3WesOoOHFcKLzQdTKZnF5QVfM9jjYj8gXEeDUybuen
+         UXYAS+hrwak7jxqjROn7v21V4ktNRLZdqkRrtmPD6eqpI+GqSnVEkUb2mfOKqFCyy2/D
+         Gm2F6llpg2GUOaRCan3DWBth1vha65dCymEm1YSwY3urgGZn7MIN2+2m8aBQ9Z4pPgIS
+         T98dd+njBnqKcNI6pgoRNZ3S5Cdy1Oz6DvcsOFt6ct3MOeRudgvtjL0mEX6lluvkrfs1
+         /VgA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531IgVMzRgVK0IwsCtUP1f/KG8qOrJiH1S1L9+35iMvfrjvHjkwl
-	zPDf6Y9t3mP9gq31o9S3VjA=
-X-Google-Smtp-Source: ABdhPJwdARKOT03DqYZu1BCECOYbbuwmjys/GJiY0zRv0urTO6NEWb9SogNg9gemovj6XLK8LApoWQ==
-X-Received: by 2002:a63:1843:: with SMTP id 3mr16004571pgy.253.1614641949885;
-        Mon, 01 Mar 2021 15:39:09 -0800 (PST)
+X-Gm-Message-State: AOAM531mXHbiKqelMszS70M7aFdqRAqv+4HVrirPVAlO8C+MutLwkrCL
+	84/2WGJLhEHvES6SFi0IAbU=
+X-Google-Smtp-Source: ABdhPJyAjg8E8eS9LtCsJ9jvaca1QAq1ea7BIjYFpOwhSNGLBsVXEC7t+59LkL4ehGe8Yc2mKnv7Vw==
+X-Received: by 2002:a05:6e02:1c2c:: with SMTP id m12mr15934502ilh.173.1614641944858;
+        Mon, 01 Mar 2021 15:39:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:6a11:: with SMTP id m17ls6991639pgu.6.gmail; Mon, 01 Mar
- 2021 15:39:09 -0800 (PST)
-X-Received: by 2002:a62:7a88:0:b029:1ee:174:7c22 with SMTP id v130-20020a627a880000b02901ee01747c22mr768767pfc.35.1614641949403;
-        Mon, 01 Mar 2021 15:39:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614641949; cv=none;
+Received: by 2002:a02:c902:: with SMTP id t2ls431927jao.9.gmail; Mon, 01 Mar
+ 2021 15:39:04 -0800 (PST)
+X-Received: by 2002:a05:6638:14c:: with SMTP id y12mr18138494jao.34.1614641944607;
+        Mon, 01 Mar 2021 15:39:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614641944; cv=none;
         d=google.com; s=arc-20160816;
-        b=WUUFsW1sF8BJJu8g5rkfk+sMkXJHb2C4dQgokBptqWoGM0H9jq8Z3RgbcjSUyqgz28
-         D3ej3NvAqGjceiLKWhMULZbb1oVfL8Y6woePY9m6dA5xyck9GrAtWt0Q5rniD20POu2L
-         ZqxyQH1h6dwp92P3f+fwey9+CwcqCmTtVGEvFhhMw+a9jy2vF8cjg5FJnUqQLQfceuEu
-         o0iVqWMnQtgIf8IoQ3OhCVL6iCoVwnnt59TU8JpXDATCsQ+aIcBAp+je9vYo+96p7Xny
-         Ofs1yMpDde+Xjtpw0HflHU37XU+Z7pu2riw7JcZWyLnfeo/kXar3+uOd2UeJob+7JUcS
-         fvKQ==
+        b=CQCDudTCzv59AOuGbBn776R/dHIv2biyR6U7JZ1ifHVlmMWH1GFpuAK3hYZkaa+2Rn
+         gY+k2z48oQpuvqTscH9knFqIyQl0KCXESyopxXiAaijdTW6Zu/fK//CRQoALcNqAux03
+         CtJ9dSm9Uf3WNci04fFLmpuD5kH265H21JWStPPH1XE8BkH2FuP5ErUboOS0mFnce9rj
+         TVPGydfyqZEb149z+4hkcsSk3dHoi2KVerQioLnUxaoee9CV1Szxa8+jQT7V0w/YnbeF
+         8ZccimtOCYY6SgKmyFcdEGfAhYzPEiMRHOSlnThJbcvEoVsReDpwFP/kO763wyTeWrwm
+         W49Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:dkim-signature;
-        bh=22a0lxaM3efHimFh+FrhA/Ddz7n4ILJ5iFoGhuVr1HY=;
-        b=tf0Ae4+ve9RJYaWqZXijCwDpDpPmQQfXvl7Zd2PxqULFxu9CvS+u7fn/nGyqk4FDCS
-         sfXpg9pruetffQ4SYM7Yq8CWFh9mp/HL1bAjHQDrY88No9iR2xuc0gab7Z4dMeFSt9/c
-         AqHum5PXQtEY2XzyO1VcCzF9L1bLCmP5Mzi2ts+pi9FTYdgqQPYmf6yTBEckJibwEl6L
-         URzQa2E5P2wWY+8dutpg+JmdaUYEUrlirhYgDvsRnwmTTF0ap/SyQd7tK+AxUhphcUAQ
-         +7Cix+Muzy0xXfningdD29GCuESZWRFb9fjySAk/qcoGr02TfZnB8wjX90bNE/rIXT3A
-         xGWA==
+        bh=7go7BDBdfHoy3RkBIKAnhwWox8cIJxY9bUTb5M+cucQ=;
+        b=yHXB+F4JSv0IfIbFTFf99TRpTVALaFNDImoOjU107IzFCqipZ9SrRH4UvPq9818IvA
+         Oyc1rnlZ9VD4DbFm29W7tnmSSO4fdHFdv2OKt1pwPNhAkwnssRrtcjbPJc55YsiJmAju
+         nzFK7clyZXVlaBbVoYTFq/ospH3Ws5qhoK99StDR1T6EPKP4Bf4tT6uBJQC2FMeYhOnI
+         uugEldlcHOOIVDCPUREcfk2w7wm2WqmVI/zW1WPRdisXISfjPmeVx+f0R/dT0hrTvHm/
+         61Qmyd6yWZzmgZqqi1PTlaP0PUaaB3/jft24pVV/WLcd/3zMr6gfVeMFPq9/1eCD/zDw
+         4I0w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="ge/cQFMM";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="GcmFDVy/";
        spf=pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=broonie@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e130si966853pfh.3.2021.03.01.15.39.09
+        by gmr-mx.google.com with ESMTPS id g10si1440610ioo.0.2021.03.01.15.39.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 01 Mar 2021 15:39:09 -0800 (PST)
+        Mon, 01 Mar 2021 15:39:04 -0800 (PST)
 Received-SPF: pass (google.com: domain of broonie@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9E55F6146B;
-	Mon,  1 Mar 2021 23:39:08 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 498E460240;
+	Mon,  1 Mar 2021 23:39:03 +0000 (UTC)
 From: Mark Brown <broonie@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>, Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-rockchip@lists.infradead.org, Alexander Kochetkov <al.kochet@gmail.com>, Jon Lin <jon.lin@rock-chips.com>, Chris Ruehl <chris.ruehl@gtsys.com.hk>, Johan Jonker <jbx6244@gmail.com>, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, linux-spi@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, Vincent Pelletier <plr.vincent@gmail.com>, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20210225125541.1808719-1-arnd@kernel.org>
-References: <20210225125541.1808719-1-arnd@kernel.org>
-Subject: Re: [PATCH] spi: rockchip: avoid objtool warning
-Message-Id: <161464187231.31555.17379793263807156995.b4-ty@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@kernel.org>
+Cc: linux-rockchip@lists.infradead.org, Pratyush Yadav <p.yadav@ti.com>, Jon Lin <jon.lin@rock-chips.com>, Nick Desaulniers <ndesaulniers@google.com>, Johan Jonker <jbx6244@gmail.com>, Nathan Chancellor <nathan@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+In-Reply-To: <20210226140109.3477093-1-arnd@kernel.org>
+References: <20210226140109.3477093-1-arnd@kernel.org>
+Subject: Re: [PATCH] [v2] spi: rockchip: avoid objtool warning
+Message-Id: <161464187231.31555.9991392584243139110.b4-ty@kernel.org>
 Date: Mon, 01 Mar 2021 23:37:52 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: broonie@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="ge/cQFMM";       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b="GcmFDVy/";       spf=pass
  (google.com: domain of broonie@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=broonie@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -125,14 +125,15 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 25 Feb 2021 13:55:34 +0100, Arnd Bergmann wrote:
+On Fri, 26 Feb 2021 15:00:48 +0100, Arnd Bergmann wrote:
 > Building this file with clang leads to a an unreachable code path
 > causing a warning from objtool:
 > 
 > drivers/spi/spi-rockchip.o: warning: objtool: rockchip_spi_transfer_one()+0x2e0: sibling call from callable instruction with modified stack frame
 > 
-> Use BUG() instead of unreachable() to avoid the undefined behavior
-> if it does happen.
+> Change the unreachable() into an error return that can be
+> handled if it ever happens, rather than silently crashing
+> the kernel.
 
 Applied to
 
@@ -165,4 +166,4 @@ Mark
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/161464187231.31555.17379793263807156995.b4-ty%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/161464187231.31555.9991392584243139110.b4-ty%40kernel.org.
