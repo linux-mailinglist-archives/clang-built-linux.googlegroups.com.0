@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBF5O7KAQMGQEUPZFN4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUNW7KAQMGQEQND7CIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A10432AA92
-	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Mar 2021 20:50:48 +0100 (CET)
-Received: by mail-io1-xd3c.google.com with SMTP id v5sf16910217ioq.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Mar 2021 11:50:48 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614714647; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2EF4532AB05
+	for <lists+clang-built-linux@lfdr.de>; Tue,  2 Mar 2021 21:08:51 +0100 (CET)
+Received: by mail-pj1-x103e.google.com with SMTP id b20sf2895294pjh.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 02 Mar 2021 12:08:51 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614715730; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kIq8wBCkiMB2UVJLjB/x6sbqlqTDK2BWtoMtCZY0Td0iu8jI/IJoO7vfDTFYfOZ0ZE
-         UjecmSjW6fPr0C4a1SLSPESG6gl9cUyY7M9bhoV+JkS1/sQ20PcBGmlgXZRW0LAyann9
-         H5RApFFBMaum3KpRJW8nDF9D30aIKO3drIGr9SS1cDaZsyr2fZy3lCDucG8C5hmyuCor
-         wmNfTUS17b4yI2VPSH+uZZMJr7vZ0k2un8RgmcZf7Uh0+hh9cxzIdTCJmyWHmBS/sHWV
-         fVLuLXoi1SUqAip1E5/QUcsVDaOqRoJC/voJBSJo2zvqTgyrWbxEehhSJMVd7XZZoJ5P
-         UObw==
+        b=caC3TdI3SWJz93+BfTGB8ppXMb0H9HnDoKWtkJXJ8nEtYVB3cQEGgSdVTvm54+BKs1
+         /eK/UBRLRStzFzlRP2YRAUKURGdnr4r7xx//6+Uu9O3izFjKyECHCQwGU2T4nFQxSpVG
+         jLI57saokSC3WxixnGSDBDcPIENIOytg9eU+7KRQTasuu2amGQJATPjVbAlZCap4ST1p
+         arn0IHeEHVybAE4pfb6nUFoU4bwgKPvHwFoc6TpfYk59scmpBOETS9j3NIZr5If9pWtm
+         C7KVWq+OZTBDZp8fHnuFT6ZwVoOsUuwJB7KFxdNA5ERcTm8KU9HZzQuJeBlf4abucgb2
+         qj3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=UCpmOtR3z2VUEhOKDq699uR8Jn/fl4AdHqn9i1o0+FM=;
-        b=fG/yhLHTEu89sZy7YTqPMDsiZioWtDGcwy4v8ZiqIna/f9myWXwEWg0R2UvU/8osPp
-         GnVo1cBXJzgMiYan8od4tFHUe0o8kv2I+VZccz0mJ3fgTVbht/d3iJJ8vyn3kSZ5cPy7
-         UAQX+xrImhzozPMkIiRM/KchlSAuDhrr/MhTI8ctK1uKmfmoZ3O7ogxOb/3dzk8QFxLx
-         lsqe3ctEbF29ZzQHaU3ntTvW89yheAPBNiigf8MKpX2hyZQhMYaN1oZ1oCa3PQdIc9ag
-         XVDAa1IZtzvob/OAarzc4/Go8MdNfspAlznEmL4JiM7/h51FqIoKbu6WwB/vBebbG8ok
-         qdiw==
+        bh=pbIK1N27TF7U09FCiGoIfycSFSDFlCAmbJMzT8Nb0Wo=;
+        b=fYFfbWj/9cGdA732T8gPCWe8Nk/EHiSOHUtR66guv9zXZampa+aEISd0ac6pQVPJj7
+         AHNiIgLHJ+fDKh6NXbmBEDfXAV9F7EGm9DuAdVtZvAXF6Y7gEPlkz+Q7cEHMaPTjG7RG
+         kp3YVdf1ChCgFO55F0/wQahAuF4rZCxj/GAGIXjldlWZw61NoAFSoARZwIdPNC9o9M4d
+         1sidf6zUI0N3fYqMBxWB2PlDlLb/taJmNdBtq29t8VliCpk6tpMSuIHOkp5jG2MpwhkH
+         zRn5ny7IBkwO/QjBa7NF4BUr8Z7MHVvGKyGChggOfYgH/Q34xO8lqdpS5uWzjuljY30X
+         YtIw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=d6eV35ZP;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=rFORUmuo;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,67 +35,67 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UCpmOtR3z2VUEhOKDq699uR8Jn/fl4AdHqn9i1o0+FM=;
-        b=PP+3PpYG4WU8UtVKdBPVx1ZIf/37drlHi8PWMue+nymv68JukN4ykS1zsrzdUUp7iN
-         C3CUhjr22YvjIekEghOfQI5vTcc1tp7wP7ZOhe/cETxHlpaNqVGV6FiRrFV9EeDXsM2B
-         hkx974kHlJEPRIhikGavfA6tRNkkhlrVNp1vaAdrJd3MzF0bvZbKK3q16a0XQfbCYwBb
-         p3dFuX+TmCeLkWZ1CQwjKC6uTbHJAaNl1UD8O+eWL5LnnGVfmowwvS+gXAGityjKqTAQ
-         AYEoNp63EepvJsUDIpLUqV6WFp3tRerNaeuNrLs0g82aLxnOvUSshgj+E6QlFWw9Ygzw
-         0NYA==
+        bh=pbIK1N27TF7U09FCiGoIfycSFSDFlCAmbJMzT8Nb0Wo=;
+        b=ZyrirO6zgPIWFPnkMc7KEulkdQfC/K9R+4EXcBsINBhyugc3JczmqAmpJch/lnSRcV
+         bjnSPo4wYttwQAc+jelBqoe3Qs+0XcafQXFzhEDFARazuWxXJKlEhbA4xaJhQsU8KQol
+         Z67IAmDQEIprGJoTNr2EVA/GdWQLEcq4ZlCySk+Q6qvExE7hyI7c1O6JYF+jD5BTUTVX
+         LFQzAAJ0KnDiwxQWbJfIHa307GvZ3Je7yFAlRFxQJ67OTstwh/fJXPNo+4jrZzaZggrR
+         G2dH5aPGbklVsoSJwhjjPqNXJgyhj8rgOr9++AHDXGWAKTWG+J2j+FJLFLRVVXrPMrOE
+         RX9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UCpmOtR3z2VUEhOKDq699uR8Jn/fl4AdHqn9i1o0+FM=;
-        b=EC6M47G9e65w9kbX2ytzpfL+bZJ3ak/tsg+wKzAmYXPg4xl/EXST6Pw8BkZzOqLPPw
-         mbGLOsWBwiivzJm8chgEXvjOFwH4AXWvnyX0oa7+HhCKHBcgsVxYE8IpBo2WpjfdzkiQ
-         97JMkiwvfHE6JyRRn2RUecwdAzpc/S4qbv7gMUk7XHjYYnCYW6ETAOrYrjWRXzUNzm0j
-         GcoN/ZxcYroRzYRRwJtnkCN1bZ7g/1xwOW38lDJHLPEufSbrrnJ7fpGk4INFADObk4TH
-         9CUtoOFNRcPaJLvJeuQYfpHOiGelaB90nveK7j4y9obHxT/l2/6PSH0KXqtqGDVCbHve
-         GMcw==
+        bh=pbIK1N27TF7U09FCiGoIfycSFSDFlCAmbJMzT8Nb0Wo=;
+        b=Rj49jNndsofuC9aDA/FDVQDiXADUTA31iiJdNzn8O9W1vPKjzGL3p36/t+bSo5cIW7
+         YaqPae9f/h1rdIfu3qomwsOIhXLyR8u+4YLjh9dtalh13wPfqYWGJxQBs6yJtZ9NliaE
+         fu1iC9xukmrkti79OBm7lMHtIX1Sd6+gtm5B71n382dQpIK5YIfbJjNeZCdO4JVsYRtM
+         RSFJkIW0I76xDqgv9+gGpI3SI4ogweRmka83Xd+b3lZ+Yx3P74IbxsJG53e6ViTeuQT9
+         4BKs4irThhQr30wGTZSiUdp9oljGISTrXrbIuLuWZ7tigw81gYVLY03R2L1xoSg8F6S/
+         6W+w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5316CpBse6S9k/nJgwWmJzFFYfwCJPB95HyyGkqGVnwUh2bp1v8w
-	jFZXsWLLB53fK18FO5ySQfg=
-X-Google-Smtp-Source: ABdhPJyhOeTguOz4gBvMDnfwSqit6ADjiKiP6wAyIekAFREv1bl0Zvh1Btb8Hp7IcLDXa0/AAzPXVg==
-X-Received: by 2002:a5e:c908:: with SMTP id z8mr18893269iol.136.1614714647196;
-        Tue, 02 Mar 2021 11:50:47 -0800 (PST)
+X-Gm-Message-State: AOAM531pXkLHD7sy1RbQPm9y9aM/NB4mCIjQPl/GB9oYiAAcHSQ8/pHy
+	Y78ZzNMMyyBOB8HV+Jcoz0Y=
+X-Google-Smtp-Source: ABdhPJw4JulJb1y2FH8mkD5zpydHJH1I6ttKS9wl+DmBqW0RFYdOxK1abWvenkVzJNq1iSpAfGVPjQ==
+X-Received: by 2002:a62:5a45:0:b029:1e5:4c81:c59 with SMTP id o66-20020a625a450000b02901e54c810c59mr4768360pfb.51.1614715729771;
+        Tue, 02 Mar 2021 12:08:49 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:3606:: with SMTP id d6ls5139362ila.3.gmail; Tue, 02 Mar
- 2021 11:50:46 -0800 (PST)
-X-Received: by 2002:a05:6e02:13a6:: with SMTP id h6mr19781265ilo.10.1614714646912;
-        Tue, 02 Mar 2021 11:50:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614714646; cv=none;
+Received: by 2002:a17:90a:ba17:: with SMTP id s23ls2244682pjr.3.canary-gmail;
+ Tue, 02 Mar 2021 12:08:49 -0800 (PST)
+X-Received: by 2002:a17:902:6ac1:b029:e4:6ec0:92a0 with SMTP id i1-20020a1709026ac1b02900e46ec092a0mr4913262plt.16.1614715729089;
+        Tue, 02 Mar 2021 12:08:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614715729; cv=none;
         d=google.com; s=arc-20160816;
-        b=uOB0mTnrMLYCyzAUaN95gudU0PmHE2cKHJdWIvlaA8gujyqBGyxPUoLD0vNA+Zd8b4
-         0r62bcmouRYy+NiNqqTykf885BfGZNamJWMRM2Hn9c+atM2iQjIfPlCJMxVTx4Jmp7F4
-         9nqN49B1C3EWr+jMo8QDQuIQeFnyDnXokXV9ZDxVEdozmTwkq3PenSvljByC6pGF7GpO
-         flNnxwSLMWwRiTAu+NOfXiXK6O3/O08WLOp6ai0ituSdWdfOjY1QRTZ1/dDnexkOb5Cl
-         OaEdmRl5A8+XgUMT4PSErJrIlm1AJZw/bANt9QKgzKbsa6orZPikktWws/ISACZQQv1H
-         YnDA==
+        b=P2umWFu+bqvq8yyBOloQyRA4/swtJpvpgxn4omtJ/6H5+ffbZjUrIud1sOxFCc4IXd
+         /isVxdbp0OPlQDODb0eN3ga1kQq4OCclnQFRvQ1F43N5qj7RqIBrracO1U6P19W78VdQ
+         Oo8OrGvy3Ir2tb0Dy6lv+QhA+jrw0iiEK832T0AR0rycuBfbamCWC+8L8IozNbIkv+rL
+         vcPeLTp1SPZso0QSOAywUEcarKuk6taGEk2K+3G/A+UDJlZ7d4Hw6vaoaMIgm64ebqHl
+         orDn9H/uhwmDGoZByH1fekaWCwZdXEOB9dmJyNhMFHeu/fz347nsApUh68GoONCx6sgd
+         7A4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=yemZTMZOgwGgCE8ehe5/yyjVrQx2zvq4Q4AHsTkeatA=;
-        b=Vb+kKbN2lxwUiRKDtJ/E79mbgAuhgpMdw/NzO4veKQ8XSXL9ufQ+pTxMagFTwetPp3
-         zX7gxOW7NIS7cNMXKLaRz0n8j6sW+l11ebEP9HfOJt94/61yDIRx01FgUH01UfnpSeFA
-         T7WLTPTZgLUh8VQ03dsDHyckvnXR9QvU/suj42n85I1FK1G3fIGJIdkMUMYc7FwRNj8O
-         iR5dIIG+9RJfBitcSBu7SLg/kyXxwoEKB35+w96tE6YwwkNgET+TF363AB7D3vC1e2kl
-         HoKmKsM3ZTA7+4GlQFom8fPAqomKzSuzxwXP3YT9BGUG1/exuSFglXWGB4s3ojzhtNoe
-         P9MQ==
+        bh=Z+02/+vGPJTQNBPSMAITYnDWYsqW5C9ZMOL/ByqCtwQ=;
+        b=boRm1QlBkyOd4LOxUthrHqtDZQLCfXwbGt5R9J9tVHuJxL9E23yWzHK3i6P9dPg+mW
+         CZ81cMMb8dku0C2MHz5Me/v6RufAxMWVASQ480CpQuoUtQv4zbQ3/VPu6Dg1FBxJBgiv
+         /Qo+hAc4+1zPA+/yBige9R1o6qWTy4whuoXVy4T4hpi3uhBlttRaZA64Cj6ViEN0qOcc
+         2KioZfZBI3HL1ZLetDPd3ElUxRB6f/p7AMXxjrXDWUzSyoDPUU4Ck9nfUHdo0Bqx/Lpo
+         KJeUXoSGGrkoL4Sd9Hz+HYHsftR7ZpqjCJXbRxX+LVYR+2VvjM5LxFZ0zM9yDW8fI7JF
+         jjEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=d6eV35ZP;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=rFORUmuo;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id r2si1039112ilb.3.2021.03.02.11.50.46
+        by gmr-mx.google.com with ESMTPS id n2si337881pjp.2.2021.03.02.12.08.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 02 Mar 2021 11:50:46 -0800 (PST)
+        Tue, 02 Mar 2021 12:08:49 -0800 (PST)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8A6CC60201;
-	Tue,  2 Mar 2021 19:50:44 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 40A9964F21;
+	Tue,  2 Mar 2021 20:08:47 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Michael Ellerman <mpe@ellerman.id.au>
 Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
@@ -104,15 +104,15 @@ Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH] powerpc/fadump: Mark fadump_calculate_reserve_size as __init
-Date: Tue,  2 Mar 2021 12:50:14 -0700
-Message-Id: <20210302195013.2626335-1-nathan@kernel.org>
+Subject: [PATCH] powerpc/prom: Mark identical_pvr_fixup as __init
+Date: Tue,  2 Mar 2021 13:08:29 -0700
+Message-Id: <20210302200829.2680663-1-nathan@kernel.org>
 X-Mailer: git-send-email 2.31.0.rc0.75.gec125d1bc1
 MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=d6eV35ZP;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=rFORUmuo;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -129,50 +129,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-If fadump_calculate_reserve_size() is not inlined, there is a modpost
-warning:
+If identical_pvr_fixup() is not inlined, there are two modpost warnings:
 
-WARNING: modpost: vmlinux.o(.text+0x5196c): Section mismatch in
-reference from the function fadump_calculate_reserve_size() to the
-function .init.text:parse_crashkernel()
-The function fadump_calculate_reserve_size() references
-the function __init parse_crashkernel().
-This is often because fadump_calculate_reserve_size lacks a __init
-annotation or the annotation of parse_crashkernel is wrong.
+WARNING: modpost: vmlinux.o(.text+0x54e8): Section mismatch in reference
+from the function identical_pvr_fixup() to the function
+.init.text:of_get_flat_dt_prop()
+The function identical_pvr_fixup() references
+the function __init of_get_flat_dt_prop().
+This is often because identical_pvr_fixup lacks a __init
+annotation or the annotation of of_get_flat_dt_prop is wrong.
 
-fadump_calculate_reserve_size() calls parse_crashkernel(), which is
-marked as __init and fadump_calculate_reserve_size() is called from
-within fadump_reserve_mem(), which is also marked as __init.
+WARNING: modpost: vmlinux.o(.text+0x551c): Section mismatch in reference
+from the function identical_pvr_fixup() to the function
+.init.text:identify_cpu()
+The function identical_pvr_fixup() references
+the function __init identify_cpu().
+This is often because identical_pvr_fixup lacks a __init
+annotation or the annotation of identify_cpu is wrong.
 
-Mark fadump_calculate_reserve_size() as __init to fix the section
-mismatch. Additionally, remove the inline keyword as it is not necessary
-to inline this function; the compiler is still free to do so if it feels
-it is worthwhile since commit 889b3c1245de ("compiler: remove
-CONFIG_OPTIMIZE_INLINING entirely").
+identical_pvr_fixup() calls two functions marked as __init and is only
+called by a function marked as __init so it should be marked as __init
+as well. At the same time, remove the inline keywork as it is not
+necessary to inline this function. The compiler is still free to do so
+if it feels it is worthwhile since commit 889b3c1245de ("compiler:
+remove CONFIG_OPTIMIZE_INLINING entirely").
 
-Fixes: 11550dc0a00b ("powerpc/fadump: reuse crashkernel parameter for fadump memory reservation")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1300
+Fixes: 14b3d926a22b ("[POWERPC] 4xx: update 440EP(x)/440GR(x) identical PVR issue workaround")
+Link: https://github.com/ClangBuiltLinux/linux/issues/1316
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
-
-Send while streaming at https://www.twitch.tv/nathanchance :P
-
- arch/powerpc/kernel/fadump.c | 2 +-
+ arch/powerpc/kernel/prom.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/kernel/fadump.c b/arch/powerpc/kernel/fadump.c
-index 8482739d42f3..eddf362caedc 100644
---- a/arch/powerpc/kernel/fadump.c
-+++ b/arch/powerpc/kernel/fadump.c
-@@ -292,7 +292,7 @@ static void fadump_show_config(void)
-  * that is required for a kernel to boot successfully.
-  *
-  */
--static inline u64 fadump_calculate_reserve_size(void)
-+static __init u64 fadump_calculate_reserve_size(void)
+diff --git a/arch/powerpc/kernel/prom.c b/arch/powerpc/kernel/prom.c
+index 9a4797d1d40d..a8b2d6bfc1ca 100644
+--- a/arch/powerpc/kernel/prom.c
++++ b/arch/powerpc/kernel/prom.c
+@@ -267,7 +267,7 @@ static struct feature_property {
+ };
+ 
+ #if defined(CONFIG_44x) && defined(CONFIG_PPC_FPU)
+-static inline void identical_pvr_fixup(unsigned long node)
++static __init void identical_pvr_fixup(unsigned long node)
  {
- 	u64 base, size, bootmem_min;
- 	int ret;
+ 	unsigned int pvr;
+ 	const char *model = of_get_flat_dt_prop(node, "model", NULL);
 
 base-commit: 5c88a17e15795226b56d83f579cbb9b7a4864f79
 -- 
@@ -181,4 +182,4 @@ base-commit: 5c88a17e15795226b56d83f579cbb9b7a4864f79
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210302195013.2626335-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210302200829.2680663-1-nathan%40kernel.org.
