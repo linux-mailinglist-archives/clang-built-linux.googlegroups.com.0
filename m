@@ -1,124 +1,136 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBRGUQCBAMGQEQKIRWDA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBS62QCBAMGQEPGHLSKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B44F232C3A2
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Mar 2021 01:31:01 +0100 (CET)
-Received: by mail-il1-x13a.google.com with SMTP id y11sf19066046ilc.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Mar 2021 16:31:01 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614817860; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 279B432C3AD
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Mar 2021 01:43:57 +0100 (CET)
+Received: by mail-yb1-xb3a.google.com with SMTP id o9sf28575951yba.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Mar 2021 16:43:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614818636; cv=pass;
         d=google.com; s=arc-20160816;
-        b=O8X6J/rdNdfkUeocbVEj5plTJM1oUTcWTfpcvq1x/u5ZAR8K3Lo9GrsAl0VBSATDh8
-         2KbnsWTCu/B1uNxqbhjYtaM3Y3lIbcHrZIoY26hX0gzl0LM8+f/wn/uu8tKFEiKlADXS
-         GkTK2lWhMgmXajDh0AEEY8xwZTlX0zWzhpZWR5lJZGwH6xiQPJl72XsPbcss/dEto9yU
-         1EvIJKtA0XLpihj8QwLVrQGlhnoszKzvk4s72g+iQfgQUlwoniIlK3pmh2nNv9iJjCcn
-         CVp3hGZPgKAAqbdyIVVSQaAtpZXjIPp2Qyk7T9pleTNTxHbKJkmMnmPxCHjU88psZVY7
-         9gTQ==
+        b=pzCEaXV5/GCvzQ6RZXL7uKf2uLcbSjFV0i4LjHcYPLRYl7Ht2XG/YtgZ7icqqX6prH
+         QFOd6TH7dxW7wPXPHQ2vIztrSPjOHzc92+7xXzlh0QOS9SD40cYr1YAsy8vm4cY+vdRZ
+         989OM4Py3XnnUIg35ABWcc1+nsEtb/iUC30/8y5vo/J3C7Pt4AXBlpfpLjjarKcocqSE
+         Sr2K0iA1W1aOWCPGw48ewZCanA7aIXClpNyPe0a5BtWXwWoLCDHNvXvVWq224/qb7Sk6
+         3ApOUyxzVxb3cEm7EXjPaIUKMpWR4qc3T61s1rrWrYMHX4ELxnbNeikXrrACS70d7v26
+         gZQg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=XIyDwj5bUOrw5Pd8EuGRl8pS4Q6zk7CAC8bEmwdx5Y0=;
-        b=IRO1NuVWp+RpwPuqko/8W2N9mD+Zc3K2IalL1mYyuIPWTQXMFcHmlyD5kwH6BAJh+f
-         WMfyDvuL4u/7SM1AJ2v7eTnj3rXNzeB61p9fI48UowhP6Ccl7MzBi1Ro2oefzm7CUpDc
-         cv6IWXb7z+1+w/MJxL9dlKuGbjIgSUwGnIo6tFyrHDdBwv59PWwTYhEvedNfFZsux/T8
-         +0Qfn3UvQJi4q7n1vrT/p9mxy/sfOog0+SIedk4isDZWWCVSFDVe3B8bilxDkG1msoTo
-         DnnzzSOMSZ5HDA55OYlVMr/tig8oKgOCw3crZnauVtsEy2cm6ZmuO35SDqHhgJhFhZjS
-         /+Sw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=ncnyKUC2zCRBNEy2wwBFcTma4APgbti2AlbNmaOm08U=;
+        b=EnRpvadWo612PHzGfR6I6NIOJTEjgeI43Qac3XqTD5b5fdYmwvh3EtXnRd+4T5STbZ
+         Q9UxZXysJM4vDwciUOLYAvmJvK8gJV7RZMZNs95fLCF5lFDBDpjWU+8NbsUo1viSsmOc
+         wUVV4dltzVzetV8kIk4ExzM7+LI1WWzA1thnaAOCBc3AA5oh2qnmj7xFpMnox7fd5zRS
+         mK9iNZpL8sAvnwhWXFrFILnSgn2ufaDp5cq8kp2Gdqk7EfE3zMTiQeI4JvtcrX8hyblI
+         WzZGwg1ZoO7yWA4kv7JmA/UkyUvYADoTDQdx88ECVT8CFjgfiiDf/HiYVwmf99n97JDO
+         M6XQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=mYbLPZ8p;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XIyDwj5bUOrw5Pd8EuGRl8pS4Q6zk7CAC8bEmwdx5Y0=;
-        b=LMKEQqICYEB+OMCmb5Ainl3bz4BS8TRAHYkE2KeKzrebAqtWPPxOBuk8aKgvIilj/z
-         dJRXrl71e7+7wqGodxsho0LXJTZKhzLGR4lL/Z7MzWfG+l7I9tC7EjHs9PankqbfajpW
-         y8g2cEEOFd0/9fAIGGCwNiMqMO9KTPQeJLJbmu7ma5q+xPTOdgNsEwEJLVYx4WCWnSJa
-         icMgiFAPbhnG7vccI8DQw6RHj7j3Eal//2lArOEuHZ9Gzb6vxLvPmPwz8G4T3a7usXa/
-         QRemEIt4aRBdr0Sf1TrjonRGhS6uosOg4woTAf9aTI5XG0OBKrlBxH0W57V8xvVgiy9O
-         mvuw==
+        bh=ncnyKUC2zCRBNEy2wwBFcTma4APgbti2AlbNmaOm08U=;
+        b=QwX/Te61rnNaGuVBUpeSXUIF/qzbC//uOwxv/GzvaHl2r0YNnB/oMUMxlvCkP7/gnd
+         UbjZDiJVTdHwp6Wz5QTYvATpg/OwX9/NgePp2+Op9aJj5Vq8BTNm+m9D+KxHP8BdsBTB
+         LmjTq8+VVr+6cicjm7537NqlKvZVUQDDkFRmFZJQ4Dx5Ap9IEXuoWauf1d87cPjVzZL9
+         dyKFDI2nk/fp2Viynb/QawuAw7hMBLZbp8uDJzLKGl4uHumpMiOBoXf0n/hYhdKx3oNx
+         i20x0N9BBbG0J33zE/hdNhsLAjSDPfm1nT5agi/dlXqGzOxHvxkPZkQDYv1fl4+zJvNx
+         skYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=XIyDwj5bUOrw5Pd8EuGRl8pS4Q6zk7CAC8bEmwdx5Y0=;
-        b=EiflD32HQXY0k+WEQA+fhDX4HWmdlyICuY9Cio9Z0kp8sVPRVtCZR0teeu4rxKYxF3
-         FeCSkTo/fpVZZV7WAv/x3EXb7eBu0GBCyNRr4OVrxw47ofaHhnw7SOrvQLyTXagoM5C4
-         I679KupHjTvhhkojhGXwbQORLbSeeLzUeksT15kEjSg4WLfRkR8Fu7g65Bvm+uTmJM4C
-         1tCjUgolYAA1t20gGDJTHBQHFMk6/Y5yMG0fyUtG0Cu+GQ7QKIMNglDPOkcSunpfDmc/
-         dW7InSFFOJOTCJnt9zu3OJDT2TPiiuRFllSgDcZbp9Pu1ZPcihWpP4j96EiwBPqeeX/k
-         LS1g==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ncnyKUC2zCRBNEy2wwBFcTma4APgbti2AlbNmaOm08U=;
+        b=KRqBqjT781Z1N+OxTqQHyhpj2WMX9HgR0UDgUOQxLt+/UO2/GYZPQ+gIUvCzrc7m4v
+         0YM/sTwaZryiN4u6cENMqSEeeXa4AZ6b4E7vYcNbNbyFPH+KjToht7wPjfGq6oEdHolg
+         SIK/jJQZVVBQeLIZ73rD0MUuk7g/qfQjRneWHbrYR6SnvwIs5nVpLVseGkn/mCrddeSM
+         evjOsYOyW/mAbyex551mIi1TCla2BG1JLbCDnqpdY4g0T2Y6iqUIGEC9Bmhu9VjhQI+j
+         UVQUNLZg3ENDIjGbvOZpmbT/LgIuY7MoS9kRANjS5u8RWbznBmUGZmUUHNi8Ici8MbLT
+         T2Dg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5315Vs1+Ow5G5aNLBYrQO5d2I2T61pmyonlnURRyubmega6MDKPN
-	p6ZMFCuRGNvOujMHuESHMMQ=
-X-Google-Smtp-Source: ABdhPJwETG/8+GNUCDgSRNOQBXfxhswE0BmQEYDqIWfzyJ5UD2yY8ag1dB5U7jh7XBG3QwDjLmJFeg==
-X-Received: by 2002:a6b:fa08:: with SMTP id p8mr1553999ioh.170.1614817860497;
-        Wed, 03 Mar 2021 16:31:00 -0800 (PST)
+X-Gm-Message-State: AOAM532kSOIG81Aq5dSxr/W9Cf/MFc8x5vUj0nRHqQ9wAcdVdCh7V/VI
+	Nxm25O0rBkJdduLYqxYah/c=
+X-Google-Smtp-Source: ABdhPJyyteRdMx9yIAzhHWIk8ZSUbjAr7bdEOuK8Fv7DBYwNiyB6e7/V6EF3p6/YmdLwvTmK6EJ8rA==
+X-Received: by 2002:a25:8006:: with SMTP id m6mr2914564ybk.336.1614818636000;
+        Wed, 03 Mar 2021 16:43:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:d81:: with SMTP id l1ls604904jaj.2.gmail; Wed, 03
- Mar 2021 16:31:00 -0800 (PST)
-X-Received: by 2002:a02:c6ae:: with SMTP id o14mr1564448jan.33.1614817860202;
-        Wed, 03 Mar 2021 16:31:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614817860; cv=none;
+Received: by 2002:a25:3b57:: with SMTP id i84ls1976518yba.2.gmail; Wed, 03 Mar
+ 2021 16:43:55 -0800 (PST)
+X-Received: by 2002:a25:d3c5:: with SMTP id e188mr2880509ybf.345.1614818635466;
+        Wed, 03 Mar 2021 16:43:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614818635; cv=none;
         d=google.com; s=arc-20160816;
-        b=p2EvpLk23QwPVi+rgVCY8yTTI5l+DOE9g0E29HG/V7bpsgNIhYHYvEVgsPcRKe+e98
-         GFCIB/0qqiPhubP1VIhImiquoJze890VQdaqM6J9I+CmHq52i69tzJ9HvTL9O/nQNuwG
-         TRfIyrvjpZ/PUY9lM81zcsf6bedCt3ZAPLof60kpfHX8KEzmka3DcZWMRyziACrPM7tq
-         PIioUSFYm/ImpECkoikElpMfiulvN31wMPQ7WW+3xP95nyViFAbRWJE/9Vkf+Ok6m2my
-         njln5dYP9RcviMZr1hPneRh6iqQ0nEIdNDPJhmFhm02BxnUjx4y9mrjD0035xqVuwpvF
-         JZeA==
+        b=jrao1gCCsOjxVFKkCg5bjJq6CNPCnVJIuikfsCQxmLlnqxLL90Nu2kuX02YmNw+X9x
+         lG6bfdSTkdl8Kwdwy6TJ/GkfmGdCdx8WpaKnCsx/mNEMHsgP8UtpBDERG5JOBm8LFr53
+         OGMdA4dnEip0IYjBbAN+hbMn9Bd79YHvOmoGtpOJuI5VyCnKb+k1LHE4JiIz//Ar/Dpj
+         397pU8QUkGDE3ba6QH1DLNS5hBRfFpymB2cbtYwxZvBxak/PYbzA2zGztJPcfDA94mwG
+         RVB1jK2xSaxnMH4sWB8t/abXsahZ5lWXBaWIgf9a6prGfH91STXlAtWaUafStmYiY9VI
+         zmVg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=eXsEqenVy1sb8rqU9vpFg7l6Cb+XkcCUG8K5kFK5cqQ=;
-        b=M12QAuONMgG772TV3BvphDj5n/fv8tGHHqx9qCWItC+ELMmvkIUDYusNe334PsLTPz
-         d6hTEUh1HhqeiBHBNbBDmZRQXEyshnEJoKru4tbo+BqsxcJQL8J8yQ9z9largMFvtGNr
-         DofK8OPyBIjzZqX2SRCszDxHUJlmCO/iwwx4+I+893SZnPEAZ8r9Y2OcnyM58Afua1oX
-         V/dS+J3IWMYpWQcYf8zrrw3ZkoOFn7sUAPFHN8/XL2qubsi3MqFIIi0gXYnLUMHwPYMK
-         WqPq06pQH0nG5P51tEGwU4aG6wm+SCRMDRCBa99Ft0DzSM8KQTpJxulbMu1eLwUUkX8A
-         N1Aw==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=ujpWY2hsRKWR7BI7W5akl9pmfG0tHiOunXWckmTNsZg=;
+        b=JlOcK8YVIytBkmRCMMFY5P+JVy5dERqSC6pctLkJQj5yv5QkI6WdoftL8s0uIP2MqU
+         FA24Rqi+FA/Pckhbdl6unyHFq+M+9/4ijQhh9/qRzPS61z1JeqwNk0Xz+mzL1ZtJsyzJ
+         5o9nWSMilcs+hzFe5YG2cxpvy8TOYMGrxqQa9hgTXTEXEn39mG/tWuSGNfSLgLuCd9sW
+         AH6ben8o3UM4SRureimGBPcPU9b1GgB5rrBNNgsB7V2vmrIFsFs3CbWYuNe6M8+/a97f
+         3WasN2bjiI9UaDnQQ2AA7K0Yg65AZ4LJUHUMcQZhHyua+jQ9mxaC6eqUF/TyrH27UGhD
+         X73w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=mYbLPZ8p;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c2si1440920ilj.4.2021.03.03.16.31.00
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id s44si2033128ybi.3.2021.03.03.16.43.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Mar 2021 16:31:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 58C3F64E67;
-	Thu,  4 Mar 2021 00:30:58 +0000 (UTC)
-Date: Wed, 3 Mar 2021 17:30:55 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] kbuild: dwarf: use AS_VERSION instead of
- test_dwarf5_support.sh
-Message-ID: <20210304003055.tsrqewikdekbhhax@archlinux-ax161>
-References: <20210303183333.46543-1-masahiroy@kernel.org>
- <20210303183333.46543-4-masahiroy@kernel.org>
+        Wed, 03 Mar 2021 16:43:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+IronPort-SDR: RzirvzG97i8JHeLpfXKm42DBp8c6nxEszEyytyY32qcN/0Gi/ePFbdlntLSyyFK385TBx5lr8M
+ Am2XStn8nKQQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9912"; a="183930683"
+X-IronPort-AV: E=Sophos;i="5.81,221,1610438400"; 
+   d="scan'208";a="183930683"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2021 16:43:53 -0800
+IronPort-SDR: N7D+3EvlNR8UwvdwOPucLAM6Aik2z5DkxQd+lTINUGQRjKhToOYwUXkTBrKmR3hHeArqmZt36T
+ 8bOo7+m6Hh3g==
+X-IronPort-AV: E=Sophos;i="5.81,221,1610438400"; 
+   d="scan'208";a="407476586"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.11]) ([10.239.13.11])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2021 16:43:51 -0800
+Subject: Re: [kbuild-all] Re: net/ceph/messenger_v1.c:1204:5: warning: stack
+ frame size of 2944 bytes in function 'ceph_con_v1_try_read'
+To: Ilya Dryomov <idryomov@gmail.com>, kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+ LKML <linux-kernel@vger.kernel.org>
+References: <202103011657.ttO1k7BO-lkp@intel.com>
+ <CAOi1vP8nq6fOC+coHdq8w63k5uq8kXHY9zgtxDs0k_aVWY88wQ@mail.gmail.com>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <b34f6a4e-a779-a319-a948-5036a0c9b62b@intel.com>
+Date: Thu, 4 Mar 2021 08:43:11 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210303183333.46543-4-masahiroy@kernel.org>
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=mYbLPZ8p;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+In-Reply-To: <CAOi1vP8nq6fOC+coHdq8w63k5uq8kXHY9zgtxDs0k_aVWY88wQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,61 +143,312 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Mar 04, 2021 at 03:33:33AM +0900, Masahiro Yamada wrote:
-> The test code in scripts/test_dwarf5_support.sh is somewhat difficult
-> to understand, but after all, we want to check binutils >= 2.35.2
-> 
-> >From the former discussion, the requrement for generating DRAWF v5 from
-> C code is as follows:
-> 
->  - gcc + binutils as     -> requires gcc 5.0+ (but 7.0+ for full support)
->  - clang + binutils as   -> requires binutils 2.35.2+
->  - clang + integrated as -> OK
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-> ---
-> 
->  lib/Kconfig.debug              | 3 +--
->  scripts/test_dwarf5_support.sh | 8 --------
->  2 files changed, 1 insertion(+), 10 deletions(-)
->  delete mode 100755 scripts/test_dwarf5_support.sh
-> 
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index 2779c29d9981..f3337a38925d 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -284,8 +284,7 @@ config DEBUG_INFO_DWARF4
->  
->  config DEBUG_INFO_DWARF5
->  	bool "Generate DWARF Version 5 debuginfo"
-> -	depends on GCC_VERSION >= 50000 || CC_IS_CLANG
-> -	depends on CC_IS_GCC || $(success,$(srctree)/scripts/test_dwarf5_support.sh $(CC) $(CLANG_FLAGS))
-> +	depends on GCC_VERSION >= 50000 || (CC_IS_CLANG && AS_IS_GNU && AS_VERSION >= 23502) || (CC_IS_CLANG && AS_IS_LLVM)
->  	depends on !DEBUG_INFO_BTF
->  	help
->  	  Generate DWARF v5 debug info. Requires binutils 2.35.2, gcc 5.0+ (gcc
-> diff --git a/scripts/test_dwarf5_support.sh b/scripts/test_dwarf5_support.sh
-> deleted file mode 100755
-> index c46e2456b47a..000000000000
-> --- a/scripts/test_dwarf5_support.sh
-> +++ /dev/null
-> @@ -1,8 +0,0 @@
-> -#!/bin/sh
-> -# SPDX-License-Identifier: GPL-2.0
-> -
-> -# Test that the assembler doesn't need -Wa,-gdwarf-5 when presented with DWARF
-> -# v5 input, such as `.file 0` and `md5 0x00`. Should be fixed in GNU binutils
-> -# 2.35.2. https://sourceware.org/bugzilla/show_bug.cgi?id=25611
-> -echo '.file 0 "filename" md5 0x7a0b65214090b6693bd1dc24dd248245' | \
-> -  $* -gdwarf-5 -Wno-unused-command-line-argument -c -x assembler -o /dev/null -
-> -- 
-> 2.27.0
-> 
+On 3/1/21 7:42 PM, Ilya Dryomov wrote:
+> On Mon, Mar 1, 2021 at 9:36 AM kernel test robot <lkp@intel.com> wrote:
+>> Hi Ilya,
+>>
+>> FYI, the error/warning still remains.
+>>
+>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+>> head:   fe07bfda2fb9cdef8a4d4008a409bb02f35f1bd8
+>> commit: 2f713615ddd9d805b6c5e79c52e0e11af99d2bf1 libceph: move msgr1 protocol implementation to its own file
+>> date:   3 months ago
+> It's fine.  This commit just moved the code which has been this way for
+> years and never caused any real issues.  Please add it to the allowlist
+> if possible.
+
+Hi llya,
+
+Thanks for the suggestion, we have added to the allowlist.
+
+Best Regards,
+Rong Chen
+
+>
+>> config: powerpc64-randconfig-r001-20210301 (attached as .config)
+>> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 5de09ef02e24d234d9fc0cd1c6dfe18a1bb784b0)
+>> reproduce (this is a W=1 build):
+>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>          chmod +x ~/bin/make.cross
+>>          # install powerpc64 cross compiling tool for clang build
+>>          # apt-get install binutils-powerpc64-linux-gnu
+>>          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f713615ddd9d805b6c5e79c52e0e11af99d2bf1
+>>          git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>>          git fetch --no-tags linus master
+>>          git checkout 2f713615ddd9d805b6c5e79c52e0e11af99d2bf1
+>>          # save the attached .config to linux build tree
+>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
+>>
+>> If you fix the issue, kindly add following tag as appropriate
+>> Reported-by: kernel test robot <lkp@intel.com>
+>>
+>> All warnings (new ones prefixed by >>):
+>>
+>>     __do_insb
+>>     ^
+>>     arch/powerpc/include/asm/io.h:541:56: note: expanded from macro '__do_insb'
+>>     #define __do_insb(p, b, n)      readsb((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+>>                                            ~~~~~~~~~~~~~~~~~~~~~^
+>>     In file included from net/ceph/messenger_v1.c:8:
+>>     In file included from include/net/sock.h:38:
+>>     In file included from include/linux/hardirq.h:10:
+>>     In file included from arch/powerpc/include/asm/hardirq.h:6:
+>>     In file included from include/linux/irq.h:20:
+>>     In file included from include/linux/io.h:13:
+>>     In file included from arch/powerpc/include/asm/io.h:604:
+>>     arch/powerpc/include/asm/io-defs.h:45:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>>     DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
+>>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>>                     __do_##name al;                                 \
+>>                     ^~~~~~~~~~~~~~
+>>     <scratch space>:32:1: note: expanded from here
+>>     __do_insw
+>>     ^
+>>     arch/powerpc/include/asm/io.h:542:56: note: expanded from macro '__do_insw'
+>>     #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+>>                                            ~~~~~~~~~~~~~~~~~~~~~^
+>>     In file included from net/ceph/messenger_v1.c:8:
+>>     In file included from include/net/sock.h:38:
+>>     In file included from include/linux/hardirq.h:10:
+>>     In file included from arch/powerpc/include/asm/hardirq.h:6:
+>>     In file included from include/linux/irq.h:20:
+>>     In file included from include/linux/io.h:13:
+>>     In file included from arch/powerpc/include/asm/io.h:604:
+>>     arch/powerpc/include/asm/io-defs.h:47:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>>     DEF_PCI_AC_NORET(insl, (unsigned long p, void *b, unsigned long c),
+>>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>>                     __do_##name al;                                 \
+>>                     ^~~~~~~~~~~~~~
+>>     <scratch space>:36:1: note: expanded from here
+>>     __do_insl
+>>     ^
+>>     arch/powerpc/include/asm/io.h:543:56: note: expanded from macro '__do_insl'
+>>     #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
+>>                                            ~~~~~~~~~~~~~~~~~~~~~^
+>>     In file included from net/ceph/messenger_v1.c:8:
+>>     In file included from include/net/sock.h:38:
+>>     In file included from include/linux/hardirq.h:10:
+>>     In file included from arch/powerpc/include/asm/hardirq.h:6:
+>>     In file included from include/linux/irq.h:20:
+>>     In file included from include/linux/io.h:13:
+>>     In file included from arch/powerpc/include/asm/io.h:604:
+>>     arch/powerpc/include/asm/io-defs.h:49:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>>     DEF_PCI_AC_NORET(outsb, (unsigned long p, const void *b, unsigned long c),
+>>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>>                     __do_##name al;                                 \
+>>                     ^~~~~~~~~~~~~~
+>>     <scratch space>:40:1: note: expanded from here
+>>     __do_outsb
+>>     ^
+>>     arch/powerpc/include/asm/io.h:544:58: note: expanded from macro '__do_outsb'
+>>     #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+>>                                             ~~~~~~~~~~~~~~~~~~~~~^
+>>     In file included from net/ceph/messenger_v1.c:8:
+>>     In file included from include/net/sock.h:38:
+>>     In file included from include/linux/hardirq.h:10:
+>>     In file included from arch/powerpc/include/asm/hardirq.h:6:
+>>     In file included from include/linux/irq.h:20:
+>>     In file included from include/linux/io.h:13:
+>>     In file included from arch/powerpc/include/asm/io.h:604:
+>>     arch/powerpc/include/asm/io-defs.h:51:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>>     DEF_PCI_AC_NORET(outsw, (unsigned long p, const void *b, unsigned long c),
+>>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>>                     __do_##name al;                                 \
+>>                     ^~~~~~~~~~~~~~
+>>     <scratch space>:44:1: note: expanded from here
+>>     __do_outsw
+>>     ^
+>>     arch/powerpc/include/asm/io.h:545:58: note: expanded from macro '__do_outsw'
+>>     #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+>>                                             ~~~~~~~~~~~~~~~~~~~~~^
+>>     In file included from net/ceph/messenger_v1.c:8:
+>>     In file included from include/net/sock.h:38:
+>>     In file included from include/linux/hardirq.h:10:
+>>     In file included from arch/powerpc/include/asm/hardirq.h:6:
+>>     In file included from include/linux/irq.h:20:
+>>     In file included from include/linux/io.h:13:
+>>     In file included from arch/powerpc/include/asm/io.h:604:
+>>     arch/powerpc/include/asm/io-defs.h:53:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+>>     DEF_PCI_AC_NORET(outsl, (unsigned long p, const void *b, unsigned long c),
+>>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+>>                     __do_##name al;                                 \
+>>                     ^~~~~~~~~~~~~~
+>>     <scratch space>:48:1: note: expanded from here
+>>     __do_outsl
+>>     ^
+>>     arch/powerpc/include/asm/io.h:546:58: note: expanded from macro '__do_outsl'
+>>     #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
+>>                                             ~~~~~~~~~~~~~~~~~~~~~^
+>>>> net/ceph/messenger_v1.c:1204:5: warning: stack frame size of 2944 bytes in function 'ceph_con_v1_try_read' [-Wframe-larger-than=]
+>>     int ceph_con_v1_try_read(struct ceph_connection *con)
+>>         ^
+>>     13 warnings generated.
+>>
+>>
+>> vim +/ceph_con_v1_try_read +1204 net/ceph/messenger_v1.c
+>>
+>>    1200
+>>    1201  /*
+>>    1202   * Read what we can from the socket.
+>>    1203   */
+>>> 1204  int ceph_con_v1_try_read(struct ceph_connection *con)
+>>    1205  {
+>>    1206          int ret = -1;
+>>    1207
+>>    1208  more:
+>>    1209          dout("try_read start %p state %d\n", con, con->state);
+>>    1210          if (con->state != CEPH_CON_S_V1_BANNER &&
+>>    1211              con->state != CEPH_CON_S_V1_CONNECT_MSG &&
+>>    1212              con->state != CEPH_CON_S_OPEN)
+>>    1213                  return 0;
+>>    1214
+>>    1215          BUG_ON(!con->sock);
+>>    1216
+>>    1217          dout("try_read tag %d in_base_pos %d\n", (int)con->in_tag,
+>>    1218               con->in_base_pos);
+>>    1219
+>>    1220          if (con->state == CEPH_CON_S_V1_BANNER) {
+>>    1221                  ret = read_partial_banner(con);
+>>    1222                  if (ret <= 0)
+>>    1223                          goto out;
+>>    1224                  ret = process_banner(con);
+>>    1225                  if (ret < 0)
+>>    1226                          goto out;
+>>    1227
+>>    1228                  con->state = CEPH_CON_S_V1_CONNECT_MSG;
+>>    1229
+>>    1230                  /*
+>>    1231                   * Received banner is good, exchange connection info.
+>>    1232                   * Do not reset out_kvec, as sending our banner raced
+>>    1233                   * with receiving peer banner after connect completed.
+>>    1234                   */
+>>    1235                  ret = prepare_write_connect(con);
+>>    1236                  if (ret < 0)
+>>    1237                          goto out;
+>>    1238                  prepare_read_connect(con);
+>>    1239
+>>    1240                  /* Send connection info before awaiting response */
+>>    1241                  goto out;
+>>    1242          }
+>>    1243
+>>    1244          if (con->state == CEPH_CON_S_V1_CONNECT_MSG) {
+>>    1245                  ret = read_partial_connect(con);
+>>    1246                  if (ret <= 0)
+>>    1247                          goto out;
+>>    1248                  ret = process_connect(con);
+>>    1249                  if (ret < 0)
+>>    1250                          goto out;
+>>    1251                  goto more;
+>>    1252          }
+>>    1253
+>>    1254          WARN_ON(con->state != CEPH_CON_S_OPEN);
+>>    1255
+>>    1256          if (con->in_base_pos < 0) {
+>>    1257                  /*
+>>    1258                   * skipping + discarding content.
+>>    1259                   */
+>>    1260                  ret = ceph_tcp_recvmsg(con->sock, NULL, -con->in_base_pos);
+>>    1261                  if (ret <= 0)
+>>    1262                          goto out;
+>>    1263                  dout("skipped %d / %d bytes\n", ret, -con->in_base_pos);
+>>    1264                  con->in_base_pos += ret;
+>>    1265                  if (con->in_base_pos)
+>>    1266                          goto more;
+>>    1267          }
+>>    1268          if (con->in_tag == CEPH_MSGR_TAG_READY) {
+>>    1269                  /*
+>>    1270                   * what's next?
+>>    1271                   */
+>>    1272                  ret = ceph_tcp_recvmsg(con->sock, &con->in_tag, 1);
+>>    1273                  if (ret <= 0)
+>>    1274                          goto out;
+>>    1275                  dout("try_read got tag %d\n", (int)con->in_tag);
+>>    1276                  switch (con->in_tag) {
+>>    1277                  case CEPH_MSGR_TAG_MSG:
+>>    1278                          prepare_read_message(con);
+>>    1279                          break;
+>>    1280                  case CEPH_MSGR_TAG_ACK:
+>>    1281                          prepare_read_ack(con);
+>>    1282                          break;
+>>    1283                  case CEPH_MSGR_TAG_KEEPALIVE2_ACK:
+>>    1284                          prepare_read_keepalive_ack(con);
+>>    1285                          break;
+>>    1286                  case CEPH_MSGR_TAG_CLOSE:
+>>    1287                          ceph_con_close_socket(con);
+>>    1288                          con->state = CEPH_CON_S_CLOSED;
+>>    1289                          goto out;
+>>    1290                  default:
+>>    1291                          goto bad_tag;
+>>    1292                  }
+>>    1293          }
+>>    1294          if (con->in_tag == CEPH_MSGR_TAG_MSG) {
+>>    1295                  ret = read_partial_message(con);
+>>    1296                  if (ret <= 0) {
+>>    1297                          switch (ret) {
+>>    1298                          case -EBADMSG:
+>>    1299                                  con->error_msg = "bad crc/signature";
+>>    1300                                  fallthrough;
+>>    1301                          case -EBADE:
+>>    1302                                  ret = -EIO;
+>>    1303                                  break;
+>>    1304                          case -EIO:
+>>    1305                                  con->error_msg = "io error";
+>>    1306                                  break;
+>>    1307                          }
+>>    1308                          goto out;
+>>    1309                  }
+>>    1310                  if (con->in_tag == CEPH_MSGR_TAG_READY)
+>>    1311                          goto more;
+>>    1312                  ceph_con_process_message(con);
+>>    1313                  if (con->state == CEPH_CON_S_OPEN)
+>>    1314                          prepare_read_tag(con);
+>>    1315                  goto more;
+>>    1316          }
+>>    1317          if (con->in_tag == CEPH_MSGR_TAG_ACK ||
+>>    1318              con->in_tag == CEPH_MSGR_TAG_SEQ) {
+>>    1319                  /*
+>>    1320                   * the final handshake seq exchange is semantically
+>>    1321                   * equivalent to an ACK
+>>    1322                   */
+>>    1323                  ret = read_partial_ack(con);
+>>    1324                  if (ret <= 0)
+>>    1325                          goto out;
+>>    1326                  process_ack(con);
+>>    1327                  goto more;
+>>    1328          }
+>>    1329          if (con->in_tag == CEPH_MSGR_TAG_KEEPALIVE2_ACK) {
+>>    1330                  ret = read_keepalive_ack(con);
+>>    1331                  if (ret <= 0)
+>>    1332                          goto out;
+>>    1333                  goto more;
+>>    1334          }
+>>    1335
+>>    1336  out:
+>>    1337          dout("try_read done on %p ret %d\n", con, ret);
+>>    1338          return ret;
+>>    1339
+>>    1340  bad_tag:
+>>    1341          pr_err("try_read bad con->in_tag = %d\n", (int)con->in_tag);
+>>    1342          con->error_msg = "protocol error, garbage tag";
+>>    1343          ret = -1;
+>>    1344          goto out;
+>>    1345  }
+>>    1346
+> Thanks,
+>
+>                  Ilya
+> _______________________________________________
+> kbuild-all mailing list -- kbuild-all@lists.01.org
+> To unsubscribe send an email to kbuild-all-leave@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210304003055.tsrqewikdekbhhax%40archlinux-ax161.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b34f6a4e-a779-a319-a948-5036a0c9b62b%40intel.com.
