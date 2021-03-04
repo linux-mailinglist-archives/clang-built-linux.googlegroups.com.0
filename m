@@ -1,126 +1,121 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDH3QSBAMGQEUFQZVDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYH4QSBAMGQEEQ2BDLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
-	by mail.lfdr.de (Postfix) with ESMTPS id DCFF732DACD
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Mar 2021 21:05:33 +0100 (CET)
-Received: by mail-ua1-x937.google.com with SMTP id z24sf6872209uao.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Mar 2021 12:05:33 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614888333; cv=pass;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3E90D32DADB
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Mar 2021 21:09:05 +0100 (CET)
+Received: by mail-lj1-x237.google.com with SMTP id j21sf5860827ljg.18
+        for <lists+clang-built-linux@lfdr.de>; Thu, 04 Mar 2021 12:09:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614888544; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RItmRTBcxGhIKXAMoB5TK81oHBiqI0sRe311IyUSNMhu9Qp2SjrFodqb4Z0TmEeI6O
-         sEOQlKT13Os5nO5NLgBoHTZj7BSVOhoJ3JUL6C6xJXj3Uy8l92QryOYkYGkwo5vI7A/u
-         wT/nJlLPasuMb79B/Ce7Eo7AdByRubs9/xmVmAODfuS/CcpLxV30u0UaYUb55gV6lOgC
-         yB5QYjk7j9uyqAGVpQsNt3ZhlllqlwN7bxbwa6Ap09IiZq9m00dd5F1jg4L5yQEV9jT9
-         9mb83lmZRJG3GkN1f+tWvPc9F/Mm0GV4yRTLMNd8J8qQgVUNaBQGzEeVwgUxN9/pM46U
-         OR+w==
+        b=aBeW0iJoad2EoEUzrjX0f+pAbWXBTu9Ma9QZAQv3FlbPncs9zjJ1HIis7/GXjbcpUy
+         xWLCUHWFYFri2vvbbeYbQbZh9frK32YyaQk2dSbxM+/IyXmXekHtE2RDe4b4RlvNB7Oh
+         n4672nFS0RWdcGuA8/pZevCEp1WVLhiFNRMSEG3jFQqVnr0yQT9Q23qK7y4+JtuHFZfD
+         ChArQ8NJpPufkd2kWg4ZLPQw2BSNikJitCX7GanSfdOM3ORfVhf2Sa+6901fXHCed2uT
+         ispHeevIO2TIIPsbS7ZaVsahNAVZbxvihhjZfXQBoHsg2dwXzov1F02ukgW+Vm730Q26
+         tPoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=UNJzzs1cXDEGAc/2kUZ9x1HLZVdts61j/vfMZPZvs/8=;
-        b=D13xQz4DLvLCKe+BPTDHyGzfIsQHOL5mwqlyBXcAabFeXE10RKT5b4JlbsoU1m7gT6
-         UVwY6aKI3M6Znyz1hN7KhCiv6FXitZiVJonJOWCpMt1/au72P2lk0Hmhbe2KxHErik6X
-         E1bC7zoy2lv3LSIirU4nsC9Ee1JxsYMx+Iaw1TVyE6n3OAxpo2cxGtPpuPcdlY7R1G1X
-         XQvWV/ssuwWOja+VYWVgr2b9NTMVxIwkd31/OVNiTmYKreZCasrOEGnF7YL+08m+zPHY
-         FKdPRvoNt+xqB5AOU+maM6E7pqCEDNX6y9kAMsPe9mEBUaYes/wI6sbQivCSwlhDZy4s
-         ouOQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=WqjJ+rJX2gTeRJPAUHz8MPY7CJ8jpYFCERND++d8Dqs=;
+        b=XxgldR/qcaiJ31SEM+2qXatOTw4fxodgEl2xirUNDlLxJqSiKdPHYebZDUFIS5oKEl
+         cLF7S7w4Mq0qKjYS5HiC+WyXprSKYxS9zmtIS6kpUiCjzPVxjf2B1GaVKsta9G6bcjkX
+         u1Y0sH3VhDLtZMB5qPAUXjuai9dFBOzGf3+LJles2n/ump+OiIn/A9qzdvwnEFls3nrn
+         JQvi1MJNzHyy4m9gldwTlVnXO9qle04PfNU6WJJAYpfgKu/JhvlL8Y3sHlVzp1YLGyAA
+         IZL33awXbk8IgXGPpjAf6bH2gwkIvDXGKuYxF2YjTMj/MkSsv3o2VK18yy+dVZZfZwEg
+         0G/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=rzMCnefG;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HC2DSxt1;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UNJzzs1cXDEGAc/2kUZ9x1HLZVdts61j/vfMZPZvs/8=;
-        b=EycnGvmgXp7rLGejz5U44QPaddX/UmBHVtvsmRKi997hp6/HNUBejmYa/C7PWYnORm
-         8w6lmGDHoWGBKECZZGBOhGBMhSuFl6b0O8XjmkyIf/0Uwozq1BwAZgt85BC9+54TuTCF
-         ga0QDKNjOnxcx5TqpANGhXUaJjNIKtX7blXilZXMeUzQC5v96MvUNL6PHzUnjDyIHJqx
-         7lhHSBaOai6oOfhLEFdi0M1j09B74Oem1dBkvQCYtNUPG25hJo/P/Yusj4RCWJaOjQvk
-         eVtxcFj1VZP7oLJJvZS9o6raGkPdWwjICRFjw7TXFHOB8SoInqbGkhRIPdgoTFIkZO1S
-         GNRA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WqjJ+rJX2gTeRJPAUHz8MPY7CJ8jpYFCERND++d8Dqs=;
+        b=Kf0NmKzL/jQsOI/uFM6aChDs4VWjtccP5UP6N5dj/Lv/rHnQvWA+EcCIiMrQtcVesD
+         Os5kMECMMZtmkzcGEmYudifBWUfSAStlzM6+431+rS2vP/lbisbXoeJkFLO37qU8SbBP
+         AOkJdidlm4M47A6Nk34mnczlHy29skPXUuBCnHdCSFOXbTLoLoJpgWUAGEaRK5X8AV0W
+         10Liw4nJcmEbuRDtGZLNaLleJRfcyy9G2mndYKQGI5LXGkeUY9TVCEYcEPkJIB8UFE12
+         852IlTP8sqbOy3plmQzAlJaR/JNKcXGbEhrbeMFDwfYUp0uDyfFFN1KAPy/ygh34pVzS
+         U3rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=UNJzzs1cXDEGAc/2kUZ9x1HLZVdts61j/vfMZPZvs/8=;
-        b=dU8JJfT6L0lukhGVI8EDKcJ7Qz/JIrEvD5fHWzr9sEgThQrKkcg6MYxQU57WU0xpZH
-         gMDHkxddWyF04NjGPiunO0DJgSY+L5kMri6AOZyWeMul1XeJs3bf0vRkI5uCDmH9CGPU
-         Gv2U+UNej5AELd5ViqR4l35epL0ZtAiRPfXTcguKRwrq+b8Jdw+4xzTm0YBGOCgepSAR
-         cn89N30kXV3aVdcHSArssDJPJwbFJ38Eo+tLit6WondaxEYU3dcTN1+0ebbhKowtmTAI
-         3hded0pIPmQe6mjImDw08ycrezOXyuxgiHmyRREY2NjAJu5VLnDEMc9UB0ru52QownQS
-         VN+Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533J++He576w1Mc1ED6PSmaz2+rJJ5Xn2a0M5yzM/+EW5C5rEVXU
-	LPj/a25Mu0LLdisX4VF+2u4=
-X-Google-Smtp-Source: ABdhPJyHGvC8KHXvTTPK8SFNlBkvX7z2/596/TyD6NvO0wvwwNtcr0tHNULbsGokYijl25o6xAOOnA==
-X-Received: by 2002:a05:6102:b11:: with SMTP id b17mr3987514vst.43.1614888332960;
-        Thu, 04 Mar 2021 12:05:32 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WqjJ+rJX2gTeRJPAUHz8MPY7CJ8jpYFCERND++d8Dqs=;
+        b=EcrTXBiesujAhsaFf1W4rX2puhrn77+MRsYYfvk8E5orGw7MH463OJrml9iwThY/NS
+         hCLINiwbt6KU75XvfDCHY4ecM8UEblVHv4hPrtPf/FWh9OHAf9mMG0OVBhqQFrs3mBj1
+         dHrLk+cY3zHpzGhiH1IO6ogc/34YI8eMAa9uskry0UtJsDqSaGcyVAf52rGa++EjFvW2
+         Be2Mzw4ugXm5GX8N4DConRKeudOR5t0F9ycRo7A9eP83TXf9sDznDBWhOgZGsID4zJMO
+         4fNrhFqaCHsS3phO4UB/kUXr0bxNPzrZ9plglZR6+NLM5SE8WnUhHgB4OBnOloKVoM4z
+         eVBQ==
+X-Gm-Message-State: AOAM530fOd/qIa8xFXHCHsIgHh3m+K2oxhqkCht/xUAuX/Ron8fRhmrf
+	9emx0zEZlL9U+cMZQV9DxRE=
+X-Google-Smtp-Source: ABdhPJzELn+mO0g44v4+WMKc5LZc/jbJAeYtS73aZJHtN1APXu13/0R7skclFn9bF9KSsFs/0OP7aQ==
+X-Received: by 2002:a19:8854:: with SMTP id k81mr3307450lfd.366.1614888544823;
+        Thu, 04 Mar 2021 12:09:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:63c3:: with SMTP id x186ls390513vkb.7.gmail; Thu, 04 Mar
- 2021 12:05:32 -0800 (PST)
-X-Received: by 2002:a1f:a3cd:: with SMTP id m196mr4154900vke.21.1614888332451;
-        Thu, 04 Mar 2021 12:05:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614888332; cv=none;
+Received: by 2002:a05:6512:6d4:: with SMTP id u20ls1955204lff.1.gmail; Thu, 04
+ Mar 2021 12:09:03 -0800 (PST)
+X-Received: by 2002:a05:6512:34c3:: with SMTP id w3mr3107585lfr.437.1614888543814;
+        Thu, 04 Mar 2021 12:09:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614888543; cv=none;
         d=google.com; s=arc-20160816;
-        b=YhFwlavJpK4eeQ765O6r7aefrf3lAjdeFINNpmG7OC3X0iqAmu8aBlgnwUFIE4OTjO
-         zlRbQRIJiRJL/aGYSKKoBeLoCPCm2w8vbTp0JKmsdcDbcUYMgDWzk2k6AaqOeu2lvoJn
-         eX9ryLq1ghEnEogpT2RKUsXkxeTrUXxZPELaerYJG8ywvKOFGbMI+kTdvhfQBCGrP/Qu
-         VvFGEUDU/dAbys6lArRrHbGShpOulVDyM4DxQY0/ugxT5sqo2LIWQW4NUXW0vuj8eNzq
-         tDlA79whaGQnyeZQEF18TGzuFK7j0LbGTcCXn/ScI/WWjv6ie7X1JM77yM6hTXcuo7TY
-         H7og==
+        b=wej88X0nvrl4CybsnmvGhzw0WgTjIT93jYgVmpKT6KXNyKwIVrlwGKxrxDeWdrfbVY
+         qYQC0e9IJgpRGG+H+rPME4M3BbYFuGnOA8XhE1KHGrEY759bMgFTL5fSczUSJzG0zH7o
+         GxaqFXBekkA6YA23MD4nZSif7eoCmH7pXs4fimkJuVmBidvLlBVBPEQOZOF13Uo/kAm9
+         8Vip3RJl2OgYAzuEd9Rhsq6o/KTHetKMpg3phJpkGemikaYh1yVUIaEl7eBSXWGXZpfb
+         QLHDGeRVEDMZADvz2qnSD/QOutQ3YcEGrdmlCfd6WbIyFDJjVCLSsNPwYG0bXsw0j60o
+         WPNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=cE/whTLwos2dkN1xoJVy5jy9YLfikpAERIKeorU38Kk=;
-        b=z0LL7XkM7G9+70CpTblyiJ/A+lDuBclaiffVTAtXgg0p6NqC4H+uL2kzeo8h/SUIhJ
-         sZM7FprWahGhnPVich2sj02G6+J8nmGVBeLMzPUd8q8J4vF3nLEQEBKouCvm9BtrH+cp
-         as9Ayyn4qsLkpoPdpnQp9AN688SZoJAfD/VmA/Lpr55XYv0f6Qplr4bbWIjqr3r5GLpS
-         8mJxQXi81UU4tzsN8jWIAbHwaTnAHU+EMKFqJR7+uaScjbIO5hiPp73mWRJrRvi79T4U
-         gmuKRlTuDdR7dcyIawNEqXCmWiRfm2IUoecMHsFN6qtkgV2o14nbiJ++3z9nPqh+zCNT
-         yJRA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=78PiX4iDkW3NYiWRZO38aCamYcWLnJ+1dhK0TdRiSeU=;
+        b=tQ3qdP2ykn7j4X9CE8QxTyrIHPuIWvrnC5TZxB2wsbKVFkwAvHJnIzGJMRSI5WQUk+
+         f2kqMY++BZmBT6w+PSpZrj4ZcytCV2TM4CKYA8zWrf21nhSTPZTbbcW6hV7EWHVHBpTy
+         pOXl201L1ArJTgDAZBeP4oahu47tZEqf13eyBKn6tc9Bi7k/uBWE7V+oljhRYPFXeGV9
+         xwnMvs691dqs5Z1R7YOWnwCGQTg+yNfd+pMJMdGpIzdYBNTrsRs5AKgcQmDecyyO8gxL
+         ZFPlD2wiiDUIl67/q8tSxTVchXYAfQgNdA9GH31qnNk++hKHmbIvO+BlHuZjZmePl8w6
+         JdZg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=rzMCnefG;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n3si25174uad.0.2021.03.04.12.05.32
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HC2DSxt1;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lj1-x22b.google.com (mail-lj1-x22b.google.com. [2a00:1450:4864:20::22b])
+        by gmr-mx.google.com with ESMTPS id p18si15984lji.8.2021.03.04.12.09.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 04 Mar 2021 12:05:32 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1BDB964F6F;
-	Thu,  4 Mar 2021 20:05:29 +0000 (UTC)
-Date: Thu, 4 Mar 2021 13:05:26 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Hans de Goede <hdegoede@redhat.com>
-Cc: kernel test robot <lkp@intel.com>,
-	Mario Limonciello <mario.limonciello@dell.com>,
-	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [linux-next:master 7714/11865]
- drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning: unused variable
- 'dell_device_table'
-Message-ID: <20210304200526.io7weii5xk2tlh4g@archlinux-ax161>
-References: <202102202323.OkXTM7bf-lkp@intel.com>
- <1b24561f-5d9d-dcfb-a231-11be10722074@redhat.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Mar 2021 12:09:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) client-ip=2a00:1450:4864:20::22b;
+Received: by mail-lj1-x22b.google.com with SMTP id y12so22017049ljj.12
+        for <clang-built-linux@googlegroups.com>; Thu, 04 Mar 2021 12:09:03 -0800 (PST)
+X-Received: by 2002:a2e:868e:: with SMTP id l14mr3235989lji.479.1614888543363;
+ Thu, 04 Mar 2021 12:09:03 -0800 (PST)
 MIME-Version: 1.0
+References: <202103041153.F42B50404F@keescook>
+In-Reply-To: <202103041153.F42B50404F@keescook>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 4 Mar 2021 12:08:52 -0800
+Message-ID: <CAKwvOd=DkVdDDr0+ZKnf8a4Hc1zrW79L3UPErBX+3MUrVghPNQ@mail.gmail.com>
+Subject: Re: per-task stack canaries for arm64 (and riscv)
+To: Kees Cook <keescook@chromium.org>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <1b24561f-5d9d-dcfb-a231-11be10722074@redhat.com>
-X-Original-Sender: nathan@kernel.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=rzMCnefG;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=HC2DSxt1;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,118 +128,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Mar 04, 2021 at 12:59:08PM +0100, Hans de Goede wrote:
+On Thu, Mar 4, 2021 at 11:56 AM Kees Cook <keescook@chromium.org> wrote:
+>
 > Hi,
-> 
-> On 2/20/21 4:16 PM, kernel test robot wrote:
-> > Hi Mario,
-> > 
-> > First bad commit (maybe != root cause):
-> > 
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > head:   abaf6f60176f1ae9d946d63e4db63164600b7b1a
-> > commit: f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28 [7714/11865] platform/x86: Move all dell drivers to their own subdirectory
-> > config: x86_64-randconfig-r014-20210220 (attached as .config)
-> > compiler: clang version 12.0.0 (https://github.com/llvm/llvm-project c9439ca36342fb6013187d0a69aef92736951476)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28
-> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> >         git fetch --no-tags linux-next master
-> >         git checkout f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> > 
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > 
-> > All warnings (new ones prefixed by >>):
-> > 
-> >>> drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning: unused variable 'dell_device_table' [-Wunused-const-variable]
-> >    static const struct dmi_system_id dell_device_table[] __initconst = {
-> >                                      ^
-> >    1 warning generated.
-> 
-> So this table is only there so that it can be passed to the MODULE_DEVICE_TABLE() macro for auto-loading the module.
-> 
-> I guess that that macro used to give enough of a reference to the table for the compiler to not complain but that
-> seems to have changed.
+>
+> Is there anyone that might be able to give this bug some love?
+>
+> https://bugs.llvm.org/show_bug.cgi?id=47341
+>
+> Right now Clang doesn't support per-task stack canaries on arm64 (nor
+> riscv), and I think this is sad. :) Notably, Android doesn't benefit
+> from the recent work done to enable this in the kernel for GCC's
+> implementation.
 
-This particular config has CONFIG_DELL_SMBIOS_SMM=y, which means that
-MODULE_DEVICE_TABLE() expands to nothing so it is indeed unused. I do
-not think that anything changed on the compiler side as this is
-reproducible with both GCC and clang. Do note that W=1 is needed to
-reproduce this.
+see also: https://github.com/ClangBuiltLinux/linux/issues/289
 
-> I suggest that we just add an __maybe_unused to the declaration of the table to silence the warning.
+I'm heads down on trying to get LLVM_IAS=1 enabled in Android. Once
+I'm done with that sprint, most of the machinery is in place in clang
+to get this working, so is probably not too bad to implement next.
 
-Yes, this would probably be the best fix.
 
-Cheers,
-Nathan
 
-> Regards,
-> 
-> Hans
-> 
-> 
-> 
-> 
-> 
-> > 
-> > 
-> > vim +/dell_device_table +27 drivers/platform/x86/dell/dell-smbios-smm.c
-> > 
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  26  
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01 @27  static const struct dmi_system_id dell_device_table[] __initconst = {
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  28  	{
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  29  		.ident = "Dell laptop",
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  30  		.matches = {
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  31  			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  32  			DMI_MATCH(DMI_CHASSIS_TYPE, "8"),
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  33  		},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  34  	},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  35  	{
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  36  		.matches = {
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  37  			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  38  			DMI_MATCH(DMI_CHASSIS_TYPE, "9"), /*Laptop*/
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  39  		},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  40  	},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  41  	{
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  42  		.matches = {
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  43  			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  44  			DMI_MATCH(DMI_CHASSIS_TYPE, "10"), /*Notebook*/
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  45  		},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  46  	},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  47  	{
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  48  		.ident = "Dell Computer Corporation",
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  49  		.matches = {
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  50  			DMI_MATCH(DMI_SYS_VENDOR, "Dell Computer Corporation"),
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  51  			DMI_MATCH(DMI_CHASSIS_TYPE, "8"),
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  52  		},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  53  	},
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  54  	{ }
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  55  };
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  56  MODULE_DEVICE_TABLE(dmi, dell_device_table);
-> > 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  57  
-> > 
-> > :::::: The code at line 27 was first introduced by commit
-> > :::::: 549b4930f057658dc50d8010e66219233119a4d8 platform/x86: dell-smbios: Introduce dispatcher for SMM calls
-> > 
-> > :::::: TO: Mario Limonciello <mario.limonciello@dell.com>
-> > :::::: CC: Darren Hart (VMware) <dvhart@infradead.org>
-> > 
-> > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> > 
-> 
-> 
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210304200526.io7weii5xk2tlh4g%40archlinux-ax161.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DDkVdDDr0%2BZKnf8a4Hc1zrW79L3UPErBX%2B3MUrVghPNQ%40mail.gmail.com.
