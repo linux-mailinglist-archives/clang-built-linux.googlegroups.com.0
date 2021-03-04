@@ -1,127 +1,131 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQW3QGBAMGQELDSQIGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBBXYQGBAMGQEGX3TYSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id DEE8632CBC9
-	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Mar 2021 06:18:59 +0100 (CET)
-Received: by mail-oo1-xc3b.google.com with SMTP id t15sf6921451oon.2
-        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Mar 2021 21:18:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1614835138; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id CC9C232CCB7
+	for <lists+clang-built-linux@lfdr.de>; Thu,  4 Mar 2021 07:19:51 +0100 (CET)
+Received: by mail-pl1-x63a.google.com with SMTP id o8sf14802319pls.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 03 Mar 2021 22:19:51 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1614838790; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZWErONAsFofav9NZhxg04l4FwK6YQC6/PWoAwNUSseKPKVCKeHzKFxk+Gq2FmTFIt9
-         lIjz0KNXveaIKSrN6CDnStXk8k5Yyi4s4Fmc8LOESkugMuakBXfIOFquII3CTLwiHuQs
-         pLF8zPV+dszpSh7aWVKuiC1ZAT9+GW2n3Ei5V4JpAhPtzZJHodh2l2mQZ85IzofzMydI
-         TP9NtnwNIaQzao+vf5dn27cQjsZ7AjLs5DIwVV0KkKq+2CuWC2Gej6qFI/VWGSG11dWb
-         xiFtsCDGBtR2oo1emuKOIJAI7yaaI3Jl5rxRNz1SuQa/7+RvUL7T5PyCMYVmVbGqFymR
-         1H9A==
+        b=RLrBkzHyyaIWJK4iSRgZZrv6DEFDmw5cpQvNhtghWzJDp+Sm0i92SkRIm3ATXJUZZU
+         gYrxjVa6KYVe7j+R+tq7PxmL3jQDkYI8zgQvbuy8eeAJL9A29eIICz3aHnUqZvqqRXe9
+         H2ofc8ItjvKabr9/fvnAMCHSjWn1SmskYeXDEBq4Wk+dF1R9BJ4aOIArOZmU8VcvWxiG
+         zQDhV2BlR2YX1LQQulVvnBpX/QCgA93lPWI1ll4gQNMea1M+oZ3lwn87uRbFbdz8+SsQ
+         hLKKaIePuXquHMIOW4JSdxtLxgVgX5YbYPfHUu+kgN+9cHbUqreai3+jU78JXfNAWGn0
+         B+7A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=GN8brZx5O7T7ZByTllEYJ3ejM+d/ayJtyw9er8rzdHI=;
-        b=tZb1kyiJbcuZ8W8uHdnIqofU5sxT6lvSw330qAVeMo+PsshgB20HjV+hct0I33zySJ
-         9Fz9aZpkxmlgMC+AsTXVyn/7dDZb0UXnHD6AdwoLQ+5OvElP48rUIL8YbHyKSBTy2vET
-         h4tkM6gvvhkkWHWa8ix9TAYSK9SrJNx9YD+EcWIPd8BQ69pY64ZEoXaw4cDZCjrH2e5y
-         5sZDKU9xlRYT2IqQgLlByQknoInUhB/dDEOy7FL7Zs3lUbV4gRC02a9ZExaiwXf/c+kT
-         w7cs4g3O8gzSlJldt7HFc4yl8YxOyhMz/vJcGWwbsaAxGMCsozj+yiUOM2y/vwkK2rZk
-         2g2g==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=qEB7mOG/ZyXxGepi0U3zG17tVIYR4GtAEAy4DA3ev88=;
+        b=jVYbdw2WkaktlxaIh8up5jjxdsUZwHB4X83HzZdnaEy3zKzdIJxF0w+ZiRhO6ViVYe
+         EgifbBGTcM+MqpYhDGCzSYeJW/dCWCAUzOFoQSJo3KuI/vxYOzX6ibXbv7jFtUt1cI6Z
+         /A1FmZjI4TRaXRdqvsUq/Y+HbZMluoNhHMPsdOqd+fikA8gV5qAAMGKXa16H2SDJJq2M
+         yrw1BKyZfu8D3FozBris5aZbpch3idmLYc2Y7eXaVLchY/TVVCu9S5HixiEaJ/fo8+yF
+         aachkPpfUwr5xnaosfA1pmevwRctA8LdEVjuVKWlVYUfLvxfvFYDIuzyNf3AKqN8s+iq
+         l4lQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cfhmrj4+;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GN8brZx5O7T7ZByTllEYJ3ejM+d/ayJtyw9er8rzdHI=;
-        b=iuMNHJvak8+uZQGR7MPcAP3ZBcfPd3KxsNXr180Umf3lPhAX2T+c0fCxfCmRMdFYv0
-         GpzyUrzTjSURTs5bmoNwIwZpThh0CUx89hyDg5z9ePQQ2RUQQisb+ryh03yQWz9OE00J
-         ben43vtsuSHAjD5zQCPToUoSGW8sjPw/x9IV9I/jVJ6AYy4e4TGogTGkAXUVXAQjBprA
-         oidkjBbr+eR8u47ylUAbbMF73quGO+D7fBUJRQFUs9byKsNt3Hwgh5egcom7E564p22F
-         Gf5jLEl473GTyqK82CbadbGDOg1Ka0wBvvsvA4igIwcpV/POk4YyISlehXnmLf8n0r6r
-         k6SQ==
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qEB7mOG/ZyXxGepi0U3zG17tVIYR4GtAEAy4DA3ev88=;
+        b=c2v66ia9+w6bZHGsF5+NBvNGB9PfjhrZpIZrxE1Ys2VeLu42uy96zkkenaOwu64Zkk
+         I3XtbvYJmWsjV1ojrREPx8pF+S9PmZ1FavRwPvHJOCiBPgBWFca7CdepgqDieV8K0s53
+         Ufb4TkNM/MAHXssI/LrmPKI8h313cAdWo5FtoLzNysqbQxEPjWTWjBwpqsSzjgeVzjC2
+         8SZGssbbmP2MjisAy4tTwSfZO/3sEJ5hlJVYCgAO39IAkUnBlKLoaXjCcZ32XqiZ1sBG
+         sYRN8afH4snShItOMvw0LK4W2jXy9yecEPtqXrPcMqaGZt6Bz6wy+7GgCJ9ggXLgnWUz
+         gpFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=GN8brZx5O7T7ZByTllEYJ3ejM+d/ayJtyw9er8rzdHI=;
-        b=pB51JXPgsT3qm6OoX+1SXcEVnHKKpNEnGQZxcHvpAJ4gvEPOUzBG3CiWIM+s++Jdk/
-         7O/Arqg+LQs1FvJJVT7/j0oTdRf95uOw06WpKR9FzsIoM8H2NeNyKv1goq/90HKNsv6T
-         IHxcEmbzRyQs0fUTuK8i20QRGQOHnDkBPzRab9ckNccGyjseWKd4+C2e9SGjIG3xQdeU
-         j4TrxnId9edS7v5B/Q/NX2n7EhThpXF7Z2DY5KVSoE37xGU36vts0TjVkq7OzGGxqiDz
-         2ZFFIRK2LcvF5tZaDsOscKQ+CdPFSvTS9lwkIH4N45+EkeInFpjG10bOJcXr35i3/fcJ
-         fgyQ==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=qEB7mOG/ZyXxGepi0U3zG17tVIYR4GtAEAy4DA3ev88=;
+        b=Ehr8qrhbHF1KCMLgLwZJ0gcOk1jOKyBJYGuDvb2TesIxW++CsI21wouZ4nNvZcPAz6
+         /VpnsKWTyj+CQM7hGz9RwmzaKjuQNFdOwDrKp8xvkaK3E5ZQ6e11RXfk6ONa9if4B41B
+         ux4d8lbYnLFfSa3YOLFjLKih7eBnuhEZDhyeGfBP8YW9diBeORqGNibugEJBuYV8C4FC
+         2EnItPHynfAba0rxoZEpc7QAaTeHaWn2qUPUe9f9iupmqdsLuQsywJp0XPlF8HX7kLHn
+         nwZGeou7VnNAImxMyn65OhGnyNTu81bB3+f/4MepxVFUSb+63egEWx6ulV9Egf/ffGn+
+         Ig1Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531kGEMMuqJiWy/RJh6aw1uWtUjPx1rmvyU0Mh4hghVSNIau54+n
-	Fy8PjAUgBXb3Nx1sa5xU9o8=
-X-Google-Smtp-Source: ABdhPJwA19a/zfmH9bnkrVJgl2juo2wKJglfqYqC0q2h7lmdNF40ouTM9N2ehhqxeLu3z3afT+R+lA==
-X-Received: by 2002:a05:6830:16d6:: with SMTP id l22mr2108187otr.121.1614835138463;
-        Wed, 03 Mar 2021 21:18:58 -0800 (PST)
+X-Gm-Message-State: AOAM532o4g8BCcHlRl39fjglgQTHi3Q8USZZRSxCDavWksZVqngk1WA/
+	U5CvCl2B4jwDNerSD8Z4l80=
+X-Google-Smtp-Source: ABdhPJwVTfQv8emprK7VEDZ4BUlsjSx9HhA34HiIaGNxqgoAyp/xDXS1yK4h/myMD7u+cDnnrgDeZQ==
+X-Received: by 2002:a05:6a00:15c8:b029:1b7:d521:32e9 with SMTP id o8-20020a056a0015c8b02901b7d52132e9mr2405670pfu.22.1614838790527;
+        Wed, 03 Mar 2021 22:19:50 -0800 (PST)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:1156:: with SMTP id u22ls1225932oiu.6.gmail; Wed,
- 03 Mar 2021 21:18:58 -0800 (PST)
-X-Received: by 2002:aca:ba43:: with SMTP id k64mr1813838oif.140.1614835138096;
-        Wed, 03 Mar 2021 21:18:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1614835138; cv=none;
+Received: by 2002:a63:1b43:: with SMTP id b3ls406633pgm.11.gmail; Wed, 03 Mar
+ 2021 22:19:50 -0800 (PST)
+X-Received: by 2002:a63:2f03:: with SMTP id v3mr2413182pgv.408.1614838790071;
+        Wed, 03 Mar 2021 22:19:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614838790; cv=none;
         d=google.com; s=arc-20160816;
-        b=utWVDlLA56KEFX+BwG7Bp/mZnf9iqVYvOOun/n26czNPdP3niO7c1ytJd1f0kQWzfK
-         zGA7OZVXlU8XlXNTL1rtx7psmNi6DpzO8ZRJqZDxqP8fz71QrfumsQZTGBww+L3Wgd5G
-         r021gvYlD6rgFuZrl6a5DogkVmTEEYAuSOBlhn/DERs2oXRKfDFy62etATJQ3Of39l/Y
-         3eUnffV4LZCUGxE/v/GAMtW7LcXBbtvwRv57P8aSmIim3I2xUdANJIjvmlZBBxHmvuiQ
-         of4LOhLldvixgOmGaUazvmOKFiQIAypGM8Z/bdAUJF0poyfatHsHhB+VnkSXoFn8Oo1n
-         POAg==
+        b=n9Fe1ygwSjH3wcaOhaT9H5cmmDybZPE9jXaHzKrmPiu6/5XKw3XfbF7P+xjEz3B3Vv
+         po9vSACZyKpDQDhWIgeljey4BIC8zLJYWVx8dz+kiqX24NnOGqOZ4Z0kv6BYpYxtz4X4
+         eHbkIXlevOSUz1dopa+56XWGKKXKoWZsCPX4MT8dK+lyNZHuFOnHNOS9mD7Gy155RtH/
+         11dPOFP//CWACbkjnUYoLVU2RY+xheMvO00UGZ810Hs39xMloZsRH3PvXef3Nml4f2H1
+         MwxdVRl6ba4wU7J/Mbj9fvDu1iDv8/biqVfzyhreIeSa84YBxbr0Rgge6gQQCG9XBjOD
+         Iukw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=en0KpVrwC/nthRbafbg21u1PrVXS63VIb1LgHZTVyEI=;
-        b=K/iNNSimJ+FmFwlMvUV1yMYAwGVdqv/EJmzOTSrhXWg6tsW358rttvgTLrPmy00JSY
-         BTje2VMG1oCIpEUGPNeYW12OYZLrxi5/WzfYB6WtUK+HqBee/TckV2gfntQrA2XSkAuJ
-         zlHn3GEFoAALx005GlsJDcrEp14gWgRjioIs7zG2H9LyTM+btFi+VqgdZ1n+u/ReVbl5
-         P7NUtX2Q+8GyUCJoIstoPueExARjMOxfO2a8779Xs63hJXCzgB/S7bAnfVCYq1u6LT+D
-         1OJFVyaXGCTMMS51rybdb0GItrdKtofWFTkG+XXOJe175UPDxOFzn4YLjpaFBvME4XHb
-         hj9A==
+        h=message-id:date:subject:cc:to:from;
+        bh=8gyByu20ff/xzPBK4t+FluljXCBGmVKV7fU6TiWHpOU=;
+        b=cMUKwUumaEQb8ECFn1pCgYu7OJaz7Xk+iIUJ3j67qA8BvQgSL2ehXtFqdQbf0RNaTh
+         pQfCqat7EMGr88dTIU1fEwHZprO86IGQHEsmjqDt/PSIKstY3rhgEhColprCcpdGvRvb
+         bvtZvEx6AqC4mDvvJXUMnh9R04i9Bv+U7fSwQWEsZ4NEv3bM7dlg3bBRklGXuvPpgekS
+         4cvOlzXwFgxesQnQGSiJkgW41RxJ21c8BgeFEz98z99Jchhz5Jx4SwsI5NENMyQdPgxb
+         wRCtxf8LFcd+Wl5Z8/FFHorGT2h5FSHjU33D2y8JyB21n/nGTQFu0JiBM9pqTHSFUfY1
+         vObQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cfhmrj4+;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j1si2261700oob.0.2021.03.03.21.18.57
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 03 Mar 2021 21:18:58 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id DAA6964EE1;
-	Thu,  4 Mar 2021 05:18:55 +0000 (UTC)
-Date: Wed, 3 Mar 2021 22:18:52 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
+       spf=pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
+Received: from loongson.cn (mail.loongson.cn. [114.242.206.163])
+        by gmr-mx.google.com with ESMTP id i24si1495848pgm.3.2021.03.03.22.19.48
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 03 Mar 2021 22:19:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as permitted sender) client-ip=114.242.206.163;
+Received: from linux.localdomain (unknown [113.200.148.30])
+	by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dx7_H6e0BgdDIUAA--.8807S2;
+	Thu, 04 Mar 2021 14:19:39 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Xuefeng Li <lixuefeng@loongson.cn>
-Subject: Re: [PATCH] MIPS: Add comment about CONFIG_MIPS32_O32 in
- loongson3_defconfig when build with Clang
-Message-ID: <20210304051852.6gf7ry26n3fct3ud@archlinux-ax161>
-References: <1614820544-10686-1-git-send-email-yangtiezhu@loongson.cn>
- <20210304020244.pza6xd4ixziysrom@archlinux-ax161>
- <958c5df5-76aa-9161-9519-07a03ee864a0@loongson.cn>
-MIME-Version: 1.0
+Subject: [PATCH v2] MIPS: Make MIPS32_O32 depends on !CC_IS_CLANG
+Date: Thu,  4 Mar 2021 14:19:38 +0800
+Message-Id: <1614838778-3696-1-git-send-email-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.1.0
+X-CM-TRANSID: AQAAf9Dx7_H6e0BgdDIUAA--.8807S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJr4rtr17JF4kKF1rWry8Zrb_yoW8GF4xp3
+	yvka1kKrs8Gr1rGFWkWrykWr12v3s5JayFqasakw12vasxZa4kZr1Ska4xZFW7Ars2vay8
+	WFZ3Wry7JayUCFUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY02Avz4vE14v_GF1l
+	42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJV
+	WUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAK
+	I48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r
+	4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF
+	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JU-J5rUUUUU=
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Original-Sender: yangtiezhu@loongson.cn
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of yangtiezhu@loongson.cn designates 114.242.206.163 as
+ permitted sender) smtp.mailfrom=yangtiezhu@loongson.cn
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <958c5df5-76aa-9161-9519-07a03ee864a0@loongson.cn>
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=cfhmrj4+;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,85 +138,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Mar 04, 2021 at 11:48:09AM +0800, Tiezhu Yang wrote:
-> On 03/04/2021 10:02 AM, Nathan Chancellor wrote:
-> > On Thu, Mar 04, 2021 at 09:15:44AM +0800, Tiezhu Yang wrote:
-> > > When build kernel with Clang [1]:
-> > > 
-> > > $ make CC=clang loongson3_defconfig
-> > > $ make CC=clang
-> 
-> [snip]
-> 
-> > I think this might be a better solution. I know that I personally never
-> > read defconfig files if a build fails.
-> > 
-> > If CONFIG_MIPS32_O32 is broken with clang and the MIPS backend
-> > maintainer has said that it will not be supported due to lack of
-> > resources, then the config should not even be selectable in my opinion.
-> > 
-> > Cheers,
-> > Nathan
-> > 
-> > diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> > index d89efba3d8a4..ed35318a759d 100644
-> > --- a/arch/mips/Kconfig
-> > +++ b/arch/mips/Kconfig
-> > @@ -3315,6 +3315,8 @@ config SYSVIPC_COMPAT
-> >   config MIPS32_O32
-> >   	bool "Kernel support for o32 binaries"
-> >   	depends on 64BIT
-> > +	# https://bugs.llvm.org/show_bug.cgi?id=38063
-> > +	depends on $(success,$(CC) $(CLANG_FLAGS) -march=mips64 -o32 -c -x c /dev/null -o /dev/null)
-> >   	select ARCH_WANT_OLD_COMPAT_IPC
-> >   	select COMPAT
-> >   	select MIPS32_COMPAT
-> 
-> Hi Nathan,
-> 
-> Thank you very much for your reply and suggestion, maybe the following
-> change is simple, clear and better? If yes, I will send v2 later.
+When build kernel with Clang [1]:
 
-Hi Tiezhu,
+$ make CC=clang loongson3_defconfig
+$ make CC=clang
 
-I think that the change is simpler but better is subjective. I tend to
-prefer tests like mine so that it is not dependent on someone going "oh
-hey, this LLVM bug has been fixed so we can turn this config on!".
-Instead, the config will just turn on automatically as soon as that bug
-is fixed.
+there exists the following error:
 
-However, in this particular case, it does not seem like that will happen
-unless someone steps but there have been times where an independent
-party will implement some change that benefits them and nobody notices
-for a while. Plus, I periodically grep the tree for CC_IS_CLANG to see
-if there are any configuration options that can be re-enabled..
+  Checking missing-syscalls for O32
+  CALL    scripts/checksyscalls.sh
+error: ABI 'o32' is not supported on CPU 'mips64r2'
+make[1]: *** [Kbuild:48: missing-syscalls] Error 1
+make: *** [arch/mips/Makefile:419: archprepare] Error 2
 
-Regardless, if Thomas is happy with the below change, so am I, as it
-will allow us to test more 64-bit MIPS configurations. I can add an ack
-or review at that point in time.
+This is a known bug [2] with Clang, as Simon Atanasyan said,
+"There is no plan on support O32 for MIPS64 due to lack of
+resources".
 
-Cheers,
-Nathan
+It is not a good idea to remove CONFIG_MIPS32_O32=y directly
+in defconfig due to GCC works well, as Nathan said, the config
+should not even be selectable when build kernel with Clang, so
+just make MIPS32_O32 depends on !CC_IS_CLANG.
 
-> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> index 3a38d27..f6ba59f 100644
-> --- a/arch/mips/Kconfig
-> +++ b/arch/mips/Kconfig
-> @@ -3318,6 +3318,8 @@ config SYSVIPC_COMPAT
->  config MIPS32_O32
->         bool "Kernel support for o32 binaries"
->         depends on 64BIT
-> +       # https://bugs.llvm.org/show_bug.cgi?id=38063
-> +       depends on !CC_IS_CLANG
->         select ARCH_WANT_OLD_COMPAT_IPC
->         select COMPAT
->         select MIPS32_COMPAT
-> 
-> Thanks,
-> Tiezhu
-> 
+[1] https://www.kernel.org/doc/html/latest/kbuild/llvm.html
+[2] https://bugs.llvm.org/show_bug.cgi?id=38063
+
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+ arch/mips/Kconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 3a38d27..f6ba59f 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -3318,6 +3318,8 @@ config SYSVIPC_COMPAT
+ config MIPS32_O32
+ 	bool "Kernel support for o32 binaries"
+ 	depends on 64BIT
++	# https://bugs.llvm.org/show_bug.cgi?id=38063
++	depends on !CC_IS_CLANG
+ 	select ARCH_WANT_OLD_COMPAT_IPC
+ 	select COMPAT
+ 	select MIPS32_COMPAT
+-- 
+2.1.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210304051852.6gf7ry26n3fct3ud%40archlinux-ax161.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1614838778-3696-1-git-send-email-yangtiezhu%40loongson.cn.
