@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBUNGTSBAMGQEXQS6FLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZV2TSBAMGQE5VQDAWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 792D8331F13
-	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Mar 2021 07:18:59 +0100 (CET)
-Received: by mail-pf1-x43d.google.com with SMTP id v6sf7881348pff.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Mar 2021 22:18:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1615270738; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6D703331F9F
+	for <lists+clang-built-linux@lfdr.de>; Tue,  9 Mar 2021 08:02:00 +0100 (CET)
+Received: by mail-pl1-x63e.google.com with SMTP id n12sf3937308plf.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 08 Mar 2021 23:02:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615273319; cv=pass;
         d=google.com; s=arc-20160816;
-        b=f2xyNY+mOZjRYZO2SHocU42N97sgqz1/796EWoQPE314m7kZOSO0jlYQtmGA+iuNpq
-         aDk44uHNcXzKypjG9VSXfMRpe/8HdKIwz3cdKzD753U9IiNY8nGU4mUwYW4WLediqUEf
-         Jm3eJzKYq9XnoFehE8Y5nHckEBclVS2Xn+SDqNCNJZdCebIaoU5DswU6Txs6ZdDMXw0L
-         SFX4g8DDh6sC7RiEUSQ/mAYma9nM7tEQsFq1HXL6EiLIiWcl8EYWc93oLF9FLEVUH4Np
-         cB1cUO/7nNI8e+yQ+2A5CRS+o08NQsvHMKu4uenndAcMefiaEM/LJTOcYJjYURLD5A9B
-         4OGg==
+        b=NsSDvJbU+ru4AXHnADk6AKBJtwACja0F2NcSehazZzQ1gs120B8RTsb4VBFXXMYJOV
+         aDv326QXVCiEELXHR1qqXQd5quJ9BU0r7OYDBIDY8KaojWGl+QeWKvFrzn4PZGA81uS5
+         wMsO6avj3vImj5e3hxbECx4ognq5Hea9eOPEFHOAOojwhVE8uSkirpxQ6RGFQWBqKgSH
+         uVC/iEvbNXM2agC230bY22/MwLD/0/DBSyZVwsO03OU80yGshfSgIX+Q8YQPsdEoI7AI
+         NiKWLBLQa2umdcdVnapZwrN8oFVrv0PUfVmQZBgfROJuQId6DqAdURVOlx7e3lTE6ii8
+         v+/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=mXs5R31e48a60W7x0TWVEHizAHxL6wTFUwjn7bk7JGo=;
-        b=t8Ns8zCm060znUlGisA2QKHy7xb3vaD3IrKQH4alBhhVLgsnUUKsxdFWAMVfVEhxFq
-         Ge+t4Gou6wmD24EIT+Ar2dAwbdTFiUZKFrvwFHIEsovU44n2S2WLMqd38TRBaY8OECJN
-         ZixuMEbm9DNojoqB0034AVZkKxKSUieT3/0Idi6EGiCOygrqoDhceTxS09cjQD4HBPpS
-         D5rC45dSvjTbv+vTlXQ2JVtbyAObFbVz2TzW0uE0+/bTsx5uBYOoo+eQSCWY8cZuzspA
-         Q1Nvb3HGmkpKJttHzdKkaQsqypbU8Pzrlak+nmA1mX6KuWdZpuM9gcE+aZ8TyIcrNsg0
-         j8ZQ==
+        bh=nxQ/G2+zqEsTVKDioBw2dpz5YpN0mxAgC7P77vwQuJA=;
+        b=B5QND+9ghmwnGGfuWLzP9BztPmv52prKs5IclZ25Gbmu3rqM4lvS/plTiWobECFVmw
+         YweUl0L7S8ZTSSGSD/ZtzhaV+NVdd9AaQicemFoOMI09+DLl9iQNqmlYzFWviFwvFePD
+         fgr5T6xFPte8I3pRnR5CSn1yELmuNqvcf/lgEV6rph0J/uSmEPnf3Mxds8czSrwSNLnB
+         0eeZZbuJtWwNnGvd9sKE33yeNM18biIAtZZt4OHKhu9litf9tZBEAHg8L3qPiRSSoXBb
+         0sC7kkhnc+MGbYxhcMldmHlUSPHZcpmMd6tKnnKGnaZrt7qPATlGyrQgiS/BN3ZeFe8J
+         2hZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mXs5R31e48a60W7x0TWVEHizAHxL6wTFUwjn7bk7JGo=;
-        b=VLgizZ/sYskJFaET8VD0d3p3W5HMHwP0IQ3c5hTk5hZu+eqC7yvM8PoipOWDQNqAlw
-         MN9Bw0xV8Yy0A8DoR61Kux8F82FZ8bizp1DrhK7jt9ZDv2C69qC6OnTxd7lqPUeHo2RZ
-         a5PESmsbBt/VxjsAiku4A0Hw5njoS0KQG80l6+V4f5ZsM8aD/g+EM4PkBFegAcyyXYtx
-         U9NGpLaNVK5sWOFiRqsKs0/rZ33ZPMzTiLSmVxL0r2tk70jJH9p7mCvkdHaTS5Z06Lul
-         ySlqbo7nnBfC8j/CFS3LhjQ9/AIpuyJIzV3IPbKM5k60XujzbzTrhXExtn/7rGjFPcHD
-         5v+A==
+        bh=nxQ/G2+zqEsTVKDioBw2dpz5YpN0mxAgC7P77vwQuJA=;
+        b=Jbe4D/8Ch+Y18OSWrZTQ4p58bNRuw0foNps6l9VjV2WY4HPPvCW6h1t6oFWNRBKuIz
+         o10/Ja7CWGUef8CIutcomaKuNYN0/rgvIne7/q1UR/3PKTq7HHGa3fZX2dfPqfRfGmA2
+         nUsNnVeELBkdcDdYGADpCMbsbby1yxTyj9zImJF/bQXrDHFkjiW4Ilm7Q+wX+cxIkLsb
+         ZpizM/s/cP4yra03V8TeEZYzVG6oitii4hdiWLZ3iB2tK6+nE78iwfbuddlYCW8+bozL
+         MVT6Re5tyJAyEtwTfdFfoSiJD/R68hLE+8D3gXbvMkFwIZe2qINMLgUHZdkCqEMaw2rq
+         SKNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,85 +49,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=mXs5R31e48a60W7x0TWVEHizAHxL6wTFUwjn7bk7JGo=;
-        b=B3BIBhHDmfGp9AoGsCc2gSuALAYZniXO3wYqMQNMmpFr456gMGDz20VeVWPDRUnhWS
-         jz5VUgSZrTwP6B+GNAz8do4QoGfL2gf8TJe8Y+odrL9gJjdfxi9HhGjf94RhXLXo5Qtz
-         X2Olsj+W0tnFKu6hgxvzlHs7DMZe21cFkdVfz9qZmticiEXcsC/KI2sGIXIncWv0qjAW
-         eUVZmFqzGHnsjeApC/ty9FTe+4WL/wOLyLwdHGcz+CmxgH+YjJYQD9G5SdyGpssV4Vwi
-         4Q86MjFzzbltx90gE8FjYyeOnJjE4gBv5MsKuKQevA655tO1gQNgVHnovGnjaT2VkBZA
-         G0qw==
+        bh=nxQ/G2+zqEsTVKDioBw2dpz5YpN0mxAgC7P77vwQuJA=;
+        b=niypvB/7QbJS/Yt/8IdvUvfCMW//n0nPA4vJLPu2txeXW0Ezz1gb+E5EHY5dsLf1Xv
+         P9RDoy77ubSnhKfTq/UiA06Lj/4/gFblpBrdmyHja0fWjRZXvNsszNQgvFIsDxE5H7Ju
+         T6gt/wBxBItBKxBtOoStGmuVUoESnLavTbrtXWrI+yqDYaRwvgaJsQfLQeMwmsNrJq1y
+         ggc+cfUnkjHj1Rb/HJCj/HbLAtXxUmPRoVwhOw6HwrzaleGjXZcFHYjNilMlsMglC6uW
+         C7D0WfVTrvl17dbolBW374w8o8qs+7WDbWVX0C7TFxzra+aSPxeFUxqbyX53zVtdLlkb
+         ZDNw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530pikaG1RFp7P94pxC9a+vDp0HkjIa5/ZjLwHpmi/ZPdWlnetyA
-	bAFIVfduAnBLKIPrMSSh/Xg=
-X-Google-Smtp-Source: ABdhPJyRruC8qTQ0U2eCvG5P48jtllXZxCEw0O40yl+M4fyGZWt2+yxGme6kb42Y8hN2tP9WecBWBA==
-X-Received: by 2002:a62:ee09:0:b029:1c0:ba8c:fcea with SMTP id e9-20020a62ee090000b02901c0ba8cfceamr23978832pfi.7.1615270737774;
-        Mon, 08 Mar 2021 22:18:57 -0800 (PST)
+X-Gm-Message-State: AOAM531T2yo2RaU9xNM2Uglg1fFDaO5e9vOxBSqmvNZ/QUAoHrjpNzY6
+	iHen0tagZvTIqIh+MY0nerE=
+X-Google-Smtp-Source: ABdhPJyI9tjFayzg1EFdnjufrhcrUL7kBifA8BEKj10uUF6VLglMcU+i8mx7m8LuhrSI9koMFX3Jtg==
+X-Received: by 2002:a17:90a:e656:: with SMTP id ep22mr3038324pjb.60.1615273318606;
+        Mon, 08 Mar 2021 23:01:58 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:6a11:: with SMTP id m17ls7700740pgu.6.gmail; Mon, 08 Mar
- 2021 22:18:57 -0800 (PST)
-X-Received: by 2002:a63:ce15:: with SMTP id y21mr23949110pgf.4.1615270737055;
-        Mon, 08 Mar 2021 22:18:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1615270737; cv=none;
+Received: by 2002:a65:6256:: with SMTP id q22ls7756921pgv.2.gmail; Mon, 08 Mar
+ 2021 23:01:58 -0800 (PST)
+X-Received: by 2002:aa7:9989:0:b029:1f5:aa05:94af with SMTP id k9-20020aa799890000b02901f5aa0594afmr9161681pfh.34.1615273317902;
+        Mon, 08 Mar 2021 23:01:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615273317; cv=none;
         d=google.com; s=arc-20160816;
-        b=A38hiGpPxj4/EsZS0eBA48HXwu3bOE7aISU2e/1UNXaP11Xv8X6IXCrQ8xHzN4c8c4
-         rPPVaBBXQZBuS445pyRNPhSpiM0OCFxjEKi3iTyZOXJ5E8XDh6od6W+4rjFdu2RcZmvL
-         0Wrw529ULR0EP/TfqI7bDO1rREXNcziAVmsvyqFyuPSMCK/NmXLYM+Gg3IgXMYx/10hk
-         TFUbUOfhxo6sqvO8PF8tySA+34Z1ZumdaU31kid0v/mN3SfZ5u8+lUHAcTX6/UvXnq21
-         XCVOmwD+cFoptuLsDDddCqLRZ/AmyaJyT+mAfix/dbW7xuvjo9T1C/Q7FeepqzexBmZk
-         3/Aw==
+        b=qAuKODdnlLie67sKl34j7MQPZMEIqkeyiW/jBbE3eiW/Iu0Qyx16B3Lzug0RF0b8j6
+         roMjXXcg/QQwrCPFMwL+qakhh85b4+nAY0pRlwschAE0wPROdbIETAjYbKrIuNUrkjXv
+         akq32GxrV7PkQ3GoBOWf0W+unreWB/8BQ35WXEyMDKS2g13xP+FA0DHP5Z6zQvTYZY2n
+         NkB50pktsfVy8M6Z6L/yG6DNU+1CAbD+uUQMm69l+AGb0lf2F2Yo/wq5ye4I/R7qS5vi
+         BdsSzQLtM2tLPUI14jo9qohRvhzdjJNCFCXNJi6o/y+WtmY1lcO44AA/+b1nMxbSEQNC
+         IwSA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=m0VsNREcqXO0qimV3LzWHeIZWSDa1DGsn6puDk05OSo=;
-        b=oWR+x3yELsJfbUJ8TrSNmhvM7IBgVUDFdGZBDJr2Ru0zUihQhbi0HuHeR9QYuWQbYp
-         M4XML7FvfaEVe/v+jc6SOoc7EkqJCq0hmf4/VL05c2QdnHEmtwgoc9pVg2C1YBmcn5nT
-         dDgdRQddfbjObqQmmOUnuzr7ko/wcyM9Bj7oi1wwcBjg0mkG1hIpq3Dpvq4mB+WYn/tN
-         dxNNtNkoR10Slo0XiIC7GeRV40Kp1amGCJT1SKHENJP6tzirc+p6byAnmbDiLU4cNULZ
-         OBqbSrVY9YYXbaYHxfHjNwoQDDlRlA6t1E92aW08aSsEPxxKJSQw3CG6M2czO+zYzjHB
-         B4XA==
+        bh=l+NeWMcPkVH5ZPH//zmM+iaYHZ4ihwqtJoL5kAhraiI=;
+        b=Y4Z2LNQ6BqjvFvo5vR41Qi33Z/nLBwANBbcNUe1okD3B7lQP7RyqQdANnXBi625HpP
+         1c8nxeyPX2069D+OeYAtKKrqZ5+RDraGk2dqgiRbQuv/hpl79409nARIrgEfKpho4Qi4
+         tNfNylv4j5r93cv/CwX1Syw0FnskBJsoLrs89ZeGG+mnvgYx5sJC0EYOm6d5koqyYkag
+         h/qXecAg42QDpZRC++oyZgoJbLU8QO4VkS+aAjTTTZYe1cez4DSjcrRfQxToQ9sd/NLr
+         ne9O74ggmRAtYlAOcmUVcp88UkJiA0Tqu81Bka7TscFkYtnFhLg2aakXkpuR5RBNDqv3
+         qMuw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id x1si759691plm.5.2021.03.08.22.18.56
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id c3si482592plo.1.2021.03.08.23.01.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 08 Mar 2021 22:18:57 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-IronPort-SDR: H4edl0xm3mr76AP3f69KhQnz6mr4b3OV9y6aDVQ+6toeMrZrePJiiVTCaQb6ZX17QWTLmg0dcV
- JRL3IWqc7Ovg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9917"; a="188274051"
+        Mon, 08 Mar 2021 23:01:57 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+IronPort-SDR: AUpu/Pj9EyMLEWhiKU88g+iQ9GJ9OgdInsQ1sj7gbjg7NkwDf+JuSsdAIQV9nwPHtWwDB0fcDj
+ mghtcxtEOiTg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9917"; a="187537488"
 X-IronPort-AV: E=Sophos;i="5.81,234,1610438400"; 
-   d="gz'50?scan'50,208,50";a="188274051"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Mar 2021 22:18:56 -0800
-IronPort-SDR: rdBlnexaCNvY15NT/6UM8m+Gvh82NIv8BEJ8/BK8pMeePNUVxA0B2ZhW1MrMHAoK6uByOFZD4f
- l6Bh8K23yzBw==
+   d="gz'50?scan'50,208,50";a="187537488"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Mar 2021 23:01:56 -0800
+IronPort-SDR: I9NuPxCcRJtCM02ecO036QVrzj2ueIfjKpE6s5NkdxTHYf5s28h5vWmZeR9hmScnae9uSY4Lem
+ 919rHYM0ov1Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.81,234,1610438400"; 
-   d="gz'50?scan'50,208,50";a="371421803"
+   d="gz'50?scan'50,208,50";a="602498185"
 Received: from lkp-server01.sh.intel.com (HELO 3e992a48ca98) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 08 Mar 2021 22:18:54 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 08 Mar 2021 23:01:54 -0800
 Received: from kbuild by 3e992a48ca98 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lJVhl-0001Qf-9R; Tue, 09 Mar 2021 06:18:53 +0000
-Date: Tue, 9 Mar 2021 14:18:30 +0800
+	id 1lJWNO-0001Rj-6m; Tue, 09 Mar 2021 07:01:54 +0000
+Date: Tue, 9 Mar 2021 15:01:23 +0800
 From: kernel test robot <lkp@intel.com>
-To: Ira Weiny <ira.weiny@intel.com>
+To: Fenghua Yu <fenghua.yu@intel.com>
 Cc: kbuild-all@01.org, clang-built-linux@googlegroups.com,
-	Fenghua Yu <fenghua.yu@intel.com>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: [weiny2:tip-pks-v4.2-5.12-rc 6/16] arch/x86/mm/pkeys.c:250: warning:
- expecting prototype for optimizes MSR writes by maintaining a per cpu cache
- which can(). Prototype was for write_pkrs() instead
-Message-ID: <202103091424.2Sdff2vL-lkp@intel.com>
+	Ira Weiny <ira.weiny@intel.com>
+Subject: [weiny2:tip-pks-v4.2-5.12-rc 8/16] arch/x86/mm/pkeys.c:270: warning:
+ wrong kernel-doc identifier on line:
+Message-ID: <202103091519.YvldX9uo-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="tThc/1wpZn/ma/RB"
+Content-Type: multipart/mixed; boundary="x+6KMIRAuhnl3hBn"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -143,13 +141,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---tThc/1wpZn/ma/RB
+--x+6KMIRAuhnl3hBn
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/weiny2/linux-kernel.git tip-pks-v4.2-5.12-rc
 head:   84a3164e5bbe2fef506f7c3ba217b325cc142702
-commit: c126e60b9338bf968bb1aed1fbd65f1ce38094e9 [6/16] x86/pks: Preserve the PKRS MSR on context switch
+commit: 8cf4e1fa7c4291c2fdb465d665ec755706e97bc8 [8/16] x86/pks: Add PKS kernel API
 config: x86_64-randconfig-a012-20210308 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 820f508b08d7c94b2dd7847e9710d2bc36d3dd45)
 reproduce (this is a W=1 build):
@@ -157,10 +155,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/weiny2/linux-kernel/commit/c126e60b9338bf968bb1aed1fbd65f1ce38094e9
+        # https://github.com/weiny2/linux-kernel/commit/8cf4e1fa7c4291c2fdb465d665ec755706e97bc8
         git remote add weiny2 https://github.com/weiny2/linux-kernel.git
         git fetch --no-tags weiny2 tip-pks-v4.2-5.12-rc
-        git checkout c126e60b9338bf968bb1aed1fbd65f1ce38094e9
+        git checkout 8cf4e1fa7c4291c2fdb465d665ec755706e97bc8
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -169,29 +167,89 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
-   arch/x86/mm/pkeys.c:250: warning: Function parameter or member 'new_pkrs' not described in 'write_pkrs'
->> arch/x86/mm/pkeys.c:250: warning: expecting prototype for optimizes MSR writes by maintaining a per cpu cache which can(). Prototype was for write_pkrs() instead
+   arch/x86/mm/pkeys.c:254: warning: Function parameter or member 'new_pkrs' not described in 'write_pkrs'
+   arch/x86/mm/pkeys.c:254: warning: expecting prototype for optimizes MSR writes by maintaining a per cpu cache which can(). Prototype was for write_pkrs() instead
+>> arch/x86/mm/pkeys.c:270: warning: wrong kernel-doc identifier on line:
+    * Do not call this directly, see pks_mk*() below.
+   arch/x86/mm/pkeys.c:306: warning: Function parameter or member 'pkey' not described in 'pks_mk_noaccess'
+>> arch/x86/mm/pkeys.c:306: warning: expecting prototype for PKS access control functions(). Prototype was for pks_mk_noaccess() instead
 
 
-vim +250 arch/x86/mm/pkeys.c
+vim +270 arch/x86/mm/pkeys.c
 
-   234	
-   235	/**
-   236	 * write_pkrs() optimizes MSR writes by maintaining a per cpu cache which can
-   237	 * be checked quickly.
-   238	 *
-   239	 * It should also be noted that the underlying WRMSR(MSR_IA32_PKRS) is not
-   240	 * serializing but still maintains ordering properties similar to WRPKRU.
-   241	 * The current SDM section on PKRS needs updating but should be the same as
-   242	 * that of WRPKRU.  So to quote from the WRPKRU text:
-   243	 *
-   244	 *     WRPKRU will never execute transiently. Memory accesses
-   245	 *     affected by PKRU register will not execute (even transiently)
-   246	 *     until all prior executions of WRPKRU have completed execution
-   247	 *     and updated the PKRU register.
-   248	 */
-   249	void write_pkrs(u32 new_pkrs)
- > 250	{
+   238	
+   239	/**
+   240	 * write_pkrs() optimizes MSR writes by maintaining a per cpu cache which can
+   241	 * be checked quickly.
+   242	 *
+   243	 * It should also be noted that the underlying WRMSR(MSR_IA32_PKRS) is not
+   244	 * serializing but still maintains ordering properties similar to WRPKRU.
+   245	 * The current SDM section on PKRS needs updating but should be the same as
+   246	 * that of WRPKRU.  So to quote from the WRPKRU text:
+   247	 *
+   248	 *     WRPKRU will never execute transiently. Memory accesses
+   249	 *     affected by PKRU register will not execute (even transiently)
+   250	 *     until all prior executions of WRPKRU have completed execution
+   251	 *     and updated the PKRU register.
+   252	 */
+   253	void write_pkrs(u32 new_pkrs)
+ > 254	{
+   255		u32 *pkrs;
+   256	
+   257		if (!static_cpu_has(X86_FEATURE_PKS))
+   258			return;
+   259	
+   260		pkrs = get_cpu_ptr(&pkrs_cache);
+   261		if (*pkrs != new_pkrs) {
+   262			*pkrs = new_pkrs;
+   263			wrmsrl(MSR_IA32_PKRS, new_pkrs);
+   264		}
+   265		put_cpu_ptr(pkrs);
+   266	}
+   267	EXPORT_SYMBOL_GPL(write_pkrs);
+   268	
+   269	/**
+ > 270	 * Do not call this directly, see pks_mk*() below.
+   271	 *
+   272	 * @pkey: Key for the domain to change
+   273	 * @protection: protection bits to be used
+   274	 *
+   275	 * Protection utilizes the same protection bits specified for User pkeys
+   276	 *     PKEY_DISABLE_ACCESS
+   277	 *     PKEY_DISABLE_WRITE
+   278	 *
+   279	 */
+   280	static inline void pks_update_protection(int pkey, unsigned long protection)
+   281	{
+   282		current->thread.saved_pkrs = update_pkey_val(current->thread.saved_pkrs,
+   283							     pkey, protection);
+   284		write_pkrs(current->thread.saved_pkrs);
+   285	}
+   286	
+   287	/**
+   288	 * PKS access control functions
+   289	 *
+   290	 * Change the access of the domain specified by the pkey.  These are global
+   291	 * updates.  They only affects the current running thread.  It is undefined and
+   292	 * a bug for users to call this without having allocated a pkey and using it as
+   293	 * pkey here.
+   294	 *
+   295	 * pks_mk_noaccess()
+   296	 *     Disable all access to the domain
+   297	 * pks_mk_readonly()
+   298	 *     Make the domain Read only
+   299	 * pks_mk_readwrite()
+   300	 *     Make the domain Read/Write
+   301	 *
+   302	 * @pkey the pkey for which the access should change.
+   303	 *
+   304	 */
+   305	void pks_mk_noaccess(int pkey)
+ > 306	{
+   307		pks_update_protection(pkey, PKEY_DISABLE_ACCESS);
+   308	}
+   309	EXPORT_SYMBOL_GPL(pks_mk_noaccess);
+   310	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -200,14 +258,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202103091424.2Sdff2vL-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202103091519.YvldX9uo-lkp%40intel.com.
 
---tThc/1wpZn/ma/RB
+--x+6KMIRAuhnl3hBn
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICMQMR2AAAy5jb25maWcAjFxbdxu3rn7fv0Irfel+aGo7jpOes/xAzXAk1nMLyZFkv3A5
+H4sICOcWR2AAAy5jb25maWcAjFxbdxu3rn7fv0Irfel+aGo7jpOes/xAzXAk1nMLyZFkv3A5
 tpLtU1+yZbtN/v0BSI6G5GDU5sGRCPAOAh9AUD/966cZe315erh+ubu5vr//Mfu6fdzurl+2
 t7Mvd/fb/53lzaxu9IznQr8F5vLu8fX7r98/npmz09n7t8cnb49+2d0czy62u8ft/Sx7evxy
 9/UVGrh7evzXT//KmroQC5NlZsWlEk1tNN/o8zc399ePX2d/bnfPwDc7fvf26O3R7Oevdy//
@@ -789,4 +847,4 @@ N29GGBe67CQotPHabR4mkAYshnCM1GE/KeQgMYp3VcgzmTUtDDCCFdo5KFLh0hZcZJso8BSw
 4heZwW6kP96u4XKlTBsRzCKl1jrLYlDyKYO/KwRdetxfFfBlUP9QPcRFieeQI9UvAp4IKDwY
 0TIm4A3XITrKMl5VuDKTIm4yV8G3SaM5VwKfdlU7ATP/AWr9HU+h+AEA
 
---tThc/1wpZn/ma/RB--
+--x+6KMIRAuhnl3hBn--
