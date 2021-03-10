@@ -1,122 +1,129 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBGG2USBAMGQEORS5L5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDR5N7WPRQGRBO65USBAMGQEBRXEUHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe37.google.com (mail-vs1-xe37.google.com [IPv6:2607:f8b0:4864:20::e37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B5FE3348EB
-	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Mar 2021 21:33:29 +0100 (CET)
-Received: by mail-vs1-xe37.google.com with SMTP id v66sf5300473vsb.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Mar 2021 12:33:29 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1615408408; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id ABE643348FD
+	for <lists+clang-built-linux@lfdr.de>; Wed, 10 Mar 2021 21:40:28 +0100 (CET)
+Received: by mail-yb1-xb3a.google.com with SMTP id p136sf22886085ybc.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 10 Mar 2021 12:40:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615408827; cv=pass;
         d=google.com; s=arc-20160816;
-        b=C4L6lF92Vo7ivhLYpYAEApsSKq5B2DGU04g1qfLIB/ZoPnfIai00BKtvauOlD4X9Sg
-         KGKq4jJwdoqoV9upVg3+IOdOlaSdiwHzXr0itomOMWyuE2fgJDP+3F19V6Q69R4RuBmQ
-         r/c6szXsTyRadfsJCsF4lm2Z2aZXWvHlDT2y0IX0nb0PYON7gjzQb8LZ/+g25eg0LqxN
-         7IOeYyZsMN6VMOX18K9aRjQeIz2DcyzCnBHrGZ1MddEZ9UCG+cR5qOccRcvTVZD5HGiw
-         n3cz8d25/VTMdpHhzikm486draIIQKUry8HpAUkCkkCOdi039eWfCedu7cnVKTCtM50k
-         afMw==
+        b=V5cpNXnkt0imyP6FGt6DVg3mE2quV2MMhMTqjq8i6+ILv8UphL/WOZFkMiv9/4Z3MM
+         sTCfvti6TsrF/G1yDyIx+dMnxnhEDQIDOirRevWJXxAr7ntfDsqJBU3CJhKtLlqAIj8J
+         PLkuHcMBOaaXu+HQoXIO03Revs347hgr9bBYn+2VJRWLztBGL0l2tlD0scyyc38KCGJL
+         Ynzc99TY9NaIyVtcYooQcurzbpKfFNeWtfXN3CNIrccsQYb8UzicsCuvdULeXWXMu9X5
+         WKTAuddGQka96t+jXjGIf/ORhaHiyM5XfyzzmGH4JwZ2mj3uqP1gaJaoyDs3oIVqAgYg
+         Qj/A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=t7mnRroDi27XrxAg4lTiauL7Q8c2Xq8lKk4B7V6zQI4=;
-        b=y5Rle1ufyXXfD5iMf7AxlZ0OENolAwh8wFGQkZxmTieAO7/2YEuuCDLPa5Gzn5rBp8
-         9UUiH9a9TveoZn+43COj9pnzXFSeJ+gmO4Is949vysnjwvn8u091fdCTmaeNp5E3Yatd
-         2OjYVoObAbB7k67PGnoVQZpE34sGp5A0nxV95qQbUCCPd38wvpFGDhlUrdcUj1b4GjHZ
-         D7pn+W0Sky+8mi5p1WITzadKoQ2p8MpvnCm0LdvtP8h5I/lSf/8Na4qocjpGrfmgjpAD
-         uuK4dAiJc5F/Yaz4/cIHLakcMiE+xif/8QE1P6HkUyv1Gl8rOI6DAJYTUccllCTxyPBw
-         Zd4w==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=W7SYaE+uXtd/1lRJ8rx07MixwgOyrTscsPh8YrxS9kM=;
+        b=bQNO6kgXgx57m7HJ2JHnGqDAmb/SvKR/ysZIxci03AL46R3KquOAuBjbr+Dj96gpRI
+         WgnefdZPMtcZHElgT3Lv1aNGIqukbJDzXWkrEqafyvSc0VAexqdk4X1gEMjE+yJE/5lQ
+         Veeqi4LldG2bO2G5rxkG28bujw1R00ZdYmjV+OSgMbFsBHK1t4y6WaNw0UHuaxZ9FKqf
+         3Fiz9tTV3Zp4U7boE3YLFvMi8C5ZMVGbsg+Hb9VKI0QG0t+uuyydssID7WVjj7ACLnWx
+         0kWhhbd5gX4UoV2AICMbVTqe2ykJtJyWbkIoXE57syNhMMn1VxJY833XUkYtQwU9De3+
+         mOkQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=i4tUPg34;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel-dk.20150623.gappssmtp.com header.s=20150623 header.b=0RuQSIfe;
+       spf=pass (google.com: domain of axboe@kernel.dk designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=axboe@kernel.dk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=t7mnRroDi27XrxAg4lTiauL7Q8c2Xq8lKk4B7V6zQI4=;
-        b=EqZ1FKjwXxx+0e4oV5X10mY4ZV8rgUZdTl1/ZVD1gzSSIgO5JGiQDy95spB8cPt/Bi
-         /O3yu3Wyrq1qpj21/ATZQ712gQe2KYcGe6enWsZTR9JLetcsHA7z9toFsvsG1kzbLuT7
-         9laujQxiTLSCVZEyF2VxsMiyA3YpNYf20ZPGqcrPeIjB9d5WTYmDndHDxFBypvgv9u9q
-         YMn97wb8Iz8sraLt1zsXs2Z37v6YkwNnWiH0XTqIHZ8iEFU96X6iPrzzN3s/rTcPsw1f
-         sRUvSViytMOGxDwta2c+Qir2DvjOwMhmBokHGDo0HAGKP7tOsx0lC7cZgGMovuJMSzJs
-         5m5g==
+        bh=W7SYaE+uXtd/1lRJ8rx07MixwgOyrTscsPh8YrxS9kM=;
+        b=kmCUzjAQ77E2eBdcbYi1ex8rL8G+dF+JKAYT5/LyBdUsC4DYozHkogQnMREAH/4KC3
+         jXgZMoMdyh2iqLRqqcDqjUNMRQfVwZsuLF5vOlwBlm944E+kQet//HkGtstrMcHh69HX
+         1FcUZMa2aZs7vweYPav9nn++iThtl/H/o/f7oH5H4/wbe5Pm4P62X9OtHNKaEad6Foa9
+         1Y4vkdpgwdArfZRiTDLffuToCK+/kh2KEC9mWf5EjwnmkOlkCHrin00a7uoAidkSzo1M
+         /DuJszitXK6E72f3fjt3QkJd06SVdQWEgyBjujUYwbMU6g4NNt6AhBiWVuwFY8/25NqN
+         VKkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=t7mnRroDi27XrxAg4lTiauL7Q8c2Xq8lKk4B7V6zQI4=;
-        b=MVC2edRngKAU3onD46mvG1NPpASVD2OdS7cjl9YmI5xBXl9fhVByXyXby5ebaU8bUN
-         CJEpQdBwycHJUdwc5oAJdzQ7ztzsGQ6kPm1hGpIdveTIUEbzxUlZ3B+J/QJW3N9T2zKm
-         /yoaJ8I3i98hNC6NwTzzMMMeLYlAGcvCGKk3WfeFpPj3qS2e6RNedNQ2tbUc7GRWLZrq
-         fuDjJp7vzTJvw5RV1no1eYtN4uDY25twV4PrXvufXw2PWSgd1YT/v/0j4ULWpNIuHoPI
-         ZRZg64oDMCD86NnWy3cOXR5baVVC758+PL5tZft0ST8hcLQk0aQsJNVJVErF1HlNbVGJ
-         xDKg==
+        bh=W7SYaE+uXtd/1lRJ8rx07MixwgOyrTscsPh8YrxS9kM=;
+        b=BuX0CN/BQXqkMaZwQGD/ZJkkH+EbNNjxy8d7Y4+HBaPDz7UUlY1V+H6LiD41na8mj0
+         NGcRvjMRI9+9l1UVnPuY+9hqKieon8V0ykDUKxRdQ1rcM8vb7OUBNTjATUIzLmksEDsL
+         0bwj32NPyZSStbFuZkOjRofNwJEWeBOZerlLhIoiuhi1/cT9A3nFC/FpMp5cnB/rMRq9
+         3bT9nhC2YKYipv/u0k77cgFhOhJcZD6mYvMS0CJ5UhCqZcrCjT2Lr/XWSxJ8R5M6P4+F
+         ynSgAe/2vh1ZdgOUOt+GBnQmLxtjwa6qNzB/7ae0qRyltuuCE8a/mKZ7QrbDwTqdLcJ3
+         eF0w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531GxzF7NF8KJbgz5Js93N6lE9sT2rGtG79v+NyL6T7uNtKPWIpD
-	aIge6zPQZgrvdn7BMX7+ZU4=
-X-Google-Smtp-Source: ABdhPJzjUdTcwSN+EOKpXXG+cvIin5g/fTTn5odOi3Xj8aaIc0vwqLhcXcvdwROUf1hSVIkK0P6S2w==
-X-Received: by 2002:a1f:b686:: with SMTP id g128mr2896381vkf.25.1615408408307;
-        Wed, 10 Mar 2021 12:33:28 -0800 (PST)
+X-Gm-Message-State: AOAM533VdFkUHEX/1+MkhDCrLNEnM1c6WazBiVR/9yX8rnmpyP5mY3wv
+	cksjrsYq408T51DZh9usm1U=
+X-Google-Smtp-Source: ABdhPJwnGkG9PCHn//po7Wt8dzJXo85zNS/CVqZGN/LPSQLN56UueYPJLsQTvl1oOpftXZOuxQwnbQ==
+X-Received: by 2002:a25:dbc6:: with SMTP id g189mr7233254ybf.273.1615408827821;
+        Wed, 10 Mar 2021 12:40:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:6147:: with SMTP id w7ls273655uan.8.gmail; Wed, 10 Mar
- 2021 12:33:27 -0800 (PST)
-X-Received: by 2002:ab0:30b3:: with SMTP id b19mr3350382uam.58.1615408407779;
-        Wed, 10 Mar 2021 12:33:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1615408407; cv=none;
+Received: by 2002:a25:dc49:: with SMTP id y70ls509561ybe.4.gmail; Wed, 10 Mar
+ 2021 12:40:27 -0800 (PST)
+X-Received: by 2002:a25:da0e:: with SMTP id n14mr7063097ybf.356.1615408827255;
+        Wed, 10 Mar 2021 12:40:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615408827; cv=none;
         d=google.com; s=arc-20160816;
-        b=v1wByXg9itf8Ew+z+fNExqBG9G8S8e3s9G3m7zz4z9A9qt+YeaPTXW8QC7coZ23FQQ
-         xOx2f4h/gdPh+y5PGc6HR/otDyX+lfTfT88hEvM8BIDltvB6EbHqO1oAdzzk211rfHFG
-         pb32xxn73IIPfRahJPid3L/od9PkoVW2zJqw4tBTt/AmbPPHQu31WTRKck07fCjA/3Ek
-         BqtysfddRvrkH4zJdcL8XSF9tsd2rI8myge2b93Szbm4QSDDV3rVYIpchuX93whOv6eS
-         wv0c4gatByY4mJpg2krFx3T2jHFDrAiwlxIlyzAuuSxCSNouByfuRJ9+HYhozLK5QUm9
-         9d6w==
+        b=PxlkCqNOuKTnldty/uvHbtiHPgSIGBEgK7b+V/x2dJtOuL6CL5Y1eoiYmYUUDtIIKR
+         6uH5+g6Ov/izeCDtyLbIix3AhZifETNHrpXwXAgEHXszcXnLbe+gGeeH6TaQD6Aq8SXZ
+         InqzIyMK5AzViypBGmlAX2P5mWeCQBkhblfx5KZL+41CD7MZrVqFyO4Dx9FUqdHE+upz
+         owis22ltgQinH0ZBgZRo+DV5uG6NjeZk3tgjqgvHFZiyJATxJMKvCgDhXM+WIXzaMyTo
+         7/AcYtdtqxWcKaYMRKcNqlLTy50qUSN7UU6uio1OJyQOmVI4rNrdO1fvgEr150OsmE/v
+         1zZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=3hq85zMsBQru5JJUKox4NCtJ4X0U+SDQSqts9ZFMF5s=;
-        b=lZzA9ZlrgvM47Jf8OEs51CR7i1NiwhF5RoSBO2ILKgOwrybLyZe8R3hg+v6FqCptDh
-         YTPs+IKhFbT5BBDvdgNzZcgJEt6cqD0dWQmXgeD4VBYO7khcQcQlflDVnSZMWsw5Klr9
-         kscU0hLO9bLPqI8MZvwUaUVLI5MmLIuglAB7xzhCL+Ng+uhzqil04wuQGjgOkTUv5485
-         kCAWN0NRgvS1m18uKuUnMUzSbxQHC2oOibRrEAkgvD2K5gJiHH0ORv3AHRAoXDKk+p8R
-         PpW/yTYwnjActcC8uhRkmXUNMDeUdTA55jtnwHB+uJcVoKcZkKyDwYjvuYKZPp1zF7Tp
-         7qsQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=DOt2uzG5UdlIpzOf4PwD5PjSE+FFilkpfVBNl0BIvD4=;
+        b=QDijF64uxjEcB8R4x+MEnwnku60khb/hJ8TqhLlZAjBcrl7CgAQTz84PQoteGzgUQP
+         v670zIeyQ5M5PtOW0ZNTc15YOSnhmLS//6MPVPbtUXBRqfY5OtYDsve1C1VSMXO52AGd
+         Ob4KUywpaTP/ms58DQtj3zjSp/V0poZb+5UCG2rwjLpRGQVJuOd8RvmO69D6yNKSJ+/e
+         HzJ+uYxk6wnZQCngMA1/AAOUAON0etZ8MKrnoGf4MqURfKGTuYJvsgo5KgA3+Uh2wAIK
+         F9AWSsyfrbZ/F82KLs4vbDJnxS602qjd/u3W6mxqt99GpHLhmedIDXvwVJWf1AKGzHmG
+         AO8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=i4tUPg34;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p23si43171vkm.1.2021.03.10.12.33.27
+       dkim=pass header.i=@kernel-dk.20150623.gappssmtp.com header.s=20150623 header.b=0RuQSIfe;
+       spf=pass (google.com: domain of axboe@kernel.dk designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=axboe@kernel.dk
+Received: from mail-io1-xd2c.google.com (mail-io1-xd2c.google.com. [2607:f8b0:4864:20::d2c])
+        by gmr-mx.google.com with ESMTPS id l14si75684ybp.4.2021.03.10.12.40.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 10 Mar 2021 12:33:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3714D64FB3;
-	Wed, 10 Mar 2021 20:33:26 +0000 (UTC)
-Date: Wed, 10 Mar 2021 13:33:23 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Mar 2021 12:40:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of axboe@kernel.dk designates 2607:f8b0:4864:20::d2c as permitted sender) client-ip=2607:f8b0:4864:20::d2c;
+Received: by mail-io1-xd2c.google.com with SMTP id 81so19402853iou.11
+        for <clang-built-linux@googlegroups.com>; Wed, 10 Mar 2021 12:40:27 -0800 (PST)
+X-Received: by 2002:a05:6638:3809:: with SMTP id i9mr343389jav.24.1615408826452;
+        Wed, 10 Mar 2021 12:40:26 -0800 (PST)
+Received: from [192.168.1.30] ([65.144.74.34])
+        by smtp.gmail.com with ESMTPSA id k14sm203630ilv.41.2021.03.10.12.40.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Mar 2021 12:40:26 -0800 (PST)
 Subject: Re: -Walign-mismatch in block/blk-mq.c
-Message-ID: <20210310203323.35w2q7tlnxe23ukg@Ryzen-9-3900X.localdomain>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
 References: <20210310182307.zzcbi5w5jrmveld4@archlinux-ax161>
  <99cf90ea-81c0-e110-4815-dd1f7df36cb4@kernel.dk>
+ <20210310203323.35w2q7tlnxe23ukg@Ryzen-9-3900X.localdomain>
+From: Jens Axboe <axboe@kernel.dk>
+Message-ID: <e43dba61-8c74-757d-862d-99d23559cf50@kernel.dk>
+Date: Wed, 10 Mar 2021 13:40:25 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
+In-Reply-To: <20210310203323.35w2q7tlnxe23ukg@Ryzen-9-3900X.localdomain>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <99cf90ea-81c0-e110-4815-dd1f7df36cb4@kernel.dk>
-X-Original-Sender: nathan@kernel.org
+Content-Language: en-US
+X-Original-Sender: axboe@kernel.dk
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=i4tUPg34;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel-dk.20150623.gappssmtp.com header.s=20150623
+ header.b=0RuQSIfe;       spf=pass (google.com: domain of axboe@kernel.dk
+ designates 2607:f8b0:4864:20::d2c as permitted sender) smtp.mailfrom=axboe@kernel.dk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,46 +136,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 10, 2021 at 01:21:52PM -0700, Jens Axboe wrote:
-> On 3/10/21 11:23 AM, Nathan Chancellor wrote:
-> > Hi Jens,
-> > 
-> > There is a new clang warning added in the development branch,
-> > -Walign-mismatch, which shows an instance in block/blk-mq.c:
-> > 
-> > block/blk-mq.c:630:39: warning: passing 8-byte aligned argument to
-> > 32-byte aligned parameter 2 of 'smp_call_function_single_async' may
-> > result in an unaligned pointer access [-Walign-mismatch]
-> >                 smp_call_function_single_async(cpu, &rq->csd);
-> >                                                     ^
-> > 1 warning generated.
-> > 
-> > There appears to be some history here as I can see that this member was
-> > purposefully unaligned in commit 4ccafe032005 ("block: unalign
-> > call_single_data in struct request"). However, I later see a change in
-> > commit 7c3fb70f0341 ("block: rearrange a few request fields for better
-> > cache layout") that seems somewhat related. Is it possible to get back
-> > the alignment by rearranging the structure again? This seems to be the
-> > only solution for the warning aside from just outright disabling it,
-> > which would be a shame since it seems like it could be useful for
-> > architectures that cannot handle unaligned accesses well, unless I am
-> > missing something obvious :)
+On 3/10/21 1:33 PM, Nathan Chancellor wrote:
+> On Wed, Mar 10, 2021 at 01:21:52PM -0700, Jens Axboe wrote:
+>> On 3/10/21 11:23 AM, Nathan Chancellor wrote:
+>>> Hi Jens,
+>>>
+>>> There is a new clang warning added in the development branch,
+>>> -Walign-mismatch, which shows an instance in block/blk-mq.c:
+>>>
+>>> block/blk-mq.c:630:39: warning: passing 8-byte aligned argument to
+>>> 32-byte aligned parameter 2 of 'smp_call_function_single_async' may
+>>> result in an unaligned pointer access [-Walign-mismatch]
+>>>                 smp_call_function_single_async(cpu, &rq->csd);
+>>>                                                     ^
+>>> 1 warning generated.
+>>>
+>>> There appears to be some history here as I can see that this member was
+>>> purposefully unaligned in commit 4ccafe032005 ("block: unalign
+>>> call_single_data in struct request"). However, I later see a change in
+>>> commit 7c3fb70f0341 ("block: rearrange a few request fields for better
+>>> cache layout") that seems somewhat related. Is it possible to get back
+>>> the alignment by rearranging the structure again? This seems to be the
+>>> only solution for the warning aside from just outright disabling it,
+>>> which would be a shame since it seems like it could be useful for
+>>> architectures that cannot handle unaligned accesses well, unless I am
+>>> missing something obvious :)
+>>
+>> It should not be hard to ensure that alignment without re-introducing
+>> the bloat. Is there some background on why 32-byte alignment is
+>> required?
+>>
 > 
-> It should not be hard to ensure that alignment without re-introducing
-> the bloat. Is there some background on why 32-byte alignment is
-> required?
-> 
+> This alignment requirement was introduced in commit 966a967116e6 ("smp:
+> Avoid using two cache lines for struct call_single_data") and it looks
+> like there was a thread between you and Peter Zijlstra that has some
+> more information on this:
+> https://lore.kernel.org/r/a9beb452-7344-9e2d-fc80-094d8f5a0394@kernel.dk/
 
-This alignment requirement was introduced in commit 966a967116e6 ("smp:
-Avoid using two cache lines for struct call_single_data") and it looks
-like there was a thread between you and Peter Zijlstra that has some
-more information on this:
-https://lore.kernel.org/r/a9beb452-7344-9e2d-fc80-094d8f5a0394@kernel.dk/
+Ah now I remember - so it's not that it _needs_ to be 32-byte aligned,
+it's just a handy way to ensure that it doesn't straddle two cachelines.
+In fact, there's no real alignment concern, outside of performance
+reasons we don't want it touching two cachelines.
 
-Cheers,
-Nathan
+So... what exactly is your concern? Just silencing that warning? Because
+there doesn't seem to be an issue with just having it wherever in struct
+request.
+
+-- 
+Jens Axboe
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210310203323.35w2q7tlnxe23ukg%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e43dba61-8c74-757d-862d-99d23559cf50%40kernel.dk.
