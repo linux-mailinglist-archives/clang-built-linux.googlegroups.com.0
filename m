@@ -1,142 +1,155 @@
-Return-Path: <clang-built-linux+bncBC27HSOJ44LBBPN4VCBAMGQEFE6FHXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDB3VRMVXIPRBXGPVCBAMGQE6SZASPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id A871B337438
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 14:42:21 +0100 (CET)
-Received: by mail-wm1-x339.google.com with SMTP id c7sf4066326wml.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 05:42:21 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1615470141; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7835433755F
+	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 15:23:25 +0100 (CET)
+Received: by mail-lj1-x23e.google.com with SMTP id k4sf8657383ljg.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 06:23:25 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615472605; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r+PeX5kbatibVm9vrboq0yGuzotDhCRJze0G15tszU9MdqIg90IRHoLtjmYt1ScSa1
-         HWGnd4rjDQrrF/erdyi2CU5jzuzFLuAB9Bua98vXTAlpPG/r2S6pySyvcsbsA6m86PDu
-         /Twe7HGQ3TxVsZ2t0N1RpZ32teGUamf8mHpXApWL0WkoqVFV8WrLmyhkDlBSXkB4cmlD
-         NNUOJQ+7R8U46YYCvA4Xl8Koz63JkG9J0DpL0dKfjqaBbWq4eNpzkLmex9h/DATGqakm
-         mCH63HTlpzRQ3wtgnIcUHPTuXhVTzIJ9WzA32X2siIYiKABUXb4tksymbkU88dvcIjxL
-         83xw==
+        b=xloX7Iheh/nX5xmc7uQF/sKQDMN3Cu3AYL5TtHih50ZknQn4X0arKoM8+yRQiqSw8l
+         MJyENwgSpieBVqNbfUB8DJ1+7bmyKO6ef+IpargQoVj8Ql9OBJOWXe1iRuMcwpaxLcjT
+         vqH9lkkmJsVsER5/WO1s0A2zUXdAIqDKzSpGeYWEnFOTyGLMWcpc+se5P6QByI6rUI1x
+         0gQggEHk/ol4rMdx/AgWlrLRCNFPMqbKrlGf9FtyYg388PRMMLdicErlG0KMlDCuMQcY
+         4MtAmrZlZ1UgJ5fzRqhNum6j63esbEeri3Ktfy+eBX+3JbKt4YWmzixr6NRlo9NA2LDH
+         R2Ug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=djCdnvPmC1YTYNkQe7MppQJeI5yR6tm+8twTpV0OVuc=;
-        b=g2Hc+iMK3sIK+k5GMsIrbUTTHhbgUGW/1cHBZJbPXcXkKzVpwFQALMaPip5x8get6u
-         lsaHAeFdP0gHdBQwH7louDgc608/SE+efJMxImijfcd8cKaUIVchRcBPIh13Gl9H/qTt
-         x350QdM+2ROm11/KM0w9LPNH7Qrl4t86yaYocYLDnMR8bNAnf7LkwCvnaCV0YqakNUlm
-         wjUbne2+gm0uBla613RcyhUA2TOeY0CS3zB1isi0tcCwXPwA9Cl5QLuc5vvXT2AQ5rLp
-         kXsHMOaI4WVZMEKG8EFUYJwTYKstH33wcQNDL/Km7uZ3rgD3vnJe3L43UrJaW1UiGap0
-         gOQg==
+         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
+         :date:subject:cc:to:from:dkim-signature;
+        bh=vMdwJ4HicnsENaAsO4veOZxmubPCS3FOa5VL3yaTr3Q=;
+        b=VP7c1wX+Ixpow2YOv9elNweTfUdTkjRT65c4zte5JQ8/OxMiVfQlV61+TMxOGa1kk1
+         xtdvAiwiS//QBGcXOF3hIqmc0dCNPng1U05X99LfV2OAynf0eg3x6hCtg8NlM/ZtpvUP
+         kAtvI67kfj62NwlNtA7QbwiOvgGDpXmDj9T1WWYvKGBD/fqxnMUANyGL4PF+D7rgA2TI
+         nTUTNLM0TV49RHMZRWPfdcK0WTGD66wWq12KB+PBNp0lqN+TqflRh3yPAp9MywscxWFI
+         h5bwhX5dKedHJePcRqOcVisXXWMO9e9ZTVDtF0H5/AniRWCJqNe1f3VQYv+o7MnMMo0x
+         gacg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=sjqqOUQp;
+       spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:mime-version
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=djCdnvPmC1YTYNkQe7MppQJeI5yR6tm+8twTpV0OVuc=;
-        b=PquC7ubyoyj4pE227Ndu1aLDSm2l/fezFcnm0Tc0SNOQavz9ELl1lKNQJYB/l0te0T
-         DANo9rlICxLfahXgq9sY2wRAlPnVM0Kg66jGNYMfErUUF5i0cdgQAAmAuICaCa79kLDm
-         y6l849BQMuSUf3wf47cbsS4qoMoK6OyS0tz8z2bncRdOy1acNU20SjP7WDaWzYWTlxc8
-         UShwm+QELigGC4CImmGohq6T0uLkUL2nujFbD5voxlO/Wz2MGZ2kFND46PMIgoRUQZpz
-         4KKc3UWy7sTZBwmYIQiwyKHWGSacWrjeqNT8KNt0SUX+CPbURaRjKd5+pIQBzWPQizC6
-         EElQ==
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=vMdwJ4HicnsENaAsO4veOZxmubPCS3FOa5VL3yaTr3Q=;
+        b=HY3BttZ0xUTgdBTPrFK2ca0kO2putP44XIgBqL3iuPRaxZL0bFJkbwmm1IkDELkoji
+         5TezL02yeBgfLvEoxgn5yNWyunpwiBJXL1nUCvKt6u5a6xXxtBiqqmiIV8y0FAftyRXR
+         /e4FB1Uzhcz0nXIhZFmIZctUNjwoE1oFNwFpHBDczxA1fdDEIDk2vgnU4LgL1Otxgl6W
+         H4eD4chhTh2RWrp1iNYjKxkktR1COI+JCs2F+A0e9iqeNqvekqnVd2fNBNg6W/glLwRF
+         SupT2duJVtKx+uvyD7Gl26TfxzWUh8mxjrOnqsrb+ku4dbDRhBsBqLa8x0uxIWPS14gN
+         x/OQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :mime-version:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=djCdnvPmC1YTYNkQe7MppQJeI5yR6tm+8twTpV0OVuc=;
-        b=oavOeNjXrs1Ejd7byvSLBR7EQcIQSYwv/301h85DKYPPAqXsf81XHCig6flwtV6rBx
-         6Uiw8HLxRiIA/izG/k+BVx25UQaFnr5pZ/IdgnnA5zn0sESgMn3cI6SDd9vg4egbhWqM
-         q4XJd3NELms59f0r1FjHrvTaVc8irxWHbArB/+iDQGi0bDhWYy7/Lj9PkHuNZsJO1R/Q
-         ioSrpfW6KULetq+l57u/qobQB833Mrclvkna2QzFXcIbg4HhTfhoU82iHdNd+MsQspIv
-         OkuqJRF6ESyy5qsRY3qUSTAYIGxs0ha1Xr3ygfYbirMUWZUlwAnH31e9QxTA/UYanSIS
-         8ydg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533ui2Mc8vC1owsN1FmDRkCnLnW/H4hikiq5+t5cDqIM5Kz3RoNW
-	HZXFTnUjkDXFC5rv9/b5m1A=
-X-Google-Smtp-Source: ABdhPJypLCIshw/WOBcZ5BgUVAwtFFNbMarVzEsLgS8SJf2hO8DByxQCvfXf1dF/2LutZAJ0SqXAnQ==
-X-Received: by 2002:a05:600c:284:: with SMTP id 4mr8491846wmk.24.1615470141463;
-        Thu, 11 Mar 2021 05:42:21 -0800 (PST)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=vMdwJ4HicnsENaAsO4veOZxmubPCS3FOa5VL3yaTr3Q=;
+        b=IicM7Qie2DyxNTkLphMCkKMr2FZc7dsK5yUJlpliHanrhnJPa7x33Q5bsvUhM6QQSU
+         xIG9+/Hw55w8p847WUXdfSNv/U5Qiej6FvZuy96s2bbjOi9kAMfYRra0KRHcWUCMp3l3
+         v4NcuSPbXKeUV4GPwKm1FRRDGix959ItsMVil2AJUT7/+DpBi/yL3QMXuuSGeIKOh4j3
+         jovHZYGtDrcEOdaNVrWPTPDEPNBypaq6E3tOlcQ8FnWrsZBmWkmG/4yzzC4kLWpduBau
+         5M/+eFWTeZ5v6ZKcl0d5SSfeD5gX2vrSTpHTcHm4vOOB+RGhA2zEquwKKzl0nkiQRe8v
+         dvRg==
+X-Gm-Message-State: AOAM530eR9bK+kKlNSmmWWB5BWaRHdoBgowtTVoXO6d9HwtrQK9AAGSA
+	JfRvT9enpGRmWYOKVP6OQDg=
+X-Google-Smtp-Source: ABdhPJx60Yz+sxzuXk7vsNrPbptBjPsRt9YdsHFIurx6cjZGX00qk2QWSOeJjw8RRg4qlUlpYr6oRA==
+X-Received: by 2002:a05:6512:10c5:: with SMTP id k5mr2353499lfg.583.1615472604973;
+        Thu, 11 Mar 2021 06:23:24 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:162d:: with SMTP id v13ls5773828wrb.1.gmail; Thu,
- 11 Mar 2021 05:42:20 -0800 (PST)
-X-Received: by 2002:a05:6000:1788:: with SMTP id e8mr8950228wrg.171.1615470140573;
-        Thu, 11 Mar 2021 05:42:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1615470140; cv=none;
+Received: by 2002:a05:6512:3993:: with SMTP id j19ls905363lfu.3.gmail; Thu, 11
+ Mar 2021 06:23:24 -0800 (PST)
+X-Received: by 2002:ac2:5f1b:: with SMTP id 27mr2446063lfq.425.1615472603922;
+        Thu, 11 Mar 2021 06:23:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615472603; cv=none;
         d=google.com; s=arc-20160816;
-        b=FTcfnDKQugTpWji4w8H9MygDeAp3tMyeDLb7Mj+W1Z/wEhY89DD23qNH5zWpWQw6yu
-         pmKL9UtI/98gFyaGV+5pQurJo4FQaRMJ6ulmERJZnuhCwx6S3cyPimG1QBG3d5q45I5k
-         SacLNH8/uny2iDPuqbujoKXL053XESRFsj2dB4bd4861wm9TeWLVKM8Wg3lRbYZwKEy+
-         FUwU6dCmAisx15PSfZQHQFuJCk18oLlBIaW8N+OXLT0zIVSnwdi6Ad3ErRy0qgmDIdzO
-         kmT6AZzspRQzrEHxBtweElmKitHNov92S5Va/94oU0PJm/MX+xhU8t23W9PgEOvM3+kt
-         /a5w==
+        b=fxmDXqa2kFubhQnUjubQWT6IOUSiBpcnO1C7tVjKoevE5aZEMKwbQm1w32U7ZrO+UZ
+         BA+bQq+GrayVmRC3WHC1pjfFxP3F79t75kpmAsiesW5h0VHluDLi/4YafGYPLrZGB6EV
+         WwxmrOv/h/+zPVHixyn9l5eEyqWNoi7+47Xltd90DR9K2l7JWST3CMbXKrhbjfKxfeFd
+         6w5cMmIpDHlD2ALmKG/RXq+uNvndBsCAbPH//Snnx0bOBjwsJ2Xrvl00gKCJ3kD/fS65
+         qdnmps1qWGGH5IRErNOA356f5/OK0KTR4UoAqxI466t8NuYCksTdqDHejC9Y+y3F1qrT
+         SzpQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from;
-        bh=6/oRab71wHyRGiLRdkIff1cppeyYH0O3FV3vqOqr8nU=;
-        b=buOxr3euP/2uwk+Xn1CMZFPp6tK00vAIvCvuuCAOOJdj8dw3VZvzAuCJw3qhWzBHhe
-         xAN5fQGG843tWOAgyoTSzFbm179ZOrQlh385mplLJKErQPG7PhSRhrJ9SZ2WhQrm5Caz
-         6fQVMY8mPslq0eXtsqYk/rSJC/cwDJ+ATj51uCWwHmlIIugy4StuQvDjW3MAyYdrzGPF
-         lcKKwlS5YNgpIlTeayLjCpeu5ofc3FGD2MQme1UivbJPPlEBcMWLlL6Qe3E3oeFPcQMX
-         5KNLM3VF7aIxNDcKIkY33jP5cytBAUwRvZ1hkKGCg88cNEdPtvEsqgT4tAm6qVhWB2wf
-         xt3A==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=po4QZsHAN+vzX5uvzJmshXlPCac7n69c5r9Fdn0dvCo=;
+        b=wg65EE9TWgNnVL0U95oGbJhbd5kpUl0eKTDLf96wodSCxBWdiACHUmijSG/OH0TvWv
+         JKcRyv0/likGFfi7LdcV79NmOqQSNbyeTzm/6QbmkgvPKnEHSgEFWv0k74lwymmy8Z/f
+         WKECItAYuBszR5JwX3s0EZccfwaHjGYaeD5pFPZ486Ye7Vaw97gGvhqGgG2k2e7/rSyQ
+         s7ZY1aGTR8cwzevS0S9rikVhkqr7pQjqagH00D9kmy3CWSSbVwrZD7Or9BoGy7A26q8Q
+         TdtmoINwTkHb3KfdWYr9ffWjrpKhOc9UU+Td2hkhaHk07/8lka3hx5HQ/aASZCGS0Inr
+         TrRQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
-Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.85.151])
-        by gmr-mx.google.com with ESMTPS id i22si132153wml.2.2021.03.11.05.42.20
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=sjqqOUQp;
+       spf=pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=jgross@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
+        by gmr-mx.google.com with ESMTPS id v3si128841lfd.4.2021.03.11.06.23.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 11 Mar 2021 05:42:20 -0800 (PST)
-Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) client-ip=185.58.85.151;
-Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-160-0OoTqTl0OueELvA3YO31BA-1; Thu, 11 Mar 2021 13:42:18 +0000
-X-MC-Unique: 0OoTqTl0OueELvA3YO31BA-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
- Server (TLS) id 15.0.1347.2; Thu, 11 Mar 2021 13:42:16 +0000
-Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
- AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
- Thu, 11 Mar 2021 13:42:16 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Jens Axboe' <axboe@kernel.dk>, Nathan Chancellor <nathan@kernel.org>
-CC: "linux-block@vger.kernel.org" <linux-block@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: RE: -Walign-mismatch in block/blk-mq.c
-Thread-Topic: -Walign-mismatch in block/blk-mq.c
-Thread-Index: AQHXFe27ca/ZROQGTEKd9Li70YywSKp+zBWQ
-Date: Thu, 11 Mar 2021 13:42:16 +0000
-Message-ID: <15284544c46b4cff8422abd027eb0f8a@AcuMS.aculab.com>
-References: <20210310182307.zzcbi5w5jrmveld4@archlinux-ax161>
- <99cf90ea-81c0-e110-4815-dd1f7df36cb4@kernel.dk>
- <20210310203323.35w2q7tlnxe23ukg@Ryzen-9-3900X.localdomain>
- <e43dba61-8c74-757d-862d-99d23559cf50@kernel.dk>
-In-Reply-To: <e43dba61-8c74-757d-862d-99d23559cf50@kernel.dk>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+        Thu, 11 Mar 2021 06:23:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+	by mx2.suse.de (Postfix) with ESMTP id DB47BAC23;
+	Thu, 11 Mar 2021 14:23:22 +0000 (UTC)
+From: "'Juergen Gross' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: xen-devel@lists.xenproject.org,
+	x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	kvm@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Cc: Juergen Gross <jgross@suse.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Deep Shah <sdeep@vmware.com>,
+	"VMware, Inc." <pv-drivers@vmware.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Stephen Hemminger <sthemmin@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Wanpeng Li <wanpengli@tencent.com>,
+	Jim Mattson <jmattson@google.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: [PATCH v7 00/14] x86: major paravirt cleanup
+Date: Thu, 11 Mar 2021 15:23:05 +0100
+Message-Id: <20210311142319.4723-1-jgross@suse.com>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-Original-Sender: jgross@suse.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@suse.com header.s=susede1 header.b=sjqqOUQp;       spf=pass
+ (google.com: domain of jgross@suse.com designates 195.135.220.15 as permitted
+ sender) smtp.mailfrom=jgross@suse.com;       dmarc=pass (p=QUARANTINE sp=NONE
+ dis=NONE) header.from=suse.com
+X-Original-From: Juergen Gross <jgross@suse.com>
+Reply-To: Juergen Gross <jgross@suse.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: david.laight@aculab.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as
- permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,76 +162,117 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Jens Axboe
-> Sent: 10 March 2021 20:40
-> 
-> On 3/10/21 1:33 PM, Nathan Chancellor wrote:
-> > On Wed, Mar 10, 2021 at 01:21:52PM -0700, Jens Axboe wrote:
-> >> On 3/10/21 11:23 AM, Nathan Chancellor wrote:
-> >>> Hi Jens,
-> >>>
-> >>> There is a new clang warning added in the development branch,
-> >>> -Walign-mismatch, which shows an instance in block/blk-mq.c:
-> >>>
-> >>> block/blk-mq.c:630:39: warning: passing 8-byte aligned argument to
-> >>> 32-byte aligned parameter 2 of 'smp_call_function_single_async' may
-> >>> result in an unaligned pointer access [-Walign-mismatch]
-> >>>                 smp_call_function_single_async(cpu, &rq->csd);
-> >>>                                                     ^
-> >>> 1 warning generated.
-> >>>
-> >>> There appears to be some history here as I can see that this member was
-> >>> purposefully unaligned in commit 4ccafe032005 ("block: unalign
-> >>> call_single_data in struct request"). However, I later see a change in
-> >>> commit 7c3fb70f0341 ("block: rearrange a few request fields for better
-> >>> cache layout") that seems somewhat related. Is it possible to get back
-> >>> the alignment by rearranging the structure again? This seems to be the
-> >>> only solution for the warning aside from just outright disabling it,
-> >>> which would be a shame since it seems like it could be useful for
-> >>> architectures that cannot handle unaligned accesses well, unless I am
-> >>> missing something obvious :)
-> >>
-> >> It should not be hard to ensure that alignment without re-introducing
-> >> the bloat. Is there some background on why 32-byte alignment is
-> >> required?
-> >>
-> >
-> > This alignment requirement was introduced in commit 966a967116e6 ("smp:
-> > Avoid using two cache lines for struct call_single_data") and it looks
-> > like there was a thread between you and Peter Zijlstra that has some
-> > more information on this:
-> > https://lore.kernel.org/r/a9beb452-7344-9e2d-fc80-094d8f5a0394@kernel.dk/
-> 
-> Ah now I remember - so it's not that it _needs_ to be 32-byte aligned,
-> it's just a handy way to ensure that it doesn't straddle two cachelines.
-> In fact, there's no real alignment concern, outside of performance
-> reasons we don't want it touching two cachelines.
-> 
-> So... what exactly is your concern? Just silencing that warning? Because
-> there doesn't seem to be an issue with just having it wherever in struct
-> request.
+This is a major cleanup of the paravirt infrastructure aiming at
+eliminating all custom code patching via paravirt patching.
 
-Can you silence it by adding an extra layer of 'struct'?
-Something like:
+This is achieved by using ALTERNATIVE instead, leading to the ability
+to give objtool access to the patched in instructions.
 
-struct [
-	....
-	struct {
-		rq_rype rq:
-	} __aligned(8);
-	...
-};
+In order to remove most of the 32-bit special handling from pvops the
+time related operations are switched to use static_call() instead.
 
-So that 'rq' will be aligned, but itself doesn't have
-the alignment constraint?
+At the end of this series all paravirt patching has to do is to
+replace indirect calls with direct ones. In a further step this could
+be switched to static_call(), too.
 
-	David
+Changes in V7:
+- dropped patch 3, as already applied on tip tree
+- new patch 3 (patches 1 and 7 have been added to V6 late)
+- addressed comments by Boris
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+Changes in V6:
+- switched back to "not" bit in feature value for "not feature"
+- other minor comments addressed
+
+Changes in V5:
+- patches 1-5 of V4 dropped, as already applied
+- new patches 1+3
+- fixed patch 2
+- split V4 patch 8 into patches 4+5
+- use flag byte instead of negative feature bit for "not feature"
+
+Changes in V4:
+- fixed several build failures
+- removed objtool patch, as objtool patches are in tip now
+- added patch 1 for making usage of static_call easier
+- even more cleanup
+
+Changes in V3:
+- added patches 7 and 12
+- addressed all comments
+
+Changes in V2:
+- added patches 5-12
+
+Juergen Gross (14):
+  x86/alternative: merge include files
+  static_call: move struct static_call_key definition to
+    static_call_types.h
+  static_call: add function to query current function
+  x86/paravirt: switch time pvops functions to use static_call()
+  x86/alternative: support not-feature
+  x86/alternative: support ALTERNATIVE_TERNARY
+  x86/alternative: don't open code ALTERNATIVE_TERNARY() in
+    _static_cpu_has()
+  x86: add new features for paravirt patching
+  x86/paravirt: remove no longer needed 32-bit pvops cruft
+  x86/paravirt: simplify paravirt macros
+  x86/paravirt: switch iret pvops to ALTERNATIVE
+  x86/paravirt: add new macros PVOP_ALT* supporting pvops in
+    ALTERNATIVEs
+  x86/paravirt: switch functions with custom code to ALTERNATIVE
+  x86/paravirt: have only one paravirt patch function
+
+ arch/arm/include/asm/paravirt.h          |  14 +-
+ arch/arm/kernel/paravirt.c               |   9 +-
+ arch/arm64/include/asm/paravirt.h        |  14 +-
+ arch/arm64/kernel/paravirt.c             |  13 +-
+ arch/x86/Kconfig                         |   1 +
+ arch/x86/entry/entry_32.S                |   6 +-
+ arch/x86/entry/entry_64.S                |   2 +-
+ arch/x86/entry/vdso/vdso32/system_call.S |   2 +-
+ arch/x86/include/asm/alternative-asm.h   | 114 ------------
+ arch/x86/include/asm/alternative.h       | 126 +++++++++++++-
+ arch/x86/include/asm/cpufeature.h        |  41 +----
+ arch/x86/include/asm/cpufeatures.h       |   2 +
+ arch/x86/include/asm/irqflags.h          |   7 +-
+ arch/x86/include/asm/mshyperv.h          |   2 +-
+ arch/x86/include/asm/nospec-branch.h     |   1 -
+ arch/x86/include/asm/paravirt.h          | 167 ++++++++----------
+ arch/x86/include/asm/paravirt_types.h    | 210 +++++++++--------------
+ arch/x86/include/asm/smap.h              |   5 +-
+ arch/x86/kernel/Makefile                 |   3 +-
+ arch/x86/kernel/alternative.c            |  52 +++++-
+ arch/x86/kernel/asm-offsets.c            |   7 -
+ arch/x86/kernel/cpu/vmware.c             |   5 +-
+ arch/x86/kernel/kvm.c                    |   2 +-
+ arch/x86/kernel/kvmclock.c               |   2 +-
+ arch/x86/kernel/paravirt-spinlocks.c     |   9 +
+ arch/x86/kernel/paravirt.c               |  75 ++------
+ arch/x86/kernel/paravirt_patch.c         |  99 -----------
+ arch/x86/kernel/tsc.c                    |   3 +-
+ arch/x86/lib/atomic64_386_32.S           |   2 +-
+ arch/x86/lib/atomic64_cx8_32.S           |   2 +-
+ arch/x86/lib/copy_page_64.S              |   2 +-
+ arch/x86/lib/copy_user_64.S              |   2 +-
+ arch/x86/lib/memcpy_64.S                 |   2 +-
+ arch/x86/lib/memmove_64.S                |   2 +-
+ arch/x86/lib/memset_64.S                 |   2 +-
+ arch/x86/lib/retpoline.S                 |   2 +-
+ arch/x86/xen/enlighten_pv.c              |   4 +-
+ arch/x86/xen/time.c                      |  26 +--
+ drivers/xen/time.c                       |   3 +-
+ include/linux/static_call.h              |  26 +--
+ include/linux/static_call_types.h        |  18 ++
+ tools/include/linux/static_call_types.h  |  18 ++
+ 42 files changed, 473 insertions(+), 631 deletions(-)
+ delete mode 100644 arch/x86/include/asm/alternative-asm.h
+ delete mode 100644 arch/x86/kernel/paravirt_patch.c
+
+-- 
+2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/15284544c46b4cff8422abd027eb0f8a%40AcuMS.aculab.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210311142319.4723-1-jgross%40suse.com.
