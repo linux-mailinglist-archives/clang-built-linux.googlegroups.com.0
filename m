@@ -1,147 +1,142 @@
-Return-Path: <clang-built-linux+bncBDUIPVEV74KRB7F2VCBAMGQEXK6QGXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBPN4VCBAMGQEFE6FHXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A177337427
-	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 14:39:09 +0100 (CET)
-Received: by mail-wm1-x340.google.com with SMTP id c9sf1549936wme.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 05:39:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1615469949; cv=pass;
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id A871B337438
+	for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 14:42:21 +0100 (CET)
+Received: by mail-wm1-x339.google.com with SMTP id c7sf4066326wml.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 11 Mar 2021 05:42:21 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615470141; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rVbvawraa9++UQjPHjRFI8pLEzVCFP87eU5dK2NjDcCJQF7+EFrm8GJBRGYJreN2Yd
-         NpSigWkAH0ZoVXUa2BBvllAQOORZGutM+ez9FyhkCm86yCJdDEocVUUVTMejigJuyuSV
-         AKiwfca4kvAjQOQz1vTp6Y1MMOD2gx+aMylNC3mesvnHP6dPT5CK4J8AOXTV58Nt3h+p
-         qOvu9Y0Z1WPIJh9lGYFSTh2DbvY6T3kr6WSpPtI4sh9plF833kGIs9dpLNBWED54Pdm3
-         NwmtulSWvlKtt9gVpxQmYUh4DfxQ8k5L9Z0i7U4Eaj36hA1VnMFO2v9kN3cE/M2UKPJV
-         6wDQ==
+        b=r+PeX5kbatibVm9vrboq0yGuzotDhCRJze0G15tszU9MdqIg90IRHoLtjmYt1ScSa1
+         HWGnd4rjDQrrF/erdyi2CU5jzuzFLuAB9Bua98vXTAlpPG/r2S6pySyvcsbsA6m86PDu
+         /Twe7HGQ3TxVsZ2t0N1RpZ32teGUamf8mHpXApWL0WkoqVFV8WrLmyhkDlBSXkB4cmlD
+         NNUOJQ+7R8U46YYCvA4Xl8Koz63JkG9J0DpL0dKfjqaBbWq4eNpzkLmex9h/DATGqakm
+         mCH63HTlpzRQ3wtgnIcUHPTuXhVTzIJ9WzA32X2siIYiKABUXb4tksymbkU88dvcIjxL
+         83xw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature:dkim-signature;
-        bh=v0hOIJuE7B5el3yX93ALteKve14f6nELNQ6GrtcMUaE=;
-        b=WzFzdZ1oOPnjO+NzxbZeyXavYt6AapQV5s4UBbmVIRClyNttCkhk0+kz+AumSI/csy
-         7Mub+9agBuP+M38EyQoi4H/INj72X31UsulaZScU6PRuMCupGyMFm6cYTDceA+CssXPA
-         tifW9IePFBOxIjwvnNIJDzhbe/4QMTO07rztEnrh+M03dAXEEAMjVTIOGdTV0BFgwd81
-         rVjjzevA7A8QosQFhL1r8LxHqpI0IZqttXvCI+Og7vXJcgN2VZ9iuwC5leAAUTLmpkXQ
-         hiCYNdKwEgcOVzxXxzUAvW2yCxKjcbZUfACahKMHE/SN3tZBS/JSPboD+jdtKUFzjMjk
-         u3sQ==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=djCdnvPmC1YTYNkQe7MppQJeI5yR6tm+8twTpV0OVuc=;
+        b=g2Hc+iMK3sIK+k5GMsIrbUTTHhbgUGW/1cHBZJbPXcXkKzVpwFQALMaPip5x8get6u
+         lsaHAeFdP0gHdBQwH7louDgc608/SE+efJMxImijfcd8cKaUIVchRcBPIh13Gl9H/qTt
+         x350QdM+2ROm11/KM0w9LPNH7Qrl4t86yaYocYLDnMR8bNAnf7LkwCvnaCV0YqakNUlm
+         wjUbne2+gm0uBla613RcyhUA2TOeY0CS3zB1isi0tcCwXPwA9Cl5QLuc5vvXT2AQ5rLp
+         kXsHMOaI4WVZMEKG8EFUYJwTYKstH33wcQNDL/Km7uZ3rgD3vnJe3L43UrJaW1UiGap0
+         gOQg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OGoMc3qn;
-       spf=pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::430 as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=v0hOIJuE7B5el3yX93ALteKve14f6nELNQ6GrtcMUaE=;
-        b=sDT/Mb/H9l+sy9opwthwJscHmkEcicJjakfT8hSzEMsVgaSzARhkLOaIlklBPMCaZ3
-         zrIc9ZnacBau8eKsCsJv/mD0qKsarVEL/aTCz39yUAXOdWrr6A3k3gexIyPVGe2ObWNk
-         4EliW55qec1vjWx3JMYkEZDeajocCuHGzORFEEAvx9UwfHAYVmS0EJ0J3mNLr7t/yKuz
-         GXAeorSSiRHS1FQg+TaVR0N5AW9YfBGz66fFy2eX3RkFMLFTzbm6QGHW0rf6oFkECnQc
-         gRrB863QtemolcpRZVmqXMJ9bEdDDnaUppTAonOfTkTosAvzsBX2nkl9BlPfUJo0v0fB
-         1QgQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=v0hOIJuE7B5el3yX93ALteKve14f6nELNQ6GrtcMUaE=;
-        b=VpLtMiTU5r+YTXEEPuVkt5PJMHAGMsC9ufVk+k1GmMrn0jfbaon5NrsoebLQ6iImVM
-         fd4wsAxHWhxCwH8pYZ7FOc2Tp+KcmnCsr2VDhIgVaClSlI7CDPV/cSkUsGoKWS7AKUxp
-         dsoLzKrhiHdfMuKdMsIuo5v9t0+EXNow4DEH4XeB7O3v7vCKfP717YTAOC6Ndhl/gkv5
-         pUl8zVYDmleW6BZn7N98XumrOiVHk67/YfX9PGpDOaHmzZ2zLe0BJI1wUbeExJ+kgTsm
-         IOf+WCe145ajvU5A33BbMu+oZ3ZhZqJxRPVxy+SK0XrPnhGm7qN5uxPf3bk6KeJWt0nQ
-         6JcA==
+        bh=djCdnvPmC1YTYNkQe7MppQJeI5yR6tm+8twTpV0OVuc=;
+        b=PquC7ubyoyj4pE227Ndu1aLDSm2l/fezFcnm0Tc0SNOQavz9ELl1lKNQJYB/l0te0T
+         DANo9rlICxLfahXgq9sY2wRAlPnVM0Kg66jGNYMfErUUF5i0cdgQAAmAuICaCa79kLDm
+         y6l849BQMuSUf3wf47cbsS4qoMoK6OyS0tz8z2bncRdOy1acNU20SjP7WDaWzYWTlxc8
+         UShwm+QELigGC4CImmGohq6T0uLkUL2nujFbD5voxlO/Wz2MGZ2kFND46PMIgoRUQZpz
+         4KKc3UWy7sTZBwmYIQiwyKHWGSacWrjeqNT8KNt0SUX+CPbURaRjKd5+pIQBzWPQizC6
+         EElQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=v0hOIJuE7B5el3yX93ALteKve14f6nELNQ6GrtcMUaE=;
-        b=PHIQ1hR2KcFyZxc9uLcVJAL76Qpc3FwRIAamoTVIqOovFRoE9eLdLe4tiwPqC5W+gD
-         SzKg9rPde4rXoEyHDx4h92r1y+zyVTuR+FU8Cftpq2qdQvWkzjqueObVlJbBUvDfvaa2
-         m6WimgF0PSyM0tK6pifNLvL3oiB7eGufPHbp4Uwfy3tMbtyvmxDLQT2d9tO1UgjeMi5J
-         vSPDn6Flp54atCN7YAhzGgipeJBpF9vAEYvEeo1+oQe++bOG6+iVlQOYX3RIpQmm4Pmr
-         +uLAZtVYALke6nH4HtssLfUi1SPRNSxhvtUwTzgTj3EfPWDvJHWnHU9RCRzeq0gEddk1
-         e+RQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=djCdnvPmC1YTYNkQe7MppQJeI5yR6tm+8twTpV0OVuc=;
+        b=oavOeNjXrs1Ejd7byvSLBR7EQcIQSYwv/301h85DKYPPAqXsf81XHCig6flwtV6rBx
+         6Uiw8HLxRiIA/izG/k+BVx25UQaFnr5pZ/IdgnnA5zn0sESgMn3cI6SDd9vg4egbhWqM
+         q4XJd3NELms59f0r1FjHrvTaVc8irxWHbArB/+iDQGi0bDhWYy7/Lj9PkHuNZsJO1R/Q
+         ioSrpfW6KULetq+l57u/qobQB833Mrclvkna2QzFXcIbg4HhTfhoU82iHdNd+MsQspIv
+         OkuqJRF6ESyy5qsRY3qUSTAYIGxs0ha1Xr3ygfYbirMUWZUlwAnH31e9QxTA/UYanSIS
+         8ydg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5330gWD1jH9kPXW9rau1ChJSgta0sMIkuU5AkVJitf+ERePkkS2q
-	q/KCPZ571yyu0kcyrrmpxjg=
-X-Google-Smtp-Source: ABdhPJzo2t77lF4/RkTcskhILAwZ4SBXqMlzv8AymYemvH5u3fNpd9tKfws1ienNMUAKDJZ9JaGstg==
-X-Received: by 2002:a1c:e084:: with SMTP id x126mr8361330wmg.37.1615469948893;
-        Thu, 11 Mar 2021 05:39:08 -0800 (PST)
+X-Gm-Message-State: AOAM533ui2Mc8vC1owsN1FmDRkCnLnW/H4hikiq5+t5cDqIM5Kz3RoNW
+	HZXFTnUjkDXFC5rv9/b5m1A=
+X-Google-Smtp-Source: ABdhPJypLCIshw/WOBcZ5BgUVAwtFFNbMarVzEsLgS8SJf2hO8DByxQCvfXf1dF/2LutZAJ0SqXAnQ==
+X-Received: by 2002:a05:600c:284:: with SMTP id 4mr8491846wmk.24.1615470141463;
+        Thu, 11 Mar 2021 05:42:21 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:bd84:: with SMTP id n126ls2893388wmf.2.canary-gmail;
- Thu, 11 Mar 2021 05:39:08 -0800 (PST)
-X-Received: by 2002:a1c:32ca:: with SMTP id y193mr8254656wmy.56.1615469948039;
-        Thu, 11 Mar 2021 05:39:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1615469948; cv=none;
+Received: by 2002:a05:6000:162d:: with SMTP id v13ls5773828wrb.1.gmail; Thu,
+ 11 Mar 2021 05:42:20 -0800 (PST)
+X-Received: by 2002:a05:6000:1788:: with SMTP id e8mr8950228wrg.171.1615470140573;
+        Thu, 11 Mar 2021 05:42:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615470140; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z+cbFcJE4Bz+kQmwnbRSsK8DrGrwZC88D4ZpB3CHivHyT1Wbln4BqqIw6tWKNyGaea
-         eonKnz5PkVaZxUbo4qhFG57hhzxvMhqFqGv6OJqa4Mc2EmHzzEuJR2bUZta64t1IdOdg
-         d6yEforKrGJkN9ilWLoSejx39DdmGmiyh9BEzQVrT75B57raFRzNhDjv0t+Ib5wVAvRT
-         ucTz4x2QHeGiYvNgtnPXIsoSsvzrztWKzMgzIrTPo12JCaKPEz9KGDaf4uNy1wmNfxWI
-         H25No+4wfKNDEwz9Vu8eRtxep8+RD/k82Pl1gEO4QbN481oFln3rcaRR3Yl94mOaAqAF
-         HCwQ==
+        b=FTcfnDKQugTpWji4w8H9MygDeAp3tMyeDLb7Mj+W1Z/wEhY89DD23qNH5zWpWQw6yu
+         pmKL9UtI/98gFyaGV+5pQurJo4FQaRMJ6ulmERJZnuhCwx6S3cyPimG1QBG3d5q45I5k
+         SacLNH8/uny2iDPuqbujoKXL053XESRFsj2dB4bd4861wm9TeWLVKM8Wg3lRbYZwKEy+
+         FUwU6dCmAisx15PSfZQHQFuJCk18oLlBIaW8N+OXLT0zIVSnwdi6Ad3ErRy0qgmDIdzO
+         kmT6AZzspRQzrEHxBtweElmKitHNov92S5Va/94oU0PJm/MX+xhU8t23W9PgEOvM3+kt
+         /a5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=3aBSqhOa/RrVtCl7+qmV29JSn7bXYesRgGx4dSYwJ+U=;
-        b=lecekMgRwuhCW3mGkpSgBj8GB85Wo1NqhveeSgaxyQNJ5LLAhE5zOAZU1I/KyVY8Op
-         FkAuxuFjSK/wGqcSMXKuhNOnjC0C6lRwdTge37d4Vylg2AmnFYRWuipNoBZeAhm6lnEL
-         ZVifnTQTmpR4tKhQBCJQjdQ5BZDX11n5e9mmAGC6501tlZAIh1pCK4P9VdwgpBLEYhOJ
-         kBbb/oNKD9En622wESO+w5GZrnfyIRwoX/O9hDnfG7fKse7M8IHxVe0C36NDhO7yrtsT
-         oygBWYbK4CghZqBq4yyl/JUBaw38fDf/LqG+wrv2G7LViQH+oQ3My3tKIPJCW9Ef0ExX
-         6tQA==
+        h=content-transfer-encoding:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=6/oRab71wHyRGiLRdkIff1cppeyYH0O3FV3vqOqr8nU=;
+        b=buOxr3euP/2uwk+Xn1CMZFPp6tK00vAIvCvuuCAOOJdj8dw3VZvzAuCJw3qhWzBHhe
+         xAN5fQGG843tWOAgyoTSzFbm179ZOrQlh385mplLJKErQPG7PhSRhrJ9SZ2WhQrm5Caz
+         6fQVMY8mPslq0eXtsqYk/rSJC/cwDJ+ATj51uCWwHmlIIugy4StuQvDjW3MAyYdrzGPF
+         lcKKwlS5YNgpIlTeayLjCpeu5ofc3FGD2MQme1UivbJPPlEBcMWLlL6Qe3E3oeFPcQMX
+         5KNLM3VF7aIxNDcKIkY33jP5cytBAUwRvZ1hkKGCg88cNEdPtvEsqgT4tAm6qVhWB2wf
+         xt3A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=OGoMc3qn;
-       spf=pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::430 as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x430.google.com (mail-wr1-x430.google.com. [2a00:1450:4864:20::430])
-        by gmr-mx.google.com with ESMTPS id i22si131798wml.2.2021.03.11.05.39.08
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.85.151])
+        by gmr-mx.google.com with ESMTPS id i22si132153wml.2.2021.03.11.05.42.20
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Mar 2021 05:39:08 -0800 (PST)
-Received-SPF: pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::430 as permitted sender) client-ip=2a00:1450:4864:20::430;
-Received: by mail-wr1-x430.google.com with SMTP id b18so1903650wrn.6
-        for <clang-built-linux@googlegroups.com>; Thu, 11 Mar 2021 05:39:08 -0800 (PST)
-X-Received: by 2002:adf:c641:: with SMTP id u1mr8847471wrg.332.1615469947681;
-        Thu, 11 Mar 2021 05:39:07 -0800 (PST)
-Received: from [192.168.2.202] (pd9e5ac74.dip0.t-ipconnect.de. [217.229.172.116])
-        by smtp.gmail.com with ESMTPSA id l15sm3835547wme.43.2021.03.11.05.39.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Mar 2021 05:39:07 -0800 (PST)
-Subject: Re: [linux-next:master 1430/3917]
- drivers/platform/surface/surface_aggregator_registry.c:398:25: warning:
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes value
- from 65535 to 255
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- Linux Memory Management List <linux-mm@kvack.org>,
- Hans de Goede <hdegoede@redhat.com>
-References: <202103112158.loq4oyJu-lkp@intel.com>
-From: Maximilian Luz <luzmaximilian@gmail.com>
-Message-ID: <8c252429-5000-0649-c49f-8225d911241b@gmail.com>
-Date: Thu, 11 Mar 2021 14:39:03 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 11 Mar 2021 05:42:20 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) client-ip=185.58.85.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-160-0OoTqTl0OueELvA3YO31BA-1; Thu, 11 Mar 2021 13:42:18 +0000
+X-MC-Unique: 0OoTqTl0OueELvA3YO31BA-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Thu, 11 Mar 2021 13:42:16 +0000
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Thu, 11 Mar 2021 13:42:16 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Jens Axboe' <axboe@kernel.dk>, Nathan Chancellor <nathan@kernel.org>
+CC: "linux-block@vger.kernel.org" <linux-block@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: RE: -Walign-mismatch in block/blk-mq.c
+Thread-Topic: -Walign-mismatch in block/blk-mq.c
+Thread-Index: AQHXFe27ca/ZROQGTEKd9Li70YywSKp+zBWQ
+Date: Thu, 11 Mar 2021 13:42:16 +0000
+Message-ID: <15284544c46b4cff8422abd027eb0f8a@AcuMS.aculab.com>
+References: <20210310182307.zzcbi5w5jrmveld4@archlinux-ax161>
+ <99cf90ea-81c0-e110-4815-dd1f7df36cb4@kernel.dk>
+ <20210310203323.35w2q7tlnxe23ukg@Ryzen-9-3900X.localdomain>
+ <e43dba61-8c74-757d-862d-99d23559cf50@kernel.dk>
+In-Reply-To: <e43dba61-8c74-757d-862d-99d23559cf50@kernel.dk>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-In-Reply-To: <202103112158.loq4oyJu-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
 Content-Language: en-US
-X-Original-Sender: luzmaximilian@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=OGoMc3qn;       spf=pass
- (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::430
- as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,95 +149,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 3/11/21 2:06 PM, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   98546348153dee5f8ced572fd6c4690461d20f51
-> commit: 797e78564634275ed4fe6b3f586c4b96eb1d86bc [1430/3917] platform/surface: aggregator_registry: Add base device hub
-> config: arm64-randconfig-r026-20210311 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 574a9dabc63ba1e7a04c08d4bde2eacd61b44ce1)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install arm64 cross compiling tool for clang build
->          # apt-get install binutils-aarch64-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=797e78564634275ed4fe6b3f586c4b96eb1d86bc
->          git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->          git fetch --no-tags linux-next master
->          git checkout 797e78564634275ed4fe6b3f586c4b96eb1d86bc
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64
+From: Jens Axboe
+> Sent: 10 March 2021 20:40
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
+> On 3/10/21 1:33 PM, Nathan Chancellor wrote:
+> > On Wed, Mar 10, 2021 at 01:21:52PM -0700, Jens Axboe wrote:
+> >> On 3/10/21 11:23 AM, Nathan Chancellor wrote:
+> >>> Hi Jens,
+> >>>
+> >>> There is a new clang warning added in the development branch,
+> >>> -Walign-mismatch, which shows an instance in block/blk-mq.c:
+> >>>
+> >>> block/blk-mq.c:630:39: warning: passing 8-byte aligned argument to
+> >>> 32-byte aligned parameter 2 of 'smp_call_function_single_async' may
+> >>> result in an unaligned pointer access [-Walign-mismatch]
+> >>>                 smp_call_function_single_async(cpu, &rq->csd);
+> >>>                                                     ^
+> >>> 1 warning generated.
+> >>>
+> >>> There appears to be some history here as I can see that this member was
+> >>> purposefully unaligned in commit 4ccafe032005 ("block: unalign
+> >>> call_single_data in struct request"). However, I later see a change in
+> >>> commit 7c3fb70f0341 ("block: rearrange a few request fields for better
+> >>> cache layout") that seems somewhat related. Is it possible to get back
+> >>> the alignment by rearranging the structure again? This seems to be the
+> >>> only solution for the warning aside from just outright disabling it,
+> >>> which would be a shame since it seems like it could be useful for
+> >>> architectures that cannot handle unaligned accesses well, unless I am
+> >>> missing something obvious :)
+> >>
+> >> It should not be hard to ensure that alignment without re-introducing
+> >> the bloat. Is there some background on why 32-byte alignment is
+> >> required?
+> >>
+> >
+> > This alignment requirement was introduced in commit 966a967116e6 ("smp:
+> > Avoid using two cache lines for struct call_single_data") and it looks
+> > like there was a thread between you and Peter Zijlstra that has some
+> > more information on this:
+> > https://lore.kernel.org/r/a9beb452-7344-9e2d-fc80-094d8f5a0394@kernel.dk/
 > 
-> All warnings (new ones prefixed by >>):
+> Ah now I remember - so it's not that it _needs_ to be 32-byte aligned,
+> it's just a handy way to ensure that it doesn't straddle two cachelines.
+> In fact, there's no real alignment concern, outside of performance
+> reasons we don't want it touching two cachelines.
 > 
->     In file included from drivers/platform/surface/surface_aggregator_registry.c:12:
->     In file included from include/linux/acpi.h:35:
->     In file included from include/acpi/acpi_io.h:7:
->     In file included from arch/arm64/include/asm/acpi.h:12:
->     include/linux/efi.h:1093:34: warning: passing 1-byte aligned argument to 4-byte aligned parameter 2 of 'get_var' may result in an unaligned pointer access [-Walign-mismatch]
->             status = get_var(L"SecureBoot", &EFI_GLOBAL_VARIABLE_GUID, NULL, &size,
->                                             ^
->     include/linux/efi.h:1101:24: warning: passing 1-byte aligned argument to 4-byte aligned parameter 2 of 'get_var' may result in an unaligned pointer access [-Walign-mismatch]
->             get_var(L"SetupMode", &EFI_GLOBAL_VARIABLE_GUID, NULL, &size, &setupmode);
->                                   ^
-> >> drivers/platform/surface/surface_aggregator_registry.c:398:25: warning: implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to 255 [-Wconstant-conversion]
->             { SSAM_VDEV(HUB, 0x02, SSAM_ANY_IID, 0x00) },
->             ~                      ^~~~~~~~~~~~
+> So... what exactly is your concern? Just silencing that warning? Because
+> there doesn't seem to be an issue with just having it wherever in struct
+> request.
 
-This is a false positive:
+Can you silence it by adding an extra layer of 'struct'?
+Something like:
 
->     include/linux/surface_aggregator/device.h:71:23: note: expanded from macro 'SSAM_ANY_IID'
->     #define SSAM_ANY_IID            0xffff
->                                     ^~~~~~
+struct [
+	....
+	struct {
+		rq_rype rq:
+	} __aligned(8);
+	...
+};
 
-Here, clang complains that the input is SSAM_ANY_ID. That is a special
-value which has special considerations below. The SSAM_DEVICE() and
-thus SSAM_VDEV() macros are intended to only allow either __u8 or
-SSAM_ANY_ID as input in this place.
+So that 'rq' will be aligned, but itself doesn't have
+the alignment constraint?
 
->     include/linux/surface_aggregator/device.h:126:63: note: expanded from macro 'SSAM_VDEV'
->             SSAM_DEVICE(SSAM_DOMAIN_VIRTUAL, SSAM_VIRTUAL_TC_##cat, tid, iid, fun)
->                                                                          ^~~
->     include/linux/surface_aggregator/device.h:102:41: note: expanded from macro 'SSAM_DEVICE'
->             .instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,                        \
->                                                    ^~~
+	David
 
-Here is the special handling for SSAM_ANY_ID. So there is an implicit
-conversion from iid, which may be __u8, to int (i.e. the type of
-SSAM_ANY_ID), but there is at no point any implicit conversion of
-SSAM_ANY_ID to __u8, as clang alleges.
-
-Is there any way to silence this warning in particular without
-suppressing it (e.g. by explicit casting) when users of this macro
-_actually_ input any non-u8 and non-SSAM_ANY_ID value as iid,
-leading to an _actual_ implicit value-changing cast?
-
-I believe GCC does get this right and only emits a warning if a
-non-u8 _and_ non-SSAM_ANY_ID value is input.
-
-Regards,
-Max
-
->     3 warnings generated.
-> 
-> 
-> vim +398 drivers/platform/surface/surface_aggregator_registry.c
-> 
->     396	
->     397	static const struct ssam_device_id ssam_base_hub_match[] = {
->   > 398		{ SSAM_VDEV(HUB, 0x02, SSAM_ANY_IID, 0x00) },
->     399		{ },
->     400	};
->     401	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8c252429-5000-0649-c49f-8225d911241b%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/15284544c46b4cff8422abd027eb0f8a%40AcuMS.aculab.com.
