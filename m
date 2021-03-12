@@ -1,129 +1,139 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBEH5VSBAMGQEBKUO3KI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBMUYVWBAMGQEYWHTQNA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F27D3389BE
-	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 11:12:34 +0100 (CET)
-Received: by mail-pf1-x43f.google.com with SMTP id u188sf14276675pfu.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 02:12:34 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1615543953; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id A0A66338B48
+	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 12:10:43 +0100 (CET)
+Received: by mail-vk1-xa39.google.com with SMTP id r1sf5660769vke.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 03:10:43 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615547442; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mhAEEqqwqxBH/fD/iA0XYlGCnOCCPpaRmqwMweVZSOb8CQRFirrlDd6rXsaWkMEcd4
-         JG0KLD2WYGsOE6SkbTCDrSdC/0sZocPGO4dxDevucFMq6y51AkmM6AysgZINYFm1LFC8
-         SxG2aIaRxACSgr5tb1ZrplR7b6rXlGNHmI3X5bEP0fWJlXPleN4ipOS/Eb0mF+CTE2RY
-         3xwLue5sPWil4JoBqP9JHwscgx2982nq5dOHTDYC5efbwYu/cNs9BerOwVMm2X5ELDX/
-         9riJ5lrGVOvgJNzpzzy4Dr2BxHZBO3riZzy0/uWL0tOWgLY7m3Pk0oXbaZJCPUkeKfax
-         As5Q==
+        b=Dy/Jcqy1nvnQmnDRZyMmcc1z3SrBA11F5ijLk0ZtcIv45sEh/JlpYIDboKZ38l6Ozp
+         Stot9n9ozGEbK4yX2gtlxMnZw38fXe1oT6A4Q34CxZ0hwWKhvCDq7B3y8mDQvt/jB8bi
+         zlB6rnQUugT+90d3Zig+Yr/6Q8h5elCGgdoIyoA4n3xdka9qND+XlXM94hNzdLelyJp0
+         dLgEoFuPAF7QoZ3QkjQRAX+B5MDZ54ymaGLlGyTmm3m/NhntYqAqvsFYmYA8NakJgVW+
+         h5yY17/QRrkETAszt1dvIDZkw3UwhceC7AX+OGKvwJkUpQJ6gOssKlEp5VgH/ovxM3T1
+         Y0oQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=taEEzqhy+iliRBmpNMoX1xh9E9mOTqTWfqTDh5kO6w0=;
-        b=duX0fSNTD7LLhkYefBPwLTz/6B9oUs7Y0s7u6znSw/E+XxJYLQK5E4ET2YTEsh9Yo1
-         Q6xUleXhjnI+z16XNU7JEXllr+E7jwXjfDL69Anp5mobcspIRoyUBcWq6qWXnSeGa4/5
-         VkjNWXpzltTK/M8gLonYGhygnj7XayINmdSsG71E+tUD+RAeK16B9ZrWucRQBoEWUTkO
-         bOW5nfWoHtKVili+1mO5XVXBQMpjmgdI1EQtlrGdWEAK8zdH0QWI+e20Pn8UibLpx+0g
-         MrHrewJxFDiBbURyXhP+F77jJ7rBrrklVZqHwGiw2amIee19MpAnLwMAf0qMSP83IKds
-         6Mqw==
+        bh=Glxq8jRqELLXO3rwJB+RF/Hb9aQ4jAp5cvLPBpeIhj0=;
+        b=Y5wOIu1lsDvdXk8UGq6MrpvrisNcL+9DybphrJoV1lavGhYprTXsCcpDTr33R5/4Fv
+         otBwy826YSMT/SwWOzTYBWZrEHPI6z+DGSZzVroEQ+qkhdiB96KGnviskrtLLu0WvLGB
+         F7VhVrGnnD48AqauHTH64cmSYvJwlW2NvLDngfaXQZn4FWEsCnfH7XlR03jDcAuSdwqQ
+         0FOXpq57PRG6p3zPtyjzg9LcqjrmH7MI+WwyZbG7WrgOyyYgtnICXg6PjYebptVOCsxQ
+         5xV5cYy3yO2KlRqeq5zlXDK5DkkhKb+gjuMaBwP1oNzWwbShqGoxux7IytcD4Hdnd7i8
+         EL0g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=WtQGEfdH;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=JpVVWQA0;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d36 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=taEEzqhy+iliRBmpNMoX1xh9E9mOTqTWfqTDh5kO6w0=;
-        b=XCgQR3GuK6ZVkiw/VCee0sdxwqQC+dYIdjJbYiQ7oP01+WRiOCKEGyBPlZ3jijoYE+
-         7RLLyjSULCPXWPuxPmUCsaXyLFLmTVFeApahqcR0eGbJGFR9nF+pkxj2Tap9OKrVbLtZ
-         85ti6fpg7Q+Gr+Ngd3dicClHerQFhOiyMv5TcB8wHjey9sjTUITjJtlyekluF4oKiQI9
-         3gFEvjgH5Vywvp/SSB1fPqZ9mNeIf0uo78EVuICqKmzX7zCqgBngD/t2TWBMR22JMiha
-         w17X/5GzQNiW5IMGesufpBVeRN/hrqEUGDsPNLuHmd6fpKg+AYJzTCq2TQ0OkqsfnXGg
-         +Rfw==
+        bh=Glxq8jRqELLXO3rwJB+RF/Hb9aQ4jAp5cvLPBpeIhj0=;
+        b=H1RKLac9xZJk7QecDgfKHCQ4uL/iGYgaVpzZgxXKKvgVQo3zkJs8Qmsy254fTXciIh
+         Rzx91SFkdtMq2IkMk6kNVUiKpaZ23LMkh1jeqw4gDeQTZmTC4Cg/wakpfEvivvOKhi7f
+         8upPb85YWS3l5Os0ovaq8LxPYjP+/0D8fKWSCO4x5xEkOrA/asWI9UrsTJy1bDIj/TNg
+         mbmDfbLQNnMWN7Foe28H0Q1ZhzR+5sXLU0CGZNenmLCZ5RdjzMfe+BZXuK2pVB7Byi98
+         B+y9oSixG77aHUwllxIqlXF3AXIwX42SFH+e0SeSYqNEF48ScyqU5oPdAU5acanEzXc4
+         NzTQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Glxq8jRqELLXO3rwJB+RF/Hb9aQ4jAp5cvLPBpeIhj0=;
+        b=s6TwyRWNVcS2XI+15us3MTX/5ltU/taUhAf8AvWJ6LmqhX3c6P9YjYtTznmymDBrnw
+         USk1GUR/uyb3uYgWNRyi7KGIuYwPl7tTIu4Vuu1PJvBzOEQ4LD2d0nmfwpXAJl8y1apI
+         3gWMDiBbY/GfR6og8Q+OQ0gZLM7SvmcmiNywIbkHVUlSNEjfZUsftM1o/qlbMV6f30BK
+         Gt1HQD10zwBsLM6wVcOPCL7j609CinyacwtXd2Tam6zMx6wY5cOtWoCg4b68s79VIIpR
+         QH0k9k9uQWZrvf9MaW7kdIGgc/h7JHaR5ff2ONaTX2KqLiebq8NTBE0a9EL+MjVgzHqz
+         PlNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=taEEzqhy+iliRBmpNMoX1xh9E9mOTqTWfqTDh5kO6w0=;
-        b=UQNJdkhI7HkPnPNf1HcyHhuPRUE8W2u0+sXMjenaaA9lZEnl2HfjEunZeZGgPvJqXB
-         DLegdrN3T2Zr8i0ajblhqWrm98tZFVqZkRuHZTWrmE2ce7g2LMn0vCe47m2+bgmWhVJJ
-         GnxzpYoMJVVQ59Ixonrv0cuqXBv4Mi5QXgsbUdrSqmkInaNAom1wbA8zExflQQZnA5zG
-         pEW0Prlen0ykzvXEzJqP7HQD0ZFR5A/A6+VTMmC0+vgq1E/df0VSdAsemRJHTjD7Pjox
-         7sZsl3u5jY8b2aaEQ+Pb5IeLOYIqPZOyBx1xLN5ImBaXF3wcBkv6LQSeGmpAecH8Waya
-         CjzA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Glxq8jRqELLXO3rwJB+RF/Hb9aQ4jAp5cvLPBpeIhj0=;
+        b=jMIoKY8vXB9V+wr1cLeHJOUOnX8wrI5MRE3XOzUDfBxTFGWNKv5KPWHsRRWKmac/1K
+         HJeWSVq4VIPNY2/CQukCzyvd5skr/i6NVbnAYwHhQg6oTcXsV4CSoLLoCor/u+S8v7b9
+         Gc71pGKmaSrG/Wl8fTFA61I80czUNIEdwoLCMr5a0sgWLjjE+5VZAhxXdY9xoqMrb62V
+         /CvdVixGjyn5xws4u7zUqoASk1qeuTyyAKqhMImWEBBDYHOnUwaGXyz+bm7hm2k6Fgtg
+         K1hSo58Nez67rkHQMYJ+1hBicOH1aLHyV+ttvKXXYO8VTfgEarnOyWcmS+gQPVAXEO3I
+         gFkw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531j7jwHVG+w1FTPUpUpz/i68vKsYHqKH7QH3liazMwhM359RP6I
-	1Nllj5BdN4Di5rfsR3CNAo0=
-X-Google-Smtp-Source: ABdhPJx97TrZ6Uc0I0MguACi6CQaNOJmHH5VvHr3GqQwq8V2/5cSRuHCU4Qapr6f/YmWS2sTvPLAWw==
-X-Received: by 2002:a17:902:c14c:b029:e5:cd82:a0b with SMTP id 12-20020a170902c14cb02900e5cd820a0bmr12874370plj.34.1615543952739;
-        Fri, 12 Mar 2021 02:12:32 -0800 (PST)
+X-Gm-Message-State: AOAM532TYEDCGUVAU4//ibUHeXiXx0btjQNemYpm40vCqrjOHEnFEX0x
+	05drok8oUKTMCHMPWnae/qo=
+X-Google-Smtp-Source: ABdhPJz8JbharF0F6W73SGnJ9t9ZbN+vvQxClxiAWaizFdZtHEilZkBUdolLgcTR9f7Fg9CrVoM4lw==
+X-Received: by 2002:ac5:ccaf:: with SMTP id p15mr7521305vkm.18.1615547442741;
+        Fri, 12 Mar 2021 03:10:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:da86:: with SMTP id j6ls4782110plx.8.gmail; Fri, 12
- Mar 2021 02:12:29 -0800 (PST)
-X-Received: by 2002:a17:90a:1642:: with SMTP id x2mr14143823pje.88.1615543949171;
-        Fri, 12 Mar 2021 02:12:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1615543949; cv=none;
+Received: by 2002:a67:2e09:: with SMTP id u9ls1119680vsu.7.gmail; Fri, 12 Mar
+ 2021 03:10:42 -0800 (PST)
+X-Received: by 2002:a67:2d06:: with SMTP id t6mr7483247vst.16.1615547442175;
+        Fri, 12 Mar 2021 03:10:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615547442; cv=none;
         d=google.com; s=arc-20160816;
-        b=YAgsHHDaMbIweJIpPph+ZBr540Yddxnz6iD9i0dbEi6qizYB69rgvdP3/weg8b9sWI
-         UfPxfnRzkTetzbMmc0qtpK7LMB67t0TmP/idnR9FiTfriJ+udAAXXyS/gRPYpGBpwc44
-         XywMDiOS/1zbpVRbQunHkiZn2lnuoO2eAPaMxOwFePw3kkBH7xKR+9Y8vQLLxwjWbX9D
-         +BS2vvVa9MxMoI0ktdCZuUm/rJheD2rPrXL+unQ9p7QKD6iPVmLv5P5fk198O4YAtIa9
-         IgRjIaX5Qk4xJi3/VkBqpy8EYwvantz05Cd3gFA+EcVbhiVsJLj+zfbeSV3kLkgkd0Ak
-         geSg==
+        b=fRzYg6FGHRUu/JRZ2OpVGnn+UUvP9Ajg1WB8B4kaxC1nF9vYiLLBeLwiuIiMDGgiGm
+         El9LCdzA9sok4EpOpKRM18UYM1sDaofyYpfhLXAM4VhiLw85uE4h9Q0eQUsPZFM8hFqk
+         hcRYigNVlQ5GmeeKWQ1jXW8UntPN5nWvC3B0Ob+L9kPB1NYKO0r8VIhfOfydLHAcN6LJ
+         Q2rbLfkKXHEGqnCwpeANQvJ5cJUOBU61a3N0P/Xxa6GoVyxxo8EK1zK6YA+kKs4O68AQ
+         xNUETvPqL1+5zuuPPl68ylL0kvLdDNJFLY/NEeWNb3G2y0R2Z8Z2SOt/1KoOrs52VrYc
+         hd5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Ddq/bT9HVfL8lj5Qw0hSyphC2bzoUiii03sDj0zZoh0=;
-        b=VidB5J0RFg+MdgTCiHs6xr2sorwZs0+p7Bd3fHMTD1hHOD7+/6CV9DhJoP2YgDToAg
-         5utLwHcpVU+y//2aKftUNZOTKlNXm/ecZM1wn/FKhQ078cLbFjAMn6Q/VdnsX+IOhLbS
-         MDozl0bwEGSp7mBvZnDdESBDlZVruxdSbCnAqBqFKnS4ulW/FGyW6FYlgY2SpG/UKHHo
-         0Pg5W4942mIKu2xSGFe3Q/3XQy3+kU7e+NGFscXX5ORoSGPy9qDqS6MLtRWTMYm+1wP0
-         W98urAlTF/9tU6+34xQUQ1OOSCbworZCoe532lDrKTBQORIvmzhGsaGm0GkP5bBcEDdt
-         ac7A==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=jHSKMwCVuECIMwfsj98b2AuPQuN3R/pVWD1vdNz3H9E=;
+        b=AdwUZVM3s48RRoAYlOGsmLEtO9oVq+1FwaP0Dyqob9B6rCy+GJ9XW6fjuvhUzz3xIX
+         kGSv2Yq5sheDyqKKMftqfmDhxQN3UyuJJvmfW1gu2pDOJt3a4Jlcknh1/hPIIPlLK1Xa
+         Orh1zp47MAz1AIx4ifbbHjG/l34HvFvqS+yf7qh3aJNEs95X6X4IEPCawr4Zip1f5A3q
+         7dfDSO8zQ4AtGyPxotuh1iULTYEB5JH9rj6ZkKnPPP8+OPtfeDxL82YhvXIOqlBAa10+
+         FNoTFMvzwogVvsSufW+HL7/Yio3+47dBl+eVuG6WEMkglGmRDuOjYZIGAROsvijlSrLs
+         GNqQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=WtQGEfdH;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p7si383264plo.0.2021.03.12.02.12.28
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=JpVVWQA0;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d36 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd36.google.com (mail-io1-xd36.google.com. [2607:f8b0:4864:20::d36])
+        by gmr-mx.google.com with ESMTPS id d23si327246vsq.1.2021.03.12.03.10.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 12 Mar 2021 02:12:28 -0800 (PST)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1D95164FC9;
-	Fri, 12 Mar 2021 10:12:27 +0000 (UTC)
-Date: Fri, 12 Mar 2021 11:12:25 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Sasha Levin <sashal@kernel.org>, "# 3.4.x" <stable@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Jian Cai <jiancai@google.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Stefan Agner <stefan@agner.ch>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sami Tolvanen <samitolvanen@google.com>, candle.sun@unisoc.com,
-	Miles Chen =?utf-8?B?KOmZs+awkeaouik=?= <miles.chen@mediatek.com>,
-	Stephen Hines <srhines@google.com>,
-	Luis Lozano <llozano@google.com>,
-	Sandeep Patil <sspatil@google.com>
-Subject: Re: ARCH=arm LLVM_IAS=1 patches for 5.10, 5.4, and 4.19
-Message-ID: <YEs+iaQzEQYNgXcw@kroah.com>
-References: <CAKwvOdka=y54W=ssgCZRgr2B+NaYFHF07KnnNDfrwv79-geSQw@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Mar 2021 03:10:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d36 as permitted sender) client-ip=2607:f8b0:4864:20::d36;
+Received: by mail-io1-xd36.google.com with SMTP id o11so25325191iob.1
+        for <clang-built-linux@googlegroups.com>; Fri, 12 Mar 2021 03:10:42 -0800 (PST)
+X-Received: by 2002:a5e:8c16:: with SMTP id n22mr9711338ioj.156.1615547441554;
+ Fri, 12 Mar 2021 03:10:41 -0800 (PST)
 MIME-Version: 1.0
+References: <20210311094624.923913-1-masahiroy@kernel.org>
+In-Reply-To: <20210311094624.923913-1-masahiroy@kernel.org>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Fri, 12 Mar 2021 12:10:05 +0100
+Message-ID: <CA+icZUVehYw+jxF_n2+g7ReFfSXn8ZnMWCwY4w_HwNJxvX92xg@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: collect minimum tool versions into scripts/min-tool-version.sh
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, Nicolas Pitre <nico@fluxnic.net>, 
+	Nathan Chancellor <nathan@kernel.org>, =?UTF-8?Q?Bernhard_Rosenkr=C3=A4nzer?= <bero@lindev.ch>, 
+	Miguel Ojeda <ojeda@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Will Deacon <will@kernel.org>, Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdka=y54W=ssgCZRgr2B+NaYFHF07KnnNDfrwv79-geSQw@mail.gmail.com>
-X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=WtQGEfdH;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@gmail.com header.s=20161025 header.b=JpVVWQA0;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::d36
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,108 +146,180 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Mar 11, 2021 at 11:32:22AM -0800, Nick Desaulniers wrote:
-> Dear stable kernel maintainers,
-> Please consider merging the following patch series'.  They enable
-> clang's integrated assembler to be used to assemble ARCH=arm kernels
-> back to linux-4.19.y.  This is analogous to previous series' sent for
-> LLVM_IAS=1 support, but focused on ARM (32b).
-> 
-> Below is the list of commits in each series, in the form
-> <first tag of mainline containing sha> <sha12> <commit oneline>
-> 
-> For 5.10:
-> v5.11-rc1 3c9f5708b7ae ("ARM: 9029/1: Make iwmmxt.S support Clang's
-> integrated assembler")
-> v5.11-rc1 0b1674638a5c ("ARM: assembler: introduce adr_l, ldr_l and
-> str_l macros")
-> v5.11-rc1 67e3f828bd4b ("ARM: efistub: replace adrl pseudo-op with
-> adr_l macro invocation")
-> 
-> For 5.4:
-> v5.5-rc1 b4d0c0aad57a ("crypto: arm - use Kconfig based compiler
-> checks for crypto opcodes")
-> v5.5-rc1 9f1984c6ae30 ("ARM: 8929/1: use APSR_nzcv instead of r15 as
-> mrc operand")
-> v5.5-rc1 790756c7e022 ("ARM: 8933/1: replace Sun/Solaris style flag on
-> section directive")
-> v5.6-rc1 42d519e3d0c0 ("kbuild: Add support for 'as-instr' to be used
-> in Kconfig files")
-> v5.7-rc1 7548bf8c17d8 ("crypto: arm/ghash-ce - define fpu before fpu
-> registers are referenced")
-> v5.8-rc1 d85d5247885e ("ARM: OMAP2+: drop unnecessary adrl")
-> v5.8-rc1 a780e485b576 ("ARM: 8971/1: replace the sole use of a symbol
-> with its definition")
-> v5.8-rc1 b744b43f79cc ("kbuild: add CONFIG_LD_IS_LLD")
-> v5.9-rc1 a6c30873ee4a ("ARM: 8989/1: use .fpu assembler directives
-> instead of assembler arguments")
-> v5.9-rc1 ee440336e5ef ("ARM: 8990/1: use VFP assembler mnemonics in
-> register load/store macros")
-> v5.9-rc1 2cbd1cc3dcd3 ("ARM: 8991/1: use VFP assembler mnemonics if available")
-> v5.10-rc1 54781938ec34 ("crypto: arm/sha256-neon - avoid ADRL pseudo
-> instruction")
-> v5.10-rc1 0f5e8323777b ("crypto: arm/sha512-neon - avoid ADRL pseudo
-> instruction")
-> v5.11-rc1 28187dc8ebd9 ("ARM: 9025/1: Kconfig: CPU_BIG_ENDIAN depends
-> on !LD_IS_LLD")
-> 
-> Then 3c9f5708b7ae from the 5.10 series is applied (0b1674638a5c and
-> 67e3f828bd4b were not necessary). 28187dc8ebd9 had previously been
-> picked up into 5.10 automatically. There was a minor conflict in
-> 2cbd1cc3dcd3 due to 5.10 missing 8a90a3228b6a ("arm: Unplug KVM from
-> the build system").
-> 
-> b744b43f79cc and 28187dc8ebd9 are more specifically for allmodconfig
-> support than strictly LLVM_IAS=1.
-> 
-> For 4.19:
-> v4.20-rc1 d3c61619568c ("ARM: 8788/1: ftrace: remove old mcount support")
-> v4.20-rc1 f9b58e8c7d03 ("ARM: 8800/1: use choice for kernel unwinders")
-> v5.1-rc1 baf2df8e15be ("ARM: 8827/1: fix argument count to match macro
-> definition")
-> v5.1-rc1 32fdb046ac43 ("ARM: 8828/1: uaccess: use unified assembler
-> language syntax")
-> v5.1-rc1 eb7ff9023e4f ("ARM: 8829/1: spinlock: use unified assembler
-> language syntax")
-> v5.1-rc1 a216376add73 ("ARM: 8841/1: use unified assembler in macros")
-> v5.1-rc1 e44fc38818ed ("ARM: 8844/1: use unified assembler in assembly files")
-> v5.2-rc1 fe09d9c641f2 ("ARM: 8852/1: uaccess: use unified assembler
-> language syntax")
-> v5.2-rc1 3ab2b5fdd1d8 ("ARM: mvebu: drop unnecessary label")
-> v5.2-rc1 969ad77c14ab ("ARM: mvebu: prefix coprocessor operand with p")
-> v5.3-rc1 3fe1ee40b2a2 ("ARM: use arch_extension directive instead of
-> arch argument")
-> v5.4-rc3 3aa6d4abd4eb ("crypto: arm/aes-ce - build for v8 architecture
-> explicitly")
-> 
-> Then the entire 5.4 series is applied on top. 3fe1ee40b2a2 had a minor
-> conflict due to 4.19 missing 2997520c2d4e ("ARM: exynos: Set MCPM as
-> mandatory for Exynos542x/5800 SoCs").
-> 
-> I plan to send some follow ups; I need to do another pass to find what
-> we may need in addition when setting CONFIG_THUMB2_KERNEL=y
-> (non-default), there are two patches working their way through the ARM
-> maintainer's tree needed for allmodconfig
-> (https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9061/1
-> and https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9062/1)
-> and v4.19.y has one more issue I need to look into
-> (https://github.com/ClangBuiltLinux/linux/issues/1329) that has been
-> cleaned up by a 7 patch series that landed in v5.2-rc1, but on first
-> glance I suspect might be an assembler bug for us to fix.
-> 
-> These series will be used in Android and ChromeOS. We're also ready to
-> wire up CI coverage for LLVM_IAS=1 ARCH=arm for these branches.
+On Thu, Mar 11, 2021 at 10:47 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> The kernel build uses various tools, many of which are provided by the
+> same software suite, for example, LLVM and Binutils.
+>
+> When you raise the minimum version of Clang/LLVM, you need to update
+> clang_min_version in scripts/cc-version.sh and also lld_min_version in
+> scripts/ld-version.sh.
+>
+> Kbuild can handle CC=clang and LD=ld.lld independently, but it does not
+> make much sense to maintain their versions separately.
+>
+> Let's make scripts/min-tool-version.sh a central place of minimum tool
+> versions so you do not need to touch multiple files.
+>
+> This script prints the minimum version of the given tool.
+>
+>   $ scripts/min-tool-version.sh gcc
+>   4.9.0
+>   $ scripts/min-tool-version.sh llvm
+>   10.0.1
+>   $ scripts/min-tool-version.sh binutils
+>   2.23.0
+>   $ scripts/min-tool-version.sh foo
+>   foo: unknown tool
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-You still have odd Android/ChromeOS things in these patches ("FROMLIST",
-Change-ID, etc.)
+The idea with creating gcc, llvm, binutils etc. files containing the
+minimum version-string sounds good to me.
 
-Please fix them up, as-is, we can't take these.
+This version here tested on Debian/testing AMD64.
 
-thanks,
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com> # LLVM/Clang v12.0.0-rc3
 
-greg k-h
+- Sedat -
+
+> ---
+>
+>  scripts/cc-version.sh       | 20 +++++---------------
+>  scripts/ld-version.sh       | 11 ++++-------
+>  scripts/min-tool-version.sh | 27 +++++++++++++++++++++++++++
+>  3 files changed, 36 insertions(+), 22 deletions(-)
+>  create mode 100755 scripts/min-tool-version.sh
+>
+> diff --git a/scripts/cc-version.sh b/scripts/cc-version.sh
+> index 3f2ee885b116..f1952c522466 100755
+> --- a/scripts/cc-version.sh
+> +++ b/scripts/cc-version.sh
+> @@ -6,18 +6,6 @@
+>
+>  set -e
+>
+> -# When you raise the minimum compiler version, please update
+> -# Documentation/process/changes.rst as well.
+> -gcc_min_version=4.9.0
+> -clang_min_version=10.0.1
+> -icc_min_version=16.0.3 # temporary
+> -
+> -# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
+> -# https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
+> -if [ "$SRCARCH" = arm64 ]; then
+> -       gcc_min_version=5.1.0
+> -fi
+> -
+>  # Print the compiler name and some version components.
+>  get_compiler_info()
+>  {
+> @@ -48,18 +36,20 @@ set -- $(get_compiler_info "$@")
+>
+>  name=$1
+>
+> +min_tool_version=$(dirname $0)/min-tool-version.sh
+> +
+>  case "$name" in
+>  GCC)
+>         version=$2.$3.$4
+> -       min_version=$gcc_min_version
+> +       min_version=$($min_tool_version gcc)
+>         ;;
+>  Clang)
+>         version=$2.$3.$4
+> -       min_version=$clang_min_version
+> +       min_version=$($min_tool_version llvm)
+>         ;;
+>  ICC)
+>         version=$(($2 / 100)).$(($2 % 100)).$3
+> -       min_version=$icc_min_version
+> +       min_version=$($min_tool_version icc)
+>         ;;
+>  *)
+>         echo "$orig_args: unknown compiler" >&2
+> diff --git a/scripts/ld-version.sh b/scripts/ld-version.sh
+> index 30debf78aa09..5b9481e98b4f 100755
+> --- a/scripts/ld-version.sh
+> +++ b/scripts/ld-version.sh
+> @@ -6,11 +6,6 @@
+>
+>  set -e
+>
+> -# When you raise the minimum linker version, please update
+> -# Documentation/process/changes.rst as well.
+> -bfd_min_version=2.23.0
+> -lld_min_version=10.0.1
+> -
+>  # Convert the version string x.y.z to a canonical 5 or 6-digit form.
+>  get_canonical_version()
+>  {
+> @@ -35,10 +30,12 @@ set -- $("$@" --version)
+>  IFS=' '
+>  set -- $1
+>
+> +min_tool_version=$(dirname $0)/min-tool-version.sh
+> +
+>  if [ "$1" = GNU -a "$2" = ld ]; then
+>         shift $(($# - 1))
+>         version=$1
+> -       min_version=$bfd_min_version
+> +       min_version=$($min_tool_version binutils)
+>         name=BFD
+>         disp_name="GNU ld"
+>  elif [ "$1" = GNU -a "$2" = gold ]; then
+> @@ -51,7 +48,7 @@ else
+>
+>         if [ "$1" = LLD ]; then
+>                 version=$2
+> -               min_version=$lld_min_version
+> +               min_version=$($min_tool_version llvm)
+>                 name=LLD
+>                 disp_name=LLD
+>         else
+> diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
+> new file mode 100755
+> index 000000000000..37c438d766d7
+> --- /dev/null
+> +++ b/scripts/min-tool-version.sh
+> @@ -0,0 +1,27 @@
+> +#!/bin/sh
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# Print the minimum supported version of the given tool.
+> +
+> +set -e
+> +
+> +# When you raise the minimum version, please update
+> +# Documentation/process/changes.rst as well.
+> +min_gcc_version=4.9.0
+> +min_llvm_version=10.0.1
+> +min_icc_version=16.0.3 # temporary
+> +min_binutils_version=2.23.0
+> +
+> +# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
+> +# https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
+> +if [ "$SRCARCH" = arm64 ]; then
+> +       min_gcc_version=5.1.0
+> +fi
+> +
+> +eval min_version="\$min_${1}_version"
+> +if [ -z "$min_version" ]; then
+> +       echo "$1: unknown tool" >&2
+> +       exit 1
+> +fi
+> +
+> +echo "$min_version"
+> --
+> 2.27.0
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210311094624.923913-1-masahiroy%40kernel.org.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YEs%2BiaQzEQYNgXcw%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVehYw%2BjxF_n2%2Bg7ReFfSXn8ZnMWCwY4w_HwNJxvX92xg%40mail.gmail.com.
