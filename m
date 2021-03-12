@@ -1,132 +1,127 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBTE4V6BAMGQEHATYXAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDGONMPGUAPRB2NCV6BAMGQEW2Q4GHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2006C33982B
-	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 21:25:50 +0100 (CET)
-Received: by mail-ua1-x93e.google.com with SMTP id h17sf281749uax.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 12:25:50 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1615580749; cv=pass;
+Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 143E133987D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 21:39:06 +0100 (CET)
+Received: by mail-vk1-xa40.google.com with SMTP id s69sf7673529vkd.20
+        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Mar 2021 12:39:06 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1615581545; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PNc2Y7BEyhQef5ZYRwQjApRLhDOf7uH4SWuuNY7NUeQ6Wqo2dacfNIAObe3fkrR4v0
-         d4+gtxOeXRRXwG+EQ9A2X1xWQ7jpoICcc/6x3NG3AndIXnXxJB+0vZeD/8Pflm9DYy2S
-         70So4OMAIFDOI2dOPVbcti2cFMjhtL90feYFEC+yRnS1K8mmfGPGpGPsjf92pvWFwWKM
-         W9I9oDhz9NOozx9D2tyYfFWvI2r4+P5Vo2ytuvy3IpCOpFur3TaOYnZGT6sCncsEWANs
-         Bvspc7jj36DcHbXZsmg0D795iu6DsCexFOC6IjLLR7zqmV8gu5BcUpBdBcW97wRgyAhn
-         z4QA==
+        b=tvkxS0DCjOClrFsRpTtNhWnY8sUfVYkZaAONR492bsC+HzUP8yhG3W9+j5RVUVQQQM
+         e3dbN0kMnct+Re66ujG8M1JItAQEohEyQUQM/1YDp/Jpcxvhc1zD9K3Pn09mLdBEgRnH
+         Pk7oAUeyVwbUPuy9sazP3ydaWbN22GZlk3SwvJA+Zi5/r0Qh4PCMn5CmjEEzqb4ceyFV
+         bRw8oV97T/3opELs34inTq27bFidNqdni4UqARMDhqwJo7jlE5qO0670NinRJnz7SFa7
+         gwLQT1W3at6ByR2H9df7M1zvFQMqXT8ZNWqNOTTRyJJjNemq0Lpmm2dn/7V7pMe8uCZW
+         JQiQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=JhvcQtvjGZPdO1HeRjDI3cdEf+xr8EW+cNkWDKBfQto=;
-        b=fjygfZYA6vAAwWDZ4AQiN7sf9LHPyNhwM/wxpmmN1nOdAa6GuX1hz3kId58OcecXZK
-         +yfeiunWd7IbdNI3j7OGtAByC13BPzP0QRltNA2e3HBV+G537ExjGo2LjMv0COu01Jl8
-         Q2it0WjzJU+qxEoJTLDm6SnyNZRq2fL2pK/YUzk8R+WgJnH4AmM3oXmo0f80pkxAep7Q
-         EOXRz+09nXs/pxyx2tyqujvuV5c6cx3Cw9fhz9DMVbvivSPye+x8jgU5LAH6YoW6VhzP
-         75uhMdu44El6XfokRjiqVTtmMEYEQGGxAxzizs5Gkz1lYi9/2CbvwNZMC5aJKJjf4iHB
-         HwDw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=EUkmjPQDVzntnUYnNR9nI52yJfPzKHfEjzYbLsqSmwg=;
+        b=QKt1NsSeKcTD48vweUjbx0AMta9BBNQf71gwqx54ASkTKbkp4yoYY5umtcs3UWE/o/
+         FlQJZH+coakvDCkN3teJomFBKEQls3lv6sIIb28zJaiKfnSdzC+JRQLmTxogcIZupRnq
+         FHnQUDZmtxslLi8NXU9MMPx1BzDq3BzdwYSjJuF5sPitEKGJxzh5/w3CXvDt5JKDwadf
+         YDvOPY7V/ADZs/z9k426UU8zgvF/0Il+4FO0fq5n5vYryUKx6hkeoIhJoKDWybnzgQDF
+         wAgY2hoVpre+VlP9lEA2Xumm7dy2QzWQfqnyPrtOZ1eJZ8G8dw5GD6h5TChXKGYd1O9/
+         vOnA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qrvpBtlT;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1033 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="kiTbp/TB";
+       spf=pass (google.com: domain of 3anflyaokaemrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3aNFLYAoKAEMrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=JhvcQtvjGZPdO1HeRjDI3cdEf+xr8EW+cNkWDKBfQto=;
-        b=tbZ75A4dar0hyj3L0QvVEF0JIUvCbQ05Y3sjzi85lukoEbEIN49ql/AII9u43Uxp6P
-         hvAOMs8n59Fclg05Lt0To/EGivtwWtUjLmfRBDmLMNnpMO6k7QuPQaFfe33DDIrSntN3
-         VfFzqLEdTNv0nVfC/ZMlIi+ZCipAyIwuXlWUS1WG9QIoaL97r4iAyK6Je6/7vTr9C5ZQ
-         FDHxHH9yJyjctkTO1bG871cDF+IWGg4jfe6k7mU9p/2hdMaiKZ1NT9u1ws2Yx1vzIu/g
-         WxUdHwSeCHCcsACJeP/WDgyL+JVr1LU0KTH6Hq7BOqCbB+6+ZrEeOvyQdORTmUGep0DK
-         OJjQ==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EUkmjPQDVzntnUYnNR9nI52yJfPzKHfEjzYbLsqSmwg=;
+        b=ZOQHbR4uM317OAlBWo8JfrJCfUZUCdf0k6pj4upwXbaAh4llHsITQ2O0ejIh7T2epr
+         B4PHqQ6GWoJ/h3Lw/CEGqZz7bu7/0uBTmlcFq1vG96YlKKY+z3L//TNotGpVXarCuuwO
+         cBvpoVI4ov+0peBlWcEJkpQ1gQ9B2dTxVjcgiUkvHThnifjOMO4mR6PRagoU2MsfNQUr
+         fJSd+tJC/z9N4sMC9TstDYEHLs6/IUKKwM/GkHjAnzLv+Az2eNPicUJT3kkkVqnWQaHq
+         fpliERuSEdqUETQ5eN4rsvbN8jZeDqHcRFDgZ2W6TjETKXJr3uC5x0DAf2bdiP+BEDvt
+         h4VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JhvcQtvjGZPdO1HeRjDI3cdEf+xr8EW+cNkWDKBfQto=;
-        b=atB2qRjrwMnr8z2t0/Q64eZFR5VuekpNNavUbEiWknmpRxgdvS1JE8Xd0fOwV5myP8
-         EzYmLQY9f7bNJPCXU3FYb0157TwWNW+98oIhltXQXDR/m+cjvEVZYHFgCRtCJiFU62RJ
-         4OaQ/d2ItvCW9vJPZN5jJY2rVBXrtec/p5SAYx234JHWmbLt8zGbg6PlA+hLo+KeATt9
-         /KO7u9lkLoCE0ENOT3f70pgSHj+0DR+6/rXr1WHKKeBYeVK2oWGtk72scLRls8+CjipL
-         f4XkbMKuSPmoBysrcVjGZVrylkRSPQddsAyQg4LvZklXVQjZ8xdQPxcr7PBwAn/cTgq1
-         Lx/g==
-X-Gm-Message-State: AOAM530TilcaShgor2scbuj5H54vhunqdITdOEFNKUnSUXE42p3i9k2x
-	/V0qqv5JKDxEqUqqP+DwklU=
-X-Google-Smtp-Source: ABdhPJwFWaEiDooYkydblo5l952xWqONlkWL2uGZAds1oM2Qd1wxIAo1Iug/YWyOT/LHDJUjwY2+sA==
-X-Received: by 2002:a67:fd43:: with SMTP id g3mr37486vsr.43.1615580748860;
-        Fri, 12 Mar 2021 12:25:48 -0800 (PST)
+        bh=EUkmjPQDVzntnUYnNR9nI52yJfPzKHfEjzYbLsqSmwg=;
+        b=MKUXEFZndVKX85cJFGrBKSQecQJvUYBtZUlTgXj5J18hcFUmz52J10NEs1Fhxtvuy6
+         cfzj41pRm4rJdVWkRJSy5fJ+4r3CvKeF1XN5PFHdFt9X7pu8jV3a3gGCIQ2CTKkneRYA
+         n68+zAFMKqoTpAv2jgC15t/86LSLTtPHkfLFAmazFD8+DoSaPE1yfJZOiwnxLYiYG+bu
+         vUduPyoydhWoKaJrTWtSsGyqxmHkO+h0YWob5OBkErXlVYoEINxUNL3X58/pxIc2Qzeq
+         J/HVQ3mTgkEuSS1DV7cG45BqYRkKWqooYrGkiJ5qA9Vj16PnQzpsHSxjCaaN/hw+53jT
+         2TCA==
+X-Gm-Message-State: AOAM530r8wyD/nrnwOg8Mx4tRULbpCSWfF2tudCYKrMredO4RqNGaPGH
+	rW2abi7dO12EBJfb1cUbiDk=
+X-Google-Smtp-Source: ABdhPJyqfTSqIWT9CKNDifYm5/beQfnRqx8OLWLhnh6KCc43EtqT5ryjYFAu+dQCy8VPwLkIjyy3TQ==
+X-Received: by 2002:ab0:4129:: with SMTP id j38mr50242uad.39.1615581545140;
+        Fri, 12 Mar 2021 12:39:05 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:2366:: with SMTP id o6ls1326372vsa.1.gmail; Fri, 12
- Mar 2021 12:25:48 -0800 (PST)
-X-Received: by 2002:a05:6102:22f8:: with SMTP id b24mr9427237vsh.42.1615580748377;
-        Fri, 12 Mar 2021 12:25:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1615580748; cv=none;
+Received: by 2002:a67:f446:: with SMTP id r6ls1324807vsn.8.gmail; Fri, 12 Mar
+ 2021 12:39:04 -0800 (PST)
+X-Received: by 2002:a67:22c2:: with SMTP id i185mr127890vsi.55.1615581544622;
+        Fri, 12 Mar 2021 12:39:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615581544; cv=none;
         d=google.com; s=arc-20160816;
-        b=eHk0ahM6pK95BaXUm/eMbyIpFb2mQ6walu4x98BNbXbP0mGZ04An69P1Mzrb0zaby+
-         DeCt4//zLpzZR3pmcxfaG9dgHem//hyjoePg48kQXVUgPD4tkJirC12iqtaiuqBR8kQ7
-         iFTEKQkN7Y+zYa4Q0OfLIHV/x0T0ZB3J2G9YxR8tUHkszTNVIEUthxXXdDjyFa0XXU+s
-         SM7jwjbtDs+3i/ft9v4P4+knx9msJ7AdPoGNDZxJrxZvavolqsqa2T1LBsN9z1XQBaCO
-         N5vVXappPkLsS7VElGIGtqmwUWyezJ6IJq15M4EN0e4dtANT2fpUjtC9X3LsFCPpYaGF
-         urVA==
+        b=L0ADiX4WYgTeEmJ1Me1dIJjs6nGzFuGwB5Ab1XpVJaAijCXQ9vtBDBvDid5YLQIcbt
+         8EdBmLUwAPqIFWiKDzovT9/5/nS+EsX+EvE0hKIUdN4KkRDazlqMG/ik+MyulR+u/wRK
+         iJ0VdBkThMzkDMWD2AcPIy/BnFmXl0ipZf3wicNJXOSs8hHFOYWsn7lBW6nHUHecJi4G
+         2yqKCCxn80I813OK1FUAvdnF6Y6UdtWCXWDnnomVD8+kYLqP3oQo44i09BBQmdJNbYZu
+         vrMs2LnMOjmyLmEeA1TaDWdSvBfmTwKZzEdAfy7tzC/4cOWG6+5mfEKBhq+y58FG+ymz
+         JJGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=l1XdOGwIHlgShuWyG/qyw32Z0LhndfoXT9jRJKn1tLU=;
-        b=nunVUXZQh/5azV6geqHv+iz4xuYuAZts0lVtcTnzjkLtN9rCIfqe1343rhKCB+FMnY
-         5rZgKRoq359ZBaf9wgWu7BMa6yGK6pCU5+bMSjzRSB66OUd0l2XheezBsXn2lg7DpWjh
-         VNBT8TrolPR+PKZTdmhpg77/6TWfC7rCA8DUee6VG4sHi5e9WjCJ0Fnjy92niZltBPav
-         /cQPNW4wreKRqyDE9GmpKolb/rO/v49fzbpd95WCxMqi9SNWTywMLHtB5d4msAD9SZsw
-         cY0zONpFVFzQuwU2MfEruxPdSREmy0Dz1os2JPOxah4YlRcyjzb01zjE3qAjpRI5RhcP
-         IRDA==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=GJXRaUWw3GBsddoEbFCqXHWGWiuZM+NGHFtwL8hqbbo=;
+        b=qiTX1OkNpc1EVHDFFOUDWQXsE0g2R5546KrzQc+aD2LaHgJeIxRKWKvzP6l0Jn+IPe
+         qzZ2LbGwzjNhS6sev211gwhCAzuWxTM2rDtIE7ASBb0+aQjXX9CQotX7StahN7mJjU2y
+         D/nrIjQk65X63Z5O70iixrWS6EOZxEthitm5UJLD/5/C88l8LmyISyDzGDKBZFGssf8f
+         /QjxNldaFZvvhhWeH5je1Hz64cq+LfWbwCk7ahcHfUZLtin3xv3ZAHTSzRp9o99FZrcF
+         HeucWXHmvXGJAUZFCD1t2LuM4u4Zvcmzoxiy0/iJvhiS7l0BzqSNXahp4Q6upjlEW/KD
+         S73w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qrvpBtlT;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1033 as permitted sender) smtp.mailfrom=maskray@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="kiTbp/TB";
+       spf=pass (google.com: domain of 3anflyaokaemrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3aNFLYAoKAEMrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1033.google.com (mail-pj1-x1033.google.com. [2607:f8b0:4864:20::1033])
-        by gmr-mx.google.com with ESMTPS id i8si397684vko.4.2021.03.12.12.25.48
+Received: from mail-qv1-xf49.google.com (mail-qv1-xf49.google.com. [2607:f8b0:4864:20::f49])
+        by gmr-mx.google.com with ESMTPS id p23si368134vkm.1.2021.03.12.12.39.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Mar 2021 12:25:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1033 as permitted sender) client-ip=2607:f8b0:4864:20::1033;
-Received: by mail-pj1-x1033.google.com with SMTP id nh23-20020a17090b3657b02900c0d5e235a8so11621969pjb.0
-        for <clang-built-linux@googlegroups.com>; Fri, 12 Mar 2021 12:25:48 -0800 (PST)
-X-Received: by 2002:a17:902:e884:b029:e5:fece:3bb0 with SMTP id w4-20020a170902e884b02900e5fece3bb0mr791629plg.61.1615580747373;
-        Fri, 12 Mar 2021 12:25:47 -0800 (PST)
-Received: from google.com ([2620:15c:2ce:0:bca6:9fa5:8695:2f0d])
-        by smtp.gmail.com with ESMTPSA id t5sm5980038pgl.89.2021.03.12.12.25.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Mar 2021 12:25:46 -0800 (PST)
-Date: Fri, 12 Mar 2021 12:25:37 -0800
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Peter Oberparleiter <oberpar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Prasad Sodagudi <psodagud@quicinc.com>,
-	Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] gcov: fix clang-11+ support
-Message-ID: <20210312202537.z77v4qnvptbrug2f@google.com>
-References: <20210312192139.2503087-1-ndesaulniers@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20210312192139.2503087-1-ndesaulniers@google.com>
-X-Original-Sender: maskray@google.com
+        Fri, 12 Mar 2021 12:39:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3anflyaokaemrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) client-ip=2607:f8b0:4864:20::f49;
+Received: by mail-qv1-xf49.google.com with SMTP id da16so18265221qvb.2
+        for <clang-built-linux@googlegroups.com>; Fri, 12 Mar 2021 12:39:04 -0800 (PST)
+X-Received: from manoj.svl.corp.google.com ([2620:15c:2ce:0:3159:c5f3:85f4:e811])
+ (user=manojgupta job=sendgmr) by 2002:a05:6214:8c4:: with SMTP id
+ da4mr109925qvb.17.1615581544242; Fri, 12 Mar 2021 12:39:04 -0800 (PST)
+Date: Fri, 12 Mar 2021 12:39:00 -0800
+In-Reply-To: <CAH=QcsjHmWdLU6u-imNYWU2v=9ieP8bOk22FLERUd+rVUeqZNw@mail.gmail.com>
+Message-Id: <20210312203900.1012048-1-manojgupta@google.com>
+Mime-Version: 1.0
+References: <CAH=QcsjHmWdLU6u-imNYWU2v=9ieP8bOk22FLERUd+rVUeqZNw@mail.gmail.com>
+X-Mailer: git-send-email 2.31.0.rc2.261.g7f71774620-goog
+Subject: [PATCH] scripts/recordmcount.{c,pl}: support -ffunction-sections
+ .text.* section names
+From: "'Manoj Gupta' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: gregkh@linuxfoundation.org, sashal@kernel.org
+Cc: stable@vger.kernel.org, clang-built-linux@googlegroups.com, 
+	ndesaulniers@google.com, jiancai@google.com, dianders@google.com, 
+	llozano@google.com, manojgupta@google.com, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Steven Rostedt <rostedt@goodmis.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: manojgupta@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=qrvpBtlT;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::1033
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+ header.i=@google.com header.s=20161025 header.b="kiTbp/TB";       spf=pass
+ (google.com: domain of 3anflyaokaemrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com
+ designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3aNFLYAoKAEMrfstolzuyflttlqj.htr@flex--manojgupta.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Manoj Gupta <manojgupta@google.com>
+Reply-To: Manoj Gupta <manojgupta@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,189 +134,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2021-03-12, Nick Desaulniers wrote:
->LLVM changed the expected function signatures for llvm_gcda_start_file()
->and llvm_gcda_emit_function() in the clang-11 release. Users of clang-11
->or newer may have noticed their kernels failing to boot due to a panic
->when enabling CONFIG_GCOV_KERNEL=y +CONFIG_GCOV_PROFILE_ALL=y.  Fix up
->the function signatures so calling these functions doesn't panic the
->kernel.
->
->When we drop clang-10 support from the kernel, we should carefully
->update the original implementations to try to preserve git blame,
->deleting these implementations.
->
->Link: https://reviews.llvm.org/rGcdd683b516d147925212724b09ec6fb792a40041
->Link: https://reviews.llvm.org/rG13a633b438b6500ecad9e4f936ebadf3411d0f44
->Cc: Fangrui Song <maskray@google.com>
->Reported-by: Prasad Sodagudi<psodagud@quicinc.com>
->Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
->---
-> kernel/gcov/clang.c | 69 +++++++++++++++++++++++++++++++++++++++++++++
-> 1 file changed, 69 insertions(+)
->
->diff --git a/kernel/gcov/clang.c b/kernel/gcov/clang.c
->index c94b820a1b62..20e6760ec05d 100644
->--- a/kernel/gcov/clang.c
->+++ b/kernel/gcov/clang.c
->@@ -75,7 +75,9 @@ struct gcov_fn_info {
->
-> 	u32 num_counters;
-> 	u64 *counters;
->+#if __clang_major__ < 11
-> 	const char *function_name;
->+#endif
+From: Joe Lawrence <joe.lawrence@redhat.com>
 
-function_name can be unconditionally deleted. It is not used by llvm-cov
-gcov.  You'll need to delete a few assignments to gcov_info_free but you
-can then unify the gcov_fn_info_dup and gcov_info_free implementations.
+commit 9c8e2f6d3d361439cc6744a094f1c15681b55269 upstream.
 
-> };
->
-> static struct gcov_info *current_info;
->@@ -105,6 +107,7 @@ void llvm_gcov_init(llvm_gcov_callback writeout, llvm_gcov_callback flush)
-> }
-> EXPORT_SYMBOL(llvm_gcov_init);
->
->+#if __clang_major__ < 11
-> void llvm_gcda_start_file(const char *orig_filename, const char version[4],
-> 		u32 checksum)
-> {
->@@ -113,7 +116,17 @@ void llvm_gcda_start_file(const char *orig_filename, const char version[4],
-> 	current_info->checksum = checksum;
-> }
-> EXPORT_SYMBOL(llvm_gcda_start_file);
->+#else
->+void llvm_gcda_start_file(const char *orig_filename, u32 version, u32 checksum)
->+{
->+	current_info->filename = orig_filename;
->+	current_info->version = version;
->+	current_info->checksum = checksum;
->+}
->+EXPORT_SYMBOL(llvm_gcda_start_file);
->+#endif
+When building with -ffunction-sections, the compiler will place each
+function into its own ELF section, prefixed with ".text".  For example,
+a simple test module with functions test_module_do_work() and
+test_module_wq_func():
 
-LG. On big-endian systems, clang < 11 emitted .gcno/.gcda files do not
-work with llvm-cov gcov < 11.  To fix it and make .gcno/.gcda work with
-gcc gcov I chose to break compatibility (and make all the breaking
-changes like deleting some CC1 options) in a short window. At that time
-I was not aware that there is the kernel implementation. Later on I was
-CCed on a few https://github.com/ClangBuiltLinux/linux/ gcov issues but
-I forgot to mention the interface change.
+  % objdump --section-headers test_module.o | awk '/\.text/{print $2}'
+  .text
+  .text.test_module_do_work
+  .text.test_module_wq_func
+  .init.text
+  .exit.text
 
-Now in clang 11 onward, clang --coverage defaults to the gcov 4.8
-compatible format. You can specify the CC1 option (internal option,
-subject to change) -coverage-version to make it compatible with other
-versions' gcov.
+Adjust the recordmcount scripts to look for ".text" as a section name
+prefix.  This will ensure that those functions will be included in the
+__mcount_loc relocations:
 
--Xclang -coverage-version='407*' => 4.7
--Xclang -coverage-version='704*' => 7.4
--Xclang -coverage-version='B02*' => 10.2 (('B'-'A')*10 = 10)
+  % objdump --reloc --section __mcount_loc test_module.o
+  OFFSET           TYPE              VALUE
+  0000000000000000 R_X86_64_64       .text.test_module_do_work
+  0000000000000008 R_X86_64_64       .text.test_module_wq_func
+  0000000000000010 R_X86_64_64       .init.text
 
-Reviewed-by: Fangrui Song <maskray@google.com>
+Link: http://lkml.kernel.org/r/1542745158-25392-2-git-send-email-joe.lawrence@redhat.com
 
->+#if __clang_major__ < 11
-> void llvm_gcda_emit_function(u32 ident, const char *function_name,
-> 		u32 func_checksum, u8 use_extra_checksum, u32 cfg_checksum)
-> {
->@@ -133,6 +146,24 @@ void llvm_gcda_emit_function(u32 ident, const char *function_name,
-> 	list_add_tail(&info->head, &current_info->functions);
-> }
-> EXPORT_SYMBOL(llvm_gcda_emit_function);
->+#else
->+void llvm_gcda_emit_function(u32 ident, u32 func_checksum,
->+		u8 use_extra_checksum, u32 cfg_checksum)
->+{
->+	struct gcov_fn_info *info = kzalloc(sizeof(*info), GFP_KERNEL);
->+
->+	if (!info)
->+		return;
->+
->+	INIT_LIST_HEAD(&info->head);
->+	info->ident = ident;
->+	info->checksum = func_checksum;
->+	info->use_extra_checksum = use_extra_checksum;
->+	info->cfg_checksum = cfg_checksum;
->+	list_add_tail(&info->head, &current_info->functions);
->+}
->+EXPORT_SYMBOL(llvm_gcda_emit_function);
->+#endif
->
-> void llvm_gcda_emit_arcs(u32 num_counters, u64 *counters)
-> {
->@@ -295,6 +326,7 @@ void gcov_info_add(struct gcov_info *dst, struct gcov_info *src)
-> 	}
-> }
->
->+#if __clang_major__ < 11
-> static struct gcov_fn_info *gcov_fn_info_dup(struct gcov_fn_info *fn)
-> {
-> 	size_t cv_size; /* counter values size */
->@@ -322,6 +354,28 @@ static struct gcov_fn_info *gcov_fn_info_dup(struct gcov_fn_info *fn)
-> 	kfree(fn_dup);
-> 	return NULL;
-> }
->+#else
->+static struct gcov_fn_info *gcov_fn_info_dup(struct gcov_fn_info *fn)
->+{
->+	size_t cv_size; /* counter values size */
->+	struct gcov_fn_info *fn_dup = kmemdup(fn, sizeof(*fn),
->+			GFP_KERNEL);
->+	if (!fn_dup)
->+		return NULL;
->+	INIT_LIST_HEAD(&fn_dup->head);
->+
->+	cv_size = fn->num_counters * sizeof(fn->counters[0]);
->+	fn_dup->counters = vmalloc(cv_size);
->+	if (!fn_dup->counters) {
->+		kfree(fn_dup);
->+		return NULL;
->+	}
->+
->+	memcpy(fn_dup->counters, fn->counters, cv_size);
->+
->+	return fn_dup;
->+}
->+#endif
->
-> /**
->  * gcov_info_dup - duplicate profiling data set
->@@ -362,6 +416,7 @@ struct gcov_info *gcov_info_dup(struct gcov_info *info)
->  * gcov_info_free - release memory for profiling data set duplicate
->  * @info: profiling data set duplicate to free
->  */
->+#if __clang_major__ < 11
-> void gcov_info_free(struct gcov_info *info)
-> {
-> 	struct gcov_fn_info *fn, *tmp;
->@@ -375,6 +430,20 @@ void gcov_info_free(struct gcov_info *info)
-> 	kfree(info->filename);
-> 	kfree(info);
-> }
->+#else
->+void gcov_info_free(struct gcov_info *info)
->+{
->+	struct gcov_fn_info *fn, *tmp;
->+
->+	list_for_each_entry_safe(fn, tmp, &info->functions, head) {
->+		vfree(fn->counters);
->+		list_del(&fn->head);
->+		kfree(fn);
->+	}
->+	kfree(info->filename);
->+	kfree(info);
->+}
->+#endif
->
-> #define ITER_STRIDE	PAGE_SIZE
->
->
->base-commit: f78d76e72a4671ea52d12752d92077788b4f5d50
->-- 
->2.31.0.rc2.261.g7f71774620-goog
->
+Signed-off-by: Joe Lawrence <joe.lawrence@redhat.com>
+Signed-off-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+
+[nc: Resolve conflict because of missing 42c269c88dc146982a54a8267f71abc99f12852a]
+Signed-off-by: Manoj Gupta <manojgupta@google.com>
+---
+ scripts/recordmcount.c  |  2 +-
+ scripts/recordmcount.pl | 13 +++++++++++++
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/recordmcount.c b/scripts/recordmcount.c
+index 7250fb38350c..8cba4c44da4c 100644
+--- a/scripts/recordmcount.c
++++ b/scripts/recordmcount.c
+@@ -362,7 +362,7 @@ static uint32_t (*w2)(uint16_t);
+ static int
+ is_mcounted_section_name(char const *const txtname)
+ {
+-	return strcmp(".text",           txtname) == 0 ||
++	return strncmp(".text",          txtname, 5) == 0 ||
+ 		strcmp(".ref.text",      txtname) == 0 ||
+ 		strcmp(".sched.text",    txtname) == 0 ||
+ 		strcmp(".spinlock.text", txtname) == 0 ||
+diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
+index ccd6614ea218..5ca4ec297019 100755
+--- a/scripts/recordmcount.pl
++++ b/scripts/recordmcount.pl
+@@ -138,6 +138,11 @@ my %text_sections = (
+      ".text.unlikely" => 1,
+ );
+ 
++# Acceptable section-prefixes to record.
++my %text_section_prefixes = (
++     ".text." => 1,
++);
++
+ # Note: we are nice to C-programmers here, thus we skip the '||='-idiom.
+ $objdump = 'objdump' if (!$objdump);
+ $objcopy = 'objcopy' if (!$objcopy);
+@@ -503,6 +508,14 @@ while (<IN>) {
+ 
+ 	# Only record text sections that we know are safe
+ 	$read_function = defined($text_sections{$1});
++	if (!$read_function) {
++	    foreach my $prefix (keys %text_section_prefixes) {
++	        if (substr($1, 0, length $prefix) eq $prefix) {
++	            $read_function = 1;
++	            last;
++	        }
++	    }
++	}
+ 	# print out any recorded offsets
+ 	update_funcs();
+ 
+-- 
+2.31.0.rc2.261.g7f71774620-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210312202537.z77v4qnvptbrug2f%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210312203900.1012048-1-manojgupta%40google.com.
