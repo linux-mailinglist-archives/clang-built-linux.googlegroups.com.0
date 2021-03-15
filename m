@@ -1,129 +1,128 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBDGNX6BAMGQEGH7AG7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBG6XX6BAMGQESWWKWUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 167E833C98C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 23:58:21 +0100 (CET)
-Received: by mail-lf1-x13d.google.com with SMTP id d3sf10749503lfc.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 15:58:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1615849100; cv=pass;
+Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
+	by mail.lfdr.de (Postfix) with ESMTPS id F0DE133C9D6
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 00:19:56 +0100 (CET)
+Received: by mail-qv1-xf37.google.com with SMTP id l7sf4612321qvz.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 16:19:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615850396; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iSdKh4aYtjY8+uG2pbU/nJwUYV0xfvqEzNMWezvDtjboISdGuucAifl8moNJQ/Y86+
-         kVxH27NCN9SnQO/WWVCet+JtIVw2ZLVrhFDfxLMpBdhEbemizNsr5S7t6OJBVZ0QS1or
-         PpgCoHywOLDnH53laP7Gq2EwcJD4uyWRyPlhfzzMy4ridxzxsR4+WqsoyelrDo7v0m1H
-         i+A7rZEMCm4wJU01NAZjtlGvHuGHT2d5xn8IxdCt8VakPJaT20cJF3dEe9FgeAZ+OGB6
-         1Y5AUsTZF92AqKXurTDrENgvYboquwvVa42nl85zSLzEaS5W4Ke0VjKbLtl2cN9GQsQp
-         bZ4Q==
+        b=Zz1f2GfMVoJrIntNxYQJsuG8BVSL6akC/LkXkdqOpL/DL4DNdObynbrVWmr+oHbCEw
+         EexVYKze5iBOiB+ILrYRC5DbNTkFbXlYu2n+bo3hOcoA80NtPZbQl6sKs+Qak2OiYcl9
+         MSYRjy1VLaHXJN6rJtqqC4mZlutPZ90M7UyIopnuw73bWQbT6ktu2O7XualU31KWTQTy
+         bfI3e4e4l8B/RicsQGP22Wiqo3F7Tsd6sMZzmarEUWXNG7j6PqUKogrO0vzJ/7PhUe6a
+         P7Kr+7DgRGXO4YiGeR1E6V8lgsmOzFID0yGSpR2eac0PnkK2DCzkGnGiIsxHAvOrRopz
+         rzJg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=LSaBNMFQdYklg5IB2+bXHhjUPARnwVymkKh/CoTY6Yk=;
-        b=yXudfGHXSpiIP4QZ5ij8zwk1NuenW2V2SWf9LT5/eG7vFchC8qp3XiKi6QEyXgmC+r
-         v4kKEz0bUMm7GNjbd45ICnE8Zm7KYWwq/v70VRuH1nRWcfQ3m80MT6CqWgdW0XwRNuIG
-         uGeyNS+oFX+tRjqX8lM1PxoqgtKhSpB6EfH0/NhbVh3HcCiIPq5YM2lDC/XwaWZ/ihBO
-         X0KfkyM/nvqx9ge19VDmbSI3eM4zWMdi43Sx3F971ighjzVg1Gk63inM73hC1HQUGQes
-         3ppgjTxN4XPbOL1Afrffx+aEc6wTA/ILSdBna/q69GL4BbMIh0sRPTnjYS0U6210w7SH
-         EEKQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=Iz63do7QzARryYpqf37FXH6vkxF3LtmFPZcGHY/xkOk=;
+        b=m3KUeoFmWM5IkWeOJSfIeC2R5mjeN6jaUX9zhaQNVgsa0Aq7g9UV5ccTuwNwr6jfXJ
+         TQv9rsxvyf903s79eGsxqSdRPhvla9ioX1QuaMLq0abn5b7qjV+7hVflOh0F1AP/X2C/
+         cExWccvC0UnyMkKYZFl1rrRvHAivxYipV+2YgArvUq8kB2wv3QYBqPsM7kurPYz8gnB7
+         3bh964r5Tay8LKbqwiXEcXAcCzJwa2YSDwd1ssYFQDMTQ/I1HM43/1sWc6jNgAxl8LMq
+         meIpef/E0jDAhZHBusC7EkAQcq0eJyHWjCe03MZ9U5QutdDmL69gAFqLtF+s0lhshhme
+         WMZg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Uzcicgkr;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="S1gNE/gl";
+       spf=pass (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3m-tPYAwKALosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=LSaBNMFQdYklg5IB2+bXHhjUPARnwVymkKh/CoTY6Yk=;
-        b=i7KqCtzJkDjEavbwd4lq3Jhg5DrfArcTBNGSKOUylWNGi91ZjDwOk+H9hXDKy411ay
-         GBqoImfzPVbK5JYz1vxBkbJtPghM0d3MSeWPPU7yLFf4quPuoWgn0ctv0Aut9OCuSf0Y
-         nG8pxQvoSMJvBVww7J+8rYcHPpLD25N+6EP3iGvBf2FfFPojZo6BgAvUD8nxtZnzCP+v
-         KYY3SEmGkq4zEFirLbhTKYKH23UJCz+sugazlzDiHI0yZs6UvfrKJPD4AxQsuEfFxu/P
-         f/f8O4EvCbVZKGKDw7F2hT7sGDBy+Uboq8Dk7IWBSdsij4QjQHJOggMxfyU9tPRzJb55
-         7Rdw==
+        bh=Iz63do7QzARryYpqf37FXH6vkxF3LtmFPZcGHY/xkOk=;
+        b=pDodwRkS6HsD1ua5i4PJgL6PzTuEeSXl2bKemBuOc0LI/X1g34OBCAYzXo1cslpH7o
+         RITqSL7Eua6WiKPLZSSUBUbTuyv1p0KQhQgWkBCwHMnG//W528qKm6y3hti5NdL9/LQX
+         JPwc3fX7VMLJdiWR4y1lpQF4ov14GWeHDJZVUbTd7IESvRktjPq8ha4tjBiPrXxDBBhn
+         sP/KGoXzkU5EblwpiE09hf+wbY43VaMchHPWrRtdi3cE3uEzdA3Ko5vAYGOOpeqg8S80
+         Yeey46Gwvq87yFJVsz6i7ATw1lnR3b/0McJz0lKzETpEmCZdUxWdBn5sFpiu+hYssAl/
+         zVAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=LSaBNMFQdYklg5IB2+bXHhjUPARnwVymkKh/CoTY6Yk=;
-        b=inlrdn6hgx69hitpm8tCgcypOMe5pj0qGkPp5z6B2O/ehR49piHFH4wRMnq2g7SrfV
-         9YWueLW+wjkIkCiPgFV1x6x5+SZLOnZ/0xsJEmRpPf7yYEVh/eIndNjqN35G9D7kORK7
-         OREVbmmEDd/UJx30CbhAW4JOpEZNw5MyfdMx3yIQTOeOPGCUpxdYM7bAaw6OUvJWWcCt
-         WT8P7UCt9SAXveDYGUbNI1pVkjwWb0iG7DgbXQQ9acxT3iHpcPknYqlu+64DEIqWBk2c
-         R5vNsU/hdqjY2HvuefGGf5TIv9SEF3ckQYFimmq06/J/4VZt8DTYKFUR1Rz72Fj4gnDe
-         epLQ==
-X-Gm-Message-State: AOAM5319bcK4AgXsWyHEtqoPWIal5RqwpxXiP7af44p3Rjmet38QH07+
-	K/AQ85YqWXScYtqda6erqyk=
-X-Google-Smtp-Source: ABdhPJzjaeybflJnGT4wb/UNHx/UasXplgTE15SUQKwmZbkT1Ei4hbMkPTgwWhrdlOnbLBHPaDOMZQ==
-X-Received: by 2002:a19:5d8:: with SMTP id 207mr9363088lff.232.1615849100515;
-        Mon, 15 Mar 2021 15:58:20 -0700 (PDT)
+        bh=Iz63do7QzARryYpqf37FXH6vkxF3LtmFPZcGHY/xkOk=;
+        b=uOeF1gkP06Ke+H2VRbrBVAcaWN41LbQTrxLh+xYFv2S9wZeW1mX0iFrfSd4bdBPh8a
+         O3kFR1JG57CrRa7VJib+ZB3ZFHcBqnsO53M2uJF1PqSFAyh3EnLH9xq68sldmNYnJYu0
+         xjJNNyRSLsaqcCeIqYi0Q/4/pEfZnfA27F4hJ85uuERuCJJOdW3YzD9tL23dIZtGN4Rv
+         kkwXA/VbWwkjFVmefBlpWvf4Y1ihVELymVHKmZBm9XbIDRp/5RowjU1tYgQf6D0q+KpZ
+         sozCXDH+W8hKbKodsU4NfzLW/H0+MkSwSsSDA28TEZ/+DexqVQcUG7Wg2pErfdVc3GPK
+         udmQ==
+X-Gm-Message-State: AOAM5308fZf6X9eh48CVblVNnQI6Oo/usKUf7YfnD7L13WXT5U62dZpi
+	GwIyQfaUqp5VNSpyN5SfNB4=
+X-Google-Smtp-Source: ABdhPJzhGsjFwbQHTJSaO0lx4hoiy9xrXVsuki44DpasvzNk+75wRnr6WtkKjSfhtqMINKWRk3myDQ==
+X-Received: by 2002:a37:392:: with SMTP id 140mr27387532qkd.236.1615850395994;
+        Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:6d4:: with SMTP id u20ls2450343lff.1.gmail; Mon, 15
- Mar 2021 15:58:19 -0700 (PDT)
-X-Received: by 2002:ac2:546b:: with SMTP id e11mr8906942lfn.48.1615849099452;
-        Mon, 15 Mar 2021 15:58:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1615849099; cv=none;
+Received: by 2002:a0c:fd64:: with SMTP id k4ls4727312qvs.1.gmail; Mon, 15 Mar
+ 2021 16:19:55 -0700 (PDT)
+X-Received: by 2002:a05:6214:1144:: with SMTP id b4mr13455391qvt.12.1615850395564;
+        Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1615850395; cv=none;
         d=google.com; s=arc-20160816;
-        b=MQzrYUOsDfMKZ5cH1nEDau/agPekuI5735HDMKhKwrqW2JjKh4Rg40W9Nu49at3fG9
-         aRREMehxN4J81nZKT1sJTxACi8shCONojO93B+l//VJ/j9cpbzjK6kyUgNXgoSB0x23E
-         dNzaI6oQCgBtjLn6JKAwsUHaXtQ+E/eqYyontu/yegdm237UG8zdG11Rzc/0GERbd9KH
-         4orQOvkfI2cHLUP2yxx7cWhzgUZ34Rs3tYIBC09rKQRNIt6n2YFX/y+ufRyaGaPEKL/f
-         YtzBfVn+bAbe5i/iRfmWmmOX4Ve+rwsjKHdg8r/FfAL1sipkdLpaeFiNa3u6NZvOWtVL
-         FwHg==
+        b=GBYMi5JX/w7gGnG63guof/8UZ5s2dXrb0SSM64poKxnAajJHV3XG1wccmdx+xbZT5q
+         Fiod4Vc19qEYTT5sC/5TtrcLSzkdJrGxhYebqk/FPjDYFXt23RKvGppz8rvbhlmW+Kbm
+         UTMoFeEmo73xnWqldDlM5Ox5XI4bj0jpZvi4iWExODEfA3kxq622rbKAfCvfMOM8xhTn
+         nSM0mWl6iyiDRimrO/r7ZIiq4NFG9WG9wJrN2OG9A2PT2JEZXpv5zR/K51HsxOP69ELC
+         ndu92s09KSrqAfHxWgioWu6J6LSCBUzjEjk4pVcAM+Caz5fjAXK6y4KaW39ia7wGLH1e
+         bNBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=tZjCk+P+jx5J0ycHj3LYEoImQk5e3nuq7wTJIjKCNTQ=;
-        b=DAfa/0CHq0Fc7FrgjMb6CFIomKzjlE4myZTwu4G3NyfHS5YBUADPrcD0F89B7fyYZv
-         TQLc/WbCbEs3Z0SVmlgTKV4dIubqI6PxEb0MtORTYxJK0+/r6YMBS6V8liF8f6u5N8E/
-         vtlOKfnzSFvMZOT3J3pcjs5kFiJ8V8iXYzD+nMkypB+RU5RQDl2f5bjqmbxpANuq1mD9
-         oEF/qAmT6cdmcEBCxaJnuBmLANZ5UXB05m+9WjnRJw+oMEtV3RCuIAtj2aXGZzj9gUzw
-         z0fMw+0iEsjp43El10WtRatnKof+VFMhIFlruZXVcnaUaCdTsG7Dg4LE1Kkdi7JmFndZ
-         F3gA==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=F6nYO3V+VuZGXayaevZL3OZZ8YDIZPahFyJ6m7t3CHo=;
+        b=sQJkEcAeZaa9a3NVoUZFP90C2jy9OEazA1WMCt7zMSld9FzHvvjiNoDltlX2yOMpqI
+         /naTObTAr9BBlJ+/GvQcnmfwezaN7hGiMav1BpO1rYMI3u/9zWkJyFG0+4ue42el+dOy
+         DQVFhtnbYnTO5aq8CD4lqBSQ5G+vzCNQntMr9KKNKCfYIAqzFvVICKZHNIjp5AfGGg+/
+         6GISHWhAM+qmWlF7GSbKKApjfpv8vziGxdBRMHMpTbm9A4XjCtKBihLEGdX22Q9kNtGT
+         hN7hrV5LbGQ4eH0kS7hToA6XjogBdrP8WwR3EHkY7lTDJr+t17iH5MoOQX1JNdw7tXy7
+         WSqA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Uzcicgkr;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="S1gNE/gl";
+       spf=pass (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3m-tPYAwKALosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12c.google.com (mail-lf1-x12c.google.com. [2a00:1450:4864:20::12c])
-        by gmr-mx.google.com with ESMTPS id d19si573813ljo.1.2021.03.15.15.58.19
+Received: from mail-qk1-x74a.google.com (mail-qk1-x74a.google.com. [2607:f8b0:4864:20::74a])
+        by gmr-mx.google.com with ESMTPS id f10si693081qko.5.2021.03.15.16.19.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Mar 2021 15:58:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12c as permitted sender) client-ip=2a00:1450:4864:20::12c;
-Received: by mail-lf1-x12c.google.com with SMTP id q25so59444980lfc.8
-        for <clang-built-linux@googlegroups.com>; Mon, 15 Mar 2021 15:58:19 -0700 (PDT)
-X-Received: by 2002:a19:5055:: with SMTP id z21mr9074889lfj.297.1615849098902;
- Mon, 15 Mar 2021 15:58:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAKwvOdka=y54W=ssgCZRgr2B+NaYFHF07KnnNDfrwv79-geSQw@mail.gmail.com>
- <YEs+iaQzEQYNgXcw@kroah.com> <CAKwvOd=xr5je726djQeMMrZAuNcJpX9=R-X19epVy85cjbNbqw@mail.gmail.com>
- <YEw6i39k6hqZJS8+@sashalap> <YE8kIbyWKSojC1SV@kroah.com> <YE8k/2WTPFGwMpHk@kroah.com>
- <YE8l2qhycaGPYdNn@kroah.com> <CAMj1kXGLrVXZPAoxTtMueB9toeoktuKza-mRpd4vZ0SLN6bSSQ@mail.gmail.com>
- <CAKwvOdmJm3v3sHfopWXrSPFn46qaSX9cna=Nd+FZiN=Nz9zmQQ@mail.gmail.com> <CAMj1kXHfQmObPZaVOZu+0M3SKFKNg5vcKmyJMXQ3RTBCqho9WQ@mail.gmail.com>
-In-Reply-To: <CAMj1kXHfQmObPZaVOZu+0M3SKFKNg5vcKmyJMXQ3RTBCqho9WQ@mail.gmail.com>
+        Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) client-ip=2607:f8b0:4864:20::74a;
+Received: by mail-qk1-x74a.google.com with SMTP id y22so20785809qkb.23
+        for <clang-built-linux@googlegroups.com>; Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
+X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:5a8:abe7:9948:175e])
+ (user=ndesaulniers job=sendgmr) by 2002:ad4:50c7:: with SMTP id
+ e7mr13169796qvq.58.1615850395286; Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
+Date: Mon, 15 Mar 2021 16:19:52 -0700
+In-Reply-To: <CAKwvOdm6FXWVu-9YkQNNyoYmw+hkj1a7MQrRbWyUxsO2vDcnQA@mail.gmail.com>
+Message-Id: <20210315231952.1482097-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+References: <CAKwvOdm6FXWVu-9YkQNNyoYmw+hkj1a7MQrRbWyUxsO2vDcnQA@mail.gmail.com>
+X-Mailer: git-send-email 2.31.0.rc2.261.g7f71774620-goog
+Subject: [PATCH 5.4.y] ARM: 9030/1: entry: omit FP emulation for UND
+ exceptions taken in kernel mode
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 15 Mar 2021 15:58:07 -0700
-Message-ID: <CAKwvOdm6FXWVu-9YkQNNyoYmw+hkj1a7MQrRbWyUxsO2vDcnQA@mail.gmail.com>
-Subject: Re: ARCH=arm LLVM_IAS=1 patches for 5.10, 5.4, and 4.19
-To: Ard Biesheuvel <ardb@kernel.org>, Greg KH <gregkh@linuxfoundation.org>
-Cc: Sasha Levin <sashal@kernel.org>, "# 3.4.x" <stable@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Jian Cai <jiancai@google.com>, 
-	Stefan Agner <stefan@agner.ch>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, candle.sun@unisoc.com, 
-	=?UTF-8?B?TWlsZXMgQ2hlbiAo6Zmz5rCR5qi6KQ==?= <miles.chen@mediatek.com>, 
-	Stephen Hines <srhines@google.com>, Luis Lozano <llozano@google.com>, 
-	Sandeep Patil <sspatil@google.com>, Marc Zyngier <maz@kernel.org>
+To: gregkh@linuxfoundation.org, ardb@kernel.org
+Cc: candle.sun@unisoc.com, catalin.marinas@arm.com, 
+	clang-built-linux@googlegroups.com, jiancai@google.com, llozano@google.com, 
+	maz@kernel.org, miles.chen@mediatek.com, samitolvanen@google.com, 
+	sashal@kernel.org, srhines@google.com, sspatil@google.com, 
+	stable@vger.kernel.org, stefan@agner.ch, Dmitry Osipenko <digetx@gmail.com>, 
+	Kees Cook <keescook@chromium.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Russell King <rmk+kernel@armlinux.org.uk>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Uzcicgkr;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12c
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b="S1gNE/gl";       spf=pass
+ (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3m-tPYAwKALosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -138,117 +137,188 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Ok, I see what went wrong.  I had tested allyesconfig and allmodconfig
-on 5.4.y, but neither of those selects CONFIG_KVM=y for arm;
-axm55xx_defconfig is literally the only config (out of 109) that does.
+From: Ard Biesheuvel <ardb@kernel.org>
 
-32b ARM KVM support was ripped out in
-commit 541ad0150ca4 ("arm: Remove 32bit KVM host support")
-which landed in v5.7-rc1. So when
-commit 2cbd1cc3dcd3 ("ARM: 8991/1: use VFP assembler mnemonics if available")
-was written, arch/arm/kvm/ no longer existed. If it did, then
-2cbd1cc3dcd3 would have needed something like
-https://gist.github.com/nickdesaulniers/980e68e9c0680fff06b1b64f2b973171.
-And allmodconfig/allyesconfig testing wouldn't have caught this, only
-testing axm55xx_defconfig would have.  Before KVM support was dropped,
-that was the only config that explicitly enabled the config that
-failed.
+commit f77ac2e378be9dd61eb88728f0840642f045d9d1 upstream.
 
-On Mon, Mar 15, 2021 at 10:53 AM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Mon, 15 Mar 2021 at 18:43, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> >
-> > f77ac2e378be doesn't apply cleanly to linux-5.4.y. There's a conflict
-> > in arch/arm/vfp/vfphw.S due to 5.4 missing
-> > commit 2cbd1cc3dcd3 ("ARM: 8991/1: use VFP assembler mnemonics if available")
-> > which is one of the patches I sent in the 5.4 series in this thread.
-> > That was 1 of a 3 patch series:
-> > https://lore.kernel.org/linux-arm-kernel/cover.1593205699.git.stefan@agner.ch/
-> >
-> > Should I separate out just those 3 and f77ac2e378be and send that for
-> > 5.4, or manually backport just f77ac2e378be and note in the commit
-> > message the conflict?
+There are a couple of problems with the exception entry code that deals
+with FP exceptions (which are reported as UND exceptions) when building
+the kernel in Thumb2 mode:
+- the conditional branch to vfp_kmode_exception in vfp_support_entry()
+  may be out of range for its target, depending on how the linker decides
+  to arrange the sections;
+- when the UND exception is taken in kernel mode, the emulation handling
+  logic is entered via the 'call_fpe' label, which means we end up using
+  the wrong value/mask pairs to match and detect the NEON opcodes.
 
-I assume we still want a fix for THUMB2, so I'll send a backport of
-just f77ac2e378be modified to note that there was a fixup against
-2cbd1cc3dcd3, since 2cbd1cc3dcd3 is problematic for CONFIG_KVM=y on
-5.4.
+Since UND exceptions in kernel mode are unlikely to occur on a hot path
+(as opposed to the user mode version which is invoked for VFP support
+code and lazy restore), we can use the existing undef hook machinery for
+any kernel mode instruction emulation that is needed, including calling
+the existing vfp_kmode_exception() routine for unexpected cases. So drop
+the call to call_fpe, and instead, install an undef hook that will get
+called for NEON and VFP instructions that trigger an UND exception in
+kernel mode.
 
-> You haven't explained why all this effort is justified to begin with.
->
-> Who cares about being able to build 4.19 or 5.4 mainline with Clang 12
-> and IAS?
+While at it, make sure that the PC correction is accurate for the
+execution mode where the exception was taken, by checking the PSR
+Thumb bit.
 
-Ah, sorry, ChromeOS and Android very much do so.  (Google's production
-kernels as well, though I don't think they have any 32b ARM machines).
-Android is already building 4.19+ with LLVM_IAS=1 for
-ARCH=arm64,x86_64,i686. ChromeOS is doing so for 5.4+ for
-ARCH=arm64,x86_64 as well.  I'm not sure precisely what's going on in
-prodkernel land, but I know they have LLVM_IAS=1 enabled for x86_64.
-So when Greg says this is "for no real users" I disagree.  Maybe no
-one is using LLVM_IAS=1 for ARCH=arm at this moment, but that was the
-point of the backports, to enable more distros to do so.
+Cc: Dmitry Osipenko <digetx@gmail.com>
+Cc: Kees Cook <keescook@chromium.org>
+Fixes: eff8728fe698 ("vmlinux.lds.h: Add PGO and AutoFDO input sections")
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
+[nd: fix conflict in arch/arm/vfp/vfphw.S due to missing
+     commit 2cbd1cc3dcd3 ("ARM: 8991/1: use VFP assembler mnemonics if
+     available")]
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+This should have been sent along with
+https://lore.kernel.org/stable/20210113185758.GA571703@ubuntu-m3-large-x86/
+it's my fault I missed it.
 
-Stable has already accepted patches to 4.19+ for these architectures
-where it was made explicit that this was for LLVM_IAS=1 support.
-https://lore.kernel.org/stable/CAKwvOdk_U6SEwOC-ykaVTMu1ZmEjWC8cCiTetvU2k2dQ6WPCoQ@mail.gmail.com/
-https://lore.kernel.org/stable/CAKwvOd=F_wWLxhnV3J8jx1L3SXPd8NFYyOKzAh7rL0iRb_aNyA@mail.gmail.com/
-https://lore.kernel.org/stable/CAKwvOdmEcjjw78K0Avj-7s5BBXcT7ARhEMMEYqpCP-ZT=2dAJw@mail.gmail.com/
-https://lore.kernel.org/stable/CAKwvOdnGDHn+Y+g5AsKvOFiuF7iVAJ8+x53SgWxH9ejqEZwY9w@mail.gmail.com/
-https://lore.kernel.org/stable/CAKwvOdkK1LgLC4ChptzUTC45WvE9-Sn0OqtgF7-odNSw8xLTYA@mail.gmail.com/
-https://lore.kernel.org/stable/CAKwvOd=x+fVo1_mMJUGHYXpmGf8UM5yx+uWD-Ci=y=0oFX2ktg@mail.gmail.com/
-https://lore.kernel.org/stable/CAKwvOdn78WAUiRtyPxW7oEhUz8GN6MkL=Jt+n17jEQXPPZE77g@mail.gmail.com/
+ arch/arm/kernel/entry-armv.S | 25 ++----------------
+ arch/arm/vfp/vfphw.S         |  5 ----
+ arch/arm/vfp/vfpmodule.c     | 49 ++++++++++++++++++++++++++++++++++--
+ 3 files changed, 49 insertions(+), 30 deletions(-)
 
-Now it's just down to ARM and THUMB2 support.  Then we will be using a
-similar toolchain regardless of ISA.  We will also then have an
-evergreen toolchain, rather than one that will not be receiving future
-updates and is unsupported (which becomes a problem when folks need
-new things and is a liability to be removed), and more wood behind
-fewer arrows so we can focus on starting on the feature requests we
-have piling up (like kernel GCC plugin-like features in LLVM, like a
-code model for the kernel, etc).
-
-This has been communicated to Android OEMs
-(https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+/master/BINUTILS_KERNEL_DEPRECATION.md)
-for them to help test and report issues and likely will also happen
-for the next release of the NDK
-(https://github.com/android/ndk/wiki/Changelog-r23#announcements).
-
-> I am aware that Clang enablement is a prerequisite for CFI
-> and LTO etcetera, and so I am fully on board with this activity for
-> current and future kernels.
-
-LTO does require LLVM_IAS=1 at the moment; there are no plans I know
-of yet to port LTO to ARCH=arm, but maybe if Sami is bored? :P
-
-> Stable kernels are a different matter, though. I tend to get
-> stable-kernel-rules.rst thrown in my face for proposing backports that
-> aren't nearly as large or intrusive as this stuff, but for some
-> reason, those rules do not seem to apply here.
-
-I understand.  I'm also balancing shipping patches for toolchain
-support out of tree, vs upstreaming.  Everything so far has been
-upstreamed, but 32b ARM support has been...more involved.  But I'm
-hopeful that we will be able to expand our staff soon to better
-improve that.
-
-I think all of these patches would be useful to CrOS, so my plan was
-to send the series upstream.  We can keep it downstream, where the
-number of supported configurations and toolchains is more limited.
-4.19+ is of interest for new Android devices this year, but 5.4 in
-particular will live much longer, so we will have to carry the
-divergence for longer.  I think some of the strictly UAL related
-changes are relatively lower risk.
-
-> So my suggestion would be to forget about 4.19 and 5.4 entirely for
-> these changes, unless there is an obvious benefit to all consumers of
-> these stable trees. Otherwise, exposing them to ongoing breakage like
-> this is indefensible IMHO.
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index a874b753397e..b62d74a2c73a 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -252,31 +252,10 @@ __und_svc:
+ #else
+ 	svc_entry
+ #endif
+-	@
+-	@ call emulation code, which returns using r9 if it has emulated
+-	@ the instruction, or the more conventional lr if we are to treat
+-	@ this as a real undefined instruction
+-	@
+-	@  r0 - instruction
+-	@
+-#ifndef CONFIG_THUMB2_KERNEL
+-	ldr	r0, [r4, #-4]
+-#else
+-	mov	r1, #2
+-	ldrh	r0, [r4, #-2]			@ Thumb instruction at LR - 2
+-	cmp	r0, #0xe800			@ 32-bit instruction if xx >= 0
+-	blo	__und_svc_fault
+-	ldrh	r9, [r4]			@ bottom 16 bits
+-	add	r4, r4, #2
+-	str	r4, [sp, #S_PC]
+-	orr	r0, r9, r0, lsl #16
+-#endif
+-	badr	r9, __und_svc_finish
+-	mov	r2, r4
+-	bl	call_fpe
+ 
+ 	mov	r1, #4				@ PC correction to apply
+-__und_svc_fault:
++ THUMB(	tst	r5, #PSR_T_BIT		)	@ exception taken in Thumb mode?
++ THUMB(	movne	r1, #2			)	@ if so, fix up PC correction
+ 	mov	r0, sp				@ struct pt_regs *regs
+ 	bl	__und_fault
+ 
+diff --git a/arch/arm/vfp/vfphw.S b/arch/arm/vfp/vfphw.S
+index b2e560290860..b530db8f2c6c 100644
+--- a/arch/arm/vfp/vfphw.S
++++ b/arch/arm/vfp/vfphw.S
+@@ -78,11 +78,6 @@
+ ENTRY(vfp_support_entry)
+ 	DBGSTR3	"instr %08x pc %08x state %p", r0, r2, r10
+ 
+-	ldr	r3, [sp, #S_PSR]	@ Neither lazy restore nor FP exceptions
+-	and	r3, r3, #MODE_MASK	@ are supported in kernel mode
+-	teq	r3, #USR_MODE
+-	bne	vfp_kmode_exception	@ Returns through lr
+-
+ 	VFPFMRX	r1, FPEXC		@ Is the VFP enabled?
+ 	DBGSTR1	"fpexc %08x", r1
+ 	tst	r1, #FPEXC_EN
+diff --git a/arch/arm/vfp/vfpmodule.c b/arch/arm/vfp/vfpmodule.c
+index 8c9e7f9f0277..c3b6451c18bd 100644
+--- a/arch/arm/vfp/vfpmodule.c
++++ b/arch/arm/vfp/vfpmodule.c
+@@ -23,6 +23,7 @@
+ #include <asm/cputype.h>
+ #include <asm/system_info.h>
+ #include <asm/thread_notify.h>
++#include <asm/traps.h>
+ #include <asm/vfp.h>
+ 
+ #include "vfpinstr.h"
+@@ -642,7 +643,9 @@ static int vfp_starting_cpu(unsigned int unused)
+ 	return 0;
+ }
+ 
+-void vfp_kmode_exception(void)
++#ifdef CONFIG_KERNEL_MODE_NEON
++
++static int vfp_kmode_exception(struct pt_regs *regs, unsigned int instr)
+ {
+ 	/*
+ 	 * If we reach this point, a floating point exception has been raised
+@@ -660,9 +663,51 @@ void vfp_kmode_exception(void)
+ 		pr_crit("BUG: unsupported FP instruction in kernel mode\n");
+ 	else
+ 		pr_crit("BUG: FP instruction issued in kernel mode with FP unit disabled\n");
++	pr_crit("FPEXC == 0x%08x\n", fmrx(FPEXC));
++	return 1;
+ }
+ 
+-#ifdef CONFIG_KERNEL_MODE_NEON
++static struct undef_hook vfp_kmode_exception_hook[] = {{
++	.instr_mask	= 0xfe000000,
++	.instr_val	= 0xf2000000,
++	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
++	.cpsr_val	= SVC_MODE,
++	.fn		= vfp_kmode_exception,
++}, {
++	.instr_mask	= 0xff100000,
++	.instr_val	= 0xf4000000,
++	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
++	.cpsr_val	= SVC_MODE,
++	.fn		= vfp_kmode_exception,
++}, {
++	.instr_mask	= 0xef000000,
++	.instr_val	= 0xef000000,
++	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
++	.cpsr_val	= SVC_MODE | PSR_T_BIT,
++	.fn		= vfp_kmode_exception,
++}, {
++	.instr_mask	= 0xff100000,
++	.instr_val	= 0xf9000000,
++	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
++	.cpsr_val	= SVC_MODE | PSR_T_BIT,
++	.fn		= vfp_kmode_exception,
++}, {
++	.instr_mask	= 0x0c000e00,
++	.instr_val	= 0x0c000a00,
++	.cpsr_mask	= MODE_MASK,
++	.cpsr_val	= SVC_MODE,
++	.fn		= vfp_kmode_exception,
++}};
++
++static int __init vfp_kmode_exception_hook_init(void)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(vfp_kmode_exception_hook); i++)
++		register_undef_hook(&vfp_kmode_exception_hook[i]);
++	return 0;
++}
++core_initcall(vfp_kmode_exception_hook_init);
+ 
+ /*
+  * Kernel-side NEON support functions
 -- 
-Thanks,
-~Nick Desaulniers
+2.31.0.rc2.261.g7f71774620-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm6FXWVu-9YkQNNyoYmw%2Bhkj1a7MQrRbWyUxsO2vDcnQA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210315231952.1482097-1-ndesaulniers%40google.com.
