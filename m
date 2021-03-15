@@ -1,165 +1,127 @@
-Return-Path: <clang-built-linux+bncBAABBDWOXWBAMGQE5YXSICI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBTMPX2BAMGQEUFW6PBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB37933B521
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 14:54:23 +0100 (CET)
-Received: by mail-qv1-xf3d.google.com with SMTP id h12sf23051070qvm.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 06:54:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1615816463; cv=pass;
+Received: from mail-qv1-xf3c.google.com (mail-qv1-xf3c.google.com [IPv6:2607:f8b0:4864:20::f3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5BBE533C15E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 17:14:06 +0100 (CET)
+Received: by mail-qv1-xf3c.google.com with SMTP id u15sf23355141qvo.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 09:14:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615824845; cv=pass;
         d=google.com; s=arc-20160816;
-        b=juP20LdXAkmOj0cLFRZum/f4DgBQGseW3NetoSp26f9srD08lOanrsX4DGUgx/qxni
-         16IPNeBuzGHBVPE65n/iBQaoEhmB2fwzlDPzemEVsjVrzBK4W3rEWTIB3vOlKSKcQwu4
-         pnSw85XaLxnra/y3ji8IMuvL7l0MNaVHLskM3Qon9SjwZbmutCaGgrzLa9uaJZkZrnij
-         mf1u7/ebIeynRnH8s32hOvC9hGi+uD50VpdzMendGIv0CiNghTbJB3ZBsj/mdaxGZGcC
-         O96FZjJ563uEMcRFCb6RNiU7wUR4DwcRhAAecNPk0p3p04L4oO7W6xJ9cC5EwUZHeTFv
-         VWPQ==
+        b=kjbeV6eAPsoXO3EFoy/8zudN+7E8vSSKM4RuDmHSDGon6DRs0vrIpNyAJUV7UATkuv
+         U87beNId3Y9q6JBUiinCV/7h52XvClEpKsV/mc1Q+3KX+4hA28YQNpXxwSMJUwzbi1sl
+         RVLa912LNRCVthCfpqvV2MvGFyNaqFeJPlu6sWOyEg7eFNVaFtrg+TFPWYOcCXLXuOAc
+         ERxBEEMH9YR26LNZwDbfyPC8bOPXbURiW/B8x5hjXNJfV0aNZh5Psnjk4Gp7nfH42yac
+         hy/zIaFJYeMTlIGVHGPFKChOPnBhfD/J8Dp3C5fMeSDEyBavLLKha1loqK58tQe0PXG2
+         slvQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:date:message-id:from:references:cc:to:subject:sender
-         :dkim-signature;
-        bh=coSEVSzvfw9hVBlP8+dK/221PKGeaWV82AhemiJRF0A=;
-        b=jab91DoD9zEaiKXyIbZzWTfK/UirSyq9i/CYGOzP5yat7f5LdAql9rhqybIxZ/D/aj
-         3uXdl5tUJVSDNuHIiWCs3UTtxiTGkEo2NWTIe05snnKTrDlQBZaY9pRPxBh+zmetnHoO
-         NX2QI2V02UVkT/liJR93WJixaUEYIe671D5GEcQVh1UR1Ez5Bg+6ndxbNApFUthxDWFD
-         YwXroULV5BAywStaqKUDY0FCk3SiqHvSv2oO3cymfmvoCmCcPAPSuJBdczjm4P8neyBT
-         uTWagzmNMNk/wzBfOKtYXyz8D01tQwjZc3QqbjjakT5WRBov3/754pLwv1gxuSaQd+Cg
-         sLpg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
+        bh=FdPpnSvIk/O0a8mMJ9k9A1C0270xwtfsabv/IyKduA8=;
+        b=mB+fbFdLBcb5kj/MDUbLKfhwtD84xiOobwAeZLR2w48DhZcctF6UhIKxg7uGQPRIJg
+         jFYHf5r3V0rsrlFsKdH0navnUYVgO0/+Iten6RL/MxZTYwTzI17lVz00SFvwmBiKQSjM
+         CHTpta7TqaKTj/qKz8hcYuchG/iw4NHy8DTwG4mr2GFr1rARAqbx8sjNuh92uEgW8AtN
+         brKi3FPE2HZLZt2JKzW0UyrjYvkKZYoa46XkAErhvwIrrR5/OCBex8ZzyfzJVUxoW1Tn
+         EQCGxeddEef6mmOuDOtxKGToLgJnMFFdtUfrjdWntlOG5LWrjpeHZCDTx8DNFAiMQFDO
+         mrcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=cMzteEjf;
-       spf=pass (google.com: domain of oberpar@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=oberpar@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="RcYj/4XD";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:mime-version
-         :in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=coSEVSzvfw9hVBlP8+dK/221PKGeaWV82AhemiJRF0A=;
-        b=lFL73FskXjo63ONJQ9F156PNNJhVBxxM6Kf8oooMYpIeKxXC6OwUpv4vLtd85TTRgm
-         eV3TB0z+C7KWeSOgBviqvSs9tQLiqAZWaFL5xv600Qi/yIfCzlITLNVffiFmfM5P9C/K
-         NFtd8jm/DlJwR8Axxw9lFPWhHGRCKcytZYTyOq/CDDM95iwkvPyvfnoUi9o+iGJzQSzA
-         uXco+I9Lx/aIPFdh0lY6ZjJtAHiKN32+mG9aIsA7ecF6n55dKRE42drpTm7xF4wDG5fg
-         lG8JzXPqDdKyp03ijWOg83bB3uPTzKaNach3Hy3dO4a/9DZE557D+V/RfKUDNfdqheZt
-         kiHg==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=FdPpnSvIk/O0a8mMJ9k9A1C0270xwtfsabv/IyKduA8=;
+        b=P7b+h8nJbCI757ynOcmDvd3uBYplWthFyuGIZ/HmaPzkRXGZHbQKCu/KysmMGTujBx
+         S5qVPN3IVHwVORrpsTRdTrWMdkq4GHlFTZBYSUYAxTYN1nSqPP6bZYPee2nRP8W8/vy5
+         VpZl4FVM6BkMkzxFwgD1AV3hQZ9o3JIOSbbad5sCrJM9w5KHahzIpiVhddIBWHTD78CY
+         Ts25Gs6iJXWcMGpD/QyruWGfHoQLGtDAaUsWEdPfGD6kOVH+2pgCt+tExH3YkCfUgMoh
+         wmX5LkM1QhrZVEoc4YDWq5F+o7H3n+icV7DwhtN4HAYcScWx45y/VcG2YP33BfWUceG2
+         FO1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
+         :message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=coSEVSzvfw9hVBlP8+dK/221PKGeaWV82AhemiJRF0A=;
-        b=qyNUGQ5bpdgnwkzbgNHt+Skge+7U4xb02vn3H/wWxwjo3bo1Oc+3HKhcJ7W2ZArd6j
-         GpwJYeEzXUmuOMmQJneMoLr6KrZ9Xq40rXreBqPOUEMgMBUomLmoJpaf6o3QfTOSjHOf
-         BzNzZ3tIIAnmBxZunXS62pFOX9tDgL91BASxDqB7zJPeSpYS3nSdex77i00EE6WdTYG7
-         EPO/4l3nzhayjig9osaY50gmbo+yxMUbonN8f8QOfN8K3uDV9Z3bvKVhjWy9dPCQT/1O
-         jgK6KB49PMguFfQZYxAlQ3KaX+IfbOkncBqInBa4IoU0S/AqHXtV4cULO979Kqrcbzc0
-         P4JQ==
+        bh=FdPpnSvIk/O0a8mMJ9k9A1C0270xwtfsabv/IyKduA8=;
+        b=Il71/7Zr4jL2kJHPzBHocpdewHYgpwLECfpsaqJrJLujes0vvkQuCGRPWO5ej/Vi2V
+         472q52wJPrjTJWO2lVxU4Jjhd9hUp0cJpdq+hns+gbdmcXlhJm6aGbky59nWgZKnP2sZ
+         oFmIC9Agx63hUe+ET6VBKMYCRxopGTBqq1A40gSk43FCKQxqW0Xpja9Ty0vX5tw0l3ga
+         xThS2kiY2zBigzfJo4wZKHmtZ3ormKcfHurUEMN/fxBWJrrOsnPQUpp6FxUFoOZq/pxH
+         9G/ymKcnqT5SIaEw6Xp+uo/0l+1aFdMafge42gPvtJH13l11+Xe5jmN3Ei21x3YVic1u
+         89FA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532gsnEV4Bpc4nIgxtjDcKsX44w+S35oAh84sUtrgtMx1p35vhUJ
-	DYjOqOGF5r3BWd+ddWUnQsE=
-X-Google-Smtp-Source: ABdhPJxs0fFc7Z/18JvaPb9Ukr5EJMH2KCr/7Tew3+28WZncXrYvH1zhxj4ps8ZxqZFwQq2Z/2WuuQ==
-X-Received: by 2002:a37:a48a:: with SMTP id n132mr24450986qke.359.1615816462839;
-        Mon, 15 Mar 2021 06:54:22 -0700 (PDT)
+X-Gm-Message-State: AOAM530jS3lZ2q0hieKdZLyAIklBeraabwQwkyzPT4FemXkefMwFcJRY
+	WySU0Kbu6ddd8dlbUegN0TM=
+X-Google-Smtp-Source: ABdhPJw8udZBFunS5xmLl9OchBs5DkQivpj1fRZ5dw6t0DES0Msr4sqduEM1ZUiNuZnysJS9ZHjRhQ==
+X-Received: by 2002:a05:620a:981:: with SMTP id x1mr24980772qkx.501.1615824845419;
+        Mon, 15 Mar 2021 09:14:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:56ac:: with SMTP id bd12ls4326093qvb.3.gmail; Mon, 15
- Mar 2021 06:54:22 -0700 (PDT)
-X-Received: by 2002:ad4:410d:: with SMTP id i13mr10600602qvp.44.1615816462485;
-        Mon, 15 Mar 2021 06:54:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1615816462; cv=none;
+Received: by 2002:a05:622a:254:: with SMTP id c20ls3599944qtx.9.gmail; Mon, 15
+ Mar 2021 09:14:05 -0700 (PDT)
+X-Received: by 2002:a05:622a:293:: with SMTP id z19mr22844668qtw.309.1615824844926;
+        Mon, 15 Mar 2021 09:14:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1615824844; cv=none;
         d=google.com; s=arc-20160816;
-        b=AYKsa1T/PDxeU6YDQciUM/sh3fLAIqKjkC1sgW+2PYdatkfsSAeojSFq6BS0Q5wPBq
-         w3yb1VgL8wtJ6GWE1EYEMHBeHWsmTUJtx4noAq43jfOiXOLzoOa1dgrY2VmnKqeV9+QN
-         WbCGcDuaiAtRKbAwZ2tN5kKKYDLrcVqgeb0EFXCHQgB/yvkgbUX6QG3K/DCOQMz7L20Y
-         643NL7BnHXxW3gIBT5B1kBvRmkBz3uk+xS+gWPSovCGAFo4F1/2K8X98udNCN7Va3Qrt
-         cUxnxUsdFGpmnRfjQj6asJJB5gtcNJEdU7bfF5PQhXdy877MaqqCNtfL+xBTGTNUQzSz
-         hOzA==
+        b=DPKFXNXlCVEv0487zbCfsIJ2T9NTbf2T7wKYATy7H3mGtcwWmhFqW6PRlPViq5eebx
+         65m3Lf2cELrf1DUKxv5xhNPITz7G2cVeqj7yPz1d7hsrbWujJLZ7qu8FZ9iRzF2RYbxJ
+         Qrdn1LEN7eznULNspLkb5BjnOvncSK865bVvHsQtSBCaxq1Bo9jrv8AsSeSePNKFEhvG
+         h5sklDiWV34oJSLgRpZUZY1TqixJgI1hOtrkmAb0wPmiVWBeEH5QET8At76Jrcm9vN0P
+         ZTeo78FmYydQmC48bXnM3MSOK76y2V0NK4Orzr2XWSIEqrZzon4FUmEXhmo1eRX7ZktX
+         B37g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :date:message-id:from:references:cc:to:subject:dkim-signature;
-        bh=IMkMB83HLmy5GJEh4yVZw4JAkAog+mf2q4x9F90mJgI=;
-        b=F90AOtA5KZj2PGaVHVk4NeK1iPBAmoMh5ppFV5uaeiy6lwVphLqqZqtM5D6+ynemKG
-         8lSnL8Un0TQZlCWi6VXOv9XrVUCgbSm2aLiMV71Kd1NHYRjeQgcALev7U6MinkX7NR8o
-         2azTkOZXjbqtphX9oR4DUT9dFcijLqZyh2EEKxyyOLP8gky37+W8RRjK7WaYBe8Optnl
-         XWJwDypZaeQ76ZyoKgMG5hGHahLf4V/9Z+X3QRKud9gOKoQJUxzi8+LDpdj4pRiH12q+
-         fGS4jnCprlcoBDTXl/eGlNqnVP2CnV3qEpnNiSnDYf+oXRS8pzIsHcT3Hl0uNNplnY7B
-         Vq3Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:dkim-filter;
+        bh=S3/ZJqs3oYqCsCN9gt+RIQZZsklAqK8OVlEl3S2Jwx4=;
+        b=AeBWGuGMo0HVeS6bVUP/WYLlHX4uBr8QewfvUpI4Ea9HTLHhdMD0/HYXrZhqA5Uq/4
+         7snA/d/KzZ16ePXU++M6lSdMBOVG4AbdfvE7i1y3RSuIrgZ6tR+R9w/wblsYznLla4KA
+         1iNZNT07gj/wwjee11AdjHDXRwpTrmv7j8/HLKOD6mL3lCpmSFkhMOYZAHRvPWabPW7n
+         Tk9ImVSSuVb/+a/H7lh5jjJDcljgAjFwHN1kL6vxxS+onpS4r9fO7fhtSFYgPA6FlbIx
+         5ue0BRJP6dGPFlc48eqg8PFnR1ZuLxo+77ebAg04tyBxFkJdBpYM6lr3hZgi9BIVIQF2
+         LzXg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=cMzteEjf;
-       spf=pass (google.com: domain of oberpar@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=oberpar@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
-        by gmr-mx.google.com with ESMTPS id w22si73251qtt.0.2021.03.15.06.54.22
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="RcYj/4XD";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conuserg-10.nifty.com (conuserg-10.nifty.com. [210.131.2.77])
+        by gmr-mx.google.com with ESMTPS id o8si541735qtm.5.2021.03.15.09.14.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 15 Mar 2021 06:54:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of oberpar@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
-Received: from pps.filterd (m0098404.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 12FDfc6W015275;
-	Mon, 15 Mar 2021 09:54:21 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 37a83y98mf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Mar 2021 09:54:21 -0400
-Received: from m0098404.ppops.net (m0098404.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 12FDjrXO038483;
-	Mon, 15 Mar 2021 09:54:20 -0400
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 37a83y98kf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Mar 2021 09:54:20 -0400
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 12FDq5Zs005166;
-	Mon, 15 Mar 2021 13:54:18 GMT
-Received: from b06cxnps4074.portsmouth.uk.ibm.com (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
-	by ppma03ams.nl.ibm.com with ESMTP id 378n18hwrw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Mar 2021 13:54:18 +0000
-Received: from d06av24.portsmouth.uk.ibm.com (mk.ibm.com [9.149.105.60])
-	by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 12FDsFwW46072170
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 15 Mar 2021 13:54:16 GMT
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D318942049;
-	Mon, 15 Mar 2021 13:54:15 +0000 (GMT)
-Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8B93D42041;
-	Mon, 15 Mar 2021 13:54:15 +0000 (GMT)
-Received: from [9.145.154.43] (unknown [9.145.154.43])
-	by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Mon, 15 Mar 2021 13:54:15 +0000 (GMT)
-Subject: Re: [PATCH v2 2/2] gcov: clang: drop support for clang-10 and older
-To: Nick Desaulniers <ndesaulniers@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org,
-        clang-built-linux@googlegroups.com, Fangrui Song <maskray@google.com>,
-        Prasad Sodagudi <psodagud@quicinc.com>
-References: <20210312220518.rz6cjh33bkwaumzz@archlinux-ax161>
- <20210312224132.3413602-1-ndesaulniers@google.com>
- <20210312224132.3413602-3-ndesaulniers@google.com>
-From: Peter Oberparleiter <oberpar@linux.ibm.com>
-Message-ID: <b5df9160-0c7a-8e68-dee5-569d4c4c8d8f@linux.ibm.com>
-Date: Mon, 15 Mar 2021 14:54:15 +0100
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 15 Mar 2021 09:14:04 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) client-ip=210.131.2.77;
+Received: from localhost.localdomain (133-32-232-101.west.xps.vectant.ne.jp [133.32.232.101]) (authenticated)
+	by conuserg-10.nifty.com with ESMTP id 12FGD7XF030890;
+	Tue, 16 Mar 2021 01:13:07 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com 12FGD7XF030890
+X-Nifty-SrcIP: [133.32.232.101]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+        Sedat Dilek <sedat.dilek@gmail.com>,
+        =?UTF-8?q?Bernhard=20Rosenkr=C3=A4nzer?= <bero@lindev.ch>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Will Deacon <will@kernel.org>, clang-built-linux@googlegroups.com,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/3] kbuild: collect minimum tool versions into scripts/min-tool-version.sh
+Date: Tue, 16 Mar 2021 01:12:55 +0900
+Message-Id: <20210315161257.788477-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-In-Reply-To: <20210312224132.3413602-3-ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369,18.0.761
- definitions=2021-03-15_05:2021-03-15,2021-03-15 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- priorityscore=1501 mlxscore=0 malwarescore=0 lowpriorityscore=0
- phishscore=0 mlxlogscore=797 spamscore=0 adultscore=0 clxscore=1015
- impostorscore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2009150000 definitions=main-2103150096
-X-Original-Sender: oberpar@linux.ibm.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=cMzteEjf;       spf=pass (google.com:
- domain of oberpar@linux.ibm.com designates 148.163.156.1 as permitted sender)
- smtp.mailfrom=oberpar@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=ibm.com
+ header.i=@nifty.com header.s=dec2015msa header.b="RcYj/4XD";
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
+ does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -172,24 +134,170 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 12.03.2021 23:41, Nick Desaulniers wrote:
-> LLVM changed the expected function signatures for llvm_gcda_start_file()
-> and llvm_gcda_emit_function() in the clang-11 release. Drop the older
-> implementations and require folks to upgrade their compiler if they're
-> interested in GCOV support.
-> 
-> Link: https://reviews.llvm.org/rGcdd683b516d147925212724b09ec6fb792a40041
-> Link: https://reviews.llvm.org/rG13a633b438b6500ecad9e4f936ebadf3411d0f44
-> Suggested-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+The kernel build uses various tools, many of which are provided by the
+same software suite, for example, LLVM and Binutils.
 
-Acked-by: Peter Oberparleiter <oberpar@linux.ibm.com>
+When you raise the minimum version of Clang/LLVM, you need to update
+clang_min_version in scripts/cc-version.sh and also lld_min_version in
+scripts/ld-version.sh.
 
+Kbuild can handle CC=clang and LD=ld.lld independently, but it does not
+make much sense to maintain their versions separately.
+
+Let's create a central place of minimum tool versions so you do not need
+to touch multiple files. scripts/min-tool-version.sh prints the minimum
+version of the given tool.
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Acked-by: Miguel Ojeda <ojeda@kernel.org>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+---
+
+Changes in v2:
+  - Use case ... esac
+
+ scripts/cc-version.sh       | 20 +++++--------------
+ scripts/ld-version.sh       | 11 ++++-------
+ scripts/min-tool-version.sh | 39 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 48 insertions(+), 22 deletions(-)
+ create mode 100755 scripts/min-tool-version.sh
+
+diff --git a/scripts/cc-version.sh b/scripts/cc-version.sh
+index 3f2ee885b116..f1952c522466 100755
+--- a/scripts/cc-version.sh
++++ b/scripts/cc-version.sh
+@@ -6,18 +6,6 @@
+ 
+ set -e
+ 
+-# When you raise the minimum compiler version, please update
+-# Documentation/process/changes.rst as well.
+-gcc_min_version=4.9.0
+-clang_min_version=10.0.1
+-icc_min_version=16.0.3 # temporary
+-
+-# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
+-# https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
+-if [ "$SRCARCH" = arm64 ]; then
+-	gcc_min_version=5.1.0
+-fi
+-
+ # Print the compiler name and some version components.
+ get_compiler_info()
+ {
+@@ -48,18 +36,20 @@ set -- $(get_compiler_info "$@")
+ 
+ name=$1
+ 
++min_tool_version=$(dirname $0)/min-tool-version.sh
++
+ case "$name" in
+ GCC)
+ 	version=$2.$3.$4
+-	min_version=$gcc_min_version
++	min_version=$($min_tool_version gcc)
+ 	;;
+ Clang)
+ 	version=$2.$3.$4
+-	min_version=$clang_min_version
++	min_version=$($min_tool_version llvm)
+ 	;;
+ ICC)
+ 	version=$(($2 / 100)).$(($2 % 100)).$3
+-	min_version=$icc_min_version
++	min_version=$($min_tool_version icc)
+ 	;;
+ *)
+ 	echo "$orig_args: unknown compiler" >&2
+diff --git a/scripts/ld-version.sh b/scripts/ld-version.sh
+index 1bf3aadde9de..a78b804b680c 100755
+--- a/scripts/ld-version.sh
++++ b/scripts/ld-version.sh
+@@ -6,11 +6,6 @@
+ 
+ set -e
+ 
+-# When you raise the minimum linker version, please update
+-# Documentation/process/changes.rst as well.
+-bfd_min_version=2.23.0
+-lld_min_version=10.0.1
+-
+ # Convert the version string x.y.z to a canonical 5 or 6-digit form.
+ get_canonical_version()
+ {
+@@ -35,10 +30,12 @@ set -- $(LC_ALL=C "$@" --version)
+ IFS=' '
+ set -- $1
+ 
++min_tool_version=$(dirname $0)/min-tool-version.sh
++
+ if [ "$1" = GNU -a "$2" = ld ]; then
+ 	shift $(($# - 1))
+ 	version=$1
+-	min_version=$bfd_min_version
++	min_version=$($min_tool_version binutils)
+ 	name=BFD
+ 	disp_name="GNU ld"
+ elif [ "$1" = GNU -a "$2" = gold ]; then
+@@ -51,7 +48,7 @@ else
+ 
+ 	if [ "$1" = LLD ]; then
+ 		version=$2
+-		min_version=$lld_min_version
++		min_version=$($min_tool_version llvm)
+ 		name=LLD
+ 		disp_name=LLD
+ 	else
+diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
+new file mode 100755
+index 000000000000..d22cf91212b0
+--- /dev/null
++++ b/scripts/min-tool-version.sh
+@@ -0,0 +1,39 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Print the minimum supported version of the given tool.
++# When you raise the minimum version, please update
++# Documentation/process/changes.rst as well.
++
++set -e
++
++if [ $# != 1 ]; then
++	echo "Usage: $0 toolname" >&2
++	exit 1
++fi
++
++case "$1" in
++binutils)
++	echo 2.23.0
++	;;
++gcc)
++	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63293
++	# https://lore.kernel.org/r/20210107111841.GN1551@shell.armlinux.org.uk
++	if [ "$SRCARCH" = arm64 ]; then
++		echo 5.1.0
++	else
++		echo 4.9.0
++	fi
++	;;
++icc)
++	# temporary
++	echo 16.0.3
++	;;
++llvm)
++	echo 10.0.1
++	;;
++*)
++	echo "$1: unknown tool" >&2
++	exit 1
++	;;
++esac
 -- 
-Peter Oberparleiter
-Linux on Z Development - IBM Germany
+2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b5df9160-0c7a-8e68-dee5-569d4c4c8d8f%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210315161257.788477-1-masahiroy%40kernel.org.
