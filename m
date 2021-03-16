@@ -1,138 +1,129 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBGN4YOBAMGQET5ZKXKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB26HYOBAMGQEHHM7HWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id EBCBA33D981
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 17:34:33 +0100 (CET)
-Received: by mail-wr1-x43f.google.com with SMTP id h30sf16982170wrh.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 09:34:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1615912473; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 870BF33D9F5
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 17:59:24 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id g7sf18764474plj.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 09:59:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615913963; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jvwYfqHpN1VZsm5k4V/Bd7CFtIx4ziHOWR2IxMiqszeUtAjgsLfCYzoowpRNqnWcgu
-         ejnqsvUgTp7PgNblwL6jZ9Z6a/srOk0r84cSBHGXbAC2HVHr0PhQaz0TrPwQFcSOu5H6
-         HF7gRqybkHa5OYrQdQc1peeYigBamTdid6cjCUlF63ls3sb1Muvvb7z+up3YQw6zzyza
-         fomvC+bj8+W4zUipC4CUTw6l+W2wIKxpEuq5XgvBrL+LOZCTMO6pBtziJWPop588f/MJ
-         3q4GJDFjaGydnHKOW5ecla3QAt5N98FUapDQE/aV1SJ6ad4RQOn/kHibZUCg3bdY2sbv
-         YwBA==
+        b=C3Drk31luZq2ks5ljo/iR/NlrntMdcwcPcx8DGGiZxaGRdboA3HX6sg+ZdZ9a6B1tT
+         KKkM7vLXX/euo51UdG61yhK6xUPoC3h9yCFman+p9xc/5RJ+VR54FCw9xvuPuKo66sGh
+         +hBVCfCcxtUgZZk9vNJQ/f5pOQ5yBIPCoxhIGGYphioEaVrFnzMbsEd1K8U78ZILT07r
+         Wh8XJV4H4p9pyx5m6xh4kBU3ojUBMyEgpL9QKJuCGSo2LhXvte71jB6wv7gnkZlZCteO
+         6YUX9M8sA5+d9iblMXO3EImX5WH6+NtEPlZF2x7GnzgEwZCOcHyMGh7BakSTiqz34loa
+         WQpg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=AFAmEyUA+5oJMq94YHC+pJ5rGzba9YCCWwEwmzarntY=;
-        b=iL1tE+yTWhsthOUryEb+SaYWW0DuJJsfJSbN9hL2QkeJuLM6exZtf+mj/mo46xEjp7
-         bClP1PkpV1yfz1wiNicouWZW1AwkJpiEhAtY20TY27GA6tBkzrQ5tR7FOGa33un4w+8z
-         jOuiUtvLPKAWLenwpluoCFE9XqRVvpx5l1jZDeewCDdK94dt6tUXUkY9pnSMwwiS++At
-         owISqgtj2iNYfo5v+dyhUAJJ40H8vJ+8/GZ5U5kX1r4te3+/oYsw41HLV0IzLHpZAOds
-         Zid1N7at0b5WoJPJ62RDRfpsjdvu+pUdo0xNd1u7giNuIVkSPS4W3P+Dr1zl+ykRBmgS
-         Itkw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=I1R352FJ7c5qQFd4g3xfOtdh/a7NZvxwyn8Iz4+o6og=;
+        b=QiALEtW3InhObV+RsWmJUA7BatPHOa9Q95BOGwOAfgd00TGBRx96S4xF1nP+XVZk3Z
+         JvrELBHuGjiQU2k6X0RO9NaXei20Lq8zvnt+mK/tpU67jZupg0WZfydJGIjxPzHmT5ke
+         Y+TYTfcp5vmGE04h9FJYAvbUIRr/LvpV3Y1O8JPGvISWepGVRdVyjQkXmLdG15gm0y5z
+         ZMR++A7HjFkT3+37em2CJVbyqQcF5cbcNpP/rdvrJMnYzhB/cMwg3rck/rfa4mtvciIp
+         1N6e4p2q6An0NOF7Z+POLLeUaXLCYsdSDX/mkl/5/C/UHdEgx5fjQrh+IQDeMH/NXKcq
+         3hDw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Sqg90j2z;
+       spf=pass (google.com: domain of 36enqyawkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=36eNQYAwKAPwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AFAmEyUA+5oJMq94YHC+pJ5rGzba9YCCWwEwmzarntY=;
-        b=IpzTApIr7dnbsi7rJtmm41I6FebjNTBr34oiSLIIUFkY/DYlL1XIhSsfAQeAU4INz3
-         eslhrhD9JcfwlHbt8ep99UXcsfiWlZJTf8ko59OADGAL7L9ao9MTXjyCRgI6kJEoQmIY
-         lGEz/yKi8KGnG3kbwLo9808SYVrtH8r3AX9EgvhZWycrZ2CMpiK7Rdlrk17i2ZJwRWeq
-         KVuyeI5PzkOi88vTmSbnkTtf4Y1M2IwdT4R4dPBuQR7L0RTIZdZsE0GK0pOMrkpYJ+c5
-         RHHMewv/oCUi7YAWF+GBuhW9ejAFdj6b9veXXFOYuWGLpy9cYJF4XmpEXlMHFf7fj1Dt
-         uu9g==
+        bh=I1R352FJ7c5qQFd4g3xfOtdh/a7NZvxwyn8Iz4+o6og=;
+        b=CdflORbXHxIniII2MuyyzK/+LzLRm7OyLxQlQYPaexiK2yVxOwKl7ziHHlp9QSdd7Q
+         9aFcKg/qkljJk+b5gemG3XAjeOrTXOisgmMawhTWysITF5ayd9nIOO8WWhENvWpaiCwY
+         4UeD9bUuRUJH6Ltthz3vN4AxAqeZ+N19avnyKEg4kW73IfVryu6l+C/eyIPGtxm5aMRG
+         3YP/4orbspPXZdYCfz2bRGf02fPGxF2ZAlU4f+haBktTDe2Nac/ysvufOio3qpP/dtK1
+         PYzgYGEaETWnEUFZ9y03LVVGV5yTSf68/993doJeWTL3AYDbLXPSfOLgddIOcbNIUPK0
+         LsjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AFAmEyUA+5oJMq94YHC+pJ5rGzba9YCCWwEwmzarntY=;
-        b=K/NZr+sk9myWpHXCWcL+Q+KP5OlT27vDLYqwNl3LAgiF31+u1uMALdvSuFOCtqRgTV
-         ZoQFcs/RnwxVih4Iz0Go2dk49oh4rkoyQcPLmfYJZ822LwDF9TeFcQ2M0oMJvq9wtCOM
-         PuqzYO/fsjpFb09VW+j4lQA7Oy1IhqZke3+Ar4cgjckkzY5GaPAdWuAE1TP04uGzbGxh
-         bnfAyGY9kBGHRa1Ve1pWtdKIz2PDlm7Aly75a+ERveF4Vi+Vvd2MD5zVfeuSkFm2vjW+
-         1/vjgfR/omRD7vRHul6KRVoxtGLiutFiBvdPUTfpVUIqyhWiHYaVU1uDDNWagiKnwsd8
-         45Ww==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5332t8nXfQljSALaxax7/it4LjWtkKXf/Efl7dUU37pEH/+u2jhH
-	UaDqN1m2hhpfVvP2HAfrdGg=
-X-Google-Smtp-Source: ABdhPJx0WdZuG1gs1mQy3DWqkaLeqG+g/PIpRKn7KxtIlaM/Gam/F7JPsOOTOUxEmWzF9Zj2pQASnw==
-X-Received: by 2002:a5d:54c4:: with SMTP id x4mr5786720wrv.329.1615912473705;
-        Tue, 16 Mar 2021 09:34:33 -0700 (PDT)
+        bh=I1R352FJ7c5qQFd4g3xfOtdh/a7NZvxwyn8Iz4+o6og=;
+        b=JmAXlgDMmH1wLX0T4hNBelRsOrbQCWUx3yrmqepRjWIj2O7HMaYQ0iJHso3y/csFJE
+         Tb2Da8c9ltvc//kztJBH62ulVrmQ2AUKJsxu39oMpF/+s8ymNAUwix217VMW8Zn0GGAW
+         lo5XrBIuDGjcu+hZdnBCEnwO5l8vgdzFlX1IrQR3B6N18LNfCKpN0aDuBS9tuD7iz9H5
+         v0qeBWW/Ix+8vOAntl5WXDOMlK9XWk9Je9e5MlupUQczkDeV6u4tDUY/cpTl4Ylp9pPM
+         jFU4vvhVnSssZd5/ToaQDI+ZWqfFcsw9ofPEOkKwZ1pDBvMnT9K7cIOmcNzHRFYyRWBA
+         UUzg==
+X-Gm-Message-State: AOAM530nDZ5CRPJqROIf/7glyfT62McXS5kqRPeUpMikykvFEoVXCeka
+	kQhlbOJJl+kDgfv0w8ycECA=
+X-Google-Smtp-Source: ABdhPJxzm1GQevNpwQP/4Oot+9OfR+kqNFn8DI6o0ZrmGcnypCfD5m25ZpP1OkOoFQ5Pd5rdCEN6OQ==
+X-Received: by 2002:a63:4f1f:: with SMTP id d31mr585981pgb.104.1615913963158;
+        Tue, 16 Mar 2021 09:59:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:58f0:: with SMTP id f16ls1267778wrd.0.gmail; Tue, 16 Mar
- 2021 09:34:32 -0700 (PDT)
-X-Received: by 2002:adf:9bce:: with SMTP id e14mr6095547wrc.29.1615912472925;
-        Tue, 16 Mar 2021 09:34:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1615912472; cv=none;
+Received: by 2002:a17:902:a507:: with SMTP id s7ls10773941plq.3.gmail; Tue, 16
+ Mar 2021 09:59:22 -0700 (PDT)
+X-Received: by 2002:a17:90a:c210:: with SMTP id e16mr48887pjt.92.1615913962642;
+        Tue, 16 Mar 2021 09:59:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1615913962; cv=none;
         d=google.com; s=arc-20160816;
-        b=ikxv8fo1mmsKWru6hdhkMT921LOKv/5m1OCz3k1qs0GvPEpWhqXIwPEsf9ZF6rUwVD
-         v2r4VnzjLgBesUvxqYM00EkJ3ttkBBrgkCoTacIVfatzZ34RT5hm8fA6bAeWbIE+Xs7x
-         p+pYQeFN3QxMh/nOMi2oAHp86i54KdDYAgkk0QmPUDSLZ/cBpigu5WoeW/tazxmgMG9g
-         0SNnL0omQe/cE6rPhosezJcvB17CXot+Ebl1qe+TB4bygJfxk6y8fR11oAf23AEzmwCV
-         NEAILc+vRxjp2C5Y4Sl4jD9VbmQkBU73jQ/Sq88y5pjOWkOi+zxy59UAXjN8QtjPhc8b
-         FWVg==
+        b=e35b4j5H7AY706uXJgimasOWPUjBw8NbZExTpBX58xu6GHD6+SUyxw4I0O9PqJ0BIf
+         iruiME7yx8j6ROcN92q85gFu8Oh/nvfqtlHnKK+5gBmLQqmHI65yzRBAKk35BOOiQCMt
+         V/CW2eJ5ee/Vv0ZZZ2xQKgg9+EOM3bLeAPRM9pj+fuYRWAkaGjTJnlYMZhugsmw8RN8l
+         SsvVX0a6H/ZqX0kX1CI/34SHjWMxjRutkF4BMp4GyfJY7yfBCoXADaLlo1ph1qz41H5e
+         fUlAMRpU2XtxIorKWKfJrPXJXoAKd5Miu7fGZBNuVY6w/juuwpWK19ZY0j65vapvLIBq
+         Ygdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=bVPS5oe+u7fDjF6g9k6TU94V4X+8EZo3y7iqbQY+U58=;
-        b=hI/kJSbvFyzRwaSaB2fNickq78V2X9PuTcWegWei9caxwE3uPT7VPjDAWo7qRRHUlE
-         SmKhB09zWqAXi8kma5ObC+C3fun1/r5Atks6trWlOt4bVDcGmEsbEdRBmtggJdClhy9+
-         UqlQwBRxEObAQoXFzNsd839M65coJe0hCpGE+xa3pL2Z/LBDhwiHcyjKBQeaCpMq2OtI
-         O0FA5JFbTs2LpFiytvAcl3KXTNrW5UXQ8mHQvucrLKWtVoHsk/AoHbck/DfQX4MQyty6
-         kPM52i49TCAosNOzKO7NljjwhHX3+PWSkIVuylPWF5MoKI2wM93rvmFYdTySiPiouV6Q
-         G7iA==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=qFPd4GCvjOnAI114zyj55KKPv7/vXpPXUVChFNLgXOc=;
+        b=bD4Ro3pbxoVR449V0JSsw7R36vLVC4nJ6i8TiyosTfrUj2rEQLwEQoVvkPeW/EwQiD
+         35KOOZLXwyRbsc5Y4SgPebH+3Fpzf41rXDWV8e9GOSawLAJiAcY+csyDU/+MHQO8k7Ov
+         +07EYP/T00w9bqBVoSwYipFcXq4FD5rDemBuaUqmN0P/7OoVAC6ZVFm7NVukP/4PCMIa
+         Cy7XVMTu1hAtFZc46FaZlkylNEq7mZP7F24Z5mSSb4kJqCSSXNFEEdTmM7X2xYjUL3bp
+         fkfjlvIHA26w483YIru+KZS81NVMMHi2LuFxUh1+UqGptxYpCpDOchOFzSAFOBrzxbu4
+         mrzg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
-        by gmr-mx.google.com with ESMTPS id g137si14899wmg.4.2021.03.16.09.34.32
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Sqg90j2z;
+       spf=pass (google.com: domain of 36enqyawkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=36eNQYAwKAPwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id e8si789894pgl.0.2021.03.16.09.59.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Mar 2021 09:34:32 -0700 (PDT)
-Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.74;
-Received: from mail-wr1-f42.google.com ([209.85.221.42]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1M6VRf-1lKFlp25jl-006zCz for <clang-built-linux@googlegroups.com>; Tue, 16
- Mar 2021 17:34:32 +0100
-Received: by mail-wr1-f42.google.com with SMTP id u16so10819375wrt.1
-        for <clang-built-linux@googlegroups.com>; Tue, 16 Mar 2021 09:34:32 -0700 (PDT)
-X-Received: by 2002:adf:ed87:: with SMTP id c7mr5923866wro.9.1615912472247;
- Tue, 16 Mar 2021 09:34:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <202103160133.UzhgY0wt-lkp@intel.com> <YFBYWjtWJrnGyiVp@linux.ibm.com>
- <CAKwvOdmMvvOYBJRZh9w8uQH1ZXZ97Gq+Rs0S4Xi0ZnWufYoxAA@mail.gmail.com>
-In-Reply-To: <CAKwvOdmMvvOYBJRZh9w8uQH1ZXZ97Gq+Rs0S4Xi0ZnWufYoxAA@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 16 Mar 2021 17:34:16 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1UvbVh3UKE9N-ch32RZHH5bhfRuz8LN9A3gQew6V3ONA@mail.gmail.com>
-Message-ID: <CAK8P3a1UvbVh3UKE9N-ch32RZHH5bhfRuz8LN9A3gQew6V3ONA@mail.gmail.com>
-Subject: Re: WARNING: modpost: vmlinux.o(.text+0x74fea4): Section mismatch in
- reference from the function memblock_find_in_range_node() to the function .init.text:memblock_bottom_up()
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Mike Rapoport <rppt@linux.ibm.com>, kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	David Hildenbrand <david@redhat.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Mar 2021 09:59:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 36enqyawkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id b127so42356818ybc.13
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Mar 2021 09:59:22 -0700 (PDT)
+X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:b408:7c5f:edf4:6c69])
+ (user=ndesaulniers job=sendgmr) by 2002:a25:1008:: with SMTP id
+ 8mr8392167ybq.21.1615913961773; Tue, 16 Mar 2021 09:59:21 -0700 (PDT)
+Date: Tue, 16 Mar 2021 09:59:18 -0700
+In-Reply-To: <CAMj1kXGT8Zgz3Pn+DDJnY6HRz3ugbkFozJycGBW+Cm6RvyYBHA@mail.gmail.com>
+Message-Id: <20210316165918.1794549-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+References: <CAMj1kXGT8Zgz3Pn+DDJnY6HRz3ugbkFozJycGBW+Cm6RvyYBHA@mail.gmail.com>
+X-Mailer: git-send-email 2.31.0.rc2.261.g7f71774620-goog
+Subject: [PATCH 5.4 2/2] ARM: 9044/1: vfp: use undef hook for VFP support detection
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: gregkh@linuxfoundation.org, sashal@kernel.org
+Cc: ardb@kernel.org, candle.sun@unisoc.com, catalin.marinas@arm.com, 
+	clang-built-linux@googlegroups.com, digetx@gmail.com, jiancai@google.com, 
+	keescook@chromium.org, linus.walleij@linaro.org, llozano@google.com, 
+	maz@kernel.org, miles.chen@mediatek.com, ndesaulniers@google.com, 
+	rmk+kernel@armlinux.org.uk, samitolvanen@google.com, srhines@google.com, 
+	sspatil@google.com, stable@vger.kernel.org, stefan@agner.ch, 
+	"kernelci.org bot" <bot@kernelci.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Provags-ID: V03:K1:2MM5hrXJTwZPNUD7vXvDoehCLvz2ZMLS0MPinazk3EJDHGFKmcY
- GXuQKhWJGzoE7f2JvY2OTdwGGVnRghx6CqxqkuSaz8GcoVQohI/5GElDghF3QtHxW2TeeM4
- ymp6Pg3q/yEo6pa9kI8WfEiu9/1YEYZsibfqqpRIW1wOJkUQE30LgHkwwtAWsGp5r6i5eVG
- wBp0RF197KEDmuG3tgShQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:aj8YiZviiyU=:yXxxE15XRSzGipCXS40WqI
- Kjd6BcqSN2hwoKR7CUiPthsIm0wuMAMDJvvn+mXq/1pzpWYVWM+Hj61QxG3J1BQMLMl5hcKSY
- lerkFK2d5lWicC7vg8Ex360BJV3QJLdUgrLd91jxXQo7ZhaayOlFrvpctVInpgIW6AFSAG+ie
- Dkjmuqx2HoNsZ9V0Q8EEp5R1ezuXZW5lUfPzcto+TfKiNXSXJZJIoUrSnR62ljq2FEodbv3+k
- rI1sQj6G0l4DvUSYyrR5IAEI2vMDbVERLvdRJLp7yIdfcpcNcjpw0lz7U90kSlzICrcaoPpWC
- k14vaWGgeqYV/rMLgz7+5fUzW6Any03VKIxaNxg07s67xKCCwKVV/2h6/AE6ztKoPo8jUawPC
- nnxZTslOY+b/T31d+BXx5SyodyFrqb/83RV3EnJSbmTLqWwxd/gwKdsFCUefrej1bE1byVtiK
- W/nxYbLNP7MQJo68Qk6GwtVMKqF0mXo46K/b64j0hF0PaMd6f0U39gSjmiXQ3HJSlD+iml7Xf
- sm3C58mI4/66nT4cnQA3XbC9UyDRdf2ZhDCBx1v3aRnFHuAdNkAbcpHwc7n3QRBDA==
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 217.72.192.74 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=Sqg90j2z;       spf=pass
+ (google.com: domain of 36enqyawkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=36eNQYAwKAPwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,51 +136,138 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 16, 2021 at 5:23 PM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
-> On Tue, Mar 16, 2021 at 12:04 AM Mike Rapoport <rppt@linux.ibm.com> wrote:
+From: Ard Biesheuvel <ardb@kernel.org>
 
-> >
-> > I don't have clang-13 setup handy so I could not check, but I think this
-> > should be the fix:
->
-> Thanks for taking another look:
-> https://lore.kernel.org/lkml/20210225205908.GM1447004@kernel.org/
-> Do we want to switch the above to the below?
+commit 3cce9d44321e460e7c88cdec4e4537a6e9ad7c0d upstream.
 
-The patch above is now in mainline and caused the reported problem.
+Commit f77ac2e378be9dd6 ("ARM: 9030/1: entry: omit FP emulation for UND
+exceptions taken in kernel mode") failed to take into account that there
+is in fact a case where we relied on this code path: during boot, the
+VFP detection code issues a read of FPSID, which will trigger an undef
+exception on cores that lack VFP support.
 
-> > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> > index d13e3cd938b4..5984fff3f175 100644
-> > --- a/include/linux/memblock.h
-> > +++ b/include/linux/memblock.h
-> > @@ -460,7 +460,7 @@ static inline void memblock_free_late(phys_addr_t base, phys_addr_t size)
-> >  /*
-> >   * Set the allocation direction to bottom-up or top-down.
-> >   */
-> > -static inline __init void memblock_set_bottom_up(bool enable)
-> > +static inline __init_memblock void memblock_set_bottom_up(bool enable)
-> >  {
-> >         memblock.bottom_up = enable;
-> >  }
-> > @@ -470,7 +470,7 @@ static inline __init void memblock_set_bottom_up(bool enable)
-> >   * if this is true, that said, memblock will allocate memory
-> >   * in bottom-up direction.
-> >   */
-> > -static inline __init bool memblock_bottom_up(void)
-> > +static inline __init_memblock bool memblock_bottom_up(void)
-> >  {
-> >         return memblock.bottom_up;
-> >  }
+So let's reinstate this logic using an undef hook which is registered
+only for the duration of the initcall to vpf_init(), and which sets
+VFP_arch to a non-zero value - as before - if no VFP support is present.
 
-I don't see the warning on my machine for some reason, but the patch
-does seem correct.
+Fixes: f77ac2e378be9dd6 ("ARM: 9030/1: entry: omit FP emulation for UND ...")
+Reported-by: "kernelci.org bot" <bot@kernelci.org>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+This is meant to be applied on top of
+https://lore.kernel.org/stable/20210315231952.1482097-1-ndesaulniers@google.com/.
+If it's preferrable to send an .mbox file or a series with cover letter,
+I'm happy to resend it as such, just let me know.
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+ arch/arm/vfp/entry.S     | 17 -----------------
+ arch/arm/vfp/vfpmodule.c | 25 ++++++++++++++++++++-----
+ 2 files changed, 20 insertions(+), 22 deletions(-)
 
-       Arnd
+diff --git a/arch/arm/vfp/entry.S b/arch/arm/vfp/entry.S
+index 0186cf9da890..27b0a1f27fbd 100644
+--- a/arch/arm/vfp/entry.S
++++ b/arch/arm/vfp/entry.S
+@@ -37,20 +37,3 @@ ENDPROC(vfp_null_entry)
+ 	.align	2
+ .LCvfp:
+ 	.word	vfp_vector
+-
+-@ This code is called if the VFP does not exist. It needs to flag the
+-@ failure to the VFP initialisation code.
+-
+-	__INIT
+-ENTRY(vfp_testing_entry)
+-	dec_preempt_count_ti r10, r4
+-	ldr	r0, VFP_arch_address
+-	str	r0, [r0]		@ set to non-zero value
+-	ret	r9			@ we have handled the fault
+-ENDPROC(vfp_testing_entry)
+-
+-	.align	2
+-VFP_arch_address:
+-	.word	VFP_arch
+-
+-	__FINIT
+diff --git a/arch/arm/vfp/vfpmodule.c b/arch/arm/vfp/vfpmodule.c
+index c3b6451c18bd..2cb355c1b5b7 100644
+--- a/arch/arm/vfp/vfpmodule.c
++++ b/arch/arm/vfp/vfpmodule.c
+@@ -32,7 +32,6 @@
+ /*
+  * Our undef handlers (in entry.S)
+  */
+-asmlinkage void vfp_testing_entry(void);
+ asmlinkage void vfp_support_entry(void);
+ asmlinkage void vfp_null_entry(void);
+ 
+@@ -43,7 +42,7 @@ asmlinkage void (*vfp_vector)(void) = vfp_null_entry;
+  * Used in startup: set to non-zero if VFP checks fail
+  * After startup, holds VFP architecture
+  */
+-unsigned int VFP_arch;
++static unsigned int __initdata VFP_arch;
+ 
+ /*
+  * The pointer to the vfpstate structure of the thread which currently
+@@ -437,7 +436,7 @@ static void vfp_enable(void *unused)
+  * present on all CPUs within a SMP complex. Needs to be called prior to
+  * vfp_init().
+  */
+-void vfp_disable(void)
++void __init vfp_disable(void)
+ {
+ 	if (VFP_arch) {
+ 		pr_debug("%s: should be called prior to vfp_init\n", __func__);
+@@ -707,7 +706,7 @@ static int __init vfp_kmode_exception_hook_init(void)
+ 		register_undef_hook(&vfp_kmode_exception_hook[i]);
+ 	return 0;
+ }
+-core_initcall(vfp_kmode_exception_hook_init);
++subsys_initcall(vfp_kmode_exception_hook_init);
+ 
+ /*
+  * Kernel-side NEON support functions
+@@ -753,6 +752,21 @@ EXPORT_SYMBOL(kernel_neon_end);
+ 
+ #endif /* CONFIG_KERNEL_MODE_NEON */
+ 
++static int __init vfp_detect(struct pt_regs *regs, unsigned int instr)
++{
++	VFP_arch = UINT_MAX;	/* mark as not present */
++	regs->ARM_pc += 4;
++	return 0;
++}
++
++static struct undef_hook vfp_detect_hook __initdata = {
++	.instr_mask	= 0x0c000e00,
++	.instr_val	= 0x0c000a00,
++	.cpsr_mask	= MODE_MASK,
++	.cpsr_val	= SVC_MODE,
++	.fn		= vfp_detect,
++};
++
+ /*
+  * VFP support code initialisation.
+  */
+@@ -773,10 +787,11 @@ static int __init vfp_init(void)
+ 	 * The handler is already setup to just log calls, so
+ 	 * we just need to read the VFPSID register.
+ 	 */
+-	vfp_vector = vfp_testing_entry;
++	register_undef_hook(&vfp_detect_hook);
+ 	barrier();
+ 	vfpsid = fmrx(FPSID);
+ 	barrier();
++	unregister_undef_hook(&vfp_detect_hook);
+ 	vfp_vector = vfp_null_entry;
+ 
+ 	pr_info("VFP support v0.3: ");
+-- 
+2.31.0.rc2.261.g7f71774620-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1UvbVh3UKE9N-ch32RZHH5bhfRuz8LN9A3gQew6V3ONA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210316165918.1794549-1-ndesaulniers%40google.com.
