@@ -1,165 +1,146 @@
-Return-Path: <clang-built-linux+bncBDE5LFWXQAIRBZVQYGBAMGQE336JX4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBP5VYGBAMGQEMOSXGLQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 66D5B33CE5E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 08:04:07 +0100 (CET)
-Received: by mail-oo1-xc3f.google.com with SMTP id k19sf17209654ook.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 00:04:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1615878246; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4ADA833CE65
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 08:14:09 +0100 (CET)
+Received: by mail-pj1-x1039.google.com with SMTP id lj2sf16305150pjb.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 00:14:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615878848; cv=pass;
         d=google.com; s=arc-20160816;
-        b=o7BE7VfG9JRHR9Kioq2rCxS7wyEbQCh4rhq6kYxBdnaxRoFjbabCOl8nUALWbDhamr
-         RTIHo7sDLvBD8ojWz1FnqoSvRpmZX4sSGLcnUreUlQY1ileHB/D4BBwh50VPzUL2HVpH
-         8mr9V1NqKdD22OQkkbHIUnE0Xf/qbUbIL3XhX5PPMOrE2jrvDBxIcb99JI4ViyJQ8epK
-         K6NVG7/94lMEVvF0zzN75eqDMUTM3WNubZSTYxzyBfC0kvK08X4A+523WXr7DDwA6LhA
-         xcYC+For+EUmjXJ7iKnesHvHhdaH7hpwK5LSlxectEPw7uHyWGs+gF/1SPjV8bfOOEQZ
-         QSZw==
+        b=Xp+F+T+1wJTXtYeVes351ybFV1MriiINKJUhRM/VwsMMz5qFIZma4DU/Kr4B76II9n
+         aRWK99NtSl2SUwQClVn7hcvrcnJa2Pee6NGvXr4zmtTkLYwn8Ja/c2eOViPUi1yigz1n
+         1FzVnJrBhX9tzs85oVlE3cNPH25qiNoXyx9P+4rDpZp4h/uZXkGApY2Yh+v9j2vkUhC+
+         CVg0B+8Umi2nRkSfR+Oz7hhbc1sgL2DrF7i2kOex7hc/xgOEATjl8JpnMtGJpLdKycSD
+         CSyxiHu/41ScDykDtj1GYuP/xjarlmt24Nrd9/oJQuraJ+S9G/J1NLVhVxFVx1aYbMTq
+         VmGQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
          :dkim-signature;
-        bh=lygGQVw74rsPkKQMiCmYIn4uAMDywBG5zcwdy6k4fEY=;
-        b=Fm5bGHMQJkga1/KnXrWekaB33HnMr4HDNFcvrMQP2HPyBnlirZsaPUzhnS31YSAS86
-         OY9qjkrUmhyrwcYJdXlJBkoHtrZA2+kJ1e4yxpPqSZNcKbTAHwQvhQevGb+nmEW5Nm0h
-         tOKHvJq/9Cjfz8EtZmJ9+rz7HWlvstoH9vibOn6vkO0CwnuyXCmsr7OMnhM+E95LG3bd
-         n9/51uMDtbXQ6EnCdJw8N2miPgN2UqaxG2W6yZ3fjxzeEQw7DGeTjeA5zN6ArhqDadMM
-         2Ui6e/kDU7jgJxZBHGiw0s0Zi5UDEutgkDeyOLW02NEk8Ti6SkeFI5OrYLSukRbPMo0M
-         be+g==
+        bh=wjKI8FswRic99/vGYVeYf7M2U6UGvcndhj2BJT2oMuc=;
+        b=ufsV0yOLI1o1R8f3Bp0s21gp+8g/BhT9ufK12LITg2TaoR7zHnCrEJS40WaZDg//IV
+         G1ygRzydaPdNKU9yLpw3Q6/PTufoK5/mIdPBhG0RUEoDMHeABPmFJ9jHt7RL+NvlVG0/
+         7USvWMC1lX/pt7lcIQwk8+6kr5QDVOpVuuUruK3BajlOHg4rCeWB1RYthsA3j0VFJhC9
+         982ohP5RRdxM57MJ0OdTCelfUXmeqKr5jGte4QbNG+jWRJnlhLS7X1t2FkK45hAP14kC
+         DuIMxj5X2I49MZ4YwpBw2B01KPZySHgrhEXydKq8L05hUIcQzfWnVULlRAGeFHqoSGnD
+         4VDA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=SBpZan8Z;
-       spf=pass (google.com: domain of rppt@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=rppt@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=HG5XPb5k;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lygGQVw74rsPkKQMiCmYIn4uAMDywBG5zcwdy6k4fEY=;
-        b=XBSPtwUYBWoz46NHgKXJwLz31DvuSJwJEO/t1GznHfbaUCuitodu/S8sqQ4R0dkp1o
-         1RI4Xfoh1A1LxSuNhu2TJ1gRS/paF6flphLvEz4AP+hMoC24NmgUXEGtEt4ofW6ONeJW
-         TakdZV7SAvcnWxSJkMRZ3r9lFyt/SYjPc8ifmcBvHWeSzlZ4YMn74q6NgmudFClQHkyq
-         I5tZiu3qXs/rp+0RuExLCIqJN39AovY8CUQkB/MufW46SpjwcBuPbEomfg1gSuU+aOyB
-         mUKah661YZBHkHlTQKHfBsRCdLrkgoKS3pKDP1TsLUxlFG4+h/ZwjLOHhnmqoodBTGqI
-         IUBg==
+        bh=wjKI8FswRic99/vGYVeYf7M2U6UGvcndhj2BJT2oMuc=;
+        b=lkbBuDgRtiimrkQ+w7fmq9ctGRpixG69HvwxrcEesK75oTM9g/H0GUeuLrzTgrRylH
+         87LTo7pZhDvYjw7ABBc7/H6cDeldVKw4NfQ+cuKJRcG0hrEs+ErDwppD6/n2e+UHE5x2
+         xwwMByqRce34fV4ZgN0WRXjQW56ZbGSCelc6LSkZWb199rx71EqgaQVur1i5MHBoVM3W
+         R40TIrRvDPjgzA99FEHkKP7GJ0rrZmmoCYSxbzDwt/sS0RD24isbaQydgtvcdCgr07l8
+         JqLkYw8o1m/AVMv1UAHev/Dr9vzNChoBh30t/PtqR2EC+wM19Xggf6WfwySDKcAdRyix
+         pB4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=lygGQVw74rsPkKQMiCmYIn4uAMDywBG5zcwdy6k4fEY=;
-        b=jvIxPprq8vnzwZPlU47bO2t8+l9Qg9aXQFvY19KI0XQOker6SijwyiSxV80gE941qn
-         6H2BGiHxnrmeqkP6aMOQQHXn6qrnCsx91S6yPOBQJlsqtp+tPyCtFlDWj+GD20ojB+EI
-         ZPc0N0QhmAtD05kil0aGojo9zeMoMV2ipTmNUnO24yxVhqGv40AhlT+Fl7QxBcBcx9pc
-         c2DZKR9LHSkxTKeM1yCrQQQQ+ejVxKmhRbnfDIsPBu52FLn4twlRj16Gt9wqFCjdw0/U
-         0IQnCUsQoPJYKFgqdWCfsI0HJHDGs0ezZulYcIkG3POWohH5U+RoPbwnr3rOcazMX9NH
-         fvdw==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=wjKI8FswRic99/vGYVeYf7M2U6UGvcndhj2BJT2oMuc=;
+        b=oQlE4x5iXOn52AiUOcsEaxZ3MLvJSedOJ6YT5QU1VKm8Pnm31TIGQYu31t1GyikXVa
+         4gHi5LK2z3/NKpTD7tgvjij8QCCc4Pda9cGMz3U4twjuses33hmGfHEqYvu6qjd1PGtZ
+         JDff0J1/B/GXtWnu8e2MBHHc4M2KZ2jRR/Hjt1+kaO9xK2r56XRtxGPa3w65yBvr7/qP
+         f6KqkAqXWGbtVYiy7RzlCNMMLNQ0KEOoKNTz5bN/0wLyV96UoCLLMcwIwVsB7uUEsa7R
+         kQ/Ioeh/hWr8KvEfk+QmRS6nSTrRgW6NHUCHAT8c/C9S7pBvcQJ5mkpKtwcoWHTKpQTI
+         WFDw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533fuUEpHK3PeuFpzaLcFhpRE112iZgo95PyeFgcGhC/sAg8Hei+
-	bMttoLcUSnk9tmdDs01w8Wk=
-X-Google-Smtp-Source: ABdhPJyYX+F1GDbL8TNQFOdl+xZv3KBk6pis8b3nX/6hmkzHdj0KV/lTI20VFpixhFuB5p19/q3Now==
-X-Received: by 2002:a4a:b302:: with SMTP id m2mr2466474ooo.59.1615878246168;
-        Tue, 16 Mar 2021 00:04:06 -0700 (PDT)
+X-Gm-Message-State: AOAM531rkGeO4ZbkjLw+qkY2Jb2OAUEjZ2emTYedhMHTzblNa3i2fUhC
+	x4bPtmrwNEPXxZl2QSlMtpM=
+X-Google-Smtp-Source: ABdhPJxYem0hUXBrVJHeklFxyktqKau1TSw5u5AEd+yxCwcEcYWfL5Ha+lnrEaexhsqv4tfk1Gpc/g==
+X-Received: by 2002:a63:f63:: with SMTP id 35mr2740073pgp.119.1615878847883;
+        Tue, 16 Mar 2021 00:14:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:aad0:: with SMTP id t199ls4595221oie.7.gmail; Tue, 16
- Mar 2021 00:04:05 -0700 (PDT)
-X-Received: by 2002:aca:c38e:: with SMTP id t136mr2373758oif.135.1615878245850;
-        Tue, 16 Mar 2021 00:04:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1615878245; cv=none;
+Received: by 2002:aa7:9d0d:: with SMTP id k13ls7606907pfp.5.gmail; Tue, 16 Mar
+ 2021 00:14:07 -0700 (PDT)
+X-Received: by 2002:a63:e651:: with SMTP id p17mr2624443pgj.324.1615878847325;
+        Tue, 16 Mar 2021 00:14:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1615878847; cv=none;
         d=google.com; s=arc-20160816;
-        b=L4a+ucfnoPPSExXwJkO22g0ar0lVkPYirUifLMWZI62pXdSC7C5YY8cm4JCRW9NMkI
-         87S7F/RcLE6VSwi0Wv2bN49WIFK/A8gL2SRl4zV2P3QD7vfe9Er1Upccp/bXqcVUGpM1
-         GLuChy21cs5Z0oU0eRfuuzxrfvHA6XuP2Gxp7D8nOqsWcw+4hgf2B28DInHMm51q8E5c
-         nkzNigxZY/SXGeix0+VwW4MpUx8CZptW8bk9EAflnsQxV19MRCVD/qEr9XFxjqdcpvLL
-         XOn0jqak0ycF9sZ76gWMwXgC1aPClMSyxN+rmdqDdeSUnqbLEZb8bZQhJSc6QAoPsfJQ
-         4S0w==
+        b=VrPOb5aeoDVvywG2PP1r4cRxleIzHuYFqZ2Z01cidcTn+kDOzVtLzP2SnL+AhxCyRf
+         YnAIbi5gFVMZS9l50S4QP/UZ0bvL9uguhZ7Vk8XMtX7QrLx/aILfezZ/bt+CY4/98V27
+         Gf2Zh3Vl3y8Eb/FnCXQgksYk/YediV7iIrXTuS5FCGgJbUNFlRhWHMH5inG5krXEiLCG
+         mgZIU7WlwWfZEGyRkJFYiSE/r2TJ5WjCMllCbztXwhCqJZMnLHoV+AKQxVb4U8rQcoLN
+         Jp+hNHnpKpYBYF5nPqi61CQa0FbPp3S841tZ588LqrkRwjDeXxUKcSWd8rO38mY27933
+         8H3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=+v4+oo99lYmkSGGgW/Q+P5qZ1gw/VuyyQrJqKexrzvk=;
-        b=xWtaXMvIUCXYMvXDRnTZyRRCTixT25Lkn0ENKTf+Lm1PgX29e/+ZHcIgWPM349r3IF
-         DIUcKU2EB7k1DkdhZJ1qNQxjqoO4dCvqUL9WiLX7cZ4KlI2A5fPnsEKhK8Gwrn8j62go
-         hKd498wLYMw7k+zxltT28Bs42InZ2Dgf/i7/uiTw5UMKuoNZfdnfPGleoWLeFHAvR0GM
-         qkFbJmIPnYgpGBUSPfX886Gylpz0PWejSA8OnfTK1+9tnzhmQKpxnu8WtgXlErdobnfr
-         uQ1U1wE/tulk51rNmgxoPuY5EPfIY7qxf76hTVyj70FWAx47MYpTbm2GU7JZQDcnaHu7
-         x0mg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=Pfh5DVm5VZldqk1/RJkTzRRkMb59cVJDFxHDgrBaFnE=;
+        b=w35XqUcBp/eUJ+EHJbIy3FLdmsgc0zwSZzor7oNT5cpG9Ahuv9sYizUOMrA1tZsYBk
+         huXvgv6as/b+P1coba9oP0jYlAbNe+QG4iHCcaWvzG8xVdlH21XyhbD6Gzxsn9jItaXR
+         crIR4IG6LcZ82IQsnb11ddoCD5oNtGRqWxDLLUddW7dNjCB0fodsh3mTbY2Eo3TXwXdt
+         m7DgzgYUuROsqrVj3gmOArstcWbPSaXbLzR6sk2oPUxBnrRrkxg53kWp2mxPf4NQCi4e
+         XoB1lcX91VIXVHuxHdNE5SwYzXBiT9DTGTDNPqCdob2F8yRpIuNF2N+iLVh1OcU2ryIj
+         rGtg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=SBpZan8Z;
-       spf=pass (google.com: domain of rppt@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=rppt@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id h187si998898oib.1.2021.03.16.00.04.05
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=HG5XPb5k;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
+        by gmr-mx.google.com with ESMTPS id k21si1052478pfa.5.2021.03.16.00.14.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Mar 2021 00:04:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rppt@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098421.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 12G72XXM119941;
-	Tue, 16 Mar 2021 03:04:03 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 37ap2t2qjm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Mar 2021 03:04:02 -0400
-Received: from m0098421.ppops.net (m0098421.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 12G73C9l121473;
-	Tue, 16 Mar 2021 03:04:02 -0400
-Received: from ppma05fra.de.ibm.com (6c.4a.5195.ip4.static.sl-reverse.com [149.81.74.108])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 37ap2t2qgy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Mar 2021 03:04:02 -0400
-Received: from pps.filterd (ppma05fra.de.ibm.com [127.0.0.1])
-	by ppma05fra.de.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 12G7407N011575;
-	Tue, 16 Mar 2021 07:04:00 GMT
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
-	by ppma05fra.de.ibm.com with ESMTP id 378n189bqx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Mar 2021 07:04:00 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com [9.149.105.61])
-	by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 12G73vp641943384
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 16 Mar 2021 07:03:58 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D93B611C05E;
-	Tue, 16 Mar 2021 07:03:57 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F076511C04C;
-	Tue, 16 Mar 2021 07:03:56 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.145.58.148])
-	by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
-	Tue, 16 Mar 2021 07:03:56 +0000 (GMT)
-Date: Tue, 16 Mar 2021 09:03:54 +0200
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, kbuild-all@lists.01.org,
-        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-        David Hildenbrand <david@redhat.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: WARNING: modpost: vmlinux.o(.text+0x74fea4): Section mismatch in
- reference from the function memblock_find_in_range_node() to the function
- .init.text:memblock_bottom_up()
-Message-ID: <YFBYWjtWJrnGyiVp@linux.ibm.com>
-References: <202103160133.UzhgY0wt-lkp@intel.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 16 Mar 2021 00:14:07 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181]) (authenticated)
+	by conssluserg-03.nifty.com with ESMTP id 12G7DsrF027510
+	for <clang-built-linux@googlegroups.com>; Tue, 16 Mar 2021 16:13:54 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 12G7DsrF027510
+X-Nifty-SrcIP: [209.85.214.181]
+Received: by mail-pl1-f181.google.com with SMTP id c16so16533265ply.0
+        for <clang-built-linux@googlegroups.com>; Tue, 16 Mar 2021 00:13:54 -0700 (PDT)
+X-Received: by 2002:a17:90a:f68a:: with SMTP id cl10mr3362320pjb.87.1615878833533;
+ Tue, 16 Mar 2021 00:13:53 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210315161257.788477-1-masahiroy@kernel.org> <20210315161257.788477-2-masahiroy@kernel.org>
+In-Reply-To: <20210315161257.788477-2-masahiroy@kernel.org>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 16 Mar 2021 16:13:16 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARgowfqPzz7mawQiJ7LLdWGyW3NaS21Jwp1qSzwek8f6w@mail.gmail.com>
+Message-ID: <CAK7LNARgowfqPzz7mawQiJ7LLdWGyW3NaS21Jwp1qSzwek8f6w@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] kbuild: check the minimum assembler version in Kconfig
+To: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+        Christian Brauner <christian.brauner@ubuntu.com>,
+        Colin Ian King <colin.king@canonical.com>,
+        David Howells <dhowells@redhat.com>,
+        Frederic Weisbecker <frederic@kernel.org>,
+        Johannes Weiner <hannes@cmpxchg.org>, KP Singh <kpsingh@google.com>,
+        Kees Cook <keescook@chromium.org>,
+        Michal Marek <michal.lkml@markovi.net>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Nick Terrell <terrelln@fb.com>, Peter Zijlstra <peterz@infradead.org>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        "Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Valentin Schneider <valentin.schneider@arm.com>,
+        Viresh Kumar <viresh.kumar@linaro.org>,
+        Vlastimil Babka <vbabka@suse.cz>, YiFei Zhu <yifeifz2@illinois.edu>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202103160133.UzhgY0wt-lkp@intel.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369,18.0.761
- definitions=2021-03-15_15:2021-03-15,2021-03-15 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
- mlxlogscore=999 lowpriorityscore=0 adultscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 mlxscore=0 phishscore=0 clxscore=1011
- impostorscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2009150000 definitions=main-2103160046
-X-Original-Sender: rppt@linux.ibm.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=SBpZan8Z;       spf=pass (google.com:
- domain of rppt@linux.ibm.com designates 148.163.158.5 as permitted sender)
- smtp.mailfrom=rppt@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+ header.i=@nifty.com header.s=dec2015msa header.b=HG5XPb5k;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -172,68 +153,277 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 16, 2021 at 01:23:08AM +0800, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   1e28eed17697bcf343c6743f0028cc3b5dd88bf0
-> commit: 34dc2efb39a231280fd6696a59bbe712bf3c5c4a memblock: fix section mismatch warning
-> date:   2 days ago
-> config: arm64-randconfig-r013-20210315 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project a28facba1ccdc957f386b7753f4958307f1bfde8)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm64 cross compiling tool for clang build
->         # apt-get install binutils-aarch64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=34dc2efb39a231280fd6696a59bbe712bf3c5c4a
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout 34dc2efb39a231280fd6696a59bbe712bf3c5c4a
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>, old ones prefixed by <<):
-> 
-> >> WARNING: modpost: vmlinux.o(.text+0x74fea4): Section mismatch in reference from the function memblock_find_in_range_node() to the function .init.text:memblock_bottom_up()
-> The function memblock_find_in_range_node() references
-> the function __init memblock_bottom_up().
-> This is often because memblock_find_in_range_node lacks a __init
-> annotation or the annotation of memblock_bottom_up is wrong.
+On Tue, Mar 16, 2021 at 1:14 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> Documentation/process/changes.rst defines the minimum assembler version
+> (binutils version), but we have never checked it in the build time.
+>
+> Kbuild never invokes 'as' directly because all assembly files in the
+> kernel tree are *.S, hence must be preprocessed. I do not expect
+> raw assembly source files (*.s) would be added to the kernel tree.
+>
+> Therefore, we always use $(CC) as the assembler driver, and commit
+> aa824e0c962b ("kbuild: remove AS variable") removed 'AS'. However,
+> we are still interested in the version of the assembler acting behind.
+>
+> As usual, the --version option prints the version string.
+>
+>   $ as --version | head -n 1
+>   GNU assembler (GNU Binutils for Ubuntu) 2.35.1
+>
+> But, we do not have $(AS). So, we can add the -Wa prefix so that
+> $(CC) passes --version down to the backing assembler.
+>
+>   $ gcc -Wa,--version | head -n 1
+>   gcc: fatal error: no input files
+>   compilation terminated.
+>
+> OK, we need to input something to satisfy gcc.
+>
+>   $ gcc -Wa,--version -c -x assembler /dev/null -o /dev/null | head -n 1
+>   GNU assembler (GNU Binutils for Ubuntu) 2.35.1
+>
+> The combination of Clang and GNU assembler works in the same way:
+>
+>   $ clang -no-integrated-as -Wa,--version -c -x assembler /dev/null -o /dev/null | head -n 1
+>   GNU assembler (GNU Binutils for Ubuntu) 2.35.1
+>
+> Clang with the integrated assembler fails like this:
+>
+>   $ clang -integrated-as -Wa,--version -c -x assembler /dev/null -o /dev/null | head -n 1
+>   clang: error: unsupported argument '--version' to option 'Wa,'
+>
+> For the last case, checking the error message is fragile. If the
+> proposal for -Wa,--version support [1] is accepted, this may not be
+> even an error in the future.
+>
+> One easy way is to check if -integrated-as is present in the passed
+> arguments. We did not pass -integrated-as to CLANG_FLAGS before, but
+> we can make it explicit.
+>
+> Nathan pointed out -integrated-as is the default for all of the
+> architectures/targets that the kernel cares about, but it goes
+> along with "explicit is better than implicit" policy. [2]
+>
+> With all this in my mind, I implemented scripts/as-version.sh to
+> check the assembler version in Kconfig time.
+>
+>   $ scripts/as-version.sh gcc
+>   GNU 23501
+>   $ scripts/as-version.sh clang -no-integrated-as
+>   GNU 23501
+>   $ scripts/as-version.sh clang -integrated-as
+>   LLVM 0
+>
+> [1]: https://github.com/ClangBuiltLinux/linux/issues/1320
+> [2]: https://lore.kernel.org/linux-kbuild/20210307044253.v3h47ucq6ng25iay@archlinux-ax161/
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
+>
+> Changes in v2:
+>   - Check -integrated-as option instead of error message.
+>   - Add LC_ALL=C just in case.
+>
+>   The Italian locale did not tweak the message from 'as --version'
+>   but we never know what would happen on locale.
+>
+>   $ LC_MESSAGES=it_IT.UTF-8 ld --version | head -n 1
+>   ld di GNU (GNU Binutils for Debian) 2.35.2
+>   $ LC_MESSAGES=it_IT.UTF-8 as --version | head -n 1
+>   GNU assembler (GNU Binutils for Debian) 2.35.2
+>
+>  Makefile                |  4 +-
+>  arch/Kconfig            |  3 +-
+>  init/Kconfig            | 12 ++++++
+>  scripts/Kconfig.include |  6 +++
+>  scripts/as-version.sh   | 82 +++++++++++++++++++++++++++++++++++++++++
+>  5 files changed, 104 insertions(+), 3 deletions(-)
+>  create mode 100755 scripts/as-version.sh
+>
+> diff --git a/Makefile b/Makefile
+> index cc5b7e39fde4..2b161f5a5a66 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -580,7 +580,9 @@ ifneq ($(findstring clang,$(CC_VERSION_TEXT)),)
+>  ifneq ($(CROSS_COMPILE),)
+>  CLANG_FLAGS    += --target=$(notdir $(CROSS_COMPILE:%-=%))
+>  endif
+> -ifneq ($(LLVM_IAS),1)
+> +ifeq ($(LLVM_IAS),1)
+> +CLANG_FLAGS    += -integrated-as
+> +else
+>  CLANG_FLAGS    += -no-integrated-as
+>  GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
+>  CLANG_FLAGS    += --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index ecfd3520b676..555b4f09a9b2 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -631,8 +631,7 @@ config ARCH_SUPPORTS_LTO_CLANG_THIN
+>  config HAS_LTO_CLANG
+>         def_bool y
+>         # Clang >= 11: https://github.com/ClangBuiltLinux/linux/issues/510
+> -       depends on CC_IS_CLANG && CLANG_VERSION >= 110000 && LD_IS_LLD
+> -       depends on $(success,test $(LLVM_IAS) -eq 1)
+> +       depends on CC_IS_CLANG && CLANG_VERSION >= 110000 && LD_IS_LLD && AS_IS_LLVM
+>         depends on $(success,$(NM) --help | head -n 1 | grep -qi llvm)
+>         depends on $(success,$(AR) --help | head -n 1 | grep -qi llvm)
+>         depends on ARCH_SUPPORTS_LTO_CLANG
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 5f5c776ef192..019c1874e609 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -41,6 +41,18 @@ config CLANG_VERSION
+>         default $(cc-version) if CC_IS_CLANG
+>         default 0
+>
+> +config AS_IS_GNU
+> +       def_bool $(success,test "$(as-name)" = GNU)
+> +
+> +config AS_IS_LLVM
+> +       def_bool $(success,test "$(as-name)" = LLVM)
+> +
+> +config AS_VERSION
+> +       int
+> +       # Use clang version if this is the integrated assembler
+> +       default CLANG_VERSION if AS_IS_LLVM
+> +       default $(as-version)
+> +
+>  config LD_IS_BFD
+>         def_bool $(success,test "$(ld-name)" = BFD)
+>
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index 58fdb5308725..0496efd6e117 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -45,6 +45,12 @@ $(error-if,$(success,test -z "$(cc-info)"),Sorry$(comma) this compiler is not su
+>  cc-name := $(shell,set -- $(cc-info) && echo $1)
+>  cc-version := $(shell,set -- $(cc-info) && echo $2)
+>
+> +# Get the assembler name, version, and error out if it is not supported.
+> +as-info := $(shell,$(srctree)/scripts/as-version.sh $(CC) $(CLANG_FLAGS))
+> +$(error-if,$(success,test -z "$(as-info)"),Sorry$(comma) this assembler is not supported.)
+> +as-name := $(shell,set -- $(as-info) && echo $1)
+> +as-version := $(shell,set -- $(as-info) && echo $2)
+> +
+>  # Get the linker name, version, and error out if it is not supported.
+>  ld-info := $(shell,$(srctree)/scripts/ld-version.sh $(LD))
+>  $(error-if,$(success,test -z "$(ld-info)"),Sorry$(comma) this linker is not supported.)
+> diff --git a/scripts/as-version.sh b/scripts/as-version.sh
+> new file mode 100755
+> index 000000000000..953ff000bcbc
+> --- /dev/null
+> +++ b/scripts/as-version.sh
+> @@ -0,0 +1,82 @@
+> +#!/bin/sh
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# Print the assembler name and its version in a 5 or 6-digit form.
+> +# Also, perform the minimum version check.
+> +# (If it is the integrated assembler, return 0 as the version, and
+> +# skip the version check.)
+> +
+> +set -e
+> +
+> +# Convert the version string x.y.z to a canonical 5 or 6-digit form.
+> +get_canonical_version()
+> +{
+> +       IFS=.
+> +       set -- $1
+> +
+> +       # If the 2nd or 3rd field is missing, fill it with a zero.
+> +       #
+> +       # The 4th field, if present, is ignored.
+> +       # This occurs in development snapshots as in 2.35.1.20201116
+> +       echo $((10000 * $1 + 100 * ${2:-0} + ${3:-0}))
+> +}
+> +
+> +# Clang failes to handle -Wa,--version fails unless -no-integrated-as is given.
 
-I don't have clang-13 setup handy so I could not check, but I think this
-should be the fix:
+This line got strange after some editing.
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index d13e3cd938b4..5984fff3f175 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -460,7 +460,7 @@ static inline void memblock_free_late(phys_addr_t base, phys_addr_t size)
- /*
-  * Set the allocation direction to bottom-up or top-down.
-  */
--static inline __init void memblock_set_bottom_up(bool enable)
-+static inline __init_memblock void memblock_set_bottom_up(bool enable)
- {
- 	memblock.bottom_up = enable;
- }
-@@ -470,7 +470,7 @@ static inline __init void memblock_set_bottom_up(bool enable)
-  * if this is true, that said, memblock will allocate memory
-  * in bottom-up direction.
-  */
--static inline __init bool memblock_bottom_up(void)
-+static inline __init_memblock bool memblock_bottom_up(void)
- {
- 	return memblock.bottom_up;
- }
+I will rephrase it to:
 
- 
+  Clang fails to handle -Wa,--version unless -no-integrated-as is given.
+
+
+
+
+
+> +# We check -(f)integrated-as, expecting it is explicitly passed in for the
+> +# integrated assembler case.
+> +check_integrated_as()
+> +{
+> +       while [ $# -gt 0 ]; do
+> +               if [ "$1" = -integrated-as -o "$1" = -fintegrated-as ]; then
+> +                       # For the intergrated assembler, we do not check the
+> +                       # version here. It is the same as the clang version, and
+> +                       # it has been already checked by scripts/cc-version.sh.
+> +                       echo LLVM 0
+> +                       exit 0
+> +               fi
+> +               shift
+> +       done
+> +}
+> +
+> +check_integrated_as "$@"
+> +
+> +orig_args="$@"
+> +
+> +# Get the first line of the --version output.
+> +IFS='
+> +'
+> +set -- $(LC_ALL=C "$@" -Wa,--version -c -x assembler /dev/null -o /dev/null 2>&1)
+> +
+> +# Split the line on spaces.
+> +IFS=' '
+> +set -- $1
+> +
+> +min_tool_version=$(dirname $0)/min-tool-version.sh
+> +
+> +if [ "$1" = GNU -a "$2" = assembler ]; then
+> +       shift $(($# - 1))
+> +       version=$1
+> +       min_version=$($min_tool_version binutils)
+> +       name=GNU
+> +else
+> +       echo "$orig_args: unknown assembler invoked" >&2
+> +       exit 1
+> +fi
+> +
+> +# Some distributions append a package release number, as in 2.34-4.fc32
+> +# Trim the hyphen and any characters that follow.
+> +version=${version%-*}
+> +
+> +cversion=$(get_canonical_version $version)
+> +min_cversion=$(get_canonical_version $min_version)
+> +
+> +if [ "$cversion" -lt "$min_cversion" ]; then
+> +       echo >&2 "***"
+> +       echo >&2 "*** Assembler is too old."
+> +       echo >&2 "***   Your $name assembler version:    $version"
+> +       echo >&2 "***   Minimum $name assembler version: $min_version"
+> +       echo >&2 "***"
+> +       exit 1
+> +fi
+> +
+> +echo $name $cversion
+> --
+> 2.27.0
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210315161257.788477-2-masahiroy%40kernel.org.
+
+
+
 -- 
-Sincerely yours,
-Mike.
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YFBYWjtWJrnGyiVp%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARgowfqPzz7mawQiJ7LLdWGyW3NaS21Jwp1qSzwek8f6w%40mail.gmail.com.
