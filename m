@@ -1,145 +1,133 @@
-Return-Path: <clang-built-linux+bncBDLYD555WYHBBLNRYSBAMGQEA7GDVDA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTJ7DM3WQOBBONZYSBAMGQEXYRQMNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 99D9033DF48
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 21:44:31 +0100 (CET)
-Received: by mail-pl1-x63d.google.com with SMTP id w10sf16248041plc.20
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 13:44:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1615927470; cv=pass;
+Received: from mail-ej1-x63a.google.com (mail-ej1-x63a.google.com [IPv6:2a00:1450:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 11D9133DFAF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 22:01:46 +0100 (CET)
+Received: by mail-ej1-x63a.google.com with SMTP id e13sf14154309ejd.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 14:01:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615928505; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZYruhBxjLl59Z1u/2plN+FtmTzz3xFs+yrDjuBeI5tVDlocXvl0dkV8PaQQx084KPL
-         N33uVco59M5s666i/Oco3CJZ5IYKLZYPFyyGI5IpOVEjnZp5+LG2Wn/FtMhuhG73d7iE
-         nsGgJA2YrXHC1uuT5SsGJjPZC3EHDUMibHG5WLP0NbBSlC9YlkwIZUPWqbhOIkjkR2WO
-         HATzybJMWMEamT0sCyCWUIgqpakW8hJf+Im1UVpDr+2hDpYpkODJnjPfK20wFZaCwVFr
-         dUnwKhIr/YUBYYgVR5NbK9B9p75k3jAd2dI3f9DFFlP7XVLSA7TRcPCMI61oBjyzxPRk
-         fjww==
+        b=BnPOaeMzoY5/VFcVyQgaQv0exx3MtkOQEs8hb1nuZnXp9pmLwd0kWMwu2WeHFJOS7I
+         68uMNx0Y1gQW7SHg8UNOg4bpuEroYUhPPa5GBfYRpUf5RajpePYC3/zIhmhkkBkx8xgN
+         h7mm9feGhznlRJZ4CGrm8hc/lrZaRoqDNWUIZ+otA0FwlCYa775q85Z5KEivnpTGNAlZ
+         FQXAw5sZaR5XmxJo43o06NSYLHgjxpo7zpQmzNr49jyHIKTj4bEQeWef42gXjJSlc1rt
+         UEIsaaTEGee8Nrpp0u07GF5FHinxMJs2H8ngN70RNsoZBUEONTobfRQKcGeJb2BCbXDy
+         RNlA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:organization:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=6kQf+q6aA5YfD1IohtJd6JuI93IrbumG8/viuMznPeM=;
-        b=0wzxt5RGRfWHm0iBiy/ITPjTxUxtBAPJSckI8ewgnecFTBazVImkNmzlOHLrcprAkr
-         /dkRVvy85bgiVDXhU2s7KGoAJkiNLvYi8R1nqu5E2NmosNsjcyF6hSmuLS/MH6v60RA5
-         htaME9xB6SP7l55/If63hQsIw5YsaE2/yz1n3ZZz6G3ax101ikl4Jdq5vSGqcCd2IRGP
-         L0vIn3OF1G4Au+Y7EHb1REbRa6P0ivtia6XCj5e4ZCgt/rMXJ39SvXoGJsVe+2qlmSSl
-         YG6do+Igp9pTAS0N19EW+rx7jtUb3+KaZOWI31frtZZPJta9tr9GJW9wz6xlSEo8tdEj
-         f4ow==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=1dgOMZ38Wi/hqpTAH50sX9Yp4lOOKpoImd/CBpNOysU=;
+        b=oGAsEtJEXkOQyespLIwI7TLZUdZEuRBZLMnarwnfaE9DtcLetB73L3OwXRkEAzJ+Jh
+         J/qFWBjEz4xxfMwyurhvZO1HllK3ADvIyTgRAhPu6NmGcXOv4u+X8dmJKKSfmscQiquQ
+         kjXT2DYpJrVJ7sW/OFWx6IMhRfj4GhZrv+CgWNVQqs9MsdO5hR2eGd9OmjUxtSfBGtbC
+         McoFOIif6aJcQFQrikQPcVGL9vZDvSzeAqJr7Ow13PiC/CFHgEwaPaPZcMmq4E/ZlmwR
+         LsfVk39mkSZXu/zDluaqXZ3oT3ktSc8srNekF2M7GE7kFFzMHhJVWevuQI/6C/CVmXix
+         +cgQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of andriy.shevchenko@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=andriy.shevchenko@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :organization:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6kQf+q6aA5YfD1IohtJd6JuI93IrbumG8/viuMznPeM=;
-        b=MiFk0LTgzGCBlwlzmWQ3vdOgyoHdQEpxatAUtLToh8fMCSGvFJnhIbNLgzseFxDc1c
-         uS8c95Xhi+dUDBXjjAVsxcPbLM0JiZjChIGljg+9rGT8ZBcNnIZSiyX845/TaBaa9o5k
-         ynGcztIMBwmH6d5Dd3zlmficUxNkvwWeNGRdBIbhzBl/RSgvy1uetWFrPbPkIniaec3m
-         mDV2Vt/jlyBHwckz7ZeioG84uYgqH+shVlpTskiPDkQ7Ds0Qmy+I9b2ON1LizIGd4iji
-         Ml/RnIqM2oudBEGTVIYoQnN2BviidvdjxefaVWYHx8Tdfd3t43mjFcUsmgTTIoYqLtuu
-         GPfA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1dgOMZ38Wi/hqpTAH50sX9Yp4lOOKpoImd/CBpNOysU=;
+        b=XOJmhHWEVM44+NJW9Pnd2vn4024F0LwlThT5N+kZQktqgIbt/STF8BPVb0z/s5cVzb
+         Ac4G1RrK5YJvtF9uSZpc5OU586ToSNYh+JKrAlq6IhWt7x4BpApPvAt6uW33V7M1iOu8
+         i2ncF/5/aqZRjkNKC+jgwRMB9lBJsWMFDBjJHUtCRH8UMgakJBWtmZgKCymsyG/NlVvz
+         75ggdbPqPFLTdzOyrdusghev0VGAupzBM4feC99yyXkkF1HiJ2j7OoclDWyf9xskU7Zj
+         y3anURapa0t46mqiVWKvHE2udIFc+zTv04ZY4DvP7lD83PRw4bTo3VC5bpjVRqkehC1K
+         Z3fQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:organization:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=6kQf+q6aA5YfD1IohtJd6JuI93IrbumG8/viuMznPeM=;
-        b=ogaeo8L/55oITgjfs9Zb+T8aMcjY7rs95JN7P6xjHXgYf2pdc04D6xulCMUDjTdAqu
-         IGYjj3bqs9rl5a4U2BZ4O2ltQ2ivreczsUTKbtCUj8hP/84CTqayqgK/YxN9ZWXoSd+A
-         qAIQx/khmiaaGvixno2ACkdNGiFWjoNkYk5tqaBiMOZs1uPocJCfTZhmtJ1Q7jlBYoBF
-         FwjgLEdYEx6igr++jgCRcClRSXhZPnzbgZEzKPvE6y/lvVNs/kmRUt0k2SHltbjWAoMU
-         eFCZXFDyl6y+2bNkRSj9LAhzIa3Nubtx/d1+A1gZvxCzpVsMiJU3SNoLsJ4ZXEK3c2of
-         seRQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=1dgOMZ38Wi/hqpTAH50sX9Yp4lOOKpoImd/CBpNOysU=;
+        b=S+8XizLAfu052Syq3qWv7c6h7XzBgQhdxI3nhtDu8oRNMA1tcatRrTwlYc6Oly7ebC
+         Ed2u1t0L3f24BYj+gbCRI4Myy/xzYdnK73VIRM23ImLA/TtvKluqnT6sB+z69g4QjSR3
+         CQf3PpPM3jeEFH5kLie4IWgKPKXMdcOOReaK+vuU3U2389pVYUd+iyrrK/wRFBsJm9WM
+         qz4U/5yeegqrJ/VowgCFkXHZJ2G2swN+ld9hH4N+bBK8/EPoaBYDWx7NjRw+PaG5dTiD
+         oKVS5cczyhRTUBEeLuGIgzt4+0fSf2v2JyYL1EuVKR388VpuHZPV6oWjP0CvX09zx8aO
+         265w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533bj6hrD22yFIih1Q1LGOTMs40eHBwxOjpLbbUMJK3PnVBxPFiR
-	uE3u1sWjr08f2qA4Mmog6eA=
-X-Google-Smtp-Source: ABdhPJzEJy6jZFaJMK33SEvT49Dpxka6zz9hC7uJ93Da5C3Jr1E9bk0hH36Y4R7eCuwLBA9TVEcVVw==
-X-Received: by 2002:a63:5044:: with SMTP id q4mr1330759pgl.178.1615927469709;
-        Tue, 16 Mar 2021 13:44:29 -0700 (PDT)
+X-Gm-Message-State: AOAM53030vwM0tIgOlYM0TT1oYBlx7ag1xzevodg8L307iViFMVV3uMC
+	tFkcHOd1NrL9hrRzW+VIehg=
+X-Google-Smtp-Source: ABdhPJzbJ3zQJQcGQ2Tv+K++W/kpKuobxOSpYcHEpmUDICm/O5WmaTk4RJkfG4WWucIwDtBbKH9TCQ==
+X-Received: by 2002:a17:906:9714:: with SMTP id k20mr31585581ejx.519.1615928505823;
+        Tue, 16 Mar 2021 14:01:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:8241:: with SMTP id w62ls4637754pfd.8.gmail; Tue, 16 Mar
- 2021 13:44:28 -0700 (PDT)
-X-Received: by 2002:aa7:8a19:0:b029:1f6:6839:7211 with SMTP id m25-20020aa78a190000b02901f668397211mr1293809pfa.40.1615927468403;
-        Tue, 16 Mar 2021 13:44:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1615927468; cv=none;
+Received: by 2002:a05:6402:50cd:: with SMTP id h13ls7843115edb.3.gmail; Tue,
+ 16 Mar 2021 14:01:45 -0700 (PDT)
+X-Received: by 2002:aa7:d3d8:: with SMTP id o24mr38367560edr.165.1615928504998;
+        Tue, 16 Mar 2021 14:01:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1615928504; cv=none;
         d=google.com; s=arc-20160816;
-        b=Jqg4YKHGLv3f0UMHWLsb0KPWMSERBiKpKXb9QHeYWlFeyriCt9j/ZjzIlY8uNKbgA7
-         M1gR0hbZMyGbsq3n59/HHQxxfULrTopW1ag1NYX/NrQ9pcQ9yH9cKeJynGO6utqpd3BY
-         3p/wb+R9MkiMA+PiqBP8pZHC8d01Jsm2vGpbxh5g5jlHCBPSS8RLs1aFHxOzNbfHxEj9
-         s5aYicByfJ1bPp6yfUyBlm6OTZwqScHjS69bcYWvCNCBzSKG2X/etxO7F705JKboilfx
-         FAkQ3xWpZOjat5PNAhrno4uXwlz1nflDmRXRN8KZEeqeE29nVglG5/UHqOrBLgZa5tVX
-         PhMQ==
+        b=yr/c2iVLPxvXvHAHItTmPXhrCaN6OqzYas4wAIg3051GTQcdO9zEGPlHNLOLcbYbbP
+         xSH2Kk7XrmvFL6n8kXGNmjh959Pl0VgLXj8Of1o3xa37yzQbMF2trUcFitvUdRX08Wjc
+         Xn7Y9OPY/WMdcBTJEybHjqRCjDkEt/54EdsGZjZGuvO2n/viK0zB1ZnrP/2pENjpIY8o
+         4AnbY+Bgr9BC5SrTEW6kOWLwQTWTcD2DUVjOxKhxz1FQIg16wi9qWFRPR4zjZNtPHgGq
+         T4JMw84z+MAQk+/Z7seknsEGmsq4KmLy1NXdlbqg8krip0pI3LfL0qN6CvUbUtK4pjz4
+         yebQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=organization:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr;
-        bh=TpqsviHeaFG+cHTFIH8/l9rXqobX/M3C7wsoOet6E10=;
-        b=qE7l1mBRJ2d1ba2xZy7Ah8OwSrI0z03QLCAiE4epPcNv+ytUkN9Jqm7arSHUYE9SJs
-         ntocB8tWdmdGlkdqKvjRV1JioxGxPtDy6i56g3ncl8rbiO2ZhR5hV3/92+W1lLXCL7JB
-         g0vW/NdOv8JiT7ozYbg4BTeKKKOICsNIYEaChl3lRbvz7Z2er6OsCsV4nhbcxPP70Wws
-         Kfq12mDpSS3rP7+H/Vo/uSlSJnEOGn265iJ811moDa2dJ0DUWQydrpX5EEjUXK+Y+Acr
-         Ed5CQe5U6ml0StrCduHJULTtFSlf/1BVU0PVK3qD6BLxJgXEmgIa0F6c22FkT5kV4FPh
-         SaCA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=9j/6hBpxYn36SrqleC0WR/Asrgq0BJhWFdV+yuWTqqI=;
+        b=S/oQ7u7Pth/WuvglCueUGzh5HWN2D71yRyiao5NWPETqNAfqyK/T9ZV1CjPAHP4wjk
+         dArL3K/NwPBmOvvJQ/+bs2TYUa1ckVRRUQwqnstfXqE1IMJhLim/6I/45ej2nUppPqk9
+         UgEz3Hmlvg9c6UteMlUnJFuL+cp1XtQz97d8xjSShIi/ElN7R0uEk0fsuWh7LPr5Ys1b
+         WOdaWEMjOilY690O3232kigBTzvLj6S/rwT6GjrfGiXRVzfW5vp6MBf/XkU8H00ini38
+         NjkHvV1H2v2sSwKGnKiwablndIbZcRoXaay7RM/KbHhKbMCgQvSvlhQbam+fZcnZKdqU
+         E1Hw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of andriy.shevchenko@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=andriy.shevchenko@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id z16si40905pju.0.2021.03.16.13.44.28
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
+Received: from www62.your-server.de (www62.your-server.de. [213.133.104.62])
+        by gmr-mx.google.com with ESMTPS id sd27si601550ejb.1.2021.03.16.14.01.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Mar 2021 13:44:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of andriy.shevchenko@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: VZbiKk9bLWCNjQ7/9kjJBXHUKx38rUgTPSlizyLYN60C4zEs81kSF6IJsg2jegK/zm48QTuVqK
- S13VjFSMrsGw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9925"; a="176928586"
-X-IronPort-AV: E=Sophos;i="5.81,254,1610438400"; 
-   d="scan'208";a="176928586"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2021 13:44:27 -0700
-IronPort-SDR: 1SKK8UYfs0yG4AQ634nG7+GwP1fusGgEvnmv94dohFPSUe6+1uLGXilYOcN4QmnPDynrg5x6G0
- UlnmrvOyFpYA==
-X-IronPort-AV: E=Sophos;i="5.81,254,1610438400"; 
-   d="scan'208";a="511502109"
-Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
-  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Mar 2021 13:44:24 -0700
-Received: from andy by smile with local (Exim 4.94)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1lMGY9-00D4TP-MQ; Tue, 16 Mar 2021 22:44:21 +0200
-Date: Tue, 16 Mar 2021 22:44:21 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: kernel test robot <lkp@intel.com>
-Cc: Claudius Heine <ch@denx.de>, johannes hahn <johannes-hahn@siemens.com>,
-	Alessandro Zummo <a.zummo@towertech.it>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	"open list:REAL TIME CLOCK (RTC) SUBSYSTEM" <linux-rtc@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com,
-	werner zeh <werner.zeh@siemens.com>,
-	henning schild <henning.schild@siemens.com>,
-	martin mantel <martin.mantel@siemens.com>,
-	val krutov <val.krutov@erd.epson.com>
-Subject: Re: [PATCH v4] rtc: rx6110: add ACPI bindings to I2C
-Message-ID: <YFEYpVwUEygNoPzv@smile.fi.intel.com>
-References: <20210316144819.4130622-1-ch@denx.de>
- <202103170225.yRvbPVxM-lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Mar 2021 14:01:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) client-ip=213.133.104.62;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92.3)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1lMGov-000DD5-8i; Tue, 16 Mar 2021 22:01:41 +0100
+Received: from [85.7.101.30] (helo=pc-9.home)
+	by sslproxy03.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1lMGou-000NvJ-VU; Tue, 16 Mar 2021 22:01:40 +0100
+Subject: Re: [PATCH] libbpf: avoid inline hint definition from
+ 'linux/stddef.h'
+To: Pedro Tammela <pctammela@gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20210314173839.457768-1-pctammela@gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <5083f82b-39fc-9d46-bcd0-3a6be2fc7f98@iogearbox.net>
+Date: Tue, 16 Mar 2021 22:01:40 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202103170225.yRvbPVxM-lkp@intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-X-Original-Sender: andriy.shevchenko@intel.com
+In-Reply-To: <20210314173839.457768-1-pctammela@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.102.4/26110/Tue Mar 16 12:05:23 2021)
+X-Original-Sender: daniel@iogearbox.net
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of andriy.shevchenko@intel.com designates 134.134.136.126
- as permitted sender) smtp.mailfrom=andriy.shevchenko@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+ (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as
+ permitted sender) smtp.mailfrom=daniel@iogearbox.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,55 +140,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 17, 2021 at 03:04:36AM +0800, kernel test robot wrote:
-> Hi Claudius,
+On 3/14/21 6:38 PM, Pedro Tammela wrote:
+> Linux headers might pull 'linux/stddef.h' which defines
+> '__always_inline' as the following:
 > 
-> Thank you for the patch! Perhaps something to improve:
+>     #ifndef __always_inline
+>     #define __always_inline __inline__
+>     #endif
 > 
-> [auto build test WARNING on abelloni/rtc-next]
-> [also build test WARNING on v5.12-rc3 next-20210316]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Claudius-Heine/rtc-rx6110-add-ACPI-bindings-to-I2C/20210316-225026
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git rtc-next
-> config: powerpc-randconfig-r006-20210316 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 50c7504a93fdb90c26870db8c8ea7add895c7725)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install powerpc cross compiling tool for clang build
->         # apt-get install binutils-powerpc-linux-gnu
->         # https://github.com/0day-ci/linux/commit/ec344b93b1b5f4c2c77ce68b7bde7ec380e356a8
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Claudius-Heine/rtc-rx6110-add-ACPI-bindings-to-I2C/20210316-225026
->         git checkout ec344b93b1b5f4c2c77ce68b7bde7ec380e356a8
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> drivers/rtc/rtc-rx6110.c:450:36: warning: unused variable 'rx6110_i2c_acpi_match' [-Wunused-const-variable]
->    static const struct acpi_device_id rx6110_i2c_acpi_match[] = {
->                                       ^
->    1 warning generated.
+> This becomes an issue if the program picks up the 'linux/stddef.h'
+> definition as the macro now just hints inline to clang.
 
-Precisely!
+How did the program end up including linux/stddef.h ? Would be good to
+also have some more details on how we got here for the commit desc.
 
-This happens due to ACPI_PTR() presence. Either ACPI_PTR() _and_ ifdeffery or
-none of them should be in the code.
+> This change now enforces the proper definition for BPF programs
+> regardless of the include order.
+> 
+> Signed-off-by: Pedro Tammela <pctammela@gmail.com>
+> ---
+>   tools/lib/bpf/bpf_helpers.h | 7 +++++--
+>   1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/lib/bpf/bpf_helpers.h b/tools/lib/bpf/bpf_helpers.h
+> index ae6c975e0b87..5fa483c0b508 100644
+> --- a/tools/lib/bpf/bpf_helpers.h
+> +++ b/tools/lib/bpf/bpf_helpers.h
+> @@ -29,9 +29,12 @@
+>    */
+>   #define SEC(NAME) __attribute__((section(NAME), used))
+>   
+> -#ifndef __always_inline
+> +/*
+> + * Avoid 'linux/stddef.h' definition of '__always_inline'.
+> + */
 
+I think the comment should have more details on 'why' we undef it as in
+few months looking at it again, the next question to dig into would be
+what was wrong with linux/stddef.h. Providing a better rationale would
+be nice for readers here.
 
--- 
-With Best Regards,
-Andy Shevchenko
-
+> +#undef __always_inline
+>   #define __always_inline inline __attribute__((always_inline))
+> -#endif
+> +
+>   #ifndef __noinline
+>   #define __noinline __attribute__((noinline))
+>   #endif
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YFEYpVwUEygNoPzv%40smile.fi.intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5083f82b-39fc-9d46-bcd0-3a6be2fc7f98%40iogearbox.net.
