@@ -1,130 +1,218 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBG6XX6BAMGQESWWKWUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDF7X5HH4UNBBYMLYCBAMGQETNY53DQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0DE133C9D6
-	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 00:19:56 +0100 (CET)
-Received: by mail-qv1-xf37.google.com with SMTP id l7sf4612321qvz.19
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 16:19:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1615850396; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9871D33CA95
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Mar 2021 02:12:02 +0100 (CET)
+Received: by mail-pf1-x43d.google.com with SMTP id q17sf16318766pfh.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Mar 2021 18:12:02 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1615857121; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Zz1f2GfMVoJrIntNxYQJsuG8BVSL6akC/LkXkdqOpL/DL4DNdObynbrVWmr+oHbCEw
-         EexVYKze5iBOiB+ILrYRC5DbNTkFbXlYu2n+bo3hOcoA80NtPZbQl6sKs+Qak2OiYcl9
-         MSYRjy1VLaHXJN6rJtqqC4mZlutPZ90M7UyIopnuw73bWQbT6ktu2O7XualU31KWTQTy
-         bfI3e4e4l8B/RicsQGP22Wiqo3F7Tsd6sMZzmarEUWXNG7j6PqUKogrO0vzJ/7PhUe6a
-         P7Kr+7DgRGXO4YiGeR1E6V8lgsmOzFID0yGSpR2eac0PnkK2DCzkGnGiIsxHAvOrRopz
-         rzJg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=pszC7R0JOFdM/CSZSt8RadjxjBydaxC5qvDNYnABLIflhxSdQS0Eyr69wc+OSBDDXa
+         //j8EVGBzL29X2YhRpamoGSmj0gD3w1AbbP8KQbqql7Xq2aBn9l1o5qY/v6Q8p7p5smz
+         okYqe2Syjz+tsAScOIUQ7xCs2I8i//n6yk8i4FuDVu6pmeL6YJ7R43Rpujl+9lzbQkDa
+         NJ2+aPTpw8pldgW178/UUOBmICUYYEvl3mpaSyCo44aGpEYAB/8s1EGWEzlY0L4a7J7b
+         ZuxlclPaPwQYdKB0OT3O+8rI4vnrAc6J1YxId5KbJjXPMAa2CKheUyVrYMNP6H4A+ESq
+         DIww==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=Iz63do7QzARryYpqf37FXH6vkxF3LtmFPZcGHY/xkOk=;
-        b=m3KUeoFmWM5IkWeOJSfIeC2R5mjeN6jaUX9zhaQNVgsa0Aq7g9UV5ccTuwNwr6jfXJ
-         TQv9rsxvyf903s79eGsxqSdRPhvla9ioX1QuaMLq0abn5b7qjV+7hVflOh0F1AP/X2C/
-         cExWccvC0UnyMkKYZFl1rrRvHAivxYipV+2YgArvUq8kB2wv3QYBqPsM7kurPYz8gnB7
-         3bh964r5Tay8LKbqwiXEcXAcCzJwa2YSDwd1ssYFQDMTQ/I1HM43/1sWc6jNgAxl8LMq
-         meIpef/E0jDAhZHBusC7EkAQcq0eJyHWjCe03MZ9U5QutdDmL69gAFqLtF+s0lhshhme
-         WMZg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="S1gNE/gl";
-       spf=pass (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3m-tPYAwKALosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+         :list-id:mailing-list:precedence:mime-version:wdcipoutbound
+         :content-language:accept-language:references:message-id:date
+         :thread-index:thread-topic:subject:cc:to:from:ironport-sdr:sender
+         :dkim-signature;
+        bh=18Pq0lVKV1+YlLWtKzV4SeJxoHG1lqFWdsTuWRWW/uQ=;
+        b=BJVuKosGB+J2J59LAOyn1i283ZVhawLTp1KqxtUjNvFB59Bc2+dZa2TqRvoiKH0/XW
+         1vcJNOMHAeSkf4MnBHOOjeWcJPB8z9CLB+p86vGbEQaV1/5sklhGZiesOhUiA06jTIis
+         lCQM/myDoQutLF5ba1IT7wxwxdhU2KtielvVi5xVXPDTAogtxpVMOqj/AdgHgTQo2iNm
+         QPU4GngFdQDo1Ozc7lFmRibYNJJIPA94edjkWOtX9QPiKsCJAb/52NO5XIwSQEpEHIMj
+         g+bt2Ot6m1/RvzVL/9AmpMP1px08XvQVfMp6N53NdEa8tSmcXFMzYFDF7ARt3izVVHHJ
+         P+TQ==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@wdc.com header.s=dkim.wdc.com header.b=TyLtkgfh;
+       dkim=pass header.i=@sharedspace.onmicrosoft.com header.s=selector2-sharedspace-onmicrosoft-com header.b=gw9IYMmO;
+       arc=pass (i=1 spf=pass spfdomain=wdc.com dkim=pass dkdomain=wdc.com dmarc=pass fromdomain=wdc.com);
+       spf=pass (google.com: domain of prvs=702e14f29=damien.lemoal@wdc.com designates 68.232.141.245 as permitted sender) smtp.mailfrom="prvs=702e14f29=Damien.LeMoal@wdc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Iz63do7QzARryYpqf37FXH6vkxF3LtmFPZcGHY/xkOk=;
-        b=pDodwRkS6HsD1ua5i4PJgL6PzTuEeSXl2bKemBuOc0LI/X1g34OBCAYzXo1cslpH7o
-         RITqSL7Eua6WiKPLZSSUBUbTuyv1p0KQhQgWkBCwHMnG//W528qKm6y3hti5NdL9/LQX
-         JPwc3fX7VMLJdiWR4y1lpQF4ov14GWeHDJZVUbTd7IESvRktjPq8ha4tjBiPrXxDBBhn
-         sP/KGoXzkU5EblwpiE09hf+wbY43VaMchHPWrRtdi3cE3uEzdA3Ko5vAYGOOpeqg8S80
-         Yeey46Gwvq87yFJVsz6i7ATw1lnR3b/0McJz0lKzETpEmCZdUxWdBn5sFpiu+hYssAl/
-         zVAg==
+        h=sender:ironport-sdr:from:to:cc:subject:thread-topic:thread-index
+         :date:message-id:references:accept-language:content-language
+         :wdcipoutbound:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=18Pq0lVKV1+YlLWtKzV4SeJxoHG1lqFWdsTuWRWW/uQ=;
+        b=F7Lybn8bpGxcgUorLMkmnhpMgtxIGQtWOOBH99oQRscWvX1UqnPahDbxmVlbmDBFjm
+         zL9l8HaugTfpcAFQc5yMGkaXZ2APZjIN3LEZkDIPrsfUm6rFrsbrY4Cx2M7vG9767Mi1
+         wDSgrI9m7M7FgrMt5l1QZvZ39b5QUJnRGWlqvJe1TI5rsppBbcc30Inou75NjMSzqwo2
+         KfwWrJyGpsQIKpilPb0Vf6ldpsQGzb7Rv1rBBBuVYSq4ySBgpOz/gQnX6ZX7eBJQxtpN
+         NOlH73G8FwRa9fQIiYOPKYBPPTdcTQhMW8iJR9M4B74MmG4oiwwDvwJqOOwSV+hYJK7V
+         Zz7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Iz63do7QzARryYpqf37FXH6vkxF3LtmFPZcGHY/xkOk=;
-        b=uOeF1gkP06Ke+H2VRbrBVAcaWN41LbQTrxLh+xYFv2S9wZeW1mX0iFrfSd4bdBPh8a
-         O3kFR1JG57CrRa7VJib+ZB3ZFHcBqnsO53M2uJF1PqSFAyh3EnLH9xq68sldmNYnJYu0
-         xjJNNyRSLsaqcCeIqYi0Q/4/pEfZnfA27F4hJ85uuERuCJJOdW3YzD9tL23dIZtGN4Rv
-         kkwXA/VbWwkjFVmefBlpWvf4Y1ihVELymVHKmZBm9XbIDRp/5RowjU1tYgQf6D0q+KpZ
-         sozCXDH+W8hKbKodsU4NfzLW/H0+MkSwSsSDA28TEZ/+DexqVQcUG7Wg2pErfdVc3GPK
-         udmQ==
-X-Gm-Message-State: AOAM5308fZf6X9eh48CVblVNnQI6Oo/usKUf7YfnD7L13WXT5U62dZpi
-	GwIyQfaUqp5VNSpyN5SfNB4=
-X-Google-Smtp-Source: ABdhPJzhGsjFwbQHTJSaO0lx4hoiy9xrXVsuki44DpasvzNk+75wRnr6WtkKjSfhtqMINKWRk3myDQ==
-X-Received: by 2002:a37:392:: with SMTP id 140mr27387532qkd.236.1615850395994;
-        Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
+        h=sender:x-gm-message-state:ironport-sdr:from:to:cc:subject
+         :thread-topic:thread-index:date:message-id:references
+         :accept-language:content-language:wdcipoutbound:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=18Pq0lVKV1+YlLWtKzV4SeJxoHG1lqFWdsTuWRWW/uQ=;
+        b=fZf7QMgWBjB6xHlEIOntY3lOGqufaNf2UO9DV6mPJuoVYjpcIqi3/DEcCsiAfzUkCz
+         L/HuaOhyDqYNqhg//Rg5ZvxI4o3VTXfHUjp+0X8mxc2rZbvKOQ/VDXip8+KvNz0LKm/l
+         x8qdhqlVawose7mmdTuibp5XCpqva93uslq2Y/40d5PvqCAxCBO4qSrEH1EAcHeMZjzD
+         K4UuMuhixJ3OslsQeQTR+A/fcHDseZiP872yY5P/4j92bIqqORjK+2vFdZ+6GgGeYMHC
+         f58iE/TOX151Wja1pJ6zOwTp9lfreRsy9C3IQbtVKXFr4SjOlKCT16QJ6jJxwbXidN8X
+         mlrA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM53112vE2IGCk8nIdQ3hX7jttpa9W6VmQeWeWDi5i/NTd8kjfrKv5
+	Ly1fwUWfA1YoenyJh48oZqA=
+X-Google-Smtp-Source: ABdhPJwhRyowHC0gowv18UvwVf1+xFAyByBbuBe5UJAdpNdOCMS0EdCx4zvaa8iADKSCZ73iwYzWdQ==
+X-Received: by 2002:a17:902:c942:b029:e6:6a3c:7243 with SMTP id i2-20020a170902c942b02900e66a3c7243mr14437021pla.1.1615857121091;
+        Mon, 15 Mar 2021 18:12:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:fd64:: with SMTP id k4ls4727312qvs.1.gmail; Mon, 15 Mar
- 2021 16:19:55 -0700 (PDT)
-X-Received: by 2002:a05:6214:1144:: with SMTP id b4mr13455391qvt.12.1615850395564;
-        Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1615850395; cv=none;
+Received: by 2002:a17:903:2286:: with SMTP id b6ls9600457plh.11.gmail; Mon, 15
+ Mar 2021 18:12:00 -0700 (PDT)
+X-Received: by 2002:a17:90b:515:: with SMTP id r21mr1997998pjz.42.1615857120589;
+        Mon, 15 Mar 2021 18:12:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615857120; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GBYMi5JX/w7gGnG63guof/8UZ5s2dXrb0SSM64poKxnAajJHV3XG1wccmdx+xbZT5q
-         Fiod4Vc19qEYTT5sC/5TtrcLSzkdJrGxhYebqk/FPjDYFXt23RKvGppz8rvbhlmW+Kbm
-         UTMoFeEmo73xnWqldDlM5Ox5XI4bj0jpZvi4iWExODEfA3kxq622rbKAfCvfMOM8xhTn
-         nSM0mWl6iyiDRimrO/r7ZIiq4NFG9WG9wJrN2OG9A2PT2JEZXpv5zR/K51HsxOP69ELC
-         ndu92s09KSrqAfHxWgioWu6J6LSCBUzjEjk4pVcAM+Caz5fjAXK6y4KaW39ia7wGLH1e
-         bNBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=F6nYO3V+VuZGXayaevZL3OZZ8YDIZPahFyJ6m7t3CHo=;
-        b=sQJkEcAeZaa9a3NVoUZFP90C2jy9OEazA1WMCt7zMSld9FzHvvjiNoDltlX2yOMpqI
-         /naTObTAr9BBlJ+/GvQcnmfwezaN7hGiMav1BpO1rYMI3u/9zWkJyFG0+4ue42el+dOy
-         DQVFhtnbYnTO5aq8CD4lqBSQ5G+vzCNQntMr9KKNKCfYIAqzFvVICKZHNIjp5AfGGg+/
-         6GISHWhAM+qmWlF7GSbKKApjfpv8vziGxdBRMHMpTbm9A4XjCtKBihLEGdX22Q9kNtGT
-         hN7hrV5LbGQ4eH0kS7hToA6XjogBdrP8WwR3EHkY7lTDJr+t17iH5MoOQX1JNdw7tXy7
-         WSqA==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="S1gNE/gl";
-       spf=pass (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3m-tPYAwKALosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qk1-x74a.google.com (mail-qk1-x74a.google.com. [2607:f8b0:4864:20::74a])
-        by gmr-mx.google.com with ESMTPS id f10si693081qko.5.2021.03.15.16.19.55
+        b=fOyDB8qUf27tRxvWdGz++rwXpsKKpOX8dYLwmEfIPt2+SynMFJFEcqBu2P4Hhejrk6
+         BODHQ00UwNlK53pP7bUhjZuMVqK3tmBq/RDHH2R42wIFF+8tfxQ/Eh5xZ01MQJMdmjlo
+         mu2/2bx2BYGXaprRTJyd0dYDGyzkgqbcL7MGfSsjJyhVJW7KSzSFC5ZMpmhuAa+tvWSD
+         LNzkRFo8PSi/2WTmzBmvp0UZ03C9x5jS3nPKoghd0beXr7uv3yEU3wnX7MokWT4c/aMM
+         2DHrHE4TpTbA5sxK1zqCSTE71appfMeaulhJxUSBWVaACfcCeAD6ichFogkLhnZlAGDA
+         Hegw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:wdcipoutbound
+         :content-language:accept-language:references:message-id:date
+         :thread-index:thread-topic:subject:cc:to:from:dkim-signature
+         :ironport-sdr:dkim-signature;
+        bh=n2dJcWOFxEkVcNN+tCJX8UKM8k5IIv1t5QVWLJYJxwU=;
+        b=bOH/6g305wXPRLE1mdtxiEsi77t9kSHpliT2hj9CwbmQWozGzF2uyE/9LkjpEHaN+1
+         LcjMTB3AQ0DpQ8MkFgkE5YGaSAiwTDZj0OKLymDyJjZ7BhbGPIvtNb0OhfFfOJJY4V4H
+         zJ8g0CweD2HmDn/yHZf/U9kgz09BUUBlqQqrBupLEH9KBsiWnO5fHoytzvzIitNUx3CS
+         Eg/u8NS1faxQBp/4jkNPQ6v3F4Vy5lKWJ0RZvMdM7OWsnUAel7bamN9vY294eXEvy2Z9
+         mlmaEBRVGamEn93O9WioFr5pLHx/R71/kL73Pmj2BoIcPUpkWLlceTqEw/OVr8/IYnkn
+         9NHQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@wdc.com header.s=dkim.wdc.com header.b=TyLtkgfh;
+       dkim=pass header.i=@sharedspace.onmicrosoft.com header.s=selector2-sharedspace-onmicrosoft-com header.b=gw9IYMmO;
+       arc=pass (i=1 spf=pass spfdomain=wdc.com dkim=pass dkdomain=wdc.com dmarc=pass fromdomain=wdc.com);
+       spf=pass (google.com: domain of prvs=702e14f29=damien.lemoal@wdc.com designates 68.232.141.245 as permitted sender) smtp.mailfrom="prvs=702e14f29=Damien.LeMoal@wdc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
+Received: from esa1.hgst.iphmx.com (esa1.hgst.iphmx.com. [68.232.141.245])
+        by gmr-mx.google.com with ESMTPS id 131si784941pfa.2.2021.03.15.18.12.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) client-ip=2607:f8b0:4864:20::74a;
-Received: by mail-qk1-x74a.google.com with SMTP id y22so20785809qkb.23
-        for <clang-built-linux@googlegroups.com>; Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
-X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:5a8:abe7:9948:175e])
- (user=ndesaulniers job=sendgmr) by 2002:ad4:50c7:: with SMTP id
- e7mr13169796qvq.58.1615850395286; Mon, 15 Mar 2021 16:19:55 -0700 (PDT)
-Date: Mon, 15 Mar 2021 16:19:52 -0700
-In-Reply-To: <CAKwvOdm6FXWVu-9YkQNNyoYmw+hkj1a7MQrRbWyUxsO2vDcnQA@mail.gmail.com>
-Message-Id: <20210315231952.1482097-1-ndesaulniers@google.com>
-Mime-Version: 1.0
-References: <CAKwvOdm6FXWVu-9YkQNNyoYmw+hkj1a7MQrRbWyUxsO2vDcnQA@mail.gmail.com>
-X-Mailer: git-send-email 2.31.0.rc2.261.g7f71774620-goog
-Subject: [PATCH 5.4.y] ARM: 9030/1: entry: omit FP emulation for UND
- exceptions taken in kernel mode
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: gregkh@linuxfoundation.org, ardb@kernel.org
-Cc: candle.sun@unisoc.com, catalin.marinas@arm.com, 
-	clang-built-linux@googlegroups.com, jiancai@google.com, llozano@google.com, 
-	maz@kernel.org, miles.chen@mediatek.com, samitolvanen@google.com, 
-	sashal@kernel.org, srhines@google.com, sspatil@google.com, 
-	stable@vger.kernel.org, stefan@agner.ch, Dmitry Osipenko <digetx@gmail.com>, 
-	Kees Cook <keescook@chromium.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Russell King <rmk+kernel@armlinux.org.uk>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 15 Mar 2021 18:12:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=702e14f29=damien.lemoal@wdc.com designates 68.232.141.245 as permitted sender) client-ip=68.232.141.245;
+IronPort-SDR: KhG1zk7cy2NsaKhNcEBSSnl3vhd5pVWwyJTtEiJ/AD8/iule01nblMkXwUHX5sv360Be0kWzM/
+ 5Xp7QsQOwm7CwzLLI+hozDSuFgR0admKAUrY9b3MHJUJdC5qVFPfowrezxec9AR1ZginnXm+6I
+ gHzMWz7pEJvmD39w7toFFHhVBBxwOvHrm5uX9RrlKXt2MSdcIViDifRrt/CzchpDmjMZIP0vdx
+ UTy4LkwZjhlHTotp15aa26crm5SnxiUTMp3NEz14GwBiGIIZjQuDyvoJYNboDYmKiO2b72Eqgd
+ Er0=
+X-IronPort-AV: E=Sophos;i="5.81,251,1610380800"; 
+   d="scan'208";a="272929656"
+Received: from mail-dm6nam12lp2173.outbound.protection.outlook.com (HELO NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.173])
+  by ob1.hgst.iphmx.com with ESMTP; 16 Mar 2021 09:11:58 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=e/PQf+0qMnrsUNT7qTlXadKLPNbo3ksVEvljWVNZOorbC8pc4CzgW/bWgNXHSo2xzt0WIbOaEuvejQtOynnkYmgEzFEIleFNkQILroXyrIKtCwv0mSGBpXedRTHbHqqc8wbmc1DVK1znGXdy9AViSwS6dScGCd/5QOXn1egZ1r16Acm//BPcXVmht35FtNUd15K7hwGXS4RxlCNbcU2cGCTNaKAwIJIO1iB+dRjcTnlsgJGVfq+cauKREjGI2JVLNf2JcN3LzXZzH3Z5j9IC1E4dKsqhZoqAUawr00hUXl6+Lde2meEFoCqfH/0xbqZY2PNE0xFK1rTzBPY+ERP/Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n2dJcWOFxEkVcNN+tCJX8UKM8k5IIv1t5QVWLJYJxwU=;
+ b=cpUrsaiNvY2qKtnaY4G5qoOnRfCRMt+svFi9TBH4lGgYW/rK9mbRWUTALNu/mTri8c1y2qMG2Guyabg79oKafrcnOwfWmbplsRDsbUb2Z0bvp4PptH366CaEhCK2O2z2cB7zp9l3O3y9r5jxJ1UunOrpaOtvj63wbYENzOf5XIaDLLtsWs6399VZaPy6PQX+qyBng+4UxFno5DkyI3Xf0Wc/JuFossx3PmD+pXzBKq19oMNHc2j7WxjG+jo2T6liauuzSjvH+T94w6AinsnMDY9b1FVCBT/23vocjsVAfiy10IJCZcEKRewgzx2EOFMsFk6pRTtsEHZl6kAlQWM9Bg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
+ by MN2PR04MB7070.namprd04.prod.outlook.com (2603:10b6:208:1e1::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3933.31; Tue, 16 Mar
+ 2021 01:11:57 +0000
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::e9c5:588:89e:6887]) by BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::e9c5:588:89e:6887%3]) with mapi id 15.20.3933.032; Tue, 16 Mar 2021
+ 01:11:57 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: Nathan Chancellor <nathan@kernel.org>
+CC: Johannes Thumshirn <Johannes.Thumshirn@wdc.com>, kernel test robot
+	<lkp@intel.com>, "linux-fsdevel@vger.kernel.org"
+	<linux-fsdevel@vger.kernel.org>, "kbuild-all@lists.01.org"
+	<kbuild-all@lists.01.org>, "clang-built-linux@googlegroups.com"
+	<clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 2/2] zonefs: Fix O_APPEND async write handling
+Thread-Topic: [PATCH 2/2] zonefs: Fix O_APPEND async write handling
+Thread-Index: AQHXGU5UzgIQSOxcCkmbmdVM+KAasA==
+Date: Tue, 16 Mar 2021 01:11:57 +0000
+Message-ID: <BL0PR04MB65145A954830D891B46CC2B4E76B9@BL0PR04MB6514.namprd04.prod.outlook.com>
+References: <20210315034919.87980-3-damien.lemoal@wdc.com>
+ <202103151548.W9MG3wiF-lkp@intel.com>
+ <PH0PR04MB741614B0DED04C088E0B075E9B6C9@PH0PR04MB7416.namprd04.prod.outlook.com>
+ <BL0PR04MB6514205221C23615549ED67DE76C9@BL0PR04MB6514.namprd04.prod.outlook.com>
+ <20210315170855.tguqrsl7wsbjojib@archlinux-ax161>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [2400:2411:43c0:6000:85a2:35e9:2c43:32e2]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: 343d541c-2ecd-46d4-36a2-08d8e8187e7e
+x-ms-traffictypediagnostic: MN2PR04MB7070:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MN2PR04MB70702DBAE886D31DAB1876C0E76B9@MN2PR04MB7070.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:1002;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: PcKpDHGmEoVNX+WF55/lnwPJdKoS7BRdVCKa0tU71AkJsbWrh4T85mefpAP1c1b3CNeBNS5pib+WwB2c4wiAVTo85Xi+eh8hMhmAm1p4RHzzECY3r9OJcVebw1d3i+LZR25HAn8cmbfZxK1UN2a43jYHtK2UFz4zyUH7Qm4I7QkX+bJpqlawvU02F5r7iC0qhfRnOxGDShZ7YhkFN9hhz56/QdnHJhCaEfwZma3QXZ3RdxJ9IJNZlj8Tbb/Sj6bbrPKsXxmnMre4dUKxom4gauqN82byn9Cib0CEjVaP6fARqV9936ZoSDqqRXbPwa6tyH/ro1+UJydTmDwh7L0dBA/F+xKg/VAHkbS5dVA+YasccOLnPICYeYgHj96CZK481N/es6zwKo1CUzLEIae5qg2rycOSc62bFdP85lhtZGhm5r92O0VZ6A/DeITi3Ive7/htpiJ09P1Woy4TIjiIOYAHqbnotl21B34dzu4b5YrGFCDfcMnijf2oGSa9OxMXhQzQiQXD5kgGAz9qMsT+tbgHbb0TORuAmlQ5dU+bR9MddvJ1q4yNosqa+faTw2fR
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR04MB6514.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(346002)(376002)(39860400002)(396003)(366004)(136003)(33656002)(55016002)(9686003)(186003)(71200400001)(2906002)(83380400001)(86362001)(54906003)(76116006)(6916009)(66446008)(66476007)(66556008)(6506007)(53546011)(4326008)(8676002)(5660300002)(478600001)(91956017)(316002)(7696005)(66946007)(64756008)(52536014)(8936002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?VsBU7z/oGwViOSQWIM2HFkosjx+R2Ylcy/P6tMpRWDfpJyMPhx1YnrmgtJQg?=
+ =?us-ascii?Q?yzBefRMqMKTYifw/OvaDNSFN1tW+m+9Se6iAa7JudXLBLf3jRIfaAxZ4RFvP?=
+ =?us-ascii?Q?eJ1J4IY4X21qkYcIhGpr44hRJNVW5bUixLtcJFX+UsZlXfhIOD2WARWexFtc?=
+ =?us-ascii?Q?nkQLzswchawiCNW5b2JR3VEK7agkvhL4bKp7cDC8Sgv3O8Rw5lewDpBjWLjc?=
+ =?us-ascii?Q?zvBdJc5RsTeTBcdzxjrIJ8DIO5iyc1PtsPtESam0kCW96G9SDvp6LQlZqdd0?=
+ =?us-ascii?Q?VY2irL3mIMVrJgjidMZxpHkQmz6cHje0Kuqb1aYVuzi/mUqX+6itzZi/W5UT?=
+ =?us-ascii?Q?H5BDblRqXrrocSAs7YTbnPBprfpEX5p6Iw2+yr06FFG/8iqgIfjYsq2UManD?=
+ =?us-ascii?Q?JDQMzPIlR8OVaqUyM2WSfGDBOCI45CvDSBAUGDaupxOqefHJWQlBjCqxzEax?=
+ =?us-ascii?Q?OjChJdwYjzMiyPJl3p3K8gu314+Y2GrT0XtLWztLk5rJldYZ8lYwIQ1J1u8/?=
+ =?us-ascii?Q?ABjIV/sy5neBWC+YMzYV/8Puy/8gsIlhdceXpxqF9VPb6fOM+lyvSYow0yBG?=
+ =?us-ascii?Q?PohyqVo3NQWYSd9h4qt79z979dkWTcTWAI+71IdAeSoS1DDYOnkiW9+Uw9zl?=
+ =?us-ascii?Q?RxvKQfZbA9qAMxyERGx7sDvTDC9HF31FPXwRf11RZ0IE+tDyP7t3Z/QlQzJM?=
+ =?us-ascii?Q?v7uuylzX+L9iKoHx8W3+BZ0lM6OTatCb16ClEBSKRAwjxUZYqrQ2iHp4qBGJ?=
+ =?us-ascii?Q?4Cf7FGHtBJa0tqaBFRLWeKOLSRxPwdNFJI7/iLrhIsr+n9imGDJ7mv7xBlMb?=
+ =?us-ascii?Q?NsarckydxZGpNX2/jgYVy3mYomoDzV2FOnaCKakb3n+51AaHNpxU983gDqis?=
+ =?us-ascii?Q?OZWS+uVjDnmwHv22oQASHg9wLfXW6QXD44wdAJqvzkPRCVc9ADgS8g/m1MWK?=
+ =?us-ascii?Q?9yk5t1ZoenyJBb5wh8f7UJRqzn++R7RANPtt7SMkH77jlq+pC3N+i7enyi0o?=
+ =?us-ascii?Q?5r2aeVNG5Zlb796oTN0Pvw64WCtZCn9y+4NKa9Hgil/cfLs0pRrtFpGBNWP1?=
+ =?us-ascii?Q?4A9k00IbppZUYStusz1GHyw9eM98rKy1OD1q5Oy2E0RAC+GS3jGzSVgE/Z1Y?=
+ =?us-ascii?Q?e1bgTbXI5tjKc60uUMpw2NKZ80vrJXCv/JDCIFtcE3HKfPpjpuJcUqDXdoNN?=
+ =?us-ascii?Q?+PgGp3QXLjYHB5xRuW0d9RxL6/a9B4ghPu51CQgbtyO51OnCVPOKQ3bjEI9V?=
+ =?us-ascii?Q?kDTeC9ibVFLKTQDyv7VzrMKILgA2w/BMBMtzdOm+cxdq47fJfyotyVMIp187?=
+ =?us-ascii?Q?cvgDO8+Yf1wMG7QqPIuChYzq83qpPWA+g3NmxJRdytYuJArh1RirTMUQUQ4I?=
+ =?us-ascii?Q?6pY2UiUVtNLjq4sO88YyXCUb6sg9RUdtdn6HgVlVjZdDtrtwug=3D=3D?=
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 343d541c-2ecd-46d4-36a2-08d8e8187e7e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Mar 2021 01:11:57.1049
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oXK52z8uh7Wct/D+1mj6nx3sTlmgATLQIdo1Z4fl0ensqFqoCsqpYY2otGd8MzD0jZg8qw9hk40HEyJLbZZrlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB7070
+X-Original-Sender: Damien.LeMoal@wdc.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="S1gNE/gl";       spf=pass
- (google.com: domain of 3m-tpyawkalosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3m-tPYAwKALosijxfzqsnjwxlttlqj.htr@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@wdc.com header.s=dkim.wdc.com header.b=TyLtkgfh;       dkim=pass
+ header.i=@sharedspace.onmicrosoft.com header.s=selector2-sharedspace-onmicrosoft-com
+ header.b=gw9IYMmO;       arc=pass (i=1 spf=pass spfdomain=wdc.com dkim=pass
+ dkdomain=wdc.com dmarc=pass fromdomain=wdc.com);       spf=pass (google.com:
+ domain of prvs=702e14f29=damien.lemoal@wdc.com designates 68.232.141.245 as
+ permitted sender) smtp.mailfrom="prvs=702e14f29=Damien.LeMoal@wdc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,188 +225,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On 2021/03/16 2:09, Nathan Chancellor wrote:
+> On Mon, Mar 15, 2021 at 07:22:56AM +0000, Damien Le Moal wrote:
+>> On 2021/03/15 16:21, Johannes Thumshirn wrote:
+>>> On 15/03/2021 08:16, kernel test robot wrote:
+>>>> 818	static ssize_t zonefs_file_dio_write(struct kiocb *iocb, struct iov_iter *from)
+>>>>    819	{
+>>>>    820		struct inode *inode = file_inode(iocb->ki_filp);
+>>>>    821		struct zonefs_inode_info *zi = ZONEFS_I(inode);
+>>>>    822		struct super_block *sb = inode->i_sb;
+>>>>    823		bool sync = is_sync_kiocb(iocb);
+>>>>    824		bool append = false;
+>>>>    825		ssize_t ret, count;
+>>>
+>>>>    843		count = zonefs_write_checks(iocb, from);
+>>>>  > 844		if (count <= 0)
+>>>>    845			goto inode_unlock;
+>>>
+>>> Args that needs to be:
+>>> 			if (count <= 0) {
+>>> 				ret = count;
+>>> 				goto inode_unlock;
+>>> 			}
+>>>
+>>> Sorry for not spotting it.
+>>
+>> Yep. Sending v2. Weird that gcc does not complain on my local compile...
+> 
+> Unfortunately, GCC's version of this warning was disabled for default
+> compiles by Linus in commit 78a5255ffb6a ("Stop the ad-hoc games with
+> -Wno-maybe-initialized"). W=2 is required, which can be quite noisy from
+> my understanding. KCFLAGS=-Wmaybe-uninitialized is a good option.
 
-commit f77ac2e378be9dd61eb88728f0840642f045d9d1 upstream.
+I was not aware of that change. Thanks for the information !
 
-There are a couple of problems with the exception entry code that deals
-with FP exceptions (which are reported as UND exceptions) when building
-the kernel in Thumb2 mode:
-- the conditional branch to vfp_kmode_exception in vfp_support_entry()
-  may be out of range for its target, depending on how the linker decides
-  to arrange the sections;
-- when the UND exception is taken in kernel mode, the emulation handling
-  logic is entered via the 'call_fpe' label, which means we end up using
-  the wrong value/mask pairs to match and detect the NEON opcodes.
 
-Since UND exceptions in kernel mode are unlikely to occur on a hot path
-(as opposed to the user mode version which is invoked for VFP support
-code and lazy restore), we can use the existing undef hook machinery for
-any kernel mode instruction emulation that is needed, including calling
-the existing vfp_kmode_exception() routine for unexpected cases. So drop
-the call to call_fpe, and instead, install an undef hook that will get
-called for NEON and VFP instructions that trigger an UND exception in
-kernel mode.
-
-While at it, make sure that the PC correction is accurate for the
-execution mode where the exception was taken, by checking the PSR
-Thumb bit.
-
-Cc: Dmitry Osipenko <digetx@gmail.com>
-Cc: Kees Cook <keescook@chromium.org>
-Fixes: eff8728fe698 ("vmlinux.lds.h: Add PGO and AutoFDO input sections")
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
-[nd: fix conflict in arch/arm/vfp/vfphw.S due to missing
-     commit 2cbd1cc3dcd3 ("ARM: 8991/1: use VFP assembler mnemonics if
-     available")]
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
----
-This should have been sent along with
-https://lore.kernel.org/stable/20210113185758.GA571703@ubuntu-m3-large-x86/
-it's my fault I missed it.
-
- arch/arm/kernel/entry-armv.S | 25 ++----------------
- arch/arm/vfp/vfphw.S         |  5 ----
- arch/arm/vfp/vfpmodule.c     | 49 ++++++++++++++++++++++++++++++++++--
- 3 files changed, 49 insertions(+), 30 deletions(-)
-
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index a874b753397e..b62d74a2c73a 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -252,31 +252,10 @@ __und_svc:
- #else
- 	svc_entry
- #endif
--	@
--	@ call emulation code, which returns using r9 if it has emulated
--	@ the instruction, or the more conventional lr if we are to treat
--	@ this as a real undefined instruction
--	@
--	@  r0 - instruction
--	@
--#ifndef CONFIG_THUMB2_KERNEL
--	ldr	r0, [r4, #-4]
--#else
--	mov	r1, #2
--	ldrh	r0, [r4, #-2]			@ Thumb instruction at LR - 2
--	cmp	r0, #0xe800			@ 32-bit instruction if xx >= 0
--	blo	__und_svc_fault
--	ldrh	r9, [r4]			@ bottom 16 bits
--	add	r4, r4, #2
--	str	r4, [sp, #S_PC]
--	orr	r0, r9, r0, lsl #16
--#endif
--	badr	r9, __und_svc_finish
--	mov	r2, r4
--	bl	call_fpe
- 
- 	mov	r1, #4				@ PC correction to apply
--__und_svc_fault:
-+ THUMB(	tst	r5, #PSR_T_BIT		)	@ exception taken in Thumb mode?
-+ THUMB(	movne	r1, #2			)	@ if so, fix up PC correction
- 	mov	r0, sp				@ struct pt_regs *regs
- 	bl	__und_fault
- 
-diff --git a/arch/arm/vfp/vfphw.S b/arch/arm/vfp/vfphw.S
-index b2e560290860..b530db8f2c6c 100644
---- a/arch/arm/vfp/vfphw.S
-+++ b/arch/arm/vfp/vfphw.S
-@@ -78,11 +78,6 @@
- ENTRY(vfp_support_entry)
- 	DBGSTR3	"instr %08x pc %08x state %p", r0, r2, r10
- 
--	ldr	r3, [sp, #S_PSR]	@ Neither lazy restore nor FP exceptions
--	and	r3, r3, #MODE_MASK	@ are supported in kernel mode
--	teq	r3, #USR_MODE
--	bne	vfp_kmode_exception	@ Returns through lr
--
- 	VFPFMRX	r1, FPEXC		@ Is the VFP enabled?
- 	DBGSTR1	"fpexc %08x", r1
- 	tst	r1, #FPEXC_EN
-diff --git a/arch/arm/vfp/vfpmodule.c b/arch/arm/vfp/vfpmodule.c
-index 8c9e7f9f0277..c3b6451c18bd 100644
---- a/arch/arm/vfp/vfpmodule.c
-+++ b/arch/arm/vfp/vfpmodule.c
-@@ -23,6 +23,7 @@
- #include <asm/cputype.h>
- #include <asm/system_info.h>
- #include <asm/thread_notify.h>
-+#include <asm/traps.h>
- #include <asm/vfp.h>
- 
- #include "vfpinstr.h"
-@@ -642,7 +643,9 @@ static int vfp_starting_cpu(unsigned int unused)
- 	return 0;
- }
- 
--void vfp_kmode_exception(void)
-+#ifdef CONFIG_KERNEL_MODE_NEON
-+
-+static int vfp_kmode_exception(struct pt_regs *regs, unsigned int instr)
- {
- 	/*
- 	 * If we reach this point, a floating point exception has been raised
-@@ -660,9 +663,51 @@ void vfp_kmode_exception(void)
- 		pr_crit("BUG: unsupported FP instruction in kernel mode\n");
- 	else
- 		pr_crit("BUG: FP instruction issued in kernel mode with FP unit disabled\n");
-+	pr_crit("FPEXC == 0x%08x\n", fmrx(FPEXC));
-+	return 1;
- }
- 
--#ifdef CONFIG_KERNEL_MODE_NEON
-+static struct undef_hook vfp_kmode_exception_hook[] = {{
-+	.instr_mask	= 0xfe000000,
-+	.instr_val	= 0xf2000000,
-+	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
-+	.cpsr_val	= SVC_MODE,
-+	.fn		= vfp_kmode_exception,
-+}, {
-+	.instr_mask	= 0xff100000,
-+	.instr_val	= 0xf4000000,
-+	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
-+	.cpsr_val	= SVC_MODE,
-+	.fn		= vfp_kmode_exception,
-+}, {
-+	.instr_mask	= 0xef000000,
-+	.instr_val	= 0xef000000,
-+	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
-+	.cpsr_val	= SVC_MODE | PSR_T_BIT,
-+	.fn		= vfp_kmode_exception,
-+}, {
-+	.instr_mask	= 0xff100000,
-+	.instr_val	= 0xf9000000,
-+	.cpsr_mask	= MODE_MASK | PSR_T_BIT,
-+	.cpsr_val	= SVC_MODE | PSR_T_BIT,
-+	.fn		= vfp_kmode_exception,
-+}, {
-+	.instr_mask	= 0x0c000e00,
-+	.instr_val	= 0x0c000a00,
-+	.cpsr_mask	= MODE_MASK,
-+	.cpsr_val	= SVC_MODE,
-+	.fn		= vfp_kmode_exception,
-+}};
-+
-+static int __init vfp_kmode_exception_hook_init(void)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(vfp_kmode_exception_hook); i++)
-+		register_undef_hook(&vfp_kmode_exception_hook[i]);
-+	return 0;
-+}
-+core_initcall(vfp_kmode_exception_hook_init);
- 
- /*
-  * Kernel-side NEON support functions
 -- 
-2.31.0.rc2.261.g7f71774620-goog
+Damien Le Moal
+Western Digital Research
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210315231952.1482097-1-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/BL0PR04MB65145A954830D891B46CC2B4E76B9%40BL0PR04MB6514.namprd04.prod.outlook.com.
