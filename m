@@ -1,135 +1,139 @@
-Return-Path: <clang-built-linux+bncBDIK727MYIIBBGE22KBAMGQEJVESWFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB2NC2KBAMGQESFJ4BIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2066341B9A
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 12:38:00 +0100 (CET)
-Received: by mail-lf1-x13b.google.com with SMTP id w21sf14642224lfk.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 04:38:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616153880; cv=pass;
+Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A871341BD3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 12:56:26 +0100 (CET)
+Received: by mail-lj1-x240.google.com with SMTP id 6sf17878880ljr.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 04:56:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616154986; cv=pass;
         d=google.com; s=arc-20160816;
-        b=p/VULfI7ESZWeJPG5FaL+uQrI42TXUBX6c7cSiwPhTK3OaoPltVPSGp9z/OOPBxtcP
-         hgfFExV1N29XcAaMNBIwkMB8wfW+7Du4ElHj6eylegjjovmKc4F7y241jfYCHH2fCDc8
-         8sWcmFkN5PWhR06F2Me9Ri9cacDGF+KoakkROisksqhgS7gPOuEDuqcZD4xRL0cyVRCl
-         Dwa375TCFqFjCXB0ccyFY7ks0PDCsMQkSIVVKitF2cLkoOSisTd0tyt/HRoDbO6ATnte
-         /zwMhSLt272BCZsn2Y54iOW5PFysOkjYTfGRccRXlMsjKlYIbE3GqbsHDkWMzliYydWQ
-         PuEg==
+        b=UWkkpFTG0+hgelI72BQz9FUnV1oyDoVrakDKki/MGy+kXnOAlzW85Bq48IW8+UF0dH
+         Wu5rCzCIglb6oVbbz2FVg/mAxJ8KI+ZwP+33BneT4LjpbYi/hj+Sao/UNxB4PVWY9Omn
+         dBsR3Vn8p3hieeh2WBdy92Z4JVpqabYi2LeBjFXzDPI8WzkrNEIwfyGVnmBWoFstFsRA
+         pk57xgNK0osDotA3p6RZ+yF5sny8eyshdTrYRTHoVNBNFHlxtXQKLMN5jQugU9xgmgg+
+         T8DD4/nwjntf4d4MiJ5gb343POzoZGRToC0ZGlvcv++S+8VYOJ6f2C7fWyNzrjMQdkIQ
+         fJrQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=FJQo8CII6sESMQa+KmmRkVEdSu6UrzRwLzUiX3xnBiM=;
-        b=mkp8SFfbJU2zimrh0XA2gCvxaLhBct8npxV3Uyw8aGyUuuKQny8DymJT5aGoA2Zgr8
-         wiHx76tpP5ZxmJn8k/t7cvAOzrQ/BAbneT3n4CJaCr4euq/tIOCgMpXHzJbKIwnUWFKk
-         jzgYb4eB4fSqqvSrApXZdQ3IhzaylUZIu02gjKN1pLQzTKvTsUHIcd9CygM26N39q/pG
-         qoUaNcWCtVsRUpthnQRzyRnIucExJX6g1LD3aEArHBS3zZ8vCnHnW2RmrYmCXUW3DM92
-         LD0dbjvD76qUcD5j8oXwI3itYarj8p13hDI1Yemk0iMIwbnBmK3+rhBOixh2rc8HnXWh
-         J7LA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=Tfvoa1x3IWoOukzRrzCJNk8L7AVFekbAYHa+R33qSbA=;
+        b=slx8QCVScCtl+F0t4zDjcaxzb2YN0jdlddEvLMgmKt8jjEtd1tFpbMwOebMBwNd09p
+         hgecvSTZgjLHA/SqzcF5oMZNee3Ej++S494GazlRIzHsq5HPc2YpW8N8l8U1LnUSKjU1
+         g0PCRHxDLCNH0C4+ZKaDOlYpsIBDsCfyjPLRRnYF7qpUy6X2TKTPoPAvQDPoAHKVtmFc
+         HUcAFKrtFsV1pkQvh1VQ+AtI0oLEVKybuGu20d0cad8kd7CxPyWbu7dOpU3aFfuaL0LK
+         J2JkV6PuyAG6lK33zBwCK4Md/k5BefLuRwboriwectJgk042nhcLipHFt+8MuDyLROGC
+         5xJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of glaubitz@zedat.fu-berlin.de designates 130.133.4.66 as permitted sender) smtp.mailfrom=glaubitz@zedat.fu-berlin.de
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FJQo8CII6sESMQa+KmmRkVEdSu6UrzRwLzUiX3xnBiM=;
-        b=KTCd2de3moxxh7iO/jmqn3Hx5TGCCOtfHVJePDjmyG84Zug9XFEJLL1m2FOp7R7gir
-         7ddK3IOaFlJJv6XzeDpU3+h6bxSmqicQGymoRFj4FSn9C1mUcxAqPNeZwMuqnRxGYzB4
-         VRkQt4LzSM0bsg2RM913AUNISN1bUlI2M/Gt3RV0tap0VZtnGzqVsZkV2YpItLQEpjhJ
-         yIOVlgxHotlhAwFibWfdfFx8KRQMeZcKQQhZH1POsM1fmuNFKSqNv0BS1oSgC6ryyONL
-         Helid+Ln0XCsl1Vl386FR4tipNYRyNCu6bD3JB09I5RytB4QGRuNL7ecGAsTwVoM9QOV
-         v+Aw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Tfvoa1x3IWoOukzRrzCJNk8L7AVFekbAYHa+R33qSbA=;
+        b=mug5q1sDhQUlAOrzxQ2woYU++tW8H/G9c5+iVMwRPwyITSnc/MDeP+F0uM2dIpz7Ve
+         D+s25/tXsOiT4XRNhOwAvx/JPLzziQRdps3A63VGSR4+U3g32Lb5cRZnzNy/ssh4iTNC
+         jZ4HYY+1M4am8gGWzvAtkTZf4xjOyXVDfoSI0DrJOtnvyy22BmghJDNeuJbm5dQGwuJ4
+         1j2SIx9hQvpXS3/rvro0DMR2SSBfLI9+scSWbFwFsrwD/znzQ4+deVPPM4zkXgPsc2hc
+         7bhnpkSKbwO/PCog5jjFqCDRNsiHuq1wpi9XTZSDkvf4iYKPwdqbTf5rUJfeIicypb4p
+         4upg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=FJQo8CII6sESMQa+KmmRkVEdSu6UrzRwLzUiX3xnBiM=;
-        b=gI8Jr55Zzcd2/IS3lXbw/LSxelgIW3Nqz+vhvHJooixNfYVYv7eA2Fg9mDfTkMrSv2
-         8E9R+rCWQBxq9h1S786+oXDibjlJRPwqSZ/Hmde1lOSV1r2J6qIzV/+IkHPejDn5YMR7
-         XOuhKhU+xA0+iz+DGNRbkh91yDKScI7mEvpbXSaecCHxve571I8n4TKcemFzL5FYS+gz
-         0ED/hNjqU9p0t8C1G2WSF39zHecoCJHiOepwQCnEbkMmpWUBzgiYLtfIUZjGcjHC1ZTA
-         WWECt6RqJR/PvBssyTcCyib76Nhr6K8VWBhxU43pAic+aROYO1M33zy3rS/FB0yAfWtX
-         8Htg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Tfvoa1x3IWoOukzRrzCJNk8L7AVFekbAYHa+R33qSbA=;
+        b=mxEMLczb5CAhFv7NkO66bKmQ7NBTd/LotN+znbo4CNC2vXPMi0zaBAPXS+7UkNsFNw
+         sgx9bmayqu7nSthdfbpZVo0bvVueGZ2Il0tURzszkEgFjktoghB/rJHAFghcbn16hU1Q
+         XrQsDAQezDp99KwpBXnECA/H0SMNQALJZsb0L2hhLruotHn5u96OkdLUfCuDSVCuD0To
+         gpuXgp7ynUO7Pf1d841Abc8u3v0kVlPC2cDeOTbHbMk3h4EdsyyS7BYFkLCp6WE5xY25
+         IgwVe4edBpost4U5fAlXzx36oJ4nvwvHyYN89Nj61+3HzCoCTZbt8DOAs9wgIsohO+Gu
+         uG4A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531cjP/9sORT6oFMZhF0O2rFg71rA89kKuCVzeUVoJrAmribjoku
-	u84eq+gaOTSVKinaxx4N59g=
-X-Google-Smtp-Source: ABdhPJyzCXPxaE5hxV7bP4D/ldqFWvGW31lW1cLJlQsowFgfIjsd+9/WROopxFuVVtJD2Lsev6Mg5Q==
-X-Received: by 2002:ac2:520f:: with SMTP id a15mr522922lfl.223.1616153880552;
-        Fri, 19 Mar 2021 04:38:00 -0700 (PDT)
+X-Gm-Message-State: AOAM533Vn28AcaPNu45C70eQoNYMqTvdk8IMY5fDAd5AFjHM223syIhs
+	psG5znCi8PG1kkc090p2Q/4=
+X-Google-Smtp-Source: ABdhPJwsFTnuuRYIHESKhf+rsRpY9FnLKeksz1unxWgk/DuPSEu6jA3Griso1ZzONm3L7yQFYpmP8A==
+X-Received: by 2002:a2e:864e:: with SMTP id i14mr686028ljj.15.1616154986026;
+        Fri, 19 Mar 2021 04:56:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:e86:: with SMTP id 128ls3430149lfo.0.gmail; Fri, 19 Mar
- 2021 04:37:59 -0700 (PDT)
-X-Received: by 2002:a19:7cc:: with SMTP id 195mr600634lfh.134.1616153879499;
-        Fri, 19 Mar 2021 04:37:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616153879; cv=none;
+Received: by 2002:a2e:9212:: with SMTP id k18ls1156856ljg.8.gmail; Fri, 19 Mar
+ 2021 04:56:25 -0700 (PDT)
+X-Received: by 2002:a2e:9098:: with SMTP id l24mr703537ljg.150.1616154985029;
+        Fri, 19 Mar 2021 04:56:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616154985; cv=none;
         d=google.com; s=arc-20160816;
-        b=iSYSoVsKoxmcOgmQnGy2KHnpgb9mgdAvgKdoGfOKWGrNEX/10XWiZIcLef9Igz6uau
-         VFVhWqCsRK3LNageQisOlQFDOOC0ay7/YdayoRBsiEsnUeVyjmOkfKC09hqRnK6QhP+L
-         ZAeKDAtVzNoWWGMIEXELWt7lPhi8axHVIAd4MiwIPokpMQ3aDe8t4jEqamoepiWpB9ym
-         TGPgr9DjaQDG+x9DFHCJcbjx6Uz8x5zKk4hvac8AJk7rpns1ip/vRCudNg7pBCWGZSci
-         FYRZfATr9L24OkR8OIHmLB9PsL/Eym4HwwT2K4PnZm+p/g7icCW6INI2hCqdApF2XkgK
-         cw5Q==
+        b=tR5MfA7V56HDnCjBtbJZ+Kf6EME1G9/viTrkTtzRA7TfD58toVnNw5E4VUtAGc+5bV
+         2l9MYddO8L86LBiKSf2xiZOtnXu5pghCRmCtvbPkpYKSN1NqzT5eFQLERH5+SAYwsrPh
+         LWcNooig7sCO7ixgzJ29jvFCHriGqd1jjS37uADUsau/8qiggeaiRwQ4DCI1kDi5PfJA
+         qERFZ1HGRPTN3nGbFJe3ivGOe8n9r4zcDVSNzPABNBYzh11S+2FQ13IwDVS0KMf2ZL0r
+         oGK96CUUu431Wpe8+5+eU8YEe1roOvTWp1PW3fhuRRmmAZTKrUWk/AB1P48RqPpkD4wV
+         Fh4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=AL9j3HmaUIrhcNRVDQqjCaivIC/z9SEaDm/sp8xeOS0=;
-        b=ADGrBc+Rb34blybzEzGEynKQIh0MoYSu/oTm+49I0/mPnBgk8ZYYgMNvIDFIG5lVXp
-         eXGfX6PLgUKZWIxPIhjq6+C/qM0S1CepJgA0k23PWzjVB2X7sByoVREP78gswkCXajVd
-         YU5dZTKkPCQLl9ZSVl2qm1vVxWrbv4Zaja+xAfX5ivp5mbpXir1Q1vXBW+1vIP7lXD6r
-         U7ETvYXKIMzZ8u9Uv5bODuf/ZvyMTiriQXwNMP0zKj3VECoItsjo1zt311XmWBuFCWGX
-         m3JzbLhaUBk7ajZ/rseSgqCSENxQeFiZqT03+n4fBhQxQ75anqDFLGo0bWC1HkjYP86+
-         l4QA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=0pg+6GCPI8vslAWodeukQwyJSd+QkRRri6xwBXnzYm0=;
+        b=PD3LRCitiBUOiurKrokYpCqKD5vBTJCTKISgw4UZtwk0w23MTXTpXV/bpVwtTFCVI+
+         +60yFXHiH1wXGBdxcLdt6Hkj0ehlVtMzEDOC+e44/ZnjWSC4U2DAOKnm2pMO+5heWH71
+         iK7/5MD2FEG4qvnIYlGRJKsH2epcLw+ygfL7QPzcojsG2GV/sq/9HN3hcR4s36diVkK7
+         e3z7JcrbzOd+n8NPQ9/tWMonLfL4KvLgN/uAOa46GmDtYuJ8VajY1o2xHMbtBgFPsnP+
+         q9DXte/AYhuq2MyUyocB3M8yvy6Fat4LgNQpS1JHJOAb0ks94BtWCByUArleKtXCUL9p
+         vD4g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of glaubitz@zedat.fu-berlin.de designates 130.133.4.66 as permitted sender) smtp.mailfrom=glaubitz@zedat.fu-berlin.de
-Received: from outpost1.zedat.fu-berlin.de (outpost1.zedat.fu-berlin.de. [130.133.4.66])
-        by gmr-mx.google.com with ESMTPS id v26si221916lfo.2.2021.03.19.04.37.59
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
+        by gmr-mx.google.com with ESMTPS id p18si176304lji.8.2021.03.19.04.56.24
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 19 Mar 2021 04:37:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of glaubitz@zedat.fu-berlin.de designates 130.133.4.66 as permitted sender) client-ip=130.133.4.66;
-Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
-          by outpost.zedat.fu-berlin.de (Exim 4.94)
-          with esmtps (TLS1.2)
-          tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-          (envelope-from <glaubitz@zedat.fu-berlin.de>)
-          id 1lNDRx-0031tS-41; Fri, 19 Mar 2021 12:37:53 +0100
-Received: from suse-laptop.physik.fu-berlin.de ([160.45.32.140])
-          by inpost2.zedat.fu-berlin.de (Exim 4.94)
-          with esmtpsa (TLS1.2)
-          tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-          (envelope-from <glaubitz@physik.fu-berlin.de>)
-          id 1lNDRw-000ehS-Tw; Fri, 19 Mar 2021 12:37:53 +0100
-Subject: Re: sparc: clang: error: unknown argument: '-mno-fpu'
-To: Arnd Bergmann <arnd@arndb.de>, Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
- open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org,
- sparclinux <sparclinux@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Nathan Chancellor <natechancellor@gmail.com>,
- Anders Roxell <anders.roxell@linaro.org>,
- =?UTF-8?Q?Daniel_D=c3=adaz?= <daniel.diaz@linaro.org>
-References: <CA+G9fYseDSQ2Vgg5Cb=8HHdpm56aeVQH0Vdx7JK1SktGpRRkgw@mail.gmail.com>
- <CAK8P3a3Za8N2-Hs02nG0CcGJ+RcTrR0UqDOesd8E6PmhYRR2_A@mail.gmail.com>
-From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Message-ID: <ebf12838-4525-a525-93bd-2229927e50ca@physik.fu-berlin.de>
-Date: Fri, 19 Mar 2021 12:37:52 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Mar 2021 04:56:24 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.74;
+Received: from mail-oo1-f43.google.com ([209.85.161.43]) by
+ mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MzhSh-1lablJ0NEH-00vgbv for <clang-built-linux@googlegroups.com>; Fri, 19
+ Mar 2021 12:56:24 +0100
+Received: by mail-oo1-f43.google.com with SMTP id i25-20020a4aa1190000b02901bbd9429832so2240816ool.0
+        for <clang-built-linux@googlegroups.com>; Fri, 19 Mar 2021 04:56:23 -0700 (PDT)
+X-Received: by 2002:a4a:8ed2:: with SMTP id c18mr1102738ool.66.1616154982844;
+ Fri, 19 Mar 2021 04:56:22 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a3Za8N2-Hs02nG0CcGJ+RcTrR0UqDOesd8E6PmhYRR2_A@mail.gmail.com>
+References: <CA+G9fYseDSQ2Vgg5Cb=8HHdpm56aeVQH0Vdx7JK1SktGpRRkgw@mail.gmail.com>
+ <CAK8P3a3Za8N2-Hs02nG0CcGJ+RcTrR0UqDOesd8E6PmhYRR2_A@mail.gmail.com> <ebf12838-4525-a525-93bd-2229927e50ca@physik.fu-berlin.de>
+In-Reply-To: <ebf12838-4525-a525-93bd-2229927e50ca@physik.fu-berlin.de>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 19 Mar 2021 12:56:06 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a2WCYxG4-4x49Uc-+pXPciY5EsDqmNcEfufcXZp6Q3+MQ@mail.gmail.com>
+Message-ID: <CAK8P3a2WCYxG4-4x49Uc-+pXPciY5EsDqmNcEfufcXZp6Q3+MQ@mail.gmail.com>
+Subject: Re: sparc: clang: error: unknown argument: '-mno-fpu'
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	sparclinux <sparclinux@vger.kernel.org>, "David S. Miller" <davem@davemloft.net>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Anders Roxell <anders.roxell@linaro.org>, =?UTF-8?B?RGFuaWVsIETDrWF6?= <daniel.diaz@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Originating-IP: 160.45.32.140
-X-Original-Sender: glaubitz@physik.fu-berlin.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of glaubitz@zedat.fu-berlin.de designates 130.133.4.66 as
- permitted sender) smtp.mailfrom=glaubitz@zedat.fu-berlin.de
+X-Provags-ID: V03:K1:epBN3nF/9Z/1H8Ls6iozeS5ArR2/tuszVflS4i5UQI8w1//ZJU+
+ 6AnuKxezmbU7o2wZHfD5FLQH0sXSUgPHABAvcBZgWn/++PdlGamAAkSCEA/MisHgp5qm7rL
+ U0+qXmPYq1aVqR5pSk+EFpvRp/8udRphe6OK4lfvJod+eD2bcFjbakuECL8PE6c6df85sch
+ FcqQM0IKObSiVrpHztVLQ==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:NdN+uZWCfA0=:1jo+2ImageBuHpAqBw5fem
+ BL0pvyQGGSaiH/VMwxsQE/cgr4L6UJVWWiVfhVWYdvrORzHk0RZg+jiRn7rBR7V08psUImxBX
+ 9TWDn/M3Sc6ZFmAayIPwtizsHGc5wyWCoaph4DmhidUP3KvkkcG68ajWd6fmRIM8w/npNsO3g
+ GKsm0xd4uuwC+McHZ20RV95swf2BqIBfAE08U+dp0NC+gri5zTP31ZAE+HwVFts+xNVvPRbH1
+ 1TLpHbMo/I+aTVI+pjiDK+X2SNykvKvutdx74Bx5HMdJorUllOdQoVf6OCA4bmlCLjItfcKRE
+ pehf8TIQBs2Nbjqs8CecMGiK49waK1Nf90V4rgV9MYHEiIPLNvIQyPOSd3o25BRu4MDjw787n
+ ZIEBs+LOWjYtUnSH88Uvpud/GpvSoneyO1C2W0MTUN15dcXo3uo7eMUs97Ib8Df0aKaXE7CSF
+ okvNHDmcnWlJdFtoe2hYUO/joB2XH2JwPOYX9UxEdDbAz2cAOL/E48EaHp85zzJIC+LpOCH0P
+ zCxk8WNNpipiKT+hwqNtSCmF7Ft/mmPUXwY56nf4WqtMkjDwx1e9kMLex/2k5K6tQ==
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 217.72.192.74 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,41 +146,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 3/19/21 12:31 PM, Arnd Bergmann wrote:
-> On Fri, Mar 19, 2021 at 8:36 AM Naresh Kamboju
-> <naresh.kamboju@linaro.org> wrote:
->>
->> Linux mainline master build breaks for sparc defconfig.
->> There are multiple errors / warnings with clang-12 and clang-11 and 10.
->>  - sparc (defconfig) with clang-12, clang-11 and clang-10
->>  - sparc (tinyconfig) with clang-12, clang-11 and clang-10
->>  - sparc (allnoconfig) with clang-12, clang-11 and clang-10
->>
->> make --silent --keep-going --jobs=8
->> O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=sparc
->> CROSS_COMPILE=sparc64-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
->> clang'
-> 
-> I don't think anyone has successfully built a sparc kernel with clang,
-> and I don't
-> think it's worth trying either, given how little upstream work the
-> sparc port sees
-> overall.
+On Fri, Mar 19, 2021 at 12:38 PM John Paul Adrian Glaubitz
+<glaubitz@physik.fu-berlin.de> wrote:
+> On 3/19/21 12:31 PM, Arnd Bergmann wrote:
+> > On Fri, Mar 19, 2021 at 8:36 AM Naresh Kamboju
+> > <naresh.kamboju@linaro.org> wrote:
+> >>
+> >> Linux mainline master build breaks for sparc defconfig.
+> >> There are multiple errors / warnings with clang-12 and clang-11 and 10.
+> >>  - sparc (defconfig) with clang-12, clang-11 and clang-10
+> >>  - sparc (tinyconfig) with clang-12, clang-11 and clang-10
+> >>  - sparc (allnoconfig) with clang-12, clang-11 and clang-10
+> >>
+> >> make --silent --keep-going --jobs=8
+> >> O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=sparc
+> >> CROSS_COMPILE=sparc64-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
+> >> clang'
+> >
+> > I don't think anyone has successfully built a sparc kernel with clang,
+> > and I don't
+> > think it's worth trying either, given how little upstream work the
+> > sparc port sees overall.
+>
+> We'll get there. There are some other SPARC-related clang bugs that need
+> to be squashed first. We have made quite some improvements and it's actually
+> maintained by the community. Of course, we don't have a commercial backer
+> but that shouldn't be necessary for open source to work.
 
-We'll get there. There are some other SPARC-related clang bugs that need
-to be squashed first. We have made quite some improvements and it's actually
-maintained by the community. Of course, we don't have a commercial backer
-but that shouldn't be necessary for open source to work.
+I meant there is no point for Naresh to do it as part of his build
+testing with tuxmake.
+If someone else gets it working, they can tell Naresh to try again, but until
+then, I'd limit clang regression testing to x86, arm, powerpc, s390, mips, riscv
+and arc.
 
-Adrian
-
--- 
- .''`.  John Paul Adrian Glaubitz
-: :' :  Debian Developer - glaubitz@debian.org
-`. `'   Freie Universitaet Berlin - glaubitz@physik.fu-berlin.de
-  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
+         Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ebf12838-4525-a525-93bd-2229927e50ca%40physik.fu-berlin.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a2WCYxG4-4x49Uc-%2BpXPciY5EsDqmNcEfufcXZp6Q3%2BMQ%40mail.gmail.com.
