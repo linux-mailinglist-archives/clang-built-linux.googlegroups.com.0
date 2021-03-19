@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBB572OBAMGQEBTJAUOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBKGC2OBAMGQEVMQXIAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8FC2834235C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 18:29:43 +0100 (CET)
-Received: by mail-wm1-x33d.google.com with SMTP id n2sf13219478wmi.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 10:29:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616174983; cv=pass;
+Received: from mail-ej1-x638.google.com (mail-ej1-x638.google.com [IPv6:2a00:1450:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id ED4E434236D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 18:36:40 +0100 (CET)
+Received: by mail-ej1-x638.google.com with SMTP id rl7sf18491327ejb.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 10:36:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616175400; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FGuBLA4NVR184pVoQbAg+Zhb6rDbftDsZlq5s0HH9TqRGnFSsIPWQTYSIwBL7+02gz
-         W4kxmlywZdW0b6IVXrZICm4HPR3DVePBFWpv9OyGvGHRw+JtnWw1uuaPB9pg56Vt632e
-         96pHagy3ZyXzzHmaombbw2bak6Bqogl3sp3++kxW92/sc+dIOfRfFTHun876yApVcImJ
-         orR/x5e4Wh55KlRtasOwKNFPwKzXMn0v2u9Uhcy8W0+zZ0sjPoZViorkNPf2aiewt/Iu
-         CeHs+DLAYsAMQaWFHC/AUN6GoUSO/DeyvnPCmiuAgE6N+jJdGZHfPg998bY+zHEWvvai
-         +gHA==
+        b=oyHi1MKLxIdg8eeL/Duxp8yM/nRUZAoC/TzQlQkiX1CI6ctAkGgUML8NoH4zOm/65X
+         2C3QU656RhzGOQfA7ymmr6LlJDOwPS8Ws7wDS+ybLCqiI0nMTgpUn3tm0uyliG+L61J9
+         5BVUwh3LEfQTMel/iZMrC7hbJLxJj1LqVdobiSfOg03VH91tn/Sw5fSDF/cYJJHQTDDk
+         GIirUItCY76o99plXVRNM+qp5ixqO0VnOmPZLZkUwT2eykienMz9Coa6XnNr+BEjJyFq
+         rCTOE3Uxi1ZDPUmrNeUn+MqhOZpfsTEVZaTnxprhJ0085c5qtNhN16xG3sOyGWcO+xcS
+         8BQA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=X93fM+VOoOTTEOaKSDzSkHjzqzGkrGBxnzW8NQgUNag=;
-        b=wmkX93bvBPAwBHQuG8HAJ5C0e45BgZLYA7xdlbPSnnVjDFSRHzGL1IFm0W2cC29mOD
-         YJq1cz9MzwsWGCU1YDE7ZG8lZHBtHLLXAVHuQ7LkNe6qjK/91T75ABYlt/YdjlfyWFzu
-         z6UOvsCYDMU43xha1boDe1MC+EXG1MHBBsZdiPMQbZVbkVBFkBbFIIl0aHxxtQb56Uoi
-         tntSUSflGzEU5PkXrQsMRlDtfrNQSmwzFFPGGl+rGNfYqsR+l34N0g9nG3HVlqZAcJjN
-         GEooV9GjMwTfNIe2lSiWCocV9k4N4CCLJ1TQ16vYQrrCK0mUs4z9O3wdKraRT1XKyHJR
-         i5HA==
+        bh=es1yFic+QqhgzaIhczyBlIsJN7/JIMqw0prAn4YFbn8=;
+        b=rEGafhLa2X7+vTOE7scp+Nauz3m3UurIMswVVrf71cNuqKGWOtoIkprl1UlzzqsUFs
+         HSfJSWoqneqYrTU99KrmHvBQh5hzdHVsVIlpKbAet8tGaaQA4JzlqUTqiZHN+YVaNpQb
+         +G4+Eg8EOq71UY9BoY/ShVtphgcYhC7KCSEei07YudHCtlLwTod/2K1o2aj0rmPfgKNu
+         X6GUcXJ/SKVtAn2gGLIOWmXkukW31Zgzui5DHy8bARbPGP/orogMJ/F7iN209UanK30T
+         Oq6Ut2hHAinpPmyfk5vUpw9yA91qJTE3PL3Q4As+rMY+8xe4AlIiaTUrDbhGn0PZ75iL
+         5Yqw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qxS40zfH;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="IGuDs/Zr";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=X93fM+VOoOTTEOaKSDzSkHjzqzGkrGBxnzW8NQgUNag=;
-        b=CIKU6+IxnCd4tdOuZg7Q8luAerFU0EYgC3b78A8/+S7Evfa2mdxsa6EmrhS6Mu533K
-         hcqxoy44dthLLJkfVLv1CA15ljzAEvvdVlSfjTyAb87FuPYRwTP1XMp02tcgIz0vY+l5
-         91KKelQZlkhGkPGpMmvN9SBAKvAA2FPrd3eNdfVvKevySui4CFRzchGBlw6ia95PNyOa
-         ERC3TEFIyQVUXU289Re3/2PLqg2S32FoTOUE12HpNZJPOFcz70O5HxGECAj08WWJtV9+
-         KURJPcd3GOqVZaqYHF22y7PsqRMyrik/0DAHZ6QJkC7Q4wjyy/db46ZSna19JFk8gnnf
-         t9gw==
+        bh=es1yFic+QqhgzaIhczyBlIsJN7/JIMqw0prAn4YFbn8=;
+        b=q/QtZnGvhLOD5ZL75GwN7t3bcZuAl35kUP8o6rPkiDM3Wg9GPVhskhL6ol8yDFKPbI
+         nzrq+Qp7m9rnITfpI7c0J4WbL0dOeusIkKhUZs+v5C/0+aMNVvMgjudRShst0TSbfN4A
+         ktKf1H7mgP67kiNMQbNTsIcyvtk0w7etiDdeDduKLVPb5MpLG++yaWrvOw1de98QuI+Y
+         b+khXEGpORZXdFLf8oMpRKMgFct6ZDcBmmUEmXw3j1TqSdsXFVi3HEy/cMU5kyEyz+Wp
+         rWfRAx4pwYry2joVU+EXY9eGt+R9zyd+WA713N9F1LALg/GGD8Ar4HxpZW9O+Kz8YMXq
+         Xwkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=X93fM+VOoOTTEOaKSDzSkHjzqzGkrGBxnzW8NQgUNag=;
-        b=rMD0ewn8++IEtr1sDi9Z2NTB0KOijlNpdDgZuU21rNWV8LWrpguEU1QHzwotQ7AzmV
-         +n+Yo1sHpxSHOCHZsJzrTvWiBzBvi+NHrDtPKRzlWB3rrdTuBT2vhBcMMo43yrQfkXYg
-         LnXJ9YILjCqebOwAGNShp5QMc8EkdjcKkm7kZPHgMqjSnJcRaJAPZTnvDgr2gFNIIU1k
-         xeic4JurR8hcwVNQ8yNDCAzNGb4vxrbaonXldMXJ19yQtZSP26VTifQnQIfrbrLkWMGo
-         KZKbVGBpaxwS+U6tzpAJLTnzwPawz+BOynfNKuSBSA5F7wOFPR63BASX3IWkX5aHBD/N
-         Ab0w==
-X-Gm-Message-State: AOAM530JMpGUBajIUuJ8tsTlvKhupPakqxt8avLjtV8RfLtu42725o2E
-	tImbKCy6DNbWQ1pm5FZ5380=
-X-Google-Smtp-Source: ABdhPJzwYXFmIfMvQnmAqcF0gm7rhB9UySq+MRFjxjDPb7pjYBeJbdOBEuVY14pMocKu99usxC227A==
-X-Received: by 2002:a5d:58c9:: with SMTP id o9mr5706031wrf.181.1616174983379;
-        Fri, 19 Mar 2021 10:29:43 -0700 (PDT)
+        bh=es1yFic+QqhgzaIhczyBlIsJN7/JIMqw0prAn4YFbn8=;
+        b=kgH+khAfg/JL+hPC9nxM7y+mjyo9syPvVOjhn8rVNcilsPyyc22kZH/I9OPwSDpT0i
+         mtf1IpLpCX0Ze2KVz7i8PxqYJjBUXSU+PFN1B88qZz55o72bKlcVEL0DRFogVCLrFIzy
+         4Kc0Z9ucb11v37m5SNG/bwOcLoCBY+XhYALpsU9ihFiFT9s+vTuOOhcOpAYVRezfOlFE
+         YNIwU/DUquUhu5nWU9B116Az99gDjpGMlsP81ZDE8u9RlzeU8vg9eyU8q3gHPZRgPNem
+         FOTel66p2JyrY4wiy1pOZwG4y00S4x6IIoZt/x+I1e6bYVpD+gPuNczFZP15nnqAR0zH
+         Ztgg==
+X-Gm-Message-State: AOAM530wc/MVsZnuZ+4P3ak7TI8jUo2WRf/xURAo+ZFSeGKbY3v9eGr1
+	nsNzDvkgpXhCaZji8bZFehM=
+X-Google-Smtp-Source: ABdhPJwYMnRBwZ4WWNuzLGkCtpLrAfTTiGGRVk7ag/H6O2T82oUaPfQ7lDXsGJs/9JhA1+Fbqyzfmg==
+X-Received: by 2002:a05:6402:12d5:: with SMTP id k21mr11131356edx.318.1616175400746;
+        Fri, 19 Mar 2021 10:36:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:bd84:: with SMTP id n126ls3022268wmf.2.canary-gmail;
- Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
-X-Received: by 2002:a1c:7407:: with SMTP id p7mr4727846wmc.51.1616174982551;
-        Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616174982; cv=none;
+Received: by 2002:a17:906:40d2:: with SMTP id a18ls3674597ejk.8.gmail; Fri, 19
+ Mar 2021 10:36:39 -0700 (PDT)
+X-Received: by 2002:a17:907:76ed:: with SMTP id kg13mr5342797ejc.99.1616175399861;
+        Fri, 19 Mar 2021 10:36:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616175399; cv=none;
         d=google.com; s=arc-20160816;
-        b=g7kG/IhL4UTpQKdy/RaAgDmZe/Ysfz498IOcF7xSYc+i2K2RnajdV6nVcFozrraoo0
-         elaMevYgC2fWGeiDHEpO4rlMJuv2daEYl6HfDSBvdSWN3MoqmQXBWBmaE3NbSduZqtHm
-         H4Sk/YggrmCUmG1WtoUNLzTGCqd8/jtZ5OeyqvKMO9Rhf4PRK91Innr/qcgHlDPB0XrA
-         y2sHBoi0xb4JK0pLxBbB9iA+Yr3uIAi57k/NQLaDQjugw19mMtniyFYfsS+fch8b0OiY
-         9iIy5JyDYlJci1oxXPyCADuNGoihYrWOq+Ia+6p2hJfN9TqDllrmdNpBK4oiVm3/hGpT
-         aeOg==
+        b=N0R7Lw0Vi87lKaEEbQDCbIG7uPr8s9BenQ6SNph3I6ftVkJS36Ttkd6+42uhAlpZ6D
+         z4Dr/tjAekLzugvTd5CrEXtnNq20TZxatkKBGm55zFDXReU1cnFa1gSjpFpyNXWyrNvn
+         D/AxTc14AxvQh1WPelAdUJ3EzzOIgd2lcJckKsEiY81599Ljx/WXyPWFVkHpR7BsVMta
+         RmkfbSVBb3afA8ryVERd2zzqYmmMumTWlDXV97ZFYVdqEtSOPIJI1DOCBQ94AltDnGb7
+         OJbq3ttcrULmSSlOoNx1txLjv8/Tru+Bjio5yP0gtJtZeUcbIFtuuRQV+GIpn+qm3AK0
+         AJnQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=tvHhezgm6LLrHkw6LiFzJkS2cxMTL9fEuJKrvKkiKUQ=;
-        b=zzr7aDgE6GBFxo7boDsRqDA++2NNVMyiSCx+rtl8pCLVJ9PodSdqSXPF254DnWXhy1
-         YoyH1XluyFkCCGlNm8Y3lvhVctMqIT9y86WDveHiSVBEkvX5C4NsVOFlMWQ6YA6WKIkw
-         kUoKkF3gVhHxyFM9dDhquyNRPyppZ6H6dawHjq0Ru04GTudyHBB4U62HN3GWzxAESnuS
-         bUid0ZDs9TXRyMJ5ikox9laj2W2w80/TeasgAZMK9lDN9htyKofAhmhJxTLxwiQzyxmI
-         jLWlWCCU24i6OfPL+0NM4yDnEtsQY6Sc3Z3Y7jdTwkrjAyl07+5Fzle1kXmSyKG+5UfT
-         1unQ==
+        bh=lWvA/48XFK9LthHD8XWNH2G9h2Q/D7pf8r0WoDKA8qA=;
+        b=xjpHdgF2SISMs6St6vE1wyE7achOHWpEDkaWvymzbYkKkMHQbkz1GdAMTUYBG+z8JV
+         ocbNpoJ0H7FzzlFggDUpQU89E5OJ6Olmn2Dl5pCrGw/EWoFRRkwsiT+ee+TCBlOlxfRw
+         X/QEPCVcMVzR8+ESo58IDvpTf7xjVFz6gVhyty/1e/qd5wfATBhq22prmhpyifkgEAlz
+         vPw99wk4wDZI0G/X8pv8qicoLzBDb2aV6/FRuK89c9qdwlmUtX3MrxgOZfqGFKI6hq7f
+         NWZXJoCUF/KYCwKdlIJ85a2eL5S81dVi72rfxnAj6KGsW699dsNMWIPUtdZiPQyYNO3z
+         d7kA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=qxS40zfH;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="IGuDs/Zr";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x134.google.com (mail-lf1-x134.google.com. [2a00:1450:4864:20::134])
-        by gmr-mx.google.com with ESMTPS id h16si219149wrx.2.2021.03.19.10.29.42
+Received: from mail-lf1-x135.google.com (mail-lf1-x135.google.com. [2a00:1450:4864:20::135])
+        by gmr-mx.google.com with ESMTPS id w5si197804edv.1.2021.03.19.10.36.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) client-ip=2a00:1450:4864:20::134;
-Received: by mail-lf1-x134.google.com with SMTP id w37so11171209lfu.13
-        for <clang-built-linux@googlegroups.com>; Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
-X-Received: by 2002:ac2:538e:: with SMTP id g14mr1375802lfh.543.1616174982034;
- Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
+        Fri, 19 Mar 2021 10:36:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) client-ip=2a00:1450:4864:20::135;
+Received: by mail-lf1-x135.google.com with SMTP id g8so4087429lfv.12
+        for <clang-built-linux@googlegroups.com>; Fri, 19 Mar 2021 10:36:39 -0700 (PDT)
+X-Received: by 2002:a19:430e:: with SMTP id q14mr1533339lfa.374.1616175399402;
+ Fri, 19 Mar 2021 10:36:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210319165334.29213-1-andre.przywara@arm.com> <20210319165334.29213-2-andre.przywara@arm.com>
-In-Reply-To: <20210319165334.29213-2-andre.przywara@arm.com>
+References: <20210319165334.29213-1-andre.przywara@arm.com> <20210319165334.29213-11-andre.przywara@arm.com>
+In-Reply-To: <20210319165334.29213-11-andre.przywara@arm.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 19 Mar 2021 10:29:30 -0700
-Message-ID: <CAKwvOd=GT=dFUS4ihZ3X5_Vne2ZGqag=9zHaW6+wBLEj3jx-GA@mail.gmail.com>
-Subject: Re: [PATCH 01/11] kselftest/arm64: mte: Fix compilation with native compiler
+Date: Fri, 19 Mar 2021 10:36:28 -0700
+Message-ID: <CAKwvOdkuvUPezqZWDE=zvCKMZ_b+mevu-gsh-oJT1SPv7xUZOQ@mail.gmail.com>
+Subject: Re: [PATCH 10/11] kselftest/arm64: mte: Fix clang warning
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Shuah Khan <shuah@kernel.org>, Amit Daniel Kachhap <amit.kachhap@arm.com>, Mark Brown <broonie@kernel.org>, 
@@ -115,8 +115,8 @@ Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=qxS40zfH;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134
+ header.i=@google.com header.s=20161025 header.b="IGuDs/Zr";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -135,47 +135,36 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Fri, Mar 19, 2021 at 9:53 AM Andre Przywara <andre.przywara@arm.com> wrote:
 >
-> The mte selftest Makefile contains a check for GCC, to add the memtag
-> -march flag to the compiler options. This check fails if the compiler
-> is not explicitly specified, so reverts to the standard "cc", in which
-> case --version doesn't mention the "gcc" string we match against:
-> $ cc --version | head -n 1
-> cc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+> if (!prctl(...) == 0) is not only cumbersome to read, it also upsets
+> clang and triggers a warning:
+> ------------
+> mte_common_util.c:287:6: warning: logical not is only applied to the
+> left hand side of this comparison [-Wlogical-not-parentheses]
+> ....
 >
-> This will not add the -march switch to the command line, so compilation
-> fails:
-> mte_helper.S: Assembler messages:
-> mte_helper.S:25: Error: selected processor does not support `irg x0,x0,xzr'
-> mte_helper.S:38: Error: selected processor does not support `gmi x1,x0,xzr'
-> ...
->
-> Actually clang accepts the same -march option as well, so we can just
-> drop this check and add this unconditionally to the command line, to avoid
-> any future issues with this check altogether (gcc actually prints
-> basename(argv[0]) when called with --version).
+> Fix that by just comparing against "not 0" instead.
 >
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
 > ---
->  tools/testing/selftests/arm64/mte/Makefile | 2 --
->  1 file changed, 2 deletions(-)
+>  tools/testing/selftests/arm64/mte/mte_common_util.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/tools/testing/selftests/arm64/mte/Makefile b/tools/testing/selftests/arm64/mte/Makefile
-> index 0b3af552632a..df15d44aeb8d 100644
-> --- a/tools/testing/selftests/arm64/mte/Makefile
-> +++ b/tools/testing/selftests/arm64/mte/Makefile
-> @@ -6,9 +6,7 @@ SRCS := $(filter-out mte_common_util.c,$(wildcard *.c))
->  PROGS := $(patsubst %.c,%,$(SRCS))
+> diff --git a/tools/testing/selftests/arm64/mte/mte_common_util.c b/tools/testing/selftests/arm64/mte/mte_common_util.c
+> index aa8a8a6b8b6d..040abdca079d 100644
+> --- a/tools/testing/selftests/arm64/mte/mte_common_util.c
+> +++ b/tools/testing/selftests/arm64/mte/mte_common_util.c
+> @@ -284,7 +284,7 @@ int mte_switch_mode(int mte_option, unsigned long incl_mask)
 >
->  #Add mte compiler option
-> -ifneq ($(shell $(CC) --version 2>&1 | head -n 1 | grep gcc),)
->  CFLAGS += -march=armv8.5-a+memtag
-> -endif
->
->  #check if the compiler works well
->  mte_cc_support := $(shell if ($(CC) $(CFLAGS) -E -x c /dev/null -o /dev/null 2>&1) then echo "1"; fi)
+>         en |= (incl_mask << PR_MTE_TAG_SHIFT);
+>         /* Enable address tagging ABI, mte error reporting mode and tag inclusion mask. */
+> -       if (!prctl(PR_SET_TAGGED_ADDR_CTRL, en, 0, 0, 0) == 0) {
+> +       if (prctl(PR_SET_TAGGED_ADDR_CTRL, en, 0, 0, 0) != 0) {
+
+How about `if (prctl(...)) {`?
+
+>                 ksft_print_msg("FAIL:prctl PR_SET_TAGGED_ADDR_CTRL for mte mode\n");
+>                 return -EINVAL;
+>         }
 > --
 > 2.17.5
 >
@@ -188,4 +177,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DGT%3DdFUS4ihZ3X5_Vne2ZGqag%3D9zHaW6%2BwBLEj3jx-GA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkuvUPezqZWDE%3DzvCKMZ_b%2Bmevu-gsh-oJT1SPv7xUZOQ%40mail.gmail.com.
