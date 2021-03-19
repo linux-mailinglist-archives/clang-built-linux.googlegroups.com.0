@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDN3ZEGJT4NBBWF62OBAMGQEEYRFGQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBB572OBAMGQEBTJAUOQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1F372342359
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 18:28:58 +0100 (CET)
-Received: by mail-ot1-x339.google.com with SMTP id 45sf24130684otg.10
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 10:28:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616174937; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8FC2834235C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 18:29:43 +0100 (CET)
+Received: by mail-wm1-x33d.google.com with SMTP id n2sf13219478wmi.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 10:29:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616174983; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vr8PDbNr4cLpJWLrCYpe875+jP6LW6f/XysFGm+3vDf9iSCUwMSbk8+0CQTv4g8ssf
-         JHpAk5XMOIyXh39Kscb6glEeRbsnTwbvgMNwoMuITMo8kfHVoxI+wyqJ6YO3SdiKxnY8
-         MOeNkiAd8FR2ionJ7pxqEE7ozZ9stun+WfNW7w8FkLGiQAvi1kWkEo29F2wPFJgiKhKm
-         JxHUuNwTk0+Z9cmW6FM/ibgmBp402cZASy044hN7TaZI92EFevboet/KsyFGlJkcbn9g
-         CWoL1oNyvs5AvjfgosePMLae8wdlZMhZfx3oiYoXWqaUAh5vk+KLrTpiPY/XsthQFQ3A
-         Umvw==
+        b=FGuBLA4NVR184pVoQbAg+Zhb6rDbftDsZlq5s0HH9TqRGnFSsIPWQTYSIwBL7+02gz
+         W4kxmlywZdW0b6IVXrZICm4HPR3DVePBFWpv9OyGvGHRw+JtnWw1uuaPB9pg56Vt632e
+         96pHagy3ZyXzzHmaombbw2bak6Bqogl3sp3++kxW92/sc+dIOfRfFTHun876yApVcImJ
+         orR/x5e4Wh55KlRtasOwKNFPwKzXMn0v2u9Uhcy8W0+zZ0sjPoZViorkNPf2aiewt/Iu
+         CeHs+DLAYsAMQaWFHC/AUN6GoUSO/DeyvnPCmiuAgE6N+jJdGZHfPg998bY+zHEWvvai
+         +gHA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=aWy/oMQHsW9fA6RXtlumXoi+DkhjAcyLz812Ritm82A=;
-        b=lQPMhFQUc+LAqkT+WXPGBFW4jXYlXy6YW+pUZ7Le8l/wkMdkl3TT22yJTsBv/l7aOg
-         CgTIILVW6NUaHbSchwAG5vjaAfAkvpwxvjeL3vPrZ6cFz9dsRtLYBIa3YrLpN3c/glPh
-         Xy0e1HKf9xTw1XT9Jm58XWPgRng4m9S9gt2JG3SnwVPiUFjkae7F3FezOeaIspT6ToCZ
-         bhR8JKprL8MC1UCNyGVIQbwxBFox6UDOjMDCH6XLoa12zS1yu2Bc/qAJTxqPkBQjtCZS
-         2QZPS+LG1CqKQhwwhvRI6VVDH1kZEGv8K6+Lz2nD5MlVtF4cwE34JG16bYo73fh3hiHA
-         E9Qw==
+        bh=X93fM+VOoOTTEOaKSDzSkHjzqzGkrGBxnzW8NQgUNag=;
+        b=wmkX93bvBPAwBHQuG8HAJ5C0e45BgZLYA7xdlbPSnnVjDFSRHzGL1IFm0W2cC29mOD
+         YJq1cz9MzwsWGCU1YDE7ZG8lZHBtHLLXAVHuQ7LkNe6qjK/91T75ABYlt/YdjlfyWFzu
+         z6UOvsCYDMU43xha1boDe1MC+EXG1MHBBsZdiPMQbZVbkVBFkBbFIIl0aHxxtQb56Uoi
+         tntSUSflGzEU5PkXrQsMRlDtfrNQSmwzFFPGGl+rGNfYqsR+l34N0g9nG3HVlqZAcJjN
+         GEooV9GjMwTfNIe2lSiWCocV9k4N4CCLJ1TQ16vYQrrCK0mUs4z9O3wdKraRT1XKyHJR
+         i5HA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jRWOkmBZ;
-       spf=pass (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=edumazet@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=qxS40zfH;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aWy/oMQHsW9fA6RXtlumXoi+DkhjAcyLz812Ritm82A=;
-        b=UTlvnBYcxYn7ZN+48hG5F212Km8A2+5cF0c/Cn3icGBSO2q/1rRR/1bR7ESBwLQ2hN
-         YDyVIcKIxjw/f/pxRWJG6MU2GmSZWo04i1TqoWIgSg7kVYc/lBxl5QlyvE214yTPkQXA
-         oPaOQhRSvyKvFvkrrfbi34eWseGKYPteEtFBEoJ1+ENXDaVk9++ojr8ih0ChTql8zfRH
-         gNyNWk7F+NusuGSsG3dIwksqDswTnXRLS2uV+iSOBd6sxtNSFY8ZpJ3eGkRIlkvn0UoI
-         1t5iUORsdQwsJUBIW/MaoqiqUhWEQs6Goj27vxPotwEh2tdfy2TFjsbQzhSrfrpZhoJ8
-         NCmA==
+        bh=X93fM+VOoOTTEOaKSDzSkHjzqzGkrGBxnzW8NQgUNag=;
+        b=CIKU6+IxnCd4tdOuZg7Q8luAerFU0EYgC3b78A8/+S7Evfa2mdxsa6EmrhS6Mu533K
+         hcqxoy44dthLLJkfVLv1CA15ljzAEvvdVlSfjTyAb87FuPYRwTP1XMp02tcgIz0vY+l5
+         91KKelQZlkhGkPGpMmvN9SBAKvAA2FPrd3eNdfVvKevySui4CFRzchGBlw6ia95PNyOa
+         ERC3TEFIyQVUXU289Re3/2PLqg2S32FoTOUE12HpNZJPOFcz70O5HxGECAj08WWJtV9+
+         KURJPcd3GOqVZaqYHF22y7PsqRMyrik/0DAHZ6QJkC7Q4wjyy/db46ZSna19JFk8gnnf
+         t9gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,75 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aWy/oMQHsW9fA6RXtlumXoi+DkhjAcyLz812Ritm82A=;
-        b=e+vCOzQ4yfVnnYgHKaC9tEwF3U6GCCrn+UNjJ+7loCGHI3u4riUxKLYzrO4jJbYdy8
-         H3Xq33lbqsTLTnETZ22sYYMLXZR3UMp+FnkrGtGj2gyxBXpx7FAQvM2j1s7Y0nrYxaCL
-         AyxIICN55u4+6VYlRF7+fTvSk937/4ecsHtLii28P8MaVaBVCke3kHI/78prddHLaMhv
-         tDKMMVSSRmNGEy917PijT+uZRCEX3LzrZDUzLhAnHsz3mni77yDfVgFnCF6/VN+SlV1H
-         lCn5rwy2qfxq+M50k4E2IvU6EkyOkvXhyrwXJYbdH8eMKOd/Sdvj+q3+cxGHTMjfFBlk
-         hI2w==
-X-Gm-Message-State: AOAM533sR/B8gymr1WHtfUtYwm2MziERjm5iN0w8Mw+XfA2osZij5xCH
-	rmaDUeQEK2UTOAJNAXzq9B4=
-X-Google-Smtp-Source: ABdhPJz+cMTqUR0B8B/aJgedNZuFtpnUhNrqHpfS7L4/jU7jGALoTnioEP7U2tj+BxwHbxz/47PR7A==
-X-Received: by 2002:aca:f550:: with SMTP id t77mr1798679oih.71.1616174936945;
-        Fri, 19 Mar 2021 10:28:56 -0700 (PDT)
+        bh=X93fM+VOoOTTEOaKSDzSkHjzqzGkrGBxnzW8NQgUNag=;
+        b=rMD0ewn8++IEtr1sDi9Z2NTB0KOijlNpdDgZuU21rNWV8LWrpguEU1QHzwotQ7AzmV
+         +n+Yo1sHpxSHOCHZsJzrTvWiBzBvi+NHrDtPKRzlWB3rrdTuBT2vhBcMMo43yrQfkXYg
+         LnXJ9YILjCqebOwAGNShp5QMc8EkdjcKkm7kZPHgMqjSnJcRaJAPZTnvDgr2gFNIIU1k
+         xeic4JurR8hcwVNQ8yNDCAzNGb4vxrbaonXldMXJ19yQtZSP26VTifQnQIfrbrLkWMGo
+         KZKbVGBpaxwS+U6tzpAJLTnzwPawz+BOynfNKuSBSA5F7wOFPR63BASX3IWkX5aHBD/N
+         Ab0w==
+X-Gm-Message-State: AOAM530JMpGUBajIUuJ8tsTlvKhupPakqxt8avLjtV8RfLtu42725o2E
+	tImbKCy6DNbWQ1pm5FZ5380=
+X-Google-Smtp-Source: ABdhPJzwYXFmIfMvQnmAqcF0gm7rhB9UySq+MRFjxjDPb7pjYBeJbdOBEuVY14pMocKu99usxC227A==
+X-Received: by 2002:a5d:58c9:: with SMTP id o9mr5706031wrf.181.1616174983379;
+        Fri, 19 Mar 2021 10:29:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:9732:: with SMTP id u47ls416615ooi.5.gmail; Fri, 19 Mar
- 2021 10:28:56 -0700 (PDT)
-X-Received: by 2002:a4a:d50b:: with SMTP id m11mr2196489oos.35.1616174936600;
-        Fri, 19 Mar 2021 10:28:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616174936; cv=none;
+Received: by 2002:a1c:bd84:: with SMTP id n126ls3022268wmf.2.canary-gmail;
+ Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
+X-Received: by 2002:a1c:7407:: with SMTP id p7mr4727846wmc.51.1616174982551;
+        Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616174982; cv=none;
         d=google.com; s=arc-20160816;
-        b=QkewCdjXCi6ah3b7IfzXOZa/fIjHV0OwpAvYWaL6hZj1xAxoGxvJTsrFBSDunTKkSv
-         1El8g0m+suTv1QUzHbGHUzBHysJuVZYXPVU6EISq/D2Jy1Nkgc3g+IFdG0Swm+tDwWSV
-         S/hj7xp9fcn4o3BYHK4Er3gx0ktOp8Fs6P8d6HicNgZ4v9PlR+lrvCMaRCJIMn6NGn8l
-         sGUXDuzBGvIAAzmU1WUsJJgTWNg72yJmRgzvXVmppX+MlwXXfw2j3x0bDV5xqwGXL1ti
-         Kq9l5r097Ub2BmYSGVSf1mfITYX9+SiJBkHVqWcW4Ft26aVbGx6S8pkkwbawqUsK03ll
-         nNvw==
+        b=g7kG/IhL4UTpQKdy/RaAgDmZe/Ysfz498IOcF7xSYc+i2K2RnajdV6nVcFozrraoo0
+         elaMevYgC2fWGeiDHEpO4rlMJuv2daEYl6HfDSBvdSWN3MoqmQXBWBmaE3NbSduZqtHm
+         H4Sk/YggrmCUmG1WtoUNLzTGCqd8/jtZ5OeyqvKMO9Rhf4PRK91Innr/qcgHlDPB0XrA
+         y2sHBoi0xb4JK0pLxBbB9iA+Yr3uIAi57k/NQLaDQjugw19mMtniyFYfsS+fch8b0OiY
+         9iIy5JyDYlJci1oxXPyCADuNGoihYrWOq+Ia+6p2hJfN9TqDllrmdNpBK4oiVm3/hGpT
+         aeOg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=UfQ97ZQpQ+3cbVFmfAlrkTjFt0NmXtQEpIyINKUBKbk=;
-        b=UhwGgMQklU55XL3vH2/FxKEuav+UxyWXbXGrDJS4hej+XoTImLVP4pt1QUJePcg5Xt
-         LMolMTZtj13urbewmajOlDy1gwzD2Ue8lTTmjwAjHIDFyeWJopaX5RTncsNLqKEpJ3zY
-         ffYVO93ybxFH1J0wV89MW6GPs/2sm6+happN08jMxF0iSgalSLO90UMkfZx4PSLwuvdl
-         jXvdyvBZHDYOOP11qZ2PYXTywB0LT6+4c9CCgHyNADOGlwmDMDBhDyxlwGf88qGALjh2
-         W8sDGTGcISG99FZ61Ty/ghrrRZAoCwYe6oZi0HVal5D0XjyaryHVhxE69xWuXqeMpT+X
-         oijw==
+        bh=tvHhezgm6LLrHkw6LiFzJkS2cxMTL9fEuJKrvKkiKUQ=;
+        b=zzr7aDgE6GBFxo7boDsRqDA++2NNVMyiSCx+rtl8pCLVJ9PodSdqSXPF254DnWXhy1
+         YoyH1XluyFkCCGlNm8Y3lvhVctMqIT9y86WDveHiSVBEkvX5C4NsVOFlMWQ6YA6WKIkw
+         kUoKkF3gVhHxyFM9dDhquyNRPyppZ6H6dawHjq0Ru04GTudyHBB4U62HN3GWzxAESnuS
+         bUid0ZDs9TXRyMJ5ikox9laj2W2w80/TeasgAZMK9lDN9htyKofAhmhJxTLxwiQzyxmI
+         jLWlWCCU24i6OfPL+0NM4yDnEtsQY6Sc3Z3Y7jdTwkrjAyl07+5Fzle1kXmSyKG+5UfT
+         1unQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jRWOkmBZ;
-       spf=pass (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b32 as permitted sender) smtp.mailfrom=edumazet@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=qxS40zfH;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb32.google.com (mail-yb1-xb32.google.com. [2607:f8b0:4864:20::b32])
-        by gmr-mx.google.com with ESMTPS id a4si267441oiw.5.2021.03.19.10.28.56
+Received: from mail-lf1-x134.google.com (mail-lf1-x134.google.com. [2a00:1450:4864:20::134])
+        by gmr-mx.google.com with ESMTPS id h16si219149wrx.2.2021.03.19.10.29.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Mar 2021 10:28:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b32 as permitted sender) client-ip=2607:f8b0:4864:20::b32;
-Received: by mail-yb1-xb32.google.com with SMTP id f145so7030556ybg.11
-        for <clang-built-linux@googlegroups.com>; Fri, 19 Mar 2021 10:28:56 -0700 (PDT)
-X-Received: by 2002:a25:b906:: with SMTP id x6mr7947193ybj.504.1616174935909;
- Fri, 19 Mar 2021 10:28:55 -0700 (PDT)
+        Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) client-ip=2a00:1450:4864:20::134;
+Received: by mail-lf1-x134.google.com with SMTP id w37so11171209lfu.13
+        for <clang-built-linux@googlegroups.com>; Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
+X-Received: by 2002:ac2:538e:: with SMTP id g14mr1375802lfh.543.1616174982034;
+ Fri, 19 Mar 2021 10:29:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210319150232.354084-1-eric.dumazet@gmail.com> <202103200159.d1zdEu9Z-lkp@intel.com>
-In-Reply-To: <202103200159.d1zdEu9Z-lkp@intel.com>
-From: "'Eric Dumazet' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 19 Mar 2021 18:28:43 +0100
-Message-ID: <CANn89iJi6KEsOxUc4Um2D3_ZoA2KE1YitpeVnjbLHWYDc-n9hA@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: add CONFIG_PCPU_DEV_REFCNT
-To: kernel test robot <lkp@intel.com>
-Cc: Eric Dumazet <eric.dumazet@gmail.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, netdev <netdev@vger.kernel.org>
+References: <20210319165334.29213-1-andre.przywara@arm.com> <20210319165334.29213-2-andre.przywara@arm.com>
+In-Reply-To: <20210319165334.29213-2-andre.przywara@arm.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 19 Mar 2021 10:29:30 -0700
+Message-ID: <CAKwvOd=GT=dFUS4ihZ3X5_Vne2ZGqag=9zHaW6+wBLEj3jx-GA@mail.gmail.com>
+Subject: Re: [PATCH 01/11] kselftest/arm64: mte: Fix compilation with native compiler
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Shuah Khan <shuah@kernel.org>, Amit Daniel Kachhap <amit.kachhap@arm.com>, Mark Brown <broonie@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: edumazet@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=jRWOkmBZ;       spf=pass
- (google.com: domain of edumazet@google.com designates 2607:f8b0:4864:20::b32
- as permitted sender) smtp.mailfrom=edumazet@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=qxS40zfH;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Eric Dumazet <edumazet@google.com>
-Reply-To: Eric Dumazet <edumazet@google.com>
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,59 +133,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Mar 19, 2021 at 6:12 PM kernel test robot <lkp@intel.com> wrote:
+On Fri, Mar 19, 2021 at 9:53 AM Andre Przywara <andre.przywara@arm.com> wrote:
 >
-> Hi Eric,
+> The mte selftest Makefile contains a check for GCC, to add the memtag
+> -march flag to the compiler options. This check fails if the compiler
+> is not explicitly specified, so reverts to the standard "cc", in which
+> case --version doesn't mention the "gcc" string we match against:
+> $ cc --version | head -n 1
+> cc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
 >
-> I love your patch! Perhaps something to improve:
+> This will not add the -march switch to the command line, so compilation
+> fails:
+> mte_helper.S: Assembler messages:
+> mte_helper.S:25: Error: selected processor does not support `irg x0,x0,xzr'
+> mte_helper.S:38: Error: selected processor does not support `gmi x1,x0,xzr'
+> ...
 >
-> [auto build test WARNING on net-next/master]
+> Actually clang accepts the same -march option as well, so we can just
+> drop this check and add this unconditionally to the command line, to avoid
+> any future issues with this check altogether (gcc actually prints
+> basename(argv[0]) when called with --version).
 >
-> url:    https://github.com/0day-ci/linux/commits/Eric-Dumazet/net-add-CONFIG_PCPU_DEV_REFCNT/20210319-230417
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git 38cb57602369cf194556460a52bd18e53c76e13d
-> config: arm-randconfig-r014-20210318 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project fcc1ce00931751ac02498986feb37744e9ace8de)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm cross compiling tool for clang build
->         # apt-get install binutils-arm-linux-gnueabi
->         # https://github.com/0day-ci/linux/commit/684c34243e0c84e496aa426734df321b7ebc088b
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Eric-Dumazet/net-add-CONFIG_PCPU_DEV_REFCNT/20210319-230417
->         git checkout 684c34243e0c84e496aa426734df321b7ebc088b
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> net/core/dev.c:10752:1: warning: unused label 'free_dev' [-Wunused-label]
->    free_dev:
->    ^~~~~~~~~
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-Great, I will add the following diff to v2
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-diff --git a/net/core/dev.c b/net/core/dev.c
-index edde830df1a483535372014034d5b1ee1ff6210a..be941ed754ac71d0839604bcfdd8ab67c339d27f
-100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -10748,8 +10748,8 @@ struct net_device *alloc_netdev_mqs(int
-sizeof_priv, const char *name,
- free_pcpu:
- #ifdef CONFIG_PCPU_DEV_REFCNT
-        free_percpu(dev->pcpu_refcnt);
--#endif
- free_dev:
-+#endif
-        netdev_freemem(dev);
-        return NULL;
- }
+> ---
+>  tools/testing/selftests/arm64/mte/Makefile | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/tools/testing/selftests/arm64/mte/Makefile b/tools/testing/selftests/arm64/mte/Makefile
+> index 0b3af552632a..df15d44aeb8d 100644
+> --- a/tools/testing/selftests/arm64/mte/Makefile
+> +++ b/tools/testing/selftests/arm64/mte/Makefile
+> @@ -6,9 +6,7 @@ SRCS := $(filter-out mte_common_util.c,$(wildcard *.c))
+>  PROGS := $(patsubst %.c,%,$(SRCS))
+>
+>  #Add mte compiler option
+> -ifneq ($(shell $(CC) --version 2>&1 | head -n 1 | grep gcc),)
+>  CFLAGS += -march=armv8.5-a+memtag
+> -endif
+>
+>  #check if the compiler works well
+>  mte_cc_support := $(shell if ($(CC) $(CFLAGS) -E -x c /dev/null -o /dev/null 2>&1) then echo "1"; fi)
+> --
+> 2.17.5
+>
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANn89iJi6KEsOxUc4Um2D3_ZoA2KE1YitpeVnjbLHWYDc-n9hA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DGT%3DdFUS4ihZ3X5_Vne2ZGqag%3D9zHaW6%2BwBLEj3jx-GA%40mail.gmail.com.
