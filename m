@@ -1,120 +1,128 @@
-Return-Path: <clang-built-linux+bncBCT6537ZTEKRB35I2GBAMGQEGCJFNJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWMTL744QBRBSOB2GBAMGQEF5YBRZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 34EF33416BD
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 08:36:16 +0100 (CET)
-Received: by mail-lj1-x23e.google.com with SMTP id d15sf17576887ljl.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 00:36:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616139375; cv=pass;
+Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 84502341781
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 09:28:57 +0100 (CET)
+Received: by mail-wr1-x43f.google.com with SMTP id z6sf21415841wrh.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Mar 2021 01:28:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616142537; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LjvNcmo7FbZVKzUPEF8YOZ1OxL5d6IV/sH68i8+4npJBWtW4UhkwlP3wdLjOSM7cIe
-         zCzQIsWEcRg0xI3s+nAwxnOgP2Nfn/aJ+SHGvZ8nAhk17iFOvVMwE/DI9Z4EgF+avl5D
-         MVuRP/VXA1js9i/X+OpaRnUWPms5uHXth0Qcu/w8sQjWpSC8kuc471KNh5pFKly307oF
-         jYsdu03NkE9S8L0TDwOSIydgFhUBddm/1Re8senGWWnO09YD4sa8ErJV/vioHhHFfZrV
-         R5uiemi0nj46spHKxSLWe2MDgvR/NSS6Q1HTzJrOYrit19SeCSsw29++iv9AkHOa/jQJ
-         NqJA==
+        b=ff9NFSJAnmVzRKhWHMdKGQIpo6vAOyCP8l+bKovdFPXSczusva/hXv0Dz+8SX73EGE
+         wYtF8WcQ7Cqm9ni2cvyTr8dHW5RcdCZcqZYNhaMbJ/OIq/DdMTCVRfzTFv/iGKTPBO+X
+         kZVyvoA+KHeuBKQWkH6qJtvkfZqsO73TLWDHFcqfaVRovhEZ7od1nxlk6b65KtMe4Hz/
+         /tJTJrjWdr81xnhN1FGP0FmBKI+7rP1l65MzyyKCPeeyrGY9g8244f3a7JgZlPkJ8nUt
+         JeMyFDAmYtrQ+ywvZ6/SzK8Xu/y6AqlAVE0ujQDpCO9mvWnLnRWEkj24ZUoIlkCWiZYR
+         zAWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :mime-version:sender:dkim-signature;
-        bh=XqKfwlE0ZkFqHwf5K5sk/XZrkeUkCu5Ao/ku+DIE0CU=;
-        b=ba0er2Zj3v+cX9zxyacaX6EgLGvrMRivSorLMsS6Vgd8e8obsA67pQohFldZVLTiOH
-         bHY1ve9K7RZt7mys7TyFO2T/FxlqPa2QlN/9ZIIhKyTH5TEtPFSd2N6OYHaPsMMEGEgp
-         xjrNyWoBGxq71Z9pfcuQ7MqiQHSmIHJafOeGQNoJVZpuGLE03l/lHv05ITUcuZs5cXyq
-         Om3dQmwpPjXLrWIyastMgL8rGQsIFBjf+RDQ6Zfvv5OMOEZJuU/x/WhTUh2q/kg19ijz
-         rqws3nQbCfZj5sJq/4goBJj+MZQp4lMnaxQ+WQBNYIJjFSGlDBncR1Kyx/8QUWDIL7gP
-         A8sQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=5pfO1NFssK5cF2VAcpYszwC3oaKgmoGwNjXqdFwNdsE=;
+        b=rDckgEmhA3I+ZlRdzudMhGI5dYH/MEbHMIHwbI4FMwH7xhEUSKWMde4I8OkGGbdHP9
+         mltJ4y9odkDKnBHLy/tFO5CAw3SN//lAfDj33UnKk0Ttp4Huo2Cc7GFJrL5hKkzKRkut
+         U41A66JhQZLmRlY2eAzkOITq6aaZ0qCD4SORgYHf4uh+aocJMXXbPzY5El1o6poTyTOU
+         qjPMn/mnZ9l2q3+FolQBrR4TU85fsq7I8oIps1p0V7F1gYhlXZQcrDfiBexq04+Om3cF
+         I7Ro5nuF1yzJGSpTrTv4kGGj3zOd4Dw8fIkk0jLw3P2ilyeI0PNVS+S2iEPgagW21v5k
+         M/jw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=CzTKZRB9;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::52a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of mic@digikod.net designates 2001:1600:4:17::8fa8 as permitted sender) smtp.mailfrom=mic@digikod.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:date:message-id:subject:to:cc
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=XqKfwlE0ZkFqHwf5K5sk/XZrkeUkCu5Ao/ku+DIE0CU=;
-        b=DrEb2kbJ620TwN8PSwkgpEkcr/RAXHwaeH1mGMN8yIknu9xA9Ea1XYS/cUFe9AVEEv
-         btfqO06ioHrwWiM53e/BR7X2dCoU5zOEivRHp/h+AkvS4OyIBEBOnTLYRoPLJQ9MKGPk
-         NuxpU1dl1ilPrkfVUj+fKbUIxt1+ZxmJKDNMC0S8v9EqmcCtkJg0fTtCDn3ZmsP7yUL2
-         yMnSOJmJKAFaC9HH58FMgGTxypcuUyTX1xq3xBdFrXszBwp8wxm6+E0WlRrTZU4i/k3Z
-         cGyFEx7efNembQ9D6QPgxcis5n7M+DZZfKynsoW6mJq9G5iEhfrBLbp87aj/7oqi5jE4
-         +4lw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=5pfO1NFssK5cF2VAcpYszwC3oaKgmoGwNjXqdFwNdsE=;
+        b=anLI636w2Oi9UZLX/Odk2aTAYhnf+zxGGjWXVFKCLyFHaCEktqvz/Md38lKWTMa02A
+         Vz55K+gaUhQVEobLH11KCxRRcVBMo59Q1hMz+q0moo0Fm5MvIV5Q6WBfe2w9qKPcsBi2
+         em8M/oyn0O5QivB8a0+65kBWDTjizQAHO1+DikkNfiWv0RAw/aWoWK9DWcI2PZJG7re9
+         0P6WYqquN/fFAYzUqzWtVFAQko2oiDoGimxsoy5t4u6TernD+ZYN7+8qDDha/Fnp0lnN
+         FyWWt6Pw3kDuNE5wasagpRvNPLDKD/9mI++H6qpWpkgQHbk1yQTH2BqEEw5+lvmtp69w
+         ODkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:date:message-id:subject
-         :to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XqKfwlE0ZkFqHwf5K5sk/XZrkeUkCu5Ao/ku+DIE0CU=;
-        b=nmLTJkbziBbCFrDoGzq3p1mnxGEibGSNwrUEnEwZEeLllf8gAW8FxYQtWouZfjeAgK
-         AHBI6hv7JFplHgkji4NqMDO122rZ1eus8ILQoDP53Wv1JAzk5onJIk2KRVe1G6GwoMAI
-         M3jVzwwcJn3rz9wbc46KF0GBl9zLPG+x1zUqP6w5OnC39rleizXVfJQ0vkoDTBI5/0nc
-         0URYZuRVClHQamm3tqcSWqCfkznBwRqowN3kruK2ojK3Uy6Un7m7X6Nj4qbOk/SS/QNh
-         nlf+c4Do5QjsXiE/G7hJW259a1Vy925/+5PgKr08U9NoYkXcwxyJ8HEDzHQI+BI+NSu4
-         F3kQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=5pfO1NFssK5cF2VAcpYszwC3oaKgmoGwNjXqdFwNdsE=;
+        b=CUSlnDzl1xCrYlTtUOzQw3V0QM/Xbhyge1cJjBMyyGYQ4sZHxombq6bTnQ8HbkGb5U
+         yrKLKZ+8h2q2cAJL2BU7emKEmA0jC/I917ZAFwelyHzDubb0uuDgDufNg3/7vEOvUXtB
+         zDtaNjO6a8aHwbHP3YgzozRQBiZy0BD9s3J2fZfMToYVLB75DBE2HE4O+qprqM66ygLZ
+         6DrQO3wmC3eJWvCcoSfUoGkHh9KTPirhULqWBhnK6dsapjQDVnvBg4eksFXoQCZ6HsZp
+         TJQNfiLuEmlEwXUa2o86VFlNVj7Z00AUvLaYSddpL4oo22AjfvthfxW7WChOJ4eMgf9G
+         6KNg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531slgK5ZQMK4LD9f3U3vIhGJfwoE0PnStYAN5RoM7q8QukHI9Yy
-	En3BrbOSILe7El6hdhw8eFU=
-X-Google-Smtp-Source: ABdhPJwL64qq+KMCufagi1jWfCAJJYYhiuikehKIkbVzZ9GgmNC3JaNgKJCI3xnsuXtZDKPqVWbArg==
-X-Received: by 2002:a2e:91c4:: with SMTP id u4mr49370ljg.281.1616139375791;
-        Fri, 19 Mar 2021 00:36:15 -0700 (PDT)
+X-Gm-Message-State: AOAM53263R12EA/D6SO4JPuBej96DtdvIHPk78At/VfaexaQym6sKh6a
+	YLNagjvL8LF/jfzoK3aDs7o=
+X-Google-Smtp-Source: ABdhPJzzcrZs5MJa0LQVIUtWguyLLwRKCxEE/gESDAHzZktHEM+zP4TMTOkMWrMd6enOQOGUUBlN+A==
+X-Received: by 2002:a1c:7ec4:: with SMTP id z187mr2614383wmc.3.1616142537313;
+        Fri, 19 Mar 2021 01:28:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:58f8:: with SMTP id v24ls3535950lfo.2.gmail; Fri, 19 Mar
- 2021 00:36:14 -0700 (PDT)
-X-Received: by 2002:a19:c3c3:: with SMTP id t186mr50235lff.596.1616139374787;
-        Fri, 19 Mar 2021 00:36:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616139374; cv=none;
+Received: by 2002:a05:600c:4f8f:: with SMTP id n15ls2225974wmq.2.gmail; Fri,
+ 19 Mar 2021 01:28:56 -0700 (PDT)
+X-Received: by 2002:a05:600c:2102:: with SMTP id u2mr2683554wml.22.1616142536368;
+        Fri, 19 Mar 2021 01:28:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616142536; cv=none;
         d=google.com; s=arc-20160816;
-        b=K66C9wFtah5QF1ROg3odaxO6QvLTi0HswVEUf8mnZRBVzpsiHrwEvA43Xbd5fwfsZZ
-         al3BJUZu/Li82AiABqyMTTIhG0WxI34LEoIwZ81R4vQlPzOpAQAmHN0w+QREd+gUPzfp
-         1RO01QIc8FEZEf+RiQKh5o2160OddrZtyrj/mgCPX5XsX9wk71HoKX0VpWv/PvV3dDdq
-         gvG4TX7sCazTNye7EQUTUj6azVZtDzAQea8B1qQ398GndHBtFXefNJteDjZgKpw25erL
-         YQMlOTPmv6eZNx9rx0NFX/5ODpZ2GGQpPoUai+k11ODoGZCDjWAB/NvHY3GUUiWt4t+g
-         L1GQ==
+        b=NpMG0VmHoeNzLZgIpmdBfAyLeWzZnwm+DA+PDKzNEykwyCP7uH33UkIqxEEJmYobEU
+         fbl2/VFE5anZDZFIFYa8a9zSy32otLJsbWHCb0RJmBKsTusWIQqH9bsYNH2L6IlDAtjT
+         4U+uOnZF5mHPwsI/bMqT+X6tCL7JhKTK83czPR6nZqIYuCL3yDpsnJEZE3uFGhQeQjts
+         j1DnHxlLTPlKoW/kzmrFhiDxjTG8QqBiqrdkV1lihD9cjL4ob5YWiP8OSDuWM8FEpx+s
+         cZhTBDiL0MiVuiMa8LFgDi/yvhDrozs2STfxJAz0wGz1+xUrIIwaMyVagRncx1GS/U88
+         Ecbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=cFztndHYvTA4SCUs/JT696S46MToc8dDZLMQpjlmP/w=;
-        b=O/F5lfOWa7ZqOuiNAbH4iLDArM1uClS8Cys0l4lll4MMOtJOO0YHPsudd2j2gYMapi
-         3+b4VoXBOLx5PK7IRdKJ+ozge0k1MZ1xdKwMQPgPSmWsVvjQ6ua69duba5+JEaghkVYH
-         R4HVMM9F4hB5yvTVrlPe+6YoF1AcZVhhLASJgbhgjYmCZ1pPucJQ0MkMCqqWq+OW1uUw
-         Q3WVEM1mKM12GZ/etkBcnbiaKnMa2Qq8TVUOJRcAo2BWlTmarButwq1WkXGIeRrd2wqM
-         tJgmQfmg7rGiW9zyA4p1UbRA2xZ7vQ9JsXuWwiwVJwTtYt31PWP7W8/f2k2v8Wuu/eLQ
-         b0CA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=fUCUENoAuCWU8d5EYvQlAW7FPdzSi41ehJQAwWOYpAo=;
+        b=fqq5f6wFzZGojB4zfTwiXLL5xdTfff4R5Pb11lt/Dl+FKH+A3/2sHvt9sCf/DNZopy
+         Nia7OQoAVM5v+hFSrhMft29aVmlYELeRRJWgBV9cKepWUBjGqlcoOYgbIJXkG1KgA0TE
+         CH6ac3sJ2yJLLyxiafGM2+Ffs+eA91GRxvc5PEqj4HZWjDp4ivabP4RWd8lwkXbR77D2
+         dLCPRSqjvp32N6YOG96QFVm61NKiuUpU58MKN3olo0lgPImMBmxpT2x5YuYTRDZkqSa2
+         avdDRvQePaxus4IuO60Bn5bDlYeCDIbDh8jW0+vzQFbNbIQUgjeqMlXun7wzovqUeaCB
+         dx7w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=CzTKZRB9;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::52a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-ed1-x52a.google.com (mail-ed1-x52a.google.com. [2a00:1450:4864:20::52a])
-        by gmr-mx.google.com with ESMTPS id 63si154050lfg.9.2021.03.19.00.36.14
+       spf=pass (google.com: domain of mic@digikod.net designates 2001:1600:4:17::8fa8 as permitted sender) smtp.mailfrom=mic@digikod.net
+Received: from smtp-8fa8.mail.infomaniak.ch (smtp-8fa8.mail.infomaniak.ch. [2001:1600:4:17::8fa8])
+        by gmr-mx.google.com with ESMTPS id y12si145734wrw.3.2021.03.19.01.28.56
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Mar 2021 00:36:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::52a as permitted sender) client-ip=2a00:1450:4864:20::52a;
-Received: by mail-ed1-x52a.google.com with SMTP id o19so9631429edc.3
-        for <clang-built-linux@googlegroups.com>; Fri, 19 Mar 2021 00:36:14 -0700 (PDT)
-X-Received: by 2002:aa7:d416:: with SMTP id z22mr7919214edq.239.1616139373731;
- Fri, 19 Mar 2021 00:36:13 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Mar 2021 01:28:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mic@digikod.net designates 2001:1600:4:17::8fa8 as permitted sender) client-ip=2001:1600:4:17::8fa8;
+Received: from smtp-3-0001.mail.infomaniak.ch (unknown [10.4.36.108])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4F1xr76p6KzMpnlT;
+	Fri, 19 Mar 2021 09:28:55 +0100 (CET)
+Received: from ns3096276.ip-94-23-54.eu (unknown [23.97.221.149])
+	by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4F1xr506LQzlh8TD;
+	Fri, 19 Mar 2021 09:28:52 +0100 (CET)
+Subject: Re: [security:landlock_lsm 8/12] kernel/sys_ni.c:270:1: warning: no
+ previous prototype for function '__arm64_sys_landlock_create_ruleset'
+To: kernel test robot <lkp@intel.com>, Masahiro Yamada
+ <masahiroy@kernel.org>, James Morris <jamorris@linux.microsoft.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+ linux-security-module@vger.kernel.org,
+ =?UTF-8?Q?Micka=c3=abl_Sala=c3=bcn?= <mic@linux.microsoft.com>,
+ Al Viro <viro@zeniv.linux.org.uk>, "Serge E . Hallyn" <serge@hallyn.com>,
+ Jann Horn <jannh@google.com>, linux-arch <linux-arch@vger.kernel.org>,
+ X86 ML <x86@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+References: <202103191225.cgrp2F0E-lkp@intel.com>
+From: =?UTF-8?Q?Micka=c3=abl_Sala=c3=bcn?= <mic@digikod.net>
+Message-ID: <0491a550-4800-fd39-fea4-468b7aed110b@digikod.net>
+Date: Fri, 19 Mar 2021 09:29:08 +0100
+User-Agent: 
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Fri, 19 Mar 2021 13:06:02 +0530
-Message-ID: <CA+G9fYseDSQ2Vgg5Cb=8HHdpm56aeVQH0Vdx7JK1SktGpRRkgw@mail.gmail.com>
-Subject: sparc: clang: error: unknown argument: '-mno-fpu'
-To: clang-built-linux <clang-built-linux@googlegroups.com>, 
-	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	sparclinux@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Anders Roxell <anders.roxell@linaro.org>, =?UTF-8?B?RGFuaWVsIETDrWF6?= <daniel.diaz@linaro.org>
+In-Reply-To: <202103191225.cgrp2F0E-lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: naresh.kamboju@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=CzTKZRB9;       spf=pass
- (google.com: domain of naresh.kamboju@linaro.org designates
- 2a00:1450:4864:20::52a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Language: en-US
+X-Original-Sender: mic@digikod.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mic@digikod.net designates 2001:1600:4:17::8fa8 as
+ permitted sender) smtp.mailfrom=mic@digikod.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,56 +135,277 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Linux mainline master build breaks for sparc defconfig.
-There are multiple errors / warnings with clang-12 and clang-11 and 10.
- - sparc (defconfig) with clang-12, clang-11 and clang-10
- - sparc (tinyconfig) with clang-12, clang-11 and clang-10
- - sparc (allnoconfig) with clang-12, clang-11 and clang-10
-
-make --silent --keep-going --jobs=8
-O=/home/tuxbuild/.cache/tuxmake/builds/1/tmp ARCH=sparc
-CROSS_COMPILE=sparc64-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
-clang'
-clang: error: unknown argument: '-mno-fpu'
-clang: error: unknown argument: '-fcall-used-g5'
-clang: error: unknown argument: '-fcall-used-g7'
-make[2]: *** [/builds/linux/scripts/Makefile.build:116:
-scripts/mod/devicetable-offsets.s] Error 1
-clang: error: unknown argument: '-mno-fpu'
-clang: error: unknown argument: '-fcall-used-g5'
-clang: error: unknown argument: '-fcall-used-g7'
-make[2]: *** [/builds/linux/scripts/Makefile.build:271:
-scripts/mod/empty.o] Error 1
-
-Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-
-build link,
-https://gitlab.com/Linaro/lkft/mirrors/torvalds/linux-mainline/-/jobs/1110841374#L81
-
-steps to reproduce:
---------------------------
-# TuxMake is a command line tool and Python library that provides
-# portable and repeatable Linux kernel builds across a variety of
-# architectures, toolchains, kernel configurations, and make targets.
-#
-# TuxMake supports the concept of runtimes.
-# See https://docs.tuxmake.org/runtimes/, for that to work it requires
-# that you install podman or docker on your system.
-#
-# To install tuxmake on your system globally:
-# sudo pip3 install -U tuxmake
-#
-# See https://docs.tuxmake.org/ for complete documentation.
-
-tuxmake --runtime podman --target-arch sparc --toolchain clang-12
---kconfig defconfig
+This kind of warnings will be fixed with
+https://lore.kernel.org/lkml/20210301131533.64671-2-masahiroy@kernel.org/
 
 
---
-Linaro LKFT
-https://lkft.linaro.org
+On 19/03/2021 05:56, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jmorris/linux-security.git landlock_lsm
+> head:   f642729df39003efe2a9bfa341a95759d712eb35
+> commit: c5eafae25eb54cc5354f0675a88a34f03c08f559 [8/12] landlock: Add syscall implementations
+> config: arm64-randconfig-r033-20210318 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project fcc1ce00931751ac02498986feb37744e9ace8de)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm64 cross compiling tool for clang build
+>         # apt-get install binutils-aarch64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/jmorris/linux-security.git/commit/?id=c5eafae25eb54cc5354f0675a88a34f03c08f559
+>         git remote add security https://git.kernel.org/pub/scm/linux/kernel/git/jmorris/linux-security.git
+>         git fetch --no-tags security landlock_lsm
+>         git checkout c5eafae25eb54cc5354f0675a88a34f03c08f559
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:21:1: note: expanded from here
+>    __arm64_sys_shutdown
+>    ^
+>    kernel/sys_ni.c:250:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:251:1: warning: no previous prototype for function '__arm64_sys_recvfrom' [-Wmissing-prototypes]
+>    COND_SYSCALL(recvfrom);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:22:1: note: expanded from here
+>    __arm64_sys_recvfrom
+>    ^
+>    kernel/sys_ni.c:251:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:253:1: warning: no previous prototype for function '__arm64_sys_sendmsg' [-Wmissing-prototypes]
+>    COND_SYSCALL(sendmsg);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:27:1: note: expanded from here
+>    __arm64_sys_sendmsg
+>    ^
+>    kernel/sys_ni.c:253:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:255:1: warning: no previous prototype for function '__arm64_sys_recvmsg' [-Wmissing-prototypes]
+>    COND_SYSCALL(recvmsg);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:32:1: note: expanded from here
+>    __arm64_sys_recvmsg
+>    ^
+>    kernel/sys_ni.c:255:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:261:1: warning: no previous prototype for function '__arm64_sys_mremap' [-Wmissing-prototypes]
+>    COND_SYSCALL(mremap);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:37:1: note: expanded from here
+>    __arm64_sys_mremap
+>    ^
+>    kernel/sys_ni.c:261:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:264:1: warning: no previous prototype for function '__arm64_sys_add_key' [-Wmissing-prototypes]
+>    COND_SYSCALL(add_key);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:38:1: note: expanded from here
+>    __arm64_sys_add_key
+>    ^
+>    kernel/sys_ni.c:264:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:265:1: warning: no previous prototype for function '__arm64_sys_request_key' [-Wmissing-prototypes]
+>    COND_SYSCALL(request_key);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:39:1: note: expanded from here
+>    __arm64_sys_request_key
+>    ^
+>    kernel/sys_ni.c:265:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:266:1: warning: no previous prototype for function '__arm64_sys_keyctl' [-Wmissing-prototypes]
+>    COND_SYSCALL(keyctl);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:40:1: note: expanded from here
+>    __arm64_sys_keyctl
+>    ^
+>    kernel/sys_ni.c:266:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>>> kernel/sys_ni.c:270:1: warning: no previous prototype for function '__arm64_sys_landlock_create_ruleset' [-Wmissing-prototypes]
+>    COND_SYSCALL(landlock_create_ruleset);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:45:1: note: expanded from here
+>    __arm64_sys_landlock_create_ruleset
+>    ^
+>    kernel/sys_ni.c:270:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>>> kernel/sys_ni.c:271:1: warning: no previous prototype for function '__arm64_sys_landlock_add_rule' [-Wmissing-prototypes]
+>    COND_SYSCALL(landlock_add_rule);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:46:1: note: expanded from here
+>    __arm64_sys_landlock_add_rule
+>    ^
+>    kernel/sys_ni.c:271:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>>> kernel/sys_ni.c:272:1: warning: no previous prototype for function '__arm64_sys_landlock_restrict_self' [-Wmissing-prototypes]
+>    COND_SYSCALL(landlock_restrict_self);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:47:1: note: expanded from here
+>    __arm64_sys_landlock_restrict_self
+>    ^
+>    kernel/sys_ni.c:272:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:277:1: warning: no previous prototype for function '__arm64_sys_fadvise64_64' [-Wmissing-prototypes]
+>    COND_SYSCALL(fadvise64_64);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:48:1: note: expanded from here
+>    __arm64_sys_fadvise64_64
+>    ^
+>    kernel/sys_ni.c:277:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:280:1: warning: no previous prototype for function '__arm64_sys_swapon' [-Wmissing-prototypes]
+>    COND_SYSCALL(swapon);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:49:1: note: expanded from here
+>    __arm64_sys_swapon
+>    ^
+>    kernel/sys_ni.c:280:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:281:1: warning: no previous prototype for function '__arm64_sys_swapoff' [-Wmissing-prototypes]
+>    COND_SYSCALL(swapoff);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:50:1: note: expanded from here
+>    __arm64_sys_swapoff
+>    ^
+>    kernel/sys_ni.c:281:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:282:1: warning: no previous prototype for function '__arm64_sys_mprotect' [-Wmissing-prototypes]
+>    COND_SYSCALL(mprotect);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:51:1: note: expanded from here
+>    __arm64_sys_mprotect
+>    ^
+>    kernel/sys_ni.c:282:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:283:1: warning: no previous prototype for function '__arm64_sys_msync' [-Wmissing-prototypes]
+>    COND_SYSCALL(msync);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:52:1: note: expanded from here
+>    __arm64_sys_msync
+>    ^
+>    kernel/sys_ni.c:283:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:284:1: warning: no previous prototype for function '__arm64_sys_mlock' [-Wmissing-prototypes]
+>    COND_SYSCALL(mlock);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:53:1: note: expanded from here
+>    __arm64_sys_mlock
+>    ^
+>    kernel/sys_ni.c:284:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    arch/arm64/include/asm/syscall_wrapper.h:76:13: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                       ^
+>    kernel/sys_ni.c:285:1: warning: no previous prototype for function '__arm64_sys_munlock' [-Wmissing-prototypes]
+>    COND_SYSCALL(munlock);
+>    ^
+>    arch/arm64/include/asm/syscall_wrapper.h:76:25: note: expanded from macro 'COND_SYSCALL'
+>            asmlinkage long __weak __arm64_sys_##name(const struct pt_regs *regs)   \
+>                                   ^
+>    <scratch space>:54:1: note: expanded from here
+>    __arm64_sys_munlock
+>    ^
+>    kernel/sys_ni.c:285:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+> 
+> 
+> vim +/__arm64_sys_landlock_create_ruleset +270 kernel/sys_ni.c
+> 
+>    268	
+>    269	/* security/landlock/syscalls.c */
+>  > 270	COND_SYSCALL(landlock_create_ruleset);
+>  > 271	COND_SYSCALL(landlock_add_rule);
+>  > 272	COND_SYSCALL(landlock_restrict_self);
+>    273	
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYseDSQ2Vgg5Cb%3D8HHdpm56aeVQH0Vdx7JK1SktGpRRkgw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0491a550-4800-fd39-fea4-468b7aed110b%40digikod.net.
