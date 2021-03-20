@@ -1,121 +1,137 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBRFJ26BAMGQEVYKFO7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBCFK26BAMGQEPLQO22A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 80220342B9A
-	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Mar 2021 11:56:05 +0100 (CET)
-Received: by mail-qv1-xf3a.google.com with SMTP id da16sf33753142qvb.2
-        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Mar 2021 03:56:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616237764; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 849C9342B9C
+	for <lists+clang-built-linux@lfdr.de>; Sat, 20 Mar 2021 11:57:14 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id a8sf18995411plp.21
+        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Mar 2021 03:57:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616237833; cv=pass;
         d=google.com; s=arc-20160816;
-        b=J0+U1MQTqp/TTJIMYJXO3Fc8WVJZvc7E+aT5Gpj6zlG9qxQRvRJ4vxtclZYAV58HWT
-         SrlEftxTW51bBbMaXaql4vMPp+gGZHjvgmumWL0nIjRoAHL1DQ+LQ400eri6DLJI3CSL
-         CyjaxSK18UVDDOtFyieklHEVSkxr741RkeyVrUMOcMKlUP6/H1Gzd8rbxV1lCXULfSkG
-         AClR8mc2nF3870FhzF0b8TJBCo/l3L6aDb9Y4e0yfROfxrvlsgMyDpvgTnwgw5sJADkZ
-         Q5p+OkSUB5+D17fetMqzq07YNO+S6pdXl/Z5EtC+yXxpG9hIHp1tP6Ixu+oi4+VDmzGC
-         cChQ==
+        b=H2Ps6kj1VwrHEAhoHHgDK5lAFAZR9yoZFtZJUC0OL0xkaP1M/y01Qo8qqdWPUBsT2B
+         mg+FmG12zAAuVHEc9Vw2SOJWluGO4E6btkWW1LwGNbyPXArKv1HimtqaobqmhByWlbLg
+         dpviwlRzWIlaUY/FF/X/GRcFFAzFBU9TV7N07abM2PqhWaifpMNPyqzn4znVjz/MdCdx
+         +QSM6RgC/uBcFF2rM8jgfQvxsWcW8SwekXNUtzfeMO+Kg3PrUNLR3RhnA+Vwr2eIQxlt
+         LY6rrzn/GSwWC3Glsh6wmtv15A0LFV++DA72p0oCQD7Hiexbw6QYiAaDjgHaO0aomqeL
+         x2QA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:message-id:in-reply-to:date:from:cc:to:subject:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=Jf96WrEgjBsSQQrU+1kkSevZ9nvYVjgt4esyD1VqT1Y=;
-        b=OmAO0aWhT1gYON/kgD1TD8FPR/jfd2zg+c3/mCcy4olQbl9XOKXJQfNUQELbTv0Oxp
-         wc5T30x8Hc2G1jPMxvBSgG/MmxwLodeStfVJeKxwlsaowbkuiH1XvkECPok4D/Fegs7q
-         sJj4lqzb3C079HZ9fafdddsfuc3OD5qzLz1yCx/VoMvIbFPeh3r28ADeLSVkw00SIrM7
-         +9JYiz4Jy94ODy7XKq59XvPhDiqmoEZLCIJ1IFt2AJz6fV4gZzWF9S+npt3PhEF52CUC
-         +CJVp0zhq+Fh+zXs8wGgtYIDEhIupLBXHqBrd3ro9jfS4QeOh4lIEUGP3QW9QwHsCjyz
-         rlbg==
+        bh=ruBikgd9xORlfVvkeM4szZgJCeqAARCZQTEwHw1PkBY=;
+        b=QUKp5UhUrVHiIQN8+0MfFAsGxdH94cRtObENSTPG/KUiKWKT/Hj9kauVJY2J63TWSz
+         dfYsr+waMiGk64dx78arRjfz95APqr/1PDtBmivSjTLSfwFHmcXpQTnXMaQFk9hOkntT
+         e2K45zA+7KCqekJeKiGRsjplAzSbSPVpNO5AMS9QFA2BKcJmiANRQ0/yZOwv7jSj/r/+
+         ByvtYd7eLz4HdpmZ9PQYlIBjB8ZmhieA9nlIKPPDuR0XfpXceqs3AHVH/eWAwEHPnFur
+         /OlaNQmkfJQJHzJhsqlU4gfxMw62ESlIs946LVjDP/FHbUw0CS25RvvKF/0WIseJTrlO
+         FViA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=md+4TZaK;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="T/rSoy6G";
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:from:date:in-reply-to:message-id:mime-version
-         :content-transfer-encoding:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Jf96WrEgjBsSQQrU+1kkSevZ9nvYVjgt4esyD1VqT1Y=;
-        b=fMLKEZMBBU52NaQyBowkbcFpsRCxcWCHYg6ipl1PJ3psaq0Tn+ML1/ITIDsNLwzfkp
-         GV2tKNrRiaveriXNhDuFAvWNfMC+G2jWXbybwZYsEClRpACm9aXbexIu3buECpI4Fjk9
-         opL6iuUKdZ4Vmth4eu/NurnlaiiOvj3PAojb4dOZ6k8mAIau/W45u5XUVfA4HXsPfrLM
-         ieZx0fEaDIWkEdrdJNn7lI/5/bGi0cklfLIlgebVZkOSlzfYU1B2dDufTeLHeWcRrMlE
-         k9tKZyrB1m2VshpoSb6PDXyRAAMRa8Wew/qjeBhrMMhpxY3X5ITOpHlfPkZMQzmHJbcJ
-         JNCQ==
+        bh=ruBikgd9xORlfVvkeM4szZgJCeqAARCZQTEwHw1PkBY=;
+        b=Ik61p1h7/GhgQOrZFrmql3a9hnLP+rNW3Sjp3dCo55Dog+3UU9mzKVHOITlI8M7AV+
+         yDvLb8Zjnu9S8EN0D7LS+iLicw024cmOJd4WTe03dEeC0D0UPk8KWNmSMISTx497jt1V
+         a6T330ILnyLeyOYYkSNzjf/imD/H1pOvtUhMZJIFlWNRsOfzwQCzQswJOsOBVB1Jj54O
+         oIjAgYNt8V6Z9wHrSVuZDibI3t9OCCi0uQeY1+6VVEnV+U7dzloXtz70LC8krQaBNz2z
+         Fd+KPzAMv724SYS49uCb1o/IR6/ZCqlQeToVihaerkMX3lGvh4d25hb8sWNxwgoJf7nc
+         0u1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:from:date:in-reply-to
-         :message-id:mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Jf96WrEgjBsSQQrU+1kkSevZ9nvYVjgt4esyD1VqT1Y=;
-        b=tMFu+1y0/roxxzYZFRYYrsxtfsO/6MAvfpJNDhtFjXXkIStBoXy35pyTOMH3arxnRT
-         E8ecM4DM8zVQeR5+TXgAB/lPfCct3xqTx6/d5cCC0/OoAEVtvPNF2yTJWAX3b4W7O9p8
-         pCzpg4qmyXhPHRl5n1h1xt5qlsqfq5Xi5zvZ9dPYU12+vPEn+iEFYK3iwkUPO0aZetMv
-         nON3yk6HBTCckbQjeqLdHx95m6mun2p+yBS6D/CMN/IlqaijR03ueflNAdMw8p5atk6/
-         II5+IvoD6Szgvl5OwE8enn/8jl8Uk4+4ilagH0cAhWo3tTlQom0VuN0JLfSXMa0smj23
-         p2EQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ruBikgd9xORlfVvkeM4szZgJCeqAARCZQTEwHw1PkBY=;
+        b=Z38395RLDvQ7jqKWw8YYhcSOu5TEZuWodwoKjRsH0ebiPjL1XajZs9Mtat2fUtOLvp
+         anxHzWeSvzu2mk2rRNcPIg5nMInwf7/Bwi9uDg10NJgfE/NsWrYuxZ/wyjK1HwZ+UB9Z
+         0+zmNBLCsjVs0Bg5EA6V1bAIeSMF/h04rNV6/jilWdD7H7W2RwkYniLLM1d9VG+5Kmbp
+         vqcaUCqM0HTtBgiF7U3IMpzmxBp53I6QEsIuorj/VbMkoooEayr+ycNS/0WSXrdlQmQy
+         VzfMtGpAJFCLnf4k0S6iHOSrjSskE+3cp/+jemNSXdcpsGcPtmuSENIsB29mioV4uAVF
+         r3+w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532U7npKhvQX+toNDOGQkibAWfMbym0rMzg3AN3vdCiCtgWL5TH6
-	wzb2v/ZIkfyowm+w+hXMvcM=
-X-Google-Smtp-Source: ABdhPJwQDr+K1b09HKOUmy3bVAdpzm308jugS0h6G8Pgusals77dKrH1fKAQ8QzZlp1yYVxPn2yZZA==
-X-Received: by 2002:aed:206c:: with SMTP id 99mr2519799qta.64.1616237764569;
-        Sat, 20 Mar 2021 03:56:04 -0700 (PDT)
+X-Gm-Message-State: AOAM53097y4hvfmWXedpf1kb5OQ/JG3mJkai3W93EirG8uE2T7QRHR5r
+	nC7Z0iZVwvrqz1d0Dyf1nsE=
+X-Google-Smtp-Source: ABdhPJykhnhXLa+1PXoPZfAFODsCZZd8EsCRovn/mWb6Ia+uzKSMxIXdZaNve9lSfie54U4ufI3q7Q==
+X-Received: by 2002:a17:902:ac94:b029:e6:de3d:3cb7 with SMTP id h20-20020a170902ac94b02900e6de3d3cb7mr2098558plr.23.1616237833040;
+        Sat, 20 Mar 2021 03:57:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:991:: with SMTP id x17ls4271346qkx.2.gmail; Sat, 20
- Mar 2021 03:56:04 -0700 (PDT)
-X-Received: by 2002:a37:6191:: with SMTP id v139mr2507840qkb.32.1616237764058;
-        Sat, 20 Mar 2021 03:56:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616237764; cv=none;
+Received: by 2002:aa7:9acd:: with SMTP id x13ls289838pfp.1.gmail; Sat, 20 Mar
+ 2021 03:57:12 -0700 (PDT)
+X-Received: by 2002:aa7:818e:0:b029:215:2466:3994 with SMTP id g14-20020aa7818e0000b029021524663994mr2404698pfi.48.1616237832569;
+        Sat, 20 Mar 2021 03:57:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616237832; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ap8U2XbaaekOxjVAp3Nb9CNy8+xgv1zCYP6wBdyu3FguFQLoqgFLqH+a5PwvrbhPay
-         QQEAWKiyBnquppYs6iyBCZoAtZKx3Z0yR2pZHgZhXxRu1gduKtJJg2vgdG/1GcXhoDHz
-         V9AU4gPlQS6sTIY0i/Bq3XGnD7OWeuiMH/6AWrSucVP4fnEcgY4rZQitLWIPUy5qZp94
-         c/yk/z2qhkrktvgwPrcMpnVdtAFGmxEWsz6BS8mQwooshGFfGjOmJC/c9nnRNpOR0Q5H
-         civvNWQtbj1bTeEvdivMGNQYmoLCUemF5HtinkfMqpGrpDA8ctxvvs1GSKpkEK6rfIja
-         wcwA==
+        b=lBuPgeiWBrBk1UMohKNG3v+pyIfSBWWwaYqBHNBa2j+CR3ixQa8g9ADLDiZPx3t59m
+         KCx2hmGpwV+NIyDZ8mTosk5sFnmChU+eY5zhofjlLmz+tFHofOYddZuJwn5kIj2DJ6Ob
+         +uxU0eq2jeViSBZPt2lLr/iySsj1DJc6qCBG2dnqC8yFiK3c6mDufOhj5Yz9Ut+R/icH
+         tCIz/KLZOe7T/u7QnlIRQ87u8++G/aejuaB+g9GEyI/Iw5qMkLRs6zcui/wQTpuXlTiu
+         ERTww7o9kliPwuC7UtQcXO3qFexqDoLlK5v1TD8SnquCnETWsQHGak8gFJw/xPbUobQw
+         qA2A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :from:cc:to:subject:dkim-signature;
-        bh=OuG6CCj2D682scBKE+ftw23TaV4ZS+QpjOajaJzIWzQ=;
-        b=Zjl79tSsJvjR7k9Dg0fsk0kPBz2pc3xzhBTdNWsBJii38vX7aUnMspoK8G2xK7eT8o
-         HcBT0bWHUwP/ku6VeYaT86AB4dNKRXnSj4+9n6KOhYnnG9rXCcv4QDx9XZmP7Jc3TT5g
-         0sKBdB9Msq6hr0ZxUkI99r8wVVBJ+wSnLdzcRt2OIPNknVT9sWsvyP+o2FXgylpxrSXd
-         7AJEjvgRZaNa7PNk1uT6nzZI4/ACDCiRHyl0afpmEYSJvpRUjaxVtIJztjXgb7p/p3w+
-         FG1QRZUx/peKtOS/LxgyRDniQplAAqVweLOYLFgAD/fWhDvL3fFWLCiZoBFxk/ZGkGAX
-         H6ZQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=86tQUGFDMt04Y+JvR11S/QUpRJ6dR82Sd53CpRq7CRI=;
+        b=f2YkTWdtpjEudzcQLD3ashQrEkXlOFBIIJiV9/AWg7rc0+9PBBX89XOsIHSZTpKfMP
+         IFMP7u8rrgltUKnqaS0Cv0CaIVryfw5nfU7dalDHy2uQpFDVSD4jX6Iz1f3F0GUXdohC
+         fyGARuYrGJZyCSMx8knW/NYwcL9R8nP/HNXlLJco35sj2oous/qQMqSuXGk4rsOHZHAM
+         iWCZsTcG5pzjY17A9g0q0zYA9rvNC+yatMIsZDn88ThiUGw4qWGpU6RzuOGLrxkfzY63
+         D8SVtwS2FbWE/0K1ehfGfRuhzf0F49mVKZCNag537AmW+K3lniY7a9wcqIRCYbKANS3O
+         hJHg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=md+4TZaK;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="T/rSoy6G";
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id r26si92077qtf.3.2021.03.20.03.56.03
+        by gmr-mx.google.com with ESMTPS id ft8si712795pjb.0.2021.03.20.03.57.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 20 Mar 2021 03:56:03 -0700 (PDT)
+        Sat, 20 Mar 2021 03:57:12 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 65EFC61A3D;
-	Sat, 20 Mar 2021 10:56:02 +0000 (UTC)
-Subject: Patch "lkdtm: don't move ctors to .rodata" has been added to the 4.19-stable tree
-To: arnd@arndb.de,clang-built-linux@googlegroups.com,drinkcat@chromium.org,gregkh@linuxfoundation.org,groeck@chromium.org,keescook@chromium.org,mark.rutland@arm.com
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Sat, 20 Mar 2021 11:55:59 +0100
-In-Reply-To: <20210320121614.for-stable-4.19.v2.2.I0387622b15d84eed675e48a0ba3be9c03b9f9e97@changeid>
-Message-ID: <161623775990245@kroah.com>
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7D23D61A40;
+	Sat, 20 Mar 2021 10:57:11 +0000 (UTC)
+Date: Sat, 20 Mar 2021 11:57:09 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Nicolas Boichat <drinkcat@chromium.org>
+Cc: stable@vger.kernel.org, groeck@chromium.org,
+	Alexandre Chartre <alexandre.chartre@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Christopher Li <sparse@chrisli.org>, Daniel Axtens <dja@axtens.net>,
+	Kees Cook <keescook@chromium.org>,
+	Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Marek <michal.lkml@markovi.net>,
+	"Naveen N. Rao" <naveen.n.rao@linux.vnet.ibm.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Paul Mackerras <paulus@samba.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-sparse@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [for-stable-4.19 PATCH v2 0/2] Backport patches to fix
+ KASAN+LKDTM with recent clang on ARM64
+Message-ID: <YFXVBXuXRkug2Esi@kroah.com>
+References: <20210320041626.885806-1-drinkcat@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-stable: commit
-X-Patchwork-Hint: ignore
+Content-Disposition: inline
+In-Reply-To: <20210320041626.885806-1-drinkcat@chromium.org>
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=md+4TZaK;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@linuxfoundation.org header.s=korg header.b="T/rSoy6G";
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates
+ 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,153 +144,28 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Sat, Mar 20, 2021 at 12:16:24PM +0800, Nicolas Boichat wrote:
+> Backport 2 patches that are required to make KASAN+LKDTM work
+> with recent clang (patch 2/2 has a complete description).
+> Tested on our chromeos-4.19 branch.
+> Also compile tested on x86-64 and arm64 with gcc this time
+> around.
+> 
+> Patch 1/2 adds a guard around noinstr that matches upstream,
+> to prevent a build issue, and has some minor context conflicts.
+> Patch 2/2 is a clean backport.
+> 
+> These patches have been merged to 5.4 stable already. We might
+> need to backport to older stable branches, but this is what I
+> could test for now.
 
-This is a note to let you know that I've just added the patch titled
+Ok, trying this again, let's see what breaks :)
 
-    lkdtm: don't move ctors to .rodata
+thanks,
 
-to the 4.19-stable tree which can be found at:
-    http://www.kernel.org/git/?p=3Dlinux/kernel/git/stable/stable-queue.git=
-;a=3Dsummary
+greg k-h
 
-The filename of the patch is:
-     lkdtm-don-t-move-ctors-to-.rodata.patch
-and it can be found in the queue-4.19 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From foo@baz Sat Mar 20 11:54:47 AM CET 2021
-From: Nicolas Boichat <drinkcat@chromium.org>
-Date: Sat, 20 Mar 2021 12:16:26 +0800
-Subject: lkdtm: don't move ctors to .rodata
-To: stable@vger.kernel.org
-Cc: groeck@chromium.org, Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann=
- <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Coo=
-k <keescook@chromium.org>, Nicolas Boichat <drinkcat@chromium.org>, clang-b=
-uilt-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Message-ID: <20210320121614.for-stable-4.19.v2.2.I0387622b15d84eed675e48a0b=
-a3be9c03b9f9e97@changeid>
-
-From: Nicolas Boichat <drinkcat@chromium.org>
-
-From: Mark Rutland <mark.rutland@arm.com>
-
-commit 3f618ab3323407ee4c6a6734a37eb6e9663ebfb9 upstream.
-
-When building with KASAN and LKDTM, clang may implictly generate an
-asan.module_ctor function in the LKDTM rodata object. The Makefile moves
-the lkdtm_rodata_do_nothing() function into .rodata by renaming the
-file's .text section to .rodata, and consequently also moves the ctor
-function into .rodata, leading to a boot time crash (splat below) when
-the ctor is invoked by do_ctors().
-
-Let's prevent this by marking the function as noinstr rather than
-notrace, and renaming the file's .noinstr.text to .rodata. Marking the
-function as noinstr will prevent tracing and kprobes, and will inhibit
-any undesireable compiler instrumentation.
-
-The ctor function (if any) will be placed in .text and will work
-correctly.
-
-Example splat before this patch is applied:
-
-[    0.916359] Unable to handle kernel execute from non-executable memory a=
-t virtual address ffffa0006b60f5ac
-[    0.922088] Mem abort info:
-[    0.922828]   ESR =3D 0x8600000e
-[    0.923635]   EC =3D 0x21: IABT (current EL), IL =3D 32 bits
-[    0.925036]   SET =3D 0, FnV =3D 0
-[    0.925838]   EA =3D 0, S1PTW =3D 0
-[    0.926714] swapper pgtable: 4k pages, 48-bit VAs, pgdp=3D00000000427b30=
-00
-[    0.928489] [ffffa0006b60f5ac] pgd=3D000000023ffff003, p4d=3D000000023ff=
-ff003, pud=3D000000023fffe003, pmd=3D0068000042000f01
-[    0.931330] Internal error: Oops: 8600000e [#1] PREEMPT SMP
-[    0.932806] Modules linked in:
-[    0.933617] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.10.0-rc7 #2
-[    0.935620] Hardware name: linux,dummy-virt (DT)
-[    0.936924] pstate: 40400005 (nZcv daif +PAN -UAO -TCO BTYPE=3D--)
-[    0.938609] pc : asan.module_ctor+0x0/0x14
-[    0.939759] lr : do_basic_setup+0x4c/0x70
-[    0.940889] sp : ffff27b600177e30
-[    0.941815] x29: ffff27b600177e30 x28: 0000000000000000
-[    0.943306] x27: 0000000000000000 x26: 0000000000000000
-[    0.944803] x25: 0000000000000000 x24: 0000000000000000
-[    0.946289] x23: 0000000000000001 x22: 0000000000000000
-[    0.947777] x21: ffffa0006bf4a890 x20: ffffa0006befb6c0
-[    0.949271] x19: ffffa0006bef9358 x18: 0000000000000068
-[    0.950756] x17: fffffffffffffff8 x16: 0000000000000000
-[    0.952246] x15: 0000000000000000 x14: 0000000000000000
-[    0.953734] x13: 00000000838a16d5 x12: 0000000000000001
-[    0.955223] x11: ffff94000da74041 x10: dfffa00000000000
-[    0.956715] x9 : 0000000000000000 x8 : ffffa0006b60f5ac
-[    0.958199] x7 : f9f9f9f9f9f9f9f9 x6 : 000000000000003f
-[    0.959683] x5 : 0000000000000040 x4 : 0000000000000000
-[    0.961178] x3 : ffffa0006bdc15a0 x2 : 0000000000000005
-[    0.962662] x1 : 00000000000000f9 x0 : ffffa0006bef9350
-[    0.964155] Call trace:
-[    0.964844]  asan.module_ctor+0x0/0x14
-[    0.965895]  kernel_init_freeable+0x158/0x198
-[    0.967115]  kernel_init+0x14/0x19c
-[    0.968104]  ret_from_fork+0x10/0x30
-[    0.969110] Code: 00000003 00000000 00000000 00000000 (00000000)
-[    0.970815] ---[ end trace b5339784e20d015c ]---
-
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Kees Cook <keescook@chromium.org>
-Acked-by: Kees Cook <keescook@chromium.org>
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Link: https://lore.kernel.org/r/20201207170533.10738-1-mark.rutland@arm.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-
-Signed-off-by: Nicolas Boichat <drinkcat@chromium.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
-
-(no changes since v1)
-
- drivers/misc/lkdtm/Makefile |    2 +-
- drivers/misc/lkdtm/rodata.c |    2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
---- a/drivers/misc/lkdtm/Makefile
-+++ b/drivers/misc/lkdtm/Makefile
-@@ -13,7 +13,7 @@ KCOV_INSTRUMENT_rodata.o	:=3D n
-=20
- OBJCOPYFLAGS :=3D
- OBJCOPYFLAGS_rodata_objcopy.o	:=3D \
--			--rename-section .text=3D.rodata,alloc,readonly,load
-+			--rename-section .noinstr.text=3D.rodata,alloc,readonly,load
- targets +=3D rodata.o rodata_objcopy.o
- $(obj)/rodata_objcopy.o: $(obj)/rodata.o FORCE
- 	$(call if_changed,objcopy)
---- a/drivers/misc/lkdtm/rodata.c
-+++ b/drivers/misc/lkdtm/rodata.c
-@@ -5,7 +5,7 @@
-  */
- #include "lkdtm.h"
-=20
--void notrace lkdtm_rodata_do_nothing(void)
-+void noinstr lkdtm_rodata_do_nothing(void)
- {
- 	/* Does nothing. We just want an architecture agnostic "return". */
- }
-
-
-Patches currently in stable-queue which might be from drinkcat@chromium.org=
- are
-
-queue-4.19/vmlinux.lds.h-create-section-for-protection-against-instrumentat=
-ion.patch
-queue-4.19/lkdtm-don-t-move-ctors-to-.rodata.patch
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/161623775990245%40kroah.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YFXVBXuXRkug2Esi%40kroah.com.
