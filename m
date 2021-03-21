@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFN43KBAMGQEQNPXQGQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQGG3KBAMGQEBGWQUHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63b.google.com (unknown [IPv6:2607:f8b0:4864:20::63b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AF0E343076
-	for <lists+clang-built-linux@lfdr.de>; Sun, 21 Mar 2021 02:15:24 +0100 (CET)
-Received: by mail-pl1-x63b.google.com with SMTP id w10sf22143737plc.20
-        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Mar 2021 18:15:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616289302; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id B3B4E34307F
+	for <lists+clang-built-linux@lfdr.de>; Sun, 21 Mar 2021 02:37:05 +0100 (CET)
+Received: by mail-ot1-x340.google.com with SMTP id d16sf15587128otc.5
+        for <lists+clang-built-linux@lfdr.de>; Sat, 20 Mar 2021 18:37:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616290624; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EmRcFXS4iDQNVakhHLptWozmgMXR8bDfJdXy//0ulpw8igCViYUGGSfSVtg/vRaaLu
-         vqQec4QsyRVRvq1P95YJwYwUEBAaQk13Bx3ZmQFALc8uIzrV/gjFygZ2jorohlLtU2M+
-         HKjx8TojmpXKtE9kXP+fOohuKGsnrADfPLKzqOxvkllXrZ7Iyvn8eTqh1enkCLxuRM1Y
-         HtITh7+qYyO5Qa/4fVGH0kWpHCmalI0AQSvW7dI+cNTAOM2ophFwEJPJM2be4pysHqbh
-         CXKhbto+idYnlDBjZ99VvQqmHCoti/VxSJzBkZeM6RwvbbCoyKfzyqL0XWQgizU0mk/X
-         mNIQ==
+        b=qVh8KDhWNLkC2IvHcbMmY79Kel25+S20wxPsW4zbLbKeXTMqw2xmgk70PP057zZoR8
+         bgK2o54luwjjipE/rYENsDgXDgttosiHOJXzpZLcUqxkgvdZi1kgLN91KGA2zJKgEw5w
+         UFALFvplEtgHBvAfDNOOBY3zVrNS61Q7nNMwlYIGO1eXe5OC7GB4FtzTp1cCu5+StXxf
+         HiX+LKwOYWOrYTHXFMmWRnIPFhX61RJGexSkfqm4B8eX95RA6pQIBZS8piFDq7P8IJgk
+         wB9kpHxpd9KCWeSB85ryU4Ub1c0JaelpS5l2ksxsuMQXj50VkiVJYEz9A75I/JIP4qrD
+         JGKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=jGObUgI6ssR2qNitZ7FuhHFhPdpyZALnWfdArAm2AS4=;
-        b=u9wDfv1zd/lVFBJ5z7hON+bRPYll7qayj/CahPMHKLXuoRs7Y9lDchlPRuRxgIPhjw
-         dwOclgI2MoLnqiHfk8HuvIwcGWtnWcKra7RxRzQ987GfWSnS2V38AqfczIoZu0NtHoEB
-         7Vjf/7vvLpY2Fuoyqw2DrBKXnj821vUCzqf+NIEg4w95KG8WfKn61VRVXhJQQqjBHTgM
-         vF2FmFP11Un6pTHUEEWP3BDDpRvwJ6EoC8i6dez0FPXvvc+2+7hE9mOteDJvI8iUoId3
-         a15Q7VkGKjMCqR6VK3L6sYk5YmUrwLzyMdygLOA2G/NRzKe1L08EYlpCZKIRjgwtiyRf
-         cOHQ==
+        bh=g+ACcLpkZSJ4FvtPSJ7/+9lOKcPWMCRnWLNnQ4mm8tE=;
+        b=dXpqp5qm935VNzRpuzMQK5jaEClDAplpIl2+qK9BGOPGvRA5FKLuQscBOfyWgyv07h
+         oIjpgm1S+rVl29qqNNFx28crq2iFghgnDoDM+wVWFYiHIGckcNZTumZxMaOz+/sz8K55
+         0+JqfpfCrv63qRCIEvZESfqgcrnaOWfs2PC8iVe4TW3H3QTVxeG7LYt9pNgD0r5Mbe2I
+         /Daf7BZBgcKlcmqiDRnill4ghPORk2jg+WTXxOT7XicHtRlUXyfZhRX+qJIsm4LQOHfy
+         5BdznxQ8Z2SvtM3PPmmM0JrheA8AORxSJUUYciJRRckTVLLD98AVhEaV1oKnM6Gu0cao
+         dORA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jGObUgI6ssR2qNitZ7FuhHFhPdpyZALnWfdArAm2AS4=;
-        b=D75rDrjlvKFJSgwEVuIkYHAeWATdrWhwYGsT/EgIWAIjzmlexZAQcYxHAKX1f3TZ66
-         ubWSHaXdK6B9h+HYav2oxDRUhnuXBKkt3LJwRwc272fsK3dkWQPRb4vCebQ6rOkc6jdQ
-         vAfgkBQMxQxJHs2tKe1IwIq51PmOLZmo1pVNAsPx3JbaxNz2nZCkiJ4N5FLUurAfM+pm
-         VRrsiy35+Udr0rT3C0KbzOoM6OGupmrQfrkc33mYbaG7IEn3ch0/k5yHLw2QO3mlSBJU
-         PcX8Y2e6FXhx5l7+gB40F778maxrRn1PMwjJbcOtzNDnXO7NF5j8AhWrExZOl1uuBqs2
-         UqoA==
+        bh=g+ACcLpkZSJ4FvtPSJ7/+9lOKcPWMCRnWLNnQ4mm8tE=;
+        b=RTPoNVGsi+zLgUaGT/SPEjEbfiFK/HapHhxPH/9YaX6BqtAOFdb2b7NsF2pABRFT/1
+         0KWB8zmv9oOGMokkKgHHNYy5uLkV4+DbbCNCNuQiV7/Cll/eewp2ACSQiQMAKyngeNOy
+         Z/NkM30KoLyUvjcO4TbPQ+tdqqqGWSpU9cYKMd7TQ7hoHTMvBJBs5CI2deocYAVs+fe9
+         ZE6cQhlViPxA2BSOimcyQGfgCGWzZMn7gd6YGq9IUA0XvBaM2b7jTeAq8rQuH2QnIfxA
+         yHBelXD6bUsAeUdirMdrvDCLGONHr67unym+ujyurv8PC1PFi427yoD/O7Lu6fmcJke7
+         Dqbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,82 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=jGObUgI6ssR2qNitZ7FuhHFhPdpyZALnWfdArAm2AS4=;
-        b=Uu6ht3OWGr/0mEuG1mTePPD3KCW0fdSGM4r55h2TICCpQYV3dtcxLYeFJ0lU3mYKjF
-         8QUVXRppEOJ+tjzQLkBA3TITD4UscDgkQkyvAW0dPI5IntLssikhrIq0tu3I/EB1y7pB
-         zX/DjqoLGi8gOOk1wkcQ3AYp5OZya7wyuznJdqfzkTytNaX28lrucrFj6g/9odTFQneG
-         SXyrh3VhhqV2lqiQ+fjckhCo+fC2zhFEko8g2uuU2ILyR3fuZf6AAYEw+R1cvukD/DOv
-         WcEIG8tXXe6NpntX7zVWY/qsDyudXOhkQ58B+A+95GnIvh9VbylOi/dMRL1VDIA4OOeK
-         5TCA==
+        bh=g+ACcLpkZSJ4FvtPSJ7/+9lOKcPWMCRnWLNnQ4mm8tE=;
+        b=AHZ+vUtPCbGVIVJ7vGhYOyMU00NuIPCaj+ZoGGrbSD95y79iktNbkWG9DFE7UyYWGL
+         l/u12dBuU7GpbuBJOu9sQxoSBaJ1lEcz3Trryyrsl37ZpIXASpueCYJlhglUjfslhkb0
+         OS0VeVGw1R9TuUCcYyj+J5sAD7j9wti2HmaMUFAeiYOVxuLd39Z5NkZzHAB4z5QwoPgs
+         CbN/acckXJUfdPz+1hmzSLut7+1GyHkBZJFCHQ8k+Zt+Z3QD70oqA6x8wiK24LWUI063
+         amcMm8+rgfyqoXy4m1qR/4DmsHs+/KJX1U3YHmBV/+HDZRUSXFWsPO9mJKFz2L9yAcWj
+         NPiw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5316RPywWi8wtWY0BIU9biAvo9HPANP+wlwvZUJHDwjPJkkRjqqU
-	2oPKrPiePlXfYGZZ8kJze6E=
-X-Google-Smtp-Source: ABdhPJzUAxmCnqIBMpRymsrG0mBZczH9cCSk6JLEg1eaLn8DL3F+tx9u5lV/HxpIhl/OcREZGDZRIA==
-X-Received: by 2002:a63:4956:: with SMTP id y22mr17600059pgk.309.1616289301803;
-        Sat, 20 Mar 2021 18:15:01 -0700 (PDT)
+X-Gm-Message-State: AOAM532zGlIMeYc42aFj5AUxvDl6AMPcFREwzzN9GvXHDTl0k1KksGLo
+	CLUO1/sG4623dr6ozAxTDXc=
+X-Google-Smtp-Source: ABdhPJyEK4zRfIXpuSlfdiBgal0f2Ftw6x5A8f5b/rOLM0lNNn4YbJjtuSk9YqLNtYJazPJeYruXjA==
+X-Received: by 2002:a05:6830:139a:: with SMTP id d26mr6485833otq.256.1616290624364;
+        Sat, 20 Mar 2021 18:37:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bd8b:: with SMTP id z11ls5376426pjr.1.gmail; Sat, 20
- Mar 2021 18:15:01 -0700 (PDT)
-X-Received: by 2002:a17:903:1c3:b029:e6:a15:751f with SMTP id e3-20020a17090301c3b02900e60a15751fmr20895274plh.44.1616289301232;
-        Sat, 20 Mar 2021 18:15:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616289301; cv=none;
+Received: by 2002:a05:6830:2421:: with SMTP id k1ls482619ots.0.gmail; Sat, 20
+ Mar 2021 18:37:04 -0700 (PDT)
+X-Received: by 2002:a9d:724d:: with SMTP id a13mr6624497otk.307.1616290623870;
+        Sat, 20 Mar 2021 18:37:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616290623; cv=none;
         d=google.com; s=arc-20160816;
-        b=zITNO2VUC47t1FP7t9GSSDZbPPmN4cnEl2txFJlzOPmqqKkBHVxn01B0VbFXLwGrLY
-         8X1mx3AfdMUgGoq1tGBPz6HzmHYdB5rE6DCluJAb2T3pmvflbJreEOSRatDsl+y6AOHy
-         +W/8ps6lO7zw375n325QBUSVQiAcmdmNq/RcCERd7JVaW2To4CqFCKTLNUEvdq0QnUX1
-         Cd93qM/iOZL0yWIPbKqZeNB69XCsje8KUnUrsC1z5x4zrgLA8Xkrojeb4OwQRy1vhmHJ
-         azFzn7FSCIAzM9tc8ImEVxZfreY6cRrFaovhupE6uvC2DIGl3FfH3af0yUNkNdIoki9c
-         1xgQ==
+        b=R1JDOEwUjzuYJ8X7rlykd2sLMLTn77YAT0wMnU3Sisy65MhV4s80KFGjT89laAuzxo
+         T64NN8r44VZNlgXFZ8y1bY36nmLmd2MAaS3bQqgzsQZO42I5H2GSPGVbAArHLc7BuxZz
+         ilctfDQxBSnJbio+JSeKY/rVh3rVqfAfIFgJGpuoErz11Xq/zXS9ZnF14b8ByAlN5FwW
+         uLiPiMaBD891N46coUcN3y9AwT3xF+3ObW6qsDWArbGukAYJRy9A62rE2kiMMcAPyzfu
+         6B6BdEv+v0eqxHGrlAo1pSUbrd87DEkP89SjotYq2hcFvtXf5eB6CYUtv5o52v0tbxHO
+         H6+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=TvHNzqWbQCWM6Gk3DkhGlUHJYvJYaRc4KYtehUwnh0U=;
-        b=M1Vt1PxYg0q1RV8XLlfjPwUXqKRPzwOT8MutB0ed5AQ/qOLH7q5jlO12ucUDyqzt7n
-         YttoHH/59hVDogmBCWT5XyDHBgy+RMWpuQ19hjy1fdAC6enC6lndxp5/HAIdgpBVVaxr
-         czciTAQcpgBRzBcyKTnBtPayLYVxUv1MW4eGqKYnGXtsljyYNFxFK+c8fejGe1LBGwHQ
-         x37Oluf4VWq4ABZbTzlCpWAC2YkChgXZk8/Cd+4BPAO2UI/3DH29ZFMAQmI0R99rrmUn
-         X4moyLtiXPkhj22+B1CU3ci7VRVIThodt4ItjfKzr7itCmnIlWye9ZJqDl7aIm41V7CC
-         nHNQ==
+        bh=hPM9PYWRN5dYzEfDQRtcGsctIFLAhLzYh6CkXTwCuZ8=;
+        b=vaGTAW1ttJ3H/yhkBelxhaOVprx6NEbxKfFKdAgrhfuS0w81CHxR7XVi3bNN3tV3qo
+         DHgaHfN0PgsNcLXFdKqSwk25Wo5l6E3z7G/zqP0yKbSfbLXH1UIq0SXydItP2jAHWrbJ
+         OugqldZPfYqMM8KVMMgGK5mplu5SrjRAB9usf4rgg5uOUIEho0+KDJ55KKeCghTDOiMG
+         edIAngnla8ubO3oVIUc2+Q4iG0Lhh0yPzznjoBYybA3mAIzRM9+KvhvGPvgTunrYLNHr
+         QJMygogego109KJEEAjWHpfpPxTXrmABmatkMnh+hAgJvvtMTNeVaMhUpNTEaudfOcL1
+         4RUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id h92si580054pjd.2.2021.03.20.18.15.00
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id a4si368721oiw.5.2021.03.20.18.37.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 20 Mar 2021 18:15:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: 6cus7lCcv64RCQfOj7o23lZIl4GncOXBZNhZewWjbv6K6hkpuxntGSNWojuUCzr8PydLQcRjr7
- CBCf/AvT6a0Q==
-X-IronPort-AV: E=McAfee;i="6000,8403,9929"; a="186759543"
+        Sat, 20 Mar 2021 18:37:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+IronPort-SDR: R0zrGdNbLvzsw4AEg+OH8oiTpcoNqQsFPMsDMN6st+qanb+21Seo3/1h6B0gO/Q0Hb0SAAbaqn
+ 3AvdMAL/2pXQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9929"; a="170038782"
 X-IronPort-AV: E=Sophos;i="5.81,265,1610438400"; 
-   d="gz'50?scan'50,208,50";a="186759543"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2021 18:15:00 -0700
-IronPort-SDR: +z0y/usxH7/nQTNvi/PqoYGTUFPZP1i1n1oOdBUdBGsOfl9lzuQW5/U4uusZmJm/ndM1vHE8Zj
- cXN9tsKJ1www==
+   d="gz'50?scan'50,208,50";a="170038782"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Mar 2021 18:37:02 -0700
+IronPort-SDR: b8zHFGTgxVtbyMhiupNcoocjhFjKXf8LMZCjTkKbiqh7Rdy9f0oxbhIrtHwYJmRm3Uy0wNZ64t
+ LB6054y6dr/w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.81,265,1610438400"; 
-   d="gz'50?scan'50,208,50";a="441731376"
+   d="gz'50?scan'50,208,50";a="375322337"
 Received: from lkp-server02.sh.intel.com (HELO 1c294c63cb86) ([10.239.97.151])
-  by FMSMGA003.fm.intel.com with ESMTP; 20 Mar 2021 18:14:58 -0700
+  by orsmga006.jf.intel.com with ESMTP; 20 Mar 2021 18:37:00 -0700
 Received: from kbuild by 1c294c63cb86 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lNmgE-0002ra-01; Sun, 21 Mar 2021 01:14:58 +0000
-Date: Sun, 21 Mar 2021 09:14:39 +0800
+	id 1lNn1X-0002sD-Ep; Sun, 21 Mar 2021 01:36:59 +0000
+Date: Sun, 21 Mar 2021 09:36:19 +0800
 From: kernel test robot <lkp@intel.com>
 To: Andy Lutomirski <luto@kernel.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [luto:x86/kentry 5/10] arch/s390/kernel/process.c:61:2: error:
- implicit declaration of function 'syscall_exit_to_user_mode'
-Message-ID: <202103210929.gSJiY5nA-lkp@intel.com>
+Subject: [luto:x86/kentry 6/10] arch/s390/kernel/traps.c:349:3: error:
+ implicit declaration of function 'enter_from_user_mode'
+Message-ID: <202103210916.3jTf413G-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="3MwIy2ne0vdjdPXF"
+Content-Type: multipart/mixed; boundary="5mCyUwZo2JvN/JJP"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -140,13 +140,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---3MwIy2ne0vdjdPXF
+--5mCyUwZo2JvN/JJP
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/luto/linux.git x86/kentry
 head:   b0d7a5e5a9b11a6ddb50b90e31877e3cb1f93362
-commit: d37c90c782b1cca1fc4f936480dd01dda7f72a88 [5/10] kentry: Simplify the common syscall API
+commit: e2bd5fab359ea464f6268bfaca18c3c0344edf33 [6/10] kentry: Remove enter_from/exit_to_user_mode()
 config: s390-randconfig-r011-20210321 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 14696baaf4c43fe53f738bc292bbe169eed93d5d)
 reproduce (this is a W=1 build):
@@ -154,10 +154,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install s390 cross compiling tool for clang build
         # apt-get install binutils-s390x-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/luto/linux.git/commit/?id=d37c90c782b1cca1fc4f936480dd01dda7f72a88
+        # https://git.kernel.org/pub/scm/linux/kernel/git/luto/linux.git/commit/?id=e2bd5fab359ea464f6268bfaca18c3c0344edf33
         git remote add luto https://git.kernel.org/pub/scm/linux/kernel/git/luto/linux.git
         git fetch --no-tags luto x86/kentry
-        git checkout d37c90c782b1cca1fc4f936480dd01dda7f72a88
+        git checkout e2bd5fab359ea464f6268bfaca18c3c0344edf33
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390 
 
@@ -166,10 +166,14 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from arch/s390/kernel/process.c:24:
-   In file included from include/linux/tick.h:8:
-   In file included from include/linux/clockchips.h:14:
-   In file included from include/linux/clocksource.h:21:
+   In file included from arch/s390/kernel/traps.c:28:
+   In file included from include/linux/entry-common.h:6:
+   In file included from include/linux/tracehook.h:50:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:26:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/s390/include/asm/io.h:80:
    include/asm-generic/io.h:464:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            val = __raw_readb(PCI_IOBASE + addr);
@@ -183,10 +187,14 @@ All errors (new ones prefixed by >>):
    include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
    #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
                                                         ^
-   In file included from arch/s390/kernel/process.c:24:
-   In file included from include/linux/tick.h:8:
-   In file included from include/linux/clockchips.h:14:
-   In file included from include/linux/clocksource.h:21:
+   In file included from arch/s390/kernel/traps.c:28:
+   In file included from include/linux/entry-common.h:6:
+   In file included from include/linux/tracehook.h:50:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:26:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/s390/include/asm/io.h:80:
    include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
@@ -197,10 +205,14 @@ All errors (new ones prefixed by >>):
    include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
    #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
                                                         ^
-   In file included from arch/s390/kernel/process.c:24:
-   In file included from include/linux/tick.h:8:
-   In file included from include/linux/clockchips.h:14:
-   In file included from include/linux/clocksource.h:21:
+   In file included from arch/s390/kernel/traps.c:28:
+   In file included from include/linux/entry-common.h:6:
+   In file included from include/linux/tracehook.h:50:
+   In file included from include/linux/memcontrol.h:22:
+   In file included from include/linux/writeback.h:14:
+   In file included from include/linux/blk-cgroup.h:23:
+   In file included from include/linux/blkdev.h:26:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/s390/include/asm/io.h:80:
    include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            __raw_writeb(value, PCI_IOBASE + addr);
@@ -229,17 +241,44 @@ All errors (new ones prefixed by >>):
    include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            writesl(PCI_IOBASE + addr, buffer, count);
                    ~~~~~~~~~~ ^
->> arch/s390/kernel/process.c:61:2: error: implicit declaration of function 'syscall_exit_to_user_mode' [-Werror,-Wimplicit-function-declaration]
-           syscall_exit_to_user_mode(regs);
+   arch/s390/kernel/traps.c:300:2: error: unknown type name 'irqentry_state_t'; did you mean 'kentry_state_t'?
+           irqentry_state_t state;
+           ^~~~~~~~~~~~~~~~
+           kentry_state_t
+   include/linux/entry-common.h:315:3: note: 'kentry_state_t' declared here
+   } kentry_state_t;
+     ^
+   arch/s390/kernel/traps.c:305:10: error: implicit declaration of function 'irqentry_enter' [-Werror,-Wimplicit-function-declaration]
+           state = irqentry_enter(regs);
+                   ^
+   arch/s390/kernel/traps.c:305:10: note: did you mean 'kentry_enter'?
+   include/linux/entry-common.h:349:24: note: 'kentry_enter' declared here
+   kentry_state_t noinstr kentry_enter(struct pt_regs *regs);
+                          ^
+   arch/s390/kernel/traps.c:305:8: error: assigning to 'kentry_state_t' (aka 'struct kentry_state') from incompatible type 'int'
+           state = irqentry_enter(regs);
+                 ^ ~~~~~~~~~~~~~~~~~~~~
+   arch/s390/kernel/traps.c:346:2: error: implicit declaration of function 'irqentry_exit' [-Werror,-Wimplicit-function-declaration]
+           irqentry_exit(regs, state);
            ^
-   arch/s390/kernel/process.c:61:2: note: did you mean 'arch_exit_to_user_mode'?
-   include/linux/entry-common.h:232:29: note: 'arch_exit_to_user_mode' declared here
+   arch/s390/kernel/traps.c:346:2: note: did you mean 'kentry_exit'?
+   include/linux/entry-common.h:375:14: note: 'kentry_exit' declared here
+   void noinstr kentry_exit(struct pt_regs *regs, kentry_state_t state);
+                ^
+>> arch/s390/kernel/traps.c:349:3: error: implicit declaration of function 'enter_from_user_mode' [-Werror,-Wimplicit-function-declaration]
+                   enter_from_user_mode(regs);
+                   ^
+>> arch/s390/kernel/traps.c:353:3: error: implicit declaration of function 'exit_to_user_mode' [-Werror,-Wimplicit-function-declaration]
+                   exit_to_user_mode();
+                   ^
+   arch/s390/kernel/traps.c:353:3: note: did you mean 'arch_exit_to_user_mode'?
+   include/linux/entry-common.h:211:29: note: 'arch_exit_to_user_mode' declared here
    static __always_inline void arch_exit_to_user_mode(void);
                                ^
    arch/s390/include/asm/entry-common.h:53:32: note: expanded from macro 'arch_exit_to_user_mode'
    #define arch_exit_to_user_mode arch_exit_to_user_mode
                                   ^
-   12 warnings and 1 error generated.
+   12 warnings and 6 errors generated.
 --
    In file included from arch/s390/kernel/syscall.c:34:
    In file included from include/linux/entry-common.h:6:
@@ -316,42 +355,98 @@ All errors (new ones prefixed by >>):
    include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            writesl(PCI_IOBASE + addr, buffer, count);
                    ~~~~~~~~~~ ^
->> arch/s390/kernel/syscall.c:124:7: error: implicit declaration of function 'syscall_enter_from_user_mode_work' [-Werror,-Wimplicit-function-declaration]
+   arch/s390/kernel/syscall.c:124:7: error: implicit declaration of function 'syscall_enter_from_user_mode_work' [-Werror,-Wimplicit-function-declaration]
            nr = syscall_enter_from_user_mode_work(regs, nr);
                 ^
->> arch/s390/kernel/syscall.c:140:2: error: implicit declaration of function 'syscall_exit_to_user_mode_work' [-Werror,-Wimplicit-function-declaration]
+   arch/s390/kernel/syscall.c:140:2: error: implicit declaration of function 'syscall_exit_to_user_mode_work' [-Werror,-Wimplicit-function-declaration]
            syscall_exit_to_user_mode_work(regs);
            ^
    arch/s390/kernel/syscall.c:140:2: note: did you mean 'arch_exit_to_user_mode_work'?
-   include/linux/entry-common.h:190:20: note: 'arch_exit_to_user_mode_work' declared here
+   include/linux/entry-common.h:169:20: note: 'arch_exit_to_user_mode_work' declared here
    static inline void arch_exit_to_user_mode_work(struct pt_regs *regs,
                       ^
    arch/s390/include/asm/entry-common.h:42:37: note: expanded from macro 'arch_exit_to_user_mode_work'
    #define arch_exit_to_user_mode_work arch_exit_to_user_mode_work
                                        ^
-   12 warnings and 2 errors generated.
+>> arch/s390/kernel/syscall.c:145:2: error: implicit declaration of function 'enter_from_user_mode' [-Werror,-Wimplicit-function-declaration]
+           enter_from_user_mode(regs);
+           ^
+>> arch/s390/kernel/syscall.c:167:2: error: implicit declaration of function 'exit_to_user_mode' [-Werror,-Wimplicit-function-declaration]
+           exit_to_user_mode();
+           ^
+   arch/s390/kernel/syscall.c:167:2: note: did you mean 'arch_exit_to_user_mode'?
+   include/linux/entry-common.h:211:29: note: 'arch_exit_to_user_mode' declared here
+   static __always_inline void arch_exit_to_user_mode(void);
+                               ^
+   arch/s390/include/asm/entry-common.h:53:32: note: expanded from macro 'arch_exit_to_user_mode'
+   #define arch_exit_to_user_mode arch_exit_to_user_mode
+                                  ^
+   12 warnings and 4 errors generated.
 
 
-vim +/syscall_exit_to_user_mode +61 arch/s390/kernel/process.c
+vim +/enter_from_user_mode +349 arch/s390/kernel/traps.c
 
-^1da177e4c3f41 Linus Torvalds 2005-04-16  48  
-56e62a73702836 Sven Schnelle  2020-11-21  49  void __ret_from_fork(struct task_struct *prev, struct pt_regs *regs)
-56e62a73702836 Sven Schnelle  2020-11-21  50  {
-56e62a73702836 Sven Schnelle  2020-11-21  51  	void (*func)(void *arg);
-56e62a73702836 Sven Schnelle  2020-11-21  52  
-56e62a73702836 Sven Schnelle  2020-11-21  53  	schedule_tail(prev);
-56e62a73702836 Sven Schnelle  2020-11-21  54  
-56e62a73702836 Sven Schnelle  2020-11-21  55  	if (!user_mode(regs)) {
-56e62a73702836 Sven Schnelle  2020-11-21  56  		/* Kernel thread */
-56e62a73702836 Sven Schnelle  2020-11-21  57  		func = (void *)regs->gprs[9];
-56e62a73702836 Sven Schnelle  2020-11-21  58  		func((void *)regs->gprs[10]);
-56e62a73702836 Sven Schnelle  2020-11-21  59  	}
-56e62a73702836 Sven Schnelle  2020-11-21  60  	clear_pt_regs_flag(regs, PIF_SYSCALL);
-56e62a73702836 Sven Schnelle  2020-11-21 @61  	syscall_exit_to_user_mode(regs);
-56e62a73702836 Sven Schnelle  2020-11-21  62  }
-^1da177e4c3f41 Linus Torvalds 2005-04-16  63  
+56e62a73702836 Sven Schnelle 2020-11-21  295  
+56e62a73702836 Sven Schnelle 2020-11-21  296  void noinstr __do_pgm_check(struct pt_regs *regs)
+56e62a73702836 Sven Schnelle 2020-11-21  297  {
+56e62a73702836 Sven Schnelle 2020-11-21  298  	unsigned long last_break = S390_lowcore.breaking_event_addr;
+56e62a73702836 Sven Schnelle 2020-11-21  299  	unsigned int trapnr, syscall_redirect = 0;
+56e62a73702836 Sven Schnelle 2020-11-21  300  	irqentry_state_t state;
+56e62a73702836 Sven Schnelle 2020-11-21  301  
+56e62a73702836 Sven Schnelle 2020-11-21  302  	regs->int_code = *(u32 *)&S390_lowcore.pgm_ilc;
+56e62a73702836 Sven Schnelle 2020-11-21  303  	regs->int_parm_long = S390_lowcore.trans_exc_code;
+56e62a73702836 Sven Schnelle 2020-11-21  304  
+56e62a73702836 Sven Schnelle 2020-11-21  305  	state = irqentry_enter(regs);
+56e62a73702836 Sven Schnelle 2020-11-21  306  
+56e62a73702836 Sven Schnelle 2020-11-21  307  	if (user_mode(regs)) {
+56e62a73702836 Sven Schnelle 2020-11-21  308  		update_timer_sys();
+56e62a73702836 Sven Schnelle 2020-11-21  309  		if (last_break < 4096)
+56e62a73702836 Sven Schnelle 2020-11-21  310  			last_break = 1;
+56e62a73702836 Sven Schnelle 2020-11-21  311  		current->thread.last_break = last_break;
+56e62a73702836 Sven Schnelle 2020-11-21  312  		regs->args[0] = last_break;
+56e62a73702836 Sven Schnelle 2020-11-21  313  	}
+56e62a73702836 Sven Schnelle 2020-11-21  314  
+56e62a73702836 Sven Schnelle 2020-11-21  315  	if (S390_lowcore.pgm_code & 0x0200) {
+56e62a73702836 Sven Schnelle 2020-11-21  316  		/* transaction abort */
+56e62a73702836 Sven Schnelle 2020-11-21  317  		memcpy(&current->thread.trap_tdb, &S390_lowcore.pgm_tdb, 256);
+56e62a73702836 Sven Schnelle 2020-11-21  318  	}
+56e62a73702836 Sven Schnelle 2020-11-21  319  
+56e62a73702836 Sven Schnelle 2020-11-21  320  	if (S390_lowcore.pgm_code & PGM_INT_CODE_PER) {
+56e62a73702836 Sven Schnelle 2020-11-21  321  		if (user_mode(regs)) {
+56e62a73702836 Sven Schnelle 2020-11-21  322  			struct per_event *ev = &current->thread.per_event;
+56e62a73702836 Sven Schnelle 2020-11-21  323  
+56e62a73702836 Sven Schnelle 2020-11-21  324  			set_thread_flag(TIF_PER_TRAP);
+56e62a73702836 Sven Schnelle 2020-11-21  325  			ev->address = S390_lowcore.per_address;
+56e62a73702836 Sven Schnelle 2020-11-21  326  			ev->cause = *(u16 *)&S390_lowcore.per_code;
+56e62a73702836 Sven Schnelle 2020-11-21  327  			ev->paid = S390_lowcore.per_access_id;
+56e62a73702836 Sven Schnelle 2020-11-21  328  		} else {
+56e62a73702836 Sven Schnelle 2020-11-21  329  			/* PER event in kernel is kprobes */
+56e62a73702836 Sven Schnelle 2020-11-21  330  			__arch_local_irq_ssm(regs->psw.mask & ~PSW_MASK_PER);
+56e62a73702836 Sven Schnelle 2020-11-21  331  			do_per_trap(regs);
+56e62a73702836 Sven Schnelle 2020-11-21  332  			goto out;
+56e62a73702836 Sven Schnelle 2020-11-21  333  		}
+56e62a73702836 Sven Schnelle 2020-11-21  334  	}
+56e62a73702836 Sven Schnelle 2020-11-21  335  
+56e62a73702836 Sven Schnelle 2020-11-21  336  	if (!irqs_disabled_flags(regs->psw.mask))
+56e62a73702836 Sven Schnelle 2020-11-21  337  		trace_hardirqs_on();
+56e62a73702836 Sven Schnelle 2020-11-21  338  	__arch_local_irq_ssm(regs->psw.mask & ~PSW_MASK_PER);
+56e62a73702836 Sven Schnelle 2020-11-21  339  
+56e62a73702836 Sven Schnelle 2020-11-21  340  	trapnr = regs->int_code & PGM_INT_CODE_MASK;
+56e62a73702836 Sven Schnelle 2020-11-21  341  	if (trapnr)
+56e62a73702836 Sven Schnelle 2020-11-21  342  		pgm_check_table[trapnr](regs);
+56e62a73702836 Sven Schnelle 2020-11-21  343  	syscall_redirect = user_mode(regs) && test_pt_regs_flag(regs, PIF_SYSCALL);
+56e62a73702836 Sven Schnelle 2020-11-21  344  out:
+56e62a73702836 Sven Schnelle 2020-11-21  345  	local_irq_disable();
+56e62a73702836 Sven Schnelle 2020-11-21  346  	irqentry_exit(regs, state);
+56e62a73702836 Sven Schnelle 2020-11-21  347  
+56e62a73702836 Sven Schnelle 2020-11-21  348  	if (syscall_redirect) {
+56e62a73702836 Sven Schnelle 2020-11-21 @349  		enter_from_user_mode(regs);
+56e62a73702836 Sven Schnelle 2020-11-21  350  		local_irq_enable();
+56e62a73702836 Sven Schnelle 2020-11-21  351  		regs->orig_gpr2 = regs->gprs[2];
+56e62a73702836 Sven Schnelle 2020-11-21  352  		do_syscall(regs);
+56e62a73702836 Sven Schnelle 2020-11-21 @353  		exit_to_user_mode();
 
-:::::: The code at line 61 was first introduced by commit
+:::::: The code at line 349 was first introduced by commit
 :::::: 56e62a73702836017564eaacd5212e4d0fa1c01d s390: convert to generic entry
 
 :::::: TO: Sven Schnelle <svens@linux.ibm.com>
@@ -364,14 +459,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202103210929.gSJiY5nA-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202103210916.3jTf413G-lkp%40intel.com.
 
---3MwIy2ne0vdjdPXF
+--5mCyUwZo2JvN/JJP
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICLCbVmAAAy5jb25maWcAnDzLcuO2svt8hWqyyVkkI0u2Z3xueQGCoIiIJGgClCVvWBpb
+H4sICEqhVmAAAy5jb25maWcAnDzLcuO2svt8hWqyyVkkI0u2Z3xueQGCoIiIJGgClCVvWBpb
 nujGr5LknOR8/W0AfABkS566WWRG3Q2w0Wj0C435+aefR+T98Pq8Pmzv109P/4y+b142u/Vh
 8zB63D5t/mcUilEm1IiFXP0GxMn25f3vz/vp1Xh08dvZ5Lfxr7v76Wi+2b1snkb09eVx+/0d
 hm9fX376+ScqsojPKkqrBSskF1ml2FJdf7p/Wr98H/212e2BbnQ2/W3823j0y/ft4d+fP8P/
@@ -652,4 +747,4 @@ tmnMh/4E2vVXAnY5+MJ1BRtzqqQKr+U8dVGPgZhwVCNsEnF2frqUhbaPpnqv2FVSZSDfcGed
 7lskU6YjwClCAeM2uaYUXTAnzGqUWcLvV90eXChoijCDjMnMtXrPsgbvrYE2gv8PD6Qahmbe
 AAA=
 
---3MwIy2ne0vdjdPXF--
+--5mCyUwZo2JvN/JJP--
