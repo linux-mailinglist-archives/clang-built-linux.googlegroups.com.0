@@ -1,135 +1,130 @@
-Return-Path: <clang-built-linux+bncBDE6RCFOWIARB5UG4KBAMGQE53OIDFY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBGML4KBAMGQEVQTNQQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1D19344017
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 12:45:58 +0100 (CET)
-Received: by mail-lj1-x237.google.com with SMTP id a22sf21554959ljq.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 04:45:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616413558; cv=pass;
+Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 60BEE344032
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 12:55:07 +0100 (CET)
+Received: by mail-pg1-x53d.google.com with SMTP id m5sf20533003pgp.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 04:55:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616414105; cv=pass;
         d=google.com; s=arc-20160816;
-        b=t9uX0ndxmIItmVezTIhhkMMrbmEEFJKuijZiLqh/hgMhgfDLx7OkjqmrzjkkmoVvrs
-         IO8Be+b7ZC7c1jAz4Dhs1fA468rAjolzPVjbfH4nzISOUrCa3v2JKaoAUzSeKecpMuBh
-         2XEx99CERoCENtN25rtDNd5DET6znPvNQ/staaFXceDOxNRKjpINW0mc8d9kw8b/VN5U
-         K9pHHVCtRBk29yNtCJXo3a59Gm6fEvBHXC+vnXnSZQC9GjJzBrDjbg8W+aujGcYeZmez
-         wO+LQWPj1aKCRbWbjwmJ8Vru4UODdsqNIXTZydbIFlKAr0graCKgUnaC1IVlJnZs8Ip+
-         qdPw==
+        b=r2CsFYU3zmiaQf/FHFUVOww7P+/qxLNparZmv/oCwDk3om/Oo6maXi38EEdo0wXCUX
+         ziM5ivDfWHcjuLxutDMbMPHdDQ7ZyotzuLNILiB7rggYIhFJLtYnZ5F8dBXYqCgPhAxV
+         kp6B7MYOBcwepUf+JENQpWV0rYQOpPCVbZoJlOQuv8aGEUU86ZjlqJrsrszIvnA874sv
+         7LiL2MeustFOUF2tZoJ+xPJEK2BTlDOUQWaxpR61agrmt8pr9PdKggWm4PpqWA3Xnh2A
+         OpQjeUjeLGGXDMRqySM0VfuSU5jxnwUwuGQ9tPq3Sb0Sy47jBfoOzcYo05E8Zw5MVuBA
+         cUTQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=4C15h+lwRZM3AaSS+xansBM95kEIT27gHpZyxRvwhH8=;
-        b=WLtP7wzvlREzFwvRjmDZ0bFFr3R7J3ewwfh5n+X0Feds+NMFuIte/r7xL1mX28rGH7
-         dsmLI51uzZcNBx6hlPjHaL9Oy5Qr4GMSChZ7pMGEd2fdALt05Dj/1Y7/UpTk+jQBHJUo
-         jIwUrs+DSid/LUW74FUkJlm/8c25Ui5QZHFBNPJgco/GQTfSYPlq/0cOi2T/1GaWso/f
-         FFCT07v3dWQtGFMkYM8evkfBvL+JqAqbO6WXeFr+wyme1yzLa9Kphz7LNnshJWe34xhI
-         q+yONK2G8ykkup4x4GkB9el8ZlBQjuiDMZYFUnHO2ygJRuyygGGDXiyxIpJPH1EGZ7wN
-         7y0g==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=TkkrTaeE28XZDrsmh0sQ9yEOoJsoaJzVUalViGE9CcA=;
+        b=hwZPjDrB2ykTGiPhJRVC1tZBn9SmZroAlsQcBkRxfJkYdkFGqtktu540t/NY9spSPm
+         rH2Bc68GM5DadlHRZwuvGAgeUSANpvvp1OON/V94hpZEI9nfLsCd9Y9uxDlOep8fB4G9
+         l6K5pwz9tCDP2NidGhgrPz7QBS0DBrK5THrVgifj+9Fzkl7xilZSu64Ll+x/t3LWDwfz
+         1ljcIXhH7+ZyqKhj+CukMeky4E1BkbC3b5vJn53R2TRSx6/fy7yKn8wbbOp2Q4GNZPdT
+         YMpINRkKv8JOJGMfhVxS4YgyLm8+9CY24ut2FiQXY4K/+dRlhU5rGGlZyKjY6PQudcI1
+         gt/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=P9wPcvkH;
-       spf=pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=e1myS2ra;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4C15h+lwRZM3AaSS+xansBM95kEIT27gHpZyxRvwhH8=;
-        b=HiwTWiOhnspRpDt0kPKGhiMwIKh5030vORyqrJRg7cMK9LtISA+F6J+aKr+vDcCHzH
-         sYYlK+BIIyLzpfMjO3JKSvlz2IDAzKpVOPWeZ2PU41tzmDfiq32mzbt0GzcjPnSExYd9
-         eczk8+ci31fiI9opKNuDjgaDQLZeQBXLabhI6goODfmdwmqbWBqOjsoA1JD0UGM3oJLU
-         +MiRjmBpAjXESEmYjE7877rXw4qGMCa+PV8qQHLOrvkncXUNakEGe8d3+yTS4wxIHSWO
-         IjJAWdvgLOn6ZrnhpEn0ucbY/RIyH9OdZ4QjgaZ3v6aMZLJhh0awUFqwIDkKr6J7OwVh
-         ELgA==
+        bh=TkkrTaeE28XZDrsmh0sQ9yEOoJsoaJzVUalViGE9CcA=;
+        b=QMNabgnuTYDI8UM8YXOf+QdP3zilZibp86MAqyTmhQuPeB3R1Q90oV88R3ujBSMdz6
+         IMZCwK1+uDh3+vhrpuIsNmdhzRheLBoCtBDvnraEsc0Z0UcMtkWYCplQNIn8PVDOJQ1p
+         FxGyXsVfaLpXzM23FA13fH3bbKCv3lncO8mawmr2d4MHtlbAD+owrcBFjV8BFoltGSmu
+         s6yg+DjluFmEHUMk5DKVIJl3d3cprc6ZO32yqKxqWVOwaxIUEQExb3n+zIln9eozQWHy
+         h+XA6boNiu62bndTj0p/Krs4WNm4vcNKL9BqiOLJM+kGbGxDMGuENym9+xSHV/7niDf/
+         nCMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4C15h+lwRZM3AaSS+xansBM95kEIT27gHpZyxRvwhH8=;
-        b=cQ+tjcMw1DTEAFqZkdE0Qb0/vLheDbm64u29tV3Ra1j6Dje7rXKbPvu2Axbn9ff0MS
-         eG2opCPMFisWGThibeC9KtDDuytbzt5EYPDlnm4/HvY43vwPVIDghQ6QylNIboTzpbn2
-         yyp7fiZEf7f4xsVOCN4lUD5mWx8q1ZOQM48BsFgRPuitbw15sfQP8tXAYbub72YNsIlk
-         KbHhu+fTkmG47Gpe9X4fNmjJrRgsP74484QKpZhNFdDR9NrNOF4X/luW5kCn9+b9JQGI
-         YWHhA4Vz39Wgoa3ZElyAwb/wOeZ0+Yr2NKUp8fBxLi4TvDylBfywV/vvFJlo2D76fyd4
-         z1Bw==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=TkkrTaeE28XZDrsmh0sQ9yEOoJsoaJzVUalViGE9CcA=;
+        b=HuLO5j6xvQiBIhkTSjDBIfaJhhUkeYq1NpPeXZoD2eltY2Q35IiglXT7gjelGG+oNl
+         cSRtZzta/nAg0cKVo66Q9q3NUQfCOVVOG8KofhDw7iIeqZGNmOSugNOQeJrH4tnsJtu4
+         Mjh1yhizRLHYejVi1IiOnoVn6mH9KmHTLLrCxRQVeV+3GICzMdztIQzutC+jo41W8Wkd
+         Dej3Qn6Pi5f0Zi5ONnNYVdhZ5WxgJkemoAmuj9vJfUCW5JWYOWWxTdqTw6eRmA2nJjS+
+         7qnXJ9LsJ4ToIVaLwoMwSq+buIwDmhlFPNN8tsQTt49S8nEieVyBZF2xcvPrVC1TEmhK
+         a5sw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531IX5q2Wflzudwx1UwKTPVEoBSKgslfrV+mKw09+zyYJknbakti
-	Fh32MTW3FxrJfLeg2Nge0x4=
-X-Google-Smtp-Source: ABdhPJxnvoJEa3AyiWGrJhn8ovCSIfZuKhkj0jfEj0HMPxlM09xlLn8VJfFom1PGkaaEZLS4tHrEqQ==
-X-Received: by 2002:ac2:4316:: with SMTP id l22mr9039292lfh.338.1616413558348;
-        Mon, 22 Mar 2021 04:45:58 -0700 (PDT)
+X-Gm-Message-State: AOAM533iBbKV4rhgsILBIkTjjqfwGGRHycAll5qw+ghHjqxDIjqq2yJ4
+	AOC78+MBp6gn8FZaAvP1OtU=
+X-Google-Smtp-Source: ABdhPJy9FE/waxJY9dP6EnjET8FncHufPGaILW9NTom2eYd0bTbMWQ25suU5KLljR7WuJ6AXTVVkAA==
+X-Received: by 2002:aa7:8d84:0:b029:1f8:3449:1bc6 with SMTP id i4-20020aa78d840000b02901f834491bc6mr20907662pfr.76.1616414105583;
+        Mon, 22 Mar 2021 04:55:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:58f8:: with SMTP id v24ls2400714lfo.2.gmail; Mon, 22 Mar
- 2021 04:45:57 -0700 (PDT)
-X-Received: by 2002:ac2:5382:: with SMTP id g2mr8877906lfh.60.1616413557336;
-        Mon, 22 Mar 2021 04:45:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616413557; cv=none;
+Received: by 2002:a62:7f10:: with SMTP id a16ls5367375pfd.7.gmail; Mon, 22 Mar
+ 2021 04:55:05 -0700 (PDT)
+X-Received: by 2002:a63:eb50:: with SMTP id b16mr12899936pgk.270.1616414105134;
+        Mon, 22 Mar 2021 04:55:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616414105; cv=none;
         d=google.com; s=arc-20160816;
-        b=qHgTHlcg8Fo/9+fsptFSyIODZLVekmEpeDrYkCHKpq4nV4BdyOhuZAywLRvmt2FnYw
-         fACtTk7QBCnNWil94ZD0x6+rdu7S1ztDjQZSa/cUBwJad7oMFeu/ArCuJZSLjGDYk8BD
-         F8BXAqqkejCP5SvDp7gvnuLLcZsUtCc8qbSvFP65dzoywCeUrcsd+kMF5S0ubP+Ts/3g
-         ogKtnXElFLROZBY2OVzexbXmB2xfKBgyLSnlNih5BtIkFRWe8vcKET0sKd+dAq71BS5Z
-         4jBaZ7RdZp7KJYzl3EXE5gkDe6KgKbRO5c79xh2zPy+oqNdOioK2BCaPvJPYQBLieBQz
-         urdw==
+        b=JwBFKcVdRysfrjW1FyZbAz5Iy0itWKGvT+eLop5N/cnZQBLmlDV3rDzuPn46DQTnY/
+         IoM+I2IDVxAnnVCgz+1OyCQi0LUbx0NKgZcf3JcDX5wpEOR2qsAIukzbBEGzR2wUTr3c
+         kRUZmvOQyZivAOnT3fEKp96kJcWL+X/Ld8Qpvx0QYCpgMQmt9FFOyv85OVU59LhDSG5B
+         QXk/1idAVkJ3J4eOB4+ExuEojrH1elZpEVGAxQlQYJQ1HJcGlzbatXY5MPxt4aYFCvFk
+         Hg95mPJvLlPUOMKaOiG4gahrPyd1fK8A4tYOMHLuD9yiPZd0bcZIVfpUq7NjV2j3xfaq
+         qMog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=wRuJKDLONwqvRSEZw7q4XL+dQi5no/glykgD4QfcHoc=;
-        b=p+2ukvy5qXQe52dmKjCWIOq6sqWsOldA8H+cZIn6a8Qaoz5TdOX8ulSSLTSX9QHTQa
-         bzveMyYpFW0mfZqd2waO+q9YM4G2UWe9GVFp9uVPd6dxFtKq0vc+Rqh7MVKtqNqRB4d/
-         9VMBM+PJuCRClTWSjUvO6Pt3MUsz19T6j6wQncjRYKdwK3yspAiX43HJ6N0QOCGfHaK2
-         JkhFvfvqHLV+ORF2N1pQQqoE+ENQOdI4GQgTQZvcpW3GsJY4cFNoIduZnXlMWT5mmIEJ
-         Qs+b8zzcaYIP2iVuh7t+y4r8MYwbCs9TduVpuEQZBGTIQWHKl/RFA21egV7Cjq641xMy
-         W65A==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=Sof77bKVE4TGYcPTj/98bPIUnZaj4Q0920jtL7B++kM=;
+        b=Ojw+ReUCsoShdFuh6aKk51pdm/YmGIM9IuVb/nANdceHzDwaJ7vGeoW2Cgtusv/WmS
+         +SynhiCMVqTnu/yHbAfyA3CBP7EH6TQmHxTmO7w+cfH0rnNdD/slTiL5F7r0dyVdAhTi
+         Mfl2qFowa0yVjbxUceeh0X61sP/lvqjt4lJERUW+DH0rMctC4SMgxuOr2E2zdzWIjckp
+         d4N8w1UUBs+HDK5Noz3TmeIndQZKd7iIWG5oiBSzryQPn1I5PECiDLcM9wtUWPfyBKJE
+         hrUf6lmb680xr/rqfjZi4r4n7kST9X/U6NsR9ZDStdAnXvdyb+BYF44ZDSdQHN0chask
+         TgiQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=P9wPcvkH;
-       spf=pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
-        by gmr-mx.google.com with ESMTPS id q3si543306lji.2.2021.03.22.04.45.57
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=e1myS2ra;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id n10si733501pgq.2.2021.03.22.04.55.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Mar 2021 04:45:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of linus.walleij@linaro.org designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
-Received: by mail-lf1-x131.google.com with SMTP id a198so20756441lfd.7
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Mar 2021 04:45:57 -0700 (PDT)
-X-Received: by 2002:a19:6b13:: with SMTP id d19mr8543421lfa.291.1616413557065;
- Mon, 22 Mar 2021 04:45:57 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 22 Mar 2021 04:55:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B672C6198B;
+	Mon, 22 Mar 2021 11:55:01 +0000 (UTC)
+From: Arnd Bergmann <arnd@kernel.org>
+To: Alex Deucher <alexander.deucher@amd.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@linux.ie>,
+	Daniel Vetter <daniel@ffwll.ch>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Lee Jones <lee.jones@linaro.org>,
+	Chen Li <chenli@uniontech.com>,
+	Tom Rix <trix@redhat.com>,
+	Sonny Jiang <sonny.jiang@amd.com>,
+	xinhui pan <xinhui.pan@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] amdgpu: avoid incorrect %hu format string
+Date: Mon, 22 Mar 2021 12:54:42 +0100
+Message-Id: <20210322115458.3961825-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-References: <20210223023125.2265845-1-jiancai@google.com> <20210223023542.2287529-1-jiancai@google.com>
- <CACRpkdYC3iDD23SESM0j2=f56kr6ByKeedDQvkGwXbUC0br0fw@mail.gmail.com>
- <CA+SOCL+M5YfhygG=ogqvqp7y40v+32RiteGr=53THzwvdGugyA@mail.gmail.com>
- <CACRpkdYrqy78EfB_+UY0QtA0v0tD+_+O09Pod8-1Vd-p-VyMWA@mail.gmail.com> <CA+SOCLLo2MdxCH3gFONHsKdvmGGm2vZuML9QdQfWuX2--qFEOA@mail.gmail.com>
-In-Reply-To: <CA+SOCLLo2MdxCH3gFONHsKdvmGGm2vZuML9QdQfWuX2--qFEOA@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 22 Mar 2021 12:45:45 +0100
-Message-ID: <CACRpkdbF43_CjSFNu_4FUCEqOB8CebrpXJpkzeW8TnPpRELBtg@mail.gmail.com>
-Subject: Re: [PATCH v5] ARM: Implement SLS mitigation
-To: Jian Cai <jiancai@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Manoj Gupta <manojgupta@google.com>, 
-	Luis Lozano <llozano@google.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nathan Chancellor <nathan@kernel.org>, David Laight <David.Laight@aculab.com>, 
-	Will Deacon <will@kernel.org>, Russell King <rmk+kernel@armlinux.org.uk>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Ard Biesheuvel <ardb@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, David Brazdil <dbrazdil@google.com>, 
-	James Morse <james.morse@arm.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, linux-security-module@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: linus.walleij@linaro.org
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=P9wPcvkH;       spf=pass
- (google.com: domain of linus.walleij@linaro.org designates
- 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=linus.walleij@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernel.org header.s=k20201202 header.b=e1myS2ra;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,52 +137,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 10, 2021 at 5:43 AM Jian Cai <jiancai@google.com> wrote:
-> On Sat, Mar 6, 2021 at 4:25 AM Linus Walleij <linus.walleij@linaro.org> wrote:
-> > On Fri, Mar 5, 2021 at 12:23 AM Jian Cai <jiancai@google.com> wrote:
-> > > On Wed, Mar 3, 2021 at 7:04 AM Linus Walleij <linus.walleij@linaro.org> wrote:
+From: Arnd Bergmann <arnd@arndb.de>
 
-> > > I think gcc also has these options.
-> > > https://gcc.gnu.org/onlinedocs/gcc/AArch64-Options.html
-> >
-> > And how does that work with this part of your patch:
-> >
-> > +#define SLS_TEXT                                       \
-> > +       ALIGN_FUNCTION();                              \
-> > +       *(.text.__llvm_slsblr_thunk_*)
-> >
-> > This does not look compiler agnostic?
->
-> You are right, GCC does generate different oraphan section names. I
-> will address it in the next version of the patch. Also it seems only
-> arm64 gcc supports -mharden-sls=* at this moment, arm32 gcc does not
-> support it yet. I don't know if there is any plan to implement it for
-> 32-bit gcc, but should we patch arm32 linker script preemptively,
-> assuming the sections will be named with the same pattern like how
-> clang does so the kernel would not fail to boot when the flag is
-> implemented?
+clang points out that the %hu format string does not match the type
+of the variables here:
 
-I think the best thing is to have something like this:
-Implement a macro such as this in
-include/linux/compiler-clang.h
+drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c:263:7: warning: format specifies type 'unsigned short' but the argument has type 'unsigned int' [-Wformat]
+                                  version_major, version_minor);
+                                  ^~~~~~~~~~~~~
+include/drm/drm_print.h:498:19: note: expanded from macro 'DRM_ERROR'
+        __drm_err(fmt, ##__VA_ARGS__)
+                  ~~~    ^~~~~~~~~~~
 
-#define SLS_TEXT_SECTION *(.text.__llvm_slsblr_thunk_*)
+Change it to a regular %u, the same way a previous patch did for
+another instance of the same warning.
 
-then the corresponding in include/linux/compiler-gcc.h
-but here also add a
+Fixes: 0b437e64e0af ("drm/amdgpu: remove h from printk format specifier")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-#define SLS_TEXT_SECTION #error "no compiler support"
-
-if the compiler version does not have this.
-
-I don't know the exact best approach sadly, as the patch
-looks now it seems a bit fragile, I wonder if you get linker
-warnings when this section is unused?
-
-Yours,
-Linus Walleij
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
+index e2ed4689118a..c6dbc0801604 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
+@@ -259,7 +259,7 @@ int amdgpu_uvd_sw_init(struct amdgpu_device *adev)
+ 		if ((adev->asic_type == CHIP_POLARIS10 ||
+ 		     adev->asic_type == CHIP_POLARIS11) &&
+ 		    (adev->uvd.fw_version < FW_1_66_16))
+-			DRM_ERROR("POLARIS10/11 UVD firmware version %hu.%hu is too old.\n",
++			DRM_ERROR("POLARIS10/11 UVD firmware version %u.%u is too old.\n",
+ 				  version_major, version_minor);
+ 	} else {
+ 		unsigned int enc_major, enc_minor, dec_minor;
+-- 
+2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACRpkdbF43_CjSFNu_4FUCEqOB8CebrpXJpkzeW8TnPpRELBtg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210322115458.3961825-1-arnd%40kernel.org.
