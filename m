@@ -1,215 +1,122 @@
-Return-Path: <clang-built-linux+bncBDX4F3XH2MMRB2UM4KBAMGQEITLHYHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDU43XP6ZAGRBY4P4KBAMGQE2TPMYNY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id A8A6434404D
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 12:58:35 +0100 (CET)
-Received: by mail-pf1-x437.google.com with SMTP id g6sf25325340pfo.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 04:58:35 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1616414314; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id C80FA344066
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 13:04:51 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id i5sf25899491wrp.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 05:04:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616414691; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qI5XIdLrnO3Sp0k/c+/V6mvwqwJG4dn3MoNoJqC4FFaGClpNTsghhkW2owKSXy/Zsq
-         OUbzU8hYSRbiVr4Z4DX2ZSMzIOq5zA8HWIXq/SfveAabYXmHXaDNy89xkCLLocULRh0D
-         mgy1EwTPR8FtHJSku5RWd3rtEj4ikPi7Ej2N5irNwp2ay7dCEhPvTFj9Uq+tsQOhEJ6p
-         qpanTSQ/QDHDqBYrz9Io3Z/9gTMjYAYY7xoaghE7QNJCq2AFySgen3y1E25doouLNQUW
-         EKJn5GcXkB87kCfhrVs/5G1AMWWp8qxMEYMaGVr/4F4IEV5gpE4Q/Cvk00AaGLn8jAPH
-         mFCg==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=YHSuFrQ3XwhAzUBlY0+qDsMvQkMA+hWaXwB/aRBRnmCc+HXTzz1bZpsaZZ/NWr8Yci
+         +Q8000GtGQ6iI9vpDFRV09QOY4kkqHyOdhqyQQYnNoGM/2dzYfP9RddNskhP0iGDEwtq
+         SHPTNNEz4jkmNb5Ncx+7uyMB8gLxH64YHYlfMMqOhK2VXVhpKoUW0XOKmN2P91/c0nTt
+         hyQxgF0jJof6tODCl4LmT05QXHpvCk76chaZWRGr4+XtMuFsQiVsV7OKue7bkax+LLzy
+         z4D1U0PMzW7cPdN6YEVXxDG/rnax5fcFiTtj3VdUqbUlrNm+wHw3MTdcx5Kv0w3p/pRL
+         1Z4w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :content-transfer-encoding:in-reply-to:user-agent:date:message-id
-         :from:references:cc:to:subject:sender:dkim-signature;
-        bh=3CDnqvyZrFd3aI0DADQywLiYCtNx5k3IVoBiTyQ2ZNs=;
-        b=ir6ee+47qKVF9RPvtF5pGggMrgpfUVS+C11m4VAHMnVqy/THRS8SYz7GnVrKnQY/WF
-         AQec/Tk7CAK+hgLvWvV2s5QKn/9rEeFQAw/RhMDjPFbarhIqyZqFshakreN4kgHvFmXE
-         TSMxWTrcsgRY+4MqxUbG0seJ5BAkcuDixoBA0UhInI+ei5s+5iZ5Ojwmpnhd5+4WXS1M
-         Sq42IKJYg7vh6Bb53fl8/8OhvPR1SjF8sXpcHQ5URSDRuOpGaJ0E9sTjh9K6i/ZZzKhn
-         s3XzU96LqNw/t8oubhdX4RVoo/1Q5PPwTWfKydTtIPFwt0JxCfJhDLqGG3i3lLf/JmCR
-         taPw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@amd.com header.s=selector1 header.b=ff1sdGzy;
-       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
-       spf=pass (google.com: domain of christian.koenig@amd.com designates 40.107.220.80 as permitted sender) smtp.mailfrom=Christian.Koenig@amd.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=amd.com
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
+        bh=j/EmB/Xux24vg5WgnYz43M8cYwLP+uP/8LB8jBapDfc=;
+        b=kr//q2XRzIv9QkATKXloMS+ueEP/tPO0MSNaYCXxcNkBAcD24PPWjITR7vA5xY38lB
+         kh2c1FL8nuRKRPdkI4kIuMIK8Xo5kvQ5C68b7BQ+Fmv+kLjlCPaksPONF0IjPHRzDI6F
+         u3a83jJmYBo4YDG9+IWyrjTKcTo+atFTNqPvTLyrf1NJoDR3X827dtbI+08tjUnFA1k5
+         9T9uxoqNHQ/B916tLNKOCh6O+6jQ2+XoRbLRp6NKJIiIkwOMvFvCyx32uWIywNNYiY0D
+         aN3CY9m54wqwrQtZnpFbCOwRBYsP2EhRthBhtp3wdY6QSR7t9kRvkDpSd0/+H4hv3Auu
+         6BAg==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=R2bsUqhA;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.136 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :in-reply-to:content-transfer-encoding:content-language:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=date:to:from:cc:reply-to:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3CDnqvyZrFd3aI0DADQywLiYCtNx5k3IVoBiTyQ2ZNs=;
-        b=WKyBzbLKTZ9X9pK/nKskMN3w8cYSuDYWcKqpyYl2rcIrav7DtGNDi+lZOGXi8i1iER
-         VqMAsiOhMcaVqGXgn7AFLjfJAQKynG8JRH8vodYOIeyKgiBhCM+PpmDQ2z1OOT2lWFFo
-         fd8bMiSbQcOHUHMz2hdU2dvqqGbUvPZxDqAzkTQK78n5irHvj1jX6Bv9fOZZhd2WTU8G
-         7irgnH/Oh8M48nendd+VWGBhEnPhNtXvkQgO07+wt9IsX0YIxox8Iw0hngoyWPSH6KEB
-         9RLp/pb1JG0JrqnpPFCC5ChH+e0g3NG4nec/7sa0jgLmmbnbyZQy89jAEwlvCg18zodW
-         iwhg==
+        bh=j/EmB/Xux24vg5WgnYz43M8cYwLP+uP/8LB8jBapDfc=;
+        b=UXITGkmbdUfrNA9vlm8/hyjxVQxSstrafIDLZLlA/yBdJP8FQdOx5FfCR8kxfoiTCk
+         2U2ehlOFcehxKWAfOx4wsAKw3C6VXyjhPJRf+Y4bfy7AjFGnH1ji1l0V0uqqQixbE6gi
+         OURXn3h1fpWjUSvWB3me9i8gR8nzQMPXvaZa+uaNRQoUgI0GvsPOdCn3IFuljIVToCdN
+         FyrRuGdRvBLj7BFcByOWXleuhYnkRQ2tWawzEDL/j4MxZSEa4n+UVnfX3SkssvLPbNmJ
+         bCzIsuwaUUxmOR5iDqqv2CDhHhqSqa2m0UfH1+7TnTzUFcAnv9GOCLd6PohDCqGg+1E1
+         gpNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:in-reply-to:content-transfer-encoding
-         :content-language:mime-version:x-original-sender
+        h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3CDnqvyZrFd3aI0DADQywLiYCtNx5k3IVoBiTyQ2ZNs=;
-        b=bqMBsoo2lHBLL6x5slhXIaDhNwP25ChTpdpgjhQUBoF0NUvAgBzDCnAhEcS1IRv5aY
-         98NuCmgBVWtLd5VfG5NkUFFrDzBtvnDHdfb4c4pbgdmFX2w9zothr1yoZyGPY/R76U64
-         cViyG9HT/+B8rRb3MYMiXBzyGSvhM2vHbl3lCFNwnTK5P77c3FRuRgvs4Pn9jOoXGWAW
-         +mrEhU8lKt9EQ6ch/vW1GdLCbdf3G6EQ89aZL7U+untnRPp6zlK5HThJT1iLnsnGq0TC
-         /AEDIZa8l4W5WFt3UT605yFvHE4Clib8CjpIcd50oMKnDg0YlneZ++OwVBTaeY4DlkZY
-         k6WQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530auk1icP7fY+pKlooEVHlgOXeW5nlsAh9D/HbFkiWKEhc31lp5
-	3PSw+9QMDBmYwslwV+q/nBk=
-X-Google-Smtp-Source: ABdhPJyu/hCELLo4VjM1rav8qOrYRqPlWotzdQQRm1pA0AdFTD9iz99NaWJ6JjLDFBPYf+pJm8xGjw==
-X-Received: by 2002:a17:902:e74f:b029:e5:fedb:92b9 with SMTP id p15-20020a170902e74fb02900e5fedb92b9mr26438415plf.67.1616414314278;
-        Mon, 22 Mar 2021 04:58:34 -0700 (PDT)
+        bh=j/EmB/Xux24vg5WgnYz43M8cYwLP+uP/8LB8jBapDfc=;
+        b=D4XxxC1oYhFPYuJ2AFhFniRPZNRbPl53IEPLOPyx3/bA42+QZdZK5MdXsCoDTLRlg9
+         QGemZfn7DvvWUItF2R5x4PDxhyHCZWgeMa8MkK2ZCeCq1NFr6wMahaO6OffTzr1oDyyR
+         Nq0nHY0VQ6VN+lD++DZrtjxeSJ8JFUxAXz55tCKwkYP4Q2j+wpe91npmE0Cc09zqohDx
+         wEG4jaAMnjwz1mf4MT+pXXyJyRwoRTtjsr93x/3Sfe/+ESgeEfZ49vdUbOgUk4nprGp3
+         MdGjKvGGTmvZm8tzkkkjRXpOB+nWQ+cfGG9pnM8vijP9RmUThgHDectVqPjdHi9S3GyZ
+         Qfzg==
+X-Gm-Message-State: AOAM5316ZRxDptolUcTO9HSLslsmbwRl0sNYOIlHKDrC7Ggivv/koXz0
+	4r55NqeWv0OmiVp/UVhyrmU=
+X-Google-Smtp-Source: ABdhPJxh/9XcMlGHyjue2uK7s7GvVGYgXa11FR90FL7ryQETFndAb6MFxSkjcSKzbYtDvWEa/XZ+QQ==
+X-Received: by 2002:a05:600c:4fc2:: with SMTP id o2mr15323285wmq.25.1616414691527;
+        Mon, 22 Mar 2021 05:04:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ed11:: with SMTP id b17ls6565243pld.10.gmail; Mon,
- 22 Mar 2021 04:58:33 -0700 (PDT)
-X-Received: by 2002:a17:90a:70c2:: with SMTP id a2mr12720044pjm.63.1616414313727;
-        Mon, 22 Mar 2021 04:58:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616414313; cv=pass;
+Received: by 2002:a5d:58f0:: with SMTP id f16ls1582288wrd.0.gmail; Mon, 22 Mar
+ 2021 05:04:50 -0700 (PDT)
+X-Received: by 2002:adf:fec5:: with SMTP id q5mr17212708wrs.43.1616414690737;
+        Mon, 22 Mar 2021 05:04:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616414690; cv=none;
         d=google.com; s=arc-20160816;
-        b=trtJwFxhzN5/GyHTVyVbDYLW2aXe7wsJCt8pG9dMHbdzmg+gCqRRL1LgItVPNylN42
-         zpKgrUuHWcM39uV3hy7ciFplfNXwIiP5arZy3VEqksFCpMslia+ML/pGWiHSp6uTOEry
-         /f8yoNspIJ6IleE5WAVrLgOS6EsLTsFpaY+H2LqpPMHm2wk+KCJlpy7arCcfjUJ9HmWO
-         DVqu9j1tq3LQfaB/LJVUQU2bIzYCaaK0Ej6zDp1bXLO6MO7Jq1aBVwwxk6Aj6bbA8cgx
-         CDLDu795EsLpM0oa4e1z+HCoinTUUHrzrbqb2IQMyAg+hhKv/AS9nxMYXekwdc/ooNMP
-         7jng==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-language:content-transfer-encoding:in-reply-to
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=G883sjOj/bQ3RfhdFZ36x4y/IjNHJyP87/9oaQyXzfM=;
-        b=bgraGkWiRYMaNIViq/VF2BTVtd58Lbh2Ttru0gVa5zk8jVitNLAs5U8DPg8X5FTTy1
-         lvqwlYeSZTK23AribelDu//vwmQ+QT0P6eWjY7FMOuLkaWITs8QCg+5anpFVjypq5Uyq
-         UU74XsdwUdm7ImjA3R2anVDkQmD1W1xm+Wig/oNeXXom5kxX87jardT4ZCpuf0A5Rn84
-         gDpi7FYrqLK/Gr2l7YByiRtjvcMhDfCFLgyzFef297Ft17WJA+Pk+8s52r2O76EiqcKf
-         /ZOhTKsK3INzoNy0YHo00YNl1peAHrlGqMkMkKEROZmOCmXMhjI+02FUXq/XAFFGdXZt
-         sQUw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@amd.com header.s=selector1 header.b=ff1sdGzy;
-       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
-       spf=pass (google.com: domain of christian.koenig@amd.com designates 40.107.220.80 as permitted sender) smtp.mailfrom=Christian.Koenig@amd.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=amd.com
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (mail-co1nam11on2080.outbound.protection.outlook.com. [40.107.220.80])
-        by gmr-mx.google.com with ESMTPS id t5si819020pgv.4.2021.03.22.04.58.33
+        b=s/4Q0NT1vk/aZLGC1OMx++hrV0DJhEWcf0MoMPKPDTexgb6+AwroPIJtFsF71CKA0H
+         /ptbd41nAci/prQpk9sL1JpbcEZSxSSZGzp84kjEbsErwdedcpWFPWjC7hsqGulX8uZw
+         nqmOAVnt/DnNj3oGd9ZlxL0s3SUD78fs35cR283Qwve2BOT+bqC/Wk6WivcMIwIoOC8t
+         J2KStT7OA/9SxtQEnOZTLeoP4pa0QZ8A1ru4i7aTSkE7JZrl0du65j6nkBEUlQT0iOSA
+         IS3Rr0Ob/pZEQdpxGow+qMjbVPyoM4ldkgtSOJXZWtBOnlDTimktDgAwa1RvIuQgMFLY
+         FleQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
+        bh=AFgCbLguriV3CwFF1nhSPTfmyyoAQpRcEnd0zBssKuA=;
+        b=zHxGKbCJ4w2SAQa9QGmdC4aEb3hs/Tu1A7e1vOza/44cGfo6lyXOlc6bqBYMeCJU3i
+         9IWUvUu7SxVM+xwh+Sl9AjZzBaNeC7b2YpRN7uhSOUQuwZnRYJRgrqZnq5xGmOeQt+Hr
+         bOFXrDrpB8DrM0JF6FdtOhLeyZYRQsdELz/ItTYyvAdel6sWRB+MOJGGUVdgQMQdM8KY
+         hIq4ujkDlukIoCk+uWlPkU8KKeMVttPgKtrdlC10/7UgZdaq2HcEFBZdwefmqDXMwCup
+         fSmGyuVbGEu5Y2SvY6tvD/B7qQgJeKRjoHFEHEPGcD8r0He1qQ8Z0G2SQtspVZusnhid
+         wszw==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@pm.me header.s=protonmail header.b=R2bsUqhA;
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.136 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
+Received: from mail-40136.protonmail.ch (mail-40136.protonmail.ch. [185.70.40.136])
+        by gmr-mx.google.com with ESMTPS id i22si670605wml.2.2021.03.22.05.04.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Mar 2021 04:58:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of christian.koenig@amd.com designates 40.107.220.80 as permitted sender) client-ip=40.107.220.80;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eLwj3SJdbQ8ImIxdXeAhYwh2Qe59UqFEElmkRZGuKiGnQsEUb9xuUU8vL6bPdoNLm37uZN4MnCnJNvYQZr/wVEGHNOnzrf5NR+2yHHrRJ9vzabWL73sLdn5iVZ+gX5u4KPnLvYqKYs3gHr7ozyaIXetuSunnq5Yf6Hya8wmWGvsj5GDoMOeqcnUie7u8nqnK5YrZDbMnCi4JApwm1T60axsrybH2WpHZffXIhfjll/v/gnllHGQgwiOWl/UerTRdHrWvBDxyPjYvkhmKyr36qxi0wpldshSxPgi2Qj42p1fqIBjhqhwgRdaO8c3dNU7ifV8Q31hPHku/HshtWOcZ7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G883sjOj/bQ3RfhdFZ36x4y/IjNHJyP87/9oaQyXzfM=;
- b=f52WpEYjdS92WywI06CGBlms6MGqSRWfMqm8KwswO/en79srOdG0vxtuKrEcX9cSotQnN0RfDAMMfAyxbboly/Uy/T5OoIkd2CvM73UUXqyy7XChygr+HBA7/8+Sdo2HRpy7CH9+2OGIDT5nxwOBdiFQxcD2sW7wJ15xjxO4QXWDxrIUCY22UTlEXgB7TAphvTDsxP0vKTRfEm/Epn3iDSGrpkUG1Ee/kDKPSgiQVWzynDAmCqbjBIqUVx65YLuYW+UVnOA3mUFENNZqzDH+NGu0dhuORuAbuQjipgPM0VAPleolZXIYuE3ZJcNPsFZ/uGbXKPq5Hh1Wee86PFh87g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-Received: from MN2PR12MB3775.namprd12.prod.outlook.com (2603:10b6:208:159::19)
- by MN2PR12MB4390.namprd12.prod.outlook.com (2603:10b6:208:26e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.25; Mon, 22 Mar
- 2021 11:58:29 +0000
-Received: from MN2PR12MB3775.namprd12.prod.outlook.com
- ([fe80::c1ff:dcf1:9536:a1f2]) by MN2PR12MB3775.namprd12.prod.outlook.com
- ([fe80::c1ff:dcf1:9536:a1f2%2]) with mapi id 15.20.3955.027; Mon, 22 Mar 2021
- 11:58:29 +0000
-Subject: Re: [PATCH] amdgpu: avoid incorrect %hu format string
-To: Arnd Bergmann <arnd@kernel.org>, Alex Deucher
- <alexander.deucher@amd.com>, David Airlie <airlied@linux.ie>,
- Daniel Vetter <daniel@ffwll.ch>
-Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Lee Jones
- <lee.jones@linaro.org>, Chen Li <chenli@uniontech.com>,
- Tom Rix <trix@redhat.com>, Sonny Jiang <sonny.jiang@amd.com>,
- xinhui pan <xinhui.pan@amd.com>, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20210322115458.3961825-1-arnd@kernel.org>
-From: =?UTF-8?Q?Christian_K=c3=b6nig?= <christian.koenig@amd.com>
-Message-ID: <385b8150-ab31-0a53-db09-e0dcdd1d7c25@amd.com>
-Date: Mon, 22 Mar 2021 12:58:22 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
-In-Reply-To: <20210322115458.3961825-1-arnd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Originating-IP: [2a02:908:1252:fb60:e345:6f8e:fa4b:2c52]
-X-ClientProxiedBy: AM4PR0302CA0020.eurprd03.prod.outlook.com
- (2603:10a6:205:2::33) To MN2PR12MB3775.namprd12.prod.outlook.com
- (2603:10b6:208:159::19)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Mar 2021 05:04:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.136 as permitted sender) client-ip=185.70.40.136;
+Date: Mon, 22 Mar 2021 12:04:43 +0000
+To: Paul Cercueil <paul@crapouillou.net>
+From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: Alexander Lobakin <alobakin@pm.me>, Paul Burton <paulburton@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, od@zcrc.me, linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Reply-To: Alexander Lobakin <alobakin@pm.me>
+Subject: [PATCH] MIPS: generic: Support linking with LLVM ld.lld
+Message-ID: <20210322120429.3706-1-alobakin@pm.me>
+In-Reply-To: <20210321131805.98422-1-paul@crapouillou.net>
+References: <20210321131805.98422-1-paul@crapouillou.net>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from [IPv6:2a02:908:1252:fb60:e345:6f8e:fa4b:2c52] (2a02:908:1252:fb60:e345:6f8e:fa4b:2c52) by AM4PR0302CA0020.eurprd03.prod.outlook.com (2603:10a6:205:2::33) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.18 via Frontend Transport; Mon, 22 Mar 2021 11:58:26 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 130530c0-c46f-4ddc-d0b9-08d8ed29ce17
-X-MS-TrafficTypeDiagnostic: MN2PR12MB4390:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <MN2PR12MB4390FFD1C67D9865938D45EF83659@MN2PR12MB4390.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:5516;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 5/qu3R3BnomeW3WmsOT0rUwl05IZv2NHh6kPmqBlbYQhcfiv22HW5/v0xra2aB6mq2N+VjGb9eJVdDYldvlgz/LYMg9vxSdmhhxGkG/MvQ9jwrmhDd9+kid79dGmhQKPGnyu28xfixaAbZ+M+abFnl5o4nybWd8r4xmkBbL8gQ85p2kNsyxQWGRCwUsokrbQUkZLB4eLMjr8J1vQ0S7rXkcHULsJaJI89OANX94wDExgtXS8Q1jHYXZ0gFfL1otltTs5YDulFPqCm45SDqyKyMEIOSJhneXttr4zFAVnuOGiBhFhNT89V8ciz3/wyPv3t9zQ/aAG5xmXvgQFaae7aGLta7onL4jX3TjAcSWW+niLXiq69O1QrAmBKjFEptGB2auj8S4Bth2GwQRfOyXvuXv2jr6H74KvL43l6PkBIrENftHLs8flVEsu33jtdz0Dy72VcedQn5c5MDduI9SLK8EvHpvXOqGQryFJzBzASbFjcKhPVMK5ZQPiH3ZwBEIhnp4qtHu9YcK54FIKvsiCpr0IGMI71ZdsjVxyCnDcgl6Ab2AwVKls7nZFDG3OkV17L94mYJrVgFiYdvaEf9x/n18eQs87TCtMMxetOCnVF1bRjD0vVQSqhopBLvkv+iYNu2HDYpJDx37U7tdNQUoWtBMOjexjWUg0vyajJAo4P2UPi+52daZOzhplc2W0h7/sf9wsmGx0v7dxOrvWcEN4fvuybOamccsUgwAUUWYxC4I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3775.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(136003)(376002)(346002)(39860400002)(396003)(366004)(7416002)(52116002)(2906002)(5660300002)(4326008)(31696002)(2616005)(38100700001)(8676002)(54906003)(110136005)(478600001)(316002)(6486002)(86362001)(8936002)(66476007)(31686004)(66946007)(66556008)(6666004)(16526019)(186003)(36756003)(83380400001)(66574015)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?Yitsdm85ay9hUU1GZi9XVG5mQlBWa3NkMFcrVTlCc09tRE1zOUFPd0lXUmhJ?=
- =?utf-8?B?QTBwZ1dFdUxIaXVncDU0Y1JwNlRMMEFaaVpRTVhWYXlpRmlJb1NIRnMvaEJo?=
- =?utf-8?B?UjdoSkhqbDNEaG5Fd0NWemdobnFXQ3BqYWFSclU1b3pYbXpzS3VTZWN3RmxJ?=
- =?utf-8?B?ZDErNlZObXM5UUpJV0x2cHRBMGxWSGNoTENpNW5QUnF2ZHhnY1F1SHd0NExs?=
- =?utf-8?B?bUVpWFczdGlvZGRyZ3hCamh4TXZOQkk1UUFTNzgyNlRRWWhuRWF3TzAzckM4?=
- =?utf-8?B?eks5L2liU0w0OVY1dW8rV2RSQ292Mmt3UjR5UlBqV2JReG9lc3dpbUlPTG1L?=
- =?utf-8?B?Y3E2WWNOUHRDOFZUbTByM3p6TTNpOEcrSytndGI1SzFkeUU1Sm9oUUxGaTZB?=
- =?utf-8?B?ZmFRVnJ1Sm55VmVSaGpKZDlKUmZJU1VaZFJGUUlzRCtHVjJQVVFicTZScTBm?=
- =?utf-8?B?MlQ2TkprY1UwbnEvdzNiak5aaDJnZHg5REhsRjl6cFRnNXArbWtQc3h0ZGNy?=
- =?utf-8?B?OWdxQXRBU3c4SnFncVZqdmgyeWwwVlg2WUZ4U250aVBlaG1nOWx6ejUrMHda?=
- =?utf-8?B?TXhaVTZTTHRXdGlQN2VxemdtQVIyZlJoRHlyVmtzMitjdStSY25oN2lEV1NW?=
- =?utf-8?B?QzgrYld4djB2R1MrR2puRkxNVmF2QTZHNVNuWWxBdG9SMlVzanJMQVQ4MGhD?=
- =?utf-8?B?bmJnNU4vdUI5Snk1c25nQWpydE9qTUxCNEdBbzhJY2k0YXVzMklJci9sT2VE?=
- =?utf-8?B?bWFMREt5UWVKRlNnWVJqWUFHL05uNUtFejlEc0lyK0I5TzFKdjJsTmFrMzRz?=
- =?utf-8?B?TE9tN3RHN1Y4eVcxTDhVZGNna2t4RURUd01MRzJKZmpQWk9SWjlMUHZXVXAr?=
- =?utf-8?B?Q2xGVW53ek1pVW1FU3dOYzYveW1mcSt3RjFYZmFTOGZqamJVWVJZWVZOd29k?=
- =?utf-8?B?dVB0OERGRVl6bU4rWk1vUWN5NXV0RTdTNm1iYVg0T2RWa2haTUQzLzJMU2JF?=
- =?utf-8?B?N3R2NUYrYlZHTENHbzZtRlBEa0d2WS9xNHlSV1BtREhQL050QmtCWUFpbSs4?=
- =?utf-8?B?TE5LcjNqZG1Sc1FEazRVcENrM3ZORkg0Zmo4aXFsQ0N4VDZCK0xaL3QzeGdo?=
- =?utf-8?B?TmpzdGFhOW5Fd0luL0M5ZUlteXNLcDVpTVNEaXRoMnV4STVXcytrRVV1cTND?=
- =?utf-8?B?TDQrT0JrSWhaeVFWRWdpRG9mYnpVY0cxZ21sZ0xYRGFueU1mVE5DcDczWERP?=
- =?utf-8?B?L0paVEM4cldKcEFYdS9ZdkJmRlF4dmJOM2R3dzV4UzE0WkptOUJtT3FtU29I?=
- =?utf-8?B?MjZsbU9tWXJ0SlpNaFdHWWFKWnM2aFVyQUNjd2pYUks2VVo3em9pcHkweU1F?=
- =?utf-8?B?ZE1saTJIaWU4R2U2SW0yQ3NaeHZyWThpOHc4UGczbU5kUmxDSlQveHhJOFJn?=
- =?utf-8?B?Q1F5RldMUmtjY0ErMUlrSkllbHU1TmY3YmFBUmh3WC9pQndpOU1uNjdCR3ly?=
- =?utf-8?B?Ry95UHorUUVHRytYam9WN21veUpFZE1YRkpBbFNjZGphYXhtay9NUk1qVkU1?=
- =?utf-8?B?Q0d4MkFmeVM0RkgyVDNSVG0xcG1IUy9NeTNtRmFoVzNkbWVHRUFYOStiVTlJ?=
- =?utf-8?B?bWJRTlBudVRvRkl2cjJQZkd5aW41VnhpTUhHZ1ZCUktpWWZHamEwamx5UHJV?=
- =?utf-8?B?Zi9GVHJTbU84eXZXSXNjS28rMkgvTU1NY1FxYktKcFQzUlhseUJoTmdwSGxx?=
- =?utf-8?B?WGlZT2UxeDRuR2o0d05Nbmc0Z2NRNTJaOHhpWHE5WStWMk1LRi8xYUk0ZGw2?=
- =?utf-8?B?a1VYdUxNN1pHZTNhd3Q0aU5KWmZsOGlJQWR0dzdsMzZST0pCK3pRVDBWM2Rw?=
- =?utf-8?Q?XSEc5lG+ftFOE?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 130530c0-c46f-4ddc-d0b9-08d8ed29ce17
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3775.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Mar 2021 11:58:29.5975
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iSwj3bajZvFAWcKed6mBdH6Jtqke/2w2nqrqL1OxDYHkJ7DBO9PxX77mUS7TAlgm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4390
-X-Original-Sender: christian.koenig@amd.com
+Content-Type: text/plain; charset="UTF-8"
+X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF shortcircuit=no
+	autolearn=disabled version=3.4.4
+X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
+	mailout.protonmail.ch
+X-Original-Sender: alobakin@pm.me
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@amd.com header.s=selector1 header.b=ff1sdGzy;       arc=pass (i=1
- spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass
- fromdomain=amd.com);       spf=pass (google.com: domain of
- christian.koenig@amd.com designates 40.107.220.80 as permitted sender)
- smtp.mailfrom=Christian.Koenig@amd.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=amd.com
+ header.i=@pm.me header.s=protonmail header.b=R2bsUqhA;       spf=pass
+ (google.com: domain of alobakin@pm.me designates 185.70.40.136 as permitted
+ sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
+ sp=QUARANTINE dis=NONE) header.from=pm.me
+X-Original-From: Alexander Lobakin <alobakin@pm.me>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -222,51 +129,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Am 22.03.21 um 12:54 schrieb Arnd Bergmann:
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> clang points out that the %hu format string does not match the type
-> of the variables here:
->
-> drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c:263:7: warning: format specifies =
-type 'unsigned short' but the argument has type 'unsigned int' [-Wformat]
->                                    version_major, version_minor);
->                                    ^~~~~~~~~~~~~
-> include/drm/drm_print.h:498:19: note: expanded from macro 'DRM_ERROR'
->          __drm_err(fmt, ##__VA_ARGS__)
->                    ~~~    ^~~~~~~~~~~
->
-> Change it to a regular %u, the same way a previous patch did for
-> another instance of the same warning.
->
-> Fixes: 0b437e64e0af ("drm/amdgpu: remove h from printk format specifier")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+From: Paul Cercueil <paul@crapouillou.net>
+Date: Sun, 21 Mar 2021 13:18:05 +0000
 
-Reviewed-by: Christian K=C3=B6nig <christian.koenig@amd.com>
-
+> LLVM's ld.lld chokes on the 64-bit sign-extended load addresses. Use
+> 32-bit addresses if the linker is LLVM's ld.lld.
+>
+> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
 > ---
->   drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/mips/generic/Platform | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c b/drivers/gpu/drm/am=
-d/amdgpu/amdgpu_uvd.c
-> index e2ed4689118a..c6dbc0801604 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-> @@ -259,7 +259,7 @@ int amdgpu_uvd_sw_init(struct amdgpu_device *adev)
->   		if ((adev->asic_type =3D=3D CHIP_POLARIS10 ||
->   		     adev->asic_type =3D=3D CHIP_POLARIS11) &&
->   		    (adev->uvd.fw_version < FW_1_66_16))
-> -			DRM_ERROR("POLARIS10/11 UVD firmware version %hu.%hu is too old.\n",
-> +			DRM_ERROR("POLARIS10/11 UVD firmware version %u.%u is too old.\n",
->   				  version_major, version_minor);
->   	} else {
->   		unsigned int enc_major, enc_minor, dec_minor;
+> diff --git a/arch/mips/generic/Platform b/arch/mips/generic/Platform
+> index b871af16b5b6..19b7d92a4ca7 100644
+> --- a/arch/mips/generic/Platform
+> +++ b/arch/mips/generic/Platform
+> @@ -12,8 +12,8 @@
+>  cflags-$(CONFIG_MACH_INGENIC_SOC)	+= -I$(srctree)/arch/mips/include/asm/mach-ingenic
+>  cflags-$(CONFIG_MIPS_GENERIC)	+= -I$(srctree)/arch/mips/include/asm/mach-generic
+>
+> -load-$(CONFIG_MIPS_GENERIC)	+= 0xffffffff80100000
+> -zload-$(CONFIG_MIPS_GENERIC)	+= 0xffffffff81000000
+> +load-$(CONFIG_MIPS_GENERIC)		+= $(if $(CONFIG_LD_IS_LLD),0x80100000,0xffffffff80100000)
+> +zload-$(CONFIG_MIPS_GENERIC)	+= $(if $(CONFIG_LD_IS_LLD),0x81000000,0xffffffff81000000)
+>  all-$(CONFIG_MIPS_GENERIC)	:= vmlinux.gz.itb
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/385b8150-ab31-0a53-db09-e0dcdd1d7c25%40amd.com.
+For load-y, it's handled in arch/mips/Makefile:289 arch-wide.
+For zload-y, it's not handled at all, but the proper way to do this
+is to add a similar to load-ld logics in
+arch/mips/boot/compressed/Makefile.
+
+>  its-y					:= vmlinux.its.S
+> --
+> 2.30.2
+
+Thanks,
+Al
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210322120429.3706-1-alobakin%40pm.me.
