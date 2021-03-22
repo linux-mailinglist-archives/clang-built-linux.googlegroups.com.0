@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBGML4KBAMGQEVQTNQQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBOEL4KBAMGQEFAGHWLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 60BEE344032
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 12:55:07 +0100 (CET)
-Received: by mail-pg1-x53d.google.com with SMTP id m5sf20533003pgp.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 04:55:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616414105; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 41D58344035
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 12:55:38 +0100 (CET)
+Received: by mail-pg1-x53c.google.com with SMTP id i1sf27772703pgg.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Mar 2021 04:55:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616414137; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r2CsFYU3zmiaQf/FHFUVOww7P+/qxLNparZmv/oCwDk3om/Oo6maXi38EEdo0wXCUX
-         ziM5ivDfWHcjuLxutDMbMPHdDQ7ZyotzuLNILiB7rggYIhFJLtYnZ5F8dBXYqCgPhAxV
-         kp6B7MYOBcwepUf+JENQpWV0rYQOpPCVbZoJlOQuv8aGEUU86ZjlqJrsrszIvnA874sv
-         7LiL2MeustFOUF2tZoJ+xPJEK2BTlDOUQWaxpR61agrmt8pr9PdKggWm4PpqWA3Xnh2A
-         OpQjeUjeLGGXDMRqySM0VfuSU5jxnwUwuGQ9tPq3Sb0Sy47jBfoOzcYo05E8Zw5MVuBA
-         cUTQ==
+        b=Hc6Siz/GwxS5fZONWwILotw8iwRX6mlPx74de6uYF1cssL92+ktKK90QvVfEIbt7Cs
+         XjAE3Tq47cqEO+xJyAA+kdSHaGguA7uv4bf1ZPuvBploSXZMPj0/viqAcGlpwmzuFUZz
+         xdu/0c5v6vHC/5VAu6RMEurAJ0zW/a8RtDLHMOXrlpxb6idIS2ec0xInltpLpbgxBCQB
+         jxNwfxYk/1QHIz8nVHRmpgr0KmmS9/30o87M/faai8na6zKcLb1uE3IKR30bHeNOvqvB
+         //oQpV5z58TxRIMW2y3VpJ/ZF84mQqzF09dIN1kMJOMf5r3Ltol60XU2I62aDpMHnzMV
+         KC+A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=TkkrTaeE28XZDrsmh0sQ9yEOoJsoaJzVUalViGE9CcA=;
-        b=hwZPjDrB2ykTGiPhJRVC1tZBn9SmZroAlsQcBkRxfJkYdkFGqtktu540t/NY9spSPm
-         rH2Bc68GM5DadlHRZwuvGAgeUSANpvvp1OON/V94hpZEI9nfLsCd9Y9uxDlOep8fB4G9
-         l6K5pwz9tCDP2NidGhgrPz7QBS0DBrK5THrVgifj+9Fzkl7xilZSu64Ll+x/t3LWDwfz
-         1ljcIXhH7+ZyqKhj+CukMeky4E1BkbC3b5vJn53R2TRSx6/fy7yKn8wbbOp2Q4GNZPdT
-         YMpINRkKv8JOJGMfhVxS4YgyLm8+9CY24ut2FiQXY4K/+dRlhU5rGGlZyKjY6PQudcI1
-         gt/Q==
+        bh=7JbclAb5tZc3SM9YpQoqFOoCkJhDd6/YQmDcu7SUH/I=;
+        b=im4IJy1rqjPbHpo+JjrrhlsQE9vVIazPCL+LAk/bWx/y2EghphnW3P4xbDZhpEieIA
+         32WyUoSg9MAJOgDOxgdpXYGkAECT1w9S9dLdW9CWgQP5ynBXhLZ3bjDqLGSlzLW7SZCN
+         w4QlSW/zmpdJYsvz3lZt5BIR+9PMd5/FsXYK9dDSCzKl/sjdVAFCcjnNi2avbb7W75o+
+         wBAIPogsVM4KShU9+dM1CnNPt49SVwVhwM+BhFaAZX91Zwrhskxof6EPSP8ANLCtpbEt
+         d4flh/lNX4UDVWvDuajL7P3dd65rydGDWX7Pz1Z29jIYSKvcLr0pCt7WbZw+ZD3hHNUr
+         YBCQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=e1myS2ra;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AdWbRjGj;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,92 +35,89 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TkkrTaeE28XZDrsmh0sQ9yEOoJsoaJzVUalViGE9CcA=;
-        b=QMNabgnuTYDI8UM8YXOf+QdP3zilZibp86MAqyTmhQuPeB3R1Q90oV88R3ujBSMdz6
-         IMZCwK1+uDh3+vhrpuIsNmdhzRheLBoCtBDvnraEsc0Z0UcMtkWYCplQNIn8PVDOJQ1p
-         FxGyXsVfaLpXzM23FA13fH3bbKCv3lncO8mawmr2d4MHtlbAD+owrcBFjV8BFoltGSmu
-         s6yg+DjluFmEHUMk5DKVIJl3d3cprc6ZO32yqKxqWVOwaxIUEQExb3n+zIln9eozQWHy
-         h+XA6boNiu62bndTj0p/Krs4WNm4vcNKL9BqiOLJM+kGbGxDMGuENym9+xSHV/7niDf/
-         nCMg==
+        bh=7JbclAb5tZc3SM9YpQoqFOoCkJhDd6/YQmDcu7SUH/I=;
+        b=NmJcNukrr+1NqV7oFHilv7gOJQcGW+0O6Ag3Vhn6i0n0GL19UvHavlqBchHmzjwfvD
+         aLfnZjZ0QD3kqJrt0//9dcOhoVAgY95ZcM7fEMicIwt+Dfmi5PBlCgmGQsQnZ2HPdzsy
+         FaJiKo8HWLx/GFDeLWvI7hKn6oP/qYhlCbsxvoINBJxA/yGONqhuVPSKm7oett5HqJhH
+         ot96cgeFbUvLjPtVt/cQuADxIyilqM2ZGwhOeBTN8V5EcuLFGjSHPQkoNqDU+VSdDP7X
+         HcO5oKYtobxjRy0hHOtDNZcDBsaIHYQQ8Alf3MHita5/ydT9Zg14al4KdxTk9hV6nRUn
+         z5bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TkkrTaeE28XZDrsmh0sQ9yEOoJsoaJzVUalViGE9CcA=;
-        b=HuLO5j6xvQiBIhkTSjDBIfaJhhUkeYq1NpPeXZoD2eltY2Q35IiglXT7gjelGG+oNl
-         cSRtZzta/nAg0cKVo66Q9q3NUQfCOVVOG8KofhDw7iIeqZGNmOSugNOQeJrH4tnsJtu4
-         Mjh1yhizRLHYejVi1IiOnoVn6mH9KmHTLLrCxRQVeV+3GICzMdztIQzutC+jo41W8Wkd
-         Dej3Qn6Pi5f0Zi5ONnNYVdhZ5WxgJkemoAmuj9vJfUCW5JWYOWWxTdqTw6eRmA2nJjS+
-         7qnXJ9LsJ4ToIVaLwoMwSq+buIwDmhlFPNN8tsQTt49S8nEieVyBZF2xcvPrVC1TEmhK
-         a5sw==
+        bh=7JbclAb5tZc3SM9YpQoqFOoCkJhDd6/YQmDcu7SUH/I=;
+        b=mxakS9lOXEgJfZn9ChZFLcAt33HtWrniWbzZ0Fgc4GcKWjwVgQTxPtF3SHihPYBkNx
+         gUVN2tekPvoJlz8QhLxnQGOYqtinh1BJ4ioRkKsin51GjGUy8ayAYRzTjLFMiNOWLpuD
+         lzDspAXRhTpVI1m2JwIGrfHhkk77hPt8d/TtWybLhT80WoGLajKeyt0Jf6KuoNoaO/wH
+         bO/VS5oMlObYNDx1wxEFQ22T+k4vZqbR/XKI6zCUMmYic+d2RQbON/fVXno35sa6Ku69
+         qgQsKQrHn92ZjQ2fFHqvB40IbmGXa4Ym5PvnDz2h0ZfXuxuQLZnRZ3xbQtQ2ZQQ8f2aa
+         mH9g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533iBbKV4rhgsILBIkTjjqfwGGRHycAll5qw+ghHjqxDIjqq2yJ4
-	AOC78+MBp6gn8FZaAvP1OtU=
-X-Google-Smtp-Source: ABdhPJy9FE/waxJY9dP6EnjET8FncHufPGaILW9NTom2eYd0bTbMWQ25suU5KLljR7WuJ6AXTVVkAA==
-X-Received: by 2002:aa7:8d84:0:b029:1f8:3449:1bc6 with SMTP id i4-20020aa78d840000b02901f834491bc6mr20907662pfr.76.1616414105583;
-        Mon, 22 Mar 2021 04:55:05 -0700 (PDT)
+X-Gm-Message-State: AOAM533j1uxZqSsX/9tdALsdqC7ZB/Q4ehKMbIw9aBfx2Z5ENpwgRl5g
+	YPmf4Hy2sii+yFSpFIkbHqI=
+X-Google-Smtp-Source: ABdhPJzlmgKDGFLVYpvy2rXrdaZUr+yPc+Uv9LJ1Fj5MNz10ga4l5CwHT5ySuOvIov9uJeYDYXykvA==
+X-Received: by 2002:a63:ab05:: with SMTP id p5mr22351983pgf.149.1616414136996;
+        Mon, 22 Mar 2021 04:55:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7f10:: with SMTP id a16ls5367375pfd.7.gmail; Mon, 22 Mar
- 2021 04:55:05 -0700 (PDT)
-X-Received: by 2002:a63:eb50:: with SMTP id b16mr12899936pgk.270.1616414105134;
-        Mon, 22 Mar 2021 04:55:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616414105; cv=none;
+Received: by 2002:a17:90b:ec9:: with SMTP id gz9ls7557616pjb.2.gmail; Mon, 22
+ Mar 2021 04:55:36 -0700 (PDT)
+X-Received: by 2002:a17:902:ac89:b029:e6:d199:29ac with SMTP id h9-20020a170902ac89b02900e6d19929acmr19587988plr.46.1616414136551;
+        Mon, 22 Mar 2021 04:55:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616414136; cv=none;
         d=google.com; s=arc-20160816;
-        b=JwBFKcVdRysfrjW1FyZbAz5Iy0itWKGvT+eLop5N/cnZQBLmlDV3rDzuPn46DQTnY/
-         IoM+I2IDVxAnnVCgz+1OyCQi0LUbx0NKgZcf3JcDX5wpEOR2qsAIukzbBEGzR2wUTr3c
-         kRUZmvOQyZivAOnT3fEKp96kJcWL+X/Ld8Qpvx0QYCpgMQmt9FFOyv85OVU59LhDSG5B
-         QXk/1idAVkJ3J4eOB4+ExuEojrH1elZpEVGAxQlQYJQ1HJcGlzbatXY5MPxt4aYFCvFk
-         Hg95mPJvLlPUOMKaOiG4gahrPyd1fK8A4tYOMHLuD9yiPZd0bcZIVfpUq7NjV2j3xfaq
-         qMog==
+        b=ElnDKK6+ugkjQDnqbFzhj4cMigKLO+UqLEPxxdAohAHPcwBtP6LSvSl6pEwfq3NtM9
+         tQTepgwEKMzO/ALYGUEuXqvXVB4Qf0HsUN2nOKGkZCH/neNVQS+r6OFLsG80+Ir9Sli1
+         3d8UWaB9e+PLlGKZ1P/pO+kpRYjhIUxP6qvnTR45sYrLwH7I+z9sYDvuA9QKker0sVyc
+         VYY8A7heNq2jMIRjB2WCKrpeNsB83HCvvow/pXf7oXWDRrxD2xBbmPUynn8wKPK7qBYF
+         MFglQst1CdEjXiDLgdDl0m8Ap560t1oVFjZldRSWoZAJsh6V/rYqr1Uxdz/s3lli3UvX
+         DC3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=Sof77bKVE4TGYcPTj/98bPIUnZaj4Q0920jtL7B++kM=;
-        b=Ojw+ReUCsoShdFuh6aKk51pdm/YmGIM9IuVb/nANdceHzDwaJ7vGeoW2Cgtusv/WmS
-         +SynhiCMVqTnu/yHbAfyA3CBP7EH6TQmHxTmO7w+cfH0rnNdD/slTiL5F7r0dyVdAhTi
-         Mfl2qFowa0yVjbxUceeh0X61sP/lvqjt4lJERUW+DH0rMctC4SMgxuOr2E2zdzWIjckp
-         d4N8w1UUBs+HDK5Noz3TmeIndQZKd7iIWG5oiBSzryQPn1I5PECiDLcM9wtUWPfyBKJE
-         hrUf6lmb680xr/rqfjZi4r4n7kST9X/U6NsR9ZDStdAnXvdyb+BYF44ZDSdQHN0chask
-         TgiQ==
+        bh=QerXd/xiVxEyC2A19zqFeE4pK0udvTD3hfoyyy8bojw=;
+        b=VeKXiQ2CTNURYGeqXf1fwjXm5ntbbCjSPSX77PwMny0nt3Kzn8dvIZBrFd/Tu3cQsX
+         RfaQ+JLRwsbOCSeEq97FkmKg432XBeHPvEanS0bzVPS2qSdC3b75ndEie/bioShmj7wV
+         1qGrImtdJfnlU0W6D+oBLeOZzBk+bsAxoyGVH8ipE4mUuN1dmNxianxwuL7S+7xDBIIP
+         8KZCs8uSGD6i37FLthr5qxKJI1yGUQhtk1hKPJIR+cO2bcIbM7POe/w/fbOBFBvyqWB5
+         d2buswuS6yGhvGAsYnd9fIgdzT9cBxZiPKE3c7COPqqCRHW4qQalEAJ+JU9wKb3Up68b
+         6VzA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=e1myS2ra;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AdWbRjGj;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n10si733501pgq.2.2021.03.22.04.55.05
+        by gmr-mx.google.com with ESMTPS id p7si818586plo.0.2021.03.22.04.55.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Mar 2021 04:55:05 -0700 (PDT)
+        Mon, 22 Mar 2021 04:55:36 -0700 (PDT)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id B672C6198B;
-	Mon, 22 Mar 2021 11:55:01 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A656E61990;
+	Mon, 22 Mar 2021 11:55:33 +0000 (UTC)
 From: Arnd Bergmann <arnd@kernel.org>
-To: Alex Deucher <alexander.deucher@amd.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@linux.ie>,
-	Daniel Vetter <daniel@ffwll.ch>
-Cc: Arnd Bergmann <arnd@arndb.de>,
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Lee Jones <lee.jones@linaro.org>,
-	Chen Li <chenli@uniontech.com>,
-	Tom Rix <trix@redhat.com>,
-	Sonny Jiang <sonny.jiang@amd.com>,
-	xinhui pan <xinhui.pan@amd.com>,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Waiman Long <longman@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	"Steven Rostedt (VMware)" <rostedt@goodmis.org>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] amdgpu: avoid incorrect %hu format string
-Date: Mon, 22 Mar 2021 12:54:42 +0100
-Message-Id: <20210322115458.3961825-1-arnd@kernel.org>
+Subject: [PATCH] lockdep: address clang -Wformat warning printing for %hd
+Date: Mon, 22 Mar 2021 12:55:25 +0100
+Message-Id: <20210322115531.3987555-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=e1myS2ra;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=AdWbRjGj;       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -139,42 +136,43 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-clang points out that the %hu format string does not match the type
-of the variables here:
+Clang doesn't like format strings that truncate a 32-bit
+value to something shorter:
 
-drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c:263:7: warning: format specifies type 'unsigned short' but the argument has type 'unsigned int' [-Wformat]
-                                  version_major, version_minor);
-                                  ^~~~~~~~~~~~~
-include/drm/drm_print.h:498:19: note: expanded from macro 'DRM_ERROR'
-        __drm_err(fmt, ##__VA_ARGS__)
-                  ~~~    ^~~~~~~~~~~
+kernel/locking/lockdep.c:709:4: error: format specifies type 'short' but the argument has type 'int' [-Werror,-Wformat]
 
-Change it to a regular %u, the same way a previous patch did for
-another instance of the same warning.
+In this case, the warning is a slightly questionable, as it could realize
+that both class->wait_type_outer and class->wait_type_inner are in fact
+8-bit struct members, even though the result of the ?: operator becomes an
+'int'.
 
-Fixes: 0b437e64e0af ("drm/amdgpu: remove h from printk format specifier")
+However, there is really no point in printing the number as a 16-bit
+'short' rather than either an 8-bit or 32-bit number, so just change
+it to a normal %d.
+
+Fixes: de8f5e4f2dc1 ("lockdep: Introduce wait-type checks")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c | 2 +-
+ kernel/locking/lockdep.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-index e2ed4689118a..c6dbc0801604 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
-@@ -259,7 +259,7 @@ int amdgpu_uvd_sw_init(struct amdgpu_device *adev)
- 		if ((adev->asic_type == CHIP_POLARIS10 ||
- 		     adev->asic_type == CHIP_POLARIS11) &&
- 		    (adev->uvd.fw_version < FW_1_66_16))
--			DRM_ERROR("POLARIS10/11 UVD firmware version %hu.%hu is too old.\n",
-+			DRM_ERROR("POLARIS10/11 UVD firmware version %u.%u is too old.\n",
- 				  version_major, version_minor);
- 	} else {
- 		unsigned int enc_major, enc_minor, dec_minor;
+diff --git a/kernel/locking/lockdep.c b/kernel/locking/lockdep.c
+index 70bf3e48eae3..bb3b0bc6ee17 100644
+--- a/kernel/locking/lockdep.c
++++ b/kernel/locking/lockdep.c
+@@ -705,7 +705,7 @@ static void print_lock_name(struct lock_class *class)
+ 
+ 	printk(KERN_CONT " (");
+ 	__print_lock_name(class);
+-	printk(KERN_CONT "){%s}-{%hd:%hd}", usage,
++	printk(KERN_CONT "){%s}-{%d:%d}", usage,
+ 			class->wait_type_outer ?: class->wait_type_inner,
+ 			class->wait_type_inner);
+ }
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210322115458.3961825-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210322115531.3987555-1-arnd%40kernel.org.
