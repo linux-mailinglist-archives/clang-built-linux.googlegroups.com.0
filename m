@@ -1,138 +1,136 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBWPH42BAMGQEGMAH22A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBC7P42BAMGQEGO2LEFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3ACEF345ABC
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 10:24:42 +0100 (CET)
-Received: by mail-wm1-x33e.google.com with SMTP id n2sf482096wmi.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 02:24:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616491482; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id B0F4F345B13
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 10:40:28 +0100 (CET)
+Received: by mail-pg1-x539.google.com with SMTP id h8sf1401486pgd.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 02:40:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616492427; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yqdHqqL2n4AhdJltO8Kn7HqZPKiJA5vPsZD6MffSWAK6YsUS2M0IzNv3UFIxMT7L2K
-         T8Elos/hIRpcHKtdQGe0/7Yy6QMjxPPRuX6ydPrATmTikx93rvW8KDweuq5h3Yjt654h
-         nwH4qOgfGT2ykANFjG5Z9Oudg0bkltykh84Q1/owJll9oP87Yb8wnZXU/0ePQ0Wl7567
-         5xPMKa0QtrZuObJ8UrsryXMsWKWv5daAjuZNPyP7vWdJnGWcuIa8xBTpKj5RcAU8rWpe
-         sna0frRFMqO20byOdLi+dFoazYB3mbYFWXaB15+hadB5duD8jLzAZv20SBIGqtmz9XVP
-         uwYg==
+        b=Ox2wn/vY/8OnDrSdsXnGvnZo43+PxUMNYJ7+OomxpkgjuC00NYLISO+QYtJSCGqFKQ
+         LQ6SlmTC05S4GKhKamF8vuc8jkwflJlf40MdetbjQaL4C7DuRQYfYwTueV1UGWVk6yDF
+         GwE2ej6FmLckIg40kWno30kLL7lTUEzoRO1z9NYJK1qvSUUMw0WD8obDLHNIxhJlD+yd
+         KDWMFk5O+x6X1HJ+7XExNh5+mvK3ifecoCVdcTqBNJmsPSse+7chHrXtZn8jdHLGbY9f
+         VGSkY94V9qDa24PcjFo8vontG8QtcpIS5WI8VF0e/Ea8YdWlR1hMcWqQfPU4bN2bsz6G
+         kHzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=+8yx/2PoyhShvQG5yBWT8R3oSyoI+Uv7ykfwzcGimQU=;
-        b=QiAaOAH14C5Z7LlFCbo0fbl0AKQIDuKJk0W79SWVUnlVqJnDvgcdJCdeqtOs+lugbj
-         xhCeHtzUAQ7aGHKd18KGTymEDpHfQQCOCOKGjGdNmkXQTvAUdToFIL89+ejkFxI23iof
-         uAeNSIUpwZslB0Ee8/9oFw1lccfduhPIOEzH4hV8NufY3gQsoZp078y8vQRaPbxg/FWo
-         CF8bNt7Tj/SHDIPvKZtaltdMqsfkrVXP5GphmmYGtAqxnOXE3B1+S+9zHi9gVjuzt5lL
-         6ikmK/RCPnbcujtrGqMSV17sd76p7Dzc7dxjYNM3bsNDNXoINzlo9JZ5mkH8vFMsE7sD
-         JtjQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=4wr+6K9CzNO/JzYKCCOtOwRLl8yFleFUJYOfdEW97XU=;
+        b=G4nnR3n9pV3+ineJS1QXQdheyHsI4mGXK//mq2fb56HD/4akdIzFV+5O55xDafIQb/
+         asAyuixXDL2W0knCUSeV5psiRjMiqr0Aj2sYEZW+INFz3oWEor32OOdNgp5m2gqkFpzy
+         sw+Yq5h+QFeWlfJ7BnKiOFKKHTpVJ+GIMtpvxnsGzUfCLzCWwA7HIR7YZR2DBbA/hAFn
+         hIKALNbJid+glT/rnjLl+Pntybgq1oJilQh9eUGO6HCKsREpyGqcFjb3+IrGvNg1di6E
+         BDaCYllg1syqleOuAa6Q4UnQa27/T/rA5zXyhLM99BK4qnWqq/jxoRZKq4FVzusPwi/R
+         /4bw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=+8yx/2PoyhShvQG5yBWT8R3oSyoI+Uv7ykfwzcGimQU=;
-        b=UtNX5W9vxYghj2FnW5S6RIxKVTpKrANb20NKoU7VeDDXsw+ZoqzrsOCAkwheCYQZIR
-         rnIRbZpWv9331aV9ME13oPqGOA+rfXVL08N9nIGDej8tgU/kn4J0T0c3fAYfh++QzHee
-         +tnl1D6inp1NbAGhmnA/Gr+JUozhcSN8gFPlo5dyDjwtirSGEn/qv3i4waTVLt53NXNj
-         8bdmBDo5CiKF8etzeoARomZws2GKbs+oaOBT8RAwHOhyh+J3GEl5lqfaV/G+Y4qyECta
-         nwHvzXMBWblTT2gKs9SerL3HmumA2WxgUwsYB8aMcEwV3hOaX3figKPNKYS6sYXICXlg
-         GDjA==
+        h=sender:ironport-sdr:ironport-sdr:subject:to:cc:references:from
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=4wr+6K9CzNO/JzYKCCOtOwRLl8yFleFUJYOfdEW97XU=;
+        b=MpkZxBS9eOB7MJGGliGHyJg9OnjtZbFA5E4VD6rXlCJJJjFl0SwT/b+4Y+C3SSt+Wy
+         ILWchZLOk8kA/lq2fN+6w3bqxZ+B8smfhGhKnJpK3d8l7E316Tu2HwyrW+LElpDBmidx
+         NWHuUQRcn7G0OEMQrM1jGnIm5apHZxtJ4hC4urGp5MvB/Q8bVZvNHYlhsEOjcXLyJlXb
+         pxDQk7XJqQcPYptcot5E1z1eMTjSK0kULl2b9cX9EshYEjkEyhaAjAyb/s73bOnhdWhY
+         R7LDyZSvt9GQeU8yMpy884yRVYVkKoMz9DAb+LSasLAX8cieObYhShZdEIK5+x9e2BrT
+         isUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:subject:to:cc
+         :references:from:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+8yx/2PoyhShvQG5yBWT8R3oSyoI+Uv7ykfwzcGimQU=;
-        b=KTMyJ0Zr5rkWNe5Z0Flj7lHTQQ3B8eDjcQhYIj+32ygAq4vk4vOcEZcGFyOypYHNmE
-         S0+ba/RV+Y5i/yP+DrllCpQDgHZhOuSySx4uX6EVgTrzlQCpQNIQd5opELtU2FQNqVj/
-         Aw8UT0f1+/grlDUCzJ7BuNCdDVypEGf67eEI6C6yMkzb1GgdDCtwHGQixpa873mWl3ID
-         tsUOeIA0c2pGP3nA+LXZyV7if7YZ8CbCOzI9UUaIxKDy/AkthxmrPF5lHMal+CTqz/Bg
-         tMzFXc+Waa0OopMvsrfI8SLq+fBQlT+GE8eQ6nV4nJNS9pxMb4JAa0cGups4NCPi829e
-         3BkA==
+        bh=4wr+6K9CzNO/JzYKCCOtOwRLl8yFleFUJYOfdEW97XU=;
+        b=D7bBEZrqT3UrKkqkbbIJREKbPxO5q9kJhnxORQzGtKZEbqpq7IYYI1SQ/tx+yl+Ldb
+         IM8Lp+stvlJ8g1bI8mKxMn8cCqEwE0eyHatIkyYGQScyIuxMzpq7jQ1nfIxiJVQXFp6H
+         DEmA7YQkREjbyn3r3Q8AD+wU+1BJnOPVutPucAEZSmoyBBapxnkfvl89Mu1MnRtA99e5
+         UnEbZbYY/nRfn9lPiX9W2F2Ka7BYr9NpoSeijZrx51b6wRZVoPEZvhIy3Rlu7waQb/iz
+         gHQD9GG03yWM7cHHciNWRb9fAWDXPaeWWwkQr5t09fc8oF3kSgXm/rxGkNlUhgVpbhQn
+         XgEw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531mjCVpULrHa0FBoi5EhR5TpS8ZbADpEgWJMGOGNYFruBrjCfCB
-	tikUrdHfqzlmQ0cvT8jb1i8=
-X-Google-Smtp-Source: ABdhPJxRrzwYeuKYgA9LtWm9de+mWY25JAPz9wEJejWL5ianUfj7KS8Jmei90tGt3j2j8NBfq/b37A==
-X-Received: by 2002:a1c:df8a:: with SMTP id w132mr2390976wmg.53.1616491481821;
-        Tue, 23 Mar 2021 02:24:41 -0700 (PDT)
+X-Gm-Message-State: AOAM532DwyLA1I2qHb+jqcX+AI4x+sEh7loJgF/+/sRwE4T1L3s6X1sH
+	IRqWvLYfgPHZxqvLveYlrRY=
+X-Google-Smtp-Source: ABdhPJx+JPyrYCElTq9rrrExEQTkrHK8oCC/VuhV/kymRcM7uiWnvzTMNf8gyFLVRgqMccc2oMi1dg==
+X-Received: by 2002:aa7:8488:0:b029:1fc:f312:b24e with SMTP id u8-20020aa784880000b02901fcf312b24emr4044989pfn.55.1616492427438;
+        Tue, 23 Mar 2021 02:40:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:6a89:: with SMTP id s9ls1888284wru.2.gmail; Tue, 23 Mar
- 2021 02:24:41 -0700 (PDT)
-X-Received: by 2002:adf:e54a:: with SMTP id z10mr2909668wrm.87.1616491480896;
-        Tue, 23 Mar 2021 02:24:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616491480; cv=none;
+Received: by 2002:a62:7951:: with SMTP id u78ls3780994pfc.8.gmail; Tue, 23 Mar
+ 2021 02:40:26 -0700 (PDT)
+X-Received: by 2002:aa7:960c:0:b029:1fa:8cbb:4df4 with SMTP id q12-20020aa7960c0000b02901fa8cbb4df4mr4206880pfg.12.1616492426855;
+        Tue, 23 Mar 2021 02:40:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616492426; cv=none;
         d=google.com; s=arc-20160816;
-        b=s/nm1BgbSfucdKf3oktb5smiH16p9FiddHW3O3njKdYYj8qkPO7O3cfU0wKT+WW//h
-         M8tDz3v27DJiIIxhj7Nm3Dwf1C239MhxSIP3m4rPnhOcN3y2W2imw61LAxNQw/jUOsd6
-         PoMKGINviTcjiKAlhRHmgxlwGlqbK6i3Ica9U15TX68W/FI1dIU5dmwovyTfOaA5QQ1h
-         /gUdsSyXlg3K8fYWVCxXmFOfP8/8ozu6zj0GDit4UhHRyYWUA9g5rE8hSK0YpW+YqFqP
-         cIhDMeW55EM/iZPJGbVPrmGWnz4QBl3CmHIIrivezUgR2zMTze48ESdttoW5Jm3Ptu64
-         Sf3Q==
+        b=briBiN1gJxp0bqI/q+n3bfR0p9jEGVEcYPg+oOcptqQioiZPdBlQ/fzCt+kYFBTmAi
+         LgCzegmosgcAMbGOQ818Crqh0GoywzSy5uHoeGEUZcWF+7L+Tz1mbjDsarp8EuQgnYZu
+         cPt9LdOLR5ZSPKfOU4N/9IgQdY5w0EU+otHbTejbTUNtJDkI1voIFMaJbclt/QlWZVDA
+         2/BIjYcS6/Yeqb1NU4zXSWS6adEUQWyB9SE3jNzwF6QO54asEgJgfBVYL4PGHtrHNH+w
+         UzIMFdHMRGu1/OnMlUCKcVYi2AR6/HXbw98hN7jveBdCqhFf6XkFaiLako5tb4eZKnu/
+         lQAA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=q7WwdxUCKcrveN5azSM8n1gnpDd3FguHCZ5aw5Fo3To=;
-        b=cRU4KlNX03On/qr3Gs1sMAIeg7aLTI7IYHpizLrkgJxcoZM7Y+SIy6yfq0lGujmL+c
-         HMMqwAhi2IRvPKBLX+YO4ma9icEQinz6AzUHsLZpX6/R4ipt2H2IPtIx6Ag3gCPbFaEK
-         XsixysSCozBZrwoyUMASM7XoWi9xF5YWyFtIBBRqP4OD2hPGp03iShE7WXX+dnpii7pa
-         jZTd1fV2Z3CcmLOrB1Ju180yc+cz+RcTA2ok/U60tvm9jQnXeX9FPYDjAXdcABgCBJIZ
-         bww3anxfDHkcrQI+VCGg6/m+hdmJdgPkx/mllzJtxBsCXVTlOgm2sRPbMfdFSznFXm2b
-         ZTAg==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :ironport-sdr:ironport-sdr;
+        bh=yq7HpI1lpSO47+6iNp/yVWVPD2focvkWOF5IGmCW7Ao=;
+        b=D6ZK1Ghf/a9cSZGI8MZAHNeMcDwL1x1s+nvZOge8E0Q4txe6mNjqmFJgcdYENtXw6B
+         XTuaXcD5qfzPkti5wT49AhyDxU4oAWQecO+ALJkB+56O+QQrGeAozQsze4GSKn9yzx8W
+         WeLrHzbtLa+AYHJl9UFf0o+2awwF+YvbS3KOsVs6DlbPE/S8XvO7L5398g6wAOQaBGiu
+         bl4p6vHQYgIX7EeL3sTqLCl+zdtNkyT+BIcW+xbX9Z3Q4r8hx/4L8eoGi7KoIQmXYwU4
+         bRdM0bjjjnEtbQu9CPtLkUHdxluT3SEthS5SG+XYz8GjMMJKDVio8qkNaDjVYvI/89RQ
+         vcjw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.75])
-        by gmr-mx.google.com with ESMTPS id c9si129165wml.2.2021.03.23.02.24.40
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id t5si989913pgv.4.2021.03.23.02.40.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Mar 2021 02:24:40 -0700 (PDT)
-Received-SPF: neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.75;
-Received: from mail-oi1-f182.google.com ([209.85.167.182]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1M8QBa-1lKDQO1VVQ-004VLp for <clang-built-linux@googlegroups.com>; Tue, 23
- Mar 2021 10:24:40 +0100
-Received: by mail-oi1-f182.google.com with SMTP id i3so16292705oik.7
-        for <clang-built-linux@googlegroups.com>; Tue, 23 Mar 2021 02:24:40 -0700 (PDT)
-X-Received: by 2002:a05:6808:3d9:: with SMTP id o25mr2735713oie.4.1616491478766;
- Tue, 23 Mar 2021 02:24:38 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 23 Mar 2021 02:40:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+IronPort-SDR: 5FUMA69TE7HKTnuX2f3kois36P4nhCp6tRTaaBSqGO6/uv3auvQ7+LSJ4zoounm6kxPEnnIaUz
+ SbKk6gSLnLKg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9931"; a="187126081"
+X-IronPort-AV: E=Sophos;i="5.81,271,1610438400"; 
+   d="scan'208";a="187126081"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Mar 2021 02:40:23 -0700
+IronPort-SDR: 7IYSh1KkvPQ38lizWBCrcSuM9u9zT+QMo90n/tY864He9kzN3KI1W4/HyTy7CvKw9Ny0wlGHOi
+ NiA69FzBbE3g==
+X-IronPort-AV: E=Sophos;i="5.81,271,1610438400"; 
+   d="scan'208";a="414905499"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.11]) ([10.239.13.11])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Mar 2021 02:40:22 -0700
+Subject: Re: drivers/opp/of.c:959:12: warning: stack frame size of 1056 bytes
+ in function '_of_add_table_indexed'
+To: Viresh Kumar <viresh.kumar@linaro.org>, kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+ linux-kernel@vger.kernel.org
+References: <202103231522.N0bCxZ97-lkp@intel.com>
+ <20210323072534.sif6hfei4zx5tzn3@vireshk-i7>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <38b9dd6b-c118-a46c-e5c2-ae2a5f871f57@intel.com>
+Date: Tue, 23 Mar 2021 17:39:32 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-References: <202103231438.XJtqZjmF-lkp@intel.com>
-In-Reply-To: <202103231438.XJtqZjmF-lkp@intel.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 23 Mar 2021 10:24:22 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a3wQzLv47RGV-9n0EfTNpwE_E_VgCE57+tYeguWhJXitQ@mail.gmail.com>
-Message-ID: <CAK8P3a3wQzLv47RGV-9n0EfTNpwE_E_VgCE57+tYeguWhJXitQ@mail.gmail.com>
-Subject: Re: drivers/net/ethernet/chelsio/cxgb4/sge.c:2396:13: warning: stack
- frame size of 1168 bytes in function 'ethofld_xmit'
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Provags-ID: V03:K1:BibE0jTqdo3ukQHp9cOaZdN8xU3O0hGF45Y0phvKYiFfm9uyGkn
- VyvKKDQQO1fF3fWkK3tAqkB+OOHT8y32YZZIqUvJqz0eTboAktAyQN0DcsNjIjdFL4g2eZ8
- KdfkJYs0s7BjmYNhE76lROBODj1q0mUzYTk7f3sos08q6S+6lZQJCW9k8dcUWeW/j2DQLhv
- slrI1vB0Qhq55X7lcmxXA==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:bdWE56RVWbs=:iCYz7MoDXUGyd9U903qUVD
- PsO7uZp0JSbqWkfS3XXbKa+gjt7brsueK/ELoWe9TG0YwloGt3nZjEetKncMhYoAeIcTa1PKv
- qu3rQk0psARu+wFR9+js1scei3jD2DtXpwbgdOYtuLttJ+E8V/KZH+09A6ZdPqxNng9SkW97W
- 2TqFXiJfEvAaScVADPAPVyiuHxfnrp9DdbctGGWHKbojY4+KZ21W6zCo+/42PW7yfs0iH6qnC
- rFIDBtsETKFtmTMVOwU78cyEDEX9bhse6gGUkyt6Fy4ll+CfkA273Emmx/7rgTiVyQEo3DKjL
- /8rkYqVIq31x5EUMuHi5+HtiRoyD7HkdzIgSUL/Oh5IpVMqb/j8gy+f2w/9y6ZCGqdh2L7cus
- 3Jp0L9ftsw84gAZ4OzAwgEcAKEcAMkJoc/l+2p3ow/xN1CnIhyO/Rmbs49G/piq2KnY1F4OR0
- apyVYUcCOgbs+R+Y+6rPOLdt/f1HOreqNlsYoKLZLbeGGD9F+SEHYcZbyzQrtITnUd2sommBy
- YG5LbWlbb5pnVo5MuxT3j6Ckt0AxouwrnedjrGixLHsYTe4K4alakBhtsrGj+kvuQ==
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 217.72.192.75 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+In-Reply-To: <20210323072534.sif6hfei4zx5tzn3@vireshk-i7>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,89 +143,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 23, 2021 at 7:37 AM kernel test robot <lkp@intel.com> wrote:
+
+
+On 3/23/21 3:25 PM, Viresh Kumar wrote:
+> On 23-03-21, 15:23, kernel test robot wrote:
+>> Hi Viresh,
+>>
+>> FYI, the error/warning still remains.
+>>
+>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+>> head:   84196390620ac0e5070ae36af84c137c6216a7dc
+>> commit: 406e47652161d4f0d9bc4cd6237b36c51497ec75 opp: Create _of_add_table_indexed() to reduce code duplication
+>> date:   7 weeks ago
+>> config: powerpc64-randconfig-r023-20210323 (attached as .config)
+>> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 14696baaf4c43fe53f738bc292bbe169eed93d5d)
+>> reproduce (this is a W=1 build):
+>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>          chmod +x ~/bin/make.cross
+>>          # install powerpc64 cross compiling tool for clang build
+>>          # apt-get install binutils-powerpc64-linux-gnu
+>>          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=406e47652161d4f0d9bc4cd6237b36c51497ec75
+>>          git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>>          git fetch --no-tags linus master
+>>          git checkout 406e47652161d4f0d9bc4cd6237b36c51497ec75
+>>          # save the attached .config to linux build tree
+>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
+>>
+>> If you fix the issue, kindly add following tag as appropriate
+>> Reported-by: kernel test robot <lkp@intel.com>
+>>
+>> All warnings (new ones prefixed by >>):
+>>
+>>>> drivers/opp/of.c:959:12: warning: stack frame size of 1056 bytes in function '_of_add_table_indexed' [-Wframe-larger-than=]
+>>     static int _of_add_table_indexed(struct device *dev, int index)
+>>                ^
+>>     1 warning generated.
+> I have reported this on 1st march as well. Looks to be false positive.
 >
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   84196390620ac0e5070ae36af84c137c6216a7dc
-> commit: 97e4910232fa1f81e806aa60c25a0450276d99a2 linux/compiler-clang.h: define HAVE_BUILTIN_BSWAP*
-> date:   9 days ago
-> config: mips-randconfig-r023-20210322 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 78a65cd945d006ff02f9d24d9cc20a302ed93b08)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install mips cross compiling tool for clang build
->         # apt-get install binutils-mips-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=97e4910232fa1f81e806aa60c25a0450276d99a2
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout 97e4910232fa1f81e806aa60c25a0450276d99a2
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=mips
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
->    drivers/net/ethernet/chelsio/cxgb4/sge.c:814:28: warning: unused function 'calc_tx_descs' [-Wunused-function]
->    static inline unsigned int calc_tx_descs(const struct sk_buff *skb,
->                               ^
-> >> drivers/net/ethernet/chelsio/cxgb4/sge.c:2396:13: warning: stack frame size of 1168 bytes in function 'ethofld_xmit' [-Wframe-larger-than=]
->    static void ethofld_xmit(struct net_device *dev, struct sge_eosw_txq *eosw_txq)
->                ^
->    2 warnings generated.
 
-This looks related to a warning we saw on powerpc. I've tried digging
-into it a little
-bit more, but all I found is that the use of __builtin_bswap32() changes the
-inlining decisions but doesn't actively cause worse code.
+Hi Viresh,
 
-In fact, if I force the inlining like this:
+Thanks for the feedback, we'll stop the bot sending such report again.
 
---- a/drivers/net/ethernet/chelsio/cxgb4/sge.c
-+++ b/drivers/net/ethernet/chelsio/cxgb4/sge.c
-@@ -2257,7 +2257,7 @@ static void *write_eo_wr(struct adapter *adap,
-struct sge_eosw_txq *eosw_txq,
-        return cpl;
- }
-
--static int ethofld_hard_xmit(struct net_device *dev,
-+static __attribute__((flatten)) __always_inline int
-ethofld_hard_xmit(struct net_device *dev,
-                             struct sge_eosw_txq *eosw_txq)
- {
-        struct port_info *pi = netdev2pinfo(dev);
-@@ -2393,7 +2393,7 @@ static int ethofld_hard_xmit(struct net_device *dev,
-        return ret;
- }
-
--static void ethofld_xmit(struct net_device *dev, struct sge_eosw_txq *eosw_txq)
-+static noinline void ethofld_xmit(struct net_device *dev, struct
-sge_eosw_txq *eosw_txq)
- {
-        struct sk_buff *skb;
-        int pktcount, ret;
-
-I see a different effect: the function's frame grows to 2232 bytes with the
-open-coded bswap32 slightly less at 2200 bytes with the builtin bswap32,
-all because of too many variables getting spilled.
-
-On the other hand, marking ethofld_hard_xmit as flatten+noinline, I don't
-get these spills with either version of bswap32, and the stack usage of
-ethofld_hard_xmit()/ethofld_xmit() goes down to 472+112 bytes.
-
-If I remove -fsanitize=alignment, the total stack size for these functions is
-no more than 368 bytes regardless of the inlining or the bswap32()
-implementation.
-
-I would conclude that there is something wrong in clang that leads to badly
-optimized code in this file, but that my __builtin_bswap32() change is only
-what triggers the right conditions here, not the root cause.
-
-        Arnd
+Best Regards,
+Rong Chen
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3wQzLv47RGV-9n0EfTNpwE_E_VgCE57%2BtYeguWhJXitQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/38b9dd6b-c118-a46c-e5c2-ae2a5f871f57%40intel.com.
