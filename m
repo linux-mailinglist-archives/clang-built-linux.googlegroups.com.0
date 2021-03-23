@@ -1,136 +1,125 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBIUP5GBAMGQEAAACOAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAU75GBAMGQEQ75C2BI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A772E34695A
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 20:55:15 +0100 (CET)
-Received: by mail-lj1-x23f.google.com with SMTP id j21sf1959742ljg.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 12:55:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616529315; cv=pass;
+Received: from mail-ej1-x63d.google.com (mail-ej1-x63d.google.com [IPv6:2a00:1450:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 26A6E3469CE
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 21:28:51 +0100 (CET)
+Received: by mail-ej1-x63d.google.com with SMTP id au15sf1591612ejc.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 23 Mar 2021 13:28:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616531331; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TeXS1fpqXh9VdAHNpUjuc5NdoUWiM58flF7GWReA7ltgeYFtEejbuXWkY/z0fdD85h
-         qfHc7WoJBWXW2FOdU2T0R6PD2YkuHpc6J28WJJ3+x3uTDhMFRBcacEx9aEf4lFsg2H44
-         3d67Mnc2Z1iN0eAkE+x3zlB1QvUJYRN0gQ8ud/KF2ILY4jZpsQTeNrs/03aoOqXZ1nlO
-         GP1ahwhVPzcQlw7zzo9DlvjmMn1vK3BtqSb4CrBjFzfsNCJPgS8a5dKeamo5wWSLIRvD
-         8l5tIYqSFHPkAzfpdb+rKCtIE07VpTrvhXCNLyB9aCd9f4QY2TgZMAgwt9ld+n+VXFcz
-         1cyQ==
+        b=HBsX3wQco4vCu+v3YdWzqvmMunMkR3OZuPIv+bmr/Xa7vrrQBjXQaFT+tc72+eZQxf
+         2XpisoTIiEbwRtKWNcu4f5E7AUlSBAdUF400FyWMfGLAs3hUdDv60VJkQqOiQTSh496a
+         UJXxVVCj2EZGm485IDaasGVmL64v9R6UUK116aj+wDP4T63nJsxmQKS98hw4Xgqf7Yj2
+         gUaIK8z5C0FtmAprCf3ceFcin7lApDEjq6XM8iiL6arZXQR2gvAy5vMcxZM5bkkSYY+k
+         w5ao4MhFXAE94dZgAlJII23VGAuWeC/B5GEKKPf2oMiWEqe/Zx8BYITuw3HUILpkzt1v
+         QGoA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=GhmoCA2S+s3dD1IwLZaHE7ykiuY31KzWVOYKm+wY0M8=;
-        b=BIg+W9Cx2IDtWW4bpCq7nvLA+uS5++5GHaDPXRwjOibS8liWxSYX5smLkitgVU+LKc
-         vsFH8e4OXibMKPBUdouMLKzYik/zx/E2etdpcFa1bG42s3bZlTlDzovlXfsKSg6Hj445
-         +gymFHQqf8juIGYQe2KIbvhry/f5ZqC6S8dV5fT4SaSt/IFHtmXljnz//9x54BdgBgmt
-         y6U5GOOQAgWnuu/NUQeaaGG+j1toBGcxtknW475dDwfLOBm0AS3fjzEgfgrYT5ZNPJuP
-         eWGQoKx5tKwfQuQZt+PuniICfJ7wEXu95CAoaL2dtWJKv1yNCK6msUj9vsbDb6RwmQ5q
-         15WQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=qpWnjPBQLPzmxTmm/C7ZklrSt3KRcjBMhF0kYwu73xU=;
+        b=OVDenxZw7X3/s0eeXNXL2oeEQTC2EPkWG6v8DuINscPILpwbBiKORJzUyWdM2g8qCz
+         RQc6l4UxXKIwhrqsothe8X6QReQS5+j3ywWIYjl8ghuvGqDagP6CVxFU2vyu4xQ68kkD
+         LPY8TAUNn2S733mNtaBD9ZUs9m3kSSZtrCCVnkTyx7dH1c0mH8uOO3jQwY1OksJWEXI7
+         cn439NNn9H/AJ75EP/qByX3ygaowKOsZCNWKWdjByVQWut6oVwdFSgw5a2HdbfJwBac5
+         Ir/As0rw8JwTGCqp5s2FGvPcKY94stUwLCBGSQQnhq0qFJcx61fsvigsXTdQpYAvekFp
+         92hg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=N8+8+VaD;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=g14x6sHm;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GhmoCA2S+s3dD1IwLZaHE7ykiuY31KzWVOYKm+wY0M8=;
-        b=MU5jMXiYK6j5f7yA/ovqmJ/TudMKP5uEzJz5xOrAAQdOGUvKxKvOlz4UwQhz6+HhEb
-         If7KtBJXbZR/3kYqdAZ5AwRD5zVjt/kL4DVEIicYEULqjpgOOFFR68es9r0x1PXUgEyF
-         3X1KNefM7ufbOXK60pa7m9ppE/+aW99LMvZSR0K3Mv6X9R7FE+NLGF/JHUf+uPFbZ+iz
-         w7wMc/F/6IzTiHLjvB9A0WdDTx6pvzF+SCsdsRyhkNL7iwAQBOV+3d2lvaCx4STCiny9
-         nLH8lFTN8cZvA2wZitWKOGLLusKMTmR9os5NkzoTBUYuUFn5SL260PNVYI5J7U63Xgob
-         FSlA==
+        bh=qpWnjPBQLPzmxTmm/C7ZklrSt3KRcjBMhF0kYwu73xU=;
+        b=Fa7XHXA4NsOpOdEeTxKg2C9aOAjkj/uuAqiE8OxhZVo872SZp02b7D5BoEp9RKqHTi
+         W7ca3YUeEizKIsmjj1MWlUGrzpp8Ce7Ub3FgbwvbgB6WyrSWR4rYbxATmP/2rvF6ahZ/
+         o37J9hNMYvamNhbbAKdsyyae/7A7AQXDiZrYVI84xAaQmcefKiMGvgJxJFMRcNBECVHk
+         x2ZkzqLSYqHKqwVwyxd6aLjWrDXl7OqUHIWoH7zXmau69AAGWg0/W1atQWNljyvK8Ukz
+         V4R1aSADgC3fdlagIaiEp8eUZuKsCxAJeEIiq+P3etLs91uN1dLhTpW4emPV/FmVYNbx
+         JXgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GhmoCA2S+s3dD1IwLZaHE7ykiuY31KzWVOYKm+wY0M8=;
-        b=BDQeeETYXvDSJJiM1aoEWfx/Ne/FVAzgoPCSkEtWkhMzIgxZgCbmz78otoAYty3fD6
-         rq2hwfqkvQj5Avlx6AEarnx0t6Pqhd11jNJZqzu5e91eN+0EpAEuhZATzX4HDoJReUsw
-         YdWHLsJBOK81ehQIcpcmxc6biv9qjZzEIVP44/mNyjKE/w8KfvQDeHVung0NBW4NBEuq
-         GGPoq5mBfLxrN7xXHnEuAr836PfLnV33kzSRM9qYSerj/EOyDMIfafWlSf3vRtmgOqJq
-         Wo9MDUpvIPwTQT9OUznlUky+NA+EjQ73/nLsJG+w/eICNt/hRNWkWFHDpsNfvYVLS3Oy
-         YPlQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Wq+4emJQZYy0kR4DUAhE8+TdnL/rAdTOfuP3fCBoa1i/K3XPC
-	Zcd7aWqqoPXF2BtLSMQMADU=
-X-Google-Smtp-Source: ABdhPJw5qfmaxn7eqY/EDKPibrRnw38fVTMMcsghEXTfKtC75xHUUN5OoHb77IblIREGibXL58vy3w==
-X-Received: by 2002:a2e:9101:: with SMTP id m1mr4178332ljg.378.1616529315279;
-        Tue, 23 Mar 2021 12:55:15 -0700 (PDT)
+        bh=qpWnjPBQLPzmxTmm/C7ZklrSt3KRcjBMhF0kYwu73xU=;
+        b=DmGRNuYhCoDk8wNoPKDSVgtFt4y1zsf/zCmvXDeZ+Q2xw1q5Qx0KT6VD5GaT9zxwul
+         dd1vqyLEZCpEa/9wSKFrKvmVaAgEFVRJ3+1tTvK+4n/xZOpoBA4p961Hpli8GkHgQsGE
+         yfBN1KYwhAPmjlr8p/82XdqNBuGdN0l1FuL7AhKM/5Fq8ANrjP2BLCBNa5SBV4AYQQgr
+         Kr3GnIHxttIn55Huj8N/bcVuQOB9sZQwZ4LJA6TwpF1gWMYx8sIrHb4yBgVLvrvU0BYR
+         r9PSv4FRbKBeLRnHa4ULFPab2wA7dI7LhmtlLb1myaFsWeRUhvzI3PwcQAyVvqsfaXJL
+         2sLg==
+X-Gm-Message-State: AOAM5329VVbC/jx3sEOmjqcXVICmZNvq5AtW0WkCaGFUxTg1qPXmSk4u
+	o3672VhPOZKcbwgSLzikZDw=
+X-Google-Smtp-Source: ABdhPJzXuxngAFjZkwnIF1tgaLeHTFBkX5JqeBkzmY9SbkDKUOI9p8GctFILTIijRC0Ebl6r+eHwTw==
+X-Received: by 2002:a05:6402:105a:: with SMTP id e26mr6362333edu.164.1616531330942;
+        Tue, 23 Mar 2021 13:28:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:2050:: with SMTP id t16ls1190ljo.4.gmail; Tue, 23
- Mar 2021 12:55:14 -0700 (PDT)
-X-Received: by 2002:a2e:7403:: with SMTP id p3mr4083744ljc.239.1616529314165;
-        Tue, 23 Mar 2021 12:55:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616529314; cv=none;
+Received: by 2002:aa7:d788:: with SMTP id s8ls172096edq.1.gmail; Tue, 23 Mar
+ 2021 13:28:50 -0700 (PDT)
+X-Received: by 2002:aa7:d296:: with SMTP id w22mr6646722edq.150.1616531330126;
+        Tue, 23 Mar 2021 13:28:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616531330; cv=none;
         d=google.com; s=arc-20160816;
-        b=uS+kFFdCRybkKioxxoFZ+VYuvyhiK3G5Bi3Tg2JQJLnI0adY0dN9CEpXJZwbMt82YB
-         qMB9RDywfmrkORvnAqCDlREk0MUbkAKCoabAjzwjxnE/HVcnNOIhlA++OOIiIxeSvoxz
-         yzvioicRBsnlJZD3or/sDkRgqU1sHZY5GiT5jzT+t4xtpUJlI4bomTvDWPiclo9KMjLL
-         QY62QJ6ukFgNsXXcw/a5RxT5ZT7CmO5VUd1n3GC8WsjgWTwVDV/eO55Z9+ENYNZw8LFn
-         3IgquSDYWwXND0XSwGBcFzcg4pJbpDnv5JKPlOBp4nZryWg0AR4Qd+w2XuPMZhXI9e57
-         kT2w==
+        b=yhbBwsijHpmR+gVgYrIe5CLziq0yKCESOVmI378ubUmBaPOlhs8ezEP7QQYgpJlxqF
+         qu43oFpWyen98i695RzlN8V9f707ddHCBKqdUtsfkTeE+4zZ8AA2Kwv7CTs2aAUS9MaK
+         5hRRa5s1EGZXdx5A4LFrJ7EsjYcq5xOECWXIC/2EB1uPdjM+RRuNH2Idk1/FeHK+/3R4
+         sLeWHLaCV+SqUDmwyac/maqCUul5rzgryP70KV5Be2BxznbGV2y1z7lAeVMSPdvv6/eK
+         BU89V93qWb3R6pg/PrEezhSlV2l13PG4Zjk5NmjHZycUCIxzFwWg8DSN2C01JjJWcI1F
+         8EiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=Upb8jbPwMQIHuck9u8dih3xws9+N9Y2t9/p2ByFzkIQ=;
-        b=EazV1Bj8H02MEdMN1TtXjwmU1olBdsG0tka4ZlA2AELqczehIRikh2/GhfW/FWmu76
-         /r5Q+vjgcokQyZrWN3hRbvKZHV42HR+pyfcBPKf3rlFWkt0unHLEyHFuugpyhKNu1KOf
-         Jkd5HN7FeGOeNOLi6u5iTV33mmpgJ+zTWEejiilzh3cHaaSiQeMJ7aYj6/jiYxypedky
-         O3rzdPbzfSc7xruwB2/adBHm4VIs0uuajJZMSp3XRc0JT6o+/q+Rwyj3xMYzxr5Eb91e
-         cNHieWSBAq0EVezB8cypw+/4Db9enMsYEpWx+bBd43T2hkzmqlGaKt49U5mIp3VwTCXC
-         qOEw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1mJxXlJLpF04ktu0Td/MXe7AhNpm2832ClSG5vRPtkQ=;
+        b=rk3M4OJe1wcsyNDenSk95es/4WZ5nNFNQRlHO1eL79wMB4j7klb/UBcTFhfP5crI1F
+         ad7l8uLEdZHAOg00H7rJvz/Nwe2OXKQNtsGE16njmK6iC8hTmEmRuxJP07fvVdFEzQyu
+         /NeZdgszXSUgPEg4pR0+b8++G/+wTe9/+p9PKCW5067YzHKaPRCgqJC9YVpSUkS6WYAC
+         w6BxCxBlslyowl4JQ2LHLzkN/lF0JJ9K53izjHp79+FcYI4+cpu9+AyC93DqLu/36xvR
+         rwouETnPAPN2PUvEw5xTaeH0kCHMEb1Dwegn6I0Y96DXoGAF03EOiI88dT7ZUKnnE+GQ
+         TBRw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=N8+8+VaD;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id v26si784970lfo.2.2021.03.23.12.55.14
+       dkim=pass header.i=@google.com header.s=20161025 header.b=g14x6sHm;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x135.google.com (mail-lf1-x135.google.com. [2a00:1450:4864:20::135])
+        by gmr-mx.google.com with ESMTPS id t7si6919edr.0.2021.03.23.13.28.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Mar 2021 12:55:14 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=worktop.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
-	id 1lOn6D-00AU6t-OS; Tue, 23 Mar 2021 19:54:05 +0000
-Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
-	id E19359864FF; Tue, 23 Mar 2021 20:53:58 +0100 (CET)
-Date: Tue, 23 Mar 2021 20:53:58 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Andrew Cooper <andrew.cooper3@citrix.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	linux-toolchains@vger.kernel.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	"Jose E. Marchesi" <jemarch@gnu.org>,
-	Kees Cook <keescook@chromium.org>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <christian.brauner@canonical.com>,
-	nick.alcock@oracle.com,
-	Segher Boessenkool <segher@kernel.crashing.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>, Will Deacon <will@kernel.org>
-Subject: Re: Plumbers CF MCs
-Message-ID: <20210323195358.GB4746@worktop.programming.kicks-ass.net>
-References: <CAKwvOdndc=ej=40WktFz0t083pZJcdX1tipuWoTvAw=JC8b3Aw@mail.gmail.com>
- <YFmoPpb5w4q1dWXz@hirez.programming.kicks-ass.net>
- <a60f83d2-75da-d147-ae92-47a5b474e162@citrix.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 23 Mar 2021 13:28:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) client-ip=2a00:1450:4864:20::135;
+Received: by mail-lf1-x135.google.com with SMTP id o10so28590820lfb.9
+        for <clang-built-linux@googlegroups.com>; Tue, 23 Mar 2021 13:28:50 -0700 (PDT)
+X-Received: by 2002:ac2:538e:: with SMTP id g14mr3441936lfh.543.1616531329644;
+ Tue, 23 Mar 2021 13:28:49 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210316213136.1866983-1-ndesaulniers@google.com>
+ <YFnyHaVyvgYl/qWg@kroah.com> <CAKwvOd=9HwLcTD8GaMsbEWiTPfZ+fj=vgFOefqBxDYkFiv_6YQ@mail.gmail.com>
+ <YFo78StZ6Tq82hHJ@kroah.com>
+In-Reply-To: <YFo78StZ6Tq82hHJ@kroah.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 23 Mar 2021 13:28:38 -0700
+Message-ID: <CAKwvOdmL4cF7ConV8841BX+Pey571KDWM8CBt8NnYY47vJ_Gfg@mail.gmail.com>
+Subject: Re: [PATCH] scripts: stable: add script to validate backports
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sasha Levin <sashal@kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
+	"# 3.4.x" <stable@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <a60f83d2-75da-d147-ae92-47a5b474e162@citrix.com>
-X-Original-Sender: peterz@infradead.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=N8+8+VaD;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@google.com header.s=20161025 header.b=g14x6sHm;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,56 +132,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 23, 2021 at 07:29:01PM +0000, Andrew Cooper wrote:
-> On 23/03/2021 08:35, Peter Zijlstra wrote:
-> > There also is talk about straight line speculation mitigations. for x86
-> > we should probably emit an INT3 after every JMP and RET. Although this
-> > might not be controversial and be sorted by the time Plumbers happens.
->=20
-> I guess this one is levied at me.
->=20
-> Hopefully it isn't controversial in any way.=C2=A0 I have just had suffic=
-ient
-> tuits to get around to making an x86 straight line speculation feature
-> request to the GCC and Clang communities yet.
+On Tue, Mar 23, 2021 at 12:05 PM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> The only time git gets involved is when we do a -rc release or when we
+> do a "real" release, and then we use 'git quiltimport' on the whole
+> stack.
+>
+> Here's a script that I use (much too slow, I know), for checking this
+> type of thing and I try to remember to run it before every cycle of -rc
+> releases:
+>         https://github.com/gregkh/commit_tree/blob/master/find_fixes_in_queue
+>
+> It's a hack, and picks up more things than is really needed, but I would
+> rather it error on that side than the other.
 
-Yep, just making sure it doesn't get lost.
+Yes, my script is similar.  Looks like yours also runs on a git tree.
 
-> For the compiler folk here, the tl;dr is that indirect CALL/JMP (i.e.
-> function pointers, jump tables) and RET instructions may speculatively
-> execute the next sequential instruction(s) before taking the control
-> flow change into account.=C2=A0
+I noticed that id_fixed_in runs `git grep -l --threads=3 <sha>` to
+find fixes; that's neat, I didn't know about `--threads=`.  I tried it
+with ae46578b963f manually:
 
-So JMP and RET can trivially have INT3 following in such a way that that
-instruction is never in the actual execution path. This is obviously not
-possible for CALL.
+$ git grep -l --threads=3 ae46578b963f
+$
 
-For CALL we can follow with LFENCE (hurts), or if we can get a limit
-on how many instructions deep the speculation gap is, a bunch of NOPs.
-Or possibly nothing at all.
+Should it have found a7889c6320b9 and 773e0c402534?  Perhaps `git log
+--grep=<sha>` should be used instead?  I thought `git grep` only greps
+files in the archive, not commit history?
+-- 
+Thanks,
+~Nick Desaulniers
 
-As such it might make sense to have these two cases separated out.
-
-Another utterly disguisting option is to align all CALL instructions on
-8 bytes and have it followed by 3 INT3s to make it 8 bytes long. Then
-have every function prologue round up the return address. This should
-work with tail-call optimizations because the round-up is NOP when
-repeated. The obvious down-side is that it will utterly wreck the RSB
-
-For unaffected chips we could then NOP both the trailing INT3s and the
-alignment prologue at runtime.
-
-> Having some toolchain support to deal with
-> this would be great, and preferable to some of the asm hackary currently
-> under suggestion.
-
-Agreed, hence the inclusion in this list.
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210323195358.GB4746%40worktop.programming.kicks-ass.net=
-.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmL4cF7ConV8841BX%2BPey571KDWM8CBt8NnYY47vJ_Gfg%40mail.gmail.com.
