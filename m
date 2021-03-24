@@ -1,127 +1,137 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBEUZ5SBAMGQEYV7TXZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDWIJUMT74BRBG5C5SBAMGQESC5ZEWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7FD1E34751B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 10:55:32 +0100 (CET)
-Received: by mail-pl1-x63f.google.com with SMTP id h4sf750344plf.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 02:55:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616579731; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id F3C4834759F
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 11:14:52 +0100 (CET)
+Received: by mail-io1-xd3d.google.com with SMTP id o4sf991884ioh.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 03:14:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616580891; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FAVmJ1/8g6610PJz9unu0jaVjuAFOVO2i3Sp9vfli5jBMemiqhqoqaYZezUqq0KlIH
-         tfvhcdtaizX8Pj87SLXsPk/BVV6BW+PqCJodLZwf5DtEujTFplQxttROaNsSZiucAWkW
-         N0hyVo0pLHVf/Yx5Pj/D4F3u3mIyg2fGNr008MTHIYnh9vBJZKtXPM0/QCHCchFPfF6d
-         fnPECjpG0TqeqRUQClGC62vsJuBsNF4SGE4T4//slOVTUzzoGY0Ish+OeTr20CwBffWT
-         sVs0mjP3vpB7zHhkoUGn1lCyxjGD18GYL7fN5+/aYpjHdd68HlWfQFj/6cYfB+4fHGZY
-         KBQg==
+        b=MfVQ9ASjhQoNaD5VM6loIo3ERmq9htjs/2AKMmqtt7ADewsKZ8FrFT/93Dty8Szk0J
+         EzkBbfnzcavtfK2W5A+Yt78ueAzOokgdEsHKSip5G2Bp3qsevLNAQE4ebQFZfr1+HNRt
+         slGSt0V0JDLM8o6PtjW4KN7QppWu7/86f9jb9vx+tbQEUjjn9KeFv5VVIQkC9EvbYvto
+         ndVMZ3HQ4M98FKkpUCbcy+y/Vxd03SfzEmm8sZjvaJ5503kfMLPp4MdCZfIjIIu7mCQz
+         YMAE9vLL/YLopXsFD6Yf8CUDX1IHhW2f9GElbh3Uife47AjO/GMJhjsS/4rcS8JeqIFZ
+         L0jw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:subject:cc:to:from:message-id:date:sender
          :dkim-signature;
-        bh=zoXuG7jGsGDcm2vzyzF5oUI0w1r6H1EHyBudw21GozM=;
-        b=OHOwLiUMOyToQ8dr7hxIM83EMQ8JrpPYJbBGYr0Z6r3nxwlQlV4EO4yTjRr923h6J6
-         q3oIVR0uCWKdYDCHbADUBfub6K4jmegKCRUo1vwdUyw7Dig296U2nXVAzXcBr4CAvySw
-         L+2ysbFieARHIJFHdAQEaYgrcaRsntd1LLql6/zHUx17H4gQBeU+IPn0H9wT7/RnblDL
-         QmaVnsXDc6NZgnuY0eIWT4jyct144fzwv+PXhC/LWtmLNY+bSnncFQhSz8VLg0y0g5sq
-         VksfGpTelFklXcf5lWPTKhiDgf49BlSWrw6ljrK1HpE28F5NRL3jw2iTI/Loc9bqUDqf
-         9isA==
+        bh=tDr/D9xnZaHb0N5PLhmfd7+f+VVxgA1kQkOcMTkhceg=;
+        b=dF0FZX4/bz1eArspPh2Knsw1NU2u2uMaLkFzKDzWuUThIxjLbKfpmV1pti46YQMBpT
+         EVa8iwv6XHvn28Ph/fIrm4rQ+Em/4pqhvzZFrs3CDfn5YBH05Ck5hP9xgUBhLMxwDyn1
+         4SGpWjZNmT02/+FGj925knxzTdcjrn/hdbZFFT/++NqjK2UjpO9RPSb0oDQVkkNnNlhM
+         YEwXYCV5eyJ8H6S/2JcDfiWnFxQaqOylf7Agq6UVuHr754+SaNr5sw4vg9ocmlYHt7mU
+         DHlAdRbl2Uu78x1BsDzUHrVWSaDVuS4bRhExM83qWDG/lBS4ry0ok9z2pXiewUKRPsX8
+         o9JQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=ye9LfB9h;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:date:message-id:from:to:cc:subject:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zoXuG7jGsGDcm2vzyzF5oUI0w1r6H1EHyBudw21GozM=;
-        b=qdCxfgqr9bl/PMkM8gjTOvHA1QXk1Z7GP6zOMtJjsT8hwHqM8S5PttKbbRQstR0AIk
-         zdd9pUV3OLx8c+JD+QXF0U/lzrc5OwgGudXKxKuKxARaXAIif1sxSTi7bJwAU9MaV2HJ
-         pTvjRm2t1Ehv4T1sqY0yfR1JXnqBRwkTZUHxW8xgDqH4utZoTRq3XHVDjsVg63cFZraN
-         F1q7BE9oQ+LAkLM71yL+ibr3RdoYISsQ9fNPzNfnf8/6YGhA7YWvkl+Cr3++cY5nspST
-         viayFxGE8VTqBMZqDwkScu5tMwQ6NrPhYNpi5g6letZ8iBlcXwjz5njpMGp7jYzRh3AX
-         b09w==
+        bh=tDr/D9xnZaHb0N5PLhmfd7+f+VVxgA1kQkOcMTkhceg=;
+        b=joJcW06IILUG+us1W6+QoZCQQAT6nUUxbkAEUjZcZlkSSklva85kZilqhv9/C9KhnL
+         i2ttJjHpRbQ7Xec5hAGOFpzIFe9mlNHyQeTqPqGTtkO1EBF3Y4jcjWNFJcfDqkXRPlpt
+         pEmgEX71lRDJs9gFNEh9Wr1Q1fn1wCF+b0oEPOZLgfjmkZAgvf7FJTkdLrjE5HYR9OKr
+         QKUpSKQcVIfeveHZ0Tt3Bajxsl9ZCulGjfpquM36lT07MhA7N5K7aQX5rCJq2vgZOayU
+         1yMbd1XtAETQfjBAb4pnEXecIMkoj/TCA9FnsZ2W40YbjPYnw9zc5SECFX7M4wpJPo2y
+         p8Iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=zoXuG7jGsGDcm2vzyzF5oUI0w1r6H1EHyBudw21GozM=;
-        b=D8WtxdgkgZLJOHBmzo7Cbw/PBN2ybeAkM2EtLfieoovi/IUM1xC1DyJFK5m5CkIs/3
-         c9e9prsv/SlGYiQQwGsWQVT7u4195qr5fUsikI4dvtC6XmsRYdko3vXKuBJe4r4d4snT
-         I1LuqEUTlrMeIaRTEml/BQVMrPxclzEIaBY1acmBHXWS9bdXzccf199yEACXKQFEfXQC
-         mIV7wuD6KdgnD3Cekc5zGhg/28mkf5QLh4udCwasHkBy1+WW6vgct6TEyUlwOKn107D3
-         U6BCmdvZ32hQK3zlnYC/P5MyrcCO6gopiaexLTqa8LevPp7u4wbxGiN//aVtKY2x5BuH
-         4LUg==
+        h=sender:x-gm-message-state:date:message-id:from:to:cc:subject
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=tDr/D9xnZaHb0N5PLhmfd7+f+VVxgA1kQkOcMTkhceg=;
+        b=o2liO5ivTh9WbRDKQaNfVRWUg3UTDZyvEmcyDHb0WenTlocelq0kzWncQABtwXkP0Y
+         aJTDy0IVDp85HK3+brzf/LbLy/Pm5/jTypIFQ9kwshevg9MAZ5w9GqaLicu5MMWl3nry
+         NjPwq4J6j3cAWbVZeUmY385sOPrX17e1r1W0LmdBOjj4p36fF3KuN6R7tZBsWjlbCefT
+         cwiXRbUCBvZTnswbNb7Qbqizre8DsjvClgx/HzIZO00hfLqHTFYeujYynK0qpNGmsKRF
+         Yjz0KyOMVEVCOO1++NpbB65LojdVSTd9AFFvXzGz22azk5E2bELis7PZujJpkP3AyqAm
+         TYFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533Gx2TuGce+YToWrS7n6bdeYdhxaeSzWdIjVEKkzGQ3yDmg5sSM
-	RBagsmK/VqWrpCjVF7rvNsM=
-X-Google-Smtp-Source: ABdhPJxJXq2gnmGvoJu0mr1DT5I3ndVxSsDAsv3nNoeeSwGrGzvHQt9rtTdwXKBT5IuEUE779hSMuw==
-X-Received: by 2002:a17:90b:909:: with SMTP id bo9mr2558717pjb.107.1616579731100;
-        Wed, 24 Mar 2021 02:55:31 -0700 (PDT)
+X-Gm-Message-State: AOAM531HCClDqgWy0SjVbLCuJYUUrDxh7zOclK5CRktSQ5cXxkPbDqvB
+	f3xN/o2wZAMI0Lz0uzXXWYE=
+X-Google-Smtp-Source: ABdhPJz6tW5Yk4H17/tb3EjsGdIT1a8ODZ30J3BLal6JkXEWFeZDpucutEfiA/WbqxrqF/eltI39Uw==
+X-Received: by 2002:a02:714f:: with SMTP id n15mr2111230jaf.6.1616580891617;
+        Wed, 24 Mar 2021 03:14:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:ab81:: with SMTP id n1ls955548pjq.3.gmail; Wed, 24
- Mar 2021 02:55:30 -0700 (PDT)
-X-Received: by 2002:a17:90a:bb02:: with SMTP id u2mr2647952pjr.175.1616579730568;
-        Wed, 24 Mar 2021 02:55:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616579730; cv=none;
+Received: by 2002:a92:da52:: with SMTP id p18ls391094ilq.11.gmail; Wed, 24 Mar
+ 2021 03:14:51 -0700 (PDT)
+X-Received: by 2002:a92:ca07:: with SMTP id j7mr2129199ils.144.1616580891301;
+        Wed, 24 Mar 2021 03:14:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616580891; cv=none;
         d=google.com; s=arc-20160816;
-        b=TrqQ1sS1gVVHT6iWgEH3W9WfhFE0fOp1EB6QSTs3+pUSXJSJNsoshdBm3nWSBGEgYa
-         wawe45f3SN4WlUBXIlQdyjZ6HOddhWhHSiYZAA2LFEU12syREkM9R1s2re7jLOiynWmg
-         rVGHUosPXyvbGGlkNwJb0ZrY1dWyAaebI7Xn2Y9IObkrItfN/jsxZZLhfQ/4iVVzyOg7
-         H436S0/guwR0jKMZB6XJfS6MM7C/lQTt18PpXl9hRzvEvyDxJJaJ/ru6GBFgUS0Tu3NH
-         swP5Z+V5wrcV2ovtN4rACOX6UTb/Go1SqZ2Ehe5WDpWP9v+QoLjYgG4JISP/IhJAipvn
-         nr7g==
+        b=EE/sHLyLmmgjAd+jTwtVOc4Z43AybKV8Hqe4ZiDQ6xf1CbzcYw0/4/B26VvzijHnkp
+         fMY2RZnkgd+mW5NtSctxVPdJN6CfhJWjEjKigy9UqNN99vAeTYUXV0LR2ga3wddwOKJy
+         rqFx8hw+17NO9i2nazgM+3SyKhAnJ/GKn9zFCxZ6hXzhwV5ejgILiNmc1YtxnGlilbiH
+         I05A15ihA6+7uoycG/nwI4qhRBsIfoz3Nfvi/t9GwnULDP+BOVjv7EuDPtegpNchZqtz
+         +YIPMBZ42o16Qk0u9xcG8WtkoYekEd/wvyVH3PFIHpLgV3AS4ijjk2v0CIxJ6XZSoSCT
+         05Xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=y87o/dhXEoQeoI9wjN5qrgxBM2iUO/e92+y4G+QuboQ=;
-        b=ojHwBCm2DBxcq7OQzCFc5FI3n4Ud3FyrzqdhrDd1FRq0EnRR+VhHKK1kcTRtxqLWOr
-         TYcZ5m9hhYAp3krwBd1Ham2RbXSdDGwyQA/5xl33wiS3Vr1QuvoQhM02Pfdhye5YasHt
-         Y1aI+apQW3ABe7QmcM9YYlpUnMKyKv3u9aN+cXOtos54dcDJVkYVHhKQFEb7b8L5lk5L
-         DjVMGNLBzt+3yo8hsFS37T02EoCnPqk+r6gOcw8bu4w7W4qfCw/uR5i3KLbL8ITfnrUn
-         aNnjnkNZOS0BjBRrozUbMWsn114m3vrTqjX/glS/mIEkyYlsOSdMzHW+cU/yHvlIFwTq
-         yVLw==
+        h=mime-version:user-agent:references:in-reply-to:subject:cc:to:from
+         :message-id:date;
+        bh=uod5VyBAa23Kr0JQVDm8Q36lR4R7osHNWPnnM78BbGc=;
+        b=Qvnf48h0JtMwP1VBA+fnk2U/fIPsYR8178kmbQ0nFPglvmaZVUBKx6K9p4nOFtEu3Y
+         GEFxYZ8cwhpHHCqDhzffYom34Pot5irc3BeqYALTt2IvCnuvZnA0Dng7dU04a6RezcCO
+         1vBb7WPA+qC0O/hslcbCmVRZtt6LX5g9aHA9ws3PrSC/I1zUpziMCNW8qYnZO0J89yRD
+         6HESPW/BnwIb3rfQcnyMJjcTEMyjVpCwVPlFFWryWgdVvAsE+kgWpIeBGwBIO7naATgt
+         sv/Ku/W3ym1i7FgE4i4GUEbTw4OxeM3FZGcX8ReiE72iOQi3A9TYINisRxz6FTe94XS3
+         +o0w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=ye9LfB9h;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k21si100830pfa.5.2021.03.24.02.55.30
+        by gmr-mx.google.com with ESMTPS id j7si60456ilu.4.2021.03.24.03.14.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Mar 2021 02:55:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8714B619FF;
-	Wed, 24 Mar 2021 09:55:29 +0000 (UTC)
-Date: Wed, 24 Mar 2021 10:55:27 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+        Wed, 24 Mar 2021 03:14:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org [51.254.78.96])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 6DFDE619FD;
+	Wed, 24 Mar 2021 10:14:50 +0000 (UTC)
+Received: from 78.163-31-62.static.virginmediabusiness.co.uk ([62.31.163.78] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94)
+	(envelope-from <maz@kernel.org>)
+	id 1lP0XI-003Uqv-B9; Wed, 24 Mar 2021 10:14:48 +0000
+Date: Wed, 24 Mar 2021 10:14:47 +0000
+Message-ID: <87czvokgdk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Sasha Levin <sashal@kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
 	LKML <linux-kernel@vger.kernel.org>,
-	"# 3.4.x" <stable@vger.kernel.org>
-Subject: Re: [PATCH] scripts: stable: add script to validate backports
-Message-ID: <YFsMj3kL5Rl/Dc5R@kroah.com>
-References: <20210316213136.1866983-1-ndesaulniers@google.com>
- <YFnyHaVyvgYl/qWg@kroah.com>
- <CAKwvOd=9HwLcTD8GaMsbEWiTPfZ+fj=vgFOefqBxDYkFiv_6YQ@mail.gmail.com>
- <YFo78StZ6Tq82hHJ@kroah.com>
- <CAKwvOdmL4cF7ConV8841BX+Pey571KDWM8CBt8NnYY47vJ_Gfg@mail.gmail.com>
-MIME-Version: 1.0
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] irqchip/gic-v3: fix OF_BAD_ADDR error handling
+In-Reply-To: <CAKwvOdkBEQdVC73_datkwa+meitAGskDgTEr5LzX6AEnE4xd-w@mail.gmail.com>
+References: <20210323131842.2773094-1-arnd@kernel.org>
+	<CAKwvOdkBEQdVC73_datkwa+meitAGskDgTEr5LzX6AEnE4xd-w@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdmL4cF7ConV8841BX+Pey571KDWM8CBt8NnYY47vJ_Gfg@mail.gmail.com>
-X-Original-Sender: gregkh@linuxfoundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=ye9LfB9h;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+X-SA-Exim-Connect-IP: 62.31.163.78
+X-SA-Exim-Rcpt-To: ndesaulniers@google.com, arnd@kernel.org, tglx@linutronix.de, nathan@kernel.org, arnd@arndb.de, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-Original-Sender: maz@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=maz@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,71 +144,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 23, 2021 at 01:28:38PM -0700, Nick Desaulniers wrote:
-> On Tue, Mar 23, 2021 at 12:05 PM Greg Kroah-Hartman
-> <gregkh@linuxfoundation.org> wrote:
+On Tue, 23 Mar 2021 22:06:22 +0000,
+Nick Desaulniers <ndesaulniers@google.com> wrote:
+> 
+> On Tue, Mar 23, 2021 at 6:18 AM Arnd Bergmann <arnd@kernel.org> wrote:
 > >
-> > The only time git gets involved is when we do a -rc release or when we
-> > do a "real" release, and then we use 'git quiltimport' on the whole
-> > stack.
+> > From: Arnd Bergmann <arnd@arndb.de>
 > >
-> > Here's a script that I use (much too slow, I know), for checking this
-> > type of thing and I try to remember to run it before every cycle of -rc
-> > releases:
-> >         https://github.com/gregkh/commit_tree/blob/master/find_fixes_in_queue
+> > When building with extra warnings enabled, clang points out a
+> > mistake in the error handling:
 > >
-> > It's a hack, and picks up more things than is really needed, but I would
-> > rather it error on that side than the other.
+> > drivers/irqchip/irq-gic-v3-mbi.c:306:21: error: result of comparison of constant 18446744073709551615 with expression of type 'phys_addr_t' (aka 'unsigned int') is always false [-Werror,-Wtautological-constant-out-of-range-compare]
 > 
-> Yes, my script is similar.  Looks like yours also runs on a git tree.
-> 
-> I noticed that id_fixed_in runs `git grep -l --threads=3 <sha>` to
-> find fixes; that's neat, I didn't know about `--threads=`.  I tried it
-> with ae46578b963f manually:
-> 
-> $ git grep -l --threads=3 ae46578b963f
-> $
-> 
-> Should it have found a7889c6320b9 and 773e0c402534?  Perhaps `git log
-> --grep=<sha>` should be used instead?  I thought `git grep` only greps
-> files in the archive, not commit history?
+> Looks like based on CONFIG_PHYS_ADDR_T_64BIT, phys_addr_t can be u64
+> or u32, but of_translate_address always returns a u64.  This is fine
+> for the current value of OF_BAD_ADDR, but I think there's a risk of
+> losing the top 32b of the return value of of_translate_address() here?
 
-Yes, it does only grep the files in the archive.
+If the DT describes a 64bit physical address, and that the (32bit)
+kernel isn't built to grok these addresses, then I'd say that the
+kernel cannot run on this HW, and that we don't need to worry much
+about this case.
 
-But look closer at the archive that this script lives in :)
+In general, CONFIG_PHYS_ADDR_T_64BIT must be selected by the arch code
+if anything above 32bit can be described in the PA space.
 
-This archive is a "blown up" copy of the Linux kernel tree, with one
-file per commit.  The name of the file is the commit id, and the content
-of the file is the changelog of the commit itself.
+Thanks,
 
-So it's a hack that I use to be able to simply search the changelogs of
-all commits to find out if they have a "Fixes:" tag with a specific
-commit id in it.
+	M.
 
-So in your example above, in the repo I run it and get:
-
-~/linux/stable/commit_tree $ git grep -l --threads=3 ae46578b963f
-changes/5.2/773e0c40253443e0ce5491cb0e414b62f7cc45ed
-ids/5.2
-
-Which shows me that in commit 773e0c402534 ("afs: Fix
-afs_xattr_get_yfs() to not try freeing an error value") in the kernel
-tree, it has a "Fixes:" tag that references "ae46578b963f".
-
-It also shows me that commit ae46578b963f was contained in the 5.2
-kernel release, as I use the "ids/" subdirectory here for other fast
-lookups (it's a tiny bit faster than 'git describe --contains').
-
-I don't know how your script is walking through all possible commits to
-see if they are fixing a specific one, maybe I should look and see if
-it's doing it better than my "git tree/directory as a database hack"
-does :)
-
-thanks,
-
-greg k-h
+-- 
+Without deviation from the norm, progress is not possible.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YFsMj3kL5Rl/Dc5R%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87czvokgdk.wl-maz%40kernel.org.
