@@ -1,129 +1,140 @@
-Return-Path: <clang-built-linux+bncBCO4HLFLUAOBBI7Z5OBAMGQEMP73ZHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDC3JRMYUQLRBB4F5SBAMGQE2QTHGJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E91613473E7
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 09:47:31 +0100 (CET)
-Received: by mail-lj1-x23b.google.com with SMTP id e29sf848646ljp.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 01:47:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616575651; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4A56E347436
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 10:12:41 +0100 (CET)
+Received: by mail-pg1-x53c.google.com with SMTP id l2sf1178687pgi.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 02:12:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616577160; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qBFWGkGl7yiefCtXyZ5gT2Cz/v/l6g9z5p+3hpo+xmIrQ853qKsl5j9OpVkd9afYVi
-         02eU/WS9CpCEl0bnJ1nsN2FQZM72Z6rb2UvgjQ7HFDk72v76sE6Ra8l+XEXD+AOqpivl
-         uAX0cT/b7fHW6917lxdqaVAe92GsCZU2S4Skp3G3bQ4r/LM0dtngJrPNCWE55dB/phwK
-         FjP5fKaJ2aLlmlpL4hoYvigGzCNBFfQWPEey/GItbYP+nZ8YmJdlN3SBk0r5GFAM87eN
-         4R0CuGFU6ULih/E/ojezh8DkCruz0tHBy7Cx+i3SXVfW/iINh19gU0nye61VK6awwemw
-         MFxQ==
+        b=S97r70rLLg8TnKZ0reeYJZWojXAlgnpd6YWzKcJK2DGcQ6+G7BrCj4fnbtIcq13Kr0
+         qbCGRhL61SgwHfLBHJGnWgtjnLvO9pOAcaygDL/m9J3Kp34zte3L+VNVqU8xKALxqzVh
+         xFLlb6VM/98+lCXBUZ9mqyw20CV4CEWo0ZlabnfCU1gchJEcRut1AqSF2HWDrKcBwXpg
+         A1q+tcb17HrJF1wXjTHscZnN12XSUSJ8J17no4H6+bSNhRdzEnHMduD+OfOgofo4yl9b
+         +by1dHy7yn9G9CTWLZud4sKzVblz7rnywChK6jVoeLJuHI5PDOPwxF31hiBwC0TOf5wa
+         0lwQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=UYCSvhRBQtBh5dGqM3WsuUQidXTQxwR/YsoANAhlj8E=;
-        b=oofZ0aKDkqxYg1bYL7MWQ9tETDJ9VB1woRhybOgHCW6wnfq+1qNbU7Dt3HgkGURaAM
-         jralR5twp/sDYSwjz/eTPqBgM0SpHllNWMz2ykqsg5np8c3ntNJ7lJTExLxfxUJUb8q7
-         cEJeQKQ20CjsAWP2oReC3wNAmwUx8d2cn7RbWsiFg9AwQ7GEqe/+jBv3ziuJZTwGXX6w
-         7x7XwfWOZBSTbArjue3eEa/K/+IDG1qYZWfMHAGn8KM26gkMTxX9M2Ol8n67zDxLqZ8r
-         AUmNFrt0IV2wPGza5xy55XaJKn3OnUMliAXpDuy7Ta9ZNmoJX1r3WpAMBbhMQ5+A07W6
-         +bmQ==
+         :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+         :ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=0jZxN2I+CByMOFya59y5l58KQDMy1P3XVGq4pt07J3M=;
+        b=o7l1UOnSnyYIKS2EKIlwIfBlSbasrjLxnzKVN1lXZ7whktPK3rXTrhCnyVzw5RxUxr
+         62C5F7mjcrkGYta/JAieeppQ6cvo6IO1sA3+2P8bSqlXUhM1PgYLrExggFkzypt8BcuU
+         KsI6yOe4U51OI3B9bRii4QvzyjYS2ghHNS9+7QhBsHDmcvGgPj04BC9y3GnVHTcrOYWa
+         DbDNvjZbmFNtB/tf4jM3IKjmxpnaF262cgQe61AjwCcjhVhGuXO4r5pubxOAClHPuENq
+         zNnbWoSRYCWC9UN0UQu9Vvz9gWt2vlTkcH6OlvnPh47j9N4PvEP3tA7D+91x5cI+RRt4
+         smmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
+       spf=pass (google.com: best guess record for domain of zhenyuw@linux.intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=zhenyuw@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UYCSvhRBQtBh5dGqM3WsuUQidXTQxwR/YsoANAhlj8E=;
-        b=dBRbBpnooo2qDnOVR6771p50otDpHXQQSVFEyLnCtsudjXQMMABUNs5Mf38XCN3F/a
-         +lOExcW4xuiAKo8C3J3GrXkcWZqjvyhi/BvgEGoHM6CDVDTe5aa5wQm4x6aYG3CoByiR
-         x269+l73ZQ68cNYHA+SG9E/LvD1DAvDHrpNuALENJHAGywcByBu0045KSP+Pp/v0N5Kx
-         Lj2eiPRRzgs5keuFNjv3g6kOgxhkC+qt74A5IgDtlSd7P/7ohzK67raf3kiJpi32l5FD
-         UmU3GAaSiXwsOtYqZwd3ELtMqvtTdZZGvv0iM72EVzWP+Xhiap1jAOh6+TioGOopeYOK
-         cPxA==
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :reply-to:references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0jZxN2I+CByMOFya59y5l58KQDMy1P3XVGq4pt07J3M=;
+        b=NVkQ6WeIoE0pqdc34D7SwLStnTb1xIqgJ6dQR+2nJXRg6evvPuzUbIWopH6l/IWooC
+         6G3mXsVXj4H/WL9AUyziYkiNrTeVzKHrEF0GkQUcmQljISaxzBmnW9Ky+XofQzqv2q7+
+         URHizH/xpoYFnCsUh9Mz+bypwnWe6eNNR8hjNyd6qXIPAwSzJiUdOg2CmvGX+1MijAYW
+         Eet6aNAiB8PwcO7vzrBxpU8d4v96NYFqu8ouseARvqDcPlrMT6aMvZIxn4BPj0YLVWFK
+         8wpZ9SzUQKvzpUCdaVz+8EckczZgv+BU2/TIe63nogZqah7x8GpZn/i9mKQOw2wVmCQt
+         cGtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=UYCSvhRBQtBh5dGqM3WsuUQidXTQxwR/YsoANAhlj8E=;
-        b=g8lvgFUe/2GtZgC6dT1kj9h7b3mAfqDg48JAv3XRCT64Z3c4V61GTykxSD7JMv9wcg
-         EDKstToR/4E1pFbkBKGqc27uXtwOyADL+QepKjblLGms21XpsEr19/D3GPMDT7uv/tqc
-         XBYy2+Ex1D9tY2vcRTUOMbxxUp0PXN+13HG9kPUA7MXNoEz5SfzL9FAAIhRtnnuAV0kU
-         vqGP6t/FCdvjUJF6ASjLCm3uFCWsAkOUuzbFzVx6B+M1hssmM6ns6sMf23OAL4S6L25G
-         pSSm+Bh9ggMmmaiCCZJOEmcTcAzxN/B5UKQRR2HleNirPdklnCdRc+bt93roX1HoonWL
-         a+hQ==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:reply-to:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0jZxN2I+CByMOFya59y5l58KQDMy1P3XVGq4pt07J3M=;
+        b=i/dcXijaATNGMyCR5acZNNF0XfLueNDa/wHOmkOVbC8ts4PE+DSbytdlc+4SsAeVWI
+         W21kv4ZXclmOdsgPoX6YnRvZzFK9CqStZnIC33qiE0HqXigbY/i9LaezdsUB/fxAgrzc
+         5b6/oRtfJ5cRLqjX7p96pTyH5TEtBcmuDkyWJKtMVue5LOgmo9jZsIlcXIwbjj5VrZ78
+         geteKIBnH11dgTmSQrjE0oVmAe1WqaeduKE5nLelhsxeIvT2VNMNJcatFMGrBvb22Z10
+         YNpTTuc+A3jKpkygJ0qKQWhjQw5gEe1zWcyNgvB5Ib7554Os2X0FcAoUCRBSTy1GFm9S
+         aduA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533CDj1jS1+M+ZykpeN7OqbWwd4by4/ul+3GWTZ0B4/RVegPiGRb
-	z0NVmJbdyCrsDZw0NM2muY4=
-X-Google-Smtp-Source: ABdhPJxd0AePELamXNGokyaxnN0FWGKM8AaJQPTYcT2r52BrPi2ES4YIIgsFpz+lCKl+yeLFNKHcVA==
-X-Received: by 2002:a2e:819a:: with SMTP id e26mr1454759ljg.222.1616575651486;
-        Wed, 24 Mar 2021 01:47:31 -0700 (PDT)
+X-Gm-Message-State: AOAM5322bDVX2NQi3/crhyUIGr9dzoV2bgH38eK7tyKu6K8oCUtpS0T5
+	Tm+ToN0jrwF/foSjRPKC/74=
+X-Google-Smtp-Source: ABdhPJyXs1SNiLx3fMb/61hDFo7s0GL55gVDC0UGiBA9o8yFUT9e71QvMMPS6fKX5uauLA1gnXkXbg==
+X-Received: by 2002:aa7:908c:0:b029:209:aacd:d8b with SMTP id i12-20020aa7908c0000b0290209aacd0d8bmr2119430pfa.74.1616577159758;
+        Wed, 24 Mar 2021 02:12:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:8503:: with SMTP id j3ls302479lji.6.gmail; Wed, 24 Mar
- 2021 01:47:30 -0700 (PDT)
-X-Received: by 2002:a2e:8503:: with SMTP id j3mr1428679lji.272.1616575650475;
-        Wed, 24 Mar 2021 01:47:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616575650; cv=none;
+Received: by 2002:a63:ef0b:: with SMTP id u11ls600195pgh.4.gmail; Wed, 24 Mar
+ 2021 02:12:39 -0700 (PDT)
+X-Received: by 2002:a62:ea19:0:b029:1ee:5911:c516 with SMTP id t25-20020a62ea190000b02901ee5911c516mr2251509pfh.67.1616577159144;
+        Wed, 24 Mar 2021 02:12:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616577159; cv=none;
         d=google.com; s=arc-20160816;
-        b=NI7zwAXzJDjn187cJdKzP6lTsBSks2nxYsD/D1Sp5vs+wobsI0oq8KvAbz1yInF7ut
-         yHJ/TiQb9EdW/n2cPVuca4vzXmQPMSWNtFWA0ypuVm4LEvg2Lb5qo3h3KZEWVRKYlFDk
-         OXJSjHO2CytfHVGLbbbXDycZsc9PVdNwVLTPk99vt63RkOLnYZJ/8nSfVkRXVH7w7ZTX
-         he3DPcPOUTegh/PCopz7cDOPcHJbFgB4XFUByfxS4/bmDbLv9PlX8oioXMn3QdYCuY7q
-         eYWWrDZRIbJh49xCSx0MyP6TLJ6J4JAXu9aWuzC14nfAbItoTDxhjpSq2i+G8KSJDMaA
-         fTiA==
+        b=M//IV0LmLwxlq2kMNwiS7C1ezwzF57LdMAB/QIkylske8i0C+g/WNc45VSbC+EnT1c
+         OAaA58fpzY2uvL4ct+DCIj4bUuFVojahyxI7Z1IYauK4jrhzPV2EFLj0UNGSOFHJKq4/
+         UtGl7Yvu9YAifFG/eudurVIGn6vaQjFhMziJzKU4edkAa9pKwrrGeyZ+X4hQi8rcCZSH
+         hzCD3QimeRa+23BX1Oz9Zy7aQ8ZUCZjbfmy61sl1qmY5U/qRgJuRzYpo7ZshN5ve2Ezw
+         rI+fwh8O8BKangbZWLzBTxsGI9IkAjieV37xfcHbjZtMS6jMNkhRN+PP89oZi7NvaRDJ
+         3v/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=PsfOLxUhFy+GRXKFvDCTa1V5Dg61G0zvb2FsVcFIFyk=;
-        b=PeoWgmhquuJMyzuuUjCwmQ+8AQlhErf3VgVSq+xO7Z4zW8eNXlVtCY2jxRnkZ9QsgU
-         TFXWonIIq+Mz1ASV/U7Eb8RnDMVcu9OlmBUUL+fbbD6QsG5Ry9WW96RyNX3oSGMpdbC9
-         hx7On0Wdi8Q7bP2wxhB0Vxja//QGdF7pvvU0wigfausRmvcLciQgFLHB2wQFehT8toER
-         /veI7uGRswapsrT8V3d8rCJm48u0YkhTA3mDfVYNbOpBqVcYr1MMf7zyS+ywWJvXw/TQ
-         G3s/JPMbntSC/ShDydWY5SCJkVUzFBTlr2vd/VwAthA5Kj6hRr4V5+WYMLFmu2keJWAC
-         M3Fg==
+        h=in-reply-to:content-disposition:mime-version:references:reply-to
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=k7lPfbESMlzU7ykovkMc0A85cHBScpNAaJiccVEzYyw=;
+        b=mrHx9z/06QvOiqBq0sN4kY4sV4+XS71iNeQqwQZx1VUApR7+Iy9Cdk2DyDxC9fWHDr
+         nUYbovfyo+ko8ajVbsQqrMdIO34kJ+XXqFDK4R57+AK8Wz/DdU1NcWY0jPnZyT3h8IPJ
+         FN8ZJoOUjJtOKcb2HuOk1joVdlLVmMFZ6ytSaVCI7W6HrC/Kpzn+bnI4/4+HFbGXImgf
+         00wQB/Wr22AziBjn7CAn0NW+6E2JEELSgC82/5r+oqkTk+V+nVc5gGvzrEw8gQPhvV21
+         /H/iQDMqtTKCUdqgrec4vUScUIa0x09cRB6AtQ59Aq0asDl/tukRy458XS7tZsO9FI04
+         6blA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
-Received: from youngberry.canonical.com (youngberry.canonical.com. [91.189.89.112])
-        by gmr-mx.google.com with ESMTPS id a66si52188lfd.7.2021.03.24.01.47.30
+       spf=pass (google.com: best guess record for domain of zhenyuw@linux.intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=zhenyuw@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id j6si56664pjg.0.2021.03.24.02.12.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Mar 2021 01:47:30 -0700 (PDT)
-Received-SPF: neutral (google.com: 91.189.89.112 is neither permitted nor denied by best guess record for domain of christian.brauner@ubuntu.com) client-ip=91.189.89.112;
-Received: from ip5f5af0a0.dynamic.kabel-deutschland.de ([95.90.240.160] helo=wittgenstein)
-	by youngberry.canonical.com with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
-	(Exim 4.86_2)
-	(envelope-from <christian.brauner@ubuntu.com>)
-	id 1lOzAi-00019I-JR; Wed, 24 Mar 2021 08:47:24 +0000
-Date: Wed, 24 Mar 2021 09:47:23 +0100
-From: Christian Brauner <christian.brauner@ubuntu.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	linux-toolchains@vger.kernel.org,
+        Wed, 24 Mar 2021 02:12:38 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of zhenyuw@linux.intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+IronPort-SDR: TCkN1XPToKpr92P5y7vsqUliR61EonBFzfWiGo3sWzIURfFrU/6DfNQZ5lS/C1VqQnhG046Nlz
+ rNIGShf903CQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9932"; a="177781664"
+X-IronPort-AV: E=Sophos;i="5.81,274,1610438400"; 
+   d="asc'?scan'208";a="177781664"
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2021 02:12:36 -0700
+IronPort-SDR: JI68o37wZp30j1WEqZ5abBaZgg2b6omnIJC8cWSp49NMdkogrKfwPw5xtV2tqhWSZgNcdzfK7j
+ 4/RWaXXR+Pyw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.81,274,1610438400"; 
+   d="asc'?scan'208";a="435915872"
+Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.160.147])
+  by fmsmga004.fm.intel.com with ESMTP; 24 Mar 2021 02:12:33 -0700
+Date: Wed, 24 Mar 2021 16:55:31 +0800
+From: Zhenyu Wang <zhenyuw@linux.intel.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Zhi Wang <zhi.a.wang@intel.com>, kbuild-all@lists.01.org,
 	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	"Jose E. Marchesi" <jemarch@gnu.org>,
-	Kees Cook <keescook@chromium.org>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <christian.brauner@canonical.com>,
-	nick.alcock@oracle.com,
-	Segher Boessenkool <segher@kernel.crashing.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>, Will Deacon <will@kernel.org>,
-	andrew.cooper3@citrix.com
-Subject: Re: Plumbers CF MCs
-Message-ID: <20210324084723.q3l5wehl33t6uo4c@wittgenstein>
-References: <CAKwvOdndc=ej=40WktFz0t083pZJcdX1tipuWoTvAw=JC8b3Aw@mail.gmail.com>
- <YFmoPpb5w4q1dWXz@hirez.programming.kicks-ass.net>
+	LKML <linux-kernel@vger.kernel.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	kernel test robot <lkp@intel.com>,
+	Chris Wilson <chris@chris-wilson.co.uk>
+Subject: Re: drivers/gpu/drm/i915/gvt/gtt.c:267:19: error: unused function
+ 'get_pt_type'
+Message-ID: <20210324085531.GL1551@zhen-hp.sh.intel.com>
+Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
+References: <202103201405.UV0ZEGEW-lkp@intel.com>
+ <CAKwvOdnik8k7-xMmwtVbwtnispGt03C0acPAPWJRuo7t+VkftQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="svZFHVx8/dhPCe52"
 Content-Disposition: inline
-In-Reply-To: <YFmoPpb5w4q1dWXz@hirez.programming.kicks-ass.net>
-X-Original-Sender: christian.brauner@ubuntu.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 91.189.89.112 is neither permitted nor denied by best guess
- record for domain of christian.brauner@ubuntu.com) smtp.mailfrom=christian.brauner@ubuntu.com
+In-Reply-To: <CAKwvOdnik8k7-xMmwtVbwtnispGt03C0acPAPWJRuo7t+VkftQ@mail.gmail.com>
+X-Original-Sender: zhenyuw@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of zhenyuw@linux.intel.com
+ designates 134.134.136.20 as permitted sender) smtp.mailfrom=zhenyuw@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,33 +147,103 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 23, 2021 at 09:35:10AM +0100, Peter Zijlstra wrote:
-> On Mon, Mar 22, 2021 at 01:23:03PM -0700, Nick Desaulniers wrote:
-> > Hi all,
-> > I saw plumbers opened call for microconferences:
-> > https://www.linuxplumbersconf.org/blog/2021/index.php/2021/03/18/cfp-open-microconferences/
-> > 
-> > I was going to put together a submission; do we want to do a combined
-> > toolchain MC, or have distinct ones this year?
-> > 
-> > I know in 2020 the GNU cauldron was co-located with Plumbers, as well
-> > as a GNU Tools Track MC and LLVM MC.
+
+--svZFHVx8/dhPCe52
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+
+On 2021.03.23 15:15:29 -0700, Nick Desaulniers wrote:
+> On Fri, Mar 19, 2021 at 11:45 PM kernel test robot <lkp@intel.com> wrote:
+> >
+> > Hi Nick,
+> >
+> > FYI, the error/warning still remains.
+> >
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> > head:   1c273e10bc0cc7efb933e0ca10e260cdfc9f0b8c
+> > commit: 9f4069b055d1508c833115df7493b6e0001e5c9b drm/i915: re-disable -Wframe-address
 > 
-> A combined MC focussed on kernel issues seems very interesting. We still
+> This in unrelated to my change.
+> 
+> + Changbin, Zhenyu (authors of 3aff3512802) and Zhi (author of
+> 054f4eba2a298) in case there's any interest in fixing this up.
+> Otherwise I don't think these tiny helpful functions were meant to be
+> used somewhere but are not, so there's not much value in cleaning them
+> up.
 
-Seeing the discussion here unfold already in such great detail it might
-be worth considering either really running a separate MC focussed on
-Compilers & Kernel as Peter suggests or have a full Track (combined or
-not) and taking out a day just for this topic.
-Both cases would guarantee that you have a "full" day available for
-discussing these issues. But maybe these things are so fundamental that
-having a Compilers & Kernel Track might be worth thinking about
-(presupposing we'll have time in the schedule to accomodate it in
-addition to e.g. a GNU Tools Track. But I think we would.).
+I'll check that, should be some left over last big gtt code refactor.
+Looks lkp guys don't apply -Wunused-function for gvt tree build test...
 
-Christian
+Thanks
+
+> 
+> > date:   11 months ago
+> > config: x86_64-randconfig-a016-20210319 (attached as .config)
+> > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project fcc1ce00931751ac02498986feb37744e9ace8de)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install x86_64 cross compiling tool for clang build
+> >         # apt-get install binutils-x86-64-linux-gnu
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f4069b055d1508c833115df7493b6e0001e5c9b
+> >         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> >         git fetch --no-tags linus master
+> >         git checkout 9f4069b055d1508c833115df7493b6e0001e5c9b
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All errors (new ones prefixed by >>):
+> >
+> > >> drivers/gpu/drm/i915/gvt/gtt.c:267:19: error: unused function 'get_pt_type' [-Werror,-Wunused-function]
+> >    static inline int get_pt_type(int type)
+> >                      ^
+> > >> drivers/gpu/drm/i915/gvt/gtt.c:590:20: error: unused function 'ppgtt_set_guest_root_entry' [-Werror,-Wunused-function]
+> >    static inline void ppgtt_set_guest_root_entry(struct intel_vgpu_mm *mm,
+> >                       ^
+> >    2 errors generated.
+> >
+> >
+> > vim +/get_pt_type +267 drivers/gpu/drm/i915/gvt/gtt.c
+> >
+> > 2707e44466881d6 Zhi Wang 2016-03-28  266
+> > 054f4eba2a2985b Zhi Wang 2017-10-10 @267  static inline int get_pt_type(int type)
+> > 054f4eba2a2985b Zhi Wang 2017-10-10  268  {
+> > 054f4eba2a2985b Zhi Wang 2017-10-10  269        return gtt_type_table[type].pt_type;
+> > 054f4eba2a2985b Zhi Wang 2017-10-10  270  }
+> > 054f4eba2a2985b Zhi Wang 2017-10-10  271
+> >
+> > :::::: The code at line 267 was first introduced by commit
+> > :::::: 054f4eba2a2985b1db43353b7b5ce90e96cf9bb9 drm/i915/gvt: Introduce page table type of current level in GTT type enumerations
+> >
+> > :::::: TO: Zhi Wang <zhi.a.wang@intel.com>
+> > :::::: CC: Zhenyu Wang <zhenyuw@linux.intel.com>
+> >
+> > ---
+> > 0-DAY CI Kernel Test Service, Intel Corporation
+> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> 
+> 
+> 
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210324084723.q3l5wehl33t6uo4c%40wittgenstein.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210324085531.GL1551%40zhen-hp.sh.intel.com.
+
+--svZFHVx8/dhPCe52
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCYFr+fwAKCRCxBBozTXgY
+J3vXAKCPtf8STYADjG72OUoqbgywKc4nQgCdGMLTzkgkitUp3sYK5gxWEXciceE=
+=+Pjp
+-----END PGP SIGNATURE-----
+
+--svZFHVx8/dhPCe52--
