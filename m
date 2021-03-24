@@ -1,140 +1,127 @@
-Return-Path: <clang-built-linux+bncBDC3JRMYUQLRBB4F5SBAMGQE2QTHGJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBEUZ5SBAMGQEYV7TXZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4A56E347436
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 10:12:41 +0100 (CET)
-Received: by mail-pg1-x53c.google.com with SMTP id l2sf1178687pgi.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 02:12:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616577160; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7FD1E34751B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 10:55:32 +0100 (CET)
+Received: by mail-pl1-x63f.google.com with SMTP id h4sf750344plf.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 02:55:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616579731; cv=pass;
         d=google.com; s=arc-20160816;
-        b=S97r70rLLg8TnKZ0reeYJZWojXAlgnpd6YWzKcJK2DGcQ6+G7BrCj4fnbtIcq13Kr0
-         qbCGRhL61SgwHfLBHJGnWgtjnLvO9pOAcaygDL/m9J3Kp34zte3L+VNVqU8xKALxqzVh
-         xFLlb6VM/98+lCXBUZ9mqyw20CV4CEWo0ZlabnfCU1gchJEcRut1AqSF2HWDrKcBwXpg
-         A1q+tcb17HrJF1wXjTHscZnN12XSUSJ8J17no4H6+bSNhRdzEnHMduD+OfOgofo4yl9b
-         +by1dHy7yn9G9CTWLZud4sKzVblz7rnywChK6jVoeLJuHI5PDOPwxF31hiBwC0TOf5wa
-         0lwQ==
+        b=FAVmJ1/8g6610PJz9unu0jaVjuAFOVO2i3Sp9vfli5jBMemiqhqoqaYZezUqq0KlIH
+         tfvhcdtaizX8Pj87SLXsPk/BVV6BW+PqCJodLZwf5DtEujTFplQxttROaNsSZiucAWkW
+         N0hyVo0pLHVf/Yx5Pj/D4F3u3mIyg2fGNr008MTHIYnh9vBJZKtXPM0/QCHCchFPfF6d
+         fnPECjpG0TqeqRUQClGC62vsJuBsNF4SGE4T4//slOVTUzzoGY0Ish+OeTr20CwBffWT
+         sVs0mjP3vpB7zHhkoUGn1lCyxjGD18GYL7fN5+/aYpjHdd68HlWfQFj/6cYfB+4fHGZY
+         KBQg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:reply-to:message-id:subject:cc:to:from:date
-         :ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=0jZxN2I+CByMOFya59y5l58KQDMy1P3XVGq4pt07J3M=;
-        b=o7l1UOnSnyYIKS2EKIlwIfBlSbasrjLxnzKVN1lXZ7whktPK3rXTrhCnyVzw5RxUxr
-         62C5F7mjcrkGYta/JAieeppQ6cvo6IO1sA3+2P8bSqlXUhM1PgYLrExggFkzypt8BcuU
-         KsI6yOe4U51OI3B9bRii4QvzyjYS2ghHNS9+7QhBsHDmcvGgPj04BC9y3GnVHTcrOYWa
-         DbDNvjZbmFNtB/tf4jM3IKjmxpnaF262cgQe61AjwCcjhVhGuXO4r5pubxOAClHPuENq
-         zNnbWoSRYCWC9UN0UQu9Vvz9gWt2vlTkcH6OlvnPh47j9N4PvEP3tA7D+91x5cI+RRt4
-         smmA==
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=zoXuG7jGsGDcm2vzyzF5oUI0w1r6H1EHyBudw21GozM=;
+        b=OHOwLiUMOyToQ8dr7hxIM83EMQ8JrpPYJbBGYr0Z6r3nxwlQlV4EO4yTjRr923h6J6
+         q3oIVR0uCWKdYDCHbADUBfub6K4jmegKCRUo1vwdUyw7Dig296U2nXVAzXcBr4CAvySw
+         L+2ysbFieARHIJFHdAQEaYgrcaRsntd1LLql6/zHUx17H4gQBeU+IPn0H9wT7/RnblDL
+         QmaVnsXDc6NZgnuY0eIWT4jyct144fzwv+PXhC/LWtmLNY+bSnncFQhSz8VLg0y0g5sq
+         VksfGpTelFklXcf5lWPTKhiDgf49BlSWrw6ljrK1HpE28F5NRL3jw2iTI/Loc9bqUDqf
+         9isA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of zhenyuw@linux.intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=zhenyuw@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=ye9LfB9h;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :reply-to:references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0jZxN2I+CByMOFya59y5l58KQDMy1P3XVGq4pt07J3M=;
-        b=NVkQ6WeIoE0pqdc34D7SwLStnTb1xIqgJ6dQR+2nJXRg6evvPuzUbIWopH6l/IWooC
-         6G3mXsVXj4H/WL9AUyziYkiNrTeVzKHrEF0GkQUcmQljISaxzBmnW9Ky+XofQzqv2q7+
-         URHizH/xpoYFnCsUh9Mz+bypwnWe6eNNR8hjNyd6qXIPAwSzJiUdOg2CmvGX+1MijAYW
-         Eet6aNAiB8PwcO7vzrBxpU8d4v96NYFqu8ouseARvqDcPlrMT6aMvZIxn4BPj0YLVWFK
-         8wpZ9SzUQKvzpUCdaVz+8EckczZgv+BU2/TIe63nogZqah7x8GpZn/i9mKQOw2wVmCQt
-         cGtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:reply-to:references:mime-version
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0jZxN2I+CByMOFya59y5l58KQDMy1P3XVGq4pt07J3M=;
-        b=i/dcXijaATNGMyCR5acZNNF0XfLueNDa/wHOmkOVbC8ts4PE+DSbytdlc+4SsAeVWI
-         W21kv4ZXclmOdsgPoX6YnRvZzFK9CqStZnIC33qiE0HqXigbY/i9LaezdsUB/fxAgrzc
-         5b6/oRtfJ5cRLqjX7p96pTyH5TEtBcmuDkyWJKtMVue5LOgmo9jZsIlcXIwbjj5VrZ78
-         geteKIBnH11dgTmSQrjE0oVmAe1WqaeduKE5nLelhsxeIvT2VNMNJcatFMGrBvb22Z10
-         YNpTTuc+A3jKpkygJ0qKQWhjQw5gEe1zWcyNgvB5Ib7554Os2X0FcAoUCRBSTy1GFm9S
-         aduA==
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=zoXuG7jGsGDcm2vzyzF5oUI0w1r6H1EHyBudw21GozM=;
+        b=qdCxfgqr9bl/PMkM8gjTOvHA1QXk1Z7GP6zOMtJjsT8hwHqM8S5PttKbbRQstR0AIk
+         zdd9pUV3OLx8c+JD+QXF0U/lzrc5OwgGudXKxKuKxARaXAIif1sxSTi7bJwAU9MaV2HJ
+         pTvjRm2t1Ehv4T1sqY0yfR1JXnqBRwkTZUHxW8xgDqH4utZoTRq3XHVDjsVg63cFZraN
+         F1q7BE9oQ+LAkLM71yL+ibr3RdoYISsQ9fNPzNfnf8/6YGhA7YWvkl+Cr3++cY5nspST
+         viayFxGE8VTqBMZqDwkScu5tMwQ6NrPhYNpi5g6letZ8iBlcXwjz5njpMGp7jYzRh3AX
+         b09w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=zoXuG7jGsGDcm2vzyzF5oUI0w1r6H1EHyBudw21GozM=;
+        b=D8WtxdgkgZLJOHBmzo7Cbw/PBN2ybeAkM2EtLfieoovi/IUM1xC1DyJFK5m5CkIs/3
+         c9e9prsv/SlGYiQQwGsWQVT7u4195qr5fUsikI4dvtC6XmsRYdko3vXKuBJe4r4d4snT
+         I1LuqEUTlrMeIaRTEml/BQVMrPxclzEIaBY1acmBHXWS9bdXzccf199yEACXKQFEfXQC
+         mIV7wuD6KdgnD3Cekc5zGhg/28mkf5QLh4udCwasHkBy1+WW6vgct6TEyUlwOKn107D3
+         U6BCmdvZ32hQK3zlnYC/P5MyrcCO6gopiaexLTqa8LevPp7u4wbxGiN//aVtKY2x5BuH
+         4LUg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5322bDVX2NQi3/crhyUIGr9dzoV2bgH38eK7tyKu6K8oCUtpS0T5
-	Tm+ToN0jrwF/foSjRPKC/74=
-X-Google-Smtp-Source: ABdhPJyXs1SNiLx3fMb/61hDFo7s0GL55gVDC0UGiBA9o8yFUT9e71QvMMPS6fKX5uauLA1gnXkXbg==
-X-Received: by 2002:aa7:908c:0:b029:209:aacd:d8b with SMTP id i12-20020aa7908c0000b0290209aacd0d8bmr2119430pfa.74.1616577159758;
-        Wed, 24 Mar 2021 02:12:39 -0700 (PDT)
+X-Gm-Message-State: AOAM533Gx2TuGce+YToWrS7n6bdeYdhxaeSzWdIjVEKkzGQ3yDmg5sSM
+	RBagsmK/VqWrpCjVF7rvNsM=
+X-Google-Smtp-Source: ABdhPJxJXq2gnmGvoJu0mr1DT5I3ndVxSsDAsv3nNoeeSwGrGzvHQt9rtTdwXKBT5IuEUE779hSMuw==
+X-Received: by 2002:a17:90b:909:: with SMTP id bo9mr2558717pjb.107.1616579731100;
+        Wed, 24 Mar 2021 02:55:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:ef0b:: with SMTP id u11ls600195pgh.4.gmail; Wed, 24 Mar
- 2021 02:12:39 -0700 (PDT)
-X-Received: by 2002:a62:ea19:0:b029:1ee:5911:c516 with SMTP id t25-20020a62ea190000b02901ee5911c516mr2251509pfh.67.1616577159144;
-        Wed, 24 Mar 2021 02:12:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616577159; cv=none;
+Received: by 2002:a17:90a:ab81:: with SMTP id n1ls955548pjq.3.gmail; Wed, 24
+ Mar 2021 02:55:30 -0700 (PDT)
+X-Received: by 2002:a17:90a:bb02:: with SMTP id u2mr2647952pjr.175.1616579730568;
+        Wed, 24 Mar 2021 02:55:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616579730; cv=none;
         d=google.com; s=arc-20160816;
-        b=M//IV0LmLwxlq2kMNwiS7C1ezwzF57LdMAB/QIkylske8i0C+g/WNc45VSbC+EnT1c
-         OAaA58fpzY2uvL4ct+DCIj4bUuFVojahyxI7Z1IYauK4jrhzPV2EFLj0UNGSOFHJKq4/
-         UtGl7Yvu9YAifFG/eudurVIGn6vaQjFhMziJzKU4edkAa9pKwrrGeyZ+X4hQi8rcCZSH
-         hzCD3QimeRa+23BX1Oz9Zy7aQ8ZUCZjbfmy61sl1qmY5U/qRgJuRzYpo7ZshN5ve2Ezw
-         rI+fwh8O8BKangbZWLzBTxsGI9IkAjieV37xfcHbjZtMS6jMNkhRN+PP89oZi7NvaRDJ
-         3v/A==
+        b=TrqQ1sS1gVVHT6iWgEH3W9WfhFE0fOp1EB6QSTs3+pUSXJSJNsoshdBm3nWSBGEgYa
+         wawe45f3SN4WlUBXIlQdyjZ6HOddhWhHSiYZAA2LFEU12syREkM9R1s2re7jLOiynWmg
+         rVGHUosPXyvbGGlkNwJb0ZrY1dWyAaebI7Xn2Y9IObkrItfN/jsxZZLhfQ/4iVVzyOg7
+         H436S0/guwR0jKMZB6XJfS6MM7C/lQTt18PpXl9hRzvEvyDxJJaJ/ru6GBFgUS0Tu3NH
+         swP5Z+V5wrcV2ovtN4rACOX6UTb/Go1SqZ2Ehe5WDpWP9v+QoLjYgG4JISP/IhJAipvn
+         nr7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:reply-to
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=k7lPfbESMlzU7ykovkMc0A85cHBScpNAaJiccVEzYyw=;
-        b=mrHx9z/06QvOiqBq0sN4kY4sV4+XS71iNeQqwQZx1VUApR7+Iy9Cdk2DyDxC9fWHDr
-         nUYbovfyo+ko8ajVbsQqrMdIO34kJ+XXqFDK4R57+AK8Wz/DdU1NcWY0jPnZyT3h8IPJ
-         FN8ZJoOUjJtOKcb2HuOk1joVdlLVmMFZ6ytSaVCI7W6HrC/Kpzn+bnI4/4+HFbGXImgf
-         00wQB/Wr22AziBjn7CAn0NW+6E2JEELSgC82/5r+oqkTk+V+nVc5gGvzrEw8gQPhvV21
-         /H/iQDMqtTKCUdqgrec4vUScUIa0x09cRB6AtQ59Aq0asDl/tukRy458XS7tZsO9FI04
-         6blA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=y87o/dhXEoQeoI9wjN5qrgxBM2iUO/e92+y4G+QuboQ=;
+        b=ojHwBCm2DBxcq7OQzCFc5FI3n4Ud3FyrzqdhrDd1FRq0EnRR+VhHKK1kcTRtxqLWOr
+         TYcZ5m9hhYAp3krwBd1Ham2RbXSdDGwyQA/5xl33wiS3Vr1QuvoQhM02Pfdhye5YasHt
+         Y1aI+apQW3ABe7QmcM9YYlpUnMKyKv3u9aN+cXOtos54dcDJVkYVHhKQFEb7b8L5lk5L
+         DjVMGNLBzt+3yo8hsFS37T02EoCnPqk+r6gOcw8bu4w7W4qfCw/uR5i3KLbL8ITfnrUn
+         aNnjnkNZOS0BjBRrozUbMWsn114m3vrTqjX/glS/mIEkyYlsOSdMzHW+cU/yHvlIFwTq
+         yVLw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of zhenyuw@linux.intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=zhenyuw@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id j6si56664pjg.0.2021.03.24.02.12.38
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=ye9LfB9h;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id k21si100830pfa.5.2021.03.24.02.55.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Mar 2021 02:12:38 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of zhenyuw@linux.intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: TCkN1XPToKpr92P5y7vsqUliR61EonBFzfWiGo3sWzIURfFrU/6DfNQZ5lS/C1VqQnhG046Nlz
- rNIGShf903CQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9932"; a="177781664"
-X-IronPort-AV: E=Sophos;i="5.81,274,1610438400"; 
-   d="asc'?scan'208";a="177781664"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Mar 2021 02:12:36 -0700
-IronPort-SDR: JI68o37wZp30j1WEqZ5abBaZgg2b6omnIJC8cWSp49NMdkogrKfwPw5xtV2tqhWSZgNcdzfK7j
- 4/RWaXXR+Pyw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.81,274,1610438400"; 
-   d="asc'?scan'208";a="435915872"
-Received: from zhen-hp.sh.intel.com (HELO zhen-hp) ([10.239.160.147])
-  by fmsmga004.fm.intel.com with ESMTP; 24 Mar 2021 02:12:33 -0700
-Date: Wed, 24 Mar 2021 16:55:31 +0800
-From: Zhenyu Wang <zhenyuw@linux.intel.com>
+        Wed, 24 Mar 2021 02:55:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8714B619FF;
+	Wed, 24 Mar 2021 09:55:29 +0000 (UTC)
+Date: Wed, 24 Mar 2021 10:55:27 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Zhi Wang <zhi.a.wang@intel.com>, kbuild-all@lists.01.org,
+Cc: Sasha Levin <sashal@kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>,
 	LKML <linux-kernel@vger.kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	kernel test robot <lkp@intel.com>,
-	Chris Wilson <chris@chris-wilson.co.uk>
-Subject: Re: drivers/gpu/drm/i915/gvt/gtt.c:267:19: error: unused function
- 'get_pt_type'
-Message-ID: <20210324085531.GL1551@zhen-hp.sh.intel.com>
-Reply-To: Zhenyu Wang <zhenyuw@linux.intel.com>
-References: <202103201405.UV0ZEGEW-lkp@intel.com>
- <CAKwvOdnik8k7-xMmwtVbwtnispGt03C0acPAPWJRuo7t+VkftQ@mail.gmail.com>
+	"# 3.4.x" <stable@vger.kernel.org>
+Subject: Re: [PATCH] scripts: stable: add script to validate backports
+Message-ID: <YFsMj3kL5Rl/Dc5R@kroah.com>
+References: <20210316213136.1866983-1-ndesaulniers@google.com>
+ <YFnyHaVyvgYl/qWg@kroah.com>
+ <CAKwvOd=9HwLcTD8GaMsbEWiTPfZ+fj=vgFOefqBxDYkFiv_6YQ@mail.gmail.com>
+ <YFo78StZ6Tq82hHJ@kroah.com>
+ <CAKwvOdmL4cF7ConV8841BX+Pey571KDWM8CBt8NnYY47vJ_Gfg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="svZFHVx8/dhPCe52"
+Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdnik8k7-xMmwtVbwtnispGt03C0acPAPWJRuo7t+VkftQ@mail.gmail.com>
-X-Original-Sender: zhenyuw@linux.intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of zhenyuw@linux.intel.com
- designates 134.134.136.20 as permitted sender) smtp.mailfrom=zhenyuw@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+In-Reply-To: <CAKwvOdmL4cF7ConV8841BX+Pey571KDWM8CBt8NnYY47vJ_Gfg@mail.gmail.com>
+X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linuxfoundation.org header.s=korg header.b=ye9LfB9h;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,103 +134,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Tue, Mar 23, 2021 at 01:28:38PM -0700, Nick Desaulniers wrote:
+> On Tue, Mar 23, 2021 at 12:05 PM Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> wrote:
+> >
+> > The only time git gets involved is when we do a -rc release or when we
+> > do a "real" release, and then we use 'git quiltimport' on the whole
+> > stack.
+> >
+> > Here's a script that I use (much too slow, I know), for checking this
+> > type of thing and I try to remember to run it before every cycle of -rc
+> > releases:
+> >         https://github.com/gregkh/commit_tree/blob/master/find_fixes_in_queue
+> >
+> > It's a hack, and picks up more things than is really needed, but I would
+> > rather it error on that side than the other.
+> 
+> Yes, my script is similar.  Looks like yours also runs on a git tree.
+> 
+> I noticed that id_fixed_in runs `git grep -l --threads=3 <sha>` to
+> find fixes; that's neat, I didn't know about `--threads=`.  I tried it
+> with ae46578b963f manually:
+> 
+> $ git grep -l --threads=3 ae46578b963f
+> $
+> 
+> Should it have found a7889c6320b9 and 773e0c402534?  Perhaps `git log
+> --grep=<sha>` should be used instead?  I thought `git grep` only greps
+> files in the archive, not commit history?
 
---svZFHVx8/dhPCe52
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Yes, it does only grep the files in the archive.
 
-On 2021.03.23 15:15:29 -0700, Nick Desaulniers wrote:
-> On Fri, Mar 19, 2021 at 11:45 PM kernel test robot <lkp@intel.com> wrote:
-> >
-> > Hi Nick,
-> >
-> > FYI, the error/warning still remains.
-> >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> > head:   1c273e10bc0cc7efb933e0ca10e260cdfc9f0b8c
-> > commit: 9f4069b055d1508c833115df7493b6e0001e5c9b drm/i915: re-disable -Wframe-address
-> 
-> This in unrelated to my change.
-> 
-> + Changbin, Zhenyu (authors of 3aff3512802) and Zhi (author of
-> 054f4eba2a298) in case there's any interest in fixing this up.
-> Otherwise I don't think these tiny helpful functions were meant to be
-> used somewhere but are not, so there's not much value in cleaning them
-> up.
+But look closer at the archive that this script lives in :)
 
-I'll check that, should be some left over last big gtt code refactor.
-Looks lkp guys don't apply -Wunused-function for gvt tree build test...
+This archive is a "blown up" copy of the Linux kernel tree, with one
+file per commit.  The name of the file is the commit id, and the content
+of the file is the changelog of the commit itself.
 
-Thanks
+So it's a hack that I use to be able to simply search the changelogs of
+all commits to find out if they have a "Fixes:" tag with a specific
+commit id in it.
 
-> 
-> > date:   11 months ago
-> > config: x86_64-randconfig-a016-20210319 (attached as .config)
-> > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project fcc1ce00931751ac02498986feb37744e9ace8de)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9f4069b055d1508c833115df7493b6e0001e5c9b
-> >         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-> >         git fetch --no-tags linus master
-> >         git checkout 9f4069b055d1508c833115df7493b6e0001e5c9b
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> >
-> > All errors (new ones prefixed by >>):
-> >
-> > >> drivers/gpu/drm/i915/gvt/gtt.c:267:19: error: unused function 'get_pt_type' [-Werror,-Wunused-function]
-> >    static inline int get_pt_type(int type)
-> >                      ^
-> > >> drivers/gpu/drm/i915/gvt/gtt.c:590:20: error: unused function 'ppgtt_set_guest_root_entry' [-Werror,-Wunused-function]
-> >    static inline void ppgtt_set_guest_root_entry(struct intel_vgpu_mm *mm,
-> >                       ^
-> >    2 errors generated.
-> >
-> >
-> > vim +/get_pt_type +267 drivers/gpu/drm/i915/gvt/gtt.c
-> >
-> > 2707e44466881d6 Zhi Wang 2016-03-28  266
-> > 054f4eba2a2985b Zhi Wang 2017-10-10 @267  static inline int get_pt_type(int type)
-> > 054f4eba2a2985b Zhi Wang 2017-10-10  268  {
-> > 054f4eba2a2985b Zhi Wang 2017-10-10  269        return gtt_type_table[type].pt_type;
-> > 054f4eba2a2985b Zhi Wang 2017-10-10  270  }
-> > 054f4eba2a2985b Zhi Wang 2017-10-10  271
-> >
-> > :::::: The code at line 267 was first introduced by commit
-> > :::::: 054f4eba2a2985b1db43353b7b5ce90e96cf9bb9 drm/i915/gvt: Introduce page table type of current level in GTT type enumerations
-> >
-> > :::::: TO: Zhi Wang <zhi.a.wang@intel.com>
-> > :::::: CC: Zhenyu Wang <zhenyuw@linux.intel.com>
-> >
-> > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
-> 
-> 
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+So in your example above, in the repo I run it and get:
+
+~/linux/stable/commit_tree $ git grep -l --threads=3 ae46578b963f
+changes/5.2/773e0c40253443e0ce5491cb0e414b62f7cc45ed
+ids/5.2
+
+Which shows me that in commit 773e0c402534 ("afs: Fix
+afs_xattr_get_yfs() to not try freeing an error value") in the kernel
+tree, it has a "Fixes:" tag that references "ae46578b963f".
+
+It also shows me that commit ae46578b963f was contained in the 5.2
+kernel release, as I use the "ids/" subdirectory here for other fast
+lookups (it's a tiny bit faster than 'git describe --contains').
+
+I don't know how your script is walking through all possible commits to
+see if they are fixing a specific one, maybe I should look and see if
+it's doing it better than my "git tree/directory as a database hack"
+does :)
+
+thanks,
+
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210324085531.GL1551%40zhen-hp.sh.intel.com.
-
---svZFHVx8/dhPCe52
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EARECAB0WIQTXuabgHDW6LPt9CICxBBozTXgYJwUCYFr+fwAKCRCxBBozTXgY
-J3vXAKCPtf8STYADjG72OUoqbgywKc4nQgCdGMLTzkgkitUp3sYK5gxWEXciceE=
-=+Pjp
------END PGP SIGNATURE-----
-
---svZFHVx8/dhPCe52--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YFsMj3kL5Rl/Dc5R%40kroah.com.
