@@ -1,117 +1,126 @@
-Return-Path: <clang-built-linux+bncBCQPVKWLVAIRBIFF5SBAMGQEFDEZY6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBGVV5SBAMGQE6U2YOEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 808553475D0
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 11:21:31 +0100 (CET)
-Received: by mail-ot1-x33c.google.com with SMTP id u8sf925945otq.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 03:21:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616581280; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6810B347695
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 11:55:23 +0100 (CET)
+Received: by mail-ot1-x33d.google.com with SMTP id c6sf1084849otl.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Mar 2021 03:55:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616583322; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xCyYK4LN3FutSfjTJBVclMv+Rp/nutvx0jHwICbujiX80O2HNMeLK8KtkdHpRsgsfN
-         bE6Yl2WamMlGQ7mN9fvH+zB0a8/qdZ/WZa9R9Q2EyRLH7268fhLRuBzdmAVKyn/1zfgw
-         9H5HJJh/R+rhXzhhb2oxCQifamS6Jrb2wcaVDph8SQ29LkwJlNZbHTjenLL7lPQj5Nee
-         EHhzyIF29xcGDAXGgYxL7CESnYEmY6DlH8cXnu88GBFrdFbYF4C+pKj/5RoIpvewV2kf
-         Z0EOrMhYkqpkCcIxujgRFM3U+EhuicBgqf3sLFjaf8c1q5KBK/BC26AXkANbaVQ7vcPY
-         7QQg==
+        b=px44TPpm8s1Pk5vyFyY0BpQEeB0vflZ5HQID2I+5nWxGh7z9Pa2a5qiLQmUN/sSvdG
+         4lbiQC8mmvBlz3ESMa5g78WfEc72a4rV4ZuaG+e6VrSYt8KGzJ74/Siit894+oyRBjZz
+         GOGzkrfYarFOPVWJmdVCHEbrTxYk0keSwPTgVPXc0+crXSJ7+9fgdsJVBxPW8SqIjKqL
+         9TDPx34PJqbqwDHp7Fs852L929RCJm8kR0B9AM27BXPKYXgcvx4UJQ1Zhkl9Sak6XO7E
+         x8ZRUu/CfZIEnnfwT4VthTMSMP9wGepsWMAcDZscixvIQZ9iBF6rkQkzRm4FNFOwDum9
+         R84w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=NzaJJBKMe0F1NTTh2KMNX5/6mhSeTC4U8QpVZFH4TVA=;
-        b=MYbfQwFD1HqhS10WPexF18qvGQ3OdWi4P9n9uoMSZmfJtHhKtHwT/0QDLcnOYC8ww1
-         kPHYWau8NTeXDID5GSuBQm9XFPN9+MCFAl3lSd4qDergkTwm0iNpMiYRn0SXXkBtNbH3
-         ba3l9AZUI1rP6uIc1QJuHSxBtpnhxncjdCWIPtSQHLowoSFzEXm0WZGmDdBHXAOzsMAG
-         qTBMfHzmDgyU2RFf5VZU3hUX8WfTItv0otua7TusCQEpKmJlye1mkZ9NY6UhFYk32hRG
-         FXvQJwYaPjFCEVFGtMKYlWzTFmxcRLe1UJ9iLy+qv/LRz4oyTAL/JNG4oq0J7Jad+0lN
-         rNsA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=XYRr9u3hTDMk4WBQAnEmYe8W8bQzZ1OgV8GjnmLpnb4=;
+        b=IPRlpe09xtHM9DfLfy3ys/njB+8+lRe6nYdIFN+LICMBbHJL4ZQ9i31ACUD07Ha5Wa
+         SljejE4NXnnhcgdPUU4DVC3f2+IXavGoiGXyc2W3wddAPA2leJIg2WEnjPyjoBeY++xC
+         tnx3i9G85XBKGDRAc9uarH9fsJIfGfVs3yKq925iluUn1HYJHBxZF9Hadb+SAiNRzxkT
+         AIWd0dA4RAmQXkvZb+d01lFYrzRredhpyJYcQnR5VzlhQUbEBRsR8yJTQc814a8s2sl9
+         rGXfvBzcA9Iimu/klJgnONjlX7hLWCbKrJ8c5ri6WMHG5IAhMP8r1LDwO22U5tq9gyC8
+         VhJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HTTeSFqC;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=NzaJJBKMe0F1NTTh2KMNX5/6mhSeTC4U8QpVZFH4TVA=;
-        b=FTcyui9W4zWoKzFJeJlywlwakxuaSq2CVjzESedHePNRL+lZjrRlMSRYWcoBtxj++q
-         sCY0l/hj6Z0K09mY1SWb/C94gYgVFwosHf6Cado1c72QZRMwDpJvk4DHycxkT9jp3U3X
-         db41lIIXZ5liFA4GwuezLZO9TWWeBLGXn8RI6BEyJk1VCd3HMUd3hJtiDj1iZc/cZHK0
-         wFWug/5YGXvfIkE/yBfpYgxQz6CduB4XsDC92hw0AVMk/xOmumnxJJB28bjBXLTfopYF
-         GicyWBIFkNXMVyK65jb5RQLXqiG6tZCOCHbKjNga5CDWoEugDAunE4nCfpEP7bapb8HB
-         Vutw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=XYRr9u3hTDMk4WBQAnEmYe8W8bQzZ1OgV8GjnmLpnb4=;
+        b=D1pt/noxF0ZS5C68jBwshe8lLzOjAEAjcIsu62wuzSVnm3UqTp48Qh3LMEyv716ftC
+         WzNRfr+mtd7+W3UJ9pcAo+JbxN1nQEejg/wKIdnBE3p4RE9Z2hgYi8I3PPvLji8Kh1sP
+         IbAB+SPrZB8haNIQmdrbZZohvPwh1Qrg9O6gDaEX8wF7O0r59a7CFF4BBLNfSFTiA8dT
+         WxCOtTOBbN6OnK1ofGB3rMQZDo0VLh6yupPSSYHbahR0cpu4X0sUSG1Ij5h6eGh63rGi
+         IdaEH93hay6k+8gjtwaXs6BkC4np930C1t0EzfTbXfKyfwhh7XO9OyBQl73+JHMAy1BO
+         kCZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=NzaJJBKMe0F1NTTh2KMNX5/6mhSeTC4U8QpVZFH4TVA=;
-        b=qOzr6aBaCDXmiji3D8WcLVUiemBZWb2NIZJyduyVM6T01Vh/ctHvOlkmgU6RtZ/Cie
-         Faa69xbUplfn59qRO3D5ILl8WeN3+FTCS2DcNy/nqTkBnOSAxckDSyvIrkDuWRzC2c2l
-         N8ZTkqKjoILduDEUaupaYnSmoOXtQWZ5ywQqjzBKs0aYCIGriWbdR3nu/kzzHmRAUNGD
-         tHS/Ck+e8jBjDV7g3KaX8QE6xzrAixTm/skQv1/ENAe7FrrR3klj+4nFPvimMa7viFAs
-         A7XagY+secK2RxGlpw33GTKXJqtTIfIONEfh03LLR5XxwIi2Xyxfg50zMBGZbK2pPk5V
-         oJ5Q==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=XYRr9u3hTDMk4WBQAnEmYe8W8bQzZ1OgV8GjnmLpnb4=;
+        b=sfLzMiNVQJw4tWmNuzL5LJXDRLFdPapmQIN75Irn1eot+NcewJZBbWe1aRhSQJMSs7
+         gMYhETp+64n30S0ze9vD6XGbwyYU3lgPoUaQfbEdNSQTK1DZZQ7AJ1CdjteF0ecHUQ1C
+         S7FdLm91DBdfoAUsP5kVYu7kCLBkq8crkzIkp7IxP5tQ5Kd/2XhmH3dwLush+9+ebyv+
+         XnFXxjtOzOrwGDa4ld7Ont5E/wB0JysXp0IdoGVKx6mq0GCSnMY1CWwAucm8RBfbeoj9
+         ZWboMyKgQIit/DqGv0T3mJAwF50oSyltmZHgaVG/WhxBqi0es8qtNN/wiw5UIIxNFlBK
+         7f9w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531/EjLguxGqxU1Yy1V2UMT/PWfPmtfIEbshgy7rTLiSCUQBZ6qa
-	WVZl7e9eAAO/cX3vhW6txUE=
-X-Google-Smtp-Source: ABdhPJzl3cqeu0UBDzUo7w/DiC8vRKNuGwRsqeLjuEUnxR23/qO/jqnak03zo1qoTi9SUqO7evK7pA==
-X-Received: by 2002:a9d:7dc5:: with SMTP id k5mr2674683otn.220.1616581280120;
-        Wed, 24 Mar 2021 03:21:20 -0700 (PDT)
+X-Gm-Message-State: AOAM530KzC8m2cSjVx3InjNsuw9rd40vC04+dCFwHRh5CgWzwABeN4ay
+	XRUx1UmWQrs4/zLXs666W7o=
+X-Google-Smtp-Source: ABdhPJwSf9z3q2KGCj6hutTTZLwDdHNPQ5FGH9JRh6W/zViBo3Vr8rpx2CnNDzgMsL8ZRdsEbaP03A==
+X-Received: by 2002:aca:be04:: with SMTP id o4mr1963775oif.25.1616583322422;
+        Wed, 24 Mar 2021 03:55:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:4c55:: with SMTP id z82ls435797oia.2.gmail; Wed, 24 Mar
- 2021 03:21:19 -0700 (PDT)
-X-Received: by 2002:aca:478d:: with SMTP id u135mr1843930oia.174.1616581279778;
-        Wed, 24 Mar 2021 03:21:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616581279; cv=none;
+Received: by 2002:a4a:9258:: with SMTP id g24ls115980ooh.11.gmail; Wed, 24 Mar
+ 2021 03:55:22 -0700 (PDT)
+X-Received: by 2002:a4a:a5cc:: with SMTP id k12mr2316064oom.37.1616583322138;
+        Wed, 24 Mar 2021 03:55:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616583322; cv=none;
         d=google.com; s=arc-20160816;
-        b=DY6Pkfpo22f31AlrRF/OhQ6G6oMU+C2WdEBULkHNn2zRUzhuLhtK+E/ZYfuXRGOcLL
-         W6q3TAj+qQNDW1dVF0y5PfDmHu6mvuqrgXhVBwDikdxZKc0SiD5VZMeNzLt9qbhVLAfd
-         3dpp3arTFIppicTOvR04SVOBH6+RjpPdhsVxi7BXoRdeLJZMqsY2HTrO6k2OtB5xcIOr
-         6EX4PyayFddZVdzSUOvt8OFKjtjBOK2wPpLtc/+0MBwRwK8l4eZtV1WnprOYTP9zjC7i
-         WVyFH+hvOlE+EYmf06pE8TcxWGKUiSKiFaPyYdvQQ1bEBoNTx5jfJ8/kFhgby1dd/Uzg
-         YIsw==
+        b=U93lhmJT8DmIY4aiOmA01BDaS3yRf33TGTso3rDc1MtkYd3B5e9YA2aCGSpSuZ+XpH
+         1k0eIm9hixsow1cmgeTqd+2wQmD2QUnqtBvMSICC5criHKVq5hWJ6k5cXg85fRVLyPU9
+         bGDxTgVph2pG4LaZ00GAXC+5fBhYfwGytUZ/noKHwC2ebiTYKgGCkgvyyozVAXhp4DCm
+         bZZly3P5IBHd5/Oz7NTJ0fpRr1tG6i9fuRsHGshG59ahRjztBo9C0Ol35NvM4PkmpTgB
+         1B48tT/k71JK5nB3ZZogtkM5ccQl+413H3TrwABgZzAfkqX1PDydBG3dItpW0sOAwgzg
+         cTHA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=Kx4LWvXgrvAo/v+WcakHLWZ99xkJGNb+rvy/lNCxrBw=;
-        b=seZQRfTpH5U5BwASwCgwYdVIrPnyvDKYQ+ulnkPlog6LutoSa45/Rj6mB+wDJRac00
-         tSk0ob9yxUPKaS+N++MGICJigq5wSSkgA84rjWOw1+L7eSd3gNuEIqijWrlFypodOOLT
-         fqz1xbQQb/lPxbThwOT9ETQrES7MKZx0cRgsb9luvx3T8Saa0Tct8ETKSbeIifhlLHC/
-         eqWwIWQ2SraQsAXmTY1qqh5Xulr5n+BMttzANpumw+2yrUjXgWpRf5kPdVFy+Hj5kiIR
-         WGN3LkBO3yrUtvc3riDOfm/p6icM5JIoV3h5v4+QeZ6u3L9sSLHaxYDhNnpAgX0tIKAH
-         b2fg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=huJBbYgTiv2ygJpTN8bltramVHXKu5+jemuocER0Pyw=;
+        b=RWZZRP4/h8Cy6B+NRduSkm5tp6adgNmUxJSesMzD3gjA8aqC32Rz0WcZ4I6L9HBOGW
+         XiW7qaMxip5hqwcvDLr4AXrQ3hrNXjtHI9jcOUXBHA2hXphAm7EZhAP3fxthtgYI+D+3
+         ByXW1dsH2EZDLAVopKB0fpmdQ5bhIga3uVZ0jSas3JOydeq6J/iGk/YquN8lF4ricAOl
+         0Q/tSYzmjnJF1THD2MRP80p/jzMfTqTHUKMn8vAv/XQHna+GHgqZVs/2VCvR2OMbzmE9
+         92ZR98IBGSmTMkyEwmyqqTrXnP83Slh/UDWRYOEdNlunmb7qKzIXnWThLS/lP094bBED
+         ahpA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
-Received: from muru.com (muru.com. [72.249.23.125])
-        by gmr-mx.google.com with ESMTP id f2si109815oob.2.2021.03.24.03.21.19
-        for <clang-built-linux@googlegroups.com>;
-        Wed, 24 Mar 2021 03:21:19 -0700 (PDT)
-Received-SPF: neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) client-ip=72.249.23.125;
-Received: from atomide.com (localhost [127.0.0.1])
-	by muru.com (Postfix) with ESMTPS id 0AE488057;
-	Wed, 24 Mar 2021 10:22:15 +0000 (UTC)
-Date: Wed, 24 Mar 2021 12:21:16 +0200
-From: Tony Lindgren <tony@atomide.com>
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [linux-next:master 2194/6512]
- arch/arm/mach-omap2/pdata-quirks.c:578:1: warning: no previous prototype for
- function 'pdata_quirks_init_clocks'
-Message-ID: <YFsSnHVIfuRoAxG0@atomide.com>
-References: <202103240642.vvusWJ8u-lkp@intel.com>
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HTTeSFqC;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id x143si122575oif.2.2021.03.24.03.55.22
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 24 Mar 2021 03:55:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 101796192D
+	for <clang-built-linux@googlegroups.com>; Wed, 24 Mar 2021 10:55:21 +0000 (UTC)
+Received: by mail-ot1-f48.google.com with SMTP id v24-20020a9d69d80000b02901b9aec33371so22572753oto.2
+        for <clang-built-linux@googlegroups.com>; Wed, 24 Mar 2021 03:55:21 -0700 (PDT)
+X-Received: by 2002:a05:6830:148c:: with SMTP id s12mr2761572otq.251.1616583320379;
+ Wed, 24 Mar 2021 03:55:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210323131842.2773094-1-arnd@kernel.org> <CAKwvOdkBEQdVC73_datkwa+meitAGskDgTEr5LzX6AEnE4xd-w@mail.gmail.com>
+ <87czvokgdk.wl-maz@kernel.org>
+In-Reply-To: <87czvokgdk.wl-maz@kernel.org>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Wed, 24 Mar 2021 11:55:04 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a2kVagwETi0_t0C=eGJ6UU=AXegL94UykfQdh7H292XYQ@mail.gmail.com>
+Message-ID: <CAK8P3a2kVagwETi0_t0C=eGJ6UU=AXegL94UykfQdh7H292XYQ@mail.gmail.com>
+Subject: Re: [PATCH] irqchip/gic-v3: fix OF_BAD_ADDR error handling
+To: Marc Zyngier <maz@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Nathan Chancellor <nathan@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202103240642.vvusWJ8u-lkp@intel.com>
-X-Original-Sender: tony@atomide.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 72.249.23.125 is neither permitted nor denied by best guess
- record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
+X-Original-Sender: arnd@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=HTTeSFqC;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -124,74 +133,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-* kernel test robot <lkp@intel.com> [210323 22:10]:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   d949689e7383cd5271470f2b99dbe2fd3199bffd
-> commit: a15de032a72d511431294331f4bb47245f18b801 [2194/6512] ARM: OMAP2+: Init both prm and prcm nodes early for clocks
-> config: arm-randconfig-r035-20210323 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 78a65cd945d006ff02f9d24d9cc20a302ed93b08)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm cross compiling tool for clang build
->         # apt-get install binutils-arm-linux-gnueabi
->         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=a15de032a72d511431294331f4bb47245f18b801
->         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->         git fetch --no-tags linux-next master
->         git checkout a15de032a72d511431294331f4bb47245f18b801
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> arch/arm/mach-omap2/pdata-quirks.c:578:1: warning: no previous prototype for function 'pdata_quirks_init_clocks' [-Wmissing-prototypes]
->    pdata_quirks_init_clocks(const struct of_device_id *omap_dt_match_table)
->    ^
->    arch/arm/mach-omap2/pdata-quirks.c:577:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    void __init
->    ^
->    static 
->    1 warning generated.
+On Wed, Mar 24, 2021 at 11:14 AM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Tue, 23 Mar 2021 22:06:22 +0000,
+> Nick Desaulniers <ndesaulniers@google.com> wrote:
+> >
+> > On Tue, Mar 23, 2021 at 6:18 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> > >
+> > > From: Arnd Bergmann <arnd@arndb.de>
+> > >
+> > > When building with extra warnings enabled, clang points out a
+> > > mistake in the error handling:
+> > >
+> > > drivers/irqchip/irq-gic-v3-mbi.c:306:21: error: result of comparison of constant 18446744073709551615 with expression of type 'phys_addr_t' (aka 'unsigned int') is always false [-Werror,-Wtautological-constant-out-of-range-compare]
+> >
+> > Looks like based on CONFIG_PHYS_ADDR_T_64BIT, phys_addr_t can be u64
+> > or u32, but of_translate_address always returns a u64.  This is fine
+> > for the current value of OF_BAD_ADDR, but I think there's a risk of
+> > losing the top 32b of the return value of of_translate_address() here?
+>
+> If the DT describes a 64bit physical address, and that the (32bit)
+> kernel isn't built to grok these addresses, then I'd say that the
+> kernel cannot run on this HW, and that we don't need to worry much
+> about this case.
+>
+> In general, CONFIG_PHYS_ADDR_T_64BIT must be selected by the arch code
+> if anything above 32bit can be described in the PA space.
 
-Thanks for the report FYI, I'm applying the following patch to fix this:
+Right, this generally works fine, the OF_BAD_ADDR is just a little
+hard to get right. Fortunately there are very few comparisons to
+OF_BAD_ADDR in other drivers, so I don't think we have to do
+anything about it. I looked through every other user of this and found
+no problems there, either they use 64-bit temporaries, or they correctly
+cast the results.
 
-https://lore.kernel.org/linux-omap/20210318135649.1286347-1-weiyongjun1@huawei.com/T/#u
-
-Regards,
-
-Tony
-
-
-
-> vim +/pdata_quirks_init_clocks +578 arch/arm/mach-omap2/pdata-quirks.c
-> 
->    576	
->    577	void __init
->  > 578	pdata_quirks_init_clocks(const struct of_device_id *omap_dt_match_table)
->    579	{
->    580		struct device_node *np;
->    581		int i;
->    582	
->    583		for (i = 0; i < ARRAY_SIZE(pdata_quirks_init_nodes); i++) {
->    584			np = of_find_node_by_name(NULL, pdata_quirks_init_nodes[i]);
->    585			if (!np)
->    586				continue;
->    587	
->    588			of_platform_populate(np, omap_dt_match_table,
->    589					     omap_auxdata_lookup, NULL);
->    590		}
->    591	}
->    592	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-
+         Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YFsSnHVIfuRoAxG0%40atomide.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a2kVagwETi0_t0C%3DeGJ6UU%3DAXegL94UykfQdh7H292XYQ%40mail.gmail.com.
