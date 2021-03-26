@@ -1,101 +1,103 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKOK6SBAMGQE7N7TGII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBLGK6SBAMGQEU2TI6II@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x938.google.com (mail-ua1-x938.google.com [IPv6:2607:f8b0:4864:20::938])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1A8B349D2D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Mar 2021 01:04:58 +0100 (CET)
-Received: by mail-ua1-x938.google.com with SMTP id g12sf2131795uan.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Mar 2021 17:04:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616717097; cv=pass;
+Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D35A349D2E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Mar 2021 01:05:01 +0100 (CET)
+Received: by mail-il1-x13a.google.com with SMTP id o7sf5414805ilt.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Mar 2021 17:05:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616717100; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rtnxrIxnUYjXrbG/ahZQXFUE8X/I553mxz+aXy2H525n/iWdt+FaC5hQFqiYXgPby9
-         Ya2Pv9TlEjhNUxBvFSLI4x5AYulTWgs+oFVmWoRdYBOmGUfPZG5C2FQK5S4nPbMzugyO
-         1kF41/XB3yCsc9iSgREJhUCFGZuMU68sQXsAjUNWabdYWop5T7A3qaiQ4WO1l9yGyoC9
-         cYmwBIy6beAW3YH8/xo/DSliUx2gpi8u7q4DIefoe6LAor8x/tVv2ki0SGyy+IGfBhaV
-         38zj73UDFIKazWXOjA4jDFNkqPH9hSuxDzJ+48rQDYN+8PKoVFiNGitqL0LBcnHXCcU5
-         A8Yg==
+        b=ucu8dVP663H7/hBoqJsfGzFZQUHVr/P4Rwl7aFujj6fs8U+HqPSRwbDiMSvDaMleWE
+         nj0etiWhMvTdtKvn37t3aVwn7LHInYFfT+GtK2sj8MSSvhK0XUeL6aEU4DF/4Wd5FZ8T
+         brWj6+5QtmsxdqHJOlieas4a0uj+d8BOuGA9d+lKtaq11coSsHLuvVdHfuFJp9IuIvJ3
+         kuOc0tgZlkl+MytDUwoQU6gHMnkRa6mrr1Xl5ulY1rFbkwj33o7vLO0F63ZLq5X0Np7F
+         pMeeGyAFS5kwTfbg54B9Ocs/r9yOyZaRswgAjMFWPL0WTk2th0zuQo4NqO7yulW0PfoY
+         NwGQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=c9W4sAfJGe7VuAW3Aryvt9MxBrp5Z638Z1IwVX5k6VI=;
-        b=sqBovihIikgrLQmbPdyPsS3yPd5W7UfSwLJ1QEn2eJbzX/Rrdk4mT8bHXCRufbz2n0
-         U4kAIPy1THiah1t4+RHr9fXtO+49wjmXHu8eAfbievhkBTKj2mpMkXfn1GPfaj07ffWw
-         pEA1bRJM507qtdBqHvLa3PWKGo4cAsZO7Saoh3fqBdajJK+egcNMnlgfCzg52/zwQSKS
-         2AzLoU2Zs6NmvJ+PFEzM+RF7xA/HWAKZEcqOxTAPAp9Lo1PZVBbIiTFP02Twug1kbhiA
-         L1SqareHznHvXOU3suo2ypZZcy8SSoo5m1L/bRPZyJ6zUs5rw2yqGHx04K63oKXk3UZ+
-         pQuA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:sender:dkim-signature;
+        bh=HLzGNUzLX3mqDK8aZPPHOvTI1WusP9ol7Ug/P8gWZus=;
+        b=XWBUzDPvd6EWgNdcGCX23TNdXYNuTcyqIqQ2SYJ8dihEkFAACINWh0VdyXhmDtS/cI
+         Nc/L553y3+jbnArQyXZxOeNKF6p9hugJtd1tULlqvmZy2Y/NDWB5ZWbzkEevlQpGlWAs
+         j0uvAK21AEj6WPdJOS6MzOmPLa2qYj4MSMQ7LhWOmKCca7r+NYfF/pxm2B/O4P0Pwvfe
+         Shbjnnu/XJVZuTnlaMoRTMFKtIKGSoXrcr8312QB2781ZAgHhlehUMu944Q32UMij0B6
+         2iqKV1MTq7KDaGWpXLl9Xbs/BgkyuHMwmQZsp0zlTGYD2nkr1Szgt1pf0dVjCt5lnnYP
+         FTDw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Dd5XrAQB;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ii6iPhXw;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=c9W4sAfJGe7VuAW3Aryvt9MxBrp5Z638Z1IwVX5k6VI=;
-        b=NqJK511rUBQiSXGs7Yaof8MCenGjvcwfxIpPDLygNmYQFX56OGJD/MXYzJ3gghPB4L
-         Xmbd0oaUIYmyr+eUCm/mEg7LthVEWD5n2zs82m1Q4yxmhd5vJlMh5lvowM8L0RvOEoUW
-         Tu/pTHqxK3ROOqYkDrJu7Jp8Md+cj7ErF9Eq1M8GbuYEvZ2qaUnxsqcApD1nnz7ZqYgk
-         Rd1tPVOuImKxClAEKdlxac+Ff3DIuA1inQm3bAlQd1joKphCJGHVc19En78VRFURCmsF
-         1+ePZPuyIqfKmBqzsASTlOapuHUEh30+JY1RE7X410mXCp6+zPYJPXJdo75k7CikIrVz
-         bubg==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=HLzGNUzLX3mqDK8aZPPHOvTI1WusP9ol7Ug/P8gWZus=;
+        b=sVZHCN2VYaMzjzrxPMOjDtYCOJDXXVdhuDfRo2Ab419tU63GfTnBseFiYy8rzL/2P5
+         CbnSJ6sviQzyP/ahNRbixAx7022DBP3ss4hBUXor1aMSlpJEkzzGntHYbf9Cs2KFCy5Y
+         A0CAuhkWwsU8y5w/OrAdifv9h4CaEjRNLgKcHWUQgTpS7WEiKtwvzCbH2Ol5+HxTcZ/t
+         SDEiEbLNyw+PoqMA2eCF2lCIKZHxDmuvDAcaJK8B1fGxYFOqEb05Drm/vjyK5oT0RiCP
+         eI6fuEvP9yd3ICHJFeGbKrhHwOLjGNO5EsXeRP/Oh2bCKOtjkH4tmE5ImCGVD+Rqr45O
+         bnhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=c9W4sAfJGe7VuAW3Aryvt9MxBrp5Z638Z1IwVX5k6VI=;
-        b=cZejAQQDeFEpLj5Ihx5V5uovnhUliqYmUyrC8bREOWXUz9E0CTrKarFoNqeSyG7PUm
-         fMvATBD4XM5JTSIpSJvnrzi3jE0jj6v8LiflpBIkY1MLaxWsgazdeIZI5eH2KHCFAqRL
-         E5OB/zBTxZ55j3bb7OI+xVEbeIq6uADSNv92j1IgugikAtpl+HGg3O4qJfm/2zR4DJPC
-         rVEbmy4ba1fwnoy/TYk9XomzCy7Uw8UxZFT+HHEHcH4U7mk+LFKdSvRrBtMSxE7FDmwC
-         Nruumi0pENaB1BFnX6Yc+r57cgbwEvoBOEyPv/wy45ikkasuUFxPzWgqvxYQ9TIB3DEo
-         8Jvg==
+         :in-reply-to:references:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=HLzGNUzLX3mqDK8aZPPHOvTI1WusP9ol7Ug/P8gWZus=;
+        b=N0YeqtouQodZyrTO1c/6GZQ1FSZcO3+U3TiQ4BudifQtpSRBFMHTso4GoknOgxmbzC
+         24EmFoshhxl6/s/7b6aaxyVMo0DW47HV8W5HgGgckf/yoAMEigGm6OhiY2/0whg0ZEJe
+         20EPyBQLU6pPUMmhX/gIVxy/7l3SqhMRkeyyrdffi4AQmtYGuiAmlUMqy7jle2Cqowg8
+         Hxmp69RDxukRKZaDLIvAQFeMruOSDUIPE4zV2NldpJlql6nJw3cvIYU8HhxWCXaH266x
+         nlvSI1gcclrjiWW1+v2TUjAM/0a+Cw9eqsTKHMN7wOes5wO8Iz9xDCogyiQewocckRGb
+         hsTw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5325MmETNVVcVbr3KTg2Y7DNH6CyCCqV/ZqUnRWnHvKsHTXYU33y
-	pd5/ZjXEdlggv+5CFEbSq7c=
-X-Google-Smtp-Source: ABdhPJzsZEk6nXKSBzg4/w5gJZuM0veFeKDDvdZs7ix/HeRWXnGSam4CUgs3Nk/ts4LdHdFoFs0Zdw==
-X-Received: by 2002:a67:f804:: with SMTP id l4mr7394523vso.35.1616717097645;
-        Thu, 25 Mar 2021 17:04:57 -0700 (PDT)
+X-Gm-Message-State: AOAM5328cvqI2bQepnQL1j0QzH92XEt5yRvuHSihA8E8AxjULf18O4uX
+	cRTissyDZl288ZVMuqPt4y0=
+X-Google-Smtp-Source: ABdhPJzkNV0ZGcklrY3KFgDAO0QOqZhcnRqZ/9cInVywcfV+mj/T2ra0/GKNmWUubj3xbnVATlhNvQ==
+X-Received: by 2002:a02:24a:: with SMTP id 71mr9846131jau.22.1616717100470;
+        Thu, 25 Mar 2021 17:05:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:150a:: with SMTP id o10ls566689uae.2.gmail; Thu, 25 Mar
- 2021 17:04:57 -0700 (PDT)
-X-Received: by 2002:a9f:2449:: with SMTP id 67mr6639157uaq.135.1616717096999;
-        Thu, 25 Mar 2021 17:04:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616717096; cv=none;
+Received: by 2002:a05:6e02:1a44:: with SMTP id u4ls1674357ilv.2.gmail; Thu, 25
+ Mar 2021 17:05:00 -0700 (PDT)
+X-Received: by 2002:a92:d483:: with SMTP id p3mr8846636ilg.28.1616717099964;
+        Thu, 25 Mar 2021 17:04:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616717099; cv=none;
         d=google.com; s=arc-20160816;
-        b=QkkXN+z2KPhtIa72w4j6gEUUpHDDrj0IUr50OYHVDEex/ORYG8jox94Jxf42bwCZPD
-         n2GdT3Lo6oKb0vP6TvrDu1KtkGW5YSg0vWuP4xPrc2pytdak/Ob2VFqhCm6jKk+2Q6w2
-         vPENvA3oT44us+C9wPHH3bM/SjJJy7Ejt6CXDFqwaf67XAKxJmMBbVoaTvkRP+os2iOq
-         RyxR9blPUE4k5Pe63O2u4YmeRHASw1YBKUFQYnRD/9xHCMw81QINC8fz6h1Bikw70YA6
-         CfedFndje681zEmY21RF30a8uEAqtURDcNvdVbgeQDdvdVZf2AySTm2wO2xbZJ9xXfFP
-         z7Ew==
+        b=NmO80aGmOyLP2jWQfE9IxN+nxKUNl5SCybMxk0OmITDN0C6zH0FWUxhouxWJgBnA0h
+         LVGdOsHMuDtbvAWd0Ozy0E85iPvpQ8a/HvHKMrP9cn3nAaoeLe033d/ziqY5Ky9eAcJY
+         jzGrW2WsVzOqPCVd9oK6+mpsVLJaD2fvzkZuaTZy+8GriWf/1J9cwFnJ6ly9d4rjn+Od
+         U9FWpbrvuNk7JhveeADMtRFakbGF2MFQ66kWWmNA+tdiwzpDZUaDYjttGPSFGUnkAEZP
+         tvwPOf3so3PCm3np34Dk8gRwZgyT8DHBRa9YWEWaTE+aH2GN4H3i9TtS2P42SOqPm2L/
+         tvzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=MuFnCssgTS1wn2iXBZU0bnc+8Wz2A+cROyV2I/FIBAI=;
-        b=C3SyWpa5Qo1D5SlmJn33yW3RslJehCxICvttC9x1KClFmSB2Tf5CLWVewGY5QvIkpq
-         soPpdA/pIigu1cnv+L7dW16bmYWRYYy0MLSS5OZFJjl0l7jXeXYSWoy+ct+9H6sKd8H2
-         MkKXDTfb3u3oLmvmuGYiPZGgu8leKSL3Z9BLWrJ/WlMDWnTW9s8LmvyWdyJqpskmT0WN
-         h8A68fmoY6MBjtnGcC5CnWj4mcterlnOqAyw+avp+TuaobvEWL9DhS8UWOxeRRKspbfT
-         SPkXnXbjy2qrbd7NrFLTzf81WqVfnasjfaP/jwDqz8GDLQa9ricg9sZ09u9WBp/RWrLR
-         4vBQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=FMNLUWjkeKrsex8PA2EhzYcdGdSneanMecWjgyWhIuE=;
+        b=JHe2FPDNIZW0x6QlwrPQScHzs41jeB42RGewxGq7zx/TaXcTvpRzXYl75jUBjjfpKK
+         gQUIVuXLowLhDcowohb+qma7GNVjpzPQJEXg0mAq7DwwFKFO1JpzRnxQjQ2717FcbgIh
+         5ouhP9UyDf7GSvSSMSWy65eOTaoU9GtmJZmyaA8XygCrlJtU+ijj462tk1eiS9s8VLxg
+         eCU1uC1WgBTlc6HmkxWS+hY/pzhraD2EvLh++yeV2sPyGt24yWv949mdvb6QG4MJ2ZH+
+         c7UVzEuqaZTpAc2e/FyKZ91G/2CuaPexMHQswlm109KJ5PUBB6ImR5ZxG/5wdkcVxTts
+         kH/A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Dd5XrAQB;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ii6iPhXw;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w26si421533vse.2.2021.03.25.17.04.56
+        by gmr-mx.google.com with ESMTPS id y4si554198iln.3.2021.03.25.17.04.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Mar 2021 17:04:56 -0700 (PDT)
+        Thu, 25 Mar 2021 17:04:59 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id E536761A0A;
-	Fri, 26 Mar 2021 00:04:53 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0145561A13;
+	Fri, 26 Mar 2021 00:04:56 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -106,17 +108,22 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-efi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
+	John Millikin <john@john-millikin.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
 	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 0/3] Fix cross compiling x86 with clang
-Date: Thu, 25 Mar 2021 17:04:32 -0700
-Message-Id: <20210326000435.4785-1-nathan@kernel.org>
+Subject: [PATCH 1/3] x86: Propagate $(CLANG_FLAGS) to $(REALMODE_FLAGS)
+Date: Thu, 25 Mar 2021 17:04:33 -0700
+Message-Id: <20210326000435.4785-2-nathan@kernel.org>
 X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20210326000435.4785-1-nathan@kernel.org>
+References: <20210326000435.4785-1-nathan@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Patchwork-Bot: notify
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=Dd5XrAQB;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=ii6iPhXw;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -132,42 +139,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi all,
+From: John Millikin <john@john-millikin.com>
 
-This series fixes cross compiling x86 with clang, which was initially
-brought up by John here:
+When cross-compiling with Clang, the `$(CLANG_FLAGS)' variable
+contains additional flags needed to build C and assembly sources
+for the target platform. Normally this variable is automatically
+included in `$(KBUILD_CFLAGS)' by via the top-level Makefile.
 
-https://lore.kernel.org/r/cceb074c-861c-d716-5e19-834a8492f245@gmail.com/
+The x86 real-mode makefile builds `$(REALMODE_CFLAGS)' from a
+plain assignment and therefore drops the Clang flags. This causes
+Clang to not recognize x86-specific assembler directives:
 
-I have picked up that patch and added the same fix in a couple of other
-places where it is needed.
+=C2=A0 arch/x86/realmode/rm/header.S:36:1: error: unknown directive
+=C2=A0 .type real_mode_header STT_OBJECT ; .size real_mode_header, .-real_m=
+ode_header
+=C2=A0 ^
 
-I have tested this on an ARM based server with both defconfig and
-allmodconfig, where the build now passes.
+Explicit propagation of `$(CLANG_FLAGS)' to `$(REALMODE_CFLAGS)',
+which is inherited by real-mode make rules, fixes cross-compilation
+with Clang for x86 targets.
 
-Please let me know if there are any problems.
+Relevant flags:
 
-Cheers,
-Nathan
+* `--target' sets the target architecture when cross-compiling. This
+=C2=A0 flag must be set for both compilation and assembly (`KBUILD_AFLAGS')
+=C2=A0 to support architecture-specific assembler directives.
 
-John Millikin (1):
-  x86: Propagate $(CLANG_FLAGS) to $(REALMODE_FLAGS)
+* `-no-integrated-as' tells clang to assemble with GNU Assembler
+=C2=A0 instead of its built-in LLVM assembler. This flag is set by default
+=C2=A0 unless `LLVM_IAS=3D1' is set, because the LLVM assembler can't yet
+=C2=A0 parse certain GNU extensions.
 
-Nathan Chancellor (2):
-  x86/boot: Add $(CLANG_FLAGS) to compressed KBUILD_CFLAGS
-  efi/libstub: Add $(CLANG_FLAGS) to x86 flags
+Signed-off-by: John Millikin <john@john-millikin.com>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/x86/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
- arch/x86/Makefile                     | 1 +
- arch/x86/boot/compressed/Makefile     | 1 +
- drivers/firmware/efi/libstub/Makefile | 3 ++-
- 3 files changed, 4 insertions(+), 1 deletion(-)
-
-
-base-commit: 0d02ec6b3136c73c09e7859f0d0e4e2c4c07b49b
--- 
+diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+index 2d6d5a28c3bf..9a73e0cea19c 100644
+--- a/arch/x86/Makefile
++++ b/arch/x86/Makefile
+@@ -33,6 +33,7 @@ REALMODE_CFLAGS +=3D -ffreestanding
+ REALMODE_CFLAGS +=3D -fno-stack-protector
+ REALMODE_CFLAGS +=3D $(call __cc-option, $(CC), $(REALMODE_CFLAGS), -Wno-a=
+ddress-of-packed-member)
+ REALMODE_CFLAGS +=3D $(call __cc-option, $(CC), $(REALMODE_CFLAGS), $(cc_s=
+tack_align4))
++REALMODE_CFLAGS +=3D $(CLANG_FLAGS)
+ export REALMODE_CFLAGS
+=20
+ # BITS is used as extension for files which are available in a 32 bit
+--=20
 2.31.0
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210326000435.4785-1-nathan%40kernel.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210326000435.4785-2-nathan%40kernel.org.
