@@ -1,127 +1,145 @@
-Return-Path: <clang-built-linux+bncBCU4TIPXUUFRBIN562BAMGQEL2KW25Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCFOP6V7UIIRBW7O62BAMGQESQMEMPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
-	by mail.lfdr.de (Postfix) with ESMTPS id EC9A734A353
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Mar 2021 09:43:14 +0100 (CET)
-Received: by mail-qt1-x840.google.com with SMTP id m35sf4797046qtd.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Mar 2021 01:43:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1616748194; cv=pass;
+Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id 624EF34A584
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Mar 2021 11:28:44 +0100 (CET)
+Received: by mail-lj1-x240.google.com with SMTP id a22sf4560689ljq.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Mar 2021 03:28:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616754523; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aTEsjSEptHZG4uXmw84Dm7YMnSIFAfrN37Bp4hD/Brdk3Y/wqBnKlcxXgdTU6yGybh
-         knUFuoR4qgJoIbOn91v3JkHNvmiAd/42xs9vxJrYQ8FBig9Tf0kkBG3w6AGmE+1OM4IK
-         IIjEoNF8yTW/JOUuP3p/Em+q59cygkUQCqdJF9ZhX6mgJkX6QrPp65vXG+z5P9O8b1iH
-         5ZU9awGmlbuKp4UR2Wp/laWY1CWfS7ZySd8dkDuW6dKYXTyC4TCVrvAdu3gO9zhxQdlq
-         TBFl7aNZWaL0+0lP1j9x8iRFDfv5kfXD9suiNCF8MmYZcO1z8y02i3z/r79XOrBmKevU
-         VLiA==
+        b=PBQbsrnaT1+nkSBZwYLwjY+GmpKOhCmr4M+vzSaf6xN3ZpR9PF7nC2Whllyqe3sMH5
+         Db7L7feiPhjXNKeC9GXc2m//dQBKl5fQCX5t6uZH5ydVmFSi8Os630gQen+/tzX2EO0p
+         DrmN8tjXtj3jsZn1aZBCEB1GHPyTxTcWi3tilkj3Rqvm6ueBVGoAqAYRPe46H3SpCHDU
+         dcIv6/D9B64moaWI122ISHmXPO7i/J/Zaz0NNKVi3umbHdnrJAz6fiqIQHU5360o+mbN
+         /AK/1aQuBKeSRIwwoTdnlYfd4+S/L2PoDJFk7kp/20+jGleyWqewwRqN0JIRQxB2C3fp
+         l2Qg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=cr9x+4YQfq3iYnQCz4P2DhzF5wPrFQ5/EQr/bnbJ4cg=;
-        b=UHL38bfaQPse0eeuPByxQJdkJMw4xDZIoNlMAh8PNMuFIRBih2c9LYUFyov9YfAgTW
-         UMhAnkdtwWPzHrLMe4EKExEsQZhDXHFZaHv8UWqYGsyOXlJoiU9ZgrAmiZQzSPyJTEGu
-         oCWmTtVyuYoPAO2bNR/nV8CfM3D+bfpOWAVpc03j0RjbeocZ22HVjZVn9DvJk6ofDKQa
-         nwrboKgiKZATiBxpahru3tNVb6rL5lwK/peD8QqcA98TrkT7HyeXzxec/Dq342cgPJuk
-         jaOmbPrI0EXY7IiXiyUZ8Jbz8NFb0VpDqHu8Z4lSZOOXUTzFj+4FR3xoNNesJ5YMGkMl
-         cKzw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=whj9vfyJyAZc+d3n3cW8AGOabcQiCrzvmD7lclQrIUk=;
+        b=lJAUPi2znELvebxfHNg+EGKausAS9pEt9RgKHJFiiMX7R6Vju40zZfUnCf3z2YqUo/
+         +UUwpbNCWUT95ZaX9oDyiikS+kY3By+roI7iShriVf1WZ/5xEgZ+F5LeVDPLkj8ly+B2
+         /gs+yPYgVPHpSr8jsYV3N62DuRcdNsteshQd5AzOMRDQLp1FAKrnAuVl/xCVuZTvVPzp
+         8OAv2Ef2lN3fhOfKmSeYzdxiVdD9zKNAHUbcAFVv8FIeao0iEvb6DQmVFjW87X3blFLN
+         O+qZn6fGo56zqEL5oA8uVc7XlvppgUpldt9sHCvQ+HCeB2y/NBR4z9GlKUjaFlY/PHkP
+         ttwA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HjhYLnV1;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of steffen.klassert@secunet.com designates 62.96.220.36 as permitted sender) smtp.mailfrom=Steffen.Klassert@secunet.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cr9x+4YQfq3iYnQCz4P2DhzF5wPrFQ5/EQr/bnbJ4cg=;
-        b=jLRq7AGB2WK2L+NTbThWDdNOUHNkheZ8AxunV5hNS8YDTgEu3oeSBRVq8VlvEvoXWn
-         GJBiXed+csjveYbHrZP5AGDQmLJHrYv2PItqVf2QPn88O0D/4pfO8gqgJWHYkesUg/1F
-         KSW+OMUGkCkL6HHWQlap4cTBZSdLABEv3W1TUHAXAy0fkjc62xci8vedr4CNo3UYWc3K
-         Of4YEhf8LI8r+LQvF2q4BqYGiK+W5wksAbNX8KtXNSH35vkVaje/TeA/6/pKX7qgFPyI
-         +9BwkyivZyNU7WmDnLFi1xjaE7gYeEgILyfRU6+bwpNNpMnLQZ3Y6PXfgAYIH7kv8Cjs
-         4MPA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=whj9vfyJyAZc+d3n3cW8AGOabcQiCrzvmD7lclQrIUk=;
+        b=Wywsd5nRpBDZSPHRfnyZyMjmKvOmX6KsAi+2RkDgHQ81iRs9Cx5WSf7JJkTvbcIDwl
+         CNhm0zjI3OeDNmSWUqyWR7MsQN0G6S0iqEMhI9wfx/SatqAk4wwKJqszsGnR7W9A4/WJ
+         Ee8x8Mo8GT4bN9cXy0OKJ6akL39BHEMi62wZqNQchVuMnp/nc6gTYoT/g7gP1OxdA/mf
+         dY5pQKlmzl+Z2QXgDn//umsYLphWik6kVT4RFR44AMgN3zuRdU+URw/jI5kBpntnzk5P
+         eDFEKmiLr7nJ9gLcrQ2plSLV8av6mMLUQYfa+I8/4WE/y/x6uh+36Wg3SyPMv9RFpnZU
+         IZVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cr9x+4YQfq3iYnQCz4P2DhzF5wPrFQ5/EQr/bnbJ4cg=;
-        b=cPesf8bo9kAKsu/dd+XJynm5YIT47BN+ML4hZlb2KNV8KC7YnojWfD/2QVHqEDCSO5
-         eMbEeCtw9mmrie42E3F+i08Kc3mzjaEZUQxgmXI+p8Gs8xV3SAuOVEbNXJReyjP6Rr+Z
-         jGa46NnlvikqiKk1tbVSJsbjucJGArIomCFm+Q+Qc/iwCaGCfzsKdAquwcY8vabbNqAY
-         kUQenDn9oZE/iqBCI0BqNjFWDHHuPOwVLEHGSv2tssaeMjyw6Qgnb8Rv4CWQX3vHO7GA
-         IeeSyuuwQCzEjaGyH8G+x7GH4r8+h4oDJDv+UdqzTlvAOx+xHyEjrJTMAjDeM7d3QRrW
-         4X+w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=whj9vfyJyAZc+d3n3cW8AGOabcQiCrzvmD7lclQrIUk=;
+        b=Y8BovWryZA6bDxsYcFJqnYdj5k6cofLCK+Ry5w3Rqn0eMjCCoSrgV7LS4OL2kY3Z7C
+         lKpmoyjXb1HatnbHYBxqEptrTzyHedlC8EtrGXVYJvHOUUvMdPTAkUIV6SAVt0sb8uQA
+         28/7bGPQTUeXIBOXL3Kl51cdvMkiR8NHqdPGgc9BUAfm+Expbj8olPdOkJ235PZxnwAB
+         WjPOgRFDTszww4tT0MJtJeJMYFyHxnUI3lZ3YAXzcfHoSgwSQlXZoHeQtPpipR50aAl7
+         fu2hhAKx1KLHmT68smPBDSXfLGgkHyrrXH7qV/ng+hGYhcodS/jf97nSwGaFPPtBv0XV
+         YRig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530R/FEYwcSfq/gkqLkEIQoFPo6LsEr30wQaXH1aloT1ErvnrpxZ
-	P983UHpvQJPVWcIMcuIVFIU=
-X-Google-Smtp-Source: ABdhPJxv+ZYt6tYb3T/2WNEQcoyusTiPkitQpU0cf4E8YSnYZ09yrsGj5ikJvzMFf3tzJFx3QPHYkQ==
-X-Received: by 2002:ac8:660f:: with SMTP id c15mr10843197qtp.278.1616748194057;
-        Fri, 26 Mar 2021 01:43:14 -0700 (PDT)
+X-Gm-Message-State: AOAM5316IE9eoBPYgHIMURhrSckLv3kRgNU/VV1aS/j6boT6JelytF7X
+	HUqxs1Oqhr5uUF9hLwUOh2w=
+X-Google-Smtp-Source: ABdhPJwuGv36JAZuwe7ZHf/iL6auZwcQsQBKINRHWrVOSEBjbfCknocVQrbE74BtSQ5sF99JafLAaw==
+X-Received: by 2002:a05:6512:1102:: with SMTP id l2mr186002lfg.501.1616754523657;
+        Fri, 26 Mar 2021 03:28:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:4f10:: with SMTP id b16ls3052245qte.7.gmail; Fri, 26 Mar
- 2021 01:43:13 -0700 (PDT)
-X-Received: by 2002:a05:622a:216:: with SMTP id b22mr11237790qtx.263.1616748193600;
-        Fri, 26 Mar 2021 01:43:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1616748193; cv=none;
+Received: by 2002:a2e:8915:: with SMTP id d21ls1907577lji.1.gmail; Fri, 26 Mar
+ 2021 03:28:42 -0700 (PDT)
+X-Received: by 2002:a2e:a40f:: with SMTP id p15mr8481186ljn.440.1616754522628;
+        Fri, 26 Mar 2021 03:28:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616754522; cv=none;
         d=google.com; s=arc-20160816;
-        b=yBTFT3JmqFpAsy8rC8m2MrNE4NlKwVs1kmGgGHP5/R3gXKFtrWH2dZI5a5t1mCAhoA
-         cvEt7kt6VuIgzClQNSC5uvu14Yg9/CG8jSA3J6Jx++N1HismvI3PXLyIU5QHlZCvwrPr
-         bZaw1IOve0BteM6wc1t3n/2me/Yek9iJ+ruufi4cusnCaL4uT/Esy7RcIa6YfuOct4D+
-         G0YrmGX+q9tdpe5WuDWDc2Bkp2y1CBzqZ7JCUkis6/dtC4Yat94YP+/HEqrX/rspsX/f
-         Nmm9YP1YpQNAtnzISUgIghdmQjC21J9yXKAzZsXU/bv0TCIwkpW80Z/neA/dDifgj2gu
-         uQRw==
+        b=ZqwTu4pJvAep02dgidHHpWwGMTl8GNlFEU1DYAZEPC9ve7mD/Hbhw3teijKNDhTvUE
+         9xzWIZDGc8SINWeONrvv0JFtmKr12VKmWProQvVdyeaaXAWZoJkUbJ4l4V/VAQAceS6J
+         Uu0zo22zpMJhFIcKKwZpOltZeo6lGxjDF9I2/8RhROmB5IuyC365P4vNEWaN1gJcibPF
+         KYiCoa4r+2JN+7ZnHaLymKc869qFUIhU9X5BwNW5GSj7RYlulWj26X4lpEGzYYbso2wy
+         cC89A6+vtDysM+gaI5B9YD3W9wWgpx/zvRWxlkbKey6FsvlwtFLtLMHUf1RO81KQoWWo
+         chFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ScPPC0LjnoMNtr3tslxU/SJmIGb8QvQW8ixdd7uz1io=;
-        b=aUQ3QfQL2CIvbfULN75my+oubOe6T6fSDTMeMDEnOx7YNqMXtz1T7U6O+Ix70ndXLy
-         nI7dbGk0AXpvhV0KT2zvJgtBuvpwgkewl97c/j2UhK0Dxy6DQdQDRKaNNS8N9pkqo5nA
-         USuxVBQWD4dulRWFphhoVLsSa44NKrx9tY6tIgFhh7goxLAj87df+bg/BGzOStGDrqjC
-         bQyb0rzEEkTDxNx9T8MRDzaFrVCV271o4MaHEmsLog+oSsZl8KD4H/HBtETKlq3CWQZb
-         1rv5yz48wjuWr6+TxzgPl4b9RXFJAp6MUPp9VzejyVWIVbEo+yNytalsqrpm13Cqhyfa
-         7Efw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=Vo5iYrzqAVwD0ftnJcNS6Tk8fjUEFpVW310k0kRUZFQ=;
+        b=ul6TYn60oZ/2jh20iR4atZXAto8DK56gUc2A56ldxjmEKBh0Imbtz/RVUIkRYM2GmQ
+         1zV99ye+zdimWm6bgZnzOuBGsukx3E5N/FkjrsUYyOJgY0H3kr2P+/oWTBKswjKrytNh
+         lyi2gvIHO12CGg0ghM+ktgaXjGbPKIM7UlNGo2K90yPoEXX7FzC2WmuavJr8/IjXRnGg
+         a4RvGcymFA13plMGQE6skSiOdYghbHd5J0ywqQa3VBUL8F+eGmg5xAIcDDFq+BDLHXzG
+         6SUc9wtMBN7VHtk1KyGHZjyhrvTutJlzaKR2RTa92liksGaUglM4VrAHDIdOGgXDvfxa
+         Fjrg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HjhYLnV1;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b201si665158qkg.6.2021.03.26.01.43.13
+       spf=pass (google.com: domain of steffen.klassert@secunet.com designates 62.96.220.36 as permitted sender) smtp.mailfrom=Steffen.Klassert@secunet.com
+Received: from a.mx.secunet.com (a.mx.secunet.com. [62.96.220.36])
+        by gmr-mx.google.com with ESMTPS id f21si364379ljg.6.2021.03.26.03.28.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 26 Mar 2021 01:43:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6C6E061A45
-	for <clang-built-linux@googlegroups.com>; Fri, 26 Mar 2021 08:43:12 +0000 (UTC)
-Received: by mail-ot1-f48.google.com with SMTP id 68-20020a9d0f4a0000b02901b663e6258dso4506500ott.13
-        for <clang-built-linux@googlegroups.com>; Fri, 26 Mar 2021 01:43:12 -0700 (PDT)
-X-Received: by 2002:a9d:12cb:: with SMTP id g69mr10624384otg.77.1616748191665;
- Fri, 26 Mar 2021 01:43:11 -0700 (PDT)
+        Fri, 26 Mar 2021 03:28:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of steffen.klassert@secunet.com designates 62.96.220.36 as permitted sender) client-ip=62.96.220.36;
+Received: from localhost (localhost [127.0.0.1])
+	by a.mx.secunet.com (Postfix) with ESMTP id 5F37A20185;
+	Fri, 26 Mar 2021 11:28:41 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from a.mx.secunet.com ([127.0.0.1])
+	by localhost (a.mx.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id nlpR4qj043xz; Fri, 26 Mar 2021 11:28:36 +0100 (CET)
+Received: from cas-essen-02.secunet.de (unknown [10.53.40.202])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by a.mx.secunet.com (Postfix) with ESMTPS id 190E720569;
+	Fri, 26 Mar 2021 11:28:36 +0100 (CET)
+Received: from mbx-essen-01.secunet.de (10.53.40.197) by
+ cas-essen-02.secunet.de (10.53.40.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Fri, 26 Mar 2021 11:28:35 +0100
+Received: from gauss2.secunet.de (10.182.7.193) by mbx-essen-01.secunet.de
+ (10.53.40.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2176.2; Fri, 26 Mar
+ 2021 11:28:35 +0100
+Received: by gauss2.secunet.de (Postfix, from userid 1000)
+	id 156863180307; Fri, 26 Mar 2021 11:28:35 +0100 (CET)
+Date: Fri, 26 Mar 2021 11:28:35 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Arnd Bergmann <arnd@kernel.org>
+CC: <netdev@vger.kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, "David
+ S. Miller" <davem@davemloft.net>, Hideaki YOSHIFUJI
+	<yoshfuji@linux-ipv6.org>, David Ahern <dsahern@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor
+	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, "Zhang
+ Changzhong" <zhangchangzhong@huawei.com>, Sabrina Dubroca
+	<sd@queasysnail.net>, Willem de Bruijn <willemb@google.com>, Jiapeng Chong
+	<jiapeng.chong@linux.alibaba.com>, <linux-kernel@vger.kernel.org>,
+	<clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH net-next] ipv6: fix clang Wformat warning
+Message-ID: <20210326102835.GB62598@gauss3.secunet.de>
+References: <20210322115701.4035289-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20210326000435.4785-1-nathan@kernel.org>
-In-Reply-To: <20210326000435.4785-1-nathan@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 26 Mar 2021 09:43:00 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHhdw2EDmsuM0KHXcbKVNSPjrYkTYELHGShDN5NhAkvOQ@mail.gmail.com>
-Message-ID: <CAMj1kXHhdw2EDmsuM0KHXcbKVNSPjrYkTYELHGShDN5NhAkvOQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] Fix cross compiling x86 with clang
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	X86 ML <x86@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	linux-efi <linux-efi@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=HjhYLnV1;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+Content-Disposition: inline
+In-Reply-To: <20210322115701.4035289-1-arnd@kernel.org>
+X-ClientProxiedBy: cas-essen-02.secunet.de (10.53.40.202) To
+ mbx-essen-01.secunet.de (10.53.40.197)
+X-EXCLAIMER-MD-CONFIG: 2c86f778-e09b-4440-8b15-867914633a10
+X-Original-Sender: steffen.klassert@secunet.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of steffen.klassert@secunet.com designates 62.96.220.36
+ as permitted sender) smtp.mailfrom=Steffen.Klassert@secunet.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,48 +152,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 26 Mar 2021 at 01:04, Nathan Chancellor <nathan@kernel.org> wrote:
->
-> Hi all,
->
-> This series fixes cross compiling x86 with clang, which was initially
-> brought up by John here:
->
-> https://lore.kernel.org/r/cceb074c-861c-d716-5e19-834a8492f245@gmail.com/
->
-> I have picked up that patch and added the same fix in a couple of other
-> places where it is needed.
->
-> I have tested this on an ARM based server with both defconfig and
-> allmodconfig, where the build now passes.
->
-> Please let me know if there are any problems.
->
-> Cheers,
-> Nathan
->
-> John Millikin (1):
->   x86: Propagate $(CLANG_FLAGS) to $(REALMODE_FLAGS)
->
-> Nathan Chancellor (2):
->   x86/boot: Add $(CLANG_FLAGS) to compressed KBUILD_CFLAGS
->   efi/libstub: Add $(CLANG_FLAGS) to x86 flags
->
+On Mon, Mar 22, 2021 at 12:56:49PM +0100, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> When building with 'make W=1', clang warns about a mismatched
+> format string:
+> 
+> net/ipv6/ah6.c:710:4: error: format specifies type 'unsigned short' but the argument has type 'int' [-Werror,-Wformat]
+>                         aalg_desc->uinfo.auth.icv_fullbits/8);
+>                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> include/linux/printk.h:375:34: note: expanded from macro 'pr_info'
+>         printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+>                                 ~~~     ^~~~~~~~~~~
+> net/ipv6/esp6.c:1153:5: error: format specifies type 'unsigned short' but the argument has type 'int' [-Werror,-Wformat]
+>                                 aalg_desc->uinfo.auth.icv_fullbits / 8);
+>                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> include/linux/printk.h:375:34: note: expanded from macro 'pr_info'
+>         printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+>                                 ~~~     ^~~~~~~~~~~
+> 
+> Here, the result of dividing a 16-bit number by a 32-bit number
+> produces a 32-bit result, which is printed as a 16-bit integer.
+> 
+> Change the %hu format to the normal %u, which has the same effect
+> but avoids the warning.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-
->  arch/x86/Makefile                     | 1 +
->  arch/x86/boot/compressed/Makefile     | 1 +
->  drivers/firmware/efi/libstub/Makefile | 3 ++-
->  3 files changed, 4 insertions(+), 1 deletion(-)
->
->
-> base-commit: 0d02ec6b3136c73c09e7859f0d0e4e2c4c07b49b
-> --
-> 2.31.0
->
+Applied to ipsec-next, thanks!
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXHhdw2EDmsuM0KHXcbKVNSPjrYkTYELHGShDN5NhAkvOQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210326102835.GB62598%40gauss3.secunet.de.
