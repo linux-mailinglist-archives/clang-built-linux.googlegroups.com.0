@@ -1,125 +1,121 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB6U7RGBQMGQEW26BVCI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQNBRGBQMGQED4XDUBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8416B34D9E3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 00:08:58 +0200 (CEST)
-Received: by mail-wr1-x438.google.com with SMTP id 75sf9328423wrl.3
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Mar 2021 15:08:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617055738; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9366534D9EB
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 00:12:18 +0200 (CEST)
+Received: by mail-io1-xd3d.google.com with SMTP id d4sf2562670iop.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Mar 2021 15:12:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617055937; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YyoJVslAtypjccFSiOu0fzBCKDr7ZEnSL62BYNwFKw8xaTBSEbTAWLEVASPL4PSfwq
-         FjrP7H/zmBI94rBlsdLq4QX/5Ci/CQj7JfS1QiqNHlRLepZXBc7EV4tTl3UqSMd8rSTG
-         7EqSZQm7gAw1ReUW4+iz5+N4RaO9MOnHBs0QoEaLfLnpuATwCvodTO0OjEJgE53RzQ1W
-         FV3GmRcMcEN2vmCH+7NkouAc9Yc5g03VI73J8IjH7neaFiyCifEP0rIJFodHBuXQ35Yz
-         P9OepTa/ADQGr70PrjInkt7dfYiZtl73Qx7osad0REts6fCM38I2HHo4F+IVr257C4g7
-         ikDw==
+        b=0QowPjBDiyPaIlDzWpDPBbwjtI4IcJx/St/pJCQh/phQwveUQSq/O/F0FpTlHf2Wc5
+         TdFUFyWE3qfB/mE4q2Qv6zREmL6/8zmh1XVmVwzyDnACTs+vREEbIU2gYu7SIbcDIitZ
+         +NNMc0N4su0sSq2fFJbzgAs4Gf+yKQdnJh2jbgzjmHXOzQRpEx0OWJfTUcRMIvZmGCQm
+         A34yiNlWFfHvc/w14+MkfZ7LiCeTrjjAJpUGs/Mu+CODdmgZhBfxDsBTBi/PURcj0QQW
+         t2UOw9D469kAVeQn+mEGP5VnCyuKNZQLglZ6SwNw7Jc/ED6tn6whBMXayz0puYdXE56Q
+         oX3A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=AxMJTMWG5qaMGlKCljwfpehpSTbx920G7W4SI+ihtMY=;
-        b=Sbd9U4hrkRcz+zLNnG/4v5iNqksKWMoncM93KeAHDK8f/JcLYE0c/amv5qPRV534Hh
-         K4gWUziq8uqBnWBmg/ZBF19gM5gcLsIWnWFM1IqT61HBtsp95YjsWF0BbZQ7Uk2PGiYc
-         9pPaib2kSPDGqGM/y6LsEYsNTgwiirsXutzd4CxC//hlnQEYaBD4NVN+TqphoMpYh065
-         tngD+Tx9eXIMU/XbVfeGKFBIOyxO4lI5uphx4p7Pqek/66lUiSYh/tEydbK3QnI72FHS
-         GAL7rozeuibzmHhZcTvqz7P4qjhp1EyROsjfh1a0/+Y1HlqwEXcpRU7IkvHirBSHu+hQ
-         pbww==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=D2aspRqAh3AKiwc+MHGaxsnTlhECD4nIas69RWHMCCY=;
+        b=JCUsijfrwZwy/F8BnukWaLvOXVNaf1T41DAnsgpLA1bpSMa0YOvYIctLA/4ggeMyGe
+         +4BeqzLTCUFrrYqpaexshQhT8VzdF0h87H45TcW0lvditQ65QvyGZlneykCRnu4/DLIT
+         B8MfZ8XcAM9AAdOL4vUs3WlT6LZrV1Mf/eRRN3EE2dLeqoUTNEfZedjILv6eIsR7rwK0
+         osvD2oMoA5NDyzIqvlQZFxPzbNXzwcJA7IWTMJgx0C1WRcH5jCHle1aCXSydAcL5Fd3D
+         RlaBmW1OjCylik4hsReJzDF0lSIGWSEU/OhFYY3WSatEbrL74L3mH9l0Wl0VxWGk51mJ
+         sE+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=NATCpKJD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=m6mRmHas;
+       spf=pass (google.com: domain of 3v1biyawkapihxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3v1BiYAwKAPIhXYmUofhcYlmaiiafY.Wig@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AxMJTMWG5qaMGlKCljwfpehpSTbx920G7W4SI+ihtMY=;
-        b=dQl2t2FTcep1B8rnABZcUMBMt85JMLVQhflJbZrdQzZ+NUfKbKv/h14v44EFlB2Voo
-         musLzg7/aeZpw5ffPzZ96M+/5pENqzZ1veIMV+didGhZwqLX42aPKScUBvNItrGyGH5F
-         +qxSa9izbAswDy0U0/1AtR8duSi+hznROPIh6Crk9NwtArsovHyRVJE/+t5nVlRAlT7Q
-         gratE0I+3ReaxpGTwxEhiepJpxarPh/pBunojdNK0qZcREPBj5nOxzKQQGLUgplb60fL
-         ehZ4lNXqzeArpBCk86Ibf1RIk8DSHQGhxhhX2KaV03NoOIwKuq+bz8B01NT1RKIQk/EM
-         quRw==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=D2aspRqAh3AKiwc+MHGaxsnTlhECD4nIas69RWHMCCY=;
+        b=dReKGLCGMlsvge4Xcbs5jz+tiUUVtYgSn/5Nh8KS0kkupMZaKqsdeKnJv2E2Etjrtm
+         suKKfyxS6t99QF4kVQN4Rk800ekulj7C2GQVrGKCntYMSx+97beC1exMOhOrIY4F0LZW
+         N0GXYNzSA6e/ITutdDWhtQHD/eZAnM61+c/mABWTIs//vTTC5x2hCln6G0057e7Ev5PO
+         dNWnUtVwuccauUEjREpwQ0PtsscPmfVKb6YGFBwWHFInn6/od9qM0PDNEKbNGEiAus1V
+         4JuFBmrpz4pCxl7mn09EuwED58Pl0uNbwyjyPuQdVMihIbSbfQe8KKsY/8DaZEqvUNOr
+         +ehA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AxMJTMWG5qaMGlKCljwfpehpSTbx920G7W4SI+ihtMY=;
-        b=bXnZ1/p64XWG3Zci3c+eZIJKaPfv6kTv8ik9eJQ/bSEmcRRI2Evl9/tnxqErz7wStJ
-         kPsMfm9T8g0NsT2CpWZGDv/RwO649s+n+Wc3gTtL7HNeVjXKf+36OwX0J8o5CZhvfhJ3
-         ndoXrVn6SGvhzKMQ8ID4ZUuZhmB7+/1ynxPhT8eykGlBPRIk+F2cj9XVaO9BOjAwZjjr
-         smQ98mX1sJD7sKMt99i/rkzxQGhnI67BBKixREfb0T0jR4HPhpgtwUW+DhxOmUXptWUX
-         TAN+344n9xn68cPLx2KhipvYAvrf6/9I6TT4n3CqdE0wQKT/c9J3fZxEq1d95I790Gqs
-         g86w==
-X-Gm-Message-State: AOAM531AsG+VKzwncWXUedPa720jggUYq3t/SrxxEUavpYB9ZDtx/uaN
-	1z0KvITkBiLWLn828/gNDZw=
-X-Google-Smtp-Source: ABdhPJxctz+97t2bvgXka9hgBCHOvWOLtksZzyNAmWGwFFSuMXExM4AaCxZHPQjIal2b+2jgBq4HJA==
-X-Received: by 2002:a1c:4b0a:: with SMTP id y10mr916864wma.141.1617055738308;
-        Mon, 29 Mar 2021 15:08:58 -0700 (PDT)
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=D2aspRqAh3AKiwc+MHGaxsnTlhECD4nIas69RWHMCCY=;
+        b=jAckZwKRCwUvf9iuD1KITd2fCwh2feb/2bUL1xU/UoFhwqryqW6gzwQatvESSpwhzu
+         oDFwvvCd01aJdrHTmOa947GtWNw1JWKjEHxJoXqQ1lczxNsNaEz+kqXcPT3WSbG67bDK
+         NEmdv1XZTSxTgjv8h4M16QVN6xn9TrxIefjwFPjyFK2rwmH9b+ynHQC6NEa3IQu3oEpl
+         C/vvHnz7D588hGWb+zX8tKet9hwbxLQ0EgHt8Oa4VwjwiTTJdHrdsYt2BZyBdupbHE60
+         LpKQbV4RTDMaEOD091kl8fwAzNirg0SrJtRqgB8XIAhm4xXenC1SqOjCKeB3jmzd1PgS
+         RurA==
+X-Gm-Message-State: AOAM5307mXb91HzevvAgBbmpbNw2COgMk8ogyAhiN3K1g6xy2NTns+Jd
+	t2qN5rmonzS02iThBX5RzKY=
+X-Google-Smtp-Source: ABdhPJwtfqC7ahftwoDwmDp3NNx5beEPbqPML7whwJt2QwpMH3Sdxr7OMeb1Lx639DxUsGBzi1RVkw==
+X-Received: by 2002:a92:c5a3:: with SMTP id r3mr21744164ilt.155.1617055937427;
+        Mon, 29 Mar 2021 15:12:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:9ac6:: with SMTP id c189ls302148wme.3.canary-gmail; Mon,
- 29 Mar 2021 15:08:57 -0700 (PDT)
-X-Received: by 2002:a7b:c92d:: with SMTP id h13mr932439wml.147.1617055737442;
-        Mon, 29 Mar 2021 15:08:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617055737; cv=none;
+Received: by 2002:a02:c6a2:: with SMTP id o2ls2220762jan.6.gmail; Mon, 29 Mar
+ 2021 15:12:16 -0700 (PDT)
+X-Received: by 2002:a02:9048:: with SMTP id y8mr26035641jaf.66.1617055936105;
+        Mon, 29 Mar 2021 15:12:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617055936; cv=none;
         d=google.com; s=arc-20160816;
-        b=iXGr6iB3aDVrkMCpwkYZOOznWMIe44yVhmXVRxJD3RP7unRXUTZ/UYRpVeSoKq2Ytn
-         2OsUqDH6iVn/yWP4KoXXJkirn6g1BPBcgT1OXKL4Ou934aSb+2goXFmwnsxHVVFpS6et
-         YYzta46ZMJiy/SABGJYNe1LihV6kCD/+MG/3Ukp9xPIDBcddY/Id9eiqhsxHtuBnL+Wg
-         mjkz5PI01htqM58HE237+U6Ozmv9So0THCO95eHOuWhmZHiDdtYz0BYrRhFiJCUC+1lX
-         nJ+z2eOPLwIOfpHx8h+1hBo3vPIsHWo4isZ/1uAhrQz4m6DyxlsnrswO7mFzUvtYmDdk
-         TTHQ==
+        b=vbAfSA9ztZ03TqSMmR19yLzCq4o7nNPBpwBajNTJl3OoQf+EFRo4GfJL5FI1b1Af0F
+         5/MjHM+GTt9SdW0YcjQiEYksMR/LQySKhBATTyoPQUOyJNaRnOkRR1zpwn5Gq1ECyS00
+         y1TytNCVyyQ0Fyuh4HecNPuECUXuaFKyDtYPr5dTxKms52IlUyxFg3dx7xrymqctliQM
+         boPuRq+mUxmy2tqzJeH5JQWvPKjdGtBzxJSUKGd1p6ZDwhIqGPoNi0IgfwN8vfKss3t5
+         cUveqizQZ5s2kdcPyRU1pWDlIaMaEJXRWKWW26PcbmUfrQoa40IfVbJyMSm/Bh8Qrady
+         kxbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=/hqJn9c4uBNS7Nw3mlhlHUN2tIf4nHDC4lxd48hV+Bg=;
-        b=BZ6VMdJT+bcQft+ON1AqeV/kVyI0uhcgUED+4DaiZe/ztDCDupg85PAtAdRwYVlSF3
-         YYQle8hFHFaxiG5seS+Bx+paRuqQPYYGSIExOCFYI3PTvPwueYLmR1gJlWGUDiClI0F/
-         Yy0a/eloTrRupds8bbFqaUxXvm32qolYpzQrMAMrkZ0aA7jphs+SknxxACfm1CKisFnV
-         DfrhEavoPgKmPQJ8qOmRdoSuBeBHYGoqONcMKCyCWLzzFaIBv7MoQWIr3P+9s3pp3216
-         e+eCZ62JrQ8SIfp/aHZgSlrKXb0hW2yvG4WJjCK7UP91HS1zFFIXGaUHqIuoh9ia+KpL
-         0wlQ==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=ekCF2vvcLsdB3w/7DhoYThMPMaRHrvLWv1Vl8Jy7w1I=;
+        b=p0DvlwmMdiX+y0k7NoC8aYRDn1icKpcXRmMGT7RDjoFSwtMsxfSR7LSws0863Orqud
+         kWvAKJe+uKQclqrf1bCL3uKUe0QbdibE+Vt8EJTa9ZXdRb8saBDRi/o+mh56UEwJ4Z1V
+         fgsAEZjMF576Gr1NgdXzgQKd+atbR+ygGiWNKuk0bF0KFo7TZ1P/hGrx/JMoLOD5CLP0
+         20y78ZrK/JUzwtfbl2OuGFn9O4maMy5oEhvHucna9KU/JHZ86mTJXM9a+fF7dIiJFn7F
+         +Olz0jbAOcygLgUJ+dXiRrqgLE92bFh8tIV3leBD0G/NnucOzwyjIp7O81eGHB1//OWT
+         hLQw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=NATCpKJD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=m6mRmHas;
+       spf=pass (google.com: domain of 3v1biyawkapihxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3v1BiYAwKAPIhXYmUofhcYlmaiiafY.Wig@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x233.google.com (mail-lj1-x233.google.com. [2a00:1450:4864:20::233])
-        by gmr-mx.google.com with ESMTPS id q145si44965wme.1.2021.03.29.15.08.57
+Received: from mail-qv1-xf4a.google.com (mail-qv1-xf4a.google.com. [2607:f8b0:4864:20::f4a])
+        by gmr-mx.google.com with ESMTPS id y4si1368984iln.3.2021.03.29.15.12.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Mar 2021 15:08:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) client-ip=2a00:1450:4864:20::233;
-Received: by mail-lj1-x233.google.com with SMTP id z8so17567045ljm.12
-        for <clang-built-linux@googlegroups.com>; Mon, 29 Mar 2021 15:08:57 -0700 (PDT)
-X-Received: by 2002:a2e:868e:: with SMTP id l14mr19560955lji.479.1617055736955;
- Mon, 29 Mar 2021 15:08:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAK8P3a0MbxMC9iLe0NGR0ttLY7sZDjsrgKvfRZOXVJLjzDNKmA@mail.gmail.com>
- <20210128193422.241155-1-ndesaulniers@google.com> <CAMj1kXE5uw4+zV3JVpfA2drOD5TZVMs5a_E5wrrnzjEYc=E_fA@mail.gmail.com>
- <CAKwvOdneTwx8LwKyAA+iMELEBWBxu2nkr9dVuQ=+hgsZROu-tw@mail.gmail.com> <CAMj1kXFh9GGReghFaZkCi0TNOBFjF+Nv_H6vj8pKmN4Rdth3Dg@mail.gmail.com>
-In-Reply-To: <CAMj1kXFh9GGReghFaZkCi0TNOBFjF+Nv_H6vj8pKmN4Rdth3Dg@mail.gmail.com>
+        Mon, 29 Mar 2021 15:12:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3v1biyawkapihxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f4a as permitted sender) client-ip=2607:f8b0:4864:20::f4a;
+Received: by mail-qv1-xf4a.google.com with SMTP id i7so11838101qvh.22
+        for <clang-built-linux@googlegroups.com>; Mon, 29 Mar 2021 15:12:16 -0700 (PDT)
+X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:c959:2751:3fb4:47b1])
+ (user=ndesaulniers job=sendgmr) by 2002:a05:6214:204:: with SMTP id
+ i4mr27848771qvt.47.1617055935550; Mon, 29 Mar 2021 15:12:15 -0700 (PDT)
+Date: Mon, 29 Mar 2021 15:12:06 -0700
+Message-Id: <20210329221209.1718079-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.31.0.291.g576ba9dcdaf-goog
+Subject: [PATCH v2] ARM: kprobes: test-thumb: fix for LLVM_IAS=1
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 29 Mar 2021 15:08:45 -0700
-Message-ID: <CAKwvOdkv9714jdhHuc7o90TY_sOKSe1J+NmwcxBxEaX-haJk0w@mail.gmail.com>
-Subject: Re: [PATCH v2] ARM: kprobes: rewrite test-[arm|thumb].c in UAL
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Stephen Hines <srhines@google.com>, 
-	David Spickett <david.spickett@linaro.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@kernel.org>, 
+	David Spickett <david.spickett@linaro.org>, Stephen Hines <srhines@google.com>, 
+	Jian Cai <jiancai@google.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Nathan Chancellor <nathan@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=NATCpKJD;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=m6mRmHas;       spf=pass
+ (google.com: domain of 3v1biyawkapihxymuofhcylmaiiafy.wig@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::f4a as permitted sender) smtp.mailfrom=3v1BiYAwKAPIhXYmUofhcYlmaiiafY.Wig@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -134,78 +130,75 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jan 29, 2021 at 1:40 AM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Fri, 29 Jan 2021 at 01:22, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> >
-> > > On Thu, 28 Jan 2021 at 20:34, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> > > > +       TEST_RX("tbh    [pc, r",7, (9f-(1f+4))>>1,", lsl #1]",
-> > > >
-> > > On Thu, Jan 28, 2021 at 1:03 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > > Why is this change needed? Are the resulting opcodes equivalent? Does
-> > > GAS infer the lsl #1 but Clang doesn't?
-> >
-> > Yes; it seems if you serialize/deserialize this using GNU `as` and
-> > objdump, that's the canonical form (GNU objdump seems to print in UAL
-> > form, IIUC).  I didn't see anything specifically about `tbh` in
-> > https://developer.arm.com/documentation/dui0473/c/writing-arm-assembly-language/assembly-language-changes-after-rvctv2-1?lang=en
-> > but it's what GNU objdump produces and what clang's integrated
-> > assembler accepts.
-> >
->
-> This matches the ARM ARM: TBB and TBH are indexed table lookups, where
-> the table consists of 16-bit quantities in the latter case, and so the
-> LSL #1 is implied.
+There's a few instructions that GAS infers operands but Clang doesn't;
+from what I can tell the Arm ARM doesn't say these are optional.
 
-(Sorry, more time to look into thumb2 now, revisiting this)
+F5.1.257 TBB, TBH T1 Halfword variant
+F5.1.238 STREXD T1 variant
+F5.1.84 LDREXD T1 variant
 
-Then I would have expected it to be stated that the operand is
-implicit in the Arm ARM or use the curly brace notation for the
-optional operands (see "F5.1.167 RSB, RSBS (register)" for an example
-of what I'm talking about. AFAICT, there's no such language in the Arm
-ARM about TBH. This is also what GNU binutils' objdump spits out when
-disassembled.  And TBB differs from TBH in regards to this operand;
-TBH has it, TBB does not.  It's not clear to me whether these
-shorthands are intentional (pseudo ops) vs unintentional (parsing
-bugs) in GAS.
-
->
-> > > >
-> > > >  #define _DATA_PROCESSING32_DNM(op,s,val)                                       \
-> > > > -       TEST_RR(op s".w r0,  r",1, VAL1,", r",2, val, "")                       \
-> > > > +       TEST_RR(op s"   r0,  r",1, VAL1,", r",2, val, "")                       \
-> > >
-> > > What is wrong with these .w suffixes? Shouldn't the assembler accept
-> > > these even on instructions that only exist in a wide encoding?
-> >
-> > Yeah, I'm not sure these have anything to do with UAL.  Looking at
-> > LLVM's sources and IIRC, LLVM has "InstAlias"es it uses for .w
-> > suffixes. I think I need to fix those in LLVM for a couple
-> > instructions, rather than modify these in kernel sources.  I'll split
-> > off the arm-test.c and thumb-test.c into separate patches, fix LLVM,
-> > and drop the .w suffix changes to thumb-test.c.
-> >
->
-> The ARM ARM (DDI0487G.a F1.2) clearly specifies that any instruction
-> documented as supporting the optional {q} suffix (which is almost all
-> if not all of them) can be issued with the .w appended, even if doing
-> so is redundant (note that it even documents this as being supported
-> for the A32 ISA, which GAS does not implement today either)
->
-> Given how we often use this suffix to ensure that the opcode fills the
-> expected amount of space (for things like jump tables, etc), we cannot
-> simply drop these left and right and expect things to still work.
-
-I understand fixed in:
+Link: https://github.com/ClangBuiltLinux/linux/issues/1309
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+See:
+https://lore.kernel.org/linux-arm-kernel/CAMj1kXE5uw4+zV3JVpfA2drOD5TZVMs5a_E5wrrnzjEYc=E_fA@mail.gmail.com/
+for what I'd consider V1. The previous issues with .w suffixes have been
+fixed or have fixes pending in LLVM:
 * BL+DBG:   https://reviews.llvm.org/D97236
 * ORN/ORNS: https://reviews.llvm.org/D99538
 * RSB/RSBS: https://reviews.llvm.org/D99542
+I'd have expected the Arm ARM to use curly braces to denote optional
+operands (see also "F5.1.167 RSB, RSBS (register)" for an example).
 
+ arch/arm/probes/kprobes/test-thumb.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm/probes/kprobes/test-thumb.c b/arch/arm/probes/kprobes/test-thumb.c
+index 456c181a7bfe..4e11f0b760f8 100644
+--- a/arch/arm/probes/kprobes/test-thumb.c
++++ b/arch/arm/probes/kprobes/test-thumb.c
+@@ -441,21 +441,21 @@ void kprobe_thumb32_test_cases(void)
+ 		"3:	mvn	r0, r0	\n\t"
+ 		"2:	nop		\n\t")
+ 
+-	TEST_RX("tbh	[pc, r",7, (9f-(1f+4))>>1,"]",
++	TEST_RX("tbh	[pc, r",7, (9f-(1f+4))>>1,", lsl #1]",
+ 		"9:			\n\t"
+ 		".short	(2f-1b-4)>>1	\n\t"
+ 		".short	(3f-1b-4)>>1	\n\t"
+ 		"3:	mvn	r0, r0	\n\t"
+ 		"2:	nop		\n\t")
+ 
+-	TEST_RX("tbh	[pc, r",12, ((9f-(1f+4))>>1)+1,"]",
++	TEST_RX("tbh	[pc, r",12, ((9f-(1f+4))>>1)+1,", lsl #1]",
+ 		"9:			\n\t"
+ 		".short	(2f-1b-4)>>1	\n\t"
+ 		".short	(3f-1b-4)>>1	\n\t"
+ 		"3:	mvn	r0, r0	\n\t"
+ 		"2:	nop		\n\t")
+ 
+-	TEST_RRX("tbh	[r",1,9f, ", r",14,1,"]",
++	TEST_RRX("tbh	[r",1,9f, ", r",14,1,", lsl #1]",
+ 		"9:			\n\t"
+ 		".short	(2f-1b-4)>>1	\n\t"
+ 		".short	(3f-1b-4)>>1	\n\t"
+@@ -468,10 +468,10 @@ void kprobe_thumb32_test_cases(void)
+ 
+ 	TEST_UNSUPPORTED("strexb	r0, r1, [r2]")
+ 	TEST_UNSUPPORTED("strexh	r0, r1, [r2]")
+-	TEST_UNSUPPORTED("strexd	r0, r1, [r2]")
++	TEST_UNSUPPORTED("strexd	r0, r1, r2, [r2]")
+ 	TEST_UNSUPPORTED("ldrexb	r0, [r1]")
+ 	TEST_UNSUPPORTED("ldrexh	r0, [r1]")
+-	TEST_UNSUPPORTED("ldrexd	r0, [r1]")
++	TEST_UNSUPPORTED("ldrexd	r0, r1, [r1]")
+ 
+ 	TEST_GROUP("Data-processing (shifted register) and (modified immediate)")
+ 
 -- 
-Thanks,
-~Nick Desaulniers
+2.31.0.291.g576ba9dcdaf-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkv9714jdhHuc7o90TY_sOKSe1J%2BNmwcxBxEaX-haJk0w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210329221209.1718079-1-ndesaulniers%40google.com.
