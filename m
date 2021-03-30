@@ -1,134 +1,141 @@
-Return-Path: <clang-built-linux+bncBCZNXZV44IJBBSHFROBQMGQEUJDDSDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA5BKNJ6MIBBFPLROBQMGQERLLYMWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1699134E49C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 11:43:38 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id f4sf8021869ilj.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 02:43:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617097416; cv=pass;
+Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BC9A534E4DA
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 11:55:34 +0200 (CEST)
+Received: by mail-il1-x13e.google.com with SMTP id y11sf13715250ilc.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 02:55:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617098133; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MTfoMrNJ3yOcD7Qzlh3KFzVejIeEatN/fW+cwPvJozYjGSfv7dCiM/VNmt8BdkWusp
-         gvX0z0xRszckkZABZVc/4slejY727bkkmJkdlIs3e2dldOKaA/y6CWTQO6onQFHFRpT3
-         C4WKb6ZwD3LsVLkKCNp1EDoH0z2WgYrTYrjZkj8IyxNcoiZmgMEv/ElMBLz14GQVhMzJ
-         iL8Y7Si/GGEgTwqf4Omi8TadkPs8Dp78U4g3BIcCe2gMCUSGMRbCN+0JnORVmAlfGeXf
-         FAKPMlxDI5jWPtBdQkLK1FRHyQlyDa7OJeV+8F0f53l+Wo2bUeRrWqm4p9e9o0QNcpbg
-         6A6A==
+        b=TM9GymyiJfhTxEDhtXhXxz2UXzHhjj++vUTJAcmHROoUzoPBJvxt7Vzz88MXq0A/mD
+         kmoAoCjxSyQK4ebZecG/kL/iz0cC7eZFivDX1+XseuN3Ob+RHo/9BkWwfBWS80SZRJm0
+         DxAtplcYKaW2lAW3FxgxJknQcnkLls+a6kjouIXf81LcFxtGfqYbN/rfkEBhPFPaNcsH
+         MpV5YUN8X9mGewt3Jun6FGZaAuXUc+ibUOgvVVlFLrxGdBglq+uw6qb15bCsl/sDT4bL
+         e2WS2rWrgfZK6VZwwol8AjJLPvg7JOSlHBwDlG0HOdSYhdmc3H9tFuKp/PBg8meAUA0p
+         rE0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=aiXJe6NRTfT3/7AqhaPIqjuzjTpPXXqWJV0jvOX4XBM=;
-        b=mPWBEi2ItknCKmq4T1H6T6TpNF2UNRSPT8zmbI4ZZMfdJyi29UN/tXPAMzjBDoZggN
-         K9039MvT786OPSP05hzXZk1/1BKcMKp479J3x8fu0i549n9T+q/d1CaW/Fjsx5PhkCzn
-         gQVIBsjEpPx811B4X852C3S0EsznNMyud9RYZhfcXaM+27d+tVXDMmvZb4FlHKz4AtNn
-         MjkHncwXQvNWnJIO0eWWAO2GfbH4VD/fLDwINBEVwTuTTAkRPqCyy3ALsxTYAAhogyZ7
-         RvMrcIcyc1fa3hhjZ8qBL8rPBoN92N2zHgxp/Y+xA2XddQuXdBm/vDGiix8U99OWbvEo
-         q5xA==
+         :list-id:mailing-list:precedence:organization:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=OA8QjGm3A1ma0M+1Qx/pqdNpLbLkQ+wGUa6B0yr4R0U=;
+        b=iijrwUJtd/W7PV0wCuobY1Nu1AvQFwMZuGbl5HMu2y9qZG4sYcnVU9fbFwtcCNo03N
+         ZVBqmhwWRgiQGdulXuTSNuAg+VKuNCKk9i48zouvglro3lODkAxHOC3tnwXitCl20bAS
+         mjmL0pmgqOhYMqCeHnARiya7+m2232UbP5BRYbmb4ouveKDQXBGZumZdp1GWXv3fDtzY
+         w+mmG9i78oDGRvKCf9K1TTiFM5QOzXxTbI9TaA1t0721MY88WZ3zpdBf5Le+ACSh3bQV
+         QYuF17xTIysppLHpM7pzYw6rgVUoU7ylUjHBIeJbhEIR9ZJOLk1MdLf39/VpXblWaI9t
+         l3RA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=PKvrIn1c;
-       spf=pass (google.com: domain of vkuznets@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=vkuznets@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :organization:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aiXJe6NRTfT3/7AqhaPIqjuzjTpPXXqWJV0jvOX4XBM=;
-        b=Yr4sU/btP20XUrMnAW8jQiRZ60jrtGK7n0T2WtTAadWHukkbNE1ZrjWtsE2AyCgTNG
-         czZHMmd4g0PXxhltjc3J+AziMUoLCtMZQjPdGUcW/g0wtmI5kUfZGf9l3ihA42UT5RJk
-         ORYLHqGTGloEUaBdwyYd3vPQYILZan3vag4ex2v0Ap7E8dDV8g+y6Oo97lycXvxCI5jt
-         O3G2jzeV06Od9j4U4/9aScW1sFnW66EHO2GbXWv+VoOCsfD50Csfh5gUDnzL6TH87veZ
-         jK2CI43h+GEG4/f58VERdtA746yIwbvncW+HPCfTWO4cHx/k1MXNXNggUjRml+UR8/3r
-         zUVg==
+        bh=OA8QjGm3A1ma0M+1Qx/pqdNpLbLkQ+wGUa6B0yr4R0U=;
+        b=S08bT8ZiLEt0MXAukRBIWESp9oxVUd5oXNgHfbXDEvZ8esYFnbTk1Hoe8OOs5P0+vh
+         FqLeSAl6XGzRXLoZdGj+9QMpcL1wMrMregZDMYbV4GXwhA7NwcxJ+dSWKZE8tWGcyVFA
+         x8uHTq2wOg475jOn/5ERWziorNl4w8UICogk5smNdV2pMfHIgKbzDMNk76XWlH3ji8lK
+         FoEbUlyGiBa2tS5fzn4r+QQBapFYY+XhtHTMfdo5axujUlKodmcg1iKlyRb80zycMftu
+         WVkQ0UIfpeLZElr15fCNh1XUC0cqUoqGDFvK0PrRgkZWOwiEXMneNPR+AjhaS1djqwYG
+         Hh9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:organization:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aiXJe6NRTfT3/7AqhaPIqjuzjTpPXXqWJV0jvOX4XBM=;
-        b=twYpxQt21QzDzfb9M/sD6/L4UNyfkDj0ypNDO32DDHLuDSzub62r25cOrmEcYdkQ37
-         tH05yU/qHVx/c+izvhRD/rCrDqbZSYNDrzVwA7Mwvnp0ubo4p370KVFnNfyQIzLkNK/U
-         9Ti2vjhpN9x5VHzmkBBgR1w0F8a2ElYcCrNwF6nZwxwiaPV0IhG+kBD0dF/rxzhEQ7Nh
-         FM4e8/3HkbsJBUTX/QDh3X611njbZ43Fu2xhIenzRgMnRAll7K3WANYO6iyJARpVM0hj
-         3Q5jTeGvIxwE2w3XCZCXNrsr8Cf8cEH3ReOEQYoUFv+FWBmUhAh0OmbWoXF/hlsw5pAn
-         H4Ng==
+        bh=OA8QjGm3A1ma0M+1Qx/pqdNpLbLkQ+wGUa6B0yr4R0U=;
+        b=gwS4FHn0GVNjKn0ilq161VQl6lJAy/nyJhOb7aUYTfpQFYTqmAOzjTa3oPv/PIICZv
+         bm6OStOI6Xw7xhuInVeVWHf+zLokS4r2QA3k7sP74SNGphq9nlTRgFhQ9JWbAY3WYubz
+         wm2WCbrtChTk+A9w4CSi/zlCV2Azgrh95yeoF3cry1EOl/vDNcy7FJn/E0SL9OCPGPDs
+         KBqVcSRC+V91GhDu3j4CGL/CgPSUCAnyub1xNEjsY6Jl5JqG1CuqD+dT3d2OObmyrwip
+         gJXFXJTH8P/h566oQH94us6po+RUQpuePkCqZ6yKWbAthbRlrjSxq+KOArbprBF6AOSg
+         gLqw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532O/282YGZSHBu94wnR2h/kKI2tlMvCs5rmu/tTrtO2hkH+xTG6
-	O3tKLutZ9VD2YUAaHgD1f2E=
-X-Google-Smtp-Source: ABdhPJwkr6TE1cSOzDw0usQ2+R1ae6OWBYpDJX+WFM50yDok0xmEDcUd3q8bflOE2UMLRr3saCVK0g==
-X-Received: by 2002:a02:294e:: with SMTP id p75mr28010115jap.34.1617097416692;
-        Tue, 30 Mar 2021 02:43:36 -0700 (PDT)
+X-Gm-Message-State: AOAM530gLD/PeIefV2J1PEVBEDK9hb5oNBcqvITFxrT0es4FO0W7QcI2
+	UMJtVuD5Olz1/fXXUWnjA+Q=
+X-Google-Smtp-Source: ABdhPJxyms/5tNWni9rcBwLYKE8vLA4Lz2TDUv1WKRK58pu8dNQJs09mzCbU/sSjjK/01KuQbbq2FQ==
+X-Received: by 2002:a05:6e02:184b:: with SMTP id b11mr9588846ilv.29.1617098133848;
+        Tue, 30 Mar 2021 02:55:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:907:: with SMTP id y7ls644214ilg.4.gmail; Tue, 30 Mar
- 2021 02:43:36 -0700 (PDT)
-X-Received: by 2002:a92:d912:: with SMTP id s18mr22256740iln.230.1617097416311;
-        Tue, 30 Mar 2021 02:43:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617097416; cv=none;
+Received: by 2002:a05:6602:15c8:: with SMTP id f8ls2861758iow.6.gmail; Tue, 30
+ Mar 2021 02:55:33 -0700 (PDT)
+X-Received: by 2002:a5d:878e:: with SMTP id f14mr24170049ion.176.1617098133454;
+        Tue, 30 Mar 2021 02:55:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617098133; cv=none;
         d=google.com; s=arc-20160816;
-        b=vftc9R5RGnW3c5BxCp5NRsng5pcGjbjLvrMCEMJxshRgGeF679wxDDitWggmXrnB1m
-         LjCkbNp5KtASrk3fEMawCKGl+pFI/0dZfUM9b3ZUrhF/szHarj5hUbMmR8JTbIK6zOvT
-         VtFFHXcEISQX0XXUbgkPLR/kZRXSFTMEMtIvmPh1hye3zwQ5dc6ZmHcmfIx5zpTChqy+
-         5NXuIDgepvHXSTIo1psxFrgX3+7VW+MpC6g+GwaLzE0DoFoD2qPhi5YL8XKxIZr0KDrw
-         AE1NOdWZ3vuAok8C5pi04DclwYX7FtwGrd73+ko4dobIlQKXhW0n7EVQ80jyqHO2WAB3
-         FPTw==
+        b=s+Ju9uJNUej/ZNeGnrtiB05i19A8PN+4rDaO5j0gmWKfD8mskTCpLgrFaQM4XlRxBN
+         A8Niori3inEOeoWNaKll06Jy+9HJ/e/hkcXCrk+6tCzkGrXG1z101i9My9XNMoXOLGgN
+         ckBmeJr82zLeYypLndGTCrz5imCDTxuQ19Ji19eaMa/VftvHlEzIZmL9VOsUljIhnXXN
+         3PR7O8jonQlfFVTWJv2E2SpM0WRvkFO72a5zXeDGl6poKr/8qKqW/60JwDme3nU8moms
+         53xx3VMZ227Bs5jn5SfcUAOpV25o62ilVFSgGObtukU27/1dSNTyczYzisiO1ekFiR47
+         s7Pg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:dkim-signature;
-        bh=g6WYQfr2zYY7caL+uqTK6vngT15vqF+k7JyRicFrFTM=;
-        b=agqapXI8EEgJNVH+WobF8dgLhyE3ppP2EbA8FUclHAjqQT6Zlo32n9sarjxy4yu7KT
-         3bxPqHj9QJB6+6WyD/Ay0jjqzloNMRqkbfKM3aBqvrjBWhYHhOdBKXBiJCPKBoy7RMT4
-         T2PJmm54MbVfNhehdPtogF4wKt+DMdKgwr6bmgXy6l11GQK4uW7HlxZXp0SNKopDjIaG
-         UpZ/0GwYCvdNewkMZpnthFTyAbM6ge5vWpwd20yQwZMZ8ldho1Mf+9R1WPpaDehvLwJY
-         hWp7xPg7hnQQcdQdk8iM7cxpS2FV4dD7+jlhGr5h7reWB5JyDdpHL1EGHR2DK35dOWBc
-         +suA==
+        h=organization:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr;
+        bh=lqaqZ7NsjaKboOqM4mnUlBuCSztmT2qVFjqSTfvcTdk=;
+        b=J/1YXMIhEnzCMKN3ZTtdU4dtaIhxX8OH8jL3k0CUEHAqAX5Tl2mV/U+JGjPpbRC2tZ
+         9oQK/SFjf9yuQ5SL3zGc2tQo9/QABZTK2022fhZ3DaZIiXfGxyRBDvNtW5EB6N0vPzxc
+         4UtSp7Wu7vTrdAWNDfn3GQXNIKQLbQqVvexyb4P3a9jHmDW2uR9cYvH3EATOQgbwDR+4
+         ZImhZr8PSfoEXrxqMfNwp6FhA0yjWABdDU0oeJrF/iOYzr2Z76HjVCYLwr4COlIF7mHa
+         nNvX9llKPgp3jY6PzpiFtwyLPbLUs+34cVUHbHfMsFEnAsFWMbLaLd14/XyMxySna0nf
+         Y0UA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=PKvrIn1c;
-       spf=pass (google.com: domain of vkuznets@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=vkuznets@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id y4si1484986iln.3.2021.03.30.02.43.36
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id i2si1152606iov.2.2021.03.30.02.55.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 30 Mar 2021 02:43:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vkuznets@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-477-EPcoZJ3FOK6pBEsDP1E5Tw-1; Tue, 30 Mar 2021 05:43:24 -0400
-X-MC-Unique: EPcoZJ3FOK6pBEsDP1E5Tw-1
-Received: by mail-ed1-f70.google.com with SMTP id a2so9916127edx.0
-        for <clang-built-linux@googlegroups.com>; Tue, 30 Mar 2021 02:43:24 -0700 (PDT)
-X-Received: by 2002:a05:6402:5113:: with SMTP id m19mr33248385edd.78.1617097403542;
-        Tue, 30 Mar 2021 02:43:23 -0700 (PDT)
-X-Received: by 2002:a05:6402:5113:: with SMTP id m19mr33248375edd.78.1617097403386;
-        Tue, 30 Mar 2021 02:43:23 -0700 (PDT)
-Received: from vitty.brq.redhat.com (g-server-2.ign.cz. [91.219.240.2])
-        by smtp.gmail.com with ESMTPSA id f9sm10626380edq.43.2021.03.30.02.43.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Mar 2021 02:43:22 -0700 (PDT)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: kernel test robot <lkp@intel.com>, "Rafael J. Wysocki" <rjw@rjwysocki.net>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- linux-acpi@vger.kernel.org, devel@acpica.org, linux-pm@vger.kernel.org
-Subject: Re: [pm:bleeding-edge 47/48] drivers/acpi/processor_idle.c:548:7:
- error: implicit declaration of function 'wakeup_cpu0'
-In-Reply-To: <202103300806.BOpYVHTe-lkp@intel.com>
-References: <202103300806.BOpYVHTe-lkp@intel.com>
-Date: Tue, 30 Mar 2021 11:43:22 +0200
-Message-ID: <87sg4d9dtx.fsf@vitty.brq.redhat.com>
+        Tue, 30 Mar 2021 02:55:33 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: rowE10kw6dntYUjt+oYJtmY5ihrfZm4MDkh+7XOFpWJIDnuCfXAhHbVkkm/4Te7iuQ3fbVrsGd
+ rmbi3+7ERhWQ==
+X-IronPort-AV: E=McAfee;i="6000,8403,9938"; a="253074517"
+X-IronPort-AV: E=Sophos;i="5.81,290,1610438400"; 
+   d="scan'208";a="253074517"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2021 02:55:31 -0700
+IronPort-SDR: CtTw2AIyDrwrtRYVqWj9XC+Qf3R//G1r4d8HruKFZxtIpSJVm+Xkg/jZSN+xla31GLhtKpZaaB
+ LCcyI11PSjBQ==
+X-IronPort-AV: E=Sophos;i="5.81,290,1610438400"; 
+   d="scan'208";a="393552488"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+  by orsmga002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Mar 2021 02:55:29 -0700
+Received: from andy by smile with local (Exim 4.94)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1lRB5q-00HII7-RL; Tue, 30 Mar 2021 12:55:26 +0300
+Date: Tue, 30 Mar 2021 12:55:26 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Bartosz Golaszewski <bgolaszewski@baylibre.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [linux-next:master 7313/8469] drivers/gpio/gpio-sim.c:388:34:
+ warning: unused variable 'gpio_sim_of_match'
+Message-ID: <YGL1jtM0X84/PPjm@smile.fi.intel.com>
+References: <202103301259.dhlOOcXV-lkp@intel.com>
+ <YGLrO9lsfvnWYY5Z@smile.fi.intel.com>
+ <CAMpxmJUnHjjqR-hb=6sUth9C1-pfCr7iCwGCFH6h-NDbq0WGhQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: vkuznets@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=PKvrIn1c;
-       spf=pass (google.com: domain of vkuznets@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=vkuznets@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Content-Disposition: inline
+In-Reply-To: <CAMpxmJUnHjjqR-hb=6sUth9C1-pfCr7iCwGCFH6h-NDbq0WGhQ@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Original-Sender: andriy.shevchenko@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com
+ designates 134.134.136.31 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,109 +148,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-kernel test robot <lkp@intel.com> writes:
+On Tue, Mar 30, 2021 at 11:26:17AM +0200, Bartosz Golaszewski wrote:
+> On Tue, Mar 30, 2021 at 11:11 AM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Tue, Mar 30, 2021 at 12:15:04PM +0800, kernel test robot wrote:
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > > head:   9d49ed9ca93b8c564033c1d6808017bc9052b5db
+> > > commit: 3f0279eb9e3767f37939358a42054c226503233a [7313/8469] gpio: sim: new testing module
+> > > config: arm-randconfig-r001-20210330 (attached as .config)
+> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 482283042f795ecc27838a3b2f76b5494991401c)
+> > > reproduce (this is a W=1 build):
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         # install arm cross compiling tool for clang build
+> > >         # apt-get install binutils-arm-linux-gnueabi
+> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=3f0279eb9e3767f37939358a42054c226503233a
+> > >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> > >         git fetch --no-tags linux-next master
+> > >         git checkout 3f0279eb9e3767f37939358a42054c226503233a
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
+> > >
+> > > If you fix the issue, kindly add following tag as appropriate
+> > > Reported-by: kernel test robot <lkp@intel.com>
+> > >
+> > > All warnings (new ones prefixed by >>):
+> > >
+> > > >> drivers/gpio/gpio-sim.c:388:34: warning: unused variable 'gpio_sim_of_match' [-Wunused-const-variable]
+> > >    static const struct of_device_id gpio_sim_of_match[] = {
+> > >                                     ^
+> > >    1 warning generated.
+> >
+> > of_match_ptr() should be removed AFAIU the case.
+> >
+> 
+> I'm not using it though... Other drivers do the same thing as I did
+> here. Can this be a false positive?
 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git bleeding-edge
-> head:   a70fdf61936ab0200d31bebea4b44bb67454ce07
-> commit: 5f5e49e999acd8556e694e841d63226d21e409d9 [47/48] ACPI: processor: Fix CPU0 wakeup in acpi_idle_play_dead()
-> config: x86_64-randconfig-a013-20210329 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 2a28d1d3b7bf2062288b46af34e33ccc543a99fa)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git/commit/?id=5f5e49e999acd8556e694e841d63226d21e409d9
->         git remote add pm https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git
->         git fetch --no-tags pm bleeding-edge
->         git checkout 5f5e49e999acd8556e694e841d63226d21e409d9
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->>> drivers/acpi/processor_idle.c:548:7: error: implicit declaration of function 'wakeup_cpu0' [-Werror,-Wimplicit-function-declaration]
->                    if (wakeup_cpu0())
->                        ^
+Ah, you simply missed to add it to the platform driver structure.
 
-Sigh,
+No, it's not false positive.
 
-This one is under CONFIG_SMP in arch/x86/include/asm/smp.h
-
->>> drivers/acpi/processor_idle.c:549:4: error: implicit declaration of function 'start_cpu0' [-Werror,-Wimplicit-function-declaration]
->                            start_cpu0();
-
-This one is under CONFIG_HOTPLUG_CPU0 (which obviously depends on
-CONFIG_SMP)
-
-I think we can put the whole block under #ifdef CONFIG_HOTPLUG_CPU0 as
-it makes zero sense otherwise. I'll send a follow-up patch.
-
->                            ^
->    drivers/acpi/processor_idle.c:1103:12: warning: no previous prototype for function 'acpi_processor_ffh_lpi_probe' [-Wmissing-prototypes]
->    int __weak acpi_processor_ffh_lpi_probe(unsigned int cpu)
->               ^
->    drivers/acpi/processor_idle.c:1103:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    int __weak acpi_processor_ffh_lpi_probe(unsigned int cpu)
->    ^
->    static 
->    drivers/acpi/processor_idle.c:1108:12: warning: no previous prototype for function 'acpi_processor_ffh_lpi_enter' [-Wmissing-prototypes]
->    int __weak acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
->               ^
->    drivers/acpi/processor_idle.c:1108:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->    int __weak acpi_processor_ffh_lpi_enter(struct acpi_lpi_state *lpi)
->    ^
->    static 
->    2 warnings and 2 errors generated.
->
->
-> vim +/wakeup_cpu0 +548 drivers/acpi/processor_idle.c
->
->    524	
->    525	/**
->    526	 * acpi_idle_play_dead - enters an ACPI state for long-term idle (i.e. off-lining)
->    527	 * @dev: the target CPU
->    528	 * @index: the index of suggested state
->    529	 */
->    530	static int acpi_idle_play_dead(struct cpuidle_device *dev, int index)
->    531	{
->    532		struct acpi_processor_cx *cx = per_cpu(acpi_cstate[index], dev->cpu);
->    533	
->    534		ACPI_FLUSH_CPU_CACHE();
->    535	
->    536		while (1) {
->    537	
->    538			if (cx->entry_method == ACPI_CSTATE_HALT)
->    539				safe_halt();
->    540			else if (cx->entry_method == ACPI_CSTATE_SYSTEMIO) {
->    541				inb(cx->address);
->    542				wait_for_freeze();
->    543			} else
->    544				return -ENODEV;
->    545	
->    546	#ifdef CONFIG_X86
->    547			/* If NMI wants to wake up CPU0, start CPU0. */
->  > 548			if (wakeup_cpu0())
->  > 549				start_cpu0();
->    550	#endif
->    551		}
->    552	
->    553		/* Never reached */
->    554		return 0;
->    555	}
->    556	
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> > > vim +/gpio_sim_of_match +388 drivers/gpio/gpio-sim.c
+> > >
+> > >    387
+> > >  > 388        static const struct of_device_id gpio_sim_of_match[] = {
+> > >    389                { .compatible = "gpio-simulator" },
+> > >    390                { }
+> > >    391        };
+> > >    392        MODULE_DEVICE_TABLE(of, gpio_sim_of_match);
 
 -- 
-Vitaly
+With Best Regards,
+Andy Shevchenko
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87sg4d9dtx.fsf%40vitty.brq.redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YGL1jtM0X84/PPjm%40smile.fi.intel.com.
