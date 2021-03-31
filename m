@@ -1,126 +1,184 @@
-Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBFFCR6BQMGQENERXTCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBU5JR6BQMGQE7D3W2XQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6885934F63F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 31 Mar 2021 03:32:05 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id q7sf418993ioh.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 18:32:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617154324; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=Jdy7uXiVJ3Ia1rdxgIQHRaO+pQXUewGD80i37TwyJJ8zaZbswDCfRaGuQiWsY+kva/
-         xT4EkXwyQR2swosxSFdgP2I4dTIXtHS+IpyDJ8dz00wky3N67p3kwNK8nQij9Y6Hm/tw
-         iNdzZZpkvgVzJppqsZViZDpJSblQCbC/MdWBdZftSnPeTRzJfFFJ3GvxpqCqendoDKIY
-         BCbhv5MhVYYctI+k3PtMoyEoueOoWebe2oG8wbkKAkGnY9y9Z0ZKGtuDhK7/mRrEvXDH
-         FydAIGSZ17yAZBmpJaOCnyuKJsgq8zjdXo99dozljiCRf7ItefKUHTNWVPSDsqVw37Ka
-         0p3A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=hXDcRzr3MKd8XvRto9c5ZxCu0ZdP+C/9r77YA9nZdAY=;
-        b=GmPcymswNb7N+uESKpUV3G71YGpZkBdmjhR/bd1Pob+6CfUBcxpvl3lF2rZev/m5ey
-         fkxrBvzO8FytjvCTSYGZszavdbrqG5oT1kbCloUUtrdh5mzgnLCHXPNmjF3g/6iK5w6Z
-         Qwbqx0so7jzawYX2SAbbHOxyeAzYenckwQGfygPqKn30RZT9QNPfrWNJTyQ47pCpbBi9
-         es69E48808u/cAFDGV5oTBojoSlgWMUB+EArkWP52pjbi3oBHzzQpIQD2U/jKqPuz8TD
-         1jKUMtaZ0Bz+XCmH49JtDCOV+UtArSLadu9BbnTkg5YQpm5TpZ/C5cbObUhDzoyxVqDi
-         Zfpg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sshq6hQZ;
-       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::32d as permitted sender) smtp.mailfrom=jiancai@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B137134F660
+	for <lists+clang-built-linux@lfdr.de>; Wed, 31 Mar 2021 03:48:04 +0200 (CEST)
+Received: by mail-io1-xd3e.google.com with SMTP id e15sf415914ioe.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Mar 2021 18:48:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :in-reply-to:content-language:content-transfer-encoding:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hXDcRzr3MKd8XvRto9c5ZxCu0ZdP+C/9r77YA9nZdAY=;
-        b=Q2tMz3h4q8/FpYV5JSlF2Q0ZYDzPYgUvJ4sozxSDfexDdvEFUKylA85IZlABXh/QcP
-         OaJa6b2G3Tme5fOzEKwootNd04/BmZdszixkpNulJ35uYg4bZCAqvRh8O6ItHoWj0j+9
-         8X6r1BxVMymHViqDSSLjxiBwS0dZZviT38BMrlW4upBlOvbh9wF2Au9bxQLErEOD2S6s
-         yYaJuA2mnbwTVFYoZUUTQXdjM2wjI1AATP4+Sn5PwrNKxUNW/HDPLeijdTuCpZMiJBGZ
-         ryg8vf2kPcwWbt0zo3XgWEyY+rcjaAPGx7HrZzrn4HkTqgOOZ+w0IhdEY+dT79GXNuu/
-         ksKA==
+        bh=bAngywQwRpqA6Z3eUVd69uDucJ+OyfSREOtdRItR7Qk=;
+        b=ivl3z5VqWVGvXTdQem1KO4xf9oUQSpWazKiN0n54oESKp0zfojtvxNRU1kAGj6RYr8
+         FbnT3pwM9oUUG23m8YyIi4RUtPnNz44MDOti6/z4AiuIliEXOgUneTuAr9yN1ZE+C+Gp
+         2RVFKkaTGQa/EKPVgghLhFZ3bkqlQ87W9u+whOZr6j3d0rdMKkEn8WXdXE+1IfsbrzBC
+         jPcvsvfsa2kLAkDsF9xNvP4smLoZ5qWP/H+DHpsoPKAKNdIV7lsG0JtjJGpKC5F87nxD
+         aJ+2vdy4cv7uCvcwH4o+/6GjEa2iLFBe5uHIbPkFHWByIvRzwhtpbSvgaFsjzdPcv/16
+         zwcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hXDcRzr3MKd8XvRto9c5ZxCu0ZdP+C/9r77YA9nZdAY=;
-        b=RJvk0NAykaHv72kzjulGV8Pj6X178Y9HR+11NPRPHFtaONx4+u0wa1XYiRSNC6Evne
-         zpzg2F0CGPpvLvpKYztyP0zcQsvxW3hYxPkAV+ydJ2UArUCjiRxMMEcole2agn/jIk62
-         TXKlSFK286ioprXLucy+DP0nPcSoe06Hd4guI69WcJlKyF2kesbQ6l1IzjJgi05oqr2+
-         VWOcip4FPEksj4S7g2sOuT5zzqjVCeOnVsitI6flmQiRL9RflyjIHQKHl3qeeNMMGmmB
-         xH+sxtoM6WxfpqgbCqalD6RcBg2VYVh6VbN7c3sTU9hOhcp6xL+2XKKj4Tqs6bhi7lNT
-         uiTg==
-X-Gm-Message-State: AOAM531OC2qF6nf9THg3OUDwHBW4nCqlqoqJ6zd43aHmAtnrB8aJIasc
-	QlXxNI2ns7U6s5TTXrL9VcU=
-X-Google-Smtp-Source: ABdhPJxT7WwgzhhOuBAujolV2fY8Or4D8jxPRwofFwRmfgKu1qUuCeZ2ZexXrcGnJxHXX9GvRQfSSw==
-X-Received: by 2002:a05:6638:343:: with SMTP id x3mr895797jap.44.1617154324106;
-        Tue, 30 Mar 2021 18:32:04 -0700 (PDT)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:in-reply-to:content-language:content-transfer-encoding
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-spam-checked-in-group
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bAngywQwRpqA6Z3eUVd69uDucJ+OyfSREOtdRItR7Qk=;
+        b=G9PXM18Zx38PWhy6uzR50hPwQVfpFkNOHGkMiUEpE0QQohE8FZnQXUZFwu4ln35klA
+         eyrOttgbQT1WYnA0gedKkUbaGnvxd4Waia7z34VpblEFGlvvWAzc2eo/fZLi9mJr0NMR
+         PTxsiwwzO2cSbO0rrN28Blz4obqNTvvLxTpfDN0gGTOaF93cq2K5fkL5LFK99PtudgkA
+         OS6biNHlWQQX2Nq7Vj/1LvGR+kRJM3L48eCAQfwkBPaFgRY8PABwlZaH/GoC70ryPCfx
+         /pRVr9n8VBG360Tkaqs3tQ1lHb0UW0ZHcTz5aXvLQc15VN90dwF5JOjNpJYUxcTF82PB
+         c6TQ==
+X-Gm-Message-State: AOAM5310xbs/AhJhWzxn8e3bKM9h4J7vDcsbir1vMudoOqSDytwifdLh
+	XccKQzIeSqZktXmaDw1BDiw=
+X-Google-Smtp-Source: ABdhPJymer+kDdCr+4V7GI/xUfgSQI8n08MA4d2QzUOjVuU4fzXBFm6nrsOtqMWc38AZtlvPKHTqIw==
+X-Received: by 2002:a05:6e02:925:: with SMTP id o5mr804643ilt.307.1617155283718;
+        Tue, 30 Mar 2021 18:48:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:d40a:: with SMTP id q10ls128425ilm.6.gmail; Tue, 30 Mar
- 2021 18:32:03 -0700 (PDT)
-X-Received: by 2002:a92:7007:: with SMTP id l7mr741556ilc.187.1617154323777;
-        Tue, 30 Mar 2021 18:32:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617154323; cv=none;
-        d=google.com; s=arc-20160816;
-        b=seW+4nMvEYwVilHpRakTlHpDqobAh7SbPHcjmRi9R7uqIGHwV2RSvV5NGrlBEArbuA
-         LwZOLd7R9tXvnnj2xk3YyXgiJCW6XqjG5bcYD8e8oDd3z4qwr7wDi4OUoFu7Cr6kOuBv
-         V9J1jG+gLPd+S5uTzBguO12dbYxM0ZmtAzmq9q8iRXF/DkKQAs3EMgIutSGUnrfrkGbI
-         Sh9z+1vXenXWC9Vcbiwi145nEg8Nv4ifEQZ4eeVPRZ44j0hx3hgOOsVHbHSQPYvG4Mff
-         rneuLx2us8DlI46oWWWcRrrRrM+Ut2P8QvxlNhxLfCFZyF3j9MIM0zjZSQiBYLVM5SYJ
-         RGKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=H8Y07hDLvNzX62UUhlhC8myk9QBLpL9amBPbya95S+8=;
-        b=hVqBq5XV8KkrevvUiGrKqbNMvsW+06uoqohLysMZApmVDJttLDxMOGRCyT+Dbc5Qvp
-         MuZtGzAiakS401gpZpSXoTK/ydchi2JXjFBuGFMkSf1jy0MOxNBjzXeVlQdK8svhk+lx
-         iq3CRctzAkhbVst0CPRAt/1YIFu+mbqhnW+54jlrzdCJG1LliwFP6E8xvCr8Ra/6+Ce5
-         lWGUjHp1iyLMArjvX/qz70ToFpI9OcGDmeZd7AMfeR1VABf7yJpKjarVa9Lf1Lf4i6+H
-         CUmLWZ+/BRIQR70VWVdvYqVAJelBqy65vyedaQ5WOyVzjkVpeGoYkPGHlVpaj+Q1lXvo
-         E2Jg==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=sshq6hQZ;
-       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::32d as permitted sender) smtp.mailfrom=jiancai@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ot1-x32d.google.com (mail-ot1-x32d.google.com. [2607:f8b0:4864:20::32d])
-        by gmr-mx.google.com with ESMTPS id w1si47906ilh.2.2021.03.30.18.32.03
+Received: by 2002:a05:6e02:b4b:: with SMTP id f11ls132008ilu.7.gmail; Tue, 30
+ Mar 2021 18:48:03 -0700 (PDT)
+X-Received: by 2002:a05:6e02:e91:: with SMTP id t17mr843235ilj.258.1617155283386;
+        Tue, 30 Mar 2021 18:48:03 -0700 (PDT)
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
+        by gmr-mx.google.com with ESMTPS id u17si46841ilk.5.2021.03.30.18.48.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Mar 2021 18:32:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::32d as permitted sender) client-ip=2607:f8b0:4864:20::32d;
-Received: by mail-ot1-x32d.google.com with SMTP id v24-20020a9d69d80000b02901b9aec33371so17455571oto.2
-        for <clang-built-linux@googlegroups.com>; Tue, 30 Mar 2021 18:32:03 -0700 (PDT)
-X-Received: by 2002:a9d:1c89:: with SMTP id l9mr594551ota.25.1617154323238;
- Tue, 30 Mar 2021 18:32:03 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 30 Mar 2021 18:48:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=37244bfa6f=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
+Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 12V1exv7005086;
+	Tue, 30 Mar 2021 18:47:58 -0700
+Received: from mail.thefacebook.com ([163.114.132.120])
+	by mx0a-00082601.pphosted.com with ESMTP id 37maamhjbd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 30 Mar 2021 18:47:58 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (100.104.98.9) by
+ o365-in.thefacebook.com (100.104.94.198) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 30 Mar 2021 18:47:57 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=HUUzjsvCI10vniSmUJHhbAN55C/CB9mFRPKY3B4mkAq05qUw/FfHagEnFsD+cjBLoXWDGYbokp5N6UVvNSMSugwC2+CPAF93UTb4wtudEQPCim+uCDmnOCSLqFiHHwvdpX1LaRkRXEl8V5U2iQAR+SeWRZLidgt1Y/Cd2gjH/om6gNLpPC6fp7ioG5SpfzRktgc6ByhXILB00LBy2hHKCG4dzStv3TT/zg5bR/80wuEnM2MbY9EDEBc/pWEZLdN3D/+5pEEa01BRgVHH/DpptOpvkqyj9q7gMme4lT6g7QreSZXFkUwhW9B1dWwaOlNjQWTuNsYAtcESEX35b0i3yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZbjImdJB11So7XBDvTzpCbGe0wCJ/WyGaqz9aqPSJ3M=;
+ b=nfHKuTBXJMZLM1Gv26l4UKrjbfCAvuvt8bSfBs3kel3RJ5THTHiKY369g+VBo8tExWsHHEIjsmC9DgHMveraFqqJMOYvNWFDjSiu3qyg9XGKQaC4aeLBSXOUBsLs00BITYLv5OtMd6A2HONu/6Z/Wl8OaPwoihtiX0pc2lydP8YAxb6Hz8NTEIndFP2WSf2n68T+Kh5wyj9+xI+LCfrPqH0eiM6d2FwoNeCMPPh7IXHp6eSKCYwhLVJa+F1v+U6IRdAp2PZ1nCPQ2r/+686fGqMhYYYRmDfQKi/La4O0meyIRfL0nSXKCY+Hj3ZGJfxUVxJPQ0BOL1Jw8VMFn7ntUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com (2603:10b6:805:d::27)
+ by SN6PR1501MB4093.namprd15.prod.outlook.com (2603:10b6:805:63::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3999.27; Wed, 31 Mar
+ 2021 01:47:55 +0000
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::f433:fd99:f905:8912]) by SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::f433:fd99:f905:8912%3]) with mapi id 15.20.3977.033; Wed, 31 Mar 2021
+ 01:47:55 +0000
+Subject: Re: [PATCH kbuild] kbuild: add -grecord-gcc-switches to clang build
+To: Fangrui Song <maskray@google.com>
+CC: Nick Desaulniers <ndesaulniers@google.com>, <arnaldo.melo@gmail.com>,
+        <ast@kernel.org>, <bpf@vger.kernel.org>, <kernel-team@fb.com>,
+        <linux-kbuild@vger.kernel.org>, <masahiroy@kernel.org>,
+        <michal.lkml@markovi.net>, <clang-built-linux@googlegroups.com>,
+        <sedat.dilek@gmail.com>, <morbo@google.com>
+References: <20210328064121.2062927-1-yhs@fb.com>
+ <20210329225235.1845295-1-ndesaulniers@google.com>
+ <0b8d17be-e015-83c3-88d8-7c218cd01536@fb.com>
+ <20210331002507.xv4sxe27dqirmxih@google.com>
+From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <79f231f2-2d14-0900-332e-cba42f770d9e@fb.com>
+Date: Tue, 30 Mar 2021 18:47:51 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.8.1
+In-Reply-To: <20210331002507.xv4sxe27dqirmxih@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Originating-IP: [2620:10d:c090:400::5:d5a5]
+X-ClientProxiedBy: MWHPR1601CA0011.namprd16.prod.outlook.com
+ (2603:10b6:300:da::21) To SN6PR1501MB2064.namprd15.prod.outlook.com
+ (2603:10b6:805:d::27)
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [IPv6:2620:10d:c085:21e1::1120] (2620:10d:c090:400::5:d5a5) by MWHPR1601CA0011.namprd16.prod.outlook.com (2603:10b6:300:da::21) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3977.25 via Frontend Transport; Wed, 31 Mar 2021 01:47:54 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: c9c42df0-dfb6-487c-0b00-08d8f3e700fd
+X-MS-TrafficTypeDiagnostic: SN6PR1501MB4093:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <SN6PR1501MB4093B7109AAE80D9B125E720D37C9@SN6PR1501MB4093.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 5CAAnDsuyVptgN+K3l7QdPnETHGonofwxxmM5WFNb//w9BwxmfPrj2Jw5eiepWB3Jfz7iv7egnTb7+MEhPyuIuQ37m8p//m50W9jPMGRECB27VpBMU/0Dq+UFsjAZrIJHzpjmV9GuNlphMtyZWkIxw846k97uJ+j63T4Zhk0DieWcWfpOzLzbs14xPccBSM6bj3GlBKUV6g53aQHD6l0H6W0HhKWJeNrmFopIsJDLPfU5vKDYEabqz18wVR55q47v7HEh2S+KT4yApj5waul2aWgvZuAZxCyFWM2v7/2borsnkrRxy40YSYqSpuwUfZ2QzNx0+dATib1V9WD/EofABXQFkZWxaW4P0kTi7w9YfwHGjvHMQA58w2LtrP5Uoc2MoKl5IB7qdh6m3YEvxnaGnJw1jlUnp+VUFm0PmqGel4T9QpLR/iSDu5io/I4O7BkP8+/MaGZYw9Is7CstdfHdvknZYVF6bzhhH0s9SuyP+q7Z9e/B96F8tJXimmH9KPTAfm4c7ZoNB6cJMpMafgtBL/SLMTsDhI4m1ItnkIRisb9kLNLCk4KPNtJghrqE2vnnJwQWa9e+6OV83qnyxqg0WnzwohAXTLk/K8bqiqYct9Ny67UfdzvcvI6DpymclakFu+wVS9PF0zfvgRZYs/NALq7ooHUIYB7OJRL7vNgRemx530eNLjXMVhbdFAN3V+BRvOfpfEiuNv/qix0yC7V1kOiFOTDMqkC+KB+jwovVAjjyFel8MeZn3uFp+oG9QyFEMYk6PDYrntdS267WDnLPL2Fvy+yQyWTUC6ACgr51EA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR1501MB2064.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(346002)(136003)(376002)(39860400002)(396003)(366004)(6666004)(6916009)(6486002)(52116002)(5660300002)(31686004)(36756003)(38100700001)(4326008)(83380400001)(66476007)(16526019)(186003)(31696002)(2616005)(966005)(7416002)(66946007)(66556008)(86362001)(478600001)(8676002)(316002)(8936002)(53546011)(2906002)(45980500001)(43740500002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?bW1GbEtLZTJzYTNoMm5vV1JvcFNRS0dUNG9uZzhlNXh2TGY3enIzY2Uvdk82?=
+ =?utf-8?B?WTVRMzJvUjFMZVpwOEZJcDRsNDhlUk1xcG13Z0NMTDNKMERaTWVjUjZPTjBt?=
+ =?utf-8?B?OGh4UWJvbFZLYSs1d3pNQkJEank0R3dTUTdMK0UyVzVKTjhnU1R3Z3MwemU1?=
+ =?utf-8?B?UFNpNlRuVTllZUU5SnNBNUhRK1dhQ3drYU80dFdRZXNBUjRQSi9CL2N5eXNt?=
+ =?utf-8?B?cDVRdDRJZ3psZnFJeVRsa2Z6N3U0cVpSaVZFWm93d1ZMbWFBQXlGSlRaTk9L?=
+ =?utf-8?B?di9ZQmV0OUNqSjZXN1ZMbWJ6VGh3YkxyTnNFa1VsejlDbWhoNEwwRHE4dDhE?=
+ =?utf-8?B?QkpQNXBlTGRJak5iL0dWYXQ2UHhzM0JtR2ZwZVdJb0VkZlY0T3JRZGlMckJ4?=
+ =?utf-8?B?eTIzc2N4MHJoZTFQNmtjY3dtaWhoQVFEV0dsbG54L0o2c0ZLbzNSOTQvUXdN?=
+ =?utf-8?B?MndSMmtQNm1NYkFLOTB5SzJFUEk5amhZcDBaclBLMVIvYWJRSkdieTBVNVRB?=
+ =?utf-8?B?MGwyL3plOFhrQk1DeGFkUGlzMmtoY1luOE1teG1DcXdLZW9sM3dIRmRFSzlK?=
+ =?utf-8?B?b1htNzQrT1A4WWx4QWs2TEw1aEFtVU1BWHFpc1dTTTczaEtvSmhhejF3UzFQ?=
+ =?utf-8?B?cTlITU1QNmE4V0IzQ2h6eEI5WEFMNVVLRHVudE5oL2JrcXBsQXM4Ykp6U2FS?=
+ =?utf-8?B?U0tQM2xzMVUzQVVFMDNYaW55Sityd3ZqVDZPQitVcU1WZjNpMVQyendhMy80?=
+ =?utf-8?B?SjlXR0FtMkhvMm5QcE1lcXhWKzNraEp2OEJVRDFmNjRyaE9MRHJERnFBSzFQ?=
+ =?utf-8?B?aEUxOWdXZWRFbzdRNlFPNVdJOWlmakJYRDVMWTlRUEw5TUxBKys2NTI3T0ZZ?=
+ =?utf-8?B?NUtrb3V5L1kvVmVhNG50NnZ0S0Nld2kxVm8yemtzZWt6TFpQUFg5dk9penZv?=
+ =?utf-8?B?LzRTVTlnOU10TGRLMEdUQ0QvL0tSTFBVK2hVK0VrN0xtTENsZWNwKzd3TmJC?=
+ =?utf-8?B?L1RSejAzQUp2N1daT0l0d3BaWXRMZzdhZ042RzJQYzB6VFMvR3hxZHo2VWgr?=
+ =?utf-8?B?bHhzWFY1TVFGOVpkMnd4Tk90cmFnS0JYaE5BZEpFUTRGK2ZOaUZGTzZkMFNm?=
+ =?utf-8?B?NjhDdGN1c1hPNTFpTm9LRzJpWkxOTitmMWlvcllXcGdOY0xSVjR2YU9xU1R3?=
+ =?utf-8?B?ZkhlS3dLTm1XZ0xvUjg2VUNCOC9SQWxSWDR0ZG5GbEM3U1V1SS9oTlU1Z240?=
+ =?utf-8?B?SUdqWDliNXZRdjNncXB5aDB1dU9zM2ZidmhIdEZ1SzNISU1Cc1FqVXFZaVJD?=
+ =?utf-8?B?TXJjZDIxS1NmcUFpOU1QR3d4MVdMZGlSamRIRmU0TmplQnlCS0doOXByWUNY?=
+ =?utf-8?B?SHFTd0FML2tvbkppTWFEbklOVzhjTDR2NXB2RnBONGRGakpsR1N2dDJEcURx?=
+ =?utf-8?B?aHRaTStWb3hXaGRabC9wNzhMSTR5alV4WWpMbWcxYmFTbE9pVjVUQ1JYVjBY?=
+ =?utf-8?B?RXZFTytSb1dydEFaSmR5dEMzMnBRT1pIWVJJTjdURGZEMEtTL0NTeC9rdWw4?=
+ =?utf-8?B?ZXVaSjgrQXI1cktHSE5oMWg0RVRPa3hSc3hrMUdWSE05dDlhRDVKZU1nNUs3?=
+ =?utf-8?B?MHVzcXJWNFI2WEw2dllDMWR3cER0SU5HdmlsZXZLWVZqSGhKK3Z4ZWczQmRD?=
+ =?utf-8?B?SHFESjlYMzVESTQzQVJqTVZSMEl4dEpZbW9jaW5INEd0bGdnTmd4a1o0VFN1?=
+ =?utf-8?B?bWt3S2Q4OG5FM2ZlNHlzNk1pdXI2M20yRWZLYVNNdU9VNkZmNks1RUR1NTZp?=
+ =?utf-8?Q?StUoSudSAoN4XrDstuSJcl5nHzzaxPG2/xj7s=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9c42df0-dfb6-487c-0b00-08d8f3e700fd
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR1501MB2064.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Mar 2021 01:47:55.4122
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rkWPZVVFRu3MNkiT5FXrNoIga4mMg6cf4DNFMsf1ve5sScdMHL8lmSo+d/1WBjTF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR1501MB4093
+X-OriginatorOrg: fb.com
+X-Proofpoint-ORIG-GUID: uv4JAirh73WN_V-hQjI8ngPmV9NdL6cz
+X-Proofpoint-GUID: uv4JAirh73WN_V-hQjI8ngPmV9NdL6cz
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-UnRewURL: 1 URL was un-rewritten
 MIME-Version: 1.0
-References: <20210330230249.709221-1-jiancai@google.com> <20210330232946.m5p7426macyjduzm@archlinux-ax161>
- <114a5697-9b5c-daf1-f0fc-dc190d4db74d@roeck-us.net>
-In-Reply-To: <114a5697-9b5c-daf1-f0fc-dc190d4db74d@roeck-us.net>
-From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 30 Mar 2021 18:31:52 -0700
-Message-ID: <CA+SOCLKbrOS9HJHLqRrdeq2ene_Rjs42ak9UzA=jtYb0hqWY1g@mail.gmail.com>
-Subject: Re: [PATCH] blk-mq: fix alignment mismatch.
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Nathan Chancellor <nathan@kernel.org>, Christopher Di Bella <cjdb@google.com>, 
-	Manoj Gupta <manojgupta@google.com>, Luis Lozano <llozano@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Jens Axboe <axboe@kernel.dk>, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-block@vger.kernel.org, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jiancai@google.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369,18.0.761
+ definitions=2021-03-30_13:2021-03-30,2021-03-30 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 bulkscore=0 adultscore=0
+ suspectscore=0 phishscore=0 spamscore=0 priorityscore=1501 clxscore=1015
+ mlxlogscore=856 mlxscore=0 impostorscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2103300000 definitions=main-2103310010
+X-FB-Internal: deliver
+X-Original-Sender: yhs@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=sshq6hQZ;       spf=pass
- (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::32d
- as permitted sender) smtp.mailfrom=jiancai@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Jian Cai <jiancai@google.com>
-Reply-To: Jian Cai <jiancai@google.com>
+ header.i=@fb.com header.s=facebook header.b="Og3cQL/S";       arc=fail (body
+ hash mismatch);       spf=pass (google.com: domain of prvs=37244bfa6f=yhs@fb.com
+ designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=37244bfa6f=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Yonghong Song <yhs@fb.com>
+Reply-To: Yonghong Song <yhs@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,69 +191,85 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Thanks for all the information. I'll check for similar instances and
-send an updated version.
 
 
-On Tue, Mar 30, 2021 at 5:26 PM Guenter Roeck <linux@roeck-us.net> wrote:
->
-> On 3/30/21 4:29 PM, Nathan Chancellor wrote:
-> > Hi Jian,
-> >
-> > On Tue, Mar 30, 2021 at 04:02:49PM -0700, Jian Cai wrote:
-> >> This fixes the mismatch of alignments between csd and its use as an
-> >> argument to smp_call_function_single_async, which causes build failure
-> >> when -Walign-mismatch in Clang is used.
-> >>
-> >> Link:
-> >> http://crrev.com/c/1193732
-> >>
-> >> Suggested-by: Guenter Roeck <linux@roeck-us.net>
-> >> Signed-off-by: Jian Cai <jiancai@google.com>
-> >
-> > Thanks for the patch. This is effectively a revert of commit
-> > 4ccafe032005 ("block: unalign call_single_data in struct request"),
-> > which I had brought up in this thread:
-> >
-> > https://lore.kernel.org/r/20210310182307.zzcbi5w5jrmveld4@archlinux-ax161/
-> >
-> > This is obviously a correct fix, I am not just sure what the impact to
-> > 'struct request' will be.
-> >
->
-> As commit 4ccafe032005 states, it increases the request structure size.
-> Given the exchange referenced above, I think we'll need to disable
-> the warning in the block code.
->
-> Thanks,
-> Guenter
->
-> > Cheers,
-> > Nathan
-> >
-> >> ---
-> >>  include/linux/blkdev.h | 2 +-
-> >>  1 file changed, 1 insertion(+), 1 deletion(-)
-> >>
-> >> diff --git a/include/linux/blkdev.h b/include/linux/blkdev.h
-> >> index bc6bc8383b43..3b92330d95ad 100644
-> >> --- a/include/linux/blkdev.h
-> >> +++ b/include/linux/blkdev.h
-> >> @@ -231,7 +231,7 @@ struct request {
-> >>      unsigned long deadline;
-> >>
-> >>      union {
-> >> -            struct __call_single_data csd;
-> >> +            call_single_data_t csd;
-> >>              u64 fifo_time;
-> >>      };
-> >>
-> >> --
-> >> 2.31.0.291.g576ba9dcdaf-goog
-> >>
->
+On 3/30/21 5:25 PM, Fangrui Song wrote:
+> On 2021-03-30, 'Yonghong Song' via Clang Built Linux wrote:
+>>
+>>
+>> On 3/29/21 3:52 PM, Nick Desaulniers wrote:
+>>> (replying to=20
+>>> https://lore.kernel.org/bpf/20210328064121.2062927-1-yhs@fb.com/)
+>>>
+>>> Thanks for the patch!
+>>>
+>>>> +# gcc emits compilation flags in dwarf DW_AT_producer by default
+>>>> +# while clang needs explicit flag. Add this flag explicitly.
+>>>> +ifdef CONFIG_CC_IS_CLANG
+>>>> +DEBUG_CFLAGS=C2=A0=C2=A0=C2=A0 +=3D -grecord-gcc-switches
+>>>> +endif
+>>>> +
+>=20
+> Yes, gcc defaults to -grecord-gcc-switches. Clang doesn't.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLKbrOS9HJHLqRrdeq2ene_Rjs42ak9UzA%3DjtYb0hqWY1g%40mail.gmail.com.
+Could you know why? dwarf size concern?
+
+>=20
+>>> This adds ~5MB/1% to vmlinux of an x86_64 defconfig built with clang.=
+=20
+>>> Do we
+>>> want to add additional guards for CONFIG_DEBUG_INFO_BTF, so that we=20
+>>> don't have
+>>> to pay that cost if that config is not set?
+>>
+>> Since this patch is mostly motivated to detect whether the kernel is
+>> built with clang lto or not. Let me add the flag only if lto is
+>> enabled. My measurement shows 0.5% increase to thinlto-vmlinux.
+>> The smaller percentage is due to larger .debug_info section
+>> (almost double) for thinlto vs. no lto.
+>>
+>> ifdef CONFIG_LTO_CLANG
+>> DEBUG_CFLAGS=C2=A0=C2=A0 +=3D -grecord-gcc-switches
+>> endif
+>>
+>> This will make pahole with any clang built kernels, lto or non-lto.
+>=20
+> I share the same concern about sizes. Can't pahole know it is clang LTO
+> via other means? If pahole just needs to know the one-bit information
+> (clang LTO vs not), having every compile option seems unnecessary....
+
+This is v2 of the patch
+   https://lore.kernel.org/bpf/20210331001623.2778934-1-yhs@fb.com/
+The flag will be guarded with CONFIG_LTO_CLANG.
+
+As mentioned in commit message of v2, the alternative is
+to go through every cu to find out whether DW_FORM_ref_addr is used
+or not. In other words, check every possible cross-cu references
+to find whether cross-cu reference actually happens or not. This
+is quite heavy for pahole...
+
+What we really want to know is whether cross-cu reference happens
+or not? If there is an easy way to get it, that will be great.
+
+>=20
+>> If the maintainer wants further restriction with CONFIG_DEBUG_INFO_BTF,
+>> I can do that in another revision.
+>>
+>> --=20
+>> You received this message because you are subscribed to the Google=20
+>> Groups "Clang Built Linux" group.
+>> To unsubscribe from this group and stop receiving emails from it, send=
+=20
+>> an email to clang-built-linux+unsubscribe@googlegroups.com.
+>> To view this discussion on the web visit=20
+>> https://groups.google.com/d/msgid/clang-built-linux/0b8d17be-e015-83c3-8=
+8d8-7c218cd01536@fb.com=20
+>> .
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/79f231f2-2d14-0900-332e-cba42f770d9e%40fb.com.
