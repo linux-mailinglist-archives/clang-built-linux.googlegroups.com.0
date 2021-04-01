@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD5ID66FXMARB5XBS6BQMGQEUZLTY2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD5ID66FXMARB27FS6BQMGQEK5GBJBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8E8223516A5
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 18:12:38 +0200 (CEST)
-Received: by mail-wr1-x43c.google.com with SMTP id o11sf2988126wrc.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 09:12:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617293558; cv=pass;
+Received: from mail-ej1-x63e.google.com (mail-ej1-x63e.google.com [IPv6:2a00:1450:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B19EB3516AF
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 18:20:59 +0200 (CEST)
+Received: by mail-ej1-x63e.google.com with SMTP id kx22sf2443663ejc.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 09:20:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617294059; cv=pass;
         d=google.com; s=arc-20160816;
-        b=icmRMwtTqMzHNcf+wRum5JRk6y6rVWY7NHcuBJUDAeYLfP8gaGLFDPBgqx4CW3UD6z
-         iWJW8RfVuQIS4kfRscnJYdO8cq/2SCjT3f66KR8gcKli8EyntsiKLVMUCiEZSl2ENeV+
-         sY85mxfuSY1whes7AL0BcKeMKcpFULN1opm/7skXp6V+Z1b/xfYKB6CkE+8GXmDx6Ciq
-         d7qC33sRRQBSgAmJn0k7xpJzILQiRjoHhPLqAMRIH576j2dV1SWGlytfr4MhDd4r1NTJ
-         3JvhIZDfWiYgA3fV0tqDJ8FeA+L1tyGqTNJfBEXbppxoC2NTWtKUm6AigeUO14Jj9II6
-         zQ3A==
+        b=02m17XEjOc+Qeyi63/NGP5S5WAavPPNsvEZekHS3cnIE22fcbqkk7TC9Gluxl+XE6+
+         0e07GYCJef9IdY9UzGAMJpEW7MzyCgiVXASHjpfDoiaswAK9MswoB+0vsFYorMpI3BIH
+         91rAii90TPuYFpoSR59EkNLymNDWAhAGP6iF80hocnDo87XlOVTT50wmHW4a5MwtFb91
+         /9umY/TOi5Dbd1pFPgv9idGxkIPTSzgpGNhD3ue77skxBipFjFLiolLc3Ph1OAvtRDKK
+         S/GgsvsIcvBRam08UXabG33LO+pOu3a0HSrhgBdxVBEPB61u6Jp9PVqPDqoiBcLKfsJD
+         mS9A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=uZdetElUbfRGn/ww93zQUEAmSRqBKAagqMc5QEGQP5c=;
-        b=CExWowLHawKve7M5fPdf3IQzvdXwfRDlsXqi1E6fery1VlzPyID+c1chFZKrcW64Y/
-         9DEeaOAZDCr25UssJmQ1x2YN5cXbJLNP3nztkhPI7MmwIlEHP8//mVLMnQec0NZgt/xN
-         c5CojLxOXMrnwbpx8fzn+m8J/xF2SrNzP5Tyq/ttNAQO+ezAZQGA2Z5/p3zWyTEVvaXK
-         jdtCbbl3PmezaFicl6DHa3Ig0y4Guk4BghYkxoMwES8Xt0nht5aMBV4viFjLFdMAfPSz
-         gqV76K3Az7kyOxYnhtxy3/hqjpeTlQpi34ttXZyCnE4+KnpKOSk5CLRA/7LMupayLaHD
-         5ROg==
+        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
+        b=sqK+gSdJqbe42TTBSrDIeNfH9MWT5AqGnhwz6lrbjiol28W4uuzbMkI6lUuRAncyS1
+         Eu/OoDOjwF7u25bWhGBqWl+TpoKUxvaNsvqKj6mUIqYIj9VpiqjE8r3BBOfFDpCc8ewq
+         ip5IKEoQnP253tv7+WxIPWkZ5u5+zJbNPLUnzmSVMckTie+QBweTd0J339Ybqv7ukxOI
+         p2NvX09y0AzaSghFx7UsIFpuhOYN8zuhp9RGeZszeDveQR8qgO8xZfVAPAkfk6xEAlZp
+         LXwjz4OXsRa2qKoo0c4R30qJVyVedVSpL8PgyTIkMuGPHlk4zRsawPIjjvmUc2xm/yeY
+         PYCQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=KyF3n3no;
-       spf=pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Hw1BPIfi;
+       spf=pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,88 +35,87 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uZdetElUbfRGn/ww93zQUEAmSRqBKAagqMc5QEGQP5c=;
-        b=rGlXwd2R5wwwrLWRKFkP5c65zcvwGdny6sv8W0UVrUl8IzS+9yG8ip63q7GVDw7ZOO
-         Rw9vA40NtP/Qih51MHT1KiBjMc0PPXxul4EAOIX+7K3Gk1RZu4qKAieTf+TeBuE5ETo5
-         iry+ucSA/BB8hXiA6+beFGECNp1WwCbDBfvrm0ZeZvd6f5vTWP7dd+ryGHsvvT1Nc/SM
-         MtcicX8oDawAbqfyNBGwt9OvqtCC0NnObS89+K0KCCrR8ppcl3RY8stZ4VaNdD/YCKYN
-         KdcaF7zbMVvMb//yb2Wd9fkDDaPuTV/qzD7uq4dfN7Q6z6JgTDHhI+NLyGdzBCw/wIJG
-         IQig==
+        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
+        b=I0ZquMkLOA72dGkt92xzWikIF62SvfNbIZncEhjocgBfzDd5iYnsx7MI8LcGX578yf
+         GuvB+hQ5cXUV+5p/YnATU5/Ozn5LSy8QB3/sWNNO7VLnMQKkQIn9BQBtt8kXG0B4fEET
+         QZX/V7hlrhw6zWeQ4vEhQgxUYVRiPkgCIOCMBqQDIsvLdS0VQ+E6zQZ37pl7YKF5TPfW
+         YQc4eY2ZEzsWJhp+NctLzFQsv2XixKpOamCRFJ+UmI21B3CncXpssqI7+S7vWx7ziL1X
+         PPgU7DAqfq6F8tJMxAZoDVu0dHP+r10dpii2oVnAjfAcqoIBIefNckAO1MVyn68eEjz4
+         eifA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uZdetElUbfRGn/ww93zQUEAmSRqBKAagqMc5QEGQP5c=;
-        b=rjOdVQywUgcishE14M9ucemVv+YMfzNpcxshDUjWi62Hi0YHedHUv0I99BEPZ7SbxO
-         aSxWWXlTZYT1FHEXw+32Q9EtR0QS7BglUW8/LTwYzy+RxNqpktU5vaN4jJAKH/rOdepU
-         DicK4tiK5WzSSoP90QXKp7uX75MOyhRzVTcO8H9Ctv9QrrNdqbaqmUk0cb0VipmmI57s
-         2dTAyvo+bDlsxE/6O4RFg9UZpk4/t2IAlu4e+QN24XmvzVfdRfzUwHVQYBbuqNeGchtV
-         4AsrQ0g0hn5JnO/4Bt84lP+n3uS8v1Bl8XjnIezkhYimaj9L/3y3XgT4JQ4UX6qYshNm
-         7hzA==
+        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
+        b=F9y2fDrBbP8G98ZGWFgPvK+Ve2Ma6R8reWKczMFeDDw0qBQc52RuH3L6twEH35HGfu
+         G8nMpCqkEbBA2/2k1PQSDc7GjEa0SnT3gzzdXtUN5Xi+Uy7CjKsMo8CDMp4CmnZJZkHJ
+         sfYgTxO8VkOjWyPwcpAQHeG7kLoBelz4ZuV6aH/y6eWV4sCspeeKerybiRwAEsYxBe22
+         QlCdamFbyQIbKf+cU40LWLsCFXQkImvKAdczI5cVqpm5qSK7L3ftEhT5LDM/Nw/tn0qG
+         5SaGbGGpAM34M+lpEZMkhK6y2PqRi34alsbLxD3JW5ICsIVCj2S8eefixIXp3MJGC7Wj
+         L+qQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uZdetElUbfRGn/ww93zQUEAmSRqBKAagqMc5QEGQP5c=;
-        b=QmiHG07p990Sqwm/gc5QBVg5E95TLn9daJ6JgfkjXU/NONomx0B0rqzxEc6v6RxUzY
-         KBR2/ZXUe93uCLD3Eet5J2O5RKN6PIx1JZ9gKgrvD1QsspLgKyfkagkao7xXhEJQCkw7
-         DqM/e99QjDBtC+WwujFg0Gp9a3Gszgu8SoYR5A5oG/UIqkPKm6dSGlPRTfnyqMkQsz91
-         Lu+NO3E45AZAQvmwb+Tg3i+PCjn41syHJLo71SSNx+WrwxDnQ+xd8VobVB0gN6hCSUO2
-         XFukrxh50gyh0joS3eYDmBDSiEXNjunju0thpyWa5TNY8PIpChRFrcg5VVfI2T8+r+yj
-         4sAA==
+        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
+        b=oW5u2XZpHjyQ2gd7WDldDDOLx94W4I1SE1Y1TqoQwDf5bsb7+ZReDFGkG1Kss10L7g
+         LY8Zdm5HkAgCO2Yrs/Z/JbdpDHjlYOu2Q6MiwE4bh+Mh2BYxggKAVLB5YVxEtFA2Z+7Z
+         UUVc73kq58ssUTmgTXYOPdjkGd9vtbOnKV2ftsSt/8XOhmOZZ+KrKP08Pl9X30nobItk
+         UgFBcGiI1C/WWCo26pm+z27N+vP2tfCjTaxo+I0JB5lxd7fk0B0DR9OHA2cC/wFibW+x
+         96DINc+hqdUHb6sDnpkOfcAnWfXlStisCheOCdEKEiFeB2Jf0NlGxrmjuwqQZZ+bgQoy
+         c6dg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531y5e3jS0FH6xTe2f+rjQ4ANcBneGRoqa0YvGvibluHZEO28+A/
-	KdxdVrYkgoamhx8k6fYa+CA=
-X-Google-Smtp-Source: ABdhPJxRCUX9KgIl3PmDoNrcwr0ILfnoDczy9zJdY6BQBe3Y7tcHu1C/wnlJup6M1CJjvAUJu1aYiQ==
-X-Received: by 2002:a5d:6a11:: with SMTP id m17mr10929226wru.361.1617293558333;
-        Thu, 01 Apr 2021 09:12:38 -0700 (PDT)
+X-Gm-Message-State: AOAM531ZYtx0O8wtJHOhNMHVsXSZ4VDR2pCFi2VYVbXNFTvgvGuBgzBs
+	s0dcezKZkFe5QHb5GnFnVr4=
+X-Google-Smtp-Source: ABdhPJwB7WWL3xGpGBPtTH5nubVkljNiw+HaS7VqJHW/dMC/ruiEmlf2pQB9FkL2qCD8CqpOOqJZ4A==
+X-Received: by 2002:a05:6402:51cd:: with SMTP id r13mr10884421edd.116.1617294059465;
+        Thu, 01 Apr 2021 09:20:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:24d4:: with SMTP id k203ls3197449wmk.0.canary-gmail;
- Thu, 01 Apr 2021 09:12:37 -0700 (PDT)
-X-Received: by 2002:a1c:6a05:: with SMTP id f5mr8674672wmc.75.1617293557393;
-        Thu, 01 Apr 2021 09:12:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617293557; cv=none;
+Received: by 2002:aa7:d788:: with SMTP id s8ls459193edq.1.gmail; Thu, 01 Apr
+ 2021 09:20:58 -0700 (PDT)
+X-Received: by 2002:aa7:c4cc:: with SMTP id p12mr10481901edr.325.1617294058533;
+        Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617294058; cv=none;
         d=google.com; s=arc-20160816;
-        b=o80j+bAbZFRvI1OviJ0i8i4At96Sk+SIF58TCJu2PKN25qVUt/tDmQOEnM5r69Vv2o
-         Q/9xCef4gkUMtvZUauXNY/uuIplcYzAODKYjyrHph93cZR5TkR7Z4QOaS0TKUvJu7O4O
-         y8reG5pYiI4Hb8Y2qOGzdzYWgjVhCDCt3R4l4xpXf/t4c+g2ZBPsX9RlYVTIPBd0Oer1
-         0iACW6b4Oabt3ryoA7WjtF6P1p5BXJqyKapGlr/2PCZuBsp1sM/hmNK/PWenVFM1ZC+w
-         mCdCx2aVCVQBAQi92TlV0i0L6UFHPB7LTKa/sktSf1omXx+aJN+GjdAMFk3It5tYBP3V
-         IPDg==
+        b=xclm3u4ZxADndMjXCEaaWQOT8Oe2SsDEeOrHyGNeq6ieVFZDWj7JEnL1QMxitqWtU0
+         5YG6EAO78fyAc4jOeLqNt37gH4ajMMdjisnLi8flfY8MPTH5Fdxr/UW+mcgMG8Mxrxnl
+         l7BMkcwNjAVfzWMkQuBeHTV6htDauQ6cOTBf2esAIUHbVSNGxlMy/bFbVWiZZvw2ysnA
+         mBe3Obt5nYblmAGGYs+y0BhmSq7O6Dtd39iiUveat4LelTB+zxHbsAVVL4EqVwMm5bJD
+         mBnf4M+jsp+nFz7ko5uQPVeI5n9caqWWWHR9MUoj57zhu3aw7P+5sfrz1TUOzSuQsrdx
+         KPYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=r2enjizmpD/LJygPj4XEpQS/6/yzRXEF2wF7GTPmSXo=;
-        b=PJU0D1KECrK0rVD6rjY3tPzIGdiRsZWOu3Yj+xSJqZwxWWxh5K4pTzWMmvbP/gviB0
-         MltYLK0DPdBf5T7eFcdZQuvaQxfMAvwWtqooFh5h9galjC8saLviz9gL6iGxdrQXqbIb
-         +oeriIgaKUhZWGF9gkULY740TP1eLkiCYpgL+V7hVKR9LhdhME444J+haZOmr4aB9KDx
-         OjPc6aj46Lxq1RHlo+HNdrwSsRdZwLO2TboRe0lKRZ3HVMKljO5SqQCorwI/f77KwXql
-         gFpLdtM1r7BmldbWbKu05R7KQObSHWVj44vC1eQsRY3PGMx4fyI5n9u+3Fkd/qhY0/Q9
-         Ck2A==
+        bh=TsIThPytQbw/FRN51LQr5onPfH3wKs5FFxL6HpmuigI=;
+        b=UHQpEKzTYvTlW0Sibie568I+ksGGdVcddFKrk+sGTCzMXVYTmz+lTMNTTB5d8W8m54
+         pnEPm5dR0TyI+lprlMj1splStm4waBheAVyByVILvRwRc/qk3hNteyHCThO/JAohTMiV
+         xBzZy2fDZO68HFS0VwcBiXozraPLlfX61ualSH+4txGQGTDVI3RM/CFQDtBDDWw8buxs
+         tff2Q0kVhEC8D4PcH70zwQp3ZOue7jOR4RtPUuHu8bgSb2tXvCctO+IsXkzPQyhRCGAB
+         u+WnIRUXiScb4RgL3VDDusyMDI+OyoMzifYhb71aVUafN1F+LUxJnm8vSBAdILz2Zk9G
+         XCsg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=KyF3n3no;
-       spf=pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Hw1BPIfi;
+       spf=pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lj1-x231.google.com (mail-lj1-x231.google.com. [2a00:1450:4864:20::231])
-        by gmr-mx.google.com with ESMTPS id z202si600835wmc.0.2021.04.01.09.12.37
+Received: from mail-lf1-x12d.google.com (mail-lf1-x12d.google.com. [2a00:1450:4864:20::12d])
+        by gmr-mx.google.com with ESMTPS id ck26si654647edb.1.2021.04.01.09.20.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Apr 2021 09:12:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::231 as permitted sender) client-ip=2a00:1450:4864:20::231;
-Received: by mail-lj1-x231.google.com with SMTP id u20so2800723lja.13
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 09:12:37 -0700 (PDT)
-X-Received: by 2002:a2e:b5d8:: with SMTP id g24mr6094104ljn.64.1617293557129;
-        Thu, 01 Apr 2021 09:12:37 -0700 (PDT)
+        Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) client-ip=2a00:1450:4864:20::12d;
+Received: by mail-lf1-x12d.google.com with SMTP id o126so3745772lfa.0
+        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
+X-Received: by 2002:a05:6512:4c4:: with SMTP id w4mr6080047lfq.91.1617294058343;
+        Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
 Received: from 192.168.1.8 ([212.59.242.58])
-        by smtp.gmail.com with ESMTPSA id l10sm586356lfk.48.2021.04.01.09.12.35
+        by smtp.gmail.com with ESMTPSA id n22sm660215ljc.23.2021.04.01.09.20.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Apr 2021 09:12:36 -0700 (PDT)
+        Thu, 01 Apr 2021 09:20:57 -0700 (PDT)
 From: Maciej Falkowski <maciej.falkowski9@gmail.com>
-To: khilman@kernel.org,
-	aaro.koskinen@iki.fi,
+To: aaro.koskinen@iki.fi,
 	tony@atomide.com,
 	linux@armlinux.org.uk
 Cc: linux-omap@vger.kernel.org,
@@ -124,16 +123,16 @@ Cc: linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	maciej.falkowski9@gmail.com
-Subject: [PATCH] ARM: OMAP: Fix use of possibly uninitialized irq variable
-Date: Thu,  1 Apr 2021 18:11:27 +0200
-Message-Id: <20210401161127.8942-1-maciej.falkowski9@gmail.com>
+Subject: [PATCH] usb: isp1301-omap: Add missing gpiod_add_lookup_table function
+Date: Thu,  1 Apr 2021 18:20:32 +0200
+Message-Id: <20210401162032.10150-1-maciej.falkowski9@gmail.com>
 X-Mailer: git-send-email 2.26.3
 MIME-Version: 1.0
 X-Original-Sender: maciej.falkowski9@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=KyF3n3no;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=Hw1BPIfi;       spf=pass
  (google.com: domain of maciej.falkowski9@gmail.com designates
- 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
+ 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -148,62 +147,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The current control flow of IRQ number assignment to `irq` variable
-allows a request of IRQ of unspecified value,
-generating a warning under Clang compilation with omap1_defconfig on linux-next:
+The gpiod table was added without any usage making it unused
+as reported by Clang compilation from omap1_defconfig on linux-next:
 
-arch/arm/mach-omap1/pm.c:656:11: warning: variable 'irq' is used uninitialized whenever
-'if' condition is false [-Wsometimes-uninitialized]
-        else if (cpu_is_omap16xx())
-                 ^~~~~~~~~~~~~~~~~
-./arch/arm/mach-omap1/include/mach/soc.h:123:30: note: expanded from macro 'cpu_is_omap16xx'
-                                        ^~~~~~~~~~~~~
-arch/arm/mach-omap1/pm.c:658:18: note: uninitialized use occurs here
-        if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup",
-                        ^~~
-arch/arm/mach-omap1/pm.c:656:7: note: remove the 'if' if its condition is always true
-        else if (cpu_is_omap16xx())
-             ^~~~~~~~~~~~~~~~~~~~~~
-arch/arm/mach-omap1/pm.c:611:9: note: initialize the variable 'irq' to silence this warning
-        int irq;
-               ^
-                = 0
+arch/arm/mach-omap1/board-h2.c:347:34: warning: unused variable 'isp1301_gpiod_table' [-Wunused-variable]
+static struct gpiod_lookup_table isp1301_gpiod_table = {
+                                 ^
 1 warning generated.
 
-The patch provides a default value to the `irq` variable
-along with a validity check.
+The patch adds the missing gpiod_add_lookup_table() function.
 
 Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
-Link: https://github.com/ClangBuiltLinux/linux/issues/1324
+Fixes: f3ef38160e3d ("usb: isp1301-omap: Convert to use GPIO descriptors")
+Link: https://github.com/ClangBuiltLinux/linux/issues/1325
 ---
- arch/arm/mach-omap1/pm.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ arch/arm/mach-omap1/board-h2.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-omap1/pm.c b/arch/arm/mach-omap1/pm.c
-index 2c1e2b32b9b3..a745d64d4699 100644
---- a/arch/arm/mach-omap1/pm.c
-+++ b/arch/arm/mach-omap1/pm.c
-@@ -655,9 +655,13 @@ static int __init omap_pm_init(void)
- 		irq = INT_7XX_WAKE_UP_REQ;
- 	else if (cpu_is_omap16xx())
- 		irq = INT_1610_WAKE_UP_REQ;
--	if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup",
--			NULL))
--		pr_err("Failed to request irq %d (peripheral wakeup)\n", irq);
-+	else
-+		irq = -1;
+diff --git a/arch/arm/mach-omap1/board-h2.c b/arch/arm/mach-omap1/board-h2.c
+index c40cf5ef8607..977b0b744c22 100644
+--- a/arch/arm/mach-omap1/board-h2.c
++++ b/arch/arm/mach-omap1/board-h2.c
+@@ -320,7 +320,7 @@ static int tps_setup(struct i2c_client *client, void *context)
+ {
+ 	if (!IS_BUILTIN(CONFIG_TPS65010))
+ 		return -ENOSYS;
+-	
 +
-+	if (irq >= 0) {
-+		if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup", NULL))
-+			pr_err("Failed to request irq %d (peripheral wakeup)\n", irq);
-+	}
+ 	tps65010_config_vregs1(TPS_LDO2_ENABLE | TPS_VLDO2_3_0V |
+ 				TPS_LDO1_ENABLE | TPS_VLDO1_3_0V);
  
- 	/* Program new power ramp-up time
- 	 * (0 for most boards since we don't lower voltage when in deep sleep)
+@@ -394,6 +394,8 @@ static void __init h2_init(void)
+ 	BUG_ON(gpio_request(H2_NAND_RB_GPIO_PIN, "NAND ready") < 0);
+ 	gpio_direction_input(H2_NAND_RB_GPIO_PIN);
+ 
++	gpiod_add_lookup_table(&isp1301_gpiod_table);
++
+ 	omap_cfg_reg(L3_1610_FLASH_CS2B_OE);
+ 	omap_cfg_reg(M8_1610_FLASH_CS2B_WE);
+ 
 -- 
 2.26.3
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210401161127.8942-1-maciej.falkowski9%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210401162032.10150-1-maciej.falkowski9%40gmail.com.
