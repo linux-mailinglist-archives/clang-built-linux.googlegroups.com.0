@@ -1,48 +1,48 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB5HCSWBQMGQESUO5ALY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB4XGSWBQMGQEHV7V2JI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4784C350FD0
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 09:08:38 +0200 (CEST)
-Received: by mail-pj1-x103e.google.com with SMTP id j12sf3017096pjm.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 00:08:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617260917; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4C311350FF1
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 09:17:08 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id n12sf2550448plf.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 00:17:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617261427; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zBu98OAM8KCOG0+hY8w0rXq35z3TbUaB96dNbtA2hBQVLASoYSQBaVod647sDxK3ya
-         EbkReSCWebTuJNANO/A23bAKO/YnqNRqzK6Ie6RpScl9XqsURrrX75I3MxQpW5gSnaaQ
-         9kFhoiQ9BXQJMgsOWZLm219RWdj5zhD7LhswyTzdHaerNlVovKF+z5qbLa36GU8ELs+D
-         Txei3J9j0LxgPCuRK60dgE36oWi65OvzRy7yJzAoMjqfn8mk8QhThuYzcnl6olCT4Ko0
-         ZyrOUv+bdmBg8wCqlvNzmKF1fSg/bPwcuBWXBaM1LzH2uu5IXZyMZHbbqoEYBH481tY9
-         yGuw==
+        b=HGCWVnMTVetp1JBntpxCA/O5l5DdA1BKvsOaS50yVP/DQ5BmTBF0DUBtejp9G66JfM
+         gOIC5DtD3tqdrDheMkeexIjU+wBYpjvVRbL4uH3X3eb/+6x0vQUKGnOdlK6DkHn1sO5A
+         JDCQlHOhUoYecoj9UNwKzhBzbuYWyDbl0l+85+fXBeT91RLq+EtIkMXebzBimAUKE1Jc
+         BwlxRpTNC5kJXg0lJCGW6Ln37Qut28YnP+ViTmu86pKNCKzZic7tHoaf6lm+COh7g5vd
+         HpvkWQGGXsEfNkxMiKpAsNSRgXSm9b2Pg/av68cgcjiXE99Mg0T5OmtZUqMgfWvS/aA2
+         IpfQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=PiY70D291iJMTsxedwvtX6O5Fb1dmxud8tjhFV5x42Y=;
-        b=pooPMZCkJZ+kfCPAgqFmjqLfgISFoe7h0KCJuTLJADRO9y/z2XtdUDb6Tm7a4oxEMb
-         GjWdCGLFnZ4Rcw6vhw1gysClni3TOJl0/yTbTO+vGveRmkhDxoma6TryHayprM9zGxpq
-         CAEpy+hRefuUvyd3F/ecZeQkDZJC1dEPBxVLNPgymdtjeE8wW6H7YUgkhWdE64JQnw4D
-         4XbuoO/8NtQ4hz3cGMNuRSRiMJ2xVZyu2qm+z/Dntg1Y/paVb4ROOmP+HQbvmVkKe1u4
-         5E33dfzTQ1nzcPrt/uhULF8kNVNWUwA4GgK4eHaa3KvYRU0NcV1ALRmm5jxxuuK/1MIN
-         lFqg==
+        bh=Mu9+29H5dhpaTwGHr5Txp/hj1mJk4LsL65s5tf+6N9I=;
+        b=bCpGVBM5T1LcikFPYoQoMNRj1RaG5L2I8QMZQnNGMsUBDlgX/JncWGeLzv2FOywAqo
+         U4ELHV+W+sRk9N4DI0sgBwLFwKODdXz93i1NHTX2dOYAGH0Lgtfg6y/r1pfRT0GpEckV
+         6bT5ydp2M4R8bn3JRXQiobOcJrP8nKGeShpXHmoI9O7sXY7MFqg2+UzUh8LJgikUfSfV
+         0NVKdqWCVqSy4NioDWm9lcBE3Pz8azLiPJ2biWO61ihaDjKzmnEYYTYANRcHAfwkygjr
+         Mk994lDzSE8/lfolwVMCQPcgzunULeBg2knbYypLjAcn9ZvHMnNTFwWl+JgoLlCGta1b
+         FFHA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=f23I5cad;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@chromium.org header.s=google header.b=S3TYcLce;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PiY70D291iJMTsxedwvtX6O5Fb1dmxud8tjhFV5x42Y=;
-        b=fRlvBFWh4NzbqEDRUEVb8Ta1dStckHKskBrQ0oUUPn+GcICKBeJXlOhm8wS7jxf+Sc
-         Y5OVclu4pMhMLDvFrR7R7rEwp3Yw9iMoWchR3KRP4PWzN6A2Etlfdp9NuhnVUFiraSJM
-         mjcrAj8U+2jS3cpldBBAD5zxKyXXzjNu0nbuElMF/kg2nh9yJRjNHRCRFKviOf0DRe5c
-         rvKvlCfoOt3X8O4fZBEEKAkGm1B97ZoCoPc0PWjyx1QMVhMhuseaTdMvxxsDZQvrwMgD
-         wjYtW5o0heNi88oQxoaBJAsS+xLvHH29RKl9BDigl/cmaAxRcCh0efHJwa8mboqAZM0u
-         vj2Q==
+        bh=Mu9+29H5dhpaTwGHr5Txp/hj1mJk4LsL65s5tf+6N9I=;
+        b=HLpZogArdTCXd/CakFwlNIX/zjlj8pgory37BA7pxr2LKhuzrmicTWc/FMxrlvJ1T2
+         MSYYFSFN1qR1T56JiaKC1OtlLhXqn8FLrL4a0D7dQdVw4ToD00M3FGzHRG3fW1xanEf7
+         rsRITmv6x0RWMSTB21BtUDx5PEiDH1X0eJCHY7D1iiPji5ccbEKw9lnCFjP9L+qVGJk6
+         Xm5FbqwvmiXANypSTJ/7zvJAsoMdz7BK7vJhBZ/22SXBNvl0lJ9xRGgdGWpfshQWSJLU
+         dpFcr6qMzy3mtjJcQKwmm+Pv9yJnAivla39UxSvSvJv+F04RgtpewfQ6W5XhjYFzOpAS
+         f3mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,83 +50,89 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=PiY70D291iJMTsxedwvtX6O5Fb1dmxud8tjhFV5x42Y=;
-        b=REUrtNIwmiN7mbfAesvP6z8bH7IpQiEnMcYdBWkgn1rVxvRgFaNjITA8RhuFE73j1/
-         2xW2HQFSjXN8ujMWUr8H1P6jb8dguJK3DcEO5fFG7/qGpxxZ4XI4b5+bmHSR1G2UZ0QR
-         M2LC7yGFsZWwxBgxodlzXsIneJPIwipz0Cagx+Sl+GR0ZCwdDAIWDM2T3r7Ktda72DHU
-         L7zMem2ulJcTj/9whcxIxpTz+rNxxzvAV/WH0g4r8gLIYl+GslODGZh2/TKS+NZwc9Ja
-         TbgjWA+g/sYO1ks6/KZdYvicZVN0jaxmH6RaYwthgPpgXBHGy+CwbUtqVFBhBnJ0FZg4
-         Kchg==
+        bh=Mu9+29H5dhpaTwGHr5Txp/hj1mJk4LsL65s5tf+6N9I=;
+        b=bnv+y0qskACM0BygErwv7Vhy1LQpr93MLrXHqdr930Fp1ag2WQ+stQCgfagM3WzqOM
+         qweGKROYjfH0dWyjSkRrkBd3oe5jsULvLUJSrEPntOh9DKHworSw4bzDbvqis/sGHN2J
+         W4pl5epgtN+tw6wFac7tIPMNuKFUiPiFyf+FQ2mMjMJOtyoRJWHiMdX175NLZwxSgPXF
+         lzhnXx4R3doH/yZyoQ25WdehAYxbelo3yRgGWYygPbVhqu+oFHj+cVp6OhC4hLlz52T+
+         6YgGk0dytZfmtEq1aGgewszWJTBoprW/k4TmYm+3gHIDuOO73cIeeZMy1MSekT1Fwh0C
+         a4pA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530RLmnvtnRjv1DDjKF2l7HUVJ0bkTcXXMX1lW4R9BgGprfZ1zqT
-	7uPCqxQWdPgZ85O0zBWkC5s=
-X-Google-Smtp-Source: ABdhPJwCdr40mlqionpjaUo9IDFGSXMrHm69xYBDrk/K7stiW2TjovDJvLiRIs5/GX+92D51IUM06Q==
-X-Received: by 2002:a17:902:c60b:b029:e7:3b60:34ad with SMTP id r11-20020a170902c60bb02900e73b6034admr6875235plr.7.1617260917037;
-        Thu, 01 Apr 2021 00:08:37 -0700 (PDT)
+X-Gm-Message-State: AOAM533W4qqi3UvSZc2wJdtbhy132QB9Aqf0/f0luF3wPqCQCQUpgJly
+	rTNjpZnUCcDEPOk4BUv0LxI=
+X-Google-Smtp-Source: ABdhPJy03a5Hn6Dtawh4SrCT9gu0K1yg9QcgPYvQpbSBQbzEjaOEeZTcnHBxYc8XAYZsWO5PegqiTw==
+X-Received: by 2002:a63:3ec2:: with SMTP id l185mr6359288pga.45.1617261427079;
+        Thu, 01 Apr 2021 00:17:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:ac09:: with SMTP id v9ls1971153pfe.2.gmail; Thu, 01 Apr
- 2021 00:08:36 -0700 (PDT)
-X-Received: by 2002:a63:fc12:: with SMTP id j18mr6199736pgi.334.1617260916446;
-        Thu, 01 Apr 2021 00:08:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617260916; cv=none;
+Received: by 2002:a17:90a:1382:: with SMTP id i2ls3033243pja.1.canary-gmail;
+ Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
+X-Received: by 2002:a17:90a:bd95:: with SMTP id z21mr7851006pjr.214.1617261426676;
+        Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617261426; cv=none;
         d=google.com; s=arc-20160816;
-        b=l0EiVcVSXvdjoXQDthvH7fyK2v8d5yTJZomWs28kvrylfB+8Gf8kTHCeSVkfomwUYl
-         pTk+lkcclunDO33IeQe57Sio5V9k5if4lMrD4xa8n3UA0kFttynlD6c+dme1gjDQwiZG
-         Im5VldXMStjwKItwg1HOymTbw+VXOZf7mysbp+v0tQlMYkY+R8jaZIS4aPEzwZjWY++Q
-         OJgEK6d/htyF7LTg6G6h6+Gv77XKDUCr40OFdNDgRgDItjSxFHFHkSg7YVy0WQYakKi7
-         1FgzJex1qhIRmdNnYg+72u68MKUzdcgqoFsX7r8PKEIFslfVzMPgLZctvqKUjvTEvTTR
-         BDTA==
+        b=zGXO0+pti7WIJSp+yWPvEsgrOj7ZoZAxKW54LRU/fkRf1nN2h5cD4ygso3Tr+aSe1G
+         AKBjpbfDrCKJoGxnpr4O79VVTaNg7+zTGi2s9ZjpZTyaTqffdhRPJn0AxYqPn2oKzfGh
+         wT+ReG5CSW8R7O5lHKrNyKQij9gZxFitIPCyF65REyPwIzrTW96jOurStbo6wbxqI0sB
+         Ve5B63ZWn7yFMbbyGFB5QY0lDlwBdSXUCpngTt+7Wi2UqOczM59/bGRNeMQVc3SM/AjC
+         9hE0TqE/iI58r62cfIDng9wmmhNucxwaL17rJcYrOwcLK8zmsevaENxDLMNz/mOpnx0d
+         tkkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=32nGVGILB7samls5cPtNtOrkxUONO83YQRYhBH39vHw=;
-        b=MSUzpfGm7XLX9A+ks4N2OepCEPKuAySiDU4S5Q5fzxSMxzLgx8JbRRRsA9WpB8uLZK
-         kjA2xGgpi1zVju0bXWTNuItD6o8YLEqTX2ypB6Ara/I8WPYHFh0Wqcp8HK8EAlM7TwK8
-         agx/eJfJV9OGA0qZk0oFpUYS+xz6zMgx4p4U47i3je8H+tXwmeF11glKx0s5nI2DNL+j
-         XBa+eyVPYwrsGaSHrW7EH8r0UgKW/IvwE5a5u/i5MmvkTdgkk+nqfbpUim0o/8kTQEoB
-         yO2Lp5K5gjeGNpm7b5Z17JjU6cQ44tv52b/eYslxhr0hscwtKz786HN+Sd0qfV+T03LA
-         ha9Q==
+        bh=yhXaLCKbJTAWOsF+U14KnEq7xOpdNME3Q0d11VRQgYQ=;
+        b=eykAOS3Z5zuDsoy7nF6+28z2HCW4ZB2RFXMJgXPATzNQk0+4bvOM5FFw01h74pFCwE
+         J+qZV6wWhREM7Cke+GhnrKvzn8D8qxvA0h6M8Tcdz0eLedGz5XrXdTmbLnH/pJmYwUQB
+         Tqkrqw9WE6Jw2MuSxQq5ip4Wv/oeuVepwFp+4hd669GbLSJF30F3BSI9gire03pTLo2R
+         X5HpoHkzWY6LDOM077QfbYTqFU4+jXR31tiH955aR7tXtUKD9V+iyrgAMNpoFN554klX
+         0BFOcWwEQ2Up5GOEX+O0GR9/MyOnFVl7+kErRYcJlNfdXFh+BQ+h00YXUBAY3a5MjHi8
+         xqeg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=f23I5cad;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z22si473069pfc.6.2021.04.01.00.08.36
+       dkim=pass header.i=@chromium.org header.s=google header.b=S3TYcLce;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pl1-x62b.google.com (mail-pl1-x62b.google.com. [2607:f8b0:4864:20::62b])
+        by gmr-mx.google.com with ESMTPS id n10si338624pgq.2.2021.04.01.00.17.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 01 Apr 2021 00:08:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 485F36101A;
-	Thu,  1 Apr 2021 07:08:35 +0000 (UTC)
-Date: Thu, 1 Apr 2021 09:08:33 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	Alexey Dobriyan <adobriyan@gmail.com>,
-	Lee Duncan <lduncan@suse.com>, Chris Leech <cleech@redhat.com>,
-	Adam Nichols <adam@grimm-co.com>
-Subject: Re: [PATCH v3] sysfs: Unconditionally use vmalloc for buffer
-Message-ID: <YGVxcRaLbIRWWojr@kroah.com>
-References: <20210401022145.2019422-1-keescook@chromium.org>
- <202104011400.HiuLgSvb-lkp@intel.com>
- <20210401064753.6ub6dhcuu6zuhdjq@archlinux-ax161>
- <202103312354.A15E2A808@keescook>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b as permitted sender) client-ip=2607:f8b0:4864:20::62b;
+Received: by mail-pl1-x62b.google.com with SMTP id h8so562146plt.7
+        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
+X-Received: by 2002:a17:90a:3d01:: with SMTP id h1mr7693125pjc.124.1617261426390;
+        Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id f16sm3752101pfj.220.2021.04.01.00.17.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Apr 2021 00:17:05 -0700 (PDT)
+Date: Thu, 1 Apr 2021 00:17:04 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Will Deacon <will@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-toolchains@vger.kernel.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	"Jose E. Marchesi" <jemarch@gnu.org>,
+	Florian Weimer <fweimer@redhat.com>,
+	Christian Brauner <christian.brauner@canonical.com>,
+	nick.alcock@oracle.com,
+	Segher Boessenkool <segher@kernel.crashing.org>,
+	Josh Poimboeuf <jpoimboe@redhat.com>, andrew.cooper3@citrix.com
+Subject: Re: Plumbers CF MCs
+Message-ID: <202104010015.B879F44@keescook>
+References: <CAKwvOdndc=ej=40WktFz0t083pZJcdX1tipuWoTvAw=JC8b3Aw@mail.gmail.com>
+ <YFmoPpb5w4q1dWXz@hirez.programming.kicks-ass.net>
+ <20210330141312.GA6327@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202103312354.A15E2A808@keescook>
-X-Original-Sender: gregkh@linuxfoundation.org
+In-Reply-To: <20210330141312.GA6327@willie-the-truck>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=f23I5cad;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@chromium.org header.s=google header.b=S3TYcLce;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,63 +145,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Mar 31, 2021 at 11:59:03PM -0700, Kees Cook wrote:
-> On Wed, Mar 31, 2021 at 11:47:53PM -0700, Nathan Chancellor wrote:
-> > On Thu, Apr 01, 2021 at 02:41:37PM +0800, kernel test robot wrote:
-> > > Hi Kees,
+On Tue, Mar 30, 2021 at 03:13:12PM +0100, Will Deacon wrote:
+> On Tue, Mar 23, 2021 at 09:35:10AM +0100, Peter Zijlstra wrote:
+> > On Mon, Mar 22, 2021 at 01:23:03PM -0700, Nick Desaulniers wrote:
+> > > Hi all,
+> > > I saw plumbers opened call for microconferences:
+> > > https://www.linuxplumbersconf.org/blog/2021/index.php/2021/03/18/cfp-open-microconferences/
 > > > 
-> > > I love your patch! Perhaps something to improve:
+> > > I was going to put together a submission; do we want to do a combined
+> > > toolchain MC, or have distinct ones this year?
 > > > 
-> > > [auto build test WARNING on driver-core/driver-core-testing]
-> > > [also build test WARNING on kees/for-next/pstore v5.12-rc5 next-20210331]
-> > > [cannot apply to hnaz-linux-mm/master]
-> > > [If your patch is applied to the wrong git tree, kindly drop us a note.
-> > > And when submitting patch, we suggest to use '--base' as documented in
-> > > https://git-scm.com/docs/git-format-patch]
-> > > 
-> > > url:    https://github.com/0day-ci/linux/commits/Kees-Cook/sysfs-Unconditionally-use-vmalloc-for-buffer/20210401-102455
-> > > base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/driver-core.git d225ef6fda7ce9ff7d28764bd1cceea2d0215e8b
-> > > config: powerpc-randconfig-r001-20210401 (attached as .config)
-> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 1c268a8ff4e90a85d0e634350b1104080614cf2b)
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # install powerpc cross compiling tool for clang build
-> > >         # apt-get install binutils-powerpc-linux-gnu
-> > >         # https://github.com/0day-ci/linux/commit/c80ca56c15314908ebc1881678da3b36e007a2f4
-> > >         git remote add linux-review https://github.com/0day-ci/linux
-> > >         git fetch --no-tags linux-review Kees-Cook/sysfs-Unconditionally-use-vmalloc-for-buffer/20210401-102455
-> > >         git checkout c80ca56c15314908ebc1881678da3b36e007a2f4
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc 
-> > > 
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > > 
-> > > All warnings (new ones prefixed by >>):
-> > > 
-> > > >> fs/sysfs/file.c:52:14: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-> > >            return NULL + !*ppos;
-> > >                   ~~~~ ^
-> > >    1 warning generated.
-> > > 
+> > > I know in 2020 the GNU cauldron was co-located with Plumbers, as well
+> > > as a GNU Tools Track MC and LLVM MC.
 > > 
-> > Arnd addressed other warnings of this nature in this patch:
+> > A combined MC focussed on kernel issues seems very interesting. We still
+> > have the control dependency (volatile-if?) thing pending. We had a bit
+> > of a discussion on that after last year, but I don't think anything
+> > really came of that, can we pick that up? Ideally a compiler person does
+> > an actual proposal for this year.
 > > 
-> > https://lore.kernel.org/r/20201028151202.3074398-1-arnd@kernel.org/
+> > If we can sort that, there's the rest of the dependencies Will outlined
+> > :-)
+> > 
+> > Then there seemed to be people that thought __always_inline was a
+> > suggestion... I think we need to explore how that was ever possible.
+> > 
+> > There's the endless UB debate... can we define more to reduce the UB? I
+> > mean, we're already bound by architecture ABI on the one hand, and
+> > actual use on the other. It would be so very nice to be able to get more
+> > -fwrapv and -fno-strict-aliasing knobs that define UBs away.
+> > 
+> > There also is talk about straight line speculation mitigations. for x86
+> > we should probably emit an INT3 after every JMP and RET. Although this
+> > might not be controversial and be sorted by the time Plumbers happens.
+> > 
+> > There was some talk about how compilers could help objtool make sense of
+> > jump tables.
+> > 
+> > GCC's status on asm-goto with outputs?
+> > 
+> > Clang's getting asm-constraints wrong ("rm" and it always picks "m").
+> > 
+> > 
+> > And I'm sure there was more..
 > 
-> Ah! Yeah, I copied exactly that clever idiom that Arnd fixed. :)
+> One thing I'd like to add, and which I think is possibly relevant to the SLS
+> mitigation for arm64, is whether there is scope for allowing the compiler to
+> generate alternative instruction sequences (e.g. in a separate section),
+> which the kernel could then patch in during boot. We already do a tonne of
+> code patching on arm64 for things like CPU errata workarounds but also
+> for enabling support for optional architecture features, where the kernel
+> code would trap on CPUs without hardware support.
 > 
-> > which it seems never got picked up :(
-> 
-> Greg, are you able to pick this up too? (Yeow, sent in October!)
-> (Or I could respin and send them as a series?)
+> Another use of this would be to enable stack-taggging with MTE, where the
+> instrumentation is generated by the compiler but may use instructions which
+> are undefined if the CPU doesn't support MTE.
 
-As a series would be great, thanks.
+Or swapping out SCS and stack-protector for PAC when the hardware
+supports it...
 
-greg k-h
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YGVxcRaLbIRWWojr%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104010015.B879F44%40keescook.
