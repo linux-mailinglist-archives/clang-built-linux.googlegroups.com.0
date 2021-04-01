@@ -1,140 +1,123 @@
-Return-Path: <clang-built-linux+bncBD5ID66FXMARB27FS6BQMGQEK5GBJBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUXNS6BQMGQEQS6TUMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x63e.google.com (mail-ej1-x63e.google.com [IPv6:2a00:1450:4864:20::63e])
-	by mail.lfdr.de (Postfix) with ESMTPS id B19EB3516AF
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 18:20:59 +0200 (CEST)
-Received: by mail-ej1-x63e.google.com with SMTP id kx22sf2443663ejc.17
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 09:20:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617294059; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 23E843516B9
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 18:37:40 +0200 (CEST)
+Received: by mail-qv1-xf3e.google.com with SMTP id h12sf3683594qvm.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 09:37:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617295059; cv=pass;
         d=google.com; s=arc-20160816;
-        b=02m17XEjOc+Qeyi63/NGP5S5WAavPPNsvEZekHS3cnIE22fcbqkk7TC9Gluxl+XE6+
-         0e07GYCJef9IdY9UzGAMJpEW7MzyCgiVXASHjpfDoiaswAK9MswoB+0vsFYorMpI3BIH
-         91rAii90TPuYFpoSR59EkNLymNDWAhAGP6iF80hocnDo87XlOVTT50wmHW4a5MwtFb91
-         /9umY/TOi5Dbd1pFPgv9idGxkIPTSzgpGNhD3ue77skxBipFjFLiolLc3Ph1OAvtRDKK
-         S/GgsvsIcvBRam08UXabG33LO+pOu3a0HSrhgBdxVBEPB61u6Jp9PVqPDqoiBcLKfsJD
-         mS9A==
+        b=rUh6LNxHA/iW4Hf2cypY6aQM5pzwZHLwj8EyRy9F8K+Gv/YCwRiDO3cLUMn6e/9YZX
+         LacxbKlutuuJZnKm7OpwPqomBUV3pPFtgjeZYW7qkK/duVAakwjFGzSXUszqk7gJzLQy
+         ax64+OtaI+tMVfG3OtWTZqLpfbbwxiZbUO7viF/4b5/Kdivm5Ulr7lgFjULw1HwXQocT
+         +loNR/sYgpVBNg9xiffM+qHMVIqpQp76+vBxdXM8QjdKqKoy99QTV31egXKDu1kljI+D
+         9GLXZ6etG7UzALoSmS0x2mzj4UpvXKS9ElMiHGkprnpd9V5IS/hYFYFxIvWRLsRiKBY2
+         Ebhg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
-        b=sqK+gSdJqbe42TTBSrDIeNfH9MWT5AqGnhwz6lrbjiol28W4uuzbMkI6lUuRAncyS1
-         Eu/OoDOjwF7u25bWhGBqWl+TpoKUxvaNsvqKj6mUIqYIj9VpiqjE8r3BBOfFDpCc8ewq
-         ip5IKEoQnP253tv7+WxIPWkZ5u5+zJbNPLUnzmSVMckTie+QBweTd0J339Ybqv7ukxOI
-         p2NvX09y0AzaSghFx7UsIFpuhOYN8zuhp9RGeZszeDveQR8qgO8xZfVAPAkfk6xEAlZp
-         LXwjz4OXsRa2qKoo0c4R30qJVyVedVSpL8PgyTIkMuGPHlk4zRsawPIjjvmUc2xm/yeY
-         PYCQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=gfb8XASB2DGgA11yRWUcyyfjVAdNbt6j6IHTlbtp4Gs=;
+        b=XmUukeukm7DEoSS+8R6SJ86NEjUYT2wV9nILmmgKxzIiXurEZN0nB6DZX5jt5ugRfk
+         fr6qfU0VblkwzCZd7u6a5ShdGBBosVKIm7ztGOXe8an0TAd5JdSY4ubbwlas09RICtl0
+         PMNSedkKrfRUWyc9b3TSp2UbjvvQUkdRHJzj/lY4W6AtkfCQJwSTbVbwTyLi67nd6oyE
+         K9phd/482yby8xiHSvEAH2IsYE5iqEQ+r6Z7XghZMbmFOuB0z+/LCLuqKEMiBJg4ndGI
+         oNH0QBH7JYK46f7Dy14ZCBxOtm4RwrG0nm/IEO3ApJCGpIkZMDaWFAwXw/WIPMaWmyzl
+         kWBA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Hw1BPIfi;
-       spf=pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=pfG4Ny5N;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
-        b=I0ZquMkLOA72dGkt92xzWikIF62SvfNbIZncEhjocgBfzDd5iYnsx7MI8LcGX578yf
-         GuvB+hQ5cXUV+5p/YnATU5/Ozn5LSy8QB3/sWNNO7VLnMQKkQIn9BQBtt8kXG0B4fEET
-         QZX/V7hlrhw6zWeQ4vEhQgxUYVRiPkgCIOCMBqQDIsvLdS0VQ+E6zQZ37pl7YKF5TPfW
-         YQc4eY2ZEzsWJhp+NctLzFQsv2XixKpOamCRFJ+UmI21B3CncXpssqI7+S7vWx7ziL1X
-         PPgU7DAqfq6F8tJMxAZoDVu0dHP+r10dpii2oVnAjfAcqoIBIefNckAO1MVyn68eEjz4
-         eifA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
-        b=F9y2fDrBbP8G98ZGWFgPvK+Ve2Ma6R8reWKczMFeDDw0qBQc52RuH3L6twEH35HGfu
-         G8nMpCqkEbBA2/2k1PQSDc7GjEa0SnT3gzzdXtUN5Xi+Uy7CjKsMo8CDMp4CmnZJZkHJ
-         sfYgTxO8VkOjWyPwcpAQHeG7kLoBelz4ZuV6aH/y6eWV4sCspeeKerybiRwAEsYxBe22
-         QlCdamFbyQIbKf+cU40LWLsCFXQkImvKAdczI5cVqpm5qSK7L3ftEhT5LDM/Nw/tn0qG
-         5SaGbGGpAM34M+lpEZMkhK6y2PqRi34alsbLxD3JW5ICsIVCj2S8eefixIXp3MJGC7Wj
-         L+qQ==
+        bh=gfb8XASB2DGgA11yRWUcyyfjVAdNbt6j6IHTlbtp4Gs=;
+        b=rGBdWVcRlpChwdnnp01xmtWw9zrCn/z4HIhyAeyffaGYu8wnDadOW0qmM1FlQfumJN
+         ObYCC0VfT8SXWFrNKV2lYp4b9G16o3BILiVI0+MOm6G4DMnWN1yHlSFlus5KUwKimreN
+         aep2D9SrLj7zXtee0isoYeLxqn2YgjbiKa7Bo/45Xm4FNe1hNw9fW0rHLyzh069dIOFf
+         Olj/plwpoTk0mRBpO+kBG1SDkuMtc+3CmskDdCQ97dXvZ3PP1DpYOkrMQL9ShzaxlrIh
+         z5qHtXK5WxXl+g7nVx4XOx/K0p/XBdZjg6Vsanv16Jg0OTe0Nse+PKtBmfAwfiofxFhC
+         jd/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SEQvJvJ+ZjBp3/OVPHV+Rv6DjmahblUFHGvX7/EBDlk=;
-        b=oW5u2XZpHjyQ2gd7WDldDDOLx94W4I1SE1Y1TqoQwDf5bsb7+ZReDFGkG1Kss10L7g
-         LY8Zdm5HkAgCO2Yrs/Z/JbdpDHjlYOu2Q6MiwE4bh+Mh2BYxggKAVLB5YVxEtFA2Z+7Z
-         UUVc73kq58ssUTmgTXYOPdjkGd9vtbOnKV2ftsSt/8XOhmOZZ+KrKP08Pl9X30nobItk
-         UgFBcGiI1C/WWCo26pm+z27N+vP2tfCjTaxo+I0JB5lxd7fk0B0DR9OHA2cC/wFibW+x
-         96DINc+hqdUHb6sDnpkOfcAnWfXlStisCheOCdEKEiFeB2Jf0NlGxrmjuwqQZZ+bgQoy
-         c6dg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=gfb8XASB2DGgA11yRWUcyyfjVAdNbt6j6IHTlbtp4Gs=;
+        b=TFq57O+B9ZUjocw6jo9h72E/7uz0dXjSgp0GTmdq1u210sloOSZiFDCeteGh8Fhl+I
+         ivBaH7P9siZ7Syw8DYS7ZSsVNk5okfrEUFRuKvU9rkNZmUvxdqSwFPteXxa9OJrRwRLt
+         /e5uJZW6a4drbVM+lWPPFAJ0LQDOmgJtEBWmQyVRQdYwxg0HWOOCV2Al0ocf/YDXCStI
+         gy8c+eC+LTZcrS7RfLOmYDsK8sI7J2HHPu8pK9AtdQ51RxnfvRgCI6Np6EKrW2Ccg/Lr
+         RINBRe48SmH3pv0ZYntsxOdSuNZDpjdeUrFIlrIHb36L4m4KVy1bRzX+CYqWSrmOjYyJ
+         hYpA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ZYtx0O8wtJHOhNMHVsXSZ4VDR2pCFi2VYVbXNFTvgvGuBgzBs
-	s0dcezKZkFe5QHb5GnFnVr4=
-X-Google-Smtp-Source: ABdhPJwB7WWL3xGpGBPtTH5nubVkljNiw+HaS7VqJHW/dMC/ruiEmlf2pQB9FkL2qCD8CqpOOqJZ4A==
-X-Received: by 2002:a05:6402:51cd:: with SMTP id r13mr10884421edd.116.1617294059465;
-        Thu, 01 Apr 2021 09:20:59 -0700 (PDT)
+X-Gm-Message-State: AOAM532nE3PoWNV20VTIZBc47N0RIX/x0+F+TjL7kkZk1o9IunA0Lm9H
+	D3rHbTofK7hqjSJR4nFNDV4=
+X-Google-Smtp-Source: ABdhPJxiHliGDT4PoiVJ3cDENRMSWHO3xgNNYW7zLIdrn0w5KWU1w05x+nSs1+Pc4pbIRYcqOkGMVA==
+X-Received: by 2002:a37:ae04:: with SMTP id x4mr9183852qke.245.1617295058820;
+        Thu, 01 Apr 2021 09:37:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:d788:: with SMTP id s8ls459193edq.1.gmail; Thu, 01 Apr
- 2021 09:20:58 -0700 (PDT)
-X-Received: by 2002:aa7:c4cc:: with SMTP id p12mr10481901edr.325.1617294058533;
-        Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617294058; cv=none;
+Received: by 2002:a05:622a:254:: with SMTP id c20ls2480003qtx.9.gmail; Thu, 01
+ Apr 2021 09:37:38 -0700 (PDT)
+X-Received: by 2002:ac8:498d:: with SMTP id f13mr7820093qtq.54.1617295058355;
+        Thu, 01 Apr 2021 09:37:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617295058; cv=none;
         d=google.com; s=arc-20160816;
-        b=xclm3u4ZxADndMjXCEaaWQOT8Oe2SsDEeOrHyGNeq6ieVFZDWj7JEnL1QMxitqWtU0
-         5YG6EAO78fyAc4jOeLqNt37gH4ajMMdjisnLi8flfY8MPTH5Fdxr/UW+mcgMG8Mxrxnl
-         l7BMkcwNjAVfzWMkQuBeHTV6htDauQ6cOTBf2esAIUHbVSNGxlMy/bFbVWiZZvw2ysnA
-         mBe3Obt5nYblmAGGYs+y0BhmSq7O6Dtd39iiUveat4LelTB+zxHbsAVVL4EqVwMm5bJD
-         mBnf4M+jsp+nFz7ko5uQPVeI5n9caqWWWHR9MUoj57zhu3aw7P+5sfrz1TUOzSuQsrdx
-         KPYw==
+        b=EBRYzzRtyM4vjfCgDPBW61L7jIRPRn5SPRe7qBHgWeX3Ai3domJqNHlcX08oz5x+Gh
+         2u+0In/YOMaJ+mhRqLSz7eoRCOAcZSL75Pc/K+PngA6qr+8Z0MbjSD64psV4LO6lhQxg
+         NbH5tcefiQnR6BM6PXmp72QHAdIF7YDEXe/nda42oFOGd88SSxOSoPgW4Uo/NkCbXT0h
+         Nm16KSyqO47zZ9d/31qilh57YAJJDNCtr9bhDxR9xTg3RFqrfZ41d9Ft8NoGuE80jrIa
+         p6SMw+XDyDoy8MYIYCKanpwO/oBMwAldiqxRozdey7dux2d2MXhINuO3gBoVcFVjhIyZ
+         uo3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=TsIThPytQbw/FRN51LQr5onPfH3wKs5FFxL6HpmuigI=;
-        b=UHQpEKzTYvTlW0Sibie568I+ksGGdVcddFKrk+sGTCzMXVYTmz+lTMNTTB5d8W8m54
-         pnEPm5dR0TyI+lprlMj1splStm4waBheAVyByVILvRwRc/qk3hNteyHCThO/JAohTMiV
-         xBzZy2fDZO68HFS0VwcBiXozraPLlfX61ualSH+4txGQGTDVI3RM/CFQDtBDDWw8buxs
-         tff2Q0kVhEC8D4PcH70zwQp3ZOue7jOR4RtPUuHu8bgSb2tXvCctO+IsXkzPQyhRCGAB
-         u+WnIRUXiScb4RgL3VDDusyMDI+OyoMzifYhb71aVUafN1F+LUxJnm8vSBAdILz2Zk9G
-         XCsg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=wq076vaW4wycDm1i7fGRWXou0ZHw/lNQ9qiwZqFJFNA=;
+        b=BzCRtDqbMvtaxPWnqCTpr9d5ExBtl3B852BWA0DdbaG4zYr60qNEWSRoEJlomgj+Gq
+         V9oN6nDJTl38+1uVaq8tr+IvhPPhj7t0xYIcM3ZvMxrELvAnSMXdVDqfN/lg6mTSPrFF
+         5d+jcVpN342bYogU2m7LYl5WhahmdKqFhWu3E9sRaLKyFG2UlD3V+UPIELPPwYCYN7yX
+         8/hPTXUPxpWbJ/CCKBsEGnRk7rWy1hSob7LDwfisHDGQvCb1v+qNFxPWJsJCM8k7cnLY
+         WuSm1XfcTIv059MlxP29AC7FCtHoGYmqQjRmoIFlowUyhVtrLMDTMgDNHBSoMrJHAoHc
+         5Tlw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Hw1BPIfi;
-       spf=pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x12d.google.com (mail-lf1-x12d.google.com. [2a00:1450:4864:20::12d])
-        by gmr-mx.google.com with ESMTPS id ck26si654647edb.1.2021.04.01.09.20.58
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=pfG4Ny5N;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id k1si878922qtg.2.2021.04.01.09.37.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maciej.falkowski9@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) client-ip=2a00:1450:4864:20::12d;
-Received: by mail-lf1-x12d.google.com with SMTP id o126so3745772lfa.0
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
-X-Received: by 2002:a05:6512:4c4:: with SMTP id w4mr6080047lfq.91.1617294058343;
-        Thu, 01 Apr 2021 09:20:58 -0700 (PDT)
-Received: from 192.168.1.8 ([212.59.242.58])
-        by smtp.gmail.com with ESMTPSA id n22sm660215ljc.23.2021.04.01.09.20.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Apr 2021 09:20:57 -0700 (PDT)
-From: Maciej Falkowski <maciej.falkowski9@gmail.com>
-To: aaro.koskinen@iki.fi,
-	tony@atomide.com,
-	linux@armlinux.org.uk
-Cc: linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	maciej.falkowski9@gmail.com
-Subject: [PATCH] usb: isp1301-omap: Add missing gpiod_add_lookup_table function
-Date: Thu,  1 Apr 2021 18:20:32 +0200
-Message-Id: <20210401162032.10150-1-maciej.falkowski9@gmail.com>
-X-Mailer: git-send-email 2.26.3
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 01 Apr 2021 09:37:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7BD3861381;
+	Thu,  1 Apr 2021 16:37:35 +0000 (UTC)
+Date: Thu, 1 Apr 2021 09:37:32 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Maciej Falkowski <maciej.falkowski9@gmail.com>
+Cc: aaro.koskinen@iki.fi, tony@atomide.com, linux@armlinux.org.uk,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] ARM: OMAP1: ams-delta: remove unused function
+ ams_delta_camera_power
+Message-ID: <20210401163732.gl63gs2dpi6pickt@archlinux-ax161>
+References: <20210401160434.7655-1-maciej.falkowski9@gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: maciej.falkowski9@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Hw1BPIfi;       spf=pass
- (google.com: domain of maciej.falkowski9@gmail.com designates
- 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=maciej.falkowski9@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210401160434.7655-1-maciej.falkowski9@gmail.com>
+X-Original-Sender: nathan@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=pfG4Ny5N;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,49 +130,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The gpiod table was added without any usage making it unused
-as reported by Clang compilation from omap1_defconfig on linux-next:
+On Thu, Apr 01, 2021 at 06:04:34PM +0200, Maciej Falkowski wrote:
+> The ams_delta_camera_power() function is unused as reports
+> Clang compilation with omap1_defconfig on linux-next:
+> 
+> arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: unused function 'ams_delta_camera_power' [-Wunused-function]
+> static int ams_delta_camera_power(struct device *dev, int power)
+>            ^
+> 1 warning generated.
+> 
+> The soc_camera support was dropped without removing
+> ams_delta_camera_power() function, making it unused.
+> 
+> Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
+> Fixes: ce548396a433 ("media: mach-omap1: board-ams-delta.c: remove soc_camera dependencies")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1326
 
-arch/arm/mach-omap1/board-h2.c:347:34: warning: unused variable 'isp1301_gpiod_table' [-Wunused-variable]
-static struct gpiod_lookup_table isp1301_gpiod_table = {
-                                 ^
-1 warning generated.
+Thanks for the patch!
 
-The patch adds the missing gpiod_add_lookup_table() function.
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
-Fixes: f3ef38160e3d ("usb: isp1301-omap: Convert to use GPIO descriptors")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1325
----
- arch/arm/mach-omap1/board-h2.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm/mach-omap1/board-h2.c b/arch/arm/mach-omap1/board-h2.c
-index c40cf5ef8607..977b0b744c22 100644
---- a/arch/arm/mach-omap1/board-h2.c
-+++ b/arch/arm/mach-omap1/board-h2.c
-@@ -320,7 +320,7 @@ static int tps_setup(struct i2c_client *client, void *context)
- {
- 	if (!IS_BUILTIN(CONFIG_TPS65010))
- 		return -ENOSYS;
--	
-+
- 	tps65010_config_vregs1(TPS_LDO2_ENABLE | TPS_VLDO2_3_0V |
- 				TPS_LDO1_ENABLE | TPS_VLDO1_3_0V);
- 
-@@ -394,6 +394,8 @@ static void __init h2_init(void)
- 	BUG_ON(gpio_request(H2_NAND_RB_GPIO_PIN, "NAND ready") < 0);
- 	gpio_direction_input(H2_NAND_RB_GPIO_PIN);
- 
-+	gpiod_add_lookup_table(&isp1301_gpiod_table);
-+
- 	omap_cfg_reg(L3_1610_FLASH_CS2B_OE);
- 	omap_cfg_reg(M8_1610_FLASH_CS2B_WE);
- 
--- 
-2.26.3
+> ---
+>  arch/arm/mach-omap1/board-ams-delta.c | 14 --------------
+>  1 file changed, 14 deletions(-)
+> 
+> diff --git a/arch/arm/mach-omap1/board-ams-delta.c b/arch/arm/mach-omap1/board-ams-delta.c
+> index 2ee527c00284..1026a816dcc0 100644
+> --- a/arch/arm/mach-omap1/board-ams-delta.c
+> +++ b/arch/arm/mach-omap1/board-ams-delta.c
+> @@ -458,20 +458,6 @@ static struct gpiod_lookup_table leds_gpio_table = {
+>  
+>  #ifdef CONFIG_LEDS_TRIGGERS
+>  DEFINE_LED_TRIGGER(ams_delta_camera_led_trigger);
+> -
+> -static int ams_delta_camera_power(struct device *dev, int power)
+> -{
+> -	/*
+> -	 * turn on camera LED
+> -	 */
+> -	if (power)
+> -		led_trigger_event(ams_delta_camera_led_trigger, LED_FULL);
+> -	else
+> -		led_trigger_event(ams_delta_camera_led_trigger, LED_OFF);
+> -	return 0;
+> -}
+> -#else
+> -#define ams_delta_camera_power	NULL
+>  #endif
+>  
+>  static struct platform_device ams_delta_audio_device = {
+> -- 
+> 2.26.3
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210401162032.10150-1-maciej.falkowski9%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210401163732.gl63gs2dpi6pickt%40archlinux-ax161.
