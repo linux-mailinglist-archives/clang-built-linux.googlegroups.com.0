@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBEVQTGBQMGQESIDXMCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBE5QTGBQMGQEBZYI4ZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 919C33523A6
-	for <lists+clang-built-linux@lfdr.de>; Fri,  2 Apr 2021 01:32:35 +0200 (CEST)
-Received: by mail-pl1-x63d.google.com with SMTP id x7sf3656649plg.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 16:32:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617319954; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 33D5E3523A7
+	for <lists+clang-built-linux@lfdr.de>; Fri,  2 Apr 2021 01:32:37 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id 20sf3656843plg.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 16:32:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617319956; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ycpzU/vFVMVp+EYCRvTZErws4y6NNIIXBHnO3LU7e3EUqp0RdSVReKF/RtOv2fPcSR
-         KD2uajvRicRZ4ssyYdTVF24I+JgT1QzZ0kskZKxj1DZznVmLrROop431J8nnvBDtgwGY
-         foEyjvYH+ceLxsAKD/gZs90eARltY19KelReyU80E4ZlcN3ySzngWQGEQZQnw41XVY2p
-         33mLKdWs2YGZcptnic0mtk+VO/IV7vqGOd9f5BMzdrL9BVKBDpc2B0A3ldPNpCsKMCl/
-         7Hk8+X/smafwgs/TnjUdj2tEd63zRv8fk7LpjN5gJ1qiJ+V0CGkAp+vjJUKE8fYdOA7V
-         Bq7Q==
+        b=rBTxyF1/emW0SA2x6uM10YjelMnAm6v84pMZuHa7vX2gV9RTNuYaNDOgzA6gvpqLck
+         GW41cTDu8SAvCY3mw2R/jVrHHEoeEe5Iiew7YBMbB4b7ZADiqPV7S6jq4LPIDcWxV8vo
+         HXdBRYA/zZyrHu58Mzxel41SY0M1wvT4SRQZHQD286Qt+s5LE30kdeP1BXHg2GN/I0MH
+         LLHWdldlnA+0FDuWNO47mv1jdz/pfC+7l+8OND6ieDNnijrHHBEJKQ+i7QK9jcEORxdj
+         UHCM1ZWlWOvlg+a5GBnOG/sjC17WSqZOm/EIvKVrykxIORMvg/zdTe51Cq4qBtLjCQ8I
+         p4Lg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=Gbudq/Kb+6GNCLdige9o8XNr+NlPZKOZ+vrV1QXbqVU=;
-        b=E9596jHdUU7yBT5ltTnrIY6QJ3yB1Vy5Z/OjUHZbUcpnAeTw8i4eH3vFZq+ishJx62
-         kgd0BfsJ91PD95cGa4aqQMXxpivbhCzs9xTLdkNYW78duTdD17gNPKJazgwWcmxLo6+S
-         Yoh846gfLz8Fww7ytDq+2BFdHH/P5LDIbKffCS0u+44Pw/Wg4RikU/VCmiWMd8tSe8d/
-         AAWereM7RTsWgwby2saYhjxIysvsXfoBtfEMI8mdBiGtiXsMAni1kkDGioLVY28/wX8W
-         XHu+S6CmAK0mKx4ieUZKD/PmgMJ1auVTuWrIOoLtIuCuuv7AXOncvbk5ybnJhE0Qb+2h
-         3yJw==
+        bh=cnxedwXzVzm7SMCnVy37bp53TNxX4yRfxx/vTCBqBBs=;
+        b=UQKUlXSHkBcxEjCd3aHXM1RJ0aL3wKtqDtO2Q7o4STEchLA+6aRIjoxsFkTFtgZvZS
+         xXF67mk1CTm4zGo+Ys39dhwCQ0FY4Ij9v4Xe1rrQ0vqVrDpgdlDpYscj+l1a6r/T/NWh
+         +d5EtI/VqY8e8+byW37DTExCFwN+UJ6FH289YhWAY24EbEo9Jc+TUUT0r1nkKrMj7ETk
+         78aSPuFpECBSXuaV97NvcQb99W5iMFbP81+XHGHbQdThyv9DJDdtjs0lxl55YWqldjzq
+         E9MA4/JA0L8q3k+tKnPEYjnsEefdt1++xC1nfNzMEozpzOhANagQJhatsAAT6kM8dLYu
+         u95Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jfBjjOuh;
-       spf=pass (google.com: domain of 3efhmyawkagmtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3EFhmYAwKAGMTBNJUPMWBOFOHPPHMF.DPN@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cVUYELPk;
+       spf=pass (google.com: domain of 3e1hmyawkagyweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3E1hmYAwKAGYWEQMXSPZERIRKSSKPI.GSQ@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Gbudq/Kb+6GNCLdige9o8XNr+NlPZKOZ+vrV1QXbqVU=;
-        b=F3g06QgdWPjgIgc1NAnargt4zGHND/ssy4NGJbsp+7JPRWAPcx6+7LsOMVim46okxf
-         5dRxy/j+jJ3DixcFEOKoVlVpxr7ewDKXDdhS8Ne2jd3OydHoeeQqi00JiPbzr/at0JZU
-         zVSX2AtS34X76Pe7tmUE72zAJxRbNA8XHrIw/P0RLi7o41kLVQjFDEj+rVg2maxXoA2m
-         UYc6s/0vZMthU8Nd3S1zUxMDeccJR1d8lrxFvnbD2eN49UnztplHWR5Ac7ZRGsHX+Ql6
-         vBXTQIqOxpKM3fxXAL9ZPkFYir11452Ur73uE8BeBkwpEmnEaLohup1QGqg+NjhipPaC
-         hVtA==
+        bh=cnxedwXzVzm7SMCnVy37bp53TNxX4yRfxx/vTCBqBBs=;
+        b=GfUOmxWszXBujczp0cNPfU98ClnRIUk/jUmvKh5jSpHmpG8O0lvmk5OJJ4L9uKwlq1
+         llv/woSFRfESNCE3jq5PlU+i1PiEcACQvd7p4todNRDXyP2/2Wonrrhdl2QCWooUHG1E
+         5BDSkMd02mDnempTsvjLrncTf0OJXwH9w4/VJ1mhw2mODK2lgm9MQI0imA9tzBpptOVq
+         u3zL+WDi2+CwXqlZI591j+NhMlb5yQt0JlOmorxF7u152m/dCM55BqS6sxSeHXSeDpnw
+         C0p34pikS9WgfCMAx16gtQAu/dvpS8F5vxsbJZCH+ttDDT77P0lLwBPGva+8fWpLmiIo
+         CFpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,63 +49,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Gbudq/Kb+6GNCLdige9o8XNr+NlPZKOZ+vrV1QXbqVU=;
-        b=Ni0HroYYDQBLp+GsUbu0NQinpohEHf/uWJtU1i4YBCvJLv+1VO+gO94CWTdX95XWGl
-         xUTeOXHt/WCUexNfm3uzfUTa2OooG68SkOR8AqOnfe+2y2uWODETmlXYT1xtDyElHw4/
-         DcKNaSQoPvaEN5ORkniT7oiPZ6kUIWQpSyo/qi+cD4utpH2GQRzqbgkLGFw9ddyTB9kT
-         2RxAALwUmDrsDtLNXAsKLUAuX00R1rCjapSuoQoKGjZBW4Py3defTfoYrkAKvOhrQUxP
-         iIOB9hRP6DQ/quQsTsRg49QXVhsrJEV2lIv3IwOQ5x6qc/ox1zQIhYAnKHtZjBw7QhHc
-         JotA==
-X-Gm-Message-State: AOAM532hCMn0gyiCBYUnvb/slWIk66ehEKIa2cKX4ewMOyqIj6PY4M2y
-	gFoUfIQAjQf/WFvnhqKVbhY=
-X-Google-Smtp-Source: ABdhPJxYJwTuZaDjgnG2W3pAZ8kli1Mi9B/zbsp/+ZgSgTPKhk+P64nOP+Z1QZqQdJZ6v2lnA699Cg==
-X-Received: by 2002:a17:902:c104:b029:e7:3268:6eb9 with SMTP id 4-20020a170902c104b02900e732686eb9mr10165821pli.32.1617319954329;
-        Thu, 01 Apr 2021 16:32:34 -0700 (PDT)
+        bh=cnxedwXzVzm7SMCnVy37bp53TNxX4yRfxx/vTCBqBBs=;
+        b=nCuybNGQSnhrDjfvgVNhBu+zAKLHA2f2b/rwtZpmqSKsWRSr9FWzIG+l4o/WuQKdgV
+         ESLIa0oTqDKpOnwCQ2cUH1Wv2ov56AfaID3xeRafMNuUYzgkZLFahHHvSAd0Z/d1VvCa
+         GqH3KH6c9CKOofJRlgZcT6ctRg23ooUblfOmC3E/4d9abbP5E1MsoUciZPKQX3a40H39
+         i8wvWo/EfrnCdclpDGB9dv8EbqCZyBwHK9kLyoGg+zR7Ri352twbtAYkLk4eXfOkdYeB
+         BaUiwkkOL/gI1+9dY/6wKSqCGYqRvQu0uY4jGcQJeggcMRHLfjaXbMw2SPuIUxBdf3aW
+         Lh3Q==
+X-Gm-Message-State: AOAM532LeZlANQ+mBlp9a6wtwxOkdpLs4ARRdBxGbiKnZirAtnhRt851
+	QVyO5DnKWhcZ57Ok2C/HtP8=
+X-Google-Smtp-Source: ABdhPJxA+zhNw/wE5sPDyEgXZ/iU6HJ1qZJrX57L8eWv9LoChAvu1uS1gPybhh2qHxQ9Gu0TNK2qCw==
+X-Received: by 2002:a17:90a:e2ca:: with SMTP id fr10mr11324999pjb.18.1617319955946;
+        Thu, 01 Apr 2021 16:32:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:eb43:: with SMTP id i3ls3479688pli.7.gmail; Thu, 01
- Apr 2021 16:32:33 -0700 (PDT)
-X-Received: by 2002:a17:902:9886:b029:e6:2bc6:b74 with SMTP id s6-20020a1709029886b02900e62bc60b74mr10137717plp.13.1617319953769;
-        Thu, 01 Apr 2021 16:32:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617319953; cv=none;
+Received: by 2002:a17:90b:ec9:: with SMTP id gz9ls4404172pjb.2.gmail; Thu, 01
+ Apr 2021 16:32:35 -0700 (PDT)
+X-Received: by 2002:a17:902:d694:b029:e6:bc94:4931 with SMTP id v20-20020a170902d694b02900e6bc944931mr10195800ply.6.1617319955342;
+        Thu, 01 Apr 2021 16:32:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617319955; cv=none;
         d=google.com; s=arc-20160816;
-        b=F9aQkynLTMaeNkppQ7dst+ivC/AXfqpee4TMxz2WS2RaqCBeZTeMsvqr4VrCK7iNvA
-         78vMkBYkxMlT1WunVOns9AJbMGVVKom+1Yb3AeKSjJ3jqE3Z0eTCOKFFTeTgxBVS14hK
-         TwQ0sKB3cT5TgKxs4Ep8lSJIAKi+HNXNcpJY5JME8h7nSCbPX09j3b3pCXeaCi512TLL
-         Do5wh14IIyI6T1vC/rCXtVrlgr4VqLG65uTeskwej4GcIcNjJrKjQPq4OzpFT6/qfeDx
-         PGze+QK6ECZ3dySdHt+PCZwXabHNNuOO824awjlYgbsU9/EsVz67KqueJAek8Uy5Ba0s
-         hFTQ==
+        b=YLRp82W7kas9I7pGrFyP9qg8rzA5gRpK/ipVk0h9ElCWlinoskwiugjMZbWpWxB/u/
+         4qm7rbEyu1sPeXvDB5wlr1GmaboJG/h4mKx5079ZmisLAXbKlvqzsMbY+0sfF6r7aGe7
+         zZIkQIpwSN6qvOD4VQr6P0EhDx6I0gY0Ayx9WD9KFdYNccCwd6nH0hKIXJLuuY1JHj+P
+         esa00CVpBcIBho7VjIJ8yw3aEYOPucaOil85ItToYSmGrfi9ai9aqd4Aw8scipu8s9ia
+         F786ie7e/S33wk1mD65OO75ZdJrKyCaf5oRVNPTN3Jn4wqpzDRAxegyis3hdSoBHbxxl
+         8p0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=0OJOU674SN3xj3Lqx/JMDarKdo+EQxjvu4sbPIpjGbQ=;
-        b=NcKHv3O/0kd1clFN1S2Sxvdq24quqlznM/ATSl9zQiqrOdyCVD7pA1kOCXkC/MMJwe
-         EhvDFCP2BadfJoNUwLfbmzIPPEEmz45ONPA+atmgfKto6WeTO++qA6NjERqVsxWaAwp1
-         UDAN4pY55BU2ppGibTqC9x0O5yO3u15gvyjU96ZnDOdHwWN/y1QiT3pf4tDlpQjnxUOY
-         KXQwz6B9UegVa7DNmiJaHXXfzuup71yyCgcG2tZfA/rgb4836ft6vUca+Z1Tsc+eTzOx
-         Ci8cHpUfV6i+/A2TJ8PQEInzGQCDrWa6ULCfPEmh1PxaiZaepxjCdqzEwUKZPZgHmSN3
-         UU6Q==
+        bh=ygu6iZbbUsR2ZKi8zr0iQyDyVVNKo7dHAEFjMtj8SHY=;
+        b=iesns9gaHspjwRgu8sf+glsN3BBKT20RHgLR9XPBAvpxiUAsvSX+aoshz5M51kgvnK
+         tac1QVXhOMkH5Xy3hXn0NRUi/Ze7Phh505CFA1kOoN0t0lty2LcM8YK/GfCNg9O9nSKY
+         DShVxxxGYOJaIOHgcwe9c26cuoxi/fGPfF0lsEwbuggZnXNWEnobS1LqIOm8qpaLyrw1
+         qlSc115CH4Y0D/xJQx7D+WCJIavgpx2E368N4S8lO/eBexyQecXP7O30C11MDXlhDKeX
+         7oeLiBPKPbN91PYddgbkyviisYOIeP2dq9Vs1B8RYP8YWl9iCZngp5Y+gPaSNJr4q4f9
+         ElnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jfBjjOuh;
-       spf=pass (google.com: domain of 3efhmyawkagmtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3EFhmYAwKAGMTBNJUPMWBOFOHPPHMF.DPN@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cVUYELPk;
+       spf=pass (google.com: domain of 3e1hmyawkagyweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3E1hmYAwKAGYWEQMXSPZERIRKSSKPI.GSQ@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qt1-x84a.google.com (mail-qt1-x84a.google.com. [2607:f8b0:4864:20::84a])
-        by gmr-mx.google.com with ESMTPS id y17si398656plr.4.2021.04.01.16.32.33
+Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id f7si488447pjs.1.2021.04.01.16.32.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Apr 2021 16:32:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3efhmyawkagmtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) client-ip=2607:f8b0:4864:20::84a;
-Received: by mail-qt1-x84a.google.com with SMTP id t3so4047281qtp.23
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 16:32:33 -0700 (PDT)
+        Thu, 01 Apr 2021 16:32:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3e1hmyawkagyweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
+Received: by mail-pf1-x449.google.com with SMTP id a9so4255211pfo.10
+        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 16:32:35 -0700 (PDT)
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:4cd1:da86:e91b:70b4])
- (user=samitolvanen job=sendgmr) by 2002:a0c:bec3:: with SMTP id
- f3mr10582224qvj.49.1617319952913; Thu, 01 Apr 2021 16:32:32 -0700 (PDT)
-Date: Thu,  1 Apr 2021 16:32:05 -0700
+ (user=samitolvanen job=sendgmr) by 2002:a17:902:9008:b029:e6:f37a:2183 with
+ SMTP id a8-20020a1709029008b02900e6f37a2183mr10163478plp.49.1617319955033;
+ Thu, 01 Apr 2021 16:32:35 -0700 (PDT)
+Date: Thu,  1 Apr 2021 16:32:06 -0700
 In-Reply-To: <20210401233216.2540591-1-samitolvanen@google.com>
-Message-Id: <20210401233216.2540591-8-samitolvanen@google.com>
+Message-Id: <20210401233216.2540591-9-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20210401233216.2540591-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.31.0.208.g409f899ff0-goog
-Subject: [PATCH v5 07/18] kallsyms: strip ThinLTO hashes from static functions
+Subject: [PATCH v5 08/18] bpf: disable CFI in dispatcher functions
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Kees Cook <keescook@chromium.org>
 Cc: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
@@ -121,9 +122,9 @@ Cc: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=jfBjjOuh;       spf=pass
- (google.com: domain of 3efhmyawkagmtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3EFhmYAwKAGMTBNJUPMWBOFOHPPHMF.DPN@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=cVUYELPk;       spf=pass
+ (google.com: domain of 3e1hmyawkagyweqmxspzerirksskpi.gsq@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3E1hmYAwKAGYWEQMXSPZERIRKSSKPI.GSQ@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,137 +140,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-With CONFIG_CFI_CLANG and ThinLTO, Clang appends a hash to the names
-of all static functions not marked __used. This can break userspace
-tools that don't expect the function name to change, so strip out the
-hash from the output.
+BPF dispatcher functions are patched at runtime to perform direct
+instead of indirect calls. Disable CFI for the dispatcher functions to
+avoid conflicts.
 
-Suggested-by: Jack Pham <jackp@codeaurora.org>
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- kernel/kallsyms.c | 55 ++++++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 50 insertions(+), 5 deletions(-)
+ include/linux/bpf.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/kallsyms.c b/kernel/kallsyms.c
-index 8043a90aa50e..c851ca0ed357 100644
---- a/kernel/kallsyms.c
-+++ b/kernel/kallsyms.c
-@@ -161,6 +161,27 @@ static unsigned long kallsyms_sym_address(int idx)
- 	return kallsyms_relative_base - 1 - kallsyms_offsets[idx];
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 3625f019767d..2f46f98479e1 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -650,7 +650,7 @@ struct bpf_dispatcher {
+ 	struct bpf_ksym ksym;
+ };
+ 
+-static __always_inline unsigned int bpf_dispatcher_nop_func(
++static __always_inline __nocfi unsigned int bpf_dispatcher_nop_func(
+ 	const void *ctx,
+ 	const struct bpf_insn *insnsi,
+ 	unsigned int (*bpf_func)(const void *,
+@@ -678,7 +678,7 @@ void bpf_trampoline_put(struct bpf_trampoline *tr);
  }
  
-+#if defined(CONFIG_CFI_CLANG) && defined(CONFIG_LTO_CLANG_THIN)
-+/*
-+ * LLVM appends a hash to static function names when ThinLTO and CFI are
-+ * both enabled, i.e. foo() becomes foo$707af9a22804d33c81801f27dcfe489b.
-+ * This causes confusion and potentially breaks user space tools, so we
-+ * strip the suffix from expanded symbol names.
-+ */
-+static inline bool cleanup_symbol_name(char *s)
-+{
-+	char *res;
-+
-+	res = strrchr(s, '$');
-+	if (res)
-+		*res = '\0';
-+
-+	return res != NULL;
-+}
-+#else
-+static inline bool cleanup_symbol_name(char *s) { return false; }
-+#endif
-+
- /* Lookup the address for this symbol. Returns 0 if not found. */
- unsigned long kallsyms_lookup_name(const char *name)
- {
-@@ -173,6 +194,9 @@ unsigned long kallsyms_lookup_name(const char *name)
- 
- 		if (strcmp(namebuf, name) == 0)
- 			return kallsyms_sym_address(i);
-+
-+		if (cleanup_symbol_name(namebuf) && strcmp(namebuf, name) == 0)
-+			return kallsyms_sym_address(i);
- 	}
- 	return module_kallsyms_lookup_name(name);
- }
-@@ -303,7 +327,9 @@ const char *kallsyms_lookup(unsigned long addr,
- 				       namebuf, KSYM_NAME_LEN);
- 		if (modname)
- 			*modname = NULL;
--		return namebuf;
-+
-+		ret = namebuf;
-+		goto found;
- 	}
- 
- 	/* See if it's in a module or a BPF JITed image. */
-@@ -316,11 +342,16 @@ const char *kallsyms_lookup(unsigned long addr,
- 	if (!ret)
- 		ret = ftrace_mod_address_lookup(addr, symbolsize,
- 						offset, modname, namebuf);
-+
-+found:
-+	cleanup_symbol_name(namebuf);
- 	return ret;
- }
- 
- int lookup_symbol_name(unsigned long addr, char *symname)
- {
-+	int res;
-+
- 	symname[0] = '\0';
- 	symname[KSYM_NAME_LEN - 1] = '\0';
- 
-@@ -331,15 +362,23 @@ int lookup_symbol_name(unsigned long addr, char *symname)
- 		/* Grab name */
- 		kallsyms_expand_symbol(get_symbol_offset(pos),
- 				       symname, KSYM_NAME_LEN);
--		return 0;
-+		goto found;
- 	}
- 	/* See if it's in a module. */
--	return lookup_module_symbol_name(addr, symname);
-+	res = lookup_module_symbol_name(addr, symname);
-+	if (res)
-+		return res;
-+
-+found:
-+	cleanup_symbol_name(symname);
-+	return 0;
- }
- 
- int lookup_symbol_attrs(unsigned long addr, unsigned long *size,
- 			unsigned long *offset, char *modname, char *name)
- {
-+	int res;
-+
- 	name[0] = '\0';
- 	name[KSYM_NAME_LEN - 1] = '\0';
- 
-@@ -351,10 +390,16 @@ int lookup_symbol_attrs(unsigned long addr, unsigned long *size,
- 		kallsyms_expand_symbol(get_symbol_offset(pos),
- 				       name, KSYM_NAME_LEN);
- 		modname[0] = '\0';
--		return 0;
-+		goto found;
- 	}
- 	/* See if it's in a module. */
--	return lookup_module_symbol_attrs(addr, size, offset, modname, name);
-+	res = lookup_module_symbol_attrs(addr, size, offset, modname, name);
-+	if (res)
-+		return res;
-+
-+found:
-+	cleanup_symbol_name(name);
-+	return 0;
- }
- 
- /* Look up a kernel symbol and return it in a text buffer. */
+ #define DEFINE_BPF_DISPATCHER(name)					\
+-	noinline unsigned int bpf_dispatcher_##name##_func(		\
++	noinline __nocfi unsigned int bpf_dispatcher_##name##_func(	\
+ 		const void *ctx,					\
+ 		const struct bpf_insn *insnsi,				\
+ 		unsigned int (*bpf_func)(const void *,			\
 -- 
 2.31.0.208.g409f899ff0-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210401233216.2540591-8-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210401233216.2540591-9-samitolvanen%40google.com.
