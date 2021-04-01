@@ -1,138 +1,133 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB4XGSWBQMGQEHV7V2JI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDD4ZNHM3QHRB2P2SWBQMGQE7FSS3XA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4C311350FF1
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 09:17:08 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id n12sf2550448plf.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 00:17:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617261427; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8FD29351073
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Apr 2021 09:59:38 +0200 (CEST)
+Received: by mail-qt1-x83f.google.com with SMTP id j2sf2608890qtv.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Apr 2021 00:59:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617263977; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HGCWVnMTVetp1JBntpxCA/O5l5DdA1BKvsOaS50yVP/DQ5BmTBF0DUBtejp9G66JfM
-         gOIC5DtD3tqdrDheMkeexIjU+wBYpjvVRbL4uH3X3eb/+6x0vQUKGnOdlK6DkHn1sO5A
-         JDCQlHOhUoYecoj9UNwKzhBzbuYWyDbl0l+85+fXBeT91RLq+EtIkMXebzBimAUKE1Jc
-         BwlxRpTNC5kJXg0lJCGW6Ln37Qut28YnP+ViTmu86pKNCKzZic7tHoaf6lm+COh7g5vd
-         HpvkWQGGXsEfNkxMiKpAsNSRgXSm9b2Pg/av68cgcjiXE99Mg0T5OmtZUqMgfWvS/aA2
-         IpfQ==
+        b=qMyA7c7P5fUxZnisiLajtL9fcGE9wg+RdgfqU8kXaXqn2m/8pDx7AaIA3SzeMygAWj
+         9+nn75XIWvcPk/DtaIHT5wZzzVHqRF/+vjMJ14BiwX0Ivzp5JprJFPeL5ULqZMSigX3D
+         L2nw/wNjU/zGERRpoPfUacBPazaByP3kOr+Gi82lmuwG8FPgtem5cqcAbU648GzRq2WB
+         wsC4SbMbQF6PMR+EIjpFTBGZ9oQ+S0JBxakxlSdDZ01BuqrNZFq5ZtMASzKyDUcJ8XUA
+         Qu8w5CuEcFgOUQRpxJnMHE5F+fKRzELN/CnF53WvlWpVyeNriwMTBAUMKI0cXBtZ0W4Q
+         UqzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
+         :in-reply-to:date:references:subject:cc:to:from:sender
          :dkim-signature;
-        bh=Mu9+29H5dhpaTwGHr5Txp/hj1mJk4LsL65s5tf+6N9I=;
-        b=bCpGVBM5T1LcikFPYoQoMNRj1RaG5L2I8QMZQnNGMsUBDlgX/JncWGeLzv2FOywAqo
-         U4ELHV+W+sRk9N4DI0sgBwLFwKODdXz93i1NHTX2dOYAGH0Lgtfg6y/r1pfRT0GpEckV
-         6bT5ydp2M4R8bn3JRXQiobOcJrP8nKGeShpXHmoI9O7sXY7MFqg2+UzUh8LJgikUfSfV
-         0NVKdqWCVqSy4NioDWm9lcBE3Pz8azLiPJ2biWO61ihaDjKzmnEYYTYANRcHAfwkygjr
-         Mk994lDzSE8/lfolwVMCQPcgzunULeBg2knbYypLjAcn9ZvHMnNTFwWl+JgoLlCGta1b
-         FFHA==
+        bh=05z4Fyu9PVWfMUdKCWt9ZCgcmCS6eYeRyeBIybGERcw=;
+        b=kuhoRBnj92EcshZLqlNqMBFtKfP3KqsxXap56VmXG5Ci/Z19PoXyDda7+DBy/AfGq3
+         9vAYJAxLv0K+zMKdvTUzuUWgk1ZATFAM9u9XI6kAlu8at7lfQfCes4EtiQsJNsnua595
+         SYaURP438jDuLR1HN/3w9O43KTZQ/nlqhdCjmgwWxDFf14KIFBB8vvKVhlRhKJy0hlj3
+         mdFDy5sdIlwCxTdkh5TER3EapEn/4+yW04W7CFc07Hjtot/MzCpUrs986s45gcrO5GC0
+         Hw9GmOptot9+4iHUzAQ8o9GZq1jW0e9t2wF2krqIDRsmV0ew8KooFKJ892FW9Xmo1r2g
+         KavA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=S3TYcLce;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       spf=pass (google.com: domain of jemarch@gnu.org designates 2001:470:142:3::10 as permitted sender) smtp.mailfrom=jemarch@gnu.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gnu.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:from:to:cc:subject:references:date:in-reply-to:message-id
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Mu9+29H5dhpaTwGHr5Txp/hj1mJk4LsL65s5tf+6N9I=;
-        b=HLpZogArdTCXd/CakFwlNIX/zjlj8pgory37BA7pxr2LKhuzrmicTWc/FMxrlvJ1T2
-         MSYYFSFN1qR1T56JiaKC1OtlLhXqn8FLrL4a0D7dQdVw4ToD00M3FGzHRG3fW1xanEf7
-         rsRITmv6x0RWMSTB21BtUDx5PEiDH1X0eJCHY7D1iiPji5ccbEKw9lnCFjP9L+qVGJk6
-         Xm5FbqwvmiXANypSTJ/7zvJAsoMdz7BK7vJhBZ/22SXBNvl0lJ9xRGgdGWpfshQWSJLU
-         dpFcr6qMzy3mtjJcQKwmm+Pv9yJnAivla39UxSvSvJv+F04RgtpewfQ6W5XhjYFzOpAS
-         f3mg==
+        bh=05z4Fyu9PVWfMUdKCWt9ZCgcmCS6eYeRyeBIybGERcw=;
+        b=ITUKSs9YJAg8rgn1WIvT3pqG18UjjWy78SbnER0qZiUa9WA6KazBqPt82Z5V+giP3h
+         utbWv8EILH9q5bfVTNsi1kYGOrg42tAEdo9hgVKFxeE4Fv5oLcc77N2Qe3sppQdC0Wqi
+         W9xyXRDvMm5ubqNgd0GtwZFULZsHoTiOzXUvP2vacbqPhRxaQV65QPyjkqMiyt+Kbokq
+         AeKwmAsX93VP3xkioIyU559TIgv5dothwAKppw8vVzE9cW4WfEcWo7ojeVAQ1dfjVflp
+         6vJ7XTDA849O69c2e4AAj7cVzdiGL7k1qfVXrhapEvXDK11o7XoYF6XbdJJsrATG1vXX
+         b77Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Mu9+29H5dhpaTwGHr5Txp/hj1mJk4LsL65s5tf+6N9I=;
-        b=bnv+y0qskACM0BygErwv7Vhy1LQpr93MLrXHqdr930Fp1ag2WQ+stQCgfagM3WzqOM
-         qweGKROYjfH0dWyjSkRrkBd3oe5jsULvLUJSrEPntOh9DKHworSw4bzDbvqis/sGHN2J
-         W4pl5epgtN+tw6wFac7tIPMNuKFUiPiFyf+FQ2mMjMJOtyoRJWHiMdX175NLZwxSgPXF
-         lzhnXx4R3doH/yZyoQ25WdehAYxbelo3yRgGWYygPbVhqu+oFHj+cVp6OhC4hLlz52T+
-         6YgGk0dytZfmtEq1aGgewszWJTBoprW/k4TmYm+3gHIDuOO73cIeeZMy1MSekT1Fwh0C
-         a4pA==
+        h=sender:x-gm-message-state:from:to:cc:subject:references:date
+         :in-reply-to:message-id:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=05z4Fyu9PVWfMUdKCWt9ZCgcmCS6eYeRyeBIybGERcw=;
+        b=KWdRBmKIcTUtSXcAQpVj8Fw2Y3ptTrJUCwO3XYCRpGEF0TXQ12ShrAjArP55O8YtIK
+         fVlLTzn2YAiWTm/zwrx5OoosioLwul665+hoTJKif9TnHgV9PdOZfQuiUyLeC/pPIKX2
+         8PfrH/gNYvidoRVvfMykq4DStcvWjR7+AK2uhkSgd8wZocoW2F2c8GsRbxKrNjfBrMxl
+         dDmXJ4AVxJ2ULksyKBqyjeuhQA46ziC5oGYQrEKipCRI1u2ZKPlwVW9W8LvNIH1Zn7hk
+         Z/dTBmSagF1F9a196/hKeIOX1fY4mgLzuqt+CE5V9MgxK+bJbrw9JNWaeDACIMbfESAS
+         xPkA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533W4qqi3UvSZc2wJdtbhy132QB9Aqf0/f0luF3wPqCQCQUpgJly
-	rTNjpZnUCcDEPOk4BUv0LxI=
-X-Google-Smtp-Source: ABdhPJy03a5Hn6Dtawh4SrCT9gu0K1yg9QcgPYvQpbSBQbzEjaOEeZTcnHBxYc8XAYZsWO5PegqiTw==
-X-Received: by 2002:a63:3ec2:: with SMTP id l185mr6359288pga.45.1617261427079;
-        Thu, 01 Apr 2021 00:17:07 -0700 (PDT)
+X-Gm-Message-State: AOAM533VkyOFvlOPuvg/OhJJWWcuCEiFZdUmlePHZ9gGrrV/Gg5B5Uue
+	XwTkMrne8BOpAiYhDcWdIwM=
+X-Google-Smtp-Source: ABdhPJxbhexWwVyEu35jCPIf3oNYkZpHZT3khJF4h+leiR9IYmqa0jmFvWWX050w5oYo/aaiZ4uWVw==
+X-Received: by 2002:a37:a008:: with SMTP id j8mr6963382qke.343.1617263977391;
+        Thu, 01 Apr 2021 00:59:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:1382:: with SMTP id i2ls3033243pja.1.canary-gmail;
- Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
-X-Received: by 2002:a17:90a:bd95:: with SMTP id z21mr7851006pjr.214.1617261426676;
-        Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617261426; cv=none;
+Received: by 2002:a37:7a82:: with SMTP id v124ls2844402qkc.3.gmail; Thu, 01
+ Apr 2021 00:59:37 -0700 (PDT)
+X-Received: by 2002:a37:a74e:: with SMTP id q75mr7027761qke.165.1617263976984;
+        Thu, 01 Apr 2021 00:59:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617263976; cv=none;
         d=google.com; s=arc-20160816;
-        b=zGXO0+pti7WIJSp+yWPvEsgrOj7ZoZAxKW54LRU/fkRf1nN2h5cD4ygso3Tr+aSe1G
-         AKBjpbfDrCKJoGxnpr4O79VVTaNg7+zTGi2s9ZjpZTyaTqffdhRPJn0AxYqPn2oKzfGh
-         wT+ReG5CSW8R7O5lHKrNyKQij9gZxFitIPCyF65REyPwIzrTW96jOurStbo6wbxqI0sB
-         Ve5B63ZWn7yFMbbyGFB5QY0lDlwBdSXUCpngTt+7Wi2UqOczM59/bGRNeMQVc3SM/AjC
-         9hE0TqE/iI58r62cfIDng9wmmhNucxwaL17rJcYrOwcLK8zmsevaENxDLMNz/mOpnx0d
-         tkkw==
+        b=JTZHlfrt/gjI0jOrro6tj96fYy8GbQs6SO7ve80tyw+6PSi8C6NUDAMQcd3taIuhTP
+         RzbL8gbT7g8RzRCQTbtiehIAEI5R/832OXmChWkmw+XEVIX9MQHla4KiNfPRDbfgqAdA
+         bL+HSVCZG+JyJbchhni80wrM4mSwX83AMTH6r2xB8y9CcGSssYMLJZ7U0CoTKAwmbWbP
+         q746r6VCyi098z2pNpdEiQ9TRwdBCtZmkVcx2aVrjsO0NtLZFYrKhROUhyuT7Amp4vc5
+         yQvzR6NT/0dBDfy/z4iwop61KvpE07JOxlrTO6V9SQS/5IFsu0mA1gOA5Y4MdA888Kzt
+         YHdg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=yhXaLCKbJTAWOsF+U14KnEq7xOpdNME3Q0d11VRQgYQ=;
-        b=eykAOS3Z5zuDsoy7nF6+28z2HCW4ZB2RFXMJgXPATzNQk0+4bvOM5FFw01h74pFCwE
-         J+qZV6wWhREM7Cke+GhnrKvzn8D8qxvA0h6M8Tcdz0eLedGz5XrXdTmbLnH/pJmYwUQB
-         Tqkrqw9WE6Jw2MuSxQq5ip4Wv/oeuVepwFp+4hd669GbLSJF30F3BSI9gire03pTLo2R
-         X5HpoHkzWY6LDOM077QfbYTqFU4+jXR31tiH955aR7tXtUKD9V+iyrgAMNpoFN554klX
-         0BFOcWwEQ2Up5GOEX+O0GR9/MyOnFVl7+kErRYcJlNfdXFh+BQ+h00YXUBAY3a5MjHi8
-         xqeg==
+        h=mime-version:user-agent:message-id:in-reply-to:date:references
+         :subject:cc:to:from;
+        bh=PbZ3IJLVFS90n7JrzD6FdEX9EfjWCvFSgPw6YCWwIFg=;
+        b=dzeu60+4m5/xuMzycSeHN7xDTqd//qQCCG4RHsxIa6jEoXpjq5h9nfAUFxLmNTQl5T
+         UEONn+TGvwFboIcOBSHZYpt7QXW7S/q+HrFXbUR//M/9OkLvr7XNLautLTy/8V3QbjUC
+         0OHLHNbKcGjkmqjFZ9Lt0/yjKtpEauEbmsJdeTMO42VM7ADdOwx06ukxGJqM0c/PxIrX
+         KlCUjT/YCKvfzbHx5rKkj/JNhxSvryrruOlE5GTABiITBqY/4F4LYWzQZCH6bvZR93vy
+         gOIvlv7+TRlxKPezQIE79Pwc26XeZXMjTYj9C83R1UQjeZvqaIED+Sx7PTOgAnX/4ey+
+         uEjA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=S3TYcLce;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x62b.google.com (mail-pl1-x62b.google.com. [2607:f8b0:4864:20::62b])
-        by gmr-mx.google.com with ESMTPS id n10si338624pgq.2.2021.04.01.00.17.06
+       spf=pass (google.com: domain of jemarch@gnu.org designates 2001:470:142:3::10 as permitted sender) smtp.mailfrom=jemarch@gnu.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gnu.org
+Received: from eggs.gnu.org (eggs.gnu.org. [2001:470:142:3::10])
+        by gmr-mx.google.com with ESMTPS id r26si462106qtf.3.2021.04.01.00.59.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b as permitted sender) client-ip=2607:f8b0:4864:20::62b;
-Received: by mail-pl1-x62b.google.com with SMTP id h8so562146plt.7
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
-X-Received: by 2002:a17:90a:3d01:: with SMTP id h1mr7693125pjc.124.1617261426390;
-        Thu, 01 Apr 2021 00:17:06 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id f16sm3752101pfj.220.2021.04.01.00.17.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Apr 2021 00:17:05 -0700 (PDT)
-Date: Thu, 1 Apr 2021 00:17:04 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Will Deacon <will@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-toolchains@vger.kernel.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	"Jose E. Marchesi" <jemarch@gnu.org>,
-	Florian Weimer <fweimer@redhat.com>,
-	Christian Brauner <christian.brauner@canonical.com>,
-	nick.alcock@oracle.com,
-	Segher Boessenkool <segher@kernel.crashing.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>, andrew.cooper3@citrix.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 01 Apr 2021 00:59:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jemarch@gnu.org designates 2001:470:142:3::10 as permitted sender) client-ip=2001:470:142:3::10;
+Received: from fencepost.gnu.org ([2001:470:142:3::e]:49713)
+	by eggs.gnu.org with esmtp (Exim 4.90_1)
+	(envelope-from <jemarch@gnu.org>)
+	id 1lRsEl-0006xL-UK; Thu, 01 Apr 2021 03:59:32 -0400
+Received: from [141.143.193.74] (port=22056 helo=termi.gnu.org)
+	by fencepost.gnu.org with esmtpsa (TLS1.2:RSA_AES_256_CBC_SHA1:256)
+	(Exim 4.82)
+	(envelope-from <jemarch@gnu.org>)
+	id 1lRsEk-0001o6-36; Thu, 01 Apr 2021 03:59:31 -0400
+From: "Jose E. Marchesi" <jemarch@gnu.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Elena Zannoni <elena.zannoni@oracle.com>,  Steven Rostedt
+ <rostedt@goodmis.org>,  linux-toolchains@vger.kernel.org,
+  clang-built-linux <clang-built-linux@googlegroups.com>,  Kees Cook
+ <keescook@chromium.org>,  Florian Weimer <fweimer@redhat.com>,  Christian
+ Brauner <christian.brauner@canonical.com>,  nick.alcock@oracle.com,
+  Segher Boessenkool <segher@kernel.crashing.org>
 Subject: Re: Plumbers CF MCs
-Message-ID: <202104010015.B879F44@keescook>
 References: <CAKwvOdndc=ej=40WktFz0t083pZJcdX1tipuWoTvAw=JC8b3Aw@mail.gmail.com>
- <YFmoPpb5w4q1dWXz@hirez.programming.kicks-ass.net>
- <20210330141312.GA6327@willie-the-truck>
+	<87o8fa3oua.fsf@gnu.org>
+	<403153ed-7953-c42e-40a2-6ad313acd661@oracle.com>
+	<CAKwvOd=aCn9WqcZe8KgvvZmW0C0nUVL9+sjE_xh0A-ru-995Hg@mail.gmail.com>
+Date: Thu, 01 Apr 2021 09:59:25 +0200
+In-Reply-To: <CAKwvOd=aCn9WqcZe8KgvvZmW0C0nUVL9+sjE_xh0A-ru-995Hg@mail.gmail.com>
+	(Nick Desaulniers's message of "Wed, 31 Mar 2021 13:36:03 -0700")
+Message-ID: <87r1ju1llu.fsf@gnu.org>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.0.50 (gnu/linux)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210330141312.GA6327@willie-the-truck>
-X-Original-Sender: keescook@chromium.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=S3TYcLce;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62b
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+X-Original-Sender: jemarch@gnu.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jemarch@gnu.org designates 2001:470:142:3::10 as
+ permitted sender) smtp.mailfrom=jemarch@gnu.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=gnu.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,69 +140,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Mar 30, 2021 at 03:13:12PM +0100, Will Deacon wrote:
-> On Tue, Mar 23, 2021 at 09:35:10AM +0100, Peter Zijlstra wrote:
-> > On Mon, Mar 22, 2021 at 01:23:03PM -0700, Nick Desaulniers wrote:
-> > > Hi all,
-> > > I saw plumbers opened call for microconferences:
-> > > https://www.linuxplumbersconf.org/blog/2021/index.php/2021/03/18/cfp-open-microconferences/
-> > > 
-> > > I was going to put together a submission; do we want to do a combined
-> > > toolchain MC, or have distinct ones this year?
-> > > 
-> > > I know in 2020 the GNU cauldron was co-located with Plumbers, as well
-> > > as a GNU Tools Track MC and LLVM MC.
-> > 
-> > A combined MC focussed on kernel issues seems very interesting. We still
-> > have the control dependency (volatile-if?) thing pending. We had a bit
-> > of a discussion on that after last year, but I don't think anything
-> > really came of that, can we pick that up? Ideally a compiler person does
-> > an actual proposal for this year.
-> > 
-> > If we can sort that, there's the rest of the dependencies Will outlined
-> > :-)
-> > 
-> > Then there seemed to be people that thought __always_inline was a
-> > suggestion... I think we need to explore how that was ever possible.
-> > 
-> > There's the endless UB debate... can we define more to reduce the UB? I
-> > mean, we're already bound by architecture ABI on the one hand, and
-> > actual use on the other. It would be so very nice to be able to get more
-> > -fwrapv and -fno-strict-aliasing knobs that define UBs away.
-> > 
-> > There also is talk about straight line speculation mitigations. for x86
-> > we should probably emit an INT3 after every JMP and RET. Although this
-> > might not be controversial and be sorted by the time Plumbers happens.
-> > 
-> > There was some talk about how compilers could help objtool make sense of
-> > jump tables.
-> > 
-> > GCC's status on asm-goto with outputs?
-> > 
-> > Clang's getting asm-constraints wrong ("rm" and it always picks "m").
-> > 
-> > 
-> > And I'm sure there was more..
-> 
-> One thing I'd like to add, and which I think is possibly relevant to the SLS
-> mitigation for arm64, is whether there is scope for allowing the compiler to
-> generate alternative instruction sequences (e.g. in a separate section),
-> which the kernel could then patch in during boot. We already do a tonne of
-> code patching on arm64 for things like CPU errata workarounds but also
-> for enabling support for optional architecture features, where the kernel
-> code would trap on CPUs without hardware support.
-> 
-> Another use of this would be to enable stack-taggging with MTE, where the
-> instrumentation is generated by the compiler but may use instructions which
-> are undefined if the CPU doesn't support MTE.
 
-Or swapping out SCS and stack-protector for PAC when the hardware
-supports it...
+Hi Nick.
 
--- 
-Kees Cook
+> On Wed, Mar 31, 2021 at 12:35 PM Elena Zannoni <elena.zannoni@oracle.com> wrote:
+>>
+>> On 3/22/21 2:39 PM, Jose E. Marchesi wrote:
+>> > Hi Nick.
+>> >
+>> >> I saw plumbers opened call for microconferences:
+>> >> https://www.linuxplumbersconf.org/blog/2021/index.php/2021/03/18/cfp-open-microconferences/
+>> >>
+>> >> I was going to put together a submission; do we want to do a combined
+>> >> toolchain MC, or have distinct ones this year?
+>> >>
+>> >> I know in 2020 the GNU cauldron was co-located with Plumbers, as well
+>> >> as a GNU Tools Track MC and LLVM MC.
+>> > We are actually discussing in another thread about abusing LPC's
+>> > hospitality for another GNU Tools Track this year...
+>> >
+>> > Regarding the micro-conferences, I would be ok with either combined or
+>> > separated.  I think both approaches have their advantages.
+>> >
+>> > In either case I'm up for organizing the GNU part.
+>>
+>> Hi,
+>> yes, so, it looks like a GNU toolchain track will happen again this year
+>> at LPC (in lieu of the Cauldron conference).
+>
+> Cool; I generally find these talks of more interest to me personally
+> than many of the kernel topics. It's nice to be able to attend (as an
+> LLVM developer).
+>
+>> For the toolchain related MC, we should pick a better name than last
+>> year to avoid people getting confused between the MC and the track.
+>> Something like "toolchains and kernel intersection" or similar.
+>
+> Oh, yeah, that's a great idea.
+
+What about "Toolchains and Kernel MC".
+
+>> I am neutral on whether it is with LLVM or separate. I guess it all
+>> depends on how long we want the MC to be.
+>> If there are enough topics for a double slot, you should request that
+>> sooner rather than towards the end, when there might be no extra slots
+>> left.
+>
+> Sure, that sounds good.  Maybe we can have a CFP for the proposed MC,
+> and if we get enough interesting proposals that it doesn't look like
+> we'll be able to accomodate what we'd like, we can split into two MCs
+> (if we even need to cross that bridge; maybe we can fit everything
+> into the 4hrs for an MC).
+
+I think that is a good plan.
+
+So, how should we proceed?  Should I send a MC proposal, or you do it?
+:)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104010015.B879F44%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87r1ju1llu.fsf%40gnu.org.
