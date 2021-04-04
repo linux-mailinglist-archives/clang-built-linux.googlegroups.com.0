@@ -1,133 +1,143 @@
-Return-Path: <clang-built-linux+bncBCUO3AHUWUIRBO4LU6BQMGQETSQDKKY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB6NIU6BQMGQE2I6H52Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E59B35384A
-	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Apr 2021 15:57:16 +0200 (CEST)
-Received: by mail-qt1-x837.google.com with SMTP id g7sf6767730qtb.5
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Apr 2021 06:57:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617544635; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5809B35388B
+	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Apr 2021 17:00:11 +0200 (CEST)
+Received: by mail-pj1-x103e.google.com with SMTP id j12sf4581844pjm.5
+        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Apr 2021 08:00:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617548410; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vV8upF8ADLDS4tzTSs2iCgYD6FlDRAqdVbVH0VXW9gvqkYwKewsUIX9InptQ6BtHfH
-         nAh7meEOP84bk4EQWUdVlhgzaR3vsuFNLD6o9ID0wfbCi3n18ZZoy72ny9XdeD+nSZp5
-         L7m7sbDz1K0pQz7qsNlP3XIIvUVMiQf4P/ycyAKu9qjIN0UULTIqmkaRteST++TRGeNl
-         oyj2v+2BMcE9pz0f0QwoyjNP+blia3dB0Q2gdojM+K278eOy+QbXa7bCmv71z8DCKk7e
-         mDzFQm5zHfRZ9RHNg8/Sn3aNePAlHO5B4G/ehTHT9bI0v0w0T/qk5sFg01bDGAAhJFYx
-         7evg==
+        b=uaxz/RfJx2MLu3JTwcvBc1ApQe8X74JRrdom6WUI+L4xh4uYFOL4MRN8AUhXrtvtqT
+         aVWQS5AOUxHv5YMqFsVW6Gg+2aSEYQ8TarZmpGl7Yji0HKTsIr/XTjUoZAexZGHPMZu3
+         S7HruoduntESJodJeqkZrlGNUfqRftyEo66dJvktovzX3hlouFbAveIHb0MDzZoRXOod
+         qtxn5Py/UIpS87qsWuJi6bAia/2Ez1HHPT193Jh9F5p6qMX6c6Gv3tenvTN4C7NLbGbS
+         5dA3fKJmJCoi+DPMwW3CvXASOlZUYCca+OBXNm1PhTdNvzGM6N0RUeU5iSqyFDGQPBu4
+         RFfA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=IoBCeErplwMpVy5Tbu6HvAFGoWiGNydKrAt+TuK34QU=;
-        b=yoVMB+Wcp7eBCBjZY8SSzZnk9T4+IhUVhecRGhsevRqSQtUctX4LoMzjJbXfIAetDP
-         w9eX8RZkEE64q417Es802aBY2d4oU7/IiCZ5hmkys02K3LJKXhsAv+nsajSFR3A8Yt9f
-         H/ij2t+7BVa0X4N4k9Avp8zUlVpNZhxkGIdnP+uRemncrH94zccglnU1M3KuacjRfFzL
-         WxhmBRB4e9fRFHHkuIIkDda85x7PNx4DffR9kuWN5nsLMP2LOuEpU5C7CXTPx/jKDIKP
-         q8GZ8L+gMTmoJSKvGmYa/df4qDjRpbs+7v6/jUlfFj2MjY/zFA7ljL2qEMZOb9wnibl8
-         ENTg==
+        bh=1y20FkoXn5/dwL5zWw6CBMmNeSfpzYIaDthUiA4V1jA=;
+        b=x6E5P5ALQypeMDdcJdaGF2OYYjLUaJpaNy3B0bQZjxNdtNH2aeQNMzsvB6NDdIoUsw
+         4i8eU9kdY8/eAGqFyk+AxSIHyQ0RI0lKuQQDr6gti5Wy8/QG7fGJXyprMJY4oT6RhehX
+         nI9xNGbi4AtK5nBRqwfmI18MhUJ9pENeaT9p1XtG/A9n52uwdxNrLmOXLLrs8rdJAyta
+         9LE57T76/F/FRJ8OeuMwKCgmKg2OdoqRb8n0F2ZX7YCywgZe9St5cSHiZncv155c8zIv
+         YfNRFmO8R5g1kfZdbNABXYeZDSv33+TDnZuwFEH8BVIkU+XajMrTE8BCGpuGRBqiMYCD
+         bODA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ziepe.ca header.s=google header.b=LCW+fT8r;
-       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=onvXjgrB;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=IoBCeErplwMpVy5Tbu6HvAFGoWiGNydKrAt+TuK34QU=;
-        b=UZo7u1bZDds9YY8UfK0cEZEPxAnt4mvwVGPY5g0XiikHdYuIpoYbqowNOB5Ve0iDN7
-         qtG1F/PrJxN9kbSUKa3iYq4OCEyq2oPb2PHYjqRSZhPNQ5ozBmxrN9+QDbbC0fMuC8om
-         9YdQkrW0J7D23+iQVgQi0Osov8OA+tdDeuFQzmoahk3LmNxLkDfrpWg9Od2QiYPd9COX
-         W1soqRZGogzC6ucqT4QM88JtTUy3qZ9pcZUbvJrYtA/gkT9DcejTFIeFxoLogu2QvRdm
-         QFc7rWkt5SaYAGXNmEtxLmdBl2sGR4L7G9yNhjcwc7T+pjX15XVHJvhNHx7dQUJpK8KE
-         XBXA==
+        bh=1y20FkoXn5/dwL5zWw6CBMmNeSfpzYIaDthUiA4V1jA=;
+        b=SCcK2b3A5YwLR2GkQ5/ey1/vBcOhXd6sfCrRsnKoQh1SkEdaGDx/WzhsDQsz1MEttA
+         3fufJsU2G7G/UwBPPhtxY4VsaBO7u5TXj4CUirg4AwkjlhTLkHncSIBtlfvAvE9ZVpVL
+         qUatsw/7lSntWy784y3ypdtL2hpKyXLGW8ptrucrYW7dS2to39mA28NS43FWerTu+6C+
+         +n9RMWNUNEQu54WemRe6bohJgppitdLAYaNdvAJoaxD83VzEyOSpHHClVuG7pDL9OhME
+         S8IVG0c8OVG9gABOObbQcmEuDeDQw3lvJmjSJjo3y+vaYA7OI1eu4BMCc088GJRbM3th
+         fZkA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1y20FkoXn5/dwL5zWw6CBMmNeSfpzYIaDthUiA4V1jA=;
+        b=qHKCCioXUrSzSnsTODVBK2Cj7MHgMCpKAD+t0v+JVBbizlBAb/A0OImC98/asFZXTe
+         1JtCZ92ELsrh4QsSwaA7qX3+JKKTDZy7VdLqhG+NhbarmBi512aY/9ASu2hiLg7QmryE
+         NRfg2/yiZaTSrAHZVkYMZwhzWBHbH7dZWy9Pc4BXp991vSk5I0UvOGeASfNFDddOar+r
+         kUn6pZTvHe8EiUfyJ3/0KFHTt3NIh7/ecgCeqZgZnsJz1lIrL8A3iH4hz2ok1H/A0q3x
+         5057fm2Y4PHYlGaKh+zBXRSjF/Swb4rQUus1310p2Dbmo+q83kAvq38lV8qXOhpY8Qu0
+         KNqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=IoBCeErplwMpVy5Tbu6HvAFGoWiGNydKrAt+TuK34QU=;
-        b=Yl6lUDNu/twgpcHQ/4UmKPyaPhM77ugbkhOOa/rvOSUw/uvxuDYS2r+V+oMAsiBX4b
-         304u8cIELawEAEqKJTPCJI+LEZvhyEXSxD7jPEcVP0WXJlNeKH1HzE48CFq5261aOi3v
-         OekUUIg/IVVYVszHndhgtSzbeXRFuUJrSB4B3ifknDlRTz+mmkKzLG5brAa13DNOrVcx
-         ipRZpQ8uNFoet7yHMZhwFosZ6zruo8hRDczj8ijEHxcZQivvMwX0NP5MaUkBcM2aFUo9
-         h0Khpp8YFIP6Sa1JeR6QjjY9zsUoWb/cZwQgy7ziyUEgI5YlMrfVqsVp1VpT7jvzbcjr
-         Nu1w==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1y20FkoXn5/dwL5zWw6CBMmNeSfpzYIaDthUiA4V1jA=;
+        b=dryGOVwRS22PUxwCpcOeXw7UToB/NBlGfnH9tvhNMDZXc1yC8NxfuBWP+ddWNTJvsl
+         WgMSj4RODO3cK0V+ldQggWPUpCQt6X/3ytaz2SnIVNHnBN3z1Ny98QgJshiPLrN0ImDM
+         SZJDd1cuhLZSDc+R6v9b+koFeceSlcXUHO+YaXbm2LpZOpcq9Q059ZuaLlWQJ2CdN0l0
+         lTCU5m/of5r51AsbeagpXQufR3Z16pGwmSc0JKQbsrAO9lpb/3BBLQ5PRgHH85QVBOa5
+         5echnEiYlNwRWK+xrwumIwmwKrwcjKOrMB0wLJh3rdtbSt2b5dS8hO9453AxwAkA7f3/
+         vxYA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531hN5GwIbGkAlDQ0IukOXdBGprj3Hv7rK9mILYZ7FgN7Am6Fe+m
-	VwfoIVaU4vsSxdphO0rhSB4=
-X-Google-Smtp-Source: ABdhPJwog6Shsc+t+FnzawYD1AYPyMc+Ycpum2aJ/uIOti1Z0EOnnOmifBZz0NPyMTByypu/lG97Vg==
-X-Received: by 2002:ac8:7d09:: with SMTP id g9mr18712380qtb.288.1617544635623;
-        Sun, 04 Apr 2021 06:57:15 -0700 (PDT)
+X-Gm-Message-State: AOAM530UfgQ8fBzjQQtUgTKJ2ifx7qGQdT5oTqqxzJtWwvFsAqZSuZTt
+	mIGrSbtpFHLACTiVbsuj0Pk=
+X-Google-Smtp-Source: ABdhPJx0FF4nuQwh/4jc0457+keRh1tHj4/qeoYoUu2gH5s5YUZQmGw3auc7MlNBV+UayGCA4LsIDA==
+X-Received: by 2002:a17:902:9897:b029:e6:f01d:9ca1 with SMTP id s23-20020a1709029897b02900e6f01d9ca1mr20305302plp.40.1617548409715;
+        Sun, 04 Apr 2021 08:00:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:991:: with SMTP id x17ls7438380qkx.2.gmail; Sun, 04
- Apr 2021 06:57:15 -0700 (PDT)
-X-Received: by 2002:a37:ac14:: with SMTP id e20mr20471084qkm.388.1617544635159;
-        Sun, 04 Apr 2021 06:57:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617544635; cv=none;
+Received: by 2002:a17:902:a507:: with SMTP id s7ls6447289plq.3.gmail; Sun, 04
+ Apr 2021 08:00:08 -0700 (PDT)
+X-Received: by 2002:a17:90a:a613:: with SMTP id c19mr22898310pjq.141.1617548408867;
+        Sun, 04 Apr 2021 08:00:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617548408; cv=none;
         d=google.com; s=arc-20160816;
-        b=FEmheD8+qEXZuOhzRjfBVYmawjIP0dq0OTrODmSXWx30oSLk96jY7mhQo4JzWcOW6c
-         VuD1/swUC61zq6PZYjX0brT8m/IqrRF62/iSej+a+CBM2wwQHIouYaqR3Q/JS9WVI/Kg
-         OZ0WWPgySV1oeBOJam7Bi9HjhzyAt0cPoOtcR3rHAbbkak+1WbkQA9XZ3rswgSu3d9Ct
-         X5X78JYWNJtJ7hZzH+PBMDG3sgzsKer70hncRY9jlkxaOFYOKyiT9msjvyr5efbjwK5+
-         yBip6dyPPzYPow7WzMFgA1duSvArqL5WO4a4l90W6Xseg1Yn0SSO7HUNzCglwD3n5FZS
-         NhoQ==
+        b=Pzw2l2TwohM2Gs8t6a0OhKdVBe5nuyheJLd9/kMtpSAB1ns4muaOKVInJkIwKUn4Km
+         FRSI/cp/uVuAOvZhtwZpAbCXYhdyzT4MAd2g/RYwBgMx7gqrcmhtvanXirIRFq4YZKup
+         ku5TdNW3RMHXDuYlnwODFigfq/poGJGSz7xCuM/MhDDH3PbzlX7ecVlY089pPYoRMm1x
+         BTx6MmPF2AGO8TjsMRsoSBp0/swB6ORN1FlF3HGMS4eviQOo8Z5sKVHB8DTPlE8SD2KJ
+         BpJOuMNQK6Iuq6GLXNM0EzirEbw67EUrrwVwM/AUak/b0MlIshCxcpTWnyjmap8L3qdx
+         02mQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=0ZjxEGyqxVpobPm/RJ+EZNtUYuEiSg65YJlV16IYPyU=;
-        b=baZHhY2Ph+Xb6YIy6nXepzxN0D5btEwAowA2bTbuWTpBhixATlbNe4XXpr88obMVb9
-         A6XR1hhdHXMyvhGxysnw3T2cJQd9Fr0gxPvKb5fsR38ZBhQryLo2jVLdA/zCy3zKjddK
-         Mr6Jl9uoCA+SrQ/M13XUqLr9N76dJc46X+5PU7mmN0A1GyUP/Rtx5fco+qmCKA3ENPh6
-         r75b7Fgt86/HP1ZyHTJ0W2z9CgHuZkR6ZUi2GjJgfB0KLixUnSKF+nyw3onfmO8p4Kgo
-         Uq4S1Q0l1NugLJ83I6x0oF1ndLqpfKU2Y0F1kuz5SfqS/fWtQkfIdRz+NWMlFAXeLjBH
-         kUjw==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=9FrXMbErno7+UYPolFaJfl1BWKDlG9+WhG9WCIdSW3Y=;
+        b=WkN0FYTEYtj/76myg2CFhCyfKibZRakFCw3Y0X/GlWwE2VmuyAqqclmSXQ0bsRlVPD
+         /8FUXqRdGeSMEnBzXg5MwjJo9ydhtQt8HJ1S+LlhhgoalN7L84T9iskQZO7LUfP2fLG8
+         rtY6hF/nsuDhohv6usAegEfRhv+yeeOEgNbPZWp0A9AatOrgKHYhePMYVVvV3rWxRiOm
+         r6JHcmm3gdcF6gpphLL+XuPR92q3okgGSApP3HXwRb8EXuF08HbxdTd3crc/bqnzJjI2
+         JGUsIYdP5lJGNeD+5XUe8acOKVX8HXzpNWrj3LAHfUq3JpEGUdtpKX0allU7/72xRWDv
+         8zkg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ziepe.ca header.s=google header.b=LCW+fT8r;
-       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
-Received: from mail-qv1-xf2a.google.com (mail-qv1-xf2a.google.com. [2607:f8b0:4864:20::f2a])
-        by gmr-mx.google.com with ESMTPS id a15si2396618qtn.4.2021.04.04.06.57.15
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=onvXjgrB;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-il1-x12b.google.com (mail-il1-x12b.google.com. [2607:f8b0:4864:20::12b])
+        by gmr-mx.google.com with ESMTPS id nv12si777312pjb.3.2021.04.04.08.00.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 04 Apr 2021 06:57:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) client-ip=2607:f8b0:4864:20::f2a;
-Received: by mail-qv1-xf2a.google.com with SMTP id o11so246564qvh.11
-        for <clang-built-linux@googlegroups.com>; Sun, 04 Apr 2021 06:57:15 -0700 (PDT)
-X-Received: by 2002:a0c:f749:: with SMTP id e9mr1900291qvo.14.1617544634869;
-        Sun, 04 Apr 2021 06:57:14 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-162-115-133.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.115.133])
-        by smtp.gmail.com with ESMTPSA id d2sm9830886qte.84.2021.04.04.06.57.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Apr 2021 06:57:14 -0700 (PDT)
-Received: from jgg by mlx with local (Exim 4.94)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1lT3FZ-000Vay-2X; Sun, 04 Apr 2021 10:57:13 -0300
-Date: Sun, 4 Apr 2021 10:57:13 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Kees Cook <keescook@chromium.org>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	Doug Ledford <dledford@redhat.com>,
-	Leon Romanovsky <leon@kernel.org>, Parav Pandit <parav@nvidia.com>,
-	Sami Tolvanen <samitolvanen@google.com>, linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: CFI violation in drivers/infiniband/core/sysfs.c
-Message-ID: <20210404135713.GB7721@ziepe.ca>
-References: <20210402195241.gahc5w25gezluw7p@archlinux-ax161>
- <202104021555.08B883C7@keescook>
- <20210402233018.GA7721@ziepe.ca>
- <202104021823.64FA6119@keescook>
+        Sun, 04 Apr 2021 08:00:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b as permitted sender) client-ip=2607:f8b0:4864:20::12b;
+Received: by mail-il1-x12b.google.com with SMTP id w2so5405722ilj.12
+        for <clang-built-linux@googlegroups.com>; Sun, 04 Apr 2021 08:00:08 -0700 (PDT)
+X-Received: by 2002:a05:6e02:12cc:: with SMTP id i12mr17423767ilm.10.1617548408261;
+ Sun, 04 Apr 2021 08:00:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210403184158.2834387-1-yhs@fb.com>
+In-Reply-To: <20210403184158.2834387-1-yhs@fb.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Sun, 4 Apr 2021 16:59:33 +0200
+Message-ID: <CA+icZUVxpkCJVnibqm3+OYdfdh5U=eU_u7pPKUZMoPm3XzZWPQ@mail.gmail.com>
+Subject: Usage of CXX in tools directory
+To: Masahiro Yamada <masahiroy@kernel.org>, Yonghong Song <yhs@fb.com>, 
+	Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>, David Blaikie <dblaikie@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ingo Molnar <mingo@redhat.com>, 
+	Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>
+Cc: dwarves@vger.kernel.org, bpf@vger.kernel.org, kernel-team@fb.com, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202104021823.64FA6119@keescook>
-X-Original-Sender: jgg@ziepe.ca
+X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ziepe.ca header.s=google header.b=LCW+fT8r;       spf=pass
- (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as
- permitted sender) smtp.mailfrom=jgg@ziepe.ca
+ header.i=@gmail.com header.s=20161025 header.b=onvXjgrB;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12b
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,81 +150,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Apr 02, 2021 at 06:29:55PM -0700, Kees Cook wrote:
-> On Fri, Apr 02, 2021 at 08:30:18PM -0300, Jason Gunthorpe wrote:
-> > On Fri, Apr 02, 2021 at 04:03:30PM -0700, Kees Cook wrote:
-> > 
-> > > > relevant. It seems to me that the hw_counters 'struct attribute_group'
-> > > > should probably be its own kobj within both of these structures so they
-> > > > can have their own sysfs ops (unless there is some other way to do this
-> > > > that I am missing).
-> > 
-> > Err, yes, every subclass of the attribute should be accompanied by a
-> > distinct kobject type to relay the show methods with typesafety, this
-> > is how this design pattern is intended to be used.
-> > 
-> > If I understand your report properly the hw_stats_attribute is being
-> > assigned to a 'port_type' kobject and it only works by pure luck because
-> > the show/store happens to overlap between port and hsa attributes?
-> 
-> "happens to" :) Yeah, they're all like this, unfortunately:
-> https://lore.kernel.org/lkml/202006112217.2E6CE093@keescook/
+[ Please CC me I am not subscribed to all mailing-lists ]
+[ Please CC some more folks if you like ]
 
-All? I think these are all bugs, no?
+Hi,
 
-struct kobj_attribute is only to be used with a kobj_sysfs_ops type
-kobject
+when dealing/experimenting with BPF together with pahole/dwarves and
+dwarf-v5 and clang-lto I fell over that there is usage of CXX in tools
+directory.
+Especially,  I wanted to build and run test_progs from BPF selftests.
+One BPF selftest called "test_cpp" used GNU/g++ (and even /usr/bin/ld)
+and NOT LLVM/clang++.
 
-To cross it over to a 'struct device' kobj is completely wrong, the
-same basic wrongness being done here.
- 
-> I'm not convinced that just backing everything off to kobject isn't
-> simpler?
+For details see the linux-bpf/dwarves thread "[PATCH dwarves]
+dwarf_loader: handle DWARF5 DW_OP_addrx properly" in [1].
 
-It might be simpler, but isn't right - everything should continue to
-work after a patch like this:
+Lemme check:
 
---- a/drivers/infiniband/core/sysfs.c
-+++ b/drivers/infiniband/core/sysfs.c
-@@ -67,6 +67,7 @@ struct ib_port {
- 
- struct port_attribute {
- 	struct attribute attr;
-+	uu64 pad[2];
- 	ssize_t (*show)(struct ib_port *, struct port_attribute *, char *buf);
- 	ssize_t (*store)(struct ib_port *, struct port_attribute *,
- 			 const char *buf, size_t count);
+$ git grep CXX tools/
+tools/build/Build.include:cxx_flags = -Wp,-MD,$(depfile) -Wp,-MT,$@
+$(CXXFLAGS) -D"BUILD_STR(s)=\#s" $(CXXFLAGS_$(basetarget).o)
+$(CXXFLAGS_$(obj))
+tools/build/Makefile.build:quiet_cmd_cxx_o_c = CXX      $@
+tools/build/Makefile.build:      cmd_cxx_o_c = $(CXX) $(cxx_flags) -c -o $@ $<
+tools/build/Makefile.feature:  feature-$(1) := $(shell $(MAKE)
+OUTPUT=$(OUTPUT_FEATURES) CC="$(CC)" CXX="$(CXX)"
+CFLAGS="$(EXTRA_CFLAGS) $(FEATURE_CHECK_CFLAGS-$(1))"
+CXXFLAGS="$(EXTRA_CXXFLAGS) $(FEATURE_CHECK_CXXFLAGS-$(1))"
+LDFLAGS="$(LDFLAGS) $(FEATURE_CHECK_LDFLAGS-$(1))" -C $(feature_dir)
+$(OUTPUT_FEATURES)test-$1.bin >/dev/nu
+ll 2>/dev/null && echo 1 || echo 0)
+tools/build/feature/Makefile:__BUILDXX = $(CXX) $(CXXFLAGS) -MD -Wall
+-Werror -o $@ $(patsubst %.bin,%.cpp,$(@F)) $(LDFLAGS)
+...
+tools/perf/Makefile.config:USE_CXX = 0
+tools/perf/Makefile.config:        CXXFLAGS +=
+-DHAVE_LIBCLANGLLVM_SUPPORT -I$(shell $(LLVM_CONFIG) --includedir)
+tools/perf/Makefile.config:        $(call detected,CONFIG_CXX)
+tools/perf/Makefile.config:     USE_CXX = 1
+tools/perf/Makefile.perf:export srctree OUTPUT RM CC CXX LD AR CFLAGS
+CXXFLAGS V BISON FLEX AWK
+tools/perf/Makefile.perf:ifeq ($(USE_CXX), 1)
+tools/perf/util/Build:perf-$(CONFIG_CXX) += c++/
+...
+tools/scripts/Makefile.include:$(call allow-override,CXX,$(CROSS_COMPILE)g++)
+...
+tools/testing/selftests/bpf/Makefile:CXX ?= $(CROSS_COMPILE)g++
+tools/testing/selftests/bpf/Makefile:   $(call msg,CXX,,$@)
+tools/testing/selftests/bpf/Makefile:   $(Q)$(CXX) $(CFLAGS) $^ $(LDLIBS) -o $@
 
-If it doesn't it is still broken.
+The problem is if you pass LLVM=1 there is no clang(++) assigned to
+CXX automagically.
 
-Using container_of() with the wrong types is an unconditional
-error. A kasn test to catch this would be very cool (think like RTTI
-and dynamic_cast<>() in C++)
+[2] says:
 
-> > And then two show/set functions that bounce through the correct types
-> > to the data.
-> 
-> I'd like to make these things compile-time safe (there is not type
-> associated with use the __ATTR() macro, for example). That I haven't
-> really figured out how to do right.
+LLVM has substitutes for GNU binutils utilities. Kbuild supports
+LLVM=1 to enable them.
 
-They are in many places, for instance.
+make LLVM=1
+They can be enabled individually. The full list of the parameters:
 
-int device_create_file(struct device *dev,
-                       const struct device_attribute *attr)
+make CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm STRIP=llvm-strip \
+  OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf \
+  HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar HOSTLD=ld.lld
 
-We loose the type safety when working with attribute arrays, and
-people can just bypass the "proper" APIs to raw sysfs ones whenever
-they like.
+[ EndOfQuote  ]
 
-It is fundamentally completely wrong to attach a 'struct
-kobject_attribute' to a 'struct device' kobject.
+So you need to pass CXX=clang++ manually when playing in tools directory:
 
-Which is what is happening here and the link above.
+MAKE="make V=1
+MAKE_OPTS="HOSTCC=clang HOSTCXX=clang++ HOSTLD=ld.lld CC=clang
+CXX=clang++ LD=ld.lld LLVM=1 LLVM_IAS=1"
+MAKE_OPTS="MAKE_OPTS $PAHOLE=/opt/pahole/bin/pahole"
 
-Jason
+$ LC_ALL=C $MAKE $MAKE_OPTS -C tools/testing/selftests/bpf/ clean
+$ LC_ALL=C $MAKE $MAKE_OPTS -C tools/testing/selftests/bpf/
+
+Unsure, if tools needs a special treatment in things of CXX or LLVM=1
+needs to be enhanced with CCX=clang++.
+If we have HOSTCXX why not have a CXX in toplevel Makefile?
+
+In "tools: Factor Clang, LLC and LLVM utils definitions" (see [3]) I
+did some factor-ing.
+
+For the records: Here Linus Git is my base.
+
+Ideas?
+
+Thanks.
+
+Regards,
+- Sedat -
+
+P.S.: Just a small note: I know there is less usage of CXX code in the
+linux-kernel.
+
+[1] https://lore.kernel.org/bpf/CA+icZUWh6YOkCKG72SndqUbQNwG+iottO4=cPyRRVjaHD2=0qw@mail.gmail.com/T/#m22907f838d2d27be24e8959a53473a62f21cecea
+[2] https://www.kernel.org/doc/html/latest/kbuild/llvm.html#llvm-utilities
+[3] https://git.kernel.org/linus/211a741cd3e124bffdc13ee82e7e65f204e53f60
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210404135713.GB7721%40ziepe.ca.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVxpkCJVnibqm3%2BOYdfdh5U%3DeU_u7pPKUZMoPm3XzZWPQ%40mail.gmail.com.
