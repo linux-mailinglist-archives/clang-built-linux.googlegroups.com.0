@@ -1,127 +1,192 @@
-Return-Path: <clang-built-linux+bncBDT6TV45WMPRBTPTWGBQMGQEITUEQHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBL4RWKBQMGQEOAXU6CY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 76BD0355757
-	for <lists+clang-built-linux@lfdr.de>; Tue,  6 Apr 2021 17:10:06 +0200 (CEST)
-Received: by mail-oi1-x23e.google.com with SMTP id e25sf5335912oie.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Apr 2021 08:10:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617721805; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=vOfxiMFasiTW+DlMNjDZ+QRB7MPo/zBSQmzxS6KZGiIlLhXhaB5PoDADdT2o+h7VPQ
-         gOKJVqVQK6SJUN4VAf/aJ+H+4iybfqxH9VZnHjZEI/UIiTAaFFr9pzsCq7d0qIS6vAU6
-         8VISjilGOAQtIRAct8aMUaZGGQ3kO+RVLZSvgZzA6YCvi52Kby3wRlKIzec4+b62ZExO
-         90pQtkSN9kM/tRuvIflivWgjaAFEgaPUBofmbxuitwaK2vpJt3rXHDcKpSyTjHIWWnQD
-         q/v1VZzXjIO4cPgd4+MxBVUxXt/9vb6T9O3qlGAD7KvOdBEE/g3LVGgRwY6GiUM1xmS8
-         iufg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:from:to:subject
-         :content-transfer-encoding:mime-version:date:message-id:sender
-         :dkim-signature;
-        bh=l5Q1kbyKkSY1T915ZlGHfcTiuVp+0a4T2XZ6vP72cX4=;
-        b=vmd04DXKgwQdZvRIw05g1elbPZILzg4S7BDx3A+PN07DfbWsrlrk2cVGdS0aK98OTj
-         +w/4oi1x5SMMWcdgjutFzWQmedVukXqjURFVsfpHVDgtcHcp6TAWMXoReQhcd5valFDK
-         AzCygAG0shjSOZKvjRjXJX0sMvCRFWtsu0joiCVTVHf95QGAWLhfqfP2XZHyI7nYPLmP
-         JsMUaaGEhwTA0LX9dvWmCmte0yW+X4wl0nd7zVPY4sCV/gdQc7K/aRKfVM3nGjnhDp/R
-         jUMQ3jTBZAf2Uwl0tGKTZUJaF9uHHRKLOW609v1+8SCZfNjNjm/n2qP+jn3UmhFwWQ7s
-         48DA==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=yxmnnTkD;
-       spf=neutral (google.com: 2607:f8b0:4864:20::632 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F74E3558F0
+	for <lists+clang-built-linux@lfdr.de>; Tue,  6 Apr 2021 18:13:37 +0200 (CEST)
+Received: by mail-vk1-xa37.google.com with SMTP id s69sf5215808vkd.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Apr 2021 09:13:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:mime-version:content-transfer-encoding
-         :subject:to:from:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=l5Q1kbyKkSY1T915ZlGHfcTiuVp+0a4T2XZ6vP72cX4=;
-        b=bP7yoJ/kbcWk+TvC0p77Ld+vLePH8YfS/hron/SttFAj7/PbL+jx0KhSLdmxXs+/Wr
-         Y9s7naIAodhxM7bYJ385BANOm96wn/Ori97oduKi27nJ5rWlHpZvkrH+gWjLRHArqq+b
-         qHj+JbEPNODoKEicrq+xIIg7K5h34famTfgszcIMhGTs46wr8sqV8jL9kQXkDrWYkufC
-         OWzVbF9Xu54DKJ+KRP57MugoISX3NTit9LbTtWIVNwIKkpEhkwaQKYC6Q0vSxfKRnCzQ
-         wq5S5TIX68+c94AQj8UAVLYPFcAfkAdzADhX4XAio59i3ZiUHA9E3YA1vL2Hp9++69Li
-         Gx0w==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :in-reply-to:content-language:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=GECzEhmt1ravWsAutaDzVKUDkDlh4jnuc21FQ/wpMzw=;
+        b=HI6qK0ApVRYM3ykBX+yYOYY95DDwSUHqi/kw6QOrKKp2ZO1kCMdw7j9C5XHPWanv/s
+         0ZGwIEWFSINhxhJdrU4dRV2Of2iiTymRKQkLPEES3bOi6pGBqDQyMb8nkbxocvRx3Lx2
+         EIc7nXfJAzppzEchZqFg2tCMnBwbNB2YMCnkbuC1dnJK9TofZkSIX76D8YQqgNL9rvpU
+         21wU7ql1eoRsuEMEZBnrmbbkEe25lQJS0ljTLF0vqxeeKZU79tW2PTfoXyhkXWREF7Wg
+         c3DpVPoJ5A3nVoC03gwm80Oige3KQl0MTp2KA0ow/+zpwUFX+7bSi7yAVEuu82B8qQBo
+         nSGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:mime-version
-         :content-transfer-encoding:subject:to:from:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=l5Q1kbyKkSY1T915ZlGHfcTiuVp+0a4T2XZ6vP72cX4=;
-        b=efJ3grJV6PzPxgktqLtr/AOXDyX+nThBH/03pVGVw1Fh00ySwFC2EKhmaXZkO/keYP
-         NNw1qDmFqMPQC9iSbXh9YSLHGXOAZ2qefuBtRWu0NztBq+Rtp0Xum0z8h125cHV0Zvim
-         gwFCU34VQ3TBd+o1YZfcB2kb6POtEOLMG0HpaoIcY4CHyDzjx20ReyOZ4UiSVXJV/nAQ
-         r57ZucgejsWpAZAGobTl+s4QCtmCDJs0awyBjlFFsEssvHr6Oa7qpptp91XhVHJ3l+TG
-         lLzLRONk0e21R8ibPQkkB30FNz+ptS+h2CsovHzsK6CtCT4WDDR5yABLdUvuKDvHMSrg
-         MlLA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530HuMmzFcBZyh1cY8kI5pRpjclJpmC1lq7reBKYOigL66kfrkAx
-	xywKqsCbdzilTcuGMa9zN8s=
-X-Google-Smtp-Source: ABdhPJz1u5jNcUWhDVptbvAuvX0tVSb9NyUc/d9q5DMGuu9QX2WIYUb62sYIcdAkXdR6WfAUWDBnbg==
-X-Received: by 2002:a9d:73d1:: with SMTP id m17mr28192009otk.103.1617721805400;
-        Tue, 06 Apr 2021 08:10:05 -0700 (PDT)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:in-reply-to:content-language:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GECzEhmt1ravWsAutaDzVKUDkDlh4jnuc21FQ/wpMzw=;
+        b=fRy6Li9CdVbw5+sAKacu+jusMTsLjUeNwmG4wXNkLDaKk4BjkSP7OxWZ+MkAbERGAs
+         ykiaWS2915odVlBWoi9hhFW0wj3AuxeWq7ZuRENuqdpvvHO32T7eO9b/ern74YeQda9P
+         NR6HrX+ecC3HIbKx+v3VHqHEE7aOvL6NO7wxTre2wDBhDBjGBXyV3+uj9nYswKvwqs11
+         xO1PSGA/Uc72whgRBQ5gM6HLjyU0+SCPVRCmUP3l3DChhPFlrsn25aHPOD4L8fPGNNJi
+         AsKhhE9utoXmVUghpNkSpBrGtsJBEdRjuUYYZgi44Tdo3QmM+JmhO/mcHMJqVFPijxRY
+         4+Bg==
+X-Gm-Message-State: AOAM532OHogOrYC6vI0UrUF3+jIpDCMchneJCayhW/YfEPPkcNKJaywJ
+	41CauI88gevnwfZ6Nv3nuRk=
+X-Google-Smtp-Source: ABdhPJzb+/1iC4Q/2WNAhrzeq9VY/jtBBHqRI3OYt8KbuwP3QLPJJRogS7K9XPbc8UetA5R/hfNURA==
+X-Received: by 2002:a67:d11b:: with SMTP id u27mr684453vsi.23.1617725615767;
+        Tue, 06 Apr 2021 09:13:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:5551:: with SMTP id h17ls4578869oti.1.gmail; Tue, 06 Apr
- 2021 08:10:05 -0700 (PDT)
-X-Received: by 2002:a9d:4f05:: with SMTP id d5mr27022408otl.88.1617721804767;
-        Tue, 06 Apr 2021 08:10:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617721804; cv=none;
-        d=google.com; s=arc-20160816;
-        b=MiJy6F5VXq8uRK0xIWzJcfPYLQoHBxDqqzPJSh3PBmLJBjEuXujEkjfV6nkPP7rB1D
-         a+c0oT0P0vXSBPrV3Xg/upjDjFlOsPzRbPECn0w3T4kmmlhcQ0ey4LATPgahyBtbtuDH
-         uijB90iTflWhPb9OE2zbwW0IhrJXKH9XTl57+SdlRDe+3gYtST7wVSUtlKeXZfzPJL+i
-         5nqbifnrdM5dJDscnOvFEVaNXND1C5OCzadcKqs0Z1Uj3mdZAf00EzMDaQ7wJMEqOark
-         i5tP0T6zQfGAYniqRh+nhaEa+AWhe/m3ykbhXlhg8uknigI/B1o6d5lc8vecEm68+Brg
-         eXgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:dkim-signature;
-        bh=pOEkIPWp+oLeHcdcmWw7YgHnWLlHK9IFpqI6YnpJ/1o=;
-        b=dHSA7nMxKrh95DiZZjlekmQsMNhLJRMwQRPF95s7vtPdLwggymmrkcYTBJjIPuKLLm
-         JL9ZgvVk5RYtev28wMwGQ4to0OsQEWbf0Uo4xLUmetDozyemOsX7OLcbT/VFvMCKP5Hb
-         rcVRmNe+swLTdzZ1g1aYomi45Ljtzeqme3k5zT1MgAyJnsbdWryQQEOq7lasMykbwTv8
-         DqnG+stk0jT5M9fU8zjMhFC3C3+OnnJgFDjqlHQwWE7OMj7kNdBnUeiYlroYxjYjRuzr
-         Ki7yCbRn7GBikNP00267f64NrYhXjgG8jLE2yxCSzayFqq78aWp9U6y1G8VowQU1BZh4
-         yaNw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=yxmnnTkD;
-       spf=neutral (google.com: 2607:f8b0:4864:20::632 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
-Received: from mail-pl1-x632.google.com (mail-pl1-x632.google.com. [2607:f8b0:4864:20::632])
-        by gmr-mx.google.com with ESMTPS id k10si1369781otj.2.2021.04.06.08.10.04
+Received: by 2002:ab0:4405:: with SMTP id m5ls523380uam.4.gmail; Tue, 06 Apr
+ 2021 09:13:35 -0700 (PDT)
+X-Received: by 2002:ab0:6013:: with SMTP id j19mr5313615ual.62.1617725615214;
+        Tue, 06 Apr 2021 09:13:35 -0700 (PDT)
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
+        by gmr-mx.google.com with ESMTPS id w10si125083vse.1.2021.04.06.09.13.35
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Apr 2021 08:10:04 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::632 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::632;
-Received: by mail-pl1-x632.google.com with SMTP id z12so3607843plb.9
-        for <clang-built-linux@googlegroups.com>; Tue, 06 Apr 2021 08:10:04 -0700 (PDT)
-X-Received: by 2002:a17:902:9a98:b029:e6:faf5:7bc2 with SMTP id w24-20020a1709029a98b02900e6faf57bc2mr30051776plp.61.1617721802334;
-        Tue, 06 Apr 2021 08:10:02 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
-        by smtp.gmail.com with ESMTPSA id i22sm19045293pgj.90.2021.04.06.08.10.01
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Apr 2021 08:10:01 -0700 (PDT)
-Message-ID: <606c79c9.1c69fb81.7ccbc.11e0@mx.google.com>
-Date: Tue, 06 Apr 2021 08:10:01 -0700 (PDT)
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 06 Apr 2021 09:13:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=373013899b=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
+Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 136GDTcf016362;
+	Tue, 6 Apr 2021 09:13:30 -0700
+Received: from mail.thefacebook.com ([163.114.132.120])
+	by mx0a-00082601.pphosted.com with ESMTP id 37raej4jwd-4
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 06 Apr 2021 09:13:30 -0700
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (100.104.98.9) by
+ o365-in.thefacebook.com (100.104.94.228) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Tue, 6 Apr 2021 09:13:29 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KOb7Jr9VfeV4hE5G4aUvqEWtntoQEbXq0rE7DTfWNfO4giiXP0AWFC+UYlzpLovVNdXqrIvJ0b8PfvxvNkl5DiWuTD3DwFH27QrmDOg4MVSyx2iVWzrs5IgHJyMF56luPPa9h30waDo3AyQw91GENg+a3WMEtuNm95+Rwzri7SBkQXqFk5s2GL4F2y2ZVPuFfcJm7T+fIFkLSp2DiXMqC/kvoQDCtjgEH7cUUQ+w0jpc/65+vCs/5HVLhehErJFYySzbSGxXHFwHmTKFMvdmousJbvlaX3VrjOE2nabCCV+UGJAqTAaBl9GKANwALfSFbwv04EKMZRZby+4XVYHbTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=27sl0WrrUifH4Ue5xMJdoGBuv2KsWDDkUQdfLlRxKas=;
+ b=WdXYwg2iMFkBYmehGIIah0Yc+aylAWkYmwtMmnXQp23mV90TTszcqVuSvT/92OLgLLZ8036RVidm2gJc05inlZPqsz8erzcH0VECAph37+AtxdJsFToDtceb01jiCQDnp+bSJX5n+ht2yh0AJjNjLAE4HujsexXTJSTp21Q29uc30/QNKP4ntr5A3oY9cyAC5uhsg/E7U0TreuIIfrJwxLoozQiHeArnsT6Ex7UXhcDAf/3mAf0gc+jo7pkXLEZyehVHfHddUjE0V2goQK6iS76YD1D4Q0XYNm5ktXWELxbjQxTp6SurU+NR5xrEYHJ3dIkK9FXyYNvNYlkDvH0bvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com (2603:10b6:805:d::27)
+ by SA1PR15MB4433.namprd15.prod.outlook.com (2603:10b6:806:194::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3999.27; Tue, 6 Apr
+ 2021 16:13:28 +0000
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::f433:fd99:f905:8912]) by SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::f433:fd99:f905:8912%3]) with mapi id 15.20.3999.032; Tue, 6 Apr 2021
+ 16:13:28 +0000
+Subject: Re: [PATCH kbuild v4] kbuild: add an elfnote for whether vmlinux is
+ built with lto
+To: Masahiro Yamada <masahiroy@kernel.org>,
+        Michal Marek
+	<michal.lkml@markovi.net>
+CC: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Alexei
+ Starovoitov <ast@kernel.org>,
+        Arnaldo Carvalho de Melo
+	<arnaldo.melo@gmail.com>,
+        bpf <bpf@vger.kernel.org>, <kernel-team@fb.com>,
+        Bill Wendling <morbo@google.com>,
+        clang-built-linux
+	<clang-built-linux@googlegroups.com>,
+        Nick Desaulniers
+	<ndesaulniers@google.com>,
+        Sedat Dilek <sedat.dilek@gmail.com>
+References: <20210401232723.3571287-1-yhs@fb.com>
+ <CAKwvOdmX8d3XTzJFk5rN_PnOQYJ8bXMrh8DrhzqN=UBNdQiO3g@mail.gmail.com>
+ <CA+icZUVKCY4UJfSG_sXjZHwfOQZfBZQu0pj1VZ9cXX4e7w0n6g@mail.gmail.com>
+From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <c6daf068-ead0-810b-2afa-c4d1c8305893@fb.com>
+Date: Tue, 6 Apr 2021 09:13:24 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.9.0
+In-Reply-To: <CA+icZUVKCY4UJfSG_sXjZHwfOQZfBZQu0pj1VZ9cXX4e7w0n6g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Originating-IP: [2620:10d:c090:400::5:5b04]
+X-ClientProxiedBy: MWHPR17CA0068.namprd17.prod.outlook.com
+ (2603:10b6:300:93::30) To SN6PR1501MB2064.namprd15.prod.outlook.com
+ (2603:10b6:805:d::27)
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [IPv6:2620:10d:c085:21e1::142a] (2620:10d:c090:400::5:5b04) by MWHPR17CA0068.namprd17.prod.outlook.com (2603:10b6:300:93::30) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3999.28 via Frontend Transport; Tue, 6 Apr 2021 16:13:26 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: b0b26c19-211a-468b-0837-08d8f916e9bc
+X-MS-TrafficTypeDiagnostic: SA1PR15MB4433:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <SA1PR15MB44330D1277E2F3C8E2D088C8D3769@SA1PR15MB4433.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:10000;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: PriUwaEoscPU8/oAICgMBOtj+bKk8BO8NLph+nPdrGxLimYP4mPE6Cqr/k//QQ1hWY4HJ+Entmq6TfEvTHpZ5F8efayxqHsvHSg22DzZ28eOCsQ60rc+D2U0Iwm9oTqazoA1n/TBOw1ncx3FDP55RwHL2oWgJ06YaziK1viKXcIsdB2itldEGanVxA09Xhl3RY+u/n7wloTby2D3fmRmtvlB1DgT/11/892datCs7vxRbbchz8Z60YVF58FUQ73uSZI6ibA3Vh7QBMYFt+Btwcn8dEOTken3QnfRsr6htytImxCbDOdhkR+JQD7Aq7pGnNKpRHFgxrAoJE6ccwHKI71PlwNnawBx0ScxZ5bh/PRKZXsa2w4r6BIRlQYlAyGD9UHPmhQ+s/ZtpP04/hA6mACisrDn8WwcxI6UJ8GChYBQXIyPKx2id3AvEDZ4UIPj9Er2cAjipy3br4nt3B5Bp8Ns8OqVWxeSqEw9T2y1FtiV8ZnibyskHGgVfetVH/XgmO36YtKYUGJTgTo35q6JWKu5wHDbrIuDN0V/NL4ma0l89pJcHzJe2pw5qxx5jnd78PUx8Dakm9dJaX86+qwh9NdUiH8z/5GiAKGELGtr2m9Rf4Z/hNXau5UMz2Lwhqx3lU6WDeg9dVgSB6qbm7TelNp+onG6e0FvKai+7d9PPjDOAUsp3iNsYp5LPjVkuxm25yst+UwuvGkm6NTdnqIZfrnYmiMt5tdmZJ1JnBTdumKCyv049GW++a9S4mcUPbHvmh1G4PrWdBZ8ta3rixxmEYKs27zDUUJ9KxFjZD3/JMU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR1501MB2064.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(376002)(346002)(366004)(39860400002)(136003)(396003)(7416002)(16526019)(52116002)(186003)(8676002)(54906003)(36756003)(966005)(5660300002)(31696002)(110136005)(316002)(6486002)(53546011)(2906002)(38100700001)(86362001)(8936002)(478600001)(83380400001)(2616005)(4326008)(31686004)(66556008)(66476007)(66946007)(45980500001)(43740500002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?a3BwQWs2cXdJa2FwTi9FVFI5WEd4SWhrd2Z0TGlIdUQwbnEya3ZRSEZvdHVZ?=
+ =?utf-8?B?aHVwMkRrUzIzTHRWQUtPeTY2MllhV2dSOTZZMzdiUHYzSzlVbSt0ODVFb3Bl?=
+ =?utf-8?B?Mm9hQXVLVzZjeU5zN3lwNU0rZ1RlR2FYQ0hRQzBIZTNPNkpRWkxqc2JQNkRB?=
+ =?utf-8?B?ZUIxM1g4cXU3cHFPcHNnUDRVRzRCOWEyRnNTVkNLMmNpYzluTXVpNUg5SDE3?=
+ =?utf-8?B?bWVIQkQ4OWNIUEY0cVo4MWlCaWNwbmxMdWVrNnhDVUpxK0F0L1VzbVppcXhL?=
+ =?utf-8?B?NEpqaUh1eUk4ZFZyRStxUjFWeDFVR0syS1VBQlpEOEg1UWhMUWpZUGczZ1Ro?=
+ =?utf-8?B?RHBveU12Qkl0Z0tEWFVad1VqbWFrcU1sSWowSHBOeHNHUGZxZ0tEMUtFWkNY?=
+ =?utf-8?B?QnJWN1BmRm1keWIzaVE0Zm53V25rT05zZUludEcyZ3VaaCsrUDdtc2FSU0NZ?=
+ =?utf-8?B?d0lzVDdHRWJ1WGxkV3VOclZobWFITmppYXNiLy9LaTZYMVpZK1p6Z3BZMG5t?=
+ =?utf-8?B?a3RwaXBIakp3Tmsra014WWhlalY3OTJWazRVRTNNQjFiVjd6MTdTV1pmWkht?=
+ =?utf-8?B?OXp1MWJmS05rRlRXbkNKaXNZNVMvK01XYi9odzdtVFZoU0IwM1JLNFl4SWln?=
+ =?utf-8?B?Z2x0YkErTEViVi9kelY5eWUvcFE2SEdncUJJSlVpVmRndDBUbW1vWFl2dUN1?=
+ =?utf-8?B?RUVpaEZjbTZiSmFRNFFSQXo1R1RES2dvTXAvNy9sUWdxYUdyNkpqTW1ORnE2?=
+ =?utf-8?B?Yjd0MGlFbjdwQnJrd1cxRzZrc1hPZGFXMlFjUGZpVDFaN0JxdG9xZDIyY1R6?=
+ =?utf-8?B?YU5tT2tGZGdrUXoxRk5MeThWc1FueWxBcjhNVTV3aGt4TW9wS0JGUjVacFN1?=
+ =?utf-8?B?RUhIK2V4aDJNaFRkOUZRM3I5SmlOVzVUM1JxMENyeXlWVjRhYlY0bytsZUF1?=
+ =?utf-8?B?L0xldmowUXQ1eW4vdlN0YnlLcHhtUzFRem5pV3ZEOTA1OCsyTFBEZWdnS1Iz?=
+ =?utf-8?B?MjM3RytWbmVvOHg2MWIzUUw2eEwwOSttTy9UY2lFZUg2c1VYMGxURFFPWE9Y?=
+ =?utf-8?B?bHJSUU1SUVhqUDYyTE9COFAvVzBXemQ3NXpOWDkxaXZZVWdEMWNEaGxvOGlY?=
+ =?utf-8?B?YmxzNTI0Y2p3WWg1eFBpLzJrSzMrSDJ0bzRHNnJPcDA4RWJuSldkYSszRTVx?=
+ =?utf-8?B?OUlUMW9Xbk4rcndZcDVMNzBiaWUrdlp5Z2kyWmlmSVcxNTMzSmluU1RaTjRo?=
+ =?utf-8?B?K3ZWcTNaOEkvODVhQVBWQlEveDl4eVU3QUw4c3lMSDY0VmtUdFAzUnBIYmpM?=
+ =?utf-8?B?V2tmN0ttbTZiMDE5Y1BCdlJNYlIzNlNnQXVBRkhyRnhrZzJKM1FBUFVEV3V3?=
+ =?utf-8?B?S0tGS3BnM1hxL2lINzNEekVlU1JHZU5NdEtXSTZDbVA0T29jblErNTg4M1JY?=
+ =?utf-8?B?YVZZUEQwWUs5aUVNZkdOV2MvbWJudlZvNzR0azVNU1YxeGxvcXY5dGdtQVNI?=
+ =?utf-8?B?NGUwY1JCUVVoMmpKNU0yczNETjliODZCd29JcTUwVlZNNFVSZWk5ZVQveTZm?=
+ =?utf-8?B?WVpuN2hwQVR5OSsxd0lFRExCdzEreGVlaGV5RXhnd3FDWW5qMVJTQ1NDUkxP?=
+ =?utf-8?B?MWwrS3RNd1JZcExwKzZITTMzNXhhUjI0NWNqRDZ3aE5WemhJaWpseVBZTFpn?=
+ =?utf-8?B?Y2RVWmxQSlhXL3RJSXVzbTNzbTZXWWdXejZuREVVLzBKdmJCVVJrZm1seUdl?=
+ =?utf-8?B?RmxWREdIZGN1TXB1dmdLRitETE1iV2NuaWFJeFM2NENoY3hRUlFMa241bHdv?=
+ =?utf-8?B?L2FnUHgra3VDTXE3UHRxQT09?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0b26c19-211a-468b-0837-08d8f916e9bc
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR1501MB2064.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2021 16:13:28.0645
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +ptpTg+sNabCLC66pfBjP9R9qFeQiKAV8PfamO8zLXjCQj+FwyRE8lEPNM1tbIiy
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR15MB4433
+X-OriginatorOrg: fb.com
+X-Proofpoint-GUID: 6lHsmSV-bQFaUjFUeBMe998lBMhSt4TI
+X-Proofpoint-ORIG-GUID: 6lHsmSV-bQFaUjFUeBMe998lBMhSt4TI
+X-Proofpoint-UnRewURL: 1 URL was un-rewritten
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: build
-X-Kernelci-Kernel: next-20210406
-X-Kernelci-Branch: master
-X-Kernelci-Tree: next
-Subject: next/master build: 229 builds: 7 failed, 222 passed, 17 errors,
- 176 warnings (next-20210406)
-To: clang-built-linux@googlegroups.com
-From: "kernelci.org bot" <bot@kernelci.org>
-X-Original-Sender: bot@kernelci.org
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369,18.0.761
+ definitions=2021-04-06_04:2021-04-06,2021-04-06 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 clxscore=1015
+ priorityscore=1501 impostorscore=0 bulkscore=0 malwarescore=0 adultscore=0
+ spamscore=0 lowpriorityscore=0 mlxscore=0 phishscore=0 mlxlogscore=999
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2104030000 definitions=main-2104060108
+X-FB-Internal: deliver
+X-Original-Sender: yhs@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
- header.b=yxmnnTkD;       spf=neutral (google.com: 2607:f8b0:4864:20::632 is
- neither permitted nor denied by best guess record for domain of
- bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+ header.i=@fb.com header.s=facebook header.b="e/3ixr4T";       arc=fail (body
+ hash mismatch);       spf=pass (google.com: domain of prvs=373013899b=yhs@fb.com
+ designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=373013899b=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Yonghong Song <yhs@fb.com>
+Reply-To: Yonghong Song <yhs@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,1993 +199,175 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-next/master build: 229 builds: 7 failed, 222 passed, 17 errors, 176 warning=
-s (next-20210406)
 
-Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
-xt-20210406/
-
-Tree: next
-Branch: master
-Git Describe: next-20210406
-Git Commit: 9c54130cd25528028b2d38f6ada0c79e92210390
-Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
-t
-Built: 7 unique architectures
-
-Build Failures Detected:
-
-arm:
-    aspeed_g5_defconfig: (clang-10) FAIL
-    allmodconfig: (clang-11) FAIL
-    allmodconfig: (gcc-8) FAIL
-    spear3xx_defconfig: (gcc-8) FAIL
-
-mips:
-    allnoconfig: (gcc-8) FAIL
-    decstation_64_defconfig: (gcc-8) FAIL
-    lemote2f_defconfig: (gcc-8) FAIL
-
-Errors and Warnings Detected:
-
-arc:
-    vdk_hs38_smp_defconfig (gcc-8): 1 warning
-
-arm64:
-    allmodconfig (gcc-8): 2 warnings
-    allmodconfig (clang-11): 10 warnings
-    allmodconfig (clang-10): 14 warnings
-    allnoconfig (gcc-8): 1 warning
-    allnoconfig (clang-10): 2 warnings
-    allnoconfig (clang-11): 2 warnings
-    defconfig (clang-10): 2 warnings
-    defconfig (gcc-8): 1 warning
-    defconfig (clang-11): 2 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 2 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-11): 2 warnings
-    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
-    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
-    tinyconfig (gcc-8): 1 warning
-
-arm:
-    allmodconfig (gcc-8): 2 errors, 2 warnings
-    allmodconfig (clang-11): 2 errors, 30 warnings
-    aspeed_g5_defconfig (clang-10): 11 errors
-    axm55xx_defconfig (gcc-8): 1 warning
-    keystone_defconfig (gcc-8): 1 warning
-    multi_v7_defconfig (clang-10): 2 warnings
-    multi_v7_defconfig (clang-11): 2 warnings
-    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 1 warnin=
-g
-    mvebu_v7_defconfig (gcc-8): 1 warning
-    omap1_defconfig (gcc-8): 2 warnings
-    socfpga_defconfig (gcc-8): 1 warning
-    spear13xx_defconfig (gcc-8): 1 warning
-    spear3xx_defconfig (gcc-8): 1 error, 1 warning
-    vexpress_defconfig (gcc-8): 1 warning
-
-i386:
-    allmodconfig (clang-10): 23 warnings
-
-mips:
-    allnoconfig (gcc-8): 1 error
-    cavium_octeon_defconfig (gcc-8): 1 warning
-    loongson2k_defconfig (gcc-8): 1 warning
-    malta_qemu_32r6_defconfig (gcc-8): 1 warning
-    maltaaprp_defconfig (gcc-8): 1 warning
-    rb532_defconfig (gcc-8): 1 warning
-    rm200_defconfig (gcc-8): 1 warning
-    sb1250_swarm_defconfig (gcc-8): 1 warning
-    xway_defconfig (gcc-8): 3 warnings
-
-riscv:
-    defconfig+CONFIG_EFI=3Dn (clang-11): 1 warning
-    nommu_k210_defconfig (gcc-8): 1 warning
-    nommu_k210_sdcard_defconfig (gcc-8): 1 warning
-    nommu_virt_defconfig (gcc-8): 1 warning
-    rv32_defconfig (gcc-8): 6 warnings
-
-x86_64:
-    allmodconfig (gcc-8): 3 warnings
-    allmodconfig (clang-11): 17 warnings
-    allmodconfig (clang-10): 12 warnings
-    allnoconfig (clang-11): 2 warnings
-    allnoconfig (gcc-8): 1 warning
-    allnoconfig (clang-10): 2 warnings
-    tinyconfig (gcc-8): 2 warnings
-    x86_64_defconfig (clang-10): 2 warnings
-    x86_64_defconfig (clang-11): 2 warnings
-
-Errors summary:
-
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C34): reloca=
-tion R_ARM_PREL31 out of range: 2135575812 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B8C): reloca=
-tion R_ARM_PREL31 out of range: 2135575980 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B7C): reloca=
-tion R_ARM_PREL31 out of range: 2135575996 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B2C): reloca=
-tion R_ARM_PREL31 out of range: 2135576076 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B1C): reloca=
-tion R_ARM_PREL31 out of range: 2135576092 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B04): reloca=
-tion R_ARM_PREL31 out of range: 2135576116 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37AEC): reloca=
-tion R_ARM_PREL31 out of range: 2135576140 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37ABC): reloca=
-tion R_ARM_PREL31 out of range: 2135576188 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A8C): reloca=
-tion R_ARM_PREL31 out of range: 2135576236 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A44): reloca=
-tion R_ARM_PREL31 out of range: 2135576308 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35430): reloca=
-tion R_ARM_PREL31 out of range: 2135520520 is not in [-1073741824, 10737418=
-23]
-    1    arch/arm/mach-spear/spear3xx.c:42:3: error: =E2=80=98struct pl022_=
-ssp_controller=E2=80=99 has no member named =E2=80=98num_chipselect=E2=80=
-=99
-    1    ERROR: modpost: Section mismatches detected.
-    1    ERROR: modpost: "__compiletime_assert_192" [drivers/firmware/strat=
-ix10-rsu.ko] undefined!
-    1    ERROR: modpost: "__compiletime_assert_177" [drivers/firmware/strat=
-ix10-rsu.ko] undefined!
-    1    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=
-=98__compiletime_assert_192=E2=80=99 declared with attribute error: FIELD_G=
-ET: type of reg too small for mask
-    1    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=
-=98__compiletime_assert_177=E2=80=99 declared with attribute error: FIELD_G=
-ET: type of reg too small for mask
-
-Warnings summary:
-
-    45   1 warning generated.
-    16   kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=
-=E2=80=99 defined but not used [-Wunused-function]
-    7    arch/arm64/configs/defconfig:1017:warning: override: reassigning t=
-o symbol MTK_PMIC_WRAP
-    6    2 warnings generated.
-    6    ./include/kunit/test-bug.h:22:28: warning: unused function '__kuni=
-t_fail_current_test' [-Wunused-function]
-    5    drivers/platform/surface/surface_aggregator_registry.c:496:25: war=
-ning: implicit conversion from 'int' to '__u8' (aka 'unsigned char') change=
-s value from 65535 to 255 [-Wconstant-conversion]
-    5    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit co=
-nversion from 'int' to '__u8' (aka 'unsigned char') changes value from 6553=
-5 to 255 [-Wconstant-conversion]
-    5    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13=
-: warning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
-    5    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc6-next-20210406/kernel/drivers/media/tuners/tuner-types.ko: u=
-nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    3    sound/core/control_led.c:97:12: warning: stack frame size of 1032 =
-bytes in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
-    3    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13=
-: warning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-=
-Wunused-function]
-    3    ./include/kunit/test-bug.h:22:28: warning: =E2=80=98__kunit_fail_c=
-urrent_test=E2=80=99 defined but not used [-Wunused-function]
-    2    kernel/static_call.c:153:18: warning: unused variable =E2=80=98mod=
-=E2=80=99 [-Wunused-variable]
-    2    kernel/static_call.c:153:18: warning: unused variable 'mod' [-Wunu=
-sed-variable]
-    2    kernel/sched/fair.c:8398:13: warning: unused function 'update_nohz=
-_stats' [-Wunused-function]
-    2    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    2    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: implicit conversion=
- from 'unsigned long' to 'unsigned int' changes value from 1844674407370955=
-1600 to 4294967280 [-Wconstant-conversion]
-    2    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
- version 4.6 of GCC [-W#warnings]
-    2    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
--Wcpp]
-    2    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
--Wcpp]
-    2    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
-d [-Wcpp]
-    2    #warning This code requires at least version 4.6 of GCC
-    1    {standard input}:39: Warning: macro instruction expanded into mult=
-iple instructions
-    1    warning generated.
-    1    sound/core/control_led.c:128:1: warning: the frame size of 1504 by=
-tes is larger than 1024 bytes [-Wframe-larger-than=3D]
-    1    net/rose/rose_subr.o: warning: objtool: rose_write_internal() fall=
-s through to next function rose_decode()
-    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    1    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete=
-()+0x114d: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3344 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame siz=
-e of 1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    1    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame si=
-ze of 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
-rger-than=3D]
-    1    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: conversion from =E2=
-=80=98long unsigned int=E2=80=99 to =E2=80=98unsigned int=E2=80=99 changes =
-value from =E2=80=9818446744073709551600=E2=80=99 to =E2=80=984294967280=E2=
-=80=99 [-Woverflow]
-    1    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=
-=99 defined but not used [-Wunused-function]
-    1    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame si=
-ze of 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    1    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return=
- value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
-d_result [-Wunused-result]
-    1    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return=
- value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
-d_result [-Wunused-result]
-    1    drivers/mtd/chips/cfi_cmdset_0001.c:1871:12: warning: stack frame =
-size of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
-=3D]
-    1    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack fra=
-me size of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_prefault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+=
-0
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_prefault_relocations()+0xb8: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+=
-0
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_copy_relocations()+0x259: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_copy_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
-alc.c:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_d=
-lg_get_dlg_params' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCL=
-KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
-' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20=
-v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml2=
-0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
-alculation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_=
-DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
-lation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
- warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
-u' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
-warning: stack frame size of 5536 bytes in function 'calculate_bandwidth' [=
--Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6:=
- warning: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-la=
-rger-than=3D]
-    1    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame=
- size of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
-    1    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in =
-function 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1    clang: warning: argument unused during compilation: '-no-pie' [-Wu=
-nused-command-line-argument]
-    1    arch/arm/mach-spear/spear3xx.c:42:20: warning: initialization of =
-=E2=80=98void *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from inte=
-ger without a cast [-Wint-conversion]
-    1    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_g=
-piod_table=E2=80=99 defined but not used [-Wunused-variable]
-    1    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98am=
-s_delta_camera_power=E2=80=99 defined but not used [-Wunused-function]
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc6-next-20210406/kernel/drivers/clk/keystone/pll.ko: unsupport=
-ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc6-next-20210406/kernel/drivers/clk/keystone/gate.ko: unsuppor=
-ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc6-next-20210406/kernel/crypto/cast_common.ko: unsupported GNU=
-_PROPERTY_TYPE (5) type: 0xc0000000
-    1    .config:1198:warning: override: UNWINDER_GUESS changes choice stat=
-e
-    1    ./usr/include/linux/bcache.h:355:2: warning: field '' with variabl=
-e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)=
-' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
-zed-type-not-at-end]
-    1    ./usr/include/linux/bcache.h:354:2: warning: field '' with variabl=
-e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)=
-' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
-zed-type-not-at-end]
-    1    ./include/vdso/bits.h:7:26: warning: left shift count >=3D width o=
-f type [-Wshift-count-overflow]
-
-Section mismatches summary:
-
-    1    WARNING: modpost: vmlinux.o(.text+0x9f20): Section mismatch in ref=
-erence from the function reserve_exception_space() to the function .meminit=
-.text:memblock_reserve()
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 section m=
-ismatches
-
-Errors:
-    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=98__co=
-mpiletime_assert_177=E2=80=99 declared with attribute error: FIELD_GET: typ=
-e of reg too small for mask
-    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=98__co=
-mpiletime_assert_192=E2=80=99 declared with attribute error: FIELD_GET: typ=
-e of reg too small for mask
-
-Warnings:
-    ./include/kunit/test-bug.h:22:28: warning: =E2=80=98__kunit_fail_curren=
-t_test=E2=80=99 defined but not used [-Wunused-function]
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-Wunus=
-ed-function]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, clang-11) =E2=80=94 FAIL, 2 errors, 30 warnings, 0 secti=
-on mismatches
-
-Errors:
-    ERROR: modpost: "__compiletime_assert_192" [drivers/firmware/stratix10-=
-rsu.ko] undefined!
-    ERROR: modpost: "__compiletime_assert_177" [drivers/firmware/stratix10-=
-rsu.ko] undefined!
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
- of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    1 warning generated.
-    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in funct=
-ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1 warning generated.
-    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
- in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    ./include/kunit/test-bug.h:22:28: warning: unused function '__kunit_fai=
-l_current_test' [-Wunused-function]
-    1 warning generated.
-    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
-ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    warning generated.
-    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
- 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
-ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
-ng: stack frame size of 5536 bytes in function 'calculate_bandwidth' [-Wfra=
-me-larger-than=3D]
-    2 warnings generated.
-    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame size of =
-1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame size of=
- 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
-than=3D]
-    2 warnings generated.
-    drivers/mtd/chips/cfi_cmdset_0001.c:1871:12: warning: stack frame size =
-of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    ./include/kunit/test-bug.h:22:28: warning: =E2=80=98__kunit_fail_curren=
-t_test=E2=80=99 defined but not used [-Wunused-function]
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-Wunus=
-ed-function]
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    ./include/kunit/test-bug.h:22:28: warning: =E2=80=98__kunit_fail_curren=
-t_test=E2=80=99 defined but not used [-Wunused-function]
-    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: conversion from =E2=80=
-=98long unsigned int=E2=80=99 to =E2=80=98unsigned int=E2=80=99 changes val=
-ue from =E2=80=9818446744073709551600=E2=80=99 to =E2=80=984294967280=E2=80=
-=99 [-Woverflow]
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-Wunus=
-ed-function]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 10 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    ./include/kunit/test-bug.h:22:28: warning: unused function '__kunit_fai=
-l_current_test' [-Wunused-function]
-    1 warning generated.
-    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3344 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 14 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    ./include/kunit/test-bug.h:22:28: warning: unused function '__kunit_fai=
-l_current_test' [-Wunused-function]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
-    1 warning generated.
-    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/crypto/cast_common.ko: unsupported GNU_PROP=
-ERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/clk/keystone/gate.ko: unsupported G=
-NU_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/clk/keystone/pll.ko: unsupported GN=
-U_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-allmodconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 23 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    ./include/kunit/test-bug.h:22:28: warning: unused function '__kunit_fai=
-l_current_test' [-Wunused-function]
-    1 warning generated.
-    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
-ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
-:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_dlg_ge=
-t_dlg_params' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_DISPC=
-LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
-n' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml20v2_D=
-ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
-ation' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20v2_Mo=
-deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCLKDPPC=
-LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
-frame-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 17 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    ./usr/include/linux/bcache.h:354:2: warning: field '' with variable siz=
-ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)' not=
- at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
-ype-not-at-end]
-    ./usr/include/linux/bcache.h:355:2: warning: field '' with variable siz=
-ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)' not=
- at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
-ype-not-at-end]
-    2 warnings generated.
-    ./include/kunit/test-bug.h:22:28: warning: unused function '__kunit_fai=
-l_current_test' [-Wunused-function]
-    1 warning generated.
-    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete()+0x=
-114d: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
-    net/rose/rose_subr.o: warning: objtool: rose_write_internal() falls thr=
-ough to next function rose_decode()
-    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: implicit conversion from=
- 'unsigned long' to 'unsigned int' changes value from 18446744073709551600 =
-to 4294967280 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 12 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    ./include/kunit/test-bug.h:22:28: warning: unused function '__kunit_fai=
-l_current_test' [-Wunused-function]
-    1 warning generated.
-    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: implicit conversion from=
- 'unsigned long' to 'unsigned int' changes value from 18446744073709551600 =
-to 4294967280 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
-ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
-    1 warning generated.
-    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (riscv, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
-smatches
-
-Errors:
-    ERROR: modpost: Section mismatches detected.
-
-Section mismatches:
-    WARNING: modpost: vmlinux.o(.text+0x9f20): Section mismatch in referenc=
-e from the function reserve_exception_space() to the function .meminit.text=
-:memblock_reserve()
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: unused function 'update_nohz_stat=
-s' [-Wunused-function]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/static_call.c:153:18: warning: unused variable 'mod' [-Wunused-v=
-ariable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/static_call.c:153:18: warning: unused variable =E2=80=98mod=E2=
-=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/static_call.c:153:18: warning: unused variable 'mod' [-Wunused-v=
-ariable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: unused function 'update_nohz_stat=
-s' [-Wunused-function]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-10) =E2=80=94 FAIL, 11 errors, 0 warnings, =
-0 section mismatches
-
-Errors:
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35430): relocation =
-R_ARM_PREL31 out of range: 2135520520 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A44): relocation =
-R_ARM_PREL31 out of range: 2135576308 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A8C): relocation =
-R_ARM_PREL31 out of range: 2135576236 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37ABC): relocation =
-R_ARM_PREL31 out of range: 2135576188 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37AEC): relocation =
-R_ARM_PREL31 out of range: 2135576140 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B04): relocation =
-R_ARM_PREL31 out of range: 2135576116 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B1C): relocation =
-R_ARM_PREL31 out of range: 2135576092 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B2C): relocation =
-R_ARM_PREL31 out of range: 2135576076 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B7C): relocation =
-R_ARM_PREL31 out of range: 2135575996 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B8C): relocation =
-R_ARM_PREL31 out of range: 2135575980 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C34): relocation =
-R_ARM_PREL31 out of range: 2135575812 is not in [-1073741824, 1073741823]
-
----------------------------------------------------------------------------=
------
-assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
-rors, 2 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-11) =E2=80=94 PASS, 0 er=
-rors, 2 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc6-next-20210406/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_EFI=3Dn (riscv, clang-11) =E2=80=94 PASS, 0 errors, 1 warn=
-ing, 0 section mismatches
-
-Warnings:
-    clang: warning: argument unused during compilation: '-no-pie' [-Wunused=
--command-line-argument]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-
----------------------------------------------------------------------------=
------
-dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    sound/core/control_led.c:128:1: warning: the frame size of 1504 bytes i=
-s larger than 1024 bytes [-Wframe-larger-than=3D]
-
----------------------------------------------------------------------------=
------
-loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
-, 0 section mismatches
-
-Warnings:
-    {standard input}:39: Warning: macro instruction expanded into multiple =
-instructions
-
----------------------------------------------------------------------------=
------
-maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
-
----------------------------------------------------------------------------=
------
-mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
- in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
- in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
- errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 1 warning, 0 section mismatches
-
-Warnings:
-    ./include/vdso/bits.h:7:26: warning: left shift count >=3D width of typ=
-e [-Wshift-count-overflow]
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
-warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warn=
-ing, 0 section mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_gpiod_=
-table=E2=80=99 defined but not used [-Wunused-variable]
-    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98ams_del=
-ta_camera_power=E2=80=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=99 d=
-efined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/block/paride/bpck.c:32: warning: "PC" redefined
-
----------------------------------------------------------------------------=
------
-rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
- section mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-spear3xx_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
-
-Errors:
-    arch/arm/mach-spear/spear3xx.c:42:3: error: =E2=80=98struct pl022_ssp_c=
-ontroller=E2=80=99 has no member named =E2=80=98num_chipselect=E2=80=99
-
-Warnings:
-    arch/arm/mach-spear/spear3xx.c:42:20: warning: initialization of =E2=80=
-=98void *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from integer wi=
-thout a cast [-Wint-conversion]
-
----------------------------------------------------------------------------=
------
-spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
-mismatches
-
-Warnings:
-    .config:1198:warning: override: UNWINDER_GUESS changes choice state
-    kernel/static_call.c:153:18: warning: unused variable =E2=80=98mod=E2=
-=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
-smatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
- section mismatches
-
-Warnings:
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
-efault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+0
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
-py_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
- section mismatches
-
-Warnings:
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
-efault_relocations()+0xb8: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+0
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
-py_relocations()+0x259: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
- warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
-=99 defined but not used [-Wunused-function]
-    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return valu=
-e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
-ult [-Wunused-result]
-    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return valu=
-e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
-ult [-Wunused-result]
-
----------------------------------------------------------------------------=
------
-zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----
-For more info write to <info@kernelci.org>
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/606c79c9.1c69fb81.7ccbc.11e0%40mx.google.com.
+Masahiro and Michal,
+
+Friendly ping. Any comments on this patch?
+
+The addition LTO .notes information emitted by kernel is used by pahole
+in the following patch:
+    https://lore.kernel.org/bpf/20210401025825.2254746-1-yhs@fb.com/
+    (dwarf_loader: check .notes section for lto build info)
+
+Thanks,
+
+Yonghong
+
+On 4/6/21 12:05 AM, Sedat Dilek wrote:
+> On Fri, Apr 2, 2021 at 8:07 PM 'Nick Desaulniers' via Clang Built
+> Linux <clang-built-linux@googlegroups.com> wrote:
+>>
+>> On Thu, Apr 1, 2021 at 4:27 PM Yonghong Song <yhs@fb.com> wrote:
+>>>
+>>> Currently, clang LTO built vmlinux won't work with pahole.
+>>> LTO introduced cross-cu dwarf tag references and broke
+>>> current pahole model which handles one cu as a time.
+>>> The solution is to merge all cu's as one pahole cu as in [1].
+>>> We would like to do this merging only if cross-cu dwarf
+>>> references happens. The LTO build mode is a pretty good
+>>> indication for that.
+>>>
+>>> In earlier version of this patch ([2]), clang flag
+>>> -grecord-gcc-switches is proposed to add to compilation flags
+>>> so pahole could detect "-flto" and then merging cu's.
+>>> This will increate the binary size of 1% without LTO though.
+>>>
+>>> Arnaldo suggested to use a note to indicate the vmlinux
+>>> is built with LTO. Such a cheap way to get whether the vmlinux
+>>> is built with LTO or not helps pahole but is also useful
+>>> for tracing as LTO may inline/delete/demote global functions,
+>>> promote static functions, etc.
+>>>
+>>> So this patch added an elfnote with a new type LINUX_ELFNOTE_LTO_INFO.
+>>> The owner of the note is "Linux".
+>>>
+>>> With gcc 8.4.1 and clang trunk, without LTO, I got
+>>>    $ readelf -n vmlinux
+>>>    Displaying notes found in: .notes
+>>>      Owner                Data size        Description
+>>>    ...
+>>>      Linux                0x00000004       func
+>>>       description data: 00 00 00 00
+>>>    ...
+>>> With "readelf -x ".notes" vmlinux", I can verify the above "func"
+>>> with type code 0x101.
+>>>
+>>> With clang thin-LTO, I got the same as above except the following:
+>>>       description data: 01 00 00 00
+>>> which indicates the vmlinux is built with LTO.
+>>>
+>>>    [1] https://lore.kernel.org/bpf/20210325065316.3121287-1-yhs@fb.com/
+>>>    [2] https://lore.kernel.org/bpf/20210331001623.2778934-1-yhs@fb.com/
+>>>
+>>> Suggested-by: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
+>>> Signed-off-by: Yonghong Song <yhs@fb.com>
+>>
+>> LGTM thanks Yonghong!
+>> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+>>
+> 
+> Thanks for the patch.
+> 
+> Feel free to add:
+> 
+> Tested-by: Sedat Dilek <sedat.dilek@gmail.com> # LLVM/Clang v12.0.0-rc4 (x86-64)
+> 
+> As a note for the pahole side:
+> Recent patches require an adaptation of the define and its comment.
+> 
+> 1. LINUX_ELFNOTE_BUILD_LTO -> LINUX_ELFNOTE_LTO_INFO
+> 2. include/linux/elfnote.h -> include/linux/elfnote-lto.h
+> 
+> - Sedat -
+> 
+>>> ---
+>>>   include/linux/elfnote-lto.h | 14 ++++++++++++++
+>>>   init/version.c              |  2 ++
+>>>   scripts/mod/modpost.c       |  2 ++
+>>>   3 files changed, 18 insertions(+)
+>>>   create mode 100644 include/linux/elfnote-lto.h
+>>>
+>>> Changelogs:
+>>>    v3 -> v4:
+>>>      . put new lto note in its own header file similar to
+>>>        build-salt.h. (Nick)
+>>>    v2 -> v3:
+>>>      . abandoned the approach of adding -grecord-gcc-switches,
+>>>        instead create a note to indicate whether it is a lto build
+>>>        or not. The note definition is in compiler.h. (Arnaldo)
+>>>    v1 -> v2:
+>>>      . limited to add -grecord-gcc-switches for LTO_CLANG
+>>>        instead of all clang build
+>>>
+>>> diff --git a/include/linux/elfnote-lto.h b/include/linux/elfnote-lto.h
+>>> new file mode 100644
+>>> index 000000000000..d4635a3ecc4f
+>>> --- /dev/null
+>>> +++ b/include/linux/elfnote-lto.h
+>>> @@ -0,0 +1,14 @@
+>>> +#ifndef __ELFNOTE_LTO_H
+>>> +#define __ELFNOTE_LTO_H
+>>> +
+>>> +#include <linux/elfnote.h>
+>>> +
+>>> +#define LINUX_ELFNOTE_LTO_INFO 0x101
+>>> +
+>>> +#ifdef CONFIG_LTO
+>>> +#define BUILD_LTO_INFO ELFNOTE32("Linux", LINUX_ELFNOTE_LTO_INFO, 1)
+>>> +#else
+>>> +#define BUILD_LTO_INFO ELFNOTE32("Linux", LINUX_ELFNOTE_LTO_INFO, 0)
+>>> +#endif
+>>> +
+>>> +#endif /* __ELFNOTE_LTO_H */
+>>> diff --git a/init/version.c b/init/version.c
+>>> index 92afc782b043..1a356f5493e8 100644
+>>> --- a/init/version.c
+>>> +++ b/init/version.c
+>>> @@ -9,6 +9,7 @@
+>>>
+>>>   #include <generated/compile.h>
+>>>   #include <linux/build-salt.h>
+>>> +#include <linux/elfnote-lto.h>
+>>>   #include <linux/export.h>
+>>>   #include <linux/uts.h>
+>>>   #include <linux/utsname.h>
+>>> @@ -45,3 +46,4 @@ const char linux_proc_banner[] =
+>>>          " (" LINUX_COMPILER ") %s\n";
+>>>
+>>>   BUILD_SALT;
+>>> +BUILD_LTO_INFO;
+>>> diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+>>> index 24725e50c7b4..98fb2bb024db 100644
+>>> --- a/scripts/mod/modpost.c
+>>> +++ b/scripts/mod/modpost.c
+>>> @@ -2191,10 +2191,12 @@ static void add_header(struct buffer *b, struct module *mod)
+>>>           */
+>>>          buf_printf(b, "#define INCLUDE_VERMAGIC\n");
+>>>          buf_printf(b, "#include <linux/build-salt.h>\n");
+>>> +       buf_printf(b, "#include <linux/elfnote-lto.h>\n");
+>>>          buf_printf(b, "#include <linux/vermagic.h>\n");
+>>>          buf_printf(b, "#include <linux/compiler.h>\n");
+>>>          buf_printf(b, "\n");
+>>>          buf_printf(b, "BUILD_SALT;\n");
+>>> +       buf_printf(b, "BUILD_LTO_INFO;\n");
+>>>          buf_printf(b, "\n");
+>>>          buf_printf(b, "MODULE_INFO(vermagic, VERMAGIC_STRING);\n");
+>>>          buf_printf(b, "MODULE_INFO(name, KBUILD_MODNAME);\n");
+>>> --
+>>> 2.30.2
+>>>
+>>
+>>
+>> --
+>> Thanks,
+>> ~Nick Desaulniers
+>>
+>> --
+>> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmX8d3XTzJFk5rN_PnOQYJ8bXMrh8DrhzqN=UBNdQiO3g@mail.gmail.com .
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c6daf068-ead0-810b-2afa-c4d1c8305893%40fb.com.
