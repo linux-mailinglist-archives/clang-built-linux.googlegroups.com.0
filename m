@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDZ7JWMQ2EGBB6W7W2BQMGQE5QR5YEY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZ7JWMQ2EGBBSXPW2BQMGQEFBW2HPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id A39D1356D03
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 15:13:32 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id b17sf12744579pgh.17
-        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Apr 2021 06:13:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617801211; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 23355356DB7
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 15:46:52 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id b13sf9215764plh.19
+        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Apr 2021 06:46:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617803210; cv=pass;
         d=google.com; s=arc-20160816;
-        b=g5FdafzO4mrJE0UAUoQr7vHAXpJ5JhNQtXdaFpcq5vOxKqxAXIGnobGlHPwqz2BnIA
-         WSHqC1kfDeli/hkjfr3QZ59mcy3QH8eNW0sUI3xDLuLIEi7CVXnO/26uPS+hE6owC24R
-         2RiK+5fq7PE3W8DMO0jweVLPj2hUZo/NlMzg6CKu/L8z584kXHh1Oh3UODxEFo1NH4EE
-         BMASGmnRQJc5Tsw4xqmba76Yhn5Sd/eGg5WQmhRaQB9MO0NH7k4b6OVClEfNqZhQ89oV
-         c2q61fMVO7fYfg0uFfoyLOPN1Ta3WIi2pT0uwNVVCvq4OwZ2QStLY1wA22KGNEFkq4DQ
-         eT2Q==
+        b=NKEI/RLVWb4xYuCJ0iQbdSCHCahwHhsyt0KpwMFQ/QuYgPJrcG1fCfMsKwqD+CyqX1
+         xXKP5CjGHZ9BTIz3pG20UFSuVuMsIU//rJ3GkRyV2/gvDoKEhe4Vd4V6F9se0XFQ2pyK
+         2F3p9Qe3ogzZ9OUMwqqZXC9STvAIxaWqmAPByjD/LOCNfgLH4/t2Ar6Yu3qWqFCSMZKP
+         qtg1p5yu5zG+MpPb7bjmfaUO2OOoxGC53cRoQWzksNfzP2sBsZ0qhKjF/mo5mrS6/PYb
+         sjr5WrR8n5U0fIL7jgI2LuNZkzuxfZc6nqKjAIL87izCjcKUuk+kFZQoRcqJJ/lCJxyW
+         LW8A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=6vt5L/T0UVzNAj2lHp4auA1Du9hf5vdKCiZzi1zwzk4=;
-        b=iSOy2svrUq3Mq+FHioQcdphc99juN5aJ9kW2j/MNiUgO/X7Hhz5uRlGBjtjHA7eDzi
-         FrUd9JwnuXnvDhpTEiuS0GTpiehlveJm/cgI6T7Wc4uwDvkyD5ff2QgNK7ytumSPTFRf
-         8jzHH9k281GJa3mi4DMiGTKvyn+5WR8DVxPFcEe7EuuJfsLEFERVI+rmHXVjXmQ9Pg/1
-         qq6XDMCmnr1a7TlNdwxyp9KpNlxQYO5ZqFeJuX/Jc6xJhRhhie9nH4sOtuFS2WdIVH++
-         /m28MjI19JYJFj1rDFva4+QualXEipgFXzCBIo2QkwR36CDXplysmsmXvHqXaDTwXd+I
-         oehw==
+        bh=aC7bJfqUTWVg5swT3+sIa93ebB5VWeGAGc8q3rVFbjY=;
+        b=g7y5nhdJRFiLaW2bD8PBtkp/dieWN8srAMG1ahHO8nCnOoprapBKilTCwYt4OS1aW/
+         Bp3YeX6lqtxmDtENb8x8KjfWB2NYf1Fu1qNLIqidMCrfUBip/0pYpoMdUGwMTq43dd3W
+         7QzbXNDqgT7PJVBelaN6/GVivWZ/NalRG/PQFYNyGDEbonLH+2+9M5X6ijDDiLpCqdgI
+         /YpImCySGcgFljC+itMBt6WtnOrUMXiczu3xtzdTNLfScQAW25Ky26iQrWNN/Vh3WhEJ
+         ZxNRgxKqcAnYNg12LJo2Ltkza/OXpUsI8cE7DUFzhTZbEpzE3uz2aOI+EC8vPFGITasg
+         gBhA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cMhrycHc;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HA571evb;
        spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6vt5L/T0UVzNAj2lHp4auA1Du9hf5vdKCiZzi1zwzk4=;
-        b=d5YXhQAAF7V2ZNocipDZO5+o882BcAQc8kiSvpi2DT+nW9e0MjqAqVmkV2de/HmHtR
-         XgzjXk5niDTEqPr1Jp0Y7ae7LNTIYHxgwk6kMuuqGRH2B4MJZKlffiQTrFzmSaEyi2M/
-         gipPUAG/uIV4yClWROLRGyJpKAixjwjIb0wQt3OwvzHqtt1wDlFbQZAwZTK9Y3kGYoOZ
-         nGGOeqrMV3vJ5YUyaB9JHIWm3g+cafyH2bZRJ1/FpYl6yC2B+BExKSl65C259k3Xq6Zk
-         Kvo252JpRBtPyfZiNlGto4ceyQrrvw9kswCZeT3jM4c/GUk2pfjQHcFyaAEhZvFLxtis
-         6jBg==
+        bh=aC7bJfqUTWVg5swT3+sIa93ebB5VWeGAGc8q3rVFbjY=;
+        b=CMX38tA9KS8UlvqWB54o4R8SwLFEaHAt0o70OnMFjm2BBQeimk/FrwZykQI1/rJLmw
+         bznR/55uflgIB9g8BsXKy0Z+/j6kWsCPyoLvZRDpp+3QsKt1KnyG64NKNwVwzZRXfCHH
+         6mJkN341LpiyB1mXzUWq5Ke3kRD8BA4Z5VfJuemiCy/c6Mz4HXiFCMj6JAN0JwrfTmez
+         T05f368dVYv8Jliq1Z5hJqu86wg8RoerBZLb0v5OB6+Hlcry6blQno+vNJYWDWI5xBVV
+         gnBaoT1waz0Tsei9y8FA4466JsUdgtdMYnSgH+drHdN605IIuhu5j4tmQcdNWlj1xsGj
+         kGOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,81 +50,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=6vt5L/T0UVzNAj2lHp4auA1Du9hf5vdKCiZzi1zwzk4=;
-        b=WcQoAaD1C4U1oDdzcrCr+bF9lom11hdoIyqzxgPN0Nzy3p7fEH9gtVLOuazj8o+yyo
-         Fy/9LAuIRzqQnQEeuS67BSlI749XGJe2gPhm68LitIo1ufrJL9zxmwXzCUJd6G4vJSLZ
-         vcbPNAk7kDoVfkLke0gQSUQPrEEPv+b9PQN5CE3DOnf/BOqjEYdgSKREQMZ8HFQRx5jD
-         f58QhOGgqXRy5PjUZpXgzYzvXgecjEbGmegE3XdVGFLNq67q83BNsVHwhY7D1h4kKi4y
-         05JC4Ve0vgD+2QxRC/98YoeOgwBpzJbQ7dauKoJM1kxcGuSETTDpgXdtuzmGjnJULS64
-         3Pmw==
+        bh=aC7bJfqUTWVg5swT3+sIa93ebB5VWeGAGc8q3rVFbjY=;
+        b=YinzU/1ztLKeb8+ba1st+pP8L3wifJ6k4wzFaG+KiLFRiSwfHhvHlfPw2TN5peq1X7
+         VRqUu89ZODMo1Sjh1lmh1GMIvT979MyuMHLCOFmNHpqxUrWKVnywYdJrGEMZbmGe8sXz
+         Qr3SMvtqPtwRwHrCQeXN5jBjiVdxC2Bd5a1vvNKlBN1s3kQnaFIT0dv2pp/jPXrqqf/J
+         8K5VdcdOjFtqqjTvB5ROsznCWZfwidWU+QujAxeqgT61skGmG6xxsX/+FZSv089BkiyU
+         p/bi/yS4jor5mpImCPmcoRE8Ev5R0TfuAFC3KsQihLUmDpMBcBuoYrmebWuFconBLFdP
+         6EKA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531JoVIBe2LH1ladE40Q09wOcHNww/I8eXt+Jgv/N/S435JY312I
-	scJiP3NvpZNGSr8U37tSX0c=
-X-Google-Smtp-Source: ABdhPJxHj7goByycxKB0ybfoTfc9PhJ+wzpSsIvPpZO1YAIY79Uh3WozwCplxLuwiZLc7tIv8t6NnQ==
-X-Received: by 2002:aa7:8814:0:b029:21d:d2ce:7be with SMTP id c20-20020aa788140000b029021dd2ce07bemr2718870pfo.80.1617801210860;
-        Wed, 07 Apr 2021 06:13:30 -0700 (PDT)
+X-Gm-Message-State: AOAM530/RIa2U+JFALbDBUrJJolvoIGEcFuWEd6EiYspvvumyVf8gRw6
+	uBL7NcybYJNjiE/QrqbJk3w=
+X-Google-Smtp-Source: ABdhPJwMUL4H4dAfyhlU4PIU4uxdE1EOZ87X1abasb34hTw6u27cECrOKoJtC6FXN4N1D2uRhOmfLg==
+X-Received: by 2002:aa7:86d9:0:b029:1ef:4f40:4bba with SMTP id h25-20020aa786d90000b02901ef4f404bbamr2918493pfo.54.1617803210709;
+        Wed, 07 Apr 2021 06:46:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:ac09:: with SMTP id v9ls794123pfe.2.gmail; Wed, 07 Apr
- 2021 06:13:30 -0700 (PDT)
-X-Received: by 2002:a62:2b03:0:b029:241:d147:2a79 with SMTP id r3-20020a622b030000b0290241d1472a79mr2754310pfr.53.1617801210296;
-        Wed, 07 Apr 2021 06:13:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617801210; cv=none;
+Received: by 2002:a63:3fc1:: with SMTP id m184ls1085476pga.5.gmail; Wed, 07
+ Apr 2021 06:46:50 -0700 (PDT)
+X-Received: by 2002:a63:e242:: with SMTP id y2mr3523649pgj.298.1617803210159;
+        Wed, 07 Apr 2021 06:46:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617803210; cv=none;
         d=google.com; s=arc-20160816;
-        b=QXRhHm42BJGx9h7Tf1bUEdB6zdrbBRDy75/aGuQ0f3N7ObcB7VBKpWj3tFGjv0vXHK
-         Z7vKoK/5F80Yq+uKRBJuKNF8Mntx55pLQt/+DYqJTjYVwekbuZ8Y10CHcaVP2dF3GiQA
-         O5WkFefGudy8CmPskFVhUDs4poF2Tq92xw4VzDWA+yi0UolNuiQeRodMe+Xa+Ge/J/kI
-         kXeIW57Qekgo0/JMonLjK7IBS1VIrr3CUkjPo1GAOFT5aRs32537gSxQYyxSgysSB0uk
-         LxuNELjINSIus7Kqk0sjjKCTqcGeXEx84kw3TRgPSUNqK+KZX61p9bwZ+LCPT5icZjgt
-         vpPw==
+        b=pKDquhlKuai8P5oZ9j1K4hFYU98st7RTmaHcMvSi6Z99WzJDs7wqr3R2i+dZmfTTZ7
+         ENh3qipiEr2vMDkALlyniIEGtn2jcZSPo5cqihK++tMBsL/2HGtBciMmj9NQ7Tj9+Q0l
+         ni4Qej24f7J63SStwWLvWf2h3HNxdA8Rpg63AhTG6uqD1xV/8op8tG+Lz4Cb2F3q8qp9
+         /2Yx28xqRu+EoNWyhglVSJ6jngzrzFbjQA+F1aFqFVBbxa+t6xo16hJvih4qj8c9h90u
+         1ZEzc6Et0pW4HZ3pyIr+sOskzCP0XMcSeAoyyx3wxGO9C4VyphmXKXDRG5+0J6C0Wc6E
+         IAOw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=195cNJnLjZENnd1+Eu5mklvWVOS3DJNrKojHDPF0Izo=;
-        b=E66kKD0BL3ViX7YqrcF4blcG79L1EnMgyZzHxernUCqLKZl3Pnk3X2u4tU7OCSNrSt
-         HYaPU3H5rWbOTeI0VoIEXdsa2VG489Gmnz1huiihpiaFMVSw8cczeYw3TDUvhuTRC/Mv
-         QhsaBspVaVjNkKpPj05oj7LmTLtlGdkVtt+8oZqkkiJp4KES4wcIikCGIdP+kD4L3nwA
-         G6H+ruMh7qupPDwZmq7CqM9GwhwM8j19wZuGnek1X2uXuHdjF9PbdWR2AwEy/W9VziXj
-         jnB8gkdRa8qm9h36LbhYRuyvSkFpNNCAzVeN7kpeQj94mh91pI1LETLGmTpu3/Pv6jSk
-         bABQ==
+        bh=SVGr8k3YZqx9t/gUrn5PttvbgiOd+TX9Eg19c9jrICc=;
+        b=jE6w2eGKG32uEXdoOGzigyCfOuBYJjwYvgQrDfgGHkHbTVsww9jlooC9bYSLjCba0X
+         La26Z83mRQuc2cOM/9i37LL/sFoogh+o5JgAxBbDPuOkLkoRBkdqIh3zbIHZli+qZ/wz
+         hyVzcZIx7u83iG0t3WWnR+KN0++4jBT9mLG0WRKG0nTuyVWoaXXqevgtvISzSens+fEc
+         fU9Y8nc8xDHy3axGJv8qnjYlwg2DBFkoMZuW2MGlf90kpzqLnGE+5H/qjzQm7zKQwoLK
+         HTNDwc1yTXIIHsGN6qNUy54JJ3RTwN8laldL7+t4a4RGRjTX6gHAJrMXG+YWASd0iGT6
+         Q+dg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cMhrycHc;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=HA571evb;
        spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z22si2555664pfc.6.2021.04.07.06.13.30
+        by gmr-mx.google.com with ESMTPS id ft8si534831pjb.0.2021.04.07.06.46.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 07 Apr 2021 06:13:30 -0700 (PDT)
+        Wed, 07 Apr 2021 06:46:50 -0700 (PDT)
 Received-SPF: pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9E2EE61242;
-	Wed,  7 Apr 2021 13:13:27 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 852FF61382;
+	Wed,  7 Apr 2021 13:46:49 +0000 (UTC)
 Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
-	id 8841A40647; Wed,  7 Apr 2021 10:13:24 -0300 (-03)
-Date: Wed, 7 Apr 2021 10:13:24 -0300
+	id A02C040647; Wed,  7 Apr 2021 10:46:46 -0300 (-03)
+Date: Wed, 7 Apr 2021 10:46:46 -0300
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Yonghong Song <yhs@fb.com>,
+To: Yonghong Song <yhs@fb.com>, Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>
+Cc: sedat.dilek@gmail.com,
 	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
 	Alexei Starovoitov <ast@kernel.org>,
 	Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>,
 	bpf <bpf@vger.kernel.org>, kernel-team@fb.com,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
 	Bill Wendling <morbo@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Nick Desaulniers <ndesaulniers@google.com>
 Subject: Re: [PATCH kbuild v4] kbuild: add an elfnote for whether vmlinux is
  built with lto
-Message-ID: <YG2v9EY0WWp+bijr@kernel.org>
+Message-ID: <YG23xiRqJLYRtZgQ@kernel.org>
 References: <20210401232723.3571287-1-yhs@fb.com>
  <CAKwvOdmX8d3XTzJFk5rN_PnOQYJ8bXMrh8DrhzqN=UBNdQiO3g@mail.gmail.com>
+ <CA+icZUVKCY4UJfSG_sXjZHwfOQZfBZQu0pj1VZ9cXX4e7w0n6g@mail.gmail.com>
+ <c6daf068-ead0-810b-2afa-c4d1c8305893@fb.com>
+ <CA+icZUWYQ8wjOYHYrTX52AbEa3nbXco6ZKdqeMwJaZfHuJ5BhA@mail.gmail.com>
+ <128db515-14dc-4ff1-eacb-8e48fc1f6ff6@fb.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdmX8d3XTzJFk5rN_PnOQYJ8bXMrh8DrhzqN=UBNdQiO3g@mail.gmail.com>
+In-Reply-To: <128db515-14dc-4ff1-eacb-8e48fc1f6ff6@fb.com>
 X-Url: http://acmel.wordpress.com
 X-Original-Sender: acme@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=cMhrycHc;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=HA571evb;       spf=pass
  (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=acme@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -140,61 +144,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Em Fri, Apr 02, 2021 at 11:07:10AM -0700, Nick Desaulniers escreveu:
-> On Thu, Apr 1, 2021 at 4:27 PM Yonghong Song <yhs@fb.com> wrote:
-> > Currently, clang LTO built vmlinux won't work with pahole.
-> > LTO introduced cross-cu dwarf tag references and broke
-> > current pahole model which handles one cu as a time.
-> > The solution is to merge all cu's as one pahole cu as in [1].
-> > We would like to do this merging only if cross-cu dwarf
-> > references happens. The LTO build mode is a pretty good
-> > indication for that.
+Em Tue, Apr 06, 2021 at 11:23:27PM -0700, Yonghong Song escreveu:
+> On 4/6/21 8:01 PM, Sedat Dilek wrote:
+> > On Tue, Apr 6, 2021 at 6:13 PM Yonghong Song <yhs@fb.com> wrote:
+> > > Masahiro and Michal,
 
-> > In earlier version of this patch ([2]), clang flag
-> > -grecord-gcc-switches is proposed to add to compilation flags
-> > so pahole could detect "-flto" and then merging cu's.
-> > This will increate the binary size of 1% without LTO though.
+> > > Friendly ping. Any comments on this patch?
 
-> > Arnaldo suggested to use a note to indicate the vmlinux
-> > is built with LTO. Such a cheap way to get whether the vmlinux
-> > is built with LTO or not helps pahole but is also useful
-> > for tracing as LTO may inline/delete/demote global functions,
-> > promote static functions, etc.
+> > > The addition LTO .notes information emitted by kernel is used by pahole
+> > > in the following patch:
+> > >      https://lore.kernel.org/bpf/20210401025825.2254746-1-yhs@fb.com/
+> > >      (dwarf_loader: check .notes section for lto build info)
 
-> > So this patch added an elfnote with a new type LINUX_ELFNOTE_LTO_INFO.
-> > The owner of the note is "Linux".
+> > the above pahole patch has this define and comment:
 
-> > With gcc 8.4.1 and clang trunk, without LTO, I got
-> >   $ readelf -n vmlinux
-> >   Displaying notes found in: .notes
-> >     Owner                Data size        Description
-> >   ...
-> >     Linux                0x00000004       func
-> >      description data: 00 00 00 00
-> >   ...
-> > With "readelf -x ".notes" vmlinux", I can verify the above "func"
-> > with type code 0x101.
-> >
-> > With clang thin-LTO, I got the same as above except the following:
-> >      description data: 01 00 00 00
-> > which indicates the vmlinux is built with LTO.
-> >
-> >   [1] https://lore.kernel.org/bpf/20210325065316.3121287-1-yhs@fb.com/
-> >   [2] https://lore.kernel.org/bpf/20210331001623.2778934-1-yhs@fb.com/
-> >
-> > Suggested-by: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
-> > Signed-off-by: Yonghong Song <yhs@fb.com>
-> 
-> LGTM thanks Yonghong!
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+> > -static bool cus__merging_cu(Dwarf *dw)
+> > +/* Match the define in linux:include/linux/elfnote.h */
+> > +#define LINUX_ELFNOTE_BUILD_LTO 0x101
 
-Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > ...and does not fit with the define and comment in this kernel patch:
 
-Thanks!
+> > +#include <linux/elfnote.h>
+> > +
+> > +#define LINUX_ELFNOTE_LTO_INFO 0x101
+
+> Thanks, Sedat. I am aware of this. I think we can wait in pahole
+> to make a change until the kernel patch is finalized and merged.
+> The kernel patch may still change as we haven't get
+> maintainer's comment. This will avoid unnecessary churn's
+> in pahole side.
+
+So, I tested with clang 12 on fedora rawhide as well on fedora 33, and
+I'm satisfied with the current state to release v1.21, Masahiro, have
+you had the time to look at this?
+
+Yonghong, as we have a fallback in case the ELF note isn't available, I
+think we're safe even if the notes patch merge gets delayed, right?
 
 - Arnaldo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YG2v9EY0WWp%2Bbijr%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YG23xiRqJLYRtZgQ%40kernel.org.
