@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBDYJPJO25UGBBCUAXCBQMGQESVIYYKQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33B4E35749A
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 20:55:09 +0200 (CEST)
-Received: by mail-ot1-x339.google.com with SMTP id j90sf11776864otc.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Apr 2021 11:55:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617821708; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 95B03357499
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 20:55:07 +0200 (CEST)
+Received: by mail-qt1-x837.google.com with SMTP id d18sf5168531qtn.16
+        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Apr 2021 11:55:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617821706; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WqNwsSO/Cv6pPN0NOc1MbVQtyjL0yeYJTGaF9yzqYLBPKozMtTUV8xlFXeBZGdrNO5
-         65RuWDk6SpXBfy4HRLt6JZTEuOrlluYCf08fq5vYKkIUhT1xkEodj4AtsSwM7gMOfoYD
-         rD/5Z8iHhXCapq6CYOnYc7xd7dDmjyNkvTrdnQnFTKLz5ZYDJmd+wU2WPzlD0Nreq8gL
-         /WoSF4Tfann7sEo/5xzTfIspxQEPhOh7A8xAv5CjuyMJVukt26T/+laOpI2RVCrsUKog
-         rCxe1I5YLgpdAlg5OD4X+FJzISXDIHgd3YQ1MLvGh6s35xtLF7b0wmGJN0pKb5cnrb1p
-         kXQw==
+        b=iHkxzWX9zmibS7HegtRVxPjxgrFoTB2vBjTv2+fOE5YXbHfBtJT8jdBX/AiG5dv7Pl
+         kRf57+MpbK43O20QRhVL6gh8wQA+c8rtAeNVJYG8vEBAc6UuWSduCIgakoSSOf2vXczs
+         1uVUVCkhQo7xpJNhMgBJNIDe1PLfHxcxj5LD9QcVotlax3Vne+cl5clyBWhIPaZCD7c3
+         BPMKydNLP2uteoRZr2NabCVJc0sX9ulqiyqtPJoegSHoLT+2N1vOA+qjKzJ5dzrqruJN
+         pH+RSwnnjR/7/23HsGvD/q+Wwfanp82wYtyU7GaswmcLeYVdHpyC8ziOOvBz/0jcr7oD
+         ieUQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=9BWx2VlxICVsYZ+ZZRTzADwL/+95FbWBvOwMLamMC20=;
-        b=bfmeVQf9BG9tol6mW13wUxo66TC9j94JaGm34Wn94M0pWVBhbJFqmI8aV5h+4UHLNs
-         QPeAHUuHXaE5NTACRsvyiARLzeDmL37dq8gbIbGByqrSe0ocGAWsivGEiiGSJ4tVYDum
-         lEx72MVDqNOR7yyqyqlTKaF4BZXZ2/zhgrqTGgF/2edrctZVnQFhGB28BDKfSw/VvLK0
-         KZydzmT7cu900nQobcEQUFLkjmdQdOceaUZhiVVnUsGKv1+h2OF6TQz2+A5XoyWCl3Uk
-         Sg2JuUN+ddG3j958quighD1IF+doM/DPXST2ibh8lPh9Ggmkl0lXQzmIlQ+7nuYk5pdH
-         XbCA==
+        bh=1aN9lRq1Asjrx9ymgDSusIwhClyMhmf632fyrcGKVfU=;
+        b=GoXbwNLCfuH4a5dpfmxgplutRK/cxZiZCmiRu9v8eFAWBo1coXZOEyrBx/QoxrNDe/
+         vas51ISABtJbB0UIbMuHPjd8AXLrQQ1JIXSolfz9JnbNM6PA7QPs+RwiqLcmcFl/ZGqG
+         7tCtZfod6FlOnHdeqdd+pNMz6eKYSpgaQj8oqiL+NeobZNUhEUSVxOftZKI7KgdIs1r7
+         NopYQ0WYZepllLemoS9pKeDcdIbyANCxbME0FdYUlIO42VhBwM7COt5V/JDxvtikzevQ
+         92CfrlcAfm/hMbeo3vHRc4YrdBA1tiYaJ7AHyUKnFvWWwdNHSHutyXqQ0cotqhy3oxso
+         rYwA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=kJ22aMNQ;
-       spf=pass (google.com: domain of 3cabuyawkamk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CABuYAwKAMk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QvouwaN6;
+       spf=pass (google.com: domain of 3cqbuyawkamo3tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3CQBuYAwKAMo3tu8qA13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9BWx2VlxICVsYZ+ZZRTzADwL/+95FbWBvOwMLamMC20=;
-        b=cjdQoo0QARPO3y9tkZJ8V5Hj7JAZRNfCij102gJzrFYMn4K1m20ktRorNbpcynl0Vw
-         0SxZHZed3k4acZ8fW2+LXlf6QYParv4RMHKV93y0ymWz7sx7sbQpXxV16ha0hGpHCSly
-         gL/DZ6+Efd/tF0adNG1KlUEIm7SxSjB4jjkVkQ5hyJtK1cWhdKg1/smQoci1mHQ6YzXL
-         FcGbWDK4POPgjJznqqkn5NXf6XunGzayz2a55pdl7nchO1eYHdgC6gTvMkRxYBWlbPbN
-         0BcCPLJLxXz7b/AKuHOCYyuOqeXzvROu69KWTPUrFjqPsShDVO5YkCZx4/43pl84mffq
-         69hw==
+        bh=1aN9lRq1Asjrx9ymgDSusIwhClyMhmf632fyrcGKVfU=;
+        b=e7nI5/SBznRTZEwSkXtfBwFlfMUPWzlq6h0H0JzwgA8Pl2Qu+h1TxqCm5TdRjT2R2G
+         p4GuTPEK06eM0GxDZsNSZRrxaL+UiyFdkDWV9EIiGzYqAeeFJ/UsqS0Vj/P1xMef8r6G
+         fmslhY1wR3uGwFqk6DKJruPZhNGDdWi/i3qJCPU6Rv4T1vmOPhi3hwWrLisykTUiRqNC
+         /SZxlP5NCUFJI4hQ5TOD/0gm/NTUJqYIlGEi7WWSw4uZfrPSjzVeQB2CtJnLjZgetKgm
+         QheM1ipt9J2m1+cvT5qsQ5SlEGBWpCggMfjoTiXUDbHPP6CmC4sYIhnD16iV8I7zOOGx
+         r00w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,75 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9BWx2VlxICVsYZ+ZZRTzADwL/+95FbWBvOwMLamMC20=;
-        b=qffY1mY211hvbLdl0+NPX9TtyatnG5P9UG9D0UHHARwFzCr2oywVN3Bgjjsinb9Jr3
-         YYcJcDTXTrTalLYf7E3TWm/vGKxe/V3bD7q3eaf2ku6SoJ2vjaEbJK8iMAT9nj8l6P34
-         3O5RtvA20uAXOyfvzVMoGwXtepgwkt+ndG2YTwaNT65CxMA/aHDAfq5m/d96QvZe57PJ
-         WINx9Klu0Hae0I5PWP0f7RCeP3TaXeutOM1QBNfdBjiiHkar+bG0Gc4Mj6IlgGAnPWd0
-         0GfxtchjSORJKzwfErDJUeFqS0djfUJSTPRJJZK2GT4D+i/Gkf+j1Jm2LaIYhQ+nRTFw
-         ilCA==
-X-Gm-Message-State: AOAM532BMUIkF8AshhGGPVF+7sBr/M7djVoM2eMQr0OLZSjd1f/F21RC
-	Hna6YkETQMhgaG9CIU5sD1M=
-X-Google-Smtp-Source: ABdhPJxnB3WNLHXdqB+ato8bSTpHEnGrJmBgtPHvswwvq+Tu00MKEsTweoBOt//gLFtSEo/bJhT+OQ==
-X-Received: by 2002:aca:4ad2:: with SMTP id x201mr3292212oia.46.1617821706570;
+        bh=1aN9lRq1Asjrx9ymgDSusIwhClyMhmf632fyrcGKVfU=;
+        b=Vsg7DEReqjiKnguHuqB+lpnIuaeHyeQ59BMfwyec9SeIf8j66WD1n92c1cTr40xgc8
+         ooU4QxRJWJh5wCZsR4wG3jCx2zSnuWd+aPkUKC69ThBMEziGHUkltP3APcqvfmIGSa1Q
+         eCuTbfxr+mRZ/bDUtgIE1g8+kTlRuNq1Z/MxeucZK+G/ux6hjMJGc6O9qPU+ltLZAYpE
+         f/+uX+Gj3MACoKcLfp34zZGpH/+jbnw78sxW0E3wRfM00OFoGWuJMQkLvqfBWogYQwYN
+         vVx3uMcWULmIz/DPY+0iZD5YxquoKNx2rKpZ5SdyYME5NX5/YyBoQy5518ZUc6qdK/XQ
+         Bhdw==
+X-Gm-Message-State: AOAM532QId9f0Y39haqaE0/TgJfi7Na/+k2aQ6RP0OiwxdUFrt9QxWGm
+	vGnt4jUPf1dXyfmYoXnSmls=
+X-Google-Smtp-Source: ABdhPJzdwIT5Dr2r8S0kAn6SLhhsLdVPbJqldoC3QYgJEwehHlzpQdR1Jq6kdTJW8Rd5+QhQOjjzsA==
+X-Received: by 2002:ac8:688c:: with SMTP id m12mr4149503qtq.74.1617821706638;
         Wed, 07 Apr 2021 11:55:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:f0d:: with SMTP id m13ls712031oiw.4.gmail; Wed, 07
- Apr 2021 11:55:04 -0700 (PDT)
-X-Received: by 2002:aca:6545:: with SMTP id j5mr3262095oiw.31.1617821704713;
-        Wed, 07 Apr 2021 11:55:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617821704; cv=none;
+Received: by 2002:a05:622a:254:: with SMTP id c20ls1246213qtx.9.gmail; Wed, 07
+ Apr 2021 11:55:06 -0700 (PDT)
+X-Received: by 2002:ac8:7dc2:: with SMTP id c2mr3998735qte.341.1617821706230;
+        Wed, 07 Apr 2021 11:55:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617821706; cv=none;
         d=google.com; s=arc-20160816;
-        b=eIr5rp/ElqbRAwOYveESZcaadeYAiyJW9fez79hKa1br7AN5dTSAIZmuDNlO8c6SnT
-         kbCyiLfds1Ypn/csetVSQ2/WJrHWKsOyEax5p9t7oZonhgKC7Ml8fzFuS9dksbVUCZ5N
-         Xq+BnH+k+Jw7fCYSawbfvpdwHuwmWkdZqWkIi2Opu7iOlhwtx1lSx2mhLKKIb1+v87KC
-         SDrhh/F/a0mjqKmtEqbWEI2YluP82dJqlu4LdwhJITKIFcdpgv/Od6mO4cCXeZ0Z8uX/
-         A3Uvwu9iiWA7W5z0Hc0d0hz2lxe3H8hHlR29KsbYssV0a5c8KCdBffeQONAfWvnazV86
-         b7hA==
+        b=cRj3M2fbvo5KYjSheAyRWlrUSZH7/F3JzDtZGYqt6WBQP3vKa/F6WE16vDhFcc2/My
+         DnTf4AUpKZrgHasY+CmPYfhOc6EsiPwUwQ4rlX1kRkkQ5wAn5G1GgvCkGGBbwhseTga3
+         sgfvTOW8WOvwvBzVActoLeJY9yqFF00rgn0HyomlSdh2PhZpLjfoT111sGjmpqbBHTEe
+         0FR4mOEFMcSG+lJASrwe0e9l9rOYcfYbGKinfTZKezEVyvGm6rhNyFiuXk2vdeNklc+P
+         wHAp9c+IsyE7oACpy/WZ+JtRyKBNsKhzrvBzWwr2qPfQ5IP9OOtfUWOXDtLNZ4XM24Dk
+         EvwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=/gR9Ty4JZXDPsNPdLjznxvXioeerIHzHsL4Fen6xU1U=;
-        b=0nNntq6h381KrkQCUZsyHCVa4990HydfiaHJcC2eXSSH3FLepVArvoa6kc01ldhVkt
-         oJllYHBk0zONHlXizKuJD2Wk8yHk585XlPqfTuJkgeheZdUNGevQvcLmVdlxhdtg6zNu
-         Rw82vrqa0uUu8WoZcQV7N/+CDdE9OlhwAorgWTggTR2iKWMzLRT4fQ36UBWPtnceZiwO
-         atARpva70qXkbjPttv9D7u9WdDB/Zh3wxjJGB1lEOFwKtAS3yN8U8IXhWLeI1bev0tbX
-         3EjzTcIw7ZIdtnG2c+l/VURUkaUFildMr+hPCxexjgvrd4Fh5A+ZoplumIeqJqTuIr+v
-         YFuA==
+        bh=732FuhF+yEqhx0MeVArWdFACqgUAoeDTQ99xUhtV4rU=;
+        b=HbFKjFh0vr7u5XT8lqNfYtJQt+oYFdUKaAdIerwpfTOSXrRNJUhT7ZQ5esCuqi1oUj
+         wSYtxBaPGaoPTW5MV0cVUTp6pmOjI53XATxrLk99wzUexsRBltUvi/LkdvwS+k/R3Qoo
+         hQr1EMO4S3hP1IzRGAgWLQYTYPtPMdiXzlOZXbBCT68ua6/73Ro2t4Bv0DRyAJLT2tjt
+         3a+BpsgjRZPO8SsiybGruvA5qn6zNgVGsBMDM8jCSiZcbQZGA2x/mEOGPCH8I1XZtKoC
+         8fhC6qN4rSud1d0dun6CGIfJg+5Bil86MDUP0Mheag3LU66DfKv8191ZMHW8wp0F1Aco
+         UC7w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=kJ22aMNQ;
-       spf=pass (google.com: domain of 3cabuyawkamk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CABuYAwKAMk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=QvouwaN6;
+       spf=pass (google.com: domain of 3cqbuyawkamo3tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3CQBuYAwKAMo3tu8qA13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
-        by gmr-mx.google.com with ESMTPS id x143si1639479oif.2.2021.04.07.11.55.04
+Received: from mail-qt1-x84a.google.com (mail-qt1-x84a.google.com. [2607:f8b0:4864:20::84a])
+        by gmr-mx.google.com with ESMTPS id b2si3598702qtq.5.2021.04.07.11.55.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 Apr 2021 11:55:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3cabuyawkamk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
-Received: by mail-yb1-xb4a.google.com with SMTP id n13so24887733ybp.14
-        for <clang-built-linux@googlegroups.com>; Wed, 07 Apr 2021 11:55:04 -0700 (PDT)
+        Wed, 07 Apr 2021 11:55:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3cqbuyawkamo3tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) client-ip=2607:f8b0:4864:20::84a;
+Received: by mail-qt1-x84a.google.com with SMTP id g7so12373388qtb.5
+        for <clang-built-linux@googlegroups.com>; Wed, 07 Apr 2021 11:55:06 -0700 (PDT)
 X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:c454:8587:ce1c:e900])
- (user=ndesaulniers job=sendgmr) by 2002:a25:9108:: with SMTP id
- v8mr6177944ybl.460.1617821704165; Wed, 07 Apr 2021 11:55:04 -0700 (PDT)
-Date: Wed,  7 Apr 2021 11:54:55 -0700
+ (user=ndesaulniers job=sendgmr) by 2002:a0c:a404:: with SMTP id
+ w4mr4975968qvw.45.1617821705987; Wed, 07 Apr 2021 11:55:05 -0700 (PDT)
+Date: Wed,  7 Apr 2021 11:54:56 -0700
 In-Reply-To: <20210407185456.41943-1-ndesaulniers@google.com>
-Message-Id: <20210407185456.41943-2-ndesaulniers@google.com>
+Message-Id: <20210407185456.41943-3-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20210407185456.41943-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.31.1.295.g9ea45b61b8-goog
-Subject: [PATCH 1/2] gcov: re-fix clang-11+ support
+Subject: [PATCH 2/2] gcov: re-drop support for clang-10
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Peter Oberparleiter <oberpar@linux.ibm.com>
 Cc: Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org, 
 	clang-built-linux@googlegroups.com, Andrew Morton <akpm@linux-foundation.org>, 
 	Fangrui Song <maskray@google.com>, Prasad Sodagudi <psodagud@quicinc.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, stable@vger.kernel.org
+	Nick Desaulniers <ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=kJ22aMNQ;       spf=pass
- (google.com: domain of 3cabuyawkamk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3CABuYAwKAMk2st7p902xt67v33v0t.r31@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=QvouwaN6;       spf=pass
+ (google.com: domain of 3cqbuyawkamo3tu8qa13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3CQBuYAwKAMo3tu8qA13yu78w44w1u.s42@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,123 +133,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-LLVM changed the expected function signature for
-llvm_gcda_emit_function() in the clang-11 release.  Users of clang-11 or
-newer may have noticed their kernels producing invalid coverage
-information:
+LLVM changed the expected function signatures for
+llvm_gcda_emit_function() in the clang-11 release.  Drop the older
+implementations and require folks to upgrade their compiler if they're
+interested in GCOV support.
 
-$ llvm-cov gcov -a -c -u -f -b <input>.gcda -- gcno=<input>.gcno
-1 <func>: checksum mismatch, \
-  (<lineno chksum A>, <cfg chksum B>) != (<lineno chksum A>, <cfg chksum C>)
-2 Invalid .gcda File!
-...
-
-Fix up the function signatures so calling this function interprets its
-parameters correctly and computes the correct cfg checksum. In
-particular, in clang-11, the additional checksum is no longer optional.
-
-Link: https://reviews.llvm.org/rG25544ce2df0daa4304c07e64b9c8b0f7df60c11d
-Cc: stable@vger.kernel.org #5.4+
-Reported-by: Prasad Sodagudi <psodagud@quicinc.com>
-Tested-by: Prasad Sodagudi <psodagud@quicinc.com>
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- kernel/gcov/clang.c | 38 +++++++++++++++++++++++++++++++++-----
- 1 file changed, 33 insertions(+), 5 deletions(-)
+ kernel/gcov/clang.c | 40 ----------------------------------------
+ 1 file changed, 40 deletions(-)
 
 diff --git a/kernel/gcov/clang.c b/kernel/gcov/clang.c
-index d41f5ecda9db..1747204541bf 100644
+index 1747204541bf..78c4dc751080 100644
 --- a/kernel/gcov/clang.c
 +++ b/kernel/gcov/clang.c
-@@ -69,7 +69,9 @@ struct gcov_fn_info {
+@@ -69,9 +69,6 @@ struct gcov_fn_info {
  
  	u32 ident;
  	u32 checksum;
-+#if CONFIG_CLANG_VERSION < 110000
- 	u8 use_extra_checksum;
-+#endif
+-#if CONFIG_CLANG_VERSION < 110000
+-	u8 use_extra_checksum;
+-#endif
  	u32 cfg_checksum;
  
  	u32 num_counters;
-@@ -111,6 +113,7 @@ void llvm_gcda_start_file(const char *orig_filename, u32 version, u32 checksum)
+@@ -113,23 +110,6 @@ void llvm_gcda_start_file(const char *orig_filename, u32 version, u32 checksum)
  }
  EXPORT_SYMBOL(llvm_gcda_start_file);
  
-+#if CONFIG_CLANG_VERSION < 110000
- void llvm_gcda_emit_function(u32 ident, u32 func_checksum,
- 		u8 use_extra_checksum, u32 cfg_checksum)
+-#if CONFIG_CLANG_VERSION < 110000
+-void llvm_gcda_emit_function(u32 ident, u32 func_checksum,
+-		u8 use_extra_checksum, u32 cfg_checksum)
+-{
+-	struct gcov_fn_info *info = kzalloc(sizeof(*info), GFP_KERNEL);
+-
+-	if (!info)
+-		return;
+-
+-	INIT_LIST_HEAD(&info->head);
+-	info->ident = ident;
+-	info->checksum = func_checksum;
+-	info->use_extra_checksum = use_extra_checksum;
+-	info->cfg_checksum = cfg_checksum;
+-	list_add_tail(&info->head, &current_info->functions);
+-}
+-#else
+ void llvm_gcda_emit_function(u32 ident, u32 func_checksum, u32 cfg_checksum)
  {
-@@ -126,6 +129,21 @@ void llvm_gcda_emit_function(u32 ident, u32 func_checksum,
+ 	struct gcov_fn_info *info = kzalloc(sizeof(*info), GFP_KERNEL);
+@@ -143,7 +123,6 @@ void llvm_gcda_emit_function(u32 ident, u32 func_checksum, u32 cfg_checksum)
  	info->cfg_checksum = cfg_checksum;
  	list_add_tail(&info->head, &current_info->functions);
  }
-+#else
-+void llvm_gcda_emit_function(u32 ident, u32 func_checksum, u32 cfg_checksum)
-+{
-+	struct gcov_fn_info *info = kzalloc(sizeof(*info), GFP_KERNEL);
-+
-+	if (!info)
-+		return;
-+
-+	INIT_LIST_HEAD(&info->head);
-+	info->ident = ident;
-+	info->checksum = func_checksum;
-+	info->cfg_checksum = cfg_checksum;
-+	list_add_tail(&info->head, &current_info->functions);
-+}
-+#endif
+-#endif
  EXPORT_SYMBOL(llvm_gcda_emit_function);
  
  void llvm_gcda_emit_arcs(u32 num_counters, u64 *counters)
-@@ -256,11 +274,16 @@ int gcov_info_is_compatible(struct gcov_info *info1, struct gcov_info *info2)
+@@ -274,16 +253,8 @@ int gcov_info_is_compatible(struct gcov_info *info1, struct gcov_info *info2)
  		!list_is_last(&fn_ptr2->head, &info2->functions)) {
  		if (fn_ptr1->checksum != fn_ptr2->checksum)
  			return false;
-+#if CONFIG_CLANG_VERSION < 110000
- 		if (fn_ptr1->use_extra_checksum != fn_ptr2->use_extra_checksum)
+-#if CONFIG_CLANG_VERSION < 110000
+-		if (fn_ptr1->use_extra_checksum != fn_ptr2->use_extra_checksum)
+-			return false;
+-		if (fn_ptr1->use_extra_checksum &&
+-			fn_ptr1->cfg_checksum != fn_ptr2->cfg_checksum)
+-			return false;
+-#else
+ 		if (fn_ptr1->cfg_checksum != fn_ptr2->cfg_checksum)
  			return false;
- 		if (fn_ptr1->use_extra_checksum &&
- 			fn_ptr1->cfg_checksum != fn_ptr2->cfg_checksum)
- 			return false;
-+#else
-+		if (fn_ptr1->cfg_checksum != fn_ptr2->cfg_checksum)
-+			return false;
-+#endif
+-#endif
  		fn_ptr1 = list_next_entry(fn_ptr1, head);
  		fn_ptr2 = list_next_entry(fn_ptr2, head);
  	}
-@@ -378,17 +401,22 @@ size_t convert_to_gcda(char *buffer, struct gcov_info *info)
- 
- 	list_for_each_entry(fi_ptr, &info->functions, head) {
+@@ -403,21 +374,10 @@ size_t convert_to_gcda(char *buffer, struct gcov_info *info)
  		u32 i;
--		u32 len = 2;
--
--		if (fi_ptr->use_extra_checksum)
--			len++;
  
  		pos += store_gcov_u32(buffer, pos, GCOV_TAG_FUNCTION);
--		pos += store_gcov_u32(buffer, pos, len);
-+#if CONFIG_CLANG_VERSION < 110000
-+		pos += store_gcov_u32(buffer, pos,
-+			fi_ptr->use_extra_checksum ? 3 : 2);
-+#else
-+		pos += store_gcov_u32(buffer, pos, 3);
-+#endif
+-#if CONFIG_CLANG_VERSION < 110000
+-		pos += store_gcov_u32(buffer, pos,
+-			fi_ptr->use_extra_checksum ? 3 : 2);
+-#else
+ 		pos += store_gcov_u32(buffer, pos, 3);
+-#endif
  		pos += store_gcov_u32(buffer, pos, fi_ptr->ident);
  		pos += store_gcov_u32(buffer, pos, fi_ptr->checksum);
-+#if CONFIG_CLANG_VERSION < 110000
- 		if (fi_ptr->use_extra_checksum)
- 			pos += store_gcov_u32(buffer, pos, fi_ptr->cfg_checksum);
-+#else
-+		pos += store_gcov_u32(buffer, pos, fi_ptr->cfg_checksum);
-+#endif
- 
+-#if CONFIG_CLANG_VERSION < 110000
+-		if (fi_ptr->use_extra_checksum)
+-			pos += store_gcov_u32(buffer, pos, fi_ptr->cfg_checksum);
+-#else
+ 		pos += store_gcov_u32(buffer, pos, fi_ptr->cfg_checksum);
+-#endif
+-
  		pos += store_gcov_u32(buffer, pos, GCOV_TAG_COUNTER_BASE);
  		pos += store_gcov_u32(buffer, pos, fi_ptr->num_counters * 2);
+ 		for (i = 0; i < fi_ptr->num_counters; i++)
 -- 
 2.31.1.295.g9ea45b61b8-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210407185456.41943-2-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210407185456.41943-3-ndesaulniers%40google.com.
