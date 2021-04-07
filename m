@@ -1,143 +1,127 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFU5W6BQMGQESARABBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRB2VJW6BQMGQEW4SQJGY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc37.google.com (mail-oo1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
-	by mail.lfdr.de (Postfix) with ESMTPS id C0FE7357019
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 17:24:07 +0200 (CEST)
-Received: by mail-oo1-xc37.google.com with SMTP id l19sf11264772oov.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Apr 2021 08:24:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617809046; cv=pass;
+Received: from mail-vs1-xe39.google.com (mail-vs1-xe39.google.com [IPv6:2607:f8b0:4864:20::e39])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC28F3570FF
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 17:51:09 +0200 (CEST)
+Received: by mail-vs1-xe39.google.com with SMTP id c20sf1299341vso.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Apr 2021 08:51:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617810667; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XosmCVuvJmAgEVD7HZGs46j4zNk9wTSbToqSxxoFpQBICkMFOW4x4HOiGKV300ei9A
-         WIqNkl5JWZpNIVrObS/rTtGZXhj1txVDnTo0AaZlf/0J4OqHJXaXbWmHQUikM6pA2uJS
-         mqkn87HOJbyLu17mve5CvXQbK5AH25TpUueBApdxWcQw6aa6IwvTsD3AkfuqTYHF9niE
-         ur5GnzBuAVPwmboBjMzwtmM/V4d0kiMsKeh2OgWMQI1roXTP1H4Kvsm/uI3OufQhi7Iu
-         0rFqNFRtF8q8wlLYbvJlrHtZyJ64SRXYdkoBghFJLfqpJjYkHnAx8thHBjc+lJETOxHr
-         zTLA==
+        b=RB9VhFGVXdQSnMseWSgyGY1YiofSwKRrTfqyo1+1v1t8e00+bQMGhTStUn2VZ+4xq8
+         UgZq4zbxSs33Y58LwX1G3pSoa/WxyrX5izFCBsATrngGiyOusIUfgQG8ITdHJt90gtUw
+         IOByruenaGfvXHRlQbtGydPfk9nBIlg7dmXQzlHxxB/+j055UDzmO2ypv4wPJVsIhBTj
+         UIQBgQx9r09x5cx5hO12qpGBHyigDJLltoSX9ApXE3X9D0scZev8v8Xy/iSuQw5JmsoY
+         NvZ3CVKK0uEPgv4l4zQbhPe12UPPwvpoh1drRcdD6OO1mJWuY+HpxOgivpVZvlg3m0XZ
+         deDQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=oJryXsSa7VvWGjL2r+FjxmjdbbYYjkgriXz6XQk9Y+c=;
-        b=mMXS3Kk1vTsdYK2CeC3Y9JsCghEahQFSOafiSHj6RK7xpsjqa3M+XW1CuFxJCWJ4fn
-         +24TtcoqBurQMcRWcppfgN1YmRHWx4/HuCnfd+zd8SXlA5wGCFJnnQU1V/ZmOebesvia
-         8Ln4r350LL0XskD+CWBbcrz1oVaJmie7dY7kZYK7JhH8Cgyx+kitwBLbZBrK6Rdv6fQR
-         W+kBQfvu8OQ7QYCHMGoPnDNzNDmMiG5mTuFZ+MoC/soW48bAEq9IGyK4YO2p3eeI5Ljj
-         bFtfe4N9+iil3Qo2SmCGe188tlIrmehtponhYmhgQU5bUOqyEXw1h8NHWVdpL+ijELzf
-         Qy3w==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=1Vay5chtaYrmFB+jUypvJdrGN2/DWDi09v1obPDfFlc=;
+        b=c4lxeU2PU0U7GnB2uXiEboYEOM7npM0zW7Ta0anMYqag4Uh4IIIEsmWyXmUtrus/wj
+         8cNe47JIH6JSPpXsYQhD+RTi4bP4A0y2P+p6DFhrM4380MBcByhOzCG03GfcU4+KMDnO
+         AZrSdHtL6CZ3zt68cJ635DsJEQ4VmhezlWFHZS2Q2Q3cLO49h94xsry8N8O0qiPo25BP
+         Qu+C3QnKam5hQPluIznKrJI8FR72LPa2S02Q+BF+PMCLcJHRI5khgOwPZNzL/sP8I4nT
+         M0O8jXOwb8TVRl0nH+tXecCJVIJ4amLjrPEcWpDue1ugynABkhtYGwtfBQikR4XJFMai
+         eKoQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=DJbJki9K;
+       spf=neutral (google.com: 2607:f8b0:4864:20::1034 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oJryXsSa7VvWGjL2r+FjxmjdbbYYjkgriXz6XQk9Y+c=;
-        b=tZWGoKm1NdQ59lJMe+ASEfJi91uggr2rbfL8LdTYFrb0C7NZbR2Nxe3y9ryUTFOReV
-         xYgRB4/o0asGNYCWOBBOgctAZY/82zmF2u2TPohRpw7clh3ZX8MFEXaE42Ayh4Uxv0re
-         3iypHa3gjICur+LgosAaoZTbxrraLI8NFVnACZh9m5gTnBM5PBOpSW+lwAchDaCeD+8w
-         QMaZ7AbdHCn/Pz5uQ0vcWTbZLiG6ScrfXDDWr1aa/l6UYQZVdzRnQVHqjkPbXMdt1oxn
-         ngZTa3hqNsE6xYIawKvQoGPOajoyGGbRqTStytpyGosGH3Z+l12AgC0i+kzuu8IR3EOT
-         rpKg==
+        bh=1Vay5chtaYrmFB+jUypvJdrGN2/DWDi09v1obPDfFlc=;
+        b=imLZVHJx3HgH7RmX66ySVY/YAJ9pT7++TJ1ZFT6mK1QDOCnvFu3fpntcGAduMQjhZF
+         PVYHgHa2ZNLeBWZ8FKtKGwPWRw2usxmkjEP+TcU1d7IVKIAO0lccHryKQ4MQAswPFEpr
+         Wsy6dArPTOl48IiNNFoyeR+Df165snSFC/GEYi8wVpcVJa/CTzhPdjWsuqG1CpQqtPsR
+         NGt6obGpr+G17Y9cY7p5rldYRWkqnb35jdvO7J2dTYdif6dyanaDXe1HRjDrIQtqRFGM
+         Rc2VG0dKtuLS0xcrtKA6flP3xgtN2Ll+5jQdERPsl9l938yIwkKL8h+TaHhUzsz0gMOu
+         AZkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oJryXsSa7VvWGjL2r+FjxmjdbbYYjkgriXz6XQk9Y+c=;
-        b=t4HneH+4zLim2SA1UVCrpK1kbuQnf5VTHY2LqZXp1VrIy8KiJX6EVw018gjM+1M8bA
-         o+pKltbmy1Y/6CPtAgSlyLsU+jxRpZzQK6Q35tbqELySp+8uKHJEOtBtqC5P4sNIukFd
-         9aQO4nzA43CdxzXION1QCbntYF6tLhTKh23lRwXXaWdwEN7T1S+sp03csrTVQngo/KBp
-         OW8SvXzSSNcEvJkNeyWXEsCW/ykmIxVa8/rwNHZRo8I5Wil8yu6M0xgRtaaVNQE8F+Xq
-         mPk+AJE1IOGeJWwzxloVUtx9Cm5DWP9VI6UUJDOJaHZAzU5GApNBnJ+ku+3LiTRj0Nwl
-         0ATw==
+        bh=1Vay5chtaYrmFB+jUypvJdrGN2/DWDi09v1obPDfFlc=;
+        b=ZbNbZFvk8x/wluj2HeAK0rwslBtGmGDfxbr3B3vpRXFprWEVJgSu51e4Qu6iUtNabj
+         LhN8/x9roBSGQhY5agmsF1EFgnGEaCw1pAe41InzF0BtsCFt3s41GggGzkhLso1gw1Th
+         tSm9JUDMB/C+XM/m5Sd9HBj9/0hby7OhWQwUDyXWRI2+JOs4/ai7yiOgt52xNMfhWmJw
+         KjSdLDCsmvDWpPdY3tJ8vmEkkqd3RIYXiiDRQo/uNPQM5aEHqXAvS/anhzybgDvZnKZ8
+         +dUeJ+lyeCBF/WdsrQ04+UiUkZbK54uL68uxhBq67HJmZVubin4CwQU3o4deYwP5dM2a
+         frAw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Z3i312EyCC2r7JCG/VG1FzouuLlnLBIhD/1OEtD3RAo6Idx17
-	L6q0jwdz0OZPEW6xjfY5Yvw=
-X-Google-Smtp-Source: ABdhPJwJiBeYLmwEv46vys2T1Mo4Tlk28rvC2O4mp5/40WLBXTiq89z6TEJY8er5UY9q9Zy5TE5GdA==
-X-Received: by 2002:a05:6830:1694:: with SMTP id k20mr3444397otr.241.1617809046355;
-        Wed, 07 Apr 2021 08:24:06 -0700 (PDT)
+X-Gm-Message-State: AOAM5314hToGRPEsVOh9VSPoKe0NgU/n13uuqyQU9RXPdrO2OnsPE6Kb
+	hmGRpl6aC1aHuoq03fP20RI=
+X-Google-Smtp-Source: ABdhPJxhX2Cb47wK4yfHnAjwZJtY0HVFCz+q8YLQDk1SDno2z91wlMpVCUJ4yd1jeard8qiOhGDLJg==
+X-Received: by 2002:ab0:41e2:: with SMTP id 89mr2460994uap.10.1617810666678;
+        Wed, 07 Apr 2021 08:51:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:a97:: with SMTP id q23ls596675oij.0.gmail; Wed, 07
- Apr 2021 08:24:06 -0700 (PDT)
-X-Received: by 2002:aca:b7d5:: with SMTP id h204mr2693569oif.18.1617809045889;
-        Wed, 07 Apr 2021 08:24:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617809045; cv=none;
+Received: by 2002:a67:e8cc:: with SMTP id y12ls361211vsn.8.gmail; Wed, 07 Apr
+ 2021 08:51:06 -0700 (PDT)
+X-Received: by 2002:a67:ff12:: with SMTP id v18mr2385477vsp.27.1617810665898;
+        Wed, 07 Apr 2021 08:51:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617810665; cv=none;
         d=google.com; s=arc-20160816;
-        b=zGwsRlkqZmkMUfQ3MtpmPCyJgrXcNV2o9GSb+kb9FEM+sZtK2xR1WTIKfWgTVGxzoA
-         92E13lV/zG0BIPlY2c+vxhuZ2tvyerDxnQiJGVVGG0//W+OS0P+kQ2MckTYuI6qcoVKR
-         1FWHc4WRqfkXOEsWjl7dy7lUFx10sMnP4yEEkLEhEYKvMTn2T+4EVmGPYU095ahvY9q3
-         4cheBSQ1q3HpfHGc+cTgrj1IGOv3MVefla0ANWTHmxPkn2rHMZLnTFWnwUQO9zxl+cTs
-         xf+1Ju+pX6xao1X+jxSySK4oIBQnBTCiOnYjiHefRtkV0jVdlvoT2LVhBTPaZ0VDlA6S
-         Wl/Q==
+        b=VHUuj74zJ6lgoKSjjLbPiBv8LqKjaz0WJ59oIpz6Ud9n3QlcOxgWf7quW1yrPgIbOW
+         6PMOPZD+44/M6+66GiDcbGIsWEkovWWlnM4KfEF+vzDe1euQ8GMXZLmaQvT2QAef+Km9
+         CfqB4jH2KKQkB3Ofq6fnX52nc/LiJJ3lCtHvXqSRRQivcPwl8pZe+wyx7HdW0RINp8q/
+         VWks7OM+KXSwK23Y3WWBk+8F+VZV1VTNVW0s7RKodw1IGEW91busnhz/bjXjwM7SChrG
+         A+Qj803dD0HZpvApoB8EBpU7HxAD7+B4GZ5/hooG8FMRv0KkaKXwvCItfQnp3q6BMEm2
+         XIrg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=5IAOKMH7lLSDSvOXKBnmyDCWtq6CYh9d3Pxbg2wRjMQ=;
-        b=E7rbQgEXziXucsqru7fPMlWNqdW3TJUK8zQw1KJfTgCzBsH5BtX6A0UAu54DSLL0F5
-         WY+7m0rOm0KbmJYQaGrvax9/upwFbbp4MGDaCHNSmSkZwLvEkxGEyzMMSG0YFjyMbFH7
-         gmxGAIhrul3W746Q5BFArBw09oOrU2Zt8roBjAM7LnnfOVRrMGAIWOIiEhL0bOY0V5FH
-         ZdmhMFNnfbpReXSIwjXW3i+4ij9JxqFN0AF0YaGsHaScTaF+IZfH55o+w/sKHMa5Daac
-         bWaZY3Oy26+46FXP22VNzcb86o6vkAHSi/qKHJnXRlN7qnyrB/BLVsJag9MKgR0fgSMG
-         zuOQ==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=KzNR8mOcJxuu5cp8bHAou6gfDUOQUhYDGiCRo7whr8k=;
+        b=j+EvcHsGOTWN0ggBsh8cW4gTN6WysxXxsz4q6m+0CyTtLPvvyVEkWmk2Q5oTGJ8PxI
+         MpbP9yqXzhJ14tLoPSUMy2I3QPzmHbO1lTZMkxckhkJHbAZc2qJ4V12VORQxti7sMChs
+         ckSAbfTsu7vi0gWfaZZwkbw++FDpjmon5mKjnx5CajZ17JUhvjWeYlHHlg7PZ78/k7qs
+         69l3RRwxcwncc5kNo8jvl5Biw2Q8V8c+FrzXKpZ8foyAe3SJLk6yPDQHfPKhD7Cio821
+         lQaGSuXCg/ggp9ade7c9VKAP7Q1jC1meNdJ75jR9F02uZeBqTYhWOUZw8cthRodp8hLO
+         eAxg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id h187si1346064oib.1.2021.04.07.08.24.05
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=DJbJki9K;
+       spf=neutral (google.com: 2607:f8b0:4864:20::1034 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pj1-x1034.google.com (mail-pj1-x1034.google.com. [2607:f8b0:4864:20::1034])
+        by gmr-mx.google.com with ESMTPS id y15si43897vsn.1.2021.04.07.08.51.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 07 Apr 2021 08:24:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: GjIxz81RCfHfJOSl+Y9CSKd8ZvQ2H/XEZUYIY63M+/IzFBg/EXtH4jkDle3iHPAnoxpTEG8o0i
- uPcWQ7NTWboA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9947"; a="278597169"
-X-IronPort-AV: E=Sophos;i="5.82,203,1613462400"; 
-   d="gz'50?scan'50,208,50";a="278597169"
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Apr 2021 08:24:03 -0700
-IronPort-SDR: leCoTbXIIu6s4GMCJlAgfBefrQOssQ0Wjt6K1lyRgxuNmcAbUhrCMjs4+I0FTzp0BQHkMm3Kee
- hTF+Se8UFCug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.82,203,1613462400"; 
-   d="gz'50?scan'50,208,50";a="530242882"
-Received: from lkp-server01.sh.intel.com (HELO 69d8fcc516b7) ([10.239.97.150])
-  by orsmga004.jf.intel.com with ESMTP; 07 Apr 2021 08:23:57 -0700
-Received: from kbuild by 69d8fcc516b7 with local (Exim 4.92)
-	(envelope-from <lkp@intel.com>)
-	id 1lUA28-000DQz-DZ; Wed, 07 Apr 2021 15:23:56 +0000
-Date: Wed, 7 Apr 2021 23:23:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Roberto Sassu <roberto.sassu@huawei.com>, zohar@linux.ibm.com,
-	mjg59@google.com
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Roberto Sassu <roberto.sassu@huawei.com>,
-	Christian Brauner <christian.brauner@ubuntu.com>,
-	Andreas Gruenbacher <agruenba@redhat.com>
-Subject: Re: [PATCH v5 09/12] evm: Allow setxattr() and setattr() for
- unmodified metadata
-Message-ID: <202104072340.Ux830CO0-lkp@intel.com>
-References: <20210407105252.30721-10-roberto.sassu@huawei.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Apr 2021 08:51:05 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::1034 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::1034;
+Received: by mail-pj1-x1034.google.com with SMTP id k23-20020a17090a5917b02901043e35ad4aso1519469pji.3
+        for <clang-built-linux@googlegroups.com>; Wed, 07 Apr 2021 08:51:05 -0700 (PDT)
+X-Received: by 2002:a17:902:7c04:b029:e9:7d9f:3006 with SMTP id x4-20020a1709027c04b02900e97d9f3006mr912058pll.5.1617810662246;
+        Wed, 07 Apr 2021 08:51:02 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id d13sm22650822pgb.6.2021.04.07.08.51.01
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Apr 2021 08:51:01 -0700 (PDT)
+Message-ID: <606dd4e5.1c69fb81.4f239.8be0@mx.google.com>
+Date: Wed, 07 Apr 2021 08:51:01 -0700 (PDT)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="4Ckj6UjgE2iN1+kY"
-Content-Disposition: inline
-In-Reply-To: <20210407105252.30721-10-roberto.sassu@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20210407
+X-Kernelci-Branch: master
+X-Kernelci-Tree: next
+Subject: next/master build: 213 builds: 9 failed, 204 passed, 721 errors,
+ 212 warnings (next-20210407)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=DJbJki9K;       spf=neutral (google.com: 2607:f8b0:4864:20::1034 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,392 +134,3521 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+next/master build: 213 builds: 9 failed, 204 passed, 721 errors, 212 warnin=
+gs (next-20210407)
 
---4Ckj6UjgE2iN1+kY
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20210407/
 
-Hi Roberto,
+Tree: next
+Branch: master
+Git Describe: next-20210407
+Git Commit: 5103a5be098c0dae5d4b057520d7e9f4c5570979
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
-Thank you for the patch! Yet something to improve:
+Build Failures Detected:
 
-[auto build test ERROR on security/next-testing]
-[also build test ERROR on integrity/next-integrity linus/master v5.12-rc6 next-20210407]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch]
+arm:
+    allmodconfig: (clang-10) FAIL
+    aspeed_g5_defconfig: (clang-10) FAIL
+    allmodconfig: (clang-11) FAIL
+    allmodconfig: (gcc-8) FAIL
+    spear3xx_defconfig: (gcc-8) FAIL
 
-url:    https://github.com/0day-ci/linux/commits/Roberto-Sassu/evm-Improve-usability-of-portable-signatures/20210407-185747
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/jmorris/linux-security.git next-testing
-config: s390-randconfig-r034-20210407 (attached as .config)
-compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project c060945b23a1c54d4b2a053ff4b093a2277b303d)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install s390 cross compiling tool for clang build
-        # apt-get install binutils-s390x-linux-gnu
-        # https://github.com/0day-ci/linux/commit/1bdae98f0b81260a925cf7acf785dc10bb7787fe
-        git remote add linux-review https://github.com/0day-ci/linux
-        git fetch --no-tags linux-review Roberto-Sassu/evm-Improve-usability-of-portable-signatures/20210407-185747
-        git checkout 1bdae98f0b81260a925cf7acf785dc10bb7787fe
-        # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390 
+mips:
+    allnoconfig: (gcc-8) FAIL
+    cavium_octeon_defconfig: (gcc-8) FAIL
+    decstation_64_defconfig: (gcc-8) FAIL
+    lemote2f_defconfig: (gcc-8) FAIL
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+Errors and Warnings Detected:
 
-All errors (new ones prefixed by >>):
+arc:
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
 
->> security/integrity/evm/evm_main.c:365:7: error: implicit declaration of function 'posix_acl_update_mode' [-Werror,-Wimplicit-function-declaration]
-           rc = posix_acl_update_mode(mnt_userns, inode, &mode, &acl_res);
-                ^
-   1 error generated.
+arm64:
+    allmodconfig (clang-11): 8 warnings
+    allmodconfig (clang-10): 12 warnings
+    allmodconfig (gcc-8): 1 warning
+    allnoconfig (clang-10): 2 warnings
+    allnoconfig (clang-11): 2 warnings
+    allnoconfig (gcc-8): 1 warning
+    defconfig (clang-10): 2 warnings
+    defconfig (gcc-8): 1 warning
+    defconfig (clang-11): 2 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 1 warning
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 2 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-11): 2 warnings
+    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
 
+arm:
+    allmodconfig (gcc-8): 2 errors, 1 warning
+    allmodconfig (clang-10): 2 errors, 30 warnings
+    allmodconfig (clang-11): 2 errors, 28 warnings
+    aspeed_g5_defconfig (clang-10): 11 errors
+    axm55xx_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (clang-11): 2 warnings
+    multi_v7_defconfig (clang-10): 2 warnings
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 1 warnin=
+g
+    mvebu_v7_defconfig (gcc-8): 1 warning
+    omap1_defconfig (gcc-8): 2 warnings
+    socfpga_defconfig (gcc-8): 1 warning
+    spear13xx_defconfig (gcc-8): 1 warning
+    spear3xx_defconfig (gcc-8): 1 error, 1 warning
+    vexpress_defconfig (gcc-8): 1 warning
 
-vim +/posix_acl_update_mode +365 security/integrity/evm/evm_main.c
+i386:
+    allmodconfig (clang-10): 21 warnings
+    allmodconfig (clang-11): 23 warnings
 
-   331	
-   332	/*
-   333	 * evm_xattr_acl_change - check if passed ACL changes the inode mode
-   334	 * @mnt_userns: user namespace of the idmapped mount
-   335	 * @dentry: pointer to the affected dentry
-   336	 * @xattr_name: requested xattr
-   337	 * @xattr_value: requested xattr value
-   338	 * @xattr_value_len: requested xattr value length
-   339	 *
-   340	 * Check if passed ACL changes the inode mode, which is protected by EVM.
-   341	 *
-   342	 * Returns 1 if passed ACL causes inode mode change, 0 otherwise.
-   343	 */
-   344	static int evm_xattr_acl_change(struct user_namespace *mnt_userns,
-   345					struct dentry *dentry, const char *xattr_name,
-   346					const void *xattr_value, size_t xattr_value_len)
-   347	{
-   348		umode_t mode;
-   349		struct posix_acl *acl = NULL, *acl_res;
-   350		struct inode *inode = d_backing_inode(dentry);
-   351		int rc;
-   352	
-   353		/* user_ns is not relevant here, ACL_USER/ACL_GROUP don't have impact
-   354		 * on the inode mode (see posix_acl_equiv_mode()).
-   355		 */
-   356		acl = posix_acl_from_xattr(&init_user_ns, xattr_value, xattr_value_len);
-   357		if (IS_ERR_OR_NULL(acl))
-   358			return 1;
-   359	
-   360		acl_res = acl;
-   361		/* Passing mnt_userns is necessary to correctly determine the GID in
-   362		 * an idmapped mount, as the GID is used to clear the setgid bit in
-   363		 * the inode mode.
-   364		 */
- > 365		rc = posix_acl_update_mode(mnt_userns, inode, &mode, &acl_res);
-   366	
-   367		posix_acl_release(acl);
-   368	
-   369		if (rc)
-   370			return 1;
-   371	
-   372		if (inode->i_mode != mode)
-   373			return 1;
-   374	
-   375		return 0;
-   376	}
-   377	
+mips:
+    allnoconfig (gcc-8): 1 error
+    cavium_octeon_defconfig (gcc-8): 702 errors, 1 warning
+    loongson2k_defconfig (gcc-8): 1 warning
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    maltaaprp_defconfig (gcc-8): 1 warning
+    rb532_defconfig (gcc-8): 1 warning
+    sb1250_swarm_defconfig (gcc-8): 1 warning
+    xway_defconfig (gcc-8): 3 warnings
+
+riscv:
+    defconfig+CONFIG_EFI=3Dn (clang-11): 1 warning
+    nommu_k210_defconfig (gcc-8): 1 warning
+    nommu_k210_sdcard_defconfig (gcc-8): 1 warning
+    nommu_virt_defconfig (gcc-8): 1 warning
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (clang-11): 15 warnings
+    allmodconfig (clang-10): 10 warnings
+    allmodconfig (gcc-8): 2 warnings
+    allnoconfig (gcc-8): 1 warning
+    allnoconfig (clang-11): 2 warnings
+    allnoconfig (clang-10): 2 warnings
+    tinyconfig (gcc-8): 2 warnings
+    x86_64_defconfig (clang-11): 2 warnings
+    x86_64_defconfig (clang-10): 2 warnings
+
+Errors summary:
+
+    191  /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined re=
+ference to `__raw_copy_from_user'
+    184  /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined re=
+ference to `__raw_copy_to_user'
+    166  mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.=
+h:460: undefined reference to `__raw_copy_from_user'
+    132  mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.=
+h:486: undefined reference to `__raw_copy_to_user'
+    4    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.=
+h:510: undefined reference to `__raw_copy_in_user'
+    2    mips-linux-gnu-ld: net/ethtool/ioctl.o:/tmp/kci/linux/./arch/mips/=
+include/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user=
+' follow
+    2    ERROR: modpost: "__compiletime_assert_192" [drivers/firmware/strat=
+ix10-rsu.ko] undefined!
+    2    ERROR: modpost: "__compiletime_assert_177" [drivers/firmware/strat=
+ix10-rsu.ko] undefined!
+    2    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510: undefined re=
+ference to `__raw_copy_in_user'
+    1    mips-linux-gnu-ld: net/socket.o:/tmp/kci/linux/./arch/mips/include=
+/asm/uaccess.h:510: more undefined references to `__raw_copy_in_user' follo=
+w
+    1    mips-linux-gnu-ld: net/packet/af_packet.o:/tmp/kci/linux/./arch/mi=
+ps/include/asm/uaccess.h:460: more undefined references to `__raw_copy_from=
+_user' follow
+    1    mips-linux-gnu-ld: net/ipv6/ipv6_sockglue.o:/tmp/kci/linux/./arch/=
+mips/include/asm/uaccess.h:460: more undefined references to `__raw_copy_fr=
+om_user' follow
+    1    mips-linux-gnu-ld: net/ipv6/addrconf.o:/tmp/kci/linux/./arch/mips/=
+include/asm/uaccess.h:460: more undefined references to `__raw_copy_from_us=
+er' follow
+    1    mips-linux-gnu-ld: net/ipv4/ip_sockglue.o:/tmp/kci/linux/./arch/mi=
+ps/include/asm/uaccess.h:460: more undefined references to `__raw_copy_from=
+_user' follow
+    1    mips-linux-gnu-ld: net/ethtool/ioctl.o:/tmp/kci/linux/./arch/mips/=
+include/asm/uaccess.h:460: more undefined references to `__raw_copy_from_us=
+er' follow
+    1    mips-linux-gnu-ld: net/core/sock.o:/tmp/kci/linux/./arch/mips/incl=
+ude/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' =
+follow
+    1    mips-linux-gnu-ld: net/core/scm.o:/tmp/kci/linux/./arch/mips/inclu=
+de/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' fol=
+low
+    1    mips-linux-gnu-ld: mm/memory.o:/tmp/kci/linux/./arch/mips/include/=
+asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' foll=
+ow
+    1    mips-linux-gnu-ld: lib/kstrtox.o:/tmp/kci/linux/./arch/mips/includ=
+e/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' fo=
+llow
+    1    mips-linux-gnu-ld: kernel/time/time.o:/tmp/kci/linux/./arch/mips/i=
+nclude/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user'=
+ follow
+    1    mips-linux-gnu-ld: kernel/sys.o:/tmp/kci/linux/./arch/mips/include=
+/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' follo=
+w
+    1    mips-linux-gnu-ld: fs/statfs.o:/tmp/kci/linux/./arch/mips/include/=
+asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' follow
+    1    mips-linux-gnu-ld: fs/readdir.o:/tmp/kci/linux/./arch/mips/include=
+/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' follo=
+w
+    1    mips-linux-gnu-ld: fs/io_uring.o:/tmp/kci/linux/./arch/mips/includ=
+e/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' fo=
+llow
+    1    mips-linux-gnu-ld: fs/fat/dir.o:/tmp/kci/linux/./arch/mips/include=
+/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' follo=
+w
+    1    mips-linux-gnu-ld: fs/ext4/ioctl.o:/tmp/kci/linux/./arch/mips/incl=
+ude/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' fo=
+llow
+    1    mips-linux-gnu-ld: drivers/usb/core/devio.o:/tmp/kci/linux/./arch/=
+mips/include/asm/uaccess.h:460: more undefined references to `__raw_copy_fr=
+om_user' follow
+    1    mips-linux-gnu-ld: drivers/mtd/mtdchar.o:/tmp/kci/linux/./arch/mip=
+s/include/asm/uaccess.h:486: more undefined references to `__raw_copy_to_us=
+er' follow
+    1    mips-linux-gnu-ld: drivers/gpio/gpiolib-cdev.o:/tmp/kci/linux/./ar=
+ch/mips/include/asm/uaccess.h:486: more undefined references to `__raw_copy=
+_to_user' follow
+    1    mips-linux-gnu-ld: block/ioctl.o:/tmp/kci/linux/./arch/mips/includ=
+e/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' fo=
+llow
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C0C): reloca=
+tion R_ARM_PREL31 out of range: 2135575852 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B64): reloca=
+tion R_ARM_PREL31 out of range: 2135576020 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B54): reloca=
+tion R_ARM_PREL31 out of range: 2135576036 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B04): reloca=
+tion R_ARM_PREL31 out of range: 2135576116 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37AF4): reloca=
+tion R_ARM_PREL31 out of range: 2135576132 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37ADC): reloca=
+tion R_ARM_PREL31 out of range: 2135576156 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37AC4): reloca=
+tion R_ARM_PREL31 out of range: 2135576180 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A94): reloca=
+tion R_ARM_PREL31 out of range: 2135576228 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A64): reloca=
+tion R_ARM_PREL31 out of range: 2135576276 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A1C): reloca=
+tion R_ARM_PREL31 out of range: 2135576348 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35400): reloca=
+tion R_ARM_PREL31 out of range: 2135520568 is not in [-1073741824, 10737418=
+23]
+    1    arch/arm/mach-spear/spear3xx.c:42:3: error: =E2=80=98struct pl022_=
+ssp_controller=E2=80=99 has no member named =E2=80=98num_chipselect=E2=80=
+=99
+    1    ERROR: modpost: Section mismatches detected.
+    1    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=
+=98__compiletime_assert_192=E2=80=99 declared with attribute error: FIELD_G=
+ET: type of reg too small for mask
+    1    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=
+=98__compiletime_assert_177=E2=80=99 declared with attribute error: FIELD_G=
+ET: type of reg too small for mask
+
+Warnings summary:
+
+    58   1 warning generated.
+    14   kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=
+=E2=80=99 defined but not used [-Wunused-function]
+    11   2 warnings generated.
+    8    arch/arm64/configs/defconfig:1017:warning: override: reassigning t=
+o symbol MTK_PMIC_WRAP
+    6    drivers/platform/surface/surface_aggregator_registry.c:496:25: war=
+ning: implicit conversion from 'int' to '__u8' (aka 'unsigned char') change=
+s value from 65535 to 255 [-Wconstant-conversion]
+    6    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit co=
+nversion from 'int' to '__u8' (aka 'unsigned char') changes value from 6553=
+5 to 255 [-Wconstant-conversion]
+    6    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13=
+: warning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    5    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc6-next-20210407/kernel/drivers/media/tuners/tuner-types.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    4    sound/core/control_led.c:97:12: warning: stack frame size of 1032 =
+bytes in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
+    4    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
+ version 4.6 of GCC [-W#warnings]
+    4    #warning This code requires at least version 4.6 of GCC
+    3    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13=
+: warning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-=
+Wunused-function]
+    2    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    2    kernel/static_call.c:153:18: warning: unused variable =E2=80=98mod=
+=E2=80=99 [-Wunused-variable]
+    2    kernel/static_call.c:153:18: warning: unused variable 'mod' [-Wunu=
+sed-variable]
+    2    kernel/sched/fair.c:8398:13: warning: unused function 'update_nohz=
+_stats' [-Wunused-function]
+    2    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    2    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    2    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame si=
+ze of 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
+rger-than=3D]
+    2    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: implicit conversion=
+ from 'unsigned long' to 'unsigned int' changes value from 1844674407370955=
+1600 to 4294967280 [-Wconstant-conversion]
+    2    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame si=
+ze of 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack fra=
+me size of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
+ warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
+u' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5536 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6:=
+ warning: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-la=
+rger-than=3D]
+    2    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame=
+ size of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    2    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:39: Warning: macro instruction expanded into mult=
+iple instructions
+    1    sound/core/control_led.c:128:1: warning: the frame size of 1504 by=
+tes is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    net/rose/rose_subr.o: warning: objtool: rose_write_internal() fall=
+s through to next function rose_decode()
+    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1252 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    1    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete=
+()+0x114d: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
+    1    drivers/staging/wlan-ng/cfg80211.c:272:12: warning: stack frame si=
+ze of 1032 bytes in function 'prism2_scan' [-Wframe-larger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3344 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame siz=
+e of 1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame siz=
+e of 1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    1    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: conversion from =E2=
+=80=98long unsigned int=E2=80=99 to =E2=80=98unsigned int=E2=80=99 changes =
+value from =E2=80=9818446744073709551600=E2=80=99 to =E2=80=984294967280=E2=
+=80=99 [-Woverflow]
+    1    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=
+=99 defined but not used [-Wunused-function]
+    1    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return=
+ value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
+d_result [-Wunused-result]
+    1    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return=
+ value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
+d_result [-Wunused-result]
+    1    drivers/mtd/chips/cfi_cmdset_0001.c:1871:12: warning: stack frame =
+size of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
+=3D]
+    1    drivers/mtd/chips/cfi_cmdset_0001.c:1871:12: warning: stack frame =
+size of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
+=3D]
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_prefault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+=
+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_prefault_relocations()+0xb8: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+=
+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x259: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:997:6: warning: stack frame size of 1228 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
+calc_30.c:981:13: warning: stack frame size of 1068 bytes in function 'dml_=
+rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1532 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1196 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1452 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1212 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:3286:6: warning: stack frame size of 1436 bytes in function 'dml20_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1228 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in =
+function 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in =
+function 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1    clang: warning: argument unused during compilation: '-no-pie' [-Wu=
+nused-command-line-argument]
+    1    arch/arm/mach-spear/spear3xx.c:42:20: warning: initialization of =
+=E2=80=98void *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from inte=
+ger without a cast [-Wint-conversion]
+    1    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_g=
+piod_table=E2=80=99 defined but not used [-Wunused-variable]
+    1    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98am=
+s_delta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc6-next-20210407/kernel/drivers/clk/keystone/pll.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc6-next-20210407/kernel/drivers/clk/keystone/gate.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc6-next-20210407/kernel/crypto/cast_common.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    .config:1198:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ./usr/include/linux/bcache.h:355:2: warning: field '' with variabl=
+e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)=
+' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
+zed-type-not-at-end]
+    1    ./usr/include/linux/bcache.h:354:2: warning: field '' with variabl=
+e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)=
+' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
+zed-type-not-at-end]
+    1    ./include/vdso/bits.h:7:26: warning: left shift count >=3D width o=
+f type [-Wshift-count-overflow]
+
+Section mismatches summary:
+
+    1    WARNING: modpost: vmlinux.o(.text+0x9edc): Section mismatch in ref=
+erence from the function reserve_exception_space() to the function .meminit=
+.text:memblock_reserve()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 8 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3344 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 15 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    ./usr/include/linux/bcache.h:354:2: warning: field '' with variable siz=
+ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)' not=
+ at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
+ype-not-at-end]
+    ./usr/include/linux/bcache.h:355:2: warning: field '' with variable siz=
+ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)' not=
+ at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
+ype-not-at-end]
+    2 warnings generated.
+    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete()+0x=
+114d: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
+    net/rose/rose_subr.o: warning: objtool: rose_write_internal() falls thr=
+ough to next function rose_decode()
+    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: implicit conversion from=
+ 'unsigned long' to 'unsigned int' changes value from 18446744073709551600 =
+to 4294967280 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 12 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/crypto/cast_common.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/clk/keystone/gate.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/clk/keystone/pll.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 section mi=
+smatches
+
+Errors:
+    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=98__co=
+mpiletime_assert_177=E2=80=99 declared with attribute error: FIELD_GET: typ=
+e of reg too small for mask
+    ././include/linux/compiler_types.h:320:38: error: call to =E2=80=98__co=
+mpiletime_assert_192=E2=80=99 declared with attribute error: FIELD_GET: typ=
+e of reg too small for mask
+
+Warnings:
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-Wunus=
+ed-function]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 21 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-10) =E2=80=94 FAIL, 2 errors, 30 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: modpost: "__compiletime_assert_192" [drivers/firmware/stratix10-=
+rsu.ko] undefined!
+    ERROR: modpost: "__compiletime_assert_177" [drivers/firmware/stratix10-=
+rsu.ko] undefined!
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
+ of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in funct=
+ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1 warning generated.
+    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
+ in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
+ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
+ 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    drivers/staging/wlan-ng/cfg80211.c:272:12: warning: stack frame size of=
+ 1032 bytes in function 'prism2_scan' [-Wframe-larger-than=3D]
+    1 warning generated.
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
+ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5536 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame size of =
+1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame size of=
+ 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
+than=3D]
+    2 warnings generated.
+    drivers/mtd/chips/cfi_cmdset_0001.c:1871:12: warning: stack frame size =
+of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 10 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: implicit conversion from=
+ 'unsigned long' to 'unsigned int' changes value from 18446744073709551600 =
+to 4294967280 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-Wunus=
+ed-function]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-11) =E2=80=94 FAIL, 2 errors, 28 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: modpost: "__compiletime_assert_192" [drivers/firmware/stratix10-=
+rsu.ko] undefined!
+    ERROR: modpost: "__compiletime_assert_177" [drivers/firmware/stratix10-=
+rsu.ko] undefined!
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
+ of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in funct=
+ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1 warning generated.
+    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
+ in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
+ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
+ 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: unused function 'dm_dmub_trace_high_irq' [-Wunused-function]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
+ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5536 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame size of =
+1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame size of=
+ 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
+than=3D]
+    2 warnings generated.
+    drivers/mtd/chips/cfi_cmdset_0001.c:1871:12: warning: stack frame size =
+of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/spi/spi-hisi-kunpeng.c:361:9: warning: conversion from =E2=80=
+=98long unsigned int=E2=80=99 to =E2=80=98unsigned int=E2=80=99 changes val=
+ue from =E2=80=9818446744073709551600=E2=80=99 to =E2=80=984294967280=E2=80=
+=99 [-Woverflow]
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:941:13: war=
+ning: =E2=80=98dm_dmub_trace_high_irq=E2=80=99 defined but not used [-Wunus=
+ed-function]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 23 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1252 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:997:6: warning: stack frame size of 1228 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
+30.c:981:13: warning: stack frame size of 1068 bytes in function 'dml_rq_dl=
+g_get_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1228 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1196 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1436 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1532 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1212 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1452 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/platform/surface/surface_aggregator_registry.c:496:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    kernel/static_call.c:153:18: warning: unused variable =E2=80=98mod=E2=
+=80=99 [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: unused function 'update_nohz_stat=
+s' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/static_call.c:153:18: warning: unused variable 'mod' [-Wunused-v=
+ariable]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    ERROR: modpost: Section mismatches detected.
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text+0x9edc): Section mismatch in referenc=
+e from the function reserve_exception_space() to the function .meminit.text=
+:memblock_reserve()
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: unused function 'update_nohz_stat=
+s' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/static_call.c:153:18: warning: unused variable 'mod' [-Wunused-v=
+ariable]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-10) =E2=80=94 FAIL, 11 errors, 0 warnings, =
+0 section mismatches
+
+Errors:
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35400): relocation =
+R_ARM_PREL31 out of range: 2135520568 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A1C): relocation =
+R_ARM_PREL31 out of range: 2135576348 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A64): relocation =
+R_ARM_PREL31 out of range: 2135576276 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37A94): relocation =
+R_ARM_PREL31 out of range: 2135576228 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37AC4): relocation =
+R_ARM_PREL31 out of range: 2135576180 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37ADC): relocation =
+R_ARM_PREL31 out of range: 2135576156 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37AF4): relocation =
+R_ARM_PREL31 out of range: 2135576132 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B04): relocation =
+R_ARM_PREL31 out of range: 2135576116 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B54): relocation =
+R_ARM_PREL31 out of range: 2135576036 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37B64): relocation =
+R_ARM_PREL31 out of range: 2135576020 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C0C): relocation =
+R_ARM_PREL31 out of range: 2135575852 is not in [-1073741824, 1073741823]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 702 errors, 1 warning=
+, 0 section mismatches
+
+Errors:
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: kernel/sys.o:/tmp/kci/linux/./arch/mips/include/asm/=
+uaccess.h:486: more undefined references to `__raw_copy_to_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: kernel/time/time.o:/tmp/kci/linux/./arch/mips/includ=
+e/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' foll=
+ow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: mm/memory.o:/tmp/kci/linux/./arch/mips/include/asm/u=
+access.h:460: more undefined references to `__raw_copy_from_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: fs/readdir.o:/tmp/kci/linux/./arch/mips/include/asm/=
+uaccess.h:486: more undefined references to `__raw_copy_to_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: fs/statfs.o:/tmp/kci/linux/./arch/mips/include/asm/u=
+access.h:486: more undefined references to `__raw_copy_to_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: fs/io_uring.o:/tmp/kci/linux/./arch/mips/include/asm=
+/uaccess.h:460: more undefined references to `__raw_copy_from_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: fs/ext4/ioctl.o:/tmp/kci/linux/./arch/mips/include/a=
+sm/uaccess.h:486: more undefined references to `__raw_copy_to_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: fs/fat/dir.o:/tmp/kci/linux/./arch/mips/include/asm/=
+uaccess.h:486: more undefined references to `__raw_copy_to_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: block/ioctl.o:/tmp/kci/linux/./arch/mips/include/asm=
+/uaccess.h:460: more undefined references to `__raw_copy_from_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: lib/kstrtox.o:/tmp/kci/linux/./arch/mips/include/asm=
+/uaccess.h:460: more undefined references to `__raw_copy_from_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: drivers/gpio/gpiolib-cdev.o:/tmp/kci/linux/./arch/mi=
+ps/include/asm/uaccess.h:486: more undefined references to `__raw_copy_to_u=
+ser' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: drivers/mtd/mtdchar.o:/tmp/kci/linux/./arch/mips/inc=
+lude/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' f=
+ollow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: drivers/usb/core/devio.o:/tmp/kci/linux/./arch/mips/=
+include/asm/uaccess.h:460: more undefined references to `__raw_copy_from_us=
+er' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510: undefined referen=
+ce to `__raw_copy_in_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510: undefined referen=
+ce to `__raw_copy_in_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510=
+: undefined reference to `__raw_copy_in_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510=
+: undefined reference to `__raw_copy_in_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510=
+: undefined reference to `__raw_copy_in_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:510=
+: undefined reference to `__raw_copy_in_user'
+    mips-linux-gnu-ld: net/socket.o:/tmp/kci/linux/./arch/mips/include/asm/=
+uaccess.h:510: more undefined references to `__raw_copy_in_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: net/core/sock.o:/tmp/kci/linux/./arch/mips/include/a=
+sm/uaccess.h:460: more undefined references to `__raw_copy_from_user' follo=
+w
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: net/core/scm.o:/tmp/kci/linux/./arch/mips/include/as=
+m/uaccess.h:486: more undefined references to `__raw_copy_to_user' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: net/ethtool/ioctl.o:/tmp/kci/linux/./arch/mips/inclu=
+de/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' fol=
+low
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: net/ethtool/ioctl.o:/tmp/kci/linux/./arch/mips/inclu=
+de/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' f=
+ollow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: net/ethtool/ioctl.o:/tmp/kci/linux/./arch/mips/inclu=
+de/asm/uaccess.h:486: more undefined references to `__raw_copy_to_user' fol=
+low
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: net/ipv4/ip_sockglue.o:/tmp/kci/linux/./arch/mips/in=
+clude/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user=
+' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: net/ipv6/addrconf.o:/tmp/kci/linux/./arch/mips/inclu=
+de/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user' f=
+ollow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: net/ipv6/ipv6_sockglue.o:/tmp/kci/linux/./arch/mips/=
+include/asm/uaccess.h:460: more undefined references to `__raw_copy_from_us=
+er' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486=
+: undefined reference to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460=
+: undefined reference to `__raw_copy_from_user'
+    mips-linux-gnu-ld: net/packet/af_packet.o:/tmp/kci/linux/./arch/mips/in=
+clude/asm/uaccess.h:460: more undefined references to `__raw_copy_from_user=
+' follow
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:460: undefined referen=
+ce to `__raw_copy_from_user'
+    /tmp/kci/linux/./arch/mips/include/asm/uaccess.h:486: undefined referen=
+ce to `__raw_copy_to_user'
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
+s, 1 warning, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
+rors, 2 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-11) =E2=80=94 PASS, 0 er=
+rors, 2 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc6-next-20210407/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_EFI=3Dn (riscv, clang-11) =E2=80=94 PASS, 0 errors, 1 warn=
+ing, 0 section mismatches
+
+Warnings:
+    clang: warning: argument unused during compilation: '-no-pie' [-Wunused=
+-command-line-argument]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1017:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    sound/core/control_led.c:128:1: warning: the frame size of 1504 bytes i=
+s larger than 1024 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:39: Warning: macro instruction expanded into multiple =
+instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
+ in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    sound/core/control_led.c:97:12: warning: stack frame size of 1032 bytes=
+ in function 'snd_ctl_led_get' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 1 warning, 0 section mismatches
+
+Warnings:
+    ./include/vdso/bits.h:7:26: warning: left shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warn=
+ing, 0 section mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_gpiod_=
+table=E2=80=99 defined but not used [-Wunused-variable]
+    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98ams_del=
+ta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=99 d=
+efined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
+on mismatches
+
+Errors:
+    arch/arm/mach-spear/spear3xx.c:42:3: error: =E2=80=98struct pl022_ssp_c=
+ontroller=E2=80=99 has no member named =E2=80=98num_chipselect=E2=80=99
+
+Warnings:
+    arch/arm/mach-spear/spear3xx.c:42:20: warning: initialization of =E2=80=
+=98void *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from integer wi=
+thout a cast [-Wint-conversion]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    .config:1198:warning: override: UNWINDER_GUESS changes choice state
+    kernel/static_call.c:153:18: warning: unused variable =E2=80=98mod=E2=
+=80=99 [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-11) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
+efault_relocations()+0xb8: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x259: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
+efault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
+ warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/sched/fair.c:8398:13: warning: =E2=80=98update_nohz_stats=E2=80=
+=99 defined but not used [-Wunused-function]
+    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return valu=
+e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
+ult [-Wunused-result]
+    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return valu=
+e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
+ult [-Wunused-result]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
 
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+For more info write to <info@kernelci.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104072340.Ux830CO0-lkp%40intel.com.
-
---4Ckj6UjgE2iN1+kY
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-
---4Ckj6UjgE2iN1+kY--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/606dd4e5.1c69fb81.4f239.8be0%40mx.google.com.
