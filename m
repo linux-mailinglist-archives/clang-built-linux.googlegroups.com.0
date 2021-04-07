@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZPGWSBQMGQEVXDMVMQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB3H4WSBQMGQEXUDXT3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id BEA3C356251
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 06:21:58 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id m5sf12005940pgu.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Apr 2021 21:21:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617769317; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B45253562DD
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 07:09:01 +0200 (CEST)
+Received: by mail-qt1-x83e.google.com with SMTP id a11sf11239811qtd.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Apr 2021 22:09:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617772140; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OB1ICI6zfCao5cuMtplIVWFxPJm2gN1tV6YFSkQDN6QkgyzjxD2o/XMadmHBQK00gZ
-         7BjIMz2w56y+MYkytLzKDtZGyEqalAloFVbFTFKrulA8DUcjIobwMkfmvRfLI4djbzAd
-         VwZSjVinBKCJDP7THGoyXb14FLUw8c4BgYV6EV02XwRM49z2yXRRa4LXL9TIXIiPsY4v
-         vVk8EIDgrIydkV2jZMHJeE6q1+Hta/nG+VT9FF4Buz0JdvxyYdt81oyawsUK143OFSjU
-         EGLAEx3FXcwGb7GRyP7SUfQcG9AxYVky4QBM+JIuu4OFslBhwiccC/7COUTb7t/KdpK5
-         Y+lA==
+        b=x7Hs6xScMENpxjor2xn3nOuVClE2xhgN1dLObEc4vEz/V077uLH7aezi7KpX6hlkRM
+         LKBX835aE5XWNzgCgkTEyrwHaH9AZtUCwuoRp+bA37PVbtSxlxTNzMc2Bk8Tk2CFdm6y
+         G0SNIF77+r9MWkD2k9Mc7cv5cZk3iHWcINwwXdmM4AqJhQzO1RUQuNVY7Vhv7jgHn5s0
+         gR+qRV5QwqInJPMy33JSeh0SiNvh0oRm+jVGdmflIMZxtmuKB4+epg5csicVp8tMzpkL
+         xUj9inEXEHecczYeOuXeqDIkPsWSf+WH4xZnhCvQETUTjuBZLAZFh0VsyWZqrwwu87ld
+         ML+A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=CdPOEl/jnfWiY3C+zXvOQ/cpaLdNfLpsAdOiY7YhxEg=;
-        b=xdMqYQ6weWxLAldjFDOX5uTtDoDf2sqBn0Ms5N9hH1cOddUPu4O+kLtLflYfZm1n6N
-         uQyryo972RL/ucB8WAMhHdmDQODNT+b75H5hqIFq3xAml3UQ3XycxAVvyOFumjf41wXM
-         830tujxRr8kV3p4hXtnxypNwyx+Y+easRSHdJk4Tx+hraGR2chUR2QbRFWUF+IgEdcme
-         bG0UW8cIhlweJ9XCkKri0xxoxmzZy3pu+DgOOuVsr5mQrpP51GCmjMdtHGXHhJy/VOVZ
-         KEZ+acfaaGl0G2jUIkNt7m7k+EQyqsV88FNCElDcVTlehTXNJ0eh9XPdpjztv4CJ/CMf
-         BfVg==
+        bh=/GjbyjILn0skRszn/X05yhZqQJyH+OdGs1eK12kx3nE=;
+        b=wv7QTKMulZXwVq2iB2FUx+cOCbSAOCf2yvq8W0a4syzg1go6X4NMjXIcW0zoDIxEnm
+         W/ahEZFfdTkqlA/Mm+SLwYpIcq9mUJMtORbCCTVWmYP18nQR5ArAUqDb/DVXVPfoxUdD
+         64M02GhrkcaKU6Owot+5RP216y7yfFE+efnmtJ7kzb88WClWn8TDEHZ8YhB/yxL5V1Q1
+         sL8WnM9Q8lBAyzeSAPNEFg55NhWArSFQxr4qP7hdLrYj3JBJVX0OFsM1zkMaASp5brtC
+         CoKB8zbj+uGMNOzPDT1hUrND3NYM1fK2EZ6f82apm0maepR2IPM3SxxhjY0NKYCrnr9/
+         8BDg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CdPOEl/jnfWiY3C+zXvOQ/cpaLdNfLpsAdOiY7YhxEg=;
-        b=EbEi5dxHZUIjuaiza6evGaGR7L8K8smneitY95O9ETfF3sM53CCofMDlD05QO7gqap
-         M36MVcdsbF9dcjbRe2Qo+bhmEMsvJ8KdNsX6woMVWpkNkAwrcW5VyVOyif9KOjW13znz
-         XfnfQ+E8crfTT4uCtpZ2dNk80DEpuSX9PXKslzSYv9h8jF8cyGwgju2gNcDjjl+NAv6J
-         H7w5XdVRLELVtOSrNP1v2abrDtLNVPlm0Z7imZRFZbZigsa5IvzvZjpxvnUNIX6Hw6Hg
-         hLlc9rGT6yqcL/iD0NIHxf5Z5MAIdwUdQM2zf4yYQRtzt3UWeCoif0/tWRn2mgyFU1l0
-         pwtg==
+        bh=/GjbyjILn0skRszn/X05yhZqQJyH+OdGs1eK12kx3nE=;
+        b=FNmCAAwaxL/mw1B2aC+pKQAhENl6oujA3UDHDv3aYynPgdrG430OUWZXXH04GYlYdr
+         eF5UaoGz92oF8hILxKWCXBJQ5686EQ/gjFiyh2bGRliJabqWL+d2A7J8ia42lTPa2wwu
+         iq3UPkpbDLFY2rlhMjG5vT2lyyyctLZzAxLCBlovfS9l9M77vV5X76SfXW5PdaVpGXAp
+         Asf56vWieQTD+CzB8GBFI427heW8ZQ18g6hdJa4PDurCuVmprBvWtSBNzJGBB8qeD+oV
+         4O9M9yj+5DLiWw7W7pDUxMoS15qfNDXtVOg7HxcUXqSnarNaBJx4ucofBsBPnYGFF0oT
+         oVVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,83 +51,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CdPOEl/jnfWiY3C+zXvOQ/cpaLdNfLpsAdOiY7YhxEg=;
-        b=L5jtk+ctdkXN3EL3k/gPaxS+FcTBuEjcEEGwKJiMDjKovnJDGv/7nWLMWwD0Fc666H
-         RhzXFn+PlA2pr+ME4mr+iI9rWxQBEg4+PyEsCr5ooEMGnEYrfBtVdRqrGl/W+BIPJo9F
-         QLQ+/u10ZnCpzCT1pVSYpbR6wJOzirCsHagnR5tyKwINxYFyKhpUMYqEmuCztK6H1l0F
-         buQFxgR73WlUUUErJ7iE/s5QWPV5koXxHDyIB/9oez+86m8y22Cvr9ZxU6W2PDR0YoKF
-         1XcAC1qwzHrjiPd6eAyycghNKFV4dJ9YVI0rlzqHyGoHqye2W1e1/TO6t0G5NUFdWrmq
-         nwfg==
+        bh=/GjbyjILn0skRszn/X05yhZqQJyH+OdGs1eK12kx3nE=;
+        b=dmVGhndvqRbpJsxyK/c5GTxISgMpVAaoLaKRNYBY6ih1CrftPZ6PFK+RLGb34VftIg
+         8XNMH3xxEcCN+4g3XmOs6ueCFDopjfO1pEFZ+nI5uv9VbV7McODqNLpthVuhKsJaFdKH
+         7L3BALRXJWeFvkWjX9jtaO3RTQN1btU7rImvdoTHPtRFQGOaxarU/PTYTtSvrqS+mZ8l
+         OK7YQ+JXUWHGHnmXAhoc6DwsUrYu3ENH0esNP9Uhxqy+PgLh8ooAn4ECWf5Ek+HQ0Qdq
+         acqnu9K+4lcNtx4ZoyVVimeIJ7PGyKCz6szxKiBH6JWYzpzz163TiJt1WqObwPJTa2sW
+         q6NQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533FLY6mUhWJ8wqmpydBxlCd1LJilo1/JHHPoW2prtADUbmU9HTg
-	tFVF2ZBjfFPmen3H4Z7UEvI=
-X-Google-Smtp-Source: ABdhPJzjC8zunhqiWwl/FcRMCHH9pRNuDIGqi+3wNeX+gQUnEUMV3YTcY/nflOwdsH+dVsoCbAUgMA==
-X-Received: by 2002:a17:90a:fd0a:: with SMTP id cv10mr1371130pjb.167.1617769317362;
-        Tue, 06 Apr 2021 21:21:57 -0700 (PDT)
+X-Gm-Message-State: AOAM530K15DofrwQJqySuj9R2bGjD5LJiyLKkBE/Q3XceKfr1f4S0g78
+	KlkFn8R43BqgfZGikT8Hmmc=
+X-Google-Smtp-Source: ABdhPJxktKSFijlMjqi8UueBvnd3Blli2ZBpQAaIm+tb6cUPiUzY5+KbXBASc9JuNXy5pI02DNqGig==
+X-Received: by 2002:a05:620a:14f:: with SMTP id e15mr1464711qkn.315.1617772140742;
+        Tue, 06 Apr 2021 22:09:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:348e:: with SMTP id p14ls597334pjb.1.canary-gmail;
- Tue, 06 Apr 2021 21:21:56 -0700 (PDT)
-X-Received: by 2002:a17:90a:f307:: with SMTP id ca7mr518557pjb.80.1617769316638;
-        Tue, 06 Apr 2021 21:21:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617769316; cv=none;
+Received: by 2002:a05:620a:f97:: with SMTP id b23ls608068qkn.0.gmail; Tue, 06
+ Apr 2021 22:09:00 -0700 (PDT)
+X-Received: by 2002:a37:7745:: with SMTP id s66mr1495910qkc.18.1617772140109;
+        Tue, 06 Apr 2021 22:09:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617772140; cv=none;
         d=google.com; s=arc-20160816;
-        b=kjgMH+qUZH3Kp8kZh4WDhKM03xRzPgODXuilz70Q2LtsDEOqu0kQC5MdgTxy7hZ6s9
-         tVdBL37yhwiC/Zl0LjjVHMkeMeyF2wzWSiwa/NrFznAO4d/khXwVsjbqpa32/b33MeKP
-         rXjQwZaiGOQFP5DNjca5VLUZyJCKjG8aPwx4OaGmsdkTgHvJl2YmECacMnmNle9weIQc
-         BcJTHNTAUI/zYOD7ELhyYVMC/9sZcDH/Qy2AhvP6QxVlmi9VAFPMfVFw3dgKxsgvYWUN
-         yPPlj3jrfNynTP0z5lX5PnrrT7JVaEwoPGw40r/3BoOvwZBBlQPYZi5BkFZMFVskHyoD
-         foJA==
+        b=aWBvmI1AWm3sIXrpM0tfPycUHj1hoNQG6PUIBkEeN1vhwAU+33BnTUmA4O/DDp+bQ8
+         5nzIa2BD089NzENbk+Etd/mN+zzzxrjSfOyy1aGbUFQF2yGzZ5CEVEba3Su22MvilECV
+         2AXbQWWMfWD3Z/D5zBBa0c+2J4VhUxanF8TfcCFs/bXzc5Eq0jBYA1zXbr/RkQJEuBPU
+         9/rQhtbPsD2BeGojIxg4hshSKqvkfbBhOUykPmOMkFeMas5ZW3F8NtNwlpalrb7F4ybw
+         vCNQ+veWHvtdlz/zqa822wrjUsyOTvYUFrCPUwLkHYXNtnthSEHKsHQPjrdWcLggt79O
+         EXMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=ZG2oD3KjIoDGV7nHLNjGCbdqy1Nd+HPolhaa46DxFFk=;
-        b=q5lrK0qRzay01EEviaV4ioN0XshbuThEmKI1/McTIMP+of5ma7nH7fsmk2b7yZeLkg
-         8wyNv4Yao2iXbYyNTF77lXSYwyvy7l3mTQ7NmRA1HrArEX8u5ccZiWCnKKnqzZbBEbmD
-         zxfk0iS9fFHXeU1KDaBZpexiX2g1z3qBkmhjTTgloHK+/d+lJZ1/Bd0ZphZOGzxCs9Ty
-         k5dcB9meyislhpDvYDthkISifPj9tISyoEy6mCVoyyI+CDtXoZGe6sNsBNxAqzH0BQt4
-         AiIMZ4s22NPis+P2FLAtRR76//+ztWns+A/vu26p9YB+9OB80htP3WZ12wAR9l8gS14a
-         h7/A==
+        bh=0PwQXxdT7QrTO51k6zo7ZsZ67lFEUM9JOEL0dlI4w6c=;
+        b=U1pcDcJteiWDj0sVSdKmrxTFEGd9lCQ6iFn6MKkQz3MdGsxK4YItfN9Pg9XfGp5li8
+         nfuFE1oJQJ0TGueEaTFrLwNuu8MoXvyQbbD2bGGEV4zz7aFZCZJju2B70rL8QZR40xig
+         nGDWAI1LW1RgChpl1Kry85AdRgQMT141pSjz89oEcXv52gAVZqC896zqA+xkCNlvoSbu
+         oVZISFMSdEX/u3WWdGT1uCpWxlIvkKkbUUJBTYWrJRL0Ip+8vkmkx7tqg/z/gO+pZEua
+         OA83yjZC6JlFi3NLmHFQ88e4sSmR3xQBtQNrGzMNfadilSbLe83R2cbjWKn2S9sRHJrc
+         2WsQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id g23si2564645pfu.3.2021.04.06.21.21.56
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id r26si2629030qtf.3.2021.04.06.22.08.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 06 Apr 2021 21:21:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-IronPort-SDR: M8Lj4+iuEbmIQWzEbh1BycaQDMRzYra79t9j4ZIDmHvI8gE2Edp2MbXyX5hXg1QnLYkquVaFSf
- A57Wm9lFX/bQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9946"; a="190013272"
+        Tue, 06 Apr 2021 22:08:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+IronPort-SDR: MIr3yO+xUC5MMRkF2BWEyIB7RRYupsG5N1/iKxFZxOCIRKgqFaxAOCTbDB1raFbxoRJss3hrGC
+ V3PKo1iSV7Gg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9946"; a="180354719"
 X-IronPort-AV: E=Sophos;i="5.82,201,1613462400"; 
-   d="gz'50?scan'50,208,50";a="190013272"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Apr 2021 21:21:55 -0700
-IronPort-SDR: 8A27Fda/t8Cd+b8Nash4p5gqF0eCnmg1ERFX2O+BiSv9Cj3VmNw7csHNCC2ibC/1M6rVc7Qw2y
- gLGCxNKvZ3NA==
+   d="gz'50?scan'50,208,50";a="180354719"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Apr 2021 22:08:58 -0700
+IronPort-SDR: NuB9LOKvjagLMhXkS+SiUXd0c06IdlMb60xO3xjEvNKlDOPE8thf6RlPogqUhEwKGwC0AcFQlY
+ 1SiqaxK/wngg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.82,201,1613462400"; 
-   d="gz'50?scan'50,208,50";a="381172609"
+   d="gz'50?scan'50,208,50";a="379687519"
 Received: from lkp-server01.sh.intel.com (HELO 69d8fcc516b7) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 06 Apr 2021 21:21:53 -0700
+  by orsmga003.jf.intel.com with ESMTP; 06 Apr 2021 22:08:56 -0700
 Received: from kbuild by 69d8fcc516b7 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lTzhQ-000CmQ-S7; Wed, 07 Apr 2021 04:21:52 +0000
-Date: Wed, 7 Apr 2021 12:21:38 +0800
+	id 1lU0Qw-000Cnz-AA; Wed, 07 Apr 2021 05:08:54 +0000
+Date: Wed, 7 Apr 2021 13:08:29 +0800
 From: kernel test robot <lkp@intel.com>
 To: Michel Lespinasse <michel@lespinasse.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: Re: [RFC PATCH 14/37] mm: add pte_map_lock() and pte_spinlock()
-Message-ID: <202104071245.NVYoVpc7-lkp@intel.com>
-References: <20210407014502.24091-15-michel@lespinasse.org>
+Subject: Re: [RFC PATCH 35/37] mm: spf statistics
+Message-ID: <202104071256.mQQXCiQV-lkp@intel.com>
+References: <20210407014502.24091-36-michel@lespinasse.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="jRHKVT23PllUwdXP"
+Content-Type: multipart/mixed; boundary="SLDf9lqlvOQaIe6s"
 Content-Disposition: inline
-In-Reply-To: <20210407014502.24091-15-michel@lespinasse.org>
+In-Reply-To: <20210407014502.24091-36-michel@lespinasse.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -143,7 +143,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---jRHKVT23PllUwdXP
+--SLDf9lqlvOQaIe6s
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -166,10 +166,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install arm cross compiling tool for clang build
         # apt-get install binutils-arm-linux-gnueabi
-        # https://github.com/0day-ci/linux/commit/35a22aad413d0acec9b01b29df4eda6b84059ba5
+        # https://github.com/0day-ci/linux/commit/a33160a546dc6172617d527966214ae88d335253
         git remote add linux-review https://github.com/0day-ci/linux
         git fetch --no-tags linux-review Michel-Lespinasse/Speculative-page-faults/20210407-095517
-        git checkout 35a22aad413d0acec9b01b29df4eda6b84059ba5
+        git checkout a33160a546dc6172617d527966214ae88d335253
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
 
@@ -179,34 +179,176 @@ Reported-by: kernel test robot <lkp@intel.com>
 All error/warnings (new ones prefixed by >>):
 
    In file included from arch/arm/kernel/asm-offsets.c:12:
->> include/linux/mm.h:3173:13: error: implicit declaration of function 'pte_offset_map' [-Werror,-Wimplicit-function-declaration]
+   In file included from include/linux/mm.h:18:
+   In file included from include/linux/mmap_lock.h:10:
+>> include/linux/vmstat.h:362:19: error: implicit declaration of function 'page_zone' [-Werror,-Wimplicit-function-declaration]
+           __inc_zone_state(page_zone(page), item);
+                            ^
+>> include/linux/vmstat.h:362:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct zone *' [-Wint-conversion]
+           __inc_zone_state(page_zone(page), item);
+                            ^~~~~~~~~~~~~~~
+   include/linux/vmstat.h:335:50: note: passing argument to parameter 'zone' here
+   static inline void __inc_zone_state(struct zone *zone, enum zone_stat_item item)
+                                                    ^
+>> include/linux/vmstat.h:368:19: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           __inc_node_state(page_pgdat(page), item);
+                            ^
+>> include/linux/vmstat.h:368:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           __inc_node_state(page_pgdat(page), item);
+                            ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:341:57: note: passing argument to parameter 'pgdat' here
+   static inline void __inc_node_state(struct pglist_data *pgdat, enum node_stat_item item)
+                                                           ^
+   include/linux/vmstat.h:375:19: error: implicit declaration of function 'page_zone' [-Werror,-Wimplicit-function-declaration]
+           __dec_zone_state(page_zone(page), item);
+                            ^
+   include/linux/vmstat.h:375:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct zone *' [-Wint-conversion]
+           __dec_zone_state(page_zone(page), item);
+                            ^~~~~~~~~~~~~~~
+   include/linux/vmstat.h:347:50: note: passing argument to parameter 'zone' here
+   static inline void __dec_zone_state(struct zone *zone, enum zone_stat_item item)
+                                                    ^
+   include/linux/vmstat.h:381:19: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           __dec_node_state(page_pgdat(page), item);
+                            ^
+   include/linux/vmstat.h:381:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           __dec_node_state(page_pgdat(page), item);
+                            ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:353:57: note: passing argument to parameter 'pgdat' here
+   static inline void __dec_node_state(struct pglist_data *pgdat, enum node_stat_item item)
+                                                           ^
+   include/linux/vmstat.h:510:24: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           __mod_node_page_state(page_pgdat(page), idx, val);
+                                 ^
+   include/linux/vmstat.h:510:24: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           __mod_node_page_state(page_pgdat(page), idx, val);
+                                 ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:318:62: note: passing argument to parameter 'pgdat' here
+   static inline void __mod_node_page_state(struct pglist_data *pgdat,
+                                                                ^
+   include/linux/vmstat.h:516:22: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           mod_node_page_state(page_pgdat(page), idx, val);
+                               ^
+   include/linux/vmstat.h:516:22: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           mod_node_page_state(page_pgdat(page), idx, val);
+                               ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:318:62: note: passing argument to parameter 'pgdat' here
+   static inline void __mod_node_page_state(struct pglist_data *pgdat,
+                                                                ^
+   In file included from arch/arm/kernel/asm-offsets.c:12:
+>> include/linux/mm.h:1504:28: error: static declaration of 'page_zone' follows non-static declaration
+   static inline struct zone *page_zone(const struct page *page)
+                              ^
+   include/linux/vmstat.h:362:19: note: previous implicit declaration is here
+           __inc_zone_state(page_zone(page), item);
+                            ^
+   In file included from arch/arm/kernel/asm-offsets.c:12:
+>> include/linux/mm.h:1509:26: error: static declaration of 'page_pgdat' follows non-static declaration
+   static inline pg_data_t *page_pgdat(const struct page *page)
+                            ^
+   include/linux/vmstat.h:368:19: note: previous implicit declaration is here
+           __inc_node_state(page_pgdat(page), item);
+                            ^
+   In file included from arch/arm/kernel/asm-offsets.c:12:
+   include/linux/mm.h:3194:13: error: implicit declaration of function 'pte_offset_map' [-Werror,-Wimplicit-function-declaration]
            vmf->pte = pte_offset_map_lock(vmf->vma->vm_mm, vmf->pmd, vmf->address,
                       ^
-   include/linux/mm.h:2205:17: note: expanded from macro 'pte_offset_map_lock'
+   include/linux/mm.h:2226:17: note: expanded from macro 'pte_offset_map_lock'
            pte_t *__pte = pte_offset_map(pmd, address);    \
                           ^
->> include/linux/mm.h:3173:13: warning: incompatible integer to pointer conversion initializing 'pte_t *' (aka 'unsigned long *') with an expression of type 'int' [-Wint-conversion]
+   include/linux/mm.h:3194:13: warning: incompatible integer to pointer conversion initializing 'pte_t *' (aka 'unsigned long *') with an expression of type 'int' [-Wint-conversion]
            vmf->pte = pte_offset_map_lock(vmf->vma->vm_mm, vmf->pmd, vmf->address,
                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mm.h:2205:9: note: expanded from macro 'pte_offset_map_lock'
+   include/linux/mm.h:2226:9: note: expanded from macro 'pte_offset_map_lock'
            pte_t *__pte = pte_offset_map(pmd, address);    \
                   ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning and 1 error generated.
+   7 warnings and 9 errors generated.
 --
    In file included from arch/arm/kernel/asm-offsets.c:12:
->> include/linux/mm.h:3173:13: error: implicit declaration of function 'pte_offset_map' [-Werror,-Wimplicit-function-declaration]
+   In file included from include/linux/mm.h:18:
+   In file included from include/linux/mmap_lock.h:10:
+>> include/linux/vmstat.h:362:19: error: implicit declaration of function 'page_zone' [-Werror,-Wimplicit-function-declaration]
+           __inc_zone_state(page_zone(page), item);
+                            ^
+>> include/linux/vmstat.h:362:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct zone *' [-Wint-conversion]
+           __inc_zone_state(page_zone(page), item);
+                            ^~~~~~~~~~~~~~~
+   include/linux/vmstat.h:335:50: note: passing argument to parameter 'zone' here
+   static inline void __inc_zone_state(struct zone *zone, enum zone_stat_item item)
+                                                    ^
+>> include/linux/vmstat.h:368:19: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           __inc_node_state(page_pgdat(page), item);
+                            ^
+>> include/linux/vmstat.h:368:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           __inc_node_state(page_pgdat(page), item);
+                            ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:341:57: note: passing argument to parameter 'pgdat' here
+   static inline void __inc_node_state(struct pglist_data *pgdat, enum node_stat_item item)
+                                                           ^
+   include/linux/vmstat.h:375:19: error: implicit declaration of function 'page_zone' [-Werror,-Wimplicit-function-declaration]
+           __dec_zone_state(page_zone(page), item);
+                            ^
+   include/linux/vmstat.h:375:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct zone *' [-Wint-conversion]
+           __dec_zone_state(page_zone(page), item);
+                            ^~~~~~~~~~~~~~~
+   include/linux/vmstat.h:347:50: note: passing argument to parameter 'zone' here
+   static inline void __dec_zone_state(struct zone *zone, enum zone_stat_item item)
+                                                    ^
+   include/linux/vmstat.h:381:19: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           __dec_node_state(page_pgdat(page), item);
+                            ^
+   include/linux/vmstat.h:381:19: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           __dec_node_state(page_pgdat(page), item);
+                            ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:353:57: note: passing argument to parameter 'pgdat' here
+   static inline void __dec_node_state(struct pglist_data *pgdat, enum node_stat_item item)
+                                                           ^
+   include/linux/vmstat.h:510:24: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           __mod_node_page_state(page_pgdat(page), idx, val);
+                                 ^
+   include/linux/vmstat.h:510:24: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           __mod_node_page_state(page_pgdat(page), idx, val);
+                                 ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:318:62: note: passing argument to parameter 'pgdat' here
+   static inline void __mod_node_page_state(struct pglist_data *pgdat,
+                                                                ^
+   include/linux/vmstat.h:516:22: error: implicit declaration of function 'page_pgdat' [-Werror,-Wimplicit-function-declaration]
+           mod_node_page_state(page_pgdat(page), idx, val);
+                               ^
+   include/linux/vmstat.h:516:22: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'struct pglist_data *' [-Wint-conversion]
+           mod_node_page_state(page_pgdat(page), idx, val);
+                               ^~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:318:62: note: passing argument to parameter 'pgdat' here
+   static inline void __mod_node_page_state(struct pglist_data *pgdat,
+                                                                ^
+   In file included from arch/arm/kernel/asm-offsets.c:12:
+>> include/linux/mm.h:1504:28: error: static declaration of 'page_zone' follows non-static declaration
+   static inline struct zone *page_zone(const struct page *page)
+                              ^
+   include/linux/vmstat.h:362:19: note: previous implicit declaration is here
+           __inc_zone_state(page_zone(page), item);
+                            ^
+   In file included from arch/arm/kernel/asm-offsets.c:12:
+>> include/linux/mm.h:1509:26: error: static declaration of 'page_pgdat' follows non-static declaration
+   static inline pg_data_t *page_pgdat(const struct page *page)
+                            ^
+   include/linux/vmstat.h:368:19: note: previous implicit declaration is here
+           __inc_node_state(page_pgdat(page), item);
+                            ^
+   In file included from arch/arm/kernel/asm-offsets.c:12:
+   include/linux/mm.h:3194:13: error: implicit declaration of function 'pte_offset_map' [-Werror,-Wimplicit-function-declaration]
            vmf->pte = pte_offset_map_lock(vmf->vma->vm_mm, vmf->pmd, vmf->address,
                       ^
-   include/linux/mm.h:2205:17: note: expanded from macro 'pte_offset_map_lock'
+   include/linux/mm.h:2226:17: note: expanded from macro 'pte_offset_map_lock'
            pte_t *__pte = pte_offset_map(pmd, address);    \
                           ^
->> include/linux/mm.h:3173:13: warning: incompatible integer to pointer conversion initializing 'pte_t *' (aka 'unsigned long *') with an expression of type 'int' [-Wint-conversion]
+   include/linux/mm.h:3194:13: warning: incompatible integer to pointer conversion initializing 'pte_t *' (aka 'unsigned long *') with an expression of type 'int' [-Wint-conversion]
            vmf->pte = pte_offset_map_lock(vmf->vma->vm_mm, vmf->pmd, vmf->address,
                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mm.h:2205:9: note: expanded from macro 'pte_offset_map_lock'
+   include/linux/mm.h:2226:9: note: expanded from macro 'pte_offset_map_lock'
            pte_t *__pte = pte_offset_map(pmd, address);    \
                   ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning and 1 error generated.
+   7 warnings and 9 errors generated.
    make[2]: *** [scripts/Makefile.build:116: arch/arm/kernel/asm-offsets.s] Error 1
    make[2]: Target '__build' not remade because of errors.
    make[1]: *** [Makefile:1233: prepare0] Error 2
@@ -215,16 +357,21 @@ All error/warnings (new ones prefixed by >>):
    make: Target 'prepare' not remade because of errors.
 
 
-vim +/pte_offset_map +3173 include/linux/mm.h
+vim +/page_zone +362 include/linux/vmstat.h
 
-  3170	
-  3171	static inline bool pte_map_lock(struct vm_fault *vmf)
-  3172	{
-> 3173		vmf->pte = pte_offset_map_lock(vmf->vma->vm_mm, vmf->pmd, vmf->address,
-  3174					       &vmf->ptl);
-  3175		return true;
-  3176	}
-  3177	
+c878538598d1e7 Christoph Lameter 2007-02-10  358  
+6a3ed2123a78de Johannes Weiner   2014-04-03  359  static inline void __inc_zone_page_state(struct page *page,
+6a3ed2123a78de Johannes Weiner   2014-04-03  360  			enum zone_stat_item item)
+6a3ed2123a78de Johannes Weiner   2014-04-03  361  {
+6a3ed2123a78de Johannes Weiner   2014-04-03 @362  	__inc_zone_state(page_zone(page), item);
+6a3ed2123a78de Johannes Weiner   2014-04-03  363  }
+6a3ed2123a78de Johannes Weiner   2014-04-03  364  
+75ef7184053989 Mel Gorman        2016-07-28  365  static inline void __inc_node_page_state(struct page *page,
+75ef7184053989 Mel Gorman        2016-07-28  366  			enum node_stat_item item)
+75ef7184053989 Mel Gorman        2016-07-28  367  {
+75ef7184053989 Mel Gorman        2016-07-28 @368  	__inc_node_state(page_pgdat(page), item);
+75ef7184053989 Mel Gorman        2016-07-28  369  }
+75ef7184053989 Mel Gorman        2016-07-28  370  
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -233,14 +380,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104071245.NVYoVpc7-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104071256.mQQXCiQV-lkp%40intel.com.
 
---jRHKVT23PllUwdXP
+--SLDf9lqlvOQaIe6s
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICKYsbWAAAy5jb25maWcAlFxbc+M2sn7Pr2AlL0nVTkYXX3fLDyAISogIgiZASfYLSyPT
+H4sICMw3bWAAAy5jb25maWcAlFxbc+M2sn7Pr2AlL0nVTkYXX3fLDyAISogIgiZASfYLSyPT
 E53Yko8kz878+9MAbwAJOjmp2o3VjWuj0f11o5lffvrFQ+/nw+vmvNtuXl5+eF+LfXHcnIsn
 73n3UvzHC7gXc+mRgMrfoXG0279//7w5vnqXv48nv48+HbcTb1Ec98WLhw/7593Xd+i9O+x/
 +uUnzOOQznKM8yVJBeVxLsla3v28fdnsv3rfiuMJ2nnj6e+j30fer193539//gz//7o7Hg/H
@@ -899,4 +1046,4 @@ UYL3+5SLrixxR0sNLoHogrhRnosmuEadZoPKI7vbxDZJgtKYPJ9v4L7C5vHqZ9rcTVrnwFJy
 jIgaps6ry+qlVPT5PoJ7Nwph2OyedkpWe77k26bn2OoKtAlIJ3AV4clDnQCT3F5Ztukxe5oS
 TjtPhcDVFJfRPte5YQexQfLi61QdqeJSTZ3C9/8Bcc9p0lk1AgA=
 
---jRHKVT23PllUwdXP--
+--SLDf9lqlvOQaIe6s--
