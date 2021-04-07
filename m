@@ -1,139 +1,140 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBJGBWSBQMGQE6WRWWQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBP6EWSBQMGQESQQEYJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E741356199
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 05:01:58 +0200 (CEST)
-Received: by mail-oi1-x239.google.com with SMTP id j82sf6015968oih.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Apr 2021 20:01:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1617764517; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BDC7D3561C2
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Apr 2021 05:08:48 +0200 (CEST)
+Received: by mail-pl1-x63e.google.com with SMTP id m4sf1922943plx.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Apr 2021 20:08:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1617764927; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ip34D+/x8e/uGLWKwxoIQqpWoHED4craEu9w9YvAuFefEO4+srHcnvxMZdlf3hoib0
-         brf7EXubFkmBoV8MqTFgINjTNtYzqpqN/xHIO/oXEuf2RGbWpybMIHUEKTTUDw1mvUg1
-         yZjsqZ+zu+2QtQWqzHzAZyzXyWQpvgxK6DDRCd6Nd6qIad6U11KC0xVTKXWyKDejPmPK
-         QjNX76xc3m7NPc1Pg8drj7DNbhTvpFF8EfdX6bmZBBTuFzvKCO1WfVi8nb9AlKV6ls0G
-         v9Wq82dwsSeZUgnASnoQHeJMxnf59f3i4cHY0sNAa/zRqdrH2ooY/4v2VYx5nWUb71Lj
-         Q6NQ==
+        b=p7871KBgYWMwqkpmG+/vbdd/9A1Hji+GgJCX4YGb+n0WVgqsf+vIOYUBXXptBZAQiE
+         UC34IUXO754r8lSjn4eLLSO0bWWsup6nNkQeElxt7BanfK9vgFuV5EiDlzE0TsZRUwus
+         q8vOzsBhdXDh8EiITVHaaHfeBMaybTOW4PklW6OMm2a1eHs4GEEzJfEf87TvHnM2rBiU
+         NjCeFpevQn+ZuJHOhmJ7zDx8AENkH8ggbRLGzJhJHlxYMzqaBQdAeGqVEyWUS4yYwVuG
+         f6/IBiJSvsNrd7pNGFZmACWFEjk+Acfw5K/fRyWczB62r73PFIDKhWSaYOxQM6C6KeLu
+         90ug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=qpffkfBmooIs/UZ23XTjnDN9LJJOT9KgveVor8XDcMA=;
-        b=uAR+lOnqQ3goI9KvxYfjAlgmtsWuh/3oHRBFyC804asuNMtCxbwClE8aSAEwbuLXYK
-         jrxyFPR8Niw/08fgG7dNTU0iDFpYXhrSWzH3V+hs23DqBOn7YjU5hfaTIzeNA8xTKZgt
-         6LNh11Boc1XBajn3afwuPhno9Vu6b20OH76nExmT99pLvrd0alSnQn61w1WrfeyHOTiE
-         nEW1LI2o142yRhM02Z645QrLQ/dVbF0DIBXaIrPkVB9o130lwx15AjZ3mNTwfnvRXoKK
-         jx8XHAbf0EY/S3pWpCqgKItm1rBxgOAnbDKHdn8OWplWw4iXLGdF/CSEm4+dDSlI5oqA
-         AzjA==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=xc8rlx/E4TwVmX9Hdn8u3EeCYUd+swujCjOYF3LDjwU=;
+        b=zwc7ddsA5KZI58tvpKkhQbSWhkYbI8XwHOEPFbs22xcJcv/OjFpHpiVlb/V1nLPUgl
+         I0KphPiYwDl31G2wUuwoPKuI+TFwXd7jR0pGyOzQ4dspUQMTF0RzG9YduR5P/YlrKbXi
+         s7zbVkgztcpCJU1SSsr6H6g/Kenwm2HaEeRDmELpC6ufuI/WnSfgc+CT2xsENJDMNNzA
+         fKn0Z5di5ULXkRwHUGfKBVLyjZg1bE7dsFe91t55m6zUmBgwGakUzgg5TSLL/IuevEXm
+         rTkve4dnFloCZGv2bijwCpHShXt5acEgD410yphaewUEjEDbi++4gsc2qFaQCPR6H69i
+         O4/g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IhRDrWKu;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::133 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=DAtnx0sO;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12c as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qpffkfBmooIs/UZ23XTjnDN9LJJOT9KgveVor8XDcMA=;
-        b=mgbsvRA4oCCU2Lk3Y75tkff3AlvXPuQht7j55fQxZJ62+M4jdpRcqYAEwbORIaa4vI
-         YqYqJ1QSRglOVX+DAE6x3k7EUZqyjgbCkc9V2xPVawlKY56JyQgfo37T08byELLzauP8
-         q9gBc1XVu6jG/t73RyC9CHBSXaHQC6OJbEnAYmKaBaY4FedK9LVnBLkuwYRSppGfYlct
-         ASwO8YlVeTlTNF+8/8kvpusHgFTCwrxHe1maGzuk2r13qBzkIA55p6DXuo9dvsieq5K2
-         +LaWXEHuEydDsjBFxYch1JZiP1EkDSQVm1vgf8BQ9hyp7fL6u+fqyccnR/qM/CN43AgS
-         4mrw==
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xc8rlx/E4TwVmX9Hdn8u3EeCYUd+swujCjOYF3LDjwU=;
+        b=sr8Qx8/Os7B4rx5hZ62FKGHoun4kJb1BT5G2E8OjjMv45h9hmLFstxId9BY28I3Pv/
+         T0lzklPhF7ShKRZ2VQuXu2ycS0L5RUNLxuTzcaG6Nr5fb3gz5TLNceP5MBiiRsS4gt71
+         tYdhxPLP0TjMqO8l8V17xxlRxrhaLfhM395gCUZliikj5xAi8fYc1tW+dGkczYdqcXzA
+         KAwyB48gNy9iOyTEGjMA7nUyiLZ8PDN5rK80xgJo4PJYIsNOxEAP+PyfuOaXgzaxZglu
+         5ptE0EAhSKdSdsgXSRiFUi/PpxSQxBCqY8xkwTv3eHRkjhg+CQIaa0S02gPdUjMer2wN
+         Xo+g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qpffkfBmooIs/UZ23XTjnDN9LJJOT9KgveVor8XDcMA=;
-        b=kBz1jfrU9RdiCoKGT2LkZidiQa/2fuVQ9cqEvTIoifhhzUkUNWB4MHKC+zgCVJPynl
-         fGK6D8LxIXuS0TEEMuoxcYfsVmqRsgMH1duibfvGqXgPbIjQ1/+DJ3e7HhxgYDyujsFJ
-         FgDQQA1dqOBYuR0SjZr/HeVfbJYJUBc+Diwstgd7AyxTPj3ctt2YmNja41AhE6kABDE2
-         yvAxxIQPqW6MK81Fy+1ZB51qmgp+SdVTHPZhOgcx4F1Yk6ULGAmQK5/4OG+Ri3XnKdBn
-         NnVvP8vEUNvt6ICAPF9489IFEFx0f8r0pzyG58e2Z2iMtx92X8Y6nhdF7kcWfD10qzTE
-         gwaA==
+         :subject:to:cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=xc8rlx/E4TwVmX9Hdn8u3EeCYUd+swujCjOYF3LDjwU=;
+        b=vXE4fPRDK6JRykJqan2EIDbnFI95dQqn5cKs2UMADqS1S2TBCAqKjNEKBtbsUFdQHG
+         ynywaPouqwxw1gUB944sxYE3WaBIrAvqmPkJS+mZmBH/9ZzIrmVqe+LbZISI16JuvZ7Z
+         ++WvmI1D/gCaXrXgvFiBlBZJwLEZnxS1xgi2aJMYao6VIF+jA1puYIZ2r44KliBKnqau
+         n1gQ90J5FzIZ1CHynjO/x5GtZJ/mICJ6jvzPptR6nbChUwaXipj9/xLWLEcw8A61FKVb
+         dJORZGpi7tE3dRCwt/WvSu1N3+IkTLp95zGV2RRn+UaPti3bqRw66Kg17N83zjCsCAGg
+         XT0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :reply-to:from:date:message-id:subject:to:cc
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qpffkfBmooIs/UZ23XTjnDN9LJJOT9KgveVor8XDcMA=;
-        b=q2YhSGB+N0sgB3cK7ftOsoWeLXvwHzRWmufYwyKbzDdgcO37MMfXJBo4gesYodAkJz
-         JGhistblxSfraZtyV44v+0wX6b+Swj9HHe7uzsGOCilqPcZNYuVk2zvY+2pbzIAlVOC8
-         2oHnoYY/tdxAyQE89J63i+S7YVYLNQgRvbqLmSq4Wmwdr3H1fO6jHCT+5futJbnMwm94
-         f8m7uZah3KGL9DuVHl8DAdXs44p3F0M87NUftMFXafpm5UvAWA951yklaRC32o78Q3sZ
-         uY4fN6K22HW3USFGw73P8mODa6lwgLYzAW/Ng2iXAkMrvpk6MPUR9gx+FaRP5Otrg9l6
-         +AEg==
+        bh=xc8rlx/E4TwVmX9Hdn8u3EeCYUd+swujCjOYF3LDjwU=;
+        b=E4IKwehUk5/t4juADELhr/jMydUOtpK6GK1nFPVbqBauI54bnn5OSVtZ9CNnvEhQR3
+         uD95kZWZG3hAgKYTpKKI7WzSxtXdpC6+UP/VW8BWvhyXvznOpKUa9rUJggVczOF3EQ/I
+         IA9B88WeeTwjrGAFHiUA+1cWAvBW7AC+0PNK+dTevSFiPE+xQ4NYO6dnU3AD1HWkch/7
+         AoOfWR30PHBgogs8TJgE3cIofJnwmCEdXtJZX1LIb/+qQ77z+zuZrZsv2cGW+DCy/jiR
+         hl1XuWPlpIpP7tSIedO3l+p/SiQWEpkYHzJAel+9hxq4ulZXyZ1LdYqc+nxjYW1K9i/7
+         U/ew==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532CuHmwIJAKG3E8AZs+v7VXGyX0ZoCwZ6o9IcR2TWxByReT61/o
-	lRJXMHZPmUvUNTzSTB5u3rQ=
-X-Google-Smtp-Source: ABdhPJwGChLP5AyGOj17/OEJ/rapsWBgw38grhkGy3GDNOiXmm5gWnnVJ9HanFf65IS2q6rWPKSrbA==
-X-Received: by 2002:a05:6808:57a:: with SMTP id j26mr735089oig.122.1617764516794;
-        Tue, 06 Apr 2021 20:01:56 -0700 (PDT)
+X-Gm-Message-State: AOAM531AmCtvKIYUDQsffRITfe01O5c3N+TyxeTmKA+AKc5r+AaFQ2Sd
+	L31/Qezs7TRSK7PSNYYL2ys=
+X-Google-Smtp-Source: ABdhPJxkKEJCT9WE+QIH5yKCEbukZt6KtzGpG1ZWI04SEpNRN3Rsg0Ra1K1/odipAD39fPejAPqQ3A==
+X-Received: by 2002:a17:90a:5b0b:: with SMTP id o11mr1175772pji.150.1617764927449;
+        Tue, 06 Apr 2021 20:08:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:3a44:: with SMTP id h65ls179985oia.7.gmail; Tue, 06 Apr
- 2021 20:01:56 -0700 (PDT)
-X-Received: by 2002:a05:6808:1142:: with SMTP id u2mr720335oiu.124.1617764516395;
-        Tue, 06 Apr 2021 20:01:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1617764516; cv=none;
+Received: by 2002:a63:b48:: with SMTP id a8ls425452pgl.10.gmail; Tue, 06 Apr
+ 2021 20:08:46 -0700 (PDT)
+X-Received: by 2002:a62:de83:0:b029:23e:6d5f:b166 with SMTP id h125-20020a62de830000b029023e6d5fb166mr1122697pfg.78.1617764926881;
+        Tue, 06 Apr 2021 20:08:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617764926; cv=none;
         d=google.com; s=arc-20160816;
-        b=S85Cn5pgANHNaC6F8UyHz1vkCmgN//QF1taJUScGPVeEal4m8ni9hS5qDTj9vKdlBr
-         khub6oM48QY4YuDq53soJcItvERvqzfXvdn0wmBcWNhAlVA8cU70xEKP8xXiXAIG5Xgt
-         rEjG4lq5ZSlmJ2+vJJyA/VkwV0phP7Y4Uc50TJIApwK7rJf1eRVbMQCB0iwpZ+hhwBut
-         tF3+DU8cIJbQuL1u4DY5Cfwzhm+KOvKvKuE6lV1b7C8ZF5s5PseeVizkWyBQ18sgdv8f
-         04m9jL9kxAXR2ji/ESfj+R7icyfGYHg2zNCOGQ5gur0PyppNnobZZNKSa0TYuv2N9u+f
-         k/Ow==
+        b=MP7IYHGLPgb44NsO8QAFYSfgoQ8/7gIvOIFzFSMGklIhbbIiR/iE8AfT9Y3BkqNAxo
+         TSKdIn3gZDuK5BPoxAiPfQRgisDsTzZWQ8+9368OaIRZ7Xr//xJrlGGD15Z7K5ZPPoRE
+         hCCn5jhCuh2Xy6aPD9tNZ38ClHKaBrAqLn/VnnA0TUXAA4gt7b67XG2IfOeDcR18MQhi
+         wp2zWsiKBPK1VOvdVHQw7UjfiCxOdp6+SsO1TmklchWPFCXXZcB1tvlcZTfxIz/ZONyA
+         L0jPByrKLTjm0Efa50An57M/BUCkI/53FChCMoK8wgSRskoIN80rpUl+k40XvSQTycOe
+         qJsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=wGQ0sxcwnuJFFVwGhbqE7uRx2c2DK/aUefWolAGGvoo=;
-        b=F6BeIdJkrDnCRLZeXRwW+MS2FzN6B6H1cVv9h3Cpqs6DDT5xzCM4jPuHkiUpABm8jW
-         rw3HKVzbmzFVLBT9SHjKVHNIUQrVStOcjLFA6V55ViPDhiFo6XP11ACurv6lzMCi7QLS
-         Qz+1IB2OrGVJezx7dwWMXVcqglJC3dQd2u/I2P+d0Pnhi0xQ7OcZEF89/jOJYMOCOKqz
-         dK+ub9Y8wRDTkjrEvAkfe4VZ3YI6eF47Z+VymiitWYZg8B13SIYmyICZm+EAD9vwJsuC
-         g8CbkHRL+TlGfAmIVdY18P7v84dcrMKCwjfyf/obK7V8532kZyOtux50RDX+raO4X9qB
-         MmwQ==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:dkim-signature;
+        bh=e2pLq3OLQfZBYQICJXzaNJ/+w/Ju/sSFyM+oWhdPVqA=;
+        b=cIfeoMdnKrtsdEhkbmOQp6WrzAZlw7Mi7qZ1B6c6zD2UThGuJk6wvtPPpdTt2sp6IH
+         P72vTUn32MQtPC82qWz9lGSR0AMpikfD8E7YPCQqIoEbZ9epCUK9KUU4B5XOPKJ4ezrq
+         MOWDqJD/pZXrAXHZIW+Atyx3xP6jy518iBsAwcJZWGjiNU5JvlU6oys/5JQ8mCx4Qeza
+         j80Y2Klf795kZMRmYWGUaY8aw6GlBAv5d3hLvyn6UoOsWrqNIMCs8UYe52CLM0mYunG7
+         aKyVm7GokFxLkt/YHdhNOXEs8ptMzHSb9y96oy32FEDOoU+9b/rlr3YyOoGqxnu9+xNC
+         Lb1w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IhRDrWKu;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::133 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=DAtnx0sO;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12c as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x133.google.com (mail-il1-x133.google.com. [2607:f8b0:4864:20::133])
-        by gmr-mx.google.com with ESMTPS id h5si2197554otk.1.2021.04.06.20.01.56
+Received: from mail-il1-x12c.google.com (mail-il1-x12c.google.com. [2607:f8b0:4864:20::12c])
+        by gmr-mx.google.com with ESMTPS id u21si43766pfc.0.2021.04.06.20.08.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Apr 2021 20:01:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::133 as permitted sender) client-ip=2607:f8b0:4864:20::133;
-Received: by mail-il1-x133.google.com with SMTP id t14so14984160ilu.3
-        for <clang-built-linux@googlegroups.com>; Tue, 06 Apr 2021 20:01:56 -0700 (PDT)
-X-Received: by 2002:a05:6e02:b2e:: with SMTP id e14mr1045849ilu.186.1617764516036;
- Tue, 06 Apr 2021 20:01:56 -0700 (PDT)
+        Tue, 06 Apr 2021 20:08:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12c as permitted sender) client-ip=2607:f8b0:4864:20::12c;
+Received: by mail-il1-x12c.google.com with SMTP id c3so6868005ils.2
+        for <clang-built-linux@googlegroups.com>; Tue, 06 Apr 2021 20:08:46 -0700 (PDT)
+X-Received: by 2002:a92:d78f:: with SMTP id d15mr1076467iln.112.1617764926269;
+ Tue, 06 Apr 2021 20:08:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210401232723.3571287-1-yhs@fb.com> <CAKwvOdmX8d3XTzJFk5rN_PnOQYJ8bXMrh8DrhzqN=UBNdQiO3g@mail.gmail.com>
- <CA+icZUVKCY4UJfSG_sXjZHwfOQZfBZQu0pj1VZ9cXX4e7w0n6g@mail.gmail.com> <c6daf068-ead0-810b-2afa-c4d1c8305893@fb.com>
-In-Reply-To: <c6daf068-ead0-810b-2afa-c4d1c8305893@fb.com>
+References: <CA+icZUVm8RQX7wevim_7R_mTPr88TEdonBZNGq72NxsDMKmBOw@mail.gmail.com>
+ <43e1416c-4597-8f29-e3d9-f1d45c9c6d33@debian.org> <CAKwvOdk5uDpTfVvXiuKOGVXDcnRdQcC5PdNxzsdLHh91Zmdkxg@mail.gmail.com>
+In-Reply-To: <CAKwvOdk5uDpTfVvXiuKOGVXDcnRdQcC5PdNxzsdLHh91Zmdkxg@mail.gmail.com>
 Reply-To: sedat.dilek@gmail.com
 From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Wed, 7 Apr 2021 05:01:27 +0200
-Message-ID: <CA+icZUWYQ8wjOYHYrTX52AbEa3nbXco6ZKdqeMwJaZfHuJ5BhA@mail.gmail.com>
-Subject: Re: [PATCH kbuild v4] kbuild: add an elfnote for whether vmlinux is
- built with lto
-To: Yonghong Song <yhs@fb.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>, bpf <bpf@vger.kernel.org>, kernel-team@fb.com, 
-	Bill Wendling <morbo@google.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 7 Apr 2021 05:08:17 +0200
+Message-ID: <CA+icZUWkoMvgH7WWM5aop=CkjPExRQASW=V-ByXX+JqWvDw_Lg@mail.gmail.com>
+Subject: Re: The LLVM host/target TRIPLE padding drama on Debian
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Sylvestre Ledru <sylvestre@debian.org>, lvm-dev@lists.llvm.org, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Fangrui Song <maskray@google.com>, 
+	Matthias Klose <doko@debian.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=IhRDrWKu;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::133
+ header.i=@gmail.com header.s=20161025 header.b=DAtnx0sO;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2607:f8b0:4864:20::12c
  as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
@@ -148,197 +149,220 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Apr 6, 2021 at 6:13 PM Yonghong Song <yhs@fb.com> wrote:
+On Tue, Apr 6, 2021 at 7:29 PM Nick Desaulniers <ndesaulniers@google.com> w=
+rote:
 >
+> On Tue, Apr 6, 2021 at 1:57 AM Sylvestre Ledru <sylvestre@debian.org> wro=
+te:
+> >
+> > Hello
+> >
+> > Could you please report a bug https://bugs.llvm.org/ with a shorter ver=
+sion of this email ?
+> > (with less jokes ;)
 >
-> Masahiro and Michal,
+> Heh, I got a laugh. Let me highlight below precisely what should be in
+> the bugreport.
 >
-> Friendly ping. Any comments on this patch?
+> >
+> > Thanks
+> > Sylvestre
+> >
+> > Le 06/04/2021 =C3=A0 10:50, Sedat Dilek a =C3=A9crit :
+> > > [ CC some ClangBuiltLinux and Debian GNU/LLVM toolchain folks ]
+> > >
+> > > Hi,
+> > >
+> > > this is not a late April-1st-joke.
+> > > "This is a REAL DRAMA written by (my) LIFE."
+> > > ( See the end of this Email. )
+> > >
+> > > [ INTRO ]
+> > >
+> > > /me uses LLVM/Clang and tools - Debian folks call this "LLVM
+> > > toolchain" - for building latest upstream Linux-kernels.
+> > >
 >
-> The addition LTO .notes information emitted by kernel is used by pahole
-> in the following patch:
->     https://lore.kernel.org/bpf/20210401025825.2254746-1-yhs@fb.com/
->     (dwarf_loader: check .notes section for lto build info)
+> include from here ---->
+>
+> > > On Debian x86-64 I see this dpkg-architecture warning in my
+> > > Linux-kernel build-logs:
+> > >
+> > > specified GNU system type x86_64-linux-gnu does not match CC system
+> > > type x86_64-unknown-linux-gnu, try setting a correct CC environment
+> > > variable
+>
+> <----- to here
+>
+> Also, how do you check the logs? This is during a kernel build?  If so
+> then it sounds like something wrong with that build script.
+>
+> > >
+> > > [ CHECK ]
+> > >
+> > > Check "GNU system type" on my Debian system:
+> > >
+> > > $ dpkg-architecture --query DEB_HOST_GNU_TYPE
+> > > x86_64-linux-gnu
+> > >
+> > > What says clang (here: Selfmade LLVM version 12.0.0-rc4 - Debian's
+> > > clang show the same "Target:"):
+> > >
+> > > $ /opt/llvm-toolchain/bin/clang --version
+> > > dileks clang version 12.0.0 (https://github.com/llvm/llvm-project.git
+> > > 04ba60cfe598e41084fb848daae47e0ed910fa7d)
+> > > Target: x86_64-unknown-linux-gnu
+> > > Thread model: posix
+> > > InstalledDir: /opt/llvm-toolchain/bin
+> > >
+> > > [ ABOUT KNIFES AND TRIPLE(S) ]
+> > >
+> > > You remember the famous quote from Crocodile Dundee cinema movie?
+> > > "*This* is a KNIFE!"
+> > >
+> > >      This is a TRIPLE: x86_64-linux-gnu
+> > > This is NOT a TRIPLE: x86_64-unknown-linux-gnu
+>
+> Heh, yes, "triples" (3) actually have 4 segments.
+> https://clang.llvm.org/docs/CrossCompilation.html#target-triple
+>
+> I would think they're equivalent if the "vendor" is left out, so to me
+> it's a bug in whatever is printing that message.
 >
 
-Hi Yonghong,
+I pass to cmake:
 
-the above pahole patch has this define and comment:
+CLANG_VENDOR=3D"dileks"
+BASIC_OPTS=3D" ... --clang-vendor ${CLANG_VENDOR}"
 
--static bool cus__merging_cu(Dwarf *dw)
-+/* Match the define in linux:include/linux/elfnote.h */
-+#define LINUX_ELFNOTE_BUILD_LTO 0x101
+Dunno what impact this has on my issue.
 
-...and does not fit with the define and comment in this kernel patch:
-
-+#include <linux/elfnote.h>
-+
-+#define LINUX_ELFNOTE_LTO_INFO 0x101
-
-Thanks.
+Might be worth including as an information in the BR.
 
 - Sedat -
 
-
+> > >
+> > > Personally, I do not see a benefit in having an "unknown" but I am no=
+t
+> > > familiar with other operating systems and (its) architectures.
+> > > Maybe, there is a real need for this extra "padding" (3 -> 4).
+> > >
+> > > [ "SOURCE (OF) TRUST" ]
+> > >
+> > > I do not follow LLVM development that much.
+> > > But I know to check the source-code.
+> > >
+> > > NOTE: Here: Latest <llvm-project.git#release/12.x>
+> > >
+> > > [ clang/test/Driver/program-path-priority.c ]
+> > >
+> > > /// We cannot trust clang --version, or cmake's LLVM_DEFAULT_TARGET_T=
+RIPLE
+> > > /// to give us the one and only default triple.
+> > > /// Can't trust cmake because on Darwin, triples have a verison
+> > > appended to them.
+> > > /// (and clang uses the versioned string to search)
+> > > /// Can't trust --version because it will pad 3 item triples to 4 e.g=
+.
+> > > /// powerpc64le-linux-gnu -> powerpc64le-unknown-linux-gnu
+> > > /// (and clang uses the former to search)
+> > > /// So we write to both names which is a bit odd but still proves tha=
+t the
+> > > /// lookup is working.
+> > >
+> > > LIFE is about TRUST :-).
+> > > No TRUST - No nothing!
+> > >
+> > > [ INSPIRED-BY ]
+> > >
+> > > Initially, I was inspired by this change in "tc-build" - the Swiss
+> > > army knife (YES, this is a KNIFE) from/for ClangBuiltLinux folks.
+> > >
+> > > commit 227a77175f81fc9b2e76b2d11b91b686ce41b35b
+> > > "build-llvm.py: Define LLVM_HOST_TRIPLE for certain distributions"
+> > >
+> > > Link: https://github.com/ClangBuiltLinux/tc-build/commit/227a77175f81=
+fc9b2e76b2d11b91b686ce41b35b
+> > >
+> > > As a man-child I played with...
+> > >
+> > > DEB_HOST_GNU_TYPE=3D"x86_64-linux-gnu"
+> > > LLVM_HOST_TRIPLE_OPTS=3D"-D LLVM_HOST_TRIPLE=3D$DEB_HOST_GNU_TYPE"
+> > >
+> > > ...in my custom LLVM toolchain build-script.
+> > >
+> > > Unfortunately, this results in a ***mixture of target TRIPLEs***.
+> > >
+> > > This is from my comment when playing with LLVM v13-git (see below lin=
+k).
+> > >
+> > > Link: https://github.com/ClangBuiltLinux/tc-build/pull/141#issuecomme=
+nt-791179738
+> > >
+> > > LLC and llvm-dwarfdump say "x86_64-linux-gnu":
+> > >
+> > > $ /opt/llvm-toolchain/bin/llc --version
+> > > LLVM (http://llvm.org/):
+> > >    LLVM version 13.0.0git
+> > >    Optimized build.
+> > >    Default target: x86_64-linux-gnu
+> > >    Host CPU: sandybridge
+> > >
+> > >    Registered Targets:
+> > >      bpf    - BPF (host endian)
+> > >      bpfeb  - BPF (big endian)
+> > >      bpfel  - BPF (little endian)
+> > >      x86    - 32-bit X86: Pentium-Pro and above
+> > >      x86-64 - 64-bit X86: EM64T and AMD64
+> > >
+> > > $ /opt/llvm-toolchain/bin/llvm-dwarfdump --version
+> > > LLVM (http://llvm.org/):
+> > >    LLVM version 13.0.0git
+> > >    Optimized build.
+> > >    Default target: x86_64-linux-gnu
+> > >    Host CPU: sandybridge
+> > >
+> > > Whereas clang says "x86_64-unknown-linux-gnu":
+> > >
+> > > $ /opt/llvm-toolchain/bin/clang --version
+> > > dileks clang version 13.0.0 (https://github.com/llvm/llvm-project.git
+> > > 9c0274cdeae904089806be6faee72b9126d2cf5b)
+> > > Target: x86_64-unknown-linux-gnu
+> > > Thread model: posix
+> > > InstalledDir: /opt/llvm-toolchain/bin
+> > >
+> > > As said I am an end-user of LLVM not an LLVM developer and I do not
+> > > follow LLVM upstream development.
+> > > If there was progress on this topic, please let me know.
+> > >
+> > > Final quote from Mark Twain (translated from German):
+> > > "In my LIFE I had several DRAMA(S) - some of them REALLY happened."
+> > >
+> > > For me this is NOT a drama.
+> > > But I do not know about the consequences of having a mixture of targe=
+t
+> > > TRIPLEs in my Debian system.
+> > > Thus, I dropped above LLVM_HOST_TRIPLE_OPTS from my build-script.
+> > >
+> > > Please, let me know if you need further information.
+> > >
+> > > Thanks.
+> > >
+> > > Regards,
+> > > - Sedat "A real drama queen" -
+> > >
+> >
+>
+>
+> --
 > Thanks,
->
-> Yonghong
->
-> On 4/6/21 12:05 AM, Sedat Dilek wrote:
-> > On Fri, Apr 2, 2021 at 8:07 PM 'Nick Desaulniers' via Clang Built
-> > Linux <clang-built-linux@googlegroups.com> wrote:
-> >>
-> >> On Thu, Apr 1, 2021 at 4:27 PM Yonghong Song <yhs@fb.com> wrote:
-> >>>
-> >>> Currently, clang LTO built vmlinux won't work with pahole.
-> >>> LTO introduced cross-cu dwarf tag references and broke
-> >>> current pahole model which handles one cu as a time.
-> >>> The solution is to merge all cu's as one pahole cu as in [1].
-> >>> We would like to do this merging only if cross-cu dwarf
-> >>> references happens. The LTO build mode is a pretty good
-> >>> indication for that.
-> >>>
-> >>> In earlier version of this patch ([2]), clang flag
-> >>> -grecord-gcc-switches is proposed to add to compilation flags
-> >>> so pahole could detect "-flto" and then merging cu's.
-> >>> This will increate the binary size of 1% without LTO though.
-> >>>
-> >>> Arnaldo suggested to use a note to indicate the vmlinux
-> >>> is built with LTO. Such a cheap way to get whether the vmlinux
-> >>> is built with LTO or not helps pahole but is also useful
-> >>> for tracing as LTO may inline/delete/demote global functions,
-> >>> promote static functions, etc.
-> >>>
-> >>> So this patch added an elfnote with a new type LINUX_ELFNOTE_LTO_INFO.
-> >>> The owner of the note is "Linux".
-> >>>
-> >>> With gcc 8.4.1 and clang trunk, without LTO, I got
-> >>>    $ readelf -n vmlinux
-> >>>    Displaying notes found in: .notes
-> >>>      Owner                Data size        Description
-> >>>    ...
-> >>>      Linux                0x00000004       func
-> >>>       description data: 00 00 00 00
-> >>>    ...
-> >>> With "readelf -x ".notes" vmlinux", I can verify the above "func"
-> >>> with type code 0x101.
-> >>>
-> >>> With clang thin-LTO, I got the same as above except the following:
-> >>>       description data: 01 00 00 00
-> >>> which indicates the vmlinux is built with LTO.
-> >>>
-> >>>    [1] https://lore.kernel.org/bpf/20210325065316.3121287-1-yhs@fb.com/
-> >>>    [2] https://lore.kernel.org/bpf/20210331001623.2778934-1-yhs@fb.com/
-> >>>
-> >>> Suggested-by: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
-> >>> Signed-off-by: Yonghong Song <yhs@fb.com>
-> >>
-> >> LGTM thanks Yonghong!
-> >> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> >>
-> >
-> > Thanks for the patch.
-> >
-> > Feel free to add:
-> >
-> > Tested-by: Sedat Dilek <sedat.dilek@gmail.com> # LLVM/Clang v12.0.0-rc4 (x86-64)
-> >
-> > As a note for the pahole side:
-> > Recent patches require an adaptation of the define and its comment.
-> >
-> > 1. LINUX_ELFNOTE_BUILD_LTO -> LINUX_ELFNOTE_LTO_INFO
-> > 2. include/linux/elfnote.h -> include/linux/elfnote-lto.h
-> >
-> > - Sedat -
-> >
-> >>> ---
-> >>>   include/linux/elfnote-lto.h | 14 ++++++++++++++
-> >>>   init/version.c              |  2 ++
-> >>>   scripts/mod/modpost.c       |  2 ++
-> >>>   3 files changed, 18 insertions(+)
-> >>>   create mode 100644 include/linux/elfnote-lto.h
-> >>>
-> >>> Changelogs:
-> >>>    v3 -> v4:
-> >>>      . put new lto note in its own header file similar to
-> >>>        build-salt.h. (Nick)
-> >>>    v2 -> v3:
-> >>>      . abandoned the approach of adding -grecord-gcc-switches,
-> >>>        instead create a note to indicate whether it is a lto build
-> >>>        or not. The note definition is in compiler.h. (Arnaldo)
-> >>>    v1 -> v2:
-> >>>      . limited to add -grecord-gcc-switches for LTO_CLANG
-> >>>        instead of all clang build
-> >>>
-> >>> diff --git a/include/linux/elfnote-lto.h b/include/linux/elfnote-lto.h
-> >>> new file mode 100644
-> >>> index 000000000000..d4635a3ecc4f
-> >>> --- /dev/null
-> >>> +++ b/include/linux/elfnote-lto.h
-> >>> @@ -0,0 +1,14 @@
-> >>> +#ifndef __ELFNOTE_LTO_H
-> >>> +#define __ELFNOTE_LTO_H
-> >>> +
-> >>> +#include <linux/elfnote.h>
-> >>> +
-> >>> +#define LINUX_ELFNOTE_LTO_INFO 0x101
-> >>> +
-> >>> +#ifdef CONFIG_LTO
-> >>> +#define BUILD_LTO_INFO ELFNOTE32("Linux", LINUX_ELFNOTE_LTO_INFO, 1)
-> >>> +#else
-> >>> +#define BUILD_LTO_INFO ELFNOTE32("Linux", LINUX_ELFNOTE_LTO_INFO, 0)
-> >>> +#endif
-> >>> +
-> >>> +#endif /* __ELFNOTE_LTO_H */
-> >>> diff --git a/init/version.c b/init/version.c
-> >>> index 92afc782b043..1a356f5493e8 100644
-> >>> --- a/init/version.c
-> >>> +++ b/init/version.c
-> >>> @@ -9,6 +9,7 @@
-> >>>
-> >>>   #include <generated/compile.h>
-> >>>   #include <linux/build-salt.h>
-> >>> +#include <linux/elfnote-lto.h>
-> >>>   #include <linux/export.h>
-> >>>   #include <linux/uts.h>
-> >>>   #include <linux/utsname.h>
-> >>> @@ -45,3 +46,4 @@ const char linux_proc_banner[] =
-> >>>          " (" LINUX_COMPILER ") %s\n";
-> >>>
-> >>>   BUILD_SALT;
-> >>> +BUILD_LTO_INFO;
-> >>> diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> >>> index 24725e50c7b4..98fb2bb024db 100644
-> >>> --- a/scripts/mod/modpost.c
-> >>> +++ b/scripts/mod/modpost.c
-> >>> @@ -2191,10 +2191,12 @@ static void add_header(struct buffer *b, struct module *mod)
-> >>>           */
-> >>>          buf_printf(b, "#define INCLUDE_VERMAGIC\n");
-> >>>          buf_printf(b, "#include <linux/build-salt.h>\n");
-> >>> +       buf_printf(b, "#include <linux/elfnote-lto.h>\n");
-> >>>          buf_printf(b, "#include <linux/vermagic.h>\n");
-> >>>          buf_printf(b, "#include <linux/compiler.h>\n");
-> >>>          buf_printf(b, "\n");
-> >>>          buf_printf(b, "BUILD_SALT;\n");
-> >>> +       buf_printf(b, "BUILD_LTO_INFO;\n");
-> >>>          buf_printf(b, "\n");
-> >>>          buf_printf(b, "MODULE_INFO(vermagic, VERMAGIC_STRING);\n");
-> >>>          buf_printf(b, "MODULE_INFO(name, KBUILD_MODNAME);\n");
-> >>> --
-> >>> 2.30.2
-> >>>
-> >>
-> >>
-> >> --
-> >> Thanks,
-> >> ~Nick Desaulniers
-> >>
-> >> --
-> >> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> >> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> >> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmX8d3XTzJFk5rN_PnOQYJ8bXMrh8DrhzqN=UBNdQiO3g@mail.gmail.com .
+> ~Nick Desaulniers
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWYQ8wjOYHYrTX52AbEa3nbXco6ZKdqeMwJaZfHuJ5BhA%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CA%2BicZUWkoMvgH7WWM5aop%3DCkjPExRQASW%3DV-ByXX%2BJqWvDw_=
+Lg%40mail.gmail.com.
