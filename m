@@ -1,46 +1,46 @@
-Return-Path: <clang-built-linux+bncBCRKNY4WZECBBDWQZWBQMGQESA2WCBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCRKNY4WZECBBRWTZWBQMGQE5DA3UPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id E1A8B35B6FC
-	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Apr 2021 23:20:15 +0200 (CEST)
-Received: by mail-qv1-xf37.google.com with SMTP id ek16sf6511964qvb.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 11 Apr 2021 14:20:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618176015; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A6D235B701
+	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Apr 2021 23:27:35 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id l8sf7422968ioc.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 11 Apr 2021 14:27:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618176454; cv=pass;
         d=google.com; s=arc-20160816;
-        b=o5Em3ZTRYum+6AJWmi8L+p7QjE1hq1T0fHDKb1Tl+JUfL7xV9qL9aciv51wwwbGQX9
-         HTA/uu8YsIUPmOygyo3xIOJbCmUQ3Na/GSFyc9yWeyPVFvDlmKAG7+WVB+UQbGN4Pj3X
-         K05k4GRmYic6rSkQIYIYRsiO53iyh6K9Y9OmwsmwGaQjjSduwKCCYMWfBSIlafWmaloK
-         7IRSZoBhxDKdd/UUF6zWZ51hMSOVbfoJHH1jvsYXTyLruxBNp7h19Wv8hgHu+yx7vDE3
-         N7xH/UdjDhLD02Qb1nBs5ZPTtiUdSoyfJVG+pIqDMCdzvGCx+o/M9YQGoXQCRoAi3Ug1
-         Ynjw==
+        b=O9B8EcveY0XxcxDeuT7rXrFjPerkzEVKH/NZ+71O+RRHhXNBTSTjaphL50tB2kpeYu
+         0GkjrTD79uv1is804n8SIkxDHtNmLN0Pd52guNRX4RhxEuUkuBKn4Z/0KAI+NXNNVO0Y
+         GFlw6Tp1nNdaeE1CfKrJJwKiRxpBOEHtHuIJROsX0OFIeuL4NiweIap70PG+sH73jQJu
+         44kIsFtCTRs+ORZ/ekrmapHOZpt9+JvNFwgOkjjiJfVnUU0fLT/BMHcNVUicGFD5/grr
+         bgBH+an+m97foowPu7TqGgUdcvhH+5T+qGkF8ErTcU1bSdJwO+O1rJqZq2vomOV/0vNl
+         vwqQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:sender:dkim-signature;
-        bh=tIYAcdpgLh5nBKxjkcx2sF7SteDk8yhQs+8OZgyF+OU=;
-        b=CIZpzta6C6zcn4boy9uIcQNp3Wv3n92sab2fIjuqeWFoqy9GlSq2PlBtaD2/CKKG8a
-         NNHhv+PhYGdLdPQFVh6L3jIfUVO2dQ2HKjHhE5pLrlr/iHjw3S+ZofsVH41EKB+BKzMX
-         CKil1LBBGKbCCdQXdnwADsYIXYowd++yF0hN5coK5vFKWLSZ3lfWruN/FjlLn3WhCDB8
-         Z8pN/N/xLgFiruqT625JsXonCavDMKe+Vek/+s+xTTpQZp74dpAYfCTtBymYdyNJDKs6
-         JfWa8g+nn7yb2V1tUs6WHcul3ubpOeUarEfrgPNcqZIdcbhaHmwi6J1vqv4danNUUoW9
-         o+sg==
+        bh=J7hYnUnWK0IfGo/uY0oYDCkj8S+mFekUTnBW5f9OWDE=;
+        b=Nq1Hh+I6dG6tkUzMJa9CSWWWnkGal/gDrdkoMNnJ8KHY3GNk+SblAPD/b2cMVyCt+y
+         nxqpErbyxodeHyBoQduYzUCfbrl8TckrvK7fzb7HaaxyKIQ489RzN3F3S9onCPdl4aaP
+         2yYUTFsPqSOmrwQYP7O4RXEj8g6hjUe1WnjsMr7sQEKDv8gMZeLBMvqqAYmUMYTi1HAu
+         RgnIkUs/lSItbog5cECpH/WPwNkhACQt7CdL1ObNjHpklPWkFTtizBjyqzGtjLWkiYHu
+         3Oq0SlFCdP5m3ADmxjzWbBc/zHVvQujk4h+MSbSxkKTZCW03n86hCP5siR8QiqPvruO8
+         2dyg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623 header.b=rmvtpQ0B;
-       spf=pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=palmer@dabbelt.com
+       dkim=pass header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623 header.b=daGbgO06;
+       spf=pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=palmer@dabbelt.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tIYAcdpgLh5nBKxjkcx2sF7SteDk8yhQs+8OZgyF+OU=;
-        b=XdJx7QP1EeLxhwa/wRegne5pSdmYVVKly1hS9Guf1Rm4T9w6JZH6MwSvwcFxm2c/NC
-         lQNp9uOU5/s0Rr+E+jfw8PWe8o9xcQ/hIpV5dqLZUUVXfmLqlJorXJAbPWHFqYXMgc6E
-         scaGZu4bgzi4qmzPKAlxen6NcldJybmswU/18/wEvW3cRxyzjAGSPu5ZoOeYZiuBEj+h
-         +wn3Ar9WZZ7ZGQvwXwbsVh5DPFqpSHL8ls17X0IdViaiUe1HFqbHwpWDKn4HAJ8e1COy
-         AvtJv+lLBSgWTLZCyB1eN2xY0j50PSbQiCWImXo+KxNWBjNtOh70+KHvNHmbtWP/4gpU
-         AaEw==
+        bh=J7hYnUnWK0IfGo/uY0oYDCkj8S+mFekUTnBW5f9OWDE=;
+        b=FXM5VvCrpSRvXuZjaLCLlCVax9J+3K42DHe9lRacdntPm8BRAI+YlhwyK+bNYiuEDs
+         istctBHuirtnMdl4JmvZtrwc+Ihbq+8B2JbuRFiQLILBLRGSAx51kKfOpyJyVbeQ8l0P
+         fvW7RwJmruXoySKS0RXvDDUec1gttj63ocYJF6nHYlmRcBisqG8lhcP+QBfz4+b0ZC73
+         XzYksHoJtRhociiovdLaXPgeGmB+38RpKfCYSTf9btzdb7AV+WJoEWH7HSt/sreefa8c
+         jn04CQqNwP+pHpLL/1vWkf7sCFJftERH72n1wHJpCuGOHdtqmjj1LA24HnBqZzp1jx4O
+         ObeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:subject:in-reply-to:cc:from:to
@@ -48,75 +48,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tIYAcdpgLh5nBKxjkcx2sF7SteDk8yhQs+8OZgyF+OU=;
-        b=DEiLajA7h68gfI0ekTkmhgya2g8fDt8++E+PxdfVo1IR26xkBjRhHTkLCm6KXFj6rM
-         5ckiU21IEGQ443ab83tY38M+DwfEGeShT4vRbaqbgzaq9VbR2fQDxG6cLFrNGcwXAhhf
-         8vyKnmrXxcMlysFf/Z5CHjRwzVhxC9Ibm8MRqLku7w6xr+0U9Ut5q/hOJnIlXWJTXel4
-         LZkEO88slNIiLYapFDy0ijKL0Y+XelFpDAVhYQtN8YTy9423d1Yo4Pq9EjZS2hELF8BO
-         PH4RDc3Vhw2fSwjqsoGKzzkS9hDRffNZq2ReMXXsSiq01c2vx0yua+YxtVRzInqMW0xy
-         W9HQ==
+        bh=J7hYnUnWK0IfGo/uY0oYDCkj8S+mFekUTnBW5f9OWDE=;
+        b=STez4NReoIoSGA7BLFBuE8+Q9YDwHNPoS1aZ1+MQhuNQ8OFHz8lFonKIwTDz8Nwoha
+         uk7tcWkkB7NNdo6HW2GNLqmeN4gKSrG5tWIVoNSdjQvRFWXcjc7mZw63icSIGPaiJp9N
+         RcJ3LF9RiPrefn6YvWkwncLZ5T4n+mYSeg2whobCFiVviukJRHephExsemq0wpB5qjB9
+         cVKCQYgmweEeHYieXGEl1VRqz58Hgcp8+5FQFU3S2Ix8McmenJreD5wkZ1bqMuEopjo5
+         +XijvSBJjkOxBhCp+hjnarqIo+q3eHZzRCDiXKURbeVFLYgc0bR+LG7atRBCX22ErILk
+         6HlA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530eM4gGh7YNVOVdac1Htshq7/lR0/16icShs9kZ11mIi5lIYxAX
-	BSay7wW5dfM34bO85cdCsoU=
-X-Google-Smtp-Source: ABdhPJxz3jjqmmvhlEqjPxf4s5VyhIll1qpvM18HRV3vTGHtEoDhnhbo85qjjaw5NusLr2ECkA2WPg==
-X-Received: by 2002:a0c:fc12:: with SMTP id z18mr1038493qvo.38.1618176015051;
-        Sun, 11 Apr 2021 14:20:15 -0700 (PDT)
+X-Gm-Message-State: AOAM531y+OUtS6mugliXTy+GtWsamW0W6l+oaaDgnye6nBBm/HdHymZX
+	eHVXXkluNf577kX/UCjIIzo=
+X-Google-Smtp-Source: ABdhPJzjsS/GhT5Hsov85Ccqm2tfuY1yrEVwjywC94SkSnAmbayi/H9bZvNdhd4/DMnPunK/hwE6Zg==
+X-Received: by 2002:a6b:8d49:: with SMTP id p70mr13646778iod.74.1618176454186;
+        Sun, 11 Apr 2021 14:27:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:7147:: with SMTP id m68ls1333745qkc.7.gmail; Sun, 11 Apr
- 2021 14:20:14 -0700 (PDT)
-X-Received: by 2002:a05:620a:13c3:: with SMTP id g3mr11937373qkl.377.1618176014674;
-        Sun, 11 Apr 2021 14:20:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618176014; cv=none;
+Received: by 2002:a05:6602:2d4c:: with SMTP id d12ls2322477iow.3.gmail; Sun,
+ 11 Apr 2021 14:27:33 -0700 (PDT)
+X-Received: by 2002:a6b:ea08:: with SMTP id m8mr19845397ioc.194.1618176453755;
+        Sun, 11 Apr 2021 14:27:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618176453; cv=none;
         d=google.com; s=arc-20160816;
-        b=aTFD6oE4jcZGHS4Bgqno/C9zIaj33F/7YYcVjlbINnNfsZ0+6F/GO/67HoktPOh/Xw
-         wXfCufFZmvSGcyxgJ4Kn01UchJEkeeLCRdfbCsn7RfsOa4IPDM83csXMDXlzbxat33aA
-         WvX1DbHMy0ZRrEMLMffNoV5lJqLpUZs7ZSzKIxEzMMht1NQeHfQ1hICBpudLALb9dQMO
-         WiWqoqPhKqyeiYRHEqbNPdzJp1e3bKuy7vPD5M29sIvfzh6R98RRo6VdJIfwdPK+K1fj
-         69Sqwz1f9UFs5MnvD11i6fQ7LPi2WNsqyipBaJ3Xe9Anhn31iiGaSShQ94/dQOKMcug9
-         KGdg==
+        b=PnkKL102bBz5Fu8sj8mCmje5E0cI4G3a7aQ9wsNg7OO8g44bZZ44a1X+Y0dgXyVXiG
+         KxPd3FTQOz46UQyc6NG//mNnxBEsIES+SAYoZR6VEgrUdS5wpX2uwm4uNx4Y3jXBty9U
+         bjpyn8dnh8zA1cQoRYgObFTYj29+2b8NLR/jnol1jMucB4c0hFAmiO1qAEHC7hWMd9vR
+         TdfW1HJBjdgT7hDTMZxlkBkzIKwHmXI6unsS5N9nhCVihjKKErl53ji21xJphCi2NL8T
+         BBnyXOvQHiaKyp7ZRBFC0mCfZwvFKKsPdKyBk5ITA2I6t80eHk56zARfMP3ETe+KHrhC
+         /MLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:dkim-signature;
-        bh=7HORmDFkFV0uVOag+MJUkAhWb7+U98LNc9qMttc1Fk0=;
-        b=tjVCZp2KeLFoYQvoIITgOJBI2Ps8CxvXdzoSauUrgYI66Ym7tAX92vaqg4dL43+kas
-         x7kALxPkP7QTrtbvTCLPu6/HPFt/pUd5I8l14KyBRAYjNluzp8HZWYCSxBRJadRF5Ume
-         k+bbK3nFxmaG3Y+L2ByXN+LSvDeV9guADfhMWZp1exb/i8t7rVJSqeoDO12ux5t+G+OZ
-         Ktmmf++fkRdAFoEoOMYtKJW6laRVObDA8oE1FQQ6xnuqjNQRWohebLc5+nj6JCAQzKeu
-         DWpYmHwyzgWJR4D4RR+RYYvwrgFnb5yLeF//Uw2CYBTWBdDWu33YiA5cHB2T6gK89P00
-         WiDQ==
+        bh=PVNDzZJZyebCsZPn5zFminUc1ykkQL3Oq73CobiugXo=;
+        b=XyMk9sAyjR8DlLmhMiFaTlHadib5w7Wb7kkHX36oKbNBHlH9c7/No2K/MPi3UFttPO
+         N1+XX/seaSAaDQZ3Z4A0oCyl2sRk9k2t7hWBNcBq7RifYJhKt71HOSrHBk2eAzhBb/21
+         eqURJona46Kmv6hC3g2kFc3Hybq5JfAmoG1KR1Isott6Ov284+5uxmz6lREGzacXSoBQ
+         zVFstY0uAPMbkmqAosqm+GlaMvo19yK095psCYZZwMZw5QOsFY6catE2zTaZM8tckI23
+         tRq+EQAgnQv/fHzrrjQddQ+YEdtPeFdEJpu4qptCApLEeupWhYccVARGGTPiw539Qk7+
+         Kehw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623 header.b=rmvtpQ0B;
-       spf=pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=palmer@dabbelt.com
-Received: from mail-pf1-x42a.google.com (mail-pf1-x42a.google.com. [2607:f8b0:4864:20::42a])
-        by gmr-mx.google.com with ESMTPS id g22si476711qtx.4.2021.04.11.14.20.14
+       dkim=pass header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623 header.b=daGbgO06;
+       spf=pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=palmer@dabbelt.com
+Received: from mail-pl1-x62c.google.com (mail-pl1-x62c.google.com. [2607:f8b0:4864:20::62c])
+        by gmr-mx.google.com with ESMTPS id y8si604335iom.1.2021.04.11.14.27.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 11 Apr 2021 14:20:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::42a as permitted sender) client-ip=2607:f8b0:4864:20::42a;
-Received: by mail-pf1-x42a.google.com with SMTP id w8so4400838pfn.9
-        for <clang-built-linux@googlegroups.com>; Sun, 11 Apr 2021 14:20:14 -0700 (PDT)
-X-Received: by 2002:a65:640d:: with SMTP id a13mr23133579pgv.272.1618176013615;
-        Sun, 11 Apr 2021 14:20:13 -0700 (PDT)
+        Sun, 11 Apr 2021 14:27:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::62c as permitted sender) client-ip=2607:f8b0:4864:20::62c;
+Received: by mail-pl1-x62c.google.com with SMTP id v8so5283783plz.10
+        for <clang-built-linux@googlegroups.com>; Sun, 11 Apr 2021 14:27:33 -0700 (PDT)
+X-Received: by 2002:a17:902:9a0a:b029:e6:bf00:8a36 with SMTP id v10-20020a1709029a0ab02900e6bf008a36mr23328948plp.51.1618176453013;
+        Sun, 11 Apr 2021 14:27:33 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id a20sm6661204pfn.23.2021.04.11.14.20.13
+        by smtp.gmail.com with ESMTPSA id v126sm7943215pfv.138.2021.04.11.14.27.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Apr 2021 14:20:13 -0700 (PDT)
-Date: Sun, 11 Apr 2021 14:20:13 -0700 (PDT)
-Subject: Re: [PATCH] riscv: Use $(LD) instead of $(CC) to link vDSO
-In-Reply-To: <20210325215156.1986901-1-nathan@kernel.org>
+        Sun, 11 Apr 2021 14:27:32 -0700 (PDT)
+Date: Sun, 11 Apr 2021 14:27:32 -0700 (PDT)
+Subject: Re: [PATCH 0/3] Fix CONFIG_FUNCTION_TRACER with clang
+In-Reply-To: <20210325223807.2423265-1-nathan@kernel.org>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
   linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
   nathan@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: nathan@kernel.org
-Message-ID: <mhng-8efacd63-c6b5-469b-9c64-2b8092f0d3e3@palmerdabbelt-glaptop>
+Message-ID: <mhng-fbfe4121-4626-4641-b596-d027d6cfc50c@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 X-Original-Sender: palmer@dabbelt.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623
- header.b=rmvtpQ0B;       spf=pass (google.com: domain of palmer@dabbelt.com
- designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=palmer@dabbelt.com
+ header.b=daGbgO06;       spf=pass (google.com: domain of palmer@dabbelt.com
+ designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=palmer@dabbelt.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,91 +129,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 25 Mar 2021 14:51:56 PDT (-0700), nathan@kernel.org wrote:
-> Currently, the VDSO is being linked through $(CC). This does not match
-> how the rest of the kernel links objects, which is through the $(LD)
-> variable.
+On Thu, 25 Mar 2021 15:38:04 PDT (-0700), nathan@kernel.org wrote:
+> Hi all,
 >
-> When linking with clang, there are a couple of warnings about flags that
-> will not be used during the link:
+> This series fixes function tracing with clang.
 >
-> clang-12: warning: argument unused during compilation: '-no-pie' [-Wunused-command-line-argument]
-> clang-12: warning: argument unused during compilation: '-pg' [-Wunused-command-line-argument]
+> Patch 1 adjusts the mcount regex in scripts/recordmcount.pl to handle
+> the presence of PLT relocations, which happen with clang. Without this,
+> the mcount_loc section will not be created properly.
 >
-> '-no-pie' was added in commit 85602bea297f ("RISC-V: build vdso-dummy.o
-> with -no-pie") to override '-pie' getting added to the ld command from
-> distribution versions of GCC that enable PIE by default. It is
-> technically no longer needed after commit c2c81bb2f691 ("RISC-V: Fix the
-> VDSO symbol generaton for binutils-2.35+"), which removed vdso-dummy.o
-> in favor of generating vdso-syms.S from vdso.so with $(NM) but this also
-> resolves the issue in case it ever comes back due to having full control
-> over the $(LD) command. '-pg' is for function tracing, it is not used
-> during linking as clang states.
+> Patch 2 adds a workaround for clang less than 13.0.0 in relation to the
+> mcount symbol name, which was "mcount" rather than "_mcount". This was
+> written as a separate patch so that it can be reverted when the minimum
+> clang version is bumped to clang 13.0.0.
 >
-> These flags could be removed/filtered to fix the warnings but it is
-> easier to just match the rest of the kernel and use $(LD) directly for
-> linking. See commits
+> Patch 3 avoids a build error when -fpatchable-function-entry is not
+> available, which is the case with clang less than 13.0.0. This will make
+> dynamic ftrace unavailable but all of the other function tracing should
+> work due to the prescence of the previous patch.
 >
->   fe00e50b2db8 ("ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO")
->   691efbedc60d ("arm64: vdso: use $(LD) instead of $(CC) to link VDSO")
->   2ff906994b6c ("MIPS: VDSO: Use $(LD) instead of $(CC) to link VDSO")
->   2b2a25845d53 ("s390/vdso: Use $(LD) instead of $(CC) to link vDSO")
+> I am hoping this series can go in as fixes for 5.12, due to patch 3, but
+> if not, they can always be backported (patches 1 and 2 are already
+> marked for stable).
 >
-> for more information.
+> This series has been build tested with gcc-8 through gcc-10 and clang-11
+> through clang-13 with defconfig and nommu_virt_defconfig plus
+> CONFIG_FTRACE=y and CONFIG_FUNCTION_TRACER=y then boot tested under
+> QEMU.
 >
-> The flags are converted to linker flags and '--eh-frame-hdr' is added to
-> match what is added by GCC implicitly, which can be seen by adding '-v'
-> to GCC's invocation.
+> Cheers,
+> Nathan
 >
-> Additionally, since this area is being modified, use the $(OBJCOPY)
-> variable instead of an open coded $(CROSS_COMPILE)objcopy so that the
-> user's choice of objcopy binary is respected.
+> Nathan Chancellor (3):
+>   scripts/recordmcount.pl: Fix RISC-V regex for clang
+>   riscv: Workaround mcount name prior to clang-13
+>   riscv: Select HAVE_DYNAMIC_FTRACE when -fpatchable-function-entry is
+>     available
 >
-> Link: https://github.com/ClangBuiltLinux/linux/issues/803
-> Link: https://github.com/ClangBuiltLinux/linux/issues/970
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  arch/riscv/kernel/vdso/Makefile | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index 71a315e73cbe..ca2b40dfd24b 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -41,11 +41,10 @@ KASAN_SANITIZE := n
->  $(obj)/vdso.o: $(obj)/vdso.so
->
->  # link rule for the .so file, .lds has to be first
-> -SYSCFLAGS_vdso.so.dbg = $(c_flags)
->  $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
->  	$(call if_changed,vdsold)
-> -SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> -	-Wl,--build-id=sha1 -Wl,--hash-style=both
-> +LDFLAGS_vdso.so.dbg = -shared -s -soname=linux-vdso.so.1 \
-> +	--build-id=sha1 --hash-style=both --eh-frame-hdr
->
->  # We also create a special relocatable object that should mirror the symbol
->  # table and layout of the linked DSO. With ld --just-symbols we can then
-> @@ -60,13 +59,10 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
->
->  # actual build commands
->  # The DSO images are built using a special linker script
-> -# Add -lgcc so rv32 gets static muldi3 and lshrdi3 definitions.
->  # Make sure only to export the intended __vdso_xxx symbol offsets.
->  quiet_cmd_vdsold = VDSOLD  $@
-> -      cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
-> -                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
-> -                   $(CROSS_COMPILE)objcopy \
-> -                           $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
-> +      cmd_vdsold = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
-> +                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
->                     rm $@.tmp
->
->  # Extracts symbol offsets from the VDSO, converting them into an assembly file
+>  arch/riscv/Kconfig              |  2 +-
+>  arch/riscv/include/asm/ftrace.h | 14 ++++++++++++--
+>  arch/riscv/kernel/mcount.S      | 10 +++++-----
+>  scripts/recordmcount.pl         |  2 +-
+>  4 files changed, 19 insertions(+), 9 deletions(-)
 
-Thanks, this is on for-next.
+Thanks, these are on for-next.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/mhng-8efacd63-c6b5-469b-9c64-2b8092f0d3e3%40palmerdabbelt-glaptop.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/mhng-fbfe4121-4626-4641-b596-d027d6cfc50c%40palmerdabbelt-glaptop.
