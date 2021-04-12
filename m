@@ -1,139 +1,145 @@
-Return-Path: <clang-built-linux+bncBDBLP5PQSQLRBFHOZ6BQMGQEZML2FPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDBLP5PQSQLRBANH2CBQMGQE6AJCYHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8ECD635BAD9
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Apr 2021 09:30:29 +0200 (CEST)
-Received: by mail-ot1-x337.google.com with SMTP id a20sf6136278otd.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Apr 2021 00:30:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618212628; cv=pass;
+Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7941935C183
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Apr 2021 11:31:46 +0200 (CEST)
+Received: by mail-oi1-x23d.google.com with SMTP id 17-20020aca12110000b0290117886f0d20sf2850319ois.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Apr 2021 02:31:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618219905; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BdycH/gDVkwWoSKNm0AmM9qe5SjRxqkUQPBoKJw76OK3TjO6AuXZoBlbHvaEoP944j
-         ngMPiu/NOAv+Aau9mNJ5Lb/JPiddah95yNEDXRa7oXHGpO09ViEPd5QLmeRVnawb3n4d
-         2FdohbiwZzFE3FvcfG39PY9DuXFDg4PZ4uFfA2Ge2MMpCBWnHlGwmdEcMTBrDz5WatBM
-         366z6FtLM/v7C5DGqk32kzhxIx0iLjeYeprbaamtuvDD9O4BcZbFJEvEbLOiRyj/Jv+k
-         /yO6yNdWEPgc665x4GCm31lH2U+WlUTR/gf4/s+5ITPUXY4qHPrdHiK2zRjdGXkxe3x3
-         DElg==
+        b=XIpIz9KTin1YJoKmtlzh64Du34EZP8cG0z/P1d09TFK+TSNH/pz5SZbUhOENDv/9eL
+         IZOnQUJ0T8zhdEZzWqyHExNt1jSAMzaIC+n6VG8n/kFEC+VZbMUt9I05r+vei0Tbu+lj
+         LTCNVPZ/V70/2gjcZ4NtwOoqUEH4O66rFSGRyVZr2zCXbCwXvWI346CM3bDkOMEv4zvp
+         Ko+2/BAyQJAGUAYoa+MSpYaOMFkbRZ5MYBjq23nk/0V85hGCQNeJbulls7SRsFJxGwZD
+         W/NhN7lJaif6D1+Su5k0hUFZurxYrb0gGR5m879lu0fdjfTaYva4rRKb2XRnqONvvyN0
+         DTMA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=TiSMtx7olLoQBe4sevuxiEA+QgxJZjbzBoWaz1p9HKw=;
-        b=UR1cu+40YYNX9b4gXi3uvFxYI+3z6zDw3ae1nqCtIl8nY4oBrZjOsrFEEmMpO/LyMP
-         GVS+Sw5S+7bBAXWYifyzvFAFPslNIRlP4/4i7EAQy/jPC8WA2OhIVyplTExlODwcbrNR
-         1F5VRgzfUv+BQDRP7UvUDIj2TfiTSlraiTau+PxSgc8Szn/Ma50oOUsEzOLF4mPGn1iy
-         OkSq5MA8Mg6eNulE1CI3dyoMpXXAof+aTwyVyXR0la/mOzX2BIpdHI+hK71vYLhh/giz
-         9BXq+atdOUwKrl9c3HLERcYkFwn09DfVW//HE9Jm7+wCEnZhco+k8bYlwIi2X9zL+akG
-         j7Lg==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=SaPnktexAUcsdPNPQMrGwbhFaa9j78pn7GUZHEQRzt0=;
+        b=o931YGNrJpSpZUXy2oRvOBMY01VsERt+iM+9FL6sMkwQwBI3/QyJ+VdSXybxBQlWcN
+         hYDGoFPYJC4Z3XIuiJ6Uf8QEcgUvSbklVb5j8Z9i58VkQXef+Lz8XmkMefmwhmANIVdZ
+         XyDoHKeJzNgGVzrVWtx2ag5MUBJCuleA36RQE2HO2y0Cl6NKxJX+h4rH6edu4Ew86IYu
+         nk7jGgdVXpOvrjOM1Ed7R4nsgUwk6UNkW4y8YCLet9I1gmD+i8l+W1YzuCehWUsetrxn
+         rojIY4sFR5Qrftb4ucKGRC2KZ2QbORyJuoR/HXT8qXpCozY23s2Yt69DJK+nYFL5WZgI
+         v9bg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=rwwCdvqy;
-       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HtwrWWFD;
+       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::431 as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=TiSMtx7olLoQBe4sevuxiEA+QgxJZjbzBoWaz1p9HKw=;
-        b=cB+hZxzhN7BYEyCONOykqVxj5Ticp6dQiqCp6GkuKWmzU8B2TvRbS0+5yqJHgAFD25
-         SqUP6lwdkMJHojDNrVFKYouITK1A1dh2jkA06PDxIyDpDj5NVm42n5dECN3dJw8EwMd6
-         Lyzu0BuieVzdmr/eaOmCvUnos1ujfe9c0BuF1lRVUjJQ7EfUqppsA9lmWEOmDVIg5wnV
-         Qrsut6xfFrYg727OO4uQyrG0x90vZX4YuCGdwpuVibBUDCcHVbLFxLRAveW+Axy7TKTW
-         g8JUezRJZbdKIeScLVYMDRKxmmBsHSx80wvIIrEsTkP+wgpiuSXdmsoXNHrDVb84CGsc
-         IL0Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TiSMtx7olLoQBe4sevuxiEA+QgxJZjbzBoWaz1p9HKw=;
-        b=UUAlfRCPgdYB7X9B1Wio8x38A28ElQg8f7YODE/FyeL/pr+er/qkinambXSpn5dbiL
-         RRbTrZ06nHpKH35gFWa3PuX2IVx4xeGVmsEvM3axjRO5K2eaKD5M5EJgQ/52tJKJL3iL
-         AvWfjOfd9jdPx4cjLh5mcldPp586Trz0Cy8H941D+wBVMrhE07uj7x0r5XyXak65YlAE
-         y3rXkaga2KaoSretE1HdtKQ/DvtnMxMiUoJZhrZxSYUEl205e0oCzhtK78pXSBUVZnBO
-         JO6nJ/TaFCWB1NLldBowJvIMF2HkLFwg8sqjNYrlc0Od36RjP31CvxqV13eST4zg4Qrh
-         tkhw==
+        bh=SaPnktexAUcsdPNPQMrGwbhFaa9j78pn7GUZHEQRzt0=;
+        b=W5LsTb3Fl16LK3FVQRDrAs7XCx3iMO+oSBvIIB9bw53QOb3xKAmktn64CZEVXdsF5z
+         rw0eRSboYuGHeIrnLMxSy+Nq0H+07bJsTcAORsNBhH+v3Y1TbHkx2NXBdSfDjefUjqpH
+         uymCB03zVd+CSwlRQK/WMjJ9fLJNXUedzv2euZ3yGVqh1DhF7IBMG2IpZAxkfi5bS0Pd
+         gHAnpmo+Dcm5nnSEj68ELJD3txADhXcuFdXra/5jb+v/m4pYHgudbcM3I2A+z5C3PnkJ
+         ZrP3aALFvXx+0SkBjEz3c9yM+c7kT3+BVDSBmMu/aBicfESauhh4PwvmjEfZDlG4rykY
+         l8Aw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=SaPnktexAUcsdPNPQMrGwbhFaa9j78pn7GUZHEQRzt0=;
+        b=kaBGiHZAeGEqmUHhgomcr8Dl3PGGUSnCuK7ILqaVe6xOpb9nmUF3008GvyQ760Spts
+         G8In7HToYtTgMNspQHq6TKsLuDCL20FDvxQulHrf5gD1tGz3rZ6pSHxOh/l84CBmQgys
+         9ee+y0Mh+pYjaB5+JwM77xYPtjE/fWE1QdBtHdNh2+ciMoROu4vflTP/dtIVKbsqCDfy
+         LSSI+UuqahVI+oHiNauGkchC5yr8znJyWgsD9a/jv1Fvo34filSchEBqopmtJycbDFri
+         sgoeCiaqlXp3/cl1hD5xevQKzCiLVNwTKa8GW/Rd682rQefySsJkzBkRKyszgdysa9Bo
+         FU9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=TiSMtx7olLoQBe4sevuxiEA+QgxJZjbzBoWaz1p9HKw=;
-        b=Dhuhoc9I4LBJ3Eyht5kd1MPX+tZ50hMyLb5pfoEuX99csg3eynxXbC17+K2XiVL0TB
-         AJIRZi+Oy+3qfNNT1nFOZm+Vh1CjV7v9dkTfw+cAE+EtjFarpH6mQh/Rlq8aoyePN11o
-         RzCmXWddRRhGljbQ2+24b31PjRQ7MzS/e9GhvZNJH61j2FYkKHRrZ1vwQ1b7q1Mi6kCv
-         wN0i17obR1VytQ/gmBcl5i1RAsI7FpZu4hJWLY6+KyPMxV8PbEhD276gGXCKKGjulkuz
-         gv/m1gi1De+2SDkIC6rL9KDkHCTk48BZ8+lwtGcHlneVjV28wDsV0zttcN2Pn4vthLqz
-         EvRA==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=SaPnktexAUcsdPNPQMrGwbhFaa9j78pn7GUZHEQRzt0=;
+        b=QHRGDuxzIfQuyYJsqbjF73OLCnjGEUBXPDcvcdzKKzgERLm7xrc/yWGHMiXWvWQGNV
+         U4RnH/k1leqz/RYR8IDAAIoPGlo+4hgZBdp/bAsRJ5vhSbcUvuuTHyNSuntTh7rgbfav
+         B6L+8Brsd1PKBsHpOspdXXF/8rwNad7UnA//DahuZdgpbgLs6FPSSvBCnyYmoN6lCpap
+         ZhGAJZ6512u4xub79SIzVPRJS/vsORIM4a3CctrwCbrO7+CNyx41OwK3ot9NEE3VJ4eH
+         o80rAvedyl6RLc65MMiqrclWDOrguZ05gZqM9m2tOKKHtnglRERlmBd3jsrmVxQThL60
+         sAzQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531w3rFflcl9BnwJx0z+L81r53PNywh6OE5sRdaTT5xssqGKr8fc
-	u+bLok9IqAYpNnQozwvgTtU=
-X-Google-Smtp-Source: ABdhPJyq5fY1YX1ELT6GSk98guseVzdF9yJacq8zzKE8//p2t4Zk5ql4owtQ+pmcb/FiBATquRJSmQ==
-X-Received: by 2002:a9d:22a9:: with SMTP id y38mr11823438ota.345.1618212628526;
-        Mon, 12 Apr 2021 00:30:28 -0700 (PDT)
+X-Gm-Message-State: AOAM533f1pqAZLf8Nw2higYn7y2F8TBFTQg8JNcUMxnhzQ5nYqY+q+Wu
+	+B8mSAAs5E7Pviu924hJl0g=
+X-Google-Smtp-Source: ABdhPJw6C9VvqWhaf3hwUuOnm228+0I/VKDqQz0Fu/TTLZMunEvzpgESMHyOe6fxI2RfjmdX1rsGhg==
+X-Received: by 2002:a9d:928:: with SMTP id 37mr17356243otp.98.1618219905439;
+        Mon, 12 Apr 2021 02:31:45 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:d088:: with SMTP id i8ls125171oor.4.gmail; Mon, 12 Apr
- 2021 00:30:28 -0700 (PDT)
-X-Received: by 2002:a4a:8247:: with SMTP id t7mr21706274oog.53.1618212628114;
-        Mon, 12 Apr 2021 00:30:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618212628; cv=none;
+Received: by 2002:aca:4a0f:: with SMTP id x15ls3436755oia.8.gmail; Mon, 12 Apr
+ 2021 02:31:45 -0700 (PDT)
+X-Received: by 2002:aca:3446:: with SMTP id b67mr6771239oia.129.1618219904987;
+        Mon, 12 Apr 2021 02:31:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618219904; cv=none;
         d=google.com; s=arc-20160816;
-        b=RIRkPV3/A08VBlJxkA3TJDKBG5kqqOYdyGssTR789dszh2AhbkUA41OdZKbEj4UQSl
-         ZJbkENHMT6tAT59Tpt09t6bwfO2auRW5eq7IC8Edt8EAAATaSAUY2BDZnbYYxIL2f+O6
-         2E+v4RpH6WN+sMqcUxYPEuZdJ+1rjhx97f1/Glc1psL2FUrk+tuRNF+8+ey9vN9B34HE
-         nM/22SznuCOrgcFUyS6psCmj+fZrYaUktkaS2NCN5PdzBOVFNI6pvwXDJ7iLQJuK/Rcc
-         6yijqPBIArAy6vX3aB/YrKxnF7zss9sFGbMRWJmySGJIBgNPVnHizHwIKAK6pqazA2f2
-         APWQ==
+        b=UbPUtPiM1TwMXfUgnYNcVvxOAz40RRj8Sk+ks84u5ge9/S3/ia1k8MiZRcFXfcsXEt
+         lBJqUk1A/+VQmc7SDkfWxqwFM6/89AM9v742xPZcHMFUNG1DivMFtPW1YItNka5faMgX
+         IPf0c9r8hluIZ+eQkeSij0xgqFn4C3kyquHtmnmclhLbHW70tCs+OAYuj6xfMKz2krGw
+         +HtDxN3aQNcQaJoP8ryvTQeZdGZ8vNSdBiisgfiKdcJpJXei/7tCC3rIdz7yOJddvQIX
+         3uin3rMHZJyq4MpPZYxvuRD8iTitcJZpj3RqnP7sCgNxHk+zA6UjEpQAvSgUY9YpWyBU
+         FCXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=brKZsiOT6iIS0G8tmBOgDjnt2x9imG0kYyprBpVpTOg=;
-        b=X9nhidMQeoOtnjE+ghIbzkuiWTQVAYebiSeAB2ttNXHzbzfpQBaV92lvGmBvt2FLJz
-         6layGgcgkI5g426NuQWg06x3xgacp/QxtqNlrhcixWvQULGkItTZHJh/OCz5GFXT+JSp
-         2DbttSLbR55g9MaMgT9iU82YU5O4rLMr4XOo/hKa8OVaz2Vdr2s78ua5xF5ibkvW+3KP
-         azAtSeXVYL3quRcINMaSN0DlyoMVbuCZbngJeH3iUZlCQ+J1xIdzaijfwkOQ7NQr8q4R
-         PhIWZZWP9fIbjFA8nJ8fhvz3w0AzpgH55qpEw+3BMhhUjZSs+nTrsIe7d/nAl3u8QCC5
-         jL/w==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=hnbI4HTxy5h+9wDfXPCcQHa6zzBSTTZbMcq2PaN8c1I=;
+        b=Lw0obzHV2YHeRA23XKVNlZZCpyF0q3gO0bw+w9k9z5E/U6NO2ddr71gR0o8G8rENtV
+         wns3i97Ml+xGydU1W9iApnCUm4/qMIZsxXgv638fDFG6gY3E+G7voKlV4VjYAaaLfvJr
+         x2fb3hMvf1l0srG3pJvmOwgSl4ranpVx3HfqOiQ+ozOQ+0MuPkhJJTtvsVgsD3hKVWoT
+         qEwIS8B30hM+NxRBtwVW6GzRLGNzTyj6xJYX6PNAOJU1ROExA4wGmZ1/tef6xelhAwMl
+         qKcGECdV4XRcSNU2vqV2+Xg5WJPSozOzPR1yenEDPJ0NHF+sMzkh5pwMYJ6tDcafWodN
+         8W8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=rwwCdvqy;
-       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HtwrWWFD;
+       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::431 as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x12e.google.com (mail-il1-x12e.google.com. [2607:f8b0:4864:20::12e])
-        by gmr-mx.google.com with ESMTPS id v31si539275ott.5.2021.04.12.00.30.28
+Received: from mail-pf1-x431.google.com (mail-pf1-x431.google.com. [2607:f8b0:4864:20::431])
+        by gmr-mx.google.com with ESMTPS id b17si767702ooq.2.2021.04.12.02.31.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Apr 2021 00:30:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) client-ip=2607:f8b0:4864:20::12e;
-Received: by mail-il1-x12e.google.com with SMTP id d2so10144570ilm.10
-        for <clang-built-linux@googlegroups.com>; Mon, 12 Apr 2021 00:30:28 -0700 (PDT)
-X-Received: by 2002:a05:6e02:1809:: with SMTP id a9mr1366918ilv.184.1618212626339;
- Mon, 12 Apr 2021 00:30:26 -0700 (PDT)
-MIME-Version: 1.0
-References: <1618202061-8243-1-git-send-email-dillon.minfei@gmail.com> <202104121526.gm7LWDAv-lkp@intel.com>
-In-Reply-To: <202104121526.gm7LWDAv-lkp@intel.com>
-From: dillon min <dillon.minfei@gmail.com>
-Date: Mon, 12 Apr 2021 15:29:50 +0800
-Message-ID: <CAL9mu0LDi2-aAU=cGDhBb6fkxWRKUNeRXcR-q1snJERm5ju=QQ@mail.gmail.com>
-Subject: Re: [PATCH] serial: stm32: optimize spin lock usage
-To: kernel test robot <lkp@intel.com>
-Cc: Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre TORGUE <alexandre.torgue@foss.st.com>, 
-	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
-	linux-serial@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        Mon, 12 Apr 2021 02:31:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::431 as permitted sender) client-ip=2607:f8b0:4864:20::431;
+Received: by mail-pf1-x431.google.com with SMTP id n38so8840949pfv.2
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Apr 2021 02:31:44 -0700 (PDT)
+X-Received: by 2002:a65:68d9:: with SMTP id k25mr9891189pgt.236.1618219904290;
+        Mon, 12 Apr 2021 02:31:44 -0700 (PDT)
+Received: from fmin-OptiPlex-7060.nreal.work ([137.59.103.165])
+        by smtp.gmail.com with ESMTPSA id r6sm10511879pgp.64.2021.04.12.02.31.40
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 12 Apr 2021 02:31:43 -0700 (PDT)
+From: dillon.minfei@gmail.com
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	lkp@intel.com
+Cc: linux-serial@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	dillon min <dillon.minfei@gmail.com>,
+	Gerald Baeza <gerald.baeza@foss.st.com>,
+	Erwan Le Ray <erwan.leray@foss.st.com>
+Subject: [PATCH v2] serial: stm32: optimize spin lock usage
+Date: Mon, 12 Apr 2021 17:31:38 +0800
+Message-Id: <1618219898-4600-1-git-send-email-dillon.minfei@gmail.com>
+X-Mailer: git-send-email 2.7.4
 X-Original-Sender: dillon.minfei@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=rwwCdvqy;       spf=pass
- (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12e
+ header.i=@gmail.com header.s=20161025 header.b=HtwrWWFD;       spf=pass
+ (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::431
  as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,152 +152,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi lkp,
+From: dillon min <dillon.minfei@gmail.com>
 
-Thanks for the reminder.
-I just noticed this from greg's mail. still waiting for his response
-about the proper solution for this patch.
-After that i will update version 2 for it.
+To avoid potential deadlock in spin_lock usage, use spin_lock_irqsave,
+spin_trylock_irqsave(), spin_unlock_irqrestore() in process context.
 
-Your test is really efficient, thanks.
+remove unused local_irq_save/restore call.
 
-Best regards,
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Gerald Baeza <gerald.baeza@foss.st.com>
+Cc: Erwan Le Ray <erwan.leray@foss.st.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: dillon min <dillon.minfei@gmail.com>
+---
+v2: remove unused code from stm32_usart_threaded_interrupt() according from
+    Greg's review.
 
-Dillon.
+ drivers/tty/serial/stm32-usart.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-On Mon, Apr 12, 2021 at 3:25 PM kernel test robot <lkp@intel.com> wrote:
->
-> Hi,
->
-> Thank you for the patch! Perhaps something to improve:
->
-> [auto build test WARNING on stm32/stm32-next]
-> [also build test WARNING on usb/usb-testing v5.12-rc7]
-> [cannot apply to tty/tty-testing next-20210409]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/dillon-minfei-gmail-com/serial-stm32-optimize-spin-lock-usage/20210412-123607
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/atorgue/stm32.git stm32-next
-> config: riscv-randconfig-r034-20210412 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 9829f5e6b1bca9b61efc629770d28bb9014dec45)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install riscv cross compiling tool for clang build
->         # apt-get install binutils-riscv64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/a0e81ae10c46f768437d61cd3a3dfd4d1250b375
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review dillon-minfei-gmail-com/serial-stm32-optimize-spin-lock-usage/20210412-123607
->         git checkout a0e81ae10c46f768437d61cd3a3dfd4d1250b375
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> drivers/tty/serial/stm32-usart.c:280:39: warning: variable 'flags' is uninitialized when used here [-Wuninitialized]
->                    spin_unlock_irqrestore(&port->lock, flags);
->                                                        ^~~~~
->    drivers/tty/serial/stm32-usart.c:217:24: note: initialize the variable 'flags' to silence this warning
->            unsigned long c, flags;
->                                  ^
->                                   = 0
->    1 warning generated.
->
->
-> vim +/flags +280 drivers/tty/serial/stm32-usart.c
->
->    211
->    212  static void stm32_usart_receive_chars(struct uart_port *port, bool threaded)
->    213  {
->    214          struct tty_port *tport = &port->state->port;
->    215          struct stm32_port *stm32_port = to_stm32_port(port);
->    216          const struct stm32_usart_offsets *ofs = &stm32_port->info->ofs;
->    217          unsigned long c, flags;
->    218          u32 sr;
->    219          char flag;
->    220
->    221          if (irqd_is_wakeup_set(irq_get_irq_data(port->irq)))
->    222                  pm_wakeup_event(tport->tty->dev, 0);
->    223
->    224          while (stm32_usart_pending_rx(port, &sr, &stm32_port->last_res,
->    225                                        threaded)) {
->    226                  sr |= USART_SR_DUMMY_RX;
->    227                  flag = TTY_NORMAL;
->    228
->    229                  /*
->    230                   * Status bits has to be cleared before reading the RDR:
->    231                   * In FIFO mode, reading the RDR will pop the next data
->    232                   * (if any) along with its status bits into the SR.
->    233                   * Not doing so leads to misalignement between RDR and SR,
->    234                   * and clear status bits of the next rx data.
->    235                   *
->    236                   * Clear errors flags for stm32f7 and stm32h7 compatible
->    237                   * devices. On stm32f4 compatible devices, the error bit is
->    238                   * cleared by the sequence [read SR - read DR].
->    239                   */
->    240                  if ((sr & USART_SR_ERR_MASK) && ofs->icr != UNDEF_REG)
->    241                          writel_relaxed(sr & USART_SR_ERR_MASK,
->    242                                         port->membase + ofs->icr);
->    243
->    244                  c = stm32_usart_get_char(port, &sr, &stm32_port->last_res);
->    245                  port->icount.rx++;
->    246                  if (sr & USART_SR_ERR_MASK) {
->    247                          if (sr & USART_SR_ORE) {
->    248                                  port->icount.overrun++;
->    249                          } else if (sr & USART_SR_PE) {
->    250                                  port->icount.parity++;
->    251                          } else if (sr & USART_SR_FE) {
->    252                                  /* Break detection if character is null */
->    253                                  if (!c) {
->    254                                          port->icount.brk++;
->    255                                          if (uart_handle_break(port))
->    256                                                  continue;
->    257                                  } else {
->    258                                          port->icount.frame++;
->    259                                  }
->    260                          }
->    261
->    262                          sr &= port->read_status_mask;
->    263
->    264                          if (sr & USART_SR_PE) {
->    265                                  flag = TTY_PARITY;
->    266                          } else if (sr & USART_SR_FE) {
->    267                                  if (!c)
->    268                                          flag = TTY_BREAK;
->    269                                  else
->    270                                          flag = TTY_FRAME;
->    271                          }
->    272                  }
->    273
->    274                  if (uart_handle_sysrq_char(port, c))
->    275                          continue;
->    276                  uart_insert_char(port, sr, USART_SR_ORE, c, flag);
->    277          }
->    278
->    279          if (threaded)
->  > 280                  spin_unlock_irqrestore(&port->lock, flags);
->    281          else
->    282                  spin_unlock(&port->lock);
->    283
->    284          tty_flip_buffer_push(tport);
->    285
->    286          if (threaded)
->    287                  spin_lock_irqsave(&port->lock, flags);
->    288          else
->    289                  spin_lock(&port->lock);
->    290  }
->    291
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+diff --git a/drivers/tty/serial/stm32-usart.c b/drivers/tty/serial/stm32-usart.c
+index b3675cf25a69..b1ba5e36e36e 100644
+--- a/drivers/tty/serial/stm32-usart.c
++++ b/drivers/tty/serial/stm32-usart.c
+@@ -1354,13 +1354,12 @@ static void stm32_usart_console_write(struct console *co, const char *s,
+ 	u32 old_cr1, new_cr1;
+ 	int locked = 1;
+ 
+-	local_irq_save(flags);
+ 	if (port->sysrq)
+ 		locked = 0;
+ 	else if (oops_in_progress)
+-		locked = spin_trylock(&port->lock);
++		locked = spin_trylock_irqsave(&port->lock, flags);
+ 	else
+-		spin_lock(&port->lock);
++		spin_lock_irqsave(&port->lock, flags);
+ 
+ 	/* Save and disable interrupts, enable the transmitter */
+ 	old_cr1 = readl_relaxed(port->membase + ofs->cr1);
+@@ -1374,8 +1373,7 @@ static void stm32_usart_console_write(struct console *co, const char *s,
+ 	writel_relaxed(old_cr1, port->membase + ofs->cr1);
+ 
+ 	if (locked)
+-		spin_unlock(&port->lock);
+-	local_irq_restore(flags);
++		spin_unlock_irqrestore(&port->lock, flags);
+ }
+ 
+ static int stm32_usart_console_setup(struct console *co, char *options)
+-- 
+2.7.4
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAL9mu0LDi2-aAU%3DcGDhBb6fkxWRKUNeRXcR-q1snJERm5ju%3DQQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1618219898-4600-1-git-send-email-dillon.minfei%40gmail.com.
