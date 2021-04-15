@@ -1,164 +1,121 @@
-Return-Path: <clang-built-linux+bncBCV4DH5YZYMBB5HG4CBQMGQEXVGU3AA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDL3KWR4EBRB57I4CBQMGQEGHKCZOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B190E36098C
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 14:37:09 +0200 (CEST)
-Received: by mail-yb1-xb3d.google.com with SMTP id w9sf2478559ybw.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 05:37:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618490228; cv=pass;
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B96F36099E
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 14:41:28 +0200 (CEST)
+Received: by mail-pg1-x53a.google.com with SMTP id q2-20020a6552420000b02901f9b22f2a79sf1310734pgp.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 05:41:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618490487; cv=pass;
         d=google.com; s=arc-20160816;
-        b=V+f4qITsrQlaMTW01Eq80JpXPDzqZUGoWhExYbH90DbgoQBTu83wuzA5q+Q8/lEC5p
-         17ISsv9Tx6EP70nUv1MMWaPRnBBT8FMQWl+uFJchgPvsE9oZ0gVkNFZonLsdrRcABR3O
-         lrlqwYF8OIXxaJ+uxOkomd5DRHrqPl5SL/8yaq142k74YanlcwLv3TRb0RnaOJhkyJzY
-         sSWZA+dZ34iZQkQfVhg40JNhfUqZPFIqyFTUT+6CMa2cojUeOqQUPcR/midDC3M1rLmD
-         zREEAXzBeAUcWSqkORx/5NR1+c6QcKX72GsI+A6N6aRrNxkug2upFbhr5CW0TM9CI+cV
-         m4aA==
+        b=l20r/nyuv1kq5f6beyPSikuZtH6Z95ix4AynWAgS7fcVOlTZmNWX9kLIWW1kNIQTSM
+         RQWu2KKnSlHfBGYcIyToPOLoWp3bFYNNxH+DxRAScACnZDNcag8qUcplbX96zhwl31e5
+         Z+2+Rol5KtFbmq7bvp9gmmVVR3NZHIPp70HxQbA5EMX8wD4MRBynJ9XTa5Z4vLcf45IR
+         jujn66jn1HxJPUUAQv7QfKxuuGIZmztxJRnpf+l7kUlWrr6RES99v6oYzCzTIoBcQsOS
+         9Rl8pl6fTYGyb6X19CYkCGGvoo/wcNqu26Hw6o5yTn03xUQ2/vibpDVXixWdtu3Em9mf
+         rQ8Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=u153XrqDS4CgBuC1nakcMOzzHwK4SrB4YlKIEdqizoM=;
-        b=iQH4HVSO+p4Ps6n6i9bydtnocskU9K6DrQXugMGVEEuBMySYvzaHyasNagj4KVISCN
-         6ulna1MjyDIXJrnbKOnbZx/ZMkgUCit6E5hdv39kns4yDxsxHaGrKF+BBoBHsVNIHYcn
-         SGJtylQKKnvX3O2CJbotMBDKJWMRA88n8KTXgIT2RuX/a3MhQ+Ux3sq0aVxkvaaBtt70
-         VnI12fmWGSdt0OQjX4xc7DQQf/mZROM3dep+AQbVA8tgmoqwqEx79+J53s0S2qgJJX5Q
-         y0zKIuvgTIQMMyUBTHNyiYjwxmFGs/RsdaPJIlBCv6YtwE4gHEcacgTBWRo582PzDyGn
-         Aigw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=e9WJavIEsfI81yYgaqtqhCSkWjaJ3LE2TynXnN/Q8uY=;
+        b=gpajFZwl9pFU9RCwTNHGDZw1XUmabUTY73GITsu9UEDTeLgWzzMMdGSfcXryVuLmGx
+         7j89ngsfy6mGn42LRbUlLc4mSVt6nqQWdrSB1rbreE0FsP0PocVhAZOntLMwpCcoeMxM
+         zkQdqq+kR99DCZFD2dtNroSl1fE9PGUT0P6yet7U+PFTq/L5cfDqYPUh15vPDUD0wQOm
+         xj2ebQjhH1w52azW4kOkBW7YrM8vmN759rnja8gSIOUE4o94hIu7JSiBbvz3ZpO7+7/9
+         bSo5CEnCbWKLiNu+W3erWQtxxkOwxDBiuR8Ozu7VgaBy9PssukCaRVoz4SdxLHNkdUVJ
+         Z+NQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=a3p1i+G2;
-       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       spf=pass (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=cmarinas@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=u153XrqDS4CgBuC1nakcMOzzHwK4SrB4YlKIEdqizoM=;
-        b=fZM8144NYRv3iBDDyGIerikX2DKmkP+NZsBaprubOZnhTdkmUWPnKpYujIOAm6vs1V
-         bQtVA4BNieZXWde/fFqYnwFAqS4n21hJZIfpXowaP6srM5emMbRMg8ZpEsb0mqRIeeRt
-         MgnYelRPeDPVGScYp9BSViSN6REFjZUWJ3ZXySyx2b9mUhZ7YK36x09Tu7po3r/+4HIy
-         k2mB2m7MxCX3acJDkyuFVfEpXh7EgNt3qqmNZWeCSbJTIRqgxTEQV+S5HNuHGdLtIYn7
-         5UmTkGRHH0HGgKoz+O+zqx3QHG3PRn6W9NOuGf95zCsC0Ur6eaPYWydx/zkO5ryuxn/Y
-         nVrg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=e9WJavIEsfI81yYgaqtqhCSkWjaJ3LE2TynXnN/Q8uY=;
+        b=gqk4dGKjrvMtbRB9qvoZcxdHpJF5yQ+x9hJXVUYRS7oaC2sSE/wxWdnqEySg/ScmTq
+         IlEMEwBSxTKtJfhZTH3IYwH6qlwD+rSMYH3uTWGM9ssT9yvMV82TMAyu3e2hf7QYyL88
+         x2KM9Nnh5OcU4NrPYN2CPdOoH7d5XhOCbFD3dvhTzbwm4EjD8MN1RsILsNxhl/RagNmm
+         oQUHnbloupvfmevzZ6rtGtvTZ8kUV1n5959dDVq++3ZhXPIPGhAjaawjzVhRSIdadfa2
+         9unZi/5+jwZMumCOhIUuZnHP72T3nFHSJgLadxm3qNLHEy0NfObL5Qwim9cJR8lftY0d
+         u6fA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=u153XrqDS4CgBuC1nakcMOzzHwK4SrB4YlKIEdqizoM=;
-        b=f3Zq2hIKAC5NHESxVOfjSB7j2Qa+M28qKsklJMIJP+jf5aUli3TZH9M4SAni5LsLZ2
-         MQ2+IngbLcK3Oz5oLV3FXAAPgEKq1ytYTkfRCWGJ/lzzlzqYuP9QlYF+UjObMlgvucnY
-         h9CiA/8zL8HzTmbR5J1YGQ5poRG/YBKkQ5noozNb8ZDjGLc47xV7KQWgch3WnwZS+3D+
-         WjdCRkTBGntH3JLFsGHXpm+1UyOTKO+6YWQPNkvxEq/ed4T1URcLSPTdYErEjJPJdwQb
-         M756k0AIsCSaMIM9tjvqNVH3PY/QajNgyhFqYlnn8IGQ95bGSDAw+PWIi1qTPMkH+dMK
-         JMMg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=e9WJavIEsfI81yYgaqtqhCSkWjaJ3LE2TynXnN/Q8uY=;
+        b=igkRBpggw87NwJ2I4RTJyVu51mVGxAhtI0a+0XHy9GHDIsbFmC+6Qdhaww5VDlqKM1
+         EHg7YU4coyT93bUfovPeEx1IIsHqkeNk7s5zyG6DOofQ/RrBom2gRowFEJd/DG6id5eS
+         ktEmmUcx6Sq7hmgZzUxc9G4qKRrk58L+WX0g2BCstZ9xRsqHg7X1CEgvRNtBLDo+cPuB
+         PcfzI4pv65q5MHsatASjrapmm+0FshyzY0V96Wiq2ru5Oi53C4D2uY/zWX0nfmvuwoHS
+         RYtfttVrdNdBKNfixvEwNhwhsIYRK+8Xg3Y6cmTzn1ZKgup2Zm/x23MWeAMf+jlSPagz
+         LEHw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533dWx65bR0lepAhY0gxigpH5DDboizM5Bim7HOU0mzqnakzNB9w
-	lkf7dCnipLAXAc277Q5YXKo=
-X-Google-Smtp-Source: ABdhPJw/4z6kcJwMoR92MUxRL0AsjzvQvt48YSPfD6uQ3pTm0AJ5jHdFU7LAQNbidv5EYNl1x4h0ew==
-X-Received: by 2002:a25:7d84:: with SMTP id y126mr4158633ybc.179.1618490228574;
-        Thu, 15 Apr 2021 05:37:08 -0700 (PDT)
+X-Gm-Message-State: AOAM533mCP8/pjR7o6mwClFf/xogf9/gCgYilPIiXa4+RkCiX2B9Vgtz
+	uVm8RfapSS8XFc4yS0UpeI0=
+X-Google-Smtp-Source: ABdhPJzkG53NO6KzahtcnjGe5RR+kza7sLqGaNWBzskwmwJrMYZ5KB6FPszDYmp21i+tst4e7z7RxA==
+X-Received: by 2002:a63:1425:: with SMTP id u37mr3186231pgl.227.1618490487198;
+        Thu, 15 Apr 2021 05:41:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:da84:: with SMTP id n126ls2535908ybf.3.gmail; Thu, 15
- Apr 2021 05:37:08 -0700 (PDT)
-X-Received: by 2002:a25:4044:: with SMTP id n65mr4349388yba.163.1618490228105;
-        Thu, 15 Apr 2021 05:37:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618490228; cv=none;
+Received: by 2002:a17:90a:4ec2:: with SMTP id v2ls3143893pjl.2.gmail; Thu, 15
+ Apr 2021 05:41:26 -0700 (PDT)
+X-Received: by 2002:a17:902:a587:b029:e7:347d:4872 with SMTP id az7-20020a170902a587b02900e7347d4872mr3648127plb.2.1618490486648;
+        Thu, 15 Apr 2021 05:41:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618490486; cv=none;
         d=google.com; s=arc-20160816;
-        b=RySTVd4k9NXMkONLlGiJV6EKYLSrE8J0dY/n4V0dqG3oYp00V+lXK+UgKtuVK05r6i
-         hs8Xn983RKezPuyUIWvzJRKcghh6WF4guoPisV/HmeCc5MP3hg0ypDUXIi4FIgBML9k3
-         14cdO0jM18weKjm9VANCoDAsPi9yXVhWQUI0lvxaWnP2xc4YPQ7BRMLQUhRrSN3HYwe+
-         J0JhR8PvDp+e841TgJ/7H2N+mKNsaFX1svSXY5r9sgfGY7YTCCs6cqSx7N0Y5cAP9YWV
-         8aEX5u76YaumDq6bsKlF8nHNNZNHE36qCf1kRD55zH6F2NaFkzdqzm12stcoZ30UNj1b
-         OnaQ==
+        b=HoY05RotAcj2ubjzbIIFRx0uNKhbwHekbjW+E/7+iYFII1Q4oEWdeYJyCTcDvTVYmX
+         /I016wzv6xbtKYUDvnxUihHF3wdCkDTUZysKAbZ7wnWj77Fd2WCcH5Rw/i2nmwVaRr1g
+         Wm690pJXOvHa9oVRHDz8YtaSkLmcx9Exa+eR7mJ0OHSeLjytUKP9GNtOxyb4emH6M6D1
+         kzijB0v36glR+TZWiV6d9xdWgb9StEx4VwQZOMnZogrwDcu3v4xUrd2+Vh4BykbvDYhJ
+         h4l5Zz5vkesv/AFb4ESwXidiqVaoDFDVe39py/cucrkKl9Cq+CQT4hMVO0zmx8l2938H
+         k45Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=d0itctMzBLcnqy3hAoT3WZvvdMlPZf4OOgZVRv6QQ0w=;
-        b=azJP7OyhgmO2oA5zdpYeaSXmfM0oQscJZhvGxhHoGlLobeE+lgPkHZTOm3rTTYTxF1
-         6SRaH4s3pXQKeKHL+GgTaiLg0y+ALaMYxfinFpyoKHTgb7pxdn8kLh2kWLPwYloKuC4o
-         IGM6ZaQXgK5WkoXRkdwZ0HHUKdccPLDa7Jpr6eu+liGPhz4efY8ertI812EgyJmqEO5R
-         YjtIjaGTJ19R8n/vMHB1xy6AMIwrPgMSXFa++6bIoSr2DNGJ3ytMuX3VWJhz9MZudNgR
-         ++yR0dzNjO6T3V6uo96UwimbcQCBsMiYPYV7uaMl2j6v9y0rcxdI1B7K3OpGBjyHx4W5
-         8hrg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=zwuMhoF4bMjCYWWyrxgFCU5JbsgJLyGf9YjNjhccfh0=;
+        b=h0HbvG7LR5ns9DmD9TeLK6FmM7TI7lmPzyNBSN1EDL+vKcLatWZXAjFEWC5xLl99lj
+         XTZFtmrUhz63i0Lz5XW0rsSwnucGwZUUGpRz8rLLvP9TYtPtrvLQLjyokYe60idjaPSe
+         hPF8uKfWRrnSiDSRztA89SZl5SrWGbg/MFQLU/rQeI14OgL3EZgLdHqpVn7Q4+pII+uN
+         WK5Te/a4iXsEC1ntH4TcfqYvjwfKyhuxsxteXkcewz74JsERcfYWLiz/xY+NBpkK5aWJ
+         WA8+bf0MgxWeQNf46YJR7AIEciMRLsVXYFoDHwCFYjQYEPwoSEvWU5idY52sSLpFjHgj
+         3VYQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=a3p1i+G2;
-       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id h188si214618ybh.5.2021.04.15.05.37.08
+       spf=pass (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=cmarinas@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=arm.com
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id p2si252899pli.3.2021.04.15.05.41.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 15 Apr 2021 05:37:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 13FCXxUV152646;
-	Thu, 15 Apr 2021 08:37:06 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 37xbqk6xsa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 15 Apr 2021 08:37:06 -0400
-Received: from m0098419.ppops.net (m0098419.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 13FCY29R153869;
-	Thu, 15 Apr 2021 08:37:05 -0400
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com [169.51.49.99])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 37xbqk6xrh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 15 Apr 2021 08:37:05 -0400
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
-	by ppma04ams.nl.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 13FCWBQY002976;
-	Thu, 15 Apr 2021 12:37:04 GMT
-Received: from b06avi18626390.portsmouth.uk.ibm.com (b06avi18626390.portsmouth.uk.ibm.com [9.149.26.192])
-	by ppma04ams.nl.ibm.com with ESMTP id 37u3n8uvmn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 15 Apr 2021 12:37:03 +0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
-	by b06avi18626390.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 13FCaddN30671210
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 15 Apr 2021 12:36:39 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 63188A405F;
-	Thu, 15 Apr 2021 12:37:01 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1BB71A4066;
-	Thu, 15 Apr 2021 12:37:01 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Thu, 15 Apr 2021 12:37:01 +0000 (GMT)
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: [PATCH v2 2/2] asm-generic/io.h: Silence -Wnull-pointer-arithmetic warning on PCI_IOBASE
-Date: Thu, 15 Apr 2021 14:37:00 +0200
-Message-Id: <20210415123700.3030728-3-schnelle@linux.ibm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210415123700.3030728-1-schnelle@linux.ibm.com>
-References: <20210415123700.3030728-1-schnelle@linux.ibm.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 15 Apr 2021 05:41:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 55BDB61166;
+	Thu, 15 Apr 2021 12:41:25 +0000 (UTC)
+Date: Thu, 15 Apr 2021 13:41:22 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: kernel test robot <lkp@intel.com>
+Cc: Mark Brown <broonie@kernel.org>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [arm64:for-next/misc 13/14] ld.lld: error: undefined symbol:
+ sve_get_vl
+Message-ID: <20210415124121.GC1015@arm.com>
+References: <202104150734.PulXU4BV-lkp@intel.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: UmDuanvdYNuPbojAaZkaWYTGbbjMHT-1
-X-Proofpoint-ORIG-GUID: quZWJ8VenqYngs18DpT62iEWgxkdwKdT
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-04-15_04:2021-04-15,2021-04-15 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
- priorityscore=1501 spamscore=0 suspectscore=0 phishscore=0
- lowpriorityscore=0 adultscore=0 mlxlogscore=999 bulkscore=0 malwarescore=0
- impostorscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2104060000 definitions=main-2104150084
-X-Original-Sender: schnelle@linux.ibm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=a3p1i+G2;       spf=pass (google.com:
- domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted
- sender) smtp.mailfrom=schnelle@linux.ibm.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=ibm.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202104150734.PulXU4BV-lkp@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: catalin.marinas@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=cmarinas@kernel.org;       dmarc=fail (p=NONE
+ sp=NONE dis=NONE) header.from=arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -171,212 +128,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When PCI_IOBASE is not defined, it is set to 0 such that it is ignored
-in calls to the readX/writeX primitives. This triggers clang's
--Wnull-pointer-arithmetic warning and will result in illegal accesses on
-platforms that do not support I/O ports if drivers do still attempt to
-access them.
+On Thu, Apr 15, 2021 at 07:13:41AM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/misc
+> head:   839157876f97fcc7ead0b62c9377bb50f75a3df9
+> commit: ef9c5d09797db874a29a97407c3ea3990210432b [13/14] arm64/sve: Remove redundant system_supports_sve() tests
+> config: arm64-randconfig-r036-20210414 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 9829f5e6b1bca9b61efc629770d28bb9014dec45)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm64 cross compiling tool for clang build
+>         # apt-get install binutils-aarch64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/?id=ef9c5d09797db874a29a97407c3ea3990210432b
+>         git remote add arm64 https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+>         git fetch --no-tags arm64 for-next/misc
+>         git checkout ef9c5d09797db874a29a97407c3ea3990210432b
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=arm64 
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 
-Make things explicit and silence the warning by letting inb() and
-friends fail with WARN_ONCE() and a 0xff... return in case PCI_IOBASE is
-not defined.
+Thanks for the report. That indeed triggers if CONFIG_ARM64_SVE is
+disabled. Proposed fix:
 
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
----
-v1 -> v2:
-- Instead of working around the warning with a uintptr_t PCI_IOBASE make inb()
-  and friends explicitly WARN_ONCE() and return 0xff... (Arnd)
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index f6cd89131dc3..9d433854a662 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -285,7 +285,7 @@ static void task_fpsimd_load(void)
+ 	WARN_ON(!system_supports_fpsimd());
+ 	WARN_ON(!have_cpu_fpsimd_context());
+ 
+-	if (test_thread_flag(TIF_SVE))
++	if (IS_ENABLED(CONFIG_ARM64_SVE) && test_thread_flag(TIF_SVE))
+ 		sve_load_state(sve_pffr(&current->thread),
+ 			       &current->thread.uw.fpsimd_state.fpsr,
+ 			       sve_vq_from_vl(current->thread.sve_vl) - 1);
+@@ -307,7 +307,7 @@ static void fpsimd_save(void)
+ 	WARN_ON(!have_cpu_fpsimd_context());
+ 
+ 	if (!test_thread_flag(TIF_FOREIGN_FPSTATE)) {
+-		if (test_thread_flag(TIF_SVE)) {
++		if (IS_ENABLED(CONFIG_ARM64_SVE) && test_thread_flag(TIF_SVE)) {
+ 			if (WARN_ON(sve_get_vl() != last->sve_vl)) {
+ 				/*
+ 				 * Can't save the user regs, so current would
 
- include/asm-generic/io.h | 55 +++++++++++++++++++++++++++++++++++++---
- 1 file changed, 51 insertions(+), 4 deletions(-)
-
-diff --git a/include/asm-generic/io.h b/include/asm-generic/io.h
-index c6af40ce03be..e6c549b678c4 100644
---- a/include/asm-generic/io.h
-+++ b/include/asm-generic/io.h
-@@ -440,10 +440,6 @@ static inline void writesq(volatile void __iomem *addr, const void *buffer,
- #endif
- #endif /* CONFIG_64BIT */
- 
--#ifndef PCI_IOBASE
--#define PCI_IOBASE ((void __iomem *)0)
--#endif
--
- #ifndef IO_SPACE_LIMIT
- #define IO_SPACE_LIMIT 0xffff
- #endif
-@@ -458,12 +454,17 @@ static inline void writesq(volatile void __iomem *addr, const void *buffer,
- #define _inb _inb
- static inline u8 _inb(unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	u8 val;
- 
- 	__io_pbr();
- 	val = __raw_readb(PCI_IOBASE + addr);
- 	__io_par(val);
- 	return val;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return ~0;
-+#endif
- }
- #endif
- 
-@@ -471,12 +472,17 @@ static inline u8 _inb(unsigned long addr)
- #define _inw _inw
- static inline u16 _inw(unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	u16 val;
- 
- 	__io_pbr();
- 	val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
- 	__io_par(val);
- 	return val;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return ~0;
-+#endif
- }
- #endif
- 
-@@ -484,12 +490,17 @@ static inline u16 _inw(unsigned long addr)
- #define _inl _inl
- static inline u32 _inl(unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	u32 val;
- 
- 	__io_pbr();
- 	val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
- 	__io_par(val);
- 	return val;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return ~0;
-+#endif
- }
- #endif
- 
-@@ -497,9 +508,13 @@ static inline u32 _inl(unsigned long addr)
- #define _outb _outb
- static inline void _outb(u8 value, unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	__io_pbw();
- 	__raw_writeb(value, PCI_IOBASE + addr);
- 	__io_paw();
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -507,9 +522,13 @@ static inline void _outb(u8 value, unsigned long addr)
- #define _outw _outw
- static inline void _outw(u16 value, unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	__io_pbw();
- 	__raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
- 	__io_paw();
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -517,9 +536,13 @@ static inline void _outw(u16 value, unsigned long addr)
- #define _outl _outl
- static inline void _outl(u32 value, unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	__io_pbw();
- 	__raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
- 	__io_paw();
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -606,7 +629,11 @@ static inline void outl_p(u32 value, unsigned long addr)
- #define insb insb
- static inline void insb(unsigned long addr, void *buffer, unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	readsb(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -614,7 +641,11 @@ static inline void insb(unsigned long addr, void *buffer, unsigned int count)
- #define insw insw
- static inline void insw(unsigned long addr, void *buffer, unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	readsw(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -622,7 +653,11 @@ static inline void insw(unsigned long addr, void *buffer, unsigned int count)
- #define insl insl
- static inline void insl(unsigned long addr, void *buffer, unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	readsl(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -631,7 +666,11 @@ static inline void insl(unsigned long addr, void *buffer, unsigned int count)
- static inline void outsb(unsigned long addr, const void *buffer,
- 			 unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	writesb(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -640,7 +679,11 @@ static inline void outsb(unsigned long addr, const void *buffer,
- static inline void outsw(unsigned long addr, const void *buffer,
- 			 unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	writesw(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -649,7 +692,11 @@ static inline void outsw(unsigned long addr, const void *buffer,
- static inline void outsl(unsigned long addr, const void *buffer,
- 			 unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	writesl(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
 -- 
-2.25.1
+Catalin
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210415123700.3030728-3-schnelle%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210415124121.GC1015%40arm.com.
