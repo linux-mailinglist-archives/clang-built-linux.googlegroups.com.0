@@ -1,145 +1,140 @@
-Return-Path: <clang-built-linux+bncBAABBEFF36BQMGQEKMW6BMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBAWW36BQMGQETBD6BQA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id B75943601D2
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 07:43:46 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id 5-20020a170902e9c5b02900eac913a9adsf7897483plk.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Apr 2021 22:43:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618465425; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id DAABB360349
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 09:28:03 +0200 (CEST)
+Received: by mail-vk1-xa3e.google.com with SMTP id b203-20020a1fb2d40000b02901c9714c9241sf1039753vkf.19
+        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 00:28:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618471683; cv=pass;
         d=google.com; s=arc-20160816;
-        b=szuvSmvycHpmbjfuMFt58Tsi/qtHPhd66EnIsjqIB1926U2VlP9SGoRIlFhk4QZ8Ok
-         F7K1t9sIohIg5yhzjlwYxYL2K7pgiAOZLvDoyBqe30AT0dS78T9hwzp/Ipsxa4LaOxzx
-         dUCI/Jp+7Bvmwc6tIa/iPQpPRz8nQdE9YfV7vciya70xBETw6IUnqPflYGekFgemY8DD
-         xI6rttCr6t+NmmVsysi7v41R4puLeiDw7Ml8Qv0QbFD0S6+OsjaMn4yBfZcqZ6odX61b
-         fFDCCmHU7DB/heQ1hVfZ4vzZgXLphoGGDqmejrxwCOU1nM+k/H7CBQtFg0ijRaURjCx1
-         zqfw==
+        b=mtBQgm0biTxyc1KuIXd1dkMQ9F+rL63JF3nSpVhysiFHt0JqfuggjQMlkMcVK8G+P3
+         PiWD3rn0KidxuGMbOmgNw9d0ZCAuOQlDWReyobE5UBLKbNcKuJR3yeQUIywGzDZ5BmZp
+         HMnsllbmdFFwzdgRN8GTL6yD6HjLSshrUG92PQa9clCi7ndGIQ0LukYiPkiQ7L/SpgSk
+         GoBiKOfCnIyTlGJ5qVQcWf8dMadwYLcFpGWoskjCD0rqQzvDe6x+SPRSlksRh5RNtXVW
+         mQtpluTAAmJiZM3K2HHE07vHZxhEyLSeu6e9VGh0cMLWRdvfHzLwtcIjU3ZUhtvBolhe
+         l8Xg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=+lu+D6xENS5Pis2WT/7YglSuGTmMqNLt8FPae0kBo90=;
-        b=D1jy9zVMvxUrbpIHgGaAZ7RfLwH9X5kHvrTbD/zMsNMQxDr5ynpmQVKavIAyEPgjeI
-         v876oY25d3XI6/hcXbL6/8f9lIIUjtVbn0GFiNQjdl4MOOtZSBmtccfjiAziXuKsiIWw
-         C///td3+zHEKvOMprvakxzAd0/lzE564kuJmFY+dQ0+vnsv196UBL8poLlkzXlLZJscy
-         GSPtGR5nw2ozJ3VLT2J6pBJB3UsIyx3SgNHqvXkupnhO7JPZtjpNMmlHQO95akf3aDVy
-         8JkdSYpUS+JrWuiAKipD1dOelb8cwp1NuI+1LilwVauyQMF9h5yIZG5rh9+naCrXq68g
-         wYtQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-filter:sender
+         :dkim-signature;
+        bh=CICl4g3oIlcIscqgSBKImxbuwJ5jEYKaqLbRZqbLX5I=;
+        b=iBJIxhSkwoPmBKblz+Jf9wY2wyF3qUTt0pqdYcKcJjJIqUUHZ1dCwD5iOOrn3vjB8S
+         i6jVHj2H6+Egt563QHBwE73nM8VgH9cG+7JMycToOtOe0MHCOrBL6DiAnoQfEMiYHfxs
+         19Y8raJhJ1ptlLH1yUz+/CD9xAPCoHkmzCHDgFRI8oYzY4kic8KAsWr+oTjWooNAqbDM
+         y+QylBritw6rdDcfTpVmreWYPl8ojeUSO2J/Gz4ZvvSPSwXg61/sSK6fgOV9uAUi5fzj
+         RbEVlom1oRb9db/lvBhCh4QdQHh2N2bu1tzjOMHygAmN+mHnLsOqlHLVAVgFEAnNiiI7
+         XSdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@email.cn header.s=dkim header.b=NfasCB3w;
-       spf=pass (google.com: domain of bobwxc@email.cn designates 43.250.32.153 as permitted sender) smtp.mailfrom=bobwxc@email.cn
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=N517H+eX;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=+lu+D6xENS5Pis2WT/7YglSuGTmMqNLt8FPae0kBo90=;
-        b=D0e52oYSCs2FZYJal1v4AgmX8agPE+FE2iEmWalQkNxgtHLwduKigyTmx52eh+1gXy
-         Q+5IOpFY60fDNpNtyu4ZZEFS+8fy0oj+5BxORqONpX4QBvV24kRX+2xVgzEEYKqHBrWK
-         HYtoyoq4i6Dl13r9wQWU56CLdllLKeLLQJqqQHnwxtR8YY4yhLOuUOsxzg/P7ddiOZDU
-         MVMrWT2x3H8hpDAEADJyiaOP4zbcf55W9xE5O3fNyEldPtgiYbbM6JlyCQazBLOrBrIU
-         ErEKsxCWIq+MeR3lULNXYNXTUAgmc5X7xquMiXuUyn3cWLwT4xkClx0h0VTo2oIMeKja
-         WXXA==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=CICl4g3oIlcIscqgSBKImxbuwJ5jEYKaqLbRZqbLX5I=;
+        b=KDr/ILnX6VsbyJ/6u3XbwcbjtuGoSU4rb9jHnuSpQniB0e5hTnkfM27QAl/3YSS9Wl
+         NjbKJhlRReud6LTY3C1l+aWYtLBQA+Sst+Ez/DbpiUhrgoHNZAesU39EarutVh1RW/BR
+         GfBQp8UnRe5tbcxApJGoEV+fko1tKZiYtGSEV5qYtt6+XOFufneK+V6Ig0FfKTNVww9d
+         fcVWuO+MUCCtKHN5nOxj8NWGQuQNkx3nVdvoPZ5KTXJzylcQLLcmCvxPeca3kqTlcUB/
+         TEEhwscbr9ZmDpyzSiNwD0mfaMgkkNbvpKGgd9DIurpWxpA20g87zuP2hDP9JkdQGSZ0
+         Sq2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
+         :message-id:in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+lu+D6xENS5Pis2WT/7YglSuGTmMqNLt8FPae0kBo90=;
-        b=GKlDJsoJ0xjvQz0ncv5Y1u4iZnTo1wzNpfBwg8sfSfdyA2Rh6H3gpaeVqzNDUEj7fB
-         6EiqDkGX6LVTHaEzexQvCAvk2LUEuRVlMbGcLwdyJsiL6OQk+XGac34onGW+rMkcXc9Z
-         M+0yr45s3lLr/s0/8inKeuYl3XUFD7oPr8OtDtqaTChVSDl8MPP4TpTkNmmjNo1OJMd2
-         mVh3A4FLHNDzxrT1TkkOwWZl5dqUDeJS8i3KnZv+CkAzJyeZ6xYAR5Q9k9srvfu2nMYO
-         jOMedDNLVnX4zl/6ywli1LKJG9myh7L/IbS3vP9K8ZJTN+0++H+SlWaa4oczB/8qYnYF
-         +SOw==
+        bh=CICl4g3oIlcIscqgSBKImxbuwJ5jEYKaqLbRZqbLX5I=;
+        b=aiVfpoHNRPZEXsZ7smDS0192NTQD2z8h5KK5ZxKSY4tYTWMJA187ovOn8/jBjJayfW
+         tXhVGIaU6senTYBvM/YtMbuolIfXOUj/4UF6D10oHv41ZOx4GZSf1WeGgIRu/mvigRmJ
+         /78eIi2xN/CHSfhV9Ox+kC7Kdr+LyWhJ4Qx86d4CwyO6YBJSV3aVdllDJrWClGGdC4U/
+         7GaghO3vXqiRtoksaTZ1qRLDNnvYSrEi0nPxNHGjAit7y5D9tsh5YIE2cembuR3HQfpu
+         5hFTq1kuy1gA5HqZTITPRD0bvJRArSzkwjJMMtnYgcAPSIWbwB1Q0G6lxqXpg9m7/X/Y
+         t9XQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53259udO/0gL5PAUnh/0BTH/TyF57hDjLnJe04M+JwRwJHuFrl+/
-	HbSEvXcjy5+m/gaeHgOIJUo=
-X-Google-Smtp-Source: ABdhPJwTdIF3q+Tb2UeV/N+9vMPVbqE31Ya6ghfaD+Z7DYN6fT2rVlvh5jN18Tg8BF8zeViyMTF7Vw==
-X-Received: by 2002:a17:90b:30c6:: with SMTP id hi6mr1950314pjb.26.1618465425477;
-        Wed, 14 Apr 2021 22:43:45 -0700 (PDT)
+X-Gm-Message-State: AOAM532Z7kQf/PE5hGQH3qav7u9D49mr15PRibyZ+HhofgT5G3yCBvYn
+	wGWvvPV0SoCLiK/X6wSoemk=
+X-Google-Smtp-Source: ABdhPJwuTc1i307gfrZGi/GDslwKcJ2VME26j9ckhtO4a+/APPMIm4t+Xb7mUp2h+TsNopNX1bkeGw==
+X-Received: by 2002:a67:e40b:: with SMTP id d11mr978836vsf.23.1618471682959;
+        Thu, 15 Apr 2021 00:28:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:da8a:: with SMTP id j10ls224506plx.2.gmail; Wed, 14
- Apr 2021 22:43:44 -0700 (PDT)
-X-Received: by 2002:a17:90b:1114:: with SMTP id gi20mr1999067pjb.23.1618465424400;
-        Wed, 14 Apr 2021 22:43:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618465424; cv=none;
+Received: by 2002:a05:6102:2155:: with SMTP id h21ls726837vsg.4.gmail; Thu, 15
+ Apr 2021 00:28:02 -0700 (PDT)
+X-Received: by 2002:a67:2f90:: with SMTP id v138mr3705vsv.23.1618471682423;
+        Thu, 15 Apr 2021 00:28:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618471682; cv=none;
         d=google.com; s=arc-20160816;
-        b=dKWpzpU9fRtMvzVwRh9x1hX8JlW1m32KD1hk5+IEo/j9AfELK7PFVRLT6WodwE8vrw
-         CmAquLlvLHmhknLarcHqdBl9zyDX5HtSL2LGrJFg9uejjc46Bv1PqkHVlDyyi2x4jbmi
-         xUotZYNQsBkMj6ShUeYk5Da8bqyzCPoZWlPRTnLQu+WVYFd3u+LIv1uNRPhdLr3lH57k
-         kj5NVaxi23mwFlQl2xPsZ2NQozgDs073VQFBQozyaPkrsNw9xzg5dBlYRR7Mzbnm5eDL
-         znU95ykrgdGGjPOnScP9REMYbc1mLUnSWIs3Pwut4AuaYBGwW25lzf+k04TAQGKiBiZ5
-         rSGw==
+        b=o2HkQXWUVg+z58yUy9Q+IlY8z+bUfOAR1AzVNCgBukuqYYd8NW6PUGBSP2/VOrv20a
+         0afgBBP8c3Ke15Zg2eLEgoQ8pCY0XCh72g6SvEb733hmwhGGeBWsG+gLIJpLVyZeEh+1
+         fqpqH63QIwzBbFyQXhFqsAaTaNc62FHDXhjKEMLRumuaO7fshBpVoUniVLO1kq9ARXU1
+         QX9cVAP6mKB/PMnUkrZinCsbAq8HgypeRJQhbj/ANpA5R3SCXayj3Ha7Xbe0+Bsa6NGk
+         6uwTreadmUUu3FQWBi8HG6INw0jseT8HDJUwLp0DVLaPuNCqGuiQErA/VwAINuWXeEHA
+         IzwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-transfer-encoding
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=TnofacMngmvyhgpLwBBoo33sCnGoAiiVSInaqz0ZoxI=;
-        b=MN0H4XfkG4fiDjQWKyrNR2nNMFPbHL1rtOweQf0cZ91MghuNe6/sFGfi1GNVUpFIRL
-         V/Hig0C4gM8mtm/YCy0MqGWJ2/i9SvidsJF3O2JWiFWpoCNMJ4cGkhTuEP4R7oa2iLHh
-         /a/15Z5vR73UwYS7LsX16MD1jXgc520iwYMluv8bExTczCtSsBcCQsXXktr2513YQD2a
-         ATaf5KkCZIyXyOc8GOIglRkM0v3WlimL8ZHWCmjsQKtgFFr++09DmAmPaxVoIH9AvCPT
-         mv/42BVr1UARCc9SUCSV97Q0fYiWRhGTt6CC7zgaGa0jlQ3Lk+AwT6nYQ2Y3n7MLoZr4
-         FtIw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=S3fDVUSMdnf8V+kxnVMGDGkdp8jWRQNGgMv5wUjnHkc=;
+        b=Xy1E/XWmahJz9ZQaUMRsCKe11er6045zedRyQ/PNaIUC47xUEYI9qF67U+nRPciRrh
+         uQY32B5uBrkFi6e7mqG73SJcJzJ7roqAFaYG9hsuMNlAT1TbFQk4V3R6NOAmsfUlNSR6
+         8TK+JB5yFTpr4ac3u2/fu+iqBXxllwXhjcQ4OqHR/Zozqo6T1AegVHs0018PnrQkIOpW
+         nbGi0UrOyjXusmuNwfTveNkQgRHOOwwSpVSITwr4LZ9go8EYPnAJr/UVGY2EGTg68W2F
+         NDDBWrgZ+oMKjwFmIzzafhPb2hXokUEmbG4X4lt1dYH14k/e3sBhaIUyhWek38wcGNXc
+         7Hdw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@email.cn header.s=dkim header.b=NfasCB3w;
-       spf=pass (google.com: domain of bobwxc@email.cn designates 43.250.32.153 as permitted sender) smtp.mailfrom=bobwxc@email.cn
-Received: from email.cn (m32-153.88.com. [43.250.32.153])
-        by gmr-mx.google.com with ESMTPS id q5si96258pfs.5.2021.04.14.22.43.43
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=N517H+eX;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
+        by gmr-mx.google.com with ESMTPS id o198si145791vkc.1.2021.04.15.00.28.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Wed, 14 Apr 2021 22:43:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bobwxc@email.cn designates 43.250.32.153 as permitted sender) client-ip=43.250.32.153;
-Received: from bobwxc.top (unknown [120.238.248.129])
-	by v_coremail2-frontend-2 (Coremail) with SMTP id GiKnCgAnsyNq0ndgDclwAA--.2932S2;
-	Thu, 15 Apr 2021 13:43:08 +0800 (CST)
-Date: Thu, 15 Apr 2021 13:43:06 +0800
-From: Wu XiangCheng <bobwxc@email.cn>
-To: Alex Shi <alexs@kernel.org>, Bernard Zhao <bernard@vivo.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, YanTeng Si <sterlingteng@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH v6] docs/zh_CN: add translations in zh_CN/dev-tools/gcov
-Message-ID: <20210415054304.GA26689@bobwxc.top>
-References: <20210414082316.15160-1-bernard@vivo.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 15 Apr 2021 00:28:02 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
+Received: from localhost.localdomain (133-32-232-101.west.xps.vectant.ne.jp [133.32.232.101]) (authenticated)
+	by conuserg-12.nifty.com with ESMTP id 13F7REfK011485;
+	Thu, 15 Apr 2021 16:27:15 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 13F7REfK011485
+X-Nifty-SrcIP: [133.32.232.101]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: Janosch Frank <frankja@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@de.ibm.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Andrii Nakryiko <andrii@kernel.org>,
+        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+        Daniel Borkmann <daniel@iogearbox.net>, Harish <harish@linux.ibm.com>,
+        John Fastabend <john.fastabend@gmail.com>,
+        KP Singh <kpsingh@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Paolo Bonzini <pbonzini@redhat.com>, Paul Mackerras <paulus@samba.org>,
+        Shuah Khan <shuah@kernel.org>, Song Liu <songliubraving@fb.com>,
+        Yonghong Song <yhs@fb.com>, bpf@vger.kernel.org,
+        clang-built-linux@googlegroups.com, kvm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org
+Subject: [PATCH 2/2] tools: do not include scripts/Kbuild.include
+Date: Thu, 15 Apr 2021 16:27:00 +0900
+Message-Id: <20210415072700.147125-2-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.27.0
+In-Reply-To: <20210415072700.147125-1-masahiroy@kernel.org>
+References: <20210415072700.147125-1-masahiroy@kernel.org>
 MIME-Version: 1.0
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=N517H+eX;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: base64
-In-Reply-To: <20210414082316.15160-1-bernard@vivo.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CM-TRANSID: GiKnCgAnsyNq0ndgDclwAA--.2932S2
-X-Coremail-Antispam: 1UD129KBjvAXoW3KFyxKFW7Ww4rZw1fCF4fGrg_yoW8Jr4xAo
-	W0vw4Fkw47CF43AF1rGrW7JryUCFsF9FZrAw43Krn8W34UtFyfXa18Aw15K34YvrZxK3ZI
-	qr9xXrWfJw4DJFnrn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UjIYCTnIWjp_UUU5G7k0a2IF6w1UM7kC6x804xWl1xkIjI8I6I8E6xAIw20EY4v2
-	0xvaj40_Wr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7
-	IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vE
-	x4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262
-	IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E74AGY7Cv6cx2
-	6F4UJr1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY02Avz4vE14v_GrWl42
-	xK82IYc2Ij64vIr41l42xK82IY6x8ErcxFaVAv8VWxJr1UJwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_Jw0_GFylIxkvb40E47kJMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_
-	Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rV
-	WUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4U
-	JbIYCTnIWIevJa73UjIFyTuYvjxU6NtxUUUUU
-X-Originating-IP: [120.238.248.129]
-X-CM-SenderInfo: pere453f6hztlloou0/
-X-Original-Sender: bobwxc@email.cn
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@email.cn header.s=dkim header.b=NfasCB3w;       spf=pass
- (google.com: domain of bobwxc@email.cn designates 43.250.32.153 as permitted
- sender) smtp.mailfrom=bobwxc@email.cn
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,217 +147,147 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-RnJvbTogQmVybmFyZCBaaGFvIDxiZXJuYXJkQHZpdm8uY29tPg0KDQpBZGQgbmV3IHpoIHRyYW5z
-bGF0aW9ucw0KKiB6aF9DTi9kZXYtdG9vbHMvZ2Nvdi5yc3QNCiogemhfQ04vZGV2LXRvb2xzL2lu
-ZGV4LnJzdA0KYW5kIGxpbmsgdGhlbSB0byB6aF9DTi9pbmRleC5yc3QNCg0KU2lnbmVkLW9mZi1i
-eTogQmVybmFyZCBaaGFvIDxiZXJuYXJkQHZpdm8uY29tPg0KUmV2aWV3ZWQtYnk6IFd1IFhpYW5n
-Q2hlbmcgPGJvYnd4Y0BlbWFpbC5jbj4NClJldmlld2VkLWJ5OiBBbGV4IFNoaSA8YWxleHNAa2Vy
-bmVsLm9yZz4NClJldmlld2VkLWJ5OiBGYW5ncnVpIFNvbmcgPG1hc2tyYXlAZ29vZ2xlLmNvbT4N
-ClNpZ25lZC1vZmYtYnk6IFd1IFhpYW5nQ2hlbmcgPGJvYnd4Y0BlbWFpbC5jbj4NCi0tLQ0KYmFz
-ZTogbGludXgtbmV4dA0KY29tbWl0IDI2OWRkNDJmNDc3NiAoImRvY3MvemhfQ046IGFkZCByaXNj
-diB0byB6aF9DTiBpbmRleCIpDQoNCkNoYW5nZXMgc2luY2UgVjU6DQoqIG1vZGlmaWVkIHNvbWUg
-d29yZHMgdW5kZXIgRmFuZ3J1aSBTb25nJ3MgYWR2aWNlcw0KKiByZXdyaXRlIGJlZ2lubmluZyBw
-YXJhZ3JhZ2ggc2luY2UgQmVybmFyZCBhbmQgRmFuZ3J1aSdzIGFkdmljZQ0KDQpDaGFuZ2VzIHNp
-bmNlIFY0Og0KKiBtb2RpZmllZCBzb21lIHdvcmRzIHVuZGVyIEFsZXggU2hpJ3MgYWR2aWNlcw0K
-DQpDaGFuZ2VzIHNpbmNlIFYzOg0KKiB1cGRhdGUgdG8gbmV3ZXN0IGxpbnV4LW5leHQNCiogZml4
-IGBgDQoqIGZpeCB0YWdzDQoqIGZpeCBsaXN0IGluZGVudA0KDQpDaGFuZ2VzIHNpbmNlIFYyOg0K
-KiBmaXggc29tZSBpbmFjY3VyYXRlIHRyYW5zbGF0aW9uDQoNCkNoYW5nZXMgc2luY2UgVjE6DQoq
-IGFkZCBpbmRleC5yc3QgaW4gZGV2LXRvb2xzIGFuZCBsaW5rIHRvIHRvIHpoX0NOL2luZGV4LnJz
-dA0KKiBmaXggc29tZSBpbmFjY3VyYXRlIHRyYW5zbGF0aW9uDQoNClRoYW5rcyENCg0KIC4uLi90
-cmFuc2xhdGlvbnMvemhfQ04vZGV2LXRvb2xzL2djb3YucnN0ICAgICB8IDI2NSArKysrKysrKysr
-KysrKysrKysNCiAuLi4vdHJhbnNsYXRpb25zL3poX0NOL2Rldi10b29scy9pbmRleC5yc3QgICAg
-fCAgMzUgKysrDQogRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vaW5kZXgucnN0ICAg
-IHwgICAxICsNCiAzIGZpbGVzIGNoYW5nZWQsIDMwMSBpbnNlcnRpb25zKCspDQogY3JlYXRlIG1v
-ZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2Rldi10b29scy9nY292
-LnJzdA0KIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9D
-Ti9kZXYtdG9vbHMvaW5kZXgucnN0DQoNCmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3RyYW5z
-bGF0aW9ucy96aF9DTi9kZXYtdG9vbHMvZ2Nvdi5yc3QgYi9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0
-aW9ucy96aF9DTi9kZXYtdG9vbHMvZ2Nvdi5yc3QNCm5ldyBmaWxlIG1vZGUgMTAwNjQ0DQppbmRl
-eCAwMDAwMDAwMDAwMDAuLjc1MTViNDg4YmM0ZQ0KLS0tIC9kZXYvbnVsbA0KKysrIGIvRG9jdW1l
-bnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vZGV2LXRvb2xzL2djb3YucnN0DQpAQCAtMCwwICsx
-LDI2NCBAQA0KKy4uIGluY2x1ZGU6OiAuLi9kaXNjbGFpbWVyLXpoX0NOLnJzdA0KKw0KKzpPcmln
-aW5hbDogRG9jdW1lbnRhdGlvbi9kZXYtdG9vbHMvZ2Nvdi5yc3QNCis6VHJhbnNsYXRvcjog6LW1
-5Yab5aWOIEJlcm5hcmQgWmhhbyA8YmVybmFyZEB2aXZvLmNvbT4NCisNCivlnKhMaW51eOWGheag
-uOmHjOS9v+eUqGdjb3blgZrku6PnoIHopobnm5bnjofmo4Dmn6UNCis9PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09DQorDQorZ2NvduWIhuaekOaguOW/g+aUr+aMgeWcqExpbnV4
-5YaF5qC45Lit5ZCv55SoR0ND55qE6KaG55uW546H5rWL6K+V5bel5YW3IGdjb3ZfIO+8jExpbnV4
-5YaF5qC4DQor6L+Q6KGM5pe255qE5Luj56CB6KaG55uW546H5pWw5o2u5Lya5LulZ2NvduWFvOWu
-ueeahOagvOW8j+WvvOWHuuWIsOKAnGdjb3bigJ1kZWJ1Z2Zz55uu5b2V5Lit77yM5Y+vDQor5Lul
-6YCa6L+HZ2NvdueahCBgYC1vYGAg6YCJ6aG577yI5aaC5LiL56S65L6L77yJ6I635b6X5oyH5a6a
-5paH5Lu255qE5Luj56CB6L+Q6KGM6KaG55uW546H57uf6K6h5pWw5o2uDQor77yI6ZyA6KaB6Lez
-6L2s5Yiw5YaF5qC457yW6K+R6Lev5b6E5LiL5bm25LiU6KaB5pyJcm9vdOadg+mZkO+8iTo6DQor
-DQorICAgICMgY2QgL3RtcC9saW51eC1vdXQNCisgICAgIyBnY292IC1vIC9zeXMva2VybmVsL2Rl
-YnVnL2djb3YvdG1wL2xpbnV4LW91dC9rZXJuZWwgc3BpbmxvY2suYw0KKw0KK+i/meWwhuWcqOW9
-k+WJjeebruW9leS4reWIm+W7uuW4puacieaJp+ihjOiuoeaVsOazqOmHiueahOa6kOS7o+eggeaW
-h+S7tuOAgg0KK+WcqOiOt+W+l+i/meS6m+e7n+iuoeaWh+S7tuWQju+8jOWPr+S7peS9v+eUqOWb
-vuW9ouWMlueahGdjb3bliY3nq6/lt6XlhbfvvIjmr5TlpoIgbGNvdl8g77yJ77yM5p2l5a6e546w
-DQor6Ieq5Yqo5YyW5aSE55CGTGludXjlhoXmoLjnmoTopobnm5bnjofov5DooYzmlbDmja7vvIzl
-kIzml7bnlJ/miJDmmJPkuo7pmIXor7vnmoRIVE1M5qC85byP5paH5Lu244CCDQorDQor5Y+v6IO9
-55qE55So6YCUOg0KKw0KKyog6LCD6K+V77yI55So5p2l5Yik5pat5q+P5LiA6KGM55qE5Luj56CB
-5piv5ZCm5bey57uP6L+Q6KGM6L+H77yJDQorKiDmtYvor5XmlLnov5vvvIjlpoLkvZXkv67mlLnm
-tYvor5Xku6PnoIHvvIzlsL3lj6/og73lnLDopobnm5bliLDmsqHmnInov5DooYzov4fnmoTku6Pn
-oIHvvIkNCisqIOWGheaguOacgOWwj+WMlumFjee9ru+8iOWvueS6juafkOS4gOS4qumAiemhuemF
-jee9ru+8jOWmguaenOWFs+iBlOeahOS7o+eggeS7juadpeayoeaciei/kOihjOi/h++8jA0KKyAg
-5piv5ZCm6L+Y6ZyA6KaB6L+Z5Liq6YWN572u77yJDQorDQorLi4gX2djb3Y6IGh0dHBzOi8vZ2Nj
-LmdudS5vcmcvb25saW5lZG9jcy9nY2MvR2Nvdi5odG1sDQorLi4gX2xjb3Y6IGh0dHA6Ly9sdHAu
-c291cmNlZm9yZ2UubmV0L2NvdmVyYWdlL2xjb3YucGhwDQorDQorDQor5YeG5aSHDQorLS0tLQ0K
-Kw0KK+WGheaguOaJk+W8gOWmguS4i+mFjee9rjo6DQorDQorICAgICAgICBDT05GSUdfREVCVUdf
-RlM9eQ0KKyAgICAgICAgQ09ORklHX0dDT1ZfS0VSTkVMPXkNCisNCivojrflj5bmlbTkuKrlhoXm
-oLjnmoTopobnm5bnjofmlbDmja7vvIzov5jpnIDopoHmiZPlvIA6Og0KKw0KKyAgICAgICAgQ09O
-RklHX0dDT1ZfUFJPRklMRV9BTEw9eQ0KKw0KK+mcgOimgeazqOaEj+eahOaYr++8jOaVtOS4quWG
-heaguOW8gOWQr+imhueblueOh+e7n+iuoeS8mumAoOaIkOWGheaguOmVnOWDj+aWh+S7tuWwuuWv
-uOeahOWinuWkp++8jA0KK+WQjOaXtuWGheaguOi/kOihjOS5n+S8muWPmOaFouS4gOS6m+OAgg0K
-K+WPpuWklu+8jOW5tuS4jeaYr+aJgOacieeahOaetuaehOmDveaUr+aMgeaVtOS4quWGheaguOW8
-gOWQr+imhueblueOh+e7n+iuoeOAgg0KKw0KK+S7o+eggei/kOihjOimhueblueOh+aVsOaNruWP
-quWcqGRlYnVnZnPmjILovb3lrozmiJDlkI7miY3lj6/ku6Xorr/pl646Og0KKw0KKyAgICAgICAg
-bW91bnQgLXQgZGVidWdmcyBub25lIC9zeXMva2VybmVsL2RlYnVnDQorDQorDQor5a6a5Yi25YyW
-DQorLS0tLS0tDQorDQor5aaC5p6c6KaB5Y2V54us6ZKI5a+55p+Q5LiA5Liq6Lev5b6E5oiW6ICF
-5paH5Lu26L+b6KGM5Luj56CB6KaG55uW546H57uf6K6h77yM5Y+v5Lul5Zyo5YaF5qC455u45bqU
-6LevDQor5b6E55qETWFrZWZpbGXkuK3lop7liqDlpoLkuIvnmoTphY3nva46DQorDQorLSDljZXn
-i6znu5/orqHljZXkuKrmlofku7bvvIjkvovlpoJtYWluLm/vvIk6Og0KKw0KKyAgICBHQ09WX1BS
-T0ZJTEVfbWFpbi5vIDo9IHkNCisNCistIOWNleeLrOe7n+iuoeafkOS4gOS4qui3r+W+hDo6DQor
-DQorICAgIEdDT1ZfUFJPRklMRSA6PSB5DQorDQor5aaC5p6c6KaB5Zyo5pW05Liq5YaF5qC455qE
-6KaG55uW546H57uf6K6h77yI5byA5ZCvQ09ORklHX0dDT1ZfUFJPRklMRV9BTEzvvInkuK3ljZXn
-i6zmjpLpmaQNCivmn5DkuIDkuKrmlofku7bmiJbogIXot6/lvoTvvIzlj6/ku6Xkvb/nlKjlpoLk
-uIvnmoTmlrnms5U6Og0KKw0KKyAgICBHQ09WX1BST0ZJTEVfbWFpbi5vIDo9IG4NCisNCivlkow6
-Og0KKw0KKyAgICBHQ09WX1BST0ZJTEUgOj0gbg0KKw0KK+atpOacuuWItuS7heaUr+aMgemTvuaO
-peWIsOWGheaguOmVnOWDj+aIlue8luivkeS4uuWGheaguOaooeWdl+eahOaWh+S7tuOAgg0KKw0K
-Kw0KK+ebuOWFs+aWh+S7tg0KKy0tLS0tLS0tDQorDQorZ2NvduWKn+iDvemcgOimgeWcqGRlYnVn
-ZnPkuK3liJvlu7rlpoLkuIvmlofku7Y6DQorDQorYGAvc3lzL2tlcm5lbC9kZWJ1Zy9nY292YGAN
-CisgICAgZ2NvduebuOWFs+WKn+iDveeahOaguei3r+W+hA0KKw0KK2BgL3N5cy9rZXJuZWwvZGVi
-dWcvZ2Nvdi9yZXNldGBgDQorICAgIOWFqOWxgOWkjeS9jeaWh+S7tjrlkJHor6Xmlofku7blhpnl
-haXmlbDmja7lkI7kvJrlsIbmiYDmnInnmoRnY29257uf6K6h5pWw5o2u5riFMA0KKw0KK2BgL3N5
-cy9rZXJuZWwvZGVidWcvZ2Nvdi9wYXRoL3RvL2NvbXBpbGUvZGlyL2ZpbGUuZ2NkYWBgDQorICAg
-IGdjb3blt6Xlhbflj6/ku6Xor4bliKvnmoTopobnm5bnjofnu5/orqHmlbDmja7mlofku7bvvIzl
-kJHor6Xmlofku7blhpnlhaXmlbDmja7lkI4NCisJICDkvJrlsIbmnKzmlofku7bnmoRnY29257uf
-6K6h5pWw5o2u5riFMA0KKw0KK2BgL3N5cy9rZXJuZWwvZGVidWcvZ2Nvdi9wYXRoL3RvL2NvbXBp
-bGUvZGlyL2ZpbGUuZ2Nub2BgDQorICAgIGdjb3blt6XlhbfpnIDopoHnmoTova/ov57mjqXmlofk
-u7bvvIjmjIflkJHnvJbor5Hml7bnlJ/miJDnmoTkv6Hmga/nu5/orqHmlofku7bvvInvvIzov5nk
-uKrmlofku7bmmK8NCisgICAg5ZyoZ2Nj57yW6K+R5pe25aaC5p6c6YWN572u5LqG6YCJ6aG5IGBg
-LWZ0ZXN0LWNvdmVyYWdlYGAg5pe255Sf5oiQ55qE44CCDQorDQorDQor6ZKI5a+55qih5Z2X55qE
-57uf6K6hDQorLS0tLS0tLS0tLS0tLS0NCisNCivlhoXmoLjkuK3nmoTmqKHlnZfkvJrliqjmgIHn
-moTliqDovb3lkozljbjovb3vvIzmqKHlnZfljbjovb3ml7blr7nlupTnmoTmlbDmja7kvJrooqvm
-uIXpmaTmjonjgIINCitnY2925o+Q5L6b5LqG5LiA56eN5py65Yi277yM6YCa6L+H5L+d55WZ55u4
-5YWz5pWw5o2u55qE5Ymv5pys5p2l5pS26ZuG6L+Z6YOo5YiG5Y246L295qih5Z2X55qE6KaG55uW
-546H5pWw5o2u44CCDQor5qih5Z2X5Y246L295ZCO6L+Z5Lqb5aSH5Lu95pWw5o2u5ZyoZGVidWdm
-c+S4reS8mue7p+e7reWtmOWcqOOAgg0KK+S4gOaXpui/meS4quaooeWdl+mHjeaWsOWKoOi9ve+8
-jOaooeWdl+WFs+iBlOeahOi/kOihjOe7n+iuoeS8muiiq+WIneWni+WMluaIkGRlYnVnZnPkuK3l
-pIfku73nmoTmlbDmja7jgIINCisNCivlj6/ku6XpgJrov4flr7nlhoXmoLjlj4LmlbBnY292X3Bl
-cnNpc3TnmoTkv67mlLnmnaXlgZznlKhnY2925a+55qih5Z2X55qE5aSH5Lu95py65Yi2OjoNCisN
-CisgICAgICAgIGdjb3ZfcGVyc2lzdCA9IDANCisNCivlnKjov5DooYzml7bvvIznlKjmiLfov5jl
-j6/ku6XpgJrov4flhpnlhaXmqKHlnZfnmoTmlbDmja7mlofku7bmiJbogIXlhpnlhaVnY2925aSN
-5L2N5paH5Lu25p2l5Lii5byD5bey5Y24DQor6L295qih5Z2X55qE5pWw5o2u44CCDQorDQorDQor
-57yW6K+R5py65ZKM5rWL6K+V5py65YiG56a7DQorLS0tLS0tLS0tLS0tLS0tLS0tDQorDQorZ2Nv
-dueahOWGheaguOWIhuaekOaPkuahqeaUr+aMgeWGheaguOeahOe8luivkeWSjOi/kOihjOaYr+Wc
-qOWQjOS4gOWPsOacuuWZqOS4iu+8jOS5n+WPr+S7pee8luivkeWSjOi/kA0KK+ihjOaYr+WcqOS4
-jeWQjOeahOacuuWZqOS4iuOAgg0KK+WmguaenOWGheaguOe8luivkeWSjOi/kOihjOaYr+S4jeWQ
-jOeahOacuuWZqO+8jOmCo+S5iOmcgOimgemineWklueahOWHhuWkh+W3peS9nO+8jOi/meWPluWG
-s+S6jmdjb3blt6XlhbcNCivmmK/lnKjlk6rph4zkvb/nlKjnmoQ6DQorDQorLi4gX2djb3YtdGVz
-dF96aDoNCisNCithKSDoi6VnY2926L+Q6KGM5Zyo5rWL6K+V5py65LiKDQorDQorICAgIOa1i+iv
-leacuuS4iumdomdjb3blt6XlhbfnmoTniYjmnKzlv4XpobvopoHot5/lhoXmoLjnvJbor5HmnLrl
-majkvb/nlKjnmoRnY2PniYjmnKznm7jlhbzlrrnvvIwNCisgICAg5ZCM5pe25LiL6Z2i55qE5paH
-5Lu26KaB5LuO57yW6K+R5py65ou36LSd5Yiw5rWL6K+V5py65LiKOg0KKw0KKyAgICDku47mupDk
-u6PnoIHkuK06DQorICAgICAgLSDmiYDmnInnmoRD5paH5Lu25ZKM5aS05paH5Lu2DQorDQorICAg
-IOS7jue8luivkeebruW9leS4rToNCisgICAgICAtIOaJgOacieeahEPmlofku7blkozlpLTmlofk
-u7YNCisgICAgICAtIOaJgOacieeahC5nY2Rh5paH5Lu25ZKMLmdjbm/mlofku7YNCisgICAgICAt
-IOaJgOacieebruW9leeahOmTvuaOpQ0KKw0KKyAgICDnibnliKvpnIDopoHms6jmhI/vvIzmtYvo
-r5XmnLrlmajkuIrpnaLnmoTnm67lvZXnu5PmnoTot5/nvJbor5HmnLrlmajkuIrpnaLnmoTnm67l
-vZXmnLrmnoTlv4XpobsNCisgICAg5a6M5YWo5LiA6Ie044CCDQorICAgIOWmguaenOaWh+S7tuaY
-r+i9r+mTvuaOpe+8jOmcgOimgeabv+aNouaIkOecn+ato+eahOebruW9leaWh+S7tu+8iOi/meaY
-r+eUsW1ha2XnmoTlvZPliY3lt6XkvZwNCisgICAg55uu5b2V5Y+Y6YePQ1VSRElS5byV6LW355qE
-77yJ44CCDQorDQorLi4gX2djb3YtYnVpbGRfemg6DQorDQorYikg6IulZ2Nvdui/kOihjOWcqOe8
-luivkeacuuS4ig0KKw0KKyAgICDmtYvor5XnlKjkvovov5DooYznu5PmnZ/lkI7vvIzlpoLkuIvn
-moTmlofku7bpnIDopoHku47mtYvor5XmnLrkuK3mi7fotJ3liLDnvJbor5HmnLrkuIo6DQorDQor
-ICAgIOS7jnN5c2Zz5Lit55qEZ2NvduebruW9leS4rToNCisgICAgICAtIOaJgOacieeahC5nY2Rh
-5paH5Lu2DQorICAgICAgLSDmiYDmnInnmoQuZ2Nub+aWh+S7tui9r+mTvuaOpQ0KKw0KKyAgICDo
-v5nkupvmlofku7blj6/ku6Xmi7fotJ3liLDnvJbor5HmnLrnmoTku7vmhI/nm67lvZXkuIvvvIxn
-Y2925L2/55SoLW/pgInpobnmjIflrprmi7fotJ3nmoQNCisgICAg55uu5b2V44CCDQorDQorICAg
-IOavlOWmguS4gOS4quaYr+ekuuS+i+eahOebruW9lee7k+aehOWmguS4izo6DQorDQorICAgICAg
-L3RtcC9saW51eDogICAg5YaF5qC45rqQ56CB55uu5b2VDQorICAgICAgL3RtcC9vdXQ6ICAgICAg
-5YaF5qC457yW6K+R5paH5Lu26Lev5b6E77yIbWFrZSBPPeaMh+Wumu+8iQ0KKyAgICAgIC90bXAv
-Y292ZXJhZ2U6IOS7jua1i+ivleacuuWZqOS4iumdouaLt+i0neeahOaVsOaNruaWh+S7tui3r+W+
-hA0KKw0KKyAgICAgIFt1c2VyQGJ1aWxkXSBjZCAvdG1wL291dA0KKyAgICAgIFt1c2VyQGJ1aWxk
-XSBnY292IC1vIC90bXAvY292ZXJhZ2UvdG1wL291dC9pbml0IG1haW4uYw0KKw0KKw0KK+WFs+S6
-jue8luivkeWZqOeahOazqOaEj+S6i+mhuQ0KKy0tLS0tLS0tLS0tLS0tLS0tLS0tDQorDQorR0ND
-5ZKMTExWTSBnY2925bel5YW35LiN5LiA5a6a5YW85a6544CCDQor5aaC5p6c57yW6K+R5Zmo5piv
-R0ND77yM5L2/55SoIGdjb3ZfIOadpeWkhOeQhi5nY25v5ZKMLmdjZGHmlofku7bvvIzlpoLmnpzm
-mK9DbGFuZ+e8luivkeWZqO+8jA0KK+WImeS9v+eUqCBsbHZtLWNvdl8g44CCDQorDQorLi4gX2dj
-b3Y6IGh0dHBzOi8vZ2NjLmdudS5vcmcvb25saW5lZG9jcy9nY2MvR2Nvdi5odG1sDQorLi4gX2xs
-dm0tY292OiBodHRwczovL2xsdm0ub3JnL2RvY3MvQ29tbWFuZEd1aWRlL2xsdm0tY292Lmh0bWwN
-CisNCitHQ0PlkoxDbGFuZyBnY2925LmL6Ze055qE54mI5pys5beu5byC55SxS2NvbmZpZ+WkhOeQ
-hueahOOAgg0KK2tjb25maWfkvJrmoLnmja7nvJbor5Hlt6Xlhbfpk77nmoTmo4Dmn6Xoh6rliqjp
-gInmi6nlkIjpgILnmoRnY2925qC85byP44CCDQorDQor6Zeu6aKY5a6a5L2NDQorLS0tLS0tLS0N
-CisNCivlj6/og73lh7rnjrDnmoTpl67popgxDQorICAgIOe8luivkeWIsOmTvuaOpemYtuauteaK
-pemUmee7iOatog0KKw0KK+mXrumimOWOn+WboA0KKyAgICDliIbmnpDmoIflv5fmjIflrprlnKjk
-uobmupDmlofku7bkvYbmmK/msqHmnInpk77mjqXliLDkuLvlhoXmoLjvvIzmiJbogIXlrqLliLbl
-jJbkuobpk77mjqXnqIvluo8NCisNCivop6PlhrPmlrnms5UNCisgICAg6YCa6L+H5Zyo55u45bqU
-55qETWFrZWZpbGXkuK3kvb/nlKggYGBHQ09WX1BST0ZJTEUgOj0gbmBgDQorICAgIOaIluiAhSBg
-YEdDT1ZfUFJPRklMRV9iYXNlbmFtZS5vIDo9IG5gYCDmnaXlsIbpk77mjqXmiqXplJnnmoTmlofk
-u7bmjpLpmaTmjokNCisNCivlj6/og73lh7rnjrDnmoTpl67popgyDQorICAgIOS7jnN5c2Zz5aSN
-5Yi255qE5paH5Lu25pi+56S65Li656m65oiW5LiN5a6M5pW0DQorDQor6Zeu6aKY5Y6f5ZugDQor
-ICAgIOeUseS6jnNlcV9maWxl55qE5bel5L2c5pa55byP77yM5p+Q5Lqb5bel5YW377yI5L6L5aaC
-Y3DmiJZ0YXLvvInlj6/og73ml6Dms5XmraPnoa7lnLDku44NCisgICAgc3lzZnPlpI3liLbmlofk
-u7bjgIINCisNCivop6PlhrPmlrnms5UNCisgICAg5L2/55SoIGBgY2F0YGAg6K+75Y+WIGBgLmdj
-ZGFgYCDmlofku7bvvIzkvb/nlKggYGBjcCAtZGBgIOWkjeWItumTvuaOpe+8jOaIluiAheS9v+eU
-qOmZhOW9lUINCisgICAg5Lit5omA56S655qE5py65Yi244CCDQorDQorDQor6ZmE5b2VQe+8mmNv
-bGxlY3Rfb25fYnVpbGQuc2gNCistLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KKw0KK+eUqOS6
-juWcqOe8luivkeacuuS4iuaUtumbhuimhueblueOh+WFg+aWh+S7tueahOekuuS+i+iEmuacrA0K
-K++8iOingSA6cmVmOmDnvJbor5HmnLrlkozmtYvor5XmnLrliIbnprsgYS4gPGdjb3YtdGVzdF96
-aD5gIO+8iQ0KKw0KKy4uIGNvZGUtYmxvY2s6OiBzaA0KKw0KKyAgICAjIS9iaW4vYmFzaA0KKw0K
-KyAgICBLU1JDPSQxDQorICAgIEtPQko9JDINCisgICAgREVTVD0kMw0KKw0KKyAgICBpZiBbIC16
-ICIkS1NSQyIgXSB8fCBbIC16ICIkS09CSiIgXSB8fCBbIC16ICIkREVTVCIgXTsgdGhlbg0KKyAg
-ICAgIGVjaG8gIlVzYWdlOiAkMCA8a3NyYyBkaXJlY3Rvcnk+IDxrb2JqIGRpcmVjdG9yeT4gPG91
-dHB1dC50YXIuZ3o+IiA+JjINCisgICAgICBleGl0IDENCisgICAgZmkNCisNCisgICAgS1NSQz0k
-KGNkICRLU1JDOyBwcmludGYgImFsbDpcblx0QGVjaG8gXCR7Q1VSRElSfVxuIiB8IG1ha2UgLWYg
-LSkNCisgICAgS09CSj0kKGNkICRLT0JKOyBwcmludGYgImFsbDpcblx0QGVjaG8gXCR7Q1VSRElS
-fVxuIiB8IG1ha2UgLWYgLSkNCisNCisgICAgZmluZCAkS1NSQyAkS09CSiBcKCAtbmFtZSAnKi5n
-Y25vJyAtbyAtbmFtZSAnKi5bY2hdJyAtbyAtdHlwZSBsIFwpIC1hIFwNCisgICAgICAgICAgICAg
-ICAgICAgICAtcGVybSAvdStyLGcrciB8IHRhciBjZnogJERFU1QgLVAgLVQgLQ0KKw0KKyAgICBp
-ZiBbICQ/IC1lcSAwIF0gOyB0aGVuDQorICAgICAgZWNobyAiJERFU1Qgc3VjY2Vzc2Z1bGx5IGNy
-ZWF0ZWQsIGNvcHkgdG8gdGVzdCBzeXN0ZW0gYW5kIHVucGFjayB3aXRoOiINCisgICAgICBlY2hv
-ICIgIHRhciB4ZnogJERFU1QgLVAiDQorICAgIGVsc2UNCisgICAgICBlY2hvICJDb3VsZCBub3Qg
-Y3JlYXRlIGZpbGUgJERFU1QiDQorICAgIGZpDQorDQorDQor6ZmE5b2VQu+8mmNvbGxlY3Rfb25f
-dGVzdC5zaA0KKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCisNCivnlKjkuo7lnKjmtYvor5Xm
-nLrkuIrmlLbpm4bopobnm5bnjofmlbDmja7mlofku7bnmoTnpLrkvovohJrmnKwNCivvvIjop4Eg
-OnJlZjpg57yW6K+R5py65ZKM5rWL6K+V5py65YiG56a7IGIuIDxnY292LWJ1aWxkX3poPmAg77yJ
-DQorDQorLi4gY29kZS1ibG9jazo6IHNoDQorDQorICAgICMhL2Jpbi9iYXNoIC1lDQorDQorICAg
-IERFU1Q9JDENCisgICAgR0NEQT0vc3lzL2tlcm5lbC9kZWJ1Zy9nY292DQorDQorICAgIGlmIFsg
-LXogIiRERVNUIiBdIDsgdGhlbg0KKyAgICAgIGVjaG8gIlVzYWdlOiAkMCA8b3V0cHV0LnRhci5n
-ej4iID4mMg0KKyAgICAgIGV4aXQgMQ0KKyAgICBmaQ0KKw0KKyAgICBURU1QRElSPSQobWt0ZW1w
-IC1kKQ0KKyAgICBlY2hvIENvbGxlY3RpbmcgZGF0YS4uDQorICAgIGZpbmQgJEdDREEgLXR5cGUg
-ZCAtZXhlYyBta2RpciAtcCAkVEVNUERJUi9ce1x9IFw7DQorICAgIGZpbmQgJEdDREEgLW5hbWUg
-JyouZ2NkYScgLWV4ZWMgc2ggLWMgJ2NhdCA8ICQwID4gJyRURU1QRElSJy8kMCcge30gXDsNCisg
-ICAgZmluZCAkR0NEQSAtbmFtZSAnKi5nY25vJyAtZXhlYyBzaCAtYyAnY3AgLWQgJDAgJyRURU1Q
-RElSJy8kMCcge30gXDsNCisgICAgdGFyIGN6ZiAkREVTVCAtQyAkVEVNUERJUiBzeXMNCisgICAg
-cm0gLXJmICRURU1QRElSDQorDQorICAgIGVjaG8gIiRERVNUIHN1Y2Nlc3NmdWxseSBjcmVhdGVk
-LCBjb3B5IHRvIGJ1aWxkIHN5c3RlbSBhbmQgdW5wYWNrIHdpdGg6Ig0KKyAgICBlY2hvICIgIHRh
-ciB4ZnogJERFU1QiDQpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhf
-Q04vZGV2LXRvb2xzL2luZGV4LnJzdCBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NO
-L2Rldi10b29scy9pbmRleC5yc3QNCm5ldyBmaWxlIG1vZGUgMTAwNjQ0DQppbmRleCAwMDAwMDAw
-MDAwMDAuLjUzZTU3YTE3MDQ0MA0KLS0tIC9kZXYvbnVsbA0KKysrIGIvRG9jdW1lbnRhdGlvbi90
-cmFuc2xhdGlvbnMvemhfQ04vZGV2LXRvb2xzL2luZGV4LnJzdA0KQEAgLTAsMCArMSwzNSBAQA0K
-Ky4uIGluY2x1ZGU6OiAuLi9kaXNjbGFpbWVyLXpoX0NOLnJzdA0KKw0KKzpPcmlnaW5hbDogRG9j
-dW1lbnRhdGlvbi9kZXYtdG9vbHMvaW5kZXgucnN0DQorOlRyYW5zbGF0b3I6IOi1teWGm+WljiBC
-ZXJuYXJkIFpoYW8gPGJlcm5hcmRAdml2by5jb20+DQorDQorPT09PT09PT09PT09DQor5YaF5qC4
-5byA5Y+R5bel5YW3DQorPT09PT09PT09PT09DQorDQor5pys5paH5qGj5piv5pyJ5YWz5YaF5qC4
-5byA5Y+R5bel5YW35paH5qGj55qE5ZCI6ZuG44CCDQor55uu5YmN6L+Z5Lqb5paH5qGj5bey57uP
-5pW055CG5Zyo5LiA6LW377yM5LiN6ZyA6KaB5YaN6Iqx6LS56aKd5aSW55qE57K+5Yqb44CCDQor
-5qyi6L+O5Lu75L2V6KGl5LiB44CCDQorDQorLi4gY2xhc3M6OiB0b2MtdGl0bGUNCisNCisJICAg
-55uu5b2VDQorDQorLi4gdG9jdHJlZTo6DQorICAgOm1heGRlcHRoOiAyDQorDQorICAgZ2Nvdg0K
-Kw0KK1RvZG9saXN0Og0KKw0KKyAtIGNvY2NpbmVsbGUNCisgLSBzcGFyc2UNCisgLSBrY292DQor
-IC0ga2FzYW4NCisgLSB1YnNhbg0KKyAtIGttZW1sZWFrDQorIC0ga2NzYW4NCisgLSBnZGIta2Vy
-bmVsLWRlYnVnZ2luZw0KKyAtIGtnZGINCisgLSBrc2VsZnRlc3QNCisgLSBrdW5pdC9pbmRleA0K
-ZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2luZGV4LnJzdCBi
-L0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2luZGV4LnJzdA0KaW5kZXggYmMyM2Y2
-MTcxZWNhLi5mZGM1MWFiYTlhNzMgMTAwNjQ0DQotLS0gYS9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0
-aW9ucy96aF9DTi9pbmRleC5yc3QNCisrKyBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3po
-X0NOL2luZGV4LnJzdA0KQEAgLTE4LDYgKzE4LDcgQEANCiANCiAgICBhZG1pbi1ndWlkZS9pbmRl
-eA0KICAgIHByb2Nlc3MvaW5kZXgNCisgICBkZXYtdG9vbHMvaW5kZXgNCiAgICBrZXJuZWwtaGFj
-a2luZy9pbmRleA0KICAgIGZpbGVzeXN0ZW1zL2luZGV4DQogICAgYXJtNjQvaW5kZXgNCi0tIA0K
-Mi4yMC4xDQoNCg0KLS0gCllvdSByZWNlaXZlZCB0aGlzIG1lc3NhZ2UgYmVjYXVzZSB5b3UgYXJl
-IHN1YnNjcmliZWQgdG8gdGhlIEdvb2dsZSBHcm91cHMgIkNsYW5nIEJ1aWx0IExpbnV4IiBncm91
-cC4KVG8gdW5zdWJzY3JpYmUgZnJvbSB0aGlzIGdyb3VwIGFuZCBzdG9wIHJlY2VpdmluZyBlbWFp
-bHMgZnJvbSBpdCwgc2VuZCBhbiBlbWFpbCB0byBjbGFuZy1idWlsdC1saW51eCt1bnN1YnNjcmli
-ZUBnb29nbGVncm91cHMuY29tLgpUbyB2aWV3IHRoaXMgZGlzY3Vzc2lvbiBvbiB0aGUgd2ViIHZp
-c2l0IGh0dHBzOi8vZ3JvdXBzLmdvb2dsZS5jb20vZC9tc2dpZC9jbGFuZy1idWlsdC1saW51eC8y
-MDIxMDQxNTA1NDMwNC5HQTI2Njg5JTQwYm9id3hjLnRvcC4K
+Since commit d9f4ff50d2aa ("kbuild: spilt cc-option and friends to
+scripts/Makefile.compiler"), some kselftests fail to build.
+
+The tools/ directory opted out Kbuild, and went in a different
+direction. They copy any kind of files to the tools/ directory
+in order to do whatever they want to do in their world.
+
+tools/build/Build.include mimics scripts/Kbuild.include, but some
+tool Makefiles included the Kbuild one to import a feature that is
+missing in tools/build/Build.include:
+
+ - Commit ec04aa3ae87b ("tools/thermal: tmon: use "-fstack-protector"
+   only if supported") included scripts/Kbuild.include from
+   tools/thermal/tmon/Makefile to import the cc-option macro.
+
+ - Commit c2390f16fc5b ("selftests: kvm: fix for compilers that do
+   not support -no-pie") included scripts/Kbuild.include from
+   tools/testing/selftests/kvm/Makefile to import the try-run macro.
+
+ - Commit 9cae4ace80ef ("selftests/bpf: do not ignore clang
+   failures") included scripts/Kbuild.include from
+   tools/testing/selftests/bpf/Makefile to import the .DELETE_ON_ERROR
+   target.
+
+ - Commit 0695f8bca93e ("selftests/powerpc: Handle Makefile for
+   unrecognized option") included scripts/Kbuild.include from
+   tools/testing/selftests/powerpc/pmu/ebb/Makefile to import the
+   try-run macro.
+
+Copy what they want there, and stop including scripts/Kbuild.include
+from the tool Makefiles.
+
+Link: https://lore.kernel.org/lkml/86dadf33-70f7-a5ac-cb8c-64966d2f45a1@linux.ibm.com/
+Fixes: d9f4ff50d2aa ("kbuild: spilt cc-option and friends to scripts/Makefile.compiler")
+Reported-by: Janosch Frank <frankja@linux.ibm.com>
+Reported-by: Christian Borntraeger <borntraeger@de.ibm.com>
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+ tools/testing/selftests/bpf/Makefile          |  3 ++-
+ tools/testing/selftests/kvm/Makefile          | 12 +++++++++++-
+ .../selftests/powerpc/pmu/ebb/Makefile        | 11 ++++++++++-
+ tools/thermal/tmon/Makefile                   | 19 +++++++++++++++++--
+ 4 files changed, 40 insertions(+), 5 deletions(-)
+
+diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+index 044bfdcf5b74..d872b9f41543 100644
+--- a/tools/testing/selftests/bpf/Makefile
++++ b/tools/testing/selftests/bpf/Makefile
+@@ -1,5 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+-include ../../../../scripts/Kbuild.include
+ include ../../../scripts/Makefile.arch
+ include ../../../scripts/Makefile.include
+ 
+@@ -476,3 +475,5 @@ EXTRA_CLEAN := $(TEST_CUSTOM_PROGS) $(SCRATCH_DIR) $(HOST_SCRATCH_DIR)	\
+ 	prog_tests/tests.h map_tests/tests.h verifier/tests.h		\
+ 	feature								\
+ 	$(addprefix $(OUTPUT)/,*.o *.skel.h no_alu32 bpf_gcc bpf_testmod.ko)
++
++.DELETE_ON_ERROR:
+diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+index a6d61f451f88..8b45bc417d83 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -1,5 +1,15 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+-include ../../../../scripts/Kbuild.include
++
++TMPOUT = .tmp_$$$$
++
++try-run = $(shell set -e;		\
++	TMP=$(TMPOUT)/tmp;		\
++	mkdir -p $(TMPOUT);		\
++	trap "rm -rf $(TMPOUT)" EXIT;	\
++	if ($(1)) >/dev/null 2>&1;	\
++	then echo "$(2)";		\
++	else echo "$(3)";		\
++	fi)
+ 
+ all:
+ 
+diff --git a/tools/testing/selftests/powerpc/pmu/ebb/Makefile b/tools/testing/selftests/powerpc/pmu/ebb/Makefile
+index af3df79d8163..d5d3e869df93 100644
+--- a/tools/testing/selftests/powerpc/pmu/ebb/Makefile
++++ b/tools/testing/selftests/powerpc/pmu/ebb/Makefile
+@@ -1,5 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+-include ../../../../../../scripts/Kbuild.include
+ 
+ noarg:
+ 	$(MAKE) -C ../../
+@@ -8,6 +7,16 @@ noarg:
+ CFLAGS += -m64
+ 
+ TMPOUT = $(OUTPUT)/TMPDIR/
++
++try-run = $(shell set -e;		\
++	TMP=$(TMPOUT)/tmp;		\
++	mkdir -p $(TMPOUT);		\
++	trap "rm -rf $(TMPOUT)" EXIT;	\
++	if ($(1)) >/dev/null 2>&1;	\
++	then echo "$(2)";		\
++	else echo "$(3)";		\
++	fi)
++
+ # Toolchains may build PIE by default which breaks the assembly
+ no-pie-option := $(call try-run, echo 'int main() { return 0; }' | \
+         $(CC) -Werror $(KBUILD_CPPFLAGS) $(CC_OPTION_CFLAGS) -no-pie -x c - -o "$$TMP", -no-pie)
+diff --git a/tools/thermal/tmon/Makefile b/tools/thermal/tmon/Makefile
+index 59e417ec3e13..92a683e4866c 100644
+--- a/tools/thermal/tmon/Makefile
++++ b/tools/thermal/tmon/Makefile
+@@ -1,6 +1,21 @@
+ # SPDX-License-Identifier: GPL-2.0
+-# We need this for the "cc-option" macro.
+-include ../../../scripts/Kbuild.include
++
++TMPOUT = .tmp_$$$$
++
++try-run = $(shell set -e;		\
++	TMP=$(TMPOUT)/tmp;		\
++	mkdir -p $(TMPOUT);		\
++	trap "rm -rf $(TMPOUT)" EXIT;	\
++	if ($(1)) >/dev/null 2>&1;	\
++	then echo "$(2)";		\
++	else echo "$(3)";		\
++	fi)
++
++__cc-option = $(call try-run,\
++	$(1) -Werror $(2) $(3) -c -x c /dev/null -o "$$TMP",$(3),$(4))
++
++cc-option = $(call __cc-option, $(CC),\
++	$(KBUILD_CPPFLAGS) $(KBUILD_CFLAGS),$(1),$(2))
+ 
+ VERSION = 1.0
+ 
+-- 
+2.27.0
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210415072700.147125-2-masahiroy%40kernel.org.
