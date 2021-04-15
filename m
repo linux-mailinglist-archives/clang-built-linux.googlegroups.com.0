@@ -1,183 +1,157 @@
-Return-Path: <clang-built-linux+bncBCHJVF74S4BRBJHI36BQMGQEVNSCVOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCFYN6ELYIORB3PQ36BQMGQEMQXLMBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 414663603DE
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 10:07:02 +0200 (CEST)
-Received: by mail-pl1-x63c.google.com with SMTP id 73-20020a170902034fb02900e9a576887bsf8329059pld.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 01:07:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618474021; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 13365360434
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 10:25:19 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id t22-20020a17090a4496b029014cf3d7ff6esf3186758pjg.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 01:25:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618475117; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fWa+ipi5bij2UOkBTnAO3LcLqGZnzssYStQ/nqGrenmk8GoY4YbCPd5k7vTR8hQusl
-         Y3Bs3GbzwXeJEvPrnR1BKIwOX/MrLaywLZbJB97uQ7JrxRLB3ITtp+GNul+AFxMO60q6
-         9CwHt9NNM4spiDbjDGhnsoA7/dyOWPwXJWLExV6O0/03xnCiohnlhf9gmWmplt3XyEAR
-         vdNCFcNlYHOHTGyKKMxTh9GpT/RDrUgsXSVMFn8dyRaYnL5Ybmn4ArIxBuA32N9KfFNL
-         OohDoTgpTSBny4KYuDTsjEcjpeWMMohqB+V/swqv0WDlVmdafUi0YqZFJl/m8s30Cneq
-         xgxw==
+        b=AuzzUust0P5ze58ckXV465BjYs2EEPUtfcBT4O3FzGtc+1AN66iK6hxCx/Ndy2pSr7
+         01h6SsIC8mMrCEooVmmmZKw2+OZrjogGR4tipnXw3JuEgprCfhMaIjAvsW1GPaT1q9Qf
+         8OIKRan6AWJJF9PDwc1gFa5roBagAKsZCr7NX9VHPqwbX5xa2ReXbT06e/B0fD5JbdLu
+         aouLPe7PGlquidy9sZcjfoM9nwBpaTuw8hVNEsJWobZtvYFPGYVADCDf/lrOiJJqUzi0
+         sXG48CqlhQJE1jty7ia9intFii0/Br7BR2gkXUdQJ6K6yvpGXnHTy2x3OZ20dxddJuv/
+         Pqhg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :in-reply-to:user-agent:date:message-id:from:references:cc:to
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
          :subject:sender:dkim-signature;
-        bh=c3UPfs6XiwLy4m3hJGuul5RtxUpkOeT82lpBruXk3OI=;
-        b=AZ77KryewMTDnpz9sHAzZXlWddD0BFi9Kak8HjMSQjZ2atwg6YFD0fc1xX8CO7iEhP
-         Zr6mm3rLbYvjR9nMArw7+V5LD1pfMexLjclgNdCr+XNp8kp9zyHupaQzk5HgqRVrhBo7
-         3EO6gRfQ4Uwgb+1jGXKV7VEdS8ouDfRUgVJ2jV/TvYjn/iAMHDSr3ReeX5b4mmSlJ6bZ
-         v1BG/yMUomN5ThI4sdwZluAddDom2cUxawQVfmVP5yjC5ztLjYHNRHdzZkP6UlMkWcJy
-         PwAZMUY37t8vEBPLxi5PGNM3RgNzQg/VX4cISzGkrxjvkW2+W5iy3tSVFn+5GUJBy1Pj
-         bGbg==
+        bh=yeVobprt6uOvCDvr/6d1a1jSlngGC7A8FgKmihmyREE=;
+        b=nxjJYEeWyD2NOKcyhTH9ASmlWlaLWUDYnnWduf3yYxjA/9wGg5z2sdjx2ei1PGxUqI
+         E2okYRFaYzv6REK5YxkjfK6i2Ja+wxg1p+VCtoVCCyjKBmP794ntg/syVje3Q5BfHJTf
+         bBoisfPnWeFB1wIoLTd5LUdwNoV2524f8Q5cFU8egJmZ76Q10XArLANaNcaUFHw1GpVm
+         V9ZLCj2NHbABYpKLxeMtIOAMVQAtnkxQdz+eAfMXulgQzbb6BrN/6C3oFtavbRW5MBDV
+         3OeaJEcJZKJvM10ZNMcMul+er9UAGrge3fddicCQpqjwlu4B7Ywqd0tkeyRFtUCMXagi
+         2Y2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=bOZgsQih;
-       spf=pass (google.com: domain of borntraeger@de.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=borntraeger@de.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FrLbKiWI;
+       spf=pass (google.com: domain of pbonzini@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :in-reply-to:content-language:mime-version:x-original-sender
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=c3UPfs6XiwLy4m3hJGuul5RtxUpkOeT82lpBruXk3OI=;
-        b=JtQSbKpnvwtiFK2vxA3Zy8mE0vIp9AM/OaD2a+2ByOdUkk7gr3HDnCX7E9vikdph6I
-         kRZseEiU9nF8f0tIdbet477oDSzVhrR7FneIijwU3MpjbCz+tityPuo6R1p2ZYfkkiSA
-         hTGTP8UlhNMpOJP5+McGKqlYGZPzYZalyrHKpMXbmypLVfYQyUoeWF8WO0SGCTkE44l6
-         E+FFm5pIyOk3sVq4gBIObQEi/PsiBqvHHhK9Bi6OcHnKmx+5JlSAW2V4XiRVEZlpFZwe
-         R89xoXfPUo0zgWnOyAwiudycuJ/nJu+p8wKEDpQ2FXS7Im+vp4XC/8qoQZyfkkzYea6Q
-         FCYA==
+        bh=yeVobprt6uOvCDvr/6d1a1jSlngGC7A8FgKmihmyREE=;
+        b=n18vq2N0KGFsqBwnxfGBXJ1lqf61ePcNHx/nlD+rTnFxeZwA5xpsvrxqpZC+e6zol+
+         NJqT2SuCB+th9HltS1fLGLP7TltQziLhnFU6kkmNucDQi0suQM0RLGL+hVCDdznUp6aq
+         v3ebbJBN5B9NlXaic/Hn0O84NaR4LUS7IjBb2pHviWkq3aD4MTT+ayqaIHHK7FEFsonE
+         RzX1+tBtoTDrCt+A7V8MYvmM0/2V0mTa1sDt/tB+53UO/HZGECzHHaaJh0NMA/AFbs1g
+         zzbcjWQxjFIl1+CaZu8iChToRdY9ruO/n1U1YEfQJvAc2jff9I6E91rhD3uXlaaxflr7
+         LckQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:in-reply-to:content-language:mime-version
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=c3UPfs6XiwLy4m3hJGuul5RtxUpkOeT82lpBruXk3OI=;
-        b=peABNWl/uM6zwFJzVF3AwoxZFo/jYcfRm4nZfPdSuloFNfUJGBKIQXD84AfX+JosHW
-         EUfSkrCIYeJ2uyi4rqeEfid6vXC4OmOzzikQ/bg9TfuZbw9SA18tOGgkoKlASa52m7Pq
-         Wuk+9IkzMMgtj+1ScrnA03FlHWEuuLlSqOOM7X6ENnbcUFXw3IEN7IwdwvuuSHFj2j4+
-         FoN/5MC2t1SB5DrB3nxMflm3J7D0t75l5Mkf9b0gShR2CGiRnuOZyQODp/wiWZXrwMEN
-         HI3JfEx+QrzWYwyZZdUot6feUyF/yUr7iyCPYts4Ie75HWSngMAlcX7E0Dow2RE88Dzp
-         hR+w==
+        bh=yeVobprt6uOvCDvr/6d1a1jSlngGC7A8FgKmihmyREE=;
+        b=IA3lVoWSVCo22ytERi8yAb1cTtO64ZOY/CaenVEAGEO4IEY7yL+o2JxTNgvniMlbDR
+         uavFIFk10Jt6QcHL9kPyQcxhDJZ3oD0EKb9a1r2jtLnZYBw17+E7UShmlIR2EmBxM/ys
+         Mqp/HAqNiRGowm3Dlu+iWWFqPFuLMAB1lkrKFl1jTrmtrTEy2QYBlpcmcGTroiluRRug
+         PSQtUyBFvSxovzfTHdOAxfee5vpsBiT3UBYym7H+amKejqyF37Bw1FZ/U8mdp/gFUB30
+         7BkObCVdHLWy/viCW/hCk48lbFuUKE8RacCTng50rzkALNfRTiF12BD+cSShwaco0XwH
+         +97w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532r636HZgu7ZNM967Me0uDGdf3NOBw/DfCabGEUcwWKsL8lmhqV
-	xCmtG9FTp1r7t87a7Xju7pU=
-X-Google-Smtp-Source: ABdhPJwTqFFEsWMKNHiqnSa4IIpceYXfpnRGHMe5npmrzqFpbzwKTw3LYf1ze9bypQlsFn5IxnTTQw==
-X-Received: by 2002:a17:90a:ec09:: with SMTP id l9mr2537402pjy.141.1618474021017;
-        Thu, 15 Apr 2021 01:07:01 -0700 (PDT)
+X-Gm-Message-State: AOAM530OEmubdFY8soJWgW7kec15ovCxKlg5+Lw2GTzh3QyGWVWmbZdW
+	t4CG4PehUsNsNIDlI7AWURM=
+X-Google-Smtp-Source: ABdhPJx3UfGsJwMvMyL+y6GraBk6YD1AGQURwGQcWLSY1PEFM+qnKwTTXhCY/I3CFhoaSlr9QYo2Pg==
+X-Received: by 2002:a63:f303:: with SMTP id l3mr2461218pgh.263.1618475117759;
+        Thu, 15 Apr 2021 01:25:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:ef0b:: with SMTP id u11ls2185884pgh.4.gmail; Thu, 15 Apr
- 2021 01:07:00 -0700 (PDT)
-X-Received: by 2002:a63:6705:: with SMTP id b5mr2391013pgc.58.1618474020507;
-        Thu, 15 Apr 2021 01:07:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618474020; cv=none;
+Received: by 2002:a17:903:1c5:: with SMTP id e5ls2832601plh.6.gmail; Thu, 15
+ Apr 2021 01:25:17 -0700 (PDT)
+X-Received: by 2002:a17:902:eccd:b029:ea:ed20:b646 with SMTP id a13-20020a170902eccdb02900eaed20b646mr2740442plh.4.1618475117162;
+        Thu, 15 Apr 2021 01:25:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618475117; cv=none;
         d=google.com; s=arc-20160816;
-        b=xUkqiwx1zQPQpEAx04IhtkEryEkkdy2HNdMNa13vQ+9uscp3BWzqxQptyOB3QdaVDh
-         lFGMVr6xSNcCsZ/0Q9WXRatq0llpEg8QL3YtgQtmBKaqtvfRuXeCKQ0kFEozfTmyP7ZX
-         kA/MoRlf5f/pf9O9/NXdV3IG+kxdWT5S63QqhmXhSj6gDgckcsbO4YV+/tj8y5A5bWDr
-         LD9Epf203vItMKVHXbJWz3aylHHnyzt25YtMdDy2jzNrUqTSyfAZeFWxTN6P3CAtFSEy
-         hSRHliX82E6cuC7ZOcKiNi1/UgMZTAkdA/dIXl6t+vq8D5JkWQ0LULNqAmwlSpPL0xU/
-         a0+g==
+        b=cxHTNQ544lK8+DjjpgTt+pOAXnXqkoXreYVVLodeMXkwN9gDzmTzq7iITfVi8oY9Gz
+         DddLI5W4zHyt9kQXulMXPtA7m0kQn+jglmoSqOsL7UgMTQ4IHeOVaoRHBzC8UvkiSxn8
+         2zEKYbLrAeh7nBJF2qfa4ijSwHDLqW4Grn5bwc3xiKEGh4CkWvm/rppxA4XlUoRhj5J1
+         gj+8dBLoyUHJndJAiz7GQSClr+jcxpggSPLrEeYa5m/Z9HfQ5vY50H0+Hvis3zWSsH8/
+         F/1eqaMCOMrCF/FHsYanUjddSKl7+xlU1P7T1mnnUJTIxXm9UdYnsm2nCB9uuR8OyVtN
+         uHaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language:in-reply-to
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
          :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=qlxWFtVavXCd/lHzWzSrLnEFhrdIu+gCNQ7cSdIefOE=;
-        b=RcC7PO3+zMgyR9EEsgvEjkFUB6tQa4VtB7In3Qjl6LvbOCT7Q1kbVIHsoeXYaN/YyN
-         hqQ09aWGCcoKcrDyuvDfdA2I2rxu2HZWDA2+0NUGg0H/c6uzHcBn9A4ZBQdhqHpP1RH4
-         5xPUnyuzIayOQhN9at/AAOU8t98v1rstsykewS0HDjn+nmIA8HGG2lydICDm2dANkF5I
-         lDHLcEPvxJf8/tXVw20dw4RZJfa0qpcfKCwm3V8pF467G11SAcV9HCETdQPU4JxIzX2m
-         XffN3WTz7je/jY+H92Fox/VkYZGWR+Qn+mK1QY7qYItXaEA0Omf5zJiEmS2LnGP8ydtg
-         VfAA==
+        bh=/bQmWZhJFBGurEcgsfC0EuOHiXGG/UZMr42BKHCg0CM=;
+        b=rwcgxbw1xkiodnxzAvAtZYJsjr+iwJtWo1q6fWEFAoQe7rFPDCRdBYesaWQGQ1sHsZ
+         dW/pxK19ylIZn5u3qoJB7pT2yA3OSPFKFUw5yee4fG9SvXlvwESiNIF+G4z1aXKVooJn
+         Y3wQuLirl38C8DR7Uvt6TaoybTwjSaHYJPSRjcQErmXGypJY0T9H6mCbVKJhaxHUcuGg
+         LFRbP9MP7gXVOereyVyyu2WifavKqSLnvlu1fvT2vt6EEf53NrEe+0BYKyvSpJR6ZYOK
+         pfnWW9NGDnwnHjvh+wpNM34ubmjv2dkMpfWdUpf6Dno0BYIa9iMZru7epeKL7cLfO2Ic
+         uebw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=bOZgsQih;
-       spf=pass (google.com: domain of borntraeger@de.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=borntraeger@de.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id i18si780077pju.2.2021.04.15.01.07.00
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FrLbKiWI;
+       spf=pass (google.com: domain of pbonzini@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
+        by gmr-mx.google.com with ESMTPS id l10si164252pjw.3.2021.04.15.01.25.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 15 Apr 2021 01:07:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of borntraeger@de.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 13F84B5A132058;
-	Thu, 15 Apr 2021 04:06:53 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 37x46utmt3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 15 Apr 2021 04:06:53 -0400
-Received: from m0098417.ppops.net (m0098417.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 13F84VnS133994;
-	Thu, 15 Apr 2021 04:06:52 -0400
-Received: from ppma04fra.de.ibm.com (6a.4a.5195.ip4.static.sl-reverse.com [149.81.74.106])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 37x46utmru-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 15 Apr 2021 04:06:52 -0400
-Received: from pps.filterd (ppma04fra.de.ibm.com [127.0.0.1])
-	by ppma04fra.de.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 13F85EEK011874;
-	Thu, 15 Apr 2021 08:06:50 GMT
-Received: from b06cxnps4075.portsmouth.uk.ibm.com (d06relay12.portsmouth.uk.ibm.com [9.149.109.197])
-	by ppma04fra.de.ibm.com with ESMTP id 37u3n8a0dx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 15 Apr 2021 08:06:50 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com [9.149.105.61])
-	by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 13F86lP066322744
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 15 Apr 2021 08:06:47 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 73F1011C050;
-	Thu, 15 Apr 2021 08:06:47 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BA81411C064;
-	Thu, 15 Apr 2021 08:06:45 +0000 (GMT)
-Received: from oc7455500831.ibm.com (unknown [9.171.63.231])
-	by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Thu, 15 Apr 2021 08:06:45 +0000 (GMT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 15 Apr 2021 01:25:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pbonzini@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-116-J9KrYxAnOJi_M0oQoX46UA-1; Thu, 15 Apr 2021 04:25:14 -0400
+X-MC-Unique: J9KrYxAnOJi_M0oQoX46UA-1
+Received: by mail-ej1-f71.google.com with SMTP id p25-20020a1709061419b0290378364a6464so656120ejc.15
+        for <clang-built-linux@googlegroups.com>; Thu, 15 Apr 2021 01:25:14 -0700 (PDT)
+X-Received: by 2002:a17:906:fb90:: with SMTP id lr16mr2188964ejb.173.1618475113127;
+        Thu, 15 Apr 2021 01:25:13 -0700 (PDT)
+X-Received: by 2002:a17:906:fb90:: with SMTP id lr16mr2188956ejb.173.1618475112977;
+        Thu, 15 Apr 2021 01:25:12 -0700 (PDT)
+Received: from ?IPv6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e? ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
+        by smtp.gmail.com with ESMTPSA id bm13sm1380535ejb.75.2021.04.15.01.25.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Apr 2021 01:25:12 -0700 (PDT)
 Subject: Re: [PATCH 2/2] tools: do not include scripts/Kbuild.include
-To: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
-Cc: Janosch Frank <frankja@linux.ibm.com>,
-        Alexei Starovoitov
- <ast@kernel.org>,
-        Andrii Nakryiko <andrii@kernel.org>,
-        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Daniel Borkmann <daniel@iogearbox.net>, Harish <harish@linux.ibm.com>,
-        John Fastabend <john.fastabend@gmail.com>,
-        KP Singh <kpsingh@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Paolo Bonzini <pbonzini@redhat.com>, Paul Mackerras <paulus@samba.org>,
-        Shuah Khan <shuah@kernel.org>, Song Liu <songliubraving@fb.com>,
-        Yonghong Song <yhs@fb.com>, bpf@vger.kernel.org,
-        clang-built-linux@googlegroups.com, kvm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Harish <harish@linux.ibm.com>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Martin KaFai Lau <kafai@fb.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Paul Mackerras
+ <paulus@samba.org>, Shuah Khan <shuah@kernel.org>,
+ Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+ bpf <bpf@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>, kvm@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Networking <netdev@vger.kernel.org>
 References: <20210415072700.147125-1-masahiroy@kernel.org>
  <20210415072700.147125-2-masahiroy@kernel.org>
-From: Christian Borntraeger <borntraeger@de.ibm.com>
-Message-ID: <eb623ea6-a2f4-9692-ff3d-cb9f9b9ea15f@de.ibm.com>
-Date: Thu, 15 Apr 2021 10:06:45 +0200
+ <9d33ee98-9de3-2215-0c0b-cc856cec1b69@redhat.com>
+ <CAK7LNAQupbmeEVR0njSciv0X9FD+MofeB2Xm=wprEdNaO4TQKQ@mail.gmail.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Message-ID: <2e46231f-1d30-6a6f-c768-f34295376d0a@redhat.com>
+Date: Thu, 15 Apr 2021 10:25:10 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.9.0
-In-Reply-To: <20210415072700.147125-2-masahiroy@kernel.org>
+ Thunderbird/78.7.0
+MIME-Version: 1.0
+In-Reply-To: <CAK7LNAQupbmeEVR0njSciv0X9FD+MofeB2Xm=wprEdNaO4TQKQ@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Language: en-US
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: -YMTQ38-A9pZbmNZPcHayMt5HbaIwtug
-X-Proofpoint-ORIG-GUID: FIconhLodZz_0nArX8fkTBP6UY0y2BNs
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
-MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-04-15_03:2021-04-15,2021-04-15 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011
- priorityscore=1501 malwarescore=0 lowpriorityscore=0 bulkscore=0
- adultscore=0 suspectscore=0 impostorscore=0 mlxscore=0 spamscore=0
- phishscore=0 mlxlogscore=999 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2104060000 definitions=main-2104150053
-X-Original-Sender: borntraeger@de.ibm.com
+X-Original-Sender: pbonzini@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=bOZgsQih;       spf=pass (google.com:
- domain of borntraeger@de.ibm.com designates 148.163.158.5 as permitted
- sender) smtp.mailfrom=borntraeger@de.ibm.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=ibm.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=FrLbKiWI;
+       spf=pass (google.com: domain of pbonzini@redhat.com designates
+ 170.10.133.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -190,65 +164,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On 15/04/21 10:04, Masahiro Yamada wrote:
+> On Thu, Apr 15, 2021 at 4:40 PM Paolo Bonzini <pbonzini@redhat.com> wrote:
+>> I think it would make sense to add try-run, cc-option and
+>> .DELETE_ON_ERROR to tools/build/Build.include?
+> 
+> To be safe, I just copy-pasted what the makefiles need.
+> If someone wants to refactor the tool build system, that is fine,
+> but, to me, I do not see consistent rules or policy under tools/.
 
-On 15.04.21 09:27, Masahiro Yamada wrote:
-> Since commit d9f4ff50d2aa ("kbuild: spilt cc-option and friends to
-> scripts/Makefile.compiler"), some kselftests fail to build.
-> 
-> The tools/ directory opted out Kbuild, and went in a different
-> direction. They copy any kind of files to the tools/ directory
-> in order to do whatever they want to do in their world.
-> 
-> tools/build/Build.include mimics scripts/Kbuild.include, but some
-> tool Makefiles included the Kbuild one to import a feature that is
-> missing in tools/build/Build.include:
-> 
->   - Commit ec04aa3ae87b ("tools/thermal: tmon: use "-fstack-protector"
->     only if supported") included scripts/Kbuild.include from
->     tools/thermal/tmon/Makefile to import the cc-option macro.
-> 
->   - Commit c2390f16fc5b ("selftests: kvm: fix for compilers that do
->     not support -no-pie") included scripts/Kbuild.include from
->     tools/testing/selftests/kvm/Makefile to import the try-run macro.
-> 
->   - Commit 9cae4ace80ef ("selftests/bpf: do not ignore clang
->     failures") included scripts/Kbuild.include from
->     tools/testing/selftests/bpf/Makefile to import the .DELETE_ON_ERROR
->     target.
-> 
->   - Commit 0695f8bca93e ("selftests/powerpc: Handle Makefile for
->     unrecognized option") included scripts/Kbuild.include from
->     tools/testing/selftests/powerpc/pmu/ebb/Makefile to import the
->     try-run macro.
-> 
-> Copy what they want there, and stop including scripts/Kbuild.include
-> from the tool Makefiles.
-> 
-> Link: https://lore.kernel.org/lkml/86dadf33-70f7-a5ac-cb8c-64966d2f45a1@linux.ibm.com/
-> Fixes: d9f4ff50d2aa ("kbuild: spilt cc-option and friends to scripts/Makefile.compiler")
-> Reported-by: Janosch Frank <frankja@linux.ibm.com>
-> Reported-by: Christian Borntraeger <borntraeger@de.ibm.com>
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+"Please put this in a common file instead of introducing duplication" is 
+not asking for wholesale refactoring.
 
-When applying this on top of d9f4ff50d2aa ("kbuild: spilt cc-option and friends to scripts/Makefile.compiler")
-
-I still do get
-
-# ==== Test Assertion Failure ====
-#   lib/kvm_util.c:142: vm->fd >= 0
-#   pid=315635 tid=315635 - Invalid argument
-#      1	0x0000000001002f4b: vm_open at kvm_util.c:142
-#      2	 (inlined by) vm_create at kvm_util.c:258
-#      3	0x00000000010015ef: test_add_max_memory_regions at set_memory_region_test.c:351
-#      4	 (inlined by) main at set_memory_region_test.c:397
-#      5	0x000003ff971abb89: ?? ??:0
-#      6	0x00000000010017ad: .annobin_abi_note.c.hot at crt1.o:?
-#   KVM_CREATE_VM ioctl failed, rc: -1 errno: 22
-not ok 7 selftests: kvm: set_memory_region_test # exit=254
-
-and the testcase compilation does not pickup the pgste option.
+Paolo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/eb623ea6-a2f4-9692-ff3d-cb9f9b9ea15f%40de.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2e46231f-1d30-6a6f-c768-f34295376d0a%40redhat.com.
