@@ -1,145 +1,149 @@
-Return-Path: <clang-built-linux+bncBAABBXNC36BQMGQE4XHN3LQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBOFD36BQMGQEXDWVKLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 96E3B3601A3
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 07:38:38 +0200 (CEST)
-Received: by mail-yb1-xb3b.google.com with SMTP id w9sf1661491ybw.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Apr 2021 22:38:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618465117; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C48D3601AD
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Apr 2021 07:40:09 +0200 (CEST)
+Received: by mail-pj1-x1040.google.com with SMTP id mw17-20020a17090b4d11b029014cf3b640f4sf11585003pjb.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Apr 2021 22:40:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618465208; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oo6MGyXtKW0gEY5fZALn9SDUb/SPGK2+OXWMrUTAEzQIzjBJ3ufHeucm7T3iiGK1bq
-         5g5xcasfdcHhXHB9ZBMDcLfPK5CZrY/5sXy94kiff62RBDd0wHz1lE82lfyd+ozdrOGV
-         pZttwMLM5aDrHT2mxw0d1ZYDhGtRIObBGSPJoH9/AXsSHPZbhXb8VT2M/a0adsqnkLt7
-         M8VF9n1kuF7QqVDa69PzpvKdnXIVDWaNUiyhqVRrStGCSkG6uErZ3rF9wffQ9noBiwun
-         TSaZGCzEYKW1ogKc4gVdpYQY53c3RyeRKXv20zLnasesf7/jzrHNKarwIIFeF6EPkOek
-         ye9A==
+        b=aTRcnsAx+IH9UJm0+03Dd00ZUpxwTIttEkU1dA3Y1DRbI2iaNXZ84CHr/nXB8fLNHq
+         4NRZEJRp1edmLDoVaHmViIJaytly1wAQNVloQ0kQ7rhC8FCToCFQY1M1H7LFiaAsA4gU
+         Djc05zh7mO1Ras+aCaZuM8n1aZm/eGU9RSP5Tj3ohb96K62lq3GmEOSuMgiR9D47pumb
+         efpj5IXdK8TNVFl8XToBktdN33d30eznkwE6K71R3IupG8dZDQt+4m0EGDbs+lz6KR+H
+         meChESklCIEZyk5s4Y9f8ZINRkujPejrKUbn+Qiz9ongzyZ20GjQxMshReMTUqcgqPv6
+         au6Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=Q3iDMh0884AolJqk0n3Rr7Bkujd5BjSIfDC4Ydnffes=;
-        b=IfA5nACTDDjEE+C+9HV3XZyIJMZpUFgQrnOLq10AzDySR9Wd+9eihkn79dcX5on3jt
-         K0MDLTLOO5BUKvSrmi67gTgSK6dYzK151E4OPcTH9ryyoPYe2BnNz1ZuHws9O/z04/mf
-         XqZlwUpqb7BFoqRyQxT2xO1AMuXzBN/fJJd9fAeAh1CxP2+D+OPH+sVsa2H6p+w6Q34l
-         cqOwrYdC9QW6IyOlR9vgS3YD7Ok4hej2TUQkPbZxU4+bJDEVsTOeG6UIKC/FNfyl+587
-         VngF05ilRzK5mZE4Ly5HbGbI4DrmucvfSguBdfWr1vlaOUSYCZT99qT54q4i80O2fGZV
-         XBDQ==
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=PNm/GGnZKS1oD0haBeTDlv3vNIvsUl5vjVVNEh3w9Ng=;
+        b=nkM/q44VOXRfsgK6j+tuMME6H8JPdfqNFo5j+SvFKOZ2xPEdRxSUnZQ05w2zG36z0v
+         4vzyXY9lW3m2kMxTTyVM1ICGugMbgjBUS1XGVmcLuKlnE3uTXzgAf2cMeIoIYeAkpvkT
+         VFgb+25nKpyjw/1AEEJIriXyiqdWd+ADDM0IfLKTjmdSvyKyALi1N84XqrIFR1giE++J
+         x4FF1JktV8/JXuqbZCwVS4VqBHBwVzEO/7TspJGNfaJZ7dClqyssMjSi59RfM1zD65qb
+         aSvZs9Bvvne8oUn6nTpfzsYyHxPad06blliwebpqK/KE956mr19ojx7z9fh4F9ooj95Z
+         Bwog==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@email.cn header.s=dkim header.b=fF7pniN7;
+       dkim=pass (test mode) header.i=@email.cn header.s=dkim header.b=S5hFYQol;
        spf=pass (google.com: domain of bobwxc@email.cn designates 43.250.32.171 as permitted sender) smtp.mailfrom=bobwxc@email.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Q3iDMh0884AolJqk0n3Rr7Bkujd5BjSIfDC4Ydnffes=;
-        b=IAeJYxCu1vMUP0dKNagUCQDGUMU2YrK89jxXpavas2x3ZN664gOwmh6WNTokkrufKN
-         eF3yc8kr4UuFOf5tHfxYmiqM8MrRS8kebVFjoWhYOys1cwEIPp6z75OWSXKUplIEFm00
-         1vhV7j3VQ7+riVQFlMe+LHBjATr9KgDnRzsp/PQ6kQSB7uV/LU5w7TTIjzdNUbl1uH6H
-         XkgBExZLPw5BiSNsrt329lFpsEgXXEGMmo2krDW8hw/qCiqqkPkmjlnHd6JJJAz9A85x
-         2q6/qesonCRgObjLVUzLYmpk9ExXcligfcZfzq7IvGMwF1j9Zdn5td+0Gvz+/zbkh8BT
-         DHXQ==
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PNm/GGnZKS1oD0haBeTDlv3vNIvsUl5vjVVNEh3w9Ng=;
+        b=lBEpMPqtinPnSH7zJHDW1HFREioblU2a09wCwuR5XRZbb1er0Yi+P0+mZitDkZRVdr
+         QKkooRgAfpvhaoikFO6NyPmUXb9cdseS0rTqp0t47FC2rq6c45JCGI/prt7EKSVWw7Ip
+         N80fTuPqmehNkh/l4JEjlnAsQMgOySxeurt58++OVw/DJk7dqxQQN5lvulFEfxtYwOL3
+         1qG1fduWfYJTGVBNtmxJqp5PPEJvOEjH487Q6L6U1JmvinlzTqK6uHDSdE3wePnE8bE9
+         9eC6WSITIZtMavi696s+lzRfxl3g3AGkY31H3E8w0MSdVp3YEHY8ohv7IkdG1lYQ8IR1
+         t72A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Q3iDMh0884AolJqk0n3Rr7Bkujd5BjSIfDC4Ydnffes=;
-        b=Hpuz/efOEXWrETiPx4JkHwCGBZrOh/yGrjvlpaeDp0BlfctkZVBD2ufVkd2Y3AK78i
-         OFhsS353DsGzM06Y4+nr3Iaj8w9+S7UZZ6QDwXgUr8tLT1zFo1RzIQ6F/bLtV/DFLZ31
-         1iMvd3ZYG9YgZJhQjlCXLSbUjQ0VS85OIVc4QGY7WYXECMkXzX5n2l9jiyCfjK7dxkrb
-         nMYKK+niV7S00lRT2V3zu2/f9HD/Ukyy7/7U/eLtQv0GHN72bOReLWAtgpQptRDCpBbJ
-         rWf8YhTYoG/3Qp8sAJ1Gx/KcIUhrVIZyHEKx4Zptf+2zMwmrOoQeu+Nee+qDwOcKy8BF
-         JkGQ==
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PNm/GGnZKS1oD0haBeTDlv3vNIvsUl5vjVVNEh3w9Ng=;
+        b=l1EZTH5kFHMpQaMb6ANemgx3SrfFPWxeWntmfA0tMVCW2GyQukI3QQzkdIJ2F96CAd
+         xnlGpz0ZWIFmFEZyVemrsehhaNvpJO+z2xgTgJz3IWD9YtAMfHCazhEQL3bY1ZRpCumI
+         tZzgTIvgpN8t3BytrXbI5i7OoKqxSEiOwH7lSi7W/XWqn2eysfdI9aR+aBNG01yseELn
+         OFpAnk8AoTeOed0VgF8e7hOmhq46pgrGsFfxgXQeG4DKj9fimx0ekRXkN5css+/sk1J8
+         O4OIGfRvr808AR9hacklLQbrM27oNPpXpeC1p392DheRL3ucQ+O9wgsFE6AFZmUUDGYJ
+         8DhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532IS4/xUxHgtT3QW2zd67m8LwYhO0rmqhxbLFmdKjPuJ0B0+fy6
-	YhWCtOCpzCciymYdQjOHmbg=
-X-Google-Smtp-Source: ABdhPJyp3MFsCtGr5adht5wGMYK+M5UeI9zoFuTH+3UzgNlazDFMjHOaqpS+C+7Rmvv77NTtBZCeEg==
-X-Received: by 2002:a25:c553:: with SMTP id v80mr2188463ybe.221.1618465117491;
-        Wed, 14 Apr 2021 22:38:37 -0700 (PDT)
+X-Gm-Message-State: AOAM531pF5Y6h7uEwT47ADestyQiJbC7n11GWUzCdcYkWE1oBWa+Ngr2
+	+x4Znpufp7uYgFbaqCzI+w4=
+X-Google-Smtp-Source: ABdhPJypcDfMdn/7dNoyoae5GU6gWkdF1r9IEfDYZjQGg3pBTWo1G7WHt97S4fZM7yqj0xh2Y3bwjA==
+X-Received: by 2002:a62:15d1:0:b029:254:e939:91a6 with SMTP id 200-20020a6215d10000b0290254e93991a6mr1610042pfv.21.1618465208143;
+        Wed, 14 Apr 2021 22:40:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:a045:: with SMTP id x63ls2067812ybh.1.gmail; Wed, 14 Apr
- 2021 22:38:36 -0700 (PDT)
-X-Received: by 2002:a25:3188:: with SMTP id x130mr2225070ybx.174.1618465116724;
-        Wed, 14 Apr 2021 22:38:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618465116; cv=none;
+Received: by 2002:a17:902:144:: with SMTP id 62ls2581682plb.11.gmail; Wed, 14
+ Apr 2021 22:40:07 -0700 (PDT)
+X-Received: by 2002:a17:90a:f992:: with SMTP id cq18mr1945155pjb.7.1618465207696;
+        Wed, 14 Apr 2021 22:40:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618465207; cv=none;
         d=google.com; s=arc-20160816;
-        b=z8tEfXC834gz0gfJd+YrSHleSseKfkMoHoZXj3xdN0NeRIdaEeG3DFRr6mG0CNDEUV
-         XhOG1wTrB9oG2eel/VMR6WvqUr7ywnXW3PJu59zn3GMJo0VI1U3G3F7ZgzDBJPmT4+/6
-         X6zjL0LefIfUFBQP735Sd9wSFfdYZqC8rQOore/WldS/sa0xMk5LRgJdSmGsK+CVlUhU
-         2WYbhpV6+TOEtW3kCncSE+E5XFv22QslUWZjRlk2l9mSEv62UURiZod+GCqXeLe+dTJQ
-         XOaOX7paOMO2c8suhfD4lR4ej18VflhE1JaD1XOpH9cdx/DNM8yG8z7G1TawCTU5/amL
-         /HVA==
+        b=LnDDN9bEcnuFtzstN87Jmf7ybTdcf7ObG1Jwg6CtdHadRiRts7lO2Gddjva02H/gVj
+         3yA8NXV5f97/vk4dVBwAlA8hzccWoeDApeHVHtL+BoeEaMdEang4UatCsc2FDG2H1YbX
+         WPF6ocHMv+3HWswuJsSNYlUj756aese30YEwCbT4HfzGdhQeP1Tvt4GKDFr3+ldUjgLo
+         mx2YfIXNLdMILnQUteHZK+lRJ6ALKPP9+k7ZylaQrXUbG4hFcVuOA+XAXHtpCe/r9eL8
+         gVzQWrwcXEt84TrGwARdLRtYMXV7iY0jOMy42cqed539OLmPweF1GhKHTlPV9XKcTKWG
+         c93A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=e+5AxPE7Oi4vd2SZdO2Iljr7Knf4PsxLD9AgTERDiCw=;
-        b=faUsvX7TgKSOS6IyUTAJKIxhZ/5U+h8PK5UsPqb/k7qpqnXdI2MDciFBjChPqv/ive
-         27dg9IaIp+fJwR3DhUNgx7EwLzFQMZBD6bQt02bBKjGdZqhGoTpZOITBZ0tX+o+H/jGs
-         XwuPpDH7N//5CImJ+yXrK7w3BfFtTZuM6BPOcQpl4AziEKbbIucfiOQciVk8JQeT5s/n
-         XsG0VONGSGPtlrstK4Th++bByG3DLyUdY91iUxI5B5qMmoMSn9lmQykiRbGI+5ycM3gr
-         EhX3DlIxXdVtoI3TC2wjqSQYEDNvt0feffYIyRWRdhCaAQNlcM/sy2tAtuXBpW54spms
-         ll6Q==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=KvftrG5Lhi1GCGuoRVYKNQEyYty8Kzz1Wdzomp/vDD4=;
+        b=Awp4OwB+MEfWN+EHAT7wz7c2nVZtZlWaNsbiR8PIfaCShbi+ooh1V8iHSVOGynO17T
+         veN4LddQhxJlpDtzK64j961Df0+eprr0M0g5Fjndeh3PyRVYOAmRKxgFeGYqqPtNeh6y
+         Rum+5IT5+vVmitbJUlGuxSkLLR4lhlA9z7YH1qwJLwUW5PU5Eib4d1p3eUqMWt63/0Hw
+         RX4zbrQcBuBV+zc/t0N3TEEcNLU6uNA9AYLGrYmMfEHmg1P2P7IiPUIp/OSvUW5oldU+
+         d6nv+XeG7IElPNCQ2GsPmuAMBPPML0SXPPiUFvdSmS45RIBVlj1U/V3jdnyb7YvRQ948
+         vM9A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@email.cn header.s=dkim header.b=fF7pniN7;
+       dkim=pass (test mode) header.i=@email.cn header.s=dkim header.b=S5hFYQol;
        spf=pass (google.com: domain of bobwxc@email.cn designates 43.250.32.171 as permitted sender) smtp.mailfrom=bobwxc@email.cn
 Received: from email.cn ([43.250.32.171])
-        by gmr-mx.google.com with ESMTPS id l14si127396ybp.4.2021.04.14.22.38.33
+        by gmr-mx.google.com with ESMTPS id f16si136737plg.0.2021.04.14.22.40.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
-        Wed, 14 Apr 2021 22:38:34 -0700 (PDT)
+        Wed, 14 Apr 2021 22:40:07 -0700 (PDT)
 Received-SPF: pass (google.com: domain of bobwxc@email.cn designates 43.250.32.171 as permitted sender) client-ip=43.250.32.171;
 Received: from bobwxc.top (unknown [120.238.248.129])
-	by v_coremail2-frontend-1 (Coremail) with SMTP id LCKnCgB36tBM0XdgHZddAA--.16109S2;
-	Thu, 15 Apr 2021 13:38:23 +0800 (CST)
-Date: Thu, 15 Apr 2021 13:38:20 +0800
+	by v_coremail2-frontend-1 (Coremail) with SMTP id LCKnCgAXi9Gu0XdghZddAA--.16668S2;
+	Thu, 15 Apr 2021 13:40:00 +0800 (CST)
+Date: Thu, 15 Apr 2021 13:39:58 +0800
 From: "Wu X.C." <bobwxc@email.cn>
-To: Fangrui Song <maskray@google.com>
-Cc: Alex Shi <seakeel@gmail.com>, Alex Shi <alexs@kernel.org>,
-	Bernard Zhao <bernard@vivo.com>, Jonathan Corbet <corbet@lwn.net>,
+To: "Zengtao (B)" <prime.zeng@hisilicon.com>
+Cc: Alex Shi <alexs@kernel.org>, Bernard Zhao <bernard@vivo.com>,
+	Jonathan Corbet <corbet@lwn.net>,
 	YanTeng Si <sterlingteng@gmail.com>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v5] docs/zh_CN: add translations in zh_CN/dev-tools/gcov
-Message-ID: <20210415053820.GA26262@bobwxc.top>
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: Re: =?utf-8?B?562U5aSNOiBbUEFUQw==?= =?utf-8?Q?H?= v5] docs/zh_CN:
+ add translations in zh_CN/dev-tools/gcov
+Message-ID: <20210415053958.GB26262@bobwxc.top>
 References: <20210414082316.15160-1-bernard@vivo.com>
  <20210414132127.GA13306@bobwxc.top>
- <69e5d111-a439-7000-ad5e-4e0f4dabe29f@gmail.com>
- <20210415050755.onbtp7ftzawftrud@google.com>
+ <e26cc66e2a2745f994eb8ede9a783563@hisilicon.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="x+6KMIRAuhnl3hBn"
+Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210415050755.onbtp7ftzawftrud@google.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e26cc66e2a2745f994eb8ede9a783563@hisilicon.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CM-TRANSID: LCKnCgB36tBM0XdgHZddAA--.16109S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuF1xKw15uryxJr4DXFyxZrb_yoW5tFy3pF
-	srGayxKF48KrWUCryI9w10q39Fyay5K3W2qFy8Jryjqrs09F4Skr12gr18Wasxu34DAryq
-	y3W7AFnakw15AFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyKb7Iv0xC_Cr1lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+X-CM-TRANSID: LCKnCgAXi9Gu0XdghZddAA--.16668S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCFy5uw1UuFyUXFWrZr4fKrg_yoW5Ww4xpF
+	4DKFWfK3Wxury3CFW2gF1UAFyUAas7Ww4DKryIq3s0qrWqvr4Fyr17tryjgr9rWr48Za45
+	Za18WFyj93s0kFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUyGb7Iv0xC_Cr1lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
 	cIk0rVWrJVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjx
 	v20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2
 	z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0x
-	vYzxvE52x082IY62kv0487M2AExVA0xI801c8C04v7Mc02F40EFcxC0VAKzVAqx4xG6I80
-	ewAv7VCjz48v1sIEY20_Cr1UJr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4
-	IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxAIw28IcVCjz48v1sIEY20_
-	Cr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x
-	8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE
-	2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42
-	xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF
-	7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj4RRbyZUUUUU
+	vYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VCjz48v1sIEY20_
+	Cr1UJr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2
+	IY04v7MxkIecxEwVAFwVW8WwCF04k20xvY0x0EwIxGrwCF04k20xvE74AGY7Cv6cx26F4U
+	Jr1UMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
+	xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xII
+	jxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw2
+	0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x02
+	67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUUO6pPUUUUU==
 X-Originating-IP: [120.238.248.129]
 X-CM-SenderInfo: pere453f6hztlloou0/
 X-Original-Sender: bobwxc@email.cn
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@email.cn header.s=dkim header.b=fF7pniN7;       spf=pass
+ mode) header.i=@email.cn header.s=dkim header.b=S5hFYQol;       spf=pass
  (google.com: domain of bobwxc@email.cn designates 43.250.32.171 as permitted
  sender) smtp.mailfrom=bobwxc@email.cn
 Precedence: list
@@ -154,96 +158,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Thu, Apr 15, 2021 at 04:01:55AM +0000, Zengtao (B) wrote:
+> > -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> > =E5=8F=91=E4=BB=B6=E4=BA=BA: Wu XiangCheng [mailto:bobwxc@email.cn]
+> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2021=E5=B9=B44=E6=9C=8814=E6=97=
+=A5 21:21
+> > =E6=94=B6=E4=BB=B6=E4=BA=BA: Alex Shi <alexs@kernel.org>; Bernard Zhao =
+<bernard@vivo.com>
+> > =E6=8A=84=E9=80=81: Jonathan Corbet <corbet@lwn.net>; YanTeng Si
+> > <sterlingteng@gmail.com>; Nathan Chancellor <nathan@kernel.org>; Nick
+> > Desaulniers <ndesaulniers@google.com>; linux-doc@vger.kernel.org;
+> > linux-kernel@vger.kernel.org; clang-built-linux@googlegroups.com
+> > =E4=B8=BB=E9=A2=98: [PATCH v5] docs/zh_CN: add translations in zh_CN/de=
+v-tools/gcov
+> >=20
+> > From: Bernard Zhao <bernard@vivo.com>
+> >=20
+> > Add new zh translations
+> > * zh_CN/dev-tools/gcov.rst
+> > * zh_CN/dev-tools/index.rst
+> > and link them to zh_CN/index.rst
+> >=20
+> > Signed-off-by: Bernard Zhao <bernard@vivo.com>
+> > Reviewed-by: Wu XiangCheng <bobwxc@email.cn>
+> > Signed-off-by: Wu XiangCheng <bobwxc@email.cn>
+> > ---
+> > base: linux-next
+> > commit 269dd42f4776 ("docs/zh_CN: add riscv to zh_CN index")
+> >=20
+> > Changes since V4:
+> > * modified some words under Alex Shi's advices
+> >=20
+> > Changes since V3:
+> > * update to newest linux-next
+> > * fix ``
+> > * fix tags
+> > * fix list indent
+> >=20
+> > Changes since V2:
+> > * fix some inaccurate translation
+> >=20
+> > Changes since V1:
+> > * add index.rst in dev-tools and link to to zh_CN/index.rst
+> > * fix some inaccurate translation
+> >=20
+> >  .../translations/zh_CN/dev-tools/gcov.rst     | 265 ++++++++++++++++++
+> >  .../translations/zh_CN/dev-tools/index.rst    |  35 +++
+> >  Documentation/translations/zh_CN/index.rst    |   1 +
+> >  3 files changed, 301 insertions(+)
+> >  create mode 100644 Documentation/translations/zh_CN/dev-tools/gcov.rst
+> >  create mode 100644 Documentation/translations/zh_CN/dev-tools/index.rs=
+t
+> >=20
+> > diff --git a/Documentation/translations/zh_CN/dev-tools/gcov.rst
+> > b/Documentation/translations/zh_CN/dev-tools/gcov.rst
+> > new file mode 100644
+> > index 000000000000..7515b488bc4e
+> > --- /dev/null
+> > +++ b/Documentation/translations/zh_CN/dev-tools/gcov.rst
+> > @@ -0,0 +1,265 @@
+> > +.. include:: ../disclaimer-zh_CN.rst
+> > +
+> > +:Original: Documentation/dev-tools/gcov.rst
+> > +:Translator: =E8=B5=B5=E5=86=9B=E5=A5=8E Bernard Zhao <bernard@vivo.co=
+m>
+> > +
+> > +=E5=9C=A8Linux=E5=86=85=E6=A0=B8=E9=87=8C=E4=BD=BF=E7=94=A8gcov=E5=81=
+=9A=E4=BB=A3=E7=A0=81=E8=A6=86=E7=9B=96=E7=8E=87=E6=A3=80=E6=9F=A5
+> > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > +
+> > +gcov=E6=98=AFlinux=E4=B8=AD=E5=B7=B2=E7=BB=8F=E9=9B=86=E6=88=90=E7=9A=
+=84=E4=B8=80=E4=B8=AA=E5=88=86=E6=9E=90=E6=A8=A1=E5=9D=97=EF=BC=8C=E8=AF=A5=
+=E6=A8=A1=E5=9D=97=E5=9C=A8=E5=86=85=E6=A0=B8=E4=B8=AD=E5=AF=B9GCC=E7=9A=84=
+=E4=BB=A3=E7=A0=81
+> > =E8=A6=86=E7=9B=96=E7=8E=87=E7=BB=9F
+>=20
+> Gcov is a tool/function, misleading for " gcov=E6=98=AFlinux=E4=B8=AD=E5=
+=B7=B2=E7=BB=8F=E9=9B=86=E6=88=90=E7=9A=84=E4=B8=80=E4=B8=AA=E5=88=86=E6=9E=
+=90
+> =E6=A8=A1=E5=9D=97"
+>=20
+> I 'd suggest:
+> "Linux=E5=86=85=E6=A0=B8=E4=B8=AD=E5=B7=B2=E7=BB=8F=E9=9B=86=E6=88=90=E4=
+=B8=80=E4=B8=AA=E7=89=B9=E6=80=A7=E6=94=AF=E6=8C=81gcov=E5=8A=9F=E8=83=BD=
+=EF=BC=8C=E8=AF=A5=E7=89=B9=E6=80=A7=E8=AE=A9=E7=94=A8=E6=88=B7=E5=8F=AF=E4=
+=BB=A5=E4=BD=BF=E7=94=A8gcov
+>  =E5=B7=A5=E5=85=B7=E5=AF=B9=E5=86=85=E6=A0=B8=E4=BB=A3=E7=A0=81=E8=A6=86=
+=E7=9B=96=E7=8E=87=E8=BF=9B=E8=A1=8C=E7=BB=9F=E8=AE=A1"
+>=20
+> Thanks.
 
---x+6KMIRAuhnl3hBn
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: base64
+Have rewrited it.
 
-T24gV2VkLCBBcHIgMTQsIDIwMjEgYXQgMTA6MDc6NTVQTSAtMDcwMCwgRmFuZ3J1aSBTb25nIHdy
-b3RlOg0KPiBSZXZpZXdlZC1ieTogRmFuZ3J1aSBTb25nIDxtYXNrcmF5QGdvb2dsZS5jb20+DQo+
-IA0KPiBJbmxpbmVkIHNvbWUgc3VnZ2VzdGlvbnMuDQoNClRoYW5rcyBmb3IgeW91ciByZXZpZXch
-DQoNCj4gDQo+IE9uIDIwMjEtMDQtMTQsIEFsZXggU2hpIHdyb3RlOg0KPiA+IFJldmlld2VkLWJ5
-OiBBbGV4IFNoaSA8YWxleHNAa2VybmVsLm9yZz4NCj4gPiANCj4gPiBPbiAyMDIxLzQvMTQg5LiL
-5Y2IOToyMSwgV3UgWGlhbmdDaGVuZyB3cm90ZToNCj4gPiA+IEZyb206IEJlcm5hcmQgWmhhbyA8
-YmVybmFyZEB2aXZvLmNvbT4NCj4gPiA+IA0KPiA+ID4gQWRkIG5ldyB6aCB0cmFuc2xhdGlvbnMN
-Cj4gPiA+ICogemhfQ04vZGV2LXRvb2xzL2djb3YucnN0DQo+ID4gPiAqIHpoX0NOL2Rldi10b29s
-cy9pbmRleC5yc3QNCj4gPiA+IGFuZCBsaW5rIHRoZW0gdG8gemhfQ04vaW5kZXgucnN0DQo+ID4g
-PiANCj4gPiA+IFNpZ25lZC1vZmYtYnk6IEJlcm5hcmQgWmhhbyA8YmVybmFyZEB2aXZvLmNvbT4N
-Cj4gPiA+IFJldmlld2VkLWJ5OiBXdSBYaWFuZ0NoZW5nIDxib2J3eGNAZW1haWwuY24+DQo+ID4g
-PiBTaWduZWQtb2ZmLWJ5OiBXdSBYaWFuZ0NoZW5nIDxib2J3eGNAZW1haWwuY24+DQo+ID4gPiAt
-LS0NCj4gPiA+ICsNClsuLi5dDQo+ID4gPiAr5ZyoTGludXjlhoXmoLjph4zkvb/nlKhnY2925YGa
-5Luj56CB6KaG55uW546H5qOA5p+lDQo+ID4gPiArPT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PQ0KPiA+ID4gKw0KPiA+ID4gK2djb3bmmK9saW51eOS4reW3sue7j+mbhuaIkOea
-hOS4gOS4quWIhuaekOaooeWdl++8jOivpeaooeWdl+WcqOWGheaguOS4reWvuUdDQ+eahOS7o+eg
-geimhueblueOh+e7nw0KPiANCj4gaW5zdHJ1bWVudGF0aW9uIOS4gOiIrOivkeS9nCDmj5Lmoanv
-vIzogIzpnZ4g5YiG5p6Q44CCDQoNCkhhdmUgcmV3cml0ZWQgdGhpcyBwYXJhZ3JhcGguDQpIZXJl
-IGlzICJnY292IHByb2ZpbGluZyBrZXJuZWwi77yMZ2NvduWIhuaekOaguOW/gw0KDQo+IA0KPiA+
-ID4gK+iuoeaPkOS+m+S6huaUr+aMgeOAgg0KPiA+ID4gK2xpbnV45YaF5qC46L+Q6KGM5pe255qE
-5Luj56CB6KaG55uW546H5pWw5o2u5Lya5LulZ2NvduWFvOWuueeahOagvOW8j+WtmOWCqOWcqGRl
-YnVnLWZz5Lit77yM5Y+vDQo+IA0KPiDkuJPmnInlkI3or40gTGludXgg5bqU5aSn5YaZ44CCDQoN
-CkRvbmUuDQoNCj4gDQo+ID4gPiAr5Lul6YCa6L+HZ2NvdueahCBgYC1vYGAg6YCJ6aG577yI5aaC
-5LiL56S65L6L77yJ6I635b6X5oyH5a6a5paH5Lu255qE5Luj56CB6L+Q6KGM6KaG55uW546H57uf
-6K6h5pWw5o2uDQo+ID4gPiAr77yI6ZyA6KaB6Lez6L2s5Yiw5YaF5qC457yW6K+R6Lev5b6E5LiL
-5bm25LiU6KaB5pyJcm9vdOadg+mZkO+8iTo6DQo+ID4gPiArDQo+ID4gPiArICAgICMgY2QgL3Rt
-cC9saW51eC1vdXQNCj4gPiA+ICsgICAgIyBnY292IC1vIC9zeXMva2VybmVsL2RlYnVnL2djb3Yv
-dG1wL2xpbnV4LW91dC9rZXJuZWwgc3BpbmxvY2suYw0KPiA+ID4gKw0KPiA+ID4gK+i/meWwhuWc
-qOW9k+WJjeebruW9leS4reWIm+W7uuW4puacieaJp+ihjOiuoeaVsOazqOmHiueahOa6kOS7o+eg
-geaWh+S7tuOAgg0KPiA+ID4gK+WcqOiOt+W+l+i/meS6m+e7n+iuoeaWh+S7tuWQju+8jOWPr+S7
-peS9v+eUqOWbvuW9ouWMlueahCBnY292XyDliY3nq6/lt6XlhbfvvIjmr5TlpoIgbGNvdl8g77yJ
-77yM5p2l5a6e546wDQo+ID4gPiAr6Ieq5Yqo5YyW5aSE55CGbGludXjlhoXmoLjnmoTopobnm5bn
-jofov5DooYzmlbDmja7vvIzlkIzml7bnlJ/miJDmmJPkuo7pmIXor7vnmoRIVE1M5qC85byP5paH
-5Lu244CCDQo+ID4gPiArDQo+ID4gPiAr5Y+v6IO955qE55So6YCUOg0KPiA+ID4gKw0KPiA+ID4g
-Kyog6LCD6K+V77yI55So5p2l5Yik5pat5q+P5LiA6KGM55qE5Luj56CB5piv5ZCm5bey57uP6L+Q
-6KGM6L+H77yJDQo+ID4gPiArKiDmtYvor5XmlLnov5vvvIjlpoLkvZXkv67mlLnmtYvor5Xku6Pn
-oIHvvIzlsL3lj6/og73lnLDopobnm5bliLDmsqHmnInov5DooYzov4fnmoTku6PnoIHvvIkNCj4g
-PiA+ICsqIOWGheaguOmFjee9ruS8mOWMlu+8iOWvueS6juafkOS4gOS4qumAiemhuemFjee9ru+8
-jOWmguaenOWFs+iBlOeahOS7o+eggeS7juadpeayoeaciei/kOihjOi/h++8jOaYrw0KPiA+ID4g
-KyAg5ZCm6L+Y6ZyA6KaB6L+Z5Liq6YWN572u77yJDQo+IA0KPiBtaW5pbWl6aW5nOiDkvJjljJYg
-LT4g5pyA5bCP5YyWL+eugOWMlg0KDQpEb25lLg0KDQo+IA0KPiA+ID4gKy4uIF9nY292OiBodHRw
-czovL2djYy5nbnUub3JnL29ubGluZWRvY3MvZ2NjL0djb3YuaHRtbA0KPiA+ID4gKy4uIF9sY292
-OiBodHRwOi8vbHRwLnNvdXJjZWZvcmdlLm5ldC9jb3ZlcmFnZS9sY292LnBocA0KPiA+ID4gKw0K
-PiA+ID4gKw0KPiA+ID4gK+WHhuWkhw0KPiA+ID4gKy0tLS0NCj4gPiA+ICsNCj4gPiA+ICvlhoXm
-oLjmiZPlvIDlpoLkuIvphY3nva46Og0KPiA+ID4gKw0KPiA+ID4gKyAgICAgICAgQ09ORklHX0RF
-QlVHX0ZTPXkNCj4gPiA+ICsgICAgICAgIENPTkZJR19HQ09WX0tFUk5FTD15DQo+ID4gPiArDQo+
-ID4gPiAr6I635Y+W5pW05Liq5YaF5qC455qE6KaG55uW546H5pWw5o2u77yM6L+Y6ZyA6KaB5omT
-5byAOjoNCj4gPiA+ICsNCj4gPiA+ICsgICAgICAgIENPTkZJR19HQ09WX1BST0ZJTEVfQUxMPXkN
-Cj4gPiA+ICsNCj4gPiA+ICvpnIDopoHms6jmhI/nmoTmmK/vvIzmlbTkuKrlhoXmoLjlvIDlkK/o
-pobnm5bnjofnu5/orqHkvJrpgKDmiJDlhoXmoLjplZzlg4/mlofku7blsLrlr7jnmoTlop7lpKfv
-vIwNCj4gPiA+ICvlkIzml7blhoXmoLjov5DooYznmoTkuZ/kvJrlj5jmhaLkuIDkupvjgIINCj4g
-DQo+IHMv55qELy8NCg0KRG9uZS4NCg0KPiANCj4gPiA+ICvlj6blpJbvvIzlubbkuI3mmK/miYDm
-nInnmoTmnrbmnoTpg73mlK/mjIHmlbTkuKrlhoXmoLjlvIDlkK/opobnm5bnjofnu5/orqHjgIIN
-Cj4gPiA+ICsNCj4gPiA+ICvku6PnoIHov5DooYzopobnm5bnjofmlbDmja7lj6rlnKhkZWJ1Z2Zz
-5oyC6L295a6M5oiQ5ZCO5omN5Y+v5Lul6K6/6ZeuOjoNCj4gPiA+ICsNClsuLi5dDQo+ID4gPiAr
-DQo+ID4gPiAr57yW6K+R5py65ZKM5rWL6K+V5py65YiG56a7DQo+ID4gPiArLS0tLS0tLS0tLS0t
-LS0tLS0tDQo+ID4gPiArDQo+ID4gPiArZ2NvdueahOWGheaguOWIhuaekOaetuaehOaUr+aMgeWG
-heaguOeahOe8luivkeWSjOi/kOihjOaYr+WcqOWQjOS4gOWPsOacuuWZqOS4iu+8jOS5n+WPr+S7
-pee8luivkeWSjOi/kA0KPiANCj4g5YiG5p6QIC0+IOaPkuahqQ0KDQpEb25lLg0KDQo+IA0KPiA+
-ID4gK+ihjOaYr+WcqOS4jeWQjOeahOacuuWZqOS4iuOAgg0KWy4uLl0NCg0KVGhhbmtzIQ0KDQpX
-dQ0KDQotLSAKWW91IHJlY2VpdmVkIHRoaXMgbWVzc2FnZSBiZWNhdXNlIHlvdSBhcmUgc3Vic2Ny
-aWJlZCB0byB0aGUgR29vZ2xlIEdyb3VwcyAiQ2xhbmcgQnVpbHQgTGludXgiIGdyb3VwLgpUbyB1
-bnN1YnNjcmliZSBmcm9tIHRoaXMgZ3JvdXAgYW5kIHN0b3AgcmVjZWl2aW5nIGVtYWlscyBmcm9t
-IGl0LCBzZW5kIGFuIGVtYWlsIHRvIGNsYW5nLWJ1aWx0LWxpbnV4K3Vuc3Vic2NyaWJlQGdvb2ds
-ZWdyb3Vwcy5jb20uClRvIHZpZXcgdGhpcyBkaXNjdXNzaW9uIG9uIHRoZSB3ZWIgdmlzaXQgaHR0
-cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS9kL21zZ2lkL2NsYW5nLWJ1aWx0LWxpbnV4LzIwMjEwNDE1
-MDUzODIwLkdBMjYyNjIlNDBib2J3eGMudG9wLgo=
---x+6KMIRAuhnl3hBn
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks
+Wu
 
------BEGIN PGP SIGNATURE-----
-
-iQGzBAABCgAdFiEERbo3U5kJpaCtFl1PtlsoEiKCsIUFAmB30UgACgkQtlsoEiKC
-sIUQuAv/WQclSGZzklGXZclzUOK0rZT4FLVV9ds2zT2mpWoOvvBihx5QUBBXSvPT
-xaAkW3mJGNXqIYjr3jGxOWthdRrFD1HWFUaMoyW8mkg5qORscCZxU+lihMmlVp6B
-GKWmW6q3QF9eujSntudA8fpjrUVb0/jJOie0w+nV2fEcH1xjrNn3+vfZ1PnFSHyl
-7JE7bhy1Fsb4mBo1IIJ3G6eJvh7aHAKVLhDMW8vFW7IKiLmVtHkJ5v9osATwAMvo
-bLyFA3+u0CHqV3jaMv4GoSwcvfQMDLXlSaj9z4hfA7+3B04BPrj4yCc8sCi0rElX
-7OAs45RYMpArTXqxQhC2MnPmVqeHLIlOelveq6iyFx62otjdAMwckcQ+OoLJF8fF
-f4Y6Pccly1Y/PcqvJs8cKRFyHJ3R6+AqHvdwxKBOEd7/Tjuny82yEwOvd/aP1/0r
-kqpmZ/KCodPYYQtnnyDvrOTd5sXcpXReymmxXAoU7bbanUI3/UWIos/nutSJFXbt
-jvTOqams
-=FIbD
------END PGP SIGNATURE-----
-
---x+6KMIRAuhnl3hBn--
-
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210415053958.GB26262%40bobwxc.top.
