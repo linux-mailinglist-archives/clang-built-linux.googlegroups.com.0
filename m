@@ -1,126 +1,114 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB6ER42BQMGQEYANUBNI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBOUV42BQMGQESXBA6RQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B149436204D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 14:54:18 +0200 (CEST)
-Received: by mail-pg1-x53a.google.com with SMTP id m36-20020a634c640000b02901fbb60ec3a6sf2909887pgl.15
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 05:54:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618577657; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id B8EF6362066
+	for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 15:01:47 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id q2-20020a6552420000b02901f9b22f2a79sf2926052pgp.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 06:01:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618578106; cv=pass;
         d=google.com; s=arc-20160816;
-        b=g02nVRi+YrfnzomnFAYqNOO9F9dM6nOOh5Yj5gufP+6J0R/HkHE0tJTkSnq7gDZIjr
-         lm7u/dZlcfGCOuq7WjiW95kQs79Lg841QxpncFRhgYcJY4Rdz9ZjSGLB23ZnfV8wZN03
-         yiB1oeHgCA0im4i8S1jEPGsJkumOTAlyQwzJhrESCfu5lBlDIPOxluz5UfU0pXW74K9I
-         HAKJtO3QHoiS2+XmAcE+shiyWtQFkra1faKCh1hw832YJzBg8GS0QYkmkd/itBGGa9bo
-         ZFLx9HkFRPHiNhyyc30FDiNty6sqdOVYvkx+YLudfR/l1fPFYrnX7JFwK6vy60gtHHh6
-         PKPg==
+        b=Sl561g8fN5R++r725+8WvKf9uzdBr5Ali9jDuvhzfbVB4V5oSN8bWY0rjB2A3ygGp/
+         ILAVHuETgJhW+rjN9hbBmaCXzmsIm0zShgWqyC30Eg3CnQHOKyF4Ji8MtfZG07uR7uI6
+         ZZl9KOxspzvh4jmrjk7ZZsqI7XJyHIOylBhsF6MawQ5TdZ/uHoEXqupBkZaVJoKx+ukb
+         JvFDsE7jvyb2fNxDimZ3C/WEdg2fuCQnAwRUcBZHbAwylgJIm2SNfsFx+aQOdopRr0x9
+         XoxO7DzozNhSbeJPzuqSE0k9qFW8fu9RjuNoXmvfalxwmwmxAwYGBStS4wYitMP/i5FN
+         V1nQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=6YuOKPmET+AOydd0quXOPWXjUAuLrRJS5+qk35pXSOM=;
-        b=0anGRaXRrzuvU5dz3lM9EHO04+1vYXy6bnBNVSILOlpkz9GwnHqNQEI/FXiH95eJQ9
-         h52T6hTsWMl0SZjPTFd+/UiSD2meaI34rsHmFTLVGQD3cehh/fjSzAPkI0fSsbZkRypq
-         LYSk8A/zzqnqi0SRZTQJDB1oC3XL3a8bEzMIcFMz+p1R20mXW3bt41M/9oegO+glKT3y
-         MfwA0GtLDbL6x7NswpZ2+6AdA76SQQg4jyravVHKxZeBcNCC9PtgaBP8e7DDJnMjTsDU
-         qgmJBI6tiFMAQyWn/sHv1U3fzfCVB/5c0eNPc8GMu8Wxxv3eG9cLIQgxQ2n7pH4Odwdr
-         tUIw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
+        bh=QIlcFGgpdK3tfphJ0H6v/FQdq6CYg3cxKbWuVn5/Wl4=;
+        b=xWsCP8FZKZifkFyhTxEvihSa5p+TeOG0+5w7DTfAGGe2LexXXCYCw2xIFlnRMwp4QZ
+         UYfb5JclIjoP780DnD4UJUgciu3t3BPGZpkahyf5Bv0K9tM/FDPe0gK6EIBrGgzR9VZY
+         LtFj3oQw0tqZb/i4uCCEEylZq4HKxXVO8nkbQQd2zIbq5El17brZPKd7BCQbiAIaTUof
+         u2tIsncf0ZpKROq93Yw2igp/ODyXYiDlDja7/M1ZwZ/Qmm5Trwjh+g1NzMQ6aRALvaGZ
+         4newsimvLMhZxhLLadXXP7eM2lSU4xpUGdss4X3fcL17SqM/+NAvbLGuC8IwZFAOVFGL
+         BQ1w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=pnl4cChP;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=cohJ7HYO;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6YuOKPmET+AOydd0quXOPWXjUAuLrRJS5+qk35pXSOM=;
-        b=iA+H6YnoeI5I3zSOWzwsbJjLrMnMH+ewipO/UKKYlvXMWQAML9r9M1bstOFym+0eQj
-         cW3Y5gL4yuYwSfxWe4kknix+ldGRWuXWHuE4DlAbypSl3KKcfkFDc5dg9eRfO5kfu+gB
-         IxMeo6dOv/ZkF7L/i7C6HGOzQgARBaahBK6D+UM3jxYRtedxI49HwN7vVp6HETyBsLpZ
-         ThG/9sq3E83NwfdHooIv3wkkKvJNN/czMn79srndnfTDV6Nnm9vRyEE6nbfzTAZwSivu
-         oV67aWyx/VkAPzTDauZxPR6mpnkf05x6ZBm5+1ufjnW8Fk1mTLiFcTcl1RBtd+G8bY2J
-         Usew==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QIlcFGgpdK3tfphJ0H6v/FQdq6CYg3cxKbWuVn5/Wl4=;
+        b=qm9kzILfEpOk8Wi1OhRRbrclvs0eCAgtmkCIuay4IiWRniATqjNgWmZkF64UsDIeeR
+         fzt18m9/aY5xA3OplNFg/t+HDWFaR2FZ6TyTXPA+Ze3xTsyaG/zT3uMH8mFpir5vOwld
+         nQA7+20w9f35gXKxATdSutXz8MD4di1iqDJxa/XOtjgI3Ml0nqN+JYhAP1UmOzlFr2Tv
+         W3ZRbKqtHCF/hE3AGWcPqmilSwIGQGCZBOVnV0SVIolZtO26EDb+x2Sgtzynq5AnudBu
+         1ZITu2eBgvN66Rw3xIhgnBW5HqKfhHDePFSoHCVBWrrJ3Ho70mtl7tjq1FTcJhKA7zo4
+         sxbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
+         :message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6YuOKPmET+AOydd0quXOPWXjUAuLrRJS5+qk35pXSOM=;
-        b=OYSwOl8Ub/YsCNn30MMkWtLa3e5U7FXw6OCYUTm9rTRkWGuR0fp4jhWjAAdfFsU+PQ
-         1LcFOAbB94kUlsOUZ+OezNKvuKN5S3OFD5hEv1AEacU88L/fkW0+q95wNPJM2jc3Rat8
-         5sW8S9cM1SoZYYgWlko1/rICWZM3Lr3T4X6rU8OaDaUDXcAauOCW9PwGlzL5LsaupEnY
-         eDjduNUc1+eN5Vpm45agmIfBLr4W/qm1FpqKk8UM0Nw7isf/2yDKGQgax4x0TDpfXoSJ
-         IYAp1xo3yW3HquFNpuu6CSOZ8jg+Nvw7KeMJvTOPbHBcUJT0pG7BpRs8KmmwRRMUr+ZJ
-         9rIQ==
+        bh=QIlcFGgpdK3tfphJ0H6v/FQdq6CYg3cxKbWuVn5/Wl4=;
+        b=NR4pDErNIbq/HIdpCjp4k3831i6A1lsnqYcNu6f3/+DE9pCsqhPp1PJ7S2Ss5y1JPy
+         9BM5tAdwxekBdkmlG+RsSYEsS9j6R4NcVB1N1g9ldAMUms5xVARs7DeSlOPEdTdmJ1v8
+         6bcwOqz8jtMa73+2sTGddqNusy5XuJuE1Ft5KT4xC7gAUmXr4mm33afDIpX4Ar+Rs8uw
+         TLCa5fv7NzROg7VW0UZQPioWTWmLm3RV9EHBCAkJpQG4+N6pGo16qFZDWTlIEL0rmUK7
+         I1i8kyDiSPyrvDnEyAAKoRy5DP/0ZziQQgdPP6CENMAjofCamH/AU979/feX57N9ev3r
+         NqKw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530qMmKv4hsx5imIOVLYB9IpnjdgpDVpuU6D0of1zuyld5CNTZ/Y
-	ugMg4dLNEqEEJzq0V20mcu0=
-X-Google-Smtp-Source: ABdhPJyvMBeXgTaABuJ1ECk8NTJlis7tez2nzRMU9pn4vluEmvXKyrIwHPFROoU2RAnfsvqU1UR9dA==
-X-Received: by 2002:a17:902:8c92:b029:e6:60ad:6924 with SMTP id t18-20020a1709028c92b02900e660ad6924mr9340445plo.16.1618577656844;
-        Fri, 16 Apr 2021 05:54:16 -0700 (PDT)
+X-Gm-Message-State: AOAM5301x1pzmQpvalFM2/gt1x5DCRZGjmB4Jh6nhUlCS6YNKWurWcLd
+	btxz5S1T0lXy0nc34BN+HvU=
+X-Google-Smtp-Source: ABdhPJw7F2UVZ7S5PldvzKN+Uat07XHxpmehlMq07HuZC2kB25rYI9NESxvyC+TYUFfl8DZ7ytFcXg==
+X-Received: by 2002:a17:90a:314:: with SMTP id 20mr9886944pje.72.1618578106475;
+        Fri, 16 Apr 2021 06:01:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:7102:: with SMTP id h2ls5119897pjk.0.canary-gmail;
- Fri, 16 Apr 2021 05:54:16 -0700 (PDT)
-X-Received: by 2002:a17:90a:f2c5:: with SMTP id gt5mr9528874pjb.67.1618577656364;
-        Fri, 16 Apr 2021 05:54:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618577656; cv=none;
+Received: by 2002:a17:902:7246:: with SMTP id c6ls5077002pll.4.gmail; Fri, 16
+ Apr 2021 06:01:46 -0700 (PDT)
+X-Received: by 2002:a17:902:ed52:b029:ec:824a:404a with SMTP id y18-20020a170902ed52b02900ec824a404amr1027089plb.73.1618578105980;
+        Fri, 16 Apr 2021 06:01:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618578105; cv=none;
         d=google.com; s=arc-20160816;
-        b=zwuiggmKzGRGianm74wdnp4h5CEdFaCSCItMGd1YGaCBBKa0Ft04txvE9U2erhs9ip
-         +97yjBB1Ny9LLORaVt7gnCDw2Pr1hst/1aP+Oe4OJS4a8qU4c8QIzKZ5YRkxnjsmJbUE
-         lxls6JtczddnA2APByW9ZcHUYVjj8OzUZBhCX3tIyivi2Dl4rhhhjDbhoPuZMtxvcqYH
-         ZObSlOEg6hukdfeEKnOLEkN95eQHCzaVCFpGXDEx4L+kJtxzGEqErrTCHteHT2xMh5YQ
-         TaOH72Wrl/Pk/10FgnxuU4eRkxP5RzJaeLGGxw/9G7cS93tpMKEIHYh+9uQW3kfaCETT
-         Sxxw==
+        b=sIrEvyYIUPokkZPAHThCnyGuedFYEdPbIZYOmo6dt+tQ5VA8yb5MlfY6THnBAhTiTt
+         euM6TKnK3hJWkZz4z+i1xhMeTTckeNo+o6ARpe0iOTcnFuF7OUaJAEWN1a18rBY+IXv7
+         w127bUawGvHa8kzhRdb6xAdu3IEnzzw1ANyeHLtQYn7GWYC1yFg9l+aoUnD64G8lwZul
+         wgzxo1ZIM1TupNx+VdvR9wYuxf7kK8B4EGSeUqQ9aMuGEjOawAZLqgFtGml4I2QaxyIs
+         +f0M7P6UhGnFNCwOytVfdGS+fpq+YD9M8442Z/AmzBwBxYilbnl5XkV01omgAGji/gtR
+         0kFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=FpBTE/PmjepHTlzWsrX59REOgQgL2WrtsCCIoF/CYWE=;
-        b=Db61kRSIBC8/9zY29oaOCZVXRoi5UPvtLUSxqoGk8hzVvHBMp8y65Bmbrxqh+95evQ
-         mAxxGifAC5iFkh4PoAUrXCSoqBXQGkJA45RCeCARUvEDaE+Zhhtmk2R8aneiY/bPYdZt
-         NC9KFhWTDhFPpbIgehWzf6MDHNDUNxJRXGunil4csjS1h0/RdWz+GgyTuop0wYDmZZKJ
-         IFZKkuP/vJg5BQiBOlg0/GUQK2xU/Iuy7b9IGdDc2Na6GXgHkQaL7dTFVCIdNC7kWlQA
-         nI/R0j5bCJ/AdHnkJTtUGPgtTnXHlLpgT++OGCZdewPnpurhM5yp54Xe9Cc8x2OhvBBF
-         3qHw==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:dkim-filter;
+        bh=Bj3vmQYuw6AVeyGMQICNThf6rcoOcN89RQenb/sBZqc=;
+        b=YrB0vXKDqNUnmtl3mdsDDmdKpH9TgHm8SYjxDxVdlZaFMFA1coes6k0P0iNPkhb3NY
+         s53ZvO1iGmjXY4fKDG5zurSgv4aBwxPSRmFTxKNP7E+kTIJLjc7oJi/U5Seo80QE8scQ
+         Lz5kNbrwZcJDPNoXgvfIjNFvHTJKPtN5VPWufbXuj4G1dIeHybzCdSB3zPxZs6JYi/Cd
+         y5qfDkCA8c2i2Fo1TPynXiKm6U9S93/rLfYtIi1/Da7vgcxlb6Yf65kjTrLSyFB/BnAs
+         67074DgHCeH7Z78Cwu0hOSaglunSWhm/DWZcChBQzbdDWKGw6xmLP5ZdG1736425DAdd
+         Eh8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=pnl4cChP;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=cohJ7HYO;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-04.nifty.com (conssluserg-04.nifty.com. [210.131.2.83])
-        by gmr-mx.google.com with ESMTPS id fy20si272449pjb.2.2021.04.16.05.54.15
+Received: from conuserg-10.nifty.com (conuserg-10.nifty.com. [210.131.2.77])
+        by gmr-mx.google.com with ESMTPS id 131si354513pfa.2.2021.04.16.06.01.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 16 Apr 2021 05:54:16 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) client-ip=210.131.2.83;
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54]) (authenticated)
-	by conssluserg-04.nifty.com with ESMTP id 13GCruC2008984
-	for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 21:53:57 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com 13GCruC2008984
-X-Nifty-SrcIP: [209.85.216.54]
-Received: by mail-pj1-f54.google.com with SMTP id ot17-20020a17090b3b51b0290109c9ac3c34so16314715pjb.4
-        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 05:53:57 -0700 (PDT)
-X-Received: by 2002:a17:90a:1056:: with SMTP id y22mr9094969pjd.153.1618577636323;
- Fri, 16 Apr 2021 05:53:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210415072700.147125-1-masahiroy@kernel.org> <20210415072700.147125-2-masahiroy@kernel.org>
- <eb623ea6-a2f4-9692-ff3d-cb9f9b9ea15f@de.ibm.com> <0eeed665-a105-917b-e7fb-8dafe2ae9d94@de.ibm.com>
-In-Reply-To: <0eeed665-a105-917b-e7fb-8dafe2ae9d94@de.ibm.com>
+        Fri, 16 Apr 2021 06:01:45 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.77 as permitted sender) client-ip=210.131.2.77;
+Received: from localhost.localdomain (133-32-232-101.west.xps.vectant.ne.jp [133.32.232.101]) (authenticated)
+	by conuserg-10.nifty.com with ESMTP id 13GD0vCC002141;
+	Fri, 16 Apr 2021 22:00:57 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com 13GD0vCC002141
+X-Nifty-SrcIP: [133.32.232.101]
 From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Fri, 16 Apr 2021 21:53:18 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASfiiLJd9dOpaJ47pJ4FzgV8JL3vU8okOYz0=eaE4OYgQ@mail.gmail.com>
-Message-ID: <CAK7LNASfiiLJd9dOpaJ47pJ4FzgV8JL3vU8okOYz0=eaE4OYgQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] tools: do not include scripts/Kbuild.include
-To: Christian Borntraeger <borntraeger@de.ibm.com>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Janosch Frank <frankja@linux.ibm.com>,
+To: linux-kbuild@vger.kernel.org
+Cc: Janosch Frank <frankja@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@de.ibm.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
         Alexei Starovoitov <ast@kernel.org>,
         Andrii Nakryiko <andrii@kernel.org>,
         Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Daniel Borkmann <daniel@iogearbox.net>, Harish <harish@linux.ibm.com>,
+        Daniel Borkmann <daniel@iogearbox.net>,
         John Fastabend <john.fastabend@gmail.com>,
         KP Singh <kpsingh@kernel.org>, Martin KaFai Lau <kafai@fb.com>,
         Michael Ellerman <mpe@ellerman.id.au>,
@@ -128,20 +116,22 @@ Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
         Nick Desaulniers <ndesaulniers@google.com>,
         Paolo Bonzini <pbonzini@redhat.com>, Paul Mackerras <paulus@samba.org>,
         Shuah Khan <shuah@kernel.org>, Song Liu <songliubraving@fb.com>,
-        Yonghong Song <yhs@fb.com>, bpf <bpf@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        kvm@vger.kernel.org,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
-        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
-        Networking <netdev@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        Yonghong Song <yhs@fb.com>, bpf@vger.kernel.org,
+        clang-built-linux@googlegroups.com, kvm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, netdev@vger.kernel.org
+Subject: [PATCH v2] tools: do not include scripts/Kbuild.include
+Date: Fri, 16 Apr 2021 22:00:51 +0900
+Message-Id: <20210416130051.239782-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.27.0
+MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=pnl4cChP;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=cohJ7HYO;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+ 210.131.2.77 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,104 +144,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Apr 16, 2021 at 2:56 PM Christian Borntraeger
-<borntraeger@de.ibm.com> wrote:
->
->
-> On 15.04.21 10:06, Christian Borntraeger wrote:
-> >
-> > On 15.04.21 09:27, Masahiro Yamada wrote:
-> >> Since commit d9f4ff50d2aa ("kbuild: spilt cc-option and friends to
-> >> scripts/Makefile.compiler"), some kselftests fail to build.
-> >>
-> >> The tools/ directory opted out Kbuild, and went in a different
-> >> direction. They copy any kind of files to the tools/ directory
-> >> in order to do whatever they want to do in their world.
-> >>
-> >> tools/build/Build.include mimics scripts/Kbuild.include, but some
-> >> tool Makefiles included the Kbuild one to import a feature that is
-> >> missing in tools/build/Build.include:
-> >>
-> >>   - Commit ec04aa3ae87b ("tools/thermal: tmon: use "-fstack-protector"
-> >>     only if supported") included scripts/Kbuild.include from
-> >>     tools/thermal/tmon/Makefile to import the cc-option macro.
-> >>
-> >>   - Commit c2390f16fc5b ("selftests: kvm: fix for compilers that do
-> >>     not support -no-pie") included scripts/Kbuild.include from
-> >>     tools/testing/selftests/kvm/Makefile to import the try-run macro.
-> >>
-> >>   - Commit 9cae4ace80ef ("selftests/bpf: do not ignore clang
-> >>     failures") included scripts/Kbuild.include from
-> >>     tools/testing/selftests/bpf/Makefile to import the .DELETE_ON_ERROR
-> >>     target.
-> >>
-> >>   - Commit 0695f8bca93e ("selftests/powerpc: Handle Makefile for
-> >>     unrecognized option") included scripts/Kbuild.include from
-> >>     tools/testing/selftests/powerpc/pmu/ebb/Makefile to import the
-> >>     try-run macro.
-> >>
-> >> Copy what they want there, and stop including scripts/Kbuild.include
-> >> from the tool Makefiles.
-> >>
-> >> Link: https://lore.kernel.org/lkml/86dadf33-70f7-a5ac-cb8c-64966d2f45a1@linux.ibm.com/
-> >> Fixes: d9f4ff50d2aa ("kbuild: spilt cc-option and friends to scripts/Makefile.compiler")
-> >> Reported-by: Janosch Frank <frankja@linux.ibm.com>
-> >> Reported-by: Christian Borntraeger <borntraeger@de.ibm.com>
-> >> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> >
-> > When applying this on top of d9f4ff50d2aa ("kbuild: spilt cc-option and friends to scripts/Makefile.compiler")
-> >
-> > I still do get
-> >
-> > # ==== Test Assertion Failure ====
-> > #   lib/kvm_util.c:142: vm->fd >= 0
-> > #   pid=315635 tid=315635 - Invalid argument
-> > #      1    0x0000000001002f4b: vm_open at kvm_util.c:142
-> > #      2     (inlined by) vm_create at kvm_util.c:258
-> > #      3    0x00000000010015ef: test_add_max_memory_regions at set_memory_region_test.c:351
-> > #      4     (inlined by) main at set_memory_region_test.c:397
-> > #      5    0x000003ff971abb89: ?? ??:0
-> > #      6    0x00000000010017ad: .annobin_abi_note.c.hot at crt1.o:?
-> > #   KVM_CREATE_VM ioctl failed, rc: -1 errno: 22
-> > not ok 7 selftests: kvm: set_memory_region_test # exit=254
-> >
-> > and the testcase compilation does not pickup the pgste option.
->
-> What does work is the following:
-> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-> index a6d61f451f88..d9c6d9c2069e 100644
-> --- a/tools/testing/selftests/kvm/Makefile
-> +++ b/tools/testing/selftests/kvm/Makefile
-> @@ -1,5 +1,6 @@
->   # SPDX-License-Identifier: GPL-2.0-only
->   include ../../../../scripts/Kbuild.include
-> +include ../../../../scripts/Makefile.compiler
->
->   all:
->
->
-> as it does pickup the linker option handling.
+Since commit d9f4ff50d2aa ("kbuild: spilt cc-option and friends to
+scripts/Makefile.compiler"), some kselftests fail to build.
 
+The tools/ directory opted out Kbuild, and went in a different
+direction. They copy any kind of files to the tools/ directory
+in order to do whatever they want in their world.
 
-Kbuild and the tools are divorced.
+tools/build/Build.include mimics scripts/Kbuild.include, but some
+tool Makefiles included the Kbuild one to import a feature that is
+missing in tools/build/Build.include:
 
-They cannot be married unless the tools/
-build system is largely refactored.
-That will be a tons of works (and
-I am not sure if it is welcome).
+ - Commit ec04aa3ae87b ("tools/thermal: tmon: use "-fstack-protector"
+   only if supported") included scripts/Kbuild.include from
+   tools/thermal/tmon/Makefile to import the cc-option macro.
 
-The Kbuild refactoring should not be bothered by
-the tools.
-For now, I want them separated from each other.
+ - Commit c2390f16fc5b ("selftests: kvm: fix for compilers that do
+   not support -no-pie") included scripts/Kbuild.include from
+   tools/testing/selftests/kvm/Makefile to import the try-run macro.
 
+ - Commit 9cae4ace80ef ("selftests/bpf: do not ignore clang
+   failures") included scripts/Kbuild.include from
+   tools/testing/selftests/bpf/Makefile to import the .DELETE_ON_ERROR
+   target.
 
+ - Commit 0695f8bca93e ("selftests/powerpc: Handle Makefile for
+   unrecognized option") included scripts/Kbuild.include from
+   tools/testing/selftests/powerpc/pmu/ebb/Makefile to import the
+   try-run macro.
 
---
-Best Regards
+Copy what they need into tools/build/Build.include, and make them
+include it instead of scripts/Kbuild.include.
 
-Masahiro Yamada
+Link: https://lore.kernel.org/lkml/86dadf33-70f7-a5ac-cb8c-64966d2f45a1@linux.ibm.com/
+Fixes: d9f4ff50d2aa ("kbuild: spilt cc-option and friends to scripts/Makefile.compiler")
+Reported-by: Janosch Frank <frankja@linux.ibm.com>
+Reported-by: Christian Borntraeger <borntraeger@de.ibm.com>
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+Changes in v2:
+  - copy macros to tools/build/BUild.include
+
+ tools/build/Build.include                     | 24 +++++++++++++++++++
+ tools/testing/selftests/bpf/Makefile          |  2 +-
+ tools/testing/selftests/kvm/Makefile          |  2 +-
+ .../selftests/powerpc/pmu/ebb/Makefile        |  2 +-
+ tools/thermal/tmon/Makefile                   |  2 +-
+ 5 files changed, 28 insertions(+), 4 deletions(-)
+
+diff --git a/tools/build/Build.include b/tools/build/Build.include
+index 585486e40995..2cf3b1bde86e 100644
+--- a/tools/build/Build.include
++++ b/tools/build/Build.include
+@@ -100,3 +100,27 @@ cxx_flags = -Wp,-MD,$(depfile) -Wp,-MT,$@ $(CXXFLAGS) -D"BUILD_STR(s)=\#s" $(CXX
+ ## HOSTCC C flags
+ 
+ host_c_flags = -Wp,-MD,$(depfile) -Wp,-MT,$@ $(KBUILD_HOSTCFLAGS) -D"BUILD_STR(s)=\#s" $(HOSTCFLAGS_$(basetarget).o) $(HOSTCFLAGS_$(obj))
++
++# output directory for tests below
++TMPOUT = .tmp_$$$$
++
++# try-run
++# Usage: option = $(call try-run, $(CC)...-o "$$TMP",option-ok,otherwise)
++# Exit code chooses option. "$$TMP" serves as a temporary file and is
++# automatically cleaned up.
++try-run = $(shell set -e;		\
++	TMP=$(TMPOUT)/tmp;		\
++	mkdir -p $(TMPOUT);		\
++	trap "rm -rf $(TMPOUT)" EXIT;	\
++	if ($(1)) >/dev/null 2>&1;	\
++	then echo "$(2)";		\
++	else echo "$(3)";		\
++	fi)
++
++# cc-option
++# Usage: cflags-y += $(call cc-option,-march=winchip-c6,-march=i586)
++cc-option = $(call try-run, \
++	$(CC) -Werror $(1) -c -x c /dev/null -o "$$TMP",$(1),$(2))
++
++# delete partially updated (i.e. corrupted) files on error
++.DELETE_ON_ERROR:
+diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+index 044bfdcf5b74..17a5cdf48d37 100644
+--- a/tools/testing/selftests/bpf/Makefile
++++ b/tools/testing/selftests/bpf/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+-include ../../../../scripts/Kbuild.include
++include ../../../build/Build.include
+ include ../../../scripts/Makefile.arch
+ include ../../../scripts/Makefile.include
+ 
+diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+index a6d61f451f88..5ef141f265bd 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+-include ../../../../scripts/Kbuild.include
++include ../../../build/Build.include
+ 
+ all:
+ 
+diff --git a/tools/testing/selftests/powerpc/pmu/ebb/Makefile b/tools/testing/selftests/powerpc/pmu/ebb/Makefile
+index af3df79d8163..c5ecb4634094 100644
+--- a/tools/testing/selftests/powerpc/pmu/ebb/Makefile
++++ b/tools/testing/selftests/powerpc/pmu/ebb/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+-include ../../../../../../scripts/Kbuild.include
++include ../../../../../build/Build.include
+ 
+ noarg:
+ 	$(MAKE) -C ../../
+diff --git a/tools/thermal/tmon/Makefile b/tools/thermal/tmon/Makefile
+index 59e417ec3e13..9db867df7679 100644
+--- a/tools/thermal/tmon/Makefile
++++ b/tools/thermal/tmon/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # We need this for the "cc-option" macro.
+-include ../../../scripts/Kbuild.include
++include ../../build/Build.include
+ 
+ VERSION = 1.0
+ 
+-- 
+2.27.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNASfiiLJd9dOpaJ47pJ4FzgV8JL3vU8okOYz0%3DeaE4OYgQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210416130051.239782-1-masahiroy%40kernel.org.
