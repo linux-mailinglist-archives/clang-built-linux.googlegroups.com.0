@@ -1,133 +1,141 @@
-Return-Path: <clang-built-linux+bncBDEPT3NHSUCBBSVK5CBQMGQEULFDTOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBKFN5CBQMGQENTIWPHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8F4A1362BA2
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 00:52:59 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id o9-20020a5e8a490000b02903e6e5e5c905sf5329505iom.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 15:52:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618613578; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6FBBA362BA7
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 00:58:50 +0200 (CEST)
+Received: by mail-pl1-x639.google.com with SMTP id y20-20020a170902ed54b02900ec7c5f84e4sf1677017plb.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 15:58:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618613929; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sk9GVV67AFWhN+eQSJz65hK7diirN/cmx9vlXbCzVme1a6SxS1zr3nCIhYwa6zgf8y
-         zi0+bGY36m+HCHk14hjrYAdigZ31yRb+a64zeeGlXlEovB2P86shyWX8d9EQWMMRorRD
-         eaqWrC/ali0XqIPeC9VGlfT8uCJ9JHkVWrnKqgf6dctDAMTrdMwP8fL9XpsNu5vTMAHr
-         tfstj9sdeVOOew8dZ+c/1e74qPS2q/Eevmv0XHE+KDqiqu86vEg0hKu7b//RLp5/tOfH
-         3l8p3sZRAC7TT9/SstwD/xnZTnD7Cm2rMOkAZZm7RY8pi76vslkk2yRlZQv2yR5jdOkb
-         ClFw==
+        b=toRFVToQVETbmVholDIamW95sUTB2nn2hY9C9+N+hgMKfF95vZfH86+PUYRa7kWx0s
+         OLM9TTQ9gK4qDoV8S+leAJMdfHI8oM2cx9U1s/l2hf0CRVJ6TeB5L6iLk9mHZ0aEzsLP
+         JVd8Guk6oOV0MbY7MAh9lRioeWBM8U9gmeksOa95Stm6EyfK/HcmsFW6uEjRQGkadqlI
+         mYl0i4wrZm3Y4b8oDszQ0Y6bsmCncamF8WWsiBzNuhJjeEwpsSl/1IVEMNsiwkVQ4HTp
+         wlAyy0K+4sI+oCS+cYHTVlFnvkvIDsTDBzffJ/V2L9IPuYKl3GEq8xMTU0XIwvfbpVWK
+         Yalw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=Sf1XIL3aEoeggBFK6M6bQOqRiwhx9g5kyh8BtHHi99Y=;
-        b=VhtLc4OTwx+mU1pL2VzhV0qVLIv1eXmMajZHayjLk/Uv+TOLRNA78rWFU1sU6J9/Ow
-         iRNs4xMM4kSDvKXFqUiZ00WV1lEIFr/n3C6TC+p9nGR9NnVlj46BAFkTWOJImPkw1nNa
-         DmxzYFHVeHDqXI/uODqgaHlQqx5YMr++bgw3xNQ9b0oWmwd5xcuFOmIk76cihTRIiMj9
-         8eJ9meN9XaG8V/6lTdgo50zu0Uk1nz7WmDw9tO6lz4xTsFPqaMuBcn9fTophm+Kji1J7
-         sF5qBzMKSA8agLufhAcs1pZsoRJhxOl0V6HoU8iCbyT7e0LrD+yn9cgn08brmWstYXcy
-         vwiw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=FTKC0G1o+whzfVweUK7xsTpHj75VJhOGM983Sec72qM=;
+        b=jrQ9ZgFMoSoh3nKBdq0npJRSJ+k+lVwRkFw3hKWtckGCrcta4O8pP4HV2bFa6LODuP
+         +KsmJRZcy83TyGR8bYHUdDB6tKwPPQLROKDvBSxVGOMMftUvYTb9YfsM1glipCFEkjj2
+         NxN2Ty7B0HFGrW6Nll8vvnXN1q/YlINQ8O5ZjmTF7d9Kx/CnaPGcfkLsSp0PqUCCURaY
+         by/QqVGj8NF2tvGM8sSaw6z3PICJYknzS7cJT3rY46niRYUEpKDSYee6HOufE1Ort+4O
+         dzQXuvXQzf5jv2zAP4yjztw4qiMlwU0apvyiBS0JGHMvVwZsaQiIMdf0Eeohw/FKycNu
+         RV+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Fslg4x88;
-       spf=pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=luto@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@chromium.org header.s=google header.b=OWzu2kan;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Sf1XIL3aEoeggBFK6M6bQOqRiwhx9g5kyh8BtHHi99Y=;
-        b=ObwX77MtFC/UuKIFFIRbcDUmZ9jWCaPx/X3wpWXa46ARQw8EU6ouniWmFj43t2+4q7
-         ZX5CiCtel455UVMgSNPWKFH6p5jIRK8+BdOfubiXtSqKUxEqR0qdUvqWu7CgmMjXXTJ0
-         9foEru3fiGkyYXpLP07S2Bvg/A28oolhlYgIvjaBjQYa5FmKoA5QLGBK5Im0A38CDn8j
-         aqYqVGt5V+hf5bycMZbFyVt6v1Uf5Y91PtWnX/rkZqz3RY+/KjHUAc6laVAUH4qJK+bQ
-         Mrf8s6ikBWVJ/dO+5/ycfNm8LT9c7vKTIrXEhrj2eh/SJ1gtWAn89hVCD36i1pPpZSr1
-         o/AA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=FTKC0G1o+whzfVweUK7xsTpHj75VJhOGM983Sec72qM=;
+        b=omElzBDYJo4xSq2pOKiA4JewLMx0J1uDz4MVWmZpZv72FVCWxoujXDfoS7oVtK+oO6
+         oUTrFufg0tfhBWfJp+p2UdHUzoGdMcIIozvxGoymoCAXF6JmtREoxfHocxV7dtf1p8kl
+         tzMLlEPXuUx3iKPkWR/HyyFXtnR12WCVyBWkQnoImF97MM6/N3Bx+95WZdDG7KE8CQpH
+         kjrDzAQTyQoW+oPB7MnglaS9+Vl8KbRfmdcckrWqdFLJhwbjAF3402wvABJiM9u+vyQE
+         nNhgefa29TeYmshbxlGDrasnR3WEq3WWUyPMF1gXtxwYpDCkx9DufzEJuPLnMjHhG/CP
+         JGxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Sf1XIL3aEoeggBFK6M6bQOqRiwhx9g5kyh8BtHHi99Y=;
-        b=SGlv0bqz4PPMNb3Zkd2vNKjildyIlXIBcYhwID3APLn7PpraJElAttsmUwJukGwkMm
-         Xu051VzdHSG5aywMquCAcCu2mneyDvS6HhxdXTTMBuo89YzBTWjat143fzkFdgDGjpno
-         2eCfnu5kXWRBcgKj1biE4QXIMDUk6lxVkJsKOEASN7tH9FuYPiPZD9iwflKKdIJ0eRdO
-         QxqczZ2EXk6vfzVq++xD89UO1GuR1vZ/XGCxBDnVFSWyBUN5RWbM282XjXNHkqLP8CFq
-         ydoB9pJeEBCNBsZ42vicRlQiA2e8T2YMEuUSi33YSe8dV7n1/0B1q3Z/ohvWrAErS09z
-         KRaw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=FTKC0G1o+whzfVweUK7xsTpHj75VJhOGM983Sec72qM=;
+        b=Sjy7DtvasxJjUWGMO5O7MPZnd6PYJAfCdykeSo64NUZCjf5U5n2/pqXaOzSsAXr4fM
+         cRXrzTuAkrXha7o7PiNnHaq8JF5HxKNU5zmGNztU2OPNeGm1KvxBoDEhHLqU7MDCY0O8
+         7+iyfy0pOteJuVdFSZdfdyp0XTLt3iqsg5/psFj+CREbXbViXsMSzJs8wv07OnDDlRyN
+         Feheg/2ajkeyS957QC8+QKgSaU4C1EkFG6FnezjSCdMUvSo9cQQOo5bcWF0N2e5b1yGV
+         lAkkutJsZbp+/A7nDmmHAWT8WpXLTws26EqxVFqbPtnjFhEMdrx/m5qTmrcPr9RFod7w
+         /H0A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533PH4O+VA+a4cPscwMnR5XcspFI/jB2CqoBzWTQJda3n9KjkOql
-	FEkayqguFLWAanCK8nDLqzo=
-X-Google-Smtp-Source: ABdhPJwvuBZbqu/azFJHS9BUYw/wQ3PYMkGrimmY8x1sG6V0dMQwvKkmHgfFMz3+y3JlpkIg+q6SbA==
-X-Received: by 2002:a05:6e02:1d16:: with SMTP id i22mr8727043ila.164.1618613578545;
-        Fri, 16 Apr 2021 15:52:58 -0700 (PDT)
+X-Gm-Message-State: AOAM531Zf3DdZ1Hg18Y262c5fFcpe6xfwLOZwXb2zEdMqh+fSHjoHDvF
+	8wpgNJjULy2q/SxLOovxdcM=
+X-Google-Smtp-Source: ABdhPJzpsdb16Td9Dfssbh/sLWfxK8lhHcPZl4hT+4Zo9soZ83LqanyfLbHUCPKvNR87RFixLYVRTw==
+X-Received: by 2002:a17:902:8606:b029:e6:f01d:9b67 with SMTP id f6-20020a1709028606b02900e6f01d9b67mr11884019plo.83.1618613929148;
+        Fri, 16 Apr 2021 15:58:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:107:: with SMTP id s7ls1897121iot.2.gmail; Fri, 16
- Apr 2021 15:52:58 -0700 (PDT)
-X-Received: by 2002:a05:6602:2bcc:: with SMTP id s12mr1375244iov.183.1618613578155;
-        Fri, 16 Apr 2021 15:52:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618613578; cv=none;
+Received: by 2002:a17:902:7246:: with SMTP id c6ls5748584pll.4.gmail; Fri, 16
+ Apr 2021 15:58:48 -0700 (PDT)
+X-Received: by 2002:a17:90a:b78d:: with SMTP id m13mr6588050pjr.47.1618613928605;
+        Fri, 16 Apr 2021 15:58:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618613928; cv=none;
         d=google.com; s=arc-20160816;
-        b=XetAIaMSjEh6AH02DOSHgkqwflbDIq0hMVcaL/b5jFj6ePzD6TKnALqitqWFjmO+rs
-         ZDUkoCCOKhBh+QEGY/5iOPjBXN5zywUUkHhA6gridsfYPiATaZLuNnnY3+00k+K6xvEN
-         Hg+ZrJ+u+Xx84ry3CCZE5+DFNn0s3sa0VO94Tz7WmToEzLo91+Bh1KM45tDV02BjdgwW
-         mOf4QkdmCDnLnT7xoolAykPe33j4J8FBp8bJzzw1IJcyCnkQQpWh1GvSWOJhIPbUdejg
-         8kW4nw6qcJpBCGP39tnLJ6LQcfRkwp1D/33T8JKaLRNOrIseXAwOkpasVz1hnlrEn0/O
-         JgoA==
+        b=T1hES3kIjL3HYAE2NV5PQp2rHv7Id+nQlu+1/FMP2JBS6QV/e0fkzHxjigMtKwNeOT
+         JsMtrYUJyMUNGPE7AL/TpG6xcxugwJLh5rkNnXhu4OvvvKiKznaSyaMrTvLDdlC2OGi0
+         6HmBKtUEKlqkaY6Vwv8zHtG61UpYHpv6cDhaVms7VYAWEiBXBGGaem1p3CwhyjYB1BuS
+         Wfgxo5ktrzs81dH4pfDRwj+s8pYkq6I8Oe7wCir8KX9+NNZNq7ERlaF6vxGZUxKcG1k7
+         nofGvy+vtzGZMzbNP115TPUxbGbt9yGk4er/NDrh/AtGYZOv/4jwfYiUGC32r2qyRE4V
+         oiGA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=WiJrIM8nhHQwH+PZxGueXKdC6EEh9H2HinOOF/AhrBk=;
-        b=fozEEHwu4fTkeOMOXvCS8lmnUmtJfBePxQKxOMJATjhZrabUlyByXCebLt2Ey8H8Jv
-         yPM0pSxyHZNrcCFH0L9vVz2koj+5URaWxcYOzJI+qjgZQ65AJCIxgf8w176HF8yyMwpy
-         XhAkdTA47SMM7Ox0ULNpTjPJkZo0y9fbn4NnZAsLFlcIPScKyunOp6FGwfwcCb+4hW7d
-         4p2gqJjFSVN947KQNGKm0+CRP3AAesjrteNpa/BZ2Cbi8yDhmsaFLcAcuSShcnS16pnq
-         nLjAacxn6fe+e4Ht8i7X4o4CokOapEnWxIJJ4H/9o3gLhJJ8r/TDIvmd1KDP49etwYjU
-         +pdg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=7lKTje1FDbH8RC7t09nAcBS4GmeuzNtZ7eozWrilT3U=;
+        b=GS0xI9zRYPYl7Hz0TW1gh2LPUgryNYCiYKBvImKxxJ97Yl8KGkOPjbIFbLazBu/8vn
+         twqB3401tI82AMmv9okmZIi4pPeQIfKct0xCFHcm94jg8VLYhpss21HlFov5Nu1AD9g2
+         XmNsrY9iA+8hFoZ7TDLj4tOZIcfo+jXNzzonLWe58FDtlpauM5o1pQOH5iTKNSFCa812
+         0S+HZGw8VhmV4HpbVEXBv/y25+KftDlmPIE/Sjpj4pJQm02qIOFh4wKoHif5htXS19Em
+         QRoZ7L18V4TJwVH9czMPN1CxscXN4zCdW04Bb7HhDri/mb8J0M2iDRy57JQHJPVkdJCq
+         ug4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Fslg4x88;
-       spf=pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=luto@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c1si473142iot.4.2021.04.16.15.52.58
+       dkim=pass header.i=@chromium.org header.s=google header.b=OWzu2kan;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pg1-x52c.google.com (mail-pg1-x52c.google.com. [2607:f8b0:4864:20::52c])
+        by gmr-mx.google.com with ESMTPS id h20si540188pfc.0.2021.04.16.15.58.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 16 Apr 2021 15:52:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 735B7610A7
-	for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 22:52:57 +0000 (UTC)
-Received: by mail-ej1-f52.google.com with SMTP id u21so44316453ejo.13
-        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 15:52:57 -0700 (PDT)
-X-Received: by 2002:a17:906:35ca:: with SMTP id p10mr10739772ejb.199.1618613576049;
- Fri, 16 Apr 2021 15:52:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210416203844.3803177-1-samitolvanen@google.com>
- <20210416203844.3803177-6-samitolvanen@google.com> <20210416211855.GD22348@zn.tnic>
- <CABCJKud8TvzhcjHCpsrtCJ4B50ZUfaL48F42EhZ2zWKLteAc0Q@mail.gmail.com>
- <20210416220251.GE22348@zn.tnic> <CALCETrVTtKqD6fonUmT_qr0HJ0X9TWzLGq-wpm+A7XKyjn3W5g@mail.gmail.com>
- <202104161519.1D37B6D26@keescook>
-In-Reply-To: <202104161519.1D37B6D26@keescook>
-From: Andy Lutomirski <luto@kernel.org>
-Date: Fri, 16 Apr 2021 15:52:44 -0700
-X-Gmail-Original-Message-ID: <CALCETrV6WYx7dt56aCuUYsrrFya==zYR+p-YZnaATptnaO7w2A@mail.gmail.com>
-Message-ID: <CALCETrV6WYx7dt56aCuUYsrrFya==zYR+p-YZnaATptnaO7w2A@mail.gmail.com>
-Subject: Re: [PATCH 05/15] x86: Implement function_nocfi
-To: Kees Cook <keescook@chromium.org>
-Cc: Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>, 
-	Sami Tolvanen <samitolvanen@google.com>, X86 ML <x86@kernel.org>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Sedat Dilek <sedat.dilek@gmail.com>, linux-hardening@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>, 
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Apr 2021 15:58:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c as permitted sender) client-ip=2607:f8b0:4864:20::52c;
+Received: by mail-pg1-x52c.google.com with SMTP id p2so4696700pgh.4
+        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 15:58:48 -0700 (PDT)
+X-Received: by 2002:a62:2b03:0:b029:241:d147:2a79 with SMTP id r3-20020a622b030000b0290241d1472a79mr9690722pfr.53.1618613928357;
+        Fri, 16 Apr 2021 15:58:48 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id k21sm2534086pff.214.2021.04.16.15.58.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Apr 2021 15:58:47 -0700 (PDT)
+Date: Fri, 16 Apr 2021 15:58:46 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Borislav Petkov <bp@alien8.de>, Sami Tolvanen <samitolvanen@google.com>,
+	X86 ML <x86@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	linux-hardening@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 05/15] x86: Implement function_nocfi
+Message-ID: <202104161555.B8C1E193@keescook>
+References: <20210416203844.3803177-1-samitolvanen@google.com>
+ <20210416203844.3803177-6-samitolvanen@google.com>
+ <20210416211855.GD22348@zn.tnic>
+ <CABCJKud8TvzhcjHCpsrtCJ4B50ZUfaL48F42EhZ2zWKLteAc0Q@mail.gmail.com>
+ <20210416220251.GE22348@zn.tnic>
+ <CALCETrVTtKqD6fonUmT_qr0HJ0X9TWzLGq-wpm+A7XKyjn3W5g@mail.gmail.com>
+ <202104161519.1D37B6D26@keescook>
+ <CALCETrV6WYx7dt56aCuUYsrrFya==zYR+p-YZnaATptnaO7w2A@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: luto@kernel.org
+Content-Disposition: inline
+In-Reply-To: <CALCETrV6WYx7dt56aCuUYsrrFya==zYR+p-YZnaATptnaO7w2A@mail.gmail.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=Fslg4x88;       spf=pass
- (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=luto@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@chromium.org header.s=google header.b=OWzu2kan;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,154 +148,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Apr 16, 2021 at 3:28 PM Kees Cook <keescook@chromium.org> wrote:
->
-> On Fri, Apr 16, 2021 at 03:06:17PM -0700, Andy Lutomirski wrote:
-> > On Fri, Apr 16, 2021 at 3:03 PM Borislav Petkov <bp@alien8.de> wrote:
-> > >
-> > > On Fri, Apr 16, 2021 at 02:49:23PM -0700, Sami Tolvanen wrote:
-> > > > __nocfi only disables CFI checking in a function, the compiler still
-> > > > changes function addresses to point to the CFI jump table, which is
-> > > > why we need function_nocfi().
-> > >
-> > > So call it __func_addr() or get_function_addr() or so, so that at least
-> > > it is clear what this does.
-> > >
+On Fri, Apr 16, 2021 at 03:52:44PM -0700, Andy Lutomirski wrote:
+> > > char entry_whatever[];
+> > > wrmsrl(..., (unsigned long)entry_whatever);
 > >
-> > This seems backwards to me.  If I do:
-> >
-> > extern void foo(some signature);
-> >
-> > then I would, perhaps naively, expect foo to be the actual symbol that
-> > gets called
->
-> Yes.
->
-> > and for the ABI to be changed to do the CFI checks.
->
-> Uh, no? There's no ABI change -- indirect calls are changed to do the
-> checking.
+> > This is just casting. It'll still resolve to the jump table entry.
+> 
+> How?  As far as clang is concerned, entry_whatever isn't a function at
+> all.  What jump table entry?
 
-Maybe ABI is the wrong word, or maybe I'm not fully clued in.  But, if I do:
+Whoops, sorry, I misread the [] as (). I thought you were just showing
+an arbitrary function declaration, but I see what you mean now.
 
-extern void call_it(void (*ptr)(void));
+I am digesting the rest of your email now... :)
 
-and I define call_it in one translation unit and call it from another,
-the ABI effectively changed, right?  Because ptr is (depending on the
-"canonical" mode) no longer a regular function pointer.
-
-> > char entry_whatever[];
-> > wrmsrl(..., (unsigned long)entry_whatever);
->
-> This is just casting. It'll still resolve to the jump table entry.
-
-How?  As far as clang is concerned, entry_whatever isn't a function at
-all.  What jump table entry?
-
->
-> > or, alternatively,
-> >
-> > extern void func() __attribute__((nocfi));
->
-> __nocfi says func() should not perform checking of correct jump table
-> membership for indirect calls.
->
-> But we don't want a global marking for a function to be ignored by CFI;
-> we don't want functions to escape CFI -- we want specific _users_ to
-> either not check CFI for indirect calls (__nocfi) or we want specific
-> passed addresses to avoid going through the jump table
-> (function_nocfi()).
-
-Maybe I spelled it badly, and I maybe I requested the wrong thing.
-Here are actual required use cases.
-
-1. I defined a function in asm.  I want to tell clang that this
-function is defined in asm, and for clang to behave accordingly:
-
-.globl func
-func:
- ; do stuff
-
-later:
-
-extern void func(void) [something here];
-
-There really should be a way to write this correctly such that it
-works regardless of the setting of
--fsanitize-cfi-canonical-jump-tables.  This should not bypass CFI.  It
-should *work*, with CFI enforced.  If I read all the various things
-you linked correctly, this would be something like __cfi_noncanonical,
-and I reserve the right to think that this is a horrible name.
-
-2. I need a raw function pointer, thank you very much.  I would like
-to be honest about it, and I don't really want to bypass CFI, but I
-need the actual bits in the actual symbol.
-
-translation unit 1 defines func.  Maybe it's C with
--fsanitize-cfi-canonical-jump-tables, maybe it's C with
--fno-sanitize-cfi-canonical-jump-tables or however it's spelled, and
-maybe it's plain asm.  Now translation unit 2 does:
-
-2a. Uses a literal symbol, because it's going to modify function text
-or poke an MSR or whatever:
-
-wrmsrl(MSR_WHATEVER, func);
-
-clang needs to give us *some* way to have a correct declaration of
-func such that we can, without resorting to inline asm kludges, get
-the actual bit pattern of the actual symbol.
-
-2b. Maybe optional: convert from function pointer to bit pattern of
-actual symbol.
-
-If someone gives me a real, correctly typed C pointer representing a
-function pointer, I want a way to find the address of the body of the
-function.  Then we can use it for things that aren't *calling* it per
-se, e.g. disassembling it.  This is not necessarily a fully formed
-thought right now, but I think something along these lines might be
-needed.
-
-The reverse of 2b (converting from actual symbol to function pointer)
-might be equivalent to 1, or it might not.  I suppose there are some
-subtleties here.
-
-Be that as it may, it sounds like right now clang has some issues
-interoperating with asm when CFI is enabled.  If so, clang needs to be
-improved.
-
-(The unsigned long hack is not necessarily good enough.  I should be able to do:
-
-.global func
-func:
- ; C ABI compliant code here
-
-extern void func(void) [attribute as in 1]
-
-unsigned long actual_address = [something clang actually understands](func);
-
-If this thing refuses to work when fed a nonconstant function pointer
-because of some genuinely good reason, fine.  But, if 'func' is an
-actual literal symbol name, this thing needs to be compile-time
-constant expression.
-
->
-> So, instead of a cast, a wrapper is used to bypass instrumentation in
-> the very few cases its needed.
-
-NAK.  The compiler needs to cooperate IMO.
-
->
-> (Note that such a wrapper is no-op without CFI enabled.)
-
-> But note that this shouldn't turn into a discussion of "maybe Clang could
-> do CFI differently"; this is what Clang has.
->
-> https://clang.llvm.org/docs/ControlFlowIntegrity.html
-
-If this is what Clang has, and Clang won't improve, then we can just
-not apply these patches...
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CALCETrV6WYx7dt56aCuUYsrrFya%3D%3DzYR%2Bp-YZnaATptnaO7w2A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104161555.B8C1E193%40keescook.
