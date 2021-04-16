@@ -1,132 +1,119 @@
-Return-Path: <clang-built-linux+bncBDEPT3NHSUCBBLU35CBQMGQEZAIPS7Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAMN6NI5EERBMM65CBQMGQEUAHGA6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4844362B01
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 00:20:31 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id q26-20020a4ad55a0000b02901b6b9f33e6dsf3077783oos.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 15:20:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618611630; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 343A7362B0D
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 00:26:58 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id 91-20020adf92e40000b029010470a9ebc4sf4041831wrn.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 15:26:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618612018; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IsRLATYiCxOjsOcsgMppk/HbFMC/qm1EK/d57zyFkxxfeW+3P6/r9dqKpjE4ABK5HT
-         jSwRTlHgvr07TyTAedu1PCz5459t9vYV/ym8Wb6NAfmbYUC2DsuY7eJlOz/AUeJfeaK0
-         6H6Wjf4VAXxkZ1B5DgweS8hDvfQ0WVZ6/IT6RRmYMQxMsugxkB+hfOUa+QuZgZyxXhp7
-         Sj+Ug+NRdhOi9DX9cDsI/TK2reBlXKRpavpSJtqQ1TL4zP4VCvSAuY1NckEGt7nMskND
-         vUxA0oGen1aC3qni5hsFtR/5UHvlDmVpdmC9IKl5nEYalPM7N/QrGcdiewIsIGPedFWB
-         NTUg==
+        b=OW2pX8aysKh0ZMMCaIjCjAed5ds+uWFsFT1EZxOmj4ELFVFIBQSS8M70arFWmeNisO
+         GIU8TFNvqEV85RvGRaneg+vkTHan6Vw94ExPljRAq4oXRoU7BVueiMw+UxEUKm16HvwY
+         xSSXgxhS3rCqXaBkfAxV5Aek2cfVZeGPU39ToOqCLM3kxh3OY9oETsSGndSF3ijvFy9N
+         NC5u07siwhAmKJHGeAMuuJJJ+/iI/67BL4yFTJmaJl3sUB81sKTqm7+EeyHqO+LQaaLJ
+         tkfwV2n1v4xzgWtwWRrXZ9WtvjQR3l5EUyv9xIyepTBkbH8q9PU+nBzVpjDsG/BFL7fu
+         eoKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=xfqqea3DpuTg7A8M5PSOEvdjQ8K2afeb86uawOe50mE=;
-        b=SGluzRzh1ysJV/pl4chFi1dd8FmmbspgosQuZUF8mQK+Perz7tbvV/fMzmIqzXCKy0
-         M9Y4F89A38Le/uKSB0Il52Q1jgBFcyViCIlaIXSo6TyGYbVHyFPlsUGq6hbtsfihcMU3
-         L4A6qYrZpcfBWSWhkQOvUxfe2LNM1cQ+YYKRKL9fGwQ8IRZCEcSl/JaGaCHETIyBPjdK
-         6nSJRtWUT++px3RniX5XG3IUcGCcOPT+0elKhjK+/Kq9L492t6jjmrH3xX4Uye11VVqb
-         iq7lBsPGpNITXqCJpk8H+0nQ+tKZAM81VhM43Pb3snAcumGQsn5G/Gz+gpFvidDY65Ro
-         bEnA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=Z5ouoVu1oEFeS36izvmKxxuCxQZDEZE8aZHMEy78S0E=;
+        b=gqmJdJpTGlcAUY5BQ4D/1umciRu3qkBody4TDFv8UF11hVfeNBM0y44Vmy7H4sxiOS
+         qKV/L/8zO5tjCzAThOA3hzNOyJz7TONxk1C+X6/gKGT67N5nsKbfvqejsCY1UajAgX+q
+         FHwxKWYL8cpe+iBP0SoQhYOfR/ndq7I+tx0OuVY7UJh3R6xIaJpjyuqg+BiaSuyqDXWF
+         hxJvdWasGUU5HtiVxDuGeOWXARk9Ez1WnVTElDuJEtjlVNS5oFlZLdEiOPxWGbU8JiXA
+         edj4jmg6iDMGmr9+OtPRZMwaJ7zrlSHDaVndIEXSxS/2jroMYPFcQXIAOEVfDXKwV2hz
+         ky2g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jxKsP0Fr;
-       spf=pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=luto@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=bqRX0z1g;
+       dkim=neutral (no key) header.i=@linutronix.de;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xfqqea3DpuTg7A8M5PSOEvdjQ8K2afeb86uawOe50mE=;
-        b=sKWcZNcvPeX021E4sIwj7VEJKjtHTlzGCVUUzu9VwIUdQIw5amhlqp166RmKFQmy3j
-         0AoOTHUwb3Z4A84roVbZIZ4MLP3YRXQw8wMOO5bdWUaALHFB2t8kWrs7nB3R0WvlLrEW
-         milMzd/qqiVTE8AN331Wk7H3PXybp2bHL+gcWJdoRC8QPpcNPM9h8CtaiitVoHTJl9v1
-         8Zu2cAhk3II4TFC1idv5mh3uuY1NV6pvqdDRVc/m9rIQljsvp+dciEJn5yVi/NSfVlhY
-         eOAYxXgdvTZfCL4n4JiSLwO2Q/RohdZerC1yJ+S/115r1xngAh6+zzaJff04NMGbKz0R
-         8jjA==
+        bh=Z5ouoVu1oEFeS36izvmKxxuCxQZDEZE8aZHMEy78S0E=;
+        b=Au6ruuqq68gUZRe1CmuvjmKJpaw2I2yGL4oT7m3nMR59twOq+4dSHe5vbH1AXnr+Nj
+         AH3jScOP29LGo19f79t5tS1MdsOYv1JkkcaqKP+3KG3+Pe2yBWCyTMT9FbClZgCIAfXl
+         XYzpdEGiBxACHL8Hj2UTmmd4lvJaIjOiUgZkQcrpQFMaPD3+pwX8DyAUtn6UlAtOaML7
+         qU4zoWDd2frnyDR0mLuz8Fc95b9TG6JfyR771dDv990X2w0EPGgxDLxfQWHUG+kc+5QG
+         1juQXt1Kz7Yd2dOhjLaJp7ZlSi07alyrSi55Sl+J2sSWStRx6C+K3tdX6DVEvFoYLBid
+         U/bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xfqqea3DpuTg7A8M5PSOEvdjQ8K2afeb86uawOe50mE=;
-        b=JzU+KCDeqIw89Qb8/mVDaKqPr20zi0Bz7n9yutlPTN2YipFluzfoBWH5Mwxgv2d2Sn
-         tobxli246oE3eFqi+rL6DPi6jP1qFKGCABR7rOYnFuRXp1vDO/xu2NdMzcHdivIMH9Yv
-         O7kZQr5YEHHx1qJnQvY/Fc//Lnu/w/+UD/wrrd8eRm15OAUer13QuqOHmBFAGCqSVl21
-         e7KEGJgCwE8iaAhiq2y/YhrxdW6YHBDeH6fW5K8gk4m6lym8w4+XMAkxc/Ds46CHxlab
-         G7jBlCy0ouDhEgIhtUbKkJhiPjnwcruymJbL0oriGs4FAjpSRpxPIbC21K0G581auwwZ
-         iy4Q==
+        bh=Z5ouoVu1oEFeS36izvmKxxuCxQZDEZE8aZHMEy78S0E=;
+        b=lyzaoiaRJNhxXwqR04vzwtHUpry0LVujLq32Q1vfft6qyBv2bVqEaJMw+WK8Zuba8S
+         SPIr5+ypETenC0l3wjX9SoJojQXwZloJ6dMp1ZQ/sxyi9BiM6EgOItfdVy8oiSae/QO3
+         z/wGAFNraTwODqPF4jLiM+y478DtkOwo7ldhGrFe8K+CNJTf+0RpnVvvUoas8BkKN2CT
+         Lf4oZ9t+bcscSx3APosTc4yX3li9jeaNV9Mvs4wmWvEopPwETl1twYUwJSnmN391+inL
+         kLTYSO/Hvd5RtFp0bHgXzeiTY3MQ+RMiyUBv2yhuuqhVVBJzQciUMaZaLJJdKwMlDRd1
+         pZiQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532aO1OV6J1CmIIMnnvNxVZtn5uJ5G9XFL4ButchtcAqWHQSPFAN
-	9eI2bCGq6kSVONxOAe8Uj6E=
-X-Google-Smtp-Source: ABdhPJxoFz/DcYf0/bqy1ty+Y2DL9PPlc/CJX+yPFdyfdHXFk3UOVwlzTF4I++7P0MnszAzpq1J8zg==
-X-Received: by 2002:a05:6830:809:: with SMTP id r9mr5568613ots.3.1618611630724;
-        Fri, 16 Apr 2021 15:20:30 -0700 (PDT)
+X-Gm-Message-State: AOAM530waPoidaegU7Q+ETwohD9ml5SWj70h1G6kqPpPcAAbTcHGZCz+
+	Y/Afljsf+CKwJsHndfy+tmw=
+X-Google-Smtp-Source: ABdhPJzHckVBNy3mePhM/vDGg3oUJhAQs7QSTU97W4PSzCa+1Rr551uFGlHNFibdN/iAxaJCz3/mqg==
+X-Received: by 2002:a5d:4d92:: with SMTP id b18mr1283128wru.269.1618612017975;
+        Fri, 16 Apr 2021 15:26:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a54:4514:: with SMTP id l20ls1979892oil.5.gmail; Fri, 16 Apr
- 2021 15:20:30 -0700 (PDT)
-X-Received: by 2002:aca:f09:: with SMTP id 9mr5791593oip.88.1618611630399;
-        Fri, 16 Apr 2021 15:20:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618611630; cv=none;
+Received: by 2002:a5d:6804:: with SMTP id w4ls206327wru.2.gmail; Fri, 16 Apr
+ 2021 15:26:57 -0700 (PDT)
+X-Received: by 2002:a05:6000:180b:: with SMTP id m11mr1267514wrh.355.1618612017179;
+        Fri, 16 Apr 2021 15:26:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618612017; cv=none;
         d=google.com; s=arc-20160816;
-        b=k+YQtH4+AlnzuIDbknpX2qzFgQ/ipvU5lYLLDYaMPGNRa+/dXiCxU+kqSFGJU7hD73
-         toxVNApn7GLYAE7mpdW/pGDQKbf4r+GschMh9jTNJMQT9xLy7E5Z4ijwfXQ6+cV9Nm9V
-         OxHa0YaSprciBkz9cgDr59lME8Pwcf1JtXrHaFlrf4hAKuLZBOGIi8Ny4nb7ir0jk3Dg
-         D8ncw/UbEQMAoaxhM9LbJnKM3P79mp5Uk+l9WKkqDI4ZW8pXj4kvq2x2q/Y5QyBBCwIn
-         NWtQr0Gc1Y0a3jiMA09aBviYDhmkE4rRa01oHnbCf9xzGnaGFRv5wRU2Kgoxtci5tmAD
-         FGog==
+        b=T23VZL/fOiOT1nEUYV33a5lEbvXubMmQdtHza2zBgov7lbzIC2+alLphKytUnQfkIk
+         pB2ViiRrxe6sIJ+nHxM+x4NXmx/7vgdUYdewHzc2tE+VibOhfnWYVlW+guN12MgFJ3nA
+         ToZap/DCys4oAIMcwvEDhIoiWNyXd/itiac3ceu4lielzmbKoVLl191/B9pf9Yb9ju0+
+         23pQsJdlrYSyotfNfZIKXgEqKq9i+r3EiU95Jj24vEoIuhketlAdU6dQ6sCbyPDNmoR8
+         L6h4hxp/xSs0yFAsi2eqav+8cquRHObxdhONkVTbLpsOnNHo1wRqFm8ePO1L6DcIpfv5
+         L29w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1Y8X/9tzKNDBLbhj4hdWEjv4HZ2ztBOxnrwMv8b5hbk=;
-        b=I1ceA2dGnegJ+z42q2RQDIiVGMjAPx6RR+ui9iCDdUJOI7cjtPN42+Yxmnbjl85sOE
-         OCGPPLBGwZGoZvPecHCXTBMB2AgxgX7E6ZIyQi7EFmPRFWJwivBFiVhnT6T3Nimx/rxc
-         6kp17PJDdQalPlUYkSOOYxG0efiY1LWZb0shqlmgp0FXmJj+9FqjqpxRDZWw7BBeZZm9
-         5zm+iufEuo0WhCBFz3GkFPxccBGy19vHoCbFR/Ka80LKst6Gad8gFGheFhHKPY87SQ+R
-         D/+J3rd18G/gsm3c1DVka2Uc0+lislgx6lwBTK6SdxMfwpXWuRkBPbYnwFYr7agiILJd
-         yprw==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :dkim-signature:dkim-signature:from;
+        bh=oIMPFgWu4IqnP0nhiSA/nCdAulGUPJoqWG9L6Or5pk0=;
+        b=LO5vJzVRsL9uYTtc+xuT+M1Bh79qoLK83cCRk45w32jmWf2rzwpMSH28p4FkrXF0G1
+         1lNBqGqNDfwD1I29eQ3DokGCgrjbW8vn6R/MJE2FUv55blGX3O9OupwJ0ySIFJXRcoa0
+         AgUgzRIHrHoQV+nFlao5vqjOZcdsc6r7uz+sDqOJNjGWsnpk0RA8y9v49466PIQ2qZde
+         ZjLwNhJsXMyH1uT89lpBYk3nknZBwMGHfTD2gP65HtQHWmtBnhtVgXfRvm12EWNviR48
+         YhVdf4C4t55AXQm5267pIkhovbz/d4rk8g12n8654ruqQyetaZDQgKXWiq0OrR0xyO2/
+         AMlQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jxKsP0Fr;
-       spf=pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=luto@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b11si686309ots.2.2021.04.16.15.20.30
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=bqRX0z1g;
+       dkim=neutral (no key) header.i=@linutronix.de;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
+Received: from galois.linutronix.de (Galois.linutronix.de. [193.142.43.55])
+        by gmr-mx.google.com with ESMTPS id l2si121610wmq.0.2021.04.16.15.26.57
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 16 Apr 2021 15:20:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9499A613D7
-	for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 22:20:29 +0000 (UTC)
-Received: by mail-ed1-f49.google.com with SMTP id bx20so32878324edb.12
-        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 15:20:29 -0700 (PDT)
-X-Received: by 2002:a50:f395:: with SMTP id g21mr12764633edm.238.1618611628139;
- Fri, 16 Apr 2021 15:20:28 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Apr 2021 15:26:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tglx@linutronix.de designates 193.142.43.55 as permitted sender) client-ip=193.142.43.55;
+From: Thomas Gleixner <tglx@linutronix.de>
+To: Sami Tolvanen <samitolvanen@google.com>, x86@kernel.org
+Cc: Kees Cook <keescook@chromium.org>, Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Sedat Dilek <sedat.dilek@gmail.com>, linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Sami Tolvanen <samitolvanen@google.com>
+Subject: Re: [PATCH 06/15] x86: Avoid CFI jump tables in IDT and entry points
+In-Reply-To: <20210416203844.3803177-7-samitolvanen@google.com>
+References: <20210416203844.3803177-1-samitolvanen@google.com> <20210416203844.3803177-7-samitolvanen@google.com>
+Date: Sat, 17 Apr 2021 00:26:56 +0200
+Message-ID: <87im4luaq7.ffs@nanos.tec.linutronix.de>
 MIME-Version: 1.0
-References: <20210416203844.3803177-1-samitolvanen@google.com>
- <20210416203844.3803177-6-samitolvanen@google.com> <20210416211855.GD22348@zn.tnic>
- <CABCJKud8TvzhcjHCpsrtCJ4B50ZUfaL48F42EhZ2zWKLteAc0Q@mail.gmail.com>
- <20210416220251.GE22348@zn.tnic> <CALCETrVTtKqD6fonUmT_qr0HJ0X9TWzLGq-wpm+A7XKyjn3W5g@mail.gmail.com>
- <20210416221414.GF22348@zn.tnic>
-In-Reply-To: <20210416221414.GF22348@zn.tnic>
-From: Andy Lutomirski <luto@kernel.org>
-Date: Fri, 16 Apr 2021 15:20:17 -0700
-X-Gmail-Original-Message-ID: <CALCETrUo+tR+YmfoBPWV9z_7QhU74=7tmCBD_zsfa24ZxNvfxg@mail.gmail.com>
-Message-ID: <CALCETrUo+tR+YmfoBPWV9z_7QhU74=7tmCBD_zsfa24ZxNvfxg@mail.gmail.com>
-Subject: Re: [PATCH 05/15] x86: Implement function_nocfi
-To: Borislav Petkov <bp@alien8.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, X86 ML <x86@kernel.org>, 
-	Kees Cook <keescook@chromium.org>, Josh Poimboeuf <jpoimboe@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
-	linux-hardening@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: luto@kernel.org
+X-Original-Sender: tglx@linutronix.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=jxKsP0Fr;       spf=pass
- (google.com: domain of luto@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=luto@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@linutronix.de header.s=2020 header.b=bqRX0z1g;       dkim=neutral
+ (no key) header.i=@linutronix.de;       spf=pass (google.com: domain of
+ tglx@linutronix.de designates 193.142.43.55 as permitted sender)
+ smtp.mailfrom=tglx@linutronix.de;       dmarc=pass (p=NONE sp=QUARANTINE
+ dis=NONE) header.from=linutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,86 +126,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Apr 16, 2021 at 3:14 PM Borislav Petkov <bp@alien8.de> wrote:
->
-> On Fri, Apr 16, 2021 at 03:06:17PM -0700, Andy Lutomirski wrote:
-> > On Fri, Apr 16, 2021 at 3:03 PM Borislav Petkov <bp@alien8.de> wrote:
-> > >
-> > > On Fri, Apr 16, 2021 at 02:49:23PM -0700, Sami Tolvanen wrote:
-> > > > __nocfi only disables CFI checking in a function, the compiler still
-> > > > changes function addresses to point to the CFI jump table, which is
-> > > > why we need function_nocfi().
-> > >
-> > > So call it __func_addr() or get_function_addr() or so, so that at least
-> > > it is clear what this does.
-> > >
-> >
-> > This seems backwards to me.  If I do:
-> >
-> > extern void foo(some signature);
-> >
-> > then I would, perhaps naively, expect foo to be the actual symbol that
->
-> I'm just reading the patch:
->
-> ... The function_nocfi macro always returns the address of the
-> + * actual function instead.
-> + */
-> +#define function_nocfi(x) ({                                           \
-> +       void *addr;                                                     \
-> +       asm("leaq " __stringify(x) "(%%rip), %0\n\t" : "=r" (addr));    \
-> +       addr;
->
-> so it does a rip-relative load into a reg which ends up with the function
-> address.
+On Fri, Apr 16 2021 at 13:38, Sami Tolvanen wrote:
+> With CONFIG_CFI_CLANG, the compiler replaces function addresses in C
+> code with jump table addresses.
 
-This is horrible.
+Fine.
 
-We made a mistake adapting the kernel to GCC's nonsensical stack
-protector ABI, especially on 32-bit, instead of making GCC fix it.
-Let's not repeat this with clang please.
+> To avoid referring to jump tables in entry code with PTI,
 
-Sami, I'm assuming that:
+What has this to do with PTI?
 
-extern void func(void);
+> disable CFI for IDT and paravirt code, and use function_nocfi() to
+> prevent jump table addresses from being added to the IDT or system
+> call entry points.
 
-results in anything that takes a pointer to func getting a pointer to
-some special magic descriptor instead of to func, so that:
+How does this changelog make sense for anyone not familiar with the
+matter at hand?
 
-void (*ptr)(void);
-ptr = func;
-ptr();
+Where is the analysis why excluding 
 
-does the right thing.  Then void (*)(void) is no longer a raw pointer.  Fine.
+> +CFLAGS_REMOVE_idt.o		:= $(CC_FLAGS_CFI)
+> +CFLAGS_REMOVE_paravirt.o	:= $(CC_FLAGS_CFI)
 
-But obviously there is code that needs real function pointers.  How
-about making this a first-class feature, or at least hacking around it
-more cleanly.  For example, what does this do:
+all of idt.c and paravirt.c is correct and how that is going to be
+correct in the future?
 
-char entry_whatever[];
-wrmsrl(..., (unsigned long)entry_whatever);
+These files are excluded from CFI, so I can add whatever I want to them
+and circumvent the purpose of CFI, right?
 
-or, alternatively,
+Brilliant plan that. But I know, sekurity ...
 
-extern void func() __attribute__((nocfi));
+Thanks,
 
-void (*ptr)(void);
-ptr = func;  /* probably fails to compile -- invalid conversion */
-
-(unsigned long)func /* returns the actual pointer */
-
-func();  /* works like normal */
-
-And maybe allow this too:
-
-void (*ptr)(void) __attribute__((nocfi);
-ptr = func;
-ptr();  /* emits an unchecked call.  maybe warns, too.  anyone who
-does this needs to be extremely careful. */
-
---Andy
+        tglx
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CALCETrUo%2BtR%2BYmfoBPWV9z_7QhU74%3D7tmCBD_zsfa24ZxNvfxg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87im4luaq7.ffs%40nanos.tec.linutronix.de.
