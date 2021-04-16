@@ -1,143 +1,165 @@
-Return-Path: <clang-built-linux+bncBDBLP5PQSQLRB7VC4WBQMGQEDWB57OQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCM2PPVSYYGRBZNQ4WBQMGQEIQZ5YRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9EBB0361BC0
-	for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 10:57:35 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id e18-20020a6bf1120000b02903e88ed09a1fsf3659317iog.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 01:57:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618563454; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id AE9C7361CCD
+	for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 11:27:02 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id 79sf3320573qkm.20
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 02:27:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618565221; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z49W7J8t42w51JlXaS80uNzLaeSv70JglUrV3NIxB48Q3YPksLcoDwLHr9DYtHs5ca
-         SyKXHYNtIe4VbBUlPGHLUb1parVluSZrb8X6bZ0Q1HOhJphC1cEJdKQQjFAJzT6XcjHq
-         WsUwztKcPjE/HPR6uNcYJFT39Vk94dWVOzjEXAlE8eOEeDEj6muhyuZXO8c5et7zs0JO
-         pmP29/H0yR/8chqSgxmS474y5HcRzm95FjwEXPeL46+XkbhKz0r/+cjjTduFtpmOOb7H
-         p4nNFRSCKVb5nqUYq47Jg9IuFWQQrcMbcl6lnvr8Ki3FQmGgiEKqn+7cLynW2rbH+8bz
-         1mPw==
+        b=iRJsQIMPZGRkRqStZ8jw51smQD9rsd9PkCXjACX8wZImPFOdYkSvCFKbs/M8+d8H0s
+         EI+bnfLA+hLWcm1+KNdsc1JnRQtyAhyP3PLUE5mJe5zpWc4y8Yabn31FLBA0WYwP6XUN
+         oX5qBtSv1tFLwn5flM8EA04ZIKYLmW4UaKxEf311YXIgq3RbF5DNpuFFfEUHq+Kf80gT
+         sA3tZyHV/pJlfd9X/SlSBTB8bNA5rnBUy7sqcGWqDFELcnrrXolXn7Juxpud/Go6LvHF
+         eOBoOVtyXp7OAJPMVfhj/ReKb6IIlAaZK5Fw33rTGqQntpcsKSDvLpG92/DRr4ZrL9cV
+         Qjrg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=agmXXcUlbYFM8Ws6kWXWs/pHlae+nGGrpUGjqekFszM=;
-        b=FMWh/biL1h6VX7UhZ6fyqn+b9CuPMS29JcH0fAjj1pFGtChugwd4yd1NdyrOjv4mK+
-         4w8tAs1PeQbohje/YbKLndzyiSqfggef1UpKkkkOWqZmGn54d0wKiGu6bAn+PxlZPcd5
-         bLmudQ8+BJWrkgmIhVUS5CfmBkYR4oUyX8r3B+HjlESbHi7SsmxI/RhqmUbr9VWi9LNJ
-         erfdL7BQeT0gC8KSYrCL5gg60GhY2SMI0wopDsQR0ufU9n6vWQCblXGRbePRbbWDETjk
-         AJ1M2P3TZYY0mTDB7dA2HN5xygqj8CcMoRKRxXrwPqBIkeLm73PsmYJ5gd3sK0iJReL1
-         g1sA==
+         :list-id:mailing-list:precedence:reply-to:content-language
+         :in-reply-to:mime-version:user-agent:date:message-id:from:references
+         :cc:to:subject:dkim-signature;
+        bh=zHpcmCN5VfcJj+Uk+EF9ciCogeB75ZGjEzxC1vy4uhc=;
+        b=erX5zCjtq1JpviCF3dw1AkjRX5VMJrjUGTPJlCftetcgdLKsvHTlxBBg6ylh94sltv
+         nBWCQux+ry0RJBjOR9JXKHNMH4u7Ptlc1XtXFhGvvxsx3RMB2EaK5E24YZZwhu1ZpihK
+         9Ku12KhUD27DfcljTydhsQV3ffES71bqUxm0nxwtRUNJSCkUdwfwbJw34IYhkePAEpu2
+         Sjr3UCksOww+ahR0cpkmXx0bfxqir2JyfrNM89AntiGwEDpipSApWtQIKZhv0QyxSiPr
+         UflOPTRhorjdQEn6xY26Li2EhdEb6J86A+7pPnl0eQXpqOvwq7IKECMmSu/8J/pDkvhQ
+         jCpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fhGyue5C;
-       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12c as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@ti.com header.s=ti-com-17Q1 header.b=q6CHJQ5y;
+       spf=pass (google.com: domain of grygorii.strashko@ti.com designates 198.47.19.141 as permitted sender) smtp.mailfrom=grygorii.strashko@ti.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=agmXXcUlbYFM8Ws6kWXWs/pHlae+nGGrpUGjqekFszM=;
-        b=gttoB8nDSfnOkebw5FSb8CpXyq/HAE2tMfjQSXj+AqjgpriabgKG9hZPqAtFJ7hvKL
-         FYmZbkasTJhg6Ewot3tJparE1OnmOY6vhn6cHtrk+1aWdAiK+uGt8LOoDxtKrJnmuxSd
-         tlpf5ftZBXqCOk7aXmsOThY9arQUxrkveSs7PLQohmdC67veON8kglpCdaPzdClHoXdr
-         EfY/S/z6nZ+Y+5Q2DvSgGx6YT9kNniz4z6qcKL+Z2u+VbsDOIP7lGP2+okY/JpKfB5Va
-         xHmlnjHdONo2p8A08ixbWh618U7j26oxannR/eXTR0BNQ0FpR7oUJqLijXzg7pi0WE5W
-         OmlQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=agmXXcUlbYFM8Ws6kWXWs/pHlae+nGGrpUGjqekFszM=;
-        b=KLNPEVvPEJT+BDNbXzsbbBAGb+7ZHTS+99ryTKGwNRja6WVXcJu/KGgGM8SoWBI/ts
-         oLzoq4AHya2kXz/T9nGgQBNscX9wNvjJLY6kQg94S3NK2ThZztXEL5GMLG8RoO0CWUEy
-         VNyapm7aoR4Lc/7HVmi8TUSIuLNzSnxs4BTT06iilRZC4oD12qRv5Jfs5ADBvUzCKHSc
-         JPJfI92NrrNSYlhcazXLsHsYC2V0iESnl+qucC86zzxNSdLxx9LbZi7ogYqR1ML0vxEQ
-         TPGmqjV5AMjaVK8fDAJi5j2aE1QgKRKSOfv+hjnorFAbK3HQqOjGbR4yKwwCPrXLalIN
-         150A==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=zHpcmCN5VfcJj+Uk+EF9ciCogeB75ZGjEzxC1vy4uhc=;
+        b=KsPmdkRd/CUQmjTK0kozJxOhBuoJdxynyQ7QuZzvpiJIUGXeIKfSlDPN568SEoaBwS
+         k279HHof4//LdOCtUSFn/uwOI7+d2Fc9mVoAOWHeDZU8zKwta+W3dyphETgbPpeKj6c+
+         VELuKxHFA9Uz9zlXJhdfRCpiQS2C6HNUN6vBuU0TkN4/qiy3NKCbXXXY7lyeVxyQLBsX
+         VmuDO+TzoXMZFLWSVEvtdxjMhZN62b8kQXlrwdHK3jh23J/JwzyfRNMDikAj2y3wx1QK
+         IKIUeoSFAOd4jNFHMtbtj/sRyQY5R/pe3p0uTGL3VcEopDhBQwIL1c5dUbjihjImPqqX
+         +JuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=agmXXcUlbYFM8Ws6kWXWs/pHlae+nGGrpUGjqekFszM=;
-        b=If4iDgcM5iGbrcmUHY1bJh2LH4yri7VTt1WxWRJE3CjSZx3Ods/hFOap2h8dfJ+mST
-         q3VoOck0aMG6SXalSuN/JCJlQp1HzEIauD9K5JkwKynLiFL4TAA2DU5z39S8VLazPe2p
-         YCj/y95yzLry2Y+mrvl12LL3baJhWYGn9PK81J+Pc51SEzwBkB02mCRxFXoVK9oFjQp2
-         B0UaN79g5YiumQsFcRKFrwKOpaCvqEY4ZCSjQ+EDfich/oR6CXwa3CGv3aAooi6N6x1p
-         qI6T/hOCabQfSTn7tTR7LGoF807+o9FIuXxj8Dxc53iBUzGe4PPtlnI0YhwadmymoSCE
-         4wKA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531pD8zhNhekhmPCGugucg04N8BHbHJhEokkf1y4+dYe17fWSbOh
-	ppw46W7VbBwo+KqzWpzHyJc=
-X-Google-Smtp-Source: ABdhPJwQd2QR/MbVxKYKLs9w5A1+K50BdsGyND+koY1NqMBNotwYdOjhvPqVjRlTJJShwDmB3QEoZw==
-X-Received: by 2002:a92:1943:: with SMTP id e3mr6000518ilm.166.1618563454445;
-        Fri, 16 Apr 2021 01:57:34 -0700 (PDT)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=zHpcmCN5VfcJj+Uk+EF9ciCogeB75ZGjEzxC1vy4uhc=;
+        b=Nf6xL4lstrTMrGdlgGyDLUoJX85WtuhuH67DcUlwhCrQGYhgdKiOzCZ3ku/JfC9Kz3
+         iEMtxAnKXUrPA11KepqM4cdylLc+8doyp629NU8gc3FrWBOHyHUVVHfGbxqopsvfY2JO
+         a/Jx56nt4SilyBGh3D5yeq36D2MmyfA+Q0iVb1p8uemHtdRMpt61wMHDPBoGsWP4vz78
+         HeA3wNR15hvP1y5ApcKBw3UBH+iWcP48vZWzU4F0HgTjkhvWIn5b3al59x5ATZcCu40C
+         V5l6BJORMS58P2wL+BQ4AGRsx6up6DSHu0/gvIpYMDg5qMWW1C76hSfm9dbf4XoTw1Xy
+         5xBg==
+X-Gm-Message-State: AOAM530yyiR81kSWWEyF+TvprJiLWkvwbFHNu6n6aJt5+gR7vDH0i9Sz
+	0/RHU1fMBRQLJYUEu1ONP7g=
+X-Google-Smtp-Source: ABdhPJx1LI5yLK5cbfLSDVjlrwmssPmGPowNfvk6QCJl3ifV/bWzfOqQHIzQGsR52tZvzyULnbXrPQ==
+X-Received: by 2002:ae9:ebc7:: with SMTP id b190mr7917223qkg.259.1618565221618;
+        Fri, 16 Apr 2021 02:27:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:1888:: with SMTP id o8ls2116110ilu.4.gmail; Fri, 16
- Apr 2021 01:57:34 -0700 (PDT)
-X-Received: by 2002:a92:1910:: with SMTP id 16mr6012620ilz.201.1618563454095;
-        Fri, 16 Apr 2021 01:57:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618563454; cv=none;
+Received: by 2002:a05:620a:140a:: with SMTP id d10ls286780qkj.11.gmail; Fri,
+ 16 Apr 2021 02:27:01 -0700 (PDT)
+X-Received: by 2002:a37:ae85:: with SMTP id x127mr7676778qke.436.1618565221198;
+        Fri, 16 Apr 2021 02:27:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618565221; cv=none;
         d=google.com; s=arc-20160816;
-        b=dJx0RUbKj2qTHafTgB/3d00/KA7uWKyqjI633fc3LIh5xC1s1PneC+95hF3h4OSuGl
-         5vqTXE61C1X4e+6P4KvTY3qQAgzl7UZiSn4FwV5M0FmMdjTFbB2DyqzB6yz8pzxpoatw
-         e6gryBVG40HZM+a8CvQo9IvSt5yOYyIsY8w+o9IfXWU/YiuOQ879I6QyvLBsX9Hm6PJG
-         5TXXqAznQCJfiAG+7f0UlnF0Y3F25ED6jzoCUMOTAhbpvKd8Jzl3TnmpvR6KL3iificz
-         xjefGUwuSrsEifTc3D2mAIFdzyWlBY9jKIQXKWJBFSkycLK2tUUUqb2foIqEhU1VsO7z
-         pKPA==
+        b=Rki7eq8bvJtKNdpH6oxNQe4OPqv7x2D7NxJX7t0rN/n7EtvVcNx+4awauBjQE2Cz86
+         HP1NIte61W+Mu1p1cmJ+CWcR/irdWiQV5u4l+pIcMG+9fdVD3wsDVTkamm3jHyWqOhv3
+         UCYgtOB9PEaerIRAvmKsIaUCZAEl+3hMRO73Zu2mNhlVkP1WIeETUb9rQyQqH1V4PO0e
+         9FprX4OXHBtP+D0QgSRmiyJSUrZ9imVPac2aivGO4sN0mKyta0yAgjUy/v+uEqCofgQa
+         vzysmQ64xwDWr57H2Gylc2gP2pmXQEQamhxWj8Qfuh0EdhbH+Fwc+c3kn8nBJVTOWia6
+         rfBQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=M41GXL+PjIBxhmb0o54t+3XJBKJFPW9+U1USw54R9hY=;
-        b=Aq75HtLudgdWmnOoHmbHlLnXlHaposnThKIwqaUL/woXVFI/SalHACZYavWr9SbC5L
-         cuBcw1mad8WSGh0K+f7/YQcHGe1lx3dgsD9wC0ckEbL+BAop2mV5OzlT+lzjJR7ELvtP
-         a1lXUKme57ez8TRhbfVWQWNSSctdLasm6gHvI1cxCn4oiQ9J8ZBCEONDRT/deF8c3SGP
-         ue7wT5k2mOBI6r7X3cyi6L1QY4YPfxxNdPilrvwDKnhmKpZxpjXWYpyazEcxNV4KWIdx
-         i9aDgFPjmv/oIk+aChFM1kLnU5i9ZDlALs99vEhqxiMPmHMECMfUGZttpbzVIRQmvRJd
-         uCZA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=iUN+ZAwoZO98VUtAbHnorakjrh71xOPMrXkAMJ4Hqpo=;
+        b=y7SPg/SxiPDQWbaBHYjunU5T2N0d9OeQHn2lqBBZiK9bo7d7DXtTI08qCMt+o/W+ow
+         KHzsQxTh5RT7Z7vCjBZEGr5Z+zznypxRFrQwG3HK80FZiQcVuAODAKYsvIFgvMhHnzfq
+         yBxdyl30xWNtWN9qieWi8kv1yFH24XLTyeMSqvN29F7LkzScy/dctQxPNTl7WSFsJOeI
+         2j6n/g66owgsvpCdUIj+ZPxtrfOGTlWI/ZmexD1wNZSEDwytu09ymCxJPx2wflSDYuCV
+         2ujsj2LDXtshF/kteyRrzbc4ByQKAZsPgreoka1AIy+eRbT5F/0s6NaXvpoBP5w8nIa2
+         yDqQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fhGyue5C;
-       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12c as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x12c.google.com (mail-il1-x12c.google.com. [2607:f8b0:4864:20::12c])
-        by gmr-mx.google.com with ESMTPS id y8si324236iom.1.2021.04.16.01.57.34
+       dkim=pass header.i=@ti.com header.s=ti-com-17Q1 header.b=q6CHJQ5y;
+       spf=pass (google.com: domain of grygorii.strashko@ti.com designates 198.47.19.141 as permitted sender) smtp.mailfrom=grygorii.strashko@ti.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
+Received: from fllv0015.ext.ti.com (fllv0015.ext.ti.com. [198.47.19.141])
+        by gmr-mx.google.com with ESMTPS id c22si409706qtg.5.2021.04.16.02.27.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Apr 2021 01:57:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12c as permitted sender) client-ip=2607:f8b0:4864:20::12c;
-Received: by mail-il1-x12c.google.com with SMTP id p15so11604954iln.3
-        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 01:57:34 -0700 (PDT)
-X-Received: by 2002:a05:6e02:684:: with SMTP id o4mr6180647ils.218.1618563453889;
- Fri, 16 Apr 2021 01:57:33 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Apr 2021 02:27:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of grygorii.strashko@ti.com designates 198.47.19.141 as permitted sender) client-ip=198.47.19.141;
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 13G9QoXq061900;
+	Fri, 16 Apr 2021 04:26:50 -0500
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 13G9Qotj047995
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 16 Apr 2021 04:26:50 -0500
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2176.2; Fri, 16
+ Apr 2021 04:26:49 -0500
+Received: from fllv0039.itg.ti.com (10.64.41.19) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2176.2 via
+ Frontend Transport; Fri, 16 Apr 2021 04:26:49 -0500
+Received: from [10.250.100.73] (ileax41-snat.itg.ti.com [10.172.224.153])
+	by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 13G9QjO8101592;
+	Fri, 16 Apr 2021 04:26:46 -0500
+Subject: Re: Bogus struct page layout on 32-bit
+To: Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+        Jesper Dangaard Brouer
+	<brouer@redhat.com>,
+        Christoph Hellwig <hch@lst.de>
+CC: Matthew Wilcox <willy@infradead.org>, kernel test robot <lkp@intel.com>,
+        Linux-MM <linux-mm@kvack.org>, <kbuild-all@lists.01.org>,
+        <clang-built-linux@googlegroups.com>,
+        open list
+	<linux-kernel@vger.kernel.org>,
+        <linux-fsdevel@vger.kernel.org>,
+        Michael
+ Ellerman <mpe@ellerman.id.au>,
+        Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>,
+        Paul Mackerras <paulus@samba.org>, <linuxppc-dev@lists.ozlabs.org>,
+        Linux ARM
+	<linux-arm-kernel@lists.infradead.org>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Matteo Croce <mcroce@linux.microsoft.com>,
+        "netdev@vger.kernel.org" <netdev@vger.kernel.org>
+References: <20210409185105.188284-3-willy@infradead.org>
+ <202104100656.N7EVvkNZ-lkp@intel.com>
+ <20210410024313.GX2531743@casper.infradead.org>
+ <20210410082158.79ad09a6@carbon>
+ <CAC_iWjLXZ6-hhvmvee6r4R_N64u-hrnLqE_CSS1nQk+YaMQQnA@mail.gmail.com>
+From: "'Grygorii Strashko' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <ab9f1a6c-4099-2b59-457d-fcc45d2396f4@ti.com>
+Date: Fri, 16 Apr 2021 12:26:44 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
-References: <1618219898-4600-1-git-send-email-dillon.minfei@gmail.com>
- <YHRGPpQ03XgBMkiy@hovoldconsulting.com> <CAL9mu0JF-9hy3Z_ytpEO+hzKh0D+f-0gYaUBEA0v28EOHpC80w@mail.gmail.com>
- <CAL9mu0Ke97FUZ03jvdH8Lz2qRnVY82B7tAEtjbhW97sPOVkAxQ@mail.gmail.com> <YHlMYZCCxL+SS9ye@hovoldconsulting.com>
-In-Reply-To: <YHlMYZCCxL+SS9ye@hovoldconsulting.com>
-From: dillon min <dillon.minfei@gmail.com>
-Date: Fri, 16 Apr 2021 16:56:57 +0800
-Message-ID: <CAL9mu0K4L-vGL1EyYc+p0q7tadQ39-VHcp1nd4gZs_HGKSmP2w@mail.gmail.com>
-Subject: Re: [PATCH v2] serial: stm32: optimize spin lock usage
-To: Johan Hovold <johan@kernel.org>
-Cc: Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre TORGUE <alexandre.torgue@foss.st.com>, 
-	kernel test robot <lkp@intel.com>, linux-serial@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, kbuild-all@lists.01.org, 
-	clang-built-linux@googlegroups.com, Gerald Baeza <gerald.baeza@foss.st.com>, 
-	Erwan Le Ray <erwan.leray@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: dillon.minfei@gmail.com
+In-Reply-To: <CAC_iWjLXZ6-hhvmvee6r4R_N64u-hrnLqE_CSS1nQk+YaMQQnA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+X-Original-Sender: grygorii.strashko@ti.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=fhGyue5C;       spf=pass
- (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12c
- as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@ti.com header.s=ti-com-17Q1 header.b=q6CHJQ5y;       spf=pass
+ (google.com: domain of grygorii.strashko@ti.com designates 198.47.19.141 as
+ permitted sender) smtp.mailfrom=grygorii.strashko@ti.com;       dmarc=pass
+ (p=QUARANTINE sp=NONE dis=NONE) header.from=ti.com
+X-Original-From: Grygorii Strashko <grygorii.strashko@ti.com>
+Reply-To: Grygorii Strashko <grygorii.strashko@ti.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,84 +172,127 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Johan,
+Hi Ilias, All,
 
-On Fri, Apr 16, 2021 at 4:35 PM Johan Hovold <johan@kernel.org> wrote:
->
-> On Tue, Apr 13, 2021 at 07:44:39AM +0800, dillon min wrote:
-> > Hi Johan, Erwan
-> >
-> > It seems still a bit of a problem in the current version, not deadlock
-> > but access register at the same time.
-> >
-> > For driver , we should consider it running under smp, let's think
-> > about it for this case:
-> >
-> > static void stm32_usart_console_write(struct console *co, const char *s,
-> >                                       unsigned int cnt)
-> > {
-> >          .....
-> >          local_irq_save(flags);
-> >          if (port->sysrq)
-> >                     locked = 0;
-> >          .....
-> >          access register cr1, tdr, isr
-> >          .....
-> >
-> >          local_irq_restore(flags);
-> > }
-> >
-> > if port->sysrq is 1, stm32_usart_console_write() just disable local
-> > irq response by local_irq_save(), at the time of access register cr1,
-> > tdr, isr. an TXE interrupt raised, for other cores(I know stm32
-> > mpu/mcu do not have multi cores, just assume it has), it still has a
-> > chance to handle interrupt.  Then there is no lock to protect the uart
-> > register.
->
-> Right, the sysrq handling is a bit of a hack.
->
-> > changes to below, should be more safe:
-> >
-> > .....
-> > if (port->sysrq || oops_in_progress)
-> >       locked = spin_trylock_irqsave(&port->lock, flags);
->
-> Except that the lock debugging code would detect the attempt at
-> recursive locking here and complain loudly on UP.
->
-> If you really want to fix this, we have uart_unlock_and_check_sysrq()
-> which can be used to defer sysrq processing until the interrupt handler
-> has released the lock.
+On 10/04/2021 11:52, Ilias Apalodimas wrote:
+> +CC Grygorii for the cpsw part as Ivan's email is not valid anymore
+> 
+> Thanks for catching this. Interesting indeed...
+> 
+> On Sat, 10 Apr 2021 at 09:22, Jesper Dangaard Brouer <brouer@redhat.com> wrote:
+>>
+>> On Sat, 10 Apr 2021 03:43:13 +0100
+>> Matthew Wilcox <willy@infradead.org> wrote:
+>>
+>>> On Sat, Apr 10, 2021 at 06:45:35AM +0800, kernel test robot wrote:
+>>>>>> include/linux/mm_types.h:274:1: error: static_assert failed due to requirement '__builtin_offsetof(struct page, lru) == __builtin_offsetof(struct folio, lru)' "offsetof(struct page, lru) == offsetof(struct folio, lru)"
+>>>>     FOLIO_MATCH(lru, lru);
+>>>>     include/linux/mm_types.h:272:2: note: expanded from macro 'FOLIO_MATCH'
+>>>>             static_assert(offsetof(struct page, pg) == offsetof(struct folio, fl))
+>>>
+>>> Well, this is interesting.  pahole reports:
+>>>
+>>> struct page {
+>>>          long unsigned int          flags;                /*     0     4 */
+>>>          /* XXX 4 bytes hole, try to pack */
+>>>          union {
+>>>                  struct {
+>>>                          struct list_head lru;            /*     8     8 */
+>>> ...
+>>> struct folio {
+>>>          union {
+>>>                  struct {
+>>>                          long unsigned int flags;         /*     0     4 */
+>>>                          struct list_head lru;            /*     4     8 */
+>>>
+>>> so this assert has absolutely done its job.
+>>>
+>>> But why has this assert triggered?  Why is struct page layout not what
+>>> we thought it was?  Turns out it's the dma_addr added in 2019 by commit
+>>> c25fff7171be ("mm: add dma_addr_t to struct page").  On this particular
+>>> config, it's 64-bit, and ppc32 requires alignment to 64-bit.  So
+>>> the whole union gets moved out by 4 bytes.
+>>
+>> Argh, good that you are catching this!
+>>
+>>> Unfortunately, we can't just fix this by putting an 'unsigned long pad'
+>>> in front of it.  It still aligns the entire union to 8 bytes, and then
+>>> it skips another 4 bytes after the pad.
+>>>
+>>> We can fix it like this ...
+>>>
+>>> +++ b/include/linux/mm_types.h
+>>> @@ -96,11 +96,12 @@ struct page {
+>>>                          unsigned long private;
+>>>                  };
+>>>                  struct {        /* page_pool used by netstack */
+>>> +                       unsigned long _page_pool_pad;
+>>
+>> I'm fine with this pad.  Matteo is currently proposing[1] to add a 32-bit
+>> value after @dma_addr, and he could use this area instead.
+>>
+>> [1] https://lore.kernel.org/netdev/20210409223801.104657-3-mcroce@linux.microsoft.com/
+>>
+>> When adding/changing this, we need to make sure that it doesn't overlap
+>> member @index, because network stack use/check page_is_pfmemalloc().
+>> As far as my calculations this is safe to add.  I always try to keep an
+>> eye out for this, but I wonder if we could have a build check like yours.
+>>
+>>
+>>>                          /**
+>>>                           * @dma_addr: might require a 64-bit value even on
+>>>                           * 32-bit architectures.
+>>>                           */
+>>> -                       dma_addr_t dma_addr;
+>>> +                       dma_addr_t dma_addr __packed;
+>>>                  };
+>>>                  struct {        /* slab, slob and slub */
+>>>                          union {
+>>>
+>>> but I don't know if GCC is smart enough to realise that dma_addr is now
+>>> on an 8 byte boundary and it can use a normal instruction to access it,
+>>> or whether it'll do something daft like use byte loads to access it.
+>>>
+>>> We could also do:
+>>>
+>>> +                       dma_addr_t dma_addr __packed __aligned(sizeof(void *));
+>>>
+>>> and I see pahole, at least sees this correctly:
+>>>
+>>>                  struct {
+>>>                          long unsigned int _page_pool_pad; /*     4     4 */
+>>>                          dma_addr_t dma_addr __attribute__((__aligned__(4))); /*     8     8 */
+>>>                  } __attribute__((__packed__)) __attribute__((__aligned__(4)));
+>>>
+>>> This presumably affects any 32-bit architecture with a 64-bit phys_addr_t
+>>> / dma_addr_t.  Advice, please?
+>>
+>> I'm not sure that the 32-bit behavior is with 64-bit (dma) addrs.
+>>
+>> I don't have any 32-bit boards with 64-bit DMA.  Cc. Ivan, wasn't your
+>> board (572x ?) 32-bit with driver 'cpsw' this case (where Ivan added
+>> XDP+page_pool) ?
 
-Great, uart_unlock_and_check_sysrq() is fit to fix this. you mean make
-the flow like below:
+Sry, for delayed reply.
 
-    stm32_usart_threaded_interrupt()
-      spin_lock(&port->lock);
-      uart_unlock_and_check_sysrq(port, flags);
-      ...
-      uart_prepare_sysrq_char();
-          printk();
-            stm32_usart_console_write();
-              locked = spin_trylock_irqsave(&port->lock); //only
-handle oops, normal case
+The TI platforms am3/4/5 (cpsw) and Keystone 2 (netcp) can do only 32bit DMA even in case of LPAE (dma-ranges are used).
+Originally, as I remember, CONFIG_ARCH_DMA_ADDR_T_64BIT has not been selected for the LPAE case
+on TI platforms and the fact that it became set is the result of multi-paltform/allXXXconfig/DMA
+optimizations and unification.
+(just checked - not set in 4.14)
 
-If so, I will submit v3 as you suggested. thanks.
+Probable commit 4965a68780c5 ("arch: define the ARCH_DMA_ADDR_T_64BIT config symbol in lib/Kconfig").
 
-Best regards.
-Dillon,
->
-> > else
-> >       spin_lock_irqsave(&port->lock, flags);
-> >
-> > ....
-> >
-> > if (locked)
-> >      spin_unlock_irqrestore(&port->lock, flags);
->
-> Johan
+The TI drivers have been updated, finally to accept ARCH_DMA_ADDR_T_64BIT=y by using things like (__force u32)
+for example.
+
+Honestly, I've done sanity check of CPSW with LPAE=y (ARCH_DMA_ADDR_T_64BIT=y) very long time ago.
+
+-- 
+Best regards,
+grygorii
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAL9mu0K4L-vGL1EyYc%2Bp0q7tadQ39-VHcp1nd4gZs_HGKSmP2w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ab9f1a6c-4099-2b59-457d-fcc45d2396f4%40ti.com.
