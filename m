@@ -1,127 +1,141 @@
-Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBANZ5CBQMGQEI7A3OYI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB2GA5CBQMGQEXPN2KQI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7A76E362BE3
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 01:23:46 +0200 (CEST)
-Received: by mail-ot1-x33b.google.com with SMTP id o62-20020a9d22440000b029027e30deed3fsf5462352ota.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 16:23:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618615425; cv=pass;
+Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8542B362BF0
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 01:40:25 +0200 (CEST)
+Received: by mail-qk1-x740.google.com with SMTP id r123-20020a378f810000b029028244d5f023sf18618qkd.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Apr 2021 16:40:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618616424; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Uqa2Ua2jL2I072RAEsDKKrJTiFU0vCpC85ShImUjtuZX4baO/gUa0Ruc1Oo7T+iyCg
-         mjGV3FTv+lYT69DAEq+6Ud73PPNY4pyZ3WZqdNCAPIFawKVyZ0PYh0soQIDqJdoHds2w
-         RwIs2piC75WLD+8ayoyT376xNb7yxhOJa8Pj7o9bhuvX9tj/QaQgBatPo/1PnNzLQP6y
-         /M8T/WxgMlE4pmxhNi7Y3wKkAou+NHtrNvI/Gs2KVbr/6HdLplvCE1y2Uw2BW7CzwVYj
-         8SLPJTHGlOIPc13T0a2KCTONSjcN0TTGAQmU9qIb1Xg5r3sTxUXDP+MplSfPtU39CxOx
-         mK/Q==
+        b=AamAfmweTP3pjgdx2v/5gtd9Mm7VUeAMsRVwVqeSKJhtIpQ2Ay/LUnsaQtdVwJwZ/v
+         9osW/D20opzZnj99nblsSHqBQ4xSyOIcI/WYjyEFM2C799uZw9bCFZTCalp445kMyyTS
+         nmFL5bvsed3PwLVIEzNKmY7HYfRAc7riTnGZtKrzGk+FH8uNy7IeLncxqkoV0BMDeQLu
+         07dqEDloOT8vkcVwdqcMHXL5IhICIVfSNHflUlrXEkbdn166SgZQL48N8sCcsrCLPPQP
+         sGM5l4K2Cw9EwHVaUSjVTVbOdSNJqG7zogOBvD5v28ylWmjW8CfFIorCsyjXVt7ollfG
+         7qoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:from:subject:references
-         :mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=E/llLHM4gPl+KBrEBGliLTH5NZpMJCTeq1/2ic52DOo=;
-        b=Qt6XqnFGDKVhr1gDBWTJ30FCxkoGcH2X1UPL67aeRWJKg1BzLlxAfWpi/2Ckcu2aFg
-         VAQyTpPGMv7f8fa1q4rdzR6BsL8aVC/xgm63noRqeGzB/1OLdUFc4d824MkZ7FXKyddI
-         LKkeJgm+x2l56Zat5dC1yP+KU7ylio7OxbFRVHrDqyxePzAjgY5Aep//4boFrqBd7IAn
-         cvtvp1jpH3eV+THT8ItiZ81h8v8We/gH/h6LmABPtuN/jxazS6dly7tXXLVUT5MUqgn7
-         PGYe9SlSX6FmKJyZdN0VypmUc/uxNjTSgj2hsWHRvwNwmY8oU71n72BXJjcBQG+FFLRl
-         z/rQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=wIwyNQ79q3e7+NdiVTv/unMI75CgPYKLDJ/adWEgow4=;
+        b=XZUIGQzAEhb7YTieqCJkGx5bdbiEZPQBHMziETyxYscE6maLJbqE5oEfyoDFlRZBsK
+         2vIIDPBAruqqd80G2ZGUcsGAS22QhBS1MNMQAwzaSmcKWrozYN7yJzTSEbZOxs2yOsL5
+         SZr/GmSS5PypriT8yOvl43z2FDIOl+eAjmDFOowkMC8/P4nUwQwksdDp46OkH963zLwN
+         PjAJ77pPDCvt3/doWsIeGCUGPT5yv1BFo0CK+Q5DPjWleQ4vDaLkTb3Uvv8/skhiRic1
+         46R4YIHiR13m6N1MY4Ps8j1xRzB0CZ5iJ/9Jkp+yCBG5N2pluKC4X9aQM0DofPDSaJ6+
+         Tf9g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="o/UXDDFc";
-       spf=pass (google.com: domain of 3gbx6yackeasutlynltrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3gBx6YAcKEasUTLYNLTRZZRWP.NZXNWLYR-MfTWe-WTYfiRZZRWPRcZfad.NZX@flex--jiancai.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=fNj3+t9w;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=E/llLHM4gPl+KBrEBGliLTH5NZpMJCTeq1/2ic52DOo=;
-        b=M6xNKFTObUe1eQFUmEZ4WK5FtOYb3iFnjNH+z2ks8QzoJnanoPFWwHNTAUm8MR7dyQ
-         FBj9pDuqr+wUe14X4JFa4BKi/dFGOBbI9eblDmaA5HP4J00NanAeGeZqS7SURvIzMV5S
-         7vX6K8eodl1RJSSlbGjLyD2E64BnOTraq2ljxZSGBPZXULC6iAyLdxkP9FAAwI+yryFu
-         LxalFI9bTqRMyJQ7yCbNXGu2bjbLrMve088Nb3NPxaxq/c/PdrDz7BoZNNLh4FL6OHoW
-         3oG3my9R/cPVn+4znmQ3+2ORj19z3h/RTW7OyBDI0WWTEFwlN+VpEbpjOcBAeEVolbff
-         q6EA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wIwyNQ79q3e7+NdiVTv/unMI75CgPYKLDJ/adWEgow4=;
+        b=ek0oGx31PwZwM5CF7zpsWUrPMGp5O4DVz9GnoBfQsC+eG+/6cqP3ApYtxv3raAY8a+
+         Czmbsk7e16TbgIGOUPPCBdE757jAqxopjoKWfI+wAFQQKBp59XmwqIPQIT2/osyuT/MT
+         fmH1dc0LQeCgqnLfLyTaRy+JhpWj0hNkquocVpA+y9aH6kOa28qz/7YYXeCPi8HjCw59
+         Y3E3wd8Yd6Kan5VavC9Vo2fqyWyqVrFc1RI8GE4ANVawmYQlbC1gk5yQPNSxLTClyU1N
+         sI2dM9+ceqXUHDVbMgFYF/NKEehgaMO0/ipAj8cWY1iurPKy9jz8iW6EuHc4UT1NRShd
+         MgkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=E/llLHM4gPl+KBrEBGliLTH5NZpMJCTeq1/2ic52DOo=;
-        b=XqEfFUKnL/mB69g2J4C/dx+DxDEQm3WvTrSjicSufBS4UoBB74d2TRutXHPrRgUve2
-         pM2QzDh9jUCqtNjlpvUf1T7je99m3nTkxoFLUwzxZGyB9shD5X7aGVk77n48L2BMA4xr
-         /FcQ6RepZY3r0TGusss/AWn2N2OU9rBfWLqG68DHB9OVjimDiIPdmjq6p/cjbfKRBhgN
-         w7Z+THY6Pkc6B2YJKGGrdZ1zp915qB361nM4H4IyTEO9626aHtAHDhtSmn70R7SaNFKw
-         Le+jXNHxTVFpWFhUzH0ky0Jf/d2yDSKtJlYtpfJmMWVisXw5corCmUB48CvvBJ/88+nB
-         8EAQ==
-X-Gm-Message-State: AOAM531AEdOe1+Ko1/YKBeVDeXDFYK2eXVFpvgICC11FXt5wxpGKH5r+
-	AzYPsFLwS+8URkxP/VFJhaM=
-X-Google-Smtp-Source: ABdhPJwl0Np6hl0JwWUAFrXONI7n/7k+g84v0q/lce0jv3X0AVnBj+jhdXkPPw3e39bq/6u62ynKgQ==
-X-Received: by 2002:a9d:5c87:: with SMTP id a7mr2220291oti.254.1618615425469;
-        Fri, 16 Apr 2021 16:23:45 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=wIwyNQ79q3e7+NdiVTv/unMI75CgPYKLDJ/adWEgow4=;
+        b=caljvkCZU5fTZeyTKKBRZLg8ERYFJmVQVi6WSpZyZNaAHNAd7HxdocVf5vgRi8/z+M
+         sf9CJVaeslorF7X2cfvxVDE1IQE5pfvm5TMd4uLQFTmMtR3iZjJlmgkEjxKEMJumfQq+
+         iKLZu12Q3h/EChtsAlX1zCW4GZpmeKKThFGuXxp2+xERzzgEiflVuTlyMzELNeXKDUfW
+         1YgAoHzhrdudZxbUsWLxpd5r0xLqHej9UUEwWqWp+DdeVlN93zRovLGn1eC6jx6mhBy2
+         kh0KnTvDTVbaJKRy/rH9fsYc3uR3TFjAbtTnkUorke7beFyy3WVkq3I/riqY20NbX6j5
+         cHiw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530hqk8MmJDBCKAzeioP6BT92EiydXoYhMZB2nHIf+WeyjId9O96
+	W5sXxTZYvcXxSeBtvAWGUYQ=
+X-Google-Smtp-Source: ABdhPJxsESxuDy9dCfsY6DAgISCZkGPuIRC7D055xMtM11KqENttOpkb7FyIEzLGpKNKv9t3GBObRw==
+X-Received: by 2002:a37:8905:: with SMTP id l5mr1768691qkd.321.1618616424647;
+        Fri, 16 Apr 2021 16:40:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:724f:: with SMTP id a15ls187510otk.4.gmail; Fri, 16 Apr
- 2021 16:23:45 -0700 (PDT)
-X-Received: by 2002:a9d:1c9d:: with SMTP id l29mr5499712ota.372.1618615425066;
-        Fri, 16 Apr 2021 16:23:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618615425; cv=none;
+Received: by 2002:ac8:6d03:: with SMTP id o3ls2839964qtt.0.gmail; Fri, 16 Apr
+ 2021 16:40:24 -0700 (PDT)
+X-Received: by 2002:ac8:5210:: with SMTP id r16mr1528206qtn.106.1618616424197;
+        Fri, 16 Apr 2021 16:40:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618616424; cv=none;
         d=google.com; s=arc-20160816;
-        b=XTp+NurWDJd5XF77PHnM9X0IW8ZZjnvOS3Pk4PfSZ2x76KfqIu5iVNqey4RSF+GuA+
-         Mdf1/mYHq0McMPnbqbdnc7HlsYOvRM8jtOLHMB3v92UoEGLRKErmLmd1uR1CU7OmyPXN
-         o/yAebrfuLzTnLRm5CmDjMpMO6Qzq7iRlQotwdQCEi9kU0N0ggCKJJjId6N3Ge3AdyjN
-         Ch7GRAA7wyO3xfpfmennz2NJly3XMvNzc6yyVLQqKD1lu4Rz7Yiv0uVnT6xluYO6wK33
-         jbnVes41p6j2fGyNUYEle53tm67ixdBM4fhaX109PUt/D1327rSfqfvWwp5yH94qpvgn
-         JjYw==
+        b=wU4O1h5/xPKtHx3XBtKy/mmwN6yQEsZSCG3PQ+mhGNb7mctf70ymAf1u/C41JzvP4Y
+         5JgWN0naPgHFoqmBZnuVfE35w3ErVUhRBXmteKa89zSgNyR8tRpKLRh42AFw6kbbr4Uq
+         eaquYaA31QIRBAl5Gd/udS7K9++Ru88nrKJ0UiatkrmP0DVHMzeew4/DAAZgicnKPMiB
+         8ys2hjIXzCL87PeakEHtNfgUu7nezyybanjJEKHvM/OZsP5zDmh2oytMeiUKwGTp4iXM
+         HRwVbXAWJdJRjTJ5vLGLYUetcocUu+fpUW+ajBsXhBrOIJoGaSyvY6rJ8LKAFoX5e/Gh
+         6FYQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:from:subject:references:mime-version:message-id:in-reply-to:date
-         :dkim-signature;
-        bh=DVncHoPx5+EyUufkGwgaIquQ4C3Uhbgcu8/fDiLmXpU=;
-        b=qmH9QKZiV6Fd9WaumCOoIAa/VB7WULUR9d1L/rdbzCkbG48jJnBxSy2MuIdJLEbn1Q
-         ZBXr4QV9SbduZEE3jKnFoPrQi64XFs2Kree3B8T51XcygsowI7bb1eOH3oNwNzf/jWaA
-         oEm4cTEooVgojGrgHMa772qS5bQ9jpUvByYn1KONBd/7hk0QMAjjcsp8l6psdIp59uKG
-         pnOTZ0a4BtaM8hcknF+Sk5Fz3Er4wpHuuUYKDOzRDR/8OwaLH3hvGrHU39OSbt/wkzg6
-         fJG/RM56OYCbP/qUZRQ3Ce8l7sk9rOtkeP6WGoEepIteMNVuPks47D4QlhXfAmxED88D
-         6KJg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=q/HF9zm2yknbU18v/xjP0mndiiqfo5zeMGWyKBs/FEE=;
+        b=DEUOH4NJWt2BKwjrFdgMRdBfoDjKLqhhjG/eIxOLh13ndG65NOWxcn5NIeXXM6ybiX
+         fh1o0NACKuhyx3u4JLSu/1+vrJNc1Q38p5ZPa6Go3g8NBUBG59CjNN9RQRYQ27uIqECq
+         aB6JnT/6+PrjSezyKQYgv0xbplhKMcUsjwfo2muJ71xzoApKXzUVOfcXLhhEV9YcQtAV
+         C1xa4Gsz4wSMCTc2OoWiq0KOe/uA6WV4hVk9M456pL3kONMT4TlxMp3ERDqtYP9eWMs/
+         UjOZ95NJsQLpwb98qFTaFFlOOJiVepgSEbF5iPFv/sQHRo4SkyQBxZDAky404HQyp+vb
+         aPhQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="o/UXDDFc";
-       spf=pass (google.com: domain of 3gbx6yackeasutlynltrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3gBx6YAcKEasUTLYNLTRZZRWP.NZXNWLYR-MfTWe-WTYfiRZZRWPRcZfad.NZX@flex--jiancai.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qv1-xf49.google.com (mail-qv1-xf49.google.com. [2607:f8b0:4864:20::f49])
-        by gmr-mx.google.com with ESMTPS id x38si602894otr.3.2021.04.16.16.23.45
+       dkim=pass header.i=@chromium.org header.s=google header.b=fNj3+t9w;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pg1-x535.google.com (mail-pg1-x535.google.com. [2607:f8b0:4864:20::535])
+        by gmr-mx.google.com with ESMTPS id r26si752682qtf.3.2021.04.16.16.40.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Apr 2021 16:23:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3gbx6yackeasutlynltrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--jiancai.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) client-ip=2607:f8b0:4864:20::f49;
-Received: by mail-qv1-xf49.google.com with SMTP id i2-20020ad44cc20000b029019a3866abf5so5187931qvz.8
-        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 16:23:45 -0700 (PDT)
-X-Received: from jiancai.svl.corp.google.com ([2620:15c:2ce:0:a547:67f6:5e32:5814])
- (user=jiancai job=sendgmr) by 2002:ad4:4e02:: with SMTP id
- dl2mr11045753qvb.27.1618615424541; Fri, 16 Apr 2021 16:23:44 -0700 (PDT)
-Date: Fri, 16 Apr 2021 16:23:41 -0700
-In-Reply-To: <20210416203522.2397801-1-jiancai@google.com>
-Message-Id: <20210416232341.2421342-1-jiancai@google.com>
-Mime-Version: 1.0
-References: <20210416203522.2397801-1-jiancai@google.com>
-X-Mailer: git-send-email 2.31.1.368.gbe11c130af-goog
-Subject: [PATCH v3] arm64: vdso: remove commas between macro name and arguments
-From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Cc: stable@vger.kernel.org, gregkh@linuxfoundation.org, sashal@kernel.org, 
-	ndesaulniers@google.com, natechancellor@gmail.com, manojgupta@google.com, 
-	llozano@google.com, clang-built-linux@googlegroups.com, 
-	Jian Cai <jiancai@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will.deacon@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+        Fri, 16 Apr 2021 16:40:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::535 as permitted sender) client-ip=2607:f8b0:4864:20::535;
+Received: by mail-pg1-x535.google.com with SMTP id w10so20214319pgh.5
+        for <clang-built-linux@googlegroups.com>; Fri, 16 Apr 2021 16:40:24 -0700 (PDT)
+X-Received: by 2002:a63:ee49:: with SMTP id n9mr1293583pgk.3.1618616423721;
+        Fri, 16 Apr 2021 16:40:23 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id o18sm6435771pji.10.2021.04.16.16.40.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Apr 2021 16:40:23 -0700 (PDT)
+Date: Fri, 16 Apr 2021 16:40:21 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Andy Lutomirski <luto@kernel.org>
+Cc: Borislav Petkov <bp@alien8.de>, Sami Tolvanen <samitolvanen@google.com>,
+	X86 ML <x86@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	linux-hardening@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 05/15] x86: Implement function_nocfi
+Message-ID: <202104161601.CFB2CCF84F@keescook>
+References: <20210416203844.3803177-1-samitolvanen@google.com>
+ <20210416203844.3803177-6-samitolvanen@google.com>
+ <20210416211855.GD22348@zn.tnic>
+ <CABCJKud8TvzhcjHCpsrtCJ4B50ZUfaL48F42EhZ2zWKLteAc0Q@mail.gmail.com>
+ <20210416220251.GE22348@zn.tnic>
+ <CALCETrVTtKqD6fonUmT_qr0HJ0X9TWzLGq-wpm+A7XKyjn3W5g@mail.gmail.com>
+ <202104161519.1D37B6D26@keescook>
+ <CALCETrV6WYx7dt56aCuUYsrrFya==zYR+p-YZnaATptnaO7w2A@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jiancai@google.com
+Content-Disposition: inline
+In-Reply-To: <CALCETrV6WYx7dt56aCuUYsrrFya==zYR+p-YZnaATptnaO7w2A@mail.gmail.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="o/UXDDFc";       spf=pass
- (google.com: domain of 3gbx6yackeasutlynltrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--jiancai.bounces.google.com
- designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3gBx6YAcKEasUTLYNLTRZZRWP.NZXNWLYR-MfTWe-WTYfiRZZRWPRcZfad.NZX@flex--jiancai.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Jian Cai <jiancai@google.com>
-Reply-To: Jian Cai <jiancai@google.com>
+ header.i=@chromium.org header.s=google header.b=fNj3+t9w;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::535
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,64 +148,147 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-LLVM's integrated assembler does not support using commas separating
-the name and arguments in .macro. However, only spaces are used in the
-manual page. This replaces commas between macro names and the subsequent
-arguments with space in calls to clock_gettime_return to make it
-compatible with IAS.
+On Fri, Apr 16, 2021 at 03:52:44PM -0700, Andy Lutomirski wrote:
+> Maybe ABI is the wrong word, or maybe I'm not fully clued in.  But, if I do:
+> 
+> extern void call_it(void (*ptr)(void));
+> 
+> and I define call_it in one translation unit and call it from another,
+> the ABI effectively changed, right?  Because ptr is (depending on the
+> "canonical" mode) no longer a regular function pointer.
 
-Link:
-https://sourceware.org/binutils/docs/as/Macro.html#Macro
-https://github.com/ClangBuiltLinux/linux/issues/1349
+Right, I was thinking maybe "calling convention", or really, "the
+ability to still use 'ptr' as if it were a function". Which is true,
+yes. It's just that 'ptr' is aimed at a jump table that jumps to the
+"true" function body.
 
-Signed-off-by: Jian Cai <jiancai@google.com>
----
+> 1. I defined a function in asm.  I want to tell clang that this
+> function is defined in asm, and for clang to behave accordingly:
+> 
+> .globl func
+> func:
+>  ; do stuff
+> 
+> later:
+> 
+> extern void func(void) [something here];
+> 
+> There really should be a way to write this correctly such that it
+> works regardless of the setting of
+> -fsanitize-cfi-canonical-jump-tables.  This should not bypass CFI.  It
+> should *work*, with CFI enforced.  If I read all the various things
+> you linked correctly, this would be something like __cfi_noncanonical,
+> and I reserve the right to think that this is a horrible name.
 
-Changes v1 -> v2:
-  Keep the comma in the macro definition to be consistent with other
-  definitions.
+Yes, I find the name confusing too. Without noncanonical, we'd need
+C call wrappers for every single .S function that had its address
+taken. This is very common in crypto, for example. That level of extra
+code seemed like a total non-starter. Instead, we just get a few places
+we have to mark.
 
-Changes v2 -> v3:
-  Edit tags.
+> 2. I need a raw function pointer, thank you very much.  I would like
+> to be honest about it, and I don't really want to bypass CFI, but I
+> need the actual bits in the actual symbol.
+> 
+> translation unit 1 defines func.  Maybe it's C with
+> -fsanitize-cfi-canonical-jump-tables, maybe it's C with
+> -fno-sanitize-cfi-canonical-jump-tables or however it's spelled, and
+> maybe it's plain asm.  Now translation unit 2 does:
+> 
+> 2a. Uses a literal symbol, because it's going to modify function text
+> or poke an MSR or whatever:
+> 
+> wrmsrl(MSR_WHATEVER, func);
+> 
+> clang needs to give us *some* way to have a correct declaration of
+> func such that we can, without resorting to inline asm kludges, get
+> the actual bit pattern of the actual symbol.
 
- arch/arm64/kernel/vdso/gettimeofday.S | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+We don't want version of a global symbol alias of func that points to
+the function body, though; it's only very specific cases where this
+should be stripped (MSR, ftrace, etc).
 
-diff --git a/arch/arm64/kernel/vdso/gettimeofday.S b/arch/arm64/kernel/vdso/gettimeofday.S
-index 856fee6d3512..b6faf8b5d1fe 100644
---- a/arch/arm64/kernel/vdso/gettimeofday.S
-+++ b/arch/arm64/kernel/vdso/gettimeofday.S
-@@ -227,7 +227,7 @@ realtime:
- 	seqcnt_check fail=realtime
- 	get_ts_realtime res_sec=x10, res_nsec=x11, \
- 		clock_nsec=x15, xtime_sec=x13, xtime_nsec=x14, nsec_to_sec=x9
--	clock_gettime_return, shift=1
-+	clock_gettime_return shift=1
- 
- 	ALIGN
- monotonic:
-@@ -250,7 +250,7 @@ monotonic:
- 		clock_nsec=x15, xtime_sec=x13, xtime_nsec=x14, nsec_to_sec=x9
- 
- 	add_ts sec=x10, nsec=x11, ts_sec=x3, ts_nsec=x4, nsec_to_sec=x9
--	clock_gettime_return, shift=1
-+	clock_gettime_return shift=1
- 
- 	ALIGN
- monotonic_raw:
-@@ -271,7 +271,7 @@ monotonic_raw:
- 		clock_nsec=x15, nsec_to_sec=x9
- 
- 	add_ts sec=x10, nsec=x11, ts_sec=x13, ts_nsec=x14, nsec_to_sec=x9
--	clock_gettime_return, shift=1
-+	clock_gettime_return shift=1
- 
- 	ALIGN
- realtime_coarse:
+So, if there were some Clang-specific syntax for this, it would still be
+used on a case-by-case basis. It would still be something like:
+
+wrmsrl(MSR_WAT, __builtin_gimme_body_p(func));
+
+Which is basically what already exists, just with a different name.
+
+> 2b. Maybe optional: convert from function pointer to bit pattern of
+> actual symbol.
+> 
+> If someone gives me a real, correctly typed C pointer representing a
+> function pointer, I want a way to find the address of the body of the
+> function.  Then we can use it for things that aren't *calling* it per
+> se, e.g. disassembling it.  This is not necessarily a fully formed
+> thought right now, but I think something along these lines might be
+> needed.
+> 
+> The reverse of 2b (converting from actual symbol to function pointer)
+> might be equivalent to 1, or it might not.  I suppose there are some
+> subtleties here.
+> 
+> Be that as it may, it sounds like right now clang has some issues
+> interoperating with asm when CFI is enabled.  If so, clang needs to be
+> improved.
+> 
+> (The unsigned long hack is not necessarily good enough.  I should be able to do:
+> 
+> .global func
+> func:
+>  ; C ABI compliant code here
+> 
+> extern void func(void) [attribute as in 1]
+> 
+> unsigned long actual_address = [something clang actually understands](func);
+> 
+> If this thing refuses to work when fed a nonconstant function pointer
+> because of some genuinely good reason, fine.  But, if 'func' is an
+> actual literal symbol name, this thing needs to be compile-time
+> constant expression.
+
+Okay, you're saying you want __builtin_gimme_body_p() to be a constant
+expression for the compiler, not inline asm?
+
+Given the very few places this is expected to be used, and the fact that
+it works as-is already, why is this additional requirement useful?
+
+> > So, instead of a cast, a wrapper is used to bypass instrumentation in
+> > the very few cases its needed.
+> 
+> NAK.  The compiler needs to cooperate IMO.
+
+It's trying very hard. ;)
+
+> > But note that this shouldn't turn into a discussion of "maybe Clang could
+> > do CFI differently"; this is what Clang has.
+> >
+> > https://clang.llvm.org/docs/ControlFlowIntegrity.html
+> 
+> If this is what Clang has, and Clang won't improve, then we can just
+> not apply these patches...
+
+I'm not saying Clang can't change -- I'm saying redesigning the entire
+implementation of Clang's CFI isn't feasible, and I want to avoid having
+that become the requirement because that's unreasonable. Clang's current
+CFI works for many other projects, it's supported, it's what Android
+has been using on its kernels 3 years now. The twist, obviously, is that
+other projects don't use asm the way the kernel does, so that's where
+things get weird, and where we've already been getting help from LLVM
+folks to improve the situation.
+
+If the solution is a new Clang builtin, okay, but I'd just like to
+understand why that's justified compared to the existing solution
+(especially since the resulting machine code is likely to be nearly
+identical in the current uses).
+
+-Kees
+
 -- 
-2.31.1.368.gbe11c130af-goog
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210416232341.2421342-1-jiancai%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104161601.CFB2CCF84F%40keescook.
