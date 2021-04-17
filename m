@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC27HSOJ44LBBU535OBQMGQEOMVGDLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBI655OBQMGQEYRRISDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id D4CD5363026
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 15:08:35 +0200 (CEST)
-Received: by mail-lj1-x239.google.com with SMTP id e4-20020a2e98440000b02900bdeea8afa4sf3904246ljj.15
-        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 06:08:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618664915; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 30DCC363091
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 16:20:20 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id o14-20020a5d474e0000b029010298882dadsf6105058wrs.2
+        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 07:20:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618669220; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qMJlYMeck2Hgwvx1ryQ6JrWZSJ8PzYFyhDBa6B+zT/AF3Qdm4dYJN9BgDt9EesJTDF
-         1c3iUtMIDt9nhgmD5lO2p1LM+c8nSEpiAVQXIP23xHK14+yVQxZy0UHwe4iOlxW6qwUE
-         DMDkt4IepKgqQjPKmkjeVUeJBNmAkkxonViBDC8wO8aKZC2XKNtC+GQkEtbJwyBRlN4d
-         rLeMx7l2lCmC+9/LAN0TYjBjVcdjntLjBq52cwTsb/NYSZOtZvNyAgjV5Ao2M1pvP14Q
-         XQwrWv3Dm+ZnAIn34IdFMn9+Q2+sy2/2SNTmn7xaWEzzfqH1vLekz5uI5FVeQ/bMlh7y
-         4JKw==
+        b=FIdLdAjUCTprFlq58Ffu5jkvkIHEKub6cVOrthZG/P+tnKchRbYHBILsDg7ILNcVr9
+         bKUSrmg7b6USMaCnnIrJOZXAp3yYviezr7JM/XsElGI6itGYwJ/iqnFtBZ2RR0E/WCPB
+         R0A7TXuuT0gOKzP7zsYTE3YY9TduDcfDLoznT7r7n25juSusykXQRxqloG7EADRrJlpf
+         eF8PfT93P8FBValGp9AbWo/peYz9wbG3oD22d0eVf2OvoAKsO6SG3/Sutc6LqQDZwzKi
+         3CEP71d/wk5Cc2rtBc7DbVCQriuBjrDtc2+vJzrQIWtipF65/8diq7mN+bxOrqvjFT5J
+         5Drg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:mime-version
          :accept-language:in-reply-to:references:message-id:date:thread-index
          :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=goLeAidrpG22FMo48t0L4NgLJHQDLouowEh4hqhdGAc=;
-        b=EqWl/DHUE+jS++J54WYnzRNc8a6Rm7mCV5JvidHpRG9x5N2ORZz4mysQKk7DaE1dNB
-         OijjxV/Ln/tpQNA8oS2khVjfxx9bMgMGsfKcouBgIj+S8fKNlPyJI8abDxIcMzxEfBGx
-         tOf9eCsvzBiwX2b9AbyjBjXPS6d183r8CZ8kKIUK8CgtDfMT5U5o+ESFFiOenQKRD96c
-         K1JURUFEkw1pnSWGmTddpDcb+k84tgQ+UWgPeBMyPocRZnvizGR1uOzNebu/B57WDCIw
-         HisSqh4uXtUoOANQhmyiTry/GWU5wwRyUi5hJQxw7+iJCwGWpy2jnMyDpG3pIQhBHGub
-         JT3A==
+        bh=edifl7YDEZdf6UwNF09L7autK1GJywJqvBgOTAM6QlY=;
+        b=Kg0wm7ihwP2AHQ7QA2mdukz8aO7oiVYIH77OCPBas0MnLVJS5Sn+a+ntbX9YVpgAes
+         BpRv218i3GLgfE9b1v8NXcpb679rXI1T5aZruZdxzGai//7Px66UOTjqjkPw5xwWm8Uj
+         DmtVXv4AER1kXyVNuwPp0VZawdTFEgGV/EIztjmHUYUMGmJNt8S9JFKjZ/QkgGxrqsUv
+         66+ryBGHmdPjw6yZgTUeDcNUMD8Yy6aJXYR/JaoKqYJL8dDrRCMhJS0IdZYMIsG45rvt
+         zcK2Weutl3xOI8dtlHHvojyUisWqLLVh8Nkgwz4TpGpcU3ZamSOAcHLn/ZDkJjnhg9e6
+         ClgQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=goLeAidrpG22FMo48t0L4NgLJHQDLouowEh4hqhdGAc=;
-        b=THsHz7Jybhi0jEx3SS8Emtv60OXs6r7XnH/llSFSCpFwzhLyJPmsTtBKDsTpGZoBDY
-         WY4dl52cEPJI9iGo+XkwOZ5dOJNlUNPkHx6PAjEWyGojZwvnXGIhqfwB/c2NtfTx757D
-         6MBNWb0Wo2+rjkj7wsu9AmtDyS1dhG6/WzsXvp98RvksYfiD9s4rBnQB9nS24mJwLMx9
-         54C6qe1gLp7S2vz5yCnJwktTuf1SGPMkTJTagE1brXrR+SOQFUGBRfqpGLdofqVFrbMk
-         FMjD5J93zKmR/cOu9t8dvL/jSukWvp4PtVSrP6apH3gX3zIriPHkoY84u4mPly3TpQZE
-         RuNw==
+        bh=edifl7YDEZdf6UwNF09L7autK1GJywJqvBgOTAM6QlY=;
+        b=O2GWmPaCGylqnjdbZKjycaNdsg2Q6DZkkdkroBK1YEsA/QE4TfJCgwGoCzNa7jF7SR
+         F4VJfV41owjP2PYC19wdw3zUViDCfJDtN5iAxfp6+wQ1W2R5A4w8VL444+3yvyA9mhrZ
+         xd8opL0DGwW9hA2RHJkfsCR8sd7QMRbhJVjmeqDfYdWWdW8c/kfWqGI1viX7y4Nyrjrr
+         nKMu2ec0DSLXmawqpfiO2hAoMcrJ9DG1jz/auoaObgw+GpKxtvj9W0aUY1B4ZWraiO6N
+         JTegRJ3/HjnkoPiZLLQ//CkOAtGYAgyoqtnfW5DeFYQTEWDZ3D2mIo3SeRatlMJ0mMHI
+         /gLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
@@ -51,90 +51,84 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=goLeAidrpG22FMo48t0L4NgLJHQDLouowEh4hqhdGAc=;
-        b=cy5blnAm+qZxkoR/HQOqAFykrdEau04PC2hRJl3CtXnlxPPs2cudOUl7477Kac89b5
-         1SOroXVFAtMf8y9xAjYF4ccXyGUB5HxXtMUkcoIfraF06hATDIYwL0m4aAAYwF06n7cO
-         HTkg1AuxhgA10HfDXaxuCtKm76p9xMSnTG99Y+4LWNS18wmcmTjtKvtZ5F9kUSPYk3k1
-         O68NLGtRADLIMw6YlDY9UORh6l3EFog3Q+wJNGUC3KbtC94iZl3xZH0Fsx+9Az9dWpwp
-         xej7nD20W9z4iA1aWKhPP/46pPG7wdvKJzkUX9dciIR6wWuG+hfBWTFslSiXlUq6o5RM
-         GVUg==
+        bh=edifl7YDEZdf6UwNF09L7autK1GJywJqvBgOTAM6QlY=;
+        b=BsUabevDvplAYQjfnF0a5Rk4+yc/cb4wq4zfDvPwvW3cKmo9kQ933fXowGVEBINnY9
+         PYA5L6eARn3xgBUInGXkhI6/2gmLSluxk7CaGpl4RvHPDmRtlhYVAVZGvhxRahd3yYN1
+         a05gfiEfymWQKHqZOVQ8+TZ5Z8urDBxiJOqA5VbNXDciPj2ZetOd2a7bRDVbbjXHkiZU
+         4mZdH4p1g4Wgpf+rRqhd/XKGHk1gZJzBM1u0Qb9fvwFR1olngvLx0tPPGgF+IGdmaj8F
+         tAqXb2CUqOTce6jSqakoyLdY/SQj8P48jUQ8C3S8kewYlHfZcVQmPQpIA/foq0ehkKut
+         t+/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530+ihhIzuloI+bvTk/+KBvJbPjZEtUbBTSfTaA0G2RbQ7famZBo
-	ZWwncwqu3d8PUCaTPRvpHq8=
-X-Google-Smtp-Source: ABdhPJwflazRd6Ef+aqTc9esIcbXxwcWpA0YDHaKRDWJU1E/lZB50AjDBEwcOY1naWuUtangX9mVLg==
-X-Received: by 2002:a05:6512:360a:: with SMTP id f10mr2473758lfs.565.1618664915375;
-        Sat, 17 Apr 2021 06:08:35 -0700 (PDT)
+X-Gm-Message-State: AOAM533PfWfr188SnyMnCLRkYa5w/h6hRMXCuOntzHu31KSXZJxBDzWt
+	qx2+z1/PZLcs4e7FsMeHWhM=
+X-Google-Smtp-Source: ABdhPJxfEfaOBseNAfdBec4kZvVeO4ZaE90uFJKSIhdahu+FEEfe428omMHTLkwKq8rxND13NzMFaw==
+X-Received: by 2002:adf:fdcd:: with SMTP id i13mr4451812wrs.185.1618669219969;
+        Sat, 17 Apr 2021 07:20:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:7807:: with SMTP id t7ls403348ljc.1.gmail; Sat, 17 Apr
- 2021 06:08:34 -0700 (PDT)
-X-Received: by 2002:a05:651c:10f:: with SMTP id a15mr1622234ljb.153.1618664914380;
-        Sat, 17 Apr 2021 06:08:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618664914; cv=none;
+Received: by 2002:a1c:24d4:: with SMTP id k203ls5714829wmk.0.canary-gmail;
+ Sat, 17 Apr 2021 07:20:19 -0700 (PDT)
+X-Received: by 2002:a05:600c:3397:: with SMTP id o23mr12649506wmp.26.1618669219115;
+        Sat, 17 Apr 2021 07:20:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618669219; cv=none;
         d=google.com; s=arc-20160816;
-        b=Q2oZAPwmTg9UlnOpxWGuJSxCeKmqxPIXRBh7Gnjdt4Obr6Es3hy6lvJAp9LIWVle9S
-         LesSXHiRXcvzS+Eugpjhz1t2ZEhOOMn+8UGklmgMJ85tX1vEmVciLuyXxDJ6A17L8NX0
-         mM+qdH/KWSu0jiEd1pi/EKbbUuObBmhQQYR7/L94f8O8K9lnNUQ8jWMnRxzw9IbMp+Ur
-         LYmm8olcxwY6q1rwY4yGrV5UBgi2PbuYdfyd9KVmAT2ExIvnwK+93qv+JHCK1AQehZz9
-         yjmkxsHBdK8BIlaoaidh+QY4IB6ZpFLPjkfNciEB63fR+sKXxKOSkBMpVAu0rLS2UkNE
-         iHqw==
+        b=GTe0o/fgxFPuzYm5UICGhQeMhpRjedWO+X2IfMrTRlO+6IW0wILnt41UfdJL5ksK3u
+         cesZ9PQVcJzL1tu2mDLDZ6j2loRVC3KfAzxDfHmJNdSwyWsnk5yVZurwOq0GoDfxpNSz
+         Ct4B5IHJpBhpgHqIZ9Tzvc3GnkYU8GaIFR8EgVnvUkADaJYVtwWoBJpq7x6hD05b4Ig1
+         jIYgVOpYyYTFDpFvRB/klvlM3zTCwnNH0MJBP+GlJ2DBZMmf9q4i3wRLuwGjNqxVOAzA
+         JdjLPJl8lzPu1PCsT9uUJeDoB304b6IycuzWazdZWWehjNcaSXYHvf+HhqmxW8Ic1dQs
+         f/wA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:mime-version
          :accept-language:in-reply-to:references:message-id:date:thread-index
          :thread-topic:subject:cc:to:from;
-        bh=fwx/uxYr8snaY/9JBVgSY+uE+az+d0gcXhNU9s+CmP4=;
-        b=axpuUDYRk+vrOSKedPuuyRyKHKiTEtWC1XwjWpUSGbUbesQ7h3JDAqWNc4O6W4/T1a
-         Mcpdy1FztOAWN1gKG0Ec7JrNLIXVJD/F/B6KHkrxgMiNIXnGzHiUvAtb0AlocIMa3rA0
-         OzH3+fp6dkpugm1vXGR/gvsxmhdzvJaZ6aDVdbDrdO6pFp61SSYCiEYF2C6piv4qR6vO
-         Z1B0EOnhF1ITnZkOAymrCvsSSyWa9OW4XVY5J1lMLziyWJqX6Q2t/gvtFq4XCxZmJrmM
-         zdEJ57qJ9gVgaLqYjQ8jdJWhx2NzK9LxRH3Oo6Pam6QAbSUQ1XqMYAQ1zJpjcbi/vvGL
-         uYbA==
+        bh=RJXAGbx9vFXnk+C5NSZ1XtHcOxmN8tzU3st4M/qACds=;
+        b=Zr5p/e/qONYNdT5vKyWQkOuXgEZSLpL9Alx2J1yqg6eE5svqJmjaQscQAhcFPahyJc
+         SB8biqnW1A+wEFxmJb/nTfc82E/9rkTk1AhbGGRAfLkTDa4TLLrcDe21NCJj5R/jm9Yu
+         +3Bp00sZdKxtXJPwA1PswELlEW2x+ZahKIOP3llVpsqQZR4LRMkHcM+c3eecnGZ4OuOr
+         OmwqqlTkHuupn2f7Zb0LVYn3DK5UgC+XAqBCQpD9P01svDa6IFxMedPOcUN5nVAzLSpT
+         UkzIzrO5d+bzpCf5lvje8r/ZE12BQIrkMjpAjkZcrQjzVdnbTcUbOErL5mmVIgogjSCY
+         YFZg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.85.151])
-        by gmr-mx.google.com with ESMTPS id n13si500144lfi.5.2021.04.17.06.08.34
+        by gmr-mx.google.com with ESMTPS id t124si787484wmb.3.2021.04.17.07.20.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 17 Apr 2021 06:08:34 -0700 (PDT)
+        Sat, 17 Apr 2021 07:20:19 -0700 (PDT)
 Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.85.151 as permitted sender) client-ip=185.58.85.151;
 Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
  TLS) by relay.mimecast.com with ESMTP id
- uk-mta-40-NxhZsd9HMzmFc3zLPSZr6w-1; Sat, 17 Apr 2021 14:08:31 +0100
-X-MC-Unique: NxhZsd9HMzmFc3zLPSZr6w-1
+ uk-mta-238-fScdoKE0NyuCErCmE_g1LQ-1; Sat, 17 Apr 2021 15:20:17 +0100
+X-MC-Unique: fScdoKE0NyuCErCmE_g1LQ-1
 Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
  AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.2; Sat, 17 Apr 2021 14:08:30 +0100
+ Server (TLS) id 15.0.1497.2; Sat, 17 Apr 2021 15:20:16 +0100
 Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
  AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.015; Sat, 17 Apr 2021 14:08:30 +0100
+ 15.00.1497.015; Sat, 17 Apr 2021 15:20:16 +0100
 From: David Laight <David.Laight@ACULAB.COM>
-To: 'Grygorii Strashko' <grygorii.strashko@ti.com>, Ilias Apalodimas
-	<ilias.apalodimas@linaro.org>, Jesper Dangaard Brouer <brouer@redhat.com>,
-	Christoph Hellwig <hch@lst.de>
-CC: Matthew Wilcox <willy@infradead.org>, kernel test robot <lkp@intel.com>,
-	Linux-MM <linux-mm@kvack.org>, "kbuild-all@lists.01.org"
-	<kbuild-all@lists.01.org>, "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>, open list
-	<linux-kernel@vger.kernel.org>, "linux-fsdevel@vger.kernel.org"
-	<linux-fsdevel@vger.kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
-	<paulus@samba.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, Linux ARM
-	<linux-arm-kernel@lists.infradead.org>, "David S. Miller"
-	<davem@davemloft.net>, Matteo Croce <mcroce@linux.microsoft.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: RE: Bogus struct page layout on 32-bit
-Thread-Topic: Bogus struct page layout on 32-bit
-Thread-Index: AQHXMqLVEv6dx6LXIEqsc09GLT7Ydaq4r3RA
-Date: Sat, 17 Apr 2021 13:08:30 +0000
-Message-ID: <e8247c8d079d45928990031870db7a9e@AcuMS.aculab.com>
-References: <20210409185105.188284-3-willy@infradead.org>
- <202104100656.N7EVvkNZ-lkp@intel.com>
- <20210410024313.GX2531743@casper.infradead.org>
- <20210410082158.79ad09a6@carbon>
- <CAC_iWjLXZ6-hhvmvee6r4R_N64u-hrnLqE_CSS1nQk+YaMQQnA@mail.gmail.com>
- <ab9f1a6c-4099-2b59-457d-fcc45d2396f4@ti.com>
-In-Reply-To: <ab9f1a6c-4099-2b59-457d-fcc45d2396f4@ti.com>
+To: 'Kees Cook' <keescook@chromium.org>, Andy Lutomirski <luto@kernel.org>
+CC: Borislav Petkov <bp@alien8.de>, Sami Tolvanen <samitolvanen@google.com>,
+	X86 ML <x86@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra
+	<peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>, "Nick
+ Desaulniers" <ndesaulniers@google.com>, Sedat Dilek <sedat.dilek@gmail.com>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>, LKML
+	<linux-kernel@vger.kernel.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>
+Subject: RE: [PATCH 05/15] x86: Implement function_nocfi
+Thread-Topic: [PATCH 05/15] x86: Implement function_nocfi
+Thread-Index: AQHXMw/PuSsNstP2FUia6sIzu9nmdKq4wQCQ
+Date: Sat, 17 Apr 2021 14:20:16 +0000
+Message-ID: <a8653ebf0a52498888f728524ebaa110@AcuMS.aculab.com>
+References: <20210416203844.3803177-1-samitolvanen@google.com>
+ <20210416203844.3803177-6-samitolvanen@google.com>
+ <20210416211855.GD22348@zn.tnic>
+ <CABCJKud8TvzhcjHCpsrtCJ4B50ZUfaL48F42EhZ2zWKLteAc0Q@mail.gmail.com>
+ <20210416220251.GE22348@zn.tnic>
+ <CALCETrVTtKqD6fonUmT_qr0HJ0X9TWzLGq-wpm+A7XKyjn3W5g@mail.gmail.com>
+ <202104161519.1D37B6D26@keescook>
+In-Reply-To: <202104161519.1D37B6D26@keescook>
 Accept-Language: en-GB, en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
@@ -162,29 +156,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Grygorii Strashko
-> Sent: 16 April 2021 10:27
-...
-> Sry, for delayed reply.
+From: Kees Cook
+> Sent: 16 April 2021 23:28
 > 
-> The TI platforms am3/4/5 (cpsw) and Keystone 2 (netcp) can do only 32bit DMA even in case of LPAE
-> (dma-ranges are used).
-> Originally, as I remember, CONFIG_ARCH_DMA_ADDR_T_64BIT has not been selected for the LPAE case
-> on TI platforms and the fact that it became set is the result of multi-paltform/allXXXconfig/DMA
-> optimizations and unification.
-> (just checked - not set in 4.14)
+> On Fri, Apr 16, 2021 at 03:06:17PM -0700, Andy Lutomirski wrote:
+> > On Fri, Apr 16, 2021 at 3:03 PM Borislav Petkov <bp@alien8.de> wrote:
+> > >
+> > > On Fri, Apr 16, 2021 at 02:49:23PM -0700, Sami Tolvanen wrote:
+> > > > __nocfi only disables CFI checking in a function, the compiler still
+> > > > changes function addresses to point to the CFI jump table, which is
+> > > > why we need function_nocfi().
+> > >
+> > > So call it __func_addr() or get_function_addr() or so, so that at least
+> > > it is clear what this does.
+> > >
+> >
+> > This seems backwards to me.  If I do:
+> >
+> > extern void foo(some signature);
+> >
+> > then I would, perhaps naively, expect foo to be the actual symbol that
+> > gets called
 > 
-> Probable commit 4965a68780c5 ("arch: define the ARCH_DMA_ADDR_T_64BIT config symbol in lib/Kconfig").
+> Yes.
 > 
-> The TI drivers have been updated, finally to accept ARCH_DMA_ADDR_T_64BIT=y by using things like
-> (__force u32)
-> for example.
+> > and for the ABI to be changed to do the CFI checks.
+> 
+> Uh, no? There's no ABI change -- indirect calls are changed to do the
+> checking.
+> 
+> > The
+> > foo symbol would point to whatever magic is needed.
+> 
+> No, the symbol points to the jump table entry. Direct calls get minimal
+> overhead and indirect calls can add the "is this function in the right
+> table" checking.
 
-Hmmm using (__force u32) is probably wrong.
-If an address +length >= 2**32 can get passed then the IO request
-needs to be errored (or a bounce buffer used).
 
-Otherwise you can get particularly horrid corruptions.
+Isn't this a bit like one of the PPC? ABI where function addresses
+aren't (always) the entry point.
+IIRC is causes all sorts of obscure grief.
+
+I'd also like to know how indirect calls are actually expected to work.
+The whole idea is that the potential targets might be in a kernel module
+that is loaded at run time.
+
+Scanning a list of possible targets has to be a bad design decision.
+
+If you are trying to check that the called function has the right
+prototype, stashing a hash of the prototype (or a known random number)
+before the entry point would give most of the benefits without most
+of the costs.
+The linker could be taught to do the same test (much like name mangling
+but without the crap user experience).
+
+That scheme only has the downside of a data cache miss and (hopefully)
+statically predicted correct branch (hmm - except you don't want to
+speculatively execute the wrong function) and polluting the data cache
+with code.
+
+This all seems like a ploy to force people to buy faster cpus.
 
 	David
 
@@ -195,4 +226,4 @@ Registration No: 1397386 (Wales)
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e8247c8d079d45928990031870db7a9e%40AcuMS.aculab.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a8653ebf0a52498888f728524ebaa110%40AcuMS.aculab.com.
