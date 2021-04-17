@@ -1,135 +1,141 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBB64Q5OBQMGQEHTJZ57Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDBLP5PQSQLRBUF35OBQMGQE7OCCBJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 92DFA362F9E
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 13:37:32 +0200 (CEST)
-Received: by mail-lj1-x23c.google.com with SMTP id f5-20020a2e9e850000b02900bdf2002a82sf3822415ljk.21
-        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 04:37:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1618659452; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1288D363024
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 15:08:34 +0200 (CEST)
+Received: by mail-vk1-xa3e.google.com with SMTP id l185-20020a1f57c20000b02901d909b5e911sf3673133vkb.15
+        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Apr 2021 06:08:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1618664913; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PbYYAg9MYeZY6TcUFY6gLPgtAA8Vskd+HFQu0Hw9FUVslz0E4BagmbL8XoTq6AtB9o
-         A84ai8l4eaHpEE1c+iNQAejCtzanNJ3zf8s5XFpEYIHT/5uH7QUQPiDusKN2CDJVJKrT
-         NKAY2SLP0CNcLTjDlnGI3RraocZEykZNdeSqg4o5H67joOSeYF4NfYrcOz8pU/hTKdnI
-         /5WVAGD6Lf51MVT5/dG7GAmJsmROd2dqRzMZbYPHg5rbp4iPrkYrGtpVkCQ2TmpzhpEL
-         60O0Eux1rK8m1WBMrjUfrzjfcjiMwpBsFEN/PPNzNekR1QBo+IEy+SyIedxTUec+vMUZ
-         JSgA==
+        b=maraKYS6CwF+9WfgPzFzJQ/asCDrLkOq8FghUQ0cvp7EsHNWrJ1tpZ35Vv0vA9+2tm
+         yHTq4mfxGrurUj9BBOi8sFR9jYuA1uE2kAzqApRUl6HETBMcoLspuHhr4PJZVixO0V14
+         RlQl8d/1M8AE70/0vqpztm1Dryz42DekcV1WETTuJXC1FfkyLN+R6koqAqpQ29rjCkkN
+         zStGyyCQ75WD9/G7x0/8HkQ8xxHRxnggZ+HXt1HA9tWIYJuQifpUWyhEfaN/yNkRC3nP
+         dfuT5wIoD3K3f3z7e0/XUd5GJeVnUkkXdH/PPcbtpQGQ2km6f9/zX6kMWuDM22cr+p6h
+         uSoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=1cfGj3bU7FyIz7+6IgtOP1+ig9cCjkbE9Ka05vTnKy0=;
-        b=lsgUqK0Bc6AIuLa3k5VyP5j9HJYsOA5DcvO4veqi2+no0QccHEr7tCdL3pbUXtDRgL
-         hLNT6aojvoPpt+a4pu5sx4JOT/JGEwgJBdgFwNhM5/9+o4isOXJ08fp3Iw1QH/wwHO3t
-         Y3mPpA3idJdtAGKIshble6iqp8a0e4mD5vmWh9HvUXwjZpx5FubxKy315JvtSITopWAu
-         3X9Que5uw3ZHGvhn9l1jBoNkobmLin4HDqkJF7B3lkhV3p01ABJA1022o2y/tXkCE57V
-         61Glry5XDAHs7dlep37f4/5mncGogIEHfXE6yAVTYCd0pfuk1uSmfoEp3ptu+txkAIXV
-         Wbew==
+        bh=uJwrNlfT1p1p5x7ZwMzpmwt0Md0oQc4uyxU8pLa2qGw=;
+        b=yUBMllfmxz01QQeHGxKpjz3LU4N6U6NIw2rtm8Nig2ztRYyZci0Hqte91g/xF52zKV
+         qmvtrEEwGvsYXmNTD7C2fKSR7XrN7wrMBSyepLDjeObK+F7RK+z68PPBQSJZdXKEhfwl
+         7kUAxdxWZB7EWkole/7p8DcXNC/AI4QVAFezuuXDXGeOmXrom3giFFsE9EeG5MDarmj6
+         lSs0UckUo6o/D9Eg7Kij9xXjm4jF8cO0ylOtRn2RP3bmaWMe5hEAJTwBQTO7juxDorUz
+         qeXNv+GmcKVkDX8UKQYWmxxSkDUFvizgbQ01yJOXB+hG5ZMDxxJ6MIVM6wdUhuh4OP+I
+         wFUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=CqzfOhgP;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iul605Du;
+       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12d as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1cfGj3bU7FyIz7+6IgtOP1+ig9cCjkbE9Ka05vTnKy0=;
-        b=IPtbat8WLGB5jm3Bbpo4Ih8gVZZ+ynv1ZPlteEARM/GoorcXF2j948MJJg79ZvEUlv
-         Sjn4foSVU00nwTbDO0sk+JcmzfKlqk91mx0kF5G1j4+XRe7WmDUb0676HYei+nE0+XYc
-         59gz68t4Ug0ZnlF0X0FNhXq+lDHV+Go+WfPLReQW/sgWs95tGVdmQNZhaf18quSqiTLK
-         K+rXokTThxkAj4eZLdHwiYQ9jB1nJ7IIlOsBExndWJSyKvX9F2YE/D8JjkfHla2kvzZq
-         RJ42U4VE6RKWrvDTug7VE7OawonQfyJ5h9EvgmoE/hZFeWInTFLBsW6OE7a9f0afddQw
-         09FA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uJwrNlfT1p1p5x7ZwMzpmwt0Md0oQc4uyxU8pLa2qGw=;
+        b=L/AhaKLqYCPRPh5kiZT4Nl57BuQ52z8wSM+m6hJ2dhMdCGLKrmi5e6R9iVvRrA82Aj
+         hIV5bG8Mb7uZjprdip3IJL7KQzuKfiyLKCHAPFzuG7wvUGeaHpccDN4p7y0wW+kCfG4Q
+         Me33ArmftAoBvYlACZJzE26BelObkfoYi3CqyAh6SVREyZsUM79A5YI8pgEUxZ5DbjYr
+         DmkdpjF3RVkIm6zGhR+iZsYqCZAWPGcBPRPV4iaayZNJNzExXQN8lB6xbpkVSmsvd6vH
+         yxWjJ3dfOV7gvf3XNyMq7UdNdTNGZb5qk5NCiOffzhJymScndQbI8cAObiXc/YSi+1Sh
+         IYHA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uJwrNlfT1p1p5x7ZwMzpmwt0Md0oQc4uyxU8pLa2qGw=;
+        b=rmdDVXn5iVyLMhnhCoX7Q+FQDHJQkpGhw2+BXxawKswRL8VLHYVkJ/4JJLA184Jwky
+         e10/x1qPyi+/lTamG4mIiXyDIKQ08zw61qW7QEs/l9yd0KKdA663dBMRMffCqfKxwHxe
+         k6MD+AS1V/F3CslcMmAWIBG5D7BxySw6lNVre+gAil2vVADPZ5XWLBu9+awBRuDRz6Gy
+         uFyHYq3L2nwINBjgsQzM4NP0A5/9clEka3rtEgnLDGB29rcWWwCOLBrr/DJ9Eh42SC07
+         XkjWIUcLCDS6TRRXJChWlqKid8ykcaqoBibmro6m1hmYCWxpJH9b6bHY3dbsf+GXyJfT
+         QPsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=1cfGj3bU7FyIz7+6IgtOP1+ig9cCjkbE9Ka05vTnKy0=;
-        b=j8y4nMjH6Rfiv0YGENgu3Nb/3AQSnE8Comx0RNvKqnPyOpB4RmEGoI5WMYXX4aWncO
-         bYaRf9mOGDFPxmOTQnY7WxoqZkqYYCoCfDQH6e2MuFbQDV9/1g6hkU/ad3AJ9v3hQUdp
-         8guwJduqJiRQzrgBaVFD1YWmJrpDSBFQWVnv86BBGhTKv2I3DGcMgqs280Hb+p6cVCca
-         DF8xiMJ2zQ0roslBD8ucm2ttB2Y/PqlWgTpJn7R1SEARSEmF7blJsPUivYNgqMNFo8Vd
-         51DfleCqZTRV7z02eNK/V1HkBpAkDozDIAyp7E0BB+GjD98UmxwR0uzs807z1JntrmyO
-         0ZMA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uJwrNlfT1p1p5x7ZwMzpmwt0Md0oQc4uyxU8pLa2qGw=;
+        b=hGPAcusY5Lc8pOtcTyA3hGXFFDIBjT16cRtvUem01UK4p0pNLoQNsHy20Tg609aUS1
+         G9yH0j77nA67fGpriS9KM6GQqiNkmjXIFBjmLugBCoLLvkIeyCKNMLUdUD+NQBC+cuv0
+         JodnKWYH/xeDbj62SlksnTGRRWiWd68Up0yxpQ5YvAE6gTm6nr06uddtXkfAudd4HDXk
+         p+SMFSz1182Ck+TXMkS4MohQPwwbFSyGvbES747M8HPOy99aVkzLg4xJCwcEnsNTGwZ2
+         VC1VZ+oOTWoWefhxZeM6vZig3izKY6A+nqBr/Axmbw+PQoP1yjxbh7yXmSF8J8VkFhtA
+         D2XQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533KzPTGF1XKPB8UwjSrvPfFm7ZrahOHsVuv8GN7yNS3ZP6SIHCx
-	jJNu7WH+T7xSMipECQVzSLk=
-X-Google-Smtp-Source: ABdhPJzcq5Ca9UR0OCL6oHx0smCgSfTwtGfUxgd3wldYPFY9uWq86a12l4O1uvi3ISyjTQrbqaefgA==
-X-Received: by 2002:a05:6512:2254:: with SMTP id i20mr6193800lfu.56.1618659452028;
-        Sat, 17 Apr 2021 04:37:32 -0700 (PDT)
+X-Gm-Message-State: AOAM5322Umx8X6vTM0fCvJrakHGXSQ7lwLvzcPHTFhc19Y9Ikq4qd78i
+	oqMTD9UyZkxqeVQccNK6XyQ=
+X-Google-Smtp-Source: ABdhPJxuW3JwIi10oVyeV72NKB/KBcraZivZGofikGa2Kw2u6ywzyhEl/Tdy2PB9oYfUhG+md89BUw==
+X-Received: by 2002:a9f:2aca:: with SMTP id d10mr2334654uaj.35.1618664913111;
+        Sat, 17 Apr 2021 06:08:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:890b:: with SMTP id d11ls399990lji.9.gmail; Sat, 17 Apr
- 2021 04:37:30 -0700 (PDT)
-X-Received: by 2002:a2e:2246:: with SMTP id i67mr5154457lji.396.1618659450883;
-        Sat, 17 Apr 2021 04:37:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1618659450; cv=none;
+Received: by 2002:a67:3346:: with SMTP id z67ls1764481vsz.7.gmail; Sat, 17 Apr
+ 2021 06:08:32 -0700 (PDT)
+X-Received: by 2002:a67:f945:: with SMTP id u5mr10225261vsq.2.1618664912439;
+        Sat, 17 Apr 2021 06:08:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618664912; cv=none;
         d=google.com; s=arc-20160816;
-        b=FrYnP3yLRijSM5Mofk4sptB/GvdKNiWatwjuab5rBEkaLwbj0jj0QNH3PEJ5OAX6zZ
-         dOfItpAI/7bG4U0YhTS/aWZOjqscA11HPOT9H7Ai5cZQyePfXeun4mbRLIQGPGlBcKme
-         G523oAOUDttnaEY3ybJK5sRxuW580fY3i39N4YYVHTg5IjzAN8jscERiTYAu2rUf3CID
-         AParDZ2RmMfjIwY0TZcmxfo7Wfg7dzp8PxbDhretlOS2ezIfR3fj0fSxlRULgw6lvqZY
-         2+OCAsC/LJkTt0lTbTRHJGhHWzq51xEBWtEKPkV0fXtkjx/lRnhAWjimqCV1s0oRqhSb
-         zoxA==
+        b=hz6FCpELtcNJL2Iw/ATOD0JJi1kF03egQ5+cxe7wYs1VZAxO7QdWy5gl+5zKhZFo/X
+         /KaKdts3eMWa2Uvm1tgff8hHEgX62/Flt1PT3EHgooB2o6BgrOyLyxKQ8OYtvKrmrnOA
+         QQnpJ9QJwh2aOAA1WJ5ptpi1JjikBGS+Snz+7qYERJDHSEa+86sy9I+18u8E0CB9szuW
+         xYWech4zja7C42y8FT1faUxYwX46cH/hXUPsUib2S0lGncR2Pln5PEW+sXgrvxPBmGxT
+         3SG1qUiKkd6VtaD7n/SstdwSO6YRv4yrlKn+MHwnfWjX+cFY9fUVW5T/wxonRfy03ZlM
+         O3Aw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=La4K9Hxv90PEzdP4s04b75vImRFep6ZDy8BSpr4Z3TU=;
-        b=axhb+yDlGUlVk00ffJuhkKS/+H8RSqZJfNruVRxw+SFYMJXRJ/Ysw0nXeqluL6uZmd
-         PezmBgLDztUXrKE4ZfW4WQvrLxCIJnZOIz5sZmFT16dcoIzFnaWwSDAh+st0R3J7EK+5
-         yE99odKrWAh/MxzTtsOjv/0dEDVSUoG4n7dg1/BjaKyf92IJiBBTQz1gK1eq+vc5/2t1
-         jZv8quEj6pgIWHSgSRxC86TX8b1pJfLtlt5GAptwJY1ixcx8XSWjYwR/qe9KZVfbiLIg
-         3sZl8ucxpj5mhV8ojs1iJzOTAhXcfiGYWuGDiQsY6SR5NsCC0v+rTNqPXAIbYo3Rj9/m
-         eeNQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ulpGsJT6Bh0rpZeIediYCiOUyp80TRAFcGdkV8FE+eU=;
+        b=W1NW0aMBk5ACo4BbujL9jA0Y0jc4iUiRancmmfEfKVpGZHagS7tfD7WFKh6yk3KL+H
+         tIF+wjh9C8FsRWSOUCZ2HqdEZtLkOBNcrLdefy+n5b5s5M18axhWoDhmt7c2+ZcIfbVR
+         igp/0QPOAFonHDvgjZjbyZbVC0I4pQSFVq655FMD8vsHv35NR2RyRAhtSTtLoJUr3xnV
+         E3wlaNxBZ23lKHexNsiesxJfyCiQVhUG/wO5M4ceqwD9ydqqZyvk7VrQtYPW768FMWCU
+         JWaE9IPGc43eY+vV3RGNuFYtGbnvQekdjbD4qh230iPu+3hmEmldb+qh3Yg4+Hf2atu3
+         HQUg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=CqzfOhgP;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from desiato.infradead.org (desiato.infradead.org. [2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-        by gmr-mx.google.com with ESMTPS id z2si345244ljm.0.2021.04.17.04.37.30
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=iul605Du;
+       spf=pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12d as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-il1-x12d.google.com (mail-il1-x12d.google.com. [2607:f8b0:4864:20::12d])
+        by gmr-mx.google.com with ESMTPS id x24si826611vsr.1.2021.04.17.06.08.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Apr 2021 04:37:30 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) client-ip=2001:8b0:10b:1:d65d:64ff:fe57:4e05;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
-	id 1lXjGO-005BXG-D2; Sat, 17 Apr 2021 11:37:26 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id CA636300212;
-	Sat, 17 Apr 2021 13:37:23 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id A53742D2112CE; Sat, 17 Apr 2021 13:37:23 +0200 (CEST)
-Date: Sat, 17 Apr 2021 13:37:23 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: x86@kernel.org, Kees Cook <keescook@chromium.org>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 09/15] x86/alternatives: Use C int3 selftest but disable
- KASAN
-Message-ID: <YHrIc0L5AQukw525@hirez.programming.kicks-ass.net>
-References: <20210416203844.3803177-1-samitolvanen@google.com>
- <20210416203844.3803177-10-samitolvanen@google.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 17 Apr 2021 06:08:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12d as permitted sender) client-ip=2607:f8b0:4864:20::12d;
+Received: by mail-il1-x12d.google.com with SMTP id r5so17224783ilb.2
+        for <clang-built-linux@googlegroups.com>; Sat, 17 Apr 2021 06:08:32 -0700 (PDT)
+X-Received: by 2002:a05:6e02:e0a:: with SMTP id a10mr10537215ilk.271.1618664911976;
+ Sat, 17 Apr 2021 06:08:31 -0700 (PDT)
 MIME-Version: 1.0
+References: <1618567841-18546-1-git-send-email-dillon.minfei@gmail.com> <YHma7H3RoLyeH650@hovoldconsulting.com>
+In-Reply-To: <YHma7H3RoLyeH650@hovoldconsulting.com>
+From: dillon min <dillon.minfei@gmail.com>
+Date: Sat, 17 Apr 2021 21:07:55 +0800
+Message-ID: <CAL9mu0Kxny5JOGDk67ByMCVAJFOCF44rEOjbt68VxHz_2gZHrg@mail.gmail.com>
+Subject: Re: [PATCH v3] serial: stm32: optimize spin lock usage
+To: Johan Hovold <johan@kernel.org>
+Cc: Greg KH <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre TORGUE <alexandre.torgue@foss.st.com>, 
+	kernel test robot <lkp@intel.com>, Gerald Baeza <gerald.baeza@foss.st.com>, 
+	Erwan LE-RAY - foss <erwan.leray@foss.st.com>, linux-serial@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, kbuild-all@lists.01.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210416203844.3803177-10-samitolvanen@google.com>
-X-Original-Sender: peterz@infradead.org
+X-Original-Sender: dillon.minfei@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=desiato.20200630 header.b=CqzfOhgP;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as
- permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=iul605Du;       spf=pass
+ (google.com: domain of dillon.minfei@gmail.com designates 2607:f8b0:4864:20::12d
+ as permitted sender) smtp.mailfrom=dillon.minfei@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,61 +148,132 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Apr 16, 2021 at 01:38:38PM -0700, Sami Tolvanen wrote:
-> From: Kees Cook <keescook@chromium.org>
-> 
-> Instead of using inline asm for the int3 selftest (which confuses the
-> Clang's ThinLTO pass), this restores the C function but disables KASAN
-> (and tracing for good measure) to keep the things simple and avoid
-> unexpected side-effects. This attempts to keep the fix from commit
-> ecc606103837 ("x86/alternatives: Fix int3_emulate_call() selftest stack
-> corruption") without using inline asm.
-> 
-> Signed-off-by: Kees Cook <keescook@chromium.org>
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> ---
->  arch/x86/kernel/alternative.c | 21 ++++-----------------
->  1 file changed, 4 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-> index 6974b5174495..669a23454c09 100644
-> --- a/arch/x86/kernel/alternative.c
-> +++ b/arch/x86/kernel/alternative.c
-> @@ -496,23 +496,10 @@ extern struct paravirt_patch_site __start_parainstructions[],
->   *
->   * See entry_{32,64}.S for more details.
->   */
-> -
-> -/*
-> - * We define the int3_magic() function in assembly to control the calling
-> - * convention such that we can 'call' it from assembly.
-> - */
-> -
-> -extern void int3_magic(unsigned int *ptr); /* defined in asm */
-> -
-> -asm (
-> -"	.pushsection	.init.text, \"ax\", @progbits\n"
-> -"	.type		int3_magic, @function\n"
-> -"int3_magic:\n"
-> -"	movl	$1, (%" _ASM_ARG1 ")\n"
-> -"	ret\n"
-> -"	.size		int3_magic, .-int3_magic\n"
-> -"	.popsection\n"
-> -);
-> +static void __init __no_sanitize_address notrace int3_magic(unsigned int *ptr)
-> +{
-> +	*ptr = 1;
-> +}
+Hi Johan,
 
-I really don't like this. the compiler is free to mess this up in all
-sorts of ways.
+On Fri, Apr 16, 2021 at 10:10 PM Johan Hovold <johan@kernel.org> wrote:
+>
+> On Fri, Apr 16, 2021 at 06:10:41PM +0800, dillon.minfei@gmail.com wrote:
+> > From: dillon min <dillon.minfei@gmail.com>
+> >
+> > This patch aims to fix two potential bug:
+> > - no lock to protect uart register in this case
+> >
+> >   stm32_usart_threaded_interrupt()
+> >      spin_lock(&port->lock);
+> >      ...
+> >      stm32_usart_receive_chars()
+> >        uart_handle_sysrq_char();
+> >        sysrq_function();
+> >        printk();
+> >          stm32_usart_console_write();
+> >            locked = 0; //since port->sysrq is not zero,
+> >                          no lock to protect forward register
+> >                          access.
+> >
+> > - if add spin_trylock_irqsave() to protect uart register for sysrq = 1 case,
+> >   that might got recursive locking under UP.
+> >   So, use uart_prepare_sysrq_char(), uart_unlock_and_check_sysrq()
+> >   move sysrq handler position to irq/thread_d handler, just record
+> >   sysrq_ch in stm32_usart_receive_chars() by uart_prepare_sysrq_char()
+> >   delay the sysrq process to next interrupt handler.
+> >
+> >   new flow:
+> >
+> >   stm32_usart_threaded_interrupt()/stm32_usart_interrupt()
+> >   spin_lock_irqsave(&port->lock);
+> >   ...
+> >   uart_unlock_and_check_sysrq();
+> >      spin_unlock_irqrestore();
+> >      handle_sysrq(sysrq_ch);
+> >   stm32_usart_threaded_interrupt()//stm32_usart_interrupt() return
+> >
+> > Cc: Johan Hovold <johan@kernel.org>
+> > Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> > Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> > Cc: Gerald Baeza <gerald.baeza@foss.st.com>
+> > Cc: Erwan Le Ray <erwan.leray@foss.st.com>
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Signed-off-by: dillon min <dillon.minfei@gmail.com>
+> > ---
+> > v3: add uart_prepare_sysrq_char(), uart_unlock_and_check_sysrq() to move
+> >     sysrq handler inside interrupt routinei to avoid recursive locking,
+> >     according to Johan Hovold suggestion, thanks.
+> >
+> >  drivers/tty/serial/stm32-usart.c | 24 +++++++++++-------------
+> >  1 file changed, 11 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/drivers/tty/serial/stm32-usart.c b/drivers/tty/serial/stm32-usart.c
+> > index b3675cf25a69..981f50ec784e 100644
+> > --- a/drivers/tty/serial/stm32-usart.c
+> > +++ b/drivers/tty/serial/stm32-usart.c
+> > @@ -271,7 +271,7 @@ static void stm32_usart_receive_chars(struct uart_port *port, bool threaded)
+> >                       }
+> >               }
+> >
+> > -             if (uart_handle_sysrq_char(port, c))
+> > +             if (uart_prepare_sysrq_char(port, c))
+> >                       continue;
+> >               uart_insert_char(port, sr, USART_SR_ORE, c, flag);
+> >       }
+> > @@ -457,9 +457,10 @@ static irqreturn_t stm32_usart_interrupt(int irq, void *ptr)
+> >       struct uart_port *port = ptr;
+> >       struct stm32_port *stm32_port = to_stm32_port(port);
+> >       const struct stm32_usart_offsets *ofs = &stm32_port->info->ofs;
+> > +     unsigned long flags;
+> >       u32 sr;
+> >
+> > -     spin_lock(&port->lock);
+> > +     spin_lock_irqsave(&port->lock, flags);
+> >
+> >       sr = readl_relaxed(port->membase + ofs->isr);
+> >
+> > @@ -477,7 +478,7 @@ static irqreturn_t stm32_usart_interrupt(int irq, void *ptr)
+> >       if ((sr & USART_SR_TXE) && !(stm32_port->tx_ch))
+> >               stm32_usart_transmit_chars(port);
+> >
+> > -     spin_unlock(&port->lock);
+> > +     uart_unlock_and_check_sysrq(port, flags);
+> >
+> >       if (stm32_port->rx_ch)
+> >               return IRQ_WAKE_THREAD;
+> > @@ -489,13 +490,14 @@ static irqreturn_t stm32_usart_threaded_interrupt(int irq, void *ptr)
+> >  {
+> >       struct uart_port *port = ptr;
+> >       struct stm32_port *stm32_port = to_stm32_port(port);
+> > +     unsigned long flags;
+> >
+> > -     spin_lock(&port->lock);
+> > +     spin_lock_irqsave(&port->lock, flags);
+>
+> This essentially turns the threaded handler into a non-threaded one,
+> which is a bad idea.
+This change is only to adapt for uart_unlock_and_check_sysrq() need flags.
+Found your patch has removed this parameter from
+uart_unlock_and_check_sysrq(), so this changes should be removed.
 
-The problem is that the call-site does not respect the regular calling
-convention, so calling a regular C function is just asking for trouble,
-which is why it ended up being asm, then we fully control the calling
-convention.
+>
+> >       if (stm32_port->rx_ch)
+> >               stm32_usart_receive_chars(port, true);
+> >
+> > -     spin_unlock(&port->lock);
+> > +     uart_unlock_and_check_sysrq(port, flags);
+> >
+> >       return IRQ_HANDLED;
+> >  }
+>
+> You also didn't base this patch on tty-next, which has a number of
+> updates to this driver. Before noting that myself, I had fixed a couple
+> of deadlocks in this driver which turned out to have been incidentally
+> fixed by an unrelated path in -next.
+Yes, my submission is based on linux-5.12. based on the component's
+next branch is a good idea , to avoid conflict. thanks.
+>
+> I'll be posting a series that should fix up all of this.
+Thanks
+>
+> Johan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YHrIc0L5AQukw525%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAL9mu0Kxny5JOGDk67ByMCVAJFOCF44rEOjbt68VxHz_2gZHrg%40mail.gmail.com.
