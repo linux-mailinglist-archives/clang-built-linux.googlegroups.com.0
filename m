@@ -1,127 +1,126 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBA5ZQGCAMGQEZKDF6KQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBFV4QGCAMGQEZHIRMWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8951F3670F6
-	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Apr 2021 19:10:28 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id z19-20020a63e1130000b02901fcdcf0c5a3sf10800400pgh.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 21 Apr 2021 10:10:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619025027; cv=pass;
+Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5A88A367120
+	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Apr 2021 19:17:11 +0200 (CEST)
+Received: by mail-lj1-x23b.google.com with SMTP id v26-20020a2e481a0000b02900bf48f13296sf2164326lja.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 21 Apr 2021 10:17:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619025431; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QfMHc3yWI2NsTbKPnqTCKDDQpiXVtoh4sPlg7KNzxAa1Mgi+6N8NoiU+/3vUo4XSlb
-         icbx33yfSpYRKXbll0V+j/A7TeAwt7zhlpDvmMc21ri3vmYJhkSs277rBG27MzGi8nN+
-         YeaYLUj5le7jc7/xDNvqxBvAbbnvuVDp0a6DP3S4SS4FLMTiNQBkVJtSQ+vg7M+suDkV
-         CNmhDDK9vC5P0Lh53+/lkRQH6uEEmLQRY80u+zBk+31stFxyTqh+7jW/sv/s2JU7da6t
-         1KaSJojR9XOFL5lCrt35duJQ3jhe8dt0p4079sNvB8TH0h93Ba2Qct1cC6Ozuq4jNQwK
-         QYOg==
+        b=jDn0S4fWzyGkB7Nw2nNc47tyfaqHmT8hQZipmezbFxXNNo6h8RZ+V+nY1rlRbzk2dD
+         9REZEzWW6VpbkXw4BatrraPO+ks4jWRyBf39yBOxpzs3Y64MQYftUEDmMdRlEl9lJO0v
+         hYNZVAtJ0MalMU8ToUZK+yA8cuNvKVTQblJCmsSpCKiUYQqx+PvOml37PRpAaaVk9+/R
+         VxLoYe0BckRShmp2IB2j7n44ZkUFiCXdNvl7I7YxRpM0IBWT0wFs7Udg5EJeZJMgWJRj
+         RdvpTgFN0r2i++kjO1f6qGeGBN5mGhPTi/P0p/SjV/KqbwiH9clQoyeu1oBDuHRXkIUt
+         Ljsg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=kSa3HXpqiZ4tx/WeCxmthTArEv/roINJ8urGkQr2jn8=;
-        b=iOf6GIQyPgsbAqp41JZD/3KpHM6mSnicpX+gdcs290I5zmy6Ply7jv/CUoEEayXgfV
-         nc+rGDjuUVluqn1NUVnlP0g+gDERIHy0W3M/Lcxr6ek5N7AzxRoJPGkIS30MEurzQ5m+
-         QsG5uNUhL7YhKc/oAOCTSH52noJyT7LM39ctOGuIR0HFP8EGxSploiTx0AoKWObeYPvu
-         6Pkk04lnZxC8FrGGMtnwO1Z+ZUB9oPC79/KpAkSoQQGee8Ejpx2K+XgLYBtBXkNl5WRG
-         cnMTqvVl9rxzW2Qi4l4pymbfufyvlJmnPM2pW3s3VbnTXend24+jtC0HuyGmXlA7V+8k
-         hUOQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=iw6lfKaiQUZpiu6dwgT/fhhqOl9tqNUeNNpSaypod1s=;
+        b=MwrI30ilqe9MWREL0Qmr6p1zRmaOybapfeajIV9NkPW/z4eEthaJrFP/ozqzlE5+nz
+         kWlB44eXGL0U894j37fd9GD7NHjtSIGcBw7jxI3SAZK59cUquKeqKR+yldw7x14WzPYp
+         VdmC58u4OLm75eF8YpyP5G6wdYqaNEYnLMBC9cqpslTxtz8DJWswxlrP1zJ9H7gcSsBo
+         wiv3RQHiWO0wmg9oNa8/CN0zTM6Db1Aqb/upYQqkWmBoKb2wTxSnes3HyzpoTDGXsDgu
+         iMlV9pj3kDY8v65mz6I4NHH1v7Ij2ZjIYlApUWLnFwaEu3FukOl9BojVJj1AHA0bSY/6
+         HnCw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=bLe+rypc;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b="AR3/oRNQ";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kSa3HXpqiZ4tx/WeCxmthTArEv/roINJ8urGkQr2jn8=;
-        b=gV06RXv9RW8ep9l0r2D4trPuF6BFcyP+FM8B0yXpLnopTb4sT4zO7anKCoRKT0GLoa
-         /hT022oiX2p8FKu0CwA8GSR2MPIDcRMenzjPPKZ+qTuvQkkPCURlgpYV4QQenDTnBs/h
-         2Bl/f/CGYjEGN/7xONDDHIwjb5EPygERxzHrmc/YOY1prudcQ/7BQZ66fxpLS7EUnWTq
-         vjMuDySWIKT7UMrKpqGH73dJ9td87KMAW0klxJ4yEnYvE0+10ORgZ4WqJxO7mVbfZOeU
-         e/QFEPKR4fsT2JS88UXy9/0p3NxJKCTHt9rBM/RvPa8sISxRHFPq/PAxNaz5s56AMZJx
-         heVw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=iw6lfKaiQUZpiu6dwgT/fhhqOl9tqNUeNNpSaypod1s=;
+        b=TMmIv9T2ZZMxval0jAME8lhyB0obiOrEWLN8comiMEkWCHEqfTW2Y7WPpYigFgar9q
+         NlAXEfl3/hyM4YLMkXvjNzP5zU1t24cUcCYxa7Yz4qyypVYVcJdBYl43hOuMqvW1Mxhe
+         yHeuuGHK+U8IqFv6S6tFcQzYOpE3GoFYpj2M5FQPHYmFAHrWDkFXI8Fin73oSgCSiSbD
+         SMfDzszur2EwyYFol9nXWmccjyMxAkVOy5no8pLWhYgCAPd1cCxTYp8Sd8iWmf9t8qP0
+         UwYVHfNoaDyu4UbhJbR6nBMAgimxKe2LD9ujgUJlBzsgYRZSGtuxvVya7DyJMSfgwPgh
+         uYDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=kSa3HXpqiZ4tx/WeCxmthTArEv/roINJ8urGkQr2jn8=;
-        b=ucFRMI0O5TSr955CkLYQ49ev5mFpKGvsKcZuxwQwGIfnZCZaAFzCpodnQURwcqImJ3
-         y2GJpShtKSgFSGAUJkBbFwMvg5BLSe+jMDu3tXYRN/AeBFCb837H195wFXYTZe6eCGSO
-         0umItC+SH0FfSYHrs0/4A8/cvXRvHtkN8HWFOELeqC0hL5jSJPeRglO7Sey/rykOL7Sp
-         DVFX6MnXxGV58bX78hQdMVN78ho4f1TvyvhbKry+p+4aN2T1tCGyQm3+D8oSvfAv2EmW
-         KVoUsSlprsnbQrrWFHNhUmnCOitICnSv4lb/YfC3qIA+Yje43sHPIOKagET+z/bArfnR
-         9MFQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532+vAw+1xXddR5N58cB/QbfWL+EXtR8a5V+7oQru/YMy+09sFWn
-	mcEm8iSQwpJ+6x+V1ZSTI48=
-X-Google-Smtp-Source: ABdhPJyKlAvMb/ODBiOfcR8QSQBkINbVvlswCju9WYbQ4GJ8MV4elBzCq+hmIWdhXkTlN0ub1I9DJw==
-X-Received: by 2002:a63:1c48:: with SMTP id c8mr23085171pgm.234.1619025027214;
-        Wed, 21 Apr 2021 10:10:27 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=iw6lfKaiQUZpiu6dwgT/fhhqOl9tqNUeNNpSaypod1s=;
+        b=V40B6BSwmCous0hYrtl/ceZAo6BAvnoPCH0qjrgGZWAzy3aEMcPlfpySICTqeaLCUc
+         PCI9JbPEb+XiScUuzp5b7ZXbTVC6RvC7/1wFt3w/YEk/VmsMAur2tH6PIYvECEGL93EC
+         0TjvW+s4Z1VFDRAo08HAMuvQd2fGiGYTrCuRMUdFHmBOp438bD6FmmcVEpEN7Xt8bqFa
+         AMGHkeywkD23RD8UEhMqQGIyLxCwWjLBT1kuU4gybkSq3pjbhB6W7k/rr3T5toXgo9xk
+         895VtsrOnvAko9If/q52edr1eE/Yc/pkeIqyVDJ0loE966SBy4OpRMvrdNIaf8PHSUC4
+         HVog==
+X-Gm-Message-State: AOAM5303ReFS6nszucbEy+EfvB7ht3J//oeAiDP1t8/sJvFeMmHW8x+D
+	YxgvX7fbCCG8nWHhB+A3gRc=
+X-Google-Smtp-Source: ABdhPJyqEYzKqNOQhJ9SgEo3DAymRY+g7RpYPh6fYwTQyGnd38wfHysxl8eFNGzav1oWNagBhwP3eg==
+X-Received: by 2002:a2e:9256:: with SMTP id v22mr19585724ljg.409.1619025430953;
+        Wed, 21 Apr 2021 10:17:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:ef0b:: with SMTP id u11ls1149256pgh.4.gmail; Wed, 21 Apr
- 2021 10:10:21 -0700 (PDT)
-X-Received: by 2002:a63:a64:: with SMTP id z36mr22612596pgk.342.1619025021078;
-        Wed, 21 Apr 2021 10:10:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619025021; cv=none;
+Received: by 2002:a19:f815:: with SMTP id a21ls2224682lff.1.gmail; Wed, 21 Apr
+ 2021 10:17:10 -0700 (PDT)
+X-Received: by 2002:a19:c1ce:: with SMTP id r197mr20457106lff.450.1619025429928;
+        Wed, 21 Apr 2021 10:17:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619025429; cv=none;
         d=google.com; s=arc-20160816;
-        b=aYwnnLoMMbt6lKMAr/1p58xhH6NEnBagMPaPDriD0iWAAVLUwdrdaA6vbxCg3TNkoD
-         j2iFy2MX7aAS0pOljZ+8xjyXa6/UjX78MdDIiF433qIfOZIrjA11Y95dX2VcjDE/DhJy
-         LFBRds15/Seg3RfooCMaUwUuc+ODh14e3/Gk6Xn+p6C666lYKZujeofBF+5QORw3KmOt
-         mLGxy8c4PTonWlEIM4FD3Io6ibQFqqYprT85vq4VLCHH/ptzunJWnPBH9xsW/ONW8wG6
-         c5bxzWzhF3EHlHDD7FmZ3Q0YDM2myCdZNYpLt+6lwo/+KX9HiwV9k5rmr3j/hhhMbLMo
-         ZDMw==
+        b=gVPiJuU3RWLZoMYYJo4CE5ZOHl3Eetr+sCjFQiG4KncrHclOn2cHvUxvhsc6++3Zy9
+         VE1vY5NI8BfbsLAWw5w2imYZyzPNEmrORj5tZ8UjtmIf5PPE5AM7b3F1hChz7Wqmvxhm
+         E+/pIZ7TfPPtlXRh326mbgkQFMkKOKNew7+QhSkwnjBSXNsvoPiDAKyyhseZSxm4fb3V
+         e3Bqj+u2b4ubpnuP7Scmm/r9YMcpUmxPhGWTZVPzzaTh64exSTZi7lK09upUaGtmQWOf
+         +uo4kpxdznuOfZdCfgkOn+ekSLzMsoV2eGn+02+8fTPWUm8JwQLIF7Qr0wRHVbtBpSIo
+         CMlw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=KLIKGeN+0tSh0ZYliq+lsuw1Taf/owZcbxOMJ5lBV1k=;
-        b=B4nHHGCHBMEMiSyYrOLeKdX6CkbnwFk3vPaHjkb5pj78XrT9wKTJmbXNKHMrGboaMS
-         VTsj9NrZ5yWZzcseJl/GMoV3BiyvXfUSuie3ab6gQEIzKTjtXQ0b+iJWaLZ+OBg4TWNK
-         oCPrTRDUNCYBXgXJFLx9Jq51fNmJ5KrqKKD/CCYOS88F2OA69yS+Sx6Nvl56CAUhzA6f
-         SyinJ9LFP8WWRQM5VuvTOhh3d7DRgBonJzBDKJeP0m57eS49sHdY3yPeOI7HFlFMuwrR
-         PfCsPu9cLmH0HKlmZgaDGHYeEZQ/M4UJDn1ux9mxTIDfvVQOtzRozf17ElFVBBS96uO9
-         tIcQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=43DYgV+tGi3uz6vhioZmI3U81q1qHyxbq4uVPUHsfyU=;
+        b=Ke302U3vHcGwZGq9uPnwWq8Qn55huzOidhm8O1GRVg4izBIdtnePhNvIxardMrmpn0
+         uACcTF1tClcZPexZQizoDBGVaUdHFywsUm5sCWsiMZW2DX4dRnlNmlWnvtmjh6GleUSG
+         cA0jzSpY3FN3okZ/yExPA4CzOj0ygYg4gVNtgRYP4AUWC4aga1ClEwYpLLygcThcTW4v
+         z+4S46wul2zdbj6fKnTICX4ciU74rcapK51QRC9nsZQm7j1zHS4v7D9oP7K9+/clHESp
+         i1tebwMksg9JBBUmdfaKxOBnvj2r/sd/UTlfAlwtfqzv+YeeePSwpASUdos7iw/B2Om/
+         Jn1w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=bLe+rypc;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q16si142863plx.3.2021.04.21.10.10.20
+       dkim=pass header.i=@google.com header.s=20161025 header.b="AR3/oRNQ";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
+        by gmr-mx.google.com with ESMTPS id w18si209849lft.10.2021.04.21.10.17.09
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 21 Apr 2021 10:10:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5606A61360;
-	Wed, 21 Apr 2021 17:10:18 +0000 (UTC)
-Date: Wed, 21 Apr 2021 10:10:15 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Wanpeng Li <wanpengli@tencent.com>,
-	Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
-	kvm@vger.kernel.org, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org, Kai Huang <kai.huang@intel.com>
-Subject: Re: [PATCH] KVM: x86: Fix implicit enum conversion goof in scattered
- reverse CPUID code
-Message-ID: <YIBcd+5NKJFnkTC1@archlinux-ax161>
-References: <20210421010850.3009718-1-seanjc@google.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Apr 2021 10:17:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
+Received: by mail-lf1-x131.google.com with SMTP id x20so37662539lfu.6
+        for <clang-built-linux@googlegroups.com>; Wed, 21 Apr 2021 10:17:09 -0700 (PDT)
+X-Received: by 2002:a05:6512:150:: with SMTP id m16mr21006546lfo.374.1619025429467;
+ Wed, 21 Apr 2021 10:17:09 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210421135215.3414589-1-arnd@kernel.org>
+In-Reply-To: <20210421135215.3414589-1-arnd@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 21 Apr 2021 10:16:58 -0700
+Message-ID: <CAKwvOdk21V0qW_xQrWqQYnrw8nEr_+KTJnVZgL0gJsJiUf2Scw@mail.gmail.com>
+Subject: Re: [PATCH] memstick: r592: ignore kfifo_out() return code again
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Maxim Levitsky <maximlevitsky@gmail.com>, Alex Dubov <oakad@yahoo.com>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Nathan Chancellor <nathan@kernel.org>, Jing Xiangfeng <jingxiangfeng@huawei.com>, 
+	Jiapeng Chong <jiapeng.chong@linux.alibaba.com>, linux-mmc@vger.kernel.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210421010850.3009718-1-seanjc@google.com>
-X-Original-Sender: nathan@kernel.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=bLe+rypc;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b="AR3/oRNQ";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,101 +133,97 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Apr 20, 2021 at 06:08:50PM -0700, Sean Christopherson wrote:
-> Take "enum kvm_only_cpuid_leafs" in scattered specific CPUID helpers
-> (which is obvious in hindsight), and use "unsigned int" for leafs that
-> can be the kernel's standard "enum cpuid_leaf" or the aforementioned
-> KVM-only variant.  Loss of the enum params is a bit disapponting, but
-> gcc obviously isn't providing any extra sanity checks, and the various
+On Wed, Apr 21, 2021 at 6:52 AM Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> A minor cleanup to address a clang warning removed an assigned
+> but unused local variable, but this now caused a gcc warning as
+> kfifo_out() is annotated to require checking its return code:
+>
+> In file included from drivers/memstick/host/r592.h:13,
+>                  from drivers/memstick/host/r592.c:21:
+> drivers/memstick/host/r592.c: In function 'r592_flush_fifo_write':
+> include/linux/kfifo.h:588:1: error: ignoring return value of '__kfifo_uint_must_check_helper' declared with attribute 'warn_unused_result' [-Werror=unused-result]
+>   588 | __kfifo_uint_must_check_helper( \
+>       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   589 | ({ \
+>       | ~~~~
+>   590 |         typeof((fifo) + 1) __tmp = (fifo); \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   591 |         typeof(__tmp->ptr) __buf = (buf); \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   592 |         unsigned long __n = (n); \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   593 |         const size_t __recsize = sizeof(*__tmp->rectype); \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   594 |         struct __kfifo *__kfifo = &__tmp->kfifo; \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   595 |         (__recsize) ?\
+>       |         ~~~~~~~~~~~~~~
+>   596 |         __kfifo_out_r(__kfifo, __buf, __n, __recsize) : \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   597 |         __kfifo_out(__kfifo, __buf, __n); \
+>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   598 | }) \
+>       | ~~~~
+>   599 | )
+>       | ~
+> drivers/memstick/host/r592.c:367:9: note: in expansion of macro 'kfifo_out'
+>   367 |         kfifo_out(&dev->pio_fifo, buffer, 4);
+>       |         ^~~~~~~~~
+>
+> The value was never checked here, and the purpose of the function
+> is only to flush the contents, so restore the old behavior but
+> add a cast to void and a comment, which hopefully warns with neither
+> gcc nor clang now.
+>
+> If anyone has an idea for how to fix it without ignoring the return
+> code, that is probably better.
 
-Unfortunately, gcc's -Wenum-conversion is behind -Wextra rather than
--Wall like clang. If you explicitly enable it with
-KCFLAGS=-Wenum-conversion to your make invocation, it will warn in the
-exact same way as clang:
+Should r592_flush_fifo_write be made to return an int, then callers of
+r592_flush_fifo_write percolate up their return code?
+r592_transfer_fifo_pio() seems to only return 0, but its callers are
+doing return code checking.
 
-arch/x86/kvm/cpuid.c: In function 'kvm_set_cpu_caps':
-arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from 'enum kvm_only_cpuid_leafs' to 'enum cpuid_leafs' [-Wenum-conversion]
-  499 |  kvm_cpu_cap_init_scattered(CPUID_12_EAX,
-      |                             ^~~~~~~~~~~~
-arch/x86/kvm/cpuid.c: In function '__do_cpuid_func':
-arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from 'enum kvm_only_cpuid_leafs' to 'enum cpuid_leafs' [-Wenum-conversion]
-  837 |   cpuid_entry_override(entry, CPUID_12_EAX);
-      |                               ^~~~~~~~~~~~
-
-clang's warning for comparison/posterity:
-
-arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumeration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cpuid_leafs' [-Wenum-conversion]
-        kvm_cpu_cap_init_scattered(CPUID_12_EAX,
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~
-arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumeration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cpuid_leafs' [-Wenum-conversion]
-                cpuid_entry_override(entry, CPUID_12_EAX);
-                ~~~~~~~~~~~~~~~~~~~~        ^~~~~~~~~~~~
-2 warnings generated.
-
-> BUILD_BUG_ON() assertions ensure the input is in range.
-> 
-> This fixes implicit enum conversions that are detected by clang-11.
-> 
-> Fixes: 4e66c0cb79b7 ("KVM: x86: Add support for reverse CPUID lookup of scattered features")
-> Cc: Kai Huang <kai.huang@intel.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-
-This makes GCC and clang happy in my brief testing.
-
-I assume this will get squashed but in case not, here are some tags:
-
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-Tested-by: Nathan Chancellor <nathan@kernel.org>
-
+>
+> Fixes: 4b00ed3c5072 ("memstick: r592: remove unused variable")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
-> 
-> Hopefully it's not too late to squash this...
-> 
->  arch/x86/kvm/cpuid.c | 5 +++--
->  arch/x86/kvm/cpuid.h | 2 +-
->  2 files changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/cpuid.c b/arch/x86/kvm/cpuid.c
-> index 96e41e1a1bde..e9d644147bf5 100644
-> --- a/arch/x86/kvm/cpuid.c
-> +++ b/arch/x86/kvm/cpuid.c
-> @@ -365,7 +365,7 @@ int kvm_vcpu_ioctl_get_cpuid2(struct kvm_vcpu *vcpu,
->  }
->  
->  /* Mask kvm_cpu_caps for @leaf with the raw CPUID capabilities of this CPU. */
-> -static __always_inline void __kvm_cpu_cap_mask(enum cpuid_leafs leaf)
-> +static __always_inline void __kvm_cpu_cap_mask(unsigned int leaf)
+>  drivers/memstick/host/r592.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/memstick/host/r592.c b/drivers/memstick/host/r592.c
+> index 026fadaa1d5d..615a83782e55 100644
+> --- a/drivers/memstick/host/r592.c
+> +++ b/drivers/memstick/host/r592.c
+> @@ -359,12 +359,15 @@ static void r592_write_fifo_pio(struct r592_device *dev,
+>  /* Flushes the temporary FIFO used to make aligned DWORD writes */
+>  static void r592_flush_fifo_write(struct r592_device *dev)
 >  {
->  	const struct cpuid_reg cpuid = x86_feature_cpuid(leaf * 32);
->  	struct kvm_cpuid_entry2 entry;
-> @@ -378,7 +378,8 @@ static __always_inline void __kvm_cpu_cap_mask(enum cpuid_leafs leaf)
->  	kvm_cpu_caps[leaf] &= *__cpuid_entry_get_reg(&entry, cpuid.reg);
+> +       int ret;
+>         u8 buffer[4] = { 0 };
+>
+>         if (kfifo_is_empty(&dev->pio_fifo))
+>                 return;
+>
+> -       kfifo_out(&dev->pio_fifo, buffer, 4);
+> +       ret = kfifo_out(&dev->pio_fifo, buffer, 4);
+> +       /* intentionally ignore __must_check return code */
+> +       (void)ret;
+>         r592_write_reg_raw_be(dev, R592_FIFO_PIO, *(u32 *)buffer);
 >  }
->  
-> -static __always_inline void kvm_cpu_cap_init_scattered(enum cpuid_leafs leaf, u32 mask)
-> +static __always_inline
-> +void kvm_cpu_cap_init_scattered(enum kvm_only_cpuid_leafs leaf, u32 mask)
->  {
->  	/* Use kvm_cpu_cap_mask for non-scattered leafs. */
->  	BUILD_BUG_ON(leaf < NCAPINTS);
-> diff --git a/arch/x86/kvm/cpuid.h b/arch/x86/kvm/cpuid.h
-> index eeb4a3020e1b..7bb4504a2944 100644
-> --- a/arch/x86/kvm/cpuid.h
-> +++ b/arch/x86/kvm/cpuid.h
-> @@ -236,7 +236,7 @@ static __always_inline void cpuid_entry_change(struct kvm_cpuid_entry2 *entry,
->  }
->  
->  static __always_inline void cpuid_entry_override(struct kvm_cpuid_entry2 *entry,
-> -						 enum cpuid_leafs leaf)
-> +						 unsigned int leaf)
->  {
->  	u32 *reg = cpuid_entry_get_reg(entry, leaf * 32);
->  
-> -- 
-> 2.31.1.368.gbe11c130af-goog
-> 
+>
+> --
+> 2.29.2
+>
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YIBcd%2B5NKJFnkTC1%40archlinux-ax161.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk21V0qW_xQrWqQYnrw8nEr_%2BKTJnVZgL0gJsJiUf2Scw%40mail.gmail.com.
