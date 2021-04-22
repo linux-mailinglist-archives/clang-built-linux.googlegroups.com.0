@@ -1,126 +1,127 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBGVDQWCAMGQEUBQ3PIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRB36IQWCAMGQE2UHMWOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C35B3367EB3
-	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 12:36:11 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id r20-20020a0568080ab4b0290186e76a5ddasf6078891oij.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 03:36:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619087770; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id BF82B367FDB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 13:56:32 +0200 (CEST)
+Received: by mail-ot1-x33b.google.com with SMTP id l10-20020a056830054ab0290241bf5f8c25sf15369046otb.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 04:56:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619092591; cv=pass;
         d=google.com; s=arc-20160816;
-        b=d7/cyJJgQ990Lt6qYsgRzZJ0mPz3Eky35in/ASPRKsdfNqYs1KOsrykfiJIQCWDxGw
-         PGkv9Eyj1srkYOiu3kYfF4lX+dIbftD6Q+sHavdaW4cZ4ug04FbDf+kbcTyR7Q5vDdIk
-         9/ROrmzP7SIEe1cJkkSNSUwgQ2LFvHOgdzehxA5Cw5ubS4ZhxsoZOvwhsX2cZdetTY3m
-         S9t6eim/vORDQ89nwpjnB27SVeVQ9hjJNHVYUv0/juAhs16kRH6ex20Y1tpnTk4iIttT
-         bJkaZUXPUmsqJJFblLm3sh1AHmUmuMJIMiTMXS8i2kVJTici5juz2Hpwa3y6dMrkC5GG
-         tPrw==
+        b=mLjyGnYPjl/Ivt8a1WAC3TRRP6S/fiDJribS9S9KJN0x8GoNYNRRRH7YRkVMEp1WZH
+         OdjJ+K6kosX2KcDHJphoX1coSMAF4pPrx9Rq/U447K0p+ZegaMg/M8dJLM/JxNVVBKWl
+         9Rd3ty8IEak2OxvVKAGkTTHKY5TxVamJ0W/xqCTaJ3M7ag7vhBE8LS8LQKUHXjFTfvqX
+         Ik+ERblvCPQBaj5wH9xfVSJQYZyrTf4LXWLjjpMmobpW3eIxLStwvF+LHfaHKbZ0tTwq
+         63fMJ8OTTM3BM8dcbQF7JtOAEPrsHlgHpAqb+e212OMay+Gkzz2dPRw0WnW1s2H0X01E
+         RUfw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=QpcSKOKDaJlUea1S565DWPFQvY2zxteaqBGbkGidXS4=;
-        b=vjKB0MIy7x1ZF2GHNWRVa5Z64a4bsIAJQvazieqspeU8R0VBLOMVogLi9OuMiYfOsc
-         NbXpBRHj3nxzpKM8NXfLsvu0eIUAlCAsHYN3FqOOQqR67RPgBNy7funVfYFkvLdCQaE8
-         zjto44IvNvtHXYrXMOc4xCXSjEmHceLtPB30bo0iBM1Hr/lUuiBYx6D3s9CJjECNMlbT
-         QWLKhwzDJIlUldHinSxa97OkbZlZHzYva5yQqFoqgRi4ViSW365zJsfMiIWutdwjjLFK
-         x3eMgtncw4CrX5HzUpJXkvpwTqmu3ysTo/BsLHITUW/rTzQ3Awy27IyATVNTGHKuh+aV
-         FcUQ==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=MnZl7Keem7DIw0k71v42ulCKonI4nmIhYo82MmgSxv4=;
+        b=x8AdLukqHJXfj0ZSOr+ajDrHW0VyAwe8rqk9x9laoKiQhgLfYMEA4qOjWKJaVAZOyG
+         HFoy16pPN3vEVman6IXU7/M9/qJzUrcHg3atU84JFf9teoUAdYHNJawCaoDPEwepJLMw
+         fRZsKIyvsMrIJ3f345xFMWJoep4id+QNR/LjR16GfEkM+SofeJZ63SvuvROFtUfKVLmg
+         vEkofcNmup879jW+R340kFXQGxHWPHagr3rf8OiAuc42QcNEQG2xWQhWDBmzq3fMNhu9
+         gQfyjlkNsscNi35rTIlR5wcvfs1oWoD/uKy680X2JE0fPiITAD9DYYjqtmDpTOby4PXn
+         2QoQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Nvc0O6tp;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=BakqVdFD;
+       spf=neutral (google.com: 2607:f8b0:4864:20::629 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QpcSKOKDaJlUea1S565DWPFQvY2zxteaqBGbkGidXS4=;
-        b=R6vNUrfoWLCXA1iOvXfjrxYewDhGU5N4LiRbw5rdnlpfv/oSr9TdAQEXAvDIweBHTa
-         NHfM0gSat/thHLAZt7a2q5dU+t+RCjloL/Njrn/MFelDR/7/qR1MuM5FgFA552ZlMc0O
-         mO1289j0gKTg+6+CmnYp5w8TUseRlOIttgKFcEHoHqY/FpV0uBHsoty1Zi+Fg+V/cFmR
-         p6EKpeAEsHwmcQDxZ7C1qT2HM4ehdaIMKwYVVMzgA7SI+imp1vngskHq/5KAWZZjRmK8
-         L0mt7c0N5wupPuhmuyZfk2Vi9rXCuocPdLIjwxvnbrmH3OTJzp61uDxrgvfMKuL0w8pR
-         PLeQ==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MnZl7Keem7DIw0k71v42ulCKonI4nmIhYo82MmgSxv4=;
+        b=TzRO6UtzHVQZX2npuHe39Iobx+Mu6MnTiYVcKA8VXGiOO++7mmsYaG0yWrCq9AxPpj
+         IMmFF10WAEUauCnNnz4kJsuM3eW2u2OTwBCs9rXCF311H5CQkBa2ezI/C+pWrxtUYJgj
+         iSCQTVi/FIG/8tuT6LSla2kfEiJgNdgcGTI+141kgj+KsxoHeCdGYrcAiWjk3a1URWy7
+         JAB5N6ibUx11CAuuSodAdbfOeXOPjg6CMkgxbq+ewQSNmuKOvuJfl35R1l/sePXIg4WS
+         r6zuN2R7vvZ9E39pZj4pw7FpqQOEf9IZc5ry4XZzXLEaRT1i22jV8/hPydFliZfgdCFy
+         XxeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=QpcSKOKDaJlUea1S565DWPFQvY2zxteaqBGbkGidXS4=;
-        b=CLfOF60Vjj+kPGRh7eDH0ynKaQoHAUnheO4UNOTZdMz+Ica6MvZAb71KwK8O/+n853
-         NckrTmGcESPBR4fODzI12UfIYs8OiYM+AyVRjVHDCcBkJH9T4pLgZTSIw/CapaTrdPou
-         Uu3BqktJaqvDx4O2dc9R9wC3KLZbVYMzOSYHXgYenRK3HQYKR+Ssg5fhBsKXaIPSBGCi
-         NbsPQc/pTUoGPct2lfP8+te6CeX8wEduyGlBIDzi59hT4rZFQ74fOUbWjbLwTpXW8Mm8
-         qpy4bCOzXIwXiXk1/eS3/jf2+N23B7CvmOy7ih+s5GUOJP+wF0jeuGd4cs9GGR/wH95i
-         LTdQ==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MnZl7Keem7DIw0k71v42ulCKonI4nmIhYo82MmgSxv4=;
+        b=bSPzVG0jIjB01D7CV7tFoOcORHby2rVJ0xBhUkseRewwl729X8plElkBTEhv1lCUf4
+         mrB5savigxVa2XI7JNZvFT9JkXBQuzJrpWLLutgt5m/7sNIUlAzk+HHTiZitBCyXer1V
+         yP+m93NzKfB5EkGEfnvjGjFG9cSM3xCTkUzgz0Ksnd+SGtceZ7GxUMo1Ta5Viepz1LUu
+         0Lvtl/b8ujlboYD1GtzBALLD+P8E0iFj0qo8ac806ILVcAIw+wGJXi9pYoNBl13OvDrc
+         dPX8iU+vg5u3IjOGf2WIw2zyIEggo+SjLD4Cy+WnYhhb2xGmLh1BEHgTaPSkQjgJpOPh
+         ChHg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5304ipCtP8JNKmVS6mNbU/o+sJO6xW9h4tH+v4n2f4zcPOQaPWox
-	vIygsIEGTyVfBWrlO+1fLVc=
-X-Google-Smtp-Source: ABdhPJxkRJJk6VWUTvHEwTHwAQ3tDtWCvbMKMgK8ibRbHXP92dSnHj+yWtY2BD70KDKPyIE20u4adQ==
-X-Received: by 2002:a05:6830:23a9:: with SMTP id m9mr2462196ots.45.1619087770563;
-        Thu, 22 Apr 2021 03:36:10 -0700 (PDT)
+X-Gm-Message-State: AOAM531iO3x/bBeQRr1zrWLp4nwA72BNZHqrUUvoDlfXF6LJ5o5RnwVT
+	f3BEZUViTBxV4kfSOtlPR1Q=
+X-Google-Smtp-Source: ABdhPJwFUWOEdnKuKZWVjM7L7Sz3uqqVXCfFBRNSSjuP3VeOa5FHK1CbnLceQhBSzm1chkjebehw4A==
+X-Received: by 2002:a05:6820:381:: with SMTP id r1mr2134672ooj.79.1619092591479;
+        Thu, 22 Apr 2021 04:56:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:4b11:: with SMTP id q17ls1500787otf.10.gmail; Thu, 22
- Apr 2021 03:36:10 -0700 (PDT)
-X-Received: by 2002:a05:6830:1c5:: with SMTP id r5mr2313650ota.144.1619087770228;
-        Thu, 22 Apr 2021 03:36:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619087770; cv=none;
+Received: by 2002:a9d:724f:: with SMTP id a15ls1560733otk.4.gmail; Thu, 22 Apr
+ 2021 04:56:31 -0700 (PDT)
+X-Received: by 2002:a9d:7a53:: with SMTP id z19mr2513674otm.40.1619092590889;
+        Thu, 22 Apr 2021 04:56:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619092590; cv=none;
         d=google.com; s=arc-20160816;
-        b=GEQAowdeQRVSPqJwmDu76wULg7w6C3jiAqjLZ3aU1gD69rVwIEF52TUVux93zx0DXY
-         Nt4i0UKQWqqs3XcatcE24cKT1e7V8gZ8I/CeJzRsbe+knVDMZdoKx6nh2ikm3JEMnenL
-         GDnRRGpMRv6WAdQQKb5I7aSrpw1dxDUOiRNopcTFgVzmZJ337BxapOpWjBhxbjBQo8JP
-         AZvAC5viiSzuXENhKIyPzStkkqsmrFFTQRPgaoFF4kxLxtTPqyewaoBVandlzSEaltdW
-         pXvt8Jmgh37YJkwXkykMbNsNuxTfkJ0zt9D90M3wFAxlNFu/PMlaF6xYuFoTFzyqSlLz
-         VIXQ==
+        b=NPSk4VGNh4rlg0zcmXmOKrUiWaeJ4Yh3MjceWeabXIxtbxvnY8bvSSOZmndFhBAXRS
+         hNE/caSf8LgF2zn3TUo2tSGIH+rUNt3JmX6+EUhz/hkphkGPmH2VrZM1idPj9Lsyni0b
+         8nGnqisSj0Nm1yF8gGfi8v+7wu+jiRIEYjO8xsNymkvfoQ92ka1Ysi9XuaD6ZFhetnZO
+         7S3Nq3Ps6MAFfUSwt8N8oyBgUhIPovDozMyjU++6uWddAMKME5UUblbMnimmiUtie+Av
+         iAUb40ZBTC0LOcIQQje90hJKhj/aos78VRwQcx4gVxDZ1oOdyvl7Q6aq1av5nGXzHlMG
+         nd/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=lBz9Nd3/qAWdRz0p+xewJZX33lg8J8BY1PZxQN0Ej00=;
-        b=ktewdoSWg384gmvZCpPGjdfCoFXnxug35PC8TrfFgPT2jrQBN/xAsGIDukrrnKQFBB
-         2jROLnvJRkTtMH6spXP4+asz7SdbFGOqhjusSjbYCvSXel0ZWul6Vj064TKohfnI9oEs
-         PZHOngVdpTYNOoUtq2fvK79+6eYPiBzyRS2KDLbYdWLu5T7TwQyKxvGecG8iyQO6gvBz
-         B4RyH9mEDWjQBL2CByTQLuTWjpuhFKagnd8E8ZWHwY8ILj77ojNwP2EtQpTysWIwl8O3
-         4rvx+BZ7tzqS4sdo7GjqmOd5+iCSBo6f6wUb95FQms4E0Twzj+zfElZJVcnGKiHOmWKg
-         YuYA==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=fuKi3p22hpyZE+Q/uyhvcUIUDYAwoONJZ8QvX1Q+i7s=;
+        b=PsoKBLKrGtinaz8vX/SzFjtNkUDxYUBWTjodncHxZ9LrjMqqQ4PEJRsTy6/kRc85ZH
+         WUdQBDkkSFMCJq0eWJCwQ8SmhlE1tVL7LJoDUyCQm72RDf25pYrGKQY0envOvSF5QqaE
+         C27JXdMgUJE2dYHlJkaXBk5EyE9vnLcL6ovHIt3G1hHPK34zG6uONdEDPLqqTFun9pJv
+         A10tHc9hEutuK1SLdOBMP3bYot5xkxYRScctg2cPy3dLtIMjVqJzFxoIphLk8QX170Vg
+         Nxscwdg7co1iBZhMWo9cWU2qZoAMXWQNitIUDbUsMJkcUBkfgH0xyzhLJLO+MvWbTvGg
+         Jheg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Nvc0O6tp;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w16si498812oov.0.2021.04.22.03.36.09
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=BakqVdFD;
+       spf=neutral (google.com: 2607:f8b0:4864:20::629 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
+        by gmr-mx.google.com with ESMTPS id p9si374259oib.2.2021.04.22.04.56.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 22 Apr 2021 03:36:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4445A6145A;
-	Thu, 22 Apr 2021 10:36:07 +0000 (UTC)
-Date: Thu, 22 Apr 2021 11:36:03 +0100
-From: Will Deacon <will@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, vincenzo.frascino@arm.com,
-	Nathan Chancellor <nathan@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stephen Boyd <swboyd@chromium.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v3] arm64: vdso32: drop -no-integrated-as flag
-Message-ID: <20210422103603.GB1442@willie-the-truck>
-References: <20210420174427.230228-1-ndesaulniers@google.com>
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Apr 2021 04:56:30 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::629 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::629;
+Received: by mail-pl1-x629.google.com with SMTP id e9so6424950plj.2
+        for <clang-built-linux@googlegroups.com>; Thu, 22 Apr 2021 04:56:30 -0700 (PDT)
+X-Received: by 2002:a17:90a:4a8f:: with SMTP id f15mr3661908pjh.19.1619092587861;
+        Thu, 22 Apr 2021 04:56:27 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id e190sm1940045pfe.3.2021.04.22.04.56.26
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Apr 2021 04:56:27 -0700 (PDT)
+Message-ID: <6081646b.1c69fb81.7434d.59da@mx.google.com>
+Date: Thu, 22 Apr 2021 04:56:27 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210420174427.230228-1-ndesaulniers@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Kernel: next-20210422
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+Subject: next/master build: 231 builds: 5 failed, 226 passed, 14 errors,
+ 393 warnings (next-20210422)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=Nvc0O6tp;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=BakqVdFD;       spf=neutral (google.com: 2607:f8b0:4864:20::629 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,28 +134,2562 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Apr 20, 2021 at 10:44:25AM -0700, Nick Desaulniers wrote:
-> Clang can assemble these files just fine; this is a relic from the top
-> level Makefile conditionally adding this. We no longer need --prefix,
-> --gcc-toolchain, or -Qunused-arguments flags either with this change, so
-> remove those too.
-> 
-> To test building:
-> $ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
->   CROSS_COMPILE_COMPAT=arm-linux-gnueabi- make LLVM=1 LLVM_IAS=1 \
->   defconfig arch/arm64/kernel/vdso32/
-> 
-> Suggested-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> ---
+next/master build: 231 builds: 5 failed, 226 passed, 14 errors, 393 warning=
+s (next-20210422)
 
-Acked-by: Will Deacon <will@kernel.org>
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20210422/
 
-Will
+Tree: next
+Branch: master
+Git Describe: next-20210422
+Git Commit: c457d9676496f5a895509f9c510278beaaffc829
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210422103603.GB1442%40willie-the-truck.
+Build Failures Detected:
+
+arm:
+    aspeed_g5_defconfig: (clang-10) FAIL
+
+mips:
+    allnoconfig: (gcc-8) FAIL
+    decstation_64_defconfig: (gcc-8) FAIL
+    lemote2f_defconfig: (gcc-8) FAIL
+    malta_qemu_32r6_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+
+arm64:
+    allmodconfig (gcc-8): 1 warning
+    allmodconfig (clang-12): 32 warnings
+    allmodconfig (clang-10): 36 warnings
+    defconfig (clang-10): 5 warnings
+    defconfig (clang-12): 4 warnings
+    defconfig (gcc-8): 1 warning
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 1 warning
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-12): 4 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 5 warnings
+    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
+
+arm:
+    allmodconfig (gcc-8): 2 warnings
+    allmodconfig (clang-10): 54 warnings
+    allmodconfig (clang-12): 52 warnings
+    aspeed_g5_defconfig (clang-10): 11 errors
+    multi_v7_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (clang-12): 5 warnings
+    multi_v7_defconfig (clang-10): 5 warnings
+    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 1 warnin=
+g
+    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 1 warning
+    omap1_defconfig (gcc-8): 2 warnings
+
+i386:
+    allmodconfig (clang-10): 47 warnings
+    allmodconfig (clang-12): 49 warnings
+
+mips:
+    allnoconfig (gcc-8): 1 error
+    malta_qemu_32r6_defconfig (gcc-8): 2 errors
+    rb532_defconfig (gcc-8): 1 warning
+    rm200_defconfig (gcc-8): 1 warning
+    xway_defconfig (gcc-8): 2 warnings
+
+riscv:
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (clang-10): 32 warnings
+    allmodconfig (gcc-8): 1 warning
+    allmodconfig (clang-12): 36 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (clang-10): 2 warnings
+
+Errors summary:
+
+    2    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand =
+constraints in an =E2=80=98asm=E2=80=99
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37DB4): reloca=
+tion R_ARM_PREL31 out of range: 2135571332 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37D0C): reloca=
+tion R_ARM_PREL31 out of range: 2135571500 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CFC): reloca=
+tion R_ARM_PREL31 out of range: 2135571516 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CAC): reloca=
+tion R_ARM_PREL31 out of range: 2135571596 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C9C): reloca=
+tion R_ARM_PREL31 out of range: 2135571612 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C84): reloca=
+tion R_ARM_PREL31 out of range: 2135571636 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C6C): reloca=
+tion R_ARM_PREL31 out of range: 2135571660 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C3C): reloca=
+tion R_ARM_PREL31 out of range: 2135571708 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C0C): reloca=
+tion R_ARM_PREL31 out of range: 2135571756 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37BC4): reloca=
+tion R_ARM_PREL31 out of range: 2135571828 is not in [-1073741824, 10737418=
+23]
+    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35590): reloca=
+tion R_ARM_PREL31 out of range: 2135516072 is not in [-1073741824, 10737418=
+23]
+    1    ERROR: modpost: Section mismatches detected.
+
+Warnings summary:
+
+    72   1 warning generated.
+    14   2 warnings generated.
+    10   drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: v=
+ariable 'parent_name' is uninitialized when used here [-Wuninitialized]
+    10   drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: init=
+ialize the variable 'parent_name' to silence this warning
+    8    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conv=
+ersion from enumeration type 'enum goya_pll_index' to different enumeration=
+ type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    8    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.=
+c:3015:53: warning: address of 'aconnector->mst_port->mst_mgr' will always =
+evaluate to 'true' [-Wpointer-bool-conversion]
+    8    arch/arm64/configs/defconfig:1018:warning: override: reassigning t=
+o symbol MTK_PMIC_WRAP
+    8    7 warnings generated.
+    8    10 warnings generated.
+    7    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit co=
+nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
+ion type 'enum pll_index' [-Wenum-conversion]
+    7    drivers/memstick/host/r592.c:367:2: warning: ignoring return value=
+ of function declared with 'warn_unused_result' attribute [-Wunused-result]
+    6    drivers/platform/surface/surface_aggregator_registry.c:478:25: war=
+ning: implicit conversion from 'int' to '__u8' (aka 'unsigned char') change=
+s value from 65535 to 255 [-Wconstant-conversion]
+    6    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit co=
+nversion from 'int' to '__u8' (aka 'unsigned char') changes value from 6553=
+5 to 255 [-Wconstant-conversion]
+    5    drivers/spi/spi-stm32-qspi.c:481:21: warning: format =E2=80=98%lx=
+=E2=80=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but=
+ argument 5 has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=
+=80=99} [-Wformat=3D]
+    4    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implici=
+t conversion from 'unsigned long long' to 'unsigned long' changes value fro=
+m 5000000000 to 705032704 [-Wconstant-conversion]
+    4    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enu=
+meration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'en=
+um cpuid_leafs' [-Wenum-conversion]
+    4    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enu=
+meration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'en=
+um cpuid_leafs' [-Wenum-conversion]
+    4    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
+ version 4.6 of GCC [-W#warnings]
+    4    #warning This code requires at least version 4.6 of GCC
+    3    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc8-next-20210422/kernel/drivers/media/tuners/tuner-types.ko: u=
+nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    3    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =
+=E2=80=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute w=
+arn_unused_result [-Wunused-result]
+    2    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    2    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    2    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame si=
+ze of 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack fra=
+me size of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
+ warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
+u' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6:=
+ warning: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-la=
+rger-than=3D]
+    2    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame=
+ size of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    2    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete=
+()+0x10cd: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
+    1    drivers/staging/wlan-ng/cfg80211.c:272:12: warning: stack frame si=
+ze of 1032 bytes in function 'prism2_scan' [-Wframe-larger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3288 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame siz=
+e of 1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame siz=
+e of 1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame si=
+ze of 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame si=
+ze of 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
+rger-than=3D]
+    1    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=
+=99 defined but not used [-Wunused-function]
+    1    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return=
+ value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
+d_result [-Wunused-result]
+    1    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return=
+ value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
+d_result [-Wunused-result]
+    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
+size of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
+=3D]
+    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
+size of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
+=3D]
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_prefault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+=
+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
+calc_30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_=
+rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1116 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5560 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5536 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    1    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in =
+function 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in =
+function 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_g=
+piod_table=E2=80=99 defined but not used [-Wunused-variable]
+    1    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98am=
+s_delta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc8-next-20210422/kernel/drivers/clk/keystone/pll.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc8-next-20210422/kernel/drivers/clk/keystone/gate.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
+ules/5.12.0-rc8-next-20210422/kernel/crypto/cast_common.ko: unsupported GNU=
+_PROPERTY_TYPE (5) type: 0xc0000000
+    1    :3393:6: warning: stack frame size of 1548 bytes in function 'dml2=
+1_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    : warning: ignoring return value of function declared with 'warn_u=
+nused_result' attribute [-Wunused-result]
+    1    2 warnings  CC [M]  sound/core/init.o
+    1    127:14: warning: implicit conversion from enumeration type 'enum g=
+audi_pll_index' to different enumeration type 'enum pll_index' [-Wenum-conv=
+ersion]
+    1    .config:1202:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ./usr/include/linux/bcache.h:355:2: warning: field '' with variabl=
+e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)=
+' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
+zed-type-not-at-end]
+    1    ./usr/include/linux/bcache.h:354:2: warning: field '' with variabl=
+e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)=
+' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
+zed-type-not-at-end]
+
+Section mismatches summary:
+
+    1    WARNING: modpost: vmlinux.o(.text+0x9f18): Section mismatch in ref=
+erence from the function reserve_exception_space() to the function .meminit=
+.text:memblock_reserve()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =E2=80=
+=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute warn_un=
+used_result [-Wunused-result]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 47 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    2 warnings generated.
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    :3393:6: warning: stack frame size of 1548 bytes in function 'dml21_Mod=
+eSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    : warning: ignoring return value of function declared with 'warn_unused=
+_result' attribute [-Wunused-result]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section m=
+ismatches
+
+Warnings:
+    drivers/spi/spi-stm32-qspi.c:481:21: warning: format =E2=80=98%lx=E2=80=
+=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but argum=
+ent 5 has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99=
+} [-Wformat=3D]
+    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =E2=80=
+=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute warn_un=
+used_result [-Wunused-result]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 54 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
+ of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in funct=
+ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
+ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
+ 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/wlan-ng/cfg80211.c:272:12: warning: stack frame size of=
+ 1032 bytes in function 'prism2_scan' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
+ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5536 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
+of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame size of =
+1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame size of=
+ 1072 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
+than=3D]
+    2 warnings generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 32 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 32 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    2 warnings generated.
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =E2=80=
+=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute warn_un=
+used_result [-Wunused-result]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 36 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    ./usr/include/linux/bcache.h:354:2: warning: field '' with variable siz=
+ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)' not=
+ at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
+ype-not-at-end]
+    ./usr/include/linux/bcache.h:355:2: warning: field '' with variable siz=
+ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)' not=
+ at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
+ype-not-at-end]
+    2 warnings generated.
+    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    2 warnings generated.
+    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete()+0x=
+10cd: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3288 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 49 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
+ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
+uid_leafs' [-Wenum-conversion]
+    2 warnings  CC [M]  sound/core/init.o
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    127:14: warning: implicit conversion from enumeration type 'enum gaudi_=
+pll_index' to different enumeration type 'enum pll_index' [-Wenum-conversio=
+n]
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
+30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_rq_dl=
+g_get_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1116 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1436 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    2 warnings generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 52 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1304 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
+ of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in funct=
+ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
+ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
+ 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
+ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5560 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/staging/fbtft/fbtft-core.c:995:5: warning: stack frame size of =
+1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    drivers/staging/fbtft/fbtft-core.c:903:12: warning: stack frame size of=
+ 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
+than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
+of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 36 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
+n from enumeration type 'enum goya_pll_index' to different enumeration type=
+ 'enum pll_index' [-Wenum-conversion]
+    7 warnings generated.
+    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
+ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
+ype 'enum pll_index' [-Wenum-conversion]
+    10 warnings generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
+5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
+ate to 'true' [-Wpointer-bool-conversion]
+    1 warning generated.
+    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
+ implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
+ue from 65535 to 255 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
+unction declared with 'warn_unused_result' attribute [-Wunused-result]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
+ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
+255 [-Wconstant-conversion]
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc8-next-20210422/kernel/crypto/cast_common.ko: unsupported GNU_PROP=
+ERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc8-next-20210422/kernel/drivers/clk/keystone/gate.ko: unsupported G=
+NU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc8-next-20210422/kernel/drivers/clk/keystone/pll.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc8-next-20210422/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    ERROR: modpost: Section mismatches detected.
+
+Section mismatches:
+    WARNING: modpost: vmlinux.o(.text+0x9f18): Section mismatch in referenc=
+e from the function reserve_exception_space() to the function .meminit.text=
+:memblock_reserve()
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-10) =E2=80=94 FAIL, 11 errors, 0 warnings, =
+0 section mismatches
+
+Errors:
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35590): relocation =
+R_ARM_PREL31 out of range: 2135516072 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37BC4): relocation =
+R_ARM_PREL31 out of range: 2135571828 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C0C): relocation =
+R_ARM_PREL31 out of range: 2135571756 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C3C): relocation =
+R_ARM_PREL31 out of range: 2135571708 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C6C): relocation =
+R_ARM_PREL31 out of range: 2135571660 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C84): relocation =
+R_ARM_PREL31 out of range: 2135571636 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C9C): relocation =
+R_ARM_PREL31 out of range: 2135571612 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CAC): relocation =
+R_ARM_PREL31 out of range: 2135571596 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CFC): relocation =
+R_ARM_PREL31 out of range: 2135571516 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37D0C): relocation =
+R_ARM_PREL31 out of range: 2135571500 is not in [-1073741824, 1073741823]
+    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37DB4): relocation =
+R_ARM_PREL31 out of range: 2135571332 is not in [-1073741824, 1073741823]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc8-next-20210422/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section=
+ mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
+s, 1 warning, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-12) =E2=80=94 PASS, 0 er=
+rors, 4 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
+rors, 5 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
+5.12.0-rc8-next-20210422/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
+orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
+bol MTK_PMIC_WRAP
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warning=
+s, 0 section mismatches
+
+Errors:
+    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand const=
+raints in an =E2=80=98asm=E2=80=99
+    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand const=
+raints in an =E2=80=98asm=E2=80=99
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/spi/spi-stm32-qspi.c:481:21: warning: format =E2=80=98%lx=E2=80=
+=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but argum=
+ent 5 has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99=
+} [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
+le 'parent_name' is uninitialized when used here [-Wuninitialized]
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
+e the variable 'parent_name' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 1 warning, 0 section mismatches
+
+Warnings:
+    drivers/spi/spi-stm32-qspi.c:481:21: warning: format =E2=80=98%lx=E2=80=
+=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but argum=
+ent 5 has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99=
+} [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 1 warning, 0 section mismatches
+
+Warnings:
+    drivers/spi/spi-stm32-qspi.c:481:21: warning: format =E2=80=98%lx=E2=80=
+=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but argum=
+ent 5 has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99=
+} [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 =
+warning, 0 section mismatches
+
+Warnings:
+    drivers/spi/spi-stm32-qspi.c:481:21: warning: format =E2=80=98%lx=E2=80=
+=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but argum=
+ent 5 has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99=
+} [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_gpiod_=
+table=E2=80=99 defined but not used [-Wunused-variable]
+    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98ams_del=
+ta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=99 d=
+efined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1202:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
+efault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
+ warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return valu=
+e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
+ult [-Wunused-result]
+    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return valu=
+e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
+ult [-Wunused-result]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/6081646b.1c69fb81.7434d.59da%40mx.google.com.
