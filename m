@@ -1,148 +1,118 @@
-Return-Path: <clang-built-linux+bncBCFYN6ELYIORBGN7QSCAMGQE43DRU3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQJP74GSUDRBQODQSCAMGQESH57HFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A980367A79
-	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 09:02:51 +0200 (CEST)
-Received: by mail-pj1-x103d.google.com with SMTP id u5-20020a17090a3fc5b029014e545d9a6esf505261pjm.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 00:02:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619074970; cv=pass;
+Received: from mail-vs1-xe3b.google.com (mail-vs1-xe3b.google.com [IPv6:2607:f8b0:4864:20::e3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 014AF367AAC
+	for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 09:12:03 +0200 (CEST)
+Received: by mail-vs1-xe3b.google.com with SMTP id d1-20020a67ed810000b02901a9fcd861fasf6405638vsp.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 00:12:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619075522; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nPBR6LX9e3bR4t/xGk3rMI9uLe5k8EBGzTqX6cI9Jho9D33GrmMvny0SQZjxdDzp3y
-         hZamnc+eCpfSUshRUQU1YMmEOJv3+lhToqL+UaWVmUzg0VIFbE1v3FvmmheVzUGdQd36
-         +Vp3WB2MThE3R5jksBBS4h8RNF0/9X3OK5vx+6Mg413stw9ML4VSzfhLOu+V7ydxLAVH
-         cA4mGbFzDlpEjFx/pnhXisr2ZPmBNM5VUVTHRQCIzoKCGF6lxm/qqgqdj1Eto/4EC/Vm
-         SwMIHUmscHU6gSNRPCPyFrGgv5/nZIFn91I0/L2BXVdgCzk34+RalcAPKpbnYOW2SSAm
-         qKTw==
+        b=IV/B/s60zXUXj9/96s70VHz9EMVvCLbK8f/xtdPk97wMCQzDPTKOEJhIHjb7F6rhME
+         MQNo8ivGP6BJsOYn/eIZZR+UN48AwIpog6OWD5zSG/0SCNwojSIYK4lDXj0gD/nNquRx
+         V6v367IES8Qhlz3VGUnAeuUVHriYYdyx7+TV6T7O2kSIJLCDd3lgr5hMuujWVcbaq+JA
+         6JhBbII11TuN9zGaIzwgYujoftisTnQWxTRtRNIdwRC0aID0SbdkwLXSkfXJAs8E6ny4
+         /MKbEnfYGaYbEm3X83Ds9dHD1LUknZE5hpbQ8r5him/I0yt19j1GnOO/UzP6QVTWOmhM
+         PA4w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=yR+K5F8238DpHh4i/a+Yaidz20rQIS49ROGhfTpgkDo=;
-        b=P/sTWGM1UVRcuNZYQumAU6mYSnBwdex+051yuUWZk7HlvPH0xPOkhUA5s7fxd+pFEY
-         G7X7mSgzaGk4FTDlwPib+UV0UKvYSgaNbUnfJMVg7uWAPXi2Qxvse0s+Q00NSpvzby4I
-         qZTrIUwmfFu2BJ0aUW3p96mPcBdUWwcUphZA+B57fG7eItnD19Wi75VSjANcwMIBFiPl
-         HfHg3CN4BED+UqYQ6qNehovZsKNsxXnv058YMDHUpTzRqIzhHIlQQ1k8557OZUbo7C9O
-         IsMQ3BKLmfxgPDjTgx6IrtgND92t2WFxB010X1gvMcrcnVs/WIXjgn6+Iv4Ht0r8R5FA
-         iIiA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=WOF9R8sedcaWLki6nG5U1RP11k4t6HsyfhD5Y9VrxQA=;
+        b=C4Eopa+HvIvvW7s2Tr6O5BTGE4B7IczUznaYD7uZ8d9uinWbwRWjlV8p4HsAmCut9H
+         JlLsJqu5VOzT8Mfa7UZEMWmgfRMgwIkdRFazjlDSZXe8nkv8+YRAB5+bheNcO8JTbXZN
+         /xSShGds6om6jrZ2DaWFefB6ScSY2i1luMOoH9+O/lxacEWBKQR9sA8jq/icJEZrKhjZ
+         hJevxetNT0VQGUjoB5irboEB8uEof8kvcnmgyydJrvtM+VQ+2X+yo1YZfYh7CuTttuqQ
+         BOCgqbSbLlKcZ4VATMbLHPMImZKG6wQsAMl2daeYNq0GCwcy8Nx1BHee6bh0bgSSQ129
+         TguQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=UXCZOAXa;
-       spf=pass (google.com: domain of pbonzini@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.222.47 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yR+K5F8238DpHh4i/a+Yaidz20rQIS49ROGhfTpgkDo=;
-        b=SNQU5YxcIhFbPYLvcpEBetWl1e4aKjEtX2o/r+R/CrQ/bYuesZhkkB+C4qz67u8no7
-         jE2zsHGqjI8+raRunGUwxxrhl4hV9dFf78z1cco6m56nqdueXo+vuj//8FGwJzH9L7pd
-         l/EqE/Uu3HL1/2fhtqNm1K1ii+eE8LY3ocwdhDtWRewULQgMpmGmo/zwF0OHHXToRWFt
-         nkLuY7pO2+465wB0etxoOfdcpsqM/PSTtdNVvz/WE6+1D/s1lLKLqEWn7BoIdbS0Sww/
-         GlsjIfOZGF/DmEoXQQsKo9i8DGVpOmNi0Byj5KwFqlO6meVw76Hc+3f2ybK7kIBKvCGr
-         M+ww==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WOF9R8sedcaWLki6nG5U1RP11k4t6HsyfhD5Y9VrxQA=;
+        b=Nt3aIrw+9JUrea3jRBwcQCnCeBd7X92apvKu2ddqWfmLbjuTQItTrTBEQdkLhSn+JT
+         q2zHsjzVEkDd/LGCJeI9SkhortuKvWdiZuJP43yKI8rDxd/Uzq1NFLLtrduqECNzxvEu
+         /K2gw+0GH6JQsmkW6g4nm2PPSfoHxoal9Vfp/Y4uXl+LUrJM2Zdgx295WbM8LUhJoWzp
+         LQQxBm74N/nTVn8eVEITXp0a5XQRywXd3kWRv2eDUg1hLUmadorx1CIT5HKIDesBU3Kr
+         v85ka4L6c0W8uEhvg2CCSLKxVAxNwac0UJn++9f7bSp9nEZKgDOVmkIqOcaBUwrZSX4G
+         3x7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=yR+K5F8238DpHh4i/a+Yaidz20rQIS49ROGhfTpgkDo=;
-        b=nAO1SwaWqoSiPByzGtaJtqrVekWbjaFOKhP+bCMpanjXrRM1s7wCmhC67Ul39sf891
-         SoQKYTsb8Tr4QnoqXbJMzFyEOoGlPnDr9QbjzAsyQ+oU+3MtQfNI+I35v4qGJjUazw9q
-         WILs71Sex9RfBnC2Aqy9c9TvLVgZcM9Z8ipNvUZEe8VucQ/TMhwUG6Nm4FTZxh+CW+cF
-         kgg2FmOXkgwOFAjKYdLScwNgRvYH/0uuzR/W8/nzSREyFKtOnizEoK3ftN1/2xfppLzi
-         a/DcLj+2M02IdOIqpXW5Xe4TqzmgoY2MeYPE5V85Bk9FgSoG0ij6avGWygXO4MUxUek2
-         +0NA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WOF9R8sedcaWLki6nG5U1RP11k4t6HsyfhD5Y9VrxQA=;
+        b=CNOTMBkcEjHojqaqqs3m8rHZ5zl7SAxPYVQRmp4xnsDF/CEyNNHG2rxlUGoq+QzpHK
+         kCQEoDrTaSApUi2obN5uNunn5mmZsHsbAVxp0CVM7YtUv+lTHfdD/br4PCXvYAjfxTVq
+         3s8Snd2g0NWQkuZSW0MONoZ2PK9Y6mr+34QmNjgZfpxg2EpSskCox5pJ7hsPed6QWjM4
+         jJU/yWbngKYxrWBZSXsymwkB2wB/UVaCIjTEbqk94W4xJfXcdgr6WpJIhSv7+ZGgsA7X
+         GkUjQEMwRFw3WvVRjU1/f56+qcOuI7ip/l6ja8KOjGxF4m7D2iDyzp/Hk2UsOMPmKO7a
+         p34A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531k3jx1BqezS4hEmH9OAfRwOwys60LobuBmE0J2753miuVkrSil
-	IFS8vqq2N3nYGcpmOTDULZw=
-X-Google-Smtp-Source: ABdhPJyyFOTlI4Q0wVI/gfo2NQKsdSFO33O+AwuErQ0qkiHsGhwpiKIEM6pA+avWx3K208UW5azrkg==
-X-Received: by 2002:a63:788f:: with SMTP id t137mr2122291pgc.323.1619074969750;
-        Thu, 22 Apr 2021 00:02:49 -0700 (PDT)
+X-Gm-Message-State: AOAM532TiCwHKizi0pLql95I3736nI/Qj8pdymUUpDnxbJ8vp1//uMd8
+	S4Slk+OPbjFJATlmiHX0dU4=
+X-Google-Smtp-Source: ABdhPJy35l8mmFzV81vlBRo0A5P3QSoUWg6kxG5wboLZfJrH/qWcmPdWrCng0uttaV8XVWl2puMb0g==
+X-Received: by 2002:ab0:7317:: with SMTP id v23mr1156163uao.9.1619075522067;
+        Thu, 22 Apr 2021 00:12:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:8184:: with SMTP id g4ls1838041pfi.4.gmail; Thu, 22 Apr
- 2021 00:02:49 -0700 (PDT)
-X-Received: by 2002:a63:510f:: with SMTP id f15mr2125728pgb.390.1619074969172;
-        Thu, 22 Apr 2021 00:02:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619074969; cv=none;
+Received: by 2002:ab0:555a:: with SMTP id u26ls449945uaa.1.gmail; Thu, 22 Apr
+ 2021 00:12:01 -0700 (PDT)
+X-Received: by 2002:ab0:1d81:: with SMTP id l1mr1109750uak.79.1619075521560;
+        Thu, 22 Apr 2021 00:12:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619075521; cv=none;
         d=google.com; s=arc-20160816;
-        b=xOuaT11ipFhxV0PVv5yScreQiQB4WfWTGf93uMHI2OzXcSIqPn9CqDg8XS6O69UAsq
-         +u6sWmLOnzlusQD73gWThVklI0JTUdZ+UWUAuwT2iXO0c8OYhRGVtMwBmjz5fVejH7DZ
-         esphClmWP7iLbcZVaOSHmQwzh0D7GnbfhvxLDaaZL+9a++9lLGr3WGbFrWuk7e/ajpQT
-         DnYAbJSaiSnyOYO2NwfPChPBwwMz1B2lVJAtmXOjJmbu0slaoObrNLHP/+PV30aj8XE8
-         f1DteJIFbDfkJ8OY65RqUjeyFJUqmGM/r006GOPVHya6QcoIhSjrjg1Djt/u9N0BlWE+
-         b5pA==
+        b=xHQAzGVLIbCegGEWP01P+8HnrnsUV4AFMpnKus6/hcUmbp1Rhr08E+iv5CH1V9Hwyj
+         PNTpyrXoVYPjOggaHdR2/apOn6HhPd6VfmFmpvRspCU1uJg85lPSe4IP1d6n62rPa1n8
+         K+fsJ8ZDfV6vmF0doEPUfGTUnyEGqKrvYyvwU1oiVJDv4YKWeGZseMecrjJ8Cvoxoj8+
+         LTq+egIo+DAr/4pV/CV5IpDu5GSCvPGfpOZuVy6bUVntzHYnCWIeZ3rjHQl12iZbpXx6
+         nWXNGjhLTNNfWUJjbj+3HNc2/KN2bDGi2JlUGZdTkktlsUWe2mR6ydjRVQcVyXcgWH3G
+         GiiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=U1sBIWc97pwUoI/Y/7htamKNpDUssIIcTnKBNjle2Og=;
-        b=gLORBQ4y40XXecZunhYxYHfgitwsUZDIK9wKNj3jrMTzxpOhrBagtUi3TpkHXaMrKF
-         FLCZGZuuzNMA3sLUU1zaxw8gHJ2Id6VfHnUrZAsezPUrEb14wfmI1uPzXq+Zb7OncvLe
-         HXhgKfKf1SrUORHbR5g1DURD//MJ8f8E38HthNtaQmfyZENQ0ICRCadTYp84m5tB0WSL
-         6vpDxdg2CNBHnE5DWOpDxsp2ORWcklRYN8XfLkbIxpn0izOd3v+kikC9zsbmTaNoLWcQ
-         yzFbVoYnFJSkb+G2FlwzIVfylZ/T1Q5bGoYoo1UwV1bJ0WKKL364BATriMdEwH6h9/BR
-         r1HQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=MnlsbYYFiDldp+3bllzRvToouY6x7yofcE/PI7JdOxM=;
+        b=ox9UgIT0Bp6j1h6DiQsKaZ23BhvtDu0syGZuvOC8G9O+kAuh8dc4kQ9b+/MX+ftyom
+         X8k3odSyLaGp53vwKfuaXfaSXuxLNhYhxTbJJkB56U90aKLvft1zEZxIp0ikvM69Js1j
+         GXKNPMiHGQOhVBFjvltt8CRK6cU765JGc/3JKsmLpP9xNJ8IvTwkTPDKs/U6a0SPwi+Z
+         Ujvi37UXLrcd9ftey1n84CHYGfKMf84o5Ueqj9xrUhji9cYXgr/ciBuXv3w31wXcxc1M
+         jeAvVZ2f1A/nFWbA6XAKMx1uwCo1jmrZWCfm8r4XHMX4ontYxJhEuROr7FKxP3Sn1SGJ
+         l1YQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=UXCZOAXa;
-       spf=pass (google.com: domain of pbonzini@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
-        by gmr-mx.google.com with ESMTPS id x3si1237374pjo.3.2021.04.22.00.02.48
+       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.222.47 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
+        by gmr-mx.google.com with ESMTPS id x1si325440vsj.2.2021.04.22.00.12.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 22 Apr 2021 00:02:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pbonzini@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
-Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com
- [209.85.208.72]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-6-pXVoF4U_Phudj9asJLa5Sg-1; Thu, 22 Apr 2021 03:02:13 -0400
-X-MC-Unique: pXVoF4U_Phudj9asJLa5Sg-1
-Received: by mail-ed1-f72.google.com with SMTP id w14-20020aa7da4e0000b02903834aeed684so14455740eds.13
-        for <clang-built-linux@googlegroups.com>; Thu, 22 Apr 2021 00:02:13 -0700 (PDT)
-X-Received: by 2002:a05:6402:54f:: with SMTP id i15mr1922208edx.365.1619074932235;
-        Thu, 22 Apr 2021 00:02:12 -0700 (PDT)
-X-Received: by 2002:a05:6402:54f:: with SMTP id i15mr1922156edx.365.1619074931964;
-        Thu, 22 Apr 2021 00:02:11 -0700 (PDT)
-Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a? ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
-        by smtp.gmail.com with ESMTPSA id n13sm1196993ejx.27.2021.04.22.00.02.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Apr 2021 00:02:11 -0700 (PDT)
-Subject: Re: [PATCH 0/5] KVM: x86: Use kernel x86 cpuid utilities in KVM
- selftests
-To: Ricardo Koller <ricarkol@google.com>
-Cc: kvm@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Sean Christopherson <seanjc@google.com>,
- Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li <wanpengli@tencent.com>,
- Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20210422005626.564163-1-ricarkol@google.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Message-ID: <c4524e4a-55c7-66f9-25d6-d397f11d25a8@redhat.com>
-Date: Thu, 22 Apr 2021 09:02:09 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.0
+        Thu, 22 Apr 2021 00:12:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.222.47 as permitted sender) client-ip=209.85.222.47;
+Received: by mail-ua1-f47.google.com with SMTP id 33so13868600uaa.7
+        for <clang-built-linux@googlegroups.com>; Thu, 22 Apr 2021 00:12:01 -0700 (PDT)
+X-Received: by 2002:ab0:6306:: with SMTP id a6mr1141667uap.2.1619075521369;
+ Thu, 22 Apr 2021 00:12:01 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210422005626.564163-1-ricarkol@google.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: pbonzini@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=UXCZOAXa;
-       spf=pass (google.com: domain of pbonzini@redhat.com designates
- 170.10.133.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+References: <20210421143115.22797-1-johan@kernel.org> <202104220355.v8nwWx2T-lkp@intel.com>
+In-Reply-To: <202104220355.v8nwWx2T-lkp@intel.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 22 Apr 2021 09:11:50 +0200
+Message-ID: <CAMuHMdXKWDB89Hm-LQcpfTq=0yjm_xvQsQiD4QuEtW=yVymuRw@mail.gmail.com>
+Subject: Re: [PATCH] serial: extend compile-test coverage
+To: kernel test robot <lkp@intel.com>
+Cc: Johan Hovold <johan@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	"open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: geert@linux-m68k.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.222.47
+ as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,67 +125,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 22/04/21 02:56, Ricardo Koller wrote:
-> The kernel has a set of utilities and definitions to deal with x86 cpu
-> features.  The x86 KVM selftests don't use them, and instead have
-> evolved to use differing and ad-hoc methods for checking features. The
-> advantage of the kernel feature definitions is that they use a format
-> that embeds the info needed to extract them from cpuid (function, index,
-> and register to use).
-> 
-> The first 3 patches massage the related cpuid header files in the kernel
-> side, then copy them into tools/ so they can be included by selftests.
-> The last 2 patches replace the tests checking for cpu features to use
-> the definitions and utilities introduced from the kernel.
+On Thu, Apr 22, 2021 at 3:20 AM kernel test robot <lkp@intel.com> wrote:
+> I love your patch! Perhaps something to improve:
+>
+> [auto build test WARNING on tty/tty-testing]
+> [also build test WARNING on usb/usb-testing v5.12-rc8 next-20210421]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch]
+>
+> url:    https://github.com/0day-ci/linux/commits/Johan-Hovold/serial-extend-compile-test-coverage/20210421-234950
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
+> config: x86_64-randconfig-a014-20210421 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d87b9b81ccb95217181ce75515c6c68bbb408ca4)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # https://github.com/0day-ci/linux/commit/c010530fa587261662c6abdb59ade994645dcfa8
+>         git remote add linux-review https://github.com/0day-ci/linux
+>         git fetch --no-tags linux-review Johan-Hovold/serial-extend-compile-test-coverage/20210421-234950
+>         git checkout c010530fa587261662c6abdb59ade994645dcfa8
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=x86_64
+>
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> drivers/tty/serial/serial_txx9.c:987:12: warning: no previous prototype for function 'early_serial_txx9_setup' [-Wmissing-prototypes]
+>    int __init early_serial_txx9_setup(struct uart_port *port)
+>               ^
+>    drivers/tty/serial/serial_txx9.c:987:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+>    int __init early_serial_txx9_setup(struct uart_port *port)
+>    ^
+>    static
+>    1 warning generated.
 
-I queued the first, but I am not sure about the rest.
+This function is called from arch/mips/txx9/generic/setup.c, and does
+have a forward declaration in arch/mips/include/asm/txx9/generic.h.
+Unfortunately the latter cannot be included from the driver, unless
+the || COMPILE_TEST is dropped again.
 
-An alternative is to copy over the code from kvm-unit-tests which 
-encodes the leaf/subleaf/register/bit values into the X86_FEATURE_* 
-value.  Sharing code with kvm-unit-tests is probably simpler than adding 
-#ifdef __KERNEL__ and keeping the headers in sync.
+Gr{oetje,eeting}s,
 
-Paolo
+                        Geert
 
-> Thanks,
-> Ricardo
-> 
-> Ricardo Koller (5):
->    KVM: x86: Move reverse CPUID helpers to separate header file
->    x86/cpu: Expose CPUID regs, leaf and index definitions to tools
->    tools headers x86: Copy cpuid helpers from the kernel
->    KVM: selftests: Introduce utilities for checking x86 features
->    KVM: selftests: Use kernel x86 cpuid features format
-> 
->   arch/x86/events/intel/pt.c                    |   1 +
->   arch/x86/include/asm/cpufeature.h             |  23 +-
->   arch/x86/include/asm/processor.h              |  11 -
->   arch/x86/kernel/cpu/scattered.c               |   2 +-
->   arch/x86/kernel/cpuid.c                       |   2 +-
->   arch/x86/kvm/cpuid.h                          | 177 +-----------
->   arch/x86/kvm/reverse_cpuid.h                  | 185 +++++++++++++
->   tools/arch/x86/include/asm/cpufeature.h       | 257 ++++++++++++++++++
->   tools/arch/x86/include/asm/cpufeatures.h      |   3 +
->   .../selftests/kvm/include/x86_64/cpuid.h      |  61 +++++
->   .../selftests/kvm/include/x86_64/processor.h  |  16 --
->   .../kvm/include/x86_64/reverse_cpuid.h        | 185 +++++++++++++
->   .../selftests/kvm/include/x86_64/svm_util.h   |  11 +-
->   tools/testing/selftests/kvm/lib/x86_64/svm.c  |   6 +-
->   tools/testing/selftests/kvm/lib/x86_64/vmx.c  |   5 +-
->   tools/testing/selftests/kvm/steal_time.c      |   5 +-
->   .../kvm/x86_64/cr4_cpuid_sync_test.c          |  23 +-
->   .../selftests/kvm/x86_64/set_sregs_test.c     |  25 +-
->   .../selftests/kvm/x86_64/vmx_pmu_msrs_test.c  |   8 +-
->   .../kvm/x86_64/vmx_set_nested_state_test.c    |   5 +-
->   .../selftests/kvm/x86_64/xss_msr_test.c       |  10 +-
->   21 files changed, 749 insertions(+), 272 deletions(-)
->   create mode 100644 arch/x86/kvm/reverse_cpuid.h
->   create mode 100644 tools/arch/x86/include/asm/cpufeature.h
->   create mode 100644 tools/testing/selftests/kvm/include/x86_64/cpuid.h
->   create mode 100644 tools/testing/selftests/kvm/include/x86_64/reverse_cpuid.h
-> 
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c4524e4a-55c7-66f9-25d6-d397f11d25a8%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdXKWDB89Hm-LQcpfTq%3D0yjm_xvQsQiD4QuEtW%3DyVymuRw%40mail.gmail.com.
