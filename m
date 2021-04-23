@@ -1,131 +1,136 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRB6MARWCAMGQEZ5N7YTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7457HKSMPRB2ESRWCAMGQEB3WPJKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 32DC2369C30
-	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 23:47:38 +0200 (CEST)
-Received: by mail-lf1-x140.google.com with SMTP id k6-20020a0565123d86b02901abbe47224asf12099244lfv.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 14:47:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619214457; cv=pass;
+Received: from mail-oi1-f183.google.com (mail-oi1-f183.google.com [209.85.167.183])
+	by mail.lfdr.de (Postfix) with ESMTPS id DACEE369C86
+	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Apr 2021 00:25:45 +0200 (CEST)
+Received: by mail-oi1-f183.google.com with SMTP id p124-20020acad8820000b029013d36f4aa65sf18910270oig.18
+        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 15:25:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619216744; cv=pass;
         d=google.com; s=arc-20160816;
-        b=v8IKvfyNzhD7aSUFAqhYSdign9np0JFuHKEQRvIU4u3dw4gsCp5Jyidplza7OaCKGI
-         t6zsWtjXWIS/bG5NzvimRAx1cSgLRGqNxrUv9M5/+502XizPuv9WEhQPBHUz+wqewgIy
-         0/saDZXbzeb9zTOE2lsjq8z2ee/cXhCW4xRvt6NnFKeIZ+IklJ6nEEEyVbQy5dUS8jCr
-         YkvLBtN53MN6dvKvRqk6b/uTZ+dydMHB/iAUbrAUc92G1328Imdab1dCA5RKJLIc+O4k
-         a5CVjJCqEsihrTQO8S9TQ7uoxdJ4s7/akCVklWccfZhIDiCJwjrDE7ywbbErfkGNHToW
-         bbgw==
+        b=E/chuZkvLDj8l0M4qDmjizo3NBSAMyA9VyZeLvrN3sGRiUREYyy+9BJrjBus17QxCj
+         fuPh3ZHn/VLTeVDBBpQ3YqSIiRxJSIZBifYF9hKxFAMK4vTDeahf2aNDI5YRrREKBL6X
+         Pd2ZQZuRA17jZMPCJLAyq1iyR6Ajw7Z83k0TdihmDrB130nbU+pPgXc1rOVBUIKF8iQt
+         OLt4eEPnZGMDh0wrAljBgt9wtEQZtIs0UIeRJsn6jZt7LTtrZ2mBLk0wyK9goDDPCTvK
+         lBwdP6CYaU667HHxrfGAf/xE5aPszF7N0Fx5H8zu+ip8LGujT0iiBwqWEH7dLp8LKLPl
+         joYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=SSwDBMT3hFkya1nzph/JQ7qvQVluKUfLhYonyqRo2WM=;
-        b=eUVEkgpeB+bEdSxptv/oq51bVGPf/7uzeiNF6BSAOQIZ+WSxMVjR1h+OafBY+305dE
-         z9A1Jf/O2u6qMveqzKg9EsfyT9DH0bKfr7Y/oVWfsU4A5qpPGZ095ixR4hxfrgfuUPha
-         P9yOCf3fQvKn/2kisj5L2/r7otr0JHouBCfz53YIDUyv9bDqBN0S2F1+3tJbyB3e/g2N
-         NH4fCjzZWf77cOwY+6VLKBBraSwmYY6/ViZB6VaHDMMDqLgp+eYd9jaG9kKB5IYOLPB3
-         mt/bqiz3/8J3UA+uyzfCkGNoAWFIi/WyqhtGMQjyxL//MKoDFmUQbq7PdRSGbYNMVl/b
-         iKVQ==
+         :list-id:mailing-list:precedence:thread-index:content-language
+         :content-transfer-encoding:mime-version:message-id:date:subject
+         :in-reply-to:references:cc:to:from:reply-to:dmarc-filter:sender;
+        bh=xDvNJsjUwBf4xnICo3ouWAdXpvhQHa+PLz8ajd1CMHU=;
+        b=pjEYq8KtU2aPOOZpTUjhbcqeJRa2WG04FAj45/KkDNPfNDbLufUMi+ZwxrYyK5rWTz
+         1oHr2Dm9Bk3ES2XvAgWyggrX18r99a0AKNLwZg05YakLzPRj9/BFOwv9xbTtw4TK9mrO
+         YN16/9Fb1dcOn5X5lF3cjDQPmrXMenD5Ep+MTZomtSIeUWIkppsyvGvaEk9LEVg71fVi
+         +II1hqChTyQAgCV0TVBnt24F4zU/kmqgTGDvYusL+fFo2XLBRwkKNrCkZ0JnXJjH+ueG
+         2v72ExGFKhrXAzu/OCCLX0OHKa9V3BTa2IqTnxfXh65QC+v80/MFy0RlR/0D3Z19B6AK
+         v8bA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=RtQfEAMI;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SSwDBMT3hFkya1nzph/JQ7qvQVluKUfLhYonyqRo2WM=;
-        b=SeWFK/MY3ttgaLhEKu0K9gLRV+kVG/aDP6o+A2lM1O1RIARYigLqmkBSO5ibx/W8KX
-         dKtWZFnkLqfXUpsMUd/19UnS+u5NunsyxjF5UI4V/iJVNq0rafUWYA0L+fnzLhorGEQf
-         ZkQiCcJ6HTuUS2wcJQhThMQYVfneS8RHQ/irIv2GUArDGQ9pqWQFQYHYxmbLhHbMG5Qg
-         uBCnpsrYknEY/N8uwBufhnekTumA8Hia8rjC11MbaZANMg2PaY5Z1u5+nWYqao9VqNLy
-         OmjePQlgjTaZ2R+kiSSHPBE7oAS86fUcQMQuX0tNSUe3WHn/YpG6G636IGt9iAAEasvV
-         ZKUw==
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=ONN8XavD;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=x-gm-message-state:sender:dmarc-filter:reply-to:from:to:cc
+         :references:in-reply-to:subject:date:message-id:mime-version
+         :content-transfer-encoding:content-language:thread-index
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=SSwDBMT3hFkya1nzph/JQ7qvQVluKUfLhYonyqRo2WM=;
-        b=iJCM2EYi9yDiwGv3PpCkAhH1lOeE0CTMnlzZgsYVtnBMUuteQ6tAHcOa7fKntnrbXh
-         g1pWuzZb2DbpUUwiJ538b3foat/UOAhky2DN5BzEoUhti6qAMTQIMN4LR2vA+gP/XMA5
-         wTsIG1NsobEdkC7kqpcsZ4gP6iU+bfv6lU0gLMT+oNV4a41NYVt6pL3js5rIygY5iWgk
-         L/Bk/KOyrXuI0EIvwa+82YZZdS4lQMaGZGW7OAYlI8WIVBrWcAWTHPfGJX9wupwl9+Xx
-         DlqUV052ja9UPHkpFVULeYJF5UddV2aqJGjLqbwZ2WPK6yZLWqFF1X7p5B45s2Dte1L0
-         gxMg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531z9wyBZKhuizyaBs2xlp5JuDmUMFphjKKg36kfCbw+THDkGmJM
-	yVPXgIyHxNH/hr5HRsowPNc=
-X-Google-Smtp-Source: ABdhPJz8PpjX/hS7EtFdq1mZUK3Nl/qluxBgxFzMm1Cfhvj5otOPtQ782B0vwI7fawSS/KNb+TykLA==
-X-Received: by 2002:a05:6512:1142:: with SMTP id m2mr4217640lfg.86.1619214457667;
-        Fri, 23 Apr 2021 14:47:37 -0700 (PDT)
+        bh=xDvNJsjUwBf4xnICo3ouWAdXpvhQHa+PLz8ajd1CMHU=;
+        b=OUtL7rRUAn0KWVF4pBXNNdAI3xtK1UMDtlGW5s1cMtanvGV/+EVCGb7qLUjy98i7ys
+         GrQRY4/ECD83wLJC9YQ2ZWFsFS1r+ry/S9cvfcj26e5ENiUw39pGOX2vVo/J6vUrfSQ/
+         /KTgoGhWnmWYduYibxlgc/Pmf9aqbAbQZdPNPdfh6KwiZpPB9ygQCyKJGtq7Lk1oM2li
+         609OMkmHKofdxh8rsZdIJgJ9iFb2bX9pK4EQUbhC/enn7ENUmDfj94i60kju1j5nEwvg
+         50CAPwQ7iLk3PScCNVzEixvNbGD4JsT636ds7JcLV2JHuBXIj565bIlaXFUWzFTsXxXV
+         xXhA==
+X-Gm-Message-State: AOAM531TfTiUKjFfq/azzyRgOwkMXD1Ci/ykJ4p+CzFa8gT7Qp4kdePj
+	sXsdjusQ1PN9d1z92AzsjHY=
+X-Google-Smtp-Source: ABdhPJxJxFEedvWefN7NqY2WxbNvCBn9Mq7gM8sfWggFLbZwmGWVZtYNuG/7uluW9SWlY4aWTShgkg==
+X-Received: by 2002:aca:b02:: with SMTP id 2mr4463795oil.44.1619216744731;
+        Fri, 23 Apr 2021 15:25:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9f57:: with SMTP id v23ls328537ljk.4.gmail; Fri, 23 Apr
- 2021 14:47:36 -0700 (PDT)
-X-Received: by 2002:a2e:a78b:: with SMTP id c11mr4217946ljf.6.1619214456453;
-        Fri, 23 Apr 2021 14:47:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619214456; cv=none;
+Received: by 2002:aca:5c5:: with SMTP id 188ls2923132oif.6.gmail; Fri, 23 Apr
+ 2021 15:25:44 -0700 (PDT)
+X-Received: by 2002:a54:4188:: with SMTP id 8mr4392390oiy.96.1619216744371;
+        Fri, 23 Apr 2021 15:25:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619216744; cv=none;
         d=google.com; s=arc-20160816;
-        b=kkakA24Lw03o0ImJjoH6l4uCvvq3acEPEwp4Iakm3WjlfLcJpbcPRb4ozPf9eWjfYA
-         Syljp/5c4mo3VWdfydoUnaofjBGKiwh4TUcsmN20JCRNCqX5WMb7BzwKzmM0dpr6XIy/
-         KiS0N9QFZF0rH1LVeKcxq14WzVS7Hh29cKh12doVhBTlqoGyGe5Op6tOXmVnIf/sxyxI
-         ieMs3Vl/lN4zWAce9A2maG0asNrQVy9BC7rEmlGoFffM9wMyiD3CnUm/5FgPzfNCOnV1
-         0LJe6HgFk1fuI2rwIHEqXtFV1MtwhB3ca/5N5JGRp6D4mKBuBndcNIsQZ9WZDXBWGSaJ
-         5hpg==
+        b=pExTrxRaFhuJ+05Sf8DsZEfqyw95xoNLrP+kd2Sfdk4Bw8vBBCb4CWJ6tndt25fodd
+         MzSD7jTtuZ0RiodocJeFDwmGBbqcOF8+lBAqD7cQpSwSz65wqTNAn5o56Edfc9Sz9fSm
+         vE79xTj5kvg4DNjdAO0OJafjJD/ETvq5GDJemJ+zJ8/eLJKLjPf+/gXFVeOvAeNcL9UX
+         7WJGRKAFYCgmdYMVpnLPmQqI8wLxPdKSyGVsd1LlUxdi835Cm0BerWY6pmDT7NkRW2C4
+         RWdPmZWkO1jhmVUE5LEciEjj47twIMeNEulXbDUms3ERPK3a1wHWtaoDiWpS086jAF8o
+         Vzzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=9SDxtZJGQ1vsrHdafRND0IxuvMBmwHOT0zn6oXkRby4=;
-        b=PCs8ah3JTzy/5wN5m+R3ggjW5/h5TuOmbcVdslv/UPQqOlnQpNbT9G9FwB0ufKgHAa
-         x2sSlIWqXv9IbdeuufCyBGGm6txdhmpPb7AlXc7Eoxcr53j9gA4bU/EYn2EZRObBR5BO
-         gZyqtntz4RD0OiJs+j7q0p7BcaxeAiEO1Ig6LQ+2nRoz7kWqWKkaI7cAFGcVzTtKM0Pd
-         JvNc7RZ5ImeZ0H6zVQSFC6fohk3+Eci4MqtAo9n/LbslGjSdmBpKj0OhK2j1iUVpsGEH
-         WRZaTXZb61XNAPPAxzC/V2IX3BXKbL3nr8IhNY9sgxVvb2H8iCPCatH81jCc7DcUZzKH
-         /rKw==
+        h=thread-index:content-language:content-transfer-encoding
+         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
+         :from:reply-to:dmarc-filter:sender:dkim-signature;
+        bh=wMOnQpi7ovLRfONEKjZgRwn/sKBHpGwI4nuW9iNQ37g=;
+        b=0qNbP2EdqTqF3pdHvh+pm4HLaa2e09Yr0ac/vP9n5ZvfA0A46Y06ZeZmSeVXtcxecQ
+         e7ARoRTEuqHjqWEMTEAHccdt5AS0NCafLXlrk9wo8G6OlZ79F1dqMXpEEZBXe8p84kN0
+         b8t0PjgCu4GVmbnS8Uf03g9T5vUnf7+rTrE+8GtkJCyPFulwNwuYTIs4xMZCK1qhG8YH
+         PKoT1vhS/5hDpltVCPrGHR1eSsNQ7Bqqr2+BlX9a6fH1ZTcIshCgYkjzSjkC1nF9nNJq
+         BoQR3mc2/i2DGO9x7xerejXbxFIQ8vahoaX/avbnXyskZiQavz2tq9/SsKnb8zV8/3Zj
+         hL6g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=RtQfEAMI;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from desiato.infradead.org (desiato.infradead.org. [2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-        by gmr-mx.google.com with ESMTPS id i11si465030lfj.6.2021.04.23.14.47.36
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=ONN8XavD;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Received: from so254-9.mailgun.net (so254-9.mailgun.net. [198.61.254.9])
+        by gmr-mx.google.com with UTF8SMTPS id v31si676294ott.5.2021.04.23.15.25.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Apr 2021 14:47:36 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) client-ip=2001:8b0:10b:1:d65d:64ff:fe57:4e05;
-Received: from [2601:1c0:6280:3f0::df68]
-	by desiato.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
-	id 1la3e7-002Rx4-6A; Fri, 23 Apr 2021 21:47:31 +0000
-Subject: Re: ARCH=hexagon unsupported?
-To: bcain@codeaurora.org, 'Arnd Bergmann' <arnd@kernel.org>
-Cc: 'Nick Desaulniers' <ndesaulniers@google.com>,
- "'open list:QUALCOMM HEXAGON...'" <linux-hexagon@vger.kernel.org>,
- 'clang-built-linux' <clang-built-linux@googlegroups.com>,
- 'linux-arch' <linux-arch@vger.kernel.org>,
- 'Guenter Roeck' <linux@roeck-us.net>
-References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com>
- <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com>
- <fa0bed95-5ddf-ecad-0613-2f13837578c3@infradead.org>
- <CAK8P3a0ttLxzP0J-mocxB2TkfEYJYj37TdW=uM65fB4giC_qeg@mail.gmail.com>
- <026d01d73877$386a1920$a93e4b60$@codeaurora.org>
- <027401d7387e$f5630120$e0290360$@codeaurora.org>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <24da08a4-e055-d8ac-8214-97d86cdcfd3d@infradead.org>
-Date: Fri, 23 Apr 2021 14:47:27 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 Apr 2021 15:25:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) client-ip=198.61.254.9;
+X-Mailgun-Sending-Ip: 198.61.254.9
+X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
+Received: from smtp.codeaurora.org
+ (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
+ smtp-out-n05.prod.us-west-2.postgun.com with SMTP id
+ 60834956febcffa80f49fd4d (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Fri, 23 Apr 2021 22:25:26
+ GMT
+Sender: bcain=codeaurora.org@mg.codeaurora.org
+Received: by smtp.codeaurora.org (Postfix, from userid 1001)
+	id C581CC43217; Fri, 23 Apr 2021 22:25:25 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,
+	PDS_BAD_THREAD_QP_64,SPF_FAIL,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
+Received: from BCAIN (104-54-226-75.lightspeed.austtx.sbcglobal.net [104.54.226.75])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: bcain)
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id B4491C4338A;
+	Fri, 23 Apr 2021 22:25:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org B4491C4338A
+Reply-To: <bcain@codeaurora.org>
+From: "Brian Cain" <bcain@codeaurora.org>
+To: "'Randy Dunlap'" <rdunlap@infradead.org>,
+	"'Arnd Bergmann'" <arnd@kernel.org>
+Cc: "'Nick Desaulniers'" <ndesaulniers@google.com>,
+	"'open list:QUALCOMM HEXAGON...'" <linux-hexagon@vger.kernel.org>,
+	"'clang-built-linux'" <clang-built-linux@googlegroups.com>,
+	"'linux-arch'" <linux-arch@vger.kernel.org>,
+	"'Guenter Roeck'" <linux@roeck-us.net>
+References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com> <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com> <fa0bed95-5ddf-ecad-0613-2f13837578c3@infradead.org> <CAK8P3a0ttLxzP0J-mocxB2TkfEYJYj37TdW=uM65fB4giC_qeg@mail.gmail.com> <026d01d73877$386a1920$a93e4b60$@codeaurora.org> <027401d7387e$f5630120$e0290360$@codeaurora.org> <24da08a4-e055-d8ac-8214-97d86cdcfd3d@infradead.org>
+In-Reply-To: <24da08a4-e055-d8ac-8214-97d86cdcfd3d@infradead.org>
+Subject: RE: ARCH=hexagon unsupported?
+Date: Fri, 23 Apr 2021 17:25:22 -0500
+Message-ID: <02a501d7388f$8dfb3b90$a9f1b2b0$@codeaurora.org>
 MIME-Version: 1.0
-In-Reply-To: <027401d7387e$f5630120$e0290360$@codeaurora.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-us
+Thread-Index: AQHA6GaHPKlqiI34kZpdCyOyqmKBQAItWAQVAeg2vD8CQqkwGgKUjDBFAndwqiQA36lpqaqNLeCw
+X-Original-Sender: bcain@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=desiato.20200630 header.b=RtQfEAMI;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as
- permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@mg.codeaurora.org header.s=smtp header.b=ONN8XavD;       spf=pass
+ (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
+ designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,33 +143,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 4/23/21 1:26 PM, Brian Cain wrote:
->> -----Original Message-----
->> From: bcain=codeaurora.org@codeaurora.org
-> ... 
->> There is a hexagon cross toolchain used for testing QEMU (userspace) guest
->> code test cases.  This same toolchain can be used to build the kernel.  I will
->> share a reference to that toolchain, standby.
-> 
-> It's published as a container in the Gitlab Container Registry.  You can use docker/podman to pull "registry.gitlab.com/qemu-project/qemu/qemu/debian-hexagon-cross" in order to use it.
+> -----Original Message-----
+> From: Randy Dunlap <rdunlap@infradead.org>
+...
+> > It's published as a container in the Gitlab Container Registry.  You ca=
+n use
+> docker/podman to pull "registry.gitlab.com/qemu-
+> project/qemu/qemu/debian-hexagon-cross" in order to use it.
+>=20
+> Hi Brian,
+>=20
+> Maybe that will be useful to someone.
+>=20
+> However, I am looking for something like a tarball that I can download an=
+d
+> deploy locally, like one can find at these locations:
+>=20
+> https://toolchains.bootlin.com/
+> https://download.01.org/0day-ci/cross-package/
+> https://mirrors.edge.kernel.org/pub/tools/crosstool/
 
-Hi Brian,
+Randy,
 
-Maybe that will be useful to someone.
+	I 100% agree, I would prefer a tarball myself.  I have been working with t=
+he team to produce the tarball and we haven't been able to deliver that yet=
+.  No good excuses here, only bad ones: somewhat tied up in process bureauc=
+racy.
 
-However, I am looking for something like a tarball that I can download
-and deploy locally, like one can find at these locations:
+I can share the recipe that was used to build the toolchain in the containe=
+r.  No Dockerfile required, just a shell script w/mostly cmake + make comma=
+nds.  All of the sources are public, but musl is a downstream-public repo b=
+ecause we haven't landed the hexagon support in upstream musl yet.
 
-https://toolchains.bootlin.com/
-https://download.01.org/0day-ci/cross-package/
-https://mirrors.edge.kernel.org/pub/tools/crosstool/
+-Brian
 
-
-thanks.
--- 
-~Randy
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/24da08a4-e055-d8ac-8214-97d86cdcfd3d%40infradead.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/02a501d7388f%248dfb3b90%24a9f1b2b0%24%40codeaurora.org.
