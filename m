@@ -1,123 +1,144 @@
-Return-Path: <clang-built-linux+bncBC6Z3ANQSIPBBXNVRGCAMGQE4IP4EFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCFYN6ELYIORBZXDRGCAMGQEVGZR4BQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-f190.google.com (mail-qt1-f190.google.com [209.85.160.190])
-	by mail.lfdr.de (Postfix) with ESMTPS id 14E23368CA4
-	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 07:27:59 +0200 (CEST)
-Received: by mail-qt1-f190.google.com with SMTP id h14-20020ac846ce0000b02901ba21d99130sf8875794qto.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 22 Apr 2021 22:27:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619155678; cv=pass;
+Received: from mail-vs1-xe3c.google.com (mail-vs1-xe3c.google.com [IPv6:2607:f8b0:4864:20::e3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 78741368D99
+	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 09:06:15 +0200 (CEST)
+Received: by mail-vs1-xe3c.google.com with SMTP id w2-20020a67ffc20000b02901c5449f589esf7787729vsq.20
+        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 00:06:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619161574; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yGfm3iSo7s/ZQM1FAwCVleBRlTIBqEFeVp3qxW2kVkUw4lWg3EtQ4NzTGa4/uoTV+/
-         39E2YuFtUO/q2/oeP7rAdJqY4Pi/KVotFzGVmJRGrJNUDkBaI6OJr1SJenvXQjSzJ2c4
-         AUCUvz9oNJJUXXTk1bUwhcwgkxZ6i9DXJ1UJMXVIZ57txUid0ycWqIoukR0sJGu9Mitf
-         i5qbHrOI/WAAyyjhgyUdXTDB7N1IimIDYi5pW9Rbd6k6Su6zQLUihzB716Zmu0agTPFs
-         IHBYl+bjB00ucGHVbFTAaIr8XPpHKlBHqN6L9sJDa5ZrWUjnpK1Jmm+XTq/KmGZNoR06
-         08gQ==
+        b=ECIjIIMT1j2oWybmFKLw6AZUkShcu8XeLMThl2+HnZrPP6ZRxRHU9zORLga2RDYmZY
+         wUmenuZwwAvG/caPyuwBmQ9b+jXdsCmLOTdEhWUCNm2DKuGYGvuYohhcHjj1GdQrmjrM
+         pCpeQIAeAq5DP/Hef6AwjLNhiiH1MpLmGehNFlzh1XBf9HEU/cm4Gfw2vHmEzumKZA3v
+         DjDfi2GgP8BrTi19JpWsD7vmth7/30a1zZm048NNsVgrFuUYDP2I7dwi+0zJhyCsQIik
+         5rcH3qr3kO7F5bzsl60qc28/aPnpK5Z0Y4oyukPIjK75k6xloSxiAeS59EkwHjef4qKm
+         0kNA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date
-         :content-transfer-encoding:mime-version:references:in-reply-to
-         :subject:cc:to:from:sender;
-        bh=ksWOzIbjZ+X318fpI5J6/GxfVPIoBI9pZMEjgLh8tIk=;
-        b=sfClNL2Qc1ihr5gzfpQneY6HiEsqJGDxfMLbQb6SO648Lz4WQfC2P3/9AoPSBfp/EO
-         qLy0Tn482pu1a96xMR9c/gKzO/icgOxWSftOFUGNV5UgNamHaW0aOsjZvJqN9Xe9N+8P
-         VhCzm8bd+JBDcuT3SUQIUvY1s+s3TAWDv+igqjrKqsgaRb5KR0lvwFZgQG+fuO8w6mXV
-         gNPvsCptCZ2SZbzcZ36WfocZ5fT8JUSPyqlYZcgF5bXVq8DpWnVa+p5Kf6o8g6AEuTND
-         5ROTq7Aiw4wtC4QKDCfDHqYHKAqQ1vrGLkVW6w91VWUOAzHAeM9iraLxuVT7WJoymIhH
-         8xMQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=JUxG3lVyT1r3aVTzOU92C70kDfoROcsOHrD+nvjJli4=;
+        b=QD2utR6HoWGpT3l9ViheTuFfmt97+538uS7GF/IFOP+kzmLiFn0VQvbKhDiHjZ4rCR
+         aQoBz059T/WP9MRlAOgjAwc1O+lfN2X7Nh1l7QCCasOa/mFSZkNSSSV14zO42zuNWxJe
+         L2Y/oVBuNMH+26T4WH+b11Rh7OlrJiMamrbv5XslLJcUE+LW3pJsF+D9at5Bdydy9LtN
+         FvtaTaE+5Mz4bq4O5fNTvJcCYfhLPWd8c0r3H/znn3zHi9YJ2LDCEX9EDYs65psXA3HI
+         IOuzNYehvjy4DusbyeAHV/tfsbR6PFpzOhYnp69NwlImJnv0bPK8OxQxxuRGEchTR+ye
+         nYxg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@vt-edu.20150623.gappssmtp.com header.s=20150623 header.b=ch8J5l8A;
-       spf=pass (google.com: domain of valdis@vt.edu designates 2607:f8b0:4864:20::832 as permitted sender) smtp.mailfrom=valdis@vt.edu;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vt.edu
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=K7upgwLf;
+       spf=pass (google.com: domain of pbonzini@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=JUxG3lVyT1r3aVTzOU92C70kDfoROcsOHrD+nvjJli4=;
+        b=ninORSGvGshRtcJnw6TtCbJvSb2WZb7dWoiMCcRREJhKc5l7ocifsIQX+iPdNv0frp
+         b/Ija5Qswpqw7TGddiG11YDtt0nOQJKhUPJt1h2s5Xmb3sEXYK3bBHATxKrkEAUB3lZA
+         DxJQn5iR0laDH2QHwztWzDvv+acUfUpTl00wmWt6rYZDSLmmkXKv8ygq3jXmIuN2oWRI
+         X4bVbCFo/0hm8wAxYlWcfjK3+N5cB+5I0yS6dOYR0OHa0li8Qu6qHZ/QQSAEuhZ4alzF
+         1FstsIqxjAJH8v0TkiArU4whIZzRsoILleI/uQ6zffzj9ysY117DYI/BEpFva0+JLl9k
+         btuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:to:cc:subject:in-reply-to:references
-         :mime-version:content-transfer-encoding:date:message-id
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=ksWOzIbjZ+X318fpI5J6/GxfVPIoBI9pZMEjgLh8tIk=;
-        b=V8OsMOqeUaoVrNB5vIOS+xqWxQCMQpVVNYJXmMj7mfhehDZ9Hohc5ymwY/bRAG2vD3
-         qe4yBeyPaRWMlHNUkOUEp3hEHr2pDOb7uQTZeGCPmbWSEnPFMFCqv6Ad/FB2hgk9cxID
-         WtzMKOLPcGjl1vkXkH7hpiqBXOzFV8DfjYY7xfu6CdiV/UGp5YitY5LuI5myqB4QYxZ8
-         T3pM3dgAAuU1ej920qZqCgDFtufWnY4Whzg2iwW85NcDE3q2s3Wg39g95vC9Z8Vni/Bp
-         bpHdPVYizzOmOv6XpdT42sRA1T/c074MrsnI1OV1p5NC6gKtw8a6G+Yp0OXOvpohYVUA
-         OLWA==
-X-Gm-Message-State: AOAM531qAjWl44boSfwfqJF+UGKCRPjJgXV+0+Y3kSLvnJ4wnyaBo15B
-	9rbPIzI3Lnw8g2LURZIcNNA=
-X-Google-Smtp-Source: ABdhPJzgzEP/U+wBpAw+IweOy46l6AspHQkCbo8MFh16bZq3dsudAUaJ0wXekI25HovW9kcXejXXTQ==
-X-Received: by 2002:a05:622a:250:: with SMTP id c16mr2051869qtx.7.1619155677905;
-        Thu, 22 Apr 2021 22:27:57 -0700 (PDT)
+        bh=JUxG3lVyT1r3aVTzOU92C70kDfoROcsOHrD+nvjJli4=;
+        b=VHP91LOVUgQ0yfIUDJns8SYe514sWfl5CbwBmMfky3n8e9YPdAb0c6t6xZGFvKTQH7
+         DuKAIELCYXDqkwqvLPp5Sa//utDWrDxFUTHv65KnLAxMwuMVzrWWsDWOb9objySHWtI3
+         WvXBjUcD41Na/MirLU/Z1bR9FcGurlw/ofYFBpDBm+S1iclqqRundqBBJSRJ5bzLxc6Z
+         C62ox1llHvDZsEu54Ccxe1nghRWONp/H26kp6kX0wFz0d7eUGFkyXCgOWb2oNghAEeV9
+         lfh2BWsxVdIUzib5dkle+tDrs/0y3p/m37Vv2FZ1AABRZvnysJUwRJHrVzzqqgJuSYK4
+         5fOw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM53176odya80VhTOCgSjcbTAlX9Sqocclbb51JnkY3yhxfxikma0M
+	QJEOBUuhn/q/CSftWObZvs4=
+X-Google-Smtp-Source: ABdhPJwobt+EKSaErycpxW8Ytzr9Tgl7DwYDKIK+o2IwBaRq9PauHM2Ncy9ThIdV1da2Tav2a4UpgQ==
+X-Received: by 2002:a05:6122:1287:: with SMTP id i7mr1999031vkp.8.1619161574228;
+        Fri, 23 Apr 2021 00:06:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:dcd:: with SMTP id 13ls2293735qvt.0.gmail; Thu, 22
- Apr 2021 22:27:57 -0700 (PDT)
-X-Received: by 2002:a05:6214:1467:: with SMTP id c7mr2331971qvy.7.1619155677344;
-        Thu, 22 Apr 2021 22:27:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619155677; cv=none;
+Received: by 2002:a67:d182:: with SMTP id w2ls1394143vsi.6.gmail; Fri, 23 Apr
+ 2021 00:06:13 -0700 (PDT)
+X-Received: by 2002:a67:8752:: with SMTP id j79mr2130808vsd.36.1619161573712;
+        Fri, 23 Apr 2021 00:06:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619161573; cv=none;
         d=google.com; s=arc-20160816;
-        b=FB/pp5ZVu0UeoLDGE+CsL27qmIOu1iCiTxXziXhbCk7q+VWvaWoOcsr2aO3kako07m
-         /QwUiZtX0V+JsH4SlXZ/KYIVeol6MD/bIxO490sRISMCHIHhlrPZ8mMwjBonhVwGqVJr
-         lzgUGzZDFaeLkLJzveevGW5shiiiziAgu8Oxl9/r4MBV+R9RDXPPyDgjDHel9xSe5s16
-         d46s634ulFqCI/Tpye/SW7gn81L/F7MsqOObp9Xx3Qg1slfvCmmA3k5n+Imcd4OQj/vw
-         zpn5p3+9G7CtBs/rqPs0Gqx5X8uZh5FInBSJZX3pS3iHAtC1UNgsnE+wA3H/gbuFFAH+
-         8PXw==
+        b=dHvRDbHAyXv+y5D181Ikdtk5AgGlvH8TIgYgbtldxKoBmu0Cm7EJHmZhHbdDtfwEIK
+         4c5II0LsiKBVtyAs37J5p9FHPxWKQUJ/WaCIWaqwvjNxNm7G1pNLpaCkaEfzKLqRFFKE
+         r/qF7xOK1Fk9ITOJqmZjF+v9GXnynGuVGZ8yYNZVIwpJhf9vgHCTK0eXaBDqpNW8gXL3
+         A8jgyLjHNO6nHiVjBgcr53DgN0MYmvyikWK7G1LvDpG3e31Teb5pGunTBMLdm2pDnz2n
+         PQ15zV/mdU9gFPm0cRGNqml11VmRF1Z5GQCIk/zGflKPdy+u9L5P52IErMc1x7OdBLCd
+         GaCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:content-transfer-encoding:mime-version:references
-         :in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=Psm75Ah8drx+ipb6aw7Hoi8ygDQm5jw8TTPOq34YtRA=;
-        b=HW3ItNfu1LXqPp7YluWI3R9NhguQKhGA/8L4fLGL5ackw8PrD129IEwFsi5YSlAIHm
-         5+1u5CCJmpDwZ4bVrK1TQQMcjqFvuAoeEDVHU+3ogBo3tyJlEBw9w9jLcybjA+sel0lX
-         n0IWqpM0fgjy1rDaY01YyaKx5fFZ27mNHzTzZF/n67pdlf6EtmmR2Eb57J/QOMST+rhi
-         lcLuS2SO3De0FBpzbqUSA0U5luKhFkoNa+os6Itc9QSQEM8outEMsfFel3F5ZehzGN0A
-         xwCNOCtuoWAXDfr4hjGty+dUJi2gZXug0UXvzNv30BbZ+il1dh1fHKzAETSEpnxsXBTb
-         ZgcA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=c0Cl5FS9BM4Q35WpIm6J5r8zv2qpk0iAb6szpk8n7ZM=;
+        b=oehwsIW3RotSgTEAi7l83qX91tbs+3tyOrHhNg2IIyX+mK9YM463pwEwH4Ks2aURyl
+         Hw2chLRnkwindX5Ti9Yfw1oRasj5pxJmamgKVn5Z6Mx+puux4Ju5bNzBwybdMSpSVWmn
+         z8H9ekBv6mJv0Jm5py1cdiV96+qxDEfZ8wa+PsVHFPsaY0VNzou/B/g57ESUOyv9w5qV
+         7oVt5OAF5F7wkktvgQq2pJGfr5Sthpuc0WOPltMs6/SlN+EOjXDtE3OtwtMBLx7q459e
+         PwQCurkKZ2IMMplZl2zJQctRaGTORQsyWh5vDvZLYFzjzJuQPwVedLq08QGhoMKntuok
+         p8sw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@vt-edu.20150623.gappssmtp.com header.s=20150623 header.b=ch8J5l8A;
-       spf=pass (google.com: domain of valdis@vt.edu designates 2607:f8b0:4864:20::832 as permitted sender) smtp.mailfrom=valdis@vt.edu;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vt.edu
-Received: from mail-qt1-x832.google.com (mail-qt1-x832.google.com. [2607:f8b0:4864:20::832])
-        by gmr-mx.google.com with ESMTPS id n63si831692qkn.7.2021.04.22.22.27.57
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=K7upgwLf;
+       spf=pass (google.com: domain of pbonzini@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id h19si913583vkf.5.2021.04.23.00.06.13
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 23 Apr 2021 00:06:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pbonzini@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-513-aYd3jJ58OPeEn3IeLt3hVA-1; Fri, 23 Apr 2021 03:06:07 -0400
+X-MC-Unique: aYd3jJ58OPeEn3IeLt3hVA-1
+Received: by mail-ej1-f71.google.com with SMTP id ji8-20020a1709079808b029037c921a9ea0so8039830ejc.9
+        for <clang-built-linux@googlegroups.com>; Fri, 23 Apr 2021 00:06:07 -0700 (PDT)
+X-Received: by 2002:a50:cc4b:: with SMTP id n11mr2774595edi.186.1619161566790;
+        Fri, 23 Apr 2021 00:06:06 -0700 (PDT)
+X-Received: by 2002:a50:cc4b:: with SMTP id n11mr2774568edi.186.1619161566637;
+        Fri, 23 Apr 2021 00:06:06 -0700 (PDT)
+Received: from ?IPv6:2001:b07:6468:f312:c8dd:75d4:99ab:290a? ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
+        by smtp.gmail.com with ESMTPSA id e16sm3918899edu.94.2021.04.23.00.06.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Apr 2021 22:27:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of valdis@vt.edu designates 2607:f8b0:4864:20::832 as permitted sender) client-ip=2607:f8b0:4864:20::832;
-Received: by mail-qt1-x832.google.com with SMTP id y12so35647956qtx.11
-        for <clang-built-linux@googlegroups.com>; Thu, 22 Apr 2021 22:27:57 -0700 (PDT)
-X-Received: by 2002:ac8:4a82:: with SMTP id l2mr2113741qtq.311.1619155677021;
-        Thu, 22 Apr 2021 22:27:57 -0700 (PDT)
-Received: from turing-police ([2601:5c0:c380:d61::359])
-        by smtp.gmail.com with ESMTPSA id p66sm3664708qka.108.2021.04.22.22.27.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Apr 2021 22:27:56 -0700 (PDT)
-Sender: Valdis Kletnieks <valdis@vt.edu>
-From: "Valdis Kl=?utf-8?Q?=c4=93?=tnieks" <valdis.kletnieks@vt.edu>
-X-Mailer: exmh version 2.9.0 11/07/2018 with nmh-1.7+dev
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Sean Christopherson <seanjc@google.com>,
-    Paolo Bonzini <pbonzini@redhat.com>,
-    Nick Desaulniers <ndesaulniers@google.com>,
-    Vitaly Kuznetsov <vkuznets@redhat.com>,
-    Wanpeng Li <wanpengli@tencent.com>,
-    Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
-    kvm@vger.kernel.org, clang-built-linux@googlegroups.com,
-    linux-kernel@vger.kernel.org, Kai Huang <kai.huang@intel.com>
-Subject: Re: [PATCH] KVM: x86: Fix implicit enum conversion goof in scattered reverse CPUID code
-In-Reply-To: <YIBcd+5NKJFnkTC1@archlinux-ax161>
+        Fri, 23 Apr 2021 00:06:06 -0700 (PDT)
+Subject: Re: [PATCH] KVM: x86: Fix implicit enum conversion goof in scattered
+ reverse CPUID code
+To: Sean Christopherson <seanjc@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: Vitaly Kuznetsov <vkuznets@redhat.com>, Wanpeng Li
+ <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>,
+ Joerg Roedel <joro@8bytes.org>, kvm@vger.kernel.org,
+ clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+ Kai Huang <kai.huang@intel.com>
 References: <20210421010850.3009718-1-seanjc@google.com>
- <YIBcd+5NKJFnkTC1@archlinux-ax161>
-Mime-Version: 1.0
-Content-Type: multipart/signed; boundary="==_Exmh_1619155674_38983P";
-	 micalg=pgp-sha1; protocol="application/pgp-signature"
-Content-Transfer-Encoding: 7bit
-Date: Fri, 23 Apr 2021 01:27:54 -0400
-Message-ID: <110961.1619155674@turing-police>
-X-Original-Sender: valdis.kletnieks@vt.edu
+From: Paolo Bonzini <pbonzini@redhat.com>
+Message-ID: <7b1f385c-3a97-efe0-bb8d-53cdb9c19dbf@redhat.com>
+Date: Fri, 23 Apr 2021 09:06:04 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.0
+MIME-Version: 1.0
+In-Reply-To: <20210421010850.3009718-1-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: pbonzini@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@vt-edu.20150623.gappssmtp.com header.s=20150623 header.b=ch8J5l8A;
-       spf=pass (google.com: domain of valdis@vt.edu designates
- 2607:f8b0:4864:20::832 as permitted sender) smtp.mailfrom=valdis@vt.edu;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vt.edu
+ header.i=@redhat.com header.s=mimecast20190719 header.b=K7upgwLf;
+       spf=pass (google.com: domain of pbonzini@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,64 +151,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---==_Exmh_1619155674_38983P
-Content-Type: text/plain; charset="UTF-8"
+On 21/04/21 03:08, Sean Christopherson wrote:
+> Take "enum kvm_only_cpuid_leafs" in scattered specific CPUID helpers
+> (which is obvious in hindsight), and use "unsigned int" for leafs that
+> can be the kernel's standard "enum cpuid_leaf" or the aforementioned
+> KVM-only variant.  Loss of the enum params is a bit disapponting, but
+> gcc obviously isn't providing any extra sanity checks, and the various
+> BUILD_BUG_ON() assertions ensure the input is in range.
+> 
+> This fixes implicit enum conversions that are detected by clang-11.
+> 
+> Fixes: 4e66c0cb79b7 ("KVM: x86: Add support for reverse CPUID lookup of scattered features")
+> Cc: Kai Huang <kai.huang@intel.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+> 
+> Hopefully it's not too late to squash this...
 
-On Wed, 21 Apr 2021 10:10:15 -0700, Nathan Chancellor said:
+Too late, but I queued this anyway.
 
-> Unfortunately, gcc's -Wenum-conversion is behind -Wextra rather than
-> -Wall like clang. If you explicitly enable it with
-> KCFLAGS=-Wenum-conversion to your make invocation, it will warn in the
-> exact same way as clang:
->
-> arch/x86/kvm/cpuid.c: In function 'kvm_set_cpu_caps':
-> arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from 'enum kvm_only_cpuid_leafs' to 'enum cpuid_leafs' [-Wenum-conversion]
->   499 |  kvm_cpu_cap_init_scattered(CPUID_12_EAX,
->       |                             ^~~~~~~~~~~~
-> arch/x86/kvm/cpuid.c: In function '__do_cpuid_func':
-> arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from 'enum kvm_only_cpuid_leafs' to 'enum cpuid_leafs' [-Wenum-conversion]
->   837 |   cpuid_entry_override(entry, CPUID_12_EAX);
->       |                               ^~~~~~~~~~~~
->
-> clang's warning for comparison/posterity:
->
-> arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumeration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cpuid_leafs'
- [-Wenum-conversion]
->         kvm_cpu_cap_init_scattered(CPUID_12_EAX,
->         ~~~~~~~~~~~~~~~~~~~~~~~~~~ ^~~~~~~~~~~~
-> arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumeration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cpuid_leafs'
- [-Wenum-conversion]
->                 cpuid_entry_override(entry, CPUID_12_EAX);
->                 ~~~~~~~~~~~~~~~~~~~~        ^~~~~~~~~~~~
-> 2 warnings generated.
+Paolo
 
-Note that this will kill the build if you have CONFIG_KVM_WERROR=y in effect
-(which was a reasonable thing to do when KVM built just fine with it in effect).
+> 
+>   arch/x86/kvm/cpuid.c | 5 +++--
+>   arch/x86/kvm/cpuid.h | 2 +-
+>   2 files changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/cpuid.c b/arch/x86/kvm/cpuid.c
+> index 96e41e1a1bde..e9d644147bf5 100644
+> --- a/arch/x86/kvm/cpuid.c
+> +++ b/arch/x86/kvm/cpuid.c
+> @@ -365,7 +365,7 @@ int kvm_vcpu_ioctl_get_cpuid2(struct kvm_vcpu *vcpu,
+>   }
+>   
+>   /* Mask kvm_cpu_caps for @leaf with the raw CPUID capabilities of this CPU. */
+> -static __always_inline void __kvm_cpu_cap_mask(enum cpuid_leafs leaf)
+> +static __always_inline void __kvm_cpu_cap_mask(unsigned int leaf)
+>   {
+>   	const struct cpuid_reg cpuid = x86_feature_cpuid(leaf * 32);
+>   	struct kvm_cpuid_entry2 entry;
+> @@ -378,7 +378,8 @@ static __always_inline void __kvm_cpu_cap_mask(enum cpuid_leafs leaf)
+>   	kvm_cpu_caps[leaf] &= *__cpuid_entry_get_reg(&entry, cpuid.reg);
+>   }
+>   
+> -static __always_inline void kvm_cpu_cap_init_scattered(enum cpuid_leafs leaf, u32 mask)
+> +static __always_inline
+> +void kvm_cpu_cap_init_scattered(enum kvm_only_cpuid_leafs leaf, u32 mask)
+>   {
+>   	/* Use kvm_cpu_cap_mask for non-scattered leafs. */
+>   	BUILD_BUG_ON(leaf < NCAPINTS);
+> diff --git a/arch/x86/kvm/cpuid.h b/arch/x86/kvm/cpuid.h
+> index eeb4a3020e1b..7bb4504a2944 100644
+> --- a/arch/x86/kvm/cpuid.h
+> +++ b/arch/x86/kvm/cpuid.h
+> @@ -236,7 +236,7 @@ static __always_inline void cpuid_entry_change(struct kvm_cpuid_entry2 *entry,
+>   }
+>   
+>   static __always_inline void cpuid_entry_override(struct kvm_cpuid_entry2 *entry,
+> -						 enum cpuid_leafs leaf)
+> +						 unsigned int leaf)
+>   {
+>   	u32 *reg = cpuid_entry_get_reg(entry, leaf * 32);
+>   
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/110961.1619155674%40turing-police.
-
---==_Exmh_1619155674_38983P
-Content-Type: application/pgp-signature
-
------BEGIN PGP SIGNATURE-----
-Comment: Exmh version 2.9.0 11/07/2018
-
-iQIVAwUBYIJa2gdmEQWDXROgAQJS8hAAuyGWZ26P+Q93qoKN9KAKX0+D8xuUU3K9
-g8Ky+540JLnFCiR6/0WXN1XGISj8VeykmFC4DWTToniWxELf8H4Kby5A3UkWQTGY
-rksStkTMhS0Pq9kEOwOPtvJLaTfWhvpPfuA1FADWHpUWYIInymbT+2y9Hda/Ntpz
-Q+5nAVf/Q7QYfWtflo8VmxIztrX4winoUav0Scyy5Hc7vbsU7oQZbY9/oedFhv2w
-JcZ33B2PoV8ziJl9kSzkXG8Yl5YmyzZek3aWG5gaVAQk+UjhlrTQrKpXZ+m4308a
-5RGEENqL4jcR9Gg52MwQkGg4GJVhPHqmKyFPntb0fLkfs2z/bL7/A6ZOYc6hqRX5
-mClB3rwRwTgE26Js/N0HL8QA9j2Bp0MiovulScUYOWw0YyC7klsHLIjjT/JRwdtK
-/4fq2Ye5oGpN3sWbrO3egfmVBMS3nnkuvlQ7j2tZwQUFUc+QNuEnbBi2yzPcl5hq
-CMmdCkbbkAnv01AsvJIl5hiTLWRa6YV6pVLl6n0jEUnmvUH9VDB+yZKB5AVn1MbU
-iwF6iUqIcVEla0YAVi6nQudufnzydzkwhr9lzIKg0XuEBGtms51601HDax/fx8Qu
-oTEPKnoTwgxqNOC7wyAPZGkMKdDXWhjyWEGt0Z8rJzyJFwVIqVdc+vir6u9/HHod
-GHUC8hRYmu0=
-=fsOf
------END PGP SIGNATURE-----
-
---==_Exmh_1619155674_38983P--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7b1f385c-3a97-efe0-bb8d-53cdb9c19dbf%40redhat.com.
