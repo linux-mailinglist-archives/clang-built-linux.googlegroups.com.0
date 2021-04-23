@@ -1,127 +1,140 @@
-Return-Path: <clang-built-linux+bncBDT6TV45WMPRBK6BROCAMGQEQSYKDJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY57XFCRMIBB5OVROCAMGQEBDNRWQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 808B4369540
-	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 16:58:52 +0200 (CEST)
-Received: by mail-qk1-x73f.google.com with SMTP id k12-20020a05620a0b8cb02902e028cc62basf14700069qkh.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 07:58:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619189931; cv=pass;
+Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F571369657
+	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 17:42:47 +0200 (CEST)
+Received: by mail-yb1-xb38.google.com with SMTP id v63-20020a252f420000b02904ecfc17c803sf13366541ybv.18
+        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 08:42:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619192566; cv=pass;
         d=google.com; s=arc-20160816;
-        b=C3uzrAN+Jm7wVLJB3yyZ8MgjlgW/r85qWvmShLqKHpJJKUJ/j5JMzuCfv+OboYMQ3Q
-         YXC4yZpmrERBGjoOdSlRe30Mf/zFb+pXy6tyb1UtdvPJ0uTsGB5zzdP8r0gzW3giptzo
-         AWKYmhcb3rWMyQGGEXs9FeUw+ReIeJIjV8PN3waVmHSyu01Tig9myrVthmnl9Gcy5nnM
-         xYqVQjG4ks4FsHsRanykzXR7fgxLqkG5MziTquJbGDCG2n6UGZwdPSSRxS3JERf6ircq
-         9YumT7SWHWU+V4kf/fqtLLROE4wlMubX6WeSd5SK0fF48Bu8sM0YRcGBeROHQ6UmyMHB
-         8PTw==
+        b=cRwHJ3M2w7gj45unEI4teo76Eas2gLTgBKj8DzNVuIlNLswJPjFk0llRia3Grl93ER
+         j09dAFQ8HV+VogikCGpsq0Wn2FvM+h2nFC2LjoTyBmmixC0EmD8NMJkZkzdzHJBMFl86
+         hW7htLrzyWp7e635z+QkSAtpYF6yCNSQrka8XAXOFWYCB453j1jaJvJj9rDxRu1lzhNF
+         xlucnO8I3Jb/zr7P7LZc/29Y4MA6fPQv5wRUh0ZXJ6laFZCClSMtJK98UR0xQdQdZaSm
+         pkS6XtYon61XehgkDZyDUkiLa8BP598IxQX6qV80vpCuluHzk2JQ6pq6asr1lUdh4gbO
+         6mow==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:from:to:subject
-         :content-transfer-encoding:mime-version:date:message-id:sender
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :message-id:cc:date:subject:to:from:mime-version:sender
          :dkim-signature;
-        bh=zF5UaJ4TwNsKgfBjI7RE4oP0KvP47B4ifC9vyRkg5X4=;
-        b=Gr6eqjz3eoROb8n5xdSqdmirzcReCPPn9vqtYDJQEgqKU56Q03rIEsY+WaYWCNGUCs
-         FfbEA3DgFdYFULcykmgaPfX5ExD7Rdv/PfZJvHSxWJ501zP22ydUbynNgsUu1KjgbZhj
-         Sv27dEvpeWeypMr31/Z6f9d4izXAb9fVlMLnkFTZl8QystB+1z6N5XvtcETOYOBxN3ou
-         9VdE0YhE/Np+dDOp8fMylE6FeRNmxdPA4sQiyYIyFn8HWVrb/juseQd/XJoUu57zw2fZ
-         ek4X+EzSs7Bd6tkKZ9ECtwO9qG+P2h0BuxES5oVDk5M9GfuU55EG3FF+fVcR3NojhIkw
-         qEHg==
+        bh=w0m5l2kXcfyNCUruzXhWUBGB9/WBINGU1UcaSqzy8XA=;
+        b=hyKIepJ2CLkhWRrFg/5fByM76Dv0M1ZNuMIyNy0Q8N8HUtyGifd6OBFX242VEyXARh
+         HNRVAXFumYTN9qZD8SFofRXLnaOxU42wWzMHgnoVzUYLptEHMqj3XTZf4PVvIgwcHX3v
+         h1tydx0z6SjOEBlU/obbMfJbZc4IxjubQyvDcs4JS7r6LpR00mHqdBnHQTyed3ZyRMdu
+         o3ZbqVlSll5JOoUYytjmWkboHpK8YdexhoSdY1KCLXluuUoTq1QbRVHX854p/LbohBvk
+         vel+ESLt02FIb/PJUCQKKBnaar01ukFx0fukCGg/jGT8B7ysv6YCzT0x3JoPgKNGulq7
+         18Mg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=C9P23BI3;
-       spf=neutral (google.com: 2607:f8b0:4864:20::633 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=EjVYbrW+;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:mime-version:content-transfer-encoding
-         :subject:to:from:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=zF5UaJ4TwNsKgfBjI7RE4oP0KvP47B4ifC9vyRkg5X4=;
-        b=F05+m818a5sJ8nK0UV/XdPzLweGFStX6O/sJ/UKaq1bf21kCU8Ix/NM6gO1RnvJ5Nm
-         +2iPh2mqqBjtAKevI6ry+sdfWjSGy7nnwOKnDzbps5CDW9z9KR8k1jC5ndDnwkbx6fR5
-         Eq2p8smc9JfLhwsPstiHdgFC0RIDVUGNdpNyL+gvAtvxa+2BsooQ2RXOUnh9ZZSM9d9u
-         cXeGE3sYDD/wwpwCL3L7uyIWvJxIxiHAs5n78l/M8IdAxSmIVT9CUPOb4JmSVSzl5W29
-         GkMBjAT3iV6sau477JIDc3mwmAP9qTZ7Cb/2TCUyKz2dlQcJydL07mXofEf0lLpl9QTT
-         ghlQ==
+        h=sender:mime-version:from:to:subject:date:cc:message-id
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=w0m5l2kXcfyNCUruzXhWUBGB9/WBINGU1UcaSqzy8XA=;
+        b=sxMYib/WLV3GA7zA2r1o3Rf9NxVK2ikBhefQI4ltdtDp/suJeiyl9p0Ynph2ZpDiBT
+         XkPNI9UGTLX6RdMFQKM8tMitilQ707Gq96nZ7YlQx4G7TC2Olw9DQi4Ui+wSFgbcAa/l
+         wZNkeh88GQtggMrdta/zihjNf2GBudLHUUPq2QlMvUM1nmL4SVT/Gm/pXYlSfwO/guc4
+         +gzf5PZr6UhnytKt9sYcMmT5eyFTbQ25Ax8I6Ppn3SkgF8hNw9QYIXPh8YDhCDGYyT5q
+         XVa2p9/BWlkFGAc8JgyqLtpnwcOdGaBoNdglxQzgLGYgs+MrxVKI0/BnQqbNx01mjnAN
+         YscA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:mime-version
-         :content-transfer-encoding:subject:to:from:x-original-sender
+        h=sender:x-gm-message-state:mime-version:from:to:subject:date:cc
+         :message-id:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=zF5UaJ4TwNsKgfBjI7RE4oP0KvP47B4ifC9vyRkg5X4=;
-        b=GAMSURkyfFlT2DH8mvThuPP7s8a9P0cVl8PG0Sz6iOlTr7K9L4LyNyFb9w/BUNFeCq
-         B7yexUuQDWUA27Pk1UehuUFartC5QtU2q0AHi59xhVPC22r5REkVmdbH2eYuED5NDR8Z
-         Ga8m09VjZ5o2Te6kgYKIyMkKQuI1mq8+GtRzqAjPQdEhDmcdRVwlJp443pvf+FAQSAis
-         V7F4iiCWm9mHuLZ2E5YamUwEpmnBifccw0PwpZsCnE0ntxpGVg6rgXEdoYCBtYPilqg/
-         5DsyBGv2+defKVREGDINQiEta048fhhFrjWWXaS5DtYjPZGGQur/hxDRe55NdLM+GhOs
-         R8fw==
+        bh=w0m5l2kXcfyNCUruzXhWUBGB9/WBINGU1UcaSqzy8XA=;
+        b=CO557I6FdcrlgZfNrAV3do3FxbdCYMZ4V7znOMWl+eGDmZ1+pGv+YXwmZDgJHzDaCj
+         hPqXpKOkL6qbKpU9KCpjpiPguWUZmxD6pFfsLGMB1a8Hr8yxiHU0ArO9Pctt6967GEK6
+         IcQzADRGxPnC1GuSsEovdluC+7LFC0Na5vqxcB1VFZ0QBa0GCIQ5DhEIXDG4GDPKBchB
+         VcChppdkrNHjAW83BbbWve3TBszo1cA37tP/grFHLxMmB3ugVyqApppkZ8wzefp+4/Mj
+         dkYjp3TxQo7US7PAdxKiL0pzPKezi1ba4eL3fpqye0wT5jEZ2cbGZ/OqUgQInKa3IB6Q
+         GbCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5318a5sXK+T7UjjCAe9BhBKwhV6GCIStx/M816MACyFZSG/MTDST
-	1KIMaOqky8QDF1g78PEpzZQ=
-X-Google-Smtp-Source: ABdhPJxwbC7Cj19+0P+4I6a+S2djKsE2RRw6NVVOVyYLOXUJvBySjdQbEOn0xogcg4H0f98ZQbMC/A==
-X-Received: by 2002:ad4:55d3:: with SMTP id bt19mr4688192qvb.11.1619189931559;
-        Fri, 23 Apr 2021 07:58:51 -0700 (PDT)
+X-Gm-Message-State: AOAM532j5aBfLnssPomDCxTrMdYFrGO34eLKWLMMBMWGohgVKXMtiZzy
+	DEtYyWXrVEMEHCFFJonNEk0=
+X-Google-Smtp-Source: ABdhPJykGvgUVHJibuPptVvrdUS7vbliZOh8KujG6wOBh0iE+vouVIUz/cDPH1/vPonOKVi2V4nDeQ==
+X-Received: by 2002:a25:14d4:: with SMTP id 203mr6229032ybu.261.1619192566006;
+        Fri, 23 Apr 2021 08:42:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:622a:1447:: with SMTP id v7ls3970345qtx.4.gmail; Fri, 23
- Apr 2021 07:58:51 -0700 (PDT)
-X-Received: by 2002:ac8:4641:: with SMTP id f1mr4332684qto.142.1619189930858;
-        Fri, 23 Apr 2021 07:58:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619189930; cv=none;
+Received: by 2002:a25:240a:: with SMTP id k10ls4448393ybk.10.gmail; Fri, 23
+ Apr 2021 08:42:45 -0700 (PDT)
+X-Received: by 2002:a5b:70d:: with SMTP id g13mr5986374ybq.423.1619192565405;
+        Fri, 23 Apr 2021 08:42:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619192565; cv=none;
         d=google.com; s=arc-20160816;
-        b=0MMmysw4n+Kip2631eB43a7lSUMOl58qsxFcVreQ5VN05e4ELj1sk09iHF59efwIfK
-         FFxFQa0EtxH8mI3gJKASfcQZBynk/EaR1P1AMRZK/zI9D4ZDKme26LgLVz5Owa77JZZD
-         4zV5QJonozqMXVQ9LrFQu5OAeYg23E0wMsoror0jSBUWmNnOehoZb/xgQMsA/BuSCfzR
-         yTR8cMIhbR/oqE/qxD4NoRNWcA6mQfEnP2zOd3NUoJDhWVfRJbaUUo2Wjr3H6W8TlUXv
-         yYSs4OAKv6FeDAdXtm1XpttnzpY6HflCLRfPi5eU0Kai4/4WqpqITWa/2J44txulO2TM
-         5vUw==
+        b=SlMIK+YQdsRS3G/q2pnXCU/nzfI7w93mKIsaZV0kvJsu4gmsiHHywW3Xx/H6mWPV2w
+         0E72GNkosUSvtslnTRtApZqLZ/L9eTvEiUsxy4HSysq7lEplpNuzc5U6nj1f7k6lRTmE
+         n6R5IIt8kdSD59ZHQDBRR4oTm1U4zi5d8qwydKhyeSG53EbO00Ewc9Rm+GIfHODnDf16
+         3H0/h2bG0kal4vJNTeZUb+4+2DvyAl8IPw5eVQ+dktBhVtKwQ1OrGXR35PI4OsY8hjZ5
+         tEF0AfVGhR8rZBSmCFQOpQy5q7VISuFWJYSKCMlO/zjWP//9EcGgudKJK5iHsOds0pit
+         eWwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:dkim-signature;
-        bh=7srIGJnPECEzhb5Eb5+cc0+5wG9AnLWvQPkyy8zBbz8=;
-        b=p3ncOE7Bll72P6lwSNWylQnJV0dRKTvN2t40vfDeN/4Q0/pMIM4NAMN7vc/Ow12z/g
-         4ggaOi5VEEBxSrNkmN3JWzlvAuDtYm0F8CjBbaDgSE4ivs3MRUxEUU8dwLb1sK3PDemP
-         Z7fgxOtGkyJ4NyZeGg14O8J4+kOYWYb/ZS9JcXGwJxdMCLcxw0swBivScXuV1g3q491Z
-         7fZ5GoT9WX0dLPoJCg8lh7fLdY6U+jUmafL0M6U3d1ZblZo6ERLEytapq3uk6SbGFnJq
-         phPk/rrBkL+tA7hJ+JBhD4Ua5EwEJDLRTdsHRqZjvfPU2LdGh6kaWUfhuZCFtx0vgxXB
-         wL+g==
+        h=content-transfer-encoding:message-id:cc:date:subject:to:from
+         :mime-version:dkim-signature;
+        bh=hm4EYep3kKgnXZSaLLK+PoTv+RIETtMNdpV2V/hwc+8=;
+        b=aCMehQhSx9RQBmQ0CySkUJLLkQYIDUYd8W+k6hTE7VEyZTtS/6GFPo3HrjfpPGrjPz
+         JGMhBHcB5SR+ZJCssF2Yvo+a3JgSeK4ri2ygSALzg3pNDvF1ay43mEjo0KkhTvv0olbh
+         QBukH23XAkiQk535qD3hdWDcJw/ZYxhY3witueiHKCKfAlbXxHkuBrGZko6M/9wXbmCi
+         rd+PErKRzx2QvzxIHuSiJGCdI3HgRV6mzprWeFvsJKWrmXYnA3xJMdfVL30IjiR8G4Wv
+         Aa1gSe6PNekfLkaTGEDmRsAi/HYTvkiHVLSMGixYyWWqZH/tRG9tQgntsRGc8yPpcFgP
+         /0WA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=C9P23BI3;
-       spf=neutral (google.com: 2607:f8b0:4864:20::633 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
-Received: from mail-pl1-x633.google.com (mail-pl1-x633.google.com. [2607:f8b0:4864:20::633])
-        by gmr-mx.google.com with ESMTPS id h62si744605qkc.3.2021.04.23.07.58.50
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=EjVYbrW+;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id a10si836181ybc.1.2021.04.23.08.42.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Apr 2021 07:58:50 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::633 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::633;
-Received: by mail-pl1-x633.google.com with SMTP id t22so25020263ply.1
-        for <clang-built-linux@googlegroups.com>; Fri, 23 Apr 2021 07:58:50 -0700 (PDT)
-X-Received: by 2002:a17:90a:5511:: with SMTP id b17mr6151239pji.41.1619189928238;
-        Fri, 23 Apr 2021 07:58:48 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
-        by smtp.gmail.com with ESMTPSA id o3sm4845743pfk.203.2021.04.23.07.58.46
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Apr 2021 07:58:47 -0700 (PDT)
-Message-ID: <6082e0a7.1c69fb81.2d923.e372@mx.google.com>
-Date: Fri, 23 Apr 2021 07:58:47 -0700 (PDT)
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 23 Apr 2021 08:42:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-289-l7Th2jQePv-Wp7MFatAeIQ-1; Fri, 23 Apr 2021 11:42:42 -0400
+X-MC-Unique: l7Th2jQePv-Wp7MFatAeIQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 626E2106BC0A
+	for <clang-built-linux@googlegroups.com>; Fri, 23 Apr 2021 15:42:41 +0000 (UTC)
+Received: from [172.22.11.79] (unknown [10.0.115.152])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 2BCD160BD8;
+	Fri, 23 Apr 2021 15:42:31 +0000 (UTC)
 MIME-Version: 1.0
+From: CKI Project <cki-project@redhat.com>
+To: skt-results-master@redhat.com, clang-built-linux@googlegroups.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for kernel 5.12.0-rc8
+ (mainline.kernel.org-clang, 90c911ad)
+Date: Fri, 23 Apr 2021 15:42:31 -0000
+CC: Milos Malik <mmalik@redhat.com>, Ondrej Mosnacek <omosnace@redhat.com>,
+ Yi Zhang <yizhan@redhat.com>, Memory Management <mm-qe@redhat.com>,
+ Jan Stancek <jstancek@redhat.com>, Jianlin Shi <jishi@redhat.com>,
+ Jianwen Ji <jiji@redhat.com>, Hangbin Liu <haliu@redhat.com>
+Message-ID: <cki.498C130773.4NIVLM5JCN@redhat.com>
+X-Gitlab-Pipeline-ID: 290899247
+X-Gitlab-Url: https://gitlab.com
+X-Gitlab-Path: =?utf-8?q?/redhat/red-hat-ci-tools/kernel/cki-internal-pipeli?=
+ =?utf-8?q?nes/external-triggers/pipelines/290899247?=
+X-DataWarehouse-Revision-IID: 12480
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Kernel: next-20210423
-X-Kernelci-Report-Type: build
-X-Kernelci-Tree: next
-X-Kernelci-Branch: master
-Subject: next/master build: 207 builds: 5 failed, 202 passed, 15 errors,
- 240 warnings (next-20210423)
-To: clang-built-linux@googlegroups.com
-From: "kernelci.org bot" <bot@kernelci.org>
-X-Original-Sender: bot@kernelci.org
+X-Original-Sender: cki-project@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
- header.b=C9P23BI3;       spf=neutral (google.com: 2607:f8b0:4864:20::633 is
- neither permitted nor denied by best guess record for domain of
- bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=EjVYbrW+;
+       spf=pass (google.com: domain of cki-project@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,2009 +147,633 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-next/master build: 207 builds: 5 failed, 202 passed, 15 errors, 240 warning=
-s (next-20210423)
 
-Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
-xt-20210423/
+Hello,
 
-Tree: next
-Branch: master
-Git Describe: next-20210423
-Git Commit: e3d35712f85ac84fb06234848f6c043ab418cf8b
-Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+We ran automated tests on a recent commit from this kernel tree:
+
+       Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvald=
+s/linux.git
+            Commit: 90c911ad7445 - Merge tag 'fixes' of git://git.kernel.or=
+g/pub/scm/linux/kernel/git/jejb/tpmdd
+
+The results of these automated tests are provided below.
+
+    Overall result: FAILED (see details below)
+             Merge: OK
+           Compile: OK
+ Selftests compile: FAILED
+             Tests: FAILED
+
+All kernel binaries, config files, and logs are available for download here=
+:
+
+  https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?pre=
+fix=3Ddatawarehouse-public/2021/04/22/290899247
+
+One or more kernel tests failed:
+
+    s390x:
+     =E2=9D=8C LTP
+     =E2=9D=8C Networking tunnel: geneve basic test
+
+    ppc64le:
+     =E2=9D=8C LTP
+     =E2=9D=8C Networking tunnel: geneve basic test
+
+We hope that these logs can help you find the problem quickly. For the full
+detail on our testing procedures, please scroll to the bottom of this messa=
+ge.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
+Compile testing
+---------------
+
+We compiled the kernel for 4 architectures:
+
+    aarch64:
+      make options: make LLVM=3D1 -j24 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+    ppc64le:
+      make options: make CC=3Dclang -j24 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+    s390x:
+      make options: make CC=3Dclang -j24 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+    x86_64:
+      make options: make LLVM=3D1 -j24 INSTALL_MOD_STRIP=3D1 targz-pkg
+
+
+We built the following selftests:
+
+  x86_64:
+      net: OK
+      bpf: fail
+      install and packaging: OK
+
+You can find the full log (build-selftests.log) in the artifact storage abo=
+ve.
+
+
+Hardware testing
+----------------
+We booted each kernel and ran the following tests:
+
+  aarch64:
+    Host 1:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI table test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI enabled test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking cki netfilter test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - transpor=
 t
-Built: 7 unique architectures
-
-Build Failures Detected:
-
-arm:
-    aspeed_g5_defconfig: (clang-10) FAIL
-
-mips:
-    allnoconfig: (gcc-8) FAIL
-    decstation_64_defconfig: (gcc-8) FAIL
-    lemote2f_defconfig: (gcc-8) FAIL
-    malta_qemu_32r6_defconfig: (gcc-8) FAIL
-
-Errors and Warnings Detected:
-
-arc:
-
-arm64:
-    allmodconfig (gcc-8): 1 warning
-    allmodconfig (clang-10): 36 warnings
-    allmodconfig (clang-12): 32 warnings
-    defconfig (gcc-8): 1 warning
-    defconfig (clang-10): 5 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 1 warning
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-12): 4 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 5 warnings
-    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
-
-arm:
-    allmodconfig (gcc-8): 1 warning
-    aspeed_g5_defconfig (clang-10): 11 errors
-    multi_v7_defconfig (clang-12): 5 warnings
-    multi_v7_defconfig (clang-10): 5 warnings
-    omap1_defconfig (gcc-8): 2 warnings
-
-i386:
-    allmodconfig (clang-10): 47 warnings
-    allmodconfig (clang-12): 49 warnings
-
-mips:
-    allnoconfig (gcc-8): 1 error
-    malta_qemu_32r6_defconfig (gcc-8): 3 errors
-    rb532_defconfig (gcc-8): 1 warning
-    rm200_defconfig (gcc-8): 1 warning
-    xway_defconfig (gcc-8): 2 warnings
-
-riscv:
-    rv32_defconfig (gcc-8): 6 warnings
-
-x86_64:
-    allmodconfig (clang-10): 32 warnings
-    allmodconfig (gcc-8): 1 warning
-    x86_64_defconfig (clang-10): 2 warnings
-
-Errors summary:
-
-    3    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand =
-constraints in an =E2=80=98asm=E2=80=99
-    2    ERROR: modpost: Section mismatches detected.
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37D94): reloca=
-tion R_ARM_PREL31 out of range: 2135571364 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CEC): reloca=
-tion R_ARM_PREL31 out of range: 2135571532 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CDC): reloca=
-tion R_ARM_PREL31 out of range: 2135571548 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C8C): reloca=
-tion R_ARM_PREL31 out of range: 2135571628 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C7C): reloca=
-tion R_ARM_PREL31 out of range: 2135571644 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C64): reloca=
-tion R_ARM_PREL31 out of range: 2135571668 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C4C): reloca=
-tion R_ARM_PREL31 out of range: 2135571692 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C1C): reloca=
-tion R_ARM_PREL31 out of range: 2135571740 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37BEC): reloca=
-tion R_ARM_PREL31 out of range: 2135571788 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37BA4): reloca=
-tion R_ARM_PREL31 out of range: 2135571860 is not in [-1073741824, 10737418=
-23]
-    1    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35570): reloca=
-tion R_ARM_PREL31 out of range: 2135516104 is not in [-1073741824, 10737418=
-23]
-
-Warnings summary:
-
-    41   1 warning generated.
-    9    2 warnings generated.
-    7    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: v=
-ariable 'parent_name' is uninitialized when used here [-Wuninitialized]
-    7    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: init=
-ialize the variable 'parent_name' to silence this warning
-    6    arch/arm64/configs/defconfig:1018:warning: override: reassigning t=
-o symbol MTK_PMIC_WRAP
-    5    drivers/platform/surface/surface_aggregator_registry.c:478:25: war=
-ning: implicit conversion from 'int' to '__u8' (aka 'unsigned char') change=
-s value from 65535 to 255 [-Wconstant-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conv=
-ersion from enumeration type 'enum goya_pll_index' to different enumeration=
- type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    5    drivers/memstick/host/r592.c:367:2: warning: ignoring return value=
- of function declared with 'warn_unused_result' attribute [-Wunused-result]
-    5    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit co=
-nversion from 'int' to '__u8' (aka 'unsigned char') changes value from 6553=
-5 to 255 [-Wconstant-conversion]
-    5    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.=
-c:3015:53: warning: address of 'aconnector->mst_port->mst_mgr' will always =
-evaluate to 'true' [-Wpointer-bool-conversion]
-    5    7 warnings generated.
-    5    10 warnings generated.
-    4    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit co=
-nversion from enumeration type 'enum gaudi_pll_index' to different enumerat=
-ion type 'enum pll_index' [-Wenum-conversion]
-    3    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enu=
-meration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'en=
-um cpuid_leafs' [-Wenum-conversion]
-    3    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc8-next-20210423/kernel/drivers/media/tuners/tuner-types.ko: u=
-nsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    3    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =
-=E2=80=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute w=
-arn_unused_result [-Wunused-result]
-    2    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    2    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implici=
-t conversion from 'unsigned long long' to 'unsigned long' changes value fro=
-m 5000000000 to 705032704 [-Wconstant-conversion]
-    2    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
- warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
-u' [-Wframe-larger-than=3D]
-    2    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enu=
-meration type 'enum kvm_only_cpuid_leafs' to different enumeration type 'en=
-um cpuid_leafs' [-Wenum-conversion]
-    2    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
--Wcpp]
-    2    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
--Wcpp]
-    2    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
-d [-Wcpp]
-    1    warning: implicit conversion from enumeration type 'enum kvm_only_=
-cpuid_leafs' to different enumeration type 'enum cpuid_leafs' [-Wenum-conve=
-rsion]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=
-=99 defined but not used [-Wunused-function]
-    1    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return=
- value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
-d_result [-Wunused-result]
-    1    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return=
- value of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unuse=
-d_result [-Wunused-result]
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_prefault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+=
-0
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_copy_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
-alc.c:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_d=
-lg_get_dlg_params' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
-alc.c:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_d=
-lg_get_dlg_params' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
-calc_30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_=
-rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml21_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCL=
-KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
-' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:1463:13: warning: stack frame size of 1116 bytes in function 'DISPCL=
-KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
-' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20=
-v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20=
-v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml2=
-0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
-alculation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml2=
-0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
-alculation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_=
-DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
-lation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_=
-DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
-lation' [-Wframe-larger-than=3D]
-    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
-    1    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_g=
-piod_table=E2=80=99 defined but not used [-Wunused-variable]
-    1    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98am=
-s_delta_camera_power=E2=80=99 defined but not used [-Wunused-function]
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc8-next-20210423/kernel/drivers/clk/keystone/pll.ko: unsupport=
-ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc8-next-20210423/kernel/drivers/clk/keystone/gate.ko: unsuppor=
-ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/mod=
-ules/5.12.0-rc8-next-20210423/kernel/crypto/cast_common.ko: unsupported GNU=
-_PROPERTY_TYPE (5) type: 0xc0000000
-    1    :127:14: warning: implicit conversion from enumeration type 'enum =
-gaudi_pll_index' to different enumeration type 'enum pll_index' [-Wenum-con=
-version]
-
-Section mismatches summary:
-
-    2    WARNING: modpost: vmlinux.o(.text+0x9f18): Section mismatch in ref=
-erence from the function reserve_exception_space() to the function .meminit=
-.text:memblock_reserve()
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
-smatches
-
-Warnings:
-    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =E2=80=
-=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute warn_un=
-used_result [-Wunused-result]
-
----------------------------------------------------------------------------=
------
-allmodconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 47 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumerat=
-ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
-uid_leafs' [-Wenum-conversion]
-    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
-ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
-uid_leafs' [-Wenum-conversion]
-    2 warnings generated.
-    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    7 warnings generated.
-    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    :127:14: warning: implicit conversion from enumeration type 'enum gaudi=
-_pll_index' to different enumeration type 'enum pll_index' [-Wenum-conversi=
-on]
-    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    10 warnings generated.
-    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
-5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
-ate to 'true' [-Wpointer-bool-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
-ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
-:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_dlg_ge=
-t_dlg_params' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_DISPC=
-LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
-n' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml20v2_D=
-ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
-ation' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCLKDPPC=
-LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
-frame-larger-than=3D]
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20v2_Mo=
-deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:3393:6: warning: stack frame size of 1548 bytes in function 'dml21_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    2 warnings generated.
-    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
-unction declared with 'warn_unused_result' attribute [-Wunused-result]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =E2=80=
-=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute warn_un=
-used_result [-Wunused-result]
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 32 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    arch/x86/kvm/cpuid.c:499:29: warning: implicit conversion from enumerat=
-ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
-uid_leafs' [-Wenum-conversion]
-    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
-ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
-uid_leafs' [-Wenum-conversion]
-    2 warnings generated.
-    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    7 warnings generated.
-    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    10 warnings generated.
-    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
-5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
-ate to 'true' [-Wpointer-bool-conversion]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
-unction declared with 'warn_unused_result' attribute [-Wunused-result]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 36 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    7 warnings generated.
-    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    10 warnings generated.
-    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
-5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
-ate to 'true' [-Wpointer-bool-conversion]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
-unction declared with 'warn_unused_result' attribute [-Wunused-result]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc8-next-20210423/kernel/crypto/cast_common.ko: unsupported GNU_PROP=
-ERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc8-next-20210423/kernel/drivers/clk/keystone/gate.ko: unsupported G=
-NU_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc8-next-20210423/kernel/drivers/clk/keystone/pll.ko: unsupported GN=
-U_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc8-next-20210423/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-allmodconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 49 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1248 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    warning: implicit conversion from enumeration type 'enum kvm_only_cpuid=
-_leafs' to different enumeration type 'enum cpuid_leafs' [-Wenum-conversion=
-]
-    arch/x86/kvm/cpuid.c:837:31: warning: implicit conversion from enumerat=
-ion type 'enum kvm_only_cpuid_leafs' to different enumeration type 'enum cp=
-uid_leafs' [-Wenum-conversion]
-    2 warnings generated.
-    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    7 warnings generated.
-    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    10 warnings generated.
-    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
-5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
-ate to 'true' [-Wpointer-bool-conversion]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
-ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
-:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_dlg_ge=
-t_dlg_params' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
-unction declared with 'warn_unused_result' attribute [-Wunused-result]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_DISPC=
-LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
-n' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:1463:13: warning: stack frame size of 1116 bytes in function 'DISPCLKDPPC=
-LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
-frame-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml20v2_D=
-ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
-ation' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:3393:6: warning: stack frame size of 1436 bytes in function 'dml21_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20v2_Mo=
-deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    2 warnings generated.
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
-30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_rq_dl=
-g_get_dlg_params' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 32 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    drivers/misc/habanalabs/goya/goya.c:141:15: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:138:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:137:13: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:142:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:139:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:140:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/goya/goya.c:136:14: warning: implicit conversio=
-n from enumeration type 'enum goya_pll_index' to different enumeration type=
- 'enum pll_index' [-Wenum-conversion]
-    7 warnings generated.
-    drivers/misc/habanalabs/gaudi/gaudi.c:129:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:128:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:135:13: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:134:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:133:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:132:15: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:131:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:130:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:127:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    drivers/misc/habanalabs/gaudi/gaudi.c:126:14: warning: implicit convers=
-ion from enumeration type 'enum gaudi_pll_index' to different enumeration t=
-ype 'enum pll_index' [-Wenum-conversion]
-    10 warnings generated.
-    drivers/platform/surface/surface_aggregator_registry.c:478:25: warning:=
- implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes val=
-ue from 65535 to 255 [-Wconstant-conversion]
-    1 warning generated.
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_debugfs.c:301=
-5:53: warning: address of 'aconnector->mst_port->mst_mgr' will always evalu=
-ate to 'true' [-Wpointer-bool-conversion]
-    1 warning generated.
-    drivers/memstick/host/r592.c:367:2: warning: ignoring return value of f=
-unction declared with 'warn_unused_result' attribute [-Wunused-result]
-    1 warning generated.
-    drivers/hid/surface-hid/surface_hid.c:233:25: warning: implicit convers=
-ion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to =
-255 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    ./include/linux/kfifo.h:588:1: warning: ignoring return value of =E2=80=
-=98__kfifo_uint_must_check_helper=E2=80=99, declared with attribute warn_un=
-used_result [-Wunused-result]
-
----------------------------------------------------------------------------=
------
-allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
-smatches
-
-Errors:
-    ERROR: modpost: Section mismatches detected.
-
-Section mismatches:
-    WARNING: modpost: vmlinux.o(.text+0x9f18): Section mismatch in referenc=
-e from the function reserve_exception_space() to the function .meminit.text=
-:memblock_reserve()
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-10) =E2=80=94 FAIL, 11 errors, 0 warnings, =
-0 section mismatches
-
-Errors:
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x35570): relocation =
-R_ARM_PREL31 out of range: 2135516104 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37BA4): relocation =
-R_ARM_PREL31 out of range: 2135571860 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37BEC): relocation =
-R_ARM_PREL31 out of range: 2135571788 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C1C): relocation =
-R_ARM_PREL31 out of range: 2135571740 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C4C): relocation =
-R_ARM_PREL31 out of range: 2135571692 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C64): relocation =
-R_ARM_PREL31 out of range: 2135571668 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C7C): relocation =
-R_ARM_PREL31 out of range: 2135571644 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37C8C): relocation =
-R_ARM_PREL31 out of range: 2135571628 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CDC): relocation =
-R_ARM_PREL31 out of range: 2135571548 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37CEC): relocation =
-R_ARM_PREL31 out of range: 2135571532 is not in [-1073741824, 1073741823]
-    ld.lld: error: .tmp_vmlinux.kallsyms1:(.ARM.exidx+0x37D94): relocation =
-R_ARM_PREL31 out of range: 2135571364 is not in [-1073741824, 1073741823]
-
----------------------------------------------------------------------------=
------
-assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
- mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc8-next-20210423/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
-s, 1 warning, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-12) =E2=80=94 PASS, 0 er=
-rors, 4 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
-rors, 5 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/_modules_/lib/modules/=
-5.12.0-rc8-next-20210423/kernel/drivers/media/tuners/tuner-types.ko: unsupp=
-orted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:1018:warning: override: reassigning to sym=
-bol MTK_PMIC_WRAP
-
----------------------------------------------------------------------------=
------
-dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 FAIL, 3 errors, 0 warning=
-s, 0 section mismatches
-
-Errors:
-    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand const=
-raints in an =E2=80=98asm=E2=80=99
-    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand const=
-raints in an =E2=80=98asm=E2=80=99
-    ./arch/mips/include/asm/div64.h:76:3: error: inconsistent operand const=
-raints in an =E2=80=98asm=E2=80=99
-
----------------------------------------------------------------------------=
------
-maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
-
----------------------------------------------------------------------------=
------
-mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
-section mismatches
-
-Warnings:
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
-version from 'unsigned long long' to 'unsigned long' changes value from 500=
-0000000 to 705032704 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
-section mismatches
-
-Warnings:
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:425:11: warning: variab=
-le 'parent_name' is uninitialized when used here [-Wuninitialized]
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_28nm_8960.c:385:30: note: initializ=
-e the variable 'parent_name' to silence this warning
-    1 warning generated.
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
-version from 'unsigned long long' to 'unsigned long' changes value from 500=
-0000000 to 705032704 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
- errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_gpiod_=
-table=E2=80=99 defined but not used [-Wunused-variable]
-    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98ams_del=
-ta_camera_power=E2=80=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/pci/vpd.c:289:13: warning: =E2=80=98pci_vpd_set_size=E2=80=99 d=
-efined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/block/paride/bpck.c:32: warning: "PC" redefined
-
----------------------------------------------------------------------------=
------
-rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
- section mismatches
-
-Warnings:
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_pr=
-efault_relocations()+0xc6: stack state mismatch: cfa1=3D4+8 cfa2=3D-1+0
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
-py_relocations()+0x249: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
- warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/net/ethernet/lantiq_etop.c:273:4: warning: ignoring return valu=
-e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
-ult [-Wunused-result]
-    drivers/net/ethernet/lantiq_etop.c:281:4: warning: ignoring return valu=
-e of =E2=80=98request_irq=E2=80=99, declared with attribute warn_unused_res=
-ult [-Wunused-result]
-
----------------------------------------------------------------------------=
------
-zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----
-For more info write to <info@kernelci.org>
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 i2c: i2cdetect sanity
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Firmware test suite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+
+    Host 2:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9C=85 xfstests - ext4
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: lvm device-mapper =
+test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 3:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI table test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI enabled test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking cki netfilter test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - transpor=
+t
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 i2c: i2cdetect sanity
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Firmware test suite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+
+    Host 4:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI table test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ACPI enabled test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking cki netfilter test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - transpor=
+t
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 i2c: i2cdetect sanity
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Firmware test suite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+
+  ppc64le:
+    Host 1:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking cki netfilter test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+
+    Host 2:
+       =E2=9C=85 Boot test
+       =F0=9F=9A=A7 =E2=9C=85 Storage: lvm device-mapper test
+
+    Host 3:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking cki netfilter test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+
+    Host 4:
+       =E2=9C=85 Boot test
+       =E2=9D=8C LTP
+       =E2=9C=85 CIFS Connectathon
+       =E2=9C=85 POSIX pjd-fstest suites
+       =E2=9C=85 Loopdev Sanity
+       =E2=9C=85 jvm - jcstress tests
+       =E2=9C=85 Memory: fork_mem
+       =E2=9C=85 Memory function: memfd_create
+       =E2=9C=85 AMTU (Abstract Machine Test Utility)
+       =E2=9C=85 Networking bridge: sanity
+       =E2=9C=85 Ethernet drivers sanity
+       =E2=9C=85 Networking socket: fuzz
+       =E2=9C=85 Networking route: pmtu
+       =E2=9C=85 Networking route_func - local
+       =E2=9C=85 Networking route_func - forward
+       =E2=9C=85 Networking TCP: keepalive test
+       =E2=9C=85 Networking UDP: socket
+       =E2=9C=85 Networking cki netfilter test
+       =E2=9D=8C Networking tunnel: geneve basic test
+       =E2=9C=85 Networking tunnel: gre basic
+       =E2=9C=85 L2TP basic test
+       =E2=9C=85 Networking tunnel: vxlan basic
+       =E2=9C=85 Networking ipsec: basic netns - tunnel
+       =E2=9C=85 Libkcapi AF_ALG test
+       =E2=9C=85 pciutils: update pci ids test
+       =E2=9C=85 ALSA PCM loopback test
+       =E2=9C=85 ALSA Control (mixer) Userspace Element test
+       =E2=9C=85 trace: ftrace/tracer
+       =F0=9F=9A=A7 =E2=9C=85 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9C=85 audit: audit testsuite test
+
+  s390x:
+    Host 1:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9C=85 Storage: swraid mdadm raid_module test
+       =F0=9F=9A=A7 =E2=9D=8C selinux-policy: serge-testsuite
+       =F0=9F=9A=A7 =E2=9C=85 Storage blktests
+       =F0=9F=9A=A7 =E2=9D=8C Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 2:
+       =E2=9C=85 Boot test
+       =E2=9D=8C LTP
+       =E2=9C=85 CIFS Connectathon
+       =E2=9C=85 POSIX pjd-fstest suites
+       =E2=9C=85 Loopdev Sanity
+       =E2=9C=85 jvm - jcstress tests
+       =E2=9C=85 Memory: fork_mem
+       =E2=9C=85 Memory function: memfd_create
+       =E2=9C=85 AMTU (Abstract Machine Test Utility)
+       =E2=9C=85 Networking bridge: sanity
+       =E2=9C=85 Ethernet drivers sanity
+       =E2=9C=85 Networking route: pmtu
+       =E2=9C=85 Networking route_func - local
+       =E2=9C=85 Networking route_func - forward
+       =E2=9C=85 Networking TCP: keepalive test
+       =E2=9C=85 Networking UDP: socket
+       =E2=9C=85 Networking cki netfilter test
+       =E2=9D=8C Networking tunnel: geneve basic test
+       =E2=9C=85 Networking tunnel: gre basic
+       =E2=9C=85 L2TP basic test
+       =E2=9C=85 Networking tunnel: vxlan basic
+       =E2=9C=85 Networking ipsec: basic netns - transport
+       =E2=9C=85 Networking ipsec: basic netns - tunnel
+       =E2=9C=85 Libkcapi AF_ALG test
+       =E2=9C=85 trace: ftrace/tracer
+       =E2=9C=85 kdump - kexec_boot
+       =F0=9F=9A=A7 =E2=9C=85 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9C=85 audit: audit testsuite test
+
+    Host 3:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+
+    Host 4:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+
+    Host 5:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - sysrq-c
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - file-load
+
+  x86_64:
+    Host 1:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - nfsv4.2
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 power-management: cpupower/sanity test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CPU: Idle Test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - cifsv3.11
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvdimm ndctl test s=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: lvm device-mapper =
+test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 2:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9C=85 Boot test
+       =E2=9C=85 ACPI table test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 LTP
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 CIFS Connectathon
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 POSIX pjd-fstest suites
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Loopdev Sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 jvm - jcstress tests
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory: fork_mem
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: memfd_create
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 AMTU (Abstract Machine Test Utility)
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking bridge: sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Ethernet drivers sanity
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking socket: fuzz
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking: igmp conformance test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route: pmtu
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - local
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking route_func - forward
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking TCP: keepalive test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking UDP: socket
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking cki netfilter test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: geneve basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: gre basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 L2TP basic test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking tunnel: vxlan basic
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - transpor=
+t
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Networking ipsec: basic netns - tunnel
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Libkcapi AF_ALG test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: sanity smoke test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 pciutils: update pci ids test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA PCM loopback test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 ALSA Control (mixer) Userspace Element t=
+est
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: SCSI VPD
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 trace: ftrace/tracer
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 kdump - kexec_boot
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 i2c: i2cdetect sanity
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Firmware test suite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Memory function: kaslr
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 audit: audit testsuite test
+
+    Host 3:
+       =E2=9C=85 Boot test
+       =E2=9C=85 kdump - file-load
+       =F0=9F=9A=A7 =E2=9C=85 kdump - sysrq-c
+
+    Host 4:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - nfsv4.2
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 power-management: cpupower/sanity test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CPU: Idle Test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - cifsv3.11
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvdimm ndctl test s=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: lvm device-mapper =
+test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+    Host 5:
+
+       =E2=9A=A1 Internal infrastructure issues prevented one or more tests=
+ (marked
+       with =E2=9A=A1=E2=9A=A1=E2=9A=A1) from running on this architecture.
+       This is not the fault of the kernel that was tested.
+
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Boot test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - ext4
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - xfs
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - nfsv4.2
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 power-management: cpupower/sanity test
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 storage: software RAID testing
+       =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: swraid mdadm raid_module test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 CPU: Idle Test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - btrfs
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 xfstests - cifsv3.11
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMI driver test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 IPMItool loop stress test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 selinux-policy: serge-tests=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage blktests
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - filesystem =
+fio test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage block - queue sched=
+uler test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvme - tcp
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage nvdimm ndctl test s=
+uite
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 Storage: lvm device-mapper =
+test
+       =F0=9F=9A=A7 =E2=9A=A1=E2=9A=A1=E2=9A=A1 stress: stress-ng
+
+  Test sources: https://gitlab.com/cki-project/kernel-tests
+    =F0=9F=92=9A Pull requests are welcome for new tests or improvements to=
+ existing tests!
+
+Aborted tests
+-------------
+Tests that didn't complete running successfully are marked with =E2=9A=A1=
+=E2=9A=A1=E2=9A=A1.
+If this was caused by an infrastructure issue, we try to mark that
+explicitly in the report.
+
+Waived tests
+------------
+If the test run included waived tests, they are marked with =F0=9F=9A=A7. S=
+uch tests are
+executed but their results are not taken into account. Tests are waived whe=
+n
+their results are not reliable enough, e.g. when they're just introduced or=
+ are
+being fixed.
+
+Testing timeout
+---------------
+We aim to provide a report within reasonable timeframe. Tests that haven't
+finished running yet are marked with =E2=8F=B1.
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -2144,4 +781,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/6082e0a7.1c69fb81.2d923.e372%40mx.google.com.
+clang-built-linux/cki.498C130773.4NIVLM5JCN%40redhat.com.
