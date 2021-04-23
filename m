@@ -1,127 +1,127 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRBOUORSCAMGQECBONDNI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBZ46RSCAMGQEX6KFBSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x63e.google.com (mail-ej1-x63e.google.com [IPv6:2a00:1450:4864:20::63e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A82F36989C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 19:43:23 +0200 (CEST)
-Received: by mail-ej1-x63e.google.com with SMTP id c18-20020a17090603d2b029037c77ad778esf8715931eja.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 10:43:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619199802; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 69E7B369930
+	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 20:18:16 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id s34-20020a252d620000b02904e34d3a48absf25119514ybe.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Apr 2021 11:18:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619201895; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0cw9iPkrAWONDXXrrAb/BEekuKkFHgMi0MDv53O3k/LwIVwMuxRPwzh+VfCf9Yk/O3
-         OTY8alZnaeO1NtUXco4BQUP9pksAfgnSMYYidW27ubp45ZjOzBkl9T96KorW07EFd39i
-         32zQNdog6FaDjM+LATfe1sIZXJAmsKQ0P9Tk70Ue6EJ0c2tR1X6B7SpEWWBaI5/+VOmd
-         92nyI4Z64hTKYvOp+waWBSBmGbVZesXY7mqGGxGYbsgGgmX1pj8SkUnN1oytw5S5RuXJ
-         lET6f8jvBUAgIP2871zmwGvHiyGzv/ew/5BOplTOu6mHTG790a6hjqhA79fCl8bYZbK0
-         3v3w==
+        b=fSiyBiHT8eO5zJuLotzqpMg8T/6+HtupA7p2R0i0n/XKjI6SBv6Njuc6cSUofy7Uct
+         uAg4uAlkkMivda8KoUPHJA12Dbvwx9qnARAzghymlKWyWtomKWZJbIhKP2hp3MAeKJnm
+         96Kuv9CxXFR00CM82PrKtMC2fzHKR7FRlkf3S3C/FwpISeed8nSh/gLxMw/Qo4oi+Pym
+         GrYELVaw9LQeC8LpQxbtrs2I6rdvTB59ajKAgeXI1yOCqaWVfBydq6sPHtB3ss78NMng
+         0reLXqvg9W/0LI7xj8/CnfB+VyttWQVP44o2SBN/8RJS3L09GXOPtvdg2OlcKNn1unK3
+         CZ4A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=U0mBj0Vv+nKrkQ0Q0ZT4+ZcuXzCq5iGUXrTmoxbcNC8=;
-        b=u/+UjX4LAy6E/HNx2HrnrvYSjrPW0BVYt92LuaRX3XT+Uw+xh5ZdtXGlEvxJB4eSFg
-         kY48sr3ZW2jyRfmYL6kBTJYxr9SefTvzZN+sxw/p7fs1x6pAl+SiuR+oqMde/ZvTJGUX
-         AeYIneBJK9Q+ZRDDFUYeTc1GkXIusFisJo4jCStbK5yOQdSgWGeaizRTfx1+tQoFMXLA
-         ISnSooB03oFNYzA6gWRxup/+kFeiYfZmBq5GrqUb8kd3AhInQDa0Ys9bacdQCyL3zfqW
-         5zXWPQoju4YQ90pC/odh2O+pk3ewbEoM9ZEDtDI7avfb0Ymx3J6m/f6HpoiAiScSlVEe
-         Z8NA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=bUjV5fdHL+4Ga2g9L5ur9RosFb1e98SrNBH2G8amPvc=;
+        b=wjVYV5lZCmXf2ceAXeJGAuq8UK62SowRQuPBdZsLlQ9LvIV3U5MaotczrvskK/fd8w
+         z0B4Zsi7KxsNEKMQhORL9US9gM4fh943o/GRpAIxF/jDkuIpKuUNFv7sh2FtGzBxsv/2
+         7bIjVbcxk3V5+oISekkKb4LeY7NaFzjDPWIXXVpF0FweUz/5SLWrxfjPfHKLGmznc9Yr
+         5aTbb3aFFXGip5np7Jbi2uGIzhPohnCPVTZLCf3utcJNQz0XfMkdLMxc9vLpBHZtvdRa
+         nLCcDHf7/6yfsfxDe36cMNepbpjSETW38cs/WVTDhCXUHwTacnP43QlTJBzMLuW+Y5w7
+         C9Tg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=fFdDv8CW;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=QWSeXmKd;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=U0mBj0Vv+nKrkQ0Q0ZT4+ZcuXzCq5iGUXrTmoxbcNC8=;
-        b=QOD/LvHH4gJM7j9R5ZqhplCTxsIhBqcNdT9qMyampKdaU6o0fjc6MaF7tcNKmuy7w+
-         XiBcYj9QbTy7sVVi0OLsRUKs/ahkilEM/MS7bLG4ZQ2nX/TYdqLnVOFy+tEyULq4MeR3
-         8c5OWHRfLkGF2wTwjdm5ipx0/ISDAX41Cfy9+chEW9xdAc7fcJ56vW41B4EbZhZE0hEm
-         bIGTxBZhd+OGML+c+wvkjTimHn2nKkMrzqtNkJBnaFY/Mb/HYwagISGMCSPsv6dVtu2v
-         vroQK3EBeF8SeVNzV7mR3d6Rbeh4BH3zDs4Tv9WGmM7Ha9WTEWI70+g+zy5ke60uovzo
-         lvIg==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bUjV5fdHL+4Ga2g9L5ur9RosFb1e98SrNBH2G8amPvc=;
+        b=TWqOIPHtiQ4jQj41J3iVy+pnykFIFoogC26xfVjWn0AQLoAIuQan51ATYlveEJSKxR
+         aqBi9L7Up2DatD+CF1yMhFYyKBqpDCuy20uSIYCwwAl5qSoz1397PP3GXxTW22PdQsYA
+         JbImD78VGt2Y1Fwyv6zLZnOfYlO/PehOhbwBp7rbd+37/wzkZKMBW2pUcTvEmf4dG4db
+         WmPE/KCWBEk48leD5KvwI6ojp/IJELaXVf1QVfI2GhWIwRKLgrwK8KmBO7568pR+onkU
+         fQn9m869fruBIdAZabLWfX7E7n/i+rH3WzPr/mOLrLnEU2D4CfLpSXR86oSfgljZj7Ag
+         GgOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=U0mBj0Vv+nKrkQ0Q0ZT4+ZcuXzCq5iGUXrTmoxbcNC8=;
-        b=nBTdpwK/FZNEpUNdiUpFwQmiSmA/HAozRc7y97x3vGpiUqZOpJ2UruY+kvAP+4wHX8
-         LiVXtZ6mVHXI4J9L8kd/mvtDwXDci4YP+S+6ptKRfwYLmDltVBp1z488B6f9Jh0a3YPJ
-         79Dbi1BmPmN3eLKl6e5wzgFg3/yREAEoMQGxvtt1Jh26SOQLJcMWsvAiKXUhjdItPCCo
-         x6Y22sjUOQJ3UjUYYeFh/V0NBsK6gidM5M7Ei2NxnIRlAnR+9h4HCU7rD3fUbrxKPy4S
-         4M8lnlHKz/WLY3uza1DCzLqnLbJeQK3vyad4A16fZKP0NwpXIpTtgEREjus+1GOYVMhk
-         C5CA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bUjV5fdHL+4Ga2g9L5ur9RosFb1e98SrNBH2G8amPvc=;
+        b=V5Dbh0ySmnvbSrV30TUiFMv+9/B+R+69qjQnku0UMPvul89GImxQB1Uw8HLQ7jc4A0
+         PngdbTmjH631/sNJtEnSJkN/e0BS/nPwcU229/QCg7CAsIO58kXot+Dhgr+h3H3l/hAI
+         +eB+AMyfQVx2J+iUMmkRjFRpr81qDS0igmbk4kPr6LLU32dAlTYRzeJ/p85oXfdTcmcU
+         rSbIoRTFxiT2tqthxliuVZfaWRHN5/+DWshVRFfUfFgX1xyshRiidTPorIpYQ6Dva560
+         AzzlVCyJajGDFQh+h13NiMDqvnpeUWQ7JNhG4hiOuyAOdDr9ReX/DswgXpbonFzhHYs8
+         br1Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532F4hvVEeqPGTsbZ7Xi3CRCC3pWOStwp1A2DhXoB46fTVJuaNP9
-	eILi5Ynl053Z5U6guTEKdVw=
-X-Google-Smtp-Source: ABdhPJzc+dSEbKNUQa0jjNzw1Bwj0nHyda/FODrcbvoop8pkvebYiVl3CnxYNEzmVbLuoRhuHwyR4Q==
-X-Received: by 2002:aa7:d2d6:: with SMTP id k22mr5739585edr.9.1619199802809;
-        Fri, 23 Apr 2021 10:43:22 -0700 (PDT)
+X-Gm-Message-State: AOAM531eNqRDSK3v0gy7TXpkM6XeCFWt1InM0hJcMZ+/s2bhGvIVH8ga
+	Pbqf7OnadRAMaCU1QCJM1Pc=
+X-Google-Smtp-Source: ABdhPJw+NLNFaJMA9rTlebetclluxWalpaEFZxJAChDYOLSuTHfDIUJ83V4aizR5sGTr4wFQWA5vwQ==
+X-Received: by 2002:a25:c553:: with SMTP id v80mr8014053ybe.221.1619201895545;
+        Fri, 23 Apr 2021 11:18:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:4d10:: with SMTP id r16ls4872296eju.8.gmail; Fri, 23
- Apr 2021 10:43:21 -0700 (PDT)
-X-Received: by 2002:a17:906:a155:: with SMTP id bu21mr5506005ejb.400.1619199801930;
-        Fri, 23 Apr 2021 10:43:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619199801; cv=none;
+Received: by 2002:a25:a045:: with SMTP id x63ls4677484ybh.1.gmail; Fri, 23 Apr
+ 2021 11:18:15 -0700 (PDT)
+X-Received: by 2002:a25:8143:: with SMTP id j3mr7244830ybm.237.1619201895076;
+        Fri, 23 Apr 2021 11:18:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619201895; cv=none;
         d=google.com; s=arc-20160816;
-        b=dHiSnzQEKTMI0O9uviNumQp5OzdfBBFhXoM9WlkCb2Mv/u5m3/CImwQwkVsSqnvcQA
-         aM13ajQRV/uy37UU8QopqJV60Wm56ImagZAB4fPWE+m7rPtvmVD0Hj4HS3PooMtqp5gs
-         rT2Nzsmz9lMOgvVHDyK+NPoiih8xRGclN8K2eRhSOe5StO0OdxPyTr0dEWooO2JYldON
-         elUXWbJ2+Oj6VmIU5Jv7AGIIzZ/5bv5L9kIXysRPyex0bV4OJQFMOcuhZshvUpd1G/Yb
-         hbY23DfFx9BZ875H9w5rlmUcoasKsypQVgvqe2Fl6l6GSxJz0qIM54iD9+aQUBZOv/sY
-         VKDA==
+        b=jISeMlwpKWP+RKWZcvxZzDA8ObbESaH7wd7GeOm5OycuB2IvTZTMSj2q2O02oIHui0
+         kSvO0fHaGWwnidsn2tbfM4l+srtHNvDzUPHc+gsrWAg1BYm3EzLIkhKB2oK6A9IkuA+L
+         jIvK9dqhr7VifVs6RYlf/EydXa2Ro8nfAw0QvSxEE5BHrHIuJNnxI5hlLo+tNUIjdMpD
+         sTX8gYTbqV7Izp60bDiqD31Wu7h7CA2urpWbLCTxB3LGLgYg1Tps85oja/9H0/m5TLJD
+         JDPUuJUb1L4CBRFbpbikapEjnoZElmG+W2tz1qipoXQkFt53SVjcRYP+3NYDObke7Ws4
+         nyOg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=D07Myy5xgLJyaySINjmTXcck3i4ZrKKFxHv5lMNfn/o=;
-        b=OuA/v3XFXB6ZPSk5s77rcZXf5cFMKa2ocOCIoLz6KDle/CwOnYT84uQsg951t6eQDh
-         3eE1n6cDENX5aUlKpIkr1hQyGT1IQf+U/54T4gFSpaATm/W7ogcPHKiDw2Wi9g/5AkXR
-         ob6Q1IfPhqV3Yv6/+8mNl3uP/QhgiqgrlVQAhfFWIV+yF0W40mvfegBNtrDf32wWHX2K
-         57TbCfgSUdgqEmnJPOaKtz5slLtBpnoVK4/OX4x6+rXrFZfK1QNRY24FgVK5npPg9Aq4
-         31w1+iI6HUSszxevvSMya1/RkhRMDRiCDavNBohWWWygkdmjhmKi4YGPHAv+8BOqhNZ+
-         IKhA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=vzQhHkQYKvYCwY3ZKR6qRs6oVObn6xPxUpR9xRnzAVQ=;
+        b=sqoc/8VvM9I0nhgSr5BkurK+TaNkCTZPfIQxkV5TTXzoYnYKGEdeJZyIOgmyFYwV5e
+         UlUeG30PARje6xJJEo1js3OCQtAAZb3x4JEBGkopGUuKFj3DdVZQjwXuHHY5Zzju8+m7
+         now92Bx3n0qpf5ob6WoPCBamwQngT+ItibJvCr9yJPsDffYhUwwYh2n/JxsoBgF+OO6G
+         imF9ujUVbkVgYw4oSdSoDxOX//3GXO4uFN3R0XiFgpupmR7+qPLPWkPtjhEh9yN9kH+h
+         ntUpDqWEEDLVQESLtZQuzm56te/4j2gvNQUeCzrwo2ACXffip/USC1ShqOpFS6C8Pja0
+         pc2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=fFdDv8CW;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from desiato.infradead.org (desiato.infradead.org. [2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-        by gmr-mx.google.com with ESMTPS id r21si869507ejo.0.2021.04.23.10.43.21
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=QWSeXmKd;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id f13si1034818ybp.0.2021.04.23.11.18.14
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Apr 2021 10:43:21 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) client-ip=2001:8b0:10b:1:d65d:64ff:fe57:4e05;
-Received: from [2601:1c0:6280:3f0::df68]
-	by desiato.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
-	id 1lZzpi-0022YX-7X; Fri, 23 Apr 2021 17:43:14 +0000
-Subject: Re: ARCH=hexagon unsupported?
-To: Arnd Bergmann <arnd@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Brian Cain <bcain@codeaurora.org>, linux-arch <linux-arch@vger.kernel.org>,
- Guenter Roeck <linux@roeck-us.net>
-References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com>
- <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <fa0bed95-5ddf-ecad-0613-2f13837578c3@infradead.org>
-Date: Fri, 23 Apr 2021 10:43:11 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 23 Apr 2021 11:18:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D31DE61458
+	for <clang-built-linux@googlegroups.com>; Fri, 23 Apr 2021 18:18:13 +0000 (UTC)
+Received: by mail-wr1-f53.google.com with SMTP id a4so49272630wrr.2
+        for <clang-built-linux@googlegroups.com>; Fri, 23 Apr 2021 11:18:13 -0700 (PDT)
+X-Received: by 2002:adf:db4f:: with SMTP id f15mr6209879wrj.99.1619201892354;
+ Fri, 23 Apr 2021 11:18:12 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com>
+References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com>
+ <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com> <fa0bed95-5ddf-ecad-0613-2f13837578c3@infradead.org>
+In-Reply-To: <fa0bed95-5ddf-ecad-0613-2f13837578c3@infradead.org>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Fri, 23 Apr 2021 20:17:49 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0ttLxzP0J-mocxB2TkfEYJYj37TdW=uM65fB4giC_qeg@mail.gmail.com>
+Message-ID: <CAK8P3a0ttLxzP0J-mocxB2TkfEYJYj37TdW=uM65fB4giC_qeg@mail.gmail.com>
+Subject: Re: ARCH=hexagon unsupported?
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, 
+	"open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Brian Cain <bcain@codeaurora.org>, 
+	linux-arch <linux-arch@vger.kernel.org>, Guenter Roeck <linux@roeck-us.net>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=desiato.20200630 header.b=fFdDv8CW;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as
- permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@kernel.org header.s=k20201202 header.b=QWSeXmKd;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,51 +134,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 4/23/21 2:36 AM, Arnd Bergmann wrote:
-> On Fri, Apr 23, 2021 at 12:12 AM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
->>
->> Arnd,
->> No one can build ARCH=hexagon and
->> https://github.com/ClangBuiltLinux/linux/issues/759 has been open for
->> 2 years.
->>
->> Trying to build
->> $ ARCH=hexagon CROSS_COMPILE=hexagon-linux-gnu make LLVM=1 LLVM_IAS=1 -j71
->>
->> shows numerous issues, the latest of which
->> commit 8320514c91bea ("hexagon: switch to ->regset_get()")
->> has a very obvious typo which misspells the `struct` keyword and has
->> been in the tree for almost 1 year.
-> 
-> Thank you for looking into it.
-> 
->> Why is arch/hexagon/ in the tree if no one can build it?
-> 
-> Removing it sounds reasonable to me, it's been broken for too long, and
-> we did the same thing for unicore32 that was in the same situation
-> where the gcc port was too old to build the kernel and the clang
-> port never quite work in mainline.
-> 
-> Guenter also brought up the issue a year ago, and nothing happened.
-> I see Brian still occasionally sends an Ack to a patch that gets merged
-> through another tree, but he has not send any patches or pull requests
-> himself after taking over maintainership from Richard Kuo in 2019,
-> and the four hexagon pull requests after 2014 only contained build fixes
-> from developers that don't have access to the hardware (Randy Dunlap,
-> Viresh Kumar, Mike Frysinger and me).
-> 
->        Arnd
-> 
-> [1] https://lore.kernel.org/lkml/04ca01d633a8$9abb8070$d0328150$@codeaurora.org/
+On Fri, Apr 23, 2021 at 7:43 PM Randy Dunlap <rdunlap@infradead.org> wrote:
+> On 4/23/21 2:36 AM, Arnd Bergmann wrote:
+> > [1] https://lore.kernel.org/lkml/04ca01d633a8$9abb8070$d0328150$@codeaurora.org/
+>
+> There is no current gcc C compiler in the 3 locations that I know of to look.
+> The one I tried is v4.6 and it is too old to work with current makefiles.
 
-There is no current gcc C compiler in the 3 locations that I know of to look.
-The one I tried is v4.6 and it is too old to work with current makefiles.
+Correct, as I understand it , work on gcc was stopped after the 4.6 release and
+any testing internally to Qualcomm was done using a patched clang. A few years
+ago this was said to be (almost?) entirely upstream, but as Nick points out
+it has never been possible to build an upstream hexagon kernel with an upstream
+clang.
 
--- 
-~Randy
+       Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/fa0bed95-5ddf-ecad-0613-2f13837578c3%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a0ttLxzP0J-mocxB2TkfEYJYj37TdW%3DuM65fB4giC_qeg%40mail.gmail.com.
