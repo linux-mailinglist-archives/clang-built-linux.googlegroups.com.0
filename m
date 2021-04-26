@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB3FXTOCAMGQER4EHTUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVXPTOCAMGQEWTWKNAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADB1C36B5C3
-	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Apr 2021 17:27:41 +0200 (CEST)
-Received: by mail-pf1-x43d.google.com with SMTP id q18-20020a056a000852b02902766388a3c5sf2116551pfk.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Apr 2021 08:27:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619450860; cv=pass;
+Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8553936B80F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Apr 2021 19:26:47 +0200 (CEST)
+Received: by mail-vk1-xa3c.google.com with SMTP id r68-20020a1f8f470000b02901da0222892asf9959146vkd.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Apr 2021 10:26:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619458006; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LAc8hrCe2T37qOlCNl+KABonFGI8XoLCuhdgAxGphRZ4hEsS9uKjTggJO+IdRxXaF3
-         ImiBzSAszyDhIhNMAKFu+c+fC+CCtVxzN+I6XsAGwCjqXMbhPbsSb3/xHSmwp7XoLwY6
-         k/f79xXSiUHU8ya7nT3u2EZBXRxXz9XDfKkOcugwPUs8cKYwojQ3k1MdmwCfTt6MI7Su
-         d2WU9jqR6PI1Doupw2XzQuGm8r+rAo5M4nxNn6reMjHEg17C5zC3bNd2lRmXoshfUIOk
-         2qk56wLKev+tzfsBeSuqa19GR8moW3ZIKmcqGADUN6g5COK0G48ci9ZDeJ/ydRNv+Anr
-         1tkw==
+        b=W55fH+PwZyxR2nndWIigx+qGPhVW0A2xQcuINAn0hBSFKGtTiZNVoCmqFb52QWjJrb
+         sud1neiXIKsSzNBCRhcaqKLEGM65REQz0SjkSw99J0EcIeLX/J/kFenCC0xSbeKu64Lr
+         S2fS8ZnnrsAbJCmmsx3FUdfwDtN6ZSQvq2LORUCg81pmNf/ZPGosqtUGxbDXsNJsb0ZS
+         yMZh/MOstUMgcRVgzh6HlFUJYqP3ZdmbAsTgH+MiUQwvleVsr01qt+xp0bUng8g04hkQ
+         fDNlT85h9at96NGqfhIm2gHdInkcScvOD/24CfYe/kkXFCdovF3tK5AAEex7hAkxJpYO
+         l0rA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=JIvR9CMOdskbySSPY165JaU0abpnI/70Ia/5NXzwrmU=;
-        b=w8dqZQnvkKVK1DZ79okHrrOdU0ejA+DdjI9fzaw9mUit8tx7vTcn0vHCJds7ZV52DI
-         ZfQd2d4rDg9Dc0iMptEsFbzUpBRTUd9iO9Ru1xFcAeIpIcL006f6VLHaBV1mLjTk0KGy
-         cMGWimQURfsFWJwVamaOMSholC8Ced/sen2tmTkh/TCyxdPPNk8Stgmpvj/eK2e6tHhl
-         0RkY3J9EctJU1EXYhs91kXO9znfRTxzeCKnlOxhgKoIZ7+Z8M5nuWG8fB7v10CVjnGob
-         WbLsl3PMZ+hQaB1Qr8WCV1/xRc1/15OUEyGVjBohr0pLWOPlU+h+PuEG2G9XUg7mrEpB
-         7yHA==
+        bh=EzW1mxdymc0DXhk59GLGDhbZVCkRldBqglLLVIcvYg8=;
+        b=sP6m8WgWMDLwK4uaQVjpDVFLzZaW7V6kR04h7eZaJc/YODZig5DozQ4jLefSjXuNF2
+         JsLVrDNmPgOcgeelqoebhd9uzMQAYgrzJ04UREa8Rf3MG7yV/33XtwVMFA0x7uGrCQH9
+         P5nH0Wih0+FaZ5TJ0Z960IrxQzAS8ZEVpKtzqdc6snekXz25U4crMDIWDEzyG47Mcf5D
+         echiqaTHbYnUqCTli0EqUfwGvjhuTUfFn5UBP8707Nt2JMqe5ywsXxi59naCCDpFMXC7
+         9jeoG+mR5cXiWEJnQ3XuCAfHqMbmkd7UIy3o2uygrR2OqEYA8j5PojsMBRnR7jDDvks6
+         s7Hg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JIvR9CMOdskbySSPY165JaU0abpnI/70Ia/5NXzwrmU=;
-        b=ssPszBYF/SmIFc+UItS3u6L+vGCLjHmQqdzN4ijWE/vAZ0yrqQBqbk34CBuMKUQLl+
-         wYgk+sqmUtVuui2W47hPKDNfLUf9p7LvV+CNAVolmNzriUQIhgbCU8PnPLFLFoL8gFwm
-         eQftmjRqGaLVjod/GdFROfdZnbnOuZr/CUjIHv2KBQT4sn6jrCR7Q/iR4uuJSeziJHHe
-         gTHGIBOaSXyHIluqJcjvUglO+fhPOl4FhHT7EFHaCosQxvA2qyoU8OEb6oDjiybvA/px
-         7AdHIzjoL+U/j7fuiD8uPDBOtp/ciwqss3yAgCdeq1Y+l88u9Z9r0BCqKQxnnFiV5kJe
-         DpfQ==
+        bh=EzW1mxdymc0DXhk59GLGDhbZVCkRldBqglLLVIcvYg8=;
+        b=eXFSW/r4PG03oxRk/2qqM5HGZ6EACJ5RVmPnmVu7pofZXVe/qeLe9T3fD6jxllfkNj
+         nSs4cpoWKwYY2avaEzACl4GC37ybRHOR2hOW2egsWmo0Mvb/Of5b/nNkROF+MsadGYKq
+         Os/6iRtS1NVVeUivTrejDBmr/1kUSCEE+mn+sPfqBq5/SOmaqF1MCWqwCkj3cxFysAUi
+         eHuMEGfiAsxgjf7CJbrMyLEoSqEsqvhAwRazD4dtB2vbV70yMmMP8pG6w0hw5ehcFHFL
+         AtrCWeKWvQDKjzcmNCoZ4QwVtBQH4LILZPIdjzjLwyXYq97V/FFhs7TGoRekjNRRK9QU
+         jfmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,83 +49,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=JIvR9CMOdskbySSPY165JaU0abpnI/70Ia/5NXzwrmU=;
-        b=pNkTauRcXGhRG6S8z3n3u55hxgQnfeqCKb+A6s66BOFJi/pUPdj67OBu96gu0kkYFJ
-         MY3u0xO7XoMsAhBMEcUuMTDkDke5nsTv26m/01Na8PzCOqY5zVOKiX45FChdrbOxlk4d
-         koBIwSjNfiBEiOvxASg/WEXJz6Qug3PVd0qsz0OmLyDOUwPTGJC+BDWOeI1JiC1U39QB
-         AMJm9KqlVnrAPpV4n7eI0RgRv+4ctSPUaHu9NXeuQVrg9xw5hBicX0S/B81+BSFwLleD
-         Ofzoo/iruwI9oJhcG5T7L83R/JHuzWhZ2pRY6b6zyzkBG7n61DxLiqNawzAK4wx/zeLH
-         qmxA==
+        bh=EzW1mxdymc0DXhk59GLGDhbZVCkRldBqglLLVIcvYg8=;
+        b=NfxVFaXYL+852A4Pqconqai+ke1DuBbOgmWC1BR95h/csMYONpbCF6kVT+WJREzVpG
+         MabbWcYDS5flhb65OkGMvoSPokwYjYmaOWv6j2DOKTVdTVRJ0udPVnBBbwt1yXPeHfbI
+         kluHYSa5EPfXYU2vLyEaKCgT1uWDLBlYm6B1wak3GcpFnpP4Gl4fQqbBcJmrG0w/Pyod
+         FQDa9lIwWZZkMLOPvob0vScNuLlpNIUoJ3vfpFU+jRpC46s1kSuVuJZEx5E/1XZsP3kG
+         NM968Y/11yIEPPD6v41cTanffEL7be/oacc1x1IALN8pRiOlTI9W1AO8bWJu7emW556y
+         pG4g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530DC4dI4wOkbT1VYcMwlO23z8QWSm9IWlTIMJcxj6H1UzvkJIRE
-	cV1aJWmdqxW+sqtmCBrRYI4=
-X-Google-Smtp-Source: ABdhPJxQ/aEdKJYWex7NwEkwCfiJSqAB5Q6MMLaTkr2p57eJ95ejufauqcG9CYqtJ+1cTSXDjHntOQ==
-X-Received: by 2002:a05:6a00:d52:b029:275:c409:fe37 with SMTP id n18-20020a056a000d52b0290275c409fe37mr6962974pfv.0.1619450860183;
-        Mon, 26 Apr 2021 08:27:40 -0700 (PDT)
+X-Gm-Message-State: AOAM530ahy8gN4ExKSagjIbQx5GUHWZO+kkY6vP3Nu2Wfqc+0gTB8MRz
+	SgFMi5lWZN9CHL+WkaSYz0s=
+X-Google-Smtp-Source: ABdhPJzuV3KiRHGyqqjQ3iD5B9FLSH31rJdwj5d0YjYIoHVaaJFhCKoouawbc2ibz7qLDIOq4D5M0A==
+X-Received: by 2002:a05:6122:1347:: with SMTP id f7mr7074987vkp.11.1619458006289;
+        Mon, 26 Apr 2021 10:26:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:7102:: with SMTP id h2ls10442989pjk.0.canary-gmail;
- Mon, 26 Apr 2021 08:27:39 -0700 (PDT)
-X-Received: by 2002:a17:90a:a60b:: with SMTP id c11mr21757452pjq.125.1619450859420;
-        Mon, 26 Apr 2021 08:27:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619450859; cv=none;
+Received: by 2002:a67:2702:: with SMTP id n2ls2787533vsn.2.gmail; Mon, 26 Apr
+ 2021 10:26:45 -0700 (PDT)
+X-Received: by 2002:a67:fa8d:: with SMTP id f13mr14034553vsq.17.1619458005409;
+        Mon, 26 Apr 2021 10:26:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619458005; cv=none;
         d=google.com; s=arc-20160816;
-        b=CC5DSsCDRXe8NGBQFS9b3QfqyJ+dsfpNUgHiIP/IY5qZ39gWVUa167MDoPx+fgV6R2
-         L9mMUW3njjJMS6DEBr7SiMlKGrDjVNXtsBOuiIkb/st1OUoi/gcmRO/JuDix4KeFkvey
-         YK+Kr9dT5hhtcnb4UHBRo6+T/rCsrqqIzVsAqmTX1j9iKhcV9M5XOE7EaNrv5jI8dKNY
-         rTETSh8MJEr6DSqw2HP8mw/Y7HCxrVc9ZMcGlHFKK/9WjrXW/MvJlwmYtY7qtRju9vxI
-         E21KdmqoYJ+FbFHlXownsMzYnlRujHYPHEGXbfkG9DPPq4rU80z4DsseYgF3rwWPeQvO
-         bZug==
+        b=NCM80hIF6uVZlLAqi7r5ldZe0nNC39+HuxiP3X63utVQAnm3HYgvCIC7yuwQtnOGL6
+         tCuC8QHqntHpf8mlp/F6Gr63pxD8/hEqBZcTCqC/5auqJ4nR1QMriK0nuq8bazEass14
+         9vkZhh/HVbNsHEQyhxjzqA4+tvnpyQR4ljGNrGAgDRcwW/DNdAkI9V2IL49EUge04L9J
+         +l9GdmauFES9Lc61TcUZCl6s47dllwR7nXILLqFELqikhhs5aiSgAu6UjWEDnQu4xL9s
+         x5vwHQAbbut2y9By1T7uLUcmO/pznvQ+ZeeewNiy2fwyMg4YKHEzGR7r6L7wVoHOv4ae
+         /k7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=t7HW5v2MJkc6dx1QzkIv3e6upYJmfiIZs0ADzhosDKw=;
-        b=nR+LSbjXYlievdgDeoVR0vdtHjRqoAbEPBg3rGs1cL0A/GzCkDJi5RzCxATG/torZI
-         ss9TXH4AQDcbl1Pq8fgY7dRnzpd48MLZXH6gV/lfGoJbXAFIMg3R6+IJlC1X/eQjM7me
-         ODjSPtOUZG2Ra6pqN9Yhh7B1Tqs1MsYGp+A/dEi2JJHs8QhZzYt0+7crcV12T1ZWgdKg
-         /gV3WDrDNQGR29Vyi9qMOCG2aQjfbd83CZZHj2Pa3cUZM43WnqdT3WSxkx9fIwuLXp+4
-         O7SG/H3GYxdDWnwFFj4YyVugoa0wbFYjZ3AQMsutzylVZSEQu6vX4wBYKoU8nXo5cL4J
-         6Jaw==
+        bh=GVElRk4EypdtX5gCk0I1I5S7OpXO6MJCdlrRtsN8SQc=;
+        b=vouOyiFvGxMJjdtI9btIqdLK260rPMNQEyRr0XbbTIxZ7XmdQYYBe88faMgQWEl4fg
+         aYNnUOybAYbtugtITHTDAtaEG2inHsM9eXJIv3BCSCwt9TVuwu0i+LsrPLDwL8GUOjyv
+         vO1fnxqU4E+bMxLs//mQAPLUnDEG5USBRVqSzaWw1viJDiK5hYSyKHFU8CxtUMyCtcaW
+         mryGId4oOA0wvXFzvsYfvaemzVmRR8gn8nOxsiodrW28Uppzq27cCAU6HDDbY6ryv/+6
+         5L0cKgGyY3j3jKOxVw3EKMoOOvjDiXqcmLz+IzHL+/tQfA6kDMLnwZdTRCF3W3Qr7G6j
+         +amQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id n31si152501pfv.3.2021.04.26.08.27.39
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id t127si1189030vkd.2.2021.04.26.10.26.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 26 Apr 2021 08:27:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-IronPort-SDR: O6XoVxBC+d9QDiM8WD1eZond9+CNM+KiaXFsxr3PFtCLqdKTDrVeqL3mz859VP9GTKPmkiNVUR
- eNOGCVVikX+g==
-X-IronPort-AV: E=McAfee;i="6200,9189,9966"; a="183833281"
+        Mon, 26 Apr 2021 10:26:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: pb05tBcmp8lGJtLDTSL6P5sFHpJJasL99LksUE5v3157H7LSHy5crW2q2soa86mAwgrg7KwJkD
+ vcPq/ukKmUJw==
+X-IronPort-AV: E=McAfee;i="6200,9189,9966"; a="257678177"
 X-IronPort-AV: E=Sophos;i="5.82,252,1613462400"; 
-   d="gz'50?scan'50,208,50";a="183833281"
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2021 08:27:38 -0700
-IronPort-SDR: c2B2NBkmHI7ixUppM/xm1+rrqz9+LGfUk+sku/ebX7C0NbVyIvbHBeZYrxwhjL4Cm+qhaDkijU
- aBS9hPqY7vwQ==
+   d="gz'50?scan'50,208,50";a="257678177"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2021 10:26:43 -0700
+IronPort-SDR: Dm8IC5K2UMX1WjtM76yExIdI28QhN5o56F4d0IftAYTNJmSLLE5w3xxJZPu5niuN9F5deC541d
+ 2jhnFUBXFTiQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.82,252,1613462400"; 
-   d="gz'50?scan'50,208,50";a="457218301"
+   d="gz'50?scan'50,208,50";a="525812070"
 Received: from lkp-server01.sh.intel.com (HELO a48ff7ddd223) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 26 Apr 2021 08:27:36 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 26 Apr 2021 10:26:41 -0700
 Received: from kbuild by a48ff7ddd223 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lb395-0005zc-Uf; Mon, 26 Apr 2021 15:27:35 +0000
-Date: Mon, 26 Apr 2021 23:26:47 +0800
+	id 1lb50K-00061z-QY; Mon, 26 Apr 2021 17:26:40 +0000
+Date: Tue, 27 Apr 2021 01:26:36 +0800
 From: kernel test robot <lkp@intel.com>
 To: Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [thomash:topic/ttm_branch 30/33]
- drivers/gpu/drm/i915/i915_ttm.c:9:5: error: no previous prototype for
- function 'i915_ttm_device_init'
-Message-ID: <202104262342.A4sKMfwH-lkp@intel.com>
+Subject: [thomash:topic/ttm_branch 32/33]
+ drivers/gpu/drm/i915/i915_ttm.c:28:5: error: no previous prototype for
+ function 'i915_region_to_ttm_type'
+Message-ID: <202104270133.h6USwexX-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="jI8keyz6grp/JLjh"
+Content-Type: multipart/mixed; boundary="cWoXeonUoKmBZSoM"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -141,13 +141,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---jI8keyz6grp/JLjh
+--cWoXeonUoKmBZSoM
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   git://people.freedesktop.org/~thomash/linux topic/ttm_branch
 head:   4dbcc3aefdd4cfb310a9eec11837495aa7886250
-commit: c7d3fbec16a37e6d97b00578214c8305b765768b [30/33] drm/i915/ttm: Initialize the ttm device and memory managers
+commit: 75c98b0f1e05ca95aa18c4f3bc4cd038525c2f1f [32/33] drm/i915/ttm: Introduce a TTM gem object backend
 config: x86_64-randconfig-a001-20210426 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d941863de2becb3d8d2e00676fc7125974934c7f)
 reproduce (this is a W=1 build):
@@ -157,7 +157,7 @@ reproduce (this is a W=1 build):
         # apt-get install binutils-x86-64-linux-gnu
         git remote add thomash git://people.freedesktop.org/~thomash/linux
         git fetch --no-tags thomash topic/ttm_branch
-        git checkout c7d3fbec16a37e6d97b00578214c8305b765768b
+        git checkout 75c98b0f1e05ca95aa18c4f3bc4cd038525c2f1f
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=x86_64 
 
@@ -166,81 +166,86 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu/drm/i915/i915_ttm.c:9:5: error: no previous prototype for function 'i915_ttm_device_init' [-Werror,-Wmissing-prototypes]
+   drivers/gpu/drm/i915/i915_ttm.c:9:5: error: no previous prototype for function 'i915_ttm_device_init' [-Werror,-Wmissing-prototypes]
    int i915_ttm_device_init(struct drm_i915_private *dev_priv)
        ^
    drivers/gpu/drm/i915/i915_ttm.c:9:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    int i915_ttm_device_init(struct drm_i915_private *dev_priv)
    ^
    static 
->> drivers/gpu/drm/i915/i915_ttm.c:18:6: error: no previous prototype for function 'i915_ttm_device_fini' [-Werror,-Wmissing-prototypes]
+   drivers/gpu/drm/i915/i915_ttm.c:18:6: error: no previous prototype for function 'i915_ttm_device_fini' [-Werror,-Wmissing-prototypes]
    void i915_ttm_device_fini(struct drm_i915_private *dev_priv)
         ^
    drivers/gpu/drm/i915/i915_ttm.c:18:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void i915_ttm_device_fini(struct drm_i915_private *dev_priv)
    ^
    static 
->> drivers/gpu/drm/i915/i915_ttm.c:40:5: error: no previous prototype for function 'i915_ttm_manager_init' [-Werror,-Wmissing-prototypes]
+>> drivers/gpu/drm/i915/i915_ttm.c:28:5: error: no previous prototype for function 'i915_region_to_ttm_type' [-Werror,-Wmissing-prototypes]
+   int i915_region_to_ttm_type(struct intel_memory_region *mem)
+       ^
+   drivers/gpu/drm/i915/i915_ttm.c:28:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   int i915_region_to_ttm_type(struct intel_memory_region *mem)
+   ^
+   static 
+   drivers/gpu/drm/i915/i915_ttm.c:53:5: error: no previous prototype for function 'i915_ttm_manager_init' [-Werror,-Wmissing-prototypes]
    int i915_ttm_manager_init(struct intel_memory_region *mem)
        ^
-   drivers/gpu/drm/i915/i915_ttm.c:40:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   drivers/gpu/drm/i915/i915_ttm.c:53:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    int i915_ttm_manager_init(struct intel_memory_region *mem)
    ^
    static 
->> drivers/gpu/drm/i915/i915_ttm.c:49:6: error: no previous prototype for function 'i915_ttm_manager_fini' [-Werror,-Wmissing-prototypes]
+   drivers/gpu/drm/i915/i915_ttm.c:66:6: error: no previous prototype for function 'i915_ttm_manager_fini' [-Werror,-Wmissing-prototypes]
    void i915_ttm_manager_fini(struct intel_memory_region *mem)
         ^
-   drivers/gpu/drm/i915/i915_ttm.c:49:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   drivers/gpu/drm/i915/i915_ttm.c:66:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void i915_ttm_manager_fini(struct intel_memory_region *mem)
    ^
    static 
-   4 errors generated.
+   5 errors generated.
+--
+>> drivers/gpu/drm/i915/gem/i915_gem_ttm.c:419:6: error: no previous prototype for function 'i915_ttm_bo_destroy' [-Werror,-Wmissing-prototypes]
+   void i915_ttm_bo_destroy(struct ttm_buffer_object *bo)
+        ^
+   drivers/gpu/drm/i915/gem/i915_gem_ttm.c:419:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void i915_ttm_bo_destroy(struct ttm_buffer_object *bo)
+   ^
+   static 
+   1 error generated.
 
 
-vim +/i915_ttm_device_init +9 drivers/gpu/drm/i915/i915_ttm.c
+vim +/i915_region_to_ttm_type +28 drivers/gpu/drm/i915/i915_ttm.c
 
-     8	
-   > 9	int i915_ttm_device_init(struct drm_i915_private *dev_priv)
-    10	{
-    11		struct drm_device *drm = &dev_priv->drm;
-    12	
-    13		return ttm_device_init(&dev_priv->bdev, &i915_ttm_bo_driver,
-    14				       drm->dev, drm->anon_inode->i_mapping,
-    15				       drm->vma_offset_manager, false, false);
-    16	}
-    17					  
-  > 18	void i915_ttm_device_fini(struct drm_i915_private *dev_priv)
-    19	{
-    20		ttm_device_fini(&dev_priv->bdev);
-    21	}
     22	
     23	/*
     24	 * Map the i915 memory regions to TTM memory types. We use the
     25	 * driver-private types for now, reserving TTM_PL_VRAM for stolen
     26	 * memory and TTM_PL_TT for GGTT use if decided to implement this.
     27	 */
-    28	static int i915_region_to_ttm_type(struct intel_memory_region *mem)
+  > 28	int i915_region_to_ttm_type(struct intel_memory_region *mem)
     29	{
     30		int type;
     31	
-    32		GEM_BUG_ON(mem->type != INTEL_MEMORY_LOCAL);
-    33	
-    34		type = mem->instance + TTM_PL_PRIV;
-    35		GEM_BUG_ON(type >= TTM_NUM_MEM_TYPES);
-    36	
-    37		return type;
-    38	}
-    39	
-  > 40	int i915_ttm_manager_init(struct intel_memory_region *mem)
-    41	{
-    42		return ttm_range_man_init(&mem->i915->bdev,
-    43					  i915_region_to_ttm_type(mem),
-    44					  false,
-    45					  resource_size(&mem->region) >>
-    46					  PAGE_SHIFT);
-    47	}
-    48	
-  > 49	void i915_ttm_manager_fini(struct intel_memory_region *mem)
+    32		switch (mem->type) {
+    33		case INTEL_MEMORY_LOCAL:
+    34			return mem->instance + TTM_PL_PRIV;
+    35		case INTEL_MEMORY_STOLEN_SYSTEM:
+    36			return TTM_PL_VRAM;
+    37		case INTEL_MEMORY_STOLEN_LOCAL:
+    38			return TTM_PL_VRAM;
+    39		default:
+    40			GEM_BUG_ON(1);
+    41			fallthrough;
+    42		case INTEL_MEMORY_SYSTEM:
+    43			GEM_BUG_ON(mem->instance != 0);
+    44			return TTM_PL_SYSTEM;
+    45		}
+    46	
+    47		type = mem->instance + TTM_PL_PRIV;
+    48		GEM_BUG_ON(type >= TTM_NUM_MEM_TYPES);
+    49	
+    50		return type;
+    51	}
+    52	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -249,14 +254,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104262342.A4sKMfwH-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202104270133.h6USwexX-lkp%40intel.com.
 
---jI8keyz6grp/JLjh
+--cWoXeonUoKmBZSoM
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICCjOhmAAAy5jb25maWcAlFxbd9u2sn7vr9BKX9qHpr7FSc9ZfoBIUEJEEiwASrJfuFxb
+H4sICN7rhmAAAy5jb25maWcAlFxbd9u2sn7vr9BKX9qHpr7FSc9ZfoBIUEJEEiwASrJfuFxb
 Tn22L9my3Z38+zMD8AKAQ7U7D0mEGdwHM98MBvzxhx9n7O31+fH69f7m+uHh++zL7mm3v37d
 3c7u7h92/ztL5ayUZsZTYd4Dc37/9Pbt12+fzpvzs9mH98cn749+2d98nK12+6fdwyx5frq7
 //IGDdw/P/3w4w+JLDOxaJKkWXOlhSwbw7fm4t3Nw/XTl9lfu/0L8M2OT98fvT+a/fTl/vV/
@@ -961,4 +966,4 @@ HmVrqB15Jiq4D9qch36UJpwl51O6q0gUVgSzESpCDz9D+VwIE7EvmzotQAXJThd2I9fdLreq
 paNdu3V8qRS8dxYcAuEtzEe3eU7wCFBIhTYkpqSMV1AoZmwgoituB2oOV1wwP0iZgfBvsAhd
 eOHMLvp40owho5Yi4cj26gSXw/1cfwHxCA/YuWECAA==
 
---jI8keyz6grp/JLjh--
+--cWoXeonUoKmBZSoM--
