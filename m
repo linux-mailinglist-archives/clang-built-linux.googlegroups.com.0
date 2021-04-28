@@ -1,120 +1,127 @@
-Return-Path: <clang-built-linux+bncBAABBFPDUSCAMGQESEWETAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWMTL744QBRBSPDUSCAMGQEJW3IRFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2C32F36D52E
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 11:57:42 +0200 (CEST)
-Received: by mail-qk1-x739.google.com with SMTP id c4-20020a3781040000b02902e46e29acf5sf8134000qkd.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 02:57:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619603861; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 070D336D532
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 11:58:34 +0200 (CEST)
+Received: by mail-wm1-x33d.google.com with SMTP id y82-20020a1ce1550000b02901262158f1e9sf2945108wmg.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 02:58:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619603913; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Zi4AoOkCbcG8WDmJmb257/bwmsrmAcl+CKltICoCxbs75IrOS5HLj+XMzPoI3HZeFr
-         l1rEpFqtucoS40GHbOp2jJqQAlAW0/UKZulMIx1Azu8FOyn17ryMp6aTMqk5CUup4qz2
-         PTqB9S7r2LYFgjb2ybKfqHvlTVEZzCein8pd+OOuPVD//+wOH2cwyMZ6PRVNWs/b9+0v
-         i/TMMsOWrSCMtpLGwK5L7HZ2+c1RG8vTvX1oBvPRbGPcczxNkR9MOITNE5C6JHsVyW5z
-         5Y/ze47kvtfDwIXGHZsoTXo+mHoBkgavDFN/v+w2Z5ul014oHhh1PhV1YevyqsGsto0N
-         /64g==
+        b=l2eYz/HCqeAOSjpvVJA5Y5VvWSYnX6mzA7EnDBuJHWYpeYbGHvAayAhbETevSfBIu4
+         64PfcHTreG1loni49iN1ZA2GGkVzzD3gkDTYXjUTy/7jbl7mS77HRlgcWk58yP2J1exJ
+         Fex2TcTUGRU3dhcilGiauCOOH+3gWGFAnSHmXmifOlf7AkN/ccbP81I7245cFpUKK51n
+         BhvVO7PSAMUErB6cYPgwzGuNd33cZeUh2nVZuCB22E0BCGw5uN8SBLnEW7cP4Od2lXCW
+         Qc6azE0njBlcsGydUsyemCJ63nOREqDk90GSHbDd9s/vsMCoGc1cJsgIzBKjNjRONhFB
+         XfvQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=5qrSO5NPj6hJBanRelbV3uEhwv8t99zEJAXk1B3Z+fs=;
-        b=VTnrv1f827XImv0pj1dECko5v5bGwHojjdtlA2t8YxefufzoaojE6vgswJjsNeJtzJ
-         dMBz6I1RLho/Ea++tmDf0sVifnlt8XjsnxQEgoNdvFmglQGrxwAK3LtzpUMVLmGdq9SN
-         nMAp/Ep/VZZdEksTc3rxu+hHOEANfpeivwy2qo57onAk4kFp3x7/bYa5bp2gSeOgTzWi
-         YA/w/GFbqVsJ/t4l/OdYoINsSYn/Jk9FDXruYFNITC+qcBiTtPhBooX6AZLNIadi5PXj
-         a23e+4hAUsKScjmsZuYwZoFWia2UWAgh7bCzJoamxAuZjIGrDGUxUc09CuF06yYGXaLm
-         D2Mw==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=Oa/5rIMgeer6R2e9oF7rl7+uz7yQguPAQg4K1fiQRfE=;
+        b=Nr7SaiJjA6/5t5i7Rm3/U3VGlnvOP8B1saKe02Yq0D/Xet6RXDesAoZ1db9gCvJ3qd
+         il4sqcMtywSfn9iuhtl2feV98z3fp/JD/D/dPdX8xhvWxHIY59Ecr66n3WdvXSjVffsZ
+         p41DQhAr3lZWVHRQ0b595XV1EvbJAOaa3Qg35J1QnXSMGloqN4z31zuWD0YCuruYo3zz
+         muMIeU1m+GuAmD29QLvCYBtK3UttffR+hgxalf3FuwnIeszxvsXnuqfh7TAXNYCs9niv
+         jtnJIT128MYyNSskD0ACC2XUG9pPUygaRbAmcYYkP6icfGSTBDNoKTgGLhhT5vs1FCTJ
+         HNOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+       spf=pass (google.com: domain of mic@digikod.net designates 2001:1600:4:17::190a as permitted sender) smtp.mailfrom=mic@digikod.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5qrSO5NPj6hJBanRelbV3uEhwv8t99zEJAXk1B3Z+fs=;
-        b=Y94CyDQy+Gs2013v4Mt2go5xyhaJgI0fWAbdzhWJRr8GfPJ4H1t9CpO4xNE72UXIew
-         6BDa+joC5y5aNaIdDvd/1qZxUhriDmqF43VesASsGO/lTK48KvzqtfUK5PngZwo2vHvo
-         bg/EE3hfa9vd+V2XiKkHDdCfuv4Aku0gwfskrM8FXHZqdLjbbq0RKk7//pG6WHkfNdA2
-         Jo5X9pvATYcYGOkL4uXjqWVSk7ja4cuYjhEnDTRpkIJcgfHsZ7b3gz/43nydnRr1z6lw
-         Y5YrKHCuWtW8a0LHrrZLUQWImGcVGr9MUTKCcQdhCWnCfwWtREWn3C9eTrgZmtLHfKzF
-         zaLw==
+        bh=Oa/5rIMgeer6R2e9oF7rl7+uz7yQguPAQg4K1fiQRfE=;
+        b=nkBtcnYeEqEIJbIlVgKtDpSIxd0ATDq7MI3mvWuf45QR9JeaP1jB57evM/v2r5DWfn
+         H4Z+OYp7MQeEYdgJMhFV7P25dVkWmOsvCwK9d61wpASbpHA+bnCcO+JXgg8hPV0WlBqF
+         4/1IFygyssicDELiVnQPnHPpedj7xdJf9JyIvCvWPCXohpkEQCpQ2/83EWBrTvMHQi4Z
+         jxe2C9Ks5x96Hb/jcEpDMKU1rlJJzORmbCRxNpAUfuBPJR2vjyjIWIV//Cx+w+T7Xic8
+         cd8XxduxiGYrauBEpZKFR6x/Nkq2fMS6zc7ul06u/pKN1mNAqo4oLBesfI3zMztXkCJn
+         BjGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5qrSO5NPj6hJBanRelbV3uEhwv8t99zEJAXk1B3Z+fs=;
-        b=oaUTlpMdEahkdwXUsTqRdgzxMwvPYG46LOJkDfVzmCjJoEf7f0h9+O0azeaKuk4MAe
-         y60D2pXLdwJWGrYALLfeuwD6mDSoEAZbzXTf9mZaaQKTgEtnSyGT/Wx1JDMVUhvaT32u
-         LxWxPGlLBJtDEHENMQHNHY/BxWJMFnw5cpJS9QJbRhhHf6A9wIs/PxXAtm59keHwHcmd
-         88i2HorBEiKKHkoy+YGfIJcc78mrmolSGheA/e5XGA78kK64VKATqvFqbuNRjo0EJk+8
-         e9Gg5qpkZ3FJ79W91A9gnKZbeaJKdU4xGRL0RvcOGooRnBx3OGGWRnOAuIlGQ6Y/whbd
-         XHIg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Oa/5rIMgeer6R2e9oF7rl7+uz7yQguPAQg4K1fiQRfE=;
+        b=T/+JF2vxIWYTHqAVFTu7oA95PO1RVAS6rVLPisxpc837I7coKO/BMYKM177nvb8ov0
+         5LR3umSv0xSvyh89ypdOCyNB7mjj662XYR07qWP9koN/OZv2s86WhYp7aXpK/oRerB8v
+         JzX5/nzNJyYpBsiwWuQHLBtorY3SOHHajjUY2dKGX17SkIpKikKVaL5I7RlqNm3wdRz9
+         IbBfQQqortnxrmKeY989OVmmM5sjvb3ipupMdwWDNkn8r1nyfKLst+LN/YPVGVl9oJQR
+         nY6Vlp1dvn+dfI2PMdpP/1kzsx0XlN4ODb4m8eBrFf6tCQBzhqqPhZJRh1qzuHGrol3u
+         8oAQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533p2JEmafr9EKo0MAdUBMxKd5HJCM99qYltOQw52gM2uaEPbabb
-	qT4TKi8oKLKPLFlK2yXvRp4=
-X-Google-Smtp-Source: ABdhPJxetlSKO3ma9JdsyFsgtjJ/r/BWd96HFjee9M75y/zfbdj4UqNIbuaE87HTlltZ/sncm4VqcA==
-X-Received: by 2002:ac8:5559:: with SMTP id o25mr25881435qtr.36.1619603861306;
-        Wed, 28 Apr 2021 02:57:41 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM533AIw6gDCNMoI0RACOJSU+ZPX/QbVP1ZXFlp5j0uJ3Dvujsy9io
+	oQb7d78apXtD7AbznnjI+Ks=
+X-Google-Smtp-Source: ABdhPJz1Md9U2fwwcbgHuiw+huE0ubVIdMO3HUXg/0l5WvuNncU6KhVH8NicKjSUdQZg7DmKmAqZMQ==
+X-Received: by 2002:a1c:e409:: with SMTP id b9mr3533638wmh.189.1619603913797;
+        Wed, 28 Apr 2021 02:58:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:f84a:: with SMTP id g10ls6541229qvo.7.gmail; Wed, 28 Apr
- 2021 02:57:40 -0700 (PDT)
-X-Received: by 2002:a0c:a909:: with SMTP id y9mr28714424qva.20.1619603860926;
-        Wed, 28 Apr 2021 02:57:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619603860; cv=none;
+Received: by 2002:a05:6000:1287:: with SMTP id f7ls664605wrx.3.gmail; Wed, 28
+ Apr 2021 02:58:32 -0700 (PDT)
+X-Received: by 2002:adf:dbc2:: with SMTP id e2mr34496645wrj.398.1619603912886;
+        Wed, 28 Apr 2021 02:58:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619603912; cv=none;
         d=google.com; s=arc-20160816;
-        b=TCQo2oCxT1MMz0h2t0c1mfP/o4hAhJSWEt4nfwE3MbX+68KL25r4sxP1YN8DmAsUVR
-         EGITr6nss6MVq5fVK2L31rpBKYW9+5MKJLsSC4cR0Gx7u6iZTlx/SLi/rW/GMK42qV2M
-         yyI+A+2yZRtQnspEJfTxMDxH9NobyUJXpD2FeCgMJUc4jVrKoiTu6wvUa5OTj6ik6bwc
-         gnToKBiB5ometwf3Jd4funK1rDmbPbXDcP2oBczG68i7LySrt0mL1HqsufWReBjZmRXo
-         tz+h0j5CrUkSUlaDhHtlf049ROcLgmczFz1OXck3Wh2TdhyIX2OXpmlj+7rabcNcD1ua
-         dQiw==
+        b=NBDi073+OvoQw7mZB/9KGoBwInHxU50y2iHV0zx9+sZXrjl+j9JaOpkEVFlcH9/YdM
+         LW8H3CSNSqtUNWHa1MXz5PeUN7Bs0BpFtTzpdk9Ak6eLb4gWYpCZBmr1GY37+CwOr2h5
+         PQ+F8FGiWlIu7OaUsdAzJruJs7kfwgJ/+IHTSQKXPKzREEQQhjNP/agyco8ryCHSzfsg
+         qKTBS+R61ka1ZRizLIIXTGPjNGMWBFO6ENnW+9ZfoD73HcjjDcrgIInUiSBrg88oU0bW
+         JZkLllhMUJz5uTu90RD9FhXlBU5JYmXQjIqn265jNk294s+LEj0YPWgNNfl6Xf9P01Gp
+         3wlg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from;
-        bh=zwvHUqjKEUUpkWY7KQvU5w7pzi+Kg8wIRJ03VeZStUk=;
-        b=TGrvdNIEngvx6ERXBY27X6dKnIaAPSP7Vi8047LdAdr++yUI/3TlWmHIVzhmjwUGXC
-         SrfdIetW5sGy3N5ic20Y/bHsbtLiG/3fQFKGQfnMiwrl/+NGL2IT1egU7lKotw3b8DIv
-         7cN9Rmla50msD4ScAFhwzdwCiWgw8pOi69o8WxYAQHsjYEQEW4SII/IrrlwqUeL8DpfU
-         QCxazGgU7VF+EGiGa25K4lZX0TlqE9JSKcWunmhPTzT9kZQAgZGkw+l+mZRnP9CGJ8O7
-         IrZNzZToxGlnbz/CWT5Nrbmz89riLXGpA6FtzEiVAQ4q4tvkUVZih2n6gy82eJ3f1g2J
-         GDyw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=Sqz8Nt2LiSBYX2bSEP9uiO8Ucr/LwkUEODxuwbuxBuI=;
+        b=M224HkpBhPC4HwDES7SviMla75NuSj9bgofpCdhbUuo0ZOlyNPe8x0FBHYS1szfWIM
+         iUDgv0yyLypSKTL4iZjRglZw8LnEE/F41dAQAHCxkVexTBCRBdDdmXZlCzZtKTyL7Khq
+         vc6VTw8VJ2abuwcr6BQfkN9dKVhe/h+L95ZVACSZxBCcJOMn3+yEp03GSo7ds2A/5klq
+         oYfLD8ZApOoeFZcn2lKF0TOatpwbC2cVgL0nZLn9/3gz9mZtQsyac3bV/tjIZ7jJW6ZU
+         fcuoyotHys4uk67ojSfpIJ1arULq7QJhDmBuP6rajHwJXe62Pga60C7OsqskCyvNI8U5
+         kpfQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Received: from out30-43.freemail.mail.aliyun.com (out30-43.freemail.mail.aliyun.com. [115.124.30.43])
-        by gmr-mx.google.com with ESMTPS id k1si2815419qtg.2.2021.04.28.02.57.39
+       spf=pass (google.com: domain of mic@digikod.net designates 2001:1600:4:17::190a as permitted sender) smtp.mailfrom=mic@digikod.net
+Received: from smtp-190a.mail.infomaniak.ch (smtp-190a.mail.infomaniak.ch. [2001:1600:4:17::190a])
+        by gmr-mx.google.com with ESMTPS id w2si259180wmb.4.2021.04.28.02.58.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Apr 2021 02:57:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as permitted sender) client-ip=115.124.30.43;
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04395;MF=yang.lee@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0UX3sbaj_1619603854;
-Received: from j63c13417.sqa.eu95.tbsite.net(mailfrom:yang.lee@linux.alibaba.com fp:SMTPD_---0UX3sbaj_1619603854)
-          by smtp.aliyun-inc.com(127.0.0.1);
-          Wed, 28 Apr 2021 17:57:35 +0800
-From: Yang Li <yang.lee@linux.alibaba.com>
-To: davem@davemloft.net
-Cc: kuba@kernel.org,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Yang Li <yang.lee@linux.alibaba.com>
-Subject: [PATCH] net: tun: Remove redundant assignment to ret
-Date: Wed, 28 Apr 2021 17:57:32 +0800
-Message-Id: <1619603852-114996-1-git-send-email-yang.lee@linux.alibaba.com>
-X-Mailer: git-send-email 1.8.3.1
-X-Original-Sender: yang.lee@linux.alibaba.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as
- permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+        Wed, 28 Apr 2021 02:58:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mic@digikod.net designates 2001:1600:4:17::190a as permitted sender) client-ip=2001:1600:4:17::190a;
+Received: from smtp-3-0001.mail.infomaniak.ch (unknown [10.4.36.108])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4FVYx4442NzMq3YP;
+	Wed, 28 Apr 2021 11:58:32 +0200 (CEST)
+Received: from ns3096276.ip-94-23-54.eu (unknown [23.97.221.149])
+	by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4FVYx344c0zlmrrs;
+	Wed, 28 Apr 2021 11:58:31 +0200 (CEST)
+Subject: Re: [PATCH] samples/landlock: fix path_list memory leak
+To: Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+ linux-security-module@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ James Morris <jmorris@namei.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+References: <20210427183755.2790654-1-trix@redhat.com>
+ <CAKwvOdmj5YvWZZWwcq1G7JgRALwPbqwiROiedMeEbBst2sGeiQ@mail.gmail.com>
+From: =?UTF-8?Q?Micka=c3=abl_Sala=c3=bcn?= <mic@digikod.net>
+Message-ID: <6108e69b-0470-cd71-e477-ba64641cbf58@digikod.net>
+Date: Wed, 28 Apr 2021 11:58:59 +0200
+User-Agent: 
+MIME-Version: 1.0
+In-Reply-To: <CAKwvOdmj5YvWZZWwcq1G7JgRALwPbqwiROiedMeEbBst2sGeiQ@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: mic@digikod.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mic@digikod.net designates 2001:1600:4:17::190a as
+ permitted sender) smtp.mailfrom=mic@digikod.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,37 +134,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Variable 'ret' is set to zero but this value is never read as it is
-overwritten with a new value later on, hence it is a redundant
-assignment and can be removed.
 
-Cleans up the following clang-analyzer warning:
+On 27/04/2021 21:13, Nick Desaulniers wrote:
+> On Tue, Apr 27, 2021 at 11:38 AM <trix@redhat.com> wrote:
+>>
+>> From: Tom Rix <trix@redhat.com>
+>>
+>> Clang static analysis reports this error
+>>
+>> sandboxer.c:134:8: warning: Potential leak of memory
+>>   pointed to by 'path_list'
+>>         ret =3D 0;
+>>               ^
+>> path_list is allocated in parse_path() but never freed.
+>>
+>> Signed-off-by: Tom Rix <trix@redhat.com>
+>> ---
+>>  samples/landlock/sandboxer.c | 2 ++
+>>  1 file changed, 2 insertions(+)
+>>
+>> diff --git a/samples/landlock/sandboxer.c b/samples/landlock/sandboxer.c
+>> index 7a15910d2171..4629d011ed61 100644
+>> --- a/samples/landlock/sandboxer.c
+>> +++ b/samples/landlock/sandboxer.c
+>> @@ -134,6 +134,8 @@ static int populate_ruleset(
+>>         ret =3D 0;
+>>
+>>  out_free_name:
+>> +       if (path_list)
+>> +               free(path_list);
+>=20
+> I don't think the conditional is even necessary? By our first `goto
+> out_free_name;`, `parse_path` has already been called/memory for
+> `path_list` has already been allocated. `parse_path` doesn't check
+> whether `malloc` has failed.
 
-drivers/net/tun.c:3008:2: warning: Value stored to 'ret' is never read
-[clang-analyzer-deadcode.DeadStores]
+Indeed, no need for the path_list check. In practice, this memory leak
+doesn't stay long because of the execve, but I missed this free anyway.
+Thanks!
 
-Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
----
- drivers/net/tun.c | 1 -
- 1 file changed, 1 deletion(-)
+Reviewed-by: Micka=C3=ABl Sala=C3=BCn <mic@linux.microsoft.com>
 
-diff --git a/drivers/net/tun.c b/drivers/net/tun.c
-index 4cf38be..d92c11a 100644
---- a/drivers/net/tun.c
-+++ b/drivers/net/tun.c
-@@ -3005,7 +3005,6 @@ static long __tun_chr_ioctl(struct file *file, unsigned int cmd,
- 		return open_related_ns(&net->ns, get_net_ns);
- 	}
- 
--	ret = 0;
- 	rtnl_lock();
- 
- 	tun = tun_get(tfile);
--- 
-1.8.3.1
+>=20
+>>         free(env_path_name);
+>>         return ret;
+>>  }
+>> --
+>> 2.26.3
+>>
+>=20
+>=20
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1619603852-114996-1-git-send-email-yang.lee%40linux.alibaba.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/6108e69b-0470-cd71-e477-ba64641cbf58%40digikod.net.
