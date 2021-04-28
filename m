@@ -1,130 +1,124 @@
-Return-Path: <clang-built-linux+bncBC7457HKSMPRBTURU2CAMGQEDCVLT2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBVFEU2CAMGQERRPYN3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-f188.google.com (mail-vk1-f188.google.com [209.85.221.188])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3A3736DCB1
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 18:09:51 +0200 (CEST)
-Received: by mail-vk1-f188.google.com with SMTP id j1-20020a1f23010000b02901d1049fedd2sf10859937vkj.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 09:09:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619626190; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id AFBDE36DD78
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 18:50:28 +0200 (CEST)
+Received: by mail-lj1-x238.google.com with SMTP id y12-20020a2e7d0c0000b02900c014139dd1sf7580588ljc.4
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 09:50:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619628628; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CrhlshyeOBlll9ss68O6Kr0uB8piEuQ2pbSffUtusVi1wskBWnwbI7vZkLaIxsIeUt
-         2zFRtLl/cyrOo746N3z6+UO/5nDyzROec7AtyxvPBo2lsW7g1uRYx3RwcNwjPSjJHAvs
-         rUAZIMHoUwbKAz1FeLWoiTN02KORXpIoabfubSaTb+L2WE/WM0XQSQ0zbBM6WaO3pgkL
-         pMY6fpG1val0DHMKcvDke/DJ7wLJ+ZuIZw4sfM0PAJrI2Ay7jZvTaMHBxu1c66N5X9jH
-         PjFVgwRnXfQsAnAtYm4pIQkJ5+6n+i2I08MtImW7/Z2PTlmN9eZCWF5pQSoTEaOVeiDu
-         3/pQ==
+        b=tJusbDjCNNefcWmjevsD1tSjpDD57W3bBq/ub1FKp/0zzkugEzlWfWRKaI7FUYPgYm
+         00/eRHmtiqr0oldm9BN9v/asIvqU4TOigVRrs64WsEb41iGN4jyKAsUajyppfoUtHeKY
+         8FztXSTHbvw9Ro6lNzvlHYVPa7oWN/rDPUOaDj/nTqHG4dlYxEgzxaU+xVMd+ylDmex3
+         sHz/yXyGohVDfVgXdk+mpLYoRtMUpFSEl+iOW6ycDNZ+EJO24eyvPfERRzJcWH9pm9YN
+         sS3FH/48JzLt3hbdyFIeMfhUO3VQEh6plPRPo438RviIY0JihcVGVsBBkzE+VrNHRUgI
+         b/ag==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:thread-index
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender;
-        bh=6viazNKyVvqxF5YPndQfzcrzCxATW46iuta16D7FZtM=;
-        b=FxJ7GWaMX0Q3nTkn0KuBJkWb0pZqlFLxb9IHylsZ1uKjOXyS7L9556yr42tXtlojQK
-         qWmNj+ssMgWnrx7ZoR9chLXOb6kCg+tjmkEnMiWKnMDp3xGk14Syz5lM/5Z/BEVpXPY4
-         bc0Z7CrmlZofP4xgpaoFn2DpqW2pvcwnamYzRHqyBwQWMFN3v8EZf72B/ZHLL4MyutS0
-         9xxi4h2iNYKdvok9NL8K39CYzyTV9XpCwtlQHOPcz8Rw74GzR8VQC0TIwQr+cyTmYda0
-         tOzcY62PV3zj+zwZS2ypNmRwVyxByRBgdUvL+hgPOeKsLvMT7ICUG4UhV5SwvJ4g+Rl2
-         7M9w==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=QF1N8rseGJYZ0tP647nMs1lYZV1zRknUxVjN8dhfxGY=;
+        b=O4xZj7vVZc3TdIk+herkYaYHEG5fojaiAtw3uQeJtXlP7+djQeXmPNxUfpkQZnA3a0
+         HNNwSyavGso3hbrexhAANLjPHFKxALC3jaWmjkF/z5L8kmDS5B+a1LbWzbOXIuodu2Rb
+         OEiYGp46FeVAMGxeGK3ERoqYYg9ayWqQ/TH5KnIH9g3OwvrSlqDwWGbPvoCpzT5Tx3p+
+         aoVGsRFkeP7YV/8GFohr2uBLJ7nF5t4k9K/PYJcHNsspFxJZJskwvD2eQpEz+pF/JLKd
+         mTVIzj6glb79w5wfaQkHEbreLznBhSRf6+m9w6k7VxMFrpF9Oy3GEK0zWAMQdxd5yjQS
+         O3vQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=dgZx+CtR;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.43.7 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       dkim=pass header.i=@google.com header.s=20161025 header.b=m28tan9Q;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QF1N8rseGJYZ0tP647nMs1lYZV1zRknUxVjN8dhfxGY=;
+        b=FfG5x8s3jViwfMZyrF/b5Zb6Fs+0UiuaZSbsABM82cJz+cQAiIl6PLyXksI5UnePBm
+         HhgWjz+TyVEv/IbB9zFFBUOCEH8h+XVGOQKnqZZca7zmvMrQOMogTjApM/xaQTkUhSkR
+         UokJIPDyWNVJuoIbhk1OuGcej8wbDg7YelAWe8VHtI1cWYXSn4XXnf76C3jzeSgavK2n
+         7nzojXb5ngOxfsXUvie1ZXWJFwwVS4eRqjZYf0cbhy9YbRybki8e/xHA87BhkCcJt5EG
+         KhK4HRusqjV5/E9XQhQMenki+xKqNb1guTlIOcVfMyAhbkip94F7D2yjQgpNREU3m/mt
+         EYqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:reply-to:from:to:cc
-         :references:in-reply-to:subject:date:message-id:mime-version
-         :thread-index:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6viazNKyVvqxF5YPndQfzcrzCxATW46iuta16D7FZtM=;
-        b=BlmTxUw+8vv8gUsGkjO1eOCc2gn325T/8ainGPAAilBdSY4VGfRWJ0INChDOxLxIgQ
-         zDKUH8qa++3YxasOn7LHEGytdVCxNvlSjLKLmHea887vNCs5MAS9NeKDgSPX/XY6nVQn
-         Ek5djp4WEvlk2Y01oWGLa3BF7dwbcBAVuJK/CxVu2baI+TbsXvg0ni17HmTQNE2j+AOO
-         SYOSD0QkcXS/K4Y111d/n+pYpnKXDzgcxOybRBdT03gz4iiLqZkm2uAWp+o2emPVfIGP
-         VX5AEOJTPtEjOxsZrWVp6EMdICWfqp3tS3jZdb89HbgR9wIz+TdOKYU5cKToGp9g6RgQ
-         Cv6w==
-X-Gm-Message-State: AOAM530HaPdZlaJFgIKIYdIuiUKAvzQzFzoaZfCIA55HiLf93i6EKgeI
-	5vPKErV5ANSmUWU7yqrAqUg=
-X-Google-Smtp-Source: ABdhPJwGEGECEEmtmIAJou4P6C2l8dCOfYKFdvbnp0W/XMYTedQ1+/H3S47/QN2fIwNuBwOVqrqDJg==
-X-Received: by 2002:a9f:2486:: with SMTP id 6mr16995679uar.120.1619626190474;
-        Wed, 28 Apr 2021 09:09:50 -0700 (PDT)
+        bh=QF1N8rseGJYZ0tP647nMs1lYZV1zRknUxVjN8dhfxGY=;
+        b=ikAfrWUNP9kHcdWhUv14tDtdcNGpVdRnUofSiqHwpNvOkniqWq61IktlkpjyzjCX02
+         9goZTT7F4d0Kjw+X6wtZtPIfsfY1ZcfCQ59sfLd8rDOF6vfHMkqoqbwq3Kn2Hsb47SPM
+         NZH4/tMQlveKFEHUanDQ3+q4yu+/ayLJjVGUjM43VE7Lc3oe8F6ywqsjZEqIrdOUUR/E
+         yxChE6Pwrh90HsK44icTSNJD5GRd9FL6x85Ynv5W7spmd/icvU+LOAFPUD+76LFf70zt
+         7L56/lqHk8CD/wbpDgTiY88jneeuyiUfeo8byLUUkZkP0k9vzfZYDJqvFnTG0ZZrhzFU
+         qs2w==
+X-Gm-Message-State: AOAM533w0sX9bUkjLDLEHCxucw5eNkVq4+I8gI9ik50YiPOrCNhdKIUl
+	eFlQND1PaM7/kEdKDMA+Fgw=
+X-Google-Smtp-Source: ABdhPJyfci+x7NlGOomFlU0GPkQclOSOLkpeMpQTFnTe1xV4exNv4Vx1oBdNpO1rDD9PNAXCM2Gd3A==
+X-Received: by 2002:a2e:b4ef:: with SMTP id s15mr21216463ljm.458.1619628628238;
+        Wed, 28 Apr 2021 09:50:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:31d0:: with SMTP id x199ls52427vsx.0.gmail; Wed, 28 Apr
- 2021 09:09:50 -0700 (PDT)
-X-Received: by 2002:a67:5e84:: with SMTP id s126mr26066997vsb.41.1619626189980;
-        Wed, 28 Apr 2021 09:09:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619626189; cv=none;
+Received: by 2002:ac2:5f9a:: with SMTP id r26ls212634lfe.2.gmail; Wed, 28 Apr
+ 2021 09:50:27 -0700 (PDT)
+X-Received: by 2002:a05:6512:358b:: with SMTP id m11mr21873217lfr.179.1619628627241;
+        Wed, 28 Apr 2021 09:50:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619628627; cv=none;
         d=google.com; s=arc-20160816;
-        b=kCwH3w3HDNpPIPxmHU3L99BAyGeSzfdY2y1cQQgfMHaoThJ/jzNZs1p1A+DOCqENcE
-         qbzCyvtv72NjFsGD2svcTyB+M+tx/Fe0l7Z3G2LF+KWiJ0i6jORaq3SyT4UN10dun6BN
-         YZZpzBB2gN21e0hk3hzEdA5IAtOD5YpuxYfMQgNGB46aRo5chXMzigS1yaNCOTE3GP3W
-         cRRaZtwzatr2A0jQxMEb7PRK4XZahd02y55jdDHHrjqLYdCIm7r3YsjPR0evV/tEzOGY
-         A0z95zMQPGylx1wHIg6PCEXPu7kif8MccBpFaLOXrPr69itJrojx7lZU3Ye5jVvj8hHa
-         Cd0w==
+        b=u3Se1V3PRSn0RKmN6UHKTqWcOYTxQZBT4rweC6OiiHsrgTiBzlZoScG/N/+q83lWwq
+         NRqcZNCy9n/Lx0Hb9zpOSXs8nMwWk0tm6f7tnw2c5sglLnviVq8d/O/M9E7fTlfMkch4
+         hJihCD1vb/3h+3fuJbXOTIEl1ARepkzof5xmF604c7lBVjzWy1DwsiTEYCocfoGoG/54
+         XmE7ruCqt/vSIL3k+b9w9I3y55rwRf0XY3lusVsQMm7BTtW30OUQBuLze2ljtD+sUANZ
+         qyXa28S3fRVVNsJJF0Jh+HWxxVPgj80sJIskMouXqyi7rPgB5Ps3p32Mc1oBy7+HkPO4
+         zDdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:thread-index:content-transfer-encoding
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender:dkim-signature;
-        bh=Fr/CEsYByjm9dMohk/wXI/cR/Hj1LdowKtaflzAh6Ss=;
-        b=ZP+4lRPXC7PIL34UVvYa27q34KetsumDhyVNns4pGtA7X3nx9d78V123DK+/ifSNcd
-         w2DdR1sX8jjoTJgNXeY8y7B3cxLHm5HFHckEaVZ3RRASXVsP/eliaW64laWUQ024MLaH
-         nf/Lap0+s0nk/a5dwl8metqCtl++rWmoH3rsN3kE4E5A3cFDyv+eVgH/VS9gAFCa9vYD
-         FohicgsfaWnGc9tQxcMqc7ZluxSnCHRQCYe3aade5g8KCmIaeeZSk6q0aS5iKgXQwjID
-         kIrTRLfYVEPor2oTRngY2mSiQ1vQ93i22KSuzTDZxpeNgxRkQeiqdTEZXxS2ge7fjC0v
-         I5Og==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=I/Euk3VuH6GEg6mejGpaOG697QfObGwoAgCrZCQcw1M=;
+        b=zjZpxHdWJCTJjS3imuIaQb5XaRgNLFISN2osrJrxWsjvAo8cdPSvuf9BgO4+5StrZI
+         HgOC4+CFXiloqhElZY81eW0BDczRdLkPGwE3YGsbcP/aDW8fZ4EMJXJSV4NTab4iATQJ
+         xmkMk2iQz0OhS0TCbizp5ZjVqr8E0ctELyD9iTgsJPkD+7ggMXeJu1Q0o3j3IT2ktyr8
+         OPy6DVjATvYBy7peRx884sY330xvrT876lezgmkToOQ0qj0cyZgYIbyk4KhfSUIogsmE
+         0k4R499u027168TyZJ2/HLf4rmQMpcdd6tFiEMtbe0IQrGPklfVXBxZrav1J+QqXX1QQ
+         1rGQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=dgZx+CtR;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.43.7 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from m43-7.mailgun.net (m43-7.mailgun.net. [69.72.43.7])
-        by gmr-mx.google.com with UTF8SMTPS id l9si40932vka.1.2021.04.28.09.09.41
+       dkim=pass header.i=@google.com header.s=20161025 header.b=m28tan9Q;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x12f.google.com (mail-lf1-x12f.google.com. [2a00:1450:4864:20::12f])
+        by gmr-mx.google.com with ESMTPS id p18si25195lji.8.2021.04.28.09.50.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Apr 2021 09:09:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.43.7 as permitted sender) client-ip=69.72.43.7;
-X-Mailgun-Sending-Ip: 69.72.43.7
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Received: from smtp.codeaurora.org
- (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
- smtp-out-n06.prod.us-east-1.postgun.com with SMTP id
- 608988aea817abd39a1f674c (version=TLS1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Wed, 28 Apr 2021 16:09:18
- GMT
-Sender: bcain=codeaurora.org@mg.codeaurora.org
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id DC415C43217; Wed, 28 Apr 2021 16:09:17 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-1.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,
-	PDS_BAD_THREAD_QP_64,SPF_FAIL autolearn=no autolearn_force=no version=3.4.0
-Received: from BCAIN (104-54-226-75.lightspeed.austtx.sbcglobal.net [104.54.226.75])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: bcain)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id 99792C433D3;
-	Wed, 28 Apr 2021 16:09:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 99792C433D3
-Reply-To: <bcain@codeaurora.org>
-From: "Brian Cain" <bcain@codeaurora.org>
-To: "'clang-built-linux'" <clang-built-linux@googlegroups.com>
-Cc: "'Nick Desaulniers'" <ndesaulniers@google.com>,
-	<sidneym@codeaurora.org>
-References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com> <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com> <025b01d7386f$78deed80$6a9cc880$@codeaurora.org> <CAKwvOdnyowwDnHXPyJc8-KZg9vKy8zFn7hErazVT30+sPO8TyA@mail.gmail.com> <034f01d73a9d$fc4ed420$f4ec7c60$@codeaurora.org>
-In-Reply-To: <034f01d73a9d$fc4ed420$f4ec7c60$@codeaurora.org>
-Subject: FW: ARCH=hexagon unsupported?
-Date: Wed, 28 Apr 2021 11:09:15 -0500
-Message-ID: <028801d73c48$d6bd21b0$84376510$@codeaurora.org>
+        Wed, 28 Apr 2021 09:50:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) client-ip=2a00:1450:4864:20::12f;
+Received: by mail-lf1-x12f.google.com with SMTP id b23so17744040lfv.8
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Apr 2021 09:50:27 -0700 (PDT)
+X-Received: by 2002:a05:6512:159:: with SMTP id m25mr22265066lfo.73.1619628626805;
+ Wed, 28 Apr 2021 09:50:26 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com>
+ <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com>
+ <025b01d7386f$78deed80$6a9cc880$@codeaurora.org> <CAKwvOdnyowwDnHXPyJc8-KZg9vKy8zFn7hErazVT30+sPO8TyA@mail.gmail.com>
+ <034f01d73a9d$fc4ed420$f4ec7c60$@codeaurora.org> <028801d73c48$d6bd21b0$84376510$@codeaurora.org>
+In-Reply-To: <028801d73c48$d6bd21b0$84376510$@codeaurora.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 28 Apr 2021 09:50:15 -0700
+Message-ID: <CAKwvOd=7oHJKyb89OJ0xU22krAipZOhase8EovdvgqMqzPp=3A@mail.gmail.com>
+Subject: Re: FW: ARCH=hexagon unsupported?
+To: Brian Cain <bcain@codeaurora.org>
+Cc: clang-built-linux <clang-built-linux@googlegroups.com>, sidneym@codeaurora.org
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHA6GaHPKlqiI34kZpdCyOyqmKBQAItWAQVAr2ClWoDAPOEXAJITqGjqqUeniA=
-Content-Language: en-us
-X-Original-Sender: bcain@codeaurora.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=dgZx+CtR;       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 69.72.43.7 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+ header.i=@google.com header.s=20161025 header.b=m28tan9Q;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,75 +131,108 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> -----Original Message-----
-> From: Nick Desaulniers <ndesaulniers@google.com>
-> Sent: Friday, April 23, 2021 4:40 PM
+On Wed, Apr 28, 2021 at 9:09 AM Brian Cain <bcain@codeaurora.org> wrote:
+>
+> > -----Original Message-----
+> > From: Nick Desaulniers <ndesaulniers@google.com>
+> > Sent: Friday, April 23, 2021 4:40 PM
+> ...
+> > We'd be first in line to help build test such a patch. Please consider
+> > cc'ing myself and clang-built-linux@googlegroups.com when such a patch
+> > is available externally.  Further, we have the CI ready and waiting to
+> > add new architectures, even if it's just build testing. That would
+> > have caught regressions like 8320514c91bea; we were down to 1 build
+> > failure with
+> > https://github.com/ClangBuiltLinux/linux/issues/759 last I looked
+> > which was preventing us from adding Hexagon to any CI, but we must now
+> > dig ourselves out of a slightly deeper hole now.
+> >
+> > Is this patch something you suspect will take quite some time to work
+> > through internal review?
+>
+> These patches have completed their internal review.  I have pushed them to my tree at git://git.kernel.org/pub/scm/linux/kernel/git/bcain/linux using for-linus branch, up to commit 43810cfdd2e6af9c57c0975e1b920f2b18c484b6 :
+
+Are you able to link these with lld? I see:
+
+$ ARCH=hexagon CROSS_COMPILE=hexagon-linux-gnu make LLVM=1 LLVM_IAS=1
+-j71 defconfig
+$ ARCH=hexagon CROSS_COMPILE=hexagon-linux-gnu make LLVM=1 LLVM_IAS=1 -j71
 ...
-> We'd be first in line to help build test such a patch. Please consider 
-> cc'ing myself and clang-built-linux@googlegroups.com when such a patch 
-> is available externally.  Further, we have the CI ready and waiting to 
-> add new architectures, even if it's just build testing. That would 
-> have caught regressions like 8320514c91bea; we were down to 1 build 
-> failure with
-> https://github.com/ClangBuiltLinux/linux/issues/759 last I looked 
-> which was preventing us from adding Hexagon to any CI, but we must now 
-> dig ourselves out of a slightly deeper hole now.
-> 
-> Is this patch something you suspect will take quite some time to work 
-> through internal review?
+  LD      .tmp_vmlinux.kallsyms1
+ld.lld: error: vdso.c:(function vdso_init: .init.text+0x74):
+relocation R_HEX_B22_PCREL out of range: 4010400 is not in [-2097152,
+2097151]; references panic
+>>> defined in kernel/built-in.a(panic.o)
 
-These patches have completed their internal review.  I have pushed them to my tree at git://git.kernel.org/pub/scm/linux/kernel/git/bcain/linux using for-linus branch, up to commit 43810cfdd2e6af9c57c0975e1b920f2b18c484b6 :
+ld.lld: error: cpu.c:(function cpuhp_threads_init: .init.text+0x4C):
+relocation R_HEX_B22_PCREL out of range: 4009620 is not in [-2097152,
+2097151]; references printk
+>>> defined in kernel/built-in.a(printk/printk.o)
+...
+<many R_HEX_B22_PCREL out of range failures>
 
-~~~~
+This is with llvm-project @ bdd68357901d.
 
-commit 43810cfdd2e6af9c57c0975e1b920f2b18c484b6
-Author: Sid Manning <sidneym@codeaurora.org>
-Date:   Tue Oct 13 16:17:50 2020 -0500
+(Looking at the builtins, I'm curious what are `:endloop0`, and `if`
+like statements?)
 
-    Hexagon: add builtins to kernel
-    
-    Add the compiler-rt builtins like memcpy to the hexagon kernel.
-    
-    Signed-off-by: Sid Manning <sidneym@codeaurora.org>
-    Signed-off-by: Brian Cain <bcain@codeaurora.org>
+>
+> ~~~~
+>
+> commit 43810cfdd2e6af9c57c0975e1b920f2b18c484b6
+> Author: Sid Manning <sidneym@codeaurora.org>
+> Date:   Tue Oct 13 16:17:50 2020 -0500
+>
+>     Hexagon: add builtins to kernel
+>
+>     Add the compiler-rt builtins like memcpy to the hexagon kernel.
+>
+>     Signed-off-by: Sid Manning <sidneym@codeaurora.org>
+>     Signed-off-by: Brian Cain <bcain@codeaurora.org>
+>
+> commit 19a75d4ece15d519036db9e52768e46ddc1dcecd
+> Author: Sid Manning <sidneym@codeaurora.org>
+> Date:   Mon Apr 26 22:38:31 2021 -0500
+>
+>     Hexagon: remove DEBUG from comet config
+>
+>     Remove CONFIG_DEBUG_INFO from comet configuration.
+>
+>     Signed-off-by: Sid Manning <sidneym@codeaurora.org>
+>     Signed-off-by: Brian Cain <bcain@codeaurora.org>
+>
+> commit 4c8a34896e830ad02bf8cf4abe5b639e0de12938
+> Author: Sid Manning <sidneym@codeaurora.org>
+> Date:   Mon Apr 26 13:51:53 2021 -0500
+>
+>     Hexagon: change jumps to must-extend in futex_atomic_*
+>
+>     Cross-section jumps from .fixup section must be extended.
+>
+>     Signed-off-by: Sid Manning <sidneym@codeaurora.org>
+>     Signed-off-by: Brian Cain <bcain@codeaurora.org>
+>
+> commit 9492ed9c4d146f2143f21b82aa8157a2787ad993
+> Author: Sid Manning <sidneym@codeaurora.org>
+> Date:   Fri Apr 23 15:06:58 2021 -0500
+>
+>     Hexagon: fix build errors
+>
+>     Fix type-o in ptrace.c.
+>     Add missing include asm/hexagon_vm.h
+>     Remove superfluous cast.
+>     Replace 'p3_0' with 'preds'.
+>
+>     Signed-off-by: Sid Manning <sidneym@codeaurora.org>
+>     Signed-off-by: Brian Cain <bcain@codeaurora.org>
+>
 
-commit 19a75d4ece15d519036db9e52768e46ddc1dcecd
-Author: Sid Manning <sidneym@codeaurora.org>
-Date:   Mon Apr 26 22:38:31 2021 -0500
 
-    Hexagon: remove DEBUG from comet config
-    
-    Remove CONFIG_DEBUG_INFO from comet configuration.
-    
-    Signed-off-by: Sid Manning <sidneym@codeaurora.org>
-    Signed-off-by: Brian Cain <bcain@codeaurora.org>
-
-commit 4c8a34896e830ad02bf8cf4abe5b639e0de12938
-Author: Sid Manning <sidneym@codeaurora.org>
-Date:   Mon Apr 26 13:51:53 2021 -0500
-
-    Hexagon: change jumps to must-extend in futex_atomic_*
-    
-    Cross-section jumps from .fixup section must be extended.
-    
-    Signed-off-by: Sid Manning <sidneym@codeaurora.org>
-    Signed-off-by: Brian Cain <bcain@codeaurora.org>
-
-commit 9492ed9c4d146f2143f21b82aa8157a2787ad993
-Author: Sid Manning <sidneym@codeaurora.org>
-Date:   Fri Apr 23 15:06:58 2021 -0500
-
-    Hexagon: fix build errors
-    
-    Fix type-o in ptrace.c.
-    Add missing include asm/hexagon_vm.h
-    Remove superfluous cast.
-    Replace 'p3_0' with 'preds'.
-    
-    Signed-off-by: Sid Manning <sidneym@codeaurora.org>
-    Signed-off-by: Brian Cain <bcain@codeaurora.org>
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/028801d73c48%24d6bd21b0%2484376510%24%40codeaurora.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3D7oHJKyb89OJ0xU22krAipZOhase8EovdvgqMqzPp%3D3A%40mail.gmail.com.
