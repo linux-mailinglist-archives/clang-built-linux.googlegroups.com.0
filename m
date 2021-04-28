@@ -1,121 +1,129 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBSWHU2CAMGQE7YSZK3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWMTL744QBRBL6HU2CAMGQEM2QAX2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17FEA36DEC0
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 20:04:59 +0200 (CEST)
-Received: by mail-qk1-x73f.google.com with SMTP id p133-20020a37428b0000b02902de31dd8da3sf26055364qka.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 11:04:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619633098; cv=pass;
+Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6C2B936DEBB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 20:04:31 +0200 (CEST)
+Received: by mail-wr1-x43c.google.com with SMTP id s7-20020adfc5470000b0290106eef17cbdsf19246584wrf.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Apr 2021 11:04:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619633071; cv=pass;
         d=google.com; s=arc-20160816;
-        b=L3zAIcII7DlhvSqyvpgK/BU8NW8ZZ4mtZjj/p9EqTDtZIS9Ou/7snmgqawK13chPEm
-         DTd8fi35LXgkPxPPiDSVPZDQ6XPbK7b4ibh5qVE6p2yvcM3xd1b3izu2H7PbDMQpqm9I
-         ERKGob3UeyZ+e2xGmmXoVCDbiVRp3acXBfXgPWW9AErjy/Zx5lIcGUn/FQXPqRe7IheT
-         qAgswoRtCsyw3cxCj8fs+DuhXhv5HxKsnGCr4asR7O9J4E3YyZBZ5sWx8503IhfGH3VA
-         nM6+49WRH2V1ppcie4Sn0VQaO/YxIVlfGNLWAVQqMggRnEcmshvCSKG1LZP9bheBXsBr
-         P+TA==
+        b=qg/69fYsZP5+GfrP3iFx0FTsh8HrhB3e5umEVwYosJ7CKcaTU7vjFU2NMjMF2XN6g5
+         LSx+6LvwLwpoXS9mb1OUXhB02r1nWHYCXIuJ4H4N1yGGjQByG0SaJ72rWAJYESTrDw8U
+         x98I4t+W6eXujLw707MLGqUttBhVmbDvOv4FD3yQ6g0XsId6kONbUL5GqcBDvbpVCYZ7
+         rof8YLNTYDrwJVs2+c0InKdrB1iPH5PjMBtv7t0pcg1muYBhzGJFG20BxMO/MBcV6L2T
+         JDlEcwvrpywWiRu2wm6L2cCpIKQ2+pQWSwNSMWUdj7e9aTcAWtvfHGvyeEChxmsR++rg
+         1dow==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=8pszVYHnaa0B58PPvoOtEbaOXnY8KrKIZqGvxXNyhyw=;
-        b=h2/P+BQ+/VnxQNSLwqpod+Qdayxz9FDvVfa6iWBUilVJ1vSB51/DptkrOr/9mLwqBk
-         B/ezsS+e8NDvkQfxaTz5+x8BmKyv7B1pQ0ByXlTsb+isfcgBWGp2WqGWKai8bArcthPM
-         zYj/QtHchuFCafD16NV0FNt73sKn9d8EQtr8vKOvKyrnHu+Jg5r/b95Lja/B4YnGCj+o
-         caRMHGpThgGdu80tox3sjqMW58MUSD4ibc68mnq0Lv3d0asXvgIskrVLnDc7n9Z+oium
-         HPkAgeO8yVrDAx/ivtBbA60s3/q2ypqpmsuW+ekFJkzj/7NGlIFvO2WDQNWLVgjAwJ6B
-         p23g==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=L6UjqfzXHxaH8xIpPxzlartw/wOaZ/PljCgD3wIi4j8=;
+        b=NppemYv3OA1RvBw6ENtg2IBzrpfX4zHDaMZ6wqzgYV1GmBJ2uBpemZTJcUb5Thn2Qe
+         9lSKtw4WraxZalUM3bREVckqrBFJ6i1zct+pMQCbbqk5Wrnuha3urO1opWJwqlCw75XB
+         8YgjvQKhSAbvHbycV/XLighY1b0sxOWg6uXmKjevrJVVncGy8szyC7X+utfXLDi2UTDO
+         +RgN4yEreDzT66QKsztf9PSVnng3beGVUc2U9Pb16gFyM002wzeL9LxFohuGPJdDSiJ2
+         4AZqhHvJJX1eGzMRd4jmI1zAqvz4lYL7ruO3D7B/HAYfDMSJsZnfHfxXXp6v79LRESnz
+         ZE1Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=T6gMkpAG;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of mic@digikod.net designates 2001:1600:3:17::8fa9 as permitted sender) smtp.mailfrom=mic@digikod.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=8pszVYHnaa0B58PPvoOtEbaOXnY8KrKIZqGvxXNyhyw=;
-        b=KuBObN+U4aTu6aMZ+sf7JGPoI6PXIloOaVyjCXnYsUgeoNJpxjQCwF/ihGW7lzCzFb
-         ieBKi0Tm4m8mkFjeXs2S7X+dPjNNh5IAZlxpULMlZ1RdIZt+rQ9hOLEGFbzlpEYF8cX/
-         GdwG8MStauYIZOsliDOC0Mta06OtWcrXgVH7ElJ1is+L/XdgMIcdsZteASTEe6Ou8z24
-         s/beNRzCENfUk0ePDvCaiz/X5TTgIDTiHr44pOI4hhE8hWokZx2sUFyDhJF7dYde52cy
-         Hj9C/28tMSvq5xwSycEXurbYZACbD8hE4JnZ3+ztwwUlZbT/bmJMqkx9PzbqQD1xG79R
-         qCPA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=L6UjqfzXHxaH8xIpPxzlartw/wOaZ/PljCgD3wIi4j8=;
+        b=SXzHlGV9jtnN0LFK1T/b3WcKXTHQD+Jc0UTiOpqoOSmf3NWe8HD+MM//G0wLyWzPgN
+         BcHJ6XNmyL+xhoCPKJ+RJNFhrLGuex/dEWYq9sml7rLuApAn4wevIn8xIQeFzfeNcNxR
+         bNVK1iWQxYaVUOtDyiTp4jQVol3a35V+0doRqgl9ZCOyGJugQWmxy6Na6I8x/oC7vLnM
+         6pjqWN28yHw/GPKcddNUEJvxPe1gqUuM39U8fm8Cs9qCPJYXUZcTyo1TtSFbytZs8xFe
+         YQumStsAFOnT/xCIwfKVYSnjTb20u/ElZi+/YIKzGHIn2txJMU8aDaPvNhCDYl9VQtrj
+         3I2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=8pszVYHnaa0B58PPvoOtEbaOXnY8KrKIZqGvxXNyhyw=;
-        b=H3FRzQXAGYA5w+djHksrn2b7SttTPrrZk8drYS45F9cppdSoT7L5YPByvadCo9VRLb
-         Kgkm/Dfk50QO0mvvQwBtYX3weoWIT1LQTUZT/u+W4IIENZXrRN6MtYdyVTqYQ9c6UlM/
-         VCnP9WT1ZGwt6FQBFNRNHA/87CIquu63yE6/D6vnhBZAtVSMxncYtV41/3CJeN73nkB0
-         0qUUIIYhwYsEnBS2Z9vdt+md5AuNTe+qLOLp3uSQnrFZol6BLRfkPRfvzwNhw9GRctLH
-         NZFoFamL/zda7+kjSlx+jT0HHMNAoElaeac2WQqJGia8TEBUjrb1gfpcr/w0kS4Ycr+t
-         lyEw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=L6UjqfzXHxaH8xIpPxzlartw/wOaZ/PljCgD3wIi4j8=;
+        b=f/f0GNlGkLl6IUyT9zJgh78PBywjTtdYtEU7tyhYn/OpLv/cJnPtqFmsuVXBnO1Zr2
+         gaCT8UHMfbCZsQPw/jmHZP4zAeELToT3GwrtuamJibuBbCah46ehGmWtj9H4pWIiyaqk
+         /PbTbmcsvzuLRhgWgPaoVXIdMzksnrVKWG88iqvwsT1nYk5KE25yGKS7YhS0eC/yMjHr
+         lIFVPD8RBQ0/MgzZiGAMjZZAvYj2doVpH5f72VqOLdE2KRkKN8oucagNV9ECcVNV0at7
+         cjcz48ybdiB6idoo8JuwcojPP2h/GJ9VoXRji0p65PJxiPYksQK5bu1g7AVAAwANDMw/
+         mGYA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5337DhTE8G0iWl+GiN0enf+MfF0byaFuO017DMjKky54QDwJLt7D
-	MP8xkB05+oSNa4nCtW7C94E=
-X-Google-Smtp-Source: ABdhPJzRIxTESw9nXEbHrbH0X6FCnQO59gQw+YwDLc0llccbjrVJkQ45BsdacavbC3aaTpugDagvjA==
-X-Received: by 2002:a37:b685:: with SMTP id g127mr12830136qkf.42.1619633098202;
-        Wed, 28 Apr 2021 11:04:58 -0700 (PDT)
+X-Gm-Message-State: AOAM532igt6Rxwchkai7xvuJPKvh2qKwIejHe4WC5OTaveQbD2S6kmLV
+	1X8MaFi1X4BsDvhgOPGBiLY=
+X-Google-Smtp-Source: ABdhPJxzLEWayF3FD+9L7xSREGyePtYkPBQiibUmS+sMMdjDv5WsMgfF4hwoRyE5XcdSTVxkS4Fhmw==
+X-Received: by 2002:adf:cd8c:: with SMTP id q12mr37404371wrj.328.1619633071167;
+        Wed, 28 Apr 2021 11:04:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:ec17:: with SMTP id h23ls271586qkg.2.gmail; Wed, 28 Apr
- 2021 11:04:57 -0700 (PDT)
-X-Received: by 2002:a37:5604:: with SMTP id k4mr29281271qkb.478.1619633097775;
-        Wed, 28 Apr 2021 11:04:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619633097; cv=none;
+Received: by 2002:adf:f68b:: with SMTP id v11ls427782wrp.2.gmail; Wed, 28 Apr
+ 2021 11:04:30 -0700 (PDT)
+X-Received: by 2002:a5d:528c:: with SMTP id c12mr36847659wrv.303.1619633070264;
+        Wed, 28 Apr 2021 11:04:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619633070; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ss5WbQdjwJcCzgZHpUysHxFj5GtLkK17zBbNlAyKyxuWotYWf+WYjhtuPps38QgXJ/
-         XjkKP1aw7DoQFNsMToUxyXrfpPJxkX4V15PFv1vcCtHBycdpY2lWX3DSsjKKxG+YQ0ZA
-         C0zJItnaI3V7X6DYujfZcFyH7iBbOcVL48XNJpe+TSS2TudUYBD1UFPMYHZmQfqpTxYR
-         HerXkD82ld1nUt4eiYddxRcpDZThqwoHOrMRK/tWhxc+mByFs0Jub4W0oV4LBGYljXf4
-         //YaL8iDCHwCUnHdTJBLgwa/oxjn3zs/G9gbZ91NAuMnVmI57cNHuWDpZBI1u3G4rlG+
-         hGxA==
+        b=mqZiuaKAChw3TaylqPdV6RL/dzSfyv5DZbErnLa/Vqi2AeqsB3OUnrfrE6pE03josT
+         iV6z29AWOhnp5TKl3YdmY4nbSxnaIvnVspsnvZ2SnA6qcjSgYkxvKO1G0OjP6dh798Kr
+         l2wuHIIo5DXM4tM49z/Ql1/J7weItbL2CLmAL/OEI5JKBaccXJP5U6ySo1kefqQFNa38
+         rKhxkcUSwIQ/OWBKzAz1w3RBabTesJrHh8GBtUirlERDHd0a98hJv/ElZBBD09Dk5v0s
+         EAh35t2KaHwso9VCqf9x8P8No7DCd9nTdexGUq9I7z1Vb8uKUCynpezdLrRKZEQHC1hN
+         I3PA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=6ZdLn69SOeKmLKQgjxgT++SaMngBH6ptFzScUP/SC3k=;
-        b=c99WTtFOLuYF74fu7SSK6BpJJ/nWyFAEAXdSSYG5fF5Nr1YJbJut/q473GZA8XXq+j
-         TGhqi3HozEBMCx7A+prcG87m6CVQdIZhWuhCq0GG3hfzhETiBZKdzCQ6uHJck3zfgW2w
-         DxXFATwnKzmHDHZ8gegzv8KaeJ0UWEz2IK+HPNgFsfKSVY8YIiYkwORdZx+nEec8kYlf
-         TOzVUcPZSnLOZT/50McadTRCk0AxPftRmXBgmyr5/d7Da00F5DHwO2jVmp2HYpRk8Kue
-         736cYiJIbPjokuGz4VH/3p67/jXygLDMiPykQX93Fmsm3gFsyZgR5WjZnbCpfHxod2vy
-         KhRA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=AfH3rJ9ovVT5AyhEa+1Qy5NY95276MQiKVcG9a3T/kk=;
+        b=qA3dGehIe23HTQoFwVMkx+yz7RYaCpJ4SgTD0KEhg0WBbXuwvRu33bvLwg4dBbSOis
+         XV6mJqKcn5J+U8di3O2q3mBPfSNkBZ6qm8cGX4BajgC8rC6f9EfcRnlZ1JGjFkWPOsFS
+         bw0fR9pl9jAB1Qxi0cGW9+v6PJtWRrGEePtL3VRd2lJSxgySvaBjspO5fXd+j3r8yYLw
+         srYxVOn2E46jj91UPpCir/D0IC8mPWH83YEtIHbqKQ4semgMXd1lO+wZ7t4s4ohldUeE
+         NhSieLm7aSpjHe6URSWPkQa5mNto+9ekeMdPhgtPLCT3QgefaDU/icX4S+239NUZoRhH
+         uUMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=T6gMkpAG;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p207si69405qke.4.2021.04.28.11.04.57
+       spf=pass (google.com: domain of mic@digikod.net designates 2001:1600:3:17::8fa9 as permitted sender) smtp.mailfrom=mic@digikod.net
+Received: from smtp-8fa9.mail.infomaniak.ch (smtp-8fa9.mail.infomaniak.ch. [2001:1600:3:17::8fa9])
+        by gmr-mx.google.com with ESMTPS id c9si38691wml.2.2021.04.28.11.04.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 28 Apr 2021 11:04:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 79D40613FF;
-	Wed, 28 Apr 2021 18:04:55 +0000 (UTC)
-Date: Wed, 28 Apr 2021 11:04:51 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Marcin Wojtas <mw@semihalf.com>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: -Wconstant-conversion in
- drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
-Message-ID: <YImjw3eypUdhkp88@archlinux-ax161>
-References: <20200417004120.GA18080@ubuntu-s3-xlarge-x86>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Apr 2021 11:04:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mic@digikod.net designates 2001:1600:3:17::8fa9 as permitted sender) client-ip=2001:1600:3:17::8fa9;
+Received: from smtp-3-0000.mail.infomaniak.ch (unknown [10.4.36.107])
+	by smtp-2-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4FVmjn5c3FzMqHN0;
+	Wed, 28 Apr 2021 20:04:29 +0200 (CEST)
+Received: from ns3096276.ip-94-23-54.eu (unknown [23.97.221.149])
+	by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4FVmjm5KbLzlh8T6;
+	Wed, 28 Apr 2021 20:04:28 +0200 (CEST)
+Subject: Re: [PATCH] samples/landlock: fix path_list memory leak
+To: Tom Rix <trix@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+ linux-security-module@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ James Morris <jmorris@namei.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+References: <20210427183755.2790654-1-trix@redhat.com>
+ <CAKwvOdmj5YvWZZWwcq1G7JgRALwPbqwiROiedMeEbBst2sGeiQ@mail.gmail.com>
+ <6108e69b-0470-cd71-e477-ba64641cbf58@digikod.net>
+ <4ece80d4-16fe-1938-7eba-2046840881f6@redhat.com>
+From: =?UTF-8?Q?Micka=c3=abl_Sala=c3=bcn?= <mic@digikod.net>
+Message-ID: <fb03aba8-8556-804f-72b8-c7cbf7155226@digikod.net>
+Date: Wed, 28 Apr 2021 20:04:57 +0200
+User-Agent: 
 MIME-Version: 1.0
+In-Reply-To: <4ece80d4-16fe-1938-7eba-2046840881f6@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200417004120.GA18080@ubuntu-s3-xlarge-x86>
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=T6gMkpAG;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: mic@digikod.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mic@digikod.net designates 2001:1600:3:17::8fa9 as
+ permitted sender) smtp.mailfrom=mic@digikod.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,49 +136,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Apr 16, 2020 at 05:41:20PM -0700, Nathan Chancellor wrote:
-> Hi all,
-> 
-> I was building s390 allyesconfig with clang and came across a curious
-> warning:
-> 
-> drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c:580:41: warning:
-> implicit conversion from 'unsigned long' to 'int' changes value from
-> 18446744073709551584 to -32 [-Wconstant-conversion]
->         mvpp2_pools[MVPP2_BM_SHORT].pkt_size = MVPP2_BM_SHORT_PKT_SIZE;
->                                              ~ ^~~~~~~~~~~~~~~~~~~~~~~
-> drivers/net/ethernet/marvell/mvpp2/mvpp2.h:699:33: note: expanded from
-> macro 'MVPP2_BM_SHORT_PKT_SIZE'
-> #define MVPP2_BM_SHORT_PKT_SIZE MVPP2_RX_MAX_PKT_SIZE(MVPP2_BM_SHORT_FRAME_SIZE)
->                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> drivers/net/ethernet/marvell/mvpp2/mvpp2.h:634:30: note: expanded from
-> macro 'MVPP2_RX_MAX_PKT_SIZE'
->         ((total_size) - NET_SKB_PAD - MVPP2_SKB_SHINFO_SIZE)
->                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
-> 1 warning generated.
-> 
-> As far as I understand it, the warning comes from the fact that
-> MVPP2_BM_SHORT_FRAME_SIZE is treated as size_t because
-> MVPP2_SKB_SHINFO_SIZE ultimately calls ALIGN with sizeof(struct
-> skb_shared_info), which has typeof called on it.
-> 
-> The implicit conversion probably is fine but it would be nice to take
-> care of the warning. I am not sure what would be the best way to do that
-> would be though. An explicit cast would take care of it, maybe in
-> MVPP2_SKB_SHINFO_SIZE since the actual value I see is 320, which is able
-> to be fit into type int easily.
-> 
-> Any comments would be appreciated, there does not appear to be a
-> dedicated maintainer of this driver according to get_maintainer.pl.
 
-Sorry for the necrobump, I am doing a bug scrub and it seems like this
-driver now has maintainers so keying them in in case they have any
-comments/suggestions.
+On 28/04/2021 17:36, Tom Rix wrote:
+>=20
+> On 4/28/21 2:58 AM, Micka=C3=ABl Sala=C3=BCn wrote:
+>> On 27/04/2021 21:13, Nick Desaulniers wrote:
+>>> On Tue, Apr 27, 2021 at 11:38 AM <trix@redhat.com> wrote:
+>>>> From: Tom Rix <trix@redhat.com>
+>>>>
+>>>> Clang static analysis reports this error
+>>>>
+>>>> sandboxer.c:134:8: warning: Potential leak of memory
+>>>> =C2=A0=C2=A0 pointed to by 'path_list'
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D 0;
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 ^
+>>>> path_list is allocated in parse_path() but never freed.
+>>>>
+>>>> Signed-off-by: Tom Rix <trix@redhat.com>
+>>>> ---
+>>>> =C2=A0 samples/landlock/sandboxer.c | 2 ++
+>>>> =C2=A0 1 file changed, 2 insertions(+)
+>>>>
+>>>> diff --git a/samples/landlock/sandboxer.c
+>>>> b/samples/landlock/sandboxer.c
+>>>> index 7a15910d2171..4629d011ed61 100644
+>>>> --- a/samples/landlock/sandboxer.c
+>>>> +++ b/samples/landlock/sandboxer.c
+>>>> @@ -134,6 +134,8 @@ static int populate_ruleset(
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D 0;
+>>>>
+>>>> =C2=A0 out_free_name:
+>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (path_list)
+>>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 free(path_list);
+>>> I don't think the conditional is even necessary? By our first `goto
+>>> out_free_name;`, `parse_path` has already been called/memory for
+>>> `path_list` has already been allocated. `parse_path` doesn't check
+>>> whether `malloc` has failed.
+>> Indeed, no need for the path_list check. In practice, this memory leak
+>> doesn't stay long because of the execve, but I missed this free anyway.
+>> Thanks!
+>=20
+> Ok, the general problem of not checking if malloc and friends succeeds
+> is a different problem.
+>=20
+> So remove the check and keep the free ?
 
-Cheers,
-Nathan
+Yes please.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YImjw3eypUdhkp88%40archlinux-ax161.
+>=20
+> Tom
+>=20
+>> Reviewed-by: Micka=C3=ABl Sala=C3=BCn <mic@linux.microsoft.com>
+>>
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 free(env_path_name);
+>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return ret;
+>>>> =C2=A0 }
+>>>> --=20
+>>>> 2.26.3
+>>>>
+>>>
+>=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/fb03aba8-8556-804f-72b8-c7cbf7155226%40digikod.net.
