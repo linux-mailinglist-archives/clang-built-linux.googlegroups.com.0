@@ -1,117 +1,133 @@
-Return-Path: <clang-built-linux+bncBDU7VC56WAFBBSOWVOCAMGQE4MOTMOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDP4V4X7XUARBZ65VOCAMGQETIMYLJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id C2C7A36EEC6
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Apr 2021 19:22:17 +0200 (CEST)
-Received: by mail-wm1-x33d.google.com with SMTP id u126-20020a1c60840000b029013f6df1cd5bsf1744661wmb.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Apr 2021 10:22:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619716937; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 62B5736EF04
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Apr 2021 19:37:45 +0200 (CEST)
+Received: by mail-pg1-x53f.google.com with SMTP id w8-20020a6556c80000b02902072432fdabsf23557114pgs.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Apr 2021 10:37:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619717863; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uBKmaBn1exdhCj4qQZFb+BN1+0EhPQ8xD4x6YXx/zcUhm6PEqinZjRxWm6y9M3XM0w
-         uRRpPbr75g6y7kq2KrgsQujWzjl6LVHZIHpPZ7LjU+/ozd8HOXYW/G+rZnHJb09T/Rsr
-         Rdib53hJGbVAQAkksOv/izbrEL9G0iR3x5e8OcOdd+4Sjun2vGQcZgnrml1hg+v4h2Eg
-         HWQ0fI7ZvUBx+NlhqhgOe/L0MI70Rx2QAUxYhcw8oMsz1Y2fPyUR38lcIgZ3Qh7d+ROd
-         qqFSTPVrC+RBwWl8VQQL8anuaiUTTs7IrmeQsvfUO7Y+oFrxXIe9MWijeMHVJOaFEh4O
-         SU4g==
+        b=kUr9EbpsZ8Wbb5IF5d9zbox3X0ThHFwo0dgX2SYZwyH/HMsiwdyMiEsjonwb+84FGk
+         fRvjyrKVZEjXobBqJPr/GaWz4SrL+dyJRX3USzErTGT5Lqn/yeRbjkdFhw9F+oh0mqP1
+         hSf31ujwEBa0/iDH3vJWMxB5rPSyXgXblvGpdKfoMBYs8+3cjW5OonKvsTL0Eg+Ax+/H
+         4hPv7ZHkSKPnFxIHhqPzvYNA2LVFkYG3sX2Fi8U20axz7vvhSm25mv4w/+saSI3Q1W+W
+         Y2F4s0mI0UrnYly2knWKOZV0wUx//DMTxTTePOwu/NOzz74nKVGD0gl9AMGJzNuKB4rf
+         0gVg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=kNGDnpUFwT78YG76RdTDiQ7NqYx8eifXLQrhugQ5IpA=;
-        b=m8pYhdC8qV+wnKlysTzzkHL2HC0sJzmechyxSIuA0jruwSMkqtbRRyUear2fT/RynO
-         3xHENCe7rL+YM5PDRAY05tKUItlXxFI2+FVueIa2VG9oo/Tz0G1qjwF3VndynxJoGGUy
-         Qyf6KmRlbW3limiR6FM7Fcy3P2b+0JTjL43Qk7CZMwoNJvKrb9i2mKSlJ6GSWQoASRDx
-         y5dziBDSXUNCO7OfLKy1y7bKoJPezyJYf18Xh6QP6v7sp7tlQ/qSbuTPAXlWUFI2GFri
-         MT+H80UIGmY1abFBGwqs+kva76FeRHK1vM43AdrdPlRP2brcKRVEqonHyxYb39LaE8Bp
-         vBng==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=bBJ7vugD7GNTptQs4r0iBmUVOwtGdAT7ZI70ISa/rn0=;
+        b=X8uGBID8jb23k7T+6yscrMC3YeSbHrmXfgNIMDSiNk0Ou19mwW/kNayojhX4QemvDJ
+         4hkFJxwGjIWFdnxZjD4v9vUSydeSxyyiqNyB6lHarFN/Ex5fH6DIV11kpgi8xVUtz8Ap
+         0VEXEd4OWUBOpSOTGQ0HSNVSkVi8lRheHwkTJ/jZJWBvlFxP8HnzuT7d7vW9rXiyvoL0
+         Uqj/2MGg1gFkxg9lLFUqJSN6LOim2j1astlwcWorai2r/Z+MBOUGMm8PqVVzN6+1PT0l
+         SWJaSxOA57qpF2ONYL3lx3JkV0SBtPWpPBLGBAGfgdzRpUuFhrMoTfkV3zl01i7Qrjhh
+         Dirg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of m@bues.ch designates 2a01:138:9005::1:4 as permitted sender) smtp.mailfrom=m@bues.ch
+       spf=pass (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=suzuki.poulose@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=kNGDnpUFwT78YG76RdTDiQ7NqYx8eifXLQrhugQ5IpA=;
-        b=PsBSYHaWHt5yVX9+mfuEhG02uJ3ivbyJ2eugG296CWNQGHUnT8xCbAqfnAx3gZS4VK
-         TeH68kHjbEsf+we6qNSLN+gAPV1w+qFThQTiMUQfBU0YGmHZbzoHqMwr7DevP3T+3YQP
-         2l+qObXPMDG8cLCB5m0Qz2jvfYqKmAJujiwFAauo6RKBXurUFXWCzRqF58N4dYYvZr9S
-         rpnLF3Ey9N4gd/vRmqJfqi6FX5F7G+iqibeKXpwm0yrXx9ZGpgtqf8qAOIGZ1RN6Vzcn
-         i4mQVyqEFLpuOZddSXFYoFaxZSsGfCUaL1uVCgfnFi7ULtJfOOHfJVklT1w50/11G1Is
-         1r8Q==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bBJ7vugD7GNTptQs4r0iBmUVOwtGdAT7ZI70ISa/rn0=;
+        b=tiXkINFXyib25012pQKdCY7B+Hp0tx1C4Mb3AEBCQARvbkLmT/ox38LRKZTHWQxSPj
+         eq/pT7wJdoe2lcBF16mbk7XF7RO+R71glkJZS4t34701rwzW83iUfypjwglDunQzk8Wu
+         9LvPI+jAv0E+2bfChdPd3TOlW1CUKvzDILny0zFBDhhHuxwrWFMmiyBwjfOkMPmx9LrK
+         fQpZqeo3zAotP1WTu3QiubT5goWqhovgqjnr24KB6ix5bTPYm3qh6NQxKXsi9DX52dCI
+         m4ROfxJCwU66MqCj+6FI+NIkPtsiXqBEI1u+V615qgK4TUeztm3Ar6fMvOw1nQBPu2qp
+         nd/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=kNGDnpUFwT78YG76RdTDiQ7NqYx8eifXLQrhugQ5IpA=;
-        b=uXcSziuQVwmJm/hzbrY++Eas9Yn2bH4q10tjTqFiy/aGssY1jBGdUOTNG/DQb3+Uia
-         xSC0phpt1ejlKGXp9l222KKZXCOZAFUjwEqdHyQR3FMMLmzXHFpqrfKvHEI3IUgMVTh/
-         aV/s7RNiUb/UJg/0JqhzCW2hu8J7AR/3WCc3qDZ6zAMSONbEn6+F1R6SGpcGZhPPqScA
-         8MdhujMkZZRGQ7FB7kVABkcigiYhaRHO8bZkRv/V758/G3XGPv5zIgZ4HD/8EKggC6UA
-         TIGVdNuJ0xztpMxsBptt9mexlPjbSmdqwyaC8tvZ8nXyTkGTgtSI1Xf1hbXY7ZpsJppS
-         Eerw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=bBJ7vugD7GNTptQs4r0iBmUVOwtGdAT7ZI70ISa/rn0=;
+        b=E2JPEcJH7U9GULZczYnTdyH0H2NnoY44Z5xlvsWHPeG3NBv/mzhelqShsFASb0WPyW
+         YfR4z5k3UPp3jsjS2OcYKR2AFMYqvOs2DjZHazX5kcPGyVUHUT7BGJb2hRxDsd+NsorE
+         G1qlrcGzAXlm11U7qSGkOrvFZNyxjClP6xDti6z38aE6RcUrZNYhY1A7C80x6vKIQCjQ
+         sOJTRn2GeN+YFnbQOrg2V9UFWxIV5bn3YYo8p1smmzrUA2hCEMrl7vSX5cXzP2+60NRD
+         0cz+HHl0D+ib9P7+3GJrA8x/K3GkMieDMyxDrr5ynGnaCqIXK6ma3w3Uul2yZpXNPxSw
+         l/jA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5332/dRwIyeUebx9r1sLz7gmn/YJTeeFnJC7kZ7JpLnqxLkbA627
-	MCrhkMTT9zQlpcKD5nOUD34=
-X-Google-Smtp-Source: ABdhPJzahXQiAxjIFvYnE9NYCqFAcdJW+CIzu86bB9yl3h5FoppWACyqnP4dMN8GW+UNA2UMnXGbuw==
-X-Received: by 2002:a05:6000:1ac5:: with SMTP id i5mr973304wry.412.1619716937450;
-        Thu, 29 Apr 2021 10:22:17 -0700 (PDT)
+X-Gm-Message-State: AOAM533nXBcwvdBqNMvXi2X895wELlKEGnOCZI0oaVGzI4K97gN1f/0X
+	SjsSS9MIhlMLGMk5/0B+cwQ=
+X-Google-Smtp-Source: ABdhPJzsYyQwbNAtx/HfyO1xU2wQ5stwwc2V5vrM1nqj0y5nykuKnwIxgXZi0V/QwgXtzHED+sYC0Q==
+X-Received: by 2002:a17:902:ba8a:b029:ec:b04c:451d with SMTP id k10-20020a170902ba8ab02900ecb04c451dmr772093pls.67.1619717863732;
+        Thu, 29 Apr 2021 10:37:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:64c2:: with SMTP id y185ls4829728wmb.2.canary-gmail;
- Thu, 29 Apr 2021 10:22:16 -0700 (PDT)
-X-Received: by 2002:a05:600c:d5:: with SMTP id u21mr1237996wmm.153.1619716936470;
-        Thu, 29 Apr 2021 10:22:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619716936; cv=none;
+Received: by 2002:a17:90a:d3d8:: with SMTP id d24ls5463260pjw.2.canary-gmail;
+ Thu, 29 Apr 2021 10:37:43 -0700 (PDT)
+X-Received: by 2002:a17:90b:4398:: with SMTP id in24mr989784pjb.208.1619717863071;
+        Thu, 29 Apr 2021 10:37:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619717863; cv=none;
         d=google.com; s=arc-20160816;
-        b=aVjXLf/u1dVEsMsbg2ygXWqsiCwtbEOT2XZLjtw+V9y9pajysYzJOjRcv+WfQibKTI
-         Bpar10/to9KKg0VP5mp26NYZ+6YtRT1LhjN2bT1VfdOEtayqJc+508Kf70HV0w5w7zzC
-         t9+SvYPOYBiAXuuQz+OEATqw/tRXW/N6XeDWy/vrYw98u0Qiw+zS96r++V+r6lH7Khqe
-         b6yBNRMH9nghNMsRfc5rc5ZtspCeg7vcVwl4wL0BJKD1GWoNIuA7/Fqh9GqHb9+PYyy/
-         pkFl0mMUhYZ1TnRdMR87i5RofVGEUqK1R7dA3kvGAKLntub6kV9yA2QITufA8JvXZsiZ
-         fV1g==
+        b=MYChbbtHSvPOMw/iNw+PndtKYMUvcj+omcGPnYm+IxTKRYkzpEHssom/Nlxly+0lVO
+         RSpK0eCcJB8nFlf8SqHVUJMBL7RoZryjkKqIclHwi7i5MByklFOqN4m8KyiRpmfSexbD
+         UjJ97Z+dopzJCzYZCX/hS5aZRWcYQiw7Wn6XdjNjdsf7+whYkAkKbE0cBFEvJJ9ofdcm
+         0nLPMd7cOvfckZfgsiqjrEdH6JKMXl7KXMJ0yK2PBH18HrLUxoqFMuL+/r8x9kM36P3H
+         jRc4CHrEBYBsXEKqm53b1LvNgc7G55H5kZYkI3JefNfQ92ccRKWlkweCMgrJpG65qFDZ
+         rplA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
-         :date;
-        bh=sjZxsD1l6jQxftDJ3H5fNeXm7eD7ozeZKUqvOnqQRXE=;
-        b=EuI0shPOX9ACfAS57ERQzCMr44U9qsu5CHdJD4ghW9Y/wRFFIHy40/o17BDcaQgIpK
-         LkcTc7rPmXJWvbjbcp5fM5q7IQUJuBOdrwKvZVIKDwJWjvlFLcACpYWTiArGimbzeQw6
-         L0soA8y+MrA0LjL56ttQCowcSkXewNvHd+oTwR4mEVciPtZ7V8/Hel2vzpoK/yM7Jogo
-         pggaRWU1eoFg7tLydnQrFV1bpdGVbATtHWmz/JJOPSYNWql45lQ/k4ddldBu21tjhhb9
-         em8KGLZM2oXkO46aAk1aQCOcBqZMmDaCGEOWLuEVVq2DAPsMtZpA59q9gtWNyepSGzxC
-         EjWQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=G7c6opEVNW2Rh0QBpdBC/Ina5SLtVEYeV/ydtSgA7c0=;
+        b=g/Z27ac/9F/2HGKT63Xqwupr5FlVo5l9mEF6V+KRZgNG8U4YbEW9Ek8L+NDRV9pX7v
+         rT/3XErr41aopxgo+CfMtB6Bhl508arXB7wp6rueQ72WvQhhn1N6yqiq68NhPrpDKpG9
+         BJEqBdeccJm1doNp+jd2lQoVj1fpSZ7GQ+q51upNKVW+yES4H7NSQwLyfqCgBZSu5hl+
+         qkvNVbjhsgkV1ip/9nEXG+Pd1ZmOelX9EiMnOGw+b6wrjPQVorYTEOwSb+p3K6U/BCAs
+         sZ3UTLEi+YhSRgGhU+LKhn38G5Nl+qtT36PixkijVzqutbiG+MVNMKn/axXAvkMyPKxz
+         hltw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of m@bues.ch designates 2a01:138:9005::1:4 as permitted sender) smtp.mailfrom=m@bues.ch
-Received: from bues.ch (bues.ch. [2a01:138:9005::1:4])
-        by gmr-mx.google.com with ESMTPS id y16si215199wrh.3.2021.04.29.10.22.16
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Apr 2021 10:22:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of m@bues.ch designates 2a01:138:9005::1:4 as permitted sender) client-ip=2a01:138:9005::1:4;
-Received: by bues.ch with esmtpsa (Exim 4.92)
-	(envelope-from <m@bues.ch>)
-	id 1lcAMU-0001MZ-Jx; Thu, 29 Apr 2021 19:22:02 +0200
-Date: Thu, 29 Apr 2021 19:21:22 +0200
-From: Michael =?UTF-8?B?QsO8c2No?= <m@bues.ch>
-To: Yang Li <yang.lee@linux.alibaba.com>
-Cc: nathan@kernel.org, ndesaulniers@google.com,
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] ssb: Remove redundant assignment to err
-Message-ID: <20210429192122.56acf711@wiggum>
-In-Reply-To: <1619693230-108804-1-git-send-email-yang.lee@linux.alibaba.com>
-References: <1619693230-108804-1-git-send-email-yang.lee@linux.alibaba.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+       spf=pass (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=suzuki.poulose@arm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id j5si603966pjs.0.2021.04.29.10.37.42
+        for <clang-built-linux@googlegroups.com>;
+        Thu, 29 Apr 2021 10:37:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 181881FB;
+	Thu, 29 Apr 2021 10:37:42 -0700 (PDT)
+Received: from [10.57.61.145] (unknown [10.57.61.145])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B102E3F70D;
+	Thu, 29 Apr 2021 10:37:39 -0700 (PDT)
+Subject: Re: [PATCH] [v2] coresight: etm4x: avoid build failure with unrolled
+ loops
+To: Arnd Bergmann <arnd@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linaro.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+ Sai Prakash Ranjan <saiprakash.ranjan@codeaurora.org>,
+ Qi Liu <liuqi115@huawei.com>, Tingwei Zhang <tingwei@codeaurora.org>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210429145752.3218324-1-arnd@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+Message-ID: <dff8cbd8-8c56-ae6e-ecc2-9ca183113ab2@arm.com>
+Date: Thu, 29 Apr 2021 18:37:38 +0100
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.10.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/2V4K/B7ucivuZf+W3L2fsGM";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Original-Sender: m@bues.ch
+In-Reply-To: <20210429145752.3218324-1-arnd@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-GB
+X-Original-Sender: suzuki.poulose@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of m@bues.ch designates 2a01:138:9005::1:4 as permitted
- sender) smtp.mailfrom=m@bues.ch
+ (google.com: domain of suzuki.poulose@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=suzuki.poulose@arm.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -124,86 +140,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---Sig_/2V4K/B7ucivuZf+W3L2fsGM
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi Arnd
 
-On Thu, 29 Apr 2021 18:47:10 +0800
-Yang Li <yang.lee@linux.alibaba.com> wrote:
+On 29/04/2021 15:57, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> clang-12 fails to build the etm4x driver with -fsanitize=array-bounds,
+> where it decides to unroll certain loops in a way that result in a
+> C variable getting put into an inline assembly
+> 
+> <instantiation>:1:7: error: expected constant expression in '.inst' directive
+> .inst (0xd5200000|((((2) << 19) | ((1) << 16) | (((((((((((0x160 + (i * 4))))) >> 2))) >> 7) & 0x7)) << 12) | ((((((((((0x160 + (i * 4))))) >> 2))) & 0xf)) << 8) | (((((((((((0x160 + (i * 4))))) >> 2))) >> 4) & 0x7)) << 5)))|(.L__reg_num_x8))
+>        ^
+> drivers/hwtracing/coresight/coresight-etm4x-core.c:702:4: note: while in macro instantiation
+>                          etm4x_relaxed_read32(csa, TRCCNTVRn(i));
+>                          ^
+> drivers/hwtracing/coresight/coresight-etm4x.h:403:4: note: expanded from macro 'etm4x_relaxed_read32'
+>                   read_etm4x_sysreg_offset((offset), false)))
+>                   ^
+> drivers/hwtracing/coresight/coresight-etm4x.h:383:12: note: expanded from macro 'read_etm4x_sysreg_offset'
+>                          __val = read_etm4x_sysreg_const_offset((offset));       \
+>                                  ^
+> drivers/hwtracing/coresight/coresight-etm4x.h:149:2: note: expanded from macro 'read_etm4x_sysreg_const_offset'
+>          READ_ETM4x_REG(ETM4x_OFFSET_TO_REG(offset))
+>          ^
+> drivers/hwtracing/coresight/coresight-etm4x.h:144:2: note: expanded from macro 'READ_ETM4x_REG'
+>          read_sysreg_s(ETM4x_REG_NUM_TO_SYSREG((reg)))
+>          ^
+> arch/arm64/include/asm/sysreg.h:1108:15: note: expanded from macro 'read_sysreg_s'
+>          asm volatile(__mrs_s("%0", r) : "=r" (__val));                  \
+>                       ^
+> arch/arm64/include/asm/sysreg.h:1074:2: note: expanded from macro '__mrs_s'
+> "       mrs_s " v ", " __stringify(r) "\n"                      \
+>   ^
+> 
+> This only happened in a few loops in which the array bounds sanitizer
+> added a special case for an array overflow that clang determined to be
+> possible, but any compiler is free to unroll any of the loops in the
+> same way that breaks the sysreg macros.
+> 
+> Introduce helper functions that perform a sysreg access with a
+> non-constant register number and use them in each call that passes
+> a loop counter.
 
-> Variable 'err' is set to zero but this value is never read as it is
-> overwritten with a new value later on, hence it is a redundant
-> assignment and can be removed.
->=20
-> Clean up the following clang-analyzer warning:
->=20
-> drivers/ssb/main.c:1306:3: warning: Value stored to 'err' is never read
-> [clang-analyzer-deadcode.DeadStores]
-> drivers/ssb/main.c:1312:3: warning: Value stored to 'err' is never read
-> [clang-analyzer-deadcode.DeadStores]
->=20
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
-> ---
->  drivers/ssb/main.c | 2 --
->  1 file changed, 2 deletions(-)
->=20
-> diff --git a/drivers/ssb/main.c b/drivers/ssb/main.c
-> index 0a26984..ab23554 100644
-> --- a/drivers/ssb/main.c
-> +++ b/drivers/ssb/main.c
-> @@ -1303,13 +1303,11 @@ static int __init ssb_modinit(void)
->  	if (err) {
->  		pr_err("Broadcom 43xx PCI-SSB-bridge initialization failed\n");
->  		/* don't fail SSB init because of this */
-> -		err =3D 0;
->  	}
->  	err =3D ssb_host_pcmcia_init();
->  	if (err) {
->  		pr_err("PCMCIA host initialization failed\n");
->  		/* don't fail SSB init because of this */
-> -		err =3D 0;
->  	}
->  	err =3D ssb_gige_init();
->  	if (err) {
+You don't need to add this special helper. We have the exact 
+infrastructure already. So these could simply be replaced with:
 
+csdev_access_xxx(csa, ...)
 
-The assignment is there just as a visual guide to tell the reader that
-we ignore the error.
-However, there's also a comment that says the same thing. Therefore:
+see :
 
-Acked-by: Michael B=C3=BCsch <m@bues.ch>
+include/linux/coresight.h
 
---=20
-Michael
+Cheers
+Suzuki
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210429192122.56acf711%40wiggum.
-
---Sig_/2V4K/B7ucivuZf+W3L2fsGM
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEihRzkKVZOnT2ipsS9TK+HZCNiw4FAmCK6xIACgkQ9TK+HZCN
-iw4TsBAApcU9A/M/yPldF+nzyK7yf5LvDfQGGmvF+iX8QZLo80xZvVEW+MJjm0+o
-jj4k1KuIzmb+c03FizX6CnbpKvcCYZ7D1UObt+OjBSlhPDer6SFsUHgVzaVI7TaS
-Ryi8rlIU+K2PPIM713rc25+D7wK+XotMYMFlZobj75YBoJwYSiyPOYcWnWtCYp/Q
-fFjyQQFlstZuvc0gZicPLrhi6bVynmQsm6eqItQMWJgEqWqLOpq/xCw9Ug6J/n33
-b7H6QvAY+orrfl3Su92QWxmN6EVoeWbVWfD7sw0zcxYWW+3I9OoVP3A+2mFpuiLN
-VoqPsw+R/KrPLSgfzff2i+CXwirYSDtNQSVHIu9FsbPfIoF2xEn3x0tJniqG8O1Y
-sLOpYABMCOOVtZtd5QV+G05UKAwr2JFg/eaaPdbnUn8uiOIbLnSyn50PZOCUTljt
-hDu9ptXZBmhkyJ47ypH3xsYz7Luc6ftHIwNr9VS0tC2J/el9ymvXFxSfZDDEKC9J
-vtRya1cJWyRQzNpondBAHZaaHHnxT2cdV0pRIutoFgXXJC7Chwa/rsP6e45ARxEJ
-NrNrpylFZmQ9saaD3Ax6cnYFzIRHr3wceGRpVRjicjbf3l6YkYK8/WUxzPCkSRBr
-fa8iXCxpieyogCz/ODXZDWhH87NBUGS7Ix2/Icvvhi5AHXxvmyU=
-=rOhK
------END PGP SIGNATURE-----
-
---Sig_/2V4K/B7ucivuZf+W3L2fsGM--
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/dff8cbd8-8c56-ae6e-ecc2-9ca183113ab2%40arm.com.
