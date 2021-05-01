@@ -1,122 +1,125 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBBD7UWKCAMGQEOSNPRPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCH6BRHDXYLRB6UXWOCAMGQEEKLCGYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id C285E3704ED
-	for <lists+clang-built-linux@lfdr.de>; Sat,  1 May 2021 04:16:48 +0200 (CEST)
-Received: by mail-oi1-x23f.google.com with SMTP id r204-20020aca44d50000b029013da91480a0sf29633709oia.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Apr 2021 19:16:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1619835407; cv=pass;
+Received: from mail-vs1-xe39.google.com (mail-vs1-xe39.google.com [IPv6:2607:f8b0:4864:20::e39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 82E9337052A
+	for <lists+clang-built-linux@lfdr.de>; Sat,  1 May 2021 05:33:15 +0200 (CEST)
+Received: by mail-vs1-xe39.google.com with SMTP id q4-20020a67cc040000b02902221bedbe6bsf283268vsl.8
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Apr 2021 20:33:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1619839994; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wmuvycece3jl4g/Hz5X/VXRxrLw1whp2WAMugejF+Ls2wEI8zU/rc6qSfFPAS2xvD1
-         fYyTbIeBgINqM7TJ43jjbjkxWfVxQk4/uUQyIsT1VTngo6DwY8V8gf0iI8ejk5F3lmJK
-         GOKI55NV1P42GARqHagepC8AD55HS7CZuKMAnl+OYxxl9ru7e5SsqELfUUFRDJpsMBhP
-         +xqs+j5/N3SJWfP5LvA89SBlaUaQYjHaiYxTgqGDXl0bzIel8/RAjHXeQZy1DFjPfIFj
-         XOlHYEb4Zfb5AWcLzpfe7eDb7su2hkbf/5bo4LhNzMGS60dW7diSPsJFWp9nzLfAY644
-         DlTg==
+        b=mvkZa8OIKb5DCEAO/Nv/KerluhQYPZG/rFkP+WuzWUHyICUHcPSLNYCtD8+Zdto/IN
+         uVIWWeUQJPgKFSs7cT3nqwayT60dFu5nBYs5zhWzt3+B5RyYBem03qsxDI4/Gh38Wci6
+         S2Z1artocsOUKxAGDJfsvX3brTk9i23kOgBxnUdLyYjyaxIKQ+3PSb+Q5cVsO4gC98QV
+         B/C39xg69Zn2oqpmR9XrUp0TcoSyAE0wA97uRaq/Qo31LcdMNP5rj0oqVZnibYeE6F7G
+         ZWcwhch0oj9VLQBBb0lF3bQR1UdBgMAYnq2+dkjPwk8zsYf+xCalRBRDn1NNVpnC7FID
+         ojiA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=53cQz2MgHxltlVre1bbq6ksJ+uS3dmeDEnNV23Z42/M=;
-        b=vU6xBd6n+WfmeyyPwLBLEWdYCNVEyvPTI4nOOCdJY8Xwfr91EJQ+qc9qOSB4kJ9msl
-         bOzeGkjnXRX4r+DQgCu2d1fEEHTB5PkEiQAIYm5ZdUA/ilZOtQi8/+AxJ0UQ4w8X56go
-         I3G/x6gZAcXeDVVU1cdsHdLPwzh4QxfFeSClg+gtdlCPKyNmIdpkjSchHhAlh1GKYskd
-         2LDPB18kxYKKjtp4Qa3Nrrk833O3lDnwwjtlR/G+8+Yz18COfwHO/tK5jG7SPaDIWTgU
-         K29qF7nQK8+SLezCBg9SbccS/FWHPYAXpQJq/zeFFq0bCwEzSfCLC5F3wTGu746/2qOU
-         XP6A==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=jQJpToyAYJzSPB84pksWN+NfwmRlTQjqQv8XMId26aM=;
+        b=lLiCpK1PYA32ThHucopv15lty4BxBq2s87f+V7UuqyEE5OzKM1GsiGfm1E9dn84Dup
+         bp5x/0eAGmM/5e0G23Edld2fSDuEau1zfU4H/0XwlPT5Ck+4V4aT7zxQt7UP8ZImv8Z+
+         HSS/fvaPSYBU0M67bjkCRZ9ehAIdMn7kC6HFoUMmSSB5oo41rHVCsXgsgvk4JkvmMjtH
+         C0EMhW0aUYdprF5gYm+6bUGhrp3rZ2meEPkoHFAizGZqhSmBpkd+nOtdAn3RafYda+j1
+         JopWjewLzP1jzrTEF0IC+z+Pz9qB7hDOt2abxskIrB6O/c6d8aNoB4ukrnpvorB0RCA8
+         AGYA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=suGDJg9A;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="jG+/9m2s";
+       spf=pass (google.com: domain of tstellar@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=53cQz2MgHxltlVre1bbq6ksJ+uS3dmeDEnNV23Z42/M=;
-        b=AhQ6WneOHcL0WuuGrVL4BxpVL3tL5y53appdEdo9qxoH0UMzXOZPJRFzNuJIisBgT6
-         kHVR5pWCdEIDSFFoN3W7D14RONTub3Gkx3HWGznrUAuuK6MdHGHUOU9p7mDAh+XgWjvp
-         IxCJ2Cc0+sD5SPaufDRoHLOdChyiJZ4uUriwb8O5gBE5WAlfOcRlV/xmzMcrJadHVoEJ
-         rVPI1lVM0pAmDiiU2OD6IprZz/i4XwdXVUzas55FdAyRqal1sDZVn1xoKwNB4QhqxICZ
-         eTeWLGfh0UOdXtlb5iWV5yVxGWLry6hUmDarIX/dIIJpIW3w5ssB+eUvVt4lfu+c4HH8
-         SvJA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=jQJpToyAYJzSPB84pksWN+NfwmRlTQjqQv8XMId26aM=;
+        b=MuLy2tqMbFUJKQH2B3Xe51J2zS/0glKfwic8JcJyqTArslG1bPKLpcRK+Wd5Ku+R4W
+         FX2WlvoFOFr0DEpAcnlHGURdAxMaiP8fl8OqWszHRLb37cVTu3Ew0sFMW2h/Xt4F7rVR
+         EYmrpt8sNvGt9XcrIFzFskiZ/mw8G/YEC3WFGPm48o1Ty06SMFmBmp4DEZ6T+EfZNbJ+
+         Egpj+hTz4hPeOHKJPGLDkANbA0v1yHiQpAEUVvJup8nUy9slyN8tP/q3TEkJoyYXiFdI
+         hKjzh/+hn8V99kux2aqP8pfPFpwIubwLMmSwYj2N8wuCQHZew3hEpcLJWPLLbJNg2qy0
+         Qk3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=53cQz2MgHxltlVre1bbq6ksJ+uS3dmeDEnNV23Z42/M=;
-        b=hbKLtRc5s8oqa1T+phtv0MmLPzT37Wi77xL6LfdouRAs7Ai45ttZ161WUuDdjFnBZk
-         E+BIvMp6hzlCQXPxLYT3edk6dV9mxfrPOcps1bpHGwxBjs0YBlnmN4z8mx0Ql8bXElbf
-         mG2G0i2a6LQ49dvKt2tamBKNYJZ3OKHfDhK0QRKB5aMraxqFKadvV8dDbxQF/z2QUrbr
-         gpu1PHUwKiWRfaSlYrlF2+MdLn18QpXg28wUkKMWTuzZvdHzkE2fGS1lBbI3+UsoJgh1
-         7b9aP5Jq3yymtvouTg0ntTmNRccKETmRtxYBLZK/B7thL/8UDkIcQ0nqfn4oPTg99pkJ
-         96MA==
-X-Gm-Message-State: AOAM531ZVZus83eTapJQVodqIB9MAFwl7gR6iuZkr2YLTNZpSrBQjOCu
-	oaOtZRmOJczPwPYTkurfma8=
-X-Google-Smtp-Source: ABdhPJxRmvjozV8zAN0/d+SmX4CUiNT9Kq62oDORevYiR2G5NYUGJaYLqdtkJMfk1WJq2bWDJdfvZg==
-X-Received: by 2002:a9d:3424:: with SMTP id v33mr5888727otb.137.1619835407705;
-        Fri, 30 Apr 2021 19:16:47 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=jQJpToyAYJzSPB84pksWN+NfwmRlTQjqQv8XMId26aM=;
+        b=HfzSsz3uAeWJpkurNjOVtvJZAkVFcAtEc05gygkd0VJt2nnmo1pwiubl27y8U2J0Bc
+         PXXyaBazFHtTMuOIau8XJsD+aKEuXYAgbdRYspc3M21JIHA7f/9ZWrkDVulN28l8l4Fd
+         AHR95AU3ebkNJBcd2VEzr6mz4h7OqHM+5OXs/XzWq3MZntQkOSaNmIyjrtJXSFaD/il1
+         644AIEltylOyN4DQEMrT+iDFwZdNYFbFFI06832odurjeNMVpJ1R5jKzxos3u2f43fPc
+         KzzsBJIJya6Q81hEFuRFXU5cFGGV0sASDHOL2chrJupl9hy7e2vJYTp4dozDpzZERjl9
+         SNaQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532La8AhP+5gor/X+Fk1OWSqn6gMO8c/7txHOIkrbrTWH1Sg8sPE
+	NU4PBG0fPcXP71N5Iro5aFY=
+X-Google-Smtp-Source: ABdhPJy3zDHBhajqpSy90ikdC73UXB2JMyanGJb2Kw0YpTtwvHRbBy+wxAGTx8dXwXhZWOPkikAdLQ==
+X-Received: by 2002:ab0:2a8d:: with SMTP id h13mr8197968uar.24.1619839994323;
+        Fri, 30 Apr 2021 20:33:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:3488:: with SMTP id c8ls2241223otu.10.gmail; Fri,
- 30 Apr 2021 19:16:47 -0700 (PDT)
-X-Received: by 2002:a9d:3444:: with SMTP id v62mr6266103otb.286.1619835407330;
-        Fri, 30 Apr 2021 19:16:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1619835407; cv=none;
+Received: by 2002:a67:2702:: with SMTP id n2ls1658836vsn.2.gmail; Fri, 30 Apr
+ 2021 20:33:13 -0700 (PDT)
+X-Received: by 2002:a67:7383:: with SMTP id o125mr9670697vsc.3.1619839993674;
+        Fri, 30 Apr 2021 20:33:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619839993; cv=none;
         d=google.com; s=arc-20160816;
-        b=X3YMfREnMnU4IKRIJxy8Q0n5/0qSWwgFkflMsNn/dX/im7JBD6QsAIOGm5JlUDwrzW
-         lq2VSC+GLNpuTQrZfG2oMc7b3yjzQ6VocdkQ4wa5Cz6dvnt0FrvKG/vNEROZTgY254DN
-         2auvOZw5PxhZDlb9/S6eb5MFBgbqJRc1kk3EDn1HMxebzikm0mwGTIrTkkB9E01zOd5p
-         15sWjFao3JwdrCBuGV/prPB33huCPeb2BySrSZh4ixwv/Fjp95oc4nD9vt8UHtgeiQ36
-         pdhEthGqo74J2Ho8iTEpyk58rR1XUgKHloSE+87mU6btQSnNgIolffO22rSNhPlaZOAx
-         XnMw==
+        b=VgyV+431URuqvRtxe3LmD0+dzB0JdAuVcFgWWxziE6wzxvUG1pBxIJ30OI5hiI7lCi
+         DFn/IzQ6gLp09fFUvl+qtFfrcOnzAddPb63R12C3I/ejctZ3clsu6pQW6qzBBadn8XtD
+         QuCvVoGxptsM77IGTWHiBUShlZJtvzoRVToR5UCAcd6MMOPIT6o3D0VFei+v+8OXbgdX
+         SE2zLQ0D8xpKuE8BUVE3O/a8guNIuRyHIL6IS/dhRjBcTWGBIXG9JP6zwOGKxwG9LHCB
+         mLMJfYQ3UdIMFBXx4q88qM3BUndmp9nFLgw2X7m/knyJh5LAv251rYR/fFckXqcwUk27
+         tR9w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=tQtdPbaQcCHSATMeh3s5HzCozhEyZ/3PouIEknCwd+I=;
-        b=j50u66CVvQSA2CvHrCtV/Tw8MqjQf/DBl5JtvdAnJpb61mVZAVjSKUVBZ9Ma3wgkI2
-         lt8DiRTbHnLKyEzs+dnBmwATMKgyKlCNoFgrTw0qn98Y10VcXctnT+p5sBOM0KXYhK7Z
-         TD2ZD69GivofeAdI9mQ0364ucCqPxGpW8URVDledvp2BFEDTf2AiChyBfJYwVJISnawr
-         SSAGPJjgZRPTMKweT9AstRF0QI/Asp2kyTshh61Gib8xbHreBn5/1ucQYTz+ss2BdStQ
-         Z1JUGiuHVJcS3wD/IE5MVYkQxyqjY2u8H+p1FhO4ftJyjJM25FQAS38rnxsggmUqqSL0
-         C/VQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=0ic6WLfM9JZHskkeRs9yuPGyluIWG+pwNAwtsEHdTo4=;
+        b=YBHO8dYD8Q5bmjr7dpVNlkt8d89lB00DkP1y7Rv2diraHWVO3UOKbrWhZe7ad6VhJG
+         g9p/ZraYfDKZAJeHFqUF25CZYzJvEH9zbQj43I40U/urbx1wdSMEhtJFVlq3iQWKxKlB
+         D2JxcdMWQWwhhodlXFcLpiV3vjw9U3G8c1sL0Ps2S2/bk2271C7x52TO0EzB2LwaROgO
+         cMJDFaBQewCWD6MB/jO/lQJKxoIglbsnj/fWfvAR0RI7KAWdQeudqaQn0vP/FDUmQWwq
+         9Nab0pjCoBoxaVMhlGsFFGVd2D3mqMu4XdMSLZ0toZtrJRaWNmn7Cu7GD/mkmLcx/4q9
+         T6rw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=suGDJg9A;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
-        by gmr-mx.google.com with ESMTPS id e13si771905oth.3.2021.04.30.19.16.47
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="jG+/9m2s";
+       spf=pass (google.com: domain of tstellar@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
+        by gmr-mx.google.com with ESMTPS id f9si780645vkm.2.2021.04.30.20.33.13
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 30 Apr 2021 20:33:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tstellar@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-462-E_Ip46yPPOmuUWgzAfL0Pg-1; Fri, 30 Apr 2021 23:32:33 -0400
+X-MC-Unique: E_Ip46yPPOmuUWgzAfL0Pg-1
+Received: by mail-qv1-f70.google.com with SMTP id w9-20020a0cdf890000b029019aa511c767so109441qvl.18
+        for <clang-built-linux@googlegroups.com>; Fri, 30 Apr 2021 20:32:33 -0700 (PDT)
+X-Received: by 2002:a05:620a:29cc:: with SMTP id s12mr8967720qkp.72.1619839952682;
+        Fri, 30 Apr 2021 20:32:32 -0700 (PDT)
+X-Received: by 2002:a05:620a:29cc:: with SMTP id s12mr8967712qkp.72.1619839952465;
+        Fri, 30 Apr 2021 20:32:32 -0700 (PDT)
+Received: from tstellar.remote.csb (97-120-157-68.ptld.qwest.net. [97.120.157.68])
+        by smtp.gmail.com with ESMTPSA id r18sm3668831qtn.90.2021.04.30.20.32.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Apr 2021 19:16:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102c as permitted sender) client-ip=2607:f8b0:4864:20::102c;
-Received: by mail-pj1-x102c.google.com with SMTP id b14-20020a17090a6e0eb0290155c7f6a356so6475770pjk.0
-        for <clang-built-linux@googlegroups.com>; Fri, 30 Apr 2021 19:16:47 -0700 (PDT)
-X-Received: by 2002:a17:90a:8c86:: with SMTP id b6mr18114177pjo.73.1619835406794;
-        Fri, 30 Apr 2021 19:16:46 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:200:c8ff:cd89:d408:7b46])
-        by smtp.gmail.com with ESMTPSA id a6sm3377544pfc.61.2021.04.30.19.16.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Apr 2021 19:16:46 -0700 (PDT)
-Date: Fri, 30 Apr 2021 19:16:42 -0700
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Tom Stellard <tstellar@redhat.com>, felixonmars@archlinux.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Serge Guelton <sguelton@redhat.com>,
-	Sylvestre Ledru <sylvestre@mozilla.com>
+        Fri, 30 Apr 2021 20:32:32 -0700 (PDT)
 Subject: Re: Very slow clang kernel config ..
-Message-ID: <20210501021642.yertoclugdbqq6m4@google.com>
+To: Nick Desaulniers <ndesaulniers@google.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Fangrui Song <maskray@google.com>, Serge Guelton <sguelton@redhat.com>,
+ Sylvestre Ledru <sylvestre@mozilla.com>
 References: <CAHk-=wjmNOoX8iPtYsM8PVa+7DE1=5bv-XVe_egP0ZOiuT=7CQ@mail.gmail.com>
  <CAKwvOdmMF_v9TzBtFn2S1qSS_yCDO8D-u3WhBehUM7gzjcdjUQ@mail.gmail.com>
  <CAKwvOdk+V2dc31guafFM=N2ez4SrwCmah+mimUG3MzPMx_2efQ@mail.gmail.com>
@@ -125,18 +128,23 @@ References: <CAHk-=wjmNOoX8iPtYsM8PVa+7DE1=5bv-XVe_egP0ZOiuT=7CQ@mail.gmail.com>
  <CAKwvOdkp_P8BCtFuKqDrtC_=A89ZfDf66Yr3FL2e=ojwv4KaMA@mail.gmail.com>
  <CAHk-=wi1yiBBr3b3RbCEte6-yzAApsZN5zRdr3xoW8Av9jOX=Q@mail.gmail.com>
  <CAKwvOdk0nxxUATg2jEKgx4HutXCMXcW92SX3DT+uCTgqBwQHBg@mail.gmail.com>
+From: Tom Stellard <tstellar@redhat.com>
+Message-ID: <1c5e05fa-a246-9456-ff4e-287960acb18c@redhat.com>
+Date: Fri, 30 Apr 2021 20:32:29 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Disposition: inline
 In-Reply-To: <CAKwvOdk0nxxUATg2jEKgx4HutXCMXcW92SX3DT+uCTgqBwQHBg@mail.gmail.com>
-X-Original-Sender: maskray@google.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: tstellar@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=suGDJg9A;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102c
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+ header.i=@redhat.com header.s=mimecast20190719 header.b="jG+/9m2s";
+       spf=pass (google.com: domain of tstellar@redhat.com designates
+ 170.10.133.124 as permitted sender) smtp.mailfrom=tstellar@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,15 +157,15 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2021-04-30, Nick Desaulniers wrote:
->On Fri, Apr 30, 2021 at 6:22 PM Linus Torvalds
-><torvalds@linux-foundation.org> wrote:
+On 4/30/21 6:48 PM, Nick Desaulniers wrote:
+> On Fri, Apr 30, 2021 at 6:22 PM Linus Torvalds
+> <torvalds@linux-foundation.org> wrote:
 >>
 >> On Fri, Apr 30, 2021 at 5:25 PM Nick Desaulniers
 >> <ndesaulniers@google.com> wrote:
->> >
->> > Ah, no, sorry, these are the runtime link editor/loader. So probably
->> > spending quite some time resolving symbols in large binaries.
+>>>
+>>> Ah, no, sorry, these are the runtime link editor/loader. So probably
+>>> spending quite some time resolving symbols in large binaries.
 >>
 >> Yeah. Appended is the profile I see when I profile that "make
 >> oldconfig", so about 45% of all time seems to be spent in just symbol
@@ -171,90 +179,80 @@ On 2021-04-30, Nick Desaulniers wrote:
 >>
 >> Just to compare, btw, this is the symbol lookup overhead for the gcc case:
 >>
->>    1.43%  ld-2.33.so             do_lookup_x
->>    0.96%  ld-2.33.so             _dl_relocate_object
->>    0.69%  ld-2.33.so             _dl_lookup_symbol_x
+>>     1.43%  ld-2.33.so             do_lookup_x
+>>     0.96%  ld-2.33.so             _dl_relocate_object
+>>     0.69%  ld-2.33.so             _dl_lookup_symbol_x
 >>
 >> so it really does seem to be something very odd going on with the clang binary.
 >>
 >> Maybe the Fedora binary is built some odd way, but it's likely just
 >> the default clang build.
 >>
->>              Linus
+>>               Linus
 >>
 >> ----
->>   23.59%  ld-2.33.so          _dl_lookup_symbol_x
->>   11.41%  ld-2.33.so          _dl_relocate_object
->>    9.95%  ld-2.33.so          do_lookup_x
->>    4.00%  [kernel.vmlinux]    copy_page
->>    3.98%  [kernel.vmlinux]    next_uptodate_page
->>    3.05%  [kernel.vmlinux]    zap_pte_range
->>    1.81%  [kernel.vmlinux]    clear_page_rep
->>    1.68%  [kernel.vmlinux]    asm_exc_page_fault
->>    1.33%  ld-2.33.so          strcmp
->>    1.33%  ld-2.33.so          check_match
->
->47.61% spent in symbol table lookup. Nice. (Not counting probably a
->fair amount of the libc calls below).
->
->>    0.92%  libLLVM-12.so       llvm::StringMapImpl::LookupBucketFor
->
->^ wait a minute; notice how in your profile the `Shared Object` is
->attributed to `libLLVM-12.so` while mine is `clang-13`?  Clang can be
->built as either having libllvm statically linked or dynamically; see
->the cmake variables
->LLVM_BUILD_LLVM_DYLIB:BOOL
->LLVM_LINK_LLVM_DYLIB:BOOL
->BUILD_SHARED_LIBS:BOOL
->https://llvm.org/docs/CMake.html
->
->I think those are frowned upon; useful for cutting down on developers
->iteration speed due to not having to relink llvm when developing
->clang. But shipping that in production? I just checked and it doesn't
->look like we do that for AOSP's build of LLVM.
->
->Tom, is one of the above intentionally set for clang builds on Fedora?
->I'm guessing it's intentional that there are packages for
->libLLVM-12.so and libclang-cpp.so.12, perhaps they have other
->dependents?
+>>    23.59%  ld-2.33.so          _dl_lookup_symbol_x
+>>    11.41%  ld-2.33.so          _dl_relocate_object
+>>     9.95%  ld-2.33.so          do_lookup_x
+>>     4.00%  [kernel.vmlinux]    copy_page
+>>     3.98%  [kernel.vmlinux]    next_uptodate_page
+>>     3.05%  [kernel.vmlinux]    zap_pte_range
+>>     1.81%  [kernel.vmlinux]    clear_page_rep
+>>     1.68%  [kernel.vmlinux]    asm_exc_page_fault
+>>     1.33%  ld-2.33.so          strcmp
+>>     1.33%  ld-2.33.so          check_match
+> 
+> 47.61% spent in symbol table lookup. Nice. (Not counting probably a
+> fair amount of the libc calls below).
+> 
+>>     0.92%  libLLVM-12.so       llvm::StringMapImpl::LookupBucketFor
+> 
+> ^ wait a minute; notice how in your profile the `Shared Object` is
+> attributed to `libLLVM-12.so` while mine is `clang-13`?  Clang can be
+> built as either having libllvm statically linked or dynamically; see
+> the cmake variables
+> LLVM_BUILD_LLVM_DYLIB:BOOL
+> LLVM_LINK_LLVM_DYLIB:BOOL
+> BUILD_SHARED_LIBS:BOOL
+> https://llvm.org/docs/CMake.html
+> 
+> I think those are frowned upon; useful for cutting down on developers
+> iteration speed due to not having to relink llvm when developing
+> clang. But shipping that in production? I just checked and it doesn't
+> look like we do that for AOSP's build of LLVM.
+> 
 
-LLVM_LINK_LLVM_DYLIB (linking against libLLVM.so instead of libLLVM*.a)
-has been around for a while.
+BUILD_SHARED_LIBS is the only one that is discouraged and we don't use
+that in Fedora any more.  We just use LLVM_LINK_LLVM_DYLIB and the
+clang equivalent.
 
-Tom added CLANG_LINK_CLANG_DYLIB in 2019
-(https://reviews.llvm.org/D63503 link against libclang-cpp.so instead of
-libclang*.a or libclang*.so) :) So I'd guess this is a concious decision
-for Fedora.
+> Tom, is one of the above intentionally set for clang builds on Fedora?
+> I'm guessing it's intentional that there are packages for
+> libLLVM-12.so and libclang-cpp.so.12, perhaps they have other
+> dependents?
+> 
 
-Arch Linux has switched to -DCLANG_LINK_CLANG_DYLIB=on as well
-https://github.com/archlinux/svntogit-packages/blob/packages/clang/trunk/PKGBUILD
-This is useful to make the total size of LLVM/clang dependent packages
-(ccls, zig, etc) small.
+Yes, it's intentional.  Dynamic linking libraries from other packages is
+the Fedora policy[1], and clang and llvm are separate packages (in Fedora).
 
-If we don't let distributions use libLLVM.so libclang-cpp.so, hmmmm, I guess
-their only choice will be crunchgen[1]-style
-clang+lld+llvm-objcopy+llvm-objdump+llvm-ar+llvm-nm+llvm-strings+llvm-readelf+...+clang-format+clang-offload-bundler+...
-(executables from packages which are usually named llvm, clang, and clang-tools)
+- Tom
 
-[1]: https://www.freebsd.org/cgi/man.cgi?query=crunchgen&sektion=1
+[1] https://docs.fedoraproject.org/en-US/packaging-guidelines/#_statically_linking_executables
 
->>    0.83%  [kernel.vmlinux]    rmqueue_bulk
->>    0.77%  conf                yylex
->>    0.75%  libc-2.33.so        __gconv_transform_utf8_internal
->>    0.74%  libc-2.33.so        _int_malloc
->>    0.69%  libc-2.33.so        __strlen_avx2
->>    0.62%  [kernel.vmlinux]    pagecache_get_page
->>    0.58%  [kernel.vmlinux]    page_remove_rmap
->>    0.56%  [kernel.vmlinux]    __handle_mm_fault
->>    0.54%  [kernel.vmlinux]    filemap_map_pages
->>    0.54%  libc-2.33.so        __strcmp_avx2
->>    0.54%  [kernel.vmlinux]    __free_one_page
->>    0.52%  [kernel.vmlinux]    release_pages
->-- 
->Thanks,
->~Nick Desaulniers
+>>     0.83%  [kernel.vmlinux]    rmqueue_bulk
+>>     0.77%  conf                yylex
+>>     0.75%  libc-2.33.so        __gconv_transform_utf8_internal
+>>     0.74%  libc-2.33.so        _int_malloc
+>>     0.69%  libc-2.33.so        __strlen_avx2
+>>     0.62%  [kernel.vmlinux]    pagecache_get_page
+>>     0.58%  [kernel.vmlinux]    page_remove_rmap
+>>     0.56%  [kernel.vmlinux]    __handle_mm_fault
+>>     0.54%  [kernel.vmlinux]    filemap_map_pages
+>>     0.54%  libc-2.33.so        __strcmp_avx2
+>>     0.54%  [kernel.vmlinux]    __free_one_page
+>>     0.52%  [kernel.vmlinux]    release_pages
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210501021642.yertoclugdbqq6m4%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1c5e05fa-a246-9456-ff4e-287960acb18c%40redhat.com.
