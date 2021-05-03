@@ -1,140 +1,152 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB7F7YCCAMGQENAKMMYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBTGAYCCAMGQEO3WQFIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0914E3718D9
-	for <lists+clang-built-linux@lfdr.de>; Mon,  3 May 2021 18:08:28 +0200 (CEST)
-Received: by mail-lj1-x23a.google.com with SMTP id u6-20020a2ea1660000b02900d692882addsf974977ljl.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 03 May 2021 09:08:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620058108; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8CAEB3718EB
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 May 2021 18:09:49 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id d29-20020a19385d0000b02901b948cc0e74sf3136108lfj.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 03 May 2021 09:09:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620058189; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xf/lkrv/xM6xbfUZx0O3y2H+iFM9jV0te15jzi7vAGTxDktwyBo3eDNXVPKjfCLWlK
-         ym065e8hmTVHjsMw6eiMXm2lR8SbBnikE2mosptUVjeWIdjVIiQTxgbUSF3l1++8vxob
-         HefwQtkc24waAriWB/FrKaXblWDKrbu3A+kOqHrP4EV+1UqZTJmkuMnuPELIEN4HOGlJ
-         Qo+Bj9/EoXiznMUrTwPIVV6ySu2e5igq+hF0Dhe7DBGmSBqc5B8liKsnTaVlmuH9XoLI
-         lj4tLPUmDEjhDqV1PKjw1T9aAN/6mPgJLTerWyx6hh35A+2Ce67+TgEwp5v5nQgam65O
-         mhZw==
+        b=MTWXPT2gbtZzwHeHBDh0c5U3qAAyEj7uZrrS01u0PXWdhGUXVpzhRKM0Dtclsoh2QW
+         +fcwp8BWuKw2Q42sPjfb/BBLmrv+62HwJFqaK4Uu4uNf8ssAAclmcgcLGvt9Z8qb5oj2
+         oLRZzOT56z8xygBT/pcIuA4nfkLqiBcHs3MAI8UHrypMiTJrkAhBrxN/7pOv2UykSOe/
+         kDW3jCDgMERSbGfQ/bCAm/YgWgKKepC1a0bp/aTSnXWemWNFIaPML/euz875GuM6rDie
+         i5kr1DIFiEwEFaxoQDQsB6HZXOM7MMsjlOYPlwUvAH4QgHRlpUiZr2S/FPRdooKI73iW
+         PHGw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=U9OAwjwlZf2iCRvpXCo7aFWzt3NoyPAhU+bWQ48Xwkg=;
-        b=L2jyRbvVqnlbrFwN1SPHjNWf/F+HSxa8kGpjN5mKnAOECZsndDLFidah5vMQ78JqBR
-         6IxEWtwFATb8IjQzy2hJEPy4Qe50ViH6WWFKO+gfj67TtwaDxPzZxcRHwl96cDmFDLSv
-         Wu1dqqFRlG+wIsegl6Gl6VmKusBQ1cK97PGbysaNR6YcNcQL2SHoz8hLi/E+DGOaJ+0x
-         PzY2H92+YD/qZsbTW6fDvEsnV+lH5W/mZGqzMgq6UEG3b9XM3U1HoHqSu6a7SHFm+SAE
-         bXAfpVlE+DlRheg7NCanrYF0xRn0hysAKJUtqWwZWV1beBbWkHzzTciihWIzjQ2gN0lF
-         Dr7Q==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=6q7iVne42/a3AOFJpdHtNl4tb8G2ftt68DabF6ZcDqw=;
+        b=0bq6qQrHmMvCETGn8u+BEr/woUkrei13xDR21hJlwCKsaLJnNAge9d1LmzX5Nm2I+J
+         yiDlNIBdnCy97GL+Wu6xzxKDMvVoTjKcIbIS0L4pERpfhzezysI0lmIeA4uCuWcfcNn/
+         3rSy+t/HEronm1xgoqnCkZyB9KX05F9UdDZ6nD0R3Ltg1r5HrcimEWpqtMoJ3LA0NELk
+         4bqFWOI6EOFQl6IfbQFew/Ynfr8PuP7wJoiSfMBDnsZ868zhkX3ossOVrRHUcMF6tO1N
+         baijvM9bCuPssJ3K0qUB84UnR4f030K7Ayi4sZpj1BqFfYgHqDoEAEvQgxbK2UlXb7tv
+         4nVg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=U9OAwjwlZf2iCRvpXCo7aFWzt3NoyPAhU+bWQ48Xwkg=;
-        b=VY1lILmKwSCDGZu3Xy6kjTNxKnFNj1/2i7uRIswPqgivQZ50UdNclUyPvCqqjJYxva
-         QbZQwVrTzOo7Gqq9NOJkjNFUUIr+5wujLuQol8qXAKFPaeTdwHXrXJeRcwpTH/yzvw6H
-         bSWWvNZQfQFZRJl75btoFO48ouG7/aAz+IPOXARjuDceCvjI/f9x4sBIRp9DLXy+ngNK
-         lbxsnmHJ3W+Gpchf3xgObFk0hf7McvUjw4lJVgpLV4Qun+sbvbEvCYGK5tfrBROhRCOs
-         NZqLIZ0Hmel7V0H0U8cUkmnDqhwPaQftM1pFTe2NiaNf+ELxF+3vr/ox+kEIqi5TEqMs
-         8AeQ==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=6q7iVne42/a3AOFJpdHtNl4tb8G2ftt68DabF6ZcDqw=;
+        b=S0QcXvq9T5uk+iVp2032TOkLmJzMw7OGXSXnnvS1r0MUPpL3d8fdAdou2aFB+b8d8+
+         uBAdxU5bL1yWjYcY1DiCB68u/76gx84SNLMpTU1g5bX9i82cqMKofL2NRchiIwGXjPKu
+         WMa1h9xa4N6x6g0+bDxWkIp6WPpVgZ5hjRqN828yMwTjTwlHoQ6JNbXW4v3UuQNwMLvG
+         8J+0zMFfaKpm38CTGYelBE1qr90TUBItkVE83CLPmj85kL7hTowRiMQoaJheQ5PRCquB
+         alhKWyIflWQVFRvns060IC9CTXN8waJUOSKYsNwPKLDLH6keu+lCch8HFn/pjG3R0ctl
+         84uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=U9OAwjwlZf2iCRvpXCo7aFWzt3NoyPAhU+bWQ48Xwkg=;
-        b=m8cXf7jT2IGUUzqt28CXjmqJ6vzInMa5dqJ+RO6Mc6RUT9VueLbg2epNsFvDhDc0Lo
-         OziQnGnhHrzpO2pHucZ3zPRn8TZMBuU21FCAGfHbQC13/fA4kmljcquta6dqNbbplP7F
-         A0HgJLNiV7fKAmhpVZ53shjni09daaGJOV5fyMBgIpkk9w4skadutPdTdQmQHW0FqV/T
-         a+8uKr/IEkGXSWmydWMEKBK7BzcV053AsT/l9yJvEm1ssKD1s9QHcg+pFUd4qYixwTCI
-         44Q//NTLnhEg+J/We4XbS2AKDX7NXPgj/UyC8ZGvrDIiWH2Nr00dshxgYZoZocyse9dW
-         GFjQ==
+        bh=6q7iVne42/a3AOFJpdHtNl4tb8G2ftt68DabF6ZcDqw=;
+        b=sDZOdrGHmQT+57Y5fBFrnz/pYU80JAsR41Hyjr9S5S7DnB7QocLWmIqbLIRMCjOJvD
+         d8rzEDKGrsDOevJjCyvPvYk2xWAGfu2ZmO8Xhrf+a4osKUTZUMUmPkGOTsqy/d7hafkr
+         B42wax6rWnuMcU9Kb1RDQrMqXpmHShyXNm/FXgad+wYD+CvSN0kBmC3fplj5td16WRvb
+         w1u0HATnx2QoD7vh25UXHBj7Q7xNDaJq5j6hQpvFtCp06LO5tQDWCsfw6HllyXu73Nk+
+         XUs532zvD5xctPjk6ZyM7EZJH/fgGDxR6Q0/Jt2foK6rqzWdDImUGuJVpqU5uroR9rA4
+         Mxag==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530vDaLz1LsXiMjxWHHnk66xOZZLsZgCAI8YQQ7+lIYYPSLe3qqT
-	c1AVqTnUKlqoPsUszBcPl8A=
-X-Google-Smtp-Source: ABdhPJxkMju1JtjDYxmgmsERHG+MuMlpqWJdUUAYZo4LfLvhjR5h9NdF8Jo2CJKQBsyja3GiW36p4Q==
-X-Received: by 2002:a05:651c:290:: with SMTP id b16mr13670659ljo.453.1620058108520;
-        Mon, 03 May 2021 09:08:28 -0700 (PDT)
+X-Gm-Message-State: AOAM532gFc9YsOnx60IYei1Aqj425eEikjUjfmaU8V12yYD0eNfnxbV7
+	mmwE6Vhqm0uN/NlYxDuHNkM=
+X-Google-Smtp-Source: ABdhPJxytIv0PBBT1L35iVabrhc2G08pO/CUs1/5cP9nmDQRePdGwg9y6pdvWbBTIxuT4dBfLMzZUg==
+X-Received: by 2002:a2e:9682:: with SMTP id q2mr2782195lji.288.1620058189186;
+        Mon, 03 May 2021 09:09:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5e2c:: with SMTP id o12ls747861lfg.2.gmail; Mon, 03 May
- 2021 09:08:27 -0700 (PDT)
-X-Received: by 2002:a05:6512:b14:: with SMTP id w20mr13750232lfu.528.1620058107464;
-        Mon, 03 May 2021 09:08:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620058107; cv=none;
+Received: by 2002:ac2:5e2c:: with SMTP id o12ls751346lfg.2.gmail; Mon, 03 May
+ 2021 09:09:48 -0700 (PDT)
+X-Received: by 2002:ac2:456c:: with SMTP id k12mr3436401lfm.460.1620058188318;
+        Mon, 03 May 2021 09:09:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620058188; cv=none;
         d=google.com; s=arc-20160816;
-        b=QHJOJj796C6CLmrFSB2kfkNGSep1MhWVrF5yRMqySZCayGqkSPxeurOLwaQnpbWa25
-         /3QH/z/RFQwhYs8C9SjQ/9ZMaLmLKsJ8abhTAhBBdr3MzpnuokEvpb65CN0DuqVMn+JU
-         Hmic/bwmr+rHtDErz98xlj3qHacPqEsQ+St3xr2ztUf8tn5Z8AtQgjYO48aRaMtzcXww
-         R3SqbmeOl8TWMxI2iWmxkFY4oaihH6F2IsETfzIk0y1J1NsxZszj/CCUZGB7EhLEbKAd
-         f5v2wekpyNagYHWDCZnpBCiXbvUFVSjUkBoWzsFIyloo3nwmMFBOgmtEB4XslCem1p80
-         VIXg==
+        b=Bdz+6+ELR4cqkLBYxONsEblBNRsat/XFmHuiteiUDVrEmhdWz0NIuNwKhtO8HxO+wO
+         /LPuCGsBnOSLBkTOFXvyfbMgvDryqYYHFuh+/1vQ1hP+sNsu3hNS5+IpadMyBTt4ZVE2
+         c61zUwuFzyKMJHc6WWeQBS3QCq+KozgGTSf6je12x9zXYGiE8U+81tPI1G6CEJ70L1sJ
+         c8j9le7M43u1kbkOdIz9liZxEjBc4/ddBvc/UL9oNgVsfCpRhxIyjqMIcyJIRMQUlhy8
+         FYMo6nFvUgnpZajS9B/BloxAZOhXqjvemA6Z/UP0sZf6FVQ6ZFvP1duwpR1VuDw87Xlw
+         h+Tw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=4NoG7yaTfr3Ag07IElR2xxPrvYe9hfRf/DNNbGgeRNY=;
-        b=l6BMxI0flgLdNozEIQ5HvDyaKN2xJ70lvR6pJsRv1O5F38ExEtXFj5Ypw5zOMDyqVU
-         xLkCT/knv0N4TNzSt4o5CC4aY7EkJwx/RybOe9tDOjvMC0KYRKSPmwDPOOf0T/j/sdRQ
-         yU75XVdFYq/zZcdQYyrshtDzkeIxjWy7kzv6ssEwumSEUNiUuh6sZa5fa13TgiKYCmym
-         pN23tn3KsCw6kFNSuqmNJ8Qb0sbtMfUqcA/b6cN2hPgzN3T5cS4oSqZwT0thAA5ilm7Q
-         yXlZ7myDoTAjemFf4xIfKhs5dMS8F0g3xYBiu6T1sBC81ZXOcJfYoRP5le+Ph65N1CyG
-         t8oQ==
+        h=content-transfer-encoding:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=LqEnXwIxp/d9gXOtxxBMVqDeWQ7K563+VnN+OV7r5/A=;
+        b=q9E9XYRBHj1emXGesRsIIScsIS47DhYORKW1dtCTknzOYESzHt4YwM6aH6AZiCpm9o
+         phSVlaRtk2Z4Tx1yZvxJM28z8r7i5pXGLTZmVaFKzlybO2Os2JjNSgsSSkguibQ1lsW0
+         TKxXEieHV5JAYKd/LIG4tIsektfx/jbd2P6jztRGC1Q2RHp7PHyiq+kZVBZYy36H53Mo
+         aj1tOJ2Es22bHTKyE/fTy4UZhs7TVknmZCVr/ZYAvI42KLo2oS6fkTImU/yqpjdssQga
+         GQJsEXZGDwCrBUCAsoCF84xY6EKsB8u0M4VbB9lfIRFKajVFLmgRFwJa2hkdYkonctc1
+         uHNw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.10])
-        by gmr-mx.google.com with ESMTPS id v3si1210688lfp.0.2021.05.03.09.08.27
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.86.151])
+        by gmr-mx.google.com with ESMTPS id n10si989002lft.1.2021.05.03.09.09.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 May 2021 09:08:27 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.10;
-Received: from mail-wm1-f42.google.com ([209.85.128.42]) by
- mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MY60J-1m3F6F2CI1-00YTtT for <clang-built-linux@googlegroups.com>; Mon, 03
- May 2021 18:08:26 +0200
-Received: by mail-wm1-f42.google.com with SMTP id b19-20020a05600c06d3b029014258a636e8so3832860wmn.2
-        for <clang-built-linux@googlegroups.com>; Mon, 03 May 2021 09:08:26 -0700 (PDT)
-X-Received: by 2002:a7b:c846:: with SMTP id c6mr32166374wml.75.1620058106200;
- Mon, 03 May 2021 09:08:26 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 03 May 2021 09:09:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) client-ip=185.58.86.151;
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-255-kFw4Vq1gOwC5lu5CIeuZOg-1; Mon, 03 May 2021 17:09:46 +0100
+X-MC-Unique: kFw4Vq1gOwC5lu5CIeuZOg-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
+ Server (TLS) id 15.0.1497.2; Mon, 3 May 2021 17:09:45 +0100
+Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
+ AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
+ 15.00.1497.015; Mon, 3 May 2021 17:09:45 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Theodore Ts'o' <tytso@mit.edu>, "Maciej W. Rozycki" <macro@orcam.me.uk>
+CC: Linus Torvalds <torvalds@linux-foundation.org>, Tom Stellard
+	<tstellar@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>, "Masahiro
+ Yamada" <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, "Linux
+ Kernel Mailing List" <linux-kernel@vger.kernel.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>,
+	Serge Guelton <sguelton@redhat.com>, Sylvestre Ledru <sylvestre@mozilla.com>
+Subject: RE: Very slow clang kernel config ..
+Thread-Topic: Very slow clang kernel config ..
+Thread-Index: AQHXQCnxH46G91tEpEmd7WaoBDaEqarR6NJg
+Date: Mon, 3 May 2021 16:09:45 +0000
+Message-ID: <71e42d2a3c9d415188984f34f602425c@AcuMS.aculab.com>
+References: <CAKwvOdmMF_v9TzBtFn2S1qSS_yCDO8D-u3WhBehUM7gzjcdjUQ@mail.gmail.com>
+ <CAKwvOdk+V2dc31guafFM=N2ez4SrwCmah+mimUG3MzPMx_2efQ@mail.gmail.com>
+ <CAKwvOdn3uXniVedgtpD8QFAd-hdVuVjGPa4-n0h64PTxT4XhWg@mail.gmail.com>
+ <CAKwvOdm3D=dqKw=kx46PLaiqfHOZJL3QFKGc8kxqJqpwdFFWqw@mail.gmail.com>
+ <CAKwvOdkp_P8BCtFuKqDrtC_=A89ZfDf66Yr3FL2e=ojwv4KaMA@mail.gmail.com>
+ <CAHk-=wi1yiBBr3b3RbCEte6-yzAApsZN5zRdr3xoW8Av9jOX=Q@mail.gmail.com>
+ <CAKwvOdk0nxxUATg2jEKgx4HutXCMXcW92SX3DT+uCTgqBwQHBg@mail.gmail.com>
+ <1c5e05fa-a246-9456-ff4e-287960acb18c@redhat.com>
+ <CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com>
+ <alpine.DEB.2.21.2105020346520.2587@angie.orcam.me.uk>
+ <YJAK1C1uLknYGYrH@mit.edu>
+In-Reply-To: <YJAK1C1uLknYGYrH@mit.edu>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-References: <20210430111641.1911207-1-schnelle@linux.ibm.com>
-In-Reply-To: <20210430111641.1911207-1-schnelle@linux.ibm.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 3 May 2021 18:07:41 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a3mCujxC0=_cL6Z88Xh2cb=OY_Ct7DVpJNvRn1v9=FhkQ@mail.gmail.com>
-Message-ID: <CAK8P3a3mCujxC0=_cL6Z88Xh2cb=OY_Ct7DVpJNvRn1v9=FhkQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/3] asm-generic/io.h: Silence -Wnull-pointer-arithmetic
- warning on PCI_IOBASE
-To: Niklas Schnelle <schnelle@linux.ibm.com>
-Cc: Vineet Gupta <vgupta@synopsys.com>, "David S. Miller" <davem@davemloft.net>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	"open list:SYNOPSYS ARC ARCHITECTURE" <linux-snps-arc@lists.infradead.org>, 
-	sparclinux <sparclinux@vger.kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
+Content-Language: en-US
 Content-Type: text/plain; charset="UTF-8"
-X-Provags-ID: V03:K1:KfRDUteQSMKAZdQdMrRaZO7ATc29v3SuNR+c+XYnnq0Vq5s8cps
- Cmp3QeFk4FfggReqmPuSSxWMb05u1Fetw0nMVbPntQsqv6pe1cT7vvYtgFJFEUz8ujYvCtk
- ihNx9eejeaw4kiqLv/S5n/Lwv0LRBjFo2kUFFyA2M4px9oyzIXM5M/bKyIrfyISfViZLEs6
- ZaNV7JkR+LqCeIDtdNiXA==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Hac/n19uum4=:1j/tfMtSMvYN4Ory8YS+IG
- mmFAjwofHfJCnwSAGMZa6FfaUZ3T908FnEJtOAL4JinTBZqX4G1WUBMv9lmtU4dobmuMOmAaI
- NqG+9tWDaBqVWdHLBNu7WTptvFH5PlUdM2ZDJ7NaRo1w2XxoYGZC4q6gyx+yo/nmtjxSQTAJJ
- aPhLDXN6u6RTdLMdds9QSe2lFF2Qz1DHG+aaZB0rxjPqOW8BJcnU6GM+UfBsFgHVwof5uvuXP
- YQzthz8faZMcs+deN7nRNRLtwGXLwQACz81JU0Nb0+LerwuRWYSDo0AD5DyMZ+d76nmrEQsI8
- vhYQJow8tal/LMDYUnEWEHU3A39PP9y9n3tbTQ9NRA2LpbxT0ro1YRlW3hzYPvhSDPDitc1qd
- M5hcnrw8FnfCMjvOdy4PiXEAI0GSn9ciYPVjSOZ9tb01jzY0XIBcih6KbrH3602Up0nO0JF+l
- eAk4jn+av9OmV7qOHVVCNm4oykdqzVzZgjKJ0whq+v+59DKUiqj+hI3w2Z60F62PP1hQf9RAH
- j5XP5qtp2LPuCL7CS4eyXU=
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.17.10 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,45 +159,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Apr 30, 2021 at 1:16 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
->
-> From: Niklas Schnelle <niklas@komani.de>
->
-> This is version 4 of my attempt to get rid of a clang
-> -Wnull-pointer-arithmetic warning for the use of PCI_IOBASE in
-> asm-generic/io.h. This was originally found on s390 but should apply to
-> all platforms leaving PCI_IOBASE undefined while making use of the inb()
-> and friends helpers from asm-generic/io.h.
->
-> This applies cleanly and was compile tested on top of v5.12 for the
-> previously broken ARC, nds32, h8300 and risc-v architecture
->
-> I did boot test this only on x86_64 and s390x the former implements
-> inb() itself while the latter would emit a WARN_ONCE() but no drivers
-> use inb().
+From: Theodore Ts'o <tytso@mit.edu>
+> Sent: 03 May 2021 15:38
+...
+> If people could actually guarantee stable ABI's, then shared libraries
+> might make sense.  E2fsprogs hasn't had a major version bump in shared
+> libraries for over a decade (although some developers whine and
+> complain about how I reject function signature changes in the
+> libext2fs library to provide that ABI stability).  But how many
+> userspace packages can make that claim?
 
-This looks all fine to me, but with the merge window open right now, I
-can't add it into linux-next yet, and it wouldn't qualify as a bugfix for 5.13.
+Indeed. Stable ABIs are really mandatory for anything released as
+a shared library.
+You can add new functions, and (if careful) new features to
+existing functions (if you remembered to check all those unused
+fields and flags), but the function signatures must not change.
+You also can't change the exported data area.
 
-Please resend them to me after -rc1 is out so I can merge it for
-5.14 through the asm-generic tree.
+We've got some simple drivers, they don't do anything complex.
+Just hardware interrupts and PCIe accesses.
+It wouldn't require many structure to be fixed, and a few
+non-inlined versions of some access functions to make these
+reasonably binary compatible.
+At least to the point that they don't need rebuilding when
+a distribution releases a new minor kernel version.
 
-Please add two small changes to the changelog texts:
+Solaris had stable kernel ABIs.
+The windows version of our drivers installs on everything
+from Windows 7 (maybe even Vista) through to the latest
+Windows 10 (apart from the 'driver signing' fiasco).
 
-- for patch 3, please include a 'Link: tag' to the lore archive of the
-  previous discussion, that should cover any questions that people
-  may have
+With multiple symbol namespaces it ought to be possible
+to keep them separately stable - so that drivers that only
+use some symbols are portable.
 
-- for the risc-v patch, I would suggest explaining that this fixes
-  an existing runtime bug, not just a compiler error:
-  | This is already broken, as accessing a fixed I/O port number of
-  | an ISA device on NOMMU RISC-V would turn into a NULL pointer
-  | dereference.
-  Feel free to either copy this, or use your own explanation.
+Of course, there are the people who only want to support
+in-tree source drivers.
+They clearly exist outside the commercial world.
 
-       Arnd
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3mCujxC0%3D_cL6Z88Xh2cb%3DOY_Ct7DVpJNvRn1v9%3DFhkQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/71e42d2a3c9d415188984f34f602425c%40AcuMS.aculab.com.
