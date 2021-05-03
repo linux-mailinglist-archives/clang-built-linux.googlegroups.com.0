@@ -1,140 +1,137 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBN67X6CAMGQECU2NFIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCYYJNMLYYMRBWMVYCCAMGQEEPHQ6SI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 40955371556
-	for <lists+clang-built-linux@lfdr.de>; Mon,  3 May 2021 14:42:32 +0200 (CEST)
-Received: by mail-lf1-x13d.google.com with SMTP id s8-20020a1977080000b02901ae88fbe012sf2845192lfc.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 03 May 2021 05:42:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620045751; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 203F83716BA
+	for <lists+clang-built-linux@lfdr.de>; Mon,  3 May 2021 16:38:19 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id g144-20020a6252960000b029023d959faca6sf2893573pfb.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 03 May 2021 07:38:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620052697; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sF8xP+042lv4tPlyqOSw3+TfGl2+6C0/Vhp71CTJS5ORZOFF6IcBzcC0xUM5cvMY5S
-         M35feuwLwwM5qrngK/fESmp/RiLN7RgNQKhnN9LX1qirSPPxN+IXha5gNoeuki3IZ6RD
-         jGzQSt0tFVHLcAmzRZlhYFaU7ziO+ax41jEO7tW6arqGprJ13EgB/CeM6UgaWzX4T6HQ
-         Owriv/OkWE99loslBnHjB50UQFOU586MxCqFMu0A7aI1dI3gwimDIOqJM2lhuOsgFRy+
-         CkKLeBv2yQ6ES+PB4szTD/vp7LQVyBW0GKENll6ECI1Ix47ZPeneW36zjmBatQ5k51RS
-         jt3A==
+        b=ygylhmaDkYuLQELyYvEpqCH0498SWKaCTZQ4s2F3pppVI0XtjD88DsWM3ac5wkitlC
+         wNx6HPCtA/p8x5DwsywOZqVEn9nzd9+0BGOJ6+Oj9B4/HWavgbMxuq97uVX0WBFr9w7U
+         sYxuc6UTc151ZyEAxjNDQzszq16BOdrFvkpDlAOIHxzqX3D6bm350PBGVU9ymIoFA5YM
+         MAnTRJ4riHDIJUF8ZigBeooZxInXI6sSo6CylcORSNfXhCzqGkYb/mKqaxuQWkgjKIXb
+         88rpg6OwiWUZjAVW0lXQSCwl+5nalTQl2qFGZT5H2z8lbPlWn6lym4Pa6FyzClQqTwf6
+         tXPg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=a6C3j/5XCap4I79Wur3oJHJAAeRvqgHbLLzz3yb9Wbg=;
-        b=HQvDN1ceAWLpIDNnAv9vnIIH+DC5eQtbQMrgl+BbBdYxQEuJ7Djb+PwH17PXE65DjM
-         ounTqYhFMpOjI668LrKYScunk9o1Ex0voqCgL5Dq4bjAg3MFuECbx714uieIm99oewV8
-         ELqkQzEYyfaRmfsiRvgjID6MnUREy7NHAhmWr39NyI95ef4z/KSipET+Aj/Ig45s4h1X
-         GOHDYDbKmHkpaiMxbdY6Qes1wQZnCAyT8Jvv6IrTgy6cbnlT6HWZYUQmDphlqv+j4m8O
-         JLbkOyYnXMXjrsowAanPrploeUWH3U2QavO+e2E3zxy/IDQ8ZQan9CSPpUboM13eqTTa
-         acJw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=A7RDrHKJwJiFQORIN07TBoCcNDPjU0ORoQLnSq+Xm/k=;
+        b=Qpm9sBWMTnkNHBM5uySz1lvHpay/QjBA5aefCNWOGNd2RZL44R3NEL1isTU5fHorNW
+         EZbYcmLB7R7D0wSrk4CRDyAj2Trh+/aqjr4sLoaUy51doBU0uxqE7i7MsjTOUfpvaJXN
+         JhRfJFjocrETY6WuE5+AXwreO9jUsJScmn4NjTJ5mNOiH7CRhbpIzhtR5jZPKvaX/Wl4
+         +Wtmx9ZfjeVHpFoR73Wnfnzdq1FYzfQyKubNrC5Od0YiPfJh8HG6ABibBufQ//qZRMQa
+         KOu13u9nfS3rtbwTFJ1hWHDH2v2pXFn6JFRTw8tP5GDPR3MY9l2haccrNjdj6puF3npT
+         gfgA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=a6C3j/5XCap4I79Wur3oJHJAAeRvqgHbLLzz3yb9Wbg=;
-        b=SAXJjspNIhro9V9QKfsomvFNTZDWy3ocYkWkna17p7R6imUCOem10DEdRWtdoKZ42w
-         cm4NKdo23yaTYnhPW0gY8oZpgtvWFAGikTPtPYgMztt5jh9mSXuwxPHFKjRdFjYUxYa8
-         KBKlfu24EkJhBjx9lKEWX552aIpXZLAiqk6NgTeyMBCmv1RtsqwU29brMazbo/Tt5S8F
-         TzeQNCMN69KxE47vmuT9D3YFJ4zWJRgReLs9AeB1xsKN9gGzAAmLGBMV2y2RAlwKhQvH
-         XQFrwPYXIPjZBnmmuAuIDbnuERSq61jfZCaOVnSeq5g+MIj7JkqaKXXuOqTydu0EMNVV
-         7K3Q==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=A7RDrHKJwJiFQORIN07TBoCcNDPjU0ORoQLnSq+Xm/k=;
+        b=EPqq4ChbZwbRjfZJmamPwEeSWx2X6O6jPTSfQyeRxL9MG/DJnKrpXUgvIfmE0hmAhW
+         fRkVFbyZr8QnuT83EXQHbvPQLtx8QnSsp2xsYYY/2uc3d6dmYdCBRGBlvqMFY+X/Ykc4
+         Gta8x1o7TBvdQLN+TB2X/o1eKtCSRiEgJw3MsECRVx+aB4PQYmoVEuvpyxCD5is1YKFP
+         vY90N6IG9wksP0nMfO0OYer0xY6XFmeAw1PFOWIVb5SoAZ0/PwFxVZ2FsziVmWYSvuO9
+         ok4cETy/uVrzlWVSQV/lm4IvyoV/ZQPPaoy4M2HaCxaAP69V9pSPsOR5odbpZDaMyIkt
+         FgrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=a6C3j/5XCap4I79Wur3oJHJAAeRvqgHbLLzz3yb9Wbg=;
-        b=roPKHm41jx8iTWeuM2ZOb/ddSh1axN6UTkuBYH0eJMgnD0UCUk717gyZU6KMyLvmsA
-         se2mydRu22vkSK/D8fafpGg5VI6wnwRccdOZ/56z/s88w5w0QybAq8bu8lwuqmFWz2mw
-         Z3yyeyT4phSklDh6rbc0Di/e5AnVTvyy/2WeG9qhivoDjTW0crO7gYSeQhjIFTf8E2Ra
-         aXGiFNqaZ6rhypcK/RSNm98Ul09whI+SuFJUCLklgoi/ijMuvDJtC5ssEhodl1Pr9kDK
-         47LHJtZH5P9n89/VjuwwnsJQzh3YrjGDV0QBC3MyGtQty/AtXz0TY3hwmzSg7PnZwpqI
-         JSeQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=A7RDrHKJwJiFQORIN07TBoCcNDPjU0ORoQLnSq+Xm/k=;
+        b=YUAoRbQ4PED4uHKJQTpRFTk0euU4i6n/dNXGvVwrRplL6nW+6T8EgYCF1ABudklHty
+         LDJbMvhfuQ9xKUOc4fi3A4KGNap+bBuErhgKvS9ImR1pRa2lQTSNM5vCNPgJtUz036g6
+         dgdShtOT87QGVaXqH8e5sTcpzyTiQjeWtG0SzF0wtMCtLc56LiBwJ12YHcqTHuRBmxt/
+         BrauNAvNYifqZJ9wqZUxLNrZXJnRJ7uQRIVVVIZSaTBO8RyW6m9emQr8Sas1q3erleTz
+         ts2lvrzXqa9vm4NVj7a8cpwzRY4iWThQsWcx5QmsSdmGqNEtWAgUA0/5qBE0bjs1CgoC
+         YwuA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532yytxLugxSQUSZjuNPJLDxcY5fpWpAXCY8JIzdPgCcZfIn5FiH
-	wVScCVYSof0VfFNtjN/kJxA=
-X-Google-Smtp-Source: ABdhPJzzjs/x7VHn3slV9iCNR5Mkg+5U9fT1BlnIitA97QhVf9EeXPGRFD5FxkPOzJCt8Dsnwk67Yg==
-X-Received: by 2002:ac2:5330:: with SMTP id f16mr2713976lfh.592.1620045751770;
-        Mon, 03 May 2021 05:42:31 -0700 (PDT)
+X-Gm-Message-State: AOAM533a/XMM3PCYUXVo2LIpdh0yM/WsKT/Ut63ja5/KCMJZJENqeUeg
+	k/dadSpyql2P49hWs1R3FJg=
+X-Google-Smtp-Source: ABdhPJwDE03JgEs06mVAMH0emX8+4nyckAfDbaMbfHvxLfWsAbzsKS4yzsgtGxWpYGPbN+/HJEI0HQ==
+X-Received: by 2002:a17:90a:a589:: with SMTP id b9mr21355349pjq.80.1620052697468;
+        Mon, 03 May 2021 07:38:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5592:: with SMTP id v18ls191769lfg.0.gmail; Mon, 03 May
- 2021 05:42:30 -0700 (PDT)
-X-Received: by 2002:a05:6512:2294:: with SMTP id f20mr13412338lfu.85.1620045750784;
-        Mon, 03 May 2021 05:42:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620045750; cv=none;
+Received: by 2002:a63:1656:: with SMTP id 22ls5816118pgw.1.gmail; Mon, 03 May
+ 2021 07:38:17 -0700 (PDT)
+X-Received: by 2002:a63:9c01:: with SMTP id f1mr18764540pge.427.1620052696973;
+        Mon, 03 May 2021 07:38:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620052696; cv=none;
         d=google.com; s=arc-20160816;
-        b=aXwz/1RikF8Y6Fepfm3sLftwBdWazsE+XFJ1sMzgpfvoHx3edC+Wp16UWrkrJt/5Cv
-         /PjfwyfTBtlutTv14sFjtMlRyh4QJXdn4SGKA0ZaKNNvpLREwvtXrPQArUI9jE1RbVMv
-         62+diNvRZlbMUF2s905Zt9in9/SR2Feg/3gFrd1vHDNGWDVkwxQYhRuvsYR7tL0Ron4w
-         50hqRJkcj8+Aek9jYa/iI70szbGW+iYWrMoMcK81T0muzSEWuiBoeZ5OP4xo7nP+VhcD
-         v+eoOa/EL4Ad6bdkt1tkheiXNfey7kRB+bZOpsNACeN44UEEqFqKhkcTvY5I6nK6fXp7
-         tVCg==
+        b=vZs4mHrIs1jwEla5eHbd+N2/LUxEIEkfYjRo1L8d90QyclGo2RvwHymyPiRegDPLp8
+         Mbl26B62s12x5WQ0nEFhwJz0pVnYcBXmJD4Zp4CzLVT0UuJ+StMfeLTk1YuvlgLP0yxB
+         RPEGfdU3NYWjK6HDpkIUYEL0hydr339Zt015p2lMge2GOcaTbbCLLFqvlE0mmK4r8Uvv
+         dblx/iCQE32MQQbgzUioytG3ZMSMUplgDLK6yY/ivCBfulL63oTM6xIKIs278Tf6dlG3
+         3pBuJ24r74bTv+gdWiRUlptPffBBOzNj2Ej3ZyO3gqG19I3VcaZgH9UFkt6dhzUmrw4v
+         AbFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=36quXIEpsVUBoqifV7ACgdKYoHqQGbPYF+cbB8wEWbY=;
-        b=JgHmEHiuKcB7d0vh8NJKR1Z7ifaO18dfiYzqkGFt5+aQafTq9EhBYds3mClm1LLXwO
-         N3IUzoQvSDqkSqXQTziuGzjtfz8sE1lcDHgzxW+hsxGih6OxbJun7ZNYqS00iVf6aDEC
-         pq4yX8nGGeQu9ayb+1gHaua3ggcvCmeMycmx3fEbdO/RaKif/DRENnAk31ioNhR1ZNdU
-         k3aL1SXyrzSMH7BbnN6nh2lFQCu2ogWBvtrScqGT2layAFVoYFDzS2ZRgskXe5jtvJUZ
-         MwjDwuwrzExPSWvSJPMipGWxtl2vcOtZbsVBnZjJtwbKTDkga4n6va49tCj4xAXhm3DC
-         lQUw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=6ep0oY26lJOHBq9ouE0kBB8RpBBQNutKyljIaREMmRI=;
+        b=lCsnCtpO/K9E/XNb3NmT6ryyFOb/4oswaspADdYJnWiVEllLXaqk1lEqEOU67M12rd
+         Z6FNK2Jxg7Sj7icMtCInFBnhOFqfsl8Cp2sPLqyLLDO2JUyursWnwIMy8hnNW12fH03e
+         xS5FqKRnghjFVH0ADR3Olh0P1uv2+5dfYghNVOYWAfaYCiA6q1F/juiuv5tSpAT3hRdE
+         CVJyMTY/gZq76/mHpQcdyjQcy6nUVbuPE/v9MpEs/2cX2a9+caEu7hqjhINRFU4NUVoA
+         H4qx4zLikOf5r/u2mfGJdSnWSWKJcZz3Sl2ljdYTG9sgwVq8zeF9Wyr6Z9S8bYI8GKC3
+         aJ4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.133])
-        by gmr-mx.google.com with ESMTPS id z8si315611lji.4.2021.05.03.05.42.30
+       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
+Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu. [18.9.28.11])
+        by gmr-mx.google.com with ESMTPS id b17si1618541pgs.1.2021.05.03.07.38.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 May 2021 05:42:30 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.133;
-Received: from mail-wr1-f43.google.com ([209.85.221.43]) by
- mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1Mgvev-1l52Ql00uD-00hRFR for <clang-built-linux@googlegroups.com>; Mon, 03
- May 2021 14:42:30 +0200
-Received: by mail-wr1-f43.google.com with SMTP id a4so5397400wrr.2
-        for <clang-built-linux@googlegroups.com>; Mon, 03 May 2021 05:42:29 -0700 (PDT)
-X-Received: by 2002:a5d:6a52:: with SMTP id t18mr6961702wrw.361.1620045749718;
- Mon, 03 May 2021 05:42:29 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 03 May 2021 07:38:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) client-ip=18.9.28.11;
+Received: from cwcc.thunk.org (pool-72-74-133-215.bstnma.fios.verizon.net [72.74.133.215])
+	(authenticated bits=0)
+        (User authenticated as tytso@ATHENA.MIT.EDU)
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 143EcCRA007521
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 3 May 2021 10:38:13 -0400
+Received: by cwcc.thunk.org (Postfix, from userid 15806)
+	id 471AD15C39C4; Mon,  3 May 2021 10:38:12 -0400 (EDT)
+Date: Mon, 3 May 2021 10:38:12 -0400
+From: "Theodore Ts'o" <tytso@mit.edu>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+        Tom Stellard <tstellar@redhat.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Fangrui Song <maskray@google.com>, Serge Guelton <sguelton@redhat.com>,
+        Sylvestre Ledru <sylvestre@mozilla.com>
+Subject: Re: Very slow clang kernel config ..
+Message-ID: <YJAK1C1uLknYGYrH@mit.edu>
+References: <CAKwvOdmMF_v9TzBtFn2S1qSS_yCDO8D-u3WhBehUM7gzjcdjUQ@mail.gmail.com>
+ <CAKwvOdk+V2dc31guafFM=N2ez4SrwCmah+mimUG3MzPMx_2efQ@mail.gmail.com>
+ <CAKwvOdn3uXniVedgtpD8QFAd-hdVuVjGPa4-n0h64PTxT4XhWg@mail.gmail.com>
+ <CAKwvOdm3D=dqKw=kx46PLaiqfHOZJL3QFKGc8kxqJqpwdFFWqw@mail.gmail.com>
+ <CAKwvOdkp_P8BCtFuKqDrtC_=A89ZfDf66Yr3FL2e=ojwv4KaMA@mail.gmail.com>
+ <CAHk-=wi1yiBBr3b3RbCEte6-yzAApsZN5zRdr3xoW8Av9jOX=Q@mail.gmail.com>
+ <CAKwvOdk0nxxUATg2jEKgx4HutXCMXcW92SX3DT+uCTgqBwQHBg@mail.gmail.com>
+ <1c5e05fa-a246-9456-ff4e-287960acb18c@redhat.com>
+ <CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com>
+ <alpine.DEB.2.21.2105020346520.2587@angie.orcam.me.uk>
 MIME-Version: 1.0
-References: <202105030311.xWwkyV9z-lkp@intel.com>
-In-Reply-To: <202105030311.xWwkyV9z-lkp@intel.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 3 May 2021 14:41:45 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0ZdZY94KVwF-C_t+7rx=iHC60ty52AQAmc1VDZwsn9Rw@mail.gmail.com>
-Message-ID: <CAK8P3a0ZdZY94KVwF-C_t+7rx=iHC60ty52AQAmc1VDZwsn9Rw@mail.gmail.com>
-Subject: Re: [stable:linux-5.4.y 5541/6083] ERROR: "__memcat_p"
- [drivers/hwtracing/stm/stm_core.ko] undefined!
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Sasha Levin <sashal@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Provags-ID: V03:K1:CXvooNCb9RjF/LJTctZ4Sh9aai72wF5JABwQ6fy6/wi0KM/BJBE
- DtjSp2uUpr0oMWBh1L2fqKKgFxZVqjqisFn/87IebZC+4isEzPSG1JU7mYPP9W44aobzM04
- jwKhZi0AF8+KtJz+mZyAZNqG5xGzGDVDcE3ZqNwfEqQEsDjuMVITiYFthTLuWiUmFcXXRa2
- 05X2rqVWVXFIGoTXPI5bw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:8J1amj7zOh8=:p6/ymdX4Fu2sDiA1bny29/
- q4Oe0j3/tkfJb81YklLVOKJweshoXkNZlC/sBX8nU4WAYxVYbuNJ5mzPVswOOg/jmg+ejQERq
- W8WFx2qyNGFJZpZvUj7LUWOBn5jg1j8k6jiLmPMj23nbEB9FEB2Gr0KlVNR5p+Wn1HlzgMZa3
- 1Om7CLzj7vrf6BXGxU+JNPilcf1znDhQ43RokhtTpIKwAhsrk8/Pk4K5WViejw2MPMfIzuEHO
- NSqqDgePDkKOMMXwgH6LH1xYg0nsEK0pTYyCOEYOK2fAjrTKcoYUySREpYGSzaRXCQhDNswS6
- /WV+dJz8C4Wvi2GqtZJvUfJUzkdUXmupTovpfRDSM/RGCuFEH8LqAPiYMg1Qr0ufAMIL5imTo
- PCkPJxLnMvd3E3vLyDgMm4a/tTJtkgZmO3OI0xImNXirb8lPcF0huV8dSvoX9FvXvVO9OQpUG
- 72CwaibsVIA1bIsQ4cfW4vpQ89wLA8guxtqHBgOgUzSIOMCjBhDBU52I2m4q/WI3tbaAHVVuz
- BpXs3HF89g8FH/ivheQYLJY0KOFIICXqD7DmUn3grVhFge/6tnS0ccz2o3VVJOmBKdaEXr8+s
- h0kk/m8Qo++cfOfPD/gtlE2YMLTxQ+wEEy0D6scZOa+CMq7BmuR1H2fikWIYuFy9wO/dTj3XF
- DwgI=
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.133 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Content-Disposition: inline
+In-Reply-To: <alpine.DEB.2.21.2105020346520.2587@angie.orcam.me.uk>
+X-Original-Sender: tytso@mit.edu
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted
+ sender) smtp.mailfrom=tytso@mit.edu
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,51 +144,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, May 2, 2021 at 9:28 PM kernel test robot <lkp@intel.com> wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git linux-5.4.y
-> head:   370636ffbb8695e6af549011ad91a048c8cab267
-> commit: 99f1960cae4f417d513be5ea55136383c2a58798 [5541/6083] stop_machine: mark helpers __always_inline
-> config: x86_64-randconfig-a002-20210502 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 8f5a2a5836cc8e4c1def2bdeb022e7b496623439)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/commit/?id=99f1960cae4f417d513be5ea55136383c2a58798
->         git remote add stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
->         git fetch --no-tags stable linux-5.4.y
->         git checkout 99f1960cae4f417d513be5ea55136383c2a58798
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
-> >> ERROR: "__memcat_p" [drivers/hwtracing/stm/stm_core.ko] undefined!
+On Mon, May 03, 2021 at 03:03:31AM +0200, Maciej W. Rozycki wrote:
+> 
+> People went through great efforts to support shared libraries, sacrificed
+> performance for it even back then when the computing power was much lower
+> than nowadays.
 
-I'm fairly sure this is unrelated to my patch, but I don't see what
-happened here.
-The function is defined in lib/memcat_p.c, which was added in v4.20, commit
-93048c094415 ("lib: Fix ia64 bootloader linkage"), so it shouldn't fail in v5.4.
-The same release also introduced the only user in commit a23bbec205b9
-("stm class: Use memcat_p()"), and this is the one that causes the failure.
+That was because memory was *incredibly* restrictive in those days.
+My first Linux server had one gig of memory, and so shared libraries
+provided a huge performance boost --- because otherwise systems would
+be swapping or paging their brains out.
 
-I also see that drivers/hwtracing/stm/policy.c is the only file that actually
-calls memcat_p() (which is an inline function calling __memcat_p), so it's
-possible that the $(lib-y) object gets dropped by the linker because there
-are no other references to it from the kernel.
+However, these days, many if not most developers aren't capable of the
+discpline needed to maintained the ABI stability needed for shared
+libraries to work well.  I can think several packages where if you
+used shared libraries, the major version number would need to be
+bumped at every releases, because people don't know how to spell ABI,
+never mind be able to *preserve* ABI.  Heck, it's the same reason that
+we don't promise kernel ABI compatibility for kernel modules!
 
-However, in this case I would expect to see the same problem on mainline
-kernels, but I don't.
+https://www.kernel.org/doc/Documentation/process/stable-api-nonsense.rst
 
-Adding Alexander Shishkin to Cc, maybe he has seen this before.
+And in the case of Debian, use of shared libraries means that every
+time you release a new version of, say, f2fs-tools, things can get
+stalled for months or in one case, over a year, due to the new package
+review process (a shared library version bump means a new binary
+package, and that in turn requires a full review of the entire source
+package for GPL compliance from scratch, and f2fs-tools has bumped
+their shared library major version *every* *single* *release*) ---
+during which time, security bug fixes were being held up due to the
+new package review tarpit.
 
-       Arnd
+If people could actually guarantee stable ABI's, then shared libraries
+might make sense.  E2fsprogs hasn't had a major version bump in shared
+libraries for over a decade (although some developers whine and
+complain about how I reject function signature changes in the
+libext2fs library to provide that ABI stability).  But how many
+userspace packages can make that claim?
+
+	  	       	    	 - Ted
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a0ZdZY94KVwF-C_t%2B7rx%3DiHC60ty52AQAmc1VDZwsn9Rw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YJAK1C1uLknYGYrH%40mit.edu.
