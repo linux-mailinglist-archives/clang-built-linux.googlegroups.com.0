@@ -1,145 +1,136 @@
-Return-Path: <clang-built-linux+bncBDRZHGH43YJRBCVIZOCAMGQENUIEBDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUO3AHUWUIRB3VLZOCAMGQES3QCG2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id A1385374368
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 May 2021 19:21:15 +0200 (CEST)
-Received: by mail-qv1-xf3d.google.com with SMTP id h12-20020a0cf44c0000b02901c0e9c3e1d0sf2187298qvm.4
-        for <lists+clang-built-linux@lfdr.de>; Wed, 05 May 2021 10:21:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620235274; cv=pass;
+Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9177637437F
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 May 2021 19:29:19 +0200 (CEST)
+Received: by mail-il1-x139.google.com with SMTP id g7-20020a056e021a27b02901663a2bc830sf2185428ile.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 05 May 2021 10:29:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620235758; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bpsV1jz6kBomNJMjzpRfiUEiEaX2jxjACVmoKgDBotN7eINi5oeyM4QC5o7Pd/YAkL
-         CNC39bMMVfUvZqG0jZksJDCopu9R81AxORgomyx52hCh7nLboKr+k3q8u7pKmB5+q3wH
-         vfSb4A8mbgjjGDvO1gZ98ClxZwV3spVa3kAY1sz54clC8qDkBGHiHIhuvxqF8YHYMgW8
-         Qte7yejZvhMgxS7XiMTTo9Agf753GokwGPurs0FdwtsntUSQLe+WAKQ2BmhbZm33m+lM
-         8OKxyYCUAO1viiwSUox6pF7RetehO+0Kf+q80WGTtgDE8ZVWmfj4iEl37HVDnf4+ltFs
-         +Faw==
+        b=ECeXWEcqIKx8ea61qp99lFRx3b3Wk4jgqJfg+1zHdZo0sOiBdR5P6/q+s1Tkz53sto
+         sMlmV8TjRooeTMMlL70BTsJKm9aCplXLzqzY2gnzE7g7MXA+YFn2Gj/F4BLdtIOr8WTx
+         naojmErEg3ZITqatgqtYOO/WSVu9EzWGL5l/QM5FAw3v1GplKfBioSq8LbNBbumI3CiT
+         SwZUIenG70toWdJdH1oOHE3fmt03uMz3UKvA1iPyYhDMyfZrk0+4lC7t4X7xgpAop90c
+         V25XJ6bAZC6gZVKz1hW6fN7C2w60+U/wZpEhFdcm4Bil9k2gIMblhC6f8Y9Bj7ivKQ3S
+         bCuA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=LWcalo4ZCEwz1aZ5KnXyhaUT6rznMwf90ZizE8o6s5w=;
-        b=rVWKqWpWtOlcJ0falB2Pyr750il5Y7EtzOyb7Wv2ewzCO3Wd17YwkHFHBZjb+f5ikm
-         QjVr9+E78Vb6RwOvieF1J3H5y3Sf1UHztBeWBzziVFNYBYM5+HaIEkERz7ylfeCrNNRv
-         Z9b7iRMthKiiD/jqQyu3GyR1+x6LzvZzwF6lonF+MNzGFDkWAVEsvA5jYVN5Ty9W3NW3
-         zH+AquhndU8EPulwNuK6QH4EPD7jFjNo2ZWDLM/aWnpt2AVFrwvgjQBQ5rt4EAK9qpgh
-         03SG4ZNLzYe1cfgmlWAcavmqmNF49Imfl2QL9JBXd3jXgoYz1+/oo7Mn4zP8yZEELrKZ
-         MrcA==
+        bh=uoxpkj5M8YdYD4XLqJuKEw49iDDckO1mOJMwQKMnq6I=;
+        b=XD7Pj+7F5BslSsMEOtpK1wgaBifbi/bsvyhlnkoeJYKzOy0sCYWuYsiacqRlOZj5s5
+         VDa0dR4UsxEu80MU7d2Sb5SCHRr4n+wMsXqJBOj108aALlHUZwRZcpt5M7u7ypc01pJo
+         as2qvB9eyMtCxY3aFFcENWTA7Kj3HemRfbRipjy62b0sx498BgQM9B3WpTGEmxsvBYIi
+         /Y7LdJIXp7K5MS07I+xNCi1UdIAIY2ihB+aF7eS00RZW1ai9F97NUlHI6TqDBO7QfIQ5
+         0/QptRyWlOOw3fpEMpOGCG4PworMHYsc7lnck9l6BBI3b5XvXV2Hpo3gSnV2bXjXpx+y
+         v8zw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gZ+cK+xg;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b36 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@ziepe.ca header.s=google header.b="H8/wac+r";
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::82a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=LWcalo4ZCEwz1aZ5KnXyhaUT6rznMwf90ZizE8o6s5w=;
-        b=IgyULxCvVBkLiSUvIxVRG2ucMPreO9RTnl5BByL12j7aZaP4rRJ2VEaNHZDo55NLh3
-         uWtePHHOjfYVAfwlP3sQdTHu23KbuMgQziNqYlQK9Dru1bt+7c4HrT1PJx0Vq5DU2NR/
-         pRxrWr4Mv567VRCukZS5WU7uyDepm9qWckXXW8k6fw4unTXo/Yb+liBx9tiszdPXDoZ1
-         axAq6vRE35SLSOvappH5XZMkN8xd9uVO5jRbkOV1Fmxs7NcJwdYdvvqQqrRPhzeWp7Dk
-         W4VW76ONzXe1IvC77KXWaWD/GEHGLsVRVUOaWqfMY2vK2JCO+xkwu+v9Fi0QUVmaFdNS
-         XfUQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=LWcalo4ZCEwz1aZ5KnXyhaUT6rznMwf90ZizE8o6s5w=;
-        b=AJQvj1wks2PN4xSIVG08piNMk7kVtAHKrI0q5oGEOXEd7KrRwV9MOrg/wu9OzmvX7F
-         mfnZyACO2BMyv7jVVug90Td/oO7FGYx8/t3xdKolIwc9/X8aPHvZtYPlEbsjmAylMeES
-         ZDEtxX4LVhiiYoBJevra8tRHxFe2TbsszghoHAcWXxqGqnUgLYCQ/vaX2yoFs3UMOEt5
-         BjiE8SQY/EUZg1Lz7takPSrbeGD+PW+rdYwfntK3AFJORD1AF4tFQCWKL4tWlh8TCAGl
-         n3cX09yrQtbVAdn/VtWQFsJ5ljGhAVRBJdRqjvYCm3NYPjRcmYbHz2yZzYeFWSf86IBd
-         7Tfw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=uoxpkj5M8YdYD4XLqJuKEw49iDDckO1mOJMwQKMnq6I=;
+        b=pztujdTFS0Hvu+6U//syJaRUf31ess8vjswIydAPIcRYEKiB72iwxwogh+PyS7nYDS
+         lzYragMnziUf+iuCEpgxYH4vAlZwqCFiFjCLGgZyysgSYeSpX+XiscfHB5GsKiFvG/2n
+         NfJtjCAD11DHBqBFBsZ1mfQEb7YywH32oCVp8CxhBH58pgDL1CHkrLfwacWLesf8PfVD
+         OWSqEcgcVLznvDDoVkCpL8XU3BsPB8m0YkiE/fu0cIizFfWHQmCpGW62RfiMPxGwz4e9
+         1t/rSVHjvqOBLiWNUQpwoiaQYRWgDR/Q2RXSLUQqE2y/rqGMZJnOwf2TeytJmEvyatkO
+         hpWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=LWcalo4ZCEwz1aZ5KnXyhaUT6rznMwf90ZizE8o6s5w=;
-        b=NXLa9ajbrLhpIohKLTa9tB+qJNzyXbdY4fQjBQV7JLJt7otGtl+12zRxmg/z9o4lAB
-         OSX6om1aH/VxaTvG0//p1mM+T45c09htbOrd/v9wZKyDGywByKJIl6v2scGl3Y+kxqQy
-         2FzCiHmKMYNKPghcDBOgI56+eUashA+Sc5g9+VUY9kytXuBlBhgYMx2EYf1U/QM+viWg
-         2ghl647UQCA2vMMOAEHytrAOnyAhONKHQ7p2VFGDq0IEnGDr/Niq5Or4w8rT4JQmAe4P
-         EngoEmUAusOAUpPyjqz+bVSxr8DbQ6pquQHbBs2F7QFVKJjSx070Ms2i4g5rhgSevr3y
-         qhGA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=uoxpkj5M8YdYD4XLqJuKEw49iDDckO1mOJMwQKMnq6I=;
+        b=DPMXE1dMqmm+zgW+G+V9vtzOIcVwIMW5B6IO5Q/60zXBMhwBe8uQ6kAzOSMumF5nk/
+         Y1aovXNKsIgjKsbWL86TCm6YdpxsaKO1txkqbP50b0qwzlGdLP4OvFyQZroV6W7woKcH
+         9HERmz/G43LOPv2aZGqeNHh3S1Yazg/zmVXORdRebBP9Wx0yQfRiYNKIWDDGIWNj4CN7
+         VE2O+LYtjfZXHxE0htxVcifhecV6+jOdzqAbiSfMtlGjFxIZukWd5QDwJhXZ5Gf9VvHv
+         aZpskQKSsK6lU3/uE1QIUMh1SzfitATTQ9oRau/ezYFbk5Ot3DBkzJh3IJ5bOlSaVLsh
+         0zmg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530FEodEOvyrFLoo1xWx0obpFQ7zXNiDM3I7YRmysfN3eBFr208A
-	W+iYdBqngUlmg6ThLGPnzrs=
-X-Google-Smtp-Source: ABdhPJx1WI5IzekkXeTVSHap1SvpVGLzXDUUNMtiGth6KiMx5+Psgb7j8j4/3cJRDLnLAFzpYnXU3g==
-X-Received: by 2002:a05:620a:15f7:: with SMTP id p23mr13520197qkm.178.1620235274776;
-        Wed, 05 May 2021 10:21:14 -0700 (PDT)
+X-Gm-Message-State: AOAM532LL89oeMPZZzLLO0yyf0B8btS63fWKhfyh7rmX52wSPDWNfEY2
+	64KOFbk2dazKps3jg8y7SLY=
+X-Google-Smtp-Source: ABdhPJyYmwZFlyBebsTPaRGo0C6yfn5F11Bb6JNCa76or6icIKdqggCSJZkM5aVw+dzVjcoMY3a6iQ==
+X-Received: by 2002:a05:6e02:19ce:: with SMTP id r14mr61758ill.4.1620235758532;
+        Wed, 05 May 2021 10:29:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:7684:: with SMTP id g4ls2565285qtr.9.gmail; Wed, 05 May
- 2021 10:21:14 -0700 (PDT)
-X-Received: by 2002:ac8:5e4a:: with SMTP id i10mr28642057qtx.341.1620235274361;
-        Wed, 05 May 2021 10:21:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620235274; cv=none;
+Received: by 2002:a5e:c301:: with SMTP id a1ls1285642iok.0.gmail; Wed, 05 May
+ 2021 10:29:18 -0700 (PDT)
+X-Received: by 2002:a5e:d907:: with SMTP id n7mr24652667iop.177.1620235758036;
+        Wed, 05 May 2021 10:29:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620235758; cv=none;
         d=google.com; s=arc-20160816;
-        b=UmRiFsW7YS7bWvGCs3FqTVaWGZB41dkt9c2WjwXzjIokInm0rWe0VYA3MDFmwDCI3q
-         mrXx3QQ6eNFz5daL9weJtdd7tod7V+X0w/Pg3oA0Uqb917PXZN1GhBJJVEdyl2EC/MVz
-         cvMg6EKGr1R/HCxurVvcGxn9YKwVR3cYn4GWsvQKSMU6HhyHcASnf8VyIFcYDSDWHKQ7
-         hsUdB3g0QUkve3puFSxRGbxNwgnQOtOTbiF6msvvrd9aUR7jVVtl50BHg7USEPuFTMDV
-         TVhEmgFlzjvoraP5Ll78iOnKX9T8bbHyS/71dWkYqEvbvTvtNqc20b/Ebl75Vy2biX9Z
-         e2tA==
+        b=gZ7Ovz4NGBeNB6Jp8BDJP3FmTFWm8KHzts0UhH/wPKOmJtf55M/pOhY3IM8/3KXfIa
+         mcJPi0h+trvgCQhTQcfQ5uUXHIz7HIhI6nQ1CAlZDP7rJ3kEipaS6hGbQSENQ1D95UgP
+         TUg0zLf0/Ib78/oiMvHQFnFZMyTdgNgpsAHMT7WDOil3SNxkj2ZzM7uOqkMJ1+lU2KDC
+         vlUi0EpXA4hy8wlBf1eAJdX0X06YWXk9LJlRjTOXJkJMy9D2IkzhgZOHlZzQPB8CGMC8
+         uNG7AN56JDnYp8pnQMR83jTXznBY8hcl2iV4YeTzdPfmwjl/ZXWaxzLrtSJrsIeG0ZBl
+         vHHQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=whIXjs7HREiiPRAWZX/G6jQFBwJD27ZgekNpzmde44g=;
-        b=bKr9yaZjQ94Q1lBSj7WJBCCXixDyYie3p1WzMk1GeTWhhWyh5axZ/5di2HisuH9N07
-         tg/TumLwn2tTGwE37qWh4YPp19w9L6TJPKbxYyrmk+In/ZhSG3nFabqV+2gni7CBYuwT
-         IGS2godKfZLfNaivn+I+/3qjuWpVZF/V5u+oS7cn6I8pgH03hmNHXop2BbQvXfDJS6qG
-         fgCf8ZnNrxnXDtSn91sv3hhiSPpLKUecv18wIaYowRggHAHJVvt6ufbzGgzUPdxLRuja
-         eqy3f9h2DoDC/R/U5zrd8BPMZdRoVHQ8SsvQYCDOX+H93qvUcuY0PvtFq0OOM/+ogPcr
-         ZFnw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=fojQ2PXj0G/XPL225fjb5EMP1GoQwlvE1vKQPnzG0g8=;
+        b=P8ssazfG0LgrGe6vJxXwA48Ksha0BgWdRVSOc1nAP6bRpDvGVO7sC9Trzui5cpeimy
+         9FitjY5EnXoiPxrynZqkfkhgj7kAxiLisIHWqz6LGeMCmSje/CO2p3eD/XluVUXc9jHr
+         Q0hA5XVHeU97kZB8Opzbjg9+6J1lPuAAKK2/58Wm2GAv9KC0UZ4VtBzkjxZ2l8CDpss3
+         w/d7HjP4OXY6jrsQ147brgAOdONokTOnLLz+QZ8T3AWQo6bi8mMDWOKjFRGWSg7pRADJ
+         C60Rthhq60NlDez7/JcDBK+Gu/dgkpc5MoeWPl8aW9LXfnr23S/Yia4l26Mn5zpzT238
+         PSKA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gZ+cK+xg;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b36 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-yb1-xb36.google.com (mail-yb1-xb36.google.com. [2607:f8b0:4864:20::b36])
-        by gmr-mx.google.com with ESMTPS id y8si2958qti.5.2021.05.05.10.21.14
+       dkim=pass header.i=@ziepe.ca header.s=google header.b="H8/wac+r";
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::82a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
+Received: from mail-qt1-x82a.google.com (mail-qt1-x82a.google.com. [2607:f8b0:4864:20::82a])
+        by gmr-mx.google.com with ESMTPS id o3si918717ilt.5.2021.05.05.10.29.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 May 2021 10:21:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::b36 as permitted sender) client-ip=2607:f8b0:4864:20::b36;
-Received: by mail-yb1-xb36.google.com with SMTP id e190so3641739ybb.10
-        for <clang-built-linux@googlegroups.com>; Wed, 05 May 2021 10:21:14 -0700 (PDT)
-X-Received: by 2002:a25:cccd:: with SMTP id l196mr46524836ybf.26.1620235274101;
- Wed, 05 May 2021 10:21:14 -0700 (PDT)
+        Wed, 05 May 2021 10:29:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::82a as permitted sender) client-ip=2607:f8b0:4864:20::82a;
+Received: by mail-qt1-x82a.google.com with SMTP id o1so1825691qta.1
+        for <clang-built-linux@googlegroups.com>; Wed, 05 May 2021 10:29:17 -0700 (PDT)
+X-Received: by 2002:ac8:6e87:: with SMTP id c7mr17134578qtv.358.1620235757561;
+        Wed, 05 May 2021 10:29:17 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-113-94.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.113.94])
+        by smtp.gmail.com with ESMTPSA id z4sm5441793qtq.34.2021.05.05.10.29.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 May 2021 10:29:17 -0700 (PDT)
+Received: from jgg by mlx with local (Exim 4.94)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1leLKm-0017M9-8i; Wed, 05 May 2021 14:29:16 -0300
+Date: Wed, 5 May 2021 14:29:16 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Doug Ledford <dledford@redhat.com>,
+	Leon Romanovsky <leon@kernel.org>, Parav Pandit <parav@nvidia.com>,
+	Sami Tolvanen <samitolvanen@google.com>, linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: CFI violation in drivers/infiniband/core/sysfs.c
+Message-ID: <20210505172916.GC2047089@ziepe.ca>
+References: <20210402195241.gahc5w25gezluw7p@archlinux-ax161>
+ <202104021555.08B883C7@keescook>
+ <20210402233018.GA7721@ziepe.ca>
+ <202104021823.64FA6119@keescook>
+ <20210404135713.GB7721@ziepe.ca>
+ <YJLHHpatWOgJo0Zk@kroah.com>
 MIME-Version: 1.0
-References: <1c5e05fa-a246-9456-ff4e-287960acb18c@redhat.com>
- <CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com>
- <20210502093123.GC12293@localhost> <CAHk-=wgdUMt_n84mq93LZKA6jOGqZpD+=KeVzA3YmvJ6=JPyhw@mail.gmail.com>
- <20210502164542.GA4522@localhost> <CAHk-=winSraiwc4gC5WFWSehFq+s7AqCJZoMqUuHLX0nYVG0nQ@mail.gmail.com>
- <20210502175510.GB4522@localhost> <CAHk-=whTjJwCt2E0_JM2dDq=+UybvJN7QK+6K6e80A9Zd8duYg@mail.gmail.com>
- <20210502214803.GA7951@localhost> <CANiq72=5766fGQjNoMoOxrywoJHQ+-i4U+Nb62MeEaRok4LCFg@mail.gmail.com>
- <YJHto1KaPFey5irj@mit.edu>
-In-Reply-To: <YJHto1KaPFey5irj@mit.edu>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Wed, 5 May 2021 19:21:03 +0200
-Message-ID: <CANiq72nJadi6X4BfFv5yiqNAZX9rwUT1zovhw6awGueLOyUYrg@mail.gmail.com>
-Subject: Re: Very slow clang kernel config ..
-To: "Theodore Ts'o" <tytso@mit.edu>
-Cc: Adrian Bunk <bunk@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Tom Stellard <tstellar@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>, 
-	Serge Guelton <sguelton@redhat.com>, Sylvestre Ledru <sylvestre@mozilla.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+Content-Disposition: inline
+In-Reply-To: <YJLHHpatWOgJo0Zk@kroah.com>
+X-Original-Sender: jgg@ziepe.ca
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=gZ+cK+xg;       spf=pass
- (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
- 2607:f8b0:4864:20::b36 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@ziepe.ca header.s=google header.b="H8/wac+r";       spf=pass
+ (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::82a as
+ permitted sender) smtp.mailfrom=jgg@ziepe.ca
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,34 +143,119 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 5, 2021 at 2:58 AM Theodore Ts'o <tytso@mit.edu> wrote:
+On Wed, May 05, 2021 at 06:26:06PM +0200, Greg KH wrote:
+> > They are in many places, for instance.
+> > 
+> > int device_create_file(struct device *dev,
+> >                        const struct device_attribute *attr)
+> > 
+> > We loose the type safety when working with attribute arrays, and
+> > people can just bypass the "proper" APIs to raw sysfs ones whenever
+> > they like.
+> > 
+> > It is fundamentally completely wrong to attach a 'struct
+> > kobject_attribute' to a 'struct device' kobject.
+> 
+> But it works because we are using C and we don't have RTTI :)
 >
-> What does this mean for enterprise distributions, like RHEL, which
-> need to maintain a stable kernel ABI as part of their business model.
-> I assume it means that they will need to lock down on a specific Rust
-> compiler and Rust libraries?  How painful will it be for them to get
-> security updates (or have to do backports of security bug fixes) for
-> 7-10 years?
+> Yes, it's horrid, but we do it because we "know" the real type that is
+> being called here.  That was an explicit design decision at the time.
 
-That is a good question. If a security fix requires changes in some
-generic that an out-of-tree module uses, customers will need to
-rebuild their module if they want that fix. So companies providing
-those modules will need to understand that disadvantage if they decide
-to write an out-of-tree module in Rust. And to support out-of-tree
-modules, distributions will need to provide the generics metadata like
-they provide headers etc.
+I think it is beyond horrid. Just so everyone is clear on what is
+happening here..
 
-As for freezing the compiler, some distributions already support the
-Rust compiler in LTS releases etc. But now that the Rust Foundation
-exists and gets sponsor money from big corporations, companies and
-distributions may be able to ask for "LTS" releases of the Rust
-compiler, or ask for sharing some of the burden of backporting
-security fixes etc.
+RDMA has this:
 
-Cheers,
-Miguel
+struct hw_stats_attribute {
+	struct attribute	attr;
+	ssize_t	(*show)(struct kobject *kobj,
+			struct attribute *attr, char *buf);
+
+And it has two kobject types, a struct device kobject and a ib_port
+kobject.
+
+When the user invokes show on the struct device sysfs we have this
+call path:
+
+dev_sysfs_ops
+  dev_attr_show()
+    struct device_attribute *dev_attr = to_dev_attr(attr);
+      ret = dev_attr->show(dev, dev_attr, buf); 
+        show_hw_stats()
+          struct hw_stats_attribute *hsa = container_of(attr, struct hw_stats_attribute, attr)
+
+And from the ib_port kobject we have this one:
+
+port_sysfs_ops
+  port_attr_show()
+    struct port_attribute *port_attr =
+      container_of(attr, struct port_attribute, attr);
+       	return port_attr->show(p, port_attr, buf);
+          show_hw_stats()
+           struct hw_stats_attribute *hsa = container_of(attr, struct hw_stats_attribute, attr)
+
+Then show_hw_stats() goes on to detect which call chain it uses so it
+can apply the proper container of to the kobj:
+
+	if (!hsa->port_num)
+		dev = container_of((struct device *)kobj,
+				   struct ib_device, dev);
+	else
+		port = container_of(kobj, struct ib_port, kobj);
+
+There are several nasty defeats of the C typing system here:
+
+ - A hw_stats_attribute is casted to device_attribute hidden inside
+   container_of()
+
+ - The 'show' function pointer is being casted from from a
+     (*show)(kobject,attr,buf) to (*show)(device,device_attr,buf)
+   This cast is hidden by the above wrong use of container_of()
+
+ - The dev_attr 'struct device_attribute *' is casted directly to a
+   'struct attribute *' and this cast is hidden because of the wrongly type
+   function pointer
+
+ - The dev 'struct device *' is casted directly to a 'struct kobject *'
+   and like above this is hidden inside the wrongly typed function
+   pointer.
+
+ - All of the above is true again when talking about port_attribute
+   and struct ib_port.
+
+This all implicitly relies on the following unchecked and undocumated
+relationships:
+ - struct device's kobject is the first member in the struct
+ - struct ib_port's kobject is the first member in the struct
+ - The attr, show and store members are at the same offset
+   in struct device_attribute and struct hw_stats_attribute
+
+None of this is even slightly clear from the code. If Nathan hadn't
+pointed it out I don't think anyone would have known..
+
+> If that was a good decision or not, I don't know, but it's served us
+> well for the past 20 years or so...
+
+I agree with Kees, "my mind rebelled". I don't think it aligned with
+the modern kernel style. If tooling starts to shine light on these
+bast casts I feel it would only improve code quality.
+
+For instance the patch Kees pointed at e6d701dca989 ("ACPI: sysfs: Fix
+pm_profile_attr type")
+
+This is a legitimate typing bug. ACPI should not have been using
+struct device_attribute with a kobject creted by
+
+  acpi_kobj = kobject_create_and_add("acpi", firmware_kobj);
+
+Certainly this RDMA code has no buisness being written like this
+either, it nets out to saving about 50 lines of straightforward
+duplicated code for a lot of worse junk.
+
+Regards,
+Jason
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72nJadi6X4BfFv5yiqNAZX9rwUT1zovhw6awGueLOyUYrg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210505172916.GC2047089%40ziepe.ca.
