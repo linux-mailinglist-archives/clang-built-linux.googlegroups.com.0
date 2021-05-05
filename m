@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBCYYJNMLYYMRBDW2Y6CAMGQEGKRDQHA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCYYJNMLYYMRBKG3Y6CAMGQE2DU4Z3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8D1AB37335F
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 May 2021 02:55:44 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id s82-20020a632c550000b029020f29c9e921sf363760pgs.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 04 May 2021 17:55:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620176143; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 31AD6373362
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 May 2021 02:58:18 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id t2-20020a6344420000b02901fc26d75405sf357903pgk.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 04 May 2021 17:58:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620176297; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OHDrsCMP79rmPPDsOAHfITnix8GHePkKAGn+9T7kKyvUJdX1yHppi13/qRjX6GqhdA
-         7TteObvQvPBG55mZYh7Anf+dKQjf2bgslmoKqBeI2ft8ZP6JrdkJ/7bOtzU3R50eQWrQ
-         eRm7YFihemmPjZbyfNPM9Pic5Hyc31zcQruJAutPz1+D/0r6zg3XLA/KyIjrHB3Rz6zE
-         HKckUSYTLUZfVRiwWIQCnn1p0Rpn7kF/hUoB98OdGTTpPXQdU440J5Z91WZOugEkO7tP
-         YxJsJWKmL4BRqZxPVWtT2LNLCRPi9CDnzsBSS2N1I7E+37mqFgFSRR5c8/IrdTtIdslS
-         JxvA==
+        b=yfYlPquir4OVA8aOdv8B7b0zuqCgjaInBepWDonISfEWqYswVHlT/YYS3IRDj2hKLS
+         ij4lJ14aqm4HYfPIKxu0DC3rTWMiX33Q6GQyH1Xn/iXixi4Za3+mNFtIqoFXYl4O6e1x
+         Gurww98rNPLKr+QyPi1no77bND5qSOT3qHkWfSJT5hYcVeN5QUP/argJT2B8Xn+6pJ/U
+         UJEBOVY9xnNocb3d4yRWJJHkjgRtd2j+ObUt2NOE/0WxHvwZCA9ag/exPkLBoxfaxTEV
+         Lbsb6Dy8Tyr3peix2o0wcDF8oIWQAAy+9C9gkamF3ZnoIykkTiawpVJFaC5VCl2hhO33
+         PxUw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=4t+Jm5wfcS7XIdvKjGC8k6kYse5kfQBvg5JEnMXRPn4=;
-        b=zVCs6cSDvx3FOwnKFADf7eT0HAL+bmqKyy+8nD0M/m+XagC6ahgBAObmiAjr0yHwht
-         2VMhnGT0HB5MvQNeIrHCj6E4iR0tqdhUP6E/J7f4hNO/ZY1M/9QD14AMMyh3ftr+y056
-         3StMi2poBuPs9vfFGj0uZmuyA+fZM90RKfzVKWRw5uoZC7zHeq7Qwi8YR2J2eEB1x/83
-         tRd8cReQJHwXBY0I5CaJA2rbJ4yprgCQZzPpp/vxUmD1UAmRx7JgnkG/SQjZLGWtd7xa
-         fu50bYeW/JDcF7bE6xWpEA7VoakqNcuw8omm9NsH86c1k8fhOeBP9pS8RlqoCpqplROf
-         C+XA==
+        bh=Zr6vK1fIBUlMfTpmJV5pkdt3a3xeIgO57v9naMNQZIM=;
+        b=FJdXouOOM2Tgj8Br1D+PW/JbLNILHSmxWXWAdpP0UmJ1tD9pPj5ZRfSIM52WBUetgk
+         f0Iy4YaCOuIbtUDNaNPh/wxdl7q//5NA5kXKrCrGM0cI3lPftnZWkzXHeqcBCqQBGrUY
+         yrAz6L3wCr4sF4D1+Nqk4ESnW0ELds+vaXpI56Xht+vPO39rT/JURfD6oYNxpvmwc4rB
+         CEk5/LMyGqZhTDxuoVMKVeFRL3kqRXMCBZ8gs6QzHb7MBfrPwD0MjUE633bIuxlOFoN0
+         NmbsJFNDjwVW4EzOtzAcuAPS7zvh4NpWp4eDX60Js/1sp4aRThKnUcGZI3QEkRxPigwn
+         HidQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4t+Jm5wfcS7XIdvKjGC8k6kYse5kfQBvg5JEnMXRPn4=;
-        b=T0p/WYe9ayGcVnXof5C/uiiRBrvAvlDcfSxo0togtHnnh5Fl0mUhyQzh6TGl9X2z46
-         NuvZ2mOeZ7/axFTTWwS4B+/m0Da0Mh7TxHPQmHNzqdAlOgU07vmqBqUq7tJV+6/EqgpZ
-         GGaSKbnE59CUxwskZJzInybEvFVSxu0djusoWNYC+SaPTV1ExMp18AGqzBRr2kCsO3Z4
-         V1xRxGKhbCq265weV5r/Ii4pk1Z7iar3zLjH1Eo28cPDF7ukmS6bxN/jY7hqn+HrCr9H
-         Aa6ovv9PPNxBHMX9W3CE5BIW0ujxHVdIXWO1KU1nbFcMTUtmj7H2thGxvz0caR9LLmCA
-         Gv7A==
+        bh=Zr6vK1fIBUlMfTpmJV5pkdt3a3xeIgO57v9naMNQZIM=;
+        b=CrW+a0ORj42d51tWRQX/kqxVhqSyNy4oQzxQUo3oXPPKYgIRVv2kj7iiXvYeSkrq7L
+         1zpdg0qQlbsBizFwZh6aBR1jwo8Cag+43N+i/vmGshHZMaRIY2bNPBX7TsU99wwxXryC
+         6/Hnif7ybedyczUQaUk8N8gtq6mRsfCxAfyuuSI5FXWYRzs9bf1EKXHInZnJDXov9lDj
+         NnQhrYCXrXA6v4meL1GK3TltDGlCvH1u3wOM8L03SzKhQpSDiO21JdkwdhJhHEVso/Bc
+         Uem6QVIeZNGSckey8bLn2x12E+xJRhcicvmG8aZhetV8B/ECeOWV15Kz0ad6XSHwX9M2
+         av0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -48,62 +48,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=4t+Jm5wfcS7XIdvKjGC8k6kYse5kfQBvg5JEnMXRPn4=;
-        b=nTLl0V8BG/J46FM5De3azGU7k26ppFepkvjM6emNaMR2+RSfnlZQ51hEuwefElszSb
-         xRO9eaoz9NmLGWzs+lX0PXx19DVXE7wnGgpmv9pAGP/pqmvB9qcVssXoI5rwAW+tlGcI
-         gOhYydeshHKstzNsBKAqOLOjJGFu2u3Uqd1xycpeq66cTm7vIv/h3yORvotJls7Nu2NP
-         NU2UOBbnrVUkUCXBlc3dMVzjzBF5HfT+INeXZ6OW81gCXUNwrQ8+eL1cmfUtM/FcvbCj
-         oWD5MDzr/11VSylnMb7kK5tJEMy0oAibGZgGas6Hd3ZuB33GlrZ5KRpU7KwT24W2fRxR
-         wbQQ==
+        bh=Zr6vK1fIBUlMfTpmJV5pkdt3a3xeIgO57v9naMNQZIM=;
+        b=N8eWCEDKhu/UxQwxmFKVyRymISid1jJEAPX35H4HBsenlWkrlusFk/asdTqO1sqwOl
+         65HuBf82b75BYqctXjxFe+omuhw1wwBddslNXYI8fq3qXQ64UVGnqX52lV1NDXYg/u3d
+         /dPr4iO4+nYhezWGXHq8Czz4pOc6NXGwVTvXeKsIb9tztF8+ouyxFA03pH+O/uEjYQEW
+         ku1ZqtUDK5DzvZIfr5SnTrL2txrbrJciv48N1J7Qo62/BDBRF5WHFf28wKrpZVc+CR+w
+         chix1v4tJ3fmhgp0TyoPGJEbC4Eqt5HVQGKsJ0vu9AFlvBrXloZIKZFMtOZpgOx4HLjI
+         98Xg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532f1YbtoPxh8fmELXQgtwNFflGgZMOPXXCqC7x9ZPbLHvFXARKu
-	d4RmVhKuqYbShA77PR9niNE=
-X-Google-Smtp-Source: ABdhPJxCSq3y3WsQpDJOfZKoBCqHYmD5VTzTLB3Y2TlTA/W8s9h9SSh0JCjG9u7Db4ysx3VOgI3dyA==
-X-Received: by 2002:a17:902:eb54:b029:ed:19ae:bb17 with SMTP id i20-20020a170902eb54b02900ed19aebb17mr29457718pli.61.1620176143045;
-        Tue, 04 May 2021 17:55:43 -0700 (PDT)
+X-Gm-Message-State: AOAM5319KgB+pyrnCi/q8hEHB05uj9aG4ldsBGQfkNxT1wp6AcHm0Xde
+	bOitw68pN1tHNs2Baw8pWbM=
+X-Google-Smtp-Source: ABdhPJyBDcopV4P5VgoC2Vh1ed00Q7fyfCev3p2o4XzulbLqKy9yikv4l8KPJ+Ny2GDC7xurJh4aRA==
+X-Received: by 2002:a17:90b:11cf:: with SMTP id gv15mr31583886pjb.178.1620176296392;
+        Tue, 04 May 2021 17:58:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7d89:: with SMTP id a9ls10342913plm.7.gmail; Tue, 04
- May 2021 17:55:42 -0700 (PDT)
-X-Received: by 2002:a17:902:b68c:b029:e6:bb9f:7577 with SMTP id c12-20020a170902b68cb02900e6bb9f7577mr28601994pls.0.1620176142479;
-        Tue, 04 May 2021 17:55:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620176142; cv=none;
+Received: by 2002:a17:902:144:: with SMTP id 62ls10334929plb.11.gmail; Tue, 04
+ May 2021 17:58:15 -0700 (PDT)
+X-Received: by 2002:a17:90a:5207:: with SMTP id v7mr8323189pjh.87.1620176295822;
+        Tue, 04 May 2021 17:58:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620176295; cv=none;
         d=google.com; s=arc-20160816;
-        b=iw7inBe8Y4o23nH/RyndEI0G9frQKw6WRdCe/RakHmiTRTtoQVhA9iXgwkmQ3G2jtd
-         38FFlSQfAb5w1uQPp1yVeWZnYOLuLxwi+P6r26ZAwlDG/U0mafic+5gbNxlmIUdbYfY0
-         odnuuqlag4Osnt+WdcdTPytdjyk2F3wC7RQKTgEkWh2PVsqQ/CG2Qjlzui5VC1i3ud42
-         UNda9LH9RBEFb1B9qngB92yhBXFPNe3jZ2FMx4S7RoOGCZgB3J9pCdlQ++3ytHjZ6GhH
-         4e0S5pZcdT0kx4ypviBCsLQyFbrJfDrgSQKjZTe8vYJLe5OgM3Iw1X2x0ynwIkjQ9YAo
-         urjA==
+        b=Te6r1cc94ABTRWgFTYDnIDMLIiv1z53Z315qBGGLKe6HFk5bGKaMJS2RWqb9KBXf9C
+         sLsoylQQtUhc/ZXU+LjduJ+n2bFKxJT5QCYqIm1tarB/wwjVrYefCUlHESp2Jgvr8WlS
+         9Nl8igyoUTMMid6G0R8TukTvref6jSG2745dPEWn2Hg6NuoUuNGqelUqG+Rn2ozZar+r
+         tNc4uFos+67HA8fEytjatuH6tkn9KIplvSbqq01bckrIfqNONC6AUBLey027+N45gXfv
+         e/kjaDHVrNqG0Lmtq5HGy9zRwTsv9Gw0KA5aX2ec7oH9TVmnwLmRQjOTYVscZLRyiyqH
+         kV3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date;
-        bh=wqdA+cSVSbdoUnh/ZYwMHMr7Xc0skZhj3LP5mAlyLyQ=;
-        b=l9WgSIqU1wBEzsKepUAEqNwIX3IOnKFGZL//2X17uqs660NYPPaBTHCT44amDVC2h7
-         65VJUofQ4S/yJcFmdkYMxXLATbOCKJPbiD+nvznApdSkCU0bpRT+YGOT3HYhwoHMTcvG
-         +zCLFBDadQky5NWgfOCq1A1lbEpdsBD4IOAM1skv7Oj36zMgnO2PC0iCQmeo9kLZZUoW
-         jM8DKsqQHFXw609BGI7N7U0trXQH6iPTRkVdjh+n6x4g2Y1/7Lxk2J1dpJs3iV9CsErR
-         YqK1+65/5lq0vuJFw6Kdgltwtj8NnzO0Llw7+CA5Hh94pC88vIyiSa8vFBPmJnoMd9+k
-         PIKA==
+        bh=b1xh8fIdBVgFfZMnYDyB64NaS+N9ZkraLOVu0/xbn4o=;
+        b=tEA+FQ8bY4iKvDnIMj8SKlGQuFRcFZBN7yHSbOClIUesFwaNtp/OkaXYY1j+py2n5O
+         cNqbXHgz9QE+MkJtCXemdjvRGobi77JLepmg1Amqh+OOBmCmZEgpJdF3xZv9Q5T383vb
+         YRcmmaa7zGf6WYuxv/OxQ9M9to99+kdgC9+ScZESmzVP6xXvjU85P8KxjTwL6Sj3ZHBR
+         w4MEZpYqkZAnX5C7jOTk2RK3xcNpQNoeJ6naxlZaLci+W1wI4Rj/x6vvoceKZNICTEtL
+         bnRMUgpIo9vtVEu4n9XCkUPdIlk0DPQODaIvtjXJsNQ2CI7I1O4AQ+p+0iYKo7OBS+Cg
+         vvDg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu. [18.9.28.11])
-        by gmr-mx.google.com with ESMTPS id a10si385778pgv.3.2021.05.04.17.55.42
+        by gmr-mx.google.com with ESMTPS id d30si235679pgd.5.2021.05.04.17.58.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 May 2021 17:55:42 -0700 (PDT)
+        Tue, 04 May 2021 17:58:15 -0700 (PDT)
 Received-SPF: pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) client-ip=18.9.28.11;
 Received: from cwcc.thunk.org (pool-72-74-133-215.bstnma.fios.verizon.net [72.74.133.215])
 	(authenticated bits=0)
         (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 1450tcRo016413
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 1450wB8b017268
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 4 May 2021 20:55:38 -0400
+	Tue, 4 May 2021 20:58:12 -0400
 Received: by cwcc.thunk.org (Postfix, from userid 15806)
-	id 3A57A15C3C43; Tue,  4 May 2021 20:55:38 -0400 (EDT)
-Date: Tue, 4 May 2021 20:55:38 -0400
+	id D32EB15C3C43; Tue,  4 May 2021 20:58:11 -0400 (EDT)
+Date: Tue, 4 May 2021 20:58:11 -0400
 From: "Theodore Ts'o" <tytso@mit.edu>
-To: Greg Stark <stark@mit.edu>
-Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Adrian Bunk <bunk@kernel.org>,
         Linus Torvalds <torvalds@linux-foundation.org>,
         Tom Stellard <tstellar@redhat.com>,
         Nick Desaulniers <ndesaulniers@google.com>,
@@ -114,21 +114,21 @@ Cc: "Maciej W. Rozycki" <macro@orcam.me.uk>,
         Fangrui Song <maskray@google.com>, Serge Guelton <sguelton@redhat.com>,
         Sylvestre Ledru <sylvestre@mozilla.com>
 Subject: Re: Very slow clang kernel config ..
-Message-ID: <YJHtCr9rWC0HqHGk@mit.edu>
-References: <CAKwvOdn3uXniVedgtpD8QFAd-hdVuVjGPa4-n0h64PTxT4XhWg@mail.gmail.com>
- <CAKwvOdm3D=dqKw=kx46PLaiqfHOZJL3QFKGc8kxqJqpwdFFWqw@mail.gmail.com>
- <CAKwvOdkp_P8BCtFuKqDrtC_=A89ZfDf66Yr3FL2e=ojwv4KaMA@mail.gmail.com>
- <CAHk-=wi1yiBBr3b3RbCEte6-yzAApsZN5zRdr3xoW8Av9jOX=Q@mail.gmail.com>
- <CAKwvOdk0nxxUATg2jEKgx4HutXCMXcW92SX3DT+uCTgqBwQHBg@mail.gmail.com>
- <1c5e05fa-a246-9456-ff4e-287960acb18c@redhat.com>
+Message-ID: <YJHto1KaPFey5irj@mit.edu>
+References: <1c5e05fa-a246-9456-ff4e-287960acb18c@redhat.com>
  <CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com>
- <alpine.DEB.2.21.2105020346520.2587@angie.orcam.me.uk>
- <YJAK1C1uLknYGYrH@mit.edu>
- <CAM-w4HOJqDUyK9HXjtqD3K2ja1Wt=u2s5waQ1wqm7jHy0P5V-A@mail.gmail.com>
+ <20210502093123.GC12293@localhost>
+ <CAHk-=wgdUMt_n84mq93LZKA6jOGqZpD+=KeVzA3YmvJ6=JPyhw@mail.gmail.com>
+ <20210502164542.GA4522@localhost>
+ <CAHk-=winSraiwc4gC5WFWSehFq+s7AqCJZoMqUuHLX0nYVG0nQ@mail.gmail.com>
+ <20210502175510.GB4522@localhost>
+ <CAHk-=whTjJwCt2E0_JM2dDq=+UybvJN7QK+6K6e80A9Zd8duYg@mail.gmail.com>
+ <20210502214803.GA7951@localhost>
+ <CANiq72=5766fGQjNoMoOxrywoJHQ+-i4U+Nb62MeEaRok4LCFg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAM-w4HOJqDUyK9HXjtqD3K2ja1Wt=u2s5waQ1wqm7jHy0P5V-A@mail.gmail.com>
+In-Reply-To: <CANiq72=5766fGQjNoMoOxrywoJHQ+-i4U+Nb62MeEaRok4LCFg@mail.gmail.com>
 X-Original-Sender: tytso@mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
  (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted
@@ -145,76 +145,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, May 04, 2021 at 07:04:56PM -0400, Greg Stark wrote:
-> On Mon, 3 May 2021 at 10:39, Theodore Ts'o <tytso@mit.edu> wrote:
+On Wed, May 05, 2021 at 12:02:33AM +0200, Miguel Ojeda wrote:
+> On Sun, May 2, 2021 at 11:48 PM Adrian Bunk <bunk@kernel.org> wrote:
 > >
-> > That was because memory was *incredibly* restrictive in those days.
-> > My first Linux server had one gig of memory, and so shared libraries
-> > provided a huge performance boost --- because otherwise systems would
-> > be swapping or paging their brains out.
+> > Library packages in ecosystems like Go or Rust are copies of the source
+> > code, and when an application package is built with these "libraries"
+> > (might even be using LTO) this is expected to be faster than using
+> > shared libraries.
 > 
-> (I assume you mean 1 megabyte?)
-> I have 16G and the way modern programs are written I'm still having
-> trouble avoiding swap thrashing...
-
-I corrected myself in a follow-on message; I had 16 megabytes of
-memory, which was generous at the time.  But it was still restrictive
-enough that it made sense to have shared libraries for C library, X
-Windows, etc.
-
-> This is always a foolish argument though. Regardless of the amount of
-> resources available we always want to use it as efficiently as
-> possible. The question is not whether we have more memory today than
-> before, but whether the time and power saved in reducing memory usage
-> (and memory bandwidth usage) is more or less than other resource costs
-> being traded off and whether that balance has changed.
-
-It's always about engineering tradeoffs.  We're always trading off
-available CPU, memory, storage device speeds --- and also programmer
-time and complexity.  For example, C++ and stable ABI's really don't
-go well together.  So if you are using a large number of C++
-libraries, the ability to maintain stable ABI's is ***much*** more
-difficult.  This was well understood decades ago --- there was an
-Ottawa Linux Symposium presentation that discussed this in the context
-of KDE two decades ago.
-
-I'll also note that technology can also play a huge role here.  Debian
-for example is now much more capable of rebuilding all packages from
-source with autobuilders.  In addition, most desktops have easy access
-to high speed network links, and are set up auto-update packages.  In
-that case, the argument that distributions have to have shared
-libraries because otherwise it's too hard to rebuild all of the
-binaries that statically linked against a shared library with a
-security fix becomes much less compelling.  It should be pretty simple
-to set up a system where after a library gets a security update, the
-distribution could automatically figure out which packages needs to be
-automatically rebuilt, and rebuild them all.
-
-> > However, these days, many if not most developers aren't capable of the
-> > discpline needed to maintained the ABI stability needed for shared
-> > libraries to work well.
+> Rust libraries only need to include "copies" for generics; and only
+> enough information to use them. Keeping the raw source code would be
+> one way of doing that (like C++ header-only libraries), but it is not
+> required.
 > 
-> I would argue you have cause and effect reversed here. The reason
-> developers don't understand ABI (or even API) compatibility is
-> *because* they're used to people just static linking (or vendoring).
-> If people pushed back the world would be a better place.
+> However, it is true that Rust does not have a stable ABI, that the
+> vast majority of Rust open source applications get built from source
+> via Cargo and that Cargo does not share artifacts in its cache.
 
-I'd argue is just that many upstream developers just don't *care*.
-The incentives of an upstream developer and the distribution
-maintainers are quite different.  ABI compatibility doesn't bring much
-benefits to upstream developers, and when you have a separation of
-concerns between package maintenance and upstream development, it's
-pretty inevitable.
-
-I wear both hats for e2fsprogs as the upstream maintainer as well as
-the Debian maintainer for that package, and I can definitely see the
-differences in the points of view of those two roles.
-
-Cheers,
+What does this mean for enterprise distributions, like RHEL, which
+need to maintain a stable kernel ABI as part of their business model.
+I assume it means that they will need to lock down on a specific Rust
+compiler and Rust libraries?  How painful will it be for them to get
+security updates (or have to do backports of security bug fixes) for
+7-10 years?
 
 					- Ted
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YJHtCr9rWC0HqHGk%40mit.edu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YJHto1KaPFey5irj%40mit.edu.
