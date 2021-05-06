@@ -1,132 +1,131 @@
-Return-Path: <clang-built-linux+bncBAABB2WSZ2CAMGQENER2GTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCMH5WKTMGRBAXXZ2CAMGQE2LJR4HA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E06F3750E5
-	for <lists+clang-built-linux@lfdr.de>; Thu,  6 May 2021 10:31:39 +0200 (CEST)
-Received: by mail-qt1-x83c.google.com with SMTP id g21-20020ac86f150000b02901c94e794dd7sf3025743qtv.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 06 May 2021 01:31:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620289898; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB0593751CC
+	for <lists+clang-built-linux@lfdr.de>; Thu,  6 May 2021 11:48:50 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id y13-20020a19640d0000b02901ca10a3cf33sf770088lfb.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 06 May 2021 02:48:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620294530; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PBWgMnkFzoQFCjeQ/hxy/ZutFxZ+p0V7hl66VwGpwtI7q+AzmlOPas8CbiY491dr0l
-         IElv90OjT463/A8aiR264ExuKCja7kYgOIFR1x4zXKGH0uMpSWDQWcc0LgWpm+r4ngIh
-         X9TIr6dGJmDOiB7AKyL7XyGT2wS3vGf7xeRL75Jr8aeTDBqbm2upxHwVPfTT7XT11iOr
-         Ae0u4Lan5N++YzEk/lGLPOgmk5NKh63x45Fe3VfbhBjINQ7/Ac6jaXrIXfyNITYKaqhk
-         I3LAN6OmJ6kyd/3i91RaZ7vP2wLI1Am9xi5gFC71I9SQCSvhqLlsC8vIYSQaC9g5iwUG
-         peVQ==
+        b=YYSqMuT4ZGpkPHx/S1riSVmglQiMqwkFHHtYK6mOJfPVcXu63v7l1F+y0ojhovz3Cr
+         xQ7ljVvEwuPhsfAjU6/mMNBsDG9WMI7fmdhzoLiK9VXgj/PjbaEJcnCnLsKoS9LzzpDH
+         oQxfqbljyKstHFil1DyXVHCSXe3UzwuH/laPPlrmsM/LtV3JPu6nfTZ3r8/C6RQdTQh5
+         3ciLdzrpkN5ac2nu+uMBaPk5yZxxJ9K14oWA2dm7BTh5LsRLi4gdjiOB0GpciNvzK0DU
+         p0t6u7bZGFgsbP6xKV/vCTdbmLLjGI2ykBB/3MRzI9rP6sOLnwra/VQGCQBz0OW958ub
+         hdwg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=rJJXqDaVY2SNxOOXp+y7TKlf8RdbN1d+/3cryHI17u4=;
-        b=yMvntdH2lVUOCGPT/Wtda9rQPP8byyYDh4+VuMoyctFCanDhkjKjlg65bDn3jpjg+Y
-         NhEfKi2RG70TEk3TqXM2T2PXSlyerTj9nqJ3NVOAHjQzKSWj57h/F9lhJir3o49apKrO
-         7nZa0Ako8g6zugrXVXysGE3xUyv7p8tlTZP05TzGFDrTMtbCKyi9oTJnahwRwUAMoZ69
-         6VaHpsTu+giWRwBSGOF12hTWY8sg7WpctKTWGIQ4fZuC2wsq6YbUSwF4eJarYNn5FiFc
-         nQJ3gpqGmero+ZtUsZ63SAr0vTtwFwXGXoUCa99yiNCXjJb3Huc+Vo7KJls9JccU3waJ
-         KpSQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=nfxKId8/jjwhWok9YtZHgd1n2/XpkohQJl+7CyDnv3k=;
+        b=AkXNx/RWxp5JJJTsxo8shWDcil0c3Y5d8tCvUKmO/aMaCUGNxHDBhcoKAN8LLuKgS1
+         BtRahwdD6hR+ixNaPCi2mimtoHoir38MLBYs1cwBWCATh7rmv9aW2sHnRxW0qFVNuKaJ
+         al4O5l7CmZPa6OPqZzF6GsPgLcWYeI1+6gpawylNYdkw2m0f2tJZ8V5uRTM71i9Q70s/
+         FzQn43LArTUU28lxzah78/ZSzMLaKsfE6qVX/yJvMLc+rYVKelIHGqsJv1uCvPfC+PV8
+         uOvTvQG89QFKOg3tGXQCjOXhWo8wU1tDwuNsxy7M2IY0hdbHGABWK1EdxOGCnXwYrHC2
+         UlDA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YQcghHsU;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b="bwZf/dFs";
+       spf=pass (google.com: domain of glider@google.com designates 2a00:1450:4864:20::32d as permitted sender) smtp.mailfrom=glider@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=rJJXqDaVY2SNxOOXp+y7TKlf8RdbN1d+/3cryHI17u4=;
-        b=OiIYQaG0/OMCoW0QyVtaykDX5eiSJXS49dEFFuRBB4ol9JLpHMtKW6+GPfHwOG6m3A
-         AcSL3+lVbaEhkMO85E+R33dN3J0ohWzjliGGRPj9OQO9aTikqDtJY55XdjKYvlDU9iW1
-         IGfI+1CcZH6Qv3vSA3bt1FCfiX9ywNGfzJqB7z70YmxY1m2PFovo+q525c8cRz6hRJkJ
-         c65g6hYF8GiTSI3tbCmZSUsBw0kSvvr6WadfseY6ZZ00oeQcWXqV8TVUk7oURxY3u9sH
-         oJSRA3MVA2zFQif6XuvFWkMcm1f/hKz1FJP1vKnDT3ZedmsjwThMXOyi6DOk8tN6FIcr
-         hVQQ==
+        bh=nfxKId8/jjwhWok9YtZHgd1n2/XpkohQJl+7CyDnv3k=;
+        b=aBbYGUzKMf0fm9nyfvfi20KTv+d8GV7yYpoju60+hYFZrAEwJcn/2qmqr72C0Qudv7
+         S4rnDWcf4Y3EDkCFQ05PnSaxmycE1t0T0t8G4Eo7t0Xy4SIfnXTCpG19mc0sy0jMRj8v
+         j76GAv8qXoJD7WoEtVCBD5AO9jFQUSb7K4PbqofmxUM7Hk0yw3yRtZks0QEIw2MH9Jwh
+         JF91MKxWjx2Y11B2mC1ErN9x1kjP2/ESFbV8s3bZBFfUh125K7Q6Ffy5oyz6eMGmm+vk
+         rLNOrQvtDbPlRJD5gJrrFCBc6dloUdC26y4ZBpCvIFBDVEwtAPhRIMfiEEMgktpfYHlQ
+         KPCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=rJJXqDaVY2SNxOOXp+y7TKlf8RdbN1d+/3cryHI17u4=;
-        b=ZIPHFlj3qsiHHHjlUoEBljwpm9AjrpGePfBAUmYrvN1Trrrro4Na1aX1P1xdijHtvK
-         hUXTQniPNUfi/slcRB7vXNt9/tpbn3iX7ZL8ya46sRyHCg4Zd1W7YPlIZefNoyH035X6
-         tPDp6XZm+8iAonBwH3v3aeZkVGANiYi4gaovMk9llL58RV+kidrzzm4OupSmhSSfN/E0
-         ohfP4d4MQtx6ouCqNuRyPFjajA+w0tZwXOmUfoCBlBO/zcc3TYHY6d7gOnVBe6CCFnke
-         ToG9xByqXwkXh+Aa2LtucZe/xnsmtbpAJt3Xw5PQqx/TNJIw0x+t+PCHVqc+pKeBemoJ
-         mTYQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531dQJZtRWmXh43ibVbPrj3EljB44IQokRExRN27IwoTFFGWlmGC
-	bEc56VPsIfa4YFd6ULcGZOs=
-X-Google-Smtp-Source: ABdhPJzIv3oXnRlxNAt4936//HPIG/u1FEUvfwUIca9w3c6AeXr4FCBo985zBksdENnMwn0E3OgFKw==
-X-Received: by 2002:ac8:6909:: with SMTP id e9mr3082657qtr.338.1620289898197;
-        Thu, 06 May 2021 01:31:38 -0700 (PDT)
+        bh=nfxKId8/jjwhWok9YtZHgd1n2/XpkohQJl+7CyDnv3k=;
+        b=lWpLY1cyDvWlyrwpVlZmPTRy0X5XTnGvLy6CHEzLhIxoJ8dYf1VOLGUmwBvyM9WIiH
+         7/rpasJGa/mTBiB5DlzlPYUX6W/DS9NbZ/Ue3a471Qa0X2qLf0uXtUFO608Ex1GoMxr6
+         a2yM3pUljGzWiWxrUeedk3jQJwC2Ukw/mDG5jEXrpA7Ox/g5++65CL738l/3niPWWPB/
+         puHMrq60wBbO+FDOzEJnSy0N3HiLtQa9uW6v9aWb2kwS0/xXwiMxTmtneHuSN5zqinTe
+         ub3fEX1YHf1cmE5HcVOdrFtekVarC4kQnKFoSc7UtIfGc+Lhzo8QIayvWH+on8G0YaQi
+         ldhw==
+X-Gm-Message-State: AOAM530zaV0DXyIFw/dS/qWhT7pJMDOYPTZlQHiR0o0sFSkYf/fR4Dev
+	AMp6HfUT+o4kmMDOS61i08E=
+X-Google-Smtp-Source: ABdhPJzxE5OvlHN2k11kWkjTx1Gx+C2ScB11qH4Ektii7xwPP2Is7sJuBulTxFxBjUVCEgCiSsF6Dw==
+X-Received: by 2002:a19:f602:: with SMTP id x2mr2298114lfe.600.1620294530307;
+        Thu, 06 May 2021 02:48:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:d8c2:: with SMTP id u185ls993202qkf.5.gmail; Thu, 06 May
- 2021 01:31:37 -0700 (PDT)
-X-Received: by 2002:a05:620a:74b:: with SMTP id i11mr2845871qki.445.1620289897802;
-        Thu, 06 May 2021 01:31:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620289897; cv=none;
+Received: by 2002:a05:651c:b07:: with SMTP id b7ls375133ljr.2.gmail; Thu, 06
+ May 2021 02:48:49 -0700 (PDT)
+X-Received: by 2002:a2e:a606:: with SMTP id v6mr2733320ljp.289.1620294529313;
+        Thu, 06 May 2021 02:48:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620294529; cv=none;
         d=google.com; s=arc-20160816;
-        b=CZs8DKZ6W7R8M5fG/TYUBeKqchQlC5XU91Ym+QCCX6WrA+WSKN8vyXEwlL+iurESF9
-         LjPiCLV8adjmaxT/cFb/8R89R+uGQoFAhRGUhmVnaFBUwi//8a5025iKOjkCYDGUAYYy
-         rnq93sB3aoNuSFw6T+7NuSV3EMPhT62QzciXb/f3L8dLGKgOZlK4h5RfFWFhSOTXHyc5
-         XmWuFFm1976MZpydIhmmbGNikfmRgApgjB7DYaQfsJWb6rgKhnte4jwSck5Ac5swssGy
-         k7gcowAIJasnBR0sM/kNW7DnDK9JjWIAesaEe2WDSsFXRQkxyLsaRCwrduLZYNxy4aHM
-         owRA==
+        b=DLnv6GfAgJUaXA50wiNiacbOi9WpNVJfXQHk9iXlEbosgnIPZnNoUnHMyEbgvVeIX4
+         BKHcnpF8k5sLAX2/z4jnUl6bctBYJ6ZXwRCAJPv6Tx59wMAMy9gW4F+6YMIRqaKU+O4Z
+         5TC2xWI3pSDBfsTVJ42Ox8ORPo4e8IcwyaFkd93O+Fz3M56LCw+wVBM96u7LHGIwaLBg
+         3pL0qgLnP33bx7DRQtZ1FWFDI5sUCO8q8JNpQqC1YmsFGGLpoMvTOtlyKtrHLTqW7bF0
+         sb4tk7ZTKxAH+LR9L5l7nfz1vfZGN1gNAdglaqyGgQjgzuSMXu0pBZf/HpVtDYmotXEa
+         oD2Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=a61aOj51B23+0xUJAw0uzUwQcL1dqzZR1sDHcYTGQ2E=;
-        b=SysjjmzOgip7dQygVx2kkYaTgscdT99YhxiihREEoHiRAAAx/LXYoKi3BggjxRCW07
-         SjQ5VTuxlw2oClY1MbFEk+dH8uV3n9Fl3WetovxQYYm1RlJ4wA+pqoMv8Ar+HXg9s/+A
-         8eYE55wlUfnnUB32jjoIwh4ab8FBPNK0wcBClrMQzB2uEt1l1A+wHso7u6FSieiVGStD
-         4qgh9WjICs6eKm9n2wY622ycs9+V1FtJjjix68EycFy9vVAokEldgOgbKoRTaG/H28zh
-         soUapp8rzxwDPqIS4lq6DwwZOlvahdeenBx0MaQlD32BGbEgkLC+xvg6TGRr3F+ppvMx
-         VNPg==
+        bh=45APvTMwZ+jlxauEu47sYne50SBe6A47f+5iZvs94SM=;
+        b=CJvFBX725LaKsAjY3Pr2jbcjl5E9ay1PbGQ5mJWOGME0EV1Tq07Ei8HYIHzT86GFpq
+         PnXSdfLZUIZXwdt5FSCe68I/YIKybp+W/1yM6mQEDCvqkNdQp6z3ODSGKi9BFXAp4Imq
+         jyuDAxykg6oqmo854jJrk+XJQ1PBpAP4v6ikhiHUQG5aMT6kl/b3u8ZSkqY2hjOaTJ+/
+         1H1taTvUiN9JRL8yJalii8vt3daG41VVBd5t97m1JYlOF3aVPxjXHlh8LJVLhQnixEgq
+         ASUXEN5qFOQad7kcUvMr+tO7OkXIEgt1zqHc6J8PuJLJeltdiEk6/p1lhuHZoHDSnXN/
+         f1+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YQcghHsU;
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c26si238144qtq.1.2021.05.06.01.31.37
+       dkim=pass header.i=@google.com header.s=20161025 header.b="bwZf/dFs";
+       spf=pass (google.com: domain of glider@google.com designates 2a00:1450:4864:20::32d as permitted sender) smtp.mailfrom=glider@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wm1-x32d.google.com (mail-wm1-x32d.google.com. [2a00:1450:4864:20::32d])
+        by gmr-mx.google.com with ESMTPS id y11si96885lfg.8.2021.05.06.02.48.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 06 May 2021 01:31:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9D12F613B4
-	for <clang-built-linux@googlegroups.com>; Thu,  6 May 2021 08:31:35 +0000 (UTC)
-Received: by mail-wr1-f52.google.com with SMTP id v12so4638460wrq.6
-        for <clang-built-linux@googlegroups.com>; Thu, 06 May 2021 01:31:35 -0700 (PDT)
-X-Received: by 2002:adf:d223:: with SMTP id k3mr3557467wrh.99.1620289894075;
- Thu, 06 May 2021 01:31:34 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 May 2021 02:48:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of glider@google.com designates 2a00:1450:4864:20::32d as permitted sender) client-ip=2a00:1450:4864:20::32d;
+Received: by mail-wm1-x32d.google.com with SMTP id o26-20020a1c4d1a0000b0290146e1feccdaso4463890wmh.0
+        for <clang-built-linux@googlegroups.com>; Thu, 06 May 2021 02:48:49 -0700 (PDT)
+X-Received: by 2002:a1c:2:: with SMTP id 2mr3072060wma.113.1620294528842; Thu,
+ 06 May 2021 02:48:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210505211300.3174456-1-arnd@kernel.org> <87czu4slom.fsf@yhuang6-desk1.ccr.corp.intel.com>
- <CAK8P3a1SBDXqHE5FgG_WfzrcbeT6V6kg5T+xTGU8Cp_vLLdMqA@mail.gmail.com> <877dkcs2h8.fsf@yhuang6-desk1.ccr.corp.intel.com>
-In-Reply-To: <877dkcs2h8.fsf@yhuang6-desk1.ccr.corp.intel.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Thu, 6 May 2021 10:30:49 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a3kZ9_VoKV+2eZh=WqncRqFKzRmRHUjAT9iFMtJpKzb1w@mail.gmail.com>
-Message-ID: <CAK8P3a3kZ9_VoKV+2eZh=WqncRqFKzRmRHUjAT9iFMtJpKzb1w@mail.gmail.com>
-Subject: Re: [PATCH] [v2] smp: fix smp_call_function_single_async prototype
-To: "Huang, Ying" <ying.huang@intel.com>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Jens Axboe <axboe@kernel.dk>, 
-	Jian Cai <jiancai@google.com>, Guenter Roeck <linux@roeck-us.net>, 
-	Peter Zijlstra <peterz@infradead.org>, Borislav Petkov <bp@suse.de>, Eric Dumazet <eric.dumazet@gmail.com>, 
-	Juergen Gross <jgross@suse.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Thomas Gleixner <tglx@linutronix.de>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Ingo Molnar <mingo@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, He Ying <heying24@huawei.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+References: <CAKwvOdndSoA8TxzDiv1Nhq7+AHZ_NETFNibhqmRuVcU6Ki=KOA@mail.gmail.com>
+ <CAGG=3QWZ0OWQyCZYhrEyP-h_opbZcMADEUYcGz2Aq6g+NDn4nw@mail.gmail.com>
+In-Reply-To: <CAGG=3QWZ0OWQyCZYhrEyP-h_opbZcMADEUYcGz2Aq6g+NDn4nw@mail.gmail.com>
+From: "'Alexander Potapenko' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 6 May 2021 11:48:12 +0200
+Message-ID: <CAG_fn=U5c2n7X_k3TRaKa3aBLd60z7N53KtZ0eMWXUcXvu1eNQ@mail.gmail.com>
+Subject: Re: Linux Plumbers Conf 2021
+To: Bill Wendling <morbo@google.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <keescook@google.com>, 
+	Fangrui Song <maskray@google.com>, Jann Horn <jannh@google.com>, 
+	Manoj Gupta <manojgupta@google.com>, Nathan Huckleberry <nhuck15@gmail.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	Arnd Bergmann <arnd@kernel.org>, Behan Webster <behanw@converseincode.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Peter Smith <Peter.Smith@arm.com>, 
+	Dmitry Golovin <dima@golovin.in>, Antonio Terceiro <antonio.terceiro@linaro.org>, 
+	Mathieu Acher <mathieu.acher@irisa.fr>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@kernel.org
+X-Original-Sender: glider@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=YQcghHsU;       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b="bwZf/dFs";       spf=pass
+ (google.com: domain of glider@google.com designates 2a00:1450:4864:20::32d as
+ permitted sender) smtp.mailfrom=glider@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Alexander Potapenko <glider@google.com>
+Reply-To: Alexander Potapenko <glider@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,73 +138,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, May 6, 2021 at 10:14 AM Huang, Ying <ying.huang@intel.com> wrote:
+On Wed, May 5, 2021 at 10:17 PM Bill Wendling <morbo@google.com> wrote:
 >
-> Arnd Bergmann <arnd@kernel.org> writes:
->
-> > On Thu, May 6, 2021 at 3:20 AM Huang, Ying <ying.huang@intel.com> wrote:
-> >>
-> >> Arnd Bergmann <arnd@kernel.org> writes:
-> >>
-> >> > From: Arnd Bergmann <arnd@arndb.de>
-> >> >
-> >> > As of commit 966a967116e6 ("smp: Avoid using two cache lines for struct
-> >> > call_single_data"), the smp code prefers 32-byte aligned call_single_data
-> >> > objects for performance reasons, but the block layer includes an instance
-> >> > of this structure in the main 'struct request' that is more senstive
-> >> > to size than to performance here, see 4ccafe032005 ("block: unalign
-> >> > call_single_data in struct request").
-> >> >
-> >> > The result is a violation of the calling conventions that clang correctly
-> >> > points out:
-> >> >
-> >> > block/blk-mq.c:630:39: warning: passing 8-byte aligned argument to 32-byte aligned parameter 2 of 'smp_call_function_single_async' may result in an unaligned pointer access [-Walign-mismatch]
-> >> >                 smp_call_function_single_async(cpu, &rq->csd);
-> >>
-> >> Can this be silenced by
-> >>
-> >>                 smp_call_function_single_async(cpu, (call_single_data_t *)&rq->csd);
+> On Tue, May 4, 2021 at 10:34 AM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
 > >
-> > Probably, but casting from smaller alignment to larger alignment is undefined
-> > behavior
+> > This year the Linux Plumbers Conference (https://linuxplumbersconf.org) will
+> > be fully virtual, and will happen from September 20-24th 2021.
+> >
+> > As part of the event, we are organizing a `Toolchains and Kernel
+> > Micro-conference' devoted to discuss specific topics involving kernel and
+> > toolchain.  It will cover both the GNU Toolchain and LLVM.
+> >
+> > As in previous years, the emphasis will be in discussing specific topics that
+> > require collaboration/interaction between the kernel and the toolchain chaps.
+> > Examples of topics are wrapping of syscalls, specific features in the
+> > compiler/linker/etc that are used by the kernel, desired optimizations,
+> > features to alleviate security concerns on the kernel side, and the like.
+> >
+> > In order to get the Micro-Conference accepted we need to provide a list of
+> > both topics and prospective attendants, so that's why I am reaching out to you
+> > asking for:
+> >
+> > 1) Topics your project may want to discuss with the kernel hackers, during the
+> >    event.
+> >
+> > 2) Whether you are willing to contribute and/or participate in the
+> >    micro-conference.
+> >
+> > Please let me know @ ndesaulniers@google.com.
+> >
+> I could talk ad nauseum about PGO and LTO.
 >
-> We cannot avoid type cast in Linux kernel, such as container_of(), is
-> there some difference here?
 
-container_of() does not cause any alignment problems. Assuming the outer
-structure is aligned correctly, then the inner structure also is.
-
-> > and I'd rather not go there in case this triggers some runtime
-> > misbehavior or ubsan check in the future. Making the function accept a
-> > pointer with the smaller alignment avoids getting into undefined behavior
-> > and doesn't require a cast.
->
-> In its raw form as above, this looks bad.  If we encapsulate it, it may
-> look better, for example,
->
-> static inline int __smp_call_function_single_async(int cpu, struct __call_single_data *csd)
-> {
->         smp_call_function_single_async(cpu, (call_single_data_t *)csd);
-> }
->
-> Then, we can do
->
->         __smp_call_function_single_async(cpu, &rq->csd);
-
-Same problem, it's still calling a function that expects stricter alignment.
-It would work if we do it the other way around though:
-
-static inline int smp_call_function_single_async(int cpu,
-call_single_data_t *csd)
-{
-        return __smp_call_function_single_async(cpu, csd);
-}
-
-That should even work without the cast.
-
-        Arnd
+I hope to attend, but don't have anything to present myself, as we've
+been mostly doing compiler-agnostic stuff lately.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3kZ9_VoKV%2B2eZh%3DWqncRqFKzRmRHUjAT9iFMtJpKzb1w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAG_fn%3DU5c2n7X_k3TRaKa3aBLd60z7N53KtZ0eMWXUcXvu1eNQ%40mail.gmail.com.
