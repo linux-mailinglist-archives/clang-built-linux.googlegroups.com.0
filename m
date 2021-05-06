@@ -1,68 +1,68 @@
-Return-Path: <clang-built-linux+bncBCU7P3EIWQOBBU43ZWCAMGQEE76OZFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA7JSP26EHBBWU5ZWCAMGQEPENHMXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5FFB374D37
-	for <lists+clang-built-linux@lfdr.de>; Thu,  6 May 2021 04:00:52 +0200 (CEST)
-Received: by mail-ot1-x33a.google.com with SMTP id k7-20020a9d4b870000b02902a5bfbbbd3bsf2224611otf.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 05 May 2021 19:00:52 -0700 (PDT)
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A612C374D43
+	for <lists+clang-built-linux@lfdr.de>; Thu,  6 May 2021 04:05:15 +0200 (CEST)
+Received: by mail-ot1-x33d.google.com with SMTP id 106-20020a9d08730000b02902d29fa5c2c3sf2273012oty.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 05 May 2021 19:05:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:message-id:subject:mime-version
          :x-original-sender:precedence:mailing-list:list-id:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/xjia9J3U6FilpUSSG4NY/81uGiICwLqnHWd5fxwkbk=;
-        b=Ftr7ccz9UdCsSrMuiBG2cRMj9euyJ3/Kwwynm9pgVb1Fd53bMGi+0eUw1twrcRMucv
-         ToGyTOwPUQKZZTK4MtomiFOeSJ+8odzUCcmnN5Dw6kRUUwGYi0/KU5krNPjLj7r6IvOp
-         m7o9miVDvKtMhwnHVEPJBBaeV7gWGNndAdcpUhHpAeaDj/mbbBhuzvSwTsPsLH2ct20x
-         jl10oex1zYDXCBVJmdPdaKczDaaLcZWdxzf5RjYFgi963G+R7f3YSHlkragXI1KHOc25
-         SZams+OYdzVa3N0c4txDJ0bJst0BGl7kVinpHdtcfEb/Re/mStZLNhrWLHuG478pHtjX
-         /FSA==
+        bh=AMo3XBOqFM/33v/sP2S4Xy5O3j7FAcM1Eza/CmcysmU=;
+        b=QSNYnu/pOeGHnte1ugsrmXvKO2rrgPCCncKI0teuuwgGmxkgkznuaLIGGYtYyHpKh7
+         ZRatFXFkvI4p8LKd4rmSIxU0K89+00yDJyc5ETBc/nePDjaq8wLaKtQbgNpq/RdqymP5
+         JWiTkye+Q9S2z1SMKDWqajynKVrTLJMNT/984KXI6U2OK/9LjJa33BanDk0xQH56TDtg
+         f1oJ4kMzcGl0nclXtyZTfiOZp3M4r5vtGCUk+RI78TA1hZnMLzMNvWpIYIxrPCDLlwkS
+         I3L3GWqhAMmrKRAsSgzq0ZpMqSK/w7z+P4NI2Sc3474i4x9B9ND00Ml26Hv6LDnE6G/g
+         aHLA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:message-id:subject:mime-version:x-original-sender
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/xjia9J3U6FilpUSSG4NY/81uGiICwLqnHWd5fxwkbk=;
-        b=YOz72+xKBk7nseQ7+fLYGoAZgUPsSIFnBHESC/T7d3X2PtohUABOjPd3EpoVvclVF7
-         W14YiYO5i6FMhxBDskMk9s/iqEkeFFkww7sFvDGs2zZFVDRJ8BeYHT2jIKgadgClXA6O
-         IDAKs6ztO6Y0wWaQsCc5cJlhXShle4LQXGMNkv1QOQojUVXssBx3uCMNh4PjqE9adV8q
-         lrjbwm87hiZbs+wWhs6+D40RQ3wmINavGYirL0cjfaXaho43hOBhq14LRLrU/SDY0GFb
-         7ofWztiA+B9hJeZT4aoyWHIabinwkNIDuSDBcyU2k2w/i9MSEpoySjwucBTAqYW4bGrC
-         +x/w==
+        bh=AMo3XBOqFM/33v/sP2S4Xy5O3j7FAcM1Eza/CmcysmU=;
+        b=iKFMgTEXP7SxkSI/CEYNY2rWsegyMDUm/iPd6zmaG8VzYoc7sMsU0o3qvG9iMn9MYd
+         /YkTdnnROxYwxQAZ0W1nS0kky5J7xM1PfzEbE32qXOM92v3j2xsSiDvTrx8nK8OP+ewA
+         1p769XypribPMxAEhTny8PcLv0FJpHwMFsxUFtsE1ikK5jCZd2ZQsImMxVqNXN6qvPbB
+         qLo+oPSGIh28EtBV/iG6H9dwsxJHxWN3G/O+0+RCeHdNKe7e7TE15sRzuGmqTaN9g0nD
+         lFeJYQ5OeVMdNaHX+JyKtmvNEbGwIaIEDWyDfRf7KbTR42LHXUcZiqczULZzC06JtPUG
+         GzDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:message-id:subject
          :mime-version:x-original-sender:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/xjia9J3U6FilpUSSG4NY/81uGiICwLqnHWd5fxwkbk=;
-        b=AMfgr7hjrrKz6qNo2eux/4oACWjC+6pt4gCLs6nxyT1JYe06HPluXF3GLs+kmkt3pT
-         jDAYk4/lRekRk+R1p5crFBCYaDd/9LNuPyEQQAMrerlwBkc4CqCDazKPdnq726rCTjYm
-         bT4nRXdWTh5JU1pk/mywagHCAFwc+9eY85hmqwBIW8tm+/ECnkIuiijysWatubfzoxb+
-         gWVrZDNo2Ex9LdklPztrVn3jSQx9DZxeg1Lww5EBJKE4OJ53MrUXWtfFQ2kI78Y3CQmS
-         pDQ/6X0nsgaBv+QGwMvD41K3S/CeHuWvmRxfA57jcTxLIybNr6xS6ilnT9WmMUntLYfO
-         H/hw==
+        bh=AMo3XBOqFM/33v/sP2S4Xy5O3j7FAcM1Eza/CmcysmU=;
+        b=WtZoklpIusQIZl1yTRhpXBRz7l1yFLtW6M1vLkEstNCreExSSdE8Ssbe09jt8q8+YA
+         I8Ht5SFEadMtqhicngFpjNLoRjvS2JDMfC3heYrwRPHgmqulEqYJ4nbOKaqBq6ygA0nA
+         zPw6bVyawVWcUF3A84StFoTsG7Srf2geBik1FtkUmHFxpGoZq6CP/6e4MBAVs+TCciGh
+         h6KUD5p29TUbKGSWGDyTMRM7f8597/9OZX1oBmEqy0HgGJ4QfPlwhyQ5NtwdXY9z2Krp
+         yZ0XRr0XaDaq6qtwZED2wl6H1mFsTkYRS4e5sv48AmQI6M74euRQIE0XE0uAduYjBcRf
+         /XGg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Qbyh24rDSOpnc28B+urcNxm6nyHlMcFvkqZe1ThbgEu+1eA6f
-	VnSihxdxXw7r2/HjIHg8jXI=
-X-Google-Smtp-Source: ABdhPJxRLdwMEL2KKfy4pjhzvVsc6zndqO+9jq5DACuRljOW4IfKG2tw+sTi9BZSOiqEYJ21LblT/g==
-X-Received: by 2002:a05:6830:4da:: with SMTP id s26mr1363296otd.77.1620266451644;
-        Wed, 05 May 2021 19:00:51 -0700 (PDT)
+X-Gm-Message-State: AOAM532ylyOGk4rwivhMG0KwXS+NjWZBnJExyYoYbxdkuw5FVJf0viG8
+	5T4CfsZIsE09SMhJQSXFkhE=
+X-Google-Smtp-Source: ABdhPJwpME57kLCnB/NhhoFDYbmPhk3ZFxPfSEwZ7oWhEdFWP0R+NWdCLJCWujg0bVBZN3dwtDZNsg==
+X-Received: by 2002:a9d:684e:: with SMTP id c14mr1341735oto.295.1620266714703;
+        Wed, 05 May 2021 19:05:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:71cf:: with SMTP id z15ls292618otj.2.gmail; Wed, 05 May
- 2021 19:00:51 -0700 (PDT)
-X-Received: by 2002:a05:6830:2336:: with SMTP id q22mr1433450otg.346.1620266451196;
-        Wed, 05 May 2021 19:00:51 -0700 (PDT)
-Date: Wed, 5 May 2021 19:00:50 -0700 (PDT)
-From: Collin Bennett <funplace65@gmail.com>
+Received: by 2002:a9d:5c08:: with SMTP id o8ls298860otk.0.gmail; Wed, 05 May
+ 2021 19:05:14 -0700 (PDT)
+X-Received: by 2002:a9d:6b85:: with SMTP id b5mr1384636otq.172.1620266714119;
+        Wed, 05 May 2021 19:05:14 -0700 (PDT)
+Date: Wed, 5 May 2021 19:05:13 -0700 (PDT)
+From: Black Frog <blackfrog1@gmail.com>
 To: Clang Built Linux <clang-built-linux@googlegroups.com>
-Message-Id: <b79aa183-6374-4600-a2a6-65f3dbe26358n@googlegroups.com>
-Subject: Checking lines in make process
+Message-Id: <2adfa8c7-17d3-4112-b977-4ec9f672f1acn@googlegroups.com>
+Subject: Make Process -- checking environment
 MIME-Version: 1.0
 Content-Type: multipart/mixed; 
-	boundary="----=_Part_260_2147182335.1620266450626"
-X-Original-Sender: funplace65@gmail.com
+	boundary="----=_Part_544_1155405233.1620266713572"
+X-Original-Sender: blackfrog1@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -75,15 +75,16 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_260_2147182335.1620266450626
+------=_Part_544_1155405233.1620266713572
 Content-Type: multipart/alternative; 
-	boundary="----=_Part_261_157154745.1620266450626"
+	boundary="----=_Part_545_13949682.1620266713572"
 
-------=_Part_261_157154745.1620266450626
+------=_Part_545_13949682.1620266713572
 Content-Type: text/plain; charset="UTF-8"
 
-In the sample below, what is doing the 'checking lines'? Any suggestion on 
-how to modify this process manually?
+In the sample below, the output that produces "checking ..."
+Which process is producing the line are control them manually?
+
 
 
 make[3]: Entering directory `/Volumes/OpenWrt/openwrt/tools/libelf'
@@ -184,15 +185,16 @@ make[2]: *** [tools/libelf/compile] Error 2
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b79aa183-6374-4600-a2a6-65f3dbe26358n%40googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2adfa8c7-17d3-4112-b977-4ec9f672f1acn%40googlegroups.com.
 
-------=_Part_261_157154745.1620266450626
+------=_Part_545_13949682.1620266713572
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-In the sample below, what is doing the 'checking lines'? Any suggestion on =
-how to modify this process manually?<div><br></div><div><br></div><div><p>m=
-ake[3]: Entering directory `/Volumes/OpenWrt/openwrt/tools/libelf'</p>
+In the sample below, the output that produces "checking ..."<div>Which proc=
+ess is producing the line are control them manually?</div><div><br><div><br=
+></div><div><br></div><div><p>make[3]: Entering directory `/Volumes/OpenWrt=
+/openwrt/tools/libelf'</p>
 <p>(cd /Volumes/OpenWrt/openwrt/build_dir/host/libelf-0.8.13/; bash ./confi=
 gure --target=3Darm-apple-darwin20.4.0 --host=3Darm-apple-darwin20.4.0 --bu=
 ild=3Darm-apple-darwin20.4.0 --program-prefix=3D"" --program-suffix=3D"" --=
@@ -244,7 +246,7 @@ lf.h&gt;... yes</p>
 figured] Error 1</p>
 <p>make[3]: Leaving directory `/Volumes/OpenWrt/openwrt/tools/libelf'</p>
 <p>time: tools/libelf/compile#0.36#0.34#0.95</p>
-<p>make[2]: *** [tools/libelf/compile] Error 2</p></div>
+<p>make[2]: *** [tools/libelf/compile] Error 2</p></div></div>
 
 <p></p>
 
@@ -255,11 +257,11 @@ To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
 lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
 To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/b79aa183-6374-4600-a2a6-65f3dbe26358n%40google=
+om/d/msgid/clang-built-linux/2adfa8c7-17d3-4112-b977-4ec9f672f1acn%40google=
 groups.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.co=
-m/d/msgid/clang-built-linux/b79aa183-6374-4600-a2a6-65f3dbe26358n%40googleg=
+m/d/msgid/clang-built-linux/2adfa8c7-17d3-4112-b977-4ec9f672f1acn%40googleg=
 roups.com</a>.<br />
 
-------=_Part_261_157154745.1620266450626--
+------=_Part_545_13949682.1620266713572--
 
-------=_Part_260_2147182335.1620266450626--
+------=_Part_544_1155405233.1620266713572--
