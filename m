@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCJP7WOE5UIBBSWS22CAMGQEL5K5WQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCJP7WOE5UIBBS6S22CAMGQE7MXWJAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C686376B4F
-	for <lists+clang-built-linux@lfdr.de>; Fri,  7 May 2021 22:55:39 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id t9-20020a5edd090000b0290406cd22dc3asf6902995iop.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 07 May 2021 13:55:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620420938; cv=pass;
+Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 75AD2376B50
+	for <lists+clang-built-linux@lfdr.de>; Fri,  7 May 2021 22:55:41 +0200 (CEST)
+Received: by mail-oo1-xc3c.google.com with SMTP id w8-20020a4ae4c80000b02901f88dd1b75dsf5259167oov.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 07 May 2021 13:55:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620420940; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YccP0qbkodSRFO20VEZMh5MS59+Eehk+pmxw9noA0mRq6ZHAKUkTsZ6u7R3/AsjGjr
-         Bf0cYxKJHEwSJfEZ76/mrMpTxFVxi+pprvmcR681UndiEmV9NJG1Fx673pbXIVD5RNzU
-         2rTBdO7484viHFH76AFdy+KXJKhQr5pgb7U8wMpS1sFJ96of2gAUWEwk8G8VuNDqpvSV
-         4e/MTiGd9V5sUEtno6iZonnapNZqsW08igYmdx2/mH7SduvAfZUB/HyFMSqL/aKh5E60
-         csrM8boh64cFuaVPKQpy6fS+UMINn0z8/llohltn7qHRYXA7LHkDabKdq6TuSS1FNpDw
-         EiUQ==
+        b=WIiMUQ0t7pGw9PzPux6OpsSAA8hcUl2NBGBCD9r/3c8CgeXo9G7+X+Uej2tOUZt710
+         SWUYjmT3KuPaNrncZqbbNW6bbaKV/GDI0cJPUONthr77+xIG3oVhiwrQp9iJKivAQy9G
+         D82pFClWeIcspeHAyKWDFh1VhoAVlSOY5t6kwRysov9t+NfdmkTzv1KWht39PFgJk9Bk
+         uGkdbVm3sOyf5grMgTi1toKZo7ZySW+TyEGp8UVBA+AdsmPTZ+lgf8Kk8QTAnzu0X41P
+         y4VKwBcDwEI6KjgnejhJMQtl/KowOqULjjC8I79C8zQ7gD4RJ5Z4j2EeKlSecwRtRpN6
+         haWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=EB6JWHlcwx6xD6xYYFlFLA5pvLAaO8cjC2Wkb1X65/Q=;
-        b=ongkDbIEhCRV7WijdMnwfpiPAzMTtYTj7R30ijxsuizFI6zwLb/o789egUN7tNk3YP
-         IGviNsO79oJgs2nvvyRtjC+d16v358s2dCKi0lNpVC3u/KSw1ScWD/W6s6tXjq1iMZaG
-         B4Gzy4sq554t3MCTs0z9Y4kUQrW0FuNAa9xf1l4tiMAwbuUiKl2waTeHUrIOYVkknC/I
-         2bwy/tpn98NU42JeVMCvn78jjC6gv2ajlf95oRkcFUrhMbMVobLmN6nlUJxEgPBF3QFB
-         SGTSPjA1ee8aafsMPJcl1DCpqgqhH0PDDuGs2lXl+w+SmV8Tl/tux3yrdQFfWtKTBKdA
-         LgFg==
+        bh=on/20G+nijH8kvhB7FjuStYv00RqzbQEUUYvcA8DFlU=;
+        b=aIjSbcV6Nlg10zMs5YWnKAPT9VGiEiLivc/4NnwWSOX+o5JyRotvKNmyXBBIBZVbBh
+         2Q7ctFjXR3Ck3QMEzljfJ8/EYst44vk/JVUwQn11ajPAEkoEZleVeZK37AoweZ0JDuDa
+         5P1Hp/F031lZBvE9JZ+5S/p0t7RpSU9/BhFbMeoGl0uyshVyFn8xNrktdFLkEWlL8qv3
+         hrMhFlMNiZAi/fZVPT58eIYktYG9Gkd1YD7G/nwrQKHN0IovVfzhyMbC9+VppwTyrF2x
+         ag9zYbhkG8Y882uYyaiF1dQqYjTNcSsUxCXH4LLO8ETWhzKllAOArH2USj322kqKoktc
+         mBLw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Q3D6AnEJ;
-       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=dianders@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=DFII9SqW;
+       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=dianders@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EB6JWHlcwx6xD6xYYFlFLA5pvLAaO8cjC2Wkb1X65/Q=;
-        b=YcBVC4cArjHeQIgrtZNoO+J8DD8Z5S+D9t5daIZsVNfc0QXLbvlbxrW/6srQ5RNHiH
-         njjgWzhpoJMAPYWE2EYYz4R1zMF8HWQAP0pBIonfSPGqcVAuCzvNW6CIqZMWAHBMweUu
-         kO93X1BybZvGSzN86GVZHjSk5Pci3CqVsLu6OojaoPRZOaX6yZTboz9/FQSQTxIeAiCH
-         t4LyNGTOp9kBi1CwyiZKT+47PFpP1VxRekd/qeYrO0RqBaBBmOfeoQDVoc4gdqCykMec
-         1wSGYJk8PabEVAhYyuwD5sDHCLtpp13kQ3NIWbNQvgeatbxE5D7qff1iYHMD4KrlnNiD
-         vRrg==
+        bh=on/20G+nijH8kvhB7FjuStYv00RqzbQEUUYvcA8DFlU=;
+        b=ZKTwjW1yOVkF/hNXY5ZzmawMHYZ2PrKQUju6mlw2vnFb9BzSm8Yx60aGWkLl37jmF6
+         /dcxn71lhyM7f5tkYXl5aM6ynRM3WSOdyjR32NsYvfv4JPDyjwgMJMSN5gwlVYwvc2wB
+         FEqgD3o+TF7HLwcfmVFtrt3GRw1PVB69PWMfOwLkg1IzxpVZna1rx722epmFK1w7c44h
+         AOKPo8CL3Hq5WUiu+2E/b5NKLF0CWTovW35hiaN0mKQRRCRi15bHUn5fSMNuO2JmOKfD
+         L2MTlTzms9XxpL3sdmK6LJhOb/0k2ypiOKOwyr76OMjniv90Zqx0h8B4/LGtenx7DmqY
+         piCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EB6JWHlcwx6xD6xYYFlFLA5pvLAaO8cjC2Wkb1X65/Q=;
-        b=glHvfyspJLqWBN90URtU5nKn9zVvdkNEtUi+2rcdOGaH0RRy+1RTVcL2tI3pYV8Sq2
-         RxBFbhFS0SKpgioHpiDH9cpVi7F9QotTzhQTaZIMTDgKqsT8283QQkhG4s2Gi/9vVXjP
-         h34eKm1R0TusXFfvuHojdTgdVgjXdsI6uF39xt7VrFnPDJAtEmbZtSv0QNfXHjmpHXTX
-         L9pkNyfvlHn7ZmKTX4uSMWg8vgUW2F6zpxSV8v05BmRWTHHM8xjHIfKA0rPdVGrQP3Jg
-         fpSp0f/4GLsOho5IdKb+wplhFoDmV8OQI0EyUPFQXMgD362qoKZryzyklOHOuST6EUrq
-         pgcw==
+        bh=on/20G+nijH8kvhB7FjuStYv00RqzbQEUUYvcA8DFlU=;
+        b=rO/kanN4KWhH+JeMJfSwMaoReq25Ml31NZkf6dlG6PRSRiBJsQMyRsghDCkLiE708v
+         1gTjM2c9uLBjPc7KDdoGVkmm0yJI+XuvhNHitdsxEud5pRyZk5SklaRsBj8pDabR39kq
+         IVY2isbApQ1xDUz0bHeqd9+/HNOLIMTIj5T1nnwwR31lcWIWNm1oOrmhNWvGPDVUbY76
+         oO8b8izAYqf/2xY72GUhowH1dXZgV9dRynhM84j/LEOVikl03MHGrF56VYPT1+8Xidf5
+         X11hcbralMT6uFcKGqotC0+UuqjV93A3LdQ/LLEJVUQ8GCFV3NZ5GwJt6ntxeYLHrGLH
+         WbVw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5316G7QFJ29OAt6vQf5t8x934IkXdtHC8Cn34kJgeypL+UwuzY4V
-	a5AqQBuzu6cxj7oSzzol3iY=
-X-Google-Smtp-Source: ABdhPJzjANlQPCOHgv3a2QAvnL07G7acfK1HwjRHzkR2IdtoSPap4/rL7OO30Hfe/nORQ/IoS6ntoA==
-X-Received: by 2002:a6b:f808:: with SMTP id o8mr9329053ioh.140.1620420938241;
-        Fri, 07 May 2021 13:55:38 -0700 (PDT)
+X-Gm-Message-State: AOAM532NBA5Km3LEtfAfqztZ8QanV5FOTEwL3z0igGxwQSWEnJsZoZE3
+	7jHXMcCiz+fOPSjq5i4TAg4=
+X-Google-Smtp-Source: ABdhPJzuB0ffvmc6kQ4pJswVHBrDPNh0C57cx/e4xviK7C4aSoviWyR1uRGGl7PH2GtJwQrXuiGjKg==
+X-Received: by 2002:a05:6830:1d5c:: with SMTP id p28mr4807379oth.280.1620420940056;
+        Fri, 07 May 2021 13:55:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:1506:: with SMTP id g6ls1176454iow.9.gmail; Fri, 07
- May 2021 13:55:37 -0700 (PDT)
-X-Received: by 2002:a5e:880b:: with SMTP id l11mr9015588ioj.42.1620420937916;
-        Fri, 07 May 2021 13:55:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620420937; cv=none;
+Received: by 2002:a4a:4303:: with SMTP id k3ls79982ooj.10.gmail; Fri, 07 May
+ 2021 13:55:39 -0700 (PDT)
+X-Received: by 2002:a4a:b389:: with SMTP id p9mr9140858ooo.71.1620420939716;
+        Fri, 07 May 2021 13:55:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620420939; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZQmGUmTt49PQPbI7DLOH/tcPUe3wGnQD9ADcpKWmDxJQ28krpllunRQCmu2kWuUWpi
-         7p+0G23BNMZB2wyJRZN0LAwIukp7cjQLHzpx2HVpuLIsggkNKZSIOE8NPYUzoz3eCjIo
-         PQhxZ7Oip0i9s/UhgO6FHyKr4O8fd0kcKESoPXhMo97xwOTv7faSp3HQxTwP82ekydSE
-         BZsnuE26/I+VyFMi6YvASsWVbdAYdUPqgA+ZvtuPhHijwIpFRyKkHpAx4Fv1a+Z0Nfjb
-         hF1gSWGF3CreIqco33mhqwoMy6O6knvXJgqI9i6DwsL21oaIPRbMgYuld/A+h/3k80li
-         sQeQ==
+        b=fCJGE8U39Xk/GLs4E/H+RJyvXWA6zA7rtIDr7JqheTl3BUbPFYxZnayy0zaof4wfTR
+         3F1ehO46OIoa7Rrkj3f6wPPR2YLZKXeO4EXtLQ3Hla49xX2SqIJ4ivd9WJ8aDp/ig985
+         nOHySp+xbjivGCDwSDxFunr9sibq3A4eS70WDbJFDzb3iOu80wWG0sv4OPS2wGVgzoOk
+         EmPuWsngCCHnF6H3fnhWQ9yxg7wjeAa9nCmv3E8jvfmTxGkvSWkmdlSMhMnwVbXg8cwp
+         TX3v2E10KUj0BZlL+2l/vo4D3gzanGWUxdzZIU62y3LBeeL7AQndSC38gc+IChuD9W+Z
+         wT9Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=RS/EjsHgy2j7mFScraIl3oqZgCaBEgKPtIpvzQ9p7+0=;
-        b=vrHAbvR9ZYYRumNDgsyCgWvO+RLSnwXDsBN6QeAFZVQuP8yZksv5zp68YElRGdkt57
-         aHXLnl61JWWqpsE+ZfzOoSkfTEd/JoXsZqhpnqrhrorK0P7a0lW1sZcXQPDUq+bNFAA4
-         4lOi4TX5gXHBXIO21G+EnC+HqnLSGksRuR/s+Ti9nIiZOn1lJy+BC2KwWBPFa4lDZQCR
-         sMzGGxIDVJdNBhKbVbUnltZOUFViYTBJYjAj9b9OdYArCHYR511qHUM/GB7tU9O0EO4H
-         d2zaVMbnsUpTuG7ZnnxsoXIR/JgTcSAg00aZEiKppcApoegJNrQ6Gncd/QEQ4XvuZv7k
-         6o9A==
+        bh=JjJoLbgf5BX/TlG1bI+Kk/boPZKnP4KZr4LpucGo6G0=;
+        b=cjeKcFb441wv+w4OPHIRlP3AYc7tX84cskCzEimZcbwhzGA16oSWHNoielMHruPnNU
+         mdpm9PxUh4MknbA3FmC7+URtJcnnj2ahGtL1mt8CTkQ6mw/J1DVE5XVv5y3LIETn2S8C
+         bPcs2R0+88azl3RsnLO1ECiGYrBkmbbQIQ6FgAoApCIPC0CCcbPqzewtGH3XoqwUF0fu
+         vTfqAjnuUSk1umhLUC0BkqSmyhK89swAfD2FtlWj6EzB62xxHzz141cNpKixv4BEEb2U
+         UvdPpumfvaab/qKAMn69XugQ1FAyAlzjjFC2xzLplxmp5zDqGiT+FrPNm2FEZZNiEcOk
+         88rQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Q3D6AnEJ;
-       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=dianders@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=DFII9SqW;
+       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=dianders@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x631.google.com (mail-pl1-x631.google.com. [2607:f8b0:4864:20::631])
-        by gmr-mx.google.com with ESMTPS id s14si553576ilu.3.2021.05.07.13.55.37
+Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
+        by gmr-mx.google.com with ESMTPS id k4si614639oot.1.2021.05.07.13.55.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 May 2021 13:55:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::631 as permitted sender) client-ip=2607:f8b0:4864:20::631;
-Received: by mail-pl1-x631.google.com with SMTP id z18so2305663plg.8
-        for <clang-built-linux@googlegroups.com>; Fri, 07 May 2021 13:55:37 -0700 (PDT)
-X-Received: by 2002:a17:90a:f2ce:: with SMTP id gt14mr12812551pjb.177.1620420937529;
-        Fri, 07 May 2021 13:55:37 -0700 (PDT)
+        Fri, 07 May 2021 13:55:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) client-ip=2607:f8b0:4864:20::102c;
+Received: by mail-pj1-x102c.google.com with SMTP id gc22-20020a17090b3116b02901558435aec1so6267895pjb.4
+        for <clang-built-linux@googlegroups.com>; Fri, 07 May 2021 13:55:39 -0700 (PDT)
+X-Received: by 2002:a17:90a:6c62:: with SMTP id x89mr25313809pjj.213.1620420939064;
+        Fri, 07 May 2021 13:55:39 -0700 (PDT)
 Received: from tictac2.mtv.corp.google.com ([2620:15c:202:201:3c7e:d35:3a19:632f])
-        by smtp.gmail.com with ESMTPSA id ge4sm13161565pjb.49.2021.05.07.13.55.36
+        by smtp.gmail.com with ESMTPSA id ge4sm13161565pjb.49.2021.05.07.13.55.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 May 2021 13:55:37 -0700 (PDT)
+        Fri, 07 May 2021 13:55:38 -0700 (PDT)
 From: Douglas Anderson <dianders@chromium.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
@@ -122,17 +122,17 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org
-Subject: [PATCH 1/3] arm64: perf: perf_callchain_user() compat support for clang/non-APCS-gcc-arm
-Date: Fri,  7 May 2021 13:55:11 -0700
-Message-Id: <20210507135509.1.I5d969beafa0d7507f1e37fadaa6e4d88d428253d@changeid>
+Subject: [PATCH 2/3] arm64: perf: Improve compat perf_callchain_user() for clang leaf functions
+Date: Fri,  7 May 2021 13:55:12 -0700
+Message-Id: <20210507135509.2.Ib54050e4091679cc31b04d52d7ef200f99faaae5@changeid>
 X-Mailer: git-send-email 2.31.1.607.g51e8a6a459-goog
 In-Reply-To: <20210507205513.640780-1-dianders@chromium.org>
 References: <20210507205513.640780-1-dianders@chromium.org>
 MIME-Version: 1.0
 X-Original-Sender: dianders@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=Q3D6AnEJ;       spf=pass
- (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::631
+ header.i=@chromium.org header.s=google header.b=DFII9SqW;       spf=pass
+ (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::102c
  as permitted sender) smtp.mailfrom=dianders@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -148,423 +148,96 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Up until now the arm32-compat support in perf_callchain_user() made
-the assumption that userspace code was compiled with the defunct APCS
-(ARM Procedure Call Standard) calling convention. The existing code
-also didn't support Thumb at all. Let's add a whole lot more
-support. Specifically, we'll now support:
+It turns out that even when you compile code with clang with
+"-fno-omit-frame-pointer" that it won't generate a frame pointer for
+leaf functions (those that don't call any sub-functions). Presumably
+clang does this to reduce the overhead of frame pointers. In a leaf
+function you don't really need frame pointers since the Link Register
+(LR) is guaranteed to always point to the caller.
 
-- clang-compiled Thumb userspace code w/ frame pointers.
-- clang-compiled ARM userspace code w/ frame pointers.
-- gcc-compiled ARM userspace code w/ frame pointers.
+Clang's optimization here is a bit of a pain for us, though. A human
+might have an easy time figuring out if a function is a leaf function
+or not and in theory we could have a way to lookup a given PC to find
+out if it's in a leaf function. Unfortunately we haven't passed the
+Turing test and we don't have any auxiliary data to help us.
 
-We'll also continue to keep supporting the APCS calling convention.
+If we just ignore this problem then the end result isn't terrible. It
+just turns out that the _callers_ of leaf functions won't be logged. I
+guess that's OK, but it could lead to some confusing traces.
 
-All of the above will be supported automagically. The important
-first-order thing to care about is that ARM and Thumb use different
-registers for storing the frame pointer. After that, we need to handle
-the fact that the compilers don't agree on the format of a stack
-frame. Luckily, we can differentiate between all of the different
-supported conventions by relying on the simple fact that the stack is
-non-executable and the PC is executable. All of the details of how
-this is accomplished is described in the copius inline comments
-introduced by this patch.
+Another option (the one proposed in this patch) is to always log the
+first LR when we're tracing, assuming that we hadn't already decided
+to log it for some other reason.
 
-Please note that there is one compiler convention that is explicitly
-_NOT_ supported by this patch, primary because it's believed to be
-impossible to support without much fancier logic (like unwind
-tables). The _UNSUPPORTED_ case is gcc-compiled Thumb userspace code
-w/ frame pointers. The frame pointers in gcc-compiled Thumb userspace
-code are largely useless for the purposes of crawling the stack. Given
-that the primary purpose of frame pointers is to facilitate stack
-crawling, it has been asserted that turning on frame pointers in
-gcc-compiled Thumb userspace code is 100% useless. For some history,
-you can see the gnu bugzilla [1].
+Good things about always logging the LR:
+* clang leaf functions are handled better.
+* if PC is right at the start of a function (even on non-clang) it's
+  handled better.
 
-Other notes:
-- Presumably tracing code that intermixes ARM / Thumb wouldn't work
-  amazingly well given the disagreement about which register stores
-  the frame pointer. This patch would theoretically support such a
-  situation if (and only if) the code creating the frame pointers was
-  smart enough to create them correctly. The problem here is that the
-  userspace code creating the stack frames would need to look at the
-  mode of the caller (ARM vs. thumb) to figure out if it should store
-  R11 or R7 as the old FP. I don't believe code does that.
-- This patch likely supports intermixing APCS, clang-ARM, and gcc-ARM
-  code, though that hasn't been tested.
-- Given a limitation in clang, tracing clang code will omit the
-  _callers_ of leaf functions. A future patch will attempt to improve
-  the situation a little.
+Bad things about the LR:
+* We could log a "bogus" PC in the trace.
 
-This patch has been tested with some toy code. Some details and
-history may be able to be found in the Chrome OS bug system [2]. In
-general, when testing, I used these commands:
-  perf record  -e cycles:u -g -o "${OUT}" -- "${PROG"}
-  perf report -i "${OUT}" -g flat
+I believe that the most common "bogus" PC that would be logged would
+be a PC somewhere in the top function being traced. As an example, if
+we have this function:
 
-[1] https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92172
-[2] https://crbug.com/1040659
+  non_leaf():
+    1. Setup the frame pointer
+    2. Call example()
+    3. Do something slow
+    4. Do something else slow
+    5. Call example2()
+    6. Return
 
-Cc: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Ricky Liang <jcliang@chromium.org>
-Cc: Seth LaForge <sethml@google.com>
+If the PC was in the middle of "Do something else slow" and then we
+tried to trace, our stack trace would look like this:
+  Top:  a) A PC in the middle of "Do something else slow".
+        b) The return address that example() used, probably in "Do
+           something slow"
+	c) The caller of non_leaf()
+
+Specifically you can see that there would be two PCs logged for
+non_leaf().
+
+To me it feels like this is a net-win. It also should be noted that
+the consumer of our trace records probably _does_ have more
+information than we do. It could fairly easily ignore this info.
+
 Signed-off-by: Douglas Anderson <dianders@chromium.org>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
-I carried Nick's review from the downstream review on the Chromium
-gerrit. I believe this is what he intended by +1-ing my WIP patch at
-<https://crrev.com/c/2877595>.
 
- arch/arm64/kernel/perf_callchain.c | 311 +++++++++++++++++++++++++----
- 1 file changed, 275 insertions(+), 36 deletions(-)
+ arch/arm64/kernel/perf_callchain.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
 diff --git a/arch/arm64/kernel/perf_callchain.c b/arch/arm64/kernel/perf_callchain.c
-index 88ff471b0bce..e5ce5f7965d1 100644
+index e5ce5f7965d1..b3cd9f371469 100644
 --- a/arch/arm64/kernel/perf_callchain.c
 +++ b/arch/arm64/kernel/perf_callchain.c
-@@ -53,49 +53,294 @@ user_backtrace(struct frame_tail __user *tail,
- }
+@@ -326,6 +326,20 @@ static void compat_perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+ 	while ((entry->nr < entry->max_stack) && fp && !(fp & 0x3)) {
+ 		err = compat_perf_trace_1(&fp, &pc, leaf_lr);
  
- #ifdef CONFIG_COMPAT
--/*
-- * The registers we're interested in are at the end of the variable
-- * length saved register structure. The fp points at the end of this
-- * structure so the address of this struct is:
-- * (struct compat_frame_tail *)(xxx->fp)-1
-- *
-- * This code has been adapted from the ARM OProfile support.
-- */
--struct compat_frame_tail {
--	compat_uptr_t	fp; /* a (struct compat_frame_tail *) in compat mode */
--	u32		sp;
--	u32		lr;
--} __attribute__((packed));
- 
--static struct compat_frame_tail __user *
--compat_user_backtrace(struct compat_frame_tail __user *tail,
--		      struct perf_callchain_entry_ctx *entry)
-+static int compat_user_read(void *dest, u32 user_addr, size_t bytes)
- {
--	struct compat_frame_tail buftail;
-+	const u32 __user *addr = compat_ptr(user_addr);
- 	unsigned long err;
- 
--	/* Also check accessibility of one struct frame_tail beyond */
--	if (!access_ok(tail, sizeof(buftail)))
--		return NULL;
-+	if (!access_ok(addr, bytes))
-+		return -EACCES;
- 
- 	pagefault_disable();
--	err = __copy_from_user_inatomic(&buftail, tail, sizeof(buftail));
-+	err = __copy_from_user_inatomic(dest, addr, bytes);
- 	pagefault_enable();
- 
- 	if (err)
--		return NULL;
-+		return -EACCES;
-+
-+	return 0;
-+}
- 
--	perf_callchain_store(entry, buftail.lr);
-+static bool compat_is_ptr_executable(u32 ptr, u32 fp)
-+{
-+	struct vm_area_struct *vma;
- 
- 	/*
--	 * Frame pointers should strictly progress back up the stack
--	 * (towards higher addresses).
-+	 * Fastpath: if what's pointed to by the frame pointer
-+	 * is on the same page as the frame pointer (which
-+	 * must point to the stack) then it's on the stack too.
- 	 */
--	if (tail + 1 >= (struct compat_frame_tail __user *)
--			compat_ptr(buftail.fp))
--		return NULL;
-+	if ((ptr & ~0xfff) == (fp & ~0xfff))
-+		return false;
- 
--	return (struct compat_frame_tail __user *)compat_ptr(buftail.fp) - 1;
-+	vma = find_vma(current->active_mm, (unsigned long)compat_ptr(ptr));
-+
-+	if (!vma)
-+		return false;
-+
-+	return vma->vm_flags & VM_EXEC;
-+}
-+
-+/**
-+ * compat_perf_trace_1() - Trace down one stack frame
-+ * @fp: Input: the frame pointer to trace at; output: the next frame pointer.
-+ * @pc: Input: the program counter at the start; output: the next PC.
-+ * @leaf_lr: If this is the first frame, this will have the value from the
-+ *           CPU register LR (link register). If this isn't the first frame,
-+ *           this will be 0.
-+ *
-+ * Return: 0 if no error; else an error code
-+ */
-+static int compat_perf_trace_1(u32 *fp, u32 *pc, u32 leaf_lr)
-+{
-+	u32 frame_buf[3];
-+	u32 before_fp;
-+	u32 at_fp;
-+	u32 at_at_fp;
-+	int err;
-+
-+	if (*pc & 1) {
 +		/*
-+		 * Thumb mode.
-+		 *
-+		 * There are no flags that make frame pointers on gcc-compiled
-+		 * thumb code useful. Thus we'll simply assume userspace was
-+		 * compiled by clang and hope for the best. On clang things
-+		 * look like this:
-+		 *
-+		 * +-----------+ 0x1000
-+		 * |   random  |
-+		 * +-----------+ 0x1004
-+		 * | old FP    | <--- FP
-+		 * +-----------+ 0x1008
-+		 * |     LR    |
-+		 * +-----------+
-+		 * |   random  |
-+		 * +-----------+
-+		 *
-+		 * Note that clang doesn't create frames for leaf functions
-+		 * which means the _caller_ of the leaf function will be
-+		 * omitted from the crawl. Clang has a flag
-+		 * "-mno-omit-leaf-frame-pointer " that's supposed to change
-+		 * this behavior but (when I tried it) it didn't seem to work.
-+		 * We also won't know for sure if userspace was built with it
-+		 * since it presumably adds a bunch of extra overhead.
-+		 *
-+		 *
-+		 * Just for reference, here is what happens when you ask gcc to
-+		 * compile in thumb mode with frame pointers. This illustrates
-+		 * why ARM should probably remove the following from AAPCS:
-+		 *   The AAPCS does not specify where, within a function's
-+		 *   stack frame record, the frame chain data structure
-+		 *   resides. This permits implementors the freedom to use
-+		 *   whatever location will result in the most efficient code
-+		 *   needed to establish the frame chain record.
-+		 *
-+		 * +-----------+ 0x1000
-+		 * |   random  | <--- FP
-+		 * +-----------+ 0x1004
-+		 * |    ...    |
-+		 * +-----------+ ???
-+		 * |   random  |
-+		 * +-----------+ ???
-+		 * | old FP    |
-+		 * +-----------+ ???
-+		 * |     LR    |
-+		 * +-----------+
-+		 * |   random  |
-+		 * +-----------+
++		 * If this is the first trace and it didn't find the LR then
++		 * let's throw it in the trace first. This isn't perfect but
++		 * is the best we can do for handling clang leaf functions (or
++		 * the case where we're right at the start of the function
++		 * before the new frame has been pushed). In the worst case
++		 * this can cause us to throw an extra entry that will be some
++		 * location in the same function as the PC. That's not
++		 * amazing but shouldn't really hurt. It seems better than
++		 * throwing away the LR.
 +		 */
-+		err = compat_user_read(frame_buf, *fp, 8);
-+		if (err)
-+			return err;
++		if (leaf_lr && leaf_lr != pc)
++			perf_callchain_store(entry, leaf_lr & ~BIT(0));
 +
-+		*fp = frame_buf[0];
-+		*pc = frame_buf[1];
-+
-+		return 0;
-+	}
-+
-+	/*
-+	 * ARM mode.
-+	 *
-+	 * With ARM code we can support 3 options:
-+	 * - clang compiled with frame pointers
-+	 *     Looks just like the clang thumb style except that we get the
-+	 *     initial FP from R11 instead of R7.
-+	 *
-+	 *     NOTE: the R11 vs. R7 bit will likely change in the future.
-+	 *     The 2019Q4 Issue of AAPCS revised the frame pointer to be R11
-+	 *     for BOTH ARM and Thumb, as of 2021Q2 no such production
-+	 *     compiler implements that change. There are rumors that
-+	 *     toolchains may change to match this specification in the future.
-+	 *     If/when that happens, we'll probably need a CONFIG option to
-+	 *     support userspace code generated by the old compilers.
-+	 *
-+	 *
-+	 * - gcc compiled with frame pointers (non-leaf)
-+	 *     +-----------+ 0x1000
-+	 *     |   random  |
-+	 *     +-----------+ 0x1004
-+	 *     | old FP    |
-+	 *     +-----------+ 0x1008
-+	 *     |     LR    | <--- FP
-+	 *     +-----------+
-+	 *     |   random  |
-+	 *     +-----------+
-+	 *
-+	 * - gcc compiled with frame pointers (leaf). NOTE LR is in registers
-+	 *     +-----------+ 0x1000
-+	 *     |   random  |
-+	 *     +-----------+ 0x1004
-+	 *     | old FP    | <--- FP
-+	 *     +-----------+
-+	 *     |   random  |
-+	 *     +-----------+
-+	 *
-+	 * - APCS (ARM Procedure Call Standard)
-+	 *     +-----------+ 0x1000
-+	 *     |   random  |
-+	 *     +-----------+ 0x1004
-+	 *     | old FP    |
-+	 *     +-----------+ 0x1008
-+	 *     |     SP    |
-+	 *     +-----------+
-+	 *     |     LR    |
-+	 *     +-----------+
-+	 *     |     PC    |  <--- FP
-+	 *     +-----------+
-+	 *     |   random  |
-+	 *     +-----------+
-+	 *
-+	 * We will autodetect.
-+	 */
-+
-+	/*
-+	 * We'll start with reading whatever the FP points directly at. That
-+	 * should be valid memory with all 3 supported layouts.
-+	 */
-+	err = compat_user_read(&at_fp, *fp, 4);
-+	if (err)
-+		return err;
-+
-+	/*
-+	 * First let's try to identify clang or a gcc leaf function. In both
-+	 * cases the FP points directly at the old FP. Frame pointers always
-+	 * point to the stack and the stack should never be marked as
-+	 * executable. This contrasts to APCS / gcc-non-leaf where FP will
-+	 * either point to a PC near the start of the function or a LR, both
-+	 * of which must be executable.
-+	 */
-+	if (!compat_is_ptr_executable(at_fp, *fp)) {
-+		/*
-+		 * We need to tell the difference between gcc-leaf and clang.
-+		 *
-+		 * The first clue is to look at "leaf_lr". It will only be
-+		 * non-zero on the first call which is the only one that can
-+		 * be a leaf. Thus if it's non-zero, we're clang.
-+		 *
-+		 * If there's a chance we could be in a leaf, look one frame
-+		 * up. On gcc that would be a non-leaf FP and would point to
-+		 * something executable. If it's non-executable then we're
-+		 * clang. If we have any errors, we'll assume clang.
-+		 */
-+		if (!leaf_lr || compat_user_read(&at_at_fp, at_fp, 4) ||
-+		    !compat_is_ptr_executable(at_at_fp, at_fp)) {
-+			/* It's clang; we already have new FP so get PC */
-+			err = compat_user_read(pc, *fp + 4, 4);
-+			if (err)
-+				return err;
-+
-+			*fp = at_fp;
-+
-+			return 0;
-+		}
-+
-+		/* It's gcc leaf */
-+		*pc = leaf_lr;
-+		*fp = at_fp;
-+		return 0;
-+	}
-+
-+	/* We need to look at one word before to decide APCS / gcc-ARM */
-+	err = compat_user_read(&before_fp, *fp - 4, 4);
-+	if (err)
-+		return err;
-+
-+	if (!compat_is_ptr_executable(before_fp, *fp)) {
-+		/* It's gcc-ARM */
-+		*fp = before_fp;
-+		*pc = at_fp;
-+
-+		return 0;
-+	}
-+
-+	/* APCS */
-+	err = compat_user_read(frame_buf, *fp - 12, 12);
-+	if (err)
-+		return err;
-+
-+	*fp = frame_buf[0];
-+	*pc = frame_buf[2];
-+
-+	return 0;
-+}
-+
-+static void compat_perf_callchain_user(struct perf_callchain_entry_ctx *entry,
-+				       struct pt_regs *regs)
-+{
-+	u32 old_fp = 0;
-+	u32 fp;
-+	u32 pc;
-+	u32 leaf_lr;
-+	int err;
-+
-+	pc = regs->pc;
-+	leaf_lr = regs->regs[14];
-+
-+	/*
-+	 * Assuming userspace is compiled with frame pointers then it's in
-+	 * R11 for ARM code and R7 for thumb code. If it's thumb mode we'll
-+	 * also set the low bit of the PC to match how the PC indicates thumb
-+	 * mode when crawling down the stack.
-+	 */
-+	if (compat_thumb_mode(regs)) {
-+		fp = regs->regs[7];
-+		pc |= BIT(0);
-+	} else {
-+		fp = regs->compat_fp;
-+	}
-+
-+	/* Trace as long as we have room and we have a 4-byte aligned FP. */
-+	while ((entry->nr < entry->max_stack) && fp && !(fp & 0x3)) {
-+		err = compat_perf_trace_1(&fp, &pc, leaf_lr);
-+
-+		/* Bail out on any type of error */
-+		if (err)
-+			break;
-+
-+		/*
-+		 * Frame pointers should strictly progress back up the stack
-+		 * (towards higher addresses).
-+		 */
-+		if (fp <= old_fp)
-+			break;
-+		old_fp = fp;
-+		leaf_lr = 0;
-+
-+		perf_callchain_store(entry, pc & ~BIT(0));
-+	}
- }
- #endif /* CONFIG_COMPAT */
- 
-@@ -121,13 +366,7 @@ void perf_callchain_user(struct perf_callchain_entry_ctx *entry,
- 	} else {
- #ifdef CONFIG_COMPAT
- 		/* AARCH32 compat mode */
--		struct compat_frame_tail __user *tail;
--
--		tail = (struct compat_frame_tail __user *)regs->compat_fp - 1;
--
--		while ((entry->nr < entry->max_stack) &&
--			tail && !((unsigned long)tail & 0x3))
--			tail = compat_user_backtrace(tail, entry);
-+		compat_perf_callchain_user(entry, regs);
- #endif
- 	}
- }
+ 		/* Bail out on any type of error */
+ 		if (err)
+ 			break;
 -- 
 2.31.1.607.g51e8a6a459-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210507135509.1.I5d969beafa0d7507f1e37fadaa6e4d88d428253d%40changeid.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210507135509.2.Ib54050e4091679cc31b04d52d7ef200f99faaae5%40changeid.
