@@ -1,140 +1,128 @@
-Return-Path: <clang-built-linux+bncBCFYN6ELYIORB4G72OCAMGQEJYJLSUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBCPB2OCAMGQEFCBP2UA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EC37376159
-	for <lists+clang-built-linux@lfdr.de>; Fri,  7 May 2021 09:44:49 +0200 (CEST)
-Received: by mail-yb1-xb3f.google.com with SMTP id c9-20020a2580c90000b02904f86395a96dsf3357300ybm.19
-        for <lists+clang-built-linux@lfdr.de>; Fri, 07 May 2021 00:44:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620373488; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5528D376167
+	for <lists+clang-built-linux@lfdr.de>; Fri,  7 May 2021 09:47:23 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id t2-20020a6344420000b02901fc26d75405sf4839848pgk.20
+        for <lists+clang-built-linux@lfdr.de>; Fri, 07 May 2021 00:47:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620373641; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YQ4JG00GvpYHorlyzwuGRXo48MUpmIYaCVfGS0KA8kz5kICNqsEK2hqG0JL1F4duPR
-         zAQHXbloZ3oepSTrC7r/OxT17yXQgRS+4ykoxxinZS5aBM2jKvsj+ed3zPyZmZIX4hlH
-         WWN3VBrFlAb2CsAX7YmEy+U2xFqGpxP4tCy9EjS/Y9Cq3VEWBcS62Df1Pv9cvr8FdlFN
-         DVqgsN+LRM2sr2KB+wgadWCNk6KVkbwBH024pTdPpVbxx74sg56O7iAOtrURj0j/Vy5r
-         uNuWX9b6eBHzujkateLAIWXhpduMlUdGxg2WILPfY+1o5l6CwhpfoFeOI65/reWjUtDU
-         q27A==
+        b=NmrE+21YSC+XveWRbqEGqS9QUj5Dfg1STtcBUTswgV+QIUBAXt7cQYAXluaNQ1v9ep
+         clITKmsd1YrdB356JZtvpqlykpX1aCi6fSbztxQy3lq4vV3b6cf7IYmRRQAvZbZ0j8KP
+         apLS7JN8tEBfjp3bZYxzpbnYbFlghirLEDKr88sTh+1PNn9A8oQxhwt/AwxN/th6YUqX
+         vSzlJzBRCWfOzZc3DFoKeixzFV0EtVgOSNyIHvWLXNQy4NNLfTFgxRfiYszqIipJkWEI
+         EvolvIacFaHCjg3u1WcMUyT6mSVu9AQ1aPizoOktgUAdqYUo3rU7wGURKNO5TTAi3397
+         DRcQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=fUXuGptESoCaEni8fm/atA+YWGzXx4YhLZiiOTcGobU=;
-        b=pF/5Qo+acT/W3Gv4iTPxb534zNVGRdhdLlf37a4iqxQuqLDtXg4OnOjq+74rWt1pfU
-         5SmXqn77SdATDfg/KTT7v2s03Z6zSo1tfmlq0ZsuMBYrQwvpLgQQo7YCz7zVSY3f+WYH
-         TMdlLckGGe3qck5CA8naYcfV1k/S3KxB1hRHdgeY2MGu5FFAvWwwSaqevJMbZ0uFg1BJ
-         aLnMmLqRFvUZxYp56Ee+ti0oH6ftiLlALi5FAshkCluP14U1LIbLvN1caHcVRnBUh+l0
-         5nGjCesTRXrNL1xzknO3HdegU+S/I049XaRER1DZax+9opWcG9pE9cyJSgM+9y/TZjYj
-         VTlQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=1Ta04HSrQo/yCEGdBBNadYC0ph6YV4K6baJ9TAgvKac=;
+        b=SJ4OtwXGYeyb9GA2OkLzV/nRNZcspNpg8YiBtqJ6JOUPfuE7qTwE2yhnGDdrBI0jrO
+         5J9ye3ymBDcbjDw8UOj18lwiouDxdN406D9jSk0DBmt+qi+THrIzbi3PEDghTovrkCn/
+         S5p6P7vAK5cj06v8QJK8EsbJeA9EOHWdkTg7OcDv9o8gbLrfgxoXKjGFAHPUgbLDbuGN
+         W2tBPZrgoq9NdFSwZeAOT/soeN56gam3WNKZUD++dbAzuvzt6BYh2PKLra84N1FNO3zX
+         GuMZjZwEg2CYs8bxkhjjCx1Sc5VFqs6UCzAXqBMpyGlaHiCxTBpbgD23AOEub12cPZCN
+         PKig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=fYowjTGh;
-       spf=pass (google.com: domain of pbonzini@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=VqiXPuGj;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fUXuGptESoCaEni8fm/atA+YWGzXx4YhLZiiOTcGobU=;
-        b=jw7ROjBwBw8DIe1aoYZB7plVh8n/Lgrkthm99PUjs17YDRx0u0reK8MiQBZMQPo3Up
-         v13c42bSVZxGxQnn188q/ERP87S3TciZNfrpsP9ZjQ1BPSQ4EpJmfW2zuwg8wuhtqQSk
-         SAdQzdOaZCQUgj4b7GBtoML/lLHzJoZBcNIol7CiCioIjGv/ONKQqhwgCsL+5kGecVGG
-         Sa/3U2Db27S9vHSSfx4NoyFP0AyXIYwDhFfPqh1S3iF2htiwlGtPp85DGOFWa1d4N1Dg
-         ZvCT/w894R/yuR83e3Z8Ge8MIeUI3vSXMNO/Qx4Uf8voEIrGy9lXb03xk61MDgCcvxgW
-         iUbA==
+        bh=1Ta04HSrQo/yCEGdBBNadYC0ph6YV4K6baJ9TAgvKac=;
+        b=jGa/6M8Yr4XIBmuLjW5sVYUj0519fWGtCS8z2Dlr1vUCToFX9WiO7z2mtgYuqA/luN
+         eOosG+yg2IgSSVKPv4Y3tLvyk9ZrDYIVigGoo3kFRwqwS97U1H0MdsWRQZSib44T5Hp/
+         p4hX4JC1awn6Chfq+o66mkEs3hLxb8nOsSL0ZxpCCOs76+bDgDu1bXja47D5SNL0YlSh
+         Dgt1xPpD9Lv8F7lI/VPe8YL7skDgZUSPIcSADpuSr8VhZFcQJhscl0ICpX+Moxt0wzHn
+         37I/sIs3xrWUXMIeqRhmTs4M1g6+w6wlognK/JcRuHakoecfFx6YAObvjiK7n2iVGncs
+         7iUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=fUXuGptESoCaEni8fm/atA+YWGzXx4YhLZiiOTcGobU=;
-        b=F0DFMdIY8L5LoE9xZUfLT/leOMRNi/rAmTx2aij1LPwXoku9qphZ3QVgSQKphLFoYC
-         JXsAjj2LJtH9nxCMQYltCUMkAyz8JOBOVXtB03GzZNQG86zz6+meCK4thRM0Iqs86vqu
-         QJ9YyK4s7z0/lgEMoIB+qrAtculaS3M2UggYlVs+dnw1ulgPWxbvxhQdBMiPv/Rngb0q
-         fuLVVIXB25hDiNsBoUbMRNW4/UZTrR471nbJiKEhgyOJhZ7e65hLX5Afb8CDWcR70Wkd
-         NSdiKJm9i+90LDWJSXO6GeqD/sRkD6QLfBenUOjxl9ok5jQAdAWHsV3hWi1XNOuyaoiN
-         l6Tw==
+        bh=1Ta04HSrQo/yCEGdBBNadYC0ph6YV4K6baJ9TAgvKac=;
+        b=sz3GqZ527lQEphT3ftPChsz8wvBvRxP7w+W022mEFU9X1lO3Jb0uUBPkgEdQAUKERB
+         7VOkg5HKKjxKPmy1gJHb6HWx39m0aRQy1/OQQ2CoOrGjAmnfYiZHB1wyxmkSmJaalvQB
+         y8QRKgWYdj9HFghAlk6dhhe+OcQgSAqPshErZvBLyKCa4EGXiwnyMw6nlJT2cVVnmz4h
+         w4+/ye/aeEVe1ex5hPHZfAEtyNLYJb25hcIxFmrsRx7R0mo1dtK0GeJXMNSelA2uLSow
+         r50f5EOhcPhQOr7M3apGp3siiSpCxJSRHG7biuEwMJrBq7VzQYgma9MyOowMRgt4zN7A
+         kT1g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533HXKYIf0ezGbsllw4Sh4BVhIJr+SX58xgxH6nwndQr8AYXwq93
-	nBEyD9POka2csL+MkCsAx+E=
-X-Google-Smtp-Source: ABdhPJw8eVq9Jrr2rDKdXQS1Woeptc64t9VVK9+aYYeOWF7o8+UiToiurEESuc5omE9XvlkpQcd53Q==
-X-Received: by 2002:a25:a168:: with SMTP id z95mr6514338ybh.395.1620373488642;
-        Fri, 07 May 2021 00:44:48 -0700 (PDT)
+X-Gm-Message-State: AOAM531LsmDZUsMcQzCPCYluKVuSeSJP2wAjek23pc9wnVVeodZEuipc
+	rcBQoTJtIjO8+evQO3O+BwE=
+X-Google-Smtp-Source: ABdhPJxBohjBucrsALYWwS1rF/2IOXPRdeCfz7a6b325XtYq0ZigIFbSer9wlBVJryW0iu1IORhCaQ==
+X-Received: by 2002:a17:902:fe94:b029:ee:ba90:a27a with SMTP id x20-20020a170902fe94b02900eeba90a27amr8692205plm.53.1620373641653;
+        Fri, 07 May 2021 00:47:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:7714:: with SMTP id s20ls2723172ybc.9.gmail; Fri, 07 May
- 2021 00:44:48 -0700 (PDT)
-X-Received: by 2002:a25:b31c:: with SMTP id l28mr11416363ybj.435.1620373488132;
-        Fri, 07 May 2021 00:44:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620373488; cv=none;
+Received: by 2002:a17:902:b185:: with SMTP id s5ls1172150plr.3.gmail; Fri, 07
+ May 2021 00:47:21 -0700 (PDT)
+X-Received: by 2002:a17:90a:4108:: with SMTP id u8mr9204331pjf.126.1620373641176;
+        Fri, 07 May 2021 00:47:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620373641; cv=none;
         d=google.com; s=arc-20160816;
-        b=EjslCK67TZb1g+YdHfPCuqkdMvfyWFmg/A9cXuQSW/nHS+JvOJXamSVziyhYAVhNlF
-         Zawn1uINPiOXFBklESZ0AaJl2S4kQ3zAuO8AlF/Y0/2807T6MKkJ+X2POIjzu2pvU/Ro
-         sQPPvztZOGeKC56DNN9bPh/l1GB2zOmdFDGTCBXVckDJVNkTPvSHuVuHQ26hYzLiwOD6
-         4lmVhE1MfhXPqk1GBuNL3/8LvOmwkXhGGjD3eQhbDO7R/doUrtnC+fxIzlOv2QbJh92B
-         OtIl+Q8b1hfpDoCa5Yj38XQSwbhAoBuc6kB0WoGX3XDRslQMKeQ822IV+aoohBqJvMNk
-         IaYQ==
+        b=zUEQiTY7eQRO8Pcc2k0kpo76ljueZSPy4uZ6rXs/g6j4xSp0viDHhMaL52N6vsecs8
+         aUWT9XZJFHBfj0rpGSovTJAxPPOgZXMICE7+EBo0p0exGO4mRTY1pTHNc9ZommPiJzRj
+         O1iW5+xzXtY5KMF0ut1UOm2HyFxjtLMW2syS0oAq/cuUzZL3pkhAcnUcqY6chdjtjS+p
+         AJe3zN21QR7QNEYiLgGXNM9Ywlhoj5+TG7JUuAVOKxqUlyCnAtidt/D9vmD/CeFqPznu
+         N2XXO6JwzrBL7fudRx8ilBKOrOvKc45ZgAaph/3UW7E1Nd3xB5lZi/DaxFBljU3Lu8CK
+         D1Qg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=2AzHD+mIX/ZO5hVREmfYA68VAf490QyrXZtGAVC/kOM=;
-        b=YQQSpovybMsBIz9FpN7PVg2+AjtNrRHbRAFCEkuD54CVqgHctxPuldwghn4PU9olbj
-         7x6rbpf4Ct1K+JqOQ1S9KRWGWdPcEhU7HV5Ob3pnmpdcc6vc4q1dSc9duRPFzfCYhONn
-         +jm9SMGNKH2nE+lAYLrdirc6cTNKgQSk7uFfK5kP/fo4INSyt6UJPdFHqdtc/IIRsliw
-         8xOlDOwqAqC5NIxhLB67tzAYdLROWWw4ilkAmCMj0qerNXqQeEtArSPXH4vmSu3Q+70b
-         fRilEUtZiyBkU7ccjs2C3z7nnsG4Q87LC1d1m0JvEgTkm1o6+qpJzotJ/wbIi0Wp4MqS
-         8bGg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=miNmvXCQBlAcNixcN0wDL80FvkG9B7eNHIPJbTGHnzg=;
+        b=BIKkVGK8UMWvjujt4RW5SoLVZyVlLFJbhh6kXj+kePuKaKhCfN7EVMok+VIQ6hrRSb
+         qDvvqkErIU91f3aSktvAOe5lonlGs1QSPkpbpj2ZePBMIq63AsGekBG1AkMmUdac8B2s
+         bkS47H0J4+RG13cktO5Cu+4gE+XxNA6E1oTcV1aoi+1EHTeR2wd8XbbCr1apSNpDruZ4
+         AlPWFVrISvwZqNfK0XBFtpLKWVvl96Sp2I+yvrsMzBo8/k04rEb0w9e+DIJTCFX6dvW1
+         UD+CVufG/kztVVD/QsHXZ+TypScEBylSasv+AqyrpBqQuaBhv6cpWx/DkM0uZ6bPooEI
+         Mwzw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=fYowjTGh;
-       spf=pass (google.com: domain of pbonzini@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id i15si303715ybk.2.2021.05.07.00.44.48
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=VqiXPuGj;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id p8si352784pls.1.2021.05.07.00.47.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 07 May 2021 00:44:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pbonzini@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-263-hHgI1mmCMLSUbyNWKbdLbA-1; Fri, 07 May 2021 03:44:44 -0400
-X-MC-Unique: hHgI1mmCMLSUbyNWKbdLbA-1
-Received: by mail-ed1-f70.google.com with SMTP id k10-20020a50cb8a0000b0290387e0173bf7so4045798edi.8
-        for <clang-built-linux@googlegroups.com>; Fri, 07 May 2021 00:44:43 -0700 (PDT)
-X-Received: by 2002:a17:906:270a:: with SMTP id z10mr8366867ejc.204.1620373482885;
-        Fri, 07 May 2021 00:44:42 -0700 (PDT)
-X-Received: by 2002:a17:906:270a:: with SMTP id z10mr8366856ejc.204.1620373482717;
-        Fri, 07 May 2021 00:44:42 -0700 (PDT)
-Received: from ?IPv6:2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e? ([2001:b07:6468:f312:5e2c:eb9a:a8b6:fd3e])
-        by smtp.gmail.com with ESMTPSA id r17sm3596059edt.33.2021.05.07.00.44.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 May 2021 00:44:42 -0700 (PDT)
-Subject: Re: [kvm:queue 11/44] arch/x86/kernel/kvm.c:672:2: error: implicit
- declaration of function 'kvm_guest_cpu_offline'
-To: kernel test robot <lkp@intel.com>, Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- kvm@vger.kernel.org, Robert Hu <robert.hu@intel.com>,
- Farrah Chen <farrah.chen@intel.com>, Danmei Wei <danmei.wei@intel.com>
-References: <202105070840.f1TZQ4rC-lkp@intel.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Message-ID: <e671b62d-0324-2835-2726-6b28a0202b7a@redhat.com>
-Date: Fri, 7 May 2021 09:44:40 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+        Fri, 07 May 2021 00:47:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5350661132;
+	Fri,  7 May 2021 07:47:18 +0000 (UTC)
+Date: Fri, 7 May 2021 00:47:14 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Alexander Lobakin <alobakin@pm.me>
+Cc: clang-built-linux@googlegroups.com, linux-mips@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Fangrui Song <maskray@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [BUG mips llvm] MIPS: malformed R_MIPS_{HI16,LO16} with LLVM
+Message-ID: <YJTwglbUOb67r733@archlinux-ax161>
+References: <20210109171058.497636-1-alobakin@pm.me>
 MIME-Version: 1.0
-In-Reply-To: <202105070840.f1TZQ4rC-lkp@intel.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: pbonzini@redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210109171058.497636-1-alobakin@pm.me>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=fYowjTGh;
-       spf=pass (google.com: domain of pbonzini@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=pbonzini@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@kernel.org header.s=k20201202 header.b=VqiXPuGj;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,70 +135,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 07/05/21 02:13, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git queue
-> head:   c6d517aecd40b25ea05c593962b2c4b085092343
-> commit: 9140e381e0f2f8cb1c628c29730ece2a52cb4cbc [11/44] x86/kvm: Teardown PV features on boot CPU as well
-> config: x86_64-randconfig-a001-20210506 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 8f5a2a5836cc8e4c1def2bdeb022e7b496623439)
-> reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install x86_64 cross compiling tool for clang build
->          # apt-get install binutils-x86-64-linux-gnu
->          # https://git.kernel.org/pub/scm/virt/kvm/kvm.git/commit/?id=9140e381e0f2f8cb1c628c29730ece2a52cb4cbc
->          git remote add kvm https://git.kernel.org/pub/scm/virt/kvm/kvm.git
->          git fetch --no-tags kvm queue
->          git checkout 9140e381e0f2f8cb1c628c29730ece2a52cb4cbc
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=x86_64
+On Sat, Jan 09, 2021 at 05:11:18PM +0000, Alexander Lobakin wrote:
+> Machine: MIPS32 R2 Big Endian (interAptiv (multi))
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
+> While testing MIPS with LLVM, I found a weird and very rare bug with
+> MIPS relocs that LLVM emits into kernel modules. It happens on both
+> 11.0.0 and latest git snapshot and applies, as I can see, only to
+> references to static symbols.
+> 
+> When the kernel loads the module, it allocates a space for every
+> section and then manually apply the relocations relative to the
+> new address.
+> 
+> Let's say we have a function phy_probe() in drivers/net/phy/libphy.ko.
+> It's static and referenced only in phy_register_driver(), where it's
+> used to fill callback pointer in a structure.
+> 
+> The real function address after module loading is 0xc06c1444, that
+> is observed in its ELF st_value field.
+> There are two relocs related to this usage in phy_register_driver():
+> 
+> R_MIPS_HI16 refers to 0x3c010000
+> R_MIPS_LO16 refers to 0x24339444
+> 
+> The address of .text is 0xc06b8000. So the destination is calculated
+> as follows:
+> 
+> 0x00000000 from hi16;
+> 0xffff9444 from lo16 (sign extend as it's always treated as signed);
+> 0xc06b8000 from base.
+> 
+> = 0xc06b1444. The value is lower than the real phy_probe() address
+> (0xc06c1444) by 0x10000 and is lower than the base address of
+> module's .text, so it's 100% incorrect.
+> 
+> This results in:
+> 
+> [    2.204022] CPU 3 Unable to handle kernel paging request at virtual
+> address c06b1444, epc == c06b1444, ra == 803f1090
+> 
+> The correct instructions should be:
+> 
+> R_MIPS_HI16 0x3c010001
+> R_MIPS_LO16 0x24339444
+> 
+> so there'll be 0x00010000 from hi16.
+> 
+> I tried to catch those bugs in arch/mips/kernel/module.c (by checking
+> if the destination is lower than the base address, which should never
+> happen), and seems like I have only 3 such places in libphy.ko (and
+> one in nf_tables.ko).
+> I don't think it should be handled somehow in mentioned source code
+> as it would look rather ugly and may break kernels build with GNU
+> stack, which seems to not produce such bad codes.
+> 
+> If I should report this to any other resources, please let me know.
+> I chose clang-built-linux and LKML as it may not happen with userland
+> (didn't tried to catch).
+> 
+> Thanks,
+> Al
+> 
 
-kvm_guest_cpu_offline must be placed outside #ifdef CONFIG_SMP.  I fixed 
-it up.
+Hi Alexander,
 
-Paolo
+Doubling back around to this as I was browsing through the LLVM 12.0.1
+blockers on LLVM's bug tracker and I noticed a commit that could resolve
+this? It refers to the same relocations that you reference here.
 
-> 
-> All errors (new ones prefixed by >>):
-> 
->>> arch/x86/kernel/kvm.c:672:2: error: implicit declaration of function 'kvm_guest_cpu_offline' [-Werror,-Wimplicit-function-declaration]
->             kvm_guest_cpu_offline();
->             ^
->     arch/x86/kernel/kvm.c:672:2: note: did you mean 'kvm_guest_cpu_init'?
->     arch/x86/kernel/kvm.c:332:13: note: 'kvm_guest_cpu_init' declared here
->     static void kvm_guest_cpu_init(void)
->                 ^
->>> arch/x86/kernel/kvm.c:679:2: error: implicit declaration of function 'kvm_cpu_online' [-Werror,-Wimplicit-function-declaration]
->             kvm_cpu_online(raw_smp_processor_id());
->             ^
->     2 errors generated.
-> 
-> 
-> vim +/kvm_guest_cpu_offline +672 arch/x86/kernel/kvm.c
-> 
->     669	
->     670	static int kvm_suspend(void)
->     671	{
->   > 672		kvm_guest_cpu_offline();
->     673	
->     674		return 0;
->     675	}
->     676	
->     677	static void kvm_resume(void)
->     678	{
->   > 679		kvm_cpu_online(raw_smp_processor_id());
->     680	}
->     681	
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+https://bugs.llvm.org/show_bug.cgi?id=49821
+
+http://github.com/llvm/llvm-project/commit/7e83a7f1fdfcc2edde61f0a535f9d7a56f531db9
+
+I think that Debian's apt.llvm.org repository should have a build
+available with that commit in it. Otherwise, building it from source is
+not too complicated with my script:
+
+https://github.com/ClangBuiltLinux/tc-build
+
+$ ./build-llvm.py --build-stage1-only --install-stage1-only --projects "clang;lld" --targets "Mips;X86"
+
+would get you a working toolchain relatively quickly.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e671b62d-0324-2835-2726-6b28a0202b7a%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YJTwglbUOb67r733%40archlinux-ax161.
