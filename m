@@ -1,123 +1,122 @@
-Return-Path: <clang-built-linux+bncBCZ35CE25UGBBU7Q3KCAMGQEAYUAIYI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDU43XP6ZAGRB7PY3KCAMGQEWTX3WBQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1E79D3772E8
-	for <lists+clang-built-linux@lfdr.de>; Sat,  8 May 2021 18:12:05 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id h8-20020a9d6a480000b02902edb9406104sf356890otn.5
-        for <lists+clang-built-linux@lfdr.de>; Sat, 08 May 2021 09:12:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620490323; cv=pass;
+Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7087D3772F5
+	for <lists+clang-built-linux@lfdr.de>; Sat,  8 May 2021 18:29:50 +0200 (CEST)
+Received: by mail-ed1-x53d.google.com with SMTP id bm3-20020a0564020b03b0290387c8b79486sf6219505edb.20
+        for <lists+clang-built-linux@lfdr.de>; Sat, 08 May 2021 09:29:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620491390; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pLTdVo80wjGibKQkG7eBiLvnfCE8f8xRPMioah9xEls8XjSKOdcshzZZ9TLE4F4GIt
-         hBgC0f4fIoiiNvwFejnNfHRYNWTE5U58mFuP3YHTO/jPU1C7gmZSXtatkvVcKBU/MIyK
-         mU0DnBwrvyL5AbKI3nOEzYYi+uJYM7L7Ppi+ShN+qWEqu4pyGuSLutoonCDZrlTz/TRM
-         jJ3PXzgdRZxe7xyl0uObRw0bsEPZoUU4mz6IRwcDs7RfGIaTrXsA0sLw4SiGQ8DqM6Vf
-         gEzq7e90tzJuKqH+ufN0Cw7FR4imO5KMq8ZLzBsD3i74bVVfxS121cgwNv0GqLu0aES4
-         1n8Q==
+        b=F3r4Gd7E0GnIuP+NPhJ5iCGRAZs8KdTR+eWOZtcrO2yyU4KKDsha16oNg3uVrGcb7u
+         KeUDOgn17JGs5yfr8qhO1ZCMGTTlALYDylo0wwq2tEzMfPKlolRjFCYalCbNAWDLzB3p
+         7NBzU6UUe4ex+uTD09bd5nDdLiDUtuJm3U3IaulQwnyCRWAUNgUzI7+x8gAiz/mfyPPy
+         E/O57jkkWDXunaM7Iw0EVW/nFUGyeeIU+6WtwL6pguqGn0/tvqAu4RMaZNPhpuimoCX/
+         QLCt3GlUupy8NfOZLw8DQFLJUeK0YVecVpgQhplCe7LkW5Z+NGhtt80QFjVslhwTD5cc
+         q2BA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=elwRCfbARuCWeMpOj+H888NqACQMH78mlst8BLj7OfY=;
-        b=SZEYXa3RZ5/MNFsFg/I2gmZo4wVJAWVnZD9UbQJmUphPz1Duwx/xhzzPx5Cl6Kw7BG
-         +mJNH8phclAoxCRlF8lBm354gGjixnfkNhuMgKp6b1bfSl54G4OxoNVV2upU5oF2zwOp
-         BDl3jDXmdChqBCb73UdzUau7LhTRVB5QFsp87e1SeP02Q5LJ3Mdo6pVU6KZvvfPkpIY1
-         iXFyKUByW8PCWz2oZe438J2sMMtk1jzaBDLcGzWF+OxG4LaTzCD7XtKE5ZszQ7GA0dKU
-         w0tPGLH9tKupZe0yKvugjxVblLJ8pWJSlMlDaBzHNfJgN2EVkLquKDd5EMc8lCB7s+M0
-         zMMw==
+         :message-id:subject:reply-to:cc:from:to:date:dkim-signature;
+        bh=k9eMhQVv3799ZLPeW9op8N754WAz8iSPOcOukSJNTu8=;
+        b=ufzbcJGXkVBvoj6+PuzoNMIZ1VGUJlSQMJsgKdBJMrQkJgBHRmsdjWfAgvaSFx69YP
+         0PEBrb6qyT6NTYhKk6rizCQUiWv8Ha8aIYNh1ZDD3hzOhzMvWLjX4TqjJAy0S6EuCR3T
+         HHLVZJe3rv2iTnQnuPvRk0ThmDB6BEtvOnDBsmyILtolUurQqYDoRxl/W9o/Gr/OQYCT
+         I8QBha+L6LvS47rFtrxj6KSIHf0vxirJqwXFbrO1g5vR/1lq9WtmMTO6wfIZha/gaJ/D
+         X5qG7K0IuCsov/gK+dinW5o0pD74yf+qkNzm0kRf1S8x4tcPkMd8SJZV9eMrk5hLWPZ3
+         V7Sw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jic23@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@pm.me header.s=protonmail header.b="WyD5ez/5";
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+        h=date:to:from:cc:reply-to:subject:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=elwRCfbARuCWeMpOj+H888NqACQMH78mlst8BLj7OfY=;
-        b=F4D8+YMJbpsbWR1bhDmTOyqm/F7qsRvkLsnuIzEeK8I828vWjnfDiv3n9tSZvnLZtZ
-         zhyJm1Nokwu5L150OyvS+3nZwaLCq+yNTrz+QpbRhnspCsSU6tHQHsTX+rgkoSnnNjzQ
-         uYXKGVW/d4FDRexl1z604cmfYgrW8b7IcxVimrmGTgjbBrFiywpBUYCDZa6bG4LcXyEe
-         chu/pbVbxlwIWbzE9i2jEFtl1Ae+wdEI2zrX1SKSRABWHFOkbUxq44HEeGqrzgh5knry
-         eYDR5M9zLdkh22jJGqGmuY6fFAPjYfXkKrAvBdtgq49ITJzkLBcz2CvODNLAI6A8+4tT
-         LD5g==
+        bh=k9eMhQVv3799ZLPeW9op8N754WAz8iSPOcOukSJNTu8=;
+        b=X5WRKw3o6Mo3oAdzUTcIHLSq3pMYCQjkPRV2UtvrkyfThGlALWXpDUEg7iGdlF89a7
+         tkH7feneNSRWZpr2S+BPG/WjmuuBEdiAphJQZLODouuyog9VGowD5y8ogVRhCcmvmij0
+         qc84G5AKeFnAsMmzLmdN1+vTzuKtdiUcRUMy7Ih7mmOsz1CYCHFxE+9t5N2anw7+qRob
+         POMWY22fFo2hTJs5W9YJnrD21u90QT/4b0sTgWLlnRUPvvWJjAekg6gFT9xdph/UBaDh
+         w8YOzu2uQx1PhaPyhJ9c9gmlcniWYWv+oyzJ8gtsnOqhQkr0oK2UWXv6YZIOBQ1JLRCj
+         VURA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+        h=x-gm-message-state:date:to:from:cc:reply-to:subject:message-id
          :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=elwRCfbARuCWeMpOj+H888NqACQMH78mlst8BLj7OfY=;
-        b=qVk7EXy5NA5Rs18eMbuTyX+OMxvfMvSSFpjDFiHTXUWM+WxRsI86e2zBrYEw8OD8CP
-         W/WEGGHmvUPcTSkKf0hIs2ELB0HK/QzB4Cg6urGqkrmtpdUb3ikKih3uFkeUzdUEuPpG
-         ZuMyE/4Ic6XoBHCQW8nGDtXO0dbB5apdeVmWbxdIiASVzqOIcg4P3bvcVjll8fq9oFuP
-         PyXOgjYFYyNbrSfB4MaY/sVECfFSZD2Lxo1HmzStXN1JuwPtkrcga8MzRUH8YCghxApT
-         BHp9wn3Qvy/HCwOSMFBXVhNFzYYdbDWOFmKw66QZ3MXOtc7BnI9PSNVJcxZwhlyPrdLC
-         4EGw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Di5/bm0MlZGAaGbm41AfNQJhRya0Ix9j8WnIAa7IOcJBAMXaB
-	h6vzyGfjYJJc7IumKLQtiXk=
-X-Google-Smtp-Source: ABdhPJzeUVKYPbEtC8V5IcSJj2+I9/ccUpyrPGZMnJp2ale1jf+SjxYNpbv7/zK6RRA9oxZlICKtuQ==
-X-Received: by 2002:a05:6830:d7:: with SMTP id x23mr12756121oto.235.1620490323614;
-        Sat, 08 May 2021 09:12:03 -0700 (PDT)
+        bh=k9eMhQVv3799ZLPeW9op8N754WAz8iSPOcOukSJNTu8=;
+        b=jST4/4NvDLykOgsV2BKN9JfrFm+ogTgqJBMndiqyDJI+tdtoAq6D8x1/J+nwIOki4p
+         G4kfJQHG7PzDw8dikOKzW7DNsA/X3Xn5nfA04HuhERZ6ar4SDNF3BN3Shd5JiRzA+e5b
+         jEXaKxn0OUo5eubIMN+NYyqoovV9TZQZQJF1ajBXlPf5AZiDXtH23kbwjWg441LSruYx
+         jbAl+RG31ux8mcMfidAUcK5nY7Q7ESKANt/o8OJYuA7r2UZMye4cArzgE/E0wE8nxeDk
+         L+i7RS50tOOeYajuPdoko6Wvpyrk+ZXBrxcuhhPZ+hL5NmWAvD5AfAmxeTKZ70xxXLTk
+         QCMw==
+X-Gm-Message-State: AOAM5335rVnnjf1SEBNu0dyuExDyQMO64rhxvyc0y+yMGURZc1UogP5o
+	Y44Y5syUs6fwkl8CtXhFN/I=
+X-Google-Smtp-Source: ABdhPJy8RKRV/Sv8FoPhvahi00nQkJ21Nk0icnMrqxZe3zE3/L6uKlxrayAbYxvQsrJeMQV9J1UT9w==
+X-Received: by 2002:a17:907:766d:: with SMTP id kk13mr16516425ejc.417.1620491390013;
+        Sat, 08 May 2021 09:29:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:f0d:: with SMTP id m13ls2643237oiw.4.gmail; Sat, 08
- May 2021 09:12:03 -0700 (PDT)
-X-Received: by 2002:aca:eb84:: with SMTP id j126mr7506199oih.20.1620490323240;
-        Sat, 08 May 2021 09:12:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620490323; cv=none;
+Received: by 2002:a50:e046:: with SMTP id g6ls1495823edl.3.gmail; Sat, 08 May
+ 2021 09:29:49 -0700 (PDT)
+X-Received: by 2002:aa7:cb10:: with SMTP id s16mr18757830edt.313.1620491389148;
+        Sat, 08 May 2021 09:29:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620491389; cv=none;
         d=google.com; s=arc-20160816;
-        b=T/WxGQRnO4Oaozyy4FYG39bYUFUDGzeTL4XV3XznLz0h9YDfty/o4HOPY0TDgjFZv1
-         0MfScuo8hpY8zefEe+0kdJ7Z1NZ1Y3Y9mlbarQi2oE1COzNjOEqvusv4gliF5xBBR/vn
-         ywkcAUF96X2cohY2u+kiKrLusLyBaacvlQhatwkG6WtvaWnv6r3U5BFgX7yn6IKML5sL
-         +cbbutYXB4jXAjASn27GEgtUtY7ZuBUfPRsW44kt0zUK+JS6WNRXvIDhVfSy5+RGgccm
-         OTZjGwUkhZFwQDWE8v8Gi2B9EXCz6tnZ1ETkteHrIW0aRoSfyY/RThaCTRw25tZbABQP
-         W3OA==
+        b=xSlMuc3imkyJsWpm3qSmey1vlo05zUEgu+QQEGLbFtZFA3k9ODJsCHeexVZ3dR+nbe
+         +KCs0FFSQClMF92TTEDzIIDKZXeulOrfjSJKIvLUp/0/oi0ieHnu2pLBjofOr/GJteab
+         jsnF0OgbDmI1CXinh0cOnBx87BxcVyVU+ckRwy6ZO+01SxEYAnFDDyGiGb6cFq4SrysX
+         9d4qkrotpvLBViA4NzTJEn7KRPX8HwEF5TzCkMizjZNwceIpBtMiWNxai9ZIvHiXjfE3
+         9z3Oo7BUjjMIOTGkoymreLgO0lfj7l07u9AR9hjca358yjs+rBygl5Mk51sQbB9G7Xeq
+         ZllQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date;
-        bh=AoLMHLtnSXqDXmv1l9VmZU/L2ueAs242hMvwmObGhr0=;
-        b=APsyDB58oB7roY/ehwBlsRZhFF+V6W1TUppxxoyCTnUcIBBSqT1+hzaUt2ZbzBv86d
-         hUlRIDH3s+Wm+p+GsSX7P3GEPe/H5r1OzKYUcs20fGfMO+NeCSvQt5ufK1upDT1rGHoH
-         xoN3anIw7RA4tWgPNWGGWFh3B5+scul1rED6OgwlhsomTHnA4/ONnnA2FSZLtWnPkvdP
-         Rxuhw1yws0NXacQnl0kjyaDdBHCW35gLp0WCVuo8iRJ6BzBdeNql3aIvJdzVQN2n4ny7
-         MgX93sbrHGp1gddgEnXICNlIr5ysUA6DEcZGGd95ODysGcfLfDsTXO7ppy+pAqVWUE2g
-         k2Rg==
+         :message-id:subject:reply-to:cc:from:to:dkim-signature:date;
+        bh=5rNl+kAanqy5Ow6PHG0Nk/iTcHfaHO7mTi0wPOmmCc0=;
+        b=qbHxNMVEW9RdLDqW2oADi3x8WejukpiGGgo3AZF7Wh0Lp7BfjF38zK+vSxY4DJI+d5
+         0dHEmwzWlSzblOlSn3CyoXdqfqVJCLr/XSNA+siszWKC8vum//1SvnXk1zd/ixrYwaww
+         Q7R6cl2/5PDoPwYFP4mhjGRcIzDfzIslsKPPYODEoLbL5YYBoXUigcfXqGkurprk6PYl
+         C+hMq84ApfZfHazgN5cgsvbcp2bzDxNPYpyyGmcVnlVwQVftUTHr+SlhMLNkjrJgLdad
+         hrTKs+wrdFj9tXoghIE1yDZi2veyPrByW67lUf46tfweuXNQZ7X0Zt+DbBrjlaq0chKu
+         KCbg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jic23@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e13si1165950oth.3.2021.05.08.09.12.03
+       dkim=pass header.i=@pm.me header.s=protonmail header.b="WyD5ez/5";
+       spf=pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) smtp.mailfrom=alobakin@pm.me;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=pm.me
+Received: from mail2.protonmail.ch (mail2.protonmail.ch. [185.70.40.22])
+        by gmr-mx.google.com with ESMTPS id h3si486943edz.1.2021.05.08.09.29.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 08 May 2021 09:12:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from jic23-huawei (cpc108967-cmbg20-2-0-cust86.5-4.cable.virginm.net [81.101.6.87])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id DEFEB61260;
-	Sat,  8 May 2021 16:11:59 +0000 (UTC)
-Date: Sat, 8 May 2021 17:12:58 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Colin King <colin.king@canonical.com>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Jon
- Brenner <jbrenner@taosinc.com>, linux-iio@vger.kernel.org,
- clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: tsl2583: Fix division by a zero lux_val
-Message-ID: <20210508171258.2ef71a70@jic23-huawei>
-In-Reply-To: <20210507183041.115864-1-colin.king@canonical.com>
-References: <20210507183041.115864-1-colin.king@canonical.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 May 2021 09:29:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted sender) client-ip=185.70.40.22;
+Date: Sat, 08 May 2021 16:29:33 +0000
+To: Nathan Chancellor <nathan@kernel.org>
+From: "'Alexander Lobakin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Cc: clang-built-linux@googlegroups.com, linux-mips@vger.kernel.org, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Kees Cook <keescook@chromium.org>, Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, Fangrui Song <maskray@google.com>, Sami Tolvanen <samitolvanen@google.com>, Ralf Baechle <ralf@linux-mips.org>, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Reply-To: Alexander Lobakin <alobakin@pm.me>
+Subject: Re: [BUG mips llvm] MIPS: malformed R_MIPS_{HI16,LO16} with LLVM
+Message-ID: <s6F4SDP26btK3zHEtGxYELVAR2oXYQu1JaXYCbCj4VyBigG5ROOk2JTLIw4Gs8fVC6SALoV7tgH7uJ7_fg0cQdpJ9TXJZmQSychOLMczMC4=@pm.me>
+In-Reply-To: <YJTwglbUOb67r733@archlinux-ax161>
+References: <20210109171058.497636-1-alobakin@pm.me> <YJTwglbUOb67r733@archlinux-ax161>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jic23@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=jic23@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+X-Spam-Status: No, score=-1.2 required=10.0 tests=ALL_TRUSTED,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF shortcircuit=no
+	autolearn=disabled version=3.4.4
+X-Spam-Checker-Version: SpamAssassin 3.4.4 (2020-01-24) on
+	mailout.protonmail.ch
+X-Original-Sender: alobakin@pm.me
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@pm.me header.s=protonmail header.b="WyD5ez/5";       spf=pass
+ (google.com: domain of alobakin@pm.me designates 185.70.40.22 as permitted
+ sender) smtp.mailfrom=alobakin@pm.me;       dmarc=pass (p=QUARANTINE
+ sp=QUARANTINE dis=NONE) header.from=pm.me
+X-Original-From: Alexander Lobakin <alobakin@pm.me>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,54 +129,112 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri,  7 May 2021 19:30:41 +0100
-Colin King <colin.king@canonical.com> wrote:
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Fri, 7 May 2021 00:47:14 -0700
 
-> From: Colin Ian King <colin.king@canonical.com>
-> 
-> The lux_val returned from tsl2583_get_lux can potentially be zero,
-> so check for this to avoid a division by zero and an overflowed
-> gain_trim_val.
-> 
-> Fixes clang scan-build warning:
-> 
-> drivers/iio/light/tsl2583.c:345:40: warning: Either the
-> condition 'lux_val<0' is redundant or there is division
-> by zero at line 345. [zerodivcond]
-> 
-> Fixes: ac4f6eee8fe8 ("staging: iio: TAOS tsl258x: Device driver")
-> Signed-off-by: Colin Ian King <colin.king@canonical.com>
-Definitely looks like it could happen so applied to the fixes-togreg branch of
-iio.git and marked for stable.
+> On Sat, Jan 09, 2021 at 05:11:18PM +0000, Alexander Lobakin wrote:
+> > Machine: MIPS32 R2 Big Endian (interAptiv (multi))
+> >
+> > While testing MIPS with LLVM, I found a weird and very rare bug with
+> > MIPS relocs that LLVM emits into kernel modules. It happens on both
+> > 11.0.0 and latest git snapshot and applies, as I can see, only to
+> > references to static symbols.
+> >
+> > When the kernel loads the module, it allocates a space for every
+> > section and then manually apply the relocations relative to the
+> > new address.
+> >
+> > Let's say we have a function phy_probe() in drivers/net/phy/libphy.ko.
+> > It's static and referenced only in phy_register_driver(), where it's
+> > used to fill callback pointer in a structure.
+> >
+> > The real function address after module loading is 0xc06c1444, that
+> > is observed in its ELF st_value field.
+> > There are two relocs related to this usage in phy_register_driver():
+> >
+> > R_MIPS_HI16 refers to 0x3c010000
+> > R_MIPS_LO16 refers to 0x24339444
+> >
+> > The address of .text is 0xc06b8000. So the destination is calculated
+> > as follows:
+> >
+> > 0x00000000 from hi16;
+> > 0xffff9444 from lo16 (sign extend as it's always treated as signed);
+> > 0xc06b8000 from base.
+> >
+> > =3D 0xc06b1444. The value is lower than the real phy_probe() address
+> > (0xc06c1444) by 0x10000 and is lower than the base address of
+> > module's .text, so it's 100% incorrect.
+> >
+> > This results in:
+> >
+> > [    2.204022] CPU 3 Unable to handle kernel paging request at virtual
+> > address c06b1444, epc =3D=3D c06b1444, ra =3D=3D 803f1090
+> >
+> > The correct instructions should be:
+> >
+> > R_MIPS_HI16 0x3c010001
+> > R_MIPS_LO16 0x24339444
+> >
+> > so there'll be 0x00010000 from hi16.
+> >
+> > I tried to catch those bugs in arch/mips/kernel/module.c (by checking
+> > if the destination is lower than the base address, which should never
+> > happen), and seems like I have only 3 such places in libphy.ko (and
+> > one in nf_tables.ko).
+> > I don't think it should be handled somehow in mentioned source code
+> > as it would look rather ugly and may break kernels build with GNU
+> > stack, which seems to not produce such bad codes.
+> >
+> > If I should report this to any other resources, please let me know.
+> > I chose clang-built-linux and LKML as it may not happen with userland
+> > (didn't tried to catch).
+> >
+> > Thanks,
+> > Al
+> >
+>
+> Hi Alexander,
+
+Hi!
+
+> Doubling back around to this as I was browsing through the LLVM 12.0.1
+> blockers on LLVM's bug tracker and I noticed a commit that could resolve
+> this? It refers to the same relocations that you reference here.
+>
+> https://bugs.llvm.org/show_bug.cgi?id=3D49821
+>
+> http://github.com/llvm/llvm-project/commit/7e83a7f1fdfcc2edde61f0a535f9d7a=
+> 56f531db9
+
+This really seems very related to the bug I encountered.
+Currently I don't have a MIPS setup to try since I've moved to
+another country, but I should "deploy" it again soon. So I'll
+definitely take a look a bit later, thanks for pointing on this
+commit!
+
+> I think that Debian's apt.llvm.org repository should have a build
+> available with that commit in it. Otherwise, building it from source is
+> not too complicated with my script:
+>
+> https://github.com/ClangBuiltLinux/tc-build
+>
+> $ ./build-llvm.py --build-stage1-only --install-stage1-only --projects "cl=
+> ang;lld" --targets "Mips;X86"
+>
+> would get you a working toolchain relatively quickly.
+
+I could just build llvm-git from Arch Linux User Repository :) I did
+that last time when was checking if the latest snapshot also suffers
+from the bug, and I think it didn't take much time to build.
+
+> Cheers,
+> Nathan
 
 Thanks,
-
-Jonathan
-> ---
->  drivers/iio/light/tsl2583.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/iio/light/tsl2583.c b/drivers/iio/light/tsl2583.c
-> index 0f787bfc88fc..c9d8f07a6fcd 100644
-> --- a/drivers/iio/light/tsl2583.c
-> +++ b/drivers/iio/light/tsl2583.c
-> @@ -341,6 +341,14 @@ static int tsl2583_als_calibrate(struct iio_dev *indio_dev)
->  		return lux_val;
->  	}
->  
-> +	/* Avoid division by zero of lux_value later on */
-> +	if (lux_val == 0) {
-> +		dev_err(&chip->client->dev,
-> +			"%s: lux_val of 0 will produce out of range trim_value\n",
-> +			__func__);
-> +		return -ENODATA;
-> +	}
-> +
->  	gain_trim_val = (unsigned int)(((chip->als_settings.als_cal_target)
->  			* chip->als_settings.als_gain_trim) / lux_val);
->  	if ((gain_trim_val < 250) || (gain_trim_val > 4000)) {
+Al
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210508171258.2ef71a70%40jic23-huawei.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/s6F4SDP26btK3zHEtGxYELVAR2oXYQu1JaXYCbCj4VyBigG5ROOk2JTLIw4Gs8fVC6SALoV7tgH7uJ7_fg0cQdpJ9TXJZmQSychOLMczMC4%3D%40pm.me.
