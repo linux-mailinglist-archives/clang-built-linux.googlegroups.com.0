@@ -1,145 +1,145 @@
-Return-Path: <clang-built-linux+bncBDLYTQ5JSECRBOWS4CCAMGQE3M5KQUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDLYTQ5JSECRBIXS4CCAMGQEPFGVCSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 693D33777ED
-	for <lists+clang-built-linux@lfdr.de>; Sun,  9 May 2021 20:26:03 +0200 (CEST)
-Received: by mail-lf1-x138.google.com with SMTP id a9-20020a19fc090000b02901c2e1fd355esf2909198lfi.17
-        for <lists+clang-built-linux@lfdr.de>; Sun, 09 May 2021 11:26:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620584763; cv=pass;
+Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C3932377817
+	for <lists+clang-built-linux@lfdr.de>; Sun,  9 May 2021 21:33:54 +0200 (CEST)
+Received: by mail-lj1-x23d.google.com with SMTP id z14-20020a2e964e0000b02900e9ad576f5asf2918261ljh.20
+        for <lists+clang-built-linux@lfdr.de>; Sun, 09 May 2021 12:33:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620588834; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NXvhwSBsNwpV0furCQp8WoHWTrWka2NrilSJhhdhrnmUKBEZM6uG0AHNAsDWH+GWdG
-         GpPbcP+jCSFN8a+TAVRI787EAWbhNipXCQDwlSheXvc+3uQZPOqjQw+UaCqeNHzwyHgL
-         SbiYqcNYNXMcc4cpjq2kWfa2FU5NCdZJGtSeSOEh+H8pSzethaoD2vPz20QryEaLIgMu
-         j8hZHuvczwRxvqr93eZ1wvop38vHj+21tl7k2mPQwNRpQS2uKU/a1BkyfK9Wnf0RgIea
-         hZ4uWM3/ZHJ6kFPqAj4X0OS0rKaKhzvlZG0lE07tLFsk3E4QHWO/7MCcLcgesl1qlY/P
-         mRmA==
+        b=eW/wg1FQJ0E3LdVaAIlE8S/h5+5XUMPFPBp6x1IaRpbD0UABXeacW0xXI/pcv0Cd+j
+         tJihF99agdUvVjfvGrfMuD1mGDZlprsJrA7w0XN5k4RfNzOE2IQO9yJxLyXfZT1Tehv8
+         YwqwPhpzFUZtC+tcHxD/cdBUJ4hWvHf/WUOMS+73CWZ+TDnddyKBASobvJNnz/fXAYjX
+         wUTn7HOPpOUJswIlyBWzCB5YAVf5EO186V1V+h5nYlU5T3d5SOmNItlQ4yDC1yN9RQd+
+         Y4jBWkDyg5JPlb3BsyXLyUKp1nYZIWksh3HexzhJXYZK13qtF0un3LoByzk9f+5ytsou
+         3zcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature:dkim-signature;
-        bh=/OQuN8dtxTeIr7au5Z+FDPx0AFlnxm+hoCADShTzg10=;
-        b=zfrODh/UWoLho0XT7L5PjABiWx0p821DcMWGE0/n7+dOLC0PcHSVWBtTYShlkGOUvs
-         GkohSVIiqCNoLOPUMQovtOAHtkDmvN1Msd3+JFav+7uln9SgNtOfxrVAW5/jBwwdlCSR
-         2qMztWF72g85TehqoARrE12GdsyewXjOn3o2cMpgWklkaDrTLlUI14fBovTKpHE78aQm
-         Llq99zvdmHr/c0vSQlsUgTHIaFVc8oIyrp/03ANyfoGNuVTwl8yPiDF5SU5x9v04ZIRR
-         4ART6Pg5dtp36L59WAyBimQLvrLngMGW3tvf94OVbKuKBPlGO9HeDcLzSUNc3posDC2t
-         Ie0Q==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature
+         :dkim-signature;
+        bh=QMBMzvdP6W9bIOuDT5FN0jyyJfOa7n1CUcNvZhQqOQc=;
+        b=W3DycU/9usqTEymYWsTGSS7HnlDLbcD6mEJx0TJfGgr6qvIdEBAVre9obRwrnt9/5o
+         VaMRHRkUUSohzvh5GF053+B5XMbjSdkDeWGuTQDhLMlO6DWIrOmIe8BY+58sHU1DOmp5
+         1l2XMpBGA5TCM8CVMX0dgQ/yZZpEeqlxwB9/XuWastu1D0NKS8xDpzu9Bq1Ov5DoIcYU
+         lSORmkkwbM9u+RzPykncPkkjkm6+26vbq5dnv1l9i8L/Z8UTUV5YvwKEEKuwY3kff4Mh
+         2SRAUjO6OtsZfFmTpkgAnTStiyCKCWZJVwZKQSnmWs2yo0aCBuq9bXYqPdJG7YxYw2rj
+         LApA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=VAVGukZZ;
-       spf=pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::331 as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="jl/qaGJ6";
+       spf=pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::332 as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/OQuN8dtxTeIr7au5Z+FDPx0AFlnxm+hoCADShTzg10=;
-        b=Sl9QrW8C3K/bYK7vs71W8deFmv0Ir920zn1i1xW/AZjT4mslqBIDRamFrvnc/pewh0
-         XwwGxbeCTSGsBLEeOUq2xid+vj4h25O3IpekdcWNOBGAP387iMevqS/aD3rURcBqoNxd
-         RpupjjUdNTYPLTcD5WH7Xh1hoHX4UcDRbAaL52Y57Qqy2DXq7dbqmfqWsP+zFynXgWJx
-         SiG2wdx9qSzpVbwxYgcmioF/VEl4CyyrEWRYfilGdj0K6lU0nWaFCwwFk70IyNaENfTU
-         cFJsL8t4Lo6XKSy7tzGwvMluLT8/CMHjGe0outI1fbhI/cuJHCZz3d6Bi7BacuAIvhHo
-         t8BQ==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QMBMzvdP6W9bIOuDT5FN0jyyJfOa7n1CUcNvZhQqOQc=;
+        b=r02dpPcbvm8x/gJd5NYxDyVbh6JtHxdSbH5vsvIE8Pe86T62GHZFQWY+XSIPe516wB
+         I7lca53/QFJDo5vNMxKqShIxC8xpPsJHgKXV1BFvPvPyw5Y+3oFeaJRGCVLk+jTpt/Gb
+         E4VWmw7d9/HKod7OTncOCPj+gkiS7TxxM2x7+S1i8mYMmt8W8zPfv0YRxeA7VuRxgMs2
+         L2afjirFf58lNzrjHbbk5dcwTuUoZ0buuYtvb0f3lly/eFH+f906UI9QYpo8wc35iw8B
+         xxceH4KNF/4hetr/KfB/XjFzqzcWQfHQL+qcus97uTAZkXzueXIf/QbrfL2j4wC7lzox
+         vmzg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/OQuN8dtxTeIr7au5Z+FDPx0AFlnxm+hoCADShTzg10=;
-        b=adZRxxG/AO8xD3kHCBjiaRn5XMilPZCj6OCeZPho7Mj65B6APhf1BXxjpJ4ywQJ4BV
-         9FKlOZD22v56ZWSG6X+cqqs/kmtTkoxDOaF7GtM+zXqB+7E0lf1XI343KMPMbQn6zcDN
-         qcyGV9Rg52JXTk0OQA8NYCwsxP0ehAhIeUWnZafxVJBwnDgFMxTaZLcmEdKE746VeeE+
-         pZqj0mHP1uJcIRXhkMb2eo5s6/v5S6puF79jK4fuCJ7O8jHwfM2nv4GX9GPfP3NJFgJF
-         gYbnKToJqXH79T9tbT7W3jbtGp76IE4Q5xmzrOZLjzmkUyjmhmHx0QMMflEgecL7dYXc
-         m4tQ==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QMBMzvdP6W9bIOuDT5FN0jyyJfOa7n1CUcNvZhQqOQc=;
+        b=MSIjuh4UhFb2J31s6ZUv8T8pfOCjGtkXIqmmmz7DJgQxfs+8eXn1l2lEG1suGX0MeD
+         orWoq8PYi2vN4MJa70tPrseK/bRcLw4YlmWfX3+4ZKw/rF+kvKMmcA/WN7o5tdxP0KUN
+         l1pRt0vhJEyAJZCsSjJbsybWL6BsemWH3gyURGEVvzBSH4hcztYgzZytwJ+EV4u8ux2X
+         1roP72ZlruGIBFut5yEHEgFIjLQEtm4SIpdT0Cd9JkkQwPepRjXR1Yp1o7rbOVTJWPFC
+         +a4UJNc6P9K1mMo17W1Y1YNj3jku6xiO8+Zki4iWSKaP4JMtIXryEv9FhMaoZN3JBA6Q
+         t1/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=/OQuN8dtxTeIr7au5Z+FDPx0AFlnxm+hoCADShTzg10=;
-        b=L1WzebRU4qaoKLvwLUzrwU87a6EP/eI1R4UaJDzGzQ/7RkFsskHu8wO/jd/55Vg3mG
-         MreglaHfv3RqsBQam3Y4t5yTDhew3KeVHQdHyU0QpzBcpz+VJv7TUb/RhWN90xolUIQ0
-         NU6rPHw/su96VfIYQ6bUt7NXL0WbB778zKz+KzTD5Wymphtd/p/VWACuZMxoJXVfI20O
-         biSnJVialV3xx9qwIipGBCK7zVHNwXs/x8Fwd3gILWoDrs2jC+b6CamGR6pzHIu00UBo
-         BoMkuHCYFo4qJRRxzklaqqEgrw688h5z/Py7dsJHEU/B3f6Xq93XfP4AqCGTdtHh0L7d
-         4PlA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QMBMzvdP6W9bIOuDT5FN0jyyJfOa7n1CUcNvZhQqOQc=;
+        b=eI4nF7Hy2fiUtcGNkSOJT5XVEX+86ywF8jhfqO5oh4FAT47Rjjmj3YIrCzituaeZci
+         3yCU7fMK7dD4logpGeVaeCqDa+vsne14XrdnT2SrQxKziCGv9t5auAu3v/2UTBlc9Ncy
+         rzZF/zZHuEc7R44odFaAoUeC6oVUJf5aZi8OdHuBcqeBbQMvLec4CcRZteSHB9RHTAQO
+         I+/rLr8QDeToCf+bE+cHt/kRqQNKlOuGu+cwuFwxB/PmTBsBB1SZNsNB+CEVXUm2UeZF
+         M9v6WYmUf90J/OcgxLWcQ4KVkgBarjKc3Sy7KGK7EC2hjEnA8D2dR5sUwvLWDiPtr0PS
+         Ly8g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Q8O8+ep9TYnJGP7y3HF7HcqJSJymxDWXu62B4VBluS//CWRn7
-	G98X1EJQd57BiygHaLjZnHs=
-X-Google-Smtp-Source: ABdhPJwd4Q76v0sWvs/62SvHqqURbCiql6BoCaI23cY/6BM0ZDhATonr2vZlQWQllI/5dO+OmqYWhg==
-X-Received: by 2002:a2e:9251:: with SMTP id v17mr17351194ljg.507.1620584762916;
-        Sun, 09 May 2021 11:26:02 -0700 (PDT)
+X-Gm-Message-State: AOAM532D6xqfmVWBqzjaehVHhAJuF3zyIhUV6/AE7lHnvBbz0GJV3ijc
+	wdV3ZsaAUbWpMgLP6/yKysw=
+X-Google-Smtp-Source: ABdhPJzIc271CbcGunuL5ZQFLfq+zs6awUJbGGeROnMte1lQCgVxevihUO4vizavUeTmJeK9t42xfA==
+X-Received: by 2002:ac2:5fc6:: with SMTP id q6mr13858731lfg.205.1620588834370;
+        Sun, 09 May 2021 12:33:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:230f:: with SMTP id o15ls8250814lfu.1.gmail; Sun,
- 09 May 2021 11:26:01 -0700 (PDT)
-X-Received: by 2002:a05:6512:2036:: with SMTP id s22mr15122551lfs.540.1620584761704;
-        Sun, 09 May 2021 11:26:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620584761; cv=none;
+Received: by 2002:a05:6512:230f:: with SMTP id o15ls8285292lfu.1.gmail; Sun,
+ 09 May 2021 12:33:53 -0700 (PDT)
+X-Received: by 2002:a19:f10d:: with SMTP id p13mr14079349lfh.76.1620588833335;
+        Sun, 09 May 2021 12:33:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620588833; cv=none;
         d=google.com; s=arc-20160816;
-        b=GtRNRTFqTi1gvx3l1Xr2gYbQJJTkk+vVMpZWCYFgIBnGu3359AWtSsgtVaBcazDEMR
-         4MVZCPSQAzHVTfAjqy+AiDT4oszjYSD38xFQDCZvhebWcQHm4bMttu2y1dE34OTuByXl
-         8jHsgGcxkIeti/nsdcaDvW+wkM7MxQ+R7LIXBKIPmwKCym0EZZRpMXrlWhX4pfY+juY4
-         wed+X9RQKDHEQglvt0RRH4M/AKeY0m9yv+qnqX9VQYruCtNd2+n/s4k8BQB4i9OB/Bzo
-         7SBhqGahLNygaRShPy+uU0rGmIoWnOvTZCiGwA7FCdshc8xve9EdQd2tGLpQ+7YDT+qc
-         ugAA==
+        b=BsC3cQv7/+fBmJ3ACHHKoniHaSLWGrH22zAR4hKJ3ZvXgfrXF1Kt8goA+dXouZhk+s
+         wd/c2iNyGNVW+38tBH1sly4JYSb4gT8wzXqC/CVhqk1oHNwnITR7s/yAt+8xoV9ABRmo
+         3RpadDCO4HmUdqGLV+KxTzJmW90YkKGJiyYxAh8CPwHZJj22Fy7QLmh4m4iS3aqJoKpe
+         WMXa8ocI/afS1kOVCBVHBb7Gab9ZC3rElZLQC79AEj3/qXTzpDFJIzD1oT5lpwVm4zLf
+         UyfzII1Hz0whHjwvb9iR7PmDNTSoYJl3P6IT8TmfYSKzqTgyWxaPhqiPtaJU5qie43Fk
+         Q0Rg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=rOrxa6aSiXbwul0GfHks5tuaylucNUuVWRXguFZdR+A=;
-        b=R/9ebzbsKGEC+SuhOlKE8CMCkxO7j7jxG1nrkZEPqKyhbiAWUgm4tipERrS5TE4FNb
-         LJciPyw6WgdflfxDWqATtdATnZJOyR1/PKfv/nyq/wT/WQNbc3wWxCYDqGlMtVfBp4DG
-         G0/D31ParnVhVDZoaxn3sZMNNfkOzIFRXllR2W9ERr09sV3/wg5cdYBk5Ji0mfLRM9jm
-         E6Mc9PhmbmtT+yjSj/abgMmU1umVbXCaSKBl4Orxl6hUJTF2GxaWivlh0dUWWh94j4cP
-         YXll7/ZP+vuwGG82o0/mPJga6jFIMqr3KZeBgPsPoq6KhJCDIVteWeIQsr8wOl1sMC3U
-         rDcQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=pwB6mElenYhBSU4aRvtAJPhfJNuyfv9xAVTG9qry76s=;
+        b=sf2PQVNcTkWZtGlBACgxXHRyvrMndTwQ6LzMuaKNHOWXzyUvcNozbUMpCZLvXirChj
+         ckFDbfWj4j/3cNDWOaYw51NfvGSgH3nfynw6WW9+itnz/q+QJ7O0JuEvRzs5xPEQONat
+         FzzlossYFkuBgorIzV80ZtS5VgVzt9F9YluyGx51bljMsrtnylh5l0T4hc+UE8oNkqIU
+         Jx4O9xJHPPfOONIQrtSKhb6nag6lb+1L5umNY8rbKZERQEwa/c1kXhRTawuT7RR+2yc3
+         6R40XFk/ho71HBTfuRLxrEc1C1/LH7vMEmYS9u5Jp/r8iL+GHG83QFwAkZsX7Q2LXNp4
+         4g+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=VAVGukZZ;
-       spf=pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::331 as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="jl/qaGJ6";
+       spf=pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::332 as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x331.google.com (mail-wm1-x331.google.com. [2a00:1450:4864:20::331])
-        by gmr-mx.google.com with ESMTPS id e9si578560lfs.4.2021.05.09.11.26.01
+Received: from mail-wm1-x332.google.com (mail-wm1-x332.google.com. [2a00:1450:4864:20::332])
+        by gmr-mx.google.com with ESMTPS id u22si652856lfu.7.2021.05.09.12.33.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 May 2021 11:26:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::331 as permitted sender) client-ip=2a00:1450:4864:20::331;
-Received: by mail-wm1-x331.google.com with SMTP id n84so7946410wma.0
-        for <clang-built-linux@googlegroups.com>; Sun, 09 May 2021 11:26:01 -0700 (PDT)
-X-Received: by 2002:a05:600c:220e:: with SMTP id z14mr22464068wml.0.1620584761398;
-        Sun, 09 May 2021 11:26:01 -0700 (PDT)
-Received: from michael-VirtualBox (cbl217-132-244-50.bb.netvision.net.il. [217.132.244.50])
-        by smtp.gmail.com with ESMTPSA id j10sm19120864wrt.32.2021.05.09.11.25.59
+        Sun, 09 May 2021 12:33:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::332 as permitted sender) client-ip=2a00:1450:4864:20::332;
+Received: by mail-wm1-x332.google.com with SMTP id a10-20020a05600c068ab029014dcda1971aso7823753wmn.3
+        for <clang-built-linux@googlegroups.com>; Sun, 09 May 2021 12:33:53 -0700 (PDT)
+X-Received: by 2002:a05:600c:26c9:: with SMTP id 9mr206497wmv.176.1620588832793;
+        Sun, 09 May 2021 12:33:52 -0700 (PDT)
+Received: from michael-VirtualBox.xsight.ent (cbl217-132-244-50.bb.netvision.net.il. [217.132.244.50])
+        by smtp.googlemail.com with ESMTPSA id n124sm23502655wmn.40.2021.05.09.12.33.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 May 2021 11:26:00 -0700 (PDT)
-Date: Sun, 9 May 2021 21:25:58 +0300
+        Sun, 09 May 2021 12:33:52 -0700 (PDT)
 From: Michael Zaidman <michael.zaidman@gmail.com>
-To: "Chen, Rong A" <rong.a.chen@intel.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-	Jiri Kosina <jkosina@suse.cz>, Jiri Kosina <jikos@kernel.org>,
-	Dan Carpenter <dan.carpenter@oracle.com>, michael.zaidman@gmail.com
-Subject: Re: [kbuild-all] Re: drivers/hid/hid-ft260.c:794:44: warning: format
- specifies type 'short' but the argument has type 'int'
-Message-ID: <20210509182558.GA4940@michael-VirtualBox>
+To: lkp@intel.com
+Cc: kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	jikos@kernel.org,
+	dan.carpenter@oracle.com,
+	linux-input@vger.kernel.org,
+	Michael Zaidman <michael.zaidman@gmail.com>
+Subject: [PATCH] HID: ft260: fix format type warning in ft260_word_show()
+Date: Sun,  9 May 2021 22:32:13 +0300
+Message-Id: <20210509193213.5974-1-michael.zaidman@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <202105060637.LeEC6ztp-lkp@intel.com>
 References: <202105060637.LeEC6ztp-lkp@intel.com>
- <20210506115546.GA1745@michael-VirtualBox>
- <0102b8fe-3edf-3d4f-2622-d1fefb36274f@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <0102b8fe-3edf-3d4f-2622-d1fefb36274f@intel.com>
 X-Original-Sender: michael.zaidman@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=VAVGukZZ;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b="jl/qaGJ6";       spf=pass
  (google.com: domain of michael.zaidman@gmail.com designates
- 2a00:1450:4864:20::331 as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
+ 2a00:1450:4864:20::332 as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,65 +152,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, May 07, 2021 at 06:00:31PM +0800, Chen, Rong A wrote:
-> 
-> 
-> On 5/6/2021 7:55 PM, Michael Zaidman wrote:
-> > On Thu, May 06, 2021 at 06:47:46AM +0800, kernel test robot wrote:
-> > > 
-> > >     drivers/hid/hid-ft260.c:515:59: warning: variable 'len' is uninitialized when used here [-Wuninitialized]
-> > >                     hid_err(hdev, "%s: unsupported wr len: %d\n", __func__, len);
-> > >                                                                             ^~~
-> > >     include/linux/hid.h:1190:30: note: expanded from macro 'hid_err'
-> > >             dev_err(&(hid)->dev, fmt, ##__VA_ARGS__)
-> > >                                         ^~~~~~~~~~~
-> > >     include/linux/dev_printk.h:112:32: note: expanded from macro 'dev_err'
-> > >             _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
-> > >                                           ^~~~~~~~~~~
-> > >     drivers/hid/hid-ft260.c:507:9: note: initialize the variable 'len' to silence this warning
-> > >             int len, ret;
-> > >                    ^
-> > >                     = 0
-> > 
-> > This warning has already been found and fixed by Dan Carpenter in
-> > the "HID: ft260: fix an error message in ft260_i2c_write_read()" commit
-> > on March 18, 2021.
-> 
-> Hi Michael,
-> 
-> This report is about the below warning prefixed by '>>', it's still in
-> mainline:
-> 
-> >> drivers/hid/hid-ft260.c:794:44: warning: format specifies type 'short'
-> but the argument has type 'int' [-Wformat]
->            return scnprintf(buf, PAGE_SIZE, "%hi\n", le16_to_cpu(*field));
->                                              ~~~     ^~~~~~~~~~~~~~~~~~~
->                                              %i
-> 
-> Best Regards,
-> Rong Chen
+Fixes: 6a82582d9fa4 ("HID: ft260: add usb hid to i2c host bridge driver")
 
-Hi Rong,
+Fix warning reported by static analysis when built with W=1 for arm64 by
+clang version 13.0.0
 
-Sure, but since the report states - "2 warnings generated", I addressed
-the first one for which we already have a commit with the fix.
+>> drivers/hid/hid-ft260.c:794:44: warning: format specifies type 'short' but
+   the argument has type 'int' [-Wformat]
+           return scnprintf(buf, PAGE_SIZE, "%hi\n", le16_to_cpu(*field));
+                                             ~~~     ^~~~~~~~~~~~~~~~~~~
+                                             %i
+   include/linux/byteorder/generic.h:91:21: note: expanded from
+                                            macro 'le16_to_cpu'
+   #define le16_to_cpu __le16_to_cpu
+                       ^
+   include/uapi/linux/byteorder/big_endian.h:36:26: note: expanded from
+                                                    macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/uapi/linux/swab.h:105:2: note: expanded from macro '__swab16'
+           (__builtin_constant_p((__u16)(x)) ?     \
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-I tried to reproduce the second warning you referred to in this e-mail,
-but make.cross script failed since the "clang-latest" directory does not
-exist under the "0day". As a workaround, I modified the make command
-generated by the script replacing all "clang-latest" occurrences with
-"clang" and run it manually.
+Signed-off-by: Michael Zaidman <michael.zaidman@gmail.com>
+Reported-by: kernel test robot <lkp@intel.com>
+---
+ drivers/hid/hid-ft260.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Another workaround could be to use the symbolic link as reported in the
-https://groups.google.com/g/clang-built-linux/c/qCjZblHi8lY/m/eBEEl2JxBgAJ
-on March 27, 2021.
-
-Anyway, I reproduced this warning and am going to submit a fix shortly.
-
-Thanks,
-Michael
+diff --git a/drivers/hid/hid-ft260.c b/drivers/hid/hid-ft260.c
+index 047aa85a7c83..38794a29599c 100644
+--- a/drivers/hid/hid-ft260.c
++++ b/drivers/hid/hid-ft260.c
+@@ -791,7 +791,7 @@ static int ft260_word_show(struct hid_device *hdev, int id, u8 *cfg, int len,
+ 	if (ret != len && ret >= 0)
+ 		return -EIO;
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%hi\n", le16_to_cpu(*field));
++	return scnprintf(buf, PAGE_SIZE, "%d\n", le16_to_cpu(*field));
+ }
+ 
+ #define FT260_ATTR_SHOW(name, reptype, id, type, func)			       \
+-- 
+2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210509182558.GA4940%40michael-VirtualBox.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210509193213.5974-1-michael.zaidman%40gmail.com.
