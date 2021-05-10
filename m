@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCV4DH5YZYMBBO4R4WCAMGQEWRJD4OI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV4DH5YZYMBBPMR4WCAMGQEUMN6IJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 31C54379165
-	for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 16:52:45 +0200 (CEST)
-Received: by mail-io1-xd38.google.com with SMTP id y191-20020a6bc8c80000b02904313407018fsf10689112iof.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 07:52:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620658364; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 76D7A379168
+	for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 16:52:47 +0200 (CEST)
+Received: by mail-pg1-x53e.google.com with SMTP id l25-20020a6357190000b02901f6df0d646esf10426833pgb.23
+        for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 07:52:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620658366; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tdK7xNvobs+qt86VrGkWMMroH6loN4klXMqA05N7NiJPqggk7IZQBQ5ZceQNXlfEWW
-         jYi5J/CqrUs1csTzipTEuUA08SCFQ3x6jJHWg2gD6+SnrWaMNBH+jOGTK3VyLRDDlrPf
-         9PqTr1nLCgLDY/Rrjrv6t+xf4z8apFU+Yb/Lf1iwJhugITA7fLmkfr2xWwEhdL0bQpKN
-         Ou1VAOzSWoPS1iZomDSGpjM64os36KrP4JTBltVLwIa5AmFojQ+tsRlntfitxEhulL4F
-         q9gCyTi15e7E62J02p0b7W9uXZYSkP5575ulaszxmxQsuhdtJFd/+cvmH0lIJF7J5t7c
-         pkXA==
+        b=X+tbsL7LBlflgQAZi502zEHvuzBscMcoAL+s+oJLKjp8mOZFU2sYzni4sn3/YW7Bbk
+         OusTg6tF5c17uFNrkE9YcpeCn9JeDpIDCgG5bQdv3ZTK0H1N7FZ7VJUKTocuI++iNif0
+         h7PUFSEEnubf13CoVVDZkUExwiaZVfm18yB2/SdfDfza8GFwsvwP90UDzVP16rVEcyQn
+         1YBkLknDw/1b7VV10tX4H6otpsU0JRi6vVYl9thyEksQMaLkr9MZ0NrlkGw48254wGpt
+         /qp0LwaY1TQGffJE0ZCchhY0CM1oadAN0qetqDvYzpysEB6VlmKGM8SR34tumQ1cVRh2
+         Yd/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=R9W0OJ+1MA2FF3T4tjJ+cwjPCI3sqLIyiVEq5nAQfj0=;
-        b=ExTY5NwRoXmHIjd/CHHWOUnuBPJEMJZYsqxMdTcW1sAiRfRJw/Cxgqa1bBEgzoiIeT
-         Nx9Pi1hi7D/ptR5CuLLf0esm7Laf9HNtgkbq4yRbF4cBQtFYRHBbY7nONmoML62b4QrE
-         dWR7lkNhw8vPsgng0o4f7B2yO96ThYvGH2oBD/EHWO7MG+gknTQfatpg9hUHqQKrxOMT
-         GEolU04pwM5QZV4Gsf8O3zoxtTyFAmv4L5+A8yLDqKRKu9S5xZZZvgVFSgHZIjVBIlHl
-         u5laoizw50fC50wSWk1OOuJVPpuW6H7JWOQlhTxmU/DDpG+kw3TKdGpvzBiwFEp2xNL0
-         olGA==
+        bh=jWThw9NDoJZYumEe64R0r/WCypiBPjvbpYcr87mSMfs=;
+        b=wthVGAPu8evX+Dt58zqJ2mqZF8b4WyyANBFnHMtFkXe1610iiLEZHbPbKBUQdmJEzB
+         /EtnBC9TehMBXw6VXURoMXkw/W/47QjyY200YVOyWVJ+9LFv/jgDSH5BAX93Z5CMH23d
+         A4kuuucRfJ7dUDJK+LYap3GKSzffLGp0Ceff4uXtLaaWQ7OmjDnZ9CSveE5Dna7CN1bW
+         Bgk0J99T4fRt7SL0e+TfepB4M2nKfR+W7G/7tv2xHWluctUL8hAW+wuF2m5Nd9bps48e
+         IXVzudoWV8cE3p/tMbuoVH4bESfDLd738yRq94A8yL7XEVwlMazZPsRXe9ZeZ1ITDWHw
+         AX0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=oq69rh0Y;
-       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=CywxahPH;
+       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=R9W0OJ+1MA2FF3T4tjJ+cwjPCI3sqLIyiVEq5nAQfj0=;
-        b=nLIlv6lRSFMDaQ5FGfoLSJIAKqmOhQuIoyZrHHBfq29WmFTa04JHa5TLNKTkwEX+Fo
-         awwwlkFugdASM/xLC6SpCO5LZY9EG/5t2k2oDEb2ZI25MA9S0tSX8oKJ4/zpAQpEQXpz
-         6r95Hd3wlabjV3VBml/kCSEr/7jy6/pUNBetIRLtzPICOAU9AOmon+wtQYX7g1uMkSnE
-         K8gIxoz1/T+s1uOxUKjKmEZX/32AtnjvPAe43YxfJL6CsikW5RN+c3XY7yO68ha6ujTZ
-         3g2b1T2M0MGl66zDctPtX4e8hDesEvAaR/cs0zPHgyqHF0vJZJh61aqLOHVxNi5ZTeYZ
-         NQtA==
+        bh=jWThw9NDoJZYumEe64R0r/WCypiBPjvbpYcr87mSMfs=;
+        b=p2Gz7gXSMs7Y/siW0VLm4ugU7ngvlolGbnPZe3N6Voa3m/4PERzKCAL0N6+jjgvCW3
+         8bpslHPZmiGXqWH+HFu7fsD59Ldaw3YI1XBMYRxRk2XGpPyFZ4ueFIuk+TCIQ13a+UeB
+         DdPfUjOwrA2YhOs1x+cGVh8pMBpOV6hyfJ1LvG5nbwzIdvkuknhcCk8NaRCnl27IBdPg
+         7BKK+n/gMTEqd3LtaFEQs1J/kFqIu2MmQHDNESePXfyUO6Upv+UTNFGRu2DKWbSeJktZ
+         AvrtLu+oVc1ZGkmgfABETWGgxs4YWh1d05QvqlgedoomA0X5C7sh50iOGwr5xHOXgotQ
+         KNeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,83 +49,83 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=R9W0OJ+1MA2FF3T4tjJ+cwjPCI3sqLIyiVEq5nAQfj0=;
-        b=ZzoUkyxNijhRz+Giqs2ufcYXi+gKVUSXolXUQ0CFJnuJzn5Z1M11ekhZo52UrpxkAU
-         r0xbyyxWNGlgkpaPtbiamtpV+vGPzE3s/jQC6oqdLPbFR477PTXbv+OUAu+sRroVG6uH
-         c+QJvmSC/ZI3ZiATbGmeNTT/SLPQ7fGf8iZfD6ZfFNQcWJCzD2KtUoy2FfuePXTXH3Q1
-         G0ylLtkbkQ4/3kXxjGZD9awCj0ZDNeyKHrvr/YRQxcVwvnYf3kHgHBbqOueYm4gY/mL9
-         7dJlZ6+cEqdsogL1YHlmHm/t9s8TCqsxnAeMrDGA/njznQxB7OsR7Gaxv4ZJG3JskiWS
-         7mmg==
+        bh=jWThw9NDoJZYumEe64R0r/WCypiBPjvbpYcr87mSMfs=;
+        b=sUhG0QN+1FNEWiL7k78BfOqLYWWouazFTDum4IPjpn8rnuaQIod9DBtC2r98PT90vA
+         kYlx4w4Bmnq49Gz1jwczmPGmH4SKTPrEeRLv9eZhl946/883YPPHN+SABwMFai8Jyuuj
+         nPqXQjjlUbIRn2c5N7kcosgYpLvESjmqsgQQ04/7xkarIG6vMmVrBXvdy9q2hfSLbTlg
+         Nu/Q4BY3VJqjoE0Q8Gn1j+0dkpYaP7erVpngNOrvSPkQVhnsyARVbISb/IOdhbuBkxoc
+         RClAk5tnSdeeYgqitjErqsL1e9LCGnmZJAmYd/RaYoCjelxjnLIyvma9IvgRZQPL5BXL
+         hpOA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533k3gVtrejfGmDQqcW1bQk+j5vAPqyyDnJajPFi1dbwq8iwEUfW
-	+JHcuY2eDa3UPh6X03qTY7c=
-X-Google-Smtp-Source: ABdhPJyRi3qmeGsQQrWJV8YM9A0/nrB7yp/vwntBeZdwdLlry7O7yTSmcfZAoSLeNEYp179hKSg8NQ==
-X-Received: by 2002:a92:d80f:: with SMTP id y15mr21532160ilm.305.1620658364010;
-        Mon, 10 May 2021 07:52:44 -0700 (PDT)
+X-Gm-Message-State: AOAM532M0b3Eyi0fVC3mnibJ5DnbroYhpIXW0j0ac5KoV5HtW4s1EYVf
+	ZKaaDkHeVH6H5fw3pazRxR8=
+X-Google-Smtp-Source: ABdhPJyQq8YghAeExCZsYfo53rgtE92KQZEjDSCdUwEAOAVzes5YHKqLE5HUNWCk0uCz4ZH2CsYDVQ==
+X-Received: by 2002:aa7:8d0f:0:b029:2a9:7589:e78e with SMTP id j15-20020aa78d0f0000b02902a97589e78emr17429649pfe.74.1620658366009;
+        Mon, 10 May 2021 07:52:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:d909:: with SMTP id s9ls3081602iln.3.gmail; Mon, 10 May
- 2021 07:52:43 -0700 (PDT)
-X-Received: by 2002:a92:c749:: with SMTP id y9mr22527373ilp.141.1620658363673;
-        Mon, 10 May 2021 07:52:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620658363; cv=none;
+Received: by 2002:a17:90a:f48e:: with SMTP id bx14ls8884121pjb.2.gmail; Mon,
+ 10 May 2021 07:52:45 -0700 (PDT)
+X-Received: by 2002:a17:902:e84f:b029:ee:cd36:80e3 with SMTP id t15-20020a170902e84fb02900eecd3680e3mr24994055plg.70.1620658365504;
+        Mon, 10 May 2021 07:52:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620658365; cv=none;
         d=google.com; s=arc-20160816;
-        b=E6COPfic3lvTBgErN8Nk5ZxGNmPRyuS8xuVGqw1yUQm6+s4QDHPigLn5qG99muN2jJ
-         X1+ioJ3qz99bgVXZcIaPKyT1zn5AwVM/ISetyvmANDiSKVToO9HzA3HwYNxdjQXV4n6D
-         ZRF66UcTyP4recS90fd/R7hdaKdkxwIaMGoNSxXxYAFZaEn3OJ/U0L9APMW2KHon8kqR
-         Pep1Zt33nB53ZijSA8V9lJF1xEzve2Lu242LvJAQoRVCotfNolXL5na/Bs0yFn99+RVi
-         VKhMCwd5S9j1l6G+hk0w4W3m5nWi1y9dEjNnYg/n2PEF+BJ3oK7S2ypNOGcNVRix0edO
-         ybzg==
+        b=aP0MazHjzRDjNoEm583mUOP4sDcENi9nQcW7Q+4qpf9G1ypKsRTLFkwyqEg8b6+W1u
+         sMy6PR3WwtA5/Br5IdUoxgsDyuYyJKarzqDxJnLYIvYX12Gp92Q66bcpdfvM6iEEvXHh
+         GwFpxtoqnD1WIqMwN0gjbTG6nxMbJCpHLXmW83cEiRmv1XNWa+YHEbYmJZFYsPwogodB
+         OdnX3NFlDzRU/ifNh+oUk9/7rTYXJ19ed9VdEP14IbFs7ZmVRNTWrLyUye6npOEpp6hq
+         tTjj82ALUctC9KLzd9WBPh0E5ZUJbhqLzr1lGrXUwykWciEDXEUfSN35zZpHTutGjqcC
+         ZSzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
+        h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=mp/51zQTwU0ypyrfGm7d48XnTdWhVBfdFjEkqW1sSTI=;
-        b=Ya+vPNdAFOaDZfVxB69pBHZB5MMpw3MR7o2r+l4g+iW2UXPpaRq6M5tAGBONE1ff/c
-         kr5R4f21lth2RX3h63nUkdLr+9ieIu1l5cbr85HoKLuTR1WbEGftngSyZnn/n956T9/a
-         moB8nPd7sifS0f/Ux3nZz2z1smPV7bW0Wr1OLbsk/MCNdQoVbDCPJ/X7cwxpbIxKJzpU
-         kmA5GBLcvlITxS0DVmVZu4lBnSy6ggK2CKNqAgrPKg5crTCRMvBfF8ZhJp6AsLUSyi9+
-         Lq7PFLxDeClYeFn9KalQi+lE1h3OYPwSxPKYC+l1rkpl99SBzcGZ3t7OklVXbIvFliMD
-         Kq5A==
+        bh=evXVASPNHYxBuNpGpwUb76ljx34WoISjJiXB/0dEjGk=;
+        b=R7FOIcQicGp2kj9MKamm9Q4nUDdFiPeYxEMpzTWbqYaIHE1X2s3tL9ApFx+QW8sF5H
+         YkQEykOLR4xEeOh00HrSQsvtmJJFJapDhfVK4Y1sG3oo/hH3AsZGOpsiTrefd6BCUvMi
+         2gEtF/g8eqJ20SuNqaOoaX+whD7mmo5mMgVl6UK/AWHKZxM8cWpD22UX+25uWxJ3r8b0
+         J+TqtPUrtJJAo2ZYw0ZrS+4EWpVeEzuc+TA+Yy9e33+df2eq4q1Jrc/ezBE5kcY7+udn
+         oV3p1wd3MFv2EqnrGlfUPCGe/WbcR5zYbEjLEzUul9Ai7vTBAQ0PzDvXqZ+YTB4BBGVH
+         uPuA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=oq69rh0Y;
-       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=CywxahPH;
+       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id o3si1652477ilt.5.2021.05.10.07.52.43
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
+        by gmr-mx.google.com with ESMTPS id j17si1336869pfc.5.2021.05.10.07.52.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 10 May 2021 07:52:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 14AEoIdq184371;
-	Mon, 10 May 2021 10:52:39 -0400
+        Mon, 10 May 2021 07:52:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
+Received: from pps.filterd (m0187473.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 14AEYGDN152049;
+	Mon, 10 May 2021 10:52:41 -0400
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 38f6xt01ak-1
+	by mx0a-001b2d01.pphosted.com with ESMTP id 38f5hrkgxm-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 May 2021 10:52:39 -0400
-Received: from m0098416.ppops.net (m0098416.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 14AEpp51190897;
-	Mon, 10 May 2021 10:52:39 -0400
-Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 38f6xt01a8-1
+	Mon, 10 May 2021 10:52:41 -0400
+Received: from m0187473.ppops.net (m0187473.ppops.net [127.0.0.1])
+	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 14AEZTCn160549;
+	Mon, 10 May 2021 10:52:40 -0400
+Received: from ppma06fra.de.ibm.com (48.49.7a9f.ip4.static.sl-reverse.com [159.122.73.72])
+	by mx0a-001b2d01.pphosted.com with ESMTP id 38f5hrkgwg-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 May 2021 10:52:39 -0400
-Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
-	by ppma06ams.nl.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 14AEmBHM025927;
-	Mon, 10 May 2021 14:52:37 GMT
+	Mon, 10 May 2021 10:52:40 -0400
+Received: from pps.filterd (ppma06fra.de.ibm.com [127.0.0.1])
+	by ppma06fra.de.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 14AEqcsf008088;
+	Mon, 10 May 2021 14:52:38 GMT
 Received: from b06cxnps4076.portsmouth.uk.ibm.com (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
-	by ppma06ams.nl.ibm.com with ESMTP id 38dhwh91vr-1
+	by ppma06fra.de.ibm.com with ESMTP id 38dhwh0jj9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 May 2021 14:52:37 +0000
+	Mon, 10 May 2021 14:52:38 +0000
 Received: from d06av21.portsmouth.uk.ibm.com (d06av21.portsmouth.uk.ibm.com [9.149.105.232])
-	by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 14AEqZIE37814710
+	by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 14AEqZb637814716
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Mon, 10 May 2021 14:52:35 GMT
 Received: from d06av21.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 18BFB52050;
+	by IMSVA (Postfix) with ESMTP id 7315B52050;
 	Mon, 10 May 2021 14:52:35 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTP id AA76452051;
-	Mon, 10 May 2021 14:52:34 +0000 (GMT)
+	by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTP id 1A86352052;
+	Mon, 10 May 2021 14:52:35 +0000 (GMT)
 From: Niklas Schnelle <schnelle@linux.ibm.com>
 To: Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@synopsys.com>,
         "David S. Miller" <davem@davemloft.net>
@@ -134,28 +134,27 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
         clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
         linux-snps-arc@lists.infradead.org, sparclinux@vger.kernel.org
-Subject: [PATCH v6 1/3] sparc: explicitly set PCI_IOBASE to 0
-Date: Mon, 10 May 2021 16:52:32 +0200
-Message-Id: <20210510145234.594814-2-schnelle@linux.ibm.com>
+Subject: [PATCH v6 2/3] risc-v: Use generic io.h helpers for nommu
+Date: Mon, 10 May 2021 16:52:33 +0200
+Message-Id: <20210510145234.594814-3-schnelle@linux.ibm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210510145234.594814-1-schnelle@linux.ibm.com>
 References: <20210510145234.594814-1-schnelle@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: gY60jVdT9BfNYmq5tr-k84tUJE5i3gZe
-X-Proofpoint-GUID: khRcgKtN16v846p8gRFfwt4YMf7XtDTg
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: Mwid2JslVMLWhMy2iW_LfXXFE8xVgGtV
+X-Proofpoint-ORIG-GUID: v5r8zPtPwPe47b1Uz3I9CxVtJTlTZyPu
 X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-05-10_07:2021-05-10,2021-05-10 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 spamscore=0
- mlxscore=0 suspectscore=0 adultscore=0 bulkscore=0 lowpriorityscore=0
- priorityscore=1501 impostorscore=0 mlxlogscore=999 clxscore=1015
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ definitions=2021-05-10_09:2021-05-10,2021-05-10 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 adultscore=0
+ mlxscore=0 malwarescore=0 priorityscore=1501 spamscore=0 impostorscore=0
+ suspectscore=0 bulkscore=0 clxscore=1015 mlxlogscore=861
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.12.0-2104190000 definitions=main-2105100105
 X-Original-Sender: schnelle@linux.ibm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=oq69rh0Y;       spf=pass (google.com:
- domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted
+ header.i=@ibm.com header.s=pp1 header.b=CywxahPH;       spf=pass (google.com:
+ domain of schnelle@linux.ibm.com designates 148.163.156.1 as permitted
  sender) smtp.mailfrom=schnelle@linux.ibm.com;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=ibm.com
 Content-Type: text/plain; charset="UTF-8"
@@ -171,38 +170,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Instead of relying on the fallback in asm-generic/io.h which sets
-PCI_IOBASE 0 if it is not defined set it explicitly.
+From: Niklas Schnelle <niklas@komani.de>
 
-Link: https://lore.kernel.org/lkml/CAK8P3a3PK9zyeP4ymELtc2ZYnymECoACiigw9Za+pvSJpCk5=g@mail.gmail.com/
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+Without MMU support PCI_IOBASE is left undefined because PCI_IO_END is
+VMEMMAP_START. Nevertheless the in*()/out*() helper macros are left
+defined with uses of PCI_IOBASE.
+
+At the moment this only compiles because asm-generic/io.h defines
+PCI_IOBASE as 0 if it is undefined and so at macro expansion PCI_IOBASE
+is defined. This leads to compilation errors when asm-generic/io.h is
+changed to leave PCI_IOBASE undefined.  More importantly it is currently
+broken at runtime, as accessing a fixed I/O port number of an ISA device
+on NOMMU RISC-V would turn into a NULL pointer dereference.
+
+Instead only define the in*()/out*() helper macros with MMU support and
+fall back to the asm-generic/io.h helper stubs otherwise.
+
+Signed-off-by: Niklas Schnelle <niklas@komani.de>
 ---
- arch/sparc/include/asm/io.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/riscv/include/asm/io.h | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/sparc/include/asm/io.h b/arch/sparc/include/asm/io.h
-index 2eefa526b38f..c019e50702c1 100644
---- a/arch/sparc/include/asm/io.h
-+++ b/arch/sparc/include/asm/io.h
-@@ -1,6 +1,14 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #ifndef ___ASM_SPARC_IO_H
- #define ___ASM_SPARC_IO_H
-+
-+/*
-+ * On LEON PCI addresses below 64k are converted to IO accesses.
-+ * io_remap_xxx() returns a kernel virtual address in the PCI window so
-+ * inb() doesn't need to add an offset.
-+ */
-+#define PCI_IOBASE ((void __iomem *)0)
-+
- #if defined(__sparc__) && defined(__arch64__)
- #include <asm/io_64.h>
- #else
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index c025a746a148..31a8b98c0f13 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -23,12 +23,12 @@
+ #include <asm/mmio.h>
+ 
+ /*
+- *  I/O port access constants.
++ *  I/O port access constants. Without MMU support leave PCI_IOBASE undefined
++ *  and fall back to generic stubs for I/O access routines.
+  */
+ #ifdef CONFIG_MMU
+ #define IO_SPACE_LIMIT		(PCI_IO_SIZE - 1)
+ #define PCI_IOBASE		((void __iomem *)PCI_IO_START)
+-#endif /* CONFIG_MMU */
+ 
+ /*
+  * Emulation routines for the port-mapped IO space used by some PCI drivers.
+@@ -145,6 +145,7 @@ __io_writes_outs(writes, u64, q, __io_bw(), __io_aw())
+ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
+ #define outsq(addr, buffer, count) __outsq((void __iomem *)addr, buffer, count)
+ #endif
++#endif /* CONFIG_MMU */
+ 
+ #include <asm-generic/io.h>
+ 
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210510145234.594814-2-schnelle%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210510145234.594814-3-schnelle%40linux.ibm.com.
