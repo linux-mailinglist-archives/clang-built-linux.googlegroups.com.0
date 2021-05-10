@@ -1,164 +1,150 @@
-Return-Path: <clang-built-linux+bncBCV4DH5YZYMBBHPJ4OCAMGQE2N2JGYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDLYTQ5JSECRBLXU4OCAMGQESJ7LB4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E905377EA8
-	for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 10:53:50 +0200 (CEST)
-Received: by mail-pg1-x539.google.com with SMTP id i8-20020a6548480000b02901fb8ebd5714sf9894708pgs.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 01:53:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620636829; cv=pass;
+Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id DC894377F36
+	for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 11:17:34 +0200 (CEST)
+Received: by mail-wr1-x437.google.com with SMTP id j33-20020adf91240000b029010e4009d2ffsf4754809wrj.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 10 May 2021 02:17:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620638254; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FzYEG67Mhb2SkCzX+4mMrKNVJ0CIOtFjacOY9OxLOnhYCd7FFE4MvR1Ow9KwlfyqGP
-         fBnWnhe+tsn/HowEWygZjkCZZkLDp7qXygK5GAtu29VXZXdfY+y8zmwAjuP3mpWjhyCi
-         pZp30OvMV17ZR6SWoIQfbNLJndAyTKnUwmgumsVlGbAKPUpIiApFSp0fd3+wrCo4vEwq
-         FDppaFcZndSdAL+Pjde5/P/V/bcYYBjvyPWcOpQwiFFVTPSRYKE1hF/gwdTkuonwuR8e
-         b5eoCwasV/nf9oeOyaMRfqhlNZpc8dUWq8BNDox3ASmJUv9NkDedhLNKCR/yM20ipaQ5
-         Ppgw==
+        b=gkSpIf4BEazero89gXS/BzsZYIk2uK/aw6P9q2FC4GpG+i0Jo1D8cWZyyWMN1A9VkG
+         IQZgXFAODCwLlafqsqKS+Sw3o2njopUUxF7eu61BJXZ0oNvXmxheJjc5WosRzCGmf2JX
+         /bh7u/bLelqWFcvrSUyLpXviLFkptNnYdVQLeVJQs99xHWRfsOLVJ6cl535HkXdSiXjp
+         uL6+eLlrv0FhAS1GGl4pT+eZLd3nsy/5qBvilDWPeAJ6G0NQZ68ENTqp8SQoZTyKJT5U
+         ctVovYbstRTwcvFqWck/kQS1ohpynbgnOjFeI0RvkthVZFUHvBOlnQW5u/aM2w6j4n1s
+         I7vQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=EileVETmiVG6WuosuEh4EyFR67/eBzH+gwbbr63/F3w=;
-        b=eL+8tv++6to3w9HBInTc1QO1M0DC+SsZ1fiFD6m5TIjM09i+DHbBAAGr6vaEaOWeyr
-         KPAobkrCynuOYWIdpw7W5KiZpTQGwbahgbUOh6BwCwu1N9Aa37OcQyxpmR5Btve9aoig
-         8OscsB98lfW+sy9xI5f+ztAZiOcqULiZrsC7PvrHyD7+NUwP8bP8BHWk2fTbSwcyQh/i
-         1QlhrFIMfbzpQRZHJ8Tk0Mgq8xXacx9G0K7IDBJfy/xuqizcRWu3hTGb7eOfmSarBKUM
-         U0WfDqk8p3/iCy3S/oD9dHksOITCHhIL/J4ssu7q5tH7Kp2UqerQ58l7tRXGRup30s5E
-         IMOw==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=lV0FZDJTdVfNSIA7Ahd9Xbhuntu36PtfaSNpkvpG//g=;
+        b=KE1lOVMuwZoHd0vDnylqK34T3rJe2Lm5EZR5X1lgLAG0IZgoNWeimVbG9v4PQDQ9R7
+         20MkBbdfDJ1e9kBHhe/5+29wuRwoPnKwk2WmdAEa5aXRtW32m3+tr0dLNQ68DwQK/Bn5
+         4Nk8x+TXp5loYnP2PlnXDwjtJdIy+YJX8kp1b43BMyFp2e7g6KLpAZDg85nLFLftreJ0
+         5wvq1bMAZRcgsg3H7y4GUHbFNkLH1GmSIxstETTax8Z80rYiOVRaOEbCsO6CtypD7VNv
+         kIBBCFTOR9Il/W8xGHdpeeHUBMIX82id3as6gWD0YrFO3xLYrbNv/PXYmwZLYyZ6JFCs
+         dAAQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=O33KM7of;
-       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YxPQ5HdJ;
+       spf=pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EileVETmiVG6WuosuEh4EyFR67/eBzH+gwbbr63/F3w=;
-        b=Nge77Le+wx3+9QNxPqnsYkXYuzWsG31dN9FXG0eu4hvzJhEdrGiXjEb9/QfnxWe/es
-         x05qLQr1eI+VhMn6fukBSXY3ivwKWPHsMlO1hBVxIDIiK+2r7gaV54Up5hPVhHJZiv87
-         xjdxkZMJiDedKIBVyPjYQRITXboMLY8bowpHScOdP+WoUKKMe5DGpogPQAyxlcMxpXU9
-         CzxfgdMVPMNjV9YFSyIIO3pwDxMRYr0fsp4EOdzclpxpn9xrHfx+QBwdgFVRKBny76Wi
-         lsFcpMdB8IE8ZdOIuq8KPi8JV3Kd+JWSNR/66Di69vBe2NM01F+mL/LinQKGeUnmOXp/
-         DXCA==
+        bh=lV0FZDJTdVfNSIA7Ahd9Xbhuntu36PtfaSNpkvpG//g=;
+        b=ShvniTSNbhyj0byBGxuW5M6LEfTWx4h1vc+weKTRI2ekxNyun13QW7pkdoGekHvTrl
+         PTLD+EBK0JE+Z5aqGmmlsHq9SUTbZBs2jBIdKpO6Fr50dlGgHqXEC7RZ77lLQX+rVJGN
+         O1tFUQmNiCljUXf2htAzJppilqV/Nh4W2EROch9CN1H2qGalv+xsT5MJspXc+YB/zrZZ
+         sv5YLM9HY0cpDTtC35cCod1CJahkdcvDAXO4mCf3k9INvk9v09BRvBCUNZvP4QdhCP7t
+         1ZFSpQskvEwkEV/4xvwI/O6x8n6pe/3jhWZUeFxhRjQf2hqcrT0e6k3twxZeSvstpjJD
+         U0nA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lV0FZDJTdVfNSIA7Ahd9Xbhuntu36PtfaSNpkvpG//g=;
+        b=KgiaeCmkodBAWK7tRKqRCEcAHNtTy2R0YFvfuFHnvHKS2GBSuhTqROAn0aktG/Jv2Y
+         NEGhHq7KvhZf15ooP8O+RtB41jy/af75O/fnYer+FnjHT9Re11MO0XNB4+WLhGU7tQ/U
+         t1kyFQsYiSqO5KYsFMuDqxaw+Gp96mYOKD7IPdBphBN4x1rEpwpYyOunPg1p8caxuk1k
+         8KvRfX30EH+2joIch0MTcEjP2X1f624bQbWwSt8WockN6rygaaFNAlUF7FSZL7Tirctd
+         Y+srea6NE9vg5HI+RFrmIPhaOnfl6ZIsl/BxvqHqSUxZIByzGI8ljQjBp3+m2YPLTv3K
+         kqqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EileVETmiVG6WuosuEh4EyFR67/eBzH+gwbbr63/F3w=;
-        b=sY9Zpn27O9fpcUxwCLaENanLoKiRcxV8tyRHNCoJdPm3ygy+oORks7avIRmLm6Ivt3
-         nHOfnLVDmCEwL/05XbG28Avn7xAlsl0yhkWkEMmVrWYzpx7INEiC/BDt3TvtGfMwEw8X
-         y9LkxCvLKxZ4MYswoRzFzP65HTw957ASofW2WXrQmIcLBVR8m9vL0gGUSOxfWIAVajch
-         bnWpDHRrR1GFR+RjkoJHH6WqL9AQVR28LEUj6m7Oa09mf6hWDJ6pBIH7bVL120qGB3ss
-         UUqpcZa7hxRhAf2f2tuK5c4LnM9ziXSwG38ySara8lnBvAbHTE4btJjxv03/reSVlD5K
-         uZlg==
+        bh=lV0FZDJTdVfNSIA7Ahd9Xbhuntu36PtfaSNpkvpG//g=;
+        b=HkbkE+VN4ork14/mObrERdXb7sXz9W//SynL9YNTLTBULuxi4Lha6wEm3Jjh8+V9nk
+         PNRBEIiNMK5tYU7Wl9MNF6M3XcuZwXlk20tyeBNhhx97RQm9UFtOIL8qLpACqKsHTDFn
+         i/EwKJWRS2zTxGrvRn+jjPo+7EZLyr85Xzq8Di0VJcwaWiOkluYWoRIr+xyzQB8QGgIV
+         UD/vaZIRotqUcwuaH4MDR0wXzIYrNaZK2acEEV90U/S0vjnF0Lws4nspGSZ5n1ITJEjk
+         R4qgwin4r5KCwIZIFwb7g68SW2PA7PIvOQXgq1eTLmUiLOpDxjebHBN430X7Q7BRDxzA
+         dgNQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53360/NqX7n2dlZS/Xf0d7F4HdvBo89O/m0tW1+ot0ANZVWdJnFe
-	ZMc3lsdPNJHkB0wIXNiDTHI=
-X-Google-Smtp-Source: ABdhPJwBNwZL/gJfDgxTjEwcmoODCjPPC0EcfpG69kTrV89PTWxGHHF/9SS5F+i1PDHZWBfpmnKj2w==
-X-Received: by 2002:a17:90a:ba01:: with SMTP id s1mr39340240pjr.74.1620636829323;
-        Mon, 10 May 2021 01:53:49 -0700 (PDT)
+X-Gm-Message-State: AOAM531dIqeZqVCbieO92IClDIfBgml+MdrpQAHYmO6IiGZtcw5A/+Kw
+	FiwfCmdSuYJhaIpLnpVsonc=
+X-Google-Smtp-Source: ABdhPJysAPB6x5cQn1x6SsyUp8BwD/KVKuJxcY4YLy3E9e+lUUrcl4Fph3GASBL6GR4U9jEhWmvmfw==
+X-Received: by 2002:adf:a212:: with SMTP id p18mr29504308wra.353.1620638254588;
+        Mon, 10 May 2021 02:17:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:860c:: with SMTP id f12ls7132297plo.5.gmail; Mon, 10
- May 2021 01:53:48 -0700 (PDT)
-X-Received: by 2002:a17:902:6b46:b029:ef:bc1:b3e4 with SMTP id g6-20020a1709026b46b02900ef0bc1b3e4mr15581565plt.10.1620636828704;
-        Mon, 10 May 2021 01:53:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620636828; cv=none;
+Received: by 2002:a1c:f603:: with SMTP id w3ls2200196wmc.2.canary-gmail; Mon,
+ 10 May 2021 02:17:33 -0700 (PDT)
+X-Received: by 2002:a05:600c:2257:: with SMTP id a23mr34913070wmm.89.1620638253598;
+        Mon, 10 May 2021 02:17:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620638253; cv=none;
         d=google.com; s=arc-20160816;
-        b=0HAiBEB0wtUJf5jTxuNYwppmtA14kvJq7BlHha7zywHOHMzjagQMkNtl/i87DEZcJ/
-         fH7bUqNB32vG30DDc7RxonAqyN6iz2GBB2DED+7j5YbW2euAw6gww/WzfXMWH5Jb1BAo
-         wGLGJAf5pHj5KzYXaf/IaHP8pXhqzmXB1yoE6/bYa099ob+ZuNiSmcBSceYpTtEOrQHy
-         Kc+JWaDZbSzv8nWBJ1MFqOUWbwiUKlPyobn9S3T7q4LXBmWewHxzXLkApeJA4sjC3l3u
-         REJsESrBnrWwyGexkhAAVH9DqLUFhuyFcnsOFrg7DRSKl2hjwjWqyVn5F3aZQen6v6+U
-         nfYA==
+        b=dvj70/RUfMme8a4hnuSBNp8BlcwepL8Br9wPPvX5DHLOXZpZAoNEQ2Tiw7xzOoT3jd
+         EM4HeXVb8mlKG/Ck+91btkgf+lUP8NGT1BM7dJBwRKDlD+WZoU5Z0J2N2jTx+/SELaz+
+         L9npnPrb3EZMQdjSndX5uOYsraaWefyb3GlZF7wZT/E773ANAepEogmDqZIn7NwFKvsZ
+         GZAEyQa1a53xqHvqVKBNPTyhMR/jwVCgtWGQdZpKcUyKKbC5KnQ3TN+ZrCng8L2uQKjH
+         OOaCNy7fIHnkjTnVebZluO/1as2pakp2GSQpbyZeuas3IiT5Esjz4NhmxyYwUbKfExbD
+         Wd5A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=KTQxO0IWEBnipVyxp6Fd/H0bA828QsZiHmmsIJMhYdA=;
-        b=YfUgTevmvH0OQRiOCAdgqZAU3m2CX0pA4CdWUlwGLC+DF31X2iMbOzfaOkBwMvjkfx
-         rPzoJk2Mj2yR2JIPQBqcaT1l60cIn9ImPgvKHvpCgEA9hod3CX/uhzw5k8Y6oV1BP44s
-         XM4rV65OL+iA5TQaNVrx7oaR84pm1xGTBrMRkod66nYTJlDWXWHb+Ja6NZvkvxO88kJp
-         d/5j9L1SMZ018eYKIiiYQc4nxID9ym/oeAjNZorFSleD0wTrCYKCHtsTAlBkOskeFIIn
-         wmwn/C1l1BS4Wj2F5ExlmXr4Xvw3piuMuDnxCj49sAXm7nzrvkRH+oAFjXRKLtkJbNM1
-         Kl5Q==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=DxjklwCIIGCoUwqhhNFPNEu8kK6F0birRahQBV0h8UU=;
+        b=j432txgtSWSyCE6RiNyRgdGf68qD+FDG4B79Jf00qT9iSLaD/HqbDi2rn0mwZz1WqX
+         lNKCZbdl00QONjC/ktShgvhWyuxIW4oPXG3HFnF34J2GyA6OrjeFTYZokaVRD/OnmcCj
+         zWpf1xLUJPkNlRci7XRUL4YCg1peG0dtD9BRZTsvg4k1VQSpW3nxuJaizeuHsRT+F6pL
+         WuJb5i0p+gJBtJ98uZR1nW8ey8WUKG5wfVbsgGrHZm+3sFSAvhgqlbbHi+y932sjFCWx
+         J/SmQCxnq1MwArzqBMV4nyAt3MmGvlIthSjQyXDVxfrpsJyL0ErsxdmVJDEXpm5JNkoZ
+         xg4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=O33KM7of;
-       spf=pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=schnelle@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id k15si181255pjq.3.2021.05.10.01.53.48
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YxPQ5HdJ;
+       spf=pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x32e.google.com (mail-wm1-x32e.google.com. [2a00:1450:4864:20::32e])
+        by gmr-mx.google.com with ESMTPS id t187si747228wmg.1.2021.05.10.02.17.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 10 May 2021 01:53:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098421.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 14A8Xs20191813;
-	Mon, 10 May 2021 04:53:45 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 38f19a0qr3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 May 2021 04:53:45 -0400
-Received: from m0098421.ppops.net (m0098421.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 14A8YEa9195724;
-	Mon, 10 May 2021 04:53:45 -0400
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com [169.51.49.99])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 38f19a0qqj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 May 2021 04:53:45 -0400
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
-	by ppma04ams.nl.ibm.com (8.16.0.43/8.16.0.43) with SMTP id 14A8puT1032599;
-	Mon, 10 May 2021 08:53:43 GMT
-Received: from b06cxnps4074.portsmouth.uk.ibm.com (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
-	by ppma04ams.nl.ibm.com with ESMTP id 38dj988sma-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 May 2021 08:53:43 +0000
-Received: from d06av21.portsmouth.uk.ibm.com (d06av21.portsmouth.uk.ibm.com [9.149.105.232])
-	by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 14A8rel642664428
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 10 May 2021 08:53:41 GMT
-Received: from d06av21.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D5BB352051;
-	Mon, 10 May 2021 08:53:40 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTP id 86EC852054;
-	Mon, 10 May 2021 08:53:40 +0000 (GMT)
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@synopsys.com>,
-        "David S. Miller" <davem@davemloft.net>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux@googlegroups.com, linux-arch@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-snps-arc@lists.infradead.org, sparclinux@vger.kernel.org
-Subject: [PATCH v5 3/3] asm-generic/io.h: warn in inb() and friends with undefined PCI_IOBASE
-Date: Mon, 10 May 2021 10:53:39 +0200
-Message-Id: <20210510085339.1857696-4-schnelle@linux.ibm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210510085339.1857696-1-schnelle@linux.ibm.com>
-References: <20210510085339.1857696-1-schnelle@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: lt4WvBzPqWcPuaEn9ddQ7T59OQnmIB_w
-X-Proofpoint-ORIG-GUID: FfQlznQpHXOlcYIz5WcgABTNATqREt0K
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 May 2021 02:17:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of michael.zaidman@gmail.com designates 2a00:1450:4864:20::32e as permitted sender) client-ip=2a00:1450:4864:20::32e;
+Received: by mail-wm1-x32e.google.com with SMTP id j3-20020a05600c4843b02901484662c4ebso10727051wmo.0
+        for <clang-built-linux@googlegroups.com>; Mon, 10 May 2021 02:17:33 -0700 (PDT)
+X-Received: by 2002:a7b:ca4b:: with SMTP id m11mr25426740wml.34.1620638253284;
+        Mon, 10 May 2021 02:17:33 -0700 (PDT)
+Received: from michael-VirtualBox ([31.168.255.170])
+        by smtp.gmail.com with ESMTPSA id l22sm23401763wmq.28.2021.05.10.02.17.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 May 2021 02:17:33 -0700 (PDT)
+Date: Mon, 10 May 2021 12:17:30 +0300
+From: Michael Zaidman <michael.zaidman@gmail.com>
+To: Joe Perches <joe@perches.com>
+Cc: lkp@intel.com, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+	jikos@kernel.org, dan.carpenter@oracle.com,
+	linux-input@vger.kernel.org, michael.zaidman@gmail.com
+Subject: Re: [PATCH] HID: ft260: fix format type warning in ft260_word_show()
+Message-ID: <20210510091730.GA2276@michael-VirtualBox>
+References: <202105060637.LeEC6ztp-lkp@intel.com>
+ <20210509193213.5974-1-michael.zaidman@gmail.com>
+ <26e1929386babea33d4a320b506c5247caacde77.camel@perches.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-05-10_04:2021-05-10,2021-05-10 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 suspectscore=0
- priorityscore=1501 mlxscore=0 impostorscore=0 spamscore=0 bulkscore=0
- mlxlogscore=999 adultscore=0 lowpriorityscore=0 clxscore=1015
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2104190000 definitions=main-2105100061
-X-Original-Sender: schnelle@linux.ibm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=O33KM7of;       spf=pass (google.com:
- domain of schnelle@linux.ibm.com designates 148.163.158.5 as permitted
- sender) smtp.mailfrom=schnelle@linux.ibm.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=ibm.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <26e1929386babea33d4a320b506c5247caacde77.camel@perches.com>
+X-Original-Sender: michael.zaidman@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=YxPQ5HdJ;       spf=pass
+ (google.com: domain of michael.zaidman@gmail.com designates
+ 2a00:1450:4864:20::32e as permitted sender) smtp.mailfrom=michael.zaidman@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -171,244 +157,137 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When PCI_IOBASE is not defined, it is set to 0 such that it is ignored
-in calls to the readX/writeX primitives. This triggers clang's
--Wnull-pointer-arithmetic warning and will result in illegal accesses on
-platforms that do not support I/O ports.
+On Sun, May 09, 2021 at 01:39:29PM -0700, Joe Perches wrote:
+> On Sun, 2021-05-09 at 22:32 +0300, Michael Zaidman wrote:
+> > Fixes: 6a82582d9fa4 ("HID: ft260: add usb hid to i2c host bridge driver=
+")
+> >=20
+> > Fix warning reported by static analysis when built with W=3D1 for arm64=
+ by
+> > clang version 13.0.0
+> >=20
+> > > > drivers/hid/hid-ft260.c:794:44: warning: format specifies type 'sho=
+rt' but
+> > =C2=A0=C2=A0=C2=A0the argument has type 'int' [-Wformat]
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0retur=
+n scnprintf(buf, PAGE_SIZE, "%hi\n", le16_to_cpu(*field));
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0~~~     ^~~~~~~~~~~~~~~~=
+~~~
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%i
+> > =C2=A0=C2=A0=C2=A0include/linux/byteorder/generic.h:91:21: note: expand=
+ed from
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0macro 'le16_to_cpu'
+> > =C2=A0=C2=A0=C2=A0#define le16_to_cpu __le16_to_cpu
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0^
+> > =C2=A0=C2=A0=C2=A0include/uapi/linux/byteorder/big_endian.h:36:26: note=
+: expanded from
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0macro '__le16_to_cpu'
+> > =C2=A0=C2=A0=C2=A0#define __le16_to_cpu(x) __swab16((__force __u16)(__l=
+e16)(x))
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > =C2=A0=C2=A0=C2=A0include/uapi/linux/swab.h:105:2: note: expanded from =
+macro '__swab16'
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(__bu=
+iltin_constant_p((__u16)(x)) ?     \
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0^~~~~=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >=20
+> > Signed-off-by: Michael Zaidman <michael.zaidman@gmail.com>
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > ---
+> > =C2=A0drivers/hid/hid-ft260.c | 2 +-
+> > =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/hid/hid-ft260.c b/drivers/hid/hid-ft260.c
+> > index 047aa85a7c83..38794a29599c 100644
+> > --- a/drivers/hid/hid-ft260.c
+> > +++ b/drivers/hid/hid-ft260.c
+> > @@ -791,7 +791,7 @@ static int ft260_word_show(struct hid_device *hdev,=
+ int id, u8 *cfg, int len,
+> > =C2=A0	if (ret !=3D len && ret >=3D 0)
+> > =C2=A0		return -EIO;
+> > =C2=A0
+> >=20
+> > -	return scnprintf(buf, PAGE_SIZE, "%hi\n", le16_to_cpu(*field));
+> > +	return scnprintf(buf, PAGE_SIZE, "%d\n", le16_to_cpu(*field));
+> > =C2=A0}
+>=20
+> There are 2 of these so I wonder about the static analysis.
 
-Make things explicit and silence the warning by letting inb() and
-friends fail with WARN_ONCE() and a 0xff... return in case PCI_IOBASE is
-not defined.
+There is nothing wrong with the static analysis. The first scnprintf format
+type is perfectly valid as far as its size is greater than the size of the
+data pointed by the *field pointer, which is a one byte size in our case.
+The static analysis warned about the second scnprintf case, where the forma=
+t
+type was shorter than the integer returned by the __builtin_constant_p.
+This warning can be considered as a false positive since the le16_to_cpu is
+all about the 16 bits numbers, but to silence it, I submitted the above fix=
+.
 
-Link: https://lore.kernel.org/lkml/20210421111759.2059976-1-schnelle@linux.ibm.com/
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
----
- include/asm-generic/io.h | 65 +++++++++++++++++++++++++++++++++++++---
- 1 file changed, 61 insertions(+), 4 deletions(-)
+> It's probably better to use sysfs_emit as well.
 
-diff --git a/include/asm-generic/io.h b/include/asm-generic/io.h
-index e93375c710b9..7b523683c241 100644
---- a/include/asm-generic/io.h
-+++ b/include/asm-generic/io.h
-@@ -8,6 +8,7 @@
- #define __ASM_GENERIC_IO_H
- 
- #include <asm/page.h> /* I/O is all done through memory accesses */
-+#include <linux/bug.h>
- #include <linux/string.h> /* for memset() and memcpy() */
- #include <linux/types.h>
- 
-@@ -440,10 +441,6 @@ static inline void writesq(volatile void __iomem *addr, const void *buffer,
- #endif
- #endif /* CONFIG_64BIT */
- 
--#ifndef PCI_IOBASE
--#define PCI_IOBASE ((void __iomem *)0)
--#endif
--
- #ifndef IO_SPACE_LIMIT
- #define IO_SPACE_LIMIT 0xffff
- #endif
-@@ -458,12 +455,17 @@ static inline void writesq(volatile void __iomem *addr, const void *buffer,
- #define _inb _inb
- static inline u8 _inb(unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	u8 val;
- 
- 	__io_pbr();
- 	val = __raw_readb(PCI_IOBASE + addr);
- 	__io_par(val);
- 	return val;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return ~0;
-+#endif
- }
- #endif
- 
-@@ -471,12 +473,17 @@ static inline u8 _inb(unsigned long addr)
- #define _inw _inw
- static inline u16 _inw(unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	u16 val;
- 
- 	__io_pbr();
- 	val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
- 	__io_par(val);
- 	return val;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return ~0;
-+#endif
- }
- #endif
- 
-@@ -484,12 +491,17 @@ static inline u16 _inw(unsigned long addr)
- #define _inl _inl
- static inline u32 _inl(unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	u32 val;
- 
- 	__io_pbr();
- 	val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
- 	__io_par(val);
- 	return val;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return ~0;
-+#endif
- }
- #endif
- 
-@@ -497,9 +509,13 @@ static inline u32 _inl(unsigned long addr)
- #define _outb _outb
- static inline void _outb(u8 value, unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	__io_pbw();
- 	__raw_writeb(value, PCI_IOBASE + addr);
- 	__io_paw();
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -507,9 +523,13 @@ static inline void _outb(u8 value, unsigned long addr)
- #define _outw _outw
- static inline void _outw(u16 value, unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	__io_pbw();
- 	__raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
- 	__io_paw();
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -517,9 +537,13 @@ static inline void _outw(u16 value, unsigned long addr)
- #define _outl _outl
- static inline void _outl(u32 value, unsigned long addr)
- {
-+#ifdef PCI_IOBASE
- 	__io_pbw();
- 	__raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
- 	__io_paw();
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -606,7 +630,11 @@ static inline void outl_p(u32 value, unsigned long addr)
- #define insb insb
- static inline void insb(unsigned long addr, void *buffer, unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	readsb(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -614,7 +642,11 @@ static inline void insb(unsigned long addr, void *buffer, unsigned int count)
- #define insw insw
- static inline void insw(unsigned long addr, void *buffer, unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	readsw(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -622,7 +654,11 @@ static inline void insw(unsigned long addr, void *buffer, unsigned int count)
- #define insl insl
- static inline void insl(unsigned long addr, void *buffer, unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	readsl(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -631,7 +667,11 @@ static inline void insl(unsigned long addr, void *buffer, unsigned int count)
- static inline void outsb(unsigned long addr, const void *buffer,
- 			 unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	writesb(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -640,7 +680,11 @@ static inline void outsb(unsigned long addr, const void *buffer,
- static inline void outsw(unsigned long addr, const void *buffer,
- 			 unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	writesw(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -649,7 +693,11 @@ static inline void outsw(unsigned long addr, const void *buffer,
- static inline void outsl(unsigned long addr, const void *buffer,
- 			 unsigned int count)
- {
-+#ifdef PCI_IOBASE
- 	writesl(PCI_IOBASE + addr, buffer, count);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
-@@ -1020,18 +1068,27 @@ static inline void __iomem *ioremap_np(phys_addr_t offset, size_t size)
- #define ioport_map ioport_map
- static inline void __iomem *ioport_map(unsigned long port, unsigned int nr)
- {
-+#ifdef PCI_IOBASE
- 	port &= IO_SPACE_LIMIT;
- 	return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+	return NULL;
-+#endif
- }
- #define __pci_ioport_unmap __pci_ioport_unmap
- static inline void __pci_ioport_unmap(void __iomem *p)
- {
-+#ifdef PCI_IOBASE
- 	uintptr_t start = (uintptr_t) PCI_IOBASE;
- 	uintptr_t addr = (uintptr_t) p;
- 
- 	if (addr >= start && addr < start + IO_SPACE_LIMIT)
- 		return;
- 	iounmap(p);
-+#else
-+	WARN_ONCE(1, "No I/O port support\n");
-+#endif
- }
- #endif
- 
--- 
-2.25.1
+The sysfs_emit was introduced in the 5.10 kernel:
+2efc459d06f16 (Joe Perches 2020-09-16 13:40:38 -0700 335) int sysfs_emit(..=
+.)
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210510085339.1857696-4-schnelle%40linux.ibm.com.
+But, the hid-ft260 driver will be used mostly with older kernels, at least,
+for the next couple of years. Since older kernel versions do not have this =
+API,
+it will require patching the driver or kernel that I would like to avoid.
+Nevertheless, we can reconsider the sysfs_emit usage in this driver in the
+future, upon wider 5.10+ kernels' adoption.
+
+> ---
+>  drivers/hid/hid-ft260.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/hid/hid-ft260.c b/drivers/hid/hid-ft260.c
+> index 7a9ba984a75a..475641682fff 100644
+> --- a/drivers/hid/hid-ft260.c
+> +++ b/drivers/hid/hid-ft260.c
+> @@ -783,7 +783,7 @@ static int ft260_byte_show(struct hid_device *hdev, i=
+nt id, u8 *cfg, int len,
+>  	if (ret !=3D len && ret >=3D 0)
+>  		return -EIO;
+> =20
+> -	return scnprintf(buf, PAGE_SIZE, "%hi\n", *field);
+> +	return sysfs_emit(buf, "%d\n", *field);
+>  }
+> =20
+>  static int ft260_word_show(struct hid_device *hdev, int id, u8 *cfg, int=
+ len,
+> @@ -795,7 +795,7 @@ static int ft260_word_show(struct hid_device *hdev, i=
+nt id, u8 *cfg, int len,
+>  	if (ret !=3D len && ret >=3D 0)
+>  		return -EIO;
+> =20
+> -	return scnprintf(buf, PAGE_SIZE, "%hi\n", le16_to_cpu(*field));
+> +	return sysfs_emit(buf, "%d\n", le16_to_cpu(*field));
+>  }
+> =20
+>  #define FT260_ATTR_SHOW(name, reptype, id, type, func)			       \
+>=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210510091730.GA2276%40michael-VirtualBox.
