@@ -1,130 +1,126 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB3NB5OCAMGQESPWM5KI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB7NJ5OCAMGQEVCKEUGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D16E37AE9D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 20:46:07 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id d15-20020a92d5cf0000b02901b850036e2esf8821335ilq.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 11:46:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620758766; cv=pass;
+Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
+	by mail.lfdr.de (Postfix) with ESMTPS id BEA8537AF01
+	for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 21:03:26 +0200 (CEST)
+Received: by mail-io1-xd40.google.com with SMTP id p8-20020a6bce080000b0290439fae86534sf4320368iob.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 12:03:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620759805; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rU8lEZ1+fst05DZ+PnenH0WVRODBbnSuLG6b1FwlQ/VjYICpdngbNrPpAauIsww2Gb
-         /2nSe68YwyoRyAAlU5W+O5L67np9oqh2uK1UV4Ki8GRYA9D6e2mCzM18w6L2lNH1WPr4
-         UP7vB2+P522fknPqclrf/BNRGjC4cwA3cAuURL/hSx4zqylWyD+9JiF9F7qfGzAFd+e9
-         OsvlwAzr/xVQ1mAAEcfMoo0UG/1faDQzw+UYfr0XO+28JFbhNm9iT5FFldZrqKbQZuqi
-         JJEauYhB7AGZGzd+m+LVIGLUBCWj6buDotYSuxYQ05+vEYScaTFuVzDUFuei80nRAMu9
-         Gn5Q==
+        b=fhYvjSQJ/R0XfGKrepHw2V22wFZw4/uRoQcWYQ2ryBJ61LPzm4q1xw6BXLzj6XbhUZ
+         6xsDVKgzNrNrW/LgSvRa00TJ9G6y0uGBL24pA33ShDP5ymkv+UciQA8EnZFRCAY25lnb
+         lpr6Fqf4W7X4ahcrYF58dCt/FORtDNj5G+vvarLZL2eFjkm1/wEK1YdDvagttEiG5sNL
+         YtLbCyq25bCKin6zjHEO+cNxM+CkHSCOS98CiZg9chlOb61YwfecSZX0kG2LWd27ayUs
+         HrOmhnbSPbphB8mlD//om4hswSyr4nGdqJBuRZEfb48PS73MV0nizwPGi7m68CXDDfVQ
+         leXg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=DLdoT2pBmMRktja/+RSHYt7st5MsJy4WnJoUY8Zq9/8=;
-        b=Z7lUWXzDB3mzsO5UcGIgi8zI+iZiCMHZ7mzkJ72ShiRFWumcKz8PgimyceE4YLaXud
-         qN3WJFGB5YEpNe6MKkUta9drXWmEyAJhUjJslO4HYit4qF56YmfU5wFrTdq3bM9TKG1H
-         T4CzueVKLZQ2BzUxfQVPWnHzCXqClKFfQhY0+v5CmgqFIfMdTIyz9nP3OLGRUmBNS9vM
-         dPiU5Y6ZbGIQ1mxiUaRnWFVbzBMNO07tKfrzHsAFY82DDp1O2iAq9Z5JtboQAacPEMIg
-         YB4Wr3Ag25HaXr7ooaGHUhusexMLQ//WA9GtzYoGB4B5W6tXI0Exp44krye9xq8mHIHY
-         Yh9A==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=wNTFDZbToU1LPwBkSStR23yVhYFz2XQo1Bsp/qY9FLc=;
+        b=HabVrqAaojBcOMcyQnWx6ABAGg1P3ta6MN7KElT+/DKx1XCWpt5vZ8Jh0KK1jjKSlp
+         miPThpodnJSWqLo1Uex2k7cktU5I/vysSNTLlOsc8tJQ6yBFD35fJkE5TIbZ47rJMtMp
+         +Pt4EskQGfqeo3K21aqISvfTIUzCDFueWydfpPO14KJqT+tZpVzS8wCVjCWGFdy5DIzu
+         Cm91L62wBMnGTrBT/medkN8GD1O8itXOpAOoIzU+svQYqgkiWFwwc//V9ChDEiuHpptb
+         yZyd4x4nHMEpbLP0rQgB8Fl4ghsq6K3GsRYCBTJfLKetlu93X/D8eO5siQSMBRYWZyTR
+         TMmQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AuRbkncb;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=L91wfspy;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
+        h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DLdoT2pBmMRktja/+RSHYt7st5MsJy4WnJoUY8Zq9/8=;
-        b=sioilcfYWpn2t088odCXA81v7CmS1rxwsvGWjMh0zx+ZojfQyA1HpMgesqOkeEybXt
-         Mp9QojDYuIvfgBAoCYpAIfLiGJgbp3qeNMXDlrjT/fe8Luk2YUifQP/7qjx2/6EL0CeM
-         ku1n/ovky0DRpTKBkxFmRSOrd4/DHxpkFx1Zi+YP904k/abjYcuWnjQFGRwbk13rwE5S
-         hfDrUgLQlWbcdZ9l67Mh6XsYHX9OFGVgncfZLoNbMNV8fpsHB+sUJdCOAPdFV1abwUe7
-         Rr2oVpMJoDObVHRzQ+bdxNv6AEeePPHwCkH5yxSzR6w/x/0xZKbTsNBs+d45/qFZt3at
-         Hzxg==
+        bh=wNTFDZbToU1LPwBkSStR23yVhYFz2XQo1Bsp/qY9FLc=;
+        b=GOFwgNh8bmyA0qfb0omWsKfLm6lB3Thfcu1hxt7Qk/zcK4ZbiJG2onDCtQ5G0NtOsi
+         Orr0/TzwAmfpFoE/re7q0a5cpmDQpox0H9zpUKb8368jOKNcBpY0ZXo7Ysv/e4bRzTle
+         8eNcDVihZEK6g94+rOyQ9QUV4h3xadjoQafnIsdY8keJwWFs2pQWyK8ubdVWJ40E/LKB
+         ITQjmSo35G6BfJgay0oql4ebXxr0q25VAildtZUWAL429JIw+WkdfSxEeQQSaAPuLScZ
+         /VXWOzKbTvvWfXtRathfLIUOjiGJMqqndmrEIFgCLzFyeUR+bQdms3aQBnPu2eM6Psh7
+         JHkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DLdoT2pBmMRktja/+RSHYt7st5MsJy4WnJoUY8Zq9/8=;
-        b=His3y2RAPl1gZYu4yYLdMCWYTD62M37e8crT1pgF1e0rYQiBZZWyKbYPFuHtUS8jqq
-         TtXgz6jnIuJibbCjWJWTAegzZ6crzZuykVmhE0qS4pmrMEkYY98KnK62dJIYw1to6d5a
-         AKmb3M6euWJq4tmTswDU1zV3AWZgi2zgZ473kyGNe06M8xyhyAlIutPbSfzO9nVumbYY
-         HJA0TJB7H4pRwXzTI9fcX9HFhUL2qU9WhueF5g6Rw2gycbNjnjoaDFp8w0WX+fMTZUeK
-         MK5lQzrx//4aFqMBASMN8Fk58ZEGW0wqOMYhvvizaE83pK9sOHTBULtjfQMmGksJU0vs
-         ewrA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wNTFDZbToU1LPwBkSStR23yVhYFz2XQo1Bsp/qY9FLc=;
+        b=C+HEOE/6PbhP5MKW5aaFMEolxWtsWzHqXKysh7Kk7PjJ3Mzt1622ar/eTZo3F/VWun
+         1LjcpxA4wlep+ulwzeZg9JdoGbuloTlZ4XubIGELuWSEx7RRlgzugUUJQaY6f2PTEfQS
+         SIe2AS7rVeKdes10cUWs3o1fGV9qd15rltXCkWHE0Ezfgtj3EZuHmIuaUqr2bQhm9aIl
+         XqiUa4+eHb4d6pZqAxb0KmxD22o2DlCYt9jnYP0mqXgIaF2AvKcgFA1jwjU9/t1N0gIw
+         GtASfiFuE+uQ77E38E4d+PoA47yuvPxdn1OS793tAtzmonC1uYJN5KN8yYyAod1qQhH7
+         zAjA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530fvagxjWSVq3o5XjxfxBGd/y1JHhn7A0DvRea6SnI+DWnoty+6
-	iRBvnEgyn7opm2jF60kW8cQ=
-X-Google-Smtp-Source: ABdhPJwFYWllGPlfapzC7EXCCku/gOnT2R2xba7iaU5oSJaloVK1gxzy2pfurLWbKk0ocdtMkNUf+w==
-X-Received: by 2002:a5d:878e:: with SMTP id f14mr23370966ion.176.1620758765991;
-        Tue, 11 May 2021 11:46:05 -0700 (PDT)
+X-Gm-Message-State: AOAM530NAQnSo9uh+RpFVApwGvH4JkEdJF5xnOXKC6Eybmbh2mPXDcuO
+	0EmdId3ARnmLRvwsBGMCsbM=
+X-Google-Smtp-Source: ABdhPJzsD5mrMTmyMpn3gGNhOd2L3a2SMecYtv4uKFaN/xrOz7LbhTdEtyblCiy0jG0YVrSGsGLeKg==
+X-Received: by 2002:a92:d0d0:: with SMTP id y16mr1771841ila.93.1620759805578;
+        Tue, 11 May 2021 12:03:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:37aa:: with SMTP id w42ls2434801jal.6.gmail; Tue,
- 11 May 2021 11:46:05 -0700 (PDT)
-X-Received: by 2002:a02:5b85:: with SMTP id g127mr28444802jab.80.1620758765709;
-        Tue, 11 May 2021 11:46:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620758765; cv=none;
+Received: by 2002:a5d:9f59:: with SMTP id u25ls2861180iot.10.gmail; Tue, 11
+ May 2021 12:03:25 -0700 (PDT)
+X-Received: by 2002:a05:6602:221a:: with SMTP id n26mr9882999ion.205.1620759805229;
+        Tue, 11 May 2021 12:03:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620759805; cv=none;
         d=google.com; s=arc-20160816;
-        b=MfjS7UGsWNcyG6UOops7dskdegcgMoV7vY0NxqmqDcR2NA6fgdMRdlGCvuFy8MwiKR
-         gBJcHZxszxrZr83m3OgCgoYrmz/QzZdr6guSp1EApRZoceCvLZvUtqNHjeWk8tq+USwr
-         MKEktpacXTVA2+8Wit6GTxiKPehKOF/oF4GRe2Nn1aV1zwxWXyR3JuhC+C7Fg70l4o6Z
-         oeBPQsAEqyBJtsBPIWvjS/oY8jnLNLuNFmbDxcc96yxSiCgzvwh3FRZZ2s0Xjlz4BgEN
-         NDcxguj18CM9ap3byXNZSBRM86bjYWOWqgNpQFpjpD0D53/FpSeBz+58AZrE95Eeoc6K
-         gmAQ==
+        b=veaDj8V9GDjrAvJ7lQFBNf1LMCNr2g6wElPT3PeOo2ZSOGpEZ6reytWJr935ciE1zb
+         Jw70hzMe9HXA9P+DGIHKsAgFhGTf7oJ54oE6O0fzGFpcDdoei69gbPJVjaOcoIcJ+O2X
+         TLrwHVdBpcplgq0FM8jmK+nmr3/Mc1QtuVbPni/tSXOzlFI34WNQuqzZAwN62XXgn6m/
+         D0UTenE0iMz7mJfkiHoXyI9z2lxIzT2KFReeOVLCKQlZ3OKiLLPgagRsR+kqOg5lyRqu
+         Uy0iGDx90sfH3eWNuJXuHgxt1CFLoz1HR4sZ+NrDzr4ZfEW+pUXrUmI5OVQO48Uy7pjv
+         tHQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=8ahIqUVcwHOHeNh93cawEugmPUkSHvi42XrtQsvfck8=;
-        b=sSuObHwVddXYc9+kfbLbWweOfdn7Ote+ISiLrSwL9Gj5/VwH/kG7JBsYE4j8HgUGHO
-         C4nXkp6HVLstHCk/2RVI5MGxXonF1YhIfZVEmL0t1tzNvEAUX3ujL8Wb9oxl9nx9ENje
-         Y+cAG0EkFMkFsxKsEG76gGva6OWqmVTT0C4snjdAnXvSRKOpTL4Tm7pnD6juZqfcilj7
-         I9Xyve5Ftx4Yd/rhO+3RObcdIM7shLi1wO+Sg/yAg/NiI/D9Elwa/mLbqqjBXdNYIdKO
-         x85GVyCuCGrERIa3KMu8PFlWEIucWnXd/QPIDTU8hIGhUilIfa1DI3H/hgqmSyyWDqus
-         W99Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=bG6k9Qci2yuTw3Pw0iYm0I1m4cg6VEheA4ijBojAjCY=;
+        b=sLwrTUiQP97WP/+UmtTRuAMY4yi5Z2c1xT1c/YLRKRApkvVSZpmj1tfjDIGSGEqvOh
+         sDP4itYwh79h/uO/BseR/xd1bGieWs0chAu4InzKRy1zd8VNOC1boIDjXvcxOhTVoYo2
+         x+ws2v/hOCRU9GgNfZjUt0lTdHXqb0y+40fqnzdoFoT9s/EOMbhr9ml6GG9qWnr4H7e7
+         2spp7sQ0ez98vh4iVO1Z1Mkbrq30S/kNBLVYUSA3atpacVvpYGbBlROFBP8iI6QLEmeh
+         V/yAwexKtxqXDMrWE//wwg9l0nZLgQYJIH0AQMvqbURst/p/aZ/0BSwyUKSZvQzmz2Ye
+         7bmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AuRbkncb;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=L91wfspy;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o3si2096454ilt.5.2021.05.11.11.46.05
+        by gmr-mx.google.com with ESMTPS id l25si1316284ioh.2.2021.05.11.12.03.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 11 May 2021 11:46:05 -0700 (PDT)
+        Tue, 11 May 2021 12:03:25 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 572136188B;
-	Tue, 11 May 2021 18:46:04 +0000 (UTC)
-Subject: Re: arch/powerpc/kernel/optprobes.c:34:1: error: unused function
- 'is_kprobe_ppc_optinsn_slot'
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- kernel test robot <lkp@intel.com>, Nick Desaulniers <ndesaulniers@google.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>
-References: <202105120059.uTLH58Lm-lkp@intel.com>
- <48747467-cb93-c66d-4cf9-097be0568488@csgroup.eu>
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 45A9F61554;
+	Tue, 11 May 2021 19:03:22 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <208186f3-aab0-d94e-bcf4-8347983cc1a6@kernel.org>
-Date: Tue, 11 May 2021 11:46:03 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Banajit Goswami <bgoswami@codeaurora.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Yang Li <yang.lee@linux.alibaba.com>,
+	alsa-devel@alsa-project.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] Revert "ASoC: q6dsp: q6afe: remove unneeded dead-store initialization"
+Date: Tue, 11 May 2021 12:03:06 -0700
+Message-Id: <20210511190306.2418917-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.31.1.527.g2d677e5b15
 MIME-Version: 1.0
-In-Reply-To: <48747467-cb93-c66d-4cf9-097be0568488@csgroup.eu>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
+X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=AuRbkncb;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=L91wfspy;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,140 +133,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 5/11/2021 9:47 AM, Christophe Leroy wrote:
-> Hi All,
->=20
-> Le 11/05/2021 =C3=A0 18:30, kernel test robot a =C3=A9crit=C2=A0:
->> Hi Christophe,
->>
->> First bad commit (maybe !=3D root cause):
->>
->> tree:  =20
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git maste=
-r
->> head:=C2=A0=C2=A0 1140ab592e2ebf8153d2b322604031a8868ce7a5
->> commit: eacf4c0202654adfa94bbb17b5c5c77c0be14af8 powerpc: Enable=20
->> OPTPROBES on PPC32
->> date:=C2=A0=C2=A0 3 weeks ago
->> config: powerpc-randconfig-r033-20210511 (attached as .config)
->> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project=20
->> a0fed635fe1701470062495a6ffee1c608f3f1bc)
->=20
-> A clang issue ?
->=20
->=20
->> reproduce (this is a W=3D1 build):
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wget=20
->> https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross=
-=20
->> -O ~/bin/make.cross
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 chmod +x ~/bin/make.cro=
-ss
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # install powerpc cross=
- compiling tool for clang build
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # apt-get install binut=
-ils-powerpc-linux-gnu
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 #=20
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commi=
-t/?id=3Deacf4c0202654adfa94bbb17b5c5c77c0be14af8=20
->>
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git remote add linus=20
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git fetch --no-tags lin=
-us master
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git checkout eacf4c0202=
-654adfa94bbb17b5c5c77c0be14af8
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # save the attached .co=
-nfig to linux build tree
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 COMPILER_INSTALL_PATH=
-=3D$HOME/0day COMPILER=3Dclang make.cross=20
->> W=3D1 ARCH=3Dpowerpc
->>
->> If you fix the issue, kindly add following tag as appropriate
->> Reported-by: kernel test robot <lkp@intel.com>
->>
->> All errors (new ones prefixed by >>):
->>
->>>> arch/powerpc/kernel/optprobes.c:34:1: error: unused function=20
->>>> 'is_kprobe_ppc_optinsn_slot' [-Werror,-Wunused-function]
->> =C2=A0=C2=A0=C2=A0 DEFINE_INSN_CACHE_OPS(ppc_optinsn);
->> =C2=A0=C2=A0=C2=A0 ^
->> =C2=A0=C2=A0=C2=A0 include/linux/kprobes.h:306:20: note: expanded from m=
-acro=20
->> 'DEFINE_INSN_CACHE_OPS'
->> =C2=A0=C2=A0=C2=A0 static inline bool is_kprobe_##__name##_slot(unsigned=
- long=20
->> addr)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->=20
-> That's a 'static inline', shouldn't generate an 'unused function' warning=
-.
-This is a W=3D1 build, which means that "inline" does not silence unused=20
-function warnings with clang because of commit 6863f5643dd7 ("kbuild:=20
-allow Clang to find unused static inline functions for W=3D1 build").
+This reverts commit 5f1b95d08de712327e452d082a50fded435ec884.
 
-Cheers,
-Nathan
+The warnings that commit 5f1b95d08de7 ("ASoC: q6dsp: q6afe: remove
+unneeded dead-store initialization") was trying to fix were already
+fixed in commit 12900bacb4f3 ("ASoC: qcom: q6afe: remove useless
+assignments"). With both commits in the tree, port_id is uninitialized,
+as pointed out by clang:
 
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^
->> =C2=A0=C2=A0=C2=A0 <scratch space>:16:1: note: expanded from here
->> =C2=A0=C2=A0=C2=A0 is_kprobe_ppc_optinsn_slot
->> =C2=A0=C2=A0=C2=A0 ^
->> =C2=A0=C2=A0=C2=A0 1 error generated.
->>
->>
->> vim +/is_kprobe_ppc_optinsn_slot +34 arch/powerpc/kernel/optprobes.c
->>
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 20
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 21=C2=A0 #define TMPL_CALL_HDLR_I=
-DX=C2=A0=C2=A0=C2=A0 \
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 22     =20
->> (optprobe_template_call_handler - optprobe_template_entry)
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 23=C2=A0 #define TMPL_EMULATE_IDX=
-=C2=A0=C2=A0=C2=A0 \
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 24     =20
->> (optprobe_template_call_emulate - optprobe_template_entry)
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 25=C2=A0 #define TMPL_RET_IDX=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 26=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-(optprobe_template_ret -=20
->> optprobe_template_entry)
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 27=C2=A0 #define TMPL_OP_IDX=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 28     =20
->> (optprobe_template_op_address - optprobe_template_entry)
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 29=C2=A0 #define TMPL_INSN_IDX=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 30=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-(optprobe_template_insn -=20
->> optprobe_template_entry)
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 31=C2=A0 #define TMPL_END_IDX=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 32=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-(optprobe_template_end -=20
->> optprobe_template_entry)
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 33
->> 51c9c084399352 Anju T 2017-02-08 @34=C2=A0 DEFINE_INSN_CACHE_OPS(ppc_opt=
-insn);
->> 51c9c084399352 Anju T 2017-02-08=C2=A0 35
->>
->> :::::: The code at line 34 was first introduced by commit
->> :::::: 51c9c0843993528bffc920c54c2121d9e6f8b090 powerpc/kprobes:=20
->> Implement Optprobes
->>
->> :::::: TO: Anju T <anju@linux.vnet.ibm.com>
->> :::::: CC: Michael Ellerman <mpe@ellerman.id.au>
->>
->> ---
->> 0-DAY CI Kernel Test Service, Intel Corporation
->> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->>
->=20
+sound/soc/qcom/qdsp6/q6afe.c:1213:18: warning: variable 'port_id' is
+uninitialized when used here [-Wuninitialized]
+        stop->port_id = port_id;
+                        ^~~~~~~
+sound/soc/qcom/qdsp6/q6afe.c:1186:13: note: initialize the variable
+'port_id' to silence this warning
+        int port_id;
+                   ^
+                    = 0
+1 warning generated.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/208186f3-aab0-d94e-bcf4-8347983cc1a6%40kernel.org.
+Bring back the initialization so that everything works as intended.
+
+Fixes: 5f1b95d08de7 ("ASoC: q6dsp: q6afe: remove unneeded dead-store initialization")
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ sound/soc/qcom/qdsp6/q6afe.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sound/soc/qcom/qdsp6/q6afe.c b/sound/soc/qcom/qdsp6/q6afe.c
+index c5c1818a6f75..729d27da0447 100644
+--- a/sound/soc/qcom/qdsp6/q6afe.c
++++ b/sound/soc/qcom/qdsp6/q6afe.c
+@@ -1183,7 +1183,7 @@ int q6afe_port_stop(struct q6afe_port *port)
+ 	struct afe_port_cmd_device_stop *stop;
+ 	struct q6afe *afe = port->afe;
+ 	struct apr_pkt *pkt;
+-	int port_id;
++	int port_id = port->id;
+ 	int ret = 0;
+ 	int index, pkt_size;
+ 	void *p;
+
+base-commit: 4ac9b48adf4d561d0e33419d548278f205dd70b5
+-- 
+2.31.1.527.g2d677e5b15
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210511190306.2418917-1-nathan%40kernel.org.
