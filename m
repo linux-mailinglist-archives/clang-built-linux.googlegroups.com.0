@@ -1,144 +1,127 @@
-Return-Path: <clang-built-linux+bncBDLKPY4HVQKBBG7K5KCAMGQELCC3NAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD5JHS4X5YBBB5ME5OCAMGQEAOHDZVA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5386537AC49
-	for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 18:47:24 +0200 (CEST)
-Received: by mail-lj1-x23c.google.com with SMTP id v26-20020a2e481a0000b02900bf48f13296sf11087803lja.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 09:47:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620751644; cv=pass;
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 59CDF37AD4B
+	for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 19:44:23 +0200 (CEST)
+Received: by mail-oo1-xc3b.google.com with SMTP id 126-20020a4a17840000b02901e5e0ccc28asf9582245ooe.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 10:44:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620755062; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HS/kx5tyzt7a2dj79GO5MbstcqQLtiFVvJcx87+FGlZWi1OIZIPv+m5JM/+BuKYLkV
-         GxlC7PqjWReZotRofPDhrX2PUsEKaaS6+9dSm8B7nKl4A9yE3fYmTzEV/uAtCymMijnL
-         ToO/sJ9mcF+qbGTDc3ctlICDvj2ncxEDHNdUu0Mul59aDVEB53pdiE1nHxQHp2tX5G2E
-         wt6lzLTt12j1YzzJyfSIulVAQSjIo+ZcSzB327idTZkQ57J077Sz4Wy2hWd7s8pAT612
-         ZeSCrHo3d0O4ihP9UXOg+p8fFyJTjrGMy6tiu+kvhRfJc7Hwz+0wjdSLUlBVnGXosdcf
-         Q08g==
+        b=ByaEQ0nwhHuZltzRrLGInWy64/JcRfbvRXqWkN6/IdC9FI3g22dEaiElTBYXgiuEMy
+         bKzwpPcgFyvwtbyNQfgjw92j2KIsyhmCGLX3554xJ7Y8DgOWAeafM27r/v9vBA1oThjZ
+         +Z23eYCVCVbnhp2+/AI/L7Ns3YzxzjVrZizCiE+ZgD+7AaCZ074KMZw6k014r8miqw5B
+         fkaqWCl57OW81YhKoEmgbp76mSvL1eLFvMaPZcdClrvSisGnlHfTxlNFMKjH5vDXyDY6
+         zc+YztiEzLpqRMmKFMuDSMmMgqXYgrqozPVHoT/oK7PiOrr+H8XRwGH417Ew9A1gXXkf
+         ml/A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=OayZsAgfOtGYTqhHMq4xXcjMpZlpWNRhmqrRBHerQBk=;
-        b=c0pn+AU7Cc4Dqiyf2H3TRRw4QYd/tjtpUbp/NAAzubeGmJeXh/my7zD56hf9DxsyV4
-         reMw3t7TTTZx0WNV1de19TgETNAUMegO7eRWR/sNrNzjtibADrsehjXDCzLi1yummlnp
-         bKOI5s8ICpcOssP8/nv7wxcnNOXX+rRW6QQxdwbXt53fGlcDnhI78kwKnkAS3zHfxA5+
-         rkXYTnDJOxqNRB+7lYAmBsPf9KJL1QXZU2z/VrwSkhAGht/QGI/qn8z7Tx/NNWQupKpW
-         rea2WrVNxisNlXM0o7tBcZdZknaXpzdc9XBZN7zzzzQeOZ6ZkZ0FHfOu8TzITyK+Hjo5
-         8Izw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=t5CGxyqwp2/ydg3wrINp+ZHMrHSQV4lxgJDdjU/Ck5c=;
+        b=eDcogC0jDFiXndUHs3DPq/xdnCwbnEX99MeU/Sr4MmjQ5CPMFr8lzdS6ZphMLqrgdy
+         JejB47sRmjBnfXokwvmFrBb7xp5CajVe52FQdHYolrC7PbcMRJX0XReLmpVqPo+4HSHs
+         3gnWEA6NQEojIKWfFnbaEbq2lWw7DMXGtD9Ytt0Gid4kKmUiofnDpzgImGrMS2D/deUK
+         2sQG/l5mcKLMy5zhcHaYtNBiA08XnwlQZE88NjHJlYjmavbOZyrjqy71a0oIACUH3oaP
+         HO/TYs7n/1xBDlkI0qGgHscP0vQ3qrv+6+yMNnmeijIfjiTB3OslSXcUfHRsiCJCIkmn
+         20zQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+       spf=pass (google.com: domain of aik@ozlabs.ru designates 107.174.27.60 as permitted sender) smtp.mailfrom=aik@ozlabs.ru
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
+        h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OayZsAgfOtGYTqhHMq4xXcjMpZlpWNRhmqrRBHerQBk=;
-        b=Bm0LKGpk+R68hpDLBz22Y39luOc/Gb+ThjHiVl2zdYq/xGxJx01fB3myB2V3Y90qja
-         TWacbljTCAFIL0W3zU+8tjgpzDskP26tx1eAFO4X5K0HNuaiEvxUycItzsleiMkXvLS3
-         xL3kiH2w79J1wJoeclU6kWUt/XybjtcHQn/PaASVlIxqnkIS+T84CNcB1jm7b77NtQEZ
-         ihN5kPD0q6vZRcToesvS884Ja1IWzuKF5jWYHVNlsaF8jNYrYJMemWi9YWHH8//mt1hn
-         txsLa/o67LPmfO/IOb2PeIGGRJMbjc05M71ozOogR8YQQCS2/L089Rh9y8JzD0F1JXi1
-         otnA==
+        bh=t5CGxyqwp2/ydg3wrINp+ZHMrHSQV4lxgJDdjU/Ck5c=;
+        b=WX2qp3xjKOZDQLwQqXKuNyAviArSd37R8fqltlASWfA58kcIzXfIhoitlyh5LVqZfY
+         ainhbdDvkruPbXekID8rTV2MMWDCcStX/p5CrVFx0EjfIsnoyfqUSWllBV+47wEZTQvE
+         OnAFD8TRf9CIAKnI2DSfrzZSQG662+hbwnMwLDyxt/haP+pksvTIgmBQyA9FPGNOWpzR
+         YIJAYYdpQc8HLq4tgBwoqqLg/6EEqG1c2I/tr+3xQQnP1xj/p8jv8ZTtgHwrPwmiEcgr
+         x33vDT0gRzjCMEL4GkmfHeRHSBVn9MWO32CYzU6kb49dXRlPb4FhlMSV95zqW/ut5uN9
+         y29g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OayZsAgfOtGYTqhHMq4xXcjMpZlpWNRhmqrRBHerQBk=;
-        b=O2/FCG+iX/xGlFYxm7nhbw35IvS4bsZdIUBK3MBzZjjNutzqVk1jKHsQmD0o7yNjpr
-         5Ui67GgRPtUCkOE5hqKQ8ItFdxYvdi24hL13FSVUUvhr18Uyvc0HJMb4vlirjVq4APwa
-         yW0yGfzIBEWREjKDbX/saKPZ3zaFwgfC+yawWddqUB6C93qoqdx84mNvnhcRP3GrYpge
-         ++BWao3Ipn47XMApss6ap4dFEmxkzIslRRPI9xv11ceAy7Uv85DGEtzhbeAvwBPHNkKy
-         X91CkQz6Jg5aNDGOhVQ2XiIhRLTSZ5DyW3IFRySnBURH+w65vPq2tdacZCiWRxmJ1K7Z
-         q5XA==
+        bh=t5CGxyqwp2/ydg3wrINp+ZHMrHSQV4lxgJDdjU/Ck5c=;
+        b=rjFwvuNRLYSXJfuPEmAEZnoqjYJmORX5ukoZOFTb9R6KehhUs6ELPNn+hwrAww4CyM
+         vT3779+uedk3ulARozHE5ybecmI4/H6VX2VVT1L6+0Ljf8pRoTzKKJ7GapatQtIhA9ke
+         J/hi2clFAnK2heM1JsrGtuNT7FZvL6nhOzo2JvNEB7n3gtj3Nm6lIRAQOG+jM223PQ7j
+         SZnhXLDEHEQ2B3RaC4pCFrrppNYDJ2Tp8wxEt4eE3owgbGQzn+Ikb9Vi5XGSK3toohc4
+         XNwzdLWr4HTqq8BvVbuye6lKGF8x7EplVtYRkpeuk2i7rqIA5+gXOuDlprlC8x/WlRBC
+         GgMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533VgeEevAbAbeBdH5ZnepQZen+1eVnn+xZ87eTsmaVueBtCeXD+
-	4HPbhs1FhoM/XkFJtERdCuU=
-X-Google-Smtp-Source: ABdhPJwyVeKJHtKNSLmJPUzmMESb9ck2OHeJQufcM+3Qdi0PXiCME9piE2PpaRPsfzd7TXWUNa12YQ==
-X-Received: by 2002:a2e:7207:: with SMTP id n7mr7867970ljc.352.1620751643917;
-        Tue, 11 May 2021 09:47:23 -0700 (PDT)
+X-Gm-Message-State: AOAM5301/P7yGd5xZMl6Iv5yyF1kqh8+OzQG3f4m9epSW2ZpHBtGa47U
+	fpwrC4ZdvMJ9knQ5NR0EWJ0=
+X-Google-Smtp-Source: ABdhPJxF2r8qh/sgOgPxjn5BHoZuel+sKlxJyzTNZsx4ME7jxWolZyfOQBDM7dMuA1W3BKm3+M8f6g==
+X-Received: by 2002:a9d:1b62:: with SMTP id l89mr27213283otl.307.1620755062345;
+        Tue, 11 May 2021 10:44:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:230f:: with SMTP id o15ls2997898lfu.1.gmail; Tue,
- 11 May 2021 09:47:22 -0700 (PDT)
-X-Received: by 2002:a19:c746:: with SMTP id x67mr21865293lff.113.1620751642689;
-        Tue, 11 May 2021 09:47:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620751642; cv=none;
+Received: by 2002:a9d:6c87:: with SMTP id c7ls5397639otr.3.gmail; Tue, 11 May
+ 2021 10:44:21 -0700 (PDT)
+X-Received: by 2002:a9d:5382:: with SMTP id w2mr26641242otg.153.1620755061741;
+        Tue, 11 May 2021 10:44:21 -0700 (PDT)
+Received: by 2002:aca:4d41:0:b029:1ed:65f6:ffda with SMTP id a62-20020aca4d410000b02901ed65f6ffdamsoib;
+        Mon, 10 May 2021 21:48:25 -0700 (PDT)
+X-Received: by 2002:a62:6491:0:b029:28e:8c90:6b16 with SMTP id y139-20020a6264910000b029028e8c906b16mr28146755pfb.24.1620708504910;
+        Mon, 10 May 2021 21:48:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620708504; cv=none;
         d=google.com; s=arc-20160816;
-        b=cbfRKKPTvz064YdnT/WiR+rQ7C/mmi5eLFVn8ZkPnqUVh/64C1THEMwKMVdaywbNp8
-         bDEtwsE630joL0hdzShmvzdcWP2/TaQPyH8z/xObhv4b74GJCRiHHuH2zUYjbGTuTbNG
-         sZMvyCYlDQOKCk7BAoMuJZAEuEESe8D1SV+jZrsUjdb5U7EB3VFCGOSndR8uwd3QklwK
-         Je1v9zEAG8fUTJB4Ry2j6gU4LwDMeTv7STfX2iRwY5axyNhABn/vvoCNWXOgLSJrU8dA
-         Cm9lPNRuPdt9YkGLwgjoi0HfSgSQ7AuIHJ92NstKjLLHQdApYPlUaarN4DhXHYZ9MIlg
-         1ptQ==
+        b=isBl45hmdHuXHmKNb1ud7rBQ8Us4Gd1DN3FJOkFTBf0/GXzMlFX0Aof2MdG/NpDNhQ
+         mwgkEkLbzQJ1enD8/PVVh9XgvNFrdSTNiBSiTmkFuQsjYoMB9wvzEbiQ9doASA5nYKAL
+         bUv+O7cGER4NJthh0EcPgmRyFLe+Z7USzDg53dNbRKnWkAHiFC6C0Njy9JYP8Ljptenp
+         /zgfihh/b4DIVkA1HzyWCeIXSZDmcc99wkZfN5ANkVhYSQnKlBgG4uR1he1xXZJPuzEP
+         mrhN5gCcCxj6lnZNMWXfyxZ+s+phTXbokuzISOfnS47dmtmiRhamWQQ3qpJf870dRYC8
+         pVZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=nQVcf3kAz81x8oIMymybLf3S3lX0pl0zpibGYiNXkxs=;
-        b=pUI6t+BC02cBhJC3kyr+hsSkAfWU64ebhqEnpjwxbvbwDk/MxOWtulc3tyrubaqE7z
-         5gBjzAGLWk9TPqagViUv3diDydWmBcofApd/I3Z8iFK1ZeW8q74FmaibfE5pzeg/iYmr
-         VkeMBmlSlbuETJuX5DbvziE4GKaW+j/tgUU/fmkexmSjx2klf8ImfISOVdvyvRmGEahO
-         PPhQD+W9srBGbRqr99K7TAltMkQroevGENZv+QX8B8GM0nmBSVraAl09/DQIlzD5Cl21
-         fQe0V9nKwzE1Z1/WKwW4GnEtE5uNG3OWWH3LxIyeGg4ZkDr5OW+NYydVDFN4i1FqNNBS
-         o9Kg==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=AjBszymjbEsoIrrkZRe86wkH9Q3VdNGvDnfErLwQDcA=;
+        b=cqCbA3EQdDLhWuE/oYxZJeKn4zrB+0gjt1UmvZztIAF6Hqr/Es/eBtwy3X48nIgApH
+         Rz0iInPeISZsxfM5Z3k+LEnHULTElDgpGJdVY9+EeWTPyKKc8dAZtUmm5akUyFGfVS1S
+         pr/3eYe40Wy4I+mXquZeenQtdDl+bLt5wZqfd5Ai0LlkfJaqKfm8D0lbdxFzSRVhhTVk
+         EO/2mUs35l/ize7Lm4yy/tK9z/eosYKZx9A8Fh9ztbwJnOOBvFm4nm0eTUanYxNrD4RX
+         ENsd2XVK/Dv4+BOuCQAPT4H9S+Tw7s1EMWGL7sNBuWvik/GSeQiyYHH9F8BnIbVt7icS
+         4RfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
-Received: from pegase2.c-s.fr (pegase2.c-s.fr. [93.17.235.10])
-        by gmr-mx.google.com with ESMTPS id o20si758154lfu.5.2021.05.11.09.47.22
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 May 2021 09:47:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) client-ip=93.17.235.10;
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4FfkNn4x37z9scw;
-	Tue, 11 May 2021 18:47:21 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id FdPnrTcrlk03; Tue, 11 May 2021 18:47:21 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4FfkNn3x2sz9sb1;
-	Tue, 11 May 2021 18:47:21 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 686EB8B7CC;
-	Tue, 11 May 2021 18:47:21 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id m3XhbXdmu7Jo; Tue, 11 May 2021 18:47:21 +0200 (CEST)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id D77BD8B7C2;
-	Tue, 11 May 2021 18:47:20 +0200 (CEST)
-Subject: Re: arch/powerpc/kernel/optprobes.c:34:1: error: unused function
- 'is_kprobe_ppc_optinsn_slot'
-To: kernel test robot <lkp@intel.com>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>
-References: <202105120059.uTLH58Lm-lkp@intel.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <48747467-cb93-c66d-4cf9-097be0568488@csgroup.eu>
-Date: Tue, 11 May 2021 18:47:10 +0200
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+       spf=pass (google.com: domain of aik@ozlabs.ru designates 107.174.27.60 as permitted sender) smtp.mailfrom=aik@ozlabs.ru
+Received: from ozlabs.ru (ozlabs.ru. [107.174.27.60])
+        by gmr-mx.google.com with ESMTP id p8si1330502pls.1.2021.05.10.21.48.24
+        for <clang-built-linux@googlegroups.com>;
+        Mon, 10 May 2021 21:48:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of aik@ozlabs.ru designates 107.174.27.60 as permitted sender) client-ip=107.174.27.60;
+Received: from fstn1-p1.ozlabs.ibm.com. (localhost [IPv6:::1])
+	by ozlabs.ru (Postfix) with ESMTP id AB91DAE80042;
+	Tue, 11 May 2021 00:48:16 -0400 (EDT)
+From: Alexey Kardashevskiy <aik@ozlabs.ru>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: Alexey Kardashevskiy <aik@ozlabs.ru>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH kernel v2] powerpc/makefile: Do not redefine $(CPP) for preprocessor
+Date: Tue, 11 May 2021 14:48:12 +1000
+Message-Id: <20210511044812.267965-1-aik@ozlabs.ru>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-In-Reply-To: <202105120059.uTLH58Lm-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: fr
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: christophe.leroy@csgroup.eu
+X-Original-Sender: aik@ozlabs.ru
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as
- permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+ (google.com: domain of aik@ozlabs.ru designates 107.174.27.60 as permitted
+ sender) smtp.mailfrom=aik@ozlabs.ru
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
-X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -147,106 +130,118 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi All,
+The $(CPP) (do only preprocessing) macro is already defined in Makefile.
+However POWERPC redefines it and adds $(KBUILD_CFLAGS) which results
+in flags duplication. Which is not a big deal by itself except for
+the flags which depend on other flags and the compiler checks them
+as it parses the command line.
 
-Le 11/05/2021 =C3=A0 18:30, kernel test robot a =C3=A9crit=C2=A0:
-> Hi Christophe,
->=20
-> First bad commit (maybe !=3D root cause):
->=20
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
-t master
-> head:   1140ab592e2ebf8153d2b322604031a8868ce7a5
-> commit: eacf4c0202654adfa94bbb17b5c5c77c0be14af8 powerpc: Enable OPTPROBE=
-S on PPC32
-> date:   3 weeks ago
-> config: powerpc-randconfig-r033-20210511 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project a0fe=
-d635fe1701470062495a6ffee1c608f3f1bc)
+Specifically, scripts/Makefile.build:304 generates ksyms for .S files.
+If clang+llvm+sanitizer are enabled, this results in
 
-A clang issue ?
+-emit-llvm-bc -fno-lto -flto -fvisibility=hidden \
+ -fsanitize=cfi-mfcall -fno-lto  ...
 
+in the clang command line and triggers error:
 
-> reproduce (this is a W=3D1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sb=
-in/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install powerpc cross compiling tool for clang build
->          # apt-get install binutils-powerpc-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux=
-.git/commit/?id=3Deacf4c0202654adfa94bbb17b5c5c77c0be14af8
->          git remote add linus https://git.kernel.org/pub/scm/linux/kernel=
-/git/torvalds/linux.git
->          git fetch --no-tags linus master
->          git checkout eacf4c0202654adfa94bbb17b5c5c77c0be14af8
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross W=
-=3D1 ARCH=3Dpowerpc
->=20
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->=20
-> All errors (new ones prefixed by >>):
->=20
->>> arch/powerpc/kernel/optprobes.c:34:1: error: unused function 'is_kprobe=
-_ppc_optinsn_slot' [-Werror,-Wunused-function]
->     DEFINE_INSN_CACHE_OPS(ppc_optinsn);
->     ^
->     include/linux/kprobes.h:306:20: note: expanded from macro 'DEFINE_INS=
-N_CACHE_OPS'
->     static inline bool is_kprobe_##__name##_slot(unsigned long addr)     =
-   \
+clang-13: error: invalid argument '-fsanitize=cfi-mfcall' only allowed with '-flto'
 
-That's a 'static inline', shouldn't generate an 'unused function' warning.
+This removes unnecessary CPP redefinition. Which works fine as in most
+place KBUILD_CFLAGS is passed to $CPP except
+arch/powerpc/kernel/vdso64/vdso(32|64).lds (and probably some others,
+not yet detected). To fix vdso, we do:
+1. explicitly add -m(big|little)-endian to $CPP
+2. (for clang) add $CLANG_FLAGS to $KBUILD_CPPFLAGS as otherwise clang
+silently ignores -m(big|little)-endian if the building platform does not
+support big endian (such as x86) so --prefix= is required.
 
->                        ^
->     <scratch space>:16:1: note: expanded from here
->     is_kprobe_ppc_optinsn_slot
->     ^
->     1 error generated.
->=20
->=20
-> vim +/is_kprobe_ppc_optinsn_slot +34 arch/powerpc/kernel/optprobes.c
->=20
-> 51c9c084399352 Anju T 2017-02-08  20
-> 51c9c084399352 Anju T 2017-02-08  21  #define TMPL_CALL_HDLR_IDX	\
-> 51c9c084399352 Anju T 2017-02-08  22  	(optprobe_template_call_handler - =
-optprobe_template_entry)
-> 51c9c084399352 Anju T 2017-02-08  23  #define TMPL_EMULATE_IDX	\
-> 51c9c084399352 Anju T 2017-02-08  24  	(optprobe_template_call_emulate - =
-optprobe_template_entry)
-> 51c9c084399352 Anju T 2017-02-08  25  #define TMPL_RET_IDX		\
-> 51c9c084399352 Anju T 2017-02-08  26  	(optprobe_template_ret - optprobe_=
-template_entry)
-> 51c9c084399352 Anju T 2017-02-08  27  #define TMPL_OP_IDX		\
-> 51c9c084399352 Anju T 2017-02-08  28  	(optprobe_template_op_address - op=
-tprobe_template_entry)
-> 51c9c084399352 Anju T 2017-02-08  29  #define TMPL_INSN_IDX		\
-> 51c9c084399352 Anju T 2017-02-08  30  	(optprobe_template_insn - optprobe=
-_template_entry)
-> 51c9c084399352 Anju T 2017-02-08  31  #define TMPL_END_IDX		\
-> 51c9c084399352 Anju T 2017-02-08  32  	(optprobe_template_end - optprobe_=
-template_entry)
-> 51c9c084399352 Anju T 2017-02-08  33
-> 51c9c084399352 Anju T 2017-02-08 @34  DEFINE_INSN_CACHE_OPS(ppc_optinsn);
-> 51c9c084399352 Anju T 2017-02-08  35
->=20
-> :::::: The code at line 34 was first introduced by commit
-> :::::: 51c9c0843993528bffc920c54c2121d9e6f8b090 powerpc/kprobes: Implemen=
-t Optprobes
->=20
-> :::::: TO: Anju T <anju@linux.vnet.ibm.com>
-> :::::: CC: Michael Ellerman <mpe@ellerman.id.au>
->=20
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->=20
+While at this, remove some duplication from CPPFLAGS_vdso(32|64)
+as cmd_cpp_lds_S has them anyway. It still puzzles me why we need -C
+(preserve comments in the preprocessor output) flag here.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/48747467-cb93-c66d-4cf9-097be0568488%40csgroup.eu.
+Signed-off-by: Alexey Kardashevskiy <aik@ozlabs.ru>
+---
+Changes:
+v2:
+* fix KBUILD_CPPFLAGS
+* add CLANG_FLAGS to CPPFLAGS
+---
+ Makefile                            | 1 +
+ arch/powerpc/Makefile               | 3 ++-
+ arch/powerpc/kernel/vdso32/Makefile | 2 +-
+ arch/powerpc/kernel/vdso64/Makefile | 2 +-
+ 4 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 72af8e423f11..13acd2183d55 100644
+--- a/Makefile
++++ b/Makefile
+@@ -591,6 +591,7 @@ CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+ endif
+ CLANG_FLAGS	+= -Werror=unknown-warning-option
+ KBUILD_CFLAGS	+= $(CLANG_FLAGS)
++KBUILD_CPPFLAGS	+= $(CLANG_FLAGS)
+ KBUILD_AFLAGS	+= $(CLANG_FLAGS)
+ export CLANG_FLAGS
+ endif
+diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+index 3212d076ac6a..306bfd2797ad 100644
+--- a/arch/powerpc/Makefile
++++ b/arch/powerpc/Makefile
+@@ -76,6 +76,7 @@ endif
+ 
+ ifdef CONFIG_CPU_LITTLE_ENDIAN
+ KBUILD_CFLAGS	+= -mlittle-endian
++KBUILD_CPPFLAGS	+= -mlittle-endian
+ KBUILD_LDFLAGS	+= -EL
+ LDEMULATION	:= lppc
+ GNUTARGET	:= powerpcle
+@@ -83,6 +84,7 @@ MULTIPLEWORD	:= -mno-multiple
+ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-save-toc-indirect)
+ else
+ KBUILD_CFLAGS += $(call cc-option,-mbig-endian)
++KBUILD_CPPFLAGS += $(call cc-option,-mbig-endian)
+ KBUILD_LDFLAGS	+= -EB
+ LDEMULATION	:= ppc
+ GNUTARGET	:= powerpc
+@@ -208,7 +210,6 @@ KBUILD_CPPFLAGS	+= -I $(srctree)/arch/$(ARCH) $(asinstr)
+ KBUILD_AFLAGS	+= $(AFLAGS-y)
+ KBUILD_CFLAGS	+= $(call cc-option,-msoft-float)
+ KBUILD_CFLAGS	+= -pipe $(CFLAGS-y)
+-CPP		= $(CC) -E $(KBUILD_CFLAGS)
+ 
+ CHECKFLAGS	+= -m$(BITS) -D__powerpc__ -D__powerpc$(BITS)__
+ ifdef CONFIG_CPU_BIG_ENDIAN
+diff --git a/arch/powerpc/kernel/vdso32/Makefile b/arch/powerpc/kernel/vdso32/Makefile
+index 7d9a6fee0e3d..ea001c6df1fa 100644
+--- a/arch/powerpc/kernel/vdso32/Makefile
++++ b/arch/powerpc/kernel/vdso32/Makefile
+@@ -44,7 +44,7 @@ asflags-y := -D__VDSO32__ -s
+ 
+ obj-y += vdso32_wrapper.o
+ targets += vdso32.lds
+-CPPFLAGS_vdso32.lds += -P -C -Upowerpc
++CPPFLAGS_vdso32.lds += -C
+ 
+ # link rule for the .so file, .lds has to be first
+ $(obj)/vdso32.so.dbg: $(src)/vdso32.lds $(obj-vdso32) $(obj)/vgettimeofday.o FORCE
+diff --git a/arch/powerpc/kernel/vdso64/Makefile b/arch/powerpc/kernel/vdso64/Makefile
+index 2813e3f98db6..07eadba48c7a 100644
+--- a/arch/powerpc/kernel/vdso64/Makefile
++++ b/arch/powerpc/kernel/vdso64/Makefile
+@@ -30,7 +30,7 @@ ccflags-y := -shared -fno-common -fno-builtin -nostdlib \
+ asflags-y := -D__VDSO64__ -s
+ 
+ targets += vdso64.lds
+-CPPFLAGS_vdso64.lds += -P -C -U$(ARCH)
++CPPFLAGS_vdso64.lds += -C
+ 
+ # link rule for the .so file, .lds has to be first
+ $(obj)/vdso64.so.dbg: $(src)/vdso64.lds $(obj-vdso64) $(obj)/vgettimeofday.o FORCE
+-- 
+2.30.2
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210511044812.267965-1-aik%40ozlabs.ru.
