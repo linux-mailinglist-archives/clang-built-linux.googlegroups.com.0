@@ -1,138 +1,124 @@
-Return-Path: <clang-built-linux+bncBDLIXLMFVAERB4GC5GCAMGQE2X2UM6Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBBOOS5GCAMGQEGGLOV6I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF19C37A4F1
-	for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 12:50:25 +0200 (CEST)
-Received: by mail-oi1-x240.google.com with SMTP id a144-20020acafc960000b02901ee0759f5f3sf87481oii.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 03:50:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620730224; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id EEBDF37A5AF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 13:23:38 +0200 (CEST)
+Received: by mail-vk1-xa3e.google.com with SMTP id j13-20020a05612212adb02901f8d901cae9sf1428074vkp.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 04:23:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620732217; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vYqx++yHjBfM5HZtTak61MU10OLdtSA4jAeB0JGcxhfRwM0/6Z+3SzYdiJw8fJ1Kz0
-         jk/1SXmcX0ODwLl1G1qL/xu6JCp+n39ZfN6gg/qYqE9/66SMcxsLntRdC2V9jjUl5S6C
-         qU+BFlhmeAiaeXEwhoIkngMQovEqOVDmyhLSFX4yNYVf/GypdBMZo4Gp+dCD8H6t53yk
-         p09E1XTvuGcaCvhIJ9Deslb4oMgESP/Yw6Ouw2jJvF/V+D/YRAmKvE/Sxk/kGXYRHe/2
-         ksukqKrinNbfOCp6DaQlJu1FFSrLyamQucHaJTPrHxtZnPPyJtNvVzbEh6ZdC6JQQypD
-         YYEQ==
+        b=qNO5OPLt693b+BGKnulemdIPvi+i7SY846p34NM5mD7jf8NT8KP8qOU5tw2jQmp059
+         I7c3hKaAhran5LP71N8V2sUCH77Vyy42MdCYjamhWIFFjzN9LrFQOtdBs+4+5inSw81P
+         AQ87ynLuBV6ISE0EHspsuw6e44kaEEJbRYUJTS+N0DymoxdcFeNschqbBo2H3FNM24PD
+         y2BeWQasV1UUCx3Uc26vTb79k74NQk6mTpOKuOg+/liooivzSOuUFhDxonEbH0QS0zZQ
+         MSrjDEoa9+crC7WYo8Qedbfd7WHUkuyD1jTacizmUG9v9g82bxF5opzESGcsoXABU66e
+         SKbw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:content-id
-         :mime-version:subject:cc:to:references:in-reply-to:from:organization
-         :sender:dkim-signature;
-        bh=GQYhcBi2WLsmwh3MqdnjBMa2cMNvjgvkWFTGNXWRcLo=;
-        b=q6+6GjheAnr3JIafw1co04F/krh7MMGM4Kk3aBN15EVS0aL73jtS2pC34k1/AfiZmn
-         worOVI0H2er+FGX/nHLoCWYWVUc1NuQyJmNnYhkgnQAIy2y9h5wSDYVcNYYvYNGm9LX4
-         Zza03xuQFeEG2tgDREy8hIpncPHR2INXvQ0Z9rGX9/JemEaWajbElV26sBgAHEugK/wp
-         3PZCjWwMculg0geAzVvS/VMkyABBC61jBTOcSEE2SnkxQtq0iGzJIrJbhfNoPFYxDIBR
-         PfF++MFC/CC7mpsfBPOzLhRTB0r5K8/ofYjdj3IvrHCGuXfCM+lKtLAtUw5wG3aPytt2
-         Ykeg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=GVWav0gm8qNk7tTsm+TcvcQW/qB58Q9hkUoEMzPoGTc=;
+        b=VwqU8QT8ADzKTB0EFV52ZGAHrdIYkH2i4le53BbnB2WN4brAAH3GjiKMVb0X/+NwWC
+         awPpn2xMiylO+b+Rt/17sWwQl9cWeXPWJltuyCc3IzA/t2MDxXxpOVyL3N7DKTqNZrqy
+         RejolpjulMxkOr3HsC7N0WJg3dcwjZNAVYmM16xs0JSjS0Z10HqQTyV9QMo+u+NedCxp
+         WbFD1QiebzpbDwn96OeCoViwrSIea7qP3K4q2e4fnYPsZs8okSGqnmVqIhXP1vTWszEi
+         2zr2lNyizHuN2mtqwX37n85MhK6Qn2ed3PMwLOxXd1HcVHid6G+a+ZEbvkk2iYd6Q07I
+         NKNQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=AhJkTE3c;
-       spf=pass (google.com: domain of dhowells@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:organization:from:in-reply-to:references:to:cc:subject
-         :mime-version:content-id:date:message-id:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GQYhcBi2WLsmwh3MqdnjBMa2cMNvjgvkWFTGNXWRcLo=;
-        b=rRjghzNegVKQB5WAQwF05Dctn8HcPPmX/AhI9zDbUoUHYoVqUwDefL2cPKyZZS0ID3
-         YhQ/0yobXv8ogteqvqPrhLjP0BT21cHWzRZieKeF2Bq8rhWWxzsA9p34qfeT1SshFWv/
-         hwUdlx0Py0AxrZkR88ivj5NTp/P224Z+Q2h0MdZ3Nj0Ocja53fgX7kWFH9R1W1LNjXcv
-         2qt8yIAh6tgbUBWdY5CAEE22bFFbgCCsiHzD0crWKiK5I8zX5JjoBMMQ3i1Q/Y/tE8ZE
-         n+do7BAQOrC47YmvSq2KaUeFs1IhRIpUdKuPsLRvYUizVg75mHYNMx7Erfmlfb/staaX
-         XhoQ==
+        bh=GVWav0gm8qNk7tTsm+TcvcQW/qB58Q9hkUoEMzPoGTc=;
+        b=n9QPKv+tzc6S+/HRUJhykGjd5dX93wV6hv4o6g6CKFdTuLhjzlIih9asIBB73BULlW
+         PhfZJsvcwehwKoGToaeZsaqUhi9lR8bV6IMyEcUEhfDTUovgD18pTZR/bHaBbzjf6xHY
+         /V/0yK/WtiOsXIxSneAGtEogkCYKPv3tp5EWkOq140RbBuDsshMDQLaDezWKEVPCMx/D
+         Iib/V44RthJ+i1YEz1d4UJemqvbELMxiQSavyE76Iknasco0tFg+tuS/ynUfzZxAKo7O
+         7gcFAefgdB36w+c6Z9QONDb2o9/7K+DVHpBAU0WEk3nCVHAj4kwtfPtsWz44hebNmYbD
+         GDKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:organization:from:in-reply-to:references
-         :to:cc:subject:mime-version:content-id:date:message-id
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=GQYhcBi2WLsmwh3MqdnjBMa2cMNvjgvkWFTGNXWRcLo=;
-        b=Con5H/2vwBVmSv9/ixEQ+rCdHwo/UJBZJt2fCzKrPolJwWamEVaxmW7yrbTmnsZUZD
-         nUY9yRBoc1ChVh07HPyOnEyHNaVJX+WxCKhlg88W5ISHo8sphvTJJy7gALhhbLsUjmMb
-         R17Aw3jHZUKUpZq/F14ZwftHfH2UGrSq83PR0wPDC8pB4SZb6gzm7cjjg7sl0GF9fAjM
-         xm1sz/yMUXtjzidjcvfwz1KO8qGo4X5TtF+1TnplD52MO/iYJ3caz1iXmzouK4cAZvho
-         j79TR2EsyQYqNUhHNtGER0YGzliW3D/Md3PwYaIgUiQHXrRtKz0mrJ9BPCfJClnM1IuF
-         fBTA==
+        bh=GVWav0gm8qNk7tTsm+TcvcQW/qB58Q9hkUoEMzPoGTc=;
+        b=NBSMeO5JvJDzjEzNRD1HiQERYoI7nPytNzU+m4prV0cTxZQIj1YZOgJAA6UamI9kQF
+         qdIG5dKql6OHh9zMnRWHV89NVR7QnoXsfIQl55tVNOfQXzPiCTPzdOOVZdoXQSV4+yST
+         NV4PH5vK7S/6hihh896S7Iu31w+pztXgnrWJubkinLfvt9T4rUTj/pOJup5JYAEr579C
+         Iw8k6T27KXGtFtUSt+x8HesFBxx1ou3/rDN1mbl0/ix/6+nZVbzOpAHOq2m04ep37c+F
+         f4QdPtS8bS3qPoLamDcdeQWxuMPTSwIDpoLH1gDokEjNplBWZFamI/8KUAmzrSkUwKPr
+         tyFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533W9MnkW7tGG8h+gL+3L6hap6gDYY2/GHtyoXwxuaIy/YIE4eMG
-	N9NzK28D1FRPzdtuXgoQME8=
-X-Google-Smtp-Source: ABdhPJyamS666NEO2972PopgSyeOyv9/0U0gH7y8Wqe29I247yNTZgUf3qVNUdt5dPQ9E/cwLD0fyQ==
-X-Received: by 2002:aca:c64a:: with SMTP id w71mr3168675oif.44.1620730224570;
-        Tue, 11 May 2021 03:50:24 -0700 (PDT)
+X-Gm-Message-State: AOAM532E60ySf8kQfyqtjL2ZZtMrRK0B7pQ1DHel9vqz02JULCdwePaL
+	EzGwEY3/GCWT0rOWk12e6vo=
+X-Google-Smtp-Source: ABdhPJykCIHQiFriFTZLcsdnCt7paPEW01VGiOOgwx8LygvTDAixu4tx2Cy/UqgfG3BD9XcSIC7Vvw==
+X-Received: by 2002:a05:6102:ac9:: with SMTP id m9mr1635777vsh.43.1620732217794;
+        Tue, 11 May 2021 04:23:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:d487:: with SMTP id l129ls4981190oig.11.gmail; Tue, 11
- May 2021 03:50:24 -0700 (PDT)
-X-Received: by 2002:aca:b605:: with SMTP id g5mr1186252oif.127.1620730224156;
-        Tue, 11 May 2021 03:50:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620730224; cv=none;
+Received: by 2002:ab0:22c5:: with SMTP id z5ls1885015uam.6.gmail; Tue, 11 May
+ 2021 04:23:37 -0700 (PDT)
+X-Received: by 2002:ab0:3733:: with SMTP id s19mr24528319uag.108.1620732217250;
+        Tue, 11 May 2021 04:23:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620732217; cv=none;
         d=google.com; s=arc-20160816;
-        b=mNP13ggWmvoAWdlCu/Z+NYPlkjMEKkYjxZz4G5UCW558lQUBTPW9sJOoIRZKC6SwC4
-         3+yHNMluyJGCbwSRLwTG5uMxAlugtvhg+1fF1nICzJlOJNk3lXAYisZ+UEe4vVX1Cr0z
-         mQV1TKVtjHhMGrihAMiIs404AkWhCH0SNOx9i7BvbgWM5Tl1ksyu9nVtiRd+pconUqOj
-         zpL4HGZYLtSWAhjyQdH2Hi0xo7w7VW1c6Rg8/9wIJoHHsrkCfzAEHZcvD0ok5OBOHZ5B
-         CJtG6CbK5p0aPaaKJ0nyu3OJJBFNO/Fyz1nZnbTUqWAtzfZHhiSPpWujz3cH2xoVSkFo
-         4U1Q==
+        b=uB4gfP++P/kBqfMvwZwktlETb04W1RroiHh6Es1KRFex5qM6cwao+0t+VvdMzG/Fr3
+         QOY3FXoQzzryso5kIjLKMZvu8LWuVJFfudTC0P0Xa9S2R3P79ZWrOXXGhS5x1Jh1eAqT
+         /Y9awE+xZkK/3cg4RGSG/aHhHKm4WtTrKZLnEydgUzKD68KTNQY6VhTXjpaulpP1TzAj
+         NbqLToDFtfqcwtp/2a8BnsUwIYxyrRQMoloAASNDCT2dVMNJWIqgXEHFg6ZkU22fE97Y
+         ULAadTjzRvitKyj4J/odAFFb4Suw1P7eRM9A5GGSJ3uE9em9V2LCgnk2+/PbLf8gYpA4
+         M3dA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:content-id:mime-version:subject:cc:to:references
-         :in-reply-to:from:organization:dkim-signature;
-        bh=pDKfMCSmDrYbYLb3RYYkSWVBebsV7OFYV2lkS/seTjY=;
-        b=AytXU4aJvinyX7apjhrKyYJBn+22k7oGsCAov1LbEW4437sibKutRgI55VCnX42L6a
-         73ZreVEQomRaLhlmAak699tyHTEOI9v0N5UppKQQ6Z2Rs2nyOzWssMMTon0qGN3jLDrM
-         Fh4qXYs3gw+RexZcxilbRuhg9jsVyvI4vm34RNGcGlLQUxfzp2E2MUA7RcPY+ERbEeUb
-         eKD6GZie9kyVkF7S8WmSU35NTknFUnZvcqQ46GF8kGDjysr0EilufhZzN1QiG0wXZH50
-         18SXCjsGAR4r1ppiRpsiSjvXJgEr2QlYPXSh0lT3qzN2KvXe8+M41Ag1jqwRKRaTWd2q
-         H/og==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=RH8qGDtw2ESn0qVHbDwkGv8VpZ79/1ZiSl718tobTIM=;
+        b=edn0yj6y13HWJMyZXVqP+oupfcqRM2Ffm6q71HGDGObAcExfu2vGVClppqv08Muvok
+         1uhmHDdpFwOCyLYZynSVu/8i1rMJyXA9BBQh+30oLj0zoJqYJIXPbO8wbfG1EukzKEqy
+         TrQWS4Jk9xyVeY66qWXniXglAtmMzM+fNQo8AyrS1tabZjnePk8YsqcsSkcRdcWOKpkH
+         gxZ8BZaKRyDbtIyqvlYeOOK7Z/tFvEBHSX5B0ZDWXLaq38uBAtArrdMKcAJ9dqii9paX
+         NQjj1gyRPD0LnnpGzHRrTjBVapTnUEkxVAOSmXNO5YWipdbg4aPyz/yRtBvUPs0ThNnk
+         hgww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=AhJkTE3c;
-       spf=pass (google.com: domain of dhowells@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id n10si1101923oib.3.2021.05.11.03.50.23
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 11 May 2021 03:50:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dhowells@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-235-k5-U_UGNPKSvNGkjgNC1IQ-1; Tue, 11 May 2021 06:50:19 -0400
-X-MC-Unique: k5-U_UGNPKSvNGkjgNC1IQ-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 765F6107ACCA;
-	Tue, 11 May 2021 10:50:17 +0000 (UTC)
-Received: from warthog.procyon.org.uk (unknown [10.33.36.3])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 4E850189A5;
-	Tue, 11 May 2021 10:50:15 +0000 (UTC)
-Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
-	Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
-	Kingdom.
-	Registered in England and Wales under Company Registration No. 3798903
-From: David Howells <dhowells@redhat.com>
-In-Reply-To: <1620467481-110575-1-git-send-email-yang.lee@linux.alibaba.com>
-References: <1620467481-110575-1-git-send-email-yang.lee@linux.alibaba.com>
-To: Yang Li <yang.lee@linux.alibaba.com>
-Cc: dhowells@redhat.com, jarkko@kernel.org, jmorris@namei.org,
-    serge@hallyn.com, nathan@kernel.org, ndesaulniers@google.com,
-    keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
-    linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] Keys: Remove redundant initialization of cred
-MIME-Version: 1.0
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTP id h7si1682140uad.1.2021.05.11.04.23.35
+        for <clang-built-linux@googlegroups.com>;
+        Tue, 11 May 2021 04:23:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 14BBKWcY002034;
+	Tue, 11 May 2021 06:20:32 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id 14BBKKjC002001;
+	Tue, 11 May 2021 06:20:20 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Tue, 11 May 2021 06:20:19 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Alexey Kardashevskiy <aik@ozlabs.ru>
+Cc: linuxppc-dev@lists.ozlabs.org, Michal Marek <michal.lkml@markovi.net>,
+        linux-kbuild@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
+        clang-built-linux@googlegroups.com,
+        Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH kernel v2] powerpc/makefile: Do not redefine $(CPP) for preprocessor
+Message-ID: <20210511112019.GK10366@gate.crashing.org>
+References: <20210511044812.267965-1-aik@ozlabs.ru>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-ID: <2499882.1620730214.1@warthog.procyon.org.uk>
-Date: Tue, 11 May 2021 11:50:14 +0100
-Message-ID: <2499883.1620730214@warthog.procyon.org.uk>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Original-Sender: dhowells@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=AhJkTE3c;
-       spf=pass (google.com: domain of dhowells@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Content-Disposition: inline
+In-Reply-To: <20210511044812.267965-1-aik@ozlabs.ru>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,36 +131,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Yang Li <yang.lee@linux.alibaba.com> wrote:
+Hi!
 
-> -	const struct cred *cred = current_cred();
-> +	const struct cred *cred;
+On Tue, May 11, 2021 at 02:48:12PM +1000, Alexey Kardashevskiy wrote:
+> --- a/arch/powerpc/kernel/vdso32/Makefile
+> +++ b/arch/powerpc/kernel/vdso32/Makefile
+> @@ -44,7 +44,7 @@ asflags-y := -D__VDSO32__ -s
+>  
+>  obj-y += vdso32_wrapper.o
+>  targets += vdso32.lds
+> -CPPFLAGS_vdso32.lds += -P -C -Upowerpc
+> +CPPFLAGS_vdso32.lds += -C
+>  
+>  # link rule for the .so file, .lds has to be first
+>  $(obj)/vdso32.so.dbg: $(src)/vdso32.lds $(obj-vdso32) $(obj)/vgettimeofday.o FORCE
 
-Good catch, but it's probably the wrong fix.
+> --- a/arch/powerpc/kernel/vdso64/Makefile
+> +++ b/arch/powerpc/kernel/vdso64/Makefile
+> @@ -30,7 +30,7 @@ ccflags-y := -shared -fno-common -fno-builtin -nostdlib \
+>  asflags-y := -D__VDSO64__ -s
+>  
+>  targets += vdso64.lds
+> -CPPFLAGS_vdso64.lds += -P -C -U$(ARCH)
+> +CPPFLAGS_vdso64.lds += -C
+>  
+>  # link rule for the .so file, .lds has to be first
+>  $(obj)/vdso64.so.dbg: $(src)/vdso64.lds $(obj-vdso64) $(obj)/vgettimeofday.o FORCE
 
-In that function, there is:
+Why are you removing -P and -Upowerpc here?  "powerpc" is a predefined
+macro on powerpc-linux (no underscores or anything, just the bareword).
+This is historical, like "unix" and "linux".  If you use the C
+preprocessor for things that are not C code (like the kernel does here)
+you need to undefine these macros, if anything in the files you run
+through the preprocessor contains those words, or funny / strange / bad
+things will happen.  Presumably at some time in the past it did contain
+"powerpc" somewhere.
 
-	const struct cred *cred = current_cred();
-	...
-	cred = get_current_cred();
-	keyring = keyring_alloc(desc, cred->fsuid, cred->fsgid, cred, ...);
-	put_cred(cred);
-	...
-	sprintf(uid_str, "%d", from_kuid(&init_user_ns, cred->fsuid));
-	...
+-P is to inhibit line number output.  Whatever consumes the
+preprocessor output will have to handle line directives if you remove
+this flag.  Did you check if this will work for everything that uses
+$(CPP)?
 
-So we get the creds again, but with a ref, and then drop after calling
-keyring_alloc()... and then access cred again, which is dodgy - but we get
-away with it because cred is still pinned by our task_struct.
+In any case, please mention the reasoning (and the fact that you are
+removing these flags!) in the commit message.  Thanks!
 
-I think what is actually needed is to remove the get_current_cred() and the
-put_cred() calls, in which case, you want this:
 
-	Fixes: d84f4f992cbd ("CRED: Inaugurate COW credentials")
-
-David
+Segher
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2499883.1620730214%40warthog.procyon.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210511112019.GK10366%40gate.crashing.org.
