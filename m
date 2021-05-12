@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDGIXFWLTIHBBJ6Q6GCAMGQE7IMANEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDGIXFWLTIHBBTWQ6GCAMGQEUJCS2SQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CAE0237EFFB
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 01:43:36 +0200 (CEST)
-Received: by mail-pf1-x43e.google.com with SMTP id a142-20020a627f940000b02902ae03d812e7sf10211805pfd.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 16:43:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620863015; cv=pass;
+Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7EB2637F003
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 01:44:15 +0200 (CEST)
+Received: by mail-qk1-x740.google.com with SMTP id v1-20020a05620a1221b02902ea88445e01sf15257008qkj.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 16:44:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620863054; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EjWpoF/A3O8HsHt3vSalrknZpNs9d6/E6hHtMOxW4FJok5LpTlOPvztvPFAtpBr8B9
-         /6BKOnY5dQnZWbEOZwWvjhrta0Gpcgw7mqVpmoSdeoMI9M4NxkgMapN2Z2qWFFkmlf6r
-         Tt6nLbvs05SXVaXGdEs0OmSVn9HRRq61YA72bCHM78DOUYoiyuGOm5wy8hF4++SkADH2
-         EfbHNSiRb9hZUzR93HsGB+DSrVP+blNx0FwjcnYh2GGMCoZ2qIMrhEM2NlyII64tfniQ
-         NvHZvxEOatyfEzoXdIVwqbAjJnlDyUWLKR3i7JYA2TsYA7w8gGf6KWCslyE8dvfJZDGc
-         V39Q==
+        b=kHqXfe02lnwUW+I7Q0za0Cs3lPSfYY+hecaU9H+s8weo9j53p0j0XsFBxCdhl5x4eS
+         IfROsM4LZ9lxWvuNKjZj4yoFkBh6JaKt5BxLJonKNKwjRLzrQsQlVM0lcGpaCAkbdu1f
+         +qRL/9vd0jhvmqZdeqzI4o1Pw3Cy7NW7Un3wYFrr+LzN7HpiakTQJz9NUGdfXpPxDfji
+         kws6A3oaSCyA5uI0JAjNgzqXduU/q/i6EgnF668LpNNrJgbeIDx77Qrp6kSF6IMaADmL
+         GFBFgv21pZG7Snhx9EsfxPwjAAYgV++cHlIJtbghecgIY8Rkfiy9dfg4+Mjmru+qsx+V
+         nNIw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=AI12JI0NYVFDuNusPGlSOicE6mbTXorDUIR3V2PaM1Y=;
-        b=vqFMuUEC85TI1jYJ/9AgJUIi1+EZ+2PElDpYwf6/T96s5COmUJhy19Bza5S72VoCZM
-         UFevHR90a8CBnQnZFtahiinbQM22P1dyBPN+GqbuIHlIbmH6hisL28ZXSf6DQgYdmfFM
-         Vh//xVVxtTJncF3at66ko8uus4yXnOXWLalZXZQXBsvGf1TwxvLoD+H+Ak5za7I5MeK2
-         HRHGXt537QphU+UygDUN843bromtJepnyFAKvMH2YUpj0H5zJ3Cex1MDr95+lVLYJE3o
-         q2Ub2/P8SClPCszLexOMZMN4ZE7R3tbBwwzLUziarFpMOIRTY33APcld44H2bhE/ZWK7
-         5MFQ==
+        bh=dHx9dHC71geeBRIpJHFlQVsVxf1mpRsujViwcGAJf50=;
+        b=fEJxjZH1UJIRV65F7ydo99OhbiJtq4pSkgfOB61fbVCCWkhwmHweJq4zm1YD4ICMcc
+         Pa/Kj4w7h0C65tQHYlOQJFtWpkeTIsV/1a//m5VfYqS7mBIQz3Fp8tKS2CljX6X3TcyK
+         ctU8jlhjb+luue0Tp4OuTrMcjdPoOvNDrY17T9zFy4xcTXseE40Emo2T5gQu5q3t72De
+         /Y83O4GS5r8M3ZnAzJZFhWgfdl1TR6lRzwK9X/GfG5PHWm8BKlIeCi0s5FU8u2ATAqHN
+         +4C8v8XesP+0yjyGNcQPpTywWMQ/DhEQ5ikRQF/O55GjAAY7SEM6oirHgdy7tBUKx4/c
+         WBiw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=MBV9DlCY;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="I/GHXG8k";
        spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AI12JI0NYVFDuNusPGlSOicE6mbTXorDUIR3V2PaM1Y=;
-        b=d9FWt1Ltu8GYDN1S8OHh1NAaIv+DDVR8zPZC160wSWhObhN0j4DdUqH4LSoY+29loG
-         gQjdl/CPUaSLj6Qsbmu4ywZzKuE4zRYNaZNq1ollCRx2ERX4B4W2H7JG5rOJ5TGqXqfu
-         yiOSMHfaEvwejZ2zdfQBl6JBZUEWZ4e1exaaVZglFTW9We0//DtWEi9+ohFMFPPzixEc
-         kcEDMCvUhO+Vy05gL5kHdfZ8zaXo85tiN5roPZDn0D4+ke0pHD8e9LJYBQ1vOtR2US7G
-         5hLPYPYhPKtSkyfO418SnCCTqV6tDg3112/Ge17KSHKjwJPaPII6o/4PJcf0jLlITkK7
-         YEtQ==
+        bh=dHx9dHC71geeBRIpJHFlQVsVxf1mpRsujViwcGAJf50=;
+        b=UP0OMJkyastjUCnfYc4zJe1oJz4YJq1C62xTefmHys0pI3UV2Kb0zysEWgIYvl07dl
+         guGp0gROd99n62C+Wzj7JngwbJaSB7UqJl7T+LtABkhqE8CMCIWHj10VGxWgC5r1NkTt
+         7KsTHnUlXYE/ycD7kRkFkETVghl4m2+b6OEHoeAkKQVa2nf8dtErk8Otl2HXJaNfKdhD
+         DJo5Wb4etclMzbbLNeqUTzTskHCr0iAdy+dON+EHbgxLNEP9mCNpE2Fs9ESyxzIoJ7B1
+         zrYmtsqvHlqKrphsEhdyQcVoQp03BS6Q9ivsFm74cRCote27Z+j91RrYY+73rFkBcT//
+         3hgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,55 +49,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AI12JI0NYVFDuNusPGlSOicE6mbTXorDUIR3V2PaM1Y=;
-        b=qGmXRPQzxV2PJ7sf373gOoIykWXbL2v+Z37gpSHaagEskJSvsOBPF4bBTenoUCN4oy
-         i2VbcErvwRPOT+cSu4SW5N75mAp6bqRC+2WxepZgJxY9JWlfyhhf+52JbOLbQVT8sn24
-         iqzEsRCs5d603udZsxHyIoHoPda2cm9aBTK01SVCAyjOjv259uAnRf+pYUQQ/6LlgL8L
-         BoDazIu0d9X4Q/pKt8nAztqYZ9TZnzmcB/YEAwHYSU7K87paDWQd8LD/xySs0OeEOLxE
-         fVt/00lZPshdsEx/bGk5lqmblPZdO2A8btFugyACK2SYPDIeP5XPTgJFcTuzuSQMJq51
-         w+Eg==
+        bh=dHx9dHC71geeBRIpJHFlQVsVxf1mpRsujViwcGAJf50=;
+        b=EOzLeOztBmV4kb3DfG05BJcpxDHkzJGA2XiA5DcNX4K94ee/Ll3X5mj0dUp2nFsMsd
+         ogJgZH0c5RRDqu7r3UyZVrP9MXh/KZ0GVEGcvhKei6wMa662DeSER74QpFdlx8aZuQes
+         uzk50zrKk8szPUdwcfvvxoZBRkjO+zDFF9FmVgEwYc45Q/DkS311vSWszKY0Toqb6phx
+         aOw6pGHfjcWfnSsi/Y5DI6wppW71ae7cwImskadIEquILFNFCzt61SrXtMs6CVOEm4gN
+         YgbPq0p0Af1iTpACE5+GDfNSKz83ncWjxF3TgSv+8EV6P7l8K4jOLJQv+s5u0XmiuDxa
+         lg8g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533IB0AX3TzHaqKC+L8Lws0kK7rmdDzgrZlo5iD5uqJt3Y3R+usN
-	5lQbXPJ4DeEksBtXfR4o+uE=
-X-Google-Smtp-Source: ABdhPJzVX3pq71W0rH+D3DfKrdWuBk3Zos6yffvEN1McgHFhn++Vp+aXc3tcVEupCjs5n/lE1ie6gw==
-X-Received: by 2002:aa7:949b:0:b029:28e:b8fb:7c81 with SMTP id z27-20020aa7949b0000b029028eb8fb7c81mr38646039pfk.42.1620863015553;
-        Wed, 12 May 2021 16:43:35 -0700 (PDT)
+X-Gm-Message-State: AOAM533TlrrVmYn4Rdl2u75QDlPIVje+1kUZc2gR8KbZF1K3hRieBXO0
+	U5feX+HukxsRQGx0/3Dkk90=
+X-Google-Smtp-Source: ABdhPJwIUgCEOEt6DXt38ngj4X0rsARIiyt6aQ+RUeGPRGWZ6KrQlkKtEVGtY2WjB40NcBRQ0ABRZg==
+X-Received: by 2002:ac8:4698:: with SMTP id g24mr13239973qto.112.1620863054521;
+        Wed, 12 May 2021 16:44:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:3014:: with SMTP id hg20ls4575011pjb.3.canary-gmail;
- Wed, 12 May 2021 16:43:35 -0700 (PDT)
-X-Received: by 2002:a17:902:9f8a:b029:ef:48c7:e438 with SMTP id g10-20020a1709029f8ab02900ef48c7e438mr14219022plq.8.1620863015056;
-        Wed, 12 May 2021 16:43:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620863015; cv=none;
+Received: by 2002:a05:6214:1c09:: with SMTP id u9ls1341636qvc.3.gmail; Wed, 12
+ May 2021 16:44:14 -0700 (PDT)
+X-Received: by 2002:a05:6214:21a7:: with SMTP id t7mr25485669qvc.4.1620863054045;
+        Wed, 12 May 2021 16:44:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620863054; cv=none;
         d=google.com; s=arc-20160816;
-        b=Oo9Eg1VLniMSHH004NdqHVSf8tVw0C5vOTcvb1x+6SGfXienGSzYJS06DmEKF/A44C
-         miitLqtVKHRQC/n/sPz2sBc5TnZv5IwjI6bkRKeSYEHeAZIWtLtcdsQN5XFkyiceaCn9
-         JYrKvk5s52WQtSMTsbkSsOzCbOZJMULJi17+pfjxq3eYEL+hm4R+jPXyM4YCiPJUn8eg
-         zTkGKQ0WSNsszoQCHhBbvQ1SnF2KzA9iWr7y85EAIzvzzlX4CI2RwfBxqMuai/PBklgl
-         sQ+wpLKIdssLBwfPErcgNrIylpBW+MEsEHXyB8CINip3DTNcex2o88I0dnDCpxK0eYWC
-         wF4w==
+        b=D7R6XvNM1tAPywc/2SJNM0UN16ZRhB4w3kgDAAKWljPl5iwDxp6p8E+UeWmQecyJjk
+         rQmZ0KsaTZzbeR2r3XcU0kDpHFXSjW0OcjmcsMIWh54/Yj41M7bP/QfknG4nKPBxiB8B
+         VEARXD4tsyJ7oP+LF3YOBI3XYWnFCJxO5G07iygyZ0Id6FanOuQxsh3Ghc5hYfes5pe6
+         1jmKQoNqEYG9OIDvrJ6Q6z6XszQ0HoVhgTHScWC6GvL+lqrFaHpmAyNJs2PN8ocBbz/l
+         stmShLJZtQshdy1SsKTSH8LQXZwxNerL8VgzKlO1IyTUQSLc0kCL/Fx7Lz7cQx7CDZbq
+         JzYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=fDXcQ5hhizc+dV/uBZpN6Rv8VUgoeB4MPjr8yI+mR2E=;
-        b=UJIc+lLOsThb4YjcLEUoIIPRPuNR+BP1nZAD02Xrjc4QJQrFyy6csW4JpPLKx9bUEf
-         oLu1/oVgo9Afp61TpVqYfMBdL8WmqIA4Twgy9qdOncYNabXCKv9wbXuA18YI/6h5Iyhj
-         /GzTNdhmjvn/dpSLlJ9hvkksV1EHOoFbDl+aDCPB77SFq2SADiJb6PqGuKbuSdgwMLQg
-         FlVWMVPewt9tyIoo+wJAj/S5GKJJQBVbTnxGDgTilPP9apfO6srTZpP+mVmTKcPYfF9p
-         XycLVu3CPnRVc21h1GtfXtWnohiv2+OM1JIWgMqRMxtsFILluFroi2dU92H9sESTiFiY
-         FdbA==
+        bh=lfZFO8JA63Lx6zUeMYLTr/O6Fou689zgzghOGdTTMbs=;
+        b=zxpApAGxLIGsTu6lzEaLqPyynKr5rLR6N9cCZe42kwvfx3KPf+vYgDCqRdCbMBiUpR
+         B9XgEVwANb62ySpcikn72u6PDoS2AE3jG2KiB7UjxHT7LY4WqJufbe0QEVoiwDaDsFf6
+         hpu2UDWdVbNtwnbQ+UCdWorzZrOr17I9F6b6Y9kvFenppktxo9S4vF//3ctz9O8THCrj
+         3eFwpocBs1/AhgQRsfZO7Xu8DihoZ7cNoUCJT6QCRZpp7P6gxvE0NDdB0Q1qnqke6kho
+         Lb1qjL8pu76FS0AUt0NLOHjI9z28OqWtRh3ORsvZV/Fs4QLgVnoC+KLVklISKjJ7cuwu
+         aIuQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=MBV9DlCY;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="I/GHXG8k";
        spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i3si192692pjk.1.2021.05.12.16.43.35
+        by gmr-mx.google.com with ESMTPS id o4si182016qtm.3.2021.05.12.16.44.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 12 May 2021 16:43:35 -0700 (PDT)
+        Wed, 12 May 2021 16:44:13 -0700 (PDT)
 Received-SPF: pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5283D61408;
-	Wed, 12 May 2021 23:43:32 +0000 (UTC)
-Date: Thu, 13 May 2021 08:43:31 +0900
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 807BC61404;
+	Wed, 12 May 2021 23:44:10 +0000 (UTC)
+Date: Thu, 13 May 2021 08:44:09 +0900
 From: Masami Hiramatsu <mhiramat@kernel.org>
 To: Christophe Leroy <christophe.leroy@csgroup.eu>
 Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
@@ -105,17 +105,18 @@ Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
  naveen.n.rao@linux.ibm.com, anil.s.keshavamurthy@intel.com,
  davem@davemloft.net, mhiramat@kernel.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 1/2] kprobes: Allow architectures to override optinsn
- page allocation
-Message-Id: <20210513084331.58371b520af4aae914518552@kernel.org>
-In-Reply-To: <472c597cc8cc8f74f037acf971f7799fb381a647.1620829724.git.christophe.leroy@csgroup.eu>
+Subject: Re: [PATCH 2/2] powerpc/kprobes: Replace ppc_optinsn by common
+ optinsn
+Message-Id: <20210513084409.0172212de7f567605da9a336@kernel.org>
+In-Reply-To: <46998c941d0a5664daaeb92998391aace015eddf.1620829724.git.christophe.leroy@csgroup.eu>
 References: <472c597cc8cc8f74f037acf971f7799fb381a647.1620829724.git.christophe.leroy@csgroup.eu>
+	<46998c941d0a5664daaeb92998391aace015eddf.1620829724.git.christophe.leroy@csgroup.eu>
 X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: mhiramat@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=MBV9DlCY;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b="I/GHXG8k";       spf=pass
  (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=mhiramat@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -131,56 +132,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 12 May 2021 14:29:26 +0000 (UTC)
+On Wed, 12 May 2021 14:29:27 +0000 (UTC)
 Christophe Leroy <christophe.leroy@csgroup.eu> wrote:
 
-> Some architectures like powerpc require a non standard
-> allocation of optinsn page, because module pages are
-> too far from the kernel for direct branches.
+> Commit 51c9c0843993 ("powerpc/kprobes: Implement Optprobes")
+> implemented a powerpc specific version of optinsn in order
+> to workaround the 32Mb limitation for direct branches.
 > 
-> Define weak alloc_optinsn_page() and free_optinsn_page(), that
-> fall back on alloc_insn_page() and free_insn_page() when not
-> overriden by the architecture.
+> Instead of implementing a dedicated powerpc version, use the
+> common optinsn and override the allocation and freeing functions.
+> 
+> This also indirectly remove the CLANG warning about
+> is_kprobe_ppc_optinsn_slot() not being use, and the powerpc will
+> now benefit from commit 5b485629ba0d ("kprobes, extable: Identify
+> kprobes trampolines as kernel text area")
 > 
 
-Looks good to me :)
+This looks good to me.
 
 Acked-by: Masami Hiramatsu <mhiramat@kernel.org>
 
 > Suggested-by: Masami Hiramatsu <mhiramat@kernel.org>
 > Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > ---
->  kernel/kprobes.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
+>  arch/powerpc/kernel/optprobes.c | 23 +++++------------------
+>  1 file changed, 5 insertions(+), 18 deletions(-)
 > 
-> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-> index 745f08fdd7a6..8c0a6fdef771 100644
-> --- a/kernel/kprobes.c
-> +++ b/kernel/kprobes.c
-> @@ -321,11 +321,21 @@ int kprobe_cache_get_kallsym(struct kprobe_insn_cache *c, unsigned int *symnum,
+> diff --git a/arch/powerpc/kernel/optprobes.c b/arch/powerpc/kernel/optprobes.c
+> index cdf87086fa33..a370190cd02a 100644
+> --- a/arch/powerpc/kernel/optprobes.c
+> +++ b/arch/powerpc/kernel/optprobes.c
+> @@ -31,11 +31,9 @@
+>  #define TMPL_END_IDX		\
+>  	(optprobe_template_end - optprobe_template_entry)
+>  
+> -DEFINE_INSN_CACHE_OPS(ppc_optinsn);
+> -
+>  static bool insn_page_in_use;
+>  
+> -static void *__ppc_alloc_insn_page(void)
+> +void *alloc_optinsn_page(void)
+>  {
+>  	if (insn_page_in_use)
+>  		return NULL;
+> @@ -43,20 +41,11 @@ static void *__ppc_alloc_insn_page(void)
+>  	return &optinsn_slot;
 >  }
 >  
->  #ifdef CONFIG_OPTPROBES
-> +void __weak *alloc_optinsn_page(void)
-> +{
-> +	return alloc_insn_page();
-> +}
-> +
-> +void __weak free_optinsn_page(void *page)
-> +{
-> +	free_insn_page(page);
-> +}
-> +
->  /* For optimized_kprobe buffer */
->  struct kprobe_insn_cache kprobe_optinsn_slots = {
->  	.mutex = __MUTEX_INITIALIZER(kprobe_optinsn_slots.mutex),
-> -	.alloc = alloc_insn_page,
-> -	.free = free_insn_page,
-> +	.alloc = alloc_optinsn_page,
-> +	.free = free_optinsn_page,
->  	.sym = KPROBE_OPTINSN_PAGE_SYM,
->  	.pages = LIST_HEAD_INIT(kprobe_optinsn_slots.pages),
->  	/* .insn_size is initialized later */
+> -static void __ppc_free_insn_page(void *page __maybe_unused)
+> +void free_optinsn_page(void *page)
+>  {
+>  	insn_page_in_use = false;
+>  }
+>  
+> -struct kprobe_insn_cache kprobe_ppc_optinsn_slots = {
+> -	.mutex = __MUTEX_INITIALIZER(kprobe_ppc_optinsn_slots.mutex),
+> -	.pages = LIST_HEAD_INIT(kprobe_ppc_optinsn_slots.pages),
+> -	/* insn_size initialized later */
+> -	.alloc = __ppc_alloc_insn_page,
+> -	.free = __ppc_free_insn_page,
+> -	.nr_garbage = 0,
+> -};
+> -
+>  /*
+>   * Check if we can optimize this probe. Returns NIP post-emulation if this can
+>   * be optimized and 0 otherwise.
+> @@ -136,7 +125,7 @@ NOKPROBE_SYMBOL(optimized_callback);
+>  void arch_remove_optimized_kprobe(struct optimized_kprobe *op)
+>  {
+>  	if (op->optinsn.insn) {
+> -		free_ppc_optinsn_slot(op->optinsn.insn, 1);
+> +		free_optinsn_slot(op->optinsn.insn, 1);
+>  		op->optinsn.insn = NULL;
+>  	}
+>  }
+> @@ -203,14 +192,12 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op, struct kprobe *p)
+>  	unsigned long nip, size;
+>  	int rc, i;
+>  
+> -	kprobe_ppc_optinsn_slots.insn_size = MAX_OPTINSN_SIZE;
+> -
+>  	nip = can_optimize(p);
+>  	if (!nip)
+>  		return -EILSEQ;
+>  
+>  	/* Allocate instruction slot for detour buffer */
+> -	buff = get_ppc_optinsn_slot();
+> +	buff = get_optinsn_slot();
+>  	if (!buff)
+>  		return -ENOMEM;
+>  
+> @@ -297,7 +284,7 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op, struct kprobe *p)
+>  	return 0;
+>  
+>  error:
+> -	free_ppc_optinsn_slot(buff, 0);
+> +	free_optinsn_slot(buff, 0);
+>  	return -ERANGE;
+>  
+>  }
 > -- 
 > 2.25.0
 > 
@@ -192,4 +242,4 @@ Masami Hiramatsu <mhiramat@kernel.org>
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210513084331.58371b520af4aae914518552%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210513084409.0172212de7f567605da9a336%40kernel.org.
