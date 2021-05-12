@@ -1,131 +1,127 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBXNN6CCAMGQETX6H4RQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRB7NP6CCAMGQE5QDI6JQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D65C37D178
-	for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 19:56:46 +0200 (CEST)
-Received: by mail-ot1-x33a.google.com with SMTP id g93-20020a9d2de60000b02902e3d740ec6asf10778653otb.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 10:56:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620842205; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 931A437D188
+	for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 20:01:38 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id n46-20020a056a000d6eb029028e9efbc4a7sf15456415pfv.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 11:01:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620842495; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gu2TV0E//UzZioqJXaJHS1AS3eySA28IreMqtcwF8I2c6g5mpiAoSh2aG7fdFPqMZk
-         uyUX4xS4KOLzYZsiHv2FHObQqgVc5BorwQRpaNF8VTyKJ4vZORWqsvKFrYAvm9kYnXj3
-         i7Azj4H3l4dHPwI2tZ/1d/mRrQ5KkpF7FfDgzEsyF495EotWdbLGwm/fA7oV0SR2b/NT
-         wkbmGyjtNFfpvhUPY8tdcFxONjjn6iRzhOTsAefIG8TMyPYKfvJXfMbDuWYKBAM/Z9Rg
-         eThqKhw0LQ6dehNzAXbW8vjIvuMJczIbX4SL1ClNhLBlOAVzCITSU4loVVo8fiS3ZYyD
-         5poQ==
+        b=iUyxHFgSV2KtgYDBHXXs9OdCDsnvWIyX0X+UU/eU3u3Tz/pVN8+ccXPLwaePb05Bo4
+         80WeYdCHXcelngV08of2ma0W/2gkTn/x/M16ltdCFFNrc8iUFDkJhOhUMtSKPjH+DqGX
+         g0PRbez4zFvKAHRqEc7US5K3RbhbgPwAz2osFhvJivt6jrvMY4CkBCOB5vY3CIei/3A0
+         SEdD5aNOjc+2IcKsJh5/u9iSuePWKMg2jqhdw1nrJ7iyeAmvramh4YkpFxMVI6w26tM9
+         OFdyPUsDDN5AaxrKqfyNMOJbiSQoprsO62kgI+5/l4j7W5Pa376bWhggZ56dqFuMH/qy
+         dAqA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=feT0y1Okp8Rl4DXHMCJlkJtY2LW26hU5lcm3vMtJ32M=;
-        b=x7i4yEe+64udSErqJHYVOYGkv16WoU2qoX5G3gzMSZl1cX6otlGbXUvC7c8t/NnaxV
-         wVrJmOLoqR9m+9q0Q6bTElyz4ilXtvWnw+i5L4+6jEjJ7TEjJMXZhVUEQO+5LrOH+q88
-         nlLiTeFxNStwSOfAqf3t8U8FFzl/RHpgUBy2d1DrOoKEsy3n3CMBauG7yuPi4enjWrsB
-         wP5fxgTkJKGH7MNiRdUfOX1kRuOUzUuJShCRD9Y6CmZqTFYwvR3F9k1UY1bLmc5cDhPU
-         g8CTqJWyaYAAVNDEk/KcwG5qWklKfKGolr4FKDZLJi37KTK4y9NVS/aSeRGOY+MNh4/6
-         gV8Q==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=5gerC4XPwCwjlKS+NXrBFcFd4efn08AgFo7FozkuO4c=;
+        b=fMnzfium4bJm2xqeWb06tEdIsnJMAc8kj2yK/vDSsI2ZIhsEKUAFro8jrbg54rlD/K
+         RdEbjrRy7PFxurqmjNQ0xmVuoVoh7hxH/+N27Q5yvBdOuUgd0Z7l9WM1koJjn3l/fTYk
+         8kIRhTSHduNLR3Bl0bZHB+pfAs/ATUs6b5w4eJIU6eVSsxBuPD1Se9qGph2c1DdUIamQ
+         A+yPzPzfj6nRpQ5HgEwUZ7ul8tXauA8fluYvzyL04fjSm+1dztRaF3WFNW2X/UIfpPYI
+         C1VBk8kU4R0or480GxaRJhAsQVW2nSyKhbSHr9Q4684IbM2VbJcTetPS9h5VvXRdKlM6
+         /Juw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=FDm4sadz;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Y0+JrZ5v;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=feT0y1Okp8Rl4DXHMCJlkJtY2LW26hU5lcm3vMtJ32M=;
-        b=iT+1s20hffSAXYevjwWOA5rMaBwZV2VxnHfctw8W4ItxY2qZhIOFf4faqBephzl+7X
-         5kbkxCvSWPDAzGC/ZhobpxSp8Hi3s2zFR7enN5Ug/r8E51sVl/0s5EzPruieCl+lxrdD
-         kjJYK6iyo2Rkkt29Y60jnw5sypHOOTnvd3DUHkhZaMkmyoCg3ukyBFadaqVhuDbQA3Dw
-         /qPlZEXShGZUelZoitlg2C62y+xjFZQWFCm7hwv3RaLRH7usYKfEl0JQDdMn4Q309KVs
-         HQLGedJurer6CUClMNDMMUvxpSoJVqNy3GsSalTfY5A8SH3MsNbJBk7Hen2KKp0hhMIe
-         I+Lw==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5gerC4XPwCwjlKS+NXrBFcFd4efn08AgFo7FozkuO4c=;
+        b=A9Zg1t3pX9lNJKv9SZ/a1ABZkCvUoubv98hQtVqCnRvc+eacSUu3kdLf5cZ955r6Se
+         iqesJdcHErOTsWEqBoCCq9pjBwqLeeVJTciynFUdsgFHgptT3iPNfTMWB6na+ShK7Tid
+         0eGNEsgz4tLHPG9Bu8q1ESCUJ5dsg2EzEZ9a50RvPz4q9oSJ6tah4fsNOdDCAHWfOKgW
+         AHauciyo5sxQlj+2uU/cIyuBjBa5lsfbqptH76ZXDW1bWmVC/4F8fId7gAOyOka7pG7y
+         i/yVoJVOZa+5Fr1IphkmHIwxr8219YSMKDGtmr709Ambwbm7xJTViiS0Tk6pqWuXBh54
+         N8LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=feT0y1Okp8Rl4DXHMCJlkJtY2LW26hU5lcm3vMtJ32M=;
-        b=p//zH/+Q+mXb0+qPKEy1FZth1uVZ0EvHOPNgJ67z3n6Bh2TGirkorfal9Xc65WmydR
-         O0k4eFd+PNcFvMLmQpTjBdBiFZjGurLIt52K7ICFRbgzi8UrzGC1qu+uIH6F/giBBW+c
-         Bik/sEnW+XQyBb3MYr2QJrCibJSTYnW+CPU9iKtb2RQo5OLf4JzEugvx3hos6o+d+Xqu
-         Xq+j+SOMblGU8ADFYlk0fopW67Hf3KmiTqZQW8cYcdUtlihGO27RbesFcivlCz56Nx5+
-         81P9bS0eW0xA0UsbJUrFwbky71nLpW+TP+3C+NAio25LLI3S2foVsmESyBz6JHCoKcRy
-         I5CQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5gerC4XPwCwjlKS+NXrBFcFd4efn08AgFo7FozkuO4c=;
+        b=l+YaVK8BEbAOTR2Uy2pCrDke0VX+nUbh8og8gbwKXU+F70DEIvCS89vTO8K+ssVlup
+         ZMrjj2Ax8Jv+YBL5EEVY1L0p2o58OJhIwkNxiLCgApQWIM8gUq42eF+/e+mexNOTZf0T
+         hzczDxqbJhx4YhKf/vZ7S3okKTU4q6pd/AHBL8XbAWDsfY74J48jdgoQrMSVa20BDT6Z
+         CU31SV262ldn4zro+nDvwL2CoE324cqNiZKENixdNOuYXojS1bqRTTqYKlMfVL0TS6ro
+         aZ55NwZ4onfq5oOzjVahxIb8yO7TnfKeGNxagrNusnL5Vr5ClhuTEY5qmHV/epsRZz1G
+         7FMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531orTybIdOt4+7NZMeRELI4MpubViBfImPcvWLU5sV3/5X7wn6v
-	Y72Z/IhwS/Tkr4zy5C0gtrU=
-X-Google-Smtp-Source: ABdhPJwFJXxktPpf8CRe5+shjW+ZgL7tYZFNwkxpTrgNT41SMtutGQ06L4glima9a6IHXZh4SeAVZg==
-X-Received: by 2002:a9d:58c5:: with SMTP id s5mr32605056oth.243.1620842205138;
-        Wed, 12 May 2021 10:56:45 -0700 (PDT)
+X-Gm-Message-State: AOAM531O6pJ0vtZrSW78SPcqxnpgf/AAu7LrltKl91eqdGCMfeQF6RC/
+	0M3nCApUkqNUjFaH8u/ZOTE=
+X-Google-Smtp-Source: ABdhPJwP7U1QyU4m2aBQhdx1FhRybhyaiP0H9/+XpXzsyQCzJzFC/7HU82OdpsWSbNBnQ3Ux/z8Irg==
+X-Received: by 2002:a17:90a:d512:: with SMTP id t18mr12008921pju.108.1620842493929;
+        Wed, 12 May 2021 11:01:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:4f97:: with SMTP id d145ls841076oib.2.gmail; Wed, 12 May
- 2021 10:56:44 -0700 (PDT)
-X-Received: by 2002:aca:1a16:: with SMTP id a22mr27424509oia.55.1620842204737;
-        Wed, 12 May 2021 10:56:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620842204; cv=none;
+Received: by 2002:a17:903:89:: with SMTP id o9ls1739115pld.8.gmail; Wed, 12
+ May 2021 11:01:33 -0700 (PDT)
+X-Received: by 2002:a17:90b:e98:: with SMTP id fv24mr12274838pjb.216.1620842493157;
+        Wed, 12 May 2021 11:01:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620842493; cv=none;
         d=google.com; s=arc-20160816;
-        b=pJF/o6aTjWdfIhPrIj9z9HFAniqdsZIwZP+AOUn3t8DXwtXCC9bpxmFb1Xebih5Sgn
-         Hx/5kUob3BtI3BcK/lQMh597HTYSBbsUmXcjorPtd0rtThXe8oUTgV0Xy7IVFs4XKTCQ
-         bB4cqyxFfOLkbVP/gLsfndLfUoBrHKdh43xGQ4L2kxruNMjqYM5pCZXj/MrRxyJKtZJn
-         QGurJ//NqO0449bESu/IUjILro0QzloXxOTnw/Ph9G/bKDE7sUrhyRnftVDGEak0qsNX
-         QLJmswKr5D5CvO4dmhwfpoYJngTq6ZOOicymnb+6ooQiSmoQ3d6vWUAVPNOUHAPzIC6a
-         eFrw==
+        b=FS5O/8PnKOO32U0E0sYJyYHcoz0Hw/tHZ8yXKzSL+P5GltknR3CyknJn3vgaSe2Bas
+         yVRhlPncbnjcGKdMLOwI9fCHKLcPEvYx9CDoLPu2tcaFojZRA8ZiSUBxasYZdsiklWDY
+         o7xEdPL7rYQMYA5mhOT193ZhvhQUTnq1ZlMFOOOzMmHerLyumD7MJAtECkSvp6D6wlzr
+         c0q5J3f5JMJrOgrzGt275GeMdl7tEmgjHSfdDaDu06tZj+byOhdswzP9KkU8i4wmxFzb
+         yy5/i35CG8FFnwyZN4iykuNU8mWYM4ysnMhgGt9yOsRhYoIaZzCsYcRpw8pTDytHrgW3
+         Is4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=LB+iPfrx1GTKrKBP5CTff/4AeQMfltYbF3px2inCdts=;
-        b=q73xAg3OBXq2pzefME12mC5a4RXjcxxdWfjt75Lw1ppkVD6cVf1sSw2sTDHP0POaIC
-         UyIZJFmKiOHlBtjO5mlESbiBU/hTM55d6dNYhpNkYmnitywSIPCWPkwpUu5VEg6QoJGc
-         tbb4h1HFerJk5AJVynBnCj5unD/HuCXdf/zGTaC3wKNSn7NND43cCz8h2RUZ8t/JJbIV
-         vi5g8HqyP2hhmIaBF40wwySQGSBPL6GabmQc36hW6jWJ0y0FF4UoELMcofaKDlAO0sGS
-         EdH9zldAQU05XwfO2PQlCUJIjZ18Ud8dtQaO+CXFkasccnJdwwJGzCL6hX24Ypcf92Yh
-         O4/w==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Fvg7oqfnfE00mpyHDERE8rztmCEMMbIM70TGIE6OnNc=;
+        b=ziaBThohJeNHaPL8yWcyCVKQLgPfRQJ9i7I4xN/eW2lz4aqsGU76oSNlvDttJYvMAX
+         ORVefTu2PRueL1fAgvN5yQRPq1eqS1lMHvfZxtHI2gfnstlIM+XWxraqqS3mCVp8xRb5
+         WoD8z9CuCm+ftFZ3v9dUDy367cMWxA5d4N+TyLZWtzHNkoCB1WuEtBKJCYVBnzbmdu+d
+         HCUsJ/CpicHeZ8MPK28zldVi8m9IudyunYvHMEg6JPDoKrea2ibH9NMatMLbGj30NH/B
+         u4g+tXJDTlo+FIxZV3mWck9xTI36A6c3xangeVTWAUF/xiZ4Kdpz/wdTbMZP7x7yDevc
+         SPKQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=FDm4sadz;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Y0+JrZ5v;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 12si41211oin.2.2021.05.12.10.56.44
+        by gmr-mx.google.com with ESMTPS id n21si83553pjq.1.2021.05.12.11.01.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 12 May 2021 10:56:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1CC226101A;
-	Wed, 12 May 2021 17:56:43 +0000 (UTC)
-Date: Wed, 12 May 2021 19:56:41 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: open list <linux-kernel@vger.kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Florian Fainelli <f.fainelli@gmail.com>, patches@kernelci.org,
-	lkft-triage@lists.linaro.org, Jon Hunter <jonathanh@nvidia.com>,
-	linux-stable <stable@vger.kernel.org>, Pavel Machek <pavel@denx.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Huacai Chen <chenhuacai@kernel.org>
-Subject: Re: [PATCH 5.12 000/677] 5.12.4-rc1 review
-Message-ID: <YJwW2bNXGZw5kmpo@kroah.com>
-References: <20210512144837.204217980@linuxfoundation.org>
- <CA+G9fYufHvM+C=39gtk5CF-r4sYYpRkQFGsmKrkdQcXj_XKFag@mail.gmail.com>
+        Wed, 12 May 2021 11:01:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 993F96142F;
+	Wed, 12 May 2021 18:01:31 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Fangrui Song <maskray@google.com>,
+	Palmer Dabbelt <palmerdabbelt@google.com>,
+	Sasha Levin <sashal@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.12 19/37] riscv: Use $(LD) instead of $(CC) to link vDSO
+Date: Wed, 12 May 2021 14:00:46 -0400
+Message-Id: <20210512180104.664121-19-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210512180104.664121-1-sashal@kernel.org>
+References: <20210512180104.664121-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYufHvM+C=39gtk5CF-r4sYYpRkQFGsmKrkdQcXj_XKFag@mail.gmail.com>
-X-Original-Sender: gregkh@linuxfoundation.org
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=FDm4sadz;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@kernel.org header.s=k20201202 header.b=Y0+JrZ5v;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,64 +134,97 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 12, 2021 at 10:53:04PM +0530, Naresh Kamboju wrote:
-> On Wed, 12 May 2021 at 21:27, Greg Kroah-Hartman
-> <gregkh@linuxfoundation.org> wrote:
-> >
-> > This is the start of the stable review cycle for the 5.12.4 release.
-> > There are 677 patches in this series, all will be posted as a response
-> > to this one.  If anyone has any issues with these being applied, please
-> > let me know.
-> >
-> > Responses should be made by Fri, 14 May 2021 14:47:09 +0000.
-> > Anything received after that time might be too late.
-> >
-> > The whole patch series can be found in one patch at:
-> >         https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.12.4-rc1.gz
-> > or in the git tree and branch at:
-> >         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.12.y
-> > and the diffstat can be found below.
-> >
-> > thanks,
-> >
-> > greg k-h
-> 
-> 
-> MIPS Clang build regression detected.
-> MIPS gcc-10,9 and 8 build PASS.
-> 
-> > Maciej W. Rozycki <macro@orcam.me.uk>
-> >     MIPS: Reinstate platform `__div64_32' handler
-> 
-> mips clang build breaks on stable rc 5.4 .. 5.12 due to below warnings / errors
->  - mips (defconfig) with clang-12
->  - mips (tinyconfig) with clang-12
->  - mips (allnoconfig) with clang-12
-> 
-> make --silent --keep-going --jobs=8
-> O=/home/tuxbuild/.cache/tuxmake/builds/current ARCH=mips
-> CROSS_COMPILE=mips-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
-> clang'
-> kernel/time/hrtimer.c:318:2: error: couldn't allocate output register
-> for constraint 'x'
->         do_div(tmp, (u32) div);
->         ^
-> include/asm-generic/div64.h:243:11: note: expanded from macro 'do_div'
->                 __rem = __div64_32(&(n), __base);       \
->                         ^
-> arch/mips/include/asm/div64.h:74:11: note: expanded from macro '__div64_32'
->                 __asm__("divu   $0, %z1, %z2"                           \
->                         ^
-> 1 error generated.
+From: Nathan Chancellor <nathan@kernel.org>
 
-Does this also show up in Linus's tree?  The same MIPS patch is there as
-well from what I can tell.
+[ Upstream commit 7f3d349065d0c643f7f7013fbf9bc9f2c90b675f ]
 
-thanks,
+Currently, the VDSO is being linked through $(CC). This does not match
+how the rest of the kernel links objects, which is through the $(LD)
+variable.
 
-greg k-h
+When linking with clang, there are a couple of warnings about flags that
+will not be used during the link:
+
+clang-12: warning: argument unused during compilation: '-no-pie' [-Wunused-command-line-argument]
+clang-12: warning: argument unused during compilation: '-pg' [-Wunused-command-line-argument]
+
+'-no-pie' was added in commit 85602bea297f ("RISC-V: build vdso-dummy.o
+with -no-pie") to override '-pie' getting added to the ld command from
+distribution versions of GCC that enable PIE by default. It is
+technically no longer needed after commit c2c81bb2f691 ("RISC-V: Fix the
+VDSO symbol generaton for binutils-2.35+"), which removed vdso-dummy.o
+in favor of generating vdso-syms.S from vdso.so with $(NM) but this also
+resolves the issue in case it ever comes back due to having full control
+over the $(LD) command. '-pg' is for function tracing, it is not used
+during linking as clang states.
+
+These flags could be removed/filtered to fix the warnings but it is
+easier to just match the rest of the kernel and use $(LD) directly for
+linking. See commits
+
+  fe00e50b2db8 ("ARM: 8858/1: vdso: use $(LD) instead of $(CC) to link VDSO")
+  691efbedc60d ("arm64: vdso: use $(LD) instead of $(CC) to link VDSO")
+  2ff906994b6c ("MIPS: VDSO: Use $(LD) instead of $(CC) to link VDSO")
+  2b2a25845d53 ("s390/vdso: Use $(LD) instead of $(CC) to link vDSO")
+
+for more information.
+
+The flags are converted to linker flags and '--eh-frame-hdr' is added to
+match what is added by GCC implicitly, which can be seen by adding '-v'
+to GCC's invocation.
+
+Additionally, since this area is being modified, use the $(OBJCOPY)
+variable instead of an open coded $(CROSS_COMPILE)objcopy so that the
+user's choice of objcopy binary is respected.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/803
+Link: https://github.com/ClangBuiltLinux/linux/issues/970
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Reviewed-by: Fangrui Song <maskray@google.com>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/kernel/vdso/Makefile | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 71a315e73cbe..ca2b40dfd24b 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -41,11 +41,10 @@ KASAN_SANITIZE := n
+ $(obj)/vdso.o: $(obj)/vdso.so
+ 
+ # link rule for the .so file, .lds has to be first
+-SYSCFLAGS_vdso.so.dbg = $(c_flags)
+ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+ 	$(call if_changed,vdsold)
+-SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+-	-Wl,--build-id=sha1 -Wl,--hash-style=both
++LDFLAGS_vdso.so.dbg = -shared -s -soname=linux-vdso.so.1 \
++	--build-id=sha1 --hash-style=both --eh-frame-hdr
+ 
+ # We also create a special relocatable object that should mirror the symbol
+ # table and layout of the linked DSO. With ld --just-symbols we can then
+@@ -60,13 +59,10 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+ 
+ # actual build commands
+ # The DSO images are built using a special linker script
+-# Add -lgcc so rv32 gets static muldi3 and lshrdi3 definitions.
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+ quiet_cmd_vdsold = VDSOLD  $@
+-      cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
+-                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
+-                   $(CROSS_COMPILE)objcopy \
+-                           $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
++      cmd_vdsold = $(LD) $(ld_flags) -T $(filter-out FORCE,$^) -o $@.tmp && \
++                   $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+                    rm $@.tmp
+ 
+ # Extracts symbol offsets from the VDSO, converting them into an assembly file
+-- 
+2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YJwW2bNXGZw5kmpo%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210512180104.664121-19-sashal%40kernel.org.
