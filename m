@@ -1,135 +1,137 @@
-Return-Path: <clang-built-linux+bncBD5JHS4X5YBBBS5A5WCAMGQEQTJ2KLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD5JHS4X5YBBBEFC5WCAMGQEGIH6AUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id D1F5237B4B1
-	for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 05:49:32 +0200 (CEST)
-Received: by mail-pf1-x440.google.com with SMTP id w195-20020a627bcc0000b029028e75db9c52sf14037757pfc.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 20:49:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620791371; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 941F737B4B9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 05:52:49 +0200 (CEST)
+Received: by mail-qv1-xf3e.google.com with SMTP id f20-20020a0caa940000b02901c5058e5813sf17384926qvb.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 11 May 2021 20:52:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620791568; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r2TSX4mGqjudhR9f5UmW4evC4LKM+Svc6moZFL1Y4aZrqa7Ye9yhX7Lj5bpsDr/BWb
-         Zp/aVcovuM0WUbh+lYa6CpfHfqQ2+jgrAVDr5U33pF0RpjhhHjFYeKD2IEMpnWr+5e8J
-         cXTlhFl/gUqYJLvHDxkL3INlkFACbgpn9cD00dF3RhXL9j8168tMy1912oaHi3a3L/3G
-         m2n58z+cJZ1GYhiIAX/QV5Au2WFtqsDc8hoMosWllve9LW8wzLNNtyoJeYhvMIOH8Eun
-         9P2I2xXYBA3MXyesjYyYEYefjtfN1eI+x3+j6HSrpwvGRKGdF0IgR/jLgijMTeG/is2B
-         Df1w==
+        b=n9f/nHojxSfquXQNZuKbWfQHro5l0FZDqS+/q6DPO9KhNBQVI0zEZOs4M6hSJEfrSF
+         /JkhFg1vd/FVnCqpN6SRo+dnEHQVc5C/hJROYnsRGA1jfdtAsKEOzTgiY9XM7vIZJNsv
+         egU/3fFO6/nXfXUXLQYR6YeAhbg6ibVAqsNBk+oqngo40zXUw80cISpHUuUKSkR4Ze3a
+         ChsqAhk4c0194qIhL1eRtbbbqwzAmN7rn9rscNB57vhDw4wQO9L9fip0lCisDnbtBl5l
+         MWFGOUXD748UrpkgsXMNZyfHGkpDoV5ao2piMZUn+9YTj/2JEubLrB07+xuntnC7+GHF
+         ThHw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :sender:dkim-signature;
-        bh=1hRCBPT6ZTgNJH7IdOMB4q0EitGIsvCl+pyENF+yUWg=;
-        b=pEg1441b7HXNju193NqsrjLRirwXKTTN+22iHRC0OKeRMIZoV6lexf2Y5NIkbFqWCA
-         tSapHdsFRAVhbPsQRGRmBASPHWIKF5CnYiBzUd+rUsu6ofyQeOZWl5Q2bllfBloiFQY4
-         5qbwbdEA0hLCIw12UmL/D4e1sv++EzrTly0907TLS1CQYfKnQJ5k3ClGGECKmbba52Z5
-         U4JVxr9xlHyZFBZrAPtb55xfwOdgSl85UPpxLUCeTfnLXwob0YqAq32cGzcww/iLiM84
-         eW5SzKj9MJ/N/XXeG5JcqSBc/WIeK6uBU5xu3ox15B57RYgnhPAjqWOcEZbQYBeB0Cct
-         LaiA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :in-reply-to:from:references:cc:to:content-language:subject
+         :user-agent:mime-version:date:message-id:sender:dkim-signature;
+        bh=3UI2L7h7w0WFKsH8uK3QavZWInpJxhMjec1p95YoS/A=;
+        b=awVEqW5A/c2JmwVYzoT2HTt9YvznWBvlBpmOvOdoYlpLhNmf5rC89XzcYW18A1TLzE
+         3k8LJKeY02VnvmXsBQhLjYaKxsiiqIk7xRdVF7RwubKwAeY9Vf8SQt2co5dTDe8I8dfa
+         yZ2F0S4HETylzpjLq3QXgSsePFNfIKN5QrhwE8CeDgTPXSdexMYtHjtTku+cYrDdR325
+         BpdYPeaNKZJtzxhdC7RikK0mY4KLfN6nayqor9geWniz00m3/L2s31FYLFpbmdJ/NeH3
+         pPXvIH3D97gaoUCLPvkrhscZrcRJA1EzeoN7p/Wvou/hlBzNHXKXpLeglx852RVnKxmR
+         fx5Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ozlabs-ru.20150623.gappssmtp.com header.s=20150623 header.b=gBKUHOq8;
-       spf=pass (google.com: domain of aik@ozlabs.ru designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=aik@ozlabs.ru
+       dkim=pass header.i=@ozlabs-ru.20150623.gappssmtp.com header.s=20150623 header.b=zQYt8vmL;
+       spf=pass (google.com: domain of aik@ozlabs.ru designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=aik@ozlabs.ru
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:message-id:date:mime-version:user-agent:subject
          :content-language:to:cc:references:from:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1hRCBPT6ZTgNJH7IdOMB4q0EitGIsvCl+pyENF+yUWg=;
-        b=MUXng0wtjiwQhmtBJ1zKV0g7oruB24SIT/67FTXN4GNm8nvhUGFtMlpYW5dIIiwXbG
-         GjZJLPWQ0/H0ihMAoib68BsUcDywQdwaa6T4uPAktJ0PruAJ7ISwgruct0iPt6R0+5R1
-         CilaStL2xG+zN8+ET6N7EHIqBHKNpC9wIyzgcEJEfD2zGuHpTCs/EKHShA0qMNKBDWGQ
-         7QxKHJzFMdn7i1LLvkUSvqpHa54mUiSC9DaLUS9QPrpJ+Cmyl3nW6qKQ2ApxUY3EbEKY
-         uVbDyrJRrmgDr63KyijNsloubnJ+LMN7UD9ydPL6cE6BeZYPSVnLh6zaQAsVd0Nze8JH
-         lWCw==
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=3UI2L7h7w0WFKsH8uK3QavZWInpJxhMjec1p95YoS/A=;
+        b=paAemPoHKr2+gg8I9IHsdLa1VowL06FVfBeK0jGwgUURsL0GCzglGBLCXdWDu1EnsM
+         FZom8pyotjxcBFuC/Vw9Sf5At33r4KHuiV903VewkwOUNaP7agXWNkqXZTjP737s+QE6
+         ztcMWIh/oTLtx1Wc7CCB2BW8gC5SfXvFHPk3hEuq5As+xnTwtSIpHIuHZiadJTy8Yfzb
+         va9qALxrZM+vKKgVqyBDyRYpMIEqU/M6Yh1BY8SF2Ab6no08i/iVwAV0vTMK7+dpB7Jc
+         1hHxwzSbFdbGBklC+JECcbT1GtQrkwoD0Ygs3UjlMJyC3m2TgbNoDUoIYrrjCd2yXY+O
+         OBrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:message-id:date:mime-version:user-agent
          :subject:content-language:to:cc:references:from:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=1hRCBPT6ZTgNJH7IdOMB4q0EitGIsvCl+pyENF+yUWg=;
-        b=eyWjhUjJHyWM6Riu8occwfQwKmkaORl7US5cuvhieqBtJyUl0kEuSw4vFVRCxOieUL
-         TCCfG7lkmpRqD46SMD8EinARQtTjFLn55yo1/RnTg7tWQxGK+qwiilddw3KesvJsdn2l
-         FEXyXLrPrFqGcFlz4xSdjOP6YdOJGS3b3crG/AqwlPLJEzj/8vOzgQ0VTT8TUWcRg8GB
-         U4fmuxIMo+OMSCLIFIA20OqC/Xnl7a9Np05LvSwI3SzDOCCMozcSuzpiV9xaNW94I1Pm
-         kTx9o+ThObyVFJcuJsu9a+WRGlYFxn4xcIxFpi9mVBOOwbjwTPKQpkmjOgRXKCFCzM+B
-         /mIQ==
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3UI2L7h7w0WFKsH8uK3QavZWInpJxhMjec1p95YoS/A=;
+        b=qQ2GjKDBYUlpZG5IU9cjVLidVJcWfQgvaNHNyikoYwKxa+H4Y2LdNkmZea1mAj4yQi
+         gw1Vp0CczI0u464TDVYVs1K6/a0+0TxGCTFkL8L5L+qQiBvpaVcBWZ/LTx2koNo7sntd
+         x0KiR4P7aV4MjvIPRnTj9rwlQyVkEIK+ODffVuYNzj9i3VMaX2urW0rS7XF5RMM/eay0
+         HHQaaWt7m+6F6rjTBgWLK9DIue7rd/0k0hv3OmwhQvpMAP4HPO2vQ4DIwzwpm+lB9uQo
+         vDs4l2N5ogV1GiQdWvj8Xwvddx3G1WPxmxlhpopX2Jb6mhp2yaRXQcHNAmV7DGlMwQCz
+         Gfmg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531TSpWU8XuhtUwX7ocoluofrp5daMXr8EE6cj3sQNdh9o8d0Mt7
-	BRlBIXlx81F4TO6JXVyoAZg=
-X-Google-Smtp-Source: ABdhPJy8LCMlMcYUDuWxwqjCvpXHqvSA711wnb+ut+AjEv34sUh0HQkOoz1giUfjpZvRA5xKpnINnQ==
-X-Received: by 2002:a17:90b:2397:: with SMTP id mr23mr4692050pjb.77.1620791371583;
-        Tue, 11 May 2021 20:49:31 -0700 (PDT)
+X-Gm-Message-State: AOAM533oqRkFHQ6tridQv+HWShFHctri2c6IkeH02Zsd2ajpLvrfHv5I
+	PRu4V6rotlMc/1elVq+rTL4=
+X-Google-Smtp-Source: ABdhPJwNZPedM617j8FvBFGST07iygFLTVJzEMik1QbFMfM/CAIkVTRk90Eb6WZ17xGdw7/FWNDLLg==
+X-Received: by 2002:a37:9507:: with SMTP id x7mr32313803qkd.1.1620791568646;
+        Tue, 11 May 2021 20:52:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:9b83:: with SMTP id g3ls643380pjp.0.gmail; Tue, 11
- May 2021 20:49:30 -0700 (PDT)
-X-Received: by 2002:a17:90a:f3d3:: with SMTP id ha19mr37051644pjb.166.1620791370763;
-        Tue, 11 May 2021 20:49:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620791370; cv=none;
+Received: by 2002:ac8:7684:: with SMTP id g4ls536958qtr.9.gmail; Tue, 11 May
+ 2021 20:52:48 -0700 (PDT)
+X-Received: by 2002:ac8:5b87:: with SMTP id a7mr22566563qta.29.1620791568245;
+        Tue, 11 May 2021 20:52:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620791568; cv=none;
         d=google.com; s=arc-20160816;
-        b=dbXfcUdl0dVzDVUA7CGaa8qNSl7oSBUdrm9kprcOtAAWXl7mgCUIeOO3LrrP32t7KI
-         x940+qxPvwguY/9eLgOietr8gP5S4saKQA786Y44rMUBQqTVuVHe+Jw5+RfB7KNeCETy
-         uVg/AYnJ2bpa2fVrymDluNjvo+qHMV+PrjhsgbmCd4C6JWBiO9KlU4TEnDk/w0KyYuRD
-         6YBsqbk+aUu2XKlmWut8pKvcfAeh+/qpJo00CitYJuskPbrh89bks7LnJtEFBH9AmFlX
-         MxiLasLCgObIkWT2GNFCQ1moyrCWQ+O6zjwNz4SKnbEv/itLB4tlA+x8Vj8Eh1B/won3
-         JRuA==
+        b=YcD1yQic+4gMbvzwB8bfKozNQCnJG0cFnf1KpJCRLQAPL6YkcCIbJT/2OdBK+S//fo
+         8L4FUFDdLRyO72YaQz9FF1ziMzRSKAHT8klH/JYih5v46ASLUvxN14TUsivvxnAchJrw
+         /nmy7CgX97SCOBEo6LCemq5bf9m/wLcZZ24YVsqo6LQJmLICuIM8EIJcii2M/9iW7aE8
+         skiCma6dYvYFTg9PYBrgNbQ0qtxYSIAtpTSL0Lkx+L4Tcs6KDfSAPeMx4H2TiWTivLzY
+         7VYcAaRCJiDf6opfK3snp98ZsJiQR/Q0O+EbW8DeS6oQ9Es8yPiJUapG/C0akienX6/l
+         LTgA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :dkim-signature;
-        bh=IzgGu9R0ARwDBsD+F2+JiW3x3zuHRQ4yrRZwYSnXu+o=;
-        b=aWjlIEaPKYARcwGt9EwDtbIJ0GxcmbaVmFgLXMnE7E7XxJuTcb4nuu4WQR+s9QEtHF
-         Dd/vmAmwqrhZQv2QubJ1NQTXet/ZYy1/sQa+wCsUr6QhEdpjw2snbEgPNyaflr6hVslL
-         BuBLdX86lvjn77HIU3K33XcNtWX3KSvyh/2TQcnjrbraAQkL31xcW/UZN/RB5GdxNiCH
-         gbVewNHwdV83DdqR8aCLpMVb6WHu0QuLWE7jarD47FeQz4sDS2cS0z5zF6bclz1YDfry
-         1BihJ5JKAGywH5HnZTcwrAvRPalNuAyhpDAUaIZS6sI8NWZnpPXyX86I/wHDN3SxHJii
-         PyyQ==
+        bh=kLri06/PsvUYTrFMMBEaqXVTzgJ4ixwFqo6hvHf1gdo=;
+        b=R5VnFQ1QW/yIVsnS4aic5zyYV9EAbB+lFeyiR5GI7Tl2jXuE4W35d4K5FWHwu2sboc
+         kGvENBq0xQxTAyrO+fiRa/OG2UcXNXs5StfvK5Ai+PSxoAjn3cCT/rPNcZgig5XAPFVi
+         MapFCEwLk4cm6r4znWg0QNSfvfrhu8H+02bQYlfp3IlMJEoQtWaI4hEFjD9Onjc6ghPF
+         qINp2ZfrGJ6t8O+rbVkSnuRowCuk4pPIzkdhVsL4Fe/pnvHAogr872hduTbzb3S15lXy
+         xs+zMSd16v6kCNUEeNL9PPQqqiMDYsiIq+K5X3qskONSTMNBXHcX5NvYFFxqZGCC110n
+         HPlg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ozlabs-ru.20150623.gappssmtp.com header.s=20150623 header.b=gBKUHOq8;
-       spf=pass (google.com: domain of aik@ozlabs.ru designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=aik@ozlabs.ru
-Received: from mail-pf1-x42a.google.com (mail-pf1-x42a.google.com. [2607:f8b0:4864:20::42a])
-        by gmr-mx.google.com with ESMTPS id b9si2123174pfd.3.2021.05.11.20.49.29
+       dkim=pass header.i=@ozlabs-ru.20150623.gappssmtp.com header.s=20150623 header.b=zQYt8vmL;
+       spf=pass (google.com: domain of aik@ozlabs.ru designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=aik@ozlabs.ru
+Received: from mail-pj1-x1032.google.com (mail-pj1-x1032.google.com. [2607:f8b0:4864:20::1032])
+        by gmr-mx.google.com with ESMTPS id 8si797697qtp.5.2021.05.11.20.52.47
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 May 2021 20:49:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of aik@ozlabs.ru designates 2607:f8b0:4864:20::42a as permitted sender) client-ip=2607:f8b0:4864:20::42a;
-Received: by mail-pf1-x42a.google.com with SMTP id a5so10526501pfa.11
-        for <clang-built-linux@googlegroups.com>; Tue, 11 May 2021 20:49:29 -0700 (PDT)
-X-Received: by 2002:aa7:864c:0:b029:2cd:558:dbb8 with SMTP id a12-20020aa7864c0000b02902cd0558dbb8mr2932500pfo.78.1620791369439;
-        Tue, 11 May 2021 20:49:29 -0700 (PDT)
+        Tue, 11 May 2021 20:52:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of aik@ozlabs.ru designates 2607:f8b0:4864:20::1032 as permitted sender) client-ip=2607:f8b0:4864:20::1032;
+Received: by mail-pj1-x1032.google.com with SMTP id bo23-20020a17090b0917b029015cb1f2fd59so262586pjb.2
+        for <clang-built-linux@googlegroups.com>; Tue, 11 May 2021 20:52:47 -0700 (PDT)
+X-Received: by 2002:a17:902:e00e:b029:ef:5f1c:18a8 with SMTP id o14-20020a170902e00eb02900ef5f1c18a8mr6440716plo.38.1620791567073;
+        Tue, 11 May 2021 20:52:47 -0700 (PDT)
 Received: from localhost (110-175-254-242.static.tpgi.com.au. [110.175.254.242])
-        by smtp.gmail.com with UTF8SMTPSA id c6sm3225014pjs.11.2021.05.11.20.49.25
+        by smtp.gmail.com with UTF8SMTPSA id d8sm13938636pfl.156.2021.05.11.20.52.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 May 2021 20:49:28 -0700 (PDT)
-Message-ID: <80ae1561-ed8d-cf3a-f3bb-d89cd07bfc24@ozlabs.ru>
-Date: Wed, 12 May 2021 13:48:53 +1000
+        Tue, 11 May 2021 20:52:46 -0700 (PDT)
+Message-ID: <1024e788-f5f0-9990-a049-94133d3a0921@ozlabs.ru>
+Date: Wed, 12 May 2021 13:52:10 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101
  Thunderbird/88.0
 Subject: Re: [PATCH kernel v2] powerpc/makefile: Do not redefine $(CPP) for
  preprocessor
 Content-Language: en-US
-To: Segher Boessenkool <segher@kernel.crashing.org>
-Cc: Michal Marek <michal.lkml@markovi.net>, linux-kbuild@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
- Nicholas Piggin <npiggin@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
- clang-built-linux@googlegroups.com, linuxppc-dev@lists.ozlabs.org
+To: Nathan Chancellor <nathan@kernel.org>, linuxppc-dev@lists.ozlabs.org
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Masahiro Yamada <masahiroy@kernel.org>, Michael Ellerman
+ <mpe@ellerman.id.au>, Michal Marek <michal.lkml@markovi.net>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 References: <20210511044812.267965-1-aik@ozlabs.ru>
- <20210511112019.GK10366@gate.crashing.org>
- <1795b9efa40.27bb.1ca38dd7e845b990cd13d431eb58563d@ozlabs.ru>
- <20210511231635.GR10366@gate.crashing.org>
+ <3579aa0d-0470-9a6b-e35b-48f997a5b48b@kernel.org>
 From: Alexey Kardashevskiy <aik@ozlabs.ru>
-In-Reply-To: <20210511231635.GR10366@gate.crashing.org>
+In-Reply-To: <3579aa0d-0470-9a6b-e35b-48f997a5b48b@kernel.org>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: aik@ozlabs.ru
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@ozlabs-ru.20150623.gappssmtp.com header.s=20150623
- header.b=gBKUHOq8;       spf=pass (google.com: domain of aik@ozlabs.ru
- designates 2607:f8b0:4864:20::42a as permitted sender) smtp.mailfrom=aik@ozlabs.ru
+ header.b=zQYt8vmL;       spf=pass (google.com: domain of aik@ozlabs.ru
+ designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=aik@ozlabs.ru
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,35 +146,161 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 
 
-On 5/12/21 09:16, Segher Boessenkool wrote:
-> On Tue, May 11, 2021 at 11:30:17PM +1000, Alexey Kardashevskiy wrote:
->>> In any case, please mention the reasoning (and the fact that you are
->>> removing these flags!) in the commit message.  Thanks!
+On 5/12/21 05:18, Nathan Chancellor wrote:
+> On 5/10/2021 9:48 PM, Alexey Kardashevskiy wrote:
+>> The $(CPP) (do only preprocessing) macro is already defined in Makefile.
+>> However POWERPC redefines it and adds $(KBUILD_CFLAGS) which results
+>> in flags duplication. Which is not a big deal by itself except for
+>> the flags which depend on other flags and the compiler checks them
+>> as it parses the command line.
 >>
->> but i did mention this, the last paragraph... they are duplicated.
-> 
-> Oh!  I completely missed those few lines.  Sorry for that :-(
-
-Well, I probably should have made it a separate patch anyway, I'll 
-repost separately.
-
-
-> To compensate a bit:
-> 
->> It still puzzles me why we need -C
+>> Specifically, scripts/Makefile.build:304 generates ksyms for .S files.
+>> If clang+llvm+sanitizer are enabled, this results in
+>>
+>> -emit-llvm-bc -fno-lto -flto -fvisibility=3Dhidden \
+>> =C2=A0 -fsanitize=3Dcfi-mfcall -fno-lto=C2=A0 ...
+>>
+>> in the clang command line and triggers error:
+>>
+>> clang-13: error: invalid argument '-fsanitize=3Dcfi-mfcall' only allowed=
+=20
+>> with '-flto'
+>>
+>> This removes unnecessary CPP redefinition. Which works fine as in most
+>> place KBUILD_CFLAGS is passed to $CPP except
+>> arch/powerpc/kernel/vdso64/vdso(32|64).lds (and probably some others,
+>> not yet detected). To fix vdso, we do:
+>> 1. explicitly add -m(big|little)-endian to $CPP
+>> 2. (for clang) add $CLANG_FLAGS to $KBUILD_CPPFLAGS as otherwise clang
+>> silently ignores -m(big|little)-endian if the building platform does not
+>> support big endian (such as x86) so --prefix=3D is required.
+>>
+>> While at this, remove some duplication from CPPFLAGS_vdso(32|64)
+>> as cmd_cpp_lds_S has them anyway. It still puzzles me why we need -C
 >> (preserve comments in the preprocessor output) flag here.
-> 
-> It is so that a human can look at the output and read it.  Comments are
-> very significant to human readers :-)
+>>
+>> Signed-off-by: Alexey Kardashevskiy <aik@ozlabs.ru>
+>> ---
+>> Changes:
+>> v2:
+>> * fix KBUILD_CPPFLAGS
+>> * add CLANG_FLAGS to CPPFLAGS
+>> ---
+>> =C2=A0 Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 1 +
+>> =C2=A0 arch/powerpc/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 3 ++-
+>> =C2=A0 arch/powerpc/kernel/vdso32/Makefile | 2 +-
+>> =C2=A0 arch/powerpc/kernel/vdso64/Makefile | 2 +-
+>> =C2=A0 4 files changed, 5 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Makefile b/Makefile
+>> index 72af8e423f11..13acd2183d55 100644
+>> --- a/Makefile
+>> +++ b/Makefile
+>> @@ -591,6 +591,7 @@ CLANG_FLAGS=C2=A0=C2=A0=C2=A0 +=3D=20
+>> --prefix=3D$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+>> =C2=A0 endif
+>> =C2=A0 CLANG_FLAGS=C2=A0=C2=A0=C2=A0 +=3D -Werror=3Dunknown-warning-opti=
+on
+>> =C2=A0 KBUILD_CFLAGS=C2=A0=C2=A0=C2=A0 +=3D $(CLANG_FLAGS)
+>> +KBUILD_CPPFLAGS=C2=A0=C2=A0=C2=A0 +=3D $(CLANG_FLAGS)
+>=20
+> This is going to cause flag duplication, which would be nice to avoid. I=
+=20
+> do not know if we can get away with just adding $(CLANG_FLAGS) to=20
+> KBUILD_CPPFLAGS instead of KBUILD_CFLAGS though. It seems like this=20
+> assignment might be better in arch/powerpc/Makefile with the=20
+> KBUILD_CPPFLAGS additions there.
 
-I seriously doubt anyone ever read those :) I suspect this is to pull 
-all the licenses in one place and do some checking but I did not dig deep.
+
+It is a fair point about the duplication (which is woooow, I often see=20
+-mbig-endian 3 - three - times) and I think I only need --prefix=3D there=
+=20
+but this is still exactly the place to do such thing as it potentially=20
+affects all archs supporting both endianness (not many though, yeah).=20
+Thanks,
 
 
--- 
+
+
+>=20
+> Cheers,
+> Nathan
+>=20
+>> =C2=A0 KBUILD_AFLAGS=C2=A0=C2=A0=C2=A0 +=3D $(CLANG_FLAGS)
+>> =C2=A0 export CLANG_FLAGS
+>> =C2=A0 endif
+>> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+>> index 3212d076ac6a..306bfd2797ad 100644
+>> --- a/arch/powerpc/Makefile
+>> +++ b/arch/powerpc/Makefile
+>> @@ -76,6 +76,7 @@ endif
+>> =C2=A0 ifdef CONFIG_CPU_LITTLE_ENDIAN
+>> =C2=A0 KBUILD_CFLAGS=C2=A0=C2=A0=C2=A0 +=3D -mlittle-endian
+>> +KBUILD_CPPFLAGS=C2=A0=C2=A0=C2=A0 +=3D -mlittle-endian
+>> =C2=A0 KBUILD_LDFLAGS=C2=A0=C2=A0=C2=A0 +=3D -EL
+>> =C2=A0 LDEMULATION=C2=A0=C2=A0=C2=A0 :=3D lppc
+>> =C2=A0 GNUTARGET=C2=A0=C2=A0=C2=A0 :=3D powerpcle
+>> @@ -83,6 +84,7 @@ MULTIPLEWORD=C2=A0=C2=A0=C2=A0 :=3D -mno-multiple
+>> =C2=A0 KBUILD_CFLAGS_MODULE +=3D $(call cc-option,-mno-save-toc-indirect=
+)
+>> =C2=A0 else
+>> =C2=A0 KBUILD_CFLAGS +=3D $(call cc-option,-mbig-endian)
+>> +KBUILD_CPPFLAGS +=3D $(call cc-option,-mbig-endian)
+>> =C2=A0 KBUILD_LDFLAGS=C2=A0=C2=A0=C2=A0 +=3D -EB
+>> =C2=A0 LDEMULATION=C2=A0=C2=A0=C2=A0 :=3D ppc
+>> =C2=A0 GNUTARGET=C2=A0=C2=A0=C2=A0 :=3D powerpc
+>> @@ -208,7 +210,6 @@ KBUILD_CPPFLAGS=C2=A0=C2=A0=C2=A0 +=3D -I $(srctree)=
+/arch/$(ARCH)=20
+>> $(asinstr)
+>> =C2=A0 KBUILD_AFLAGS=C2=A0=C2=A0=C2=A0 +=3D $(AFLAGS-y)
+>> =C2=A0 KBUILD_CFLAGS=C2=A0=C2=A0=C2=A0 +=3D $(call cc-option,-msoft-floa=
+t)
+>> =C2=A0 KBUILD_CFLAGS=C2=A0=C2=A0=C2=A0 +=3D -pipe $(CFLAGS-y)
+>> -CPP=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D $(CC) -E $(KBUILD_CFL=
+AGS)
+>> =C2=A0 CHECKFLAGS=C2=A0=C2=A0=C2=A0 +=3D -m$(BITS) -D__powerpc__ -D__pow=
+erpc$(BITS)__
+>> =C2=A0 ifdef CONFIG_CPU_BIG_ENDIAN
+>> diff --git a/arch/powerpc/kernel/vdso32/Makefile=20
+>> b/arch/powerpc/kernel/vdso32/Makefile
+>> index 7d9a6fee0e3d..ea001c6df1fa 100644
+>> --- a/arch/powerpc/kernel/vdso32/Makefile
+>> +++ b/arch/powerpc/kernel/vdso32/Makefile
+>> @@ -44,7 +44,7 @@ asflags-y :=3D -D__VDSO32__ -s
+>> =C2=A0 obj-y +=3D vdso32_wrapper.o
+>> =C2=A0 targets +=3D vdso32.lds
+>> -CPPFLAGS_vdso32.lds +=3D -P -C -Upowerpc
+>> +CPPFLAGS_vdso32.lds +=3D -C
+>> =C2=A0 # link rule for the .so file, .lds has to be first
+>> =C2=A0 $(obj)/vdso32.so.dbg: $(src)/vdso32.lds $(obj-vdso32)=20
+>> $(obj)/vgettimeofday.o FORCE
+>> diff --git a/arch/powerpc/kernel/vdso64/Makefile=20
+>> b/arch/powerpc/kernel/vdso64/Makefile
+>> index 2813e3f98db6..07eadba48c7a 100644
+>> --- a/arch/powerpc/kernel/vdso64/Makefile
+>> +++ b/arch/powerpc/kernel/vdso64/Makefile
+>> @@ -30,7 +30,7 @@ ccflags-y :=3D -shared -fno-common -fno-builtin=20
+>> -nostdlib \
+>> =C2=A0 asflags-y :=3D -D__VDSO64__ -s
+>> =C2=A0 targets +=3D vdso64.lds
+>> -CPPFLAGS_vdso64.lds +=3D -P -C -U$(ARCH)
+>> +CPPFLAGS_vdso64.lds +=3D -C
+>> =C2=A0 # link rule for the .so file, .lds has to be first
+>> =C2=A0 $(obj)/vdso64.so.dbg: $(src)/vdso64.lds $(obj-vdso64)=20
+>> $(obj)/vgettimeofday.o FORCE
+>>
+>=20
+
+--=20
 Alexey
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/80ae1561-ed8d-cf3a-f3bb-d89cd07bfc24%40ozlabs.ru.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/1024e788-f5f0-9990-a049-94133d3a0921%40ozlabs.ru.
