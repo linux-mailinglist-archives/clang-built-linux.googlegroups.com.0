@@ -1,125 +1,127 @@
-Return-Path: <clang-built-linux+bncBDGIXFWLTIHBBXXH6GCAMGQEDC2IHXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5PR6GCAMGQEAOAQLMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe39.google.com (mail-vs1-xe39.google.com [IPv6:2607:f8b0:4864:20::e39])
-	by mail.lfdr.de (Postfix) with ESMTPS id A7D6D37F062
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 02:33:35 +0200 (CEST)
-Received: by mail-vs1-xe39.google.com with SMTP id b24-20020a67d3980000b029022a610fc6f2sf9052431vsj.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 17:33:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620866014; cv=pass;
+Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FFE937F0AF
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 02:55:19 +0200 (CEST)
+Received: by mail-pf1-x439.google.com with SMTP id 76-20020a62164f0000b029027f27f50e56sf16131017pfw.16
+        for <lists+clang-built-linux@lfdr.de>; Wed, 12 May 2021 17:55:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620867317; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QmdtJGi7+NFhbEylj/BguvlqHKykL5iSzhScf6EYh0RO1/JM3bJtKfFepn0Po6Lhzt
-         aGWZvSml9l8jLRD3JvTKjGFJXdg6Ba0cOMJrb/V7JzYoJtBT+evozjSmTDWjFJW6PRLb
-         BVPhHGNCm9icajzzesFtG20ZLpd1ENNEc5hMfiN27qUqTEH7FV6WVcLXRC32u0f1NZnM
-         sy5MK6o+tn5xl6NkvWrCKf4zJeaPxj0MR3PyC4QUC8HR/WsdnwmSy+cdI4sNFmnORstx
-         wFfHNlDre1xBYWSYrXXBVeQEXrSjXNvosLtD7HVqyHXGHdCOVmU6/f5NNdexGi5Z06wR
-         lR2Q==
+        b=QvRsVbD/Ctl62pwskrV0enOsnWdkw9ihxVz81lG0bKjH5Cu0WUD3La7MJ3m6ttLUni
+         kCccvf14pZ+jwoWu4A8fxPhan1Exs+MrkYqSUsxi0sgEY9IjOQ8tkNZYKyGRtnVMSELj
+         tnJHb57RwnVmmdRPp+c6psZDoxw1RQ6KEPjnDE1197/lTUTjTFRvmsu1jEg6BmyNouG7
+         qVrpOuB+qB58dvY/U9+UOZZnMDqNGQqbLXvJJFBuL/A/9nsM38/D3TzQPxWMPn4HW57K
+         Qt+wdTfxk6WMQt1zeH7/Zm6KdOgGqUZGiFp8HM/ST5f85CBpoDei51ZsMDmohuVq7Sey
+         6prg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=wgJPTSwXASMA487Ej8+K9GZrlzywSW7fGJ72fDlk6Zg=;
-        b=ULD6Z2qzFuRGaWIAfPHMwjZ/OfxENigqDZE8Z4vgsUJZQMk4FTgLSFCi/0gajK4AXl
-         YffFqp4MhLsQIeNYokJVs0AhHxpgrMmKrKV8Rvvc4K+HeIBHXKmGofBOlosTMoaMehFU
-         OMSCOImgqohJtgr7TD93VQ4hGOVr1o2ZZ0ueO+pyogQEm+ZirjJ79Qyh5N46tNsB5cXA
-         Zb90gKdC+mmVeqoPC+2nrbclctxErjpFrSAbt48nbRyOb3GRtyUXxjMCbyEvs7YWNu9/
-         xvhmSwFcmb6k94Ao8Hz1eHFRmv/8EIB988uHoDm5OYD9fzTSyvw3BjlZ50968Bo6bQn3
-         b6sA==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=1t8geF2pXRHRhzKNhIJ59AYCndsdqDiQji+uoVxjjh0=;
+        b=Tyx8DgSenL8OacyeSIzlTpfeahSUUc8nxzmnO1R2LyoHCWxXwHS/FIkzLFHiAtQqia
+         WHw+xsVw4Kf5k/62telq4EBF9MJ6LEkjFCQFiARRUPU5HVNIdhSIF4nCJZ+7kP3dEgGk
+         XW0p7s2r4CdeNsk56Iv7uvGvz3Z0Rk0ddZ2RYxrsz0k2AuL8EjP5Ezka9pxvoxCz1zqr
+         TFFZR1CM3pKFmMp8QsqW952dfLzA7X3ZMXbTVVh7yfaQBQOinF/8+GWiwLsYmywjaWzu
+         HV10MRb+yPrNJqJz9AtGtDxGrOE/SaDL6LEngFC7ioKjti55/S08jp0+w5g3qCk2930n
+         zDew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cxJwWeyy;
-       spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="BjD/SuCQ";
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wgJPTSwXASMA487Ej8+K9GZrlzywSW7fGJ72fDlk6Zg=;
-        b=nX8PT/suBgmaZ+2o/aHWtfXXi9X0wJsUPSekUwFTc5Qg0vKJtPF0Liao1hpsxOa0E8
-         HLGC6TyEAiRVtxB+cGX5kJPVyGl49zBloJETa8oKWtL7lUPgCRyaj31YYkCNsdAyLOSI
-         QJDL9umwETDHqrFerG//G04xDxflAV7Xd0NDS8WSTa6+1orfA957llbs773gwSJCCMSf
-         DT9fmuW2iU8vFOfzxcWCEMmIeswROq+m5xW1jAqZf7fe4cTiTZUFpH7ZTBY8hjOnb7zL
-         aUjNftFxul5QDpAayEO69RfR6okA+Uab8nblKId3P4H9K+6TUue6eUAG2Iu8344kN/qX
-         hbbA==
+        bh=1t8geF2pXRHRhzKNhIJ59AYCndsdqDiQji+uoVxjjh0=;
+        b=skMDH0MwBG+NZVGIkwn/gt7hYQxXAwUB0WBRUOOqt16Jx/ccVQVEbZbsUsvZzSrkrh
+         Ai+SgVOi+wmiNR4dREX3S70pi3KOe9dG4wptXFPWwInnXWMxVB6xbSL3sdC4BAMuIusx
+         TdEf+fJa7mNz8SzU66C0M42xZ3TniozLBcssLjjr0KfKCxGZpZjbuppal/YWQUfzaw8X
+         URy2CvZrTzF2s1sZJ2Nnu+jtQVtSd6I/w0wEPlysCOwn6tdmXLRNYDPjIgUw4ckus+uH
+         J1ygtPF0BoPrz5MNHQd1yZUoXZI1/6KM3SREp1ZcyfmL5A8JGwSAtQAdob79tVUmCAvs
+         ghBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wgJPTSwXASMA487Ej8+K9GZrlzywSW7fGJ72fDlk6Zg=;
-        b=CMJ1DrnIzH4y3jp0TvCIgzYhuE3a5nmS7MrZmJ67nYUMJJ4GXRdIhc14Q+3nxwg94R
-         dPl+Q7J3qlO1bpdzc0l9zNmigUydp2w5IGcUQhAXMM94G6r4mzkt4FP00ke2rH7/ZxNT
-         Zo8jh4SZA8wh+kvomenZOGQFbv0/xo2tqJfJqtqsJ+dXJT7gU5yqNGjqfXbrtpdPehVl
-         Bky/suZhBizqQkzRJX4ckVP/g24nojH8eXjXQf4I+alz8durmlSnb5tUw/TMH0kN6sq0
-         zRITaDX8V05LH14jJ7QBnvk3TrRgcPtVS1LVbI2n/7jSodwQIq+7PR5M2to9uOafBBsw
-         jgxQ==
+        bh=1t8geF2pXRHRhzKNhIJ59AYCndsdqDiQji+uoVxjjh0=;
+        b=H3JAHyX74qHdL7CVSm/Eu5Af+2pZqxxARAiEZZk/V1OiMyF5es54ji8J1AH5yVkDML
+         trB97VU2MKzhL+t04ZEYyCdd86vDmgIYVVFe9HYaMHkFwyLbLiPU6YAizmYXPp3teV2i
+         EOqsZfAOvWXCeMNBkYWkfzfhupO/BOy6yOV/L3wuaAjLH5ntke6WjyiZsCHJzXBiqKGN
+         kGVuYgiTmb9cJ4u8oMEMEK4tJczHEj8hhLhk+Vt0I1K/BItK6FbFKwL5x7ucstGu9xDD
+         FlCTR/RZbzz1opYMLi+O/gP1K7nL9Gjy2bmIgwtfH8R76/Lrq4FDdAvj6LfBhxJG0wfK
+         voLw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533IU9IYmJnfV81zzAUe6J99jJF3t92q9wg0Ypbi48ns1aP6hcAE
-	HdCg1Pb9PTxMzZNlEt2w6J0=
-X-Google-Smtp-Source: ABdhPJybMyTJMTAXwfOy9YZOEIl3txJlPuQNnJdFfBGHjdPTuaCi3cCuNJgrrkgBhCowMHCkRMY0mQ==
-X-Received: by 2002:a67:fc88:: with SMTP id x8mr4980482vsp.10.1620866014715;
-        Wed, 12 May 2021 17:33:34 -0700 (PDT)
+X-Gm-Message-State: AOAM533NBsozDbNSYPIwfonO/moZ3r/mQiLL8UahIqRzi67i7C+NoM8K
+	DmBWxIqiH8HDeRI6nFfWimA=
+X-Google-Smtp-Source: ABdhPJxGSyYP9UyodvfoGtPZxn0byR+3F/QNIXhp/ZA4bTLZ6Q3sXVdyT22QgZXBAGJe0Z2C8dc5fg==
+X-Received: by 2002:a17:90a:d485:: with SMTP id s5mr4388180pju.208.1620867317616;
+        Wed, 12 May 2021 17:55:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:7d96:: with SMTP id y144ls976205vsc.9.gmail; Wed, 12 May
- 2021 17:33:34 -0700 (PDT)
-X-Received: by 2002:a67:ce81:: with SMTP id c1mr32161962vse.28.1620866014223;
-        Wed, 12 May 2021 17:33:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620866014; cv=none;
+Received: by 2002:a17:902:d4d1:: with SMTP id o17ls2169772plg.7.gmail; Wed, 12
+ May 2021 17:55:17 -0700 (PDT)
+X-Received: by 2002:a17:902:70c9:b029:ee:c73c:88a7 with SMTP id l9-20020a17090270c9b02900eec73c88a7mr38211230plt.75.1620867316892;
+        Wed, 12 May 2021 17:55:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620867316; cv=none;
         d=google.com; s=arc-20160816;
-        b=pqOEFCYdYsh5s5E6l5OUrA/o9scZelvuWKsG7VuaHAc6zw1lqc1mD+meGamenDYXJw
-         k7xxpN30VtqacMswHUS80tnB8fupvlMHzqBJd27Hhz5dpLO2U1b3PqyplPq7Xr7VC8o/
-         nSw7Qu9dpwAbxLHsLDx3hxM+T81WehJIufXnkbrfK09wfV1FbhDRzqv6kCsCXpXi9oCo
-         +lLEUyKtu7BC+iSUz136TkJDqyIl569JWDb4MzFVVtd4H1KiQbIRdqzORNLK7WX1XStY
-         hUgnb5BPXSww03lhLkRAWKNcW7nSXI3JrbLTJG12Q7Y4Eam84Ansu3SjD8SPtmbfWbcS
-         YcjA==
+        b=Na0LuxH8NqjDha1H0c+b9mjBgD5mPYd53+13zI0b3O36PHgh1AZASHJ0e0OJ8Q8Pkr
+         66daITxe8Zqy1zMc4kM7j4B9pi0qTYgM9u1B3ZmgmyzEO7crvrYW5Vzm8ne7v6X0IJNe
+         dNK4YLDzHwqWaRs1aMPdef/tZg45Nl7ewHYP73Cg4HBJK9RKwcvYWcGAnbKm74XNgHfL
+         hamEK9845c/qGaHp9F+Do2yoLiemS8BIy4dBLQlmUREr7+eBVA3I+KJHSFFbI7Jwt9mw
+         1jMvz59d7oyfWUk1MVK67cAiKE5axvgqWLuez23LoKlgGE9kYNMtf7mh1rlsCNq5RoJE
+         O87Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=2V0/vE3kab0Gt41Zw/7ojH4ra5srDzaSwhgadaMYvdU=;
-        b=t2vn8P6xSOvPI0u8LXFRj9X3TPL21xFXf8CdEl1AaQJDfNhGHyxPZTKNdsKs1feUOU
-         SHx+8M/Ics6v78f2C5f52K1XJYAnIwRq1LBB9dmXIRo54jVlI0sZ3xxib6vPnme2FWDu
-         LGsnZoYByrlLgHW8sjrjRsZaOSpQutbvSjIN6UM4SrSpv9LSd4ig0uv4IJLTGzT4eq24
-         7Sj11LV+6rr8Avp4l+3NYkGhCeekN2yEMbDCAheE/SuDk06rCX18fzGtCZDs5AnqJTXH
-         U4qPTyTK0xmrMTCy4R8utqtSjIHD53CT5n0udHyVKloafLtCnTCkY70iHFA7kiMWSDGQ
-         lr1A==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=QamYlizWdUsZ5MKp2/6Bt4t0tR/UKDBqycu/hf5aG1g=;
+        b=aoBovrm7ijiexUEt/KaAEBSHtYF97TLQnaS45Z0VlHixtHfa5EWZMrEM3HJvH33qyq
+         je054Gk0SHlKRI0uV5xB5gH6QZX0xaFr7vGr32OhsYNrWhkr2bXvncZUD/DZSSXuuK5T
+         aeQqKM7KxtSGGoL7F5KHDMlNNshcYmKsllPHhqRobkW8q7dcIIjh1AVMor6IGRK6Q7YM
+         ucuwvBJNwkm14tefXHuJzCA1LDzeZO3NlowEhCrjU1bL2PJPVAFaKOpEKTTwt68Rt+0d
+         QOLApI+dfjPd3Q/Wik0jAL3hklxBdX6Z7oRezmLo+ZRu4xPgBEzPguQlbJxL9Kt3z+GK
+         1tHQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cxJwWeyy;
-       spf=pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=mhiramat@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="BjD/SuCQ";
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h7si108860uad.1.2021.05.12.17.33.34
+        by gmr-mx.google.com with ESMTPS id d30si129470pgd.5.2021.05.12.17.55.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 12 May 2021 17:33:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4422B613EE;
-	Thu, 13 May 2021 00:33:30 +0000 (UTC)
-Date: Thu, 13 May 2021 09:33:28 +0900
-From: Masami Hiramatsu <mhiramat@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, Benjamin Herrenschmidt
- <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Michael
- Ellerman <mpe@ellerman.id.au>, naveen.n.rao@linux.ibm.com,
- anil.s.keshavamurthy@intel.com, davem@davemloft.net, mhiramat@kernel.org,
- kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 1/2] kprobes: Allow architectures to override optinsn
- page allocation
-Message-Id: <20210513093328.2e4c6da04bd285e0ac688a5d@kernel.org>
-In-Reply-To: <202105130218.8xHlehr7-lkp@intel.com>
-References: <472c597cc8cc8f74f037acf971f7799fb381a647.1620829724.git.christophe.leroy@csgroup.eu>
-	<202105130218.8xHlehr7-lkp@intel.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+        Wed, 12 May 2021 17:55:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7FC8C61108;
+	Thu, 13 May 2021 00:55:15 +0000 (UTC)
+Date: Wed, 12 May 2021 17:55:12 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Marcin Wojtas <mw@semihalf.com>
+Cc: Russell King <linux@armlinux.org.uk>, netdev <netdev@vger.kernel.org>,
+	clang-built-linux@googlegroups.com
+Subject: Re: -Wconstant-conversion in
+ drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+Message-ID: <YJx48BfKpWMZCbnz@archlinux-ax161>
+References: <20200417004120.GA18080@ubuntu-s3-xlarge-x86>
+ <YImjw3eypUdhkp88@archlinux-ax161>
+ <CAPv3WKeHcq+viBHR=ok+AytrNWLFudWJ8qHoShs3r4LOj7qD0w@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mhiramat@kernel.org
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAPv3WKeHcq+viBHR=ok+AytrNWLFudWJ8qHoShs3r4LOj7qD0w@mail.gmail.com>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=cxJwWeyy;       spf=pass
- (google.com: domain of mhiramat@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=mhiramat@kernel.org;       dmarc=pass (p=NONE
+ header.i=@kernel.org header.s=k20201202 header.b="BjD/SuCQ";       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -133,52 +135,138 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 13 May 2021 03:04:51 +0800
-kernel test robot <lkp@intel.com> wrote:
+Hi Marcin,
 
-> Hi Christophe,
-> 
-> I love your patch! Perhaps something to improve:
-> 
-> [auto build test WARNING on powerpc/next]
-> [also build test WARNING on linus/master v5.13-rc1 next-20210512]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Christophe-Leroy/kprobes-Allow-architectures-to-override-optinsn-page-allocation/20210512-223121
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
-> config: i386-randconfig-r012-20210512 (attached as .config)
-> compiler: gcc-9 (Debian 9.3.0-22) 9.3.0
-> reproduce (this is a W=1 build):
->         # https://github.com/0day-ci/linux/commit/2a1f135a9ce3c4d86d3bdefed561aa17760f430f
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Christophe-Leroy/kprobes-Allow-architectures-to-override-optinsn-page-allocation/20210512-223121
->         git checkout 2a1f135a9ce3c4d86d3bdefed561aa17760f430f
->         # save the attached .config to linux build tree
->         make W=1 W=1 ARCH=i386 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> kernel/kprobes.c:324:14: warning: no previous prototype for 'alloc_optinsn_page' [-Wmissing-prototypes]
->      324 | void __weak *alloc_optinsn_page(void)
->          |              ^~~~~~~~~~~~~~~~~~
-> >> kernel/kprobes.c:329:13: warning: no previous prototype for 'free_optinsn_page' [-Wmissing-prototypes]
->      329 | void __weak free_optinsn_page(void *page)
->          |             ^~~~~~~~~~~~~~~~~
+On Thu, Apr 29, 2021 at 09:08:13AM +0200, Marcin Wojtas wrote:
+> Hi Nathan,
+>=20
+>=20
+> =C5=9Br., 28 kwi 2021 o 20:04 Nathan Chancellor <nathan@kernel.org> napis=
+a=C5=82(a):
+> >
+> > On Thu, Apr 16, 2020 at 05:41:20PM -0700, Nathan Chancellor wrote:
+> > > Hi all,
+> > >
+> > > I was building s390 allyesconfig with clang and came across a curious
+> > > warning:
+> > >
+> > > drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c:580:41: warning:
+> > > implicit conversion from 'unsigned long' to 'int' changes value from
+> > > 18446744073709551584 to -32 [-Wconstant-conversion]
+> > >         mvpp2_pools[MVPP2_BM_SHORT].pkt_size =3D MVPP2_BM_SHORT_PKT_S=
+IZE;
+> > >                                              ~ ^~~~~~~~~~~~~~~~~~~~~~=
+~
+> > > drivers/net/ethernet/marvell/mvpp2/mvpp2.h:699:33: note: expanded fro=
+m
+> > > macro 'MVPP2_BM_SHORT_PKT_SIZE'
+> > > #define MVPP2_BM_SHORT_PKT_SIZE MVPP2_RX_MAX_PKT_SIZE(MVPP2_BM_SHORT_=
+FRAME_SIZE)
+> > >                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~~~~~~~
+> > > drivers/net/ethernet/marvell/mvpp2/mvpp2.h:634:30: note: expanded fro=
+m
+> > > macro 'MVPP2_RX_MAX_PKT_SIZE'
+> > >         ((total_size) - NET_SKB_PAD - MVPP2_SKB_SHINFO_SIZE)
+> > >                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+> > > 1 warning generated.
+> > >
+> > > As far as I understand it, the warning comes from the fact that
+> > > MVPP2_BM_SHORT_FRAME_SIZE is treated as size_t because
+> > > MVPP2_SKB_SHINFO_SIZE ultimately calls ALIGN with sizeof(struct
+> > > skb_shared_info), which has typeof called on it.
+> > >
+> > > The implicit conversion probably is fine but it would be nice to take
+> > > care of the warning. I am not sure what would be the best way to do t=
+hat
+> > > would be though. An explicit cast would take care of it, maybe in
+> > > MVPP2_SKB_SHINFO_SIZE since the actual value I see is 320, which is a=
+ble
+> > > to be fit into type int easily.
+> > >
+> > > Any comments would be appreciated, there does not appear to be a
+> > > dedicated maintainer of this driver according to get_maintainer.pl.
+> >
+> > Sorry for the necrobump, I am doing a bug scrub and it seems like this
+> > driver now has maintainers so keying them in in case they have any
+> > comments/suggestions.
+> >
+>=20
+> Thank you for your interest. Are you still reproducing the issue? With
+> clang 10.0.0 the compilation passes in my setup:
+> $ ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-gnu- make CC=3Dclang
+> drivers/net/ethernet/marvell/mvpp2/
+>   SYNC    include/config/auto.conf.cmd
+>   CC      scripts/mod/empty.o
+>   MKELF   scripts/mod/elfconfig.h
+>   HOSTCC  scripts/mod/modpost.o
+>   CC      scripts/mod/devicetable-offsets.s
+>   HOSTCC  scripts/mod/file2alias.o
+>   HOSTCC  scripts/mod/sumversion.o
+>   HOSTLD  scripts/mod/modpost
+>   CC      kernel/bounds.s
+>   CC      arch/arm64/kernel/asm-offsets.s
+>   UPD     include/generated/asm-offsets.h
+>   CALL    scripts/checksyscalls.sh
+>   CALL    scripts/atomic/check-atomics.sh
+>   LDS     arch/arm64/kernel/vdso/vdso.lds
+>   CC      arch/arm64/kernel/vdso/vgettimeofday.o
+>   AS      arch/arm64/kernel/vdso/note.o
+>   AS      arch/arm64/kernel/vdso/sigreturn.o
+>   LD      arch/arm64/kernel/vdso/vdso.so.dbg
+>   VDSOSYM include/generated/vdso-offsets.h
+>   OBJCOPY arch/arm64/kernel/vdso/vdso.so
+>   CC      drivers/net/ethernet/marvell/mvpp2/mvpp2_main.o
+>   CC      drivers/net/ethernet/marvell/mvpp2/mvpp2_prs.o
+>   CC      drivers/net/ethernet/marvell/mvpp2/mvpp2_cls.o
+>   CC      drivers/net/ethernet/marvell/mvpp2/mvpp2_debugfs.o
+>   AR      drivers/net/ethernet/marvell/mvpp2/built-in.a
 
-Ah, we need a prototype for those in include/linux/kprobes.h
-as same as alloc_insn_page() and free_insn_page().
+My apologies for taking a while to get back to you, it took me a while
+to understand what is going on here.
 
-Thank you,
+On s390, MVPP2_RX_MAX_PKT_SIZE(MVPP2_BM_SHORT_FRAME_SIZE) evaluates to
+704 - 224 - 512 =3D -32, which is implicitly converted to size_t or
+unsigned long because of the
 
--- 
-Masami Hiramatsu <mhiramat@kernel.org>
+SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210513093328.2e4c6da04bd285e0ac688a5d%40kernel.org.
+resulting in the super large number that clang shows above. Then that
+large number is converted back into int, resulting in the same value but
+with the warning. The 512 comes from the fact that L1_CACHE_BYTES on
+s390 is 256, resulting in a large aligned value.
+
+On arm64, MVPP2_RX_MAX_PKT_SIZE(MVPP2_BM_SHORT_FRAME_SIZE) evaluates to
+704 - 224 - 320, which is 160, which is the same value signed or
+unsigned.
+
+I understand that this probably does not matter in practice because this
+driver does not run on anything other than Marvell SoCs but it might be
+nice to fix the warning :) this patch below seems like a reasonable
+option, let me know what you think.
+
+Cheers,
+Nathan
+
+diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h b/drivers/net/ether=
+net/marvell/mvpp2/mvpp2.h
+index 8edba5ea90f0..db23da9a0658 100644
+--- a/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
++++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2.h
+@@ -832,7 +832,7 @@
+=20
+ /* RX buffer constants */
+ #define MVPP2_SKB_SHINFO_SIZE \
+-	SKB_DATA_ALIGN(sizeof(struct skb_shared_info))
++	SKB_DATA_ALIGN((ssize_t)sizeof(struct skb_shared_info))
+=20
+ #define MVPP2_RX_PKT_SIZE(mtu) \
+ 	ALIGN((mtu) + MVPP2_MH_SIZE + MVPP2_VLAN_TAG_LEN + \
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/YJx48BfKpWMZCbnz%40archlinux-ax161.
