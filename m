@@ -1,121 +1,123 @@
-Return-Path: <clang-built-linux+bncBDLKPY4HVQKBB2WY6OCAMGQEXP6LEWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDLKPY4HVQKBB26Y6OCAMGQERXXI6HY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 67EC037F4AF
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 11:07:54 +0200 (CEST)
-Received: by mail-wm1-x33a.google.com with SMTP id z64-20020a1ce2430000b029016d56f15ac0sf482576wmg.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 02:07:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620896874; cv=pass;
+Received: from mail-ej1-x639.google.com (mail-ej1-x639.google.com [IPv6:2a00:1450:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0803937F4B0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 11:07:56 +0200 (CEST)
+Received: by mail-ej1-x639.google.com with SMTP id zo1-20020a170906ff41b02903973107d7b5sf8109726ejb.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 02:07:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620896875; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DVuGrcFcB6d1AavQiy6h7KINO7LfAyEJh7R10X3YLDZyqurTdUASqoh0ma7uTfKLzy
-         kgP4W4ggPgswkmVfk8ZMlmwN6HB123qVU/WenA5CYFdWoALWQ9hg480oamywZcNSbHNY
-         jVFpigQQ/kKKUn2FjD9nA4RTsD4yu94ieAhJ0s1kb4VEJz8c1QOmEqMSjoE6822guwDO
-         B59vyLSIu2jDq5TKCo6GE6jACbYt4EipmpBUTiNnMCasU7vTO47Oq+gp0NtSw7OAWTv0
-         U7k8vTCPmYJFqJlVTlLaeVlV8prfCeJC7/W/hD5wxbewvp50NJk+D1/HW7aS/WsTNVzz
-         wUJg==
+        b=qyJu/uDGhLOE3Y2soKHB6aCmrykbLoOCUN/OQ5oOxGNXGbKeNNKJMfkfNHVcf+JHrv
+         M7+6FBoiLnK1mrLfyoP+RVI4YRUORhrvMexdXQFd82NWdeCnfEM5MItLjbM31a4QiFbZ
+         trp7EsmcnuNtI4EppleDDww68AmBo2drcn0LkvIpXdKn8srHljvuqyI4aNWiM1bDM8o1
+         tXlpH6cXj0/155fgV1iGX/A5lP+o0XB+MqiF3WwbJDfedJlAAaC+nEa3RzQUtyvh4/lD
+         oNhhJEqcXEAYDXfqFbnILOoi7fI/LBr1guEVMjA+6Ix60lNCSWkz+8duhlJP6RCtNlQ7
+         TV5w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:cc:to:subject:from:message-id
-         :mime-version:sender:dkim-signature;
-        bh=XpX4JAgZdJiZO74hintE1PPq6gtZZBLUk6r4knqPw/k=;
-        b=pvCbVC8QLkV9FbrEpjzz1egZPc6BJJ69ZztLB0FlcFg/OIm0GNECq2Y9+J/dSjEH23
-         9y41XDQizLtYYuHIwFRT1ss3/F5dLa4TY7vuX+qu9nrak1G+TKyJx4mmKg2KUeNt6sGw
-         MThy4ZAzEwEVBagm3lUUz1aDaW1J2F+7CFFM0kRdQbT/cWJMAlXktJmH2lt+B/1Vfqz2
-         q8qQEfVUYUXKgZ3otQLChWWrxeO8aRpquqRhSYb/NrJeV+U4hDJTnB0vAUKS4q1VeN85
-         MYZIeIvbY4HeghmZh76L3f1YjZDn91vAMf1+NafhVXRMdM8j0XUS8cNPWlRpN7u5SgSz
-         AYbQ==
+         :list-id:mailing-list:precedence:date:cc:to:subject:from:references
+         :in-reply-to:message-id:mime-version:sender:dkim-signature;
+        bh=44Ro3wNrSRgU7gtNEutXaTTb6Auf+fPdTro0dYmSYLo=;
+        b=h2XexBNcGEMHw1mlqmXSuTcU6xhvrEvuy9lB2LkMgwTgS0TzoZIiCLhu7MCVrEGzkG
+         ffm/wmS9QEWREmxHXYCWNkLmwNG8L4GAOqSNZmpZ9ELEri2mY6ve28vAohtfxOhqT3Hi
+         qUvTnRM1RITNtco6wZSabgxzJIvKcpCcr9/j7noZP7f8w9EMkmHMlJlxBx/8cC6Aqi6z
+         RDiZVWhSIaKjukJ3KPYA0pBA/24eeb0Y/yyCPhPCaq0+yIx6Z86dO9UM7xJDYONICGdp
+         kgD37DXC5M0BE2JeKeLwr1y+JcR7TCvhKAYyH3d0X9u6o6IpxC6D2QBiZ4VLJj7YmInp
+         ufBQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:message-id:from:subject:to:cc:date
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:message-id:in-reply-to:references:from:subject
+         :to:cc:date:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XpX4JAgZdJiZO74hintE1PPq6gtZZBLUk6r4knqPw/k=;
-        b=HN9VToAaCE0V/hO2HUY/VtXYKStSBKUGw9WLB1Dj7B1FlIZsCZISVCIscR9NDOfYg3
-         tdrGprAATRw3Kzhy5eUtUEynFR4aTARTqbJtz4vZViye6UxmRGjFbFgYqtEOaflB37Mx
-         DNDDGKQOvBEpO7qhH7td1EVnusVEBFCOU3dtSLxrjnarrkYeoh7YSo6Q7lSdX3K0uvVC
-         fLDqYicMZO1GEsqeT8Aoa9kjk+17iSqGbP+JwDDsAB+OYJStjtugRYg0mit6LA8vKqci
-         JIkqxPuxBLZ5537x3j8AhrIHltVpEJpZWA/tAvkH0aT7xatG66O71rjDALMh6cI/7Zjk
-         7NEg==
+        bh=44Ro3wNrSRgU7gtNEutXaTTb6Auf+fPdTro0dYmSYLo=;
+        b=ANec7bQy/rpEmF36Zy9hj6uIGuPfJ26tDD4eZt05XLFU3MojYtIF2PMzd2LDV/9WPT
+         SEcOLN4hQJcyTvOAxk7he9qxe7kSwW6uI89CWcNHVY3u5ZtOBQghqPjgN9tfcBqr3WIJ
+         DiKQ01Q+LhJmGIwmSgF5zKnJCMmvIwsPHF/nDJub8KJvtG4ecDLTosew7DNH2xEmGx4c
+         xuTKRTZdRoJiO69sT182Jccubf6JPDrw6wXqiVRtWMKbJXg2u24o+3kSmucS0NRt96EF
+         YWVsX50KB+Cmv0KtB6wYuDKFcCUYuYB5X8D80k/UpWSLP9aUvxzw63c4FzDN5oaCH5ZI
+         uUAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:message-id:from:subject:to
-         :cc:date:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XpX4JAgZdJiZO74hintE1PPq6gtZZBLUk6r4knqPw/k=;
-        b=EAgugarwVdhycK7sOck/iFSuCbgQksleOROGd+Av2Z19O2AEn2P6QW11W9KwquXXJp
-         oKWiMWOy6CJQGa7U83kusIORfWUTIlryX71wb9r89vV5B83k8QVd30pMjjtakPmSHp9f
-         1/vUkixhSNqYBhpJO3SzbAOmndl1GN6Tc4PSps/FnODEjZfEcI4RD7syN6I8Y1tvQUcE
-         /rPP/Hw4kb/oH19GFEcd0CSgzRBWAgGz0KyTuCTWuFathXYb5HXhElhW5e/WfoSrCmyO
-         abiVN9KEYnGisOnwV7V1dDo7QQQBtkAY0N1UFcdF2vi4CjbX8mCLY3NeUkJVuACLuqxB
-         fFDg==
+        h=sender:x-gm-message-state:mime-version:message-id:in-reply-to
+         :references:from:subject:to:cc:date:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=44Ro3wNrSRgU7gtNEutXaTTb6Auf+fPdTro0dYmSYLo=;
+        b=JcOu7qPD0KQxI7Rv6xN5hhtjaL9twh306JepKCWfqe1G9Wa+aUj5bnCHmk0XEh115K
+         5SnSvoGgO4tJEGw8ExRpohDw3Wulw8PKz6w16FWySUuebrdYx/m85EB51YRL79HbXwQh
+         GxnbidO+9zZigB8HhGRhM2ObhKISw0GfUrbNeWzEN/RagsjALO7RHBWwR9pW7Wg8ztI2
+         LDHJyz9w5kcxNksceWUjoNqiqNINK9L5hhoT46NM0h5mWVyEnZOApKXfJ+tg5rExjLO1
+         dtjPBNIy3RwWnpVymwhACiAWD81Ls+cPa3pC5m+hfFQ8FsLlID3cb2kjnFdP+LPAyhh6
+         j50w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531oXTXVZPSU5bFn4SIFPyYtcEWcp1FVORACcPnMO4Pf1lwDRYKi
-	bTqpmouFdGSwhgwSMT90c1M=
-X-Google-Smtp-Source: ABdhPJzePVF71hwjk4emRo9r7UWhwTA31Bis/Qbz2sWbPCKUmQaAmz7beZ2Xh5nxegXgCf7c+/Fk3g==
-X-Received: by 2002:a05:600c:1907:: with SMTP id j7mr42284288wmq.158.1620896874205;
-        Thu, 13 May 2021 02:07:54 -0700 (PDT)
+X-Gm-Message-State: AOAM5325YK+RhMxwEpkG5dgQPMpQk+QkHZedHur6FWBKsXwwC/ubt9rh
+	DPChgvPGuFyb+NBiingEygE=
+X-Google-Smtp-Source: ABdhPJx+05JmraNuUsIZUb+YZ9wNJi4z045kKs0dJLvCrTqk7aW1QPM8mDt9ow7x/4yqRuF9z0Uylg==
+X-Received: by 2002:a50:a404:: with SMTP id u4mr49162535edb.112.1620896875758;
+        Thu, 13 May 2021 02:07:55 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f844:: with SMTP id d4ls6048243wrq.3.gmail; Thu, 13 May
- 2021 02:07:53 -0700 (PDT)
-X-Received: by 2002:adf:c002:: with SMTP id z2mr50703478wre.100.1620896873373;
-        Thu, 13 May 2021 02:07:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620896873; cv=none;
+Received: by 2002:a17:906:af8a:: with SMTP id mj10ls171401ejb.10.gmail; Thu,
+ 13 May 2021 02:07:54 -0700 (PDT)
+X-Received: by 2002:a17:906:9bc2:: with SMTP id de2mr11674389ejc.340.1620896874746;
+        Thu, 13 May 2021 02:07:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620896874; cv=none;
         d=google.com; s=arc-20160816;
-        b=EDhHP9sQgnTQfhXyuzQ7nc1xW2+NhZELb/8bguJNpu0Yep2ZesSMHafGDN4qUDYaRH
-         umsSug23WMUGZ1WEccsVOT7Q31EEGuYeuYj7CiinkQdYIEDQomxhLzRbdC137lljN3Rm
-         bpfq6B4TTnIQVHAAk1Y2CmGbKdQL2qN1WLlBCMivIHSGWKT7HXZDqLCquzNBsaJm/1kY
-         qWjdrX3MLljjNvS+qSdi32CHyBDA2mJrmKmuB8LdYwGhcLEAAyL8aQGwb9h/EJ+G047z
-         D+l7MzDjDxfu2o6QOxILqwmXDb2oDER6zOTmRIu4saxcbpi6q1S0mjEeJwFlCTpKrwUe
-         n5VA==
+        b=LerdYz1tTZIDfP83j4OPHpHY726K5jrEDmZ9fKHi3fRZQBnF9FbMaZ8sh2z0kTmxNl
+         +X7YTUVxwzhKdfc6mWGGl/OUTm3b/6jbDN4RtjnZ7BeY6VxK3MjCWLIGZAdNwErU56zl
+         TafX19XqTjgf0VkmM3q6z80yzkebqlpNFefhxAxtTQvV53iogQ9wMV5Yc347AXtxp4ZQ
+         QFBjsnVODFhN5sIv2i8XIx2H4zWwOKqQSmE7wHunHn9L3LtGaM8aCxdMy+nCggZ3HtIF
+         ZWYowGHigQ7qY5sEo0oCoi7KLlFvlIPcPhGPaM3gQtWDwCBobPk1G9Nj61uOc1calYYZ
+         4PAA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:cc:to:subject:from:message-id;
-        bh=eWzDcATXd6Sqv8tXvM+NdJFuCX1Jjqnu3XzVgSeHgmA=;
-        b=sQTQIWaf/N7Ick+CIr1rtypXlCJSP25q0m+ODtqPpubuQ4SekV2pRDhRE5OVntD4Ju
-         NrTopwGZkz8xrj7WZfHmlFX1phtPEgzaA/ZMboI7LFNVGU0ux/zfA47TGa+xXZYPvLHK
-         f8NJP+R4AiNS8LFpQ6Y5Lsi2kPYxXdsqj4ho04pRTuMF8Z+Q65Bst+Fs8HLW/FYSMZW/
-         mKMMAfW4nZh3l//5rUQi0kJ8ZE/p8osNaZZ20pYPRAskli3lWevQ7b3XXS1cy6Mc90N0
-         8Mat9gt5PCMFFnm8nfwuKJWbCtCWHtHZHIAZvASy6HC81TQVy3UvfXCWKqgr/XrfSfgb
-         H6zA==
+        h=date:cc:to:subject:from:references:in-reply-to:message-id;
+        bh=abUCHma7oCfQ1FxY5AgLSt3SnxO/tW56HKwFhFptiVI=;
+        b=b/uvarqTTzQE4eIH9nKEGgYmb4qJ2hIbeV8OzFbTpyURSe243BfAIKfqX8TLfcPWuN
+         8GuRltHkN8LAX41hIPkc17BecyE/YR5ciWg2nWpxWdyMz36/K5xHi4r1MO1suN/7vnEw
+         OIrjxzR6RimCOdREaYnzTRjQTH7VenvGBS8EKrzNXC+OrHXLR9yZKMCpOeMelUopjhu4
+         fUZY/RivtLyyWG5FgfMzy0uBLmeODWWbBE/w24+zzdgLqYp2jl58N9hzvZmFHyqDJWC0
+         IyryHqgVywRjGJAIY9IZLK/N2ZuRFQm3yQeCx9qos+Cq5Gwf5jCRmHzfm7ZbjICrpMv3
+         ML6Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
 Received: from pegase2.c-s.fr (pegase2.c-s.fr. [93.17.235.10])
-        by gmr-mx.google.com with ESMTPS id z7si52147wmg.2.2021.05.13.02.07.53
+        by gmr-mx.google.com with ESMTPS id di23si91109edb.0.2021.05.13.02.07.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 May 2021 02:07:53 -0700 (PDT)
+        Thu, 13 May 2021 02:07:54 -0700 (PDT)
 Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) client-ip=93.17.235.10;
 Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4Fgm5h6qWPz9sbR;
-	Thu, 13 May 2021 11:07:52 +0200 (CEST)
+	by localhost (Postfix) with ESMTP id 4Fgm5k1wbJz9sbZ;
+	Thu, 13 May 2021 11:07:54 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id IKc8HArddjH8; Thu, 13 May 2021 11:07:52 +0200 (CEST)
+	with ESMTP id 6s838qCcO9bm; Thu, 13 May 2021 11:07:54 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4Fgm5h5tl6z9sbQ;
-	Thu, 13 May 2021 11:07:52 +0200 (CEST)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Fgm5j5bH0z9sbQ;
+	Thu, 13 May 2021 11:07:53 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id A59CF8B7F3;
-	Thu, 13 May 2021 11:07:52 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 7F7958B7F3;
+	Thu, 13 May 2021 11:07:53 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id NDVGIVfb4mfx; Thu, 13 May 2021 11:07:52 +0200 (CEST)
+	with ESMTP id 7BOwx6cbSXtS; Thu, 13 May 2021 11:07:53 +0200 (CEST)
 Received: from po15610vm.idsi0.si.c-s.fr (unknown [192.168.4.90])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 561978B76C;
-	Thu, 13 May 2021 11:07:52 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4925A8B76C;
+	Thu, 13 May 2021 11:07:53 +0200 (CEST)
 Received: by po15610vm.idsi0.si.c-s.fr (Postfix, from userid 0)
-	id 1C7BB64185; Thu, 13 May 2021 09:07:51 +0000 (UTC)
-Message-Id: <40a43d6df1fdf41ade36e9a46e60a4df774ca9f6.1620896780.git.christophe.leroy@csgroup.eu>
+	id 261DC64185; Thu, 13 May 2021 09:07:53 +0000 (UTC)
+Message-Id: <ec5e85f9f9abcfecc959a03495f4a7858eb4d203.1620896780.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <40a43d6df1fdf41ade36e9a46e60a4df774ca9f6.1620896780.git.christophe.leroy@csgroup.eu>
+References: <40a43d6df1fdf41ade36e9a46e60a4df774ca9f6.1620896780.git.christophe.leroy@csgroup.eu>
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: [PATCH v2 1/2] kprobes: Allow architectures to override optinsn page
- allocation
+Subject: [PATCH v2 2/2] powerpc/kprobes: Replace ppc_optinsn by common optinsn
 To: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
     naveen.n.rao@linux.ibm.com,
     anil.s.keshavamurthy@intel.com,
@@ -123,7 +125,7 @@ To: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@sa
     mhiramat@kernel.org
 Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
     clang-built-linux@googlegroups.com
-Date: Thu, 13 May 2021 09:07:51 +0000 (UTC)
+Date: Thu, 13 May 2021 09:07:53 +0000 (UTC)
 X-Original-Sender: christophe.leroy@csgroup.eu
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
  (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as
@@ -141,70 +143,104 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Some architectures like powerpc require a non standard
-allocation of optinsn page, because module pages are
-too far from the kernel for direct branches.
+Commit 51c9c0843993 ("powerpc/kprobes: Implement Optprobes")
+implemented a powerpc specific version of optinsn in order
+to workaround the 32Mb limitation for direct branches.
 
-Define weak alloc_optinsn_page() and free_optinsn_page(), that
-fall back on alloc_insn_page() and free_insn_page() when not
-overriden by the architecture.
+Instead of implementing a dedicated powerpc version, use the
+common optinsn and override the allocation and freeing functions.
+
+This also indirectly remove the CLANG warning about
+is_kprobe_ppc_optinsn_slot() not being use, and the powerpc will
+now benefit from commit 5b485629ba0d ("kprobes, extable: Identify
+kprobes trampolines as kernel text area")
 
 Suggested-by: Masami Hiramatsu <mhiramat@kernel.org>
 Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Acked-by: Masami Hiramatsu <mhiramat@kernel.org>
 ---
-v2: Added missing prototypes in linux/kprobes.h
+v2: no change
 ---
- include/linux/kprobes.h |  3 +++
- kernel/kprobes.c        | 14 ++++++++++++--
- 2 files changed, 15 insertions(+), 2 deletions(-)
+ arch/powerpc/kernel/optprobes.c | 23 +++++------------------
+ 1 file changed, 5 insertions(+), 18 deletions(-)
 
-diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-index 1883a4a9f16a..02d4020615a7 100644
---- a/include/linux/kprobes.h
-+++ b/include/linux/kprobes.h
-@@ -409,6 +409,9 @@ void dump_kprobe(struct kprobe *kp);
- void *alloc_insn_page(void);
- void free_insn_page(void *page);
+diff --git a/arch/powerpc/kernel/optprobes.c b/arch/powerpc/kernel/optprobes.c
+index cdf87086fa33..a370190cd02a 100644
+--- a/arch/powerpc/kernel/optprobes.c
++++ b/arch/powerpc/kernel/optprobes.c
+@@ -31,11 +31,9 @@
+ #define TMPL_END_IDX		\
+ 	(optprobe_template_end - optprobe_template_entry)
  
-+void *alloc_optinsn_page(void);
-+void free_optinsn_page(void *page);
-+
- int kprobe_get_kallsym(unsigned int symnum, unsigned long *value, char *type,
- 		       char *sym);
+-DEFINE_INSN_CACHE_OPS(ppc_optinsn);
+-
+ static bool insn_page_in_use;
  
-diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-index 745f08fdd7a6..8c0a6fdef771 100644
---- a/kernel/kprobes.c
-+++ b/kernel/kprobes.c
-@@ -321,11 +321,21 @@ int kprobe_cache_get_kallsym(struct kprobe_insn_cache *c, unsigned int *symnum,
+-static void *__ppc_alloc_insn_page(void)
++void *alloc_optinsn_page(void)
+ {
+ 	if (insn_page_in_use)
+ 		return NULL;
+@@ -43,20 +41,11 @@ static void *__ppc_alloc_insn_page(void)
+ 	return &optinsn_slot;
  }
  
- #ifdef CONFIG_OPTPROBES
-+void __weak *alloc_optinsn_page(void)
-+{
-+	return alloc_insn_page();
-+}
-+
-+void __weak free_optinsn_page(void *page)
-+{
-+	free_insn_page(page);
-+}
-+
- /* For optimized_kprobe buffer */
- struct kprobe_insn_cache kprobe_optinsn_slots = {
- 	.mutex = __MUTEX_INITIALIZER(kprobe_optinsn_slots.mutex),
--	.alloc = alloc_insn_page,
--	.free = free_insn_page,
-+	.alloc = alloc_optinsn_page,
-+	.free = free_optinsn_page,
- 	.sym = KPROBE_OPTINSN_PAGE_SYM,
- 	.pages = LIST_HEAD_INIT(kprobe_optinsn_slots.pages),
- 	/* .insn_size is initialized later */
+-static void __ppc_free_insn_page(void *page __maybe_unused)
++void free_optinsn_page(void *page)
+ {
+ 	insn_page_in_use = false;
+ }
+ 
+-struct kprobe_insn_cache kprobe_ppc_optinsn_slots = {
+-	.mutex = __MUTEX_INITIALIZER(kprobe_ppc_optinsn_slots.mutex),
+-	.pages = LIST_HEAD_INIT(kprobe_ppc_optinsn_slots.pages),
+-	/* insn_size initialized later */
+-	.alloc = __ppc_alloc_insn_page,
+-	.free = __ppc_free_insn_page,
+-	.nr_garbage = 0,
+-};
+-
+ /*
+  * Check if we can optimize this probe. Returns NIP post-emulation if this can
+  * be optimized and 0 otherwise.
+@@ -136,7 +125,7 @@ NOKPROBE_SYMBOL(optimized_callback);
+ void arch_remove_optimized_kprobe(struct optimized_kprobe *op)
+ {
+ 	if (op->optinsn.insn) {
+-		free_ppc_optinsn_slot(op->optinsn.insn, 1);
++		free_optinsn_slot(op->optinsn.insn, 1);
+ 		op->optinsn.insn = NULL;
+ 	}
+ }
+@@ -203,14 +192,12 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op, struct kprobe *p)
+ 	unsigned long nip, size;
+ 	int rc, i;
+ 
+-	kprobe_ppc_optinsn_slots.insn_size = MAX_OPTINSN_SIZE;
+-
+ 	nip = can_optimize(p);
+ 	if (!nip)
+ 		return -EILSEQ;
+ 
+ 	/* Allocate instruction slot for detour buffer */
+-	buff = get_ppc_optinsn_slot();
++	buff = get_optinsn_slot();
+ 	if (!buff)
+ 		return -ENOMEM;
+ 
+@@ -297,7 +284,7 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op, struct kprobe *p)
+ 	return 0;
+ 
+ error:
+-	free_ppc_optinsn_slot(buff, 0);
++	free_optinsn_slot(buff, 0);
+ 	return -ERANGE;
+ 
+ }
 -- 
 2.25.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/40a43d6df1fdf41ade36e9a46e60a4df774ca9f6.1620896780.git.christophe.leroy%40csgroup.eu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ec5e85f9f9abcfecc959a03495f4a7858eb4d203.1620896780.git.christophe.leroy%40csgroup.eu.
