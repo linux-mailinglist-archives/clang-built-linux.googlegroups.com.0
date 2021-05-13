@@ -1,125 +1,129 @@
-Return-Path: <clang-built-linux+bncBCJZRXGY5YJBBVGM6WCAMGQEVO62JDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBBPO6WCAMGQEAH6U4UQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 67FAA37FCC4
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 19:48:05 +0200 (CEST)
-Received: by mail-pl1-x63e.google.com with SMTP id o19-20020a170902e293b02900ef869214f9sf3801453plc.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 10:48:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620928084; cv=pass;
+Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3DE2237FDB0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 20:59:19 +0200 (CEST)
+Received: by mail-vs1-xe40.google.com with SMTP id n10-20020a67ac4a0000b0290227113abed7sf12334513vsh.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 11:59:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620932358; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DQIa6z6xDU9x0qnUzS85U5fJm0D3ijz4vyyNbMk3Gt18A5xiVCA8CuawjH7/SezW4h
-         +D6xYpELLJALQbXkb3OsSoeiEa2JnH02+c5kDxLsyyCQTF3C9zbHt2Bnc507bFYQ6oOZ
-         sguAq9CWHS33WOl/R/5X9RuaiKRM12ClH5j8e3qkrfeEH9Mfr0g8nd8UaK6tlsFBHisL
-         wMsUOG8SuLdpNT4J+p3TAa1yn1FHMLRbGaTekAVJdrkyNbJ4x/XF4OFb06IJ8KDAheA7
-         LTe2bA75O5iiReNLn90KaPUV9qhPCfQwp0g9zvRRLrasCuJeG1MHdDQjAsWxaJltk2UE
-         YC5g==
+        b=GlxhkUm60IE2ThOmI7qXKhP1cv+MvDilEenpUFGIZx77ilHXamUy2EHMlIx7qnmpZA
+         GDBBad5eVq78i153xEmllsjzpsTlI9G8y7diMfUKo87G54V032P65aKHf3z7KQzfCiqF
+         iMw7bZbUr6gDKPD75UhozYuU+wpdsdtnIetmi2bBHQAshxaTy52xQcCktqGh4gGihRNp
+         yNtaNBUH/D7zyZAcpgy0dqrnPOosuobZhrqH6VY2/WMPOCxmrIYMlopcyJ19APjQeROC
+         muRGjTYCBZ2y+C5Aiup2C9xl5Dgo591MZNQ+jLW9QNejDi4FnsmyaekZC5O/CF6yQULz
+         88hw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:reply-to:message-id:subject:cc:to:from:date
-         :sender:dkim-signature;
-        bh=9qwvn5F/o3cmJNaI4lDUI5kUzXtMzQyWJkudb2JgccQ=;
-        b=pXd5/ahMp8fJhbMJONVdCEVLgWWclvydbUiiaYQsp09L+38eckO98A+EfN/+7s7NS1
-         OgSYbfBG6i7oT7gZOU0R3ZZUggP/7iIzrKAg0jO0giGJyogiKB7IA2kVhjzsmAPgOpAb
-         chOJwfKVaTbxdOVkNTSAxOeQ6i29mUEw/vaGp0T/7lG+ZC97FHOTNgTdYHEANyDaEObX
-         uTZqf8BQWAiObzgIepoRnW+bsAOqioP8MXZRGVKGELgvkgRhVaEuZ5xR3wKVXAbbjQpI
-         GXa/BoTTN+VYR7Lzmdzpw/QYZVXePt7ZbiCinNZvXL6Ef2pbMCnoIwomgpjxHyfIWeL+
-         J74w==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=NhM7weIyWfVWbtXe46t9Mer+AJaaSTbDjmDMMihmH2M=;
+        b=Mw988qspQkOCwyXcIUhKfH9OoChKeHYJv93sXEU+4qSxLvBXKmHUSxaF3Hw6d9PYoj
+         06QziFDvH297AUdCLxgNqCfwBSSMpZyVf9qdzQhv0TXDFQbFY5MY4Srg9X1o0t07+5r7
+         vIdNDXoMICmOt4s9jicCHOAvPWiFErhwqc8OM9rFYWUqv9RpIFXSmkayH2Isyt8TD1U8
+         +294WlRgTowOOB8i9bdgNwlq2lmIWiQ3L3O4hohhfJxv9w/E7IB4roy2sSpvmx4kL9me
+         nBxuObR6PufhFIUXoY8CgaIWZTkrg67mDFnmmJzVRKPlQKsSZ/F5gb7lsx/nOO88LZPi
+         qv5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ukSTk0AA;
-       spf=pass (google.com: domain of srs0=cslx=ki=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=CslX=KI=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jbm4kRsm;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:reply-to:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=9qwvn5F/o3cmJNaI4lDUI5kUzXtMzQyWJkudb2JgccQ=;
-        b=GtyuZzG5d0XfENwUEymqgljbbZ3V+lqMHYq72U6/ePN3MrfNsHVMBS5oALF+wk3y7i
-         gd7idXc38n24Os2Rsjjb8bYmFnsx2PyHZeq6Ry+CMD1zYP0hqt+xHmz58+0EAkFOASlu
-         jIqfEwYz8qEX306nMGHrn9mx8N2RYmZGLBzkh7q87iJtMmLPOFSDlJ+8CXC8dSHPxyRN
-         fySQfeMoLJoDAfjldf3vDEwvx7fOH2Q9eKv6Hkmirkiml0j9Ixt1wR1jigKQ1r2PJZWV
-         9duaTlqg1Pjdd2J1/ZYtktolp/ljYRapVhofj/DJE9+Y7YNzEXtU9tmkryQ+sI2FGxM7
-         0ZWA==
+        bh=NhM7weIyWfVWbtXe46t9Mer+AJaaSTbDjmDMMihmH2M=;
+        b=Xb8z35YWllPGyp44ceQY9txZDVd6+L/A0jCaD3NeYS2YZ7ScaaSxtFYwweO/HWSzB/
+         oP1ESSWwR6NBxoS6SdX+/d6uvBObxTZu4YPSjd2/phiUrhxrb19NpIZ+D37QviD9uuiJ
+         4vyMratt4HqujSkRE1RGS9BehvdrC5XEDyKQpQxOMRV9/3nobTLyV/XRDVdUvyZu2ef+
+         04jKnn+t/Yc5VTlAVOaStxHwB33ICuoEj3zo67zON7+S5y9Pyw+HmA3OTOudfNmR/8oN
+         c2KHEF4K6Ec2+euV+0xp8fZrilmoR77D2Hy7DQMc+NDQRhOZayXfXroXSQ5pKtlDaDr5
+         px4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :reply-to:references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=9qwvn5F/o3cmJNaI4lDUI5kUzXtMzQyWJkudb2JgccQ=;
-        b=G31AIwR09BTw4GALKg1d7hioBjk9FRYG2Igv7e7HBLvXleH+KeGwrIcQAYtx3SMa9Z
-         4xJFwgQ6wYaAx7rNCugHBsnsoOptkDauWr4qgzikZSxIDDXOjQ42Bx9XHJqtS8CSXPrg
-         swcDvbAcWxVkEt8r4t+yiMtnMz3T/Y+DZJY+KAcYRFXDd1E9hHNGMz4+TF/kk0uOq3P0
-         Kolyr3Olf4yGSLcwkM5C98SHVRLImE0YJoNNHiU0r4lbz11BufeaVYaa3J/IihAhIn1q
-         HxnsKMWRi0Rdfm82VXljXMYQhfayRvYZGCe8bKlpuGKm9dUvBkFpFHbTNYGTUaB4VHwU
-         GO8w==
+        bh=NhM7weIyWfVWbtXe46t9Mer+AJaaSTbDjmDMMihmH2M=;
+        b=VUVqNsvkWSQKy1Ea0vujVmZRPpcSvWqi9/ymGNQ9v0/yOzKHX6yEiB2nHyZzuzl9s5
+         EcxTCAUC8HhP/KLodG60zOXRJYZAdqvzUCuETqZugM6tMLTYqBAh+QnMGYH0EedYoVnG
+         HEaGHIivEWBx9k7EcO2DbOk4qCukw+I5a6FmAtdOa4t6T2FXEagjnq7wb56S2P3SOTPj
+         1Lwog3RluazOVVp/MozMY4x/EEm2g63HDQianMSm6XRpIzTfpZkjgUYNQE6F88t7j4LO
+         giorS5FhBdL7O+woTdz60FDQi+GvVRMbIBgbLgEzJVtIl9zTpfHZwaZOmibRDDX2j6Mr
+         u5Pg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531QmdPVW5XEflmLVou4flpy9+bhch8Pz31t61Xx/JQcjwnkn74K
-	tCFxwCX2ryOTMfhbLxyovQQ=
-X-Google-Smtp-Source: ABdhPJyrowLtVg4VUdaMd6nlgsenWfnD2WGywiBBKjmfDFgaYkTemkjQnTBnQD/R1CGpUbG9CVcYpw==
-X-Received: by 2002:a62:16c9:0:b029:24b:a41e:cd6 with SMTP id 192-20020a6216c90000b029024ba41e0cd6mr42244770pfw.52.1620928084160;
-        Thu, 13 May 2021 10:48:04 -0700 (PDT)
+X-Gm-Message-State: AOAM531IibiszcYUOj0lqLEeTy5j5pPdeIfp94JDRR7CgGQdR+fXkAzD
+	QTDHnHzGyutPHUzKPdFX+Fg=
+X-Google-Smtp-Source: ABdhPJz3wHh9dk7coCWpe3J/N7Bgkl1x6XjIcnMYIJJLiLc1FxUHOsPeGgSqBe1Cj5EHsbnUUfeoUA==
+X-Received: by 2002:a05:6102:22ef:: with SMTP id b15mr39407399vsh.35.1620932358110;
+        Thu, 13 May 2021 11:59:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:cd47:: with SMTP id a7ls2958558pgj.1.gmail; Thu, 13 May
- 2021 10:48:03 -0700 (PDT)
-X-Received: by 2002:a62:ee09:0:b029:247:56aa:dfa6 with SMTP id e9-20020a62ee090000b029024756aadfa6mr41660693pfi.69.1620928083623;
-        Thu, 13 May 2021 10:48:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620928083; cv=none;
+Received: by 2002:a67:f7c7:: with SMTP id a7ls1497012vsp.5.gmail; Thu, 13 May
+ 2021 11:59:17 -0700 (PDT)
+X-Received: by 2002:a67:6783:: with SMTP id b125mr39362170vsc.50.1620932357603;
+        Thu, 13 May 2021 11:59:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620932357; cv=none;
         d=google.com; s=arc-20160816;
-        b=MK04eOTmHk0rW9jb18ubguFj00qEaTv2aFBj5FOJbMyQSL8xcrJ3T1Q460ANWFcKWp
-         t6V5Gk4UR4qmP7tEnjkX8iLM8MUyPo70Z9NG3rNUS+I6MvUkWeik+exkdVFTXeVSA4Y8
-         iYph7hJvBU02yyTX7T5PsrRBHOt3egIrhEUDsd21/EaqwI6cT4F8DqMeBF2tDfkgwmGg
-         7gqHQkDe5wmr2k0a5It80U38aUKUa4olmG+loC1xukwHIr7JyJxOM8qoo5J8QgLF0Xyc
-         5GZD/SZxknY+rCZgKUK1CYzhzrlpOvGJf113ngm6vU+bz0MWxWRYS0KJ/pJxgr0C+4Yl
-         2iQA==
+        b=zxrIi/Uf27AjWPxElruDaArVTvBavW7tjZ1vc8SPTREWVQFZbmsHph0xEc36fHtvnU
+         J7Cn40pS7EKoXtd7KSnhF1XOy370o++EPgJ92XvjG1py1qxqc2PKL+nF8II3djoEsg/1
+         EMn79TgsssU9ouoXzy77uUS43vnPFMRg4vc+6yRTrw4ocbvma6QZcBz8X6EH+zGzHyfb
+         owiHZNLrfaAj5410eVN+aejnY+xTG3RJc3oVCYVGeBOjBrhXnCYlUjlLtb2AANk2+ZZH
+         WVUV93E12y8X2hFyNyh1SJtrP0w2osKB1hXdphct9h7rx04K4+Gn9JoxA75u6gKs3H86
+         Entw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=n7QzJFg7SahGdAc+1+C3FHxlh//vaITEFLFYyoIi1ww=;
-        b=MvzVhz5EdP1RoR6NmeCOecYKJEn8y2xUoiByLU4YZzXGwGBnPrzjrjcSkj5eg+XV5L
-         PeEqDR5t37UZEHYKZOo5sn7jD5qkuI4mXDgaoJHZAX03EhFAMtEI8LqzIWAamHkcE/3C
-         2T4t1hlHPqecz7LiLdIz9j7IeqIQ4cn+By/3zhsAeJGHLfRhMPnNLKLwDtDgISdEmI4f
-         ic1qWvF+7MapZNS4kF8aYsvuJEWve7FyhWakRDXNqy3m4kFIa+0hb27Ta9lI/57arSGu
-         JdFtkQH0ayo/i/78I7xtXLduYT/EB8Sf87TlTxJ1ric+i5ZULHhqTt0tZr/iuYzOhpnN
-         GUxw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=z5gace/o+tdlAl+9tHx+rNdCBiX9JxlEA+gJY/6/jpI=;
+        b=Hugw/yfbhEN9wg3KNFOqLFpip6+oOAMuF5b/3ZeW4epZQLDVyfzxcavCtJPrX14SW8
+         9t4ZAirJjYrcyUjNeNKzALnC9qPlxk/g8rDXTqfR0T0yVhQlPddb7EIHQHz1zh2Xlmy9
+         5b9cBhpGCIL9IpxpvMM1r8ETGhxxfcDPzjzorB1Kx8SXZPo9chtT51vmsXaEmDspaw4i
+         zcZI7PL0/EUmsTMlrWRUyp06oh7fjrarsAE5Vz7aiV1huNOQkdyPVmyaHNhtHdzcveQO
+         7EFoIDpfmufk2ql1H4TtaYZerg741lkP/Wg570FoZ2ps7J5HQetcc4z4OJX/r4MquvQG
+         Y0/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ukSTk0AA;
-       spf=pass (google.com: domain of srs0=cslx=ki=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=CslX=KI=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jbm4kRsm;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f1si282010plt.3.2021.05.13.10.48.03
+        by gmr-mx.google.com with ESMTPS id t11si327766vsm.2.2021.05.13.11.59.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 13 May 2021 10:48:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of srs0=cslx=ki=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 536EC613CB;
-	Thu, 13 May 2021 17:48:03 +0000 (UTC)
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 1DC665C014E; Thu, 13 May 2021 10:48:03 -0700 (PDT)
-Date: Thu, 13 May 2021 10:48:03 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [linux-next:master 1888/2633] kernel/rcu/refscale.c:479:3:
- warning: variable 'x' is uninitialized when used here
-Message-ID: <20210513174803.GC975577@paulmck-ThinkPad-P17-Gen-1>
-Reply-To: paulmck@kernel.org
-References: <202105121916.mj2oXShS-lkp@intel.com>
+        Thu, 13 May 2021 11:59:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9ED4061264;
+	Thu, 13 May 2021 18:59:15 +0000 (UTC)
+Subject: Re: [PATCH kernel v3] powerpc/makefile: Do not redefine $(CPP) for
+ preprocessor
+To: Alexey Kardashevskiy <aik@ozlabs.ru>, linuxppc-dev@lists.ozlabs.org
+Cc: linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ clang-built-linux@googlegroups.com,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Michal Marek <michal.lkml@markovi.net>, Michael Ellerman
+ <mpe@ellerman.id.au>, Masahiro Yamada <masahiroy@kernel.org>,
+ Segher Boessenkool <segher@kernel.crashing.org>
+References: <20210513115904.519912-1-aik@ozlabs.ru>
+From: Nathan Chancellor <nathan@kernel.org>
+Message-ID: <dedc7262-2956-37b2-ebfd-ae8eb9b56716@kernel.org>
+Date: Thu, 13 May 2021 11:59:14 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202105121916.mj2oXShS-lkp@intel.com>
-X-Original-Sender: paulmck@kernel.org
+In-Reply-To: <20210513115904.519912-1-aik@ozlabs.ru>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=ukSTk0AA;       spf=pass
- (google.com: domain of srs0=cslx=ki=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org
- designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=CslX=KI=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=jbm4kRsm;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,79 +136,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 12, 2021 at 07:38:22PM +0800, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   ec85c95b0c90a17413901b018e8ade7b9eae7cad
-> commit: 4b46fcb7f1a6a202e3f77ce377079b4243d1be6f [1888/2633] refscale: Add measurement of clock readout
-> config: riscv-randconfig-r022-20210512 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project a0fed635fe1701470062495a6ffee1c608f3f1bc)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install riscv cross compiling tool for clang build
->         # apt-get install binutils-riscv64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=4b46fcb7f1a6a202e3f77ce377079b4243d1be6f
->         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->         git fetch --no-tags linux-next master
->         git checkout 4b46fcb7f1a6a202e3f77ce377079b4243d1be6f
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=riscv 
+On 5/13/2021 4:59 AM, Alexey Kardashevskiy wrote:
+> The $(CPP) (do only preprocessing) macro is already defined in Makefile.
+> However POWERPC redefines it and adds $(KBUILD_CFLAGS) which results
+> in flags duplication. Which is not a big deal by itself except for
+> the flags which depend on other flags and the compiler checks them
+> as it parses the command line.
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
+> Specifically, scripts/Makefile.build:304 generates ksyms for .S files.
+> If clang+llvm+sanitizer are enabled, this results in
 > 
-> All warnings (new ones prefixed by >>):
+> -emit-llvm-bc -fno-lto -flto -fvisibility=hidden \
+>   -fsanitize=cfi-mfcall -fno-lto  ...
 > 
-> >> kernel/rcu/refscale.c:479:3: warning: variable 'x' is uninitialized when used here [-Wuninitialized]
->                    x += ktime_get_real_fast_ns();
->                    ^
->    kernel/rcu/refscale.c:474:7: note: initialize the variable 'x' to silence this warning
->            u64 x;
->                 ^
->                  = 0
->    kernel/rcu/refscale.c:492:3: warning: variable 'x' is uninitialized when used here [-Wuninitialized]
->                    x += ktime_get_real_fast_ns();
->                    ^
->    kernel/rcu/refscale.c:487:7: note: initialize the variable 'x' to silence this warning
->            u64 x;
->                 ^
->                  = 0
->    2 warnings generated.
+> in the clang command line and triggers error:
 > 
-> Kconfig warnings: (for reference only)
->    WARNING: unmet direct dependencies detected for LOCKDEP
->    Depends on DEBUG_KERNEL && LOCK_DEBUGGING_SUPPORT && (FRAME_POINTER || MIPS || PPC || S390 || MICROBLAZE || ARM || ARC || X86)
->    Selected by
->    - DEBUG_LOCK_ALLOC && DEBUG_KERNEL && LOCK_DEBUGGING_SUPPORT
-
-Fixed by updated commit 210b2a9a9247 ("refscale: Add measurement of
-clock readout").
-
-							Thanx, Paul
-
-> vim +/x +479 kernel/rcu/refscale.c
+> clang-13: error: invalid argument '-fsanitize=cfi-mfcall' only allowed with '-flto'
 > 
->    471	
->    472	static void ref_clock_section(const int nloops)
->    473	{
->    474		u64 x;
->    475		int i;
->    476	
->    477		preempt_disable();
->    478		for (i = nloops; i >= 0; i--) {
->  > 479			x += ktime_get_real_fast_ns();
->    480		}
->    481		preempt_enable();
->    482		stopopts = x;
->    483	}
->    484	
+> This removes unnecessary CPP redefinition. Which works fine as in most
+> place KBUILD_CFLAGS is passed to $CPP except
+> arch/powerpc/kernel/vdso64/vdso(32|64).lds. To fix vdso, this does:
+> 1. add -m(big|little)-endian to $CPP
+> 2. add target to $KBUILD_CPPFLAGS as otherwise clang ignores -m(big|little)-endian if
+> the building platform does not support big endian (such as x86).
 > 
+> Signed-off-by: Alexey Kardashevskiy <aik@ozlabs.ru>
 > ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> Changes:
+> v3:
+> * moved vdso cleanup in a separate patch
+> * only add target to KBUILD_CPPFLAGS for CLANG
+> 
+> v2:
+> * fix KBUILD_CPPFLAGS
+> * add CLANG_FLAGS to CPPFLAGS
+> ---
+>   Makefile              | 1 +
+>   arch/powerpc/Makefile | 3 ++-
+>   2 files changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Makefile b/Makefile
+> index 15b6476d0f89..5b545bef7653 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -576,6 +576,7 @@ CC_VERSION_TEXT = $(subst $(pound),,$(shell $(CC) --version 2>/dev/null | head -
+>   ifneq ($(findstring clang,$(CC_VERSION_TEXT)),)
+>   ifneq ($(CROSS_COMPILE),)
+>   CLANG_FLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
+> +KBUILD_CPPFLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
 
+You can avoid the duplication here by just doing:
+
+KBUILD_CPPFLAGS	+= $(CLANG_FLAGS)
+
+I am still not super happy about the flag duplication but I am not sure 
+I can think of a better solution. If KBUILD_CPPFLAGS are always included 
+when building .o files, maybe we should just add $(CLANG_FLAGS) to 
+KBUILD_CPPFLAGS instead of KBUILD_CFLAGS?
+
+>   endif
+>   ifeq ($(LLVM_IAS),1)
+>   CLANG_FLAGS	+= -integrated-as
+> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+> index 3212d076ac6a..306bfd2797ad 100644
+> --- a/arch/powerpc/Makefile
+> +++ b/arch/powerpc/Makefile
+> @@ -76,6 +76,7 @@ endif
+>   
+>   ifdef CONFIG_CPU_LITTLE_ENDIAN
+>   KBUILD_CFLAGS	+= -mlittle-endian
+> +KBUILD_CPPFLAGS	+= -mlittle-endian
+>   KBUILD_LDFLAGS	+= -EL
+>   LDEMULATION	:= lppc
+>   GNUTARGET	:= powerpcle
+> @@ -83,6 +84,7 @@ MULTIPLEWORD	:= -mno-multiple
+>   KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-save-toc-indirect)
+>   else
+>   KBUILD_CFLAGS += $(call cc-option,-mbig-endian)
+> +KBUILD_CPPFLAGS += $(call cc-option,-mbig-endian)
+>   KBUILD_LDFLAGS	+= -EB
+>   LDEMULATION	:= ppc
+>   GNUTARGET	:= powerpc
+> @@ -208,7 +210,6 @@ KBUILD_CPPFLAGS	+= -I $(srctree)/arch/$(ARCH) $(asinstr)
+>   KBUILD_AFLAGS	+= $(AFLAGS-y)
+>   KBUILD_CFLAGS	+= $(call cc-option,-msoft-float)
+>   KBUILD_CFLAGS	+= -pipe $(CFLAGS-y)
+> -CPP		= $(CC) -E $(KBUILD_CFLAGS)
+>   
+>   CHECKFLAGS	+= -m$(BITS) -D__powerpc__ -D__powerpc$(BITS)__
+>   ifdef CONFIG_CPU_BIG_ENDIAN
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210513174803.GC975577%40paulmck-ThinkPad-P17-Gen-1.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/dedc7262-2956-37b2-ebfd-ae8eb9b56716%40kernel.org.
