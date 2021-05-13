@@ -1,136 +1,138 @@
-Return-Path: <clang-built-linux+bncBDLKPY4HVQKBB26Y6OCAMGQERXXI6HY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCAPDLF44QLBB2UQ6SCAMGQEWM63XCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x639.google.com (mail-ej1-x639.google.com [IPv6:2a00:1450:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0803937F4B0
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 11:07:56 +0200 (CEST)
-Received: by mail-ej1-x639.google.com with SMTP id zo1-20020a170906ff41b02903973107d7b5sf8109726ejb.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 02:07:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1620896875; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id D26C037F664
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 13:07:22 +0200 (CEST)
+Received: by mail-lf1-x139.google.com with SMTP id y3-20020a1991430000b02901c713e7949esf5569922lfj.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 May 2021 04:07:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620904042; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qyJu/uDGhLOE3Y2soKHB6aCmrykbLoOCUN/OQ5oOxGNXGbKeNNKJMfkfNHVcf+JHrv
-         M7+6FBoiLnK1mrLfyoP+RVI4YRUORhrvMexdXQFd82NWdeCnfEM5MItLjbM31a4QiFbZ
-         trp7EsmcnuNtI4EppleDDww68AmBo2drcn0LkvIpXdKn8srHljvuqyI4aNWiM1bDM8o1
-         tXlpH6cXj0/155fgV1iGX/A5lP+o0XB+MqiF3WwbJDfedJlAAaC+nEa3RzQUtyvh4/lD
-         oNhhJEqcXEAYDXfqFbnILOoi7fI/LBr1guEVMjA+6Ix60lNCSWkz+8duhlJP6RCtNlQ7
-         TV5w==
+        b=Dsf/BupKf0G0yInMGqhix0BflPdqIJowoDeI4EocuM5gFpgOXHTct3l42SvijLQ55G
+         kJB3ra8jqA3vHz2WSWfvxvgqiCHIXzG+K8+5tmzlcY2sEhNvBZSZDVqVX99LbeRERs8Z
+         UaM+GrDpyes/Udn6uDVyTOo90FiIWs2z5EBv1WhkYVUxt8F6CfB67MiJU6tTkTekqStB
+         XZ1j1pFunsHUlWH0QA8vsTqtQuAPvbGaquFv7r/4nAwAE/M5LlGy3ZKN9Y6teJq71A8Q
+         bzt2PhTDBlhswQdIgC1Tsqd5qqYILz8K3oCzrvrd9OB/xOPiERZhGPDzgXEHQQ26dXPx
+         Yz3Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:cc:to:subject:from:references
-         :in-reply-to:message-id:mime-version:sender:dkim-signature;
-        bh=44Ro3wNrSRgU7gtNEutXaTTb6Auf+fPdTro0dYmSYLo=;
-        b=h2XexBNcGEMHw1mlqmXSuTcU6xhvrEvuy9lB2LkMgwTgS0TzoZIiCLhu7MCVrEGzkG
-         ffm/wmS9QEWREmxHXYCWNkLmwNG8L4GAOqSNZmpZ9ELEri2mY6ve28vAohtfxOhqT3Hi
-         qUvTnRM1RITNtco6wZSabgxzJIvKcpCcr9/j7noZP7f8w9EMkmHMlJlxBx/8cC6Aqi6z
-         RDiZVWhSIaKjukJ3KPYA0pBA/24eeb0Y/yyCPhPCaq0+yIx6Z86dO9UM7xJDYONICGdp
-         kgD37DXC5M0BE2JeKeLwr1y+JcR7TCvhKAYyH3d0X9u6o6IpxC6D2QBiZ4VLJj7YmInp
-         ufBQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=ZVQsL38Gm192pGkE48VNSAumX1lvh9LJQv/F6uJtZAw=;
+        b=BpJycfu7fbp0JNRtTBZRmdDxL3HXStiF323KxAnRmwfNikurA5bsZkiAfNxzAdJ3aS
+         koZujo74hHqrChpbd31dgjI27y2IMuD/nm6sn2dn727k3lW04eYsDemCaEiPiGz0ASuC
+         9rA964fyrYGcl0csd/HX/Fn7+Gx+vjre9HpkDM5iQN9IYI6wFAanTlxbwzC+F05Obh3o
+         p9csZJ/RzDcRAYvPOVLTPknDlEdIZ5GQi8bgaW4Yr8WwQU5l+2IMROXQK+7CnLjWKEgS
+         EV9vvbEhBZAATE+dUnv/QjVk/HNZBwlW6cH6RQPwoJTprnarU6nbjP/luVGrlV2BHEE+
+         7n2g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+       dkim=pass header.i=@linaro.org header.s=google header.b=UfmbqwKW;
+       spf=pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::333 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:message-id:in-reply-to:references:from:subject
-         :to:cc:date:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=44Ro3wNrSRgU7gtNEutXaTTb6Auf+fPdTro0dYmSYLo=;
-        b=ANec7bQy/rpEmF36Zy9hj6uIGuPfJ26tDD4eZt05XLFU3MojYtIF2PMzd2LDV/9WPT
-         SEcOLN4hQJcyTvOAxk7he9qxe7kSwW6uI89CWcNHVY3u5ZtOBQghqPjgN9tfcBqr3WIJ
-         DiKQ01Q+LhJmGIwmSgF5zKnJCMmvIwsPHF/nDJub8KJvtG4ecDLTosew7DNH2xEmGx4c
-         xuTKRTZdRoJiO69sT182Jccubf6JPDrw6wXqiVRtWMKbJXg2u24o+3kSmucS0NRt96EF
-         YWVsX50KB+Cmv0KtB6wYuDKFcCUYuYB5X8D80k/UpWSLP9aUvxzw63c4FzDN5oaCH5ZI
-         uUAg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZVQsL38Gm192pGkE48VNSAumX1lvh9LJQv/F6uJtZAw=;
+        b=dqCZNUCl++JfXxUlXmieDFohiWZS2/ytz5vECQkPK7lNUwMjyher8AclZyIpQ1oEHv
+         JowdAdHfu+rLPhfnkwHm4m+2bQ1PfqlgS5acV8DWLfF7v4nTxvpogdZ3ZgsilAoivw5U
+         49SQdwiTdfvOrv9yJst8kDcvVWUYBErHCRV6jnHEuAnYCmengmICzRY22+PiPPLkkgUu
+         NbeNGlMj1XwY1F71ebKmGqrtTjBrH9DgY6upDGKIeDgfxeJzvSobqnmgOgZOOXJboIYN
+         qXDquQ6u8UFfGr1s27S794TVwRqTXcsF6n7wj+S4zIoAlozaZiRG8eRq6fNWtsRagjXf
+         R3Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:message-id:in-reply-to
-         :references:from:subject:to:cc:date:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=44Ro3wNrSRgU7gtNEutXaTTb6Auf+fPdTro0dYmSYLo=;
-        b=JcOu7qPD0KQxI7Rv6xN5hhtjaL9twh306JepKCWfqe1G9Wa+aUj5bnCHmk0XEh115K
-         5SnSvoGgO4tJEGw8ExRpohDw3Wulw8PKz6w16FWySUuebrdYx/m85EB51YRL79HbXwQh
-         GxnbidO+9zZigB8HhGRhM2ObhKISw0GfUrbNeWzEN/RagsjALO7RHBWwR9pW7Wg8ztI2
-         LDHJyz9w5kcxNksceWUjoNqiqNINK9L5hhoT46NM0h5mWVyEnZOApKXfJ+tg5rExjLO1
-         dtjPBNIy3RwWnpVymwhACiAWD81Ls+cPa3pC5m+hfFQ8FsLlID3cb2kjnFdP+LPAyhh6
-         j50w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ZVQsL38Gm192pGkE48VNSAumX1lvh9LJQv/F6uJtZAw=;
+        b=FUBHHe8xUBIL81gst9xQ774svv0GvORVPrywuXGHrqjwrjy6at4aGRtehyzj6hwLHZ
+         BAo+wzWgLfA+3LAPAqTETAcnSGPR7IkrQVg/8ZCiibuWdXbGv4mKiPQ4DKSH3gO4ySDy
+         SJDJXAUU3Lyd537wFQmy6NqshGk6p8HCbvsTlnfqPUQZkZvj9nQCC+n4fsSoSTV3TX1S
+         ZSuCv7Z1DjyYxhwggj0WPje5yVeJnLzJWXY4Howk8BLoXitJ3VIT402akVoPpj7s5DNI
+         +1nMGWlt9ezK1ZrNTXg+hfsiLo0jhZ7Fp+epoHMjnZ6JX1o+onHuUJ9It2YB21PmXUoJ
+         niaA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5325YK+RhMxwEpkG5dgQPMpQk+QkHZedHur6FWBKsXwwC/ubt9rh
-	DPChgvPGuFyb+NBiingEygE=
-X-Google-Smtp-Source: ABdhPJx+05JmraNuUsIZUb+YZ9wNJi4z045kKs0dJLvCrTqk7aW1QPM8mDt9ow7x/4yqRuF9z0Uylg==
-X-Received: by 2002:a50:a404:: with SMTP id u4mr49162535edb.112.1620896875758;
-        Thu, 13 May 2021 02:07:55 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM530rRaPU51eVO3FPMcHJhCMZNWCkGcRiJlWqxGRVmLeZuPPmP15j
+	6Vsoo86SuUPCwJy3uVenTw0=
+X-Google-Smtp-Source: ABdhPJxB2Tb1m+tgK7e3JVtV4dWgFXGvwSdFFmf/ScmIl7wFmG9kqIQ1INuI6Lj2MFRCeA1HBV/PYg==
+X-Received: by 2002:a05:6512:2342:: with SMTP id p2mr28535314lfu.388.1620904042358;
+        Thu, 13 May 2021 04:07:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:af8a:: with SMTP id mj10ls171401ejb.10.gmail; Thu,
- 13 May 2021 02:07:54 -0700 (PDT)
-X-Received: by 2002:a17:906:9bc2:: with SMTP id de2mr11674389ejc.340.1620896874746;
-        Thu, 13 May 2021 02:07:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1620896874; cv=none;
+Received: by 2002:ac2:5592:: with SMTP id v18ls3372767lfg.0.gmail; Thu, 13 May
+ 2021 04:07:21 -0700 (PDT)
+X-Received: by 2002:a05:6512:3f08:: with SMTP id y8mr28679060lfa.657.1620904041368;
+        Thu, 13 May 2021 04:07:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620904041; cv=none;
         d=google.com; s=arc-20160816;
-        b=LerdYz1tTZIDfP83j4OPHpHY726K5jrEDmZ9fKHi3fRZQBnF9FbMaZ8sh2z0kTmxNl
-         +X7YTUVxwzhKdfc6mWGGl/OUTm3b/6jbDN4RtjnZ7BeY6VxK3MjCWLIGZAdNwErU56zl
-         TafX19XqTjgf0VkmM3q6z80yzkebqlpNFefhxAxtTQvV53iogQ9wMV5Yc347AXtxp4ZQ
-         QFBjsnVODFhN5sIv2i8XIx2H4zWwOKqQSmE7wHunHn9L3LtGaM8aCxdMy+nCggZ3HtIF
-         ZWYowGHigQ7qY5sEo0oCoi7KLlFvlIPcPhGPaM3gQtWDwCBobPk1G9Nj61uOc1calYYZ
-         4PAA==
+        b=ptuq+X5qe40m2vEcSqYWcYX1436ixAa8yQtG4nph4e/kQSC5jyPKUXDVsI7YHBExse
+         iZAnmtKIWHtqPu4goOMo1G5n0f4Wj0lwpPCMzcdyWDxfMroohzSnt3WZ20jSiCB+EfuN
+         5rgiRBITIB/rSXBIAvc3bCYlS3asIRwpQR16D/3yoT6i9+H7qMF0xhOZ7wU+Mif6vgJ0
+         uyzSjOtqzfOAn3ahkzapoYPY+dbALZ8gShs6AaWr4hyeGUdv84/NtDiuc0ZGcchGXl2a
+         PFvTzHZ5KHKhwEPCOmybuxxz5s5EMXP8jN8pr8r6FHD2vVU8pCoxL3QfrR3oN5ApEego
+         8jLw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:cc:to:subject:from:references:in-reply-to:message-id;
-        bh=abUCHma7oCfQ1FxY5AgLSt3SnxO/tW56HKwFhFptiVI=;
-        b=b/uvarqTTzQE4eIH9nKEGgYmb4qJ2hIbeV8OzFbTpyURSe243BfAIKfqX8TLfcPWuN
-         8GuRltHkN8LAX41hIPkc17BecyE/YR5ciWg2nWpxWdyMz36/K5xHi4r1MO1suN/7vnEw
-         OIrjxzR6RimCOdREaYnzTRjQTH7VenvGBS8EKrzNXC+OrHXLR9yZKMCpOeMelUopjhu4
-         fUZY/RivtLyyWG5FgfMzy0uBLmeODWWbBE/w24+zzdgLqYp2jl58N9hzvZmFHyqDJWC0
-         IyryHqgVywRjGJAIY9IZLK/N2ZuRFQm3yQeCx9qos+Cq5Gwf5jCRmHzfm7ZbjICrpMv3
-         ML6Q==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=L1Rs0oxlRge0qzOeFq0tx+oSL+//C6msY0LMqH5lEJs=;
+        b=QrfGD3yYzqif1fwWirsMffBa3E6G2FL1PyWBGxb/OibmAUWgdRD3pE/pGzIiIii4Hc
+         dy20pzeTk9Gzt82GtraaBgAnjrQEVwV2fhdtzBY4fsalJV8Kr2ZJGFW/PDjRaqdf03Dn
+         4Lnpj3066xH1urv/QPbgLZx2SybU/Ni+/p3eDWxNCK8TrVIqr/rtSanTWsqpM8WlYW1t
+         /SmUUfHbD1aVgAYvH8o/6RGdQX+njAqvwP3TmF2dHwvwn7VKrA7hxQ62tQyhmQUhLAmx
+         TUk78kbHVMyXtXVqBjNom+k+xyAoMzY7uUbuSTNc4OEjI2N/ZSEgiGCe6ITXejg86ljR
+         yztQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
-Received: from pegase2.c-s.fr (pegase2.c-s.fr. [93.17.235.10])
-        by gmr-mx.google.com with ESMTPS id di23si91109edb.0.2021.05.13.02.07.54
+       dkim=pass header.i=@linaro.org header.s=google header.b=UfmbqwKW;
+       spf=pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::333 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x333.google.com (mail-wm1-x333.google.com. [2a00:1450:4864:20::333])
+        by gmr-mx.google.com with ESMTPS id k131si92697lfk.12.2021.05.13.04.07.21
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 May 2021 04:07:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of daniel.thompson@linaro.org designates 2a00:1450:4864:20::333 as permitted sender) client-ip=2a00:1450:4864:20::333;
+Received: by mail-wm1-x333.google.com with SMTP id b11-20020a7bc24b0000b0290148da0694ffso1166791wmj.2
+        for <clang-built-linux@googlegroups.com>; Thu, 13 May 2021 04:07:21 -0700 (PDT)
+X-Received: by 2002:a1c:a507:: with SMTP id o7mr3293234wme.130.1620904040559;
+        Thu, 13 May 2021 04:07:20 -0700 (PDT)
+Received: from maple.lan (cpc141216-aztw34-2-0-cust174.18-1.cable.virginm.net. [80.7.220.175])
+        by smtp.gmail.com with ESMTPSA id e38sm7979662wmp.21.2021.05.13.04.07.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 May 2021 02:07:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) client-ip=93.17.235.10;
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4Fgm5k1wbJz9sbZ;
-	Thu, 13 May 2021 11:07:54 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 6s838qCcO9bm; Thu, 13 May 2021 11:07:54 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4Fgm5j5bH0z9sbQ;
-	Thu, 13 May 2021 11:07:53 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 7F7958B7F3;
-	Thu, 13 May 2021 11:07:53 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id 7BOwx6cbSXtS; Thu, 13 May 2021 11:07:53 +0200 (CEST)
-Received: from po15610vm.idsi0.si.c-s.fr (unknown [192.168.4.90])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4925A8B76C;
-	Thu, 13 May 2021 11:07:53 +0200 (CEST)
-Received: by po15610vm.idsi0.si.c-s.fr (Postfix, from userid 0)
-	id 261DC64185; Thu, 13 May 2021 09:07:53 +0000 (UTC)
-Message-Id: <ec5e85f9f9abcfecc959a03495f4a7858eb4d203.1620896780.git.christophe.leroy@csgroup.eu>
-In-Reply-To: <40a43d6df1fdf41ade36e9a46e60a4df774ca9f6.1620896780.git.christophe.leroy@csgroup.eu>
-References: <40a43d6df1fdf41ade36e9a46e60a4df774ca9f6.1620896780.git.christophe.leroy@csgroup.eu>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Subject: [PATCH v2 2/2] powerpc/kprobes: Replace ppc_optinsn by common optinsn
-To: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
-    naveen.n.rao@linux.ibm.com,
-    anil.s.keshavamurthy@intel.com,
-    davem@davemloft.net,
-    mhiramat@kernel.org
-Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-    clang-built-linux@googlegroups.com
-Date: Thu, 13 May 2021 09:07:53 +0000 (UTC)
-X-Original-Sender: christophe.leroy@csgroup.eu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as
- permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+        Thu, 13 May 2021 04:07:19 -0700 (PDT)
+Date: Thu, 13 May 2021 12:07:17 +0100
+From: Daniel Thompson <daniel.thompson@linaro.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Arnd Bergmann <arnd@arndb.de>, "# 3.4.x" <stable@vger.kernel.org>,
+	Marek Vasut <marek.vasut@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Nicolas Pitre <nico@fluxnic.net>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Mike Rapoport <rppt@kernel.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] ARM: fix gcc-10 thumb2-kernel regression
+Message-ID: <20210513110717.s2gr4l5upqzjkb5a@maple.lan>
+References: <20210512081211.200025-1-arnd@kernel.org>
+ <CAMj1kXECGjpxx5ouWuvnKUigzMGu=GcE8_ab2rrxt98yU1jUnw@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXECGjpxx5ouWuvnKUigzMGu=GcE8_ab2rrxt98yU1jUnw@mail.gmail.com>
+X-Original-Sender: daniel.thompson@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b=UfmbqwKW;       spf=pass
+ (google.com: domain of daniel.thompson@linaro.org designates
+ 2a00:1450:4864:20::333 as permitted sender) smtp.mailfrom=daniel.thompson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,104 +145,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Commit 51c9c0843993 ("powerpc/kprobes: Implement Optprobes")
-implemented a powerpc specific version of optinsn in order
-to workaround the 32Mb limitation for direct branches.
+On Wed, May 12, 2021 at 02:38:36PM +0200, Ard Biesheuvel wrote:
+> On Wed, 12 May 2021 at 10:13, Arnd Bergmann <arnd@kernel.org> wrote:
+> >
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > When building the kernel wtih gcc-10 or higher using the
+> > CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE=y flag, the compiler picks a slightly
+> > different set of registers for the inline assembly in cpu_init() that
+> > subsequently results in a corrupt kernel stack as well as remaining in
+> > FIQ mode. If a banked register is used for the last argument, the wrong
+> > version of that register gets loaded into CPSR_c.  When building in Arm
+> > mode, the arguments are passed as immediate values and the bug cannot
+> > happen.
+> >
+> > This got introduced when Daniel reworked the FIQ handling and was
+> > technically always broken, but happened to work with both clang and gcc
+> > before gcc-10 as long as they picked one of the lower registers.
+> > This is probably an indication that still very few people build the
+> > kernel in Thumb2 mode.
+> >
+> > Marek pointed out the problem on IRC, Arnd narrowed it down to this
+> > inline assembly and Russell pinpointed the exact bug.
+> >
+> > Change the constraints to force the final mode switch to use a non-banked
+> > register for the argument to ensure that the correct constant gets loaded.
+> > Another alternative would be to always use registers for the constant
+> > arguments to avoid the #ifdef that has now become more complex.
+> >
+> > Cc: <stable@vger.kernel.org> # v3.18+
+> > Cc: Daniel Thompson <daniel.thompson@linaro.org>
+> > Reported-by: Marek Vasut <marek.vasut@gmail.com>
+> > Fixes: c0e7f7ee717e ("ARM: 8150/3: fiq: Replace default FIQ handler")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> 
+> Nice bug!
 
-Instead of implementing a dedicated powerpc version, use the
-common optinsn and override the allocation and freeing functions.
+Indeed. Many thanks for those involved with the find and fix!
 
-This also indirectly remove the CLANG warning about
-is_kprobe_ppc_optinsn_slot() not being use, and the powerpc will
-now benefit from commit 5b485629ba0d ("kprobes, extable: Identify
-kprobes trampolines as kernel text area")
 
-Suggested-by: Masami Hiramatsu <mhiramat@kernel.org>
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Acked-by: Masami Hiramatsu <mhiramat@kernel.org>
----
-v2: no change
----
- arch/powerpc/kernel/optprobes.c | 23 +++++------------------
- 1 file changed, 5 insertions(+), 18 deletions(-)
-
-diff --git a/arch/powerpc/kernel/optprobes.c b/arch/powerpc/kernel/optprobes.c
-index cdf87086fa33..a370190cd02a 100644
---- a/arch/powerpc/kernel/optprobes.c
-+++ b/arch/powerpc/kernel/optprobes.c
-@@ -31,11 +31,9 @@
- #define TMPL_END_IDX		\
- 	(optprobe_template_end - optprobe_template_entry)
- 
--DEFINE_INSN_CACHE_OPS(ppc_optinsn);
--
- static bool insn_page_in_use;
- 
--static void *__ppc_alloc_insn_page(void)
-+void *alloc_optinsn_page(void)
- {
- 	if (insn_page_in_use)
- 		return NULL;
-@@ -43,20 +41,11 @@ static void *__ppc_alloc_insn_page(void)
- 	return &optinsn_slot;
- }
- 
--static void __ppc_free_insn_page(void *page __maybe_unused)
-+void free_optinsn_page(void *page)
- {
- 	insn_page_in_use = false;
- }
- 
--struct kprobe_insn_cache kprobe_ppc_optinsn_slots = {
--	.mutex = __MUTEX_INITIALIZER(kprobe_ppc_optinsn_slots.mutex),
--	.pages = LIST_HEAD_INIT(kprobe_ppc_optinsn_slots.pages),
--	/* insn_size initialized later */
--	.alloc = __ppc_alloc_insn_page,
--	.free = __ppc_free_insn_page,
--	.nr_garbage = 0,
--};
--
- /*
-  * Check if we can optimize this probe. Returns NIP post-emulation if this can
-  * be optimized and 0 otherwise.
-@@ -136,7 +125,7 @@ NOKPROBE_SYMBOL(optimized_callback);
- void arch_remove_optimized_kprobe(struct optimized_kprobe *op)
- {
- 	if (op->optinsn.insn) {
--		free_ppc_optinsn_slot(op->optinsn.insn, 1);
-+		free_optinsn_slot(op->optinsn.insn, 1);
- 		op->optinsn.insn = NULL;
- 	}
- }
-@@ -203,14 +192,12 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op, struct kprobe *p)
- 	unsigned long nip, size;
- 	int rc, i;
- 
--	kprobe_ppc_optinsn_slots.insn_size = MAX_OPTINSN_SIZE;
--
- 	nip = can_optimize(p);
- 	if (!nip)
- 		return -EILSEQ;
- 
- 	/* Allocate instruction slot for detour buffer */
--	buff = get_ppc_optinsn_slot();
-+	buff = get_optinsn_slot();
- 	if (!buff)
- 		return -ENOMEM;
- 
-@@ -297,7 +284,7 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op, struct kprobe *p)
- 	return 0;
- 
- error:
--	free_ppc_optinsn_slot(buff, 0);
-+	free_optinsn_slot(buff, 0);
- 	return -ERANGE;
- 
- }
--- 
-2.25.0
+Daniel.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ec5e85f9f9abcfecc959a03495f4a7858eb4d203.1620896780.git.christophe.leroy%40csgroup.eu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210513110717.s2gr4l5upqzjkb5a%40maple.lan.
