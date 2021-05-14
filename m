@@ -1,127 +1,128 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBAMD7OCAMGQEWWGNH7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBVUF7OCAMGQER4CTYGQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
-	by mail.lfdr.de (Postfix) with ESMTPS id D4C14380FBB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 20:29:22 +0200 (CEST)
-Received: by mail-qt1-x840.google.com with SMTP id s11-20020ac85ecb0000b02901ded4f15245sf193788qtx.22
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 11:29:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621016962; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 41308380FD3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 20:35:04 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id 31-20020a1709020022b02900eeddd708c8sf14004968pla.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 11:35:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621017303; cv=pass;
         d=google.com; s=arc-20160816;
-        b=g+xTpG9+LrZUCzBUYAmiRoqe+YhztELJ0RBrEaVsxG2mNAER72c3p8RQXLID4dxpXB
-         SewoE7KtQzBgxhsRabTaxWDTlN3YDfytpfFT96PjLIc94inatvZ3+Gcxlncw1g9WJOHw
-         W8h3QWbGBe47Y/ZoSSRQSUmpVhM02gglTOqpDnnI4NRQpjd09P3RH6IWVumu5uE27IPR
-         15cO/GaAkMQ55yY+LWSavq6bagij3HrpRomL9SZHl6qNNLVCU/EOhjrRlwzx/FxOykCg
-         6MRgEjsk+ZrCLKdtji33TxDsDLL2yj3MuOIRSR3nU4WlmJ1L0PSOVqAeUQgyQjhwxCvy
-         W9aQ==
+        b=cLXSzPU6ap2FvzZZNjhEOguvXFka41JA81guu//mrEL227vfrRr10ymBP8UZ4uY66X
+         xvHovH6sJBYgqXglsGmJynHBkI2COLqr902LsE4lgaKTpUIhHnY3DyHd82SFfFoqP2os
+         DIo9CLnN+NehYujzm7+5O88GWsRr0gvMHU7pAdqkKr8Wmr6nk+h3WaA9YfAhyBRHfKqy
+         70inymZPFy2ADapljjc1LTcImftoAf/6KqBcAAZuXePR4a2J1oovxHxdpdJNW9nm3DVI
+         yaMdWlDM7jiAozFN3xo+pSTb7otyUER5HbRnPsBpP+AgONp4Tv827Sn6nR2oRzhG6cJv
+         24YA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=MKWX6JgWEunIXO/tkA4lR++LQOrr8ajH8LSd4CX/1bg=;
-        b=jSI40ysms7cMFN1WzbHx1x/FW1vDStwWnkPffp8i9m4EdWPCj76SEo/WCick4IzlHG
-         7dmI8stJgL/B9C8nwrjkuMKVgp9isHX41T06jU4GKLk/oQiHdTE2xhZ0VuSS0LCIaKFv
-         1PqPVZfHHA+15vytP7LABCOXOHrgibHl74A5KucmivwV0/JXICHneyL+ugYMD8XerDre
-         FPwQ4cPbje9bDiDrbSUjXWChiDSGwhU3Zj15e324V5Xk0muk8wJ24SOayywhV8DthF3U
-         q7SPNQBDv9S6OqdWTo3UrL4R2cvhDHG8/xc8HcqhUaUz5lFPsLBv2QZaabI8zW/UICcE
-         OguQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=uHLxrsUjPR/lOYYcKTUnQDNRrSI/CD81Oru9AiEE8j4=;
+        b=AMjA0CXgRB97Sk/wT0WoaRP2P1duciAkVg1aOnXmXhSYYss72hEwGHkveUAKWHYjdN
+         tyD1XVBg41KkpEut3BZGvXDTDE8oW77hGA7OjPKg+uoVv3d8/ZNNDoR1IdfD7ryUkyGU
+         ogVAzlBp7qWX3aEPxD33ePQJhpAYs5MbSXR7lxV27PDtTXVJaJVFfNyjEXtsgmMWak6G
+         KI5dLVmWBu/tOHZIiEIPQwhQ+b0l11jyXqC3+0dh3fuBPpVSbWJSlUH++rnd+VGV+/1E
+         gqRP0u/045AOMc6SmFFtjMDj/PXbXPTDHjww12cLVRb50MNpGYxlt8WmLiTNFekRSkNR
+         1Sjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tXUuvnKN;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UByPVfl+;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=MKWX6JgWEunIXO/tkA4lR++LQOrr8ajH8LSd4CX/1bg=;
-        b=UqY8Ti2pBYuBkNLDtICHveDm9tURbVD20Vf33jwPqrQw787WOOBYn7Ho78YnTNv8/N
-         oD5a6T46V5c9N1BitwIgsrqAHqagHshqEn1DurenDZvhli3fpRQH3Dk7TJSYT1rUC63E
-         jI73PcfAMe4SwwIfm0jIlmZ0nmpa74E+W/XXg2u2Ut4JROmz/V5GwYRSrVHZWTizcTsn
-         Sgx6WSZ+Y3rG5caysWgT4mkAcnpR54KZ62UZQviyUOyXD2v8X3f1hFSQyFZ3SMIf0V0z
-         +n756KiprC44vhsSme5ADtRVYv145G8cMBRZbh41IGTsQptSO0L5KhMq096V/U1v1tfJ
-         ntjA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uHLxrsUjPR/lOYYcKTUnQDNRrSI/CD81Oru9AiEE8j4=;
+        b=bO5sGU4CXsg8ALqd+2gfVKLFe/JgeTBYWlD5LCg465tSLJF8CSVadvlfVNwDdpV16n
+         scrN9olX0T3wCNEbXZ0nRyq8PQd72rxpeLRWyTf6jC1NyZa1Nu+ZX9Q3YgTlSP2r+SMW
+         P05hJ67UAGm/nXeS42tfv/20BuQm/hcbG3cMx8PuGlB5rXubLsNLNjXTVtdbHMiw0FCG
+         ACU6GE/xorw8o2npptIeLGs3qFuSPRoGf083OgpPWnv/UEKI2G5ct5y+M9awEqlftpu9
+         bjoLHmrTrQzECeBnDGXKVIwS36dou5XS76XMS5xaq1hQFMJvgZm4fJqy2G23JJFCs6wG
+         Imsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=MKWX6JgWEunIXO/tkA4lR++LQOrr8ajH8LSd4CX/1bg=;
-        b=cV3S/nBQooCRU5nuNq02Dl5k357cnoKQBDUU5n71Gw4H0zuS6DuzAuKilJVLbwfaT8
-         VcMVsR8Ei1oixD+oTqAzCuqapFzLvuWUlr1PqICDN6TpBlhXi3J6ucbDE8WFtmHoesDq
-         iVqfuXIfo2f0FJXavsHosu5CACUFe6plNZOfvCz6vwlwH6VMfacsYV2yzjz3/3iOxDNe
-         WAqsesez2nhcsmaDdX5UFtcG1fiTSIxdDRiRmA4qOdisuXzwLgWz6awDw1cONiBumvGY
-         UPM0jCnb9AgYbJGb0Jod5QIpIJ0KrAN8t6YAUAsFrDDF3SQrjbj82ScbN2zxZMyMm6ku
-         Z91A==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uHLxrsUjPR/lOYYcKTUnQDNRrSI/CD81Oru9AiEE8j4=;
+        b=LKTWiXPvjH/V304eZJ4Qqzt3xPtsun9DCqbvEavbEfWImxpavJlJm/e4zXFU+HqjBa
+         gbZ+UlJKrU/YXo4dL77NogpfRSruP8Mo5hZdcitEZYRR6YjlVnUv0x5OFc4rdn6iXdXZ
+         s+XdWohO6CxHrGokRlSBQDcB0Z0KZK7xWNrE0ZjGF5nfHdx9/nz+pzACQDI/6Kyy6g2p
+         hZmZZdz6uIj+kZhfPpSPoySRMlsnb8da4UZ26nTT7Qv41SElGVcd/zyieIZXwz+PyuRE
+         QsC7HFtnCkaVoO3VbPOXF4XcXVMh2ar84XC6gVb79ymGJqoa4yEOWsUBOD5+1PrtKku8
+         PyBw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530LA9E9Va/JbteTaDy7HhcYRfPlfoHyWqUMY+4T3FZSr0ywQ0LZ
-	qLeH8FitWJc6r8O+8uMUIok=
-X-Google-Smtp-Source: ABdhPJyCzhAtKJKRwF9a/qFvkMhZ3lM6RMaLpPM/WyMr18JvWCEOKiV8/3relTMax77F9C2Sg05EDg==
-X-Received: by 2002:a05:620a:552:: with SMTP id o18mr11832407qko.365.1621016961837;
-        Fri, 14 May 2021 11:29:21 -0700 (PDT)
+X-Gm-Message-State: AOAM532cez9qYC4UOHHQE+WWoKkcrmEUYCNkF10EkMFfAPSkAr1zTT/u
+	Oca/GMa1GEddrGNowS7FLVg=
+X-Google-Smtp-Source: ABdhPJyvIO3DiAqLfoy2fS4DiRmBG7y1J4+PAd8iMnfI52rRHIE/FY3ZLDkTICAfqlx6D6/CvnfGbg==
+X-Received: by 2002:a17:902:e5cb:b029:ed:7f74:f3a1 with SMTP id u11-20020a170902e5cbb02900ed7f74f3a1mr46551897plf.45.1621017302935;
+        Fri, 14 May 2021 11:35:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5810:: with SMTP id g16ls4998692qtg.11.gmail; Fri, 14
- May 2021 11:29:21 -0700 (PDT)
-X-Received: by 2002:a05:622a:40d:: with SMTP id n13mr44899399qtx.59.1621016961414;
-        Fri, 14 May 2021 11:29:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621016961; cv=none;
+Received: by 2002:a63:7e1c:: with SMTP id z28ls4497730pgc.3.gmail; Fri, 14 May
+ 2021 11:35:02 -0700 (PDT)
+X-Received: by 2002:aa7:8010:0:b029:254:f083:66fa with SMTP id j16-20020aa780100000b0290254f08366famr47106611pfi.17.1621017302305;
+        Fri, 14 May 2021 11:35:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621017302; cv=none;
         d=google.com; s=arc-20160816;
-        b=IViUT7TVZWSXWT0iO9/0d3TRJPLhmYgnsO4UvUkGp8JTikDBbpsDXzO693XQ8XLueo
-         ifz9C957VVH0rqahbcOKWYyI/yvJadn4jCrz5MkDYKVr9Vgc33YVBpgZUeuqsi3xgZT5
-         r/i1jVdjTtxClBZMrKTMuxicu6Tkj2VsgeLSaQPUJ/14O6dMgG9f3zC/EVNoZUJMGKRp
-         0LZYoo+PULq4HZ+dtB47x+7hKLvfNffkGIi1v1sw973fYDX1EBs5h50JSI/JhhOgYWxd
-         1zlQM3EEW6PXWhNlmEJi+M90T45S3thrw4oNDccMq3Mfe2LtZThNSiWeuF6GGAGfMmWC
-         9c3g==
+        b=jeXp9qFcV/Kw4XbggW2Af+R4ZLXIMCYnH+7vPo9m+gQI7QLSJ0nL9Dy1ke9LuaVrR/
+         fkCrtF9xQtSLM6XfRKbwl/V/QE1CXAF5wKiKE4aMG7CXehPjshz70KUyvI+hTeIGnvid
+         mXdadjFziVLHMNIq974mqLa2xQHDwkwglHcLQV/k8nL+mU0qfCrIIdy84dVwA9ZGDFYB
+         xpEnSOsybbBB5yl/iUYS3Ei6y/OwCJwVVxdFNR5yM2WK2KUVsaQCuH2xAA+wy1q2W0jc
+         pOGCHYy2xhgyjV5HHrZPgnqXjdq5ZjHLibIbMNlL5Plhu9O/EvKuKVuScz0xFrrO5a02
+         NRMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=DVkh83Us4Gtqht2wF2X6mkkdk/eMRZQpRtWlxQ/Vnz4=;
-        b=TeHsFu6lwtRKjemEONY/1/YD1wZ4rwubhFLzbhhhQu46hdjn7IoZQPwxJMN0CoJNFc
-         ZqvADArQ3fp40FIUMoNaRzd28CLBVCFBM46yI4GxAKfDZbQrvhjMQqt1CF25Pi93FV64
-         v+4v0yEup9ze3heAd1ixCEJBrur84Ufpal69Tbk09MR4mko2+MPK9rEiWBY5gZ1M9VeJ
-         EP0W1E4dMGuL/Brc6vajDozkCguEaszKW80rg3OirfRYyAna3WUlKhxXB45Z5qd1wxD6
-         4QdxNUeUrbeS26c2DfFSDnksoinzeoVR0kqSzLvAHVbtbAefulkJB84Oz1W0vAPgew3Q
-         +dJA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=CLiedsrNfquAlBwlKckTWd73i70Ta1hiHom33mb/D4w=;
+        b=H3fD9B0Qq/K3DUIhAqzEw+m/lzKb9dnUyJDywWBHyDoCcXZ7RP0tvm7N+DETY5PrYx
+         CH5rCzyPr63T6wrYPeoLcnq6GCiLtfpb5058RZNZdxKTqWDysT2oGLYFOkAHdooRqDHv
+         5aBrv7LhNeONajlYRJzU6irzSclzEDD1IFqg8r+4fIiwml4GDX+TLgCWSkJVro4awhuJ
+         eNSVBXoZ6vA67gESPYXAMOaamGlb6X7630A317EmCbr+1DrkuyMGQgeOmqFked6zYOAd
+         70wJ3DSOqkQzHaXFx8ZtDgOVsOX1o/M9U//OrUwgBB/VHef1XW7BxdF/ECRY6Qnj6kNT
+         fwUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tXUuvnKN;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UByPVfl+;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q5si759519qke.0.2021.05.14.11.29.21
+        by gmr-mx.google.com with ESMTPS id b17si702411pgs.1.2021.05.14.11.35.02
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 11:29:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6694561442;
-	Fri, 14 May 2021 18:29:19 +0000 (UTC)
-Subject: Re: [PATCH] kcsan: fix debugfs initcall return type
-To: Arnd Bergmann <arnd@kernel.org>, Marco Elver <elver@google.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Dmitry Vyukov <dvyukov@google.com>,
- kasan-dev@googlegroups.com, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20210514140015.2944744-1-arnd@kernel.org>
-From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <0ad11966-b286-395e-e9ca-e278de6ef872@kernel.org>
-Date: Fri, 14 May 2021 11:29:18 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+        Fri, 14 May 2021 11:35:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0A14361457
+	for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 18:35:02 +0000 (UTC)
+Received: by mail-wr1-f41.google.com with SMTP id z17so170139wrq.7
+        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 11:35:01 -0700 (PDT)
+X-Received: by 2002:a5d:6dc4:: with SMTP id d4mr61902203wrz.105.1621017300619;
+ Fri, 14 May 2021 11:35:00 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210514140015.2944744-1-arnd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nathan@kernel.org
+References: <20210514140429.3334181-1-arnd@kernel.org> <20210514101610.4392adbc@gandalf.local.home>
+In-Reply-To: <20210514101610.4392adbc@gandalf.local.home>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Fri, 14 May 2021 20:33:58 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1bZ6DBFRy+HCax-=jj2rTa+hCkK8VOSRvX56CLAz23Ew@mail.gmail.com>
+Message-ID: <CAK8P3a1bZ6DBFRy+HCax-=jj2rTa+hCkK8VOSRvX56CLAz23Ew@mail.gmail.com>
+Subject: Re: [PATCH] tracing: events_hist: avoid using excessive stack space
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, "Steven Rostedt (VMware)" <rostedt@godmis.org>, 
+	Tom Zanussi <zanussi@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Qiujun Huang <hqjagain@gmail.com>, Tom Rix <trix@redhat.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=tXUuvnKN;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=UByPVfl+;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,47 +135,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 5/14/2021 7:00 AM, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> clang points out that an initcall funciton should return an 'int':
-> 
-> kernel/kcsan/debugfs.c:274:15: error: returning 'void' from a function with incompatible result type 'int'
-> late_initcall(kcsan_debugfs_init);
-> ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-> include/linux/init.h:292:46: note: expanded from macro 'late_initcall'
->   #define late_initcall(fn)               __define_initcall(fn, 7)
-> 
-> Fixes: e36299efe7d7 ("kcsan, debugfs: Move debugfs file creation out of early init")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Fri, May 14, 2021 at 4:16 PM Steven Rostedt <rostedt@goodmis.org> wrote:
+> On Fri, 14 May 2021 16:04:25 +0200 Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> > From: Arnd Bergmann <arnd@arndb.de>
+> >
+> > In some configurations, clang produces a warning about an overly large
+> > amount of stack space used in hist_trigger_print_key():
+> >
+> > kernel/trace/trace_events_hist.c:4594:13: error: stack frame size of 1248 bytes in function 'hist_trigger_print_key' [-Werror,-Wframe-larger-than=]
+> > static void hist_trigger_print_key(struct seq_file *m,
+> >
+> > Moving the 'str' variable into a more local scope in the two places
+> > where it gets used actually reduces the the used stack space here
+> > and gets it below the warning limit, because the compiler can now
+> > assume that it is safe to use the same stack slot that it has for
+> > the stack of any inline function.
+>
+> Thanks Arnd for the nice explanation of the rationale for this change.
+>
+> But I still find it too subtle to my liking that we need to move the
+> declaration like this (and duplicate it twice) for internal behavior of the
+> compiler (where it can't figure out itself by the use cases if it can
+> optimize the stack).
 
-For the record, this requires CONFIG_LTO_CLANG to be visible.
+It's not really internal behavior of the compiler that causes the smaller
+scope to help here, I'm sure gcc has to do the same thing regarding
+the placement of this variable on the stack. Clang does have some related
+cases that it doesn't do as well as gcc, but I don't think this is one of them.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+The difference between the compilers or configurations is the way that
+inlining decisions are made, so if a compiler inlines another function into this
+one that also uses a lot of stack space, that will trigger the warning, while
+a compiler that does not inline that would not warn but also not use any
+less stack space in the code path that uses the nested function.
 
-> ---
->   kernel/kcsan/debugfs.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/kernel/kcsan/debugfs.c b/kernel/kcsan/debugfs.c
-> index c1dd02f3be8b..e65de172ccf7 100644
-> --- a/kernel/kcsan/debugfs.c
-> +++ b/kernel/kcsan/debugfs.c
-> @@ -266,9 +266,10 @@ static const struct file_operations debugfs_ops =
->   	.release = single_release
->   };
->   
-> -static void __init kcsan_debugfs_init(void)
-> +static int __init kcsan_debugfs_init(void)
->   {
->   	debugfs_create_file("kcsan", 0644, NULL, NULL, &debugfs_ops);
-> +	return 0;
->   }
->   
->   late_initcall(kcsan_debugfs_init);
-> 
+> > diff --git a/kernel/trace/trace_events_hist.c b/kernel/trace/trace_events_hist.c
+> > index c1abd63f1d6c..e3fe84f017a8 100644
+> > --- a/kernel/trace/trace_events_hist.c
+> > +++ b/kernel/trace/trace_events_hist.c
+> > @@ -4597,7 +4597,6 @@ static void hist_trigger_print_key(struct seq_file *m,
+> >                                  struct tracing_map_elt *elt)
+> >  {
+> >       struct hist_field *key_field;
+> > -     char str[KSYM_SYMBOL_LEN];
+>
+> Instead, I think we should just make str static, as this should only be
+> called under the event_mutex. To be sure, we can also add:
+>
+>         /* To protect the static str variable */
+>         lockdep_assert_held(&event_mutex);
+
+Ok, I changed my local version to this, will send v2 once it passes
+some more randconfig builds.
+
+         Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0ad11966-b286-395e-e9ca-e278de6ef872%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1bZ6DBFRy%2BHCax-%3Djj2rTa%2BhCkK8VOSRvX56CLAz23Ew%40mail.gmail.com.
