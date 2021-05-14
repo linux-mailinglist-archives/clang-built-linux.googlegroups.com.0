@@ -1,121 +1,146 @@
-Return-Path: <clang-built-linux+bncBCU73AEHRQBBBLMM7KCAMGQE2PWGELQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDUIPVEV74KRB6UO7KCAMGQELGWUD7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04ECA380B78
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:16:15 +0200 (CEST)
-Received: by mail-oi1-x23c.google.com with SMTP id l1-20020a5441010000b02901ecd2ee1861sf8070413oic.13
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:16:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621001774; cv=pass;
+Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9928A380BB3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:21:46 +0200 (CEST)
+Received: by mail-wr1-x437.google.com with SMTP id j33-20020adf91240000b029010e4009d2ffsf10304971wrj.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:21:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621002106; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EA+987LbQwW5wkEHy2YElGTaB9A68xcO4I65FqRhhRoFuYLkNKlbrHcMLvnl7WS3Ei
-         NgaVZQbFiTOcfFz+z0+eEGtHk0KWkrGvkw86jvgDUnVGxOvDPlFO8KTfvfDgSnAAHBJT
-         mxiEvdmWjQXlSrvdhipkFBB1URgUqe7CLMWKVdWfyy8CTHikKeHTuGWft2ULSdSPUCmJ
-         Dr6isebagQymZiAsD1/HfbZKP4UIFaR9x5IE4sR2pdQcW9eCIJoetm5HumqJau8GYDs9
-         77L/fLvqvRb1MOmmLWH/ndHJhqUXmZWmM8RajnyNoMlZ141BVQ65K7IZGXljZ/SH8k1o
-         EJIw==
+        b=emDOHr68FEXL0Kw5i0Ioj4kjp3FFPqZzBb+v21N+3QFM5NbSQolIbw2k6nmj2ExXP0
+         +U0WmblRQ4U38yFSiVv684e68cqxZ/CbOM7qLNpUobAWRm9uFhOa/GFZVoylHyg7eVbn
+         N5bj5YxWJGN2Kw/AaMn8tVUro4xVV8NcJXR3jBib3sgZafYw3xrP9csf5yJrQ6K+Ypjj
+         bdRK8wvsZjz20vm1sdxXPvM95rkwZcaruNN3gvpYffODBwRNhtjhAARG1CHDExplTFfV
+         5pqGxoFhJcVkAmQQs6HXQV6TcUO2MSuk0yP0vSAwp8NeWP4FZ2PCSe0Cm5iBIorNRuWl
+         XPdQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=35F9UKFS4c+XbAi9QSSrxoMsFkjGu/nEiX+gJ+81wXM=;
-        b=wVEqrt7KmpuITiajcd3GdaH3pbqOoHGBC4BUYhXo430d9L1chrz+wntIb+P6pSvRDf
-         Wcx43ogtr1bqypCQbkmy0cMJdHFeW1r5CLwk08JujMPU/nMPpYLTRfIa2CbRSogrJqjQ
-         dAGR5oj/iQODApGsqJt8S96a0t16ipOEsRgs4Q60O/llnR1/md20qVkjzkTtOr/fZbwc
-         on52vhz0jG4SCVbWAEVgNKkL10AVqj2UiosYSRsBlTH5PMA8KzUPx/TUBlQL9Bba3hfX
-         v2JSVLCR0X2+FfhPi72F4rcDSxqGDzCXqp48H5ck5pcEbY6ONDbhqZioYLlO1ELSv+0f
-         +TBA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature:dkim-signature;
+        bh=838u7/260jMFUrZ5XeB9SWpY3YsA+F6VBEjMZ2dEnX4=;
+        b=OU0ms7r2Jgehig46kRC5dMBUaAo8R/xIiKFfs5MmdesOxTq54br5plQEg1J/NU5cbP
+         O7f2H2PvjtjdyhlMn5XipLDE1PE8x4tsYYMLLC9jWz+P14ec41de2MQK2X3xfiD2aDFK
+         LCy477de1ob68IGhjt1xtG9rpGJ92ed4AP25sIbEs6y1uCoz3uhS1MlObWFuJy2KyjZK
+         dfdH9DPQQWOFy2HIvPDddQaS5dxjtvEsvqPCkM8tOf2RtVS3DDs7v/lkHuDHdefwiuj7
+         HU7JTxg8MbCcwvZXpV0xXOfW5EixJ/OqOmSFHrzEIA2jxx9B0xD+hcresk0JSdgKAmHD
+         OzMQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=9ICw=KJ=goodmis.org=rostedt@kernel.org"
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bCub7K+F;
+       spf=pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::330 as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=35F9UKFS4c+XbAi9QSSrxoMsFkjGu/nEiX+gJ+81wXM=;
-        b=sx7wzfmbjkLFk+abl7OhRk+oVFtBC4aB1PXfnX4bH9sQ7FlYzk34VPY+hM3dV1VA4b
-         ElLKVDOFh4FZhx4B4e2N8SQ2UlwJcqT10FCB6K/qfkJSHieLsLOSQyTx7S0QkzDhVhuV
-         JlP6nPyYHxyoAVWz6siOSaapB2jIzFFn8MSjBYzMPIo3HsmP3DhJC+wMXJ2IJtpmX98Q
-         ncgNmntrPqiIShhuyYI++2aaBEhd35U2KVCARivTli2+DVR0C/m0+lCRvb5pEr9WsRAA
-         923YmOj2hoSn6olFq5ioz9S4AAWDaVyE3fMCI+lWaxUXGk+dKim3CepwU9kdzW1TGR+2
-         Jf8A==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=838u7/260jMFUrZ5XeB9SWpY3YsA+F6VBEjMZ2dEnX4=;
+        b=Di3xvAm8pV0VLM4QYQ+klPETxfeUliKLJkPB8fO3AsTQ3ZbfHApUM/qIfU7KmecltA
+         L6+XaZKPYfHV34cRV1OzGhDm3by71MvuHnTUl7fcbGMszaMYDRyLdjk8w04HdrkOwpzy
+         0bpDzdOwjPeVET9FQbLkHvypIIW3AzcVqLOQZFYOt4rLeZJZmUn/7EMM5hLTFSOkO/+c
+         lYusj+LtyydkIepIwSuhvt2Xb/acfiWdgXVqx3BNv5f14bGnvnEt8gHoW4Vlg/ctx2Hw
+         8ThBsXgAOHCqhzCWbQ3mOOS1TB+1Jn4wvuTt170rUfC2ZMDWCTyeM6dzGLMW+1lAU051
+         Qohw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=838u7/260jMFUrZ5XeB9SWpY3YsA+F6VBEjMZ2dEnX4=;
+        b=PR6OZur8jU7kCdoievxW0wXK1vVHthemayfkqJDd7rL2Vjci4shtwBBlN49V3SriDS
+         KD7/pfMXZivWhVYgJ1njW2NAuDCu3ZpHsvkScmRNPP495hH+EbfZ8/SzcbNpin0I3PRH
+         V4xlT4pz/obMMcvFSEJTg2nX1/S2Z3t0U7LIbKbrpj18/zYOOPOv/UTn+mlErfZvU8Sx
+         ycJazVhZsJ8GfUARaIwszYRfY6uX3oiJmX9vWZmBnOk+nDcfDhh8F09Fs6WowPykbbqH
+         dJK+WJtj/NdPk24jJ5Ehi8YeVbtPSXaMyoy1KvPbLatIZzOyB+R1A7W3+A3DNMVD1NEf
+         eE4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=35F9UKFS4c+XbAi9QSSrxoMsFkjGu/nEiX+gJ+81wXM=;
-        b=O0V+OQAkRSMIrwF5JY0I7zv7ogWL/1SHmTCJruC7o5XjksrTl4P0VCJohA9lRssAdY
-         DDm78hLH8iwTceYKDXXgeTgHHmAIUF3jwDql6Vg2UU9dAklpHwkRknZFE7mizkVewhLY
-         XTFITtmZfzr+3D9KtPl+uIJUelty6L+Z3azHh3troBLEPVUgBnGmbcNBgiId2zlh+4fL
-         vWM0ZCvKbUwrBYSHCVrPdaqU4G39L3JT9wlCMmbl0AxwdjuLEwwcx594VxO1b8lVHYSl
-         6h1pL2WoZTrfiNcloPGcN3LUw3FagC31osmwbnlV+z9VAnaRdLOLJ8jE0ZzJnbxHLLr2
-         K8HQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=838u7/260jMFUrZ5XeB9SWpY3YsA+F6VBEjMZ2dEnX4=;
+        b=o2bWXeIMDmeBEwVvTK1+S9QBhHE9weiey+IsSxPFHfsw7A7shldkwGhXH0MGLFh9ur
+         8PYuSfT1Q9XXHClbk80p6quR8qGPQwH9j03ydEzhLfDixGDBSmOmNgQEDLQqRlFoEPVw
+         Fzu1f//trHTyyA5C9CPURZYMwM37x9N/n/+SHuoeuEma3F7PIg4tBLFC0oo88my1JPqA
+         dDoDDfgW8kBtTymM/t3tKeEqnhJIc7JzBLhgTKLekwyjQyaknDMEa/6flkzMKniXIR2H
+         RENZM4jNuu2s7ROg2scgZwYG5akO5svqEP7jjCBrfb7huJAwgm/ig8t4GJMz9jeeALnn
+         nU+g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532kGvt6N4OSiIa5I17z5gfTlnHWeuiOLux5jWv9UOY6cROeJs3n
-	ZnWSg1elmIT7H/bOrTHb/gs=
-X-Google-Smtp-Source: ABdhPJxlpFTDSkPIyenHwi2qlJaDa+o4MY1wvfXubYeSoJmDatGJ/A72hHWqTUghHLuoZku88PWhGg==
-X-Received: by 2002:a05:6830:1f52:: with SMTP id u18mr26982987oth.298.1621001773979;
-        Fri, 14 May 2021 07:16:13 -0700 (PDT)
+X-Gm-Message-State: AOAM531MA8T3gz3vEHOimi9T7yLRaz1g/944rsQMvC6rqhHbvUglPyVD
+	rKR132dtz65QhCoCxnAJvOc=
+X-Google-Smtp-Source: ABdhPJxZNiZWp/oyWGLAklkuHqJjjT7CvFhNyDXxO+YEV8J+3u2gkcpCb4vCokKAeL0vg+CwpbKAbg==
+X-Received: by 2002:a5d:4b04:: with SMTP id v4mr7977635wrq.92.1621002106348;
+        Fri, 14 May 2021 07:21:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:be92:: with SMTP id o18ls626662oop.1.gmail; Fri, 14 May
- 2021 07:16:13 -0700 (PDT)
-X-Received: by 2002:a4a:88f2:: with SMTP id q47mr10612067ooh.30.1621001773481;
-        Fri, 14 May 2021 07:16:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621001773; cv=none;
+Received: by 2002:a1c:2c4:: with SMTP id 187ls2230805wmc.2.gmail; Fri, 14 May
+ 2021 07:21:45 -0700 (PDT)
+X-Received: by 2002:a1c:638b:: with SMTP id x133mr9937231wmb.182.1621002105429;
+        Fri, 14 May 2021 07:21:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621002105; cv=none;
         d=google.com; s=arc-20160816;
-        b=EtvaFO+rHyx5Q+lrFNiuF60L1PC0Y76xF4Zb4S3p31WcUO4s3VxxG75VITORqW2ucf
-         1WkkhS2wdsgD2iPP7vrhIfzi0yHyfgoJfWtNG2rkF7qcb4ChfHqU7hvaoqiI6yg3W0g3
-         fK1VcNzilDf9YzdmAFTDti74ZPfh6Fv8nMATki6rqy4ZRXaSECyaaEVKM/dKqq6/oNDc
-         5obaX49gC7H8UEnKX22Ufob3n62JnW6BiTrOAyV162ozESDfVwtUyz4sS7viw+vQ6fOG
-         lsdFCvXT8lqPnfbkYhPG9gNq6BevgAyAOrBZKxUumZgtJ3A6qYCht6UM6bF3EvRdwwdW
-         tnSw==
+        b=ZuHjj/xkDtXSKPIkOkoGqCnLa+19xMK70rwZX1WfW/kELudvoimgFouVruCngWzf5/
+         LAtedU5r/WWSnwKDuGCaPTKJdAz7z/YNiZFEhqDFQ418AXrDLLMzlGQOmv/1zAI9AcI7
+         +FIe1deijvXa0WSht8WiXTMK/aEJbzg0yllZoelUv5FTh6GLPH4pZV28NEDR8kWx0OLa
+         thia5zrfRQZyNbRLIVrHAtm10uJFq7VQ2Hyel/EUgaBcJ27xWwQP0eX7sKkrqAVzCFZ/
+         Y4p4r5zRKujRv7YMSSK2E7orS/SxJPLOSE/Vli1HjG1ddu322Sk2XRsiX3tAK5Q0ylar
+         mbQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date;
-        bh=NQEdCM9Zv9G6EClXvBLdsEG8XB/HNeUXjnJ6LEc1cSQ=;
-        b=ycNkVdxE54y9cAckIkmSb2HLpFEgcSSPk3Vk66+QSd/3fJkl7fPTMiigXaa0OVVtxE
-         VL6D7cQiA4dWEh6NMkLZNLnDLJiCljG5HcsIvRqzvJyFhSE23Qmx5ZTStQrvJTxA+a+9
-         vMawxL4wg66kqe6Kew95qJqWWiD3fmTtONauWwZP3KDxO/teT7hml7So4I4EcGMV2PHO
-         bGu8PXxjluCQTwK2ljHUHaMh3+42TLyUx4kk3wXe8p2fACAkmJI25ZPjFL7uSteT0nKJ
-         ul7XYovDMcc8WIIjNP0q1u9iKkiWXW4C9+geJOIaedmAbTh1vwOMPNYamfJfzmt/1X2/
-         Dp2A==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=W6EGw5FDEXhr6iHG779poa/gfRiLcSiy2g55pqc2Xpo=;
+        b=hCFte2taU6o9auPtl6sirYnfSncNpCJiV1X4GLpZB4f+R9HuOMDBmgKkARdio0atFY
+         6cypxo7K1cqlZsRZ4SsLqJhSipbenGcSCbVAYBW+VkF11ArVobORy+xyDrydmv/0mjMg
+         Ibw9rAB08n2eRk6A9z7uBqR9NH2sy60L0jKE7l17VV15WJXVJMqXnGxFvi6GsZRrErQE
+         E36g5h/jcZrnhSfnA9/MWsvxWlKtyqtGO+2lIK42JbFXs/Cc7qmTbsh1zOQgEMouRUt9
+         4KJ6seXmdqBUnn8+/WR3NYfs6U+7+n9RipWrPWU5q3h1CARA3s8ItkkBQZlnDPp1EOKi
+         +0BQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=9ICw=KJ=goodmis.org=rostedt@kernel.org"
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x16si588966otr.5.2021.05.14.07.16.13
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bCub7K+F;
+       spf=pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::330 as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x330.google.com (mail-wm1-x330.google.com. [2a00:1450:4864:20::330])
+        by gmr-mx.google.com with ESMTPS id e4si271671wrj.5.2021.05.14.07.21.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 07:16:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com [66.24.58.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 9F3AF61404;
-	Fri, 14 May 2021 14:16:11 +0000 (UTC)
-Date: Fri, 14 May 2021 10:16:10 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Arnd Bergmann <arnd@arndb.de>,
- "Steven Rostedt (VMware)" <rostedt@godmis.org>, Tom Zanussi
- <zanussi@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, Qiujun Huang
- <hqjagain@gmail.com>, Tom Rix <trix@redhat.com>,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] tracing: events_hist: avoid using excessive stack space
-Message-ID: <20210514101610.4392adbc@gandalf.local.home>
-In-Reply-To: <20210514140429.3334181-1-arnd@kernel.org>
-References: <20210514140429.3334181-1-arnd@kernel.org>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 May 2021 07:21:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::330 as permitted sender) client-ip=2a00:1450:4864:20::330;
+Received: by mail-wm1-x330.google.com with SMTP id p14-20020a05600c358eb029015c01f207d7so1532891wmq.5
+        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 07:21:45 -0700 (PDT)
+X-Received: by 2002:a05:600c:198a:: with SMTP id t10mr8954234wmq.97.1621002104925;
+        Fri, 14 May 2021 07:21:44 -0700 (PDT)
+Received: from [192.168.2.202] (pd9e5a369.dip0.t-ipconnect.de. [217.229.163.105])
+        by smtp.gmail.com with ESMTPSA id v18sm7747958wro.18.2021.05.14.07.21.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 May 2021 07:21:44 -0700 (PDT)
+Subject: Re: [PATCH] platform/surface: aggregator: shut up clang
+ -Wconstantn-conversion warning
+To: Arnd Bergmann <arnd@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Hans de Goede <hdegoede@redhat.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20210514140556.3492544-1-arnd@kernel.org>
+From: Maximilian Luz <luzmaximilian@gmail.com>
+Message-ID: <219848ed-e0ce-634a-29c2-caca813b054c@gmail.com>
+Date: Fri, 14 May 2021 16:21:43 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: rostedt@goodmis.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates
- 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=9ICw=KJ=goodmis.org=rostedt@kernel.org"
+In-Reply-To: <20210514140556.3492544-1-arnd@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: luzmaximilian@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=bCub7K+F;       spf=pass
+ (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::330
+ as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,73 +153,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 14 May 2021 16:04:25 +0200
-Arnd Bergmann <arnd@kernel.org> wrote:
-
+On 5/14/21 4:05 PM, Arnd Bergmann wrote:
 > From: Arnd Bergmann <arnd@arndb.de>
 > 
-> In some configurations, clang produces a warning about an overly large
-> amount of stack space used in hist_trigger_print_key():
+> Clang complains about the assignment of SSAM_ANY_IID to
+> ssam_device_uid->instance:
 > 
-> kernel/trace/trace_events_hist.c:4594:13: error: stack frame size of 1248 bytes in function 'hist_trigger_print_key' [-Werror,-Wframe-larger-than=]
-> static void hist_trigger_print_key(struct seq_file *m,
+> drivers/platform/surface/surface_aggregator_registry.c:478:25: error: implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to 255 [-Werror,-Wconstant-conversion]
+>          { SSAM_VDEV(HUB, 0x02, SSAM_ANY_IID, 0x00) },
+>          ~                      ^~~~~~~~~~~~
+> include/linux/surface_aggregator/device.h:71:23: note: expanded from macro 'SSAM_ANY_IID'
+>   #define SSAM_ANY_IID            0xffff
+>                                  ^~~~~~
+> include/linux/surface_aggregator/device.h:126:63: note: expanded from macro 'SSAM_VDEV'
+>          SSAM_DEVICE(SSAM_DOMAIN_VIRTUAL, SSAM_VIRTUAL_TC_##cat, tid, iid, fun)
+>                                                                       ^~~
+> include/linux/surface_aggregator/device.h:102:41: note: expanded from macro 'SSAM_DEVICE'
+>          .instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,                        \
+>                                                 ^~~
 > 
-> Moving the 'str' variable into a more local scope in the two places
-> where it gets used actually reduces the the used stack space here
-> and gets it below the warning limit, because the compiler can now
-> assume that it is safe to use the same stack slot that it has for
-> the stack of any inline function.
+> The assignment doesn't actually happen, but clang checks the type limits
+> before checking whether this assignment is reached. Shut up the warning
+> using an explicit type cast.
 
-Thanks Arnd for the nice explanation of the rationale for this change.
+I'm not too happy about this fix as (I believe) it will also shut up any
+valid GCC error message in case those macros are used with non-u8 (and
+non-SSAM_ANY_xxx) values.
 
-But I still find it too subtle to my liking that we need to move the
-declaration like this (and duplicate it twice) for internal behavior of the
-compiler (where it can't figure out itself by the use cases if it can
-optimize the stack).
+I'll let others judge and decide what's preferred, however.
 
-> 
+In case you're deciding to apply this, feel free to add:
+
+Reviewed-by: Maximilian Luz <luzmaximilian@gmail.com>
+
+Thanks,
+Max
+
+> Fixes: eb0e90a82098 ("platform/surface: aggregator: Add dedicated bus and device type")
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  kernel/trace/trace_events_hist.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>   include/linux/surface_aggregator/device.h | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> diff --git a/kernel/trace/trace_events_hist.c b/kernel/trace/trace_events_hist.c
-> index c1abd63f1d6c..e3fe84f017a8 100644
-> --- a/kernel/trace/trace_events_hist.c
-> +++ b/kernel/trace/trace_events_hist.c
-> @@ -4597,7 +4597,6 @@ static void hist_trigger_print_key(struct seq_file *m,
->  				   struct tracing_map_elt *elt)
->  {
->  	struct hist_field *key_field;
-> -	char str[KSYM_SYMBOL_LEN];
-
-Instead, I think we should just make str static, as this should only be
-called under the event_mutex. To be sure, we can also add:
-
-	/* To protect the static str variable */
-	lockdep_assert_held(&event_mutex);
-
--- Steve
-
->  	bool multiline = false;
->  	const char *field_name;
->  	unsigned int i;
-> @@ -4617,11 +4616,13 @@ static void hist_trigger_print_key(struct seq_file *m,
->  			uval = *(u64 *)(key + key_field->offset);
->  			seq_printf(m, "%s: %llx", field_name, uval);
->  		} else if (key_field->flags & HIST_FIELD_FL_SYM) {
-> +			char str[KSYM_SYMBOL_LEN];
->  			uval = *(u64 *)(key + key_field->offset);
->  			sprint_symbol_no_offset(str, uval);
->  			seq_printf(m, "%s: [%llx] %-45s", field_name,
->  				   uval, str);
->  		} else if (key_field->flags & HIST_FIELD_FL_SYM_OFFSET) {
-> +			char str[KSYM_SYMBOL_LEN];
->  			uval = *(u64 *)(key + key_field->offset);
->  			sprint_symbol(str, uval);
->  			seq_printf(m, "%s: [%llx] %-55s", field_name,
+> diff --git a/include/linux/surface_aggregator/device.h b/include/linux/surface_aggregator/device.h
+> index 4441ad667c3f..90df092ed565 100644
+> --- a/include/linux/surface_aggregator/device.h
+> +++ b/include/linux/surface_aggregator/device.h
+> @@ -98,9 +98,9 @@ struct ssam_device_uid {
+>   		     | (((fun) != SSAM_ANY_FUN) ? SSAM_MATCH_FUNCTION : 0),	\
+>   	.domain   = d,								\
+>   	.category = cat,							\
+> -	.target   = ((tid) != SSAM_ANY_TID) ? (tid) : 0,			\
+> -	.instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,			\
+> -	.function = ((fun) != SSAM_ANY_FUN) ? (fun) : 0				\
+> +	.target   = ((tid) != SSAM_ANY_TID) ? (u8)(tid) : 0,			\
+> +	.instance = ((iid) != SSAM_ANY_IID) ? (u8)(iid) : 0,			\
+> +	.function = ((fun) != SSAM_ANY_FUN) ? (u8)(fun) : 0			\
+>   
+>   /**
+>    * SSAM_VDEV() - Initialize a &struct ssam_device_id as virtual device with
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514101610.4392adbc%40gandalf.local.home.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/219848ed-e0ce-634a-29c2-caca813b054c%40gmail.com.
