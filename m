@@ -1,145 +1,126 @@
-Return-Path: <clang-built-linux+bncBC32535MUICBBBEG7KCAMGQETPYI6SQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBIMH7KCAMGQELJSGAFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0888E380AFD
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:02:46 +0200 (CEST)
-Received: by mail-pf1-x440.google.com with SMTP id i18-20020aa787d20000b02902ceff7cf271sf5810586pfo.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:02:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621000964; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4E6EA380B09
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:05:22 +0200 (CEST)
+Received: by mail-yb1-xb3d.google.com with SMTP id e75-20020a25d34e0000b02904f982184581sf6828605ybf.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:05:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621001121; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ky0shpRdqbqZrJ/eCOeRhmtfgbbPSs7XRUQdZcVVegHEYmq/pvL8raqich1OGh0uID
-         /4zbVP+0Cs6/4s/n4KhiMEGt4pVuTeTiFzIbvAWPQGBNjmpv3kOKkGhZs2qtyAvPDm39
-         BXzXPjdx3hUoJrBRs2HjKwzhvWnFVtYQqcPpAiPlfMzPeCrTG1oRlz1ar5JyDji3u09E
-         jeTcd1AqcUho1IfFaWK8iiKS4CeJSpTHuyAoGH19DoCBYdzNmqHAVGNkPyurJu9ccM3U
-         HhqYl06GmqrSA0Hg+4WrXkGbb/mbPBC594KKkahJz9e1TcP7K8z9G+Dg3ZBCx0Y557G5
-         6SNA==
+        b=ICPFw6Y0FFIKmdcGFH4+CZuyKXp8jAKfRugRZAwlnZiLdKbEAiTNFSFJU+GPp5bpjT
+         sppf/25c0hjC1ZCkUFm1w6HJGgSddb/UF1dzPTt9qyYxmVpW9SYyp/lrCU2VvOLG78AQ
+         GnLAnydKx+JKKkT8COb973a+80PPyUBZyKHHyAR/wxD3yk1LcLmQiO5zORW+fd/4dPJa
+         qyc17XDqmtjXhInIK1qtxzxz+pmO0+TTdntL3wSAwvExnFtc7ghum+L2dkKKA2gQ50Xq
+         gKLtS5qYiEUiUlslYVYjO4nAn8J5cPdu1IIhEsteg9tKhgCWDve3b/rohSsWiy56ZoFN
+         N7/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:organization:from
-         :references:cc:to:subject:sender:dkim-signature;
-        bh=NME8TuphgPtIbA+sGJXbWZJPoZ/IXFj5hGh+lTXBYM4=;
-        b=nOjtps+5qYb1ogMPEOXEkeqMYL1VCPmGKwpU9RYtvBE3hSbTcHAvlwt8IatyA9dtoY
-         smLoyqgw1D7jC73AQXfrwAVYHKxvrVPIyP5AOdrUEScoihh1RNlsIakTJzSzH9dnUxtB
-         72WP1Y0ffzutAorDt03MzPEQTqApwEU5EFEsLSx77TB2jcmavhvKKPjZl2cYXL1ZxgT3
-         r6DtnJnyQ6GKQr0MupvY1dMMNtzsSpn+38EHnnMNRoX/Z7Y1f5w6RqC6LoWYiWYYXPeY
-         GKkdgNZFvx8yhZ6L+XftpYMBKwdxg0cz5po9FfS2/azt8TDzBH1fnNbQLh8YGze/SOn+
-         fZKA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=O7AsRYktbMnJyEJc9CgINPDrkPKJRq2KHOWt3ppp/5A=;
+        b=hAiezNapQnF3ldypxysex2u9DfUUj5q73Hl9k1SBjldzxElOY/lxVCEeCRm/hhGf6y
+         x2NsGYotP2v0xolvDHw4/86/oCo4Q17U5gmCcqT1RRWfGWpko6OCIMD/Ga+QQsCGcTXJ
+         MJRt+H8SAUqv6C5/KfGtV64wLpJypvl8x8pl2DL50Q0zS1zr/SPktvbZqk5QMsBZSIIr
+         bDVZbUM51WUqtKP1yVNIzC2yDHYfR1YA5zgyqTHprm7mMwZqr2oeTyj+IFfI+ERq+hLm
+         C5yipnTkQnn7mAr7Jg69x16ZWWOWsDsCG2OQWvwuVAfZKqgRZkZndjk9NxXs3HiKBTYT
+         J3JQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=CFD0utF5;
-       spf=pass (google.com: domain of david@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=david@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZoH5RPWl;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:organization:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
+        h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=NME8TuphgPtIbA+sGJXbWZJPoZ/IXFj5hGh+lTXBYM4=;
-        b=Y/tJTyO/cUK3Lg1QGP3w/G4MPxwOvCRQ4nAK05EJgEWQ6G9IAaHnX0E9ts1/l5bomB
-         R6SmK01UDlZBf/bpXCzIgrIYgkZJmnPzQiGk29uQBPAe2AoQ1xJdGRNs2Pi8q/VbvjKf
-         HnI13A5D57LxN94kDEbj2R9SHz/8qb4jnivzCvkGqzyTt6PO0p0XtJkMqhFqtrzP9Oyo
-         GUu27luJpzHnEWzV0aTHqbesBhKHQHRD3f2CbpDDUcmhDfGxU9mcPP2kgFKEXW8qx2jT
-         kTwADtPHcv58lbpypex8PscRWMWf7mgCe+OAz2+Gh/CooMM1r0LEQhfiR/rZVFkJVzT8
-         YBFQ==
+        bh=O7AsRYktbMnJyEJc9CgINPDrkPKJRq2KHOWt3ppp/5A=;
+        b=qGbncE3ysZGij8kewQfQMBrY6b+etPBs0o+z7oy4dhnkMcHi3wxTzYPmE1BqMVB6JN
+         FTtBRbDZlcH4e1TSAtbyibsVcGKwW6Q2NQjyZ4EDnwqXx2K88fiOpy7jC7eCO970xP9H
+         1vFX21QlgXvKGM+klqz77R9+EniVcn+PAtENX1ehGLZsQSfNkkmrQPurbS248rnz0F3q
+         mmBQ//bLfWA7Uh2N+h9BBwFYCxorhsPnV9+FVYPNEsYr8rZa1klP9FAGqf9rFqsUR9lq
+         x0XF7P9GhbhPKtovoT/zOBk++20LoqNTSEwrxPcLZZb2HRFIZPRPTX24WrfSfSy4vwhG
+         Pvkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from
-         :organization:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NME8TuphgPtIbA+sGJXbWZJPoZ/IXFj5hGh+lTXBYM4=;
-        b=ZjVqX+Z2afd8dUnB9xkh8ewTQ5JK4jbARAyBJbagd9wmKGNQo0cpYejADEw577sdNs
-         UMmPPP6kMBFygtBvJirK1t/XMNzbeCCGt5df+DD0hgocSjLotuUQX+Jga2Ut98iyH21g
-         5saSaYTn1Hj8pT43y/jmB7nXbkuiyp/aI9jU6jujUCD/n1gvuQI3ZyoaVLsoKhmWLo08
-         6s3zpl8+Th7UW0q3zB4AzO+DcuxW1j5QgTrfc6ZyGbnnXSaRfmBsvSZr/ZniluWckoRr
-         Jnl+y7GdvBZkiV1ugKOBKhw9Ea1y+ziT01olwMYQzMLt2m031bMu9P0DVWrVomEadWHx
-         jb9g==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=O7AsRYktbMnJyEJc9CgINPDrkPKJRq2KHOWt3ppp/5A=;
+        b=Xm9o2r+0n0YO0i7vVeqrQXW99ke/iNcpb+UI1tCvlUUFX+PpI+Anmfqf/TLKGpcVRx
+         r6LmdYfnpUnFthfubNUOoHrKBHQU3PJGWxvNm43FPo3N0zDL8+B7kzeLvFl/A8CKgUd2
+         wAnVqe0FwqjtrR9hn3BOEKV+YpeozGPxGxwoLwottJtKSBzR9qRdo7t5/ejcnSX5tGI/
+         1gbQzGnrfSSeOLcTkf33K6g/ncu/tKtR0xxlXKAwzSigzibMv2VB/bzRLRS/f8O7y/kS
+         KAneA/4uNwTAsNyKLtLG5u1iJI+nBfG+bbD4mnvqJXk95/Cl/oX0kb4nTDnGP71xc1u0
+         Bb4A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530984TkWGjPvVh6KRmAJOSLp0mzIgSb1yAZXNkGDavLtRPFqXXA
-	SEnkqTrsJpqiLjs+IYViCKQ=
-X-Google-Smtp-Source: ABdhPJxfFOgb8eN1DtQUvEOoX59gNxcjmtDMCrRxv4GlmyjPEn6MHxSaYhc6J7xEaSbkChvpRldBig==
-X-Received: by 2002:a63:d509:: with SMTP id c9mr46159340pgg.280.1621000964674;
-        Fri, 14 May 2021 07:02:44 -0700 (PDT)
+X-Gm-Message-State: AOAM533AeoKPJ8cBJ3lAppV2hjkPGV9IugOR4xjsV60fcrKZc6Zvv2Im
+	IcBNbn7NfAYhlNYjprycT+U=
+X-Google-Smtp-Source: ABdhPJy0zPboZbnF63Z4q1sRe0Jn8sZK5E0CcHsHg+254EdPpFoY7Zbg3DzHxbB/Qa673EokZFzs0Q==
+X-Received: by 2002:a5b:303:: with SMTP id j3mr58715322ybp.433.1621001121374;
+        Fri, 14 May 2021 07:05:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b485:: with SMTP id y5ls2188598plr.7.gmail; Fri, 14
- May 2021 07:02:44 -0700 (PDT)
-X-Received: by 2002:a17:90b:3b4b:: with SMTP id ot11mr50786383pjb.189.1621000964044;
-        Fri, 14 May 2021 07:02:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621000964; cv=none;
+Received: by 2002:a25:9307:: with SMTP id f7ls4353544ybo.10.gmail; Fri, 14 May
+ 2021 07:05:21 -0700 (PDT)
+X-Received: by 2002:a25:6ed6:: with SMTP id j205mr61825510ybc.206.1621001120985;
+        Fri, 14 May 2021 07:05:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621001120; cv=none;
         d=google.com; s=arc-20160816;
-        b=F5ED1fbxAdsiD3KNJcI2qj1M+ViAj0Pdur3S30IkHm7yyVkRDEKpaYnv0kamA7kMjc
-         gquNGHsFFMu3tC0OD7vpYY4LmkGOCv2WJSsx9RaYoTY5QjZAxeZdp74DQADzTS/fHSaB
-         6QA2jRUgEisLZwN7qNCvhIcueDI1MKWg/fFmhRxkb+LUgDSiuGzInFbi1jYDeZ9SLOlc
-         FnmaZ4j/ZChUP59262L6ERHsiJ3+gHIfuJHUhkcIzzVKjYx387Sitjqov4I5y8DLNf4f
-         Z3Kp8EhP95pv5YYofEuTs5WTQeYn60+rc6VnbCAK7apDTwPPQ+UON4l6QZO4Qn2BojnX
-         Dbfg==
+        b=liUCOPulpAMaHpzKyqdxZUuibMyp6LpPKeQx/+ekfXTzBBZwww7DVjxmCO8wpJIBz4
+         MIMuqMOKaOphaUVoUjSgnVTWfdnZYI8HLgZcsRqeil1W5DF0QdiZZZ+BgniIAtI/Q5nL
+         mIAWszOgqgYO5xGI3aXqHzO+7OFnB4Mbc1SO3/YjAUfrf2ic2Fvg2oVi0P+NTpBkL3Pm
+         wFXCiQpURphV0eMQKeNc7Ca28VZI78lxsyghuSFycjKRAP91l92Ce9GonzeRMOJyb4fD
+         c3BQeFSSNj86sA93bE0fQdJW51I8MY5tkivg42i1dG/B6h4BgppfK1Q4iypDhJi5Xjyv
+         CjxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:cc:to
-         :subject:dkim-signature;
-        bh=Mql0q91ECxfqC6RVy/aAHYne20fUi8i8dudlG8TCa1w=;
-        b=vTyT6uumpSfmibfIfPPtwcJvy+Eom5cBI1MJjMv0EfYo0DlrRvv0miiNKDqUZJWEvJ
-         2ofo3AA++lPGrx//JBkLo+EFFfJuDoIvDtdAQTojNBWMShpvqGlsy9ti4kF3INxXnD6+
-         EpUE1xr4DhGvW7lnIb9j5Xk9b64flinVqTIg0bEylY2VswH7ieR7KhtYs0tmYumH9idF
-         KtkB+Wj4dRicUqC+vwn+AquLxOZWL1H6SfpP6rLA3OLKBvapWwZfxRHBjyBkHk92a+UE
-         /8dXYM6OtE5UiCQpmUyklskrP+sHrh1CfO269o/fFYoCRvsjSokTy9Y1hoe5qE4cLGwC
-         Jkvg==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=WZwqvarPuPvSMoymqVsPIpf0YBU4cmoB1sP0G0Yl4hk=;
+        b=fEpheEfHRMOHtdn3WE4qWaZrvXPbD+IqhSgCYOqsQ7M0tqIYbdqCdX5kCehPMfA3SI
+         w4xLXpSHJ2QbP1KNbSFNnA5EzAuYPVW2QvQ57JvTcC4chwbmZvgaJ4gvbfkkigf6shAl
+         79oehp9Bvcj5FO9rSOs7JB1Ji2JzbB15sZXUQkS7QymImyu0g0ON7tK0TMPKrwsRtnzu
+         9QPPf1NZmOVEjPsjVGu9fa4gq0F3jXNCZSEB0JfGeQwl1Rh9DJZkzVv6kyRva3J7O0//
+         XTkADqFVwN2crRrmuaFlAYrgQzpd08+wfXluEYpHT2ANZVJsTbezhhazzx5HOLVfNmPO
+         KDqg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=CFD0utF5;
-       spf=pass (google.com: domain of david@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=david@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
-        by gmr-mx.google.com with ESMTPS id i2si468095pju.2.2021.05.14.07.02.43
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZoH5RPWl;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id f9si581807ybg.5.2021.05.14.07.05.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 07:02:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of david@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-306-WY6-Ux4yMl2eDGqFpLtvAw-1; Fri, 14 May 2021 10:02:40 -0400
-X-MC-Unique: WY6-Ux4yMl2eDGqFpLtvAw-1
-Received: by mail-ed1-f69.google.com with SMTP id y19-20020a0564022713b029038a9f36060dso16406428edd.4
-        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 07:02:40 -0700 (PDT)
-X-Received: by 2002:a05:6402:17d9:: with SMTP id s25mr24831513edy.337.1621000959075;
-        Fri, 14 May 2021 07:02:39 -0700 (PDT)
-X-Received: by 2002:a05:6402:17d9:: with SMTP id s25mr24831467edy.337.1621000958793;
-        Fri, 14 May 2021 07:02:38 -0700 (PDT)
-Received: from [192.168.3.132] (p5b0c6501.dip0.t-ipconnect.de. [91.12.101.1])
-        by smtp.gmail.com with ESMTPSA id c5sm4547748eds.94.2021.05.14.07.02.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 May 2021 07:02:38 -0700 (PDT)
-Subject: Re: [PATCH] mm/shuffle: fix section mismatch warning
-To: Arnd Bergmann <arnd@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
+        Fri, 14 May 2021 07:05:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C121F61463;
+	Fri, 14 May 2021 14:05:17 +0000 (UTC)
+From: Arnd Bergmann <arnd@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
- Wei Yang <richard.weiyang@linux.alibaba.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-References: <20210514135952.2928094-1-arnd@kernel.org>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat
-Message-ID: <ea93aed6-58c0-0905-11e4-628ea145999d@redhat.com>
-Date: Fri, 14 May 2021 16:02:37 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+	"Steven Rostedt (VMware)" <rostedt@godmis.org>,
+	Tom Zanussi <zanussi@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Qiujun Huang <hqjagain@gmail.com>,
+	Tom Rix <trix@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] tracing: events_hist: avoid using excessive stack space
+Date: Fri, 14 May 2021 16:04:25 +0200
+Message-Id: <20210514140429.3334181-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-In-Reply-To: <20210514135952.2928094-1-arnd@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: david@redhat.com
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=CFD0utF5;
-       spf=pass (google.com: domain of david@redhat.com designates
- 170.10.133.124 as permitted sender) smtp.mailfrom=david@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@kernel.org header.s=k20201202 header.b=ZoH5RPWl;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,59 +133,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 14.05.21 15:59, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> clang sometimes decides not to inline shuffle_zone(), but it calls
-> a __meminit function. Without the extra __meminit annotation we get
-> this warning:
-> 
-> WARNING: modpost: vmlinux.o(.text+0x2a86d4): Section mismatch in reference from the function shuffle_zone() to the function .meminit.text:__shuffle_zone()
-> The function shuffle_zone() references
-> the function __meminit __shuffle_zone().
-> This is often because shuffle_zone lacks a __meminit
-> annotation or the annotation of __shuffle_zone is wrong.
-> 
-> shuffle_free_memory() did not show the same problem in my tests, but
-> it could happen in theory as well, so mark both as __meminit.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->   mm/shuffle.h | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/shuffle.h b/mm/shuffle.h
-> index 71b784f0b7c3..cec62984f7d3 100644
-> --- a/mm/shuffle.h
-> +++ b/mm/shuffle.h
-> @@ -10,7 +10,7 @@
->   DECLARE_STATIC_KEY_FALSE(page_alloc_shuffle_key);
->   extern void __shuffle_free_memory(pg_data_t *pgdat);
->   extern bool shuffle_pick_tail(void);
-> -static inline void shuffle_free_memory(pg_data_t *pgdat)
-> +static inline void __meminit shuffle_free_memory(pg_data_t *pgdat)
->   {
->   	if (!static_branch_unlikely(&page_alloc_shuffle_key))
->   		return;
-> @@ -18,7 +18,7 @@ static inline void shuffle_free_memory(pg_data_t *pgdat)
->   }
->   
->   extern void __shuffle_zone(struct zone *z);
-> -static inline void shuffle_zone(struct zone *z)
-> +static inline void __meminit shuffle_zone(struct zone *z)
->   {
->   	if (!static_branch_unlikely(&page_alloc_shuffle_key))
->   		return;
-> 
+From: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: David Hildenbrand <david@redhat.com>
+In some configurations, clang produces a warning about an overly large
+amount of stack space used in hist_trigger_print_key():
 
+kernel/trace/trace_events_hist.c:4594:13: error: stack frame size of 1248 bytes in function 'hist_trigger_print_key' [-Werror,-Wframe-larger-than=]
+static void hist_trigger_print_key(struct seq_file *m,
+
+Moving the 'str' variable into a more local scope in the two places
+where it gets used actually reduces the the used stack space here
+and gets it below the warning limit, because the compiler can now
+assume that it is safe to use the same stack slot that it has for
+the stack of any inline function.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ kernel/trace/trace_events_hist.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/kernel/trace/trace_events_hist.c b/kernel/trace/trace_events_hist.c
+index c1abd63f1d6c..e3fe84f017a8 100644
+--- a/kernel/trace/trace_events_hist.c
++++ b/kernel/trace/trace_events_hist.c
+@@ -4597,7 +4597,6 @@ static void hist_trigger_print_key(struct seq_file *m,
+ 				   struct tracing_map_elt *elt)
+ {
+ 	struct hist_field *key_field;
+-	char str[KSYM_SYMBOL_LEN];
+ 	bool multiline = false;
+ 	const char *field_name;
+ 	unsigned int i;
+@@ -4617,11 +4616,13 @@ static void hist_trigger_print_key(struct seq_file *m,
+ 			uval = *(u64 *)(key + key_field->offset);
+ 			seq_printf(m, "%s: %llx", field_name, uval);
+ 		} else if (key_field->flags & HIST_FIELD_FL_SYM) {
++			char str[KSYM_SYMBOL_LEN];
+ 			uval = *(u64 *)(key + key_field->offset);
+ 			sprint_symbol_no_offset(str, uval);
+ 			seq_printf(m, "%s: [%llx] %-45s", field_name,
+ 				   uval, str);
+ 		} else if (key_field->flags & HIST_FIELD_FL_SYM_OFFSET) {
++			char str[KSYM_SYMBOL_LEN];
+ 			uval = *(u64 *)(key + key_field->offset);
+ 			sprint_symbol(str, uval);
+ 			seq_printf(m, "%s: [%llx] %-55s", field_name,
 -- 
-Thanks,
-
-David / dhildenb
+2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ea93aed6-58c0-0905-11e4-628ea145999d%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514140429.3334181-1-arnd%40kernel.org.
