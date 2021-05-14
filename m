@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB4O47OCAMGQE2GVLBTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBFO67OCAMGQE6JCTGDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADCBD38133F
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 23:41:06 +0200 (CEST)
-Received: by mail-qv1-xf3b.google.com with SMTP id g26-20020a0caada0000b02901b93eb92373sf502504qvb.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 14:41:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621028465; cv=pass;
+Received: from mail-qv1-xf3f.google.com (mail-qv1-xf3f.google.com [IPv6:2607:f8b0:4864:20::f3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id ED48E38134D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 23:43:49 +0200 (CEST)
+Received: by mail-qv1-xf3f.google.com with SMTP id c5-20020a0ca9c50000b02901aede9b5061sf474933qvb.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 14:43:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621028629; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GGbUZoVnU3bFrPAJgbCpZxaiqsOP8eO2egsBRiooRzFALmxsFHFoBxMMVaw66fdvit
-         mVjqlpj3Bfvl8ViIL1EWmqiAgTcLeHcKDIUcxDLc7GxpeexYCLLrsyxYtzk30zyBJnZS
-         OqrTEUKZtzFwtUeDPWGd4stKgEqh2chur1Sg1kuDaW3xhT2Bo6kg1uCUBcKG1/pQVboS
-         6kE/NaNTUZ/QCBxN8sbdgUKGW4lKS/v/L71WF64ZQlDCuH/szTe7RZNxDxelgT8hTTsy
-         l3rIp3mZSWhiqr2oyZfiNHldg/J39d5/Kl+KkG74EnfnRcmoZN0gwDMHMS6pyI0TmtGB
-         ftZw==
+        b=wk1pEUoOgQXLQc90MWLGkz83efqb7x59uJTChfS1vKFC8/ZYJ4tz6GBiLsFMhNSDQP
+         cTxsE17TxBfpuwG+GNqznxNkOigI86tgIkGLkmCH19jtVPVZ18yy7oMrZqBbXE9OVIK6
+         SFFPnGpTDup7cfNPb/6E9MMT7/ZswJPmfix7W0oUME9m7Dr7MZ785hFj7u7uIIqnX555
+         q0/Z0HfXbh6gDBLAu4lCz7OtlJK8gs0AuUBOKMtHuICUM2y/c3Rdq+uEuTiv/K9KRKux
+         XWdYxVoe4sjdyXwy704T/4u6ACQcGi7GHlV5or18CAn3c7279lrtqO673T+o/R8eEA2z
+         p9WQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:in-reply-to
          :mime-version:user-agent:date:message-id:from:references:cc:to
          :subject:sender:dkim-signature;
-        bh=EtMSQ0Br82961IEbNNVy0aVZ8pLVcvHI5PiCD+s1xJ0=;
-        b=p/ggI0Pfq9f/oL1pW01lP0fiW8GYwXKibpvVejlEIfgtGWM2rFix1McvtvXdxCplVN
-         Dx+cNZE25812w0A/c67dTZ7G3tpGu69/AW3rjKwExOqhgZeRk/1ukPwk3wQ4SBAQYRXv
-         5Y/JrDAFnKJ7EgOXu1BhdJo9qlaf/7ZeuHuekcgBX4kicIUA0kEBsTDw1WMPQHNM/xfV
-         l/pBd/qkTkGrr2iQkvCNNf6bvso6Vkw2DgqUlIue3f4UeevUb6RAefoxGjLAYHRtzsrB
-         7oivmSE+tFUiz1OQ6FVbteS8k3BsYljDLcjNbCZdNzL2z9AOVgODzmpEbBH57uduR/Of
-         1mHA==
+        bh=h4OBAYVyhf7qupnB8A5/wQwJ3H9nf/UvOMruvxrHNdE=;
+        b=0e8UpCrVL6m06t/WsQKCQ3Nrm/HjjBXF3536cRBmDctdMsoMvWroaaGQZ//J1LQTLk
+         JFwb2JlKXiQIghFFKAkxPsgEdaGquhPH/elFp9XiFM0MzkILoNKQsun4LeaGQLd4D+cG
+         JXZa3SpxLBl8rdTJCp6Rc21y6S06CjBQt8nQ1fEnwtbPsMc+v2WvHEZG9USqdaWgjvnb
+         krahT9Nc7f5ExbhlsKT/SJ6yl9FLASCKE4YjZicN3Ch2XMpqH3vaI7kF+X/SSRWUeoBj
+         C4xTIwroR4qcm8iuql0fQDJp+nz//LmnR4nYvG4WwIy38zpZuy3Gv1zjo76mUOTLzlo8
+         4OKA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="MwLVGK/a";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=L5RmQoLB;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=EtMSQ0Br82961IEbNNVy0aVZ8pLVcvHI5PiCD+s1xJ0=;
-        b=msEmKk2HZUDtTemx70s6YgimuI+6gHrLmDWBHXf3M32z4yzGrnBeL6djkfTK2RrcdF
-         sJpym4+Mbl2eeulSk2NIE6SJ2krrUl0bZt5EAunzVCHKSP1bwfPAgi/BImPv2UjMTqB1
-         s5zJA3Pv64ovbFa0AhlK4b2m41lljQ/kR9+tixUmoLfXZlBDvpxoXr2ZZzWk85TvK8gn
-         YRCtzzgJA5j3cOQqaDscB8ouZ/6RJzou6Fb8hniWj89idcgXgpsO/qIfT6yn0XFP7Tf1
-         HJMwdRfRhFz18iE988g1G7+EDoh5dk8ILpVV19vEqAYJeKX5jRp1Tel0Jf6381XI6mCd
-         Joig==
+        bh=h4OBAYVyhf7qupnB8A5/wQwJ3H9nf/UvOMruvxrHNdE=;
+        b=a23dcYqHo4m9RBLY53o9qUm5vVRQy6KkZ9pjqC5ZJ2RgLtbxGjkSMRwD1LuveUGSJo
+         XdnTA/H9AaIJz4Ioj4rGJ98B9b+obGH+QZ30HB6oQBQ/Tjep/k26R7sdUSwE8vFgFRra
+         6683XVy6+AbBvbfMCqZJl1mKm1I+QgkGt1hFYGUhK+II0nDE/sSitOKplbm58eZgcfNr
+         QbbA7lXA06FTLS8K2AIrMJ2qUKBEEHEl/muKWtAgdY35r11qZWjnACzAn/OCdw0ZLqfL
+         DNtacXjNme3EjK0Q1K2Q12OFv0nT/qbi+dtyenwkpRqac3ZtoAIkO4MsryAPCETwGePd
+         6QsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
@@ -50,74 +50,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=EtMSQ0Br82961IEbNNVy0aVZ8pLVcvHI5PiCD+s1xJ0=;
-        b=r+fdpCMcX14NCirdFmDE7oCXs8QTtekDAr7ri1X+bL2Ls2gitRt8dp+F6QDirlJXe4
-         Oeb2SoSDOOK3qoq8GHKuukcI/NZ8nDXbpB7Dzb+lD/PWmFWOJAv0GTB2sDQgCqWWNu1a
-         mhrlCxlXsCyBvmEXFxpYLtPsHEyZe6Qo4dV6+Bfot6OVckjrB7FHNqsD/GBxaS1Dmf1c
-         lpRVjhGdSChFBw1cZe36h3kA9WqB61AOR+tvuEQJdWJpF/A6wdljyD6vQtjlCB20OS/d
-         S8yGq5FsF1eF3p2L8i6EUNfWUmFAUfPiDMEdw0abi5ZLOBvCbNXXU7mc+Uboyw+sGMwt
-         JZ1Q==
+        bh=h4OBAYVyhf7qupnB8A5/wQwJ3H9nf/UvOMruvxrHNdE=;
+        b=qdZt8M5NU5OTStMxoc3mm8bh53F+Hqwle/ay4VlO4MpmeDyvpHESzy8fLOji15PbXq
+         r5HL8LbgCiXlnoGMDO/HaY2rE4vaeKSKNa9EKvR+ClswgVh+rXZ7Kl8GvCHpxl+AgCgZ
+         +Iarknp65k2ytCRev4DPoYVcbKLGpjUTUw1WO6f8uQwEh4qEDQKid/N6bAaFu7DvE9An
+         +BCXBmzyyMLYFtxgz0KhPPpQ9NGgIHd6sgZHLnTLyeGziq8VAEvjUl1TKdi0czaBbgaC
+         nKaxqzDTFw0u9rn7kkqASDTRs2AaB6vlTdHHLJVDA1OnFfGxsKNbMpuD8/iCBcrf0vC0
+         m5xQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532FGEHg2qeJlKPfPc8MPoe1X9mXfR5M2C5XDGCwGPhDaCxxpGq5
-	D9CfHf3hhmAyPguxG3ht8SI=
-X-Google-Smtp-Source: ABdhPJw9xb5TEUvjGBs+zXy3hTh/RGg9V+n0ez7peeRezlIGBDpbjzdFAs8bqIIoU0AyKwTSneiLWw==
-X-Received: by 2002:ac8:7f41:: with SMTP id g1mr46531149qtk.72.1621028465848;
-        Fri, 14 May 2021 14:41:05 -0700 (PDT)
+X-Gm-Message-State: AOAM531f/Yn71GSNoaakAynEA8iEQl9OfL6nD5KQTEgDQsRSpdpytRur
+	broYO0Yqs7oEEp3VjzxEN94=
+X-Google-Smtp-Source: ABdhPJwxl4Oct/WjqotjWnPr+8HSkhNm6BTWiBKS5W53K4hVc+1oN7dQHcg+OFMJwOJKr+pk7zr85Q==
+X-Received: by 2002:ac8:44b1:: with SMTP id a17mr45826112qto.369.1621028629107;
+        Fri, 14 May 2021 14:43:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:be8d:: with SMTP id n13ls3291893qvi.4.gmail; Fri, 14 May
- 2021 14:41:05 -0700 (PDT)
-X-Received: by 2002:a0c:9e68:: with SMTP id z40mr13390233qve.17.1621028465428;
-        Fri, 14 May 2021 14:41:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621028465; cv=none;
+Received: by 2002:ac8:7684:: with SMTP id g4ls5229587qtr.9.gmail; Fri, 14 May
+ 2021 14:43:48 -0700 (PDT)
+X-Received: by 2002:ac8:5995:: with SMTP id e21mr32721311qte.222.1621028628685;
+        Fri, 14 May 2021 14:43:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621028628; cv=none;
         d=google.com; s=arc-20160816;
-        b=kjyPOmCl050gNSU3WzfiDpkyR8ql1RIk2apkQrdkJed0CB95IbuBBGawKhoa3uE4zR
-         1QYCvBszkZtk+YcgMDCi9sEdqHmoHijXj0CyvJEHwxokle/HaQ128/+AfgmaOiaRtgUs
-         /1ZWI7f8c6Ivj9dn6FYC/aKcHRDKSJpN9PGhbFD2shdSVjaadXOlC8g6x/SxebgRACqn
-         favE+tR2VKd1910kjK9mB4F1TLNyCAXkYu0Fdw9L6SnIOuazEw1dHwESx+KsQ16cY83Z
-         e2Hr42OGYy616/Erbax5RIMrH5z+YSYtKYyT/mrr+XMxmUfMchLfRzg5cYE4uG81+7n8
-         u7iQ==
+        b=RwHlxIXxziVfs/pgFWcsuF9mv0FNHzJg9ZFRJrtiZP/+vK7IEFoE6vcVIa+SnP4CuR
+         UKqRqhuxJCCL7LAeEsk88SPdbvLZT6TtSlaUiJXXnQqLZOzXGCdEQf88vYENrFgEJxTL
+         z6deiCTYwWanKBvOPt+eId8Xr7Nk34OdWmsnwVAL4X2n0ciEyaDUoUdDRJYBWEHdkfHD
+         GQwCkhYugepkiVimT5qzagLE7P7e80jOleNY5oeLHY7FQ+KgAAG5fhbp3PMTY+dZvtCc
+         B03QhpoGP8cr+KFiXJxC1uSQp6aef2wDZ5LX7IjSd0vfssksRkx6UZXYo1jtgGnNMWpY
+         TRPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
          :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=otnOA7NzzwDCtVpkO83MvM9Y7K4RzjZhbxLqzjMrMDU=;
-        b=Be20/YhwoIheqMOYV6IFdUitRWyBAZc3ZVjcaWkVN3vVtLA9rql+VCfNhmF+KJ+aGc
-         tOmHAj0ormjwZLavW/YanhbxPZ80V7jpOHvgkG3ryVd2W8EFXFT0F4GCx++iFDvTi0Tq
-         4DKbW1RvyEBTRgmqZHdoIX0uHfg9O0Nv+AoJIbB0ENZpFUVoHRhgxo/W8L+Kgma5bVEv
-         cWtNSGJ56qvYazTnLqMPSU016bUoAV/OCWj/XfTcBTP4tQY5ybEUymeNCjWMgj5rIWaW
-         PtUsRt4T/OQy2X5401ugTzcns7VPyU0Rzit/yLJp55Ii7kcKkLUuzMPNhxRKayLBY1h+
-         7Cvw==
+        bh=DM5Q9+OtdKnTOYJYXU4PoUARQT/1Oe8E4Qyd5OUZO/c=;
+        b=pORTb/que65MNd1QFcQlaeuXVZHoZH83UQMFLaaYG7uN7t6bXnpQoJHUpC8kgr7Wjg
+         AihvlnXX53I8E6IJcbyUx7jFxlsSn9MtPJYRLJSe2FhLt589wn3gxpABW1qpaVyv9hUR
+         Xv9wt5DMQs+D6PndlL78WcfTMqrLqtu8f6fttVcCw4MSMJA5hkbM01JQp9qOp7+BzDwS
+         GhEV1cLEsAhT2mFfhdCNxS/Ql+28AlPTyr5udQXkltJdk0DYQaiuw5ryhOqsswT+OE4Z
+         IJHvzN0VE8GB9WLfpx+7rVbpQ4XtLpkVzxILEBrpyD0KTnTXuktZigW2c2dMP6XHFJ0n
+         LYRw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="MwLVGK/a";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=L5RmQoLB;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id v64si748124qkc.1.2021.05.14.14.41.05
+        by gmr-mx.google.com with ESMTPS id v64si748378qkc.1.2021.05.14.14.43.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 14:41:05 -0700 (PDT)
+        Fri, 14 May 2021 14:43:48 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id EF3DA613C5;
-	Fri, 14 May 2021 21:41:03 +0000 (UTC)
-Subject: Re: [PATCH v2] riscv: Use -mno-relax when using lld linker
-To: Khem Raj <raj.khem@gmail.com>, linux-riscv@lists.infradead.org,
+Received: by mail.kernel.org (Postfix) with ESMTPSA id CCDDD613BE;
+	Fri, 14 May 2021 21:43:46 +0000 (UTC)
+Subject: Re: [PATCH] drm/msm/dsi: fix 32-bit clang warning
+To: Arnd Bergmann <arnd@kernel.org>, Rob Clark <robdclark@gmail.com>,
+ Sean Paul <sean@poorly.run>, David Airlie <airlied@linux.ie>,
+ Daniel Vetter <daniel@ffwll.ch>
+Cc: Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers
+ <ndesaulniers@google.com>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Abhinav Kumar <abhinavk@codeaurora.org>, Jonathan Marek <jonathan@marek.ca>,
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  clang-built-linux@googlegroups.com
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nick Desaulniers <ndesaulniers@google.com>
-References: <20210514213741.447088-1-raj.khem@gmail.com>
+References: <20210514213032.575161-1-arnd@kernel.org>
 From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <49185379-b54e-9b6f-4984-8743e7940ce0@kernel.org>
-Date: Fri, 14 May 2021 14:41:02 -0700
+Message-ID: <58a35b85-eb0e-bc02-29be-0cae46bd75b8@kernel.org>
+Date: Fri, 14 May 2021 14:43:45 -0700
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.10.1
 MIME-Version: 1.0
-In-Reply-To: <20210514213741.447088-1-raj.khem@gmail.com>
+In-Reply-To: <20210514213032.575161-1-arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Language: en-US
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="MwLVGK/a";       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=L5RmQoLB;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -133,56 +137,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 5/14/2021 2:37 PM, Khem Raj wrote:
-> lld does not implement the RISCV relaxation optimizations like GNU ld
-> therefore disable it when building with lld, Also pass it to
-> assembler when using external GNU assembler ( LLVM_IAS != 1 ), this
-> ensures that relevant assembler option is also enabled along. if these
-> options are not used then we see following relocations in objects
+On 5/14/2021 2:30 PM, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> 0000000000000000 R_RISCV_ALIGN     *ABS*+0x0000000000000002
+> clang is a little overzealous with warning about a constant conversion
+> in an untaken branch of a ternary expression:
 > 
-> These are then rejected by lld
-> ld.lld: error: capability.c:(.fixup+0x0): relocation R_RISCV_ALIGN requires unimplemented linker relaxation; recompile with -mno-relax but the .o is already compiled with -mno-relax
+> drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: error: implicit conversion from 'unsigned long long' to 'unsigned long' changes value from 5000000000 to 705032704 [-Werror,-Wconstant-conversion]
+>          .max_pll_rate = (5000000000ULL < ULONG_MAX) ? 5000000000UL : ULONG_MAX,
+>                                                        ^~~~~~~~~~~~
 > 
-> Signed-off-by: Khem Raj <raj.khem@gmail.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Nathan Chancellor <nathan@kernel.org>
-> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> Rewrite this to use a preprocessor conditional instead to avoid the
+> warning.
+> 
+> Fixes: 076437c9e360 ("drm/msm/dsi: move min/max PLL rate to phy config")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
 Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
 > ---
-> v2: Use CONFIG_LD_IS_LLD instead of LLVM check
+> As found with another patch, using __builtin_choose_expr() would
+> likely also work here, but doesn't seem any more readable.
+> ---
+>   drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c | 6 +++++-
+>   1 file changed, 5 insertions(+), 1 deletion(-)
 > 
->   arch/riscv/Makefile | 9 +++++++++
->   1 file changed, 9 insertions(+)
-> 
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 3eb9590a0775..4be020695428 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -38,6 +38,15 @@ else
->   	KBUILD_LDFLAGS += -melf32lriscv
->   endif
->   
-> +ifeq ($(CONFIG_LD_IS_LLD),y)
-> +	KBUILD_CFLAGS += -mno-relax
-> +	KBUILD_AFLAGS += -mno-relax
-> +ifneq ($(LLVM_IAS),1)
-> +	KBUILD_CFLAGS += -Wa,-mno-relax
-> +	KBUILD_AFLAGS += -Wa,-mno-relax
-> +endif
-> +endif
-> +
->   # ISA string setting
->   riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
->   riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+> diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> index e76ce40a12ab..accd6b4eb7c2 100644
+> --- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> +++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> @@ -972,7 +972,11 @@ const struct msm_dsi_phy_cfg dsi_phy_7nm_cfgs = {
+>   		.restore_pll_state = dsi_7nm_pll_restore_state,
+>   	},
+>   	.min_pll_rate = 600000000UL,
+> -	.max_pll_rate = (5000000000ULL < ULONG_MAX) ? 5000000000ULL : ULONG_MAX,
+> +#ifdef CONFIG_64BIT
+> +	.max_pll_rate = 5000000000UL,
+> +#else
+> +	.max_pll_rate = ULONG_MAX,
+> +#endif
+>   	.io_start = { 0xae94400, 0xae96400 },
+>   	.num_dsi_phy = 2,
+>   	.quirks = DSI_PHY_7NM_QUIRK_V4_1,
 > 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/49185379-b54e-9b6f-4984-8743e7940ce0%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/58a35b85-eb0e-bc02-29be-0cae46bd75b8%40kernel.org.
