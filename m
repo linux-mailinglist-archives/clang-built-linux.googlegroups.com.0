@@ -1,123 +1,145 @@
-Return-Path: <clang-built-linux+bncBAABBIMF7KCAMGQECDWANFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC32535MUICBBBEG7KCAMGQETPYI6SQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5CC7C380AF5
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:01:07 +0200 (CEST)
-Received: by mail-pf1-x43f.google.com with SMTP id n1-20020a628f010000b02902a0e02b2be8sf16766496pfd.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:01:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621000866; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0888E380AFD
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:02:46 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id i18-20020aa787d20000b02902ceff7cf271sf5810586pfo.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:02:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621000964; cv=pass;
         d=google.com; s=arc-20160816;
-        b=W/bHfeS73UQoSu26x3RsLQwhCb76t6wN5uyEVyJFQcK3DxDlHCdv2IZ9ynzkH05amc
-         6vIbRxLRHhnOHOLAgteq4xeHE+cAoELCUQQoGOBK7wzjnxoiMbur2Ia3SzidqAAKtpKj
-         00dXP86nUCGvh2lOe1EP0wytp0p18EqRN5EhCZMlgN0abxRmQQTVy8b5iFFqKACbgmPD
-         bfkJ4aJHbGciiGW+Jqff870DZweZMI9rbU377SAoahp0LuEqDOF6COKmFdbNcquXOgoZ
-         BPBFg1Pf5m5CLmbiN7S/dEaR4/gPYUmZy0/MB/hWdc/EJoR0BiAmFYZXVL+8fZ6jxK5m
-         LfSA==
+        b=Ky0shpRdqbqZrJ/eCOeRhmtfgbbPSs7XRUQdZcVVegHEYmq/pvL8raqich1OGh0uID
+         /4zbVP+0Cs6/4s/n4KhiMEGt4pVuTeTiFzIbvAWPQGBNjmpv3kOKkGhZs2qtyAvPDm39
+         BXzXPjdx3hUoJrBRs2HjKwzhvWnFVtYQqcPpAiPlfMzPeCrTG1oRlz1ar5JyDji3u09E
+         jeTcd1AqcUho1IfFaWK8iiKS4CeJSpTHuyAoGH19DoCBYdzNmqHAVGNkPyurJu9ccM3U
+         HhqYl06GmqrSA0Hg+4WrXkGbb/mbPBC594KKkahJz9e1TcP7K8z9G+Dg3ZBCx0Y557G5
+         6SNA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=xGyhAdYdSA5B9Su874C5JOpEewHeqbzJO2nJ6HLipXs=;
-        b=V4nq3fb/EizvNpIyXQ/tOpDclyp6ZoSoeNLwA9b7ogUpu8zqQsKYxYHU232WzmVmEG
-         y1eUry9C2w57jludYsFuDkkcZDDxIT32XZqth/2IrKG/0p8m36tazpL5SKn6soJK3Duk
-         zTXXwuO0waVb5TXp2dd18qTjYgPlwqa+71ijrW5Q2kL9EzBmxke/BthglH3msdVpyCt8
-         kjCUjces1UGaXQ39dfKSTaJQXlvdtxgTNyrSF8GNszqrNL6DAMR7Ka6oNFMT7liZwLqG
-         UnSFGOYsfBnXCuyq4m2wNURBGIT35YVwivpOKJIt8fCDqInZC4Ayw7iMFWGpips8/mWS
-         UoGw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:organization:from
+         :references:cc:to:subject:sender:dkim-signature;
+        bh=NME8TuphgPtIbA+sGJXbWZJPoZ/IXFj5hGh+lTXBYM4=;
+        b=nOjtps+5qYb1ogMPEOXEkeqMYL1VCPmGKwpU9RYtvBE3hSbTcHAvlwt8IatyA9dtoY
+         smLoyqgw1D7jC73AQXfrwAVYHKxvrVPIyP5AOdrUEScoihh1RNlsIakTJzSzH9dnUxtB
+         72WP1Y0ffzutAorDt03MzPEQTqApwEU5EFEsLSx77TB2jcmavhvKKPjZl2cYXL1ZxgT3
+         r6DtnJnyQ6GKQr0MupvY1dMMNtzsSpn+38EHnnMNRoX/Z7Y1f5w6RqC6LoWYiWYYXPeY
+         GKkdgNZFvx8yhZ6L+XftpYMBKwdxg0cz5po9FfS2/azt8TDzBH1fnNbQLh8YGze/SOn+
+         fZKA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="DJxi/6vL";
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=CFD0utF5;
+       spf=pass (google.com: domain of david@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=david@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:subject:to:cc:references:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xGyhAdYdSA5B9Su874C5JOpEewHeqbzJO2nJ6HLipXs=;
-        b=rncHvklHlxmfpNnCldpwTJAXWn6Wz5xzuM15hdT9zBv5b9zSFuCbU0KMfY0pJXwdXd
-         N2h63AT3xVW0gcOcq6nQ06hvsG3gZ0w1VyfGhyIwmAaEIJ/VY/2D0yGOnqycyThwGAZk
-         3W+/BHZ+W0UmjpKeo4DU04Uy8vEmouLVxLeHrH6oOQfEn0Tz+dxRUVWcAjB7SoZRXjL9
-         J0WMXo/DaLtvrz3dbiW1ySoNsPXzXyyLMA1pC/lZghI+yNUwnwpQmg2I8hclv7oVuRYb
-         bY5VR776A+50hxGHP0Q3FpyoQX1lRVruShRLwMU1o6G78G2L6SSkWBmZaXF0xLLKcZ7d
-         ibUg==
+        bh=NME8TuphgPtIbA+sGJXbWZJPoZ/IXFj5hGh+lTXBYM4=;
+        b=Y/tJTyO/cUK3Lg1QGP3w/G4MPxwOvCRQ4nAK05EJgEWQ6G9IAaHnX0E9ts1/l5bomB
+         R6SmK01UDlZBf/bpXCzIgrIYgkZJmnPzQiGk29uQBPAe2AoQ1xJdGRNs2Pi8q/VbvjKf
+         HnI13A5D57LxN94kDEbj2R9SHz/8qb4jnivzCvkGqzyTt6PO0p0XtJkMqhFqtrzP9Oyo
+         GUu27luJpzHnEWzV0aTHqbesBhKHQHRD3f2CbpDDUcmhDfGxU9mcPP2kgFKEXW8qx2jT
+         kTwADtPHcv58lbpypex8PscRWMWf7mgCe+OAz2+Gh/CooMM1r0LEQhfiR/rZVFkJVzT8
+         YBFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xGyhAdYdSA5B9Su874C5JOpEewHeqbzJO2nJ6HLipXs=;
-        b=p2Bs81AYCfUiXCmqSBGC16Jd+yd+ot1w0A49mBkJjC5/zGvoSvoJRlrWtNq26grYTO
-         6M3NOhf08AWijsO5N5WqKKzKlSKwcP5c4fU2fwzPpIGn/2hRQDgJIOzPDKtzJLrnVCLp
-         /NYgMOpxOZQWFIH+K1K2xik8Rm0pvDtO8kGzBXiHIHIz2bWljn2L1zzXdiw0UgYH5Jo0
-         QHkYKdOMgpfKBP7Rz1U3+LaaQWwgMVGQsni5AgsJ77QyzyGwcT70WiEHDFctl6nwqNKz
-         RJrrmd58+t1nb5junQvBp/jCN5P3WHmghjp+rtlOWNmaunxixMea52P/t6oqIbmk7rI8
-         xThg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NME8TuphgPtIbA+sGJXbWZJPoZ/IXFj5hGh+lTXBYM4=;
+        b=ZjVqX+Z2afd8dUnB9xkh8ewTQ5JK4jbARAyBJbagd9wmKGNQo0cpYejADEw577sdNs
+         UMmPPP6kMBFygtBvJirK1t/XMNzbeCCGt5df+DD0hgocSjLotuUQX+Jga2Ut98iyH21g
+         5saSaYTn1Hj8pT43y/jmB7nXbkuiyp/aI9jU6jujUCD/n1gvuQI3ZyoaVLsoKhmWLo08
+         6s3zpl8+Th7UW0q3zB4AzO+DcuxW1j5QgTrfc6ZyGbnnXSaRfmBsvSZr/ZniluWckoRr
+         Jnl+y7GdvBZkiV1ugKOBKhw9Ea1y+ziT01olwMYQzMLt2m031bMu9P0DVWrVomEadWHx
+         jb9g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532V2hMKT8/ReIvnBoXVwaopqY/GPZAQFqNjeIUk7ABy0Kp7Y3rd
-	s/8Pd6bOYOesvPFDxOCelUc=
-X-Google-Smtp-Source: ABdhPJygL9Z60Dh8wWvvL0S8Jm8Em/S6RGDfHYZLBDLJwifXVAPN2/V2ofBy4zluFHNGGO7HZeb2ZQ==
-X-Received: by 2002:a17:90a:ce92:: with SMTP id g18mr11438279pju.214.1621000866057;
-        Fri, 14 May 2021 07:01:06 -0700 (PDT)
+X-Gm-Message-State: AOAM530984TkWGjPvVh6KRmAJOSLp0mzIgSb1yAZXNkGDavLtRPFqXXA
+	SEnkqTrsJpqiLjs+IYViCKQ=
+X-Google-Smtp-Source: ABdhPJxfFOgb8eN1DtQUvEOoX59gNxcjmtDMCrRxv4GlmyjPEn6MHxSaYhc6J7xEaSbkChvpRldBig==
+X-Received: by 2002:a63:d509:: with SMTP id c9mr46159340pgg.280.1621000964674;
+        Fri, 14 May 2021 07:02:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:144:: with SMTP id 62ls4982289plb.11.gmail; Fri, 14
- May 2021 07:01:05 -0700 (PDT)
-X-Received: by 2002:a17:902:8c97:b029:ee:f8c1:7bbe with SMTP id t23-20020a1709028c97b02900eef8c17bbemr46076368plo.8.1621000865627;
-        Fri, 14 May 2021 07:01:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621000865; cv=none;
+Received: by 2002:a17:902:b485:: with SMTP id y5ls2188598plr.7.gmail; Fri, 14
+ May 2021 07:02:44 -0700 (PDT)
+X-Received: by 2002:a17:90b:3b4b:: with SMTP id ot11mr50786383pjb.189.1621000964044;
+        Fri, 14 May 2021 07:02:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621000964; cv=none;
         d=google.com; s=arc-20160816;
-        b=zLusimw6Vdcbt+5m7LjVfOh9nyT/kOI8c1kAFDOXyJdYLBG9oQahJnNgHIYK9qJiKE
-         VYx8XMb47evDMd5388zMjbLWbY3FmOsboVlA2ix0A7ol9Rlm5pr3sWmiKg+mm3/wEvdo
-         k/WCLJhMb76E58d2QKkr2zqtdZew5GSRcefUTZNxIdHBRnKtnLVvss2A4BMXw2Hm7iD+
-         NH0XQu/U29kedrAO08awu7sbItO+8P+DYnnICmuYU6HAZogdstMPS0w9kqCG6A7rJd9p
-         gtIM7HK8YR64Xh4VMvA7wgcHp1bgxhHDW3Nl8GvItnzi4m+whhbfjCLYrJcY/Y9cGScr
-         eGqw==
+        b=F5ED1fbxAdsiD3KNJcI2qj1M+ViAj0Pdur3S30IkHm7yyVkRDEKpaYnv0kamA7kMjc
+         gquNGHsFFMu3tC0OD7vpYY4LmkGOCv2WJSsx9RaYoTY5QjZAxeZdp74DQADzTS/fHSaB
+         6QA2jRUgEisLZwN7qNCvhIcueDI1MKWg/fFmhRxkb+LUgDSiuGzInFbi1jYDeZ9SLOlc
+         FnmaZ4j/ZChUP59262L6ERHsiJ3+gHIfuJHUhkcIzzVKjYx387Sitjqov4I5y8DLNf4f
+         Z3Kp8EhP95pv5YYofEuTs5WTQeYn60+rc6VnbCAK7apDTwPPQ+UON4l6QZO4Qn2BojnX
+         Dbfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=LyHlpW2UlOKG0QIogMUPiiTW9+pWu5cPlFoocFtCwuA=;
-        b=nXWrALZZSZsma8qvug8m9MLeJ5Wf06rWZBZITa3iKa5/jRx8PGGPw/6I5IHwhskhS2
-         tDXxQaWPKbxGrXqz91Rm9muUsQJCbZ5LuVj+/8qWNEDP0xxYtewlX8wDaRqlScsZb8t/
-         tqRPiGwaQac01BVJDOTkJy/QJAwnd1Li9G8xsDINcdqRh194pNyzIKG6+BxAe3u0G9CA
-         BjP6rL22DLBik4AJi64PfPMt46M6frKQ0tr8W8H9DLJQ97BJiJ02MGwUt8BI2rcFT0O2
-         mdEs/piKTeAKKCvQNAJ74UZ42LPUK5OvUG2emv9y7kTi/i1Cn6O6v7FibNB83FJC/Xr+
-         Rf0A==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:dkim-signature;
+        bh=Mql0q91ECxfqC6RVy/aAHYne20fUi8i8dudlG8TCa1w=;
+        b=vTyT6uumpSfmibfIfPPtwcJvy+Eom5cBI1MJjMv0EfYo0DlrRvv0miiNKDqUZJWEvJ
+         2ofo3AA++lPGrx//JBkLo+EFFfJuDoIvDtdAQTojNBWMShpvqGlsy9ti4kF3INxXnD6+
+         EpUE1xr4DhGvW7lnIb9j5Xk9b64flinVqTIg0bEylY2VswH7ieR7KhtYs0tmYumH9idF
+         KtkB+Wj4dRicUqC+vwn+AquLxOZWL1H6SfpP6rLA3OLKBvapWwZfxRHBjyBkHk92a+UE
+         /8dXYM6OtE5UiCQpmUyklskrP+sHrh1CfO269o/fFYoCRvsjSokTy9Y1hoe5qE4cLGwC
+         Jkvg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="DJxi/6vL";
-       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id ep1si624972pjb.2.2021.05.14.07.01.05
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=CFD0utF5;
+       spf=pass (google.com: domain of david@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=david@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
+        by gmr-mx.google.com with ESMTPS id i2si468095pju.2.2021.05.14.07.02.43
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 07:01:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5158561461;
-	Fri, 14 May 2021 14:01:03 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Marco Elver <elver@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+        Fri, 14 May 2021 07:02:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-306-WY6-Ux4yMl2eDGqFpLtvAw-1; Fri, 14 May 2021 10:02:40 -0400
+X-MC-Unique: WY6-Ux4yMl2eDGqFpLtvAw-1
+Received: by mail-ed1-f69.google.com with SMTP id y19-20020a0564022713b029038a9f36060dso16406428edd.4
+        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 07:02:40 -0700 (PDT)
+X-Received: by 2002:a05:6402:17d9:: with SMTP id s25mr24831513edy.337.1621000959075;
+        Fri, 14 May 2021 07:02:39 -0700 (PDT)
+X-Received: by 2002:a05:6402:17d9:: with SMTP id s25mr24831467edy.337.1621000958793;
+        Fri, 14 May 2021 07:02:38 -0700 (PDT)
+Received: from [192.168.3.132] (p5b0c6501.dip0.t-ipconnect.de. [91.12.101.1])
+        by smtp.gmail.com with ESMTPSA id c5sm4547748eds.94.2021.05.14.07.02.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 May 2021 07:02:38 -0700 (PDT)
+Subject: Re: [PATCH] mm/shuffle: fix section mismatch warning
+To: Arnd Bergmann <arnd@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] kcsan: fix debugfs initcall return type
-Date: Fri, 14 May 2021 16:00:08 +0200
-Message-Id: <20210514140015.2944744-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.29.2
+ Wei Yang <richard.weiyang@linux.alibaba.com>,
+ Dan Williams <dan.j.williams@intel.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210514135952.2928094-1-arnd@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+Message-ID: <ea93aed6-58c0-0905-11e4-628ea145999d@redhat.com>
+Date: Fri, 14 May 2021 16:02:37 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-X-Original-Sender: arnd@kernel.org
+In-Reply-To: <20210514135952.2928094-1-arnd@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: david@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="DJxi/6vL";       spf=pass
- (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
+ header.i=@redhat.com header.s=mimecast20190719 header.b=CFD0utF5;
+       spf=pass (google.com: domain of david@redhat.com designates
+ 170.10.133.124 as permitted sender) smtp.mailfrom=david@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,42 +152,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On 14.05.21 15:59, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> clang sometimes decides not to inline shuffle_zone(), but it calls
+> a __meminit function. Without the extra __meminit annotation we get
+> this warning:
+> 
+> WARNING: modpost: vmlinux.o(.text+0x2a86d4): Section mismatch in reference from the function shuffle_zone() to the function .meminit.text:__shuffle_zone()
+> The function shuffle_zone() references
+> the function __meminit __shuffle_zone().
+> This is often because shuffle_zone lacks a __meminit
+> annotation or the annotation of __shuffle_zone is wrong.
+> 
+> shuffle_free_memory() did not show the same problem in my tests, but
+> it could happen in theory as well, so mark both as __meminit.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>   mm/shuffle.h | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/shuffle.h b/mm/shuffle.h
+> index 71b784f0b7c3..cec62984f7d3 100644
+> --- a/mm/shuffle.h
+> +++ b/mm/shuffle.h
+> @@ -10,7 +10,7 @@
+>   DECLARE_STATIC_KEY_FALSE(page_alloc_shuffle_key);
+>   extern void __shuffle_free_memory(pg_data_t *pgdat);
+>   extern bool shuffle_pick_tail(void);
+> -static inline void shuffle_free_memory(pg_data_t *pgdat)
+> +static inline void __meminit shuffle_free_memory(pg_data_t *pgdat)
+>   {
+>   	if (!static_branch_unlikely(&page_alloc_shuffle_key))
+>   		return;
+> @@ -18,7 +18,7 @@ static inline void shuffle_free_memory(pg_data_t *pgdat)
+>   }
+>   
+>   extern void __shuffle_zone(struct zone *z);
+> -static inline void shuffle_zone(struct zone *z)
+> +static inline void __meminit shuffle_zone(struct zone *z)
+>   {
+>   	if (!static_branch_unlikely(&page_alloc_shuffle_key))
+>   		return;
+> 
 
-clang points out that an initcall funciton should return an 'int':
+Reviewed-by: David Hildenbrand <david@redhat.com>
 
-kernel/kcsan/debugfs.c:274:15: error: returning 'void' from a function with incompatible result type 'int'
-late_initcall(kcsan_debugfs_init);
-~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-include/linux/init.h:292:46: note: expanded from macro 'late_initcall'
- #define late_initcall(fn)               __define_initcall(fn, 7)
-
-Fixes: e36299efe7d7 ("kcsan, debugfs: Move debugfs file creation out of early init")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- kernel/kcsan/debugfs.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/kcsan/debugfs.c b/kernel/kcsan/debugfs.c
-index c1dd02f3be8b..e65de172ccf7 100644
---- a/kernel/kcsan/debugfs.c
-+++ b/kernel/kcsan/debugfs.c
-@@ -266,9 +266,10 @@ static const struct file_operations debugfs_ops =
- 	.release = single_release
- };
- 
--static void __init kcsan_debugfs_init(void)
-+static int __init kcsan_debugfs_init(void)
- {
- 	debugfs_create_file("kcsan", 0644, NULL, NULL, &debugfs_ops);
-+	return 0;
- }
- 
- late_initcall(kcsan_debugfs_init);
 -- 
-2.29.2
+Thanks,
+
+David / dhildenb
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514140015.2944744-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ea93aed6-58c0-0905-11e4-628ea145999d%40redhat.com.
