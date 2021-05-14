@@ -1,122 +1,128 @@
-Return-Path: <clang-built-linux+bncBAABBGVQ7OCAMGQEJDF6D3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBI5Q7OCAMGQEQE564VI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 24A1238115B
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 22:05:47 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id f12-20020a056e0204ccb02901613aa15edfsf755137ils.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 13:05:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621022746; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 84A8D38115D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 22:05:56 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id s9-20020acadb090000b0290101bacefaa4sf293200oig.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 13:05:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621022755; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HNrQqnvxOFpULw/RCZisir4Y1q2iiSSy7VP+fFDHIO8Vhp1D7dw6NC2T0uvW40wbo+
-         dBqZ1goN1qBdE2+HD7Km7+Ia/5CDseK8l10dr7e+wpPssE/DB8x9N7yMAqpscnusOEs7
-         NDfNKblXx1T+I5qrrPPvkNYTDfHamtIvJibD2bgfHjcMyUwwccHZ5NF3wj23M8jmktK+
-         0a1SEAAbbuhnhTIvPEaSdYkq3/klQ79lkcYi/ogGDWncZcUGkSF16zZobYPUy+DOsfwW
-         QrZ2HJ+JshUkQ5HwNVevkYEbauat1t4ZUaAthNY6oCS/qRTR71vqNKnWtvQFaFsblMXt
-         jzyA==
+        b=hu9wI7/EHwGAi9Sc6QmCOkfJxjN3tmDKbPIj2+ohNDNUTbYHRszEBNyDKKquTlIT+C
+         hfcMzNjLLr0hRwuRl0UomW84w3BgonVCO57KZbyh3LR5+7KqjuS6+KWDdExPDg5T8oLQ
+         myrxRpK+d9173qWd6i0bXfKNMAUnuD07Sq7rzgChvkLdWaQ3oHqU2A2iXMSzRHvEnVwE
+         ugz66XFtsQC1lXs8tPeS4DE95MQJhy13Xrru9JI3k0ZwBbiVoboiHtHW8+BRcLFR+SIi
+         Aou9xQRyqi/2VyJ5dDFCYKrXO9AQcS1EKb8Pl4pNSK7D3V4E7ANLW+DItrVgy337LH70
+         gARA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=Q6p53BDI1Qu98WFh09pIInjxnzDJBzVLcUxcyYHZvME=;
-        b=HueEOUwrWBJW6GU6ElYnFkiIvbDwjqioWhD8JjklEReIYkGzDkcLBrjLnxysGYbew4
-         KZ4ANvb52tXJxsO7FGozGJxA939k1xi3y/7ktgDX2ReyehvhY73i2Xiu/TIZlkV2hhng
-         Sd/CyfOkbQS5xP65wWMY1aaMA14Pla0Az/9GQL/rw+1nqVQMLHtNJ8UYS0vC8GOpR5nc
-         jmsaJ6Vojff0ISIDbryqkXGm1f4DlbNLgH5ujsOgMsaWJbxsJ7ocU1cDA6V5+pd0D4fh
-         hjfVY8yXfCZvemvfAHhHcPol4LyuRL4iwzIASRBYbVdZKedMlpmSWuLlG+TkmaV3D8yq
-         OVGg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=vKVl1f2B0Koybz6INytng/Lu+BukqXPiAslIJMDjs1k=;
+        b=i+oNyYLwRC/nbPbVCAipPUUuwfPlqTo7TKMX5n5vTdtDWgxOAF8ek7Y0UZO1hvjISA
+         yfQ/epaZlOiwTJSBIkx/XeAn+Yf4a5fsdJ45dh1DrlXt+eB2/Y3i6/GJ3tpHDjuCIY4V
+         l5v/kV2JwS2JNQpe3vBiw8R/pKm0fsXFFLlGP9/Q+lt7hIwxHSQOzMihCs1XQ7WiAnq7
+         M43jFV1L/jvgW91CTMdHrHwhuk0FckJKbxgZ/cgNSnXdX2utwYKtzuz7arF0DcbhlME8
+         KKoCBpdmcUlYElacK2n3JIH7LLXCAQ9nP13f4OTzZiHI8xg5KrCy+tbxRjAQtAGXhsrd
+         0FFQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=lmmWfaUO;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=NBCpZehE;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Q6p53BDI1Qu98WFh09pIInjxnzDJBzVLcUxcyYHZvME=;
-        b=skKSbtkIrLEA+kce2teLQEnQKTDBZ2Z2iV25pI60tsMnQf8q7WTbsqJuvpSsqIMeQo
-         KEYkbeWeS7s0vcxAYNAAGrbhOSj8DhhuoRNCRnhIpSNNicgdjCKb9HCL5t5PJRt1pO+K
-         RD8Geqdb6ruQv5b/SL9w2BnzA4duTgPQdtilqY3QT8ZHuShbhOCL8fJJg/9Qq2Hw1DO6
-         t/3o6rb6m9AYhdkgHXH3PdsDxiF4Sh5c+A1tfNHNc0AhCfJy/VZzPObm8UogO058PWlV
-         Ys8cKTT3Lj9FLwrE56xCGUNm970pGxQmqmOJoc/HhZduDq9OxQRcPXjubhJp1AacwQD1
-         nQdQ==
+        bh=vKVl1f2B0Koybz6INytng/Lu+BukqXPiAslIJMDjs1k=;
+        b=PefvH3I3jX63TMTWHA58lSlpEzrN4+O7q0XEwXPXn25B42h3EGkeFvEZO5zsOwGT07
+         j2wpTRpMiQsFIedbyoQIyuplaOD6Xf8qbZ0FMwDF2ig8Qbn94IQ9UsO64U/I/MnNrVxo
+         4wzDxVTu2keIPbbJrv76WQMjP/lENuufCbK/ojDVscGgJq3iMrKqqowbdlRWFVJh10iI
+         1BQW6E/gCqe3vvNIEVd9kR9lg+s7ha+OHu+EUV/ICJHkwZoiJ1O2pyFTr+OIWGdu555Y
+         cZXGVu7w2BxyB4V5d6Sw6osF2xIrxDV7YqqqG49Ldm5mnzYsT+dKeYAS7X7R1Vi5uqrB
+         hdJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Q6p53BDI1Qu98WFh09pIInjxnzDJBzVLcUxcyYHZvME=;
-        b=MfzB2q706EMjQXKtnsRkgcUEMpQn8M9cEzCCd51za8KnqEWRhR7N1+66suHtEaKMty
-         kmLkudKIumvevy7bjqGXWj/W1uWx3GZ3cWvw7YPXsoQXhAKJXNmw9XDeqdBjYGoQIVsN
-         R5k1rz1eVAjlOLmaYX6oI3PhGk6IcZL0SLLx80RpUCecoCJ5yiJ/3kd9EnJQujbnDHYF
-         qdT+OtVi/WLn8vdbuil9LwwdUQ6fnmGmVgCN5t9KhUwOy+eAIxN87qHS+pyQKDOH1TbE
-         zxXYB6vSHdqnCGf91XptXnzJfhZgde6HT8VcNH3d8kwJxaEpZoqh9CHD4+yIlQhfivoN
-         aqQw==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=vKVl1f2B0Koybz6INytng/Lu+BukqXPiAslIJMDjs1k=;
+        b=GAz5BAxxUC81VjS8wZfAxB2bfZXPX/TlvLvQrih1HRVJ7gd5H/Rn+v6I48NMEPZ+He
+         7xttbAajt6TIt+SrbMdsA7ph0I793J/QPLN5bgVBIZcJojf4NWT3OoXo/Bn2Sy19iJMV
+         LVniZIFjJ5Kb50oI98R41YxDHKJIJBSyiASGUJ8ha/+llDYLEdn/RETNzcrzoZN4IjIy
+         WSeHSybfPd/UzDzeKEqCri2dOthWYOJPPahepTRRakkQpgfaka/54PwGwKKcn3/JplZ7
+         Q/Cksv+AiRSnYKeNvSbxxGLOmBx12mT7YMMTBkjkM6+ukfBrNtJklZGA9n2wl6rdbKJ9
+         2cPg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5311KUhJ4MSdFXbvFchhvSQOPuHqTJWERSSjm2Izjf4SQ+qRNQBw
-	uJQ69wz8ptlTra93t5sFchQ=
-X-Google-Smtp-Source: ABdhPJzPlPwf39xsh4k9RlZ6U1tk6IfwwcalHDfKqcrZHvkU/S8OEMmphTMuW6gQ7xiWjns+fB55HQ==
-X-Received: by 2002:a92:cccb:: with SMTP id u11mr38099040ilq.36.1621022746183;
-        Fri, 14 May 2021 13:05:46 -0700 (PDT)
+X-Gm-Message-State: AOAM532lqSzkJMbnfy//w3kgefJco5I0gjdT4bkOStkDERqhc6GXKuH5
+	gj+CeeRlVLaYc109e6+Qnrw=
+X-Google-Smtp-Source: ABdhPJxCCdEVsv4hFkbIKVbX6AZJFWdc0BUhgdLALg0ATHGDBFJl6xavV+n5dYgYVp4tKSofFC8T1w==
+X-Received: by 2002:aca:488f:: with SMTP id v137mr35005698oia.173.1621022755282;
+        Fri, 14 May 2021 13:05:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:444e:: with SMTP id a14ls2524316ilm.2.gmail; Fri, 14 May
- 2021 13:05:45 -0700 (PDT)
-X-Received: by 2002:a05:6e02:194b:: with SMTP id x11mr43483578ilu.213.1621022745716;
-        Fri, 14 May 2021 13:05:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621022745; cv=none;
+Received: by 2002:aca:3904:: with SMTP id g4ls2682403oia.3.gmail; Fri, 14 May
+ 2021 13:05:54 -0700 (PDT)
+X-Received: by 2002:aca:3986:: with SMTP id g128mr30695015oia.126.1621022754898;
+        Fri, 14 May 2021 13:05:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621022754; cv=none;
         d=google.com; s=arc-20160816;
-        b=N2BZfVjQv8L70tF8xhJh6firLHzqzFBroYY+0/utMix6CGJb7FMxphA5MBERrcjn9O
-         siq/Pve8kQJuWCs4XDcV0abkctADNqF/lY3qGGiy5OodhtPw7seModnMSu+IBslpfMdt
-         SgPqxjEczvIclt8MRNvYV4tDIcSP765BHnP+8HIWBNV2Hv3Ky8Cq14AAYh7b8pm1Oa+/
-         wRiTks5XoT5P8+6NJoCdMtQ4btr4Rj4f6Za6sJLhyrPRq7RfmIeGnfGc1oP9zSsCF3o7
-         tG4Hz+n6PNW4lTv3gNdTwaQ8RqcEV8wFRDxqgeChXLNFu3hMbOHj3UCsHJpqdm/zlZjc
-         271w==
+        b=V+qHZiIAATRq6FtUaxcLWRaVeEQgb2wVMybXuEB1+MM4hNJVc3RAEoRbEeE64+t5RV
+         5O+p42mEkwGY81jU+vnDn+iKP+jWEIF2qE3rhIZvk16GGyrNSYQ3/DbbvrEJ1kP10nFh
+         fOJsJ37ZwYboer46CW6IToEI2OPrq448phhJ0zzODcKf3sentg9z7XkY0GkeFJrgy+tO
+         g9T1qBY5Jtw+jWvODV5/7DIuWqd5Px2xuXaHCQMPerAR9aUuTp9P8WOQnCrZmYRFXdWU
+         jmV1udwzuft9yOCYpm1gbTRBmK3N+yYegk5yLEh4L7K/GKzmSrnzKX3oqGiNdreYNe9+
+         VSaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=bV95c3iMgL3NAEjWtLQf0+CS54N+jJNScFPUWDdcbrk=;
-        b=yMcxl6qdEHyQF38zWwS3cBdFmLKeEXhebzigqR7fOM0W+NryM4ILjpnF0heXDjArLR
-         yhlZelDQXSBXWlY1A9GLXIhR22qyB8CxvUGmvXqwMeJYsb2zK935mWELvdAgiMrPNdjx
-         KXw8Z8jSs+5RuDfOj+tKcYdNY4EkjDSoNwsEkq8ZkypRlddc92lRqRMqCJwJE8bslSId
-         Pw7AJjOsdxB42+3VBrTzhev/W7R2fdUeTHytLT4j9E2Lv8wTU4Hj15dDW60NrRBnFoLQ
-         am/8MXGpfza1bRrmXqUXwM4hyGPEu/lFSNYZqOkxvyKnC6JD7OluuTVZG6T88i/5pqse
-         goHw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=HbfUIhuA9O6Ses8N1rNY0zcVHckYIvLTtzUEKdhnaIw=;
+        b=TDqyNIv4qycDy6/jtjQvw3lzoyN1V83gq4b0hdg9Xo0xNyzLIzt5CVCrvVX12p3BU1
+         19aMxdhBT6XvvNjLOShEgnlUkgSxHhHNNJGIiBT+gJ5fitRDhna6zSZfMrtiRqItR6Bl
+         iqvTfc/ip/1AkIcO2KRDtWcNwPDxUjRWadYa7THW9ldOvfEsbH3J55Iq40iE6TdjagZJ
+         Q27YYoI078JBaTod2ztuSzGlKjhiUQsuyvkJFrlp2be9CcgvMRYm69rQC1HvDuOVJgz6
+         J53LaSpvyAxi6ndtWaD/r/iRcxQJ00cq1WeaKR94h2uB2lo0MnT2p8BGCxWrsG6CSZUF
+         cPqg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=lmmWfaUO;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=NBCpZehE;
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id r20si302848ilj.3.2021.05.14.13.05.45
+        by gmr-mx.google.com with ESMTPS id x16si699842otr.5.2021.05.14.13.05.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 13:05:45 -0700 (PDT)
+        Fri, 14 May 2021 13:05:54 -0700 (PDT)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7C1C16134F;
-	Fri, 14 May 2021 20:05:43 +0000 (UTC)
-From: Arnd Bergmann <arnd@kernel.org>
-To: Maximilian Luz <luzmaximilian@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	platform-driver-x86@vger.kernel.org,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] [v2] platform/surface: aggregator: avoid clang -Wconstant-conversion warning
-Date: Fri, 14 May 2021 22:04:36 +0200
-Message-Id: <20210514200453.1542978-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.29.2
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 317126134F
+	for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 20:05:54 +0000 (UTC)
+Received: by mail-oo1-f44.google.com with SMTP id s1-20020a4ac1010000b02901cfd9170ce2so121398oop.12
+        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 13:05:54 -0700 (PDT)
+X-Received: by 2002:a4a:be86:: with SMTP id o6mr20226189oop.67.1621022753593;
+ Fri, 14 May 2021 13:05:53 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210514140556.3492544-1-arnd@kernel.org> <219848ed-e0ce-634a-29c2-caca813b054c@gmail.com>
+ <42f70914-e46c-20b9-6b13-8e8d855112a9@redhat.com> <29d069f2-a1c8-eb43-02ec-69c86b3cb107@redhat.com>
+In-Reply-To: <29d069f2-a1c8-eb43-02ec-69c86b3cb107@redhat.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Fri, 14 May 2021 22:04:51 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2J=rv6HW1SiTS1R89CZFDe1-bxn+7qRFO2f3trDk0EuQ@mail.gmail.com>
+Message-ID: <CAK8P3a2J=rv6HW1SiTS1R89CZFDe1-bxn+7qRFO2f3trDk0EuQ@mail.gmail.com>
+Subject: Re: [PATCH] platform/surface: aggregator: shut up clang
+ -Wconstantn-conversion warning
+To: Hans de Goede <hdegoede@redhat.com>
+Cc: Maximilian Luz <luzmaximilian@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=lmmWfaUO;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=NBCpZehE;       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,59 +135,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Fri, May 14, 2021 at 9:41 PM Hans de Goede <hdegoede@redhat.com> wrote:
+> On 5/14/21 9:38 PM, Hans de Goede wrote:
+> > On 5/14/21 4:21 PM, Maximilian Luz wrote:
+> >> On 5/14/21 4:05 PM, Arnd Bergmann wrote:
+> >>> From: Arnd Bergmann <arnd@arndb.de>
+> >>>
+> >>> The assignment doesn't actually happen, but clang checks the type limits
+> >>> before checking whether this assignment is reached. Shut up the warning
+> >>> using an explicit type cast.
+> >>
+> >> I'm not too happy about this fix as (I believe) it will also shut up any
+> >> valid GCC error message in case those macros are used with non-u8 (and
+> >> non-SSAM_ANY_xxx) values.
+> >
+> > Since you're the maintainer of this code, I'll go with your judgement here,
 
-Clang complains about the assignment of SSAM_ANY_IID to
-ssam_device_uid->instance:
+Thanks for taking a careful look. After a little experimentation I managed to
+come up with a different workaround that avoids the cast.
 
-drivers/platform/surface/surface_aggregator_registry.c:478:25: error: implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to 255 [-Werror,-Wconstant-conversion]
-        { SSAM_VDEV(HUB, 0x02, SSAM_ANY_IID, 0x00) },
-        ~                      ^~~~~~~~~~~~
-include/linux/surface_aggregator/device.h:71:23: note: expanded from macro 'SSAM_ANY_IID'
- #define SSAM_ANY_IID            0xffff
-                                ^~~~~~
-include/linux/surface_aggregator/device.h:126:63: note: expanded from macro 'SSAM_VDEV'
-        SSAM_DEVICE(SSAM_DOMAIN_VIRTUAL, SSAM_VIRTUAL_TC_##cat, tid, iid, fun)
-                                                                     ^~~
-include/linux/surface_aggregator/device.h:102:41: note: expanded from macro 'SSAM_DEVICE'
-        .instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,                        \
-                                               ^~~
+> I just went to patchwork to drop this patch from the queue:
+>
+> https://patchwork.kernel.org/projecat/platform-driver-x86/list/
+>
+> But it never got added there because platform-driver-x86@vger.kernel.org
+> was missing from the Cc even though get_maintainer.pl lists it.
 
-The assignment doesn't actually happen, but clang checks the type limits
-before checking whether this assignment is reached. Replace the ?:
-operator with a __builtin_choose_expr() invocation that avoids the
-warning for the untaken part.
+I checked this as well now: the entries for the various surface drivers all
+contain a reference to platform-driver-x86@vger.kernel.org, but (at least
+in v5.13-rc1) the entry for that subsystem that lists the include file
+does not list this email.
 
-Fixes: eb0e90a82098 ("platform/surface: aggregator: Add dedicated bus and device type")
-Cc: platform-driver-x86@vger.kernel.org
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v2: use __builtin_choose_expr() instead of a cast to shut up the warning
----
- include/linux/surface_aggregator/device.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Sending v2 to the list now.
 
-diff --git a/include/linux/surface_aggregator/device.h b/include/linux/surface_aggregator/device.h
-index 4441ad667c3f..6ff9c58b3e17 100644
---- a/include/linux/surface_aggregator/device.h
-+++ b/include/linux/surface_aggregator/device.h
-@@ -98,9 +98,9 @@ struct ssam_device_uid {
- 		     | (((fun) != SSAM_ANY_FUN) ? SSAM_MATCH_FUNCTION : 0),	\
- 	.domain   = d,								\
- 	.category = cat,							\
--	.target   = ((tid) != SSAM_ANY_TID) ? (tid) : 0,			\
--	.instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,			\
--	.function = ((fun) != SSAM_ANY_FUN) ? (fun) : 0				\
-+	.target   = __builtin_choose_expr((tid) != SSAM_ANY_TID, (tid), 0),	\
-+	.instance = __builtin_choose_expr((iid) != SSAM_ANY_IID, (iid), 0),	\
-+	.function = __builtin_choose_expr((fun) != SSAM_ANY_FUN, (fun), 0)
- 
- /**
-  * SSAM_VDEV() - Initialize a &struct ssam_device_id as virtual device with
--- 
-2.29.2
+      Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514200453.1542978-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a2J%3Drv6HW1SiTS1R89CZFDe1-bxn%2B7qRFO2f3trDk0EuQ%40mail.gmail.com.
