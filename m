@@ -1,124 +1,121 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBWUJ7KCAMGQEZ4E64UI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU73AEHRQBBBLMM7KCAMGQE2PWGELQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5F71380B32
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:10:35 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id q6-20020a25bfc60000b02904f9715cd13csf9367040ybm.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:10:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621001435; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 04ECA380B78
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:16:15 +0200 (CEST)
+Received: by mail-oi1-x23c.google.com with SMTP id l1-20020a5441010000b02901ecd2ee1861sf8070413oic.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:16:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621001774; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fP5Zi0hO1+nO7x5VQqHv5I4Rfh2jFiUZUk4z/kW1eIYSqSSl5uvYpySx1ot42oKEcR
-         bMmI881nKdqu3KLRA24gpVnDOAyRzOae0qQ4eBkhkz9u/s9KCQblhkOaEjx7P2z6Iplh
-         hu8IUVjnk3nZgokU7mwE2vPnD7NAR7eRuMlEjtidjWX5c2KkCKzsfaM9mDnr/oPUXsX8
-         V7LAE/vQn00oDH64nzyxzyjqkhMcxu4wQQriY7/34xIOnvjsBitsVAZFj+baCRkrlW9f
-         EsPX0pu/0rkZ1PFxhYo3H9Ik3hhQNb+SqAMaGet5JGbZ5S5L5oNCJLiA30DjK/3vPgq4
-         jcTw==
+        b=EA+987LbQwW5wkEHy2YElGTaB9A68xcO4I65FqRhhRoFuYLkNKlbrHcMLvnl7WS3Ei
+         NgaVZQbFiTOcfFz+z0+eEGtHk0KWkrGvkw86jvgDUnVGxOvDPlFO8KTfvfDgSnAAHBJT
+         mxiEvdmWjQXlSrvdhipkFBB1URgUqe7CLMWKVdWfyy8CTHikKeHTuGWft2ULSdSPUCmJ
+         Dr6isebagQymZiAsD1/HfbZKP4UIFaR9x5IE4sR2pdQcW9eCIJoetm5HumqJau8GYDs9
+         77L/fLvqvRb1MOmmLWH/ndHJhqUXmZWmM8RajnyNoMlZ141BVQ65K7IZGXljZ/SH8k1o
+         EJIw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=ShFJ37tYDgUceGKsvbI1Lj+I+lmDVp77uHi3KX5zNmg=;
-        b=zgJqcAZmJYWZXzmPi4pShqZ2UsmAzfH9/owuKQ/+BcHjcAM+9UZKoGKuuNLN5DFS+i
-         BaOCKgVQyR5hdKUF/Ew9MWwx7/7PuOKIzKBFksxS63WvcZCJ9ZKqm8HU69XBlo7IlG/M
-         jD/P9ND0nrTso2kFDxW8YYDLAlPed9tKpoRplE3aqFQohyaP4RVdIBcgKX09v0Aj9Cln
-         pUfEIBqNQSoHwBRWwSLXJy2h/c+9gww/RA4AT3mYw01A738OV26BZw2NJiBnqdaQ9qj9
-         s3n4UXDmOSiy+VpMR42goP+cja7La0vjRJlvxtVhb61xD3oxLvM6lv4ZL/hA9j7CPZW8
-         CVwA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=35F9UKFS4c+XbAi9QSSrxoMsFkjGu/nEiX+gJ+81wXM=;
+        b=wVEqrt7KmpuITiajcd3GdaH3pbqOoHGBC4BUYhXo430d9L1chrz+wntIb+P6pSvRDf
+         Wcx43ogtr1bqypCQbkmy0cMJdHFeW1r5CLwk08JujMPU/nMPpYLTRfIa2CbRSogrJqjQ
+         dAGR5oj/iQODApGsqJt8S96a0t16ipOEsRgs4Q60O/llnR1/md20qVkjzkTtOr/fZbwc
+         on52vhz0jG4SCVbWAEVgNKkL10AVqj2UiosYSRsBlTH5PMA8KzUPx/TUBlQL9Bba3hfX
+         v2JSVLCR0X2+FfhPi72F4rcDSxqGDzCXqp48H5ck5pcEbY6ONDbhqZioYLlO1ELSv+0f
+         +TBA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=KXerAm9P;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=9ICw=KJ=goodmis.org=rostedt@kernel.org"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ShFJ37tYDgUceGKsvbI1Lj+I+lmDVp77uHi3KX5zNmg=;
-        b=kBTlsb8qFup9xAG4zjIQ52oXx6RAcYYYXnRr84+kfaAfOBu1zF3DnhHo5bQpHPsRn4
-         QOvGGZoyeBQCFloXRcvxD1JgS907Y39Jls82si2Q9kM0KCdBjjH0Tfy9sRWAQybGe0Nw
-         BB1KqhSayUX+hY7uKCK5UukpAS+vzHFJ5q+PM1l/iI4bngrcLKBbPu+Fb+edgsbSAGT2
-         GloHVmNKjI3oYRTihU/89WjBwsCiVqCAXioqfQLUk9j0z9aVZRTQwG/0EFu6+D3zW/zP
-         giJFHNVypweTsnIMOzAthe3lgJicdiJY3kF7mcVWcmrSKmj3EMGiIya+/4LHGz/RGuUk
-         dOvg==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=35F9UKFS4c+XbAi9QSSrxoMsFkjGu/nEiX+gJ+81wXM=;
+        b=sx7wzfmbjkLFk+abl7OhRk+oVFtBC4aB1PXfnX4bH9sQ7FlYzk34VPY+hM3dV1VA4b
+         ElLKVDOFh4FZhx4B4e2N8SQ2UlwJcqT10FCB6K/qfkJSHieLsLOSQyTx7S0QkzDhVhuV
+         JlP6nPyYHxyoAVWz6siOSaapB2jIzFFn8MSjBYzMPIo3HsmP3DhJC+wMXJ2IJtpmX98Q
+         ncgNmntrPqiIShhuyYI++2aaBEhd35U2KVCARivTli2+DVR0C/m0+lCRvb5pEr9WsRAA
+         923YmOj2hoSn6olFq5ioz9S4AAWDaVyE3fMCI+lWaxUXGk+dKim3CepwU9kdzW1TGR+2
+         Jf8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ShFJ37tYDgUceGKsvbI1Lj+I+lmDVp77uHi3KX5zNmg=;
-        b=JNhPQYx2U43M2GJTBX6HHwQ/1BMSd5fCzmlgosDnMDI2szytS9aUjmT5Avu//T+6VI
-         MG0gYYq1ClgqHt86YfzNnJEd6im6FK4enWDX/z9NDNqmyLmme358mpZLST3fmqpA2gFJ
-         2XT0WYHW27RE2NKlZzjzBKSIdSj5JbPVleq1lnjobZLkTsvH4A1+iDG54C7jDLix4yp4
-         TOemhgzRsj6D4FWm46vmyUuczSFyDnrFTC4chcpq8AsX3M6HXlpvdrmfwzCvtDkIPkO+
-         +oyKSwWhjHvoXnUPp8Sba2Dn1figlckxcZlT62hvjI4+SPi6LrR4M0LqsCaCNuMLAm17
-         QD7w==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=35F9UKFS4c+XbAi9QSSrxoMsFkjGu/nEiX+gJ+81wXM=;
+        b=O0V+OQAkRSMIrwF5JY0I7zv7ogWL/1SHmTCJruC7o5XjksrTl4P0VCJohA9lRssAdY
+         DDm78hLH8iwTceYKDXXgeTgHHmAIUF3jwDql6Vg2UU9dAklpHwkRknZFE7mizkVewhLY
+         XTFITtmZfzr+3D9KtPl+uIJUelty6L+Z3azHh3troBLEPVUgBnGmbcNBgiId2zlh+4fL
+         vWM0ZCvKbUwrBYSHCVrPdaqU4G39L3JT9wlCMmbl0AxwdjuLEwwcx594VxO1b8lVHYSl
+         6h1pL2WoZTrfiNcloPGcN3LUw3FagC31osmwbnlV+z9VAnaRdLOLJ8jE0ZzJnbxHLLr2
+         K8HQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532oI0fchNVn7CMHdgliIlcln1yX75KGADW3FNUzt7ugzV+Mc7W1
-	wzBXjoJnxG45GF6ygqy8vaM=
-X-Google-Smtp-Source: ABdhPJyzY8Ha5z4gMNQYoBjZCx9yS/MUXbnS5GmZL7HzhXRw/IbGql8oUfbhiIZ4iCEJdyTnqLZZ4w==
-X-Received: by 2002:a25:d8d6:: with SMTP id p205mr64785531ybg.252.1621001434969;
-        Fri, 14 May 2021 07:10:34 -0700 (PDT)
+X-Gm-Message-State: AOAM532kGvt6N4OSiIa5I17z5gfTlnHWeuiOLux5jWv9UOY6cROeJs3n
+	ZnWSg1elmIT7H/bOrTHb/gs=
+X-Google-Smtp-Source: ABdhPJxlpFTDSkPIyenHwi2qlJaDa+o4MY1wvfXubYeSoJmDatGJ/A72hHWqTUghHLuoZku88PWhGg==
+X-Received: by 2002:a05:6830:1f52:: with SMTP id u18mr26982987oth.298.1621001773979;
+        Fri, 14 May 2021 07:16:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:b9cc:: with SMTP id y12ls4370748ybj.0.gmail; Fri, 14 May
- 2021 07:10:34 -0700 (PDT)
-X-Received: by 2002:a25:68c3:: with SMTP id d186mr11522192ybc.66.1621001434561;
-        Fri, 14 May 2021 07:10:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621001434; cv=none;
+Received: by 2002:a4a:be92:: with SMTP id o18ls626662oop.1.gmail; Fri, 14 May
+ 2021 07:16:13 -0700 (PDT)
+X-Received: by 2002:a4a:88f2:: with SMTP id q47mr10612067ooh.30.1621001773481;
+        Fri, 14 May 2021 07:16:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621001773; cv=none;
         d=google.com; s=arc-20160816;
-        b=cPeBduOvNtemIbpOefSD3CeVMs8RZ6/txC8fdhvDRHwpzshEsMDVEXfazxZ8Ezy2lx
-         tgm/wIKS326QUmFKv7IHkBpjLd3DIZndKEWwggqS/ZT0FFl6nqS59JxlA4XW1qJGv81w
-         ZvuMQtIQEyi2KctCKDler5MFFNfltMDrIM1PspgCpamPHDynrF5socrzNueaxgdK9l+H
-         Lmd0j1P9ezH9QMW6YQnSJ1bqk0syAujaA743fD5Yvq6rPkCn6nUD3M/b/Uc8O710KOx5
-         Ibys2/rBJ6AnQdDKNykdCxXVAb/5gjxWVwBugLi4pLH5hBhrKluT6SdvRnjpnn1UNTX2
-         ZH5g==
+        b=EtvaFO+rHyx5Q+lrFNiuF60L1PC0Y76xF4Zb4S3p31WcUO4s3VxxG75VITORqW2ucf
+         1WkkhS2wdsgD2iPP7vrhIfzi0yHyfgoJfWtNG2rkF7qcb4ChfHqU7hvaoqiI6yg3W0g3
+         fK1VcNzilDf9YzdmAFTDti74ZPfh6Fv8nMATki6rqy4ZRXaSECyaaEVKM/dKqq6/oNDc
+         5obaX49gC7H8UEnKX22Ufob3n62JnW6BiTrOAyV162ozESDfVwtUyz4sS7viw+vQ6fOG
+         lsdFCvXT8lqPnfbkYhPG9gNq6BevgAyAOrBZKxUumZgtJ3A6qYCht6UM6bF3EvRdwwdW
+         tnSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=0Nxy7Xlpzt2QAaXIetxrlxgQk9jtY2mWLK0b7dOuIHY=;
-        b=T1Zo3aYKcBjWkt7faHz9JVphTdUD2t4F3vyzU8shDJTZcCxtJbu7J0rNcgpyBoEIU8
-         MKR2C7REFdEBli0/fmr3HPgEX7Pq8mctG0qkdox7geJnw6J+vpThHJdOj2PbncwkkIUl
-         QxDYpQU/SzILczU4RLgf0My2C7qiJ0DG0AjacQa4/hoAol2iR0d5eAS0lIh+CzxGOWya
-         TDLbuQP6h+7jdyqPDX9RWwREmuuIM0GfhwZH2BoAmKv+J5uEdgObxXtmTEUThx0TKDk9
-         2iw4ce1y9ZPJKQmZK+W6reBWU+Z4CqjgW6ZbJC1FTXwL2BCJnltz1OPWR8V3zyzKD0Ix
-         ZhKA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date;
+        bh=NQEdCM9Zv9G6EClXvBLdsEG8XB/HNeUXjnJ6LEc1cSQ=;
+        b=ycNkVdxE54y9cAckIkmSb2HLpFEgcSSPk3Vk66+QSd/3fJkl7fPTMiigXaa0OVVtxE
+         VL6D7cQiA4dWEh6NMkLZNLnDLJiCljG5HcsIvRqzvJyFhSE23Qmx5ZTStQrvJTxA+a+9
+         vMawxL4wg66kqe6Kew95qJqWWiD3fmTtONauWwZP3KDxO/teT7hml7So4I4EcGMV2PHO
+         bGu8PXxjluCQTwK2ljHUHaMh3+42TLyUx4kk3wXe8p2fACAkmJI25ZPjFL7uSteT0nKJ
+         ul7XYovDMcc8WIIjNP0q1u9iKkiWXW4C9+geJOIaedmAbTh1vwOMPNYamfJfzmt/1X2/
+         Dp2A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=KXerAm9P;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=9ICw=KJ=goodmis.org=rostedt@kernel.org"
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e5si388051ybb.3.2021.05.14.07.10.34
+        by gmr-mx.google.com with ESMTPS id x16si588966otr.5.2021.05.14.07.16.13
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 07:10:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id EC583613E9;
-	Fri, 14 May 2021 14:10:32 +0000 (UTC)
-Date: Fri, 14 May 2021 16:10:30 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+        Fri, 14 May 2021 07:16:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com [66.24.58.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 9F3AF61404;
+	Fri, 14 May 2021 14:16:11 +0000 (UTC)
+Date: Fri, 14 May 2021 10:16:10 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
 To: Arnd Bergmann <arnd@kernel.org>
-Cc: Marco Elver <elver@google.com>, Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Dmitry Vyukov <dvyukov@google.com>,
-	kasan-dev@googlegroups.com, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] kcsan: fix debugfs initcall return type
-Message-ID: <YJ6E1scEoTATEJav@kroah.com>
-References: <20210514140015.2944744-1-arnd@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ "Steven Rostedt (VMware)" <rostedt@godmis.org>, Tom Zanussi
+ <zanussi@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>, Qiujun Huang
+ <hqjagain@gmail.com>, Tom Rix <trix@redhat.com>,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] tracing: events_hist: avoid using excessive stack space
+Message-ID: <20210514101610.4392adbc@gandalf.local.home>
+In-Reply-To: <20210514140429.3334181-1-arnd@kernel.org>
+References: <20210514140429.3334181-1-arnd@kernel.org>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210514140015.2944744-1-arnd@kernel.org>
-X-Original-Sender: gregkh@linuxfoundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=KXerAm9P;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+X-Original-Sender: rostedt@goodmis.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of srs0=9icw=kj=goodmis.org=rostedt@kernel.org designates
+ 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=9ICw=KJ=goodmis.org=rostedt@kernel.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,45 +128,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, May 14, 2021 at 04:00:08PM +0200, Arnd Bergmann wrote:
+On Fri, 14 May 2021 16:04:25 +0200
+Arnd Bergmann <arnd@kernel.org> wrote:
+
 > From: Arnd Bergmann <arnd@arndb.de>
 > 
-> clang points out that an initcall funciton should return an 'int':
+> In some configurations, clang produces a warning about an overly large
+> amount of stack space used in hist_trigger_print_key():
 > 
-> kernel/kcsan/debugfs.c:274:15: error: returning 'void' from a function with incompatible result type 'int'
-> late_initcall(kcsan_debugfs_init);
-> ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-> include/linux/init.h:292:46: note: expanded from macro 'late_initcall'
->  #define late_initcall(fn)               __define_initcall(fn, 7)
+> kernel/trace/trace_events_hist.c:4594:13: error: stack frame size of 1248 bytes in function 'hist_trigger_print_key' [-Werror,-Wframe-larger-than=]
+> static void hist_trigger_print_key(struct seq_file *m,
 > 
-> Fixes: e36299efe7d7 ("kcsan, debugfs: Move debugfs file creation out of early init")
+> Moving the 'str' variable into a more local scope in the two places
+> where it gets used actually reduces the the used stack space here
+> and gets it below the warning limit, because the compiler can now
+> assume that it is safe to use the same stack slot that it has for
+> the stack of any inline function.
+
+Thanks Arnd for the nice explanation of the rationale for this change.
+
+But I still find it too subtle to my liking that we need to move the
+declaration like this (and duplicate it twice) for internal behavior of the
+compiler (where it can't figure out itself by the use cases if it can
+optimize the stack).
+
+> 
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  kernel/kcsan/debugfs.c | 3 ++-
+>  kernel/trace/trace_events_hist.c | 3 ++-
 >  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/kernel/kcsan/debugfs.c b/kernel/kcsan/debugfs.c
-> index c1dd02f3be8b..e65de172ccf7 100644
-> --- a/kernel/kcsan/debugfs.c
-> +++ b/kernel/kcsan/debugfs.c
-> @@ -266,9 +266,10 @@ static const struct file_operations debugfs_ops =
->  	.release = single_release
->  };
->  
-> -static void __init kcsan_debugfs_init(void)
-> +static int __init kcsan_debugfs_init(void)
+> diff --git a/kernel/trace/trace_events_hist.c b/kernel/trace/trace_events_hist.c
+> index c1abd63f1d6c..e3fe84f017a8 100644
+> --- a/kernel/trace/trace_events_hist.c
+> +++ b/kernel/trace/trace_events_hist.c
+> @@ -4597,7 +4597,6 @@ static void hist_trigger_print_key(struct seq_file *m,
+>  				   struct tracing_map_elt *elt)
 >  {
->  	debugfs_create_file("kcsan", 0644, NULL, NULL, &debugfs_ops);
-> +	return 0;
->  }
->  
->  late_initcall(kcsan_debugfs_init);
-> -- 
-> 2.29.2
-> 
-Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>  	struct hist_field *key_field;
+> -	char str[KSYM_SYMBOL_LEN];
+
+Instead, I think we should just make str static, as this should only be
+called under the event_mutex. To be sure, we can also add:
+
+	/* To protect the static str variable */
+	lockdep_assert_held(&event_mutex);
+
+-- Steve
+
+>  	bool multiline = false;
+>  	const char *field_name;
+>  	unsigned int i;
+> @@ -4617,11 +4616,13 @@ static void hist_trigger_print_key(struct seq_file *m,
+>  			uval = *(u64 *)(key + key_field->offset);
+>  			seq_printf(m, "%s: %llx", field_name, uval);
+>  		} else if (key_field->flags & HIST_FIELD_FL_SYM) {
+> +			char str[KSYM_SYMBOL_LEN];
+>  			uval = *(u64 *)(key + key_field->offset);
+>  			sprint_symbol_no_offset(str, uval);
+>  			seq_printf(m, "%s: [%llx] %-45s", field_name,
+>  				   uval, str);
+>  		} else if (key_field->flags & HIST_FIELD_FL_SYM_OFFSET) {
+> +			char str[KSYM_SYMBOL_LEN];
+>  			uval = *(u64 *)(key + key_field->offset);
+>  			sprint_symbol(str, uval);
+>  			seq_printf(m, "%s: [%llx] %-55s", field_name,
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YJ6E1scEoTATEJav%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514101610.4392adbc%40gandalf.local.home.
