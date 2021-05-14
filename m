@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABBC4F7KCAMGQE5MO326A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBIMF7KCAMGQECDWANFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A2EC9380AF2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:00:45 +0200 (CEST)
-Received: by mail-ot1-x33e.google.com with SMTP id x2-20020a9d62820000b02902e4ff743c4csf13991974otk.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:00:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621000843; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CC7C380AF5
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 16:01:07 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id n1-20020a628f010000b02902a0e02b2be8sf16766496pfd.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 07:01:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621000866; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RHH6K0NL5LjBITMw/YkKXY4zaAnJD4zt4GUR+HkES03P6pwrntiQqbTqk3KCf4BtYJ
-         RgfctXOC9eKd4j3mpBVp8ldsn7jdnu0gENeVrEhWMZ3Y9LSFkMZIgXuUXK1AC+AuY3eu
-         849D1deIfrV2OOc3GBpA+baXMEot86bXRfF+6mVcZ59ws5vTwY1BgyFCD37/pBSD1gtB
-         UtynFPz7dMuCjCZ6ukrgZm4GoIJaY063pABJB1WTYEirClNJ10ajxa964RU1R5Zmpy46
-         m9T8Bqoihl8A4wrgQ/OhQFXEnjhWFtQojhsxFT4kt7xcKZe3QtW0PkleA8ILDAuPV3RV
-         CnVw==
+        b=W/bHfeS73UQoSu26x3RsLQwhCb76t6wN5uyEVyJFQcK3DxDlHCdv2IZ9ynzkH05amc
+         6vIbRxLRHhnOHOLAgteq4xeHE+cAoELCUQQoGOBK7wzjnxoiMbur2Ia3SzidqAAKtpKj
+         00dXP86nUCGvh2lOe1EP0wytp0p18EqRN5EhCZMlgN0abxRmQQTVy8b5iFFqKACbgmPD
+         bfkJ4aJHbGciiGW+Jqff870DZweZMI9rbU377SAoahp0LuEqDOF6COKmFdbNcquXOgoZ
+         BPBFg1Pf5m5CLmbiN7S/dEaR4/gPYUmZy0/MB/hWdc/EJoR0BiAmFYZXVL+8fZ6jxK5m
+         LfSA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=yluIyBl3qWoRZ2nVECB4hG7ZLLcA6+dCkNsT9hahDvo=;
-        b=ie/SLdumHTujFJckYOvUIEqrUMM0p04tIh0RPbmUEdjck55V+zQ/dshRWmmbinZRsJ
-         pc4WNmYGTSINi4CNIJvgN58jthQAR7/i1qsaphRXJH2Tu0/LLyHaBGY3sjkREqv8Zag4
-         B+OXVRfPahsSfFIwRuJJ2UUEIqqTOQ5PSaZuH49A4Xl+GXFIKmwWFbjPUxwuZZ5jWjSK
-         5/436yiYj1PN9KOXCC0W3bH5sHoI5tr10ciGs2DbtST7Fba4jGWHjoDbS7VxBs/YMXI8
-         Ptdtkf+0t9G9L10vMRrsOaX6fqWReR6y8X+sEVhvnZgK0Ie1J9P/FYPw4iMe0UtwRhxR
-         iwbg==
+        bh=xGyhAdYdSA5B9Su874C5JOpEewHeqbzJO2nJ6HLipXs=;
+        b=V4nq3fb/EizvNpIyXQ/tOpDclyp6ZoSoeNLwA9b7ogUpu8zqQsKYxYHU232WzmVmEG
+         y1eUry9C2w57jludYsFuDkkcZDDxIT32XZqth/2IrKG/0p8m36tazpL5SKn6soJK3Duk
+         zTXXwuO0waVb5TXp2dd18qTjYgPlwqa+71ijrW5Q2kL9EzBmxke/BthglH3msdVpyCt8
+         kjCUjces1UGaXQ39dfKSTaJQXlvdtxgTNyrSF8GNszqrNL6DAMR7Ka6oNFMT7liZwLqG
+         UnSFGOYsfBnXCuyq4m2wNURBGIT35YVwivpOKJIt8fCDqInZC4Ayw7iMFWGpips8/mWS
+         UoGw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=TrZQ1cvC;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="DJxi/6vL";
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,86 +35,85 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yluIyBl3qWoRZ2nVECB4hG7ZLLcA6+dCkNsT9hahDvo=;
-        b=NbS5tTbhz2KCSqdowRA/epIts9kmZCCt/SxUF6GPAoXGynZbfWfcLNMXK6BYLroOay
-         kJAg3n8MvzMwDYEMzyeiX8rb7ERUp0ohc1E/dSOLF1B3ymgW2G1gwD5MBOgvbav7q3xC
-         tNo1/U7R/PrKMyY+r+CxEHCS68UL2qZL4+pTBgn3F4o/YJUR+iJvgeJAAt+R010vc2cg
-         dM2ARVGM4lUKWEhf5dHS724MlgqRHHP3s/mG12P0G7rdtTQahEQOXVmbp20c/K24FzAd
-         75DcoZV6avwpZy6FPUkRYrkFgpqXlenQ43iGmXNlT2/4Annt3RTx98d4HNmmXd2EsrPK
-         Rlvg==
+        bh=xGyhAdYdSA5B9Su874C5JOpEewHeqbzJO2nJ6HLipXs=;
+        b=rncHvklHlxmfpNnCldpwTJAXWn6Wz5xzuM15hdT9zBv5b9zSFuCbU0KMfY0pJXwdXd
+         N2h63AT3xVW0gcOcq6nQ06hvsG3gZ0w1VyfGhyIwmAaEIJ/VY/2D0yGOnqycyThwGAZk
+         3W+/BHZ+W0UmjpKeo4DU04Uy8vEmouLVxLeHrH6oOQfEn0Tz+dxRUVWcAjB7SoZRXjL9
+         J0WMXo/DaLtvrz3dbiW1ySoNsPXzXyyLMA1pC/lZghI+yNUwnwpQmg2I8hclv7oVuRYb
+         bY5VR776A+50hxGHP0Q3FpyoQX1lRVruShRLwMU1o6G78G2L6SSkWBmZaXF0xLLKcZ7d
+         ibUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yluIyBl3qWoRZ2nVECB4hG7ZLLcA6+dCkNsT9hahDvo=;
-        b=Mbk8Z4Rk8QhhIW8vE1GRqrFP5GV5bFS0X/daF/roUxA6J8BkI176Cpy4TG+tUJ+f2c
-         aGFhh0Yp9ybG9Bwv/mTWgo7Vj3xFbiTM7X43QloDd12rbo3cJ6vSUzpLy1OrOViQ9KTr
-         4ocVqR7B+VcdKT1imHTvvlFd420TMqvFn1fhd9jJq9fx5haOubVLqGhOvms5nH7KBjQ7
-         z4Z4/FiO03YPv5jMdGNX2fOQLPQ//h5PM/BxykJLn0DexMWCMKWcaXY8M1J6pFuDzLHM
-         cKBqY8Qcs6Lb98bFOsmAsQul5SyThWi6WG2Wi8Nh46dP4dShmt4FX9UUO+VeJ4366MJP
-         8htA==
+        bh=xGyhAdYdSA5B9Su874C5JOpEewHeqbzJO2nJ6HLipXs=;
+        b=p2Bs81AYCfUiXCmqSBGC16Jd+yd+ot1w0A49mBkJjC5/zGvoSvoJRlrWtNq26grYTO
+         6M3NOhf08AWijsO5N5WqKKzKlSKwcP5c4fU2fwzPpIGn/2hRQDgJIOzPDKtzJLrnVCLp
+         /NYgMOpxOZQWFIH+K1K2xik8Rm0pvDtO8kGzBXiHIHIz2bWljn2L1zzXdiw0UgYH5Jo0
+         QHkYKdOMgpfKBP7Rz1U3+LaaQWwgMVGQsni5AgsJ77QyzyGwcT70WiEHDFctl6nwqNKz
+         RJrrmd58+t1nb5junQvBp/jCN5P3WHmghjp+rtlOWNmaunxixMea52P/t6oqIbmk7rI8
+         xThg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530F/YcuiDefKdCCdTtVIr2fmAUXjsi9nqVa7iRFSy2w+LUsqpWP
-	8VPHIDya/E6mdTdJ+jqvqd0=
-X-Google-Smtp-Source: ABdhPJw8+vj7BOw2kinFn9NVnFA1nyYSubmWOit6yDh2tj4jC1Zxx7kRP9p4Qi8yJkPDVM4N5NGE5A==
-X-Received: by 2002:a9d:4115:: with SMTP id o21mr40177791ote.52.1621000843477;
-        Fri, 14 May 2021 07:00:43 -0700 (PDT)
+X-Gm-Message-State: AOAM532V2hMKT8/ReIvnBoXVwaopqY/GPZAQFqNjeIUk7ABy0Kp7Y3rd
+	s/8Pd6bOYOesvPFDxOCelUc=
+X-Google-Smtp-Source: ABdhPJygL9Z60Dh8wWvvL0S8Jm8Em/S6RGDfHYZLBDLJwifXVAPN2/V2ofBy4zluFHNGGO7HZeb2ZQ==
+X-Received: by 2002:a17:90a:ce92:: with SMTP id g18mr11438279pju.214.1621000866057;
+        Fri, 14 May 2021 07:01:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7b46:: with SMTP id f6ls2610100oto.2.gmail; Fri, 14 May
- 2021 07:00:42 -0700 (PDT)
-X-Received: by 2002:a9d:c64:: with SMTP id 91mr15852604otr.130.1621000842839;
-        Fri, 14 May 2021 07:00:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621000842; cv=none;
+Received: by 2002:a17:902:144:: with SMTP id 62ls4982289plb.11.gmail; Fri, 14
+ May 2021 07:01:05 -0700 (PDT)
+X-Received: by 2002:a17:902:8c97:b029:ee:f8c1:7bbe with SMTP id t23-20020a1709028c97b02900eef8c17bbemr46076368plo.8.1621000865627;
+        Fri, 14 May 2021 07:01:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621000865; cv=none;
         d=google.com; s=arc-20160816;
-        b=xt2mFEBpcATUn+G4ExdZrw2lCylNTfq8eOmZ+DVQDDwFnvw+XVlqMrYhaWxuHPLi+G
-         Re52Ho+p8J5LZ3m3Z3rOULHVIkShXA6NrL/le4StcghGJLKxOogNpDTdrH/SH7CstaUV
-         4EjMIUA3iZUk4+H1jka9aU0zltiYfu1ZXt4EX4qNvXovlws/q6sTHITVoHeK+TM6vzBO
-         25B03lK6UjhggCp91hxn4SbwV1fkeb/Jcw7Q8dEeAuSsFKm5cU8yyf5pF5yuYveIyU2I
-         LEE6NzMm0n/BIAuW6wYWKdEu//Ztpw4v9G7Y5xWH2ogtZ72e53A90qARVJPWYN3oIIXj
-         jALw==
+        b=zLusimw6Vdcbt+5m7LjVfOh9nyT/kOI8c1kAFDOXyJdYLBG9oQahJnNgHIYK9qJiKE
+         VYx8XMb47evDMd5388zMjbLWbY3FmOsboVlA2ix0A7ol9Rlm5pr3sWmiKg+mm3/wEvdo
+         k/WCLJhMb76E58d2QKkr2zqtdZew5GSRcefUTZNxIdHBRnKtnLVvss2A4BMXw2Hm7iD+
+         NH0XQu/U29kedrAO08awu7sbItO+8P+DYnnICmuYU6HAZogdstMPS0w9kqCG6A7rJd9p
+         gtIM7HK8YR64Xh4VMvA7wgcHp1bgxhHDW3Nl8GvItnzi4m+whhbfjCLYrJcY/Y9cGScr
+         eGqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=CTnTBqRuc3lyLGEf5emBKvPR1WhrNPfm7mAqvVaf7UM=;
-        b=C9xKB+hhcSHWfhqEjD2vcVxqZzLMCuPc2qRPUQphdkfKSY5HnFbYVY642j4B8Jlcmb
-         rhRUmV/bFR8Ez1+niwOlwBe038OEApy2g6vbjv2c9qEG572Cd2ckmtNOJnDFIhoY87/F
-         p3EI05RKZMYAW856PqQ+9o7Ez1YfFiFLCkpQVQieWyVEdHqvn8EIyzz3Or7WaLgBbsoA
-         HU4CfjoEDYIaGg11XdoAXI9DmiGrYrHQm5WSSLnoNHsFNk96NpRq0SVf6R4NGDrpMoIu
-         HfVF9FkxfrTWlGEwLZ4Rmg4Gwb5iLwPcLBvvvOIX2NXOhXv/EjB1aKf2i+LWDRcX/+j1
-         oM9w==
+        bh=LyHlpW2UlOKG0QIogMUPiiTW9+pWu5cPlFoocFtCwuA=;
+        b=nXWrALZZSZsma8qvug8m9MLeJ5Wf06rWZBZITa3iKa5/jRx8PGGPw/6I5IHwhskhS2
+         tDXxQaWPKbxGrXqz91Rm9muUsQJCbZ5LuVj+/8qWNEDP0xxYtewlX8wDaRqlScsZb8t/
+         tqRPiGwaQac01BVJDOTkJy/QJAwnd1Li9G8xsDINcdqRh194pNyzIKG6+BxAe3u0G9CA
+         BjP6rL22DLBik4AJi64PfPMt46M6frKQ0tr8W8H9DLJQ97BJiJ02MGwUt8BI2rcFT0O2
+         mdEs/piKTeAKKCvQNAJ74UZ42LPUK5OvUG2emv9y7kTi/i1Cn6O6v7FibNB83FJC/Xr+
+         Rf0A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=TrZQ1cvC;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="DJxi/6vL";
        spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x16si583679otr.5.2021.05.14.07.00.42
-        for <clang-built-linux@googlegroups.com>
+        by gmr-mx.google.com with ESMTPS id ep1si624972pjb.2.2021.05.14.07.01.05
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 May 2021 07:00:42 -0700 (PDT)
+        Fri, 14 May 2021 07:01:05 -0700 (PDT)
 Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3380D6101A;
-	Fri, 14 May 2021 14:00:40 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5158561461;
+	Fri, 14 May 2021 14:01:03 +0000 (UTC)
 From: Arnd Bergmann <arnd@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>,
+To: Marco Elver <elver@google.com>,
 	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>
+	Nick Desaulniers <ndesaulniers@google.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	David Hildenbrand <david@redhat.com>,
-	Wei Yang <richard.weiyang@linux.alibaba.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	linux-mm@kvack.org,
+	Dmitry Vyukov <dvyukov@google.com>,
+	kasan-dev@googlegroups.com,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] mm/shuffle: fix section mismatch warning
-Date: Fri, 14 May 2021 15:59:48 +0200
-Message-Id: <20210514135952.2928094-1-arnd@kernel.org>
+Subject: [PATCH] kcsan: fix debugfs initcall return type
+Date: Fri, 14 May 2021 16:00:08 +0200
+Message-Id: <20210514140015.2944744-1-arnd@kernel.org>
 X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
 X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=TrZQ1cvC;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b="DJxi/6vL";       spf=pass
  (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -133,50 +132,40 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-clang sometimes decides not to inline shuffle_zone(), but it calls
-a __meminit function. Without the extra __meminit annotation we get
-this warning:
+clang points out that an initcall funciton should return an 'int':
 
-WARNING: modpost: vmlinux.o(.text+0x2a86d4): Section mismatch in reference from the function shuffle_zone() to the function .meminit.text:__shuffle_zone()
-The function shuffle_zone() references
-the function __meminit __shuffle_zone().
-This is often because shuffle_zone lacks a __meminit
-annotation or the annotation of __shuffle_zone is wrong.
+kernel/kcsan/debugfs.c:274:15: error: returning 'void' from a function with incompatible result type 'int'
+late_initcall(kcsan_debugfs_init);
+~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+include/linux/init.h:292:46: note: expanded from macro 'late_initcall'
+ #define late_initcall(fn)               __define_initcall(fn, 7)
 
-shuffle_free_memory() did not show the same problem in my tests, but
-it could happen in theory as well, so mark both as __meminit.
-
+Fixes: e36299efe7d7 ("kcsan, debugfs: Move debugfs file creation out of early init")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- mm/shuffle.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ kernel/kcsan/debugfs.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/mm/shuffle.h b/mm/shuffle.h
-index 71b784f0b7c3..cec62984f7d3 100644
---- a/mm/shuffle.h
-+++ b/mm/shuffle.h
-@@ -10,7 +10,7 @@
- DECLARE_STATIC_KEY_FALSE(page_alloc_shuffle_key);
- extern void __shuffle_free_memory(pg_data_t *pgdat);
- extern bool shuffle_pick_tail(void);
--static inline void shuffle_free_memory(pg_data_t *pgdat)
-+static inline void __meminit shuffle_free_memory(pg_data_t *pgdat)
+diff --git a/kernel/kcsan/debugfs.c b/kernel/kcsan/debugfs.c
+index c1dd02f3be8b..e65de172ccf7 100644
+--- a/kernel/kcsan/debugfs.c
++++ b/kernel/kcsan/debugfs.c
+@@ -266,9 +266,10 @@ static const struct file_operations debugfs_ops =
+ 	.release = single_release
+ };
+ 
+-static void __init kcsan_debugfs_init(void)
++static int __init kcsan_debugfs_init(void)
  {
- 	if (!static_branch_unlikely(&page_alloc_shuffle_key))
- 		return;
-@@ -18,7 +18,7 @@ static inline void shuffle_free_memory(pg_data_t *pgdat)
+ 	debugfs_create_file("kcsan", 0644, NULL, NULL, &debugfs_ops);
++	return 0;
  }
  
- extern void __shuffle_zone(struct zone *z);
--static inline void shuffle_zone(struct zone *z)
-+static inline void __meminit shuffle_zone(struct zone *z)
- {
- 	if (!static_branch_unlikely(&page_alloc_shuffle_key))
- 		return;
+ late_initcall(kcsan_debugfs_init);
 -- 
 2.29.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514135952.2928094-1-arnd%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210514140015.2944744-1-arnd%40kernel.org.
