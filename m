@@ -1,146 +1,127 @@
-Return-Path: <clang-built-linux+bncBDUIPVEV74KRBEPE7OCAMGQE5SIMVLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP2BTH47YBRBJHJ7OCAMGQEVDNIOZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 37288381371
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 23:56:34 +0200 (CEST)
-Received: by mail-wr1-x437.google.com with SMTP id l2-20020adf9f020000b029010d6bb7f1cbsf280931wrf.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 14:56:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621029394; cv=pass;
+Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
+	by mail.lfdr.de (Postfix) with ESMTPS id C578238137B
+	for <lists+clang-built-linux@lfdr.de>; Sat, 15 May 2021 00:07:33 +0200 (CEST)
+Received: by mail-qv1-xf40.google.com with SMTP id d11-20020a0cdb0b0000b02901c0da4391d5sf525301qvk.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 May 2021 15:07:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621030053; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pCc0p6aS+q7v05GvlCBLLPy5t6j/0D3/crPiiFE3BWaICGXCRgacfgR6/VYIWidWTt
-         pDIFbGMUonbFrNhfc4nnJiWRHx0DocTm+u8TUpELamY2y7+ecTHqx9Aboh97w//i31OV
-         qTzuMyP5MZDiFgeQO6y9+GXsMdm5vBOlbZcw8CmklKft/emk+PbrpWxB3z2crmxoXeyJ
-         e6yvYT7qmwK9yNXaBudMOQoB1LvGGn3XR39+TQep/rTsz0/AlVxHp1bLsvnYRrr9QP04
-         5gDU7pGfmTqP6BMc8L4Ba66Iz0fGqpeaXW3vCm5STMJ/wmPBjlCaILl5Ha4MhdphQoV0
-         b67A==
+        b=1EOiTaAGIHYw37a/sP1bo9BiWM/AEr9gAQnZXiz0kjj92U4EBQpw6sqeiqYYqNxGu3
+         9E+TeQ4s6nJu9wRQffLFMiAJuE/K9GzlvEenz2v4i2SxDopUQ1B/hqHo/L+xSa+u6piI
+         KxAZKvffQ0YhgUrzFywdFUriNcWx1YKoVzl7TtrwOpjCbh3+0Y41kDRHCYdqvCAcMXKN
+         JPIBKhBDdS2aHxFQCtx0PT8qBhqvMCbfQ6f9iB2+UlvesZTPtHpuBkef/vn83bIeRc1T
+         YEC3R3ET56+8gGZlhaOIX8qavL5UaJhG8IU5gwwcIUnSm8PeEn8zz5saRteDyisDymqk
+         BP5w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature:dkim-signature;
-        bh=e+ypaVtDmne5tUTn61i9X9hRMYnei0QetjVYmf0SDpA=;
-        b=s9b31Zdn2uq6eFilZkSqx4h9OvZVg1dTGquQ14UQhdv5UYLMIsadZQ5xX40uyNaXzr
-         Fg2tIyWyObTzZDRNhMK5M0LjqtN6moyKn385rDs+UsHsgND870lhsdMmbFzyS3Q9V/6I
-         T/v9fxgFHPFsEyX+Tgdzym07Rec1VUSLmJmFkqBNOCnE04wrenqHLta5eK/MGlY2JhpY
-         xqMD7fI5doJ0l7kpOh6ZYILavqoID+4ORWqNPW0DdcSlsuqLAPxQwoPe7JE+vqAkB2S8
-         2ylHhAPYN7D4jtf31FNv9IKzPTJMot2yMp0x0KNMz6wJkr9z027fZALxDEb1tjW6vip6
-         /9Dw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=WmDJxK+8hm+gHfoYPF2EwPWgMLXHdNiv3sn7PryNvEo=;
+        b=NXcVNpAToBykgRi5pa09YixRApqJ7tfVDQwf6itNrKtI4NuFY+dQSZgXxgqZqEcq50
+         Y7C56wdUOn7x1h1IY9Zg1TsXKoyBtAR+P7IR+Mrcx9OOag7g5qEbM7sd4UpXO0Gnqmab
+         9JV6hXh2ZS5yhFaBUk+0+vy6+i5NQ0r+FhEaatvP7INNMf+et+iIcqxB1UY6STj62xkz
+         MWz5RkaQUCwlJNCXKkkstIFE6clHCDsq3u3uOXKm7Z7Nt4ijFLvpYR0Q4LgJ62nD/Ijx
+         0s25Rnj6zcJpYdxZn2gGcptU6ZrvUfIptX0GdTeO4sEpfovqddDDfwCu/f/Wu3ELjCt1
+         IoFw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RNmz0J1a;
-       spf=pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::52d as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="dx1Df5/y";
+       spf=pass (google.com: domain of dmitry.baryshkov@linaro.org designates 2607:f8b0:4864:20::835 as permitted sender) smtp.mailfrom=dmitry.baryshkov@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=e+ypaVtDmne5tUTn61i9X9hRMYnei0QetjVYmf0SDpA=;
-        b=rCiggEDIcEyKKQHsvBcmGo7u2Tr85JLZluzq/oGcuaDuVub2MYjPYSLUaByubXJGLN
-         kKjMOvDdns96win2Gl4fAwOrt8StDPYPpN115etlqST4q7K4h8Qsvs/gIEU64OPtSBko
-         WlJ9rG/2Jd11+rDiTrFrDR/p6uTR+1A7hK1ASlRopXFKtGhSKRriGMxx8GfJObwQLlTh
-         L4xE69R9ar4fXWnysRs180E5gC8OvN6ph53bi18f/9lQoKVs6OUEBN+sd/u/ZJcS5syG
-         wTqOKvyhg/P42W+sUf/Y1nYoiTqcE5cRC3eO2qeT4LTXD+F0eYgAAYjV3oYXQo41oebO
-         e76w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=e+ypaVtDmne5tUTn61i9X9hRMYnei0QetjVYmf0SDpA=;
-        b=oJegdn46MSuLqFLdhbF0gKkiGqVPC1kEQEezzDcoQoTJ30hk7VH9xjovC/zILm+Eaq
-         +ZUlDHe+sNsl8JxmFlYor/Qpd2nujOrranBiiLHudV7b6Fi/LrH+6jDdznmQS3pl0Bjm
-         yzDZQpXsXeWE1dXH1uz7fk0cw9qAJpLvRLMY3RIEeuRjyOpVsI7+51zE8DkOyHRJRqar
-         OZzD0gOay97rnoDpPkZ/tQjDtDUaqgnZ+ElXatjqVZCrNZ84hTs9D2hy6CVsfztVeDbS
-         pxliDtd6TC5naRJYeORn4hy0VhwONlmKYFLnqEc8WPNtthBWRk0uwEmYM0d6GZw/5bJa
-         9jbg==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WmDJxK+8hm+gHfoYPF2EwPWgMLXHdNiv3sn7PryNvEo=;
+        b=c6jD45OnU0sSkjNkU2UrR1nwwUXjk0Cq8WivtYsl1iiNteq3dQiWlJR94nn8r47wQy
+         TQTvhXtIzy86R9XWsTfcrwBXWPPiTGNQioG73WgicFuT3MAv56Y6a+yoA+fHvVZDV9dW
+         mOV9Yjia5LBq+kYppghOkQdEzhSpIw4icwVjpFxOYaX+hMwLE4qN6e6h1kc8gdj2a8fM
+         Zko32Km10jVSCCnOMR0/p/F6DMEDm5Zt57OS/5g2dkRZr8PBEcBiUM1RxJWkZnLdi81I
+         Lex49OTZFGikNXG3G5PKNxsBnjJkeZK3fsSF1vp56bukle5zZHPxRLg/oqgRDTo98nJP
+         8tIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=e+ypaVtDmne5tUTn61i9X9hRMYnei0QetjVYmf0SDpA=;
-        b=Sf4jdl+i9TDZM2ilDG/pzze1bzu7rgj5FV1CV3jHtagpE6J5L+COtYYt3uOLDdRZiZ
-         1pmxs/27fElshH7aMJIb4XS4GkuGhhTQ3/Bv7an/9OasJmx0HZ1UMmh49StDJTWweldP
-         bX2WzsyQ284AWrIKdFdNeg9Yoz3Sj2V0oNVcKXx8UG+4otEwcwt+yjEvFzxbVQIH4wac
-         oxNK2BqaLzT0kuF4EGIj5VWPgro2tvbEQurMXT84VDNZ4LJgb39ucQi5zKwKur8PHbVv
-         mydbCbE1RH6vbyLnvWORxgdyFn/4iTGCb3SwzdI5Q4vt+HtjaP1UL5ytDSk5qcNnWaLA
-         y9ZA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WmDJxK+8hm+gHfoYPF2EwPWgMLXHdNiv3sn7PryNvEo=;
+        b=fn6AMt2GpqMsZwQDiTstZdlzCF8mLPfXa+P7EHH861bcd6ODQTCoUhBOPKmojppwsP
+         teYAGeHroet3oz0AxJrQPGSJgtGVRTJUAvzz+fLjCHeWbrIJGlt0wU6P2Atg4QtogFAa
+         tcu0zpRWPRVBlj7thV0UcaMwHa/+5uy81yYk1YNfZ+yw30KkVvZN4HKnmzjcRYgcaeof
+         3A30fLCfw52A82dkV5CotHWu1XhYeoqV1j7LW1rjAz9oIxoKcTvCFMCFzZxp2rI+zad/
+         Ke1NQN+BM2eMxZQBmkcnjd85t5SfLSO+51YjqLNMZIkku5AR1XVTlPSasHH11O/JDA2j
+         QrGA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530QNsqwyRYzM+DClk6HVhJSnzBcO2co240+3JL6aMyAvT+TWufn
-	2MsSrMADA5hrZ6QUhQxpThU=
-X-Google-Smtp-Source: ABdhPJwyXhLY8nXwgQmnGtmkh1flqj8sM6ks6N80bogDB2kax6ojxqJ9xSl0RCy94S8izLsoKyRThw==
-X-Received: by 2002:a05:600c:293:: with SMTP id 19mr52052306wmk.144.1621029394023;
-        Fri, 14 May 2021 14:56:34 -0700 (PDT)
+X-Gm-Message-State: AOAM530Dg/0efbgtMQ5W1uOG0/ZEWljX6M3e8Dh6S5QVzzNAlgPMMaNJ
+	0Vf6pj5/Wke0Whx1j8/g9aQ=
+X-Google-Smtp-Source: ABdhPJz1j2F86utOROK0ZwGanyH+wKGnr9R0AGMTQLQ0qFzaf2taYu963DrOaGY3Etg7STjNc6wTUg==
+X-Received: by 2002:ac8:76d2:: with SMTP id q18mr45495095qtr.359.1621030052931;
+        Fri, 14 May 2021 15:07:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:9b95:: with SMTP id d21ls152143wrc.0.gmail; Fri, 14 May
- 2021 14:56:33 -0700 (PDT)
-X-Received: by 2002:a5d:6b52:: with SMTP id x18mr14639153wrw.11.1621029393181;
-        Fri, 14 May 2021 14:56:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621029393; cv=none;
+Received: by 2002:ac8:4f54:: with SMTP id i20ls5267185qtw.3.gmail; Fri, 14 May
+ 2021 15:07:32 -0700 (PDT)
+X-Received: by 2002:ac8:5ac2:: with SMTP id d2mr19913485qtd.154.1621030052482;
+        Fri, 14 May 2021 15:07:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621030052; cv=none;
         d=google.com; s=arc-20160816;
-        b=xlJkI/pv8AhCOjl3O6PTuK3i4a6dlw614KxufW+Qitn2EF3SJrsPOKW2UBsM/XvCoM
-         Sqc4OAnXCha7r20Drb5yxkT4nVKIK7UTu8lO64cYN9waoSVkRpBB/MBijfd5tarBtQTF
-         RehuyceT8UnuDdyrNyzF23lGP3clF+DIkHqdZttwub4nP+n7TCgOW4/5ZMup/fNdgI8Z
-         JbGq7AKqU7axGrB70IEmm+6t5eSjBlggmY1IjxTXDA5IoY+vtF8NaSP8Xl3P+cNXGs64
-         LcmJvMkuY9ysFmtvN1HeY48ciHcbnlnugVhFa7OCcPWGXlpeOlM9hRMBSdTSVdnY5R1E
-         U/ww==
+        b=i/JO3cH/eiDhyphTsO9QacfT/vEZng1mHw7izYvdhlO5fBDPGnQqq14XzTY9Bm8lM7
+         /80uOt96b5OZT/iLYbnq2h+xqe2I0PcoaB5J+Hfo4WX2zI9mS2Few1E1e+8VJi9huCz0
+         KqOK1FvASb7ktmweT/Y0TYcgy10v/l8Wi2DwSd6XTWTRlm43bu6Qdk27kYNGsh08EJWJ
+         0Fr0GqUb0UreRU7my3c/SkdSIfraffwtb2tbgQ7sGemdwIKSkHF3+02aLNT5iA8s2kEV
+         6RvJl7pXABDFGyRESQtI9WgeEHU5Uiy/tbPP+rl0ETfFZqLkD3jDVLNcR3AzZm94Z0KZ
+         7DnA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=61B9WevOpoQNzFK6pLWh/9kRzelEclfMSAISHfMU93Y=;
-        b=HsI+PU6hutBNq5bNzFT4GSDB4gZ7Mr8C4bpRN5F7sl+4OoqYQdfSp7gRG56zz8Ps+p
-         cZ46P1iVf4nq8j5+qz1nhy7EJJ1f2WbNJDPzIxdGfvOVpQ9YuXOI77ML7hBTClhEYBii
-         HsBUKxeOg4ioiBCAcqEJZLCPr5SZRMz2e0BVBCmYxF3/366wIik3SSJRxicRX6YM0k4P
-         CWJ6I498ItYdt8xDxh7oO3vDBFj5p9aPSXFrNb3mVyfeey+JUiQS/wtz9bv8bEUbEhC9
-         tXMEbhSH9cieJIj67dtK6MTu38tjdolRU7AqghvxM1gywdZ+CMg+KyC4a2akiqGpyKeB
-         MfxA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=IbrQjxkb0K3z7ZkPDbwumBPr7QnDKgJDV9MYg72KtXI=;
+        b=mJoWWH5/Y5mG8WNNpCH9Anh93TI0lCdSLG7hZkezpujYN9jwH4rzl3/nPViSbkE2pH
+         fvjwIV9y4BeDb7wLvzTQb1HqsJChypGmxjplzp0kv6XLN6OFta3qJXxrofFGkUgWmchb
+         iFa/SBc8k7VPSWSrcP8PaYts7Gu59ermD1lZGc7xVeXv67EOPEWlH7LZtq1rWiuB/8um
+         Q7N5eXcLCiDWlwL1XtzshsCRhZIra1ZzqZLtYnoYOf28+lUNlxMrGq7nYdh9j7PzrB+a
+         F+U7kYIXoAek/PBTvX2FdFdodep+LPm9giGEX/gkuaohBLXEOlxkN987lQngtxnaMYAi
+         zpPg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RNmz0J1a;
-       spf=pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::52d as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ed1-x52d.google.com (mail-ed1-x52d.google.com. [2a00:1450:4864:20::52d])
-        by gmr-mx.google.com with ESMTPS id o11si80261wmc.0.2021.05.14.14.56.33
+       dkim=pass header.i=@linaro.org header.s=google header.b="dx1Df5/y";
+       spf=pass (google.com: domain of dmitry.baryshkov@linaro.org designates 2607:f8b0:4864:20::835 as permitted sender) smtp.mailfrom=dmitry.baryshkov@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-qt1-x835.google.com (mail-qt1-x835.google.com. [2607:f8b0:4864:20::835])
+        by gmr-mx.google.com with ESMTPS id k15si594802qtu.0.2021.05.14.15.07.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 May 2021 14:56:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::52d as permitted sender) client-ip=2a00:1450:4864:20::52d;
-Received: by mail-ed1-x52d.google.com with SMTP id di13so200278edb.2
-        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 14:56:33 -0700 (PDT)
-X-Received: by 2002:aa7:c7cc:: with SMTP id o12mr59525984eds.291.1621029392754;
-        Fri, 14 May 2021 14:56:32 -0700 (PDT)
-Received: from [192.168.2.120] (pd9e5a369.dip0.t-ipconnect.de. [217.229.163.105])
-        by smtp.gmail.com with ESMTPSA id d25sm4220668ejd.59.2021.05.14.14.56.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 May 2021 14:56:32 -0700 (PDT)
-Subject: Re: [PATCH] [v2] platform/surface: aggregator: avoid clang
- -Wconstant-conversion warning
-To: Arnd Bergmann <arnd@kernel.org>, Hans de Goede <hdegoede@redhat.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, platform-driver-x86@vger.kernel.org,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20210514200453.1542978-1-arnd@kernel.org>
-From: Maximilian Luz <luzmaximilian@gmail.com>
-Message-ID: <aa141212-ce68-5f07-c656-8489ff9e7b5f@gmail.com>
-Date: Fri, 14 May 2021 23:56:27 +0200
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+        Fri, 14 May 2021 15:07:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dmitry.baryshkov@linaro.org designates 2607:f8b0:4864:20::835 as permitted sender) client-ip=2607:f8b0:4864:20::835;
+Received: by mail-qt1-x835.google.com with SMTP id y12so685487qtx.11
+        for <clang-built-linux@googlegroups.com>; Fri, 14 May 2021 15:07:32 -0700 (PDT)
+X-Received: by 2002:ac8:5810:: with SMTP id g16mr44371397qtg.135.1621030052188;
+ Fri, 14 May 2021 15:07:32 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210514200453.1542978-1-arnd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: luzmaximilian@gmail.com
+References: <20210514213032.575161-1-arnd@kernel.org>
+In-Reply-To: <20210514213032.575161-1-arnd@kernel.org>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Sat, 15 May 2021 01:07:21 +0300
+Message-ID: <CAA8EJpoo=VS1Nk-3CpyraDFzF+0xe3SWxkVt7M=8aBNhbdh_hQ@mail.gmail.com>
+Subject: Re: [PATCH] drm/msm/dsi: fix 32-bit clang warning
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Rob Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>, 
+	David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>, Arnd Bergmann <arnd@arndb.de>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Abhinav Kumar <abhinavk@codeaurora.org>, Jonathan Marek <jonathan@marek.ca>, 
+	"open list:DRM DRIVER FOR MSM ADRENO GPU" <linux-arm-msm@vger.kernel.org>, 
+	"open list:DRM DRIVER FOR MSM ADRENO GPU" <dri-devel@lists.freedesktop.org>, 
+	freedreno <freedreno@lists.freedesktop.org>, open list <linux-kernel@vger.kernel.org>, 
+	clang-built-linux@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: dmitry.baryshkov@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=RNmz0J1a;       spf=pass
- (google.com: domain of luzmaximilian@gmail.com designates 2a00:1450:4864:20::52d
- as permitted sender) smtp.mailfrom=luzmaximilian@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b="dx1Df5/y";       spf=pass
+ (google.com: domain of dmitry.baryshkov@linaro.org designates
+ 2607:f8b0:4864:20::835 as permitted sender) smtp.mailfrom=dmitry.baryshkov@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,64 +134,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 14/05/2021 22:04, Arnd Bergmann wrote:
+On Sat, 15 May 2021 at 00:31, Arnd Bergmann <arnd@kernel.org> wrote:
+>
 > From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Clang complains about the assignment of SSAM_ANY_IID to
-> ssam_device_uid->instance:
-> 
-> drivers/platform/surface/surface_aggregator_registry.c:478:25: error: implicit conversion from 'int' to '__u8' (aka 'unsigned char') changes value from 65535 to 255 [-Werror,-Wconstant-conversion]
->          { SSAM_VDEV(HUB, 0x02, SSAM_ANY_IID, 0x00) },
->          ~                      ^~~~~~~~~~~~
-> include/linux/surface_aggregator/device.h:71:23: note: expanded from macro 'SSAM_ANY_IID'
->   #define SSAM_ANY_IID            0xffff
->                                  ^~~~~~
-> include/linux/surface_aggregator/device.h:126:63: note: expanded from macro 'SSAM_VDEV'
->          SSAM_DEVICE(SSAM_DOMAIN_VIRTUAL, SSAM_VIRTUAL_TC_##cat, tid, iid, fun)
->                                                                       ^~~
-> include/linux/surface_aggregator/device.h:102:41: note: expanded from macro 'SSAM_DEVICE'
->          .instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,                        \
->                                                 ^~~
-> 
-> The assignment doesn't actually happen, but clang checks the type limits
-> before checking whether this assignment is reached. Replace the ?:
-> operator with a __builtin_choose_expr() invocation that avoids the
-> warning for the untaken part.
-> 
-> Fixes: eb0e90a82098 ("platform/surface: aggregator: Add dedicated bus and device type")
-> Cc: platform-driver-x86@vger.kernel.org
+>
+> clang is a little overzealous with warning about a constant conversion
+> in an untaken branch of a ternary expression:
+>
+> drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: error: implicit conversion from 'unsigned long long' to 'unsigned long' changes value from 5000000000 to 705032704 [-Werror,-Wconstant-conversion]
+>         .max_pll_rate = (5000000000ULL < ULONG_MAX) ? 5000000000UL : ULONG_MAX,
+>                                                       ^~~~~~~~~~~~
+>
+> Rewrite this to use a preprocessor conditional instead to avoid the
+> warning.
+>
+> Fixes: 076437c9e360 ("drm/msm/dsi: move min/max PLL rate to phy config")
 > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Thanks! This looks good to me.
-
-Reviewed-by: Maximilian Luz <luzmaximilian@gmail.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 > ---
-> v2: use __builtin_choose_expr() instead of a cast to shut up the warning
+> As found with another patch, using __builtin_choose_expr() would
+> likely also work here, but doesn't seem any more readable.
 > ---
->   include/linux/surface_aggregator/device.h | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/surface_aggregator/device.h b/include/linux/surface_aggregator/device.h
-> index 4441ad667c3f..6ff9c58b3e17 100644
-> --- a/include/linux/surface_aggregator/device.h
-> +++ b/include/linux/surface_aggregator/device.h
-> @@ -98,9 +98,9 @@ struct ssam_device_uid {
->   		     | (((fun) != SSAM_ANY_FUN) ? SSAM_MATCH_FUNCTION : 0),	\
->   	.domain   = d,								\
->   	.category = cat,							\
-> -	.target   = ((tid) != SSAM_ANY_TID) ? (tid) : 0,			\
-> -	.instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,			\
-> -	.function = ((fun) != SSAM_ANY_FUN) ? (fun) : 0				\
-> +	.target   = __builtin_choose_expr((tid) != SSAM_ANY_TID, (tid), 0),	\
-> +	.instance = __builtin_choose_expr((iid) != SSAM_ANY_IID, (iid), 0),	\
-> +	.function = __builtin_choose_expr((fun) != SSAM_ANY_FUN, (fun), 0)
->   
->   /**
->    * SSAM_VDEV() - Initialize a &struct ssam_device_id as virtual device with
-> 
+>  drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> index e76ce40a12ab..accd6b4eb7c2 100644
+> --- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> +++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> @@ -972,7 +972,11 @@ const struct msm_dsi_phy_cfg dsi_phy_7nm_cfgs = {
+>                 .restore_pll_state = dsi_7nm_pll_restore_state,
+>         },
+>         .min_pll_rate = 600000000UL,
+> -       .max_pll_rate = (5000000000ULL < ULONG_MAX) ? 5000000000ULL : ULONG_MAX,
+> +#ifdef CONFIG_64BIT
+> +       .max_pll_rate = 5000000000UL,
+> +#else
+> +       .max_pll_rate = ULONG_MAX,
+> +#endif
+>         .io_start = { 0xae94400, 0xae96400 },
+>         .num_dsi_phy = 2,
+>         .quirks = DSI_PHY_7NM_QUIRK_V4_1,
+> --
+> 2.29.2
+>
+
+
+-- 
+With best wishes
+Dmitry
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/aa141212-ce68-5f07-c656-8489ff9e7b5f%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAA8EJpoo%3DVS1Nk-3CpyraDFzF%2B0xe3SWxkVt7M%3D8aBNhbdh_hQ%40mail.gmail.com.
