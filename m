@@ -1,145 +1,122 @@
-Return-Path: <clang-built-linux+bncBC27HSOJ44LBBWGTRCCQMGQEAI3EZUQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBHXXRCCQMGQELAFD3LA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0EC1382710
-	for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 10:31:21 +0200 (CEST)
-Received: by mail-lf1-x13b.google.com with SMTP id a13-20020ac2504d0000b02901cc23500e8esf773939lfm.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 01:31:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621240281; cv=pass;
+Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
+	by mail.lfdr.de (Postfix) with ESMTPS id B9A0E3828B8
+	for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 11:47:11 +0200 (CEST)
+Received: by mail-ua1-x937.google.com with SMTP id d30-20020ab007de0000b029020e2f98646dsf3336924uaf.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 02:47:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621244830; cv=pass;
         d=google.com; s=arc-20160816;
-        b=g4+shDaaw7WukGGQlx6H3huf+d6HMy4fHlgMn+xfOMYLKzcA/BrbJ4PE9EpxRk5a0e
-         l6+JaL7NHWPoI9SV1LrQ3+SwwvfwMC0RYd1/bPE8vBzvQFPiJ3RqONEj7vAPH5Y3TfqB
-         9zYnxKkdOSnziL3/fo2YM+bEGzihBFwyKJI34z7lY893KeSOhPVuy7/drKzMrFhBWoZR
-         lI3HbzDjeYxMWvliffhufiZLWdwUGuApF1VgEyiCrQFUUMA/8EDvuXsCha/QprHAzVfR
-         PMqHZron8g5wmkn4heBQxVPRGGi1ai8i4tkoFMT74HaBRmjRWsU2CAFZquahWIF1eFWW
-         phEw==
+        b=amfQKwRZrP00iKSF1zc7tr2mgHvFQ4ken2/X0bzVPACd/6dMKyyimqd3FBQooE7p/k
+         2I6S2XWnmfmJ+8MF0FcqsD325UTst2oBP0v2TWJoDlCN9PzTTqSE0I/re3xg+f82J9vd
+         Iwhb87qLUEu5ZhpoQ9cDcGPRdDfJO0MJBJd5ibD9q45iPrUz5/9yVzxW73bMcK7Jr/g7
+         haG4RZOxFvB66otyu5k7MOGx7PFcesVZtbQz5dsIgQnhyHkEqxg9aWXpjXdVFK839gfk
+         zz/Lf8pUCDy7ZLzr9A0qjJ0Fu8vW4uhiy4SabR+snZ/SDb0MvU4R+FcDHV6kR1YHc1hD
+         sKmQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=2eL1tPIDRFkuP/R9NYZ16/aaeafGZ+gqyWzdt+ulGAA=;
-        b=NrSFdF6JPwbaPBXzz0solSN5m01VtMB+QoTQrYchdie7LwijfoETuY7J+7BN6djGdW
-         fRKdLk7EbUElk4sDZfQ5cP+mGtrJh94pOz/t0Vrkrk5nv+0zk/4NbQ0AAiwNiy7RNq6A
-         RMkdQ/cb4fcJ0OVrf5lic9MSWhEGtDpalRChAUmYxwUSXZQF/E7Jbu/H+3syIvEklvxV
-         wzyudKoflvzreQ07AXGUwdykhrS8lD32ptTT14Ij3DFEJ0eQ7upLPoAkn8XwxRmDZBs9
-         2soLdDW+B91woYHGs3Fc25AugYBpYVWzWhdt7Ie4ccG5PuE8pwfIE823tD1NevbWoSow
-         O1rg==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=rR0STHLlXiHIZd+v0Hb4dR93CClOct9ZpyTyjPwUriE=;
+        b=o9AWQYMz2JZwyrFhBvnzK1QXZYey/WBtqloQxxuUJny3gwYfqQzdUR7EWEaAYLLREL
+         e6ncR54tHwwZTipw8C/7Y6If+jZw+Aj8k2gQObE7C2bL3YhLj52uLRtsc4/+hmXBgs3w
+         Y3hSRiTwzVOWavy7svw6Lp/HilqmsV+D4OsQ7Uy8QHMPpP8s6HsZiTKWkgteXxptXPWK
+         ZS+dcIpA/jmj01r78NjSVlj3mf93eU4Q9PdbGVwsPQPR9WLzPZFigUgkL3rp32V08Cdu
+         BEVRBUKijvJ7as4lvyXGcXG9GrWcnftqNEc+bkKMcPnjJdwNoRQLA+v6F/h/mXbT7sAs
+         iLlA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:mime-version
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2eL1tPIDRFkuP/R9NYZ16/aaeafGZ+gqyWzdt+ulGAA=;
-        b=BNUJ7we/PTESRl0GNBwkGyDCV5qJn4+aFekcivJTn0P1QjSSh1nlC3IIUA1L630on1
-         un4kILUAkc8qWQ2MFwBUJtK+IBHjYSsuwVoYLIWjV5gO4TG2MgiUDcaCzfQ4Vx8YZb15
-         n7NWpMbKjsHaamunrmBHZvrPQ0ECpctXS0R+Mzzzgmbj6A62mYC366lBM+o0PfapkXtt
-         64RQnte+0vjmN3mVhKta2L2G2g+8Qiuo2tVKNz8TuLh9zanNkyZ6W3msRFLbYkN7omFp
-         NtZEa5QVxfAmYyohTCEJP6JpTeoIJlmx9nTo+5PoDCEAT2IXAeTuL+pE52dXPshpgVUX
-         16tg==
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rR0STHLlXiHIZd+v0Hb4dR93CClOct9ZpyTyjPwUriE=;
+        b=VSNth0um/2LimSX44YpRSD0EiGBgUOr4a4vPD+Jj2XoNJGju9qU76OArpdajAmnHGA
+         BfSzejqtq3yRp+ENlMOBqQrEADLGOcosx7uVcENcRz29h38KV9WkRSvMrHbRNe0MnbBt
+         rTwlV6BbGDoCaxPaJBjHgb3VZx8delW5IdEkVRAn8szUvb0WyOhaRXrHMtULrCWvHYYC
+         RJjQxIoqX3Z29mCdcsb4demI25fYf6ENzZ4AIzbl5rGbeZdz73twsIpj7Kf+1f05wfvv
+         eSJrPOKZYQiPNBFg9TOGr7G3xFRCF9YkEmz6zJpYhTRfpc3o3DazQUrvvazUHOkiqXdT
+         iBqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :mime-version:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2eL1tPIDRFkuP/R9NYZ16/aaeafGZ+gqyWzdt+ulGAA=;
-        b=HBVJW9dPryYsXQxk7buV3wxvT9kHvbQKxI5ZTmCo4aow6F5LbTPY5AgNyfpi3O7eDl
-         /ouXQgifbv80Rq7Xb3PfbjFN8Vv1wsstePFFFG3BZdxlicgy83QFXtMRLO6V9uZwAdYk
-         DrT6ipSkzmx2hq6kWjQWTE77xsD85bWHtDs1iiSD5enECGy/QcWnwI68FDkQ0TAAL4q9
-         Jm5y6rlpRiBaYTyG9ZVmJYvO+Tkw3lE8f+qgewR4EKX/0Wh6h2l3MeBN2SVxNc46uKAA
-         ytiWrY5t6IEnUSpN1ZnmAzDzn3xmZxvK/HnWOh2M48l3bKzsvShLSnhDTE17oOzsFMJX
-         SHaw==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=rR0STHLlXiHIZd+v0Hb4dR93CClOct9ZpyTyjPwUriE=;
+        b=ViL+rzQ4mH+uSn7o9HPzjsqsbMn3qNoYHN0tk6TQu3qPH1Jia1czk1BUw88GQWu7qH
+         Ed79UHC9EXw0DIf4xIFQU2EOFSD30s3pscqdig0Z8SYikjux9dl3Y8+XdKY01KYyoWxE
+         dFxOJTBjlIIj3uPQ0fAK7dEyPIvvSxgKQCb43Xymi7q1lwkMU4r/IyEb19zghRC6/pYV
+         wfl6jfzL2HDCdiYGf//gM2q8DD+NihPcmSLF6O6yUO/farLa4mjS6TgvnSy4qjVioBZb
+         m8PdYwk1E75Pxcm8AMLgTwC4A7nXh6v9eeVpwQAWprkvngGr7+U2q00d9GQ+8VWtqQ/E
+         EltA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530h2MwzMk5ZiNi8BwstqaLBOF2mHCB8HWscR3LTy98ljSSvmgCK
-	qLWCb0bQU/4EzfuHEgm7d6U=
-X-Google-Smtp-Source: ABdhPJz5RZxyFfOd9v7M7Xlwtjqx7GrUEt5gK+z9TSz4Hcb2VyNUHOcROS5fmXmAc5LmM6jjeNGNiQ==
-X-Received: by 2002:ac2:5fc6:: with SMTP id q6mr39713620lfg.205.1621240281200;
-        Mon, 17 May 2021 01:31:21 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:230f:: with SMTP id o15ls274469lfu.1.gmail; Mon, 17
- May 2021 01:31:20 -0700 (PDT)
-X-Received: by 2002:a19:3842:: with SMTP id d2mr41524321lfj.498.1621240280114;
-        Mon, 17 May 2021 01:31:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621240280; cv=none;
-        d=google.com; s=arc-20160816;
-        b=Xbv6l9TuZWTLvSW587zHhIl1qVd6uf623nJSbh6DJDB783yDz/KiAZIQnfpiLUEzh6
-         2GdSKmNcuBauBkqw3pmKB5ZI2tprhdE4ZFtHiRJz0VjA4vaDHEBreTl9J/SHMyvtCHYC
-         PMQf9PtVjZjdtMymp0c7acuK/dMaepdm73dN7wAT16ExTakTCT5IGtAP6nASWe/OKSL6
-         knh0FquIlXX3FNEHqv/JaG3VCOwqn4JWK5LQrHrIxa7RIdbpHhZ41qSeb7/tkIf/kKSS
-         rF5zy7DjGdCuI24HouczMz6uiOjHfeNpNsYNi2YYfimeb8yLZ3tBLf6bDrmp8ovIWpif
-         QB2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from;
-        bh=XyRlYbhlIRwEBwqHB+68r9JqR/o3e3fjh+HUiheKO7U=;
-        b=yEEwtwdAoK5QzLZEiqNLzUseqi7MFsFhPgNKFuniaesej+5ePK6IhaMsSLdWZ5pSsM
-         w2Qakh/QSkL7t7k/QVmINQgCRjedKxxepiicGM4FbcjgBEgrD9iNAFIyGgLxZbOiiP8m
-         9QbmVcMFhbTc4JeDKVAg+Vivu98cZluGf59AZlrarmwMwvzuRfhGeD2jef9Hc9QdlGLw
-         RdH9cf/Nw6gUDVfF+Kmg9EfBZrj/WICe/4Hn1IgebhxpeyuUPiTySrLpS43aEnscAVjT
-         BBnkhBuC4ZfDggrAvBC5529A123ODTXBsNlwX8C1tEeagfWUvnGx9+gEyIahzDweIh2/
-         VaEg==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
-Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.86.151])
-        by gmr-mx.google.com with ESMTPS id j7si604043ljc.6.2021.05.17.01.31.18
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 17 May 2021 01:31:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) client-ip=185.58.86.151;
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-219-3UlcEW98NA-nIwfojSR38g-1; Mon, 17 May 2021 09:31:16 +0100
-X-MC-Unique: 3UlcEW98NA-nIwfojSR38g-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.2; Mon, 17 May 2021 09:31:13 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.015; Mon, 17 May 2021 09:31:13 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Nathan Chancellor' <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
-	Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hdegoede@redhat.com>
-CC: Arnd Bergmann <arnd@arndb.de>, "platform-driver-x86@vger.kernel.org"
-	<platform-driver-x86@vger.kernel.org>, Nick Desaulniers
-	<ndesaulniers@google.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] [v2] platform/surface: aggregator: avoid clang
- -Wconstant-conversion warning
-Thread-Topic: [PATCH] [v2] platform/surface: aggregator: avoid clang
- -Wconstant-conversion warning
-Thread-Index: AQHXSQdQtGc3TDOhPEi9QDyAZ4cunarnW2LA
-Date: Mon, 17 May 2021 08:31:12 +0000
-Message-ID: <16280aaedc40425295d202431ac3adc0@AcuMS.aculab.com>
-References: <20210514200453.1542978-1-arnd@kernel.org>
- <057b5568-c4b8-820c-3dd7-2200f61a4d58@kernel.org>
-In-Reply-To: <057b5568-c4b8-820c-3dd7-2200f61a4d58@kernel.org>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+X-Gm-Message-State: AOAM533oLnvJhM8j2ytjj/TFcIbO12Bo5oTc04LaduzmvG20ZnegBGSR
+	KYiwHM23U8JY1dgnAh59INQ=
+X-Google-Smtp-Source: ABdhPJwWMF94HEAdhq4ydhySEJ0vrT+sD9GSApiU/DzhpyNTpjzfP5L1EmlXwbOt0xgwW9P7YV7Nwg==
+X-Received: by 2002:a05:6102:7d5:: with SMTP id y21mr1934130vsg.19.1621244830581;
+        Mon, 17 May 2021 02:47:10 -0700 (PDT)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: david.laight@aculab.com
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a67:f7c7:: with SMTP id a7ls3111195vsp.5.gmail; Mon, 17 May
+ 2021 02:47:10 -0700 (PDT)
+X-Received: by 2002:a67:2c57:: with SMTP id s84mr50113609vss.32.1621244830133;
+        Mon, 17 May 2021 02:47:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621244830; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vanDpPJmA2AT8vEQhGpgbf7CMjZP1vBcFm5SLfLkC1xW9HGzykrM2rnXgsHI+lt2Py
+         ni9Rc9bhLr1MkQY+1BDKmI4EasiO3vyF/eeNObPCn5JFGCoWZp26UxETPw5trDVpgp6B
+         b+fKqpR8OzunBWVI/YCHk3KcWbLCzTGz0WHrIeNW+Uk9bMYVYHqPpIcWV0ezIbfEkCEL
+         AcZUstFFksNqB6zjjTdQgMUk8+IjS4J/HbEbx1jGzctgPFVhxMRmt3zbER0JxLs9+1Qv
+         XjsAPS3eAGYrh/0LyRixagLFeiNc0oN43h1ePZoLRGSBGbysXsjM4DC+LcVClzPeCyr/
+         rjTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:subject:cc:to:from;
+        bh=KMwzMFYqK662jU+xIbhBKO27Qw6s56/sWYLIIctF/js=;
+        b=bXvdVkbg8J0E+Vgf2fDPRpZHQVQff0/Fo0tcWO297iykEzKyCaFHcQZGiJsxcj/uSy
+         kNQp2eCM3cb3s6p+gfbo3bMps/hJ9NZUYx86lqrGwF9CgfDEYM+SiN0E5fM9jouA6YVn
+         +cOF48brvzYhrhIqMYwrassfv0ZRbJYgCNEHeiPnwF8WUIGS2Ecz1fTHiZuBcGtSUWls
+         WzyYmqSleNNtKW6wYyLc1wBQQynhxutIu60elgobyBBP4WllM3g+5oOWWC/3BcAWI69J
+         r5Oh6IsKOA3+AzQxdz1CuKnPRVH/9T56+IJ+a4bps/wh1KHHf0pyWDv5Wd9prHDczgBT
+         qbkQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Received: from out4436.biz.mail.alibaba.com (out4436.biz.mail.alibaba.com. [47.88.44.36])
+        by gmr-mx.google.com with ESMTPS id t11si1072372vsm.2.2021.05.17.02.47.08
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 May 2021 02:47:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as permitted sender) client-ip=47.88.44.36;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R441e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e01424;MF=yang.lee@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0UZ7JUQq_1621244812;
+Received: from j63c13417.sqa.eu95.tbsite.net(mailfrom:yang.lee@linux.alibaba.com fp:SMTPD_---0UZ7JUQq_1621244812)
+          by smtp.aliyun-inc.com(127.0.0.1);
+          Mon, 17 May 2021 17:46:54 +0800
+From: Yang Li <yang.lee@linux.alibaba.com>
+To: clm@fb.com
+Cc: josef@toxicpanda.com,
+	dsterba@suse.com,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	linux-btrfs@vger.kernel.org,
+	lukas.bulwahn@gmail.com,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Yang Li <yang.lee@linux.alibaba.com>
+Subject: [PATCH v2] btrfs: Remove redundant initialization of 'to_add'
+Date: Mon, 17 May 2021 17:46:50 +0800
+Message-Id: <1621244810-38832-1-git-send-email-yang.lee@linux.alibaba.com>
+X-Mailer: git-send-email 1.8.3.1
+X-Original-Sender: yang.lee@linux.alibaba.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as
- permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+ (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as
+ permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,32 +129,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor
-> Sent: 14 May 2021 22:23
-> >
-> > Clang complains about the assignment of SSAM_ANY_IID to
-> > ssam_device_uid->instance:
+Variable 'to_add' is being initialized however this value is never
+read as 'to_add' is assigned a new value in if statement. Remove the
+redundant assignment. At the same time, move its declaration into the
+if statement, because the variable is not used elsewhere.
 
-Has this been raised with clang?
+Clean up clang warning:
 
-...
-> > -	.target   = ((tid) != SSAM_ANY_TID) ? (tid) : 0,			\
-> > -	.instance = ((iid) != SSAM_ANY_IID) ? (iid) : 0,			\
-> > -	.function = ((fun) != SSAM_ANY_FUN) ? (fun) : 0				\
-> > +	.target   = __builtin_choose_expr((tid) != SSAM_ANY_TID, (tid), 0),	\
-> > +	.instance = __builtin_choose_expr((iid) != SSAM_ANY_IID, (iid), 0),	\
-> > +	.function = __builtin_choose_expr((fun) != SSAM_ANY_FUN, (fun), 0)
+fs/btrfs/extent-tree.c:2774:8: warning: Value stored to 'to_add' during
+its initialization is never read [clang-analyzer-deadcode.DeadStores]
 
-A simpler alternative:
-		= fun * (fun != SSAM_ANY_FUN)
+Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+---
 
-	David
+Change in v2:
+--According to Lukas's suggestion, combine the declaration and assignment of 
+  variable 'to_add' into one line, just as "u64 to_add = min(len, ...);"
+  https://lore.kernel.org/patchwork/patch/1428697/
 
+ fs/btrfs/extent-tree.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/fs/btrfs/extent-tree.c b/fs/btrfs/extent-tree.c
+index f1d15b6..13ac978 100644
+--- a/fs/btrfs/extent-tree.c
++++ b/fs/btrfs/extent-tree.c
+@@ -2774,11 +2774,9 @@ static int unpin_extent_range(struct btrfs_fs_info *fs_info,
+ 		spin_unlock(&cache->lock);
+ 		if (!readonly && return_free_space &&
+ 		    global_rsv->space_info == space_info) {
+-			u64 to_add = len;
 -
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+ 			spin_lock(&global_rsv->lock);
+ 			if (!global_rsv->full) {
+-				to_add = min(len, global_rsv->size -
++				u64 to_add = min(len, global_rsv->size -
+ 					     global_rsv->reserved);
+ 				global_rsv->reserved += to_add;
+ 				btrfs_space_info_update_bytes_may_use(fs_info,
+-- 
+1.8.3.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/16280aaedc40425295d202431ac3adc0%40AcuMS.aculab.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1621244810-38832-1-git-send-email-yang.lee%40linux.alibaba.com.
