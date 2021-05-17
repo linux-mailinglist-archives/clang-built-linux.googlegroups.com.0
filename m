@@ -1,122 +1,155 @@
-Return-Path: <clang-built-linux+bncBAABBHXXRCCQMGQELAFD3LA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDKIJPMU4QIRB24DRGCQMGQE3BIQGFY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9A0E3828B8
-	for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 11:47:11 +0200 (CEST)
-Received: by mail-ua1-x937.google.com with SMTP id d30-20020ab007de0000b029020e2f98646dsf3336924uaf.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 02:47:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621244830; cv=pass;
+Received: from mail-ej1-x63d.google.com (mail-ej1-x63d.google.com [IPv6:2a00:1450:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id BD710382997
+	for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 12:14:03 +0200 (CEST)
+Received: by mail-ej1-x63d.google.com with SMTP id k9-20020a17090646c9b029039d323bd239sf834799ejs.16
+        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 03:14:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621246443; cv=pass;
         d=google.com; s=arc-20160816;
-        b=amfQKwRZrP00iKSF1zc7tr2mgHvFQ4ken2/X0bzVPACd/6dMKyyimqd3FBQooE7p/k
-         2I6S2XWnmfmJ+8MF0FcqsD325UTst2oBP0v2TWJoDlCN9PzTTqSE0I/re3xg+f82J9vd
-         Iwhb87qLUEu5ZhpoQ9cDcGPRdDfJO0MJBJd5ibD9q45iPrUz5/9yVzxW73bMcK7Jr/g7
-         haG4RZOxFvB66otyu5k7MOGx7PFcesVZtbQz5dsIgQnhyHkEqxg9aWXpjXdVFK839gfk
-         zz/Lf8pUCDy7ZLzr9A0qjJ0Fu8vW4uhiy4SabR+snZ/SDb0MvU4R+FcDHV6kR1YHc1hD
-         sKmQ==
+        b=0npGgJyV7rkVwmneI5vey8ej3KBRz+TzcbSX3/bB2II9846SI2gBu6PmKyK9Lbf9Ib
+         RpWydN8frHnwf3d3w0v8RoTJXn3F2oYxnzqrQciVI9qSAbjYtt1x5c/sc5i6+9CNvH1P
+         utiJamEXRkXPPthDK+snXVr1mbJP/FqcTwlXN57MbGREP+mRFWwiX0kYSYzYjmr2pxK7
+         uPDd4JLuPtPNfShAwg0jQvBNN60bJyE0fesuKmJfnEfFi8//F/PV6Br3Ih/ujnE7QGo9
+         jE5PM5SmbqUNLBP4h+4ScJfrJVnX2evi9NIfqJujwsiQtJ3agJ4Zwtki7RYpwqzO2v9B
+         h/Ww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=rR0STHLlXiHIZd+v0Hb4dR93CClOct9ZpyTyjPwUriE=;
-        b=o9AWQYMz2JZwyrFhBvnzK1QXZYey/WBtqloQxxuUJny3gwYfqQzdUR7EWEaAYLLREL
-         e6ncR54tHwwZTipw8C/7Y6If+jZw+Aj8k2gQObE7C2bL3YhLj52uLRtsc4/+hmXBgs3w
-         Y3hSRiTwzVOWavy7svw6Lp/HilqmsV+D4OsQ7Uy8QHMPpP8s6HsZiTKWkgteXxptXPWK
-         ZS+dcIpA/jmj01r78NjSVlj3mf93eU4Q9PdbGVwsPQPR9WLzPZFigUgkL3rp32V08Cdu
-         BEVRBUKijvJ7as4lvyXGcXG9GrWcnftqNEc+bkKMcPnjJdwNoRQLA+v6F/h/mXbT7sAs
-         iLlA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:subject:from:references:cc:to:sender:dkim-signature;
+        bh=1n9BpNPbpVY/9KTkj32pN8M5VkVLQrxEt/GjGizG3i0=;
+        b=uiqAh86Ybx7HqYJDMD8N/LT6+WpSugQwLDuQ3xoNXSj/3i23oCiJvdpYvZ7g27cNzo
+         wyMBNf1oElbf9yFYnDUUXhsVWCcNzYfr4rppPIFfS94JZf8UN21jSkLN9PQpZkk2qk3c
+         90d3LkRqfIM1f+MOUlDit0UdGwTAIrfS9PKLxXiv8CvVDYc5Ucdpr2j6O+uRQAX+XVtY
+         dSnWLqbs9MCUczUjqq14OJ9Q4mTOv3KZZDksKLxMdO2dwJQNh0cXqdn82w5Y/etUqyYf
+         QqdyIoBGApf95rFHv6ZacRWbOZCQ3lfMli5X9Rv1sA2kZhKBLQOkhQOWHueJGAoG2n7a
+         FIJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+       dkim=pass header.i=@gmx.net header.s=badeba3b8450 header.b="c/Pc4PFw";
+       spf=pass (google.com: domain of quwenruo.btrfs@gmx.com designates 212.227.15.15 as permitted sender) smtp.mailfrom=quwenruo.btrfs@gmx.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmx.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
+        h=sender:to:cc:references:from:subject:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=rR0STHLlXiHIZd+v0Hb4dR93CClOct9ZpyTyjPwUriE=;
-        b=VSNth0um/2LimSX44YpRSD0EiGBgUOr4a4vPD+Jj2XoNJGju9qU76OArpdajAmnHGA
-         BfSzejqtq3yRp+ENlMOBqQrEADLGOcosx7uVcENcRz29h38KV9WkRSvMrHbRNe0MnbBt
-         rTwlV6BbGDoCaxPaJBjHgb3VZx8delW5IdEkVRAn8szUvb0WyOhaRXrHMtULrCWvHYYC
-         RJjQxIoqX3Z29mCdcsb4demI25fYf6ENzZ4AIzbl5rGbeZdz73twsIpj7Kf+1f05wfvv
-         eSJrPOKZYQiPNBFg9TOGr7G3xFRCF9YkEmz6zJpYhTRfpc3o3DazQUrvvazUHOkiqXdT
-         iBqA==
+        bh=1n9BpNPbpVY/9KTkj32pN8M5VkVLQrxEt/GjGizG3i0=;
+        b=f7W3DEdrx8A6drihc009taRPn0DHL50RhG2MGAHgcIT8WxDb0xUlAjwDG3pa7mxO3Z
+         JbqqcDWnUMBZQ9QQ63jSlHT4CAHMLuyyp8wJHFko9CCYbkdVK4liHCLxyIg/lZ3AR0E6
+         Cnaf6rDmBlMe5UPqqKxy8gXzBMo+oYWY9do4cBRMtjjph1UlpwylTcR/D0eS4gbGfFSk
+         BJCpQg+9HbnrR/3O2SsLl1cqaeV5/vkxY+unVqbJKYErFC+cQRhhtSyGe/5XkIOuEu4z
+         OD2gmMJdt6k0Xrk+d2YBg//9/7lqzxAtEV5+2VmvEB85hE5l/mjDoIGPK/Ww35ihN53z
+         To8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rR0STHLlXiHIZd+v0Hb4dR93CClOct9ZpyTyjPwUriE=;
-        b=ViL+rzQ4mH+uSn7o9HPzjsqsbMn3qNoYHN0tk6TQu3qPH1Jia1czk1BUw88GQWu7qH
-         Ed79UHC9EXw0DIf4xIFQU2EOFSD30s3pscqdig0Z8SYikjux9dl3Y8+XdKY01KYyoWxE
-         dFxOJTBjlIIj3uPQ0fAK7dEyPIvvSxgKQCb43Xymi7q1lwkMU4r/IyEb19zghRC6/pYV
-         wfl6jfzL2HDCdiYGf//gM2q8DD+NihPcmSLF6O6yUO/farLa4mjS6TgvnSy4qjVioBZb
-         m8PdYwk1E75Pxcm8AMLgTwC4A7nXh6v9eeVpwQAWprkvngGr7+U2q00d9GQ+8VWtqQ/E
-         EltA==
+        h=sender:x-gm-message-state:to:cc:references:from:subject:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1n9BpNPbpVY/9KTkj32pN8M5VkVLQrxEt/GjGizG3i0=;
+        b=C7HCO3A5EWTrG1lVMP0H4KmZn69Z0UBm4qP+usgL2n+iLFpTbJhYED5BtL2S7IeNXz
+         PmeeKgTTy/1yrkzVs6+gZzoJYi1e0rZ7naYSkaqxCED5aIq+1Ps8fFlwVWFIKKN4C1E9
+         xLtZWbMcjaY9ZxT396Wf4jIw+H6uxgWOJr2MJ5eecfug3XRaXm7oTK9TEUHUGOz1T/ab
+         lz+tL3mbkqJMK2ZQlEOhTkGF5VAMZjKmC8nUtWhOnokvMaSikbaw1jxw3wGS/2wwJk4y
+         P8li5hHg+8GvubiOjFqpw1/sRhn4PKl1y9z2AbvioVT0easWMDSKVVz5ODAzkSQsD1H8
+         WB4g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533oLnvJhM8j2ytjj/TFcIbO12Bo5oTc04LaduzmvG20ZnegBGSR
-	KYiwHM23U8JY1dgnAh59INQ=
-X-Google-Smtp-Source: ABdhPJwWMF94HEAdhq4ydhySEJ0vrT+sD9GSApiU/DzhpyNTpjzfP5L1EmlXwbOt0xgwW9P7YV7Nwg==
-X-Received: by 2002:a05:6102:7d5:: with SMTP id y21mr1934130vsg.19.1621244830581;
-        Mon, 17 May 2021 02:47:10 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM530+LFJ0PF9Bxle+JRYsWMyOMZvuN+LhfoCxr2hgKZxFw4cN7quR
+	axfl+APzla7wkCz7QIVCqRs=
+X-Google-Smtp-Source: ABdhPJzfOSTbTY8VmnLdI8LRvmeaYUwsrITYrMgmkm0Yvz7BwEz5u+JAhmYtu9KEATmbVEiJc7BJAA==
+X-Received: by 2002:a50:a446:: with SMTP id v6mr68736333edb.254.1621246443489;
+        Mon, 17 May 2021 03:14:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:f7c7:: with SMTP id a7ls3111195vsp.5.gmail; Mon, 17 May
- 2021 02:47:10 -0700 (PDT)
-X-Received: by 2002:a67:2c57:: with SMTP id s84mr50113609vss.32.1621244830133;
-        Mon, 17 May 2021 02:47:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621244830; cv=none;
+Received: by 2002:a50:e046:: with SMTP id g6ls4037631edl.3.gmail; Mon, 17 May
+ 2021 03:14:02 -0700 (PDT)
+X-Received: by 2002:a50:9558:: with SMTP id v24mr11353696eda.264.1621246442666;
+        Mon, 17 May 2021 03:14:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621246442; cv=none;
         d=google.com; s=arc-20160816;
-        b=vanDpPJmA2AT8vEQhGpgbf7CMjZP1vBcFm5SLfLkC1xW9HGzykrM2rnXgsHI+lt2Py
-         ni9Rc9bhLr1MkQY+1BDKmI4EasiO3vyF/eeNObPCn5JFGCoWZp26UxETPw5trDVpgp6B
-         b+fKqpR8OzunBWVI/YCHk3KcWbLCzTGz0WHrIeNW+Uk9bMYVYHqPpIcWV0ezIbfEkCEL
-         AcZUstFFksNqB6zjjTdQgMUk8+IjS4J/HbEbx1jGzctgPFVhxMRmt3zbER0JxLs9+1Qv
-         XjsAPS3eAGYrh/0LyRixagLFeiNc0oN43h1ePZoLRGSBGbysXsjM4DC+LcVClzPeCyr/
-         rjTA==
+        b=cgB9Tgpkfn+5ltu3GuIdUCl26tQyeSHqNQ1TGbldoUQh5yCMkQhC3rUlAMM/il78qT
+         B8O8hmPANgVpYPQOcT1lPRupzXWYTu7vRYkQsLWjjl8+F3y/n67AlZx3NMgnUwpWvnro
+         LpxU0Pz6E883dJNxE3Qrb7e43fzVTcRUXQE8oqvkl/ipX10zXR4mFp8WVBuMHEzKblvY
+         cJPxlULqekl1WVN59psSMf50PSp+de8jdyx7WupWNk1EIReBD9rBd1ewfKVmuJ0VvYq8
+         uhNap4anNO1LvsUG/959kci9X21r90VGSbeZmLg/mi4aXXhgB4SDe6WHl4irCcuqRL27
+         Et1A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from;
-        bh=KMwzMFYqK662jU+xIbhBKO27Qw6s56/sWYLIIctF/js=;
-        b=bXvdVkbg8J0E+Vgf2fDPRpZHQVQff0/Fo0tcWO297iykEzKyCaFHcQZGiJsxcj/uSy
-         kNQp2eCM3cb3s6p+gfbo3bMps/hJ9NZUYx86lqrGwF9CgfDEYM+SiN0E5fM9jouA6YVn
-         +cOF48brvzYhrhIqMYwrassfv0ZRbJYgCNEHeiPnwF8WUIGS2Ecz1fTHiZuBcGtSUWls
-         WzyYmqSleNNtKW6wYyLc1wBQQynhxutIu60elgobyBBP4WllM3g+5oOWWC/3BcAWI69J
-         r5Oh6IsKOA3+AzQxdz1CuKnPRVH/9T56+IJ+a4bps/wh1KHHf0pyWDv5Wd9prHDczgBT
-         qbkQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:subject:from:references:cc:to
+         :dkim-signature;
+        bh=Qy2caDS4XFb/AW7rLi94xAj0rUbhzK37slT4ntBBKR8=;
+        b=A/t0/XQt73YpMD5IaStcBwRdbOfD8opQ2SL5RsGnqfPQ/tiF4DaiR3zco9XeHdaiuf
+         J+R4g88+HsX9HLXJMb3+KXzJrdTvAXLf3g4Br5tsFyxuVyjHJLCqXqVhxiGIKJ5X2eW2
+         EuN8aT7cpiOVLgt1jG1Zt+LBC11JQQaw11pI3KmwcZsiFziqxq1Io+fj21tOZX49nCv4
+         3D3lWQZagY/1kx+o05NsjKckOVKgVHf4Gvn9QhEbqja2KN6LqPR1DChQ44TLPjFib9SP
+         LxRD/jiLX4pMJAGH4Gh/oM6FHsUPZ7Y1pHv1unNQ8FqxciWrlMhOoZ1fFCuqwcZvjVW3
+         OMIQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Received: from out4436.biz.mail.alibaba.com (out4436.biz.mail.alibaba.com. [47.88.44.36])
-        by gmr-mx.google.com with ESMTPS id t11si1072372vsm.2.2021.05.17.02.47.08
+       dkim=pass header.i=@gmx.net header.s=badeba3b8450 header.b="c/Pc4PFw";
+       spf=pass (google.com: domain of quwenruo.btrfs@gmx.com designates 212.227.15.15 as permitted sender) smtp.mailfrom=quwenruo.btrfs@gmx.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmx.com
+Received: from mout.gmx.net (mout.gmx.net. [212.227.15.15])
+        by gmr-mx.google.com with ESMTPS id a5si422175edb.4.2021.05.17.03.14.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 May 2021 02:47:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as permitted sender) client-ip=47.88.44.36;
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R441e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e01424;MF=yang.lee@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0UZ7JUQq_1621244812;
-Received: from j63c13417.sqa.eu95.tbsite.net(mailfrom:yang.lee@linux.alibaba.com fp:SMTPD_---0UZ7JUQq_1621244812)
-          by smtp.aliyun-inc.com(127.0.0.1);
-          Mon, 17 May 2021 17:46:54 +0800
-From: Yang Li <yang.lee@linux.alibaba.com>
-To: clm@fb.com
-Cc: josef@toxicpanda.com,
-	dsterba@suse.com,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	linux-btrfs@vger.kernel.org,
-	lukas.bulwahn@gmail.com,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Yang Li <yang.lee@linux.alibaba.com>
-Subject: [PATCH v2] btrfs: Remove redundant initialization of 'to_add'
-Date: Mon, 17 May 2021 17:46:50 +0800
-Message-Id: <1621244810-38832-1-git-send-email-yang.lee@linux.alibaba.com>
-X-Mailer: git-send-email 1.8.3.1
-X-Original-Sender: yang.lee@linux.alibaba.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yang.lee@linux.alibaba.com designates 47.88.44.36 as
- permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Content-Type: text/plain; charset="UTF-8"
+        Mon, 17 May 2021 03:14:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of quwenruo.btrfs@gmx.com designates 212.227.15.15 as permitted sender) client-ip=212.227.15.15;
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [0.0.0.0] ([149.28.201.231]) by mail.gmx.net (mrgmx005
+ [212.227.17.184]) with ESMTPSA (Nemesis) id 1N7zBR-1lMQlj0u8Z-014zCc; Mon, 17
+ May 2021 12:13:56 +0200
+To: Yang Li <yang.lee@linux.alibaba.com>, clm@fb.com
+Cc: josef@toxicpanda.com, dsterba@suse.com, nathan@kernel.org,
+ ndesaulniers@google.com, linux-btrfs@vger.kernel.org,
+ lukas.bulwahn@gmail.com, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <1621244810-38832-1-git-send-email-yang.lee@linux.alibaba.com>
+From: Qu Wenruo <quwenruo.btrfs@gmx.com>
+Subject: Re: [PATCH v2] btrfs: Remove redundant initialization of 'to_add'
+Message-ID: <5938551d-a083-a62c-4ab3-bc29fc62b1df@gmx.com>
+Date: Mon, 17 May 2021 18:13:50 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.1
+MIME-Version: 1.0
+In-Reply-To: <1621244810-38832-1-git-send-email-yang.lee@linux.alibaba.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:0U/g3hMrG3o9fGlDnHRwXK68W/K/FH6/b8eQv0VDDz9dIoTuExD
+ xiqwfwDQjRUSbpsNx+V1gb4ixIk+Gbu8vRb48DLnUwvhlCqjKIizRtaHsZpe0hoW7KvFJyw
+ NKlCxDKqndQ3Bdx5RHdM/anE7VyaVFQpGiMtm5BBwqE4eSZaOTiIynYlx3a9sS6WhDItKGV
+ I79EuEnKM4vzA+F17vjEw==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:EPaV5kE0SOE=:ncrqL6P/aa5VszjRuabaVJ
+ v0NDRFGqT4o6+C9MIYC7tdXkezCnrPaKX9AQ5GKXGf7MSx2vRxowMoZ8aM4nUNGd0OyrhPPs5
+ lN/e26mL0DtMbaMvr2SxteBC889RsSy+vRoo4u9SVFtuAXC35t2CpZFxWGhM6Qq73vcbylXSF
+ 8Vnxi/goLea5bds1eDCTsqdcrMWFA4NiaxzGh+YaNrpWUJYThjnDx9+uT6ejO95IkU91ftHfc
+ V62Q59Qq2sLj4xjbw4Edqb86Vib3OeXGxvqWL8mC8wjooh0YGfPYEG6wNlzD1b4d5wrLqHZy5
+ Vrm20vkgElTZ5ztgOeNoatMxMKENNFoBXM6nt+RuVm/f9qexL90qh2iQE1I6E8pWYj5cWNpwo
+ +aphho6SZ0pjVjsLdgZhRZwvhA6pGIr/1Gpx9JaQ8N/yi6rpbZ8wAlWTYhtO5ZVIfWAlo+BFs
+ u2J4iStZPztdOJUnXSDzwxoHRiB4QwnQkqOX4UQkKPdLgzYeoFiMeUsugl+WMfjTibxlhxzwz
+ CDSCRddDCuhXIrUI0y0aJiLEd4kP8ri3fItabECW9Nit+bT/aJm+ggHz/ixUNEEuQjRjzbiVV
+ YfSF7Zpo22yPT56/e0hJGWAVEv1EMII5IDlMWFRVNKLfYAXh41yLsotWOMi0gnBmxEKu+OQre
+ dAk4yQtxMe5T0PCgT83ZbSCu0OCsuKdQvBRGSUNFM48oz46P0N74AvYeMtK7GrA8/bpq7rQYE
+ OJLRtVM0h/TVNNGo+FIXSKsV9+FPJt622p/LswSXuEJ/4joFh3xM14Vg1xqgmAq0CHSdDFBdc
+ f8rfEcEvIEnDxG7R/0xghEY1WsjKQVBw2T4yKTHWc/SOvwF0dHOg593EVnzim6ninde/Zvc9B
+ grKyMlFCIx3qQt/f9ZZvrvfKmBRN/0H80yLXfElckzsFk+FDzF+b6wbMSKCwDtCzsflfqB6sl
+ t4kFHkiu+vUxMdRw+musVAi1DQpXFYKabqX/HKu2gyJF9IYNIqt0n1GzA2dnaEiOCm+321OQz
+ 3aE1ckDLPWBDX1DlrTW+6dOrWKIpkbZzP2Ca9Mo2wnVJ6pTlW0PL488zRoJJOnonsU+wks9J1
+ 92VvhgivSrjCLLESNVBSdDJnk89YmTAKQlVhOSTo4C93nrNHDUkshMrxjeUD1wX3PfeSeorV8
+ O2JTWFXuUEXjiXRL3XAwY0PBfPvN9zufUtQGpWUDUDmfJhTLDNwSCfpTWWAqlumWwgMaO5LQ2
+ ogOYv3hOMnM8x6XXv
+X-Original-Sender: quwenruo.btrfs@gmx.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmx.net header.s=badeba3b8450 header.b="c/Pc4PFw";       spf=pass
+ (google.com: domain of quwenruo.btrfs@gmx.com designates 212.227.15.15 as
+ permitted sender) smtp.mailfrom=quwenruo.btrfs@gmx.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=gmx.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,49 +162,91 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Variable 'to_add' is being initialized however this value is never
-read as 'to_add' is assigned a new value in if statement. Remove the
-redundant assignment. At the same time, move its declaration into the
-if statement, because the variable is not used elsewhere.
 
-Clean up clang warning:
 
-fs/btrfs/extent-tree.c:2774:8: warning: Value stored to 'to_add' during
-its initialization is never read [clang-analyzer-deadcode.DeadStores]
+On 2021/5/17 =E4=B8=8B=E5=8D=885:46, Yang Li wrote:
+> Variable 'to_add' is being initialized however this value is never
+> read as 'to_add' is assigned a new value in if statement. Remove the
+> redundant assignment. At the same time, move its declaration into the
+> if statement, because the variable is not used elsewhere.
+>
+> Clean up clang warning:
+>
+> fs/btrfs/extent-tree.c:2774:8: warning: Value stored to 'to_add' during
+> its initialization is never read [clang-analyzer-deadcode.DeadStores]
 
-Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
----
+Personally speaking, compiler should be able to optimize out such
+problem, nothing really worthy bothering.
 
-Change in v2:
---According to Lukas's suggestion, combine the declaration and assignment of 
-  variable 'to_add' into one line, just as "u64 to_add = min(len, ...);"
-  https://lore.kernel.org/patchwork/patch/1428697/
+Especially considering these "fixes" just randomly pop up, distracting
+the reviewers' time.
 
- fs/btrfs/extent-tree.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+If you really believe these "fixes" are really worthy (not to just
+fulfill the stupid KPI), please at least pack them into a larger
+patchset (but keep the separate patches), not just sending one when you
+find one.
 
-diff --git a/fs/btrfs/extent-tree.c b/fs/btrfs/extent-tree.c
-index f1d15b6..13ac978 100644
---- a/fs/btrfs/extent-tree.c
-+++ b/fs/btrfs/extent-tree.c
-@@ -2774,11 +2774,9 @@ static int unpin_extent_range(struct btrfs_fs_info *fs_info,
- 		spin_unlock(&cache->lock);
- 		if (!readonly && return_free_space &&
- 		    global_rsv->space_info == space_info) {
--			u64 to_add = len;
--
- 			spin_lock(&global_rsv->lock);
- 			if (!global_rsv->full) {
--				to_add = min(len, global_rsv->size -
-+				u64 to_add = min(len, global_rsv->size -
- 					     global_rsv->reserved);
- 				global_rsv->reserved += to_add;
- 				btrfs_space_info_update_bytes_may_use(fs_info,
--- 
-1.8.3.1
+>
+> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1621244810-38832-1-git-send-email-yang.lee%40linux.alibaba.com.
+I know some maintainers are already very upset about the bot, although
+in your case it reduces a lifespan of a variable, thus it's marginally
+acceptable, but under other cases, it doesn't really help much.
+
+If such fixes come from indie developers, I'm pretty fine or even happy
+to help them to start more contribution.
+
+But a sponsored bot just repeating clang static analyzer
+
+Trust me, no maintainer will be happy with that, and you're destroying
+the reputation of your company (if the reputation hasn't been destoryed
+already).
+
+> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+> ---
+>
+> Change in v2:
+> --According to Lukas's suggestion, combine the declaration and assignment=
+ of
+>    variable 'to_add' into one line, just as "u64 to_add =3D min(len, ...)=
+;"
+>    https://lore.kernel.org/patchwork/patch/1428697/
+>
+>   fs/btrfs/extent-tree.c | 4 +---
+>   1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/fs/btrfs/extent-tree.c b/fs/btrfs/extent-tree.c
+> index f1d15b6..13ac978 100644
+> --- a/fs/btrfs/extent-tree.c
+> +++ b/fs/btrfs/extent-tree.c
+> @@ -2774,11 +2774,9 @@ static int unpin_extent_range(struct btrfs_fs_info=
+ *fs_info,
+>   		spin_unlock(&cache->lock);
+>   		if (!readonly && return_free_space &&
+>   		    global_rsv->space_info =3D=3D space_info) {
+> -			u64 to_add =3D len;
+> -
+>   			spin_lock(&global_rsv->lock);
+>   			if (!global_rsv->full) {
+> -				to_add =3D min(len, global_rsv->size -
+> +				u64 to_add =3D min(len, global_rsv->size -
+>   					     global_rsv->reserved);
+
+Have you ever wondered why "global_rsv" is not indented by tab only, but
+with extra spaces?
+
+It's supposed to be aligned with "len".
+
+Thanks,
+Qu
+>   				global_rsv->reserved +=3D to_add;
+>   				btrfs_space_info_update_bytes_may_use(fs_info,
+>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5938551d-a083-a62c-4ab3-bc29fc62b1df%40gmx.com.
