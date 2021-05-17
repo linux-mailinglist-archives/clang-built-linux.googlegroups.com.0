@@ -1,108 +1,109 @@
-Return-Path: <clang-built-linux+bncBCN77QHK3UIBBMF4RKCQMGQEHUF7H3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCN77QHK3UIBBNV4RKCQMGQEHWKQJSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 516A8383A5A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 18:47:46 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id 1-20020a6306010000b0290215c617f0f8sf4757005pgg.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 09:47:46 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1621270065; cv=pass;
+Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 250A5383A5C
+	for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 18:47:51 +0200 (CEST)
+Received: by mail-oo1-xc3a.google.com with SMTP id o1-20020a4adb610000b029020660e40b70sf5602293ood.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 09:47:51 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1621270070; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zI1/9rfPaFkIdpBrIJl87jyNUb50zK19afucsDBNa0vdNyhDM2No5JJP7RcAZCvw1K
-         wEuYz4KRDn5tPDYaXbs8bQYruw/m7LiVLqQ/t41ydOIKsKFMQZEagZ4JG01sia+KU6Pz
-         u4o8YVH0CVTf8l6wTOlHsR4RdJPs1W3yQyI8/smakaCs8RRzew98opXf3IezBxDdS2eZ
-         4fSFlLmWq8AeoF+kLwnfSM/o+veHlUOV2E5vKvDsJLwjsTwwLXbPoATSjDWZ8j7qSmXM
-         4Cf+DYULt2R7lRWYn7GnypjrQI+NiyEaMVM8w4BZKE5E4x7W7yYXlcBrx3twigx4JhU2
-         5Gqg==
+        b=D8UBj9QO8xfUxMrzJ5CgfZoZVT4h2zy4ZKsSRjg2i1n7X1bDrXhjDtztqYSujijmRo
+         RrxYevjhShlUdUh2BHRmvu8gtTRE/uwhwp04J/sjed31ODchJctVb/IWxLElFIqWrxnZ
+         KIeld3MDEkPXMdtQCOjF1dfVewR9B/sKapP75Qz1y33y2KCcQSsqIh5yK4avjMcjHfDc
+         XjxpwS3tjcASLipnda75k+0neHSQKYwgOvSmg5baBPF0hwdlfyL4DuG6LhMBVlByku27
+         k4ap11953toGm8FEAa3G3Ge4wc+g7Y1UiTvX7LYfRwb7ItUAaQH9ho+r30JxeKHprWKp
+         7lAQ==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=fRQnCcG+eajIN3mV55k70lT7U3wTevnhj+ELbqYC5bM=;
-        b=CYP5brXyxA1F/CXg6ssgNbcbFAbKElbRV4E0xbThcTotuNc1fXjKalV6iH6ExTpLu/
-         z3itWMM4LgeBoeMoZKJGjuiZudCap/2FxsHOd1OZM9xLZ8SE3GxhnAFOrtLuzZUZYvxc
-         eI6v+TsBlQqYHEKwzKxCsXqqFP8KGH6B8hQggdzu2rTKMyZ+7or3jSpQ765oSjIa5D7b
-         ajZYPkHkhZgmCZJdqxFxpgQNZKALZCkOCIjbzrwRYE3XCupeCfU+kQwtx4eX0xiTS0nM
-         jurNbC8my6RdCOJJk2++lxGduOL1RE8J5R94cWmNC6WJm5FB1bt60XtNEJvUSP3YV2cS
-         WBZA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=lXWeC+q4Hy/KC/Aec0dQZ7UN56QR5rC68kT/hExExOk=;
+        b=Kscfandi32idBvewfQ7pUIamxTtCr2xSXpLguLbsF/ws/0BFALAXhI3Lm9Fu9WHdQJ
+         E6B3/g7HxKncDt5qpD32SNVhP3Pse/uU/O70sd0j3gpT/cJDkKlpON5OLCVDYItbvfeV
+         qN51znWQEveLnv9KX8Ah53fqObyAZiXZZ3ByDRpnkzPGXz2quskCOIeyOyzlWWQb3nyh
+         DBsrXiUFqD3M1QdVxgvmjipwlUqfnlapy9DzJ9bWxRDACDG0+ksrJ3yCIrp44SqHwsS5
+         oNDVyAXLj5o8OGaEd2rKfxkI9fKmGMXQC4RUf1OOFQJvWGHWxMDH7mOj9yb11wNf4UNw
+         mtLg==
 ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=o4j4mM1V;
+       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=fag1OtPn;
        arc=pass (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.94.72 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
+       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.94.78 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fRQnCcG+eajIN3mV55k70lT7U3wTevnhj+ELbqYC5bM=;
-        b=GeRyvWm0yu35JuuFJk4eMUgmTcptV0FiBhPEDB0JtPiNHAdRlZx58xX5KY+GIiGxtP
-         owDBEAzrYpFNGKw/NdaG5jIYLzkLqeykvW/kPasFyNhIWoVnmC4LdOEt68wPZeOk1Thv
-         7y2yMvnatyAttpWsdyi2w9n0mlOP3JJthK9G/L2bQmFvOPzv/SBmWebjUgwRzGeMrhWi
-         uHPTXdw5on+mQUGY+F2aQnu79Ou8Wz4RXwvBccNuY0+c7FSpgIfc7Jc1VyTZ2L7QamsL
-         wnbMj7U4zQnbpu64yoL0L790La/IrLPyRHnZDkc8T6QfZvI4zmRuoRCrkcRhEr6tj7cL
-         na1A==
+        bh=lXWeC+q4Hy/KC/Aec0dQZ7UN56QR5rC68kT/hExExOk=;
+        b=DRz04kA3wt5tkfIqNK9Ryg0hIAxJpD9BxXGga6yxkq9xm9zGDes+Vnc5fcHE5Vl+tA
+         ivS/s57C2rxy8pwNIIKImIp9KWAJ1uKOWRxu60LUyFKOMZfwFOVp4R9vce7jNhHaW1k9
+         YPF6pb9pAoAlsvDlK69pWgYZqiBv+dO7t3gnf3NhKLxqjntGbjIXfh3pMdZN/iq01+yD
+         cbDMTRDFPgu4URJiv5vE6Y53dm3D0dZjdPKdkNhC/uGU6Vs3gOrGUnQVBRBx9YHxRXGY
+         io59M3Zdr4sfPkwWWA8lPB9HNIRYNxZfVrU26XujENFtYcB/m6hc0wkc5W8Z5aeDBMx4
+         rIKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fRQnCcG+eajIN3mV55k70lT7U3wTevnhj+ELbqYC5bM=;
-        b=s9h2V8SoxBa5Tv/1E+AAYsGEiOBoAGRpY6F/8uRIpnVVlIKoFpg7W87o5Q0V9o2TVh
-         c8vqOVW84AKoK2CRbrtU/nm8uiUg5Sfyak2jodjJXKHfPMSwsHkEY6lvrfAmDisq+Z+4
-         l6SuTexO6HZwYlDr6BfRz2Az6ZRvk25TXfF37To3H4nbFc4W2JKyRwOoaZ33WjbN8UJs
-         w7q/pV5ySPyf33DVklLNqsFY38EcER6XwjPIw0tsgr9b1a1n/wvZ4T6So/vfong1x+Su
-         C6HSqMV8YWxwtTkMECGalHHyVGF2MaCVA40Wkp0AWKIQczzTx5T7KmMFilkyn5a0FRH4
-         Fjzg==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lXWeC+q4Hy/KC/Aec0dQZ7UN56QR5rC68kT/hExExOk=;
+        b=Rq9v0xxVVg1VdD7N7GPdgSybc3UBVQuymfDdMmg9YkErG/0YO8FCWcKblSgM9YAz6i
+         x0OkGDsnhaFeZpNfN1WbII2pOR1DEMYO49ZJ9gduttSNKRZGUkiCXsCj53XHXuYpPFSY
+         uIaJqls4QSWzUyxCiW+Fcu6/eWGfd0E1paI7ttPOY5+jD9PzjMlEfqMZ8iVMvLV4r2NS
+         hy34XxvfkCJngn9SuZsEjXoz27T2E8gooN7Zj4T6GJ/7ANpJaYaSjzbcXOkzUkbnjSLx
+         pT3pVf8RT+6HeId9CwDz85IBB2dQV3YEdqUqVGF0xmB6W3ccTUJecKmwfeIQGI3Ia20W
+         iI3Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531s8hwRPHGQ9jlvQhfPQRJ+RZ/AQuoONGDTCcwr6M8SDVXBX006
-	3YR9D9+srlDip6PN+J5HUVM=
-X-Google-Smtp-Source: ABdhPJznIOJ4Xr0KHj6AonPYpxGrX7U4RTftAF1WLyXInsWAm3ODd0Kw2UeWXZPvq2mTjpTqZlINiA==
-X-Received: by 2002:a17:90b:1902:: with SMTP id mp2mr391626pjb.176.1621270065081;
-        Mon, 17 May 2021 09:47:45 -0700 (PDT)
+X-Gm-Message-State: AOAM530HBNj0xR8z8bxOSHLI0xBI/Dt4FMTD9GzjFaU6G0JT+fL5KfOv
+	E+YvL3ZiSJOtvwwSiN1ccZQ=
+X-Google-Smtp-Source: ABdhPJzGs9wzABkZHdV2MD6ibUKc31VH+56MhvNtSc2D3HYssYjscrEau1zWl8BRlHyT6DnYELMg5Q==
+X-Received: by 2002:a05:6808:619:: with SMTP id y25mr18987oih.75.1621270070124;
+        Mon, 17 May 2021 09:47:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:6e04:: with SMTP id j4ls4879559pgc.10.gmail; Mon, 17 May
- 2021 09:47:44 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1487:b029:2d8:d602:c4 with SMTP id v7-20020a056a001487b02902d8d60200c4mr611838pfu.23.1621270064535;
-        Mon, 17 May 2021 09:47:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621270064; cv=pass;
+Received: by 2002:a9d:7b46:: with SMTP id f6ls4855774oto.2.gmail; Mon, 17 May
+ 2021 09:47:49 -0700 (PDT)
+X-Received: by 2002:a05:6830:1df7:: with SMTP id b23mr392651otj.163.1621270069566;
+        Mon, 17 May 2021 09:47:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621270069; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yn6ViY6jPiuPckKcN74mUzgQ9iv6Taz3Db5paVmTpCzbJ+a1+zIP3Em4WHaPullgXn
-         Ft58tD1634eHP/rFO9ZzrAgMAOq6fLePJohdJjxuUo1bgxZ3oiIo5DOxDdoPH+mi0x1f
-         bS4CQ/g6M1kOgmVi7bAtY4L8MRMshrzDsHzDCQ7f8YUovGMwSDnifyanO2M72baFhU8K
-         q72JIhdup2YgtzNxsm5TotlgjqvGlZHGvO143bnp9VGOS0PJy+vui5r4GvXMpwprbxRT
-         TwPGD+uSskZ81IFqsAnTVImlqltQMfkBpoptdQiCT+RWywkniOOQrDyvggcslRaJIRDy
-         UtSg==
+        b=GDtESasZxG6ZzXH2iiBEpyACXQCK0T/Bz2lI0RLs9yDIMwPU3FeWSbQ6keRBqYam3D
+         0XckiIPkLYWICNIxJEX47mnZTQbJ6mXCr9i6fcVKEHTGNxzjibsFp1z0YNLrGaq+Rma2
+         jbfXL9dzS2/pN7KsAL6+ALClFyxONnR1SsiEcl9GxhjKiOZqGJalaj/3NjV7OkiHhU8q
+         +7QZ12ao5EHEzpPYvvnggFSPiqU66rxI6CmfIwiscASJKQUvoQe++B33ruP0bXZ70YYE
+         pBb5G9SyrU1WUnyuZHIqE1zO67Mi8d1dV0C28cZqYQYhqkOeMN8dkL9l+hVETILeA8Py
+         l1+g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=H6rzA5y13psG7KIiHqAZSAemd3R2/Pdx6ItyHgw236s=;
-        b=HObe19vns30Dzp2kcYazjbcJUy2CIf48XsuSoumLTtiQw3jN4cf9D9090YgK+MtL3+
-         d8i9kRcXNlZA8n9DdqSmOmzJ2l8UpMp1B6UXnxv2yidL+KWj3MI3ph3YqSUufo3Lhb+c
-         ffRT3P3O/2nv1tWwgso2BvL6mc46nK8ZaiE+MkQZebxdHKGNze3d/WRwz+tLV3YBf7T5
-         xOx1OESRVtIZY1WKf5cjqsy1u326RmxJ/8dgIFDfd0itbY5NLn5PvzI6Oj6W8a6+u0zO
-         IIA5j0LQE0V0Edih7rPBINqfrkFSCSmitBGH6La1ctcszrwQxkWsQkBbXywn3vDUPwPM
-         ASMg==
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Yx032982MoUPcoYIloagYcvwQb0/AJx0TCZd/Vp4Rxc=;
+        b=Gn0rxdmBS3L2tJEkjGRpJwZg4VMvH2LpgpSGQQnLzBkzu4VTmluw0GMFeLMsmPKvTC
+         qIevs9iSeazrKf1Wbl/ljDTDtxzPzJgUZnSMULwvhdYJgb45q3b5eZ25lLwSs0SNNEKt
+         gHccafG9mqx475U9BXSFVhX1NH64WQqxRAp7QGKd4G2qaxJdmSGrkHLKFFiTCLldJS83
+         20zjuIIZVTZZnZALrJykpUmRe6G2G3Tufr3bow62IPKX2DyueOvpx0YKih/pwtv53yW9
+         N3TdGB8kQ63a1eSebh4EpcJC4MshPMr7HbSYS2GU1VDkqqdyT60hWCI5ql+M32xzvFmI
+         sEXQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=o4j4mM1V;
+       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=fag1OtPn;
        arc=pass (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.94.72 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
+       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.94.78 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (mail-mw2nam10on2072.outbound.protection.outlook.com. [40.107.94.72])
-        by gmr-mx.google.com with ESMTPS id a29si1084832pgd.2.2021.05.17.09.47.44
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (mail-mw2nam10on2078.outbound.protection.outlook.com. [40.107.94.78])
+        by gmr-mx.google.com with ESMTPS id w16si1203200oov.0.2021.05.17.09.47.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 17 May 2021 09:47:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jgg@nvidia.com designates 40.107.94.72 as permitted sender) client-ip=40.107.94.72;
+        Mon, 17 May 2021 09:47:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jgg@nvidia.com designates 40.107.94.78 as permitted sender) client-ip=40.107.94.78;
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=iOn5a//vwQ74PS12GpcTT9xFHqfF45hPwhNfXRTg0IXCvOniqZwkJ90TNThJugSCo8dDrOtJoPAzAsEXQx+pFX33Q0Ui3I/tmzCY4KJbWarCNMVn7DokQp5XU5vJMXEYvzNs7AmSIqaVO8M0QQMnHJLGVF2Qb3lRmgWmb9Ce/z/Vl00bVFHuRL75Q/uZ2kJLVXR2x3yVJBKIpewiHUjX/eHl9KpPzQx4kUI7jMcfKrnY1qnE+/6906lN6kBxrKy+w9/E0iaHNgN5iORjcdbI3yKSfC0hb1uHdHrlO68r/VqLA5VShUkBucQ8iJIdgbK2IBqcV1IdV9+Y6McMy+55eA==
+ b=H+O7JiGp5PRyiDOWj0icC9x9c9Uj/sCYSywXl/BdoM7taTSZvSzQ77e6CoLo2j96Ko6lYv6myVrSx+E486PFY1xeyr1tJQm4HZPsgYyfz51fV6FYlSCH0Ci2GI7apneUXiRU7gaCT93kBFM2Fi97TCtLvrdwZSy5619ahITvBld7eB0ttsJKPNMHZPLUlANr4jD032Po3GJXawYLs47zAz2AVTZdvNuA/Gy40Us161FjsfEDQtfrjfG8LTg4xdDI740wC69ccHyWh0O8qPDXwYPojKc+Z2qCCrqljW0UCOJmioonwGA654ZQ9Q/mk5/5j/bmJEnXgGWyD1SEg/ExwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H6rzA5y13psG7KIiHqAZSAemd3R2/Pdx6ItyHgw236s=;
- b=kGotHTLwIksGr/mmdWTf+0rTXBHRNTpOR0+PvMFgtL7HBwShSnZ0GF5wrvKl8iQmX2vW2MHn3NM65CGMq1FD3GsSPaW4mKaRII6FKjhDXCuhfwiULqkHKLsqBP8Oy22cLwy5ekPCLyLN09j3A6betr175f1Wv1Q8YOcca2mV3YG1dVjpvyaklsv7eVz3XmuiuceXGyI8A8C/FTeda4VyhXTvBOghc8Vzl03UURo327ZZMbqddJNJ3YSskESHdzvH2yRj2tv3cJA08ZABdgVXGIxdZfM+j0/u2liuazra04SeXO0iW4oWgwtVW8Ukt37NpntKAOwsxxAp3FtUPF8iOw==
+ bh=Yx032982MoUPcoYIloagYcvwQb0/AJx0TCZd/Vp4Rxc=;
+ b=QtinbF87z/Y8sRxGxJq8JaMGMHOTM5kNI5ITvqAq6VEoc0B/6RrCFAhpMV1lqOH3Yn6mi4F0J9TBB3DyapTBNoOyrNBPX+mPmfrlouruSUEXwmzZLb6NP3op4BqR2oBVA1gQsnHRjE0y+9mIieCZdOPSvz0C9eS7VprKdqltVEouwWU8MDxA323KX1IFT+p0rOJ5yrGplb89/DpG9yrd1iKtBeDsQ/XSel54i2EjK0FTqtPWGwKuIyC5u7aUi5k+VCp1exnF/k5c//aVKmf16vjfkzcGkp1nbKRDrnZe7YRWm85QM9/ovo9iMqj09PLhTgjbyEXXiNgG1nbpUvpZCQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
@@ -110,96 +111,82 @@ Received: from DM6PR12MB3834.namprd12.prod.outlook.com (2603:10b6:5:14a::12)
  by DM6PR12MB2858.namprd12.prod.outlook.com (2603:10b6:5:182::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4129.26; Mon, 17 May
- 2021 16:47:43 +0000
+ 2021 16:47:47 +0000
 Received: from DM6PR12MB3834.namprd12.prod.outlook.com
  ([fe80::ddb4:2cbb:4589:f039]) by DM6PR12MB3834.namprd12.prod.outlook.com
  ([fe80::ddb4:2cbb:4589:f039%4]) with mapi id 15.20.4129.031; Mon, 17 May 2021
- 16:47:43 +0000
+ 16:47:47 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
-To: Potnuri Bharat Teja <bharat@chelsio.com>,
-	clang-built-linux@googlegroups.com,
-	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>,
-	Devesh Sharma <devesh.sharma@broadcom.com>,
+To: clang-built-linux@googlegroups.com,
 	Doug Ledford <dledford@redhat.com>,
-	Faisal Latif <faisal.latif@intel.com>,
-	Gal Pressman <galpress@amazon.com>,
-	Leon Romanovsky <leon@kernel.org>,
 	linux-rdma@vger.kernel.org,
-	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
-	Naresh Kumar PBS <nareshkumar.pbs@broadcom.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Selvin Xavier <selvin.xavier@broadcom.com>,
-	Shiraz Saleem <shiraz.saleem@intel.com>,
-	Yossi Leybovich <sleybo@amazon.com>,
-	Somnath Kotur <somnath.kotur@broadcom.com>,
-	Sriharsha Basavapatna <sriharsha.basavapatna@broadcom.com>,
-	Yishai Hadas <yishaih@nvidia.com>,
-	Zhu Yanjun <zyjzyj2000@gmail.com>
+	Nick Desaulniers <ndesaulniers@google.com>
 Cc: Greg KH <gregkh@linuxfoundation.org>,
 	Kees Cook <keescook@chromium.org>,
 	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 00/13] Reorganize sysfs file creation for struct ib_devices
-Date: Mon, 17 May 2021 13:47:28 -0300
-Message-Id: <0-v1-34c90fa45f1c+3c7b0-port_sysfs_jgg@nvidia.com>
+Subject: [PATCH 03/13] RDMA/core: Split port and device counter sysfs attributes
+Date: Mon, 17 May 2021 13:47:31 -0300
+Message-Id: <3-v1-34c90fa45f1c+3c7b0-port_sysfs_jgg@nvidia.com>
+In-Reply-To: <0-v1-34c90fa45f1c+3c7b0-port_sysfs_jgg@nvidia.com>
+References: 
 Content-Type: text/plain; charset="UTF-8"
 X-Originating-IP: [47.55.113.94]
-X-ClientProxiedBy: MN2PR03CA0005.namprd03.prod.outlook.com
- (2603:10b6:208:23a::10) To DM6PR12MB3834.namprd12.prod.outlook.com
+X-ClientProxiedBy: MN2PR05CA0045.namprd05.prod.outlook.com
+ (2603:10b6:208:236::14) To DM6PR12MB3834.namprd12.prod.outlook.com
  (2603:10b6:5:14a::12)
 MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from mlx.ziepe.ca (47.55.113.94) by MN2PR03CA0005.namprd03.prod.outlook.com (2603:10b6:208:23a::10) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4108.25 via Frontend Transport; Mon, 17 May 2021 16:47:42 +0000
-Received: from jgg by mlx with local (Exim 4.94)	(envelope-from <jgg@nvidia.com>)	id 1ligP7-009LYI-O8; Mon, 17 May 2021 13:47:41 -0300
+Received: from mlx.ziepe.ca (47.55.113.94) by MN2PR05CA0045.namprd05.prod.outlook.com (2603:10b6:208:236::14) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4150.11 via Frontend Transport; Mon, 17 May 2021 16:47:44 +0000
+Received: from jgg by mlx with local (Exim 4.94)	(envelope-from <jgg@nvidia.com>)	id 1ligP7-009LYU-S5; Mon, 17 May 2021 13:47:41 -0300
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 2b438945-88b2-432d-057e-08d919537d79
+X-MS-Office365-Filtering-Correlation-Id: 57856b62-ddc5-4d79-de97-08d919537e75
 X-MS-TrafficTypeDiagnostic: DM6PR12MB2858:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR12MB2858131CF5519377F7B04A72C22D9@DM6PR12MB2858.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
+X-Microsoft-Antispam-PRVS: <DM6PR12MB2858900C6568F44CFA05ED3BC22D9@DM6PR12MB2858.namprd12.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2657;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 7vmIL8jmVLhKoAg15bRpk/3dWmIs/l7wCAH1y/FrEdsmJRI9r4XXwN1MbTkaWSPbhIB3W81jYw+HzjdpJhv4BK6/dpqoT/Q9eK3BFO1JHFy/tzvrBp5ykSyWKqJQ72qsSCh9unSjaDA1KBIqYUjrhGimVtLbjp3iz6I/qvu5dC3jAHtI7j+cOBSjAJQ0nUOAhJf08Js7nvcOxwIthtCU+Qwe3HweqebNqvHxNOWR6S3A/LCJHY9xtLSL+wnkgCFWIlFNF9B8lF5es39WSddALV20glSc4WUJrMcmeEkjn5NGnlBnQPO/+SmXSPT7vqKAXy1/S6zgPckbgafqT3m5ACfkVD2zV4HcRxeYpISrrzFIoyMPE4XlnU9TqUWXMN2cWXlMYzJvGTY6UmFgBNRJ6wadXR17OSqaPZrpPMAb+0zMsZT6K1FDh6LmKcLmqLK52ra5fVKAmTQbSzsNQpOfg7l0wyMZPQEAQD9N7d3hx1o03ysMgwU8ys9CKFoTsbkfz03ruqihdPD+jRPgKFcAoCLSpZtilWfbpXr/FMLSN2sv2EAD2Q3R7rnAN+Fc+dEzSvfX2Bbig4x2vBytSx5Wi6QhCq2+wFEB0l4v/UbQPgVpc9qltkgzmyTtLLm0P8nqU5q7UTCGCEQ1EewsbvclHM53sc7a8+z1g2HN5RYRvDw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3834.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(346002)(136003)(396003)(366004)(39860400002)(376002)(921005)(54906003)(6666004)(110136005)(7416002)(9746002)(8676002)(66556008)(426003)(83380400001)(36756003)(9786002)(26005)(66946007)(38100700002)(316002)(66476007)(4326008)(478600001)(86362001)(5660300002)(186003)(8936002)(2616005)(2906002)(4216001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?C0oknKCqeQSP1o/oRE1V0k1vP74VzswwQ64octJmRG8Qbw5Zra+leSH46vd5?=
- =?us-ascii?Q?fBcV0KPNuDoredCLtUO/D5H8xSJ3UYzDfbSLm8s3X563sKWBPxL7Ny8DEsKE?=
- =?us-ascii?Q?hFfU2Utx3JVHCGHaTjWeNOCrvi3U6HGRUyYYvN1GvEoRmv61tjaATrTujkvQ?=
- =?us-ascii?Q?JcQVL/BPIOlNV/XScch9BEHs/aq4wck3I63NdkTvA9I4UkZ9DgKi/MAtw4S0?=
- =?us-ascii?Q?TK1o9zo40dVly4lQPdSoPQnApjpXEVuq0N42GURHbpdmIzCQtqbhAtCS6wq8?=
- =?us-ascii?Q?UOCthoqIwurcc3113MocSHRhC8+I40ZHgrJpKx9KvXN88VTortYNYcc9wJ+l?=
- =?us-ascii?Q?qm6uzmekne25so/2DOEWNUBuJPOYH2Rp4/b3CtvpW8wzYSfKygpm/NUSUOcV?=
- =?us-ascii?Q?NcbkkBXS45pJAPRvnlOFwssNKe5hEEl+eA2/4Tn539KmUrxC44XweGVCal55?=
- =?us-ascii?Q?B3lG7uVQNuz9bTCdJseBMATh1f3ALRIEz+LLVY3Y1Tax9bfMSUtkiFzwvBED?=
- =?us-ascii?Q?YmGdWp5IHUjenQqFgjZE2hgBbl4xNzcr7U26kyw3CKttIuHwy30leHIEgXzs?=
- =?us-ascii?Q?7AdRfpH0M4mfACLWzNVfvvkRR3ynNvLIjtCTjOjee+695HRkIhljMaEo1ABw?=
- =?us-ascii?Q?9Rt/Ac0R19SQkdvK78+rEu36/qRTgO8tfU0BO1VF1yYWgzwMBGx7Rd3cfFny?=
- =?us-ascii?Q?mxx9mr7Jy9Kd7f7W/xLyxY4DG60rO6Bz5LF7jT1k0VNOwhnGxMuYa/1AFEBD?=
- =?us-ascii?Q?RTC6PggZppjmSm78YVXyzW4SZEE341GmwVDOIP0CuWZ7wdj+/XY5EI7bFCN8?=
- =?us-ascii?Q?uSLuJRLuclZszH1/OIxZUnygVnNrAyvkKoUnGGqPml9VJxfU2TwMUVLeM4E9?=
- =?us-ascii?Q?0ku50HVWBdFOyZkug9UjWCYDLbuFDpGqfNpJcFR8tr7gJv1wgSUH5JGH/xJQ?=
- =?us-ascii?Q?xG2ro5HmKF4XcBRAq5YNIjRVl/XRuC14nH4i7qeB8HmZMkLgELEEzjcifbTx?=
- =?us-ascii?Q?7KqlxKZDvSvBdcMIRQwSHYd9LuuBt6BvFsBYoW3Z8x3BpXdArNcyv6m+Enc9?=
- =?us-ascii?Q?xJDSESsONB6fx8YbQZQh2qu79cJp4SxhWoxz4/6gRS1s2SNfagK8ASwcvP88?=
- =?us-ascii?Q?QB4OLZRHP5Y5VoGa6Wev8Q0WxI2cuYRyCVGuJ+lr8zQDGcym5VJ8PON7iNDG?=
- =?us-ascii?Q?YNkbNTRSwP3obXUvykLljWgZMM/JZaqHFL5moM+63VY4fDm9m/jRv3lFSFzm?=
- =?us-ascii?Q?JYJXGA1cPGWCZzHSmVUvYH6LcAnMJ7tvCS15WX9qmhyp+4G2Ra4mSeosLWyq?=
- =?us-ascii?Q?x1stiyqjzt5QQGlPd3r+Dtsd?=
+X-Microsoft-Antispam-Message-Info: Q1qsoP5pgnvol3WvOswjCGUWc9lIpy6VKvoJrqsACkEaWbAiQEpAzPWHp9OgBiqZpm+xk3UOI2tpXxc1xvKUA+1fRFJTA79b3wYe80xcIMCgnJWiHAVMx9LAfyl3G53zfEJlRcakBjUFV6WtZteUZMcj8vuhGyrdP8YECeKA9S6oIgXLkGKi7WrcbTZz7KG3r+gx0w3j6EwTPz3RnFkBHGITKZvVhiOgCZoUYz5BfK0tdmcdKuks7KDRz9EDhU0Qet2S7teu5ELeMoHgcSQd2r+Vd/ghNQpetXrimPe0pZ/wfMzRjoK83tE6EeUxJ6k9gp9sDfrUx0dPYC1zptDWnPap1TSc/7LLQy/A5B7thAnby6ppmzqWrUREZUCRoOnxneibMjqxMr3q8odFPkiFMA00cc2dpkzg6SnwPsxBMg5oGv11AFe07N1cS1noGHofixV3esqGnJp9Pf9NJNS7dYwY/3rLfMP4fkD1nNe3vPnvezj1Sh1N/zsWmATNTqLCbnjukWyaEnG/zGTXVIb4KjNAniWXrxJPxO6Z1vkdpaWfhmhGrHWk0GeAp4cqoKz4vbMuNvTmGUYfspkUF0ENKn8CqZz498vuJ00a3Me5cXWLSkmdXWwFTUZWKe6FvJKeJhl6sr8rS4xPXNx0cVO1xQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB3834.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(346002)(136003)(396003)(366004)(39860400002)(376002)(54906003)(6666004)(110136005)(9746002)(8676002)(66556008)(426003)(83380400001)(36756003)(30864003)(9786002)(26005)(66946007)(38100700002)(316002)(66476007)(4326008)(478600001)(86362001)(5660300002)(186003)(8936002)(2616005)(2906002)(4216001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Bla8zNZyPARwploaPragsWl2ALitCxZQJNk8p8YqL1jj65+0LQ8B1vknK0wN?=
+ =?us-ascii?Q?6h4lUp0YkdUkQx1bGcB8+mt3HCcDjqPkWLZHJdA3tZ8T80EoC6lbWSQZGr7X?=
+ =?us-ascii?Q?bHWsvOz2SW6JH7YsJyy2QUeL3161y54VExz6tuKFILv6vq2McWrZaxXEdN32?=
+ =?us-ascii?Q?kveep/ai1oBzBb5aT8x2p6Yg1R1viX2o2aCVQqi6SQ1RRfahs2sJpyigbc/j?=
+ =?us-ascii?Q?LyeCRx+SLgrovWVCNiYx47NnNJV+HOR4Py0b+1+wO65dRdiMhqB6I8NqKAip?=
+ =?us-ascii?Q?8RLbchTjBne08Sq8m9gLWoXuasfNs5F0fMstQjxKpEUMH/0bE6jKeVNn9i6r?=
+ =?us-ascii?Q?c85tupu/W1sd3LahOYD494ieIsIbAu7HkZagnRU5Xs4MCyVOLYcLGImWuPHJ?=
+ =?us-ascii?Q?+/iVwESWw7esgGZfziv5GltcU2OmnwTqB0gtJ69rbXBpUNp53FSFvH9D/zek?=
+ =?us-ascii?Q?8QClGLT2jyXDBgB+te/xNwY3gGdOfsbgsk4XUK+czFFbj2GYCw1Xp9ZdsBzw?=
+ =?us-ascii?Q?k3PXcsbWAuENfcxoBMcRck1A3N1YNRwXre/gCASUORxq3lTvZRuDiTf2bKIB?=
+ =?us-ascii?Q?2bWIXLTF6wpTh+BC0+dm510r32lX/ZLj1XBsXebK45v1c/ebbGthWKrlc4vn?=
+ =?us-ascii?Q?ilT42PpTPF7jLxk/76LbZtibgFBfNrAa2wDaHV1F8ARcCwNP+cUXOzA7X9WE?=
+ =?us-ascii?Q?sErGfYPaXvRqf4GpPE2hT58SrYuv2eLkm4ri3RWe3SgDqEtjMQSWaa5EH2Cs?=
+ =?us-ascii?Q?UJTDKC6AKruy9Qkpgo8hO7wojtRet0Nky7OteCV7shbNGJm045a5wARzBPFV?=
+ =?us-ascii?Q?9WFC7SmW+tVIGo73QAn2OrmWwIyBxTVdIRqqewQPUj5DFWWsqsX7lp2PMSMA?=
+ =?us-ascii?Q?Ax04qVfuLeAgrrjKoLvf5Ih86t///wbVuise19YdVHDp8aIOySjsnwLUeb/T?=
+ =?us-ascii?Q?Sej/NItZ6YOg4i3BwebOvv2jxa1nIZC72Y6zNQ10ua66Rz7ayxA228oomgd3?=
+ =?us-ascii?Q?W7GGGJNh2fnJaUYdCqZwYHlHGPqWTfujjxzt6Ts9+sYWYSCnrKOrLYAQwATD?=
+ =?us-ascii?Q?UKfm+OcFg8/F2NuSLQKv5KIzOIw7fgmxDyBbtiPmwbOPe8YRxBnk7IPCDNAp?=
+ =?us-ascii?Q?imz565FPcTYMlDURkrrKoVARvEtBfSuGSZRExxMMvDvSXeDt5EQZVU8MiP6B?=
+ =?us-ascii?Q?5KWAH3O7xLvkqtXRyrLb7mUagC6AP3Q+1TCmyoZegoQQ5gRGu1UzL61WN7lr?=
+ =?us-ascii?Q?O43hmludNKzzdD9u/gIhmr+7enfIi68A6utGF8KIlydcKscPe+M56n5nCbyW?=
+ =?us-ascii?Q?gvl0yn2oT4JM5nKRioXRmYsT?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b438945-88b2-432d-057e-08d919537d79
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57856b62-ddc5-4d79-de97-08d919537e75
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB3834.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 May 2021 16:47:43.0007
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 May 2021 16:47:44.7847
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j5C2Tc1VnYKi/Zk5Ft+i0j8BAzJ5WYELQkz+kgOyAXboRiinw1RkEW8jVpSznzhu
+X-MS-Exchange-CrossTenant-UserPrincipalName: dNmseQY2ArhSfJgssdizGULN+a4lkGwODUKsnT7lNDoXOmXXhQdm8yRPDlW9nR+P
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB2858
 X-Original-Sender: jgg@nvidia.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@Nvidia.com header.s=selector2 header.b=o4j4mM1V;       arc=pass
+ header.i=@Nvidia.com header.s=selector2 header.b=fag1OtPn;       arc=pass
  (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass
  fromdomain=nvidia.com);       spf=pass (google.com: domain of jgg@nvidia.com
- designates 40.107.94.72 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
+ designates 40.107.94.78 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -213,94 +200,680 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-IB has a complex sysfs with a deep nesting of attributes. Nathan and Kees
-recently noticed this was not even slightly sane with how it was handling
-attributes and a deeper inspection shows the whole thing is a pretty
-"ick" coding style.
+This code creates a 'struct hw_stats_attribute' for each sysfs entry that
+contains a naked 'struct attribute' inside.
 
-Further review shows the ick extends outward from the ib_port sysfs and
-basically everything is pretty crazy.
+It then proceeds to attach this same structure to a 'struct device' kobj
+and a 'struct ib_port' kobj. However, this violates the typing
+requirements.  'struct device' requires the attribute to be a 'struct
+device_attribute' and 'struct ib_port' requires the attribute to be
+'struct port_attribute'.
 
-Simplify all of it:
+This happens to work because the show/store function pointers in all three
+structures happen to be at the same offset and happen to be nearly the
+same signature. This means when container_of() was used to go between the
+wrong two types it still managed to work.
 
- - Organize the ib_port and gid_attr's kobj's to have clear setup/destroy
-   function pairings that work only on their own kobjs.
+However clang CFI detection notices that the function pointers have a
+slightly different signature. As with show/store this was only working
+because the device and port struct layouts happened to have the kobj at
+the front.
 
- - All memory allocated in service of a kobject's attributes is freed as
-   part of the kobj release function. Thus all the error handling defers
-   the memory frees to a put.
+Correct this by have two independent sets of data structures for the port
+and device case. The two different attributes correctly include the
+port/device_attribute struct and everything from there up is kept
+split. The show/store function call chains start with device/port unique
+functions that invoke a common show/store function pointer.
 
- - Build up lists of groups for every kobject and add the entire group
-   list as a one-shot operation as the last thing in setup function.
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Cc: Kees Cook <keescook@chromium.org>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/infiniband/core/sysfs.c | 463 ++++++++++++++++++++------------
+ include/rdma/ib_verbs.h         |   4 +-
+ 2 files changed, 292 insertions(+), 175 deletions(-)
 
- - Remove essentially all the error cleanup. The final kobject_put() will
-   always free any memory allocated or do an internal kobject_del() if
-   required. The new ordering eliminates all the other cleanup cases.
-
- - Make all attributes use proper typing for the kobj they are attached
-   to. Split device and port hw_stats handling.
-
- - Create a ib_port_attribute type and change hfi1, qib and the CM code to
-   work with attribute lists of ib_port_attribute type instead of building
-   their own kobject madness
-
-This is sort of RFCy in that I qib and hfi1 stuff is complex enough it needs
-Dennis to look at it, and the core stuff has only passed basic testing at this
-moment. Nathan confirmed an earlier version solves the CFI warning.
-
-Jason Gunthorpe (13):
-  RDMA: Split the alloc_hw_stats() ops to port and device variants
-  RDMA/core: Replace the ib_port_data hw_stats pointers with a ib_port
-    pointer
-  RDMA/core: Split port and device counter sysfs attributes
-  RDMA/core: Split gid_attrs related sysfs from add_port()
-  RDMA/core: Simplify how the gid_attrs sysfs is created
-  RDMA/core: Simplify how the port sysfs is created
-  RDMA/core: Create the device hw_counters through the normal groups
-    mechanism
-  RDMA/core: Remove the kobject_uevent() NOP
-  RDMA/core: Expose the ib port sysfs attribute machinery
-  RDMA/cm: Use an attribute_group on the ib_port_attribute intead of
-    kobj's
-  RDMA/qib: Use attributes for the port sysfs
-  RDMA/hfi1: Use attributes for the port sysfs
-  RDMA: Change ops->init_port to ops->get_port_groups
-
- drivers/infiniband/core/cm.c                |  227 ++--
- drivers/infiniband/core/core_priv.h         |   13 +-
- drivers/infiniband/core/counters.c          |    4 +-
- drivers/infiniband/core/device.c            |   18 +-
- drivers/infiniband/core/nldev.c             |   10 +-
- drivers/infiniband/core/sysfs.c             | 1100 +++++++++----------
- drivers/infiniband/hw/bnxt_re/hw_counters.c |    7 +-
- drivers/infiniband/hw/bnxt_re/hw_counters.h |    4 +-
- drivers/infiniband/hw/bnxt_re/main.c        |    2 +-
- drivers/infiniband/hw/cxgb4/provider.c      |    9 +-
- drivers/infiniband/hw/efa/efa.h             |    3 +-
- drivers/infiniband/hw/efa/efa_main.c        |    3 +-
- drivers/infiniband/hw/efa/efa_verbs.c       |   11 +-
- drivers/infiniband/hw/hfi1/hfi.h            |    8 +-
- drivers/infiniband/hw/hfi1/sysfs.c          |  531 ++++-----
- drivers/infiniband/hw/hfi1/verbs.c          |   88 +-
- drivers/infiniband/hw/i40iw/i40iw_verbs.c   |   19 +-
- drivers/infiniband/hw/mlx4/main.c           |   25 +-
- drivers/infiniband/hw/mlx5/counters.c       |   42 +-
- drivers/infiniband/hw/qib/qib.h             |   10 +-
- drivers/infiniband/hw/qib/qib_sysfs.c       |  608 +++++-----
- drivers/infiniband/hw/qib/qib_verbs.c       |    4 +-
- drivers/infiniband/sw/rdmavt/vt.c           |    2 +-
- drivers/infiniband/sw/rxe/rxe_hw_counters.c |    7 +-
- drivers/infiniband/sw/rxe/rxe_hw_counters.h |    4 +-
- drivers/infiniband/sw/rxe/rxe_verbs.c       |    2 +-
- include/rdma/ib_sysfs.h                     |   37 +
- include/rdma/ib_verbs.h                     |   34 +-
- 28 files changed, 1307 insertions(+), 1525 deletions(-)
- create mode 100644 include/rdma/ib_sysfs.h
-
+diff --git a/drivers/infiniband/core/sysfs.c b/drivers/infiniband/core/sysfs.c
+index 5f8b1677e1237b..114fecda97648e 100644
+--- a/drivers/infiniband/core/sysfs.c
++++ b/drivers/infiniband/core/sysfs.c
+@@ -60,8 +60,7 @@ struct ib_port {
+ 	struct attribute_group gid_group;
+ 	struct attribute_group *pkey_group;
+ 	const struct attribute_group *pma_table;
+-	struct attribute_group *hw_stats_ag;
+-	struct rdma_hw_stats   *hw_stats;
++	struct hw_stats_port_data *hw_stats_data;
+ 	u32                     port_num;
+ };
+ 
+@@ -85,16 +84,35 @@ struct port_table_attribute {
+ 	__be16			attr_id;
+ };
+ 
+-struct hw_stats_attribute {
+-	struct attribute	attr;
+-	ssize_t			(*show)(struct kobject *kobj,
+-					struct attribute *attr, char *buf);
+-	ssize_t			(*store)(struct kobject *kobj,
+-					 struct attribute *attr,
+-					 const char *buf,
+-					 size_t count);
+-	int			index;
+-	u32			port_num;
++struct hw_stats_device_attribute {
++	struct device_attribute attr;
++	ssize_t (*show)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
++			unsigned int index, unsigned int port_num, char *buf);
++	ssize_t (*store)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
++			 unsigned int index, unsigned int port_num,
++			 const char *buf, size_t count);
++};
++
++struct hw_stats_port_attribute {
++	struct port_attribute attr;
++	ssize_t (*show)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
++			unsigned int index, unsigned int port_num, char *buf);
++	ssize_t (*store)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
++			 unsigned int index, unsigned int port_num,
++			 const char *buf, size_t count);
++};
++
++struct hw_stats_device_data {
++	struct attribute_group group;
++	const struct attribute_group *groups[2];
++	struct rdma_hw_stats *stats;
++	struct hw_stats_device_attribute attrs[];
++};
++
++struct hw_stats_port_data {
++	struct attribute_group group;
++	struct rdma_hw_stats *stats;
++	struct hw_stats_port_attribute attrs[];
+ };
+ 
+ static ssize_t port_attr_show(struct kobject *kobj,
+@@ -128,6 +146,53 @@ static const struct sysfs_ops port_sysfs_ops = {
+ 	.store	= port_attr_store
+ };
+ 
++static ssize_t hw_stat_device_show(struct device *dev,
++				   struct device_attribute *attr, char *buf)
++{
++	struct hw_stats_device_attribute *stat_attr =
++		container_of(attr, struct hw_stats_device_attribute, attr);
++	struct ib_device *ibdev = container_of(dev, struct ib_device, dev);
++
++	return stat_attr->show(ibdev, ibdev->hw_stats_data->stats,
++			       stat_attr - ibdev->hw_stats_data->attrs, 0, buf);
++}
++
++static ssize_t hw_stat_device_store(struct device *dev,
++				    struct device_attribute *attr,
++				    const char *buf, size_t count)
++{
++	struct hw_stats_device_attribute *stat_attr =
++		container_of(attr, struct hw_stats_device_attribute, attr);
++	struct ib_device *ibdev = container_of(dev, struct ib_device, dev);
++
++	return stat_attr->store(ibdev, ibdev->hw_stats_data->stats,
++				stat_attr - ibdev->hw_stats_data->attrs, 0, buf,
++				count);
++}
++
++static ssize_t hw_stat_port_show(struct ib_port *port,
++				 struct port_attribute *attr, char *buf)
++{
++	struct hw_stats_port_attribute *stat_attr =
++		container_of(attr, struct hw_stats_port_attribute, attr);
++
++	return stat_attr->show(port->ibdev, port->hw_stats_data->stats,
++			       stat_attr - port->hw_stats_data->attrs,
++			       port->port_num, buf);
++}
++
++static ssize_t hw_stat_port_store(struct ib_port *port,
++				  struct port_attribute *attr, const char *buf,
++				  size_t count)
++{
++	struct hw_stats_port_attribute *stat_attr =
++		container_of(attr, struct hw_stats_port_attribute, attr);
++
++	return stat_attr->store(port->ibdev, port->hw_stats_data->stats,
++				stat_attr - port->hw_stats_data->attrs,
++				port->port_num, buf, count);
++}
++
+ static ssize_t gid_attr_show(struct kobject *kobj,
+ 			     struct attribute *attr, char *buf)
+ {
+@@ -835,56 +900,30 @@ static int print_hw_stat(struct ib_device *dev, int port_num,
+ 	return sysfs_emit(buf, "%llu\n", stats->value[index] + v);
+ }
+ 
+-static ssize_t show_hw_stats(struct kobject *kobj, struct attribute *attr,
+-			     char *buf)
++static ssize_t show_hw_stats(struct ib_device *ibdev,
++			     struct rdma_hw_stats *stats, unsigned int index,
++			     unsigned int port_num, char *buf)
+ {
+-	struct ib_device *dev;
+-	struct ib_port *port;
+-	struct hw_stats_attribute *hsa;
+-	struct rdma_hw_stats *stats;
+ 	int ret;
+ 
+-	hsa = container_of(attr, struct hw_stats_attribute, attr);
+-	if (!hsa->port_num) {
+-		dev = container_of((struct device *)kobj,
+-				   struct ib_device, dev);
+-		stats = dev->hw_stats;
+-	} else {
+-		port = container_of(kobj, struct ib_port, kobj);
+-		dev = port->ibdev;
+-		stats = port->hw_stats;
+-	}
+ 	mutex_lock(&stats->lock);
+-	ret = update_hw_stats(dev, stats, hsa->port_num, hsa->index);
++	ret = update_hw_stats(ibdev, stats, port_num, index);
+ 	if (ret)
+ 		goto unlock;
+-	ret = print_hw_stat(dev, hsa->port_num, stats, hsa->index, buf);
++	ret = print_hw_stat(ibdev, port_num, stats, index, buf);
+ unlock:
+ 	mutex_unlock(&stats->lock);
+ 
+ 	return ret;
+ }
+ 
+-static ssize_t show_stats_lifespan(struct kobject *kobj,
+-				   struct attribute *attr,
++static ssize_t show_stats_lifespan(struct ib_device *ibdev,
++				   struct rdma_hw_stats *stats,
++				   unsigned int index, unsigned int port_num,
+ 				   char *buf)
+ {
+-	struct hw_stats_attribute *hsa;
+-	struct rdma_hw_stats *stats;
+ 	int msecs;
+ 
+-	hsa = container_of(attr, struct hw_stats_attribute, attr);
+-	if (!hsa->port_num) {
+-		struct ib_device *dev = container_of((struct device *)kobj,
+-						     struct ib_device, dev);
+-
+-		stats = dev->hw_stats;
+-	} else {
+-		struct ib_port *p = container_of(kobj, struct ib_port, kobj);
+-
+-		stats = p->hw_stats;
+-	}
+-
+ 	mutex_lock(&stats->lock);
+ 	msecs = jiffies_to_msecs(stats->lifespan);
+ 	mutex_unlock(&stats->lock);
+@@ -892,12 +931,11 @@ static ssize_t show_stats_lifespan(struct kobject *kobj,
+ 	return sysfs_emit(buf, "%d\n", msecs);
+ }
+ 
+-static ssize_t set_stats_lifespan(struct kobject *kobj,
+-				  struct attribute *attr,
+-				  const char *buf, size_t count)
++static ssize_t set_stats_lifespan(struct ib_device *ibdev,
++				   struct rdma_hw_stats *stats,
++				   unsigned int index, unsigned int port_num,
++				   const char *buf, size_t count)
+ {
+-	struct hw_stats_attribute *hsa;
+-	struct rdma_hw_stats *stats;
+ 	int msecs;
+ 	int jiffies;
+ 	int ret;
+@@ -908,17 +946,6 @@ static ssize_t set_stats_lifespan(struct kobject *kobj,
+ 	if (msecs < 0 || msecs > 10000)
+ 		return -EINVAL;
+ 	jiffies = msecs_to_jiffies(msecs);
+-	hsa = container_of(attr, struct hw_stats_attribute, attr);
+-	if (!hsa->port_num) {
+-		struct ib_device *dev = container_of((struct device *)kobj,
+-						     struct ib_device, dev);
+-
+-		stats = dev->hw_stats;
+-	} else {
+-		struct ib_port *p = container_of(kobj, struct ib_port, kobj);
+-
+-		stats = p->hw_stats;
+-	}
+ 
+ 	mutex_lock(&stats->lock);
+ 	stats->lifespan = jiffies;
+@@ -927,72 +954,125 @@ static ssize_t set_stats_lifespan(struct kobject *kobj,
+ 	return count;
+ }
+ 
+-static void free_hsag(struct kobject *kobj, struct attribute_group *attr_group)
++static struct hw_stats_device_data *
++alloc_hw_stats_device(struct ib_device *ibdev)
+ {
+-	struct attribute **attr;
++	struct hw_stats_device_data *data;
++	struct rdma_hw_stats *stats;
++
++	if (!ibdev->ops.alloc_hw_device_stats)
++		return ERR_PTR(-EOPNOTSUPP);
++	stats = ibdev->ops.alloc_hw_device_stats(ibdev);
++	if (!stats)
++		return ERR_PTR(-ENOMEM);
++	if (!stats->names || stats->num_counters <= 0)
++		goto err_free_stats;
++
++	/*
++	 * Two extra attribue elements here, one for the lifespan entry and
++	 * one to NULL terminate the list for the sysfs core code
++	 */
++	data = kzalloc(struct_size(data, attrs, stats->num_counters + 1),
++		       GFP_KERNEL);
++	if (!data)
++		goto err_free_stats;
++	data->group.attrs = kcalloc(stats->num_counters + 2,
++				    sizeof(*data->group.attrs), GFP_KERNEL);
++	if (!data->group.attrs)
++		goto err_free_data;
+ 
+-	sysfs_remove_group(kobj, attr_group);
++	mutex_init(&stats->lock);
++	data->group.name = "hw_counters";
++	data->stats = stats;
++	data->groups[0] = &data->group;
++	return data;
+ 
+-	for (attr = attr_group->attrs; *attr; attr++)
+-		kfree(*attr);
+-	kfree(attr_group);
++err_free_data:
++	kfree(data);
++err_free_stats:
++	kfree(stats);
++	return ERR_PTR(-ENOMEM);
+ }
+ 
+-static struct attribute *alloc_hsa(int index, u32 port_num, const char *name)
++static void free_hw_stats_device(struct hw_stats_device_data *data)
+ {
+-	struct hw_stats_attribute *hsa;
++	kfree(data->group.attrs);
++	kfree(data->stats);
++	kfree(data);
++}
+ 
+-	hsa = kmalloc(sizeof(*hsa), GFP_KERNEL);
+-	if (!hsa)
+-		return NULL;
++static int setup_hw_device_stats(struct ib_device *ibdev)
++{
++	struct hw_stats_device_attribute *attr;
++	struct hw_stats_device_data *data;
++	int i, ret;
+ 
+-	hsa->attr.name = (char *)name;
+-	hsa->attr.mode = S_IRUGO;
+-	hsa->show = show_hw_stats;
+-	hsa->store = NULL;
+-	hsa->index = index;
+-	hsa->port_num = port_num;
++	data = alloc_hw_stats_device(ibdev);
++	if (IS_ERR(data))
++		return PTR_ERR(data);
+ 
+-	return &hsa->attr;
+-}
++	ret = ibdev->ops.get_hw_stats(ibdev, data->stats, 0,
++				      data->stats->num_counters);
++	if (ret != data->stats->num_counters) {
++		if (WARN_ON(ret >= 0))
++			ret = -EINVAL;
++		goto err_free;
++	}
+ 
+-static struct attribute *alloc_hsa_lifespan(char *name, u32 port_num)
+-{
+-	struct hw_stats_attribute *hsa;
++	data->stats->timestamp = jiffies;
+ 
+-	hsa = kmalloc(sizeof(*hsa), GFP_KERNEL);
+-	if (!hsa)
+-		return NULL;
++	for (i = 0; i < data->stats->num_counters; i++) {
++		attr = &data->attrs[i];
++		sysfs_attr_init(&attr->attr.attr);
++		attr->attr.attr.name = data->stats->names[i];
++		attr->attr.attr.mode = 0444;
++		attr->attr.show = hw_stat_device_show;
++		attr->show = show_hw_stats;
++		data->group.attrs[i] = &attr->attr.attr;
++	}
+ 
+-	hsa->attr.name = name;
+-	hsa->attr.mode = S_IWUSR | S_IRUGO;
+-	hsa->show = show_stats_lifespan;
+-	hsa->store = set_stats_lifespan;
+-	hsa->index = 0;
+-	hsa->port_num = port_num;
++	attr = &data->attrs[i];
++	sysfs_attr_init(&attr->attr.attr);
++	attr->attr.attr.name = "lifespan";
++	attr->attr.attr.mode = 0644;
++	attr->attr.show = hw_stat_device_show;
++	attr->show = show_stats_lifespan;
++	attr->attr.store = hw_stat_device_store;
++	attr->store = set_stats_lifespan;
++	data->group.attrs[i] = &attr->attr.attr;
++
++	ibdev->hw_stats_data = data;
++	ret = device_add_groups(&ibdev->dev, data->groups);
++	if (ret)
++		goto err_free;
++	return 0;
+ 
+-	return &hsa->attr;
++err_free:
++	free_hw_stats_device(data);
++	ibdev->hw_stats_data = NULL;
++	return ret;
+ }
+ 
+-static void setup_hw_stats(struct ib_device *device, struct ib_port *port,
+-			   u32 port_num)
++static void destroy_hw_device_stats(struct ib_device *ibdev)
+ {
+-	struct attribute_group *hsag;
++	if (!ibdev->hw_stats_data)
++		return;
++	device_remove_groups(&ibdev->dev, ibdev->hw_stats_data->groups);
++	free_hw_stats_device(ibdev->hw_stats_data);
++	ibdev->hw_stats_data = NULL;
++}
++
++static struct hw_stats_port_data *alloc_hw_stats_port(struct ib_port *port)
++{
++	struct ib_device *ibdev = port->ibdev;
++	struct hw_stats_port_data *data;
+ 	struct rdma_hw_stats *stats;
+-	int i, ret;
+ 
+-	if (port_num) {
+-		if (!device->ops.alloc_hw_port_stats)
+-			return;
+-		stats = device->ops.alloc_hw_port_stats(device, port_num);
+-	} else {
+-		if (!device->ops.alloc_hw_device_stats)
+-			return;
+-		stats = device->ops.alloc_hw_device_stats(device);
+-	}
++	if (!ibdev->ops.alloc_hw_port_stats)
++		return ERR_PTR(-EOPNOTSUPP);
++	stats = ibdev->ops.alloc_hw_port_stats(port->ibdev, port->port_num);
+ 	if (!stats)
+-		return;
+-
++		return ERR_PTR(-ENOMEM);
+ 	if (!stats->names || stats->num_counters <= 0)
+ 		goto err_free_stats;
+ 
+@@ -1000,68 +1080,102 @@ static void setup_hw_stats(struct ib_device *device, struct ib_port *port,
+ 	 * Two extra attribue elements here, one for the lifespan entry and
+ 	 * one to NULL terminate the list for the sysfs core code
+ 	 */
+-	hsag = kzalloc(sizeof(*hsag) +
+-		       sizeof(void *) * (stats->num_counters + 2),
++	data = kzalloc(struct_size(data, attrs, stats->num_counters + 1),
+ 		       GFP_KERNEL);
+-	if (!hsag)
++	if (!data)
+ 		goto err_free_stats;
++	data->group.attrs = kcalloc(stats->num_counters + 2,
++				    sizeof(*data->group.attrs), GFP_KERNEL);
++	if (!data->group.attrs)
++		goto err_free_data;
+ 
+-	ret = device->ops.get_hw_stats(device, stats, port_num,
+-				       stats->num_counters);
+-	if (ret != stats->num_counters)
+-		goto err_free_hsag;
++	mutex_init(&stats->lock);
++	data->group.name = "hw_counters";
++	data->stats = stats;
++	return data;
+ 
+-	stats->timestamp = jiffies;
++err_free_data:
++	kfree(data);
++err_free_stats:
++	kfree(stats);
++	return ERR_PTR(-ENOMEM);
++}
+ 
+-	hsag->name = "hw_counters";
+-	hsag->attrs = (void *)hsag + sizeof(*hsag);
++static void free_hw_stats_port(struct hw_stats_port_data *data)
++{
++	kfree(data->group.attrs);
++	kfree(data->stats);
++	kfree(data);
++}
+ 
+-	for (i = 0; i < stats->num_counters; i++) {
+-		hsag->attrs[i] = alloc_hsa(i, port_num, stats->names[i]);
+-		if (!hsag->attrs[i])
+-			goto err;
+-		sysfs_attr_init(hsag->attrs[i]);
+-	}
++static int setup_hw_port_stats(struct ib_port *port)
++{
++	struct hw_stats_port_attribute *attr;
++	struct hw_stats_port_data *data;
++	int i, ret;
+ 
+-	mutex_init(&stats->lock);
+-	/* treat an error here as non-fatal */
+-	hsag->attrs[i] = alloc_hsa_lifespan("lifespan", port_num);
+-	if (hsag->attrs[i])
+-		sysfs_attr_init(hsag->attrs[i]);
+-
+-	if (port) {
+-		struct kobject *kobj = &port->kobj;
+-		ret = sysfs_create_group(kobj, hsag);
+-		if (ret)
+-			goto err;
+-		port->hw_stats_ag = hsag;
+-		port->hw_stats = stats;
+-	} else {
+-		struct kobject *kobj = &device->dev.kobj;
+-		ret = sysfs_create_group(kobj, hsag);
+-		if (ret)
+-			goto err;
+-		device->hw_stats_ag = hsag;
+-		device->hw_stats = stats;
++	data = alloc_hw_stats_port(port);
++	if (IS_ERR(data))
++		return PTR_ERR(data);
++
++	ret = port->ibdev->ops.get_hw_stats(port->ibdev, data->stats,
++					    port->port_num,
++					    data->stats->num_counters);
++	if (ret != data->stats->num_counters) {
++		if (WARN_ON(ret >= 0))
++			ret = -EINVAL;
++		goto err_free;
++	}
++	data->stats->timestamp = jiffies;
++
++	for (i = 0; i < data->stats->num_counters; i++) {
++		attr = &data->attrs[i];
++		sysfs_attr_init(&attr->attr.attr);
++		attr->attr.attr.name = data->stats->names[i];
++		attr->attr.attr.mode = 0444;
++		attr->attr.show = hw_stat_port_show;
++		attr->show = show_hw_stats;
++		data->group.attrs[i] = &attr->attr.attr;
+ 	}
+ 
+-	return;
++	attr = &data->attrs[i];
++	sysfs_attr_init(&attr->attr.attr);
++	attr->attr.attr.name = "lifespan";
++	attr->attr.attr.mode = 0644;
++	attr->attr.show = hw_stat_port_show;
++	attr->show = show_stats_lifespan;
++	attr->attr.store = hw_stat_port_store;
++	attr->store = set_stats_lifespan;
++	data->group.attrs[i] = &attr->attr.attr;
++
++	port->hw_stats_data = data;
++	ret = sysfs_create_group(&port->kobj, &data->group);
++	if (ret)
++		goto err_free;
++	return 0;
+ 
+-err:
+-	for (; i >= 0; i--)
+-		kfree(hsag->attrs[i]);
+-err_free_hsag:
+-	kfree(hsag);
+-err_free_stats:
+-	kfree(stats);
++err_free:
++	free_hw_stats_port(data);
++	port->hw_stats_data = NULL;
++	return ret;
++}
++
++static void destroy_hw_port_stats(struct ib_port *port)
++{
++	if (!port->hw_stats_data)
++		return;
++	sysfs_remove_group(&port->kobj, &port->hw_stats_data->group);
++	free_hw_stats_port(port->hw_stats_data);
++	port->hw_stats_data = NULL;
+ }
+ 
+ struct rdma_hw_stats *ib_get_hw_stats_port(struct ib_device *ibdev,
+ 					   u32 port_num)
+ {
+-	if (!ibdev->port_data || !rdma_is_port_valid(ibdev, port_num))
++	if (!ibdev->port_data || !rdma_is_port_valid(ibdev, port_num) ||
++	    !ibdev->port_data[port_num].sysfs->hw_stats_data)
+ 		return NULL;
+-	return ibdev->port_data[port_num].sysfs->hw_stats;
++	return ibdev->port_data[port_num].sysfs->hw_stats_data->stats;
+ }
+ 
+ static int add_port(struct ib_core_device *coredev, int port_num)
+@@ -1166,21 +1280,23 @@ static int add_port(struct ib_core_device *coredev, int port_num)
+ 			goto err_free_pkey;
+ 	}
+ 
++	/*
++	 * If port == 0, it means hw_counters are per device and not per
++	 * port, so holder should be device. Therefore skip per port
++	 * counter initialization.
++	 */
++	if (port_num && is_full_dev) {
++		ret = setup_hw_port_stats(p);
++		if (ret && ret != -EOPNOTSUPP)
++			goto err_remove_pkey;
++	}
+ 
+ 	if (device->ops.init_port && is_full_dev) {
+ 		ret = device->ops.init_port(device, port_num, &p->kobj);
+ 		if (ret)
+-			goto err_remove_pkey;
++			goto err_remove_stats;
+ 	}
+ 
+-	/*
+-	 * If port == 0, it means hw_counters are per device and not per
+-	 * port, so holder should be device. Therefore skip per port conunter
+-	 * initialization.
+-	 */
+-	if (device->ops.alloc_hw_port_stats && port_num && is_full_dev)
+-		setup_hw_stats(device, p, port_num);
+-
+ 	list_add_tail(&p->kobj.entry, &coredev->port_list);
+ 	if (device->port_data && is_full_dev)
+ 		device->port_data[port_num].sysfs = p;
+@@ -1188,6 +1304,9 @@ static int add_port(struct ib_core_device *coredev, int port_num)
+ 	kobject_uevent(&p->kobj, KOBJ_ADD);
+ 	return 0;
+ 
++err_remove_stats:
++	destroy_hw_port_stats(p);
++
+ err_remove_pkey:
+ 	if (p->pkey_group)
+ 		sysfs_remove_group(&p->kobj, p->pkey_group);
+@@ -1370,9 +1489,7 @@ void ib_free_port_attrs(struct ib_core_device *coredev)
+ 		struct ib_port *port = container_of(p, struct ib_port, kobj);
+ 
+ 		list_del(&p->entry);
+-		if (port->hw_stats_ag)
+-			free_hsag(&port->kobj, port->hw_stats_ag);
+-		kfree(port->hw_stats);
++		destroy_hw_port_stats(port);
+ 		if (device->port_data && is_full_dev)
+ 			device->port_data[port->port_num].sysfs = NULL;
+ 
+@@ -1424,18 +1541,18 @@ int ib_device_register_sysfs(struct ib_device *device)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (device->ops.alloc_hw_device_stats)
+-		setup_hw_stats(device, NULL, 0);
++	ret = setup_hw_device_stats(device);
++	if (ret && ret != -EOPNOTSUPP) {
++		ib_free_port_attrs(&device->coredev);
++		return ret;
++	}
+ 
+ 	return 0;
+ }
+ 
+ void ib_device_unregister_sysfs(struct ib_device *device)
+ {
+-	if (device->hw_stats_ag)
+-		free_hsag(&device->dev.kobj, device->hw_stats_ag);
+-	kfree(device->hw_stats);
+-
++	destroy_hw_device_stats(device);
+ 	ib_free_port_attrs(&device->coredev);
+ }
+ 
+diff --git a/include/rdma/ib_verbs.h b/include/rdma/ib_verbs.h
+index e3be93e7096616..53eba744ad8fb6 100644
+--- a/include/rdma/ib_verbs.h
++++ b/include/rdma/ib_verbs.h
+@@ -51,6 +51,7 @@ struct ib_usrq_object;
+ struct ib_uwq_object;
+ struct rdma_cm_id;
+ struct ib_port;
++struct hw_stats_device_data;
+ 
+ extern struct workqueue_struct *ib_wq;
+ extern struct workqueue_struct *ib_comp_wq;
+@@ -2696,8 +2697,7 @@ struct ib_device {
+ 	u8                           node_type;
+ 	u32			     phys_port_cnt;
+ 	struct ib_device_attr        attrs;
+-	struct attribute_group	     *hw_stats_ag;
+-	struct rdma_hw_stats         *hw_stats;
++	struct hw_stats_device_data *hw_stats_data;
+ 
+ #ifdef CONFIG_CGROUP_RDMA
+ 	struct rdmacg_device         cg_device;
 -- 
 2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0-v1-34c90fa45f1c%2B3c7b0-port_sysfs_jgg%40nvidia.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3-v1-34c90fa45f1c%2B3c7b0-port_sysfs_jgg%40nvidia.com.
