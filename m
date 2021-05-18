@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBCQPVKWLVAIRBBN7RWCQMGQELRRKJLA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQPVKWLVAIRB2WDRWCQMGQENMRPVOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id C0D653871EE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 18 May 2021 08:32:38 +0200 (CEST)
-Received: by mail-oo1-xc38.google.com with SMTP id e17-20020a4a55110000b029020eb08e4aedsf499463oob.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 23:32:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621319557; cv=pass;
+Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
+	by mail.lfdr.de (Postfix) with ESMTPS id 851F8387218
+	for <lists+clang-built-linux@lfdr.de>; Tue, 18 May 2021 08:42:51 +0200 (CEST)
+Received: by mail-qk1-x739.google.com with SMTP id b3-20020a05620a0cc3b02902e9d5ca06f2sf6452274qkj.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 17 May 2021 23:42:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621320170; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Qw84yO81qPNKVO416sL4Od7AF/NDaa7dIjmTbxL9NN2/waCNWOUzQ50KIJC5DNdbLE
-         uJZm80EVjbKCVi85jOf0jnHBTvAbfqAS9XOtM+fUITXCcE3R8mc5f8vk4qKTTuCvDoO8
-         AnT2GPanYKNzBgtX4g/VjKeM9fpYi7e9pbOvj8XY6rJdlN+WxcUQySYgeaVe3e8YHq5A
-         0ybfLImJp9KL2otEU1E7C/1tFJmCwdAXkNukr2QcevJ1a+Xx4ICY39ABboNSMX60m80h
-         EQTG3HcQGk2Dzu7ptBH8iVb3Q9Ad0woTmK1sPWgP3/2YjrZH7ULhV9wbQAn7dDG7N8eT
-         mTRQ==
+        b=g9UeAec8ckUXdd3FRw2Ofc7HJ2eljCN/f3WSrXjIAZNKw9wwf1FUwFOBYXYDbIr0qZ
+         SN/pFslxf77LfeezgS+hRdlt53c2sYxzm55mybAK9nNUYDwl3bj5Op2REJ87IZ/GL49F
+         DQ8+94x2fwP3pJCWh9rMyZptiZC//Fpod10/KHodnP0IvZkD1S+u7UVFuQMXeCLuJ0Hn
+         sA1n6/MlXb0WIaZYn3YHp2NN9fVI4Lg5KzkwfJW2UWju5czHzqGk/YIQuIqACGkD/qnI
+         +6dJ7UE8jqIwHIsLJtPX3sx3S8PCOOmqjfd9CHDoZ7WCU73wyASGlNEFtAufxPM2eYlM
+         gVZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=+y+E6dJfcF41SJzShcD1aNme6czi9qz69An1vFOMGLk=;
-        b=zBFrchjjP0SJKvxPq+exDRMlXyUL/TjWjptYDxkyszy9gHzswrt0kOq9wdl63+Q+9n
-         eNoTDeCJK8KId1F/da+Pd+FEVk2AOrapicMJL4fGL86hXfw5TVUH+prJ2GZZ/PMAuebN
-         GsiXXR4IRT3JvFfduYsOgJkQMysdgpZtS21hQ64GIf2UfmESbgyBIO4FuJqncHmSxbBQ
-         Mwo1mrubvZfIkSEKMY7YMhhtcr3Z8p5TbZJ1Qc6YyDQDQxAENz7nne3+nPzDLDOPlLPL
-         xQJMmfGr01L8lSqJ1fcXBCuKQKunV76bntRpFHbvVj5vr0TWLdmqMzky/1LNQCFHyYYO
-         Hn9A==
+        bh=HiKS2OT6PzszuycC/x6IXU0yE0FLH4HXzz5RsOXFH+Q=;
+        b=gkF3kyVEdYkBY9pdSSl4b+fU+uLjnjDxy5OPSJ5JTaaBsT+R26RccayYzLbtHndh3V
+         0/keUxenI2owgtdSL+k+ZJGtLlcWrS1Ri+i/Up1jYWCDU+OTQJIEwMxI4H8FQQRmOACU
+         dfGhxnS1PfFPTm+oLKEVmurwBM6cJuYlDd2CVVppeeUxHhnFqed/JS/8P7BUqg8F4YTS
+         buXlatJg/cr2Kc3h2NNjxVo19KFRIAlc7nQt+faNOQj14LG+wTwhwqYKOIKt4HdG5KBk
+         70sMSGgEqE14OPuMmlzOuB5UHJW3gTBdo7p3iHvEVvvgk6NeSKDzw8BB16G/WZoYbq7z
+         J4Pg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+y+E6dJfcF41SJzShcD1aNme6czi9qz69An1vFOMGLk=;
-        b=QACX5yw8FtU9CqcS5yZM7rq0PGUDkqlS2uz3LHPNj39GmphjxE6o1ucpBspnwEL9xd
-         lQAuzun15JrkTUvEf9CVewyW8MtFGplabN+XzSdqz2NGXxqZ44PbpLkOqPevmnjcrFtI
-         brcuk/FD6NgwZMZugDv2RPFNGxactaJ8ZHq38kNOSiTkCxFDeK3Fy+MrhNlr/0fe+XYW
-         2LlJtSQVGNTXqt5fChAWIgcj+0NPDQjFIBbfixzL4coNgLqH6NkjxcGC9ZHO/Wafqr6l
-         88Ec4bWGWfPxoDL5NUiSWNvfYqf1uTnru1z+gk6PWKxTwqPfU48kqm2UbMAcjQt5uUoG
-         swdw==
+        bh=HiKS2OT6PzszuycC/x6IXU0yE0FLH4HXzz5RsOXFH+Q=;
+        b=dY71QxPAUFpGWmAqyYgihdCkJncQ4atK2bCmz3BnSJEiUagoSNFQ811RfPtgHgK2Ls
+         T7OYWaWGWPrRPqIA0rh378/prfYLUCMzKlKMuwYKAxc2KTPCRKxkPgk6V87WqzNDX/5/
+         TIjSWn/2m+tISTWra9H1sbYOKfBjYujR4YLss19YqbhzRzk4jo/YWTBfHRgmOj0A32zX
+         iVtqmsJa1ZZj3qjUH5ldVDszs02Xn7LoDxVUJc8YwKi34zXsvSnfPGupMQBQZelbJROB
+         KawJh1tGrV7fcY20tG2S1rf6ohmk+HpX+PWelQBcLITaoBaEQItS0Xondsa6jYQ/IL0T
+         dZHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -48,65 +48,66 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=+y+E6dJfcF41SJzShcD1aNme6czi9qz69An1vFOMGLk=;
-        b=ERAAbnV33w5Ytpq/aYL+5/R99eWt50eJSUpOC63aflwjrul4LY7ZRNhE4CDvWVzcfm
-         CEzK4jsk9QfIimW92CCgo/vRfDOWafbsY3GbQeMRrJJyMaL9lJpIdY8qtGV1FbZw1DKe
-         0KEByxwntetMsTULV3CP1BTqUA/WGnv6Jk8/V+oCFqtm6hByiDOfsYfp6FevO5KoUDjZ
-         3wPFOXzP9tU17irXjGbb+6219Boc0m49E27JHygSNHL3S5q4z/breQfewsRyPm1Tmv0K
-         elVafJsiPRbol6pw43Ado3YwcBp8wwEMbwYIZVP3G6ArnlmwckqwtcBf/49XaXhA9ELS
-         7EGw==
+        bh=HiKS2OT6PzszuycC/x6IXU0yE0FLH4HXzz5RsOXFH+Q=;
+        b=qWfv1aQnmU5VBpKhFGK9Y/CIOZy9CpzSkhsF3AEKO021icxNmVdvOxoposFJi/ZH8z
+         XEinxz0Bfmq34Rbmrv9qpv2fWGHhgPbhWRHieHynAB4Zs32I/NPzJqj6/GV+cSUewbYS
+         KOTikWhd+DAwavOPrDiapevLpZb3zzONQJSVZbOfyg1wr6wetftKw061n9txrco3N/gM
+         EWE/lffik+vnHNl5V7UPBgEQXvsizkgDsIw3vLeYmkgUdaIM5Lc9EOmmV44y4KeYZNqv
+         VH8AZr3h30Wlon6gPD0+AnP3Gzxuv6fjPu78KNetf6Hfx95m9CORzHngpv9q5e81NO4x
+         zqpg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5338tJc7N8NmwyuHGfF30pn7bb0djRU43paLddi8gGfahH3c1gTg
-	7lLcRNpyoB1SVCw/P1Xzu3I=
-X-Google-Smtp-Source: ABdhPJxBYpLrPRbf/fPzRLmz2a8lcmYiugsTFDHVZj6f/JoC6qq4Mzq578kFU2wxp9Y45ggogOxpoQ==
-X-Received: by 2002:a05:6808:13d5:: with SMTP id d21mr2753691oiw.31.1621319557404;
-        Mon, 17 May 2021 23:32:37 -0700 (PDT)
+X-Gm-Message-State: AOAM531IcI5j6HgdLg0caZ3H2xMJBx8ts4hUblnlY4KHF7703YvHR0eb
+	AtF1eeP/eJzh/KgjvuHIw38=
+X-Google-Smtp-Source: ABdhPJxL3215aN/ZfUvm8by4Dd4uycfsiYmi91nE8/i2gHEfGFETrc8olcx/zxvIqygjFjbwWaZy7g==
+X-Received: by 2002:a05:620a:b:: with SMTP id j11mr3992277qki.159.1621320170420;
+        Mon, 17 May 2021 23:42:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:5a18:: with SMTP id v24ls3262719oth.1.gmail; Mon, 17 May
- 2021 23:32:37 -0700 (PDT)
-X-Received: by 2002:a9d:459a:: with SMTP id x26mr2916430ote.337.1621319557070;
-        Mon, 17 May 2021 23:32:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621319557; cv=none;
+Received: by 2002:a37:af04:: with SMTP id y4ls11971247qke.8.gmail; Mon, 17 May
+ 2021 23:42:50 -0700 (PDT)
+X-Received: by 2002:a37:9ec4:: with SMTP id h187mr4017781qke.200.1621320169947;
+        Mon, 17 May 2021 23:42:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621320169; cv=none;
         d=google.com; s=arc-20160816;
-        b=JoaR2p0WaH9QU61WqHfD5K30gT/usk4/RlIG6fIyq+Jhz40qrXXpNE3YNkPUenj6KV
-         coT25pbpYgt7La5xAM3oAuXWteRdhAC4Qf09M6jKjN5hWbqz1THHkQz6m8AlGK7DOFif
-         HH4c8MU9N6+kqDx/WIq6ZZQzU2yCr/BfdxWeyQ8D+OdQIjqKGfiuR5pdeMipE48QS30t
-         auPif56wat4tTDEMq7GQF6BVNz1+BImX80q3M/Mahcp6AN3s+IjDEUbxHx5wIqPJfV8C
-         pwNo2LAERnb8uCNidErxPVTx2njfHh1osDszF9w1lSpBa8D3/kGrU2l4HNYHQ8WvJ7O8
-         Ql3g==
+        b=vPiNfHOFzfyoMM0pGeF9GQb5qL/KhaZ3pbY+1e7ZLoUFOZZT9hLwkrxDuI+4bjGueA
+         lQHcUIaPCFwx/3h421dc7Z9iNumvW3jvHivwp32lzN2TPqmd4uHTGOGZiKj8bFnBi0cP
+         hUlYg6v1oDdPEhXLALQxeuUmDJuRu47MkLNGAOa09N9nZuTF8aFQh0ost7B+r14Td1R8
+         feOj1XuUqu9XtoaCQQcubxCOdiLN+eeA7BnTGbzjQEkir9hWcTFNqaB4YMRebN8ZdLMO
+         1uuyaXpBbA4bSX48c8QwUI3jh9ymNFq6lsM9SVpI+T5YJurOXiqREyEMR1pne2baP8gt
+         9Rrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date;
-        bh=9rOkAOS1gITwJj1T1acE/o6zHu9WtCiqYTJWxUeEkII=;
-        b=TQNEouQllH1dOXqJ3P4fOlfYAC9gS2XTioyXFIYpvd0tm28yB+D92M0m/bnxYB/1QB
-         05N/ikG+R0szp8qZPqFCo5l24NaDvTmpD1BHTZc621hW8Z0E78j7KBcgj3DB3MOfGk6+
-         Sj0zAYLSm92uTrDfplw56+P1HXFcWCuQR76pT3bhLz1+CaGcEO5lDZB/3OhhLX+zzQAb
-         0bOtYAZUhJW0lFLpj1dvKPUwdlgcwD+JiAhpNFQzbiNxam4ErWzEsISQAwFGAIpOyJjJ
-         CBJreWLEtyNVZBi3SNWYcPNQqwWKRHtvByGWtigimCFRbYiSqV4oiMAJnXFiYvPKTaWL
-         dr3w==
+        bh=3Zj5dtFRQiLjbyt/L/jN/QsPAhGELH9v5NuklmAMZxs=;
+        b=EUJSRndktKaAXsJlcIxRx+ywzr/qrSUNKDRmi1uh93aoeW0iWWkB49aQEZ7rdR3ET5
+         AwqCq+r389hySEr8sp0IjEUSJc2BIosRAEIRc6LHcUZa4nOxRhKcnSNuE3Ak7w4EgJ3b
+         A39Swf23F+eGClsWoQ8Z5HlWIsMyvOZmGEjMD2SmgpU54p9mOLWjL/Hpbs5Ntpo99h5Y
+         OmdFN8QfxqCE4YDF5+FVh0s89EASbYpVtJXVDhZoJvN0rmPopHem8jj4Ny2M62uH2IV2
+         Tx3PGzYQUJC3zfNxiK7hvUm2b1mJfBJoX50xKol7skB4Uc5EdBtQGAIPs6xgOfVl45bX
+         ph8A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
 Received: from muru.com (muru.com. [72.249.23.125])
-        by gmr-mx.google.com with ESMTP id k4si1596026oot.1.2021.05.17.23.32.37
+        by gmr-mx.google.com with ESMTP id q5si1753559qke.0.2021.05.17.23.42.49
         for <clang-built-linux@googlegroups.com>;
-        Mon, 17 May 2021 23:32:37 -0700 (PDT)
+        Mon, 17 May 2021 23:42:49 -0700 (PDT)
 Received-SPF: neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) client-ip=72.249.23.125;
 Received: from atomide.com (localhost [127.0.0.1])
-	by muru.com (Postfix) with ESMTPS id 4FFFE80F5;
-	Tue, 18 May 2021 06:32:40 +0000 (UTC)
-Date: Tue, 18 May 2021 09:32:33 +0300
+	by muru.com (Postfix) with ESMTPS id F1DCF80F5;
+	Tue, 18 May 2021 06:42:52 +0000 (UTC)
+Date: Tue, 18 May 2021 09:42:45 +0300
 From: Tony Lindgren <tony@atomide.com>
 To: Maciej Falkowski <maciej.falkowski9@gmail.com>
-Cc: khilman@kernel.org, aaro.koskinen@iki.fi, linux@armlinux.org.uk,
-	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] ARM: OMAP: Fix use of possibly uninitialized irq variable
-Message-ID: <YKNfgRWM9MK1MY9O@atomide.com>
-References: <20210401161127.8942-1-maciej.falkowski9@gmail.com>
+Cc: aaro.koskinen@iki.fi, linux@armlinux.org.uk, linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] usb: isp1301-omap: Add missing gpiod_add_lookup_table
+ function
+Message-ID: <YKNh5ekJ1ffBZ+xd@atomide.com>
+References: <20210401162032.10150-1-maciej.falkowski9@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210401161127.8942-1-maciej.falkowski9@gmail.com>
+In-Reply-To: <20210401162032.10150-1-maciej.falkowski9@gmail.com>
 X-Original-Sender: tony@atomide.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
  (google.com: 72.249.23.125 is neither permitted nor denied by best guess
@@ -123,33 +124,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-* Maciej Falkowski <maciej.falkowski9@gmail.com> [210401 19:13]:
-> The current control flow of IRQ number assignment to `irq` variable
-> allows a request of IRQ of unspecified value,
-> generating a warning under Clang compilation with omap1_defconfig on linux-next:
+* Maciej Falkowski <maciej.falkowski9@gmail.com> [210401 19:22]:
+> The gpiod table was added without any usage making it unused
+> as reported by Clang compilation from omap1_defconfig on linux-next:
 > 
-> arch/arm/mach-omap1/pm.c:656:11: warning: variable 'irq' is used uninitialized whenever
-> 'if' condition is false [-Wsometimes-uninitialized]
->         else if (cpu_is_omap16xx())
->                  ^~~~~~~~~~~~~~~~~
-> ./arch/arm/mach-omap1/include/mach/soc.h:123:30: note: expanded from macro 'cpu_is_omap16xx'
->                                         ^~~~~~~~~~~~~
-> arch/arm/mach-omap1/pm.c:658:18: note: uninitialized use occurs here
->         if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup",
->                         ^~~
-> arch/arm/mach-omap1/pm.c:656:7: note: remove the 'if' if its condition is always true
->         else if (cpu_is_omap16xx())
->              ^~~~~~~~~~~~~~~~~~~~~~
-> arch/arm/mach-omap1/pm.c:611:9: note: initialize the variable 'irq' to silence this warning
->         int irq;
->                ^
->                 = 0
+> arch/arm/mach-omap1/board-h2.c:347:34: warning: unused variable 'isp1301_gpiod_table' [-Wunused-variable]
+> static struct gpiod_lookup_table isp1301_gpiod_table = {
+>                                  ^
+> 1 warning generated.
+> 
+> The patch adds the missing gpiod_add_lookup_table() function.
 
-Thanks applying into fixes.
+Applying into fixes thanks.
 
 Tony
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YKNfgRWM9MK1MY9O%40atomide.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YKNh5ekJ1ffBZ%2Bxd%40atomide.com.
