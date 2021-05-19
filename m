@@ -1,136 +1,137 @@
-Return-Path: <clang-built-linux+bncBC7457HKSMPRBFO5SSCQMGQEXEHHP6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCN674663MOBBTHRSSCQMGQEEV6I3CY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-f187.google.com (mail-qt1-f187.google.com [209.85.160.187])
-	by mail.lfdr.de (Postfix) with ESMTPS id BCAC938928E
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 May 2021 17:28:22 +0200 (CEST)
-Received: by mail-qt1-f187.google.com with SMTP id b17-20020ac854110000b02901f279c73d75sf6220947qtq.2
-        for <lists+clang-built-linux@lfdr.de>; Wed, 19 May 2021 08:28:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621438101; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5BB0A389356
+	for <lists+clang-built-linux@lfdr.de>; Wed, 19 May 2021 18:11:57 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id w15-20020acac60f0000b02901e5b6e8f60fsf5116142oif.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 19 May 2021 09:11:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621440716; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FL0s8wC5TlEBRu+io6ogALZphDISrHA8j+bWkNEiJkozRywKDa/Qx7G5vA90UsCm3+
-         YWfpvz08S0nV9UOq8kcWgW8/TPjY3V/QNc4VNtmVKmPf0stSkqlAc+3VIkcjWGqhkJP/
-         ACbRTaPVwislqGCuqdUNWVnGSf8lyko2N69Po6rOYq2tiCZNdN/r9TZm03oqfYr8Kyrp
-         HhaAw4mq97wK+Zgirp21ZR8LKITh6fwTJye1zhVjJAYLYZNlHscMhcjc6AuRjwgnF1Av
-         to2DmqwkDbGySKNVkKIWwlFi+6yuRfoja/LTI042XPNyIz/iBkRrjfQ75cMTs19ty08u
-         IwFA==
+        b=mVOw4as5OTSuUcVkQxX/iYEA/3gv8JqAbKWhhkpPbfOihhHZrtCI9x5ESW2KfksHRX
+         RZSf/7BOB5/9P3Ks1+JEFF7CkmR5IvC27S8q5cGKNcLhLrW6iPfaTUwJJTn8i3eM6JnF
+         XSactTjDyj/tZmLZ3XH4rfT4E4/h6EWDBdUdmn5I6SbJlUkXTlg1uXOT3502u4gGeUnf
+         s3X8NnuNiuCVnm1/ebSiY39rBBLDZH25ntRGFUp9+ZHeRJMf9ok79XaXmnK70jh+rfwl
+         fo3wdw4jyKhhHGCVmVQ7ogkACjo7B19uIjA6DqA0uhmhWGFVNPrdZ0Wd48DeeTO/gAsP
+         wb+Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:thread-index
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender;
-        bh=OQSmM1twZ4CyQWvSENo7Hk0qGJIEc8HGMFftOxU+7ro=;
-        b=xTpIxvaVvCA2HRYVJ/MZtRelKtPkBjFyJhN6yOEGvEe6GhnPOy2nUmG/q8FucWH0Iy
-         aCWO3sGlfp0Y4SSrRbA2ufsg3USHMD0hA2cR0jweYsgeR3mTyiofzXylVQakPDMgZaiU
-         fWWKYly/BRKtEaNol6v08s8ipqYGRiZWmWALhFYe/Tops3q4IDRbk7AhRb6eGfacwE0N
-         /gdTWv0KPOvOuJxuPwtF4CfaapXmVtZS/u3hhjFpdKAhDzNpt1QzbnFqXvtD/E75IUQ1
-         wXyPpaCYZUWOtltZKwumghNxuMxZgemxCmiAGuEAS7tWPE0wF/nv5icOmK7v4eE1uOHe
-         cFkw==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=+Jzsf44WE0VSITFTSoOoiDAihRmrtHlzsuALllv7ohw=;
+        b=suzIIvVAdke4/FrEIxVHEqRwsUcCw49tvjQt75Zo66E5vFVVagUItkLkdFjLYyGTHD
+         4Ya4FI3CH1KOSzJ14DvJnWPpKWruoAMyE43zDyCcxclm4qvjU5xfRGkamC0HnTgN/Cro
+         NK43SnVN397Zo8es3kmUrsO8BlP7Is/XVt+m5ubS4VZDS3P+zNForOXN68ngo26i4dGe
+         R4qk8akPyRvg3/mDi/N4jubR436R9k/qumIyNly6VyI+gXC/6tZy+yw9GwQn39xzzXrx
+         f7/hGd/v0QOThmoXijlw4wJ1LPYXHUmTTrFDvRifxnt6lH7dJs1r5ApXaIt3F6HE6N3X
+         OYjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=wc7TOyH7;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.43.7 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ZxP4q+E8;
+       spf=pass (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1036 as permitted sender) smtp.mailfrom=liumartin@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=+Jzsf44WE0VSITFTSoOoiDAihRmrtHlzsuALllv7ohw=;
+        b=ItDGq/687todQAS/gAqg5SQTWmJxrKti+eIUinwQ8s7/lkcMdk8d6FTLCENskGA1XD
+         Cw97jPl7eXhOl3bfU5D66V6zb5jRuSDAV0wpxF6GvsQ0t7efjWtQnkR0FFyUO1yFVG5Y
+         oxpDqcuZLB1I8SoyaUvlwp7YZEJyDQd/38W/ZT/Dsy3UdiDCEFWPlwTPlCvqQZwYMP6B
+         HT6fddv6ffm9dxS2Zh0C62LegT36NCZwwGBEB9cS1bxUtOcRDYOTCRKuhkuctwtk1Esa
+         w2r9Knrpo8VG5nGUMjS0M/mHOaTqdtDLSaxaUY106Bgu3HBWATgWLZ1/RXQwWncy6EAU
+         97bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:reply-to:from:to:cc
-         :references:in-reply-to:subject:date:message-id:mime-version
-         :thread-index:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=OQSmM1twZ4CyQWvSENo7Hk0qGJIEc8HGMFftOxU+7ro=;
-        b=pl5INlnozMSRASWu174lB/smMEcf/sqa7XXa218BtU3uXZQgXQFWxDa0Dy8FgfgStw
-         CH5kjqlTRU2nQBcFc2j+WoGbeGAMWaY7Cb3Jy85AVg+jXHKn6MdcL0O3miP9jkfNi/YJ
-         qarhBGtTIn/90WLMPF5k8xG4V3/bDeex+bQnUhMNHOFaauCli+NV3YN2XxCepQWW6q3k
-         oj/R5ki5b12M4APV2dz3iSofLo3XnMVPBcY7XR9ktAf3wXC1Lk8GZs4Z4Hqax2HG6YmI
-         wrNZH0doJ5cq/NYTO9eQckGprGP7eeEEai5721dNhg36AkquFiWMmwRbew00NA1T/i/E
-         MrrA==
-X-Gm-Message-State: AOAM532qbmacWK6dT65/mlebazwl4JAKdbpU5ZWtSaQ2afPZRgv9QAxz
-	Fzz7T4vN2O4nBPE4v3iOro4=
-X-Google-Smtp-Source: ABdhPJyLAhLV4z7EfyCX05xVSopE+rn8iapjP0eC9vnLQ8vb5cSjI3P3ngGpWKYSewh4ZE3tEvnNdA==
-X-Received: by 2002:ac8:7c4b:: with SMTP id o11mr12019547qtv.336.1621438101710;
-        Wed, 19 May 2021 08:28:21 -0700 (PDT)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:content-transfer-encoding
+         :in-reply-to:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:x-spam-checked-in-group
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+Jzsf44WE0VSITFTSoOoiDAihRmrtHlzsuALllv7ohw=;
+        b=kQJQpRxMAxBjitSBeQawm9PPfEOjglpqWdiTRGQSwPnheEMC9sEKuyPeKqLkqy/KuY
+         fySds88X85MW9OkUokySceCyZ57hnidi8dBFb48E0ucyNZjYUQlpUH2W9vQfasiQqonK
+         bgeQaurEHoZswBq/+ZUkZjYFeg0vWp7UhQfEFvkEfVThzEAAxzK27511OXSyNjebgDJF
+         1h0M7wLfg3ktzH5SpeWiF8n5sQvMEkge2J+hlVlmD+q/0psLJFq1LVnd3OsZXwzkH7YX
+         JIoGhDWZl9Qk+V+jiYxJsh9i1xld/SeRZHqlR5xbRRPMXhuQA0JqtDlVOWjQ5Uzlz61M
+         4C4g==
+X-Gm-Message-State: AOAM5339lWYwNm779PoqJuP8J559zct+5bfy0Dgr1dYXt9BSUlEzYdhV
+	kYEcUsaAXn0Gnl036mVpVH8=
+X-Google-Smtp-Source: ABdhPJz57VNRX4DekifB4VmDHVoZ9SRq+AnxoW7WvWgaoKwDwCbWcUwt/hi6qMqL1hh6c9z/LzZFig==
+X-Received: by 2002:a05:6808:138e:: with SMTP id c14mr1770906oiw.55.1621440716162;
+        Wed, 19 May 2021 09:11:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:7e8e:: with SMTP id w14ls27468qtj.0.gmail; Wed, 19 May
- 2021 08:28:21 -0700 (PDT)
-X-Received: by 2002:ac8:7cb3:: with SMTP id z19mr11993042qtv.22.1621438101226;
-        Wed, 19 May 2021 08:28:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621438101; cv=none;
+Received: by 2002:a9d:6c87:: with SMTP id c7ls16168otr.3.gmail; Wed, 19 May
+ 2021 09:11:55 -0700 (PDT)
+X-Received: by 2002:a9d:1d21:: with SMTP id m30mr122570otm.145.1621440715831;
+        Wed, 19 May 2021 09:11:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621440715; cv=none;
         d=google.com; s=arc-20160816;
-        b=GeNaf2yLvQ9/Eiid4oD2ggEhijGJFkbzkj0UIrlqnUIgEv7xxJrndYGKBrV++Zot84
-         KAIQv5xfaYOwgjnp9Hgg32wKh0vYgxjPOD9+254oCxD52Oxi3xj7DZcIYVaRtnlJfTN7
-         rwbs1iS50Wv6GFyUi3vpk9WqIb4WfY+WQRd7OCv28rbEt/rq9AivC6OOFVC2taJC/jxD
-         5QOEu2puRyZ98Qx2cpg1QsQH0HY7t3r/ooIseOG5xzhML4tJKtnm1HN5UXu2bUbumcf+
-         gZn/rKVUyxz63yy3P6mslmE5NBP4FnPFW31pofgnTBcDsBUtVRk39ouK+2B49YBFLSk0
-         KFRA==
+        b=U4WUhViISXQ3Jfir6kkWXLBORFkVXHxFiGA+MEFcj84pojnAB1Ybug4D/XxKuEmjuT
+         qHpQd1wATtSfr2u2iJTYv1+xanVQROtjFR+NaCOC+JDQoo3z6rVU//QATxThCi+sUZRp
+         s7BLRQM+4Kz/9NpgirvWLTaavJtiFnrDw2XHOgvmdRaRr0XKhDJ2CjK/noVrohd4Vkrp
+         b2TT5zzibF3vdX6u/WwOZtT7TQhiBhgEGjb+odM4c4ZCaiQ1EmBOC4HInq6zo6kS2t/t
+         aA2C0g739YH1ILvKltEZs1ACOa6UQHADM+98fkSDeFgrRstokb6jzZkYCxtBSFUfWZTL
+         prng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:thread-index:content-transfer-encoding
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender:dkim-signature;
-        bh=FQqOtTWuOS13BN8O02FNaShatp6JGVjdDGcLP0U0neg=;
-        b=oh6XfN1Ba/p2imW4cLt9Q9OZ+QqUbKAJrVjbYwDjlHhzUhuQwef7iqGE/rNvkHRlru
-         J3aWW75YS7C0cNxixGPv/X9ByP/wF7SiHzBj0BhnL/FuRD4jyVWOOt1sesnwCWKWZXqu
-         0fUiSyDN7MNQRwQxBF8rjR7uxTLgtXdCM7jIwf5n/LVrfZVhYQbtLuEV/HjRzKcyj+4g
-         GwGInhBmMd9wARusdPQpr4DDuJ8eMqDIlunKXA6572cWUdlQu5D4pr9sffEvUw9GGH7i
-         h3OOx8zPdH0EXc52RyKsjz07AAdLFmro0vX9XkwZVrVCEnZfybZkN9UiZTkFtKe0JdgL
-         yZzw==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=t7n0Ls+OtKwvCY7O6AjIzNmvldq33XzdrqIXKag52q8=;
+        b=uvVRcNv5uXoJAGwHBEA+UwFg1NPedBK1mdx+jyzBimhtatY5dzd7pBY4pIOSvoiFBU
+         FuorHOjw5xouKhkaaj6kr0TJQu95rzYtUArGXbPKAi0YIQKA6hp3592aSqtSwirb+KqI
+         583QFleixUH4mMWK4HDWKwzfVP8BunGKpHL0X3z8wAXHqene3kvG2SdOVt1ouqb+fU63
+         W1foPBTx2zmPTWsIE3BF/UJphDSPUvu2PrqmSPICXRZ5TwyYI27Q257PvD30P/NUB+7/
+         4QqwD3h8yvMINCRmoQIJd/ev2kE0QbC/c46X2t6NS1yo+jNgZGEbD9k940rmwZec3bpx
+         3Jog==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=wc7TOyH7;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.43.7 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from m43-7.mailgun.net (m43-7.mailgun.net. [69.72.43.7])
-        by gmr-mx.google.com with UTF8SMTPS id 142si1816822qko.4.2021.05.19.08.28.19
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ZxP4q+E8;
+       spf=pass (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1036 as permitted sender) smtp.mailfrom=liumartin@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1036.google.com (mail-pj1-x1036.google.com. [2607:f8b0:4864:20::1036])
+        by gmr-mx.google.com with ESMTPS id w16si3504oov.0.2021.05.19.09.11.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 May 2021 08:28:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 69.72.43.7 as permitted sender) client-ip=69.72.43.7;
-X-Mailgun-Sending-Ip: 69.72.43.7
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Received: from smtp.codeaurora.org
- (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
- smtp-out-n05.prod.us-east-1.postgun.com with SMTP id
- 60a52e8b063320cd13ad250d (version=TLS1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Wed, 19 May 2021 15:28:11
- GMT
-Sender: bcain=codeaurora.org@mg.codeaurora.org
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id AB61CC43460; Wed, 19 May 2021 15:28:10 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-1.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,
-	PDS_BAD_THREAD_QP_64,SPF_FAIL,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
-Received: from BCAIN (i-global254.qualcomm.com [199.106.103.254])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: bcain)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id C4C4FC433D3;
-	Wed, 19 May 2021 15:28:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org C4C4FC433D3
-Reply-To: <bcain@codeaurora.org>
-From: "Brian Cain" <bcain@codeaurora.org>
-To: "'Randy Dunlap'" <rdunlap@infradead.org>,
-	"'Arnd Bergmann'" <arnd@kernel.org>
-Cc: "'Nick Desaulniers'" <ndesaulniers@google.com>,
-	"'open list:QUALCOMM HEXAGON...'" <linux-hexagon@vger.kernel.org>,
-	"'clang-built-linux'" <clang-built-linux@googlegroups.com>,
-	"'linux-arch'" <linux-arch@vger.kernel.org>,
-	"'Guenter Roeck'" <linux@roeck-us.net>,
-	"Sid Manning" <sidneym@quicinc.com>
-References: <CAKwvOdngSxXGYAykAbC=GLE_uWGap220=k1zOSxe1ntuC=0wjA@mail.gmail.com> <CAK8P3a2DCCjOq+sB+9sRM7XrtnkromCs_+znv3dehqLiYFDQag@mail.gmail.com> <fa0bed95-5ddf-ecad-0613-2f13837578c3@infradead.org> <CAK8P3a0ttLxzP0J-mocxB2TkfEYJYj37TdW=uM65fB4giC_qeg@mail.gmail.com> <026d01d73877$386a1920$a93e4b60$@codeaurora.org> <027401d7387e$f5630120$e0290360$@codeaurora.org> <24da08a4-e055-d8ac-8214-97d86cdcfd3d@infradead.org> <02a501d7388f$8dfb3b90$a9f1b2b0$@codeaurora.org> <42ab3057-3b43-7f98-6387-6e79761d2d3f@infradead.org>
-In-Reply-To: <42ab3057-3b43-7f98-6387-6e79761d2d3f@infradead.org>
-Subject: RE: ARCH=hexagon unsupported?
-Date: Wed, 19 May 2021 10:28:07 -0500
-Message-ID: <06a701d74cc3$92bc59f0$b8350dd0$@codeaurora.org>
+        Wed, 19 May 2021 09:11:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1036 as permitted sender) client-ip=2607:f8b0:4864:20::1036;
+Received: by mail-pj1-x1036.google.com with SMTP id lx17-20020a17090b4b11b029015f3b32b8dbso2002704pjb.0
+        for <clang-built-linux@googlegroups.com>; Wed, 19 May 2021 09:11:55 -0700 (PDT)
+X-Received: by 2002:a17:90a:8688:: with SMTP id p8mr71425pjn.37.1621440714988;
+        Wed, 19 May 2021 09:11:54 -0700 (PDT)
+Received: from google.com ([2401:fa00:fc:202:761b:68c0:185b:8860])
+        by smtp.gmail.com with ESMTPSA id t7sm8487221pjr.29.2021.05.19.09.11.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 May 2021 09:11:54 -0700 (PDT)
+Date: Thu, 20 May 2021 00:11:47 +0800
+From: "'Martin Liu' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Petr Mladek <pmladek@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Tejun Heo <tj@kernel.org>
+Cc: minchan@google.com, www@google.com, davidchao@google.com,
+	jenhaochen@google.com, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] kthread: Fix kthread_mod_delayed_work vs
+ kthread_cancel_delayed_work_sync race
+Message-ID: <YKU4w9pDWn3lj1V+@google.com>
+References: <20210513065458.941403-1-liumartin@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHA6GaHPKlqiI34kZpdCyOyqmKBQAItWAQVAeg2vD8CQqkwGgKUjDBFAndwqiQA36lpqQF/q2VJAknosvyql0WCYA==
-Content-Language: en-us
-X-Original-Sender: bcain@codeaurora.org
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20210513065458.941403-1-liumartin@google.com>
+X-Original-Sender: liumartin@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=wc7TOyH7;       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 69.72.43.7 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+ header.i=@google.com header.s=20161025 header.b=ZxP4q+E8;       spf=pass
+ (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1036
+ as permitted sender) smtp.mailfrom=liumartin@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Martin Liu <liumartin@google.com>
+Reply-To: Martin Liu <liumartin@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,44 +144,127 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> -----Original Message-----
-> From: Randy Dunlap <rdunlap@infradead.org>
-...
-> > Randy,
-> >
-> > 	I 100% agree, I would prefer a tarball myself.  I have been working with
-> the team to produce the tarball and we haven't been able to deliver that yet.
-> No good excuses here, only bad ones: somewhat tied up in process
-> bureaucracy.
-> >
-> > I can share the recipe that was used to build the toolchain in the container.
-> No Dockerfile required, just a shell script w/mostly cmake + make commands.
-> All of the sources are public, but musl is a downstream-public repo because we
-> haven't landed the hexagon support in upstream musl yet.
-> 
-> Hi Brian,
-> I can wait. :)
+Hi Folks,
 
-Randy, thanks for your patience.  We don't quite have all the kinks worked out for a release process but I have worked with the Linaro team to produce a clang-based cross toolchain and we can share a link:
+Could I get some help for reviewing this patch? Thank you.
 
-https://codelinaro.jfrog.io/artifactory/codelinaro-qemu/2021-05-12/clang+llvm-12.0.0-cross-hexagon-unknown-linux-musl.tar.xz
+On Thu, May 13, 2021 at 02:54:57PM +0800, Martin Liu wrote:
+> We encountered a system hang issue while doing the tests. The callstack
+> is as following
+>=20
+> 	schedule+0x80/0x100
+> 	schedule_timeout+0x48/0x138
+> 	wait_for_common+0xa4/0x134
+> 	wait_for_completion+0x1c/0x2c
+> 	kthread_flush_work+0x114/0x1cc
+> 	kthread_cancel_work_sync.llvm.16514401384283632983+0xe8/0x144
+> 	kthread_cancel_delayed_work_sync+0x18/0x2c
+> 	xxxx_pm_notify+0xb0/0xd8
+> 	blocking_notifier_call_chain_robust+0x80/0x194
+> 	pm_notifier_call_chain_robust+0x28/0x4c
+> 	suspend_prepare+0x40/0x260
+> 	enter_state+0x80/0x3f4
+> 	pm_suspend+0x60/0xdc
+> 	state_store+0x108/0x144
+> 	kobj_attr_store+0x38/0x88
+> 	sysfs_kf_write+0x64/0xc0
+> 	kernfs_fop_write_iter+0x108/0x1d0
+> 	vfs_write+0x2f4/0x368
+> 	ksys_write+0x7c/0xec
+>=20
+> When we started investigating, we found race between
+> kthread_mod_delayed_work vs kthread_cancel_delayed_work_sync. The race's
+> result could be simply reproduced as a kthread_mod_delayed_work with
+> a following kthread_flush_work call.
+>=20
+> Thing is we release kthread_mod_delayed_work kspin_lock in
+> __kthread_cancel_work so it opens a race window for
+> kthread_cancel_delayed_work_sync to change the canceling count used to
+> prevent dwork from being requeued before calling kthread_flush_work.
+> However, we don't check the canceling count after returning from
+> __kthread_cancel_work and then insert the dwork to the worker. It
+> results the following kthread_flush_work inserts flush work to dwork's
+> tail which is at worker's dealyed_work_list. Therefore, flush work will
+> never get moved to the worker's work_list to be executed. Finally,
+> kthread_cancel_delayed_work_sync will NOT be able to get completed and
+> wait forever. The code sequence diagram is as following
+>=20
+> Thread A                Thread B
+> kthread_mod_delayed_work
+>   spin_lock
+>    __kthread_cancel_work
+>     canceling =3D 1
+>     spin_unlock
+>                         kthread_cancel_delayed_work_sync
+>                           spin_lock
+>                             kthread_cancel_work
+>                           canceling =3D 2
+>                           spin_unlock
+>     del_timer_sync
+>     spin_lock
+>     canceling =3D 1 // canceling count gets update in ThreadB before
+>   queue_delayed_work // dwork is put into the woker=E2=80=99s dealyed_wor=
+k_list
+>                         without checking the canceling count
+>  spin_unlock
+>                           kthread_flush_work
+>                             spin_lock
+>                             Insert flush work // at the tail of the
+> 			                         dwork which is at
+> 						 the worker=E2=80=99s
+> 						 dealyed_work_list
+>                             spin_unlock
+>                             wait_for_completion // Thread B stuck here as
+> 			                           flush work will never
+> 						   get executed
+>=20
+> The canceling count could change in __kthread_cancel_work as the spinlock
+> get released and regained in between, let's check the count again before
+> we queue the delayed work to avoid the race.
+>=20
+> Fixes: 37be45d49dec2 ("kthread: allow to cancel kthread work")
+> Tested-by: David Chao <davidchao@google.com>
+> Signed-off-by: Martin Liu <liumartin@google.com>
+> ---
+>  kernel/kthread.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+>=20
+> diff --git a/kernel/kthread.c b/kernel/kthread.c
+> index fe3f2a40d61e..064eae335c1f 100644
+> --- a/kernel/kthread.c
+> +++ b/kernel/kthread.c
+> @@ -1181,6 +1181,19 @@ bool kthread_mod_delayed_work(struct kthread_worke=
+r *worker,
+>  		goto out;
+> =20
+>  	ret =3D __kthread_cancel_work(work, true, &flags);
+> +
+> +	/*
+> +	 * Canceling could run in parallel from kthread_cancel_delayed_work_syn=
+c
+> +	 * and change work's canceling count as the spinlock is released and re=
+gain
+> +	 * in __kthread_cancel_work so we need to check the count again. Otherw=
+ise,
+> +	 * we might incorrectly queue the dwork and further cause
+> +	 * cancel_delayed_work_sync thread waiting for flush dwork endlessly.
+> +	 */
+> +	if (work->canceling) {
+> +		ret =3D false;
+> +		goto out;
+> +	}
+> +
+>  fast_queue:
+>  	__kthread_queue_delayed_work(worker, dwork, delay);
+>  out:
+> --=20
+> 2.31.1.607.g51e8a6a459-goog
+>=20
 
-Contents:
-- clang+llvm+lld+libunwind+libcxx+libcxxabi built from `llvmorg-12.0.0` release
-- `qemu-hexagon` binary (scalar core only!) built from upstream github.com/qemu/qemu repo `15106f7dc3290ff3254611f265849a314a93eb0e`
-- headers from linux kernel 5.6.18
-- C library built from github.com/quic/musl commit aff74b395fbf59cd7e93b3691905aa1af6c0778c
-- unabridged build details in https://github.com/quic/qemu/tree/d26f3843c794d9d9b17b637550dc3b5a2bacd837/quic/container
-
-Once we're able to produce releases on a more regular basis we should be able to share a hexagon-linux-user QEMU that can do scalar+vector.  And some time after that a sysemu-capable qemu.
-
-Our process for this first run did not include a signature for the build tarball, and that is regrettable.  It will be included next time around.  I have produced the sha256 signature below (post hoc) of the tarball that I tested:
-
-	55c51e8289cc21e6779cfc3b18bb9ad02632fc52d3c3a91bf6fdb4c8f578c84c  clang+llvm-12.0.0-cross-hexagon-unknown-linux-musl.tar.xz
-
--Brian
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/06a701d74cc3%2492bc59f0%24b8350dd0%24%40codeaurora.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/YKU4w9pDWn3lj1V%2B%40google.com.
