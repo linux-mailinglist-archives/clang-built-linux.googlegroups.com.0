@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBMUSTSCQMGQE5HKUURY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBNUSTSCQMGQEP6N4KGY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0FA1C38BB61
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 03:13:29 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id g21-20020aa787550000b02902db9841d2a1sf8861718pfo.15
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 54A5838BB5E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 03:13:28 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id j19-20020a63fc130000b029020f623342e0sf11454707pgi.10
         for <lists+clang-built-linux@lfdr.de>; Thu, 20 May 2021 18:13:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621559602; cv=pass;
+ARC-Seal: i=2; a=rsa-sha256; t=1621559607; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bVpc5vEHq5UPa7GUDkzWgKR2GCeAmSDYvq25D/mztwhFmiMMQs7VH1Ym1KYydVLCaY
-         GtRVdv93uMG3Ie2UG1r1i+51b1Oz4HBnlmAFsakXMY6f2d2JdOSS3qSvK6fHLBveWGwy
-         oZVbgzQ674MUiR2H/fKi/LEtn+gSwC0kJwKTLy0MjZAc+uEXLEo3aAXivaRWoKymEfzC
-         5vaWstcTrIQGyApKqYOfTeRJwrpJoujcHnHlu/imS9pMUmsFDVg4v5kLrCTa+8SmwVmm
-         /K7adQG+X7Hlg50pl7j1nzwGWHtv/AS+myu2ceuv2loFE2YLIq4qMcOJYsSwD9OAH4Vx
-         vGFg==
+        b=Aa7s1UhVt8vIZ+VT2Qb/Q0fxbPVL3mJLvumZgwg34QYTX/u/UpQwL0KRD8vjWb/W3c
+         lyGVV9bL63tiqMFqml7zmearfQlxm3ZU/0tkNNLUPmK00MBa7deTM8fmZyVHqCRXJDqr
+         oyDIdg3dNYWVdlj1um0rg3p+1hNUP8VC+k4OTralgaml8zUZwSaE5h1EAUTXpvt6qtmv
+         p3bmlts9fvILkzzLEeBiC8h4iMz4iAK8w0DmcI9pxCUqSQXNXwjxp8a6N+uH4QupIyjb
+         PZQVZKyllfVe+ckdN98C29ycu3Fk+bDdALLkc2MalDf0aponSJoBELhT21w0yqyIf94I
+         ISmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=VxXp/O0Nv706n2+TbuFZOaoBBe4TmgR+4Q3uRX86teA=;
-        b=BcdY30JqTLN3DcsBncPVbCITGoZTQEvoJgLY/e54x381ZEa5IUCMAF1GYNrRumlMgn
-         71JwgGzIjLuNWWmosFTHQccBbapYzLm3t30x88XznzZ/lxrzp8+aILZpdee+jMZeqyED
-         sAaJbuuUk/3KsM9qdl67bHSz4uIcOmA9EUWrzW+ocuoXFqiK0Kw4KsM7NL/iPoPGs1bC
-         yj9FXlplvJUJsKHDyYUhTxR0tG/fzH9IL+OZHpwDIauuCdPmKUzCKFTgnHIKSKm94Uzw
-         ZRQ7Hj1toV8c5yzjE0yQIrXegLapcvXy0FAgM4epvwd2F4GaxVrKkA4/2CE8SQ26SBAO
-         Aikg==
+        bh=b11sLRv+qBTo538KaKpBNx/KjmdcrLDOlf136toVnkk=;
+        b=gTq0dH2tGsOzCT5Aton6LBEsbZXlZeCt6hiKbeZl3etr7bLi21xbEkMoDFBZstTWV6
+         Xgs45246DviP+Re63lxmdWOfqg7ay9/UY/PhBXh7au8LQRDS8MTydmc3c1HcgfBO72FJ
+         91Si+AkEekj5rbTLK+WM4EcAtX/yL7TH/BQewY4O82tc8M/358Bg8S6CsI6P0s4fwC//
+         VeQLPUr19fhsTD7X9R8C+89xT5vEch7S/Lz8Nyyb0x5TBE3ybr46V13MHjyOEkXtH+RU
+         NCOTxVANRB/+YpjQx1BIXwKvhvT0fDfKoT9Eby4Zco+FDqUVPfTcWgG5enzQijfLUIkg
+         Bumg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iaZs6nUY;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Wa3x4reI;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VxXp/O0Nv706n2+TbuFZOaoBBe4TmgR+4Q3uRX86teA=;
-        b=jLqe/ZGAUlDZWI2x9QEioY+4eKL5dPSzr1c1P2xwnGQ6ZapabggBaHLVeHFpvh/0yf
-         OZ4F6zS7uA2tE+G1hAuEzMssK8zbG2OBzcmkQqy2+spj2j1tdHuWM0Z1PPCtHPXVl+y+
-         P5AIsp4fmFxAnLXPfjKPDGL9YA+bE7yn345Eg1Bnf4DcB45UAPrdBDw29cm5Tha73mNQ
-         jme3QWgemM34l8yCZBE99cA85nkk4asFUVchV0sSnTFu6XB8TVpGyqu47eUAaKNjs0gC
-         67ehx+YiQJnwnOkSNgmAcq879gCINicvdQpJ7zozZjMVpuC9HhWeOy/LFkGuzTjep2wf
-         PhDg==
+        bh=b11sLRv+qBTo538KaKpBNx/KjmdcrLDOlf136toVnkk=;
+        b=tS0woGdOmnVlwN8YIFA6zUR4+nhwvEQGDo3ZmDVdikekHQrL0X+vnIeK4ts8zDBnpH
+         gDPirz5OCwqTtpZcYJq0Qbo2KoD5XedYkXq4tqAoyH6LL43bJPgYTegYb0fehddR5nth
+         TTGHbe4LYc6DxFRYsD39wLRCZltfzeNfDVl5WXPZeaCKU1ZiGD2gDONmUh1cFeLpngqY
+         bEabeBuhYEibrZN/VwiWy8U/N4nWgW1EMozekYTmVmSn+YbnTLqH4DBTIt8dyltUdFJD
+         cjDzKIktFzMLaH3ryOaygxUXKvLT5pbWkWA3fyo+JocPJrjA+9rwfVqBaUL54Hmj1U2X
+         XHvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VxXp/O0Nv706n2+TbuFZOaoBBe4TmgR+4Q3uRX86teA=;
-        b=P/76+AgZUVVcd9y2ODteuhumRzT7JUfiPllqL93qD9iUzDvh0FH+zPmcI+cNBPu/eg
-         KVH00ze6bezUx1+V42CmiyC74YVfE9n15V7ro3vQJBBcc6grFrZI8E1cEmWk7VzkHQsJ
-         lrxcrPQQqaPlzcFZR6X3ks/p+4jyRNUvKGlruqXiBitJBWbqYhOXdeLpZI2842QLMPbn
-         /tfgifBGkniJeS/bLyxVBIFUCvdKnQF6Fvb3pb5bt+OGD5AH+ygo1RkJi1CLlVxddipM
-         ZFZO641a+c05eSAwfMmCnl2MTPPT+qLojEa22gj/M8MWQ6YjLBUu0CYek5hMEUCwbzxx
-         Tzuw==
+        bh=b11sLRv+qBTo538KaKpBNx/KjmdcrLDOlf136toVnkk=;
+        b=p2avVNYwMyd/hRovLehkdiAhJi9/KaWBH53/XylEN7rceUfZTRrOvqrGhJ4xnzyzEp
+         hKzRRK1yCE6QeeNifPuLrtGCTen9T42EUMfgMSeTuIvx4S5R5rHrV/6Rj4BxjHT0YO5z
+         GjTISTe1K1nSopyrGMAzSQtImAU0JKsNiRRUGfnPoGf3ms30BWnVvXBQr9o0fwN3Q+J7
+         5vqhDYcZaOGH7L89j65wYi+wqKsCZJ1TIHOd3TiKnc5wzzIrbPs50QjzSYnLAHjRDcPz
+         9LX9OTnIrsBDgsQY0dGpS2rHMipPkWkW3sxDYFgWDETjbhS1OhFfLKlJa1EX9QklT1oO
+         1jdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533zy/ZBcK+1RHyd432NaEK525Um3HwBBfMDUbmlvLW+v7GXuWKY
-	PCmv4QgyxnCtMvQtneUOU/A=
-X-Google-Smtp-Source: ABdhPJygKfu92I9BypLaBB4H83c3Dm/1Tt16tXaLsrZ3rAsz69mbvZMR/eNPth7/Wy1r7S6Na/6mFw==
-X-Received: by 2002:a05:6a00:2394:b029:2e0:a27:ba26 with SMTP id f20-20020a056a002394b02902e00a27ba26mr7275757pfc.63.1621559602730;
-        Thu, 20 May 2021 18:13:22 -0700 (PDT)
+X-Gm-Message-State: AOAM530Jua+RJpaE+HCItrtgX/kG0XpscLFIuFc5iGbNGBxs3sUq+1sT
+	XewaUIB+drtVaWLucfBp9mk=
+X-Google-Smtp-Source: ABdhPJwY0qsFD97g0Jnka9CPJFUxMfgNDcNXyBanqyPzHUZA8Ux6rOQdLbezfUI+KPPCz0E5WKs9kA==
+X-Received: by 2002:a17:90b:11cf:: with SMTP id gv15mr8086126pjb.26.1621559606934;
+        Thu, 20 May 2021 18:13:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:7e1c:: with SMTP id z28ls2269482pgc.3.gmail; Thu, 20 May
- 2021 18:13:22 -0700 (PDT)
-X-Received: by 2002:a63:5a19:: with SMTP id o25mr7077668pgb.122.1621559602183;
-        Thu, 20 May 2021 18:13:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621559602; cv=none;
+Received: by 2002:a17:902:8d95:: with SMTP id v21ls2959044plo.8.gmail; Thu, 20
+ May 2021 18:13:26 -0700 (PDT)
+X-Received: by 2002:a17:902:bcc3:b029:ed:4637:fb2f with SMTP id o3-20020a170902bcc3b02900ed4637fb2fmr9024485pls.72.1621559606387;
+        Thu, 20 May 2021 18:13:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621559606; cv=none;
         d=google.com; s=arc-20160816;
-        b=uTx48zLEUgZLguWouMNPyjxs40Z8+l/res/hHDAn6mAqr3JcVACTq/2KGnaPySLOQ4
-         jvIBE2XLBTCm1Bx7IgdBMLLzjIofhAHAL9YFiKTssRjMJOF9lRHOugORrfGcsflY24yy
-         M5qV7wJht52C6aw/UJgFVLgqETkoR30iKpzXUEDYm8X4F6+RTJYhcNp8it8Pkd8/wpBH
-         zM0aiTsBOL+iEMrg36ZEtCGpT6IU+HXa1yfHZUssROS0fhsFNJ0Tv8YkwP8AVLkhvIdX
-         WcFuyywnhLhH5Z/LJm0fOuSv8R2W1Tza1NldWjtHWFhsgjKEkWd1dvMTsnLRiGKe6kf8
-         WInw==
+        b=WxDAzw1vqFk8xXzkbaKE1MMeXRZBRPiXWJ4I/ZrbskWN6HIt+eh87eM9SQA0wld+aU
+         EVnBCp9oZn4QAy+zKU9M4qnEd0Wr15T5+f5t8QvO3J4ys4qfHaW9Q8uquftDSrrxdZ2f
+         5d+CfR162YnQ2ssYnROb7TZOJQNgDgMCc7tYI/lsx3FVr0+aKAuRVtYvFqDdBhyXk3Ez
+         se9CaEjWn0lNGsa3vQ/ckN0iRmHUTcjvxGNaL1WKKcWZqaFQhA3LKhXGrklu2j0VSO+k
+         5vRrua72Qx24Uoahp9RRem89yIUdZZS3cJwYsRhnKaLRneEwzOkK/3elbeBgbUHk5W1W
+         +8zA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=LpBkzkYTPL9mHIcTIy3Agjd6gEtHH/D/UV0ewbB7xTE=;
-        b=ozHAP0AoGlKf2K6yCLll6Tbu+u2pNiJkFfgrUaGfIMM1O5Av2YPE8FL5H+WDvkYzod
-         fQzA/ss6LOLoufDeAmvnPb5ay/SnyrNmmnKa0li8VU5O7cRO5azzIRkcMAtyRUgupL9S
-         HbgXJcAIozcEKVIe+vrbBrWh9wdmOovRtWdUAJmChxOTdVW2ntl3QJyFw5qc9DN4BuXg
-         NyTA6cZ1wJpZ7Tm/cXUIf8q7ZH3wa8lNmBNTsfCgHMTY26TDyg0ObGJTFS/d0KGBLkF6
-         oT/N2iJ9mY46jB7EPN4riUx93xK9FxGVpuu96eB8NRa9gI2ZlmoP0uwnowXBam2xyK+z
-         zEOA==
+        bh=cwe0i51SCZk3CLQMaY5KY1wqqj2RiORqp23tnMHlSrg=;
+        b=eL/TuT+6W8GdF4jp7DZZGvXHyftHxRXwyRaQ0PyQMRYLcQbnK+I9/4tUEgKTyKj5Vt
+         ImTUn4ZIDiFQI2FroRKWjqm+j6CqWHU/djydJ1jTPf1aXUNB99uNaDDODMxcQDB+zKHb
+         vt5GXcHnNNqcrg7E/MLtzoJAR9yo2wYU7dFBrP9SDrhzZlXenW/wUmzWqTkVYe8jKLbf
+         ir0dS89v4GzRkJentA927ltYY+NzUpkVuPyekvBZhWwODS/mmFsfTed/W6++EW9pwrOj
+         uSylkdm81/a/aVU1gOSxN4x+et/huBK6uQ0RimYvehgk/9yx9v9kEulyn+BSfZ5XwGuU
+         g7DA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iaZs6nUY;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Wa3x4reI;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z1si403958pju.0.2021.05.20.18.13.22
+        by gmr-mx.google.com with ESMTPS id j17si468602pfc.5.2021.05.20.18.13.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 20 May 2021 18:13:22 -0700 (PDT)
+        Thu, 20 May 2021 18:13:26 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8E48661353;
-	Fri, 21 May 2021 01:13:20 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C4D6561353;
+	Fri, 21 May 2021 01:13:24 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Brian Cain <bcain@codeaurora.org>,
 	Andrew Morton <akpm@linux-foundation.org>
@@ -105,9 +105,9 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 1/3] hexagon: Handle {,SOFT}IRQENTRY_TEXT in linker script
-Date: Thu, 20 May 2021 18:12:37 -0700
-Message-Id: <20210521011239.1332345-2-nathan@kernel.org>
+Subject: [PATCH 2/3] hexagon: Use common DISCARDS macro
+Date: Thu, 20 May 2021 18:12:38 -0700
+Message-Id: <20210521011239.1332345-3-nathan@kernel.org>
 X-Mailer: git-send-email 2.32.0.rc0
 In-Reply-To: <20210521011239.1332345-1-nathan@kernel.org>
 References: <20210521011239.1332345-1-nathan@kernel.org>
@@ -115,7 +115,7 @@ MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=iaZs6nUY;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=Wa3x4reI;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -132,73 +132,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Patch "mm/slub: use stackdepot to save stack trace in objects" in -mm
-selects CONFIG_STACKDEPOT when CONFIG_STACKTRACE_SUPPORT is selected and
-CONFIG_STACKDEPOT requires IRQENTRY_TEXT and SOFTIRQENTRY_TEXT to be
-handled after commit 505a0ef15f96 ("kasan: stackdepot: move
-filter_irq_stacks() to stackdepot.c") due to the use of the
-__{,soft}irqentry_text_{start,end} section symbols. If those sections
-are not handled, the build is broken.
+ld.lld warns that the '.modinfo' section is not currently handled:
 
-$ make ARCH=hexagon CROSS_COMPILE=hexagon-linux- LLVM=1 LLVM_IAS=1 defconfig all
-...
-ld.lld: error: undefined symbol: __irqentry_text_start
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
+ld.lld: warning: kernel/built-in.a(workqueue.o):(.modinfo) is being placed in '.modinfo'
+ld.lld: warning: kernel/built-in.a(printk/printk.o):(.modinfo) is being placed in '.modinfo'
+ld.lld: warning: kernel/built-in.a(irq/spurious.o):(.modinfo) is being placed in '.modinfo'
+ld.lld: warning: kernel/built-in.a(rcu/update.o):(.modinfo) is being placed in '.modinfo'
 
-ld.lld: error: undefined symbol: __irqentry_text_end
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
+The '.modinfo' section was added in commit 898490c010b5 ("moduleparam:
+Save information about built-in modules in separate file") to the
+DISCARDS macro but Hexagon has never used that macro. The unification of
+DISCARDS happened in commit 023bf6f1b8bf ("linker script: unify usage of
+discard definition") in 2009, prior to Hexagon being added in 2011.
 
-ld.lld: error: undefined symbol: __softirqentry_text_start
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
+Switch Hexagon over to the DISCARDS macro so that anything that is
+expected to be discarded gets discarded.
 
-ld.lld: error: undefined symbol: __softirqentry_text_end
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
->>> referenced by stackdepot.c
->>>               stackdepot.o:(filter_irq_stacks) in archive lib/built-in.a
-...
-
-Add these sections to the Hexagon linker script so the build continues
-to work. ld.lld's orphan section warning would have caught this prior to
-the -mm commit mentioned above:
-
-ld.lld: warning: kernel/built-in.a(softirq.o):(.softirqentry.text) is being placed in '.softirqentry.text'
-ld.lld: warning: kernel/built-in.a(softirq.o):(.softirqentry.text) is being placed in '.softirqentry.text'
-ld.lld: warning: kernel/built-in.a(softirq.o):(.softirqentry.text) is being placed in '.softirqentry.text'
-
-Fixes: 505a0ef15f96 ("kasan: stackdepot: move filter_irq_stacks() to stackdepot.c")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1381
+Fixes: e95bf452a9e2 ("Hexagon: Add configuration and makefiles for the Hexagon architecture.")
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- arch/hexagon/kernel/vmlinux.lds.S | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/hexagon/kernel/vmlinux.lds.S | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/arch/hexagon/kernel/vmlinux.lds.S b/arch/hexagon/kernel/vmlinux.lds.S
-index 35b18e55eae8..20f19539c5fc 100644
+index 20f19539c5fc..57465bff1fe4 100644
 --- a/arch/hexagon/kernel/vmlinux.lds.S
 +++ b/arch/hexagon/kernel/vmlinux.lds.S
-@@ -38,6 +38,8 @@ SECTIONS
- 	.text : AT(ADDR(.text)) {
- 		_text = .;
- 		TEXT_TEXT
-+		IRQENTRY_TEXT
-+		SOFTIRQENTRY_TEXT
- 		SCHED_TEXT
- 		CPUIDLE_TEXT
- 		LOCK_TEXT
+@@ -61,14 +61,9 @@ SECTIONS
+ 
+ 	_end = .;
+ 
+-	/DISCARD/ : {
+-		EXIT_TEXT
+-		EXIT_DATA
+-		EXIT_CALL
+-	}
+-
+ 	STABS_DEBUG
+ 	DWARF_DEBUG
+ 	ELF_DETAILS
+ 
++	DISCARDS
+ }
 -- 
 2.32.0.rc0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210521011239.1332345-2-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210521011239.1332345-3-nathan%40kernel.org.
