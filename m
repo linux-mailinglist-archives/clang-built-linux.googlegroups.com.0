@@ -1,124 +1,149 @@
-Return-Path: <clang-built-linux+bncBDA7X7F2WUEBBNH6TWCQMGQEXXWLY3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDF4B3EXYABRBNMGT6CQMGQEWERF3WA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 22A9C38C34E
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 11:36:54 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id x7-20020a1709027c07b02900e6489d6231sf10125959pll.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 02:36:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621589812; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 690D038C92F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 16:27:04 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id c13-20020a5d6ccd0000b029010ec741b84bsf9517718wrc.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 07:27:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621607224; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Y/LwBQ51sBoAE1C1iT/6eUnpb3OCr6y+UcgO+VN2Yeiou8ZVHT6HHHG30e9R7pfMkE
-         cbjPiNPUbHEDRMUD1Me8YrgO+AuboyA4mJVLuKOeE3sJKZONoHv62iC/ret9UXeh6YUs
-         ONDQmmCvRbrLF5e6G57qbXzt6HFjdrnSrGwTBXrjvuEFRwH3puiHbp0yABY8s/asg9v/
-         OUTuVNfEOmQ2vMCeKIUNmrIw+nWcqIKFEhveWYtn9oHzzXGtGJjUmOP55qB5caif//4y
-         JliLpJvJzTxxQMhXKjbv/3afauOHHZyhj0TQQaLGH/ccJJ0bdSy0rGEbOsadXfs4bz6U
-         KNfg==
+        b=SuEkeNZ0DD190yXqqTMz8eLhq3NhdDZK2UYkSCTkis/sXUg+TdwBaac0yM5yS42YNj
+         X23UTTfKKEIkHEb0YIg+XNcClgpG9BS+RrifpqbSc8TmHsDdNF3pYq+PaqMYUnErebtJ
+         2sweXKcrR/0/PEjcCdI9HbyiscS//EyWEowhgzofVoSZuOCwlWa3/jIh6DWUu4whdabG
+         NpKbHVA+HgDs2uO8n8kkWM9HJiFalyhzItQlYFYt9hwLVMZI/ESexgj+97TzoT4cVX6l
+         266Zv6qBG2oGkU7qMrniMPS2nX+aBQHsY4W7BvU4Q3B3ItfLuYc8ak91WDaHkbAl2KLB
+         faIA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=3O0qOrU8EYwHanai00sM8ipUf1/CBLQb4zyo00jFRjE=;
-        b=dZCoZ0d5dXDKgS64++V7vuDK73bv3lcxG5S8Rd4K9+IE/WtPerjwXodNt0QJQGZDvc
-         WOrv/l2m/fFIpAmzs0TqjxPXSPDlzzQ6kUlhTT3noEvybQIo3rc+M3Si4MclDQFhivWl
-         2awDRcEn1hSk0qDuTFRUze/rfEfwZl3fdKyaz4VHixbKFEqgDTE/eomwupcO75lcF9np
-         rcw6zdbABVpeK0A3ZYuj6XzTfVq9ABc9HMudyJ4eocRLuJh+f0UX/SS3/8vQRGhsU/hp
-         SDu5BNLquspSjPdK5QsoPrTL7Bbpv+IK56CHTPWEonvK5lD/FyrjWvkGxyGNmYIeXPQR
-         BocQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=SR7v+6tQeX/khbLkpmyvzp/ubgAusM6Y4kTwUIhPMls=;
+        b=OZ7i6MkFufUWBczUNxavCW8UuCJdXmq/u8BteAJbXTYu2HGPDz/FtELvvACiwPMXaM
+         MQ0iKAfH25IOSReWer7FMewNNyo3/lzWGI4c9iiDTJ+BO5vfbzIhYdXB8YgBloJMm+FQ
+         hF4tHnbiAtBCZ6CtCVWkp7NTLTxESmae8po5DtCNLvesLFTiGg3u94jmeAYKG3CGBODd
+         X78tXZP0xOheaJsaeFiLkCQm/tGvppaAdRkWDVSjCHszAri/uTDGA9Cof4TfFg9pnU9o
+         tv4GgCmcffArW64+kKz9l4S2bTfs2sdDO5NdJHtAmynOv+Pj4v+qEL8f+Zvn27roS4Bd
+         mV3A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=mNkpXAFO;
-       spf=pass (google.com: domain of lee.jones@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=lee.jones@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Q+e4cetF;
+       spf=pass (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::633 as permitted sender) smtp.mailfrom=fabioaiuto83@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:content-transfer-encoding
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3O0qOrU8EYwHanai00sM8ipUf1/CBLQb4zyo00jFRjE=;
-        b=j2YXyhVH6Ob04hzKBAMFu+csa257rnXuVqBwc6snHcwcZi4uMTmoptMLjcn4eImWDl
-         TnsUO+/2ubXVERprqliOUMDeK8Uw7HquT23NeaoUQSZGiGDspEjDY6XPa4Nl+8kJ9bIC
-         7Jpn/2nuD2tRa4AY2WtSJZ8U5T4CG8Slj5i5ELDx1FrbC4ZQfQKip1i/uRg45CaD3stX
-         XupRsj+8pzGONQ2GjM/1SXANKv9QxFyNwU3ZuuuNQ3mUGlO3AdpkBHfWtllbfdYznZjT
-         DPgkrn8WEo8Fy6N4BF+EnHZYhd1MIpFPsjZq5uMUE5ES0ShlrE9P7cushB2MDcsIpJFq
-         vO5g==
+        bh=SR7v+6tQeX/khbLkpmyvzp/ubgAusM6Y4kTwUIhPMls=;
+        b=gzvLSSWYwOUXlzclVQXad4YEbaJO8kcQhf0d84TXEJ3Ni/lSwO7fKXLJdQZFl6BH0x
+         4gJQAmXsF9RVRWXNus5wHV3NEJaNCn+mLXW3DsB9mW1BbjiJoe+68kKoKfDhn2EJnLeM
+         z2alyBWbvviEBLz7TWtreDP7WVWUMAHVLIJSXIXXG+HwHEt9r3y0+RYxcmqRjhkaZgnx
+         axZZX+HLU+gDciVZVPeX0tiQaJhrO+BAyfkdYe8YsO4bI4A3aaY2cRwHT7diHj7ZL4iX
+         L11pRiixCliTZ92nnidjUDNAmhiCjWHkJ+07QDA38MaIQo1JWGSjhCAxdMllA2VqEDFQ
+         NSyA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=SR7v+6tQeX/khbLkpmyvzp/ubgAusM6Y4kTwUIhPMls=;
+        b=t2VGJSM5zHLfO+kfm+7iff8m3v7TothHHYsX+Hiec78w7/Wbi8kCt2/n9Vc/hQ+R40
+         2BmdAynBBNr2PtJ2xVQIlaHxnIDi1kBEVB0/XSF4sCdrKNdwgOV2V08Vcnfwo+pRcUgq
+         +o1vRYcN2Immu/dXLeAuhtQ8rp7bTWw90fUcQjiOJmegmT4kWV8ABrGWWMif3dAFDYFg
+         yNQnPWTXjhEcqPYcSMvtUED8ZcUEUQDkoAYJGHshDWZsMawqg+icBkNXmEU5spEwJWLH
+         nM2XGjxUvPJmo38Rg2t8TyroKFTCxwRSst5aU11/dv1u+tIyWkS4MhrHjseBGGfPJIy7
+         O4mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results
+         :content-transfer-encoding:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3O0qOrU8EYwHanai00sM8ipUf1/CBLQb4zyo00jFRjE=;
-        b=GhptSUSPDZaWpOYefk5/ghic5njpoJMjqsM0t56570d8DTQ1Dnn/IsuwvrWfdOt1ZP
-         9gJ94pRRYwx7wyNOiBV1VtLCty9dIJ7D7PkchPuprZt4LRe5qcFKg1ikeYy1e58wqTSY
-         EwohaJg1ILk4xtGuD6H/PLFa18WtJ1tbK+Wr6MFx47NjmYtZTcqWudbWnoSXr2Slp2Ds
-         4PtQIZlc/LP6imBH1JN8x8KB9Dv7at1dSbPo5rZQMUCxkUOW/w6UIVKaYGFkUM6xNg8G
-         YLHxVs1LnRPR9fGoEa9d8/9gw4eynjVtsQZz8Koj29VCzADDjaBwxP/3Z8/RERG2IF5L
-         swzQ==
+        bh=SR7v+6tQeX/khbLkpmyvzp/ubgAusM6Y4kTwUIhPMls=;
+        b=WOsFKtLPyJ+4fXVAovu5L8su7WjAw54Dgncxqpt7aDeuE3KPnNBUTwWLxPv/0g9ihR
+         mqQUCuztzYb59LPeLGcBnEBHm+XftWdJIwa6rVjV5uphH7ZxTEtv7ARrKDb1A+TO0KR9
+         1MbdbmWObqIvP8qGqViQlvyBDK5VrLxAx8VjD5RhktoqyVqh1Ti/cqBiSbBHYniYp1vm
+         icKe4OPX1/W715aPJAScddGWCcNz6boih8jgMh3HTdjxeKoUZRnGwpUj6a7yP4O+p0FT
+         6sCIKOs6dXJh6ntYnq3PBWXlMwTxW1dkWq6IF3zM0l/SIkRrG3hVmmLNVHnX4xz1CXX3
+         mCsQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531DFebVFnMeiXA63U84f1fR8qiW3RbHJPmTRM51pvVvLRmAzXZ8
-	eSSNU8IVht/ccLennl/BRhE=
-X-Google-Smtp-Source: ABdhPJxmkcpNvZTzTb/xLxfDAdSKk21bins/ove/2EOynxe9jTehw5mLl/tILiLNBrXBDEKPlhUhSA==
-X-Received: by 2002:a65:5a81:: with SMTP id c1mr8742830pgt.111.1621589812658;
-        Fri, 21 May 2021 02:36:52 -0700 (PDT)
+X-Gm-Message-State: AOAM5332nrZhAyuuiHmX4/JvxMy2e1VgKzszN8gSMdyPEww6ZNwinwgx
+	GWCGR5CjffrmN6Sv+1Albuw=
+X-Google-Smtp-Source: ABdhPJwwAJN/ZynoxEMQ2wwlKIX2KOBqwMCrzU4By7GuFSbMGdpiJ+t0YoIVXHlykHHeQ/eOGcynuQ==
+X-Received: by 2002:a05:600c:221a:: with SMTP id z26mr9553252wml.122.1621607221507;
+        Fri, 21 May 2021 07:27:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:144:: with SMTP id 62ls3698554plb.11.gmail; Fri, 21
- May 2021 02:36:52 -0700 (PDT)
-X-Received: by 2002:a17:90a:a604:: with SMTP id c4mr10362716pjq.81.1621589812106;
-        Fri, 21 May 2021 02:36:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621589812; cv=none;
+Received: by 2002:a1c:4ca:: with SMTP id 193ls3205906wme.1.gmail; Fri, 21 May
+ 2021 07:27:00 -0700 (PDT)
+X-Received: by 2002:a1c:3c55:: with SMTP id j82mr9001720wma.21.1621607220598;
+        Fri, 21 May 2021 07:27:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621607220; cv=none;
         d=google.com; s=arc-20160816;
-        b=d/My+HOBueYIX3mV7yD/0X45xuo6RjUQ8lQ7qCqSdpRhjW3tqW6GTz2+BLgj9jH5ne
-         Kc07f2ngFlz4r4ht++7Z47P+BGSXTTO6E2jqXCQ698G8TxlnI/g14rcmQooH9eP5B6Sg
-         pG4qxnfLrVjMv/coKW5sIAxenEP6q8k4TL0ShlJpLdlGn0/T+YPBLop7LtAowQbznO2g
-         cBJw/mNG7EgfERwK8EhTcYFOPrRqTpDuCMO6Etokj1Rc/HaRA+rCPY7kbdj41TEJeN8j
-         4PW8ORBjfPHmHv0Qt0vSeQTjy/PI0AiE1rQT3vPKxAI17MxQKRVvHH/PVPZb9XnFe0cb
-         W7ow==
+        b=iXnw9azZ9IFnLvSxJsR+Uox4d7473aRsJ62IybYwAIWaTSUt99ppBG9uRf5w3o9umg
+         Cc6RR6vDdrUT4PymLfmcwu2tcuL+GshlToUDax5/L3+aaH5mj5lH5VjOFDFLptigwL0j
+         7M6uojaB0eOX61dRFyo53z0w3wVH/eFUdmyWu9HrSYROckAz3CETfdj8klHoCC/FvlHJ
+         K6A79s/yFCMBBTU0ZPajNJnvt2bfhv5lFEarxEqqLz6iVEC0QDXxV5YcoQfJkSUghlVy
+         nPYtQmlrZqiy+bYi1mvJMWxbIa+DgAbsDFZ/Zzve/3fALr7TiDnHdc0quvQqeePLRdC5
+         ofag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=i5Dq6jt3XsPVU8iVCWMWopRM/HsdYvK1t3tJDyPATHE=;
-        b=I+pQFuQHUk+BGQFC799LrFJwoJzrVLkCiz+EEdYRzdoruBDi3oO5pocGmg7lxhLFvr
-         TcHs1E2Ps7EEgeFtwT8TX7glJP+gF6hJkXP/4TdzSHzs03cNYPooDdQISvsbwTRYMk5a
-         6wkSJ2IB/HeUGcCY9jxfmuXru5NijZ8gARd/OoHuLuFGhVmFIAeVY3DaqUbX3BC0S+qZ
-         H3JA/feTZtK/Jk2ApSP55IrYHlOMgWQZJRwc+fzqj2Vr3ld2qgVdaFv7OuIFM4kV3Sj5
-         Lh68cAyFpsRyAVno9DMIRu1J4iPkzkzeoV75drNlS5uMHtT/a/QtPi0FCpDmYtdjp7Rf
-         uyeQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=bC+BVk3asPi+ZUSMC7dnd7LCiXtnDQzjMHToiE60iIU=;
+        b=YMIXxtbWuc/4FJgHg21huRpjaLQZ3bzwxWvTdOeFhJfO2jlDzsCmMUqPH519NFfigU
+         G48HsaU7yGP5J3c/JVx0Bj5SPVThsRAT1IrQN0I+mPBKtJDw3/N1tJUAmY+lsiLDFA4R
+         6aeR7/nmLskbGiHAbPuSLL2dkiammpx952mau8Y3pvaaMDHAHEYL8USqpIFSEE/uGNIX
+         V6oU+TCmVctfHFCBiQ68v8g3y+gpqMENZYvlkXz8YtaLRck4ms7GkOgi8SMvnJus7iZ/
+         rXIS0SySmldVrrL7ROtPMp+3+GMQVYRHzqzwQGSf38GOwyUq3mRX8v4bC0nlYE5VC+lG
+         RgnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=mNkpXAFO;
-       spf=pass (google.com: domain of lee.jones@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=lee.jones@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
-        by gmr-mx.google.com with ESMTPS id n13si612163plf.1.2021.05.21.02.36.52
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Q+e4cetF;
+       spf=pass (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::633 as permitted sender) smtp.mailfrom=fabioaiuto83@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ej1-x633.google.com (mail-ej1-x633.google.com. [2a00:1450:4864:20::633])
+        by gmr-mx.google.com with ESMTPS id p65si249634wmp.0.2021.05.21.07.27.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 May 2021 02:36:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lee.jones@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) client-ip=2607:f8b0:4864:20::629;
-Received: by mail-pl1-x629.google.com with SMTP id u7so2105240plq.4
-        for <clang-built-linux@googlegroups.com>; Fri, 21 May 2021 02:36:52 -0700 (PDT)
-X-Received: by 2002:a17:90a:b796:: with SMTP id m22mr10359196pjr.146.1621589811861;
- Fri, 21 May 2021 02:36:51 -0700 (PDT)
+        Fri, 21 May 2021 07:27:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::633 as permitted sender) client-ip=2a00:1450:4864:20::633;
+Received: by mail-ej1-x633.google.com with SMTP id z12so29321752ejw.0
+        for <clang-built-linux@googlegroups.com>; Fri, 21 May 2021 07:27:00 -0700 (PDT)
+X-Received: by 2002:a17:906:7c9:: with SMTP id m9mr10446393ejc.98.1621607220367;
+        Fri, 21 May 2021 07:27:00 -0700 (PDT)
+Received: from agape.jhs ([109.52.244.91])
+        by smtp.gmail.com with ESMTPSA id bh3sm3564556ejb.19.2021.05.21.07.26.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 May 2021 07:27:00 -0700 (PDT)
+Date: Fri, 21 May 2021 16:26:57 +0200
+From: Fabio Aiuto <fabioaiuto83@gmail.com>
+To: kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	devel@driverdev.osuosl.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [staging:staging-next 201/268]
+ drivers/staging/rtl8723bs/core/rtw_security.c:89:6: warning: stack frame
+ size of 1120 bytes in function 'rtw_wep_encrypt'
+Message-ID: <20210521142656.GA1409@agape.jhs>
+References: <202105201711.QuzeTqRK-lkp@intel.com>
 MIME-Version: 1.0
-References: <20210319000708.1694662-1-ndesaulniers@google.com> <20210323190532.eiqxmskiankf7hn3@archlinux-ax161>
-In-Reply-To: <20210323190532.eiqxmskiankf7hn3@archlinux-ax161>
-From: Lee Jones <lee.jones@linaro.org>
-Date: Fri, 21 May 2021 10:36:41 +0100
-Message-ID: <CAF2Aj3i3-bev_iS6OrBUTzt==4d0f7UiTeY1YPur6eKFqToFYQ@mail.gmail.com>
-Subject: Re: [PATCH] Makefile: fix GDB warning with CONFIG_RELR
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>, 
-	Elliot Berman <eberman@quicinc.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Peter Collingbourne <pcc@google.com>, Michal Marek <michal.lkml@markovi.net>, 
-	linux-kbuild <linux-kbuild@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
-Content-Type: multipart/alternative; boundary="000000000000b5306e05c2d3ccdb"
-X-Original-Sender: lee.jones@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202105201711.QuzeTqRK-lkp@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: fabioaiuto83@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=mNkpXAFO;       spf=pass
- (google.com: domain of lee.jones@linaro.org designates 2607:f8b0:4864:20::629
- as permitted sender) smtp.mailfrom=lee.jones@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=Q+e4cetF;       spf=pass
+ (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::633
+ as permitted sender) smtp.mailfrom=fabioaiuto83@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Transfer-Encoding: quoted-printable
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,45 +156,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000b5306e05c2d3ccdb
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi robot,
 
-On Tue, 23 Mar 2021 at 19:06, Nathan Chancellor <nathan@kernel.org> wrote:
+On Thu, May 20, 2021 at 05:03:14PM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.gi=
+t staging-next
+> head:   b9f38e913a926b455e5048a95f53a993b515509f
+> commit: 1b11e893eda0907fc9b28696271e2d9c4337e42d [201/268] staging: rtl87=
+23bs: replace private arc4 encryption with in-kernel one
+> config: powerpc64-randconfig-r011-20210520 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project bf9e=
+f3efaa99c02e7bfc4c57207301b8de39a278)
+> reproduce (this is a W=3D1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install powerpc64 cross compiling tool for clang build
+>         # apt-get install binutils-powerpc64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.=
+git/commit/?id=3D1b11e893eda0907fc9b28696271e2d9c4337e42d
+>         git remote add staging https://git.kernel.org/pub/scm/linux/kerne=
+l/git/gregkh/staging.git
+>         git fetch --no-tags staging staging-next
+>         git checkout 1b11e893eda0907fc9b28696271e2d9c4337e42d
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
+CH=3Dpowerpc64=20
 
-> On Thu, Mar 18, 2021 at 05:07:06PM -0700, Nick Desaulniers wrote:
-> > GDB produces the following warning when debugging kernels built with
-> > CONFIG_RELR:
-> >
-> > BFD: /android0/linux-next/vmlinux: unknown type [0x13] section
-> `.relr.dyn'
-> >
-> > when loading a kernel built with CONFIG_RELR into GDB. It can also
-> > prevent debugging symbols using such relocations.
-> >
-> > Peter sugguests:
-> >   [That flag] means that lld will use dynamic tags and section type
-> >   numbers in the OS-specific range rather than the generic range. The
-> >   kernel itself doesn't care about these numbers; it determines the
-> >   location of the RELR section using symbols defined by a linker script=
-.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1057
-> > Suggested-by: Peter Collingbourne <pcc@google.com>
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
->
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
->
+can't compile this, I get the following error:
 
- Masahiro,
+make CONFIG_OF_ALL_DTBS=3Dy CONFIG_DTC=3Dy HOSTCC=3D/home/fabio/0day/clang/=
+bin/clang CC=3D/home/fabio/0day/clang/bin/clang LD=3D/home/fabio/0day/clang=
+/bin/ld.lld HOSTLD=3D/home/fabio/0day/clang/bin/ld.lld AR=3D/home/fabio/0da=
+y/clang/bin/llvm-ar NM=3D/home/fabio/0day/clang/bin/llvm-nm STRIP=3D/home/f=
+abio/0day/clang/bin/llvm-strip OBJDUMP=3D/home/fabio/0day/clang/bin/llvm-ob=
+jdump OBJSIZE=3D/home/fabio/0day/clang/bin/llvm-size READELF=3D/home/fabio/=
+0day/clang/bin/llvm-readelf HOSTCXX=3D/home/fabio/0day/clang/bin/clang++ HO=
+STAR=3D/home/fabio/0day/clang/bin/llvm-ar CROSS_COMPILE=3Dpowerpc-linux-gnu=
+- --jobs=3D8 LLVM_IAS=3D1 ARCH=3Dpowerpc drivers/staging/rtl8723bs/
+  CC      scripts/mod/empty.o
+clang: error: unsupported argument '-me500' to option 'Wa,'
+make[1]: *** [scripts/Makefile.build:272: scripts/mod/empty.o] Error 1
+make[1]: *** Attesa per i processi non terminati....
+make: *** [Makefile:1226: prepare0] Error 2
 
-Would you mind sharing your plans for this reviewed patch please?
+moreover I had to add LLVM_IAS=3D1, and ARCH=3Dpowerpc64 is not a valid arc=
+hitecture (used powerpc instead).
 
---=20
-Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
-Linaro Services Senior Technical Lead
-Linaro.org =E2=94=82 Open source software for ARM SoCs
-Follow Linaro: Facebook | Twitter | Blog
+Could you help me?
+
+thank you,
+
+fabio
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -177,71 +215,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAF2Aj3i3-bev_iS6OrBUTzt%3D%3D4d0f7UiTeY1YPur6eKFqToFYQ%4=
-0mail.gmail.com.
-
---000000000000b5306e05c2d3ccdb
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr">On Tue, 23 Mar 2021 at 19:06, Nathan Chan=
-cellor &lt;<a href=3D"mailto:nathan@kernel.org">nathan@kernel.org</a>&gt; w=
-rote:<br></div><div class=3D"gmail_quote"><blockquote class=3D"gmail_quote"=
- style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);p=
-adding-left:1ex">On Thu, Mar 18, 2021 at 05:07:06PM -0700, Nick Desaulniers=
- wrote:<br>
-&gt; GDB produces the following warning when debugging kernels built with<b=
-r>
-&gt; CONFIG_RELR:<br>
-&gt; <br>
-&gt; BFD: /android0/linux-next/vmlinux: unknown type [0x13] section `.relr.=
-dyn&#39;<br>
-&gt; <br>
-&gt; when loading a kernel built with CONFIG_RELR into GDB. It can also<br>
-&gt; prevent debugging symbols using such relocations.<br>
-&gt; <br>
-&gt; Peter sugguests:<br>
-&gt;=C2=A0 =C2=A0[That flag] means that lld will use dynamic tags and secti=
-on type<br>
-&gt;=C2=A0 =C2=A0numbers in the OS-specific range rather than the generic r=
-ange. The<br>
-&gt;=C2=A0 =C2=A0kernel itself doesn&#39;t care about these numbers; it det=
-ermines the<br>
-&gt;=C2=A0 =C2=A0location of the RELR section using symbols defined by a li=
-nker script.<br>
-&gt; <br>
-&gt; Link: <a href=3D"https://github.com/ClangBuiltLinux/linux/issues/1057"=
- rel=3D"noreferrer" target=3D"_blank">https://github.com/ClangBuiltLinux/li=
-nux/issues/1057</a><br>
-&gt; Suggested-by: Peter Collingbourne &lt;<a href=3D"mailto:pcc@google.com=
-" target=3D"_blank">pcc@google.com</a>&gt;<br>
-&gt; Signed-off-by: Nick Desaulniers &lt;<a href=3D"mailto:ndesaulniers@goo=
-gle.com" target=3D"_blank">ndesaulniers@google.com</a>&gt;<br>
-<br>
-Reviewed-by: Nathan Chancellor &lt;<a href=3D"mailto:nathan@kernel.org" tar=
-get=3D"_blank">nathan@kernel.org</a>&gt;<br></blockquote><div><br></div><di=
-v>=C2=A0Masahiro,</div><div><br></div><div>Would you mind sharing your plan=
-s for this reviewed patch please?</div><div><br></div></div>-- <br><div dir=
-=3D"ltr" class=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><=
-div><div><span style=3D"font-size:12.8px">Lee Jones [=E6=9D=8E=E7=90=BC=E6=
-=96=AF]</span></div><div><span style=3D"font-size:12.8px">Linaro Services S=
-enior Technical Lead</span></div><div><span style=3D"font-size:12.8px">Lina=
-ro.org =E2=94=82 Open source software for ARM SoCs</span></div><div><span s=
-tyle=3D"font-size:12.8px">Follow Linaro: Facebook | Twitter | Blog</span></=
-div></div></div></div></div></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAF2Aj3i3-bev_iS6OrBUTzt%3D%3D4d0f7UiTeY1YPur6=
-eKFqToFYQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
-groups.google.com/d/msgid/clang-built-linux/CAF2Aj3i3-bev_iS6OrBUTzt%3D%3D4=
-d0f7UiTeY1YPur6eKFqToFYQ%40mail.gmail.com</a>.<br />
-
---000000000000b5306e05c2d3ccdb--
+clang-built-linux/20210521142656.GA1409%40agape.jhs.
