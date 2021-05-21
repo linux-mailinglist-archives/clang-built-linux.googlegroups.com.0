@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBNUSTSCQMGQEP6N4KGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBOMSTSCQMGQEZ4I7LMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 54A5838BB5E
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 03:13:28 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id j19-20020a63fc130000b029020f623342e0sf11454707pgi.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 20 May 2021 18:13:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621559607; cv=pass;
+Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0A1B138BB62
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 03:13:31 +0200 (CEST)
+Received: by mail-pj1-x103c.google.com with SMTP id a11-20020a17090a70cbb029015d3e996884sf7358749pjm.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 May 2021 18:13:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621559609; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Aa7s1UhVt8vIZ+VT2Qb/Q0fxbPVL3mJLvumZgwg34QYTX/u/UpQwL0KRD8vjWb/W3c
-         lyGVV9bL63tiqMFqml7zmearfQlxm3ZU/0tkNNLUPmK00MBa7deTM8fmZyVHqCRXJDqr
-         oyDIdg3dNYWVdlj1um0rg3p+1hNUP8VC+k4OTralgaml8zUZwSaE5h1EAUTXpvt6qtmv
-         p3bmlts9fvILkzzLEeBiC8h4iMz4iAK8w0DmcI9pxCUqSQXNXwjxp8a6N+uH4QupIyjb
-         PZQVZKyllfVe+ckdN98C29ycu3Fk+bDdALLkc2MalDf0aponSJoBELhT21w0yqyIf94I
-         ISmA==
+        b=IHf00TjVupGgVdV1OdLJsEALKndFPWUlTV/4yLQ47XNpeLSc1zUanSehBAhqDH0xiX
+         z6a9OliB1rB/crI2+WO5hrD+7eO/ovhrn7kl0fCYwR5Bi1h0Li39b3buAcGr5BzcV4jd
+         jdWkC7AfcHxQY7qqbRI9iIZpY+WjQ2MOnvgT/kMr/VWX1f9D/h+TUwxfY18roDTu5bNn
+         +zj+IN1ABM5SUrHcZDKGtSJCpZJLGJVTKRgGIgxwMLlzL73RybaSvBoh3Yu6a8EfGXF8
+         faanMd4F8D0R3vuLbxfFoNPCEXcqT+oDaD0KZGdH4VnZGBclXERuIpwhXLQ2B713iLZE
+         HHfA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=b11sLRv+qBTo538KaKpBNx/KjmdcrLDOlf136toVnkk=;
-        b=gTq0dH2tGsOzCT5Aton6LBEsbZXlZeCt6hiKbeZl3etr7bLi21xbEkMoDFBZstTWV6
-         Xgs45246DviP+Re63lxmdWOfqg7ay9/UY/PhBXh7au8LQRDS8MTydmc3c1HcgfBO72FJ
-         91Si+AkEekj5rbTLK+WM4EcAtX/yL7TH/BQewY4O82tc8M/358Bg8S6CsI6P0s4fwC//
-         VeQLPUr19fhsTD7X9R8C+89xT5vEch7S/Lz8Nyyb0x5TBE3ybr46V13MHjyOEkXtH+RU
-         NCOTxVANRB/+YpjQx1BIXwKvhvT0fDfKoT9Eby4Zco+FDqUVPfTcWgG5enzQijfLUIkg
-         Bumg==
+        bh=X+w7XZbqyzY8rwqUBsS2bXiBldnZAIP3B9jAHfUyxYs=;
+        b=sOlLTK7SNXVJu8tAtOPsMNQ9YD5rzRNfrAf5OJdf5nRdVDUK2z4tklwMjYwf4K6cAX
+         MET/8Cm+a/lWpqnrNfzOMXA+XTEpIOG9VwlEtmG0O13+kv3KIcWprjmtKpmrnf3ueKxL
+         8geleXFeYtvWC87nWf0Ok8XXlLCu11iw80VUiM4NNtGl9/M9m7JudC3e8LvNhRssz+Dw
+         exVEC8UndEQs7FAlfkqvFW6qgKsdmJmvBWMOOHbgHfMa4jZl21/jqVUt830WV/q4rErX
+         UF66C9AHXcmfAmpWhQvb5Pzv+adQ2SyYCXWeudoYfPfWgiXeMVyJ5DIH7LN3rUIihS93
+         BF6g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Wa3x4reI;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Ew5iaWXe;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b11sLRv+qBTo538KaKpBNx/KjmdcrLDOlf136toVnkk=;
-        b=tS0woGdOmnVlwN8YIFA6zUR4+nhwvEQGDo3ZmDVdikekHQrL0X+vnIeK4ts8zDBnpH
-         gDPirz5OCwqTtpZcYJq0Qbo2KoD5XedYkXq4tqAoyH6LL43bJPgYTegYb0fehddR5nth
-         TTGHbe4LYc6DxFRYsD39wLRCZltfzeNfDVl5WXPZeaCKU1ZiGD2gDONmUh1cFeLpngqY
-         bEabeBuhYEibrZN/VwiWy8U/N4nWgW1EMozekYTmVmSn+YbnTLqH4DBTIt8dyltUdFJD
-         cjDzKIktFzMLaH3ryOaygxUXKvLT5pbWkWA3fyo+JocPJrjA+9rwfVqBaUL54Hmj1U2X
-         XHvw==
+        bh=X+w7XZbqyzY8rwqUBsS2bXiBldnZAIP3B9jAHfUyxYs=;
+        b=oraS4f3UsBt8NrfT5ORSBW1A4E0lraB3JEOTslMCZYpvVzWkshTlyyADmNcCe6Dpu5
+         opCIEV7cZ7CXRRAwi4D0WIQLAXgyYXwtHpLajkGJRYJ1Qpo4u9c1FkTTplWwCg8Qt7Ga
+         Koa75mi7dSHDfYHdhWdidG4Ep5GicEqWI7fahCBUEbwPyKVH6+3+VamKmcfpoYK8ff1i
+         IrGV4sFrroGCDpzcVhHxBuZT61xwQFW+mhEAIOq8Ty120LqqIY5BABty1BvoUNsNQF2G
+         zM28vcT024veQ7Pyyx5QkOd4rtlITd13CAfHuzAro3btEL1QKuYN0fJkYleDENG1RbbM
+         frFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=b11sLRv+qBTo538KaKpBNx/KjmdcrLDOlf136toVnkk=;
-        b=p2avVNYwMyd/hRovLehkdiAhJi9/KaWBH53/XylEN7rceUfZTRrOvqrGhJ4xnzyzEp
-         hKzRRK1yCE6QeeNifPuLrtGCTen9T42EUMfgMSeTuIvx4S5R5rHrV/6Rj4BxjHT0YO5z
-         GjTISTe1K1nSopyrGMAzSQtImAU0JKsNiRRUGfnPoGf3ms30BWnVvXBQr9o0fwN3Q+J7
-         5vqhDYcZaOGH7L89j65wYi+wqKsCZJ1TIHOd3TiKnc5wzzIrbPs50QjzSYnLAHjRDcPz
-         9LX9OTnIrsBDgsQY0dGpS2rHMipPkWkW3sxDYFgWDETjbhS1OhFfLKlJa1EX9QklT1oO
-         1jdg==
+        bh=X+w7XZbqyzY8rwqUBsS2bXiBldnZAIP3B9jAHfUyxYs=;
+        b=CMQSdz7nSCaAIcari8peohwswbbvP+P4n9H2AOXwjlL5N/QKrxTyZJXs9d7sQESotB
+         Z9lMZgV0qaj/VNb9t2dz/MKUAi2OSsvt8KXl2xvp0BZMVimeb6d05FH1IjTqu/mAJTPX
+         cVIBnoDX4Oz+X0vxn6JGVy8QVdMGLaMG7ebkg7KFICSHseJJEHg96Ql3yDbzYsW2ake8
+         6fhYzQrymZhYs6F31U2XTFY8DcWP3x3Lrpf9qPqzt0LipC6uM5DQob1ymUuQNisAFk5c
+         wfxKLJEeORDXGLFJLKEQkmtlBk1tGsbswDl3wkReWEKW3wG9FxrWm6nlYV5BTeU7buzH
+         MJsw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Jua+RJpaE+HCItrtgX/kG0XpscLFIuFc5iGbNGBxs3sUq+1sT
-	XewaUIB+drtVaWLucfBp9mk=
-X-Google-Smtp-Source: ABdhPJwY0qsFD97g0Jnka9CPJFUxMfgNDcNXyBanqyPzHUZA8Ux6rOQdLbezfUI+KPPCz0E5WKs9kA==
-X-Received: by 2002:a17:90b:11cf:: with SMTP id gv15mr8086126pjb.26.1621559606934;
-        Thu, 20 May 2021 18:13:26 -0700 (PDT)
+X-Gm-Message-State: AOAM532aLjQAoSQnTzoUbTrxokKee+lxSe1ypx26IV8TSV3fMjEDFtQk
+	TqP0ES1Y5DG8jPo3aIAw35w=
+X-Google-Smtp-Source: ABdhPJy0WlVJCouQu4s23tCNHmsI/ge+hsypVIokdGgorXeoZlub6E4LKL4+ferWskFCy2+iQaeLnQ==
+X-Received: by 2002:a62:ea10:0:b029:25a:9902:43f3 with SMTP id t16-20020a62ea100000b029025a990243f3mr7220298pfh.68.1621559609588;
+        Thu, 20 May 2021 18:13:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8d95:: with SMTP id v21ls2959044plo.8.gmail; Thu, 20
- May 2021 18:13:26 -0700 (PDT)
-X-Received: by 2002:a17:902:bcc3:b029:ed:4637:fb2f with SMTP id o3-20020a170902bcc3b02900ed4637fb2fmr9024485pls.72.1621559606387;
-        Thu, 20 May 2021 18:13:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621559606; cv=none;
+Received: by 2002:aa7:92cc:: with SMTP id k12ls1978329pfa.11.gmail; Thu, 20
+ May 2021 18:13:29 -0700 (PDT)
+X-Received: by 2002:a05:6a00:10c2:b029:2de:7333:1343 with SMTP id d2-20020a056a0010c2b02902de73331343mr7427232pfu.42.1621559608952;
+        Thu, 20 May 2021 18:13:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621559608; cv=none;
         d=google.com; s=arc-20160816;
-        b=WxDAzw1vqFk8xXzkbaKE1MMeXRZBRPiXWJ4I/ZrbskWN6HIt+eh87eM9SQA0wld+aU
-         EVnBCp9oZn4QAy+zKU9M4qnEd0Wr15T5+f5t8QvO3J4ys4qfHaW9Q8uquftDSrrxdZ2f
-         5d+CfR162YnQ2ssYnROb7TZOJQNgDgMCc7tYI/lsx3FVr0+aKAuRVtYvFqDdBhyXk3Ez
-         se9CaEjWn0lNGsa3vQ/ckN0iRmHUTcjvxGNaL1WKKcWZqaFQhA3LKhXGrklu2j0VSO+k
-         5vRrua72Qx24Uoahp9RRem89yIUdZZS3cJwYsRhnKaLRneEwzOkK/3elbeBgbUHk5W1W
-         +8zA==
+        b=NBV6GHQQ+KV3IP1MLeDu+SGE12BP5H2tUkm6gXfGe3iL+RyQ19KBa5GF5/8y1vuy7e
+         rnUc0OOMKzaxJgHoeftnc+RgPIRcq8wpxZmLlttsDNo+wlvbfMmmA5zzj9okIBSWc2zw
+         2Dh4dfUvNeq6Um2AHHrlSim2DVx9b0qAEj37WIEo5+gdUTiuFaXxb42/SiERVF2xZdFb
+         sF7KFDlQj2O46mxE4ia0lFoGb4qkTF6sRuFZgiuDMWWTyD2rKxjP0rgEoXGCkJvP9vdI
+         N1EHljH7Dccbs/qC56u5KHVPMbhIcC2SWsXdM/Enrvssj95i/4jwuc8mQ2eobDhrTWoR
+         cdUQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=cwe0i51SCZk3CLQMaY5KY1wqqj2RiORqp23tnMHlSrg=;
-        b=eL/TuT+6W8GdF4jp7DZZGvXHyftHxRXwyRaQ0PyQMRYLcQbnK+I9/4tUEgKTyKj5Vt
-         ImTUn4ZIDiFQI2FroRKWjqm+j6CqWHU/djydJ1jTPf1aXUNB99uNaDDODMxcQDB+zKHb
-         vt5GXcHnNNqcrg7E/MLtzoJAR9yo2wYU7dFBrP9SDrhzZlXenW/wUmzWqTkVYe8jKLbf
-         ir0dS89v4GzRkJentA927ltYY+NzUpkVuPyekvBZhWwODS/mmFsfTed/W6++EW9pwrOj
-         uSylkdm81/a/aVU1gOSxN4x+et/huBK6uQ0RimYvehgk/9yx9v9kEulyn+BSfZ5XwGuU
-         g7DA==
+        bh=XEt7Z4yyUKrp4RS4H7PN63o++hKt80SK2CldKvkm1LA=;
+        b=QmOJbOo188S4lfZy4Wz2ybG4mlzQ9cKM6U46eqc6A8gNP4ueCc/K3KNqAFNdXvyalM
+         YevX0sFUkf3eZNsRcC7GU2Biqb06a1I117WiQO3tdZiTKHRDoLzp7RrvDYtguB23WZXo
+         VTxIrmXf8/F1eGT0jfIrs8ThGFz+UReHDM4JmVaGinfkC2fFIyAz0rdyHCvKRtA7PM2M
+         dOXkFZpSu6ETZ4HSmbvjCISpQ+hfCDXJucQX4AsH21WY9D77jR61W4jBfj8hzbVsiaTP
+         ytTMob8hPN42cwtIEeQ3rSRMx2i2eEX1023wujvkPRMN51na9Jpdfi4jLg6v4iIX+mt8
+         IqdQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Wa3x4reI;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Ew5iaWXe;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j17si468602pfc.5.2021.05.20.18.13.26
+        by gmr-mx.google.com with ESMTPS id j5si1191150pjs.0.2021.05.20.18.13.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 20 May 2021 18:13:26 -0700 (PDT)
+        Thu, 20 May 2021 18:13:28 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C4D6561353;
-	Fri, 21 May 2021 01:13:24 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5965361355;
+	Fri, 21 May 2021 01:13:27 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Brian Cain <bcain@codeaurora.org>,
 	Andrew Morton <akpm@linux-foundation.org>
@@ -105,9 +105,9 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 2/3] hexagon: Use common DISCARDS macro
-Date: Thu, 20 May 2021 18:12:38 -0700
-Message-Id: <20210521011239.1332345-3-nathan@kernel.org>
+Subject: [PATCH 3/3] hexagon: Select ARCH_WANT_LD_ORPHAN_WARN
+Date: Thu, 20 May 2021 18:12:39 -0700
+Message-Id: <20210521011239.1332345-4-nathan@kernel.org>
 X-Mailer: git-send-email 2.32.0.rc0
 In-Reply-To: <20210521011239.1332345-1-nathan@kernel.org>
 References: <20210521011239.1332345-1-nathan@kernel.org>
@@ -115,7 +115,7 @@ MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=Wa3x4reI;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=Ew5iaWXe;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -132,52 +132,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-ld.lld warns that the '.modinfo' section is not currently handled:
+Now that we handle all of the sections in a Hexagon defconfig, select
+ARCH_WANT_LD_ORPHAN_WARN so that unhandled sections are warned about by
+default.
 
-ld.lld: warning: kernel/built-in.a(workqueue.o):(.modinfo) is being placed in '.modinfo'
-ld.lld: warning: kernel/built-in.a(printk/printk.o):(.modinfo) is being placed in '.modinfo'
-ld.lld: warning: kernel/built-in.a(irq/spurious.o):(.modinfo) is being placed in '.modinfo'
-ld.lld: warning: kernel/built-in.a(rcu/update.o):(.modinfo) is being placed in '.modinfo'
-
-The '.modinfo' section was added in commit 898490c010b5 ("moduleparam:
-Save information about built-in modules in separate file") to the
-DISCARDS macro but Hexagon has never used that macro. The unification of
-DISCARDS happened in commit 023bf6f1b8bf ("linker script: unify usage of
-discard definition") in 2009, prior to Hexagon being added in 2011.
-
-Switch Hexagon over to the DISCARDS macro so that anything that is
-expected to be discarded gets discarded.
-
-Fixes: e95bf452a9e2 ("Hexagon: Add configuration and makefiles for the Hexagon architecture.")
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- arch/hexagon/kernel/vmlinux.lds.S | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ arch/hexagon/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/hexagon/kernel/vmlinux.lds.S b/arch/hexagon/kernel/vmlinux.lds.S
-index 20f19539c5fc..57465bff1fe4 100644
---- a/arch/hexagon/kernel/vmlinux.lds.S
-+++ b/arch/hexagon/kernel/vmlinux.lds.S
-@@ -61,14 +61,9 @@ SECTIONS
- 
- 	_end = .;
- 
--	/DISCARD/ : {
--		EXIT_TEXT
--		EXIT_DATA
--		EXIT_CALL
--	}
--
- 	STABS_DEBUG
- 	DWARF_DEBUG
- 	ELF_DETAILS
- 
-+	DISCARDS
- }
+diff --git a/arch/hexagon/Kconfig b/arch/hexagon/Kconfig
+index 44a409967af1..e5a852080730 100644
+--- a/arch/hexagon/Kconfig
++++ b/arch/hexagon/Kconfig
+@@ -30,6 +30,7 @@ config HEXAGON
+ 	select MODULES_USE_ELF_RELA
+ 	select GENERIC_CPU_DEVICES
+ 	select SET_FS
++	select ARCH_WANT_LD_ORPHAN_WARN
+ 	help
+ 	  Qualcomm Hexagon is a processor architecture designed for high
+ 	  performance and low power across a wide variety of applications.
 -- 
 2.32.0.rc0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210521011239.1332345-3-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210521011239.1332345-4-nathan%40kernel.org.
